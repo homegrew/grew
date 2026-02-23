@@ -1,0 +1,21 @@
+name: fd
+version: "10.2.0"
+description: "Simple, fast and user-friendly alternative to find"
+homepage: "https://github.com/sharkdp/fd"
+license: "Apache-2.0"
+url:
+  darwin_arm64: "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-aarch64-apple-darwin.tar.gz"
+  darwin_amd64: "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-apple-darwin.tar.gz"
+  linux_amd64: "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz"
+  linux_arm64: "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-aarch64-unknown-linux-gnu.tar.gz"
+sha256:
+  darwin_arm64: "80c0e32a82d1c96ee5e9a26c8ba1b0e40b81094f7817ab5e71e9fc6e4bb57aaf"
+  darwin_amd64: "9a3f3b921cfd66fe8e198e3cf7fc2cb0c03f52db5b1f9b67ee71d4efe8ae9fe3"
+  linux_amd64: "9b254f7c43c77bb3a4022a6be06a6a04f2438cd43f579bbdb0e83e3b0cc57aca"
+  linux_arm64: "2fffc0871e1c3b1e39a52b2d54b0f4b76b2c23c0be4df8e14a5e0c25bd2de5e5"
+install:
+  type: archive
+  binary_name: fd
+  strip_components: 1
+dependencies: []
+keg_only: false

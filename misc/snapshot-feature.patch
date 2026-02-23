@@ -1,0 +1,789 @@
+diff --git a/pkg/snapshot/snapshot.go b/pkg/snapshot/snapshot.go
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/pkg/snapshot/snapshot.go
+@@ -0,0 +1,114 @@
++package snapshot
++
++import (
++	"encoding/json"
++	"fmt"
++	"os"
++	"path/filepath"
++	"time"
++)
++
++// ManifestFile is the name of the manifest stored inside each keg.
++const ManifestFile = ".MANIFEST.json"
++
++// Manifest records the complete state of an installed keg at the time of
++// installation. It enables integrity verification and reproducibility.
++type Manifest struct {
++	// Identity
++	Name    string `json:"name"`
++	Version string `json:"version"`
++
++	// Provenance
++	Platform       string `json:"platform"`
++	InstalledAt    string `json:"installed_at"`
++	DownloadURL    string `json:"download_url"`
++	DownloadSHA256 string `json:"download_sha256"`
++
++	// Aggregate integrity hash (SHA-256 of all file hashes concatenated in order).
++	KegSHA256 string `json:"keg_sha256"`
++
++	// Per-file inventory, sorted by path.
++	Files []FileEntry `json:"files"`
++
++	// Symlinks created by the linker (opt, bin, lib, include).
++	Links []LinkEntry `json:"links,omitempty"`
++
++	// Formula dependency names at install time.
++	Dependencies []string `json:"dependencies,omitempty"`
++}
++
++// FileEntry records one file or symlink inside the keg.
++type FileEntry struct {
++	Path    string      `json:"path"`              // relative to keg root
++	SHA256  string      `json:"sha256,omitempty"`   // empty for dirs/symlinks
++	Size    int64       `json:"size"`
++	Mode    os.FileMode `json:"mode"`
++	Symlink string      `json:"symlink,omitempty"` // target if symlink
++}
++
++// LinkEntry records a symlink created outside the keg (in bin/, opt/, etc.).
++type LinkEntry struct {
++	Src    string `json:"src"`    // relative to gobrew root (e.g. "bin/jq")
++	Target string `json:"target"` // absolute path inside cellar
++}
++
++// InstallMeta carries provenance data from the install command into Capture.
++type InstallMeta struct {
++	Platform       string
++	DownloadURL    string
++	DownloadSHA256 string
++	Dependencies   []string
++}
++
++// Save atomically writes the manifest to kegPath/.MANIFEST.json.
++func Save(m *Manifest, kegPath string) error {
++	data, err := json.MarshalIndent(m, "", "  ")
++	if err != nil {
++		return fmt.Errorf("marshal manifest: %w", err)
++	}
++	data = append(data, '\n')
++
++	dest := filepath.Join(kegPath, ManifestFile)
++	dir := filepath.Dir(dest)
++
++	tmp, err := os.CreateTemp(dir, ".manifest-tmp-*")
++	if err != nil {
++		return fmt.Errorf("create temp manifest: %w", err)
++	}
++	tmpPath := tmp.Name()
++
++	if _, err := tmp.Write(data); err != nil {
++		tmp.Close()
++		os.Remove(tmpPath)
++		return err
++	}
++	if err := tmp.Chmod(0644); err != nil {
++		tmp.Close()
++		os.Remove(tmpPath)
++		return err
++	}
++	if err := tmp.Close(); err != nil {
++		os.Remove(tmpPath)
++		return err
++	}
++	return os.Rename(tmpPath, dest)
++}
++
++// Load reads and parses the manifest from kegPath/.MANIFEST.json.
++func Load(kegPath string) (*Manifest, error) {
++	data, err := os.ReadFile(filepath.Join(kegPath, ManifestFile))
++	if err != nil {
++		return nil, fmt.Errorf("read manifest: %w", err)
++	}
++	var m Manifest
++	if err := json.Unmarshal(data, &m); err != nil {
++		return nil, fmt.Errorf("parse manifest: %w", err)
++	}
++	return &m, nil
++}
++
++// Exists returns true if a manifest exists for the given keg.
++func Exists(kegPath string) bool {
++	_, err := os.Stat(filepath.Join(kegPath, ManifestFile))
++	return err == nil
++}
++
++// Now returns the current UTC time formatted for manifests.
++func Now() string {
++	return time.Now().UTC().Format(time.RFC3339)
++}
+diff --git a/pkg/snapshot/capture.go b/pkg/snapshot/capture.go
+new file mode 100644
+index 0000000..0000002
+--- /dev/null
++++ b/pkg/snapshot/capture.go
+@@ -0,0 +1,88 @@
++package snapshot
++
++import (
++	"crypto/sha256"
++	"encoding/hex"
++	"fmt"
++	"io"
++	"os"
++	"path/filepath"
++	"sort"
++)
++
++// Capture walks the keg directory and builds a complete manifest.
++// It hashes every regular file and records symlink targets.
++// The manifest file itself (.MANIFEST.json) is excluded from the inventory.
++func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error) {
++	var files []FileEntry
++
++	err := filepath.Walk(kegPath, func(path string, info os.FileInfo, err error) error {
++		if err != nil {
++			return err
++		}
++
++		rel, err := filepath.Rel(kegPath, path)
++		if err != nil {
++			return err
++		}
++
++		// Skip the manifest file itself and the keg root directory entry.
++		if rel == "." || rel == ManifestFile {
++			return nil
++		}
++
++		entry := FileEntry{
++			Path: rel,
++			Size: info.Size(),
++			Mode: info.Mode(),
++		}
++
++		// Check for symlink via Lstat (Walk follows symlinks).
++		linfo, lerr := os.Lstat(path)
++		if lerr != nil {
++			return lerr
++		}
++		if linfo.Mode()&os.ModeSymlink != 0 {
++			target, err := os.Readlink(path)
++			if err != nil {
++				return err
++			}
++			entry.Symlink = target
++			entry.Size = 0
++			files = append(files, entry)
++			return nil
++		}
++
++		if info.IsDir() {
++			files = append(files, entry)
++			return nil
++		}
++
++		// Hash regular file.
++		h, err := hashFile(path)
++		if err != nil {
++			return fmt.Errorf("hash %s: %w", rel, err)
++		}
++		entry.SHA256 = h
++		files = append(files, entry)
++		return nil
++	})
++	if err != nil {
++		return nil, fmt.Errorf("walk keg %s: %w", kegPath, err)
++	}
++
++	sort.Slice(files, func(i, j int) bool { return files[i].Path < files[j].Path })
++
++	m := &Manifest{
++		Name:           name,
++		Version:        version,
++		Platform:       meta.Platform,
++		InstalledAt:    Now(),
++		DownloadURL:    meta.DownloadURL,
++		DownloadSHA256: meta.DownloadSHA256,
++		KegSHA256:      aggregateHash(files),
++		Files:          files,
++		Dependencies:   meta.Dependencies,
++	}
++	return m, nil
++}
++
++func hashFile(path string) (string, error) {
++	f, err := os.Open(path)
++	if err != nil {
++		return "", err
++	}
++	defer f.Close()
++	h := sha256.New()
++	if _, err := io.Copy(h, f); err != nil {
++		return "", err
++	}
++	return hex.EncodeToString(h.Sum(nil)), nil
++}
++
++func aggregateHash(files []FileEntry) string {
++	h := sha256.New()
++	for _, f := range files {
++		if f.SHA256 != "" {
++			h.Write([]byte(f.SHA256))
++		}
++	}
++	return hex.EncodeToString(h.Sum(nil))
++}
+diff --git a/pkg/snapshot/verify.go b/pkg/snapshot/verify.go
+new file mode 100644
+index 0000000..0000003
+--- /dev/null
++++ b/pkg/snapshot/verify.go
+@@ -0,0 +1,107 @@
++package snapshot
++
++import (
++	"fmt"
++	"os"
++	"path/filepath"
++	"sort"
++)
++
++// VerifyResult holds the outcome of comparing a manifest against the filesystem.
++type VerifyResult struct {
++	Name     string
++	Version  string
++	OK       bool
++	Missing  []string // files in manifest but not on disk
++	Modified []string // files whose hash or mode changed
++	Added    []string // files on disk but not in manifest
++	Errors   []string // non-fatal errors encountered during verification
++}
++
++// Verify loads the manifest from kegPath and compares it against the
++// actual filesystem contents. Returns a detailed result.
++func Verify(kegPath string) (*VerifyResult, error) {
++	m, err := Load(kegPath)
++	if err != nil {
++		return nil, fmt.Errorf("load manifest: %w", err)
++	}
++
++	result := &VerifyResult{
++		Name:    m.Name,
++		Version: m.Version,
++	}
++
++	// Build a set of expected paths from the manifest.
++	expected := make(map[string]FileEntry, len(m.Files))
++	for _, f := range m.Files {
++		expected[f.Path] = f
++	}
++
++	// Walk the keg and check each file.
++	seen := make(map[string]bool, len(m.Files))
++
++	err = filepath.Walk(kegPath, func(path string, info os.FileInfo, err error) error {
++		if err != nil {
++			result.Errors = append(result.Errors, fmt.Sprintf("walk error: %s: %v", path, err))
++			return nil // continue walking
++		}
++
++		rel, err := filepath.Rel(kegPath, path)
++		if err != nil {
++			return nil
++		}
++		if rel == "." || rel == ManifestFile {
++			return nil
++		}
++
++		seen[rel] = true
++
++		entry, inManifest := expected[rel]
++		if !inManifest {
++			result.Added = append(result.Added, rel)
++			return nil
++		}
++
++		// Check symlinks.
++		linfo, lerr := os.Lstat(path)
++		if lerr != nil {
++			result.Errors = append(result.Errors, fmt.Sprintf("lstat %s: %v", rel, lerr))
++			return nil
++		}
++		if linfo.Mode()&os.ModeSymlink != 0 {
++			target, _ := os.Readlink(path)
++			if target != entry.Symlink {
++				result.Modified = append(result.Modified, fmt.Sprintf("%s (symlink: %q -> %q)", rel, entry.Symlink, target))
++			}
++			return nil
++		}
++
++		// Skip directories — just check existence (already walking into them).
++		if info.IsDir() {
++			return nil
++		}
++
++		// Check regular file hash.
++		if entry.SHA256 != "" {
++			actualHash, herr := hashFile(path)
++			if herr != nil {
++				result.Errors = append(result.Errors, fmt.Sprintf("hash %s: %v", rel, herr))
++				return nil
++			}
++			if actualHash != entry.SHA256 {
++				result.Modified = append(result.Modified, fmt.Sprintf("%s (sha256 mismatch)", rel))
++			}
++		}
++
++		return nil
++	})
++	if err != nil {
++		return nil, fmt.Errorf("walk keg for verify: %w", err)
++	}
++
++	// Check for files in manifest but missing on disk.
++	for _, f := range m.Files {
++		if !seen[f.Path] {
++			result.Missing = append(result.Missing, f.Path)
++		}
++	}
++
++	sort.Strings(result.Missing)
++	sort.Strings(result.Modified)
++	sort.Strings(result.Added)
++
++	result.OK = len(result.Missing) == 0 && len(result.Modified) == 0 && len(result.Added) == 0 && len(result.Errors) == 0
++	return result, nil
++}
+diff --git a/pkg/snapshot/snapshot_test.go b/pkg/snapshot/snapshot_test.go
+new file mode 100644
+index 0000000..0000004
+--- /dev/null
++++ b/pkg/snapshot/snapshot_test.go
+@@ -0,0 +1,158 @@
++package snapshot
++
++import (
++	"os"
++	"path/filepath"
++	"testing"
++)
++
++func createTestKeg(t *testing.T) string {
++	t.Helper()
++	dir := t.TempDir()
++	keg := filepath.Join(dir, "mypkg", "1.0.0")
++	binDir := filepath.Join(keg, "bin")
++	os.MkdirAll(binDir, 0755)
++	os.WriteFile(filepath.Join(binDir, "mybin"), []byte("#!/bin/sh\necho hello\n"), 0755)
++	os.WriteFile(filepath.Join(keg, "README"), []byte("readme content"), 0644)
++	return keg
++}
++
++func TestCaptureAndSave(t *testing.T) {
++	keg := createTestKeg(t)
++
++	meta := InstallMeta{
++		Platform:       "darwin_arm64",
++		DownloadURL:    "https://example.com/mypkg-1.0.0.tar.gz",
++		DownloadSHA256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
++		Dependencies:   []string{"dep1"},
++	}
++
++	m, err := Capture("mypkg", "1.0.0", keg, meta)
++	if err != nil {
++		t.Fatalf("capture failed: %v", err)
++	}
++
++	if m.Name != "mypkg" {
++		t.Errorf("name = %q, want %q", m.Name, "mypkg")
++	}
++	if m.Version != "1.0.0" {
++		t.Errorf("version = %q, want %q", m.Version, "1.0.0")
++	}
++	if m.Platform != "darwin_arm64" {
++		t.Errorf("platform = %q, want %q", m.Platform, "darwin_arm64")
++	}
++	if m.KegSHA256 == "" {
++		t.Error("keg_sha256 should not be empty")
++	}
++	if len(m.Files) < 3 { // bin/, bin/mybin, README
++		t.Errorf("expected at least 3 file entries, got %d", len(m.Files))
++	}
++
++	// Check that bin/mybin has a hash.
++	found := false
++	for _, f := range m.Files {
++		if f.Path == "bin/mybin" {
++			found = true
++			if f.SHA256 == "" {
++				t.Error("bin/mybin should have a SHA256 hash")
++			}
++			if f.Mode&0111 == 0 {
++				t.Error("bin/mybin should be executable")
++			}
++		}
++	}
++	if !found {
++		t.Error("bin/mybin not found in manifest files")
++	}
++
++	// Save and verify it exists.
++	if err := Save(m, keg); err != nil {
++		t.Fatalf("save failed: %v", err)
++	}
++	if !Exists(keg) {
++		t.Error("manifest should exist after save")
++	}
++
++	// Load it back.
++	loaded, err := Load(keg)
++	if err != nil {
++		t.Fatalf("load failed: %v", err)
++	}
++	if loaded.Name != m.Name {
++		t.Errorf("loaded name = %q, want %q", loaded.Name, m.Name)
++	}
++	if loaded.KegSHA256 != m.KegSHA256 {
++		t.Errorf("loaded keg hash differs from saved")
++	}
++}
++
++func TestVerify_Clean(t *testing.T) {
++	keg := createTestKeg(t)
++
++	meta := InstallMeta{Platform: "darwin_arm64"}
++	m, err := Capture("mypkg", "1.0.0", keg, meta)
++	if err != nil {
++		t.Fatalf("capture: %v", err)
++	}
++	if err := Save(m, keg); err != nil {
++		t.Fatalf("save: %v", err)
++	}
++
++	result, err := Verify(keg)
++	if err != nil {
++		t.Fatalf("verify: %v", err)
++	}
++	if !result.OK {
++		t.Errorf("expected OK, got missing=%v modified=%v added=%v errors=%v",
++			result.Missing, result.Modified, result.Added, result.Errors)
++	}
++}
++
++func TestVerify_Modified(t *testing.T) {
++	keg := createTestKeg(t)
++
++	meta := InstallMeta{Platform: "darwin_arm64"}
++	m, _ := Capture("mypkg", "1.0.0", keg, meta)
++	Save(m, keg)
++
++	// Tamper with a file.
++	os.WriteFile(filepath.Join(keg, "bin", "mybin"), []byte("TAMPERED"), 0755)
++
++	result, err := Verify(keg)
++	if err != nil {
++		t.Fatalf("verify: %v", err)
++	}
++	if result.OK {
++		t.Fatal("expected verification failure after tampering")
++	}
++	if len(result.Modified) == 0 {
++		t.Error("expected modified files list to be non-empty")
++	}
++}
++
++func TestVerify_Missing(t *testing.T) {
++	keg := createTestKeg(t)
++
++	meta := InstallMeta{Platform: "darwin_arm64"}
++	m, _ := Capture("mypkg", "1.0.0", keg, meta)
++	Save(m, keg)
++
++	// Delete a file.
++	os.Remove(filepath.Join(keg, "README"))
++
++	result, err := Verify(keg)
++	if err != nil {
++		t.Fatalf("verify: %v", err)
++	}
++	if result.OK {
++		t.Fatal("expected verification failure after deletion")
++	}
++	if len(result.Missing) == 0 {
++		t.Error("expected missing files list to be non-empty")
++	}
++}
++
++func TestVerify_Added(t *testing.T) {
++	keg := createTestKeg(t)
++
++	meta := InstallMeta{Platform: "darwin_arm64"}
++	m, _ := Capture("mypkg", "1.0.0", keg, meta)
++	Save(m, keg)
++
++	// Add an unexpected file.
++	os.WriteFile(filepath.Join(keg, "INTRUDER"), []byte("malicious"), 0644)
++
++	result, err := Verify(keg)
++	if err != nil {
++		t.Fatalf("verify: %v", err)
++	}
++	if result.OK {
++		t.Fatal("expected verification failure after adding file")
++	}
++	if len(result.Added) == 0 {
++		t.Error("expected added files list to be non-empty")
++	}
++}
+diff --git a/cmd/verify.go b/cmd/verify.go
+new file mode 100644
+index 0000000..0000005
+--- /dev/null
++++ b/cmd/verify.go
+@@ -0,0 +1,99 @@
++package cmd
++
++import (
++	"encoding/json"
++	"fmt"
++	"os"
++
++	"awesomeProject/pkg/cellar"
++	"awesomeProject/pkg/config"
++	"awesomeProject/pkg/snapshot"
++)
++
++func runVerify(args []string) error {
++	jsonOutput := false
++	var targets []string
++
++	for _, a := range args {
++		if a == "--json" {
++			jsonOutput = true
++		} else {
++			targets = append(targets, a)
++		}
++	}
++
++	paths := config.Default()
++	cel := &cellar.Cellar{Path: paths.Cellar}
++
++	// If no targets, verify all installed.
++	if len(targets) == 0 {
++		pkgs, err := cel.List()
++		if err != nil {
++			return err
++		}
++		if len(pkgs) == 0 {
++			fmt.Println("No packages installed.")
++			return nil
++		}
++		for _, p := range pkgs {
++			targets = append(targets, p.Name)
++		}
++	}
++
++	allOK := true
++	var jsonResults []map[string]any
++
++	for _, name := range targets {
++		if !cel.IsInstalled(name) {
++			fmt.Fprintf(os.Stderr, "Warning: %s is not installed, skipping\n", name)
++			continue
++		}
++
++		ver, err := cel.InstalledVersion(name)
++		if err != nil {
++			fmt.Fprintf(os.Stderr, "Warning: %s: %v\n", name, err)
++			continue
++		}
++		kegPath := cel.KegPath(name, ver)
++
++		if !snapshot.Exists(kegPath) {
++			msg := fmt.Sprintf("%s %s: no manifest (installed before snapshotting was enabled)", name, ver)
++			if jsonOutput {
++				jsonResults = append(jsonResults, map[string]any{"name": name, "version": ver, "status": "no_manifest"})
++			} else {
++				fmt.Println(msg)
++			}
++			continue
++		}
++
++		result, err := snapshot.Verify(kegPath)
++		if err != nil {
++			fmt.Fprintf(os.Stderr, "Error verifying %s: %v\n", name, err)
++			allOK = false
++			continue
++		}
++
++		if jsonOutput {
++			jsonResults = append(jsonResults, map[string]any{
++				"name": result.Name, "version": result.Version,
++				"ok": result.OK, "missing": result.Missing,
++				"modified": result.Modified, "added": result.Added,
++				"errors": result.Errors,
++			})
++		} else if result.OK {
++			fmt.Printf("%s %s: OK\n", result.Name, result.Version)
++		} else {
++			allOK = false
++			fmt.Printf("%s %s: FAILED\n", result.Name, result.Version)
++			for _, f := range result.Missing {
++				fmt.Printf("  missing:  %s\n", f)
++			}
++			for _, f := range result.Modified {
++				fmt.Printf("  modified: %s\n", f)
++			}
++			for _, f := range result.Added {
++				fmt.Printf("  added:    %s\n", f)
++			}
++			for _, e := range result.Errors {
++				fmt.Printf("  error:    %s\n", e)
++			}
++		}
++	}
++
++	if jsonOutput {
++		enc := json.NewEncoder(os.Stdout)
++		enc.SetIndent("", "  ")
++		enc.Encode(jsonResults)
++	}
++
++	if !allOK {
++		return fmt.Errorf("verification failed for one or more packages")
++	}
++	return nil
++}
+diff --git a/cmd/install.go b/cmd/install.go
+index 1234567..2345678 100644
+--- a/cmd/install.go
++++ b/cmd/install.go
+@@ -4,10 +4,12 @@ import (
+ 	"fmt"
+ 	"net/url"
+ 	"os"
+ 	"path/filepath"
+ 	"strings"
+
++	"awesomeProject/pkg/formula"
++	"awesomeProject/pkg/snapshot"
+ 	"awesomeProject/pkg/cellar"
+ 	"awesomeProject/pkg/config"
+ 	"awesomeProject/pkg/depgraph"
+@@ -91,6 +93,10 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, l
+ // Shared by install and upgrade commands.
+ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader) error {
+ 	defer TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
++
++	// These are captured early so they can be recorded in the manifest.
++	var dlURL, dlSHA string
++
+ 	Debugf("platform: %s, install type: %s, keg_only: %v\n", formula.PlatformKey(), f.Install.Type, f.KegOnly)
+ 	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
+
+-	dlURL, err := f.GetURL()
++	dlURL, err = f.GetURL()
+ 	if err != nil {
+ 		return err
+ 	}
+ 	Logf("    URL: %s\n", dlURL)
+
+-	sha, err := f.GetSHA256()
++	dlSHA, err = f.GetSHA256()
+ 	if err != nil {
+ 		return err
+ 	}
+-	Logf("    Expected SHA256: %s\n", sha)
++	Logf("    Expected SHA256: %s\n", dlSHA)
+
+ 	filename := f.Name + "-" + f.Version + urlExt(dlURL)
+ 	localFile, err := dl.Download(dlURL, filename)
+@@ -115,7 +121,7 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, l
+ 	}
+ 	Logf("    Saved to: %s\n", localFile)
+
+-	if err := downloader.VerifySHA256(localFile, sha); err != nil {
++	if err := downloader.VerifySHA256(localFile, dlSHA); err != nil {
+ 		os.Remove(localFile)
+ 		return fmt.Errorf("verify %s: %w", f.Name, err)
+ 	}
+@@ -139,6 +145,22 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, l
+ 		return fmt.Errorf("link %s: %w", f.Name, err)
+ 	}
+ 	Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
++
++	// Capture and save integrity snapshot.
++	meta := snapshot.InstallMeta{
++		Platform:       formula.PlatformKey(),
++		DownloadURL:    dlURL,
++		DownloadSHA256: dlSHA,
++		Dependencies:   f.Dependencies,
++	}
++	manifest, snapErr := snapshot.Capture(f.Name, f.Version, kegPath, meta)
++	if snapErr != nil {
++		Logf("    Warning: could not capture snapshot: %v\n", snapErr)
++	} else {
++		if err := snapshot.Save(manifest, kegPath); err != nil {
++			Logf("    Warning: could not save snapshot: %v\n", err)
++		}
++		Logf("    Snapshot saved: %s/%s\n", kegPath, snapshot.ManifestFile)
++	}
+
+ 	os.RemoveAll(stageDir)
+ 	os.Remove(localFile)
+diff --git a/cmd/root.go b/cmd/root.go
+index 3456789..4567890 100644
+--- a/cmd/root.go
++++ b/cmd/root.go
+@@ -93,6 +93,7 @@ func Run(args []string, taps fs.FS) error {
+ 		"config":    runConfig,
+ 		"shellenv":  runShellenv,
+ 		"help":      runHelp,
++		"verify":    runVerify,
+ 	}
+
+ 	handler, ok := commands[args[0]]
+@@ -153,6 +154,7 @@ Commands:
+   config               Show gobrew and system configuration
+   shellenv [shell]     Print shell environment setup
+   help [command]       Show help for a command
++  verify [formula]     Verify installed package integrity
+ `)
+ }
+diff --git a/cmd/help.go b/cmd/help.go
+index 5678901..6789012 100644
+--- a/cmd/help.go
++++ b/cmd/help.go
+@@ -247,6 +247,24 @@ Examples:
+   gobrew help
+   gobrew help install`,
++
++	"verify": `Usage: gobrew verify [--json] [formula ...]
++
++Verify the integrity of installed packages by comparing the filesystem
++against the snapshot manifest recorded at install time.
++
++With no arguments, verifies all installed packages.
++
++Flags:
++  --json    Output results as JSON for machine consumption
++
++Each package is checked for:
++  - Missing files (deleted after install)
++  - Modified files (content changed since install)
++  - Added files (unexpected files appeared in the keg)
++
++Exit code 0 if all packages pass, 1 if any discrepancies found.
++
++Examples:
++  gobrew verify
++  gobrew verify jq
++  gobrew verify --json`,
+ }

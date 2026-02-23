@@ -1,0 +1,20 @@
+name: jq
+version: "1.7.1"
+description: "Lightweight and flexible command-line JSON processor"
+homepage: "https://jqlang.github.io/jq/"
+license: "MIT"
+url:
+  darwin_arm64: "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-macos-arm64"
+  darwin_amd64: "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-macos-amd64"
+  linux_amd64: "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64"
+  linux_arm64: "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-arm64"
+sha256:
+  darwin_arm64: "0bbe619e663e0de2c550be2fe0d240d076799d6f8a652b70fa04aea8a8362e8a"
+  darwin_amd64: "9a4f43ed23832e3ee24fcebbaf10d0a1ee0d3e1ec40c3079eb2251f8a78e3b19"
+  linux_amd64: "5942c9b0934e510ee61eb3e30273f1b3fe2590df93933a93d7c58b81d19c8ff5"
+  linux_arm64: "4dd2d8a0661df0b22f1bb9a1f9830f06b6f3b8f7e91211a1c9765e778e4bfce7"
+install:
+  type: binary
+  binary_name: jq
+dependencies: []
+keg_only: false
