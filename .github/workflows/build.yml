@@ -14,7 +14,6 @@ jobs:
   build:
     strategy:
       matrix:
-        go-version: [stable, oldstable]
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -24,7 +23,7 @@ jobs:
           fetch-tags: true
       - uses: actions/setup-go@v6
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: stable
       - run: go generate ./...
       - run: go build -v ./...
       - run: go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
