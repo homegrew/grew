@@ -187,6 +187,18 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 	}
 	defer r.Close()
 
+	// Resolve destination directory to its real path to ensure that
+	// subsequent safety checks operate on canonical paths.
+	realDestDir, err := filepath.EvalSymlinks(destDir)
+	if err != nil {
+		// If destDir does not exist yet or cannot be resolved, fall back
+		// to its absolute path so we still have a consistent base.
+		realDestDir, err = filepath.Abs(destDir)
+		if err != nil {
+			return err
+		}
+	}
+
 	for _, f := range r.File {
 		name := stripPath(f.Name, stripComponents)
 		if name == "" {
@@ -223,8 +235,23 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			}
 			linkTarget := buf.String()
 
-			// Validate symlink target doesn't escape
-			if !withinDir(destDir, filepath.Join(filepath.Dir(target), linkTarget)) {
+			// Validate symlink target doesn't escape. Resolve any existing
+			// symlinks in the parent directory and the candidate target
+			// path before checking that it remains within the extraction root.
+			parentDir := filepath.Dir(target)
+			realParentDir, err := filepath.EvalSymlinks(parentDir)
+			if err != nil {
+				// Cannot safely determine real parent; skip this entry.
+				continue
+			}
+			candidateTarget := filepath.Join(realParentDir, linkTarget)
+			realLinkTarget, err := filepath.EvalSymlinks(candidateTarget)
+			if err != nil {
+				// Target cannot be resolved safely; skip this entry.
+				continue
+			}
+			if !withinDir(realDestDir, realLinkTarget) {
+				// Resolved target escapes the extraction root; skip this entry.
 				continue
 			}
 
