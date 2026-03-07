@@ -55,10 +55,16 @@ func (m *Manager) Update() (int, error) {
 	}
 
 	fmt.Printf("==> Updating taps...\n")
-	cmd := exec.Command("git", "-C", m.TapsDir, "pull", "--ff-only", "--depth", "1")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
+	fetch := exec.Command("git", "-C", m.TapsDir, "fetch", "--depth", "1", "origin", "main")
+	fetch.Stdout = os.Stdout
+	fetch.Stderr = os.Stderr
+	if err := fetch.Run(); err != nil {
+		return 0, fmt.Errorf("update taps: %w", err)
+	}
+	reset := exec.Command("git", "-C", m.TapsDir, "reset", "--hard", "origin/main")
+	reset.Stdout = os.Stdout
+	reset.Stderr = os.Stderr
+	if err := reset.Run(); err != nil {
 		return 0, fmt.Errorf("update taps: %w", err)
 	}
 
