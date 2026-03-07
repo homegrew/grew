@@ -34,6 +34,16 @@ func bwrapCommand(bwrapPath string, cfg BuildConfig, name string, args ...string
 // bwrapArgs builds the argument list for bubblewrap. Exported-via-name so
 // tests can validate the generated arguments without running on Linux.
 func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
+	// bwrap processes filesystem args in order — later entries overlay
+	// earlier ones. The sequence matters:
+	//   1. ro-bind /         → read-only root
+	//   2. tmpfs /tmp        → fresh, empty /tmp
+	//   3. tmpfs /var/tmp    → fresh, empty /var/tmp
+	//   4. proc, dev         → isolated /proc and /dev
+	//   5. bind buildDir     → writable build dir (may be under /tmp)
+	//   6. bind kegDir       → writable keg dir
+	// Steps 5-6 MUST come after the tmpfs mounts so that writable bind
+	// mounts for paths under /tmp are not clobbered.
 	a := []string{
 		// New network namespace — completely isolated, no interfaces.
 		"--unshare-net",
@@ -41,11 +51,7 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 		"--unshare-pid",
 		// Bind the entire root filesystem read-only.
 		"--ro-bind", "/", "/",
-		// Writable bind for build directory.
-		"--bind", cfg.BuildDir, cfg.BuildDir,
-		// Writable bind for keg (install prefix).
-		"--bind", cfg.KegDir, cfg.KegDir,
-		// Fresh tmpfs for compiler temporaries.
+		// Fresh tmpfs for compiler temporaries — before writable binds.
 		"--tmpfs", "/tmp",
 		// Mount /proc inside the new PID namespace.
 		"--proc", "/proc",
@@ -54,8 +60,6 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 	}
 
 	// Some distros have /lib64 as a real directory rather than a symlink.
-	// If it exists as a symlink (e.g. /lib64 -> /usr/lib64), the ro-bind
-	// of / already covers it. If it doesn't exist, --symlink is harmless.
 	if target, err := os.Readlink("/lib64"); err == nil {
 		a = append(a, "--symlink", target, "/lib64")
 	}
@@ -64,6 +68,10 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 	if fi, err := os.Stat("/var/tmp"); err == nil && fi.IsDir() {
 		a = append(a, "--tmpfs", "/var/tmp")
 	}
+
+	// Writable bind mounts AFTER tmpfs overlays so they are not clobbered.
+	a = append(a, "--bind", cfg.BuildDir, cfg.BuildDir)
+	a = append(a, "--bind", cfg.KegDir, cfg.KegDir)
 
 	// The command to run inside the sandbox.
 	a = append(a, name)

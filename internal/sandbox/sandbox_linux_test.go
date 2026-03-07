@@ -55,6 +55,18 @@ func TestBwrapArgs(t *testing.T) {
 		t.Error("bwrap must mount /dev")
 	}
 
+	// Writable bind mounts must come AFTER --tmpfs /tmp so that build
+	// dirs under /tmp are not clobbered by the tmpfs overlay.
+	tmpfsIdx := strings.Index(joined, "--tmpfs /tmp")
+	buildBindIdx := strings.Index(joined, "--bind /home/user/build")
+	kegBindIdx := strings.Index(joined, "--bind /home/user/.grew/Cellar")
+	if buildBindIdx < tmpfsIdx {
+		t.Error("--bind for build dir must come after --tmpfs /tmp")
+	}
+	if kegBindIdx < tmpfsIdx {
+		t.Error("--bind for keg dir must come after --tmpfs /tmp")
+	}
+
 	// Command must appear at the end.
 	if !strings.HasSuffix(joined, "make -j4") {
 		t.Errorf("command must be at end of args, got: ...%s", joined[len(joined)-30:])
