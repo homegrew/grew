@@ -153,6 +153,13 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 	return strings.HasPrefix(resolved, expected)
 }
 
+// destIsDir returns true if destPath is a real directory or a symlink that
+// points to a directory inside the cellar (i.e. owned by another formula).
+func destIsDir(destPath string) bool {
+	fi, err := os.Stat(destPath) // follows symlinks
+	return err == nil && fi.IsDir()
+}
+
 func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
@@ -166,6 +173,44 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		srcPath := filepath.Join(srcDir, e.Name())
 		destPath := filepath.Join(destDir, e.Name())
 
+		// Source is a directory (e.g. lib/pkgconfig). These are shared
+		// directories where multiple formulas contribute files. Instead
+		// of symlinking the directory, ensure a real directory exists at
+		// the destination and recurse to link individual files.
+		if e.IsDir() {
+			if info, err := os.Lstat(destPath); err == nil {
+				if info.Mode()&os.ModeSymlink != 0 && destIsDir(destPath) {
+					// Destination is a symlink to a directory (from another
+					// formula). Replace it with a real directory and migrate
+					// the contents so both formulas' files coexist.
+					if !opts.DryRun {
+						if err := unsymDir(destPath); err != nil {
+							return fmt.Errorf("expand shared dir %s: %w", destPath, err)
+						}
+					}
+				} else if info.Mode()&os.ModeSymlink != 0 {
+					// Symlink to a non-directory — treat as conflict.
+					if !opts.Overwrite {
+						return fmt.Errorf("cannot link %s: %s already linked by another formula (use --overwrite to force)", e.Name(), destPath)
+					}
+					if !opts.DryRun {
+						os.Remove(destPath)
+					}
+				}
+				// else: already a real directory, good.
+			}
+			if !opts.DryRun {
+				if err := os.MkdirAll(destPath, 0755); err != nil {
+					return fmt.Errorf("create shared dir %s: %w", destPath, err)
+				}
+			}
+			if err := linkDirWithOpts(srcPath, destPath, cellarPath, formulaName, opts); err != nil {
+				return err
+			}
+			continue
+		}
+
+		// Source is a file or symlink — link it directly.
 		if info, err := os.Lstat(destPath); err == nil {
 			if info.Mode()&os.ModeSymlink != 0 {
 				target, _ := os.Readlink(destPath)
@@ -201,6 +246,40 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 			if err := os.Symlink(srcPath, destPath); err != nil {
 				return fmt.Errorf("symlink %s -> %s: %w", destPath, srcPath, err)
 			}
+		}
+	}
+	return nil
+}
+
+// unsymDir replaces a symlink-to-directory with a real directory containing
+// symlinks to each entry in the original target. This allows multiple
+// formulas to share the directory (e.g. lib/pkgconfig).
+func unsymDir(symlinkPath string) error {
+	target, err := os.Readlink(symlinkPath)
+	if err != nil {
+		return err
+	}
+	if !filepath.IsAbs(target) {
+		target = filepath.Join(filepath.Dir(symlinkPath), target)
+	}
+
+	entries, err := os.ReadDir(target)
+	if err != nil {
+		return fmt.Errorf("read target dir %s: %w", target, err)
+	}
+
+	if err := os.Remove(symlinkPath); err != nil {
+		return err
+	}
+	if err := os.MkdirAll(symlinkPath, 0755); err != nil {
+		return err
+	}
+
+	for _, e := range entries {
+		src := filepath.Join(target, e.Name())
+		dst := filepath.Join(symlinkPath, e.Name())
+		if err := os.Symlink(src, dst); err != nil {
+			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)
 		}
 	}
 	return nil
