@@ -14,6 +14,7 @@
 ## ✨ What it does
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
+- 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, and stale kegs (your package manager has trust issues, and rightfully so)
@@ -40,6 +41,7 @@ That's it. No dark rituals. No 47-step setup guide.
 
 ```bash
 ./grew install jq              # the classic
+./grew install -s ldns         # build from source, like a purist
 ./grew install --cask firefox  # going big
 ./grew link jq                 # stitch it in
 ./grew deps --tree jq          # what hath jq wrought
@@ -53,7 +55,7 @@ That's it. No dark rituals. No 47-step setup guide.
 
 | Command | What it does |
 |---|---|
-| `install` | Install a formula or cask |
+| `install` | Install a formula or cask (`-s` to build from source) |
 | `uninstall` | Send it to the void |
 | `list` | See what you've collected |
 | `info` | Stalk a package |

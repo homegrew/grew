@@ -18,6 +18,8 @@ type Formula struct {
 	License      string            `yaml:"license"`
 	URL          map[string]string `yaml:"url"`
 	SHA256       map[string]string `yaml:"sha256"`
+	SourceURL    string            `yaml:"source_url"`
+	SourceSHA256 string            `yaml:"source_sha256"`
 	Install      InstallSpec       `yaml:"install"`
 	Dependencies []string          `yaml:"dependencies"`
 	KegOnly      bool              `yaml:"keg_only"`
@@ -45,6 +47,26 @@ func (f *Formula) GetURL() (string, error) {
 		return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, u)
 	}
 	return u, nil
+}
+
+func (f *Formula) GetSourceURL() (string, error) {
+	if f.SourceURL == "" {
+		return "", fmt.Errorf("formula %q has no source_url defined", f.Name)
+	}
+	if !strings.HasPrefix(f.SourceURL, "https://") {
+		return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, f.SourceURL)
+	}
+	return f.SourceURL, nil
+}
+
+func (f *Formula) GetSourceSHA256() (string, error) {
+	if f.SourceSHA256 == "" {
+		return "", fmt.Errorf("formula %q has no source_sha256 defined", f.Name)
+	}
+	if err := validation.ValidateSHA256(f.SourceSHA256); err != nil {
+		return "", fmt.Errorf("formula %q: invalid source_sha256: %w", f.Name, err)
+	}
+	return f.SourceSHA256, nil
 }
 
 func (f *Formula) GetSHA256() (string, error) {

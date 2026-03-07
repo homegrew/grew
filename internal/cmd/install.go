@@ -13,16 +13,21 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/tap"
 )
 
 func runInstall(args []string) error {
 	isCask := false
+	buildFromSource := false
 	var remaining []string
 	for _, a := range args {
-		if a == "--cask" {
+		switch a {
+		case "--cask":
 			isCask = true
-		} else {
+		case "-s", "--build-from-source":
+			buildFromSource = true
+		default:
 			remaining = append(remaining, a)
 		}
 	}
@@ -31,10 +36,13 @@ func runInstall(args []string) error {
 		if isCask {
 			return fmt.Errorf("usage: grew install --cask <cask>")
 		}
-		return fmt.Errorf("usage: grew install <formula>")
+		return fmt.Errorf("usage: grew install [-s] <formula>")
 	}
 
 	if isCask {
+		if buildFromSource {
+			return fmt.Errorf("--build-from-source is not supported for casks")
+		}
 		return caskInstall(remaining[0])
 	}
 
@@ -78,8 +86,14 @@ func runInstall(args []string) error {
 			continue
 		}
 
-		if err := installFormula(f, paths, cel, lnk, dl); err != nil {
-			return err
+		if buildFromSource && f.Name == name {
+			if err := installFormulaFromSource(f, paths, cel, lnk, dl); err != nil {
+				return err
+			}
+		} else {
+			if err := installFormula(f, paths, cel, lnk, dl); err != nil {
+				return err
+			}
 		}
 	}
 
@@ -152,6 +166,130 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 		fmt.Printf("==> %s %s installed (keg-only, not linked)\n", f.Name, f.Version)
 	} else {
 		fmt.Printf("==> %s %s installed and linked\n", f.Name, f.Version)
+	}
+	return nil
+}
+
+// installFormulaFromSource downloads the source tarball and builds from source
+// inside a sandboxed environment (no network, restricted filesystem access).
+func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader) error {
+	defer TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
+	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
+
+	srcURL, err := f.GetSourceURL()
+	if err != nil {
+		return err
+	}
+	Logf("    Source URL: %s\n", srcURL)
+
+	srcSHA, err := f.GetSourceSHA256()
+	if err != nil {
+		return err
+	}
+	Logf("    Expected SHA256: %s\n", srcSHA)
+
+	ext := urlExt(srcURL)
+	filename := f.Name + "-" + f.Version + "-src" + ext
+	localFile, err := dl.Download(srcURL, filename)
+	if err != nil {
+		return fmt.Errorf("download source %s: %w", f.Name, err)
+	}
+	Logf("    Saved to: %s\n", localFile)
+
+	if err := downloader.VerifySHA256(localFile, srcSHA); err != nil {
+		os.Remove(localFile)
+		return fmt.Errorf("verify source %s: %w", f.Name, err)
+	}
+	fmt.Printf("==> SHA256 verified\n")
+
+	// Extract source to a build directory.
+	buildDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-build")
+	os.RemoveAll(buildDir)
+	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
+	if err := downloader.Extract(localFile, buildDir, srcSpec); err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("extract source %s: %w", f.Name, err)
+	}
+	Logf("    Extracted source to: %s\n", buildDir)
+
+	// Prepare keg directory.
+	kegPath := cel.KegPath(f.Name, f.Version)
+	if err := os.MkdirAll(kegPath, 0755); err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("create keg dir: %w", err)
+	}
+
+	// Collect dependency paths for sandbox read-only access.
+	var depPaths []string
+	for _, dep := range f.Dependencies {
+		depPaths = append(depPaths, filepath.Join(paths.Cellar, dep))
+		depPaths = append(depPaths, filepath.Join(paths.Opt, dep))
+	}
+
+	sbCfg := sandbox.BuildConfig{
+		BuildDir: buildDir,
+		KegDir:   kegPath,
+		DepPaths: depPaths,
+	}
+
+	cleanup := func() {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+	}
+	cleanupAll := func() {
+		cleanup()
+		os.RemoveAll(kegPath)
+	}
+
+	fmt.Printf("==> Sandboxed build (network denied, filesystem restricted)\n")
+	Debugf("sandbox config: build=%s keg=%s deps=%v\n", buildDir, kegPath, depPaths)
+
+	// ./configure --prefix=<keg>
+	fmt.Printf("==> ./configure --prefix=%s\n", kegPath)
+	configure := sandbox.Command(sbCfg, "./configure", "--prefix="+kegPath)
+	configure.Dir = buildDir
+	configure.Stdout = os.Stdout
+	configure.Stderr = os.Stderr
+	if err := configure.Run(); err != nil {
+		cleanupAll()
+		return fmt.Errorf("configure %s: %w", f.Name, err)
+	}
+
+	// make
+	fmt.Printf("==> make\n")
+	makeCmd := sandbox.Command(sbCfg, "make")
+	makeCmd.Dir = buildDir
+	makeCmd.Stdout = os.Stdout
+	makeCmd.Stderr = os.Stderr
+	if err := makeCmd.Run(); err != nil {
+		cleanupAll()
+		return fmt.Errorf("make %s: %w", f.Name, err)
+	}
+
+	// make install
+	fmt.Printf("==> make install\n")
+	makeInstall := sandbox.Command(sbCfg, "make", "install")
+	makeInstall.Dir = buildDir
+	makeInstall.Stdout = os.Stdout
+	makeInstall.Stderr = os.Stderr
+	if err := makeInstall.Run(); err != nil {
+		cleanupAll()
+		return fmt.Errorf("make install %s: %w", f.Name, err)
+	}
+
+	if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
+		return fmt.Errorf("link %s: %w", f.Name, err)
+	}
+	Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
+
+	cleanup()
+
+	if f.KegOnly {
+		fmt.Printf("==> %s %s built from source and installed (keg-only, not linked)\n", f.Name, f.Version)
+	} else {
+		fmt.Printf("==> %s %s built from source and installed\n", f.Name, f.Version)
 	}
 	return nil
 }
