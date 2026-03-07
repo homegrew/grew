@@ -15,9 +15,14 @@
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
 - 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
+- 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)
+- ✍️ **Ed25519 bottle signing** — cryptographic signatures on downloads, verified against a local trust store
+- 🏷️ **Signed tap verification** — refuse or warn on unsigned git commits in tap repos (`HOMEGREW_TAP_VERIFY`)
+- 📋 **Install snapshots** — per-file SHA256 manifests recorded at install time for integrity verification
+- 📌 **Lockfile** — pin exact versions, hashes, and dependency trees for reproducible environments
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
-- 🩺 **Doctor** that checks perms, HTTPS, broken links, and stale kegs (your package manager has trust issues, and rightfully so)
+- 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, and stale kegs
 - 🐚 **Alias + shellenv helpers** so your workflows stay snappy
 
 ---
@@ -47,6 +52,9 @@ That's it. No dark rituals. No 47-step setup guide.
 ./grew deps --tree jq          # what hath jq wrought
 ./grew upgrade                 # stay fresh
 ./grew cleanup -n              # peek before you sweep
+./grew verify jq               # check installed files against manifest
+./grew lock                    # pin your environment
+./grew audit --strict          # lint your formulas
 ```
 
 ---
@@ -68,6 +76,10 @@ That's it. No dark rituals. No 47-step setup guide.
 | `cleanup` | Marie Kondo your Cellar |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
+| `verify` | Check installed packages against their snapshot manifests |
+| `audit` | Lint formula/cask definitions for quality and security |
+| `lock` | Generate, check, or show a reproducible lockfile |
+| `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `doctor` | It's not a bug, it's a misconfiguration |
 | `config` | What grew thinks it knows |
 | `shellenv` | Wire up your shell |
@@ -81,17 +93,21 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 
 | Variable | Default | What it is |
 |---|---|---|
-| `GREW_PREFIX` | `~/.grew` | The kingdom |
-| `GREW_APPDIR` | `~/Applications` | Where casks live |
+| `HOMEGREW_PREFIX` | `~/.grew` | The kingdom |
+| `HOMEGREW_APPDIR` | `~/Applications` | Where casks live |
+| `HOMEGREW_TAP_VERIFY` | `off` | Tap commit signature policy (`off`, `warn`, `strict`) |
+| `HOMEGREW_NO_INSTALL_FROM_API` | *(unset)* | Force git clone instead of API tarball for taps |
 
 Everything else flows from the prefix:
 
 ```
 ~/.grew/
-├── Cellar/   ← installed packages
-├── Taps/     ← formula definitions
-├── bin/      ← symlinked binaries
-└── tmp/      ← ephemeral stuff
+├── Cellar/        ← installed packages (each keg has a .MANIFEST.json)
+├── Taps/          ← formula definitions (git-cloned or API-fetched)
+├── bin/           ← symlinked binaries
+├── etc/           ← trusted-keys (Ed25519 public keys, one per line)
+├── tmp/           ← ephemeral stuff
+└── grew.lock      ← lockfile (opt-in, created by `grew lock`)
 ```
 
 **Shell setup** (pick your flavour):
@@ -109,17 +125,53 @@ eval "$(./grew shellenv)"
 ## 🛠️ Development
 
 ```bash
-go test ./...
+make check         # go test -v -race ./...
+make build         # go generate + go build
+make lint          # golangci-lint (if installed)
 ```
 
 **Project layout:**
 
 ```
 grew/
-├── cmd/   ← CLI commands (the face)
-├── pkg/   ← cellar, formula, tap, linker, downloader, deps (the guts)
-└── taps/  ← embedded formulas and casks (the knowledge)
+├── internal/
+│   ├── cmd/          ← CLI commands (the face)
+│   ├── cellar/       ← installed package management
+│   ├── formula/      ← formula parsing and validation
+│   ├── cask/         ← cask parsing and Caskroom
+│   ├── linker/       ← deterministic symlink management
+│   ├── depgraph/     ← dependency resolution (Kahn's toposort)
+│   ├── downloader/   ← HTTP download + SHA256 + archive extraction
+│   ├── tap/          ← tap repo management + commit verification
+│   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux)
+│   ├── signing/      ← Ed25519 bottle signing + trust store
+│   ├── snapshot/     ← per-file manifest capture + integrity verification
+│   ├── lockfile/     ← reproducible environment pinning
+│   ├── service/      ← background service management (launchd/systemd)
+│   ├── config/       ← prefix + path resolution
+│   ├── validation/   ← name/version/SHA256 validation
+│   └── version/      ← embedded version from git tags
+└── tools/            ← import scripts (Homebrew formula/cask conversion)
 ```
+
+---
+
+## 🔐 Security Model
+
+grew is designed to be more secure than Homebrew out of the box:
+
+| Feature | grew | Homebrew |
+|---|---|---|
+| **Bottle signing** | Ed25519 signatures verified against local trust store | None — relies on HTTPS + SHA256 only |
+| **Tap verification** | Optional GPG/SSH commit signature enforcement | None |
+| **Post-install sandbox** | Read-only keg, no network, minimal env | Unsandboxed |
+| **Source build sandbox** | macOS Seatbelt / Linux bwrap+unshare, no network | macOS Seatbelt only, no Linux |
+| **Install manifests** | Per-file SHA256 snapshot at install time | None |
+| **Lockfile** | Full dependency tree with hashes | None |
+| **Integrity check** | `grew verify` + `grew doctor` snapshot check | None |
+| **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
+
+**Gradual rollout:** signature verification doesn't block installs until you add keys to `etc/trusted-keys`. Tap verification is opt-in via `HOMEGREW_TAP_VERIFY`. This lets you adopt security features incrementally.
 
 ---
 
@@ -128,8 +180,9 @@ grew/
 Got ideas? Bugs? Grievances? → [Open an issue](https://github.com/homegrew/grew/issues)
 
 Hot takes on the list:
-- Better tap sync
-- Richer doctor checks
+- SLSA provenance attestations for bottles
+- Vulnerability scanning (OSV/NVD integration)
+- Content-addressable bottle storage
 - Windows support (one day, probably, maybe)
 
 ---
