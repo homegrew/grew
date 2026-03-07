@@ -45,6 +45,16 @@ type Formula struct {
 	BuildDependencies []string              `yaml:"build_dependencies"`
 	LinuxDependencies []string              `yaml:"linux_dependencies"`
 	Build             BuildSpec             `yaml:"build"`
+	Service           *ServiceSpec          `yaml:"service"`
+}
+
+type ServiceSpec struct {
+	Run          []string `yaml:"run"`
+	RunType      string   `yaml:"run_type"`
+	WorkingDir   string   `yaml:"working_dir"`
+	LogPath      string   `yaml:"log_path"`
+	ErrorLogPath string   `yaml:"error_log_path"`
+	KeepAlive    bool     `yaml:"keep_alive"`
 }
 
 type InstallSpec struct {
