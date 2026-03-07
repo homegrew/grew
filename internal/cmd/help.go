@@ -20,6 +20,9 @@ Flags:
   --ignore-dependencies Skip installing dependencies; install only the formula.
   --skip-post-install   Do not run the post-install script.
   --skip-link           Install to the Cellar but do not create symlinks.
+  --require-sha         Refuse to install if a formula is missing a SHA256
+                        checksum. Checks all formulas (including dependencies)
+                        before downloading anything.
 
 If the formula/cask is already installed, the command is a no-op.
 

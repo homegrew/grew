@@ -24,6 +24,7 @@ func runInstall(args []string) error {
 	ignoreDeps := false
 	skipPostInstall := false
 	skipLink := false
+	requireSHA := false
 	var remaining []string
 	for _, a := range args {
 		switch a {
@@ -39,6 +40,8 @@ func runInstall(args []string) error {
 			skipPostInstall = true
 		case "--skip-link":
 			skipLink = true
+		case "--require-sha":
+			requireSHA = true
 		default:
 			remaining = append(remaining, a)
 		}
@@ -109,6 +112,26 @@ func runInstall(args []string) error {
 			names[i] = f.Name
 		}
 		Logf("==> Install order: %s\n", fmt.Sprintf("%v", names))
+	}
+
+	if requireSHA {
+		for _, f := range installOrder {
+			if onlyDeps && f.Name == name {
+				continue
+			}
+			if cel.IsInstalled(f.Name) {
+				continue
+			}
+			if buildFromSource && f.Name == name {
+				if _, err := f.GetSourceSHA256(); err != nil {
+					return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
+				}
+			} else {
+				if _, err := f.GetSHA256(); err != nil {
+					return fmt.Errorf("--require-sha: %s has no SHA256 checksum for platform %s", f.Name, formula.PlatformKey())
+				}
+			}
+		}
 	}
 
 	for _, f := range installOrder {
