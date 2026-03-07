@@ -26,19 +26,19 @@ type BuildSpec struct {
 }
 
 type Formula struct {
-	Name         string                       `yaml:"name"`
-	Version      string                       `yaml:"version"`
-	Description  string                       `yaml:"description"`
-	Homepage     string                       `yaml:"homepage"`
-	License      string                       `yaml:"license"`
-	URL          map[string]string            `yaml:"url"`
-	SHA256       map[string]string            `yaml:"sha256"`
-	SourceURL    string                       `yaml:"source_url"`
-	SourceSHA256 string                       `yaml:"source_sha256"`
-	Install      InstallSpec                  `yaml:"install"`
-	PostInstall  string                       `yaml:"post_install"`
-	Dependencies []string                     `yaml:"dependencies"`
-	KegOnly      bool                         `yaml:"keg_only"`
+	Name         string            `yaml:"name"`
+	Version      string            `yaml:"version"`
+	Description  string            `yaml:"description"`
+	Homepage     string            `yaml:"homepage"`
+	License      string            `yaml:"license"`
+	URL          map[string]string `yaml:"url"`
+	SHA256       map[string]string `yaml:"sha256"`
+	SourceURL    string            `yaml:"source_url"`
+	SourceSHA256 string            `yaml:"source_sha256"`
+	Install      InstallSpec       `yaml:"install"`
+	PostInstall  string            `yaml:"post_install"`
+	Dependencies []string          `yaml:"dependencies"`
+	KegOnly      bool              `yaml:"keg_only"`
 	// New schema fields
 	Bottle            map[string]BottleSpec `yaml:"bottle"`
 	Source            SourceSpec            `yaml:"source"`

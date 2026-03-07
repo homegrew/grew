@@ -238,7 +238,7 @@ func TestExtractArchive_UnsupportedFormat(t *testing.T) {
 	archivePath := filepath.Join(tmpDir, "test.rar")
 	os.WriteFile(archivePath, []byte("fake"), 0644)
 
-	err := extractArchive(archivePath, filepath.Join(tmpDir, "dest"), 0)
+	err := ExtractArchive(archivePath, filepath.Join(tmpDir, "dest"), 0)
 	if err == nil {
 		t.Fatal("expected error for unsupported format")
 	}

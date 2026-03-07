@@ -24,7 +24,7 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
-	
+
 	var lastErr error
 	for _, tap := range taps {
 		if !tap.IsDir() {

@@ -27,7 +27,7 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 	case "binary":
 		return installBinary(archivePath, destDir, spec.BinaryName)
 	case "archive":
-		if err := extractArchive(archivePath, destDir, spec.StripComponents); err != nil {
+		if err := ExtractArchive(archivePath, destDir, spec.StripComponents); err != nil {
 			return err
 		}
 		// If binary_name is set and the binary is at root (not in bin/), move it into bin/
@@ -79,7 +79,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 	return dst.Close()
 }
 
-func extractArchive(archivePath, destDir string, stripComponents int) error {
+func ExtractArchive(archivePath, destDir string, stripComponents int) error {
 	lower := strings.ToLower(archivePath)
 	switch {
 	case strings.HasSuffix(lower, ".tar.gz") || strings.HasSuffix(lower, ".tgz"):
