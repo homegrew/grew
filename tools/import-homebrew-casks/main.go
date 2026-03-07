@@ -18,6 +18,7 @@ type hbCask struct {
 	Name       []string                   `json:"name"`
 	Desc       string                     `json:"desc"`
 	Homepage   string                     `json:"homepage"`
+	License    string                     `json:"license"`
 	URL        string                     `json:"url"`
 	SHA256     string                     `json:"sha256"`
 	Version    string                     `json:"version"`
@@ -138,6 +139,9 @@ func generateYAML(c *hbCask, urlMap, sha256Map map[string]string, arts parsedArt
 	fmt.Fprintf(&b, "version: %s\n", yamlEscape(c.Version))
 	fmt.Fprintf(&b, "description: %s\n", yamlEscape(c.Desc))
 	fmt.Fprintf(&b, "homepage: %s\n", c.Homepage)
+	if c.License != "" {
+		fmt.Fprintf(&b, "license: %s\n", yamlEscape(c.License))
+	}
 
 	b.WriteString("url:\n")
 	for _, pm := range macPlatforms {

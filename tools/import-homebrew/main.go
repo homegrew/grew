@@ -120,12 +120,14 @@ func generateYAML(f *hbFormula, urlMap, sha256Map map[string]string) string {
 		fmt.Fprintf(&b, "license: %s\n", yamlEscape(f.License))
 	}
 
+	// Bottle block with signature placeholder — use `grew sign` to fill these in.
 	b.WriteString("bottle:\n")
 	for _, pm := range platforms {
 		if u, ok := urlMap[pm.grewKey]; ok {
 			fmt.Fprintf(&b, "  %s:\n", pm.grewKey)
 			fmt.Fprintf(&b, "    url: %s\n", u)
 			fmt.Fprintf(&b, "    sha256: %s\n", sha256Map[pm.grewKey])
+			// signature: <empty until signed with `grew sign`>
 		}
 	}
 
@@ -133,6 +135,7 @@ func generateYAML(f *hbFormula, urlMap, sha256Map map[string]string) string {
 		b.WriteString("source:\n")
 		fmt.Fprintf(&b, "  url: %s\n", f.Urls.Stable.URL)
 		fmt.Fprintf(&b, "  sha256: %s\n", f.Urls.Stable.Checksum)
+		// signature: <empty until signed with `grew sign`>
 	}
 
 	b.WriteString("install:\n")
