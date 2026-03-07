@@ -52,6 +52,7 @@ func registerExtraChecks(checks []doctorCheck) {
 func allChecks() []doctorCheck {
 	base := []doctorCheck{
 		// --- Security checks ---
+		{"check_prefix_isolation", "Check grew prefix is outside $HOME", checkPrefixIsolation},
 		{"check_directory_permissions", "Check grew directories are not world-writable", checkDirectoryPermissions},
 		{"check_formula_https", "Check all formula URLs use HTTPS", checkFormulaHTTPS},
 		{"check_formula_sha256", "Check all formula SHA256 hashes are valid hex", checkFormulaSHA256},
@@ -180,6 +181,19 @@ func runDoctor(args []string) error {
 }
 
 // --- Security checks ---
+
+func checkPrefixIsolation(ctx *doctorCtx) {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return
+	}
+	if strings.HasPrefix(ctx.paths.Root, home+string(filepath.Separator)) {
+		ctx.warn("grew prefix %s is under $HOME — sandboxed builds can potentially access "+
+			"sensitive files (e.g. ~/.ssh, ~/.gnupg).\n"+
+			"  Run 'sudo grew setup' to install to %s for better isolation.",
+			ctx.paths.Root, config.SystemPrefix())
+	}
+}
 
 func checkDirectoryPermissions(ctx *doctorCtx) {
 	dirs := []string{ctx.paths.Root, ctx.paths.Cellar, ctx.paths.Bin, ctx.paths.Opt, ctx.paths.Taps}

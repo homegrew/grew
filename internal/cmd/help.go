@@ -255,6 +255,42 @@ Examples:
   grew shellenv
   grew shellenv fish`,
 
+	"setup": `Usage: grew setup [--force]
+
+Set up the grew directory structure. Behavior depends on whether you
+run it with or without sudo:
+
+  grew setup        → installs to ~/.grew (user-local, no root needed)
+  sudo grew setup   → installs to the system prefix (better isolation)
+
+System prefix locations:
+  macOS (Apple Silicon): /opt/grew
+  macOS (Intel):         /usr/local/grew
+  Linux:                 /usr/local/grew
+
+With sudo, the command:
+  1. Creates the system prefix directory
+  2. Transfers ownership to SUDO_USER (no root needed at runtime)
+  3. Creates the internal directory structure
+  4. Copies the grew binary into <prefix>/bin/
+
+Without sudo, the command:
+  1. Creates ~/.grew and the internal directory structure
+  2. Copies the grew binary into ~/.grew/bin/
+
+Path inference: grew infers its prefix from the binary location. If
+the binary is at <prefix>/bin/grew, all paths are derived from <prefix>
+automatically — no HOMEGREW_PREFIX env var needed.
+
+Security: a system prefix isolates builds from $HOME, preventing
+sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
+
+Flags:
+  -f, --force   Re-run setup even if already set up
+
+After setup, add to your shell profile:
+  eval "$(grew shellenv)"`,
+
 	"services": `Usage: grew services <subcommand> [arguments]
 
 Manage background services for installed formulas. Services are

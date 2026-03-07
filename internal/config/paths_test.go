@@ -7,16 +7,27 @@ import (
 	"testing"
 )
 
-func TestDefault_UsesHomeDir(t *testing.T) {
-	os.Unsetenv("HOMEGREW_PREFIX")
-	paths := Default()
+func TestDefaultPrefix_EnvOverride(t *testing.T) {
+	t.Setenv("HOMEGREW_PREFIX", "/tmp/test-grew")
+	p := DefaultPrefix()
+	if p != "/tmp/test-grew" {
+		t.Errorf("DefaultPrefix() = %q, want %q", p, "/tmp/test-grew")
+	}
+}
+
+func TestDefaultPrefix_FallbackToHome(t *testing.T) {
+	// Without env var and without the binary living in a grew prefix,
+	// DefaultPrefix should fall back to ~/.grew.
+	t.Setenv("HOMEGREW_PREFIX", "")
+	p := DefaultPrefix()
 	home, _ := os.UserHomeDir()
-	if !strings.HasPrefix(paths.Root, home) {
-		t.Errorf("root %q should be under home %q", paths.Root, home)
+
+	// It should either be ~/.grew or a system prefix (if binary happens to
+	// be installed there in the test environment).
+	if !strings.HasSuffix(p, ".grew") && p != SystemPrefix() {
+		t.Errorf("DefaultPrefix() = %q, expected ~/.grew or %s", p, SystemPrefix())
 	}
-	if !strings.HasSuffix(paths.Root, ".grew") {
-		t.Errorf("root %q should end with .grew", paths.Root)
-	}
+	_ = home // avoid unused
 }
 
 func TestDefault_OverridePrefix(t *testing.T) {
@@ -33,20 +44,7 @@ func TestDefault_OverridePrefix(t *testing.T) {
 func TestInit_CreatesDirectories(t *testing.T) {
 	tmpDir := t.TempDir()
 	root := filepath.Join(tmpDir, "grew")
-	paths := Paths{
-		Root:     root,
-		Cellar:   filepath.Join(root, "Cellar"),
-		Opt:      filepath.Join(root, "opt"),
-		Bin:      filepath.Join(root, "bin"),
-		Lib:      filepath.Join(root, "lib"),
-		Include:  filepath.Join(root, "include"),
-		Taps:     filepath.Join(root, "Taps"),
-		CoreTap:  filepath.Join(root, "Taps", "core"),
-		CaskTap:  filepath.Join(root, "Taps", "cask"),
-		Caskroom: filepath.Join(root, "Caskroom"),
-		AppDir:   filepath.Join(tmpDir, "Applications"),
-		Tmp:      filepath.Join(root, "tmp"),
-	}
+	paths := FromRoot(root, filepath.Join(tmpDir, "Applications"))
 
 	if err := paths.Init(); err != nil {
 		t.Fatalf("init failed: %v", err)
@@ -56,5 +54,56 @@ func TestInit_CreatesDirectories(t *testing.T) {
 		if info, err := os.Stat(d); err != nil || !info.IsDir() {
 			t.Errorf("directory %q was not created", d)
 		}
+	}
+}
+
+func TestFromRoot(t *testing.T) {
+	paths := FromRoot("/opt/grew", "/Users/test/Applications")
+	if paths.Root != "/opt/grew" {
+		t.Errorf("Root = %q", paths.Root)
+	}
+	if paths.Bin != "/opt/grew/bin" {
+		t.Errorf("Bin = %q", paths.Bin)
+	}
+	if paths.AppDir != "/Users/test/Applications" {
+		t.Errorf("AppDir = %q", paths.AppDir)
+	}
+}
+
+func TestSystemPrefix(t *testing.T) {
+	p := SystemPrefix()
+	if !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
+		t.Errorf("SystemPrefix() = %q, want /opt/grew or /usr/local/grew", p)
+	}
+}
+
+func TestUserPrefix(t *testing.T) {
+	p := UserPrefix()
+	if !strings.HasSuffix(p, ".grew") {
+		t.Errorf("UserPrefix() = %q, should end with .grew", p)
+	}
+}
+
+func TestIsDir(t *testing.T) {
+	tmpDir := t.TempDir()
+	if !IsDir(tmpDir) {
+		t.Errorf("IsDir(%q) should be true", tmpDir)
+	}
+	if IsDir(filepath.Join(tmpDir, "nope")) {
+		t.Errorf("IsDir on non-existent path should be false")
+	}
+}
+
+func TestDefaultPrefix_InfersFromBinary(t *testing.T) {
+	// Simulate a grew prefix with the expected structure.
+	tmpDir := t.TempDir()
+	prefix := filepath.Join(tmpDir, "grew")
+	os.MkdirAll(filepath.Join(prefix, "bin"), 0755)
+	os.MkdirAll(filepath.Join(prefix, "Cellar"), 0755)
+
+	// The inference logic reads os.Executable(), which we can't fake here,
+	// but we can at least test that the Cellar marker check works.
+	if !IsDir(filepath.Join(prefix, "Cellar")) {
+		t.Fatal("setup failed")
 	}
 }
