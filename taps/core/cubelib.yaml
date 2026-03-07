@@ -1,0 +1,19 @@
+name: cubelib
+version: 4.9.1
+description: Performance report explorer for Scalasca and Score-P
+homepage: https://scalasca.org/software/cube-4.x/download.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cubelib/blobs/sha256:af8563eab21f130a1c32ffebcbc1808975d166316d8ec5576a83dc2ebbc437c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cubelib/blobs/sha256:d4013dbc7bb8da8188a0d17d09c52ebc14f36db09df5516150fe2a39ee2599bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cubelib/blobs/sha256:09faef23e866883d28efac0afb0d96a72cb574c558ff16ffe1b047b842b50fa5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cubelib/blobs/sha256:d9915686606c3dfa397292fdf87fec0a16af4407344ccacdadd10792a2542e45
+sha256:
+  darwin_arm64: af8563eab21f130a1c32ffebcbc1808975d166316d8ec5576a83dc2ebbc437c9
+  darwin_amd64: d4013dbc7bb8da8188a0d17d09c52ebc14f36db09df5516150fe2a39ee2599bd
+  linux_amd64: 09faef23e866883d28efac0afb0d96a72cb574c558ff16ffe1b047b842b50fa5
+  linux_arm64: d9915686606c3dfa397292fdf87fec0a16af4407344ccacdadd10792a2542e45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

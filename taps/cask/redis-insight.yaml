@@ -1,0 +1,11 @@
+name: redis-insight
+version: 3.2.0
+description: GUI for streamlined Redis application development
+homepage: https://redis.io/insight/
+url:
+  darwin_arm64: https://s3.amazonaws.com/redisinsight.download/public/releases/3.2.0/Redis-Insight-mac-arm64.dmg
+sha256:
+  darwin_arm64: 7042bab09eb47ab2dd7e1c0afc359c4a2f9683cc510e66d4c94cb10d11978b3c
+artifacts:
+  app:
+    - Redis Insight.app

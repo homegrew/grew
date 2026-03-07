@@ -1,0 +1,19 @@
+name: rapidyaml
+version: 0.10.0
+description: Library to parse and emit YAML, and do it fast
+homepage: https://github.com/biojppm/rapidyaml
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rapidyaml/blobs/sha256:a3acb1236b76e9252ecbf4d280e7f5637872fae07ce2bb422fd6e611b7234569
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rapidyaml/blobs/sha256:f19b2606c78fe3f717e803758451d8e741503dab0edcd835a98c502c264f926c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rapidyaml/blobs/sha256:fe0da4e573557946d6960fc602f29d4ae3c26ae6b53d96abe618e9a6ca9ae8cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rapidyaml/blobs/sha256:795add5af602f536a77fc2def8e10a83c5d62f4d90037a10a4536c76f1090981
+sha256:
+  darwin_arm64: a3acb1236b76e9252ecbf4d280e7f5637872fae07ce2bb422fd6e611b7234569
+  darwin_amd64: f19b2606c78fe3f717e803758451d8e741503dab0edcd835a98c502c264f926c
+  linux_amd64: fe0da4e573557946d6960fc602f29d4ae3c26ae6b53d96abe618e9a6ca9ae8cf
+  linux_arm64: 795add5af602f536a77fc2def8e10a83c5d62f4d90037a10a4536c76f1090981
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

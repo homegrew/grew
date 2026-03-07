@@ -1,0 +1,21 @@
+name: jellyfish
+version: 2.3.1
+description: Fast, memory-efficient counting of DNA k-mers
+homepage: https://github.com/gmarcais/Jellyfish
+license: BSD-3-Clause OR GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jellyfish/blobs/sha256:7fcaa4101e6f6b41b3223d25c59adb132e856ea2f3068fa18acfcf1ea837092e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jellyfish/blobs/sha256:5cea64914e0780caa84ed59a40def3e32711715e5459f4a49b29e9bdcdf374c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jellyfish/blobs/sha256:105fae95b5a56dea674d9e6f97e6dadde81372f86b3c3dc8303548460dfb376e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jellyfish/blobs/sha256:a85634ad3dd7342122d1298e2ff0971e6a0807da1b36c46997a01d25a39bae19
+sha256:
+  darwin_arm64: 7fcaa4101e6f6b41b3223d25c59adb132e856ea2f3068fa18acfcf1ea837092e
+  darwin_amd64: 5cea64914e0780caa84ed59a40def3e32711715e5459f4a49b29e9bdcdf374c4
+  linux_amd64: 105fae95b5a56dea674d9e6f97e6dadde81372f86b3c3dc8303548460dfb376e
+  linux_arm64: a85634ad3dd7342122d1298e2ff0971e6a0807da1b36c46997a01d25a39bae19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - htslib

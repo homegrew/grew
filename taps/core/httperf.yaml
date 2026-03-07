@@ -1,0 +1,21 @@
+name: httperf
+version: 0.9.0
+description: Tool for measuring webserver performance
+homepage: https://github.com/httperf/httperf
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httperf/blobs/sha256:71e96d3ce855016759a6c5004a232db5f8d63883bc1760356566a0b8484d6a4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httperf/blobs/sha256:3ca6eec51c2712c64eb58bab12064953826af672d843171672f6d60fb034df0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httperf/blobs/sha256:da0a7ad0ca9b357505cc3c26fa174dd7c4f289e2054e654eb82e2678aad8dc74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httperf/blobs/sha256:1b14593cb779357511b91b27d4de352324c2eafa8390353cdc7e8332ca230443
+sha256:
+  darwin_arm64: 71e96d3ce855016759a6c5004a232db5f8d63883bc1760356566a0b8484d6a4d
+  darwin_amd64: 3ca6eec51c2712c64eb58bab12064953826af672d843171672f6d60fb034df0c
+  linux_amd64: da0a7ad0ca9b357505cc3c26fa174dd7c4f289e2054e654eb82e2678aad8dc74
+  linux_arm64: 1b14593cb779357511b91b27d4de352324c2eafa8390353cdc7e8332ca230443
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,11 @@
+name: tidal
+version: 2.39.5
+description: Music streaming service with high fidelity sound and hi-def video quality
+homepage: https://tidal.com/
+url:
+  darwin_arm64: https://download.tidal.com/desktop/mac/TIDAL.arm64.2.39.5.zip
+sha256:
+  darwin_arm64: 4ba8a1a8e33f6069617916a94533fe143bea2ed4b42b375ba7deab88ecd6362e
+artifacts:
+  app:
+    - TIDAL.app

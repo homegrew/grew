@@ -1,0 +1,24 @@
+name: hydra
+version: 9.6
+description: Network logon cracker which supports many services
+homepage: https://github.com/vanhauser-thc/thc-hydra
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hydra/blobs/sha256:1da116ec3e9e0c199532be9dab820da943fd90882a26c4299e5784783b680af2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hydra/blobs/sha256:32ae8946b3891da2b56df93f7de828243be8498ddbca4e4a20b3864c9f052dd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hydra/blobs/sha256:e062f5c8583970cd8fff70e7f4ae8ead1b2514c8e4d0fac47422990aa21940ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hydra/blobs/sha256:564ffb41b6e522fd8a13fc3ae634aa888144c66216198a96dd81d61ee2ba6205
+sha256:
+  darwin_arm64: 1da116ec3e9e0c199532be9dab820da943fd90882a26c4299e5784783b680af2
+  darwin_amd64: 32ae8946b3891da2b56df93f7de828243be8498ddbca4e4a20b3864c9f052dd4
+  linux_amd64: e062f5c8583970cd8fff70e7f4ae8ead1b2514c8e4d0fac47422990aa21940ae
+  linux_arm64: 564ffb41b6e522fd8a13fc3ae634aa888144c66216198a96dd81d61ee2ba6205
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libssh
+  - mariadb-connector-c
+  - openssl@3
+  - pcre2

@@ -1,0 +1,17 @@
+name: kotlin-native
+version: 2.3.10
+description: LLVM backend for Kotlin
+homepage: https://kotlinlang.org/docs/reference/native-overview.html
+url:
+  darwin_arm64: https://github.com/JetBrains/kotlin/releases/download/v2.3.10/kotlin-native-prebuilt-macos-aarch64-2.3.10.tar.gz
+sha256:
+  darwin_arm64: 6726393c58b504991034ec4cc54745efe65446c30cdb5329657d26a91a6ddcb3
+artifacts:
+  bin:
+    - cinterop
+    - generate-platform
+    - klib
+    - konan-lldb
+    - konanc
+    - kotlinc-native
+    - run_konan

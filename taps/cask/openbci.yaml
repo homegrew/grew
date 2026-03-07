@@ -1,0 +1,11 @@
+name: openbci
+version: 6.0.0,beta.1
+description: Connect to OpenBCI hardware, visualise and stream physiological data
+homepage: https://openbci.com/
+url:
+  darwin_arm64: https://github.com/OpenBCI/OpenBCI_GUI/releases/download/v6.0.0-beta.1/openbcigui_v6.0.0-beta.1_macosx.dmg
+sha256:
+  darwin_arm64: 4170c88adef9c5aba80e7b43155716729b871db0058f8f22374f828b2a7ddfde
+artifacts:
+  app:
+    - OpenBCI_GUI.app

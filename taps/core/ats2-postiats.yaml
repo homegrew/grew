@@ -1,0 +1,21 @@
+name: ats2-postiats
+version: 0.4.2
+description: Programming language with formal specification features
+homepage: https://www.cs.bu.edu/~hwxi/atslangweb/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ats2-postiats/blobs/sha256:d971aa331b5bb0f2efb3e34658fbc4fdf590dbfaffc3c257f4c16ac177ff6821
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ats2-postiats/blobs/sha256:8237ef66fb0b9a07269662b74692cab6553440ed113d2b40fd1f304915b60711
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ats2-postiats/blobs/sha256:6a8f6e305de82f8adcdd01b2533de14fe9d9209d3cf9f0253ec64e5088dcc155
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ats2-postiats/blobs/sha256:03245b8efbf85b96591b28ec06ca32b8c7da1b5dcdb8bf32c62dda500b98e5f7
+sha256:
+  darwin_arm64: d971aa331b5bb0f2efb3e34658fbc4fdf590dbfaffc3c257f4c16ac177ff6821
+  darwin_amd64: 8237ef66fb0b9a07269662b74692cab6553440ed113d2b40fd1f304915b60711
+  linux_amd64: 6a8f6e305de82f8adcdd01b2533de14fe9d9209d3cf9f0253ec64e5088dcc155
+  linux_arm64: 03245b8efbf85b96591b28ec06ca32b8c7da1b5dcdb8bf32c62dda500b98e5f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

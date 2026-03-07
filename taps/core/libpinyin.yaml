@@ -1,0 +1,23 @@
+name: libpinyin
+version: 2.10.3
+description: Library to deal with pinyin
+homepage: https://github.com/libpinyin/libpinyin
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpinyin/blobs/sha256:de407b23ef3deebd69bdda4160591705884a7b45fcf63518867f7218534dce74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpinyin/blobs/sha256:c152806d01f00326521a8da08f1e4509d0b19a449e10f2dca16bbe2e08340164
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpinyin/blobs/sha256:e4bf5113220b57a9691995f825b0171c9bba1c63fd0aee0e9c6eb9c2f8023c44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpinyin/blobs/sha256:9a06f3065cfd258fa3e25994e1067d57b2ee59f999f3441ad8b00174b198bf5d
+sha256:
+  darwin_arm64: de407b23ef3deebd69bdda4160591705884a7b45fcf63518867f7218534dce74
+  darwin_amd64: c152806d01f00326521a8da08f1e4509d0b19a449e10f2dca16bbe2e08340164
+  linux_amd64: e4bf5113220b57a9691995f825b0171c9bba1c63fd0aee0e9c6eb9c2f8023c44
+  linux_arm64: 9a06f3065cfd258fa3e25994e1067d57b2ee59f999f3441ad8b00174b198bf5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - berkeley-db
+  - gettext

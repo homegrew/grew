@@ -1,0 +1,24 @@
+name: lexicon
+version: 3.23.2
+description: Manipulate DNS records on various DNS providers in a standardized way
+homepage: https://github.com/dns-lexicon/dns-lexicon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lexicon/blobs/sha256:f3ab61fa699b27e1aff97590c1afdb674c926177b9e519f971e8cc580413253c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lexicon/blobs/sha256:81170a4604208b5fb90c6920d8d22e54ffe42db440c9f0e5da96d2925c13a86b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lexicon/blobs/sha256:4859c64aea5d7c700e6be017b5d90a39e259380d17231dfdcc099923658a48fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lexicon/blobs/sha256:e90d0148fc80a5bfcf3be52e11778fd178f5b42db199f4c54e29702d0a3303ca
+sha256:
+  darwin_arm64: f3ab61fa699b27e1aff97590c1afdb674c926177b9e519f971e8cc580413253c
+  darwin_amd64: 81170a4604208b5fb90c6920d8d22e54ffe42db440c9f0e5da96d2925c13a86b
+  linux_amd64: 4859c64aea5d7c700e6be017b5d90a39e259380d17231dfdcc099923658a48fe
+  linux_arm64: e90d0148fc80a5bfcf3be52e11778fd178f5b42db199f4c54e29702d0a3303ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

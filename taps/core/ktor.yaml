@@ -1,0 +1,19 @@
+name: ktor
+version: 0.5.0
+description: Generates Ktor projects through the command-line interface
+homepage: https://github.com/ktorio/ktor-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktor/blobs/sha256:80dcedda4ea9f655c16984014ca3b31d5602f7920d20af606d48fc13424bc81f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktor/blobs/sha256:b348f62c90905932ac7a0758eddb06ba18f61415034790c0d1cfb867e3512d5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktor/blobs/sha256:e3d5add07175e7adaab1079cd90d759fedd35ab162f57268c511a23d388164c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktor/blobs/sha256:0e58b14f78b06fc59b575bbb1c624bba3ce15888a2c01073b358c31f47dc1920
+sha256:
+  darwin_arm64: 80dcedda4ea9f655c16984014ca3b31d5602f7920d20af606d48fc13424bc81f
+  darwin_amd64: b348f62c90905932ac7a0758eddb06ba18f61415034790c0d1cfb867e3512d5e
+  linux_amd64: e3d5add07175e7adaab1079cd90d759fedd35ab162f57268c511a23d388164c1
+  linux_arm64: 0e58b14f78b06fc59b575bbb1c624bba3ce15888a2c01073b358c31f47dc1920
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

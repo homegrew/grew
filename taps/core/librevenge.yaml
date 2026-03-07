@@ -1,0 +1,19 @@
+name: librevenge
+version: 0.0.5
+description: Base library for writing document import filters
+homepage: https://sourceforge.net/p/libwpd/wiki/librevenge/
+license: LGPL-2.1-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librevenge/blobs/sha256:facf55a083cd1ced9b8d830f69bc324721fec9fd04ae71c39c8cb86bd0e2d6e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librevenge/blobs/sha256:a2eedb69f6bee6315ecd3bc943aede16981a396afd64a0485f89745393d36ee2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librevenge/blobs/sha256:8aaa3a093a95ef3606ae834193919e16384b5161ded94cae54fb5d005fc3c269
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librevenge/blobs/sha256:afcdbbc6e5a973ec55ff425bef158b615e3848aec37c5451b2164aba68064823
+sha256:
+  darwin_arm64: facf55a083cd1ced9b8d830f69bc324721fec9fd04ae71c39c8cb86bd0e2d6e1
+  darwin_amd64: a2eedb69f6bee6315ecd3bc943aede16981a396afd64a0485f89745393d36ee2
+  linux_amd64: 8aaa3a093a95ef3606ae834193919e16384b5161ded94cae54fb5d005fc3c269
+  linux_arm64: afcdbbc6e5a973ec55ff425bef158b615e3848aec37c5451b2164aba68064823
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

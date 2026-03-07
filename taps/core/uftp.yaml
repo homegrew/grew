@@ -1,0 +1,21 @@
+name: uftp
+version: 5.0.3
+description: Secure, reliable, efficient multicast file transfer program
+homepage: https://uftp-multicast.sourceforge.net/
+license: GPL-3.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uftp/blobs/sha256:fb631c49f47b8e3f94c295c6257e61c7caa441d37f40a8f9ffa8d80a9db30a94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uftp/blobs/sha256:767d6bb0732fc7caf62d2a83cefd46e505ab1f26a1fe37fd74121716bae96945
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uftp/blobs/sha256:dd8ee6610e199b5cd9fbc20357597205bce8d7a9c92937e45ab0287ee11aa3fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uftp/blobs/sha256:4335c5c6de511f66172229cfedec62145ddf1f408b48e14b732c457e861fd746
+sha256:
+  darwin_arm64: fb631c49f47b8e3f94c295c6257e61c7caa441d37f40a8f9ffa8d80a9db30a94
+  darwin_amd64: 767d6bb0732fc7caf62d2a83cefd46e505ab1f26a1fe37fd74121716bae96945
+  linux_amd64: dd8ee6610e199b5cd9fbc20357597205bce8d7a9c92937e45ab0287ee11aa3fc
+  linux_arm64: 4335c5c6de511f66172229cfedec62145ddf1f408b48e14b732c457e861fd746
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,19 @@
+name: texinfo
+version: 7.3
+description: Official documentation format of the GNU project
+homepage: https://www.gnu.org/software/texinfo/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texinfo/blobs/sha256:af864341784c9958f6ce991fa0e0bc3b5727dfc7c8f53a90cbf2339e080c2232
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texinfo/blobs/sha256:0e80a4ba0a2a3a48eebb8078f1c79fe563e374c3c2ed77642901941fc42e015c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texinfo/blobs/sha256:0dd622bb0151013803cdf5977f76cf78622fcb92478062d6ce2612199f7a049f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texinfo/blobs/sha256:ae0c709a08d1e093bddc8c4c4f696592e38faed5c261d020f027dcf195425ddc
+sha256:
+  darwin_arm64: af864341784c9958f6ce991fa0e0bc3b5727dfc7c8f53a90cbf2339e080c2232
+  darwin_amd64: 0e80a4ba0a2a3a48eebb8078f1c79fe563e374c3c2ed77642901941fc42e015c
+  linux_amd64: 0dd622bb0151013803cdf5977f76cf78622fcb92478062d6ce2612199f7a049f
+  linux_arm64: ae0c709a08d1e093bddc8c4c4f696592e38faed5c261d020f027dcf195425ddc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

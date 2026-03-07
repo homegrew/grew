@@ -1,0 +1,25 @@
+name: papilo
+version: 3.0.0
+description: Parallel Presolve for Integer and Linear Optimization
+homepage: https://www.scipopt.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/papilo/blobs/sha256:a1320db9618673e5c386ff01e51a8d1149ea4256af5a0ebd29e40d583a1fa1fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/papilo/blobs/sha256:ff305549fa0ed755929a6a1e867c17f701edad2a3c1b28237fd00ad135b95208
+  linux_amd64: https://ghcr.io/v2/homebrew/core/papilo/blobs/sha256:2eded04a5c86ade186af3e87771793527b9cb31375d536ccdab75825be04207b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/papilo/blobs/sha256:822a814fb78d09c5a3754d8e4bf93f03c545c334ecead90c6c1ad84fb4df1c4c
+sha256:
+  darwin_arm64: a1320db9618673e5c386ff01e51a8d1149ea4256af5a0ebd29e40d583a1fa1fc
+  darwin_amd64: ff305549fa0ed755929a6a1e867c17f701edad2a3c1b28237fd00ad135b95208
+  linux_amd64: 2eded04a5c86ade186af3e87771793527b9cb31375d536ccdab75825be04207b
+  linux_arm64: 822a814fb78d09c5a3754d8e4bf93f03c545c334ecead90c6c1ad84fb4df1c4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - gcc
+  - gmp
+  - openblas
+  - tbb

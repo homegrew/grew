@@ -1,0 +1,17 @@
+name: android-platform-tools
+version: 36.0.2
+description: Android SDK component
+homepage: https://developer.android.com/tools/releases/platform-tools
+url:
+  darwin_arm64: https://dl.google.com/android/repository/platform-tools_r36.0.2-darwin.zip
+sha256:
+  darwin_arm64: 106a5d31fad8c1c0c5a180d06f5779767d129d7d5edbe629005c11a85eec5b4b
+artifacts:
+  bin:
+    - adb
+    - etc1tool
+    - fastboot
+    - hprof-conv
+    - make_f2fs
+    - make_f2fs_casefold
+    - mke2fs

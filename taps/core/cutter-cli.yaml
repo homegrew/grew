@@ -1,0 +1,22 @@
+name: cutter-cli
+version: 1.2.9
+description: Unit Testing Framework for C and C++
+homepage: https://github.com/clear-code/cutter
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cutter-cli/blobs/sha256:2fdeb139a7a097e21c0b3af2d95875b73e8377865422a960b87dc4a632a09122
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cutter-cli/blobs/sha256:26430181959f637d2eff67e251bca6e8514d9f3c23c888ca04cd65ead28b1092
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cutter-cli/blobs/sha256:25bb198a72fcaa22ec6b5240ed0e0c3da587e0cfae7c1663e2b464a5de2af13f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cutter-cli/blobs/sha256:80317a429c5daf9d5160e61074aadf4f89a2f853067c3883ae46fcefd368d82e
+sha256:
+  darwin_arm64: 2fdeb139a7a097e21c0b3af2d95875b73e8377865422a960b87dc4a632a09122
+  darwin_amd64: 26430181959f637d2eff67e251bca6e8514d9f3c23c888ca04cd65ead28b1092
+  linux_amd64: 25bb198a72fcaa22ec6b5240ed0e0c3da587e0cfae7c1663e2b464a5de2af13f
+  linux_arm64: 80317a429c5daf9d5160e61074aadf4f89a2f853067c3883ae46fcefd368d82e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

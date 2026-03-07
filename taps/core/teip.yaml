@@ -1,0 +1,21 @@
+name: teip
+version: 2.3.2
+description: "Masking tape to help commands \"do one thing well\""
+homepage: https://github.com/greymd/teip
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/teip/blobs/sha256:d5cf074867fb73e8e9d8553194cf8672c935c5921b969051b321021050ee841d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/teip/blobs/sha256:3f757977cbafda79df194a8e162bd144236fc7c4bbb7ec3c3adc389130470a3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/teip/blobs/sha256:82477350d16f0ce242352d7d6046fb2a1a2024cd9ba064219012e5c451d9b582
+  linux_arm64: https://ghcr.io/v2/homebrew/core/teip/blobs/sha256:e5278da10c0acf92bf08183e58fe34b4c000fa56923afb1e12f8352fb296f10f
+sha256:
+  darwin_arm64: d5cf074867fb73e8e9d8553194cf8672c935c5921b969051b321021050ee841d
+  darwin_amd64: 3f757977cbafda79df194a8e162bd144236fc7c4bbb7ec3c3adc389130470a3a
+  linux_amd64: 82477350d16f0ce242352d7d6046fb2a1a2024cd9ba064219012e5c451d9b582
+  linux_arm64: e5278da10c0acf92bf08183e58fe34b4c000fa56923afb1e12f8352fb296f10f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

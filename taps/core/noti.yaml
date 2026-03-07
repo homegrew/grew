@@ -1,0 +1,19 @@
+name: noti
+version: 3.8.0
+description: Trigger notifications when a process completes
+homepage: https://github.com/variadico/noti
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/noti/blobs/sha256:9df5cb0595eeccab3df88d19535d8c4959ddb31edebd05ebdaab5f256698a528
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/noti/blobs/sha256:9f755675d0005c92a27b5505e203225dfe64b9bf6715b49bb7840850454c5546
+  linux_amd64: https://ghcr.io/v2/homebrew/core/noti/blobs/sha256:57b3aa7759166c18af61e9a49704e7673f7b9f439eb562447d4bf12c3d6baaec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/noti/blobs/sha256:d00980419a447dfbf768ee6cbe98155fe6359b77a860cbfd05977b9d07fb515e
+sha256:
+  darwin_arm64: 9df5cb0595eeccab3df88d19535d8c4959ddb31edebd05ebdaab5f256698a528
+  darwin_amd64: 9f755675d0005c92a27b5505e203225dfe64b9bf6715b49bb7840850454c5546
+  linux_amd64: 57b3aa7759166c18af61e9a49704e7673f7b9f439eb562447d4bf12c3d6baaec
+  linux_arm64: d00980419a447dfbf768ee6cbe98155fe6359b77a860cbfd05977b9d07fb515e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

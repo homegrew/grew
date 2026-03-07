@@ -1,0 +1,17 @@
+name: wildfly-as
+version: 39.0.1
+description: Managed application runtime for building applications
+homepage: https://www.wildfly.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wildfly-as/blobs/sha256:517a2a569b58e638fca4cb6fe98229af72d3ae567a7293d6d2516df00a05ceb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wildfly-as/blobs/sha256:f64f965a4165eccc9a83ddf2ed5358eff7ac790c904c59d801c36baa54e54d13
+sha256:
+  darwin_arm64: 517a2a569b58e638fca4cb6fe98229af72d3ae567a7293d6d2516df00a05ceb8
+  darwin_amd64: f64f965a4165eccc9a83ddf2ed5358eff7ac790c904c59d801c36baa54e54d13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

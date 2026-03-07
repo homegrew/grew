@@ -1,0 +1,21 @@
+name: translate-toolkit
+version: 3.19.3
+description: Toolkit for localization engineers
+homepage: https://toolkit.translatehouse.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/translate-toolkit/blobs/sha256:8879871aba56b078b10ea24d59c00d26a28261f2c659b6bc184f13515734374f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/translate-toolkit/blobs/sha256:22896ce5061695c01eb88776077830f69f00b39004f1d6170f75f86e19d52403
+  linux_amd64: https://ghcr.io/v2/homebrew/core/translate-toolkit/blobs/sha256:b944aa227f447efceb0de9279e84a9834021a66f35277f6d342aff8d2d839fff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/translate-toolkit/blobs/sha256:9897bdef73780e4e4fcac8edcf5f82bed5f26ea7f317d13bb628f89a10d603ac
+sha256:
+  darwin_arm64: 8879871aba56b078b10ea24d59c00d26a28261f2c659b6bc184f13515734374f
+  darwin_amd64: 22896ce5061695c01eb88776077830f69f00b39004f1d6170f75f86e19d52403
+  linux_amd64: b944aa227f447efceb0de9279e84a9834021a66f35277f6d342aff8d2d839fff
+  linux_arm64: 9897bdef73780e4e4fcac8edcf5f82bed5f26ea7f317d13bb628f89a10d603ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

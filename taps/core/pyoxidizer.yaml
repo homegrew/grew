@@ -1,0 +1,19 @@
+name: pyoxidizer
+version: 0.24.0
+description: Modern Python application packaging and distribution tool
+homepage: https://github.com/indygreg/PyOxidizer
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyoxidizer/blobs/sha256:c7abbaf7e9a5308e6235da7568798a3520450eb78626615f08a40f5739de5a3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyoxidizer/blobs/sha256:5ef7aac85b9e30d86343ca1e51b84991ad4db83aff58bf885aef6b43218005ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyoxidizer/blobs/sha256:0648492b46bc163e396b0e6e2ca99350a937476050c158dd5d8a32b9b0fc102d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyoxidizer/blobs/sha256:b3ddb85f14631d16c2ab17e117fb82e8a418bacce1c5dd54a6fe848dff4e13f8
+sha256:
+  darwin_arm64: c7abbaf7e9a5308e6235da7568798a3520450eb78626615f08a40f5739de5a3f
+  darwin_amd64: 5ef7aac85b9e30d86343ca1e51b84991ad4db83aff58bf885aef6b43218005ac
+  linux_amd64: 0648492b46bc163e396b0e6e2ca99350a937476050c158dd5d8a32b9b0fc102d
+  linux_arm64: b3ddb85f14631d16c2ab17e117fb82e8a418bacce1c5dd54a6fe848dff4e13f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

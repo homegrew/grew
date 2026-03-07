@@ -1,0 +1,19 @@
+name: sift
+version: 0.9.1
+description: Fast and powerful open source alternative to grep
+homepage: https://sift-tool.org/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sift/blobs/sha256:655e72bea4067d0efcb64e7a30567f731f5da7000dada2108e23d5258cfde003
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sift/blobs/sha256:9cf4c21ca183eea4c5d7031685975c760e412846d86d342330341bf95a496088
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sift/blobs/sha256:04005aa704e77c1fa17c74460f034c5d4fc5de4f0616a9fc89c3dc062e361cf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sift/blobs/sha256:efb32c37bf0037c1ebe9102241235e991670c70c3fcd1bb58c03660a01a09b06
+sha256:
+  darwin_arm64: 655e72bea4067d0efcb64e7a30567f731f5da7000dada2108e23d5258cfde003
+  darwin_amd64: 9cf4c21ca183eea4c5d7031685975c760e412846d86d342330341bf95a496088
+  linux_amd64: 04005aa704e77c1fa17c74460f034c5d4fc5de4f0616a9fc89c3dc062e361cf9
+  linux_arm64: efb32c37bf0037c1ebe9102241235e991670c70c3fcd1bb58c03660a01a09b06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

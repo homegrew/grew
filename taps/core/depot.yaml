@@ -1,0 +1,19 @@
+name: depot
+version: 2.101.14
+description: Build your Docker images in the cloud
+homepage: https://depot.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/depot/blobs/sha256:a37876cdb11961cadf58e032c21cb1cf421ee992e956a3eec82ad7d2cb2da06f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/depot/blobs/sha256:9c4580c0d7c546316ba8015cc75d65b7c2ff8a97d23f82ed0d19e3c844c058da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/depot/blobs/sha256:09c942bcdbffc21d91ef85b2910564de6ec08c297150f831b6a9f19fc28f5e08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/depot/blobs/sha256:bd0c687d7cea2fafcb93e17dcc68ec40c266160b3a11823e4bbe01015ea6a3b5
+sha256:
+  darwin_arm64: a37876cdb11961cadf58e032c21cb1cf421ee992e956a3eec82ad7d2cb2da06f
+  darwin_amd64: 9c4580c0d7c546316ba8015cc75d65b7c2ff8a97d23f82ed0d19e3c844c058da
+  linux_amd64: 09c942bcdbffc21d91ef85b2910564de6ec08c297150f831b6a9f19fc28f5e08
+  linux_arm64: bd0c687d7cea2fafcb93e17dcc68ec40c266160b3a11823e4bbe01015ea6a3b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

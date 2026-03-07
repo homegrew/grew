@@ -1,0 +1,19 @@
+name: rink
+version: 0.8.0
+description: Unit conversion tool and library written in rust
+homepage: https://rinkcalc.app/about
+license: MPL-2.0 AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rink/blobs/sha256:df19bb6db1b7a86bb97c95d46bde65c6fa3b5087113dad4998fe445bcee51f74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rink/blobs/sha256:9234380040a1d54dc20603d586e77fd048230161aa5e01277b1df37d4bf8dbc4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rink/blobs/sha256:1e35ad2886b530ae14cf1e7f1189783a19dde7fe5c67b252265c3ab6afbc6791
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rink/blobs/sha256:15bd40dc2af1906f79d681d5d5ff2088f415e818d219dd2c1afc4156fb931ba9
+sha256:
+  darwin_arm64: df19bb6db1b7a86bb97c95d46bde65c6fa3b5087113dad4998fe445bcee51f74
+  darwin_amd64: 9234380040a1d54dc20603d586e77fd048230161aa5e01277b1df37d4bf8dbc4
+  linux_amd64: 1e35ad2886b530ae14cf1e7f1189783a19dde7fe5c67b252265c3ab6afbc6791
+  linux_arm64: 15bd40dc2af1906f79d681d5d5ff2088f415e818d219dd2c1afc4156fb931ba9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

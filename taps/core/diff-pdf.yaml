@@ -1,0 +1,25 @@
+name: diff-pdf
+version: 0.5.2
+description: Visually compare two PDF files
+homepage: https://vslavik.github.io/diff-pdf/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diff-pdf/blobs/sha256:39d3ffa2ca4a7c23b19d569d3ad80308cb2a427ee9386024770f27ee48bfe1ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diff-pdf/blobs/sha256:5edf62102c1b6662823fc3a6c897b9c94c837251d3d969e69f573daf3129b864
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diff-pdf/blobs/sha256:8ce93415222a7df01057095309882ee6b32a02f5fc5d175bc8779567ebd76b7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diff-pdf/blobs/sha256:8ed5d51b2b1950bacc69831b82141f87a1d34ff9cf7344b1dba6c7f2f472de8e
+sha256:
+  darwin_arm64: 39d3ffa2ca4a7c23b19d569d3ad80308cb2a427ee9386024770f27ee48bfe1ef
+  darwin_amd64: 5edf62102c1b6662823fc3a6c897b9c94c837251d3d969e69f573daf3129b864
+  linux_amd64: 8ce93415222a7df01057095309882ee6b32a02f5fc5d175bc8779567ebd76b7b
+  linux_arm64: 8ed5d51b2b1950bacc69831b82141f87a1d34ff9cf7344b1dba6c7f2f472de8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - poppler
+  - wxwidgets@3.2
+  - gettext

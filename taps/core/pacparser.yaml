@@ -1,0 +1,19 @@
+name: pacparser
+version: 1.5.0
+description: Library to parse proxy auto-config (PAC) files
+homepage: https://github.com/manugarg/pacparser
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pacparser/blobs/sha256:39a44126df3d44f59c8715dc936e8ced528626c06b115990e3ec13e8ac56f8ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pacparser/blobs/sha256:063baea8c6d415189ab1f448afb5ec5cbf67d5edf17fb0cd488617ced915ca66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pacparser/blobs/sha256:52fe3751f79b2bfcbd8019ddfd9d9b2050854bd779e9ebbcb2b367c83e1b31a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pacparser/blobs/sha256:6f7df8ad84a4fcf3f60884dee60d65897b724b82f6a6c347abbb1bd0997dba1a
+sha256:
+  darwin_arm64: 39a44126df3d44f59c8715dc936e8ced528626c06b115990e3ec13e8ac56f8ca
+  darwin_amd64: 063baea8c6d415189ab1f448afb5ec5cbf67d5edf17fb0cd488617ced915ca66
+  linux_amd64: 52fe3751f79b2bfcbd8019ddfd9d9b2050854bd779e9ebbcb2b367c83e1b31a7
+  linux_arm64: 6f7df8ad84a4fcf3f60884dee60d65897b724b82f6a6c347abbb1bd0997dba1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

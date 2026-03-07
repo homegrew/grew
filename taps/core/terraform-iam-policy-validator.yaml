@@ -1,0 +1,22 @@
+name: terraform-iam-policy-validator
+version: 0.0.9
+description: CLI to validate AWS IAM policies in Terraform templates for best practices
+homepage: https://github.com/awslabs/terraform-iam-policy-validator
+license: MIT-0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-iam-policy-validator/blobs/sha256:fa92c957894d7bb18c16f94805a161224543dca85c62435ad8d1eb67b40d134b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-iam-policy-validator/blobs/sha256:8f41ec6727f2c24b9b5da9152c50a1def43f34d8bd3646f689880c19db402274
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-iam-policy-validator/blobs/sha256:f4b848d3c6acfb9af196ea920911cf0abb09ff24f2539db72b07aa3374b70c04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-iam-policy-validator/blobs/sha256:b80c51ff935222abb97911171d961f8172742875edea329979bcab1328be643f
+sha256:
+  darwin_arm64: fa92c957894d7bb18c16f94805a161224543dca85c62435ad8d1eb67b40d134b
+  darwin_amd64: 8f41ec6727f2c24b9b5da9152c50a1def43f34d8bd3646f689880c19db402274
+  linux_amd64: f4b848d3c6acfb9af196ea920911cf0abb09ff24f2539db72b07aa3374b70c04
+  linux_arm64: b80c51ff935222abb97911171d961f8172742875edea329979bcab1328be643f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

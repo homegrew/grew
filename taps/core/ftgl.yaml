@@ -1,0 +1,21 @@
+name: ftgl
+version: 2.1.3-rc5
+description: Freetype / OpenGL bridge
+homepage: https://sourceforge.net/projects/ftgl/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ftgl/blobs/sha256:12ddf881165473de8bdeaecb87995c36f753ca51a5be48404e5ffcf2c1571205
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ftgl/blobs/sha256:8d04c4e2fedf981269b941a69634b3fe4bcc0a3f54730c58c186823b0c7c5958
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ftgl/blobs/sha256:a53d8292298b4c6974e04fd8ab744860aec65b58149a704d9e2dad61aba0c4f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ftgl/blobs/sha256:4b6add1f77c741b0d4cf01aba4fc3a7613b66d38d0f74ce06fcc571629270b11
+sha256:
+  darwin_arm64: 12ddf881165473de8bdeaecb87995c36f753ca51a5be48404e5ffcf2c1571205
+  darwin_amd64: 8d04c4e2fedf981269b941a69634b3fe4bcc0a3f54730c58c186823b0c7c5958
+  linux_amd64: a53d8292298b4c6974e04fd8ab744860aec65b58149a704d9e2dad61aba0c4f6
+  linux_arm64: 4b6add1f77c741b0d4cf01aba4fc3a7613b66d38d0f74ce06fcc571629270b11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype

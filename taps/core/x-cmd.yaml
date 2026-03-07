@@ -1,0 +1,19 @@
+name: x-cmd
+version: 0.8.3
+description: Bootstrap 1000+ command-line tools in seconds
+homepage: https://x-cmd.com
+license: Apache-2.0 AND MIT AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x-cmd/blobs/sha256:882b7e107bceb8e07d96ed2a277df1770fc268f350ddf892dfdc52f959fdeb01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x-cmd/blobs/sha256:7f30591f1bc70562022ebed67383cbbd83a907c52e68180e4ba8d49830197585
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x-cmd/blobs/sha256:a2e4d89e83068fe95f9fc89dc4a052f8abefd332ef615333a659706360b86181
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x-cmd/blobs/sha256:a2e4d89e83068fe95f9fc89dc4a052f8abefd332ef615333a659706360b86181
+sha256:
+  darwin_arm64: 882b7e107bceb8e07d96ed2a277df1770fc268f350ddf892dfdc52f959fdeb01
+  darwin_amd64: 7f30591f1bc70562022ebed67383cbbd83a907c52e68180e4ba8d49830197585
+  linux_amd64: a2e4d89e83068fe95f9fc89dc4a052f8abefd332ef615333a659706360b86181
+  linux_arm64: a2e4d89e83068fe95f9fc89dc4a052f8abefd332ef615333a659706360b86181
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

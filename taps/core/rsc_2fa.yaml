@@ -1,0 +1,19 @@
+name: rsc_2fa
+version: 1.2.0
+description: Two-factor authentication on the command-line
+homepage: https://pkg.go.dev/rsc.io/2fa
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsc_2fa/blobs/sha256:c32203c0d299aacfd3587e37f7bced92c8e19361b6f8665ccc47518f49949ecd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsc_2fa/blobs/sha256:9fe85bab87545f8cae9c24f71f5a14020032d169a0172e9509352eaf6aa16dc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsc_2fa/blobs/sha256:71c943ce568138c782321aaa436adf79d194707bd140f82b50046aff80851e3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsc_2fa/blobs/sha256:1bd79a650b944690c714fbcb94ccdd70424082eccab025081d98eb52dfc6ff2e
+sha256:
+  darwin_arm64: c32203c0d299aacfd3587e37f7bced92c8e19361b6f8665ccc47518f49949ecd
+  darwin_amd64: 9fe85bab87545f8cae9c24f71f5a14020032d169a0172e9509352eaf6aa16dc3
+  linux_amd64: 71c943ce568138c782321aaa436adf79d194707bd140f82b50046aff80851e3c
+  linux_arm64: 1bd79a650b944690c714fbcb94ccdd70424082eccab025081d98eb52dfc6ff2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

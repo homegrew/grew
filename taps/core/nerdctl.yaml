@@ -1,0 +1,15 @@
+name: nerdctl
+version: 2.2.1
+description: ContaiNERD CTL - Docker-compatible CLI for containerd
+homepage: https://github.com/containerd/nerdctl
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nerdctl/blobs/sha256:482ba7a0f51fec5cb4ad63f904eeee97bfaf1ceb76e26504321d449478a4cc06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nerdctl/blobs/sha256:c81283953a5fc7c7241d99b615ddd6d5bc15ca9c38aa0b7c7f1aca3f9531a88f
+sha256:
+  linux_amd64: 482ba7a0f51fec5cb4ad63f904eeee97bfaf1ceb76e26504321d449478a4cc06
+  linux_arm64: c81283953a5fc7c7241d99b615ddd6d5bc15ca9c38aa0b7c7f1aca3f9531a88f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

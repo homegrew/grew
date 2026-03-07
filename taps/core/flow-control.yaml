@@ -1,0 +1,19 @@
+name: flow-control
+version: 0.7.2
+description: "Programmer's text editor"
+homepage: https://flow-control.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flow-control/blobs/sha256:6f08e640306926634db164cab8993ee3057a97470ea97b9a8085bbd264d926a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flow-control/blobs/sha256:5f793e29a04636d851294a84c93df1087e11240b24f41bed2bd78ba81812302d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flow-control/blobs/sha256:23ea757119c328bc9fc880ec1df320cdead86f29ba3f58d3787f00efe7cd81b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flow-control/blobs/sha256:03827eba7cbd5265192175674b32a4efcb28b856c66fe61a721534289c600a45
+sha256:
+  darwin_arm64: 6f08e640306926634db164cab8993ee3057a97470ea97b9a8085bbd264d926a2
+  darwin_amd64: 5f793e29a04636d851294a84c93df1087e11240b24f41bed2bd78ba81812302d
+  linux_amd64: 23ea757119c328bc9fc880ec1df320cdead86f29ba3f58d3787f00efe7cd81b5
+  linux_arm64: 03827eba7cbd5265192175674b32a4efcb28b856c66fe61a721534289c600a45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

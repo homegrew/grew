@@ -1,0 +1,19 @@
+name: promtail
+version: 3.6.7
+description: Log agent for Loki
+homepage: https://grafana.com/loki
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/promtail/blobs/sha256:f48fb5dc9271f872c256cc83bc1bdd30a6f2d8327dcc8c932588ce0b16f8f922
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/promtail/blobs/sha256:66257ccc3768cf35c6c1afd5144fa6dd4da4a3ac8c59c93beff36a33868b644b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/promtail/blobs/sha256:dd9ddf08ef0bf66effe742801929db14a1af136ce21e86cf1dc3921408937851
+  linux_arm64: https://ghcr.io/v2/homebrew/core/promtail/blobs/sha256:bef2ec5dd4e0abe7cfb5c5f7e3a7a2d5f1a8ab6c2e8296365a488b2c7db0a4ef
+sha256:
+  darwin_arm64: f48fb5dc9271f872c256cc83bc1bdd30a6f2d8327dcc8c932588ce0b16f8f922
+  darwin_amd64: 66257ccc3768cf35c6c1afd5144fa6dd4da4a3ac8c59c93beff36a33868b644b
+  linux_amd64: dd9ddf08ef0bf66effe742801929db14a1af136ce21e86cf1dc3921408937851
+  linux_arm64: bef2ec5dd4e0abe7cfb5c5f7e3a7a2d5f1a8ab6c2e8296365a488b2c7db0a4ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

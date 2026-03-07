@@ -1,0 +1,15 @@
+name: signify-osx
+version: 1.4
+description: Cryptographically sign and verify files
+homepage: https://man.openbsd.org/signify.1
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/signify-osx/blobs/sha256:c842d35a800bb257d062f172d661077ece1018ed30363125aebbed7ee079611f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/signify-osx/blobs/sha256:0ca975d083283f781a14ea2681ca894d2c17cf15b9bdb77c8a0f44070022de85
+sha256:
+  darwin_arm64: c842d35a800bb257d062f172d661077ece1018ed30363125aebbed7ee079611f
+  darwin_amd64: 0ca975d083283f781a14ea2681ca894d2c17cf15b9bdb77c8a0f44070022de85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

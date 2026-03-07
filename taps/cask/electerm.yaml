@@ -1,0 +1,13 @@
+name: electerm
+version: 2.13.0
+description: Terminal/ssh/sftp client
+homepage: https://electerm.html5beta.com/
+url:
+  darwin_arm64: https://github.com/electerm/electerm/releases/download/v2.13.0/electerm-2.13.0-mac-arm64.dmg
+sha256:
+  darwin_arm64: 5225863de7fcfcf5a1db5a3b9d093093b54e23dd665b7e7e7b904fd1f6b65c40
+artifacts:
+  app:
+    - electerm.app
+  bin:
+    - electerm

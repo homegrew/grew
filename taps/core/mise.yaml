@@ -1,0 +1,21 @@
+name: mise
+version: 2026.3.4
+description: Polyglot runtime manager (asdf rust clone)
+homepage: https://mise.jdx.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mise/blobs/sha256:5a556e74f20eb5083e579d9e97b65bac4ffc3fb093789cd484dfb6be25343c6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mise/blobs/sha256:a0db2396e68357c3cc1670b5b43d427abf82477cb948ed18c5aed33e9b7e51f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mise/blobs/sha256:3d848e149179cc2de2177e40941d893e94ca3bdd33f1ff1ebfb7c199a762a093
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mise/blobs/sha256:de222deb3622898872800f960e28341af8ee5a40b38b7f356aa1106fc651ce36
+sha256:
+  darwin_arm64: 5a556e74f20eb5083e579d9e97b65bac4ffc3fb093789cd484dfb6be25343c6d
+  darwin_amd64: a0db2396e68357c3cc1670b5b43d427abf82477cb948ed18c5aed33e9b7e51f9
+  linux_amd64: 3d848e149179cc2de2177e40941d893e94ca3bdd33f1ff1ebfb7c199a762a093
+  linux_arm64: de222deb3622898872800f960e28341af8ee5a40b38b7f356aa1106fc651ce36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - usage

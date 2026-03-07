@@ -1,0 +1,25 @@
+name: ccache
+version: 4.12.3
+description: Object-file caching compiler wrapper
+homepage: https://ccache.dev/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccache/blobs/sha256:d2343f8f3f592c12fe63802123d28de951f80f19d79b0be4779ef09c73d71163
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccache/blobs/sha256:81137fdf64bc0168bdc1f86ba2abaaf985555d1968be6a78c90550a3fb7f85ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccache/blobs/sha256:256746a4e147ff79579272063428df17948cd3828b79d0801ba98672c29c2059
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccache/blobs/sha256:58aebb89907f81842526ea1ba58c0ac4d2312cf49eada64debfa16ee19009718
+sha256:
+  darwin_arm64: d2343f8f3f592c12fe63802123d28de951f80f19d79b0be4779ef09c73d71163
+  darwin_amd64: 81137fdf64bc0168bdc1f86ba2abaaf985555d1968be6a78c90550a3fb7f85ce
+  linux_amd64: 256746a4e147ff79579272063428df17948cd3828b79d0801ba98672c29c2059
+  linux_arm64: 58aebb89907f81842526ea1ba58c0ac4d2312cf49eada64debfa16ee19009718
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - blake3
+  - fmt
+  - hiredis
+  - xxhash
+  - zstd

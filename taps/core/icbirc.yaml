@@ -1,0 +1,15 @@
+name: icbirc
+version: 2.2
+description: Proxy IRC client and ICB server
+homepage: https://www.benzedrine.ch/icbirc.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icbirc/blobs/sha256:c998f5270b13a3a5db9e45e5de4caa5be03068f0d4a2aaa01de14a2269cf696c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icbirc/blobs/sha256:f2f06c70f2aa742d48a0131f67f2c3c1036699888f536d3fa4c05200a5b02de2
+sha256:
+  darwin_arm64: c998f5270b13a3a5db9e45e5de4caa5be03068f0d4a2aaa01de14a2269cf696c
+  darwin_amd64: f2f06c70f2aa742d48a0131f67f2c3c1036699888f536d3fa4c05200a5b02de2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

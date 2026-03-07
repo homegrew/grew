@@ -1,0 +1,19 @@
+name: codec2
+version: 1.2.0
+description: Open source speech codec
+homepage: https://www.rowetel.com/?page_id=452
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codec2/blobs/sha256:efb5e3717cb204bc90d294e0353ed8e610795cd64950a17755eb74add01fcc95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codec2/blobs/sha256:7b47833fb368ab52135288ccc77a4ba01f66a8c92fd396e473be77a151ae2ee4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codec2/blobs/sha256:a63d4e33df59bb6bf81e6db934047a941a95fba6478da884dd7b0a53f418b163
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codec2/blobs/sha256:21f453f1166d76a11abea03a8c8c128234eeb1ba4e87719d0b7b7759f4cf2e86
+sha256:
+  darwin_arm64: efb5e3717cb204bc90d294e0353ed8e610795cd64950a17755eb74add01fcc95
+  darwin_amd64: 7b47833fb368ab52135288ccc77a4ba01f66a8c92fd396e473be77a151ae2ee4
+  linux_amd64: a63d4e33df59bb6bf81e6db934047a941a95fba6478da884dd7b0a53f418b163
+  linux_arm64: 21f453f1166d76a11abea03a8c8c128234eeb1ba4e87719d0b7b7759f4cf2e86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

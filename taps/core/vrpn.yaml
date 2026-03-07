@@ -1,0 +1,23 @@
+name: vrpn
+version: 07.36
+description: Virtual reality peripheral network
+homepage: https://github.com/vrpn/vrpn/wiki
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vrpn/blobs/sha256:7a981cfd4e68e7163f971f6e56085100c03ac7520145e90f7323f2b5c2751934
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vrpn/blobs/sha256:5430e050e017cf4f2be4f9022f0c8619464064c9ce3894cdb5d61447417caae3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vrpn/blobs/sha256:bc618017186b6bad9f673099037a120edae12fcef7cf7ed07820117888b4a4b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vrpn/blobs/sha256:ae557530fbcb369b6ada4d947509c369cb73a4c04705733e15d881a09c0ca5ae
+sha256:
+  darwin_arm64: 7a981cfd4e68e7163f971f6e56085100c03ac7520145e90f7323f2b5c2751934
+  darwin_amd64: 5430e050e017cf4f2be4f9022f0c8619464064c9ce3894cdb5d61447417caae3
+  linux_amd64: bc618017186b6bad9f673099037a120edae12fcef7cf7ed07820117888b4a4b0
+  linux_arm64: ae557530fbcb369b6ada4d947509c369cb73a4c04705733e15d881a09c0ca5ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hidapi
+  - jsoncpp
+  - libusb

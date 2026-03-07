@@ -1,0 +1,19 @@
+name: lua
+version: 5.5.0
+description: Powerful, lightweight programming language
+homepage: https://www.lua.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lua/blobs/sha256:49abafdff9b515d4efaf88f0924674d9bf904a12994d61ee097b895a6acc995e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lua/blobs/sha256:0372a23d7fee9f77f4ec713ad066c9fbb2164571d030e542f196b61fd01ee680
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lua/blobs/sha256:2df2766da50231d52b6f0a24ac465843153bb387c696804548726478217684ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lua/blobs/sha256:71736bbe1a40c02aa07b2588e4b71e2604d707af3327b0e6c2cd9dbcaa8b2f6f
+sha256:
+  darwin_arm64: 49abafdff9b515d4efaf88f0924674d9bf904a12994d61ee097b895a6acc995e
+  darwin_amd64: 0372a23d7fee9f77f4ec713ad066c9fbb2164571d030e542f196b61fd01ee680
+  linux_amd64: 2df2766da50231d52b6f0a24ac465843153bb387c696804548726478217684ea
+  linux_arm64: 71736bbe1a40c02aa07b2588e4b71e2604d707af3327b0e6c2cd9dbcaa8b2f6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sniffer
+version: 0.6.3
+description: Modern alternative network traffic sniffer
+homepage: https://github.com/chenjiandongx/sniffer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sniffer/blobs/sha256:1913f84c2049d323c1a00351af8c08f8e37583e014fbb4e83f30f95be7cdecc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sniffer/blobs/sha256:336a7007da692ead0a69480e2086f7a16e275a1e0d2241edf9ca386d055e9e94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sniffer/blobs/sha256:355872769c22b29aab4af16277847c47cb00fe4965ab90675cd523c55b504e66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sniffer/blobs/sha256:5165aedae90cd16a953bb9ce088139f2bf355d53db4567fe0b5b66c360754bab
+sha256:
+  darwin_arm64: 1913f84c2049d323c1a00351af8c08f8e37583e014fbb4e83f30f95be7cdecc4
+  darwin_amd64: 336a7007da692ead0a69480e2086f7a16e275a1e0d2241edf9ca386d055e9e94
+  linux_amd64: 355872769c22b29aab4af16277847c47cb00fe4965ab90675cd523c55b504e66
+  linux_arm64: 5165aedae90cd16a953bb9ce088139f2bf355d53db4567fe0b5b66c360754bab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

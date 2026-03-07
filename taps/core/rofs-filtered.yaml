@@ -1,0 +1,17 @@
+name: rofs-filtered
+version: 1.7
+description: Filtered read-only filesystem for FUSE
+homepage: https://github.com/gburca/rofs-filtered/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rofs-filtered/blobs/sha256:ae07e1e4a0daa79c067329aeafc4078dd7f74c793ccb1a2ade7c3dedf0f05ade
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rofs-filtered/blobs/sha256:01d57c6c071aacd6dc92a36f807b1e718f6178b8078f1d871d59941a7228670c
+sha256:
+  linux_amd64: ae07e1e4a0daa79c067329aeafc4078dd7f74c793ccb1a2ade7c3dedf0f05ade
+  linux_arm64: 01d57c6c071aacd6dc92a36f807b1e718f6178b8078f1d871d59941a7228670c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse@2

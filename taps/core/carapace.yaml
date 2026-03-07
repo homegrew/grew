@@ -1,0 +1,19 @@
+name: carapace
+version: 1.6.3
+description: Multi-shell multi-command argument completer
+homepage: https://carapace.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carapace/blobs/sha256:355ca0a1ad88f739b1fa8986f9736aa3e57902e4efd3df7fdf4e58f2f11e46bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carapace/blobs/sha256:783ab8e35494c1015c9efca20abfd0698279a58ab2bbf8cc852eef40a7565085
+  linux_amd64: https://ghcr.io/v2/homebrew/core/carapace/blobs/sha256:d77abc2434339f1174f5ce9f814d87eded2218eb621153775c647e31ca6000c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/carapace/blobs/sha256:d3048723fcdaf7f8baaf461edfc74ff0e58931475a1f55d9468625dd9e3eabf4
+sha256:
+  darwin_arm64: 355ca0a1ad88f739b1fa8986f9736aa3e57902e4efd3df7fdf4e58f2f11e46bf
+  darwin_amd64: 783ab8e35494c1015c9efca20abfd0698279a58ab2bbf8cc852eef40a7565085
+  linux_amd64: d77abc2434339f1174f5ce9f814d87eded2218eb621153775c647e31ca6000c5
+  linux_arm64: d3048723fcdaf7f8baaf461edfc74ff0e58931475a1f55d9468625dd9e3eabf4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

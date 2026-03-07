@@ -1,0 +1,19 @@
+name: sd
+version: 1.1.0
+description: "Intuitive find & replace CLI"
+homepage: https://github.com/chmln/sd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sd/blobs/sha256:ca1aca6904f51e3f5922a1e98652c57de939ce1fdd2a69badf7b54e4ba0f0b35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sd/blobs/sha256:6f040ddb667a0aaffaa71fbe95efe80d3fc5e3364b883b01c8d39b3ad1e461a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sd/blobs/sha256:4ea1ec779f055f3548f8c8b1373a6213311ef9e115b837a3f9c55499ff7638d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sd/blobs/sha256:4237f34bd27890c27da7e46c695f9f91c81a78dc93054eb5d99f9d31cf040a76
+sha256:
+  darwin_arm64: ca1aca6904f51e3f5922a1e98652c57de939ce1fdd2a69badf7b54e4ba0f0b35
+  darwin_amd64: 6f040ddb667a0aaffaa71fbe95efe80d3fc5e3364b883b01c8d39b3ad1e461a7
+  linux_amd64: 4ea1ec779f055f3548f8c8b1373a6213311ef9e115b837a3f9c55499ff7638d9
+  linux_arm64: 4237f34bd27890c27da7e46c695f9f91c81a78dc93054eb5d99f9d31cf040a76
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

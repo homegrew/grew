@@ -1,0 +1,19 @@
+name: bounceback
+version: 1.5.3
+description: Stealth redirector for red team operation security
+homepage: https://github.com/D00Movenok/BounceBack
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bounceback/blobs/sha256:e7096c878b874f7954b658549c2498418a7bf5ca840ee6f8d0e28438269925c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bounceback/blobs/sha256:461ef1bbbee371072559282a90e6c41009f20b5f2c2411edf5cc77ec72100a19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bounceback/blobs/sha256:80740283f2ee9072d209356cf0d831b2ad37a4aa785a14cd93dda9891bf6e184
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bounceback/blobs/sha256:73bc1080c0f6c4b689e82e5bf20ba1188d9eae00100dac6814d9f781e3652685
+sha256:
+  darwin_arm64: e7096c878b874f7954b658549c2498418a7bf5ca840ee6f8d0e28438269925c9
+  darwin_amd64: 461ef1bbbee371072559282a90e6c41009f20b5f2c2411edf5cc77ec72100a19
+  linux_amd64: 80740283f2ee9072d209356cf0d831b2ad37a4aa785a14cd93dda9891bf6e184
+  linux_arm64: 73bc1080c0f6c4b689e82e5bf20ba1188d9eae00100dac6814d9f781e3652685
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

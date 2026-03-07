@@ -1,0 +1,11 @@
+name: mysteriumdark
+version: 10.17.10
+description: VPN client
+homepage: https://www.mysteriumvpn.com/
+url:
+  darwin_arm64: https://github.com/mysteriumnetwork/mysterium-vpn-desktop/releases/download/10.17.10/MysteriumDark-10.17.10-universal.dmg
+sha256:
+  darwin_arm64: 268aa1d0695aa4d6c65341c99902e0aeae85aadd8539f30aadb71e7c78057143
+artifacts:
+  app:
+    - MysteriumDark.app

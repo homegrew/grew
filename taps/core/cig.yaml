@@ -1,0 +1,19 @@
+name: cig
+version: 0.1.5
+description: CLI app for checking the state of your git repositories
+homepage: https://github.com/stevenjack/cig
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cig/blobs/sha256:24af56532b56382a0a26334284d11ace630a49d376ae8af4f808aede18cf17a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cig/blobs/sha256:682d89954b0a95f6be978817ea4a9c8c96d33e03f227c79e0abc4969a48ea9d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cig/blobs/sha256:3cda091fe20f715097967b89ee16f611d3f26faac9eb4d3f7861ec5d9cb91201
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cig/blobs/sha256:be676ae224ae098307465166f39eea0d6bcefb82ac48d6c86b76d79e87a4847b
+sha256:
+  darwin_arm64: 24af56532b56382a0a26334284d11ace630a49d376ae8af4f808aede18cf17a5
+  darwin_amd64: 682d89954b0a95f6be978817ea4a9c8c96d33e03f227c79e0abc4969a48ea9d1
+  linux_amd64: 3cda091fe20f715097967b89ee16f611d3f26faac9eb4d3f7861ec5d9cb91201
+  linux_arm64: be676ae224ae098307465166f39eea0d6bcefb82ac48d6c86b76d79e87a4847b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: jsonpp
+version: 1.3.0
+description: Command-line JSON pretty-printer
+homepage: https://jmhodges.github.io/jsonpp/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsonpp/blobs/sha256:42ceb483930d899b0d24a6c8a39fb5ff94e211796cc68ecc9de948612fae8361
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsonpp/blobs/sha256:f984da385f225f15b03895f559483a34550ceb288da12b7187dca663014be424
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsonpp/blobs/sha256:9ce50b5e577a2ed5e00005a6e629b68715d30bbe5a5ea86fb68bcf7702e436eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsonpp/blobs/sha256:064faa34fd4233b2a5f5cde23b7fb616c52fda23154de729e38cdd71a04bdb13
+sha256:
+  darwin_arm64: 42ceb483930d899b0d24a6c8a39fb5ff94e211796cc68ecc9de948612fae8361
+  darwin_amd64: f984da385f225f15b03895f559483a34550ceb288da12b7187dca663014be424
+  linux_amd64: 9ce50b5e577a2ed5e00005a6e629b68715d30bbe5a5ea86fb68bcf7702e436eb
+  linux_arm64: 064faa34fd4233b2a5f5cde23b7fb616c52fda23154de729e38cdd71a04bdb13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

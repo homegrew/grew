@@ -1,0 +1,19 @@
+name: kwok
+version: 0.7.0
+description: Kubernetes WithOut Kubelet - Simulates thousands of Nodes and Clusters
+homepage: https://kwok.sigs.k8s.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kwok/blobs/sha256:4c9829a6287114e9ca679cd313933facad7a57b2aceacd0a5d798b2f1d62927a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kwok/blobs/sha256:96a706a400c14a9263eb584fa70f3106cdae304f29cefc13bb8d3511148df225
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kwok/blobs/sha256:f3ca81c0287d077692b4e1c69b426efa10f0cbf01015a4375b6c8856354cad44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kwok/blobs/sha256:335471ec0aedf121022f660336be8989cba4f124904733ac5145b6f03f87a550
+sha256:
+  darwin_arm64: 4c9829a6287114e9ca679cd313933facad7a57b2aceacd0a5d798b2f1d62927a
+  darwin_amd64: 96a706a400c14a9263eb584fa70f3106cdae304f29cefc13bb8d3511148df225
+  linux_amd64: f3ca81c0287d077692b4e1c69b426efa10f0cbf01015a4375b6c8856354cad44
+  linux_arm64: 335471ec0aedf121022f660336be8989cba4f124904733ac5145b6f03f87a550
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

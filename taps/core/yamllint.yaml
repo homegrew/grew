@@ -1,0 +1,22 @@
+name: yamllint
+version: 1.38.0
+description: Linter for YAML files
+homepage: https://github.com/adrienverge/yamllint
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yamllint/blobs/sha256:da7c942af5a8d2dd8dacb439539a21251a2ee82aa965a7de7cb47713665471fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yamllint/blobs/sha256:aea22a0b41c5319cf84793594d92825a8d6649cc41e62c984666a1ba5de35fab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yamllint/blobs/sha256:8775acbc37acdeafd89099399fd587cf0a73ef43cd8f552e265c10891586f3bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yamllint/blobs/sha256:93fd00ec0b1ceab422f20817ddba3e50e50f8ca69e0a026750dd036ed012d767
+sha256:
+  darwin_arm64: da7c942af5a8d2dd8dacb439539a21251a2ee82aa965a7de7cb47713665471fa
+  darwin_amd64: aea22a0b41c5319cf84793594d92825a8d6649cc41e62c984666a1ba5de35fab
+  linux_amd64: 8775acbc37acdeafd89099399fd587cf0a73ef43cd8f552e265c10891586f3bc
+  linux_arm64: 93fd00ec0b1ceab422f20817ddba3e50e50f8ca69e0a026750dd036ed012d767
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

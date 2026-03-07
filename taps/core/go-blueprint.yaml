@@ -1,0 +1,21 @@
+name: go-blueprint
+version: 0.10.11
+description: CLI to streamline Go project setup with standardized structure
+homepage: https://docs.go-blueprint.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-blueprint/blobs/sha256:42adecab62200e2165d945a5c3b76e4f6cdec39a6a48e8935f6bbf14d86c16a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-blueprint/blobs/sha256:663fef6abed7598105374838919cf7e37832c6a0ee4b6eec64a9ff6b8277b470
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-blueprint/blobs/sha256:2b9d52610b84ad4d63ed527aa5e688980ba56aaa5ffa80bdd0dc5d9c0f132b87
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-blueprint/blobs/sha256:5f1d443b7345a6939245e91d96bca1eb63d704c5144207b2f82f2541ffe7277b
+sha256:
+  darwin_arm64: 42adecab62200e2165d945a5c3b76e4f6cdec39a6a48e8935f6bbf14d86c16a9
+  darwin_amd64: 663fef6abed7598105374838919cf7e37832c6a0ee4b6eec64a9ff6b8277b470
+  linux_amd64: 2b9d52610b84ad4d63ed527aa5e688980ba56aaa5ffa80bdd0dc5d9c0f132b87
+  linux_arm64: 5f1d443b7345a6939245e91d96bca1eb63d704c5144207b2f82f2541ffe7277b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

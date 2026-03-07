@@ -1,0 +1,22 @@
+name: rpm2cpio
+version: 1.4
+description: Tool to convert RPM package to CPIO archive
+homepage: https://svnweb.freebsd.org/ports/head/archivers/rpm2cpio/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpm2cpio/blobs/sha256:2b5ac7e3d1f3d9db020bcf348931d3cb37930be23799168ec15b84fce0a8b9ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpm2cpio/blobs/sha256:fc05b2691766343ce66af5f1b1ab8e439c0370d4b8bb7d00ad7111a102f89659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpm2cpio/blobs/sha256:8a6ed93e8d9f082a0fda4538dcb4d94a75423e73d21ec86d5f1e0040a3e1b3c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpm2cpio/blobs/sha256:122ec324ec52bf16746aa0aeb44cf01e0598ca3d7568e0abd54b8ba4cf33807f
+sha256:
+  darwin_arm64: 2b5ac7e3d1f3d9db020bcf348931d3cb37930be23799168ec15b84fce0a8b9ef
+  darwin_amd64: fc05b2691766343ce66af5f1b1ab8e439c0370d4b8bb7d00ad7111a102f89659
+  linux_amd64: 8a6ed93e8d9f082a0fda4538dcb4d94a75423e73d21ec86d5f1e0040a3e1b3c7
+  linux_arm64: 122ec324ec52bf16746aa0aeb44cf01e0598ca3d7568e0abd54b8ba4cf33807f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libarchive
+  - xz

@@ -1,0 +1,19 @@
+name: gmailctl
+version: 0.11.0
+description: Declarative configuration for Gmail filters
+homepage: https://github.com/mbrt/gmailctl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gmailctl/blobs/sha256:77a704db92814c882fce2b066e26b8fe91545a9a5769047b6d087f5305d78fc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gmailctl/blobs/sha256:73a83c86b05cc2160d9f5ace393e223834eca4246bd8d4e3d3e2c700137f9dff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gmailctl/blobs/sha256:0ec77775a68bc9a7448687bab9cff015b8bed71079474eac17212bb4b54d8c00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gmailctl/blobs/sha256:5702da40d84a0a374fbcdd6232f1c93654938b0ce81cec90bce2fd2adccb50f7
+sha256:
+  darwin_arm64: 77a704db92814c882fce2b066e26b8fe91545a9a5769047b6d087f5305d78fc3
+  darwin_amd64: 73a83c86b05cc2160d9f5ace393e223834eca4246bd8d4e3d3e2c700137f9dff
+  linux_amd64: 0ec77775a68bc9a7448687bab9cff015b8bed71079474eac17212bb4b54d8c00
+  linux_arm64: 5702da40d84a0a374fbcdd6232f1c93654938b0ce81cec90bce2fd2adccb50f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

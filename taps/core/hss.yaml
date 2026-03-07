@@ -1,0 +1,21 @@
+name: hss
+version: 1.10
+description: Interactive parallel SSH client
+homepage: https://github.com/six-ddc/hss
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hss/blobs/sha256:2bb2eb21cf15af087ab7ed8e764cc90fbdd452f1ea0e81c71d79a20cf099cc83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hss/blobs/sha256:04fe2ff9d6beae3e4f5b1774710410a31b301ff0617424c21798b784109f425b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hss/blobs/sha256:85d4b12a7f8b94e6394e8252d2b81230d96f1dd554bdf0d7669552ed93c52184
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hss/blobs/sha256:98dd1270d4dae19983c37c4f415236e7a8ba168b5c6c2885552bc4c7639ded5c
+sha256:
+  darwin_arm64: 2bb2eb21cf15af087ab7ed8e764cc90fbdd452f1ea0e81c71d79a20cf099cc83
+  darwin_amd64: 04fe2ff9d6beae3e4f5b1774710410a31b301ff0617424c21798b784109f425b
+  linux_amd64: 85d4b12a7f8b94e6394e8252d2b81230d96f1dd554bdf0d7669552ed93c52184
+  linux_arm64: 98dd1270d4dae19983c37c4f415236e7a8ba168b5c6c2885552bc4c7639ded5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

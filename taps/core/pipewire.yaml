@@ -1,0 +1,28 @@
+name: pipewire
+version: 1.6.0
+description: Server and user space API to deal with multimedia pipelines
+homepage: https://pipewire.org
+license: GPL-2.0-only AND LGPL-2.1-or-later AND MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipewire/blobs/sha256:f26176b923bb9b6952a3f5c5e1eba497e4d6a309e426adf7ecc7bab84271b7ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipewire/blobs/sha256:60947f057bb5175b8edab0fd3fe9b44a54cca7d2e17fc31a140c7ab3182998f4
+sha256:
+  linux_amd64: f26176b923bb9b6952a3f5c5e1eba497e4d6a309e426adf7ecc7bab84271b7ff
+  linux_arm64: 60947f057bb5175b8edab0fd3fe9b44a54cca7d2e17fc31a140c7ab3182998f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - alsa-lib
+  - dbus
+  - fftw
+  - glib
+  - gstreamer
+  - libsndfile
+  - ncurses
+  - openssl@3
+  - opus
+  - pulseaudio
+  - readline
+  - systemd

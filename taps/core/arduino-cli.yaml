@@ -1,0 +1,19 @@
+name: arduino-cli
+version: 1.4.1
+description: Arduino command-line interface
+homepage: https://arduino.github.io/arduino-cli/latest/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arduino-cli/blobs/sha256:e3fb3772bda59c80c8df9667f9833cdb22ddaf8364afdf02923e7a28c61d840a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arduino-cli/blobs/sha256:0a64e1f20e2b364c10d5a9050f065f54f0e8a9fb8720517dc27fc429797235e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arduino-cli/blobs/sha256:e66db01f8d9a8b69b0f1bf669c1b81ba151eaa99604f2103d2a7eeea4db0d6a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arduino-cli/blobs/sha256:4a9103d4b4426cd3d211019b6c784e70a3c059157d0a078f37239fb536352c74
+sha256:
+  darwin_arm64: e3fb3772bda59c80c8df9667f9833cdb22ddaf8364afdf02923e7a28c61d840a
+  darwin_amd64: 0a64e1f20e2b364c10d5a9050f065f54f0e8a9fb8720517dc27fc429797235e3
+  linux_amd64: e66db01f8d9a8b69b0f1bf669c1b81ba151eaa99604f2103d2a7eeea4db0d6a1
+  linux_arm64: 4a9103d4b4426cd3d211019b6c784e70a3c059157d0a078f37239fb536352c74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

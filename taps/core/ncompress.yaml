@@ -1,0 +1,20 @@
+name: ncompress
+version: 5.0
+description: Fast, simple LZW file compressor
+homepage: https://vapier.github.io/ncompress/
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncompress/blobs/sha256:fb300d3e1ef4dc25fab6344cc7e6010bd55f0fa66403c3371f8d6b3f449d7645
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncompress/blobs/sha256:26e5b5ed48c9974e7d4616fc1dd8f7a8bb089cbf13e9a71e5978a278334a248f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncompress/blobs/sha256:7cc0946635cd04b532b9c458ec215f1631d08dea366741346308d0030edfa05b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncompress/blobs/sha256:9b6c5d2b1203d6a07b51cfdf083c0dda44dd1133cabc7823da6093477f33ef4c
+sha256:
+  darwin_arm64: fb300d3e1ef4dc25fab6344cc7e6010bd55f0fa66403c3371f8d6b3f449d7645
+  darwin_amd64: 26e5b5ed48c9974e7d4616fc1dd8f7a8bb089cbf13e9a71e5978a278334a248f
+  linux_amd64: 7cc0946635cd04b532b9c458ec215f1631d08dea366741346308d0030edfa05b
+  linux_arm64: 9b6c5d2b1203d6a07b51cfdf083c0dda44dd1133cabc7823da6093477f33ef4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

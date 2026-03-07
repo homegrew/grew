@@ -1,0 +1,22 @@
+name: perl-dbd-mysql
+version: 5.013
+description: MySQL driver for the Perl5 Database Interface (DBI)
+homepage: https://dbi.perl.org/
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/perl-dbd-mysql/blobs/sha256:46058ff8375c1910f2659d74bf7d970660caa254c904a8ce7471404dd92ea753
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/perl-dbd-mysql/blobs/sha256:63fc77caa080333bb8c3d556a63a118b37de0e0ed1d3d2693ee7742dd89ea238
+  linux_amd64: https://ghcr.io/v2/homebrew/core/perl-dbd-mysql/blobs/sha256:7f4505f4880b300ef75af71b5c4628b3406f358bfbd35098688747292a9f2f0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/perl-dbd-mysql/blobs/sha256:e5ef3810cdbdef812e17eb7853009477a2ee8d2686cf167bf508009235542b63
+sha256:
+  darwin_arm64: 46058ff8375c1910f2659d74bf7d970660caa254c904a8ce7471404dd92ea753
+  darwin_amd64: 63fc77caa080333bb8c3d556a63a118b37de0e0ed1d3d2693ee7742dd89ea238
+  linux_amd64: 7f4505f4880b300ef75af71b5c4628b3406f358bfbd35098688747292a9f2f0b
+  linux_arm64: e5ef3810cdbdef812e17eb7853009477a2ee8d2686cf167bf508009235542b63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mysql-client
+keg_only: true

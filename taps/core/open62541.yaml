@@ -1,0 +1,19 @@
+name: open62541
+version: 1.5.2
+description: Open source implementation of OPC UA
+homepage: https://open62541.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open62541/blobs/sha256:862ec700c9dad58ae068dc6e5dea456952b4a46ed57fd1e49ef12b0e8513ae45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open62541/blobs/sha256:4ff42c6a421287b4216d35f7a1ea54e111e2419e16b99cf23e875128e834fb54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open62541/blobs/sha256:0f6c54ee337fecee8ad6195c0b80d12382c86abbb1c4de268fb84f7214807871
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open62541/blobs/sha256:faa0cb5f57982d5f6e6439de7bd690c881325af59ae67b98bc9b559e0a7c5f0e
+sha256:
+  darwin_arm64: 862ec700c9dad58ae068dc6e5dea456952b4a46ed57fd1e49ef12b0e8513ae45
+  darwin_amd64: 4ff42c6a421287b4216d35f7a1ea54e111e2419e16b99cf23e875128e834fb54
+  linux_amd64: 0f6c54ee337fecee8ad6195c0b80d12382c86abbb1c4de268fb84f7214807871
+  linux_arm64: faa0cb5f57982d5f6e6439de7bd690c881325af59ae67b98bc9b559e0a7c5f0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: knock
+version: 0.8
+description: Port-knock server
+homepage: https://github.com/jvinet/knock
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/knock/blobs/sha256:ccb817325238596bec85da5437875f0abb6080f8572406e0a76a1badeb3c922e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/knock/blobs/sha256:6cffa8fa11e0df3dd002848ae504e67dec0064e8d8d37787020a5b3b068e14f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/knock/blobs/sha256:92ee3bfd7171b2fd896bda24b35ccb710365acf17e8c87b01d6a119a5133d996
+  linux_arm64: https://ghcr.io/v2/homebrew/core/knock/blobs/sha256:cb2b4fc229f51debb0a56914b078a7c10f9ce2bd479e14104bf2c8d8e520abdf
+sha256:
+  darwin_arm64: ccb817325238596bec85da5437875f0abb6080f8572406e0a76a1badeb3c922e
+  darwin_amd64: 6cffa8fa11e0df3dd002848ae504e67dec0064e8d8d37787020a5b3b068e14f7
+  linux_amd64: 92ee3bfd7171b2fd896bda24b35ccb710365acf17e8c87b01d6a119a5133d996
+  linux_arm64: cb2b4fc229f51debb0a56914b078a7c10f9ce2bd479e14104bf2c8d8e520abdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

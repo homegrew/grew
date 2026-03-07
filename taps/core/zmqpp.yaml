@@ -1,0 +1,21 @@
+name: zmqpp
+version: 4.2.0
+description: High-level C++ binding for zeromq
+homepage: https://zeromq.github.io/zmqpp/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zmqpp/blobs/sha256:39907cc6b73b2e45317f6a339f58914602cd3a42b36f601252e440ab4106f4e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zmqpp/blobs/sha256:11a46057f1f31e68d13696542b6fa161601f531e06fadde4e246991c425834d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zmqpp/blobs/sha256:18d5c7351051f713c13173e058151ea828788e3851c761d04c4c1d1a1d384f08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zmqpp/blobs/sha256:93f20e52dd105b35681cb16f0a68b3df968a80b03b87f9ea707e7fcd18ea0578
+sha256:
+  darwin_arm64: 39907cc6b73b2e45317f6a339f58914602cd3a42b36f601252e440ab4106f4e8
+  darwin_amd64: 11a46057f1f31e68d13696542b6fa161601f531e06fadde4e246991c425834d1
+  linux_amd64: 18d5c7351051f713c13173e058151ea828788e3851c761d04c4c1d1a1d384f08
+  linux_arm64: 93f20e52dd105b35681cb16f0a68b3df968a80b03b87f9ea707e7fcd18ea0578
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zeromq

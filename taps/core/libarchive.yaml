@@ -1,0 +1,25 @@
+name: libarchive
+version: 3.8.5
+description: Multi-format archive and compression library
+homepage: https://www.libarchive.org
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libarchive/blobs/sha256:c9c26bdbfd989e14ed9645fafec72ccb5c845a443c9c73d57f47301f7a21bd46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libarchive/blobs/sha256:0f2e24f6e29c8ad74326778eea1070fe4c5a5c0c285117a3e8f6a4b5707e5d76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libarchive/blobs/sha256:61c83e124381f5e889f5a1ca8bbb6cf73fbfd82b81628f2bf8bd39849f7fadac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libarchive/blobs/sha256:533902d9205b221993cf665772eae44e2a33424d2f0a2ff13b17769fc922a202
+sha256:
+  darwin_arm64: c9c26bdbfd989e14ed9645fafec72ccb5c845a443c9c73d57f47301f7a21bd46
+  darwin_amd64: 0f2e24f6e29c8ad74326778eea1070fe4c5a5c0c285117a3e8f6a4b5707e5d76
+  linux_amd64: 61c83e124381f5e889f5a1ca8bbb6cf73fbfd82b81628f2bf8bd39849f7fadac
+  linux_arm64: 533902d9205b221993cf665772eae44e2a33424d2f0a2ff13b17769fc922a202
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libb2
+  - lz4
+  - xz
+  - zstd
+keg_only: true

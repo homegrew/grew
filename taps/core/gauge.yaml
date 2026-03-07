@@ -1,0 +1,19 @@
+name: gauge
+version: 1.6.26
+description: Test automation tool that supports executable documentation
+homepage: https://gauge.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:f34cc4a7c28e67081e866838b393d80003a56cd2c4aaf5ca0a0b0fc7f9aa18eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:043384c1c763380e15a36c8b9aad4cc1e2df84541a622835da46506e574c5f58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:161b944f0704db158236b4f31a0b74b0772adb7f68a627813f5f07ebf4f917eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:e0550c4d0f5b1cef020593376007b87d82751a7c9ba0f3bbaa417f30cb425ec2
+sha256:
+  darwin_arm64: f34cc4a7c28e67081e866838b393d80003a56cd2c4aaf5ca0a0b0fc7f9aa18eb
+  darwin_amd64: 043384c1c763380e15a36c8b9aad4cc1e2df84541a622835da46506e574c5f58
+  linux_amd64: 161b944f0704db158236b4f31a0b74b0772adb7f68a627813f5f07ebf4f917eb
+  linux_arm64: e0550c4d0f5b1cef020593376007b87d82751a7c9ba0f3bbaa417f30cb425ec2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

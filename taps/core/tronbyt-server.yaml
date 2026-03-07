@@ -1,0 +1,21 @@
+name: tronbyt-server
+version: 2.2.2
+description: Manage your apps on your Tronbyt (flashed Tidbyt) completely locally
+homepage: https://github.com/tronbyt/server
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tronbyt-server/blobs/sha256:cf7980be0084f305efacb1c99ed4735455e8f0e73015e7640602737abab9af73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tronbyt-server/blobs/sha256:82206cfe91dee348e95bee9bd1af159dd4ab9f11d58745ab9afb820ed01682a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tronbyt-server/blobs/sha256:1fb6588b912a90716860552337fd1d54d2d000f970bab2c792210054a572f79b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tronbyt-server/blobs/sha256:f15cd28861afafb8fa629585ac250310435bcb0b23a181435cf8bd6bd425e481
+sha256:
+  darwin_arm64: cf7980be0084f305efacb1c99ed4735455e8f0e73015e7640602737abab9af73
+  darwin_amd64: 82206cfe91dee348e95bee9bd1af159dd4ab9f11d58745ab9afb820ed01682a0
+  linux_amd64: 1fb6588b912a90716860552337fd1d54d2d000f970bab2c792210054a572f79b
+  linux_arm64: f15cd28861afafb8fa629585ac250310435bcb0b23a181435cf8bd6bd425e481
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - webp

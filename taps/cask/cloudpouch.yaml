@@ -1,0 +1,11 @@
+name: cloudpouch
+version: 1.43.0
+description: AWS cloud FinOps tool
+homepage: https://cloudpouch.dev/
+url:
+  darwin_arm64: https://github.com/CloudPouch/CloudPouch.dev/releases/download/v1.43.0/CloudPouch-1.43.0-universal-mac.zip
+sha256:
+  darwin_arm64: 547a3fd36412a4d323e2daa9c92c22dbcac0e792ea2ecf0c7937d5966b5a17de
+artifacts:
+  app:
+    - CloudPouch.app

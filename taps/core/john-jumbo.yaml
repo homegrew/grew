@@ -1,0 +1,22 @@
+name: john-jumbo
+version: 1.9.0
+description: Enhanced version of john, a UNIX password cracker
+homepage: https://www.openwall.com/john/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/john-jumbo/blobs/sha256:448e0b52a33cd8611647ecc701949472f5ef720c473a63664b28ffa481e9beb0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/john-jumbo/blobs/sha256:406c9044ec72e8e28fcd908cdd46de40c2b29fb05a2137a6cb6a8c5dbb4d328b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/john-jumbo/blobs/sha256:caa234a6f29de486c38d075ef354608086b4787ac005226a17794d62afd8afdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/john-jumbo/blobs/sha256:ace4712b54d8585933de16c79f39c4a3231b0d341b6402601f00fee252a937ee
+sha256:
+  darwin_arm64: 448e0b52a33cd8611647ecc701949472f5ef720c473a63664b28ffa481e9beb0
+  darwin_amd64: 406c9044ec72e8e28fcd908cdd46de40c2b29fb05a2137a6cb6a8c5dbb4d328b
+  linux_amd64: caa234a6f29de486c38d075ef354608086b4787ac005226a17794d62afd8afdc
+  linux_arm64: ace4712b54d8585933de16c79f39c4a3231b0d341b6402601f00fee252a937ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - openssl@3

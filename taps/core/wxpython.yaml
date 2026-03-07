@@ -1,0 +1,24 @@
+name: wxpython
+version: 4.2.5
+description: Python bindings for wxWidgets
+homepage: https://www.wxpython.org/
+license: LGPL-2.0-or-later WITH WxWindows-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wxpython/blobs/sha256:f386143a6e4461fde98aaa60c28f8dc1c87270ad53aaef1fc3b059753ca7d04b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wxpython/blobs/sha256:fb2da74fde2f55b27d36418a776ed1a3a3f884319d406618d022f8e409450ba6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wxpython/blobs/sha256:8b3b5bea2efe6ccac67b575e3d308d9d5688120e9da07693be91c47ff5f6f0c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wxpython/blobs/sha256:4321aecdd3168f3f2bb0ae102d2f93da7449c0f4968f5c746f18e2e25feabf39
+sha256:
+  darwin_arm64: f386143a6e4461fde98aaa60c28f8dc1c87270ad53aaef1fc3b059753ca7d04b
+  darwin_amd64: fb2da74fde2f55b27d36418a776ed1a3a3f884319d406618d022f8e409450ba6
+  linux_amd64: 8b3b5bea2efe6ccac67b575e3d308d9d5688120e9da07693be91c47ff5f6f0c5
+  linux_arm64: 4321aecdd3168f3f2bb0ae102d2f93da7449c0f4968f5c746f18e2e25feabf39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - numpy
+  - pillow
+  - python@3.14
+  - wxwidgets@3.2

@@ -1,0 +1,11 @@
+name: helium-browser
+version: 0.9.4.1
+description: Chromium-based web browser
+homepage: https://helium.computer/
+url:
+  darwin_arm64: https://github.com/imputnet/helium-macos/releases/download/0.9.4.1/helium_0.9.4.1_arm64-macos.dmg
+sha256:
+  darwin_arm64: 9a23eca6eb62350c009bcebb3b923e381640af9d8ecf32050f55073335833154
+artifacts:
+  app:
+    - Helium.app

@@ -1,0 +1,21 @@
+name: ntl
+version: 11.6.0
+description: C++ number theory library
+homepage: https://libntl.org
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ntl/blobs/sha256:7d2f5f23855b76ee0a5d7d2e5dd4c85b2d40ab8ac76cfce653681e52398eef0b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ntl/blobs/sha256:13c87c434a0b2c669fe2c2ce9909026b8f8a325fa3af3348bb5df3214d735383
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ntl/blobs/sha256:800477b02d398e95b1f820a5c3e100a9ea0f3f147bfbb1688a3c27f37eeae0e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ntl/blobs/sha256:f745b2c741b9c296092586bae7d8a0dfda2cd8bb74547caa6343957482f89a3f
+sha256:
+  darwin_arm64: 7d2f5f23855b76ee0a5d7d2e5dd4c85b2d40ab8ac76cfce653681e52398eef0b
+  darwin_amd64: 13c87c434a0b2c669fe2c2ce9909026b8f8a325fa3af3348bb5df3214d735383
+  linux_amd64: 800477b02d398e95b1f820a5c3e100a9ea0f3f147bfbb1688a3c27f37eeae0e4
+  linux_arm64: f745b2c741b9c296092586bae7d8a0dfda2cd8bb74547caa6343957482f89a3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

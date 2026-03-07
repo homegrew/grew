@@ -1,0 +1,27 @@
+name: shairport-sync
+version: 5.0.1
+description: AirTunes emulator that adds multi-room capability
+homepage: https://github.com/mikebrady/shairport-sync
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shairport-sync/blobs/sha256:59e7a2c28373a68e3da74202f8958c0990475adfa2e1e12207c0f451af45f0d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shairport-sync/blobs/sha256:2e056fb4c948a62bbc4c1ebf054c1b24b0119e761b9e9882a16df001f8032238
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shairport-sync/blobs/sha256:642c93e77e6e39a49a02a4c02b09ea8cc70ce3a7d5d177f67941eb6635679427
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shairport-sync/blobs/sha256:62c37ce7d78d4ee09da3df19b742bf91c598b049d76af153ff6492c550a6f57d
+sha256:
+  darwin_arm64: 59e7a2c28373a68e3da74202f8958c0990475adfa2e1e12207c0f451af45f0d2
+  darwin_amd64: 2e056fb4c948a62bbc4c1ebf054c1b24b0119e761b9e9882a16df001f8032238
+  linux_amd64: 642c93e77e6e39a49a02a4c02b09ea8cc70ce3a7d5d177f67941eb6635679427
+  linux_arm64: 62c37ce7d78d4ee09da3df19b742bf91c598b049d76af153ff6492c550a6f57d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libao
+  - libconfig
+  - libdaemon
+  - libsoxr
+  - openssl@3
+  - popt
+  - pulseaudio

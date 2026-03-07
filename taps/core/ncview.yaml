@@ -1,0 +1,28 @@
+name: ncview
+version: 2.1.11
+description: Visual browser for netCDF format files
+homepage: https://cirrus.ucsd.edu/ncview/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncview/blobs/sha256:e3346928e2612dabba4b6798e8f9cb497ff302f1972344cd5271dbb2034ad2ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncview/blobs/sha256:2936bd01d289bc341a2a52e604692c7baa1611f8a2f7aa33d2a2c8e0fef22081
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncview/blobs/sha256:ed6715afe50ab90f472bcdd31e4b51f047b0705796cc1e103162f74d113a4f44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncview/blobs/sha256:29d0391497116f259d6adbe90d555e92bc49a78fc040e0ba3636354f0cf8284d
+sha256:
+  darwin_arm64: e3346928e2612dabba4b6798e8f9cb497ff302f1972344cd5271dbb2034ad2ae
+  darwin_amd64: 2936bd01d289bc341a2a52e604692c7baa1611f8a2f7aa33d2a2c8e0fef22081
+  linux_amd64: ed6715afe50ab90f472bcdd31e4b51f047b0705796cc1e103162f74d113a4f44
+  linux_arm64: 29d0391497116f259d6adbe90d555e92bc49a78fc040e0ba3636354f0cf8284d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libice
+  - libpng
+  - libsm
+  - libx11
+  - libxaw
+  - libxt
+  - netcdf
+  - udunits

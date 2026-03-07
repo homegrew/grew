@@ -1,0 +1,19 @@
+name: dotslash
+version: 0.5.8
+description: Simplified executable deployment
+homepage: https://dotslash-cli.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotslash/blobs/sha256:b64aa036b16b6fcf67b8e3001815f04a0d4ea4f8a061dc083f9f051200913a2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotslash/blobs/sha256:44d37cda829fb1bbb60aa260a9681b0f571246be95ca6836c7242f4920a492d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotslash/blobs/sha256:d09a00ba6f17535691be724216f47c4a2ffb7b012164a174690e01143590a119
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotslash/blobs/sha256:720fe95c2851a2bc7e3145e288dbe7d322a0a655beb9e1b102f7b94c0cfe10f9
+sha256:
+  darwin_arm64: b64aa036b16b6fcf67b8e3001815f04a0d4ea4f8a061dc083f9f051200913a2e
+  darwin_amd64: 44d37cda829fb1bbb60aa260a9681b0f571246be95ca6836c7242f4920a492d6
+  linux_amd64: d09a00ba6f17535691be724216f47c4a2ffb7b012164a174690e01143590a119
+  linux_arm64: 720fe95c2851a2bc7e3145e288dbe7d322a0a655beb9e1b102f7b94c0cfe10f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

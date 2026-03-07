@@ -1,0 +1,19 @@
+name: asm6809
+version: 2.17
+description: Cross assembler targeting the Motorola 6809 and Hitachi 6309
+homepage: https://www.6809.org.uk/asm6809/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asm6809/blobs/sha256:fc791edd9764748c796e4f6a90e3705326600445cdf4a2eeb3fc6fd61552b920
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asm6809/blobs/sha256:c60151ade6cc3f159517932d60880ea5635ada30a038647001c0e3c3763a1267
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asm6809/blobs/sha256:cffd8646a3965426d5c82a4a4b846714003e0e0fc297a879f55cc5d7e8ee2dc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asm6809/blobs/sha256:ba890d3aebaaf8b4463b7dccf849c30fdc7be4028ac80f683421f4eca00fc3d0
+sha256:
+  darwin_arm64: fc791edd9764748c796e4f6a90e3705326600445cdf4a2eeb3fc6fd61552b920
+  darwin_amd64: c60151ade6cc3f159517932d60880ea5635ada30a038647001c0e3c3763a1267
+  linux_amd64: cffd8646a3965426d5c82a4a4b846714003e0e0fc297a879f55cc5d7e8ee2dc3
+  linux_arm64: ba890d3aebaaf8b4463b7dccf849c30fdc7be4028ac80f683421f4eca00fc3d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

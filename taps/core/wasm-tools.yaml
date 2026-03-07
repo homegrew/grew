@@ -1,0 +1,19 @@
+name: wasm-tools
+version: 1.245.1
+description: Low level tooling for WebAssembly in Rust
+homepage: https://github.com/bytecodealliance/wasm-tools
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm-tools/blobs/sha256:4533930b3f064959246d3e5c4a7b3d7b2340c2aa3bf4c85f8070cfec97cbfadc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm-tools/blobs/sha256:a5e4913fce02d4c387ee2e2826a45fbcec74c3294db6cf04f3323db4dcd88899
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm-tools/blobs/sha256:2f36ad7fa1f9c89c27c0f5403d13b7f122ceb8738031b03e473ebac4957bba40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm-tools/blobs/sha256:8aef3b41adc606158f9a88ceacb71b761095b05d87e6a399d70da475631ee2c2
+sha256:
+  darwin_arm64: 4533930b3f064959246d3e5c4a7b3d7b2340c2aa3bf4c85f8070cfec97cbfadc
+  darwin_amd64: a5e4913fce02d4c387ee2e2826a45fbcec74c3294db6cf04f3323db4dcd88899
+  linux_amd64: 2f36ad7fa1f9c89c27c0f5403d13b7f122ceb8738031b03e473ebac4957bba40
+  linux_arm64: 8aef3b41adc606158f9a88ceacb71b761095b05d87e6a399d70da475631ee2c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

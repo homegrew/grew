@@ -1,0 +1,11 @@
+name: bot-framework-emulator
+version: 4.14.1
+description: Test and debug chat bots built with the Bot Framework SDK
+homepage: https://github.com/Microsoft/BotFramework-Emulator
+url:
+  darwin_arm64: https://github.com/Microsoft/BotFramework-Emulator/releases/download/v4.14.1/botframework-emulator-4.14.1-mac.zip
+sha256:
+  darwin_arm64: 274363551f54f64093437ad81109098639c62d70449a5f4afb0a0bc6033ce270
+artifacts:
+  app:
+    - Bot Framework Emulator.app

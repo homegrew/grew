@@ -1,0 +1,22 @@
+name: activemq
+version: 6.2.1
+description: "Apache ActiveMQ: powerful open source messaging server"
+homepage: https://activemq.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/activemq/blobs/sha256:0c89cfda34ec492192c31a03909d266871981084dd80ce489ea71b56c0b30d43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/activemq/blobs/sha256:1db33cd8a922c16584992cdf7f57b8eda72d48c3cd3dc6c5fd2e41b495ec0829
+  linux_amd64: https://ghcr.io/v2/homebrew/core/activemq/blobs/sha256:de0dbd7ca3f64e8a6f45a58831989abc676c67cbeebda32ad6587cd9687d6246
+  linux_arm64: https://ghcr.io/v2/homebrew/core/activemq/blobs/sha256:9825132a548d060ee5baa2140cbfc31e186b6754d2d5fbc1f7eb875760ec0c0a
+sha256:
+  darwin_arm64: 0c89cfda34ec492192c31a03909d266871981084dd80ce489ea71b56c0b30d43
+  darwin_amd64: 1db33cd8a922c16584992cdf7f57b8eda72d48c3cd3dc6c5fd2e41b495ec0829
+  linux_amd64: de0dbd7ca3f64e8a6f45a58831989abc676c67cbeebda32ad6587cd9687d6246
+  linux_arm64: 9825132a548d060ee5baa2140cbfc31e186b6754d2d5fbc1f7eb875760ec0c0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - java-service-wrapper
+  - openjdk

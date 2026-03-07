@@ -1,0 +1,13 @@
+name: openra@playtest
+version: 20260222
+description: Real-time strategy game engine for Westwood games
+homepage: https://www.openra.net/
+url:
+  darwin_arm64: https://github.com/OpenRA/OpenRA/releases/download/playtest-20260222/OpenRA-playtest-20260222.dmg
+sha256:
+  darwin_arm64: e2499bcd3d6e5bc80d66d9677f294e64c2af8f48159bcf2bc5362ccf862392c4
+artifacts:
+  app:
+    - OpenRA - Dune 2000.app
+    - OpenRA - Red Alert.app
+    - OpenRA - Tiberian Dawn.app

@@ -1,0 +1,24 @@
+name: glances
+version: 4.5.0.5
+description: Alternative to top/htop
+homepage: https://nicolargo.github.io/glances/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glances/blobs/sha256:40a7f7bfba4dbbef475ae6573b606fdbb5da445c0f2a326fdd6ceabda6381ccc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glances/blobs/sha256:1c42297492a5906a3e2b5965a1f794ff463bf2174452f21844c02d63f18bdc49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glances/blobs/sha256:8abf372592f1754a3d12b9dd5eaae36ae915539be6ab4c3c930d76a53da1a59b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glances/blobs/sha256:931612c2168be92c25d1f1e3e4bcfceb9e785014c4b35be2a03c5ac785e4ff3e
+sha256:
+  darwin_arm64: 40a7f7bfba4dbbef475ae6573b606fdbb5da445c0f2a326fdd6ceabda6381ccc
+  darwin_amd64: 1c42297492a5906a3e2b5965a1f794ff463bf2174452f21844c02d63f18bdc49
+  linux_amd64: 8abf372592f1754a3d12b9dd5eaae36ae915539be6ab4c3c930d76a53da1a59b
+  linux_arm64: 931612c2168be92c25d1f1e3e4bcfceb9e785014c4b35be2a03c5ac785e4ff3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - pydantic
+  - python@3.14

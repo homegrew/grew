@@ -1,0 +1,19 @@
+name: prestd
+version: 1.5.5
+description: Simplify and accelerate development on any Postgres application, existing or new
+homepage: https://github.com/prest/prest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prestd/blobs/sha256:acc8c8862ea6867aa11b5a5e9431c978c6252bc9c267b455cb004be3c4589efa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prestd/blobs/sha256:adaa7ed259ca16397bdc67c323eb8969aa02b6541275b892f98efae4ae49bb36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prestd/blobs/sha256:4ac75a592d6bd7599df97d1ee3cd17d52c5d6c3ab8e37834a03a45abac8f81b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prestd/blobs/sha256:067511ae084f7eeb570344d47d52ed78ff71b5a679c92bd8dfb63d411ccb7307
+sha256:
+  darwin_arm64: acc8c8862ea6867aa11b5a5e9431c978c6252bc9c267b455cb004be3c4589efa
+  darwin_amd64: adaa7ed259ca16397bdc67c323eb8969aa02b6541275b892f98efae4ae49bb36
+  linux_amd64: 4ac75a592d6bd7599df97d1ee3cd17d52c5d6c3ab8e37834a03a45abac8f81b2
+  linux_arm64: 067511ae084f7eeb570344d47d52ed78ff71b5a679c92bd8dfb63d411ccb7307
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

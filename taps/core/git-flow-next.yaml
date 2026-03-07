@@ -1,0 +1,19 @@
+name: git-flow-next
+version: 1.0.0
+description: Modern implementation of the Git-flow branching model
+homepage: https://git-flow.sh/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-flow-next/blobs/sha256:bf81aa88a5048c61d1d9ed6c5733add8627e46e5257845879cd5fcceb9a0bda9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-flow-next/blobs/sha256:ea63faf36d3bc65ab13bc19d2e66d47471baf0deb305ba798bdb4007e61b99cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-flow-next/blobs/sha256:5adef590191f9ebf323be7c32ed8a8b12142a716e404a5f77fa46083a037c763
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-flow-next/blobs/sha256:eb3434f3fce699867ac2a329a93b17be5d973280f39a15b8ee905589d054436a
+sha256:
+  darwin_arm64: bf81aa88a5048c61d1d9ed6c5733add8627e46e5257845879cd5fcceb9a0bda9
+  darwin_amd64: ea63faf36d3bc65ab13bc19d2e66d47471baf0deb305ba798bdb4007e61b99cd
+  linux_amd64: 5adef590191f9ebf323be7c32ed8a8b12142a716e404a5f77fa46083a037c763
+  linux_arm64: eb3434f3fce699867ac2a329a93b17be5d973280f39a15b8ee905589d054436a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

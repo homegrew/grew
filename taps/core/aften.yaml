@@ -1,0 +1,19 @@
+name: aften
+version: 0.0.8
+description: Audio encoder which generates ATSC A/52 compressed audio streams
+homepage: https://aften.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aften/blobs/sha256:98174738f94e5b13f3814dca23e803878017f9d719e0eb7d5f3ebb82e7819db7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aften/blobs/sha256:05e65496042ea60735223e9cfa06b97ee8ae136531aafe8d7550f40051ecc33e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aften/blobs/sha256:f9e42d32fbd1c37b67e5beb729fba09eed1378d0f44c89b0b313231d478320d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aften/blobs/sha256:30a63d92db554df38e376c97fd0052b6b01956f89f3bb0b9f81309b11df8a332
+sha256:
+  darwin_arm64: 98174738f94e5b13f3814dca23e803878017f9d719e0eb7d5f3ebb82e7819db7
+  darwin_amd64: 05e65496042ea60735223e9cfa06b97ee8ae136531aafe8d7550f40051ecc33e
+  linux_amd64: f9e42d32fbd1c37b67e5beb729fba09eed1378d0f44c89b0b313231d478320d7
+  linux_arm64: 30a63d92db554df38e376c97fd0052b6b01956f89f3bb0b9f81309b11df8a332
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

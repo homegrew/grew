@@ -1,0 +1,19 @@
+name: volta
+version: 2.0.2
+description: JavaScript toolchain manager for reproducible environments
+homepage: https://volta.sh
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/volta/blobs/sha256:60e950c599630d46e928ddbd6f9cf4494dcbd5a7781e116c0890aa156de912ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/volta/blobs/sha256:8cf25e1f75d7f3b228a79a986e81817c0690feb96f253b5d11309311166189a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/volta/blobs/sha256:c0eede98248c0b47f51645f2a7c051549913fcb207f48364f446611f542845ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/volta/blobs/sha256:7a116be251ad88fcb927346f510bff705183f8922cb287533d014acdb83031f1
+sha256:
+  darwin_arm64: 60e950c599630d46e928ddbd6f9cf4494dcbd5a7781e116c0890aa156de912ea
+  darwin_amd64: 8cf25e1f75d7f3b228a79a986e81817c0690feb96f253b5d11309311166189a0
+  linux_amd64: c0eede98248c0b47f51645f2a7c051549913fcb207f48364f446611f542845ae
+  linux_arm64: 7a116be251ad88fcb927346f510bff705183f8922cb287533d014acdb83031f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

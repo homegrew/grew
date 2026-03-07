@@ -1,0 +1,11 @@
+name: openhv
+version: 20250725
+description: Pixel art science-fiction real-time strategy game
+homepage: https://www.openhv.net/
+url:
+  darwin_arm64: https://github.com/OpenHV/OpenHV/releases/download/20250725/OpenHV-20250725.dmg
+sha256:
+  darwin_arm64: 7ccb58351554bbabf2181c6330cfabd139ba555b7f71ee91d9880c7c8110c60f
+artifacts:
+  app:
+    - OpenHV.app

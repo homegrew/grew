@@ -1,0 +1,19 @@
+name: cloc
+version: 2.08
+description: Statistics utility to count lines of code
+homepage: https://github.com/AlDanial/cloc/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloc/blobs/sha256:510402328ad2e7168f94ba8bc210a96cccdb504fa0eb03bec5b5ff8704529c60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloc/blobs/sha256:0315d2e9392d3c831b8669f6c960eb31dc86f71d0b4c42e95cba771a0fd913a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloc/blobs/sha256:505c01b326543a8c2841457a793e4213b6069d8f0f568d9f636eeef94663b7e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloc/blobs/sha256:7cb99d35e6037db0b92b9b6887f881499229c09941d8bd431ebdde45c62b9360
+sha256:
+  darwin_arm64: 510402328ad2e7168f94ba8bc210a96cccdb504fa0eb03bec5b5ff8704529c60
+  darwin_amd64: 0315d2e9392d3c831b8669f6c960eb31dc86f71d0b4c42e95cba771a0fd913a0
+  linux_amd64: 505c01b326543a8c2841457a793e4213b6069d8f0f568d9f636eeef94663b7e0
+  linux_arm64: 7cb99d35e6037db0b92b9b6887f881499229c09941d8bd431ebdde45c62b9360
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

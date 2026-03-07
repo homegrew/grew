@@ -1,0 +1,11 @@
+name: hp-prime
+version: 2020-01-16
+description: Graphing calculator emulator
+homepage: https://www.hp.com/us-en/calculators.html
+url:
+  darwin_arm64: https://ftp.hp.com/pub/calculators/Prime/HP_Prime_Virtual_Calculator_2020_01_16.dmg
+sha256:
+  darwin_arm64: d29067ff767a7ad8b6fc565bed8ccf39edf386be3e7fc0ca5290670cd346911d
+artifacts:
+  app:
+    - HP Prime.app

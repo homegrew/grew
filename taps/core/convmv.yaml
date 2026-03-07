@@ -1,0 +1,19 @@
+name: convmv
+version: 2.06
+description: Filename encoding conversion tool
+homepage: https://www.j3e.de/linux/convmv/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/convmv/blobs/sha256:3f95c51cf5841e30e334f11d1e579e5075e71453bcf4632f5e85455cb901acc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/convmv/blobs/sha256:8dc432373d4dc9621367bc0cffc256d2484cd4a55e9d1403b2dfc4bae2d34edc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/convmv/blobs/sha256:6dbc0d946de621b8eafb49874bf80e72b104c1756413ff227c720e470ab53458
+  linux_arm64: https://ghcr.io/v2/homebrew/core/convmv/blobs/sha256:6dbc0d946de621b8eafb49874bf80e72b104c1756413ff227c720e470ab53458
+sha256:
+  darwin_arm64: 3f95c51cf5841e30e334f11d1e579e5075e71453bcf4632f5e85455cb901acc2
+  darwin_amd64: 8dc432373d4dc9621367bc0cffc256d2484cd4a55e9d1403b2dfc4bae2d34edc
+  linux_amd64: 6dbc0d946de621b8eafb49874bf80e72b104c1756413ff227c720e470ab53458
+  linux_arm64: 6dbc0d946de621b8eafb49874bf80e72b104c1756413ff227c720e470ab53458
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

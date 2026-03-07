@@ -1,0 +1,27 @@
+name: aws-sdk-cpp
+version: 1.11.750
+description: AWS SDK for C++
+homepage: https://github.com/aws/aws-sdk-cpp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-sdk-cpp/blobs/sha256:bf22d8e6396b6f3fb60be214207e84e0c5b80b11bd3525b600a5c62fe261785a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-sdk-cpp/blobs/sha256:b738f5bb473c0d2b4fde59d0f871337845b519563821715e86d7b698c934a3c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-sdk-cpp/blobs/sha256:3bc3bacedc9060ade38b5d33dab97dfc38b4cbe15d8d3897971ee61c07e3b260
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-sdk-cpp/blobs/sha256:43e1b495c8fead310585c3b44ddc25b890853034102c6987c86350a77061a4f0
+sha256:
+  darwin_arm64: bf22d8e6396b6f3fb60be214207e84e0c5b80b11bd3525b600a5c62fe261785a
+  darwin_amd64: b738f5bb473c0d2b4fde59d0f871337845b519563821715e86d7b698c934a3c0
+  linux_amd64: 3bc3bacedc9060ade38b5d33dab97dfc38b4cbe15d8d3897971ee61c07e3b260
+  linux_arm64: 43e1b495c8fead310585c3b44ddc25b890853034102c6987c86350a77061a4f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-auth
+  - aws-c-common
+  - aws-c-event-stream
+  - aws-c-http
+  - aws-c-io
+  - aws-c-s3
+  - aws-crt-cpp

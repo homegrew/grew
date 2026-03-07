@@ -1,0 +1,19 @@
+name: ksh93
+version: 1.0.10
+description: KornShell, ksh93
+homepage: https://github.com/ksh93/ksh
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ksh93/blobs/sha256:e4cdcf59bc35d8ac2dbca2bd189d14bee322bb306169324db049f263f58277e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ksh93/blobs/sha256:b15cd1a4a1052c29217a92cdcc890755a1af17031b0375d2c48218e37de17ed3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ksh93/blobs/sha256:6e1e57baceef185a21b476c489ec150cbf00729c4b0b31243dd13d5f560376b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ksh93/blobs/sha256:a533071501bda03b7663eaf76acaee427fd6ad410521db8f3d42b349a4a8938c
+sha256:
+  darwin_arm64: e4cdcf59bc35d8ac2dbca2bd189d14bee322bb306169324db049f263f58277e1
+  darwin_amd64: b15cd1a4a1052c29217a92cdcc890755a1af17031b0375d2c48218e37de17ed3
+  linux_amd64: 6e1e57baceef185a21b476c489ec150cbf00729c4b0b31243dd13d5f560376b1
+  linux_arm64: a533071501bda03b7663eaf76acaee427fd6ad410521db8f3d42b349a4a8938c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

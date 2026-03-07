@@ -1,0 +1,19 @@
+name: tivodecode
+version: 0.2pre4
+description: Convert .tivo to .mpeg
+homepage: https://tivodecode.sourceforge.net/
+license: BSD-3-Clause AND LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tivodecode/blobs/sha256:6aef5d85f98c48a4aa08864d14228ae5770baf31272041e54624ef837c977000
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tivodecode/blobs/sha256:794351b4fb9c017c7d4c870ec11db2ecdfff74c0700ab310077045faf020a76d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tivodecode/blobs/sha256:28e4184504b5139d3532d972cad416bcd9188669c075681e36834f4e93d2b60d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tivodecode/blobs/sha256:69e56e2279ac41857a466d4eac31b69c6dfc3ad70899e26adb1908e39bdcf387
+sha256:
+  darwin_arm64: 6aef5d85f98c48a4aa08864d14228ae5770baf31272041e54624ef837c977000
+  darwin_amd64: 794351b4fb9c017c7d4c870ec11db2ecdfff74c0700ab310077045faf020a76d
+  linux_amd64: 28e4184504b5139d3532d972cad416bcd9188669c075681e36834f4e93d2b60d
+  linux_arm64: 69e56e2279ac41857a466d4eac31b69c6dfc3ad70899e26adb1908e39bdcf387
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

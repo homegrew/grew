@@ -1,0 +1,11 @@
+name: crosspaste
+version: 1.2.8.1999
+description: Universal Pasteboard Across Devices
+homepage: https://crosspaste.com/en/
+url:
+  darwin_arm64: https://github.com/CrossPaste/crosspaste-desktop/releases/download/1.2.8.1999/crosspaste-1.2.8-1999-mac-aarch64.zip
+sha256:
+  darwin_arm64: d2828e5833742b0517e55f800e1b37fa3fc77b22aa54cf97ec30f67ae10ddd5e
+artifacts:
+  app:
+    - CrossPaste.app

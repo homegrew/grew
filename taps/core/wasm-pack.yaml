@@ -1,0 +1,21 @@
+name: wasm-pack
+version: 0.14.0
+description: "Your favorite rust -> wasm workflow tool!"
+homepage: https://drager.github.io/wasm-pack/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm-pack/blobs/sha256:31c12ac93a4e52a4b61b4bdb3e6fea208eaa93b9c30039babedc5957c0bc8d6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm-pack/blobs/sha256:c25bada8ea52c2d71c8f919567fc95cad7e9238bda41458cdbb5c160014c3708
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm-pack/blobs/sha256:a46421d5f180137993d83ea1f60b902e0678971a562e18397aab8c57b8ec479c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm-pack/blobs/sha256:8a5f303937f07117619ec2adb850245769636b4829c2cda9d9f3c6089879be82
+sha256:
+  darwin_arm64: 31c12ac93a4e52a4b61b4bdb3e6fea208eaa93b9c30039babedc5957c0bc8d6a
+  darwin_amd64: c25bada8ea52c2d71c8f919567fc95cad7e9238bda41458cdbb5c160014c3708
+  linux_amd64: a46421d5f180137993d83ea1f60b902e0678971a562e18397aab8c57b8ec479c
+  linux_arm64: 8a5f303937f07117619ec2adb850245769636b4829c2cda9d9f3c6089879be82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rustup

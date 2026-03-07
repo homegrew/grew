@@ -1,0 +1,26 @@
+name: leptonica
+version: 1.87.0
+description: Image processing and image analysis library
+homepage: http://www.leptonica.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leptonica/blobs/sha256:6932bf1645434e6c93d7bd4ca86623c55bdbd6d386833ebbdae969c581d4d303
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leptonica/blobs/sha256:81d9615212f99786dbd3bee606c2963c4119defd7f782177e3096d750ad1ac41
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leptonica/blobs/sha256:46b90af8964b6c265f258a8a7ec159a4881e9ec5c2d3d0e37cd91054b5e87999
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leptonica/blobs/sha256:cbf296913a82a15ba49f6ca5e11e4705bf783d278917772d5999c3a39b51601e
+sha256:
+  darwin_arm64: 6932bf1645434e6c93d7bd4ca86623c55bdbd6d386833ebbdae969c581d4d303
+  darwin_amd64: 81d9615212f99786dbd3bee606c2963c4119defd7f782177e3096d750ad1ac41
+  linux_amd64: 46b90af8964b6c265f258a8a7ec159a4881e9ec5c2d3d0e37cd91054b5e87999
+  linux_arm64: cbf296913a82a15ba49f6ca5e11e4705bf783d278917772d5999c3a39b51601e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - giflib
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openjpeg
+  - webp

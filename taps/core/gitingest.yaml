@@ -1,0 +1,23 @@
+name: gitingest
+version: 0.3.1
+description: Turn any Git repository into a prompt-friendly text ingest for LLMs
+homepage: https://github.com/coderamp-labs/gitingest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitingest/blobs/sha256:4e65cfedc333cadcb9d97d1fb3e19868979e74860cbae53b173dd0659e82a323
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitingest/blobs/sha256:1e33ef84ac972359b717dbf49f5615eb6fd692eb0fd96dfced6c278cf97d70b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitingest/blobs/sha256:74118d003cadaef01ff68bb83bb5cc0dadbc172d6c7c58611ea92bacab5026a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitingest/blobs/sha256:57a2b5a757a14e3543fb2c6d353931163b239c92a1732430f06337de1cdbfc65
+sha256:
+  darwin_arm64: 4e65cfedc333cadcb9d97d1fb3e19868979e74860cbae53b173dd0659e82a323
+  darwin_amd64: 1e33ef84ac972359b717dbf49f5615eb6fd692eb0fd96dfced6c278cf97d70b1
+  linux_amd64: 74118d003cadaef01ff68bb83bb5cc0dadbc172d6c7c58611ea92bacab5026a8
+  linux_arm64: 57a2b5a757a14e3543fb2c6d353931163b239c92a1732430f06337de1cdbfc65
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - pydantic
+  - python@3.14

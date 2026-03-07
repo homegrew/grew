@@ -1,0 +1,11 @@
+name: openrocket
+version: 24.12
+description: Model rocket simulator
+homepage: https://www.openrocket.info/
+url:
+  darwin_arm64: https://github.com/openrocket/openrocket/releases/download/release-24.12/OpenRocket-24.12-installer-macOS-AppleSilicon.dmg
+sha256:
+  darwin_arm64: 4f82e5a6b008232d6164d5cdca6c94e41c2b20a5d9ccec6d7891d19c99eb2357
+artifacts:
+  app:
+    - OpenRocket.app

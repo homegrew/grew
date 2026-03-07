@@ -1,0 +1,22 @@
+name: plzip
+version: 1.12
+description: Data compressor
+homepage: https://www.nongnu.org/lzip/plzip.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plzip/blobs/sha256:87bd7ffcf85a0d9cbf1ed155a5514e45867d84768ddaae9fad6bd4573f33a8b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plzip/blobs/sha256:e97fc21b0ca62568f80f5271108b7df9e4c75b5a4684675c616648a385a52659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plzip/blobs/sha256:3199f435251873f53c8830e73bf813bcdbfc920cab72d6d6fa5170df4998e3e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plzip/blobs/sha256:f889ea88d7b79ae7a9b23d8a81f7beee6758003716a8f7399d769c06aa971c5f
+sha256:
+  darwin_arm64: 87bd7ffcf85a0d9cbf1ed155a5514e45867d84768ddaae9fad6bd4573f33a8b5
+  darwin_amd64: e97fc21b0ca62568f80f5271108b7df9e4c75b5a4684675c616648a385a52659
+  linux_amd64: 3199f435251873f53c8830e73bf813bcdbfc920cab72d6d6fa5170df4998e3e1
+  linux_arm64: f889ea88d7b79ae7a9b23d8a81f7beee6758003716a8f7399d769c06aa971c5f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lzlib
+  - gcc

@@ -1,0 +1,19 @@
+name: erdtree
+version: 3.1.2
+description: Multi-threaded file-tree visualizer and disk usage analyzer
+homepage: https://github.com/solidiquis/erdtree
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erdtree/blobs/sha256:939c66ecbf3a881dac3e9125e11e150f54e0d32140944fe78241f50f0fa07938
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erdtree/blobs/sha256:ae5e2f5669bacd92df945cb69e6cd6bc64b08a70c9af6e4e4f97c770bbd7709f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erdtree/blobs/sha256:7650242160244dc721565f09826b988c0397b73b4371c9216039c460c032d7a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erdtree/blobs/sha256:b74022c5e3a1709f26fa518ba2ce3d92206e625baf12376138a085e843697851
+sha256:
+  darwin_arm64: 939c66ecbf3a881dac3e9125e11e150f54e0d32140944fe78241f50f0fa07938
+  darwin_amd64: ae5e2f5669bacd92df945cb69e6cd6bc64b08a70c9af6e4e4f97c770bbd7709f
+  linux_amd64: 7650242160244dc721565f09826b988c0397b73b4371c9216039c460c032d7a2
+  linux_arm64: b74022c5e3a1709f26fa518ba2ce3d92206e625baf12376138a085e843697851
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

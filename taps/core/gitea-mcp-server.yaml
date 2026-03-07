@@ -1,0 +1,19 @@
+name: gitea-mcp-server
+version: 1.0.0
+description: Interactive with Gitea instances with MCP
+homepage: https://gitea.com/gitea/gitea-mcp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitea-mcp-server/blobs/sha256:673eb10e3e57d905ce18e2ab839517b37e642793722e9705ee4d5997309b41bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitea-mcp-server/blobs/sha256:566ed7db46d93310d1705aa8f45db7b2b0fd0c74a384c815b3c27ad125baaaf4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitea-mcp-server/blobs/sha256:9f1061e38469af2874d999b461b89b7e3e799009ae27b18687793a4f07f4978d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitea-mcp-server/blobs/sha256:4368d7400f037b4abba154fd20da942ee2d45177fe8c55758d0d3e1aa23641da
+sha256:
+  darwin_arm64: 673eb10e3e57d905ce18e2ab839517b37e642793722e9705ee4d5997309b41bb
+  darwin_amd64: 566ed7db46d93310d1705aa8f45db7b2b0fd0c74a384c815b3c27ad125baaaf4
+  linux_amd64: 9f1061e38469af2874d999b461b89b7e3e799009ae27b18687793a4f07f4978d
+  linux_arm64: 4368d7400f037b4abba154fd20da942ee2d45177fe8c55758d0d3e1aa23641da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

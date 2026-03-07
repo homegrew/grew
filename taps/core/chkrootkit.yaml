@@ -1,0 +1,19 @@
+name: chkrootkit
+version: 0.59
+description: Rootkit detector
+homepage: https://www.chkrootkit.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chkrootkit/blobs/sha256:f7dfbdc5f745b2a66bbd345dc028c0d57a08dc2aa9b4067a35d7567692d17246
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chkrootkit/blobs/sha256:0b9645b0781169092d043005462f7b2e181b897df6815a11ddeaceb1aa139a58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chkrootkit/blobs/sha256:6414b28b97256b17b3c61214abc02f07d5613e42efbc26cb881620a12f33f29d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chkrootkit/blobs/sha256:5f5f417e6d16ded63588606860a06f97d548cd331b0f5528f985a12df76a2363
+sha256:
+  darwin_arm64: f7dfbdc5f745b2a66bbd345dc028c0d57a08dc2aa9b4067a35d7567692d17246
+  darwin_amd64: 0b9645b0781169092d043005462f7b2e181b897df6815a11ddeaceb1aa139a58
+  linux_amd64: 6414b28b97256b17b3c61214abc02f07d5613e42efbc26cb881620a12f33f29d
+  linux_arm64: 5f5f417e6d16ded63588606860a06f97d548cd331b0f5528f985a12df76a2363
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

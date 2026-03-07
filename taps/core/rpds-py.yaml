@@ -1,0 +1,19 @@
+name: rpds-py
+version: 0.30.0
+description: "Python bindings to Rust's persistent data structures"
+homepage: https://rpds.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpds-py/blobs/sha256:715388516c58816ba10a5458011fb92a77970c58544d4167c6e36de71b193f6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpds-py/blobs/sha256:3808dbe98500333e04280e14b13b13eaf99d72273ed0080dcc2d2f69debe7044
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpds-py/blobs/sha256:1e2de518db42c0db26a5d5bc60bca0af22ed32d44043bf6bb42755213523a659
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpds-py/blobs/sha256:1f51f49db0cdc7e4096374c349e02cca662493409941321c9a5975cfcc3c25ab
+sha256:
+  darwin_arm64: 715388516c58816ba10a5458011fb92a77970c58544d4167c6e36de71b193f6e
+  darwin_amd64: 3808dbe98500333e04280e14b13b13eaf99d72273ed0080dcc2d2f69debe7044
+  linux_amd64: 1e2de518db42c0db26a5d5bc60bca0af22ed32d44043bf6bb42755213523a659
+  linux_arm64: 1f51f49db0cdc7e4096374c349e02cca662493409941321c9a5975cfcc3c25ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

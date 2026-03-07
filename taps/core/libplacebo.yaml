@@ -1,0 +1,23 @@
+name: libplacebo
+version: 7.360.0
+description: Reusable library for GPU-accelerated image/video processing primitives
+homepage: https://code.videolan.org/videolan/libplacebo
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libplacebo/blobs/sha256:3a8a35fa1ce671eb7ecde3d044478fdffe1a724e6b55b90695dccac207b82a12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libplacebo/blobs/sha256:11a39dfcee3c05beae26cb9261889b72f0a64724bd767328e75a5d248c676065
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libplacebo/blobs/sha256:b89112434adccbf8ca2e86554949afdd652f3c41b8a3b96438ac7b9fd4927b1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libplacebo/blobs/sha256:114537ce5349b2e56931efca33b271eb56977c6b427d32cf503c5c628b77dc5a
+sha256:
+  darwin_arm64: 3a8a35fa1ce671eb7ecde3d044478fdffe1a724e6b55b90695dccac207b82a12
+  darwin_amd64: 11a39dfcee3c05beae26cb9261889b72f0a64724bd767328e75a5d248c676065
+  linux_amd64: b89112434adccbf8ca2e86554949afdd652f3c41b8a3b96438ac7b9fd4927b1e
+  linux_arm64: 114537ce5349b2e56931efca33b271eb56977c6b427d32cf503c5c628b77dc5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - little-cms2
+  - shaderc
+  - vulkan-loader

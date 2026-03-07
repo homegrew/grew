@@ -1,0 +1,19 @@
+name: peco
+version: 0.6.0
+description: Simplistic interactive filtering tool
+homepage: https://github.com/peco/peco
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/peco/blobs/sha256:323de7d5f3d9f0e575f9b017c805514b396e1a2d25c0ea15e5378279da8dca6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/peco/blobs/sha256:6ccbfdfee81da5ec438744fdff6a5e5d6ce4d6bb14def3fe806da90881946af3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/peco/blobs/sha256:48428648fdfbae5e429763f95164fdd2fbb5007aa071e2eda4d386feccf5b183
+  linux_arm64: https://ghcr.io/v2/homebrew/core/peco/blobs/sha256:0f26b8b4db22eb33007c301bedf8408146dd2189b478283cee3475bc54885bbd
+sha256:
+  darwin_arm64: 323de7d5f3d9f0e575f9b017c805514b396e1a2d25c0ea15e5378279da8dca6f
+  darwin_amd64: 6ccbfdfee81da5ec438744fdff6a5e5d6ce4d6bb14def3fe806da90881946af3
+  linux_amd64: 48428648fdfbae5e429763f95164fdd2fbb5007aa071e2eda4d386feccf5b183
+  linux_arm64: 0f26b8b4db22eb33007c301bedf8408146dd2189b478283cee3475bc54885bbd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

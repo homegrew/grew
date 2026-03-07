@@ -1,0 +1,21 @@
+name: vcftools
+version: 0.1.17
+description: Tools for working with VCF files
+homepage: https://vcftools.github.io/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vcftools/blobs/sha256:6f628a8d64c2eef1dad37e8c4f74ebe84029e88b6098266085ad3e90802a71f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vcftools/blobs/sha256:ca8e6beee74be0ab28d3e157f639e304cf6466621d3b075484abf813da706f7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vcftools/blobs/sha256:208f9816c84abebadc3e94a42e3d3970ae2e303f4bee9afc390545455e7c4810
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vcftools/blobs/sha256:bd5e186291430a0211b96f314e128cedb8bbac12ff3528a69e3c8ab8e5d6046a
+sha256:
+  darwin_arm64: 6f628a8d64c2eef1dad37e8c4f74ebe84029e88b6098266085ad3e90802a71f9
+  darwin_amd64: ca8e6beee74be0ab28d3e157f639e304cf6466621d3b075484abf813da706f7c
+  linux_amd64: 208f9816c84abebadc3e94a42e3d3970ae2e303f4bee9afc390545455e7c4810
+  linux_arm64: bd5e186291430a0211b96f314e128cedb8bbac12ff3528a69e3c8ab8e5d6046a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - htslib

@@ -1,0 +1,19 @@
+name: pgweb
+version: 0.17.0
+description: Web-based PostgreSQL database browser
+homepage: https://sosedoff.github.io/pgweb/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgweb/blobs/sha256:23107185892b8505ddbcadd2d8b65d27d70aa3967e70739bc5116076156970e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgweb/blobs/sha256:e90f55a950135a612407fdd3573b0b47fda4d4342242e6a0f5cb551f2fd0a694
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgweb/blobs/sha256:b839a6b99f66db0edcbbbee6bc75189f3d281aaccd17e9f4261bc64676cb0219
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgweb/blobs/sha256:d0670ea9a92e7ca6385393bb9ec4f661697e5cc4817920527811e2074e43d2a2
+sha256:
+  darwin_arm64: 23107185892b8505ddbcadd2d8b65d27d70aa3967e70739bc5116076156970e0
+  darwin_amd64: e90f55a950135a612407fdd3573b0b47fda4d4342242e6a0f5cb551f2fd0a694
+  linux_amd64: b839a6b99f66db0edcbbbee6bc75189f3d281aaccd17e9f4261bc64676cb0219
+  linux_arm64: d0670ea9a92e7ca6385393bb9ec4f661697e5cc4817920527811e2074e43d2a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

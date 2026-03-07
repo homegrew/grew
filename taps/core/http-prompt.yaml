@@ -1,0 +1,23 @@
+name: http-prompt
+version: 2.1.0
+description: Interactive command-line HTTP client with autocomplete and syntax highlighting
+homepage: https://http-prompt.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/http-prompt/blobs/sha256:e7e492d77c1bc9d74d521dcd5f9aa229d11503471e531d0f9165b16f09618019
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/http-prompt/blobs/sha256:638b1b65f869ae5db105ee16bfa5d48325bd3249bcbdc79906f3e74d504cbd29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/http-prompt/blobs/sha256:5277a2351464d9e69d530c4843f423dc95f97e7abe07e5d74f52550c8782474c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/http-prompt/blobs/sha256:e099019b5cd44280c2e58f534646b246d944e8a95ddac9b9a4a47eeb43f6c6d1
+sha256:
+  darwin_arm64: e7e492d77c1bc9d74d521dcd5f9aa229d11503471e531d0f9165b16f09618019
+  darwin_amd64: 638b1b65f869ae5db105ee16bfa5d48325bd3249bcbdc79906f3e74d504cbd29
+  linux_amd64: 5277a2351464d9e69d530c4843f423dc95f97e7abe07e5d74f52550c8782474c
+  linux_arm64: e099019b5cd44280c2e58f534646b246d944e8a95ddac9b9a4a47eeb43f6c6d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

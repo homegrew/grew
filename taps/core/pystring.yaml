@@ -1,0 +1,19 @@
+name: pystring
+version: 1.1.4
+description: "Collection of C++ functions for the interface of Python's string class methods"
+homepage: https://github.com/imageworks/pystring
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pystring/blobs/sha256:9a006d97490404a81cfa354f0cb193e5d3763cbc756a2b2551829abbfe10b519
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pystring/blobs/sha256:743ac4c3b6deb23ba26d6d35fb38e7fac4ad7fa7f8daf99913810b42a5c64793
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pystring/blobs/sha256:07f1dc79610a20ac5cc9376dbb992f7a568554b484f318e24dd621b5c7bae6f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pystring/blobs/sha256:1b11eaa5062fdc58a7f3226687b3801cefbc222cbc8eede81d54bfea7dae1847
+sha256:
+  darwin_arm64: 9a006d97490404a81cfa354f0cb193e5d3763cbc756a2b2551829abbfe10b519
+  darwin_amd64: 743ac4c3b6deb23ba26d6d35fb38e7fac4ad7fa7f8daf99913810b42a5c64793
+  linux_amd64: 07f1dc79610a20ac5cc9376dbb992f7a568554b484f318e24dd621b5c7bae6f0
+  linux_arm64: 1b11eaa5062fdc58a7f3226687b3801cefbc222cbc8eede81d54bfea7dae1847
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

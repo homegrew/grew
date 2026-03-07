@@ -1,0 +1,24 @@
+name: iccdev
+version: 2.3.1.4
+description: Developer tools for interacting with and manipulating ICC profiles
+homepage: https://github.com/InternationalColorConsortium/iccDEV
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iccdev/blobs/sha256:512cc2ef21bcf40910b09257ee0fa9160cc783da05b4d4054635e4962e433b4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iccdev/blobs/sha256:14a7bd885e583a20db5d9277750be36d173fcd3d604061cfeb4be136019955f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iccdev/blobs/sha256:8c6075c1c8907b1f0c37a8e313e1d54341122a7f9ec94e501a37f7f50b377006
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iccdev/blobs/sha256:f754aa2086576c3a0d66df64db78c0762370492490efcb451d4382b7528e6d25
+sha256:
+  darwin_arm64: 512cc2ef21bcf40910b09257ee0fa9160cc783da05b4d4054635e4962e433b4a
+  darwin_amd64: 14a7bd885e583a20db5d9277750be36d173fcd3d604061cfeb4be136019955f2
+  linux_amd64: 8c6075c1c8907b1f0c37a8e313e1d54341122a7f9ec94e501a37f7f50b377006
+  linux_arm64: f754aa2086576c3a0d66df64db78c0762370492490efcb451d4382b7528e6d25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - wxwidgets

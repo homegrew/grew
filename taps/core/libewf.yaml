@@ -1,0 +1,21 @@
+name: libewf
+version: 20140816
+description: Library for support of the Expert Witness Compression Format
+homepage: https://github.com/libyal/libewf
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libewf/blobs/sha256:ec8c3c0ffa57df2d43c53a5065ef5f1b40a4623c530a2e29f20fbd99c22df90f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libewf/blobs/sha256:1b2e461e480ef015de567fd9f9916601cd5229755c6910b13c856c0ef0676d41
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libewf/blobs/sha256:2f52e9116f349a9f1889a7b006dac88b00e54d80cf908afa81d351f3d84951e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libewf/blobs/sha256:841da9d3b3197875feffc6ee142edb398a9389f8675d1fdc38310088bfef67e1
+sha256:
+  darwin_arm64: ec8c3c0ffa57df2d43c53a5065ef5f1b40a4623c530a2e29f20fbd99c22df90f
+  darwin_amd64: 1b2e461e480ef015de567fd9f9916601cd5229755c6910b13c856c0ef0676d41
+  linux_amd64: 2f52e9116f349a9f1889a7b006dac88b00e54d80cf908afa81d351f3d84951e4
+  linux_arm64: 841da9d3b3197875feffc6ee142edb398a9389f8675d1fdc38310088bfef67e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,21 @@
+name: lychee
+version: 0.23.0
+description: Fast, async, resource-friendly link checker
+homepage: https://lychee.cli.rs/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lychee/blobs/sha256:fc655b833a71ae76f12fb96cdef6edcd6dc99a45c3e8526a11b8ef8f48e1ab43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lychee/blobs/sha256:14c482039779ee156e73af0c760e61728bdc9e67bbbe810b6c8ff3ec08bed368
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lychee/blobs/sha256:2ebb7248c273b09a89e60ad8dd44f28b3033fd0ed55205952d0042e21c9303f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lychee/blobs/sha256:b674aef5069addbc961c55ddc819eac3cb44a6f6d7bd0f0da286788bddcaaf93
+sha256:
+  darwin_arm64: fc655b833a71ae76f12fb96cdef6edcd6dc99a45c3e8526a11b8ef8f48e1ab43
+  darwin_amd64: 14c482039779ee156e73af0c760e61728bdc9e67bbbe810b6c8ff3ec08bed368
+  linux_amd64: 2ebb7248c273b09a89e60ad8dd44f28b3033fd0ed55205952d0042e21c9303f7
+  linux_arm64: b674aef5069addbc961c55ddc819eac3cb44a6f6d7bd0f0da286788bddcaaf93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

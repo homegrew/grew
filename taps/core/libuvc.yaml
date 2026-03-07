@@ -1,0 +1,21 @@
+name: libuvc
+version: 0.0.7
+description: Cross-platform library for USB video devices
+homepage: https://github.com/libuvc/libuvc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libuvc/blobs/sha256:f150b5d95ecef260fb7c6c2741fa52d102f8e9bd1712af32ebaf1785ec87dd39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libuvc/blobs/sha256:71d65586d7c9129e23704c7ac10b5641c5705f357dd658f9e975865fac47d7a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libuvc/blobs/sha256:e5adfe4cf8c0151495c6d82c4a1efba89a92a8d43e3d32803d6c88d015e894cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libuvc/blobs/sha256:def3a9096bee642658354acfd0d061a84a5d7f5560334c4564a7f0fb608cb35c
+sha256:
+  darwin_arm64: f150b5d95ecef260fb7c6c2741fa52d102f8e9bd1712af32ebaf1785ec87dd39
+  darwin_amd64: 71d65586d7c9129e23704c7ac10b5641c5705f357dd658f9e975865fac47d7a1
+  linux_amd64: e5adfe4cf8c0151495c6d82c4a1efba89a92a8d43e3d32803d6c88d015e894cf
+  linux_arm64: def3a9096bee642658354acfd0d061a84a5d7f5560334c4564a7f0fb608cb35c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

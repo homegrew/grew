@@ -1,0 +1,19 @@
+name: imapsync
+version: 2.314
+description: Migrate or backup IMAP mail accounts
+homepage: https://imapsync.lamiral.info/
+license: NLPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imapsync/blobs/sha256:965e00bdc9ebeb638179d508afbf1b40c53762fa86dcc9c41f46bd84413afeec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imapsync/blobs/sha256:4d8ec5703a89b1486a13c11b2c2efa15273c4c9d5e7747dade01b579eaf88e61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imapsync/blobs/sha256:b6ace18f9b7a36d71151ac94d4b61477b60c6043e1f0820f4702a349090a1b8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imapsync/blobs/sha256:eca8142d92a9cac7d7ade73bb2673a35f3d52f4ec0257bb1f67331fa6d0db09b
+sha256:
+  darwin_arm64: 965e00bdc9ebeb638179d508afbf1b40c53762fa86dcc9c41f46bd84413afeec
+  darwin_amd64: 4d8ec5703a89b1486a13c11b2c2efa15273c4c9d5e7747dade01b579eaf88e61
+  linux_amd64: b6ace18f9b7a36d71151ac94d4b61477b60c6043e1f0820f4702a349090a1b8c
+  linux_arm64: eca8142d92a9cac7d7ade73bb2673a35f3d52f4ec0257bb1f67331fa6d0db09b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

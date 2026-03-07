@@ -1,0 +1,21 @@
+name: colima
+version: 0.10.1
+description: Container runtimes on MacOS (and Linux) with minimal setup
+homepage: https://github.com/abiosoft/colima/blob/main/README.md
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/colima/blobs/sha256:9865870ba93a101fe9c8f17fa81d450c85785cb361032fe815e3843ff381fca2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/colima/blobs/sha256:96bdbbcd5c576144cc72e986496687afab490dbb1ec1a5841c5193ff61402bb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/colima/blobs/sha256:a67be2c11436ea3f7466cda88688618732e4519c70a7a2adb7f46e2cb5cce444
+  linux_arm64: https://ghcr.io/v2/homebrew/core/colima/blobs/sha256:e14c24ce95b0a1462516cdedb0eb3f24c2cd05e471d43ae061f5127298e1d719
+sha256:
+  darwin_arm64: 9865870ba93a101fe9c8f17fa81d450c85785cb361032fe815e3843ff381fca2
+  darwin_amd64: 96bdbbcd5c576144cc72e986496687afab490dbb1ec1a5841c5193ff61402bb4
+  linux_amd64: a67be2c11436ea3f7466cda88688618732e4519c70a7a2adb7f46e2cb5cce444
+  linux_arm64: e14c24ce95b0a1462516cdedb0eb3f24c2cd05e471d43ae061f5127298e1d719
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lima

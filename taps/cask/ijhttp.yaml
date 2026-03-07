@@ -1,0 +1,11 @@
+name: ijhttp
+version: 253.28294.334
+description: HTTP client from JetBrains IDEs available as a standalone CLI tool
+homepage: https://www.jetbrains.com/ijhttp/download
+url:
+  darwin_arm64: https://download.jetbrains.com/resources/intellij/http-client/253.28294.334/intellij-http-client.zip
+sha256:
+  darwin_arm64: 65cce0e911f93dfe88c9933b37264f8a883081782a38fe3177691769d2ad4145
+artifacts:
+  bin:
+    - ijhttp

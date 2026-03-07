@@ -1,0 +1,22 @@
+name: libidl
+version: 0.8.14
+description: Library for creating CORBA IDL files
+homepage: https://download.gnome.org/sources/libIDL/0.8/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libidl/blobs/sha256:a0e91391470fe336c418566901c022fbd51387a87581ac820e72592c561001d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libidl/blobs/sha256:6ae268a8434298d17350ca586154a01082dfa7a7b1dc0028c8da599ca453132b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libidl/blobs/sha256:9ede5070565f89d3e7f24f01d9da73d50b6c008fbf12f7247d3cd04b8076d842
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libidl/blobs/sha256:57eeee9bf85e175fcdbd07db76bafa970051cf061836efd715957e5cfcb7319a
+sha256:
+  darwin_arm64: a0e91391470fe336c418566901c022fbd51387a87581ac820e72592c561001d7
+  darwin_amd64: 6ae268a8434298d17350ca586154a01082dfa7a7b1dc0028c8da599ca453132b
+  linux_amd64: 9ede5070565f89d3e7f24f01d9da73d50b6c008fbf12f7247d3cd04b8076d842
+  linux_arm64: 57eeee9bf85e175fcdbd07db76bafa970051cf061836efd715957e5cfcb7319a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

@@ -1,0 +1,22 @@
+name: dooit
+version: 3.3.4
+description: TUI todo manager
+homepage: https://github.com/dooit-org/dooit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dooit/blobs/sha256:34ab2502a69b06386734abe7ff6bea2a452a8b9ab234a92a4ecfc92bf525af43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dooit/blobs/sha256:da600f1443645ed044793876f29a1b4acde078a1bc9de86e1cb09ac7fe1d9507
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dooit/blobs/sha256:b8d94e0cb31fa209a117a645ab97275e98bf66ee78f0a2bf84e4b6c6fbb1cb87
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dooit/blobs/sha256:976d390a89a5614719cc9c1a692585f19d14438e27e3c78bef2324fa1c81abc0
+sha256:
+  darwin_arm64: 34ab2502a69b06386734abe7ff6bea2a452a8b9ab234a92a4ecfc92bf525af43
+  darwin_amd64: da600f1443645ed044793876f29a1b4acde078a1bc9de86e1cb09ac7fe1d9507
+  linux_amd64: b8d94e0cb31fa209a117a645ab97275e98bf66ee78f0a2bf84e4b6c6fbb1cb87
+  linux_arm64: 976d390a89a5614719cc9c1a692585f19d14438e27e3c78bef2324fa1c81abc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,11 @@
+name: dropdmg
+version: 3.7.1
+description: Create DMGs and other archives
+homepage: https://c-command.com/dropdmg/
+url:
+  darwin_arm64: https://c-command.com/downloads/DropDMG-3.7.1.dmg
+sha256:
+  darwin_arm64: de2f4a0ea35a9efe054c810fa1326308a5ed93599f0a51d8e6a830c351ab5e8b
+artifacts:
+  app:
+    - DropDMG.app

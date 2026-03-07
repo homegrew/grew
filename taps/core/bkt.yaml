@@ -1,0 +1,19 @@
+name: bkt
+version: 0.8.2
+description: CLI utility for caching the output of subprocesses
+homepage: https://github.com/dimo414/bkt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bkt/blobs/sha256:63eb81ed48ddba2a9a0cf8c6b1f03f248056c8b0c2bdac579337b7bc885c16a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bkt/blobs/sha256:fef406248481dabdb5e53ad4eb26be1f6984dbb261597a4f02e34a410d0b5141
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bkt/blobs/sha256:9f933949ff5c0945bc66c55380e42ca9e96d4292c241ba2ed8a147ea35e4b0a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bkt/blobs/sha256:ce52b4cc601ae6bf230294309f3d972a63e1f63f5eec90964a64c374696e04e3
+sha256:
+  darwin_arm64: 63eb81ed48ddba2a9a0cf8c6b1f03f248056c8b0c2bdac579337b7bc885c16a1
+  darwin_amd64: fef406248481dabdb5e53ad4eb26be1f6984dbb261597a4f02e34a410d0b5141
+  linux_amd64: 9f933949ff5c0945bc66c55380e42ca9e96d4292c241ba2ed8a147ea35e4b0a0
+  linux_arm64: ce52b4cc601ae6bf230294309f3d972a63e1f63f5eec90964a64c374696e04e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

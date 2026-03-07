@@ -1,0 +1,11 @@
+name: muteme
+version: 0.25.9
+description: Companion application to MuteMe
+homepage: https://muteme.com/
+url:
+  darwin_arm64: https://mutemedownloads.s3.us-east-2.amazonaws.com/main/0.25.9/MuteMe-Client-0.25.9-arm64.dmg
+sha256:
+  darwin_arm64: 88478758ad1acc37462ccf5850f938874e4f278c08538f3926055cd24565cbc6
+artifacts:
+  app:
+    - MuteMe-Client.app

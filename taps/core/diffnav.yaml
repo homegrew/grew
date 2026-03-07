@@ -1,0 +1,21 @@
+name: diffnav
+version: 0.10.0
+description: Git diff pager based on delta but with a file tree
+homepage: https://github.com/dlvhdr/diffnav
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffnav/blobs/sha256:85a032f50014ba0f72476a7ccef89658a25d9eadda5505fb2c5003a4608b3c2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffnav/blobs/sha256:87168ecedd81acf1d48f881bddba4de4d47bca912aa66801b47c4ad5a383b60e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffnav/blobs/sha256:b788c32808d36e472591f72725c18c972c1e97821410b7d16a9ca96ba8387908
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffnav/blobs/sha256:375724998a7289c111b9a3a881aa87a087e8574858b3c08d093261bdbb00a7f5
+sha256:
+  darwin_arm64: 85a032f50014ba0f72476a7ccef89658a25d9eadda5505fb2c5003a4608b3c2f
+  darwin_amd64: 87168ecedd81acf1d48f881bddba4de4d47bca912aa66801b47c4ad5a383b60e
+  linux_amd64: b788c32808d36e472591f72725c18c972c1e97821410b7d16a9ca96ba8387908
+  linux_arm64: 375724998a7289c111b9a3a881aa87a087e8574858b3c08d093261bdbb00a7f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - git-delta

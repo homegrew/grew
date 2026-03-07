@@ -1,0 +1,11 @@
+name: nrf-connect
+version: 5.2.1
+description: Framework for development on BLE devices
+homepage: https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop
+url:
+  darwin_arm64: https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/releases/download/v5.2.1/nrfconnect-5.2.1-arm64.dmg
+sha256:
+  darwin_arm64: fe03fd1586195c60f3a1eda32fb9dfdd3b081abd6a5f44f02d39a814844aee83
+artifacts:
+  app:
+    - nRF Connect for Desktop.app

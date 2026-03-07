@@ -1,0 +1,27 @@
+name: mailutils
+version: 3.21
+description: Swiss Army knife of email handling
+homepage: https://mailutils.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mailutils/blobs/sha256:3bbe34b5065fd6cdf2585b829869afb913e27310f5d9fc17e8ae0c9f55785ce5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mailutils/blobs/sha256:50f0023f1b027e9f6f6f8892f2d907421b210a8a2d0371d3f34c6bbc5ffb10af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mailutils/blobs/sha256:dca5b4e67b558d3641d13075ffb6f7af243d5599227702e2f3440b3e8409acb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mailutils/blobs/sha256:0489c463756a0cf78b6e696339ddb02f695e7ef75a7f002b5e761c7458711299
+sha256:
+  darwin_arm64: 3bbe34b5065fd6cdf2585b829869afb913e27310f5d9fc17e8ae0c9f55785ce5
+  darwin_amd64: 50f0023f1b027e9f6f6f8892f2d907421b210a8a2d0371d3f34c6bbc5ffb10af
+  linux_amd64: dca5b4e67b558d3641d13075ffb6f7af243d5599227702e2f3440b3e8409acb2
+  linux_arm64: 0489c463756a0cf78b6e696339ddb02f695e7ef75a7f002b5e761c7458711299
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdbm
+  - gnutls
+  - gsasl
+  - libtool
+  - libunistring
+  - readline
+  - gettext

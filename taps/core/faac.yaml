@@ -1,0 +1,19 @@
+name: faac
+version: 1.31.1
+description: ISO AAC audio encoder
+homepage: https://sourceforge.net/projects/faac/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/faac/blobs/sha256:00c66e8dd158e8c2f606e0707c261f8b5438951e9b38e316949900152058ddca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/faac/blobs/sha256:89a3968e3fcff90660fc6de8c59173f4b0b36769141875971edf0100956a428d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/faac/blobs/sha256:30940df984b4f44d7c7b4bb0f55de660262490bf0e0288edfe5f5e673c26cea9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/faac/blobs/sha256:e99c3b48cc15f3987c5d70cae13c4a8b4b3fd9d47543fc7fa77552c2be2c1cd5
+sha256:
+  darwin_arm64: 00c66e8dd158e8c2f606e0707c261f8b5438951e9b38e316949900152058ddca
+  darwin_amd64: 89a3968e3fcff90660fc6de8c59173f4b0b36769141875971edf0100956a428d
+  linux_amd64: 30940df984b4f44d7c7b4bb0f55de660262490bf0e0288edfe5f5e673c26cea9
+  linux_arm64: e99c3b48cc15f3987c5d70cae13c4a8b4b3fd9d47543fc7fa77552c2be2c1cd5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

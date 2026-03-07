@@ -1,0 +1,23 @@
+name: pdfalyzer
+version: 1.19.6
+description: PDF analysis toolkit
+homepage: https://github.com/michelcrypt4d4mus/pdfalyzer
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfalyzer/blobs/sha256:81046117791e0eb87be6dba5edc4114bbe8159e4d09b6d770d092296fcc134e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfalyzer/blobs/sha256:2f5d669fcb084884f5aa2ea46141aee3121766be18a4bb21c6d19b51304ecdb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfalyzer/blobs/sha256:cbd6d949577282450456126f0bfbc3425752fd01147b50a77cae9a128babe0d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfalyzer/blobs/sha256:b3dc552442591a346afbb119e07c6346badf7a35e7132cb6fd65bfb6c463a557
+sha256:
+  darwin_arm64: 81046117791e0eb87be6dba5edc4114bbe8159e4d09b6d770d092296fcc134e1
+  darwin_amd64: 2f5d669fcb084884f5aa2ea46141aee3121766be18a4bb21c6d19b51304ecdb9
+  linux_amd64: cbd6d949577282450456126f0bfbc3425752fd01147b50a77cae9a128babe0d1
+  linux_arm64: b3dc552442591a346afbb119e07c6346badf7a35e7132cb6fd65bfb6c463a557
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pillow
+  - python@3.14

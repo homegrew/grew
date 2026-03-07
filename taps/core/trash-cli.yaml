@@ -1,0 +1,22 @@
+name: trash-cli
+version: 0.24.5.26
+description: Command-line interface to the freedesktop.org trashcan
+homepage: https://github.com/andreafrancia/trash-cli
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trash-cli/blobs/sha256:096c7187b9376eb817001e3ed11ea683e43d81c25c493c9f1036dc3bea281823
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trash-cli/blobs/sha256:a0cc43661442da45b0e393fc69c9a92adf86dec427dcea7b64bc39bfee6ded85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trash-cli/blobs/sha256:88aba05ddc72fd1c30e4aa6e69351cd59e4aaf11d043d2eeafa013f0c574c9ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trash-cli/blobs/sha256:7f6ad80444c0db11ae7faf5bfa3e119eb09603242938e35ef89fe3e3b080a09d
+sha256:
+  darwin_arm64: 096c7187b9376eb817001e3ed11ea683e43d81c25c493c9f1036dc3bea281823
+  darwin_amd64: a0cc43661442da45b0e393fc69c9a92adf86dec427dcea7b64bc39bfee6ded85
+  linux_amd64: 88aba05ddc72fd1c30e4aa6e69351cd59e4aaf11d043d2eeafa013f0c574c9ba
+  linux_arm64: 7f6ad80444c0db11ae7faf5bfa3e119eb09603242938e35ef89fe3e3b080a09d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+keg_only: true

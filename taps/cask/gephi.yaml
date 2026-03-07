@@ -1,0 +1,11 @@
+name: gephi
+version: 0.10.1
+description: Open-source platform for visualizing and manipulating large graphs
+homepage: https://gephi.org/
+url:
+  darwin_arm64: https://github.com/gephi/gephi/releases/download/v0.10.1/gephi-0.10.1-macos-aarch64.dmg
+sha256:
+  darwin_arm64: cbb852d2f33cddf793290a64aee564cd46ad80ef6c51766ad05dfeb801ac7227
+artifacts:
+  app:
+    - Gephi.app

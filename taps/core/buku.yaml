@@ -1,0 +1,25 @@
+name: buku
+version: 5.1
+description: Powerful command-line bookmark manager
+homepage: https://github.com/jarun/buku
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buku/blobs/sha256:a5f757e3139a80d6d9f292a4625da01e9106111176816598e7502051835861bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buku/blobs/sha256:fc507847cdda3b254154d7d459e81e1d6768141719b965c4b38477b186f18147
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buku/blobs/sha256:95ce163ee47128d82ec4fb8f4a8971934989e287ffeac94fc8bf13118cd959b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buku/blobs/sha256:3e9d70c5f42a25857e618d0b11e6a2eebc754904a06be6146ddee0657a029709
+sha256:
+  darwin_arm64: a5f757e3139a80d6d9f292a4625da01e9106111176816598e7502051835861bb
+  darwin_amd64: fc507847cdda3b254154d7d459e81e1d6768141719b965c4b38477b186f18147
+  linux_amd64: 95ce163ee47128d82ec4fb8f4a8971934989e287ffeac94fc8bf13118cd959b3
+  linux_arm64: 3e9d70c5f42a25857e618d0b11e6a2eebc754904a06be6146ddee0657a029709
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14
+  - rpds-py

@@ -1,0 +1,28 @@
+name: mapproxy
+version: 6.0.1
+description: Accelerating web map proxy
+homepage: https://mapproxy.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mapproxy/blobs/sha256:fff1075146f7b05b42e2e62ef7b3b89289ebf5b1a2d252e62988d1a70a2abd67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mapproxy/blobs/sha256:2ef17b0c91eb0f771938d6b4d8f865a0c69a7180cf9dddf56f0f082d06cb59d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mapproxy/blobs/sha256:14440b9b2be116fe0c01f93874d0c3ed5ccd88c47aa6316b71d7e3cb14a73c56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mapproxy/blobs/sha256:fe1503a8a7d6478f5c6d0df12fda9163900f0aa49152c2514189f9fce9397f53
+sha256:
+  darwin_arm64: fff1075146f7b05b42e2e62ef7b3b89289ebf5b1a2d252e62988d1a70a2abd67
+  darwin_amd64: 2ef17b0c91eb0f771938d6b4d8f865a0c69a7180cf9dddf56f0f082d06cb59d0
+  linux_amd64: 14440b9b2be116fe0c01f93874d0c3ed5ccd88c47aa6316b71d7e3cb14a73c56
+  linux_arm64: fe1503a8a7d6478f5c6d0df12fda9163900f0aa49152c2514189f9fce9397f53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - geos
+  - libyaml
+  - numpy
+  - pillow
+  - proj
+  - python@3.14
+  - rpds-py

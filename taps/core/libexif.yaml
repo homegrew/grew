@@ -1,0 +1,21 @@
+name: libexif
+version: 0.6.25
+description: EXIF parsing library
+homepage: https://libexif.github.io/
+license: LGPL-2.1-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libexif/blobs/sha256:ef49b4bf108c622d0a0f18d5911230f489e1d93f5dcda597949125cad02d7389
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libexif/blobs/sha256:4ccd8b1a418d04e1991120ffb36e82b75dc255b3d652371f93b47032c4f5d829
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libexif/blobs/sha256:1426d9fdac3dcf9359098176fa0a8477c0b3fb05bae374e5fa9daedf3142aead
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libexif/blobs/sha256:db6839524b1045b07572a9b3838dd98c6f3d041d762bd77ce8799a1a5fdff114
+sha256:
+  darwin_arm64: ef49b4bf108c622d0a0f18d5911230f489e1d93f5dcda597949125cad02d7389
+  darwin_amd64: 4ccd8b1a418d04e1991120ffb36e82b75dc255b3d652371f93b47032c4f5d829
+  linux_amd64: 1426d9fdac3dcf9359098176fa0a8477c0b3fb05bae374e5fa9daedf3142aead
+  linux_arm64: db6839524b1045b07572a9b3838dd98c6f3d041d762bd77ce8799a1a5fdff114
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

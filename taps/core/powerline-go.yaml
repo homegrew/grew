@@ -1,0 +1,19 @@
+name: powerline-go
+version: 1.26
+description: Beautiful and useful low-latency prompt for your shell
+homepage: https://github.com/justjanne/powerline-go
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/powerline-go/blobs/sha256:b0480d19fab072ca6629e01d8227f0b024a311d388bbd3fb0a19fce84edc3bc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/powerline-go/blobs/sha256:808ce2687f6a301d3ff0af2a38d6d8c4f91e215d93f4a6f5b5a22738b072a586
+  linux_amd64: https://ghcr.io/v2/homebrew/core/powerline-go/blobs/sha256:c9c395823e650375d21a134373d80495051210a5dadf50185356d1aaebd9dcd6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/powerline-go/blobs/sha256:b70ce76f766143c625d1921a63df6faab3f189d04b2a4f33644a60b34d041a1c
+sha256:
+  darwin_arm64: b0480d19fab072ca6629e01d8227f0b024a311d388bbd3fb0a19fce84edc3bc7
+  darwin_amd64: 808ce2687f6a301d3ff0af2a38d6d8c4f91e215d93f4a6f5b5a22738b072a586
+  linux_amd64: c9c395823e650375d21a134373d80495051210a5dadf50185356d1aaebd9dcd6
+  linux_arm64: b70ce76f766143c625d1921a63df6faab3f189d04b2a4f33644a60b34d041a1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

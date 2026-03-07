@@ -1,0 +1,19 @@
+name: shellharden
+version: 4.3.1
+description: Bash syntax highlighter that encourages/fixes variables quoting
+homepage: https://github.com/anordal/shellharden
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shellharden/blobs/sha256:10e48028dfbd67212a7e171016423b63d885db6e8db6ada26930768b695e73fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shellharden/blobs/sha256:a338286ab8c93d9cd4e4aec92a8212d6110cf23cd5a017587fa4bf62cbf9bbad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shellharden/blobs/sha256:e728c3f307c0729bb68b56c7e6f9abfee8a4192b830b554974effeecf0bda41f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shellharden/blobs/sha256:c204c007a8f608b5f7d08262be092318bd371d444c72f60a6f9772ebbc762cab
+sha256:
+  darwin_arm64: 10e48028dfbd67212a7e171016423b63d885db6e8db6ada26930768b695e73fa
+  darwin_amd64: a338286ab8c93d9cd4e4aec92a8212d6110cf23cd5a017587fa4bf62cbf9bbad
+  linux_amd64: e728c3f307c0729bb68b56c7e6f9abfee8a4192b830b554974effeecf0bda41f
+  linux_arm64: c204c007a8f608b5f7d08262be092318bd371d444c72f60a6f9772ebbc762cab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

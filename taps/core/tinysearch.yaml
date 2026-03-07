@@ -1,0 +1,22 @@
+name: tinysearch
+version: 0.10.0
+description: Tiny, full-text search engine for static websites built with Rust and Wasm
+homepage: https://github.com/tinysearch/tinysearch
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinysearch/blobs/sha256:3c9705d7d8912da7e4a11f967b57b026a974a3232a998e3cf555c154f668f0ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinysearch/blobs/sha256:14490663c0beb01f76937ff1023980806e75d51bb97912f00f2490f7a485bc09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinysearch/blobs/sha256:7746d68cca7ebd9ad68eb6e0ead34dfed4741b924b561abaaf5c16ae4507c9ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinysearch/blobs/sha256:2372210d0075d8b401f1b5de4a06359432aa6489cf6e3fadab578cacc67e4329
+sha256:
+  darwin_arm64: 3c9705d7d8912da7e4a11f967b57b026a974a3232a998e3cf555c154f668f0ad
+  darwin_amd64: 14490663c0beb01f76937ff1023980806e75d51bb97912f00f2490f7a485bc09
+  linux_amd64: 7746d68cca7ebd9ad68eb6e0ead34dfed4741b924b561abaaf5c16ae4507c9ab
+  linux_arm64: 2372210d0075d8b401f1b5de4a06359432aa6489cf6e3fadab578cacc67e4329
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rustup
+  - wasm-pack

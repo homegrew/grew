@@ -1,0 +1,21 @@
+name: gruyere
+version: 0.1.0
+description: TUI program for viewing and killing processes listening on ports
+homepage: https://github.com/savannahostrowski/gruyere
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gruyere/blobs/sha256:38e59a53fe749631456936a2c79fc30af4bc34af533a4ec2f20e811528f49bf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gruyere/blobs/sha256:e05129fb5fcecc61357d6af820594845fc615d93e9510f2ae46f52c6c6704ace
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gruyere/blobs/sha256:1f256ebbe7ed92eb18431ec9a9f89452075ab13eeb28732f8a08ef8e16ea917d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gruyere/blobs/sha256:0267dd435ea1b6f08e1769b004fb3d9fb5fb06664aeb61a9abf55087f2e73cb3
+sha256:
+  darwin_arm64: 38e59a53fe749631456936a2c79fc30af4bc34af533a4ec2f20e811528f49bf9
+  darwin_amd64: e05129fb5fcecc61357d6af820594845fc615d93e9510f2ae46f52c6c6704ace
+  linux_amd64: 1f256ebbe7ed92eb18431ec9a9f89452075ab13eeb28732f8a08ef8e16ea917d
+  linux_arm64: 0267dd435ea1b6f08e1769b004fb3d9fb5fb06664aeb61a9abf55087f2e73cb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

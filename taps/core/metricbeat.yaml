@@ -1,0 +1,19 @@
+name: metricbeat
+version: 9.3.1
+description: Collect metrics from your systems and services
+homepage: https://www.elastic.co/beats/metricbeat
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/metricbeat/blobs/sha256:09f5dbc774fb14a9c2d9b492d72f68d16990093abcf46702db17a21336834f3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/metricbeat/blobs/sha256:fd3d9b82d1538dc8cf6e9489e1ece99c35c2229fc62d28495a952e400df91a2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/metricbeat/blobs/sha256:9634740f799472206187f7830eb7378315199a43bb94584239cdd7ec7a3b8ec9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/metricbeat/blobs/sha256:48e170a9af84a30643a6320cbc90537000a2a86268128df9546d03408bcdfb9b
+sha256:
+  darwin_arm64: 09f5dbc774fb14a9c2d9b492d72f68d16990093abcf46702db17a21336834f3e
+  darwin_amd64: fd3d9b82d1538dc8cf6e9489e1ece99c35c2229fc62d28495a952e400df91a2d
+  linux_amd64: 9634740f799472206187f7830eb7378315199a43bb94584239cdd7ec7a3b8ec9
+  linux_arm64: 48e170a9af84a30643a6320cbc90537000a2a86268128df9546d03408bcdfb9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

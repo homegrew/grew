@@ -1,0 +1,19 @@
+name: evil-helix
+version: 20250915
+description: Soft fork of the helix editor
+homepage: https://github.com/usagi-flow/evil-helix
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evil-helix/blobs/sha256:088ce87991fec98ca0f5d28f7a781841cbe12259b24fb938f3082999e9b6ba83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evil-helix/blobs/sha256:3827312aed2b160a604b9afa49ba2180af52f64782fd30317ef93b8c85ea0797
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evil-helix/blobs/sha256:c13f92143ffc80c200cf99fab67afd167cb9c0dcf64b559c48db9b27734d3b1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evil-helix/blobs/sha256:b1b10ec389c6c35d93edb3068ddb9b903745a0c57de1c672ae384c4b16fca17d
+sha256:
+  darwin_arm64: 088ce87991fec98ca0f5d28f7a781841cbe12259b24fb938f3082999e9b6ba83
+  darwin_amd64: 3827312aed2b160a604b9afa49ba2180af52f64782fd30317ef93b8c85ea0797
+  linux_amd64: c13f92143ffc80c200cf99fab67afd167cb9c0dcf64b559c48db9b27734d3b1a
+  linux_arm64: b1b10ec389c6c35d93edb3068ddb9b903745a0c57de1c672ae384c4b16fca17d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

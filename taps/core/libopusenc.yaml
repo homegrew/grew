@@ -1,0 +1,21 @@
+name: libopusenc
+version: 0.3
+description: Convenience library for creating .opus files
+homepage: https://www.opus-codec.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libopusenc/blobs/sha256:92b42832d01a85d2be1e22d430d80fe57e02987ebf6b4e77f425891f4c1ae3e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libopusenc/blobs/sha256:4c4fd7d3596d74477da965719a66a3684007ae2ba31dc482a8a25ec6f57feb90
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libopusenc/blobs/sha256:090f5e5a9c1ff5dc82c371154d4c1394d3e85d4dbbb27759552766734c3f1750
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libopusenc/blobs/sha256:96d744e47f001702d08a26bccbeeda29d1ddfd1b14efd323ab0c9117e6d701c1
+sha256:
+  darwin_arm64: 92b42832d01a85d2be1e22d430d80fe57e02987ebf6b4e77f425891f4c1ae3e0
+  darwin_amd64: 4c4fd7d3596d74477da965719a66a3684007ae2ba31dc482a8a25ec6f57feb90
+  linux_amd64: 090f5e5a9c1ff5dc82c371154d4c1394d3e85d4dbbb27759552766734c3f1750
+  linux_arm64: 96d744e47f001702d08a26bccbeeda29d1ddfd1b14efd323ab0c9117e6d701c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - opus

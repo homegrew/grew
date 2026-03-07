@@ -1,0 +1,11 @@
+name: murus
+version: 2.7
+description: Firewall app
+homepage: https://www.murusfirewall.com/
+url:
+  darwin_arm64: https://github.com/TheMurusTeam/Murus/releases/download/v2.7/murus-2.7.zip
+sha256:
+  darwin_arm64: e226ec090e678e2c2f7b8ccb49e32990b59e54fcf268eaa2bce443ecca902a4b
+artifacts:
+  app:
+    - Murus.app

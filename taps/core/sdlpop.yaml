@@ -1,0 +1,22 @@
+name: sdlpop
+version: 1.23
+description: Open-source port of Prince of Persia
+homepage: https://github.com/NagyD/SDLPoP
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdlpop/blobs/sha256:6e3cea82ac70bf426add75f5a387ca949deda5662ba1dbf3a5e0d22ac4f88270
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdlpop/blobs/sha256:305326724cf1be0e0c633a0412110b71c7d06b88c5094ad7c669be8f5c32d510
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdlpop/blobs/sha256:8ef6448ced32c9d812689e9103bce4cf3df4eba04d34325898b205438fd73bc8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdlpop/blobs/sha256:9daa7ef72865e7a540bdf684c5e58c59aa510ba5719c361abceac75f401006e1
+sha256:
+  darwin_arm64: 6e3cea82ac70bf426add75f5a387ca949deda5662ba1dbf3a5e0d22ac4f88270
+  darwin_amd64: 305326724cf1be0e0c633a0412110b71c7d06b88c5094ad7c669be8f5c32d510
+  linux_amd64: 8ef6448ced32c9d812689e9103bce4cf3df4eba04d34325898b205438fd73bc8
+  linux_arm64: 9daa7ef72865e7a540bdf684c5e58c59aa510ba5719c361abceac75f401006e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2
+  - sdl2_image

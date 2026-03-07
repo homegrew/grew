@@ -1,0 +1,19 @@
+name: one-ml
+version: 0.1
+description: Reboot of ML, unifying its core and (now first-class) module layers
+homepage: https://people.mpi-sws.org/~rossberg/1ml/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/one-ml/blobs/sha256:860fb358a7e0ec0e442bef49e7b48935e44f016a46a24d45d488f96944d16f7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/one-ml/blobs/sha256:27b7971ea9c937351fb074cd81ca3f3434aa1f3816e90a54399fbbd2ffb3484a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/one-ml/blobs/sha256:924420564fa34eddc5c750e2d12b0cddb9326d7d2001eeeebfd70d6ca32ad63f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/one-ml/blobs/sha256:ec02fcb0d5d571addf9834569a211f12339d0ac9bfda48b71885214f737d0d10
+sha256:
+  darwin_arm64: 860fb358a7e0ec0e442bef49e7b48935e44f016a46a24d45d488f96944d16f7e
+  darwin_amd64: 27b7971ea9c937351fb074cd81ca3f3434aa1f3816e90a54399fbbd2ffb3484a
+  linux_amd64: 924420564fa34eddc5c750e2d12b0cddb9326d7d2001eeeebfd70d6ca32ad63f
+  linux_arm64: ec02fcb0d5d571addf9834569a211f12339d0ac9bfda48b71885214f737d0d10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

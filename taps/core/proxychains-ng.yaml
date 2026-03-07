@@ -1,0 +1,19 @@
+name: proxychains-ng
+version: 4.17
+description: Hook preloader
+homepage: https://github.com/rofl0r/proxychains-ng
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxychains-ng/blobs/sha256:cfc77a32629806d155490f333305c7f0e063f9c98389192c60d2e6238db4e31c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxychains-ng/blobs/sha256:614c2caeb62d41e1de4d4cf4ca346fa16c04dc42f2ff39f19595fcbb3ddb925b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxychains-ng/blobs/sha256:72117ba62cdda573a388e3ba19b52a7991fb941237197f624249a906db414c47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxychains-ng/blobs/sha256:d8fcdce08eb197325b1534e3645916d4966c7facddcea9b3a14f9db258d1c320
+sha256:
+  darwin_arm64: cfc77a32629806d155490f333305c7f0e063f9c98389192c60d2e6238db4e31c
+  darwin_amd64: 614c2caeb62d41e1de4d4cf4ca346fa16c04dc42f2ff39f19595fcbb3ddb925b
+  linux_amd64: 72117ba62cdda573a388e3ba19b52a7991fb941237197f624249a906db414c47
+  linux_arm64: d8fcdce08eb197325b1534e3645916d4966c7facddcea9b3a14f9db258d1c320
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

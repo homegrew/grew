@@ -1,0 +1,21 @@
+name: vnstat
+version: 2.13
+description: Console-based network traffic monitor
+homepage: https://humdi.net/vnstat/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vnstat/blobs/sha256:af145bbd1da554febe818a33724a04fd13316d589279f3e7c7dd44178556f1ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vnstat/blobs/sha256:edeb08c785444734a8d1c2952fb88959b058406792628f3b99e10f744f207057
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vnstat/blobs/sha256:41fb94bbbdbb6533741c6cd5b0cdf6e1713ce55b499ef80950cf31a94a25015e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vnstat/blobs/sha256:c390b99feadced13f30746c1f6caa889592001edb5a001cde6a40bed344728e7
+sha256:
+  darwin_arm64: af145bbd1da554febe818a33724a04fd13316d589279f3e7c7dd44178556f1ae
+  darwin_amd64: edeb08c785444734a8d1c2952fb88959b058406792628f3b99e10f744f207057
+  linux_amd64: 41fb94bbbdbb6533741c6cd5b0cdf6e1713ce55b499ef80950cf31a94a25015e
+  linux_arm64: c390b99feadced13f30746c1f6caa889592001edb5a001cde6a40bed344728e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd

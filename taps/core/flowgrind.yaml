@@ -1,0 +1,22 @@
+name: flowgrind
+version: 0.8.2
+description: TCP measurement tool, similar to iperf or netperf
+homepage: https://flowgrind.github.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flowgrind/blobs/sha256:dcd288a71292d550079710e54de9a1b51f45749548873121c5b93c876e60509e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flowgrind/blobs/sha256:ffccc45ede3a5189617d45f4174a4651c8268a8d79c20efd9150a593d323612f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flowgrind/blobs/sha256:f6c4eee0899191de5387f8210f2c3d4ba96313d50d82ee80e453546e60cfd1b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flowgrind/blobs/sha256:8f3e749ef37e3609c899f5d6fc617045c2bc1c46b5f43c83d0b7c9edbf620e1e
+sha256:
+  darwin_arm64: dcd288a71292d550079710e54de9a1b51f45749548873121c5b93c876e60509e
+  darwin_amd64: ffccc45ede3a5189617d45f4174a4651c8268a8d79c20efd9150a593d323612f
+  linux_amd64: f6c4eee0899191de5387f8210f2c3d4ba96313d50d82ee80e453546e60cfd1b7
+  linux_arm64: 8f3e749ef37e3609c899f5d6fc617045c2bc1c46b5f43c83d0b7c9edbf620e1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gsl
+  - xmlrpc-c

@@ -1,0 +1,21 @@
+name: chart-testing
+version: 3.14.0
+description: Testing and linting Helm charts
+homepage: https://github.com/helm/chart-testing
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chart-testing/blobs/sha256:c1df796ab13d24fd7f6a786393a10807fd0e783d4b47ab4a4e9de1c11ded7245
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chart-testing/blobs/sha256:83e6618ea266830c8b9968f7e6b6ac17ee3490210627753528cc46389aa2a4a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chart-testing/blobs/sha256:ebc6e33ee4183e77342abc7a8ce58eb172d8ca344f12c833adef315f01b5fcad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chart-testing/blobs/sha256:92c94595c95d8aa4d96cfce81c4baa6d018e3a6ffba221de525cdd31d1b43f3b
+sha256:
+  darwin_arm64: c1df796ab13d24fd7f6a786393a10807fd0e783d4b47ab4a4e9de1c11ded7245
+  darwin_amd64: 83e6618ea266830c8b9968f7e6b6ac17ee3490210627753528cc46389aa2a4a0
+  linux_amd64: ebc6e33ee4183e77342abc7a8ce58eb172d8ca344f12c833adef315f01b5fcad
+  linux_arm64: 92c94595c95d8aa4d96cfce81c4baa6d018e3a6ffba221de525cdd31d1b43f3b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - yamale

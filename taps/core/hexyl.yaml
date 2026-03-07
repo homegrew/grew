@@ -1,0 +1,19 @@
+name: hexyl
+version: 0.17.0
+description: Command-line hex viewer
+homepage: https://github.com/sharkdp/hexyl
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexyl/blobs/sha256:a380040d842d6ced8dc8015f3d9b25d45c5b60f594f4480609d011ef22bd58d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexyl/blobs/sha256:1ddae4d3fad1bc47f842293c728ee099aa4b6e1693a93ccc34b34776ecad6a35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexyl/blobs/sha256:b2728e436ddc3e43a3bd757a05c7e375681b8e1e057eb606f151bc9925a7b0ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexyl/blobs/sha256:9ea9567b1f011c966988dec4e0bbfa23e7685733a9b5b938c65302bc19603e91
+sha256:
+  darwin_arm64: a380040d842d6ced8dc8015f3d9b25d45c5b60f594f4480609d011ef22bd58d5
+  darwin_amd64: 1ddae4d3fad1bc47f842293c728ee099aa4b6e1693a93ccc34b34776ecad6a35
+  linux_amd64: b2728e436ddc3e43a3bd757a05c7e375681b8e1e057eb606f151bc9925a7b0ed
+  linux_arm64: 9ea9567b1f011c966988dec4e0bbfa23e7685733a9b5b938c65302bc19603e91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

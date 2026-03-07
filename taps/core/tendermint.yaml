@@ -1,0 +1,19 @@
+name: tendermint
+version: 0.35.9
+description: BFT state machine replication for applications in any programming languages
+homepage: https://tendermint.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tendermint/blobs/sha256:ddc9b6cc60737cbd10628628ad914d6e1330a2a327eec2795674ae15b7f0c714
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tendermint/blobs/sha256:b19905fb5656c1f5412b8d669f7eaa43ff73b54825b5379b4964b3561b3b59ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tendermint/blobs/sha256:fad00242ca40a9571b66d96a4f31268ee81fa317726834d82475630267d9ef13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tendermint/blobs/sha256:50a1fe51c2ba29d7b0bda7a8b103a950cad2267f1e859cb525bd51b989bc91f5
+sha256:
+  darwin_arm64: ddc9b6cc60737cbd10628628ad914d6e1330a2a327eec2795674ae15b7f0c714
+  darwin_amd64: b19905fb5656c1f5412b8d669f7eaa43ff73b54825b5379b4964b3561b3b59ae
+  linux_amd64: fad00242ca40a9571b66d96a4f31268ee81fa317726834d82475630267d9ef13
+  linux_arm64: 50a1fe51c2ba29d7b0bda7a8b103a950cad2267f1e859cb525bd51b989bc91f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

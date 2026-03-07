@@ -1,0 +1,19 @@
+name: shapelib
+version: 1.6.2
+description: Library for reading and writing ArcView Shapefiles
+homepage: http://shapelib.maptools.org/
+license: LGPL-2.0-or-later OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shapelib/blobs/sha256:43e91ffabf78719346ced0f39b03e619806a4df62f1c872cadfbc95c84effd45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shapelib/blobs/sha256:e7902a25697c5b22aeaa03c3719d00b420c7c91ee7fae2be217f9a33e9b9c0bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shapelib/blobs/sha256:77c2e0458eafac06eae035aa3b82151a84c6a00bd3e1cdab4fc77d08ce7a47ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shapelib/blobs/sha256:f2897817454fdedab4d9c78ce7b521265aa16af4c89d2c614dacdf429a1eb143
+sha256:
+  darwin_arm64: 43e91ffabf78719346ced0f39b03e619806a4df62f1c872cadfbc95c84effd45
+  darwin_amd64: e7902a25697c5b22aeaa03c3719d00b420c7c91ee7fae2be217f9a33e9b9c0bf
+  linux_amd64: 77c2e0458eafac06eae035aa3b82151a84c6a00bd3e1cdab4fc77d08ce7a47ab
+  linux_arm64: f2897817454fdedab4d9c78ce7b521265aa16af4c89d2c614dacdf429a1eb143
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

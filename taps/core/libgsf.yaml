@@ -1,0 +1,22 @@
+name: libgsf
+version: 1.14.55
+description: I/O abstraction library for dealing with structured file formats
+homepage: https://gitlab.gnome.org/GNOME/libgsf
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgsf/blobs/sha256:a9cfe6cb82653598ac70d6c9e5a2dc57fa7aba7a98b00c5e569060249f34f4bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgsf/blobs/sha256:9308632b66afba70ba6f921c6593ffb211198840ba7c0ad0e8750208c496bb46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgsf/blobs/sha256:2c5517b9203ac2e8af0c698a7c164adfdacf4f248daa174d7784bbd74d46a6d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgsf/blobs/sha256:b5b939a5637e13461288b498171b4b123947d91e6a002f9aa42fa35c8b341113
+sha256:
+  darwin_arm64: a9cfe6cb82653598ac70d6c9e5a2dc57fa7aba7a98b00c5e569060249f34f4bc
+  darwin_amd64: 9308632b66afba70ba6f921c6593ffb211198840ba7c0ad0e8750208c496bb46
+  linux_amd64: 2c5517b9203ac2e8af0c698a7c164adfdacf4f248daa174d7784bbd74d46a6d3
+  linux_arm64: b5b939a5637e13461288b498171b4b123947d91e6a002f9aa42fa35c8b341113
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

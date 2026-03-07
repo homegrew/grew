@@ -1,0 +1,19 @@
+name: licensor
+version: 2.1.0
+description: Write licenses to stdout
+homepage: https://github.com/raftario/licensor
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/licensor/blobs/sha256:b7072a1c2d29961fce1e5293dbd58ec4868d7bfa912647dd6373b89b2aceaeb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/licensor/blobs/sha256:edca5ae2dce5225627989bf5e5ac16b479e2332974ece8ce413e23c6982eb49e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/licensor/blobs/sha256:7cd9933ef3863a349b7e364bcd9e135606d0b7468d2fe7402c3c688a8b3afd4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/licensor/blobs/sha256:e1056cd569d727dd376987b9dba21aa0d108a4db550d7a88b2db93a87b72d2bc
+sha256:
+  darwin_arm64: b7072a1c2d29961fce1e5293dbd58ec4868d7bfa912647dd6373b89b2aceaeb8
+  darwin_amd64: edca5ae2dce5225627989bf5e5ac16b479e2332974ece8ce413e23c6982eb49e
+  linux_amd64: 7cd9933ef3863a349b7e364bcd9e135606d0b7468d2fe7402c3c688a8b3afd4c
+  linux_arm64: e1056cd569d727dd376987b9dba21aa0d108a4db550d7a88b2db93a87b72d2bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

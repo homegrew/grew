@@ -1,0 +1,11 @@
+name: virtualc64
+version: 5.3.1
+description: Cycle-accurate C64 emulator
+homepage: https://dirkwhoffmann.github.io/virtualc64
+url:
+  darwin_arm64: https://github.com/dirkwhoffmann/virtualc64/releases/download/v5.3.1/VirtualC64.app.zip
+sha256:
+  darwin_arm64: c68c15cdfcfc944c9f873ce90967e1990f8afdfacee964519d33c485041616e7
+artifacts:
+  app:
+    - VirtualC64.app

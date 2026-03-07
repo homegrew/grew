@@ -1,0 +1,19 @@
+name: unyaffs
+version: 0.9.7
+description: Extract files from a YAFFS2 filesystem image
+homepage: https://packages.debian.org/sid/unyaffs
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unyaffs/blobs/sha256:5068e81bc76a677c3b186e77b91df1b38d9fd0c2936762231c1c54ccceca194a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unyaffs/blobs/sha256:88cb072ec2c01fa29325d1992f1261585079091b1641ad3258cf5b1c0276bfbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unyaffs/blobs/sha256:8ea922f7eba91f9c6d6f3769fc9491e0f1414d9ecf006855414f8a544ef01638
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unyaffs/blobs/sha256:8c792cf1749a245cfabfa082c6ae0fc4ff707f65f258225d3d5d64e20b80b992
+sha256:
+  darwin_arm64: 5068e81bc76a677c3b186e77b91df1b38d9fd0c2936762231c1c54ccceca194a
+  darwin_amd64: 88cb072ec2c01fa29325d1992f1261585079091b1641ad3258cf5b1c0276bfbe
+  linux_amd64: 8ea922f7eba91f9c6d6f3769fc9491e0f1414d9ecf006855414f8a544ef01638
+  linux_arm64: 8c792cf1749a245cfabfa082c6ae0fc4ff707f65f258225d3d5d64e20b80b992
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

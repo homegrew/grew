@@ -1,0 +1,19 @@
+name: gpx
+version: 2.6.8
+description: Gcode to x3g converter for 3D printers running Sailfish
+homepage: https://github.com/markwal/GPX/blob/HEAD/README.md
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpx/blobs/sha256:b22447a95c344cc87486222b09771e583af5854f2f8e14b57dd833af9bd88546
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpx/blobs/sha256:dbbe6d2352c73b6d6fd701e1ea6abf4b9b0140c4341e1274f145299b93fe2658
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpx/blobs/sha256:50b29dd66920ad57a1f25ca2da7bd5cbed6f73ae4141fdc6fc9a07fb2166496c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpx/blobs/sha256:14c39a870eabe876ac4f7c93fde5b4821a7afaf9409a1445db1a7b4117d980fe
+sha256:
+  darwin_arm64: b22447a95c344cc87486222b09771e583af5854f2f8e14b57dd833af9bd88546
+  darwin_amd64: dbbe6d2352c73b6d6fd701e1ea6abf4b9b0140c4341e1274f145299b93fe2658
+  linux_amd64: 50b29dd66920ad57a1f25ca2da7bd5cbed6f73ae4141fdc6fc9a07fb2166496c
+  linux_arm64: 14c39a870eabe876ac4f7c93fde5b4821a7afaf9409a1445db1a7b4117d980fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

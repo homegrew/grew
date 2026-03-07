@@ -1,0 +1,19 @@
+name: sqlbench
+version: 1.1.0
+description: Measures and compares the execution time of one or more SQL queries
+homepage: https://github.com/felixge/sqlbench
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlbench/blobs/sha256:8c496486c81f8ef1e302ef65bdb290f2d6374e1b1840a7e970991a2ea76bd219
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlbench/blobs/sha256:f8238453f1e6614c8f14910cfcc53d465cc15cce3d4c8b11b6042be4b36ad319
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlbench/blobs/sha256:e0e961ada32e3e6588b0a328d3030f39e7bcc1457b63573608347e28cd5960cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlbench/blobs/sha256:8865da934790a89133f570b9e8501d9648fbaeb33f49ec8a21867625f5b8da41
+sha256:
+  darwin_arm64: 8c496486c81f8ef1e302ef65bdb290f2d6374e1b1840a7e970991a2ea76bd219
+  darwin_amd64: f8238453f1e6614c8f14910cfcc53d465cc15cce3d4c8b11b6042be4b36ad319
+  linux_amd64: e0e961ada32e3e6588b0a328d3030f39e7bcc1457b63573608347e28cd5960cf
+  linux_arm64: 8865da934790a89133f570b9e8501d9648fbaeb33f49ec8a21867625f5b8da41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

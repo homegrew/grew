@@ -1,0 +1,22 @@
+name: vorbisgain
+version: 0.37
+description: Add Replay Gain volume tags to Ogg Vorbis files
+homepage: https://sjeng.org/vorbisgain.html
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vorbisgain/blobs/sha256:2184e1fd2ac1887c416d3aef7c8596ff7b4b5bb34e5f1d2e47f9b4ef54e69094
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vorbisgain/blobs/sha256:883d2c263b7328b4dc485555c3c0c5792a6cacc8a9588c5d2dc13db5d2ab8a02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vorbisgain/blobs/sha256:98180bd55bee493621155475e77ba5de249c1ce27f85edc895a69c9d41a63df3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vorbisgain/blobs/sha256:32f7069967cb439534cab42cacd2edbc3e81d8fb180362260ccd8ee19759e85d
+sha256:
+  darwin_arm64: 2184e1fd2ac1887c416d3aef7c8596ff7b4b5bb34e5f1d2e47f9b4ef54e69094
+  darwin_amd64: 883d2c263b7328b4dc485555c3c0c5792a6cacc8a9588c5d2dc13db5d2ab8a02
+  linux_amd64: 98180bd55bee493621155475e77ba5de249c1ce27f85edc895a69c9d41a63df3
+  linux_arm64: 32f7069967cb439534cab42cacd2edbc3e81d8fb180362260ccd8ee19759e85d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - libvorbis

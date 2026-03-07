@@ -1,0 +1,19 @@
+name: git-pages-cli
+version: 1.5.2
+description: Tool for publishing a site to a git-pages server
+homepage: https://codeberg.org/git-pages/git-pages-cli
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-pages-cli/blobs/sha256:cfeef6686b9ff0a6bc79be6c0feedbfc8a32bd3b04cd8604e80652aae3f37328
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-pages-cli/blobs/sha256:4ec5eb9425d07b01fe5eb95fe0ab26266488acd6da358d60f8b096bfdb95615d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-pages-cli/blobs/sha256:7c5526fa7a711fd499ce90a5c3629a7a8c462256eecc3888cf7e1f4c2074c10c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-pages-cli/blobs/sha256:8d0fbabce7b4ac8ed7718b536b3fb445c09a9e8cd02b366a5312fc6527a1c353
+sha256:
+  darwin_arm64: cfeef6686b9ff0a6bc79be6c0feedbfc8a32bd3b04cd8604e80652aae3f37328
+  darwin_amd64: 4ec5eb9425d07b01fe5eb95fe0ab26266488acd6da358d60f8b096bfdb95615d
+  linux_amd64: 7c5526fa7a711fd499ce90a5c3629a7a8c462256eecc3888cf7e1f4c2074c10c
+  linux_arm64: 8d0fbabce7b4ac8ed7718b536b3fb445c09a9e8cd02b366a5312fc6527a1c353
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

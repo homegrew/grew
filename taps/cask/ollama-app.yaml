@@ -1,0 +1,13 @@
+name: ollama-app
+version: 0.17.7
+description: Get up and running with large language models locally
+homepage: https://ollama.com/
+url:
+  darwin_arm64: https://github.com/ollama/ollama/releases/download/v0.17.7/Ollama-darwin.zip
+sha256:
+  darwin_arm64: ac2fa78433b91bc5b6ff989d50430ed458d49a1998d8a381f582afad2cdb1a03
+artifacts:
+  app:
+    - Ollama.app
+  bin:
+    - ollama

@@ -1,0 +1,19 @@
+name: surfraw
+version: 2.3.0
+description: "Shell Users' Revolutionary Front Rage Against the Web"
+homepage: https://gitlab.com/surfraw/Surfraw
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/surfraw/blobs/sha256:41fcab9dbdb65112b701d420fee1d2411b1f8af7115bb7d5412eb822f27e30ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/surfraw/blobs/sha256:909a14dec923c593a50ec318616b2f94348365c4dd07f4c8d77bf7a213d52ca8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/surfraw/blobs/sha256:8b1b358e902cb7ca1a8477e5fe4953ed7b0dcea29717e9f14328ff6fe60e922a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/surfraw/blobs/sha256:a199f462c1b1276aa99ec530c64775edc15565eccaecca23c99bbb9474db0024
+sha256:
+  darwin_arm64: 41fcab9dbdb65112b701d420fee1d2411b1f8af7115bb7d5412eb822f27e30ca
+  darwin_amd64: 909a14dec923c593a50ec318616b2f94348365c4dd07f4c8d77bf7a213d52ca8
+  linux_amd64: 8b1b358e902cb7ca1a8477e5fe4953ed7b0dcea29717e9f14328ff6fe60e922a
+  linux_arm64: a199f462c1b1276aa99ec530c64775edc15565eccaecca23c99bbb9474db0024
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

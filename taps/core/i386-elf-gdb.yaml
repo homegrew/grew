@@ -1,0 +1,27 @@
+name: i386-elf-gdb
+version: 17.1
+description: GNU debugger for i386-elf cross development
+homepage: https://www.gnu.org/software/gdb/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i386-elf-gdb/blobs/sha256:a956c80bc7b8f5684e35879dbda8d3151fbeea1120aadfdabc87d32703807041
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i386-elf-gdb/blobs/sha256:5e83b88fe0e938cc127d885fcb4f532c8bbd51fc7afcb7adf20eaecf73416391
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i386-elf-gdb/blobs/sha256:84f2011bb0f159028fb41d70f3c3e34e5e3853adb339f804d3d188c1fc34e09c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i386-elf-gdb/blobs/sha256:bfa1974625c22529c5f6edfa189fa531ce9977b13a823882d332db9863474ecc
+sha256:
+  darwin_arm64: a956c80bc7b8f5684e35879dbda8d3151fbeea1120aadfdabc87d32703807041
+  darwin_amd64: 5e83b88fe0e938cc127d885fcb4f532c8bbd51fc7afcb7adf20eaecf73416391
+  linux_amd64: 84f2011bb0f159028fb41d70f3c3e34e5e3853adb339f804d3d188c1fc34e09c
+  linux_arm64: bfa1974625c22529c5f6edfa189fa531ce9977b13a823882d332db9863474ecc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - ncurses
+  - python@3.14
+  - readline
+  - xz
+  - zstd

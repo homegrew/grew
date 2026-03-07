@@ -1,0 +1,19 @@
+name: jlog
+version: 2.6.0
+description: Pure C message queue with subscribers and publishers for logs
+homepage: https://labs.omniti.com/labs/jlog
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jlog/blobs/sha256:f724763ab3cb0f20315a2e5b3248cb93a5f3ae752233eb22604ab31df032c6b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jlog/blobs/sha256:61f8f9bd4bc83160c4680f9df02462d64c06a2125488b3f421e80753218bc786
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jlog/blobs/sha256:9b59c62ae218826677a96203de736d341929e2f7490957eeb125d9b720e698ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jlog/blobs/sha256:3bad683d45631a54ba97c2191786efcd88bb8e7ad1bbf0e8e97b417607f5c61c
+sha256:
+  darwin_arm64: f724763ab3cb0f20315a2e5b3248cb93a5f3ae752233eb22604ab31df032c6b0
+  darwin_amd64: 61f8f9bd4bc83160c4680f9df02462d64c06a2125488b3f421e80753218bc786
+  linux_amd64: 9b59c62ae218826677a96203de736d341929e2f7490957eeb125d9b720e698ec
+  linux_arm64: 3bad683d45631a54ba97c2191786efcd88bb8e7ad1bbf0e8e97b417607f5c61c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

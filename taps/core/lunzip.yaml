@@ -1,0 +1,19 @@
+name: lunzip
+version: 1.15
+description: Decompressor for lzip files
+homepage: https://www.nongnu.org/lzip/lunzip.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lunzip/blobs/sha256:4ee545b7641e3df03be2ed317246239ec92a16537e2ecd17ada8a338725c5e87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lunzip/blobs/sha256:71198791087ef6380858c64097848d8f9d8860e65fd6fbab3fa1c45e018f39b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lunzip/blobs/sha256:33207f9159131abd7656dc1f657bca8a18b90853a83f32506fa82996296d265a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lunzip/blobs/sha256:5c3ce13001ea04a7c88a7611cb9f2447bd2cbfa654cef5382a461b42538d0218
+sha256:
+  darwin_arm64: 4ee545b7641e3df03be2ed317246239ec92a16537e2ecd17ada8a338725c5e87
+  darwin_amd64: 71198791087ef6380858c64097848d8f9d8860e65fd6fbab3fa1c45e018f39b4
+  linux_amd64: 33207f9159131abd7656dc1f657bca8a18b90853a83f32506fa82996296d265a
+  linux_arm64: 5c3ce13001ea04a7c88a7611cb9f2447bd2cbfa654cef5382a461b42538d0218
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: testscript
+version: 1.14.1
+description: Integration tests for command-line applications in .txtar format
+homepage: https://github.com/rogpeppe/go-internal/tree/master/cmd/testscript
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/testscript/blobs/sha256:28d3ec9f59f45bbc4d9422e206e72a57e219d7f406f45358969047c0b2c7d2b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/testscript/blobs/sha256:49b838e6643cee284d00a50e1cd8be9c5b3d67033856bc360deef31f2c629fcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/testscript/blobs/sha256:022c023408e7ecc0d604e44d262d675fb4be88303ea8794b422f1b472009e1ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/testscript/blobs/sha256:c20bb5d4ba2e8032f66e5c61ddeaf01d07052db00e6810814be3abc85714f992
+sha256:
+  darwin_arm64: 28d3ec9f59f45bbc4d9422e206e72a57e219d7f406f45358969047c0b2c7d2b0
+  darwin_amd64: 49b838e6643cee284d00a50e1cd8be9c5b3d67033856bc360deef31f2c629fcc
+  linux_amd64: 022c023408e7ecc0d604e44d262d675fb4be88303ea8794b422f1b472009e1ab
+  linux_arm64: c20bb5d4ba2e8032f66e5c61ddeaf01d07052db00e6810814be3abc85714f992
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

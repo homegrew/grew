@@ -1,0 +1,15 @@
+name: clippy
+version: 1.6.7
+description: Copy files from your terminal that actually paste into GUI apps
+homepage: https://github.com/neilberkman/clippy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clippy/blobs/sha256:3b1239f4dd96a2178d22cc207d304cf78f7fd8b1733e8b7a15fa72f0cfbcf408
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clippy/blobs/sha256:1262eebdd66411ec6c168e7d07d3ae06746aa43453e6ed24b81aaed79038b92d
+sha256:
+  darwin_arm64: 3b1239f4dd96a2178d22cc207d304cf78f7fd8b1733e8b7a15fa72f0cfbcf408
+  darwin_amd64: 1262eebdd66411ec6c168e7d07d3ae06746aa43453e6ed24b81aaed79038b92d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

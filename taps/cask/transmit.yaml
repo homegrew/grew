@@ -1,0 +1,11 @@
+name: transmit
+version: 5.11.5
+description: File transfer application
+homepage: https://panic.com/transmit/
+url:
+  darwin_arm64: https://download-cdn.panic.com/transmit/Transmit%205.11.5.zip
+sha256:
+  darwin_arm64: 9557a8dceb9af8d9f031fdff6f7ca351e02c18180816c77d542f8caa11550366
+artifacts:
+  app:
+    - Transmit.app

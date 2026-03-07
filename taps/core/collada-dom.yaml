@@ -1,0 +1,23 @@
+name: collada-dom
+version: 2.5.0
+description: C++ library for loading and saving COLLADA data
+homepage: https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/collada-dom/blobs/sha256:571dd57bc1c55e2136dcca7348eb4ff31aee95a3d20178ea87a36061fe655a6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/collada-dom/blobs/sha256:acac703a5648f3a6211283aeb24e3bdf2185671ecee70d2b00e139efce2925c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/collada-dom/blobs/sha256:d1e7a11c3863a2ed8f2b6a266299ddba1f536ae1dd3b7d97c75c2fd2de5a8084
+  linux_arm64: https://ghcr.io/v2/homebrew/core/collada-dom/blobs/sha256:63dfeb474fccc391c52805334719c4dee901a1e9ed27194176a5d134315ab780
+sha256:
+  darwin_arm64: 571dd57bc1c55e2136dcca7348eb4ff31aee95a3d20178ea87a36061fe655a6a
+  darwin_amd64: acac703a5648f3a6211283aeb24e3bdf2185671ecee70d2b00e139efce2925c7
+  linux_amd64: d1e7a11c3863a2ed8f2b6a266299ddba1f536ae1dd3b7d97c75c2fd2de5a8084
+  linux_arm64: 63dfeb474fccc391c52805334719c4dee901a1e9ed27194176a5d134315ab780
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - minizip
+  - uriparser

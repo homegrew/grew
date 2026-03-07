@@ -1,0 +1,13 @@
+name: juxtacode
+version: 1.2.5
+description: Diff, merge, and compare code
+homepage: https://juxtacode.app/
+url:
+  darwin_arm64: https://appcast.juxtacode.app/juxtacode-1.2.5.zip
+sha256:
+  darwin_arm64: 844f298a0dad410dbba6ff080685c5997ef2fef6209eeea2c9dc84722900af54
+artifacts:
+  app:
+    - JuxtaCode.app
+  bin:
+    - juxta

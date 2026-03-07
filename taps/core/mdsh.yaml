@@ -1,0 +1,19 @@
+name: mdsh
+version: 0.9.2
+description: Markdown shell pre-processor
+homepage: https://zimbatm.github.io/mdsh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdsh/blobs/sha256:dd92fceb1ed34a98f9c22aefe9601b9088fa048884dd2a38f450b9f4a2352c85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdsh/blobs/sha256:ec2f62aa6af34be5b9700133a68912ea47f2d27d206ee07a59ced37db8464f0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdsh/blobs/sha256:67786ce6761adc9f44d8ba3bd3af4a56e820ba527691f8855f859d7931f7f399
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdsh/blobs/sha256:f84ae39b6d5c82c57ca0cdc23caf9391f2d4fe538b8de38f02276c74bc8d88b8
+sha256:
+  darwin_arm64: dd92fceb1ed34a98f9c22aefe9601b9088fa048884dd2a38f450b9f4a2352c85
+  darwin_amd64: ec2f62aa6af34be5b9700133a68912ea47f2d27d206ee07a59ced37db8464f0b
+  linux_amd64: 67786ce6761adc9f44d8ba3bd3af4a56e820ba527691f8855f859d7931f7f399
+  linux_arm64: f84ae39b6d5c82c57ca0cdc23caf9391f2d4fe538b8de38f02276c74bc8d88b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

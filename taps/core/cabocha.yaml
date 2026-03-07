@@ -1,0 +1,23 @@
+name: cabocha
+version: 0.69
+description: Yet Another Japanese Dependency Structure Analyzer
+homepage: https://taku910.github.io/cabocha/
+license: BSD-3-Clause OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cabocha/blobs/sha256:e3862dcd2820bd7abc7984b1ac9449398cad2ec280ca1f757b3809ef7ad8f227
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cabocha/blobs/sha256:c878b08aec360a527c8a78d449889abfc8b122e59589a9b21cba4826f213daa7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cabocha/blobs/sha256:182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cabocha/blobs/sha256:96598b2e47622193fb852eda64753fecff40b088afff67c37538a57f5600e912
+sha256:
+  darwin_arm64: e3862dcd2820bd7abc7984b1ac9449398cad2ec280ca1f757b3809ef7ad8f227
+  darwin_amd64: c878b08aec360a527c8a78d449889abfc8b122e59589a9b21cba4826f213daa7
+  linux_amd64: 182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96
+  linux_arm64: 96598b2e47622193fb852eda64753fecff40b088afff67c37538a57f5600e912
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - crf++
+  - mecab
+  - mecab-ipadic

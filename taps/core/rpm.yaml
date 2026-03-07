@@ -1,0 +1,33 @@
+name: rpm
+version: 4.20.1
+description: Standard unix software packaging tool
+homepage: https://rpm.org/
+license: GPL-2.0-only AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpm/blobs/sha256:9c214ce074bddb955970b60106ebc155f0783a04e2af65080268ccecf7bd499b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpm/blobs/sha256:862e0efee8b4876888c728c3921168cc1cb8ae74d4a787ef81278cd96d873e71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpm/blobs/sha256:936bb8258a1b95397a71270123f6298891fab5b9829c80447721693aa7e45a56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpm/blobs/sha256:c8a0598905a3f1eb1c6ca3ea74e9e1313434a6055b9a45ff7c2500facfed373b
+sha256:
+  darwin_arm64: 9c214ce074bddb955970b60106ebc155f0783a04e2af65080268ccecf7bd499b
+  darwin_amd64: 862e0efee8b4876888c728c3921168cc1cb8ae74d4a787ef81278cd96d873e71
+  linux_amd64: 936bb8258a1b95397a71270123f6298891fab5b9829c80447721693aa7e45a56
+  linux_arm64: c8a0598905a3f1eb1c6ca3ea74e9e1313434a6055b9a45ff7c2500facfed373b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libarchive
+  - libmagic
+  - lua
+  - nettle
+  - pkgconf
+  - popt
+  - readline
+  - sqlite
+  - xz
+  - zstd
+  - gettext
+  - libomp

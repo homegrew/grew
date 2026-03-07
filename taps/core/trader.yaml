@@ -1,0 +1,22 @@
+name: trader
+version: 7.20
+description: Star Traders
+homepage: https://www.zap.org.au/projects/trader/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trader/blobs/sha256:e1479fb417ef273bfa538ccd0427ff4721ddf9861e253f20886bb8924b85422f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trader/blobs/sha256:cf2f81124457ed2d2e149befd2a4ae5565b4bbbeee4489065f5728a7258e9c1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trader/blobs/sha256:39db68dcc4e59eb947e208f403ae5f1f3a8abbefe5b530339b2bd860768288b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trader/blobs/sha256:9c2b9f22360ef13d813e3b024cc74855e4e0cc4ef5933eda96f19f1961e793a7
+sha256:
+  darwin_arm64: e1479fb417ef273bfa538ccd0427ff4721ddf9861e253f20886bb8924b85422f
+  darwin_amd64: cf2f81124457ed2d2e149befd2a4ae5565b4bbbeee4489065f5728a7258e9c1d
+  linux_amd64: 39db68dcc4e59eb947e208f403ae5f1f3a8abbefe5b530339b2bd860768288b8
+  linux_arm64: 9c2b9f22360ef13d813e3b024cc74855e4e0cc4ef5933eda96f19f1961e793a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - gettext

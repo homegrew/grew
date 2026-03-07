@@ -1,0 +1,24 @@
+name: xauth
+version: 1.1.5
+description: "X.Org Applications: xauth"
+homepage: https://www.x.org/
+license: MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xauth/blobs/sha256:c41ec4cab2cf6579ed12863a167d2c8cd5d9ee442f75e59687c616094960a6cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xauth/blobs/sha256:cead5271fac2eb731921d8e90ba19568d94c7dfe90f3401619e557e5481af528
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xauth/blobs/sha256:8f2c4255c039ae81f80704d6965f1ab02ad51877e8ca0a93e5d00a9b36e925f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xauth/blobs/sha256:ecad1dc56975cdab489d246cf7fe25ae04a08298e4482195dbc5ddd91783d3db
+sha256:
+  darwin_arm64: c41ec4cab2cf6579ed12863a167d2c8cd5d9ee442f75e59687c616094960a6cc
+  darwin_amd64: cead5271fac2eb731921d8e90ba19568d94c7dfe90f3401619e557e5481af528
+  linux_amd64: 8f2c4255c039ae81f80704d6965f1ab02ad51877e8ca0a93e5d00a9b36e925f4
+  linux_arm64: ecad1dc56975cdab489d246cf7fe25ae04a08298e4482195dbc5ddd91783d3db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxau
+  - libxext
+  - libxmu

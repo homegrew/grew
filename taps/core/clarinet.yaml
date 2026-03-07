@@ -1,0 +1,19 @@
+name: clarinet
+version: 3.14.1
+description: Command-line tool and runtime for the Clarity smart contract language
+homepage: https://stackslabs.com/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clarinet/blobs/sha256:e3941d768095bc5dc2f37bcde92c070572f1c617e9835fac8176e3c5c48f22d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clarinet/blobs/sha256:8d60873c3a1746930be801dacae40a5e48435d85f09c7d66caf2bb37ff5db6b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clarinet/blobs/sha256:e9bb69f8daf2b5f2123dae3590777ae484d08279b082cfcdb8e2f0804b4355b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clarinet/blobs/sha256:ea3a5783f1cf1f0a1c5a95dc93a48840e4c937e66ae724c8b049fb11545428b6
+sha256:
+  darwin_arm64: e3941d768095bc5dc2f37bcde92c070572f1c617e9835fac8176e3c5c48f22d0
+  darwin_amd64: 8d60873c3a1746930be801dacae40a5e48435d85f09c7d66caf2bb37ff5db6b9
+  linux_amd64: e9bb69f8daf2b5f2123dae3590777ae484d08279b082cfcdb8e2f0804b4355b3
+  linux_arm64: ea3a5783f1cf1f0a1c5a95dc93a48840e4c937e66ae724c8b049fb11545428b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

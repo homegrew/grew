@@ -1,0 +1,25 @@
+name: monkeysphere
+version: 0.44
+description: Use the OpenPGP web of trust to verify ssh connections
+homepage: https://tracker.debian.org/pkg/monkeysphere
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monkeysphere/blobs/sha256:270aaca29d4132b3fe6334cfdb4fb76c3fc1719af706ebbc2efdab1ecfaf2bb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monkeysphere/blobs/sha256:2e7ba58c484a094f7ff4bfd954997e66bd97adf3f41014a2d62541c92df46f3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monkeysphere/blobs/sha256:1914ebe00f06674a892da92c25d236f87e05dfe185728a961fa19373ba9d0c42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monkeysphere/blobs/sha256:e7e31987425d7b97ebc7ed8413f9ae776b4a031851094f2074e062d1d68d9d28
+sha256:
+  darwin_arm64: 270aaca29d4132b3fe6334cfdb4fb76c3fc1719af706ebbc2efdab1ecfaf2bb2
+  darwin_amd64: 2e7ba58c484a094f7ff4bfd954997e66bd97adf3f41014a2d62541c92df46f3e
+  linux_amd64: 1914ebe00f06674a892da92c25d236f87e05dfe185728a961fa19373ba9d0c42
+  linux_arm64: e7e31987425d7b97ebc7ed8413f9ae776b4a031851094f2074e062d1d68d9d28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg
+  - libassuan
+  - libgcrypt
+  - libgpg-error
+  - openssl@3

@@ -1,0 +1,19 @@
+name: nng
+version: 1.11
+description: Nanomsg-next-generation -- light-weight brokerless messaging
+homepage: https://nng.nanomsg.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nng/blobs/sha256:d1c5d69e4cd6874e9fc3a6c7d95e8444c730d7b9d4bddcb74092bf5c53a7b0c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nng/blobs/sha256:f21583c80dc1ccd84cde614cb8ea7a8b7e7586ecd39aae010583a038e562580d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nng/blobs/sha256:25761374c9d2ca6fedff91630fb23e7fe10ae9f68369f7eaaddc1fa5ffc35e6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nng/blobs/sha256:7df32fb58d3135bbeb0b9046534a0fb901dacfddc215546855146b3102c52eeb
+sha256:
+  darwin_arm64: d1c5d69e4cd6874e9fc3a6c7d95e8444c730d7b9d4bddcb74092bf5c53a7b0c4
+  darwin_amd64: f21583c80dc1ccd84cde614cb8ea7a8b7e7586ecd39aae010583a038e562580d
+  linux_amd64: 25761374c9d2ca6fedff91630fb23e7fe10ae9f68369f7eaaddc1fa5ffc35e6b
+  linux_arm64: 7df32fb58d3135bbeb0b9046534a0fb901dacfddc215546855146b3102c52eeb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: opcode
+version: 0.2.0
+description: GUI app and toolkit for Claude Code
+homepage: https://opcode.sh/
+url:
+  darwin_arm64: https://github.com/getAsterisk/opcode/releases/download/v0.2.0/opcode_v0.2.0_macOS_universal.dmg
+sha256:
+  darwin_arm64: 9868d20b46fa3fba134049e931ef745571805b0e1919e7bad807ca454f5932f8
+artifacts:
+  app:
+    - opcode.app

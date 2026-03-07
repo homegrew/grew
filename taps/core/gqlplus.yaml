@@ -1,0 +1,21 @@
+name: gqlplus
+version: 1.16
+description: Drop-in replacement for sqlplus, an Oracle SQL client
+homepage: https://gqlplus.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gqlplus/blobs/sha256:9397a0096269caa5527b82304329ef4504f54978ed22d11dc37195f257fba161
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gqlplus/blobs/sha256:845e61f2f7c6de88b4f41039a7ef18a3797cef7efba2149f3657394736783519
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gqlplus/blobs/sha256:c5272f5d4491a19cc28a458707683d33fd98888511fa831d9fa0099d7434b79f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gqlplus/blobs/sha256:05210d4c4ac4aed362c7785a7e469a08e4681d481f74a841ff07c58243e73538
+sha256:
+  darwin_arm64: 9397a0096269caa5527b82304329ef4504f54978ed22d11dc37195f257fba161
+  darwin_amd64: 845e61f2f7c6de88b4f41039a7ef18a3797cef7efba2149f3657394736783519
+  linux_amd64: c5272f5d4491a19cc28a458707683d33fd98888511fa831d9fa0099d7434b79f
+  linux_arm64: 05210d4c4ac4aed362c7785a7e469a08e4681d481f74a841ff07c58243e73538
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libedit

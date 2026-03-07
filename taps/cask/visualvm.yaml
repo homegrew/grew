@@ -1,0 +1,11 @@
+name: visualvm
+version: 2.2.1
+description: All-in-One Java Troubleshooting Tool
+homepage: https://visualvm.github.io/
+url:
+  darwin_arm64: https://github.com/oracle/visualvm/releases/download/2.2.1/VisualVM_221.dmg
+sha256:
+  darwin_arm64: f9e254e4264ea992d9d6087327949b5fc4c8f10c83c6623693d22450f1b7572d
+artifacts:
+  app:
+    - VisualVM.app

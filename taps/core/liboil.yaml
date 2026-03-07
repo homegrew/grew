@@ -1,0 +1,19 @@
+name: liboil
+version: 0.3.17
+description: C library of simple functions optimized for various CPUs
+homepage: https://wiki.freedesktop.org/liboil/
+license: BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liboil/blobs/sha256:2952ae2a44d572b8bda832e965e061747b5ed1213ccd0bf0d7a41675f7498156
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liboil/blobs/sha256:cf3e923c404d532f40761113f021a0410cea450dd2113faf4578bb37bf811e67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liboil/blobs/sha256:64127180a4182632dbde62deafdcba4fa391ff4a675e85a6821cebee298887e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liboil/blobs/sha256:12a6d9bd59ede96b60e33f1e1ffcf61b0c66bcd0f5886e6c3a0d76730d514985
+sha256:
+  darwin_arm64: 2952ae2a44d572b8bda832e965e061747b5ed1213ccd0bf0d7a41675f7498156
+  darwin_amd64: cf3e923c404d532f40761113f021a0410cea450dd2113faf4578bb37bf811e67
+  linux_amd64: 64127180a4182632dbde62deafdcba4fa391ff4a675e85a6821cebee298887e1
+  linux_arm64: 12a6d9bd59ede96b60e33f1e1ffcf61b0c66bcd0f5886e6c3a0d76730d514985
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

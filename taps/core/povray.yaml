@@ -1,0 +1,26 @@
+name: povray
+version: 3.7.0.10
+description: Persistence Of Vision RAYtracer (POVRAY)
+homepage: https://www.povray.org/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/povray/blobs/sha256:55cd4d67cca78d36e98a6997489de220f80403bac07a1747732cdf5c5649ad56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/povray/blobs/sha256:30f0919619a000450453ce8c07f58e421f2e12f8754d6ebc7c34768d61ac24db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/povray/blobs/sha256:00fdfd84a3e3258f024cd77a80696966cb4b5d57f74bdbe029f913831c92a2de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/povray/blobs/sha256:77375757a81bcdd67b267983256491b369a57803df9cd79438a1c48dfee3c204
+sha256:
+  darwin_arm64: 55cd4d67cca78d36e98a6997489de220f80403bac07a1747732cdf5c5649ad56
+  darwin_amd64: 30f0919619a000450453ce8c07f58e421f2e12f8754d6ebc7c34768d61ac24db
+  linux_amd64: 00fdfd84a3e3258f024cd77a80696966cb4b5d57f74bdbe029f913831c92a2de
+  linux_arm64: 77375757a81bcdd67b267983256491b369a57803df9cd79438a1c48dfee3c204
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - imath
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openexr

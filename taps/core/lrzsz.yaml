@@ -1,0 +1,19 @@
+name: lrzsz
+version: 0.12.20
+description: Tools for zmodem/xmodem/ymodem file transfer
+homepage: https://www.ohse.de/uwe/software/lrzsz.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lrzsz/blobs/sha256:d775c475daffed711d6092a64ff59d2b70a4190d2a38a0d0546c745ab3f47be3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lrzsz/blobs/sha256:7e142df2d83321df66df998711fd74b4e69394064e11851506cefe77acdeb7b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lrzsz/blobs/sha256:9f5db00a0b2cdc4920a809f4aa1f352eb6962980270d15e65dd418a99ac61ab2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lrzsz/blobs/sha256:93671f7f8b73b5f063b8ac4aecfa47e907635368904089aa1ed55bfa693dc7b8
+sha256:
+  darwin_arm64: d775c475daffed711d6092a64ff59d2b70a4190d2a38a0d0546c745ab3f47be3
+  darwin_amd64: 7e142df2d83321df66df998711fd74b4e69394064e11851506cefe77acdeb7b5
+  linux_amd64: 9f5db00a0b2cdc4920a809f4aa1f352eb6962980270d15e65dd418a99ac61ab2
+  linux_arm64: 93671f7f8b73b5f063b8ac4aecfa47e907635368904089aa1ed55bfa693dc7b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

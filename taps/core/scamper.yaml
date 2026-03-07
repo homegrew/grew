@@ -1,0 +1,22 @@
+name: scamper
+version: 20260204
+description: Advanced traceroute and network measurement utility
+homepage: https://www.caida.org/catalog/software/scamper/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scamper/blobs/sha256:8aa94286816fcbe152e2032e5897f420f68385bb44a5863a7bce8c9c57a5d5e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scamper/blobs/sha256:df86bbe854d1945a8dc4f6eadf416463f8cf735f28963c4df0415a7711ece941
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scamper/blobs/sha256:d7c20a4d8bada5168b79826d13a9c4eb84e317807b5a7742c6e12088fb7e8635
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scamper/blobs/sha256:f125eaa55edf070d1c8513f29e7c806ebcc23f4bb6e2477bbf60801102aafc55
+sha256:
+  darwin_arm64: 8aa94286816fcbe152e2032e5897f420f68385bb44a5863a7bce8c9c57a5d5e5
+  darwin_amd64: df86bbe854d1945a8dc4f6eadf416463f8cf735f28963c4df0415a7711ece941
+  linux_amd64: d7c20a4d8bada5168b79826d13a9c4eb84e317807b5a7742c6e12088fb7e8635
+  linux_arm64: f125eaa55edf070d1c8513f29e7c806ebcc23f4bb6e2477bbf60801102aafc55
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - xz

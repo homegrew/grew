@@ -1,0 +1,23 @@
+name: mongo-c-driver@1
+version: 1.30.7
+description: C driver for MongoDB
+homepage: https://github.com/mongodb/mongo-c-driver
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongo-c-driver/1/blobs/sha256:da30b69d4cb4b2be0762d80a9125aa34c2256d03670d7a31e7d2b12de1fa691d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongo-c-driver/1/blobs/sha256:693819b2185f77e0f6c12cc30b1e6d340785574e2449379b4944a2b531bc5437
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongo-c-driver/1/blobs/sha256:604c322948f8ac122e50970d8af4e8b1f2be763eb119ccbc6a6a226121d4bf70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongo-c-driver/1/blobs/sha256:c8fd8f18d4e78ac98ae0e61c0a6e3e4bd829d8ea00d0b753fb667474985cd354
+sha256:
+  darwin_arm64: da30b69d4cb4b2be0762d80a9125aa34c2256d03670d7a31e7d2b12de1fa691d
+  darwin_amd64: 693819b2185f77e0f6c12cc30b1e6d340785574e2449379b4944a2b531bc5437
+  linux_amd64: 604c322948f8ac122e50970d8af4e8b1f2be763eb119ccbc6a6a226121d4bf70
+  linux_arm64: c8fd8f18d4e78ac98ae0e61c0a6e3e4bd829d8ea00d0b753fb667474985cd354
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - zstd
+keg_only: true

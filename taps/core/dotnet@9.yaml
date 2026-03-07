@@ -1,0 +1,22 @@
+name: dotnet@9
+version: 9.0.114
+description: .NET Core
+homepage: https://dotnet.microsoft.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotnet/9/blobs/sha256:0089e717817ca53b25dda2bb7789a6cc97216dc83f2fb5665070cc0d1946c86b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotnet/9/blobs/sha256:8ef3da3d5e33c100633c210c1802a444a8d46cbe8d8a47090a53c62d0e746fba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotnet/9/blobs/sha256:bc4b58b4a6cc9dc56da6cfde9e01b3e248a7e88ddbbbc75ac7ec3fc05997ee2c
+sha256:
+  darwin_arm64: 0089e717817ca53b25dda2bb7789a6cc97216dc83f2fb5665070cc0d1946c86b
+  linux_amd64: 8ef3da3d5e33c100633c210c1802a444a8d46cbe8d8a47090a53c62d0e746fba
+  linux_arm64: bc4b58b4a6cc9dc56da6cfde9e01b3e248a7e88ddbbbc75ac7ec3fc05997ee2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - icu4c@78
+  - openssl@3
+keg_only: true

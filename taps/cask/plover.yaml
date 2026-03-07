@@ -1,0 +1,11 @@
+name: plover
+version: 5.2.3
+description: Stenotype engine
+homepage: https://opensteno.org/plover/
+url:
+  darwin_arm64: https://github.com/openstenoproject/plover/releases/download/v5.2.3/plover-5.2.3-macosx_12_0_universal2.dmg
+sha256:
+  darwin_arm64: fd119ec8b7a4bae1248024b02541cc3aed1eb1bacd7c2bf84011de42ac8e25f9
+artifacts:
+  app:
+    - Plover.app

@@ -1,0 +1,23 @@
+name: jrnl
+version: 4.3
+description: Command-line note taker
+homepage: https://jrnl.sh/en/stable/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jrnl/blobs/sha256:4f6243f3ad0ca6d67decd79f6d1259050dff6c3a29fa1b701663704185a9f0d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jrnl/blobs/sha256:4f79d0928c0ba26a0d9fbbbd4c8df80d5d20d2dec48d256956d9e6fc46d4c807
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jrnl/blobs/sha256:20fc1a734e0194dd3b6091528db1b747ba4b47ba4ea2df74f1106f48b9661dc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jrnl/blobs/sha256:35fc1e8658ba3716b4623a30f1af22f2cd3e95aa2d24cd27f27928d79ad358ba
+sha256:
+  darwin_arm64: 4f6243f3ad0ca6d67decd79f6d1259050dff6c3a29fa1b701663704185a9f0d4
+  darwin_amd64: 4f79d0928c0ba26a0d9fbbbd4c8df80d5d20d2dec48d256956d9e6fc46d4c807
+  linux_amd64: 20fc1a734e0194dd3b6091528db1b747ba4b47ba4ea2df74f1106f48b9661dc7
+  linux_arm64: 35fc1e8658ba3716b4623a30f1af22f2cd3e95aa2d24cd27f27928d79ad358ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libyaml
+  - python@3.14

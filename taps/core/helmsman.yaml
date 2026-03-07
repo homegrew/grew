@@ -1,0 +1,22 @@
+name: helmsman
+version: 4.0.5
+description: Helm Charts as Code tool
+homepage: https://github.com/mkubaczyk/helmsman
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helmsman/blobs/sha256:c5726091c1d85cb3dc4c45599dbcc08e47af8a683371fb2f8386ac51f2580d84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helmsman/blobs/sha256:76b5e3db809e503f3fad4d4c48b446ca06e50b1d5d09aa39282d89cc9cd083a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helmsman/blobs/sha256:5e0cd0b6fdfa5d0b2f5824f5d41434f4bc89380ccc8e1d1e4eae6c0571ae9be1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helmsman/blobs/sha256:b37efc52815db6e43ed2989f86f024ad752ae29195eb07902f4063972bbea4c4
+sha256:
+  darwin_arm64: c5726091c1d85cb3dc4c45599dbcc08e47af8a683371fb2f8386ac51f2580d84
+  darwin_amd64: 76b5e3db809e503f3fad4d4c48b446ca06e50b1d5d09aa39282d89cc9cd083a1
+  linux_amd64: 5e0cd0b6fdfa5d0b2f5824f5d41434f4bc89380ccc8e1d1e4eae6c0571ae9be1
+  linux_arm64: b37efc52815db6e43ed2989f86f024ad752ae29195eb07902f4063972bbea4c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - helm@3
+  - kubernetes-cli

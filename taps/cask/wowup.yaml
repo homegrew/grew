@@ -1,0 +1,11 @@
+name: wowup
+version: 2.22.0
+description: World of Warcraft addon manager
+homepage: https://wowup.io/
+url:
+  darwin_arm64: https://github.com/WowUp/WowUp/releases/download/v2.22.0/WowUp-2.22.0-arm64.dmg
+sha256:
+  darwin_arm64: 9c8afe0c233f2d100f8b4ffd0ba92aa28aa4a4fbdd171b12911e6739fdc83609
+artifacts:
+  app:
+    - WowUp.app

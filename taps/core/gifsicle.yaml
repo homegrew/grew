@@ -1,0 +1,19 @@
+name: gifsicle
+version: 1.96
+description: GIF image/animation creator/editor
+homepage: https://www.lcdf.org/gifsicle/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gifsicle/blobs/sha256:33c1243bdc845aa74b15f5e89eb46be030360140687dca87a06eebb30b8d0308
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gifsicle/blobs/sha256:fddb207d04bf9452a711aa8fdfad464e8a11ced975329263f41025abf1dfaa5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gifsicle/blobs/sha256:a1e4342a1be7ae45ff3d7edacfdaee5f4f57753835353ad86e0dc5b3c528e302
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gifsicle/blobs/sha256:2b41540353a764c3307806e38aa2f3e8d0a7e1af16dd3366e277d6361f0919d4
+sha256:
+  darwin_arm64: 33c1243bdc845aa74b15f5e89eb46be030360140687dca87a06eebb30b8d0308
+  darwin_amd64: fddb207d04bf9452a711aa8fdfad464e8a11ced975329263f41025abf1dfaa5c
+  linux_amd64: a1e4342a1be7ae45ff3d7edacfdaee5f4f57753835353ad86e0dc5b3c528e302
+  linux_arm64: 2b41540353a764c3307806e38aa2f3e8d0a7e1af16dd3366e277d6361f0919d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

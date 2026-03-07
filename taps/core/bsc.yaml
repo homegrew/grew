@@ -1,0 +1,23 @@
+name: bsc
+version: 2025.07
+description: Bluespec Compiler (BSC)
+homepage: https://github.com/B-Lang-org/bsc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bsc/blobs/sha256:5a8e4ab5547aa47dfd38ebce591d09be2608ae9cbad646f812840a806d68bcf4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bsc/blobs/sha256:b0ba897244b18a97622c214ac93cfab649489e0e6ab1451e087a91a87ac10e32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bsc/blobs/sha256:a798403601b1b39a0296b83b31d4db1ad055bc13d83a8b6c1cbafebaa08ab53b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bsc/blobs/sha256:684b5a230253935597e9048fe6f61cc9a8d0b01e98b1acbc4fff3d06cefa14f9
+sha256:
+  darwin_arm64: 5a8e4ab5547aa47dfd38ebce591d09be2608ae9cbad646f812840a806d68bcf4
+  darwin_amd64: b0ba897244b18a97622c214ac93cfab649489e0e6ab1451e087a91a87ac10e32
+  linux_amd64: a798403601b1b39a0296b83b31d4db1ad055bc13d83a8b6c1cbafebaa08ab53b
+  linux_arm64: 684b5a230253935597e9048fe6f61cc9a8d0b01e98b1acbc4fff3d06cefa14f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - icarus-verilog
+  - tcl-tk

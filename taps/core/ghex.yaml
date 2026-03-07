@@ -1,0 +1,27 @@
+name: ghex
+version: 48.3
+description: GNOME hex editor
+homepage: https://wiki.gnome.org/Apps/Ghex
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghex/blobs/sha256:28c03f317c94d3fa0f0d8fb4e83e71b9558b9d301d287b76a1590a5bbf499414
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghex/blobs/sha256:a54e12aff1120f1edf01d8179eec69aabd44b6fdacc3f8a4f94f30d66e9cf614
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghex/blobs/sha256:90dea601a000ddab7edaf0fdc98abe0dffee0760e0995f5520f3bb7904d32c46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghex/blobs/sha256:76d601774e3d566e5a44e9148e9cbe7621898508ea5b7cc5a45c879ea9509989
+sha256:
+  darwin_arm64: 28c03f317c94d3fa0f0d8fb4e83e71b9558b9d301d287b76a1590a5bbf499414
+  darwin_amd64: a54e12aff1120f1edf01d8179eec69aabd44b6fdacc3f8a4f94f30d66e9cf614
+  linux_amd64: 90dea601a000ddab7edaf0fdc98abe0dffee0760e0995f5520f3bb7904d32c46
+  linux_arm64: 76d601774e3d566e5a44e9148e9cbe7621898508ea5b7cc5a45c879ea9509989
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - gtk4
+  - hicolor-icon-theme
+  - libadwaita
+  - pango
+  - gettext

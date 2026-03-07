@@ -1,0 +1,23 @@
+name: specify
+version: 0.1.13
+description: Toolkit to help you get started with Spec-Driven Development
+homepage: https://github.com/github/spec-kit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/specify/blobs/sha256:c6863130f1979f759e6e57317d6ffee0390152639f55abe4252957e2f85ad1ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/specify/blobs/sha256:38f9ccfdacd4856d96521272a30916ece2c26ec11c325bab024edf42c4d75d71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/specify/blobs/sha256:51d5726bca53df20b11f5e6fc3871d581fb135deb71a7c188b133eefc214f688
+  linux_arm64: https://ghcr.io/v2/homebrew/core/specify/blobs/sha256:3f9635449a71ef1e2c2bfd85049fc6b2764cbeecfd47634960a2fef30c2a7915
+sha256:
+  darwin_arm64: c6863130f1979f759e6e57317d6ffee0390152639f55abe4252957e2f85ad1ae
+  darwin_amd64: 38f9ccfdacd4856d96521272a30916ece2c26ec11c325bab024edf42c4d75d71
+  linux_amd64: 51d5726bca53df20b11f5e6fc3871d581fb135deb71a7c188b133eefc214f688
+  linux_arm64: 3f9635449a71ef1e2c2bfd85049fc6b2764cbeecfd47634960a2fef30c2a7915
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

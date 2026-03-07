@@ -1,0 +1,11 @@
+name: photosync
+version: 4.2
+description: Transfer and backup photos and videos
+homepage: https://www.photosync-app.com/home.html
+url:
+  darwin_arm64: https://download.photosync-app.com/mac/photosync_4_2.zip
+sha256:
+  darwin_arm64: 20e6e268697a0b8b3841ed30b12e738cdb0a6452b86537dfa258793bbf65d63d
+artifacts:
+  app:
+    - PhotoSync.app

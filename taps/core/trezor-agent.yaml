@@ -1,0 +1,26 @@
+name: trezor-agent
+version: 0.13.0
+description: Hardware SSH/GPG agent for Trezor and Ledger
+homepage: https://github.com/romanz/trezor-agent
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trezor-agent/blobs/sha256:b800ca04c501796f8d7dcf2b34d4b2a6066ea381795e48708100f572dc177d13
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trezor-agent/blobs/sha256:1d8d36c26d76cb7a4355a944f130ec29130a6019addb66ef4b9dfcf9e6cc0f6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trezor-agent/blobs/sha256:fc646919d623cbe65d6bc35aaa54c913715f7b8fc550e6d96abe5573d1a1e48c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trezor-agent/blobs/sha256:75d94b95fea1e36f0ebe1432593dfcc10e2ce9d38af0535c50fc04f08cd464a6
+sha256:
+  darwin_arm64: b800ca04c501796f8d7dcf2b34d4b2a6066ea381795e48708100f572dc177d13
+  darwin_amd64: 1d8d36c26d76cb7a4355a944f130ec29130a6019addb66ef4b9dfcf9e6cc0f6f
+  linux_amd64: fc646919d623cbe65d6bc35aaa54c913715f7b8fc550e6d96abe5573d1a1e48c
+  linux_arm64: 75d94b95fea1e36f0ebe1432593dfcc10e2ce9d38af0535c50fc04f08cd464a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - hidapi
+  - libsodium
+  - libusb
+  - python@3.14

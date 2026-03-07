@@ -1,0 +1,19 @@
+name: ggc
+version: 8.0.1
+description: Modern Git CLI
+homepage: https://github.com/bmf-san/ggc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ggc/blobs/sha256:8d0d0d328ebf34b4792d80ceffa1b682e12c6c1b546da8dc63539e0e659f91bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ggc/blobs/sha256:5457ce88edcfc5635ef289ad2d69fab00f74619d1aac5666b4b96f1bb5a22100
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ggc/blobs/sha256:2b39e5d39ffeb86a6b8e1cc602aa1080adb1c7fea01dbbb30b2a3c0e89dd39dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ggc/blobs/sha256:a22c05642bb23eb3108cec8526f65c574d78d7d212e38125cd792964897b038e
+sha256:
+  darwin_arm64: 8d0d0d328ebf34b4792d80ceffa1b682e12c6c1b546da8dc63539e0e659f91bc
+  darwin_amd64: 5457ce88edcfc5635ef289ad2d69fab00f74619d1aac5666b4b96f1bb5a22100
+  linux_amd64: 2b39e5d39ffeb86a6b8e1cc602aa1080adb1c7fea01dbbb30b2a3c0e89dd39dd
+  linux_arm64: a22c05642bb23eb3108cec8526f65c574d78d7d212e38125cd792964897b038e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

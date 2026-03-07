@@ -1,0 +1,19 @@
+name: pgpdump
+version: 0.37
+description: PGP packet visualizer
+homepage: https://www.mew.org/~kazu/proj/pgpdump/en/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgpdump/blobs/sha256:7271c0c87d0ab2641ee5ba2b4a56087dc676c94c74114f35864c2b05bfd5d740
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgpdump/blobs/sha256:5bd623ea842793c2e06a30ec74e377ba98b6cc671c1bd3437f124af2a1b5028c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgpdump/blobs/sha256:cc370e7ed6cd6bf5ea931c21086f4c2c1e493f166f663212682b4d4427d50cb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgpdump/blobs/sha256:37130fe3de7e8189c3ebdc12b5d8f83a7d91aeb6932183266b7c48ea93244b82
+sha256:
+  darwin_arm64: 7271c0c87d0ab2641ee5ba2b4a56087dc676c94c74114f35864c2b05bfd5d740
+  darwin_amd64: 5bd623ea842793c2e06a30ec74e377ba98b6cc671c1bd3437f124af2a1b5028c
+  linux_amd64: cc370e7ed6cd6bf5ea931c21086f4c2c1e493f166f663212682b4d4427d50cb0
+  linux_arm64: 37130fe3de7e8189c3ebdc12b5d8f83a7d91aeb6932183266b7c48ea93244b82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

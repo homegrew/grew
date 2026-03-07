@@ -1,0 +1,25 @@
+name: cobo-cli
+version: 0.1.2
+description: Build, test, and manage your integration with Cobo Wallet-as-a-Service
+homepage: https://github.com/CoboGlobal/cobo-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cobo-cli/blobs/sha256:80b3cf43b80682ae3ff069c0ad8017f9fd5fdc4953aec17601c9db7a41228498
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cobo-cli/blobs/sha256:60e2f2589e0db86a663cd574623b1c50ca47c0321ac291630b580f645ab0a035
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cobo-cli/blobs/sha256:a8198bb96d01a8935ba1340dfe6311d0c085a58bfdae29035e2014eccaa4152c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cobo-cli/blobs/sha256:311b88712f470a217cd52875cc92a66892ea79abc7c08a9d2e99a61546f510bc
+sha256:
+  darwin_arm64: 80b3cf43b80682ae3ff069c0ad8017f9fd5fdc4953aec17601c9db7a41228498
+  darwin_amd64: 60e2f2589e0db86a663cd574623b1c50ca47c0321ac291630b580f645ab0a035
+  linux_amd64: a8198bb96d01a8935ba1340dfe6311d0c085a58bfdae29035e2014eccaa4152c
+  linux_arm64: 311b88712f470a217cd52875cc92a66892ea79abc7c08a9d2e99a61546f510bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libsodium
+  - libyaml
+  - pydantic
+  - python@3.14

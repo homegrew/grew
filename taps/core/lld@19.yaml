@@ -1,0 +1,23 @@
+name: lld@19
+version: 19.1.7
+description: LLVM Project Linker
+homepage: https://lld.llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lld/19/blobs/sha256:9ddd9901b7878ee213380fac1b20ea3623f69071bda4d78582762434604c21d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lld/19/blobs/sha256:363576465702b57491a005d7ba9a12aa03b147810bfd8ef3ae563d608427a00d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lld/19/blobs/sha256:7e1a6298d29b4b92b99d00c31e753d77ad3a9f4a70b7e27efc5fc37407723405
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lld/19/blobs/sha256:d3245e8959335acaadec464c1a92d26416c5d9a4b0bb9ea7f3d9b7e28569ed84
+sha256:
+  darwin_arm64: 9ddd9901b7878ee213380fac1b20ea3623f69071bda4d78582762434604c21d6
+  darwin_amd64: 363576465702b57491a005d7ba9a12aa03b147810bfd8ef3ae563d608427a00d
+  linux_amd64: 7e1a6298d29b4b92b99d00c31e753d77ad3a9f4a70b7e27efc5fc37407723405
+  linux_arm64: d3245e8959335acaadec464c1a92d26416c5d9a4b0bb9ea7f3d9b7e28569ed84
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@19
+  - zstd
+keg_only: true

@@ -1,0 +1,21 @@
+name: jags
+version: 4.3.2
+description: Just Another Gibbs Sampler for Bayesian MCMC simulation
+homepage: https://mcmc-jags.sourceforge.io
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jags/blobs/sha256:cac7a756275255627578b03f0e89c7df5955b516b9b57b0475aaaf30ca5fe932
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jags/blobs/sha256:6018f7174407683c3970770a7ece8fafb940d393ec7361426477cc390e857fcb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jags/blobs/sha256:cb7357faec7f40014256713e322f796e39c5600cfe872753b2fc15b9f3dfefd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jags/blobs/sha256:f26c887dcbe69d7cec1ab2623118c55ae76ab9ab6e4526925d06835d63a19fb9
+sha256:
+  darwin_arm64: cac7a756275255627578b03f0e89c7df5955b516b9b57b0475aaaf30ca5fe932
+  darwin_amd64: 6018f7174407683c3970770a7ece8fafb940d393ec7361426477cc390e857fcb
+  linux_amd64: cb7357faec7f40014256713e322f796e39c5600cfe872753b2fc15b9f3dfefd2
+  linux_arm64: f26c887dcbe69d7cec1ab2623118c55ae76ab9ab6e4526925d06835d63a19fb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas

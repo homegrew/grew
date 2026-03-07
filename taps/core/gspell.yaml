@@ -1,0 +1,30 @@
+name: gspell
+version: 1.14.2
+description: Flexible API to implement spellchecking in GTK+ applications
+homepage: https://gitlab.gnome.org/GNOME/gspell
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gspell/blobs/sha256:910030c441215ec024db92eac8652575af98e253e94aecda784087b7aa0584a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gspell/blobs/sha256:a62c410a3c93e63d9d4bd0f953bb654f50b18ece134eabe490d6a9c7e5dac73b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gspell/blobs/sha256:4136e6107b59ab142d2fe841bc07a158c6616b5ad7586e0b63110523938d60fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gspell/blobs/sha256:8b1eae35e33876edd53df086cd3d73edec9792b96b8c3e8ee43f635a073a6f83
+sha256:
+  darwin_arm64: 910030c441215ec024db92eac8652575af98e253e94aecda784087b7aa0584a8
+  darwin_amd64: a62c410a3c93e63d9d4bd0f953bb654f50b18ece134eabe490d6a9c7e5dac73b
+  linux_amd64: 4136e6107b59ab142d2fe841bc07a158c6616b5ad7586e0b63110523938d60fb
+  linux_arm64: 8b1eae35e33876edd53df086cd3d73edec9792b96b8c3e8ee43f635a073a6f83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - enchant
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - harfbuzz
+  - icu4c@78
+  - pango
+  - gettext

@@ -1,0 +1,21 @@
+name: m68k-elf-binutils
+version: 2.46.0
+description: GNU Binutils for m68k-elf cross development
+homepage: https://www.gnu.org/software/binutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/m68k-elf-binutils/blobs/sha256:c59c5187633bc50256f7b30aa4ef814bcbb77f19705cfba6bc8bd42d2a9be4ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/m68k-elf-binutils/blobs/sha256:28cff540bde5977f2b064c7e7b0869c5a59e83e7ad7b1b16122c5de0a8c4662f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/m68k-elf-binutils/blobs/sha256:bfcab026b472c9e6a2ed6f7ad1eed8fbb1b2f6e35019eaed1500b8c4b040a0b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/m68k-elf-binutils/blobs/sha256:49c1147a21893bd232487965d3030e9f6beaa11bb6d37ab0aa5240435a8741e2
+sha256:
+  darwin_arm64: c59c5187633bc50256f7b30aa4ef814bcbb77f19705cfba6bc8bd42d2a9be4ce
+  darwin_amd64: 28cff540bde5977f2b064c7e7b0869c5a59e83e7ad7b1b16122c5de0a8c4662f
+  linux_amd64: bfcab026b472c9e6a2ed6f7ad1eed8fbb1b2f6e35019eaed1500b8c4b040a0b4
+  linux_arm64: 49c1147a21893bd232487965d3030e9f6beaa11bb6d37ab0aa5240435a8741e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

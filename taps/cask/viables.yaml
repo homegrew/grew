@@ -1,0 +1,11 @@
+name: viables
+version: 1b12,2023.11
+description: Create and run sandboxed macOS virtual machines on Apple silicon Macs
+homepage: https://eclecticlight.co/virtualisation-on-apple-silicon/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2023/11/viables1b12.zip
+sha256:
+  darwin_arm64: a02832b91b2b1ab1d33698a5100947f956746f11a1ab56473d8ad6b44ffd9b4a
+artifacts:
+  app:
+    - viables1b12/ViableS.app

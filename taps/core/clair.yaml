@@ -1,0 +1,19 @@
+name: clair
+version: 4.8.0
+description: Vulnerability Static Analysis for Containers
+homepage: https://github.com/quay/clair
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clair/blobs/sha256:ffe483117f1b13ffd763e48a0aac9971d8abdef55e907df19e58827db27c6b6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clair/blobs/sha256:09f69fddde54e84dbe00daf2152697499f26c31736bb91666d23daafc55e6fd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clair/blobs/sha256:c3bd46a3c89a414ca9d775b54ebfc1e1fd15c72be92fe5897ef1218fe151a42f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clair/blobs/sha256:58d1cd30b14ef94926e917fc0ce7bff127d5542f9fde081377c347f5639cd185
+sha256:
+  darwin_arm64: ffe483117f1b13ffd763e48a0aac9971d8abdef55e907df19e58827db27c6b6d
+  darwin_amd64: 09f69fddde54e84dbe00daf2152697499f26c31736bb91666d23daafc55e6fd6
+  linux_amd64: c3bd46a3c89a414ca9d775b54ebfc1e1fd15c72be92fe5897ef1218fe151a42f
+  linux_arm64: 58d1cd30b14ef94926e917fc0ce7bff127d5542f9fde081377c347f5639cd185
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

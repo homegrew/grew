@@ -1,0 +1,19 @@
+name: viu
+version: 1.6.1
+description: Simple terminal image viewer written in Rust
+homepage: https://github.com/atanunq/viu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/viu/blobs/sha256:2694fb155f4988be81bd67c050d325e5dd9f62e5bac209cf5d19eabfaa7fad79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/viu/blobs/sha256:1eaa2b1b7c7f62d56276d991a3447082dbc272483d57a1acf098a552f960f496
+  linux_amd64: https://ghcr.io/v2/homebrew/core/viu/blobs/sha256:664ccb5be9cf3f304250d248a85e633b9baa1804bebcf46c67672aebe5ecfcc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/viu/blobs/sha256:db070777cb64b7e976373584ef41b92f3ab244607ee0ca8900a4d6c5270bc44d
+sha256:
+  darwin_arm64: 2694fb155f4988be81bd67c050d325e5dd9f62e5bac209cf5d19eabfaa7fad79
+  darwin_amd64: 1eaa2b1b7c7f62d56276d991a3447082dbc272483d57a1acf098a552f960f496
+  linux_amd64: 664ccb5be9cf3f304250d248a85e633b9baa1804bebcf46c67672aebe5ecfcc5
+  linux_arm64: db070777cb64b7e976373584ef41b92f3ab244607ee0ca8900a4d6c5270bc44d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

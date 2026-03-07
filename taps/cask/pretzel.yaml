@@ -1,0 +1,11 @@
+name: pretzel
+version: 2.12.6
+description: DMCA-safe music for creators
+homepage: https://www.pretzel.rocks/
+url:
+  darwin_arm64: https://download.pretzel.rocks/Pretzel-2.12.6-universal-mac.zip
+sha256:
+  darwin_arm64: eb43584c57a050bdecbf12ae61c28e2714b19f713ff309726eab02ff9b6e4bb5
+artifacts:
+  app:
+    - Pretzel.app

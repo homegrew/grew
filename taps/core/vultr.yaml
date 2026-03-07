@@ -1,0 +1,19 @@
+name: vultr
+version: 3.8.0
+description: Command-line tool for Vultr services
+homepage: https://github.com/vultr/vultr-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vultr/blobs/sha256:f9a74884d0432d2cc32306431969d37c16b64ed5ffa4f64834168cdf8595f808
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vultr/blobs/sha256:ae0b71e0b1b478419735a43ee0bafd839a3251316e2b560ae8239775ff06edd2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vultr/blobs/sha256:a7c607a84ed880626d6a1feca8ced6fc1d13e9abcc5c6e5d50410c68bac81f07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vultr/blobs/sha256:3beec54204eb258eb8770196ba08264f6f011cae6bc04818b96d5e7226cc4212
+sha256:
+  darwin_arm64: f9a74884d0432d2cc32306431969d37c16b64ed5ffa4f64834168cdf8595f808
+  darwin_amd64: ae0b71e0b1b478419735a43ee0bafd839a3251316e2b560ae8239775ff06edd2
+  linux_amd64: a7c607a84ed880626d6a1feca8ced6fc1d13e9abcc5c6e5d50410c68bac81f07
+  linux_arm64: 3beec54204eb258eb8770196ba08264f6f011cae6bc04818b96d5e7226cc4212
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

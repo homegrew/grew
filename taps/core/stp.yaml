@@ -1,0 +1,25 @@
+name: stp
+version: 2.3.4
+description: Simple Theorem Prover, an efficient SMT solver for bitvectors
+homepage: https://stp.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stp/blobs/sha256:aa08a02cc2bf05e0272644b9568aa861e7272a0368c98066c95a75877d2c303a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stp/blobs/sha256:ee33974fa9d80245ee1f586d6a7321a46d46ccbd8186aa57fa8eab6c17ce2bd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stp/blobs/sha256:7e8b01d46340707274e6cff8df7c1510d88f7f8ab42ae41721af62682fb52c79
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stp/blobs/sha256:5d349289acbbeba2c7f4184598d7fe1ddd974c3c34a1ffb1d3ee3f224be8ade8
+sha256:
+  darwin_arm64: aa08a02cc2bf05e0272644b9568aa861e7272a0368c98066c95a75877d2c303a
+  darwin_amd64: ee33974fa9d80245ee1f586d6a7321a46d46ccbd8186aa57fa8eab6c17ce2bd4
+  linux_amd64: 7e8b01d46340707274e6cff8df7c1510d88f7f8ab42ae41721af62682fb52c79
+  linux_arm64: 5d349289acbbeba2c7f4184598d7fe1ddd974c3c34a1ffb1d3ee3f224be8ade8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cryptominisat
+  - gmp
+  - minisat
+  - python@3.14

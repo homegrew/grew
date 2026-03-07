@@ -1,0 +1,19 @@
+name: linux-pam
+version: 1.7.2
+description: Pluggable Authentication Modules for Linux
+homepage: https://github.com/linux-pam/linux-pam
+license: BSD-3-Clause OR GPL-1.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linux-pam/blobs/sha256:1320fdd62af4198e52f35271742e0b91db573f4429edffad6c44dcc0cf169663
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linux-pam/blobs/sha256:3e541f42f80d3d7f993b99967fb4a148d48bc036d6bcf975969eb102aa26cdd0
+sha256:
+  linux_amd64: 1320fdd62af4198e52f35271742e0b91db573f4429edffad6c44dcc0cf169663
+  linux_arm64: 3e541f42f80d3d7f993b99967fb4a148d48bc036d6bcf975969eb102aa26cdd0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnsl
+  - libtirpc
+  - libxcrypt

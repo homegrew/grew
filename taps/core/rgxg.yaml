@@ -1,0 +1,19 @@
+name: rgxg
+version: 0.1.2
+description: C library and command-line tool to generate (extended) regular expressions
+homepage: https://rgxg.github.io
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rgxg/blobs/sha256:f0cc6fe2faf8619f981684d24e751f270a9bd1b5d04282165135296e73dbe8d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rgxg/blobs/sha256:4d80dd551bd529ec03c15e5be306ce958def4720a51598e335d5ed5e5a2da8db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rgxg/blobs/sha256:b2295a106e3ff336aef5f2fccd382d123351ca6e29f863bbf62afaa90072bb16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rgxg/blobs/sha256:28194f32ee9974ae3367a4cc1fe604bd91534171a52a7d7bd0401379591d078f
+sha256:
+  darwin_arm64: f0cc6fe2faf8619f981684d24e751f270a9bd1b5d04282165135296e73dbe8d0
+  darwin_amd64: 4d80dd551bd529ec03c15e5be306ce958def4720a51598e335d5ed5e5a2da8db
+  linux_amd64: b2295a106e3ff336aef5f2fccd382d123351ca6e29f863bbf62afaa90072bb16
+  linux_arm64: 28194f32ee9974ae3367a4cc1fe604bd91534171a52a7d7bd0401379591d078f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

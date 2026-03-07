@@ -1,0 +1,21 @@
+name: ndpi
+version: 5.0
+description: Deep Packet Inspection (DPI) library
+homepage: https://www.ntop.org/products/deep-packet-inspection/ndpi/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ndpi/blobs/sha256:e36d749ae34d4213e05001e200919c6d9c96f7efbd44cd9225408e8691eceaeb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ndpi/blobs/sha256:89b2916adee9e543900f7089ed517776a5943411817885121ae97153e1ed7a70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ndpi/blobs/sha256:6a58d36dd8c1cef5dae9bf5edc5f395b12a9b9568c753a4f4487ade46863b9c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ndpi/blobs/sha256:ab29c1a19ee2b0bf75071152e77ab23d0da4fd4a589a770bb7c2519710470755
+sha256:
+  darwin_arm64: e36d749ae34d4213e05001e200919c6d9c96f7efbd44cd9225408e8691eceaeb
+  darwin_amd64: 89b2916adee9e543900f7089ed517776a5943411817885121ae97153e1ed7a70
+  linux_amd64: 6a58d36dd8c1cef5dae9bf5edc5f395b12a9b9568c753a4f4487ade46863b9c5
+  linux_arm64: ab29c1a19ee2b0bf75071152e77ab23d0da4fd4a589a770bb7c2519710470755
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c

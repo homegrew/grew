@@ -1,0 +1,19 @@
+name: libidn
+version: 1.43
+description: International domain name library
+homepage: https://www.gnu.org/software/libidn/
+license: GPL-2.0-or-later OR LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libidn/blobs/sha256:16554b492c8460ae8e23e3886bef64a944c2cd3bc4314e7df80971272b6173a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libidn/blobs/sha256:2740c8bf1ca703ab181f9f6ebc11830512af175060ba02b85fa679174dc5ed2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libidn/blobs/sha256:89ab2ccb40a9c74ffbbde3b5ac2841c3200f07694d114175e0beb3b3bc31f31c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libidn/blobs/sha256:dc58733f88f4096f5d5119d84a59a691c8eebf66d4ff1942f8b5661a7a9a413d
+sha256:
+  darwin_arm64: 16554b492c8460ae8e23e3886bef64a944c2cd3bc4314e7df80971272b6173a3
+  darwin_amd64: 2740c8bf1ca703ab181f9f6ebc11830512af175060ba02b85fa679174dc5ed2d
+  linux_amd64: 89ab2ccb40a9c74ffbbde3b5ac2841c3200f07694d114175e0beb3b3bc31f31c
+  linux_arm64: dc58733f88f4096f5d5119d84a59a691c8eebf66d4ff1942f8b5661a7a9a413d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: taskline
+version: 1.6.0
+description: "Tasks, boards & notes for the command-line habitat"
+homepage: https://github.com/perryrh0dan/taskline
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taskline/blobs/sha256:d576ef1ca2c0ee5e1ced0ad1b08e0222452947519a8bcdf4e21da04c0be262d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taskline/blobs/sha256:d576ef1ca2c0ee5e1ced0ad1b08e0222452947519a8bcdf4e21da04c0be262d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taskline/blobs/sha256:f337709b217bdd3a8e7a82e6f352908a812dec109976faf6ad1fc8eca8e4609f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taskline/blobs/sha256:f337709b217bdd3a8e7a82e6f352908a812dec109976faf6ad1fc8eca8e4609f
+sha256:
+  darwin_arm64: d576ef1ca2c0ee5e1ced0ad1b08e0222452947519a8bcdf4e21da04c0be262d4
+  darwin_amd64: d576ef1ca2c0ee5e1ced0ad1b08e0222452947519a8bcdf4e21da04c0be262d4
+  linux_amd64: f337709b217bdd3a8e7a82e6f352908a812dec109976faf6ad1fc8eca8e4609f
+  linux_arm64: f337709b217bdd3a8e7a82e6f352908a812dec109976faf6ad1fc8eca8e4609f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

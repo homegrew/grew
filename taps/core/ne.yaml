@@ -1,0 +1,19 @@
+name: ne
+version: 3.3.4
+description: Text editor based on the POSIX standard
+homepage: https://ne.di.unimi.it/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ne/blobs/sha256:8d3fb098e03124349321ca8162f9b615f1d6ae439be8f5687a6cf791a3960dd6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ne/blobs/sha256:3045ec9a5ff38c4cabefdac8aa0696b311765d09649d47fae57951c8915b9afe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ne/blobs/sha256:17fc5f7fc5234146da65cbb6a18ba1643bdd009ed76822c7cb2efb3837a05631
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ne/blobs/sha256:6646ae30987cb42c9131634e987a6a4221825df92ae474009cb0dc9c6ddca8e5
+sha256:
+  darwin_arm64: 8d3fb098e03124349321ca8162f9b615f1d6ae439be8f5687a6cf791a3960dd6
+  darwin_amd64: 3045ec9a5ff38c4cabefdac8aa0696b311765d09649d47fae57951c8915b9afe
+  linux_amd64: 17fc5f7fc5234146da65cbb6a18ba1643bdd009ed76822c7cb2efb3837a05631
+  linux_arm64: 6646ae30987cb42c9131634e987a6a4221825df92ae474009cb0dc9c6ddca8e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

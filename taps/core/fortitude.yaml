@@ -1,0 +1,19 @@
+name: fortitude
+version: 0.8.0
+description: Fortran linter
+homepage: https://fortitude.readthedocs.io/en/stable/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fortitude/blobs/sha256:89d4acffa99ced65d80f70a7c7ddc58c6cab76ab440d8d8e620a7431457e3b1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fortitude/blobs/sha256:1b76d843e9631b2fa96221be8bb8ee40ec5c0f4b40c9dcbd3f9959581fc4391d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fortitude/blobs/sha256:b82d60defb00467475946211ccf32b8336fe327add6ea7714f76eda3b86efb93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fortitude/blobs/sha256:decfa0dbed1dbd9ffa8ae2addd567851606cadfb447c882e03b34d1ab4cd8d5c
+sha256:
+  darwin_arm64: 89d4acffa99ced65d80f70a7c7ddc58c6cab76ab440d8d8e620a7431457e3b1e
+  darwin_amd64: 1b76d843e9631b2fa96221be8bb8ee40ec5c0f4b40c9dcbd3f9959581fc4391d
+  linux_amd64: b82d60defb00467475946211ccf32b8336fe327add6ea7714f76eda3b86efb93
+  linux_arm64: decfa0dbed1dbd9ffa8ae2addd567851606cadfb447c882e03b34d1ab4cd8d5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,20 @@
+name: rpmspectool
+version: 1.100.0
+description: Utility for handling RPM spec files
+homepage: https://github.com/nphilipp/rpmspectool
+license: GPL-3.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpmspectool/blobs/sha256:b3017685ab9100fff47e6ce63a457325320d4e1e34576ba33a35a390ebfebe32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpmspectool/blobs/sha256:d721a0708e8a4d3fcb3a67d305aa59c25ff2ec6093b295a31cfa728d11bda85c
+sha256:
+  linux_amd64: b3017685ab9100fff47e6ce63a457325320d4e1e34576ba33a35a390ebfebe32
+  linux_arm64: d721a0708e8a4d3fcb3a67d305aa59c25ff2ec6093b295a31cfa728d11bda85c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - openssl@3
+  - python@3.14
+  - rpm

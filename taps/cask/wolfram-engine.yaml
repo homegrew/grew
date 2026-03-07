@@ -1,0 +1,13 @@
+name: wolfram-engine
+version: 14.3.0.0
+description: Evaluator for the Wolfram Language
+homepage: https://www.wolfram.com/engine/
+url:
+  darwin_arm64: https://files.wolframcdn.com/packages/Homebrew/14.3.0.0/WolframEngine_14.3.0_MAC.dmg
+sha256:
+  darwin_arm64: dd02d7d7f9794d94496a1866c31d074428ec3a976b8644ec4edfc97009cf86e1
+artifacts:
+  app:
+    - Wolfram Engine.app
+  bin:
+    - wolframscript

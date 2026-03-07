@@ -1,0 +1,25 @@
+name: orbuculum
+version: 2.2.0
+description: Arm Cortex-M SWO/SWV Demux and Postprocess
+homepage: https://github.com/orbcode/orbuculum
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orbuculum/blobs/sha256:3b232ad18dc8d43548fc1bfa68e3efef76ee05c5a17d9a4d3ec178139ce65dac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orbuculum/blobs/sha256:188b4f0e858841b75414119a8c799da7c5fba2c3f83d584c4b94c1d6e0286d13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orbuculum/blobs/sha256:83fd1219323905730efd83508f2c67500ce83392b478b7b2a1f376a98addf3d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orbuculum/blobs/sha256:f08fbd65255af3b5ab905a393e2dbd29407f39caabd94c07ca2d07df556af439
+sha256:
+  darwin_arm64: 3b232ad18dc8d43548fc1bfa68e3efef76ee05c5a17d9a4d3ec178139ce65dac
+  darwin_amd64: 188b4f0e858841b75414119a8c799da7c5fba2c3f83d584c4b94c1d6e0286d13
+  linux_amd64: 83fd1219323905730efd83508f2c67500ce83392b478b7b2a1f376a98addf3d5
+  linux_arm64: f08fbd65255af3b5ab905a393e2dbd29407f39caabd94c07ca2d07df556af439
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone
+  - dwarfutils
+  - libusb
+  - sdl2
+  - zeromq

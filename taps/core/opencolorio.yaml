@@ -1,0 +1,27 @@
+name: opencolorio
+version: 2.5.1
+description: Color management solution geared towards motion picture production
+homepage: https://opencolorio.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencolorio/blobs/sha256:0ca624f3788e11cefd2b246e8154b85a819c2a40ed83e618abdb93c00dbedc16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencolorio/blobs/sha256:c1b9c2d7eda1ec4613cd573a4c16414f286155f91f25715f7e0c204053e85fa3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencolorio/blobs/sha256:5d91f280ab35dd2bfb6c30bf2480f9370fb33fd44aec3b542d2fd28ccd4680f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencolorio/blobs/sha256:9169481ded19f10e1b7c82e7c694d34c30dd78e0ab44107149b303208d869fd1
+sha256:
+  darwin_arm64: 0ca624f3788e11cefd2b246e8154b85a819c2a40ed83e618abdb93c00dbedc16
+  darwin_amd64: c1b9c2d7eda1ec4613cd573a4c16414f286155f91f25715f7e0c204053e85fa3
+  linux_amd64: 5d91f280ab35dd2bfb6c30bf2480f9370fb33fd44aec3b542d2fd28ccd4680f2
+  linux_arm64: 9169481ded19f10e1b7c82e7c694d34c30dd78e0ab44107149b303208d869fd1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imath
+  - little-cms2
+  - minizip-ng
+  - openexr
+  - pystring
+  - yaml-cpp
+  - zlib-ng-compat

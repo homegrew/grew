@@ -1,0 +1,19 @@
+name: keploy
+version: 3.3.37
+description: Testing Toolkit creates test-cases and data mocks from API calls, DB queries
+homepage: https://keploy.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keploy/blobs/sha256:ab1f948ddd3eac30e2de3bfb9920200b83874ca833d6c3bd641e6a069bd006e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keploy/blobs/sha256:0e725643999db532a4afa625a0f97e16f3847c80f0b178ea199a6c841ae3ec97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keploy/blobs/sha256:fa858479dd9a16d71b46179daa8af31bd998c1f18bec626cac7cb60acca4decc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keploy/blobs/sha256:d0bb58af0218c97a254d904e4d0a89095a969bc78a9b4ecd6cda394f7bcab12e
+sha256:
+  darwin_arm64: ab1f948ddd3eac30e2de3bfb9920200b83874ca833d6c3bd641e6a069bd006e8
+  darwin_amd64: 0e725643999db532a4afa625a0f97e16f3847c80f0b178ea199a6c841ae3ec97
+  linux_amd64: fa858479dd9a16d71b46179daa8af31bd998c1f18bec626cac7cb60acca4decc
+  linux_arm64: d0bb58af0218c97a254d904e4d0a89095a969bc78a9b4ecd6cda394f7bcab12e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: pangomm
+version: 2.56.1
+description: C++ interface to Pango
+homepage: https://www.gtk.org/docs/architecture/pango
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pangomm/blobs/sha256:47f6a5d2a8b3d0ba246aae39234a138ce18d1004ec35607b18f22f203b250171
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pangomm/blobs/sha256:1bc3b3ef3f4502d595eec7787bc1464723abfdae305ed2b4118c5d1bce59a61d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pangomm/blobs/sha256:4defbd47ef262aaf9aa021ab3da046d717848c61679f0f412278d74c1877d6f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pangomm/blobs/sha256:2ba333c4cb46d9e32440117b87ca21123dda59066c5edf1120ab77e98c9e1289
+sha256:
+  darwin_arm64: 47f6a5d2a8b3d0ba246aae39234a138ce18d1004ec35607b18f22f203b250171
+  darwin_amd64: 1bc3b3ef3f4502d595eec7787bc1464723abfdae305ed2b4118c5d1bce59a61d
+  linux_amd64: 4defbd47ef262aaf9aa021ab3da046d717848c61679f0f412278d74c1877d6f7
+  linux_arm64: 2ba333c4cb46d9e32440117b87ca21123dda59066c5edf1120ab77e98c9e1289
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairomm
+  - glib
+  - glibmm
+  - libsigc++
+  - pango

@@ -1,0 +1,22 @@
+name: pms
+version: 0.42
+description: Practical Music Search, an ncurses-based MPD client
+homepage: https://kimtore.github.io/pms/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pms/blobs/sha256:9ea144b1cf1481050e378149ef8731963f537878c38d74faa182a687e85d64a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pms/blobs/sha256:a931529745300c09aa3f2b9a9b0099927a8d268904771ae80adc6e1cb31df1f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pms/blobs/sha256:6c3d1cf4ac839cd2c6ae549d4c303dfeed70951bf0473b4919bcbe62a2530961
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pms/blobs/sha256:49c08001404ac52846502ef4173d8df4907aa2f3ce45bd55c48faf3c672100da
+sha256:
+  darwin_arm64: 9ea144b1cf1481050e378149ef8731963f537878c38d74faa182a687e85d64a0
+  darwin_amd64: a931529745300c09aa3f2b9a9b0099927a8d268904771ae80adc6e1cb31df1f3
+  linux_amd64: 6c3d1cf4ac839cd2c6ae549d4c303dfeed70951bf0473b4919bcbe62a2530961
+  linux_arm64: 49c08001404ac52846502ef4173d8df4907aa2f3ce45bd55c48faf3c672100da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib

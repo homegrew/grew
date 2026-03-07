@@ -1,0 +1,22 @@
+name: tasksh
+version: 1.2.0
+description: Shell wrapper for Taskwarrior commands
+homepage: https://github.com/GothenburgBitFactory/taskshell
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tasksh/blobs/sha256:0b87af510cb7ba2daf5c1bc8b21d17c30a9ba43512dcc180beed93d9a8cda5bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tasksh/blobs/sha256:fc26e6d677232268991d4926c4c2e5f13f839918be416b4675326d227f4fc1ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tasksh/blobs/sha256:e8a89402e614a9f93aa6716e6b4c442b44f2f0471c0d8534096ee8428565a149
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tasksh/blobs/sha256:c18914e24a50c9ea3489db09b04c7d702555bc703bb799ff51244419135f5bca
+sha256:
+  darwin_arm64: 0b87af510cb7ba2daf5c1bc8b21d17c30a9ba43512dcc180beed93d9a8cda5bd
+  darwin_amd64: fc26e6d677232268991d4926c4c2e5f13f839918be416b4675326d227f4fc1ac
+  linux_amd64: e8a89402e614a9f93aa6716e6b4c442b44f2f0471c0d8534096ee8428565a149
+  linux_arm64: c18914e24a50c9ea3489db09b04c7d702555bc703bb799ff51244419135f5bca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline
+  - task

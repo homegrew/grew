@@ -1,0 +1,19 @@
+name: cryptopp
+version: 8.9.0
+description: Free C++ class library of cryptographic schemes
+homepage: https://cryptopp.com/
+license: LicenseRef-Homebrew-public-domain AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cryptopp/blobs/sha256:53bc84217451c7ae2716346f62519e9b100409180949df14259c0159c04166e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cryptopp/blobs/sha256:7b027167f9f423f7c74506cfc69bdf95a6bf81a43a352e779763dda2dc6275c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cryptopp/blobs/sha256:3f784742a258c83ac87f661ea435fbe4ec565c57dc517f8dca6af6f549981c5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cryptopp/blobs/sha256:ec942ec0a779138e44ad756701c4d75a2ad6cc2c0aba9b6778503886c3ea57fa
+sha256:
+  darwin_arm64: 53bc84217451c7ae2716346f62519e9b100409180949df14259c0159c04166e5
+  darwin_amd64: 7b027167f9f423f7c74506cfc69bdf95a6bf81a43a352e779763dda2dc6275c8
+  linux_amd64: 3f784742a258c83ac87f661ea435fbe4ec565c57dc517f8dca6af6f549981c5f
+  linux_arm64: ec942ec0a779138e44ad756701c4d75a2ad6cc2c0aba9b6778503886c3ea57fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

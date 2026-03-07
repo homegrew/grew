@@ -1,0 +1,19 @@
+name: jless
+version: 0.9.0
+description: Command-line pager for JSON data
+homepage: https://jless.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jless/blobs/sha256:4b17c0b4b3fc59321e8ec683fb7811aac39c4e928191f18a48a6c5ebe0ef5cef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jless/blobs/sha256:4ec22c222b62c7e7439eff8d357a841aff831c1e544c58de3bf0c8d56ba32f45
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jless/blobs/sha256:d0502fb07b111d0bd0b5bb2983225e8f2e313329fd7dad6287aac989dac9f8e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jless/blobs/sha256:5dd5790c437fc0b474aaf0e9e2add485ebc5867d64955e99d72aa0920aaf0e05
+sha256:
+  darwin_arm64: 4b17c0b4b3fc59321e8ec683fb7811aac39c4e928191f18a48a6c5ebe0ef5cef
+  darwin_amd64: 4ec22c222b62c7e7439eff8d357a841aff831c1e544c58de3bf0c8d56ba32f45
+  linux_amd64: d0502fb07b111d0bd0b5bb2983225e8f2e313329fd7dad6287aac989dac9f8e1
+  linux_arm64: 5dd5790c437fc0b474aaf0e9e2add485ebc5867d64955e99d72aa0920aaf0e05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

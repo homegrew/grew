@@ -1,0 +1,23 @@
+name: oclgrind
+version: 21.10
+description: OpenCL device simulator and debugger
+homepage: https://github.com/jrprice/Oclgrind
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oclgrind/blobs/sha256:5125b9afb6956eca58806399252680b2e90a085bdffb3fa4549245f3549be711
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oclgrind/blobs/sha256:925f7da504e7ea5a8778d2074c75f6931ff435e528643c25f165212587233a63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oclgrind/blobs/sha256:70b8d27cfcae4a9a284637525781d1c6c7b61b7236bfb94142341453af3f3fa5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oclgrind/blobs/sha256:15e5413070e0711c302d2493d34b3c37d03ed3ab84eedc212099e4fcaa5fbde4
+sha256:
+  darwin_arm64: 5125b9afb6956eca58806399252680b2e90a085bdffb3fa4549245f3549be711
+  darwin_amd64: 925f7da504e7ea5a8778d2074c75f6931ff435e528643c25f165212587233a63
+  linux_amd64: 70b8d27cfcae4a9a284637525781d1c6c7b61b7236bfb94142341453af3f3fa5
+  linux_arm64: 15e5413070e0711c302d2493d34b3c37d03ed3ab84eedc212099e4fcaa5fbde4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@19
+  - readline
+  - zstd

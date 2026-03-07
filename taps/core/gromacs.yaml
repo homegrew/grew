@@ -1,0 +1,25 @@
+name: gromacs
+version: 2026.1
+description: Versatile package for molecular dynamics calculations
+homepage: https://www.gromacs.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gromacs/blobs/sha256:a251cb841fbf8a2f3b67f236c310d9533512945b0fbeeec2ac1510e6b638a4c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gromacs/blobs/sha256:ac0c6d551978b96551339ecb78cf4d34886030cb69b1fcdcee694493b7ab611f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gromacs/blobs/sha256:2c3e5871f11f53468331f0d77d1c17bee72d75d7e495e2a0811ffa0b4d172daf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gromacs/blobs/sha256:c6d9150209e24005c68959723ee18d56680dd97bd1d9a9ff59abb87151d961de
+sha256:
+  darwin_arm64: a251cb841fbf8a2f3b67f236c310d9533512945b0fbeeec2ac1510e6b638a4c5
+  darwin_amd64: ac0c6d551978b96551339ecb78cf4d34886030cb69b1fcdcee694493b7ab611f
+  linux_amd64: 2c3e5871f11f53468331f0d77d1c17bee72d75d7e495e2a0811ffa0b4d172daf
+  linux_arm64: c6d9150209e24005c68959723ee18d56680dd97bd1d9a9ff59abb87151d961de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - lmfit
+  - muparser
+  - openblas
+  - libomp

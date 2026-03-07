@@ -1,0 +1,21 @@
+name: tgui
+version: 1.12.0
+description: GUI library for use with sfml
+homepage: https://tgui.eu
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tgui/blobs/sha256:98ec10e665478f0699adcfaa95a62b9624cbd7d403294302ae438dd0e5ce5a99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tgui/blobs/sha256:a49e7cf99000621cb9ff3a9a6b374abddd9f97cde29832545c41c97fd8e4e588
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tgui/blobs/sha256:e5ef4bcabc24339dd42e54cc960a57ee498336a930b2b8aa54c626aaf6450080
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tgui/blobs/sha256:6d47f965e59c666e4b00ab940f04f0bceb3a98641018a7e194d47605cece0939
+sha256:
+  darwin_arm64: 98ec10e665478f0699adcfaa95a62b9624cbd7d403294302ae438dd0e5ce5a99
+  darwin_amd64: a49e7cf99000621cb9ff3a9a6b374abddd9f97cde29832545c41c97fd8e4e588
+  linux_amd64: e5ef4bcabc24339dd42e54cc960a57ee498336a930b2b8aa54c626aaf6450080
+  linux_arm64: 6d47f965e59c666e4b00ab940f04f0bceb3a98641018a7e194d47605cece0939
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sfml

@@ -1,0 +1,19 @@
+name: pipemeter
+version: 1.1.5
+description: Shows speed of data moving from input to output
+homepage: https://launchpad.net/pipemeter
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pipemeter/blobs/sha256:f87dfabadf8edc8e63b7032810808c7b126c8ade8712687113170ae531796760
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pipemeter/blobs/sha256:c24ccbfa414a1fe38893a2d26a219bf09c278028a94dfe04befec9bed787e9b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipemeter/blobs/sha256:3bcb2fe10310749fb1afdee597abd956efefd6ad1b501440c322a7c876a7ad36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipemeter/blobs/sha256:128d3f2743369e05eab0274a428c4f64054def38c7bdd6636602c66cbf8289cf
+sha256:
+  darwin_arm64: f87dfabadf8edc8e63b7032810808c7b126c8ade8712687113170ae531796760
+  darwin_amd64: c24ccbfa414a1fe38893a2d26a219bf09c278028a94dfe04befec9bed787e9b3
+  linux_amd64: 3bcb2fe10310749fb1afdee597abd956efefd6ad1b501440c322a7c876a7ad36
+  linux_arm64: 128d3f2743369e05eab0274a428c4f64054def38c7bdd6636602c66cbf8289cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

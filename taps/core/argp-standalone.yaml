@@ -1,0 +1,15 @@
+name: argp-standalone
+version: 1.5.0
+description: Standalone version of arguments parsing functions from GLIBC
+homepage: https://github.com/argp-standalone/argp-standalone
+license: LGPL-2.1-or-later AND LGPL-2.0-or-later AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argp-standalone/blobs/sha256:4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argp-standalone/blobs/sha256:4fa315b100b5d38eb5bf4c8fdaff61075c58f78a029434ccb1e9beb32c44c640
+sha256:
+  darwin_arm64: 4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c
+  darwin_amd64: 4fa315b100b5d38eb5bf4c8fdaff61075c58f78a029434ccb1e9beb32c44c640
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

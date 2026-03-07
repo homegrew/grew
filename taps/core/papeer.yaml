@@ -1,0 +1,19 @@
+name: papeer
+version: 0.8.7
+description: Convert websites into eBooks and Markdown
+homepage: https://papeer.tech
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/papeer/blobs/sha256:e8778c94187605165f90672abdef21ed925ae452bc9fbfd96c3d3c7113ca6369
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/papeer/blobs/sha256:78b781f8cb851cbf0ec770b898b87f10698a8dde95a890e6c44dbf0f92e7e0ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/papeer/blobs/sha256:94d5180edd9948ef214b562ad6e566733e1b0b4dfa80ce67ac8c097b9868dc13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/papeer/blobs/sha256:e252dbf3abfee873b4bec0c119e4a5fd3393dc5a15a9272a3e9bdfb90ab0c68d
+sha256:
+  darwin_arm64: e8778c94187605165f90672abdef21ed925ae452bc9fbfd96c3d3c7113ca6369
+  darwin_amd64: 78b781f8cb851cbf0ec770b898b87f10698a8dde95a890e6c44dbf0f92e7e0ad
+  linux_amd64: 94d5180edd9948ef214b562ad6e566733e1b0b4dfa80ce67ac8c097b9868dc13
+  linux_arm64: e252dbf3abfee873b4bec0c119e4a5fd3393dc5a15a9272a3e9bdfb90ab0c68d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

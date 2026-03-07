@@ -1,0 +1,21 @@
+name: umoci
+version: 0.6.0
+description: Reference OCI implementation for creating, modifying and inspecting images
+homepage: https://github.com/opencontainers/umoci
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/umoci/blobs/sha256:829bbd94a1b9c3964d348579e9a28529a4ead9ced1b404c4d4f622605ea62fb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/umoci/blobs/sha256:72fe058ae9412ed0ce970924c427e99d277fca22c78d04da4b01902b62c3cce6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/umoci/blobs/sha256:8fcda2e6f0a1069ccc89935c14ab9e168f9b183fe99ede1878d444bb8c44db0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/umoci/blobs/sha256:3377df8adcffb0ae679c980d628d88b6e48b72993777edff8c3910808c7d96df
+sha256:
+  darwin_arm64: 829bbd94a1b9c3964d348579e9a28529a4ead9ced1b404c4d4f622605ea62fb6
+  darwin_amd64: 72fe058ae9412ed0ce970924c427e99d277fca22c78d04da4b01902b62c3cce6
+  linux_amd64: 8fcda2e6f0a1069ccc89935c14ab9e168f9b183fe99ede1878d444bb8c44db0c
+  linux_arm64: 3377df8adcffb0ae679c980d628d88b6e48b72993777edff8c3910808c7d96df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

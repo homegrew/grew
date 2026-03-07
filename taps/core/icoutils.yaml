@@ -1,0 +1,21 @@
+name: icoutils
+version: 0.32.3
+description: Create and extract MS Windows icons and cursors
+homepage: https://www.nongnu.org/icoutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icoutils/blobs/sha256:5f28e12b6168d398c1b6a45fdd31fbe562734bf4e0bb9b92473326fe3652db3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icoutils/blobs/sha256:09886292b02d85b40a34e8dfe38379b89455ed50cb0002313f88e022906e4927
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icoutils/blobs/sha256:4bcbbfe1270c90d060baf5fe79eea7cd07daaae074c110b57e8505eac348cdb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icoutils/blobs/sha256:628929761f445827749c377cd6309471d0f4f5e70f3f70b6004d052f3dd8d1d0
+sha256:
+  darwin_arm64: 5f28e12b6168d398c1b6a45fdd31fbe562734bf4e0bb9b92473326fe3652db3c
+  darwin_amd64: 09886292b02d85b40a34e8dfe38379b89455ed50cb0002313f88e022906e4927
+  linux_amd64: 4bcbbfe1270c90d060baf5fe79eea7cd07daaae074c110b57e8505eac348cdb8
+  linux_arm64: 628929761f445827749c377cd6309471d0f4f5e70f3f70b6004d052f3dd8d1d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

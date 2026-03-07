@@ -1,0 +1,25 @@
+name: giza
+version: 1.5.0
+description: Scientific plotting library for C/Fortran built on cairo
+homepage: https://danieljprice.github.io/giza/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/giza/blobs/sha256:357de5d9ec314c012a17c428792abc415a69b41c79a3a70217306b99b7b0553f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/giza/blobs/sha256:b4eed7ab19e5b3d979c9e3329d764ad7059b4d65b6ae3fcf75ce2a6159cf2f7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/giza/blobs/sha256:ce3e71bc56a0ebaaf18f8649b0b92eec8e51149ebc6a2ce5bdd9ffce0e5c6cdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/giza/blobs/sha256:7d695e84283aa5d04c6565ef04815a27020c0011ffdf3f6a58e86565a08aef9d
+sha256:
+  darwin_arm64: 357de5d9ec314c012a17c428792abc415a69b41c79a3a70217306b99b7b0553f
+  darwin_amd64: b4eed7ab19e5b3d979c9e3329d764ad7059b4d65b6ae3fcf75ce2a6159cf2f7c
+  linux_amd64: ce3e71bc56a0ebaaf18f8649b0b92eec8e51149ebc6a2ce5bdd9ffce0e5c6cdf
+  linux_arm64: 7d695e84283aa5d04c6565ef04815a27020c0011ffdf3f6a58e86565a08aef9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - freetype
+  - gcc
+  - libx11

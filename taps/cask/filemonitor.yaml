@@ -1,0 +1,13 @@
+name: filemonitor
+version: 1.3.0
+description: Monitor filesystem activity
+homepage: https://objective-see.org/products/utilities.html#FileMonitor
+url:
+  darwin_arm64: https://bitbucket.org/objective-see/deploy/downloads/FileMonitor_1.3.0.zip
+sha256:
+  darwin_arm64: 0c2317ba192ec7f768a51787e7486f60a04ddee42071e9168af9b8454fe762b7
+artifacts:
+  app:
+    - FileMonitor.app
+  bin:
+    - filemonitor

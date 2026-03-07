@@ -1,0 +1,19 @@
+name: nomad-pack
+version: 0.4.1
+description: Templating and packaging tool used with HashiCorp Nomad
+homepage: https://github.com/hashicorp/nomad-pack
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nomad-pack/blobs/sha256:1a7a85e186fd17535eaab79eaf8b289372cb586469ead0d732725d60ea9a29b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nomad-pack/blobs/sha256:3eda1d471d71c03e5d571fa56daf01aace68ae67b19da7ce2f59cb87cf5078f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nomad-pack/blobs/sha256:fee0126393e00b05a7da76172d9a4226f2a70e3853500ad6016de31715b4bf22
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nomad-pack/blobs/sha256:f1bcfcbe32bea180a74b23c41e8e1ee1fd4d45420f375db0d29b18797066df6c
+sha256:
+  darwin_arm64: 1a7a85e186fd17535eaab79eaf8b289372cb586469ead0d732725d60ea9a29b5
+  darwin_amd64: 3eda1d471d71c03e5d571fa56daf01aace68ae67b19da7ce2f59cb87cf5078f7
+  linux_amd64: fee0126393e00b05a7da76172d9a4226f2a70e3853500ad6016de31715b4bf22
+  linux_arm64: f1bcfcbe32bea180a74b23c41e8e1ee1fd4d45420f375db0d29b18797066df6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

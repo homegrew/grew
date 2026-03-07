@@ -1,0 +1,22 @@
+name: aerleon
+version: 1.16.0
+description: Generate firewall configs for multiple firewall platforms
+homepage: https://aerleon.readthedocs.io/en/latest/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aerleon/blobs/sha256:3a26808bb88e041a8681a42639932c0791c5600d6d671cc529afee3b73882b34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aerleon/blobs/sha256:13327dffd80008987d3d62077fd5b19244df2aac25cb3c4d7e7524f26c05aa86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aerleon/blobs/sha256:aa49ed0e1471da0aef020b20852871e99ada06d4e01c3030a9885330b3152bb9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aerleon/blobs/sha256:f1c14613ced8a37ec2302f2b0e11786d15c457cb33dfb0cc0a53d140bbd490dd
+sha256:
+  darwin_arm64: 3a26808bb88e041a8681a42639932c0791c5600d6d671cc529afee3b73882b34
+  darwin_amd64: 13327dffd80008987d3d62077fd5b19244df2aac25cb3c4d7e7524f26c05aa86
+  linux_amd64: aa49ed0e1471da0aef020b20852871e99ada06d4e01c3030a9885330b3152bb9
+  linux_arm64: f1c14613ced8a37ec2302f2b0e11786d15c457cb33dfb0cc0a53d140bbd490dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

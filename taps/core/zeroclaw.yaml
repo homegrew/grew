@@ -1,0 +1,19 @@
+name: zeroclaw
+version: 0.2.0
+description: Rust-first autonomous agent runtime
+homepage: https://github.com/zeroclaw-labs/zeroclaw
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zeroclaw/blobs/sha256:808e83cbc45fb453c34ebd1445ae3c99c821790023a6dd348ba4129dd6348fa8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zeroclaw/blobs/sha256:0b2a74ec6f052c1147dbf78fbd5df8648a099188a44b6f8692be16ed1e845744
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zeroclaw/blobs/sha256:520199f56f386b4b84e7b4d973abd4183664a89601ae2c5bab1d2ac9c7a32bfe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zeroclaw/blobs/sha256:c434dc5e3f371891d5a5f3683606cb157186673e940844dfadf0c4432487f06e
+sha256:
+  darwin_arm64: 808e83cbc45fb453c34ebd1445ae3c99c821790023a6dd348ba4129dd6348fa8
+  darwin_amd64: 0b2a74ec6f052c1147dbf78fbd5df8648a099188a44b6f8692be16ed1e845744
+  linux_amd64: 520199f56f386b4b84e7b4d973abd4183664a89601ae2c5bab1d2ac9c7a32bfe
+  linux_arm64: c434dc5e3f371891d5a5f3683606cb157186673e940844dfadf0c4432487f06e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

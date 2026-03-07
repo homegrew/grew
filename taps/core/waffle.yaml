@@ -1,0 +1,19 @@
+name: waffle
+version: 1.8.1
+description: C library for selecting an OpenGL API and window system at runtime
+homepage: https://waffle.freedesktop.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/waffle/blobs/sha256:aac60d0464beecfe42add4b1be34ca27c1eaf49361202afb805df8acec7c024f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/waffle/blobs/sha256:a59ee0f3ad1c4f4a47c07661e1439f4156dd10b88038115765ef51173282d597
+  linux_amd64: https://ghcr.io/v2/homebrew/core/waffle/blobs/sha256:e66ab6325cd9b5b39752985ee80e3724e9affd46a75d1d2c7b764f6fbbe87b9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/waffle/blobs/sha256:2cdfe7169a64ad8138255aca48128fdc8d23b9885224cddac2a23bcdb3ceabc1
+sha256:
+  darwin_arm64: aac60d0464beecfe42add4b1be34ca27c1eaf49361202afb805df8acec7c024f
+  darwin_amd64: a59ee0f3ad1c4f4a47c07661e1439f4156dd10b88038115765ef51173282d597
+  linux_amd64: e66ab6325cd9b5b39752985ee80e3724e9affd46a75d1d2c7b764f6fbbe87b9b
+  linux_arm64: 2cdfe7169a64ad8138255aca48128fdc8d23b9885224cddac2a23bcdb3ceabc1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

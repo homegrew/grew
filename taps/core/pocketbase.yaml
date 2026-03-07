@@ -1,0 +1,19 @@
+name: pocketbase
+version: 0.36.6
+description: Open source backend for your next project in 1 file
+homepage: https://pocketbase.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pocketbase/blobs/sha256:316ffdc7610430d7bb583ae333787f34c98aab73e004415032bb607eb61a0bfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pocketbase/blobs/sha256:edd64c5d939a560d4dda085ee341cb9d99a8db54600a37ef6a4dc1395085fe5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pocketbase/blobs/sha256:043a6b61f4c3b452e276e6557ba79dd8079ec60d890293fffd42957a061a9457
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pocketbase/blobs/sha256:1c804ff0c38517fbe3a2eddb0323096662c9b45070eab28aa43f77b529b39dac
+sha256:
+  darwin_arm64: 316ffdc7610430d7bb583ae333787f34c98aab73e004415032bb607eb61a0bfd
+  darwin_amd64: edd64c5d939a560d4dda085ee341cb9d99a8db54600a37ef6a4dc1395085fe5c
+  linux_amd64: 043a6b61f4c3b452e276e6557ba79dd8079ec60d890293fffd42957a061a9457
+  linux_arm64: 1c804ff0c38517fbe3a2eddb0323096662c9b45070eab28aa43f77b529b39dac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

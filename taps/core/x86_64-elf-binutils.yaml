@@ -1,0 +1,21 @@
+name: x86_64-elf-binutils
+version: 2.46.0
+description: GNU Binutils for x86_64-elf cross development
+homepage: https://www.gnu.org/software/binutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x86_64-elf-binutils/blobs/sha256:cc2fd0bd5361b23b54cbaba509a638a71e4bb1b46c0eb55e16bdc162f56dc50d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x86_64-elf-binutils/blobs/sha256:5dd39aa5653ee74a4eab3cb11e5fc9dd91aee444afda6a090bd49114c1530e09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x86_64-elf-binutils/blobs/sha256:bfac42c981aca755c42bbfdb55a2bd5cb8784fb56895f9bfc7afc36c49cc4fe7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x86_64-elf-binutils/blobs/sha256:68bc76e5cb50d3cbebd9c562ba5f98845c332ef99e650100b00b16dba7b4594e
+sha256:
+  darwin_arm64: cc2fd0bd5361b23b54cbaba509a638a71e4bb1b46c0eb55e16bdc162f56dc50d
+  darwin_amd64: 5dd39aa5653ee74a4eab3cb11e5fc9dd91aee444afda6a090bd49114c1530e09
+  linux_amd64: bfac42c981aca755c42bbfdb55a2bd5cb8784fb56895f9bfc7afc36c49cc4fe7
+  linux_arm64: 68bc76e5cb50d3cbebd9c562ba5f98845c332ef99e650100b00b16dba7b4594e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

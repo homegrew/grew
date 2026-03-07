@@ -1,0 +1,26 @@
+name: tectonic
+version: 0.15.0
+description: Modernized, complete, self-contained TeX/LaTeX engine
+homepage: https://tectonic-typesetting.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tectonic/blobs/sha256:145a7685f5de0d93a3c60cf68e83ea82d7d17ae8ede4dcb24413cb50a6c6c258
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tectonic/blobs/sha256:af3203894e6285a96ff995fe00649b80305505c66ab6c6a77b7e1676b60c0112
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tectonic/blobs/sha256:f9e31afdd7aa5513cc754db0abb6fd66f75acb63866301fd6ee46b86dfc12a10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tectonic/blobs/sha256:4b4325f7f957ab41aa7fec285eae1ff5c5d74563098062343b8b5bea4b336044
+sha256:
+  darwin_arm64: 145a7685f5de0d93a3c60cf68e83ea82d7d17ae8ede4dcb24413cb50a6c6c258
+  darwin_amd64: af3203894e6285a96ff995fe00649b80305505c66ab6c6a77b7e1676b60c0112
+  linux_amd64: f9e31afdd7aa5513cc754db0abb6fd66f75acb63866301fd6ee46b86dfc12a10
+  linux_arm64: 4b4325f7f957ab41aa7fec285eae1ff5c5d74563098062343b8b5bea4b336044
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - graphite2
+  - harfbuzz
+  - icu4c@78
+  - libpng
+  - openssl@3

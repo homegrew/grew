@@ -1,0 +1,23 @@
+name: x86_64-elf-grub
+version: 2.12
+description: GNU GRUB bootloader for x86_64-elf
+homepage: https://savannah.gnu.org/projects/grub
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x86_64-elf-grub/blobs/sha256:53b8b89694c2d829f0b1a2d2f66d2337c989701666214a98bda3669e835ad9bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x86_64-elf-grub/blobs/sha256:550a7d1ac501183b9c04490744605f04c0320327832dfee05d0be280316db621
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x86_64-elf-grub/blobs/sha256:02531df2a6711bb5519575d72c4c83f76f4d71f79caeb5172b3c102d601bc522
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x86_64-elf-grub/blobs/sha256:ffb7c4eb420c42f558fe96e3692cbf5b2b3b3e1f1a2b6e66a5a5a03f5d7e2e20
+sha256:
+  darwin_arm64: 53b8b89694c2d829f0b1a2d2f66d2337c989701666214a98bda3669e835ad9bc
+  darwin_amd64: 550a7d1ac501183b9c04490744605f04c0320327832dfee05d0be280316db621
+  linux_amd64: 02531df2a6711bb5519575d72c4c83f76f4d71f79caeb5172b3c102d601bc522
+  linux_arm64: ffb7c4eb420c42f558fe96e3692cbf5b2b3b3e1f1a2b6e66a5a5a03f5d7e2e20
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - xz
+  - gettext

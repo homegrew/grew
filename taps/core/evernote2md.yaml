@@ -1,0 +1,19 @@
+name: evernote2md
+version: 0.22.2
+description: Convert Evernote .enex file to Markdown
+homepage: https://github.com/wormi4ok/evernote2md
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evernote2md/blobs/sha256:cc05023d2f533a633f39bdc2b459410d5641f34d25ad36869564cfb1a5588b93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evernote2md/blobs/sha256:b7dbea9edb565c916a6421b4ccca7e02bbc3103717363865a48bcca01988c110
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evernote2md/blobs/sha256:ad6aabd701ef98384847b5911bc5740aac59ef85bf9792c52145fec41f344449
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evernote2md/blobs/sha256:355b84e80e8c95f159d6c1323b5765177b4b285139aede2db278ab44dd89577d
+sha256:
+  darwin_arm64: cc05023d2f533a633f39bdc2b459410d5641f34d25ad36869564cfb1a5588b93
+  darwin_amd64: b7dbea9edb565c916a6421b4ccca7e02bbc3103717363865a48bcca01988c110
+  linux_amd64: ad6aabd701ef98384847b5911bc5740aac59ef85bf9792c52145fec41f344449
+  linux_arm64: 355b84e80e8c95f159d6c1323b5765177b4b285139aede2db278ab44dd89577d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

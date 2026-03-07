@@ -1,0 +1,11 @@
+name: jbrowse
+version: 4.1.13
+description: Genome browser
+homepage: https://jbrowse.org/
+url:
+  darwin_arm64: https://github.com/GMOD/jbrowse-components/releases/download/v4.1.13/jbrowse-desktop-v4.1.13-mac.dmg
+sha256:
+  darwin_arm64: 8e2988d097b536745ece3886d75c6e7e9e06c72d1179ef772d2bc97846d7949f
+artifacts:
+  app:
+    - JBrowse 2.app

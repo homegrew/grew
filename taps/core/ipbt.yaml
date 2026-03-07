@@ -1,0 +1,19 @@
+name: ipbt
+version: 20240909
+description: Program for recording a UNIX terminal session
+homepage: https://www.chiark.greenend.org.uk/~sgtatham/ipbt/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipbt/blobs/sha256:c859deb2c97e809a56ac2a8ec82da3fc411b398146bbae7012786fb8c9ff3cbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipbt/blobs/sha256:62353f1d79b73c4a914726299f572ec461d23eca472ca88c876f87e91f811fe3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipbt/blobs/sha256:ee0805604e97eaceb23bc1c424867e48c4f8e158e84ab807963fbe7dce5c3d0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipbt/blobs/sha256:3374979030a5d810381b6f3d85ed4c40c40cc7ffc69bc7fee643c6fab7d4025c
+sha256:
+  darwin_arm64: c859deb2c97e809a56ac2a8ec82da3fc411b398146bbae7012786fb8c9ff3cbe
+  darwin_amd64: 62353f1d79b73c4a914726299f572ec461d23eca472ca88c876f87e91f811fe3
+  linux_amd64: ee0805604e97eaceb23bc1c424867e48c4f8e158e84ab807963fbe7dce5c3d0d
+  linux_arm64: 3374979030a5d810381b6f3d85ed4c40c40cc7ffc69bc7fee643c6fab7d4025c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

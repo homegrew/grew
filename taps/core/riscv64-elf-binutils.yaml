@@ -1,0 +1,21 @@
+name: riscv64-elf-binutils
+version: 2.46.0
+description: GNU Binutils for riscv64-elf cross development
+homepage: https://www.gnu.org/software/binutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-binutils/blobs/sha256:d37df2f1817b189621420013525be45c9b1a9186b0bc17beb35595ceeda44a07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-binutils/blobs/sha256:26d02e863630ff329c19f8d39564304bad95d7ca51c341d7af04dae0f86e080e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-binutils/blobs/sha256:bfbdc564238f10a6d02c7c7d40a9a2369291b248134d479914bf57b630ad9029
+  linux_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-binutils/blobs/sha256:47489b6cccf3482cc9b883688e71b72962864725bbda63970b9abb2ea441db3e
+sha256:
+  darwin_arm64: d37df2f1817b189621420013525be45c9b1a9186b0bc17beb35595ceeda44a07
+  darwin_amd64: 26d02e863630ff329c19f8d39564304bad95d7ca51c341d7af04dae0f86e080e
+  linux_amd64: bfbdc564238f10a6d02c7c7d40a9a2369291b248134d479914bf57b630ad9029
+  linux_arm64: 47489b6cccf3482cc9b883688e71b72962864725bbda63970b9abb2ea441db3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

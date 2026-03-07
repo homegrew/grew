@@ -1,0 +1,19 @@
+name: progressline
+version: 0.2.4
+description: Track commands progress in a compact one-line format
+homepage: https://github.com/kattouf/ProgressLine
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/progressline/blobs/sha256:6e82f5a1a3adf652f5e8bd8b6941507eb9fd2b995ec36fb5a673c66208c128d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/progressline/blobs/sha256:e1e76d606b4aae24fc61ba66a3a4cc4014efe3390a1bd89f022546bdfaf4ca67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/progressline/blobs/sha256:ff927b499b1881aad2a4f5f0ce1bcc86c72b5b7fc34a0b85303a31928b124105
+  linux_arm64: https://ghcr.io/v2/homebrew/core/progressline/blobs/sha256:826e2a32265a039262ed40703e99acbad76a8b4db2762b723a3baecdb997cbd0
+sha256:
+  darwin_arm64: 6e82f5a1a3adf652f5e8bd8b6941507eb9fd2b995ec36fb5a673c66208c128d3
+  darwin_amd64: e1e76d606b4aae24fc61ba66a3a4cc4014efe3390a1bd89f022546bdfaf4ca67
+  linux_amd64: ff927b499b1881aad2a4f5f0ce1bcc86c72b5b7fc34a0b85303a31928b124105
+  linux_arm64: 826e2a32265a039262ed40703e99acbad76a8b4db2762b723a3baecdb997cbd0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

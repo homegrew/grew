@@ -1,0 +1,21 @@
+name: rust-script
+version: 0.36.0
+description: Run Rust files and expressions as scripts without any setup or compilation step
+homepage: https://rust-script.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rust-script/blobs/sha256:48cb1216ddc8cd608e0c77e1c02c26bd97011c332f4eb7cc98c9d2249db73133
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rust-script/blobs/sha256:4ed6eadc0ae46bbc151c3a4ba63727c66b8d69f71b75639487891a97cfee9431
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rust-script/blobs/sha256:a621299898caf1365fe29b39303f41b4becbce8e6450db1a787b07e6de258307
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rust-script/blobs/sha256:9cd8b102839fff6efe6d8dfb8353de1f008edc51f0f7eca5907b4589c64b3140
+sha256:
+  darwin_arm64: 48cb1216ddc8cd608e0c77e1c02c26bd97011c332f4eb7cc98c9d2249db73133
+  darwin_amd64: 4ed6eadc0ae46bbc151c3a4ba63727c66b8d69f71b75639487891a97cfee9431
+  linux_amd64: a621299898caf1365fe29b39303f41b4becbce8e6450db1a787b07e6de258307
+  linux_arm64: 9cd8b102839fff6efe6d8dfb8353de1f008edc51f0f7eca5907b4589c64b3140
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rust

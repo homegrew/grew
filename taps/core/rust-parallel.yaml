@@ -1,0 +1,19 @@
+name: rust-parallel
+version: 1.22.0
+description: "Run commands in parallel with Rust's Tokio framework"
+homepage: https://github.com/aaronriekenberg/rust-parallel
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rust-parallel/blobs/sha256:a0c2d7a401196e8756721d45e5f533df56543b464a0950b67b4188cf6f85c539
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rust-parallel/blobs/sha256:e3a9da5cd40b4455bef6b101cdcc7e8ced8ab13a1e8bf79ec70e68948f8e3998
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rust-parallel/blobs/sha256:b4c01defb874e635f9a50400e3ae2539673d02834020b7db9a6e2b104dad852b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rust-parallel/blobs/sha256:dff2a4e4f014263649ee745bc91f1f102d0fcd4ed4ebe950f5d2ec6538f160aa
+sha256:
+  darwin_arm64: a0c2d7a401196e8756721d45e5f533df56543b464a0950b67b4188cf6f85c539
+  darwin_amd64: e3a9da5cd40b4455bef6b101cdcc7e8ced8ab13a1e8bf79ec70e68948f8e3998
+  linux_amd64: b4c01defb874e635f9a50400e3ae2539673d02834020b7db9a6e2b104dad852b
+  linux_arm64: dff2a4e4f014263649ee745bc91f1f102d0fcd4ed4ebe950f5d2ec6538f160aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

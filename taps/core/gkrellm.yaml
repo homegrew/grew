@@ -1,0 +1,26 @@
+name: gkrellm
+version: 2.5.1
+description: Extensible GTK system monitoring application
+homepage: https://billw2.github.io/gkrellm/gkrellm.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gkrellm/blobs/sha256:936a8c81763c7bec55bff88e4191b3c550629ea638728b94924ad7548a52f663
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gkrellm/blobs/sha256:5580325f07672b8271d4dfd69a7018e9d6b242a695fc4f62903479cd83ab120b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gkrellm/blobs/sha256:f3d9b23caf99e6749de17b505878868a235bb4e7cca6143470c32335a6a1fe7a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gkrellm/blobs/sha256:29063e4bc0c06e3e6c1328fad75f9f1a5061a1d66d41bfcbe16a7faa91136817
+sha256:
+  darwin_arm64: 936a8c81763c7bec55bff88e4191b3c550629ea638728b94924ad7548a52f663
+  darwin_amd64: 5580325f07672b8271d4dfd69a7018e9d6b242a695fc4f62903479cd83ab120b
+  linux_amd64: f3d9b23caf99e6749de17b505878868a235bb4e7cca6143470c32335a6a1fe7a
+  linux_arm64: 29063e4bc0c06e3e6c1328fad75f9f1a5061a1d66d41bfcbe16a7faa91136817
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gtk+
+  - openssl@3
+  - pango
+  - gettext

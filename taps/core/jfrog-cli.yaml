@@ -1,0 +1,19 @@
+name: jfrog-cli
+version: 2.95.0
+description: Command-line interface for JFrog products
+homepage: https://www.jfrog.com/confluence/display/CLI/JFrog+CLI
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jfrog-cli/blobs/sha256:d9a518bb47f0b331ec19fab4f2ec63d9a6481c11ff9a1f712ef5c82c64456050
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jfrog-cli/blobs/sha256:da39013829e40e0889e90e6268a300886299a4d7f93c0d5cb509c0db41fd8b3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jfrog-cli/blobs/sha256:ad2ee8b8f64e4f935d9d87227d14aea79d6607a5ae771231a4ed22f330240743
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jfrog-cli/blobs/sha256:2dd28ab5843b8cd15597f59df1b9be2bed9927263e35234f0cd48771a23b5479
+sha256:
+  darwin_arm64: d9a518bb47f0b331ec19fab4f2ec63d9a6481c11ff9a1f712ef5c82c64456050
+  darwin_amd64: da39013829e40e0889e90e6268a300886299a4d7f93c0d5cb509c0db41fd8b3c
+  linux_amd64: ad2ee8b8f64e4f935d9d87227d14aea79d6607a5ae771231a4ed22f330240743
+  linux_arm64: 2dd28ab5843b8cd15597f59df1b9be2bed9927263e35234f0cd48771a23b5479
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

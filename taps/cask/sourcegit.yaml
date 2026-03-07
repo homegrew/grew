@@ -1,0 +1,11 @@
+name: sourcegit
+version: 2026.05
+description: Git GUI client
+homepage: https://github.com/sourcegit-scm/sourcegit
+url:
+  darwin_arm64: https://github.com/ybeapps/homebrew-sourcegit/releases/download/v2026.05-signed/SourceGit-v2026.05-arm64-signed.dmg
+sha256:
+  darwin_arm64: 3cf8c943e8c9fddc5f0a615aeb7083c7d386debc0cf524f99275c1f21af944a6
+artifacts:
+  app:
+    - SourceGit.app

@@ -1,0 +1,19 @@
+name: dockerfmt
+version: 0.3.9
+description: Dockerfile format and parser. a modern dockfmt
+homepage: https://github.com/reteps/dockerfmt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dockerfmt/blobs/sha256:101a5934baacdd9c0eab3b1e9b335818dc1e5938b2cb264183cfa1a8f6dc455a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dockerfmt/blobs/sha256:08923cd6b556ad3c8d58ca04e7eda92aae0f5a6d167b275427e09d71c881fd30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dockerfmt/blobs/sha256:dfc5c09a56b3ab87c3a096c66965cedbd1ac51e6322334ec271454b52b9d0931
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dockerfmt/blobs/sha256:c551d692a59672c995321da96c3209cc3265c9cac3bb69b9e394483201d3a0de
+sha256:
+  darwin_arm64: 101a5934baacdd9c0eab3b1e9b335818dc1e5938b2cb264183cfa1a8f6dc455a
+  darwin_amd64: 08923cd6b556ad3c8d58ca04e7eda92aae0f5a6d167b275427e09d71c881fd30
+  linux_amd64: dfc5c09a56b3ab87c3a096c66965cedbd1ac51e6322334ec271454b52b9d0931
+  linux_arm64: c551d692a59672c995321da96c3209cc3265c9cac3bb69b9e394483201d3a0de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

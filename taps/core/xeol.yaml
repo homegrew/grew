@@ -1,0 +1,19 @@
+name: xeol
+version: 0.10.8
+description: Xcanner for end-of-life software in container images, filesystems, and SBOMs
+homepage: https://github.com/xeol-io/xeol
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xeol/blobs/sha256:80151377a0e570445e58a123fc9256fefdd756fe7bf8ab102de37ca67df34437
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xeol/blobs/sha256:504c4e3d827048d30f47dcab2d2717d13ba99e9a8d90e1775b99bfd5f85881d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xeol/blobs/sha256:386c785c6a49becb1da6ae31414ceb1d95b9ad8299d9ebb34afe0c10a6d98dbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xeol/blobs/sha256:87ad9b0ee49109813a35ee1d7030457a1bf8a72cf75938562722389dfa1d26ff
+sha256:
+  darwin_arm64: 80151377a0e570445e58a123fc9256fefdd756fe7bf8ab102de37ca67df34437
+  darwin_amd64: 504c4e3d827048d30f47dcab2d2717d13ba99e9a8d90e1775b99bfd5f85881d4
+  linux_amd64: 386c785c6a49becb1da6ae31414ceb1d95b9ad8299d9ebb34afe0c10a6d98dbd
+  linux_arm64: 87ad9b0ee49109813a35ee1d7030457a1bf8a72cf75938562722389dfa1d26ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cargo-bloat
+version: 0.12.1
+description: Find out what takes most of the space in your executable
+homepage: https://github.com/RazrFalcon/cargo-bloat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-bloat/blobs/sha256:6333af27c70bd55ebf0d441657e9f2072171c3227cad67d63ddfb71e55b2b9eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-bloat/blobs/sha256:f643448f04a72a456a13efb160fe1470144128d55c7e3d7f44fe8c6a1027ec2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-bloat/blobs/sha256:9c271533c6e4ff7415d51ccb2fcbee8e514e0ec2142a48543a5c8dd705ac9e4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-bloat/blobs/sha256:ad9f82b783d911c4dd1396d2c81e785afa04fe18b5ceb48d6eb5dae823ea0fd7
+sha256:
+  darwin_arm64: 6333af27c70bd55ebf0d441657e9f2072171c3227cad67d63ddfb71e55b2b9eb
+  darwin_amd64: f643448f04a72a456a13efb160fe1470144128d55c7e3d7f44fe8c6a1027ec2b
+  linux_amd64: 9c271533c6e4ff7415d51ccb2fcbee8e514e0ec2142a48543a5c8dd705ac9e4a
+  linux_arm64: ad9f82b783d911c4dd1396d2c81e785afa04fe18b5ceb48d6eb5dae823ea0fd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

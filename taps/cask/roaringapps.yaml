@@ -1,0 +1,11 @@
+name: roaringapps
+version: 1.8.0
+description: Show installed app compatibility information
+homepage: https://roaringapps.com/mac-app
+url:
+  darwin_arm64: https://roaringapps.com/downloads/RoaringApps-1.8.0.zip
+sha256:
+  darwin_arm64: ff6134fd5ba5d55ebacb48e8bc8d56ce8da299c0e55ad1a0611bbf9b390878d7
+artifacts:
+  app:
+    - RoaringApps.app

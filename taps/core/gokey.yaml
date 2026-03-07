@@ -1,0 +1,19 @@
+name: gokey
+version: 0.2.0
+description: Simple vaultless password manager in Go
+homepage: https://github.com/cloudflare/gokey
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gokey/blobs/sha256:81186a07e4187a1051296ae90494b6f4cb291083ff08076902033454ab018608
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gokey/blobs/sha256:759c0ca21f9300b638995e96c41218aa4c03284a61acca87c3fb84f1e5da1e06
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gokey/blobs/sha256:b5159a7d0e167e26ba1ce8b29cebc9e48e019627c99326e394df8b08e66d958d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gokey/blobs/sha256:f0b3f59fe04d5c7c0696e1605a56fa4ddd99d3e563dfec934d087538a6851156
+sha256:
+  darwin_arm64: 81186a07e4187a1051296ae90494b6f4cb291083ff08076902033454ab018608
+  darwin_amd64: 759c0ca21f9300b638995e96c41218aa4c03284a61acca87c3fb84f1e5da1e06
+  linux_amd64: b5159a7d0e167e26ba1ce8b29cebc9e48e019627c99326e394df8b08e66d958d
+  linux_arm64: f0b3f59fe04d5c7c0696e1605a56fa4ddd99d3e563dfec934d087538a6851156
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

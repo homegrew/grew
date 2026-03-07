@@ -1,0 +1,21 @@
+name: dfc
+version: 3.1.1
+description: Display graphs and colors of file system space/usage
+homepage: https://github.com/Rolinh/dfc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dfc/blobs/sha256:7a89f0d391fc36d847a8385ade4caee48ac0ee3edac6fd460dfd05f89bd5996f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dfc/blobs/sha256:0a60ac19f9bb91969d13895b18def28e2bfabdc8f20521428a4e62566175cbda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dfc/blobs/sha256:0d467920d7e3393975fc11b8fa07f84e177ddafdfa7139bc219183380f891d42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dfc/blobs/sha256:210935ed2e087198b582b8c46b02bd88c0f95df0cc996b17310e38e56a711fcf
+sha256:
+  darwin_arm64: 7a89f0d391fc36d847a8385ade4caee48ac0ee3edac6fd460dfd05f89bd5996f
+  darwin_amd64: 0a60ac19f9bb91969d13895b18def28e2bfabdc8f20521428a4e62566175cbda
+  linux_amd64: 0d467920d7e3393975fc11b8fa07f84e177ddafdfa7139bc219183380f891d42
+  linux_arm64: 210935ed2e087198b582b8c46b02bd88c0f95df0cc996b17310e38e56a711fcf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

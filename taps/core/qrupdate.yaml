@@ -1,0 +1,22 @@
+name: qrupdate
+version: 1.1.5
+description: Fast updates of QR and Cholesky decompositions
+homepage: https://gitlab.mpi-magdeburg.mpg.de/koehlerm/qrupdate-ng
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qrupdate/blobs/sha256:5c305f32f4639a5bfeab6e16899d57b376ab2a0189d83ca0a5c89addd61839f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qrupdate/blobs/sha256:c74d34091a406df0680a9d1d208aea0a28ecf43c8552402eb5b1ee83d13d431f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qrupdate/blobs/sha256:3ccc86cd597cfb5746a133ec69dca7e2745106447ac9dcc586b21c862e8d252f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qrupdate/blobs/sha256:2b7905dc60adfb1d09b1fc453916fd4b4040c65c3cb08bdc33bdfca133a77f47
+sha256:
+  darwin_arm64: 5c305f32f4639a5bfeab6e16899d57b376ab2a0189d83ca0a5c89addd61839f9
+  darwin_amd64: c74d34091a406df0680a9d1d208aea0a28ecf43c8552402eb5b1ee83d13d431f
+  linux_amd64: 3ccc86cd597cfb5746a133ec69dca7e2745106447ac9dcc586b21c862e8d252f
+  linux_arm64: 2b7905dc60adfb1d09b1fc453916fd4b4040c65c3cb08bdc33bdfca133a77f47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - openblas

@@ -1,0 +1,19 @@
+name: wrkflw
+version: 0.7.3
+description: Validate and execute GitHub Actions workflows locally
+homepage: https://github.com/bahdotsh/wrkflw
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wrkflw/blobs/sha256:69a89d22d620589197a0d171fcfd9f43fc051bf5c9327d6d6b30f3cb1ed37e1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wrkflw/blobs/sha256:534d9bca4bc47cfa794bc3baac97d1dea93bccbf3b2ed9289e2dff07f6f17b25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wrkflw/blobs/sha256:118191fdc4326752d6e790f341c440199d09e3ae431f58c0d865a1a5c5dc0572
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wrkflw/blobs/sha256:1e2f551f4f916d0435ecea589571f991a0b0a2b0701a39b93cb2fc857b05e54a
+sha256:
+  darwin_arm64: 69a89d22d620589197a0d171fcfd9f43fc051bf5c9327d6d6b30f3cb1ed37e1d
+  darwin_amd64: 534d9bca4bc47cfa794bc3baac97d1dea93bccbf3b2ed9289e2dff07f6f17b25
+  linux_amd64: 118191fdc4326752d6e790f341c440199d09e3ae431f58c0d865a1a5c5dc0572
+  linux_arm64: 1e2f551f4f916d0435ecea589571f991a0b0a2b0701a39b93cb2fc857b05e54a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

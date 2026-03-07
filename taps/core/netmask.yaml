@@ -1,0 +1,21 @@
+name: netmask
+version: 2.5.0
+description: IP address netmask generation utility
+homepage: https://github.com/tlby/netmask/blob/master/README
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netmask/blobs/sha256:526dfd6c8b4bf73f066e2f8d7e2d6dd377daf7709dfc11ba4697ed81d75ac619
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netmask/blobs/sha256:0fc1d11045fe492269b03b694edd9e1fe214a2208f700f5ea98d69b132914668
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netmask/blobs/sha256:412db2c646b5c4e9038908022c40c809e1c2430fc163dbdc27b3590db01803be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netmask/blobs/sha256:3eef7efdc4db887245360eabc57b202607d2c6cddc461ad1368898582a8eaa99
+sha256:
+  darwin_arm64: 526dfd6c8b4bf73f066e2f8d7e2d6dd377daf7709dfc11ba4697ed81d75ac619
+  darwin_amd64: 0fc1d11045fe492269b03b694edd9e1fe214a2208f700f5ea98d69b132914668
+  linux_amd64: 412db2c646b5c4e9038908022c40c809e1c2430fc163dbdc27b3590db01803be
+  linux_arm64: 3eef7efdc4db887245360eabc57b202607d2c6cddc461ad1368898582a8eaa99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - check

@@ -1,0 +1,19 @@
+name: mcphost
+version: 0.34.0
+description: CLI host for LLMs to interact with tools via MCP
+homepage: https://github.com/mark3labs/mcphost
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcphost/blobs/sha256:baf5ddfa871a62fd5f7ea71379bc38387be696ac3be30f2ff1f0c18ee69242ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcphost/blobs/sha256:0b96d49d859e020cc22e32a70d313ccb97f2ef0d3bedc880beaee723d7fb0267
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcphost/blobs/sha256:d8ff47f19f95d5594b56ceee0dfd7aca5295d5301503d9fd8caf8d98ba845fd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcphost/blobs/sha256:7a0e3a53b7538f3d6a2c703033969dfea3af837378af1b6ffe6c6d6eab74c5c9
+sha256:
+  darwin_arm64: baf5ddfa871a62fd5f7ea71379bc38387be696ac3be30f2ff1f0c18ee69242ed
+  darwin_amd64: 0b96d49d859e020cc22e32a70d313ccb97f2ef0d3bedc880beaee723d7fb0267
+  linux_amd64: d8ff47f19f95d5594b56ceee0dfd7aca5295d5301503d9fd8caf8d98ba845fd5
+  linux_arm64: 7a0e3a53b7538f3d6a2c703033969dfea3af837378af1b6ffe6c6d6eab74c5c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

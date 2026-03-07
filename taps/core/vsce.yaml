@@ -1,0 +1,21 @@
+name: vsce
+version: 3.7.1
+description: Tool for packaging, publishing and managing VS Code extensions
+homepage: https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vsce/blobs/sha256:d5dbdbbd13544c659059724ba4b29f8b458e777bb9068afccd635800c0cd4b73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vsce/blobs/sha256:697e277fb152068f51a02471c748118f6d6e47a74a059b3b1f4f915dc95eb093
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vsce/blobs/sha256:51bd0dc9c14019f99dbfe25d4a164ed639347ef5ef346fa4ab574c5d08e871c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vsce/blobs/sha256:fb6c71ce803227a87a139b666302048a8764083521124526920462df2778506d
+sha256:
+  darwin_arm64: d5dbdbbd13544c659059724ba4b29f8b458e777bb9068afccd635800c0cd4b73
+  darwin_amd64: 697e277fb152068f51a02471c748118f6d6e47a74a059b3b1f4f915dc95eb093
+  linux_amd64: 51bd0dc9c14019f99dbfe25d4a164ed639347ef5ef346fa4ab574c5d08e871c2
+  linux_arm64: fb6c71ce803227a87a139b666302048a8764083521124526920462df2778506d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

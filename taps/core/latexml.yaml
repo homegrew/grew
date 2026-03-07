@@ -1,0 +1,21 @@
+name: latexml
+version: 0.8.8
+description: LaTeX to XML/HTML/MathML Converter
+homepage: https://dlmf.nist.gov/LaTeXML/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/latexml/blobs/sha256:bf351f2a5fabcf2e7a3c41e3eed74e545d2b7e9794d453e36063a4fda573fba6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/latexml/blobs/sha256:43ec71440eb6168973a749bf05991317208dfd3321489bf0bb96e816391cf3d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/latexml/blobs/sha256:fc94fb47aa14b8abe6542e3d6fc55139259a702f91ffe335ab5da1567dfae542
+  linux_arm64: https://ghcr.io/v2/homebrew/core/latexml/blobs/sha256:cc89bfc08c008d55534468490880499f205e56454f5e731899be2f2698d70742
+sha256:
+  darwin_arm64: bf351f2a5fabcf2e7a3c41e3eed74e545d2b7e9794d453e36063a4fda573fba6
+  darwin_amd64: 43ec71440eb6168973a749bf05991317208dfd3321489bf0bb96e816391cf3d7
+  linux_amd64: fc94fb47aa14b8abe6542e3d6fc55139259a702f91ffe335ab5da1567dfae542
+  linux_arm64: cc89bfc08c008d55534468490880499f205e56454f5e731899be2f2698d70742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

@@ -1,0 +1,19 @@
+name: gickup
+version: 0.10.39
+description: Backup all your repositories with Ease
+homepage: https://cooperspencer.github.io/gickup-documentation/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gickup/blobs/sha256:c7532db70eafb1ca1ab00d9260999b11a3c10726d1ebdec3b0bd4996c9909595
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gickup/blobs/sha256:bc7fc82b842276e632e1482d29c57768d959d1f5961c9aa8851addd698fafd5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gickup/blobs/sha256:b00e25d59053339e6f46f22b20063ef17516153d09d0cf5dd62a5bfe79724d5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gickup/blobs/sha256:8a697edea33fd125adfc77e7f63d9b3acd228876cb55db1192d11702127eb1c5
+sha256:
+  darwin_arm64: c7532db70eafb1ca1ab00d9260999b11a3c10726d1ebdec3b0bd4996c9909595
+  darwin_amd64: bc7fc82b842276e632e1482d29c57768d959d1f5961c9aa8851addd698fafd5c
+  linux_amd64: b00e25d59053339e6f46f22b20063ef17516153d09d0cf5dd62a5bfe79724d5a
+  linux_arm64: 8a697edea33fd125adfc77e7f63d9b3acd228876cb55db1192d11702127eb1c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

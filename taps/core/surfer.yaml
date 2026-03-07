@@ -1,0 +1,19 @@
+name: surfer
+version: 0.6.0
+description: Waveform viewer, supporting VCD, FST, or GHW format
+homepage: https://surfer-project.org/
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/surfer/blobs/sha256:6485e4d892bd9ad4b04bf855f99b0c8cbb1e185ab35e2b4db700341e904a0064
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/surfer/blobs/sha256:33e540772bc2a6bc1e743311ec91ae3f3aa77504c55c753cc1d4a160f66a6901
+  linux_amd64: https://ghcr.io/v2/homebrew/core/surfer/blobs/sha256:0a9ddad60ff28fa2f1e4e7e4cc862c806b4a512d76ba5fd775fb48dc8d4a03e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/surfer/blobs/sha256:0cdb200ccd14bd20cb9b568eb02e183e10b07b3247990516e05d97bf564a1a1b
+sha256:
+  darwin_arm64: 6485e4d892bd9ad4b04bf855f99b0c8cbb1e185ab35e2b4db700341e904a0064
+  darwin_amd64: 33e540772bc2a6bc1e743311ec91ae3f3aa77504c55c753cc1d4a160f66a6901
+  linux_amd64: 0a9ddad60ff28fa2f1e4e7e4cc862c806b4a512d76ba5fd775fb48dc8d4a03e9
+  linux_arm64: 0cdb200ccd14bd20cb9b568eb02e183e10b07b3247990516e05d97bf564a1a1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

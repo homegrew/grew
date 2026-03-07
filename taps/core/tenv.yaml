@@ -1,0 +1,19 @@
+name: tenv
+version: 4.9.3
+description: OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
+homepage: https://tofuutils.github.io/tenv/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tenv/blobs/sha256:7e335f46b686ce3c59fd85248a6d950d5fee8a6598446ff7dcfc8e48f0919d0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tenv/blobs/sha256:dfd150e9a204cc8e1d42e52ca36a6cc6eb2693d4e535bd549d7350aec37d4473
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tenv/blobs/sha256:ee1a8cea536a796b844d22f1bb85b70c3f065227f28b854029f719d6a9cb5b74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tenv/blobs/sha256:16b34b883c014fc21abab81099880555a5ac6a80d556337f4f8f1ad9b3b22b47
+sha256:
+  darwin_arm64: 7e335f46b686ce3c59fd85248a6d950d5fee8a6598446ff7dcfc8e48f0919d0c
+  darwin_amd64: dfd150e9a204cc8e1d42e52ca36a6cc6eb2693d4e535bd549d7350aec37d4473
+  linux_amd64: ee1a8cea536a796b844d22f1bb85b70c3f065227f28b854029f719d6a9cb5b74
+  linux_arm64: 16b34b883c014fc21abab81099880555a5ac6a80d556337f4f8f1ad9b3b22b47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

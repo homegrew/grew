@@ -1,0 +1,21 @@
+name: carton
+version: 1.0.35
+description: Perl module dependency manager (aka Bundler for Perl)
+homepage: https://metacpan.org/pod/Carton
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carton/blobs/sha256:7cf6c91209b768cb3e963c1eb14131efe738a851748d61d9adf402c274beeabf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carton/blobs/sha256:39ecbbd646dfc4ff3e31efbe751de4917316655add730757dc30c558310f1b4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/carton/blobs/sha256:2b241c14b6caf27b5e0a7eb694e31c186a60670a72a47834eda4883947ce5b89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/carton/blobs/sha256:7b81c0ac17f7fe741e5129166180f44ea13271b3dd283efd97dd4b5b4b0f9cb3
+sha256:
+  darwin_arm64: 7cf6c91209b768cb3e963c1eb14131efe738a851748d61d9adf402c274beeabf
+  darwin_amd64: 39ecbbd646dfc4ff3e31efbe751de4917316655add730757dc30c558310f1b4d
+  linux_amd64: 2b241c14b6caf27b5e0a7eb694e31c186a60670a72a47834eda4883947ce5b89
+  linux_arm64: 7b81c0ac17f7fe741e5129166180f44ea13271b3dd283efd97dd4b5b4b0f9cb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

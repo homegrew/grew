@@ -1,0 +1,25 @@
+name: nestopia-ue
+version: 1.53.2
+description: NES emulator
+homepage: http://0ldsk00l.ca/nestopia/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nestopia-ue/blobs/sha256:d433e13be22c6651a8a1ad25e011a5b3f5340fbd29f3f58a88f168d0bc3ac76c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nestopia-ue/blobs/sha256:d2118e22924e3c4f428a954f8230df35d049726daa7b501af2f75ee3f7c4dfbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nestopia-ue/blobs/sha256:4c258b217dc499e3f126049d71a9e6e1aa8e5863154563ae692d011997347508
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nestopia-ue/blobs/sha256:eab980f6188ad357386a163665909f24049db02e743bdf3ccffbfaf98bbed5fa
+sha256:
+  darwin_arm64: d433e13be22c6651a8a1ad25e011a5b3f5340fbd29f3f58a88f168d0bc3ac76c
+  darwin_amd64: d2118e22924e3c4f428a954f8230df35d049726daa7b501af2f75ee3f7c4dfbc
+  linux_amd64: 4c258b217dc499e3f126049d71a9e6e1aa8e5863154563ae692d011997347508
+  linux_arm64: eab980f6188ad357386a163665909f24049db02e743bdf3ccffbfaf98bbed5fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fltk
+  - libarchive
+  - libepoxy
+  - libsamplerate
+  - sdl2

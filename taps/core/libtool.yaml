@@ -1,0 +1,21 @@
+name: libtool
+version: 2.5.4
+description: Generic library support script
+homepage: https://www.gnu.org/software/libtool/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtool/blobs/sha256:e3a7e5f39f3933f3c92daacbc054a38628521aeb6b52fddd2a3c945a897050e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtool/blobs/sha256:4301ea7f74f94894c95e1dae08326d7f59e3dd7dd70962801ffb129f4664a253
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtool/blobs/sha256:cad7f708b11b5bc65f08dadaab2f3f8c51eb2267efc0cc20ad9a4ce9f7c8134e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtool/blobs/sha256:deecc3ded6794f5ab08b785aa8a1800b3559376a61d369a6798b29e6568c7429
+sha256:
+  darwin_arm64: e3a7e5f39f3933f3c92daacbc054a38628521aeb6b52fddd2a3c945a897050e5
+  darwin_amd64: 4301ea7f74f94894c95e1dae08326d7f59e3dd7dd70962801ffb129f4664a253
+  linux_amd64: cad7f708b11b5bc65f08dadaab2f3f8c51eb2267efc0cc20ad9a4ce9f7c8134e
+  linux_arm64: deecc3ded6794f5ab08b785aa8a1800b3559376a61d369a6798b29e6568c7429
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - m4

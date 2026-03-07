@@ -1,0 +1,11 @@
+name: flexoptix
+version: 5.59.0-latest
+description: Connect to your FLEXBOX without cables and configure transceivers
+homepage: https://www.flexoptix.net/en/flexoptix-app/#
+url:
+  darwin_arm64: https://flexbox.reconfigure.me/download/electron/mac/arm64/FLEXOPTIX%20App-5.59.0-latest-arm64.dmg
+sha256:
+  darwin_arm64: be1275efc75f231dc85a8b9293564e2b660e16f58f4e890542e41364f168c47b
+artifacts:
+  app:
+    - FLEXOPTIX App.app

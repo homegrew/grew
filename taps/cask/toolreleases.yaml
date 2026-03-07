@@ -1,0 +1,11 @@
+name: toolreleases
+version: 1.5.0,59
+description: Utility to notify about the latest Apple tool releases (including Beta releases)
+homepage: https://github.com/DeveloperMaris/ToolReleases
+url:
+  darwin_arm64: https://github.com/DeveloperMaris/ToolReleases/releases/download/v1.5.0/ToolReleases_v1.5.0.b59.zip
+sha256:
+  darwin_arm64: 2097bafa9cfe648c259e5c81f98137e3e38217838deccfe262460773807dd8df
+artifacts:
+  app:
+    - ToolReleases.app

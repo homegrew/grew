@@ -1,0 +1,22 @@
+name: hypre
+version: 3.1.0
+description: Library featuring parallel multigrid methods for grid problems
+homepage: https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hypre/blobs/sha256:ca82286770d54d33ffbbec6ae9da8087dc0fb72dab3c45980ccab7049983377e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hypre/blobs/sha256:cc4e2dd22e0d13c072a3df29f13f33fa787a9263f070eeb447afb299b9303051
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hypre/blobs/sha256:e08f288f4966b90af4fbb59000535df8f27e72b8a44831c0d20a027d7b75f20f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hypre/blobs/sha256:71bb3b3e680b427a8a804f6c0d87213842f0f2f170eeed3e951fc69cd61a5781
+sha256:
+  darwin_arm64: ca82286770d54d33ffbbec6ae9da8087dc0fb72dab3c45980ccab7049983377e
+  darwin_amd64: cc4e2dd22e0d13c072a3df29f13f33fa787a9263f070eeb447afb299b9303051
+  linux_amd64: e08f288f4966b90af4fbb59000535df8f27e72b8a44831c0d20a027d7b75f20f
+  linux_arm64: 71bb3b3e680b427a8a804f6c0d87213842f0f2f170eeed3e951fc69cd61a5781
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - openblas

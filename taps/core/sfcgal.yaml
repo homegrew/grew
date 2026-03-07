@@ -1,0 +1,24 @@
+name: sfcgal
+version: 2.2.0
+description: C++ wrapper library around CGAL
+homepage: https://sfcgal.gitlab.io/SFCGAL/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sfcgal/blobs/sha256:e9c0f30ae28d7d8ef18675126864cc80f7806ecf8fefa079f29e9215c2c319c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sfcgal/blobs/sha256:401ad303e69a6465a0f0bef39fa8f562dbe9bdba48334648f01021b442d0f1a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sfcgal/blobs/sha256:a690b79a1a0d1170b952c122f419b4ec3889a69e2f431d7a68fb4cb4774091a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sfcgal/blobs/sha256:5031bd5b692ff5c189cf13c444788ef9609f26b2553fbc5de60ee1d341927e6d
+sha256:
+  darwin_arm64: e9c0f30ae28d7d8ef18675126864cc80f7806ecf8fefa079f29e9215c2c319c4
+  darwin_amd64: 401ad303e69a6465a0f0bef39fa8f562dbe9bdba48334648f01021b442d0f1a6
+  linux_amd64: a690b79a1a0d1170b952c122f419b4ec3889a69e2f431d7a68fb4cb4774091a4
+  linux_arm64: 5031bd5b692ff5c189cf13c444788ef9609f26b2553fbc5de60ee1d341927e6d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cgal
+  - gmp
+  - mpfr

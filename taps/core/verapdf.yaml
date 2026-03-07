@@ -1,0 +1,21 @@
+name: verapdf
+version: 1.28.2
+description: Open-source industry-supported PDF/A validation
+homepage: https://verapdf.org/home/
+license: GPL-3.0-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/verapdf/blobs/sha256:3cd84926712c2b06d9aa5500a6577809256e1b3c5a7690dd6af807c6e8e68f01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/verapdf/blobs/sha256:320b07cb60d7dc030d16fef2c12417e2484d6fec0452e1a2d60455946531f9bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/verapdf/blobs/sha256:549f11f668ca6a791fb4ec44ef80774ba65eee9b218c9994e194bc3ab2a2f06b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/verapdf/blobs/sha256:daf107c8fed2ce3613bdb98afe21304efa0d69566f96ac8d83e126fbf12f43dc
+sha256:
+  darwin_arm64: 3cd84926712c2b06d9aa5500a6577809256e1b3c5a7690dd6af807c6e8e68f01
+  darwin_amd64: 320b07cb60d7dc030d16fef2c12417e2484d6fec0452e1a2d60455946531f9bd
+  linux_amd64: 549f11f668ca6a791fb4ec44ef80774ba65eee9b218c9994e194bc3ab2a2f06b
+  linux_arm64: daf107c8fed2ce3613bdb98afe21304efa0d69566f96ac8d83e126fbf12f43dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

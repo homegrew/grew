@@ -1,0 +1,22 @@
+name: newsboat
+version: 2.42
+description: RSS/Atom feed reader for text terminals
+homepage: https://newsboat.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/newsboat/blobs/sha256:b610948d104b7556fc62a95d0f9bf842e13ea0c6aeac3939af71a32e5a3dd22d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/newsboat/blobs/sha256:b37943a296488d563127aea5a6d715f23b66164765cfbc0429c96cee6723109b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/newsboat/blobs/sha256:ca54d697581473d3d2788b59cedda849e9c6f61f6d3f5d6a6cdf32706a2fdfdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/newsboat/blobs/sha256:fa2284f76d28afb1a331ad5b65e98ea5048ae22ccd448ad67e1e350093fe0ae5
+sha256:
+  darwin_arm64: b610948d104b7556fc62a95d0f9bf842e13ea0c6aeac3939af71a32e5a3dd22d
+  darwin_amd64: b37943a296488d563127aea5a6d715f23b66164765cfbc0429c96cee6723109b
+  linux_amd64: ca54d697581473d3d2788b59cedda849e9c6f61f6d3f5d6a6cdf32706a2fdfdd
+  linux_arm64: fa2284f76d28afb1a331ad5b65e98ea5048ae22ccd448ad67e1e350093fe0ae5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - gettext

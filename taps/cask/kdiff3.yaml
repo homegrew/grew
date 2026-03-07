@@ -1,0 +1,13 @@
+name: kdiff3
+version: 1.12.4
+description: Utility for comparing and merging files and directories
+homepage: https://invent.kde.org/sdk/kdiff3
+url:
+  darwin_arm64: https://download.kde.org/stable/kdiff3/kdiff3-1.12.4-macos-arm64.dmg
+sha256:
+  darwin_arm64: 80d0a1e3de9382b52df7d67e0c0b6b1998aa7e79213d3147e46e094027bd3d15
+artifacts:
+  app:
+    - kdiff3.app
+  bin:
+    - kdiff3

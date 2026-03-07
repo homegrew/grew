@@ -1,0 +1,22 @@
+name: pg_cron
+version: 1.6.7
+description: Run periodic jobs in PostgreSQL
+homepage: https://github.com/citusdata/pg_cron
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pg_cron/blobs/sha256:a07a1ecf77295372c7976d26dddb193d94b529d87d133386e40379e8497dff55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pg_cron/blobs/sha256:a046ebbb430f4eaa26638afcfe19082f19eaf984958d01e00650c931678d289e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pg_cron/blobs/sha256:a2a9efe94dba9e08e5a7444129f73aa88c7cb51eabf8378813f2edb18a119a8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pg_cron/blobs/sha256:e994552633f54d1d1e0a77ea71209671179bd649c65c9109564bf75e3bb035b9
+sha256:
+  darwin_arm64: a07a1ecf77295372c7976d26dddb193d94b529d87d133386e40379e8497dff55
+  darwin_amd64: a046ebbb430f4eaa26638afcfe19082f19eaf984958d01e00650c931678d289e
+  linux_amd64: a2a9efe94dba9e08e5a7444129f73aa88c7cb51eabf8378813f2edb18a119a8b
+  linux_arm64: e994552633f54d1d1e0a77ea71209671179bd649c65c9109564bf75e3bb035b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - gettext

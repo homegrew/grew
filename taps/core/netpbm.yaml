@@ -1,0 +1,24 @@
+name: netpbm
+version: 11.02.22
+description: Image manipulation
+homepage: https://netpbm.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netpbm/blobs/sha256:154a953008ff0b3d318291a1d0c405defa91cf42921ec4f8d59373596b1e0b96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netpbm/blobs/sha256:ac0174abd9fc82585ad3d94ea92a1b52d836fc96e25a942039bdb850e974cc6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netpbm/blobs/sha256:039bf4c1375dd7d29d374f63fc2850dec2741aa6ffd9ef360ffb9f8294a0b1e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netpbm/blobs/sha256:c7c739ece3c657b6b488304d512f4c24261f89f290d4e86f1889810470a49d77
+sha256:
+  darwin_arm64: 154a953008ff0b3d318291a1d0c405defa91cf42921ec4f8d59373596b1e0b96
+  darwin_amd64: ac0174abd9fc82585ad3d94ea92a1b52d836fc96e25a942039bdb850e974cc6d
+  linux_amd64: 039bf4c1375dd7d29d374f63fc2850dec2741aa6ffd9ef360ffb9f8294a0b1e9
+  linux_arm64: c7c739ece3c657b6b488304d512f4c24261f89f290d4e86f1889810470a49d77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jasper
+  - jpeg-turbo
+  - libpng
+  - libtiff

@@ -1,0 +1,19 @@
+name: blades
+version: 0.6.0
+description: Blazing fast dead simple static site generator
+homepage: https://www.getblades.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blades/blobs/sha256:30c379b57bb8030e4a7502c73c8a7046e9809738f3027e761af11b23dda24536
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blades/blobs/sha256:d18112bcddc915b81b66db803ffe3d0c221d618f0f1c27e7bdab6beb04b776a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blades/blobs/sha256:9cdae37930e4d9629f7744b9e3fc74b64ddf5eb17d109165419b8f6a3089c00c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blades/blobs/sha256:5d77d91ea173c7fc7a50c2c6f8dafe1f5b93710f2d085e8f90579d0718c63530
+sha256:
+  darwin_arm64: 30c379b57bb8030e4a7502c73c8a7046e9809738f3027e761af11b23dda24536
+  darwin_amd64: d18112bcddc915b81b66db803ffe3d0c221d618f0f1c27e7bdab6beb04b776a9
+  linux_amd64: 9cdae37930e4d9629f7744b9e3fc74b64ddf5eb17d109165419b8f6a3089c00c
+  linux_arm64: 5d77d91ea173c7fc7a50c2c6f8dafe1f5b93710f2d085e8f90579d0718c63530
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

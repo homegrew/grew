@@ -1,0 +1,21 @@
+name: ruby-lsp
+version: 0.26.7
+description: Opinionated language server for Ruby
+homepage: https://shopify.github.io/ruby-lsp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ruby-lsp/blobs/sha256:377d05d7efe1ac175a4301f21ff9428ec5311963a35d8e605454f028ededd67e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ruby-lsp/blobs/sha256:b6e09dfa92d3870b25bd6d4178e0e26943b40258d2cfd2d8cbe17e8ac51d6a2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ruby-lsp/blobs/sha256:42e2794bf62c1085ef383e180364f7bab430c63b52e3a90f3e94ee631f89307e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ruby-lsp/blobs/sha256:f14e204505db52a23fb83638186caf9a0d6098b6deb74df12a1bf718262e58ef
+sha256:
+  darwin_arm64: 377d05d7efe1ac175a4301f21ff9428ec5311963a35d8e605454f028ededd67e
+  darwin_amd64: b6e09dfa92d3870b25bd6d4178e0e26943b40258d2cfd2d8cbe17e8ac51d6a2a
+  linux_amd64: 42e2794bf62c1085ef383e180364f7bab430c63b52e3a90f3e94ee631f89307e
+  linux_arm64: f14e204505db52a23fb83638186caf9a0d6098b6deb74df12a1bf718262e58ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

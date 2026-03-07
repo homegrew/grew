@@ -1,0 +1,14 @@
+name: pulsar
+version: 1.131.1
+description: Text editor
+homepage: https://pulsar-edit.dev/
+url:
+  darwin_arm64: https://github.com/pulsar-edit/pulsar/releases/download/v1.131.1/Silicon.Mac.Pulsar-1.131.1-arm64.dmg
+sha256:
+  darwin_arm64: a49c541e94014dee71fc486f0c9d5fc25a835a07fe68e6c7c4002d55c57f4eb3
+artifacts:
+  app:
+    - Pulsar.app
+  bin:
+    - ppm
+    - pulsar

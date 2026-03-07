@@ -1,0 +1,19 @@
+name: osv-scanner
+version: 2.3.3
+description: Vulnerability scanner which uses the OSV database
+homepage: https://github.com/google/osv-scanner
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osv-scanner/blobs/sha256:7135a93bf6e4c52226f9d1969205cf6b340a44130e9ee71cec5b0332c5260812
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osv-scanner/blobs/sha256:d3d051856d0c1f149bdcde3ec5c9a6c930b5bdce035f5da917517f5ceedda83e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osv-scanner/blobs/sha256:7165ebe7bb97546ed2625120dd710e72e0d67b43a79123c63b9835399421a2d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osv-scanner/blobs/sha256:c14db6f806b316fe6da1817774aefd5c809d87607a11d5a3a254eb42809075c2
+sha256:
+  darwin_arm64: 7135a93bf6e4c52226f9d1969205cf6b340a44130e9ee71cec5b0332c5260812
+  darwin_amd64: d3d051856d0c1f149bdcde3ec5c9a6c930b5bdce035f5da917517f5ceedda83e
+  linux_amd64: 7165ebe7bb97546ed2625120dd710e72e0d67b43a79123c63b9835399421a2d5
+  linux_arm64: c14db6f806b316fe6da1817774aefd5c809d87607a11d5a3a254eb42809075c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

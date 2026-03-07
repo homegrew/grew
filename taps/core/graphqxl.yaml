@@ -1,0 +1,19 @@
+name: graphqxl
+version: 0.40.2
+description: Language for creating big and scalable GraphQL server-side schemas
+homepage: https://gabotechs.github.io/graphqxl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/graphqxl/blobs/sha256:1fa9241adcd928c8c8c584f1c12769d24dd91f3657926aea93b0003794f5503c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/graphqxl/blobs/sha256:7f6672a7d830d21d5a8650857ec9abf5cf28085547afc9bc5fccb7beed939840
+  linux_amd64: https://ghcr.io/v2/homebrew/core/graphqxl/blobs/sha256:0590778c7bf3f82a06c692f8dd55b47a24f97aff7ed5fa23e37d61dc8f074492
+  linux_arm64: https://ghcr.io/v2/homebrew/core/graphqxl/blobs/sha256:82c0cab717aa8eae1f5e4296dc00f7b9a79dce7a624f92f1f08b9b271b4ad855
+sha256:
+  darwin_arm64: 1fa9241adcd928c8c8c584f1c12769d24dd91f3657926aea93b0003794f5503c
+  darwin_amd64: 7f6672a7d830d21d5a8650857ec9abf5cf28085547afc9bc5fccb7beed939840
+  linux_amd64: 0590778c7bf3f82a06c692f8dd55b47a24f97aff7ed5fa23e37d61dc8f074492
+  linux_arm64: 82c0cab717aa8eae1f5e4296dc00f7b9a79dce7a624f92f1f08b9b271b4ad855
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

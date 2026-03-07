@@ -1,0 +1,11 @@
+name: sipgate
+version: 2.32.1
+description: Softphone for making telephone calls over the internet
+homepage: https://www.sipgate.de/app
+url:
+  darwin_arm64: https://s3-eu-central-1.amazonaws.com/desktop.download.sipgate.com/sipgate-2.32.1.zip
+sha256:
+  darwin_arm64: b95d2cb9ff5d4c723e88f7b595b6bc4696fd632d7ff1f53253cd659a33422596
+artifacts:
+  app:
+    - sipgate.app

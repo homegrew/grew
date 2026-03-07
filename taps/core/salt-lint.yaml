@@ -1,0 +1,22 @@
+name: salt-lint
+version: 0.9.2
+description: Check for best practices in SaltStack
+homepage: https://github.com/warpnet/salt-lint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/salt-lint/blobs/sha256:b606364c1a88093ebede5792fbd635b2341e88be4445bcdd3df4e5a86311bf72
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/salt-lint/blobs/sha256:c9f93105dae3ecb41c3536a5e462027915159283114ee79ce154e52eb6e491bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/salt-lint/blobs/sha256:3406be26bba9f19eeda9236f526a0eba97654495365e78dc2226ce5910f8bcb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/salt-lint/blobs/sha256:cce0ed5262eb581bff74a9aadd2c4bb5f83f172d4c1a68d2c9685893aca0785e
+sha256:
+  darwin_arm64: b606364c1a88093ebede5792fbd635b2341e88be4445bcdd3df4e5a86311bf72
+  darwin_amd64: c9f93105dae3ecb41c3536a5e462027915159283114ee79ce154e52eb6e491bd
+  linux_amd64: 3406be26bba9f19eeda9236f526a0eba97654495365e78dc2226ce5910f8bcb3
+  linux_arm64: cce0ed5262eb581bff74a9aadd2c4bb5f83f172d4c1a68d2c9685893aca0785e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

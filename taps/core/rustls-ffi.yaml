@@ -1,0 +1,19 @@
+name: rustls-ffi
+version: 0.15.0
+description: FFI bindings for the rustls TLS library
+homepage: https://github.com/rustls/rustls-ffi
+license: Apache-2.0 OR MIT OR ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustls-ffi/blobs/sha256:219d4960fb3124a191b5b35029d8d16bd776ff53da6de34f4a2ed99593b111f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustls-ffi/blobs/sha256:40b6f9e829ba02d8d9b6873c95fc06d82f5a3baf05a11f950f32ef9c5a168a55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustls-ffi/blobs/sha256:c686a5049eb5fc651ee74589a6ba72f05341a0389c539d6d80cc20000c152b1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustls-ffi/blobs/sha256:beaa4376c2ffd27d3f86539496d84ba116335808e28a33c7a9b0ca677a13f155
+sha256:
+  darwin_arm64: 219d4960fb3124a191b5b35029d8d16bd776ff53da6de34f4a2ed99593b111f4
+  darwin_amd64: 40b6f9e829ba02d8d9b6873c95fc06d82f5a3baf05a11f950f32ef9c5a168a55
+  linux_amd64: c686a5049eb5fc651ee74589a6ba72f05341a0389c539d6d80cc20000c152b1f
+  linux_arm64: beaa4376c2ffd27d3f86539496d84ba116335808e28a33c7a9b0ca677a13f155
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

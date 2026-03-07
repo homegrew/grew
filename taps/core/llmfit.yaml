@@ -1,0 +1,19 @@
+name: llmfit
+version: 0.6.3
+description: Find what models run on your hardware
+homepage: https://github.com/AlexsJones/llmfit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llmfit/blobs/sha256:e975cfea88030055555c3e29a6972428cf6e8ef02a84f3d838b1e6178f1d73f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llmfit/blobs/sha256:bcc54859ef2321772ef4da52e2590e62e98b5d4c81330bfb5c7ea3dbd426bde1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llmfit/blobs/sha256:648e3549f94ef5c0496fc9b9cf987667b1a8b6fab81501e6c5d57b8bd01ed500
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llmfit/blobs/sha256:89902d7ab48bb5c5763c194d65478f5d7394981ea531da63239cea5524771007
+sha256:
+  darwin_arm64: e975cfea88030055555c3e29a6972428cf6e8ef02a84f3d838b1e6178f1d73f5
+  darwin_amd64: bcc54859ef2321772ef4da52e2590e62e98b5d4c81330bfb5c7ea3dbd426bde1
+  linux_amd64: 648e3549f94ef5c0496fc9b9cf987667b1a8b6fab81501e6c5d57b8bd01ed500
+  linux_arm64: 89902d7ab48bb5c5763c194d65478f5d7394981ea531da63239cea5524771007
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

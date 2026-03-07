@@ -1,0 +1,19 @@
+name: agedu
+version: 20241013
+description: Unix utility for tracking down wasted disk space
+homepage: https://www.chiark.greenend.org.uk/~sgtatham/agedu/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/agedu/blobs/sha256:41f04708967fca0cee916a7361fc5aa4dd9c5bd3e639f1a1a9b83715d626e48d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/agedu/blobs/sha256:17e793caa2392c484df501763ba40a368adbd1a093c37558690bb747eb95dd5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/agedu/blobs/sha256:00ac7a445b632cb005add4e4d8a5aefeca4a537930de4c2638607ef3a1ed203b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/agedu/blobs/sha256:e65d93a8c50262817c010ea8f441dd820485bec296d7fb559a89f1765a88edc3
+sha256:
+  darwin_arm64: 41f04708967fca0cee916a7361fc5aa4dd9c5bd3e639f1a1a9b83715d626e48d
+  darwin_amd64: 17e793caa2392c484df501763ba40a368adbd1a093c37558690bb747eb95dd5c
+  linux_amd64: 00ac7a445b632cb005add4e4d8a5aefeca4a537930de4c2638607ef3a1ed203b
+  linux_arm64: e65d93a8c50262817c010ea8f441dd820485bec296d7fb559a89f1765a88edc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: libvirt-glib
+version: 5.0.0
+description: Libvirt API for glib-based programs
+homepage: https://libvirt.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvirt-glib/blobs/sha256:ba34897f21e90fc3c2e580b4b3a736ac40dde9df609b5e8bb650ed65d528bd41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvirt-glib/blobs/sha256:c742a2ce49f8827cc5008a74871489df1a814af0672eab3e5d7b16ce78f155c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvirt-glib/blobs/sha256:9e5c86856ddc5d3b7cd2589a96289a4d8762095010a59ee6b413e50ca2c28752
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvirt-glib/blobs/sha256:c89344493f689b1ed360b3fb32cec04f45b02fc5cd1acebee4f689a83a4a167a
+sha256:
+  darwin_arm64: ba34897f21e90fc3c2e580b4b3a736ac40dde9df609b5e8bb650ed65d528bd41
+  darwin_amd64: c742a2ce49f8827cc5008a74871489df1a814af0672eab3e5d7b16ce78f155c3
+  linux_amd64: 9e5c86856ddc5d3b7cd2589a96289a4d8762095010a59ee6b413e50ca2c28752
+  linux_arm64: c89344493f689b1ed360b3fb32cec04f45b02fc5cd1acebee4f689a83a4a167a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libvirt
+  - gettext

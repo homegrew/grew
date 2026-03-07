@@ -1,0 +1,21 @@
+name: unpaper
+version: 7.0.0
+description: Post-processing for scanned/photocopied books
+homepage: https://www.flameeyes.com/projects/unpaper
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unpaper/blobs/sha256:320c0664be9f441fb7a5f6bc021d37530845fa4ea4da99d3d8d401db90b2681d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unpaper/blobs/sha256:6777c3ff2dd38462fa6977af915316a930a157356ce0b9dd95a2fe99c80b54d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unpaper/blobs/sha256:4ee017ffb7c00c3573b669f7b87f17bca1faceb37ae72f43496d612c36700cc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unpaper/blobs/sha256:dd466760c8a54553861474272a465e1a4460d48bd8dc6a0dd885e5cf39a06a63
+sha256:
+  darwin_arm64: 320c0664be9f441fb7a5f6bc021d37530845fa4ea4da99d3d8d401db90b2681d
+  darwin_amd64: 6777c3ff2dd38462fa6977af915316a930a157356ce0b9dd95a2fe99c80b54d2
+  linux_amd64: 4ee017ffb7c00c3573b669f7b87f17bca1faceb37ae72f43496d612c36700cc7
+  linux_arm64: dd466760c8a54553861474272a465e1a4460d48bd8dc6a0dd885e5cf39a06a63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg

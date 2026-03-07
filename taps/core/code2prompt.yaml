@@ -1,0 +1,21 @@
+name: code2prompt
+version: 4.2.0
+description: CLI tool to convert your codebase into a single LLM prompt
+homepage: https://code2prompt.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/code2prompt/blobs/sha256:14aa4f7a6f013ffc948306bbe0210b951ccc0523d78ebd1b1c5ef0a36c08f1c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/code2prompt/blobs/sha256:48fb47f8ece13be5215c64d39b3b641498fe3f9e46c901dedaa2123adddd9361
+  linux_amd64: https://ghcr.io/v2/homebrew/core/code2prompt/blobs/sha256:901f372469f56db97e43cb4ad0beff306ed34532bb7728be03d71cfd19ca8fa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/code2prompt/blobs/sha256:8133b94fe8d8ff29a3b14dfadfd7c333b40f811193d0a0cc8fa81805e8851133
+sha256:
+  darwin_arm64: 14aa4f7a6f013ffc948306bbe0210b951ccc0523d78ebd1b1c5ef0a36c08f1c2
+  darwin_amd64: 48fb47f8ece13be5215c64d39b3b641498fe3f9e46c901dedaa2123adddd9361
+  linux_amd64: 901f372469f56db97e43cb4ad0beff306ed34532bb7728be03d71cfd19ca8fa1
+  linux_arm64: 8133b94fe8d8ff29a3b14dfadfd7c333b40f811193d0a0cc8fa81805e8851133
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

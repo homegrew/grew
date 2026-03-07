@@ -1,0 +1,19 @@
+name: melody
+version: 0.20.0
+description: Language that compiles to regular expressions
+homepage: https://yoav-lavi.github.io/melody/book
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/melody/blobs/sha256:f63d6fddea834cd2fd42b11576a634d9b9b22b43029483b522bec09ee4d672c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/melody/blobs/sha256:4ff223f27cb843cbfb6742debd3f37a903ef15e837c58ba6983b7028b151cfb6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/melody/blobs/sha256:486bf0de59a35bd2fcad51c0f00156f8eeeba5db3e27b246a5d79105f195a20f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/melody/blobs/sha256:aee430215f65ed5d664571ecdbed0e733a1eabb9316d1d94b5c168333c008ffa
+sha256:
+  darwin_arm64: f63d6fddea834cd2fd42b11576a634d9b9b22b43029483b522bec09ee4d672c8
+  darwin_amd64: 4ff223f27cb843cbfb6742debd3f37a903ef15e837c58ba6983b7028b151cfb6
+  linux_amd64: 486bf0de59a35bd2fcad51c0f00156f8eeeba5db3e27b246a5d79105f195a20f
+  linux_arm64: aee430215f65ed5d664571ecdbed0e733a1eabb9316d1d94b5c168333c008ffa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

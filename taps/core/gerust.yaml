@@ -1,0 +1,21 @@
+name: gerust
+version: 0.0.6
+description: Project generator for Rust backend projects
+homepage: https://gerust.rs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gerust/blobs/sha256:4088854ea7624c0367d82474595215a3d84e6c90bc9715fdecaabb9bd732282a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gerust/blobs/sha256:b909aa55c741d9aee270abc25b73652265de01ddd2f083f97f1048d10743f0aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gerust/blobs/sha256:7a5f6bf8d2ea34da1b57dc86f60931adc25fe48d61ec7bec58905c8c1ee20296
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gerust/blobs/sha256:0a6191821b4239fcfca67f7991baedfbc78b32379012fd6d8b3e0e2e36986b57
+sha256:
+  darwin_arm64: 4088854ea7624c0367d82474595215a3d84e6c90bc9715fdecaabb9bd732282a
+  darwin_amd64: b909aa55c741d9aee270abc25b73652265de01ddd2f083f97f1048d10743f0aa
+  linux_amd64: 7a5f6bf8d2ea34da1b57dc86f60931adc25fe48d61ec7bec58905c8c1ee20296
+  linux_arm64: 0a6191821b4239fcfca67f7991baedfbc78b32379012fd6d8b3e0e2e36986b57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

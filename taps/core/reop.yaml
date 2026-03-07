@@ -1,0 +1,21 @@
+name: reop
+version: 2.1.1
+description: Encrypted keypair management
+homepage: https://flak.tedunangst.com/post/reop
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reop/blobs/sha256:95b75472fc27e78edb5a78cfce5ee11eab88c09ba2b3344d50f55189c055c038
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reop/blobs/sha256:743de0a38cb6ec3d1f7988376bccd80f9a5b8501b72d4bd0812118e17b63644b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reop/blobs/sha256:39a6b6aaa92dc34131e9ecf9c22a8ef890b8d662960a5dba258bb58f87d71516
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reop/blobs/sha256:566db99533e99f809e5fe5dac5f9f671c2612139c0e51099c0b328cbdb7f2f9b
+sha256:
+  darwin_arm64: 95b75472fc27e78edb5a78cfce5ee11eab88c09ba2b3344d50f55189c055c038
+  darwin_amd64: 743de0a38cb6ec3d1f7988376bccd80f9a5b8501b72d4bd0812118e17b63644b
+  linux_amd64: 39a6b6aaa92dc34131e9ecf9c22a8ef890b8d662960a5dba258bb58f87d71516
+  linux_arm64: 566db99533e99f809e5fe5dac5f9f671c2612139c0e51099c0b328cbdb7f2f9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

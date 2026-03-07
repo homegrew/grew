@@ -1,0 +1,23 @@
+name: mpop
+version: 1.4.21
+description: POP3 client
+homepage: https://marlam.de/mpop/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpop/blobs/sha256:2439a807bef10bd2cffcbb38c61134bb112a8800e7814b6da5e517772bd9b187
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpop/blobs/sha256:1f53b046ff585b6881305ed39356cf3f17183634e0c36d2efe9368e4cf00c9a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpop/blobs/sha256:2e1ee9de528062ddb2bbe3e5338e6b8856bfa295c5afd755d77574e3adc3e69d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpop/blobs/sha256:b74c1df7321d6efde1abe975639b29caaf4bcb45e9e6b5198c407f689636792b
+sha256:
+  darwin_arm64: 2439a807bef10bd2cffcbb38c61134bb112a8800e7814b6da5e517772bd9b187
+  darwin_amd64: 1f53b046ff585b6881305ed39356cf3f17183634e0c36d2efe9368e4cf00c9a2
+  linux_amd64: 2e1ee9de528062ddb2bbe3e5338e6b8856bfa295c5afd755d77574e3adc3e69d
+  linux_arm64: b74c1df7321d6efde1abe975639b29caaf4bcb45e9e6b5198c407f689636792b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - gnutls
+  - libidn2

@@ -1,0 +1,29 @@
+name: mame
+version: 0.286
+description: Multiple Arcade Machine Emulator
+homepage: https://mamedev.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mame/blobs/sha256:cece715521f5294fd8d03127f4484aafca154f50d4b23ee4921730d4fb02ad5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mame/blobs/sha256:7c061038181441aa71d2008885b98c8c0d3100d4a3ec59262d9aa91a0d3121c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mame/blobs/sha256:481fc93b26dbb46407147d0301f1789ebfa5d05e50f8018b8ce1d4dccb114d4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mame/blobs/sha256:6e2cb7c9526dd0a733c8a70e05d93ddde29cdceff5e756d8e1069c47d3898f7e
+sha256:
+  darwin_arm64: cece715521f5294fd8d03127f4484aafca154f50d4b23ee4921730d4fb02ad5d
+  darwin_amd64: 7c061038181441aa71d2008885b98c8c0d3100d4a3ec59262d9aa91a0d3121c1
+  linux_amd64: 481fc93b26dbb46407147d0301f1789ebfa5d05e50f8018b8ce1d4dccb114d4a
+  linux_arm64: 6e2cb7c9526dd0a733c8a70e05d93ddde29cdceff5e756d8e1069c47d3898f7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - jpeg-turbo
+  - portaudio
+  - portmidi
+  - pugixml
+  - sdl3
+  - sqlite
+  - utf8proc
+  - zstd

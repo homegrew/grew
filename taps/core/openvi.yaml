@@ -1,0 +1,21 @@
+name: openvi
+version: 7.7.32
+description: Portable OpenBSD vi for UNIX systems
+homepage: https://github.com/johnsonjh/OpenVi
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openvi/blobs/sha256:7f9f98c1766d28f774755c5504a4e0009aa9075d0810dac96a43f670543d0836
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openvi/blobs/sha256:ab51a0599172f446d17f61bf0a1c93816100854d58bf6875fb1ae1635d97d662
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openvi/blobs/sha256:070f50496b0c46cc89f50bc2884e227658778557f745a8f061cdebfe5e2c94a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openvi/blobs/sha256:72b16c18985eafe024d7cfe55047850f7e36375d0ca6aa42e84f2dc0b701eb36
+sha256:
+  darwin_arm64: 7f9f98c1766d28f774755c5504a4e0009aa9075d0810dac96a43f670543d0836
+  darwin_amd64: ab51a0599172f446d17f61bf0a1c93816100854d58bf6875fb1ae1635d97d662
+  linux_amd64: 070f50496b0c46cc89f50bc2884e227658778557f745a8f061cdebfe5e2c94a0
+  linux_arm64: 72b16c18985eafe024d7cfe55047850f7e36375d0ca6aa42e84f2dc0b701eb36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

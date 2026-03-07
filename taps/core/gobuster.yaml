@@ -1,0 +1,19 @@
+name: gobuster
+version: 3.8.2
+description: "Directory/file & DNS busting tool written in Go"
+homepage: https://github.com/OJ/gobuster
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gobuster/blobs/sha256:b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gobuster/blobs/sha256:b5ff54ece6cb45fe81471c6ef9e60ecbd5bdaaded4a76ccb5a47ce7214e4afb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gobuster/blobs/sha256:cb7fce23ca43b8a3cad902ca7ee55062492b3412ce79175da1dbd04187a20483
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gobuster/blobs/sha256:eb8b43b9b3bb9f2da7b8bef4818b16e23121586a8d8daad8dc057e3921c335f3
+sha256:
+  darwin_arm64: b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19
+  darwin_amd64: b5ff54ece6cb45fe81471c6ef9e60ecbd5bdaaded4a76ccb5a47ce7214e4afb9
+  linux_amd64: cb7fce23ca43b8a3cad902ca7ee55062492b3412ce79175da1dbd04187a20483
+  linux_arm64: eb8b43b9b3bb9f2da7b8bef4818b16e23121586a8d8daad8dc057e3921c335f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

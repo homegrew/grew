@@ -1,0 +1,19 @@
+name: roapi
+version: 0.12.6
+description: Full-fledged APIs for static datasets without writing a single line of code
+homepage: https://roapi.github.io/docs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/roapi/blobs/sha256:6116ecb02c112d2f990024d034ba242894e9e4a023f6756f883e0ec58b3408e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/roapi/blobs/sha256:1f2e0e0df5b406870033b3284ad136e6566c4f1fefb32c8d7c36f75c42f3e931
+  linux_amd64: https://ghcr.io/v2/homebrew/core/roapi/blobs/sha256:c8b39ad8324ea2d41fa80ff81a6c623453ab504752e02c915eed48d11b212616
+  linux_arm64: https://ghcr.io/v2/homebrew/core/roapi/blobs/sha256:528ea8f1d1cb5818ac4259bddd081f9e03069e78cb254f8f74c3de15f0720eb3
+sha256:
+  darwin_arm64: 6116ecb02c112d2f990024d034ba242894e9e4a023f6756f883e0ec58b3408e2
+  darwin_amd64: 1f2e0e0df5b406870033b3284ad136e6566c4f1fefb32c8d7c36f75c42f3e931
+  linux_amd64: c8b39ad8324ea2d41fa80ff81a6c623453ab504752e02c915eed48d11b212616
+  linux_arm64: 528ea8f1d1cb5818ac4259bddd081f9e03069e78cb254f8f74c3de15f0720eb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

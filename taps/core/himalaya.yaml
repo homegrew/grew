@@ -1,0 +1,19 @@
+name: himalaya
+version: 1.2.0
+description: CLI email client written in Rust
+homepage: https://github.com/pimalaya/himalaya
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/himalaya/blobs/sha256:e1375ecd904d222cde2932a96620b405074f6a478441e21709a81183b873499e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/himalaya/blobs/sha256:54440c8555788e20be0b89d3e13d1dbc763a83ae86a103a8356f3106ff474ea6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/himalaya/blobs/sha256:584bd8c006a35b6ee48d9783da040152948df2e3d26132c329c75eef05c506ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/himalaya/blobs/sha256:3a098e3f2bc26c7c138b7f0d6f44696859d17fdad9fde7f405713c2cb76f8ce8
+sha256:
+  darwin_arm64: e1375ecd904d222cde2932a96620b405074f6a478441e21709a81183b873499e
+  darwin_amd64: 54440c8555788e20be0b89d3e13d1dbc763a83ae86a103a8356f3106ff474ea6
+  linux_amd64: 584bd8c006a35b6ee48d9783da040152948df2e3d26132c329c75eef05c506ca
+  linux_arm64: 3a098e3f2bc26c7c138b7f0d6f44696859d17fdad9fde7f405713c2cb76f8ce8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

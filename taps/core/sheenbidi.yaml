@@ -1,0 +1,19 @@
+name: sheenbidi
+version: 3.0.0
+description: Fast and stable implementation of the Unicode Bidirectional Algorithm
+homepage: https://github.com/Tehreer/SheenBidi
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sheenbidi/blobs/sha256:14e0ca7bf19feb6565c75c0e6889b9ab52dc7c55ee9d5b428ad67558e3d1ce2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sheenbidi/blobs/sha256:435a97ad757c441b2ce145f23e00286d9ff4e34f0c54abec73274433f7c61515
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sheenbidi/blobs/sha256:2da48567cc1918a6b3f792915171e9aa1c4fcc0ec7df70455cdf7f6c4d25f87e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sheenbidi/blobs/sha256:a3414fb9606596bafb2f0cd482e98d7889fb6110dcf9acb7e2f3f89930d72862
+sha256:
+  darwin_arm64: 14e0ca7bf19feb6565c75c0e6889b9ab52dc7c55ee9d5b428ad67558e3d1ce2b
+  darwin_amd64: 435a97ad757c441b2ce145f23e00286d9ff4e34f0c54abec73274433f7c61515
+  linux_amd64: 2da48567cc1918a6b3f792915171e9aa1c4fcc0ec7df70455cdf7f6c4d25f87e
+  linux_arm64: a3414fb9606596bafb2f0cd482e98d7889fb6110dcf9acb7e2f3f89930d72862
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

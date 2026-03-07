@@ -1,0 +1,19 @@
+name: languagetool-rust
+version: 3.0.1
+description: LanguageTool API in Rust
+homepage: https://docs.rs/languagetool-rust
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/languagetool-rust/blobs/sha256:85ee9015416398103969d20ca8b24f1ba8f1565b41fbdbc4cfd2434f5fb579f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/languagetool-rust/blobs/sha256:ff878a7ce6bad5b54eb2da7429f7c8369e7849b243e986f972e71b5289f004ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/languagetool-rust/blobs/sha256:075629cf87a0dfae2b2325ec87aa58e71a372bcdc04e8cf97a113e23c7a21d7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/languagetool-rust/blobs/sha256:5d09aad8f14ff45e52e6056ef9ac7d5f549e2d4de21bdf83a9235d6c3fb7c2a9
+sha256:
+  darwin_arm64: 85ee9015416398103969d20ca8b24f1ba8f1565b41fbdbc4cfd2434f5fb579f9
+  darwin_amd64: ff878a7ce6bad5b54eb2da7429f7c8369e7849b243e986f972e71b5289f004ff
+  linux_amd64: 075629cf87a0dfae2b2325ec87aa58e71a372bcdc04e8cf97a113e23c7a21d7d
+  linux_arm64: 5d09aad8f14ff45e52e6056ef9ac7d5f549e2d4de21bdf83a9235d6c3fb7c2a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

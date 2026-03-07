@@ -1,0 +1,22 @@
+name: openssl@3.5
+version: 3.5.5
+description: Cryptography and SSL/TLS Toolkit
+homepage: https://openssl-library.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openssl/3.5/blobs/sha256:35c27a47bac3ec44884d3d0677cc12a48e13473d55af71e780f130ab107d8f39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openssl/3.5/blobs/sha256:9c8d16872369512b54ee32ae388cb5aa1758cce05b9f81136dc1f3d7f908c2ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openssl/3.5/blobs/sha256:e2134637ecbc391cd4a15288c9ad14165f84fe95b391b41fcec03c8581ac0e26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openssl/3.5/blobs/sha256:e1334f57fbae3b8b58291b8e28b71b27b5566570104d36ecd154c30f231d6d83
+sha256:
+  darwin_arm64: 35c27a47bac3ec44884d3d0677cc12a48e13473d55af71e780f130ab107d8f39
+  darwin_amd64: 9c8d16872369512b54ee32ae388cb5aa1758cce05b9f81136dc1f3d7f908c2ab
+  linux_amd64: e2134637ecbc391cd4a15288c9ad14165f84fe95b391b41fcec03c8581ac0e26
+  linux_arm64: e1334f57fbae3b8b58291b8e28b71b27b5566570104d36ecd154c30f231d6d83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+keg_only: true

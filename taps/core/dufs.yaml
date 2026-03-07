@@ -1,0 +1,19 @@
+name: dufs
+version: 0.45.0
+description: Static file server
+homepage: https://github.com/sigoden/dufs
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dufs/blobs/sha256:e2623f7700a3913841f199db10539e61d1625feb3cdf7d2559b8492ec170e771
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dufs/blobs/sha256:2fd86ac85b2f189bd2ca6272595cb058a96257593e99ad613efc00f82b38838c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dufs/blobs/sha256:9555a2f90b0bda4e1c21cfe7a81001f9bc9d93fa1d45a3546faf893dffa1a0e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dufs/blobs/sha256:4cf91d3356b14a9bee84d2b99b779571bdd49a8f7203530dccc2ddaa656eece5
+sha256:
+  darwin_arm64: e2623f7700a3913841f199db10539e61d1625feb3cdf7d2559b8492ec170e771
+  darwin_amd64: 2fd86ac85b2f189bd2ca6272595cb058a96257593e99ad613efc00f82b38838c
+  linux_amd64: 9555a2f90b0bda4e1c21cfe7a81001f9bc9d93fa1d45a3546faf893dffa1a0e0
+  linux_arm64: 4cf91d3356b14a9bee84d2b99b779571bdd49a8f7203530dccc2ddaa656eece5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

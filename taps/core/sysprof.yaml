@@ -1,0 +1,30 @@
+name: sysprof
+version: 49.0
+description: Statistical, system-wide profiler
+homepage: https://gitlab.gnome.org/GNOME/sysprof
+license: GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-3.0-or-later AND BSD-2-Clause-Patent AND BSD-3-Clause AND LicenseRef-Homebrew-public-domain
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sysprof/blobs/sha256:19c001e65978cce0e22e3bb1880e986747bcb467124195ae9fd58e994c388449
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sysprof/blobs/sha256:f86b86f27faf1a06342ac5f68267ba53f0d0f2c30efd381e2d634d1cfa7429fc
+sha256:
+  linux_amd64: 19c001e65978cce0e22e3bb1880e986747bcb467124195ae9fd58e994c388449
+  linux_arm64: f86b86f27faf1a06342ac5f68267ba53f0d0f2c30efd381e2d634d1cfa7429fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - elfutils
+  - glib
+  - graphene
+  - gtk4
+  - hicolor-icon-theme
+  - json-glib
+  - libadwaita
+  - libdex
+  - libpanel
+  - libunwind
+  - pango
+  - polkit
+  - systemd

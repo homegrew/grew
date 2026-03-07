@@ -1,0 +1,19 @@
+name: libsamplerate
+version: 0.2.2
+description: Library for sample rate conversion of audio data
+homepage: https://github.com/libsndfile/libsamplerate
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsamplerate/blobs/sha256:a5245adca05c76e8f9593494b5909903ffe44c5173b7b713b6c5dec75005953b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsamplerate/blobs/sha256:6c59b98bd83a71ff444c2cd2a480d78459244174fb8ec7234ba9438b03ca53d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsamplerate/blobs/sha256:d1223ba0942433dd6c68ce167723d32e2e40ee2f454054001008d487a8256ff6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsamplerate/blobs/sha256:7db3ed51b5ddf4558e0e86efae945c98fb2d2040f3ce614f39737bcbf6cadccc
+sha256:
+  darwin_arm64: a5245adca05c76e8f9593494b5909903ffe44c5173b7b713b6c5dec75005953b
+  darwin_amd64: 6c59b98bd83a71ff444c2cd2a480d78459244174fb8ec7234ba9438b03ca53d5
+  linux_amd64: d1223ba0942433dd6c68ce167723d32e2e40ee2f454054001008d487a8256ff6
+  linux_arm64: 7db3ed51b5ddf4558e0e86efae945c98fb2d2040f3ce614f39737bcbf6cadccc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

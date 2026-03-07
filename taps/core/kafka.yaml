@@ -1,0 +1,21 @@
+name: kafka
+version: 4.2.0
+description: Open-source distributed event streaming platform
+homepage: https://kafka.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kafka/blobs/sha256:7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kafka/blobs/sha256:7465df0f80bf5e807516380472d47e9c3c272ad1ec6d2f32f9ed25998076299b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kafka/blobs/sha256:7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kafka/blobs/sha256:7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+sha256:
+  darwin_arm64: 7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+  darwin_amd64: 7465df0f80bf5e807516380472d47e9c3c272ad1ec6d2f32f9ed25998076299b
+  linux_amd64: 7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+  linux_arm64: 7ee46368fdc79460ab6daf0fddd2c77fb0cacaeb443c15709df4b3e04ecb655e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

@@ -1,0 +1,19 @@
+name: genext2fs
+version: 1.6.2
+description: Generates an ext2 filesystem as a normal (non-root) user
+homepage: https://genext2fs.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/genext2fs/blobs/sha256:21f58d67f7b4979133013a4afd31c5cc4aaca8880d3cd45d66051029c28f579a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/genext2fs/blobs/sha256:40fcbb32c1aa62ca0bfab62147eb53c4c6743d53d7234abd1c9ed50bf31ad787
+  linux_amd64: https://ghcr.io/v2/homebrew/core/genext2fs/blobs/sha256:6534830d59287283bcabbb86cf09e73db7dac58d578a3dedcc4e0266b2466f3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/genext2fs/blobs/sha256:bd2b569822378fce78f9bc56698aab03be94ef56b8620a22c0e89136ec1dcfe0
+sha256:
+  darwin_arm64: 21f58d67f7b4979133013a4afd31c5cc4aaca8880d3cd45d66051029c28f579a
+  darwin_amd64: 40fcbb32c1aa62ca0bfab62147eb53c4c6743d53d7234abd1c9ed50bf31ad787
+  linux_amd64: 6534830d59287283bcabbb86cf09e73db7dac58d578a3dedcc4e0266b2466f3a
+  linux_arm64: bd2b569822378fce78f9bc56698aab03be94ef56b8620a22c0e89136ec1dcfe0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

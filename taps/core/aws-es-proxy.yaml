@@ -1,0 +1,19 @@
+name: aws-es-proxy
+version: 1.5
+description: Small proxy between HTTP client and AWS Elasticsearch
+homepage: https://github.com/abutaha/aws-es-proxy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-es-proxy/blobs/sha256:ae88a4d6f9708c3dfdebe1473f65c6b1063b79e526f99fd7cb0cfef999dbf431
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-es-proxy/blobs/sha256:7ea23d1d458a4ef45083c46678463884d07f2dd0fdfc47296698a9ee41d5cc35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-es-proxy/blobs/sha256:11d0bf2df2385efb683589d960858d194c89ba11db563faebc76d6405f07c078
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-es-proxy/blobs/sha256:17fb4900682979bce53761826f3a8e1f9bd091fa851f19cfb5aa8d034e0adb52
+sha256:
+  darwin_arm64: ae88a4d6f9708c3dfdebe1473f65c6b1063b79e526f99fd7cb0cfef999dbf431
+  darwin_amd64: 7ea23d1d458a4ef45083c46678463884d07f2dd0fdfc47296698a9ee41d5cc35
+  linux_amd64: 11d0bf2df2385efb683589d960858d194c89ba11db563faebc76d6405f07c078
+  linux_arm64: 17fb4900682979bce53761826f3a8e1f9bd091fa851f19cfb5aa8d034e0adb52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

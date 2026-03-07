@@ -1,0 +1,11 @@
+name: oss-browser
+version: 1.18.0
+description: Graphical management tool for OSS (Object Storage Service)
+homepage: https://github.com/aliyun/oss-browser/
+url:
+  darwin_arm64: https://github.com/aliyun/oss-browser/releases/download/v1.18.0/oss-browser-darwin-x64.zip
+sha256:
+  darwin_arm64: 046e7aa50a76318b8ec8f5171ddb0cfcb8d80b6ad8134762331b874f80d685fb
+artifacts:
+  app:
+    - oss-browser-darwin-x64/oss-browser.app

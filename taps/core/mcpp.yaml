@@ -1,0 +1,19 @@
+name: mcpp
+version: 2.7.2
+description: Alternative C/C++ preprocessor
+homepage: https://mcpp.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcpp/blobs/sha256:f3678576a7e9a2007227897d1617aba79b3ace1340c0a5e77b1bcfff43da38c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcpp/blobs/sha256:94b52de3f8d1a6023e83f10cb82fd00d8c3284a971b6f04ae48d8f0584180971
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcpp/blobs/sha256:7869ff9d2c9946dd38a7891ea70766983208df755ca0f206016211b3239701c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcpp/blobs/sha256:e3b5ff7ba12b3476bfdbc98e83a6aefb67ccee2a96201ac521baa85389585e73
+sha256:
+  darwin_arm64: f3678576a7e9a2007227897d1617aba79b3ace1340c0a5e77b1bcfff43da38c3
+  darwin_amd64: 94b52de3f8d1a6023e83f10cb82fd00d8c3284a971b6f04ae48d8f0584180971
+  linux_amd64: 7869ff9d2c9946dd38a7891ea70766983208df755ca0f206016211b3239701c8
+  linux_arm64: e3b5ff7ba12b3476bfdbc98e83a6aefb67ccee2a96201ac521baa85389585e73
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

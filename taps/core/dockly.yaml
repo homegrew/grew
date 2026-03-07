@@ -1,0 +1,21 @@
+name: dockly
+version: 3.24.5
+description: Immersive terminal interface for managing docker containers and services
+homepage: https://lirantal.github.io/dockly/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dockly/blobs/sha256:e276939bcb8b5909e0c6ab1d39a740b724de614668235b8c3606d57e67d41e64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dockly/blobs/sha256:b6075b00e725da80c041f56a98977e4c74059eaec6486d26d628e5288157301a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dockly/blobs/sha256:f10763b5b89d92dd010032e24ac0e060df6bb12f44118dec3ee2e0c28938d55a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dockly/blobs/sha256:961cd52469f0445138bda46c29f8466f7d7f2e0587af77d2f0981a9d30e253a0
+sha256:
+  darwin_arm64: e276939bcb8b5909e0c6ab1d39a740b724de614668235b8c3606d57e67d41e64
+  darwin_amd64: b6075b00e725da80c041f56a98977e4c74059eaec6486d26d628e5288157301a
+  linux_amd64: f10763b5b89d92dd010032e24ac0e060df6bb12f44118dec3ee2e0c28938d55a
+  linux_arm64: 961cd52469f0445138bda46c29f8466f7d7f2e0587af77d2f0981a9d30e253a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

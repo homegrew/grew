@@ -1,0 +1,11 @@
+name: coq-platform
+version: 2025.01.0,8.20.2025.01
+description: Formal proof management system
+homepage: https://rocq-prover.org/
+url:
+  darwin_arm64: https://github.com/rocq-prover/platform/releases/download/2025.01.0/coq-Platform-release-2025.01.0-version.8.20.2025.01-MacOS-arm64.dmg
+sha256:
+  darwin_arm64: 5bfced11017a61e6a0d71787e2a7a31ffbc09707792d783235caf99d0f41f0d3
+artifacts:
+  app:
+    - Coq-Platform~8.20~2025.01.app

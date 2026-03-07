@@ -1,0 +1,19 @@
+name: tre-command
+version: 0.4.0
+description: Tree command, improved
+homepage: https://github.com/dduan/tre
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tre-command/blobs/sha256:61124e9bd9782b9ddfa36f838995411afa0d901063b33eaf25e527c5e63b7b8d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tre-command/blobs/sha256:88227f6cdf34f1809d7bd0a8fc413c03c2256c6d3eded62e835ae4280cac3cbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tre-command/blobs/sha256:fb6a971b2a393fbca9ae0823891e7da696e1436f2261619f3fee3c1b7d455c4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tre-command/blobs/sha256:66386309ee18528d98fee3a568613dcc7d37b9992fc29d0fe10868b3d679a9c9
+sha256:
+  darwin_arm64: 61124e9bd9782b9ddfa36f838995411afa0d901063b33eaf25e527c5e63b7b8d
+  darwin_amd64: 88227f6cdf34f1809d7bd0a8fc413c03c2256c6d3eded62e835ae4280cac3cbc
+  linux_amd64: fb6a971b2a393fbca9ae0823891e7da696e1436f2261619f3fee3c1b7d455c4a
+  linux_arm64: 66386309ee18528d98fee3a568613dcc7d37b9992fc29d0fe10868b3d679a9c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

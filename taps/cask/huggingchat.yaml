@@ -1,0 +1,11 @@
+name: huggingchat
+version: 0.7.0
+description: Chat client for models on HuggingFace
+homepage: https://github.com/huggingface/chat-macOS
+url:
+  darwin_arm64: https://github.com/huggingface/chat-macOS/releases/download/v0.7.0/HuggingChat.zip
+sha256:
+  darwin_arm64: b421090d0e68230b7fc2dc086bb12b1e846acce0682af45edc26e66b4be15ce1
+artifacts:
+  app:
+    - HuggingChat.app

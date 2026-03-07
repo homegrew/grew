@@ -1,0 +1,19 @@
+name: datafusion
+version: 53.0.0-1
+description: Apache Arrow DataFusion and Ballista query engines
+homepage: https://arrow.apache.org/datafusion
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/datafusion/blobs/sha256:dc9759eadd9bf1949208a8c67701e562906b826ba683ec3163627d3c8cb99c1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/datafusion/blobs/sha256:a35ba3cd8d1ecbbeeedf00929da7855cb6e7017c9238d080959aca7e223db8a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/datafusion/blobs/sha256:4101828c06a906a08c77f408b38dff4f5986cc58543592010c410ffee0ecd9f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/datafusion/blobs/sha256:c91864565bbc70f6b8168edeb95bd0c7a5a3dc32590022a4796891bbad1e93e1
+sha256:
+  darwin_arm64: dc9759eadd9bf1949208a8c67701e562906b826ba683ec3163627d3c8cb99c1b
+  darwin_amd64: a35ba3cd8d1ecbbeeedf00929da7855cb6e7017c9238d080959aca7e223db8a3
+  linux_amd64: 4101828c06a906a08c77f408b38dff4f5986cc58543592010c410ffee0ecd9f8
+  linux_arm64: c91864565bbc70f6b8168edeb95bd0c7a5a3dc32590022a4796891bbad1e93e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

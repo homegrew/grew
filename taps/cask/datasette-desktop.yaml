@@ -1,0 +1,11 @@
+name: datasette-desktop
+version: 0.2.3
+description: Desktop application that wraps Datasette
+homepage: https://datasette.io/desktop
+url:
+  darwin_arm64: https://github.com/simonw/datasette-app/releases/download/0.2.3/Datasette.app.zip
+sha256:
+  darwin_arm64: a708f435afebf5c95d7ea4026699b6b64db6b7e08f9581dd5a143109a5cb986d
+artifacts:
+  app:
+    - Datasette.app

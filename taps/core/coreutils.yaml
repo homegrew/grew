@@ -1,0 +1,21 @@
+name: coreutils
+version: 9.10
+description: GNU File, Shell, and Text utilities
+homepage: https://www.gnu.org/software/coreutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coreutils/blobs/sha256:dfb88b3ff6dd4c8aed52209d470dc8f2119d394f883411f4d17ba21972b602e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coreutils/blobs/sha256:0c7b94b89fa6d8b9e38af1e8cc05bd3d4829a206bb75a9242fd69113b65a36b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coreutils/blobs/sha256:292f082b0ec4adf5342fab822dd7c192fe5bce8160f0272965a38bb26a4f66ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coreutils/blobs/sha256:2b0acf715c4d544303c35d568d9a62bb4765f971fe9fd1e843db74df281db6d8
+sha256:
+  darwin_arm64: dfb88b3ff6dd4c8aed52209d470dc8f2119d394f883411f4d17ba21972b602e4
+  darwin_amd64: 0c7b94b89fa6d8b9e38af1e8cc05bd3d4829a206bb75a9242fd69113b65a36b3
+  linux_amd64: 292f082b0ec4adf5342fab822dd7c192fe5bce8160f0272965a38bb26a4f66ac
+  linux_arm64: 2b0acf715c4d544303c35d568d9a62bb4765f971fe9fd1e843db74df281db6d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

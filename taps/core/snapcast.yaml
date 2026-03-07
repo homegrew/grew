@@ -1,0 +1,26 @@
+name: snapcast
+version: 0.34.0
+description: Synchronous multiroom audio player
+homepage: https://github.com/badaix/snapcast
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snapcast/blobs/sha256:645caa8ed11fc578ac65e91f85fafdba5b0d39f1f127e8232e94e94c1924fb48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snapcast/blobs/sha256:a365b2cd656103c268e2c88b742e5ba3a311d313b28213b10e86cc7c1346ab6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snapcast/blobs/sha256:7ac5b3447b3d7e1fd765fda683dde042994960aaaf190bf9a9dd5eb593f5304c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snapcast/blobs/sha256:cc0c0174d7aeed8002be34138d445a2cebdbcc48e9898cc39857fc698b3b0b82
+sha256:
+  darwin_arm64: 645caa8ed11fc578ac65e91f85fafdba5b0d39f1f127e8232e94e94c1924fb48
+  darwin_amd64: a365b2cd656103c268e2c88b742e5ba3a311d313b28213b10e86cc7c1346ab6f
+  linux_amd64: 7ac5b3447b3d7e1fd765fda683dde042994960aaaf190bf9a9dd5eb593f5304c
+  linux_arm64: cc0c0174d7aeed8002be34138d445a2cebdbcc48e9898cc39857fc698b3b0b82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libogg
+  - libsoxr
+  - libvorbis
+  - openssl@3
+  - opus

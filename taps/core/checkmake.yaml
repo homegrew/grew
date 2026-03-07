@@ -1,0 +1,19 @@
+name: checkmake
+version: 0.3.2
+description: Linter/analyzer for Makefiles
+homepage: https://github.com/checkmake/checkmake
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/checkmake/blobs/sha256:830ad356f8143c6cf17c178be7e6b244982354975ffa8a4b2fa1b5150907b58d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/checkmake/blobs/sha256:62d2f5dcd3fd0fd6f1162bd67d58812aa5e59f78af2dc193c98c20b04eaa07fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/checkmake/blobs/sha256:73f82defd4eb6ae7267171725d0c0c672583ec1184463858b90d79b1dccf884c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/checkmake/blobs/sha256:ac2838e91b6e12598749426385f3f02470cc749d78bb5783020a00fd65f82139
+sha256:
+  darwin_arm64: 830ad356f8143c6cf17c178be7e6b244982354975ffa8a4b2fa1b5150907b58d
+  darwin_amd64: 62d2f5dcd3fd0fd6f1162bd67d58812aa5e59f78af2dc193c98c20b04eaa07fa
+  linux_amd64: 73f82defd4eb6ae7267171725d0c0c672583ec1184463858b90d79b1dccf884c
+  linux_arm64: ac2838e91b6e12598749426385f3f02470cc749d78bb5783020a00fd65f82139
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

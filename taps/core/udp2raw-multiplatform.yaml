@@ -1,0 +1,21 @@
+name: udp2raw-multiplatform
+version: 20230206.0
+description: Multi-platform(cross-platform) version of udp2raw-tunnel client
+homepage: https://github.com/wangyu-/udp2raw-multiplatform
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/udp2raw-multiplatform/blobs/sha256:72ead352399ece1b7045bc70fdc82b5cd82246adf55fb61e6eaaa467583ffb65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/udp2raw-multiplatform/blobs/sha256:74e1ebe2c833591c39c45153d2a65839688bb206aff6281ff0da085ef2f29058
+  linux_amd64: https://ghcr.io/v2/homebrew/core/udp2raw-multiplatform/blobs/sha256:23603c4582835dcb9428c1c3e553802937568f9e7ea1bd283bf329541562ffdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/udp2raw-multiplatform/blobs/sha256:eac995325cedfd5b1029ac3c2e0cebc14b912cfc945e7ff8eecfa160655f77d7
+sha256:
+  darwin_arm64: 72ead352399ece1b7045bc70fdc82b5cd82246adf55fb61e6eaaa467583ffb65
+  darwin_amd64: 74e1ebe2c833591c39c45153d2a65839688bb206aff6281ff0da085ef2f29058
+  linux_amd64: 23603c4582835dcb9428c1c3e553802937568f9e7ea1bd283bf329541562ffdc
+  linux_arm64: eac995325cedfd5b1029ac3c2e0cebc14b912cfc945e7ff8eecfa160655f77d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnet

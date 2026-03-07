@@ -1,0 +1,11 @@
+name: db-browser-for-sqlite
+version: 3.13.1
+description: Browser for SQLite databases
+homepage: https://sqlitebrowser.org/
+url:
+  darwin_arm64: https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1.dmg
+sha256:
+  darwin_arm64: a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e
+artifacts:
+  app:
+    - DB Browser for SQLite.app

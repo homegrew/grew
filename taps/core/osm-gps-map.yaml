@@ -1,0 +1,29 @@
+name: osm-gps-map
+version: 1.2.0
+description: GTK+ library to embed OpenStreetMap maps
+homepage: https://github.com/nzjrs/osm-gps-map
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osm-gps-map/blobs/sha256:e749fe56b5482a3a9418de1bba012a642a932b92fb092d669056f932a4a0f615
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osm-gps-map/blobs/sha256:fd61181265716039211a690890598b64359740fc017868051062c23044641343
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osm-gps-map/blobs/sha256:c1025b0a42d58429dfad4828bef5b3041e12a1bf54a8a849b3fc302f998a1c5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osm-gps-map/blobs/sha256:40a000a5d4c6bc3b19b78e93ca25463f187a59a3f5ecd9187650955164ef7f09
+sha256:
+  darwin_arm64: e749fe56b5482a3a9418de1bba012a642a932b92fb092d669056f932a4a0f615
+  darwin_amd64: fd61181265716039211a690890598b64359740fc017868051062c23044641343
+  linux_amd64: c1025b0a42d58429dfad4828bef5b3041e12a1bf54a8a849b3fc302f998a1c5d
+  linux_arm64: 40a000a5d4c6bc3b19b78e93ca25463f187a59a3f5ecd9187650955164ef7f09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - libsoup
+  - at-spi2-core
+  - gettext
+  - harfbuzz
+  - pango

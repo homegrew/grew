@@ -1,0 +1,19 @@
+name: iir1
+version: 1.10.0
+description: DSP IIR realtime filter library written in C++
+homepage: https://berndporr.github.io/iir1/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iir1/blobs/sha256:317685b9afecb323ab66baf7ddd1fc71fe1bf38ecafc1c619b9eed54323686f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iir1/blobs/sha256:1dfbb17db4c2289d4c96225fcde00438cb116fdeb78e94c09e772fd1d8493320
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iir1/blobs/sha256:70477ac82f71d9275b48ec51ab83ebbc57292d072f0f511ae9e237e924950076
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iir1/blobs/sha256:2099517c738a6e833f534ae384cc77adee1a399f84b043c718dad87d84d83e60
+sha256:
+  darwin_arm64: 317685b9afecb323ab66baf7ddd1fc71fe1bf38ecafc1c619b9eed54323686f9
+  darwin_amd64: 1dfbb17db4c2289d4c96225fcde00438cb116fdeb78e94c09e772fd1d8493320
+  linux_amd64: 70477ac82f71d9275b48ec51ab83ebbc57292d072f0f511ae9e237e924950076
+  linux_arm64: 2099517c738a6e833f534ae384cc77adee1a399f84b043c718dad87d84d83e60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

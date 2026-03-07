@@ -1,0 +1,22 @@
+name: nudoku
+version: 7.0.0
+description: Ncurses based sudoku game
+homepage: https://jubalh.github.io/nudoku/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nudoku/blobs/sha256:ebda326741afc7c9870a625d27d5fee78100bf41c8f7033cd7a1280666171437
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nudoku/blobs/sha256:a2622caff993cd421972bed535b7eb9b66a8fca2ea09a660b8a6a48e5302321e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nudoku/blobs/sha256:07f783c023c9984a1722041757a98540205cb9a5d79f0df463d9e5a23bae2e54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nudoku/blobs/sha256:be9b1d9423b60780d7d59bcd8c1ad272b52bab3fd05457506562319c38f501e6
+sha256:
+  darwin_arm64: ebda326741afc7c9870a625d27d5fee78100bf41c8f7033cd7a1280666171437
+  darwin_amd64: a2622caff993cd421972bed535b7eb9b66a8fca2ea09a660b8a6a48e5302321e
+  linux_amd64: 07f783c023c9984a1722041757a98540205cb9a5d79f0df463d9e5a23bae2e54
+  linux_arm64: be9b1d9423b60780d7d59bcd8c1ad272b52bab3fd05457506562319c38f501e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gettext

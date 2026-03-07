@@ -1,0 +1,19 @@
+name: tfschema
+version: 0.7.9
+description: Schema inspector for Terraform/OpenTofu providers
+homepage: https://github.com/minamijoyo/tfschema
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfschema/blobs/sha256:74eb616a07e9b291ef3a898fafdada0863bfae1fc9f68c35c9296d9999b87f89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfschema/blobs/sha256:211f9e3b81ba3ea4718527da5163c9601cf047e1a96d1150633e18629e0a0e9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfschema/blobs/sha256:cee668cff712e456427c14fc7945eebc14812aa148194a4898bad8017933b70a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfschema/blobs/sha256:5520369f0f5296724c0d5465ee7a71be144c9a73762c9f3797a809055bc68cfe
+sha256:
+  darwin_arm64: 74eb616a07e9b291ef3a898fafdada0863bfae1fc9f68c35c9296d9999b87f89
+  darwin_amd64: 211f9e3b81ba3ea4718527da5163c9601cf047e1a96d1150633e18629e0a0e9f
+  linux_amd64: cee668cff712e456427c14fc7945eebc14812aa148194a4898bad8017933b70a
+  linux_arm64: 5520369f0f5296724c0d5465ee7a71be144c9a73762c9f3797a809055bc68cfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

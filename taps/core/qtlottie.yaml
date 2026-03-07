@@ -1,0 +1,22 @@
+name: qtlottie
+version: 6.10.2
+description: Display graphics and animations exported by the Bodymovin plugin
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtlottie/blobs/sha256:411cba09b41d931a62bd99c6cfc54a72508a27737ee0d080e9b6852ea9dbcc46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtlottie/blobs/sha256:cf9cd047b101ce43d44aef22ded88274d278ca095165c255ca693f03a088f5df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtlottie/blobs/sha256:b4f4be09cc0386813231177ff8b2694c9a9d51de3150d15826c44dbc72765bf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtlottie/blobs/sha256:87457ac2e0ad79d5077a878c49cd13ab60f46095c7d99f30e5448de95f6fac77
+sha256:
+  darwin_arm64: 411cba09b41d931a62bd99c6cfc54a72508a27737ee0d080e9b6852ea9dbcc46
+  darwin_amd64: cf9cd047b101ce43d44aef22ded88274d278ca095165c255ca693f03a088f5df
+  linux_amd64: b4f4be09cc0386813231177ff8b2694c9a9d51de3150d15826c44dbc72765bf2
+  linux_arm64: 87457ac2e0ad79d5077a878c49cd13ab60f46095c7d99f30e5448de95f6fac77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

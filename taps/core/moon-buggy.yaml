@@ -1,0 +1,19 @@
+name: moon-buggy
+version: 1.1.0
+description: Drive some car across the moon
+homepage: https://www.seehuhn.de/programs/moon-buggy
+license: GPL-2.0-or-later OR GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moon-buggy/blobs/sha256:53f6259b504aa18f7ee6f00e8609de83f5dcaf145f271223c1b84097d03ee187
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moon-buggy/blobs/sha256:6355ad12387367fa817191a32b60cee9f661fdec974867a3b5e5bab49f8ed0c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moon-buggy/blobs/sha256:5e8416167cc5705334a07ee176fc2dd5db90eb64aeb3d25304669d36a72779cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moon-buggy/blobs/sha256:2b394bb0da80a733c673889c281ae7f552ed854bf7658a980abd322ae58cdd57
+sha256:
+  darwin_arm64: 53f6259b504aa18f7ee6f00e8609de83f5dcaf145f271223c1b84097d03ee187
+  darwin_amd64: 6355ad12387367fa817191a32b60cee9f661fdec974867a3b5e5bab49f8ed0c1
+  linux_amd64: 5e8416167cc5705334a07ee176fc2dd5db90eb64aeb3d25304669d36a72779cb
+  linux_arm64: 2b394bb0da80a733c673889c281ae7f552ed854bf7658a980abd322ae58cdd57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

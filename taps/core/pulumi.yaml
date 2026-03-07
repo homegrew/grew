@@ -1,0 +1,19 @@
+name: pulumi
+version: 3.225.1
+description: Cloud native development platform
+homepage: https://pulumi.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pulumi/blobs/sha256:a4bb8be68787601d787e7ddc82ca28b61d3eee54d68b5aec508cb669571d18e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pulumi/blobs/sha256:b5ce41381a267ff13b7175c81a7f05ef6bf50268d3e265a6f8296bb585204f1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pulumi/blobs/sha256:934902e74ef77debd99ac9e58b79e560babbe42610ff4881e1135aa2358754c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pulumi/blobs/sha256:a7df93cbeb4ab94f31fbb2de7aa564a02416f25e4606552b6cc80457b161d4ec
+sha256:
+  darwin_arm64: a4bb8be68787601d787e7ddc82ca28b61d3eee54d68b5aec508cb669571d18e4
+  darwin_amd64: b5ce41381a267ff13b7175c81a7f05ef6bf50268d3e265a6f8296bb585204f1e
+  linux_amd64: 934902e74ef77debd99ac9e58b79e560babbe42610ff4881e1135aa2358754c2
+  linux_arm64: a7df93cbeb4ab94f31fbb2de7aa564a02416f25e4606552b6cc80457b161d4ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

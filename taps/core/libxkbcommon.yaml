@@ -1,0 +1,23 @@
+name: libxkbcommon
+version: 1.13.1
+description: Keyboard handling library
+homepage: https://xkbcommon.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxkbcommon/blobs/sha256:b3ed10e5f7df8fc19afc02a50ee79ae13417359214bf517b95020af18d0ac8ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxkbcommon/blobs/sha256:fe537a2c8f25c11af6015930b3f9b5145416a15e51dcc4ed7565a02546828bd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxkbcommon/blobs/sha256:f57e780a55d512773318d422adabf4d01e3b312d61c6c8437b50eec034e2b787
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxkbcommon/blobs/sha256:bce2de8042eb4c07a8b83730d3ed5ac0d8588af1b9efa8046a98f30f3213ec0b
+sha256:
+  darwin_arm64: b3ed10e5f7df8fc19afc02a50ee79ae13417359214bf517b95020af18d0ac8ee
+  darwin_amd64: fe537a2c8f25c11af6015930b3f9b5145416a15e51dcc4ed7565a02546828bd7
+  linux_amd64: f57e780a55d512773318d422adabf4d01e3b312d61c6c8437b50eec034e2b787
+  linux_arm64: bce2de8042eb4c07a8b83730d3ed5ac0d8588af1b9efa8046a98f30f3213ec0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb
+  - xkeyboard-config
+  - xorg-server

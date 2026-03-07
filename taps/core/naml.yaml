@@ -1,0 +1,21 @@
+name: naml
+version: 1.0.3
+description: Convert Kubernetes YAML to Golang
+homepage: https://github.com/krisnova/naml
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/naml/blobs/sha256:e0956fd9b0b5be64918c42a43f7d4a46271122c8141d3b9d0a399fd8e324772a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/naml/blobs/sha256:a1ebf7874087424b1a8e9ef16fee7767c715d7c569f63cd12c4dc5b1d64f6ce6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/naml/blobs/sha256:cfb2de73a6ca925bdb4599464e3e7759bcb823900ee2fe5ba0d0c3e4bb27d0c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/naml/blobs/sha256:e89f839a62cd34498050873134d6459be85c2e0dea8bfff8362914dba5f89d91
+sha256:
+  darwin_arm64: e0956fd9b0b5be64918c42a43f7d4a46271122c8141d3b9d0a399fd8e324772a
+  darwin_amd64: a1ebf7874087424b1a8e9ef16fee7767c715d7c569f63cd12c4dc5b1d64f6ce6
+  linux_amd64: cfb2de73a6ca925bdb4599464e3e7759bcb823900ee2fe5ba0d0c3e4bb27d0c3
+  linux_arm64: e89f839a62cd34498050873134d6459be85c2e0dea8bfff8362914dba5f89d91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

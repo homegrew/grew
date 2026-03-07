@@ -1,0 +1,11 @@
+name: tempbox
+version: 1.1
+description: Disposable email client
+homepage: https://tempbox.waseem.works/
+url:
+  darwin_arm64: https://github.com/devwaseem/TempBox/releases/download/v1.1/TempBox.dmg
+sha256:
+  darwin_arm64: edcd68709cd69363de8535fc3f14ed9819004aba3edea9def10b540e44383e8b
+artifacts:
+  app:
+    - TempBox.app

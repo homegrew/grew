@@ -1,0 +1,19 @@
+name: libstatgrab
+version: 0.92.1
+description: Provides cross-platform access to statistics about the system
+homepage: https://libstatgrab.org/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libstatgrab/blobs/sha256:22b0adf587cf3abc79ab1bf64cce1f5fa418cc2516981fe4db0ea33cd54ce274
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libstatgrab/blobs/sha256:0a4526da3d4c86b1ceaa98ca701ddb3a6a34db17643a6b75c129cda9a6bde856
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libstatgrab/blobs/sha256:8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libstatgrab/blobs/sha256:20fa34ce8b897ffc1d9ef30d7c1636fb86d2b1299dad7d730a000f47ff4691cd
+sha256:
+  darwin_arm64: 22b0adf587cf3abc79ab1bf64cce1f5fa418cc2516981fe4db0ea33cd54ce274
+  darwin_amd64: 0a4526da3d4c86b1ceaa98ca701ddb3a6a34db17643a6b75c129cda9a6bde856
+  linux_amd64: 8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a
+  linux_arm64: 20fa34ce8b897ffc1d9ef30d7c1636fb86d2b1299dad7d730a000f47ff4691cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

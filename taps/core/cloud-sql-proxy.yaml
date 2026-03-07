@@ -1,0 +1,19 @@
+name: cloud-sql-proxy
+version: 2.21.1
+description: Utility for connecting securely to your Cloud SQL instances
+homepage: https://github.com/GoogleCloudPlatform/cloud-sql-proxy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloud-sql-proxy/blobs/sha256:2c8b63a8a61963c1541ed5fc5b0a303e1efa5a8ac5fa4c2f6ff9a03c2c536733
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloud-sql-proxy/blobs/sha256:68ba83dd7f95ae76f0f6752d6e109b95cab0b8098c5ee090c0246fe0f670ecb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloud-sql-proxy/blobs/sha256:ab17f20903f1aeae843b0161deaae45d54cb45284b8d9e59fbca3e443735f83a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloud-sql-proxy/blobs/sha256:ddf2095a959096686b626c7e86e9df861205ea258e0d3f73a99c6e92946f61ac
+sha256:
+  darwin_arm64: 2c8b63a8a61963c1541ed5fc5b0a303e1efa5a8ac5fa4c2f6ff9a03c2c536733
+  darwin_amd64: 68ba83dd7f95ae76f0f6752d6e109b95cab0b8098c5ee090c0246fe0f670ecb2
+  linux_amd64: ab17f20903f1aeae843b0161deaae45d54cb45284b8d9e59fbca3e443735f83a
+  linux_arm64: ddf2095a959096686b626c7e86e9df861205ea258e0d3f73a99c6e92946f61ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: get-backup-pro
+version: 3.7.3
+description: Backup software with folder synchronisation
+homepage: https://www.belightsoft.com/products/getbackup/
+url:
+  darwin_arm64: https://belightsoft.s3.amazonaws.com/updates/Get+Backup+Pro+3.zip
+sha256:
+  darwin_arm64: 248f6eae946f266318f687c02de7265089380b8e763701f8f0ff3f212829bdd6
+artifacts:
+  app:
+    - Get Backup Pro 3.app

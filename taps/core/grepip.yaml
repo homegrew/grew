@@ -1,0 +1,19 @@
+name: grepip
+version: 1.2.2
+description: "Filters IPv4 & IPv6 addresses with a grep-compatible interface"
+homepage: https://ipinfo.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grepip/blobs/sha256:22b47360d59e127a7ef33ec598cbae91fbc393d2c4a7d787a589bf1e308e9695
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grepip/blobs/sha256:d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grepip/blobs/sha256:89fb159a561f18bd7ddb41e4fe0e280d1aa632165f0b887d4ce2c04af65633bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grepip/blobs/sha256:e2ad83ecab46b2e50890c75e9e583b060de0fb480da868639645ad48702f84b1
+sha256:
+  darwin_arm64: 22b47360d59e127a7ef33ec598cbae91fbc393d2c4a7d787a589bf1e308e9695
+  darwin_amd64: d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b
+  linux_amd64: 89fb159a561f18bd7ddb41e4fe0e280d1aa632165f0b887d4ce2c04af65633bc
+  linux_arm64: e2ad83ecab46b2e50890c75e9e583b060de0fb480da868639645ad48702f84b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

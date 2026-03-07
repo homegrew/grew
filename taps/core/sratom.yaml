@@ -1,0 +1,23 @@
+name: sratom
+version: 0.6.22
+description: Library for serializing LV2 atoms to/from RDF
+homepage: https://drobilla.net/software/sratom.html
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sratom/blobs/sha256:44de40b23201133a3e6186c80df57447648e7384b1f25855651b19cd6feec9b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sratom/blobs/sha256:9dc0af1d51b8ea37c1d77bbe218e1d37a76c3a6084b79f978ac2c08bec13ceec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sratom/blobs/sha256:2c9f730f160ea12627f0f03f512b393f487609b60b83d127790848feaeb48e81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sratom/blobs/sha256:3787ba541ba92cf6380be36fd9c9b89d08ea51774dbaaa1c3f55c1090ae02931
+sha256:
+  darwin_arm64: 44de40b23201133a3e6186c80df57447648e7384b1f25855651b19cd6feec9b3
+  darwin_amd64: 9dc0af1d51b8ea37c1d77bbe218e1d37a76c3a6084b79f978ac2c08bec13ceec
+  linux_amd64: 2c9f730f160ea12627f0f03f512b393f487609b60b83d127790848feaeb48e81
+  linux_arm64: 3787ba541ba92cf6380be36fd9c9b89d08ea51774dbaaa1c3f55c1090ae02931
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lv2
+  - serd
+  - sord

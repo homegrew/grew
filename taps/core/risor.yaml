@@ -1,0 +1,19 @@
+name: risor
+version: 2.0.1
+description: Fast and flexible scripting for Go developers and DevOps
+homepage: https://risor.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/risor/blobs/sha256:fe4875177ceb4868f14ff03e02b5dcfdacfa56f52517d582663c2efdba78045d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/risor/blobs/sha256:3f5ae5b5b7b03e64e6fc9f340cbd3761cc4f7f3840b450ec152b3be433b2fc3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/risor/blobs/sha256:76b0edb8e90d14a4b563f1289a1164c1785fa39bbf5ccef59bc358eb461ebfc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/risor/blobs/sha256:023d71c0661a3037c08604127baa194b3509ebbedb155519febb3307aedcc6a3
+sha256:
+  darwin_arm64: fe4875177ceb4868f14ff03e02b5dcfdacfa56f52517d582663c2efdba78045d
+  darwin_amd64: 3f5ae5b5b7b03e64e6fc9f340cbd3761cc4f7f3840b450ec152b3be433b2fc3c
+  linux_amd64: 76b0edb8e90d14a4b563f1289a1164c1785fa39bbf5ccef59bc358eb461ebfc1
+  linux_arm64: 023d71c0661a3037c08604127baa194b3509ebbedb155519febb3307aedcc6a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

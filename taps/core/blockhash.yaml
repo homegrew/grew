@@ -1,0 +1,21 @@
+name: blockhash
+version: 0.3.3
+description: Perceptual image hash calculation tool
+homepage: https://github.com/commonsmachinery/blockhash
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blockhash/blobs/sha256:67363b29a30df42d320f72595bd81ce0dc7e41ec7cf0ec5f620bc90e6256a681
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blockhash/blobs/sha256:549ec4cab23c30f91e09ac9bb552be96444915ded6cf8b038e215cb7a0396b16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blockhash/blobs/sha256:5281622fbde0603ec516b153e1a02e85d58e18c0074e4a6bc2b7df5670784aee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blockhash/blobs/sha256:04e18532865185d071a00a063393586fe2af100b84f8e2124b230a5185504bf8
+sha256:
+  darwin_arm64: 67363b29a30df42d320f72595bd81ce0dc7e41ec7cf0ec5f620bc90e6256a681
+  darwin_amd64: 549ec4cab23c30f91e09ac9bb552be96444915ded6cf8b038e215cb7a0396b16
+  linux_amd64: 5281622fbde0603ec516b153e1a02e85d58e18c0074e4a6bc2b7df5670784aee
+  linux_arm64: 04e18532865185d071a00a063393586fe2af100b84f8e2124b230a5185504bf8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imagemagick

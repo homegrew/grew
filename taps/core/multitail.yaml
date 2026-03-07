@@ -1,0 +1,21 @@
+name: multitail
+version: 7.1.5
+description: Tail multiple files in one terminal simultaneously
+homepage: https://vanheusden.com/multitail/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/multitail/blobs/sha256:cef92b70338d321e70d11dd71dd6103e53abd26f6eb585a199ac0d2a43e02857
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/multitail/blobs/sha256:ca9fb55f8bf98257308ea67179d882788d74bb7c1e3cbb1b584eb679f81ee44d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/multitail/blobs/sha256:1e5209ad76b3f876606ca6a7a7fa6720ec2f976affd51aaab992c0dde63540b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/multitail/blobs/sha256:ff18f53cd0985d90857495d4444ef2e6490f08e73cefd4c5aaaeb95800cc7a31
+sha256:
+  darwin_arm64: cef92b70338d321e70d11dd71dd6103e53abd26f6eb585a199ac0d2a43e02857
+  darwin_amd64: ca9fb55f8bf98257308ea67179d882788d74bb7c1e3cbb1b584eb679f81ee44d
+  linux_amd64: 1e5209ad76b3f876606ca6a7a7fa6720ec2f976affd51aaab992c0dde63540b4
+  linux_arm64: ff18f53cd0985d90857495d4444ef2e6490f08e73cefd4c5aaaeb95800cc7a31
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

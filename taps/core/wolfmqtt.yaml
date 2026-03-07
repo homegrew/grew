@@ -1,0 +1,21 @@
+name: wolfmqtt
+version: 1.21.0
+description: Small, fast, portable MQTT client C implementation
+homepage: https://github.com/wolfSSL/wolfMQTT
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wolfmqtt/blobs/sha256:c68cc59e6efc79036e2f1756c8a3434966c3d4913e5dc31a1185ffd0f10cbccf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wolfmqtt/blobs/sha256:9c752302eee055f1639d717b472927e091fc23e74899733030c725352cb90948
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wolfmqtt/blobs/sha256:730d8b82f3577a377b5508e568214936ec43e03f81737958a768974d9fc9a1db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wolfmqtt/blobs/sha256:3d0b992d5b54de9e5b6ba169917e5e725b279ff9d5e54679abc67a7cae835450
+sha256:
+  darwin_arm64: c68cc59e6efc79036e2f1756c8a3434966c3d4913e5dc31a1185ffd0f10cbccf
+  darwin_amd64: 9c752302eee055f1639d717b472927e091fc23e74899733030c725352cb90948
+  linux_amd64: 730d8b82f3577a377b5508e568214936ec43e03f81737958a768974d9fc9a1db
+  linux_arm64: 3d0b992d5b54de9e5b6ba169917e5e725b279ff9d5e54679abc67a7cae835450
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - wolfssl

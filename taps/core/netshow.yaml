@@ -1,0 +1,21 @@
+name: netshow
+version: 0.2.2
+description: Interactive network connection monitor with friendly service names
+homepage: https://github.com/taylorwilsdon/netshow
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netshow/blobs/sha256:14d3f73a7dbf0e2710565ea3c9883f909e1ac9c021ada41808e9199f23f2978c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netshow/blobs/sha256:b7f93ee1862d0f03384721eaad95c3bf62c38a311e146971213f7dd51489092c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netshow/blobs/sha256:0fcb9ec898607312887cea9891cd4de7192ebe8db7f1c5dd2b049b1a1cca1d10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netshow/blobs/sha256:3cbb279105577e092dfaa9704618dffb82903f4de82c6e66a13109dff9f683ea
+sha256:
+  darwin_arm64: 14d3f73a7dbf0e2710565ea3c9883f909e1ac9c021ada41808e9199f23f2978c
+  darwin_amd64: b7f93ee1862d0f03384721eaad95c3bf62c38a311e146971213f7dd51489092c
+  linux_amd64: 0fcb9ec898607312887cea9891cd4de7192ebe8db7f1c5dd2b049b1a1cca1d10
+  linux_arm64: 3cbb279105577e092dfaa9704618dffb82903f4de82c6e66a13109dff9f683ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

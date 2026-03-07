@@ -1,0 +1,22 @@
+name: mrbayes
+version: 3.2.7a
+description: Bayesian inference of phylogenies and evolutionary models
+homepage: https://nbisweden.github.io/MrBayes/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mrbayes/blobs/sha256:7e0813e7f10eb1abadd4172e54fc18d7fac02f2a2521d3034217ea8ee99ffa04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mrbayes/blobs/sha256:4e22bb908f3d2fabacebe0f1896de5cc05f74b5a1bcd224fb2fa85585db5074c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mrbayes/blobs/sha256:5b7379add8dcffcc268785b68f80f88fb0478f10c76ef139b43b0c6983e30675
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mrbayes/blobs/sha256:4b2aaf7489371e64e11bc0dde781218fd8b4a85a41cd7db039f2a8c377f726c1
+sha256:
+  darwin_arm64: 7e0813e7f10eb1abadd4172e54fc18d7fac02f2a2521d3034217ea8ee99ffa04
+  darwin_amd64: 4e22bb908f3d2fabacebe0f1896de5cc05f74b5a1bcd224fb2fa85585db5074c
+  linux_amd64: 5b7379add8dcffcc268785b68f80f88fb0478f10c76ef139b43b0c6983e30675
+  linux_arm64: 4b2aaf7489371e64e11bc0dde781218fd8b4a85a41cd7db039f2a8c377f726c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - beagle
+  - open-mpi

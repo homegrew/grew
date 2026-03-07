@@ -1,0 +1,19 @@
+name: helm-ls
+version: 0.5.4
+description: Language server for Helm
+homepage: https://github.com/mrjosh/helm-ls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helm-ls/blobs/sha256:20bdf67a7e0236a71291e8859150a4881cb20f47f18291053c069a75c3f7cf2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helm-ls/blobs/sha256:c283d2a66a8ac927eb6823d3936237bb5c09b106621972512720ba83f5ce894d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helm-ls/blobs/sha256:27695f6754f9efdd600932665de44b3e4cbd02f87ee95e69a639db027f8620b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helm-ls/blobs/sha256:6a7d9b12fb83c20cf9d8af4c64e33f62d5b427c155e6225c9f7579187b132d43
+sha256:
+  darwin_arm64: 20bdf67a7e0236a71291e8859150a4881cb20f47f18291053c069a75c3f7cf2b
+  darwin_amd64: c283d2a66a8ac927eb6823d3936237bb5c09b106621972512720ba83f5ce894d
+  linux_amd64: 27695f6754f9efdd600932665de44b3e4cbd02f87ee95e69a639db027f8620b0
+  linux_arm64: 6a7d9b12fb83c20cf9d8af4c64e33f62d5b427c155e6225c9f7579187b132d43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

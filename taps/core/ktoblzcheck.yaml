@@ -1,0 +1,22 @@
+name: ktoblzcheck
+version: 1.59
+description: Library for German banks
+homepage: https://ktoblzcheck.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktoblzcheck/blobs/sha256:fd3b80a2358a2209b506a196e10769ebeed04e5c1f209cd3477ab441e8df9a81
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktoblzcheck/blobs/sha256:0b845c7b179e99f6f35fc241922c77a4aefd4adeee544f429ce78c7d79704b48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktoblzcheck/blobs/sha256:5b7681ef9f5b3de8ccb35f9215651650adfe73ba07b69eac0642ad6ba29aa876
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktoblzcheck/blobs/sha256:0ba4ead313ea8f1e5c8d56782ab6a359147328c46ac46ce2f41ae9ccd3f07cd0
+sha256:
+  darwin_arm64: fd3b80a2358a2209b506a196e10769ebeed04e5c1f209cd3477ab441e8df9a81
+  darwin_amd64: 0b845c7b179e99f6f35fc241922c77a4aefd4adeee544f429ce78c7d79704b48
+  linux_amd64: 5b7681ef9f5b3de8ccb35f9215651650adfe73ba07b69eac0642ad6ba29aa876
+  linux_arm64: 0ba4ead313ea8f1e5c8d56782ab6a359147328c46ac46ce2f41ae9ccd3f07cd0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - sqlite

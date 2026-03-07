@@ -1,0 +1,25 @@
+name: mcp-google-sheets
+version: 0.6.0
+description: MCP server integrates with your Google Drive and Google Sheets
+homepage: https://github.com/xing5/mcp-google-sheets
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcp-google-sheets/blobs/sha256:cc09715995b5a9d113d779fa506e7fa0dc20201d08c2ed724fdf84ef5d87f373
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcp-google-sheets/blobs/sha256:b45d044a3c645fa063915616a520711823e480f63017662e073c02e2d8201c0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcp-google-sheets/blobs/sha256:e5b6b1e83c0aeec11f2b94cebcc1edd7971d71e81a903ddc8ceda28c7295a719
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcp-google-sheets/blobs/sha256:87332f7b121315e947ac5501099a69c2c9bbd484767f9e2e4a3ea64baa0bbb36
+sha256:
+  darwin_arm64: cc09715995b5a9d113d779fa506e7fa0dc20201d08c2ed724fdf84ef5d87f373
+  darwin_amd64: b45d044a3c645fa063915616a520711823e480f63017662e073c02e2d8201c0e
+  linux_amd64: e5b6b1e83c0aeec11f2b94cebcc1edd7971d71e81a903ddc8ceda28c7295a719
+  linux_arm64: 87332f7b121315e947ac5501099a69c2c9bbd484767f9e2e4a3ea64baa0bbb36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - pydantic
+  - python@3.14
+  - rpds-py

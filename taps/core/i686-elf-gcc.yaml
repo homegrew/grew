@@ -1,0 +1,25 @@
+name: i686-elf-gcc
+version: 15.2.0
+description: GNU compiler collection for i686-elf
+homepage: https://gcc.gnu.org
+license: GPL-3.0-or-later WITH GCC-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-gcc/blobs/sha256:dc1192f46f2f58ad2d4d72e774114a707ff15e0bbac8f02f6868fa5b0f58387e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-gcc/blobs/sha256:abbfb1ae2d570c345fc35aa00e30ae1f63e0f55e04e1e4beb1216d8536499c60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-gcc/blobs/sha256:40dc3970e637b82e36c47783c9956ca24d3ccd15e69ce077867bd84ca0c488fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-gcc/blobs/sha256:75c212bc07d5432ac8d8d0cba1159946e5be4a4272e8c34a0693d2052ac1c11c
+sha256:
+  darwin_arm64: dc1192f46f2f58ad2d4d72e774114a707ff15e0bbac8f02f6868fa5b0f58387e
+  darwin_amd64: abbfb1ae2d570c345fc35aa00e30ae1f63e0f55e04e1e4beb1216d8536499c60
+  linux_amd64: 40dc3970e637b82e36c47783c9956ca24d3ccd15e69ce077867bd84ca0c488fa
+  linux_arm64: 75c212bc07d5432ac8d8d0cba1159946e5be4a4272e8c34a0693d2052ac1c11c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - i686-elf-binutils
+  - libmpc
+  - mpfr
+  - zstd

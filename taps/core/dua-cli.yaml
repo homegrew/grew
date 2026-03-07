@@ -1,0 +1,19 @@
+name: dua-cli
+version: 2.34.0
+description: View disk space usage and delete unwanted data, fast
+homepage: https://lib.rs/crates/dua-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dua-cli/blobs/sha256:aca8d61ff41e16b5708e4a7a4daf73f369db05fd86734d49ddef87214f12cf62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dua-cli/blobs/sha256:167298ee7d3642fad5baa3023b1692f02e5e904290c9ea20eb73a744e65ddf1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dua-cli/blobs/sha256:0f043a8e2a70d5deaac4544c9ec784f6f47e79f0be891681b1fdb26fc341417f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dua-cli/blobs/sha256:4d57e7759ee1184d42909506150937e0f040def676813144e56e800db16a213e
+sha256:
+  darwin_arm64: aca8d61ff41e16b5708e4a7a4daf73f369db05fd86734d49ddef87214f12cf62
+  darwin_amd64: 167298ee7d3642fad5baa3023b1692f02e5e904290c9ea20eb73a744e65ddf1d
+  linux_amd64: 0f043a8e2a70d5deaac4544c9ec784f6f47e79f0be891681b1fdb26fc341417f
+  linux_arm64: 4d57e7759ee1184d42909506150937e0f040def676813144e56e800db16a213e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

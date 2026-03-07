@@ -1,0 +1,24 @@
+name: form
+version: 5.0.0
+description: Symbolic manipulation system
+homepage: https://www.nikhef.nl/~form/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/form/blobs/sha256:c7f21024418e6cfa0e6dd9915e4ac38566cb583e9acf0df3d1994393abb91f43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/form/blobs/sha256:affb7cf3d41487583b89a94296ae4fa6431d9d3e28e4868463898e94317dd8a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/form/blobs/sha256:aa27050572d29b865752d49abdd41a501b16bedb244d2a05f4b530eb35c27f05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/form/blobs/sha256:552e5c787b81c28ff3a2c7ff80dfaa191b713fb1fa19eb95ad4ed24315389717
+sha256:
+  darwin_arm64: c7f21024418e6cfa0e6dd9915e4ac38566cb583e9acf0df3d1994393abb91f43
+  darwin_amd64: affb7cf3d41487583b89a94296ae4fa6431d9d3e28e4868463898e94317dd8a6
+  linux_amd64: aa27050572d29b865752d49abdd41a501b16bedb244d2a05f4b530eb35c27f05
+  linux_arm64: 552e5c787b81c28ff3a2c7ff80dfaa191b713fb1fa19eb95ad4ed24315389717
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flint
+  - gmp
+  - mpfr
+  - zstd

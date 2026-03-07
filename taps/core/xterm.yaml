@@ -1,0 +1,31 @@
+name: xterm
+version: 407
+description: Terminal emulator for the X Window System
+homepage: https://invisible-island.net/xterm/
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xterm/blobs/sha256:22779daf2a5913a70149800eb1ab29b6a45bfe34cc77694d94885f567f91b060
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xterm/blobs/sha256:e85424417569eeb0b0fff5615d04a214cc8f55b2a5e2272c2e1c10dc783ff3f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xterm/blobs/sha256:1d38b87e26eaf0a2fe17e2dd7f89df4b2f1d10f2bc872a307aabef06be5ffe15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xterm/blobs/sha256:fd10db3e7d81b9c3cd8d3a158e3d8907f89d823484a093f2c00b2d34ad13dbe7
+sha256:
+  darwin_arm64: 22779daf2a5913a70149800eb1ab29b6a45bfe34cc77694d94885f567f91b060
+  darwin_amd64: e85424417569eeb0b0fff5615d04a214cc8f55b2a5e2272c2e1c10dc783ff3f3
+  linux_amd64: 1d38b87e26eaf0a2fe17e2dd7f89df4b2f1d10f2bc872a307aabef06be5ffe15
+  linux_arm64: fd10db3e7d81b9c3cd8d3a158e3d8907f89d823484a093f2c00b2d34ad13dbe7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - libice
+  - libx11
+  - libxaw
+  - libxext
+  - libxft
+  - libxinerama
+  - libxmu
+  - libxpm
+  - libxt

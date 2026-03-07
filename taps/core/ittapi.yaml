@@ -1,0 +1,19 @@
+name: ittapi
+version: 3.26.7
+description: Intel Instrumentation and Tracing Technology (ITT) and Just-In-Time (JIT) API
+homepage: https://github.com/intel/ittapi
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ittapi/blobs/sha256:2d05101c17697633c91b8cf06058aac95ae5e2e1947f9f3dbc68b9a84db53ccb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ittapi/blobs/sha256:ac55f764a363deb44bf6c2fb5efff6014d3fac293ac285cc8b6e175cfb3b68b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ittapi/blobs/sha256:34fc8bac72d908cd322d8e876c1a18221df43034af87d47915d5156845ae4cb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ittapi/blobs/sha256:3a6a36c1506023abbd92c88c07da92313074f6976636931a6483db496833ca4a
+sha256:
+  darwin_arm64: 2d05101c17697633c91b8cf06058aac95ae5e2e1947f9f3dbc68b9a84db53ccb
+  darwin_amd64: ac55f764a363deb44bf6c2fb5efff6014d3fac293ac285cc8b6e175cfb3b68b6
+  linux_amd64: 34fc8bac72d908cd322d8e876c1a18221df43034af87d47915d5156845ae4cb2
+  linux_arm64: 3a6a36c1506023abbd92c88c07da92313074f6976636931a6483db496833ca4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

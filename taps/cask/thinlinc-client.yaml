@@ -1,0 +1,11 @@
+name: thinlinc-client
+version: 4.20.0_4284
+description: Linux remote desktop server
+homepage: https://www.cendio.com/thinlinc/what-is-thinlinc/
+url:
+  darwin_arm64: https://www.cendio.com/downloads/clients/tl-4.20.0_4284-client-macos.dmg
+sha256:
+  darwin_arm64: 5a762511077829a004e0acb45bd5b7e6b4ae2dfe12cb62ec04425937d173f230
+artifacts:
+  app:
+    - ThinLinc Client.app

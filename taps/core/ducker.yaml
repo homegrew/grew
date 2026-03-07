@@ -1,0 +1,19 @@
+name: ducker
+version: 0.6.3
+description: Slightly quackers Docker TUI based on k9s
+homepage: https://github.com/robertpsoane/ducker
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ducker/blobs/sha256:9db28cc2473d24211b9b23b2084b8883edba3e2681bd31c41247723b22dacb56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ducker/blobs/sha256:54cc2d496c75fab7905f898d50cf1d1b2d0f5aaabb1ff31024ba812889d8a46f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ducker/blobs/sha256:58be72cfc69cbd4a656d4628a0ec11836411bf28c0fed2c08f00f4024e0cb3f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ducker/blobs/sha256:6d08fed4d8100da2b24066e015c65b0e6b8484db18e77519066d38ffa666d65a
+sha256:
+  darwin_arm64: 9db28cc2473d24211b9b23b2084b8883edba3e2681bd31c41247723b22dacb56
+  darwin_amd64: 54cc2d496c75fab7905f898d50cf1d1b2d0f5aaabb1ff31024ba812889d8a46f
+  linux_amd64: 58be72cfc69cbd4a656d4628a0ec11836411bf28c0fed2c08f00f4024e0cb3f6
+  linux_arm64: 6d08fed4d8100da2b24066e015c65b0e6b8484db18e77519066d38ffa666d65a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

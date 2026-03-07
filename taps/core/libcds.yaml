@@ -1,0 +1,19 @@
+name: libcds
+version: 2.3.3
+description: C++ library of Concurrent Data Structures
+homepage: https://libcds.sourceforge.net/doc/cds-api/index.html
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcds/blobs/sha256:35d45642d081770329b82ecd4fd379a6e7a9b4aa3bf0edf7a1fb81d9ce3a755b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcds/blobs/sha256:6357fbeba885fc7a4dd9a00ddf4e9513003776ee14501aaf30d1df3ce8ae2731
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcds/blobs/sha256:403e15797cf8fd6c2caea7427e964fe4e3392eb1685d7ff9203a0d72cde26aac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcds/blobs/sha256:d241b0700d0649100b84c884571e4a5880fc5a04698a86a428cc0d057f6c3554
+sha256:
+  darwin_arm64: 35d45642d081770329b82ecd4fd379a6e7a9b4aa3bf0edf7a1fb81d9ce3a755b
+  darwin_amd64: 6357fbeba885fc7a4dd9a00ddf4e9513003776ee14501aaf30d1df3ce8ae2731
+  linux_amd64: 403e15797cf8fd6c2caea7427e964fe4e3392eb1685d7ff9203a0d72cde26aac
+  linux_arm64: d241b0700d0649100b84c884571e4a5880fc5a04698a86a428cc0d057f6c3554
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

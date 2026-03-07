@@ -1,0 +1,22 @@
+name: pgcopydb
+version: 0.17
+description: Copy a Postgres database to a target Postgres server
+homepage: https://github.com/dimitri/pgcopydb
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgcopydb/blobs/sha256:0922fc7e2a6d606e02d8e140e9d621bb9b865cb9c9ba074a057d132cb1b3b187
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgcopydb/blobs/sha256:a3e2806d74af8c705b2077032255a7cd39ac079c4997c980231b49651416c109
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgcopydb/blobs/sha256:6f99b95987e4d9873cb365c5be588e3b55281ccf09e2879f67d63dd97cf8370e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgcopydb/blobs/sha256:c92d7b713b5620eee463b7c5a355c9c9d04676cc3d7d5e1bbf298d3bc0c4bd0d
+sha256:
+  darwin_arm64: 0922fc7e2a6d606e02d8e140e9d621bb9b865cb9c9ba074a057d132cb1b3b187
+  darwin_amd64: a3e2806d74af8c705b2077032255a7cd39ac079c4997c980231b49651416c109
+  linux_amd64: 6f99b95987e4d9873cb365c5be588e3b55281ccf09e2879f67d63dd97cf8370e
+  linux_arm64: c92d7b713b5620eee463b7c5a355c9c9d04676cc3d7d5e1bbf298d3bc0c4bd0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - libpq

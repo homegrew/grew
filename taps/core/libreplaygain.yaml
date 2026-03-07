@@ -1,0 +1,19 @@
+name: libreplaygain
+version: r475
+description: Library to implement ReplayGain standard for audio
+homepage: https://www.musepack.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libreplaygain/blobs/sha256:970cfda9b22895a8b68d1665e41a4106df2bf8e7c446a9c50527eec34a6caaa2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libreplaygain/blobs/sha256:29787fd64c241aea0fe1d5199403bf71d3f7bb7436000237a534ec603fffffbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libreplaygain/blobs/sha256:e25a808e70aa00573bcb1f195bb76b774e8060031e8a188d47eda1fb30fc6a4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libreplaygain/blobs/sha256:d8f6ee7956817e86f157467092d3040167e1c1cc09fcb0503fca830c7bb08540
+sha256:
+  darwin_arm64: 970cfda9b22895a8b68d1665e41a4106df2bf8e7c446a9c50527eec34a6caaa2
+  darwin_amd64: 29787fd64c241aea0fe1d5199403bf71d3f7bb7436000237a534ec603fffffbc
+  linux_amd64: e25a808e70aa00573bcb1f195bb76b774e8060031e8a188d47eda1fb30fc6a4f
+  linux_arm64: d8f6ee7956817e86f157467092d3040167e1c1cc09fcb0503fca830c7bb08540
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: elan-init
+version: 4.2.0
+description: Lean Theorem Prover installer and version manager
+homepage: https://github.com/leanprover/elan
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elan-init/blobs/sha256:fe5bf4830ff487e53a02d5afa3d8af13e1727402263fe60de611b99a5edcde8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elan-init/blobs/sha256:b14211f6be8ebc77c0a1294a39e1d0186e9b5b28d664e7abd0d4cce8e5d8a6b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elan-init/blobs/sha256:12a9d025de3fe9ff78a480f2a3ba29f85d029aa28e62b8409c79f8964eb9a420
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elan-init/blobs/sha256:150bea6fedf58f7439874d62ecee7b797d956e8a9a5e92d6c9690ae9dcfcc30b
+sha256:
+  darwin_arm64: fe5bf4830ff487e53a02d5afa3d8af13e1727402263fe60de611b99a5edcde8f
+  darwin_amd64: b14211f6be8ebc77c0a1294a39e1d0186e9b5b28d664e7abd0d4cce8e5d8a6b9
+  linux_amd64: 12a9d025de3fe9ff78a480f2a3ba29f85d029aa28e62b8409c79f8964eb9a420
+  linux_arm64: 150bea6fedf58f7439874d62ecee7b797d956e8a9a5e92d6c9690ae9dcfcc30b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils
+  - gmp

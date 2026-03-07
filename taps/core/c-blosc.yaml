@@ -1,0 +1,19 @@
+name: c-blosc
+version: 1.21.6
+description: Blocking, shuffling and loss-less compression library
+homepage: https://www.blosc.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c-blosc/blobs/sha256:0e7738316917ed92787b41bf1c0a7445edf167d5928249342ab9caadb4fe08a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c-blosc/blobs/sha256:f6837382559667940cba3903168bfaeff2bafbca5d39c41ca7586507f6e2623c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c-blosc/blobs/sha256:945cb54d12083813c6ef5c7a4dcaf747fbfd8db3dd37e8c4d3f69150354d69ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c-blosc/blobs/sha256:866cec70c5ebbb92e7115481a9aa3de619f6425c6539b1c446b83ec0b3326c41
+sha256:
+  darwin_arm64: 0e7738316917ed92787b41bf1c0a7445edf167d5928249342ab9caadb4fe08a6
+  darwin_amd64: f6837382559667940cba3903168bfaeff2bafbca5d39c41ca7586507f6e2623c
+  linux_amd64: 945cb54d12083813c6ef5c7a4dcaf747fbfd8db3dd37e8c4d3f69150354d69ae
+  linux_arm64: 866cec70c5ebbb92e7115481a9aa3de619f6425c6539b1c446b83ec0b3326c41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

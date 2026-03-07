@@ -1,0 +1,19 @@
+name: cppunit
+version: 1.15.1
+description: Unit testing framework for C++
+homepage: https://wiki.freedesktop.org/www/Software/cppunit/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppunit/blobs/sha256:106d4a437b3dae596bfb93cc8e04de0e28d97d3446a5ad900f926168c8773f45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppunit/blobs/sha256:7f1cbdf09781f2a7ad3ab585deed44b6e230815e50c2fa2a533513f11c4272a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppunit/blobs/sha256:1024a59b0bca4572448d7ed2e1152688d1b9be616d3b0644c15de8cd982c32a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppunit/blobs/sha256:d0a96b2919d44c81f063814b1e9272618b0144729a1c09f4f2878c63cbc7ee97
+sha256:
+  darwin_arm64: 106d4a437b3dae596bfb93cc8e04de0e28d97d3446a5ad900f926168c8773f45
+  darwin_amd64: 7f1cbdf09781f2a7ad3ab585deed44b6e230815e50c2fa2a533513f11c4272a8
+  linux_amd64: 1024a59b0bca4572448d7ed2e1152688d1b9be616d3b0644c15de8cd982c32a5
+  linux_arm64: d0a96b2919d44c81f063814b1e9272618b0144729a1c09f4f2878c63cbc7ee97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

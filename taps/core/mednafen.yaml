@@ -1,0 +1,27 @@
+name: mednafen
+version: 1.32.1
+description: Multi-system emulator
+homepage: https://mednafen.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mednafen/blobs/sha256:2145cf181313a45d6c144a8050fd7c81a53346b15aa5283772b2b3ed4ab7e831
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mednafen/blobs/sha256:3606d9e9e61a51287d17f1d7d6816d78755a8501ec1cf9569bec3c7ad80d4afd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mednafen/blobs/sha256:6f13f9eb2ea6d1a62eae0c6f9cfcb5e37d2b13db516568d0a7a38a823aeef010
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mednafen/blobs/sha256:0025b636b515e34cd89e39b43b14f2886d8d5cb7257b9a994027fefbbf5d34d7
+sha256:
+  darwin_arm64: 2145cf181313a45d6c144a8050fd7c81a53346b15aa5283772b2b3ed4ab7e831
+  darwin_amd64: 3606d9e9e61a51287d17f1d7d6816d78755a8501ec1cf9569bec3c7ad80d4afd
+  linux_amd64: 6f13f9eb2ea6d1a62eae0c6f9cfcb5e37d2b13db516568d0a7a38a823aeef010
+  linux_arm64: 0025b636b515e34cd89e39b43b14f2886d8d5cb7257b9a994027fefbbf5d34d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libsndfile
+  - lzo
+  - musepack
+  - sdl2
+  - zstd
+  - gettext

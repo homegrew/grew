@@ -1,0 +1,19 @@
+name: jwt-cli
+version: 6.2.0
+description: Super fast CLI tool to decode and encode JWTs built in Rust
+homepage: https://github.com/mike-engel/jwt-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jwt-cli/blobs/sha256:ed4b9baea19b99b6bec2a3488e683b0354fd5633355a07c29c1db6390c0be8ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jwt-cli/blobs/sha256:680cbbcf2e399fe52e9b2439cfa52ee5bce2b17ac2773bc4a82067e72a823092
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jwt-cli/blobs/sha256:0489c4208b5020bee00984994a5ce2d8a2a1f80f67de14a43520f38e918f9b8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jwt-cli/blobs/sha256:c2908de84a0365cdd926afea4a2fd75884d5ac24b757f17577c800fb6dc2015e
+sha256:
+  darwin_arm64: ed4b9baea19b99b6bec2a3488e683b0354fd5633355a07c29c1db6390c0be8ee
+  darwin_amd64: 680cbbcf2e399fe52e9b2439cfa52ee5bce2b17ac2773bc4a82067e72a823092
+  linux_amd64: 0489c4208b5020bee00984994a5ce2d8a2a1f80f67de14a43520f38e918f9b8c
+  linux_arm64: c2908de84a0365cdd926afea4a2fd75884d5ac24b757f17577c800fb6dc2015e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

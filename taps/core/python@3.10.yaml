@@ -1,0 +1,26 @@
+name: python@3.10
+version: 3.10.20
+description: Interpreted, interactive, object-oriented programming language
+homepage: https://www.python.org/
+license: Python-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python/3.10/blobs/sha256:50fd986a8c3039dd09a0f987f7d28e020952263fd4cb3c1abdf28df3d52b817b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python/3.10/blobs/sha256:04977a913682f060c57bc088a7100a685eeb8605edae1b4d13d95f95d7af2fa1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python/3.10/blobs/sha256:2fea15efb797cdb50fdb4927af71df1f9110fce9d5d1139e186ea397ac4097e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python/3.10/blobs/sha256:61e079d6c1475b6dab902111cdadb5f41c4f4c25f5db1ad702242b20ae74bdb9
+sha256:
+  darwin_arm64: 50fd986a8c3039dd09a0f987f7d28e020952263fd4cb3c1abdf28df3d52b817b
+  darwin_amd64: 04977a913682f060c57bc088a7100a685eeb8605edae1b4d13d95f95d7af2fa1
+  linux_amd64: 2fea15efb797cdb50fdb4927af71df1f9110fce9d5d1139e186ea397ac4097e8
+  linux_arm64: 61e079d6c1475b6dab902111cdadb5f41c4f4c25f5db1ad702242b20ae74bdb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdbm
+  - mpdecimal
+  - openssl@3
+  - readline
+  - sqlite
+  - xz

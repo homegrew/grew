@@ -1,0 +1,21 @@
+name: vlang
+version: 0.5
+description: V programming language
+homepage: https://vlang.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vlang/blobs/sha256:498e8cb0275d01f1486f98c470be304050789b0cd7432a38a28dd47233e8fe01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vlang/blobs/sha256:e29f74308e99f9d05917ca7a9ee45699f8bc45d9663215c79b1082080eab35f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vlang/blobs/sha256:25580978c612f524dabefcc113b941e89a09ad00cea0b24beb1336b6a5f61b6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vlang/blobs/sha256:624e8bbb90f61307a8590b50453f75954888823bac0991d641057b3c94d9d456
+sha256:
+  darwin_arm64: 498e8cb0275d01f1486f98c470be304050789b0cd7432a38a28dd47233e8fe01
+  darwin_amd64: e29f74308e99f9d05917ca7a9ee45699f8bc45d9663215c79b1082080eab35f1
+  linux_amd64: 25580978c612f524dabefcc113b941e89a09ad00cea0b24beb1336b6a5f61b6f
+  linux_arm64: 624e8bbb90f61307a8590b50453f75954888823bac0991d641057b3c94d9d456
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc

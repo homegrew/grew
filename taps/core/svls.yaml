@@ -1,0 +1,19 @@
+name: svls
+version: 0.2.14
+description: SystemVerilog language server
+homepage: https://github.com/dalance/svls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svls/blobs/sha256:714cc8d0da2f56e477cbc2137b65d29d65bdaebbd2049ee5c36b5027b9ebf616
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svls/blobs/sha256:f30dd4bfe75d83eb627f413d019dc406d8fcd59f1958e39f819c824204db0b43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svls/blobs/sha256:d74038cd3ee47ae0d5138b5a9d665e17b52476855a7d7ddf886f674b97d2b0f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svls/blobs/sha256:0950de61bd59d410ca9365814db51fab82456ae8aedc33cc07fb42dc7694e45a
+sha256:
+  darwin_arm64: 714cc8d0da2f56e477cbc2137b65d29d65bdaebbd2049ee5c36b5027b9ebf616
+  darwin_amd64: f30dd4bfe75d83eb627f413d019dc406d8fcd59f1958e39f819c824204db0b43
+  linux_amd64: d74038cd3ee47ae0d5138b5a9d665e17b52476855a7d7ddf886f674b97d2b0f4
+  linux_arm64: 0950de61bd59d410ca9365814db51fab82456ae8aedc33cc07fb42dc7694e45a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

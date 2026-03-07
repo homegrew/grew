@@ -1,0 +1,19 @@
+name: libdvbcsa
+version: 1.1.0
+description: Free implementation of the DVB Common Scrambling Algorithm
+homepage: https://www.videolan.org/developers/libdvbcsa.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdvbcsa/blobs/sha256:7978cc5fa8ca42fed7145ad8b1a5e445d1028c0bd30199d306466945e517bb41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdvbcsa/blobs/sha256:87eb0ce6fabdb8466725bf37dd270ed2853b1c14186bc4448878eb06367eb9a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdvbcsa/blobs/sha256:0cda58fe30ffc94214d77f45ee2d087a1bf8382c6429ad0bf1dd6503b208e23a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdvbcsa/blobs/sha256:0cd1059d9eab19ada7bf0c2035749b39665f32abb2b521ac344e1372f7093548
+sha256:
+  darwin_arm64: 7978cc5fa8ca42fed7145ad8b1a5e445d1028c0bd30199d306466945e517bb41
+  darwin_amd64: 87eb0ce6fabdb8466725bf37dd270ed2853b1c14186bc4448878eb06367eb9a4
+  linux_amd64: 0cda58fe30ffc94214d77f45ee2d087a1bf8382c6429ad0bf1dd6503b208e23a
+  linux_arm64: 0cd1059d9eab19ada7bf0c2035749b39665f32abb2b521ac344e1372f7093548
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

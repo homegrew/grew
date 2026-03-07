@@ -1,0 +1,11 @@
+name: mailspring
+version: 1.18.0
+description: Fork of Nylas Mail
+homepage: https://getmailspring.com/
+url:
+  darwin_arm64: https://github.com/Foundry376/Mailspring/releases/download/1.18.0/Mailspring-AppleSilicon.zip
+sha256:
+  darwin_arm64: 6c205079b3ab932be5cc72fbd11ccdc15b74cc9a5ec78a4c3600dcec542e5005
+artifacts:
+  app:
+    - Mailspring.app

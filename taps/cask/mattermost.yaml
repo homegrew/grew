@@ -1,0 +1,11 @@
+name: mattermost
+version: 6.0.4
+description: Open-source, self-hosted Slack-alternative
+homepage: https://mattermost.com/
+url:
+  darwin_arm64: https://releases.mattermost.com/desktop/6.0.4/mattermost-desktop-6.0.4-mac-m1.zip
+sha256:
+  darwin_arm64: 86d5063c9ccdc81fa89dd9f49b4dd7585e601c4d960be56fef25d116ed90f446
+artifacts:
+  app:
+    - Mattermost.app

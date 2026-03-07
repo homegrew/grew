@@ -1,0 +1,19 @@
+name: velero
+version: 1.18.0
+description: Disaster recovery for Kubernetes resources and persistent volumes
+homepage: https://velero.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/velero/blobs/sha256:d138af20ffb434ad4bf2030f34c374212c746a094184dc62b2ff91527a6ca90c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/velero/blobs/sha256:909b5f726a91247c9f972d5bea1e4f0113fe130307b6b455eb66fbd29b3c69b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/velero/blobs/sha256:97eb510dc359a1e34f903723293fe82a9814fb5b9df050674f2a4884aecae0a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/velero/blobs/sha256:8a1679d9cce7f2eeb9905c38aa414db99ab982f09f68ce5dc3ad6ec6c1d339bf
+sha256:
+  darwin_arm64: d138af20ffb434ad4bf2030f34c374212c746a094184dc62b2ff91527a6ca90c
+  darwin_amd64: 909b5f726a91247c9f972d5bea1e4f0113fe130307b6b455eb66fbd29b3c69b9
+  linux_amd64: 97eb510dc359a1e34f903723293fe82a9814fb5b9df050674f2a4884aecae0a0
+  linux_arm64: 8a1679d9cce7f2eeb9905c38aa414db99ab982f09f68ce5dc3ad6ec6c1d339bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

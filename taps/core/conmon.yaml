@@ -1,0 +1,19 @@
+name: conmon
+version: 2.2.1
+description: OCI container runtime monitor
+homepage: https://github.com/containers/conmon
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/conmon/blobs/sha256:08eafee8471ae1ac41c2a408fefdb5059b5d180f84ad17ece149976a661c034b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/conmon/blobs/sha256:ad2a36cee01c75c27125ece2507f51cd3b5e6ffec84ec76cbd23c16315896204
+sha256:
+  linux_amd64: 08eafee8471ae1ac41c2a408fefdb5059b5d180f84ad17ece149976a661c034b
+  linux_arm64: ad2a36cee01c75c27125ece2507f51cd3b5e6ffec84ec76cbd23c16315896204
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libseccomp
+  - systemd

@@ -1,0 +1,19 @@
+name: fastly
+version: 14.0.4
+description: Build, deploy and configure Fastly services
+homepage: https://www.fastly.com/documentation/reference/cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastly/blobs/sha256:e6e3957d6de868b75f696aa1a366271e765b44ba3a5c0841e767e040edabd910
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastly/blobs/sha256:00fd593ebe26c39dd3e10201f65ee45b991231ecd9648dcfae64b7323635c2e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastly/blobs/sha256:133c05028c14541d72c61f2237821abc2b1bccb58d8e9d6d44625fff3c9892be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastly/blobs/sha256:0bea0e2e9efeaed76b4826bbc696b5265a6d52b3647264d208c5a57032798ccc
+sha256:
+  darwin_arm64: e6e3957d6de868b75f696aa1a366271e765b44ba3a5c0841e767e040edabd910
+  darwin_amd64: 00fd593ebe26c39dd3e10201f65ee45b991231ecd9648dcfae64b7323635c2e8
+  linux_amd64: 133c05028c14541d72c61f2237821abc2b1bccb58d8e9d6d44625fff3c9892be
+  linux_arm64: 0bea0e2e9efeaed76b4826bbc696b5265a6d52b3647264d208c5a57032798ccc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: libxxf86dga
+version: 1.1.7
+description: "X.Org: XFree86-DGA X extension"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxxf86dga/blobs/sha256:907281ec6adea58481d3fc39bc197ecb0571d6f14e5c378841c208a46d912d9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxxf86dga/blobs/sha256:9c9adfc0a78c26f4f10cbcb5c028b34bc306e1da928595c5841fba4b45b7dd00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxxf86dga/blobs/sha256:ebc06a4ad625912d3286ead1391d75246109b6cc76ee419685a394b6d1234c90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxxf86dga/blobs/sha256:2a793906bdb10702fa2e980947bdc1144322fb17e5222cf68b436a4a7ba24040
+sha256:
+  darwin_arm64: 907281ec6adea58481d3fc39bc197ecb0571d6f14e5c378841c208a46d912d9f
+  darwin_amd64: 9c9adfc0a78c26f4f10cbcb5c028b34bc306e1da928595c5841fba4b45b7dd00
+  linux_amd64: ebc06a4ad625912d3286ead1391d75246109b6cc76ee419685a394b6d1234c90
+  linux_arm64: 2a793906bdb10702fa2e980947bdc1144322fb17e5222cf68b436a4a7ba24040
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext

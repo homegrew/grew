@@ -1,0 +1,21 @@
+name: arpoison
+version: 0.7
+description: UNIX arp cache update utility
+homepage: http://www.arpoison.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arpoison/blobs/sha256:befc347407af6f1c5581b82628c49605b87c84b2ce0b2d75f4641496c9ad8789
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arpoison/blobs/sha256:44c3875b6b3a12730676cab6eb35ca21b7e7d101cf5aa5647ea8711574e2fb04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arpoison/blobs/sha256:5d1b74e30daecd8e66750565482b964566fbb0b323f86f360de9f0b1ad332cec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arpoison/blobs/sha256:75d63e2ad84b69dae9d22fde3a7a2faaa8f35b67766ae1ca1e7c7fcfd79de484
+sha256:
+  darwin_arm64: befc347407af6f1c5581b82628c49605b87c84b2ce0b2d75f4641496c9ad8789
+  darwin_amd64: 44c3875b6b3a12730676cab6eb35ca21b7e7d101cf5aa5647ea8711574e2fb04
+  linux_amd64: 5d1b74e30daecd8e66750565482b964566fbb0b323f86f360de9f0b1ad332cec
+  linux_arm64: 75d63e2ad84b69dae9d22fde3a7a2faaa8f35b67766ae1ca1e7c7fcfd79de484
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnet

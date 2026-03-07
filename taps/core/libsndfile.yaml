@@ -1,0 +1,26 @@
+name: libsndfile
+version: 1.2.2
+description: C library for files containing sampled sound
+homepage: https://libsndfile.github.io/libsndfile/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsndfile/blobs/sha256:7788d515f9bc665779112b28a86810a2ac4bc5fb94a763df5d1188e461efce98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsndfile/blobs/sha256:ea6ba9a5dc801a8b736ad39a5e417af93c5d0514ea5a741e92da88d9327a7988
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsndfile/blobs/sha256:b40061adc0ea00923ea38c2c472eccc172e702398c2ddd3c705bf0dd6b16cbed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsndfile/blobs/sha256:ba22269018452e319778db8f9dfff4f0ddbab0570bd9f44412cf8ea8cccc517a
+sha256:
+  darwin_arm64: 7788d515f9bc665779112b28a86810a2ac4bc5fb94a763df5d1188e461efce98
+  darwin_amd64: ea6ba9a5dc801a8b736ad39a5e417af93c5d0514ea5a741e92da88d9327a7988
+  linux_amd64: b40061adc0ea00923ea38c2c472eccc172e702398c2ddd3c705bf0dd6b16cbed
+  linux_arm64: ba22269018452e319778db8f9dfff4f0ddbab0570bd9f44412cf8ea8cccc517a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - lame
+  - libogg
+  - libvorbis
+  - mpg123
+  - opus

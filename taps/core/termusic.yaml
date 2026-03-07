@@ -1,0 +1,21 @@
+name: termusic
+version: 0.12.1
+description: Music Player TUI written in Rust
+homepage: https://github.com/tramhao/termusic
+license: MIT AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termusic/blobs/sha256:1c2f883e043839db16ac4f8de8add8b972de0e008463f714e7a19c89cb76be45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termusic/blobs/sha256:06be1c021c63e361e292860592fb21b6abe48f044e8fcba7dc74740ce29d9069
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termusic/blobs/sha256:4723e83582af2d07546b8af198ee691299a3bfb4e10dd55003391556ecc6f508
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termusic/blobs/sha256:c32e8c19f96b03217bdca10746787eaf5d000fea12be63e769c6985385604bd0
+sha256:
+  darwin_arm64: 1c2f883e043839db16ac4f8de8add8b972de0e008463f714e7a19c89cb76be45
+  darwin_amd64: 06be1c021c63e361e292860592fb21b6abe48f044e8fcba7dc74740ce29d9069
+  linux_amd64: 4723e83582af2d07546b8af198ee691299a3bfb4e10dd55003391556ecc6f508
+  linux_arm64: c32e8c19f96b03217bdca10746787eaf5d000fea12be63e769c6985385604bd0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

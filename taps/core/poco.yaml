@@ -1,0 +1,24 @@
+name: poco
+version: 1.15.0
+description: C++ class libraries for building network and internet-based applications
+homepage: https://pocoproject.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poco/blobs/sha256:2ea32a69fbaa18c2e1285164eb60a7434512fc9e8f9391a8ba6e0ae5fae4c81e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poco/blobs/sha256:8761f92bdfa0bb6829f7c872ee5331cb39bc6d66a96847d1aafab87f80a63391
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poco/blobs/sha256:03547c258e6fd4ea6d6f597d485439bbe5f172c8cee01d054f091b505fe9f4c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poco/blobs/sha256:933757a5315034c5c2763983dd2e641d022ce5eb25ce68d4b3c92f881ed40fa8
+sha256:
+  darwin_arm64: 2ea32a69fbaa18c2e1285164eb60a7434512fc9e8f9391a8ba6e0ae5fae4c81e
+  darwin_amd64: 8761f92bdfa0bb6829f7c872ee5331cb39bc6d66a96847d1aafab87f80a63391
+  linux_amd64: 03547c258e6fd4ea6d6f597d485439bbe5f172c8cee01d054f091b505fe9f4c1
+  linux_arm64: 933757a5315034c5c2763983dd2e641d022ce5eb25ce68d4b3c92f881ed40fa8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - openssl@3
+  - pcre2
+  - utf8proc

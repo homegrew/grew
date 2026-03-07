@@ -1,0 +1,19 @@
+name: tfcmt
+version: 4.14.15
+description: Notify the execution result of terraform command
+homepage: https://suzuki-shunsuke.github.io/tfcmt/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfcmt/blobs/sha256:1eaf047ce8150f1feecb975470b97bd971d32720adbc01885fa5d469592efa9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfcmt/blobs/sha256:660ca0d854f4f6e4fae7ba34868905d20c1bea133bba07abf943592e15e3ebc8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfcmt/blobs/sha256:bd2d37d70285a270280950b30822c5472e7021d62fbf7ce2666e0e6ac76e8beb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfcmt/blobs/sha256:1d71bea60799faab717d6ed7eb2b9c243e62411ebfaa3451454d03057dc57a69
+sha256:
+  darwin_arm64: 1eaf047ce8150f1feecb975470b97bd971d32720adbc01885fa5d469592efa9d
+  darwin_amd64: 660ca0d854f4f6e4fae7ba34868905d20c1bea133bba07abf943592e15e3ebc8
+  linux_amd64: bd2d37d70285a270280950b30822c5472e7021d62fbf7ce2666e0e6ac76e8beb
+  linux_arm64: 1d71bea60799faab717d6ed7eb2b9c243e62411ebfaa3451454d03057dc57a69
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

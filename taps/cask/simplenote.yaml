@@ -1,0 +1,11 @@
+name: simplenote
+version: 2.24.0
+description: React client for Simplenote
+homepage: https://github.com/Automattic/simplenote-electron
+url:
+  darwin_arm64: https://github.com/Automattic/simplenote-electron/releases/download/v2.24.0/Simplenote-macOS-2.24.0.dmg
+sha256:
+  darwin_arm64: bebf0d07de770c6668289e64fb83708c8b051ac99200c96cab4cd619fe6b9426
+artifacts:
+  app:
+    - Simplenote.app

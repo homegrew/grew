@@ -1,0 +1,11 @@
+name: isabelle
+version: 2025-2
+description: Generic proof assistant
+homepage: https://www.cl.cam.ac.uk/research/hvg/Isabelle/
+url:
+  darwin_arm64: https://www.cl.cam.ac.uk/research/hvg/Isabelle/dist/Isabelle2025-2_macos.tar.gz
+sha256:
+  darwin_arm64: 8f187496e295f169952e944745af9e4ae00c9c1cd2ed4cadbcf7d898e444913e
+artifacts:
+  bin:
+    - isabelle

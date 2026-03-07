@@ -1,0 +1,21 @@
+name: libngtcp2
+version: 1.21.0
+description: IETF QUIC protocol implementation
+homepage: https://nghttp2.org/ngtcp2/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libngtcp2/blobs/sha256:87ac4a52ae17d1a46bbaadf272b5fa76369c2b464bf3dc9e0b0b3a0b55a4100a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libngtcp2/blobs/sha256:d288a5cb887262ae8e0f0ff1e4b5903acfadf954db300883567d13820e77ac1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libngtcp2/blobs/sha256:0796e3a15b12e5664163c3ec27e144eac51228ff38b39af69fadd9eacb20c6e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libngtcp2/blobs/sha256:5f1e70bdc0140117b0084018fe1f57992bb6f3bd49c110ad282bbd6bfdae3bc0
+sha256:
+  darwin_arm64: 87ac4a52ae17d1a46bbaadf272b5fa76369c2b464bf3dc9e0b0b3a0b55a4100a
+  darwin_amd64: d288a5cb887262ae8e0f0ff1e4b5903acfadf954db300883567d13820e77ac1a
+  linux_amd64: 0796e3a15b12e5664163c3ec27e144eac51228ff38b39af69fadd9eacb20c6e7
+  linux_arm64: 5f1e70bdc0140117b0084018fe1f57992bb6f3bd49c110ad282bbd6bfdae3bc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

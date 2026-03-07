@@ -1,0 +1,22 @@
+name: libfido2
+version: 1.16.0
+description: "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
+homepage: https://developers.yubico.com/libfido2/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfido2/blobs/sha256:432fd520ac9a846d45b344c4ce888fd6ffb898c78e289710de6aac0add686fb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfido2/blobs/sha256:c218ca912276907a8b7690f03649becd474c64bb0b12749b6136f3ffc7703126
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfido2/blobs/sha256:dbd9420fb40c7b95ab6011f9d8149a9406a32083d2044ca9dc0a1a4885f9b352
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfido2/blobs/sha256:5e95b21e17cf4fe231733612ebb7b524e5cacd27b20fb4828e0b3818b45ed00d
+sha256:
+  darwin_arm64: 432fd520ac9a846d45b344c4ce888fd6ffb898c78e289710de6aac0add686fb6
+  darwin_amd64: c218ca912276907a8b7690f03649becd474c64bb0b12749b6136f3ffc7703126
+  linux_amd64: dbd9420fb40c7b95ab6011f9d8149a9406a32083d2044ca9dc0a1a4885f9b352
+  linux_arm64: 5e95b21e17cf4fe231733612ebb7b524e5cacd27b20fb4828e0b3818b45ed00d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcbor
+  - openssl@3

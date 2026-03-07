@@ -1,0 +1,19 @@
+name: ddclient
+version: 4.0.0
+description: Update dynamic DNS entries
+homepage: https://ddclient.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddclient/blobs/sha256:fd99a31bc382b37fb1c30b0951207f62cac95ca4a63e1aa8b33418d8c7835b02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddclient/blobs/sha256:f21970276380eb8695cf3d1fe7db5e34ebb4f6a30e5e016a40f09f9aaea3a463
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddclient/blobs/sha256:21970b6c0bf60078a269f10b8e22da146a75f65ef69cead984b9026203664493
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddclient/blobs/sha256:7e668a3f6c30e6ee9161cee638436862bf180227acaf1d9d18c91f3c5fc11993
+sha256:
+  darwin_arm64: fd99a31bc382b37fb1c30b0951207f62cac95ca4a63e1aa8b33418d8c7835b02
+  darwin_amd64: f21970276380eb8695cf3d1fe7db5e34ebb4f6a30e5e016a40f09f9aaea3a463
+  linux_amd64: 21970b6c0bf60078a269f10b8e22da146a75f65ef69cead984b9026203664493
+  linux_arm64: 7e668a3f6c30e6ee9161cee638436862bf180227acaf1d9d18c91f3c5fc11993
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

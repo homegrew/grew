@@ -1,0 +1,19 @@
+name: block-goose-cli
+version: 1.27.2
+description: Open source, extensible AI agent that goes beyond code suggestions
+homepage: https://block.github.io/goose/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/block-goose-cli/blobs/sha256:33ae6c5c167d12b651d89bee0ec0cab0b770d841f601a7556824058c58e6f861
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/block-goose-cli/blobs/sha256:16c4a00529ab20bf0d98e897c24ac67c30bbe6c2cf3441ea41636fa0bd8a324a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/block-goose-cli/blobs/sha256:35d4936bcb263cf68c3305f9825630f3a6fea61d2225d602673b5c6f8311e86b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/block-goose-cli/blobs/sha256:2152219d4a95589799ee16fe66da083b34863028df5331f3b85e5971839afd13
+sha256:
+  darwin_arm64: 33ae6c5c167d12b651d89bee0ec0cab0b770d841f601a7556824058c58e6f861
+  darwin_amd64: 16c4a00529ab20bf0d98e897c24ac67c30bbe6c2cf3441ea41636fa0bd8a324a
+  linux_amd64: 35d4936bcb263cf68c3305f9825630f3a6fea61d2225d602673b5c6f8311e86b
+  linux_arm64: 2152219d4a95589799ee16fe66da083b34863028df5331f3b85e5971839afd13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

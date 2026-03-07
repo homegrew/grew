@@ -1,0 +1,22 @@
+name: minizip-ng
+version: 4.1.0
+description: Zip file manipulation library with minizip 1.x compatibility layer
+homepage: https://github.com/zlib-ng/minizip-ng
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minizip-ng/blobs/sha256:1c5d344d8e472115ba7088e581d5db6e572a8a0552917df353380bcf5eb53b6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minizip-ng/blobs/sha256:cdf7ea3520821d64e900f83ecd91fcdf45f35c9094e044b9420bc41f82b60a5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minizip-ng/blobs/sha256:ca71475bc122013714a7ea36f94d6862368cc8a03ef6ae89631cec6743c6a6b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minizip-ng/blobs/sha256:4374f85c5cfcc5f9ae93a213c482cd643b423416f3a3f27f6b5a297559df24c4
+sha256:
+  darwin_arm64: 1c5d344d8e472115ba7088e581d5db6e572a8a0552917df353380bcf5eb53b6a
+  darwin_amd64: cdf7ea3520821d64e900f83ecd91fcdf45f35c9094e044b9420bc41f82b60a5a
+  linux_amd64: ca71475bc122013714a7ea36f94d6862368cc8a03ef6ae89631cec6743c6a6b0
+  linux_arm64: 4374f85c5cfcc5f9ae93a213c482cd643b423416f3a3f27f6b5a297559df24c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz
+  - zstd

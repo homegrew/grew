@@ -1,0 +1,20 @@
+name: cryfs
+version: 1.0.3
+description: Encrypts your files so you can safely store them in Dropbox, iCloud, etc.
+homepage: https://www.cryfs.org
+license: LGPL-3.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cryfs/blobs/sha256:4d391a757720609a5f34600e573d517e8f061afddb31ff743d4f18737e2cf399
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cryfs/blobs/sha256:aad3465262b4d592cf14d87253fca6f7543c8f1f1b6a5ab177d36befda519fd2
+sha256:
+  linux_amd64: 4d391a757720609a5f34600e573d517e8f061afddb31ff743d4f18737e2cf399
+  linux_arm64: aad3465262b4d592cf14d87253fca6f7543c8f1f1b6a5ab177d36befda519fd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - fmt
+  - libfuse@2
+  - spdlog

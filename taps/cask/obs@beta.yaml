@@ -1,0 +1,13 @@
+name: obs@beta
+version: 32.1.0-rc4
+description: Open-source software for live streaming and screen recording
+homepage: https://obsproject.com/forum/list/test-builds.20/
+url:
+  darwin_arm64: https://cdn-fastly.obsproject.com/downloads/obs-studio-32.1.0-rc4-macos-apple.dmg
+sha256:
+  darwin_arm64: 129597da2c4184ae26acf54ee5afc4fa80bce913c61135fab6e035d8e945bc3a
+artifacts:
+  app:
+    - OBS.app
+  bin:
+    - obs

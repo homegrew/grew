@@ -1,0 +1,22 @@
+name: dotbot
+version: 1.24.0
+description: Tool that bootstraps your dotfiles
+homepage: https://github.com/anishathalye/dotbot
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotbot/blobs/sha256:a40f62aa621daccfe4a1a40c39117876eeac862a9d95e079b5ed1817bc633f68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotbot/blobs/sha256:0a7973e810721b5b016729e597f638cd85898bd59ef6195400edeace22c5ec18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotbot/blobs/sha256:cf9c4b4b11dd4993d6e921804063729f7e004a2cc00b6b33dd2ddc87d555372b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotbot/blobs/sha256:7779c8acc1f27d91a99a80eb5ab9eb49101b3b9df09364569f910f06d8c256db
+sha256:
+  darwin_arm64: a40f62aa621daccfe4a1a40c39117876eeac862a9d95e079b5ed1817bc633f68
+  darwin_amd64: 0a7973e810721b5b016729e597f638cd85898bd59ef6195400edeace22c5ec18
+  linux_amd64: cf9c4b4b11dd4993d6e921804063729f7e004a2cc00b6b33dd2ddc87d555372b
+  linux_arm64: 7779c8acc1f27d91a99a80eb5ab9eb49101b3b9df09364569f910f06d8c256db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,21 @@
+name: dmg2img
+version: 1.6.7
+description: Utilities for converting macOS DMG images
+homepage: http://vu1tur.eu.org/tools/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dmg2img/blobs/sha256:606ad411e551ca06e51b65e8e86db388a2f8d49a684fac4b803fc06adee95f1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dmg2img/blobs/sha256:4365149beabaf567f6b2ed11c2ad6e09989911c30be42a841e9b53f265bbe7a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dmg2img/blobs/sha256:ef48b1f21bb0dd210883e31452368224a72fc775db03a15b95c29f61c1e41c82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dmg2img/blobs/sha256:b58b6e5656e913aa9001e9b4a11ff670711e97bb96e129ab04a08ec64bf60924
+sha256:
+  darwin_arm64: 606ad411e551ca06e51b65e8e86db388a2f8d49a684fac4b803fc06adee95f1d
+  darwin_amd64: 4365149beabaf567f6b2ed11c2ad6e09989911c30be42a841e9b53f265bbe7a7
+  linux_amd64: ef48b1f21bb0dd210883e31452368224a72fc775db03a15b95c29f61c1e41c82
+  linux_arm64: b58b6e5656e913aa9001e9b4a11ff670711e97bb96e129ab04a08ec64bf60924
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

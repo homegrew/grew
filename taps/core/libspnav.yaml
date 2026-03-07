@@ -1,0 +1,19 @@
+name: libspnav
+version: 1.2
+description: "Client library for connecting to 3Dconnexion's 3D input devices"
+homepage: https://spacenav.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libspnav/blobs/sha256:8617c396bcd6038db8011ef5b64b829c539d70cd80e535e98ae3c556f4ce8b2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libspnav/blobs/sha256:2930ff1e49f96695150603db974beaa4b731d8593e25c30378d3b10dc484a94f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libspnav/blobs/sha256:e770b50e19f7cdd6992eaea4a8595e6690074854396f371169787f5609a47d75
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libspnav/blobs/sha256:0fff8d5004804ef7849dd0541b461af209fcd8a96645cc0461e74847a34788c1
+sha256:
+  darwin_arm64: 8617c396bcd6038db8011ef5b64b829c539d70cd80e535e98ae3c556f4ce8b2c
+  darwin_amd64: 2930ff1e49f96695150603db974beaa4b731d8593e25c30378d3b10dc484a94f
+  linux_amd64: e770b50e19f7cdd6992eaea4a8595e6690074854396f371169787f5609a47d75
+  linux_arm64: 0fff8d5004804ef7849dd0541b461af209fcd8a96645cc0461e74847a34788c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

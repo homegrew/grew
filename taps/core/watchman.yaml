@@ -1,0 +1,28 @@
+name: watchman
+version: 2026.03.02.00
+description: Watch files and take action when they change
+homepage: https://github.com/facebook/watchman
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/watchman/blobs/sha256:ec8a2dd52845100f9c8d15d9942294375cac95e83e43f38cc9c9ed47e0a90a49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/watchman/blobs/sha256:e31d19c0d1718ce4ee733bc4ad6b3edf3ced67d99d7c85bbd7d5128019536f44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/watchman/blobs/sha256:9824591d370c4bdbedc3b2982045b37a0a92a964b05b4c329b9eaee36140a0b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/watchman/blobs/sha256:1f62db5fc5843644804d57ba358f6aa995e5e72deacfd5f10c52332c73285d99
+sha256:
+  darwin_arm64: ec8a2dd52845100f9c8d15d9942294375cac95e83e43f38cc9c9ed47e0a90a49
+  darwin_amd64: e31d19c0d1718ce4ee733bc4ad6b3edf3ced67d99d7c85bbd7d5128019536f44
+  linux_amd64: 9824591d370c4bdbedc3b2982045b37a0a92a964b05b4c329b9eaee36140a0b6
+  linux_arm64: 1f62db5fc5843644804d57ba358f6aa995e5e72deacfd5f10c52332c73285d99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - edencommon
+  - fb303
+  - fbthrift
+  - fmt
+  - folly
+  - glog
+  - pcre2
+  - python@3.14

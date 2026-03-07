@@ -1,0 +1,19 @@
+name: bib-tool
+version: 2.68
+description: Manipulates BibTeX databases
+homepage: https://www.gerd-neugebauer.de/software/TeX/BibTool/en/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bib-tool/blobs/sha256:21dc870e5436946a79ee212b44a1d867c872f5c2374a3693563097dd89212849
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bib-tool/blobs/sha256:9b04230870283c0bbb78a8abbc3c805bcb3ba5df1e713c98f57e39ace29ec4b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bib-tool/blobs/sha256:26d038986c5f22a7fd14898391052bd93ac18d34374c2662624efd50ff86a137
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bib-tool/blobs/sha256:950aa4606e27f585b5845def489fa649687dcbfa927b7ceb79d2186c7c0e5cfc
+sha256:
+  darwin_arm64: 21dc870e5436946a79ee212b44a1d867c872f5c2374a3693563097dd89212849
+  darwin_amd64: 9b04230870283c0bbb78a8abbc3c805bcb3ba5df1e713c98f57e39ace29ec4b5
+  linux_amd64: 26d038986c5f22a7fd14898391052bd93ac18d34374c2662624efd50ff86a137
+  linux_arm64: 950aa4606e27f585b5845def489fa649687dcbfa927b7ceb79d2186c7c0e5cfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

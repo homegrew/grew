@@ -1,0 +1,19 @@
+name: katana
+version: 1.4.0
+description: Crawling and spidering framework
+homepage: https://github.com/projectdiscovery/katana
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/katana/blobs/sha256:07698689720828c1e3e486f3cb1ea60521c7e9dcf0bf89ba9c0fbaa8a3d1bd10
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/katana/blobs/sha256:d32d4fa493fe8d4564bb74224a208677efd322d7410bbeb4bd07c3541f8539e2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/katana/blobs/sha256:22e87001d78e97c78c790a94396b7660c4051853f1a2d99cca36c548d0b7dd09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/katana/blobs/sha256:d2248ad149e4e23be064480b29168237386c0d799a1380d9be1ba495d0037cb5
+sha256:
+  darwin_arm64: 07698689720828c1e3e486f3cb1ea60521c7e9dcf0bf89ba9c0fbaa8a3d1bd10
+  darwin_amd64: d32d4fa493fe8d4564bb74224a208677efd322d7410bbeb4bd07c3541f8539e2
+  linux_amd64: 22e87001d78e97c78c790a94396b7660c4051853f1a2d99cca36c548d0b7dd09
+  linux_arm64: d2248ad149e4e23be064480b29168237386c0d799a1380d9be1ba495d0037cb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: nettle
+version: 3.10.2
+description: Low-level cryptographic library
+homepage: https://www.lysator.liu.se/~nisse/nettle/
+license: GPL-2.0-or-later OR LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nettle/blobs/sha256:f433c0830169086cae47237fc4fe4b8c71021ec9683006db96e066ff0b883030
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nettle/blobs/sha256:46f05ed1c965061f176755083b8a14e6f8cfc3543201d95691bc2a4090309152
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nettle/blobs/sha256:ff4a7452b4dcf2f1ad266f19f5eb5a29e02b5d1215d4bc46f3d4c4ca4b8e6282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nettle/blobs/sha256:411e940ef2c87423f8c0ed34427aa5235e0bc702b40943e3564878a62c76d420
+sha256:
+  darwin_arm64: f433c0830169086cae47237fc4fe4b8c71021ec9683006db96e066ff0b883030
+  darwin_amd64: 46f05ed1c965061f176755083b8a14e6f8cfc3543201d95691bc2a4090309152
+  linux_amd64: ff4a7452b4dcf2f1ad266f19f5eb5a29e02b5d1215d4bc46f3d4c4ca4b8e6282
+  linux_arm64: 411e940ef2c87423f8c0ed34427aa5235e0bc702b40943e3564878a62c76d420
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

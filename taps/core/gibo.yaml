@@ -1,0 +1,19 @@
+name: gibo
+version: 3.0.16
+description: "Access GitHub's .gitignore boilerplates"
+homepage: https://github.com/simonwhitaker/gibo
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gibo/blobs/sha256:a67d83a8d370d32de6f47fa97210e972c0949caaf232cd98a15fe3a1e4249318
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gibo/blobs/sha256:f14c1c1fe00324fc685cc4f17e70891aad5bd2f3853f5b1eff5d90e2c9c74935
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gibo/blobs/sha256:875cae4046adca98f41f232a963e59b59d05c4140267f08472d74c5cf9dde56c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gibo/blobs/sha256:0ca9b9ae7f8c4c0a15a67756b37b45e94fa35a3fa5329238bde15d9d45eb4da5
+sha256:
+  darwin_arm64: a67d83a8d370d32de6f47fa97210e972c0949caaf232cd98a15fe3a1e4249318
+  darwin_amd64: f14c1c1fe00324fc685cc4f17e70891aad5bd2f3853f5b1eff5d90e2c9c74935
+  linux_amd64: 875cae4046adca98f41f232a963e59b59d05c4140267f08472d74c5cf9dde56c
+  linux_arm64: 0ca9b9ae7f8c4c0a15a67756b37b45e94fa35a3fa5329238bde15d9d45eb4da5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

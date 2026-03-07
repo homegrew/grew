@@ -1,0 +1,31 @@
+name: kew
+version: 3.7.3
+description: Command-line music player
+homepage: https://github.com/ravachol/kew
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kew/blobs/sha256:4fc345414fe92160c9f41e989a916dfa0264aba3735a2693912b5f8731b92a4b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kew/blobs/sha256:989390516013f40dadd4de3364bec028c1d739446d3e727f2d24f0ff7cb5577c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kew/blobs/sha256:5a055a3d471c84dd7c0a02186e35be79b9851d606a42bb58d65a2f9bfcb434d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kew/blobs/sha256:03e018f7bdb1c61ce3bf8a64be2039395d1b305837d0cdfe290769970b33e70c
+sha256:
+  darwin_arm64: 4fc345414fe92160c9f41e989a916dfa0264aba3735a2693912b5f8731b92a4b
+  darwin_amd64: 989390516013f40dadd4de3364bec028c1d739446d3e727f2d24f0ff7cb5577c
+  linux_amd64: 5a055a3d471c84dd7c0a02186e35be79b9851d606a42bb58d65a2f9bfcb434d8
+  linux_arm64: 03e018f7bdb1c61ce3bf8a64be2039395d1b305837d0cdfe290769970b33e70c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - chafa
+  - faad2
+  - fftw
+  - glib
+  - libogg
+  - libvorbis
+  - opus
+  - opusfile
+  - taglib
+  - gdk-pixbuf
+  - gettext

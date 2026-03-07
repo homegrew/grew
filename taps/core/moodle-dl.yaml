@@ -1,0 +1,23 @@
+name: moodle-dl
+version: 2.3.13
+description: Downloads course content fast from Moodle (e.g., lecture PDFs)
+homepage: https://github.com/C0D3D3V/Moodle-DL
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moodle-dl/blobs/sha256:11dc6426420c4f0dfeb58d0d1db817a0e7d94def55c2d0edc337eb0c69a522fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moodle-dl/blobs/sha256:b6650482fc16bdb2ba85f02d546865627d85ac76420cc6614f9c6ea51fe93956
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moodle-dl/blobs/sha256:c9212c015959a4abc622e5310fa869e5c53e41bf29838030f27f198e0f41d90b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moodle-dl/blobs/sha256:706b40da335315f37a587774fb0c6188b5686f4f0edb7e5cb82cdb9179cfea4a
+sha256:
+  darwin_arm64: 11dc6426420c4f0dfeb58d0d1db817a0e7d94def55c2d0edc337eb0c69a522fd
+  darwin_amd64: b6650482fc16bdb2ba85f02d546865627d85ac76420cc6614f9c6ea51fe93956
+  linux_amd64: c9212c015959a4abc622e5310fa869e5c53e41bf29838030f27f198e0f41d90b
+  linux_arm64: 706b40da335315f37a587774fb0c6188b5686f4f0edb7e5cb82cdb9179cfea4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - python@3.14

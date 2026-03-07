@@ -1,0 +1,20 @@
+name: go@1.25
+version: 1.25.8
+description: Open source programming language to build simple/reliable/efficient software
+homepage: https://go.dev/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go/1.25/blobs/sha256:bda08a2cddf994cf92e7c4a1c4c770f44e6f51efae590d495808967f40b23461
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go/1.25/blobs/sha256:8ae4e6dccc6e85670d2b39d55f67c06a4864d459beeb97205c9358a025d060d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go/1.25/blobs/sha256:1605aa27d1632b7875c3a7cbd21e8131c956c29162d206321353b122eeee2fb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go/1.25/blobs/sha256:53732bc4fea3a55f4cf8707c0b604538c67988462b065720686db70b07773acc
+sha256:
+  darwin_arm64: bda08a2cddf994cf92e7c4a1c4c770f44e6f51efae590d495808967f40b23461
+  darwin_amd64: 8ae4e6dccc6e85670d2b39d55f67c06a4864d459beeb97205c9358a025d060d5
+  linux_amd64: 1605aa27d1632b7875c3a7cbd21e8131c956c29162d206321353b122eeee2fb4
+  linux_arm64: 53732bc4fea3a55f4cf8707c0b604538c67988462b065720686db70b07773acc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

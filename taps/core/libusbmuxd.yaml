@@ -1,0 +1,22 @@
+name: libusbmuxd
+version: 2.1.1
+description: USB multiplexor library for iOS devices
+homepage: https://www.libimobiledevice.org/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libusbmuxd/blobs/sha256:be1c5b8ab89996815b0c7b39a613396665cc3946a15edcac5c0d39dc099c5aa7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libusbmuxd/blobs/sha256:f20787b876fc3b9c8412d92ac2adaeb3dc2526155d327b0118534bb06c208079
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libusbmuxd/blobs/sha256:4b2a58d873fa065eb1e3940d7f45f4f16781a90dd188f880368d50aac172a850
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libusbmuxd/blobs/sha256:7ec20326419ca71e8bb1d5b0fbc545f9b9028592a16f257e55ab6bc02772296b
+sha256:
+  darwin_arm64: be1c5b8ab89996815b0c7b39a613396665cc3946a15edcac5c0d39dc099c5aa7
+  darwin_amd64: f20787b876fc3b9c8412d92ac2adaeb3dc2526155d327b0118534bb06c208079
+  linux_amd64: 4b2a58d873fa065eb1e3940d7f45f4f16781a90dd188f880368d50aac172a850
+  linux_arm64: 7ec20326419ca71e8bb1d5b0fbc545f9b9028592a16f257e55ab6bc02772296b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libimobiledevice-glue
+  - libplist

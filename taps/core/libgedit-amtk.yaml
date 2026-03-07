@@ -1,0 +1,28 @@
+name: libgedit-amtk
+version: 5.9.2
+description: Actions, Menus and Toolbars Kit for GTK applications
+homepage: https://gedit-technology.net
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgedit-amtk/blobs/sha256:4d014e2db6cf450d3c95535fe6cd5e23e13867e8c3fc8d3654cc316dc365cca0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgedit-amtk/blobs/sha256:ba784b6440e0790e8ca925ac6dd2b495fcbdb834b6ce7c897b0a45c436b87308
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgedit-amtk/blobs/sha256:b4d7422e0e1950783ce2fa54756c8e9b997ffb3f3493395f1a7c5857c98cc80a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgedit-amtk/blobs/sha256:dcbd37d870e5eca41e066a432a049e6b4fd2233e21aa58bae8aad5d16bca950a
+sha256:
+  darwin_arm64: 4d014e2db6cf450d3c95535fe6cd5e23e13867e8c3fc8d3654cc316dc365cca0
+  darwin_amd64: ba784b6440e0790e8ca925ac6dd2b495fcbdb834b6ce7c897b0a45c436b87308
+  linux_amd64: b4d7422e0e1950783ce2fa54756c8e9b997ffb3f3493395f1a7c5857c98cc80a
+  linux_arm64: dcbd37d870e5eca41e066a432a049e6b4fd2233e21aa58bae8aad5d16bca950a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk+3
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango

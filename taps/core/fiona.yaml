@@ -1,0 +1,23 @@
+name: fiona
+version: 1.10.1
+description: Reads and writes geographic data files
+homepage: https://fiona.readthedocs.io/en/stable/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fiona/blobs/sha256:737fe2990ad3620035fe100b135cffcebd8a07042400d8903522872d8e8c6a0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fiona/blobs/sha256:ef072bbb9b4b623fdd62f6c8d5878c1d2f8aac0c8d224c6ac4ed980560e87eb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fiona/blobs/sha256:208cafb4ce351b0a85243f58e590964a4fe1805355de7d897ca3dfed7a71121c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fiona/blobs/sha256:073942e11dddaf13092ea2982af7340095598246e2769805cded7b2311dab49c
+sha256:
+  darwin_arm64: 737fe2990ad3620035fe100b135cffcebd8a07042400d8903522872d8e8c6a0a
+  darwin_amd64: ef072bbb9b4b623fdd62f6c8d5878c1d2f8aac0c8d224c6ac4ed980560e87eb1
+  linux_amd64: 208cafb4ce351b0a85243f58e590964a4fe1805355de7d897ca3dfed7a71121c
+  linux_arm64: 073942e11dddaf13092ea2982af7340095598246e2769805cded7b2311dab49c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - gdal
+  - python@3.14

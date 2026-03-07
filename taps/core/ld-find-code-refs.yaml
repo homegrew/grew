@@ -1,0 +1,19 @@
+name: ld-find-code-refs
+version: 2.14.0
+description: Build tool for sending feature flag code references to LaunchDarkly
+homepage: https://github.com/launchdarkly/ld-find-code-refs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ld-find-code-refs/blobs/sha256:cba2b554dc4f9c44c7d609e448a2eba5e58e89d3ddc7d8c565f64c85c7994b27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ld-find-code-refs/blobs/sha256:36ade1dc502172f4d5bc3674b7fc6fd23605ed565e634590ebac211565df09c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ld-find-code-refs/blobs/sha256:8e0e9e877e91c100312eb2643ca0ee6b3066afb089678168e2761a86925818aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ld-find-code-refs/blobs/sha256:b6e7c29473a261d8216897a81054df7677605b5fc2676c74066f2bca86b5d7fd
+sha256:
+  darwin_arm64: cba2b554dc4f9c44c7d609e448a2eba5e58e89d3ddc7d8c565f64c85c7994b27
+  darwin_amd64: 36ade1dc502172f4d5bc3674b7fc6fd23605ed565e634590ebac211565df09c4
+  linux_amd64: 8e0e9e877e91c100312eb2643ca0ee6b3066afb089678168e2761a86925818aa
+  linux_arm64: b6e7c29473a261d8216897a81054df7677605b5fc2676c74066f2bca86b5d7fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

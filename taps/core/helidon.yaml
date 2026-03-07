@@ -1,0 +1,22 @@
+name: helidon
+version: 3.0.6
+description: Command-line tool for Helidon application development
+homepage: https://helidon.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helidon/blobs/sha256:cc786871d00edd3eb256fb4c537dff764982508420932d996786c0f17c6d417b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helidon/blobs/sha256:27cce977bf0cb83027055f100992353b129041bfe38e50c796a7f485bb579311
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helidon/blobs/sha256:155ba1f8e4903a933f1e28b19bce7efa6cbf2a0514e1391627410aad8ffe8d18
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helidon/blobs/sha256:41d184bf37f0efdace3ffe845a427439daf9a1993422d88d4a5bfcbf31edce67
+sha256:
+  darwin_arm64: cc786871d00edd3eb256fb4c537dff764982508420932d996786c0f17c6d417b
+  darwin_amd64: 27cce977bf0cb83027055f100992353b129041bfe38e50c796a7f485bb579311
+  linux_amd64: 155ba1f8e4903a933f1e28b19bce7efa6cbf2a0514e1391627410aad8ffe8d18
+  linux_arm64: 41d184bf37f0efdace3ffe845a427439daf9a1993422d88d4a5bfcbf31edce67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - maven
+  - openjdk

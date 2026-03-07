@@ -1,0 +1,11 @@
+name: openemu
+version: 2.4.1
+description: Retro video game emulation
+homepage: https://openemu.org/
+url:
+  darwin_arm64: https://github.com/OpenEmu/OpenEmu/releases/download/v2.4.1/OpenEmu_2.4.1.zip
+sha256:
+  darwin_arm64: 521ca1305c012d38f6f907f50399fefbf4e45a9bb8d9d4063157ffca78b217d4
+artifacts:
+  app:
+    - OpenEmu.app

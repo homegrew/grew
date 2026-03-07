@@ -1,0 +1,21 @@
+name: wdiff
+version: 1.2.2
+description: Display word differences between text files
+homepage: https://www.gnu.org/software/wdiff/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wdiff/blobs/sha256:4f7f90aa9ea87d7e897ac17039054345a41bd830322a44ffae5b53dbac412037
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wdiff/blobs/sha256:c89e5767f5622001959dd19ea9ab369622f3674ffed87efcb9b4305014326eab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wdiff/blobs/sha256:f627f458d7e201ad95a07bfc91fbd1aa0e676e695d8002415a02f4b74734e1a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wdiff/blobs/sha256:67a8199b4a46eb788b48cd52e139416a6171a349e9ac50ba76637b436552bcf5
+sha256:
+  darwin_arm64: 4f7f90aa9ea87d7e897ac17039054345a41bd830322a44ffae5b53dbac412037
+  darwin_amd64: c89e5767f5622001959dd19ea9ab369622f3674ffed87efcb9b4305014326eab
+  linux_amd64: f627f458d7e201ad95a07bfc91fbd1aa0e676e695d8002415a02f4b74734e1a4
+  linux_arm64: 67a8199b4a46eb788b48cd52e139416a6171a349e9ac50ba76637b436552bcf5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

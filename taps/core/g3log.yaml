@@ -1,0 +1,19 @@
+name: g3log
+version: 2.6
+description: "Asynchronous, 'crash safe', logger that is easy to use"
+homepage: https://github.com/KjellKod/g3log
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/g3log/blobs/sha256:d709b89aa430846366121b385f710239c46c2f4ca6bd3dbbed07158a633b9bca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/g3log/blobs/sha256:9d4fb3f8551b036e1fe0d92c3d7c1f999c7689337981d8e39126491ef5b4bcb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/g3log/blobs/sha256:ae9c07ce3d886636fa40e90bab2e89bd0b8997b303a2470035c272f738098c7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/g3log/blobs/sha256:d2df8ec1d0d5c4cdaeaf8568dbd20ba04216ce52f663fa03daccd046b5d66d0c
+sha256:
+  darwin_arm64: d709b89aa430846366121b385f710239c46c2f4ca6bd3dbbed07158a633b9bca
+  darwin_amd64: 9d4fb3f8551b036e1fe0d92c3d7c1f999c7689337981d8e39126491ef5b4bcb1
+  linux_amd64: ae9c07ce3d886636fa40e90bab2e89bd0b8997b303a2470035c272f738098c7d
+  linux_arm64: d2df8ec1d0d5c4cdaeaf8568dbd20ba04216ce52f663fa03daccd046b5d66d0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

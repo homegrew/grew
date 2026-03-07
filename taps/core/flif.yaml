@@ -1,0 +1,22 @@
+name: flif
+version: 0.4
+description: Free Loseless Image Format
+homepage: https://flif.info/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flif/blobs/sha256:9f31d2fdf99e6e6a7bc79e1cb303d246a023edae4a4cbab9010c991a42b3f15d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flif/blobs/sha256:23d44bc668159febffba7d69a39050438097b9abdccd979e604f19463338dc07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flif/blobs/sha256:7fe8d950811505c384945d0dd7901010b548cd1f06a59bd6438f2f8417cc01b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flif/blobs/sha256:d6d277b41d4575ffc47d7a6db35c7a8ef7eb4a124ac3fc1fed3abeebbfcfb71a
+sha256:
+  darwin_arm64: 9f31d2fdf99e6e6a7bc79e1cb303d246a023edae4a4cbab9010c991a42b3f15d
+  darwin_amd64: 23d44bc668159febffba7d69a39050438097b9abdccd979e604f19463338dc07
+  linux_amd64: 7fe8d950811505c384945d0dd7901010b548cd1f06a59bd6438f2f8417cc01b3
+  linux_arm64: d6d277b41d4575ffc47d7a6db35c7a8ef7eb4a124ac3fc1fed3abeebbfcfb71a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - sdl2

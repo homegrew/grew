@@ -1,0 +1,19 @@
+name: joker
+version: 1.7.1
+description: Small Clojure interpreter, linter and formatter
+homepage: https://joker-lang.org/
+license: EPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/joker/blobs/sha256:1805aad8f4f7b6ab15f5c10de7101a9e1649e6d962f3fbcdabda182d0c207a47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/joker/blobs/sha256:74a8c7af4675c0407f6300ef51d585aca9be02e804bf7c45b5fd493a1de94753
+  linux_amd64: https://ghcr.io/v2/homebrew/core/joker/blobs/sha256:16d2af5806fb3aea5cf33cb60251d76cb83248f1cdf56b692fb963c51b2a0971
+  linux_arm64: https://ghcr.io/v2/homebrew/core/joker/blobs/sha256:f99d039123ed57a7f1503d6dbf363a2f3bf67f500f810c64f402ab3f036a32e8
+sha256:
+  darwin_arm64: 1805aad8f4f7b6ab15f5c10de7101a9e1649e6d962f3fbcdabda182d0c207a47
+  darwin_amd64: 74a8c7af4675c0407f6300ef51d585aca9be02e804bf7c45b5fd493a1de94753
+  linux_amd64: 16d2af5806fb3aea5cf33cb60251d76cb83248f1cdf56b692fb963c51b2a0971
+  linux_arm64: f99d039123ed57a7f1503d6dbf363a2f3bf67f500f810c64f402ab3f036a32e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

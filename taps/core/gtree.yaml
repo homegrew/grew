@@ -1,0 +1,19 @@
+name: gtree
+version: 1.13.5
+description: Generate directory trees and directories using Markdown or programmatically
+homepage: https://ddddddo.github.io/gtree/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtree/blobs/sha256:69bbf66c6d8c4811d8a4134aaf25230f1ffeeb07b97f004f852851451a08ccbd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtree/blobs/sha256:72d47fa901ac3749f0a3b4a20a561a2e94beda1d08dd8e9e7cb0c3830047d27a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtree/blobs/sha256:10046444756484015a2b2a55f236c772e4047a46d918b1f6e6de39257cf97dec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtree/blobs/sha256:5814cf19102645550b570ee7f180898bbd3123da97306e032163484e33e4450c
+sha256:
+  darwin_arm64: 69bbf66c6d8c4811d8a4134aaf25230f1ffeeb07b97f004f852851451a08ccbd
+  darwin_amd64: 72d47fa901ac3749f0a3b4a20a561a2e94beda1d08dd8e9e7cb0c3830047d27a
+  linux_amd64: 10046444756484015a2b2a55f236c772e4047a46d918b1f6e6de39257cf97dec
+  linux_arm64: 5814cf19102645550b570ee7f180898bbd3123da97306e032163484e33e4450c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

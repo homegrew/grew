@@ -1,0 +1,19 @@
+name: tailscale
+version: 1.94.2
+description: Easiest, most secure way to use WireGuard and 2FA
+homepage: https://tailscale.com
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tailscale/blobs/sha256:108283741824bec70d11ae348f0af09e3cba7d84dd16a5cacedb15c5f69bc60e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tailscale/blobs/sha256:9b49997ee1f475d64e625193c3dc84710e8d623222dd52e52592ca7cee135f8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tailscale/blobs/sha256:febd25594fc848792f30d935077b801509fb13306d50b1db410994229c4f07e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tailscale/blobs/sha256:49c386390d1a723d0e096f3246d617f85eaac061907e209743b301e8c7750cd6
+sha256:
+  darwin_arm64: 108283741824bec70d11ae348f0af09e3cba7d84dd16a5cacedb15c5f69bc60e
+  darwin_amd64: 9b49997ee1f475d64e625193c3dc84710e8d623222dd52e52592ca7cee135f8f
+  linux_amd64: febd25594fc848792f30d935077b801509fb13306d50b1db410994229c4f07e8
+  linux_arm64: 49c386390d1a723d0e096f3246d617f85eaac061907e209743b301e8c7750cd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

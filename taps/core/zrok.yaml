@@ -1,0 +1,19 @@
+name: zrok
+version: 1.1.11
+description: Geo-scale, next-generation sharing platform built on top of OpenZiti
+homepage: https://zrok.io
+license: Apache-2.0 AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zrok/blobs/sha256:cdb1ad3d6cfea9f868842f07320b5ac10f4ca0f7e83279fe5881e4c3857be098
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zrok/blobs/sha256:4a30a0663056aba71368f90d81685d3aee8dfa491f2ec9f5e8392aabf98906a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zrok/blobs/sha256:f46ab4101a7b286375ce67383682c4de7c2fae5ce53d3056f96338452ad1b63c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zrok/blobs/sha256:5c944f317d45e46490e441164897cbc42ca9e868bac111ce8db4ee9443cbdc13
+sha256:
+  darwin_arm64: cdb1ad3d6cfea9f868842f07320b5ac10f4ca0f7e83279fe5881e4c3857be098
+  darwin_amd64: 4a30a0663056aba71368f90d81685d3aee8dfa491f2ec9f5e8392aabf98906a5
+  linux_amd64: f46ab4101a7b286375ce67383682c4de7c2fae5ce53d3056f96338452ad1b63c
+  linux_arm64: 5c944f317d45e46490e441164897cbc42ca9e868bac111ce8db4ee9443cbdc13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

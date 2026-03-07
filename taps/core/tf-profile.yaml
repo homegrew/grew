@@ -1,0 +1,19 @@
+name: tf-profile
+version: 0.5.0
+description: CLI tool to profile Terraform runs
+homepage: https://github.com/datarootsio/tf-profile
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tf-profile/blobs/sha256:2f2be0e109cfe0075937bd1654d7a35776f509cdbbc76099cb18ff546ffed9c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tf-profile/blobs/sha256:cb5f59260a96d66609a1ecbfc9e7b10c5b607c9ae64a52b3ea9737244445eabf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tf-profile/blobs/sha256:b114c3deb9e37d74136eb0d45ffb77650b029fd20a738315deb1c0cc3605714c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tf-profile/blobs/sha256:bb717e3db18cfe1755b6f74c713a4dcc9a1884aaab3dc5183f3bc9b14af154f5
+sha256:
+  darwin_arm64: 2f2be0e109cfe0075937bd1654d7a35776f509cdbbc76099cb18ff546ffed9c2
+  darwin_amd64: cb5f59260a96d66609a1ecbfc9e7b10c5b607c9ae64a52b3ea9737244445eabf
+  linux_amd64: b114c3deb9e37d74136eb0d45ffb77650b029fd20a738315deb1c0cc3605714c
+  linux_arm64: bb717e3db18cfe1755b6f74c713a4dcc9a1884aaab3dc5183f3bc9b14af154f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

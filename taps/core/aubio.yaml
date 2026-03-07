@@ -1,0 +1,23 @@
+name: aubio
+version: 0.4.9
+description: Extract annotations from audio signals
+homepage: https://github.com/aubio/aubio
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aubio/blobs/sha256:54adb27d46e507c9fa6dd57b9da19b11fc435dc706d1a79a2835e83137813a05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aubio/blobs/sha256:9200348f9f11f4149f91d7163e79f141f9bb7d2271a6af5398dc38ceadfd6ebd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aubio/blobs/sha256:be4fcc0b0a52320a3787a70cf2ba81bb1ba0e374921c7be49a96e0dc92d07feb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aubio/blobs/sha256:d98aea68e9a3677405a41ff89820d6ee76b5fb6fa7f02d964846c7b674756d06
+sha256:
+  darwin_arm64: 54adb27d46e507c9fa6dd57b9da19b11fc435dc706d1a79a2835e83137813a05
+  darwin_amd64: 9200348f9f11f4149f91d7163e79f141f9bb7d2271a6af5398dc38ceadfd6ebd
+  linux_amd64: be4fcc0b0a52320a3787a70cf2ba81bb1ba0e374921c7be49a96e0dc92d07feb
+  linux_arm64: d98aea68e9a3677405a41ff89820d6ee76b5fb6fa7f02d964846c7b674756d06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsndfile
+  - numpy
+  - python@3.14

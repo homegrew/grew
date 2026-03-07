@@ -1,0 +1,21 @@
+name: srtp
+version: 2.7.0
+description: Implementation of the Secure Real-time Transport Protocol
+homepage: https://github.com/cisco/libsrtp
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/srtp/blobs/sha256:57899ec6d17890c82b81cdf7a80eee3a621a23e2e513d7c64fd972ae1301a311
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/srtp/blobs/sha256:7ac6524572afcc2962a2a22562f8253d0ef1f1bc80a78488c9a4a8fe5bdc7f3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/srtp/blobs/sha256:0dcfb6ace5a4cec086e56117194b86fe25292173d200abe1b6530b5cb7a9fd6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/srtp/blobs/sha256:ccb20fac89e4f213d8802f02a061735b5a55ba134d9e2c3bb4b581044c45ef51
+sha256:
+  darwin_arm64: 57899ec6d17890c82b81cdf7a80eee3a621a23e2e513d7c64fd972ae1301a311
+  darwin_amd64: 7ac6524572afcc2962a2a22562f8253d0ef1f1bc80a78488c9a4a8fe5bdc7f3d
+  linux_amd64: 0dcfb6ace5a4cec086e56117194b86fe25292173d200abe1b6530b5cb7a9fd6d
+  linux_arm64: ccb20fac89e4f213d8802f02a061735b5a55ba134d9e2c3bb4b581044c45ef51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

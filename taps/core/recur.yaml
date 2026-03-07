@@ -1,0 +1,19 @@
+name: recur
+version: 3.2.0
+description: Retry a command with exponential backoff and jitter
+homepage: https://github.com/dbohdan/recur
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/recur/blobs/sha256:d3bcc122de7abea710bd7c31174e22e4fc28c7c13cc5006eaa63ba34ec74a0fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/recur/blobs/sha256:13473b39ef19c5b5e8bdf2203482d94b14601a2bc6924a92643f264dc3650acc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/recur/blobs/sha256:4764410cd5d9892e1386dd91c9f1050d0bbb7e1855d9e699fac21569b9aed6a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/recur/blobs/sha256:7be512d445fae3619ce6f26f1d0ef7d5d515fb4d07b4a9dcbd7b2ff108ba922d
+sha256:
+  darwin_arm64: d3bcc122de7abea710bd7c31174e22e4fc28c7c13cc5006eaa63ba34ec74a0fd
+  darwin_amd64: 13473b39ef19c5b5e8bdf2203482d94b14601a2bc6924a92643f264dc3650acc
+  linux_amd64: 4764410cd5d9892e1386dd91c9f1050d0bbb7e1855d9e699fac21569b9aed6a3
+  linux_arm64: 7be512d445fae3619ce6f26f1d0ef7d5d515fb4d07b4a9dcbd7b2ff108ba922d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: mtm
+version: 1.2.1
+description: Micro terminal multiplexer
+homepage: https://github.com/deadpixi/mtm
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mtm/blobs/sha256:fc17d2a6d42dc599cc4a707a445b1bf0201039191f86829c9ed6ef4c9ae7d9ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mtm/blobs/sha256:00e0549fd3b8636a05a906e52e2595d48812790841149e285786242aa9d43a4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mtm/blobs/sha256:ed3e74e7ae581d38be226b8ce71d50168246e349c3b4bd862c79e952560e7eab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mtm/blobs/sha256:6e6863413f8614f33cdc88ecb9d61ede577b74c671096e152a17763b9ba80d38
+sha256:
+  darwin_arm64: fc17d2a6d42dc599cc4a707a445b1bf0201039191f86829c9ed6ef4c9ae7d9ea
+  darwin_amd64: 00e0549fd3b8636a05a906e52e2595d48812790841149e285786242aa9d43a4e
+  linux_amd64: ed3e74e7ae581d38be226b8ce71d50168246e349c3b4bd862c79e952560e7eab
+  linux_arm64: 6e6863413f8614f33cdc88ecb9d61ede577b74c671096e152a17763b9ba80d38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

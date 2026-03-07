@@ -1,0 +1,19 @@
+name: z3
+version: 4.15.4
+description: High-performance theorem prover
+homepage: https://github.com/Z3Prover/z3
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/z3/blobs/sha256:9f57f90f63a0995a9b56b6f4c94a1c29bd8fd9a474e09f78cba7f64aaf25708c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/z3/blobs/sha256:daa3779a2ee08f218dd714c80ce78e9451b81340c65efee8a1f44f16dee8aa07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/z3/blobs/sha256:aecd2a8e5cc6512f5ad5cc3ba78602236642ac02d4471fc9635383976012236d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/z3/blobs/sha256:02148c88d3b6adc67f7cb43fc1eb3f8a1a7317838a567e7de95c60cffc4fd208
+sha256:
+  darwin_arm64: 9f57f90f63a0995a9b56b6f4c94a1c29bd8fd9a474e09f78cba7f64aaf25708c
+  darwin_amd64: daa3779a2ee08f218dd714c80ce78e9451b81340c65efee8a1f44f16dee8aa07
+  linux_amd64: aecd2a8e5cc6512f5ad5cc3ba78602236642ac02d4471fc9635383976012236d
+  linux_arm64: 02148c88d3b6adc67f7cb43fc1eb3f8a1a7317838a567e7de95c60cffc4fd208
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

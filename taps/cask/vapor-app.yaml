@@ -1,0 +1,11 @@
+name: vapor-app
+version: 3.10.1
+description: Visualisation and analysis platform
+homepage: https://github.com/NCAR/VAPOR
+url:
+  darwin_arm64: https://github.com/NCAR/VAPOR/releases/download/3.10.1/VAPOR3-3.10.1-AppleSilicon.dmg
+sha256:
+  darwin_arm64: 2c5f41427f064318c7c4724478ee1aa4bbcaca47cba43b40ef5c8e52c6108c8a
+artifacts:
+  app:
+    - vapor.app

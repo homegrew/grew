@@ -1,0 +1,21 @@
+name: lfe
+version: 2.2.0
+description: Concurrent Lisp for the Erlang VM
+homepage: https://lfe.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lfe/blobs/sha256:d5158c69b0a420798bd81ded50265abbc00cb0da90ad7f237c3e266312092304
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lfe/blobs/sha256:ed17738b499109261be99c6cd273acf572c4b4a2ea05828aed6ebeaa076f30ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lfe/blobs/sha256:9aceec9c08993a9e551d5b1657a2162afae1f8a248054e6eba1fc4eb5781386c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lfe/blobs/sha256:a8d62b19bbae7750b68d0c2a91bfb0e6c478e66cd2a5c889048d355bcfeed117
+sha256:
+  darwin_arm64: d5158c69b0a420798bd81ded50265abbc00cb0da90ad7f237c3e266312092304
+  darwin_amd64: ed17738b499109261be99c6cd273acf572c4b4a2ea05828aed6ebeaa076f30ec
+  linux_amd64: 9aceec9c08993a9e551d5b1657a2162afae1f8a248054e6eba1fc4eb5781386c
+  linux_arm64: a8d62b19bbae7750b68d0c2a91bfb0e6c478e66cd2a5c889048d355bcfeed117
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

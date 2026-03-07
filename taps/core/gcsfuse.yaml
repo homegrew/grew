@@ -1,0 +1,17 @@
+name: gcsfuse
+version: 3.7.2
+description: User-space file system for interacting with Google Cloud
+homepage: https://github.com/googlecloudplatform/gcsfuse
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcsfuse/blobs/sha256:ecb7518ef138d51be3b0778e89d5cbb0e3c9b4a12cae39c4b6ede6d26ff8a071
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcsfuse/blobs/sha256:a7ac75d9de3f79a70c6c27fac675b7572a1a4fb6221b0f4d40504efa41ac0e70
+sha256:
+  linux_amd64: ecb7518ef138d51be3b0778e89d5cbb0e3c9b4a12cae39c4b6ede6d26ff8a071
+  linux_arm64: a7ac75d9de3f79a70c6c27fac675b7572a1a4fb6221b0f4d40504efa41ac0e70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse

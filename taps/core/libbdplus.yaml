@@ -1,0 +1,22 @@
+name: libbdplus
+version: 0.2.0
+description: Implements the BD+ System Specifications
+homepage: https://www.videolan.org/developers/libbdplus.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbdplus/blobs/sha256:7b8a3164167b5bc2e357f954ae319df5c9d6d7f0fb7b63f4ef71b65cbec9e3a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbdplus/blobs/sha256:71cae25b96b7723171f93ab33b2508cff5f8b081165d124dae5a6639b78a62aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbdplus/blobs/sha256:a6adab3c63417c05c7b4e68bebd99dd6e0d133d7d60e1dcfe29552150cb484e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbdplus/blobs/sha256:1f77338b5c92c9187e9ceccd4c0d073227b7e86edac29204f72da202a89259de
+sha256:
+  darwin_arm64: 7b8a3164167b5bc2e357f954ae319df5c9d6d7f0fb7b63f4ef71b65cbec9e3a4
+  darwin_amd64: 71cae25b96b7723171f93ab33b2508cff5f8b081165d124dae5a6639b78a62aa
+  linux_amd64: a6adab3c63417c05c7b4e68bebd99dd6e0d133d7d60e1dcfe29552150cb484e0
+  linux_arm64: 1f77338b5c92c9187e9ceccd4c0d073227b7e86edac29204f72da202a89259de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libgpg-error

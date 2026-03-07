@@ -1,0 +1,27 @@
+name: onlykey-agent
+version: 1.1.15
+description: Middleware that lets you use OnlyKey as a hardware SSH/GPG device
+homepage: https://docs.crp.to/onlykey-agent.html
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onlykey-agent/blobs/sha256:02d754797497e491be94a2ecec98bd2745e98c23350f84f29b5a201ebfb2cf89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onlykey-agent/blobs/sha256:84f5e77dc0e99d71751bccdc2237974ad6e4d5c9a010c543f0456b74f5207255
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onlykey-agent/blobs/sha256:2ccb753c42280e0f62fd3d932877f77a87df03c1c9881e3a23fff279d372ba12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onlykey-agent/blobs/sha256:4f2378af747cecafb7ab65810ef50fbc349e3df6d928c6510de6d4c212362dd7
+sha256:
+  darwin_arm64: 02d754797497e491be94a2ecec98bd2745e98c23350f84f29b5a201ebfb2cf89
+  darwin_amd64: 84f5e77dc0e99d71751bccdc2237974ad6e4d5c9a010c543f0456b74f5207255
+  linux_amd64: 2ccb753c42280e0f62fd3d932877f77a87df03c1c9881e3a23fff279d372ba12
+  linux_arm64: 4f2378af747cecafb7ab65810ef50fbc349e3df6d928c6510de6d4c212362dd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - gnupg
+  - hidapi
+  - libsodium
+  - libusb
+  - python@3.14

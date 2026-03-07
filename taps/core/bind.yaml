@@ -1,0 +1,28 @@
+name: bind
+version: 9.20.20
+description: Implementation of the DNS protocols
+homepage: https://www.isc.org/bind/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bind/blobs/sha256:c0af37537615f064c4355b91660e37f27ce5e6cc0bb37141ba21c1692e999a2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bind/blobs/sha256:9f7bd40f4492db3251c5cf7eabdd754e288c3ecd8560fe44eba444c6e5c7361f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bind/blobs/sha256:dc1d64d65f8e11633fa7d9001e246bd613c04cf14ae30dc1bc1e6e8c7535fe9f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bind/blobs/sha256:fd65e76c4b59f0cb82673edc171f2a06a3ca719bf5471f216f4617527bf4a952
+sha256:
+  darwin_arm64: c0af37537615f064c4355b91660e37f27ce5e6cc0bb37141ba21c1692e999a2a
+  darwin_amd64: 9f7bd40f4492db3251c5cf7eabdd754e288c3ecd8560fe44eba444c6e5c7361f
+  linux_amd64: dc1d64d65f8e11633fa7d9001e246bd613c04cf14ae30dc1bc1e6e8c7535fe9f
+  linux_arm64: fd65e76c4b59f0cb82673edc171f2a06a3ca719bf5471f216f4617527bf4a952
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jemalloc
+  - json-c
+  - libidn2
+  - libnghttp2
+  - libuv
+  - openssl@3
+  - readline
+  - userspace-rcu

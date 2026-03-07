@@ -1,0 +1,23 @@
+name: fheroes2
+version: 1.1.14
+description: Recreation of the Heroes of Might and Magic II game engine
+homepage: https://ihhub.github.io/fheroes2/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fheroes2/blobs/sha256:8620201b916f80c41e29abf98366468995e569c3a9760415e568a1da188c7d64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fheroes2/blobs/sha256:de36b55c8b2658b670e102cb00c3c72bd2ad85a3c5264db1f40eb3a101e02a99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fheroes2/blobs/sha256:7ae81f625cb8a11fff6b552eb93c033dfd6b5d47728f7e94d747e205372efd12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fheroes2/blobs/sha256:537c848c20c57627e64b4b74e31a6a55b81522e7a2bc470ea682abb2fc9d12da
+sha256:
+  darwin_arm64: 8620201b916f80c41e29abf98366468995e569c3a9760415e568a1da188c7d64
+  darwin_amd64: de36b55c8b2658b670e102cb00c3c72bd2ad85a3c5264db1f40eb3a101e02a99
+  linux_amd64: 7ae81f625cb8a11fff6b552eb93c033dfd6b5d47728f7e94d747e205372efd12
+  linux_arm64: 537c848c20c57627e64b4b74e31a6a55b81522e7a2bc470ea682abb2fc9d12da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - innoextract
+  - sdl2
+  - sdl2_mixer

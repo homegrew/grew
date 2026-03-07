@@ -1,0 +1,23 @@
+name: libgrape-lite
+version: 0.3.5
+description: C++ library for parallel graph processing
+homepage: https://github.com/alibaba/libgrape-lite
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgrape-lite/blobs/sha256:627453323fe0db452b85a864ca0173ee52fe9dbd8a5a34741c02afd885caf611
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgrape-lite/blobs/sha256:6f2280e3c1b484230d53a631b45c2085379f5e1519e89a937b4b22041421f5bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgrape-lite/blobs/sha256:958b7eb7dc114040a3275bc9be6c668c5529a31705810d330cfcab8f46ee3f18
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgrape-lite/blobs/sha256:6f3c3bf46a28ebda8692ad43bde5af326cd2a93c28ad5e5ebf71bc8b24b1e0fe
+sha256:
+  darwin_arm64: 627453323fe0db452b85a864ca0173ee52fe9dbd8a5a34741c02afd885caf611
+  darwin_amd64: 6f2280e3c1b484230d53a631b45c2085379f5e1519e89a937b4b22041421f5bd
+  linux_amd64: 958b7eb7dc114040a3275bc9be6c668c5529a31705810d330cfcab8f46ee3f18
+  linux_arm64: 6f3c3bf46a28ebda8692ad43bde5af326cd2a93c28ad5e5ebf71bc8b24b1e0fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gflags
+  - glog
+  - open-mpi

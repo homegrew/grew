@@ -1,0 +1,19 @@
+name: jqp
+version: 0.8.0
+description: TUI playground to experiment and play with jq
+homepage: https://github.com/noahgorstein/jqp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jqp/blobs/sha256:aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jqp/blobs/sha256:2a1f293efd1fdbd3ba47f82e3f14a87dbd23c2e06844cf6b856e3ae837bcbea7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jqp/blobs/sha256:3e402ca44a3bcb9ca8ce67ac679b202c548019b7f57042ba153c5a72fed04ab1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jqp/blobs/sha256:58a43e2ab2c33c66ce1756830fa2f0f871135f216967ce847bccc61517446c09
+sha256:
+  darwin_arm64: aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1
+  darwin_amd64: 2a1f293efd1fdbd3ba47f82e3f14a87dbd23c2e06844cf6b856e3ae837bcbea7
+  linux_amd64: 3e402ca44a3bcb9ca8ce67ac679b202c548019b7f57042ba153c5a72fed04ab1
+  linux_arm64: 58a43e2ab2c33c66ce1756830fa2f0f871135f216967ce847bccc61517446c09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

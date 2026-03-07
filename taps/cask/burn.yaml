@@ -1,0 +1,11 @@
+name: burn
+version: 3.1.9
+description: CD burning application
+homepage: https://burn-osx.sourceforge.io/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/burn-osx/Burn/3.1.9/burn-3.1.9.zip
+sha256:
+  darwin_arm64: baa79cebc3f30224087a5f1a11b1fec4b9e749c5eb19a675d9c8bc7c1cf7dbcc
+artifacts:
+  app:
+    - Burn.localized/Burn.app

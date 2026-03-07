@@ -1,0 +1,22 @@
+name: libtcod
+version: 2.2.2
+description: API for roguelike developers
+homepage: https://github.com/libtcod/libtcod
+license: BSD-3-Clause AND Zlib AND (MIT AND Unicode-DFS-2015) AND (MIT OR Unlicense)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtcod/blobs/sha256:612e3f1e9f6976f652fbcf1a2eb61eea4fcc89587d7b53b15787b4397540da73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtcod/blobs/sha256:658e1e5d8b99476480480624806bc1f356064487dec25717193218d13564f1f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtcod/blobs/sha256:9bd3c9f84e29286387f4741845a996b3fcecffec5ba6715842db8168f25249ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtcod/blobs/sha256:7061320d3e56653d9479caaaaf03cfc2a8ba93e3072afbf9a2edac0cd6852c81
+sha256:
+  darwin_arm64: 612e3f1e9f6976f652fbcf1a2eb61eea4fcc89587d7b53b15787b4397540da73
+  darwin_amd64: 658e1e5d8b99476480480624806bc1f356064487dec25717193218d13564f1f8
+  linux_amd64: 9bd3c9f84e29286387f4741845a996b3fcecffec5ba6715842db8168f25249ee
+  linux_arm64: 7061320d3e56653d9479caaaaf03cfc2a8ba93e3072afbf9a2edac0cd6852c81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl3
+  - utf8proc

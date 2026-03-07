@@ -1,0 +1,20 @@
+name: libffi
+version: 3.5.2
+description: Portable Foreign Function Interface library
+homepage: https://sourceware.org/libffi/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libffi/blobs/sha256:564ce412bbf20deb184e488fe9b1cbf94b5c770965e48567c829a5f580141a95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libffi/blobs/sha256:4d9e57a4b8bb66b3dd966a931b0be8e916b2587bec5886b8af519dcafe276b13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libffi/blobs/sha256:55b77eb2bb125870f6e1ec41e4717f0bc7c7fe294e41b59aaef006be6bdf60bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libffi/blobs/sha256:85cdf235032a05637b9b30c3deb0d14c7673a3aefe97fed3c6d781c159d89a9a
+sha256:
+  darwin_arm64: 564ce412bbf20deb184e488fe9b1cbf94b5c770965e48567c829a5f580141a95
+  darwin_amd64: 4d9e57a4b8bb66b3dd966a931b0be8e916b2587bec5886b8af519dcafe276b13
+  linux_amd64: 55b77eb2bb125870f6e1ec41e4717f0bc7c7fe294e41b59aaef006be6bdf60bd
+  linux_arm64: 85cdf235032a05637b9b30c3deb0d14c7673a3aefe97fed3c6d781c159d89a9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

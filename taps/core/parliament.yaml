@@ -1,0 +1,22 @@
+name: parliament
+version: 1.6.4
+description: AWS IAM linting library
+homepage: https://github.com/duo-labs/parliament
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parliament/blobs/sha256:60bddf774d95d7f871717cbceee1a971599b5f75e1637e5144ff9fa99723879d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parliament/blobs/sha256:fa500360843e43e5951a7b534fb9f33a4789be54c80b540cb67c97cc60f1512b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parliament/blobs/sha256:6b9518ad78b163c3082b7f29cc084ec6f3972418d09367c7a75a82a9da939aa6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parliament/blobs/sha256:28c048903b04e7ff1b8e190bb18b5ada6099886049525cc42c2659d032e11d4c
+sha256:
+  darwin_arm64: 60bddf774d95d7f871717cbceee1a971599b5f75e1637e5144ff9fa99723879d
+  darwin_amd64: fa500360843e43e5951a7b534fb9f33a4789be54c80b540cb67c97cc60f1512b
+  linux_amd64: 6b9518ad78b163c3082b7f29cc084ec6f3972418d09367c7a75a82a9da939aa6
+  linux_arm64: 28c048903b04e7ff1b8e190bb18b5ada6099886049525cc42c2659d032e11d4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

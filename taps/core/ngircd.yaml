@@ -1,0 +1,22 @@
+name: ngircd
+version: 27
+description: Lightweight Internet Relay Chat server
+homepage: https://ngircd.barton.de/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ngircd/blobs/sha256:5427f5fc9fd0c74ef8f81724a119409ea2dae4d6f69c645ed3320eb5172631f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ngircd/blobs/sha256:c9e2d378750febc17b6e379d8bda929925c19aefa676d491b5aeb0fbcefe0a49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ngircd/blobs/sha256:bf948fd7fa99293c8df2802456e83da3f0c85c5e709308b7af323663b96726f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ngircd/blobs/sha256:02fa316807955b6296b0a9b6eade6a813a62b6f327e9afddc89e306b9130d295
+sha256:
+  darwin_arm64: 5427f5fc9fd0c74ef8f81724a119409ea2dae4d6f69c645ed3320eb5172631f1
+  darwin_amd64: c9e2d378750febc17b6e379d8bda929925c19aefa676d491b5aeb0fbcefe0a49
+  linux_amd64: bf948fd7fa99293c8df2802456e83da3f0c85c5e709308b7af323663b96726f5
+  linux_arm64: 02fa316807955b6296b0a9b6eade6a813a62b6f327e9afddc89e306b9130d295
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libident
+  - openssl@3

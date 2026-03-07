@@ -1,0 +1,19 @@
+name: ancient
+version: 2.3.0
+description: Decompression routines for ancient formats
+homepage: https://github.com/temisu/ancient
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ancient/blobs/sha256:6817d9ce2e9d71f8e176280373905983d18dc6984a8cb9fd8587a77189ed77a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ancient/blobs/sha256:e7d17674bacf02c4c01a07812e801e662b76fd68de9ad82287bf1fd65c4e2e18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ancient/blobs/sha256:bc2e89a54843d08f940bf5a541e85ad5ae0ece2fa2f5b146a2e22a792ced7a2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ancient/blobs/sha256:b3c75d64ba336cfa2c79cff5db5f0f918f95448565e93685df2679d25b429aac
+sha256:
+  darwin_arm64: 6817d9ce2e9d71f8e176280373905983d18dc6984a8cb9fd8587a77189ed77a3
+  darwin_amd64: e7d17674bacf02c4c01a07812e801e662b76fd68de9ad82287bf1fd65c4e2e18
+  linux_amd64: bc2e89a54843d08f940bf5a541e85ad5ae0ece2fa2f5b146a2e22a792ced7a2e
+  linux_arm64: b3c75d64ba336cfa2c79cff5db5f0f918f95448565e93685df2679d25b429aac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

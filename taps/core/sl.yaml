@@ -1,0 +1,19 @@
+name: sl
+version: 5.02
+description: Prints a steam locomotive if you type sl instead of ls
+homepage: https://github.com/mtoyoda/sl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sl/blobs/sha256:99c2620dc9fe4058ba790fd445adf4160f5201ef2ad2abae5b9d90b707684f26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sl/blobs/sha256:7370b30c455573e2e8183282ee3c65c98fc1d211cec020bec193484144344788
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sl/blobs/sha256:2afd20ebfe0276c9b39a77ef22611e8815eb936c3c21abb31cfd8f097f161476
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sl/blobs/sha256:036507954ad40e929a63e30e6feb092a7bf142a6d08c15bdb9d43ac34feeb0cc
+sha256:
+  darwin_arm64: 99c2620dc9fe4058ba790fd445adf4160f5201ef2ad2abae5b9d90b707684f26
+  darwin_amd64: 7370b30c455573e2e8183282ee3c65c98fc1d211cec020bec193484144344788
+  linux_amd64: 2afd20ebfe0276c9b39a77ef22611e8815eb936c3c21abb31cfd8f097f161476
+  linux_arm64: 036507954ad40e929a63e30e6feb092a7bf142a6d08c15bdb9d43ac34feeb0cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

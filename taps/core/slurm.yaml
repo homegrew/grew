@@ -1,0 +1,19 @@
+name: slurm
+version: 0.4.4
+description: Yet another network load monitor
+homepage: https://github.com/mattthias/slurm/wiki/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slurm/blobs/sha256:b4f4153c52ba78d3ad62fa6ff84a348993f2b8a032a41c0dcf5565ddd013be08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slurm/blobs/sha256:e9c134c7ba9d8a1081bcea00b637f7441fb70f9fcbac5187d587a016338afa7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slurm/blobs/sha256:c06bff9e858ad8f9c8583f4149a8a297b099c3d77754a7497978897c89427362
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slurm/blobs/sha256:01552c3c4c6ab5bbcce1eb3716ff2ba49e2bb66a683f0d17b7d8c75da30980f0
+sha256:
+  darwin_arm64: b4f4153c52ba78d3ad62fa6ff84a348993f2b8a032a41c0dcf5565ddd013be08
+  darwin_amd64: e9c134c7ba9d8a1081bcea00b637f7441fb70f9fcbac5187d587a016338afa7a
+  linux_amd64: c06bff9e858ad8f9c8583f4149a8a297b099c3d77754a7497978897c89427362
+  linux_arm64: 01552c3c4c6ab5bbcce1eb3716ff2ba49e2bb66a683f0d17b7d8c75da30980f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

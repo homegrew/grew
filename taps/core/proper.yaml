@@ -1,0 +1,21 @@
+name: proper
+version: 1.5.0
+description: QuickCheck-inspired property-based testing tool for Erlang
+homepage: https://proper-testing.github.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proper/blobs/sha256:3dd4b207dc41e3788810712f20a50c614ce31ccafa0d309dbac29fc4f1cc8d1a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proper/blobs/sha256:b871a437a48e0bd4f35687256c82caff38cc8ed91662daacf465638290dbad49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proper/blobs/sha256:3c46ff9ea392d1503cfc49f425fd04ed35376da507fe13985306057715558924
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proper/blobs/sha256:0d95538e53374c507c624b17c23e9bc1218d83ad2a8c96006bb941681d7170be
+sha256:
+  darwin_arm64: 3dd4b207dc41e3788810712f20a50c614ce31ccafa0d309dbac29fc4f1cc8d1a
+  darwin_amd64: b871a437a48e0bd4f35687256c82caff38cc8ed91662daacf465638290dbad49
+  linux_amd64: 3c46ff9ea392d1503cfc49f425fd04ed35376da507fe13985306057715558924
+  linux_arm64: 0d95538e53374c507c624b17c23e9bc1218d83ad2a8c96006bb941681d7170be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

@@ -1,0 +1,19 @@
+name: libeatmydata
+version: 131
+description: LD_PRELOAD library and wrapper to transparently disable fsync and related calls
+homepage: https://www.flamingspork.com/projects/libeatmydata/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libeatmydata/blobs/sha256:b3541c1127dc057cc98e54fe64f65e7cea63040258b7d8dd33dcaa99cdd2f9bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libeatmydata/blobs/sha256:e5194f70fa35da7d6a2a199db97928ab5650c731cfb5235407ff464442bfe757
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libeatmydata/blobs/sha256:bc9b82e66d7d882d3a2b5579fcd31040feab74d5b6a333d1060b02a695fe8eca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libeatmydata/blobs/sha256:6b06012e7f311dcfc040049a34b63d7766c0d965f3348175d93fccb5753995a3
+sha256:
+  darwin_arm64: b3541c1127dc057cc98e54fe64f65e7cea63040258b7d8dd33dcaa99cdd2f9bc
+  darwin_amd64: e5194f70fa35da7d6a2a199db97928ab5650c731cfb5235407ff464442bfe757
+  linux_amd64: bc9b82e66d7d882d3a2b5579fcd31040feab74d5b6a333d1060b02a695fe8eca
+  linux_arm64: 6b06012e7f311dcfc040049a34b63d7766c0d965f3348175d93fccb5753995a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

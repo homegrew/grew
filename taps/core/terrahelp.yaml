@@ -1,0 +1,19 @@
+name: terrahelp
+version: 0.7.5
+description: Tool providing extra functionality for Terraform
+homepage: https://github.com/opencredo/terrahelp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terrahelp/blobs/sha256:0473183fea6fcf7de2d8bb2a2ff65a1230c023e994b2cc1c1bcca147d16c37ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terrahelp/blobs/sha256:1b6320e4c3b16729d7b8399435f0b1cd3dc8a84c0391653c54c613fb8395b132
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terrahelp/blobs/sha256:6fdaed3d9218418ada94b13cbdfc0bd156ac0b5b44294a95674df07a3e66147a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terrahelp/blobs/sha256:ba89b11520800ffb246741ad83c4825f42eb767d6ede1cdcf89897da0d39a9ce
+sha256:
+  darwin_arm64: 0473183fea6fcf7de2d8bb2a2ff65a1230c023e994b2cc1c1bcca147d16c37ea
+  darwin_amd64: 1b6320e4c3b16729d7b8399435f0b1cd3dc8a84c0391653c54c613fb8395b132
+  linux_amd64: 6fdaed3d9218418ada94b13cbdfc0bd156ac0b5b44294a95674df07a3e66147a
+  linux_arm64: ba89b11520800ffb246741ad83c4825f42eb767d6ede1cdcf89897da0d39a9ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ruff
+version: 0.15.5
+description: Extremely fast Python linter, written in Rust
+homepage: https://docs.astral.sh/ruff/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ruff/blobs/sha256:6711848886baa880103208fe8a2cd604cd78efc00ddb49d0a79dcefefbc0b879
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ruff/blobs/sha256:d24ebf462901c8362729ee3f9d1f1891b89852abedbf5f84d8838a956485df9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ruff/blobs/sha256:b5aa14fba034934213be5b9d958f4526fe03514b154c29a254a35cad6de1c3b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ruff/blobs/sha256:1a09a46a2372949e1dfc8b43efb4cb7a2de4745c8b720f49b1106a7bb68a7aa1
+sha256:
+  darwin_arm64: 6711848886baa880103208fe8a2cd604cd78efc00ddb49d0a79dcefefbc0b879
+  darwin_amd64: d24ebf462901c8362729ee3f9d1f1891b89852abedbf5f84d8838a956485df9c
+  linux_amd64: b5aa14fba034934213be5b9d958f4526fe03514b154c29a254a35cad6de1c3b9
+  linux_arm64: 1a09a46a2372949e1dfc8b43efb4cb7a2de4745c8b720f49b1106a7bb68a7aa1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

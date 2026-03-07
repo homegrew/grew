@@ -1,0 +1,25 @@
+name: paps
+version: 0.8.0
+description: Pango to PostScript converter
+homepage: https://github.com/dov/paps
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/paps/blobs/sha256:8d95f99591217a56718331ee68a6996b39f059ca4aecfe5d0921a11566d75735
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/paps/blobs/sha256:183b02cb1d125fa77ad0320bd003589aa346d9077d530ab85779916c41503547
+  linux_amd64: https://ghcr.io/v2/homebrew/core/paps/blobs/sha256:cf456bd3c1d9da480517bda9f2bf04ca1545c409538e802caba1c11411329029
+  linux_arm64: https://ghcr.io/v2/homebrew/core/paps/blobs/sha256:f8bff76dd84fc102e71509567f16a62036320efb8d3fb10240cee22ae5b70d19
+sha256:
+  darwin_arm64: 8d95f99591217a56718331ee68a6996b39f059ca4aecfe5d0921a11566d75735
+  darwin_amd64: 183b02cb1d125fa77ad0320bd003589aa346d9077d530ab85779916c41503547
+  linux_amd64: cf456bd3c1d9da480517bda9f2bf04ca1545c409538e802caba1c11411329029
+  linux_arm64: f8bff76dd84fc102e71509567f16a62036320efb8d3fb10240cee22ae5b70d19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fmt
+  - glib
+  - pango
+  - gettext

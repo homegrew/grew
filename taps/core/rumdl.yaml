@@ -1,0 +1,19 @@
+name: rumdl
+version: 0.1.42
+description: Markdown Linter and Formatter written in Rust
+homepage: https://github.com/rvben/rumdl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rumdl/blobs/sha256:8846fc17eed13a8ce74bd06ebdb443f3b47358ab0a20868b08b3deb62a59db4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rumdl/blobs/sha256:f11f482c273ee92fe473904f579292d99106034a8b04c7e44db7f716308b3ce5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rumdl/blobs/sha256:b8f4111b666cd2de603b260f02aa75ad43983ba40a82a0bd293101bcc9105670
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rumdl/blobs/sha256:2b464faccb4f0aeb8808f850977422376891cfea8fb23976221b4153cac7e689
+sha256:
+  darwin_arm64: 8846fc17eed13a8ce74bd06ebdb443f3b47358ab0a20868b08b3deb62a59db4e
+  darwin_amd64: f11f482c273ee92fe473904f579292d99106034a8b04c7e44db7f716308b3ce5
+  linux_amd64: b8f4111b666cd2de603b260f02aa75ad43983ba40a82a0bd293101bcc9105670
+  linux_arm64: 2b464faccb4f0aeb8808f850977422376891cfea8fb23976221b4153cac7e689
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

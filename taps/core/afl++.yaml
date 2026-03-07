@@ -1,0 +1,22 @@
+name: afl++
+version: 4.35c
+description: American Fuzzy Lop++
+homepage: https://aflplus.plus/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aflxx/blobs/sha256:c2df51739b4ef3e4bbf9ada1b5ab57c8fffc848fba7b98ff6fcdd511780b8bc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aflxx/blobs/sha256:297c153c14b348dd98806bd00f0307e6313f136201e5b3c82893c458143ab649
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aflxx/blobs/sha256:59cc5f6537182866131bece8d8f9d79f7cab1f3b871fe0eaf5bfac7275b3c333
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aflxx/blobs/sha256:fa49c337fd021355f5caf47f14b0b48267576edb017441b033fe7562c3717fec
+sha256:
+  darwin_arm64: c2df51739b4ef3e4bbf9ada1b5ab57c8fffc848fba7b98ff6fcdd511780b8bc2
+  darwin_amd64: 297c153c14b348dd98806bd00f0307e6313f136201e5b3c82893c458143ab649
+  linux_amd64: 59cc5f6537182866131bece8d8f9d79f7cab1f3b871fe0eaf5bfac7275b3c333
+  linux_arm64: fa49c337fd021355f5caf47f14b0b48267576edb017441b033fe7562c3717fec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm
+  - python@3.14

@@ -1,0 +1,19 @@
+name: biome
+version: 2.4.6
+description: Toolchain of the web
+homepage: https://biomejs.dev/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/biome/blobs/sha256:87568b99ca94ac5d90637a254d887e67d740d1f0c316a7265bf07db6cf7b0202
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/biome/blobs/sha256:64f0d41f9a0c482680e6420f5ce0ff90c2c35c45d507e43e79aa03a9e1377b61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/biome/blobs/sha256:a23459597927a85c35f165a7ee196e60b981a5a354eaf27369988827002a70ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/biome/blobs/sha256:bd7389884ba17071a0abd35d6576f3d0af4ee647452718c94f8249661717ab64
+sha256:
+  darwin_arm64: 87568b99ca94ac5d90637a254d887e67d740d1f0c316a7265bf07db6cf7b0202
+  darwin_amd64: 64f0d41f9a0c482680e6420f5ce0ff90c2c35c45d507e43e79aa03a9e1377b61
+  linux_amd64: a23459597927a85c35f165a7ee196e60b981a5a354eaf27369988827002a70ee
+  linux_arm64: bd7389884ba17071a0abd35d6576f3d0af4ee647452718c94f8249661717ab64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

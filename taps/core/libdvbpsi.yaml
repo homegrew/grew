@@ -1,0 +1,19 @@
+name: libdvbpsi
+version: 1.3.3
+description: Library to decode/generate MPEG TS and DVB PSI tables
+homepage: https://www.videolan.org/developers/libdvbpsi.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdvbpsi/blobs/sha256:8ca5d9293581da05648c293b9d1e0b67b1f33263c3fc57023f76822c5e2c2d59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdvbpsi/blobs/sha256:124e4d0858fbb2df20ef1040309365f1f33e62a8f482054353ac2b8c3ebdac8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdvbpsi/blobs/sha256:8aff79b57483d77c1d376a230726c33df0e1f322d40b9ab7bba314ae28cfc359
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdvbpsi/blobs/sha256:e86a18402d7540269883632b6c94336146664323efc4eead6f15f3e12d013f13
+sha256:
+  darwin_arm64: 8ca5d9293581da05648c293b9d1e0b67b1f33263c3fc57023f76822c5e2c2d59
+  darwin_amd64: 124e4d0858fbb2df20ef1040309365f1f33e62a8f482054353ac2b8c3ebdac8c
+  linux_amd64: 8aff79b57483d77c1d376a230726c33df0e1f322d40b9ab7bba314ae28cfc359
+  linux_arm64: e86a18402d7540269883632b6c94336146664323efc4eead6f15f3e12d013f13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

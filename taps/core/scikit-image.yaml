@@ -1,0 +1,24 @@
+name: scikit-image
+version: 0.26.0
+description: Image processing in Python
+homepage: https://scikit-image.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scikit-image/blobs/sha256:f92362bb9e8915f4663e1128f494955d8b2b9c2696ee10f6dcc8847e18dd3b4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scikit-image/blobs/sha256:f4022877af97831db0e3a4c01055c1fb7911489a549a7a78c52bf51097d6c1c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scikit-image/blobs/sha256:50f382f378a0ffc746827a9626da66979d0cd47db10be2647e50c2272b4b5ad7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scikit-image/blobs/sha256:f0c666448141861405ba8619e1d8c9f0e4fc0b3837a26ff62a5cfcf5b347691a
+sha256:
+  darwin_arm64: f92362bb9e8915f4663e1128f494955d8b2b9c2696ee10f6dcc8847e18dd3b4e
+  darwin_amd64: f4022877af97831db0e3a4c01055c1fb7911489a549a7a78c52bf51097d6c1c4
+  linux_amd64: 50f382f378a0ffc746827a9626da66979d0cd47db10be2647e50c2272b4b5ad7
+  linux_arm64: f0c666448141861405ba8619e1d8c9f0e4fc0b3837a26ff62a5cfcf5b347691a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - numpy
+  - pillow
+  - python@3.14
+  - scipy

@@ -1,0 +1,19 @@
+name: libxls
+version: 1.6.3
+description: Read binary Excel files from C/C++
+homepage: https://github.com/libxls/libxls
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxls/blobs/sha256:e400590151f209f52ff66dbd8a11b76f1fb773128b1b6c05e26d93a661b9c011
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxls/blobs/sha256:dfbc41b4db8cb154d168ccd41d8a730400fd49b73239cb6fc1d2b1ef15b80e96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxls/blobs/sha256:af8e8be72b0f2317a9901db68e14b77595d48da2294df10ef3aafc2aeaa9df02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxls/blobs/sha256:773ca56b2f5b6b529843780b77ebcb600a813970eaedeb0a07cdac45fa8b8d85
+sha256:
+  darwin_arm64: e400590151f209f52ff66dbd8a11b76f1fb773128b1b6c05e26d93a661b9c011
+  darwin_amd64: dfbc41b4db8cb154d168ccd41d8a730400fd49b73239cb6fc1d2b1ef15b80e96
+  linux_amd64: af8e8be72b0f2317a9901db68e14b77595d48da2294df10ef3aafc2aeaa9df02
+  linux_arm64: 773ca56b2f5b6b529843780b77ebcb600a813970eaedeb0a07cdac45fa8b8d85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

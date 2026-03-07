@@ -1,0 +1,13 @@
+name: sioyek
+version: 2.0.0
+description: PDF viewer designed for reading research papers and technical books
+homepage: https://sioyek.info/
+url:
+  darwin_arm64: https://github.com/ahrm/sioyek/releases/download/v2.0.0/sioyek-release-mac.zip
+sha256:
+  darwin_arm64: 0f81831d4fa0d57e7e7e56a40ab6fa6488950b7d6a944aa29918be42cfc46b8a
+artifacts:
+  app:
+    - sioyek.app
+  bin:
+    - sioyek

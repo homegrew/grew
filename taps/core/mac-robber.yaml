@@ -1,0 +1,19 @@
+name: mac-robber
+version: 1.02
+description: Digital investigation tool
+homepage: https://www.sleuthkit.org/mac-robber/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mac-robber/blobs/sha256:99a169217c9e38f7b17c74a953fe179c4ac781f840b2bf54d697af3cc5f6e21e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mac-robber/blobs/sha256:224025cbdd0d6d77a208e36caf9f375b760038101f242d5bc0d0e1bf077a6d25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mac-robber/blobs/sha256:ac53384d4cfcdf2b78d8abc6e8882ce7e6efd95304a9f09895a9e8a6108a4a9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mac-robber/blobs/sha256:f1de023a55e034e053a0b9def5895de322fb65c50bbed184391cb1d7e98f877b
+sha256:
+  darwin_arm64: 99a169217c9e38f7b17c74a953fe179c4ac781f840b2bf54d697af3cc5f6e21e
+  darwin_amd64: 224025cbdd0d6d77a208e36caf9f375b760038101f242d5bc0d0e1bf077a6d25
+  linux_amd64: ac53384d4cfcdf2b78d8abc6e8882ce7e6efd95304a9f09895a9e8a6108a4a9a
+  linux_arm64: f1de023a55e034e053a0b9def5895de322fb65c50bbed184391cb1d7e98f877b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

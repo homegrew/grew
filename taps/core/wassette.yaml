@@ -1,0 +1,19 @@
+name: wassette
+version: 0.4.0
+description: Security-oriented runtime that runs WebAssembly Components via MCP
+homepage: https://github.com/microsoft/wassette
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wassette/blobs/sha256:e317cf258893b2cf4b6b12705ca68bc912ba034e50baf5e8b9466316be4a868c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wassette/blobs/sha256:de3083cb79c202d582085af077606110d6878ec2741803e647d5b28ead49a6ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wassette/blobs/sha256:82b9fb444ef4a36f8d10037834d0c786c8f411ca7059fc36555b61bc417caffd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wassette/blobs/sha256:c574434cb5ba090708f526e6f78aa9a5df53885251f3a7ecaf502cbc01b67f93
+sha256:
+  darwin_arm64: e317cf258893b2cf4b6b12705ca68bc912ba034e50baf5e8b9466316be4a868c
+  darwin_amd64: de3083cb79c202d582085af077606110d6878ec2741803e647d5b28ead49a6ad
+  linux_amd64: 82b9fb444ef4a36f8d10037834d0c786c8f411ca7059fc36555b61bc417caffd
+  linux_arm64: c574434cb5ba090708f526e6f78aa9a5df53885251f3a7ecaf502cbc01b67f93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: warcraft-logs-uploader
+version: 8.20.60
+description: Client to upload warcraft logs
+homepage: https://classic.warcraftlogs.com/
+url:
+  darwin_arm64: https://github.com/RPGLogs/Uploaders-warcraftlogs/releases/download/v8.20.60/warcraftlogs-v8.20.60.dmg
+sha256:
+  darwin_arm64: 3985bb89c084064fb740f473ba3aa7420bfe667727c47de3b872e81aff99a047
+artifacts:
+  app:
+    - Warcraft Logs Uploader.app

@@ -1,0 +1,21 @@
+name: intelli-shell
+version: 3.4.0
+description: Like IntelliSense, but for shells
+homepage: https://lasantosr.github.io/intelli-shell/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/intelli-shell/blobs/sha256:a866f596b657e9767f18ccb6662f0140a030991ad2bf4a4ca4eb15febc910820
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/intelli-shell/blobs/sha256:4511eb7a9ef917c8eea3fad6488c93c7db468442842794fbd2b1fe2275a679b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/intelli-shell/blobs/sha256:26198ee83287fa56bee15edace4c0a166cfc64b3c3ec17b41dfc746b3d823ef3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/intelli-shell/blobs/sha256:92ab652310a0c3d980648ef0565c44a782e2b6dda87e7b3c5d9a5d0d8adf2e72
+sha256:
+  darwin_arm64: a866f596b657e9767f18ccb6662f0140a030991ad2bf4a4ca4eb15febc910820
+  darwin_amd64: 4511eb7a9ef917c8eea3fad6488c93c7db468442842794fbd2b1fe2275a679b4
+  linux_amd64: 26198ee83287fa56bee15edace4c0a166cfc64b3c3ec17b41dfc746b3d823ef3
+  linux_arm64: 92ab652310a0c3d980648ef0565c44a782e2b6dda87e7b3c5d9a5d0d8adf2e72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

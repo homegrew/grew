@@ -1,0 +1,21 @@
+name: kiota
+version: 1.30.0
+description: OpenAPI based HTTP Client code generator
+homepage: https://aka.ms/kiota/docs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kiota/blobs/sha256:9c5500ff8a56608219d158610e26dab90aeb9f53ea3a3f5140fc142fb39f4587
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kiota/blobs/sha256:88746020930e45e44a550802b00916b63ea908c95be49018b0af018cf38b87a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kiota/blobs/sha256:6fd24d5f53bfbc3bd56db1e4df2641974685e5d270f1e50faad5072eb9576e9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kiota/blobs/sha256:32d80309a623dea753c02a76f67c19ec5cce37d67c22a52ec1efe26297734bdb
+sha256:
+  darwin_arm64: 9c5500ff8a56608219d158610e26dab90aeb9f53ea3a3f5140fc142fb39f4587
+  darwin_amd64: 88746020930e45e44a550802b00916b63ea908c95be49018b0af018cf38b87a7
+  linux_amd64: 6fd24d5f53bfbc3bd56db1e4df2641974685e5d270f1e50faad5072eb9576e9c
+  linux_arm64: 32d80309a623dea753c02a76f67c19ec5cce37d67c22a52ec1efe26297734bdb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet

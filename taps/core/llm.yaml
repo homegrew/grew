@@ -1,0 +1,24 @@
+name: llm
+version: 0.28
+description: Access large language models from the command-line
+homepage: https://llm.datasette.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llm/blobs/sha256:88604275590d4b078111b44240a4f997f27b368a32e37108ddfe7c15ec1f89a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llm/blobs/sha256:f553258112f3e0137a509baca1713cfea8b41e51bca456f778c988232f178285
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llm/blobs/sha256:a9571adbecd435481f94c9ae094518115f5a31927eb4b22b6d5982e77df16b9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llm/blobs/sha256:6d80213899786814153d4ff205e0341d1163119e3ac307d7bd63dc0652fdbc6a
+sha256:
+  darwin_arm64: 88604275590d4b078111b44240a4f997f27b368a32e37108ddfe7c15ec1f89a8
+  darwin_amd64: f553258112f3e0137a509baca1713cfea8b41e51bca456f778c988232f178285
+  linux_amd64: a9571adbecd435481f94c9ae094518115f5a31927eb4b22b6d5982e77df16b9b
+  linux_arm64: 6d80213899786814153d4ff205e0341d1163119e3ac307d7bd63dc0652fdbc6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14

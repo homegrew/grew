@@ -1,0 +1,19 @@
+name: filebeat
+version: 9.3.1
+description: File harvester to ship log files to Elasticsearch or Logstash
+homepage: https://www.elastic.co/products/beats/filebeat
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/filebeat/blobs/sha256:606d140148509c3cac0fea66d973bf31b8b30cafd0316e765f5037d56843e607
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/filebeat/blobs/sha256:8f095288e39312cab156a1d1f2d1ec1b10bc514c2314cd4a2be7215707953c03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/filebeat/blobs/sha256:90d77f231637598dbe4ba0471472ff7c5f33cb10fc19b2aa028d00159b645740
+  linux_arm64: https://ghcr.io/v2/homebrew/core/filebeat/blobs/sha256:db2042fec59143a0fa7c725f0f164643e326c91aa4d706e9088916d484b78fd7
+sha256:
+  darwin_arm64: 606d140148509c3cac0fea66d973bf31b8b30cafd0316e765f5037d56843e607
+  darwin_amd64: 8f095288e39312cab156a1d1f2d1ec1b10bc514c2314cd4a2be7215707953c03
+  linux_amd64: 90d77f231637598dbe4ba0471472ff7c5f33cb10fc19b2aa028d00159b645740
+  linux_arm64: db2042fec59143a0fa7c725f0f164643e326c91aa4d706e9088916d484b78fd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

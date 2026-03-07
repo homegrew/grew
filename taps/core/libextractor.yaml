@@ -1,0 +1,21 @@
+name: libextractor
+version: 1.13
+description: Library to extract meta data from files
+homepage: https://www.gnu.org/software/libextractor/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libextractor/blobs/sha256:c2fd159149aca1a534cbfefa4d19fc9247eeb7c1884ec184d02b51abc1a10104
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libextractor/blobs/sha256:d45f64b417e7c7029835b32d45ad8222b64b24ade727cfc0b795869438f35c9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libextractor/blobs/sha256:62f5457e278cd0c44c770067398736631f9e516738e2a2c672e65d6eb27de541
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libextractor/blobs/sha256:46b5c12a0f96cb68769bb7bc30fb1d4b64cab9051e9cc3e902f342f2f6cfc92d
+sha256:
+  darwin_arm64: c2fd159149aca1a534cbfefa4d19fc9247eeb7c1884ec184d02b51abc1a10104
+  darwin_amd64: d45f64b417e7c7029835b32d45ad8222b64b24ade727cfc0b795869438f35c9a
+  linux_amd64: 62f5457e278cd0c44c770067398736631f9e516738e2a2c672e65d6eb27de541
+  linux_arm64: 46b5c12a0f96cb68769bb7bc30fb1d4b64cab9051e9cc3e902f342f2f6cfc92d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool

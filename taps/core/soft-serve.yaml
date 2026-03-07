@@ -1,0 +1,19 @@
+name: soft-serve
+version: 0.11.5
+description: Mighty, self-hostable Git server for the command-line
+homepage: https://github.com/charmbracelet/soft-serve
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soft-serve/blobs/sha256:4cc0372b3347d305d93826b6ffdaadc3418753679a4e4f778e82915df08e9d77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soft-serve/blobs/sha256:934cbcab44cd45d83db9602d4fc131049f2d91a33ab9a36b732653efdc494ed0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soft-serve/blobs/sha256:7b89027ba055e5bf46fcbbedf29bbb55a893eeb3693f55dce4279a06c3d7c8d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soft-serve/blobs/sha256:efc58f332f618f6b4c160bcf0cca1b5316dc3fd86a0ede840160ef1528ff9978
+sha256:
+  darwin_arm64: 4cc0372b3347d305d93826b6ffdaadc3418753679a4e4f778e82915df08e9d77
+  darwin_amd64: 934cbcab44cd45d83db9602d4fc131049f2d91a33ab9a36b732653efdc494ed0
+  linux_amd64: 7b89027ba055e5bf46fcbbedf29bbb55a893eeb3693f55dce4279a06c3d7c8d7
+  linux_arm64: efc58f332f618f6b4c160bcf0cca1b5316dc3fd86a0ede840160ef1528ff9978
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,30 @@
+name: rizin
+version: 0.8.2
+description: UNIX-like reverse engineering framework and command-line toolset
+homepage: https://rizin.re
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rizin/blobs/sha256:b46c736276c060f36dccbb6bafc5216d7010b8ec4d5864b5f4ec8536d611bfde
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rizin/blobs/sha256:4af3b7d816afea6cd2c8410faed4ba8b4239820b1927eb599f4633a7d3f6318c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rizin/blobs/sha256:07d86a1c8573f66cc6b7f0f76a7cc04dc98a1d46d4788986ad8a644458ee6be0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rizin/blobs/sha256:c7546ce2d1464e6f8650a589e503466e789aacf59c368ba076ea9d66021fd12e
+sha256:
+  darwin_arm64: b46c736276c060f36dccbb6bafc5216d7010b8ec4d5864b5f4ec8536d611bfde
+  darwin_amd64: 4af3b7d816afea6cd2c8410faed4ba8b4239820b1927eb599f4633a7d3f6318c
+  linux_amd64: 07d86a1c8573f66cc6b7f0f76a7cc04dc98a1d46d4788986ad8a644458ee6be0
+  linux_arm64: c7546ce2d1464e6f8650a589e503466e789aacf59c368ba076ea9d66021fd12e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone
+  - libmagic
+  - libzip
+  - lz4
+  - openssl@3
+  - pcre2
+  - tree-sitter
+  - xxhash
+  - xz
+  - zstd

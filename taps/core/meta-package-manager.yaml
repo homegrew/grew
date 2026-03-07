@@ -1,0 +1,24 @@
+name: meta-package-manager
+version: 6.1.1
+description: Wrapper around all package managers with a unifying CLI
+homepage: https://kdeldycke.github.io/meta-package-manager/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/meta-package-manager/blobs/sha256:ddd5f593aa9dfe592942f2d6cb0950c14f72653926e7cba1766f112f9e763749
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/meta-package-manager/blobs/sha256:168547b17d8f3f52c8d8a25fc6d205d808851babe6557530b4b9949ae608fc03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/meta-package-manager/blobs/sha256:01139918a037f338405f48a55be40ee52083a090ce38712ded832c565373c4ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/meta-package-manager/blobs/sha256:1ed4f169cd936a567d6c42499e8f9d842769cd899464146d23aec49fdbe35327
+sha256:
+  darwin_arm64: ddd5f593aa9dfe592942f2d6cb0950c14f72653926e7cba1766f112f9e763749
+  darwin_amd64: 168547b17d8f3f52c8d8a25fc6d205d808851babe6557530b4b9949ae608fc03
+  linux_amd64: 01139918a037f338405f48a55be40ee52083a090ce38712ded832c565373c4ae
+  linux_arm64: 1ed4f169cd936a567d6c42499e8f9d842769cd899464146d23aec49fdbe35327
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

@@ -1,0 +1,19 @@
+name: temporal_tables
+version: 1.2.2
+description: Temporal Tables PostgreSQL Extension
+homepage: https://pgxn.org/dist/temporal_tables/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/temporal_tables/blobs/sha256:961c3574dee3785c6a4a2d5dfee3fc55c758b09b06df2dc106a6f20caf555c18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/temporal_tables/blobs/sha256:2a3a851746ab81698051d7d408bcb4ebb38948aa5135f49480a62e8ac42c1acb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/temporal_tables/blobs/sha256:41bcf18a2b6d4abee03cd3f87ddcceb820fee5410d2442ad1613075f7fc97c92
+  linux_arm64: https://ghcr.io/v2/homebrew/core/temporal_tables/blobs/sha256:4c361513b78e4984086bb63776a72ecb2d2b44fb4c086cffa269652eefecafc3
+sha256:
+  darwin_arm64: 961c3574dee3785c6a4a2d5dfee3fc55c758b09b06df2dc106a6f20caf555c18
+  darwin_amd64: 2a3a851746ab81698051d7d408bcb4ebb38948aa5135f49480a62e8ac42c1acb
+  linux_amd64: 41bcf18a2b6d4abee03cd3f87ddcceb820fee5410d2442ad1613075f7fc97c92
+  linux_arm64: 4c361513b78e4984086bb63776a72ecb2d2b44fb4c086cffa269652eefecafc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

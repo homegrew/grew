@@ -1,0 +1,19 @@
+name: packcc
+version: 3.0.0
+description: Parser generator for C
+homepage: https://github.com/arithy/packcc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/packcc/blobs/sha256:5a0b8081546ebc891881680469460587fe18fe82d4944f6308f187b6d672dc8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/packcc/blobs/sha256:5e0b79858e62c36cc8073deb46c73b4fcd72d3ae29e6e68aa5e8b4ba3c8b0126
+  linux_amd64: https://ghcr.io/v2/homebrew/core/packcc/blobs/sha256:c7cf28c0ae4f5ff529ee87dca10372ad67742882ec92a72207131a085688a6e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/packcc/blobs/sha256:dab45b60bb8c17f1234c2050a1c4bd53955a7278612fd116bf5627cd5e81e7a0
+sha256:
+  darwin_arm64: 5a0b8081546ebc891881680469460587fe18fe82d4944f6308f187b6d672dc8b
+  darwin_amd64: 5e0b79858e62c36cc8073deb46c73b4fcd72d3ae29e6e68aa5e8b4ba3c8b0126
+  linux_amd64: c7cf28c0ae4f5ff529ee87dca10372ad67742882ec92a72207131a085688a6e0
+  linux_arm64: dab45b60bb8c17f1234c2050a1c4bd53955a7278612fd116bf5627cd5e81e7a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

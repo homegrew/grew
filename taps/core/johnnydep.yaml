@@ -1,0 +1,22 @@
+name: johnnydep
+version: 1.20.6
+description: Display dependency tree of Python distribution
+homepage: https://github.com/wimglenn/johnnydep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/johnnydep/blobs/sha256:6d274fefc18f8db028fc25d289899f829a33376168b2023b18af93a10abee047
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/johnnydep/blobs/sha256:1813f3a60ab612a55e7daa361a555f2479bf8a1bc9cf8a10b08490563ef50610
+  linux_amd64: https://ghcr.io/v2/homebrew/core/johnnydep/blobs/sha256:698750390e7ca34c71365475933951db23d906ad69adc825c5f1d46cf6d2d10f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/johnnydep/blobs/sha256:7d02f4e58aba435472744748c0c451a0d7e8b11312146463aca0b13882b87a0c
+sha256:
+  darwin_arm64: 6d274fefc18f8db028fc25d289899f829a33376168b2023b18af93a10abee047
+  darwin_amd64: 1813f3a60ab612a55e7daa361a555f2479bf8a1bc9cf8a10b08490563ef50610
+  linux_amd64: 698750390e7ca34c71365475933951db23d906ad69adc825c5f1d46cf6d2d10f
+  linux_arm64: 7d02f4e58aba435472744748c0c451a0d7e8b11312146463aca0b13882b87a0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

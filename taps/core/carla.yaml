@@ -1,0 +1,27 @@
+name: carla
+version: 2.5.10
+description: Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more
+homepage: https://kx.studio/Applications:Carla
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carla/blobs/sha256:e262b34d4e21d5ca0d5abbd27a19ee022eb195a52c0622c814456e1cd95f1454
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carla/blobs/sha256:cd9c3cfbd45c97b0a82fc238c0dc96a4ba41f523459eddb07d8541319482c8b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/carla/blobs/sha256:5ed922b11d7bb6755b0745ad5a51fb581909d653263830b41639299272ae3ff3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/carla/blobs/sha256:b951b632b5eed8b2600195552a1dea945cc16cc79d8a6a1059fec105f1e0742e
+sha256:
+  darwin_arm64: e262b34d4e21d5ca0d5abbd27a19ee022eb195a52c0622c814456e1cd95f1454
+  darwin_amd64: cd9c3cfbd45c97b0a82fc238c0dc96a4ba41f523459eddb07d8541319482c8b4
+  linux_amd64: 5ed922b11d7bb6755b0745ad5a51fb581909d653263830b41639299272ae3ff3
+  linux_arm64: b951b632b5eed8b2600195552a1dea945cc16cc79d8a6a1059fec105f1e0742e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pyqt@5
+  - qt@5
+  - fluid-synth
+  - liblo
+  - libmagic
+  - libsndfile
+  - python@3.14

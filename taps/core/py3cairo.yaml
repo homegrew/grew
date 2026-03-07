@@ -1,0 +1,21 @@
+name: py3cairo
+version: 1.29.0
+description: Python 3 bindings for the Cairo graphics library
+homepage: https://cairographics.org/pycairo/
+license: LGPL-2.1-only OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/py3cairo/blobs/sha256:5262a6f83c776ac9a3325488dd92216a9865f271d6de30de4b465ec771ee8968
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/py3cairo/blobs/sha256:f915d3efc320997a2e05c5948b3eea84f5c7640cc58542fb4d86fe936416a5db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/py3cairo/blobs/sha256:5692a6792c7aaf933469acc5ff1c51a6b21e11d8f98439f3baf9e525bd2e18b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/py3cairo/blobs/sha256:81629e2f6185689b774840bc69f19b56571f1fa8644545aa645c31fe2e3c61bb
+sha256:
+  darwin_arm64: 5262a6f83c776ac9a3325488dd92216a9865f271d6de30de4b465ec771ee8968
+  darwin_amd64: f915d3efc320997a2e05c5948b3eea84f5c7640cc58542fb4d86fe936416a5db
+  linux_amd64: 5692a6792c7aaf933469acc5ff1c51a6b21e11d8f98439f3baf9e525bd2e18b5
+  linux_arm64: 81629e2f6185689b774840bc69f19b56571f1fa8644545aa645c31fe2e3c61bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo

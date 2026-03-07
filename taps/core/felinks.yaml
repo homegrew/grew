@@ -1,0 +1,28 @@
+name: felinks
+version: 0.19.1
+description: Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client
+homepage: https://github.com/rkd77/elinks
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/felinks/blobs/sha256:1bb748fa85a2021054ecfbc078da2ed3201320744a218d340732298fd90536d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/felinks/blobs/sha256:25835e28f28a67984128bdeafe0ad342be1a5a4b649a4d4176ba227ee7cce737
+  linux_amd64: https://ghcr.io/v2/homebrew/core/felinks/blobs/sha256:2bbd226d828e84ea9ea36a907498ff54712896f49f3a407a8709c904e567c02a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/felinks/blobs/sha256:5b6fa5b978fe374293f29e46dd8870c7533d67ba94170285e8dc9f261340f159
+sha256:
+  darwin_arm64: 1bb748fa85a2021054ecfbc078da2ed3201320744a218d340732298fd90536d8
+  darwin_amd64: 25835e28f28a67984128bdeafe0ad342be1a5a4b649a4d4176ba227ee7cce737
+  linux_amd64: 2bbd226d828e84ea9ea36a907498ff54712896f49f3a407a8709c904e567c02a
+  linux_arm64: 5b6fa5b978fe374293f29e46dd8870c7533d67ba94170285e8dc9f261340f159
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - libcss
+  - libdom
+  - libidn2
+  - libwapcaplet
+  - openssl@3
+  - tre
+  - zstd

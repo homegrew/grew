@@ -1,0 +1,22 @@
+name: libgit2@1.8
+version: 1.8.5
+description: C library of Git core methods that is re-entrant and linkable
+homepage: https://libgit2.org/
+license: GPL-2.0-only WITH GCC-exception-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgit2/1.8/blobs/sha256:906d5ccc5117c9e2c7273223571961fbc1942a61c652ed31f494f85423069af2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgit2/1.8/blobs/sha256:f13c93f8f111aa5b58366fae780223237438c3486be7481b4263bbad0a23dcee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgit2/1.8/blobs/sha256:3a03d39fce85a0f92345248fcdfff263023ee9eaf6a1b0103191d4302f5bddde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgit2/1.8/blobs/sha256:1feecd76d9334b09f4a24b69eb19af77910d1e1d5b83508ea115e3c63bb50d98
+sha256:
+  darwin_arm64: 906d5ccc5117c9e2c7273223571961fbc1942a61c652ed31f494f85423069af2
+  darwin_amd64: f13c93f8f111aa5b58366fae780223237438c3486be7481b4263bbad0a23dcee
+  linux_amd64: 3a03d39fce85a0f92345248fcdfff263023ee9eaf6a1b0103191d4302f5bddde
+  linux_arm64: 1feecd76d9334b09f4a24b69eb19af77910d1e1d5b83508ea115e3c63bb50d98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libssh2
+keg_only: true

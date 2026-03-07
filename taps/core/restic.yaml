@@ -1,0 +1,19 @@
+name: restic
+version: 0.18.1
+description: Fast, efficient and secure backup program
+homepage: https://restic.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/restic/blobs/sha256:d6fd5d1ca0cacb7629f7bc480c81dfa36c551bb610e5559e9a86a0712b4bc2a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/restic/blobs/sha256:7d6d0d3486f2a8c77bef02e15e860c3ee9ecb2a78c217dffda26c125d4f0b3ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/restic/blobs/sha256:f787724e226c9f3ee6a6e1a94feb01262102ce1053d1a09ed18f5f8d835a6f96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/restic/blobs/sha256:cf1e673d725c5d20dd4829062da1a18710f0ce9780eb8a0f41613d913bd0397e
+sha256:
+  darwin_arm64: d6fd5d1ca0cacb7629f7bc480c81dfa36c551bb610e5559e9a86a0712b4bc2a9
+  darwin_amd64: 7d6d0d3486f2a8c77bef02e15e860c3ee9ecb2a78c217dffda26c125d4f0b3ff
+  linux_amd64: f787724e226c9f3ee6a6e1a94feb01262102ce1053d1a09ed18f5f8d835a6f96
+  linux_arm64: cf1e673d725c5d20dd4829062da1a18710f0ce9780eb8a0f41613d913bd0397e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

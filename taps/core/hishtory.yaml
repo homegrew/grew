@@ -1,0 +1,19 @@
+name: hishtory
+version: 0.335
+description: "Your shell history: synced, queryable, and in context"
+homepage: https://hishtory.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hishtory/blobs/sha256:99dec873524b0cd5ac384478afd990b0ed9ed606c9bc6c94e8c3e7c0622747bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hishtory/blobs/sha256:efc3d5ab95c59a45cc6ca7c5caf7e367f419c3dfc25755875882a1fe33f91558
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hishtory/blobs/sha256:13d274f6feb130825393ffa5e24e6fe5e8bf1aca290214fda7c1f17fbe6c4270
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hishtory/blobs/sha256:dffdda94fe7ba567cdb165781632e0e3cfc24553b638cb6b45eee1de5684e493
+sha256:
+  darwin_arm64: 99dec873524b0cd5ac384478afd990b0ed9ed606c9bc6c94e8c3e7c0622747bc
+  darwin_amd64: efc3d5ab95c59a45cc6ca7c5caf7e367f419c3dfc25755875882a1fe33f91558
+  linux_amd64: 13d274f6feb130825393ffa5e24e6fe5e8bf1aca290214fda7c1f17fbe6c4270
+  linux_arm64: dffdda94fe7ba567cdb165781632e0e3cfc24553b638cb6b45eee1de5684e493
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

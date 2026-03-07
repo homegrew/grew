@@ -1,0 +1,19 @@
+name: tokei
+version: 14.0.0
+description: Program that allows you to count code, quickly
+homepage: https://github.com/XAMPPRocky/tokei
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tokei/blobs/sha256:a4c00ab0590860aca31baefc4fc26bf12e31df2d767ff4f082fdbfdef062720c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tokei/blobs/sha256:6e972212515cb41388ef0c41055a095d306f358f20c886c394443203a1a0ded4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tokei/blobs/sha256:827d4ca8ee4f3691311a0c9d2bbd410391e789868de263fdaf5929f4045238ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tokei/blobs/sha256:043a8dd76dbc8b13e862d725b30e1989f05ffcefdf1c2d6b770daacb99bdd9db
+sha256:
+  darwin_arm64: a4c00ab0590860aca31baefc4fc26bf12e31df2d767ff4f082fdbfdef062720c
+  darwin_amd64: 6e972212515cb41388ef0c41055a095d306f358f20c886c394443203a1a0ded4
+  linux_amd64: 827d4ca8ee4f3691311a0c9d2bbd410391e789868de263fdaf5929f4045238ad
+  linux_arm64: 043a8dd76dbc8b13e862d725b30e1989f05ffcefdf1c2d6b770daacb99bdd9db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

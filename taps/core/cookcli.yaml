@@ -1,0 +1,21 @@
+name: cookcli
+version: 0.24.0
+description: CLI-tool for cooking recipes formated using Cooklang
+homepage: https://cooklang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cookcli/blobs/sha256:84b8f7cbb9cf510e063a83b78125b52c6d84941e6cd08054d33aa61885045616
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cookcli/blobs/sha256:f4b2f8bfe965b864dec4bf83bc5fa0c9aaf9eef7a0b3380b1485ca81f7fc2b8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cookcli/blobs/sha256:5dc146220f97ceb813d00cb4097a963df28df6f3532968a3cf1e10962f074b99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cookcli/blobs/sha256:b242ab564cb4be92443eca0c66e1d100b974b3f5c84ba692c7a4bb8585dfb95f
+sha256:
+  darwin_arm64: 84b8f7cbb9cf510e063a83b78125b52c6d84941e6cd08054d33aa61885045616
+  darwin_amd64: f4b2f8bfe965b864dec4bf83bc5fa0c9aaf9eef7a0b3380b1485ca81f7fc2b8f
+  linux_amd64: 5dc146220f97ceb813d00cb4097a963df28df6f3532968a3cf1e10962f074b99
+  linux_arm64: b242ab564cb4be92443eca0c66e1d100b974b3f5c84ba692c7a4bb8585dfb95f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,19 @@
+name: cargo-expand
+version: 1.0.121
+description: Show what Rust code looks like with macros expanded
+homepage: https://github.com/dtolnay/cargo-expand
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-expand/blobs/sha256:1f4139f4c27426889430a11fe35e5472ed5d0b6c28d74165f791ad5edd82ba2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-expand/blobs/sha256:a85596b5dc6a518f612ef25a33bdbba81e312040fa79fb3ff5ac1fb412092ace
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-expand/blobs/sha256:a6ca0b032a90bbdef8df0895b9558359e22f4bd9eadb625e092370a804e173a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-expand/blobs/sha256:3a6c0f2d93b324bff5723e662f358285d5ff256e5572dbd3acd9268d7397f681
+sha256:
+  darwin_arm64: 1f4139f4c27426889430a11fe35e5472ed5d0b6c28d74165f791ad5edd82ba2a
+  darwin_amd64: a85596b5dc6a518f612ef25a33bdbba81e312040fa79fb3ff5ac1fb412092ace
+  linux_amd64: a6ca0b032a90bbdef8df0895b9558359e22f4bd9eadb625e092370a804e173a6
+  linux_arm64: 3a6c0f2d93b324bff5723e662f358285d5ff256e5572dbd3acd9268d7397f681
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

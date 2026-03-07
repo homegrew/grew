@@ -1,0 +1,26 @@
+name: moto
+version: 5.1.21
+description: Mock AWS services
+homepage: http://getmoto.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moto/blobs/sha256:0b91708567915c97c41bf9ad51ea0668dc4d4cbe9a1b71f82d52def1ae48444b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moto/blobs/sha256:2f81502ea8ad4c57ad3086a40182ac5831408f9b4be362fe4d9462a419516804
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moto/blobs/sha256:c15907714ceb3baed50d1c57d8c28237ba12f9a5d6adee4fd60e08c1e57bdae0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moto/blobs/sha256:3041acca84ab4111d2ec9c9ec9c81b0be3b97f4e23e6f16d0cf53b6d4ddb9af8
+sha256:
+  darwin_arm64: 0b91708567915c97c41bf9ad51ea0668dc4d4cbe9a1b71f82d52def1ae48444b
+  darwin_amd64: 2f81502ea8ad4c57ad3086a40182ac5831408f9b4be362fe4d9462a419516804
+  linux_amd64: c15907714ceb3baed50d1c57d8c28237ba12f9a5d6adee4fd60e08c1e57bdae0
+  linux_arm64: 3041acca84ab4111d2ec9c9ec9c81b0be3b97f4e23e6f16d0cf53b6d4ddb9af8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pydantic
+  - python@3.13
+  - rpds-py

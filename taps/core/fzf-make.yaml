@@ -1,0 +1,19 @@
+name: fzf-make
+version: 0.67.0
+description: Fuzzy finder with preview window for various command runners including make
+homepage: https://github.com/kyu08/fzf-make
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fzf-make/blobs/sha256:a382a32a1f95ded17f8bc120c9c4609103aa6927d51097f01abfe639b6efaa85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fzf-make/blobs/sha256:839942db45ac44308970bafe34cf99391b7227f1afa167cc8bc7b3f0c32e23a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fzf-make/blobs/sha256:4e398ac0827b41f2847baaa4910e813264a8444346869b6f119f523924672a8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fzf-make/blobs/sha256:de118f89a8ef64e3ccac6c14658416f31f0cfbc02240d35c2de7ace924d1c57c
+sha256:
+  darwin_arm64: a382a32a1f95ded17f8bc120c9c4609103aa6927d51097f01abfe639b6efaa85
+  darwin_amd64: 839942db45ac44308970bafe34cf99391b7227f1afa167cc8bc7b3f0c32e23a2
+  linux_amd64: 4e398ac0827b41f2847baaa4910e813264a8444346869b6f119f523924672a8b
+  linux_arm64: de118f89a8ef64e3ccac6c14658416f31f0cfbc02240d35c2de7ace924d1c57c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

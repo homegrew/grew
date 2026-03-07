@@ -1,0 +1,19 @@
+name: nsh
+version: 0.4.2
+description: Fish-like, POSIX-compatible shell
+homepage: https://github.com/nuta/nsh
+license: CC0-1.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nsh/blobs/sha256:8de98d7c1f703f719f7cab7cd55a8f633543319cb60c8fd05bd6bdc95bf83ac7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nsh/blobs/sha256:0f44f5e6d9c363a174593bd3a871eed2572d4afe45a37715f73c8739d5b328a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nsh/blobs/sha256:2459f1a58f38485536f990ac8e8817721e7fec5e313934af0ae00cc3d897f7b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nsh/blobs/sha256:64bf0caef687e903d920f5fc3d8e4bc8535fcbc3f2463d744ef5f37ca7128bc8
+sha256:
+  darwin_arm64: 8de98d7c1f703f719f7cab7cd55a8f633543319cb60c8fd05bd6bdc95bf83ac7
+  darwin_amd64: 0f44f5e6d9c363a174593bd3a871eed2572d4afe45a37715f73c8739d5b328a2
+  linux_amd64: 2459f1a58f38485536f990ac8e8817721e7fec5e313934af0ae00cc3d897f7b1
+  linux_arm64: 64bf0caef687e903d920f5fc3d8e4bc8535fcbc3f2463d744ef5f37ca7128bc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

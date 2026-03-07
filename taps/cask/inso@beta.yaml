@@ -1,0 +1,11 @@
+name: inso@beta
+version: 12.4.0
+description: CLI HTTP and GraphQL Client
+homepage: https://insomnia.rest/products/inso
+url:
+  darwin_arm64: https://github.com/Kong/insomnia/releases/download/core%4012.4.0/inso-macos-12.4.0.zip
+sha256:
+  darwin_arm64: 1a5c41b19452da100c8780f0e8ac1451f8fa825bb9f7302ee603cf657aeb4712
+artifacts:
+  bin:
+    - inso

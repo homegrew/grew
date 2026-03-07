@@ -1,0 +1,19 @@
+name: libnxml
+version: 0.18.5
+description: C library for parsing, writing, and creating XML files
+homepage: https://github.com/bakulf/libnxml
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnxml/blobs/sha256:4c39575bded5e30f6417654a6d1eabb5a2812401fe97ff351fb3067f76ab7a8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnxml/blobs/sha256:b33e1d5aef9bbf9f058740832ee647c7c838c23bc2523105b3e1192059f01ddf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnxml/blobs/sha256:63bb969c6efc96d3bc6c97c4e8faa0dc918ed41bdf9d55e25f372f33b4c4d78e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnxml/blobs/sha256:aeae7a08c735c217cc5cc14eabddbcc883af5933aba7253e3fa020622a6783f5
+sha256:
+  darwin_arm64: 4c39575bded5e30f6417654a6d1eabb5a2812401fe97ff351fb3067f76ab7a8a
+  darwin_amd64: b33e1d5aef9bbf9f058740832ee647c7c838c23bc2523105b3e1192059f01ddf
+  linux_amd64: 63bb969c6efc96d3bc6c97c4e8faa0dc918ed41bdf9d55e25f372f33b4c4d78e
+  linux_arm64: aeae7a08c735c217cc5cc14eabddbcc883af5933aba7253e3fa020622a6783f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

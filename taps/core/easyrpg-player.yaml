@@ -1,0 +1,35 @@
+name: easyrpg-player
+version: 0.8.1.1
+description: RPG Maker 2000/2003 games interpreter
+homepage: https://easyrpg.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/easyrpg-player/blobs/sha256:d68b064595c8cbdd5c098f14d6d44c825fb98a6cd75436d3024177edce4d79cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/easyrpg-player/blobs/sha256:5f10d972d19d0185dae65942651b83b4b60aed838a45df89efb9691763635d9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/easyrpg-player/blobs/sha256:a6bb2d6be07d2f602df98c6e4da8377fbaf186ce2f295845304aa1520aec3ff6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/easyrpg-player/blobs/sha256:54fc30c523fb4e5cb8e059cce4f70608fbf5ff562175ec42dc0ac7cc58addd8c
+sha256:
+  darwin_arm64: d68b064595c8cbdd5c098f14d6d44c825fb98a6cd75436d3024177edce4d79cb
+  darwin_amd64: 5f10d972d19d0185dae65942651b83b4b60aed838a45df89efb9691763635d9a
+  linux_amd64: a6bb2d6be07d2f602df98c6e4da8377fbaf186ce2f295845304aa1520aec3ff6
+  linux_arm64: 54fc30c523fb4e5cb8e059cce4f70608fbf5ff562175ec42dc0ac7cc58addd8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - freetype
+  - harfbuzz
+  - icu4c@78
+  - liblcf
+  - libpng
+  - libsndfile
+  - libvorbis
+  - libxmp
+  - mpg123
+  - pixman
+  - sdl2
+  - speexdsp
+  - inih
+  - libogg

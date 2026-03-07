@@ -1,0 +1,21 @@
+name: corral
+version: 0.9.2
+description: Dependency manager for the Pony language
+homepage: https://github.com/ponylang/corral
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/corral/blobs/sha256:6f3de1320410cb39bc11d33df5cad6e582d890625cd335e86cb7989d0a386f68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/corral/blobs/sha256:3e715fac5e78e7b91e8e5f7ad998aac7133a8ab8197b2f6cd4f40cf547b89d4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/corral/blobs/sha256:10b3afde7155d1a4ce99cd9e25442fd8cfa52052cc1abfc24469e99fd1f077e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/corral/blobs/sha256:e91957a9613d01dcf70d745a9ee58142e325573b9ac051351796e669efa1b0fe
+sha256:
+  darwin_arm64: 6f3de1320410cb39bc11d33df5cad6e582d890625cd335e86cb7989d0a386f68
+  darwin_amd64: 3e715fac5e78e7b91e8e5f7ad998aac7133a8ab8197b2f6cd4f40cf547b89d4e
+  linux_amd64: 10b3afde7155d1a4ce99cd9e25442fd8cfa52052cc1abfc24469e99fd1f077e2
+  linux_arm64: e91957a9613d01dcf70d745a9ee58142e325573b9ac051351796e669efa1b0fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ponyc

@@ -1,0 +1,19 @@
+name: mpck
+version: 0.21
+description: Check MP3 files for errors
+homepage: https://checkmate.gissen.nl/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpck/blobs/sha256:d2724946fd57b26d6af09556f4542e2eb04721e2f3043a0e8a38eed5144e0550
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpck/blobs/sha256:d1f6418aa6a0cbd47ef102d7c099fb9eebecafd8e5609594162d79a25efe9d5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpck/blobs/sha256:0fcc623716e6209ba20e0e6211f90f96e2052b180282694d608677df4bdc72ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpck/blobs/sha256:22ac6376ab61a0f98ba1cec33f9fbe3af88ada272ebdcf90bc1ff2c345174496
+sha256:
+  darwin_arm64: d2724946fd57b26d6af09556f4542e2eb04721e2f3043a0e8a38eed5144e0550
+  darwin_amd64: d1f6418aa6a0cbd47ef102d7c099fb9eebecafd8e5609594162d79a25efe9d5e
+  linux_amd64: 0fcc623716e6209ba20e0e6211f90f96e2052b180282694d608677df4bdc72ed
+  linux_arm64: 22ac6376ab61a0f98ba1cec33f9fbe3af88ada272ebdcf90bc1ff2c345174496
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: yutu
+version: 0.10.6
+description: MCP server and CLI for YouTube
+homepage: https://github.com/eat-pray-ai/yutu
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yutu/blobs/sha256:3b5e8b70c3ec1fa226913cf5965077d8be5cb753331a8af505816fcdda3b955b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yutu/blobs/sha256:a429ffe40db462eec7b475c0b62e424f69b2149f0603f33e08fc0d6cd7a29f27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yutu/blobs/sha256:205f43f3037a8107b528e93fc1eb9a20f2a15035c1f03835fcd5c16df27f5cfe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yutu/blobs/sha256:343969f6301f743b73c23d0dbea8ce9949e62a848e409a77dc19ab37786caa04
+sha256:
+  darwin_arm64: 3b5e8b70c3ec1fa226913cf5965077d8be5cb753331a8af505816fcdda3b955b
+  darwin_amd64: a429ffe40db462eec7b475c0b62e424f69b2149f0603f33e08fc0d6cd7a29f27
+  linux_amd64: 205f43f3037a8107b528e93fc1eb9a20f2a15035c1f03835fcd5c16df27f5cfe
+  linux_arm64: 343969f6301f743b73c23d0dbea8ce9949e62a848e409a77dc19ab37786caa04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

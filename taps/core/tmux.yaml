@@ -1,0 +1,23 @@
+name: tmux
+version: 3.6a
+description: Terminal multiplexer
+homepage: https://tmux.github.io/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmux/blobs/sha256:36b24a92e268147bca7ef3e5df3a88affa06512d573e75f1cd1da28e724f4afd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmux/blobs/sha256:b0ca1f90384e487d2316bdcaef59ba4fdf63cb04fa561d424605f86935599563
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmux/blobs/sha256:b6b495ea4851f445eb947c60eb0fadaf87f872a0959b49b34303297d654bf81c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmux/blobs/sha256:d4d439bc36e2d3814323f14242249fb16b17bef657878ab2d407b3769822f55e
+sha256:
+  darwin_arm64: 36b24a92e268147bca7ef3e5df3a88affa06512d573e75f1cd1da28e724f4afd
+  darwin_amd64: b0ca1f90384e487d2316bdcaef59ba4fdf63cb04fa561d424605f86935599563
+  linux_amd64: b6b495ea4851f445eb947c60eb0fadaf87f872a0959b49b34303297d654bf81c
+  linux_arm64: d4d439bc36e2d3814323f14242249fb16b17bef657878ab2d407b3769822f55e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - ncurses
+  - utf8proc

@@ -1,0 +1,22 @@
+name: zookeeper
+version: 3.9.5
+description: Centralized server for distributed coordination of services
+homepage: https://zookeeper.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zookeeper/blobs/sha256:f91fb927cb73a86eaec23244cbadc075103a0be7aae4dd8607ad8cbace61fc37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zookeeper/blobs/sha256:bfa429b82f2bbe542a3d23468424fcbc71797539874436a401572a6d9d9fa23f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zookeeper/blobs/sha256:19589017b7367c465a31ecf568c1aeb238a6ab8d38fcba0a63a5f5bbdaa2e064
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zookeeper/blobs/sha256:1782caca768915452beeee04c9432d715fdb26c74596664cd2a66ba52c2f51b1
+sha256:
+  darwin_arm64: f91fb927cb73a86eaec23244cbadc075103a0be7aae4dd8607ad8cbace61fc37
+  darwin_amd64: bfa429b82f2bbe542a3d23468424fcbc71797539874436a401572a6d9d9fa23f
+  linux_amd64: 19589017b7367c465a31ecf568c1aeb238a6ab8d38fcba0a63a5f5bbdaa2e064
+  linux_arm64: 1782caca768915452beeee04c9432d715fdb26c74596664cd2a66ba52c2f51b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk
+  - openssl@3

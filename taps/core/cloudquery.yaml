@@ -1,0 +1,19 @@
+name: cloudquery
+version: 6.35.0
+description: Data movement tool to sync data from any source to any destination
+homepage: https://www.cloudquery.io
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudquery/blobs/sha256:e84bafaaea3b47b7b6f6d92e2cf253781470d76df71a2a8ec96d2112ad4a916f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudquery/blobs/sha256:d739cc8b187e6325c11429109d179b862d03a569c9ee7d1b1bc846527bf35298
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudquery/blobs/sha256:95de57603469058ad91e58d71d1e72f2a6c64f2bec2edbdc0843b7dd8b07e8fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudquery/blobs/sha256:da7fe7ed8424a4a6473b3b6930f96ed7cd8f7553b26bafd624a0d2568f9e3a13
+sha256:
+  darwin_arm64: e84bafaaea3b47b7b6f6d92e2cf253781470d76df71a2a8ec96d2112ad4a916f
+  darwin_amd64: d739cc8b187e6325c11429109d179b862d03a569c9ee7d1b1bc846527bf35298
+  linux_amd64: 95de57603469058ad91e58d71d1e72f2a6c64f2bec2edbdc0843b7dd8b07e8fd
+  linux_arm64: da7fe7ed8424a4a6473b3b6930f96ed7cd8f7553b26bafd624a0d2568f9e3a13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

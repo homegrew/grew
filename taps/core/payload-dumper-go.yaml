@@ -1,0 +1,21 @@
+name: payload-dumper-go
+version: 1.3.0
+description: Android OTA payload dumper written in Go
+homepage: https://github.com/ssut/payload-dumper-go
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/payload-dumper-go/blobs/sha256:97ce35198d98de962751f7815760e8ba1a9887feb3b999aa65f68a04d2e47e57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/payload-dumper-go/blobs/sha256:43c27225c84681b696cc133dd3027dcdb8a99434eaaae57adf9d24b10a761b09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/payload-dumper-go/blobs/sha256:dec1676646bcf9b015900ac1d9c7f5f1912671bdd034e511235b38c95e63cc3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/payload-dumper-go/blobs/sha256:f89b0e2f2ffb8fc2ec9c58f91aa50ea18243bbb2c15c4682df72931fda29c21c
+sha256:
+  darwin_arm64: 97ce35198d98de962751f7815760e8ba1a9887feb3b999aa65f68a04d2e47e57
+  darwin_amd64: 43c27225c84681b696cc133dd3027dcdb8a99434eaaae57adf9d24b10a761b09
+  linux_amd64: dec1676646bcf9b015900ac1d9c7f5f1912671bdd034e511235b38c95e63cc3c
+  linux_arm64: f89b0e2f2ffb8fc2ec9c58f91aa50ea18243bbb2c15c4682df72931fda29c21c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

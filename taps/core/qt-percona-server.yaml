@@ -1,0 +1,22 @@
+name: qt-percona-server
+version: 6.10.2
+description: Qt SQL Database Driver
+homepage: https://www.qt.io/
+license: GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt-percona-server/blobs/sha256:222b58d1a198ca6c5a91ca715a25eb50cbde32614481eb8d08950f9430862a6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt-percona-server/blobs/sha256:c2ffe740769a4b262d21ba1b9ca616cbfb1bcdda5db957b7c0e08e8c3520b226
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt-percona-server/blobs/sha256:3350ff423c11abb5567ac33a31fcd6543d26292a4b4d919cec993024305c3c36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt-percona-server/blobs/sha256:6c447799fe88f2fe4a9319b5f40e80bc011f2e72e57c68b4b391825520f2e310
+sha256:
+  darwin_arm64: 222b58d1a198ca6c5a91ca715a25eb50cbde32614481eb8d08950f9430862a6e
+  darwin_amd64: c2ffe740769a4b262d21ba1b9ca616cbfb1bcdda5db957b7c0e08e8c3520b226
+  linux_amd64: 3350ff423c11abb5567ac33a31fcd6543d26292a4b4d919cec993024305c3c36
+  linux_arm64: 6c447799fe88f2fe4a9319b5f40e80bc011f2e72e57c68b4b391825520f2e310
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - percona-server
+  - qtbase

@@ -1,0 +1,19 @@
+name: dblab
+version: 0.34.3
+description: Database client every command-line junkie deserves
+homepage: https://dblab.app/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dblab/blobs/sha256:7c17c33425a5eff6327205e82feea282a73b596e2f785b265b7da396aac1434b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dblab/blobs/sha256:fcea3c19d85ff8d64ef8d0790ca7d51ec3ba03f8bdd8f2bd471c7032e0553880
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dblab/blobs/sha256:d10320f79eda47dbe8cd3b77aeea31946675dff3329fe16710e105568b665e15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dblab/blobs/sha256:3b1db287d1fb9277ee8cc8a44f6e1c7329a845fb062fc0348911618cba9c1cd7
+sha256:
+  darwin_arm64: 7c17c33425a5eff6327205e82feea282a73b596e2f785b265b7da396aac1434b
+  darwin_amd64: fcea3c19d85ff8d64ef8d0790ca7d51ec3ba03f8bdd8f2bd471c7032e0553880
+  linux_amd64: d10320f79eda47dbe8cd3b77aeea31946675dff3329fe16710e105568b665e15
+  linux_arm64: 3b1db287d1fb9277ee8cc8a44f6e1c7329a845fb062fc0348911618cba9c1cd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

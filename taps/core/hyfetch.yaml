@@ -1,0 +1,21 @@
+name: hyfetch
+version: 2.0.5
+description: Fast, highly customisable system info script with LGBTQ+ pride flags
+homepage: https://github.com/hykilpikonna/hyfetch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hyfetch/blobs/sha256:c8e23d042c63d216d9951ae1415f41027de311489de35fdb90b4760787ebc5fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hyfetch/blobs/sha256:fe39c8a8bf21e71bda4a19306b0448f61b0c1f7d67c1094e0e71fc83633b2d5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hyfetch/blobs/sha256:389c8f79c54fafd508d554cb164296392c9e6b3cb9a1577dc2b92b96decae856
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hyfetch/blobs/sha256:74be4619e6dd47dc54929697a1fde1ef52419a5b0712fd945161c2017b7448f8
+sha256:
+  darwin_arm64: c8e23d042c63d216d9951ae1415f41027de311489de35fdb90b4760787ebc5fc
+  darwin_amd64: fe39c8a8bf21e71bda4a19306b0448f61b0c1f7d67c1094e0e71fc83633b2d5e
+  linux_amd64: 389c8f79c54fafd508d554cb164296392c9e6b3cb9a1577dc2b92b96decae856
+  linux_arm64: 74be4619e6dd47dc54929697a1fde1ef52419a5b0712fd945161c2017b7448f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

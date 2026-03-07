@@ -1,0 +1,19 @@
+name: linkerd
+version: 2.14.10
+description: Command-line utility to interact with linkerd
+homepage: https://linkerd.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/linkerd/blobs/sha256:92f89d28c0b857ea8f76583f7ad385ac68156aa36e8a1a144f960779f0a85d4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/linkerd/blobs/sha256:a805f780856c04434e1cf56bf9722ff2d72e78ccbd4cd2bfec4b4667dca06084
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linkerd/blobs/sha256:c1695ba96f330ebb2cfe3267a5e3cb4e77b092410ac9dac2465a977317d00945
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linkerd/blobs/sha256:77bc80d5bd80767167b7895ab1afb69da5b45ef309cbd29db4956208ed8af55a
+sha256:
+  darwin_arm64: 92f89d28c0b857ea8f76583f7ad385ac68156aa36e8a1a144f960779f0a85d4d
+  darwin_amd64: a805f780856c04434e1cf56bf9722ff2d72e78ccbd4cd2bfec4b4667dca06084
+  linux_amd64: c1695ba96f330ebb2cfe3267a5e3cb4e77b092410ac9dac2465a977317d00945
+  linux_arm64: 77bc80d5bd80767167b7895ab1afb69da5b45ef309cbd29db4956208ed8af55a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

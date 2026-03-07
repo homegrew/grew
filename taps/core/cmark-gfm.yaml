@@ -1,0 +1,19 @@
+name: cmark-gfm
+version: 0.29.0.gfm.13
+description: C implementation of GitHub Flavored Markdown
+homepage: https://github.com/github/cmark-gfm
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmark-gfm/blobs/sha256:77d33326d768ca3fba2c4a8be10c3515997fc81c948f9df681d56eb92671fbcc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmark-gfm/blobs/sha256:eda0aadb3e858244f38c388210772ece97d5146ef6aa64c34586752422596b22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmark-gfm/blobs/sha256:9cc57585e59c81673c7cb0c374c59f900778886de3329127706534eb8851a0b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmark-gfm/blobs/sha256:473b7bbb4354fa15345f5c648c9d6c3f2a619966f30014fd2ea1e12be75514ed
+sha256:
+  darwin_arm64: 77d33326d768ca3fba2c4a8be10c3515997fc81c948f9df681d56eb92671fbcc
+  darwin_amd64: eda0aadb3e858244f38c388210772ece97d5146ef6aa64c34586752422596b22
+  linux_amd64: 9cc57585e59c81673c7cb0c374c59f900778886de3329127706534eb8851a0b5
+  linux_arm64: 473b7bbb4354fa15345f5c648c9d6c3f2a619966f30014fd2ea1e12be75514ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

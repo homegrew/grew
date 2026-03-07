@@ -1,0 +1,19 @@
+name: copa
+version: 0.13.0
+description: Tool to directly patch container images given the vulnerability scanning results
+homepage: https://github.com/project-copacetic/copacetic
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/copa/blobs/sha256:c811bc53233675b7a9e649f8f5fbf8541a36cd0a85c3e72563c060977f183751
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/copa/blobs/sha256:cd32d26f28ba7efa9ba4dc96bcb1d28ec773893fbcd8f86485624393562d63cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/copa/blobs/sha256:1cc4f21c153d18b97d910b5dc3c919667024d80024b0710137cf03c36e0ba956
+  linux_arm64: https://ghcr.io/v2/homebrew/core/copa/blobs/sha256:c1809a7a1751ad605a94a0339feb969abbd2a54cd332171874981c6f383f740e
+sha256:
+  darwin_arm64: c811bc53233675b7a9e649f8f5fbf8541a36cd0a85c3e72563c060977f183751
+  darwin_amd64: cd32d26f28ba7efa9ba4dc96bcb1d28ec773893fbcd8f86485624393562d63cd
+  linux_amd64: 1cc4f21c153d18b97d910b5dc3c919667024d80024b0710137cf03c36e0ba956
+  linux_arm64: c1809a7a1751ad605a94a0339feb969abbd2a54cd332171874981c6f383f740e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: reprepro
+version: 5.4.8
+description: Debian package repository manager
+homepage: https://salsa.debian.org/debian/reprepro
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reprepro/blobs/sha256:6172bb6e3ed24a3262ba0347cd673cff1c21aa9070a19e19fd0080a824249827
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reprepro/blobs/sha256:f6c637c7a806b7593e34aabe0fd9a48e325c0badf49bc4ee832fa7e6daa0d94f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reprepro/blobs/sha256:3cc1062a1b192a2454bcde2ed80996bebba8d6561382b19309b2e307fcb30786
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reprepro/blobs/sha256:e597daa3f957ba29c07f0d49e3248304498da424db9a412f52786a8a59b16a0e
+sha256:
+  darwin_arm64: 6172bb6e3ed24a3262ba0347cd673cff1c21aa9070a19e19fd0080a824249827
+  darwin_amd64: f6c637c7a806b7593e34aabe0fd9a48e325c0badf49bc4ee832fa7e6daa0d94f
+  linux_amd64: 3cc1062a1b192a2454bcde2ed80996bebba8d6561382b19309b2e307fcb30786
+  linux_arm64: e597daa3f957ba29c07f0d49e3248304498da424db9a412f52786a8a59b16a0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - gpgme
+  - libarchive
+  - libgpg-error
+  - xz
+  - zstd
+  - gcc

@@ -1,0 +1,27 @@
+name: gwenhywfar
+version: 5.14.1
+description: Utility library required by aqbanking and related software
+homepage: https://www.aquamaniac.de/rdm/projects/gwenhywfar
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gwenhywfar/blobs/sha256:0064b8768502f583fd8ca6efb644af7b4951e36157f6f88951d7d8d617e98db2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gwenhywfar/blobs/sha256:d248c00aca75c6333b9edfd2d89f0e33f4d49835d53dd1f95ed723741751ff4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gwenhywfar/blobs/sha256:8141ecaa807eefbcc2e17f6989c4025788aae4f3111b8d83b40e04abfb19813f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gwenhywfar/blobs/sha256:6f5f7d2f098ca5b058b487c890bb4691921f0d9bed0cc86f74944ac60b02545e
+sha256:
+  darwin_arm64: 0064b8768502f583fd8ca6efb644af7b4951e36157f6f88951d7d8d617e98db2
+  darwin_amd64: d248c00aca75c6333b9edfd2d89f0e33f4d49835d53dd1f95ed723741751ff4c
+  linux_amd64: 8141ecaa807eefbcc2e17f6989c4025788aae4f3111b8d83b40e04abfb19813f
+  linux_arm64: 6f5f7d2f098ca5b058b487c890bb4691921f0d9bed0cc86f74944ac60b02545e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - libgcrypt
+  - libgpg-error
+  - openssl@3
+  - pkgconf
+  - qtbase
+  - gettext

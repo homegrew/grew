@@ -1,0 +1,19 @@
+name: astyle
+version: 3.6.14
+description: "Source code beautifier for C, C++, C#, and Java"
+homepage: https://astyle.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/astyle/blobs/sha256:391e6211ece689fc936ae85884bd997188500917fee15a9875278886aa85ee0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/astyle/blobs/sha256:3bbacb800f577756d66594094fe7be2cfd4322249cf33015d57786adee7cbda0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/astyle/blobs/sha256:5aa4cdc0a6a56ecf53ca9b319c6169cc7820ea0c47589dded2d30cb28e8ea918
+  linux_arm64: https://ghcr.io/v2/homebrew/core/astyle/blobs/sha256:21831483abc471695fb3466ce505331ee0fe7b2eed9f95d401c5bc65f264ca0c
+sha256:
+  darwin_arm64: 391e6211ece689fc936ae85884bd997188500917fee15a9875278886aa85ee0f
+  darwin_amd64: 3bbacb800f577756d66594094fe7be2cfd4322249cf33015d57786adee7cbda0
+  linux_amd64: 5aa4cdc0a6a56ecf53ca9b319c6169cc7820ea0c47589dded2d30cb28e8ea918
+  linux_arm64: 21831483abc471695fb3466ce505331ee0fe7b2eed9f95d401c5bc65f264ca0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

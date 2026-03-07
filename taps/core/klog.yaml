@@ -1,0 +1,19 @@
+name: klog
+version: 7.1
+description: Command-line tool for time tracking in a human-readable, plain-text file format
+homepage: https://klog.jotaen.net
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/klog/blobs/sha256:9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/klog/blobs/sha256:c9685c77feb099c5a57f84e4f7ebbfe675354bd9a53b4680bfc20b280a56117e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/klog/blobs/sha256:b6fb17a890a85adbc8829818930bed2aa5910cd8c72b61bc6aebefac7f06817d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/klog/blobs/sha256:085936825f08a8df46e9be28d676e676000c1035e24dadadcf3c7b1a908d82a0
+sha256:
+  darwin_arm64: 9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3
+  darwin_amd64: c9685c77feb099c5a57f84e4f7ebbfe675354bd9a53b4680bfc20b280a56117e
+  linux_amd64: b6fb17a890a85adbc8829818930bed2aa5910cd8c72b61bc6aebefac7f06817d
+  linux_arm64: 085936825f08a8df46e9be28d676e676000c1035e24dadadcf3c7b1a908d82a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

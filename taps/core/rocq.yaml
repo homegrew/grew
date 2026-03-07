@@ -1,0 +1,24 @@
+name: rocq
+version: 9.1.1
+description: Proof assistant for higher-order logic
+homepage: https://rocq-prover.org/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rocq/blobs/sha256:b8360a844ef669a0b3b08a9a5a3dfe296902688ce6fbad6a7e9a612954e8e47f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rocq/blobs/sha256:ab3466cbae6cc0d9a150993ef372cb7116b0b8e2347fcb1f63603c1d5327f665
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rocq/blobs/sha256:a537821e69bdddf8dfc88fdfa542adf4e1fcc05886d6056fc4e5bb3c11dee459
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rocq/blobs/sha256:9c307986f20b14744bb1cf125096710f009d8c40a83834ca02b93ac198e730ce
+sha256:
+  darwin_arm64: b8360a844ef669a0b3b08a9a5a3dfe296902688ce6fbad6a7e9a612954e8e47f
+  darwin_amd64: ab3466cbae6cc0d9a150993ef372cb7116b0b8e2347fcb1f63603c1d5327f665
+  linux_amd64: a537821e69bdddf8dfc88fdfa542adf4e1fcc05886d6056fc4e5bb3c11dee459
+  linux_arm64: 9c307986f20b14744bb1cf125096710f009d8c40a83834ca02b93ac198e730ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - ocaml
+  - ocaml-findlib
+  - ocaml-zarith

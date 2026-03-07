@@ -1,0 +1,19 @@
+name: openapv
+version: 0.2.1.1
+description: Open Advanced Professional Video Codec
+homepage: https://github.com/AcademySoftwareFoundation/openapv
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openapv/blobs/sha256:4a6c585200d7e1323b982173c4f72edccb5722c65feefcd42352151772945aee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openapv/blobs/sha256:30c7c42bc17f4e2fafcf5b27180087a129e57af8e7a4526736071aec42e55054
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openapv/blobs/sha256:4fc155ac224a648b4c78b9d179f69029d629815fef8b8aa556dec0f212a5f2a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openapv/blobs/sha256:1ec43aabc25d72134b80e4e9acae9337a2dd15f4679cfdef8df9f3eedc053512
+sha256:
+  darwin_arm64: 4a6c585200d7e1323b982173c4f72edccb5722c65feefcd42352151772945aee
+  darwin_amd64: 30c7c42bc17f4e2fafcf5b27180087a129e57af8e7a4526736071aec42e55054
+  linux_amd64: 4fc155ac224a648b4c78b9d179f69029d629815fef8b8aa556dec0f212a5f2a0
+  linux_arm64: 1ec43aabc25d72134b80e4e9acae9337a2dd15f4679cfdef8df9f3eedc053512
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: pdftohtml
+version: 0.40a
+description: Utility which converts PDF files into HTML and XML formats
+homepage: https://pdftohtml.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdftohtml/blobs/sha256:d4d29ea04949e3054a63667e1563e018cf7b289cee59357ee46955d70f47f6cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdftohtml/blobs/sha256:9daa1524d85414bda2e30ab99e13f958a3d7620f6d40d74792bd7b841695ad91
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdftohtml/blobs/sha256:f0e13127c7d0eeaa1dd9be51dd46644bad7fa0864849aa6476392e0f5c7b7561
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdftohtml/blobs/sha256:0356296698624d0111e7352dfef0d7c63aa1523144829b524f86b60d94f3021b
+sha256:
+  darwin_arm64: d4d29ea04949e3054a63667e1563e018cf7b289cee59357ee46955d70f47f6cb
+  darwin_amd64: 9daa1524d85414bda2e30ab99e13f958a3d7620f6d40d74792bd7b841695ad91
+  linux_amd64: f0e13127c7d0eeaa1dd9be51dd46644bad7fa0864849aa6476392e0f5c7b7561
+  linux_arm64: 0356296698624d0111e7352dfef0d7c63aa1523144829b524f86b60d94f3021b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libosip
+version: 5.3.1
+description: Implementation of the eXosip2 stack
+homepage: https://www.gnu.org/software/osip/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libosip/blobs/sha256:8c2b8a49121fa1e1975470aea9d13f5803bb8a9f68b23497b8c5d4fd25b8b90f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libosip/blobs/sha256:d867ac12d12785e834dea9f2dd560ed2e660227dfadcd080359b2c14637cc2ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libosip/blobs/sha256:ca0d378c03efdfb96e5e0610357fab268feb1a92de587ac55fa453e4f20b75e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libosip/blobs/sha256:0aa814193eae6de3270a53f3bac4bcbaa76061111d5124843d2a1c43af0680f3
+sha256:
+  darwin_arm64: 8c2b8a49121fa1e1975470aea9d13f5803bb8a9f68b23497b8c5d4fd25b8b90f
+  darwin_amd64: d867ac12d12785e834dea9f2dd560ed2e660227dfadcd080359b2c14637cc2ab
+  linux_amd64: ca0d378c03efdfb96e5e0610357fab268feb1a92de587ac55fa453e4f20b75e4
+  linux_arm64: 0aa814193eae6de3270a53f3bac4bcbaa76061111d5124843d2a1c43af0680f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

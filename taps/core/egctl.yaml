@@ -1,0 +1,19 @@
+name: egctl
+version: 1.7.0
+description: Command-line utility for operating Envoy Gateway
+homepage: https://gateway.envoyproxy.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/egctl/blobs/sha256:6b94c37f45ef996bff37cd86407b4407959959d208afad4507f7487e81154b14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/egctl/blobs/sha256:8f598b68ff7e2b02009cefb20dac05448b194e4816459ed2ed4aa06aab2f71ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/egctl/blobs/sha256:6e7ae1580ab2e9001bef9b3ac40196e255be2a76e122acd12bb8da73388aa03d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/egctl/blobs/sha256:15db997264ffdf2fdea3814c84de6b0ea3fcb1b25375a82fecb336965067af3a
+sha256:
+  darwin_arm64: 6b94c37f45ef996bff37cd86407b4407959959d208afad4507f7487e81154b14
+  darwin_amd64: 8f598b68ff7e2b02009cefb20dac05448b194e4816459ed2ed4aa06aab2f71ec
+  linux_amd64: 6e7ae1580ab2e9001bef9b3ac40196e255be2a76e122acd12bb8da73388aa03d
+  linux_arm64: 15db997264ffdf2fdea3814c84de6b0ea3fcb1b25375a82fecb336965067af3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

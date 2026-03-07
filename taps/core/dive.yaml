@@ -1,0 +1,19 @@
+name: dive
+version: 0.13.1
+description: Tool for exploring each layer in a docker image
+homepage: https://github.com/wagoodman/dive
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dive/blobs/sha256:a2a98b730f1f2fdd600b00603db02e66f43334a703e3e42f7ea019e333d9c426
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dive/blobs/sha256:2a6716f77316ff980b2a7b4bf794192abdf9e135968eed6dc486d4528478c272
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dive/blobs/sha256:ea8b52ef11f336b96dcf14916b461f5da574a13da8e7fa6b29d12a058646af2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dive/blobs/sha256:964ca148b9e1b73a5565a266db9a61678e145666d9326c6bd86aaa521ec3a8f8
+sha256:
+  darwin_arm64: a2a98b730f1f2fdd600b00603db02e66f43334a703e3e42f7ea019e333d9c426
+  darwin_amd64: 2a6716f77316ff980b2a7b4bf794192abdf9e135968eed6dc486d4528478c272
+  linux_amd64: ea8b52ef11f336b96dcf14916b461f5da574a13da8e7fa6b29d12a058646af2e
+  linux_arm64: 964ca148b9e1b73a5565a266db9a61678e145666d9326c6bd86aaa521ec3a8f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

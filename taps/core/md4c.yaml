@@ -1,0 +1,19 @@
+name: md4c
+version: 0.5.2
+description: C Markdown parser. Fast. SAX-like interface
+homepage: https://github.com/mity/md4c
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/md4c/blobs/sha256:d3c08c51d39761be30ec5c67c297d31af0a1f4d15d02d633a528253dc57c8ef5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/md4c/blobs/sha256:1c0f5cba7d83945b1d458e5dfe5b0fbffd698f7f15a04c63b19f96ed8967a6dc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/md4c/blobs/sha256:70158ffa050cd2f2ca59f5341051208cc96ca416f026e09e8db469683eb93eac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/md4c/blobs/sha256:bddcdff231d805814edf2992309a92dee28f6db946465d74cae3bb4888509a97
+sha256:
+  darwin_arm64: d3c08c51d39761be30ec5c67c297d31af0a1f4d15d02d633a528253dc57c8ef5
+  darwin_amd64: 1c0f5cba7d83945b1d458e5dfe5b0fbffd698f7f15a04c63b19f96ed8967a6dc
+  linux_amd64: 70158ffa050cd2f2ca59f5341051208cc96ca416f026e09e8db469683eb93eac
+  linux_arm64: bddcdff231d805814edf2992309a92dee28f6db946465d74cae3bb4888509a97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

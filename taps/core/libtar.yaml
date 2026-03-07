@@ -1,0 +1,19 @@
+name: libtar
+version: 1.2.20
+description: C library for manipulating POSIX tar files
+homepage: https://repo.or.cz/libtar.git
+license: NCSA
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtar/blobs/sha256:23ceb454b2f6611082364f55c92c573111df507f73b3d19ca69555bc4ebac48a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtar/blobs/sha256:6f63b617e34b6a198feafb7330800d8a47960cf2bdcd412cc1bcdad98fb07108
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtar/blobs/sha256:d636db798faefdeba582d4b33c6ee41f659a46c7e99cd9b5aab9eb4af1b10b37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtar/blobs/sha256:3cfe7b8ddcc43ac4ff3271b9bcc59589799c70700ad2a231f8ee645213aa8e0c
+sha256:
+  darwin_arm64: 23ceb454b2f6611082364f55c92c573111df507f73b3d19ca69555bc4ebac48a
+  darwin_amd64: 6f63b617e34b6a198feafb7330800d8a47960cf2bdcd412cc1bcdad98fb07108
+  linux_amd64: d636db798faefdeba582d4b33c6ee41f659a46c7e99cd9b5aab9eb4af1b10b37
+  linux_arm64: 3cfe7b8ddcc43ac4ff3271b9bcc59589799c70700ad2a231f8ee645213aa8e0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

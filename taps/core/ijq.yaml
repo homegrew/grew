@@ -1,0 +1,19 @@
+name: ijq
+version: 1.3.0
+description: Interactive jq
+homepage: https://codeberg.org/gpanders/ijq
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ijq/blobs/sha256:1f71e8a5e46903cb8f61ad5177ac882d6c652d427c2a11170772835216a4a025
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ijq/blobs/sha256:bf74ff77d3d2af3f69e4d8f271bcbd39f4a42aed9802fc74e82eff9be044dd3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ijq/blobs/sha256:252b73640ebef012fae413591033b3a90a820a96a0f8e6195b874cc05e4425fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ijq/blobs/sha256:6a091da8484e89d2cf988973d8c44af367fd59de321382fe50f96c91473a3f89
+sha256:
+  darwin_arm64: 1f71e8a5e46903cb8f61ad5177ac882d6c652d427c2a11170772835216a4a025
+  darwin_amd64: bf74ff77d3d2af3f69e4d8f271bcbd39f4a42aed9802fc74e82eff9be044dd3e
+  linux_amd64: 252b73640ebef012fae413591033b3a90a820a96a0f8e6195b874cc05e4425fc
+  linux_arm64: 6a091da8484e89d2cf988973d8c44af367fd59de321382fe50f96c91473a3f89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

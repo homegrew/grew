@@ -1,0 +1,21 @@
+name: xlsclients
+version: 1.1.5
+description: List client applications running on a display
+homepage: https://gitlab.freedesktop.org/xorg/app/xlsclients
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xlsclients/blobs/sha256:7845c576ced4a3065eac6aa6d86619c19650b8f1d894f3ab3ec954ba14697b33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xlsclients/blobs/sha256:022fdaa226764ac119faa1a3a7fb00a48e6551100dce9557e217fb6f815a640c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xlsclients/blobs/sha256:fdb67879482e31bc17326a25a77645f1ccf875f7455bd29d12f8b16f41fd7453
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xlsclients/blobs/sha256:43acf15e78b649f48c13d8d9b44bd427ccd1e2f8b7943f73b1103c3aff5ccdb5
+sha256:
+  darwin_arm64: 7845c576ced4a3065eac6aa6d86619c19650b8f1d894f3ab3ec954ba14697b33
+  darwin_amd64: 022fdaa226764ac119faa1a3a7fb00a48e6551100dce9557e217fb6f815a640c
+  linux_amd64: fdb67879482e31bc17326a25a77645f1ccf875f7455bd29d12f8b16f41fd7453
+  linux_arm64: 43acf15e78b649f48c13d8d9b44bd427ccd1e2f8b7943f73b1103c3aff5ccdb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb

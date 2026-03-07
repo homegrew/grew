@@ -1,0 +1,21 @@
+name: qnm
+version: 2.10.4
+description: CLI for querying the node_modules directory
+homepage: https://github.com/ranyitz/qnm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qnm/blobs/sha256:360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qnm/blobs/sha256:ba15766ca2e00720af7c0022eb8c05dbe2bcf2744fd61fa5ededd82da4a0d441
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qnm/blobs/sha256:360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qnm/blobs/sha256:360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+sha256:
+  darwin_arm64: 360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+  darwin_amd64: ba15766ca2e00720af7c0022eb8c05dbe2bcf2744fd61fa5ededd82da4a0d441
+  linux_amd64: 360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+  linux_arm64: 360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

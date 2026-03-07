@@ -1,0 +1,19 @@
+name: tut
+version: 2.0.1
+description: TUI for Mastodon with vim inspired keys
+homepage: https://tut.anv.nu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tut/blobs/sha256:42b58b435946efe9b969c3b218c1f7a1786500807f93676a4d31b1680c426942
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tut/blobs/sha256:a9e3f9b4605812f27a115fcc6a299a36676b99d1fedb89e06a33801c4e0ee3b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tut/blobs/sha256:a3b8f56c413f16c8c270d137048c2a2d7f2f68418f20f7a5b67c6ba2f1d18167
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tut/blobs/sha256:57654e947d5c94cdbccd46dadc822ea72599793f890f12ae8823d617443aa53a
+sha256:
+  darwin_arm64: 42b58b435946efe9b969c3b218c1f7a1786500807f93676a4d31b1680c426942
+  darwin_amd64: a9e3f9b4605812f27a115fcc6a299a36676b99d1fedb89e06a33801c4e0ee3b8
+  linux_amd64: a3b8f56c413f16c8c270d137048c2a2d7f2f68418f20f7a5b67c6ba2f1d18167
+  linux_arm64: 57654e947d5c94cdbccd46dadc822ea72599793f890f12ae8823d617443aa53a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

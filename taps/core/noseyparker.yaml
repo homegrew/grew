@@ -1,0 +1,19 @@
+name: noseyparker
+version: 0.24.0
+description: Finds secrets and sensitive information in textual data and Git history
+homepage: https://github.com/praetorian-inc/noseyparker
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/noseyparker/blobs/sha256:bbce92800f87da1efec15e48fadc645677ac1c690ee9d7d460d824bc088b5a18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/noseyparker/blobs/sha256:2aa6a8b34c8484d0fc36febad3e465ac48f53b71ff4f596490dfee97688ee008
+  linux_amd64: https://ghcr.io/v2/homebrew/core/noseyparker/blobs/sha256:99c219b6991576f9ee16f57cb2f08f5d2081dacb1f5ce8c61136ae8c7ffbf470
+  linux_arm64: https://ghcr.io/v2/homebrew/core/noseyparker/blobs/sha256:d86b9a2d4377d12ec9783e9855bc8bbd8ba06270860ff85521c0adf507fd0448
+sha256:
+  darwin_arm64: bbce92800f87da1efec15e48fadc645677ac1c690ee9d7d460d824bc088b5a18
+  darwin_amd64: 2aa6a8b34c8484d0fc36febad3e465ac48f53b71ff4f596490dfee97688ee008
+  linux_amd64: 99c219b6991576f9ee16f57cb2f08f5d2081dacb1f5ce8c61136ae8c7ffbf470
+  linux_arm64: d86b9a2d4377d12ec9783e9855bc8bbd8ba06270860ff85521c0adf507fd0448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

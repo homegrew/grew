@@ -1,0 +1,23 @@
+name: awscli@1
+version: 1.44.50
+description: Official Amazon AWS command-line interface
+homepage: https://aws.amazon.com/cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/awscli/1/blobs/sha256:b4002e5cc996be4f7d2880f58c3998dbad74404651d5fa701427dda5b48a9854
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/awscli/1/blobs/sha256:e6f90f02da91d77b0ca4b4a2b23a95b57bcd4d80d28558ca5895c91179fd1514
+  linux_amd64: https://ghcr.io/v2/homebrew/core/awscli/1/blobs/sha256:e139b33c31e1d429963678d773a6f86569529142c4a7cc9da2aa239a9882295e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/awscli/1/blobs/sha256:eb16cde9f5079016b3fe832a94103ade4ba0d1359a4c7d9f9b8df1a61aefdd3a
+sha256:
+  darwin_arm64: b4002e5cc996be4f7d2880f58c3998dbad74404651d5fa701427dda5b48a9854
+  darwin_amd64: e6f90f02da91d77b0ca4b4a2b23a95b57bcd4d80d28558ca5895c91179fd1514
+  linux_amd64: e139b33c31e1d429963678d773a6f86569529142c4a7cc9da2aa239a9882295e
+  linux_arm64: eb16cde9f5079016b3fe832a94103ade4ba0d1359a4c7d9f9b8df1a61aefdd3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+keg_only: true

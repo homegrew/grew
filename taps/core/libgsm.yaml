@@ -1,0 +1,19 @@
+name: libgsm
+version: 1.0.24
+description: Lossy speech compression library
+homepage: https://www.quut.com/gsm/
+license: TU-Berlin-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgsm/blobs/sha256:e637baca84f26ef74730d06d4eed5cf3ea69730afb45a598f1b7a50a2aa91136
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgsm/blobs/sha256:816cc99acd5699c74b201af8ae8df58090bcb71ffa3b07a37d36aae031c250c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgsm/blobs/sha256:ea4c6fb171d2c66eeaad24385c753a5bac62732a15700090b311248b6509d029
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgsm/blobs/sha256:70194c209b3f6b130ab8b04450ee8ffb0f4f5463395191023ac19eb16007920c
+sha256:
+  darwin_arm64: e637baca84f26ef74730d06d4eed5cf3ea69730afb45a598f1b7a50a2aa91136
+  darwin_amd64: 816cc99acd5699c74b201af8ae8df58090bcb71ffa3b07a37d36aae031c250c8
+  linux_amd64: ea4c6fb171d2c66eeaad24385c753a5bac62732a15700090b311248b6509d029
+  linux_arm64: 70194c209b3f6b130ab8b04450ee8ffb0f4f5463395191023ac19eb16007920c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

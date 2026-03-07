@@ -1,0 +1,19 @@
+name: iniparser
+version: 4.2.6
+description: Library for parsing ini files
+homepage: https://gitlab.com/iniparser/iniparser
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iniparser/blobs/sha256:7c24a218c75b86e95755d3a109306cbdf98f7feef35fd39b4ef899eceef05c91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iniparser/blobs/sha256:754b6ca8d166e289fa6a6510a576c6dbea76f0136c3fe82a3423002892be8aa0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iniparser/blobs/sha256:dd4194648453a37551214cebaac99d63a204422271f2a298ed47f8e69a0d50a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iniparser/blobs/sha256:89ed8749f1748dd06b6e4025b5b5c4c7b811b53e580e218d4089a61bba4d2082
+sha256:
+  darwin_arm64: 7c24a218c75b86e95755d3a109306cbdf98f7feef35fd39b4ef899eceef05c91
+  darwin_amd64: 754b6ca8d166e289fa6a6510a576c6dbea76f0136c3fe82a3423002892be8aa0
+  linux_amd64: dd4194648453a37551214cebaac99d63a204422271f2a298ed47f8e69a0d50a2
+  linux_arm64: 89ed8749f1748dd06b6e4025b5b5c4c7b811b53e580e218d4089a61bba4d2082
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: hex
+version: 0.7.0
+description: Futuristic take on hexdump
+homepage: https://github.com/sitkevij/hex
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hex/blobs/sha256:58ed01d7409f38346036169f1bdc4712f5f7cdeac3ea5b6418571df9431a9d3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hex/blobs/sha256:0b4a84c0d4be4b28925f79c9e18aaeda0729d4eeac75cf1e3f8df84129babec6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hex/blobs/sha256:55750f621384c95c077d74a3c739b7db018aec4d864d2febcc126c14aa6a4afc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hex/blobs/sha256:ef0500e202d684ff46ee876924101c0ed7bded9c8b98392afb67d59090df3e1c
+sha256:
+  darwin_arm64: 58ed01d7409f38346036169f1bdc4712f5f7cdeac3ea5b6418571df9431a9d3c
+  darwin_amd64: 0b4a84c0d4be4b28925f79c9e18aaeda0729d4eeac75cf1e3f8df84129babec6
+  linux_amd64: 55750f621384c95c077d74a3c739b7db018aec4d864d2febcc126c14aa6a4afc
+  linux_arm64: ef0500e202d684ff46ee876924101c0ed7bded9c8b98392afb67d59090df3e1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

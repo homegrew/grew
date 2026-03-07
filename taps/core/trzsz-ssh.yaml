@@ -1,0 +1,19 @@
+name: trzsz-ssh
+version: 0.1.24
+description: Alternative ssh client with additional features to meet your needs
+homepage: https://trzsz.github.io/ssh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trzsz-ssh/blobs/sha256:f5ed283aba0b804c2cb5c97e23b6129e0dbba74a5d531d81914679349e142265
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trzsz-ssh/blobs/sha256:40a483218088b4650b3daccd27900b30c8e5476bd4ff48dc817f9fb9e39c6773
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trzsz-ssh/blobs/sha256:aa6aa165501893dcd974e973f0e8c702dbd8d7e1ec665ff7277fa5eeb39d7317
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trzsz-ssh/blobs/sha256:4c7ff339a7ea7d6883cbf8beb71b879b4e5d0121e7ebae8f1d2c5a4b7c5de5d8
+sha256:
+  darwin_arm64: f5ed283aba0b804c2cb5c97e23b6129e0dbba74a5d531d81914679349e142265
+  darwin_amd64: 40a483218088b4650b3daccd27900b30c8e5476bd4ff48dc817f9fb9e39c6773
+  linux_amd64: aa6aa165501893dcd974e973f0e8c702dbd8d7e1ec665ff7277fa5eeb39d7317
+  linux_arm64: 4c7ff339a7ea7d6883cbf8beb71b879b4e5d0121e7ebae8f1d2c5a4b7c5de5d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

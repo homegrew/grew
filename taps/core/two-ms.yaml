@@ -1,0 +1,19 @@
+name: two-ms
+version: 5.2.3
+description: Detect secrets in files and communication platforms
+homepage: https://github.com/Checkmarx/2ms
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/two-ms/blobs/sha256:dde5977e8633d75c1efa06d67aa9441fc1b37452258b7257e3577e00f998acfc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/two-ms/blobs/sha256:caa1b7207640d671640abd8775ee7bd82f93da080c9a3028a95aaa1b76c97d46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/two-ms/blobs/sha256:e9dc0f41b76d76d14596b0249f1d717fd0a64091aa3c8d5119bffa720dfa91ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/two-ms/blobs/sha256:286ca58d74e273e0843eb275896c67c68b17aa3316ae6208c874dcfe0ff6955c
+sha256:
+  darwin_arm64: dde5977e8633d75c1efa06d67aa9441fc1b37452258b7257e3577e00f998acfc
+  darwin_amd64: caa1b7207640d671640abd8775ee7bd82f93da080c9a3028a95aaa1b76c97d46
+  linux_amd64: e9dc0f41b76d76d14596b0249f1d717fd0a64091aa3c8d5119bffa720dfa91ef
+  linux_arm64: 286ca58d74e273e0843eb275896c67c68b17aa3316ae6208c874dcfe0ff6955c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

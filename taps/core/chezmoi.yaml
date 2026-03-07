@@ -1,0 +1,19 @@
+name: chezmoi
+version: 2.69.4
+description: Manage your dotfiles across multiple diverse machines, securely
+homepage: https://chezmoi.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chezmoi/blobs/sha256:477ca8cbfa3bfb1c99e5152feba51ed033846e6beaf463c44aef9f0343289851
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chezmoi/blobs/sha256:7c4ea2ca5b130b381a323683cb3cdaec17c3a1ef4f59e4ff9ddd1cede7560967
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chezmoi/blobs/sha256:a045bfb884ffed1a8a7fd0928a4f3c98be46bfc9cf2b5919729fb718552bf637
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chezmoi/blobs/sha256:f93f8ddf438ddb2dff5b4078d39992b4551c869ebb9453ff43c71bbfb4e59c7f
+sha256:
+  darwin_arm64: 477ca8cbfa3bfb1c99e5152feba51ed033846e6beaf463c44aef9f0343289851
+  darwin_amd64: 7c4ea2ca5b130b381a323683cb3cdaec17c3a1ef4f59e4ff9ddd1cede7560967
+  linux_amd64: a045bfb884ffed1a8a7fd0928a4f3c98be46bfc9cf2b5919729fb718552bf637
+  linux_arm64: f93f8ddf438ddb2dff5b4078d39992b4551c869ebb9453ff43c71bbfb4e59c7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

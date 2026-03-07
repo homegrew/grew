@@ -1,0 +1,20 @@
+name: elfutils
+version: 0.194
+description: Libraries and utilities for handling ELF objects
+homepage: https://fedorahosted.org/elfutils/
+license: GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elfutils/blobs/sha256:4f5ee54efe423d3ac486aa5372af4ca8debf2e2626ef16d480e4c79f1681b2de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elfutils/blobs/sha256:1ca43cc8af9766635f9484f007cd79152c35ddaf434e44eb8eaf79b7ca8682a3
+sha256:
+  linux_amd64: 4f5ee54efe423d3ac486aa5372af4ca8debf2e2626ef16d480e4c79f1681b2de
+  linux_arm64: 1ca43cc8af9766635f9484f007cd79152c35ddaf434e44eb8eaf79b7ca8682a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bzip2
+  - xz
+  - zlib-ng-compat
+  - zstd

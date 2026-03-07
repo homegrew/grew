@@ -1,0 +1,19 @@
+name: gotestwaf
+version: 0.5.8
+description: Tool for API and OWASP attack simulation
+homepage: https://lab.wallarm.com/test-your-waf-before-hackers/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotestwaf/blobs/sha256:fc87754a9989cda5d3ae5bc5c08b286956f457395b37b09d5523213060e84fcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotestwaf/blobs/sha256:d9ba660878866bb9683bc9088c8d1b4dff7e8bc6e63a244b4197a02f214dc3e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotestwaf/blobs/sha256:ea85ed53e64ccd081738ee8b3e80b311128ffdd9ad44d284b956cfd1df8ce86f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotestwaf/blobs/sha256:2d70cda56e9eb2065923ad47c7598c87b01c5d18f46e69df22b59eff89fd76c2
+sha256:
+  darwin_arm64: fc87754a9989cda5d3ae5bc5c08b286956f457395b37b09d5523213060e84fcf
+  darwin_amd64: d9ba660878866bb9683bc9088c8d1b4dff7e8bc6e63a244b4197a02f214dc3e6
+  linux_amd64: ea85ed53e64ccd081738ee8b3e80b311128ffdd9ad44d284b956cfd1df8ce86f
+  linux_arm64: 2d70cda56e9eb2065923ad47c7598c87b01c5d18f46e69df22b59eff89fd76c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: virtuoso
+version: 7.2.16.1
+description: High-performance object-relational SQL database
+homepage: https://virtuoso.openlinksw.com
+license: GPL-2.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/virtuoso/blobs/sha256:124db9abc6fb578c856559f376a79ef4c24935256fb8c64cd765b87123365f00
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/virtuoso/blobs/sha256:cb48dfa38804d73c29f23f6a07d022b11bebf62f55cf522f5ae8b7ba93f8ec7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/virtuoso/blobs/sha256:b252f86f5451180e49ed9329fa33723217618ff199260d8f71e50060cdcc18fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/virtuoso/blobs/sha256:54033ce5c9971b061dc154ce4c6bfeaab5e55add60176420d61e9410e682a855
+sha256:
+  darwin_arm64: 124db9abc6fb578c856559f376a79ef4c24935256fb8c64cd765b87123365f00
+  darwin_amd64: cb48dfa38804d73c29f23f6a07d022b11bebf62f55cf522f5ae8b7ba93f8ec7e
+  linux_amd64: b252f86f5451180e49ed9329fa33723217618ff199260d8f71e50060cdcc18fe
+  linux_arm64: 54033ce5c9971b061dc154ce4c6bfeaab5e55add60176420d61e9410e682a855
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

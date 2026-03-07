@@ -1,0 +1,19 @@
+name: gdrive
+version: 3.9.1
+description: Google Drive CLI Client
+homepage: https://github.com/glotlabs/gdrive
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdrive/blobs/sha256:8532793c6c061b16d47eba60f8def373002a6717c2499d49faa35f7ecb1beec5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdrive/blobs/sha256:2389051617cde44c9144ddf5c0696dea4a7cd16f8c940c6b50366bc762d10ae6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdrive/blobs/sha256:048b5454b4d9390a1258ca0c9c731aa8a8e5ba871ccb20e7691b1f9486862bab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdrive/blobs/sha256:2301145fc193009fb8137c3382b798a2085b1de22efbbd4c19686d01e99b712f
+sha256:
+  darwin_arm64: 8532793c6c061b16d47eba60f8def373002a6717c2499d49faa35f7ecb1beec5
+  darwin_amd64: 2389051617cde44c9144ddf5c0696dea4a7cd16f8c940c6b50366bc762d10ae6
+  linux_amd64: 048b5454b4d9390a1258ca0c9c731aa8a8e5ba871ccb20e7691b1f9486862bab
+  linux_arm64: 2301145fc193009fb8137c3382b798a2085b1de22efbbd4c19686d01e99b712f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

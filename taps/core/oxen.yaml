@@ -1,0 +1,21 @@
+name: oxen
+version: 0.44.2
+description: Data VCS for structured and unstructured machine learning datasets
+homepage: https://www.oxen.ai/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oxen/blobs/sha256:489588e8a186ca1ac1c2a9708d1114fa8e0eebc0958c48322ef011c3e2f8b319
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oxen/blobs/sha256:beaaa4cbbf549f4971e8d11ecaff71d2b0a3505ecb9bde579524b61a18b0dffa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oxen/blobs/sha256:f388007ddec92bcfe552983650f304a826cffeca6346f0506bb5398490ad8fdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oxen/blobs/sha256:7ef31294e8fbd3a7cd37efbe9c138e44db4f935ac6c2eb79384ac246cc40c377
+sha256:
+  darwin_arm64: 489588e8a186ca1ac1c2a9708d1114fa8e0eebc0958c48322ef011c3e2f8b319
+  darwin_amd64: beaaa4cbbf549f4971e8d11ecaff71d2b0a3505ecb9bde579524b61a18b0dffa
+  linux_amd64: f388007ddec92bcfe552983650f304a826cffeca6346f0506bb5398490ad8fdb
+  linux_arm64: 7ef31294e8fbd3a7cd37efbe9c138e44db4f935ac6c2eb79384ac246cc40c377
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

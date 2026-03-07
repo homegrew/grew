@@ -1,0 +1,19 @@
+name: llnode
+version: 4.0.0
+description: LLDB plugin for live/post-mortem debugging of node.js apps
+homepage: https://github.com/nodejs/llnode
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llnode/blobs/sha256:587328e971d8e18f42e15a58c9d1c94efe7cc2e48663d34de95e19a2921f7179
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llnode/blobs/sha256:3551ad8a5cc42a007da92190d786a92e3aacffa7c017ada497ddaef17dd3ab69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llnode/blobs/sha256:343c83b8b3a42ad4496c3866dda8da056a4cea95a09bebdec3280cbe3c301484
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llnode/blobs/sha256:6259affcb6b5e18c934eae0510775580d184ca9e1e9a3c4a19c19400bdcb10b1
+sha256:
+  darwin_arm64: 587328e971d8e18f42e15a58c9d1c94efe7cc2e48663d34de95e19a2921f7179
+  darwin_amd64: 3551ad8a5cc42a007da92190d786a92e3aacffa7c017ada497ddaef17dd3ab69
+  linux_amd64: 343c83b8b3a42ad4496c3866dda8da056a4cea95a09bebdec3280cbe3c301484
+  linux_arm64: 6259affcb6b5e18c934eae0510775580d184ca9e1e9a3c4a19c19400bdcb10b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cyclonedx-gomod
+version: 1.10.0
+description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules
+homepage: https://cyclonedx.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cyclonedx-gomod/blobs/sha256:dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cyclonedx-gomod/blobs/sha256:8c59b92233c8beba9f3a9ac8f3ee90d86239eef28e3db002f0c30566d57787c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cyclonedx-gomod/blobs/sha256:0264d8f7838c67048cfebe524bad1caf684ccde316a8140300d15c01d41d696d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cyclonedx-gomod/blobs/sha256:d20cbef64f5f8167a18d0edd98d5f9780df07032683c1ddf0c6882791f1c367b
+sha256:
+  darwin_arm64: dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef
+  darwin_amd64: 8c59b92233c8beba9f3a9ac8f3ee90d86239eef28e3db002f0c30566d57787c0
+  linux_amd64: 0264d8f7838c67048cfebe524bad1caf684ccde316a8140300d15c01d41d696d
+  linux_arm64: d20cbef64f5f8167a18d0edd98d5f9780df07032683c1ddf0c6882791f1c367b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

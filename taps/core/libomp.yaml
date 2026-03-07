@@ -1,0 +1,20 @@
+name: libomp
+version: 22.1.0
+description: "LLVM's OpenMP runtime library"
+homepage: https://openmp.llvm.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libomp/blobs/sha256:c04949d9dc909c2ed2fdf03993d64476961e83f22347a8094dd25a3fa2fee34e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libomp/blobs/sha256:8300e8753c2c489a04cd54c602d84d411f8d04b0e7131808ba2e145523afad92
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libomp/blobs/sha256:7c6ce4dc611c9c12f3075683a37f5a8a40ca22d5c2e96a3565838167b19d471b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libomp/blobs/sha256:38ecb2cde2d8020d2beda6e9da8dbded0da8743937b55633c6f57d6090db1781
+sha256:
+  darwin_arm64: c04949d9dc909c2ed2fdf03993d64476961e83f22347a8094dd25a3fa2fee34e
+  darwin_amd64: 8300e8753c2c489a04cd54c602d84d411f8d04b0e7131808ba2e145523afad92
+  linux_amd64: 7c6ce4dc611c9c12f3075683a37f5a8a40ca22d5c2e96a3565838167b19d471b
+  linux_arm64: 38ecb2cde2d8020d2beda6e9da8dbded0da8743937b55633c6f57d6090db1781
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

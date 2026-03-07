@@ -1,0 +1,19 @@
+name: zydis
+version: 4.1.1
+description: Fast and lightweight x86/x86_64 disassembler library
+homepage: https://zydis.re
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zydis/blobs/sha256:79b00be9f9a41dc1ba17f76b0b7ad4017db140c44076666d210f1bbd50a6fcc1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zydis/blobs/sha256:0f1bd1d7a92035759a01a25a9c2e7657e5c7a6a0c64d121ca3821dd0d5bf6c26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zydis/blobs/sha256:57fa80a8a5f5de2515de7c9e0ec1df9c29bed0035716ca4abd64fadbc1e868ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zydis/blobs/sha256:18b2f83673880c27fbbdf90ca73ca1d5cf2777727f188a0d18dd6b2d9849e1e6
+sha256:
+  darwin_arm64: 79b00be9f9a41dc1ba17f76b0b7ad4017db140c44076666d210f1bbd50a6fcc1
+  darwin_amd64: 0f1bd1d7a92035759a01a25a9c2e7657e5c7a6a0c64d121ca3821dd0d5bf6c26
+  linux_amd64: 57fa80a8a5f5de2515de7c9e0ec1df9c29bed0035716ca4abd64fadbc1e868ce
+  linux_arm64: 18b2f83673880c27fbbdf90ca73ca1d5cf2777727f188a0d18dd6b2d9849e1e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

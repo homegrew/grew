@@ -1,0 +1,23 @@
+name: oath-toolkit
+version: 2.6.14
+description: Tools for one-time password authentication systems
+homepage: https://www.nongnu.org/oath-toolkit/
+license: GPL-3.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oath-toolkit/blobs/sha256:be69513c03fa1a31c6e590fd6873033505f82612471832e327d55cfa55ae822e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oath-toolkit/blobs/sha256:1eeb6226466d3aa467080421151f80284865f7abf8be8b93fe2b320c3408b3c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oath-toolkit/blobs/sha256:ae317354c3e8fd7ebd807e9f50e27cc2b5e06d9c3059500d5a49b0abf93b170e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oath-toolkit/blobs/sha256:f8175b382aa6a5cbcfac359b445da5e60739fc745dce2ba19789085b98fb9869
+sha256:
+  darwin_arm64: be69513c03fa1a31c6e590fd6873033505f82612471832e327d55cfa55ae822e
+  darwin_amd64: 1eeb6226466d3aa467080421151f80284865f7abf8be8b93fe2b320c3408b3c2
+  linux_amd64: ae317354c3e8fd7ebd807e9f50e27cc2b5e06d9c3059500d5a49b0abf93b170e
+  linux_arm64: f8175b382aa6a5cbcfac359b445da5e60739fc745dce2ba19789085b98fb9869
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxml2
+  - libxmlsec1
+  - openssl@3

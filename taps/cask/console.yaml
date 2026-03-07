@@ -1,0 +1,11 @@
+name: console
+version: 0.3.1
+description: Replacement for console application
+homepage: https://github.com/macmade/Console
+url:
+  darwin_arm64: https://github.com/macmade/Console/releases/download/0.3.1/Console.app.zip
+sha256:
+  darwin_arm64: 282455fda66cf8a84a551c2396649be8b668885b3a62819fbdd5033448934914
+artifacts:
+  app:
+    - Console.app

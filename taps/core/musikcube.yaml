@@ -1,0 +1,32 @@
+name: musikcube
+version: 3.0.5
+description: Terminal-based audio engine, library, player and server
+homepage: https://musikcube.com
+license: BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later AND BSL-1.0 AND MIT AND Zlib AND bcrypt-Solar-Designer AND blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/musikcube/blobs/sha256:f079cd99390fa8cfde2954b29c85ec1dbb7463fcda7379d7d65a9728dd70135c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/musikcube/blobs/sha256:902d978d1bf5ad4507cb22e6bdbed88d4ce91a40d9978148064ff2cb31afbb4b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/musikcube/blobs/sha256:6ce68dae9715ffd29bf3fbf6884ff2797f20fee61bd972dfb4bf63763bba390e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/musikcube/blobs/sha256:0aca547fb4d9aba99e8a2c85cd7c2c512699c40ab6ff058e5df2c7bf3de62e1f
+sha256:
+  darwin_arm64: f079cd99390fa8cfde2954b29c85ec1dbb7463fcda7379d7d65a9728dd70135c
+  darwin_amd64: 902d978d1bf5ad4507cb22e6bdbed88d4ce91a40d9978148064ff2cb31afbb4b
+  linux_amd64: 6ce68dae9715ffd29bf3fbf6884ff2797f20fee61bd972dfb4bf63763bba390e
+  linux_arm64: 0aca547fb4d9aba99e8a2c85cd7c2c512699c40ab6ff058e5df2c7bf3de62e1f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - game-music-emu
+  - lame
+  - libev
+  - libmicrohttpd
+  - libopenmpt
+  - ncurses
+  - openssl@3
+  - portaudio
+  - taglib
+  - gnutls
+  - mpg123

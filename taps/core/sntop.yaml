@@ -1,0 +1,21 @@
+name: sntop
+version: 1.4.3
+description: Curses-based utility that polls hosts to determine connectivity
+homepage: https://sntop.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sntop/blobs/sha256:e40298eeb9619591443c8ba0e977cc63a5d61a2508e4d3695dd0dc8292eb9f34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sntop/blobs/sha256:f671d2b759a74c2cb3957d15df12b117c0c8823cb8414375c8c54c55ebdd887b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sntop/blobs/sha256:15e6f3f42a8d6afa68d48744f2673142104a0cfb84daff23c6706db8adbe6536
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sntop/blobs/sha256:11c8dd26262b37cddb345a83ffa42e900d813158ed2bbca49586ad042f2bcb29
+sha256:
+  darwin_arm64: e40298eeb9619591443c8ba0e977cc63a5d61a2508e4d3695dd0dc8292eb9f34
+  darwin_amd64: f671d2b759a74c2cb3957d15df12b117c0c8823cb8414375c8c54c55ebdd887b
+  linux_amd64: 15e6f3f42a8d6afa68d48744f2673142104a0cfb84daff23c6706db8adbe6536
+  linux_arm64: 11c8dd26262b37cddb345a83ffa42e900d813158ed2bbca49586ad042f2bcb29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fping

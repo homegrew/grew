@@ -1,0 +1,19 @@
+name: googleworkspace-cli
+version: 0.8.0
+description: CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+homepage: https://developers.google.com/workspace
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/googleworkspace-cli/blobs/sha256:32f553609d6579c20d4efca6e40cd6ac00f4ff8f05b35b9bcdf372394cc86e79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/googleworkspace-cli/blobs/sha256:05d7d1fd7efb6034b3cf921845e3a2cd62c6c1582e95c5856981569b4cb80e38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/googleworkspace-cli/blobs/sha256:bb3befa2fc469339fa45a91e568d01b24746c796c5ba180f821ecd8c5cd6b1d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/googleworkspace-cli/blobs/sha256:5b780738ded46e397ee21c5668b4e7c140cbc179ad2272705caf5f94427efc9a
+sha256:
+  darwin_arm64: 32f553609d6579c20d4efca6e40cd6ac00f4ff8f05b35b9bcdf372394cc86e79
+  darwin_amd64: 05d7d1fd7efb6034b3cf921845e3a2cd62c6c1582e95c5856981569b4cb80e38
+  linux_amd64: bb3befa2fc469339fa45a91e568d01b24746c796c5ba180f821ecd8c5cd6b1d9
+  linux_arm64: 5b780738ded46e397ee21c5668b4e7c140cbc179ad2272705caf5f94427efc9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

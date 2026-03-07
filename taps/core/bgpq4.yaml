@@ -1,0 +1,19 @@
+name: bgpq4
+version: 1.15
+description: BGP filtering automation for Cisco, Juniper, BIRD and OpenBGPD routers
+homepage: https://github.com/bgp/bgpq4
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bgpq4/blobs/sha256:13894eb38127e80cfaad864959908e443b93920516fcaead469ca88ae882cd79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bgpq4/blobs/sha256:054b4627828599a8f3518c4cd47914f895b7c652b537cef8c9115940fc6dc3f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bgpq4/blobs/sha256:1170e29b65fbd8f5eacb9ae2fa7ed9a1cf7408ef35095c17c95e38635cebb4c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bgpq4/blobs/sha256:eacb29c2e404c6c58efffd6bbcaa51a229a2ef55ddb83938737e2245c4c6fdd4
+sha256:
+  darwin_arm64: 13894eb38127e80cfaad864959908e443b93920516fcaead469ca88ae882cd79
+  darwin_amd64: 054b4627828599a8f3518c4cd47914f895b7c652b537cef8c9115940fc6dc3f6
+  linux_amd64: 1170e29b65fbd8f5eacb9ae2fa7ed9a1cf7408ef35095c17c95e38635cebb4c2
+  linux_arm64: eacb29c2e404c6c58efffd6bbcaa51a229a2ef55ddb83938737e2245c4c6fdd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

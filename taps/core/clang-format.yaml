@@ -1,0 +1,19 @@
+name: clang-format
+version: 22.1.0
+description: Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+homepage: https://clang.llvm.org/docs/ClangFormat.html
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clang-format/blobs/sha256:3927b91e36ce8733514f11724dd53e08dec7f174f6eaa3452aceeb510e95f9e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clang-format/blobs/sha256:93adcbc5f4b845e66cd724239111c679226e9b8de71757da9f4f2a708b98813b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clang-format/blobs/sha256:e3dab00459beb4c81b0593c969bad7a18ddf8a2d51a7e9f404847abb639b3260
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clang-format/blobs/sha256:c6e32603c3123e4674b4fe75aa706c97be5c3491751e2499ec7e32aacd76e988
+sha256:
+  darwin_arm64: 3927b91e36ce8733514f11724dd53e08dec7f174f6eaa3452aceeb510e95f9e9
+  darwin_amd64: 93adcbc5f4b845e66cd724239111c679226e9b8de71757da9f4f2a708b98813b
+  linux_amd64: e3dab00459beb4c81b0593c969bad7a18ddf8a2d51a7e9f404847abb639b3260
+  linux_arm64: c6e32603c3123e4674b4fe75aa706c97be5c3491751e2499ec7e32aacd76e988
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

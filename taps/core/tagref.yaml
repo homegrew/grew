@@ -1,0 +1,19 @@
+name: tagref
+version: 1.10.0
+description: Refer to other locations in your codebase
+homepage: https://github.com/stepchowfun/tagref
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tagref/blobs/sha256:ddb3d0e12f6c24a0b83a387e5e1392fdeb16fbc0c8dc858690448dcd6575b7ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tagref/blobs/sha256:e3bc0ef94cf98c84d34ac8452224747603d7ec12c74f15912088f0815ce98859
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tagref/blobs/sha256:77b2f0a10a0bed8fb20f230a9f18590f9c2583657d173ef8c0c2b003443aa469
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tagref/blobs/sha256:a4a49434a44171844bb5b38fc02f2b1dc25cf1ff4985aa095ca1e865765ba093
+sha256:
+  darwin_arm64: ddb3d0e12f6c24a0b83a387e5e1392fdeb16fbc0c8dc858690448dcd6575b7ae
+  darwin_amd64: e3bc0ef94cf98c84d34ac8452224747603d7ec12c74f15912088f0815ce98859
+  linux_amd64: 77b2f0a10a0bed8fb20f230a9f18590f9c2583657d173ef8c0c2b003443aa469
+  linux_arm64: a4a49434a44171844bb5b38fc02f2b1dc25cf1ff4985aa095ca1e865765ba093
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

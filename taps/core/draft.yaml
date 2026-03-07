@@ -1,0 +1,19 @@
+name: draft
+version: 0.17.14
+description: Day 0 tool for getting your app on Kubernetes fast
+homepage: https://github.com/Azure/draft
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/draft/blobs/sha256:d421ee84bd5e9645501210f787dbab90fb8397488f4886b100cfde2ea76056f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/draft/blobs/sha256:ad7fa2b985e02b879f9fa933fcf45d247293bab01ddfbd48cbf48ed7b398014b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/draft/blobs/sha256:9389136adfb076edbd6f0b449905aaefc9f0ad5905e10fe2e571e37f18c7a925
+  linux_arm64: https://ghcr.io/v2/homebrew/core/draft/blobs/sha256:a69f7663d99a27e99c89e5bf08c40cd0bd48102a4cf9817d298b95eddde7688b
+sha256:
+  darwin_arm64: d421ee84bd5e9645501210f787dbab90fb8397488f4886b100cfde2ea76056f7
+  darwin_amd64: ad7fa2b985e02b879f9fa933fcf45d247293bab01ddfbd48cbf48ed7b398014b
+  linux_amd64: 9389136adfb076edbd6f0b449905aaefc9f0ad5905e10fe2e571e37f18c7a925
+  linux_arm64: a69f7663d99a27e99c89e5bf08c40cd0bd48102a4cf9817d298b95eddde7688b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: sleek-app
+version: 2.0.23
+description: Todo manager based on the todo.txt syntax
+homepage: https://github.com/ransome1/sleek
+url:
+  darwin_arm64: https://github.com/ransome1/sleek/releases/download/v2.0.23/sleek-2.0.23-mac-arm64.dmg
+sha256:
+  darwin_arm64: 03031dac0748c0121d0225960191bec05f3020b13cf44a67308a4eae5e6bef66
+artifacts:
+  app:
+    - sleek.app

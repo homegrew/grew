@@ -1,0 +1,21 @@
+name: taskopen
+version: 2.0.3
+description: Tool for taking notes and open urls with taskwarrior
+homepage: https://github.com/jschlatow/taskopen
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taskopen/blobs/sha256:88c6ca32bc458061057c90fa56237a7e0d0c7e7325a9b8f18e8750b6bb822b5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taskopen/blobs/sha256:7a0350d52c91cd2aa71a76feeb6197551d65a6eb3e9e2cd9150691742e0c6549
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taskopen/blobs/sha256:c58603d593ac29b6893b614cdde533fac5c6c3271383303698081e11e9fdc364
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taskopen/blobs/sha256:822855f8d7f1453c212863347f73a256b63f7939a9f32a03f6ff216816557d9a
+sha256:
+  darwin_arm64: 88c6ca32bc458061057c90fa56237a7e0d0c7e7325a9b8f18e8750b6bb822b5f
+  darwin_amd64: 7a0350d52c91cd2aa71a76feeb6197551d65a6eb3e9e2cd9150691742e0c6549
+  linux_amd64: c58603d593ac29b6893b614cdde533fac5c6c3271383303698081e11e9fdc364
+  linux_arm64: 822855f8d7f1453c212863347f73a256b63f7939a9f32a03f6ff216816557d9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - task

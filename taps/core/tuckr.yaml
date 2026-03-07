@@ -1,0 +1,19 @@
+name: tuckr
+version: 0.13.0
+description: Super powered replacement for GNU Stow
+homepage: https://raphgl.github.io/Tuckr/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tuckr/blobs/sha256:4746e35bff4ec91205d140fbc1edc2575a67ffed4eeece5c765ee33082b40c6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tuckr/blobs/sha256:edffb701526d884abaf732ce5f603cad0718c929d50bb23828ac394c4dbcf186
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tuckr/blobs/sha256:1d3e69c2946bb0013779c9393e645cb3802dd24ef659a32c56f1b274549d4228
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tuckr/blobs/sha256:21b0a789446ea055fdff5b00f3c42e05c3141be27627992c379907761d5a3bee
+sha256:
+  darwin_arm64: 4746e35bff4ec91205d140fbc1edc2575a67ffed4eeece5c765ee33082b40c6f
+  darwin_amd64: edffb701526d884abaf732ce5f603cad0718c929d50bb23828ac394c4dbcf186
+  linux_amd64: 1d3e69c2946bb0013779c9393e645cb3802dd24ef659a32c56f1b274549d4228
+  linux_arm64: 21b0a789446ea055fdff5b00f3c42e05c3141be27627992c379907761d5a3bee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

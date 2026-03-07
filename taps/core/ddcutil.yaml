@@ -1,0 +1,26 @@
+name: ddcutil
+version: 2.2.5
+description: Control monitor settings using DDC/CI and USB
+homepage: https://www.ddcutil.com
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddcutil/blobs/sha256:4b6d8e070804f19b64e0efd048ee50f08f62f764a10546590d6a7f310bec619d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddcutil/blobs/sha256:3a29efc5efb10d278fe7502ca94a66b34b87371fdf658a2d811210acc9e3a393
+sha256:
+  linux_amd64: 4b6d8e070804f19b64e0efd048ee50f08f62f764a10546590d6a7f310bec619d
+  linux_arm64: 3a29efc5efb10d278fe7502ca94a66b34b87371fdf658a2d811210acc9e3a393
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - i2c-tools
+  - jansson
+  - kmod
+  - libdrm
+  - libusb
+  - libx11
+  - libxext
+  - libxrandr
+  - systemd

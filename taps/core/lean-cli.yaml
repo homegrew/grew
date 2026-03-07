@@ -1,0 +1,19 @@
+name: lean-cli
+version: 1.2.4
+description: Command-line tool to develop and manage LeanCloud apps
+homepage: https://github.com/leancloud/lean-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lean-cli/blobs/sha256:3da295ce6ca687fd6d8d40979221d4f7560385ddd42e967c49f6b7b688d4cbc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lean-cli/blobs/sha256:b24963b1955e9d3d152bfb741bce058b0e4f941386288cf99fc751028032d0e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lean-cli/blobs/sha256:c8df5522cc644bc6a8fe47738c5a27f58acdb143d7015bd5f7088b6b6422359b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lean-cli/blobs/sha256:968073f0bb1515b98e0809c8c79df2f76b9a5c68bc10e1d0add798efdebb04eb
+sha256:
+  darwin_arm64: 3da295ce6ca687fd6d8d40979221d4f7560385ddd42e967c49f6b7b688d4cbc4
+  darwin_amd64: b24963b1955e9d3d152bfb741bce058b0e4f941386288cf99fc751028032d0e5
+  linux_amd64: c8df5522cc644bc6a8fe47738c5a27f58acdb143d7015bd5f7088b6b6422359b
+  linux_arm64: 968073f0bb1515b98e0809c8c79df2f76b9a5c68bc10e1d0add798efdebb04eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: medusa
+version: 1.5.0
+description: Solidity smart contract fuzzer powered by go-ethereum
+homepage: https://github.com/crytic/medusa
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/medusa/blobs/sha256:b62bb2ff5fe23eb6663679295df39a98fe14021744496b927edb2a7dbf27bad7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/medusa/blobs/sha256:61b87bd7f4f102f158f5a2e85b5f8d0510141a8f30fa9a69d2f1a15c09ad8ec5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/medusa/blobs/sha256:291191270458fe67e74e180579fb7eb66e9e626b9ae6797cabecaff0597e14ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/medusa/blobs/sha256:8bc30f7350428969f4afa42ceb11ceba0cd43bd1671df3735c2a579f5677c488
+sha256:
+  darwin_arm64: b62bb2ff5fe23eb6663679295df39a98fe14021744496b927edb2a7dbf27bad7
+  darwin_amd64: 61b87bd7f4f102f158f5a2e85b5f8d0510141a8f30fa9a69d2f1a15c09ad8ec5
+  linux_amd64: 291191270458fe67e74e180579fb7eb66e9e626b9ae6797cabecaff0597e14ea
+  linux_arm64: 8bc30f7350428969f4afa42ceb11ceba0cd43bd1671df3735c2a579f5677c488
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - crytic-compile

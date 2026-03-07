@@ -1,0 +1,21 @@
+name: qtlanguageserver
+version: 6.10.2
+description: Implementation of the Language Server Protocol and JSON-RPC
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtlanguageserver/blobs/sha256:0b1f74208d42bba8f56aa1b9456a0a4acee9148ccfcb0cfd177a4549181880f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtlanguageserver/blobs/sha256:2b2c7d9a8f7ee8f1d6f4ed6612693304ebe7872cf5c69d45ff0578bb2622f182
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtlanguageserver/blobs/sha256:b022911f1a36ed912c6cccd95b265be0875cbfb0f4b846aea27606be0ae8368c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtlanguageserver/blobs/sha256:e61443471773e7e2ace4a775d9ed961ad976c628e958f011580c2cf281ebac14
+sha256:
+  darwin_arm64: 0b1f74208d42bba8f56aa1b9456a0a4acee9148ccfcb0cfd177a4549181880f3
+  darwin_amd64: 2b2c7d9a8f7ee8f1d6f4ed6612693304ebe7872cf5c69d45ff0578bb2622f182
+  linux_amd64: b022911f1a36ed912c6cccd95b265be0875cbfb0f4b846aea27606be0ae8368c
+  linux_arm64: e61443471773e7e2ace4a775d9ed961ad976c628e958f011580c2cf281ebac14
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

@@ -1,0 +1,12 @@
+name: ddnet
+version: 19.7
+description: Cooperative online platform game based on Teeworlds
+homepage: https://ddnet.org/
+url:
+  darwin_arm64: https://ddnet.org/downloads/DDNet-19.7-macos.dmg
+sha256:
+  darwin_arm64: be00de1c6a6960f0c2768e54a0d1eb6e0d3528897b82efe926e689fa366b79d9
+artifacts:
+  app:
+    - DDNet.app
+    - DDNet-Server.app

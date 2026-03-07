@@ -1,0 +1,19 @@
+name: television
+version: 0.15.3
+description: General purpose fuzzy finder TUI
+homepage: https://github.com/alexpasmantier/television
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/television/blobs/sha256:80895153a98219c16b21316bfdd3043c33eb5e4e813e108df3cbff3c8810e558
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/television/blobs/sha256:154bd67bb9dde3b8d522678096deecd954e570dd626fd936edd369e6422ce3cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/television/blobs/sha256:23dfb05e30e4a9d9254cc67ce5e8f1b1995e35667579cebfb5eb479a715725ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/television/blobs/sha256:b8832131131f697d0265f02f37ebd5c02b91588f734c4e8718eb9000baf16a75
+sha256:
+  darwin_arm64: 80895153a98219c16b21316bfdd3043c33eb5e4e813e108df3cbff3c8810e558
+  darwin_amd64: 154bd67bb9dde3b8d522678096deecd954e570dd626fd936edd369e6422ce3cb
+  linux_amd64: 23dfb05e30e4a9d9254cc67ce5e8f1b1995e35667579cebfb5eb479a715725ea
+  linux_arm64: b8832131131f697d0265f02f37ebd5c02b91588f734c4e8718eb9000baf16a75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

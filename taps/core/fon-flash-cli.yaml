@@ -1,0 +1,19 @@
+name: fon-flash-cli
+version: 1.14.0
+description: Flash La Fonera and Atheros chipset compatible devices
+homepage: https://www.gargoyle-router.com/wiki/doku.php?id=fon_flash
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fon-flash-cli/blobs/sha256:bf2b2be0852a150b152ca34168452729049d20ee6b2a89a1c724e6c064114978
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fon-flash-cli/blobs/sha256:4927ca94b069e1150ec07b27ced2d725eed9a7906b68eee85b342f97992b95fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fon-flash-cli/blobs/sha256:c0f4ec92c15b63f45030ffff6df6400adf06eab3417e7c938c2eb1b84f2084cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fon-flash-cli/blobs/sha256:b62ecc3ac4eb32167cb49010f68e32728a50ccf3a41857ddcf0030c06a8f1290
+sha256:
+  darwin_arm64: bf2b2be0852a150b152ca34168452729049d20ee6b2a89a1c724e6c064114978
+  darwin_amd64: 4927ca94b069e1150ec07b27ced2d725eed9a7906b68eee85b342f97992b95fd
+  linux_amd64: c0f4ec92c15b63f45030ffff6df6400adf06eab3417e7c938c2eb1b84f2084cf
+  linux_arm64: b62ecc3ac4eb32167cb49010f68e32728a50ccf3a41857ddcf0030c06a8f1290
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

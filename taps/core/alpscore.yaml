@@ -1,0 +1,24 @@
+name: alpscore
+version: 2.3.2
+description: Applications and libraries for physics simulations
+homepage: https://alpscore.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alpscore/blobs/sha256:40dc2149a084c00f49ffb90537d54bb25928f9ec40de4a742ede77e7c59e1874
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alpscore/blobs/sha256:df4cfbe5b40dfde376fba083e33bc1323b73914c8c2b0455471851b37e0ff42c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alpscore/blobs/sha256:e07129f9f6f769198cac871aae40e7e57356c10a98b0bcc50abc476b70448998
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alpscore/blobs/sha256:b376b567d1dc67245a03884a984d8a6ed3fa483f27cc954ab625d0d220aa2b39
+sha256:
+  darwin_arm64: 40dc2149a084c00f49ffb90537d54bb25928f9ec40de4a742ede77e7c59e1874
+  darwin_amd64: df4cfbe5b40dfde376fba083e33bc1323b73914c8c2b0455471851b37e0ff42c
+  linux_amd64: e07129f9f6f769198cac871aae40e7e57356c10a98b0bcc50abc476b70448998
+  linux_arm64: b376b567d1dc67245a03884a984d8a6ed3fa483f27cc954ab625d0d220aa2b39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - eigen
+  - hdf5
+  - open-mpi

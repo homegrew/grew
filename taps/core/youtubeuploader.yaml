@@ -1,0 +1,19 @@
+name: youtubeuploader
+version: 1.25.5
+description: Scripted uploads to Youtube
+homepage: https://github.com/porjo/youtubeuploader
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/youtubeuploader/blobs/sha256:3748a5d2beaafce8110971addbdb5d62a6a59867d283a88bd6672e6a5fff6622
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/youtubeuploader/blobs/sha256:94dcbcc952e28af9f60fc95201c0be744a9552f1e8ca408445801a3d8d9c7c99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/youtubeuploader/blobs/sha256:612d71e27119ecb79aaa4460ec721cb19b08c925e2e045730f0b6468c86e3265
+  linux_arm64: https://ghcr.io/v2/homebrew/core/youtubeuploader/blobs/sha256:8b1fafe8f133cec0e3edb03685b3f7ca8bee3544941075d46dfb333745ea8044
+sha256:
+  darwin_arm64: 3748a5d2beaafce8110971addbdb5d62a6a59867d283a88bd6672e6a5fff6622
+  darwin_amd64: 94dcbcc952e28af9f60fc95201c0be744a9552f1e8ca408445801a3d8d9c7c99
+  linux_amd64: 612d71e27119ecb79aaa4460ec721cb19b08c925e2e045730f0b6468c86e3265
+  linux_arm64: 8b1fafe8f133cec0e3edb03685b3f7ca8bee3544941075d46dfb333745ea8044
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

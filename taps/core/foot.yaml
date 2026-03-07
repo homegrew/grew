@@ -1,0 +1,23 @@
+name: foot
+version: 1.26.0
+description: Fast, lightweight and minimalistic Wayland terminal emulator
+homepage: https://codeberg.org/dnkl/foot
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/foot/blobs/sha256:12ea4fea4959c093d6a6253ef7c13997c479b65d2eb3220f4d61d0804e4c2640
+  linux_arm64: https://ghcr.io/v2/homebrew/core/foot/blobs/sha256:c67d38d57e65ed9be3c67c076c239801b2e1b34573f41ec78fdac3436b01cc07
+sha256:
+  linux_amd64: 12ea4fea4959c093d6a6253ef7c13997c479b65d2eb3220f4d61d0804e4c2640
+  linux_arm64: c67d38d57e65ed9be3c67c076c239801b2e1b34573f41ec78fdac3436b01cc07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fcft
+  - fontconfig
+  - freetype
+  - libxkbcommon
+  - pixman
+  - utf8proc
+  - wayland

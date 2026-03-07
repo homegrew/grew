@@ -1,0 +1,21 @@
+name: thefuck
+version: 3.32
+description: Programmatically correct mistyped console commands
+homepage: https://github.com/nvbn/thefuck
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/thefuck/blobs/sha256:a8c8342968e5cb7addf06da5c3cb5216f5877d52e90e5a819f2146b999403aad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/thefuck/blobs/sha256:059e916f07ed54e66733375ff6ca6c0343dc168f60cf9e0085ebe0e2461bea84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/thefuck/blobs/sha256:22117e74d1dda01753469bae6e149044017c175ca03564825a929400a1bc61f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/thefuck/blobs/sha256:520de6b7f2774d67b759b1ce0ac86a2af9cafe1884bd540fd19896e69e5dd2b4
+sha256:
+  darwin_arm64: a8c8342968e5cb7addf06da5c3cb5216f5877d52e90e5a819f2146b999403aad
+  darwin_amd64: 059e916f07ed54e66733375ff6ca6c0343dc168f60cf9e0085ebe0e2461bea84
+  linux_amd64: 22117e74d1dda01753469bae6e149044017c175ca03564825a929400a1bc61f5
+  linux_arm64: 520de6b7f2774d67b759b1ce0ac86a2af9cafe1884bd540fd19896e69e5dd2b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

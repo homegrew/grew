@@ -1,0 +1,11 @@
+name: miditrail
+version: 2.0.3
+description: MIDI player which provides 3D visualization of MIDI data sets
+homepage: https://www.yknk.org/miditrail/en/
+url:
+  darwin_arm64: https://github.com/wdmss/MIDITrail-macOS/releases/download/v2.0.3/MIDITrail-Ver.2.0.3-macOS.zip
+sha256:
+  darwin_arm64: c9143721f652f6ddf6a3134a3c2d20ca547663f1998e4a213630606f6ed23eb0
+artifacts:
+  app:
+    - MIDITrail/MIDITrail.app

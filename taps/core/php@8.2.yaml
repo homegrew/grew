@@ -1,0 +1,43 @@
+name: php@8.2
+version: 8.2.30
+description: General-purpose scripting language
+homepage: https://www.php.net/
+license: PHP-3.01 AND Zend-2.0 AND BSL-1.0 AND MIT AND Apache-1.0 AND bcrypt-Solar-Designer AND BSD-2-Clause-Darwin AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause-UC AND ISC AND LGPL-2.1-only AND LGPL-2.1-or-later AND OLDAP-2.8 AND TCL AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/php/8.2/blobs/sha256:7a209944cd36bc8010c2f7dd49348902b5566ec6ffbddeb2da3d99b4ba68d1c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/php/8.2/blobs/sha256:fc000fae275deebc121a8f3273d50af52a03850892c663b86df8d6ee0d966f00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/php/8.2/blobs/sha256:db8c6b5f0676738704084b0391407626d8665ef610ba0ef77301b1cb841ae02d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/php/8.2/blobs/sha256:4e73d4f6cbacddd6a92a746984e8799e72c767893def8fa927eea4a1ea5ce3e2
+sha256:
+  darwin_arm64: 7a209944cd36bc8010c2f7dd49348902b5566ec6ffbddeb2da3d99b4ba68d1c4
+  darwin_amd64: fc000fae275deebc121a8f3273d50af52a03850892c663b86df8d6ee0d966f00
+  linux_amd64: db8c6b5f0676738704084b0391407626d8665ef610ba0ef77301b1cb841ae02d
+  linux_arm64: 4e73d4f6cbacddd6a92a746984e8799e72c767893def8fa927eea4a1ea5ce3e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - argon2
+  - aspell
+  - autoconf
+  - curl
+  - freetds
+  - gd
+  - gmp
+  - icu4c@78
+  - krb5
+  - libpq
+  - libsodium
+  - libzip
+  - oniguruma
+  - openldap
+  - openssl@3
+  - pcre2
+  - sqlite
+  - tidy-html5
+  - unixodbc
+  - gettext
+keg_only: true

@@ -1,0 +1,24 @@
+name: ki18n
+version: 6.23.0
+description: KDE Gettext-based UI text internationalization
+homepage: https://api.kde.org/ki18n-index.html
+license: BSD-3-Clause AND LGPL-2.0-or-later AND (LGPL-2.1-only OR LGPL-3.0-only)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ki18n/blobs/sha256:4905f09abbb99a99be8405a1ab9a12abb3cc989ba4a444fd68e26d5bce82eef9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ki18n/blobs/sha256:6ee9797fae8ac5dc65bc56251d626adbe01296c7518bf46a4dd026878ff9de67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ki18n/blobs/sha256:88c3edacb246d5e1bd62be5ba01d0e717364cbd3c91eea16603dc08d24485372
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ki18n/blobs/sha256:a58d742ed128e44de27991519596b80d50ee02831f98ac44a9103db48ed4e144
+sha256:
+  darwin_arm64: 4905f09abbb99a99be8405a1ab9a12abb3cc989ba4a444fd68e26d5bce82eef9
+  darwin_amd64: 6ee9797fae8ac5dc65bc56251d626adbe01296c7518bf46a4dd026878ff9de67
+  linux_amd64: 88c3edacb246d5e1bd62be5ba01d0e717364cbd3c91eea16603dc08d24485372
+  linux_arm64: a58d742ed128e44de27991519596b80d50ee02831f98ac44a9103db48ed4e144
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - iso-codes
+  - qtbase
+  - qtdeclarative

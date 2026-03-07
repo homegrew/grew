@@ -1,0 +1,21 @@
+name: fstrm
+version: 0.6.1
+description: Frame Streams implementation in C
+homepage: https://github.com/farsightsec/fstrm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fstrm/blobs/sha256:7b3467f8c2db26584cb092d8d9c4fe769f459d6a015c7f935d335a885c996697
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fstrm/blobs/sha256:57b1b65ca1b36c9f8148ad93acef81a17f1f638db752176beb53fb3aa0e34459
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fstrm/blobs/sha256:7a1db14f84679ffb80882a5a00b733e671f82242d2a338ce485e180b4f40f1a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fstrm/blobs/sha256:6b511dcdd149db9a62c58e4fc0cfb79c2c72defb16a5bad62d5295beb601a5e0
+sha256:
+  darwin_arm64: 7b3467f8c2db26584cb092d8d9c4fe769f459d6a015c7f935d335a885c996697
+  darwin_amd64: 57b1b65ca1b36c9f8148ad93acef81a17f1f638db752176beb53fb3aa0e34459
+  linux_amd64: 7a1db14f84679ffb80882a5a00b733e671f82242d2a338ce485e180b4f40f1a0
+  linux_arm64: 6b511dcdd149db9a62c58e4fc0cfb79c2c72defb16a5bad62d5295beb601a5e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent

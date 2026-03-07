@@ -1,0 +1,19 @@
+name: ocm
+version: 1.0.11
+description: CLI for the Red Hat OpenShift Cluster Manager
+homepage: https://www.openshift.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocm/blobs/sha256:d0cd9a9705b15f21e4b70ff67b0884a6dace35111e3f8f832601baf0e5a53f67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocm/blobs/sha256:559594cd07bd97dabb57dfeeb2792d96ae9006ee976a8f6da0a5b8fd74c7455b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocm/blobs/sha256:878b5495ed4e4b31bf1b3de568327841cea73279b3efeee28cb7cb0c823e596a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocm/blobs/sha256:48e597602bf5382874756bbedb566c74f4a7e79897a73d77311c3f11dcec4e59
+sha256:
+  darwin_arm64: d0cd9a9705b15f21e4b70ff67b0884a6dace35111e3f8f832601baf0e5a53f67
+  darwin_amd64: 559594cd07bd97dabb57dfeeb2792d96ae9006ee976a8f6da0a5b8fd74c7455b
+  linux_amd64: 878b5495ed4e4b31bf1b3de568327841cea73279b3efeee28cb7cb0c823e596a
+  linux_arm64: 48e597602bf5382874756bbedb566c74f4a7e79897a73d77311c3f11dcec4e59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

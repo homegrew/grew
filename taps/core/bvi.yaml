@@ -1,0 +1,19 @@
+name: bvi
+version: 1.5.0
+description: Vi-like binary file (hex) editor
+homepage: https://bvi.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bvi/blobs/sha256:e18948359f9988ce1cfc894be133b8c70540c611b93ef222001470fad650608a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bvi/blobs/sha256:a5ca83f528845edfd49363d7900d3a2961d3d4e36dc35f4eeb4c842b72f9d223
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bvi/blobs/sha256:613c30ea6216543c1b1d27ed5c57e1cfb6bfabcc81a8d11c8e17a1f851b3bbe6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bvi/blobs/sha256:da9dc6e14ca302a2cfcdbd83727273520610eafcf8a3b199d3ea430734424bc3
+sha256:
+  darwin_arm64: e18948359f9988ce1cfc894be133b8c70540c611b93ef222001470fad650608a
+  darwin_amd64: a5ca83f528845edfd49363d7900d3a2961d3d4e36dc35f4eeb4c842b72f9d223
+  linux_amd64: 613c30ea6216543c1b1d27ed5c57e1cfb6bfabcc81a8d11c8e17a1f851b3bbe6
+  linux_arm64: da9dc6e14ca302a2cfcdbd83727273520610eafcf8a3b199d3ea430734424bc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: errcheck
+version: 1.10.0
+description: Finds silently ignored errors in Go code
+homepage: https://github.com/kisielk/errcheck
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/errcheck/blobs/sha256:89a733ce92b2486256c82d329c5d5ecf85d1ee8bf375077010f29d70e7b79c74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/errcheck/blobs/sha256:2f8c7df6ff08b34da4fc9d7e3867edf7863f033dc17e2c92ae4104069f408c9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/errcheck/blobs/sha256:9dce2d4ec61d9c62e81504c021b8d84146d377921f755cff16fd6a188a95502f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/errcheck/blobs/sha256:7b85e11602fe5e6cdb6c945fb6769bcbae51f0f3c77945070f9b08f5a2faae98
+sha256:
+  darwin_arm64: 89a733ce92b2486256c82d329c5d5ecf85d1ee8bf375077010f29d70e7b79c74
+  darwin_amd64: 2f8c7df6ff08b34da4fc9d7e3867edf7863f033dc17e2c92ae4104069f408c9a
+  linux_amd64: 9dce2d4ec61d9c62e81504c021b8d84146d377921f755cff16fd6a188a95502f
+  linux_arm64: 7b85e11602fe5e6cdb6c945fb6769bcbae51f0f3c77945070f9b08f5a2faae98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: icecast
+version: 2.4.4
+description: Streaming MP3 audio server
+homepage: https://icecast.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icecast/blobs/sha256:4529a76a5b5c21b5214c556fb5d351df235150634aebdc35da57de778a9822b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icecast/blobs/sha256:47cb310dc10fb7169072e22dd97397e7918f6ff3c7bb561b632f6f314b3374dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icecast/blobs/sha256:1712b36a4b604ada1227303bdbcf679e4c5ab392af44cbce8f75f7b6af6b3ec0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icecast/blobs/sha256:194c895b07fadfaee954a587d5129eba86923bf832c1a017f68ec87a43d82588
+sha256:
+  darwin_arm64: 4529a76a5b5c21b5214c556fb5d351df235150634aebdc35da57de778a9822b6
+  darwin_amd64: 47cb310dc10fb7169072e22dd97397e7918f6ff3c7bb561b632f6f314b3374dd
+  linux_amd64: 1712b36a4b604ada1227303bdbcf679e4c5ab392af44cbce8f75f7b6af6b3ec0
+  linux_arm64: 194c895b07fadfaee954a587d5129eba86923bf832c1a017f68ec87a43d82588
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - libvorbis
+  - openssl@3

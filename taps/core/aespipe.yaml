@@ -1,0 +1,19 @@
+name: aespipe
+version: 2.4j
+description: AES encryption or decryption for pipes
+homepage: https://loop-aes.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aespipe/blobs/sha256:5fc60a58b6bd7edc3b66eb41f00db8c6b5cd875ba16451ea1d17cb760e3f9240
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aespipe/blobs/sha256:4af99e0b662569c6d8c11affab727184530d174f3837d209661c59c7d11ff008
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aespipe/blobs/sha256:b78adabc6a957ed1ff8947cda33e32704dcc0104149a0347fcfd735d7ff91b78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aespipe/blobs/sha256:0fa15737620b958cfcd6333d49e868b26d72e4cf6f7908b7129bfcb2b5c5c3cb
+sha256:
+  darwin_arm64: 5fc60a58b6bd7edc3b66eb41f00db8c6b5cd875ba16451ea1d17cb760e3f9240
+  darwin_amd64: 4af99e0b662569c6d8c11affab727184530d174f3837d209661c59c7d11ff008
+  linux_amd64: b78adabc6a957ed1ff8947cda33e32704dcc0104149a0347fcfd735d7ff91b78
+  linux_arm64: 0fa15737620b958cfcd6333d49e868b26d72e4cf6f7908b7129bfcb2b5c5c3cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: dropbear
+version: 2025.89
+description: Small SSH server/client for POSIX-based system
+homepage: https://matt.ucc.asn.au/dropbear/dropbear.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dropbear/blobs/sha256:d84b94d96972aef2cae86efbd60cba209324849b8130885f047988323742d98b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dropbear/blobs/sha256:ab1c015d6d4dc3772539b65ac6dc80a0cb36fc9cea44ab30f7befe35c2bae637
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dropbear/blobs/sha256:a0f6f864ac0ba514aed819c711b34957e5d765bdca7644738720a98a62b8eee4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dropbear/blobs/sha256:939dd6c49ffb11771864b2f7dea73b00b23b154e298e019ca1a248be3b2a63f6
+sha256:
+  darwin_arm64: d84b94d96972aef2cae86efbd60cba209324849b8130885f047988323742d98b
+  darwin_amd64: ab1c015d6d4dc3772539b65ac6dc80a0cb36fc9cea44ab30f7befe35c2bae637
+  linux_amd64: a0f6f864ac0ba514aed819c711b34957e5d765bdca7644738720a98a62b8eee4
+  linux_arm64: 939dd6c49ffb11771864b2f7dea73b00b23b154e298e019ca1a248be3b2a63f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

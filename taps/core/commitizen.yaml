@@ -1,0 +1,22 @@
+name: commitizen
+version: 4.13.9
+description: Defines a standard way of committing rules and communicating it
+homepage: https://commitizen-tools.github.io/commitizen/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/commitizen/blobs/sha256:89db9ed9c30351ff31d1a338470e928cb0b237722d7b05fbd18de22e4db761ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/commitizen/blobs/sha256:c48f64af422c4b0e4517bf33e088f7f5263d69ac29df9decace5139e7bd5ac09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/commitizen/blobs/sha256:f1b4e3cb05dd8329c9e248bea1932cddcef5a6bee4d4de9e6fa444db5d1d4e14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/commitizen/blobs/sha256:ef2806a78619d18bb5adeeb7b7d6e38a2266aaaaea67b6ebb4d97faaea5107c5
+sha256:
+  darwin_arm64: 89db9ed9c30351ff31d1a338470e928cb0b237722d7b05fbd18de22e4db761ba
+  darwin_amd64: c48f64af422c4b0e4517bf33e088f7f5263d69ac29df9decace5139e7bd5ac09
+  linux_amd64: f1b4e3cb05dd8329c9e248bea1932cddcef5a6bee4d4de9e6fa444db5d1d4e14
+  linux_arm64: ef2806a78619d18bb5adeeb7b7d6e38a2266aaaaea67b6ebb4d97faaea5107c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,21 @@
+name: calcurse
+version: 4.8.2
+description: Text-based personal organizer
+homepage: https://calcurse.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/calcurse/blobs/sha256:36702d8f775d240b6968de8c9920deb70f8a1c4174efb8807a65b137a17abe6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/calcurse/blobs/sha256:fc2881f5a9216f5709a37c284406ee3e648c396fd90dedeadebcbee6bd3e8fde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/calcurse/blobs/sha256:d3e722c7e8f3f64fec8f389fa7d46f5799d20a6bb1805a5b0b84aa491325f408
+  linux_arm64: https://ghcr.io/v2/homebrew/core/calcurse/blobs/sha256:3c4da058a54e0a401ac9416c0a57e27e7fd05f02d1ab00bd0f8b4caef798d287
+sha256:
+  darwin_arm64: 36702d8f775d240b6968de8c9920deb70f8a1c4174efb8807a65b137a17abe6d
+  darwin_amd64: fc2881f5a9216f5709a37c284406ee3e648c396fd90dedeadebcbee6bd3e8fde
+  linux_amd64: d3e722c7e8f3f64fec8f389fa7d46f5799d20a6bb1805a5b0b84aa491325f408
+  linux_arm64: 3c4da058a54e0a401ac9416c0a57e27e7fd05f02d1ab00bd0f8b4caef798d287
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

@@ -1,0 +1,11 @@
+name: domzilla-caffeine
+version: 1.6.3
+description: Utility that prevents the system from going to sleep
+homepage: https://www.caffeine-app.net/
+url:
+  darwin_arm64: https://dr-caffeine-mac.s3.amazonaws.com/Caffeine_1.6.3.zip
+sha256:
+  darwin_arm64: 0d9ff8bf1fdcf1b3a0b22cdc18e311d4d25c99a0adb411098c9f1597c11f6e15
+artifacts:
+  app:
+    - Caffeine.app

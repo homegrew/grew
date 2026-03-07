@@ -1,0 +1,19 @@
+name: gitbackup
+version: 1.1
+description: Tool to backup your Bitbucket, GitHub and GitLab repositories
+homepage: https://github.com/amitsaha/gitbackup
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitbackup/blobs/sha256:4031134b43e7809de19c4bb8370d2e26f39d8f4d6ab5c69f4506319ca9ff1a19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitbackup/blobs/sha256:2e29126d9a0958e8e694229d6d452752c8dd466cb97d6e584bcd500f9ea8e0af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitbackup/blobs/sha256:eb1ace4fdc8a6aad703a4d8ab2ad5e26e44ab13467f305e543a1cc9d8bc8da48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitbackup/blobs/sha256:3de7efa5c385da6b54a5d9d410500a7fb812eaeb6cafbb386c893f1b966f136a
+sha256:
+  darwin_arm64: 4031134b43e7809de19c4bb8370d2e26f39d8f4d6ab5c69f4506319ca9ff1a19
+  darwin_amd64: 2e29126d9a0958e8e694229d6d452752c8dd466cb97d6e584bcd500f9ea8e0af
+  linux_amd64: eb1ace4fdc8a6aad703a4d8ab2ad5e26e44ab13467f305e543a1cc9d8bc8da48
+  linux_arm64: 3de7efa5c385da6b54a5d9d410500a7fb812eaeb6cafbb386c893f1b966f136a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

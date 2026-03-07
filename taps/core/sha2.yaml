@@ -1,0 +1,19 @@
+name: sha2
+version: 1.0.1
+description: Implementation of SHA-256, SHA-384, and SHA-512 hash algorithms
+homepage: https://aarongifford.com/computers/sha.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sha2/blobs/sha256:55b0e8d020c0e19723dac33bf78a7766ad2a9bc1fbf0ae532909fed61f9c5685
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sha2/blobs/sha256:c8e46685fb2f536fe1076a0c33a86594027136fe58b9d3f98c39ecf1d4263525
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sha2/blobs/sha256:027526015a81f4aec75269a3c104a0fab290359471f228d87f0922a788eedee0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sha2/blobs/sha256:82d260e0a84cc48d8442d041c3da6305a586be869936e999a80abb4f58548849
+sha256:
+  darwin_arm64: 55b0e8d020c0e19723dac33bf78a7766ad2a9bc1fbf0ae532909fed61f9c5685
+  darwin_amd64: c8e46685fb2f536fe1076a0c33a86594027136fe58b9d3f98c39ecf1d4263525
+  linux_amd64: 027526015a81f4aec75269a3c104a0fab290359471f228d87f0922a788eedee0
+  linux_arm64: 82d260e0a84cc48d8442d041c3da6305a586be869936e999a80abb4f58548849
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

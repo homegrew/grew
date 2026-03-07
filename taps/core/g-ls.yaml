@@ -1,0 +1,19 @@
+name: g-ls
+version: 0.31.0
+description: Powerful and cross-platform ls
+homepage: https://g.equationzhao.space
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/g-ls/blobs/sha256:7d62e75fef5133acb354d578e93f981f47c4dafb61c496be3597d2c87302950e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/g-ls/blobs/sha256:7b203477a74e2996df047e202b4f8827d68c98d1db639a6bc9ff33fac6938d6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/g-ls/blobs/sha256:b8fbf36aa3e158d614b9a5dfbfcc8598bcbd7b2f79e516a1bec447281a790495
+  linux_arm64: https://ghcr.io/v2/homebrew/core/g-ls/blobs/sha256:dad7f157a9be7a8c16b23b585f24ded385df6d308e3e63ab233f7b965abeae9d
+sha256:
+  darwin_arm64: 7d62e75fef5133acb354d578e93f981f47c4dafb61c496be3597d2c87302950e
+  darwin_amd64: 7b203477a74e2996df047e202b4f8827d68c98d1db639a6bc9ff33fac6938d6a
+  linux_amd64: b8fbf36aa3e158d614b9a5dfbfcc8598bcbd7b2f79e516a1bec447281a790495
+  linux_arm64: dad7f157a9be7a8c16b23b585f24ded385df6d308e3e63ab233f7b965abeae9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

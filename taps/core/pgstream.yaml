@@ -1,0 +1,19 @@
+name: pgstream
+version: 1.0.1
+description: PostgreSQL replication with DDL changes
+homepage: https://github.com/xataio/pgstream
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgstream/blobs/sha256:f3e4f5b593556edbb40dfcc90ecde3df1495c0e74cb85f561c0114d239c746d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgstream/blobs/sha256:8574a2194f1914bb1a05f0b12a70c2c967a249387c5e1d4b409c9c828aa1c5bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgstream/blobs/sha256:5b374394b5710faffeef8f70e46e8cc0bbd8b23566bf3715a9814ac1eea8962f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgstream/blobs/sha256:7ba3e4464b803af28dd02061ddc1cbacf75222dab31c348838a9a02dc4ca9cd5
+sha256:
+  darwin_arm64: f3e4f5b593556edbb40dfcc90ecde3df1495c0e74cb85f561c0114d239c746d3
+  darwin_amd64: 8574a2194f1914bb1a05f0b12a70c2c967a249387c5e1d4b409c9c828aa1c5bb
+  linux_amd64: 5b374394b5710faffeef8f70e46e8cc0bbd8b23566bf3715a9814ac1eea8962f
+  linux_arm64: 7ba3e4464b803af28dd02061ddc1cbacf75222dab31c348838a9a02dc4ca9cd5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

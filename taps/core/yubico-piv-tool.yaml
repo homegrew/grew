@@ -1,0 +1,21 @@
+name: yubico-piv-tool
+version: 2.7.3
+description: Command-line tool for the YubiKey PIV application
+homepage: https://developers.yubico.com/yubico-piv-tool/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yubico-piv-tool/blobs/sha256:e333d0e9ab4d352ec6e6ceab61be769ef2c75bf2c3d71727b902ff636ae62a45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yubico-piv-tool/blobs/sha256:a54fe53dd00eac5705e8bca16907ad020e7616fdc5a180a3f4a9dc1f2755afd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yubico-piv-tool/blobs/sha256:6f7c8857568353e8e6429257d68babd45390b03dc9db2b6636a36c2ddec458af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yubico-piv-tool/blobs/sha256:5d26838f59ec2946210ed9a5116fa68ff5dbc32ad909cf9e8faf401392f9beb7
+sha256:
+  darwin_arm64: e333d0e9ab4d352ec6e6ceab61be769ef2c75bf2c3d71727b902ff636ae62a45
+  darwin_amd64: a54fe53dd00eac5705e8bca16907ad020e7616fdc5a180a3f4a9dc1f2755afd9
+  linux_amd64: 6f7c8857568353e8e6429257d68babd45390b03dc9db2b6636a36c2ddec458af
+  linux_arm64: 5d26838f59ec2946210ed9a5116fa68ff5dbc32ad909cf9e8faf401392f9beb7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

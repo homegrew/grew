@@ -1,0 +1,23 @@
+name: gnucobol
+version: 3.2
+description: COBOL85-202x compiler supporting lots of dialect specific extensions
+homepage: https://gnucobol.sourceforge.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnucobol/blobs/sha256:8d42fa5a5cf8b4b2a63826ffd2a4f12fa7508d7ceef895df62bfecfa306a49a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnucobol/blobs/sha256:e344e4ca89e2743f23cc26b3912d202412e00d9db8a17aa6f28230ded56dc994
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnucobol/blobs/sha256:9a20bd40153987a491058f2791fa3e55a62adec8320a2891f0e3117d84086ed5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnucobol/blobs/sha256:6d7d93f1fe409fe630dbc1eeb046794044f34c80505e2550bd7088ef828e377e
+sha256:
+  darwin_arm64: 8d42fa5a5cf8b4b2a63826ffd2a4f12fa7508d7ceef895df62bfecfa306a49a1
+  darwin_amd64: e344e4ca89e2743f23cc26b3912d202412e00d9db8a17aa6f28230ded56dc994
+  linux_amd64: 9a20bd40153987a491058f2791fa3e55a62adec8320a2891f0e3117d84086ed5
+  linux_arm64: 6d7d93f1fe409fe630dbc1eeb046794044f34c80505e2550bd7088ef828e377e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db
+  - gmp
+  - json-c

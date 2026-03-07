@@ -1,0 +1,19 @@
+name: keep-sorted
+version: 0.8.0
+description: Language-agnostic formatter that sorts selected lines
+homepage: https://github.com/google/keep-sorted
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keep-sorted/blobs/sha256:a332a0e53eb63b14eed0fd1c573ee8eab1c1e64aed98334ca98ea011c5feb5aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keep-sorted/blobs/sha256:ea664b552fd616f7feb5073b16df66f597cd27cffa45e4aa3d28c4c1e44ff82b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keep-sorted/blobs/sha256:eab88ac9736e72dcfc0a386d64ca5492200f5962fe136fe1d5f7db12228791f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keep-sorted/blobs/sha256:1961c31d26427ccead20527f1fc7b8da6b6aadd3c5838caf251a0d119ffba53c
+sha256:
+  darwin_arm64: a332a0e53eb63b14eed0fd1c573ee8eab1c1e64aed98334ca98ea011c5feb5aa
+  darwin_amd64: ea664b552fd616f7feb5073b16df66f597cd27cffa45e4aa3d28c4c1e44ff82b
+  linux_amd64: eab88ac9736e72dcfc0a386d64ca5492200f5962fe136fe1d5f7db12228791f6
+  linux_arm64: 1961c31d26427ccead20527f1fc7b8da6b6aadd3c5838caf251a0d119ffba53c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

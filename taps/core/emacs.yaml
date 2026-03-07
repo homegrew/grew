@@ -1,0 +1,23 @@
+name: emacs
+version: 30.2
+description: GNU Emacs text editor
+homepage: https://www.gnu.org/software/emacs/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/emacs/blobs/sha256:b543c7f67a1b82570fad2420b29915a1a52ce9ec8fcc48671bdbce77fe9d21c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/emacs/blobs/sha256:19cd1d2285e96a773535d7f4f31e39e8405fcc0531d54c143a64bb9e686a7d6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/emacs/blobs/sha256:32507fbd3da18c3e6285b2747f2f514273de1a47e2e5a9ae3f5d08521b40a931
+  linux_arm64: https://ghcr.io/v2/homebrew/core/emacs/blobs/sha256:56d1d96343d318623ed86f2f785b4bd9a33b36fe1b19cc9f60aa981d86994da5
+sha256:
+  darwin_arm64: b543c7f67a1b82570fad2420b29915a1a52ce9ec8fcc48671bdbce77fe9d21c3
+  darwin_amd64: 19cd1d2285e96a773535d7f4f31e39e8405fcc0531d54c143a64bb9e686a7d6f
+  linux_amd64: 32507fbd3da18c3e6285b2747f2f514273de1a47e2e5a9ae3f5d08521b40a931
+  linux_arm64: 56d1d96343d318623ed86f2f785b4bd9a33b36fe1b19cc9f60aa981d86994da5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - gnutls
+  - tree-sitter@0.25

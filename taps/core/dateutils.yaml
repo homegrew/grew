@@ -1,0 +1,19 @@
+name: dateutils
+version: 0.4.11
+description: Tools to manipulate dates with a focus on financial data
+homepage: https://www.fresse.org/dateutils/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dateutils/blobs/sha256:90799580c0526cfb486b63cfe21575a026d74bd84bb056f7a8a711375adbc8f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dateutils/blobs/sha256:9942401d4ccb1dfccbefab2d8f07d1bb6c087eef8fe499fa2878e736f4783f51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dateutils/blobs/sha256:9660d3c687240196d8b0f0bd9b33a085f5af1e09dc1452fbc25e712a3735637a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dateutils/blobs/sha256:f3e8c09d527d268d8b5155c4c7f2fcb918b85370a3c0fc5a6b4cba84dfb614b1
+sha256:
+  darwin_arm64: 90799580c0526cfb486b63cfe21575a026d74bd84bb056f7a8a711375adbc8f5
+  darwin_amd64: 9942401d4ccb1dfccbefab2d8f07d1bb6c087eef8fe499fa2878e736f4783f51
+  linux_amd64: 9660d3c687240196d8b0f0bd9b33a085f5af1e09dc1452fbc25e712a3735637a
+  linux_arm64: f3e8c09d527d268d8b5155c4c7f2fcb918b85370a3c0fc5a6b4cba84dfb614b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: passenger
+version: 6.1.2
+description: Server for Ruby, Python, and Node.js apps via Apache/NGINX
+homepage: https://www.phusionpassenger.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/passenger/blobs/sha256:58dc7b8dd9c173950fa800ce6af5b978da3e58269bddbfc3fcf3edfec32dd38d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/passenger/blobs/sha256:985fd4ae616df5259ebbf1579be212fec4a9d7823910b4e08c65934cb6add523
+  linux_amd64: https://ghcr.io/v2/homebrew/core/passenger/blobs/sha256:905279338e7a8434c012186e6c237ac3123e2e3273131127bda8852979d88a94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/passenger/blobs/sha256:0eb0328a7840f66b38d334cc8289f9fda73392cce06ea9602902f8ddecf9ea6f
+sha256:
+  darwin_arm64: 58dc7b8dd9c173950fa800ce6af5b978da3e58269bddbfc3fcf3edfec32dd38d
+  darwin_amd64: 985fd4ae616df5259ebbf1579be212fec4a9d7823910b4e08c65934cb6add523
+  linux_amd64: 905279338e7a8434c012186e6c237ac3123e2e3273131127bda8852979d88a94
+  linux_arm64: 0eb0328a7840f66b38d334cc8289f9fda73392cce06ea9602902f8ddecf9ea6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - openssl@3
+  - pcre2

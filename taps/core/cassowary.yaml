@@ -1,0 +1,19 @@
+name: cassowary
+version: 0.19.0
+description: Modern cross-platform HTTP load-testing tool written in Go
+homepage: https://github.com/rogerwelin/cassowary
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cassowary/blobs/sha256:8e8ed989ef0f8b0694a4975aa2ba038dbe078e737c339cb0841b78431ea1df22
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cassowary/blobs/sha256:58016ae507acc0044612858a240461d94175a7cd772a5e2ba9290c790ecd9455
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cassowary/blobs/sha256:7668f4bb871a15e8e62e10502746152ba54fba5ae49591de97281edc53c9c2b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cassowary/blobs/sha256:3f1affd04f536b966c985fb11c1a1466f6fe7b9cb73fd8460fbba2e80648e04d
+sha256:
+  darwin_arm64: 8e8ed989ef0f8b0694a4975aa2ba038dbe078e737c339cb0841b78431ea1df22
+  darwin_amd64: 58016ae507acc0044612858a240461d94175a7cd772a5e2ba9290c790ecd9455
+  linux_amd64: 7668f4bb871a15e8e62e10502746152ba54fba5ae49591de97281edc53c9c2b9
+  linux_arm64: 3f1affd04f536b966c985fb11c1a1466f6fe7b9cb73fd8460fbba2e80648e04d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

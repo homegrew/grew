@@ -1,0 +1,21 @@
+name: arabica
+version: 20200425
+description: XML toolkit written in C++
+homepage: https://www.jezuk.co.uk/tags/arabica.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arabica/blobs/sha256:c5797a1e8e13b35bfb400c09bd783382c517006dafae47a33204a1f292faddd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arabica/blobs/sha256:405046b352e922c38c294c48962a80f041156fc0f56991122fe86f996588c47c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arabica/blobs/sha256:129967d8e801a766a2d8209dff39cc8358bff641249838682ac1a943d0b7d385
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arabica/blobs/sha256:fca2b168c6149c388d0692cecce3959175ef8aeec053cb64c0fa653f2c6553a2
+sha256:
+  darwin_arm64: c5797a1e8e13b35bfb400c09bd783382c517006dafae47a33204a1f292faddd0
+  darwin_amd64: 405046b352e922c38c294c48962a80f041156fc0f56991122fe86f996588c47c
+  linux_amd64: 129967d8e801a766a2d8209dff39cc8358bff641249838682ac1a943d0b7d385
+  linux_arm64: fca2b168c6149c388d0692cecce3959175ef8aeec053cb64c0fa653f2c6553a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

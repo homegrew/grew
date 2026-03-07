@@ -1,0 +1,21 @@
+name: zellij
+version: 0.43.1
+description: Pluggable terminal workspace, with terminal multiplexer as the base feature
+homepage: https://zellij.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zellij/blobs/sha256:0fd12578e1e52bbe7536fe7e2c57914fcad0cf935b6af381a4d6de6248ba8268
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zellij/blobs/sha256:7f3a794db4ce52ed3d1e64d0a86dcf78e77f50e01ed19bf99193c373f46d563b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zellij/blobs/sha256:fe90ea20c44eecc63bc7f412a3fa621d7e1320c4d508ed11a177fc6b2b04b998
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zellij/blobs/sha256:ea6f112c98a503e8d7a9bcfe22b065f2f036fcf829bfe49d77e5aa7d25f5fddd
+sha256:
+  darwin_arm64: 0fd12578e1e52bbe7536fe7e2c57914fcad0cf935b6af381a4d6de6248ba8268
+  darwin_amd64: 7f3a794db4ce52ed3d1e64d0a86dcf78e77f50e01ed19bf99193c373f46d563b
+  linux_amd64: fe90ea20c44eecc63bc7f412a3fa621d7e1320c4d508ed11a177fc6b2b04b998
+  linux_arm64: ea6f112c98a503e8d7a9bcfe22b065f2f036fcf829bfe49d77e5aa7d25f5fddd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

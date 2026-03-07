@@ -1,0 +1,19 @@
+name: gravity
+version: 0.9.5
+description: Embeddable programming language
+homepage: https://www.gravity-lang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gravity/blobs/sha256:ae67db26634831433bd90de691330a850e6f46f39ea41a201e4238521881bd53
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gravity/blobs/sha256:814fbfdf25654d7c5341471be9a0a81c6784ffa68f0223a542b9be59b9180b5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gravity/blobs/sha256:355c05f2f06e99c8a2445b8094d435bfe2b1b060c1abdca9c05780703d91623b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gravity/blobs/sha256:f071c9128cb1c9625f914efef9ca0d1722f8b6b37a94f8301b705ce97864b0b0
+sha256:
+  darwin_arm64: ae67db26634831433bd90de691330a850e6f46f39ea41a201e4238521881bd53
+  darwin_amd64: 814fbfdf25654d7c5341471be9a0a81c6784ffa68f0223a542b9be59b9180b5e
+  linux_amd64: 355c05f2f06e99c8a2445b8094d435bfe2b1b060c1abdca9c05780703d91623b
+  linux_arm64: f071c9128cb1c9625f914efef9ca0d1722f8b6b37a94f8301b705ce97864b0b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

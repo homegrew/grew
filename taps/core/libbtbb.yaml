@@ -1,0 +1,21 @@
+name: libbtbb
+version: 2020-12-R1
+description: Bluetooth baseband decoding library
+homepage: https://github.com/greatscottgadgets/libbtbb
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbtbb/blobs/sha256:2546c5a279da682e9537ff11918430009f3eb3b66e431f596ce4d3b89eff1135
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbtbb/blobs/sha256:b4149cbb04f90319f1e6208e8e2c8b3f84dfd4dc606f5e986e4a049ff364c64a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbtbb/blobs/sha256:744108237f21bb9b38a34b0487a6c151d759d3a343244e916e11d83ceb180511
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbtbb/blobs/sha256:ba2809209ffb2b0b04283d986308aedb24aa22ba33c0912991a7d28386181b15
+sha256:
+  darwin_arm64: 2546c5a279da682e9537ff11918430009f3eb3b66e431f596ce4d3b89eff1135
+  darwin_amd64: b4149cbb04f90319f1e6208e8e2c8b3f84dfd4dc606f5e986e4a049ff364c64a
+  linux_amd64: 744108237f21bb9b38a34b0487a6c151d759d3a343244e916e11d83ceb180511
+  linux_arm64: ba2809209ffb2b0b04283d986308aedb24aa22ba33c0912991a7d28386181b15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

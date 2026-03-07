@@ -1,0 +1,19 @@
+name: github-mcp-server
+version: 0.32.0
+description: GitHub Model Context Protocol server for AI tools
+homepage: https://github.com/github/github-mcp-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/github-mcp-server/blobs/sha256:55b9f08a132c733d3c6fc3ba79dd90a7a5da28a36fa86650eb381cab5829e136
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/github-mcp-server/blobs/sha256:528a6674cb8993fdd794bd6c88c9bdde37f461d67999ab5cd895f7f77aadd23f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/github-mcp-server/blobs/sha256:f7d166b5ffeeac3521cf0fdde8f5b4e932e1be8c6aa4aacedbe49c81f63d454f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/github-mcp-server/blobs/sha256:7fb07d7aad07560d10a575981919f031e511a9d789aeaf8adc458c5f1334f47b
+sha256:
+  darwin_arm64: 55b9f08a132c733d3c6fc3ba79dd90a7a5da28a36fa86650eb381cab5829e136
+  darwin_amd64: 528a6674cb8993fdd794bd6c88c9bdde37f461d67999ab5cd895f7f77aadd23f
+  linux_amd64: f7d166b5ffeeac3521cf0fdde8f5b4e932e1be8c6aa4aacedbe49c81f63d454f
+  linux_arm64: 7fb07d7aad07560d10a575981919f031e511a9d789aeaf8adc458c5f1334f47b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

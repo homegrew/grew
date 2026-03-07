@@ -1,0 +1,19 @@
+name: azqr
+version: 3.0.1
+description: Azure Quick Review
+homepage: https://azure.github.io/azqr/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azqr/blobs/sha256:aa4e229bb4f8c93c8926e773addd17ca868dc8f7632046a6106dc980604cff2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azqr/blobs/sha256:6274a3b3b3d53c9af3bddb7fc5f507f93691c9ae4ce3c1a9c42f9276eec0c6d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azqr/blobs/sha256:cb9b1ca5a1c7d6071fd060a618c146a0ce717b346cf631ec7aab2967ae64fc50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azqr/blobs/sha256:c0684b4293d40604cbeb61a5db62c0eaddceca4cb28d6abe78b5f12aaaa59506
+sha256:
+  darwin_arm64: aa4e229bb4f8c93c8926e773addd17ca868dc8f7632046a6106dc980604cff2a
+  darwin_amd64: 6274a3b3b3d53c9af3bddb7fc5f507f93691c9ae4ce3c1a9c42f9276eec0c6d9
+  linux_amd64: cb9b1ca5a1c7d6071fd060a618c146a0ce717b346cf631ec7aab2967ae64fc50
+  linux_arm64: c0684b4293d40604cbeb61a5db62c0eaddceca4cb28d6abe78b5f12aaaa59506
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: regldg
+version: 1.0.1
+description: Regular expression grammar language dictionary generator
+homepage: https://regldg.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/regldg/blobs/sha256:5000f3d0e8bce79454c084a21166ce9603c839e1a535f7777dbc2d39bd1125d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/regldg/blobs/sha256:cbceacdbc18163269e2bee8ec2ad1605cf33319355f287b458e9042100d2510a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/regldg/blobs/sha256:10b3273bf707f57edf849eb44f1eb7d86e61082cc899cdffe80aa04c550177fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/regldg/blobs/sha256:2a72e3237dba2e31958acdee06ea43b1b6cf91e8cbca1e17de0a3ae3f1ce9d32
+sha256:
+  darwin_arm64: 5000f3d0e8bce79454c084a21166ce9603c839e1a535f7777dbc2d39bd1125d3
+  darwin_amd64: cbceacdbc18163269e2bee8ec2ad1605cf33319355f287b458e9042100d2510a
+  linux_amd64: 10b3273bf707f57edf849eb44f1eb7d86e61082cc899cdffe80aa04c550177fb
+  linux_arm64: 2a72e3237dba2e31958acdee06ea43b1b6cf91e8cbca1e17de0a3ae3f1ce9d32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

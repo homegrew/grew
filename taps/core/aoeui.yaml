@@ -1,0 +1,19 @@
+name: aoeui
+version: 1.6
+description: Lightweight text editor optimized for Dvorak and QWERTY keyboards
+homepage: https://code.google.com/archive/p/aoeui/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aoeui/blobs/sha256:5db4e6bc86d61cb543bba6cfc8f46bb1db2dd51314701866c881c50b09e4aab8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aoeui/blobs/sha256:aa238d9b653cb8eff741c6f9a6811c3e8b9183adce57161a6f4817cfbfbe38b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aoeui/blobs/sha256:b130912a9d91e2462433ad80f02827461c3c6aa8fef646b84cfa0249b9929815
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aoeui/blobs/sha256:bc5fc0e63ce3c46a6384f860fb44a6ebb0761f9fa4ffdcbe18eb27c27d72180a
+sha256:
+  darwin_arm64: 5db4e6bc86d61cb543bba6cfc8f46bb1db2dd51314701866c881c50b09e4aab8
+  darwin_amd64: aa238d9b653cb8eff741c6f9a6811c3e8b9183adce57161a6f4817cfbfbe38b5
+  linux_amd64: b130912a9d91e2462433ad80f02827461c3c6aa8fef646b84cfa0249b9929815
+  linux_arm64: bc5fc0e63ce3c46a6384f860fb44a6ebb0761f9fa4ffdcbe18eb27c27d72180a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

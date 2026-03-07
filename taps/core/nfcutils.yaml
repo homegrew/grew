@@ -1,0 +1,22 @@
+name: nfcutils
+version: 0.3.2
+description: Near Field Communication (NFC) tools under POSIX systems
+homepage: https://github.com/nfc-tools/nfcutils
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nfcutils/blobs/sha256:cd0945f758948d322f434b25388ca838233019379db9edad5ef599278141c020
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nfcutils/blobs/sha256:1e0bcfcb6a8ad40fafb7be38c45c7905609524b257a5ceed3cb1f67f0968d53d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nfcutils/blobs/sha256:2f32645957380142c3180b1c67f9afb4170caa582aae8e0500731700d170dbc6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nfcutils/blobs/sha256:fb215212d949d51cb4ce91f1640ae5ad575ffa0167db19726eddf9c0a7fe4d67
+sha256:
+  darwin_arm64: cd0945f758948d322f434b25388ca838233019379db9edad5ef599278141c020
+  darwin_amd64: 1e0bcfcb6a8ad40fafb7be38c45c7905609524b257a5ceed3cb1f67f0968d53d
+  linux_amd64: 2f32645957380142c3180b1c67f9afb4170caa582aae8e0500731700d170dbc6
+  linux_arm64: fb215212d949d51cb4ce91f1640ae5ad575ffa0167db19726eddf9c0a7fe4d67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnfc
+  - libusb

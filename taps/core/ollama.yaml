@@ -1,0 +1,21 @@
+name: ollama
+version: 0.17.7
+description: Create, run, and share large language models (LLMs)
+homepage: https://ollama.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ollama/blobs/sha256:ce0c3c1c943af1cc4c560caec15caa20ccbeca62d68313a260ec64776f56146c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ollama/blobs/sha256:4480ab5d8390c936f8c94a5261169fe8f313e385596daf7517db0a145d786593
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ollama/blobs/sha256:637a2a9c37177e1efff4245857ff47f32162dbe5105fd927eead682c59d6794b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ollama/blobs/sha256:bb0d04e0beafcb60f80c785bd91cd444bcbe31a21d6aa451ee83936151e66d52
+sha256:
+  darwin_arm64: ce0c3c1c943af1cc4c560caec15caa20ccbeca62d68313a260ec64776f56146c
+  darwin_amd64: 4480ab5d8390c936f8c94a5261169fe8f313e385596daf7517db0a145d786593
+  linux_amd64: 637a2a9c37177e1efff4245857ff47f32162dbe5105fd927eead682c59d6794b
+  linux_arm64: bb0d04e0beafcb60f80c785bd91cd444bcbe31a21d6aa451ee83936151e66d52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mlx-c

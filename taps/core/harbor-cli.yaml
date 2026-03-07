@@ -1,0 +1,19 @@
+name: harbor-cli
+version: 0.0.18
+description: CLI for Harbor container registry
+homepage: https://github.com/goharbor/harbor-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/harbor-cli/blobs/sha256:4776a705b217a1ad5d8fda3cdb79bb02356ce5260f30d7a9699856089e2b3b36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/harbor-cli/blobs/sha256:0c69da44fd31a11680bef821fdd6bc62503797df192464377ab24817c832d3f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/harbor-cli/blobs/sha256:8f3168c19e5862bd7b3dd6e11e7d978ee50b411ac0bf8aeb6b20f965d3dff772
+  linux_arm64: https://ghcr.io/v2/homebrew/core/harbor-cli/blobs/sha256:4e43dd2908c74bf7dcbb36f8137fb550e5bf2aa31dd63ac416c03afb9b7f403f
+sha256:
+  darwin_arm64: 4776a705b217a1ad5d8fda3cdb79bb02356ce5260f30d7a9699856089e2b3b36
+  darwin_amd64: 0c69da44fd31a11680bef821fdd6bc62503797df192464377ab24817c832d3f0
+  linux_amd64: 8f3168c19e5862bd7b3dd6e11e7d978ee50b411ac0bf8aeb6b20f965d3dff772
+  linux_arm64: 4e43dd2908c74bf7dcbb36f8137fb550e5bf2aa31dd63ac416c03afb9b7f403f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

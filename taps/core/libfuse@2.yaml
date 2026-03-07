@@ -1,0 +1,16 @@
+name: libfuse@2
+version: 2.9.9
+description: Reference implementation of the Linux FUSE interface
+homepage: https://github.com/libfuse/libfuse
+license: LGPL-2.1-only OR GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfuse/2/blobs/sha256:2f5566126dd96e6a9c0329b6321db145d1815690cf5d4cf51d62b762493ca19b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfuse/2/blobs/sha256:df8b668765d688eb5a516eaa67a73d1750b5ce6bab91b1924def3b7fd0d85aac
+sha256:
+  linux_amd64: 2f5566126dd96e6a9c0329b6321db145d1815690cf5d4cf51d62b762493ca19b
+  linux_arm64: df8b668765d688eb5a516eaa67a73d1750b5ce6bab91b1924def3b7fd0d85aac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

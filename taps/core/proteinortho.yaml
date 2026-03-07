@@ -1,0 +1,23 @@
+name: proteinortho
+version: 6.3.6
+description: Detecting orthologous genes within different species
+homepage: https://gitlab.com/paulklemm_PHD/proteinortho
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proteinortho/blobs/sha256:91f55f765f3656a53a7b3a1725c7998f282544133755ed3eab45df72a28e59eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proteinortho/blobs/sha256:43fec91bde54c6e2dd98c7638b186f1154994e36333f0bb4d996f5b283341f9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proteinortho/blobs/sha256:0b51d536e573f48acbf32d863ed493217e2d9cda3be9c810e1cd0d9301cf87d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proteinortho/blobs/sha256:34176fe378a8eecdb6c09cd40bf4c92344fb528cb60f0b95e5123e8e70e6d4cb
+sha256:
+  darwin_arm64: 91f55f765f3656a53a7b3a1725c7998f282544133755ed3eab45df72a28e59eb
+  darwin_amd64: 43fec91bde54c6e2dd98c7638b186f1154994e36333f0bb4d996f5b283341f9c
+  linux_amd64: 0b51d536e573f48acbf32d863ed493217e2d9cda3be9c810e1cd0d9301cf87d9
+  linux_arm64: 34176fe378a8eecdb6c09cd40bf4c92344fb528cb60f0b95e5123e8e70e6d4cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - diamond
+  - openblas
+  - libomp

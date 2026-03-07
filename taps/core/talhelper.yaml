@@ -1,0 +1,19 @@
+name: talhelper
+version: 3.1.5
+description: Configuration helper for talos clusters
+homepage: https://budimanjojo.github.io/talhelper/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/talhelper/blobs/sha256:ac2d9c015d3a54eb7093d84020cccdb4f5aec4105907c0cc3534c20d32702852
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/talhelper/blobs/sha256:31132910755db088a5f96cb879ee051d287dde67091d4d3ef5eae2bc81cf82fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/talhelper/blobs/sha256:34cea34622a90bfa810798f6995937e67a7ea8a54559da1de4b34bfb8b7e4b44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/talhelper/blobs/sha256:ffc25d6205943bc3cc2100bccb550ab13d29127df5d206bb65a9d84937ee275e
+sha256:
+  darwin_arm64: ac2d9c015d3a54eb7093d84020cccdb4f5aec4105907c0cc3534c20d32702852
+  darwin_amd64: 31132910755db088a5f96cb879ee051d287dde67091d4d3ef5eae2bc81cf82fe
+  linux_amd64: 34cea34622a90bfa810798f6995937e67a7ea8a54559da1de4b34bfb8b7e4b44
+  linux_arm64: ffc25d6205943bc3cc2100bccb550ab13d29127df5d206bb65a9d84937ee275e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

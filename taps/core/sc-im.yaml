@@ -1,0 +1,26 @@
+name: sc-im
+version: 0.8.5
+description: Spreadsheet program for the terminal, using ncurses
+homepage: https://github.com/andmarti1424/sc-im
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sc-im/blobs/sha256:1cc0a6f1c2ceaed2882bdfc320acff02e3aeca823226cffad9f9b53e5184d206
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sc-im/blobs/sha256:9335efab4aba90b13bdef0d33547d82115a5f2ef08b1cfa3a2583bf10e7be3ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sc-im/blobs/sha256:7c24185e644c1c3e654b8006f7aae4b9d62cfac6cac39f7b8d7dae27583bb43a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sc-im/blobs/sha256:396e61cf946e7cf03a9f0712a9154589ca12bb6617f16b999e737988136a2a31
+sha256:
+  darwin_arm64: 1cc0a6f1c2ceaed2882bdfc320acff02e3aeca823226cffad9f9b53e5184d206
+  darwin_amd64: 9335efab4aba90b13bdef0d33547d82115a5f2ef08b1cfa3a2583bf10e7be3ca
+  linux_amd64: 7c24185e644c1c3e654b8006f7aae4b9d62cfac6cac39f7b8d7dae27583bb43a
+  linux_arm64: 396e61cf946e7cf03a9f0712a9154589ca12bb6617f16b999e737988136a2a31
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxls
+  - libxlsxwriter
+  - libxml2
+  - libzip
+  - lua
+  - ncurses

@@ -1,0 +1,21 @@
+name: automake
+version: 1.18.1
+description: Tool for generating GNU Standards-compliant Makefiles
+homepage: https://www.gnu.org/software/automake/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/automake/blobs/sha256:7298e979d484b938f42b96dfd4b270353e64f61ab0f31e0718799b29dc1570fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/automake/blobs/sha256:78ea48a55a4f8b088e5e83a5284e29307981cc6c265487e026824baad283c3b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/automake/blobs/sha256:c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/automake/blobs/sha256:c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1
+sha256:
+  darwin_arm64: 7298e979d484b938f42b96dfd4b270353e64f61ab0f31e0718799b29dc1570fc
+  darwin_amd64: 78ea48a55a4f8b088e5e83a5284e29307981cc6c265487e026824baad283c3b9
+  linux_amd64: c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1
+  linux_arm64: c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - autoconf

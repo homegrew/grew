@@ -1,0 +1,30 @@
+name: itk
+version: 5.4.5
+description: Insight Toolkit is a toolkit for performing registration and segmentation
+homepage: https://itk.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/itk/blobs/sha256:b2a8f96cd226af1a815933d1daee93c710ceaafaac326c8820a9104427df3917
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/itk/blobs/sha256:b1a1409ea3e92ab6adcb31ae2d234ae0eddd7b835a267ea026f578f876377c3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/itk/blobs/sha256:94c87addcf68107b478da8dde5df4ae2c5d82f98c104765dc8cfed670adbb6ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/itk/blobs/sha256:da238b4ffceb9c53fd94bba8ba720d714173fd072c31729008bec80314c81b4f
+sha256:
+  darwin_arm64: b2a8f96cd226af1a815933d1daee93c710ceaafaac326c8820a9104427df3917
+  darwin_amd64: b1a1409ea3e92ab6adcb31ae2d234ae0eddd7b835a267ea026f578f876377c3e
+  linux_amd64: 94c87addcf68107b478da8dde5df4ae2c5d82f98c104765dc8cfed670adbb6ec
+  linux_arm64: da238b4ffceb9c53fd94bba8ba720d714173fd072c31729008bec80314c81b4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - double-conversion
+  - fftw
+  - gdcm
+  - hdf5
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - vtk
+  - freetype
+  - glew

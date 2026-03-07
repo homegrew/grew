@@ -1,0 +1,28 @@
+name: openvino
+version: 2026.0.0
+description: Open Visual Inference And Optimization toolkit for AI inference
+homepage: https://docs.openvino.ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openvino/blobs/sha256:afef7c0271f78c2126e7dde76b7559ed927291ea2482cb4683ca35fbb8505462
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openvino/blobs/sha256:11197b45bb8513a890de019463531fecdc81369e3e994306d31dc492c08a082d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openvino/blobs/sha256:7cd102c6381b6f6972ac8a63a05f2cd3b85d4134b0ee549566cce76e0c026e15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openvino/blobs/sha256:b7dfd8a1ab64b5a8dc3bc272bed9a8c12306236f59f761f752cf2a0d45909eaf
+sha256:
+  darwin_arm64: afef7c0271f78c2126e7dde76b7559ed927291ea2482cb4683ca35fbb8505462
+  darwin_amd64: 11197b45bb8513a890de019463531fecdc81369e3e994306d31dc492c08a082d
+  linux_amd64: 7cd102c6381b6f6972ac8a63a05f2cd3b85d4134b0ee549566cce76e0c026e15
+  linux_arm64: b7dfd8a1ab64b5a8dc3bc272bed9a8c12306236f59f761f752cf2a0d45909eaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - nlohmann-json
+  - numpy
+  - onnx
+  - protobuf@33
+  - pugixml
+  - snappy
+  - tbb

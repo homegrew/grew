@@ -1,0 +1,22 @@
+name: qwen-code
+version: 0.11.1
+description: AI-powered command-line workflow tool for developers
+homepage: https://github.com/QwenLM/qwen-code
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qwen-code/blobs/sha256:4de6de8d604a056b2dd7e508031e2773d110c86db046496b79111427efa00254
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qwen-code/blobs/sha256:3439a90ba29e4bab44232a18c92bb9a7c1fa51c072ace39d5b6fa697ed079b98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qwen-code/blobs/sha256:88a1d026dc1dd7c1ad86e9628cddb7b73495157002bc89b69b1601681e51be3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qwen-code/blobs/sha256:53137681d03015e802f69e0e1975b68502c61a1a59bc0fa0a268986c7c15d694
+sha256:
+  darwin_arm64: 4de6de8d604a056b2dd7e508031e2773d110c86db046496b79111427efa00254
+  darwin_amd64: 3439a90ba29e4bab44232a18c92bb9a7c1fa51c072ace39d5b6fa697ed079b98
+  linux_amd64: 88a1d026dc1dd7c1ad86e9628cddb7b73495157002bc89b69b1601681e51be3f
+  linux_arm64: 53137681d03015e802f69e0e1975b68502c61a1a59bc0fa0a268986c7c15d694
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - ripgrep

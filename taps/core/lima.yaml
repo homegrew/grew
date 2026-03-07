@@ -1,0 +1,19 @@
+name: lima
+version: 2.0.3
+description: Linux virtual machines
+homepage: https://lima-vm.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lima/blobs/sha256:03c09127136956dd84a90626bf0da8a61ba27034cefb44f907467a15e85747a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lima/blobs/sha256:2df3eb5de5aa4c29b3045562ab5d1a4f475cbed1b7b32ad4ac6a5a37c9483580
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lima/blobs/sha256:c16c98fca4ff0deae01d3ad5d13c013ebcc7012232a6f80228a83b4ccbe8bd90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lima/blobs/sha256:c1e395abb2679e126b217c5ad8803732429229da8ba1e2a7716e21ab4ace4757
+sha256:
+  darwin_arm64: 03c09127136956dd84a90626bf0da8a61ba27034cefb44f907467a15e85747a3
+  darwin_amd64: 2df3eb5de5aa4c29b3045562ab5d1a4f475cbed1b7b32ad4ac6a5a37c9483580
+  linux_amd64: c16c98fca4ff0deae01d3ad5d13c013ebcc7012232a6f80228a83b4ccbe8bd90
+  linux_arm64: c1e395abb2679e126b217c5ad8803732429229da8ba1e2a7716e21ab4ace4757
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

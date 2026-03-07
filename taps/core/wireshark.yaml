@@ -1,0 +1,33 @@
+name: wireshark
+version: 4.6.4
+description: Network analyzer and capture tool - without graphical user interface
+homepage: https://www.wireshark.org
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wireshark/blobs/sha256:b06ccbfaf7de9dab53effd709750f0157fe6cd01236b5f11c17f14d8e03d753e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wireshark/blobs/sha256:d4571034a1f8e53852cc728a41f36240139d3b14c81413468c8cef09d8a73ce6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wireshark/blobs/sha256:f50e9cf5822d3baf7a521c0a70d3148297d4ccf0e56a67bab31cd197b451603c
+sha256:
+  darwin_arm64: b06ccbfaf7de9dab53effd709750f0157fe6cd01236b5f11c17f14d8e03d753e
+  darwin_amd64: d4571034a1f8e53852cc728a41f36240139d3b14c81413468c8cef09d8a73ce6
+  linux_amd64: f50e9cf5822d3baf7a521c0a70d3148297d4ccf0e56a67bab31cd197b451603c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-ares
+  - glib
+  - gnutls
+  - libgcrypt
+  - libmaxminddb
+  - libnghttp2
+  - libnghttp3
+  - libsmi
+  - libssh
+  - lua@5.4
+  - lz4
+  - pcre2
+  - speexdsp
+  - zstd
+  - libgpg-error

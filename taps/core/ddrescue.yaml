@@ -1,0 +1,19 @@
+name: ddrescue
+version: 1.30
+description: GNU data recovery tool
+homepage: https://www.gnu.org/software/ddrescue/ddrescue.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddrescue/blobs/sha256:fc0e5a061cda75c11f3bfeacdfb4283ed7c71c6f79a93923cd136bfc5fd3145f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddrescue/blobs/sha256:15b4e4107e9c90de349c137f81159b745e1f982b5f18a6fb58c6ee74f0ecf16d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddrescue/blobs/sha256:7a3f54e1611eb72a3326d5dafd360801a32dd4b397801f491b142afbb7be253c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddrescue/blobs/sha256:3989dc866dfac473c310d48663f6031ad43d29e4e2c5e668b2e07dd3dfb72fd3
+sha256:
+  darwin_arm64: fc0e5a061cda75c11f3bfeacdfb4283ed7c71c6f79a93923cd136bfc5fd3145f
+  darwin_amd64: 15b4e4107e9c90de349c137f81159b745e1f982b5f18a6fb58c6ee74f0ecf16d
+  linux_amd64: 7a3f54e1611eb72a3326d5dafd360801a32dd4b397801f491b142afbb7be253c
+  linux_arm64: 3989dc866dfac473c310d48663f6031ad43d29e4e2c5e668b2e07dd3dfb72fd3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

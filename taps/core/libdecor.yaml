@@ -1,0 +1,23 @@
+name: libdecor
+version: 0.2.5
+description: Client-side decorations library for Wayland client
+homepage: https://gitlab.freedesktop.org/libdecor/libdecor
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdecor/blobs/sha256:615d9589a6c9b46664d33c1f955b29659c09b7503ef0e1ccd7444a400cbcec90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdecor/blobs/sha256:a33126a6a50cb479b6e6cf78afb9c78993e0d4c32fcaf9a7b0809b74691185e2
+sha256:
+  linux_amd64: 615d9589a6c9b46664d33c1f955b29659c09b7503ef0e1ccd7444a400cbcec90
+  linux_arm64: a33126a6a50cb479b6e6cf78afb9c78993e0d4c32fcaf9a7b0809b74691185e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - dbus
+  - glib
+  - gtk+3
+  - pango
+  - wayland
+  - wayland-protocols

@@ -1,0 +1,33 @@
+name: manim
+version: 0.20.1
+description: Animation engine for explanatory math videos
+homepage: https://www.manim.community
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/manim/blobs/sha256:1146698c3f5898d4f39f6e6ccbe86f934d6098d4a38340457bdbf6530dbb99eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/manim/blobs/sha256:ca8e1507b9e599a1fe30689f0acc4433297487dcdd81cbf420311bf343b9b16b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/manim/blobs/sha256:eebc67284d7012862e7d5d896bbcaa2b1edef42092477ae74a3a917afa208638
+  linux_arm64: https://ghcr.io/v2/homebrew/core/manim/blobs/sha256:40347e0a6f413b4a0b5ddb9c2f4bed311e885e66cbfcb57199fea25ecbd375ef
+sha256:
+  darwin_arm64: 1146698c3f5898d4f39f6e6ccbe86f934d6098d4a38340457bdbf6530dbb99eb
+  darwin_amd64: ca8e1507b9e599a1fe30689f0acc4433297487dcdd81cbf420311bf343b9b16b
+  linux_amd64: eebc67284d7012862e7d5d896bbcaa2b1edef42092477ae74a3a917afa208638
+  linux_arm64: 40347e0a6f413b4a0b5ddb9c2f4bed311e885e66cbfcb57199fea25ecbd375ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - ffmpeg
+  - fontconfig
+  - freetype
+  - glib
+  - numpy
+  - pango
+  - pillow
+  - py3cairo
+  - python@3.14
+  - scipy
+  - gettext
+  - harfbuzz

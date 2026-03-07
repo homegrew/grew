@@ -1,0 +1,19 @@
+name: bombardier
+version: 2.0.2
+description: Cross-platform HTTP benchmarking tool
+homepage: https://github.com/codesenberg/bombardier
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bombardier/blobs/sha256:2b978ad033988b894ab8f8010b68e50cf7a3485ac575e7d1e4a0118913a400e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bombardier/blobs/sha256:fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bombardier/blobs/sha256:8bcdfdcc9bfb6f81117fce7d1d7d169823c5b7bf15367af83ffdde9041953e9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bombardier/blobs/sha256:1edb1ce74da03b755bb33b3c1c9c701bfc8b87a93f39e520d0212b27a1485e29
+sha256:
+  darwin_arm64: 2b978ad033988b894ab8f8010b68e50cf7a3485ac575e7d1e4a0118913a400e1
+  darwin_amd64: fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051
+  linux_amd64: 8bcdfdcc9bfb6f81117fce7d1d7d169823c5b7bf15367af83ffdde9041953e9d
+  linux_arm64: 1edb1ce74da03b755bb33b3c1c9c701bfc8b87a93f39e520d0212b27a1485e29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

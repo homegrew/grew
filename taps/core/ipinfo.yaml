@@ -1,0 +1,19 @@
+name: ipinfo
+version: 1.2
+description: Tool for calculation of IP networks
+homepage: https://kyberdigi.cz/projects/ipinfo/
+license: Beerware
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipinfo/blobs/sha256:97ebf675a6aa3fd914b342df26584eaded1d0d5b7b31ff4a8d2531ad61ab9152
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipinfo/blobs/sha256:ea99afca3cdf9fa28fdb6a72a72b4d094716c2a10d06ee22d7c558328673454f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipinfo/blobs/sha256:91632022aa7d392d7f03002052683ca4d7bc9d09b16a6132d479b7263dd2969f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipinfo/blobs/sha256:7281f5fe0d2f917996b4049beb1753c4c4e22a808d9fbbdc3b1905c37365be70
+sha256:
+  darwin_arm64: 97ebf675a6aa3fd914b342df26584eaded1d0d5b7b31ff4a8d2531ad61ab9152
+  darwin_amd64: ea99afca3cdf9fa28fdb6a72a72b4d094716c2a10d06ee22d7c558328673454f
+  linux_amd64: 91632022aa7d392d7f03002052683ca4d7bc9d09b16a6132d479b7263dd2969f
+  linux_arm64: 7281f5fe0d2f917996b4049beb1753c4c4e22a808d9fbbdc3b1905c37365be70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: kubesess
+version: 3.0.0
+description: Manage multiple kubernetes cluster at the same time
+homepage: https://github.com/Ramilito/kubesess
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubesess/blobs/sha256:229eb30598b36318c4010ea3cc4457abf78cdc6ac4f7c32fc4438e0b959141b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubesess/blobs/sha256:2e5b50a690fd167806e2185b97c89ac786d16fe34cb0a9fd701578358444822a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubesess/blobs/sha256:f9e095429f8ef728a0ee55dca2f88e2894ba2efa6f0052ad396f552c7ca06e37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubesess/blobs/sha256:61d5c7d1e868618f87b1dd7e942135517a49e97cca4da734c37501d9720ad44e
+sha256:
+  darwin_arm64: 229eb30598b36318c4010ea3cc4457abf78cdc6ac4f7c32fc4438e0b959141b3
+  darwin_amd64: 2e5b50a690fd167806e2185b97c89ac786d16fe34cb0a9fd701578358444822a
+  linux_amd64: f9e095429f8ef728a0ee55dca2f88e2894ba2efa6f0052ad396f552c7ca06e37
+  linux_arm64: 61d5c7d1e868618f87b1dd7e942135517a49e97cca4da734c37501d9720ad44e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

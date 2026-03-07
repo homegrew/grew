@@ -1,0 +1,19 @@
+name: proto
+version: 0.55.4
+description: Pluggable multi-language version manager
+homepage: https://moonrepo.dev/proto
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proto/blobs/sha256:0f632fbe42dd356c43f7619292d96f4cec791896cf53508aacc020eb48c6fa41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proto/blobs/sha256:02347d8a1383e5530f6cada88ccf0834ef63711b0cc1ede0a606434bed133af5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proto/blobs/sha256:008b51c4471f14187437a312ef0f8bffaff9894bb2fce22acd818c6db72b5bb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proto/blobs/sha256:475e1cfedf277a649cc0162ab5791897fd0db43f177c8a1e8035398ee014e4b8
+sha256:
+  darwin_arm64: 0f632fbe42dd356c43f7619292d96f4cec791896cf53508aacc020eb48c6fa41
+  darwin_amd64: 02347d8a1383e5530f6cada88ccf0834ef63711b0cc1ede0a606434bed133af5
+  linux_amd64: 008b51c4471f14187437a312ef0f8bffaff9894bb2fce22acd818c6db72b5bb0
+  linux_arm64: 475e1cfedf277a649cc0162ab5791897fd0db43f177c8a1e8035398ee014e4b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

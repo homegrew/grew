@@ -1,0 +1,19 @@
+name: hcledit
+version: 0.2.17
+description: Command-line editor for HCL
+homepage: https://github.com/minamijoyo/hcledit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hcledit/blobs/sha256:8c12e2f1d81a8e8ae4218c5959527a8c3fecd0335c47be6a009ff9fa379656bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hcledit/blobs/sha256:0b20a51f695f3783df9862c041c4c969061476b870efee585cbbc0e676c49542
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hcledit/blobs/sha256:502832282bfe2438b7fec2233905a46cf484e94240e86b854e7fdc85bd634603
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hcledit/blobs/sha256:a8f3385b7a443e2bcaa9316779682f28c1c3a5e97231c96be9d7fb98e01da984
+sha256:
+  darwin_arm64: 8c12e2f1d81a8e8ae4218c5959527a8c3fecd0335c47be6a009ff9fa379656bf
+  darwin_amd64: 0b20a51f695f3783df9862c041c4c969061476b870efee585cbbc0e676c49542
+  linux_amd64: 502832282bfe2438b7fec2233905a46cf484e94240e86b854e7fdc85bd634603
+  linux_arm64: a8f3385b7a443e2bcaa9316779682f28c1c3a5e97231c96be9d7fb98e01da984
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: feedgnuplot
+version: 1.64
+description: Tool to plot realtime and stored data from the command-line
+homepage: https://github.com/dkogan/feedgnuplot
+license: GPL-1.0-or-later OR Artistic-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/feedgnuplot/blobs/sha256:5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/feedgnuplot/blobs/sha256:5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/feedgnuplot/blobs/sha256:a6201cd96f7ebc4fd240944e10b530797484f4faefc03323bf5aef28b0223c52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/feedgnuplot/blobs/sha256:5cc574aff748aabbe843444bece9a6f8780385de955de9c81d1a9b8574dabffa
+sha256:
+  darwin_arm64: 5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf
+  darwin_amd64: 5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf
+  linux_amd64: a6201cd96f7ebc4fd240944e10b530797484f4faefc03323bf5aef28b0223c52
+  linux_arm64: 5cc574aff748aabbe843444bece9a6f8780385de955de9c81d1a9b8574dabffa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnuplot

@@ -1,0 +1,13 @@
+name: tev
+version: 2.10.0
+description: High dynamic range (HDR) image viewer with accurate color management
+homepage: https://github.com/Tom94/tev
+url:
+  darwin_arm64: https://github.com/Tom94/tev/releases/download/v2.10.0/tev.dmg
+sha256:
+  darwin_arm64: ab606c147c89ef68419fee8cdc97a607f289c5cc326cbcd69f02f11e031d5d74
+artifacts:
+  app:
+    - tev.app
+  bin:
+    - tev

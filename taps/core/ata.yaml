@@ -1,0 +1,19 @@
+name: ata
+version: 2.0.4
+description: ChatGPT in the terminal
+homepage: https://github.com/transformrs/ata
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ata/blobs/sha256:61e1c7235e1db8bd6b2dca88f24e1dce32658c60817c274a8a3a74f8e93865f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ata/blobs/sha256:4b2e8e207ef02ff40ecafaed7d1009785ef20473b7b7d89adfac06b0c97b86a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ata/blobs/sha256:c73e91e7b7fc1ef0ca0db0c57df4e099c105c1a3f63b95a41a526043bd814ff9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ata/blobs/sha256:ea43319e201b4677ae3e9646b0cd8e7b5ccf1f09a5b5db4f5f92f467301e7d11
+sha256:
+  darwin_arm64: 61e1c7235e1db8bd6b2dca88f24e1dce32658c60817c274a8a3a74f8e93865f0
+  darwin_amd64: 4b2e8e207ef02ff40ecafaed7d1009785ef20473b7b7d89adfac06b0c97b86a8
+  linux_amd64: c73e91e7b7fc1ef0ca0db0c57df4e099c105c1a3f63b95a41a526043bd814ff9
+  linux_arm64: ea43319e201b4677ae3e9646b0cd8e7b5ccf1f09a5b5db4f5f92f467301e7d11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

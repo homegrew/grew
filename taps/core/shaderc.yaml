@@ -1,0 +1,19 @@
+name: shaderc
+version: 2026.1
+description: Collection of tools, libraries, and tests for Vulkan shader compilation
+homepage: https://github.com/google/shaderc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shaderc/blobs/sha256:d7ddacc721d7007b1f2c19485b1c938f41cd579f574b340390d66d320dbc20c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shaderc/blobs/sha256:2295c30040b559918297da800c7ed9c4ee3df77295a4ac3845852435741b0507
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shaderc/blobs/sha256:976b47b7844c989741ee3a3f6dbdb03ed0a524cb230f9bda8d1bf5b19d2e7a81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shaderc/blobs/sha256:e8c26769453214cc7c2e4dbc150cb62d0a1797f0e02aa1934aabc0c9e9cb5fa5
+sha256:
+  darwin_arm64: d7ddacc721d7007b1f2c19485b1c938f41cd579f574b340390d66d320dbc20c1
+  darwin_amd64: 2295c30040b559918297da800c7ed9c4ee3df77295a4ac3845852435741b0507
+  linux_amd64: 976b47b7844c989741ee3a3f6dbdb03ed0a524cb230f9bda8d1bf5b19d2e7a81
+  linux_arm64: e8c26769453214cc7c2e4dbc150cb62d0a1797f0e02aa1934aabc0c9e9cb5fa5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

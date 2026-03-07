@@ -1,0 +1,19 @@
+name: shivavg
+version: 0.2.1
+description: OpenGL based ANSI C implementation of the OpenVG standard
+homepage: https://sourceforge.net/projects/shivavg/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shivavg/blobs/sha256:0aaf1bb18c79c32a37185bca6b61d84f088d434be24e051128d48f6c8d4e779f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shivavg/blobs/sha256:1c8c3d89d312804881bb803c2e8d372af69035f4a4a66ee1a69dde8e531be29c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shivavg/blobs/sha256:ae5c74db54f64e3a75e394cba457cd969612c741de20f12b5941af967db03470
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shivavg/blobs/sha256:c0b735943a8d9d52d9089d252a1b7fb0d9aa4cb6630e24a284d082f0a29c6016
+sha256:
+  darwin_arm64: 0aaf1bb18c79c32a37185bca6b61d84f088d434be24e051128d48f6c8d4e779f
+  darwin_amd64: 1c8c3d89d312804881bb803c2e8d372af69035f4a4a66ee1a69dde8e531be29c
+  linux_amd64: ae5c74db54f64e3a75e394cba457cd969612c741de20f12b5941af967db03470
+  linux_arm64: c0b735943a8d9d52d9089d252a1b7fb0d9aa4cb6630e24a284d082f0a29c6016
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

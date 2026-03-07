@@ -1,0 +1,19 @@
+name: yamlfmt
+version: 0.21.0
+description: Extensible command-line tool to format YAML files
+homepage: https://github.com/google/yamlfmt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yamlfmt/blobs/sha256:d130cd939f97acb4d01154997975c541fe38e0c801a26283344f60a516d31f0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yamlfmt/blobs/sha256:f066b093a88f1afdd40c65ebe38de012628cd9e468e8e6e93cf95bfba44776d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yamlfmt/blobs/sha256:8548b4bce696dd3b3ec9abd1a0adbf007b75bfa28f86c287a963d4997f2dfda9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yamlfmt/blobs/sha256:9b6b0ad3837a33eb42d691e52ef981d1ac73fc3c66ff6da1d477257df50f357b
+sha256:
+  darwin_arm64: d130cd939f97acb4d01154997975c541fe38e0c801a26283344f60a516d31f0a
+  darwin_amd64: f066b093a88f1afdd40c65ebe38de012628cd9e468e8e6e93cf95bfba44776d8
+  linux_amd64: 8548b4bce696dd3b3ec9abd1a0adbf007b75bfa28f86c287a963d4997f2dfda9
+  linux_arm64: 9b6b0ad3837a33eb42d691e52ef981d1ac73fc3c66ff6da1d477257df50f357b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

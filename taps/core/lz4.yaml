@@ -1,0 +1,19 @@
+name: lz4
+version: 1.10.0
+description: Extremely Fast Compression algorithm
+homepage: https://lz4.github.io/lz4/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:caf14ac1b6c922611db94615341ed6dc97f5601664280bc1d397e10f62e37222
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:c30d8dad4decfc0f129c4593a304fd2e3fa854058f24310ee9900d6230730e94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:a8082c2e40dc6d63850f43ea8fa095e55adf18fb0f25ec66bcaee2c4b4438205
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:e1d4b1bd9069ee0a313d2813d59b3e9217a893aba519707da2ba0b848bc1f727
+sha256:
+  darwin_arm64: caf14ac1b6c922611db94615341ed6dc97f5601664280bc1d397e10f62e37222
+  darwin_amd64: c30d8dad4decfc0f129c4593a304fd2e3fa854058f24310ee9900d6230730e94
+  linux_amd64: a8082c2e40dc6d63850f43ea8fa095e55adf18fb0f25ec66bcaee2c4b4438205
+  linux_arm64: e1d4b1bd9069ee0a313d2813d59b3e9217a893aba519707da2ba0b848bc1f727
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

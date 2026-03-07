@@ -1,0 +1,19 @@
+name: pkgconf
+version: 2.5.1
+description: Package compiler and linker metadata toolkit
+homepage: https://github.com/pkgconf/pkgconf
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pkgconf/blobs/sha256:84f26aae5e27d846e00a9fb741dfe3b02a14cb2f81ca4a4246617379cda99fc0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pkgconf/blobs/sha256:ab1a7c8edaffa3a27400174deb4845140bdd56942d9ab2a7bccdf30f7ef74d91
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pkgconf/blobs/sha256:9df0ce4d9ebae822b763a9c18565d1596a40b2a2e5849c743e768a99f554f24b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pkgconf/blobs/sha256:abdf9fbefab1d7b7219a619fb5bd44b58c00a71146a43cb24b71700c2ead369e
+sha256:
+  darwin_arm64: 84f26aae5e27d846e00a9fb741dfe3b02a14cb2f81ca4a4246617379cda99fc0
+  darwin_amd64: ab1a7c8edaffa3a27400174deb4845140bdd56942d9ab2a7bccdf30f7ef74d91
+  linux_amd64: 9df0ce4d9ebae822b763a9c18565d1596a40b2a2e5849c743e768a99f554f24b
+  linux_arm64: abdf9fbefab1d7b7219a619fb5bd44b58c00a71146a43cb24b71700c2ead369e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: valkey
+version: 9.0.3
+description: High-performance data structure server that primarily serves key/value workloads
+homepage: https://valkey.io
+license: BSD-3-Clause AND BSD-2-Clause AND BSL-1.0 AND MIT AND (CC0-1.0 OR BSD-2-Clause)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/valkey/blobs/sha256:27541b3465274ab0801fa28b76f4412004071b7940edaa09d7daeee442ba9d46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/valkey/blobs/sha256:1ce8587dfc9292cfaa781e501c7ace8f2b893d018c1eb1607d5b92c311f0601c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/valkey/blobs/sha256:3a12be9914ab13cb2ef2d657a42da13580a05a81c60f16bffb03e5bccaf46cf0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/valkey/blobs/sha256:2063106c5a6227585cfb66e55e1aa8837370131b4cf3d999f18c7613c057852c
+sha256:
+  darwin_arm64: 27541b3465274ab0801fa28b76f4412004071b7940edaa09d7daeee442ba9d46
+  darwin_amd64: 1ce8587dfc9292cfaa781e501c7ace8f2b893d018c1eb1607d5b92c311f0601c
+  linux_amd64: 3a12be9914ab13cb2ef2d657a42da13580a05a81c60f16bffb03e5bccaf46cf0
+  linux_arm64: 2063106c5a6227585cfb66e55e1aa8837370131b4cf3d999f18c7613c057852c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,13 @@
+name: kiro
+version: 0.10.78
+description: Agent-centric IDE with spec-driven development
+homepage: https://kiro.dev/
+url:
+  darwin_arm64: https://prod.download.desktop.kiro.dev/releases/stable/darwin-arm64/signed/0.10.78/kiro-ide-0.10.78-stable-darwin-arm64.dmg
+sha256:
+  darwin_arm64: 28162cd4ac3e1c1d664d26752f86715e24941fe7cd9baa3be48ba2ebc51f38c3
+artifacts:
+  app:
+    - Kiro.app
+  bin:
+    - kiro

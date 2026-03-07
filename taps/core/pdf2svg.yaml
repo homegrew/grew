@@ -1,0 +1,24 @@
+name: pdf2svg
+version: 0.2.4
+description: PDF converter to SVG
+homepage: https://cityinthesky.co.uk/opensource/pdf2svg
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdf2svg/blobs/sha256:58b344d12758452174b82e00489ee46159fd8522d1665748c87226b390bb2a42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdf2svg/blobs/sha256:0f825f54919369deb5adc309ff369f6679c53b04d89a240fec3d031f004d63ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdf2svg/blobs/sha256:dbb6cfd9a930910cb3c8d58c1ee940b6ba0df882292f6252a7c03ce23e0bacf0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdf2svg/blobs/sha256:e6b1ca19d159da250501acac0611393208b5bd33b797014c02825eea3c7ebba3
+sha256:
+  darwin_arm64: 58b344d12758452174b82e00489ee46159fd8522d1665748c87226b390bb2a42
+  darwin_amd64: 0f825f54919369deb5adc309ff369f6679c53b04d89a240fec3d031f004d63ef
+  linux_amd64: dbb6cfd9a930910cb3c8d58c1ee940b6ba0df882292f6252a7c03ce23e0bacf0
+  linux_arm64: e6b1ca19d159da250501acac0611393208b5bd33b797014c02825eea3c7ebba3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - poppler
+  - gettext

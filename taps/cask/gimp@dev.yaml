@@ -1,0 +1,13 @@
+name: gimp@dev
+version: 3.2.0-RC3
+description: Free and open-source image editor
+homepage: https://www.gimp.org/
+url:
+  darwin_arm64: https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.0-RC3-arm64.dmg
+sha256:
+  darwin_arm64: 93baffa8e41517b2cb6902176a851a7a473f2957aa3eadfcc38b9dd361fa6601
+artifacts:
+  app:
+    - GIMP.app
+  bin:
+    - gimp

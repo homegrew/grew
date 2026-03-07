@@ -1,0 +1,19 @@
+name: fairymax
+version: 5.0b
+description: AI for playing Chess variants
+homepage: https://www.chessvariants.com/index/msdisplay.php?itemid=MSfairy-max
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fairymax/blobs/sha256:a10fe6a9cb618abed1eaf1b36c89a0bf95e97d8a6542a7ebfa2be8e4d8bedf50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fairymax/blobs/sha256:3ee1f7a3b2c6f44bdabd314a88e6c7a4b1556a743700d9c35fb593a928e5c3aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fairymax/blobs/sha256:7c129786c14d2eb245f90af3300ed059040a8057f5318302f024863516b05b43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fairymax/blobs/sha256:261a27e8f75585b61e141c52493a26fcc719ff67bf374550a3fe2e3c085e221b
+sha256:
+  darwin_arm64: a10fe6a9cb618abed1eaf1b36c89a0bf95e97d8a6542a7ebfa2be8e4d8bedf50
+  darwin_amd64: 3ee1f7a3b2c6f44bdabd314a88e6c7a4b1556a743700d9c35fb593a928e5c3aa
+  linux_amd64: 7c129786c14d2eb245f90af3300ed059040a8057f5318302f024863516b05b43
+  linux_arm64: 261a27e8f75585b61e141c52493a26fcc719ff67bf374550a3fe2e3c085e221b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

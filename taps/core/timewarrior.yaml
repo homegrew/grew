@@ -1,0 +1,19 @@
+name: timewarrior
+version: 1.9.1
+description: Command-line time tracking application
+homepage: https://timewarrior.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/timewarrior/blobs/sha256:ea4c97b2d577a0a3d268ec4a2ca79244775d73718203df09e5b23523061f74f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/timewarrior/blobs/sha256:d40e37d723c4aee31fca85d467c047464b1397f97ae948efbff46d3e1a56df2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/timewarrior/blobs/sha256:14ec84c5fd5f38ff35f9dfb8d893dec579c8ddf79864b79dafb38714e0f05f46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/timewarrior/blobs/sha256:110987680619bdb5ca21d536a4a63d5e6fb645dffdd3a77b86f0394349e50d17
+sha256:
+  darwin_arm64: ea4c97b2d577a0a3d268ec4a2ca79244775d73718203df09e5b23523061f74f0
+  darwin_amd64: d40e37d723c4aee31fca85d467c047464b1397f97ae948efbff46d3e1a56df2d
+  linux_amd64: 14ec84c5fd5f38ff35f9dfb8d893dec579c8ddf79864b79dafb38714e0f05f46
+  linux_arm64: 110987680619bdb5ca21d536a4a63d5e6fb645dffdd3a77b86f0394349e50d17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: batt
+version: 0.7.3
+description: Control and limit battery charging on Apple Silicon MacBooks
+homepage: https://github.com/charlie0129/batt
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/batt/blobs/sha256:e9a8eba7cf7e021be0c298827143c00de15a616c38401c9a95cb288b0bbced60
+sha256:
+  darwin_arm64: e9a8eba7cf7e021be0c298827143c00de15a616c38401c9a95cb288b0bbced60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

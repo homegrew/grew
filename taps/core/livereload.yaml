@@ -1,0 +1,21 @@
+name: livereload
+version: 2.7.1
+description: Local web server in Python
+homepage: https://github.com/lepture/python-livereload
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/livereload/blobs/sha256:0fed352cb705f7468ec7349e98c01df7979143b3fd5d2eed8ee051e4705f6d36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/livereload/blobs/sha256:cfddf49c8779a00ad2f1e31c643e0a91b6f779973b0cdb2c1a8d4e92f951723a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/livereload/blobs/sha256:4d6031b88eed3220e42fc8258f15e0185bedcd6b214bcededc6584c30164bff4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/livereload/blobs/sha256:b6f08550650309b022ca110f1466bce5e8fccc2d9516bd03c914c94f3e4bcb75
+sha256:
+  darwin_arm64: 0fed352cb705f7468ec7349e98c01df7979143b3fd5d2eed8ee051e4705f6d36
+  darwin_amd64: cfddf49c8779a00ad2f1e31c643e0a91b6f779973b0cdb2c1a8d4e92f951723a
+  linux_amd64: 4d6031b88eed3220e42fc8258f15e0185bedcd6b214bcededc6584c30164bff4
+  linux_arm64: b6f08550650309b022ca110f1466bce5e8fccc2d9516bd03c914c94f3e4bcb75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,24 @@
+name: showcert
+version: 0.4.16
+description: X.509 TLS certificate reader and creator
+homepage: https://github.com/yaroslaff/showcert
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/showcert/blobs/sha256:570b96dc880e971ae52d44365cbec425072f7e3a65430e6dc8079aa1acaff01d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/showcert/blobs/sha256:e61c2cfc5f8a090d2e333867190e552fd1c30ed48e779ef13d89bf5ff213ac2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/showcert/blobs/sha256:1efe5eefdda8e524a799916ff72b3d9ea8bae371bbf519a534306d64cefb5657
+  linux_arm64: https://ghcr.io/v2/homebrew/core/showcert/blobs/sha256:1efe5eefdda8e524a799916ff72b3d9ea8bae371bbf519a534306d64cefb5657
+sha256:
+  darwin_arm64: 570b96dc880e971ae52d44365cbec425072f7e3a65430e6dc8079aa1acaff01d
+  darwin_amd64: e61c2cfc5f8a090d2e333867190e552fd1c30ed48e779ef13d89bf5ff213ac2c
+  linux_amd64: 1efe5eefdda8e524a799916ff72b3d9ea8bae371bbf519a534306d64cefb5657
+  linux_arm64: 1efe5eefdda8e524a799916ff72b3d9ea8bae371bbf519a534306d64cefb5657
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libmagic
+  - python@3.14

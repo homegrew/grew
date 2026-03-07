@@ -1,0 +1,11 @@
+name: battery
+version: 1.4.0
+description: App for managing battery charging. (Also installs a CLI on first use.)
+homepage: https://github.com/actuallymentor/battery/
+url:
+  darwin_arm64: https://github.com/actuallymentor/battery/releases/download/v1.4.0/battery-1.4.0-mac-arm64.zip
+sha256:
+  darwin_arm64: 4510a3c3fc772f57a1a7fa595604002458120b55b83364edb98b762d4e19ab14
+artifacts:
+  app:
+    - battery.app

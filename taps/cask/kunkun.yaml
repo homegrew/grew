@@ -1,0 +1,11 @@
+name: kunkun
+version: 0.1.37
+description: App launcher
+homepage: https://kunkun.sh/
+url:
+  darwin_arm64: https://download.kunkun.sh/Kunkun-v0.1.37/kunkun_aarch64.app.tar.gz
+sha256:
+  darwin_arm64: d93fcacc2e8a1c364f1cfaa2be3b1664401e17ddf3a33c4e5caea7f4dd386aa1
+artifacts:
+  app:
+    - kunkun.app

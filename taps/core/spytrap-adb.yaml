@@ -1,0 +1,19 @@
+name: spytrap-adb
+version: 0.3.5
+description: Test a phone for stalkerware and suspicious configuration using usb debugging
+homepage: https://github.com/spytrap-org/spytrap-adb
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spytrap-adb/blobs/sha256:8428084b606a2e3833254e703fbe4008de6dfaaf89ca1f8ff87e6fe2f70425cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spytrap-adb/blobs/sha256:135532f2cab5daf44e7317ef497934ed9bebfa524143bb9b7634af8be0a682f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spytrap-adb/blobs/sha256:0d2341a2950197714739dc5f7f7be663e31429d7fa187abe2086006171c96367
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spytrap-adb/blobs/sha256:c8eb6db8813e8a10e0b5df9d66beab230cc98e19a3282969f3607f986bfbcf3e
+sha256:
+  darwin_arm64: 8428084b606a2e3833254e703fbe4008de6dfaaf89ca1f8ff87e6fe2f70425cb
+  darwin_amd64: 135532f2cab5daf44e7317ef497934ed9bebfa524143bb9b7634af8be0a682f7
+  linux_amd64: 0d2341a2950197714739dc5f7f7be663e31429d7fa187abe2086006171c96367
+  linux_arm64: c8eb6db8813e8a10e0b5df9d66beab230cc98e19a3282969f3607f986bfbcf3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

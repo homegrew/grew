@@ -1,0 +1,23 @@
+name: pdnsrec
+version: 5.3.5
+description: Non-authoritative/recursing DNS server
+homepage: https://www.powerdns.com/powerdns-recursor
+license: GPL-2.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdnsrec/blobs/sha256:a5b7e1e9596b536525b4ff6cfe81c3ab71243f90900f04db3ca299f1eb372b9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdnsrec/blobs/sha256:aa6cd8589947c8a2374fa630b0b6000b11c55363275b58f3266d26dea07b8334
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdnsrec/blobs/sha256:8a06fa4b8e475ba8fab0454e99d0880971f0372ef91612966bd09614f4efe7e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdnsrec/blobs/sha256:c80886e06d1ec955dc6860a28810014c1b664cfd84244b7eefa553c2b19b15b2
+sha256:
+  darwin_arm64: a5b7e1e9596b536525b4ff6cfe81c3ab71243f90900f04db3ca299f1eb372b9a
+  darwin_amd64: aa6cd8589947c8a2374fa630b0b6000b11c55363275b58f3266d26dea07b8334
+  linux_amd64: 8a06fa4b8e475ba8fab0454e99d0880971f0372ef91612966bd09614f4efe7e1
+  linux_arm64: c80886e06d1ec955dc6860a28810014c1b664cfd84244b7eefa553c2b19b15b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - lua
+  - openssl@3

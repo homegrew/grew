@@ -1,0 +1,27 @@
+name: gucharmap
+version: 17.0.1
+description: GNOME Character Map, based on the Unicode Character Database
+homepage: https://wiki.gnome.org/Apps/Gucharmap
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gucharmap/blobs/sha256:be63668906495a166bf7fba3bf2c6934156791077727d35cdd5b3232de3a3b9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gucharmap/blobs/sha256:7adc754a73ba22204e404aed4de0f119ea688902916eff2ab7dc4d864df83896
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gucharmap/blobs/sha256:47392c0b0162a982044fce34044771065b7d864b2857a04644936ee425e175a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gucharmap/blobs/sha256:18b151f0dcc03ca2da3ec497ca5067d711fcbf92f05f101dc5c2c71bd57bc8b8
+sha256:
+  darwin_arm64: be63668906495a166bf7fba3bf2c6934156791077727d35cdd5b3232de3a3b9a
+  darwin_amd64: 7adc754a73ba22204e404aed4de0f119ea688902916eff2ab7dc4d864df83896
+  linux_amd64: 47392c0b0162a982044fce34044771065b7d864b2857a04644936ee425e175a6
+  linux_arm64: 18b151f0dcc03ca2da3ec497ca5067d711fcbf92f05f101dc5c2c71bd57bc8b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - glib
+  - gtk+3
+  - pango
+  - pcre2
+  - gettext

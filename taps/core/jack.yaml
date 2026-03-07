@@ -1,0 +1,23 @@
+name: jack
+version: 1.9.22
+description: Audio Connection Kit
+homepage: https://jackaudio.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jack/blobs/sha256:70eae572ab2834459171f64ab8e715aa90496a16b58dd312affe30ed26d0380d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jack/blobs/sha256:15b133b0d5b27e9a1e054fec07cd8c0c3e4972ace51ca2d6ec9b57b8ee4c5c85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jack/blobs/sha256:1632a4f4ebdf3e82dd5186dd71dd498a83bf47f4ef610b319d22bb201727e463
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jack/blobs/sha256:13cdb9547db6f443c750059b2f230085bac7465964ff22d88aeb4b2eb5e08873
+sha256:
+  darwin_arm64: 70eae572ab2834459171f64ab8e715aa90496a16b58dd312affe30ed26d0380d
+  darwin_amd64: 15b133b0d5b27e9a1e054fec07cd8c0c3e4972ace51ca2d6ec9b57b8ee4c5c85
+  linux_amd64: 1632a4f4ebdf3e82dd5186dd71dd498a83bf47f4ef610b319d22bb201727e463
+  linux_arm64: 13cdb9547db6f443c750059b2f230085bac7465964ff22d88aeb4b2eb5e08873
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - libsamplerate
+  - aften

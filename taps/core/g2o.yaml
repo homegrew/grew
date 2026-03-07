@@ -1,0 +1,21 @@
+name: g2o
+version: 20241228
+description: General framework for graph optimization
+homepage: https://openslam-org.github.io/g2o.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/g2o/blobs/sha256:5ad0c65eda4765cf3816241e2d0604e2c2853783f6d9e8349843a97524f5fb43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/g2o/blobs/sha256:e5b0c09abb8b30d083725953ccbff1f932572fb130a6b32fb406068e8d16bb40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/g2o/blobs/sha256:a5ba022e961df0b0629d7b57185a7867ede5c71151bf55720f06cee79fe75f61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/g2o/blobs/sha256:0248efaf0de4f324fcab96dcb21faf224f4064249405f85ef7715bd3a2304001
+sha256:
+  darwin_arm64: 5ad0c65eda4765cf3816241e2d0604e2c2853783f6d9e8349843a97524f5fb43
+  darwin_amd64: e5b0c09abb8b30d083725953ccbff1f932572fb130a6b32fb406068e8d16bb40
+  linux_amd64: a5ba022e961df0b0629d7b57185a7867ede5c71151bf55720f06cee79fe75f61
+  linux_arm64: 0248efaf0de4f324fcab96dcb21faf224f4064249405f85ef7715bd3a2304001
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen

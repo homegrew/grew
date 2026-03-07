@@ -1,0 +1,11 @@
+name: appzapper
+version: 2.0.3
+description: Tool to uninstall unwanted applications and their support files
+homepage: https://www.appzapper.com/
+url:
+  darwin_arm64: https://appzapper.com/downloads/appzapper203.zip
+sha256:
+  darwin_arm64: bb541a89fd513c4fa95eeefe46ebac6b985ac6498a46da4e4622089a15ef6bcd
+artifacts:
+  app:
+    - AppZapper.app

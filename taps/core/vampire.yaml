@@ -1,0 +1,19 @@
+name: vampire
+version: 5.0.1
+description: High-performance theorem prover
+homepage: https://vprover.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vampire/blobs/sha256:f7ddec00fee445a0e1bfd5caca53a28e4a30e41fcb0cdfe4e9c5497bfc78f70d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vampire/blobs/sha256:e6b03fb0f7a8a6461626d8548a762fe7ae49d5c42792a47758cf2ccf45e7e333
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vampire/blobs/sha256:5c71ff5f94b3d9cfb3a346e2c0c85c3b16ec51a378f8b201fccd45657d4ee104
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vampire/blobs/sha256:41ade77fd28eef439c3133270c8f8f99ee598266d5b83243ebbe79f99b62632d
+sha256:
+  darwin_arm64: f7ddec00fee445a0e1bfd5caca53a28e4a30e41fcb0cdfe4e9c5497bfc78f70d
+  darwin_amd64: e6b03fb0f7a8a6461626d8548a762fe7ae49d5c42792a47758cf2ccf45e7e333
+  linux_amd64: 5c71ff5f94b3d9cfb3a346e2c0c85c3b16ec51a378f8b201fccd45657d4ee104
+  linux_arm64: 41ade77fd28eef439c3133270c8f8f99ee598266d5b83243ebbe79f99b62632d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

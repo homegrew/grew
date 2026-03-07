@@ -1,0 +1,11 @@
+name: syncthing-app
+version: 2.0.14-1
+description: Real time file synchronisation software
+homepage: https://syncthing.net/
+url:
+  darwin_arm64: https://github.com/syncthing/syncthing-macos/releases/download/v2.0.14-1/Syncthing-2.0.14-1.dmg
+sha256:
+  darwin_arm64: e418d8c12db170036a11759a75ba6953020635dd544d08f3856200c804f05845
+artifacts:
+  app:
+    - Syncthing.app

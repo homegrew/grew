@@ -1,0 +1,21 @@
+name: bkmr
+version: 6.5.0
+description: Unified CLI Tool for Bookmark, Snippet, and Knowledge Management
+homepage: https://github.com/sysid/bkmr
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bkmr/blobs/sha256:3019ba82f2e7eeeba3022fc84340a2d6ac8bf4b941fa6662c8a3093f9ff4c893
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bkmr/blobs/sha256:3a729c19ae6857d6a5e09332ed840596c4f21b82daa3fa2d09aea0a2db87b681
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bkmr/blobs/sha256:d5e0d32604a5acb5ef19805b65f670bc49de8b443019164a16cb11c46124c364
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bkmr/blobs/sha256:99f361d376fef207fb43ce3885dbafa3bf166c0c7a875073a98f4ea8540eba7d
+sha256:
+  darwin_arm64: 3019ba82f2e7eeeba3022fc84340a2d6ac8bf4b941fa6662c8a3093f9ff4c893
+  darwin_amd64: 3a729c19ae6857d6a5e09332ed840596c4f21b82daa3fa2d09aea0a2db87b681
+  linux_amd64: d5e0d32604a5acb5ef19805b65f670bc49de8b443019164a16cb11c46124c364
+  linux_arm64: 99f361d376fef207fb43ce3885dbafa3bf166c0c7a875073a98f4ea8540eba7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

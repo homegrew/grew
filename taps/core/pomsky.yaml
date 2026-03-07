@@ -1,0 +1,19 @@
+name: pomsky
+version: 0.12
+description: Regular expression language
+homepage: https://pomsky-lang.org/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pomsky/blobs/sha256:71e19e3cca23e38bcdb532dde14d23f0312b76d3c19b46cddd1d2e20bb9f8605
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pomsky/blobs/sha256:84a2d065348e9ee0e23b3b884ab91cf38cf252787fb2f772c073604341301deb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pomsky/blobs/sha256:642b05dd4cde8501631e0bdccdb648017b0f17eedd7d468feaa03f1a55f8ff6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pomsky/blobs/sha256:9db6c902bd7b09bdd3664d9c811c51dae45dd3296c353449ec49e4411a36cac6
+sha256:
+  darwin_arm64: 71e19e3cca23e38bcdb532dde14d23f0312b76d3c19b46cddd1d2e20bb9f8605
+  darwin_amd64: 84a2d065348e9ee0e23b3b884ab91cf38cf252787fb2f772c073604341301deb
+  linux_amd64: 642b05dd4cde8501631e0bdccdb648017b0f17eedd7d468feaa03f1a55f8ff6b
+  linux_arm64: 9db6c902bd7b09bdd3664d9c811c51dae45dd3296c353449ec49e4411a36cac6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

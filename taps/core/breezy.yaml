@@ -1,0 +1,22 @@
+name: breezy
+version: 3.3.21
+description: Version control system implemented in Python with multi-format support
+homepage: https://github.com/breezy-team/breezy
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/breezy/blobs/sha256:9ed24cf6f30dc47b00894484a9b8c6014990f7d23f6f4d6d84e4f8e25d94f3de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/breezy/blobs/sha256:945cdd21ceda287f74e3eebf2c854de01fe4c4d1b2b0d247a6746aa89ad43afe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/breezy/blobs/sha256:8acd9f2d53717c4203133b9135555cf81c6ee984ab3fb65da7bbf8d30401f166
+  linux_arm64: https://ghcr.io/v2/homebrew/core/breezy/blobs/sha256:c429c4a2265ce7b06ab10da8a6e6d650f2da6eb7218020f169b680f7531d2ddc
+sha256:
+  darwin_arm64: 9ed24cf6f30dc47b00894484a9b8c6014990f7d23f6f4d6d84e4f8e25d94f3de
+  darwin_amd64: 945cdd21ceda287f74e3eebf2c854de01fe4c4d1b2b0d247a6746aa89ad43afe
+  linux_amd64: 8acd9f2d53717c4203133b9135555cf81c6ee984ab3fb65da7bbf8d30401f166
+  linux_arm64: c429c4a2265ce7b06ab10da8a6e6d650f2da6eb7218020f169b680f7531d2ddc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

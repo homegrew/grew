@@ -1,0 +1,19 @@
+name: talisman
+version: 1.37.0
+description: Tool to detect and prevent secrets from getting checked in
+homepage: https://thoughtworks.github.io/talisman/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/talisman/blobs/sha256:d763005bb6e19df8cf0cdf814b2597f396e862c6f32ff6b066575164f9faa043
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/talisman/blobs/sha256:8918ff5adb067d32ec162569baf29e824d96b9f51e2a2c4a8dd118a8f3f02aca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/talisman/blobs/sha256:89549ecbadfe50fcce80851f3503243a9ea156a19561814ef73359fd44ea3abf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/talisman/blobs/sha256:29eafe05ccc38bcc04e8c8f5669c9fc25b2a15c9781a72d0959710b41a96ecc0
+sha256:
+  darwin_arm64: d763005bb6e19df8cf0cdf814b2597f396e862c6f32ff6b066575164f9faa043
+  darwin_amd64: 8918ff5adb067d32ec162569baf29e824d96b9f51e2a2c4a8dd118a8f3f02aca
+  linux_amd64: 89549ecbadfe50fcce80851f3503243a9ea156a19561814ef73359fd44ea3abf
+  linux_arm64: 29eafe05ccc38bcc04e8c8f5669c9fc25b2a15c9781a72d0959710b41a96ecc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

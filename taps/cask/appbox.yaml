@@ -1,0 +1,11 @@
+name: appbox
+version: 3.6.0
+description: iOS app distribution tool
+homepage: https://getappbox.com/
+url:
+  darwin_arm64: https://github.com/getappbox/AppBox-iOSAppsWirelessInstallation/releases/download/3.6.0/AppBox.app.zip
+sha256:
+  darwin_arm64: e978af3b776a3efd8cc6cef4cb69729173b4277dbec291eb6710545f550ade72
+artifacts:
+  app:
+    - AppBox.app

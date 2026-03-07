@@ -1,0 +1,19 @@
+name: leetsolv
+version: 1.2.0
+description: CLI tool for DSA problem revision with spaced repetition
+homepage: https://github.com/eannchen/leetsolv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leetsolv/blobs/sha256:5cd16d7e328e6be2865e869e531fbad280aaf9d565cbd77d60ca153d9515e741
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leetsolv/blobs/sha256:ba4f532844e8f23dca6e5fb901d6c927f02af3a486140d84b097eac0e7e30fd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leetsolv/blobs/sha256:0b083ba517ea479d21a851ffe66daceeb97cc86a1b1759716c4d737495eca783
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leetsolv/blobs/sha256:35f24022b721e61cf39758a0e5105530892b3cf047c992c0d3bc1752306560b6
+sha256:
+  darwin_arm64: 5cd16d7e328e6be2865e869e531fbad280aaf9d565cbd77d60ca153d9515e741
+  darwin_amd64: ba4f532844e8f23dca6e5fb901d6c927f02af3a486140d84b097eac0e7e30fd6
+  linux_amd64: 0b083ba517ea479d21a851ffe66daceeb97cc86a1b1759716c4d737495eca783
+  linux_arm64: 35f24022b721e61cf39758a0e5105530892b3cf047c992c0d3bc1752306560b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

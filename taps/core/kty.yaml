@@ -1,0 +1,19 @@
+name: kty
+version: 0.3.1
+description: Terminal for Kubernetes
+homepage: https://kty.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kty/blobs/sha256:41ffc85a1afa73590d563262abbe3c3037cd0ea6ce1b2a4e315b789de481c709
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kty/blobs/sha256:d5dbd72cf1840b254b2ac815e8dad173883c8cb83140634976e29a14fcf8b65d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kty/blobs/sha256:bdd2bbe08fcd0a77a2402d91f009d13d4c9ddd5b51d533d4810e26aee40fccb9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kty/blobs/sha256:12eaaeecb6106661c66894aca09a5f73eb77d9be2ba51419f1d78eed9872aed0
+sha256:
+  darwin_arm64: 41ffc85a1afa73590d563262abbe3c3037cd0ea6ce1b2a4e315b789de481c709
+  darwin_amd64: d5dbd72cf1840b254b2ac815e8dad173883c8cb83140634976e29a14fcf8b65d
+  linux_amd64: bdd2bbe08fcd0a77a2402d91f009d13d4c9ddd5b51d533d4810e26aee40fccb9
+  linux_arm64: 12eaaeecb6106661c66894aca09a5f73eb77d9be2ba51419f1d78eed9872aed0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: unrtf
+version: 0.21.10
+description: RTF to other formats converter
+homepage: https://www.gnu.org/software/unrtf/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unrtf/blobs/sha256:47b072cc65135724c6ae7cad739a1dfac82adb69afdfe7692e1e035994b69da0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unrtf/blobs/sha256:6ca9282faa32d4c1c91cd56cf2e6f885b4b87abea3c6d63df37b24405ff3127a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unrtf/blobs/sha256:c3e2f45e057ebc00b8a825db67d9bd29396038f2beb692edcea2815c7b9d1284
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unrtf/blobs/sha256:97ef0301bf3d4b776f44f968d7e50c6926ee24a5667c405ded4d84eccd762ad1
+sha256:
+  darwin_arm64: 47b072cc65135724c6ae7cad739a1dfac82adb69afdfe7692e1e035994b69da0
+  darwin_amd64: 6ca9282faa32d4c1c91cd56cf2e6f885b4b87abea3c6d63df37b24405ff3127a
+  linux_amd64: c3e2f45e057ebc00b8a825db67d9bd29396038f2beb692edcea2815c7b9d1284
+  linux_arm64: 97ef0301bf3d4b776f44f968d7e50c6926ee24a5667c405ded4d84eccd762ad1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

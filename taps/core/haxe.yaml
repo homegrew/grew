@@ -1,0 +1,23 @@
+name: haxe
+version: 4.3.7
+description: Multi-platform programming language
+homepage: https://haxe.org/
+license: GPL-2.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/haxe/blobs/sha256:780794ad8ebbd6e46a8b065fea1395f8e36e880abfdee6cbb9c1a75f80dbf69e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/haxe/blobs/sha256:236ee018bfc0f0628852bcb490ea2dab1c0acfa9f54537f4089245a4e39b5988
+  linux_amd64: https://ghcr.io/v2/homebrew/core/haxe/blobs/sha256:fd290d4961bf7e566b8d04881ccf8b8fdebab317f64bb1ecb6eafff60bdb9ce4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/haxe/blobs/sha256:fa61c88d7c07b125cb86d444e226ed74b827c4e3f0786043f73d48936e9a23cd
+sha256:
+  darwin_arm64: 780794ad8ebbd6e46a8b065fea1395f8e36e880abfdee6cbb9c1a75f80dbf69e
+  darwin_amd64: 236ee018bfc0f0628852bcb490ea2dab1c0acfa9f54537f4089245a4e39b5988
+  linux_amd64: fd290d4961bf7e566b8d04881ccf8b8fdebab317f64bb1ecb6eafff60bdb9ce4
+  linux_arm64: fa61c88d7c07b125cb86d444e226ed74b827c4e3f0786043f73d48936e9a23cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mbedtls@3
+  - neko
+  - pcre2

@@ -1,0 +1,21 @@
+name: libkeyfinder
+version: 2.2.8
+description: Musical key detection for digital audio, GPL v3
+homepage: https://mixxxdj.github.io/libkeyfinder/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libkeyfinder/blobs/sha256:6aea01723afe6eb5a66b410f68f0b6e1e36edf0acc87e5d178faa2ee1e7f1526
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libkeyfinder/blobs/sha256:0d16cad59170872627fa1b08e4cf237e0758205f9ea62499e89a358d5bc012e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libkeyfinder/blobs/sha256:0b50fcc57a84c874798b361edbf9e5ddbb899108ab57144ad31b1cff6582a736
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libkeyfinder/blobs/sha256:4c2ce01391bb60dbbadde01920c9ee4d34d9b8e86a894713aba206404c74843c
+sha256:
+  darwin_arm64: 6aea01723afe6eb5a66b410f68f0b6e1e36edf0acc87e5d178faa2ee1e7f1526
+  darwin_amd64: 0d16cad59170872627fa1b08e4cf237e0758205f9ea62499e89a358d5bc012e3
+  linux_amd64: 0b50fcc57a84c874798b361edbf9e5ddbb899108ab57144ad31b1cff6582a736
+  linux_arm64: 4c2ce01391bb60dbbadde01920c9ee4d34d9b8e86a894713aba206404c74843c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw

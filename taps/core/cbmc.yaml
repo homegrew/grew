@@ -1,0 +1,19 @@
+name: cbmc
+version: 6.8.0
+description: C Bounded Model Checker
+homepage: https://www.cprover.org/cbmc/
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbmc/blobs/sha256:ab18612102175e15adcc972b4dffe29aba91ef743c9a0921179d351f93289fdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbmc/blobs/sha256:9121b3cf4e5167aa5f4db82dc79bd81564119e1395a94511626d1c93241f914c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbmc/blobs/sha256:f3cd7b5b7afd46887bf16333ad49bacd85f4e07d4eb9406577b3afdf22250e67
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbmc/blobs/sha256:4630714a17550f6e8fd957b7a1bf31ed2d976205688ae627e8bc70006aa50a50
+sha256:
+  darwin_arm64: ab18612102175e15adcc972b4dffe29aba91ef743c9a0921179d351f93289fdd
+  darwin_amd64: 9121b3cf4e5167aa5f4db82dc79bd81564119e1395a94511626d1c93241f914c
+  linux_amd64: f3cd7b5b7afd46887bf16333ad49bacd85f4e07d4eb9406577b3afdf22250e67
+  linux_arm64: 4630714a17550f6e8fd957b7a1bf31ed2d976205688ae627e8bc70006aa50a50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: poutine
+version: 1.0.7
+description: Security scanner that detects vulnerabilities in build pipelines
+homepage: https://boostsecurityio.github.io/poutine/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poutine/blobs/sha256:c3a1d7b6c03e3a65a362b9e0e6b336cda3a9a54596eefe43e225b2f89fd45aa0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poutine/blobs/sha256:dfda9e0ac756d2883b94e4c860a28fda2d11d8b5e43d0e3b41c333f1d21e1c25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poutine/blobs/sha256:eabf6bfd4eff9c3e15496c03f3ec9d9705c9add4e2364c10ac2c31640bc0f13d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poutine/blobs/sha256:be5163a1819edf58b6f0d40de0c55018114da3ac14fc2f1b93e898928f0ba6da
+sha256:
+  darwin_arm64: c3a1d7b6c03e3a65a362b9e0e6b336cda3a9a54596eefe43e225b2f89fd45aa0
+  darwin_amd64: dfda9e0ac756d2883b94e4c860a28fda2d11d8b5e43d0e3b41c333f1d21e1c25
+  linux_amd64: eabf6bfd4eff9c3e15496c03f3ec9d9705c9add4e2364c10ac2c31640bc0f13d
+  linux_arm64: be5163a1819edf58b6f0d40de0c55018114da3ac14fc2f1b93e898928f0ba6da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

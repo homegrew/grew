@@ -1,0 +1,11 @@
+name: element@nightly
+version: 2026030701
+description: Matrix collaboration client
+homepage: https://element.io/get-started
+url:
+  darwin_arm64: https://packages.element.io/nightly/update/macos/Element%20Nightly-2026030701-universal-mac.zip
+sha256:
+  darwin_arm64: a562a69e33b3ca16e6f8ca22d9b20cf5a9228fe7bb17eaf262db49abbf3e678e
+artifacts:
+  app:
+    - Element Nightly.app

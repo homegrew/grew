@@ -1,0 +1,23 @@
+name: mdfried
+version: 0.18.2
+description: Terminal markdown viewer
+homepage: https://github.com/benjajaja/mdfried
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdfried/blobs/sha256:b6d09fb5125fa782f66c718951b90fcf2c94434890ce8224af43beb11d5681b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdfried/blobs/sha256:5d83fbfe0fe34114c38ff81823da7992ed95f52320445ba284aaf9e962fb0a09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdfried/blobs/sha256:db4b30df5c99b4929f2877ba2bb3c08ace94b6d136f81b29152ecb012e6325f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdfried/blobs/sha256:a7e967b34689d2124a2c2018dff36515f409b00cfe221694d4a2d64789f48bb8
+sha256:
+  darwin_arm64: b6d09fb5125fa782f66c718951b90fcf2c94434890ce8224af43beb11d5681b8
+  darwin_amd64: 5d83fbfe0fe34114c38ff81823da7992ed95f52320445ba284aaf9e962fb0a09
+  linux_amd64: db4b30df5c99b4929f2877ba2bb3c08ace94b6d136f81b29152ecb012e6325f0
+  linux_arm64: a7e967b34689d2124a2c2018dff36515f409b00cfe221694d4a2d64789f48bb8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - chafa
+  - gettext
+  - glib

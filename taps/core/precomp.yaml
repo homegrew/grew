@@ -1,0 +1,19 @@
+name: precomp
+version: 0.4.7
+description: Command-line precompressor to achieve better compression
+homepage: http://schnaader.info/precomp.php
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/precomp/blobs/sha256:37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/precomp/blobs/sha256:be2cd21d5897846900b73dd4e6677cbf0f5e58d488d41115dd74548866f6401e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/precomp/blobs/sha256:7affc5c732e89618e28cbdc3a5b93adfd8588fe0af291dde9c940b0667ea8c06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/precomp/blobs/sha256:94d7a49395b7ea41b35d5ba993dc244fa2dd0795f300bc27b2f94821047daba3
+sha256:
+  darwin_arm64: 37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395
+  darwin_amd64: be2cd21d5897846900b73dd4e6677cbf0f5e58d488d41115dd74548866f6401e
+  linux_amd64: 7affc5c732e89618e28cbdc3a5b93adfd8588fe0af291dde9c940b0667ea8c06
+  linux_arm64: 94d7a49395b7ea41b35d5ba993dc244fa2dd0795f300bc27b2f94821047daba3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

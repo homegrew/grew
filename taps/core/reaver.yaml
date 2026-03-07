@@ -1,0 +1,21 @@
+name: reaver
+version: 1.6.6
+description: Implements brute force attack to recover WPA/WPA2 passkeys
+homepage: https://github.com/t6x/reaver-wps-fork-t6x
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reaver/blobs/sha256:1a2342c639b7515a7f1870db8baf31ac8d6aec8d7dbf28006b4a98263fdfc142
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reaver/blobs/sha256:bb11e575c8196d0ac3d917c1a7782799237814f3956b9b592b43bdaec542ff61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reaver/blobs/sha256:5301d082e3bd0a833d6b352e994d3b39edced488a46ef597b17aaa1e25669989
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reaver/blobs/sha256:372d02db04ebd4e99b333c155eeddedb257fa4eb0340feaed66507713c0553fc
+sha256:
+  darwin_arm64: 1a2342c639b7515a7f1870db8baf31ac8d6aec8d7dbf28006b4a98263fdfc142
+  darwin_amd64: bb11e575c8196d0ac3d917c1a7782799237814f3956b9b592b43bdaec542ff61
+  linux_amd64: 5301d082e3bd0a833d6b352e994d3b39edced488a46ef597b17aaa1e25669989
+  linux_arm64: 372d02db04ebd4e99b333c155eeddedb257fa4eb0340feaed66507713c0553fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pixiewps

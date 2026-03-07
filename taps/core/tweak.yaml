@@ -1,0 +1,19 @@
+name: tweak
+version: 3.02
+description: Command-line, ncurses library based hex editor
+homepage: https://www.chiark.greenend.org.uk/~sgtatham/tweak/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tweak/blobs/sha256:cd057cbf1a867eb44bdb3754dd80b9332866977d6fa19c6ecffd35e11df4f5cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tweak/blobs/sha256:6f735e94f919b22d47f9ed92dc74cace693042f6f3c01ad2910c0ff1241c9bd1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tweak/blobs/sha256:44b7907316240a0b5efb6a1025c22664da20e509d1d7d9787a7bdaa060d4c06f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tweak/blobs/sha256:5e1f2f53b18e654221c1d61699c1e766fe53d5df15add6ef0b4aac050ea7b618
+sha256:
+  darwin_arm64: cd057cbf1a867eb44bdb3754dd80b9332866977d6fa19c6ecffd35e11df4f5cc
+  darwin_amd64: 6f735e94f919b22d47f9ed92dc74cace693042f6f3c01ad2910c0ff1241c9bd1
+  linux_amd64: 44b7907316240a0b5efb6a1025c22664da20e509d1d7d9787a7bdaa060d4c06f
+  linux_arm64: 5e1f2f53b18e654221c1d61699c1e766fe53d5df15add6ef0b4aac050ea7b618
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

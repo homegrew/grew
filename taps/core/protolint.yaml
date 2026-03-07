@@ -1,0 +1,19 @@
+name: protolint
+version: 0.56.4
+description: Pluggable linter and fixer to enforce Protocol Buffer style and conventions
+homepage: https://github.com/yoheimuta/protolint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/protolint/blobs/sha256:9ddf06ae37f281ddd466bc53193e7f3adb78a9781d498454ad02a08eabfcdffc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/protolint/blobs/sha256:bc91cad8bb74a6282339793fcac0d9f69b9cfa64679aaa62b996c6a3e6b64ae1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/protolint/blobs/sha256:1e9ad1c4fa4fe3bd3259266444237c81538570c920eeb4f6a7d8bc45578a258a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/protolint/blobs/sha256:50ea3b0ea97b6f1706fa2552a34e6a74e78660cd22eaf84cac12f5891a7bfaea
+sha256:
+  darwin_arm64: 9ddf06ae37f281ddd466bc53193e7f3adb78a9781d498454ad02a08eabfcdffc
+  darwin_amd64: bc91cad8bb74a6282339793fcac0d9f69b9cfa64679aaa62b996c6a3e6b64ae1
+  linux_amd64: 1e9ad1c4fa4fe3bd3259266444237c81538570c920eeb4f6a7d8bc45578a258a
+  linux_arm64: 50ea3b0ea97b6f1706fa2552a34e6a74e78660cd22eaf84cac12f5891a7bfaea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

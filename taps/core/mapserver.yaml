@@ -1,0 +1,34 @@
+name: mapserver
+version: 8.6.0
+description: Publish spatial data and interactive mapping apps to the web
+homepage: https://mapserver.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mapserver/blobs/sha256:94ecba17f66585ac3d9a5cac703d98ca0c5435f8af59db9997a4246d5f008a3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mapserver/blobs/sha256:202b52b6c244374015c13be666c38075caca638f8558989677c3afad8587a9f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mapserver/blobs/sha256:f5a1896297298ef4224cc7159d6d6aebd7e2fa65ed259daca897546f8a7872c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mapserver/blobs/sha256:29a2eec5cd1fc3416bf6442a6383d27b7598d0d52daa1f81926d1ae0b18b14f0
+sha256:
+  darwin_arm64: 94ecba17f66585ac3d9a5cac703d98ca0c5435f8af59db9997a4246d5f008a3e
+  darwin_amd64: 202b52b6c244374015c13be666c38075caca638f8558989677c3afad8587a9f8
+  linux_amd64: f5a1896297298ef4224cc7159d6d6aebd7e2fa65ed259daca897546f8a7872c7
+  linux_arm64: 29a2eec5cd1fc3416bf6442a6383d27b7598d0d52daa1f81926d1ae0b18b14f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fcgi
+  - freetype
+  - gdal
+  - geos
+  - giflib
+  - jpeg-turbo
+  - libpng
+  - libpq
+  - libxml2
+  - pcre2
+  - proj
+  - protobuf-c
+  - python@3.14

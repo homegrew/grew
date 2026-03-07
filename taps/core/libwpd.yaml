@@ -1,0 +1,23 @@
+name: libwpd
+version: 0.10.3
+description: General purpose library for reading WordPerfect files
+homepage: https://libwpd.sourceforge.net/
+license: MPL-2.0 OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwpd/blobs/sha256:1bf99b7a478fd8c861781c680257297389a1d6e1cd43930e0e6ae40a3caaac23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwpd/blobs/sha256:2b25a9f4f6a55fcc60a533eb12531a394761f19d5701e8ba5512f654c04d2c11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwpd/blobs/sha256:589effab1c398690ba5ee3b616d3ab9667260d013ac3ebb93aef4a69dc1ebe9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwpd/blobs/sha256:81464149ac1791ff235b62e286bff669440c36793e92b039b648b96c42d9e73f
+sha256:
+  darwin_arm64: 1bf99b7a478fd8c861781c680257297389a1d6e1cd43930e0e6ae40a3caaac23
+  darwin_amd64: 2b25a9f4f6a55fcc60a533eb12531a394761f19d5701e8ba5512f654c04d2c11
+  linux_amd64: 589effab1c398690ba5ee3b616d3ab9667260d013ac3ebb93aef4a69dc1ebe9b
+  linux_arm64: 81464149ac1791ff235b62e286bff669440c36793e92b039b648b96c42d9e73f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libgsf
+  - librevenge

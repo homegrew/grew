@@ -1,0 +1,21 @@
+name: re-flex
+version: 6.1.0
+description: Regex-centric, fast and flexible scanner generator for C++
+homepage: https://www.genivia.com/doc/reflex/html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/re-flex/blobs/sha256:5ac12f3cf19d3d09031811eea4c3b25c32ffa7405418e96523347f482b5873b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/re-flex/blobs/sha256:635ffa3ef8bc19e9e713cd363bbaacc26847e69104636c0e8b91ab1120ad341e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/re-flex/blobs/sha256:f3818545d3b3a081a4ec934fdc21bedb6a591e5e07e4d26a219ff17852b37983
+  linux_arm64: https://ghcr.io/v2/homebrew/core/re-flex/blobs/sha256:4cdadb5513a409c3e86b0b0413f582e628f00a4f23837b08147c6dbf84357e24
+sha256:
+  darwin_arm64: 5ac12f3cf19d3d09031811eea4c3b25c32ffa7405418e96523347f482b5873b2
+  darwin_amd64: 635ffa3ef8bc19e9e713cd363bbaacc26847e69104636c0e8b91ab1120ad341e
+  linux_amd64: f3818545d3b3a081a4ec934fdc21bedb6a591e5e07e4d26a219ff17852b37983
+  linux_arm64: 4cdadb5513a409c3e86b0b0413f582e628f00a4f23837b08147c6dbf84357e24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

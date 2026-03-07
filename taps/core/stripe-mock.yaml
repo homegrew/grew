@@ -1,0 +1,19 @@
+name: stripe-mock
+version: 0.197.0
+description: Mock HTTP server that responds like the real Stripe API
+homepage: https://github.com/stripe/stripe-mock
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stripe-mock/blobs/sha256:aaca3a9a06926c66f32aab1ad4d39b578b67c9d436bb04c0a8541d39f86d03c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stripe-mock/blobs/sha256:634a5ec2315dec79294b0f5887b16798c011922920ef54e284efc2e646f50d45
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stripe-mock/blobs/sha256:a42869e2470049cdb4f4263eb4bd07cd4cea13505bbba645a07fe946fab2aa46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stripe-mock/blobs/sha256:4e286bc6b84d0ab3a2ad5772bd76b87ab2ab2a1971cd3c75dee6fcb1f1e98d6c
+sha256:
+  darwin_arm64: aaca3a9a06926c66f32aab1ad4d39b578b67c9d436bb04c0a8541d39f86d03c6
+  darwin_amd64: 634a5ec2315dec79294b0f5887b16798c011922920ef54e284efc2e646f50d45
+  linux_amd64: a42869e2470049cdb4f4263eb4bd07cd4cea13505bbba645a07fe946fab2aa46
+  linux_arm64: 4e286bc6b84d0ab3a2ad5772bd76b87ab2ab2a1971cd3c75dee6fcb1f1e98d6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

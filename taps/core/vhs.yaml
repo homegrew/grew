@@ -1,0 +1,22 @@
+name: vhs
+version: 0.10.0
+description: Your CLI home video recorder
+homepage: https://github.com/charmbracelet/vhs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vhs/blobs/sha256:cc042cfbdee07dea3f8c861cb000601322597f7ac7486c333f10d5de8ef21cde
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vhs/blobs/sha256:15bfbc955ca5dc09d33141d3994e639b76aec988a7eea564041e01c1fb121e5b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vhs/blobs/sha256:c1d30de9afd56023e000a52794944b76d746544e681da39905811384c60dce97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vhs/blobs/sha256:5105b1a3316e949465fbbd7f1840d721c5e84b5aa8698cc5a2184c3157fdedf9
+sha256:
+  darwin_arm64: cc042cfbdee07dea3f8c861cb000601322597f7ac7486c333f10d5de8ef21cde
+  darwin_amd64: 15bfbc955ca5dc09d33141d3994e639b76aec988a7eea564041e01c1fb121e5b
+  linux_amd64: c1d30de9afd56023e000a52794944b76d746544e681da39905811384c60dce97
+  linux_arm64: 5105b1a3316e949465fbbd7f1840d721c5e84b5aa8698cc5a2184c3157fdedf9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - ttyd

@@ -1,0 +1,15 @@
+name: xctesthtmlreport
+version: 2.5.1
+description: Xcode-like HTML report for Unit and UI Tests
+homepage: https://github.com/XCTestHTMLReport/XCTestHTMLReport
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xctesthtmlreport/blobs/sha256:6e248b63e1d364801b27aea0d7a709b36d36f56567de68797d21e18c2b072042
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xctesthtmlreport/blobs/sha256:79a84112939771f88b58c8f7ef61c7689716ae29bde3bc07061d458b6974b322
+sha256:
+  darwin_arm64: 6e248b63e1d364801b27aea0d7a709b36d36f56567de68797d21e18c2b072042
+  darwin_amd64: 79a84112939771f88b58c8f7ef61c7689716ae29bde3bc07061d458b6974b322
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

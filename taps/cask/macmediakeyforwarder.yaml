@@ -1,0 +1,11 @@
+name: macmediakeyforwarder
+version: 3.1.2
+description: Media key forwarder for iTunes and Spotify
+homepage: https://github.com/quentinlesceller/macmediakeyforwarder/
+url:
+  darwin_arm64: https://github.com/quentinlesceller/macmediakeyforwarder/releases/download/v3.1.2/MacMediaKeyForwarder.zip
+sha256:
+  darwin_arm64: 3e2c8ae7fbc9190e9c7528a3c4799ae42e6a33ddaf27f5cf01e141a0b9d6cd04
+artifacts:
+  app:
+    - MacMediaKeyForwarder.app

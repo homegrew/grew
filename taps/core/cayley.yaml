@@ -1,0 +1,19 @@
+name: cayley
+version: 0.7.7
+description: Graph database inspired by Freebase and Knowledge Graph
+homepage: https://github.com/cayleygraph/cayley
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cayley/blobs/sha256:003d129d37b6752ed0431b4a65c34f49edd46864957d45d294068da53c968178
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cayley/blobs/sha256:59af74bee63c364cc67532994d1fb3255b87f7b8157da1da469787451ce0f980
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cayley/blobs/sha256:d3068fa07874df5d0abb42373433c4f0997d2693f20b859bfdddf36390ea15fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cayley/blobs/sha256:45af8318168453a8135a1a54814d483f7e80f2ea13ebf20a11c66f24304b1b00
+sha256:
+  darwin_arm64: 003d129d37b6752ed0431b4a65c34f49edd46864957d45d294068da53c968178
+  darwin_amd64: 59af74bee63c364cc67532994d1fb3255b87f7b8157da1da469787451ce0f980
+  linux_amd64: d3068fa07874df5d0abb42373433c4f0997d2693f20b859bfdddf36390ea15fe
+  linux_arm64: 45af8318168453a8135a1a54814d483f7e80f2ea13ebf20a11c66f24304b1b00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: vineflower
+version: 1.11.2
+description: Java decompiler
+homepage: https://vineflower.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vineflower/blobs/sha256:5e77a21a55ef74e9c8310e0121698f1eb50830d344ff5acb3ced54e2ed54c9fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vineflower/blobs/sha256:cb76ee96aa9cbea200a151bf7a24218dbc0b6994ef75efd4e48459499e86ee72
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vineflower/blobs/sha256:cdf0610c249ba909944aec7b19f2b2ab4110a34d745fd9184fdbafd8eaba0138
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vineflower/blobs/sha256:24e17ecf2cf39fcb0618d53e2602726052e4a123300f883f97f8a28777113615
+sha256:
+  darwin_arm64: 5e77a21a55ef74e9c8310e0121698f1eb50830d344ff5acb3ced54e2ed54c9fb
+  darwin_amd64: cb76ee96aa9cbea200a151bf7a24218dbc0b6994ef75efd4e48459499e86ee72
+  linux_amd64: cdf0610c249ba909944aec7b19f2b2ab4110a34d745fd9184fdbafd8eaba0138
+  linux_arm64: 24e17ecf2cf39fcb0618d53e2602726052e4a123300f883f97f8a28777113615
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

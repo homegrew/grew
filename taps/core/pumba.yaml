@@ -1,0 +1,19 @@
+name: pumba
+version: 1.0.4
+description: Chaos testing tool for Docker
+homepage: https://github.com/alexei-led/pumba
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pumba/blobs/sha256:2b6a195bd65253cd0ccb7764352fc1a3764989640a55ee87149998f0631ee35e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pumba/blobs/sha256:ea8b70e3f1ae5d6d11dd9e98524cf8a73ab4e47683761336d61ad7063c264cfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pumba/blobs/sha256:704d9901589381af4244edb201dc60f2f9d89035630f7e98ed8672e274d0ed5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pumba/blobs/sha256:bf6b8faee8ab92508b9ff216c439b8c347b22391ae25ed259c09686d994fad74
+sha256:
+  darwin_arm64: 2b6a195bd65253cd0ccb7764352fc1a3764989640a55ee87149998f0631ee35e
+  darwin_amd64: ea8b70e3f1ae5d6d11dd9e98524cf8a73ab4e47683761336d61ad7063c264cfb
+  linux_amd64: 704d9901589381af4244edb201dc60f2f9d89035630f7e98ed8672e274d0ed5f
+  linux_arm64: bf6b8faee8ab92508b9ff216c439b8c347b22391ae25ed259c09686d994fad74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

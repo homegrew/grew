@@ -1,0 +1,22 @@
+name: makedepend
+version: 1.0.9
+description: Creates dependencies in makefiles
+homepage: https://x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/makedepend/blobs/sha256:bcbae90cda88768f019767a02e2311d80b3425308893a30acdefe9553b4448ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/makedepend/blobs/sha256:c6874f996ef7a5687bf1f83a0f1697c0e8360b4dda635b18be0926411dfabb7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/makedepend/blobs/sha256:3513c65618644fc944f76db3cb1975f843d82eaf6198d58770c23ee145c1efed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/makedepend/blobs/sha256:d285353719e76dfc8b61c138d72ed14b3e3167b3aeb817a3dfd5b2a6710250a4
+sha256:
+  darwin_arm64: bcbae90cda88768f019767a02e2311d80b3425308893a30acdefe9553b4448ff
+  darwin_amd64: c6874f996ef7a5687bf1f83a0f1697c0e8360b4dda635b18be0926411dfabb7a
+  linux_amd64: 3513c65618644fc944f76db3cb1975f843d82eaf6198d58770c23ee145c1efed
+  linux_arm64: d285353719e76dfc8b61c138d72ed14b3e3167b3aeb817a3dfd5b2a6710250a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - util-macros
+  - xorgproto

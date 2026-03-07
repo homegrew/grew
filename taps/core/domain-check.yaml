@@ -1,0 +1,19 @@
+name: domain-check
+version: 1.0.1
+description: CLI tool for checking domain availability using RDAP and WHOIS protocols
+homepage: https://github.com/saidutt46/domain-check
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/domain-check/blobs/sha256:b0d405580bb98368ff43a8d68f9f955c8644fa3317a656faee3cebed3b06cab6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/domain-check/blobs/sha256:be4c79be238aaef556143b4728b97e0a4f19acbcec8ea998924949491b55427c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/domain-check/blobs/sha256:5a040535d23071b69cbbb727758505f761dcd8ac6d82207a2665582fbaa3c639
+  linux_arm64: https://ghcr.io/v2/homebrew/core/domain-check/blobs/sha256:d1163df7d613d6c18dd5694017e2be6d79ac25d7efff5a63fc26ce0794eb99c8
+sha256:
+  darwin_arm64: b0d405580bb98368ff43a8d68f9f955c8644fa3317a656faee3cebed3b06cab6
+  darwin_amd64: be4c79be238aaef556143b4728b97e0a4f19acbcec8ea998924949491b55427c
+  linux_amd64: 5a040535d23071b69cbbb727758505f761dcd8ac6d82207a2665582fbaa3c639
+  linux_arm64: d1163df7d613d6c18dd5694017e2be6d79ac25d7efff5a63fc26ce0794eb99c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

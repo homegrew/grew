@@ -1,0 +1,19 @@
+name: canfigger
+version: 0.3.0
+description: Simple configuration file parser library
+homepage: https://github.com/andy5995/canfigger/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/canfigger/blobs/sha256:6a1990da902b615052fa6d3b98704b8a0dc1320d7545feb2f9a86d8a9413288a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/canfigger/blobs/sha256:ae03386506e951da6525a8c437c62aee6e232ab8a52ab14bcb7c63de103d4903
+  linux_amd64: https://ghcr.io/v2/homebrew/core/canfigger/blobs/sha256:1b3630e0553221aa87402808455550585ca65a0549a6ca12f1c6d1fa85366596
+  linux_arm64: https://ghcr.io/v2/homebrew/core/canfigger/blobs/sha256:c8f836846182fc7b48b5375c1a69bb771b3ab32f38e4e7dece9c687960cd4739
+sha256:
+  darwin_arm64: 6a1990da902b615052fa6d3b98704b8a0dc1320d7545feb2f9a86d8a9413288a
+  darwin_amd64: ae03386506e951da6525a8c437c62aee6e232ab8a52ab14bcb7c63de103d4903
+  linux_amd64: 1b3630e0553221aa87402808455550585ca65a0549a6ca12f1c6d1fa85366596
+  linux_arm64: c8f836846182fc7b48b5375c1a69bb771b3ab32f38e4e7dece9c687960cd4739
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

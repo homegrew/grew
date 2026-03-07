@@ -1,0 +1,21 @@
+name: dbml-cli
+version: 6.4.0
+description: Convert DBML file to SQL and vice versa
+homepage: https://www.dbml.org/cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dbml-cli/blobs/sha256:6335a91488cc14bf7a7d94592372d30bba1ab6be2b7427e5c946a3706a2624d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dbml-cli/blobs/sha256:740b00a7a0a277cc87ec701130c7600aec259d39a5a9884e8867acd61f87dcb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dbml-cli/blobs/sha256:6adff241c67cf9f36a87c8572c3b4e065b6d5d7f8facc048e584daf0279da77b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dbml-cli/blobs/sha256:2b021d0a68eca936903db67287359471cbf849df6381b081abae63d67dcbe95a
+sha256:
+  darwin_arm64: 6335a91488cc14bf7a7d94592372d30bba1ab6be2b7427e5c946a3706a2624d9
+  darwin_amd64: 740b00a7a0a277cc87ec701130c7600aec259d39a5a9884e8867acd61f87dcb2
+  linux_amd64: 6adff241c67cf9f36a87c8572c3b4e065b6d5d7f8facc048e584daf0279da77b
+  linux_arm64: 2b021d0a68eca936903db67287359471cbf849df6381b081abae63d67dcbe95a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

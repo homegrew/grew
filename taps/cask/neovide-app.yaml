@@ -1,0 +1,13 @@
+name: neovide-app
+version: 0.15.2
+description: Neovim Client
+homepage: https://github.com/neovide/neovide
+url:
+  darwin_arm64: https://github.com/neovide/neovide/releases/download/0.15.2/Neovide-aarch64-apple-darwin.dmg
+sha256:
+  darwin_arm64: 8c672ce737796e648a706ee69191c557ebe56fe07f998904014fc05f19e53fad
+artifacts:
+  app:
+    - Neovide.app
+  bin:
+    - neovide

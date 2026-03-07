@@ -1,0 +1,11 @@
+name: pinta
+version: 3.1.1
+description: "Simple Gtk# Paint Program"
+homepage: https://www.pinta-project.com/
+url:
+  darwin_arm64: https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg
+sha256:
+  darwin_arm64: 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+artifacts:
+  app:
+    - Pinta.app

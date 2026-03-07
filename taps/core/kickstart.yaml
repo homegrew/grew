@@ -1,0 +1,19 @@
+name: kickstart
+version: 0.6.0
+description: Scaffolding tool to get new projects up and running quickly
+homepage: https://github.com/Keats/kickstart
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kickstart/blobs/sha256:4da704a13fe097f488ef7ffff14c2449e08ce87f0863c4d3b0ec1fb4d84d817f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kickstart/blobs/sha256:ada53abf074cf433bcc799226148790a68578c86ecde501f4c55f79f7969ade6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kickstart/blobs/sha256:cd13f0e62244332963acd82c481bd12d3f917c4adce0a7b62bfb4ee6a059d73b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kickstart/blobs/sha256:5be6b2132ab93b209560ebe642576a39d6e7606ff5bd90215bac6415d2d0c32a
+sha256:
+  darwin_arm64: 4da704a13fe097f488ef7ffff14c2449e08ce87f0863c4d3b0ec1fb4d84d817f
+  darwin_amd64: ada53abf074cf433bcc799226148790a68578c86ecde501f4c55f79f7969ade6
+  linux_amd64: cd13f0e62244332963acd82c481bd12d3f917c4adce0a7b62bfb4ee6a059d73b
+  linux_arm64: 5be6b2132ab93b209560ebe642576a39d6e7606ff5bd90215bac6415d2d0c32a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

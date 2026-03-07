@@ -1,0 +1,19 @@
+name: markdown-oxide
+version: 0.25.10
+description: Personal Knowledge Management System for the LSP
+homepage: https://oxide.md
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/markdown-oxide/blobs/sha256:b2d94fc7f454689e3cccf6a3533195721ed31f2bdf44035a63fd76edab000510
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/markdown-oxide/blobs/sha256:3d5df3ccfd67daf16cf143ddbe3568c9662bfadaa1762fba43b192f7d4deafc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/markdown-oxide/blobs/sha256:ca06dfc9b71540e134322ed34ccf414b8d541555d0758201516d57cf30304627
+  linux_arm64: https://ghcr.io/v2/homebrew/core/markdown-oxide/blobs/sha256:65366cbd11a81ff7bcc17a0d0b7df2a969fececa77b6504404c3502ac1bfd02b
+sha256:
+  darwin_arm64: b2d94fc7f454689e3cccf6a3533195721ed31f2bdf44035a63fd76edab000510
+  darwin_amd64: 3d5df3ccfd67daf16cf143ddbe3568c9662bfadaa1762fba43b192f7d4deafc2
+  linux_amd64: ca06dfc9b71540e134322ed34ccf414b8d541555d0758201516d57cf30304627
+  linux_arm64: 65366cbd11a81ff7bcc17a0d0b7df2a969fececa77b6504404c3502ac1bfd02b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

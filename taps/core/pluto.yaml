@@ -1,0 +1,19 @@
+name: pluto
+version: 5.23.0
+description: CLI tool to help discover deprecated apiVersions in Kubernetes
+homepage: https://fairwinds.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pluto/blobs/sha256:1dd7d57e6c06b304af0943fd4ee03779c084f6daa71b9db9156f7388442d64d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pluto/blobs/sha256:540412e2ccb0139b02427e7a4c8f7cf3df17eae99a5d850427d62639f1a2957e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pluto/blobs/sha256:d3cdce4c876a8587a925be1c47732091a56ef6f4eb449d5cb1d17c00fe80c231
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pluto/blobs/sha256:e2036388df7f303103de92933d833344a4e8a5d2282b1bf58efcec681cd535ad
+sha256:
+  darwin_arm64: 1dd7d57e6c06b304af0943fd4ee03779c084f6daa71b9db9156f7388442d64d7
+  darwin_amd64: 540412e2ccb0139b02427e7a4c8f7cf3df17eae99a5d850427d62639f1a2957e
+  linux_amd64: d3cdce4c876a8587a925be1c47732091a56ef6f4eb449d5cb1d17c00fe80c231
+  linux_arm64: e2036388df7f303103de92933d833344a4e8a5d2282b1bf58efcec681cd535ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

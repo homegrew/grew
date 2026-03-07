@@ -1,0 +1,19 @@
+name: diction
+version: 1.11
+description: GNU diction and style
+homepage: https://www.gnu.org/software/diction/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diction/blobs/sha256:abe65914558d009a92abe38d0c86b41936e724e53ec3d3045ff5b2f37be7cf4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diction/blobs/sha256:53e52bc08853b0e471fd5393c12937106de73760b40611cab468e2eae2fcf260
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diction/blobs/sha256:fa36156d5d431720a8bc0c8b05a1681e9231cfce822b2b012c602fa1a8e3e159
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diction/blobs/sha256:e73e21df8df919d01becb9b68654ec8b483dbb31207e4685f0b126b8d56c30de
+sha256:
+  darwin_arm64: abe65914558d009a92abe38d0c86b41936e724e53ec3d3045ff5b2f37be7cf4c
+  darwin_amd64: 53e52bc08853b0e471fd5393c12937106de73760b40611cab468e2eae2fcf260
+  linux_amd64: fa36156d5d431720a8bc0c8b05a1681e9231cfce822b2b012c602fa1a8e3e159
+  linux_arm64: e73e21df8df919d01becb9b68654ec8b483dbb31207e4685f0b126b8d56c30de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

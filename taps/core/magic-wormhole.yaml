@@ -1,0 +1,23 @@
+name: magic-wormhole
+version: 0.22.0
+description: Securely transfers data between computers
+homepage: https://github.com/magic-wormhole/magic-wormhole
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/magic-wormhole/blobs/sha256:d2ae33ca6b2113347b8f95de5aed75a8bfa3236c42c1f44e3e780de118133b44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/magic-wormhole/blobs/sha256:57cf66739ea200bae6df8a60d96211149609896f4d9067b7106e890b7453f83f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/magic-wormhole/blobs/sha256:ff4ab689766dc42c6a56db643a98914892ab8245f8efcd5ff6b9f3c7422d447c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/magic-wormhole/blobs/sha256:d8ce94be24f5a808524bdd42edbabcacb13f0eea44ca595cbbc6c2fab3a7499f
+sha256:
+  darwin_arm64: d2ae33ca6b2113347b8f95de5aed75a8bfa3236c42c1f44e3e780de118133b44
+  darwin_amd64: 57cf66739ea200bae6df8a60d96211149609896f4d9067b7106e890b7453f83f
+  linux_amd64: ff4ab689766dc42c6a56db643a98914892ab8245f8efcd5ff6b9f3c7422d447c
+  linux_arm64: d8ce94be24f5a808524bdd42edbabcacb13f0eea44ca595cbbc6c2fab3a7499f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libsodium
+  - python@3.14

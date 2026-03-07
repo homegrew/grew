@@ -1,0 +1,19 @@
+name: buildpulse-test-reporter
+version: 0.29.0
+description: Connect your CI to BuildPulse to detect, track, and rank flaky tests
+homepage: https://buildpulse.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buildpulse-test-reporter/blobs/sha256:4711592a6b669b5d417bf261032b49b16a0939ccd1af8d0b72bf09eff8875988
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buildpulse-test-reporter/blobs/sha256:3f5d4e0bcadb62fd9c54073b4868129f67bb484189800987c64a663a6b594a49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buildpulse-test-reporter/blobs/sha256:a2acf192f12d0435f4d764e2fccd9a532b708ec0bd24cfc2d4b7a0beed3840c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buildpulse-test-reporter/blobs/sha256:b19d3cb0925d0cb510b6a5fd8e0fb277309db68a43bda6e6687cb474b6e0e734
+sha256:
+  darwin_arm64: 4711592a6b669b5d417bf261032b49b16a0939ccd1af8d0b72bf09eff8875988
+  darwin_amd64: 3f5d4e0bcadb62fd9c54073b4868129f67bb484189800987c64a663a6b594a49
+  linux_amd64: a2acf192f12d0435f4d764e2fccd9a532b708ec0bd24cfc2d4b7a0beed3840c2
+  linux_arm64: b19d3cb0925d0cb510b6a5fd8e0fb277309db68a43bda6e6687cb474b6e0e734
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

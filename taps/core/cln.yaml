@@ -1,0 +1,21 @@
+name: cln
+version: 1.3.7
+description: Class Library for Numbers
+homepage: https://www.ginac.de/CLN/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cln/blobs/sha256:198d7aa1178fc5df110461b2718466f2cefdedf75a0e4c88287dc130da5ddefc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cln/blobs/sha256:5c8b028628b234da5d4f97a734728ff9f73f381a3bae4ed565c8e21040190fc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cln/blobs/sha256:b1303657d924cdb1730d63a5b49b652cb84d07ff7694c528e997e37d796b68ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cln/blobs/sha256:c34b349259faf1c3c86953d6ce41a6b6136ef5a20b775e7907f9476b9d8eaa57
+sha256:
+  darwin_arm64: 198d7aa1178fc5df110461b2718466f2cefdedf75a0e4c88287dc130da5ddefc
+  darwin_amd64: 5c8b028628b234da5d4f97a734728ff9f73f381a3bae4ed565c8e21040190fc3
+  linux_amd64: b1303657d924cdb1730d63a5b49b652cb84d07ff7694c528e997e37d796b68ec
+  linux_arm64: c34b349259faf1c3c86953d6ce41a6b6136ef5a20b775e7907f9476b9d8eaa57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

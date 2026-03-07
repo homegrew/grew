@@ -1,0 +1,19 @@
+name: fzy
+version: 1.1
+description: Fast, simple fuzzy text selector with an advanced scoring algorithm
+homepage: https://github.com/jhawthorn/fzy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fzy/blobs/sha256:995c482566e82fceff774a07f6d4f7e425a73417bfa1d6bc2d6d59b3db4be88b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fzy/blobs/sha256:08ccd6d7441ce786fcfa95f7431d797a8c7c319fdbc77b68caf14303e80a1ae6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fzy/blobs/sha256:ad34b2e3d520a22b34e253c0b73aaa164facb5728bee8fd811513551ccfb94d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fzy/blobs/sha256:62aece1b17591bfa75cffc0e55b3db3decd30c9773fad120f58639f71f7f03ae
+sha256:
+  darwin_arm64: 995c482566e82fceff774a07f6d4f7e425a73417bfa1d6bc2d6d59b3db4be88b
+  darwin_amd64: 08ccd6d7441ce786fcfa95f7431d797a8c7c319fdbc77b68caf14303e80a1ae6
+  linux_amd64: ad34b2e3d520a22b34e253c0b73aaa164facb5728bee8fd811513551ccfb94d0
+  linux_arm64: 62aece1b17591bfa75cffc0e55b3db3decd30c9773fad120f58639f71f7f03ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: boringtun
+version: 0.7.0
+description: Userspace WireGuard implementation in Rust
+homepage: https://github.com/cloudflare/boringtun
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boringtun/blobs/sha256:c25b6f0df17bab99cdfceb31f2d5a9cd138bf7964bf645c758d4b5ce0c4e5671
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boringtun/blobs/sha256:3093bdb97aaac295e60d427c12f09adaa21f392eedecb51fefe617d2210ac48c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boringtun/blobs/sha256:ed03ae2827ea946af365aa93bef4ce8d020ad2603becd561cae40f0e97964d66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boringtun/blobs/sha256:576770d4e4f0ab75c50ade48145b27fa9f30ac03e5a24f72b374c7921a8d95d1
+sha256:
+  darwin_arm64: c25b6f0df17bab99cdfceb31f2d5a9cd138bf7964bf645c758d4b5ce0c4e5671
+  darwin_amd64: 3093bdb97aaac295e60d427c12f09adaa21f392eedecb51fefe617d2210ac48c
+  linux_amd64: ed03ae2827ea946af365aa93bef4ce8d020ad2603becd561cae40f0e97964d66
+  linux_arm64: 576770d4e4f0ab75c50ade48145b27fa9f30ac03e5a24f72b374c7921a8d95d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

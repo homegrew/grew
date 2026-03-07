@@ -1,0 +1,21 @@
+name: tfel
+version: 5.1.0
+description: Code generation tool dedicated to material knowledge for numerical mechanics
+homepage: https://thelfer.github.io/tfel/web/index.html
+license: GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfel/blobs/sha256:6c176029b0f9a9a97eba1a77309303a6e21d06f9b732dd36b21a6a906c0af94e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfel/blobs/sha256:24947bbb4aa4789ba475114643e7e27301d1c5848963dc79f3cf2c6f827cb2d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfel/blobs/sha256:bb7e42bbd5f89718c0be51a12c9ab0af0236dd1bdbdc4eb6a7e48a633d144949
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfel/blobs/sha256:b0a9c7bbfe1fde48bd5bc46a8504dd1b1337063ab86e215779b3367f9f634607
+sha256:
+  darwin_arm64: 6c176029b0f9a9a97eba1a77309303a6e21d06f9b732dd36b21a6a906c0af94e
+  darwin_amd64: 24947bbb4aa4789ba475114643e7e27301d1c5848963dc79f3cf2c6f827cb2d0
+  linux_amd64: bb7e42bbd5f89718c0be51a12c9ab0af0236dd1bdbdc4eb6a7e48a633d144949
+  linux_arm64: b0a9c7bbfe1fde48bd5bc46a8504dd1b1337063ab86e215779b3367f9f634607
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

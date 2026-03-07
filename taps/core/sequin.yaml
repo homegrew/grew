@@ -1,0 +1,19 @@
+name: sequin
+version: 0.3.1
+description: Human-readable ANSI sequences
+homepage: https://github.com/charmbracelet/sequin
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sequin/blobs/sha256:0336aba7862907b4a7e88aaa601bd17d0231cf1eeb7eeec7e089668602a9eef0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sequin/blobs/sha256:a91c3cf6c460ef367bbb99f11fcda31a8087d385a0e1ff44a4ad535e1d37e53e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sequin/blobs/sha256:f60d1afbcead268f9a378e723c2472fadd0e1f481c06c8630914796f42d1ef89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sequin/blobs/sha256:5c063422095a5fc609fd1d3ea2ac9ee60b5ba2a3503c6ec57cbfd92f0e946d21
+sha256:
+  darwin_arm64: 0336aba7862907b4a7e88aaa601bd17d0231cf1eeb7eeec7e089668602a9eef0
+  darwin_amd64: a91c3cf6c460ef367bbb99f11fcda31a8087d385a0e1ff44a4ad535e1d37e53e
+  linux_amd64: f60d1afbcead268f9a378e723c2472fadd0e1f481c06c8630914796f42d1ef89
+  linux_arm64: 5c063422095a5fc609fd1d3ea2ac9ee60b5ba2a3503c6ec57cbfd92f0e946d21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

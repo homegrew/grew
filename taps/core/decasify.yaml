@@ -1,0 +1,19 @@
+name: decasify
+version: 0.11.3
+description: Utility for casting strings to title-case according to locale-aware style guides
+homepage: https://github.com/alerque/decasify
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/decasify/blobs/sha256:e4ff19c29a173914d458494a071d57926dae0d7144f8fdc02d4896da4937a523
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/decasify/blobs/sha256:b78974c9dd3ccfb401c2ebb9c9a44ab44cf75e9cd81f27c7fc118822f4c70b6c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/decasify/blobs/sha256:eaebb4b35dc5f6bdfd169b106bcc2b73c2b71d15943100aafda52beb2e1dc09f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/decasify/blobs/sha256:39912a574e08da91ded66573bb340a5a5cbacafcea47a0030d44abfe496df055
+sha256:
+  darwin_arm64: e4ff19c29a173914d458494a071d57926dae0d7144f8fdc02d4896da4937a523
+  darwin_amd64: b78974c9dd3ccfb401c2ebb9c9a44ab44cf75e9cd81f27c7fc118822f4c70b6c
+  linux_amd64: eaebb4b35dc5f6bdfd169b106bcc2b73c2b71d15943100aafda52beb2e1dc09f
+  linux_arm64: 39912a574e08da91ded66573bb340a5a5cbacafcea47a0030d44abfe496df055
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

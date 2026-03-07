@@ -1,0 +1,11 @@
+name: element
+version: 1.12.11
+description: Matrix collaboration client
+homepage: https://element.io/get-started
+url:
+  darwin_arm64: https://packages.element.io/desktop/update/macos/Element-1.12.11-universal-mac.zip
+sha256:
+  darwin_arm64: d1eba214e97b6e6865d43c86ae4f0b10699b2eb4de4e3a15b8283ef5d718f60e
+artifacts:
+  app:
+    - Element.app

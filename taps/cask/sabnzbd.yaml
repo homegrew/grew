@@ -1,0 +1,11 @@
+name: sabnzbd
+version: 4.5.5
+description: Binary newsreader
+homepage: https://sabnzbd.org/
+url:
+  darwin_arm64: https://github.com/sabnzbd/sabnzbd/releases/download/4.5.5/SABnzbd-4.5.5-macos.dmg
+sha256:
+  darwin_arm64: c54b00e710945cb18ea3edf890b8c48096cd491a28767d7202fd6478f21eaf96
+artifacts:
+  app:
+    - SABnzbd.app

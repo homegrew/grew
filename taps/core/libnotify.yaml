@@ -1,0 +1,23 @@
+name: libnotify
+version: 0.8.8
+description: Library that sends desktop notifications to a notification daemon
+homepage: https://gitlab.gnome.org/GNOME/libnotify
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnotify/blobs/sha256:d8ee57b001510f29334c55080553cf34f41b9e8643484429ec1a0d4852f9fb58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnotify/blobs/sha256:43ec242ea169e80dda511f44370f9df94f2f50d0996a60149f236c9bbcc515ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnotify/blobs/sha256:8a89fcc90b7fc4b1a4559cadd439c9565ea597d4b6184125eb7e17ece817e483
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnotify/blobs/sha256:30a82c884d084884e6d52521fd84aa30c4192e60bca5756b8973a4a786280cf1
+sha256:
+  darwin_arm64: d8ee57b001510f29334c55080553cf34f41b9e8643484429ec1a0d4852f9fb58
+  darwin_amd64: 43ec242ea169e80dda511f44370f9df94f2f50d0996a60149f236c9bbcc515ef
+  linux_amd64: 8a89fcc90b7fc4b1a4559cadd439c9565ea597d4b6184125eb7e17ece817e483
+  linux_arm64: 30a82c884d084884e6d52521fd84aa30c4192e60bca5756b8973a4a786280cf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gettext

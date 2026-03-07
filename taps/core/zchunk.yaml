@@ -1,0 +1,22 @@
+name: zchunk
+version: 1.5.3
+description: Compressed file format for efficient deltas
+homepage: https://github.com/zchunk/zchunk
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zchunk/blobs/sha256:46b7edb3748b367ba4b35700dbd3369744c16b37d31e2843492ca47af28333c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zchunk/blobs/sha256:39d1b2d55f294285fcdf94c11ead1d87e11ffbc80c541c059867c4d7bbcfe557
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zchunk/blobs/sha256:45fae766d814be7734fd3815c7ed8e817feb045f901c270a243cb3d19e7f2e29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zchunk/blobs/sha256:1f97cc161198905c6092068d829cdf206aae5b92609adf419b63cb6bb38edaf1
+sha256:
+  darwin_arm64: 46b7edb3748b367ba4b35700dbd3369744c16b37d31e2843492ca47af28333c1
+  darwin_amd64: 39d1b2d55f294285fcdf94c11ead1d87e11ffbc80c541c059867c4d7bbcfe557
+  linux_amd64: 45fae766d814be7734fd3815c7ed8e817feb045f901c270a243cb3d19e7f2e29
+  linux_arm64: 1f97cc161198905c6092068d829cdf206aae5b92609adf419b63cb6bb38edaf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - zstd

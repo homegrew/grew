@@ -1,0 +1,13 @@
+name: sublime-merge
+version: 2123
+description: Git client
+homepage: https://www.sublimemerge.com/
+url:
+  darwin_arm64: https://download.sublimetext.com/sublime_merge_build_2123_mac.zip
+sha256:
+  darwin_arm64: 7c3e4ae8023538a551f44175811990c4076ca2bd31d71ef066c487b6a86bc360
+artifacts:
+  app:
+    - Sublime Merge.app
+  bin:
+    - smerge

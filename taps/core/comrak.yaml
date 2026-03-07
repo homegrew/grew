@@ -1,0 +1,19 @@
+name: comrak
+version: 0.50.0
+description: CommonMark + GFM compatible Markdown parser and renderer
+homepage: https://github.com/kivikakk/comrak
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/comrak/blobs/sha256:59302bd124b16d4c4065348fdcbefda517f75cf73cb651f6642ba55b4c72f90e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/comrak/blobs/sha256:55f7bfae750be64d5ed30f7ea5f0cbfdc87b87071a8bc9341f8f7c490ee22f25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/comrak/blobs/sha256:639ea7b38abf329368c69a68082ae14b97e9cfeb0fb2ed41afa359fc56dd2d1c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/comrak/blobs/sha256:cd00ac8e83df9055c76d39fd4b25705095d4bf9ce99125f59921537b8f0ee0d7
+sha256:
+  darwin_arm64: 59302bd124b16d4c4065348fdcbefda517f75cf73cb651f6642ba55b4c72f90e
+  darwin_amd64: 55f7bfae750be64d5ed30f7ea5f0cbfdc87b87071a8bc9341f8f7c490ee22f25
+  linux_amd64: 639ea7b38abf329368c69a68082ae14b97e9cfeb0fb2ed41afa359fc56dd2d1c
+  linux_arm64: cd00ac8e83df9055c76d39fd4b25705095d4bf9ce99125f59921537b8f0ee0d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

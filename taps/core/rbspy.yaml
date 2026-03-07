@@ -1,0 +1,19 @@
+name: rbspy
+version: 0.42.1
+description: Sampling profiler for Ruby
+homepage: https://rbspy.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rbspy/blobs/sha256:8ec833dc4a85a1955c6cf05c29d082d7649cba8ed17ad256709c8c95248d2247
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rbspy/blobs/sha256:492db13127b0c41dc8b9102c0af4289f17c13db45a6eb53482627193caa97f37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rbspy/blobs/sha256:8058c2282cd6813e7fbc66e2b61e1feedc0d8ff52ba991bb086ac9c70d3aac42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rbspy/blobs/sha256:cc71c683d32ad051e4a2e935065a5f047aa83245f07d18381408cd877d6dcd3e
+sha256:
+  darwin_arm64: 8ec833dc4a85a1955c6cf05c29d082d7649cba8ed17ad256709c8c95248d2247
+  darwin_amd64: 492db13127b0c41dc8b9102c0af4289f17c13db45a6eb53482627193caa97f37
+  linux_amd64: 8058c2282cd6813e7fbc66e2b61e1feedc0d8ff52ba991bb086ac9c70d3aac42
+  linux_arm64: cc71c683d32ad051e4a2e935065a5f047aa83245f07d18381408cd877d6dcd3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

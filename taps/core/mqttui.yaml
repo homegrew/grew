@@ -1,0 +1,19 @@
+name: mqttui
+version: 0.22.1
+description: Subscribe to a MQTT Topic or publish something quickly from the terminal
+homepage: https://github.com/EdJoPaTo/mqttui
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mqttui/blobs/sha256:8e82a2a2f7af29bb80c0d033ec6d8594bd00e043fef29ce4dc3a7178d32f64fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mqttui/blobs/sha256:77140e798abd551e3da4a845473aa93e5737dcb2900a2605d2810e93c051b5ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mqttui/blobs/sha256:5cb9b3f506f2cff73d1a6ef21969575a3e24646be804577b179e5735666dbe53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mqttui/blobs/sha256:09274a577c3e10a6cb0092a7bb38fccf5d1c1c1fdbf7d5d79783e94b52d1f99b
+sha256:
+  darwin_arm64: 8e82a2a2f7af29bb80c0d033ec6d8594bd00e043fef29ce4dc3a7178d32f64fa
+  darwin_amd64: 77140e798abd551e3da4a845473aa93e5737dcb2900a2605d2810e93c051b5ec
+  linux_amd64: 5cb9b3f506f2cff73d1a6ef21969575a3e24646be804577b179e5735666dbe53
+  linux_arm64: 09274a577c3e10a6cb0092a7bb38fccf5d1c1c1fdbf7d5d79783e94b52d1f99b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

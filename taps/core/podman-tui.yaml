@@ -1,0 +1,19 @@
+name: podman-tui
+version: 1.10.0
+description: Podman Terminal User Interface
+homepage: https://github.com/containers/podman-tui
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podman-tui/blobs/sha256:f218ff4bbdb0c77eb22065a91b58b4e59946127ea07c5058523ac4ac0da1ac62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podman-tui/blobs/sha256:9d6860b0fc32d058effc6bb0b4c2ba72dbfc426de00e35a06d2c0b018a54f4d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podman-tui/blobs/sha256:b7a9c505b045074bc7215181bc4d6c5bc5eec600a126888023ca7fee98a19b05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podman-tui/blobs/sha256:a6386fd9b908a05dba101126a17b574838bb21596e831e25a714115c8ef0b810
+sha256:
+  darwin_arm64: f218ff4bbdb0c77eb22065a91b58b4e59946127ea07c5058523ac4ac0da1ac62
+  darwin_amd64: 9d6860b0fc32d058effc6bb0b4c2ba72dbfc426de00e35a06d2c0b018a54f4d6
+  linux_amd64: b7a9c505b045074bc7215181bc4d6c5bc5eec600a126888023ca7fee98a19b05
+  linux_arm64: a6386fd9b908a05dba101126a17b574838bb21596e831e25a714115c8ef0b810
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

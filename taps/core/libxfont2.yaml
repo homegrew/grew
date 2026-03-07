@@ -1,0 +1,22 @@
+name: libxfont2
+version: 2.0.7
+description: X11 font rasterisation library
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxfont2/blobs/sha256:6923bb0f5f8d3af8c1165951de8d6132aa1de17c9882fc0fc2ed051f7b63ca7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxfont2/blobs/sha256:41518f66f53d9ac2efc2c7fde9e919b9ed92b1eb91b0c4631fbec59022a966d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxfont2/blobs/sha256:33b750be1b1a0603cff595ed46908b6ce9cf7daa3ce8170ba8da567551b554a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxfont2/blobs/sha256:fce39009ed7ef80c230e3663b17fb82b70faeb4796e8a058cc3a0cfdebae5ab4
+sha256:
+  darwin_arm64: 6923bb0f5f8d3af8c1165951de8d6132aa1de17c9882fc0fc2ed051f7b63ca7a
+  darwin_amd64: 41518f66f53d9ac2efc2c7fde9e919b9ed92b1eb91b0c4631fbec59022a966d1
+  linux_amd64: 33b750be1b1a0603cff595ed46908b6ce9cf7daa3ce8170ba8da567551b554a2
+  linux_arm64: fce39009ed7ef80c230e3663b17fb82b70faeb4796e8a058cc3a0cfdebae5ab4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - libfontenc

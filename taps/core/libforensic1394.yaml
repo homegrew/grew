@@ -1,0 +1,19 @@
+name: libforensic1394
+version: 0.2
+description: "Live memory forensics over IEEE 1394 (\"FireWire\") interface"
+homepage: https://freddie.witherden.org/tools/libforensic1394/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libforensic1394/blobs/sha256:b4a478a738e2f3bb22a8316561b54914bcf0e2e4f00d7b90005d27f0564413ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libforensic1394/blobs/sha256:bcfdd8e4b4c60cf26c7334bbe1d94133022a918a892f2fa0da85adde296d76b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libforensic1394/blobs/sha256:c997e0a787bfd5280159d056a014bbf9eda79db06cc1873d9126712a5f6ece2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libforensic1394/blobs/sha256:cd8c375607751d566f21f16c71a8ed78ec3e4b6511d8ff5f439760c35e2ebd64
+sha256:
+  darwin_arm64: b4a478a738e2f3bb22a8316561b54914bcf0e2e4f00d7b90005d27f0564413ec
+  darwin_amd64: bcfdd8e4b4c60cf26c7334bbe1d94133022a918a892f2fa0da85adde296d76b3
+  linux_amd64: c997e0a787bfd5280159d056a014bbf9eda79db06cc1873d9126712a5f6ece2f
+  linux_arm64: cd8c375607751d566f21f16c71a8ed78ec3e4b6511d8ff5f439760c35e2ebd64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

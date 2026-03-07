@@ -1,0 +1,22 @@
+name: pixz
+version: 1.0.7
+description: Parallel, indexed, xz compressor
+homepage: https://github.com/vasi/pixz
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixz/blobs/sha256:b760a3d166ab9febb997a2e8b0b295fbbc8d5d4b50ecbc068a38e61a09ba5977
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixz/blobs/sha256:b584017019900bd6e4e8d1040b74b54095c2d17e3ade4b08dbd963a03ce44917
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixz/blobs/sha256:4a110294724b79c7a130b3705c91d25fa52e01f7cf6655d486a0901ada6d6b24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixz/blobs/sha256:87cb676de2f355d9918910e4649f45f4a1b1b474cb91479bc21ad19c0bddf2c8
+sha256:
+  darwin_arm64: b760a3d166ab9febb997a2e8b0b295fbbc8d5d4b50ecbc068a38e61a09ba5977
+  darwin_amd64: b584017019900bd6e4e8d1040b74b54095c2d17e3ade4b08dbd963a03ce44917
+  linux_amd64: 4a110294724b79c7a130b3705c91d25fa52e01f7cf6655d486a0901ada6d6b24
+  linux_arm64: 87cb676de2f355d9918910e4649f45f4a1b1b474cb91479bc21ad19c0bddf2c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libarchive
+  - xz

@@ -1,0 +1,19 @@
+name: oj
+version: 1.28.0
+description: JSON parser and visualization tool
+homepage: https://github.com/ohler55/ojg
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oj/blobs/sha256:b3087d2ba3af46dd9f6832b465dc3d9807707edf664220825f7175bc301710e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oj/blobs/sha256:6097bd7d7dfdd8cf700ea1f553c14b562846980054534194bf6d5bb016dc74ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oj/blobs/sha256:e28d6024130487fc9ed991c6ea51fdd17b69cb556fb1e532306b43cbaea0b781
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oj/blobs/sha256:05a4db6ecbdd79f5f36767a8f8b6f75bbae08ab09236a52a96a6d63a04f67a97
+sha256:
+  darwin_arm64: b3087d2ba3af46dd9f6832b465dc3d9807707edf664220825f7175bc301710e2
+  darwin_amd64: 6097bd7d7dfdd8cf700ea1f553c14b562846980054534194bf6d5bb016dc74ac
+  linux_amd64: e28d6024130487fc9ed991c6ea51fdd17b69cb556fb1e532306b43cbaea0b781
+  linux_arm64: 05a4db6ecbdd79f5f36767a8f8b6f75bbae08ab09236a52a96a6d63a04f67a97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

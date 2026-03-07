@@ -1,0 +1,19 @@
+name: wirouter_keyrec
+version: 1.1.2
+description: Recover the default WPA passphrases from supported routers
+homepage: https://www.salvatorefresta.net/tools/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wirouter_keyrec/blobs/sha256:34e5fd2a6a9e60936a2618fd84b435911d6ec1f1f53bb66180ec884077b482cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wirouter_keyrec/blobs/sha256:768f3df3b16cbd2bc7ecd3eb65b5d7da4d302d21f78076657af195b36a5c7e81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wirouter_keyrec/blobs/sha256:1d3f91f6d9f53dda66211c8d0f01081e92a1b43dbbb98b2cabfb63d337cb7eea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wirouter_keyrec/blobs/sha256:2fe4fe43878fd795923cf6577d4ac268e26c7d1612ed6700e201592bb9878fb0
+sha256:
+  darwin_arm64: 34e5fd2a6a9e60936a2618fd84b435911d6ec1f1f53bb66180ec884077b482cb
+  darwin_amd64: 768f3df3b16cbd2bc7ecd3eb65b5d7da4d302d21f78076657af195b36a5c7e81
+  linux_amd64: 1d3f91f6d9f53dda66211c8d0f01081e92a1b43dbbb98b2cabfb63d337cb7eea
+  linux_arm64: 2fe4fe43878fd795923cf6577d4ac268e26c7d1612ed6700e201592bb9878fb0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

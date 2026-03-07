@@ -1,0 +1,22 @@
+name: cloog
+version: 0.21.1
+description: Generate code for scanning Z-polyhedra
+homepage: https://github.com/periscop/cloog
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloog/blobs/sha256:398e809f0432ab4350d43531f5918d4d2610c63a69e3ff3d7843275c8eb332bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloog/blobs/sha256:df4fcfc84b3e7d63f3443caca892be8d75bcd7d59f42ec2353d8358f646253db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloog/blobs/sha256:e0f9fc5de0ae2ddc6bc734ae97b67cf0173ba90da90db87f5402d36c3bcc0ef6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloog/blobs/sha256:63b976028eeb44aef31fa6c5643249a4ce8881125d7567ffd710f0743cbb71d5
+sha256:
+  darwin_arm64: 398e809f0432ab4350d43531f5918d4d2610c63a69e3ff3d7843275c8eb332bd
+  darwin_amd64: df4fcfc84b3e7d63f3443caca892be8d75bcd7d59f42ec2353d8358f646253db
+  linux_amd64: e0f9fc5de0ae2ddc6bc734ae97b67cf0173ba90da90db87f5402d36c3bcc0ef6
+  linux_arm64: 63b976028eeb44aef31fa6c5643249a4ce8881125d7567ffd710f0743cbb71d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - isl

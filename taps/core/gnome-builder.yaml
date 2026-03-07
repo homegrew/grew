@@ -1,0 +1,43 @@
+name: gnome-builder
+version: 49.1
+description: Develop software for GNOME
+homepage: https://apps.gnome.org/Builder/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnome-builder/blobs/sha256:51c268898ad4f9a47246a4f52eddf2396e3ae323133939926e570243ac9ade87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnome-builder/blobs/sha256:daad91ed181cb573fc37f6a5d08a49ae3e281485ed37a5a84ea1b56bc5b024d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnome-builder/blobs/sha256:b34b4becd41faf7d788209bbfdae051807c2d8ac53c700a044d618fa6c4a8831
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnome-builder/blobs/sha256:61a635c630195e076973cbbf8a949bff56efe573426346d2920dd359e6ae0e03
+sha256:
+  darwin_arm64: 51c268898ad4f9a47246a4f52eddf2396e3ae323133939926e570243ac9ade87
+  darwin_amd64: daad91ed181cb573fc37f6a5d08a49ae3e281485ed37a5a84ea1b56bc5b024d0
+  linux_amd64: b34b4becd41faf7d788209bbfdae051807c2d8ac53c700a044d618fa6c4a8831
+  linux_arm64: 61a635c630195e076973cbbf8a949bff56efe573426346d2920dd359e6ae0e03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - cmark
+  - editorconfig
+  - glib
+  - gobject-introspection
+  - gtk4
+  - gtksourceview5
+  - json-glib
+  - jsonrpc-glib
+  - libadwaita
+  - libdex
+  - libgit2
+  - libgit2-glib
+  - libpanel
+  - libpeas
+  - libspelling
+  - libyaml
+  - llvm
+  - pango
+  - template-glib
+  - vte3
+  - gettext

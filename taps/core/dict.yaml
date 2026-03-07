@@ -1,0 +1,21 @@
+name: dict
+version: 1.13.3
+description: Dictionary Server Protocol (RFC2229) client
+homepage: https://dict.org/bin/Dict
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dict/blobs/sha256:694d764e37305e78a62434292d69b0d50a2a093554ca772789ea9652e56a92e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dict/blobs/sha256:c5b41893bf0b335596c40a1e7e197d872bb98a7d7d4fbbd9ee55aab4183de4f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dict/blobs/sha256:3a4ad3c79cfde170a352b43cf03440508c8be5ed6389721043a5368ff045d023
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dict/blobs/sha256:e7efbe26bdb41e097a1a7533e9a48247e22cd4abc864654efb0382d5db9e5781
+sha256:
+  darwin_arm64: 694d764e37305e78a62434292d69b0d50a2a093554ca772789ea9652e56a92e7
+  darwin_amd64: c5b41893bf0b335596c40a1e7e197d872bb98a7d7d4fbbd9ee55aab4183de4f3
+  linux_amd64: 3a4ad3c79cfde170a352b43cf03440508c8be5ed6389721043a5368ff045d023
+  linux_arm64: e7efbe26bdb41e097a1a7533e9a48247e22cd4abc864654efb0382d5db9e5781
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmaa

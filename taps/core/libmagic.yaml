@@ -1,0 +1,19 @@
+name: libmagic
+version: 5.47
+description: Implementation of the file(1) command
+homepage: https://www.darwinsys.com/file/
+license: BSD-2-Clause-Darwin AND BSD-2-Clause AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmagic/blobs/sha256:f7aa29830da3062c82a1573bcadb35df0951de214d908543db23f89d55fdb831
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmagic/blobs/sha256:b386f869ea612420b8835424308c886c7ce72667b1e9e41d08fb8358daa918cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmagic/blobs/sha256:2fd518dd644a4e1b94cde7150b7d1d7f24403940a20c0a175dda85465d207b99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmagic/blobs/sha256:c66a9827c4498d168f68346243ea5ab6772b9a707b9a79dadccb59f5ec847574
+sha256:
+  darwin_arm64: f7aa29830da3062c82a1573bcadb35df0951de214d908543db23f89d55fdb831
+  darwin_amd64: b386f869ea612420b8835424308c886c7ce72667b1e9e41d08fb8358daa918cb
+  linux_amd64: 2fd518dd644a4e1b94cde7150b7d1d7f24403940a20c0a175dda85465d207b99
+  linux_arm64: c66a9827c4498d168f68346243ea5ab6772b9a707b9a79dadccb59f5ec847574
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

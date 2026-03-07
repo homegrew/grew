@@ -1,0 +1,23 @@
+name: tor
+version: 0.4.9.5
+description: Anonymizing overlay network for TCP
+homepage: https://www.torproject.org/
+license: BSD-2-Clause AND BSD-3-Clause AND MIT AND NCSA
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tor/blobs/sha256:7d792f62a46a6218dca7a4568e4f9a891d1fdbb201af2859920df3a5420b5f39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tor/blobs/sha256:4d41ecaec0d95286308b33d5c375f12722fd9184ac3386d006091f48a09748c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tor/blobs/sha256:8c926840c71b225e857264c374932818854ca61386066165b365a3ec58ecadff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tor/blobs/sha256:6c925c345ce39c546ba733810a1b40feb3df72b185424bc2ca67d422e3517253
+sha256:
+  darwin_arm64: 7d792f62a46a6218dca7a4568e4f9a891d1fdbb201af2859920df3a5420b5f39
+  darwin_amd64: 4d41ecaec0d95286308b33d5c375f12722fd9184ac3386d006091f48a09748c8
+  linux_amd64: 8c926840c71b225e857264c374932818854ca61386066165b365a3ec58ecadff
+  linux_arm64: 6c925c345ce39c546ba733810a1b40feb3df72b185424bc2ca67d422e3517253
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libscrypt
+  - openssl@3

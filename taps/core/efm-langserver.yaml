@@ -1,0 +1,19 @@
+name: efm-langserver
+version: 0.0.55
+description: General purpose Language Server
+homepage: https://github.com/mattn/efm-langserver
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/efm-langserver/blobs/sha256:0693ca4e1b15f73eb34c1d3102c260eda6a224a2c1465b507b010e22fd180435
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/efm-langserver/blobs/sha256:ac937f6c7f36311cfab5a1e97dab37b8c0338c1e02c355e0751afbb6fd9033aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/efm-langserver/blobs/sha256:76991739d7e07865d25f1e0a11711572e38919a9096095778aaec8d05269b27e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/efm-langserver/blobs/sha256:f68a3e2e52b57d2b1fe1655277267c139232e69af2c93557b744dfba0f8f889b
+sha256:
+  darwin_arm64: 0693ca4e1b15f73eb34c1d3102c260eda6a224a2c1465b507b010e22fd180435
+  darwin_amd64: ac937f6c7f36311cfab5a1e97dab37b8c0338c1e02c355e0751afbb6fd9033aa
+  linux_amd64: 76991739d7e07865d25f1e0a11711572e38919a9096095778aaec8d05269b27e
+  linux_arm64: f68a3e2e52b57d2b1fe1655277267c139232e69af2c93557b744dfba0f8f889b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

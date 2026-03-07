@@ -1,0 +1,19 @@
+name: snowball
+version: 3.0.1
+description: Stemming algorithms
+homepage: https://snowballstem.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snowball/blobs/sha256:ab44ad284224fc7948a61026b26c2909ca0c95132c0476a82d86b3d7d0a64ab2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snowball/blobs/sha256:58eadab9b1887a26cb95506a264f0e53bf9a23d9d1cf6fe589533c8f20daa7c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snowball/blobs/sha256:9b8fd0e7fee01a520f36dfd8631171bb7fcfab8ddccb8ed9c37b069f338b6ca9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snowball/blobs/sha256:a90617188624e914be73ec75078cebac9e2ee7458f0006225dba41da4fd2e431
+sha256:
+  darwin_arm64: ab44ad284224fc7948a61026b26c2909ca0c95132c0476a82d86b3d7d0a64ab2
+  darwin_amd64: 58eadab9b1887a26cb95506a264f0e53bf9a23d9d1cf6fe589533c8f20daa7c2
+  linux_amd64: 9b8fd0e7fee01a520f36dfd8631171bb7fcfab8ddccb8ed9c37b069f338b6ca9
+  linux_arm64: a90617188624e914be73ec75078cebac9e2ee7458f0006225dba41da4fd2e431
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

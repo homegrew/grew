@@ -1,0 +1,23 @@
+name: diffoscope
+version: 313
+description: In-depth comparison of files, archives, and directories
+homepage: https://diffoscope.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffoscope/blobs/sha256:9b2f21ff6e40acace2d12551881e3f1b2a445f561d9ce784b2cb05f95fb1925c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffoscope/blobs/sha256:fdcf4fe046541d5efd69fa652dcdf3487ff107f42b0e1024513392a7dc0edf9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffoscope/blobs/sha256:04e58e49d9be55bf4bbde14a9587dfffa149a3d46b250d2aee0ae6afe0a30c51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffoscope/blobs/sha256:04e58e49d9be55bf4bbde14a9587dfffa149a3d46b250d2aee0ae6afe0a30c51
+sha256:
+  darwin_arm64: 9b2f21ff6e40acace2d12551881e3f1b2a445f561d9ce784b2cb05f95fb1925c
+  darwin_amd64: fdcf4fe046541d5efd69fa652dcdf3487ff107f42b0e1024513392a7dc0edf9b
+  linux_amd64: 04e58e49d9be55bf4bbde14a9587dfffa149a3d46b250d2aee0ae6afe0a30c51
+  linux_arm64: 04e58e49d9be55bf4bbde14a9587dfffa149a3d46b250d2aee0ae6afe0a30c51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libarchive
+  - libmagic
+  - python@3.14

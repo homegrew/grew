@@ -1,0 +1,19 @@
+name: scorecard
+version: 5.4.0
+description: Security health metrics for Open Source
+homepage: https://github.com/ossf/scorecard
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scorecard/blobs/sha256:2981be637900f3fda110a669805b1f0ce5860fabe1137ce5db64a615df51b3b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scorecard/blobs/sha256:49c787ddb6507aaf3211e1b4b1226df37446b0f3d7eefde86b571777e17e3eaa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scorecard/blobs/sha256:fd9f23e1989c85a62f28a89f884496b6fb9792c42b740ea530b1370a3bda44dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scorecard/blobs/sha256:6473855d91617f3d1290bc2545186ad2b3929bb081afb76dfca1ced080a80f39
+sha256:
+  darwin_arm64: 2981be637900f3fda110a669805b1f0ce5860fabe1137ce5db64a615df51b3b0
+  darwin_amd64: 49c787ddb6507aaf3211e1b4b1226df37446b0f3d7eefde86b571777e17e3eaa
+  linux_amd64: fd9f23e1989c85a62f28a89f884496b6fb9792c42b740ea530b1370a3bda44dd
+  linux_arm64: 6473855d91617f3d1290bc2545186ad2b3929bb081afb76dfca1ced080a80f39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

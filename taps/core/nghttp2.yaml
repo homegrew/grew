@@ -1,0 +1,25 @@
+name: nghttp2
+version: 1.68.0
+description: HTTP/2 C Library
+homepage: https://nghttp2.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nghttp2/blobs/sha256:a2d1e55d45369690662a1c729ee2e0261b373f3afc4954666d8c5b6a9898acbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nghttp2/blobs/sha256:58b8610ecbbf4e5c7e376334b86228a3d80551f275972730a76153cdd3928ff7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nghttp2/blobs/sha256:b398fcfab78f81b200b70dc2b0320694a99e73c50777379f309fa287b4c7bd15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nghttp2/blobs/sha256:66278dfee59169e7e2054e4490884d2593f3e22b5ab02479c7d4edd05762648e
+sha256:
+  darwin_arm64: a2d1e55d45369690662a1c729ee2e0261b373f3afc4954666d8c5b6a9898acbc
+  darwin_amd64: 58b8610ecbbf4e5c7e376334b86228a3d80551f275972730a76153cdd3928ff7
+  linux_amd64: b398fcfab78f81b200b70dc2b0320694a99e73c50777379f309fa287b4c7bd15
+  linux_arm64: 66278dfee59169e7e2054e4490884d2593f3e22b5ab02479c7d4edd05762648e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-ares
+  - jemalloc
+  - libev
+  - libnghttp2
+  - openssl@3

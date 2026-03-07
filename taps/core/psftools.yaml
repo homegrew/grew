@@ -1,0 +1,19 @@
+name: psftools
+version: 1.0.14
+description: Tools for fixed-width bitmap fonts
+homepage: https://www.seasip.info/Unix/PSF/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/psftools/blobs/sha256:06f275a8b9d1fe1537d8456c91ee2e58b90d514bfc721f2d89a4ef1f56f6f17d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/psftools/blobs/sha256:782668ee44ce5af9aecca5d3333653b27970ee7599677ca66a23ad73765e7bdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/psftools/blobs/sha256:c750eb92e19169c1bb81129ab8ce270963e9168500b7c59d59d8bb7fc68ee7b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/psftools/blobs/sha256:cbf0f067b25985fc24add1230dded4b7d54680dcc2d1f4764afc1d5e762ed28f
+sha256:
+  darwin_arm64: 06f275a8b9d1fe1537d8456c91ee2e58b90d514bfc721f2d89a4ef1f56f6f17d
+  darwin_amd64: 782668ee44ce5af9aecca5d3333653b27970ee7599677ca66a23ad73765e7bdb
+  linux_amd64: c750eb92e19169c1bb81129ab8ce270963e9168500b7c59d59d8bb7fc68ee7b4
+  linux_arm64: cbf0f067b25985fc24add1230dded4b7d54680dcc2d1f4764afc1d5e762ed28f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

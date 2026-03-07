@@ -1,0 +1,19 @@
+name: dart-sdk
+version: 3.11.1
+description: Dart Language SDK, including the VM, dart2js, core libraries, and more
+homepage: https://dart.dev
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dart-sdk/blobs/sha256:d2f38e4486505d7a86cd10cf68b3e1da2632c931514fdd8711555204b09d6b07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dart-sdk/blobs/sha256:54626812ca058189ea8e11a2725b432e73b5d9cee4d3cefb01e5230e76d490a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dart-sdk/blobs/sha256:70694c30a1123a967e7b36571b2b9c3e569da73e8ad2ffd0a5c1d789bd4caee9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dart-sdk/blobs/sha256:1c674fbf66f49aab4bd1cd70144eede9c2802b713b727d11aab5049ed4dbf6ac
+sha256:
+  darwin_arm64: d2f38e4486505d7a86cd10cf68b3e1da2632c931514fdd8711555204b09d6b07
+  darwin_amd64: 54626812ca058189ea8e11a2725b432e73b5d9cee4d3cefb01e5230e76d490a4
+  linux_amd64: 70694c30a1123a967e7b36571b2b9c3e569da73e8ad2ffd0a5c1d789bd4caee9
+  linux_arm64: 1c674fbf66f49aab4bd1cd70144eede9c2802b713b727d11aab5049ed4dbf6ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: shelltestrunner
+version: 1.11
+description: Portable command-line tool for testing command-line programs
+homepage: https://github.com/simonmichael/shelltestrunner
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shelltestrunner/blobs/sha256:9203ada94d9396bb88fe31f717229a5f636451797e0af2e8afec0855684a1d16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shelltestrunner/blobs/sha256:2f0bf32fac534b2fa34143ed7d67535890de2161c64aff2ddb7809c2df6f276a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shelltestrunner/blobs/sha256:0b619cc0d9658c4c072ef6ff3164462cde54974faef0cc92527ca88cdfdb160a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shelltestrunner/blobs/sha256:60bb7a211304833e0a87723390487acae78a771af2cf8fc48603400b683dd89f
+sha256:
+  darwin_arm64: 9203ada94d9396bb88fe31f717229a5f636451797e0af2e8afec0855684a1d16
+  darwin_amd64: 2f0bf32fac534b2fa34143ed7d67535890de2161c64aff2ddb7809c2df6f276a
+  linux_amd64: 0b619cc0d9658c4c072ef6ff3164462cde54974faef0cc92527ca88cdfdb160a
+  linux_arm64: 60bb7a211304833e0a87723390487acae78a771af2cf8fc48603400b683dd89f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

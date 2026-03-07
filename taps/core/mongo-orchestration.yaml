@@ -1,0 +1,22 @@
+name: mongo-orchestration
+version: 0.11.2
+description: REST API to manage MongoDB configurations on a single host
+homepage: https://github.com/mongodb-labs/mongo-orchestration
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongo-orchestration/blobs/sha256:2d947869a1425ba65bd120e8a01e5a1e7aa89e04570087d01e6f8e4b1eeaa84e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongo-orchestration/blobs/sha256:c7d4c6465fc14d7529ca7c1d9639c42b451b87f7bf437b403606f0d0a91c3c17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongo-orchestration/blobs/sha256:c69f6f30a71390e06116c17c48441f0a9b0a801de76177ae5acd93fb28596da0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongo-orchestration/blobs/sha256:c8d8159cae821be828e79d479e72f9f580b1ead8de133a394f921f57bd3cacb3
+sha256:
+  darwin_arm64: 2d947869a1425ba65bd120e8a01e5a1e7aa89e04570087d01e6f8e4b1eeaa84e
+  darwin_amd64: c7d4c6465fc14d7529ca7c1d9639c42b451b87f7bf437b403606f0d0a91c3c17
+  linux_amd64: c69f6f30a71390e06116c17c48441f0a9b0a801de76177ae5acd93fb28596da0
+  linux_arm64: c8d8159cae821be828e79d479e72f9f580b1ead8de133a394f921f57bd3cacb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

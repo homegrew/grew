@@ -1,0 +1,19 @@
+name: dvd-vr
+version: 0.9.7
+description: Utility to identify and extract recordings from DVD-VR files
+homepage: https://www.pixelbeat.org/programs/dvd-vr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvd-vr/blobs/sha256:c866d88cd9c2d24675c6adb25ea1b78fc4139e15d46ce14e652e1302c99137f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvd-vr/blobs/sha256:3062abb991148622f0b45f7ee8e7aab766c9ad95c1c83420a201a72c335f7f59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvd-vr/blobs/sha256:64fbe6463814cb9fa4e34863bebe256e8973abeb1241f299173ae409c00da770
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvd-vr/blobs/sha256:9d552a1d306c8a6f7ba249914385d89c1294e0b54b2aa5aced30e72504396b03
+sha256:
+  darwin_arm64: c866d88cd9c2d24675c6adb25ea1b78fc4139e15d46ce14e652e1302c99137f9
+  darwin_amd64: 3062abb991148622f0b45f7ee8e7aab766c9ad95c1c83420a201a72c335f7f59
+  linux_amd64: 64fbe6463814cb9fa4e34863bebe256e8973abeb1241f299173ae409c00da770
+  linux_arm64: 9d552a1d306c8a6f7ba249914385d89c1294e0b54b2aa5aced30e72504396b03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

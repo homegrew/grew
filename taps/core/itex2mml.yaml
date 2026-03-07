@@ -1,0 +1,19 @@
+name: itex2mml
+version: 1.6.1
+description: Text filter to convert itex equations to MathML
+homepage: https://golem.ph.utexas.edu/~distler/blog/itex2MML.html
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/itex2mml/blobs/sha256:9927eb95f7d9d7dddfc7c684ca069bfa8b612c519461ef5233aa54098b9ea8d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/itex2mml/blobs/sha256:c7fc486174a242a55b26291f5bb37abb96457788b66b3adcbe89291179f8edaf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/itex2mml/blobs/sha256:809bf39b25611efdd6f0c297918b0376788c1a4f380a69489b1e4495bd19821e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/itex2mml/blobs/sha256:abef6379fe470feb9877993e8e9392c51bce8f9006b3d9de2e28c5c2b110cd03
+sha256:
+  darwin_arm64: 9927eb95f7d9d7dddfc7c684ca069bfa8b612c519461ef5233aa54098b9ea8d9
+  darwin_amd64: c7fc486174a242a55b26291f5bb37abb96457788b66b3adcbe89291179f8edaf
+  linux_amd64: 809bf39b25611efdd6f0c297918b0376788c1a4f380a69489b1e4495bd19821e
+  linux_arm64: abef6379fe470feb9877993e8e9392c51bce8f9006b3d9de2e28c5c2b110cd03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

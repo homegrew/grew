@@ -1,0 +1,19 @@
+name: monolith
+version: 2.10.1
+description: CLI tool for saving complete web pages as a single HTML file
+homepage: https://github.com/Y2Z/monolith
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monolith/blobs/sha256:1d1266667cffd60fc5ce4ba4e8c08ae6b776f4bd58be50b920c51f658dd4c42a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monolith/blobs/sha256:81364ea28028bc6a147edbd0c0613db6baef11078f14555330e438a0e2159e5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monolith/blobs/sha256:66d1a5ae8947717fad4f322fa95c6fe603ea543a07a8188eaab279cf0ea01a56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monolith/blobs/sha256:e2915bebfb7b5a0a116d1922987969e9be94236917e54c7389a5ee964a20198f
+sha256:
+  darwin_arm64: 1d1266667cffd60fc5ce4ba4e8c08ae6b776f4bd58be50b920c51f658dd4c42a
+  darwin_amd64: 81364ea28028bc6a147edbd0c0613db6baef11078f14555330e438a0e2159e5d
+  linux_amd64: 66d1a5ae8947717fad4f322fa95c6fe603ea543a07a8188eaab279cf0ea01a56
+  linux_arm64: e2915bebfb7b5a0a116d1922987969e9be94236917e54c7389a5ee964a20198f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

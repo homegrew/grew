@@ -1,0 +1,25 @@
+name: gallery-dl
+version: 1.31.7
+description: Command-line downloader for image-hosting site galleries and collections
+homepage: https://github.com/mikf/gallery-dl
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gallery-dl/blobs/sha256:61aba2ca0a12d21bf306d8be5ae5dff18ab9a9d7751d8621e2aafc2c78e66afe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gallery-dl/blobs/sha256:573f2d96a97ac788e4ae882e4bd49feda4cf6d3b3527085bffa92ce78b594666
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gallery-dl/blobs/sha256:aaa1680f2db7223bcf413d346309394268b48d080e26589caa65fae27bd54038
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gallery-dl/blobs/sha256:017f070f87b987b8eb3a9713eef79a3f6364366f55d6cc610fddf8d50bf0b64d
+sha256:
+  darwin_arm64: 61aba2ca0a12d21bf306d8be5ae5dff18ab9a9d7751d8621e2aafc2c78e66afe
+  darwin_amd64: 573f2d96a97ac788e4ae882e4bd49feda4cf6d3b3527085bffa92ce78b594666
+  linux_amd64: aaa1680f2db7223bcf413d346309394268b48d080e26589caa65fae27bd54038
+  linux_arm64: 017f070f87b987b8eb3a9713eef79a3f6364366f55d6cc610fddf8d50bf0b64d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14
+  - yt-dlp

@@ -1,0 +1,19 @@
+name: burrow
+version: 1.9.5
+description: Kafka Consumer Lag Checking
+homepage: https://github.com/linkedin/Burrow
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/burrow/blobs/sha256:5b86ff8deae33789a7977472252996ce9bed5b9297186b7e3ada18b8ccb34531
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/burrow/blobs/sha256:261a4bfe121fa8af48ee190fdab037c5c16d65a5ee672d9b3a9cb90c68260e54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/burrow/blobs/sha256:1701af844c34f0f248f80cf39e42f0f75c29b39ca976acc8a129c8a382eb5168
+  linux_arm64: https://ghcr.io/v2/homebrew/core/burrow/blobs/sha256:b3e5b31685703828e5b444374c29942c97afbbb18d85959916d2a46778c9d0a6
+sha256:
+  darwin_arm64: 5b86ff8deae33789a7977472252996ce9bed5b9297186b7e3ada18b8ccb34531
+  darwin_amd64: 261a4bfe121fa8af48ee190fdab037c5c16d65a5ee672d9b3a9cb90c68260e54
+  linux_amd64: 1701af844c34f0f248f80cf39e42f0f75c29b39ca976acc8a129c8a382eb5168
+  linux_arm64: b3e5b31685703828e5b444374c29942c97afbbb18d85959916d2a46778c9d0a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

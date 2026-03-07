@@ -1,0 +1,11 @@
+name: neo4j-desktop
+version: 2.1.3
+description: Developer IDE or Management Environment for Neo4j instances
+homepage: https://neo4j.com/download/
+url:
+  darwin_arm64: https://dist.neo4j.org/neo4j-desktop-2/mac/neo4j-desktop-2.1.3-universal.dmg
+sha256:
+  darwin_arm64: b17d9edc30e71b36e15ee54a57e695e8e20a62a66fa3867859a16695bfc84158
+artifacts:
+  app:
+    - Neo4j Desktop 2.app

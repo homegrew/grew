@@ -1,0 +1,22 @@
+name: mpdscribble
+version: 0.25
+description: Last.fm reporting client for mpd
+homepage: https://www.musicpd.org/clients/mpdscribble/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpdscribble/blobs/sha256:2812de40e805a9ea32ff8e5108217294c2b71bd5fe8cea5de4dc0192817d8aaf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpdscribble/blobs/sha256:a56d2f601abc41777b2fead2ac177532a4520fc923d876c1505b29cee1c24e9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpdscribble/blobs/sha256:4e5852c3dcb301ca9378826b19a679be1b0592d1b99dc64bed775ef092f4eecc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpdscribble/blobs/sha256:5bf3500d5c908338c5389f4a212a7c85609b953943e8683fc4d8011ed266f51e
+sha256:
+  darwin_arm64: 2812de40e805a9ea32ff8e5108217294c2b71bd5fe8cea5de4dc0192817d8aaf
+  darwin_amd64: a56d2f601abc41777b2fead2ac177532a4520fc923d876c1505b29cee1c24e9d
+  linux_amd64: 4e5852c3dcb301ca9378826b19a679be1b0592d1b99dc64bed775ef092f4eecc
+  linux_arm64: 5bf3500d5c908338c5389f4a212a7c85609b953943e8683fc4d8011ed266f51e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libmpdclient

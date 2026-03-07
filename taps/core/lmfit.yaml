@@ -1,0 +1,19 @@
+name: lmfit
+version: 10.0
+description: C library for Levenberg-Marquardt minimization and least-squares fitting
+homepage: https://jugit.fz-juelich.de/mlz/lmfit
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lmfit/blobs/sha256:e30e6afe8c7246d88c2ecc8cfd62cc3c326e035a8ea67fd2546960d23d476f55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lmfit/blobs/sha256:9ba0e39ce1f606cf8ef93827b70ace200f5847094d02c2001b930c4baacc6582
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lmfit/blobs/sha256:97ced0fb2d37329984bd28388f20b26c0633bbd79c7f53dfa38201678f730233
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lmfit/blobs/sha256:39da5cc940190e897a5b4cd90787d8cf75c68ddba48a02936b3f2e214f049883
+sha256:
+  darwin_arm64: e30e6afe8c7246d88c2ecc8cfd62cc3c326e035a8ea67fd2546960d23d476f55
+  darwin_amd64: 9ba0e39ce1f606cf8ef93827b70ace200f5847094d02c2001b930c4baacc6582
+  linux_amd64: 97ced0fb2d37329984bd28388f20b26c0633bbd79c7f53dfa38201678f730233
+  linux_arm64: 39da5cc940190e897a5b4cd90787d8cf75c68ddba48a02936b3f2e214f049883
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

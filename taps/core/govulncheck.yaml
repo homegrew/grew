@@ -1,0 +1,19 @@
+name: govulncheck
+version: 1.1.4
+description: Database client and tools for the Go vulnerability database
+homepage: https://github.com/golang/vuln
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/govulncheck/blobs/sha256:b9a5b2cf2c4b2c959f68f0d72b66ffd67c890a2d5fe9c544766aa5f1f46f1c62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/govulncheck/blobs/sha256:d60b984e2b4f3c5822d7737f7db72f461b7cb53574b5c8def426842024cd031b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/govulncheck/blobs/sha256:ff45ac7b3a248f827e4b183f0d328a1e0f9f21311b36c33c51dccb6d7a0e0549
+  linux_arm64: https://ghcr.io/v2/homebrew/core/govulncheck/blobs/sha256:de97f5e498197927e4815f4362b22b38b164cfb6742d4788646726afd3a8b6c6
+sha256:
+  darwin_arm64: b9a5b2cf2c4b2c959f68f0d72b66ffd67c890a2d5fe9c544766aa5f1f46f1c62
+  darwin_amd64: d60b984e2b4f3c5822d7737f7db72f461b7cb53574b5c8def426842024cd031b
+  linux_amd64: ff45ac7b3a248f827e4b183f0d328a1e0f9f21311b36c33c51dccb6d7a0e0549
+  linux_arm64: de97f5e498197927e4815f4362b22b38b164cfb6742d4788646726afd3a8b6c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

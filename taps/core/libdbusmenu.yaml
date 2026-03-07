@@ -1,0 +1,29 @@
+name: libdbusmenu
+version: 16.04.0
+description: GLib and Gtk Implementation of the DBusMenu protocol
+homepage: https://launchpad.net/libdbusmenu
+license: GPL-3.0-only OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdbusmenu/blobs/sha256:39c6193c2a776a1184274c4132d659b3922929f355416846cc1e09f858fb763e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdbusmenu/blobs/sha256:e0527bd20da98e4b479e6e9bfa60f786382b01ad98670eadf37ce4b665db248c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdbusmenu/blobs/sha256:972661b3c937df6ef53985b8d3c986af8478834680126dc7f8557751b01d065c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdbusmenu/blobs/sha256:11a30a7008ce1dec8063c73449094da31626de9ce44e35ad1ca4b06d690f0874
+sha256:
+  darwin_arm64: 39c6193c2a776a1184274c4132d659b3922929f355416846cc1e09f858fb763e
+  darwin_amd64: e0527bd20da98e4b479e6e9bfa60f786382b01ad98670eadf37ce4b665db248c
+  linux_amd64: 972661b3c937df6ef53985b8d3c986af8478834680126dc7f8557751b01d065c
+  linux_arm64: 11a30a7008ce1dec8063c73449094da31626de9ce44e35ad1ca4b06d690f0874
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - json-glib
+  - pango
+  - cairo
+  - gettext
+  - harfbuzz

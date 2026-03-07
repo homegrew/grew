@@ -1,0 +1,22 @@
+name: sstp-client
+version: 1.0.20
+description: "SSTP (Microsoft's Remote Access Solution for PPP over SSL) client"
+homepage: https://gitlab.com/sstp-project/sstp-client
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sstp-client/blobs/sha256:71109b298ce186a8e26fde8fc8b7ca10e0a4608452b3065cb43aded5d1927fcc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sstp-client/blobs/sha256:184766c884ccf2bd80dd683a219ceb022038474b7a620e2c3ce496625c1302ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sstp-client/blobs/sha256:30078ed4805a4e3b52753c60ad87590d21a8a5289b31fde3d27be0116f179b2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sstp-client/blobs/sha256:d6025e73684a9bc136b059d9339b385c0d57ea8f9e3dbb311b468b90c051878f
+sha256:
+  darwin_arm64: 71109b298ce186a8e26fde8fc8b7ca10e0a4608452b3065cb43aded5d1927fcc
+  darwin_amd64: 184766c884ccf2bd80dd683a219ceb022038474b7a620e2c3ce496625c1302ed
+  linux_amd64: 30078ed4805a4e3b52753c60ad87590d21a8a5289b31fde3d27be0116f179b2b
+  linux_arm64: d6025e73684a9bc136b059d9339b385c0d57ea8f9e3dbb311b468b90c051878f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - openssl@3

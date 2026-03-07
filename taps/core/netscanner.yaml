@@ -1,0 +1,19 @@
+name: netscanner
+version: 0.6.41
+description: Network scanner with features like WiFi scanning, packetdump and more
+homepage: https://github.com/Chleba/netscanner
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netscanner/blobs/sha256:2bbdc73b8f4388e4eb8eda83524478f41432634a4af62e957cafff816da58241
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netscanner/blobs/sha256:fb838a3d0b5d954271195ef760920298825cf9daddba983bb5e00683de0f0761
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netscanner/blobs/sha256:885f563d930c6cffece877d5ddbb16170f83df76fea607e29ec302f65cc4bb83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netscanner/blobs/sha256:f63fc1a81c0d4abfa64065b4a6f93fa19de58f54af00a20fd95148e2fcbe650a
+sha256:
+  darwin_arm64: 2bbdc73b8f4388e4eb8eda83524478f41432634a4af62e957cafff816da58241
+  darwin_amd64: fb838a3d0b5d954271195ef760920298825cf9daddba983bb5e00683de0f0761
+  linux_amd64: 885f563d930c6cffece877d5ddbb16170f83df76fea607e29ec302f65cc4bb83
+  linux_arm64: f63fc1a81c0d4abfa64065b4a6f93fa19de58f54af00a20fd95148e2fcbe650a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

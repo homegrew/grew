@@ -1,0 +1,19 @@
+name: oxker
+version: 0.13.0
+description: "Terminal User Interface (TUI) to view & control docker containers"
+homepage: https://github.com/mrjackwills/oxker
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oxker/blobs/sha256:d32bc9b10aedb02b21b2ce0326de84f5c3296457f5b86a195a0884e9ba0d0f0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oxker/blobs/sha256:d3a23f517fded5a6196569601a4dee59263fa6bb3659473beae06be7bb179984
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oxker/blobs/sha256:d1f7eaf82a651a173e78c1b2bc80510b0a7af10d847390032efeacf530caa3d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oxker/blobs/sha256:c272a4f0d02583ccc4938dd9058535524ab6f9d48207aa588d4859c1236f49e2
+sha256:
+  darwin_arm64: d32bc9b10aedb02b21b2ce0326de84f5c3296457f5b86a195a0884e9ba0d0f0a
+  darwin_amd64: d3a23f517fded5a6196569601a4dee59263fa6bb3659473beae06be7bb179984
+  linux_amd64: d1f7eaf82a651a173e78c1b2bc80510b0a7af10d847390032efeacf530caa3d2
+  linux_arm64: c272a4f0d02583ccc4938dd9058535524ab6f9d48207aa588d4859c1236f49e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

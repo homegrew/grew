@@ -1,0 +1,31 @@
+name: openslide
+version: 4.0.0
+description: C library to read whole-slide images (a.k.a. virtual slides)
+homepage: https://openslide.org/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openslide/blobs/sha256:1534ce31db0f8eab68925e3df74fb60fd9b3f461d6d0d99d4699496295d89d86
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openslide/blobs/sha256:929afa35741b04b99c6db1c1c3288f369de57cf068f7238e65f4c64027a67b63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openslide/blobs/sha256:7490f047fab423ba2c71a0290c87f9bb6ac2ed261b300a22b680e92d577f79f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openslide/blobs/sha256:2efb5e0590e855d721035304d0d56a8d6b6ab3ad5763c2a8f010a11f49d584f3
+sha256:
+  darwin_arm64: 1534ce31db0f8eab68925e3df74fb60fd9b3f461d6d0d99d4699496295d89d86
+  darwin_amd64: 929afa35741b04b99c6db1c1c3288f369de57cf068f7238e65f4c64027a67b63
+  linux_amd64: 7490f047fab423ba2c71a0290c87f9bb6ac2ed261b300a22b680e92d577f79f3
+  linux_arm64: 2efb5e0590e855d721035304d0d56a8d6b6ab3ad5763c2a8f010a11f49d584f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - jpeg-turbo
+  - libdicom
+  - libpng
+  - libtiff
+  - libxml2
+  - openjpeg
+  - sqlite
+  - gettext

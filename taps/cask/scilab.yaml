@@ -1,0 +1,14 @@
+name: scilab
+version: 2026.0.1
+description: Software for numerical computation
+homepage: https://www.scilab.org/
+url:
+  darwin_arm64: https://www.scilab.org/download/2026.0.1/scilab-2026.0.1-arm64.dmg
+sha256:
+  darwin_arm64: 737310b7dd7dec619e9224f577fcb0a6937e1f54a1f023e8a3ad47c6f1290fd3
+artifacts:
+  app:
+    - scilab-2026.0.1.app
+  bin:
+    - scilab
+    - scilab-cli

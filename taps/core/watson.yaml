@@ -1,0 +1,22 @@
+name: watson
+version: 2.1.0
+description: Command-line tool to track (your) time
+homepage: https://jazzband.github.io/Watson/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/watson/blobs/sha256:dd59d5755139b4ef6952e14515584bc20dfa1603f89caee9057532b2bce7f611
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/watson/blobs/sha256:29d16ea3e55b56995e95e4e14045bf36072147c56da7b3d2dbf1451981614ce6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/watson/blobs/sha256:a28ef0742aa99dbd31a42f7cdc49a704c1ef93140b5c1c4df977d4a9fbe8c10a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/watson/blobs/sha256:155dd0deb4d9ccfd91caf092d719dda688ea2761bac9178271b4c614aa6ae482
+sha256:
+  darwin_arm64: dd59d5755139b4ef6952e14515584bc20dfa1603f89caee9057532b2bce7f611
+  darwin_amd64: 29d16ea3e55b56995e95e4e14045bf36072147c56da7b3d2dbf1451981614ce6
+  linux_amd64: a28ef0742aa99dbd31a42f7cdc49a704c1ef93140b5c1c4df977d4a9fbe8c10a
+  linux_arm64: 155dd0deb4d9ccfd91caf092d719dda688ea2761bac9178271b4c614aa6ae482
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

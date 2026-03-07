@@ -1,0 +1,19 @@
+name: mapcidr
+version: 1.1.97
+description: Subnet/CIDR operation utility
+homepage: https://projectdiscovery.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mapcidr/blobs/sha256:e2fbd51525ce47066752a4a499b95442d17370d7ff076e4a2ffeda7c2540b186
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mapcidr/blobs/sha256:70368a9a5728d87dea84e7615219e8c87a79d7ea0ea6bf1f7bdeba953bb665f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mapcidr/blobs/sha256:f4dab6dfedff6afb92ac22bf46ea32ee7d791bd4010c84644a4a71f24df35ca4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mapcidr/blobs/sha256:9e3f3ea9e816fa885ba16b0a0ee36b72f3847827499356a0b755b743bbb32737
+sha256:
+  darwin_arm64: e2fbd51525ce47066752a4a499b95442d17370d7ff076e4a2ffeda7c2540b186
+  darwin_amd64: 70368a9a5728d87dea84e7615219e8c87a79d7ea0ea6bf1f7bdeba953bb665f8
+  linux_amd64: f4dab6dfedff6afb92ac22bf46ea32ee7d791bd4010c84644a4a71f24df35ca4
+  linux_arm64: 9e3f3ea9e816fa885ba16b0a0ee36b72f3847827499356a0b755b743bbb32737
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

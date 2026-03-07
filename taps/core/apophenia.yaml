@@ -1,0 +1,21 @@
+name: apophenia
+version: 1.0
+description: C library for statistical and scientific computing
+homepage: https://github.com/b-k/apophenia
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apophenia/blobs/sha256:44c30149c9a30ba1c3eabfde55df2aa654127cd2788bddef59c67dc61b79531d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apophenia/blobs/sha256:cde422f8be856275c3fb3d2092929101bafcbbee62cb9486d1b59378b02b004a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apophenia/blobs/sha256:2980951404674b5fc9a6957d6fe7ebb8ae0ded37f3c0c444c732115f5b3f6638
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apophenia/blobs/sha256:d28856a30a244da835dc65df83285e22c654e7e449e56d0cf2a7748bc9ede283
+sha256:
+  darwin_arm64: 44c30149c9a30ba1c3eabfde55df2aa654127cd2788bddef59c67dc61b79531d
+  darwin_amd64: cde422f8be856275c3fb3d2092929101bafcbbee62cb9486d1b59378b02b004a
+  linux_amd64: 2980951404674b5fc9a6957d6fe7ebb8ae0ded37f3c0c444c732115f5b3f6638
+  linux_arm64: d28856a30a244da835dc65df83285e22c654e7e449e56d0cf2a7748bc9ede283
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gsl

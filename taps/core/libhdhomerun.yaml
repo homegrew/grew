@@ -1,0 +1,19 @@
+name: libhdhomerun
+version: 20250506
+description: C library for controlling SiliconDust HDHomeRun TV tuners
+homepage: https://www.silicondust.com/support/linux/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libhdhomerun/blobs/sha256:0863843dfe760dd0454dae929a74f5230819eb2261ca61604ba41ce4044a9a1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libhdhomerun/blobs/sha256:ad1590aa306190614b9ba2a331f40c24a9c502f2fdcf9c29534f545f98997033
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libhdhomerun/blobs/sha256:267e2668fdd5abf33dd50623014e4e4c5724204159a71a5f51a8fc38a9932390
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libhdhomerun/blobs/sha256:0308f092dc2348b44aa5c3e63afaf14f40e6c824f330ff9f1df3a5848b7f4a91
+sha256:
+  darwin_arm64: 0863843dfe760dd0454dae929a74f5230819eb2261ca61604ba41ce4044a9a1d
+  darwin_amd64: ad1590aa306190614b9ba2a331f40c24a9c502f2fdcf9c29534f545f98997033
+  linux_amd64: 267e2668fdd5abf33dd50623014e4e4c5724204159a71a5f51a8fc38a9932390
+  linux_arm64: 0308f092dc2348b44aa5c3e63afaf14f40e6c824f330ff9f1df3a5848b7f4a91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

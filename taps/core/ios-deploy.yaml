@@ -1,0 +1,15 @@
+name: ios-deploy
+version: 1.12.2
+description: Install and debug iPhone apps from the command-line
+homepage: https://github.com/ios-control/ios-deploy
+license: GPL-3.0-or-later AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ios-deploy/blobs/sha256:a265970fdac2b3cbced80ce05eb80cdfeefaf3b8d7b66684b23f8799a4d2d00f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ios-deploy/blobs/sha256:91d82a87a7a1ed736955a407d2fba49053222fd3ab4a4af23123cb6fd6b7ad4b
+sha256:
+  darwin_arm64: a265970fdac2b3cbced80ce05eb80cdfeefaf3b8d7b66684b23f8799a4d2d00f
+  darwin_amd64: 91d82a87a7a1ed736955a407d2fba49053222fd3ab4a4af23123cb6fd6b7ad4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: hwloc
+version: 2.13.0
+description: Portable abstraction of the hierarchical topology of modern architectures
+homepage: https://www.open-mpi.org/projects/hwloc/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hwloc/blobs/sha256:9f8b4882a8b58c18900e03bb2ecadabc828ba3a50978fa33e4d9c8f4c83fe674
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hwloc/blobs/sha256:2232073d9ed0f9d2783309ac0963b0042b2b9db381699a5b023cee251be0c86a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hwloc/blobs/sha256:35e4c018c3758ea1f9a6124ea34c1832a71b34b97c5fdab3fe25343f9f2f5fb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hwloc/blobs/sha256:147461c3c53fb69fa1985ede4a7a1da3d658c675f6d380d51788b7d29c457fa5
+sha256:
+  darwin_arm64: 9f8b4882a8b58c18900e03bb2ecadabc828ba3a50978fa33e4d9c8f4c83fe674
+  darwin_amd64: 2232073d9ed0f9d2783309ac0963b0042b2b9db381699a5b023cee251be0c86a
+  linux_amd64: 35e4c018c3758ea1f9a6124ea34c1832a71b34b97c5fdab3fe25343f9f2f5fb4
+  linux_arm64: 147461c3c53fb69fa1985ede4a7a1da3d658c675f6d380d51788b7d29c457fa5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

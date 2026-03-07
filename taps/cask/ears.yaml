@@ -1,0 +1,13 @@
+name: ears
+version: 1.6,21
+description: Instant audio switcher
+homepage: https://retina.studio/ears/
+url:
+  darwin_arm64: https://get.retina.studio/ears/ears_21.zip
+sha256:
+  darwin_arm64: 59fb9296ac7f20d35375db18aa65fbe09e1f593f3279fcac59372d82cf545bc9
+artifacts:
+  app:
+    - Ears.app
+  bin:
+    - ears

@@ -1,0 +1,23 @@
+name: enex2notion
+version: 0.3.1
+description: Import Evernote ENEX files to Notion
+homepage: https://github.com/vzhd1701/enex2notion
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enex2notion/blobs/sha256:e13e820f1bf41f33543fe1f3a38864985e7ccd73899b993a3ac857db30f1e714
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enex2notion/blobs/sha256:0b797877705534bab754ed3f8127df32f7835d134ecdd9a026287d274d24ea83
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enex2notion/blobs/sha256:0ad72decb59d5e77ecc0b9387394a17601ee1baac3c403fcede14a0a2fc4a848
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enex2notion/blobs/sha256:a4c2b655ed4b327dcedaf79547d0499143ca0783fe851bf2ebf22a02eacd0f62
+sha256:
+  darwin_arm64: e13e820f1bf41f33543fe1f3a38864985e7ccd73899b993a3ac857db30f1e714
+  darwin_amd64: 0b797877705534bab754ed3f8127df32f7835d134ecdd9a026287d274d24ea83
+  linux_amd64: 0ad72decb59d5e77ecc0b9387394a17601ee1baac3c403fcede14a0a2fc4a848
+  linux_arm64: a4c2b655ed4b327dcedaf79547d0499143ca0783fe851bf2ebf22a02eacd0f62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - pymupdf
+  - python@3.14

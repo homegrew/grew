@@ -1,0 +1,19 @@
+name: crates-tui
+version: 0.1.25
+description: TUI for exploring crates.io using Ratatui
+homepage: https://github.com/ratatui/crates-tui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crates-tui/blobs/sha256:7a4d3f4d546495d9eada59e3329b86c0172422e4796be32ca05c01eb3303e6f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crates-tui/blobs/sha256:8a9d22f1366b378bcc6815bcfaaf8757f7411e2ebcbadd8d25fdcaaee58e2162
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crates-tui/blobs/sha256:d61432d14ad58729837802eb342892a52a6fda9c600efdea3e25f6f3f4f570d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crates-tui/blobs/sha256:c7d2f55e2a85701ef682ebd95b1e545419d31ce1342eb665b044441309e0f1d8
+sha256:
+  darwin_arm64: 7a4d3f4d546495d9eada59e3329b86c0172422e4796be32ca05c01eb3303e6f6
+  darwin_amd64: 8a9d22f1366b378bcc6815bcfaaf8757f7411e2ebcbadd8d25fdcaaee58e2162
+  linux_amd64: d61432d14ad58729837802eb342892a52a6fda9c600efdea3e25f6f3f4f570d7
+  linux_arm64: c7d2f55e2a85701ef682ebd95b1e545419d31ce1342eb665b044441309e0f1d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

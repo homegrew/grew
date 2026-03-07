@@ -1,0 +1,21 @@
+name: khard
+version: 0.20.1
+description: Console carddav client
+homepage: https://github.com/lucc/khard
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/khard/blobs/sha256:5518339fb9e38d369d0f5c16dde65f96e628e66fee456fabb2b1f1300146f270
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/khard/blobs/sha256:b36a867168a0ec439838d2f400c20f3c5601190ae0f43906635fd3e6cd24383d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/khard/blobs/sha256:7d06c2fe4f7dc9be8bae61d3572bc77e670aebefc93c84e23f74a97376aa65f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/khard/blobs/sha256:edcb3d36eaec81549a894614250bd2a1c9fe32aca283f04a804bd8f9cde9cf35
+sha256:
+  darwin_arm64: 5518339fb9e38d369d0f5c16dde65f96e628e66fee456fabb2b1f1300146f270
+  darwin_amd64: b36a867168a0ec439838d2f400c20f3c5601190ae0f43906635fd3e6cd24383d
+  linux_amd64: 7d06c2fe4f7dc9be8bae61d3572bc77e670aebefc93c84e23f74a97376aa65f5
+  linux_arm64: edcb3d36eaec81549a894614250bd2a1c9fe32aca283f04a804bd8f9cde9cf35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

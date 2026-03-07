@@ -1,0 +1,19 @@
+name: zpaqfranz
+version: 63.8
+description: Deduplicating command-line archiver and backup tool
+homepage: https://github.com/fcorbelli/zpaqfranz
+license: LicenseRef-Homebrew-public-domain AND MIT AND Zlib AND Unlicense AND BSD-2-Clause AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zpaqfranz/blobs/sha256:6e67086e7954d4ee4a8f946982fbe74246f33bcade8101e637e6c6a6966d7616
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zpaqfranz/blobs/sha256:ad55fa92cfe36ac1c94e1a741d8b07bfbb26972d0a59119dc1a3ad4336431987
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zpaqfranz/blobs/sha256:9a6b61d598272da99f5ffe52d78bbfa9263ae08726f401ae213a247e93a2d639
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zpaqfranz/blobs/sha256:d757a3d52c3ad2d931fbc24f3615f6ecd1688ae04874650c06c5e4432b388637
+sha256:
+  darwin_arm64: 6e67086e7954d4ee4a8f946982fbe74246f33bcade8101e637e6c6a6966d7616
+  darwin_amd64: ad55fa92cfe36ac1c94e1a741d8b07bfbb26972d0a59119dc1a3ad4336431987
+  linux_amd64: 9a6b61d598272da99f5ffe52d78bbfa9263ae08726f401ae213a247e93a2d639
+  linux_arm64: d757a3d52c3ad2d931fbc24f3615f6ecd1688ae04874650c06c5e4432b388637
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: rtf2latex2e
+version: 2.2.3
+description: RTF-to-LaTeX translation
+homepage: https://rtf2latex2e.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtf2latex2e/blobs/sha256:7b023787b6ca5b67c6aed5da197e586269857f3d0ca369d7bcb1f8104876def6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtf2latex2e/blobs/sha256:8ed26391c02189f76bd07fa5fb453ac44dcba86f7991884fd9f8c43555e81709
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtf2latex2e/blobs/sha256:be77a066d018ead2d07e0bdb5e535f597e2ccea5659a505a271efe017a16fd94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtf2latex2e/blobs/sha256:2616c236d487e2a2ee9da2d9a858433363de29e8c4f15d8d29785a68ebde0244
+sha256:
+  darwin_arm64: 7b023787b6ca5b67c6aed5da197e586269857f3d0ca369d7bcb1f8104876def6
+  darwin_amd64: 8ed26391c02189f76bd07fa5fb453ac44dcba86f7991884fd9f8c43555e81709
+  linux_amd64: be77a066d018ead2d07e0bdb5e535f597e2ccea5659a505a271efe017a16fd94
+  linux_arm64: 2616c236d487e2a2ee9da2d9a858433363de29e8c4f15d8d29785a68ebde0244
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

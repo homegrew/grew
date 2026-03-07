@@ -1,0 +1,20 @@
+name: libpcap
+version: 1.10.6
+description: Portable library for network traffic capture
+homepage: https://www.tcpdump.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpcap/blobs/sha256:44f99c79e779b384423fc1177cd66cf1abadd9b3f4c8c51bd55f1843e95d6b1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpcap/blobs/sha256:7f39af412e6e3508a96c3daa45c1b4e2b83dc7b3e6126ad3512942e448138777
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpcap/blobs/sha256:53b6667dfeb90b91b051a6ad7adcb97714c95b2196a2d155fc1ea79b5cbb09cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpcap/blobs/sha256:15596854dbfac794c2b5632077365596557cf4b66aea9dd222ef8bf9f901ca17
+sha256:
+  darwin_arm64: 44f99c79e779b384423fc1177cd66cf1abadd9b3f4c8c51bd55f1843e95d6b1c
+  darwin_amd64: 7f39af412e6e3508a96c3daa45c1b4e2b83dc7b3e6126ad3512942e448138777
+  linux_amd64: 53b6667dfeb90b91b051a6ad7adcb97714c95b2196a2d155fc1ea79b5cbb09cd
+  linux_arm64: 15596854dbfac794c2b5632077365596557cf4b66aea9dd222ef8bf9f901ca17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,21 @@
+name: araxis-merge
+version: 2025.1
+description: Two and three-way file comparison, merging and folder synchronisation
+homepage: https://www.araxis.com/merge/
+url:
+  darwin_arm64: https://www.araxis.com/download/Merge2025.1-macOS.dmg
+sha256:
+  darwin_arm64: 16a46064ea2e446975b92bd4cd147304782ee2abf8f61d0c640b9ca8207011ef
+artifacts:
+  app:
+    - Araxis Merge.app
+  bin:
+    - araxishgmerge
+    - araxisopendiff
+    - araxisp4diff
+    - araxisp4winmrg
+    - araxissvndiff3
+    - araxissvnmerge
+    - araxiscompare
+    - araxiscompare2
+    - araxissvndiff

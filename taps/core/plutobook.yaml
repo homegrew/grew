@@ -1,0 +1,28 @@
+name: plutobook
+version: 0.15.0
+description: Paged HTML Rendering Library
+homepage: https://github.com/plutoprint/plutobook
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plutobook/blobs/sha256:b25fb1303f27c8556f688f088b8f47bcde14283ca343217aa2f27cf44dc55d33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plutobook/blobs/sha256:02dbe5a79eb54e7895695cde0a2d55af881e03149bcedc374b7acd67e0d68246
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plutobook/blobs/sha256:b1f71d02bfe21e8f0a2a8ba7cd13c9842ed6a7b523533b6a04e83442f35f91d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plutobook/blobs/sha256:4c4a01a0ca1999f3aa9004e087c63f8df2f5707a25762e7fbf1f264097c45142
+sha256:
+  darwin_arm64: b25fb1303f27c8556f688f088b8f47bcde14283ca343217aa2f27cf44dc55d33
+  darwin_amd64: 02dbe5a79eb54e7895695cde0a2d55af881e03149bcedc374b7acd67e0d68246
+  linux_amd64: b1f71d02bfe21e8f0a2a8ba7cd13c9842ed6a7b523533b6a04e83442f35f91d8
+  linux_arm64: 4c4a01a0ca1999f3aa9004e087c63f8df2f5707a25762e7fbf1f264097c45142
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - freetype
+  - harfbuzz
+  - icu4c@78
+  - jpeg-turbo
+  - libidn2
+  - webp

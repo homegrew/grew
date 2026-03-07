@@ -1,0 +1,15 @@
+name: ios-class-guard
+version: 0.8
+description: Objective-C obfuscator for Mach-O executables
+homepage: https://github.com/Polidea/ios-class-guard/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ios-class-guard/blobs/sha256:309a61c546e963a18349f50f48dcf782c98fedb310b248b9d2d9936d842d5ec1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ios-class-guard/blobs/sha256:b63ae8b6898be42e963f77307eab235d553c049a532bc727b628fece3da6c874
+sha256:
+  darwin_arm64: 309a61c546e963a18349f50f48dcf782c98fedb310b248b9d2d9936d842d5ec1
+  darwin_amd64: b63ae8b6898be42e963f77307eab235d553c049a532bc727b628fece3da6c874
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: benchi
+version: 0.4.1
+description: Benchmarking tool for data pipelines
+homepage: https://github.com/ConduitIO/benchi
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/benchi/blobs/sha256:345f2cb5010d9484cb706db47b011fcf1803f7362edbfa566fa91c3b6dc4a661
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/benchi/blobs/sha256:81b0da33bf40b9125ed50e1e1797204c92db8e4b399d2d6b789a0a1f80037ff0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/benchi/blobs/sha256:6e569ae18bead940da25254a002675e11578f3be5c81d631bb39db717a4439db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/benchi/blobs/sha256:ae2ad857f711eedc3a3ce6c7b2a30d2476b46bc3fedc1d1ce1d7e9817b75e35a
+sha256:
+  darwin_arm64: 345f2cb5010d9484cb706db47b011fcf1803f7362edbfa566fa91c3b6dc4a661
+  darwin_amd64: 81b0da33bf40b9125ed50e1e1797204c92db8e4b399d2d6b789a0a1f80037ff0
+  linux_amd64: 6e569ae18bead940da25254a002675e11578f3be5c81d631bb39db717a4439db
+  linux_arm64: ae2ad857f711eedc3a3ce6c7b2a30d2476b46bc3fedc1d1ce1d7e9817b75e35a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: asdf
+version: 0.18.1
+description: "Extendable version manager with support for Ruby, Node.js, Erlang & more"
+homepage: https://asdf-vm.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asdf/blobs/sha256:2755a56914e02b70ecb080a9c7923252eb556d0f4e1831054217cd9c280144e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asdf/blobs/sha256:361fc9c9cd741886725d249116b97e54b5179afa8bfad181f2dd6de43c62498b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asdf/blobs/sha256:ed50651cba368e74c59aa7e99205831c0002e976dc7cfb1fb88c8ba47dcaf359
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asdf/blobs/sha256:8d4bf5331ed531f43d7a0e5293138c50e2f8115cb80ca44194edab4d30a697f5
+sha256:
+  darwin_arm64: 2755a56914e02b70ecb080a9c7923252eb556d0f4e1831054217cd9c280144e7
+  darwin_amd64: 361fc9c9cd741886725d249116b97e54b5179afa8bfad181f2dd6de43c62498b
+  linux_amd64: ed50651cba368e74c59aa7e99205831c0002e976dc7cfb1fb88c8ba47dcaf359
+  linux_arm64: 8d4bf5331ed531f43d7a0e5293138c50e2f8115cb80ca44194edab4d30a697f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

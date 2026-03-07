@@ -1,0 +1,15 @@
+name: liburing
+version: 2.14
+description: Helpers to setup and teardown io_uring instances
+homepage: https://github.com/axboe/liburing
+license: MIT OR LGPL-2.1-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liburing/blobs/sha256:a93f7ddc433b025ba053e7aed0c6be08c439ae6259f2eb17dca6bf69122f3f68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liburing/blobs/sha256:c5b6cfcdea7906367c5d6d15f85d994f671f4b92a21d7b603327288e56bd7120
+sha256:
+  linux_amd64: a93f7ddc433b025ba053e7aed0c6be08c439ae6259f2eb17dca6bf69122f3f68
+  linux_arm64: c5b6cfcdea7906367c5d6d15f85d994f671f4b92a21d7b603327288e56bd7120
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

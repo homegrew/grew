@@ -1,0 +1,21 @@
+name: zssh
+version: 1.5c
+description: Interactive file transfers over SSH
+homepage: https://zssh.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zssh/blobs/sha256:bf52245597c50c4d6d826e9be5a239ba19ac959c304ef69d75f9240092453128
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zssh/blobs/sha256:0e88312f111f00dc479f90c1a317f7ceaa0aff00a6d6b7b24114a1952ceca529
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zssh/blobs/sha256:d0550b13ce3b5a29c94c0124f03ac8dffbe76455395172d9b35b00f4c8328068
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zssh/blobs/sha256:da32e62bd2610001f40c5e4e4ea30571f772a5198abebb78df5adbb8378218bd
+sha256:
+  darwin_arm64: bf52245597c50c4d6d826e9be5a239ba19ac959c304ef69d75f9240092453128
+  darwin_amd64: 0e88312f111f00dc479f90c1a317f7ceaa0aff00a6d6b7b24114a1952ceca529
+  linux_amd64: d0550b13ce3b5a29c94c0124f03ac8dffbe76455395172d9b35b00f4c8328068
+  linux_arm64: da32e62bd2610001f40c5e4e4ea30571f772a5198abebb78df5adbb8378218bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lrzsz

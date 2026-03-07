@@ -1,0 +1,19 @@
+name: humanlog
+version: 0.8.9
+description: Logs for humans to read
+homepage: https://github.com/humanlogio/humanlog
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/humanlog/blobs/sha256:e202bd633ce912f0e918947e902bef0993a7fdbbe6dc53da6643c9029a2558cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/humanlog/blobs/sha256:180b1362082f79196e1fd26670086154c37190b82fcd4deac1cf9d9d1514d9ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/humanlog/blobs/sha256:f28a25ed68a154c0a8f29ff9116691c2882bc9e33ecb5feea1f3bfda1ab1d33b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/humanlog/blobs/sha256:e4699cfbc7390d82908f8eb83f04d509f31ed02d338af18a183fb9ba341ad3a3
+sha256:
+  darwin_arm64: e202bd633ce912f0e918947e902bef0993a7fdbbe6dc53da6643c9029a2558cb
+  darwin_amd64: 180b1362082f79196e1fd26670086154c37190b82fcd4deac1cf9d9d1514d9ff
+  linux_amd64: f28a25ed68a154c0a8f29ff9116691c2882bc9e33ecb5feea1f3bfda1ab1d33b
+  linux_arm64: e4699cfbc7390d82908f8eb83f04d509f31ed02d338af18a183fb9ba341ad3a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

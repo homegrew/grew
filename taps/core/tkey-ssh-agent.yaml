@@ -1,0 +1,21 @@
+name: tkey-ssh-agent
+version: 1.0.0
+description: SSH agent for use with the TKey security stick
+homepage: https://tillitis.se/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tkey-ssh-agent/blobs/sha256:07136724f75aaf2969204ecbda818cd0b66308a2d088d21984f254313d2a8804
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tkey-ssh-agent/blobs/sha256:4cfb085857fead5f33b038fc74a07ee555af9f96cf445247c10fe663426e0cd2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tkey-ssh-agent/blobs/sha256:e3dc65ac11001c1f6f963a3e9526f18565053e0a1fe674526a06cfac1beaa127
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tkey-ssh-agent/blobs/sha256:72b5bcdb56861eee3ea3c512141a041d171c14c6977195351fa5041b5d6dac57
+sha256:
+  darwin_arm64: 07136724f75aaf2969204ecbda818cd0b66308a2d088d21984f254313d2a8804
+  darwin_amd64: 4cfb085857fead5f33b038fc74a07ee555af9f96cf445247c10fe663426e0cd2
+  linux_amd64: e3dc65ac11001c1f6f963a3e9526f18565053e0a1fe674526a06cfac1beaa127
+  linux_arm64: 72b5bcdb56861eee3ea3c512141a041d171c14c6977195351fa5041b5d6dac57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pinentry-mac

@@ -1,0 +1,34 @@
+name: gpac
+version: 26.02.0
+description: Multimedia framework for research and academic purposes
+homepage: https://gpac.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpac/blobs/sha256:b2d9c99d0d9bc24cd5c392091cb890363af39d9214ee1a2c35422208f06bff2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpac/blobs/sha256:f31f73e8e8c7a7aec8b554b7a860b9e49081d0bc45299083e86316ded86be2f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpac/blobs/sha256:5a2cd87687f784c99df64a1580d282cf9b93c0922f3f4fe1457ba11c0ffc308e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpac/blobs/sha256:c7ad558c0a70fcf23b5fa5d5e30adfeccd1776c3d96306a2e2e9e3b55ffa4232
+sha256:
+  darwin_arm64: b2d9c99d0d9bc24cd5c392091cb890363af39d9214ee1a2c35422208f06bff2c
+  darwin_amd64: f31f73e8e8c7a7aec8b554b7a860b9e49081d0bc45299083e86316ded86be2f6
+  linux_amd64: 5a2cd87687f784c99df64a1580d282cf9b93c0922f3f4fe1457ba11c0ffc308e
+  linux_arm64: c7ad558c0a70fcf23b5fa5d5e30adfeccd1776c3d96306a2e2e9e3b55ffa4232
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - freetype
+  - jpeg-turbo
+  - libnghttp2
+  - libpng
+  - libvorbis
+  - libx11
+  - libxext
+  - openjpeg
+  - openssl@3
+  - sdl2
+  - theora
+  - xz
+  - libogg

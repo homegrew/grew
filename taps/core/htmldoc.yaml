@@ -1,0 +1,22 @@
+name: htmldoc
+version: 1.9.23
+description: Convert HTML to PDF or PostScript
+homepage: https://www.msweet.org/htmldoc/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htmldoc/blobs/sha256:a65465e42cb84f558378c966a77ae8b7ca0409bc8686f89c62b4fc45d55bd18a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htmldoc/blobs/sha256:25ade32fb291157a367cb4900027b04baeb229a21aac12516ede7caa86b1a583
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htmldoc/blobs/sha256:9bc6c13c652f278395d6a156d10b1f5cc9afccae9a123fb465b840d0eb9446be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htmldoc/blobs/sha256:85a884b0c94907488539fcd47a78530fe1102045e052dd14647bdcbcb4de4556
+sha256:
+  darwin_arm64: a65465e42cb84f558378c966a77ae8b7ca0409bc8686f89c62b4fc45d55bd18a
+  darwin_amd64: 25ade32fb291157a367cb4900027b04baeb229a21aac12516ede7caa86b1a583
+  linux_amd64: 9bc6c13c652f278395d6a156d10b1f5cc9afccae9a123fb465b840d0eb9446be
+  linux_arm64: 85a884b0c94907488539fcd47a78530fe1102045e052dd14647bdcbcb4de4556
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng

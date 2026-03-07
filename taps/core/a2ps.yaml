@@ -1,0 +1,22 @@
+name: a2ps
+version: 4.15.8
+description: Any-to-PostScript filter
+homepage: https://www.gnu.org/software/a2ps/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/a2ps/blobs/sha256:f6895a00c5e039d81af9950d1e22c6012e50d6b8c19b5ad576953d06194ffc41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/a2ps/blobs/sha256:1460a22fe6091322739e60676866cca20541f9c6789a1c698468e702f3e99789
+  linux_amd64: https://ghcr.io/v2/homebrew/core/a2ps/blobs/sha256:f683fec596b5cfeb6d64503ca3a776969de98ee6b44b4a551a05db5e4ff4e230
+  linux_arm64: https://ghcr.io/v2/homebrew/core/a2ps/blobs/sha256:72508d993a610ed1bf5a8f8c59e381265c6d2ef3327f68d68319c6dd536e4032
+sha256:
+  darwin_arm64: f6895a00c5e039d81af9950d1e22c6012e50d6b8c19b5ad576953d06194ffc41
+  darwin_amd64: 1460a22fe6091322739e60676866cca20541f9c6789a1c698468e702f3e99789
+  linux_amd64: f683fec596b5cfeb6d64503ca3a776969de98ee6b44b4a551a05db5e4ff4e230
+  linux_arm64: 72508d993a610ed1bf5a8f8c59e381265c6d2ef3327f68d68319c6dd536e4032
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - libpaper

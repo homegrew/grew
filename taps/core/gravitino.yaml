@@ -1,0 +1,21 @@
+name: gravitino
+version: 1.1.0
+description: High-performance, geo-distributed, and federated metadata lake
+homepage: https://gravitino.apache.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gravitino/blobs/sha256:63902e35657d833c4a83fbed47492a2c3966ac4d1bf0e5601072f4865562a060
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gravitino/blobs/sha256:02a4dc8f6817eeee0cb4c058af06212566e4c0ee15f49046eeb69cb663e4e5ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gravitino/blobs/sha256:63a87b9c06823465aedc68dac0d7ba0399a9ee140ba317f3716638dcb3f230c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gravitino/blobs/sha256:7a1cf98112722089214cb985af489791a75c61a91f8aa4bac32e4a7023e17e59
+sha256:
+  darwin_arm64: 63902e35657d833c4a83fbed47492a2c3966ac4d1bf0e5601072f4865562a060
+  darwin_amd64: 02a4dc8f6817eeee0cb4c058af06212566e4c0ee15f49046eeb69cb663e4e5ef
+  linux_amd64: 63a87b9c06823465aedc68dac0d7ba0399a9ee140ba317f3716638dcb3f230c7
+  linux_arm64: 7a1cf98112722089214cb985af489791a75c61a91f8aa4bac32e4a7023e17e59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@17

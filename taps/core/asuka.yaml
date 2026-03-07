@@ -1,0 +1,19 @@
+name: asuka
+version: 0.8.5
+description: Gemini Project client written in Rust with NCurses
+homepage: https://sr.ht/~julienxx/Asuka/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asuka/blobs/sha256:156e06eccb49386fb0b708f212293bc61286c6380704b60b0e74e80126a59378
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asuka/blobs/sha256:033a615252d7926b79906b332656c132dc24e3cfb8e73b161983b6085e5ec35f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asuka/blobs/sha256:600e1d1324197049502dddfbce2df349657fb4108154a042c6503bdb69f24400
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asuka/blobs/sha256:bceb17ceec9b3e391c70eeb2798b3da9a1e2544c23203039032f0e8e38d0fda2
+sha256:
+  darwin_arm64: 156e06eccb49386fb0b708f212293bc61286c6380704b60b0e74e80126a59378
+  darwin_amd64: 033a615252d7926b79906b332656c132dc24e3cfb8e73b161983b6085e5ec35f
+  linux_amd64: 600e1d1324197049502dddfbce2df349657fb4108154a042c6503bdb69f24400
+  linux_arm64: bceb17ceec9b3e391c70eeb2798b3da9a1e2544c23203039032f0e8e38d0fda2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

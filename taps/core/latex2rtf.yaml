@@ -1,0 +1,19 @@
+name: latex2rtf
+version: 2.3.18a
+description: Translate LaTeX to RTF
+homepage: https://latex2rtf.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/latex2rtf/blobs/sha256:81a32c4137fb0b7b1f23fce3a76a90fd1c8a3196e5aafab8c9172796bd90d636
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/latex2rtf/blobs/sha256:23c3852f97936ec12ff0c47a4e6711a70cd4d729f4ee6bfbecfe438d2482af8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/latex2rtf/blobs/sha256:4614b529d342e3e532c2c36fc3b6090dd889261c05ba3ea21847a276a063e4c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/latex2rtf/blobs/sha256:8b1a51c757de5ad53a56a566565e86c7e51311927b111d16dcdf9bf15ff04e9c
+sha256:
+  darwin_arm64: 81a32c4137fb0b7b1f23fce3a76a90fd1c8a3196e5aafab8c9172796bd90d636
+  darwin_amd64: 23c3852f97936ec12ff0c47a4e6711a70cd4d729f4ee6bfbecfe438d2482af8b
+  linux_amd64: 4614b529d342e3e532c2c36fc3b6090dd889261c05ba3ea21847a276a063e4c5
+  linux_arm64: 8b1a51c757de5ad53a56a566565e86c7e51311927b111d16dcdf9bf15ff04e9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

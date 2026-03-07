@@ -1,0 +1,21 @@
+name: girara
+version: 2026.02.04
+description: Common components for zathura
+homepage: https://pwmt.org/projects/girara/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/girara/blobs/sha256:0ed07bd2e1e833c3b360de3e09c4a3e7a35d899a6af96aa7d3f8036bdde04aac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/girara/blobs/sha256:1cf9391cf1d2f22c921895f5675154d2041685d0a698e03b9aadf8548f6feb03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/girara/blobs/sha256:2d31420fa52a0f3420f452284cf0fc58904cbafa6e10ada3027ee75a59f93675
+  linux_arm64: https://ghcr.io/v2/homebrew/core/girara/blobs/sha256:494a9adfa607a0fe5238eb6cab449f576b5bc6ee31ea55d09582dabbceef241a
+sha256:
+  darwin_arm64: 0ed07bd2e1e833c3b360de3e09c4a3e7a35d899a6af96aa7d3f8036bdde04aac
+  darwin_amd64: 1cf9391cf1d2f22c921895f5675154d2041685d0a698e03b9aadf8548f6feb03
+  linux_amd64: 2d31420fa52a0f3420f452284cf0fc58904cbafa6e10ada3027ee75a59f93675
+  linux_arm64: 494a9adfa607a0fe5238eb6cab449f576b5bc6ee31ea55d09582dabbceef241a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

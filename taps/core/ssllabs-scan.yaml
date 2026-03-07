@@ -1,0 +1,19 @@
+name: ssllabs-scan
+version: 1.5.0
+description: This tool is a command-line client for the SSL Labs APIs
+homepage: https://www.ssllabs.com/projects/ssllabs-apis/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssllabs-scan/blobs/sha256:0f8a61fd15b012c3792bdbcdc8229833e8d9d4f9e8b009e3f88d7e8a477ac111
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssllabs-scan/blobs/sha256:1448551689011cb673df66494349bc792bd5654596bd83e8ff2938912e60a157
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssllabs-scan/blobs/sha256:9298cfa3c9eb7b7effb0f924f9998e63406d3bfacd4b4df9785a0371138699e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssllabs-scan/blobs/sha256:edd29f50b8ff77077f310d961a60a6e58cd157e80925e58f586a020f90a56e67
+sha256:
+  darwin_arm64: 0f8a61fd15b012c3792bdbcdc8229833e8d9d4f9e8b009e3f88d7e8a477ac111
+  darwin_amd64: 1448551689011cb673df66494349bc792bd5654596bd83e8ff2938912e60a157
+  linux_amd64: 9298cfa3c9eb7b7effb0f924f9998e63406d3bfacd4b4df9785a0371138699e2
+  linux_arm64: edd29f50b8ff77077f310d961a60a6e58cd157e80925e58f586a020f90a56e67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

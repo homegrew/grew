@@ -1,0 +1,21 @@
+name: bioperl
+version: 1.7.8
+description: Perl tools for bioinformatics, genomics and life science
+homepage: https://bioperl.org
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bioperl/blobs/sha256:17405e0b0b17e484a222e76279b4b9732b3d1010f0ef33a05552d8ee4cec1272
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bioperl/blobs/sha256:3b8c427638890704e973ffabfaedf465c9f26da45019d3b0a06a0ed35982d804
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bioperl/blobs/sha256:c47f38eb54d21c53685df9838272b3cc06a7ded2ec3c51a3a6a75160a3c0abcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bioperl/blobs/sha256:55291459382b946db20a86f1dc47d828263b2cb79470351fe18a3396880db4d2
+sha256:
+  darwin_arm64: 17405e0b0b17e484a222e76279b4b9732b3d1010f0ef33a05552d8ee4cec1272
+  darwin_amd64: 3b8c427638890704e973ffabfaedf465c9f26da45019d3b0a06a0ed35982d804
+  linux_amd64: c47f38eb54d21c53685df9838272b3cc06a7ded2ec3c51a3a6a75160a3c0abcf
+  linux_arm64: 55291459382b946db20a86f1dc47d828263b2cb79470351fe18a3396880db4d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

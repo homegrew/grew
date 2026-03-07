@@ -1,0 +1,21 @@
+name: coordgen
+version: 3.0.2
+description: Schrodinger-developed 2D Coordinate Generation
+homepage: https://github.com/schrodinger/coordgenlibs
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coordgen/blobs/sha256:b6016edb22f9c1467d088684311a5de1a03f156031c99884f5a04bd55b4b368f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coordgen/blobs/sha256:aec4514a4bb6382e5570aaab3970f1b4bc326d47eec90d82650fd58f37c32150
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coordgen/blobs/sha256:ff923bc755c574b2b66e0e70123d183dfbe781db2aedc2ec47451c5a7b1586d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coordgen/blobs/sha256:dd0cef4b484abbdb1a50646919aedd7e34dd3dab36e460b90a3bc0e5b7c31e26
+sha256:
+  darwin_arm64: b6016edb22f9c1467d088684311a5de1a03f156031c99884f5a04bd55b4b368f
+  darwin_amd64: aec4514a4bb6382e5570aaab3970f1b4bc326d47eec90d82650fd58f37c32150
+  linux_amd64: ff923bc755c574b2b66e0e70123d183dfbe781db2aedc2ec47451c5a7b1586d3
+  linux_arm64: dd0cef4b484abbdb1a50646919aedd7e34dd3dab36e460b90a3bc0e5b7c31e26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - maeparser

@@ -1,0 +1,19 @@
+name: libltc
+version: 1.3.2
+description: POSIX-C Library for handling Linear/Logitudinal Time Code (LTC)
+homepage: https://x42.github.io/libltc/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libltc/blobs/sha256:96c5103e95fb66b47f93433bf6f7e3a85cf6de5e8540348172062cf1b68920f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libltc/blobs/sha256:368a0369adc7d7c720f108402577e83d18f6da8dba0dac96ae170f6bb4616c7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libltc/blobs/sha256:c160950aa4d33232070cb6607deec9ed4fc9b070dd5dcf0c3221404199016c46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libltc/blobs/sha256:9cf04675a7dd67b37fa8b4c48ab7e6903d2caa761704bebdd1e64a5a6d79f863
+sha256:
+  darwin_arm64: 96c5103e95fb66b47f93433bf6f7e3a85cf6de5e8540348172062cf1b68920f7
+  darwin_amd64: 368a0369adc7d7c720f108402577e83d18f6da8dba0dac96ae170f6bb4616c7a
+  linux_amd64: c160950aa4d33232070cb6607deec9ed4fc9b070dd5dcf0c3221404199016c46
+  linux_arm64: 9cf04675a7dd67b37fa8b4c48ab7e6903d2caa761704bebdd1e64a5a6d79f863
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

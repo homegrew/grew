@@ -1,0 +1,19 @@
+name: mabel
+version: 0.1.7
+description: Fancy BitTorrent client for the terminal
+homepage: https://github.com/smmr-software/mabel
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mabel/blobs/sha256:960ea70939b5cd3392ea1390f43e87e9d2690a03ca8a2e602935dcc381a8df8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mabel/blobs/sha256:aa4371cca2ceb58486dd3a0c57e4952a8448f749c6c0657aaade9287dacf66b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mabel/blobs/sha256:2924f4b5c702e64acc23bd090f4897e06d83473711921aed113391b7fb9e0bcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mabel/blobs/sha256:e510772573fb47351b50ae37138a50e34b9ef23e735f5848e573c1d8b7a880de
+sha256:
+  darwin_arm64: 960ea70939b5cd3392ea1390f43e87e9d2690a03ca8a2e602935dcc381a8df8e
+  darwin_amd64: aa4371cca2ceb58486dd3a0c57e4952a8448f749c6c0657aaade9287dacf66b4
+  linux_amd64: 2924f4b5c702e64acc23bd090f4897e06d83473711921aed113391b7fb9e0bcb
+  linux_arm64: e510772573fb47351b50ae37138a50e34b9ef23e735f5848e573c1d8b7a880de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

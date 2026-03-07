@@ -1,0 +1,19 @@
+name: scooter
+version: 0.9.0
+description: Interactive find and replace in the terminal
+homepage: https://github.com/thomasschafer/scooter
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scooter/blobs/sha256:49961261616ed82709e56f220450bcd06d447974ec1779de045f19ecd0668589
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scooter/blobs/sha256:1d8776e28af33a175f08f262a2c8dddf2c93d761d99c5da394c65994e2d28a3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scooter/blobs/sha256:8cd7a3b9cc59b0dc5b0f12a2812f27a95ae6ab1606fbefda80711757334483fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scooter/blobs/sha256:8a99da1214ef271434f9284b369146cb59c9f918359f7daf5f4eca29e697ad68
+sha256:
+  darwin_arm64: 49961261616ed82709e56f220450bcd06d447974ec1779de045f19ecd0668589
+  darwin_amd64: 1d8776e28af33a175f08f262a2c8dddf2c93d761d99c5da394c65994e2d28a3b
+  linux_amd64: 8cd7a3b9cc59b0dc5b0f12a2812f27a95ae6ab1606fbefda80711757334483fa
+  linux_arm64: 8a99da1214ef271434f9284b369146cb59c9f918359f7daf5f4eca29e697ad68
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

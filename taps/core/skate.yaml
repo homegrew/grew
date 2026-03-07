@@ -1,0 +1,19 @@
+name: skate
+version: 1.0.1
+description: Personal key value store
+homepage: https://github.com/charmbracelet/skate
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skate/blobs/sha256:966917f5054c2a722ce35156256437222602a118fa3a27a609c54397b7155730
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skate/blobs/sha256:e28973a036de11d215bb911adf8708dd1e5d75071578bbc288c907c061cf23bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skate/blobs/sha256:69757b83e851a3f06e7bd001afd3f27b813076f66c7b99c0ed84b6715daa1a3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skate/blobs/sha256:5d5dad73511d894bf5ef083edeb30eef46b13398fabf73b1f6d92e062644c9c0
+sha256:
+  darwin_arm64: 966917f5054c2a722ce35156256437222602a118fa3a27a609c54397b7155730
+  darwin_amd64: e28973a036de11d215bb911adf8708dd1e5d75071578bbc288c907c061cf23bc
+  linux_amd64: 69757b83e851a3f06e7bd001afd3f27b813076f66c7b99c0ed84b6715daa1a3f
+  linux_arm64: 5d5dad73511d894bf5ef083edeb30eef46b13398fabf73b1f6d92e062644c9c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

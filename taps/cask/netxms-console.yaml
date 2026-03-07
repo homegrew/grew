@@ -1,0 +1,11 @@
+name: netxms-console
+version: 6.0.3
+description: Network and infrastructure monitoring and management system
+homepage: https://netxms.com/
+url:
+  darwin_arm64: https://netxms.com/download/releases/6.0/nxmc-6.0.3.dmg
+sha256:
+  darwin_arm64: 16be895c6df78a4958c9a5a1a1b12005120922627272fd85ddc582eab419c74b
+artifacts:
+  app:
+    - NetXMS 6.0.app

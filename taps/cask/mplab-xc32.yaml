@@ -1,0 +1,27 @@
+name: mplab-xc32
+version: 5.00
+description: Compiler for 32-bit PIC and SAM MCUs and MPUs
+homepage: https://www.microchip.com/mplab/compilers
+url:
+  darwin_arm64: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc32-v5.00-full-install-osx-installer.dmg
+sha256:
+  darwin_arm64: e5871c0c4627bb48bcd06dfce2ccb1b5ef0ddc1da50692b373c70a42a165763d
+artifacts:
+  bin:
+    - xc32-addr2line
+    - xc32-as
+    - xc32-bin2hex
+    - xc32-c++
+    - xc32-elfedit
+    - xc32-g++
+    - xc32-gcc
+    - xc32-ld
+    - xc32-nm
+    - xc32-objcopy
+    - xc32-objdump
+    - xc32-ranlib
+    - xc32-readelf
+    - xc32-size
+    - xc32-strings
+    - xc32-strip
+    - xc32-ar

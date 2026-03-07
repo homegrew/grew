@@ -1,0 +1,25 @@
+name: riscv64-elf-gcc
+version: 15.2.0
+description: GNU compiler collection for riscv64-elf
+homepage: https://gcc.gnu.org
+license: GPL-3.0-or-later WITH GCC-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gcc/blobs/sha256:6a6b9c6a1a1ab30d64f79c4c9b12a1b7f89bf343443c93acea3f44cb0e3fd024
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gcc/blobs/sha256:14b7e6f6aa5b7ba859c8e1fcae88569f7e3394d33623935ac3383c97c964e4f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gcc/blobs/sha256:58d842ae0c40efa2fc02e673a634723797ac19b422dc816b3e8854c4568a80da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gcc/blobs/sha256:76017c17d960c82448240e53d2da221ba33ceffc88a280da36da5de17847a0c4
+sha256:
+  darwin_arm64: 6a6b9c6a1a1ab30d64f79c4c9b12a1b7f89bf343443c93acea3f44cb0e3fd024
+  darwin_amd64: 14b7e6f6aa5b7ba859c8e1fcae88569f7e3394d33623935ac3383c97c964e4f1
+  linux_amd64: 58d842ae0c40efa2fc02e673a634723797ac19b422dc816b3e8854c4568a80da
+  linux_arm64: 76017c17d960c82448240e53d2da221ba33ceffc88a280da36da5de17847a0c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libmpc
+  - mpfr
+  - riscv64-elf-binutils
+  - zstd

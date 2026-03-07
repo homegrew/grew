@@ -1,0 +1,21 @@
+name: nixfmt
+version: 1.2.0
+description: Command-line tool to format Nix language code
+homepage: https://github.com/NixOS/nixfmt
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nixfmt/blobs/sha256:b71aff03f7696495f6aeaa305421f0e462be0c0b2562e6d5db82cd185e9a683e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nixfmt/blobs/sha256:44a612a71f335bc9596ce3186977f9921b1357520777f4a0c0254559727ebf76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nixfmt/blobs/sha256:0e25fd4284efa455be202300498501be2098a8bed7f6ea7e831902b2c5b37706
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nixfmt/blobs/sha256:0fbbe3f5a299fee9dd1ebb269f8a0224547245625cb249bf44f52d7e4a71b8aa
+sha256:
+  darwin_arm64: b71aff03f7696495f6aeaa305421f0e462be0c0b2562e6d5db82cd185e9a683e
+  darwin_amd64: 44a612a71f335bc9596ce3186977f9921b1357520777f4a0c0254559727ebf76
+  linux_amd64: 0e25fd4284efa455be202300498501be2098a8bed7f6ea7e831902b2c5b37706
+  linux_arm64: 0fbbe3f5a299fee9dd1ebb269f8a0224547245625cb249bf44f52d7e4a71b8aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

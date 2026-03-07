@@ -1,0 +1,26 @@
+name: bareos-client
+version: 25.0.2
+description: Client for Bareos (Backup Archiving REcovery Open Sourced)
+homepage: https://www.bareos.com/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bareos-client/blobs/sha256:4c38cca3791014540429ccd676920e0f74f7685e7849b9b3c7804c90c6211a3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bareos-client/blobs/sha256:b2b2f19e68cac163658b2c8eabd6eda2c2e5696420f4d101462033673f0b5121
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bareos-client/blobs/sha256:8d99defa6d8fc3a03635e3ea4fb2fc16bc70f59653a4f8b9474b19b7435dc923
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bareos-client/blobs/sha256:cd80b9ff94ccb46a892d4c294859beaba56a51acaac0af764c2aa895f4d96d22
+sha256:
+  darwin_arm64: 4c38cca3791014540429ccd676920e0f74f7685e7849b9b3c7804c90c6211a3f
+  darwin_amd64: b2b2f19e68cac163658b2c8eabd6eda2c2e5696420f4d101462033673f0b5121
+  linux_amd64: 8d99defa6d8fc3a03635e3ea4fb2fc16bc70f59653a4f8b9474b19b7435dc923
+  linux_arm64: cd80b9ff94ccb46a892d4c294859beaba56a51acaac0af764c2aa895f4d96d22
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson
+  - lzo
+  - openssl@3
+  - readline
+  - xxhash
+  - gettext

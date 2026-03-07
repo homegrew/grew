@@ -1,0 +1,21 @@
+name: nvimpager
+version: 0.13.0
+description: Use NeoVim as a pager to view manpages, diffs, etc.
+homepage: https://github.com/lucc/nvimpager
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nvimpager/blobs/sha256:4814f2fa4abc9b5b3388de2a29d97ef491f487573c45295500fece9831fc12d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nvimpager/blobs/sha256:1e5fabfc49fc98011785dfcc6f26a87eaac964f2b4817efc8f1075ca2d8f9e26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nvimpager/blobs/sha256:e843773be2cca6cb16f7bcd029b6f83a8fcfb0b9578ca6f8bf009b43255c9f74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nvimpager/blobs/sha256:4814f2fa4abc9b5b3388de2a29d97ef491f487573c45295500fece9831fc12d4
+sha256:
+  darwin_arm64: 4814f2fa4abc9b5b3388de2a29d97ef491f487573c45295500fece9831fc12d4
+  darwin_amd64: 1e5fabfc49fc98011785dfcc6f26a87eaac964f2b4817efc8f1075ca2d8f9e26
+  linux_amd64: e843773be2cca6cb16f7bcd029b6f83a8fcfb0b9578ca6f8bf009b43255c9f74
+  linux_arm64: 4814f2fa4abc9b5b3388de2a29d97ef491f487573c45295500fece9831fc12d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neovim

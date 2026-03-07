@@ -1,0 +1,11 @@
+name: cloudash
+version: 1.22.1
+description: Monitoring and troubleshooting for serverless architectures
+homepage: https://cloudash.dev/
+url:
+  darwin_arm64: https://github.com/cloudashdev/cloudash/releases/download/1.22.1/Cloudash-1.22.1-arm64.dmg
+sha256:
+  darwin_arm64: 94ce30488721f5511433994ed4fbc045fe6b4ec54b06e37f23cb343b19b33556
+artifacts:
+  app:
+    - Cloudash.app

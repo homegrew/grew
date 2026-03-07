@@ -1,0 +1,21 @@
+name: monika
+version: 1.22.0
+description: Synthetic monitoring made easy
+homepage: https://monika.hyperjump.tech
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monika/blobs/sha256:7666c9d8ccb5caf33268ea57d5bc2bdfbf2ba02d535efcf8ea12cfcdf5f9c96d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monika/blobs/sha256:fd2f4b9bf912a309be3a54757296966146450636de52de8426f4ca376dbd9a2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monika/blobs/sha256:98229abf3b9246bf3478688d12018043004695ce89588260ddea3346b4f207fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monika/blobs/sha256:26485a9c9e463158a569f093f03eec4a3a2c614044ca23f736928f167e4184df
+sha256:
+  darwin_arm64: 7666c9d8ccb5caf33268ea57d5bc2bdfbf2ba02d535efcf8ea12cfcdf5f9c96d
+  darwin_amd64: fd2f4b9bf912a309be3a54757296966146450636de52de8426f4ca376dbd9a2c
+  linux_amd64: 98229abf3b9246bf3478688d12018043004695ce89588260ddea3346b4f207fd
+  linux_arm64: 26485a9c9e463158a569f093f03eec4a3a2c614044ca23f736928f167e4184df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node@24

@@ -1,0 +1,24 @@
+name: texttest
+version: 4.4.6
+description: Tool for text-based Approval Testing
+homepage: https://www.texttest.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texttest/blobs/sha256:436a8ff3d8efc9ce3572fa6c92a2c8fe10a0988a66fca562f9df1e2d19ac0be8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texttest/blobs/sha256:282d47d8bcc5d9df1319d15fc4ac3cd70853fe26fdecc85614083d7b41742527
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texttest/blobs/sha256:b73ee0045cb722f2d9e007b980f539caeca17e5d83ab87cfeb5a6d7e8fbfdaa8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texttest/blobs/sha256:a9112d710cf89b3dd3c43e6e44e4a81cdfeb52fe320775faa3b27dd3ba188e05
+sha256:
+  darwin_arm64: 436a8ff3d8efc9ce3572fa6c92a2c8fe10a0988a66fca562f9df1e2d19ac0be8
+  darwin_amd64: 282d47d8bcc5d9df1319d15fc4ac3cd70853fe26fdecc85614083d7b41742527
+  linux_amd64: b73ee0045cb722f2d9e007b980f539caeca17e5d83ab87cfeb5a6d7e8fbfdaa8
+  linux_arm64: a9112d710cf89b3dd3c43e6e44e4a81cdfeb52fe320775faa3b27dd3ba188e05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - gtk+3
+  - pygobject3
+  - python@3.14

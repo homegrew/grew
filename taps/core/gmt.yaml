@@ -1,0 +1,26 @@
+name: gmt
+version: 6.6.0
+description: Tools for manipulating and plotting geographic and Cartesian data
+homepage: https://www.generic-mapping-tools.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gmt/blobs/sha256:62b4a61ca7facf02308e342b040410293eb975c81e41bd5d7932b5e4ef4306f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gmt/blobs/sha256:4c3cb71550b8dab5896bcf74e2ca10044fd89f3c56234abfbb3816207bed4002
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gmt/blobs/sha256:fce66e4f910156ba3037405cf395e388d2459f8708a8f81699fccf294100c738
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gmt/blobs/sha256:e57abef6646bb5644e01a895eec9477a3bb20c69c88d6ce30943e0c6a895f9be
+sha256:
+  darwin_arm64: 62b4a61ca7facf02308e342b040410293eb975c81e41bd5d7932b5e4ef4306f2
+  darwin_amd64: 4c3cb71550b8dab5896bcf74e2ca10044fd89f3c56234abfbb3816207bed4002
+  linux_amd64: fce66e4f910156ba3037405cf395e388d2459f8708a8f81699fccf294100c738
+  linux_arm64: e57abef6646bb5644e01a895eec9477a3bb20c69c88d6ce30943e0c6a895f9be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - gdal
+  - geos
+  - netcdf
+  - openblas
+  - pcre2

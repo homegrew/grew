@@ -1,0 +1,19 @@
+name: xmake
+version: 3.0.7
+description: Cross-platform build utility based on Lua
+homepage: https://xmake.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmake/blobs/sha256:d894528d5e21853788f313e1b1407dc7002a77c2e2455fb6dbd147dce5de595e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmake/blobs/sha256:67f0ecef9ca9f8964a6424890accf62abc0402066870e8baac0f4796573fae4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmake/blobs/sha256:a1bc14dea30e316f040d34f7118559773a4f82bea7e4c964188077dfe9279ce6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmake/blobs/sha256:5dc3d3045dfe881b65508deff3fb014f8e0b7841da5ec13fb9e9b2028102a1ff
+sha256:
+  darwin_arm64: d894528d5e21853788f313e1b1407dc7002a77c2e2455fb6dbd147dce5de595e
+  darwin_amd64: 67f0ecef9ca9f8964a6424890accf62abc0402066870e8baac0f4796573fae4d
+  linux_amd64: a1bc14dea30e316f040d34f7118559773a4f82bea7e4c964188077dfe9279ce6
+  linux_arm64: 5dc3d3045dfe881b65508deff3fb014f8e0b7841da5ec13fb9e9b2028102a1ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

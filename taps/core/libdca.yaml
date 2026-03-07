@@ -1,0 +1,19 @@
+name: libdca
+version: 0.0.7
+description: Library for decoding DTS Coherent Acoustics streams
+homepage: https://www.videolan.org/developers/libdca.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdca/blobs/sha256:d61a15b00846c5be3aac61ac0f853f1f86a3e8dff28aaf3df07f546cc8ca1c4b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdca/blobs/sha256:f0cf65d1a7c35c4f90798eb1522341a6f9441ecaaa62bb68b1b3afbd8194ec43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdca/blobs/sha256:6d7ec4a08990df38fb26a4c719e6bd669bd35e3e5e89d49d43fea007b74e3edf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdca/blobs/sha256:a2f265e353b2c9fb8073ce2a4a5eafc96b615c9e30acde2045cfdeb0b754a657
+sha256:
+  darwin_arm64: d61a15b00846c5be3aac61ac0f853f1f86a3e8dff28aaf3df07f546cc8ca1c4b
+  darwin_amd64: f0cf65d1a7c35c4f90798eb1522341a6f9441ecaaa62bb68b1b3afbd8194ec43
+  linux_amd64: 6d7ec4a08990df38fb26a4c719e6bd669bd35e3e5e89d49d43fea007b74e3edf
+  linux_arm64: a2f265e353b2c9fb8073ce2a4a5eafc96b615c9e30acde2045cfdeb0b754a657
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

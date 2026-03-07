@@ -1,0 +1,15 @@
+name: xcinfo
+version: 1.0.3
+description: Tool to get information about and install available Xcode versions
+homepage: https://github.com/xcodereleases/xcinfo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcinfo/blobs/sha256:3df6418afc61ae23e1f303b405cdf6c24dff3a0fed304e1a0a7ba9e59be44e84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcinfo/blobs/sha256:209fabe73333978156fc9bf344645a62b1eaeaa5c9fa872ce52993f4b1717533
+sha256:
+  darwin_arm64: 3df6418afc61ae23e1f303b405cdf6c24dff3a0fed304e1a0a7ba9e59be44e84
+  darwin_amd64: 209fabe73333978156fc9bf344645a62b1eaeaa5c9fa872ce52993f4b1717533
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

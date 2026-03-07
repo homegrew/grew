@@ -1,0 +1,19 @@
+name: cscope
+version: 15.9
+description: Tool for browsing source code
+homepage: https://cscope.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cscope/blobs/sha256:a0a30f47c29cb9473180bfe1c3670ceff999e1cd694babbe88d90e012cca0827
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cscope/blobs/sha256:151c5fc8f429b052dedb87188017857da6fd4966f47bb1de1044a77adc2bb9ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cscope/blobs/sha256:aed0460f7dc9a9355d4fb019760284424d56012224f12df098c8fe9912c904c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cscope/blobs/sha256:57d5c5b934b8aa1bca7f20239d413f6522e192b107cd8f0ecabb75d2f3b390fb
+sha256:
+  darwin_arm64: a0a30f47c29cb9473180bfe1c3670ceff999e1cd694babbe88d90e012cca0827
+  darwin_amd64: 151c5fc8f429b052dedb87188017857da6fd4966f47bb1de1044a77adc2bb9ab
+  linux_amd64: aed0460f7dc9a9355d4fb019760284424d56012224f12df098c8fe9912c904c2
+  linux_arm64: 57d5c5b934b8aa1bca7f20239d413f6522e192b107cd8f0ecabb75d2f3b390fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

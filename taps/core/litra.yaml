@@ -1,0 +1,19 @@
+name: litra
+version: 3.3.0
+description: Control Logitech Litra lights from the command-line
+homepage: https://github.com/timrogers/litra-rs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/litra/blobs/sha256:36fb6a68b593db3540bb1f56f0a93e78f352037c74087c895866a5b3b19c1a54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/litra/blobs/sha256:ebe982baddbefa1ffd6ce03227526560d8e90672d98471e09760f899bc76e477
+  linux_amd64: https://ghcr.io/v2/homebrew/core/litra/blobs/sha256:3ef3fbf28dfb425e767db30e4402f5ecd743b3ac8265c15f997a6205701038b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/litra/blobs/sha256:c49d0cb09b0d496fae5fbe1661e5ad3809d440740070404231ecd8c07c3e7b5a
+sha256:
+  darwin_arm64: 36fb6a68b593db3540bb1f56f0a93e78f352037c74087c895866a5b3b19c1a54
+  darwin_amd64: ebe982baddbefa1ffd6ce03227526560d8e90672d98471e09760f899bc76e477
+  linux_amd64: 3ef3fbf28dfb425e767db30e4402f5ecd743b3ac8265c15f997a6205701038b6
+  linux_arm64: c49d0cb09b0d496fae5fbe1661e5ad3809d440740070404231ecd8c07c3e7b5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: libfaketime
+version: 0.9.12
+description: Report faked system time to programs
+homepage: https://github.com/wolfcw/libfaketime
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfaketime/blobs/sha256:bcd23642919c6bacca9c7d75e1c473fdf1f86f5e748503f089fe9324eac7c369
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfaketime/blobs/sha256:73638e62bae905cfe0e2484f8c8a0a01ad064cdd68c5c55b8708a2ee8ebe9720
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfaketime/blobs/sha256:feb25281dd8aec835459b0381734f5a2cd877738c23da58d636d2b7d95bc9a0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfaketime/blobs/sha256:600785347f8e59a106e286b38c4fd82a2ba422be0fd6d453baf8d71179f56da4
+sha256:
+  darwin_arm64: bcd23642919c6bacca9c7d75e1c473fdf1f86f5e748503f089fe9324eac7c369
+  darwin_amd64: 73638e62bae905cfe0e2484f8c8a0a01ad064cdd68c5c55b8708a2ee8ebe9720
+  linux_amd64: feb25281dd8aec835459b0381734f5a2cd877738c23da58d636d2b7d95bc9a0f
+  linux_arm64: 600785347f8e59a106e286b38c4fd82a2ba422be0fd6d453baf8d71179f56da4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils

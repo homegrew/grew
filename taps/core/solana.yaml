@@ -1,0 +1,22 @@
+name: solana
+version: 3.1.9
+description: Web-Scale Blockchain for decentralized apps and marketplaces
+homepage: https://www.anza.xyz/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solana/blobs/sha256:39bf27dc2595c7810a9c1d6fc46e692f89e4c998ad012c17c1440581c17c2420
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solana/blobs/sha256:96ec435bef33a52c8d9c9776212239cef06cfb4bc47b9604739b8cfa73a802ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solana/blobs/sha256:93d61f9989c4571fc9f81537f03040c00a4ff5fad5f5cbdbdd5f5b82c8812b78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solana/blobs/sha256:73213d63cf965fac72eaf681809ccdba9224a22071921e52ae71aeba001be9bd
+sha256:
+  darwin_arm64: 39bf27dc2595c7810a9c1d6fc46e692f89e4c998ad012c17c1440581c17c2420
+  darwin_amd64: 96ec435bef33a52c8d9c9776212239cef06cfb4bc47b9604739b8cfa73a802ef
+  linux_amd64: 93d61f9989c4571fc9f81537f03040c00a4ff5fad5f5cbdbdd5f5b82c8812b78
+  linux_arm64: 73213d63cf965fac72eaf681809ccdba9224a22071921e52ae71aeba001be9bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - rocksdb

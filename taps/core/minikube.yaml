@@ -1,0 +1,21 @@
+name: minikube
+version: 1.38.1
+description: Run a Kubernetes cluster locally
+homepage: https://minikube.sigs.k8s.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minikube/blobs/sha256:5c31e8d9b87939095f0417654c408364fee92953905447c1128ee6c5d70c72a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minikube/blobs/sha256:97505b2bc08deed55885c7ca457f3f3b1150663818bd607a0927968eee778729
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minikube/blobs/sha256:1f82f02f15af2c9b7931dd0c240bb5ac63d40276325ed53c1bcfe5c4aff72efe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minikube/blobs/sha256:6ad4573edd8932cd1f1cdd9f82b360f97124ff63fdf161ac9a145b0444285def
+sha256:
+  darwin_arm64: 5c31e8d9b87939095f0417654c408364fee92953905447c1128ee6c5d70c72a9
+  darwin_amd64: 97505b2bc08deed55885c7ca457f3f3b1150663818bd607a0927968eee778729
+  linux_amd64: 1f82f02f15af2c9b7931dd0c240bb5ac63d40276325ed53c1bcfe5c4aff72efe
+  linux_arm64: 6ad4573edd8932cd1f1cdd9f82b360f97124ff63fdf161ac9a145b0444285def
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kubernetes-cli

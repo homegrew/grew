@@ -1,0 +1,21 @@
+name: gsoap
+version: 2.8.140
+description: SOAP stub and skeleton compiler for C and C++
+homepage: https://www.genivia.com/products.html
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gsoap/blobs/sha256:cf4c97610f77f2c9b5f06255f96e650e2e57d74213b02d4b385e55cf4824fe66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gsoap/blobs/sha256:2be8de110f88781e1d8081810afdfc548332b1df79589c1b437790726003f178
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gsoap/blobs/sha256:7edb24c0af61112ae66a364bffb97af20aed42e7da427ee7372de99d7819d193
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gsoap/blobs/sha256:62c8b487153acfcf3cbec5f45e48f0df8b83a5b26881a75aa001e52cfc06683d
+sha256:
+  darwin_arm64: cf4c97610f77f2c9b5f06255f96e650e2e57d74213b02d4b385e55cf4824fe66
+  darwin_amd64: 2be8de110f88781e1d8081810afdfc548332b1df79589c1b437790726003f178
+  linux_amd64: 7edb24c0af61112ae66a364bffb97af20aed42e7da427ee7372de99d7819d193
+  linux_arm64: 62c8b487153acfcf3cbec5f45e48f0df8b83a5b26881a75aa001e52cfc06683d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

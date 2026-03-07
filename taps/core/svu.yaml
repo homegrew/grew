@@ -1,0 +1,19 @@
+name: svu
+version: 3.4.0
+description: Semantic version utility
+homepage: https://github.com/caarlos0/svu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svu/blobs/sha256:e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svu/blobs/sha256:71e37771b8a1f26f2171dd64b6c06d6b2fb575265b234f1bce6169c5df6545f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svu/blobs/sha256:8cddc90ff2dec26b876cd70a333c71f69d47163402eeb2ad3cb2018fecc75bbb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svu/blobs/sha256:cb6fc6f24f354b2784e272ce6e3ff82f9cf47b26de6d9b11b0da4514c6e9ee54
+sha256:
+  darwin_arm64: e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a
+  darwin_amd64: 71e37771b8a1f26f2171dd64b6c06d6b2fb575265b234f1bce6169c5df6545f2
+  linux_amd64: 8cddc90ff2dec26b876cd70a333c71f69d47163402eeb2ad3cb2018fecc75bbb
+  linux_arm64: cb6fc6f24f354b2784e272ce6e3ff82f9cf47b26de6d9b11b0da4514c6e9ee54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

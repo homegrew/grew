@@ -1,0 +1,19 @@
+name: cmusfm
+version: 0.5.0
+description: Last.fm standalone scrobbler for the cmus music player
+homepage: https://github.com/Arkq/cmusfm
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmusfm/blobs/sha256:844a2f8e9ddbf09e79945a32979812f92c35e5db032bcf204bd50c1af307ee81
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmusfm/blobs/sha256:9c1f739ee0182295d4f332171a975ed2118961d2c44848aad416732c3ef193b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmusfm/blobs/sha256:85080d3911b11f136d5baf6e3304d50c7bc8918aee103308068cd817162e993f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmusfm/blobs/sha256:e5e8154717f9cbf0a3824cc58471ba1e88308beaec32533e2d51fcb91032ccbf
+sha256:
+  darwin_arm64: 844a2f8e9ddbf09e79945a32979812f92c35e5db032bcf204bd50c1af307ee81
+  darwin_amd64: 9c1f739ee0182295d4f332171a975ed2118961d2c44848aad416732c3ef193b6
+  linux_amd64: 85080d3911b11f136d5baf6e3304d50c7bc8918aee103308068cd817162e993f
+  linux_arm64: e5e8154717f9cbf0a3824cc58471ba1e88308beaec32533e2d51fcb91032ccbf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

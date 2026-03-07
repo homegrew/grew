@@ -1,0 +1,19 @@
+name: stow
+version: 2.4.1
+description: Organize software neatly under a single directory tree (e.g. /usr/local)
+homepage: https://www.gnu.org/software/stow/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stow/blobs/sha256:74d7b0d6d849528a320c63802f21390c65a700a28295f546be29d5b87d78b25f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stow/blobs/sha256:4829b15c46ae06aebd28e6ca0148f7b743de698041f4f8dd1c88b8e1e2fb7f1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stow/blobs/sha256:99e225c98e4bbc9dfaa3a6dfbeea16b9e2f91bacc18801212902fbb81962f73a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stow/blobs/sha256:d0c8d1eb137984030db04350a3efc522c26a486be22f6e940dbcd0f30927edf9
+sha256:
+  darwin_arm64: 74d7b0d6d849528a320c63802f21390c65a700a28295f546be29d5b87d78b25f
+  darwin_amd64: 4829b15c46ae06aebd28e6ca0148f7b743de698041f4f8dd1c88b8e1e2fb7f1b
+  linux_amd64: 99e225c98e4bbc9dfaa3a6dfbeea16b9e2f91bacc18801212902fbb81962f73a
+  linux_arm64: d0c8d1eb137984030db04350a3efc522c26a486be22f6e940dbcd0f30927edf9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

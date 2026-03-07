@@ -1,0 +1,19 @@
+name: snow
+version: 20130616
+description: "Whitespace steganography: coded messages using whitespace"
+homepage: https://darkside.com.au/snow/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snow/blobs/sha256:53d8451eea7082ead9453a403e836a5287637df3195e25391373df828dda5673
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snow/blobs/sha256:ccadf2612c1c8b435711525c30c9d38442f88b4311fa37208d418ff7b10d2fc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snow/blobs/sha256:a378fd9d38675c5924d6fa4a91283e8bb0fcc4e92695c3b222dd55d186ba8ba9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snow/blobs/sha256:633bc51f68c437938555787c7c8303298a1faa6811c166bfeda7c7046ccfb614
+sha256:
+  darwin_arm64: 53d8451eea7082ead9453a403e836a5287637df3195e25391373df828dda5673
+  darwin_amd64: ccadf2612c1c8b435711525c30c9d38442f88b4311fa37208d418ff7b10d2fc5
+  linux_amd64: a378fd9d38675c5924d6fa4a91283e8bb0fcc4e92695c3b222dd55d186ba8ba9
+  linux_arm64: 633bc51f68c437938555787c7c8303298a1faa6811c166bfeda7c7046ccfb614
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

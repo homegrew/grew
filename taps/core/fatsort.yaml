@@ -1,0 +1,21 @@
+name: fatsort
+version: 1.7.679
+description: Sorts FAT16 and FAT32 partitions
+homepage: https://fatsort.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fatsort/blobs/sha256:0a364630ad4617dfd97e5af2275f62c91d1371b1452a2cdc5a9cae4c9724b058
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fatsort/blobs/sha256:2c0bbb896f82db81e5213de928f8d02742d0e8e02506f5746260dcd229d7c8e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fatsort/blobs/sha256:2e8c2792669cf23c3a31e553e513cc6de53ea82dba27bc079074da74101c3fd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fatsort/blobs/sha256:03406b3c7d87b1bfa493be10a02b0ba72898ee5d2277749ff02f39e4bcd5c59b
+sha256:
+  darwin_arm64: 0a364630ad4617dfd97e5af2275f62c91d1371b1452a2cdc5a9cae4c9724b058
+  darwin_amd64: 2c0bbb896f82db81e5213de928f8d02742d0e8e02506f5746260dcd229d7c8e4
+  linux_amd64: 2e8c2792669cf23c3a31e553e513cc6de53ea82dba27bc079074da74101c3fd0
+  linux_arm64: 03406b3c7d87b1bfa493be10a02b0ba72898ee5d2277749ff02f39e4bcd5c59b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - help2man

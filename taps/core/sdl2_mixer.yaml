@@ -1,0 +1,29 @@
+name: sdl2_mixer
+version: 2.8.1
+description: Sample multi-channel audio mixer library
+homepage: https://github.com/libsdl-org/SDL_mixer
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl2_mixer/blobs/sha256:29131b712fd63e8085fd10d1e158e8c4eff11ee363b0b3768ab8f0ab9d26c5cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl2_mixer/blobs/sha256:2a0833b4e5b3d6b5e650e6260ea32fe5f07a9fa4ed66a8f4343d5d9c65c26f9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl2_mixer/blobs/sha256:e7022d2cdf02890e277cf56cfa6e15e5940a000886b92991027b8efbf8332927
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl2_mixer/blobs/sha256:1179824f595c247ae0bd213a9af93d973f17b068fdcac3017ec2431196eba023
+sha256:
+  darwin_arm64: 29131b712fd63e8085fd10d1e158e8c4eff11ee363b0b3768ab8f0ab9d26c5cc
+  darwin_amd64: 2a0833b4e5b3d6b5e650e6260ea32fe5f07a9fa4ed66a8f4343d5d9c65c26f9e
+  linux_amd64: e7022d2cdf02890e277cf56cfa6e15e5940a000886b92991027b8efbf8332927
+  linux_arm64: 1179824f595c247ae0bd213a9af93d973f17b068fdcac3017ec2431196eba023
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - fluid-synth
+  - game-music-emu
+  - libvorbis
+  - libxmp
+  - mpg123
+  - opusfile
+  - sdl2
+  - wavpack

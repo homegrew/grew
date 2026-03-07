@@ -1,0 +1,19 @@
+name: ttyrec
+version: 1.0.8
+description: Terminal interaction recorder and player
+homepage: http://0xcc.net/ttyrec/
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttyrec/blobs/sha256:2b44b170e50cd4a45a34866f55c074aa7178b26a733350d471dff58709831cf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttyrec/blobs/sha256:0e9bd8f7c2282ae05b62d8e632eca528d483830ecaadd072d8fa9de280720585
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttyrec/blobs/sha256:2dd1acdb4519d34c1b28fced057623dcd6457c60def91150fd042ed6be04e481
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttyrec/blobs/sha256:ea3a96ddfe71319d95009cd84257f98d42a335e692aea071b9d9a718e2d58a89
+sha256:
+  darwin_arm64: 2b44b170e50cd4a45a34866f55c074aa7178b26a733350d471dff58709831cf0
+  darwin_amd64: 0e9bd8f7c2282ae05b62d8e632eca528d483830ecaadd072d8fa9de280720585
+  linux_amd64: 2dd1acdb4519d34c1b28fced057623dcd6457c60def91150fd042ed6be04e481
+  linux_arm64: ea3a96ddfe71319d95009cd84257f98d42a335e692aea071b9d9a718e2d58a89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

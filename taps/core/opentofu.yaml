@@ -1,0 +1,19 @@
+name: opentofu
+version: 1.11.5
+description: Drop-in replacement for Terraform. Infrastructure as Code Tool
+homepage: https://opentofu.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opentofu/blobs/sha256:4a156a503029c70691decb8a0f9ff36eef23be324af98004d64497e132d31cb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opentofu/blobs/sha256:80241dc55015d424562f945655215868b185b17fe4e7f20b956a7b83ae878fa4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opentofu/blobs/sha256:4628d141c87a864476319106ef800ae0ef5b2ebcd7a745edb3d286f832a080d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opentofu/blobs/sha256:7e23c2fdba1b90e3ca25cf2d4de7bacc3b65b6db431e09aa5c649fcfa3cccd51
+sha256:
+  darwin_arm64: 4a156a503029c70691decb8a0f9ff36eef23be324af98004d64497e132d31cb6
+  darwin_amd64: 80241dc55015d424562f945655215868b185b17fe4e7f20b956a7b83ae878fa4
+  linux_amd64: 4628d141c87a864476319106ef800ae0ef5b2ebcd7a745edb3d286f832a080d6
+  linux_arm64: 7e23c2fdba1b90e3ca25cf2d4de7bacc3b65b6db431e09aa5c649fcfa3cccd51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

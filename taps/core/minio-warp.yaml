@@ -1,0 +1,19 @@
+name: minio-warp
+version: 1.4.0
+description: S3 benchmarking tool
+homepage: https://github.com/minio/warp
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minio-warp/blobs/sha256:e05bb44711400871f75125f3522a29531f887b989124090bb5a1cb54a95a19d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minio-warp/blobs/sha256:b6360cf3dd727c777a84858faa86130e8c4cd73f89f6a1bb248133d99e5f40bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minio-warp/blobs/sha256:b052276431943851117dda12c7fc842328ed4a2fed059786b2a4ff00e08ea3ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minio-warp/blobs/sha256:4909a5f0223942bacae3a22afd8e7d66858f23f7a0dcedc16fba6d8bb3a3dd60
+sha256:
+  darwin_arm64: e05bb44711400871f75125f3522a29531f887b989124090bb5a1cb54a95a19d3
+  darwin_amd64: b6360cf3dd727c777a84858faa86130e8c4cd73f89f6a1bb248133d99e5f40bd
+  linux_amd64: b052276431943851117dda12c7fc842328ed4a2fed059786b2a4ff00e08ea3ef
+  linux_arm64: 4909a5f0223942bacae3a22afd8e7d66858f23f7a0dcedc16fba6d8bb3a3dd60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

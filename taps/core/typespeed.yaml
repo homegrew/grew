@@ -1,0 +1,19 @@
+name: typespeed
+version: 0.6.5
+description: Zap words flying across the screen by typing them correctly
+homepage: https://typespeed.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typespeed/blobs/sha256:0180b1eba9c871f2ae91394a54bc99f92e5c48db780f1ad601bbfd2691bf4e5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typespeed/blobs/sha256:5c5ee2bc8feb9d58b2e67e43d5093796750ff6e7d45351a0f0161027b067b9ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typespeed/blobs/sha256:4fcef57ff481d6947275a5b93e1489379a2ba7d1938d9de031fddd4bc4199f1d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typespeed/blobs/sha256:b77850229d406c13937f40c43c0cbb4888dff463edab2a4ef0f528ae0312ad78
+sha256:
+  darwin_arm64: 0180b1eba9c871f2ae91394a54bc99f92e5c48db780f1ad601bbfd2691bf4e5a
+  darwin_amd64: 5c5ee2bc8feb9d58b2e67e43d5093796750ff6e7d45351a0f0161027b067b9ae
+  linux_amd64: 4fcef57ff481d6947275a5b93e1489379a2ba7d1938d9de031fddd4bc4199f1d
+  linux_arm64: b77850229d406c13937f40c43c0cbb4888dff463edab2a4ef0f528ae0312ad78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

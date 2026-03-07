@@ -1,0 +1,19 @@
+name: mailcheck
+version: 1.91.2
+description: Check multiple mailboxes/maildirs for mail
+homepage: https://mailcheck.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mailcheck/blobs/sha256:c8e59c981638d71fa3e78a9998b696e677189346da07f918bc290752c289f1dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mailcheck/blobs/sha256:193fcd7805d976190391ae4bcf34afd28ebd82bfd45aff54c307aa6325a7a93f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mailcheck/blobs/sha256:84fa4f1d288f0f8824334bb68621b8589b65e0d9e21a4ca0961a33aae5d0ef63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mailcheck/blobs/sha256:f1c3ac175abf729a56d77e55d0039cafe7f478c9e069961a8383f1b2c6f1e963
+sha256:
+  darwin_arm64: c8e59c981638d71fa3e78a9998b696e677189346da07f918bc290752c289f1dc
+  darwin_amd64: 193fcd7805d976190391ae4bcf34afd28ebd82bfd45aff54c307aa6325a7a93f
+  linux_amd64: 84fa4f1d288f0f8824334bb68621b8589b65e0d9e21a4ca0961a33aae5d0ef63
+  linux_arm64: f1c3ac175abf729a56d77e55d0039cafe7f478c9e069961a8383f1b2c6f1e963
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

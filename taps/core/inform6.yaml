@@ -1,0 +1,19 @@
+name: inform6
+version: 6.44-r3
+description: Design system for interactive fiction
+homepage: https://inform-fiction.org/inform6.html
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inform6/blobs/sha256:536f547f4d23effc591bb1d7fda6c0067769c98065b2f1f676eff6abbf35c3f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inform6/blobs/sha256:5e8bde5c949ae24843776de2d1d227e1d58e92eadd13f7827282be194a8a0a51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inform6/blobs/sha256:c1416257f1744dd78d0f252e4e02a4d30275227ad28b46f7253eae8820bbefc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inform6/blobs/sha256:f9c59e1d517a7cf05e19e5387e52a299a58886d58929e4c37d1e1ac10270bdda
+sha256:
+  darwin_arm64: 536f547f4d23effc591bb1d7fda6c0067769c98065b2f1f676eff6abbf35c3f3
+  darwin_amd64: 5e8bde5c949ae24843776de2d1d227e1d58e92eadd13f7827282be194a8a0a51
+  linux_amd64: c1416257f1744dd78d0f252e4e02a4d30275227ad28b46f7253eae8820bbefc1
+  linux_arm64: f9c59e1d517a7cf05e19e5387e52a299a58886d58929e4c37d1e1ac10270bdda
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

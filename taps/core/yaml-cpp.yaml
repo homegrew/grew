@@ -1,0 +1,19 @@
+name: yaml-cpp
+version: 0.9.0
+description: C++ YAML parser and emitter for YAML 1.2 spec
+homepage: https://github.com/jbeder/yaml-cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaml-cpp/blobs/sha256:fd9acbbaebb15dfdb1096ccff63da963421908b3e2a7a0f28ad572f3c8cf467c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaml-cpp/blobs/sha256:eeeb0bc382151f6813e25f5f497dd896d81c23166360db31f547548fb3983203
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaml-cpp/blobs/sha256:ef3da003a3b2fb74540f46d069481c79c80edd4bb21cf1d754d8bbf65ff2890a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaml-cpp/blobs/sha256:c568377c54d3607fa4952edda7935da932bd26f43aab278661de1a0e716d6036
+sha256:
+  darwin_arm64: fd9acbbaebb15dfdb1096ccff63da963421908b3e2a7a0f28ad572f3c8cf467c
+  darwin_amd64: eeeb0bc382151f6813e25f5f497dd896d81c23166360db31f547548fb3983203
+  linux_amd64: ef3da003a3b2fb74540f46d069481c79c80edd4bb21cf1d754d8bbf65ff2890a
+  linux_arm64: c568377c54d3607fa4952edda7935da932bd26f43aab278661de1a0e716d6036
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: gg
+version: 0.38.4
+description: GUI for Jujutsu
+homepage: https://github.com/gulbanana/gg
+url:
+  darwin_arm64: https://github.com/gulbanana/gg/releases/download/v0.38.4/gg_0.38.4_universal.dmg
+sha256:
+  darwin_arm64: 78356b44c8ea3f5a603da3baa1cd3db508e110eb6c99ec28e4be81fe800271db
+artifacts:
+  app:
+    - gg.app
+  bin:
+    - gg

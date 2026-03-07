@@ -1,0 +1,21 @@
+name: libxspf
+version: 1.2.1
+description: C++ library for XSPF playlist reading and writing
+homepage: https://libspiff.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxspf/blobs/sha256:211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxspf/blobs/sha256:fe379ee49349f8cbcb67c944ab9605e30a25a3007385eaae802626a252f5b522
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxspf/blobs/sha256:e901fd286da4e617543de36efef5f7e0a115d936eeb3ec01326ae92a02df29d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxspf/blobs/sha256:2e7ee0f7026c5cfe6bbf84efc5474a94274645bdd0e7a498c20e5b6a37e21a2f
+sha256:
+  darwin_arm64: 211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b
+  darwin_amd64: fe379ee49349f8cbcb67c944ab9605e30a25a3007385eaae802626a252f5b522
+  linux_amd64: e901fd286da4e617543de36efef5f7e0a115d936eeb3ec01326ae92a02df29d8
+  linux_arm64: 2e7ee0f7026c5cfe6bbf84efc5474a94274645bdd0e7a498c20e5b6a37e21a2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - uriparser

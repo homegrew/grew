@@ -1,0 +1,21 @@
+name: libpagemaker
+version: 0.0.4
+description: Imports file format of Aldus/Adobe PageMaker documents
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libpagemaker
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpagemaker/blobs/sha256:d9e3c687bbf276008a19981600851d145d6bf8f6ce17a689bb3aea7c3c3722ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpagemaker/blobs/sha256:8d79e822a3f2a831e7aecd377a81259a9091f7f1e5aec0c4c61a769618cad2c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpagemaker/blobs/sha256:9fc80c8b825f43efef4c8dd33e069eda4b3180ed908b74185286099829c625f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpagemaker/blobs/sha256:bb6dd8ea44bbb80e0aab25f34c43061d030241747985963d7e60787a1d087c98
+sha256:
+  darwin_arm64: d9e3c687bbf276008a19981600851d145d6bf8f6ce17a689bb3aea7c3c3722ed
+  darwin_amd64: 8d79e822a3f2a831e7aecd377a81259a9091f7f1e5aec0c4c61a769618cad2c5
+  linux_amd64: 9fc80c8b825f43efef4c8dd33e069eda4b3180ed908b74185286099829c625f9
+  linux_arm64: bb6dd8ea44bbb80e0aab25f34c43061d030241747985963d7e60787a1d087c98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge

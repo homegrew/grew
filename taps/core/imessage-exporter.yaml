@@ -1,0 +1,19 @@
+name: imessage-exporter
+version: 3.3.2
+description: Command-line tool to export and inspect local iMessage database
+homepage: https://github.com/ReagentX/imessage-exporter
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imessage-exporter/blobs/sha256:fd66c20b2cce5ab686b9729058a0b81d9ff12ff2ca68be325e36b5525a131614
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imessage-exporter/blobs/sha256:5d05b2810018184aeb8239cc44f09c5000dc18267f50fbb3a71f4b2f2d363813
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imessage-exporter/blobs/sha256:01120ef986121bd8c778b252c1c5cdaa154368862db717b71cb6812e5e2e15b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imessage-exporter/blobs/sha256:83e94432716935007318326e5be728c1c4fa69c482ff8f93f58ad6eda8116dc9
+sha256:
+  darwin_arm64: fd66c20b2cce5ab686b9729058a0b81d9ff12ff2ca68be325e36b5525a131614
+  darwin_amd64: 5d05b2810018184aeb8239cc44f09c5000dc18267f50fbb3a71f4b2f2d363813
+  linux_amd64: 01120ef986121bd8c778b252c1c5cdaa154368862db717b71cb6812e5e2e15b1
+  linux_arm64: 83e94432716935007318326e5be728c1c4fa69c482ff8f93f58ad6eda8116dc9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libfabric
+version: 2.4.0
+description: OpenFabrics libfabric
+homepage: https://ofiwg.github.io/libfabric/
+license: BSD-2-Clause OR GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfabric/blobs/sha256:4dd3b1dce713f5db21167eac9632e6a42c70ccce828f7249b11fdef8474e3eb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfabric/blobs/sha256:927414d499184088c24ef2833691ea0d26b1386f51f2c4fda28d9c8b52835bac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfabric/blobs/sha256:751b31b5c57276c8ea427511b08540fec3171463e319c68b2523758ab0057064
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfabric/blobs/sha256:3832559b56f2b8d6e194790a11e3e80fc464cb2980f94ce39f1f099736fab38a
+sha256:
+  darwin_arm64: 4dd3b1dce713f5db21167eac9632e6a42c70ccce828f7249b11fdef8474e3eb1
+  darwin_amd64: 927414d499184088c24ef2833691ea0d26b1386f51f2c4fda28d9c8b52835bac
+  linux_amd64: 751b31b5c57276c8ea427511b08540fec3171463e319c68b2523758ab0057064
+  linux_arm64: 3832559b56f2b8d6e194790a11e3e80fc464cb2980f94ce39f1f099736fab38a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

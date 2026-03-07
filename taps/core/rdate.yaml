@@ -1,0 +1,19 @@
+name: rdate
+version: 1.5
+description: "Set the system's date from a remote host"
+homepage: https://www.aelius.com/njh/rdate/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rdate/blobs/sha256:a83472ff648a0aab17ffdf054be07f4d486506c3b17391d656527b492a6d26d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rdate/blobs/sha256:3f5d287e87f00c9a07425fdcfc63d9277faaba095fe9111737ada0eba7c7f5de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rdate/blobs/sha256:ec0afe4b9ddec866160a04e76ce20f253c90a716c6a90c66c8185db9a32f5070
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rdate/blobs/sha256:92c6174db1497fb979606efb3ef9ce126eb725d6b9266ba25d7414fee49f5b46
+sha256:
+  darwin_arm64: a83472ff648a0aab17ffdf054be07f4d486506c3b17391d656527b492a6d26d6
+  darwin_amd64: 3f5d287e87f00c9a07425fdcfc63d9277faaba095fe9111737ada0eba7c7f5de
+  linux_amd64: ec0afe4b9ddec866160a04e76ce20f253c90a716c6a90c66c8185db9a32f5070
+  linux_arm64: 92c6174db1497fb979606efb3ef9ce126eb725d6b9266ba25d7414fee49f5b46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

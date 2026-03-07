@@ -1,0 +1,19 @@
+name: filebrowser
+version: 2.61.2
+description: Web File Browser
+homepage: https://filebrowser.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/filebrowser/blobs/sha256:fd24dd56282e52f91ae5a9a0d758c0047db11c2a64b70bc41aaa1d3875bb9168
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/filebrowser/blobs/sha256:5346ce20adfefe5483901ba84192d66b106fc6805289501dc548737993012d60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/filebrowser/blobs/sha256:842808d044570b455afa0ffa8726054fbf35c154ea3b6609f41933ab177fa0a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/filebrowser/blobs/sha256:8e83cb36e59cf653f46aaad89d0c1f6e15b27173ced5fe0c31a386fcd6b68ca0
+sha256:
+  darwin_arm64: fd24dd56282e52f91ae5a9a0d758c0047db11c2a64b70bc41aaa1d3875bb9168
+  darwin_amd64: 5346ce20adfefe5483901ba84192d66b106fc6805289501dc548737993012d60
+  linux_amd64: 842808d044570b455afa0ffa8726054fbf35c154ea3b6609f41933ab177fa0a1
+  linux_arm64: 8e83cb36e59cf653f46aaad89d0c1f6e15b27173ced5fe0c31a386fcd6b68ca0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

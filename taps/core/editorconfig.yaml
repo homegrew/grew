@@ -1,0 +1,21 @@
+name: editorconfig
+version: 0.12.10
+description: Maintain consistent coding style between multiple editors
+homepage: https://editorconfig.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/editorconfig/blobs/sha256:e6eb22b09b7bdb92f13b0bbca313c416f3bc35afb49fdccd3e545b0c3e2a7495
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/editorconfig/blobs/sha256:7fc20435dafc3a2bff98f8d124cea1c614217b645259e0b6f05fd910898fca70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/editorconfig/blobs/sha256:a006709cbeafe7bc51cf287cf8a831c26df8b85ad65a7ffe35d360a0c741bef6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/editorconfig/blobs/sha256:e7862f424b0deaf548cf321bea439d646a6572df6f71687f22ede45233c06f10
+sha256:
+  darwin_arm64: e6eb22b09b7bdb92f13b0bbca313c416f3bc35afb49fdccd3e545b0c3e2a7495
+  darwin_amd64: 7fc20435dafc3a2bff98f8d124cea1c614217b645259e0b6f05fd910898fca70
+  linux_amd64: a006709cbeafe7bc51cf287cf8a831c26df8b85ad65a7ffe35d360a0c741bef6
+  linux_arm64: e7862f424b0deaf548cf321bea439d646a6572df6f71687f22ede45233c06f10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

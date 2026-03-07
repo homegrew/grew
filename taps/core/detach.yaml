@@ -1,0 +1,19 @@
+name: detach
+version: 0.2.3
+description: Execute given command in detached process
+homepage: https://inglorion.net/software/detach/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/detach/blobs/sha256:26af0691540557a38f48cea373f6a0a9085bf2ba7a71bfcb7aa67e844ce3f466
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/detach/blobs/sha256:32f4187991a03c5192da3a66e0c7d109f17a349848124cd38b782ca7dfa14e37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/detach/blobs/sha256:38838383187537acd5cd6c52ea5d375055201ad74494107a5150ac684374028d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/detach/blobs/sha256:8fba912efb0e2473b0c089087b8a7239fbf21952e15fa541b41d8542f2277d96
+sha256:
+  darwin_arm64: 26af0691540557a38f48cea373f6a0a9085bf2ba7a71bfcb7aa67e844ce3f466
+  darwin_amd64: 32f4187991a03c5192da3a66e0c7d109f17a349848124cd38b782ca7dfa14e37
+  linux_amd64: 38838383187537acd5cd6c52ea5d375055201ad74494107a5150ac684374028d
+  linux_arm64: 8fba912efb0e2473b0c089087b8a7239fbf21952e15fa541b41d8542f2277d96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

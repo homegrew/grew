@@ -1,0 +1,11 @@
+name: ungoogled-chromium
+version: 145.0.7632.159-1.1
+description: Google Chromium, sans integration with Google
+homepage: https://ungoogled-software.github.io/
+url:
+  darwin_arm64: https://github.com/ungoogled-software/ungoogled-chromium-macos/releases/download/145.0.7632.159-1.1/ungoogled-chromium_145.0.7632.159-1.1_arm64-macos.dmg
+sha256:
+  darwin_arm64: 737fd5f6df075cc09542b44c30f6e5221881b3e96e6d428794f1b9a664128ef9
+artifacts:
+  app:
+    - Chromium.app

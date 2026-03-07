@@ -1,0 +1,22 @@
+name: aom
+version: 3.13.1
+description: Codec library for encoding and decoding AV1 video streams
+homepage: https://aomedia.googlesource.com/aom
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:518aed50b3ab63ef4d9b7cefcfaf257b683f247f06dd81c173c7e5df03bd9d5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:5d05040b86a95990ea50468ff17b5cbe3bccb2e636a1f6256e4c0439fe189f93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:c860bd13961bfa2cba27db91983d7bfac46e9a00ae005174ea6faa41bce43969
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:dfb1ae4c7df80a5a2a6df56e1eef67536da73f1c90601d96c637e6a871ed2635
+sha256:
+  darwin_arm64: 518aed50b3ab63ef4d9b7cefcfaf257b683f247f06dd81c173c7e5df03bd9d5a
+  darwin_amd64: 5d05040b86a95990ea50468ff17b5cbe3bccb2e636a1f6256e4c0439fe189f93
+  linux_amd64: c860bd13961bfa2cba27db91983d7bfac46e9a00ae005174ea6faa41bce43969
+  linux_arm64: dfb1ae4c7df80a5a2a6df56e1eef67536da73f1c90601d96c637e6a871ed2635
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-xl
+  - libvmaf

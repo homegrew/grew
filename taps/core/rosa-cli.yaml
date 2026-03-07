@@ -1,0 +1,21 @@
+name: rosa-cli
+version: 1.2.61
+description: RedHat OpenShift Service on AWS (ROSA) command-line interface
+homepage: https://www.openshift.com/products/amazon-openshift
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rosa-cli/blobs/sha256:9337f4dfbb2e171a95400b85eb0d866812515d228c9ff0d7e59c70d131263674
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rosa-cli/blobs/sha256:d49c50033e6e701ffa18c72b1a5ea8f53882f257a63133a1e615454cde3d53dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rosa-cli/blobs/sha256:4973e0e1b8ceec339e2242a27bef5774caae9e9003486cdc546034bf5ef1a41c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rosa-cli/blobs/sha256:11b466f1f1b67e5ba5cecad0e4870f5fdaaa01a55d8a537c0c54fe51fd18c045
+sha256:
+  darwin_arm64: 9337f4dfbb2e171a95400b85eb0d866812515d228c9ff0d7e59c70d131263674
+  darwin_amd64: d49c50033e6e701ffa18c72b1a5ea8f53882f257a63133a1e615454cde3d53dd
+  linux_amd64: 4973e0e1b8ceec339e2242a27bef5774caae9e9003486cdc546034bf5ef1a41c
+  linux_arm64: 11b466f1f1b67e5ba5cecad0e4870f5fdaaa01a55d8a537c0c54fe51fd18c045
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - awscli

@@ -1,0 +1,22 @@
+name: spotifyd
+version: 0.4.2
+description: Spotify daemon
+homepage: https://spotifyd.rs/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spotifyd/blobs/sha256:a7a814a9c313572487129d39e54731bc17a195e4b682ae581602448272abcdd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spotifyd/blobs/sha256:a4a0e77cd126c0eb50988c3e3c2820e963cdf9b8fe0e7fe055fb21811a01ff6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spotifyd/blobs/sha256:aa79e425ff77b2ea640dff5d8eeeddb772bb42a39397ed111fecc59479027d25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spotifyd/blobs/sha256:fbfca354719211a24866dd87ac33a343191cfa0a13ff8ba8a604a288a2df891c
+sha256:
+  darwin_arm64: a7a814a9c313572487129d39e54731bc17a195e4b682ae581602448272abcdd5
+  darwin_amd64: a4a0e77cd126c0eb50988c3e3c2820e963cdf9b8fe0e7fe055fb21811a01ff6b
+  linux_amd64: aa79e425ff77b2ea640dff5d8eeeddb772bb42a39397ed111fecc59479027d25
+  linux_arm64: fbfca354719211a24866dd87ac33a343191cfa0a13ff8ba8a604a288a2df891c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dbus
+  - portaudio

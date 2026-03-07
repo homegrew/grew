@@ -1,0 +1,23 @@
+name: subliminal
+version: 2.6.0
+description: Library to search and download subtitles
+homepage: https://subliminal.readthedocs.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/subliminal/blobs/sha256:c4d4f656a56e6929588150705ec3662e90edc650b63f70eb4831d5a75dee587a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/subliminal/blobs/sha256:94060e2c0df7a3c1fd819f44f07b6523b8d4f43c4a1a4252163bbf8427d50a33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/subliminal/blobs/sha256:9596a6773d4488b592e7cd00e740999aa2c5d04e5f1ae75cdded115e04923eea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/subliminal/blobs/sha256:b12445b694c85e33d977df92df916ac156aaf35ef0a57069ee6a85b4dd172bfd
+sha256:
+  darwin_arm64: c4d4f656a56e6929588150705ec3662e90edc650b63f70eb4831d5a75dee587a
+  darwin_amd64: 94060e2c0df7a3c1fd819f44f07b6523b8d4f43c4a1a4252163bbf8427d50a33
+  linux_amd64: 9596a6773d4488b592e7cd00e740999aa2c5d04e5f1ae75cdded115e04923eea
+  linux_arm64: b12445b694c85e33d977df92df916ac156aaf35ef0a57069ee6a85b4dd172bfd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

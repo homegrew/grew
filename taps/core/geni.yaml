@@ -1,0 +1,19 @@
+name: geni
+version: 1.1.9
+description: Standalone database migration tool
+homepage: https://github.com/emilpriver/geni
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geni/blobs/sha256:aadd4145294832bb28f3e7d7ef0a96c7d93be78fc9cc24abed572af6804f4a3d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geni/blobs/sha256:a92883ccccfeb4e74850c6490f590c8d42915a91df6a7461f60cd85c4467edaa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geni/blobs/sha256:c72961dd2a9f193d161e1cdf0fa516fd9587b24e34a600b3194ac0f6f158df39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geni/blobs/sha256:647ed788257bc0b649226118ba3edcdcfe4a6a0b08e7afb5d690f997e822b47e
+sha256:
+  darwin_arm64: aadd4145294832bb28f3e7d7ef0a96c7d93be78fc9cc24abed572af6804f4a3d
+  darwin_amd64: a92883ccccfeb4e74850c6490f590c8d42915a91df6a7461f60cd85c4467edaa
+  linux_amd64: c72961dd2a9f193d161e1cdf0fa516fd9587b24e34a600b3194ac0f6f158df39
+  linux_arm64: 647ed788257bc0b649226118ba3edcdcfe4a6a0b08e7afb5d690f997e822b47e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

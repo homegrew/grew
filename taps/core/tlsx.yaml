@@ -1,0 +1,19 @@
+name: tlsx
+version: 1.2.2
+description: Fast and configurable TLS grabber focused on TLS based data collection
+homepage: https://github.com/projectdiscovery/tlsx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tlsx/blobs/sha256:4291b474496c88a848df107ed0e5c0a20917d5858dcbead2d3e6a4fe8086bb7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tlsx/blobs/sha256:4e3064fce8c98ee4e79d663757f408facbd3e2f254cc0354bbb95fbad9a445b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tlsx/blobs/sha256:6a134a2f3c2d08aab972728abea7f6ff18392d77d730e6bc57c2ed3c2fbc5c1d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tlsx/blobs/sha256:ef98c1b39e5e5d2ada900b78e14b53f153e78fc051722b3a6268022577c0b694
+sha256:
+  darwin_arm64: 4291b474496c88a848df107ed0e5c0a20917d5858dcbead2d3e6a4fe8086bb7d
+  darwin_amd64: 4e3064fce8c98ee4e79d663757f408facbd3e2f254cc0354bbb95fbad9a445b0
+  linux_amd64: 6a134a2f3c2d08aab972728abea7f6ff18392d77d730e6bc57c2ed3c2fbc5c1d
+  linux_arm64: ef98c1b39e5e5d2ada900b78e14b53f153e78fc051722b3a6268022577c0b694
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

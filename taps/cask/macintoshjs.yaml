@@ -1,0 +1,11 @@
+name: macintoshjs
+version: 1.2.0
+description: Virtual Apple Macintosh with System 8, running in Electron
+homepage: https://github.com/felixrieseberg/macintosh.js
+url:
+  darwin_arm64: https://github.com/felixrieseberg/macintosh.js/releases/download/v1.2.0/macintosh.js-darwin-arm64-1.2.0.zip
+sha256:
+  darwin_arm64: 0df67f2a3c8398f31840c54fad030b2ff9400fb1311774771ada3d8d9990443f
+artifacts:
+  app:
+    - macintosh.js.app

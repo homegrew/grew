@@ -1,0 +1,15 @@
+name: xcodegen
+version: 2.45.2
+description: Generate your Xcode project from a spec file and your folder structure
+homepage: https://github.com/yonaskolb/XcodeGen
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcodegen/blobs/sha256:be540103642953a6c187d281838114d8b784a09169e15fc8e85bcc4a3f586074
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcodegen/blobs/sha256:08488a05c4ef706ffdf14620b7b01969706394d9416786137aa1361fab079d04
+sha256:
+  darwin_arm64: be540103642953a6c187d281838114d8b784a09169e15fc8e85bcc4a3f586074
+  darwin_amd64: 08488a05c4ef706ffdf14620b7b01969706394d9416786137aa1361fab079d04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

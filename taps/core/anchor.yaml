@@ -1,0 +1,21 @@
+name: anchor
+version: 0.32.1
+description: Solana Program Framework
+homepage: https://anchor-lang.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/anchor/blobs/sha256:5c42d288ffcb5ce0e5de2a3e623ace63a6401fefb6d9d0549ea27a6e89ec9f45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/anchor/blobs/sha256:f01ce12914e4c50c25a5584320ae4b10a7d5b7522268f81ac248543a5431722d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/anchor/blobs/sha256:c0f0b6dfb3a31ade18458dc13ec92ec5c91a553a1c5785f4c8432e9e153491a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/anchor/blobs/sha256:5caca9952baaa452ab5c21538cf1e388887df6af5f0272872d43b0745347ae5f
+sha256:
+  darwin_arm64: 5c42d288ffcb5ce0e5de2a3e623ace63a6401fefb6d9d0549ea27a6e89ec9f45
+  darwin_amd64: f01ce12914e4c50c25a5584320ae4b10a7d5b7522268f81ac248543a5431722d
+  linux_amd64: c0f0b6dfb3a31ade18458dc13ec92ec5c91a553a1c5785f4c8432e9e153491a5
+  linux_arm64: 5caca9952baaa452ab5c21538cf1e388887df6af5f0272872d43b0745347ae5f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

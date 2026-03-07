@@ -1,0 +1,14 @@
+name: minizincide
+version: 2.9.5
+description: Open-source constraint modelling language and IDE
+homepage: https://www.minizinc.org/index.html
+url:
+  darwin_arm64: https://github.com/MiniZinc/MiniZincIDE/releases/download/2.9.5/MiniZincIDE-2.9.5-bundled.dmg
+sha256:
+  darwin_arm64: 377e919a3b553ab2a059d0cf149c4e113dc5a587f594d88a90d5c22a23a3d769
+artifacts:
+  app:
+    - MiniZincIDE.app
+  bin:
+    - minizinc
+    - mzn2doc

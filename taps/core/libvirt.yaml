@@ -1,0 +1,27 @@
+name: libvirt
+version: 12.1.0
+description: C virtualization API
+homepage: https://libvirt.org/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvirt/blobs/sha256:5c5609f8dc64a0d848fdbac4a2635d34174338f12640f9b69b341c90136e9848
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvirt/blobs/sha256:a860275679f1af425e65df4df1b86c69ec36eba502a6da59d908d308bbd23fa1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvirt/blobs/sha256:e0d76f3e68c3faa0e41ff3d1302646d2ea41896c9c0bd41838c1b981cd6bf7c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvirt/blobs/sha256:7ee99bde8d82100e8c73d999540e9094a308d8c29b7303afe2a0ea019a76d086
+sha256:
+  darwin_arm64: 5c5609f8dc64a0d848fdbac4a2635d34174338f12640f9b69b341c90136e9848
+  darwin_amd64: a860275679f1af425e65df4df1b86c69ec36eba502a6da59d908d308bbd23fa1
+  linux_amd64: e0d76f3e68c3faa0e41ff3d1302646d2ea41896c9c0bd41838c1b981cd6bf7c7
+  linux_arm64: 7ee99bde8d82100e8c73d999540e9094a308d8c29b7303afe2a0ea019a76d086
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - json-c
+  - libiscsi
+  - libssh2
+  - readline
+  - gettext

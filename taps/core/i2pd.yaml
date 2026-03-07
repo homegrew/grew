@@ -1,0 +1,23 @@
+name: i2pd
+version: 2.59.0
+description: Full-featured C++ implementation of I2P client
+homepage: https://i2pd.website/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i2pd/blobs/sha256:b1bce7c4d87cff3a5381fa39b080f6056c59ec0fb4ef7981cd70f4a5d23fba83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i2pd/blobs/sha256:ceee3280032116573f4f4c96b15d132bee87d78c5a09cfdf5eb7a250c7b31ad0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i2pd/blobs/sha256:2b794277fc76a16aa1cb5789d988a15aaf4f1801f28aed8815f396945aa834f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i2pd/blobs/sha256:6bb7c13319b1c425952067ab4eed17953f3825c3ca1c3243718de466a440a283
+sha256:
+  darwin_arm64: b1bce7c4d87cff3a5381fa39b080f6056c59ec0fb4ef7981cd70f4a5d23fba83
+  darwin_amd64: ceee3280032116573f4f4c96b15d132bee87d78c5a09cfdf5eb7a250c7b31ad0
+  linux_amd64: 2b794277fc76a16aa1cb5789d988a15aaf4f1801f28aed8815f396945aa834f4
+  linux_arm64: 6bb7c13319b1c425952067ab4eed17953f3825c3ca1c3243718de466a440a283
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - miniupnpc
+  - openssl@3

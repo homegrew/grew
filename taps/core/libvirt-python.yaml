@@ -1,0 +1,22 @@
+name: libvirt-python
+version: 12.1.0
+description: Libvirt virtualization API python binding
+homepage: https://www.libvirt.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvirt-python/blobs/sha256:df82545cb92407cbb6bfb96f63fa7c1fac2a4b089369f4b90e674e26370a6e46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvirt-python/blobs/sha256:234a4a88a9037a5321e3e901c0a0d3fd84a93cd234ab81c2e72b2cd428ebfc50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvirt-python/blobs/sha256:16b1fc2cf62ef1b1262e16d8f79c8d4702825637a98755a66da97a31c7aac697
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvirt-python/blobs/sha256:2f1ddd535cefc97683075b6e2d2660a6829707b850538c26f31eb09cd1d84136
+sha256:
+  darwin_arm64: df82545cb92407cbb6bfb96f63fa7c1fac2a4b089369f4b90e674e26370a6e46
+  darwin_amd64: 234a4a88a9037a5321e3e901c0a0d3fd84a93cd234ab81c2e72b2cd428ebfc50
+  linux_amd64: 16b1fc2cf62ef1b1262e16d8f79c8d4702825637a98755a66da97a31c7aac697
+  linux_arm64: 2f1ddd535cefc97683075b6e2d2660a6829707b850538c26f31eb09cd1d84136
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libvirt
+  - python@3.14

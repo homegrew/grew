@@ -1,0 +1,28 @@
+name: mariadb@11.8
+version: 11.8.6
+description: Drop-in replacement for MySQL
+homepage: https://mariadb.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mariadb/11.8/blobs/sha256:87d602255d7adcd87ac6bbe012c3cb8a322e7d3f6d6fb1e758fa26bbf711f3da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mariadb/11.8/blobs/sha256:06544e82585bf6b0f3fc3172fc91368bb8444b952c17c6786245e8097f933f9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mariadb/11.8/blobs/sha256:8724295737d8df6cff49e35d414fd101d7f86a4f5b13de48b4f6a3035ba1bbf7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mariadb/11.8/blobs/sha256:a10bbfb32c244976a29001b04e26302bdc3402636e9d9ba5897bf5e7510abbd7
+sha256:
+  darwin_arm64: 87d602255d7adcd87ac6bbe012c3cb8a322e7d3f6d6fb1e758fa26bbf711f3da
+  darwin_amd64: 06544e82585bf6b0f3fc3172fc91368bb8444b952c17c6786245e8097f933f9f
+  linux_amd64: 8724295737d8df6cff49e35d414fd101d7f86a4f5b13de48b4f6a3035ba1bbf7
+  linux_arm64: a10bbfb32c244976a29001b04e26302bdc3402636e9d9ba5897bf5e7510abbd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - groonga
+  - lz4
+  - lzo
+  - openssl@3
+  - pcre2
+  - xz
+  - zstd
+keg_only: true

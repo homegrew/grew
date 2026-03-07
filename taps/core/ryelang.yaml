@@ -1,0 +1,19 @@
+name: ryelang
+version: 0.2.1
+description: Rye is a homoiconic programming language focused on fluid expressions
+homepage: https://ryelang.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ryelang/blobs/sha256:bb3984a55a16ea5e8fa8410ed1e67ac77c4924995e0710d0f351a3f4547ceab6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ryelang/blobs/sha256:43da1975995bace52307fdfb720afbb07498c5887499d556dc27bbcaeb933004
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ryelang/blobs/sha256:642d694ff3263e022d4fd811128626adf36db976033b65f6423579873e5bfdfb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ryelang/blobs/sha256:b32d99b6944d5ad9858365a831cacaf7a737aed7706f0fc3c8dc4d6324e763da
+sha256:
+  darwin_arm64: bb3984a55a16ea5e8fa8410ed1e67ac77c4924995e0710d0f351a3f4547ceab6
+  darwin_amd64: 43da1975995bace52307fdfb720afbb07498c5887499d556dc27bbcaeb933004
+  linux_amd64: 642d694ff3263e022d4fd811128626adf36db976033b65f6423579873e5bfdfb
+  linux_arm64: b32d99b6944d5ad9858365a831cacaf7a737aed7706f0fc3c8dc4d6324e763da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

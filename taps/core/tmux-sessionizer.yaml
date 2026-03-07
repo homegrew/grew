@@ -1,0 +1,19 @@
+name: tmux-sessionizer
+version: 0.5.0
+description: Tool for opening git repositories as tmux sessions
+homepage: https://github.com/jrmoulton/tmux-sessionizer/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmux-sessionizer/blobs/sha256:9ed8c2b2b44c4a59cd9bf195d3ad1acb7981e450fbe0261d4fe2902f5d103d1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmux-sessionizer/blobs/sha256:85cacea135842182e012520f4d85920105f85da0c63e3aa7b0d7d5b13fd0ccf5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmux-sessionizer/blobs/sha256:b5aab4af1e5367b530e729a336708f7296265cfe6430e104324d87a24fbdb6c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmux-sessionizer/blobs/sha256:c00fc1402d4707139bf7b6664d53526ef1654e13c650a7ab5208ad61b8c06c76
+sha256:
+  darwin_arm64: 9ed8c2b2b44c4a59cd9bf195d3ad1acb7981e450fbe0261d4fe2902f5d103d1d
+  darwin_amd64: 85cacea135842182e012520f4d85920105f85da0c63e3aa7b0d7d5b13fd0ccf5
+  linux_amd64: b5aab4af1e5367b530e729a336708f7296265cfe6430e104324d87a24fbdb6c2
+  linux_arm64: c00fc1402d4707139bf7b6664d53526ef1654e13c650a7ab5208ad61b8c06c76
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sqlx-cli
+version: 0.8.6
+description: Command-line utility for SQLx, the Rust SQL toolkit
+homepage: https://github.com/launchbadge/sqlx
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlx-cli/blobs/sha256:5864ad0460e6160909392fdcf5b606b06c3edde717f24d7188eccc09e6036bee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlx-cli/blobs/sha256:bdbfce8c38a02084c3cb88267371c470aa8154df798ab046a61a491fb616cbbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlx-cli/blobs/sha256:92a8ccbb9b00c9e1fc1e2fb632ab628a46cbf84011d82e78c0564c7f88b20290
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlx-cli/blobs/sha256:920ad5c889e0bd02b9dcf7aa520297c37fff4b14f6a04314b51f16ddcbda9ec4
+sha256:
+  darwin_arm64: 5864ad0460e6160909392fdcf5b606b06c3edde717f24d7188eccc09e6036bee
+  darwin_amd64: bdbfce8c38a02084c3cb88267371c470aa8154df798ab046a61a491fb616cbbd
+  linux_amd64: 92a8ccbb9b00c9e1fc1e2fb632ab628a46cbf84011d82e78c0564c7f88b20290
+  linux_arm64: 920ad5c889e0bd02b9dcf7aa520297c37fff4b14f6a04314b51f16ddcbda9ec4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

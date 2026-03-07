@@ -1,0 +1,24 @@
+name: schemathesis
+version: 4.11.2
+description: Testing tool for web applications with specs
+homepage: https://schemathesis.readthedocs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/schemathesis/blobs/sha256:c9fc9a6c2b008b330f1bca39407d0eddd8097c1a64e9d6f8601098e0a8b63d76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/schemathesis/blobs/sha256:941a879e44df5c882c6ceafc196ebb84e785192f827b438cb43f46b5b2ebcde1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/schemathesis/blobs/sha256:4a3c07ea3a843b151fdbf9963868f78db0bc4d7d5f7e1b943165d423781346d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/schemathesis/blobs/sha256:92b363f9b2ae8efcf457001924d20a2ee883f96784b063c7bef5d50245f22190
+sha256:
+  darwin_arm64: c9fc9a6c2b008b330f1bca39407d0eddd8097c1a64e9d6f8601098e0a8b63d76
+  darwin_amd64: 941a879e44df5c882c6ceafc196ebb84e785192f827b438cb43f46b5b2ebcde1
+  linux_amd64: 4a3c07ea3a843b151fdbf9963868f78db0bc4d7d5f7e1b943165d423781346d1
+  linux_arm64: 92b363f9b2ae8efcf457001924d20a2ee883f96784b063c7bef5d50245f22190
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

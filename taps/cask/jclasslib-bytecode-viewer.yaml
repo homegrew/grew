@@ -1,0 +1,11 @@
+name: jclasslib-bytecode-viewer
+version: 7.0
+description: Visualise all aspects of compiled Java class files and the contained bytecode
+homepage: https://github.com/ingokegel/jclasslib
+url:
+  darwin_arm64: https://github.com/ingokegel/jclasslib/releases/download/7.0/jclasslib_macos_7_0.dmg
+sha256:
+  darwin_arm64: d11612e5d4a92970a356264ec74b960beb12a6f56a028204382720e0dbbfecfb
+artifacts:
+  app:
+    - jclasslib bytecode viewer.app

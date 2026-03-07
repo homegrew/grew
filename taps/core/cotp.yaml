@@ -1,0 +1,19 @@
+name: cotp
+version: 1.9.7
+description: TOTP/HOTP authenticator app with import functionality
+homepage: https://github.com/replydev/cotp
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cotp/blobs/sha256:1e40cfa0d477e95401ba5ab31c28936fb21ee4161487332139359b16aee9a7e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cotp/blobs/sha256:66ffb02a6f5d8a79f14f4600ca48689e8dee207b0d9a8cde8dd38a6d4df7b8f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cotp/blobs/sha256:e1db73eb628d909682aa79db0465904835d5ca56e52f372f196e3c1c23d9837a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cotp/blobs/sha256:d1a5443da0a3e40a0bf4eeaa1628856e1450941b2525b8d11718f1cd015853b8
+sha256:
+  darwin_arm64: 1e40cfa0d477e95401ba5ab31c28936fb21ee4161487332139359b16aee9a7e8
+  darwin_amd64: 66ffb02a6f5d8a79f14f4600ca48689e8dee207b0d9a8cde8dd38a6d4df7b8f6
+  linux_amd64: e1db73eb628d909682aa79db0465904835d5ca56e52f372f196e3c1c23d9837a
+  linux_arm64: d1a5443da0a3e40a0bf4eeaa1628856e1450941b2525b8d11718f1cd015853b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

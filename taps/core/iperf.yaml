@@ -1,0 +1,19 @@
+name: iperf
+version: 2.2.1
+description: Tool to measure maximum TCP and UDP bandwidth
+homepage: https://sourceforge.net/projects/iperf2/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iperf/blobs/sha256:cffb79e318b18bb8ffe58ddec42841b7de49ad42c167a421df93758608a78958
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iperf/blobs/sha256:aed94aa9afebab06799f8029472589ceec497c794a787cff72b266485d747e07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iperf/blobs/sha256:30cab186caf9720f6d1758b086d8df5978ea56022a32ad4367f232ab82c1750e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iperf/blobs/sha256:b82dd7aea8a7176b9de78654e8fb38b5ea3fac1a68ecf538d5fc8c00cd1ddbfc
+sha256:
+  darwin_arm64: cffb79e318b18bb8ffe58ddec42841b7de49ad42c167a421df93758608a78958
+  darwin_amd64: aed94aa9afebab06799f8029472589ceec497c794a787cff72b266485d747e07
+  linux_amd64: 30cab186caf9720f6d1758b086d8df5978ea56022a32ad4367f232ab82c1750e
+  linux_arm64: b82dd7aea8a7176b9de78654e8fb38b5ea3fac1a68ecf538d5fc8c00cd1ddbfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: pyenv-virtualenv
+version: 1.2.6
+description: Pyenv plugin to manage virtualenv
+homepage: https://github.com/pyenv/pyenv-virtualenv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyenv-virtualenv/blobs/sha256:70ad6bd810b1c59dd95e8dc6d87a5135d184f9a48c8e8b67803e8d54abf03780
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyenv-virtualenv/blobs/sha256:06fadc8df2e7de479b5da129213c5919a4233776e2128d84bd01341fe5692f1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyenv-virtualenv/blobs/sha256:11936498dd69400cbbb0b9fdecaaffeed1d1a0d648a974514f3de990a983ad60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyenv-virtualenv/blobs/sha256:11936498dd69400cbbb0b9fdecaaffeed1d1a0d648a974514f3de990a983ad60
+sha256:
+  darwin_arm64: 70ad6bd810b1c59dd95e8dc6d87a5135d184f9a48c8e8b67803e8d54abf03780
+  darwin_amd64: 06fadc8df2e7de479b5da129213c5919a4233776e2128d84bd01341fe5692f1b
+  linux_amd64: 11936498dd69400cbbb0b9fdecaaffeed1d1a0d648a974514f3de990a983ad60
+  linux_arm64: 11936498dd69400cbbb0b9fdecaaffeed1d1a0d648a974514f3de990a983ad60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pyenv
+  - coreutils

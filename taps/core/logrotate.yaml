@@ -1,0 +1,21 @@
+name: logrotate
+version: 3.22.0
+description: Rotates, compresses, and mails system logs
+homepage: https://github.com/logrotate/logrotate
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logrotate/blobs/sha256:956be5c37ef380ddac0212fb5016e5d4a6baaefb6abe55d081eb8d130e3c8790
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logrotate/blobs/sha256:83bb9be87509907cbb33a7ae78a4ff40ac00ac9da01f99d85817d2391cb2439f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logrotate/blobs/sha256:d507205d500b30fedd4f60fccb2e4667985bfaf9348b26b641ff357ce89a442b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logrotate/blobs/sha256:a65380b56872b8ac8acbedc3400a24c32b278b2e241f631bbeb88e7b485b1b0d
+sha256:
+  darwin_arm64: 956be5c37ef380ddac0212fb5016e5d4a6baaefb6abe55d081eb8d130e3c8790
+  darwin_amd64: 83bb9be87509907cbb33a7ae78a4ff40ac00ac9da01f99d85817d2391cb2439f
+  linux_amd64: d507205d500b30fedd4f60fccb2e4667985bfaf9348b26b641ff357ce89a442b
+  linux_arm64: a65380b56872b8ac8acbedc3400a24c32b278b2e241f631bbeb88e7b485b1b0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - popt

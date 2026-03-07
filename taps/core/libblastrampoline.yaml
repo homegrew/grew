@@ -1,0 +1,19 @@
+name: libblastrampoline
+version: 5.15.0
+description: Using PLT trampolines to provide a BLAS and LAPACK demuxing library
+homepage: https://github.com/JuliaLinearAlgebra/libblastrampoline
+license: MIT AND BSD-2-Clause-Views AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libblastrampoline/blobs/sha256:438c7cc5a4b1c5272a7daccb970d49d1e85336e12c0c04861e0ed41fd81f9628
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libblastrampoline/blobs/sha256:ef556a70b35c24ddfbac6c3ff5bb5d7dc9ee0d655724f8747d99de4b75b1cb58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libblastrampoline/blobs/sha256:5b5587f9b1d19d6bcd93cc3520ef040288b9ee5ef8558f6efae1da054aae0eb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libblastrampoline/blobs/sha256:e030ff06d4bcdc58f44883a75949da9087a9eb031bd395a0c176686a3f07efd9
+sha256:
+  darwin_arm64: 438c7cc5a4b1c5272a7daccb970d49d1e85336e12c0c04861e0ed41fd81f9628
+  darwin_amd64: ef556a70b35c24ddfbac6c3ff5bb5d7dc9ee0d655724f8747d99de4b75b1cb58
+  linux_amd64: 5b5587f9b1d19d6bcd93cc3520ef040288b9ee5ef8558f6efae1da054aae0eb8
+  linux_arm64: e030ff06d4bcdc58f44883a75949da9087a9eb031bd395a0c176686a3f07efd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

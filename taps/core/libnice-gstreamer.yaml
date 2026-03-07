@@ -1,0 +1,25 @@
+name: libnice-gstreamer
+version: 0.1.23
+description: GStreamer Plugin for libnice
+homepage: https://wiki.freedesktop.org/nice/
+license: LGPL-2.1-only OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnice-gstreamer/blobs/sha256:8c35c126361bae664d0cedd53e2df6115a1303cf2566b9a28a3486b2159731f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnice-gstreamer/blobs/sha256:f78f64870d3d5ec10b8cf25af5ac7ae92c3106b577f1bf13d9cab0dccbe9fbb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnice-gstreamer/blobs/sha256:2570d646e3fff87a4227109021740629384f63d27278ae1ec5060278c6169148
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnice-gstreamer/blobs/sha256:ed30b7a595d0bf0f5798158f4f142af5c71ae72d0e3fe9a4c815beca104df736
+sha256:
+  darwin_arm64: 8c35c126361bae664d0cedd53e2df6115a1303cf2566b9a28a3486b2159731f5
+  darwin_amd64: f78f64870d3d5ec10b8cf25af5ac7ae92c3106b577f1bf13d9cab0dccbe9fbb7
+  linux_amd64: 2570d646e3fff87a4227109021740629384f63d27278ae1ec5060278c6169148
+  linux_arm64: ed30b7a595d0bf0f5798158f4f142af5c71ae72d0e3fe9a4c815beca104df736
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - gstreamer
+  - libnice
+  - gettext

@@ -1,0 +1,19 @@
+name: editorconfig-checker
+version: 3.6.1
+description: Tool to verify that your files are in harmony with your .editorconfig
+homepage: https://github.com/editorconfig-checker/editorconfig-checker
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/editorconfig-checker/blobs/sha256:5c3943c8c379e3ed6edbaaf7ff729bbead0ce913291ca9096d7f27c35bc6c9d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/editorconfig-checker/blobs/sha256:1c44690c2c2877d318e4159e0789d2c2ee26f8e7a63585b538abc57e2bb9b56d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/editorconfig-checker/blobs/sha256:07ec5262b1ab9d209a5bd9b0cb9f5740cfd99e30009e2aaf25f0ee8180512964
+  linux_arm64: https://ghcr.io/v2/homebrew/core/editorconfig-checker/blobs/sha256:37c5ce8d2cfbb5514eb05cf4c9f83bd6fda82e6e5b6936112596446e704a19c1
+sha256:
+  darwin_arm64: 5c3943c8c379e3ed6edbaaf7ff729bbead0ce913291ca9096d7f27c35bc6c9d5
+  darwin_amd64: 1c44690c2c2877d318e4159e0789d2c2ee26f8e7a63585b538abc57e2bb9b56d
+  linux_amd64: 07ec5262b1ab9d209a5bd9b0cb9f5740cfd99e30009e2aaf25f0ee8180512964
+  linux_arm64: 37c5ce8d2cfbb5514eb05cf4c9f83bd6fda82e6e5b6936112596446e704a19c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

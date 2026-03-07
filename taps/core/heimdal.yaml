@@ -1,0 +1,25 @@
+name: heimdal
+version: 7.8.0
+description: Free Kerberos 5 implementation
+homepage: https://github.com/heimdal/heimdal
+license: BSD-3-Clause AND BSD-2-Clause AND HPND-export2-US AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/heimdal/blobs/sha256:494784674bf30f21015e779c12e571f66e440951a5d837a9b9fd3ed33454775b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/heimdal/blobs/sha256:da71a50cfc7717bbd57c8c99d50c21ef705a95f14bf332380a932334d543edbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/heimdal/blobs/sha256:938a68365f4def1622b54fbb92b83d6c444e8cf89c3bc693a935eeeea7e8109c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/heimdal/blobs/sha256:db3a0eee434231a275600a3aaa8da18416cfc1d467c8a31631d0f8a8db03ae56
+sha256:
+  darwin_arm64: 494784674bf30f21015e779c12e571f66e440951a5d837a9b9fd3ed33454775b
+  darwin_amd64: da71a50cfc7717bbd57c8c99d50c21ef705a95f14bf332380a932334d543edbe
+  linux_amd64: 938a68365f4def1622b54fbb92b83d6c444e8cf89c3bc693a935eeeea7e8109c
+  linux_arm64: db3a0eee434231a275600a3aaa8da18416cfc1d467c8a31631d0f8a8db03ae56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - lmdb
+  - openldap
+  - openssl@3
+keg_only: true

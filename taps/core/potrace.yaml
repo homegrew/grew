@@ -1,0 +1,19 @@
+name: potrace
+version: 1.16
+description: Convert bitmaps to vector graphics
+homepage: https://potrace.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/potrace/blobs/sha256:f60557ba39e1e0bb436b79900bec393061141e8e73aa8b20cec3f3b95db69166
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/potrace/blobs/sha256:d029f0be5c3488ee0505ab9007c421d7028da1cd92ef677c9526323594f9e7e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/potrace/blobs/sha256:7ae69c21ad7fef2bac8e10969569948da925bf7266e3939ed02349fd85ae7f42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/potrace/blobs/sha256:a8fa204329840a3d30ac7b01a350675dfc3fb3d35b63e49fe4066c086d0aaf19
+sha256:
+  darwin_arm64: f60557ba39e1e0bb436b79900bec393061141e8e73aa8b20cec3f3b95db69166
+  darwin_amd64: d029f0be5c3488ee0505ab9007c421d7028da1cd92ef677c9526323594f9e7e1
+  linux_amd64: 7ae69c21ad7fef2bac8e10969569948da925bf7266e3939ed02349fd85ae7f42
+  linux_arm64: a8fa204329840a3d30ac7b01a350675dfc3fb3d35b63e49fe4066c086d0aaf19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

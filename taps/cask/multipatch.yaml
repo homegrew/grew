@@ -1,0 +1,11 @@
+name: multipatch
+version: 2.0
+description: File patching utility
+homepage: https://projects.sappharad.com/multipatch/
+url:
+  darwin_arm64: https://projects.sappharad.com/multipatch/multipatch20.zip
+sha256:
+  darwin_arm64: 92d4077bc10802c7b4395d6716afc5c23bbdb34788be4a672fd5fef807a2072b
+artifacts:
+  app:
+    - MultiPatch.app

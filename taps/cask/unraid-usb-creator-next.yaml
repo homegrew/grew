@@ -1,0 +1,11 @@
+name: unraid-usb-creator-next
+version: 1.1.0
+description: Home of the Next-Gen Unraid USB Creator, a fork of the Raspberry Pi Imager
+homepage: https://unraid.net/download/
+url:
+  darwin_arm64: https://github.com/unraid/usb-creator-next/releases/download/v1.1.0/unraid-usb-creator-1.1.0.dmg
+sha256:
+  darwin_arm64: 7f72aa8d86f43fde768bc97c583d269798235f1b3212ed4c59c403923a9ad462
+artifacts:
+  app:
+    - Unraid USB Creator.app

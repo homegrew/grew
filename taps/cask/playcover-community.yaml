@@ -1,0 +1,11 @@
+name: playcover-community
+version: 3.1.0
+description: Sideload iOS apps and games
+homepage: https://github.com/PlayCover/PlayCover
+url:
+  darwin_arm64: https://github.com/PlayCover/PlayCover/releases/download/3.1.0/PlayCover_3.1.0.dmg
+sha256:
+  darwin_arm64: 5c3a291827f4802f665daf5c33a6bfe6ef0df2c6dff3f9e554db6514176196e7
+artifacts:
+  app:
+    - PlayCover.app

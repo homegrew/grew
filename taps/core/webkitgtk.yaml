@@ -1,0 +1,57 @@
+name: webkitgtk
+version: 2.50.5
+description: GTK interface to WebKit
+homepage: https://webkitgtk.org
+license: GPL-3.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webkitgtk/blobs/sha256:8b0aece1a6b3ed07503a954b5e1754508dd8a99dc557403d3d01d346d6f826df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webkitgtk/blobs/sha256:61994ca1ffef4691435c3dc3264c0ac33734eb7b4c2f4ace77768881fdfebbb6
+sha256:
+  linux_amd64: 8b0aece1a6b3ed07503a954b5e1754508dd8a99dc557403d3d01d346d6f826df
+  linux_arm64: 61994ca1ffef4691435c3dc3264c0ac33734eb7b4c2f4ace77768881fdfebbb6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - enchant
+  - expat
+  - fontconfig
+  - freetype
+  - gdk-pixbuf
+  - glib
+  - gstreamer
+  - gtk+3
+  - harfbuzz
+  - icu4c@78
+  - jpeg-turbo
+  - jpeg-xl
+  - libavif
+  - libdrm
+  - libepoxy
+  - libgcrypt
+  - libnotify
+  - libpng
+  - libsecret
+  - libsoup
+  - libtasn1
+  - libwpe
+  - libx11
+  - libxcomposite
+  - libxml2
+  - libxslt
+  - libxt
+  - little-cms2
+  - mesa
+  - openjpeg
+  - pango
+  - sqlite
+  - sysprof
+  - systemd
+  - wayland
+  - webp
+  - woff2
+  - wpebackend-fdo
+  - zlib-ng-compat

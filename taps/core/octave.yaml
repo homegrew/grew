@@ -1,0 +1,51 @@
+name: octave
+version: 11.1.0
+description: High-level interpreted language for numerical computing
+homepage: https://octave.org/index.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/octave/blobs/sha256:eb9e33aae3eda5c4c6f317c870051bf760af6e8baffcabf495ec096a1ac552db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/octave/blobs/sha256:b6da3844e5b5a94578bdca36291c38d84e0e163da6fd9ac118b737ea08615749
+  linux_amd64: https://ghcr.io/v2/homebrew/core/octave/blobs/sha256:ae513c984d980c0ced1b4d3be890f5183b59cae6712b49162fdd65d57f412d2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/octave/blobs/sha256:9c891f169b5a0bd821550baa5f63c7007e46b404acf526d912fdbf49e83422ca
+sha256:
+  darwin_arm64: eb9e33aae3eda5c4c6f317c870051bf760af6e8baffcabf495ec096a1ac552db
+  darwin_amd64: b6da3844e5b5a94578bdca36291c38d84e0e163da6fd9ac118b737ea08615749
+  linux_amd64: ae513c984d980c0ced1b4d3be890f5183b59cae6712b49162fdd65d57f412d2a
+  linux_arm64: 9c891f169b5a0bd821550baa5f63c7007e46b404acf526d912fdbf49e83422ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - arpack
+  - epstool
+  - fftw
+  - fig2dev
+  - fltk
+  - fontconfig
+  - freetype
+  - gcc
+  - ghostscript
+  - gl2ps
+  - glpk
+  - graphicsmagick
+  - hdf5
+  - libsndfile
+  - libtool
+  - openblas
+  - pcre2
+  - portaudio
+  - pstoedit
+  - qhull
+  - qrupdate
+  - qscintilla2
+  - qt5compat
+  - qtbase
+  - qttools
+  - rapidjson
+  - readline
+  - suite-sparse
+  - sundials
+  - texinfo
+  - little-cms2

@@ -1,0 +1,19 @@
+name: nikto
+version: 2.6.0
+description: Web server scanner
+homepage: https://cirt.net/nikto/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nikto/blobs/sha256:0b25b9835dc21faf79f47275f8cb32fe189d8c93c8be6d19177831d8d095ff19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nikto/blobs/sha256:0b25b9835dc21faf79f47275f8cb32fe189d8c93c8be6d19177831d8d095ff19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nikto/blobs/sha256:ecd1d17136bddbf40f16c1e19c92c8d5cadff0195d6710ecd1752a4883b71911
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nikto/blobs/sha256:81f0196a9ccf7113d62c1cb722dab0f4744a78eb88c605c36762921a49449af4
+sha256:
+  darwin_arm64: 0b25b9835dc21faf79f47275f8cb32fe189d8c93c8be6d19177831d8d095ff19
+  darwin_amd64: 0b25b9835dc21faf79f47275f8cb32fe189d8c93c8be6d19177831d8d095ff19
+  linux_amd64: ecd1d17136bddbf40f16c1e19c92c8d5cadff0195d6710ecd1752a4883b71911
+  linux_arm64: 81f0196a9ccf7113d62c1cb722dab0f4744a78eb88c605c36762921a49449af4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

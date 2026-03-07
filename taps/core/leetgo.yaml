@@ -1,0 +1,19 @@
+name: leetgo
+version: 1.4.16
+description: CLI tool for LeetCode
+homepage: https://github.com/j178/leetgo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leetgo/blobs/sha256:a9c98a584d406afc2ca320717eba6d9346acdee631615efd12ac4970667b3a3d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leetgo/blobs/sha256:63a4e37692d5d54314a46aa9bd34df6a9c0d02d34174d4fa47a5bc1b30504ca7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leetgo/blobs/sha256:5f3f52df626997cceb49fe191f85f522217f84b721a1c45789e65679ed5aecae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leetgo/blobs/sha256:76ecaf32b6e59b80998383b7f64daead8dbccf9fd42fea405e4f3425936bd863
+sha256:
+  darwin_arm64: a9c98a584d406afc2ca320717eba6d9346acdee631615efd12ac4970667b3a3d
+  darwin_amd64: 63a4e37692d5d54314a46aa9bd34df6a9c0d02d34174d4fa47a5bc1b30504ca7
+  linux_amd64: 5f3f52df626997cceb49fe191f85f522217f84b721a1c45789e65679ed5aecae
+  linux_arm64: 76ecaf32b6e59b80998383b7f64daead8dbccf9fd42fea405e4f3425936bd863
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

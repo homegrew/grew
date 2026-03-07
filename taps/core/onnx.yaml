@@ -1,0 +1,22 @@
+name: onnx
+version: 1.20.1
+description: Open standard for machine learning interoperability
+homepage: https://onnx.ai/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onnx/blobs/sha256:b08d78e17d7651c14a03f45716f396e5e2db5b0e4355392bf79cdd98193b49bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onnx/blobs/sha256:e7316ce7f9ce23c18ff031accb61510c68602090c9fba7f21b7ac021b19e6d3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onnx/blobs/sha256:2ea571f18d6bcc08c93fdb76a0f9b14eca57b2d61b7473268a9125dada50c2a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onnx/blobs/sha256:f4142c13244b3816b27182512e0e5ed0ee26a22579ae97d4e783235c63e775e3
+sha256:
+  darwin_arm64: b08d78e17d7651c14a03f45716f396e5e2db5b0e4355392bf79cdd98193b49bd
+  darwin_amd64: e7316ce7f9ce23c18ff031accb61510c68602090c9fba7f21b7ac021b19e6d3a
+  linux_amd64: 2ea571f18d6bcc08c93fdb76a0f9b14eca57b2d61b7473268a9125dada50c2a1
+  linux_arm64: f4142c13244b3816b27182512e0e5ed0ee26a22579ae97d4e783235c63e775e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - protobuf@33

@@ -1,0 +1,25 @@
+name: libosinfo
+version: 1.12.0
+description: Operating System information database
+homepage: https://libosinfo.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libosinfo/blobs/sha256:4773ff32945a3d4c0b60862f9d922197cccd51007e8ef68be8406a1d47377d83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libosinfo/blobs/sha256:8695c32adedebb47e0193b2630bf5e4be7face356688702edd6fcd3cf2100c5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libosinfo/blobs/sha256:c543a59fcf39583b1f55839d2ec00ea5575aa88b8956ed86e0a284131411dacd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libosinfo/blobs/sha256:4f2544454bcb943bb021c39e9533262b1c1384f86cbd642f192f036e5ba7aaa5
+sha256:
+  darwin_arm64: 4773ff32945a3d4c0b60862f9d922197cccd51007e8ef68be8406a1d47377d83
+  darwin_amd64: 8695c32adedebb47e0193b2630bf5e4be7face356688702edd6fcd3cf2100c5d
+  linux_amd64: c543a59fcf39583b1f55839d2ec00ea5575aa88b8956ed86e0a284131411dacd
+  linux_arm64: 4f2544454bcb943bb021c39e9533262b1c1384f86cbd642f192f036e5ba7aaa5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libsoup
+  - osinfo-db
+  - usb.ids
+  - gettext

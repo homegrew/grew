@@ -1,0 +1,19 @@
+name: pint
+version: 0.79.0
+description: Prometheus rule linter/validator
+homepage: https://cloudflare.github.io/pint/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pint/blobs/sha256:1c820adbc3e9cecfa87f61c705798c65bb86e0b06fe6610a259225d7f5c80d06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pint/blobs/sha256:e028e90e1f23ae9ad2160e805904b5a4006c879a6b6238f661d61d7bf014b91b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pint/blobs/sha256:d5778d29a732c2f346039f8678c66adb07dfe4599ceda3403bbb7d11fc4939c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pint/blobs/sha256:70fb9a7aed498d0c6b26bfe6f10f396180f7da2bb38fc13e2dc1e63a17a63372
+sha256:
+  darwin_arm64: 1c820adbc3e9cecfa87f61c705798c65bb86e0b06fe6610a259225d7f5c80d06
+  darwin_amd64: e028e90e1f23ae9ad2160e805904b5a4006c879a6b6238f661d61d7bf014b91b
+  linux_amd64: d5778d29a732c2f346039f8678c66adb07dfe4599ceda3403bbb7d11fc4939c5
+  linux_arm64: 70fb9a7aed498d0c6b26bfe6f10f396180f7da2bb38fc13e2dc1e63a17a63372
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

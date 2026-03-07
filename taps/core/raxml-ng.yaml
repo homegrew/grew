@@ -1,0 +1,21 @@
+name: raxml-ng
+version: 1.2.2
+description: "RAxML Next Generation: faster, easier-to-use and more flexible"
+homepage: https://cme.h-its.org/exelixis/web/software/raxml/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/raxml-ng/blobs/sha256:c74c9931e040c4511002c51f6828473eb44842300ce6f4aab7052279d156b0ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/raxml-ng/blobs/sha256:63100f2fe0b660b831fcb16cc08b299bf62a978d4c97949d87d5e09716b4670d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/raxml-ng/blobs/sha256:53e258a6db4cb2d05aa6013741ac3c2345a9d92da103a23d34dda647b8e8d532
+  linux_arm64: https://ghcr.io/v2/homebrew/core/raxml-ng/blobs/sha256:9aa9f1417b9bf4ed64b5e690d2a6901d5c181cc9fd8e641589301b8118d2ab1b
+sha256:
+  darwin_arm64: c74c9931e040c4511002c51f6828473eb44842300ce6f4aab7052279d156b0ca
+  darwin_amd64: 63100f2fe0b660b831fcb16cc08b299bf62a978d4c97949d87d5e09716b4670d
+  linux_amd64: 53e258a6db4cb2d05aa6013741ac3c2345a9d92da103a23d34dda647b8e8d532
+  linux_arm64: 9aa9f1417b9bf4ed64b5e690d2a6901d5c181cc9fd8e641589301b8118d2ab1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

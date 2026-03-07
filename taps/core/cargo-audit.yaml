@@ -1,0 +1,21 @@
+name: cargo-audit
+version: 0.22.1
+description: Audit Cargo.lock files for crates with security vulnerabilities
+homepage: https://rustsec.org/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-audit/blobs/sha256:b863761905e89bd87009f738a06311ff12c071952b249998a3cfa422da221583
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-audit/blobs/sha256:96c9f3e94687aea1e65ae80ca447e78319125e643019995cec756deec3832244
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-audit/blobs/sha256:303b9c4ba7517e22b93399a9876b8bd69307165ac9eae534db83852e449bbfb9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-audit/blobs/sha256:bc4d22172c227e91f20053e8bd799969b9e01c8d413d2d9ed0011367622414ac
+sha256:
+  darwin_arm64: b863761905e89bd87009f738a06311ff12c071952b249998a3cfa422da221583
+  darwin_amd64: 96c9f3e94687aea1e65ae80ca447e78319125e643019995cec756deec3832244
+  linux_amd64: 303b9c4ba7517e22b93399a9876b8bd69307165ac9eae534db83852e449bbfb9
+  linux_arm64: bc4d22172c227e91f20053e8bd799969b9e01c8d413d2d9ed0011367622414ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

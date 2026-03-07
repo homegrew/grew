@@ -1,0 +1,19 @@
+name: uudeview
+version: 0.5.20
+description: Smart multi-file multi-part decoder
+homepage: http://www.fpx.de/fp/Software/UUDeview/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uudeview/blobs/sha256:4a0021e8cbb12c07b7c46049e72d217530ed08c2474d57f145044ab7d24674d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uudeview/blobs/sha256:cfbdefb80f1571aa3c8df28efe90f9a526ef1c936a51a2c0ea913e6da8447927
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uudeview/blobs/sha256:5cdd9748ec5c1baf9934bade72dd8a3eea06b632d0f1c49e57b682663bbb8371
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uudeview/blobs/sha256:59e22160ac8e39b4efe0f3c935141e1c24656875c142a69df72992d302c16c79
+sha256:
+  darwin_arm64: 4a0021e8cbb12c07b7c46049e72d217530ed08c2474d57f145044ab7d24674d8
+  darwin_amd64: cfbdefb80f1571aa3c8df28efe90f9a526ef1c936a51a2c0ea913e6da8447927
+  linux_amd64: 5cdd9748ec5c1baf9934bade72dd8a3eea06b632d0f1c49e57b682663bbb8371
+  linux_arm64: 59e22160ac8e39b4efe0f3c935141e1c24656875c142a69df72992d302c16c79
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: idutils
+version: 4.6
+description: ID database and query tools
+homepage: https://www.gnu.org/software/idutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/idutils/blobs/sha256:e60e746f4261098cdd11898d89c236538d8232579351a5ebad27194c7f3f3784
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/idutils/blobs/sha256:3107240f1d74fde8a91d009fadbdbd2a3e2e0384476735365c9d87a919421d2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/idutils/blobs/sha256:54a8af17aba2695b61bd976d6ae4bf2f13c45cec787b1c14b497080d5bac9ce9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/idutils/blobs/sha256:a82f5ffc54658cb4994b62c8db6217395eb90e9b863b2b4de410ef267db66ce9
+sha256:
+  darwin_arm64: e60e746f4261098cdd11898d89c236538d8232579351a5ebad27194c7f3f3784
+  darwin_amd64: 3107240f1d74fde8a91d009fadbdbd2a3e2e0384476735365c9d87a919421d2c
+  linux_amd64: 54a8af17aba2695b61bd976d6ae4bf2f13c45cec787b1c14b497080d5bac9ce9
+  linux_arm64: a82f5ffc54658cb4994b62c8db6217395eb90e9b863b2b4de410ef267db66ce9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

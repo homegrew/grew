@@ -1,0 +1,30 @@
+name: gnupg
+version: 2.4.9
+description: GNU Privacy Guard (OpenPGP)
+homepage: https://gnupg.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnupg/blobs/sha256:47d45361318ca8b6bc9cef4fceed6acb413cfcad60ae0c4192febb71f0434a6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnupg/blobs/sha256:86a3a059839b4a29bc6401545c1f7967e0c8d7af6be7f5f7c2674bea27297239
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnupg/blobs/sha256:4b68cf17af9be7503b62e9c7220065ac59211ceaaa2ca23705b5f95156847183
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnupg/blobs/sha256:fae6d9cc07ed9f8fd42f393cfe935ca328ad6b4ec13d5fb0ab065f62b7ff45bf
+sha256:
+  darwin_arm64: 47d45361318ca8b6bc9cef4fceed6acb413cfcad60ae0c4192febb71f0434a6c
+  darwin_amd64: 86a3a059839b4a29bc6401545c1f7967e0c8d7af6be7f5f7c2674bea27297239
+  linux_amd64: 4b68cf17af9be7503b62e9c7220065ac59211ceaaa2ca23705b5f95156847183
+  linux_arm64: fae6d9cc07ed9f8fd42f393cfe935ca328ad6b4ec13d5fb0ab065f62b7ff45bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - libassuan
+  - libgcrypt
+  - libgpg-error
+  - libksba
+  - libusb
+  - npth
+  - pinentry
+  - readline
+  - gettext

@@ -1,0 +1,21 @@
+name: airspy
+version: 1.0.10
+description: Driver and tools for a software-defined radio
+homepage: https://airspy.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/airspy/blobs/sha256:43ab01541269d098b8b36f73e206cae61390ded5015dd8a795ee0d9917ba10bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/airspy/blobs/sha256:522690a97cfed3979494776f031ca2ccad8c4240691ddcce9720636b96cb9802
+  linux_amd64: https://ghcr.io/v2/homebrew/core/airspy/blobs/sha256:b1705571f2f7cc979706ceb8340ee737fde0b538002c3942145f35355b9b41d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/airspy/blobs/sha256:04a3fc8d7785a617963f05f454e5c18526e855ad8171285420aa68c7f5a38391
+sha256:
+  darwin_arm64: 43ab01541269d098b8b36f73e206cae61390ded5015dd8a795ee0d9917ba10bc
+  darwin_amd64: 522690a97cfed3979494776f031ca2ccad8c4240691ddcce9720636b96cb9802
+  linux_amd64: b1705571f2f7cc979706ceb8340ee737fde0b538002c3942145f35355b9b41d3
+  linux_arm64: 04a3fc8d7785a617963f05f454e5c18526e855ad8171285420aa68c7f5a38391
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

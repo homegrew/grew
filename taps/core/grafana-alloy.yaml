@@ -1,0 +1,19 @@
+name: grafana-alloy
+version: 1.13.2
+description: OpenTelemetry Collector distribution with programmable pipelines
+homepage: https://grafana.com/oss/alloy-opentelemetry-collector/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grafana-alloy/blobs/sha256:a1daa39b202c1beafd34b03edf87a325f7497578592ca6dea11f9f3e11409e79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grafana-alloy/blobs/sha256:01121065e0bf3be51369d045b58eb6001c889cf40f3dc642334f0e8cf812c413
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grafana-alloy/blobs/sha256:e23b5884dbb68f16b403f38a69717d51b0b01be19a5b5d8da01e276205b16506
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grafana-alloy/blobs/sha256:f6d063a497988b8e6db2a5c39892af6ec00efd911a18da320c850ef9ac2789a2
+sha256:
+  darwin_arm64: a1daa39b202c1beafd34b03edf87a325f7497578592ca6dea11f9f3e11409e79
+  darwin_amd64: 01121065e0bf3be51369d045b58eb6001c889cf40f3dc642334f0e8cf812c413
+  linux_amd64: e23b5884dbb68f16b403f38a69717d51b0b01be19a5b5d8da01e276205b16506
+  linux_arm64: f6d063a497988b8e6db2a5c39892af6ec00efd911a18da320c850ef9ac2789a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

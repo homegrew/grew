@@ -1,0 +1,19 @@
+name: certgraph
+version: 0.1.2
+description: Crawl the graph of certificate Alternate Names
+homepage: https://github.com/lanrat/certgraph
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/certgraph/blobs/sha256:61e0de8d4c9914e75649461e35b23e1e698bfb56e2870bc9e0d34e9169d5857f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/certgraph/blobs/sha256:4141330eed9a89e2b7ae519914a527f90ae919796a14ed641dfae691bc643f50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/certgraph/blobs/sha256:ac679b05635a7ad66dc2a1e5fbcfaa8cb536b9fa2b24b569704fb306ecc3673f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/certgraph/blobs/sha256:1491f25410592de4a87b0681981015401a7456c8d618b7ddcfc6afcdb51c41d7
+sha256:
+  darwin_arm64: 61e0de8d4c9914e75649461e35b23e1e698bfb56e2870bc9e0d34e9169d5857f
+  darwin_amd64: 4141330eed9a89e2b7ae519914a527f90ae919796a14ed641dfae691bc643f50
+  linux_amd64: ac679b05635a7ad66dc2a1e5fbcfaa8cb536b9fa2b24b569704fb306ecc3673f
+  linux_arm64: 1491f25410592de4a87b0681981015401a7456c8d618b7ddcfc6afcdb51c41d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

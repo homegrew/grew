@@ -1,0 +1,19 @@
+name: cconv
+version: 0.6.3
+description: Iconv based simplified-traditional Chinese conversion tool
+homepage: https://github.com/xiaoyjy/cconv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cconv/blobs/sha256:bfb30a39eb38f85420bced927f9c1db3d53a584cf4536a474621ad27a4936303
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cconv/blobs/sha256:ea6d3aef081f06fc31212ce8b68db8ac79eb590f10ab100e0706ecd8e85e5763
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cconv/blobs/sha256:d7176512194c3bed0f8db76bf768136559dd09bfaaa3562908acaa748ccbd288
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cconv/blobs/sha256:bb747250621542e8deeda2696a06b14ce399459ce02ace26986e858446535c50
+sha256:
+  darwin_arm64: bfb30a39eb38f85420bced927f9c1db3d53a584cf4536a474621ad27a4936303
+  darwin_amd64: ea6d3aef081f06fc31212ce8b68db8ac79eb590f10ab100e0706ecd8e85e5763
+  linux_amd64: d7176512194c3bed0f8db76bf768136559dd09bfaaa3562908acaa748ccbd288
+  linux_arm64: bb747250621542e8deeda2696a06b14ce399459ce02ace26986e858446535c50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

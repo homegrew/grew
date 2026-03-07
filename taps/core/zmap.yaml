@@ -1,0 +1,25 @@
+name: zmap
+version: 4.3.4
+description: Network scanner for Internet-wide network studies
+homepage: https://zmap.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zmap/blobs/sha256:0f8b31f9fcda17ba66605ca6761f8497ef1217b3ecc8d31d8cdd8af8ce8b7357
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zmap/blobs/sha256:daefd0ba4f61064f028ded544912b684c1b0c399a81b4f99b8ba45af4fd5fa80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zmap/blobs/sha256:39f86237f9e1c880b41751e79f3407e9614a1ba7aba5db2d06268d7d08323b3d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zmap/blobs/sha256:7282a45a8902c4e6a32797d7001c24f6c6d3d0e928d3cb1f1e32a6dd4953d470
+sha256:
+  darwin_arm64: 0f8b31f9fcda17ba66605ca6761f8497ef1217b3ecc8d31d8cdd8af8ce8b7357
+  darwin_amd64: daefd0ba4f61064f028ded544912b684c1b0c399a81b4f99b8ba45af4fd5fa80
+  linux_amd64: 39f86237f9e1c880b41751e79f3407e9614a1ba7aba5db2d06268d7d08323b3d
+  linux_arm64: 7282a45a8902c4e6a32797d7001c24f6c6d3d0e928d3cb1f1e32a6dd4953d470
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - json-c
+  - judy
+  - libdnet
+  - libunistring

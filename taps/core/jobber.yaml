@@ -1,0 +1,19 @@
+name: jobber
+version: 1.4.4
+description: Alternative to cron, with better status-reporting and error-handling
+homepage: https://dshearer.github.io/jobber/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jobber/blobs/sha256:66a3ab3ca421877c8d2e587ede10bd67c4bfc8ac66df67822b68fd4ea2a67d05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jobber/blobs/sha256:61efe802a50d3eeb5183a2643bf2f48f6c4405e667a9796b5597baf7dd35c181
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jobber/blobs/sha256:e8d9630a84c0fce0514498c0379961df72d461ad3eb2d82847b66ea34732188c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jobber/blobs/sha256:7e801960a3d19f03c432f29931280d5b2a892aeb9b7f036f49988d9e1fc4a54b
+sha256:
+  darwin_arm64: 66a3ab3ca421877c8d2e587ede10bd67c4bfc8ac66df67822b68fd4ea2a67d05
+  darwin_amd64: 61efe802a50d3eeb5183a2643bf2f48f6c4405e667a9796b5597baf7dd35c181
+  linux_amd64: e8d9630a84c0fce0514498c0379961df72d461ad3eb2d82847b66ea34732188c
+  linux_arm64: 7e801960a3d19f03c432f29931280d5b2a892aeb9b7f036f49988d9e1fc4a54b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

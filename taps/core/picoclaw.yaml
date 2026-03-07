@@ -1,0 +1,19 @@
+name: picoclaw
+version: 0.2.0
+description: Ultra-efficient personal AI assistant in Go
+homepage: https://picoclaw.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/picoclaw/blobs/sha256:2e0f8541d7bdc46d3f3f7244fa36295ed78aebef02210b5b2206e985983374c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/picoclaw/blobs/sha256:9ebd4995171dc3aa2f33a2568242e18b32e7d537903a563e9d2b511ff94bc978
+  linux_amd64: https://ghcr.io/v2/homebrew/core/picoclaw/blobs/sha256:b556d708fc7b278f5e2943c73101ff3b5a0d9509725ef2c20ccd388f3a1866f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/picoclaw/blobs/sha256:e8ae0cf1a1241cab91de0ef82258f6583a984a6afccee6d1cf35082620366d46
+sha256:
+  darwin_arm64: 2e0f8541d7bdc46d3f3f7244fa36295ed78aebef02210b5b2206e985983374c7
+  darwin_amd64: 9ebd4995171dc3aa2f33a2568242e18b32e7d537903a563e9d2b511ff94bc978
+  linux_amd64: b556d708fc7b278f5e2943c73101ff3b5a0d9509725ef2c20ccd388f3a1866f7
+  linux_arm64: e8ae0cf1a1241cab91de0ef82258f6583a984a6afccee6d1cf35082620366d46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

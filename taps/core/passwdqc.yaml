@@ -1,0 +1,19 @@
+name: passwdqc
+version: 2.1.0
+description: Password/passphrase strength checking and enforcement toolset
+homepage: https://www.openwall.com/passwdqc/
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/passwdqc/blobs/sha256:a0a349bcdec4b9b3e296e049c663627a1752f883cf9e3755dc5ced053d8c690c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/passwdqc/blobs/sha256:c050f0ad30305987658735042a78c40f08c60c794446ecca0c5a95e453ee9df8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/passwdqc/blobs/sha256:66fe79676d2ee8d4d1daf551806371f54e83facac4c7941fa9d0e743d944d48a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/passwdqc/blobs/sha256:11a48ec53400c8768ef9e9848e76db6cafaa6a6e42e76ad96c0d651d2e7c6770
+sha256:
+  darwin_arm64: a0a349bcdec4b9b3e296e049c663627a1752f883cf9e3755dc5ced053d8c690c
+  darwin_amd64: c050f0ad30305987658735042a78c40f08c60c794446ecca0c5a95e453ee9df8
+  linux_amd64: 66fe79676d2ee8d4d1daf551806371f54e83facac4c7941fa9d0e743d944d48a
+  linux_arm64: 11a48ec53400c8768ef9e9848e76db6cafaa6a6e42e76ad96c0d651d2e7c6770
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

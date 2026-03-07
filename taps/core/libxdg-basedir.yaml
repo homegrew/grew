@@ -1,0 +1,19 @@
+name: libxdg-basedir
+version: 1.2.3
+description: C implementation of the XDG Base Directory specifications
+homepage: https://github.com/devnev/libxdg-basedir
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxdg-basedir/blobs/sha256:22234a6e02066d75cd724ec788a6a95bf28efef21338f6f5164f3efce25ccfcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxdg-basedir/blobs/sha256:5610c066d92263607ec017ec5c3fb94aeae21482175b28909b5ed25353ee9760
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxdg-basedir/blobs/sha256:d160ef91d8ec2c931defacad6ff525a7e1336f42e8196e0625bc93a266e54f72
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxdg-basedir/blobs/sha256:6211f3d04b552e82d3f0b8fc89494ac42fcc45fa6f7fc6fa05e63893dc929f0f
+sha256:
+  darwin_arm64: 22234a6e02066d75cd724ec788a6a95bf28efef21338f6f5164f3efce25ccfcf
+  darwin_amd64: 5610c066d92263607ec017ec5c3fb94aeae21482175b28909b5ed25353ee9760
+  linux_amd64: d160ef91d8ec2c931defacad6ff525a7e1336f42e8196e0625bc93a266e54f72
+  linux_arm64: 6211f3d04b552e82d3f0b8fc89494ac42fcc45fa6f7fc6fa05e63893dc929f0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

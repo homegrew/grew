@@ -1,0 +1,21 @@
+name: ocamlbuild
+version: 0.16.1
+description: Generic build tool for OCaml
+homepage: https://github.com/ocaml/ocamlbuild
+license: LGPL-2.0-only WITH OCaml-LGPL-linking-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocamlbuild/blobs/sha256:35ae1a6eeb68c81a591f49b397e21230a1956a22dc6cd0c8d28486c93786a501
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocamlbuild/blobs/sha256:7caad9fb8e6256e894222ad3ebf15d9e0a5fb540e461032d5cdf74abafa09dcb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocamlbuild/blobs/sha256:664739d1911bb25c0a5375231fe48dd950acfd5e85e1f59154b5de9c01368e08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocamlbuild/blobs/sha256:747624e670b7b2cc2e83a3915c5d9f38d628620c1c98218b8c1da40ae0a44b4f
+sha256:
+  darwin_arm64: 35ae1a6eeb68c81a591f49b397e21230a1956a22dc6cd0c8d28486c93786a501
+  darwin_amd64: 7caad9fb8e6256e894222ad3ebf15d9e0a5fb540e461032d5cdf74abafa09dcb
+  linux_amd64: 664739d1911bb25c0a5375231fe48dd950acfd5e85e1f59154b5de9c01368e08
+  linux_arm64: 747624e670b7b2cc2e83a3915c5d9f38d628620c1c98218b8c1da40ae0a44b4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

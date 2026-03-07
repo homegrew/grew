@@ -1,0 +1,19 @@
+name: doxx
+version: 0.1.2
+description: Terminal document viewer for .docx files
+homepage: https://github.com/bgreenwell/doxx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doxx/blobs/sha256:74d4459038beac34f058430c6989791384f2eaba6c256795bf4d9b29c491898f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doxx/blobs/sha256:bf34c611bbcc29e096312963252fd2089794b69ed19a5f6b94fc78cc01526099
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doxx/blobs/sha256:c3c9e40fbf75a99b5e5ce1f77714445f771553291f6d05c42f9d1d219a441afd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doxx/blobs/sha256:2535f0667b90ab6e9000a1fdbab39c30c1d20caefca51f2dde257b1fabfed196
+sha256:
+  darwin_arm64: 74d4459038beac34f058430c6989791384f2eaba6c256795bf4d9b29c491898f
+  darwin_amd64: bf34c611bbcc29e096312963252fd2089794b69ed19a5f6b94fc78cc01526099
+  linux_amd64: c3c9e40fbf75a99b5e5ce1f77714445f771553291f6d05c42f9d1d219a441afd
+  linux_arm64: 2535f0667b90ab6e9000a1fdbab39c30c1d20caefca51f2dde257b1fabfed196
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

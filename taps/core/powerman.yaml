@@ -1,0 +1,21 @@
+name: powerman
+version: 2.4.4
+description: Control (remotely and in parallel) switched power distribution units
+homepage: https://github.com/chaos/powerman
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/powerman/blobs/sha256:88063926073d1f61aab9db6b965e65cc8d126d7521d0b563ae4232e88fb9392e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/powerman/blobs/sha256:adcf3f23bf67cfff2c9dad9f871c6ac4aea835e2bcc1fbd6b9efcdf8a24db431
+  linux_amd64: https://ghcr.io/v2/homebrew/core/powerman/blobs/sha256:312e00a08663449257f384d818b56cfd4fb147951280764dae0bc039792366ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/powerman/blobs/sha256:b848eb9847153385438f8c7bed8f72ad8a265a9204e5b1e3e07e515bbc094aa1
+sha256:
+  darwin_arm64: 88063926073d1f61aab9db6b965e65cc8d126d7521d0b563ae4232e88fb9392e
+  darwin_amd64: adcf3f23bf67cfff2c9dad9f871c6ac4aea835e2bcc1fbd6b9efcdf8a24db431
+  linux_amd64: 312e00a08663449257f384d818b56cfd4fb147951280764dae0bc039792366ec
+  linux_arm64: b848eb9847153385438f8c7bed8f72ad8a265a9204e5b1e3e07e515bbc094aa1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson

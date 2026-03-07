@@ -1,0 +1,19 @@
+name: ctop
+version: 0.7.7
+description: Top-like interface for container metrics
+homepage: https://bcicen.github.io/ctop/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctop/blobs/sha256:4ddb01679cc99906cb9a7e87ce4784d8306356a4b80dbb50d2c325c7e43f893c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctop/blobs/sha256:76890ee3cbad12abb395444caa1d5a07e684f891e282dedf568e0eac14d422f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctop/blobs/sha256:30607fe87d023df1ab88efe82c18af28e5276cfb8281de6b51bdedea41b5179e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctop/blobs/sha256:a4a567b1feba7fa72b0a76efbef9d14c8e7de8f3e4329109fa8c0338e058251d
+sha256:
+  darwin_arm64: 4ddb01679cc99906cb9a7e87ce4784d8306356a4b80dbb50d2c325c7e43f893c
+  darwin_amd64: 76890ee3cbad12abb395444caa1d5a07e684f891e282dedf568e0eac14d422f9
+  linux_amd64: 30607fe87d023df1ab88efe82c18af28e5276cfb8281de6b51bdedea41b5179e
+  linux_arm64: a4a567b1feba7fa72b0a76efbef9d14c8e7de8f3e4329109fa8c0338e058251d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

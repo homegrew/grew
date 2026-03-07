@@ -1,0 +1,28 @@
+name: libdazzle
+version: 3.44.0
+description: GNOME companion library to GObject and Gtk+
+homepage: https://gitlab.gnome.org/GNOME/libdazzle
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdazzle/blobs/sha256:c85ea978999366c90f0a82d06f658d48a09ed3e021cd7edaedc8d18140145b77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdazzle/blobs/sha256:2fca358ca672c44ed32595ce7769e77d777e3c62073ed4c445210614d030280a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdazzle/blobs/sha256:7a8395fdb2257d54ffc90ebcb1a95796c87fba132b602c14ed0c42e384bb90e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdazzle/blobs/sha256:6f85bbfc14f0f732331e2e93c24df2ebd97bf9e3356189f4eb6777735d411a15
+sha256:
+  darwin_arm64: c85ea978999366c90f0a82d06f658d48a09ed3e021cd7edaedc8d18140145b77
+  darwin_amd64: 2fca358ca672c44ed32595ce7769e77d777e3c62073ed4c445210614d030280a
+  linux_amd64: 7a8395fdb2257d54ffc90ebcb1a95796c87fba132b602c14ed0c42e384bb90e8
+  linux_arm64: 6f85bbfc14f0f732331e2e93c24df2ebd97bf9e3356189f4eb6777735d411a15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango
+  - at-spi2-core
+  - gettext
+  - harfbuzz

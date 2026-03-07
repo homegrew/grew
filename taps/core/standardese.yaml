@@ -1,0 +1,23 @@
+name: standardese
+version: 0.5.2
+description: Next-gen documentation generator for C++
+homepage: https://standardese.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/standardese/blobs/sha256:842c08d83d331c26b95f718e07b43df23a1f9c5ef4f6df0c9920c3099773353f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/standardese/blobs/sha256:f28825f01b0cbbe6f6ec257a3b81cd4e0f8c2883550fb12de3ffb9bbb3220e05
+  linux_amd64: https://ghcr.io/v2/homebrew/core/standardese/blobs/sha256:31405149c51d6b9ae4e25e1b10ecd5b822d7f1a6b38a748920a310719bcf7e8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/standardese/blobs/sha256:9152354c175bc7115c52d5e876332dd323d6f590b953b33fe0993894b5ba79a8
+sha256:
+  darwin_arm64: 842c08d83d331c26b95f718e07b43df23a1f9c5ef4f6df0c9920c3099773353f
+  darwin_amd64: f28825f01b0cbbe6f6ec257a3b81cd4e0f8c2883550fb12de3ffb9bbb3220e05
+  linux_amd64: 31405149c51d6b9ae4e25e1b10ecd5b822d7f1a6b38a748920a310719bcf7e8d
+  linux_arm64: 9152354c175bc7115c52d5e876332dd323d6f590b953b33fe0993894b5ba79a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cmark-gfm
+  - llvm

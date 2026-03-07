@@ -1,0 +1,32 @@
+name: proxygen
+version: 2026.03.02.00
+description: Collection of C++ HTTP libraries
+homepage: https://github.com/facebook/proxygen
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxygen/blobs/sha256:7f323df59ac682cc6a7b558de220ce75837d424a8e3cc109a6764e2a045038bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxygen/blobs/sha256:1cab9eb2c970cf375ae6397ef9c635cf5f2c08452d63982de7ddb2f90d66a103
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxygen/blobs/sha256:235dbcc4827eb09c4eb19ce7b414fffec8964e541a80c63de18fd1f9d3287f56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxygen/blobs/sha256:12b39578f021d4606cade97a008bf3ec7c7edee645196ce1aa5a8b4ffbf9739c
+sha256:
+  darwin_arm64: 7f323df59ac682cc6a7b558de220ce75837d424a8e3cc109a6764e2a045038bc
+  darwin_amd64: 1cab9eb2c970cf375ae6397ef9c635cf5f2c08452d63982de7ddb2f90d66a103
+  linux_amd64: 235dbcc4827eb09c4eb19ce7b414fffec8964e541a80c63de18fd1f9d3287f56
+  linux_arm64: 12b39578f021d4606cade97a008bf3ec7c7edee645196ce1aa5a8b4ffbf9739c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - c-ares
+  - double-conversion
+  - fizz
+  - fmt
+  - folly
+  - gflags
+  - glog
+  - mvfst
+  - openssl@3
+  - wangle
+  - zstd

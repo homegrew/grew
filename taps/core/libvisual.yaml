@@ -1,0 +1,21 @@
+name: libvisual
+version: 0.4.2
+description: Audio Visualization tool and library
+homepage: https://github.com/Libvisual/libvisual
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvisual/blobs/sha256:0c7cc4aed9aca8fac6ca7f969966365592eaacbb29db5340f08dce1c0a9fa65a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvisual/blobs/sha256:73b2ed9dd9a84d784a31b662f202e236f0d6158346ce931b77d1205ca390faad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvisual/blobs/sha256:ceefedcaeb4e18c06c22c2a210e35d3439783f2f457107090d91d2b777e788f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvisual/blobs/sha256:c1037bb9d22337170f186be7d8ad1ccce9ef18dcf55e92cbd8424b7495204d03
+sha256:
+  darwin_arm64: 0c7cc4aed9aca8fac6ca7f969966365592eaacbb29db5340f08dce1c0a9fa65a
+  darwin_amd64: 73b2ed9dd9a84d784a31b662f202e236f0d6158346ce931b77d1205ca390faad
+  linux_amd64: ceefedcaeb4e18c06c22c2a210e35d3439783f2f457107090d91d2b777e788f2
+  linux_arm64: c1037bb9d22337170f186be7d8ad1ccce9ef18dcf55e92cbd8424b7495204d03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl12-compat

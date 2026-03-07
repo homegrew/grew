@@ -1,0 +1,19 @@
+name: ffuf
+version: 2.1.0
+description: Fast web fuzzer written in Go
+homepage: https://github.com/ffuf/ffuf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffuf/blobs/sha256:d2bc7b8fdb6344d572c2370dbd676f178386b1199846f14648e5573a3ddd53d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffuf/blobs/sha256:78899683a2965f7631a647552bc20b6433d53d52553efe0448f9241193abe71d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffuf/blobs/sha256:1fdb75ae3154de6dd3b07350b7934568fbdb9230e563d3d8f79fc1643196be3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffuf/blobs/sha256:ee13b18573768c12d953a558f62e90fc3aea9d0113fb44528931ccab1e479888
+sha256:
+  darwin_arm64: d2bc7b8fdb6344d572c2370dbd676f178386b1199846f14648e5573a3ddd53d4
+  darwin_amd64: 78899683a2965f7631a647552bc20b6433d53d52553efe0448f9241193abe71d
+  linux_amd64: 1fdb75ae3154de6dd3b07350b7934568fbdb9230e563d3d8f79fc1643196be3a
+  linux_arm64: ee13b18573768c12d953a558f62e90fc3aea9d0113fb44528931ccab1e479888
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

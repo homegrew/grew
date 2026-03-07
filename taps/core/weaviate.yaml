@@ -1,0 +1,19 @@
+name: weaviate
+version: 1.36.2
+description: Open-source vector database that stores both objects and vectors
+homepage: https://weaviate.io/developers/weaviate/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/weaviate/blobs/sha256:0f9c588b0ff3ae978bf2bb5b8414c72617f2cfe5ef69477318664b0e38f74668
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/weaviate/blobs/sha256:0ee6945bfe6820e1efa561da6417e36c058c52ef7ac2cc911eb7960ac760a949
+  linux_amd64: https://ghcr.io/v2/homebrew/core/weaviate/blobs/sha256:02ece371c3ce051521eb6a68ed4849af7810ab32a1636c35d7dc4d33d3f26cb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/weaviate/blobs/sha256:a1f5df69a1e793003acf230c2fc84c8583ad0cbfe61d92e10bcd8b6f40476feb
+sha256:
+  darwin_arm64: 0f9c588b0ff3ae978bf2bb5b8414c72617f2cfe5ef69477318664b0e38f74668
+  darwin_amd64: 0ee6945bfe6820e1efa561da6417e36c058c52ef7ac2cc911eb7960ac760a949
+  linux_amd64: 02ece371c3ce051521eb6a68ed4849af7810ab32a1636c35d7dc4d33d3f26cb4
+  linux_arm64: a1f5df69a1e793003acf230c2fc84c8583ad0cbfe61d92e10bcd8b6f40476feb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: dnspyre
+version: 3.10.1
+description: CLI tool for a high QPS DNS benchmark
+homepage: https://tantalor93.github.io/dnspyre/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnspyre/blobs/sha256:80fff54f29d2dead5ac28ccbeefa10b37b97f39e83aa0384b28a04ee2661cf53
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnspyre/blobs/sha256:0cf702e98e50dbb148c469f5af7bb9f9f35ae98e5fab319e82eefe9584310e03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnspyre/blobs/sha256:81d68c4dded1892f1b47db418eeab63512afba67af45f474a4dfedc3411d0e91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnspyre/blobs/sha256:cae3cf4b7552fe68862d04f496e22d8eb7e516210d23b214aa5dcb3fa6073d71
+sha256:
+  darwin_arm64: 80fff54f29d2dead5ac28ccbeefa10b37b97f39e83aa0384b28a04ee2661cf53
+  darwin_amd64: 0cf702e98e50dbb148c469f5af7bb9f9f35ae98e5fab319e82eefe9584310e03
+  linux_amd64: 81d68c4dded1892f1b47db418eeab63512afba67af45f474a4dfedc3411d0e91
+  linux_arm64: cae3cf4b7552fe68862d04f496e22d8eb7e516210d23b214aa5dcb3fa6073d71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: freetype
+version: 2.14.2
+description: Software library to render fonts
+homepage: https://www.freetype.org/
+license: FTL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freetype/blobs/sha256:0a6456b91679ce3fe560e78d36a92c2ed32acad819e60a011d308ef2ca6ffe1a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freetype/blobs/sha256:a7872ee2b74cc83ff972afe6284d9bc54a59c8b7673722e1247d0be907fe1585
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freetype/blobs/sha256:aa7f81d1a77565eacc7f292ebefa6940aae860e0395b0fcb133fd4ac6e84e5a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freetype/blobs/sha256:87dd61e4c0f0075448069ad16cba072fed4e908b525617c7e42f451f621274c4
+sha256:
+  darwin_arm64: 0a6456b91679ce3fe560e78d36a92c2ed32acad819e60a011d308ef2ca6ffe1a
+  darwin_amd64: a7872ee2b74cc83ff972afe6284d9bc54a59c8b7673722e1247d0be907fe1585
+  linux_amd64: aa7f81d1a77565eacc7f292ebefa6940aae860e0395b0fcb133fd4ac6e84e5a9
+  linux_arm64: 87dd61e4c0f0075448069ad16cba072fed4e908b525617c7e42f451f621274c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

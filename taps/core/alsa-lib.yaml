@@ -1,0 +1,15 @@
+name: alsa-lib
+version: 1.2.15.3
+description: Provides audio and MIDI functionality to the Linux operating system
+homepage: https://www.alsa-project.org/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alsa-lib/blobs/sha256:54d16f2f52c4145966031382203596485bb9c9663a6398627ba65712febf24c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alsa-lib/blobs/sha256:423c02ab3ac3cafcd37c0cfe58042a64be9227a7a8680d299fe39428f38f077e
+sha256:
+  linux_amd64: 54d16f2f52c4145966031382203596485bb9c9663a6398627ba65712febf24c9
+  linux_arm64: 423c02ab3ac3cafcd37c0cfe58042a64be9227a7a8680d299fe39428f38f077e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

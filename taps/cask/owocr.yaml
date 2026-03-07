@@ -1,0 +1,11 @@
+name: owocr
+version: 1.26.1
+description: Optical character recognition for Japanese text
+homepage: https://github.com/AuroraWright/owocr/
+url:
+  darwin_arm64: https://github.com/AuroraWright/owocr/releases/download/1.26.1/owocr-mac_applesilicon.dmg
+sha256:
+  darwin_arm64: 0c97e8d6c9e8bbd115685a077e524462487e2064e95fdcaa12d1a259f95bfb90
+artifacts:
+  app:
+    - OwOCR.app

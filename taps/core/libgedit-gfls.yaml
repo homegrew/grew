@@ -1,0 +1,22 @@
+name: libgedit-gfls
+version: 0.3.1
+description: Gedit Technology - File loading and saving
+homepage: https://gitlab.gnome.org/World/gedit/libgedit-gfls
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgedit-gfls/blobs/sha256:094a4573c2d02e1abf7802c22e526f1088750c23fc446bb22d8c1f59a2ee2d44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgedit-gfls/blobs/sha256:2a74de4486d4c26f60e821abc4fd08c1ae61597785298fdf5bd8f5a3b8c37f6c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgedit-gfls/blobs/sha256:6621aa963f78c982fa874bbfd0262b5ff26bcf5b06236d545520b6b121fcb64c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgedit-gfls/blobs/sha256:1a9b830716ce11ade5e9970175836b0244c6798bbcc0d237b3ba643ea1c183a5
+sha256:
+  darwin_arm64: 094a4573c2d02e1abf7802c22e526f1088750c23fc446bb22d8c1f59a2ee2d44
+  darwin_amd64: 2a74de4486d4c26f60e821abc4fd08c1ae61597785298fdf5bd8f5a3b8c37f6c
+  linux_amd64: 6621aa963f78c982fa874bbfd0262b5ff26bcf5b06236d545520b6b121fcb64c
+  linux_arm64: 1a9b830716ce11ade5e9970175836b0244c6798bbcc0d237b3ba643ea1c183a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk+3

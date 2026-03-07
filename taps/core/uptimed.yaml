@@ -1,0 +1,19 @@
+name: uptimed
+version: 0.4.7
+description: Utility to track your highest uptimes
+homepage: https://github.com/rpodgorny/uptimed/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uptimed/blobs/sha256:1a4da6e33e3e7435bc5113e5188a66010b6040ca93d94516083b81c58b054141
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uptimed/blobs/sha256:cfdfb6af9480fc37d99d5bdf24f213de9d42fa5ed907019bd020119a26149b8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uptimed/blobs/sha256:63fe05bdf7bb27772273516a7d3886a2a196c5fd78487805ff1b57db150ef784
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uptimed/blobs/sha256:08296a599456611026d0242ac0946327fb2c004de2e3f5217af4fa14eabc5348
+sha256:
+  darwin_arm64: 1a4da6e33e3e7435bc5113e5188a66010b6040ca93d94516083b81c58b054141
+  darwin_amd64: cfdfb6af9480fc37d99d5bdf24f213de9d42fa5ed907019bd020119a26149b8a
+  linux_amd64: 63fe05bdf7bb27772273516a7d3886a2a196c5fd78487805ff1b57db150ef784
+  linux_arm64: 08296a599456611026d0242ac0946327fb2c004de2e3f5217af4fa14eabc5348
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

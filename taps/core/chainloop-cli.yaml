@@ -1,0 +1,19 @@
+name: chainloop-cli
+version: 1.80.0
+description: CLI for interacting with Chainloop
+homepage: https://docs.chainloop.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chainloop-cli/blobs/sha256:2fc2fe6bcb2d9f69dcc42963cd0c8f9799db715781f5fc4fedf5d5ec698cf8c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chainloop-cli/blobs/sha256:09423d77fb5f64fcddb344daa09c162b126d375341e8686bb6339b64b42f34a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chainloop-cli/blobs/sha256:8bef81a5750e0a448d395c7cfc3d2886643f11fd89ee776b468bcf36f606c789
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chainloop-cli/blobs/sha256:7b79bf2e0de8260b3e0b8f71d3455c9a52c21d36863970f44e893ad0a29d75e9
+sha256:
+  darwin_arm64: 2fc2fe6bcb2d9f69dcc42963cd0c8f9799db715781f5fc4fedf5d5ec698cf8c6
+  darwin_amd64: 09423d77fb5f64fcddb344daa09c162b126d375341e8686bb6339b64b42f34a1
+  linux_amd64: 8bef81a5750e0a448d395c7cfc3d2886643f11fd89ee776b468bcf36f606c789
+  linux_arm64: 7b79bf2e0de8260b3e0b8f71d3455c9a52c21d36863970f44e893ad0a29d75e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

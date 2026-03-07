@@ -1,0 +1,22 @@
+name: spandsp
+version: 0.0.6
+description: DSP functions library for telephony
+homepage: https://www.soft-switch.org/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spandsp/blobs/sha256:7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spandsp/blobs/sha256:97da2e382c38c039845f20c0299bee1568ed0d45cec38662427a531fc9091202
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spandsp/blobs/sha256:e56ef470947c1215482b5155d62c0c5a6c72485bbea7ce74bf6e8f1d629ab1e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spandsp/blobs/sha256:ca858d2c651cb3176d0e89acb9350b584f884238fc4e285cf7d3fa69d45ff23b
+sha256:
+  darwin_arm64: 7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a
+  darwin_amd64: 97da2e382c38c039845f20c0299bee1568ed0d45cec38662427a531fc9091202
+  linux_amd64: e56ef470947c1215482b5155d62c0c5a6c72485bbea7ce74bf6e8f1d629ab1e1
+  linux_arm64: ca858d2c651cb3176d0e89acb9350b584f884238fc4e285cf7d3fa69d45ff23b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtiff
+  - jpeg-turbo

@@ -1,0 +1,19 @@
+name: libgrapheme
+version: 3.0.0
+description: Unicode string library
+homepage: https://libs.suckless.org/libgrapheme/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgrapheme/blobs/sha256:df5f451622029ee5e1e85d53e9c754527925124250633e0b9df7c13beaae176f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgrapheme/blobs/sha256:433662111557ba36bd9fbcd35147cff1c2f7f0413d3ecedcb4e1460ad7c9f6da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgrapheme/blobs/sha256:ba1358d8b88e8ce243d39c7eadccbccd14b13b095d6a6be4ff5240cf36e5ac59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgrapheme/blobs/sha256:98efa088f464cf572e88af5699db2b15a326b4e06a67a072cef4b11814e200aa
+sha256:
+  darwin_arm64: df5f451622029ee5e1e85d53e9c754527925124250633e0b9df7c13beaae176f
+  darwin_amd64: 433662111557ba36bd9fbcd35147cff1c2f7f0413d3ecedcb4e1460ad7c9f6da
+  linux_amd64: ba1358d8b88e8ce243d39c7eadccbccd14b13b095d6a6be4ff5240cf36e5ac59
+  linux_arm64: 98efa088f464cf572e88af5699db2b15a326b4e06a67a072cef4b11814e200aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

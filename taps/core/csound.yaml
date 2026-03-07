@@ -1,0 +1,40 @@
+name: csound
+version: 6.18.1
+description: Sound and music computing system
+homepage: https://csound.com
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/csound/blobs/sha256:ab2e032068bcb6eb84a7d800801f07f692e71098c85f07c210f1099a5eb9a2c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/csound/blobs/sha256:efe809093c9c64f6c6138fdb6a9d798f84ab50608375b98b19e1d023e69c3edc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/csound/blobs/sha256:1b214b5db904191d97bed11533e7e1da53528a9ca8f2ac3fb9394da683315cf6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/csound/blobs/sha256:842704687c6bac3621aa2982b5c12bb0f8f15196648f6e3d12c2d847fae8307d
+sha256:
+  darwin_arm64: ab2e032068bcb6eb84a7d800801f07f692e71098c85f07c210f1099a5eb9a2c5
+  darwin_amd64: efe809093c9c64f6c6138fdb6a9d798f84ab50608375b98b19e1d023e69c3edc
+  linux_amd64: 1b214b5db904191d97bed11533e7e1da53528a9ca8f2ac3fb9394da683315cf6
+  linux_arm64: 842704687c6bac3621aa2982b5c12bb0f8f15196648f6e3d12c2d847fae8307d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - faust
+  - fltk
+  - fluid-synth
+  - gettext
+  - hdf5
+  - jack
+  - lame
+  - liblo
+  - libpng
+  - libsamplerate
+  - libsndfile
+  - libwebsockets
+  - numpy
+  - openjdk
+  - openssl@3
+  - portaudio
+  - portmidi
+  - python@3.14
+  - stk
+  - wiiuse

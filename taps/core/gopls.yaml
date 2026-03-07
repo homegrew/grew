@@ -1,0 +1,19 @@
+name: gopls
+version: 0.21.1
+description: Language server for the Go language
+homepage: https://github.com/golang/tools/tree/master/gopls
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gopls/blobs/sha256:e1991fd339294634d7b6576de9f101e71b5fe1ab78cf0de2ef38fc56be60e1f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gopls/blobs/sha256:63c6dfdd1cc1c2927888bac68f8bb6bb40e283530ef065046206e303888941f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gopls/blobs/sha256:3d3ca52daa50fd77434b69220279c28ad44d6c4b0f627c612cf09e38246d9d59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gopls/blobs/sha256:adc320a44e5a73f55f31c9f78b93ea4e11925b19aefb1b3f9f1979325174f8cf
+sha256:
+  darwin_arm64: e1991fd339294634d7b6576de9f101e71b5fe1ab78cf0de2ef38fc56be60e1f2
+  darwin_amd64: 63c6dfdd1cc1c2927888bac68f8bb6bb40e283530ef065046206e303888941f7
+  linux_amd64: 3d3ca52daa50fd77434b69220279c28ad44d6c4b0f627c612cf09e38246d9d59
+  linux_arm64: adc320a44e5a73f55f31c9f78b93ea4e11925b19aefb1b3f9f1979325174f8cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

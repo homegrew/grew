@@ -1,0 +1,19 @@
+name: asm-lsp
+version: 0.10.1
+description: Language server for NASM/GAS/GO Assembly
+homepage: https://github.com/bergercookie/asm-lsp
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asm-lsp/blobs/sha256:9dbd0fa7b74cb1681084b66a3734930224775007d96d00d31bf14a24ba018941
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asm-lsp/blobs/sha256:847db26465932b751aadf74a7d26ccf155ea0788c5120d3440747e69059b38e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asm-lsp/blobs/sha256:76259656f79fee2add9b11db2439511d8eef903f3bb3419d889262fa486b2892
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asm-lsp/blobs/sha256:4044b50207f4e70ad533d93f322202a80f52b4a55bd046de5b3f9b039d539d10
+sha256:
+  darwin_arm64: 9dbd0fa7b74cb1681084b66a3734930224775007d96d00d31bf14a24ba018941
+  darwin_amd64: 847db26465932b751aadf74a7d26ccf155ea0788c5120d3440747e69059b38e7
+  linux_amd64: 76259656f79fee2add9b11db2439511d8eef903f3bb3419d889262fa486b2892
+  linux_arm64: 4044b50207f4e70ad533d93f322202a80f52b4a55bd046de5b3f9b039d539d10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

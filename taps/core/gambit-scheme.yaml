@@ -1,0 +1,22 @@
+name: gambit-scheme
+version: 4.9.7
+description: Implementation of the Scheme Language
+homepage: https://gambitscheme.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gambit-scheme/blobs/sha256:67a5f5bde73e525d2c488db0630747dd973391c70dca31856706a9406f63e9d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gambit-scheme/blobs/sha256:8a424288530b11d1e79006f4958683db02cb9070646697394ed3f12cc025a94f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gambit-scheme/blobs/sha256:32b5fa130a244ff8cc9dc13a27bfb30bd844ab21a3ec0f8f663f01a063d8351e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gambit-scheme/blobs/sha256:ecc701336f5dcd9619ce82abfc1ebac667a79c80ba9e9af5de2361f97befc613
+sha256:
+  darwin_arm64: 67a5f5bde73e525d2c488db0630747dd973391c70dca31856706a9406f63e9d2
+  darwin_amd64: 8a424288530b11d1e79006f4958683db02cb9070646697394ed3f12cc025a94f
+  linux_amd64: 32b5fa130a244ff8cc9dc13a27bfb30bd844ab21a3ec0f8f663f01a063d8351e
+  linux_arm64: ecc701336f5dcd9619ce82abfc1ebac667a79c80ba9e9af5de2361f97befc613
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - gcc

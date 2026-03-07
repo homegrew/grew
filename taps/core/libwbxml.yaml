@@ -1,0 +1,21 @@
+name: libwbxml
+version: 0.11.10
+description: Library and tools to parse and encode WBXML documents
+homepage: https://github.com/libwbxml/libwbxml
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwbxml/blobs/sha256:b4077cb6043d9751ab422e9591a708f7f698389c9b036062fe153a61d50f78e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwbxml/blobs/sha256:f1254abc997a20ba1365b0338224547b22d0fa70e96be10533d1f73ecb1434cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwbxml/blobs/sha256:6730a5a4348d5bddee6e064cd3728d5753986631dec4299cc93270da7d84645c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwbxml/blobs/sha256:af31f53d8ca7525e40d6c8a76cf803a66fd75a54b0a5e4c1a32d3e3ce581efd8
+sha256:
+  darwin_arm64: b4077cb6043d9751ab422e9591a708f7f698389c9b036062fe153a61d50f78e4
+  darwin_amd64: f1254abc997a20ba1365b0338224547b22d0fa70e96be10533d1f73ecb1434cb
+  linux_amd64: 6730a5a4348d5bddee6e064cd3728d5753986631dec4299cc93270da7d84645c
+  linux_arm64: af31f53d8ca7525e40d6c8a76cf803a66fd75a54b0a5e4c1a32d3e3ce581efd8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - wget

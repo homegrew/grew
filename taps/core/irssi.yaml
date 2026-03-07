@@ -1,0 +1,24 @@
+name: irssi
+version: 1.4.5
+description: Modular IRC client
+homepage: https://irssi.org/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/irssi/blobs/sha256:e838b3335dd0b71b4b964e940581f17d1d5fc8a119ffe39cd82b56e2988c5898
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/irssi/blobs/sha256:325ec802f037de5afdfd31447b888796f7baabb9dbcbe82b2b1aab13e00f0a8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/irssi/blobs/sha256:b6b393fae0dd1c43829314886be5ee26018a3ed2b8ea18c633d0e9ed37c7d642
+  linux_arm64: https://ghcr.io/v2/homebrew/core/irssi/blobs/sha256:051d92da2db9dcd16362dc6204dcff2ef9bebbfd337c05a3848e9f3823c67c63
+sha256:
+  darwin_arm64: e838b3335dd0b71b4b964e940581f17d1d5fc8a119ffe39cd82b56e2988c5898
+  darwin_amd64: 325ec802f037de5afdfd31447b888796f7baabb9dbcbe82b2b1aab13e00f0a8d
+  linux_amd64: b6b393fae0dd1c43829314886be5ee26018a3ed2b8ea18c633d0e9ed37c7d642
+  linux_arm64: 051d92da2db9dcd16362dc6204dcff2ef9bebbfd337c05a3848e9f3823c67c63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - openssl@3
+  - perl
+  - gettext

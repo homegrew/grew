@@ -1,0 +1,21 @@
+name: x86_64-linux-gnu-binutils
+version: 2.46.0
+description: GNU Binutils for x86_64-linux-gnu cross development
+homepage: https://www.gnu.org/software/binutils/binutils.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x86_64-linux-gnu-binutils/blobs/sha256:4f58064b025ddecddc2dacd109938bc8244094c91cc470ee4827305a7c99e359
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x86_64-linux-gnu-binutils/blobs/sha256:20d4ba1bbf773fe8f27cb82468f7153257ae0d9d8b924c8d632007f30d5d6d79
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x86_64-linux-gnu-binutils/blobs/sha256:5ed5a806e0754c61b134dd5e3845a1b88e40ad0dbd77e2633dc52541a65895ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x86_64-linux-gnu-binutils/blobs/sha256:bd4156b92615d63e867a9a8961dfce36f81434351cf0cd6d525cb8dfe9440006
+sha256:
+  darwin_arm64: 4f58064b025ddecddc2dacd109938bc8244094c91cc470ee4827305a7c99e359
+  darwin_amd64: 20d4ba1bbf773fe8f27cb82468f7153257ae0d9d8b924c8d632007f30d5d6d79
+  linux_amd64: 5ed5a806e0754c61b134dd5e3845a1b88e40ad0dbd77e2633dc52541a65895ce
+  linux_arm64: bd4156b92615d63e867a9a8961dfce36f81434351cf0cd6d525cb8dfe9440006
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

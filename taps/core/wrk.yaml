@@ -1,0 +1,22 @@
+name: wrk
+version: 4.2.0
+description: HTTP benchmarking tool
+homepage: https://github.com/wg/wrk
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wrk/blobs/sha256:006efeee8686cc28a2c7a52afc6e1d21593ff274a6c5a206cc7aec60a756a097
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wrk/blobs/sha256:11ddc1b8dfc48bd2c8bb3b2b96f4b01b5356f5b8d0702d7ee287bf56a96b3b55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wrk/blobs/sha256:e4295514a73470421b9cadc29d0f2873de383cc7b9d31523028d2310ef6e437b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wrk/blobs/sha256:09305386a05c3e9f9370c7add8c05415c21593b46366db083464acdaf98a9779
+sha256:
+  darwin_arm64: 006efeee8686cc28a2c7a52afc6e1d21593ff274a6c5a206cc7aec60a756a097
+  darwin_amd64: 11ddc1b8dfc48bd2c8bb3b2b96f4b01b5356f5b8d0702d7ee287bf56a96b3b55
+  linux_amd64: e4295514a73470421b9cadc29d0f2873de383cc7b9d31523028d2310ef6e437b
+  linux_arm64: 09305386a05c3e9f9370c7add8c05415c21593b46366db083464acdaf98a9779
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - luajit
+  - openssl@3

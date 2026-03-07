@@ -1,0 +1,24 @@
+name: onnxruntime
+version: 1.24.3
+description: Cross-platform, high performance scoring engine for ML models
+homepage: https://github.com/microsoft/onnxruntime
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onnxruntime/blobs/sha256:f9b842d60a3481701173b86968999757599e4b49471196acf45c5002a84adfda
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onnxruntime/blobs/sha256:44953690c61dd811b06860b917872f353c22e896d539733a9cfe4321e5ce4ab7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onnxruntime/blobs/sha256:c3f9bae89bc75aab7df601363e0cc6332531923caee21ed1acd7c23c11f3ea3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onnxruntime/blobs/sha256:a850263512d3319b4ec364c8fc5c48be1cce62aa8de4f87c54205e8c0f60f571
+sha256:
+  darwin_arm64: f9b842d60a3481701173b86968999757599e4b49471196acf45c5002a84adfda
+  darwin_amd64: 44953690c61dd811b06860b917872f353c22e896d539733a9cfe4321e5ce4ab7
+  linux_amd64: c3f9bae89bc75aab7df601363e0cc6332531923caee21ed1acd7c23c11f3ea3f
+  linux_arm64: a850263512d3319b4ec364c8fc5c48be1cce62aa8de4f87c54205e8c0f60f571
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - onnx
+  - protobuf@33
+  - re2

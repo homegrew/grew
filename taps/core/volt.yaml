@@ -1,0 +1,19 @@
+name: volt
+version: 0.3.7
+description: Meta-level vim package manager
+homepage: https://github.com/vim-volt/volt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/volt/blobs/sha256:fbaafd3e4142b6c23f3e24eb068fd5a88beb6606e19b5b2cc9f7c6bda6ebc707
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/volt/blobs/sha256:8f36e0949fd1b874327a78d1fad51791f7f2349b4dfa964c9774b2bb338e386f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/volt/blobs/sha256:fe7d78905a357fa59f18330aab57269cce1fda6af521552918d54911fd075035
+  linux_arm64: https://ghcr.io/v2/homebrew/core/volt/blobs/sha256:5d73df7f1d4f25fcf52a63390fb88fc5416df7c599556ea2f90f38f6a3151c5d
+sha256:
+  darwin_arm64: fbaafd3e4142b6c23f3e24eb068fd5a88beb6606e19b5b2cc9f7c6bda6ebc707
+  darwin_amd64: 8f36e0949fd1b874327a78d1fad51791f7f2349b4dfa964c9774b2bb338e386f
+  linux_amd64: fe7d78905a357fa59f18330aab57269cce1fda6af521552918d54911fd075035
+  linux_arm64: 5d73df7f1d4f25fcf52a63390fb88fc5416df7c599556ea2f90f38f6a3151c5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

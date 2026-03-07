@@ -1,0 +1,19 @@
+name: picoruby
+version: 3.0.2
+description: Smallest Ruby implementation for microcontrollers
+homepage: https://picoruby.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/picoruby/blobs/sha256:419ef195703d3c19a2bebaaa66bfc1d729a832a64a10a3e0a97b93a84eff074c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/picoruby/blobs/sha256:45c96d98fbf69ef676359fa3f6362702420c537cd555031781a8fbe59097810e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/picoruby/blobs/sha256:cd416f436c2843b824f346ae05d591ce6e5ad02ed00948c23f1f66f3e1f4029b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/picoruby/blobs/sha256:dbf94a61a1dd5b6fb4f251c3a82301e8903815066572560d90e308bc7a8e84a7
+sha256:
+  darwin_arm64: 419ef195703d3c19a2bebaaa66bfc1d729a832a64a10a3e0a97b93a84eff074c
+  darwin_amd64: 45c96d98fbf69ef676359fa3f6362702420c537cd555031781a8fbe59097810e
+  linux_amd64: cd416f436c2843b824f346ae05d591ce6e5ad02ed00948c23f1f66f3e1f4029b
+  linux_arm64: dbf94a61a1dd5b6fb4f251c3a82301e8903815066572560d90e308bc7a8e84a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: libofx
+version: 0.10.9
+description: Library to support OFX command responses
+homepage: https://github.com/libofx/libofx
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libofx/blobs/sha256:67845c43017a64530b8c0340bcb29c70dff8121b8af9ec532c3e51b9a651754a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libofx/blobs/sha256:5b79bf585dd46d33881ce4627fc9b05ec5263090299e85b43121e46d74779ca6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libofx/blobs/sha256:88107478b5837f83a6f9f6f99279b3fa10c9465b7fca30fb52ff51a6b07f1271
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libofx/blobs/sha256:c388005e8748764a55e879ecad1fd1ee36f004050585ade3f76103b861fba479
+sha256:
+  darwin_arm64: 67845c43017a64530b8c0340bcb29c70dff8121b8af9ec532c3e51b9a651754a
+  darwin_amd64: 5b79bf585dd46d33881ce4627fc9b05ec5263090299e85b43121e46d74779ca6
+  linux_amd64: 88107478b5837f83a6f9f6f99279b3fa10c9465b7fca30fb52ff51a6b07f1271
+  linux_arm64: c388005e8748764a55e879ecad1fd1ee36f004050585ade3f76103b861fba479
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-sp

@@ -1,0 +1,19 @@
+name: libsigsegv
+version: 2.15
+description: Library for handling page faults in user mode
+homepage: https://www.gnu.org/software/libsigsegv/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsigsegv/blobs/sha256:3255ddf74cd30522472c3eb1d068211b8d1e4ffdc337c02795052d872b206e35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsigsegv/blobs/sha256:baa53f3c9919907d490efbdf703e7c2c8418169aa125a919151ecea253c960e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsigsegv/blobs/sha256:8c64896be0e57b66fdc9086d93835beaf01f269826d3beaae2d6e4ec14ae2eb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsigsegv/blobs/sha256:c320840a4390cfe47fc07554df379d4636428b8d910e411b188db01c2c98d5a7
+sha256:
+  darwin_arm64: 3255ddf74cd30522472c3eb1d068211b8d1e4ffdc337c02795052d872b206e35
+  darwin_amd64: baa53f3c9919907d490efbdf703e7c2c8418169aa125a919151ecea253c960e1
+  linux_amd64: 8c64896be0e57b66fdc9086d93835beaf01f269826d3beaae2d6e4ec14ae2eb3
+  linux_arm64: c320840a4390cfe47fc07554df379d4636428b8d910e411b188db01c2c98d5a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

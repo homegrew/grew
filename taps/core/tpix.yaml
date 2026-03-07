@@ -1,0 +1,19 @@
+name: tpix
+version: 1.0.3
+description: Simple terminal image viewer using the Kitty graphics protocol
+homepage: https://github.com/jesvedberg/tpix
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tpix/blobs/sha256:3d87b224ced00e835b796c34ed8a01440b0874174f6c3bc872e77f01c31d848f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tpix/blobs/sha256:ed51a1847548c67c760ed0afec619a32ff7c51756cf5fc10717def6dd56e90fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tpix/blobs/sha256:b797cc1be957d9b85f439bf5ce1e5f26a689f34025513019378f117006cfdfec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tpix/blobs/sha256:b3ea9eff7220055aa15a36c5c9848b235a447f6e4374b9c91febe6f45f358549
+sha256:
+  darwin_arm64: 3d87b224ced00e835b796c34ed8a01440b0874174f6c3bc872e77f01c31d848f
+  darwin_amd64: ed51a1847548c67c760ed0afec619a32ff7c51756cf5fc10717def6dd56e90fd
+  linux_amd64: b797cc1be957d9b85f439bf5ce1e5f26a689f34025513019378f117006cfdfec
+  linux_arm64: b3ea9eff7220055aa15a36c5c9848b235a447f6e4374b9c91febe6f45f358549
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

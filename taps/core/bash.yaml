@@ -1,0 +1,23 @@
+name: bash
+version: 5.3.9
+description: Bourne-Again SHell, a UNIX command interpreter
+homepage: https://www.gnu.org/software/bash/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bash/blobs/sha256:075fd682409ff27a9acbbe88a1456b12826634a1669c0c99fe4d76fda574e0ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bash/blobs/sha256:16d2c963e646d30f259382a3b20c6f959b5f9c69dce11e6e62fc7a6648752612
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bash/blobs/sha256:7f7a002baad948b82cd8e1e0a89ef8816fb3433fe6e914ac2d0ab4f50c90202f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bash/blobs/sha256:f1dab753e73b8ba1d4569214f7d47c4e6f34f1e37a4272855143b4ee7346b157
+sha256:
+  darwin_arm64: 075fd682409ff27a9acbbe88a1456b12826634a1669c0c99fe4d76fda574e0ef
+  darwin_amd64: 16d2c963e646d30f259382a3b20c6f959b5f9c69dce11e6e62fc7a6648752612
+  linux_amd64: 7f7a002baad948b82cd8e1e0a89ef8816fb3433fe6e914ac2d0ab4f50c90202f
+  linux_arm64: f1dab753e73b8ba1d4569214f7d47c4e6f34f1e37a4272855143b4ee7346b157
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - readline
+  - gettext

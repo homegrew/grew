@@ -1,0 +1,11 @@
+name: beersmith
+version: 3.2.8
+description: Beer brewing software
+homepage: https://beersmith.com/
+url:
+  darwin_arm64: https://beersmith3-2.s3.amazonaws.com/BeerSmith3_2_8.dmg
+sha256:
+  darwin_arm64: 47538ccdeb793a0164c41741b596f9c178fd2b9046a5b42c507e272a5e8c3cd1
+artifacts:
+  app:
+    - BeerSmith3.app

@@ -1,0 +1,19 @@
+name: uni
+version: 2.9.0
+description: Unicode database query tool for the command-line
+homepage: https://github.com/arp242/uni
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uni/blobs/sha256:75762beb18143e2ea4b4f9ff6518f62a67cf5f909d053ff6b9120bedbfbe13a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uni/blobs/sha256:a131397f7f865c776486024e4668308ff4a63922d7eee805c1c2c307585c235f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uni/blobs/sha256:b618682972c1079e2d48c2edfff5af4127d50ea45a7768fd5c483d29bddb1c94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uni/blobs/sha256:1001846eec11d144b88ee69a1c3ee92cbd310b927cfd3155fb238e2045141864
+sha256:
+  darwin_arm64: 75762beb18143e2ea4b4f9ff6518f62a67cf5f909d053ff6b9120bedbfbe13a7
+  darwin_amd64: a131397f7f865c776486024e4668308ff4a63922d7eee805c1c2c307585c235f
+  linux_amd64: b618682972c1079e2d48c2edfff5af4127d50ea45a7768fd5c483d29bddb1c94
+  linux_arm64: 1001846eec11d144b88ee69a1c3ee92cbd310b927cfd3155fb238e2045141864
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

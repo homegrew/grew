@@ -1,0 +1,23 @@
+name: mpg321
+version: 0.3.2
+description: Command-line MP3 player
+homepage: https://mpg321.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpg321/blobs/sha256:4582777d133873930312cc1c4314d0997e3219f582b07c771a4f413b5cb0cfc5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpg321/blobs/sha256:1a50f4f46de3340e25159744cfe7b8fb1c365f3aded9339ec723516e8bf91925
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpg321/blobs/sha256:3b1e0d4c1d736021d7d4ffb1354df112cef5815b4bf5c79669639cd80a9eb401
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpg321/blobs/sha256:f3f1ba40fb7ed60d1a13f4b9942c93c319d2f09e95720fd03e34175288679458
+sha256:
+  darwin_arm64: 4582777d133873930312cc1c4314d0997e3219f582b07c771a4f413b5cb0cfc5
+  darwin_amd64: 1a50f4f46de3340e25159744cfe7b8fb1c365f3aded9339ec723516e8bf91925
+  linux_amd64: 3b1e0d4c1d736021d7d4ffb1354df112cef5815b4bf5c79669639cd80a9eb401
+  linux_arm64: f3f1ba40fb7ed60d1a13f4b9942c93c319d2f09e95720fd03e34175288679458
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libao
+  - libid3tag
+  - mad

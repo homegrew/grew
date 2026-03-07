@@ -1,0 +1,54 @@
+name: qmmp
+version: 2.3.1
+description: Qt-based Multimedia Player
+homepage: https://qmmp.ylsoftware.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qmmp/blobs/sha256:325c1290350157b642ffbd3571937e81e8c2baff0a48930a3303c9831f79f857
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qmmp/blobs/sha256:fb2823cea55e2f56de666f0dc2f636646124cdca8e2ec6c379b5be86754c20f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qmmp/blobs/sha256:93e249d6775b45f06d7e24053e57f8263ca2389c67a491ccff2ef9b9cce22dc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qmmp/blobs/sha256:2ee446b2d6e0bb504d563a00cfdac8bc212bb50c188e92861bb296745da082d7
+sha256:
+  darwin_arm64: 325c1290350157b642ffbd3571937e81e8c2baff0a48930a3303c9831f79f857
+  darwin_amd64: fb2823cea55e2f56de666f0dc2f636646124cdca8e2ec6c379b5be86754c20f1
+  linux_amd64: 93e249d6775b45f06d7e24053e57f8263ca2389c67a491ccff2ef9b9cce22dc3
+  linux_arm64: 2ee446b2d6e0bb504d563a00cfdac8bc212bb50c188e92861bb296745da082d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - faad2
+  - ffmpeg
+  - flac
+  - game-music-emu
+  - jack
+  - libarchive
+  - libbs2b
+  - libcddb
+  - libcdio
+  - libcdio-paranoia
+  - libmms
+  - libmodplug
+  - libogg
+  - libsamplerate
+  - libshout
+  - libsndfile
+  - libsoxr
+  - libvorbis
+  - libxmp
+  - mad
+  - mpg123
+  - mplayer
+  - musepack
+  - opus
+  - opusfile
+  - projectm
+  - pulseaudio
+  - qtbase
+  - qtmultimedia
+  - taglib
+  - wavpack
+  - wildmidi
+  - gettext
+  - glib

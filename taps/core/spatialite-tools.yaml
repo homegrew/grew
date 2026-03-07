@@ -1,0 +1,30 @@
+name: spatialite-tools
+version: 5.1.0a
+description: CLI tools supporting SpatiaLite
+homepage: https://www.gaia-gis.it/fossil/spatialite-tools/index
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spatialite-tools/blobs/sha256:069ec4b7d85f688eb77bad3c5feeca57ee0c791c666bea3413ea8ce710a5acaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spatialite-tools/blobs/sha256:5221eae263ba51e8fa7cdf15531d3e1b8c5e3ba155778a5c5462173a2cef6c54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spatialite-tools/blobs/sha256:daae488886ac7af7caf09434e40eacc7ae30a8c9dc578f079e791440ab2d15b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spatialite-tools/blobs/sha256:4e62a762b38e87ffdb9843897642b86deb5efec236179c21663acf933451d3d1
+sha256:
+  darwin_arm64: 069ec4b7d85f688eb77bad3c5feeca57ee0c791c666bea3413ea8ce710a5acaa
+  darwin_amd64: 5221eae263ba51e8fa7cdf15531d3e1b8c5e3ba155778a5c5462173a2cef6c54
+  linux_amd64: daae488886ac7af7caf09434e40eacc7ae30a8c9dc578f079e791440ab2d15b8
+  linux_arm64: 4e62a762b38e87ffdb9843897642b86deb5efec236179c21663acf933451d3d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libspatialite
+  - libxml2
+  - proj
+  - readline
+  - readosm
+  - sqlite
+  - freexl
+  - geos
+  - librttopo
+  - minizip

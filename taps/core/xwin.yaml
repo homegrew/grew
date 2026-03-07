@@ -1,0 +1,19 @@
+name: xwin
+version: 0.8.0
+description: Microsoft CRT and Windows SDK headers and libraries loader
+homepage: https://github.com/Jake-Shadle/xwin
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xwin/blobs/sha256:d8a6670cf22f0c75ef89dad69374a5c0d77c148f86937dbf11fd9cebf1689892
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xwin/blobs/sha256:0b282e5ecd683df4ca2ad0ee1e02decc0c4d2e0efcc0b2d6eb50901b5efbba8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xwin/blobs/sha256:68b1dcaf8e145135c5a4bc8b7dcb60abd9f3de8cb79d4cda58da6ff82f1a586a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xwin/blobs/sha256:adcb174309a3c7338015f5fb40b00d0eac2fb00641bc0d1e9e27781148f05601
+sha256:
+  darwin_arm64: d8a6670cf22f0c75ef89dad69374a5c0d77c148f86937dbf11fd9cebf1689892
+  darwin_amd64: 0b282e5ecd683df4ca2ad0ee1e02decc0c4d2e0efcc0b2d6eb50901b5efbba8b
+  linux_amd64: 68b1dcaf8e145135c5a4bc8b7dcb60abd9f3de8cb79d4cda58da6ff82f1a586a
+  linux_arm64: adcb174309a3c7338015f5fb40b00d0eac2fb00641bc0d1e9e27781148f05601
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

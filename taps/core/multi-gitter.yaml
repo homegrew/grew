@@ -1,0 +1,19 @@
+name: multi-gitter
+version: 0.62.0
+description: Update multiple repositories in with one command
+homepage: https://github.com/lindell/multi-gitter
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/multi-gitter/blobs/sha256:12069a4cdf721d691623a94cb65e4380baaeb486d88f651153757a28de631663
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/multi-gitter/blobs/sha256:8f1b2af98e8d1f5cfce25798650a5ec8838ee2a9d887c58fb2188297241e272c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/multi-gitter/blobs/sha256:9d789c65687898853c6220ded78f3dc999901abbcf39a464d7cdacde6766a265
+  linux_arm64: https://ghcr.io/v2/homebrew/core/multi-gitter/blobs/sha256:30c3c2ddc609cd157da202aa9ed344caaf25c58e6a3696a5389a2950d9890391
+sha256:
+  darwin_arm64: 12069a4cdf721d691623a94cb65e4380baaeb486d88f651153757a28de631663
+  darwin_amd64: 8f1b2af98e8d1f5cfce25798650a5ec8838ee2a9d887c58fb2188297241e272c
+  linux_amd64: 9d789c65687898853c6220ded78f3dc999901abbcf39a464d7cdacde6766a265
+  linux_arm64: 30c3c2ddc609cd157da202aa9ed344caaf25c58e6a3696a5389a2950d9890391
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

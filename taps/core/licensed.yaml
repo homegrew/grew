@@ -1,0 +1,22 @@
+name: licensed
+version: 5.0.4
+description: Cache and verify the licenses of dependencies
+homepage: https://github.com/licensee/licensed
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/licensed/blobs/sha256:d8cbf6f9ebfad3fff41d1ab9f4f221e2a75f2193c1775233c6a1ddbc78cc38e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/licensed/blobs/sha256:153ff0e623b39434ef063fb328ea87cea3b173cf88fb44cc1f63c5f7bf5fb599
+  linux_amd64: https://ghcr.io/v2/homebrew/core/licensed/blobs/sha256:386614c73378360866a57ff53df5a67415318e8669b483aee84a48af37ac6a24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/licensed/blobs/sha256:b305bea5e08d008c225732562742339c7e80d06c5d774f7a54a3e14401c2e109
+sha256:
+  darwin_arm64: d8cbf6f9ebfad3fff41d1ab9f4f221e2a75f2193c1775233c6a1ddbc78cc38e1
+  darwin_amd64: 153ff0e623b39434ef063fb328ea87cea3b173cf88fb44cc1f63c5f7bf5fb599
+  linux_amd64: 386614c73378360866a57ff53df5a67415318e8669b483aee84a48af37ac6a24
+  linux_arm64: b305bea5e08d008c225732562742339c7e80d06c5d774f7a54a3e14401c2e109
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby
+  - xz

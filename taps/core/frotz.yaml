@@ -1,0 +1,31 @@
+name: frotz
+version: 2.55
+description: Infocom-style interactive fiction player
+homepage: https://661.org/proj/if/frotz/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/frotz/blobs/sha256:13e6781a5e0e185bb4bb73634f55d01ae38a55127b20f0f6eb0e88ff13bef27a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/frotz/blobs/sha256:7a026e6bed92668413cc87b1f258bcae2b5148eb0047870213888297321a4c9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/frotz/blobs/sha256:40aecc84a29e2a331e298a2d1a1640c6b5efc63a56960799b04c75ddcf7c169a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/frotz/blobs/sha256:aa9a5806184fe47d3fefec645caf64db935ff3f85bb4254e2b8ed9ebfb9c4c4a
+sha256:
+  darwin_arm64: 13e6781a5e0e185bb4bb73634f55d01ae38a55127b20f0f6eb0e88ff13bef27a
+  darwin_amd64: 7a026e6bed92668413cc87b1f258bcae2b5148eb0047870213888297321a4c9c
+  linux_amd64: 40aecc84a29e2a331e298a2d1a1640c6b5efc63a56960799b04c75ddcf7c169a
+  linux_arm64: aa9a5806184fe47d3fefec645caf64db935ff3f85bb4254e2b8ed9ebfb9c4c4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - jpeg-turbo
+  - libao
+  - libmodplug
+  - libpng
+  - libsamplerate
+  - libsndfile
+  - libvorbis
+  - ncurses
+  - sdl2
+  - sdl2_mixer

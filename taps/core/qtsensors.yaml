@@ -1,0 +1,22 @@
+name: qtsensors
+version: 6.10.2
+description: Provides access to sensors via QML and C++ interfaces
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtsensors/blobs/sha256:c2a0b942e7acc0355f1886e0c571a86d1e1ae7309b5ba878bdfe440598e35c6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtsensors/blobs/sha256:854b42a45707ac3f35fac35ee08cd145701bf8226f5b55fe69ebd466e98d427c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtsensors/blobs/sha256:59f8c14abdf6bfedb4eab8028f7e30aa746acc9f0fb455ed7857664fce02b76e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtsensors/blobs/sha256:856995a08b739ee8d535a4ff3643797086436fdbca7defdee1632da0319536a5
+sha256:
+  darwin_arm64: c2a0b942e7acc0355f1886e0c571a86d1e1ae7309b5ba878bdfe440598e35c6d
+  darwin_amd64: 854b42a45707ac3f35fac35ee08cd145701bf8226f5b55fe69ebd466e98d427c
+  linux_amd64: 59f8c14abdf6bfedb4eab8028f7e30aa746acc9f0fb455ed7857664fce02b76e
+  linux_arm64: 856995a08b739ee8d535a4ff3643797086436fdbca7defdee1632da0319536a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

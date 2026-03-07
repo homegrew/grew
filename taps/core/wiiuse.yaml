@@ -1,0 +1,19 @@
+name: wiiuse
+version: 0.15.7
+description: Connect Nintendo Wii Remotes
+homepage: https://github.com/wiiuse/wiiuse
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wiiuse/blobs/sha256:6f849e7e3d6d27d6c42b1bab948d6155863bc01d88b249aadc3c69b1b17277bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wiiuse/blobs/sha256:9f4d0974a2a2443626e74ab1218827defeff80e2d8cae14e3a7e64d7386f20b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wiiuse/blobs/sha256:14cd9b83e9f2b799673ebfe3f65c11d5409db0e9af64831d812d3bdcb8374d70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wiiuse/blobs/sha256:31d5ce2c575faab8098f0265a1e8fb610ae068445a3d311008e2e9d8e1777da7
+sha256:
+  darwin_arm64: 6f849e7e3d6d27d6c42b1bab948d6155863bc01d88b249aadc3c69b1b17277bf
+  darwin_amd64: 9f4d0974a2a2443626e74ab1218827defeff80e2d8cae14e3a7e64d7386f20b1
+  linux_amd64: 14cd9b83e9f2b799673ebfe3f65c11d5409db0e9af64831d812d3bdcb8374d70
+  linux_arm64: 31d5ce2c575faab8098f0265a1e8fb610ae068445a3d311008e2e9d8e1777da7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: fuego-firestore
+version: 0.35.0
+description: Command-line client for the Firestore database
+homepage: https://github.com/sgarciac/fuego
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fuego-firestore/blobs/sha256:01bd1cfcb8749d1596df0fcda5c62981949621bb7f73c53fd9bda68b680972ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fuego-firestore/blobs/sha256:f9d3be6dd8c27d825b5a01a1e2ccce37308f4d77d82df895d36b39e614df16e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fuego-firestore/blobs/sha256:2f7ddfee2e393fd998a16ebf40f660dff9acef4c88b3b55179de33fb23328685
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fuego-firestore/blobs/sha256:60075175046d1005b6dd44b7b752c5363fb35802b4bc9a6a91cf3c45eb5221cf
+sha256:
+  darwin_arm64: 01bd1cfcb8749d1596df0fcda5c62981949621bb7f73c53fd9bda68b680972ee
+  darwin_amd64: f9d3be6dd8c27d825b5a01a1e2ccce37308f4d77d82df895d36b39e614df16e9
+  linux_amd64: 2f7ddfee2e393fd998a16ebf40f660dff9acef4c88b3b55179de33fb23328685
+  linux_arm64: 60075175046d1005b6dd44b7b752c5363fb35802b4bc9a6a91cf3c45eb5221cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

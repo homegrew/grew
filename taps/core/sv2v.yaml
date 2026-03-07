@@ -1,0 +1,21 @@
+name: sv2v
+version: 0.0.13
+description: SystemVerilog to Verilog conversion
+homepage: https://github.com/zachjs/sv2v
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sv2v/blobs/sha256:6a3812a608aced60cafc55bd69f20194d4da1aa59a97ee7331113954cec40a80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sv2v/blobs/sha256:6b210f350cfb69d6df2a46f06277e59d62b0e2310ca52b89de86e57125dda49e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sv2v/blobs/sha256:d1718ff41c4a8701aa9b5ef78f9ea0856fa2de5e739237b70e6cb64ce6f61096
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sv2v/blobs/sha256:aff1b5dac603d45d117e5f58300311de1d2e9d2d5e2b1a7cf3718f79dfa50b25
+sha256:
+  darwin_arm64: 6a3812a608aced60cafc55bd69f20194d4da1aa59a97ee7331113954cec40a80
+  darwin_amd64: 6b210f350cfb69d6df2a46f06277e59d62b0e2310ca52b89de86e57125dda49e
+  linux_amd64: d1718ff41c4a8701aa9b5ef78f9ea0856fa2de5e739237b70e6cb64ce6f61096
+  linux_arm64: aff1b5dac603d45d117e5f58300311de1d2e9d2d5e2b1a7cf3718f79dfa50b25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

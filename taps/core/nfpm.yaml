@@ -1,0 +1,19 @@
+name: nfpm
+version: 2.45.0
+description: Simple deb and rpm packager
+homepage: https://nfpm.goreleaser.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nfpm/blobs/sha256:1e73cbf704f5e41fdb63f92588c579634fc97c0d4ecdd7b9ab86084b51cf699b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nfpm/blobs/sha256:40516c17b68625da2f6abcd3a1c985125ac4a34553304d5bee204d486683ddbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nfpm/blobs/sha256:e6d97b3cd19b75bbfa54c96a4515cea2b3417b81003e096a6f257bef5d012031
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nfpm/blobs/sha256:5caa59328978c2e9586ded068af47d6241620f2fc602616641786fc1a07078a6
+sha256:
+  darwin_arm64: 1e73cbf704f5e41fdb63f92588c579634fc97c0d4ecdd7b9ab86084b51cf699b
+  darwin_amd64: 40516c17b68625da2f6abcd3a1c985125ac4a34553304d5bee204d486683ddbd
+  linux_amd64: e6d97b3cd19b75bbfa54c96a4515cea2b3417b81003e096a6f257bef5d012031
+  linux_arm64: 5caa59328978c2e9586ded068af47d6241620f2fc602616641786fc1a07078a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

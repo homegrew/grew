@@ -1,0 +1,19 @@
+name: gzip
+version: 1.14
+description: Popular GNU data compression program
+homepage: https://www.gnu.org/software/gzip/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gzip/blobs/sha256:0806e22497cecc96b52a14fbec21c29df976b5ae40f365a55508c23c2958222f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gzip/blobs/sha256:e590ecd558a1eec60fe790370d3ab2cde6d44fc918fe64ec98a56c31fbffc36c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gzip/blobs/sha256:6cdbf878eda84da0ba1cac4bae09d3bf3c91ba1d5666806f9fa1ed19acc1f142
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gzip/blobs/sha256:bf3ee62bd32f32b5288069e02bd54a9b1df35b2ec45dfc1a403aa95c010e0f6b
+sha256:
+  darwin_arm64: 0806e22497cecc96b52a14fbec21c29df976b5ae40f365a55508c23c2958222f
+  darwin_amd64: e590ecd558a1eec60fe790370d3ab2cde6d44fc918fe64ec98a56c31fbffc36c
+  linux_amd64: 6cdbf878eda84da0ba1cac4bae09d3bf3c91ba1d5666806f9fa1ed19acc1f142
+  linux_arm64: bf3ee62bd32f32b5288069e02bd54a9b1df35b2ec45dfc1a403aa95c010e0f6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: snobol4
+version: 2.3.3
+description: String oriented and symbolic programming language
+homepage: https://www.regressive.org/snobol4/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snobol4/blobs/sha256:386f57258d19733bba9f79839743634ccdc0902fffe86afa9e0e8bf37b7fd035
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snobol4/blobs/sha256:4afab736c1e01614e1d6d305fc65c9d17e2352cd50cb99473f0b8a573f428360
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snobol4/blobs/sha256:04420e3ce73484c4ca3ee3115d30b9db317def98bf1ec831188385639f49d445
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snobol4/blobs/sha256:5b19a3df62c11519f9fa0f4100fb82cfb9d97445f881f786de15764b3de37e60
+sha256:
+  darwin_arm64: 386f57258d19733bba9f79839743634ccdc0902fffe86afa9e0e8bf37b7fd035
+  darwin_amd64: 4afab736c1e01614e1d6d305fc65c9d17e2352cd50cb99473f0b8a573f428360
+  linux_amd64: 04420e3ce73484c4ca3ee3115d30b9db317def98bf1ec831188385639f49d445
+  linux_arm64: 5b19a3df62c11519f9fa0f4100fb82cfb9d97445f881f786de15764b3de37e60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

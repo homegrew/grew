@@ -1,0 +1,23 @@
+name: librest
+version: 0.10.2
+description: Library to access RESTful web services
+homepage: https://gitlab.gnome.org/GNOME/librest
+license: LGPL-2.1-or-later AND LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librest/blobs/sha256:4953ad6e88b6646bcf562d66193b617cbd2bba6c9dfecb37eed108f971be575b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librest/blobs/sha256:f3019e4787530901ecbddda6775b47cedd8c44f1b7d7441e458675bc8ae31500
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librest/blobs/sha256:44ba6aff805854a906f060100e335f0d608618ceda53249ecd9c6b0d8b0df58d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librest/blobs/sha256:a2ed194719ac2d8318a309c63da0506d345c83691d1481ca4545579b874b40ef
+sha256:
+  darwin_arm64: 4953ad6e88b6646bcf562d66193b617cbd2bba6c9dfecb37eed108f971be575b
+  darwin_amd64: f3019e4787530901ecbddda6775b47cedd8c44f1b7d7441e458675bc8ae31500
+  linux_amd64: 44ba6aff805854a906f060100e335f0d608618ceda53249ecd9c6b0d8b0df58d
+  linux_arm64: a2ed194719ac2d8318a309c63da0506d345c83691d1481ca4545579b874b40ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - json-glib
+  - libsoup

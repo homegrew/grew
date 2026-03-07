@@ -1,0 +1,11 @@
+name: pxplay
+version: 1.5.0,7.1.0
+description: Third-party Remote Play client for PlayStation consoles
+homepage: https://streamingdv.github.io/pxplay/
+url:
+  darwin_arm64: https://github.com/streamingdv/PSPlay-Application-Hosting/releases/download/v1.5.0_v7.1.0/PXPlay_1.5.0_macOSX_arm64.dmg
+sha256:
+  darwin_arm64: 6358c6f0615859456530d15806d61a4c2f59f658b1c18f9817a96b2706bc720d
+artifacts:
+  app:
+    - PXPlay.app

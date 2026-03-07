@@ -1,0 +1,21 @@
+name: libbs2b
+version: 3.1.0
+description: Bauer stereophonic-to-binaural DSP
+homepage: https://bs2b.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbs2b/blobs/sha256:1ba28dd968f0cee9f5e12adef12978ac728db271ffe588218ccd59ac8e3a3afe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbs2b/blobs/sha256:1f07651dd674bbccd300375b9c2405f6e116444763f1964be66cc64ee905c6c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbs2b/blobs/sha256:1d6af3a009939d61fdec9ddd863c4c6e8b51d4f3bd5bc73f55dfc76ac2f48231
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbs2b/blobs/sha256:2595f81bf293833f6aea6611164a1ca362517cf89e3ed64862c9171cb9390ea2
+sha256:
+  darwin_arm64: 1ba28dd968f0cee9f5e12adef12978ac728db271ffe588218ccd59ac8e3a3afe
+  darwin_amd64: 1f07651dd674bbccd300375b9c2405f6e116444763f1964be66cc64ee905c6c3
+  linux_amd64: 1d6af3a009939d61fdec9ddd863c4c6e8b51d4f3bd5bc73f55dfc76ac2f48231
+  linux_arm64: 2595f81bf293833f6aea6611164a1ca362517cf89e3ed64862c9171cb9390ea2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsndfile

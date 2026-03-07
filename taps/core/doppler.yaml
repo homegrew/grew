@@ -1,0 +1,19 @@
+name: doppler
+version: 3.75.3
+description: CLI for interacting with Doppler secrets and configuration
+homepage: https://docs.doppler.com/docs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doppler/blobs/sha256:b6a1a5d4ef217351f08508db2a5340b06367a30db67b7c19dbe9e00cf50279d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doppler/blobs/sha256:bc79bf83e56e604cea772678eb9f228100dd9fbc9fb8c8c7aa1d3e7ee540a912
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doppler/blobs/sha256:eba3e1f9a780e2b6fdc024315f379d3b0903fae00f02ffc106021a5e778769f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doppler/blobs/sha256:729fe36a5b099805f7271f55efa4fe5281f3a93dffcdef65ea000a536358778e
+sha256:
+  darwin_arm64: b6a1a5d4ef217351f08508db2a5340b06367a30db67b7c19dbe9e00cf50279d3
+  darwin_amd64: bc79bf83e56e604cea772678eb9f228100dd9fbc9fb8c8c7aa1d3e7ee540a912
+  linux_amd64: eba3e1f9a780e2b6fdc024315f379d3b0903fae00f02ffc106021a5e778769f9
+  linux_arm64: 729fe36a5b099805f7271f55efa4fe5281f3a93dffcdef65ea000a536358778e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

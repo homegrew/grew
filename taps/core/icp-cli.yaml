@@ -1,0 +1,22 @@
+name: icp-cli
+version: 0.2.0
+description: Development tool for building and deploying canisters on ICP
+homepage: https://dfinity.github.io/icp-cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icp-cli/blobs/sha256:b758599c874159eadd8f4a4d6d265f6ee0ee7d3225db4ff4d919b907fa51bc38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icp-cli/blobs/sha256:77df5e697d326092b358842209a1e0e96520588b2c2be5b5520ff44e3af52898
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icp-cli/blobs/sha256:033b82653683fa2f534868e38413d8d1ea3d001cb1e72ad6281267d23db72076
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icp-cli/blobs/sha256:48d63029edb04c0a82371f496c30ed770e2aec29b479449f05d94ad626ae42c1
+sha256:
+  darwin_arm64: b758599c874159eadd8f4a4d6d265f6ee0ee7d3225db4ff4d919b907fa51bc38
+  darwin_amd64: 77df5e697d326092b358842209a1e0e96520588b2c2be5b5520ff44e3af52898
+  linux_amd64: 033b82653683fa2f534868e38413d8d1ea3d001cb1e72ad6281267d23db72076
+  linux_arm64: 48d63029edb04c0a82371f496c30ed770e2aec29b479449f05d94ad626ae42c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ic-wasm
+  - openssl@3

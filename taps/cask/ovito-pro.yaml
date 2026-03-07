@@ -1,0 +1,11 @@
+name: ovito-pro
+version: 3.14.1
+description: Scientific data visualization and analysis software
+homepage: https://www.ovito.org/
+url:
+  darwin_arm64: https://www.ovito.org/download/master/ovito-pro-3.14.1-macos-arm64.dmg
+sha256:
+  darwin_arm64: 1f3218efc092410e0163a03636bbe77b6d7939ed71981feac7cf2da5e7680eac
+artifacts:
+  app:
+    - Ovito.app

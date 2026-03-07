@@ -1,0 +1,19 @@
+name: roadrunner
+version: 2025.1.8
+description: High-performance PHP application server, load-balancer and process manager
+homepage: https://docs.roadrunner.dev/docs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/roadrunner/blobs/sha256:15b363ad65b815275959e84d8cd26461b269082911b926a2a906e2051aaec4b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/roadrunner/blobs/sha256:edffd14122adeb2d797ef4598180617e6e85a4d3c540eae53d31702872a6a05b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/roadrunner/blobs/sha256:660ed163a724ed704069f39206316f971b138fe80981316cec6a781b6aa7c161
+  linux_arm64: https://ghcr.io/v2/homebrew/core/roadrunner/blobs/sha256:7d8d6f6f1d77cf76745139f4ee1422064736eed0d96cf6e3439543bd9c0ebe38
+sha256:
+  darwin_arm64: 15b363ad65b815275959e84d8cd26461b269082911b926a2a906e2051aaec4b3
+  darwin_amd64: edffd14122adeb2d797ef4598180617e6e85a4d3c540eae53d31702872a6a05b
+  linux_amd64: 660ed163a724ed704069f39206316f971b138fe80981316cec6a781b6aa7c161
+  linux_arm64: 7d8d6f6f1d77cf76745139f4ee1422064736eed0d96cf6e3439543bd9c0ebe38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: cryptol
+version: 3.5.0
+description: Domain-specific language for specifying cryptographic algorithms
+homepage: https://galoisinc.github.io/cryptol/master/RefMan.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cryptol/blobs/sha256:f5f24a0cd70a9680033bcca7983f92298b9970819ea5048034b01c06ef761755
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cryptol/blobs/sha256:a3084a03efbd1b3d8a3ecfdfeeebda0f06e235652a0204ad4e7b663568c6b659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cryptol/blobs/sha256:b0691ab5284a9b219e134f6f93a10ca1023a964590c78b03621f15d1fb199ed6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cryptol/blobs/sha256:ad4a6f9b4ce272625e31eb25a4f2f3a955d2a219dedc3b9cc4ebd95625bedcf5
+sha256:
+  darwin_arm64: f5f24a0cd70a9680033bcca7983f92298b9970819ea5048034b01c06ef761755
+  darwin_amd64: a3084a03efbd1b3d8a3ecfdfeeebda0f06e235652a0204ad4e7b663568c6b659
+  linux_amd64: b0691ab5284a9b219e134f6f93a10ca1023a964590c78b03621f15d1fb199ed6
+  linux_arm64: ad4a6f9b4ce272625e31eb25a4f2f3a955d2a219dedc3b9cc4ebd95625bedcf5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - z3

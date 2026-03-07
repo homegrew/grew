@@ -1,0 +1,19 @@
+name: dcfldd
+version: 1.9.3
+description: Enhanced version of dd for forensics and security
+homepage: https://github.com/resurrecting-open-source-projects/dcfldd
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcfldd/blobs/sha256:015e2488081449c7a4a21ab1494158bfe4c12ce23ab2f173b1d90aa606350340
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcfldd/blobs/sha256:7b4bf86232cb89e6da8244cc8cf38f4cc075636792c8f5f52f19a424ac315c9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcfldd/blobs/sha256:44661f718a486d0d5bcc1b024d830cd7e72c4621577bb6d40d032b68a641f510
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcfldd/blobs/sha256:f82b6d7c901bd91e1425a1a135656959b45485a8f79d38c805a7991726e13a58
+sha256:
+  darwin_arm64: 015e2488081449c7a4a21ab1494158bfe4c12ce23ab2f173b1d90aa606350340
+  darwin_amd64: 7b4bf86232cb89e6da8244cc8cf38f4cc075636792c8f5f52f19a424ac315c9d
+  linux_amd64: 44661f718a486d0d5bcc1b024d830cd7e72c4621577bb6d40d032b68a641f510
+  linux_arm64: f82b6d7c901bd91e1425a1a135656959b45485a8f79d38c805a7991726e13a58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: vivid
+version: 0.10.1
+description: Generator for LS_COLORS with support for multiple color themes
+homepage: https://github.com/sharkdp/vivid
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vivid/blobs/sha256:cead0da902988950326a5860ac608c02825268ad1671928e3e4cdc29c15b4ea6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vivid/blobs/sha256:6de93d50a62ed34f7b448db4620a765f2084ba538b611c0cffa45ccc3be4c0ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vivid/blobs/sha256:07ad36619ada9c224b6f245fed8f79cf39b69e343d223917bd816a1fa873bcdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vivid/blobs/sha256:bf00f818ea1317ee924a71ccc69204143400762fa5b35b673f64f3b0caabf66c
+sha256:
+  darwin_arm64: cead0da902988950326a5860ac608c02825268ad1671928e3e4cdc29c15b4ea6
+  darwin_amd64: 6de93d50a62ed34f7b448db4620a765f2084ba538b611c0cffa45ccc3be4c0ba
+  linux_amd64: 07ad36619ada9c224b6f245fed8f79cf39b69e343d223917bd816a1fa873bcdf
+  linux_arm64: bf00f818ea1317ee924a71ccc69204143400762fa5b35b673f64f3b0caabf66c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

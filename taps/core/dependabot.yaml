@@ -1,0 +1,19 @@
+name: dependabot
+version: 1.83.1
+description: Tool for testing and debugging Dependabot update jobs
+homepage: https://github.com/dependabot/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dependabot/blobs/sha256:e5ebd49094d201700c8c5fa0736ca6aaad276ba263566daead833911a318538e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dependabot/blobs/sha256:065606b069fb405baad202810d2b10bc97281a98fc212f66c223a92e7d1e8697
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dependabot/blobs/sha256:f5a8215b7c9b1f0d6d0cea510a3d9720f999da13d957f032d861247b8fb2286e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dependabot/blobs/sha256:8a215690b6bec2f3ef832185cb02c88a7ee9a8a675432a783e687b015cf172c3
+sha256:
+  darwin_arm64: e5ebd49094d201700c8c5fa0736ca6aaad276ba263566daead833911a318538e
+  darwin_amd64: 065606b069fb405baad202810d2b10bc97281a98fc212f66c223a92e7d1e8697
+  linux_amd64: f5a8215b7c9b1f0d6d0cea510a3d9720f999da13d957f032d861247b8fb2286e
+  linux_arm64: 8a215690b6bec2f3ef832185cb02c88a7ee9a8a675432a783e687b015cf172c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: jet
+version: 2.14.1
+description: Type safe SQL builder with code generation and auto query result data mapping
+homepage: https://github.com/go-jet/jet
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jet/blobs/sha256:e9e5b2da17f204428bd9e47d751750a47bedbb73e4934991cf6ce37a9d448ef0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jet/blobs/sha256:22deb92d0d620fe7075681c0e4b1582e07778679199b066b94a883796a3a6e2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jet/blobs/sha256:629d53e3b9234713aba15fd7e572cc1298aee75a4fc0545fbcf255349e15190e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jet/blobs/sha256:1b568589a19ca662efa63dfb64bca31b92b22442b2aff7009d88bf073e56b38f
+sha256:
+  darwin_arm64: e9e5b2da17f204428bd9e47d751750a47bedbb73e4934991cf6ce37a9d448ef0
+  darwin_amd64: 22deb92d0d620fe7075681c0e4b1582e07778679199b066b94a883796a3a6e2a
+  linux_amd64: 629d53e3b9234713aba15fd7e572cc1298aee75a4fc0545fbcf255349e15190e
+  linux_arm64: 1b568589a19ca662efa63dfb64bca31b92b22442b2aff7009d88bf073e56b38f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: libsigrokdecode
+version: 0.5.3
+description: Drivers for logic analyzers and other supported devices
+homepage: https://sigrok.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsigrokdecode/blobs/sha256:23396e67a66de629ac081dc782c68f9fcd38617f0b6f9127f2f46dbd245f2d37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsigrokdecode/blobs/sha256:3d88591dccf61eaa1381eabf2b0dcff873d72238cf4268f9e2820a9ad4c2648d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsigrokdecode/blobs/sha256:4ff7dc34d6405ca194b26dc6cf68637aa81f8161786d7ceb4dd49d2abe1f7b5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsigrokdecode/blobs/sha256:d642fc4f3665d70301ea2195b43926e5bf9deefdee64dab83717b90476c68a6a
+sha256:
+  darwin_arm64: 23396e67a66de629ac081dc782c68f9fcd38617f0b6f9127f2f46dbd245f2d37
+  darwin_amd64: 3d88591dccf61eaa1381eabf2b0dcff873d72238cf4268f9e2820a9ad4c2648d
+  linux_amd64: 4ff7dc34d6405ca194b26dc6cf68637aa81f8161786d7ceb4dd49d2abe1f7b5e
+  linux_arm64: d642fc4f3665d70301ea2195b43926e5bf9deefdee64dab83717b90476c68a6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - python@3.14
+  - gettext

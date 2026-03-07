@@ -1,0 +1,19 @@
+name: glab
+version: 1.89.0
+description: Open-source GitLab command-line tool
+homepage: https://gitlab.com/gitlab-org/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glab/blobs/sha256:1622fcbdc33b9f6aecd88486348dade935999fe731dc5cba3e45e6e8c40a7f67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glab/blobs/sha256:4b6fcda200b5f3e73f11622af14a646520ef30c1ae746fd012de4c5eec53c59f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glab/blobs/sha256:0d73c4da056e35524cd3259139a76f744d06fc8ac20ca99ba10b795353030a1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glab/blobs/sha256:104a5d934b15cc23ef2e045815964cd11cde9ddf6eb6ca886e851417a04de4e0
+sha256:
+  darwin_arm64: 1622fcbdc33b9f6aecd88486348dade935999fe731dc5cba3e45e6e8c40a7f67
+  darwin_amd64: 4b6fcda200b5f3e73f11622af14a646520ef30c1ae746fd012de4c5eec53c59f
+  linux_amd64: 0d73c4da056e35524cd3259139a76f744d06fc8ac20ca99ba10b795353030a1f
+  linux_arm64: 104a5d934b15cc23ef2e045815964cd11cde9ddf6eb6ca886e851417a04de4e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

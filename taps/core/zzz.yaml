@@ -1,0 +1,15 @@
+name: zzz
+version: 1
+description: Command-line tool to put Macs to sleep
+homepage: https://github.com/Orc/Zzz
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zzz/blobs/sha256:1f259a8829cd360183c6aef122efd8def3dd421f1d72f04d13d6416d7fc9d5b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zzz/blobs/sha256:75d43876070b1f6160b4cb6a07f70599a4aa50556fc542c2523397d30ba747bc
+sha256:
+  darwin_arm64: 1f259a8829cd360183c6aef122efd8def3dd421f1d72f04d13d6416d7fc9d5b0
+  darwin_amd64: 75d43876070b1f6160b4cb6a07f70599a4aa50556fc542c2523397d30ba747bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

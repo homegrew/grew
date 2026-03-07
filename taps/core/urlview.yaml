@@ -1,0 +1,19 @@
+name: urlview
+version: 0.9-23.1
+description: URL extractor/launcher
+homepage: https://packages.debian.org/sid/misc/urlview
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urlview/blobs/sha256:b6e3087bd014b40df019a8836f5f478181677742d8b45636acba03c5a7c956fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urlview/blobs/sha256:3197e439d22f3e5dcbfa8b38f2e73c40f52e89252b3279c3c5d236b6605165be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urlview/blobs/sha256:eb73442a4c8cac047d120ec566f4bbc59ce23b6eece8fdedd67db4bb9832c2dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urlview/blobs/sha256:7e27f5f34535a7b50e88660b1bcf3fb56bb430b76fa8f39f07231d7d3a1e95d2
+sha256:
+  darwin_arm64: b6e3087bd014b40df019a8836f5f478181677742d8b45636acba03c5a7c956fa
+  darwin_amd64: 3197e439d22f3e5dcbfa8b38f2e73c40f52e89252b3279c3c5d236b6605165be
+  linux_amd64: eb73442a4c8cac047d120ec566f4bbc59ce23b6eece8fdedd67db4bb9832c2dd
+  linux_arm64: 7e27f5f34535a7b50e88660b1bcf3fb56bb430b76fa8f39f07231d7d3a1e95d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

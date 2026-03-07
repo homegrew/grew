@@ -1,0 +1,19 @@
+name: kubefirst
+version: 2.10.5
+description: "GitOps Infrastructure & Application Delivery Platform for kubernetes"
+homepage: https://kubefirst.konstruct.io/docs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubefirst/blobs/sha256:a787be0dd2873b9245890777b5969bd8e8fe950a155b504d2bd2d53a25eb0a77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubefirst/blobs/sha256:d789de6c70a00198a232377c35a740af086955918a02e2b2be3108657d3826fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubefirst/blobs/sha256:ed715b1c1e36cfbd51549035bcfbae683620dd91fe4ed22bdc9d672043e7b997
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubefirst/blobs/sha256:ebb9c7b8df316e084f36b9d94a7c23e0a97f4356a5cba7329aa1548d6b12c16c
+sha256:
+  darwin_arm64: a787be0dd2873b9245890777b5969bd8e8fe950a155b504d2bd2d53a25eb0a77
+  darwin_amd64: d789de6c70a00198a232377c35a740af086955918a02e2b2be3108657d3826fc
+  linux_amd64: ed715b1c1e36cfbd51549035bcfbae683620dd91fe4ed22bdc9d672043e7b997
+  linux_arm64: ebb9c7b8df316e084f36b9d94a7c23e0a97f4356a5cba7329aa1548d6b12c16c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

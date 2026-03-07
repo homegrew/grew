@@ -1,0 +1,19 @@
+name: sfk
+version: 2.0.0.3
+description: Command-line tools collection
+homepage: http://stahlworks.com/dev/swiss-file-knife.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sfk/blobs/sha256:ec3b6117f51420212e6d8d7731790f6f993609d8c254888c2141bdf707b69460
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sfk/blobs/sha256:456e00f73c8dee5195cd6ef368ae9d904d4ed977dd944421c81f806356910747
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sfk/blobs/sha256:cfdc12016754b27340f7e11d07912c36471a2645f4ac0c39e9eaddce5b599d6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sfk/blobs/sha256:27e7c02deb14c7fbac1e8c0a4a55872117a37a6ae6772556f3df1bbd193342a5
+sha256:
+  darwin_arm64: ec3b6117f51420212e6d8d7731790f6f993609d8c254888c2141bdf707b69460
+  darwin_amd64: 456e00f73c8dee5195cd6ef368ae9d904d4ed977dd944421c81f806356910747
+  linux_amd64: cfdc12016754b27340f7e11d07912c36471a2645f4ac0c39e9eaddce5b599d6f
+  linux_arm64: 27e7c02deb14c7fbac1e8c0a4a55872117a37a6ae6772556f3df1bbd193342a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

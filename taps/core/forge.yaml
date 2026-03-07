@@ -1,0 +1,25 @@
+name: forge
+version: 1.0.8
+description: High Performance Visualization
+homepage: https://github.com/arrayfire/forge
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forge/blobs/sha256:881a8e394fc90cf10ed91fd8cdec8b046805feabe9872cfe657faeab2281f2a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forge/blobs/sha256:4dd5af8ea60cb6b21df5db738bd2f4da9197f31a6c57858a0915533d0d26cf2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forge/blobs/sha256:36ab3de65058a78ead732348764aae2bfbc0c3d30c0ad36c4969ff91f5fe8775
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forge/blobs/sha256:f457ab3e2f70eb0b2b4c98fb9fd7ce6714c99c2d05088f9568d1f350718557ef
+sha256:
+  darwin_arm64: 881a8e394fc90cf10ed91fd8cdec8b046805feabe9872cfe657faeab2281f2a7
+  darwin_amd64: 4dd5af8ea60cb6b21df5db738bd2f4da9197f31a6c57858a0915533d0d26cf2c
+  linux_amd64: 36ab3de65058a78ead732348764aae2bfbc0c3d30c0ad36c4969ff91f5fe8775
+  linux_arm64: f457ab3e2f70eb0b2b4c98fb9fd7ce6714c99c2d05088f9568d1f350718557ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - glfw
+  - glm
+  - libx11

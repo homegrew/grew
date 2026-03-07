@@ -1,0 +1,19 @@
+name: libwebm
+version: 1.0.0.32
+description: WebM container
+homepage: https://www.webmproject.org/code/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwebm/blobs/sha256:4bd6613c74dd44b41084c070312f2eda8d419fe657f98b4f86d29d02626a92ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwebm/blobs/sha256:ccf6f6d11126683575f1eb158e8b0fe562a3b12594970114746751f1418b4dc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwebm/blobs/sha256:dc19451f040265923fdc0413c0f78769872338ddda782625ff9a567c6c3be2f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwebm/blobs/sha256:e04dd0c252829a72f8f70f14c0a4f250a71e439770db4718198618e9016afbd1
+sha256:
+  darwin_arm64: 4bd6613c74dd44b41084c070312f2eda8d419fe657f98b4f86d29d02626a92ea
+  darwin_amd64: ccf6f6d11126683575f1eb158e8b0fe562a3b12594970114746751f1418b4dc3
+  linux_amd64: dc19451f040265923fdc0413c0f78769872338ddda782625ff9a567c6c3be2f6
+  linux_arm64: e04dd0c252829a72f8f70f14c0a4f250a71e439770db4718198618e9016afbd1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

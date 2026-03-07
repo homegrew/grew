@@ -1,0 +1,19 @@
+name: ttdl
+version: 4.25.0
+description: Terminal Todo List Manager
+homepage: https://github.com/VladimirMarkelov/ttdl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttdl/blobs/sha256:012eb20935a3ef87c04991917eef55f5d6b5a76cc1a47ce8dafe2fb5817d36ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttdl/blobs/sha256:a89fc3fb03ad1f87ed556c9d56c79d74b4d1616cae3a81779ccb5dda7436348a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttdl/blobs/sha256:32be8f90cd42eb3dec9793566cb511069e2e9ee513c1850dd9319f01d7d19af9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttdl/blobs/sha256:132db806023a9d41f1b1608c7aee193f0987cf13cf331f18e5eeefa27df33759
+sha256:
+  darwin_arm64: 012eb20935a3ef87c04991917eef55f5d6b5a76cc1a47ce8dafe2fb5817d36ce
+  darwin_amd64: a89fc3fb03ad1f87ed556c9d56c79d74b4d1616cae3a81779ccb5dda7436348a
+  linux_amd64: 32be8f90cd42eb3dec9793566cb511069e2e9ee513c1850dd9319f01d7d19af9
+  linux_arm64: 132db806023a9d41f1b1608c7aee193f0987cf13cf331f18e5eeefa27df33759
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

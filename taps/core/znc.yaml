@@ -1,0 +1,25 @@
+name: znc
+version: 1.10.1
+description: Advanced IRC bouncer
+homepage: https://wiki.znc.in/ZNC
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/znc/blobs/sha256:afb9c0ccfe01f8d0c335ad33d7cb27d3bcff074ca0e22158d83caabf73bc7277
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/znc/blobs/sha256:25b53ba0a8aa7400cd84902fc9f9b871b81af26021ec417420384341b27d7c80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/znc/blobs/sha256:d7cabd8dc640eb9161c5489da76eff509f3459bac957c427da009241c3dfeea7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/znc/blobs/sha256:f9a460da2c37ce2776fd85d3201a8ca6911cb423e94bf7682e67bb97f5c95577
+sha256:
+  darwin_arm64: afb9c0ccfe01f8d0c335ad33d7cb27d3bcff074ca0e22158d83caabf73bc7277
+  darwin_amd64: 25b53ba0a8aa7400cd84902fc9f9b871b81af26021ec417420384341b27d7c80
+  linux_amd64: d7cabd8dc640eb9161c5489da76eff509f3459bac957c427da009241c3dfeea7
+  linux_arm64: f9a460da2c37ce2776fd85d3201a8ca6911cb423e94bf7682e67bb97f5c95577
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cctz
+  - icu4c@78
+  - openssl@3
+  - python@3.14

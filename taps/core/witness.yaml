@@ -1,0 +1,19 @@
+name: witness
+version: 0.10.2
+description: Automates, normalizes, and verifies software artifact provenance
+homepage: https://witness.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/witness/blobs/sha256:77abec7a4a4acd61fa8efa44f24c6c73ae10c32542ec2969c388670d574c349b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/witness/blobs/sha256:17c59616cedb46ac4e73d098e4e19be3c7b2bf8acae4f13db5455326e5025b59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/witness/blobs/sha256:0de296aeff869b5c0a698b436218c987af1ac65c6dd58221b923a61073e023a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/witness/blobs/sha256:87427f6fb3bd8d47c33bebf9be42fb480abdae0be6aac684a35f3d2041f7d433
+sha256:
+  darwin_arm64: 77abec7a4a4acd61fa8efa44f24c6c73ae10c32542ec2969c388670d574c349b
+  darwin_amd64: 17c59616cedb46ac4e73d098e4e19be3c7b2bf8acae4f13db5455326e5025b59
+  linux_amd64: 0de296aeff869b5c0a698b436218c987af1ac65c6dd58221b923a61073e023a1
+  linux_arm64: 87427f6fb3bd8d47c33bebf9be42fb480abdae0be6aac684a35f3d2041f7d433
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

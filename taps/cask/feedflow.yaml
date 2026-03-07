@@ -1,0 +1,11 @@
+name: feedflow
+version: 1.10.0
+description: RSS reader
+homepage: https://www.feedflow.dev/
+url:
+  darwin_arm64: https://github.com/prof18/feed-flow/releases/download/1.10.0-all/FeedFlow-1.10.0.dmg
+sha256:
+  darwin_arm64: dfbcaa2d7623ee0b3d35793c9dc75946b65c17b3ddb754afe9cbe62266baedfa
+artifacts:
+  app:
+    - FeedFlow.app

@@ -1,0 +1,19 @@
+name: chaoskube
+version: 0.38.0
+description: Periodically kills random pods in your Kubernetes cluster
+homepage: https://github.com/linki/chaoskube
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chaoskube/blobs/sha256:d404389a447a45098d2f299a545ae890a1cdd77c91ed5b55861049b9dc505bea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chaoskube/blobs/sha256:567d4ae913059c5244e5bce3460c648ffe17011302214be84af999525e576f3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chaoskube/blobs/sha256:89bb317cd550675bf0151057430f10593963f428c0d210db21ce7c6f83b4a88e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chaoskube/blobs/sha256:23eb82bb4a90ee62857f338fd688462f9c56a4242af2779d9c59fb404f819ab8
+sha256:
+  darwin_arm64: d404389a447a45098d2f299a545ae890a1cdd77c91ed5b55861049b9dc505bea
+  darwin_amd64: 567d4ae913059c5244e5bce3460c648ffe17011302214be84af999525e576f3a
+  linux_amd64: 89bb317cd550675bf0151057430f10593963f428c0d210db21ce7c6f83b4a88e
+  linux_arm64: 23eb82bb4a90ee62857f338fd688462f9c56a4242af2779d9c59fb404f819ab8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: cattle
+version: 1.4.0
+description: Brainfuck language toolkit
+homepage: https://kiyuko.org/software/cattle
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cattle/blobs/sha256:e0a80736a4afb81659a8e8eaa4dee70a320bc7c8f7c756d14891c333f65748e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cattle/blobs/sha256:0b70e1d36468fdea6a86e9e35425d7d35298a448c79d4a8a92fb6b02fa28a1fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cattle/blobs/sha256:5cc3ad88464fb616899345d986acd64a8108ad271e4cc9d09370cd8055a1774f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cattle/blobs/sha256:2174b375583cd65dd0bb371684b48fe05a346f16fad3c33d9bda51519a79d49f
+sha256:
+  darwin_arm64: e0a80736a4afb81659a8e8eaa4dee70a320bc7c8f7c756d14891c333f65748e6
+  darwin_amd64: 0b70e1d36468fdea6a86e9e35425d7d35298a448c79d4a8a92fb6b02fa28a1fc
+  linux_amd64: 5cc3ad88464fb616899345d986acd64a8108ad271e4cc9d09370cd8055a1774f
+  linux_arm64: 2174b375583cd65dd0bb371684b48fe05a346f16fad3c33d9bda51519a79d49f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

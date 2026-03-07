@@ -1,0 +1,19 @@
+name: define
+version: 0.4.0
+description: Command-line dictionary (thesaurus) app, with access to multiple sources
+homepage: https://github.com/Rican7/define
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/define/blobs/sha256:b47971b7497fb628d7adea9bd2d657fc4b46ddd2215f8bc388287db13c845d0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/define/blobs/sha256:5a7046386262e0c8ead170a8ae73d20ee45eaaf0827fa6e5877d34a27dfa3f1c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/define/blobs/sha256:d5ed09144379f9439b144f3f4e93e394203057f479d9edb6309fadf11183d17c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/define/blobs/sha256:c9855c15c07669af36ff3940ef7df1b025483855f2b74f0d1c61833a399dd66a
+sha256:
+  darwin_arm64: b47971b7497fb628d7adea9bd2d657fc4b46ddd2215f8bc388287db13c845d0c
+  darwin_amd64: 5a7046386262e0c8ead170a8ae73d20ee45eaaf0827fa6e5877d34a27dfa3f1c
+  linux_amd64: d5ed09144379f9439b144f3f4e93e394203057f479d9edb6309fadf11183d17c
+  linux_arm64: c9855c15c07669af36ff3940ef7df1b025483855f2b74f0d1c61833a399dd66a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

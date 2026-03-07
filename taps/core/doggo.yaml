@@ -1,0 +1,19 @@
+name: doggo
+version: 1.1.5
+description: Command-line DNS Client for Humans
+homepage: https://doggo.mrkaran.dev/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doggo/blobs/sha256:48d0033ab3cbcb4c31351174c58afdac844219fec933f6cd2faae2075d1cd2a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doggo/blobs/sha256:de71149e98f29d79539c1e1400a25678a3d3f6fe769e4dac818acb0c82544a3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doggo/blobs/sha256:6082e855c991757fa18b411a4bf269682a8ce74be7c730108916d827bcf4fc49
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doggo/blobs/sha256:1e5b07a4d10836691161cc8db741759954d816276392de74b872802dd41074fb
+sha256:
+  darwin_arm64: 48d0033ab3cbcb4c31351174c58afdac844219fec933f6cd2faae2075d1cd2a6
+  darwin_amd64: de71149e98f29d79539c1e1400a25678a3d3f6fe769e4dac818acb0c82544a3b
+  linux_amd64: 6082e855c991757fa18b411a4bf269682a8ce74be7c730108916d827bcf4fc49
+  linux_arm64: 1e5b07a4d10836691161cc8db741759954d816276392de74b872802dd41074fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

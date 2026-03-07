@@ -1,0 +1,19 @@
+name: envd
+version: 1.3.4
+description: Reproducible development environment for AI/ML
+homepage: https://envd.tensorchord.ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/envd/blobs/sha256:0bd17b4161896988fb657c4aac8cbfbd22c6a433f247c990e37f9cbb91c15f1f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/envd/blobs/sha256:89257f0e9a759ceed909a4558fa51a5b0986402864c47c0b056cb332f26b004e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/envd/blobs/sha256:4bbb273c523824f838223846ae143eddfbdba5ca5cbc4d08c4eb0af37fb5afc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/envd/blobs/sha256:ba5bb665dd0d932c6e64a51360a738eb585461d1860f5538b8245f58af2dbc6f
+sha256:
+  darwin_arm64: 0bd17b4161896988fb657c4aac8cbfbd22c6a433f247c990e37f9cbb91c15f1f
+  darwin_amd64: 89257f0e9a759ceed909a4558fa51a5b0986402864c47c0b056cb332f26b004e
+  linux_amd64: 4bbb273c523824f838223846ae143eddfbdba5ca5cbc4d08c4eb0af37fb5afc1
+  linux_arm64: ba5bb665dd0d932c6e64a51360a738eb585461d1860f5538b8245f58af2dbc6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

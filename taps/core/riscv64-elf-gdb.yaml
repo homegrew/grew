@@ -1,0 +1,27 @@
+name: riscv64-elf-gdb
+version: 17.1
+description: GNU debugger for riscv64-elf cross development
+homepage: https://www.gnu.org/software/gdb/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gdb/blobs/sha256:344d83c9a04d59afc809e82167085b7f433f3e71ce10d52327616fb2b1c59a27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gdb/blobs/sha256:93c7d4db868c46f356b600c6432a7d48547b949ccbacf95528e02d1d7456f767
+  linux_amd64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gdb/blobs/sha256:38c247e15ce82e284a1e97d44bc8415094c7f475bb2f5f2e3e75d5a99e84670e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/riscv64-elf-gdb/blobs/sha256:9688531223cf253300b484d52b3c535aa5c0361da5ce9b0bef84c3313f9193ba
+sha256:
+  darwin_arm64: 344d83c9a04d59afc809e82167085b7f433f3e71ce10d52327616fb2b1c59a27
+  darwin_amd64: 93c7d4db868c46f356b600c6432a7d48547b949ccbacf95528e02d1d7456f767
+  linux_amd64: 38c247e15ce82e284a1e97d44bc8415094c7f475bb2f5f2e3e75d5a99e84670e
+  linux_arm64: 9688531223cf253300b484d52b3c535aa5c0361da5ce9b0bef84c3313f9193ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - ncurses
+  - python@3.14
+  - readline
+  - xz
+  - zstd

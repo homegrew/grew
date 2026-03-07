@@ -1,0 +1,22 @@
+name: hopenpgp-tools
+version: 0.23.11
+description: Command-line tools for OpenPGP-related operations
+homepage: https://hackage.haskell.org/package/hopenpgp-tools
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hopenpgp-tools/blobs/sha256:6e1b1eccc7a834a587e44a3d72443034942527f06b6b871a9c44698c1cb21e58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hopenpgp-tools/blobs/sha256:4556fef4e991d2e8dd07835f16b92f18d8c8151c1fb9043fa903a7ce0acc90c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hopenpgp-tools/blobs/sha256:a783536238023b381f195e111f0430f9d7931bea24fd9d31849675e00c29f639
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hopenpgp-tools/blobs/sha256:10da1dd06cad90211489d231be6b4ddec80304bea1e57aa342c9c4cd2258fc91
+sha256:
+  darwin_arm64: 6e1b1eccc7a834a587e44a3d72443034942527f06b6b871a9c44698c1cb21e58
+  darwin_amd64: 4556fef4e991d2e8dd07835f16b92f18d8c8151c1fb9043fa903a7ce0acc90c9
+  linux_amd64: a783536238023b381f195e111f0430f9d7931bea24fd9d31849675e00c29f639
+  linux_arm64: 10da1dd06cad90211489d231be6b4ddec80304bea1e57aa342c9c4cd2258fc91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - nettle

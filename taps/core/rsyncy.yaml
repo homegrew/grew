@@ -1,0 +1,21 @@
+name: rsyncy
+version: 2.2.0
+description: Status/progress bar for rsync
+homepage: https://github.com/laktak/rsyncy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsyncy/blobs/sha256:5d8b127e5b3edd289cb7946ae036f00bd7b4d55c01288ce62bb5e3d2ed0bd810
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsyncy/blobs/sha256:16d9d4d2d28545158b946ed85af0cb8aaeae397b8656c6dc50075e057fbccb6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsyncy/blobs/sha256:f340cdf67cf15d3a9f18ba1acf9b3194f71576bbfe7bcbc3d2da7950a9101e76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsyncy/blobs/sha256:f732892925d5b98a6cfa223c7c0a2c86c48529b6cd78919004a43dfe25e9914c
+sha256:
+  darwin_arm64: 5d8b127e5b3edd289cb7946ae036f00bd7b4d55c01288ce62bb5e3d2ed0bd810
+  darwin_amd64: 16d9d4d2d28545158b946ed85af0cb8aaeae397b8656c6dc50075e057fbccb6b
+  linux_amd64: f340cdf67cf15d3a9f18ba1acf9b3194f71576bbfe7bcbc3d2da7950a9101e76
+  linux_arm64: f732892925d5b98a6cfa223c7c0a2c86c48529b6cd78919004a43dfe25e9914c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rsync

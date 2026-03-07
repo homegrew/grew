@@ -1,0 +1,19 @@
+name: wazero
+version: 1.11.0
+description: Zero dependency WebAssembly runtime
+homepage: https://wazero.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wazero/blobs/sha256:e9eb11965062b5259c0dac49f69ff488d9e38bd96aebf78d7169984d288e931b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wazero/blobs/sha256:1791849ae4bc71b21c16f5411234a8b6147d730cdfaeb4feada8ccfcd952fdac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wazero/blobs/sha256:e4191f33d9b5007bb554ce3240aa0b242eab381ccfc6ea1fd51157601448801d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wazero/blobs/sha256:45288c26d39cf14c8fab4921edf826540965ae2280cac66580678ba3061aedec
+sha256:
+  darwin_arm64: e9eb11965062b5259c0dac49f69ff488d9e38bd96aebf78d7169984d288e931b
+  darwin_amd64: 1791849ae4bc71b21c16f5411234a8b6147d730cdfaeb4feada8ccfcd952fdac
+  linux_amd64: e4191f33d9b5007bb554ce3240aa0b242eab381ccfc6ea1fd51157601448801d
+  linux_arm64: 45288c26d39cf14c8fab4921edf826540965ae2280cac66580678ba3061aedec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

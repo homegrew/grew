@@ -1,0 +1,22 @@
+name: libserdes
+version: 8.2.0
+description: Schema ser/deserializer lib for Avro + Confluent Schema Registry
+homepage: https://github.com/confluentinc/libserdes
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libserdes/blobs/sha256:0a8a6ac18fe9e1283d6594b9fa6de00094e0b1bb72cbc6c57531efd26d8455d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libserdes/blobs/sha256:eb7ef3b627746d980c8c5caed03aa7b8dfe477dff8d4b5378c18002569927cd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libserdes/blobs/sha256:f3ff40de94f782acf63e96f3187c9069f0c5009fc4d7a6bc99d17c2370687b07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libserdes/blobs/sha256:78d3628f38a8f91f76c9456939ed8679dc2ed60e2688ebad62cb44db4a83f3cb
+sha256:
+  darwin_arm64: 0a8a6ac18fe9e1283d6594b9fa6de00094e0b1bb72cbc6c57531efd26d8455d7
+  darwin_amd64: eb7ef3b627746d980c8c5caed03aa7b8dfe477dff8d4b5378c18002569927cd8
+  linux_amd64: f3ff40de94f782acf63e96f3187c9069f0c5009fc4d7a6bc99d17c2370687b07
+  linux_arm64: 78d3628f38a8f91f76c9456939ed8679dc2ed60e2688ebad62cb44db4a83f3cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - avro-c
+  - jansson

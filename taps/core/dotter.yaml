@@ -1,0 +1,19 @@
+name: dotter
+version: 0.13.4
+description: Dotfile manager and templater written in rust
+homepage: https://github.com/SuperCuber/dotter
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotter/blobs/sha256:36a6ed7c7532d987ee58325e854956607c4fc604de98e430f1e69cea774a3c02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotter/blobs/sha256:97555d05db08fefdf290b69152bf1c7ccd408e0a49a409709836067688a32a99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotter/blobs/sha256:38f63b924590be43e9dc62a39de04c621247bc23820fba6de6e63c32caa3cd56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotter/blobs/sha256:518f20fa7c86be27c630e4be9d018176c0af69c43a9e228761ffb8bce53a8a98
+sha256:
+  darwin_arm64: 36a6ed7c7532d987ee58325e854956607c4fc604de98e430f1e69cea774a3c02
+  darwin_amd64: 97555d05db08fefdf290b69152bf1c7ccd408e0a49a409709836067688a32a99
+  linux_amd64: 38f63b924590be43e9dc62a39de04c621247bc23820fba6de6e63c32caa3cd56
+  linux_arm64: 518f20fa7c86be27c630e4be9d018176c0af69c43a9e228761ffb8bce53a8a98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

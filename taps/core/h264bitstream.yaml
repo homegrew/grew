@@ -1,0 +1,19 @@
+name: h264bitstream
+version: 0.2.0
+description: Library for reading and writing H264 video streams
+homepage: https://h264bitstream.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/h264bitstream/blobs/sha256:77e29214581bbed1453a6aea582cafb5f4525634fca321e4ad503873722acabb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/h264bitstream/blobs/sha256:614b023114612bd3882c240f6a76ccae5b0fb4a10a8f79660e0c7cf4a6aa8931
+  linux_amd64: https://ghcr.io/v2/homebrew/core/h264bitstream/blobs/sha256:c79de8d86abcc4f3f95f8bd7a504116fe189546101cec66d52ab6295bf0bf376
+  linux_arm64: https://ghcr.io/v2/homebrew/core/h264bitstream/blobs/sha256:fc3ca9983f5e3f12e4f0f602606d56aa96e40ecdc224dd27018b9e7d3220a42f
+sha256:
+  darwin_arm64: 77e29214581bbed1453a6aea582cafb5f4525634fca321e4ad503873722acabb
+  darwin_amd64: 614b023114612bd3882c240f6a76ccae5b0fb4a10a8f79660e0c7cf4a6aa8931
+  linux_amd64: c79de8d86abcc4f3f95f8bd7a504116fe189546101cec66d52ab6295bf0bf376
+  linux_arm64: fc3ca9983f5e3f12e4f0f602606d56aa96e40ecdc224dd27018b9e7d3220a42f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

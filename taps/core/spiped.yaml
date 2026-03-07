@@ -1,0 +1,21 @@
+name: spiped
+version: 1.6.4
+description: Secure pipe daemon
+homepage: https://www.tarsnap.com/spiped.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spiped/blobs/sha256:e564e671fddf59bd3bc9b9aa6607f87dca58ae3fc70930c7abcf31352fa2edc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spiped/blobs/sha256:3e77a24d828c58a06b59df85b986b43ebcc14c762920f2999c9cbed7fc729761
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spiped/blobs/sha256:667cc6e283e75c64c91638c8b2c667b4239ae12bcb1957cdb0e14c4dd45a1ed9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spiped/blobs/sha256:06712747809b962a2faedfc00759e579b9212514dcf17d11afbf08e73aff0626
+sha256:
+  darwin_arm64: e564e671fddf59bd3bc9b9aa6607f87dca58ae3fc70930c7abcf31352fa2edc4
+  darwin_amd64: 3e77a24d828c58a06b59df85b986b43ebcc14c762920f2999c9cbed7fc729761
+  linux_amd64: 667cc6e283e75c64c91638c8b2c667b4239ae12bcb1957cdb0e14c4dd45a1ed9
+  linux_arm64: 06712747809b962a2faedfc00759e579b9212514dcf17d11afbf08e73aff0626
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

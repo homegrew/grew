@@ -1,0 +1,19 @@
+name: curlie
+version: 1.8.2
+description: Power of curl, ease of use of httpie
+homepage: https://rs.github.io/curlie/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/curlie/blobs/sha256:0e6a403c17aeeb561d9109f7219acbfb130d19516330eb7c91981d2cd8f5aa4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/curlie/blobs/sha256:0989be89b84c97a2e8b9e1efcf124844728919f3ff7b9aab9bb3d832f042358e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/curlie/blobs/sha256:8923e92fa583529ba8dcbdea7eacda66601bece881eeb33217787198a3434dad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/curlie/blobs/sha256:c9cbe19380adf9f5226a886617ebaddb6fda4fb1fb1a130851a128f88f46011b
+sha256:
+  darwin_arm64: 0e6a403c17aeeb561d9109f7219acbfb130d19516330eb7c91981d2cd8f5aa4a
+  darwin_amd64: 0989be89b84c97a2e8b9e1efcf124844728919f3ff7b9aab9bb3d832f042358e
+  linux_amd64: 8923e92fa583529ba8dcbdea7eacda66601bece881eeb33217787198a3434dad
+  linux_arm64: c9cbe19380adf9f5226a886617ebaddb6fda4fb1fb1a130851a128f88f46011b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: gettext
+version: 1.0
+description: GNU internationalization (i18n) and localization (l10n) library
+homepage: https://www.gnu.org/software/gettext/
+license: GPL-3.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:1f98400343132c8e469ed475157f8f4d0f516ea86bd4600552e8b75ab638fcf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:2cc112cce103be3beb13cc8ba67f521d4e972c4082fd69868d34920d63120c09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:ed30be09f5f328a974e51e34966a502496e0623c7ecde0faf7559143cbd02255
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:0d24ef468ab6683610fb866973cbdf899165be653b42c68689b70743be5ce695
+sha256:
+  darwin_arm64: 1f98400343132c8e469ed475157f8f4d0f516ea86bd4600552e8b75ab638fcf9
+  darwin_amd64: 2cc112cce103be3beb13cc8ba67f521d4e972c4082fd69868d34920d63120c09
+  linux_amd64: ed30be09f5f328a974e51e34966a502496e0623c7ecde0faf7559143cbd02255
+  linux_arm64: 0d24ef468ab6683610fb866973cbdf899165be653b42c68689b70743be5ce695
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libunistring

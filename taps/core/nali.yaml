@@ -1,0 +1,19 @@
+name: nali
+version: 0.8.1
+description: Tool for querying IP geographic information and CDN provider
+homepage: https://github.com/zu1k/nali
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nali/blobs/sha256:15cbc69776a3b3868d0ec51b308fbeaece9d47ab8e70b782e4eae9bd545fc8df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nali/blobs/sha256:91eef6fba03ebf843e79d34efce36156c5516b472639951049405735b87e6bb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nali/blobs/sha256:a93f1725e116d789e17cd905157e3f0466d41cd3ef105aba1b8f843a74a7a2bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nali/blobs/sha256:421138218ebc31e11b1302c7d0dbf6e2ac4daab394c620606ada5531980cbbb1
+sha256:
+  darwin_arm64: 15cbc69776a3b3868d0ec51b308fbeaece9d47ab8e70b782e4eae9bd545fc8df
+  darwin_amd64: 91eef6fba03ebf843e79d34efce36156c5516b472639951049405735b87e6bb1
+  linux_amd64: a93f1725e116d789e17cd905157e3f0466d41cd3ef105aba1b8f843a74a7a2bf
+  linux_arm64: 421138218ebc31e11b1302c7d0dbf6e2ac4daab394c620606ada5531980cbbb1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

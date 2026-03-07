@@ -1,0 +1,21 @@
+name: onion-location
+version: 0.1.0
+description: Discover advertised Onion-Location for given URLs
+homepage: https://codeberg.org/Freso/python-onion-location
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onion-location/blobs/sha256:baa4ff2b02318710c4850c12d8edb6ab4bcc5af830b444c986a80868c5d528bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onion-location/blobs/sha256:eb545649597b97ecd542a47aefbe7bad5fe08b6a553d80e47c53b1f826cefc3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onion-location/blobs/sha256:c2ccd7b906a0e2d403e7c2670d2170e854a93f3935de3629c3ae4a4a7ada7e1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onion-location/blobs/sha256:ad645508d83434779999108a74dae0912214966df64a4ac6744b53dc5b369bab
+sha256:
+  darwin_arm64: baa4ff2b02318710c4850c12d8edb6ab4bcc5af830b444c986a80868c5d528bc
+  darwin_amd64: eb545649597b97ecd542a47aefbe7bad5fe08b6a553d80e47c53b1f826cefc3b
+  linux_amd64: c2ccd7b906a0e2d403e7c2670d2170e854a93f3935de3629c3ae4a4a7ada7e1b
+  linux_arm64: ad645508d83434779999108a74dae0912214966df64a4ac6744b53dc5b369bab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

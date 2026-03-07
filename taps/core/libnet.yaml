@@ -1,0 +1,19 @@
+name: libnet
+version: 1.3
+description: C library for creating IP packets
+homepage: https://github.com/libnet/libnet
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnet/blobs/sha256:1a947f6508603cdc9c46aab18eb6b812ddc91d39be2f6431d912e271b041779b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnet/blobs/sha256:8e92431961fce081d8094362611f3550938938f3e8d7de7c369c691be9ef77c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnet/blobs/sha256:c80410be8c65b37b135596873de64f7587068d32d0b8ba8ba91f4299f609e8ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnet/blobs/sha256:be160672c2f61d20fee38a54c6f7e308c73ee085f9d47ec91a27c210a93a6cea
+sha256:
+  darwin_arm64: 1a947f6508603cdc9c46aab18eb6b812ddc91d39be2f6431d912e271b041779b
+  darwin_amd64: 8e92431961fce081d8094362611f3550938938f3e8d7de7c369c691be9ef77c2
+  linux_amd64: c80410be8c65b37b135596873de64f7587068d32d0b8ba8ba91f4299f609e8ed
+  linux_arm64: be160672c2f61d20fee38a54c6f7e308c73ee085f9d47ec91a27c210a93a6cea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

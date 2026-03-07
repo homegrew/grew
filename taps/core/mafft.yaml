@@ -1,0 +1,19 @@
+name: mafft
+version: 7.526
+description: Multiple alignments with fast Fourier transforms
+homepage: https://mafft.cbrc.jp/alignment/software/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mafft/blobs/sha256:fc5c7bda0836109bd4bafa219c61bb3025b5bcc7e0c754cdd69806fca7d79081
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mafft/blobs/sha256:c2bb12ef558ba26f6f8a4a7c99d9242249cd90131049fb142f33dd3498a48dff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mafft/blobs/sha256:ee6f5f787b6cb179ae7c08d31b8b3f8be1f0ace537c2c9747bb2645f99df37a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mafft/blobs/sha256:90835e351fa993cae4c7be392839d812ec10c8186ab29833e600322b9ef2cd51
+sha256:
+  darwin_arm64: fc5c7bda0836109bd4bafa219c61bb3025b5bcc7e0c754cdd69806fca7d79081
+  darwin_amd64: c2bb12ef558ba26f6f8a4a7c99d9242249cd90131049fb142f33dd3498a48dff
+  linux_amd64: ee6f5f787b6cb179ae7c08d31b8b3f8be1f0ace537c2c9747bb2645f99df37a5
+  linux_arm64: 90835e351fa993cae4c7be392839d812ec10c8186ab29833e600322b9ef2cd51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

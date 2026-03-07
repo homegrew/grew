@@ -1,0 +1,38 @@
+name: crosstool-ng
+version: 1.28.0
+description: Tool for building toolchains
+homepage: https://crosstool-ng.github.io/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crosstool-ng/blobs/sha256:a8ff126a8c7e5be835e5b9ca34fde60183b12e038a84d6778ceb349d198b3a47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crosstool-ng/blobs/sha256:9416e83f34a15f21252eb6d4e91850d62477a5ecad86778ae92322153fed5312
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crosstool-ng/blobs/sha256:2cf9a85553d3767dc3f0b1d9c34958e284b5e6c948d46b63d5c81b1c216d422e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crosstool-ng/blobs/sha256:d4e308a1106873d2467839381200620a02112b77840187989ad730f19b5dc6bb
+sha256:
+  darwin_arm64: a8ff126a8c7e5be835e5b9ca34fde60183b12e038a84d6778ceb349d198b3a47
+  darwin_amd64: 9416e83f34a15f21252eb6d4e91850d62477a5ecad86778ae92322153fed5312
+  linux_amd64: 2cf9a85553d3767dc3f0b1d9c34958e284b5e6c948d46b63d5c81b1c216d422e
+  linux_arm64: d4e308a1106873d2467839381200620a02112b77840187989ad730f19b5dc6bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - autoconf
+  - automake
+  - binutils
+  - bison
+  - flex
+  - libtool
+  - lzip
+  - m4
+  - ncurses
+  - python@3.14
+  - xz
+  - bash
+  - coreutils
+  - gawk
+  - gettext
+  - gnu-sed
+  - grep
+  - make

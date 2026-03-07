@@ -1,0 +1,22 @@
+name: ykman
+version: 5.9.0
+description: Tool for managing your YubiKey configuration
+homepage: https://developers.yubico.com/yubikey-manager/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ykman/blobs/sha256:56d1d5faeb5f67bcaf9c2e8de20a032609463da3610c32a5a5d46195a3245670
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ykman/blobs/sha256:199a8be22cc93a7e56cb26bd63251242296bb2d346da55dee97d260200ca03fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ykman/blobs/sha256:527f0ba581874af9a0c043c5d4b0b8d7f736c7caed136de90ff0b681afffae6c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ykman/blobs/sha256:9f9c82bb2e60a94bc93f5b2d064d7ad883e47490c1b1a703b0ed6e0c7757cdb4
+sha256:
+  darwin_arm64: 56d1d5faeb5f67bcaf9c2e8de20a032609463da3610c32a5a5d46195a3245670
+  darwin_amd64: 199a8be22cc93a7e56cb26bd63251242296bb2d346da55dee97d260200ca03fd
+  linux_amd64: 527f0ba581874af9a0c043c5d4b0b8d7f736c7caed136de90ff0b681afffae6c
+  linux_arm64: 9f9c82bb2e60a94bc93f5b2d064d7ad883e47490c1b1a703b0ed6e0c7757cdb4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - python@3.14

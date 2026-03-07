@@ -1,0 +1,22 @@
+name: uftrace
+version: 0.19
+description: Function graph tracer for C/C++/Rust
+homepage: https://uftrace.github.io/slide/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uftrace/blobs/sha256:2b2940e30ccba1e5aa78ec4e0428abfa4e7ffabf6949a4e38c20fefb75fae78c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uftrace/blobs/sha256:474888f226426228396ec21e4549c176b1132e17f71e6faf906211f34571e7dc
+sha256:
+  linux_amd64: 2b2940e30ccba1e5aa78ec4e0428abfa4e7ffabf6949a4e38c20fefb75fae78c
+  linux_arm64: 474888f226426228396ec21e4549c176b1132e17f71e6faf906211f34571e7dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone
+  - elfutils
+  - libunwind
+  - luajit
+  - ncurses
+  - python@3.14

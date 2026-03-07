@@ -1,0 +1,21 @@
+name: openjph
+version: 0.26.3
+description: Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)
+homepage: https://github.com/aous72/OpenJPH
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openjph/blobs/sha256:dc7045e2b5da873c8781254f85d6250ebb7b0ab5ec8f902a61dc9179df844218
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openjph/blobs/sha256:ebd94aa41c6b9594e664d03fc250ea072f7b7215d637ba370ed8e2fcaa2bc1b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openjph/blobs/sha256:910bdc71e4e57374b781e3851becd131b5eea146908b8c34b24dfe917359d03a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openjph/blobs/sha256:93e70ec1c12812d89ff711e33a65a2c71ef06c11b2b6b5c44a3c31504bb45df6
+sha256:
+  darwin_arm64: dc7045e2b5da873c8781254f85d6250ebb7b0ab5ec8f902a61dc9179df844218
+  darwin_amd64: ebd94aa41c6b9594e664d03fc250ea072f7b7215d637ba370ed8e2fcaa2bc1b0
+  linux_amd64: 910bdc71e4e57374b781e3851becd131b5eea146908b8c34b24dfe917359d03a
+  linux_arm64: 93e70ec1c12812d89ff711e33a65a2c71ef06c11b2b6b5c44a3c31504bb45df6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtiff

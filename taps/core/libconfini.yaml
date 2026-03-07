@@ -1,0 +1,19 @@
+name: libconfini
+version: 1.16.4
+description: Yet another INI parser
+homepage: https://madmurphy.github.io/libconfini/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libconfini/blobs/sha256:eb8f8042903c062720e17741771d92b7c53aafba9642780f0ccda86f6abf2c80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libconfini/blobs/sha256:805ea288421a60b74cfe73fac192319c29a405dc634940c0f21e50094db6faeb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libconfini/blobs/sha256:4f5987375e6a2d5de8d24c0dcb1dc175fa778fd52fd0000ca213ba989a6d42fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libconfini/blobs/sha256:f8cebbb4371e80a06465b9bbd9e33973b8f752b529979c99a40911e665cd32dc
+sha256:
+  darwin_arm64: eb8f8042903c062720e17741771d92b7c53aafba9642780f0ccda86f6abf2c80
+  darwin_amd64: 805ea288421a60b74cfe73fac192319c29a405dc634940c0f21e50094db6faeb
+  linux_amd64: 4f5987375e6a2d5de8d24c0dcb1dc175fa778fd52fd0000ca213ba989a6d42fc
+  linux_arm64: f8cebbb4371e80a06465b9bbd9e33973b8f752b529979c99a40911e665cd32dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

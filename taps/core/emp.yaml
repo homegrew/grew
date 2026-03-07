@@ -1,0 +1,19 @@
+name: emp
+version: 0.13.0
+description: CLI for Empire
+homepage: https://github.com/remind101/empire
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/emp/blobs/sha256:dc3eb6648c8443b68ca7a35aa21bf16d28d07cb8f82bfe1b1cb0b0c3dc3777e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/emp/blobs/sha256:acef949baddb2d680bdddabd02cb764e97b291eb5c17933f1827b97be6392518
+  linux_amd64: https://ghcr.io/v2/homebrew/core/emp/blobs/sha256:eb37de82430eafff68026692172d7015a2a9462fbd52898980c3306fe39d74dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/emp/blobs/sha256:c8806e9c22c0e67d032dc91eda01f8d7fbb48789cf01cf824fca5fccd031dfa3
+sha256:
+  darwin_arm64: dc3eb6648c8443b68ca7a35aa21bf16d28d07cb8f82bfe1b1cb0b0c3dc3777e6
+  darwin_amd64: acef949baddb2d680bdddabd02cb764e97b291eb5c17933f1827b97be6392518
+  linux_amd64: eb37de82430eafff68026692172d7015a2a9462fbd52898980c3306fe39d74dc
+  linux_arm64: c8806e9c22c0e67d032dc91eda01f8d7fbb48789cf01cf824fca5fccd031dfa3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

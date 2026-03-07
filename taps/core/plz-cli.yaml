@@ -1,0 +1,19 @@
+name: plz-cli
+version: 0.1.9
+description: Copilot for your terminal
+homepage: https://github.com/m1guelpf/plz-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plz-cli/blobs/sha256:6d9b537e8c4b84783ca6dd75eb6135a87aa7bf3acc6a0add1ae66468f0aefe85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plz-cli/blobs/sha256:39166129ea2eb9136b48d262ab4b70a3ec523932f206c4903531c271919f9aef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plz-cli/blobs/sha256:eed33ef10df03c8dfcdb9be1f4921af47c94773a972747066fecfd66e1d0d9c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plz-cli/blobs/sha256:ea4b6e1cae5242425c697d53ae081d4e06f4a8197caa56a45cc5cb7b2399dc10
+sha256:
+  darwin_arm64: 6d9b537e8c4b84783ca6dd75eb6135a87aa7bf3acc6a0add1ae66468f0aefe85
+  darwin_amd64: 39166129ea2eb9136b48d262ab4b70a3ec523932f206c4903531c271919f9aef
+  linux_amd64: eed33ef10df03c8dfcdb9be1f4921af47c94773a972747066fecfd66e1d0d9c1
+  linux_arm64: ea4b6e1cae5242425c697d53ae081d4e06f4a8197caa56a45cc5cb7b2399dc10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

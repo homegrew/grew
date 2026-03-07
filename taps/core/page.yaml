@@ -1,0 +1,21 @@
+name: page
+version: 4.6.3
+description: Use Neovim as pager
+homepage: https://github.com/I60R/page
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/page/blobs/sha256:f685622827fa6bec5a9dae5fc611899eb1d1348564285a34374018e9ef870115
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/page/blobs/sha256:4aa4ad4cf24f0551fe3cf2164631833364c239d895fa53fe18c864cf31725dc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/page/blobs/sha256:e9cac68f8653a7f517a1cbe7429e98743e94379bf96564c11e6b81c964cb279d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/page/blobs/sha256:83b220ed10b10826229798222e1ffe69d65fafd026c46dc36599ed8fff4b8c6f
+sha256:
+  darwin_arm64: f685622827fa6bec5a9dae5fc611899eb1d1348564285a34374018e9ef870115
+  darwin_amd64: 4aa4ad4cf24f0551fe3cf2164631833364c239d895fa53fe18c864cf31725dc3
+  linux_amd64: e9cac68f8653a7f517a1cbe7429e98743e94379bf96564c11e6b81c964cb279d
+  linux_arm64: 83b220ed10b10826229798222e1ffe69d65fafd026c46dc36599ed8fff4b8c6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neovim

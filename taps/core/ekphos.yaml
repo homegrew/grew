@@ -1,0 +1,19 @@
+name: ekphos
+version: 0.20.10
+description: Terminal-based markdown research tool inspired by Obsidian
+homepage: https://ekphos.xyz
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ekphos/blobs/sha256:ccf301529373a873b634deb8f5afc01c61a06ddb8140e2a62cc4074cf7d2f7ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ekphos/blobs/sha256:43f8e742cac3b608e60377ca7d59705d5cf1e7f85240abd44234290665fba439
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ekphos/blobs/sha256:85d779ad9e4f45e1c708a0e72be365ee7ddd5a9cb824c7565e45fa81a20a861f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ekphos/blobs/sha256:ca64eb1e1443d052a3241b1b2a4703407b811d90c397f3ce4d14912538945896
+sha256:
+  darwin_arm64: ccf301529373a873b634deb8f5afc01c61a06ddb8140e2a62cc4074cf7d2f7ff
+  darwin_amd64: 43f8e742cac3b608e60377ca7d59705d5cf1e7f85240abd44234290665fba439
+  linux_amd64: 85d779ad9e4f45e1c708a0e72be365ee7ddd5a9cb824c7565e45fa81a20a861f
+  linux_arm64: ca64eb1e1443d052a3241b1b2a4703407b811d90c397f3ce4d14912538945896
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

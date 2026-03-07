@@ -1,0 +1,11 @@
+name: kyokan-bob
+version: 2.1.0
+description: Handshake wallet GUI for managing transactions, name auctions, and DNS records
+homepage: https://bobwallet.io/
+url:
+  darwin_arm64: https://github.com/kyokan/bob-wallet/releases/download/v2.1.0/Bob-2.1.0-arm64.dmg
+sha256:
+  darwin_arm64: 0fe432c089333b21af568ba1ef5f33fda95c1ab2a27e9cc445413ec012661fd1
+artifacts:
+  app:
+    - Bob.app

@@ -1,0 +1,19 @@
+name: terraform-ls
+version: 0.38.5
+description: Terraform Language Server
+homepage: https://github.com/hashicorp/terraform-ls
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-ls/blobs/sha256:1ac96ffa13de5c1561758a4cabba547f4b2a6520e24c298c374b857284e4bdf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-ls/blobs/sha256:860ded4173234e2262c439d937279d9efaf0acf5444a308312d0b788520a3d81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-ls/blobs/sha256:c7dd310f9a50c58c28b95464c1ff033458812ce56210069a55debfce980090ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-ls/blobs/sha256:8fbf2ee7ed56ea3931ac633693e73312742f6d08623ed22a5d202c0033906a47
+sha256:
+  darwin_arm64: 1ac96ffa13de5c1561758a4cabba547f4b2a6520e24c298c374b857284e4bdf0
+  darwin_amd64: 860ded4173234e2262c439d937279d9efaf0acf5444a308312d0b788520a3d81
+  linux_amd64: c7dd310f9a50c58c28b95464c1ff033458812ce56210069a55debfce980090ef
+  linux_arm64: 8fbf2ee7ed56ea3931ac633693e73312742f6d08623ed22a5d202c0033906a47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

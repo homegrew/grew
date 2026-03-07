@@ -1,0 +1,22 @@
+name: boxes
+version: 2.3.1
+description: Draw boxes around text
+homepage: https://boxes.thomasjensen.com/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boxes/blobs/sha256:6ebfa16105de5a5f1a0d46b7742afb09b97c6bcbe59d98c80bdf6e7057350917
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boxes/blobs/sha256:00df90a0d846b02d58d16302daba7d9949d3c8cf4db7fe9bdd10f8c32b1e5679
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boxes/blobs/sha256:dddb84f6366ff935cf5f1324d3b93d3a7f0e8fc6349d71aa4149a7241e9986c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boxes/blobs/sha256:3934bb6ecfb413871a8311f1884191f0524fe2c1aed1992242ba31dae70a3dd2
+sha256:
+  darwin_arm64: 6ebfa16105de5a5f1a0d46b7742afb09b97c6bcbe59d98c80bdf6e7057350917
+  darwin_amd64: 00df90a0d846b02d58d16302daba7d9949d3c8cf4db7fe9bdd10f8c32b1e5679
+  linux_amd64: dddb84f6366ff935cf5f1324d3b93d3a7f0e8fc6349d71aa4149a7241e9986c7
+  linux_arm64: 3934bb6ecfb413871a8311f1884191f0524fe2c1aed1992242ba31dae70a3dd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libunistring
+  - pcre2

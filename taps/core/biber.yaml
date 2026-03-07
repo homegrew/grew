@@ -1,0 +1,22 @@
+name: biber
+version: 2.21
+description: Backend processor for BibLaTeX
+homepage: https://sourceforge.net/projects/biblatex-biber/
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/biber/blobs/sha256:1dda623dfabdab7fe763214fe4ed90f80a326ddf3fd5d7948bc2b46a9212846a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/biber/blobs/sha256:28098c955a9d5becfdc0ec4f82344bc975ec6cf5c84a0dc0b28607e0b6cba75b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/biber/blobs/sha256:9dc44bd455825b795a35eeeafca76ea45257c01b71dccad627c26ceee501fc7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/biber/blobs/sha256:ec6dd8f6868d6b288732f92dbc9c973a8ad01440d3bb4e2c470f447045b5f9bf
+sha256:
+  darwin_arm64: 1dda623dfabdab7fe763214fe4ed90f80a326ddf3fd5d7948bc2b46a9212846a
+  darwin_amd64: 28098c955a9d5becfdc0ec4f82344bc975ec6cf5c84a0dc0b28607e0b6cba75b
+  linux_amd64: 9dc44bd455825b795a35eeeafca76ea45257c01b71dccad627c26ceee501fc7b
+  linux_arm64: ec6dd8f6868d6b288732f92dbc9c973a8ad01440d3bb4e2c470f447045b5f9bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - perl

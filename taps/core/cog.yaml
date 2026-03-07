@@ -1,0 +1,19 @@
+name: cog
+version: 0.16.12
+description: Containers for machine learning
+homepage: https://cog.run/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cog/blobs/sha256:4ec952d3dcec7e2ff45b46af19f017f4114ab165cab55fd4c013ee88bcd7d496
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cog/blobs/sha256:dbafa5af636d662a73fe6f87960944264f42c68e3bd6ee4f1a8310e1a1f2f202
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cog/blobs/sha256:d83148977a405446aa05a21d747ea91819d781e550d6870bb4e19c3a20710409
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cog/blobs/sha256:cfa1d0f9379ffc4888a87c150f2170e25d36761a78c26fdd5fc6e2472f0abbe0
+sha256:
+  darwin_arm64: 4ec952d3dcec7e2ff45b46af19f017f4114ab165cab55fd4c013ee88bcd7d496
+  darwin_amd64: dbafa5af636d662a73fe6f87960944264f42c68e3bd6ee4f1a8310e1a1f2f202
+  linux_amd64: d83148977a405446aa05a21d747ea91819d781e550d6870bb4e19c3a20710409
+  linux_arm64: cfa1d0f9379ffc4888a87c150f2170e25d36761a78c26fdd5fc6e2472f0abbe0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

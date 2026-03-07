@@ -1,0 +1,21 @@
+name: ps2eps
+version: 1.70
+description: Convert PostScript to EPS files
+homepage: https://github.com/roland-bless/ps2eps
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ps2eps/blobs/sha256:07c8fdeb6cd50b5a03d6cd29b80a45cddb0c40149d3e739ab56d8ac33f0ccd45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ps2eps/blobs/sha256:2fc82fc12235919d0057debb4376ad1102a9f914f8e0da4bb473c74506fa020e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ps2eps/blobs/sha256:e392648b006b21de93a33d1fbb1b5505c1de5353d0168368a71f15efd9a39df6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ps2eps/blobs/sha256:2cc5adea6dcc3ef017b112ef05708e0fef1ee7a8205bc26542ee9ba023bc8732
+sha256:
+  darwin_arm64: 07c8fdeb6cd50b5a03d6cd29b80a45cddb0c40149d3e739ab56d8ac33f0ccd45
+  darwin_amd64: 2fc82fc12235919d0057debb4376ad1102a9f914f8e0da4bb473c74506fa020e
+  linux_amd64: e392648b006b21de93a33d1fbb1b5505c1de5353d0168368a71f15efd9a39df6
+  linux_arm64: 2cc5adea6dcc3ef017b112ef05708e0fef1ee7a8205bc26542ee9ba023bc8732
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ghostscript

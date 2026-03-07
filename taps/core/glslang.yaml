@@ -1,0 +1,22 @@
+name: glslang
+version: 16.2.0
+description: OpenGL and OpenGL ES reference compiler for shading languages
+homepage: https://www.khronos.org/opengles/sdk/Reference-Compiler/
+license: BSD-3-Clause AND GPL-3.0-or-later AND MIT AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glslang/blobs/sha256:81924c6c819f9d643c33be3b3ee7f13f80ea92785aabe196439f791f7da752f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glslang/blobs/sha256:cdebed0b1446d431a203e5c1f3c0810dcfa78f7e3f592a1ca24b9de7071a912a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glslang/blobs/sha256:9b623c9588fd39840421a180f4f5a9e04f9b630b2b50c3d03f33a0d3a98b6b67
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glslang/blobs/sha256:a69059366d774589e644eca0ce8a693fbc84c5c029275633ba78b1f378913f3c
+sha256:
+  darwin_arm64: 81924c6c819f9d643c33be3b3ee7f13f80ea92785aabe196439f791f7da752f6
+  darwin_amd64: cdebed0b1446d431a203e5c1f3c0810dcfa78f7e3f592a1ca24b9de7071a912a
+  linux_amd64: 9b623c9588fd39840421a180f4f5a9e04f9b630b2b50c3d03f33a0d3a98b6b67
+  linux_arm64: a69059366d774589e644eca0ce8a693fbc84c5c029275633ba78b1f378913f3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - spirv-headers
+  - spirv-tools

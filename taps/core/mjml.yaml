@@ -1,0 +1,21 @@
+name: mjml
+version: 4.18.0
+description: JavaScript framework that makes responsive-email easy
+homepage: https://mjml.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mjml/blobs/sha256:87902fd3938393e70e7e78677fed61904738082fffb18a8818205c177290a75f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mjml/blobs/sha256:5fe47603ac640bf64d7de52bc4a380e88f11d50f508ca9feb4edb3fd5f7490f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mjml/blobs/sha256:b14ad0fb196104b141a64e28b4583463f2a3d5e92e38c1632515d15b854ee462
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mjml/blobs/sha256:b14ad0fb196104b141a64e28b4583463f2a3d5e92e38c1632515d15b854ee462
+sha256:
+  darwin_arm64: 87902fd3938393e70e7e78677fed61904738082fffb18a8818205c177290a75f
+  darwin_amd64: 5fe47603ac640bf64d7de52bc4a380e88f11d50f508ca9feb4edb3fd5f7490f7
+  linux_amd64: b14ad0fb196104b141a64e28b4583463f2a3d5e92e38c1632515d15b854ee462
+  linux_arm64: b14ad0fb196104b141a64e28b4583463f2a3d5e92e38c1632515d15b854ee462
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,19 @@
+name: autocycler
+version: 0.6.1
+description: Tool for generating consensus long-read assemblies for bacterial genomes
+homepage: https://github.com/rrwick/Autocycler
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autocycler/blobs/sha256:2338ee10ff9888accef44fefe72b7175f36002567e661e81b1cb9e44e80409a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autocycler/blobs/sha256:ed7a8490f01216bec1f3f9da51310ff1641c3c99d4fed44660e43761ba0c6acd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autocycler/blobs/sha256:db5849ffa59c7c215e7027ec794ca1f15aa812a31e0ff1e9c2fed5a3def2bfe6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autocycler/blobs/sha256:7fe40dd292f0e1ee5d75353d1c56efb0d4fce184d731a00dd59a80b370e97653
+sha256:
+  darwin_arm64: 2338ee10ff9888accef44fefe72b7175f36002567e661e81b1cb9e44e80409a1
+  darwin_amd64: ed7a8490f01216bec1f3f9da51310ff1641c3c99d4fed44660e43761ba0c6acd
+  linux_amd64: db5849ffa59c7c215e7027ec794ca1f15aa812a31e0ff1e9c2fed5a3def2bfe6
+  linux_arm64: 7fe40dd292f0e1ee5d75353d1c56efb0d4fce184d731a00dd59a80b370e97653
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: koka
+version: 3.2.2
+description: Compiler for the Koka language
+homepage: http://koka-lang.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/koka/blobs/sha256:3216d60ef3db587b508fb72139ee29d9c50f0f58d59b2a2f6ee87171ecedc478
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/koka/blobs/sha256:75f8a3a7d09b70e31aaa7b299f6c9709f2130d72d80ef217e933ee9e628b460c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/koka/blobs/sha256:ed3665df8c182f4b9268319879a21d49cbf4853bc2cb8d3171397a5f3ddba412
+  linux_arm64: https://ghcr.io/v2/homebrew/core/koka/blobs/sha256:2e53a1cfb65f0d5cc89c8000195e769daf8ce935839caffc9cb9f4e923a6ab45
+sha256:
+  darwin_arm64: 3216d60ef3db587b508fb72139ee29d9c50f0f58d59b2a2f6ee87171ecedc478
+  darwin_amd64: 75f8a3a7d09b70e31aaa7b299f6c9709f2130d72d80ef217e933ee9e628b460c
+  linux_amd64: ed3665df8c182f4b9268319879a21d49cbf4853bc2cb8d3171397a5f3ddba412
+  linux_arm64: 2e53a1cfb65f0d5cc89c8000195e769daf8ce935839caffc9cb9f4e923a6ab45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

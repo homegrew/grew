@@ -1,0 +1,28 @@
+name: halide
+version: 21.0.0
+description: Language for fast, portable data-parallel computation
+homepage: https://halide-lang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/halide/blobs/sha256:2971971113569192c7c113fc28e6e403037b5678aa1e18a4fdadbf198da94cd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/halide/blobs/sha256:3d797396c4285b0123b7498d8fa794984c135b9e1b7985e7706ed927ec1fd4a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/halide/blobs/sha256:6731e04b241447c0e900d54b50d3d69429250d46b2384fd3a9601a520555a33e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/halide/blobs/sha256:5c69185c4c47845f19b7abc2be16eda2dfeba014a8ffcc357afce2ba44960339
+sha256:
+  darwin_arm64: 2971971113569192c7c113fc28e6e403037b5678aa1e18a4fdadbf198da94cd1
+  darwin_amd64: 3d797396c4285b0123b7498d8fa794984c135b9e1b7985e7706ed927ec1fd4a3
+  linux_amd64: 6731e04b241447c0e900d54b50d3d69429250d46b2384fd3a9601a520555a33e
+  linux_arm64: 5c69185c4c47845f19b7abc2be16eda2dfeba014a8ffcc357afce2ba44960339
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flatbuffers
+  - jpeg-turbo
+  - libpng
+  - lld@21
+  - llvm@21
+  - python@3.14
+  - wabt
+  - openssl@3

@@ -1,0 +1,20 @@
+name: ocaml@4
+version: 4.14.2
+description: General purpose programming language in the ML family
+homepage: https://ocaml.org/
+license: LGPL-2.1-only WITH OCaml-LGPL-linking-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocaml/4/blobs/sha256:2d6e6250634c72884d12c4fdfcf4f585442a6c0403ed2cdae8511870226e23c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocaml/4/blobs/sha256:cee37cd961b6f813bcb86b5f20c8640abf3fd691bde2f26da46a026d1fbee93b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocaml/4/blobs/sha256:b9773be3973366e8d5b4d933b7cdadfd212ad9ab76dca04b709a41504b795924
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocaml/4/blobs/sha256:18c59ccd659d804753cd938bc8c8b49d288f8a6c1099dcce9b7daaf06e7fef12
+sha256:
+  darwin_arm64: 2d6e6250634c72884d12c4fdfcf4f585442a6c0403ed2cdae8511870226e23c1
+  darwin_amd64: cee37cd961b6f813bcb86b5f20c8640abf3fd691bde2f26da46a026d1fbee93b
+  linux_amd64: b9773be3973366e8d5b4d933b7cdadfd212ad9ab76dca04b709a41504b795924
+  linux_arm64: 18c59ccd659d804753cd938bc8c8b49d288f8a6c1099dcce9b7daaf06e7fef12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

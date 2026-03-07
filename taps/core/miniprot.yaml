@@ -1,0 +1,19 @@
+name: miniprot
+version: 0.18
+description: Align proteins to genomes with splicing and frameshift
+homepage: https://lh3.github.io/miniprot/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/miniprot/blobs/sha256:e2df4ada405138f554ac6e7bf27bad4b7eaf1c5a7d4fbc9a54d6eb1434778fb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/miniprot/blobs/sha256:8992d1199cfdd4651e55658118c5025c031f35c774e383e2520720ccf90c4e64
+  linux_amd64: https://ghcr.io/v2/homebrew/core/miniprot/blobs/sha256:5dbb2fde218797475adc93a169cd0e7b8b6388a6af963ddc43cb165ed15bb43d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/miniprot/blobs/sha256:61e3d4664c87b3cdf856c24bdf9d82cdf7ffcef6c057818ba96fc803faab4e58
+sha256:
+  darwin_arm64: e2df4ada405138f554ac6e7bf27bad4b7eaf1c5a7d4fbc9a54d6eb1434778fb8
+  darwin_amd64: 8992d1199cfdd4651e55658118c5025c031f35c774e383e2520720ccf90c4e64
+  linux_amd64: 5dbb2fde218797475adc93a169cd0e7b8b6388a6af963ddc43cb165ed15bb43d
+  linux_arm64: 61e3d4664c87b3cdf856c24bdf9d82cdf7ffcef6c057818ba96fc803faab4e58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

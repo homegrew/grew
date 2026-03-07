@@ -1,0 +1,21 @@
+name: asyncapi
+version: 6.0.0
+description: All in one CLI for all AsyncAPI tools
+homepage: https://github.com/asyncapi/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asyncapi/blobs/sha256:966ff0b86f86e32a7e397003765c796806e0a0998e9e473a377f3d46a8d7593c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asyncapi/blobs/sha256:0eb19ea51d5b2bb701dc566186b33b8e6b83aa2bd7226a8b3facb960e5694350
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asyncapi/blobs/sha256:1c2714c128d47db98239819bcbac0d3fe738ef170a0eecd2590f95feb4781295
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asyncapi/blobs/sha256:3dfa4934db0c269c77235d553a71580a431feb2689bf02c4557f5c981a279b1c
+sha256:
+  darwin_arm64: 966ff0b86f86e32a7e397003765c796806e0a0998e9e473a377f3d46a8d7593c
+  darwin_amd64: 0eb19ea51d5b2bb701dc566186b33b8e6b83aa2bd7226a8b3facb960e5694350
+  linux_amd64: 1c2714c128d47db98239819bcbac0d3fe738ef170a0eecd2590f95feb4781295
+  linux_arm64: 3dfa4934db0c269c77235d553a71580a431feb2689bf02c4557f5c981a279b1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

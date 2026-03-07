@@ -1,0 +1,26 @@
+name: libimobiledevice
+version: 1.4.0
+description: Library to communicate with iOS devices natively
+homepage: https://www.libimobiledevice.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libimobiledevice/blobs/sha256:57e9ce8270a268ce61766da57305ddf8adef5310556992f97534a0c6b8dc2112
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libimobiledevice/blobs/sha256:aa40670dbbdadabc7f035fe2ea17da68a1dab8937a4f1c0429c0a7fd58c108f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libimobiledevice/blobs/sha256:8d22c1f4fccc06261e4e1775f3d56864ddbe37ba3980b28b5d17898d74662307
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libimobiledevice/blobs/sha256:d54c686502da56b005f514e052d5d6f24242acc99236309da37854d573fd0206
+sha256:
+  darwin_arm64: 57e9ce8270a268ce61766da57305ddf8adef5310556992f97534a0c6b8dc2112
+  darwin_amd64: aa40670dbbdadabc7f035fe2ea17da68a1dab8937a4f1c0429c0a7fd58c108f5
+  linux_amd64: 8d22c1f4fccc06261e4e1775f3d56864ddbe37ba3980b28b5d17898d74662307
+  linux_arm64: d54c686502da56b005f514e052d5d6f24242acc99236309da37854d573fd0206
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libimobiledevice-glue
+  - libplist
+  - libtasn1
+  - libtatsu
+  - libusbmuxd
+  - openssl@3

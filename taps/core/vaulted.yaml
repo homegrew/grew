@@ -1,0 +1,19 @@
+name: vaulted
+version: 3.0.0
+description: Allows the secure storage and execution of environments
+homepage: https://github.com/miquella/vaulted
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vaulted/blobs/sha256:7f919c6220160dc33b1658f61720477353a695f4aaa379b6f174e30ff79a9b87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vaulted/blobs/sha256:8462a0d5dfcc77e7f6ea5975ea9c10a83444a66139b20d667473db42e7959362
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vaulted/blobs/sha256:3acf911a97ce6aa9aacff3d0e39c70d497e2b2b808a5ebe620301259035988c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vaulted/blobs/sha256:811cae4f0e603c7c8e604481168308176c1120bf57e45ea80a1145e76558a2b0
+sha256:
+  darwin_arm64: 7f919c6220160dc33b1658f61720477353a695f4aaa379b6f174e30ff79a9b87
+  darwin_amd64: 8462a0d5dfcc77e7f6ea5975ea9c10a83444a66139b20d667473db42e7959362
+  linux_amd64: 3acf911a97ce6aa9aacff3d0e39c70d497e2b2b808a5ebe620301259035988c3
+  linux_arm64: 811cae4f0e603c7c8e604481168308176c1120bf57e45ea80a1145e76558a2b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

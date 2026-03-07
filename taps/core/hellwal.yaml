@@ -1,0 +1,19 @@
+name: hellwal
+version: 1.0.7
+description: Fast, extensible color palette generator
+homepage: https://github.com/danihek/hellwal
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hellwal/blobs/sha256:cfc5e8ad72740938b145df1f38466551c055a2fbf5119859a7cd35423a68d54c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hellwal/blobs/sha256:30c0b0f64a0de8093a854c19a8f18ac5dbc3113f49182b874d18bfd663948b54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hellwal/blobs/sha256:dbd4d1a76335f7fe6a12d94124cd2ec8f3a0d72eff2f3d5bdf0375894d79d715
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hellwal/blobs/sha256:5a2eba338afdcf106cb12a2a6a8213c53b8996309e1cae25364bc4e403f7b169
+sha256:
+  darwin_arm64: cfc5e8ad72740938b145df1f38466551c055a2fbf5119859a7cd35423a68d54c
+  darwin_amd64: 30c0b0f64a0de8093a854c19a8f18ac5dbc3113f49182b874d18bfd663948b54
+  linux_amd64: dbd4d1a76335f7fe6a12d94124cd2ec8f3a0d72eff2f3d5bdf0375894d79d715
+  linux_arm64: 5a2eba338afdcf106cb12a2a6a8213c53b8996309e1cae25364bc4e403f7b169
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,30 @@
+name: libgedit-tepl
+version: 6.14.0
+description: Gedit Technology - Text editor product line
+homepage: https://gitlab.gnome.org/World/gedit/libgedit-tepl
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgedit-tepl/blobs/sha256:989c5236c3b916bfd20e370fcf138c38a1776aec386a09f7c70a31697f4bde43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgedit-tepl/blobs/sha256:9c74fb0ba2ae89e2a709c7d782505a6032683726d4d906e65ed00799d8dc74e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgedit-tepl/blobs/sha256:e064295dc98803eaadf8fbf90436001fcd5089cf1785e0221a1e64837862f8df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgedit-tepl/blobs/sha256:cfbe37f911dbed80978ce37faa86d772e72539168ba1513e816446ee2ed99b06
+sha256:
+  darwin_arm64: 989c5236c3b916bfd20e370fcf138c38a1776aec386a09f7c70a31697f4bde43
+  darwin_amd64: 9c74fb0ba2ae89e2a709c7d782505a6032683726d4d906e65ed00799d8dc74e3
+  linux_amd64: e064295dc98803eaadf8fbf90436001fcd5089cf1785e0221a1e64837862f8df
+  linux_arm64: cfbe37f911dbed80978ce37faa86d772e72539168ba1513e816446ee2ed99b06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - gtk+3
+  - icu4c@78
+  - libgedit-amtk
+  - libgedit-gfls
+  - libgedit-gtksourceview
+  - libhandy
+  - pango
+  - gettext

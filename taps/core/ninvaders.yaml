@@ -1,0 +1,19 @@
+name: ninvaders
+version: 0.1.1
+description: Space Invaders in the terminal
+homepage: https://ninvaders.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ninvaders/blobs/sha256:67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ninvaders/blobs/sha256:5540ceb68d1a45aaabde16ec87c665c6ea5759a5d1d5fdd8bd804dc3a4b9829a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ninvaders/blobs/sha256:c4d884e93ed10e3c362cd6a7b948aba5099efe9921dfa45a5163f0e0a2136da2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ninvaders/blobs/sha256:d829100cdd7f35e3d8276de284bdd884145728a975ed2ddb6f3985bf6a8d966f
+sha256:
+  darwin_arm64: 67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372
+  darwin_amd64: 5540ceb68d1a45aaabde16ec87c665c6ea5759a5d1d5fdd8bd804dc3a4b9829a
+  linux_amd64: c4d884e93ed10e3c362cd6a7b948aba5099efe9921dfa45a5163f0e0a2136da2
+  linux_arm64: d829100cdd7f35e3d8276de284bdd884145728a975ed2ddb6f3985bf6a8d966f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

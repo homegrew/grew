@@ -1,0 +1,22 @@
+name: openfast
+version: 4.2.0
+description: NREL-supported OpenFAST whole-turbine simulation code
+homepage: https://openfast.readthedocs.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openfast/blobs/sha256:83ef18c679c6aa51258a2d711e2e2c3ce9602f1c6fd6ef8750703c902120c593
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openfast/blobs/sha256:7e0204ed6fe367051f28d632f92bae6e855f546326abae6a394a6ad729a803d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openfast/blobs/sha256:3190bb9e67f48cedaa618d8f76216c3baab6ea353e231be026c4d241573065ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openfast/blobs/sha256:9ed24c41df1b8ed0729ec4b790c8fa31333e1af293bc73d94d3d56cceac582ef
+sha256:
+  darwin_arm64: 83ef18c679c6aa51258a2d711e2e2c3ce9602f1c6fd6ef8750703c902120c593
+  darwin_amd64: 7e0204ed6fe367051f28d632f92bae6e855f546326abae6a394a6ad729a803d6
+  linux_amd64: 3190bb9e67f48cedaa618d8f76216c3baab6ea353e231be026c4d241573065ef
+  linux_arm64: 9ed24c41df1b8ed0729ec4b790c8fa31333e1af293bc73d94d3d56cceac582ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - openblas

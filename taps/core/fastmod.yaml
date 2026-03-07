@@ -1,0 +1,19 @@
+name: fastmod
+version: 0.4.4
+description: Fast, partial replacement for codemod (find/replace tool for programmers)
+homepage: https://github.com/facebookincubator/fastmod
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastmod/blobs/sha256:fdb434fc84a2106f151689cc285556c36626ee9b49b3aca012feaca4d97ca957
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastmod/blobs/sha256:f880861191ce5e9d4ae1f72c71842c49f268075e6c5d17e102c40fe076e13979
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastmod/blobs/sha256:e9911efefe8693ee31af9c8b251ab3f524b67765b4f4920451c426b90bf05dc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastmod/blobs/sha256:d22271d1009dfb50d3bb758934c506d01c068ee6eed7dee3409d682f93f80b34
+sha256:
+  darwin_arm64: fdb434fc84a2106f151689cc285556c36626ee9b49b3aca012feaca4d97ca957
+  darwin_amd64: f880861191ce5e9d4ae1f72c71842c49f268075e6c5d17e102c40fe076e13979
+  linux_amd64: e9911efefe8693ee31af9c8b251ab3f524b67765b4f4920451c426b90bf05dc5
+  linux_arm64: d22271d1009dfb50d3bb758934c506d01c068ee6eed7dee3409d682f93f80b34
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

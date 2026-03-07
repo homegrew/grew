@@ -1,0 +1,22 @@
+name: tsung
+version: 1.8.0
+description: Load testing for HTTP, PostgreSQL, Jabber, and others
+homepage: https://github.com/processone/tsung
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tsung/blobs/sha256:1da5e28ebc2cdbbc423599d8ad4a10558df7a0e3435a7dc1dd03d5de86989308
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tsung/blobs/sha256:8e611fcda350d09739af49168a0514ad347454c0d4d1722f18fe254f98334ee9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tsung/blobs/sha256:e15a598cd9b077c6cd445b23a56d8d799f7ea330c92cea542d244bdc3d82aa36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tsung/blobs/sha256:78d662c5b4361d28dfc3b3bec656d9c85200bf4166d3258377acfeb1c4bd20b1
+sha256:
+  darwin_arm64: 1da5e28ebc2cdbbc423599d8ad4a10558df7a0e3435a7dc1dd03d5de86989308
+  darwin_amd64: 8e611fcda350d09739af49168a0514ad347454c0d4d1722f18fe254f98334ee9
+  linux_amd64: e15a598cd9b077c6cd445b23a56d8d799f7ea330c92cea542d244bdc3d82aa36
+  linux_arm64: 78d662c5b4361d28dfc3b3bec656d9c85200bf4166d3258377acfeb1c4bd20b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang
+  - gnuplot

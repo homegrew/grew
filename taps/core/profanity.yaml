@@ -1,0 +1,31 @@
+name: profanity
+version: 0.16.0
+description: Console based XMPP client
+homepage: https://profanity-im.github.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/profanity/blobs/sha256:669b57ae421eea14e623d6306d16f62f8a3e7e5ac52fc69b6283d4a15f79ca9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/profanity/blobs/sha256:7d238042c8a6f2c67b8ff2bbf60e4e2902212976c613257fb2cd5adb39c6f061
+  linux_amd64: https://ghcr.io/v2/homebrew/core/profanity/blobs/sha256:b041c981823cfc9d4bb96e6d78b49a040834b1cbbb6bdf5e759ec9b5b4824ee6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/profanity/blobs/sha256:bbfb37674269d2c6acd616e77c6022e346181b7093fb30b05e1c60343d48dffd
+sha256:
+  darwin_arm64: 669b57ae421eea14e623d6306d16f62f8a3e7e5ac52fc69b6283d4a15f79ca9d
+  darwin_amd64: 7d238042c8a6f2c67b8ff2bbf60e4e2902212976c613257fb2cd5adb39c6f061
+  linux_amd64: b041c981823cfc9d4bb96e6d78b49a040834b1cbbb6bdf5e759ec9b5b4824ee6
+  linux_arm64: bbfb37674269d2c6acd616e77c6022e346181b7093fb30b05e1c60343d48dffd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gpgme
+  - libotr
+  - libstrophe
+  - python@3.14
+  - readline
+  - sqlite
+  - gettext
+  - libassuan
+  - libgpg-error
+  - terminal-notifier

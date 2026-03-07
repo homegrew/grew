@@ -1,0 +1,19 @@
+name: reposurgeon
+version: 5.3
+description: Edit version-control repository history
+homepage: http://www.catb.org/esr/reposurgeon/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reposurgeon/blobs/sha256:889508d576ab7da93911aaa8975968101cb229b79f80f3d7ad1a9602d7759568
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reposurgeon/blobs/sha256:479f8b063e2fb806b3b2585bb65fb65308b0209b3c7687d5d3bb44ff641d131f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reposurgeon/blobs/sha256:d79f22e49216e32de6b2e6e1575dae5a1d3c7dc140bd672ecbe203862fa30b08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reposurgeon/blobs/sha256:52b7350eaacb2a1a4203d7927265fad7e1f48f3abee399db014f357e7ef12b8b
+sha256:
+  darwin_arm64: 889508d576ab7da93911aaa8975968101cb229b79f80f3d7ad1a9602d7759568
+  darwin_amd64: 479f8b063e2fb806b3b2585bb65fb65308b0209b3c7687d5d3bb44ff641d131f
+  linux_amd64: d79f22e49216e32de6b2e6e1575dae5a1d3c7dc140bd672ecbe203862fa30b08
+  linux_arm64: 52b7350eaacb2a1a4203d7927265fad7e1f48f3abee399db014f357e7ef12b8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: libical
+version: 3.0.20
+description: Implementation of iCalendar protocols and data formats
+homepage: https://libical.github.io/libical/
+license: LGPL-2.1-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libical/blobs/sha256:9947b3e026805b69dd932ff37e8f5b038f33d55042783f01320805aa0eaf2525
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libical/blobs/sha256:8cc7a1bc62d20db855e43f0c2c42cccb9cc17e2c14fe4bc2779ce40e410df32d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libical/blobs/sha256:e5cc9dc2fa2fe2deca5871429fc5f2023a9ca677f23d9680804652514a03edb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libical/blobs/sha256:e3662c9b1e5cf9c1f2824266ef71cebcc93dde2cef195477c1238f968353516f
+sha256:
+  darwin_arm64: 9947b3e026805b69dd932ff37e8f5b038f33d55042783f01320805aa0eaf2525
+  darwin_amd64: 8cc7a1bc62d20db855e43f0c2c42cccb9cc17e2c14fe4bc2779ce40e410df32d
+  linux_amd64: e5cc9dc2fa2fe2deca5871429fc5f2023a9ca677f23d9680804652514a03edb2
+  linux_arm64: e3662c9b1e5cf9c1f2824266ef71cebcc93dde2cef195477c1238f968353516f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - icu4c@78
+  - gettext

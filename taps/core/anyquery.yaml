@@ -1,0 +1,19 @@
+name: anyquery
+version: 0.4.4
+description: Query anything with SQL
+homepage: https://anyquery.dev
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/anyquery/blobs/sha256:274f7b4bf4f7f4107c438522bae53022e84497f2960410468b01e90496ba4734
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/anyquery/blobs/sha256:cb0c2cc8c39e8e4d4719dee0e0448abae3c95a76a754f510d2edcbcd64f3ed09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/anyquery/blobs/sha256:fe11155b9ff95e6974a11c963eba2ccf3ee387bfb8357fe51d5793b3542223be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/anyquery/blobs/sha256:b4a33f8dbe6443662ad426bc8d32a683ea07fea23a7ef259e45c5c029f904069
+sha256:
+  darwin_arm64: 274f7b4bf4f7f4107c438522bae53022e84497f2960410468b01e90496ba4734
+  darwin_amd64: cb0c2cc8c39e8e4d4719dee0e0448abae3c95a76a754f510d2edcbcd64f3ed09
+  linux_amd64: fe11155b9ff95e6974a11c963eba2ccf3ee387bfb8357fe51d5793b3542223be
+  linux_arm64: b4a33f8dbe6443662ad426bc8d32a683ea07fea23a7ef259e45c5c029f904069
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

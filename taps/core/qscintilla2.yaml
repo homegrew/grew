@@ -1,0 +1,21 @@
+name: qscintilla2
+version: 2.14.1
+description: Port to Qt of the Scintilla editing component
+homepage: https://www.riverbankcomputing.com/software/qscintilla/intro
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qscintilla2/blobs/sha256:a4ce4700e5e688b9b0b60890459a3793fc53e8cbaf27884f9ba88e94fa719515
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qscintilla2/blobs/sha256:d31a27c30e7b08f0635bb310d7f585de74a99d41f31705cb3ab3bf6b9f921cdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qscintilla2/blobs/sha256:388eef42d4cde7ec7ebd053bea92d3fae910ba2aff0167644b0b14bc3428e28f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qscintilla2/blobs/sha256:72fdcaf8876a39d1d6f68eb1cc46377fb444d4850fdec6e86e7658a16579bff5
+sha256:
+  darwin_arm64: a4ce4700e5e688b9b0b60890459a3793fc53e8cbaf27884f9ba88e94fa719515
+  darwin_amd64: d31a27c30e7b08f0635bb310d7f585de74a99d41f31705cb3ab3bf6b9f921cdb
+  linux_amd64: 388eef42d4cde7ec7ebd053bea92d3fae910ba2aff0167644b0b14bc3428e28f
+  linux_arm64: 72fdcaf8876a39d1d6f68eb1cc46377fb444d4850fdec6e86e7658a16579bff5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

@@ -1,0 +1,19 @@
+name: ragel
+version: 6.10
+description: State machine compiler
+homepage: https://www.colm.net/open-source/ragel/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ragel/blobs/sha256:a861e1645f5b8f830a41c21217ff8423360dcc678bd5f25648f3737e75e3f0d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ragel/blobs/sha256:5771ddc6f4f2930842f90d27dd598a70fe35a0b8d0961dd67cf96fa5f1280f42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ragel/blobs/sha256:2306dd1c44d304bc0e86093e9f87e0e885d0d9ce03579ab55d7a6c9bf2ada95b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ragel/blobs/sha256:1273e5876162710bb47f6c16ec99b755035cb171d3b5d32be4e362ae7a3d08e2
+sha256:
+  darwin_arm64: a861e1645f5b8f830a41c21217ff8423360dcc678bd5f25648f3737e75e3f0d6
+  darwin_amd64: 5771ddc6f4f2930842f90d27dd598a70fe35a0b8d0961dd67cf96fa5f1280f42
+  linux_amd64: 2306dd1c44d304bc0e86093e9f87e0e885d0d9ce03579ab55d7a6c9bf2ada95b
+  linux_arm64: 1273e5876162710bb47f6c16ec99b755035cb171d3b5d32be4e362ae7a3d08e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

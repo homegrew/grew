@@ -1,0 +1,11 @@
+name: dropbox
+version: 243.4.6956
+description: Client for the Dropbox cloud storage service
+homepage: https://www.dropbox.com/
+url:
+  darwin_arm64: https://edge.dropboxstatic.com/dbx-releng/client/Dropbox%20243.4.6956.arm64.dmg
+sha256:
+  darwin_arm64: cecb521536780267356331860ef1a4394937ffd49b9d0d999fc9ae68301a1e9f
+artifacts:
+  app:
+    - Dropbox.app

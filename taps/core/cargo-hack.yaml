@@ -1,0 +1,19 @@
+name: cargo-hack
+version: 0.6.43
+description: Cargo subcommand to provide options for testing and continuous integration
+homepage: https://github.com/taiki-e/cargo-hack
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-hack/blobs/sha256:70e93226d97dbdb77670fdf193b90a45eef3cfb32f7ee702113faf5dc7b7da05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-hack/blobs/sha256:ea35e0efc48f3f8956584be96cda1de92a712b7a7d13763df6885816e7b5fabe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-hack/blobs/sha256:0733e1d9ab659eb1c7386b1f36c485233cc2eed48ba15ec1487b8b763fb9daa8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-hack/blobs/sha256:8c49415361a066b378e8958ebffe6a6e2b1bccba86401ebaf64b03ac160127b2
+sha256:
+  darwin_arm64: 70e93226d97dbdb77670fdf193b90a45eef3cfb32f7ee702113faf5dc7b7da05
+  darwin_amd64: ea35e0efc48f3f8956584be96cda1de92a712b7a7d13763df6885816e7b5fabe
+  linux_amd64: 0733e1d9ab659eb1c7386b1f36c485233cc2eed48ba15ec1487b8b763fb9daa8
+  linux_arm64: 8c49415361a066b378e8958ebffe6a6e2b1bccba86401ebaf64b03ac160127b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

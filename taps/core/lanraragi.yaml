@@ -1,0 +1,29 @@
+name: lanraragi
+version: 0.9.60
+description: Web application for archival and reading of manga/doujinshi
+homepage: https://github.com/Difegue/LANraragi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lanraragi/blobs/sha256:cfeddce6cf385603aacfd7e6f8575ec15f287bff42368fbd6750fcc2e73cab94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lanraragi/blobs/sha256:5258447053106cf0c9e7072f8a596a999be0e1ced876e5348b1b1c10e9dab074
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lanraragi/blobs/sha256:062e2b9bc86d06ab91ba517c8b039762e8e26883a660c13264adf53e6f7a6c27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lanraragi/blobs/sha256:ed1140b6d3c63a5ea2f986e16cf7ed78b9eb95872a4f091d24657c80f1e7b034
+sha256:
+  darwin_arm64: cfeddce6cf385603aacfd7e6f8575ec15f287bff42368fbd6750fcc2e73cab94
+  darwin_amd64: 5258447053106cf0c9e7072f8a596a999be0e1ced876e5348b1b1c10e9dab074
+  linux_amd64: 062e2b9bc86d06ab91ba517c8b039762e8e26883a660c13264adf53e6f7a6c27
+  linux_arm64: ed1140b6d3c63a5ea2f986e16cf7ed78b9eb95872a4f091d24657c80f1e7b034
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cpanminus
+  - ghostscript
+  - imagemagick
+  - libarchive
+  - node
+  - openssl@3
+  - perl
+  - redis
+  - zstd

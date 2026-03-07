@@ -1,0 +1,19 @@
+name: dnstracer
+version: 1.9
+description: Trace a chain of DNS servers to the source
+homepage: http://www.mavetju.org/unix/dnstracer.php
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnstracer/blobs/sha256:bf4002b2b3c7b6e94bfbd23130cae602e9e7c7d9e3145b7210cbc4fc574b5004
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnstracer/blobs/sha256:d0bda5093f4ee8d73bca5c7609769fb9b5a85509b8ffb3f981b5cadd299b838f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnstracer/blobs/sha256:f5a8f70b7d7d09e10e995f908c4b581a9d3f2ea201719e768e7e65c022f8eb7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnstracer/blobs/sha256:396697504e1ed5de305ae93a03540549bde4be87839036df19439584a39dcdfc
+sha256:
+  darwin_arm64: bf4002b2b3c7b6e94bfbd23130cae602e9e7c7d9e3145b7210cbc4fc574b5004
+  darwin_amd64: d0bda5093f4ee8d73bca5c7609769fb9b5a85509b8ffb3f981b5cadd299b838f
+  linux_amd64: f5a8f70b7d7d09e10e995f908c4b581a9d3f2ea201719e768e7e65c022f8eb7d
+  linux_arm64: 396697504e1ed5de305ae93a03540549bde4be87839036df19439584a39dcdfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

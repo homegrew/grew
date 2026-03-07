@@ -1,0 +1,19 @@
+name: liblzf
+version: 3.6
+description: Very small, very fast data compression library
+homepage: https://oldhome.schmorp.de/marc/liblzf.html
+license: BSD-2-Clause AND (BSD-2-Clause OR GPL-2.0-or-later)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblzf/blobs/sha256:37954669600f0312c44a03a73a69df9467bba75628f0bc56747b7df6734f58e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblzf/blobs/sha256:9719e891f819df8bc4e846087b87ac0eb36ebaa9a9829d02ce8d9927f957786e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblzf/blobs/sha256:04201793eebd3ab8a64694c1422e4d5801be13fd26d1ed257b6c31d4a231124c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblzf/blobs/sha256:900c8c8e3d11ae06648dc7e433f341b7e9b4bfcc8489c93c20d993855495078d
+sha256:
+  darwin_arm64: 37954669600f0312c44a03a73a69df9467bba75628f0bc56747b7df6734f58e4
+  darwin_amd64: 9719e891f819df8bc4e846087b87ac0eb36ebaa9a9829d02ce8d9927f957786e
+  linux_amd64: 04201793eebd3ab8a64694c1422e4d5801be13fd26d1ed257b6c31d4a231124c
+  linux_arm64: 900c8c8e3d11ae06648dc7e433f341b7e9b4bfcc8489c93c20d993855495078d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

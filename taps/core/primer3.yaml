@@ -1,0 +1,19 @@
+name: primer3
+version: 2.6.1
+description: Program for designing PCR primers
+homepage: https://primer3.org/
+license: GPL-2.0-or-later AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/primer3/blobs/sha256:1b96d43ea44fb89eaf75ea0f5bcc76877ca7d73bac9dc4d2084f971c7e5a3d04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/primer3/blobs/sha256:3b4742c4eb4d8eb8194804c426e4bfcc99816751a67d0a8ed3a9f9a762aa7f8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/primer3/blobs/sha256:858d715a269e3ecad988c9bbbf7e04df1570e85f601a43bcde16fb8ee94255c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/primer3/blobs/sha256:ab0022a10895d283cf54cb3c24136a31643345487d75b39d355aa68340ce8904
+sha256:
+  darwin_arm64: 1b96d43ea44fb89eaf75ea0f5bcc76877ca7d73bac9dc4d2084f971c7e5a3d04
+  darwin_amd64: 3b4742c4eb4d8eb8194804c426e4bfcc99816751a67d0a8ed3a9f9a762aa7f8f
+  linux_amd64: 858d715a269e3ecad988c9bbbf7e04df1570e85f601a43bcde16fb8ee94255c2
+  linux_arm64: ab0022a10895d283cf54cb3c24136a31643345487d75b39d355aa68340ce8904
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

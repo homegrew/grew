@@ -1,0 +1,19 @@
+name: chisel-tunnel
+version: 1.11.4
+description: Fast TCP/UDP tunnel over HTTP
+homepage: https://github.com/jpillora/chisel
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chisel-tunnel/blobs/sha256:552d2b24fd6d24818b76233b3edcc1a5a13806276d5bfa4ef7a225e5464b5d6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chisel-tunnel/blobs/sha256:6636d595bfb8e46a9ea4e3232b4622fdd8ad61723888e310b6f76161700c1fa5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chisel-tunnel/blobs/sha256:33b6a1ffe071e41b70f8f4e246e526a5a71760289c7b53a6f90ec0afc65c2a11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chisel-tunnel/blobs/sha256:a36fce66483fecba29ae13ecaf38b410350b34b84c8db3c346f75a48073ee0e8
+sha256:
+  darwin_arm64: 552d2b24fd6d24818b76233b3edcc1a5a13806276d5bfa4ef7a225e5464b5d6d
+  darwin_amd64: 6636d595bfb8e46a9ea4e3232b4622fdd8ad61723888e310b6f76161700c1fa5
+  linux_amd64: 33b6a1ffe071e41b70f8f4e246e526a5a71760289c7b53a6f90ec0afc65c2a11
+  linux_arm64: a36fce66483fecba29ae13ecaf38b410350b34b84c8db3c346f75a48073ee0e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

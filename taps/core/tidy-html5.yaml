@@ -1,0 +1,19 @@
+name: tidy-html5
+version: 5.8.0
+description: Granddaddy of HTML tools, with support for modern standards
+homepage: https://www.html-tidy.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tidy-html5/blobs/sha256:613a88aa2c9aac81af122ec9ee6e2278788e1b5c4398f1139b123555390adcdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tidy-html5/blobs/sha256:dbae8d55a2a35e2245dea6ff6180eac37973514342d4a3895a82a5f43752972a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tidy-html5/blobs/sha256:2f80a0abaed47dfa224213a413fbe6f23d1a538cf4bfeb633296f5e7e465fb2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tidy-html5/blobs/sha256:ff4664d175a951b8e595d017608fcf0981cb95cbba3c094fc8366ea1b1f9cd05
+sha256:
+  darwin_arm64: 613a88aa2c9aac81af122ec9ee6e2278788e1b5c4398f1139b123555390adcdd
+  darwin_amd64: dbae8d55a2a35e2245dea6ff6180eac37973514342d4a3895a82a5f43752972a
+  linux_amd64: 2f80a0abaed47dfa224213a413fbe6f23d1a538cf4bfeb633296f5e7e465fb2d
+  linux_arm64: ff4664d175a951b8e595d017608fcf0981cb95cbba3c094fc8366ea1b1f9cd05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

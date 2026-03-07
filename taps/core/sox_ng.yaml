@@ -1,0 +1,30 @@
+name: sox_ng
+version: 14.7.1
+description: Sound eXchange NG
+homepage: https://codeberg.org/sox_ng/sox_ng
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sox_ng/blobs/sha256:26d118d46da109f74a3ec7dd41448e6b6020e86d7482ec4751288c91cc6ed00e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sox_ng/blobs/sha256:cc918a7c6ad6a1aac5cb1aa1ed760b2920170ba070bd6b0493879f0c88485661
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sox_ng/blobs/sha256:2e908c522b0973a975d47866daa3df3e9c0d9adc0bca52e57c4c3193fc26e5a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sox_ng/blobs/sha256:13daa489b1b76e33cc081527e9af48126bb34c88c32720cb8075f3c898bdfa59
+sha256:
+  darwin_arm64: 26d118d46da109f74a3ec7dd41448e6b6020e86d7482ec4751288c91cc6ed00e
+  darwin_amd64: cc918a7c6ad6a1aac5cb1aa1ed760b2920170ba070bd6b0493879f0c88485661
+  linux_amd64: 2e908c522b0973a975d47866daa3df3e9c0d9adc0bca52e57c4c3193fc26e5a9
+  linux_arm64: 13daa489b1b76e33cc081527e9af48126bb34c88c32720cb8075f3c898bdfa59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - lame
+  - libogg
+  - libpng
+  - libsndfile
+  - libvorbis
+  - mad
+  - opusfile
+  - wavpack
+  - opus

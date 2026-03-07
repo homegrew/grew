@@ -1,0 +1,19 @@
+name: vale
+version: 3.13.1
+description: Syntax-aware linter for prose
+homepage: https://vale.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vale/blobs/sha256:54b9b7326439f8815904c305f0f36547e8ffa31651e10351fa95e0f8bec91e22
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vale/blobs/sha256:86ee872d13d60f3f82ae99fbfa5f14c9b38e48701df32a01222457ada47dffc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vale/blobs/sha256:fe88b1db972209f0d6ed88d3c7d69013c2230406fa2977568e3591ccc8f57b33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vale/blobs/sha256:009dc21ec0252315e9e947ac5bda2c1cf72e9a15758c68406d1c376a07cfca07
+sha256:
+  darwin_arm64: 54b9b7326439f8815904c305f0f36547e8ffa31651e10351fa95e0f8bec91e22
+  darwin_amd64: 86ee872d13d60f3f82ae99fbfa5f14c9b38e48701df32a01222457ada47dffc5
+  linux_amd64: fe88b1db972209f0d6ed88d3c7d69013c2230406fa2977568e3591ccc8f57b33
+  linux_arm64: 009dc21ec0252315e9e947ac5bda2c1cf72e9a15758c68406d1c376a07cfca07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

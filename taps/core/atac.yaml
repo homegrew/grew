@@ -1,0 +1,21 @@
+name: atac
+version: 0.23.0
+description: Simple API client (Postman-like) in your terminal
+homepage: https://atac.julien-cpsn.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atac/blobs/sha256:663f26d36f6d20a16ce4623de822aa4b7a460ded7b5ef0cb2deacd8b09ae9be6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atac/blobs/sha256:b1a3ca4d5cafd6b572f01cff8d50c67a900ec520842ff61112588a0ebf090b71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atac/blobs/sha256:8783a29ce8fe794e012cd6c1d2fb6d73fcefad1bc2453f0365e9eb1198dd218e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atac/blobs/sha256:f3a67ba1e163c6e89d879df3564c32d5caec9d08e81bd3aedd8a3e39ab4695a2
+sha256:
+  darwin_arm64: 663f26d36f6d20a16ce4623de822aa4b7a460ded7b5ef0cb2deacd8b09ae9be6
+  darwin_amd64: b1a3ca4d5cafd6b572f01cff8d50c67a900ec520842ff61112588a0ebf090b71
+  linux_amd64: 8783a29ce8fe794e012cd6c1d2fb6d73fcefad1bc2453f0365e9eb1198dd218e
+  linux_arm64: f3a67ba1e163c6e89d879df3564c32d5caec9d08e81bd3aedd8a3e39ab4695a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

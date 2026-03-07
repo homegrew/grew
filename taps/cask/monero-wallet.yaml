@@ -1,0 +1,11 @@
+name: monero-wallet
+version: 0.18.4.5
+description: Untraceable cryptocurrency wallet
+homepage: https://getmonero.org/
+url:
+  darwin_arm64: https://downloads.getmonero.org/gui/monero-gui-mac-armv8-v0.18.4.5.dmg
+sha256:
+  darwin_arm64: 6b10e9336d9eb804f518a3815152e236ff5615fac3578a445500d92c572949c9
+artifacts:
+  app:
+    - monero-wallet-gui.app

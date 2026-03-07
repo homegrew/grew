@@ -1,0 +1,19 @@
+name: cfn-format
+version: 1.24.3
+description: Command-line tool for formatting AWS CloudFormation templates
+homepage: https://github.com/aws-cloudformation/rain
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfn-format/blobs/sha256:c1cbf54b75dac8f686a9176695e36c8a19b7f1348c48bc6cbee54d50e2cdd2fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfn-format/blobs/sha256:9ad2b2f3e6a2f37ede5890763da0160c3841139e2dd4eeb21ac93c3f5c220fde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfn-format/blobs/sha256:3df7df2e23aafcf4c60d8918eb1e7fa4c24abacf1f3cbd5607167dab9d91c4ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfn-format/blobs/sha256:f09a902f3d62d6dbd2eb3134addfe36fc94797c32b1c4725cecec7b6f0ac396b
+sha256:
+  darwin_arm64: c1cbf54b75dac8f686a9176695e36c8a19b7f1348c48bc6cbee54d50e2cdd2fe
+  darwin_amd64: 9ad2b2f3e6a2f37ede5890763da0160c3841139e2dd4eeb21ac93c3f5c220fde
+  linux_amd64: 3df7df2e23aafcf4c60d8918eb1e7fa4c24abacf1f3cbd5607167dab9d91c4ab
+  linux_arm64: f09a902f3d62d6dbd2eb3134addfe36fc94797c32b1c4725cecec7b6f0ac396b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

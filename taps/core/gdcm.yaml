@@ -1,0 +1,24 @@
+name: gdcm
+version: 3.2.2
+description: Grassroots DICOM library and utilities for medical files
+homepage: https://sourceforge.net/projects/gdcm/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdcm/blobs/sha256:fbfbde99e1a4e66f63e4860a75e651483537551b7e361ea0748c3cb5dd216868
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdcm/blobs/sha256:48af31c53b96008feb0f20f035d59b68e13e38535870efb086d6d447729e39ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdcm/blobs/sha256:8b3a83d368a69b1a84473dfd14ea69986f991bca7206b8082b1553ae2ca58d4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdcm/blobs/sha256:babc4e4d7802ce9f0c1feabad433376040eec5b28ceee29fa17422bfbccc2666
+sha256:
+  darwin_arm64: fbfbde99e1a4e66f63e4860a75e651483537551b7e361ea0748c3cb5dd216868
+  darwin_amd64: 48af31c53b96008feb0f20f035d59b68e13e38535870efb086d6d447729e39ba
+  linux_amd64: 8b3a83d368a69b1a84473dfd14ea69986f991bca7206b8082b1553ae2ca58d4d
+  linux_arm64: babc4e4d7802ce9f0c1feabad433376040eec5b28ceee29fa17422bfbccc2666
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - charls
+  - json-c
+  - openjpeg
+  - openssl@3

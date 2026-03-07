@@ -1,0 +1,19 @@
+name: dhcping
+version: 1.2
+description: Perform a dhcp-request to check whether a dhcp-server is running
+homepage: http://www.mavetju.org/unix/general.php
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhcping/blobs/sha256:508383a636e12497a54b8c5ee9732aaa9e3128e988fead007b84a79e871ff040
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhcping/blobs/sha256:efb77a8575dd69e300baf5b8dc54943a856b987dd28ef6ff92d76d7c49cd772c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhcping/blobs/sha256:dad6d3c832c13d4199c87f8afb9bd93641b7145990edd3d0747612d3546b70cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhcping/blobs/sha256:32108c60d2bcb26968fa5a19800f076c6414e3e254857797cfd60563e75bf0b7
+sha256:
+  darwin_arm64: 508383a636e12497a54b8c5ee9732aaa9e3128e988fead007b84a79e871ff040
+  darwin_amd64: efb77a8575dd69e300baf5b8dc54943a856b987dd28ef6ff92d76d7c49cd772c
+  linux_amd64: dad6d3c832c13d4199c87f8afb9bd93641b7145990edd3d0747612d3546b70cc
+  linux_arm64: 32108c60d2bcb26968fa5a19800f076c6414e3e254857797cfd60563e75bf0b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

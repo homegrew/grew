@@ -1,0 +1,24 @@
+name: falcosecurity-libs
+version: 0.23.1
+description: Core libraries for Falco and Sysdig
+homepage: https://falcosecurity.github.io/libs/
+license: Apache-2.0 AND (GPL-2.0-only OR MIT) AND (GPL-2.0-only WITH Linux-syscall-note)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/falcosecurity-libs/blobs/sha256:4925bb362b14157eb0750a6d5c69d8b09a1a102760a9d36e9b59e093ce07e2d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/falcosecurity-libs/blobs/sha256:c9681e7dbf9e916d319a11f772d34042c120b9ac8150714ddf79c875f330f8ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/falcosecurity-libs/blobs/sha256:a48407bee28bf27da13bef17b80fa5961bcc1dac74969c57bb97d1fe2d9487ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/falcosecurity-libs/blobs/sha256:11390b6046ad8354663b45ee30f9a892f418e5e34ae5b0757259ffa84e382289
+sha256:
+  darwin_arm64: 4925bb362b14157eb0750a6d5c69d8b09a1a102760a9d36e9b59e093ce07e2d6
+  darwin_amd64: c9681e7dbf9e916d319a11f772d34042c120b9ac8150714ddf79c875f330f8ee
+  linux_amd64: a48407bee28bf27da13bef17b80fa5961bcc1dac74969c57bb97d1fe2d9487ec
+  linux_arm64: 11390b6046ad8354663b45ee30f9a892f418e5e34ae5b0757259ffa84e382289
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jsoncpp
+  - re2
+  - tbb
+  - uthash

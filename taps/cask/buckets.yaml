@@ -1,0 +1,11 @@
+name: buckets
+version: 0.80.0
+description: Budgeting tool
+homepage: https://www.budgetwithbuckets.com/
+url:
+  darwin_arm64: https://github.com/buckets/application/releases/download/v0.80.0/Buckets-arm64-0.80.0.dmg
+sha256:
+  darwin_arm64: 2d7ec7a7d5cf1845c9f2c7adfb37426c7886ae10abec4cca7545cc022277b9c9
+artifacts:
+  app:
+    - Buckets.app

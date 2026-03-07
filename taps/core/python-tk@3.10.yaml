@@ -1,0 +1,23 @@
+name: python-tk@3.10
+version: 3.10.20
+description: Python interface to Tcl/Tk
+homepage: https://www.python.org/
+license: Python-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-tk/3.10/blobs/sha256:c5b7ebf5aa4eee41ed74526a1f5df037f13bfa83f258f8b4fb7f3b30b3a31da8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-tk/3.10/blobs/sha256:8b510d6efa0411c1edf47448e6a25c619c0e5a6fd836a86dc7bb97f7b26da05b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-tk/3.10/blobs/sha256:c1e7c94c4c5f549a657817e444191f033cb8aa7e33e4398569b062a2b62bf89f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-tk/3.10/blobs/sha256:7931159f029a33ee29f6bc71f0b3252ec32ce025285004a51111c5be5b70bcc7
+sha256:
+  darwin_arm64: c5b7ebf5aa4eee41ed74526a1f5df037f13bfa83f258f8b4fb7f3b30b3a31da8
+  darwin_amd64: 8b510d6efa0411c1edf47448e6a25c619c0e5a6fd836a86dc7bb97f7b26da05b
+  linux_amd64: c1e7c94c4c5f549a657817e444191f033cb8aa7e33e4398569b062a2b62bf89f
+  linux_arm64: 7931159f029a33ee29f6bc71f0b3252ec32ce025285004a51111c5be5b70bcc7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.10
+  - tcl-tk@8
+keg_only: true

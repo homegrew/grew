@@ -1,0 +1,29 @@
+name: fastnetmon
+version: 1.2.8
+description: DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support
+homepage: https://github.com/pavel-odintsov/fastnetmon/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastnetmon/blobs/sha256:fef5c92f145ce977fcc7aecdf8e1f137895af2943e9f075e63a6502afb08b71c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastnetmon/blobs/sha256:645dba20fbb5f430282a0d43a61c24eaf34327cc73c9bf42b496121adf0fa653
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastnetmon/blobs/sha256:0b0bb0f4e5e585333dac15b91b7c17585f9abf6e70ebe279e22eb1824b449dc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastnetmon/blobs/sha256:c3ef70666427e1ffb6a4b324ee434cf741cc00c2f0fdd532aa40f8b4bdd008dc
+sha256:
+  darwin_arm64: fef5c92f145ce977fcc7aecdf8e1f137895af2943e9f075e63a6502afb08b71c
+  darwin_amd64: 645dba20fbb5f430282a0d43a61c24eaf34327cc73c9bf42b496121adf0fa653
+  linux_amd64: 0b0bb0f4e5e585333dac15b91b7c17585f9abf6e70ebe279e22eb1824b449dc2
+  linux_arm64: c3ef70666427e1ffb6a4b324ee434cf741cc00c2f0fdd532aa40f8b4bdd008dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - boost
+  - capnp
+  - grpc
+  - hiredis
+  - log4cpp
+  - mongo-c-driver
+  - openssl@3
+  - protobuf@33

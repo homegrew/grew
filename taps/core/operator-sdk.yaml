@@ -1,0 +1,24 @@
+name: operator-sdk
+version: 1.42.0
+description: SDK for building Kubernetes applications
+homepage: https://sdk.operatorframework.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/operator-sdk/blobs/sha256:292910e2303b1807abfd2e15f36239768aa14aeecc57e8c344f1d3d0225aebfa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/operator-sdk/blobs/sha256:ada13ce55cc3cb321c796b393a29e2d102c4da57bc1878d96b7b9c1f2c272090
+  linux_amd64: https://ghcr.io/v2/homebrew/core/operator-sdk/blobs/sha256:5cb1e0336db204954dacbf3fef72dd6b586ec7b23e024632686815e4ce59c810
+  linux_arm64: https://ghcr.io/v2/homebrew/core/operator-sdk/blobs/sha256:fe49bb3277029444d2a654cb0672c70718c4bff9439e27f87b7b95a96ff51b4e
+sha256:
+  darwin_arm64: 292910e2303b1807abfd2e15f36239768aa14aeecc57e8c344f1d3d0225aebfa
+  darwin_amd64: ada13ce55cc3cb321c796b393a29e2d102c4da57bc1878d96b7b9c1f2c272090
+  linux_amd64: 5cb1e0336db204954dacbf3fef72dd6b586ec7b23e024632686815e4ce59c810
+  linux_arm64: fe49bb3277029444d2a654cb0672c70718c4bff9439e27f87b7b95a96ff51b4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go
+  - gpgme
+  - libassuan
+  - libgpg-error

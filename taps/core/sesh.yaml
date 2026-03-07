@@ -1,0 +1,19 @@
+name: sesh
+version: 2.24.2
+description: Smart session manager for the terminal
+homepage: https://github.com/joshmedeski/sesh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sesh/blobs/sha256:ec544c16f286645eb88aa7283839b411839c2803009b72cdd18866b2942144f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sesh/blobs/sha256:eca2f930719ddb074ae426852d6211c18b978ac3b71babe303dbd7d529ff04fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sesh/blobs/sha256:8bfc542af6cf0fa43d24b268e2b1c32bc1791b0cef8c17ef0addd6b0e4907e7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sesh/blobs/sha256:74581e4dc4114455bb9dd2ba4bb20f0e2823af4eedb61b7e9bc41d52db142c41
+sha256:
+  darwin_arm64: ec544c16f286645eb88aa7283839b411839c2803009b72cdd18866b2942144f5
+  darwin_amd64: eca2f930719ddb074ae426852d6211c18b978ac3b71babe303dbd7d529ff04fa
+  linux_amd64: 8bfc542af6cf0fa43d24b268e2b1c32bc1791b0cef8c17ef0addd6b0e4907e7d
+  linux_arm64: 74581e4dc4114455bb9dd2ba4bb20f0e2823af4eedb61b7e9bc41d52db142c41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: liquibase-secure
+version: 5.1.0
+description: Database change management tool
+homepage: https://www.liquibase.com/liquibase-secure
+url:
+  darwin_arm64: https://package.liquibase.com/downloads/secure/homebrew/liquibase-secure-5.1.0.tar.gz
+sha256:
+  darwin_arm64: 53b0373042d8ad7ebff44f930d0a79da2fa0a2a93c96d92cd18aa9934a205c97
+artifacts:
+  bin:
+    - liquibase

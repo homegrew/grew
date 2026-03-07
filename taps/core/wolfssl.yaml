@@ -1,0 +1,19 @@
+name: wolfssl
+version: 5.8.4
+description: Embedded SSL Library written in C
+homepage: https://www.wolfssl.com
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wolfssl/blobs/sha256:aac59ca422bfd4b3afdb4e4e846c6700b2931c457f2e77cdfa0ab5641c51b15e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wolfssl/blobs/sha256:eace8310951249626c7787c6644225f7ca9e02b6a8a24482a64010ffdae0a0a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wolfssl/blobs/sha256:1887e79717741ae67f1af8185bc009de75228a952e1bbb02bad3fccf9951ca4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wolfssl/blobs/sha256:8bdab55e7c24c08b30f3c2895c2679bffa142b86cf3fef8ddb4f77bb0bbbf5ab
+sha256:
+  darwin_arm64: aac59ca422bfd4b3afdb4e4e846c6700b2931c457f2e77cdfa0ab5641c51b15e
+  darwin_amd64: eace8310951249626c7787c6644225f7ca9e02b6a8a24482a64010ffdae0a0a4
+  linux_amd64: 1887e79717741ae67f1af8185bc009de75228a952e1bbb02bad3fccf9951ca4b
+  linux_arm64: 8bdab55e7c24c08b30f3c2895c2679bffa142b86cf3fef8ddb4f77bb0bbbf5ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

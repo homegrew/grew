@@ -1,0 +1,19 @@
+name: mufetch
+version: 0.1.1
+description: Neofetch-style music cli
+homepage: https://github.com/ashish0kumar/mufetch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mufetch/blobs/sha256:81a98a5e506fa81b66474770b31ba74505f78611bc9654c5277c568d64a8f036
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mufetch/blobs/sha256:35737a128c3e4e30935175c5199426fec5487a398059d70007259fdaf74cdc8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mufetch/blobs/sha256:d1beb7a21f99fa30abe3e641ddffc38e98b752de63c83eae740652491302f2aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mufetch/blobs/sha256:cb55fc1e510c72b555c0d91e865a0dc9a09ffabcb477f80495ce83fb7a08ba6b
+sha256:
+  darwin_arm64: 81a98a5e506fa81b66474770b31ba74505f78611bc9654c5277c568d64a8f036
+  darwin_amd64: 35737a128c3e4e30935175c5199426fec5487a398059d70007259fdaf74cdc8b
+  linux_amd64: d1beb7a21f99fa30abe3e641ddffc38e98b752de63c83eae740652491302f2aa
+  linux_arm64: cb55fc1e510c72b555c0d91e865a0dc9a09ffabcb477f80495ce83fb7a08ba6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

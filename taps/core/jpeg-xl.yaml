@@ -1,0 +1,28 @@
+name: jpeg-xl
+version: 0.11.2
+description: New file format for still image compression
+homepage: https://jpeg.org/jpegxl/index.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jpeg-xl/blobs/sha256:964f9e0ed13c844e1fb2675008a6b0dfe247dce7765951052031c67f6ffd39de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jpeg-xl/blobs/sha256:8e44a6091c85772b58897b35ff3a3ab2f4b0441c53f5b0051baa5a45dca058be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jpeg-xl/blobs/sha256:529152dc60c01bd380e99aa66798857db83932ddb45cfd908447ec1e7fe8d1fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jpeg-xl/blobs/sha256:1d92c9a8b9c80a3c3d9a0ecf042510f867913df111846cfff843f77ee6719cb2
+sha256:
+  darwin_arm64: 964f9e0ed13c844e1fb2675008a6b0dfe247dce7765951052031c67f6ffd39de
+  darwin_amd64: 8e44a6091c85772b58897b35ff3a3ab2f4b0441c53f5b0051baa5a45dca058be
+  linux_amd64: 529152dc60c01bd380e99aa66798857db83932ddb45cfd908447ec1e7fe8d1fb
+  linux_arm64: 1d92c9a8b9c80a3c3d9a0ecf042510f867913df111846cfff843f77ee6719cb2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - giflib
+  - highway
+  - imath
+  - jpeg-turbo
+  - libpng
+  - little-cms2
+  - openexr

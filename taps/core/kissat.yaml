@@ -1,0 +1,19 @@
+name: kissat
+version: 4.0.4
+description: Bare metal SAT solver
+homepage: https://github.com/arminbiere/kissat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kissat/blobs/sha256:67e49c44458a442a6ccadbf16e9cf7ef419d22ac1d2fe2dd3f9a0e7c8c2ffb77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kissat/blobs/sha256:36eb3d024cbf5940ec33db9b59897ded7591b19981427caaa5d29f52da453706
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kissat/blobs/sha256:406b4eaf9bb50f011363ef603542d6739687619a3bd570da052ad3022b9069d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kissat/blobs/sha256:21fcc0a15aaa6ac7487b457ad7d798c264c6b48ef24fe2b9789ffa1f630b6adf
+sha256:
+  darwin_arm64: 67e49c44458a442a6ccadbf16e9cf7ef419d22ac1d2fe2dd3f9a0e7c8c2ffb77
+  darwin_amd64: 36eb3d024cbf5940ec33db9b59897ded7591b19981427caaa5d29f52da453706
+  linux_amd64: 406b4eaf9bb50f011363ef603542d6739687619a3bd570da052ad3022b9069d5
+  linux_arm64: 21fcc0a15aaa6ac7487b457ad7d798c264c6b48ef24fe2b9789ffa1f630b6adf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

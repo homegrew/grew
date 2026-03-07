@@ -1,0 +1,19 @@
+name: um
+version: 4.2.0
+description: Command-line utility for creating and maintaining personal man pages
+homepage: https://github.com/sinclairtarget/um
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/um/blobs/sha256:a1fe07dc6291ab69c1c4e7e6545be26dde8bfbf587f732860689535a7dad145f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/um/blobs/sha256:b91d98a8fd437a600f933a582128c859b9cbf5f84ffd499275156db31c44f1b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/um/blobs/sha256:c71496a39f88373f2f233b19384bb1ef43e631b280ca0ba51ffcd2838012904f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/um/blobs/sha256:85c354a3514a26d514680306f030dfaa2a247f71ef772d1b3e1d5920b9c7fec6
+sha256:
+  darwin_arm64: a1fe07dc6291ab69c1c4e7e6545be26dde8bfbf587f732860689535a7dad145f
+  darwin_amd64: b91d98a8fd437a600f933a582128c859b9cbf5f84ffd499275156db31c44f1b5
+  linux_amd64: c71496a39f88373f2f233b19384bb1ef43e631b280ca0ba51ffcd2838012904f
+  linux_arm64: 85c354a3514a26d514680306f030dfaa2a247f71ef772d1b3e1d5920b9c7fec6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

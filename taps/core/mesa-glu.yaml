@@ -1,0 +1,21 @@
+name: mesa-glu
+version: 9.0.3
+description: Mesa OpenGL Utility library
+homepage: https://gitlab.freedesktop.org/mesa/glu
+license: GPL-3.0-or-later OR GPL-2.0-or-later OR MIT OR SGI-B-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mesa-glu/blobs/sha256:04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mesa-glu/blobs/sha256:f358d5011c1944797eaa8a8c892c5437484d2a74a02389edcb3772cfaff7a565
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mesa-glu/blobs/sha256:23e93794ed9518e89338dcfad821b7dbd184c3d46a843b52c05548ffe5bd5f00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mesa-glu/blobs/sha256:24b267be5f6ae9004eb11f15a427187078c08a201a777c5a72bb545966786566
+sha256:
+  darwin_arm64: 04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283
+  darwin_amd64: f358d5011c1944797eaa8a8c892c5437484d2a74a02389edcb3772cfaff7a565
+  linux_amd64: 23e93794ed9518e89338dcfad821b7dbd184c3d46a843b52c05548ffe5bd5f00
+  linux_arm64: 24b267be5f6ae9004eb11f15a427187078c08a201a777c5a72bb545966786566
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mesa

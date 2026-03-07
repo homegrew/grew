@@ -1,0 +1,25 @@
+name: otterdog
+version: 1.2.0
+description: Manage GitHub organizations at scale using an infrastructure as code approach
+homepage: https://otterdog.readthedocs.io/en/latest/
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/otterdog/blobs/sha256:a3dbb6b0ce3524730d181ae87da2396e1c147249eacfb653e2a8d7dd115b6443
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/otterdog/blobs/sha256:1878a14cb648d7012fdae6609d0979963f7e4cc7720c0bb75248b15b910487b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/otterdog/blobs/sha256:2f1d835b81f4118549945b3d458979d14f6ea7582d7cb6509331072ba79db249
+  linux_arm64: https://ghcr.io/v2/homebrew/core/otterdog/blobs/sha256:27b71e73b5370897a7f21135310dc78fa079c02551b3865213d52e4d38ee6587
+sha256:
+  darwin_arm64: a3dbb6b0ce3524730d181ae87da2396e1c147249eacfb653e2a8d7dd115b6443
+  darwin_amd64: 1878a14cb648d7012fdae6609d0979963f7e4cc7720c0bb75248b15b910487b9
+  linux_amd64: 2f1d835b81f4118549945b3d458979d14f6ea7582d7cb6509331072ba79db249
+  linux_arm64: 27b71e73b5370897a7f21135310dc78fa079c02551b3865213d52e4d38ee6587
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - python@3.14
+  - rpds-py

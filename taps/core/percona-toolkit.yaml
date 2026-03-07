@@ -1,0 +1,21 @@
+name: percona-toolkit
+version: 3.7.1
+description: Command-line tools for MySQL, MariaDB and system tasks
+homepage: https://www.percona.com/software/percona-toolkit/
+license: GPL-2.0-only OR Artistic-1.0-Perl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/percona-toolkit/blobs/sha256:05b3f3f28f2b13b7d4f7ba1b325d82a617a6d27447d6bc6262d5f00c735bae40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/percona-toolkit/blobs/sha256:c3c89c731b466953de715f23f17798208ee16137d87fabd7d121f041ba445dc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/percona-toolkit/blobs/sha256:989cfa41ec604acfb78a5625b686f0c0ab09b1d9b3a9f3d3db9855fa7c3c24f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/percona-toolkit/blobs/sha256:fac3d2a5ec59955b3a7296e6adc223e02fc63f23328686245f885695d9da979f
+sha256:
+  darwin_arm64: 05b3f3f28f2b13b7d4f7ba1b325d82a617a6d27447d6bc6262d5f00c735bae40
+  darwin_amd64: c3c89c731b466953de715f23f17798208ee16137d87fabd7d121f041ba445dc2
+  linux_amd64: 989cfa41ec604acfb78a5625b686f0c0ab09b1d9b3a9f3d3db9855fa7c3c24f7
+  linux_arm64: fac3d2a5ec59955b3a7296e6adc223e02fc63f23328686245f885695d9da979f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl-dbd-mysql

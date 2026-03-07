@@ -1,0 +1,19 @@
+name: authoscope
+version: 0.8.1
+description: Scriptable network authentication cracker
+homepage: https://github.com/kpcyrd/authoscope
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/authoscope/blobs/sha256:c6eaad5b4287b9e44492653bd7d5996f61c1b29d996e6ca4a045c6eb5019a10e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/authoscope/blobs/sha256:50c9f02093d86f2a5c7d957e28204eb5bd6f42f97cbe8b81d4186231d9ff9cdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/authoscope/blobs/sha256:6a73ecf5bcb046d8f4083230f5f425cbe918b7a792f8474c3921f7d2f1075268
+  linux_arm64: https://ghcr.io/v2/homebrew/core/authoscope/blobs/sha256:0c385626205475728c35fe60f4089c8167f54c4472dabed081391cc6c3801147
+sha256:
+  darwin_arm64: c6eaad5b4287b9e44492653bd7d5996f61c1b29d996e6ca4a045c6eb5019a10e
+  darwin_amd64: 50c9f02093d86f2a5c7d957e28204eb5bd6f42f97cbe8b81d4186231d9ff9cdb
+  linux_amd64: 6a73ecf5bcb046d8f4083230f5f425cbe918b7a792f8474c3921f7d2f1075268
+  linux_arm64: 0c385626205475728c35fe60f4089c8167f54c4472dabed081391cc6c3801147
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

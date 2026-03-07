@@ -1,0 +1,21 @@
+name: snap
+version: 2.74.1
+description: Tool to work with .snap files
+homepage: https://snapcraft.io/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snap/blobs/sha256:d4fdde9c0dd434c50ec1f145aa608224e071a9d19feb63f9b73eb3db997cf77b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snap/blobs/sha256:8426769329f282d1fe9e3967ea8a18c499baa5e53c72fe4dbcb5bf73696d1b77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snap/blobs/sha256:40ce7582b477a6b33f53dd1734a4182456ddcfe9469cf555dd647331c80106e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snap/blobs/sha256:c2aa78782d3dfebeb3a5544f2e9199e411f906bb573f6c5cca24d563110cb50a
+sha256:
+  darwin_arm64: d4fdde9c0dd434c50ec1f145aa608224e071a9d19feb63f9b73eb3db997cf77b
+  darwin_amd64: 8426769329f282d1fe9e3967ea8a18c499baa5e53c72fe4dbcb5bf73696d1b77
+  linux_amd64: 40ce7582b477a6b33f53dd1734a4182456ddcfe9469cf555dd647331c80106e4
+  linux_arm64: c2aa78782d3dfebeb3a5544f2e9199e411f906bb573f6c5cca24d563110cb50a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - squashfs

@@ -1,0 +1,19 @@
+name: oniguruma
+version: 6.9.10
+description: Regular expressions library
+homepage: https://github.com/kkos/oniguruma/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oniguruma/blobs/sha256:eb6bda3b333f497b5d294388f39fd0902a5c79a52ae16858eff711d2d104cc4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oniguruma/blobs/sha256:174fa500f45c9421915e22c34f51abc2849cbce2c05b64f013e4949bf2edd7e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oniguruma/blobs/sha256:49eb885ab9a80ce30edc0aaa5f531fc0079a17e5cf41c2b6c34be0e53e763993
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oniguruma/blobs/sha256:b9c6066f02e365ccac0ca20cbcb8ca5d586c0ae781977d363bd411594946d944
+sha256:
+  darwin_arm64: eb6bda3b333f497b5d294388f39fd0902a5c79a52ae16858eff711d2d104cc4d
+  darwin_amd64: 174fa500f45c9421915e22c34f51abc2849cbce2c05b64f013e4949bf2edd7e0
+  linux_amd64: 49eb885ab9a80ce30edc0aaa5f531fc0079a17e5cf41c2b6c34be0e53e763993
+  linux_arm64: b9c6066f02e365ccac0ca20cbcb8ca5d586c0ae781977d363bd411594946d944
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

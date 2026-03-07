@@ -1,0 +1,11 @@
+name: usb-overdrive
+version: 5.3.1
+description: USB and Bluetooth device driver
+homepage: https://www.usboverdrive.com/
+url:
+  darwin_arm64: https://www.usboverdrive.com/download/USB-Overdrive-531.dmg
+sha256:
+  darwin_arm64: 36d923046fca04503288449f48dd3bab299e782974900a2ddd0d2dbf81bf3e6c
+artifacts:
+  app:
+    - USB Overdrive.app

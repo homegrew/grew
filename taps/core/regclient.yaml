@@ -1,0 +1,19 @@
+name: regclient
+version: 0.11.2
+description: Docker and OCI Registry Client in Go and tooling using those libraries
+homepage: https://regclient.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/regclient/blobs/sha256:0f3f7e04ff5eb537bbacaa2703e1a3cb382a7ed48ea3e1fbd447617a1585d271
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/regclient/blobs/sha256:44c276d25723f17b1043a7e269dccbd78dfd47ba8c8672e318e47037054377a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/regclient/blobs/sha256:e9f83a6ed6a56a2015323d437a95039d23f1f8c8f6a34f88451c67e8cd5d4cd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/regclient/blobs/sha256:106b558c014ede4a167f553ab592286cd6e95bae0795d8c9a6c7cebca9130770
+sha256:
+  darwin_arm64: 0f3f7e04ff5eb537bbacaa2703e1a3cb382a7ed48ea3e1fbd447617a1585d271
+  darwin_amd64: 44c276d25723f17b1043a7e269dccbd78dfd47ba8c8672e318e47037054377a0
+  linux_amd64: e9f83a6ed6a56a2015323d437a95039d23f1f8c8f6a34f88451c67e8cd5d4cd0
+  linux_arm64: 106b558c014ede4a167f553ab592286cd6e95bae0795d8c9a6c7cebca9130770
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

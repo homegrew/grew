@@ -1,0 +1,21 @@
+name: libnpupnp
+version: 6.2.3
+description: C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp
+homepage: https://www.lesbonscomptes.com/upmpdcli/npupnp-doc/libnpupnp.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnpupnp/blobs/sha256:3278ce2a5a291e0f2d28f022453d0577a57f5071e4bc3bc2cfe3de8591a84627
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnpupnp/blobs/sha256:d26a799d4eb9e425b424fb7b19195127889ca06cb0968a776e670b84ee75819f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnpupnp/blobs/sha256:848948583f1484beb7d5084457f8083d5408eb7027b48666bcf6d2d48223b171
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnpupnp/blobs/sha256:ed47a43b39a4091cbc93abf7395cdfce37bf2ea946f716e74aa9a24ba0669290
+sha256:
+  darwin_arm64: 3278ce2a5a291e0f2d28f022453d0577a57f5071e4bc3bc2cfe3de8591a84627
+  darwin_amd64: d26a799d4eb9e425b424fb7b19195127889ca06cb0968a776e670b84ee75819f
+  linux_amd64: 848948583f1484beb7d5084457f8083d5408eb7027b48666bcf6d2d48223b171
+  linux_arm64: ed47a43b39a4091cbc93abf7395cdfce37bf2ea946f716e74aa9a24ba0669290
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmicrohttpd

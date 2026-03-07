@@ -1,0 +1,19 @@
+name: grafana
+version: 12.4.0
+description: Gorgeous metric visualizations and dashboards for timeseries databases
+homepage: https://grafana.com
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grafana/blobs/sha256:13e41287398e029f110d60d3c9ab1400b76a647753907de14ea92184cd3f7629
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grafana/blobs/sha256:06a89215a7ef7cdc1d3ac9a04405949e34ecea8ed1b762e172beb5680c1e9d90
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grafana/blobs/sha256:ef8a06d7af1d0b7d79f4d826e7601afe9f48ab65b65c3b930fc0853d094309a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grafana/blobs/sha256:831c6a5dc49b4f4ff84f883fce9f7a984cd0017aff89701a82a5771b991c30e1
+sha256:
+  darwin_arm64: 13e41287398e029f110d60d3c9ab1400b76a647753907de14ea92184cd3f7629
+  darwin_amd64: 06a89215a7ef7cdc1d3ac9a04405949e34ecea8ed1b762e172beb5680c1e9d90
+  linux_amd64: ef8a06d7af1d0b7d79f4d826e7601afe9f48ab65b65c3b930fc0853d094309a6
+  linux_arm64: 831c6a5dc49b4f4ff84f883fce9f7a984cd0017aff89701a82a5771b991c30e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

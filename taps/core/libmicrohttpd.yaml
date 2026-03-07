@@ -1,0 +1,21 @@
+name: libmicrohttpd
+version: 1.0.2
+description: Light HTTP/1.1 server library
+homepage: https://www.gnu.org/software/libmicrohttpd/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmicrohttpd/blobs/sha256:744bd620cfd4c01fdab40a0b91d689994d549ce6f31f54a785c968348f29e089
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmicrohttpd/blobs/sha256:156e4a7aff40fbe887ee8bb29c5a9d5461344f6691e892549a3ffb9e6bcf77bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmicrohttpd/blobs/sha256:f4432eb01656c407982be598afc6c27aad4aeb5ad92d33db646d0ca38ad15518
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmicrohttpd/blobs/sha256:f6d3a71cbb43a0ab2f6bbe97a6355ac7a4524386a39051e90e78367da7914c06
+sha256:
+  darwin_arm64: 744bd620cfd4c01fdab40a0b91d689994d549ce6f31f54a785c968348f29e089
+  darwin_amd64: 156e4a7aff40fbe887ee8bb29c5a9d5461344f6691e892549a3ffb9e6bcf77bf
+  linux_amd64: f4432eb01656c407982be598afc6c27aad4aeb5ad92d33db646d0ca38ad15518
+  linux_arm64: f6d3a71cbb43a0ab2f6bbe97a6355ac7a4524386a39051e90e78367da7914c06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls

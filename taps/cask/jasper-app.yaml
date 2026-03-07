@@ -1,0 +1,11 @@
+name: jasper-app
+version: 2.0.0
+description: Issue reader for GitHub
+homepage: https://jasperapp.io/
+url:
+  darwin_arm64: https://github.com/jasperapp/jasper/releases/download/v2.0.0/jasper_v2.0.0_mac_arm64.zip
+sha256:
+  darwin_arm64: 8abec3cc20eec28f55df7d886927d325dfd1f1bb4479e73c9f36ac11edeace32
+artifacts:
+  app:
+    - Jasper.app

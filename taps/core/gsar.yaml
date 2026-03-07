@@ -1,0 +1,19 @@
+name: gsar
+version: 1.51
+description: General Search And Replace on files
+homepage: https://tjaberg.com/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gsar/blobs/sha256:dafb595928b7f06f2562e9dcd982cc3f4b30ed770eb6e34d56d1caf8745eda46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gsar/blobs/sha256:134cf018983cff2de6c78f4b8261891a23587de341183aa3ba78c410d565d771
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gsar/blobs/sha256:160d27dd1c5497302c7249adb93a43cdb81669cdf5d01a23405adf42d5af16f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gsar/blobs/sha256:526b7939e186719e844042d86fb134a945e8e243ca556ec0e23045d2dd087b8c
+sha256:
+  darwin_arm64: dafb595928b7f06f2562e9dcd982cc3f4b30ed770eb6e34d56d1caf8745eda46
+  darwin_amd64: 134cf018983cff2de6c78f4b8261891a23587de341183aa3ba78c410d565d771
+  linux_amd64: 160d27dd1c5497302c7249adb93a43cdb81669cdf5d01a23405adf42d5af16f4
+  linux_arm64: 526b7939e186719e844042d86fb134a945e8e243ca556ec0e23045d2dd087b8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

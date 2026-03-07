@@ -1,0 +1,19 @@
+name: kubectl-ai
+version: 0.0.29
+description: AI powered Kubernetes Assistant
+homepage: https://github.com/GoogleCloudPlatform/kubectl-ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubectl-ai/blobs/sha256:e2a67423eb2cd82deeb3dc7a19e7b9d2077c3e301611778c23c115b7f8e1ad07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubectl-ai/blobs/sha256:94e2319c962f2017bff56b7ba9aa413f0fb4ea21a43445401dbe5fe72f237971
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubectl-ai/blobs/sha256:2f6c086aa37afc23548ace865384d2d1261a069cdf6af56a96b284755f72095b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubectl-ai/blobs/sha256:c20c658418c707f535a2197695b7e9117fd6584e6cb6a1da0e071ebd529e40e5
+sha256:
+  darwin_arm64: e2a67423eb2cd82deeb3dc7a19e7b9d2077c3e301611778c23c115b7f8e1ad07
+  darwin_amd64: 94e2319c962f2017bff56b7ba9aa413f0fb4ea21a43445401dbe5fe72f237971
+  linux_amd64: 2f6c086aa37afc23548ace865384d2d1261a069cdf6af56a96b284755f72095b
+  linux_arm64: c20c658418c707f535a2197695b7e9117fd6584e6cb6a1da0e071ebd529e40e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: keypad-layout
+version: 1.12
+description: Utility to control window layout using the Ctrl key and the numeric keypad
+homepage: https://github.com/janten/keypad-layout
+url:
+  darwin_arm64: https://github.com/janten/keypad-layout/releases/download/1.12/Keypad-Layout.zip
+sha256:
+  darwin_arm64: 3c4ec7dbe0d50918b4bfb126347d33e29bd7af0a5ae31aa48d68eb91c03e4ad0
+artifacts:
+  app:
+    - Keypad Layout.app

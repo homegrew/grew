@@ -1,0 +1,11 @@
+name: cursor-cli
+version: 2026.02.27-e7d2ef6
+description: Command-line agent for Cursor
+homepage: https://cursor.com/
+url:
+  darwin_arm64: https://downloads.cursor.com/lab/2026.02.27-e7d2ef6/darwin/arm64/agent-cli-package.tar.gz
+sha256:
+  darwin_arm64: 219104f9c90a4530e2dec0cba8aa89926c8cdd41fd147d2dad105c7d2a8055e8
+artifacts:
+  bin:
+    - cursor-agent

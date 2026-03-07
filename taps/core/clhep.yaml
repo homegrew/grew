@@ -1,0 +1,19 @@
+name: clhep
+version: 2.4.7.2
+description: Class Library for High Energy Physics
+homepage: https://proj-clhep.web.cern.ch/proj-clhep/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clhep/blobs/sha256:cf183afa1e10e5cf5a22b0c8e56acd6dc3ee832cb38abc08c4f65ccc6d61be32
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clhep/blobs/sha256:820fbd323a9a40b44053ae03d2c0598df6d8d5b58fcefe07ff4dd1fdb4704d52
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clhep/blobs/sha256:08488a8b36a245edbb41e6f91f84e8a264d6f4cf35fc1e0b89041bd37f3c44fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clhep/blobs/sha256:cf31c521a79cc3bff39ab122f7ae26bbea6b4e5d5304df4420378a90ad7388ec
+sha256:
+  darwin_arm64: cf183afa1e10e5cf5a22b0c8e56acd6dc3ee832cb38abc08c4f65ccc6d61be32
+  darwin_amd64: 820fbd323a9a40b44053ae03d2c0598df6d8d5b58fcefe07ff4dd1fdb4704d52
+  linux_amd64: 08488a8b36a245edbb41e6f91f84e8a264d6f4cf35fc1e0b89041bd37f3c44fd
+  linux_arm64: cf31c521a79cc3bff39ab122f7ae26bbea6b4e5d5304df4420378a90ad7388ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

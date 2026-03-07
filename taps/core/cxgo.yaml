@@ -1,0 +1,19 @@
+name: cxgo
+version: 0.5.2
+description: Transpiling C to Go
+homepage: https://github.com/gotranspile/cxgo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cxgo/blobs/sha256:ab751b7d073f7c78c4ecb82c6edadc57476cdec1ea3c521b53cc232d66ad72da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cxgo/blobs/sha256:f77ecb515a9c0b2a492156ca40f9b86596f37c655a62a7535a98e24fffede206
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cxgo/blobs/sha256:5eaee422179c374dbd0b2f525135398ec4135d37578272005971b8507950caec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cxgo/blobs/sha256:88adc13241a6def00e580f577e3d1d7c5a6d89e6ca08f8093786a99c1a0bed1e
+sha256:
+  darwin_arm64: ab751b7d073f7c78c4ecb82c6edadc57476cdec1ea3c521b53cc232d66ad72da
+  darwin_amd64: f77ecb515a9c0b2a492156ca40f9b86596f37c655a62a7535a98e24fffede206
+  linux_amd64: 5eaee422179c374dbd0b2f525135398ec4135d37578272005971b8507950caec
+  linux_arm64: 88adc13241a6def00e580f577e3d1d7c5a6d89e6ca08f8093786a99c1a0bed1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,17 @@
+name: mplayershell
+version: 0.9.3
+description: Improved visual experience for MPlayer on macOS
+homepage: https://github.com/lisamelton/MPlayerShell
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mplayershell/blobs/sha256:60d548374e75eccb8dfb8ebb31df066dbb482f8bbd0ec5bf273c62392d323de6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mplayershell/blobs/sha256:d658c84ae0c3d0138efff810c4734ac93be2050d16c77a92ef0951acdc01db48
+sha256:
+  darwin_arm64: 60d548374e75eccb8dfb8ebb31df066dbb482f8bbd0ec5bf273c62392d323de6
+  darwin_amd64: d658c84ae0c3d0138efff810c4734ac93be2050d16c77a92ef0951acdc01db48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mplayer

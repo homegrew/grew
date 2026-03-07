@@ -1,0 +1,23 @@
+name: dolphie
+version: 6.13.4
+description: Feature-rich top tool for monitoring MySQL
+homepage: https://github.com/charles-001/dolphie
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dolphie/blobs/sha256:c2f1c2efa3db71e4c4f090deb9e0451c83ef6481faa972b0957c1e7b529e89b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dolphie/blobs/sha256:66924fb72bc5491e6253bda17f5503e2afb819a9c38b1451b301cde86d7558d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dolphie/blobs/sha256:0335e70feb60efe9cc13987c52f29d19239913a5168203458ae4300529a3dead
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dolphie/blobs/sha256:59df2a1ebac4d13aa46942b0a2ec506074aafb45d68fdb94b9e8489a25ba8d5e
+sha256:
+  darwin_arm64: c2f1c2efa3db71e4c4f090deb9e0451c83ef6481faa972b0957c1e7b529e89b7
+  darwin_amd64: 66924fb72bc5491e6253bda17f5503e2afb819a9c38b1451b301cde86d7558d1
+  linux_amd64: 0335e70feb60efe9cc13987c52f29d19239913a5168203458ae4300529a3dead
+  linux_arm64: 59df2a1ebac4d13aa46942b0a2ec506074aafb45d68fdb94b9e8489a25ba8d5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - python@3.14

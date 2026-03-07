@@ -1,0 +1,22 @@
+name: s2geometry
+version: 0.13.1
+description: Computational geometry and spatial indexing on the sphere
+homepage: https://github.com/google/s2geometry
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s2geometry/blobs/sha256:8f79d0c4a802ebb6534abcf48d19ff6b23e7b3dd2f00bacab751be2795b17ee5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s2geometry/blobs/sha256:e619f78302f4cf5ec4a2977fc7a1d7f3a03703a7f0d64ffd15190554afaa5b26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s2geometry/blobs/sha256:781a1286862396a5a038f772d972654fb61087bf9f7d1a872a6d05bcb4982bbe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s2geometry/blobs/sha256:0134241899aea80e57425a5acc31198a3d43722551e523186ef9693786ba7c3a
+sha256:
+  darwin_arm64: 8f79d0c4a802ebb6534abcf48d19ff6b23e7b3dd2f00bacab751be2795b17ee5
+  darwin_amd64: e619f78302f4cf5ec4a2977fc7a1d7f3a03703a7f0d64ffd15190554afaa5b26
+  linux_amd64: 781a1286862396a5a038f772d972654fb61087bf9f7d1a872a6d05bcb4982bbe
+  linux_arm64: 0134241899aea80e57425a5acc31198a3d43722551e523186ef9693786ba7c3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - openssl@3

@@ -1,0 +1,24 @@
+name: hdf5-mpi
+version: 2.1.0
+description: File format designed to store large amounts of data
+homepage: https://www.hdfgroup.org/solutions/hdf5/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hdf5-mpi/blobs/sha256:36140cb8bb4db4a6a05656eabc3a216cc97085952ba8310e1eaf42519c60409e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hdf5-mpi/blobs/sha256:fae2af5337df5f36a9b88f21060bc01384f5905612f9c36303179d46e04b6edc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hdf5-mpi/blobs/sha256:5581f10dfc0966ac5a6c386140debb38f3642cc982ab0c36647e34ab2f408abd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hdf5-mpi/blobs/sha256:75663ef3635622dc2882b99012535edcdf0a684d6a15cbd503edd2f4ae48dba5
+sha256:
+  darwin_arm64: 36140cb8bb4db4a6a05656eabc3a216cc97085952ba8310e1eaf42519c60409e
+  darwin_amd64: fae2af5337df5f36a9b88f21060bc01384f5905612f9c36303179d46e04b6edc
+  linux_amd64: 5581f10dfc0966ac5a6c386140debb38f3642cc982ab0c36647e34ab2f408abd
+  linux_arm64: 75663ef3635622dc2882b99012535edcdf0a684d6a15cbd503edd2f4ae48dba5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - libaec
+  - open-mpi
+  - pkgconf

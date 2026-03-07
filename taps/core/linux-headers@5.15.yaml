@@ -1,0 +1,15 @@
+name: linux-headers@5.15
+version: 5.15.202
+description: Header files of the Linux kernel
+homepage: https://kernel.org/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linux-headers/5.15/blobs/sha256:1b5ab4028d4aead8e55c71fbcd62811ea37368a5e2dbe26ec8cfe472d2e8ad9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linux-headers/5.15/blobs/sha256:12cc44a56a7a8bb79473df38494801b0989c7250d3e65709b06268c66ab9bb8e
+sha256:
+  linux_amd64: 1b5ab4028d4aead8e55c71fbcd62811ea37368a5e2dbe26ec8cfe472d2e8ad9b
+  linux_arm64: 12cc44a56a7a8bb79473df38494801b0989c7250d3e65709b06268c66ab9bb8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

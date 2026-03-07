@@ -1,0 +1,21 @@
+name: msieve
+version: 1.53
+description: C library for factoring large integers
+homepage: https://sourceforge.net/projects/msieve/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msieve/blobs/sha256:7e5d447bbc245a2b91d8993937c87c8e559678ebd68f972905d6c11e0d2b29bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msieve/blobs/sha256:ca06f592fd7bc5ab600f422c05facec833296457fc5b9f511d80eae85b9537f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msieve/blobs/sha256:00366a1231d99d1ecb28d24e714467b1a5f4437504934d882fcb64fc35338ee5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msieve/blobs/sha256:5f469949e04536f662b6f3d7f8a4afdded9af65d7f4feefcb7fd9670dd92f3e0
+sha256:
+  darwin_arm64: 7e5d447bbc245a2b91d8993937c87c8e559678ebd68f972905d6c11e0d2b29bf
+  darwin_amd64: ca06f592fd7bc5ab600f422c05facec833296457fc5b9f511d80eae85b9537f3
+  linux_amd64: 00366a1231d99d1ecb28d24e714467b1a5f4437504934d882fcb64fc35338ee5
+  linux_arm64: 5f469949e04536f662b6f3d7f8a4afdded9af65d7f4feefcb7fd9670dd92f3e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

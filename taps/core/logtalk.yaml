@@ -1,0 +1,21 @@
+name: logtalk
+version: 3.98.0
+description: Declarative object-oriented logic programming language
+homepage: https://logtalk.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logtalk/blobs/sha256:50aa92bf60fd3556eb9046df3c1ea4789c16bde6df8391490cd09b9dd52efc7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logtalk/blobs/sha256:3f14fe024b95a7c4ba7a07be8abc9bbb92bbc18ace25f6ea715ce98b9dcaf2fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logtalk/blobs/sha256:45a65c968c01b138fafc1266ff782ae9acdb7bc87c4569b09e283800a0d4c54d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logtalk/blobs/sha256:b7d1b05f0604a36d04f322d00a4e463c6f0d19ac783c5633c6aa04d8b9844a9f
+sha256:
+  darwin_arm64: 50aa92bf60fd3556eb9046df3c1ea4789c16bde6df8391490cd09b9dd52efc7b
+  darwin_amd64: 3f14fe024b95a7c4ba7a07be8abc9bbb92bbc18ace25f6ea715ce98b9dcaf2fb
+  linux_amd64: 45a65c968c01b138fafc1266ff782ae9acdb7bc87c4569b09e283800a0d4c54d
+  linux_arm64: b7d1b05f0604a36d04f322d00a4e463c6f0d19ac783c5633c6aa04d8b9844a9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnu-prolog

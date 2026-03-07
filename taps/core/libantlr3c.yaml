@@ -1,0 +1,19 @@
+name: libantlr3c
+version: 3.5.3
+description: ANTLRv3 parsing library for C
+homepage: https://www.antlr3.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libantlr3c/blobs/sha256:c221434cbb3dd54168524ef68ab781c223a5d4c70f33b5602feba6c3ee31af69
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libantlr3c/blobs/sha256:44452d698280968ce15b8d7711a1ef1afc33d94cbecce5e1cfaebfe6d1a11393
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libantlr3c/blobs/sha256:89ea3b6e05a369ef0cf3d5ab56e1d98bd9a1507a77f5344da79b5ea12f7123f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libantlr3c/blobs/sha256:23ffc02de7c8d3dd2b5db131e584aafd3d12c580a81ff7ff37f905d06214c54a
+sha256:
+  darwin_arm64: c221434cbb3dd54168524ef68ab781c223a5d4c70f33b5602feba6c3ee31af69
+  darwin_amd64: 44452d698280968ce15b8d7711a1ef1afc33d94cbecce5e1cfaebfe6d1a11393
+  linux_amd64: 89ea3b6e05a369ef0cf3d5ab56e1d98bd9a1507a77f5344da79b5ea12f7123f6
+  linux_arm64: 23ffc02de7c8d3dd2b5db131e584aafd3d12c580a81ff7ff37f905d06214c54a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

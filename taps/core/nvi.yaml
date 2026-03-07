@@ -1,0 +1,21 @@
+name: nvi
+version: 1.81.6
+description: 44BSD re-implementation of vi
+homepage: https://repo.or.cz/nvi.git
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nvi/blobs/sha256:aa9ca9f2bf556b19378cc59734101a3fd3ae96a4221589f4c39f0a2690c25e3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nvi/blobs/sha256:b471e00997873dd4a5b2841487af7ba9a403e1eb803aeab7d2326c27f1bc9b73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nvi/blobs/sha256:d8eb6c0c8a8eef36a09bf55e35ced6d2e2afb4d75a70d93d96e88d9cbd5c4b56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nvi/blobs/sha256:77dc49d28cfd69d761ae59838253f8ee295a2f966eacd89ca3e3d4b2499e890a
+sha256:
+  darwin_arm64: aa9ca9f2bf556b19378cc59734101a3fd3ae96a4221589f4c39f0a2690c25e3e
+  darwin_amd64: b471e00997873dd4a5b2841487af7ba9a403e1eb803aeab7d2326c27f1bc9b73
+  linux_amd64: d8eb6c0c8a8eef36a09bf55e35ced6d2e2afb4d75a70d93d96e88d9cbd5c4b56
+  linux_arm64: 77dc49d28cfd69d761ae59838253f8ee295a2f966eacd89ca3e3d4b2499e890a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5

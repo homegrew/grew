@@ -1,0 +1,19 @@
+name: goat
+version: 0.2.2
+description: General purpose AT Protocol CLI in Go
+homepage: https://github.com/bluesky-social/goat
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goat/blobs/sha256:e39513caf89997046ba0ca71465786d825f508c802664f319c62930fd3adaabe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goat/blobs/sha256:70bc4af94d8a6abf480f57d28cc87ff10dac480e8f2d949082462fd44f75d453
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goat/blobs/sha256:b72ea449365c79b6a117fc9da331d936418896af06d2827a43d3adeb157456c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goat/blobs/sha256:05df26aa557900203f1bfff7f5838fc5668b6bbcee84dd8cd83139df9776772e
+sha256:
+  darwin_arm64: e39513caf89997046ba0ca71465786d825f508c802664f319c62930fd3adaabe
+  darwin_amd64: 70bc4af94d8a6abf480f57d28cc87ff10dac480e8f2d949082462fd44f75d453
+  linux_amd64: b72ea449365c79b6a117fc9da331d936418896af06d2827a43d3adeb157456c1
+  linux_arm64: 05df26aa557900203f1bfff7f5838fc5668b6bbcee84dd8cd83139df9776772e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

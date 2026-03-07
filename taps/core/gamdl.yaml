@@ -1,0 +1,24 @@
+name: gamdl
+version: 2.9.2
+description: Python CLI app for downloading Apple Music songs, music videos and post videos
+homepage: https://github.com/glomatico/gamdl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gamdl/blobs/sha256:ae7f216a02659b7cbfed9a796bcf353de56de0f7a34d7740e3abccaa8f3fd6f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gamdl/blobs/sha256:0a0e9335e616a32d80fd233b1e471bcd46964d22f0f0dd7e6de960eb6218fe73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gamdl/blobs/sha256:4ce10b8250d0ee9296f645f8fb4665cad7a57197c5d3a38b4fdf9d22eb452b03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gamdl/blobs/sha256:c8afedcd6ee07079e2fdffa5f09136f4ca4655bb824ab80a9b663abe3d66ff69
+sha256:
+  darwin_arm64: ae7f216a02659b7cbfed9a796bcf353de56de0f7a34d7740e3abccaa8f3fd6f8
+  darwin_amd64: 0a0e9335e616a32d80fd233b1e471bcd46964d22f0f0dd7e6de960eb6218fe73
+  linux_amd64: 4ce10b8250d0ee9296f645f8fb4665cad7a57197c5d3a38b4fdf9d22eb452b03
+  linux_arm64: c8afedcd6ee07079e2fdffa5f09136f4ca4655bb824ab80a9b663abe3d66ff69
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pillow
+  - python@3.14

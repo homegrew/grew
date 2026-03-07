@@ -1,0 +1,19 @@
+name: sentry-native
+version: 0.13.1
+description: Sentry SDK for C, C++ and native applications
+homepage: https://docs.sentry.io/platforms/native/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sentry-native/blobs/sha256:ede7bba1e037ab3085a13f2fc41503a28dcb4ec5f6f49d6c2f002f477552adec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sentry-native/blobs/sha256:d9fd7d3c4e796d0dec25d2c779559d147c95724e04477544c842d20c64534660
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sentry-native/blobs/sha256:3bc9c8f67feb595a08b7b3e98634b64358457a320fce242d2f6b61676024bd96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sentry-native/blobs/sha256:657db7b8aec49041f6b523b3a6e7bab07db952e5bbd85f72d91d83af19ef6b56
+sha256:
+  darwin_arm64: ede7bba1e037ab3085a13f2fc41503a28dcb4ec5f6f49d6c2f002f477552adec
+  darwin_amd64: d9fd7d3c4e796d0dec25d2c779559d147c95724e04477544c842d20c64534660
+  linux_amd64: 3bc9c8f67feb595a08b7b3e98634b64358457a320fce242d2f6b61676024bd96
+  linux_arm64: 657db7b8aec49041f6b523b3a6e7bab07db952e5bbd85f72d91d83af19ef6b56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

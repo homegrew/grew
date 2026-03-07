@@ -1,0 +1,19 @@
+name: kube-score
+version: 1.20.0
+description: Kubernetes object analysis recommendations for improved reliability and security
+homepage: https://kube-score.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kube-score/blobs/sha256:f56227624dd0d4980bddcaa35592e0848a44dced318dcb595838eec62bf8b835
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kube-score/blobs/sha256:5c6eef05adc999c965abb8fbfe2e87845b4ae9dcd48109648350823fb755c861
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kube-score/blobs/sha256:69f6522e699234368ab760c7c0f55b66cb5fa9c020c923d9656248c56de0e169
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kube-score/blobs/sha256:3d8264d94b19a2eb76c3e07f8dfb29ea87127d0941c5d3bb53bea0202b93ebc0
+sha256:
+  darwin_arm64: f56227624dd0d4980bddcaa35592e0848a44dced318dcb595838eec62bf8b835
+  darwin_amd64: 5c6eef05adc999c965abb8fbfe2e87845b4ae9dcd48109648350823fb755c861
+  linux_amd64: 69f6522e699234368ab760c7c0f55b66cb5fa9c020c923d9656248c56de0e169
+  linux_arm64: 3d8264d94b19a2eb76c3e07f8dfb29ea87127d0941c5d3bb53bea0202b93ebc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

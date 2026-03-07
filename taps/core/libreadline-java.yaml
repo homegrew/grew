@@ -1,0 +1,22 @@
+name: libreadline-java
+version: 0.8.4
+description: Port of GNU readline for Java
+homepage: https://github.com/aclemons/java-readline
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libreadline-java/blobs/sha256:c0be01dc30e16481895ced158022bde0abd47698532406fe694974695f028e17
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libreadline-java/blobs/sha256:214bbffd99c95123e7b2fbb4758ae0d911a39d3ca0fc03d9c5fab6429109edc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libreadline-java/blobs/sha256:a8ae93ee446d1a424cb6d17d8103d0a86fc0d964b0247852cc710872897349b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libreadline-java/blobs/sha256:6bbf05f7d0a1176b8daf2dd9d01da8bf1708abe03c3c34506ce9b78f327cc341
+sha256:
+  darwin_arm64: c0be01dc30e16481895ced158022bde0abd47698532406fe694974695f028e17
+  darwin_amd64: 214bbffd99c95123e7b2fbb4758ae0d911a39d3ca0fc03d9c5fab6429109edc2
+  linux_amd64: a8ae93ee446d1a424cb6d17d8103d0a86fc0d964b0247852cc710872897349b8
+  linux_arm64: 6bbf05f7d0a1176b8daf2dd9d01da8bf1708abe03c3c34506ce9b78f327cc341
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk
+  - readline

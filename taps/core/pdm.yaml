@@ -1,0 +1,22 @@
+name: pdm
+version: 2.26.6
+description: Modern Python package and dependency manager supporting the latest PEP standards
+homepage: https://pdm-project.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdm/blobs/sha256:401e3231737685d6c0300e17aa4a0c9e5dce98a76a23612457be78077b17113e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdm/blobs/sha256:6cd1f6c3877f9895bc40611b79b5f376d98a4fa082b502f351c629b1ae1c8b34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdm/blobs/sha256:4f75c0002f6f6088c5254bf7d00f750a8675fb077ed9c4f8b94131efc7a7bd4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdm/blobs/sha256:dfbf514f0bb3dee483ce23dce534dbc2b8b70056833adab1255b86cb580e0881
+sha256:
+  darwin_arm64: 401e3231737685d6c0300e17aa4a0c9e5dce98a76a23612457be78077b17113e
+  darwin_amd64: 6cd1f6c3877f9895bc40611b79b5f376d98a4fa082b502f351c629b1ae1c8b34
+  linux_amd64: 4f75c0002f6f6088c5254bf7d00f750a8675fb077ed9c4f8b94131efc7a7bd4a
+  linux_arm64: dfbf514f0bb3dee483ce23dce534dbc2b8b70056833adab1255b86cb580e0881
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

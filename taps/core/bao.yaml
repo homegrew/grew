@@ -1,0 +1,19 @@
+name: bao
+version: 0.13.1
+description: Implementation of BLAKE3 verified streaming
+homepage: https://github.com/oconnor663/bao
+license: Apache-2.0 OR CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bao/blobs/sha256:9825859095cd723bb032520fe1548c694f4a413a42e874525c7dd5e16d0340f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bao/blobs/sha256:3f56a2a03eb3c7c5087b44266136a6f90f868f1f312731811fcb2866d421113e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bao/blobs/sha256:02ccf54ad8acabb8b7504b3b9e6ba699a50f96cd487f89a2859ba565b6476de2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bao/blobs/sha256:e61983b766ac21aadef6a9afa6d4bea203c87dea271b180be9a2fe9554e81bd2
+sha256:
+  darwin_arm64: 9825859095cd723bb032520fe1548c694f4a413a42e874525c7dd5e16d0340f7
+  darwin_amd64: 3f56a2a03eb3c7c5087b44266136a6f90f868f1f312731811fcb2866d421113e
+  linux_amd64: 02ccf54ad8acabb8b7504b3b9e6ba699a50f96cd487f89a2859ba565b6476de2
+  linux_arm64: e61983b766ac21aadef6a9afa6d4bea203c87dea271b180be9a2fe9554e81bd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,64 @@
+name: gdal
+version: 3.12.2
+description: Geospatial Data Abstraction Library
+homepage: https://gdal.org/en/stable/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdal/blobs/sha256:d6c2cf070c3e93fb6ed0ec2493ab083f39cced2967b593a55cc07eaf3c809d84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdal/blobs/sha256:011e3ecd47a1f0ba8507ed13e3c379819a9fb89755054e1e5d0cf99bcffa8a0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdal/blobs/sha256:77732d353a4680d7bbcfa551f18e178476e158c3d0841736b168bf70a547d653
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdal/blobs/sha256:7d9b46652a12074c977661c7b544fc3ed9687c7501a95ec8dab3b6b7197fa778
+sha256:
+  darwin_arm64: d6c2cf070c3e93fb6ed0ec2493ab083f39cced2967b593a55cc07eaf3c809d84
+  darwin_amd64: 011e3ecd47a1f0ba8507ed13e3c379819a9fb89755054e1e5d0cf99bcffa8a0c
+  linux_amd64: 77732d353a4680d7bbcfa551f18e178476e158c3d0841736b168bf70a547d653
+  linux_arm64: 7d9b46652a12074c977661c7b544fc3ed9687c7501a95ec8dab3b6b7197fa778
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-arrow
+  - c-blosc
+  - cfitsio
+  - epsilon
+  - freexl
+  - geos
+  - giflib
+  - hdf5
+  - imath
+  - jpeg-turbo
+  - jpeg-xl
+  - json-c
+  - libaec
+  - libarchive
+  - libdeflate
+  - libgeotiff
+  - libheif
+  - libkml
+  - liblerc
+  - libpng
+  - libpq
+  - libspatialite
+  - libtiff
+  - libxml2
+  - lz4
+  - netcdf
+  - numpy
+  - openexr
+  - openjpeg
+  - openssl@3
+  - pcre2
+  - poppler
+  - proj
+  - python@3.14
+  - qhull
+  - sfcgal
+  - sqlite
+  - unixodbc
+  - webp
+  - xerces-c
+  - xz
+  - zstd
+  - minizip
+  - uriparser

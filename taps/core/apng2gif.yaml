@@ -1,0 +1,21 @@
+name: apng2gif
+version: 1.8
+description: Convert APNG animations into animated GIF format
+homepage: https://apng2gif.sourceforge.net/
+license: libpng-2.0 AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apng2gif/blobs/sha256:ed45a01466de66b866f9b894a9a12299c51b2f663facd8af4d262429b9507ada
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apng2gif/blobs/sha256:d8ac4e2fb2ec309f7eb0b5fb0ad011166cb37884b2090fbbf839f78277436ec4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apng2gif/blobs/sha256:f98dfacc9457ddd5742ff27448fdd3b51dbd1445a586447327404bcb0028b72a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apng2gif/blobs/sha256:e05a9e7698a6e549570520d9c2edbd687265df5b5a7fc5d806d8c525b178fd6c
+sha256:
+  darwin_arm64: ed45a01466de66b866f9b894a9a12299c51b2f663facd8af4d262429b9507ada
+  darwin_amd64: d8ac4e2fb2ec309f7eb0b5fb0ad011166cb37884b2090fbbf839f78277436ec4
+  linux_amd64: f98dfacc9457ddd5742ff27448fdd3b51dbd1445a586447327404bcb0028b72a
+  linux_arm64: e05a9e7698a6e549570520d9c2edbd687265df5b5a7fc5d806d8c525b178fd6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

@@ -1,0 +1,11 @@
+name: aks-desktop
+version: 0.2.0-alpha
+description: Azure Kubernetes Service desktop application
+homepage: https://github.com/Azure/aks-desktop
+url:
+  darwin_arm64: https://github.com/Azure/aks-desktop/releases/download/v0.2.0-alpha/aks-desktop-0.2.0-alpha-mac-arm64.dmg
+sha256:
+  darwin_arm64: 52036ea4eee782b9f55313a59cae50744feb211bd2913e5b13ae48aec6f21f04
+artifacts:
+  app:
+    - AKS desktop.app

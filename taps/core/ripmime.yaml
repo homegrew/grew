@@ -1,0 +1,19 @@
+name: ripmime
+version: 1.4.1.0
+description: Extract attachments out of MIME encoded email packages
+homepage: https://pldaniels.com/ripmime/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ripmime/blobs/sha256:5736f080200de4ac8a01866619a98584ddb207bc38d62c41654c620bb4a8528e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ripmime/blobs/sha256:a3342a8eae88a0e8f24d5e87cda7d85b8dd4520161df950ada402e6ef7cc37b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ripmime/blobs/sha256:f64dee6f786e2e7a99a7fa792cce03ea36ba3b6604493f7e90e02a80670e5749
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ripmime/blobs/sha256:b083ab553fbe5c9106133acdd28ee36820df2352481e4188f1069e77d492d6ca
+sha256:
+  darwin_arm64: 5736f080200de4ac8a01866619a98584ddb207bc38d62c41654c620bb4a8528e
+  darwin_amd64: a3342a8eae88a0e8f24d5e87cda7d85b8dd4520161df950ada402e6ef7cc37b7
+  linux_amd64: f64dee6f786e2e7a99a7fa792cce03ea36ba3b6604493f7e90e02a80670e5749
+  linux_arm64: b083ab553fbe5c9106133acdd28ee36820df2352481e4188f1069e77d492d6ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

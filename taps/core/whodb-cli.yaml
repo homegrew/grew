@@ -1,0 +1,19 @@
+name: whodb-cli
+version: 0.97.0
+description: Database management CLI with TUI interface, MCP server support, AI, and more
+homepage: https://whodb.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/whodb-cli/blobs/sha256:b5694a282491ea51127ce28571de2403017d1dfff789ff2b11b050377d614da9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/whodb-cli/blobs/sha256:cd44d1ab8d10c0eb1f9078626bdace837d8fc4d108849bd95f952ed49a80f559
+  linux_amd64: https://ghcr.io/v2/homebrew/core/whodb-cli/blobs/sha256:f1ca75cc80d2f4bea845045ed6c44c08c200617e03765f2a71958aec378d71ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/whodb-cli/blobs/sha256:6c8e177331adbdaff4b8145b8e1794213f1903ad8f4e1e80a3230baf0d39e03b
+sha256:
+  darwin_arm64: b5694a282491ea51127ce28571de2403017d1dfff789ff2b11b050377d614da9
+  darwin_amd64: cd44d1ab8d10c0eb1f9078626bdace837d8fc4d108849bd95f952ed49a80f559
+  linux_amd64: f1ca75cc80d2f4bea845045ed6c44c08c200617e03765f2a71958aec378d71ac
+  linux_arm64: 6c8e177331adbdaff4b8145b8e1794213f1903ad8f4e1e80a3230baf0d39e03b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

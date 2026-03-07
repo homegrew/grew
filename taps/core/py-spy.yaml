@@ -1,0 +1,19 @@
+name: py-spy
+version: 0.4.1
+description: Sampling profiler for Python programs
+homepage: https://github.com/benfred/py-spy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/py-spy/blobs/sha256:5c57da0e3df21cd321b23697cf85e673332e3117f65884b36dd3878c6220d493
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/py-spy/blobs/sha256:a40ac52cfac0d14364a85f73c76a908c70c0d218e4014081c6751eecae51164f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/py-spy/blobs/sha256:3a7074dd2174a4cd2980518b33cb54e59883a7a90e4c04553dae7a5cc5dcba1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/py-spy/blobs/sha256:45f6a6fa9597398cf748e685d1edef0c898f84319213a3ebdfdc1186945a0680
+sha256:
+  darwin_arm64: 5c57da0e3df21cd321b23697cf85e673332e3117f65884b36dd3878c6220d493
+  darwin_amd64: a40ac52cfac0d14364a85f73c76a908c70c0d218e4014081c6751eecae51164f
+  linux_amd64: 3a7074dd2174a4cd2980518b33cb54e59883a7a90e4c04553dae7a5cc5dcba1b
+  linux_arm64: 45f6a6fa9597398cf748e685d1edef0c898f84319213a3ebdfdc1186945a0680
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

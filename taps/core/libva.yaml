@@ -1,0 +1,22 @@
+name: libva
+version: 2.23.0
+description: Hardware accelerated video processing library
+homepage: https://github.com/intel/libva
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libva/blobs/sha256:8704b8b1f7a6086d6d7393aa9ecbc6a497d0b9cd362a8cfa342dfe41a3afb8fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libva/blobs/sha256:3c827c66f7377b89450f494ead843b57bcdee01d5ea65e84b7ba152f0090b558
+sha256:
+  linux_amd64: 8704b8b1f7a6086d6d7393aa9ecbc6a497d0b9cd362a8cfa342dfe41a3afb8fe
+  linux_arm64: 3c827c66f7377b89450f494ead843b57bcdee01d5ea65e84b7ba152f0090b558
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdrm
+  - libx11
+  - libxcb
+  - libxext
+  - libxfixes
+  - wayland

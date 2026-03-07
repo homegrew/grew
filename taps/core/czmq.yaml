@@ -1,0 +1,22 @@
+name: czmq
+version: 4.2.1
+description: High-level C binding for ZeroMQ
+homepage: http://czmq.zeromq.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/czmq/blobs/sha256:256774bf2e64754f05e01944246e707c92472656a9d9b7680962a0ecf6372ddf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/czmq/blobs/sha256:dc9cc7878cc5660a6b8a16c59bc158519aa391e26d2e9ddec744895bb52c0b9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/czmq/blobs/sha256:376bc4229fd95f09cf0fed87437a5b7ede0698f2846abd1199cde96aae7a86fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/czmq/blobs/sha256:55340fbd1cbc1236fd899f432fcbf4501f9ec3761c7e3d141a0efd3e807fe75d
+sha256:
+  darwin_arm64: 256774bf2e64754f05e01944246e707c92472656a9d9b7680962a0ecf6372ddf
+  darwin_amd64: dc9cc7878cc5660a6b8a16c59bc158519aa391e26d2e9ddec744895bb52c0b9b
+  linux_amd64: 376bc4229fd95f09cf0fed87437a5b7ede0698f2846abd1199cde96aae7a86fe
+  linux_arm64: 55340fbd1cbc1236fd899f432fcbf4501f9ec3761c7e3d141a0efd3e807fe75d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - zeromq

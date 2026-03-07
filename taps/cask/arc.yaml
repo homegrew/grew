@@ -1,0 +1,11 @@
+name: arc
+version: 1.137.0,76310
+description: Chromium based browser
+homepage: https://arc.net/
+url:
+  darwin_arm64: https://releases.arc.net/release/Arc-1.137.0-76310.zip
+sha256:
+  darwin_arm64: 264dd9f518369299eeb695d3f09c29dc1c726a0922c46ab347d2f30fe958fb72
+artifacts:
+  app:
+    - Arc.app

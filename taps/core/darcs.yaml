@@ -1,0 +1,21 @@
+name: darcs
+version: 2.18.5
+description: Distributed version control system that tracks changes, via Haskell
+homepage: https://darcs.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/darcs/blobs/sha256:b136e4dddca375c9cbbcc9a7dbb428e39d76e5281efd34bf6f8d0242386d9aef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/darcs/blobs/sha256:9735bb1d1d9a86199a42b26815311db4f9c1953e1329ffe2ded96a6a14437f38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/darcs/blobs/sha256:d38c3251fefc0ff7e1dfbdf9ed4455eac8b4a001a26a1dc7cfeda90c646f7717
+  linux_arm64: https://ghcr.io/v2/homebrew/core/darcs/blobs/sha256:025db6a2cfdc508f1acf571bc802f4d93519b4877a79869b826427d83b2d5b83
+sha256:
+  darwin_arm64: b136e4dddca375c9cbbcc9a7dbb428e39d76e5281efd34bf6f8d0242386d9aef
+  darwin_amd64: 9735bb1d1d9a86199a42b26815311db4f9c1953e1329ffe2ded96a6a14437f38
+  linux_amd64: d38c3251fefc0ff7e1dfbdf9ed4455eac8b4a001a26a1dc7cfeda90c646f7717
+  linux_arm64: 025db6a2cfdc508f1acf571bc802f4d93519b4877a79869b826427d83b2d5b83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

@@ -1,0 +1,19 @@
+name: mdp
+version: 1.0.18
+description: Command-line based markdown presentation tool
+homepage: https://github.com/visit1985/mdp
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdp/blobs/sha256:1427d8626e29d6015170cc1f80d049e4c4f4b4ea04a92e510696b93c1f22a1e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdp/blobs/sha256:fb2933d0f75d822eed5ff6f6dffeaaed000ea28737369f90cf234e8e7c296cec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdp/blobs/sha256:c8027ddc1b08d523ff38474c5f95ae518d39900afd5ca57a800c1f34c1d064ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdp/blobs/sha256:92778dc9a394d2395627091c21f3f51cd1afa7431a2eb1e1d836b12e2f9e83e0
+sha256:
+  darwin_arm64: 1427d8626e29d6015170cc1f80d049e4c4f4b4ea04a92e510696b93c1f22a1e5
+  darwin_amd64: fb2933d0f75d822eed5ff6f6dffeaaed000ea28737369f90cf234e8e7c296cec
+  linux_amd64: c8027ddc1b08d523ff38474c5f95ae518d39900afd5ca57a800c1f34c1d064ae
+  linux_arm64: 92778dc9a394d2395627091c21f3f51cd1afa7431a2eb1e1d836b12e2f9e83e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: aiken
+version: 1.1.21
+description: Modern smart contract platform for Cardano
+homepage: https://aiken-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aiken/blobs/sha256:7c9ae36751833384d16c8a4df43c8fb3ef0755d4b05d3363486b48e54ee207d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aiken/blobs/sha256:cac6ef2d9163db78866a858eb745edbda9d016956dcf08f0f7d1ad5a3c2e38bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aiken/blobs/sha256:2dd61e0126ab3d0b44ea3e085d69d20b36c9fec4cd36fd8431236514d1ec70d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aiken/blobs/sha256:87156bc45bd1fe859eeaebb4307725e38b8ce9098551efec869574f2ce509bc7
+sha256:
+  darwin_arm64: 7c9ae36751833384d16c8a4df43c8fb3ef0755d4b05d3363486b48e54ee207d4
+  darwin_amd64: cac6ef2d9163db78866a858eb745edbda9d016956dcf08f0f7d1ad5a3c2e38bc
+  linux_amd64: 2dd61e0126ab3d0b44ea3e085d69d20b36c9fec4cd36fd8431236514d1ec70d7
+  linux_arm64: 87156bc45bd1fe859eeaebb4307725e38b8ce9098551efec869574f2ce509bc7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

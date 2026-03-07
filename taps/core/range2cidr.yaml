@@ -1,0 +1,19 @@
+name: range2cidr
+version: 1.3.0
+description: Converts IP ranges to CIDRs
+homepage: https://ipinfo.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/range2cidr/blobs/sha256:222dc28cb19073d0c6d8a68b9a6d26085c247600eb7d99ae4140a46fe78172a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/range2cidr/blobs/sha256:281b35fa3d1b4294e263c6624e5938051f7fd69de1c418572ea466eaba9c56fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/range2cidr/blobs/sha256:738f9617ee60fef2ec1f30930b45dfc633d4f65ccdb97659d9d311aa52eb9c2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/range2cidr/blobs/sha256:73c474acb521c2a4ed1a79ec3e94851b9d7c25049c92bef5a0f85d2849c82196
+sha256:
+  darwin_arm64: 222dc28cb19073d0c6d8a68b9a6d26085c247600eb7d99ae4140a46fe78172a7
+  darwin_amd64: 281b35fa3d1b4294e263c6624e5938051f7fd69de1c418572ea466eaba9c56fd
+  linux_amd64: 738f9617ee60fef2ec1f30930b45dfc633d4f65ccdb97659d9d311aa52eb9c2a
+  linux_arm64: 73c474acb521c2a4ed1a79ec3e94851b9d7c25049c92bef5a0f85d2849c82196
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

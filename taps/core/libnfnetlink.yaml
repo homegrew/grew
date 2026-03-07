@@ -1,0 +1,15 @@
+name: libnfnetlink
+version: 1.0.2
+description: Low-level library for netfilter related communication
+homepage: https://www.netfilter.org/projects/libnfnetlink
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnfnetlink/blobs/sha256:927f6b62c2f87ff79d92d07e52bb312d3fb24731e694cc804179730b08f15eae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnfnetlink/blobs/sha256:29a3d3fc305c9252a22b3bce85447d2f895924c959185c00889cedc2d23fc78b
+sha256:
+  linux_amd64: 927f6b62c2f87ff79d92d07e52bb312d3fb24731e694cc804179730b08f15eae
+  linux_arm64: 29a3d3fc305c9252a22b3bce85447d2f895924c959185c00889cedc2d23fc78b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

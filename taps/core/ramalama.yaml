@@ -1,0 +1,24 @@
+name: ramalama
+version: 0.17.1
+description: Goal of RamaLama is to make working with AI boring
+homepage: https://github.com/containers/ramalama
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ramalama/blobs/sha256:c117d55f78edc01689de31faeb5e7286709f516c22ea3787aa0db54bb11086b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ramalama/blobs/sha256:f33e14d34089e20350f38c817d91a5448704dc62dc1cacd0bd0cf7cdee167831
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ramalama/blobs/sha256:d5e5be95e3d030b9a99be0bee3dad3fe3ee869b5045d5b57ce38c47ea0c26ca1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ramalama/blobs/sha256:b546840de2619b3b781de6b8ccfc18de42b9ff3bafa36f76bf021e16c34e1c88
+sha256:
+  darwin_arm64: c117d55f78edc01689de31faeb5e7286709f516c22ea3787aa0db54bb11086b5
+  darwin_amd64: f33e14d34089e20350f38c817d91a5448704dc62dc1cacd0bd0cf7cdee167831
+  linux_amd64: d5e5be95e3d030b9a99be0bee3dad3fe3ee869b5045d5b57ce38c47ea0c26ca1
+  linux_arm64: b546840de2619b3b781de6b8ccfc18de42b9ff3bafa36f76bf021e16c34e1c88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+  - rpds-py
+  - llama.cpp

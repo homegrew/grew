@@ -1,0 +1,29 @@
+name: libhandy
+version: 1.8.3
+description: Building blocks for modern adaptive GNOME apps
+homepage: https://gitlab.gnome.org/GNOME/libhandy
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libhandy/blobs/sha256:620cf34883ae285873425a4f3ffa156b78e8b696872bd20b425008488ad0d232
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libhandy/blobs/sha256:b7451a9bbf91864a025ac3df2473f9dc91398b22d3994f4cc9907344e9be6f1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libhandy/blobs/sha256:6b470387d368374a5834bb3a73c2d0fcc4cc16121e785a064913735356581e85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libhandy/blobs/sha256:9c76cf625f3b293b62040fd9663afb365c5606479dd08b37871304e7e913f6b8
+sha256:
+  darwin_arm64: 620cf34883ae285873425a4f3ffa156b78e8b696872bd20b425008488ad0d232
+  darwin_amd64: b7451a9bbf91864a025ac3df2473f9dc91398b22d3994f4cc9907344e9be6f1f
+  linux_amd64: 6b470387d368374a5834bb3a73c2d0fcc4cc16121e785a064913735356581e85
+  linux_arm64: 9c76cf625f3b293b62040fd9663afb365c5606479dd08b37871304e7e913f6b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - fribidi
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango
+  - gettext
+  - harfbuzz

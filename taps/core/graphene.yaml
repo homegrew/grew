@@ -1,0 +1,22 @@
+name: graphene
+version: 1.10.8
+description: Thin layer of graphic data types
+homepage: https://ebassi.github.io/graphene/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/graphene/blobs/sha256:b6625af7453d52f016d1218f609bc2044066b81331b90a1536522441b7919816
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/graphene/blobs/sha256:021ca247560b884ece3425e9983b6dea68cc6b87b54ab3cdb2e79e3395597392
+  linux_amd64: https://ghcr.io/v2/homebrew/core/graphene/blobs/sha256:978a8d282c1d1715f11bc6e701441b843a99c8520ac8108016b224932c6c03a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/graphene/blobs/sha256:52e0d23dec6fe643e39b1c080895943d6b253eeb84727928ce249cdda221747e
+sha256:
+  darwin_arm64: b6625af7453d52f016d1218f609bc2044066b81331b90a1536522441b7919816
+  darwin_amd64: 021ca247560b884ece3425e9983b6dea68cc6b87b54ab3cdb2e79e3395597392
+  linux_amd64: 978a8d282c1d1715f11bc6e701441b843a99c8520ac8108016b224932c6c03a5
+  linux_arm64: 52e0d23dec6fe643e39b1c080895943d6b253eeb84727928ce249cdda221747e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

@@ -1,0 +1,11 @@
+name: gather
+version: 1.35.1
+description: Virtual video-calling space
+homepage: https://gather.town/
+url:
+  darwin_arm64: https://github.com/gathertown/gather-town-desktop-releases/releases/download/v1.35.1/Gather-1.35.1-arm64-mac.zip
+sha256:
+  darwin_arm64: 750b97a7840fb7ee8d23d931e3e1794050e62115d30e816968d02b0f4e962ef0
+artifacts:
+  app:
+    - Gather.app

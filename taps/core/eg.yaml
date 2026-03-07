@@ -1,0 +1,21 @@
+name: eg
+version: 1.02
+description: Expert Guide. Norton Guide Reader For GNU/Linux
+homepage: https://github.com/davep/eg
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eg/blobs/sha256:8edac665cd76232a32ac5bb583b8002fa084c089a399a3d0c34e6843176fa47b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eg/blobs/sha256:c82715ba3e91d77768529faebc425026682ba44bd272a10d41dd8a5245e6291e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eg/blobs/sha256:b56cf6712f27d8ec7ef757e04232e7d67921566701656a983a4eedcba812843f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eg/blobs/sha256:99299828caf70e443733441b290c14d8a3c4fdb74de9f5d63be1678ca7ca88fc
+sha256:
+  darwin_arm64: 8edac665cd76232a32ac5bb583b8002fa084c089a399a3d0c34e6843176fa47b
+  darwin_amd64: c82715ba3e91d77768529faebc425026682ba44bd272a10d41dd8a5245e6291e
+  linux_amd64: b56cf6712f27d8ec7ef757e04232e7d67921566701656a983a4eedcba812843f
+  linux_arm64: 99299828caf70e443733441b290c14d8a3c4fdb74de9f5d63be1678ca7ca88fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - s-lang

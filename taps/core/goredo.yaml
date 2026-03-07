@@ -1,0 +1,19 @@
+name: goredo
+version: 2.9.1
+description: "Go implementation of djb's redo, a Makefile replacement that sucks less"
+homepage: https://goredo.dabase.com/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goredo/blobs/sha256:39594646d5886a2fed9a3574dd80ee2269c37a653962338a5bc013907b8c2be9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goredo/blobs/sha256:b978e1253e230cea88f12e5a6a30e29b051b552fda6d739939bc3b6ba1faf4ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goredo/blobs/sha256:eaed3d7c4a251b26f67767ba92951a43ed1f89f5414fb25b9ba781d5c96cb5bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goredo/blobs/sha256:0951d98cb61b0d9da7152f5209c06100b17a9d6677b8647444ecdd15ff481f2b
+sha256:
+  darwin_arm64: 39594646d5886a2fed9a3574dd80ee2269c37a653962338a5bc013907b8c2be9
+  darwin_amd64: b978e1253e230cea88f12e5a6a30e29b051b552fda6d739939bc3b6ba1faf4ef
+  linux_amd64: eaed3d7c4a251b26f67767ba92951a43ed1f89f5414fb25b9ba781d5c96cb5bb
+  linux_arm64: 0951d98cb61b0d9da7152f5209c06100b17a9d6677b8647444ecdd15ff481f2b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

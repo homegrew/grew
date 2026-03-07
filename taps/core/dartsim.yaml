@@ -1,0 +1,35 @@
+name: dartsim
+version: 6.16.7
+description: Dynamic Animation and Robotics Toolkit
+homepage: https://dartsim.github.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dartsim/blobs/sha256:dcbf0408267da7cfe6be73ac03fde0da400b87252135e36d6c4ac96d7aa15891
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dartsim/blobs/sha256:f526a59eb77d8f16f7fbba5f1a2ab47c8c1396d1f14f84cfe6c07bec1681025e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dartsim/blobs/sha256:2a2caf269b29404c8bf9329963183b0eea63d459fe0bd04aa7f310342b965838
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dartsim/blobs/sha256:2bd1c628019da80cd34a8a09a492d7e770540cf6f78500588666ef1728ba694f
+sha256:
+  darwin_arm64: dcbf0408267da7cfe6be73ac03fde0da400b87252135e36d6c4ac96d7aa15891
+  darwin_amd64: f526a59eb77d8f16f7fbba5f1a2ab47c8c1396d1f14f84cfe6c07bec1681025e
+  linux_amd64: 2a2caf269b29404c8bf9329963183b0eea63d459fe0bd04aa7f310342b965838
+  linux_arm64: 2bd1c628019da80cd34a8a09a492d7e770540cf6f78500588666ef1728ba694f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - assimp
+  - bullet
+  - eigen
+  - fcl
+  - flann
+  - fmt
+  - ipopt
+  - libccd
+  - nlopt
+  - octomap
+  - ode
+  - open-scene-graph
+  - spdlog
+  - tinyxml2
+  - urdfdom

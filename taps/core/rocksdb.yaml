@@ -1,0 +1,24 @@
+name: rocksdb
+version: 10.10.1
+description: Embeddable, persistent key-value store for fast storage
+homepage: https://rocksdb.org/
+license: GPL-2.0-only OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rocksdb/blobs/sha256:d1614d2a4c5acb5bf39aebcb2792717cff23ef9d8dd761cbc4c03f42227a44f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rocksdb/blobs/sha256:04b506ca88a63e1f6f17d9710c175642b139f570d4601c2062403e0a2483eccc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rocksdb/blobs/sha256:90c4057d4b34589ce782a576fca13702246c2f9bb94cb421930f7dd1e9b45f93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rocksdb/blobs/sha256:ad10f71bedbadd5f0cd51bc782704e0e10d710ee1599500916331d79d1af7d9e
+sha256:
+  darwin_arm64: d1614d2a4c5acb5bf39aebcb2792717cff23ef9d8dd761cbc4c03f42227a44f3
+  darwin_amd64: 04b506ca88a63e1f6f17d9710c175642b139f570d4601c2062403e0a2483eccc
+  linux_amd64: 90c4057d4b34589ce782a576fca13702246c2f9bb94cb421930f7dd1e9b45f93
+  linux_arm64: ad10f71bedbadd5f0cd51bc782704e0e10d710ee1599500916331d79d1af7d9e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gflags
+  - lz4
+  - snappy
+  - zstd

@@ -1,0 +1,19 @@
+name: rargs
+version: 0.3.0
+description: Util like xargs + awk with pattern matching support
+homepage: https://github.com/lotabout/rargs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rargs/blobs/sha256:c1b481bcf7de6ad4a0abe5f77d33d8d2ab0f3bd6a6c36de248cf4fda715d89bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rargs/blobs/sha256:325fe5d7ae7f301efe4d61142813d4659c982e5b70a90810b475d787118bbd16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rargs/blobs/sha256:5986e0f6b1f35cf2cb8b2113965c30895942c065dfe24d61a17c5497de6f9f02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rargs/blobs/sha256:aa2cf424c90cd39a337bff0a8694b10b91b432b2311aa2710cc9bbba62aec33e
+sha256:
+  darwin_arm64: c1b481bcf7de6ad4a0abe5f77d33d8d2ab0f3bd6a6c36de248cf4fda715d89bc
+  darwin_amd64: 325fe5d7ae7f301efe4d61142813d4659c982e5b70a90810b475d787118bbd16
+  linux_amd64: 5986e0f6b1f35cf2cb8b2113965c30895942c065dfe24d61a17c5497de6f9f02
+  linux_arm64: aa2cf424c90cd39a337bff0a8694b10b91b432b2311aa2710cc9bbba62aec33e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

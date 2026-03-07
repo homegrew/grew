@@ -1,0 +1,19 @@
+name: cloudlist
+version: 1.4.0
+description: Tool for listing assets from multiple cloud providers
+homepage: https://github.com/projectdiscovery/cloudlist
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudlist/blobs/sha256:105f6868efd65248a3caa464d62c680e8fe393dec08db4fbbef10708849a8f79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudlist/blobs/sha256:343cb3de5980a66c3700b983e5c519d7545de392a12238c14a501df64e99816f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudlist/blobs/sha256:0604a3637ad708737f8fded6acd08ca62efdfd09564973382150a4d7fbddf7c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudlist/blobs/sha256:238a0d845508fe2fe6e8ee1fe4bf9022c5b415448471a4ed3326bae152f27a95
+sha256:
+  darwin_arm64: 105f6868efd65248a3caa464d62c680e8fe393dec08db4fbbef10708849a8f79
+  darwin_amd64: 343cb3de5980a66c3700b983e5c519d7545de392a12238c14a501df64e99816f
+  linux_amd64: 0604a3637ad708737f8fded6acd08ca62efdfd09564973382150a4d7fbddf7c2
+  linux_arm64: 238a0d845508fe2fe6e8ee1fe4bf9022c5b415448471a4ed3326bae152f27a95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nkf
+version: 2.1.5
+description: Network Kanji code conversion Filter (NKF)
+homepage: https://github.com/nurse/nkf
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nkf/blobs/sha256:157d2e7be20ab0ff292a84336421a6c0afdb541abcc04d7b05fe4aff25d3bbe1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nkf/blobs/sha256:7c5f70e92b04d9c3a5e1abe9d2fa887aa8883d032cbbac71365f1205628f83a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nkf/blobs/sha256:5283ee3b17553f3145b602bcdbda3e23d843934a7a0d4543217c1b4355737d80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nkf/blobs/sha256:1d61677ea7823ccdf8df32e1d7d780a9bcab90870c0de9a1354daada079ea626
+sha256:
+  darwin_arm64: 157d2e7be20ab0ff292a84336421a6c0afdb541abcc04d7b05fe4aff25d3bbe1
+  darwin_amd64: 7c5f70e92b04d9c3a5e1abe9d2fa887aa8883d032cbbac71365f1205628f83a5
+  linux_amd64: 5283ee3b17553f3145b602bcdbda3e23d843934a7a0d4543217c1b4355737d80
+  linux_arm64: 1d61677ea7823ccdf8df32e1d7d780a9bcab90870c0de9a1354daada079ea626
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

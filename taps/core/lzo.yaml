@@ -1,0 +1,19 @@
+name: lzo
+version: 2.10
+description: Real-time data compression library
+homepage: https://www.oberhumer.com/opensource/lzo/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzo/blobs/sha256:9863be33af38858d028657bdfbceaff00465b23a9857ce6ed93e2ad24f6adbd8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzo/blobs/sha256:11b8557744feb28974cb4caa92a16a89f3ead77468778cc17c2f349502df495e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzo/blobs/sha256:8413f94bb69f337f7e1837e7f525e703cac105d27ceeb29de5c08c7bbfa77b29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzo/blobs/sha256:d090d9756c7eb1a5371f8eff88273c0301b0102c8bf6f47d9fad7d876a466902
+sha256:
+  darwin_arm64: 9863be33af38858d028657bdfbceaff00465b23a9857ce6ed93e2ad24f6adbd8
+  darwin_amd64: 11b8557744feb28974cb4caa92a16a89f3ead77468778cc17c2f349502df495e
+  linux_amd64: 8413f94bb69f337f7e1837e7f525e703cac105d27ceeb29de5c08c7bbfa77b29
+  linux_arm64: d090d9756c7eb1a5371f8eff88273c0301b0102c8bf6f47d9fad7d876a466902
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

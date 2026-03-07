@@ -1,0 +1,19 @@
+name: inframap
+version: 0.8.0
+description: Read your tfstate or HCL to generate a graph
+homepage: https://github.com/cycloidio/inframap
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inframap/blobs/sha256:35238fd6006c1e1292640c56f85a7f36c2794851727b2ea8ea91a28ecd3b5056
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inframap/blobs/sha256:869a30f97467cc4df989f532fd8e587e600bbcea1e32b7ae1ecb54ef7f545122
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inframap/blobs/sha256:373101f264996d311db6bf6fdb35db1f53d1f0099ec8964bfd5168cdab64f1da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inframap/blobs/sha256:34b08303d1e7bf81b263e4c775e3fca3900eb31d1e951667255a3cc5e6dc7ad0
+sha256:
+  darwin_arm64: 35238fd6006c1e1292640c56f85a7f36c2794851727b2ea8ea91a28ecd3b5056
+  darwin_amd64: 869a30f97467cc4df989f532fd8e587e600bbcea1e32b7ae1ecb54ef7f545122
+  linux_amd64: 373101f264996d311db6bf6fdb35db1f53d1f0099ec8964bfd5168cdab64f1da
+  linux_arm64: 34b08303d1e7bf81b263e4c775e3fca3900eb31d1e951667255a3cc5e6dc7ad0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

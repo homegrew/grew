@@ -1,0 +1,15 @@
+name: chisel
+version: 2.0.1
+description: Collection of LLDB commands to assist debugging iOS apps
+homepage: https://github.com/facebook/chisel
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chisel/blobs/sha256:ed2b84f0afab7caab553110d8413051300b932dc2fe782bce00381188704a5a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chisel/blobs/sha256:ebce92f9d0f82970678bc0f6c289093edda33030e98a3c14a79e40ff22cf1441
+sha256:
+  darwin_arm64: ed2b84f0afab7caab553110d8413051300b932dc2fe782bce00381188704a5a1
+  darwin_amd64: ebce92f9d0f82970678bc0f6c289093edda33030e98a3c14a79e40ff22cf1441
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

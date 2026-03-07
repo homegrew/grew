@@ -1,0 +1,22 @@
+name: libsixel
+version: 1.10.5
+description: SIXEL encoder/decoder implementation
+homepage: https://github.com/saitoha/sixel
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsixel/blobs/sha256:6de5ac481b343617fb5a42b78ca935b32758394e101ac8bfe6bf5f2828a991a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsixel/blobs/sha256:85f135277174340376fb0e6ba6de5804bc017380224411f4ffca4956c6b4512c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsixel/blobs/sha256:afac541b74c1f46fea3c1e2b2c2443e93d769d221d3e512ef9af2a5ce2b292e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsixel/blobs/sha256:93f446a2e99e9751229ad41532799e0f4c40983088c6dd47d026c80270f74541
+sha256:
+  darwin_arm64: 6de5ac481b343617fb5a42b78ca935b32758394e101ac8bfe6bf5f2828a991a3
+  darwin_amd64: 85f135277174340376fb0e6ba6de5804bc017380224411f4ffca4956c6b4512c
+  linux_amd64: afac541b74c1f46fea3c1e2b2c2443e93d769d221d3e512ef9af2a5ce2b292e4
+  linux_arm64: 93f446a2e99e9751229ad41532799e0f4c40983088c6dd47d026c80270f74541
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng

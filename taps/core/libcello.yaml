@@ -1,0 +1,19 @@
+name: libcello
+version: 2.1.0
+description: Higher-level programming in C
+homepage: https://libcello.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcello/blobs/sha256:f29b04252a3f79f89b5ed93d519639c4cf6c6033036d42d8a60567f466a19a96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcello/blobs/sha256:a7df5b2e7c6043f55d4645de61b2948a57607f2269e78769fd9a616d1b5fc00c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcello/blobs/sha256:d935c25174d4315105cccb0a72dd60f184881d7929f9ca51aaaea2dd7262f28b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcello/blobs/sha256:563e0e5d5ee43073bccca6c732787f32af5a864fc9bcbf3854049cfc0f99ff37
+sha256:
+  darwin_arm64: f29b04252a3f79f89b5ed93d519639c4cf6c6033036d42d8a60567f466a19a96
+  darwin_amd64: a7df5b2e7c6043f55d4645de61b2948a57607f2269e78769fd9a616d1b5fc00c
+  linux_amd64: d935c25174d4315105cccb0a72dd60f184881d7929f9ca51aaaea2dd7262f28b
+  linux_arm64: 563e0e5d5ee43073bccca6c732787f32af5a864fc9bcbf3854049cfc0f99ff37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

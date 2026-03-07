@@ -1,0 +1,19 @@
+name: gemgen
+version: 0.6.0
+description: Command-line tool for converting Commonmark Markdown to Gemtext
+homepage: https://sr.ht/~kota/gemgen/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gemgen/blobs/sha256:44ca844b4b9eac43de6f9b2f7b9611bfd1a29f48986e3564e510aac4f93b3b12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gemgen/blobs/sha256:d5102904f4005fc1d9ec48fe3342f331557824ac07a23b7123a9106e004484d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gemgen/blobs/sha256:fb58367b892d290ae3a9801e4e297413cda4b890183de712db3b1f635a04e646
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gemgen/blobs/sha256:7423f9622d4b21a9ec3cc37b8208762715f4a5e637af9b508df7eeaffc072874
+sha256:
+  darwin_arm64: 44ca844b4b9eac43de6f9b2f7b9611bfd1a29f48986e3564e510aac4f93b3b12
+  darwin_amd64: d5102904f4005fc1d9ec48fe3342f331557824ac07a23b7123a9106e004484d2
+  linux_amd64: fb58367b892d290ae3a9801e4e297413cda4b890183de712db3b1f635a04e646
+  linux_arm64: 7423f9622d4b21a9ec3cc37b8208762715f4a5e637af9b508df7eeaffc072874
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

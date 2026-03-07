@@ -1,0 +1,19 @@
+name: slumber
+version: 5.1.1
+description: Terminal-based HTTP/REST client
+homepage: https://slumber.lucaspickering.me/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slumber/blobs/sha256:c9ad0aa3e9da1f59059ac3d9c21010d95598f5c30ac7e60aa46845b1e9a561eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slumber/blobs/sha256:982a70ed5c0839f99c96f5909f0a7dcd568d1a8dd0bcb969a834cfb8e10b9c4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slumber/blobs/sha256:2e65ae5f26886b481e7369e90abc2ba5980db4a9c610d249f8cadc4e44129887
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slumber/blobs/sha256:b11aa99d038e34dccb7b4d0b694ae11d51dccf2162a551e4bd7797510034758c
+sha256:
+  darwin_arm64: c9ad0aa3e9da1f59059ac3d9c21010d95598f5c30ac7e60aa46845b1e9a561eb
+  darwin_amd64: 982a70ed5c0839f99c96f5909f0a7dcd568d1a8dd0bcb969a834cfb8e10b9c4e
+  linux_amd64: 2e65ae5f26886b481e7369e90abc2ba5980db4a9c610d249f8cadc4e44129887
+  linux_arm64: b11aa99d038e34dccb7b4d0b694ae11d51dccf2162a551e4bd7797510034758c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

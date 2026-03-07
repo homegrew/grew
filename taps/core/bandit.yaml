@@ -1,0 +1,22 @@
+name: bandit
+version: 1.9.4
+description: Security-oriented static analyser for Python code
+homepage: https://github.com/PyCQA/bandit
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bandit/blobs/sha256:e603153517ddc896927a102b1ff5c9145cd3dde0bfc7464e6265396c73791ed7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bandit/blobs/sha256:3c3660c6fc3adc80d70e21b2d354bd75601c25dac6d03620a79edc233541eb3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bandit/blobs/sha256:88cfbf4ff98d367a35a3e8063e58f73d4cff2892b82f7128de29304641251737
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bandit/blobs/sha256:6818bb846a9d0e8fb24e323619b79915b7089acef506004c2a41ceed693ae0a6
+sha256:
+  darwin_arm64: e603153517ddc896927a102b1ff5c9145cd3dde0bfc7464e6265396c73791ed7
+  darwin_amd64: 3c3660c6fc3adc80d70e21b2d354bd75601c25dac6d03620a79edc233541eb3b
+  linux_amd64: 88cfbf4ff98d367a35a3e8063e58f73d4cff2892b82f7128de29304641251737
+  linux_arm64: 6818bb846a9d0e8fb24e323619b79915b7089acef506004c2a41ceed693ae0a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,22 @@
+name: nuitka
+version: 4.0.3
+description: Python compiler written in Python
+homepage: https://nuitka.net
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nuitka/blobs/sha256:38ca8911d46dacdb95e2b9ab870ad48968ae6915eecef7a5996857e631f95a04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nuitka/blobs/sha256:58a99fafa22e4e1c1ae1052ad1011ef30e1998110ff879aa906f2dd51c0994d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nuitka/blobs/sha256:93cfc5e8f8b2100a6c926224bab3449659a276f0558c5f3aa66e925cdad334b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nuitka/blobs/sha256:3c23f0c12a5b83ab2828d15511752dfebd0098ef11b2913cf9a0c1ea679ce1f3
+sha256:
+  darwin_arm64: 38ca8911d46dacdb95e2b9ab870ad48968ae6915eecef7a5996857e631f95a04
+  darwin_amd64: 58a99fafa22e4e1c1ae1052ad1011ef30e1998110ff879aa906f2dd51c0994d3
+  linux_amd64: 93cfc5e8f8b2100a6c926224bab3449659a276f0558c5f3aa66e925cdad334b7
+  linux_arm64: 3c23f0c12a5b83ab2828d15511752dfebd0098ef11b2913cf9a0c1ea679ce1f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ccache
+  - python@3.13

@@ -1,0 +1,19 @@
+name: ytt
+version: 0.53.2
+description: YAML templating tool that works on YAML structure instead of text
+homepage: https://carvel.dev/ytt/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ytt/blobs/sha256:ef872144e12219300dc589c55b5e44aa4cdee98b326a1a708ebe0583ee41a2e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ytt/blobs/sha256:29baa78a57d792cd83c12269d34c9724952053061d1bb3018f18068eb4ba2890
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ytt/blobs/sha256:36a1b1410565b65c5b191e977b0d2da862824063aa2ece7a08449be515b0125a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ytt/blobs/sha256:a26d4ccdf5f4f775299fc70636823a146ead51d08a3766d0defac51b54d59d47
+sha256:
+  darwin_arm64: ef872144e12219300dc589c55b5e44aa4cdee98b326a1a708ebe0583ee41a2e3
+  darwin_amd64: 29baa78a57d792cd83c12269d34c9724952053061d1bb3018f18068eb4ba2890
+  linux_amd64: 36a1b1410565b65c5b191e977b0d2da862824063aa2ece7a08449be515b0125a
+  linux_arm64: a26d4ccdf5f4f775299fc70636823a146ead51d08a3766d0defac51b54d59d47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

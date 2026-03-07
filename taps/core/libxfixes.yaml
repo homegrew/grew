@@ -1,0 +1,22 @@
+name: libxfixes
+version: 6.0.2
+description: "X.Org: Header files for the XFIXES extension"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxfixes/blobs/sha256:18951c8c4a266fc614d3d17798983f314230614d42184a5169d053a5d228c85c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxfixes/blobs/sha256:6a4994ef8113aee2ac68b5de54b64b9b9496eafb6c30bfd9e17ed7c268e4d4d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxfixes/blobs/sha256:6f33e8a88f01a7afb5a784155e4c81051fea75570635b89ddb4b3b48d2825acf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxfixes/blobs/sha256:bd877255bd00d407fa7b6652d9d34abcbedff76a2c192a32e63c94add2f0b8c2
+sha256:
+  darwin_arm64: 18951c8c4a266fc614d3d17798983f314230614d42184a5169d053a5d228c85c
+  darwin_amd64: 6a4994ef8113aee2ac68b5de54b64b9b9496eafb6c30bfd9e17ed7c268e4d4d2
+  linux_amd64: 6f33e8a88f01a7afb5a784155e4c81051fea75570635b89ddb4b3b48d2825acf
+  linux_arm64: bd877255bd00d407fa7b6652d9d34abcbedff76a2c192a32e63c94add2f0b8c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - xorgproto

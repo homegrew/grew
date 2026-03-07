@@ -1,0 +1,24 @@
+name: b4
+version: 0.14.3
+description: Tool to work with public-inbox and patch archives
+homepage: https://b4.docs.kernel.org/en/latest/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/b4/blobs/sha256:226178f28760b3e75b93ad075d7cba47415807704747091f0f9936bae9cebb77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/b4/blobs/sha256:7cabca1836d799761cb89839cb54f9f610c99f3477647c62b9ed065a3bf8238f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/b4/blobs/sha256:d856f2ab7a98f6eb09662cae0a4a52fc638a5250bea634dda33d0e8f7e809854
+  linux_arm64: https://ghcr.io/v2/homebrew/core/b4/blobs/sha256:5cfccc9296b18d132f87b4fd52cdb677fcc629396cbd817195d1b81d88f580ce
+sha256:
+  darwin_arm64: 226178f28760b3e75b93ad075d7cba47415807704747091f0f9936bae9cebb77
+  darwin_amd64: 7cabca1836d799761cb89839cb54f9f610c99f3477647c62b9ed065a3bf8238f
+  linux_amd64: d856f2ab7a98f6eb09662cae0a4a52fc638a5250bea634dda33d0e8f7e809854
+  linux_arm64: 5cfccc9296b18d132f87b4fd52cdb677fcc629396cbd817195d1b81d88f580ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - libsodium
+  - python@3.14

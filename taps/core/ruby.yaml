@@ -1,0 +1,23 @@
+name: ruby
+version: 4.0.1
+description: Powerful, clean, object-oriented scripting language
+homepage: https://www.ruby-lang.org/
+license: Ruby
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:99ba4d74dc9769146bbc717c340e548f5418b1b5ad634786745655f4b4be31ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:cdb41288da959462858a87352cee45567845d147bd162c67307023197cf5c168
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:6217bdaf74063c80cade025f1aaa9fb3101da08ac8f7622bb5ee0edf6f73a656
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:6797becac7bc9fde35ac405d5cb8e1cbd5a6c16bf50b03a2798461d15d39d4e8
+sha256:
+  darwin_arm64: 99ba4d74dc9769146bbc717c340e548f5418b1b5ad634786745655f4b4be31ae
+  darwin_amd64: cdb41288da959462858a87352cee45567845d147bd162c67307023197cf5c168
+  linux_amd64: 6217bdaf74063c80cade025f1aaa9fb3101da08ac8f7622bb5ee0edf6f73a656
+  linux_arm64: 6797becac7bc9fde35ac405d5cb8e1cbd5a6c16bf50b03a2798461d15d39d4e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - openssl@3
+keg_only: true

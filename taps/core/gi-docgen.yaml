@@ -1,0 +1,21 @@
+name: gi-docgen
+version: 2026.1
+description: Documentation tool for GObject-based libraries
+homepage: https://gnome.pages.gitlab.gnome.org/gi-docgen/
+license: Apache-2.0 OR GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gi-docgen/blobs/sha256:437d7007c46fd57532a7874eea65f28d4298f577d7d2778c8af9f3d99de77f63
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gi-docgen/blobs/sha256:913a83c34733ed2eaf31500bb9b703b3c6de0c6f641a1bfb0dbd9dbf81cd5e8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gi-docgen/blobs/sha256:73871760139cd48602616cc8adc3d6664b7cec8ef3909639e1b2fca0aa7892bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gi-docgen/blobs/sha256:3fda9036b867fcec2266cfce287d1215c086248a0525f074386e33d9b05d906a
+sha256:
+  darwin_arm64: 437d7007c46fd57532a7874eea65f28d4298f577d7d2778c8af9f3d99de77f63
+  darwin_amd64: 913a83c34733ed2eaf31500bb9b703b3c6de0c6f641a1bfb0dbd9dbf81cd5e8c
+  linux_amd64: 73871760139cd48602616cc8adc3d6664b7cec8ef3909639e1b2fca0aa7892bf
+  linux_arm64: 3fda9036b867fcec2266cfce287d1215c086248a0525f074386e33d9b05d906a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,19 @@
+name: pigz
+version: 2.8
+description: Parallel gzip
+homepage: https://zlib.net/pigz/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pigz/blobs/sha256:042145d01637ec82b2da2e4c2ef05ff1391b39c5aaafdebbe46d43f2b595404a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pigz/blobs/sha256:1b7fedaf53aad7b5d257fe1789ad82d864979a70dc6b1a2b51ca913b131c1673
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pigz/blobs/sha256:9daa1d45e359ca4ff5c166c27c17803b3218ca73446e957df017614671ee9690
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pigz/blobs/sha256:2d4c423ba93d711357705b6f4bd87d39c83ec4d60a94fd0ef08a2c875532eeee
+sha256:
+  darwin_arm64: 042145d01637ec82b2da2e4c2ef05ff1391b39c5aaafdebbe46d43f2b595404a
+  darwin_amd64: 1b7fedaf53aad7b5d257fe1789ad82d864979a70dc6b1a2b51ca913b131c1673
+  linux_amd64: 9daa1d45e359ca4ff5c166c27c17803b3218ca73446e957df017614671ee9690
+  linux_arm64: 2d4c423ba93d711357705b6f4bd87d39c83ec4d60a94fd0ef08a2c875532eeee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

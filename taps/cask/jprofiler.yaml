@@ -1,0 +1,11 @@
+name: jprofiler
+version: 16.0
+description: Java profiler
+homepage: https://www.ej-technologies.com/jprofiler
+url:
+  darwin_arm64: https://download-gcdn.ej-technologies.com/jprofiler/jprofiler_macos_16_0.dmg
+sha256:
+  darwin_arm64: 854c3f5dc03cf642cde4e857c5749900f33430477129b017a0ded5b86ef89cc2
+artifacts:
+  app:
+    - JProfiler.app

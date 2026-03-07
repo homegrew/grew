@@ -1,0 +1,19 @@
+name: mbw
+version: 2.0
+description: Memory Bandwidth Benchmark
+homepage: https://github.com/raas/mbw/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mbw/blobs/sha256:1c8c88e772ba5c6cc57af7b79c0520750566523f94d643c00f5355333d176836
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mbw/blobs/sha256:e0d410a21a09a4a2da43b61128be02c0c4ff95381376036b7ae6ebb4f44e4cca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mbw/blobs/sha256:07ba5ff41d1031bc549c646c8d7bfc9082ce02b0572d437cb0c840855814ebf0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mbw/blobs/sha256:59fb54c3415e043a4eb29261d56613411126d676837894f159f6cb54d438ee0d
+sha256:
+  darwin_arm64: 1c8c88e772ba5c6cc57af7b79c0520750566523f94d643c00f5355333d176836
+  darwin_amd64: e0d410a21a09a4a2da43b61128be02c0c4ff95381376036b7ae6ebb4f44e4cca
+  linux_amd64: 07ba5ff41d1031bc549c646c8d7bfc9082ce02b0572d437cb0c840855814ebf0
+  linux_arm64: 59fb54c3415e043a4eb29261d56613411126d676837894f159f6cb54d438ee0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

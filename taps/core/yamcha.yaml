@@ -1,0 +1,21 @@
+name: yamcha
+version: 0.33
+description: NLP text chunker using Support Vector Machines
+homepage: http://chasen.org/~taku/software/yamcha/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yamcha/blobs/sha256:f79875ac74e46f3087379d783513f73971707f8d0ff059e050f1256d5535a827
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yamcha/blobs/sha256:aec22c106760679ed09434e1105fd60311162b2a8e6d6f5bf06b8fa88caff47f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yamcha/blobs/sha256:0ce0b05c30bff796b1ed14c7732670d3fd9b96a20f3b48e1f4953b3e8c9d745c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yamcha/blobs/sha256:5ebf9b1d45af65bd57c866ec89a3ebe280571edb16d6a1d971c55c5ed3228ae1
+sha256:
+  darwin_arm64: f79875ac74e46f3087379d783513f73971707f8d0ff059e050f1256d5535a827
+  darwin_amd64: aec22c106760679ed09434e1105fd60311162b2a8e6d6f5bf06b8fa88caff47f
+  linux_amd64: 0ce0b05c30bff796b1ed14c7732670d3fd9b96a20f3b48e1f4953b3e8c9d745c
+  linux_arm64: 5ebf9b1d45af65bd57c866ec89a3ebe280571edb16d6a1d971c55c5ed3228ae1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tinysvm

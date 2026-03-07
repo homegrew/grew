@@ -1,0 +1,11 @@
+name: atuin-desktop
+version: 0.2.20
+description: Runbook editor for terminal workflows
+homepage: https://atuin.sh/
+url:
+  darwin_arm64: https://github.com/atuinsh/desktop/releases/download/v0.2.20/Atuin_0.2.20_aarch64.dmg
+sha256:
+  darwin_arm64: ac5444d6df2dff182da4db4fe9f65bac1a49337739b1c913d71304d28c4e45d3
+artifacts:
+  app:
+    - Atuin.app

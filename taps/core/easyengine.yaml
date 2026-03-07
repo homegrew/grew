@@ -1,0 +1,22 @@
+name: easyengine
+version: 4.10.2
+description: Command-line control panel to manage WordPress sites
+homepage: https://easyengine.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/easyengine/blobs/sha256:1f5cdff945a1a1f6eb20d56964a207870bbd9479d823162f5cd85765e5da2f8d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/easyengine/blobs/sha256:c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/easyengine/blobs/sha256:c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/easyengine/blobs/sha256:c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+sha256:
+  darwin_arm64: 1f5cdff945a1a1f6eb20d56964a207870bbd9479d823162f5cd85765e5da2f8d
+  darwin_amd64: c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+  linux_amd64: c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+  linux_arm64: c8d35791db595e47d9df99820915b1e76e4e550d6e6af302b6138e4d36900e09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dnsmasq
+  - php

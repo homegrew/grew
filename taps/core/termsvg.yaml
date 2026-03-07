@@ -1,0 +1,19 @@
+name: termsvg
+version: 0.10.0
+description: Record, share and export your terminal as a animated SVG image
+homepage: https://github.com/MrMarble/termsvg
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termsvg/blobs/sha256:363363e29f811eb53cd39e456c15c7c6ccef0f00f84bb0edd67b22151265c42e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termsvg/blobs/sha256:6b803686c893179cef6188beb67d6e7c1eb9af8dbea5a0dfc3a3a8931ca16e5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termsvg/blobs/sha256:0ea62b9ca79d8a7fd00715bae7f7a76d072a303cc2b6e60aca1dc474773f2d69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termsvg/blobs/sha256:bbcb76116d128262297b857a7d6858b717ba81ff742e224d4e5bd7943433d93d
+sha256:
+  darwin_arm64: 363363e29f811eb53cd39e456c15c7c6ccef0f00f84bb0edd67b22151265c42e
+  darwin_amd64: 6b803686c893179cef6188beb67d6e7c1eb9af8dbea5a0dfc3a3a8931ca16e5e
+  linux_amd64: 0ea62b9ca79d8a7fd00715bae7f7a76d072a303cc2b6e60aca1dc474773f2d69
+  linux_arm64: bbcb76116d128262297b857a7d6858b717ba81ff742e224d4e5bd7943433d93d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

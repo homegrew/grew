@@ -1,0 +1,16 @@
+name: wezterm
+version: 20240203-110809,5046fc22
+description: GPU-accelerated cross-platform terminal emulator and multiplexer
+homepage: https://wezterm.org/
+url:
+  darwin_arm64: https://github.com/wezterm/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-macos-20240203-110809-5046fc22.zip
+sha256:
+  darwin_arm64: e77388cad55f2e9da95a220a89206a6c58f865874a629b7c3ea3c162f5692224
+artifacts:
+  app:
+    - WezTerm-macos-20240203-110809-5046fc22/WezTerm.app
+  bin:
+    - wezterm
+    - wezterm-gui
+    - wezterm-mux-server
+    - strip-ansi-escapes

@@ -1,0 +1,23 @@
+name: sdl2_ttf
+version: 2.24.0
+description: Library for using TrueType fonts in SDL applications
+homepage: https://github.com/libsdl-org/SDL_ttf
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl2_ttf/blobs/sha256:7464ed639413ddbf1b581564c07bab5d3a45325ab44619ac810af3361f3f7ab8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl2_ttf/blobs/sha256:601eca4a716530bd0758865775581bb82f581c5a728df398231a0e4ba9b3071f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl2_ttf/blobs/sha256:482786481f8a3f5a8f6f147156f5af9cd192e43e2d5b6adf3a5914bcc53bc1cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl2_ttf/blobs/sha256:548921f9bab6e4907a934102c2b31492a8fd488aac72ad7b35c2010c64978c8d
+sha256:
+  darwin_arm64: 7464ed639413ddbf1b581564c07bab5d3a45325ab44619ac810af3361f3f7ab8
+  darwin_amd64: 601eca4a716530bd0758865775581bb82f581c5a728df398231a0e4ba9b3071f
+  linux_amd64: 482786481f8a3f5a8f6f147156f5af9cd192e43e2d5b6adf3a5914bcc53bc1cc
+  linux_arm64: 548921f9bab6e4907a934102c2b31492a8fd488aac72ad7b35c2010c64978c8d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - harfbuzz
+  - sdl2

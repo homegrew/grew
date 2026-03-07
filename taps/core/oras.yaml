@@ -1,0 +1,19 @@
+name: oras
+version: 1.3.0
+description: OCI Registry As Storage
+homepage: https://github.com/oras-project/oras
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oras/blobs/sha256:50b9ee43b03ad85deed439c627879a6686f54040b60e2df025ca02cdb604e3d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oras/blobs/sha256:b0f03ce231df9105b5b87cca36cc7aa5b147ee96b68e190fe937ece22228017f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oras/blobs/sha256:766686b5f9c96faf08f48f6c28aa0c0538e456285e4c0a0f933ffb6657ae4d4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oras/blobs/sha256:3cb76ca077a5c8794ff6eb5268a8a1f854e2238f7e6ffac06c243c36b3cf3794
+sha256:
+  darwin_arm64: 50b9ee43b03ad85deed439c627879a6686f54040b60e2df025ca02cdb604e3d4
+  darwin_amd64: b0f03ce231df9105b5b87cca36cc7aa5b147ee96b68e190fe937ece22228017f
+  linux_amd64: 766686b5f9c96faf08f48f6c28aa0c0538e456285e4c0a0f933ffb6657ae4d4b
+  linux_arm64: 3cb76ca077a5c8794ff6eb5268a8a1f854e2238f7e6ffac06c243c36b3cf3794
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: rrdtool
+version: 1.9.0
+description: Round Robin Database
+homepage: https://oss.oetiker.ch/rrdtool/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rrdtool/blobs/sha256:af31da27f499a6c45e9a953ace7433b4426257f79c4662a3e34b3db176d7ec6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rrdtool/blobs/sha256:06c7e707f676165b56680e9dfd99afddf8af115c8d49d49c5d4903c39b92f283
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rrdtool/blobs/sha256:bd73a9c1a9d2374168a12dc6eb7d283a086e39769ca400cf0763c9b68e725c31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rrdtool/blobs/sha256:fb254e1c08da875dc69e36c8d88ac48e833255e5e23d24ae1dcb6fdd28fe127d
+sha256:
+  darwin_arm64: af31da27f499a6c45e9a953ace7433b4426257f79c4662a3e34b3db176d7ec6b
+  darwin_amd64: 06c7e707f676165b56680e9dfd99afddf8af115c8d49d49c5d4903c39b92f283
+  linux_amd64: bd73a9c1a9d2374168a12dc6eb7d283a086e39769ca400cf0763c9b68e725c31
+  linux_arm64: fb254e1c08da875dc69e36c8d88ac48e833255e5e23d24ae1dcb6fdd28fe127d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - libpng
+  - pango
+  - gettext
+  - harfbuzz

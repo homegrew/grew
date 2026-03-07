@@ -1,0 +1,21 @@
+name: macpine
+version: 1.1.5
+description: Lightweight Linux VMs on MacOS
+homepage: https://beringresearch.github.io/macpine/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macpine/blobs/sha256:7105cc79202b0248984d1741b9709a479eaf7c145324a288bdaffadd12f4c8f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macpine/blobs/sha256:eec8efe3b14eaee61cb9db6292c402135e7100f8539a00b4f17ecf917eac4b6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/macpine/blobs/sha256:39252a23eb162d8e255fbd000a29e56882824fc382064f9324c9925443bca3a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/macpine/blobs/sha256:d77eceb6fa16941e6378524ebce721ee1cebbc0846f65ff313e8434d3eb9aab1
+sha256:
+  darwin_arm64: 7105cc79202b0248984d1741b9709a479eaf7c145324a288bdaffadd12f4c8f3
+  darwin_amd64: eec8efe3b14eaee61cb9db6292c402135e7100f8539a00b4f17ecf917eac4b6e
+  linux_amd64: 39252a23eb162d8e255fbd000a29e56882824fc382064f9324c9925443bca3a0
+  linux_arm64: d77eceb6fa16941e6378524ebce721ee1cebbc0846f65ff313e8434d3eb9aab1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qemu

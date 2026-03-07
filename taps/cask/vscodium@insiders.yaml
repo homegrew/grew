@@ -1,0 +1,13 @@
+name: vscodium@insiders
+version: 1.110.01537-insider
+description: Code editor
+homepage: https://vscodium.com/
+url:
+  darwin_arm64: https://github.com/VSCodium/vscodium-insiders/releases/download/1.110.01537-insider/VSCodium-darwin-arm64-1.110.01537-insider.zip
+sha256:
+  darwin_arm64: 14fe41d6b67d905de6434aeb3df13683a68155df58301f8c976ec7413cc6b3e3
+artifacts:
+  app:
+    - VSCodium - Insiders.app
+  bin:
+    - codium-insiders

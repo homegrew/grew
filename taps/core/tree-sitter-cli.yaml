@@ -1,0 +1,19 @@
+name: tree-sitter-cli
+version: 0.26.6
+description: Parser generator tool
+homepage: https://tree-sitter.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-cli/blobs/sha256:77ccdff066d27a117e1700bd004de38290fd9e73610ff67ee3b0745520fc65e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-cli/blobs/sha256:0511253f3446d0b9f6124ccf7e51de1b33b642827abd4737ccec6071e6ee3313
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-cli/blobs/sha256:789d325c2bc2ab197f5ebc972dd16bac2e81de93587ed76ef36c7f4240ce0396
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-cli/blobs/sha256:cbe6de912b8e10fb3c791d0c05ba1240641ba41d68cc67ddfd9139d1f4f40f80
+sha256:
+  darwin_arm64: 77ccdff066d27a117e1700bd004de38290fd9e73610ff67ee3b0745520fc65e3
+  darwin_amd64: 0511253f3446d0b9f6124ccf7e51de1b33b642827abd4737ccec6071e6ee3313
+  linux_amd64: 789d325c2bc2ab197f5ebc972dd16bac2e81de93587ed76ef36c7f4240ce0396
+  linux_arm64: cbe6de912b8e10fb3c791d0c05ba1240641ba41d68cc67ddfd9139d1f4f40f80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: libxv
+version: 1.0.13
+description: "X.Org: X Video (Xv) extension"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxv/blobs/sha256:f7666bec93f718a4de65c627ec6dd4994d6e0e983f97128665d44f28af23fc76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxv/blobs/sha256:efca4bea336f2d0ccf72c4b70d7fe7b651ba28ded3c751d83dc9c612a0baa348
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxv/blobs/sha256:f1371d2c06b2dbb27c1e2c3e7e15227a9741dcf2a6709513e0577d185628291f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxv/blobs/sha256:6eb1cd4b0e4cc2810b08615670b5881ec52067350a85e40d54e0a0c01b8450e8
+sha256:
+  darwin_arm64: f7666bec93f718a4de65c627ec6dd4994d6e0e983f97128665d44f28af23fc76
+  darwin_amd64: efca4bea336f2d0ccf72c4b70d7fe7b651ba28ded3c751d83dc9c612a0baa348
+  linux_amd64: f1371d2c06b2dbb27c1e2c3e7e15227a9741dcf2a6709513e0577d185628291f
+  linux_arm64: 6eb1cd4b0e4cc2810b08615670b5881ec52067350a85e40d54e0a0c01b8450e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

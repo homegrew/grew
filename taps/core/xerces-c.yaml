@@ -1,0 +1,19 @@
+name: xerces-c
+version: 3.3.0
+description: Validating XML parser
+homepage: https://xerces.apache.org/xerces-c/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xerces-c/blobs/sha256:7ab8833ee127bece071bc754e4865e181a1d77cba6351b71f6bd9a87f3765434
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xerces-c/blobs/sha256:eed44cffc9b1ab90c33025a5c3c6b30905bf1d97c290ffa18d4bdfe1233a718e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xerces-c/blobs/sha256:992f70652b3a78f54ed931bdb482c88a2fb32422cc13aacc0e09975ca8cd6e38
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xerces-c/blobs/sha256:f069b3149aedf577b3e2e766d242c7167ce472390335dd8b2a2722ec527f9d13
+sha256:
+  darwin_arm64: 7ab8833ee127bece071bc754e4865e181a1d77cba6351b71f6bd9a87f3765434
+  darwin_amd64: eed44cffc9b1ab90c33025a5c3c6b30905bf1d97c290ffa18d4bdfe1233a718e
+  linux_amd64: 992f70652b3a78f54ed931bdb482c88a2fb32422cc13aacc0e09975ca8cd6e38
+  linux_arm64: f069b3149aedf577b3e2e766d242c7167ce472390335dd8b2a2722ec527f9d13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

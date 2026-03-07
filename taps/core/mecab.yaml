@@ -1,0 +1,19 @@
+name: mecab
+version: 0.996
+description: Yet another part-of-speech and morphological analyzer
+homepage: https://taku910.github.io/mecab/
+license: GPL-2.0-only OR LGPL-2.1-only OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mecab/blobs/sha256:e0bafdf893f0650942b7482f0ae672094f530a37d18cc3047932b90a2a006a16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mecab/blobs/sha256:d91a5e1bd7fdea15cfc0469705b33a71b02ad5c2ec2a599ab49829d9a6baa916
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mecab/blobs/sha256:f730abd5e95a325a9e2e012ac01714e9a22e694d91e5bb026d501495d9899ff6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mecab/blobs/sha256:8181ec221a72b26be40c3de033dd8196d70c01d776b912f90ec5effd50731d6c
+sha256:
+  darwin_arm64: e0bafdf893f0650942b7482f0ae672094f530a37d18cc3047932b90a2a006a16
+  darwin_amd64: d91a5e1bd7fdea15cfc0469705b33a71b02ad5c2ec2a599ab49829d9a6baa916
+  linux_amd64: f730abd5e95a325a9e2e012ac01714e9a22e694d91e5bb026d501495d9899ff6
+  linux_arm64: 8181ec221a72b26be40c3de033dd8196d70c01d776b912f90ec5effd50731d6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: jhead
+version: 3.08
+description: Extract Digicam setting info from EXIF JPEG headers
+homepage: https://github.com/Matthias-Wandel/jhead
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jhead/blobs/sha256:6695433af5f3468402173a67b2de5d735712c095f4bdbe8701e6b2354b43c38f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jhead/blobs/sha256:7727656b5e0ea923e453169baa7231383c37b737c4db88efc621b5593184283c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jhead/blobs/sha256:d662d7006eb88363b9c973252bc744915503dafa662ef2dc75d1892918101cc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jhead/blobs/sha256:1c46927009697d53acc508449ef4b8127be41cb030a7e0fddb15561fff516b88
+sha256:
+  darwin_arm64: 6695433af5f3468402173a67b2de5d735712c095f4bdbe8701e6b2354b43c38f
+  darwin_amd64: 7727656b5e0ea923e453169baa7231383c37b737c4db88efc621b5593184283c
+  linux_amd64: d662d7006eb88363b9c973252bc744915503dafa662ef2dc75d1892918101cc2
+  linux_arm64: 1c46927009697d53acc508449ef4b8127be41cb030a7e0fddb15561fff516b88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

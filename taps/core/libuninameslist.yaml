@@ -1,0 +1,19 @@
+name: libuninameslist
+version: 20260107
+description: Library of Unicode names and annotation data
+homepage: https://github.com/fontforge/libuninameslist
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libuninameslist/blobs/sha256:53b985c29ff83f71b0dba677c75f7fc710f0f0649295258efd0d3d7ef95344a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libuninameslist/blobs/sha256:fe1fb18127b16de2f48709a26873e90dfc20e01da58467589c3c281b4ae1b854
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libuninameslist/blobs/sha256:d0f4513836950d34e04e862392706ec2bc51e274d162e9dde35044b89e2564a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libuninameslist/blobs/sha256:32ea5e402bcd2d9a72d7bd4a2e660bfd70e11e6cbbe06ca43b8938073e402b74
+sha256:
+  darwin_arm64: 53b985c29ff83f71b0dba677c75f7fc710f0f0649295258efd0d3d7ef95344a2
+  darwin_amd64: fe1fb18127b16de2f48709a26873e90dfc20e01da58467589c3c281b4ae1b854
+  linux_amd64: d0f4513836950d34e04e862392706ec2bc51e274d162e9dde35044b89e2564a8
+  linux_arm64: 32ea5e402bcd2d9a72d7bd4a2e660bfd70e11e6cbbe06ca43b8938073e402b74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

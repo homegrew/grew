@@ -1,0 +1,23 @@
+name: libdmx
+version: 1.1.5
+description: "X.Org: X Window System DMX (Distributed Multihead X) extension library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdmx/blobs/sha256:14977e0ecc11da42c82528f3c0d13d68df037f55e615ca95af6434cf214c2471
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdmx/blobs/sha256:83ed6adf20c3aab46389e50e31f5dbe2927b0407f39023309f0e5097eeb93281
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdmx/blobs/sha256:0296a0ca6fde5ca5ba12b45505db769743916188a47d0b876049488f31185833
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdmx/blobs/sha256:65707936ba8f81c9f0a9fc9666f9d1783dd658353e30fe98c263a30705757fd4
+sha256:
+  darwin_arm64: 14977e0ecc11da42c82528f3c0d13d68df037f55e615ca95af6434cf214c2471
+  darwin_amd64: 83ed6adf20c3aab46389e50e31f5dbe2927b0407f39023309f0e5097eeb93281
+  linux_amd64: 0296a0ca6fde5ca5ba12b45505db769743916188a47d0b876049488f31185833
+  linux_arm64: 65707936ba8f81c9f0a9fc9666f9d1783dd658353e30fe98c263a30705757fd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

@@ -1,0 +1,22 @@
+name: octodns
+version: 1.15.0
+description: Tools for managing DNS across multiple providers
+homepage: https://github.com/octodns/octodns
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/octodns/blobs/sha256:c1061f5e2edc1f510078e849f33229f8982c20b2d7c4d247a202060fdc2b1cfe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/octodns/blobs/sha256:ec06d5d4b8935b79f8cea55dd92b0168f3b0ad1371b012649c30edb4f5e5870d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/octodns/blobs/sha256:c803d32de899f47f7f5208f74e499c1473d92c9314fcd1f0acc3f007691f73d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/octodns/blobs/sha256:903ae2c41cb66dd3f671f4ed6854079dfcf7e227a2a198470afb299966f70648
+sha256:
+  darwin_arm64: c1061f5e2edc1f510078e849f33229f8982c20b2d7c4d247a202060fdc2b1cfe
+  darwin_amd64: ec06d5d4b8935b79f8cea55dd92b0168f3b0ad1371b012649c30edb4f5e5870d
+  linux_amd64: c803d32de899f47f7f5208f74e499c1473d92c9314fcd1f0acc3f007691f73d0
+  linux_arm64: 903ae2c41cb66dd3f671f4ed6854079dfcf7e227a2a198470afb299966f70648
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

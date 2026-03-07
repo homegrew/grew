@@ -1,0 +1,19 @@
+name: mklittlefs
+version: 4.1.0
+description: Creates LittleFS images for ESP8266, ESP32, Pico RP2040, and RP2350
+homepage: https://github.com/earlephilhower/mklittlefs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mklittlefs/blobs/sha256:ebd5f7c2ba836785f2a85f02288e6b3cefdcac40f2e0c4086a291ec1f9b06e67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mklittlefs/blobs/sha256:8c49d44f1d0ccd0ae7597dadf8a3c40e932cc5d775135d450fdb8df8a6d173c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mklittlefs/blobs/sha256:f08d3944b06a3190264af01ab13388745ebd1783419c4637cf248d1590f886a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mklittlefs/blobs/sha256:718c5352d9f335d60515c74268ebbc2cbbb879a82e4063893418fedbf9601a42
+sha256:
+  darwin_arm64: ebd5f7c2ba836785f2a85f02288e6b3cefdcac40f2e0c4086a291ec1f9b06e67
+  darwin_amd64: 8c49d44f1d0ccd0ae7597dadf8a3c40e932cc5d775135d450fdb8df8a6d173c3
+  linux_amd64: f08d3944b06a3190264af01ab13388745ebd1783419c4637cf248d1590f886a8
+  linux_arm64: 718c5352d9f335d60515c74268ebbc2cbbb879a82e4063893418fedbf9601a42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

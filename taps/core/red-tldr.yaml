@@ -1,0 +1,19 @@
+name: red-tldr
+version: 0.5.0
+description: Used to help red team staff quickly find the commands and key points
+homepage: https://payloads.online/red-tldr/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/red-tldr/blobs/sha256:b899f36c60a21b05cc3e16a051e0db36d90a60882864f149b812204a7e427652
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/red-tldr/blobs/sha256:18d4aca22446fbd71994dc3eeca8abd0b492760fd3148d2fa170e1cfbbf4ae82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/red-tldr/blobs/sha256:6458162f5cf6ce365bb6a4f3688e7867fff6c8af0ab5e31386d9bfbfa4232e4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/red-tldr/blobs/sha256:92cf80e291015b87bdfeb91ac777b62b5d09e8a4ab2e120e23275d149473b52b
+sha256:
+  darwin_arm64: b899f36c60a21b05cc3e16a051e0db36d90a60882864f149b812204a7e427652
+  darwin_amd64: 18d4aca22446fbd71994dc3eeca8abd0b492760fd3148d2fa170e1cfbbf4ae82
+  linux_amd64: 6458162f5cf6ce365bb6a4f3688e7867fff6c8af0ab5e31386d9bfbfa4232e4e
+  linux_arm64: 92cf80e291015b87bdfeb91ac777b62b5d09e8a4ab2e120e23275d149473b52b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

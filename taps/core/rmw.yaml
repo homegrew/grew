@@ -1,0 +1,23 @@
+name: rmw
+version: 0.9.4
+description: Trashcan/recycle bin utility for the command-line
+homepage: https://theimpossibleastronaut.github.io/rmw-website/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rmw/blobs/sha256:84a5f3d95667b0b73a17a49d4649fda233e9abb44097225efa537f99399fed86
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rmw/blobs/sha256:07ecdebd01dfd87db1e36cc87fa5255f70c8d8c7d4fc730b7bb3cffe269a7613
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rmw/blobs/sha256:3a5eab29ba4ed0ef73d00edf9e33fb2bd424d775973cfaed388360dca1938686
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rmw/blobs/sha256:ab15e030b9ed1c6883dcc6c3e574d3d5741dcfdfb6dc3e0e23a0e422f81bd8e5
+sha256:
+  darwin_arm64: 84a5f3d95667b0b73a17a49d4649fda233e9abb44097225efa537f99399fed86
+  darwin_amd64: 07ecdebd01dfd87db1e36cc87fa5255f70c8d8c7d4fc730b7bb3cffe269a7613
+  linux_amd64: 3a5eab29ba4ed0ef73d00edf9e33fb2bd424d775973cfaed388360dca1938686
+  linux_arm64: ab15e030b9ed1c6883dcc6c3e574d3d5741dcfdfb6dc3e0e23a0e422f81bd8e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - canfigger
+  - ncurses
+  - gettext

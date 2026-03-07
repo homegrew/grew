@@ -1,0 +1,23 @@
+name: opusfile
+version: 0.12
+description: API for decoding and seeking in .opus files
+homepage: https://www.opus-codec.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opusfile/blobs/sha256:922d401e40f524054d79245fa8b30b4025420bdc1f38fbdb4ac223ddbc0bd1df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opusfile/blobs/sha256:afa275ae206fade81999c64b1f0d6d5812be81ffb9ca8a68d7f7d5f0421ec8ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opusfile/blobs/sha256:f4b0a03f7494d92eb31cdc658c7aca5d971a1c9482ad899a2fe6643715d887f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opusfile/blobs/sha256:4c2071a6fa1b8fba96beadcc92aae367174e03567220c066457a3490a629f919
+sha256:
+  darwin_arm64: 922d401e40f524054d79245fa8b30b4025420bdc1f38fbdb4ac223ddbc0bd1df
+  darwin_amd64: afa275ae206fade81999c64b1f0d6d5812be81ffb9ca8a68d7f7d5f0421ec8ee
+  linux_amd64: f4b0a03f7494d92eb31cdc658c7aca5d971a1c9482ad899a2fe6643715d887f4
+  linux_arm64: 4c2071a6fa1b8fba96beadcc92aae367174e03567220c066457a3490a629f919
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - openssl@3
+  - opus

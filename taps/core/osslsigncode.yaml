@@ -1,0 +1,21 @@
+name: osslsigncode
+version: 2.13
+description: OpenSSL based Authenticode signing for PE/MSI/Java CAB files
+homepage: https://github.com/mtrojnar/osslsigncode
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osslsigncode/blobs/sha256:e5a60ba4972ee5f6bd4652c556fb92a7d93577ecd73ec263d779b409fb939182
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osslsigncode/blobs/sha256:f53ca1182dcce1fef94da4b4d3d2210ea23c14a0b5fb07690b35af901f0be035
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osslsigncode/blobs/sha256:177c66a589a8f306468f9e2de500a1295b91d3f3ef5be4aafac1dd4f22ff8abb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osslsigncode/blobs/sha256:7e01e10074189e7999e27450a1b0c0b228a0d10be7a49a568c0ba2e4d323b890
+sha256:
+  darwin_arm64: e5a60ba4972ee5f6bd4652c556fb92a7d93577ecd73ec263d779b409fb939182
+  darwin_amd64: f53ca1182dcce1fef94da4b4d3d2210ea23c14a0b5fb07690b35af901f0be035
+  linux_amd64: 177c66a589a8f306468f9e2de500a1295b91d3f3ef5be4aafac1dd4f22ff8abb
+  linux_arm64: 7e01e10074189e7999e27450a1b0c0b228a0d10be7a49a568c0ba2e4d323b890
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

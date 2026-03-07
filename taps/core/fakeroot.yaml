@@ -1,0 +1,19 @@
+name: fakeroot
+version: 1.37.2
+description: Provide a fake root environment
+homepage: https://tracker.debian.org/pkg/fakeroot
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fakeroot/blobs/sha256:eb496ad0f12203de3fb0ba287620f65883f1e90cf2f67dc53021a1dfdd448430
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fakeroot/blobs/sha256:38c3bbe68895d203e84372ab3f1f5658fa160d8edc241e3ab01d19b37cd773ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fakeroot/blobs/sha256:c24ea0f7754e65c3243a293aff65150a855485b760f42e7a230de0c4bf508681
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fakeroot/blobs/sha256:63d8636c69b2bad7bda249e7273d95079ea10ea6ccfadc654ba9282d114a9f84
+sha256:
+  darwin_arm64: eb496ad0f12203de3fb0ba287620f65883f1e90cf2f67dc53021a1dfdd448430
+  darwin_amd64: 38c3bbe68895d203e84372ab3f1f5658fa160d8edc241e3ab01d19b37cd773ea
+  linux_amd64: c24ea0f7754e65c3243a293aff65150a855485b760f42e7a230de0c4bf508681
+  linux_arm64: 63d8636c69b2bad7bda249e7273d95079ea10ea6ccfadc654ba9282d114a9f84
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

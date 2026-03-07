@@ -1,0 +1,19 @@
+name: flowpipe
+version: 1.2.0
+description: Cloud scripting engine
+homepage: https://flowpipe.io
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flowpipe/blobs/sha256:7604b029f8a4a0ea48f26274cfbc550d258fcd446e2bfc6288f86716132ac550
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flowpipe/blobs/sha256:ff20f9941e5e7b7effef9e3f0d122f060893429c9c933ec3721c145fe7342bae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flowpipe/blobs/sha256:2c9b2da386e4f32aa027f6f91451644838b1d69eb5cbd3e6d5424b2c9dba229f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flowpipe/blobs/sha256:6c75b403dc102e00429d8ac05a925d72253e373947ff608db5a8bd3e005a10f3
+sha256:
+  darwin_arm64: 7604b029f8a4a0ea48f26274cfbc550d258fcd446e2bfc6288f86716132ac550
+  darwin_amd64: ff20f9941e5e7b7effef9e3f0d122f060893429c9c933ec3721c145fe7342bae
+  linux_amd64: 2c9b2da386e4f32aa027f6f91451644838b1d69eb5cbd3e6d5424b2c9dba229f
+  linux_arm64: 6c75b403dc102e00429d8ac05a925d72253e373947ff608db5a8bd3e005a10f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

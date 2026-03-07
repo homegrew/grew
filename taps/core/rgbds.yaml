@@ -1,0 +1,21 @@
+name: rgbds
+version: 1.0.1
+description: Rednex GameBoy Development System
+homepage: https://rgbds.gbdev.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rgbds/blobs/sha256:fedb922933f87988dedef927823d41d3426509ab9b203baab00747ec86bb227e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rgbds/blobs/sha256:4b787f2390864c7d1fe0aff76137fd0ee77e74320100925813b81a672c988561
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rgbds/blobs/sha256:a835c2383da7339dbd7d22dd817484207a7a04e0e26fd664c7068cfcb5dd0de6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rgbds/blobs/sha256:5dacc9e6e1a2791f7dbfcea1e34a6bd178b767664d21b225527247044e9b401c
+sha256:
+  darwin_arm64: fedb922933f87988dedef927823d41d3426509ab9b203baab00747ec86bb227e
+  darwin_amd64: 4b787f2390864c7d1fe0aff76137fd0ee77e74320100925813b81a672c988561
+  linux_amd64: a835c2383da7339dbd7d22dd817484207a7a04e0e26fd664c7068cfcb5dd0de6
+  linux_arm64: 5dacc9e6e1a2791f7dbfcea1e34a6bd178b767664d21b225527247044e9b401c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

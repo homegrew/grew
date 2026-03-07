@@ -1,0 +1,19 @@
+name: toast
+version: 0.47.7
+description: Tool for running tasks in containers
+homepage: https://github.com/stepchowfun/toast
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toast/blobs/sha256:e0d9f65aeb892f6b89fa305c453c76df57442f044504cafa48098590f55db5a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toast/blobs/sha256:b2a20c9c83d5f0bbef1ae0b0157f7a2adfcdce1251e649c53c78295123352604
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toast/blobs/sha256:0ed0686a150d2936eb37bb83197d2e55088533f73af946df1261a58ced8cddc6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toast/blobs/sha256:35a83e8715ac42e645ef9edfefb127d454eb2bbee2c2f791d466a68da876dcb3
+sha256:
+  darwin_arm64: e0d9f65aeb892f6b89fa305c453c76df57442f044504cafa48098590f55db5a7
+  darwin_amd64: b2a20c9c83d5f0bbef1ae0b0157f7a2adfcdce1251e649c53c78295123352604
+  linux_amd64: 0ed0686a150d2936eb37bb83197d2e55088533f73af946df1261a58ced8cddc6
+  linux_arm64: 35a83e8715ac42e645ef9edfefb127d454eb2bbee2c2f791d466a68da876dcb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

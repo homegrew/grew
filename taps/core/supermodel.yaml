@@ -1,0 +1,21 @@
+name: supermodel
+version: 0.3a-20260228-git-d6dec3d
+description: Sega Model 3 arcade emulator
+homepage: https://github.com/trzy/Supermodel
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/supermodel/blobs/sha256:0371f7d2f4c880a1cb0be485e0cce84256540a1000d203cbf0cfccc3dea7aa79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/supermodel/blobs/sha256:cd2c90c6b7e2459b867b92476255d138093871804c562b2455e97405b88878b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/supermodel/blobs/sha256:61f47cc3b5ada785aeabd68913e9bab259ec7a3af3ce6715e512b9173e91e81b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/supermodel/blobs/sha256:b5c42ecc38e0cf4ccd479739c8f33a20e1feb0689530e552155bb956a6bb95c4
+sha256:
+  darwin_arm64: 0371f7d2f4c880a1cb0be485e0cce84256540a1000d203cbf0cfccc3dea7aa79
+  darwin_amd64: cd2c90c6b7e2459b867b92476255d138093871804c562b2455e97405b88878b6
+  linux_amd64: 61f47cc3b5ada785aeabd68913e9bab259ec7a3af3ce6715e512b9173e91e81b
+  linux_arm64: b5c42ecc38e0cf4ccd479739c8f33a20e1feb0689530e552155bb956a6bb95c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

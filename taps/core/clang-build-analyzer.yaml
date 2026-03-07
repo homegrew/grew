@@ -1,0 +1,19 @@
+name: clang-build-analyzer
+version: 1.6.0
+description: Tool to analyze compilation time
+homepage: https://github.com/aras-p/ClangBuildAnalyzer
+license: Unlicense AND Zlib AND MIT AND BSL-1.0 AND BSD-3-Clause AND Apache-2.0 AND BSD-2-Clause AND (Apache-2.0 WITH LLVM-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clang-build-analyzer/blobs/sha256:14419000811d5bef08eaa62f796264dc5268bb9a95a7b907c6e38936f06ab1ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clang-build-analyzer/blobs/sha256:d4af487341370185ae6ebb035629646ffcfc5590961e8250eba3b93e82618ef6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clang-build-analyzer/blobs/sha256:dcdefa484105d4b981757deb4ce19d98c2c5fb8eda65ba1ccbb332958188e064
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clang-build-analyzer/blobs/sha256:72c0d64de559f8b07488a1d052faf7790fa89194449e5a349a4acb6fa120c919
+sha256:
+  darwin_arm64: 14419000811d5bef08eaa62f796264dc5268bb9a95a7b907c6e38936f06ab1ab
+  darwin_amd64: d4af487341370185ae6ebb035629646ffcfc5590961e8250eba3b93e82618ef6
+  linux_amd64: dcdefa484105d4b981757deb4ce19d98c2c5fb8eda65ba1ccbb332958188e064
+  linux_arm64: 72c0d64de559f8b07488a1d052faf7790fa89194449e5a349a4acb6fa120c919
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

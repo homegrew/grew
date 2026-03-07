@@ -1,0 +1,19 @@
+name: acme
+version: 0.97
+description: Crossassembler for multiple environments
+homepage: https://sourceforge.net/projects/acme-crossass/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/acme/blobs/sha256:f603308c41ccb1f3b81bef2ffccc7a3ec09b797133abb5d41f9574a95411f73b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/acme/blobs/sha256:9075f4b6b9cc0869c5a800d6b35aaa92f66f6964495545ae7a4f742fd3d50940
+  linux_amd64: https://ghcr.io/v2/homebrew/core/acme/blobs/sha256:fcb14a109abee4d1af24a79bc4991a851a6b1b75fd64999e815715fc54a4c834
+  linux_arm64: https://ghcr.io/v2/homebrew/core/acme/blobs/sha256:743dda54569b1514edf7632a1d62b7f93b44324cdb91d2520a10f27edd3236e6
+sha256:
+  darwin_arm64: f603308c41ccb1f3b81bef2ffccc7a3ec09b797133abb5d41f9574a95411f73b
+  darwin_amd64: 9075f4b6b9cc0869c5a800d6b35aaa92f66f6964495545ae7a4f742fd3d50940
+  linux_amd64: fcb14a109abee4d1af24a79bc4991a851a6b1b75fd64999e815715fc54a4c834
+  linux_arm64: 743dda54569b1514edf7632a1d62b7f93b44324cdb91d2520a10f27edd3236e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

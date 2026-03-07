@@ -1,0 +1,23 @@
+name: ivtools
+version: 2.1.1
+description: X11 vector graphic servers
+homepage: https://github.com/vectaport/ivtools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ivtools/blobs/sha256:0944ef622cdc4c71bad4d0aadfa3e0d515ac6bbcf9f72f545b114aad46ce740d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ivtools/blobs/sha256:5cce5d74ed1e1661384a984cbc3df691439d0195f420d94f8bd313353c2d181a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ivtools/blobs/sha256:54499bc5818657bb24d86df3388ed9ea7569925f2aaf573f03909a0082e6b678
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ivtools/blobs/sha256:50507b3dbed7d6f7c155e2260e0a1c102b8f1a56f8d8a4469d8b6689ca2e28a9
+sha256:
+  darwin_arm64: 0944ef622cdc4c71bad4d0aadfa3e0d515ac6bbcf9f72f545b114aad46ce740d
+  darwin_amd64: 5cce5d74ed1e1661384a984cbc3df691439d0195f420d94f8bd313353c2d181a
+  linux_amd64: 54499bc5818657bb24d86df3388ed9ea7569925f2aaf573f03909a0082e6b678
+  linux_arm64: 50507b3dbed7d6f7c155e2260e0a1c102b8f1a56f8d8a4469d8b6689ca2e28a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ace
+  - libx11
+  - libxext

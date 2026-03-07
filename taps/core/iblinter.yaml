@@ -1,0 +1,19 @@
+name: iblinter
+version: 0.5.0
+description: Linter tool for Interface Builder
+homepage: https://github.com/IBDecodable/IBLinter
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iblinter/blobs/sha256:3ccc5cf7c9e37c007329b85160d1973f853444d151f027469f87501be2ce1dfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iblinter/blobs/sha256:5df5917b52968d0e5ae274fd7ed90a2740b0cefa51b04e59d1a736d4a3de86d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iblinter/blobs/sha256:c3a4dcb0445ce6cc30ee0d563919b23c5f7acd012cb83316d3f9a389343ad74c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iblinter/blobs/sha256:f3d53ef7a5072cd59df9ff826df7809fac46dd2fc764f57ceefd22824640ff96
+sha256:
+  darwin_arm64: 3ccc5cf7c9e37c007329b85160d1973f853444d151f027469f87501be2ce1dfd
+  darwin_amd64: 5df5917b52968d0e5ae274fd7ed90a2740b0cefa51b04e59d1a736d4a3de86d0
+  linux_amd64: c3a4dcb0445ce6cc30ee0d563919b23c5f7acd012cb83316d3f9a389343ad74c
+  linux_arm64: f3d53ef7a5072cd59df9ff826df7809fac46dd2fc764f57ceefd22824640ff96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

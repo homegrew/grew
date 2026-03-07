@@ -1,0 +1,19 @@
+name: inih
+version: 62
+description: Simple .INI file parser in C
+homepage: https://github.com/benhoyt/inih
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inih/blobs/sha256:2da037de9e1fcd435b7f6ce72ad3f4d68daba4309177706b4985cb1a8b177410
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inih/blobs/sha256:e0b9bac4889b98ae4d76744dad465896324f24d3c6cf153da61dc4ab7c47bdc6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inih/blobs/sha256:009e69d397acb943997e1a240c2f7836343aa8ddbec03fc9eda1f4192b211205
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inih/blobs/sha256:367d03ca8de872326f20c9fdc0e51c1f067c2ad3a7c6f256e808a8290402270b
+sha256:
+  darwin_arm64: 2da037de9e1fcd435b7f6ce72ad3f4d68daba4309177706b4985cb1a8b177410
+  darwin_amd64: e0b9bac4889b98ae4d76744dad465896324f24d3c6cf153da61dc4ab7c47bdc6
+  linux_amd64: 009e69d397acb943997e1a240c2f7836343aa8ddbec03fc9eda1f4192b211205
+  linux_arm64: 367d03ca8de872326f20c9fdc0e51c1f067c2ad3a7c6f256e808a8290402270b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

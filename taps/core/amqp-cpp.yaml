@@ -1,0 +1,21 @@
+name: amqp-cpp
+version: 4.3.27
+description: C++ library for communicating with a RabbitMQ message broker
+homepage: https://github.com/CopernicaMarketingSoftware/AMQP-CPP
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/amqp-cpp/blobs/sha256:f300647f32576320289d224bdf7f4500522765a6c2ed8f10711372547d24114b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/amqp-cpp/blobs/sha256:58aa9b3ed88fa9452bab84e4265c04ff686abb23cfefd9ce1b40066fa50cdacd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/amqp-cpp/blobs/sha256:61ccf7cf9045f334afa3df40778602bdf1382d681c0ae5811ac34e6863906fcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/amqp-cpp/blobs/sha256:8951f9439fa4acf6c6616b1130c7a2cbffe3ef79e9443865592448baca178ea9
+sha256:
+  darwin_arm64: f300647f32576320289d224bdf7f4500522765a6c2ed8f10711372547d24114b
+  darwin_amd64: 58aa9b3ed88fa9452bab84e4265c04ff686abb23cfefd9ce1b40066fa50cdacd
+  linux_amd64: 61ccf7cf9045f334afa3df40778602bdf1382d681c0ae5811ac34e6863906fcb
+  linux_arm64: 8951f9439fa4acf6c6616b1130c7a2cbffe3ef79e9443865592448baca178ea9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

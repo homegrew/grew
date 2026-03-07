@@ -1,0 +1,19 @@
+name: libsql
+version: 0.24.32
+description: Fork of SQLite that is both Open Source, and Open Contributions
+homepage: https://turso.tech/libsql
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsql/blobs/sha256:852ee773247ada611ab2328ee7da4489f5b27541f4c563424bc1272bde1ac3dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsql/blobs/sha256:de5dbd7e67706e8776e45a167129cb6942d913762b8d64b2fab0d5719fb8ec6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsql/blobs/sha256:ca0ca891c69501aa629a51785058ae16a647bbfdf6881bc56f59e735b6143280
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsql/blobs/sha256:9c72a00eb9105bb84ef2c118047457bb3ae9ef93efa85ea6a6ee30fcb25720ad
+sha256:
+  darwin_arm64: 852ee773247ada611ab2328ee7da4489f5b27541f4c563424bc1272bde1ac3dd
+  darwin_amd64: de5dbd7e67706e8776e45a167129cb6942d913762b8d64b2fab0d5719fb8ec6a
+  linux_amd64: ca0ca891c69501aa629a51785058ae16a647bbfdf6881bc56f59e735b6143280
+  linux_arm64: 9c72a00eb9105bb84ef2c118047457bb3ae9ef93efa85ea6a6ee30fcb25720ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

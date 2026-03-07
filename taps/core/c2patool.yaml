@@ -1,0 +1,21 @@
+name: c2patool
+version: 0.26.33
+description: CLI for working with C2PA manifests and media assets
+homepage: https://contentauthenticity.org
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c2patool/blobs/sha256:d5f7bde9141c38ae64b21ee32af797508fc75dde102beeadc9ce23c4ed5a8165
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c2patool/blobs/sha256:4ecc6bf8641305223bb385dca9ba2a5d32399332add5511fddbea59fe38c0687
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c2patool/blobs/sha256:face11365290d8c24f578d4ae2feb5059f633d158c975b98650061b08ed2035c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c2patool/blobs/sha256:2d00a767604da68a57615cf0ebc8ae03f6955a46cb3cbaee16752721bd760159
+sha256:
+  darwin_arm64: d5f7bde9141c38ae64b21ee32af797508fc75dde102beeadc9ce23c4ed5a8165
+  darwin_amd64: 4ecc6bf8641305223bb385dca9ba2a5d32399332add5511fddbea59fe38c0687
+  linux_amd64: face11365290d8c24f578d4ae2feb5059f633d158c975b98650061b08ed2035c
+  linux_arm64: 2d00a767604da68a57615cf0ebc8ae03f6955a46cb3cbaee16752721bd760159
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

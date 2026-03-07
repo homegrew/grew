@@ -1,0 +1,21 @@
+name: xlispstat
+version: 3.52.23
+description: Statistical data science environment based on Lisp
+homepage: https://homepage.stat.uiowa.edu/~luke/xls/xlsinfo/
+license: HPND-sell-variant
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xlispstat/blobs/sha256:cf23b57eb4e3246a8456d4243f04d704a3a2128d763021876a9b5777010888e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xlispstat/blobs/sha256:fcfee4172bf01f3bf39432e7c7e12b8f73e67d5d36de47e74dbff16d5ece3012
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xlispstat/blobs/sha256:45f4149aaf05fa78c789492de2867074891abc4816a5b6abbf04d06433c135d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xlispstat/blobs/sha256:f9ce0920180e4cab96fc3e9b55a0fe5e95bee6b4de40a7ca7121f2068daaea2b
+sha256:
+  darwin_arm64: cf23b57eb4e3246a8456d4243f04d704a3a2128d763021876a9b5777010888e5
+  darwin_amd64: fcfee4172bf01f3bf39432e7c7e12b8f73e67d5d36de47e74dbff16d5ece3012
+  linux_amd64: 45f4149aaf05fa78c789492de2867074891abc4816a5b6abbf04d06433c135d6
+  linux_arm64: f9ce0920180e4cab96fc3e9b55a0fe5e95bee6b4de40a7ca7121f2068daaea2b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11

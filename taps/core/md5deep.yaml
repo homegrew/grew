@@ -1,0 +1,19 @@
+name: md5deep
+version: 4.4
+description: Recursively compute digests on files/directories
+homepage: https://github.com/jessek/hashdeep
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/md5deep/blobs/sha256:c59d131c78aa6ee76fdfe35f4dd4488f5edfbdad5eb48eaa549396168adc31c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/md5deep/blobs/sha256:7741049d40f5fc9989fa69e8a55dd1c1f75c75155a89a0a0f90575afdcf9b2c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/md5deep/blobs/sha256:a36e25199a0c133790f452fa716c07fc6bc724714f66c30be47f5989b703ed46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/md5deep/blobs/sha256:786f0046cd92fd6e6689b0c6dd0cf202ad019a28d9ecfd3f29c356c78639bf91
+sha256:
+  darwin_arm64: c59d131c78aa6ee76fdfe35f4dd4488f5edfbdad5eb48eaa549396168adc31c5
+  darwin_amd64: 7741049d40f5fc9989fa69e8a55dd1c1f75c75155a89a0a0f90575afdcf9b2c3
+  linux_amd64: a36e25199a0c133790f452fa716c07fc6bc724714f66c30be47f5989b703ed46
+  linux_arm64: 786f0046cd92fd6e6689b0c6dd0cf202ad019a28d9ecfd3f29c356c78639bf91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

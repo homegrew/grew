@@ -1,0 +1,19 @@
+name: r-rig
+version: 0.7.1
+description: R Installation Manager
+homepage: https://github.com/r-lib/rig
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/r-rig/blobs/sha256:7d288b71263f4591641262c1f42c6811cc070a1fcc9e96c97cb3c4446c571da9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/r-rig/blobs/sha256:3a1f545b58e6207b3be665f5a36a40e2d1ba0659648cd7e29d1a76f158f3f099
+  linux_amd64: https://ghcr.io/v2/homebrew/core/r-rig/blobs/sha256:f8f9fb4827b02f91ce993fc00131440b6344cbf27ed22e8cf2c3abfe4f107a05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/r-rig/blobs/sha256:d5f965ec3c6589a9d9c3101f24c91716134df6db918845956f53f37c64475c93
+sha256:
+  darwin_arm64: 7d288b71263f4591641262c1f42c6811cc070a1fcc9e96c97cb3c4446c571da9
+  darwin_amd64: 3a1f545b58e6207b3be665f5a36a40e2d1ba0659648cd7e29d1a76f158f3f099
+  linux_amd64: f8f9fb4827b02f91ce993fc00131440b6344cbf27ed22e8cf2c3abfe4f107a05
+  linux_arm64: d5f965ec3c6589a9d9c3101f24c91716134df6db918845956f53f37c64475c93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

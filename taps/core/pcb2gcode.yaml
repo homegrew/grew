@@ -1,0 +1,30 @@
+name: pcb2gcode
+version: 3.0.2
+description: Command-line tool for isolation, routing and drilling of PCBs
+homepage: https://github.com/pcb2gcode/pcb2gcode
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcb2gcode/blobs/sha256:1bbc11859080838a33d817b7e21424967a7f074315b7da188d68a54f2842d6f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcb2gcode/blobs/sha256:c280beaa3eb3c108e6829dd4e6f2094a121b036c633066442ec60c076caede3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcb2gcode/blobs/sha256:d27c42ab6fddb5e48d644d35c64a6d97d9fde47b584f9cd8caec3acc3af04032
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcb2gcode/blobs/sha256:5b0c539746bdebdb7c71a7d2566b2fe97aeeded50e61759c612adc9c0a48e056
+sha256:
+  darwin_arm64: 1bbc11859080838a33d817b7e21424967a7f074315b7da188d68a54f2842d6f3
+  darwin_amd64: c280beaa3eb3c108e6829dd4e6f2094a121b036c633066442ec60c076caede3b
+  linux_amd64: d27c42ab6fddb5e48d644d35c64a6d97d9fde47b584f9cd8caec3acc3af04032
+  linux_arm64: 5b0c539746bdebdb7c71a7d2566b2fe97aeeded50e61759c612adc9c0a48e056
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - boost
+  - cairo
+  - gdk-pixbuf
+  - gerbv
+  - gettext
+  - glib
+  - gtk+
+  - harfbuzz
+  - pango

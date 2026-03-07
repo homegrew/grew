@@ -1,0 +1,23 @@
+name: esptool
+version: 5.2.0
+description: ESP8266 and ESP32 serial bootloader utility
+homepage: https://docs.espressif.com/projects/esptool/en/latest/esp32/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/esptool/blobs/sha256:f4e3862d7a541f356022ae1d13fc3e265a7b1012f340f0b3fe05020ba9b409a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/esptool/blobs/sha256:e0f8a0069f5367a3bf0aa3143e672e77dbcb6d2e2b2bb24133622902b70e48ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/esptool/blobs/sha256:ebe7a5dd621f2734185448daee0b0a86435f65776994dd267c8db786d3caa0ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/esptool/blobs/sha256:523c738dfbe95279c7e720e907f53caf6145cbfab4ab4e1b0dfa3c17fc15825b
+sha256:
+  darwin_arm64: f4e3862d7a541f356022ae1d13fc3e265a7b1012f340f0b3fe05020ba9b409a3
+  darwin_amd64: e0f8a0069f5367a3bf0aa3143e672e77dbcb6d2e2b2bb24133622902b70e48ca
+  linux_amd64: ebe7a5dd621f2734185448daee0b0a86435f65776994dd267c8db786d3caa0ee
+  linux_arm64: 523c738dfbe95279c7e720e907f53caf6145cbfab4ab4e1b0dfa3c17fc15825b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libyaml
+  - python@3.14

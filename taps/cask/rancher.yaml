@@ -1,0 +1,11 @@
+name: rancher
+version: 1.22.0
+description: Kubernetes and container management on the desktop
+homepage: https://rancherdesktop.io/
+url:
+  darwin_arm64: https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.22.0/Rancher.Desktop-1.22.0.aarch64.dmg
+sha256:
+  darwin_arm64: 474f2f625777f0a7e1bfea5f3b814fef664181a20450a85fbf0e0e92bd2b8323
+artifacts:
+  app:
+    - Rancher Desktop.app

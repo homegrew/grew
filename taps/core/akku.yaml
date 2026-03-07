@@ -1,0 +1,21 @@
+name: akku
+version: 1.1.0
+description: Package manager for Scheme
+homepage: https://akkuscm.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/akku/blobs/sha256:525ddcc47892beb6922d45852f96cd4cdb3b7981605acf5d415216a2e728b44e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/akku/blobs/sha256:ca9a81689b78a05f3d8679810825438d3617e3195c4a1c4831219949ec78b73e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/akku/blobs/sha256:23a1841305dd2e17051dc12c0e0c10e17420c432a0fca409ece365558a5cce4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/akku/blobs/sha256:e01b75b5ae763d756faf1c9e6ac2c308a99d0d639c324726b92b46cbc2bbc7e5
+sha256:
+  darwin_arm64: 525ddcc47892beb6922d45852f96cd4cdb3b7981605acf5d415216a2e728b44e
+  darwin_amd64: ca9a81689b78a05f3d8679810825438d3617e3195c4a1c4831219949ec78b73e
+  linux_amd64: 23a1841305dd2e17051dc12c0e0c10e17420c432a0fca409ece365558a5cce4f
+  linux_arm64: e01b75b5ae763d756faf1c9e6ac2c308a99d0d639c324726b92b46cbc2bbc7e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - guile

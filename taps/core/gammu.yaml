@@ -1,0 +1,22 @@
+name: gammu
+version: 1.43.2
+description: Command-line utility to control a phone
+homepage: https://wammu.eu/gammu/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gammu/blobs/sha256:578f3bf4bf220f323c098361dce5fbf5dcc4a18ff2db6639f54af79d4aa21322
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gammu/blobs/sha256:13426d12478760d235564cba4f7d2712df2e88f1be47f00ad11e72e74177613a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gammu/blobs/sha256:4ab3b6112226e0d666033b9d0ae877e99ec4417b0ebea3f5f51cbe61ba00783b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gammu/blobs/sha256:d1b8ba528cf6242e9873c95d049ba4e5feb0f71d2bee76337cfd886c5023b912
+sha256:
+  darwin_arm64: 578f3bf4bf220f323c098361dce5fbf5dcc4a18ff2db6639f54af79d4aa21322
+  darwin_amd64: 13426d12478760d235564cba4f7d2712df2e88f1be47f00ad11e72e74177613a
+  linux_amd64: 4ab3b6112226e0d666033b9d0ae877e99ec4417b0ebea3f5f51cbe61ba00783b
+  linux_arm64: d1b8ba528cf6242e9873c95d049ba4e5feb0f71d2bee76337cfd886c5023b912
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

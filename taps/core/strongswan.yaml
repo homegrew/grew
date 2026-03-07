@@ -1,0 +1,21 @@
+name: strongswan
+version: 6.0.4
+description: VPN based on IPsec
+homepage: https://www.strongswan.org
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/strongswan/blobs/sha256:4afdb48f27554ca9edfb94c87a109c9db7d23c6ce160851b53b9531aecbc0a5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/strongswan/blobs/sha256:ce0ca37b4cbc08c2299328c0bc623d44c5edd5c80a08c9e719aaa446627e9f39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/strongswan/blobs/sha256:58d4bd1f14b474d61e665a6a34cf9b2a1ad14a1803c59baf5078fe78843a2be7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/strongswan/blobs/sha256:8d7cf060f8f44f7d5bfbb0687c924c72ba2fd49630f1ffa8320d06c35e732e03
+sha256:
+  darwin_arm64: 4afdb48f27554ca9edfb94c87a109c9db7d23c6ce160851b53b9531aecbc0a5f
+  darwin_amd64: ce0ca37b4cbc08c2299328c0bc623d44c5edd5c80a08c9e719aaa446627e9f39
+  linux_amd64: 58d4bd1f14b474d61e665a6a34cf9b2a1ad14a1803c59baf5078fe78843a2be7
+  linux_arm64: 8d7cf060f8f44f7d5bfbb0687c924c72ba2fd49630f1ffa8320d06c35e732e03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,21 @@
+name: arm-none-eabi-binutils
+version: 2.46.0
+description: GNU Binutils for arm-none-eabi cross development
+homepage: https://www.gnu.org/software/binutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-binutils/blobs/sha256:d1baef214ada2afce70175e99a32789a5fad6b7829c35f2ee7e122016c6f8b7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-binutils/blobs/sha256:d964cf93c517619de9897beccb51701aa960ccdf20045f7b7d41a331c8ace5c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-binutils/blobs/sha256:a5799d18def773ecb8f7987f0646d11d90d8c610649af7ac9f14a3e7f191f04e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-binutils/blobs/sha256:2797e667da0789c94ddb173e1f1addb72bde1cf6c5f362a49874bf4b1f8d9d06
+sha256:
+  darwin_arm64: d1baef214ada2afce70175e99a32789a5fad6b7829c35f2ee7e122016c6f8b7c
+  darwin_amd64: d964cf93c517619de9897beccb51701aa960ccdf20045f7b7d41a331c8ace5c5
+  linux_amd64: a5799d18def773ecb8f7987f0646d11d90d8c610649af7ac9f14a3e7f191f04e
+  linux_arm64: 2797e667da0789c94ddb173e1f1addb72bde1cf6c5f362a49874bf4b1f8d9d06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

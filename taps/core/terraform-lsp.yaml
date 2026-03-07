@@ -1,0 +1,19 @@
+name: terraform-lsp
+version: 0.0.12
+description: Language Server Protocol for Terraform
+homepage: https://github.com/juliosueiras/terraform-lsp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-lsp/blobs/sha256:e520989a451215fc8aa36173dbce765df4d6abfa73ada73699898677a0c76baf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-lsp/blobs/sha256:d330c1aafbb2f100048ec4803e02ddb83404ea850453821cb127a5cca034a97c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-lsp/blobs/sha256:7eae59625f858958621455404b365659464230b5a54783cb20be44e4569d539f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-lsp/blobs/sha256:4e5d4b396b057db51b2ab3ee755341626e016a5da660bd68a2f832b397b89def
+sha256:
+  darwin_arm64: e520989a451215fc8aa36173dbce765df4d6abfa73ada73699898677a0c76baf
+  darwin_amd64: d330c1aafbb2f100048ec4803e02ddb83404ea850453821cb127a5cca034a97c
+  linux_amd64: 7eae59625f858958621455404b365659464230b5a54783cb20be44e4569d539f
+  linux_arm64: 4e5d4b396b057db51b2ab3ee755341626e016a5da660bd68a2f832b397b89def
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

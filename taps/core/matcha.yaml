@@ -1,0 +1,19 @@
+name: matcha
+version: 0.9.0
+description: Daily digest generator for your RSS feeds
+homepage: https://github.com/piqoni/matcha
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/matcha/blobs/sha256:ad7f42f9b518ff57b98581bb1b533a682f23e678e0fd2bef23737b1f19415a4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/matcha/blobs/sha256:ab9ca1727cd9571e5871aec213f0b4cad88a162f0c48ec7818d92df78a58cc84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/matcha/blobs/sha256:415fbfbaf116b218447315b65f8f12113d47fe0d66b83d2ce0dc63831f0dd98e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/matcha/blobs/sha256:e199e6c8734699dd721a70e231c7e6bf420cdc6b0bee1aad7d9cd810c649483c
+sha256:
+  darwin_arm64: ad7f42f9b518ff57b98581bb1b533a682f23e678e0fd2bef23737b1f19415a4e
+  darwin_amd64: ab9ca1727cd9571e5871aec213f0b4cad88a162f0c48ec7818d92df78a58cc84
+  linux_amd64: 415fbfbaf116b218447315b65f8f12113d47fe0d66b83d2ce0dc63831f0dd98e
+  linux_arm64: e199e6c8734699dd721a70e231c7e6bf420cdc6b0bee1aad7d9cd810c649483c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

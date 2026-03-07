@@ -1,0 +1,17 @@
+name: runc
+version: 1.4.0
+description: CLI tool for spawning and running containers according to the OCI specification
+homepage: https://github.com/opencontainers/runc
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/runc/blobs/sha256:00fcd55a2e57a3a121777511457c9ae3ca626a627117e15e89bda428ce293028
+  linux_arm64: https://ghcr.io/v2/homebrew/core/runc/blobs/sha256:c1e65ec050a170357b5ffbadfe188381171a0195900cfcb831b05150ca8c4756
+sha256:
+  linux_amd64: 00fcd55a2e57a3a121777511457c9ae3ca626a627117e15e89bda428ce293028
+  linux_arm64: c1e65ec050a170357b5ffbadfe188381171a0195900cfcb831b05150ca8c4756
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libseccomp

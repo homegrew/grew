@@ -1,0 +1,11 @@
+name: notepadexe
+version: 1.4.1803
+description: Lightweight code editor
+homepage: https://notepadexe.com/
+url:
+  darwin_arm64: https://github.com/notepadhq/notepadexe-public/releases/download/1.4.1803/Notepad.zip
+sha256:
+  darwin_arm64: 769160491fe526458b303fef73b539e9ad05509593055af444ed96d4838f365f
+artifacts:
+  app:
+    - Notepad.exe.app

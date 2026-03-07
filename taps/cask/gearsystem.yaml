@@ -1,0 +1,11 @@
+name: gearsystem
+version: 3.8.6
+description: Sega Master System, Game Gear and SG-1000 emulator
+homepage: https://github.com/drhelius/Gearsystem
+url:
+  darwin_arm64: https://github.com/drhelius/Gearsystem/releases/download/3.8.6/Gearsystem-3.8.6-macos-arm.zip
+sha256:
+  darwin_arm64: f85017e23960359a7ac740b3fd1aad1a358c1b34c73c176bb33b1737bb27fd24
+artifacts:
+  app:
+    - Gearsystem.app

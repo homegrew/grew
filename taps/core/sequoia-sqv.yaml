@@ -1,0 +1,22 @@
+name: sequoia-sqv
+version: 1.3.0
+description: Simple OpenPGP signature verification program
+homepage: https://sequoia-pgp.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sequoia-sqv/blobs/sha256:568055ffe201b99282b0109f992799923d0b7ddb91d07a8b4f316ebeb22f4fc0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sequoia-sqv/blobs/sha256:cac0ede5fd6bd2543a994cf67d8a48dfb76de9c1a0ae922655decdd47db2b924
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sequoia-sqv/blobs/sha256:6929e0826397eb7eb9ac89cbb5c431a7b0fb561d968ac9402fe4385831be52b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sequoia-sqv/blobs/sha256:436baddd5f72daf501ea4c966dac93f4ef811a0af1c6a933fcbab808afd34711
+sha256:
+  darwin_arm64: 568055ffe201b99282b0109f992799923d0b7ddb91d07a8b4f316ebeb22f4fc0
+  darwin_amd64: cac0ede5fd6bd2543a994cf67d8a48dfb76de9c1a0ae922655decdd47db2b924
+  linux_amd64: 6929e0826397eb7eb9ac89cbb5c431a7b0fb561d968ac9402fe4385831be52b0
+  linux_arm64: 436baddd5f72daf501ea4c966dac93f4ef811a0af1c6a933fcbab808afd34711
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - nettle

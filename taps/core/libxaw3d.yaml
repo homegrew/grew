@@ -1,0 +1,25 @@
+name: libxaw3d
+version: 1.6.6
+description: "X.Org: 3D Athena widget set based on the Xt library"
+homepage: https://www.x.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxaw3d/blobs/sha256:6096ca109060e0d44327e3f087cac26e96fdad05e1abaf75e072ececf6390fed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxaw3d/blobs/sha256:7c63814a4ba44cd9b855922ae73e393fe8d1c75e74451b26de218cf790fffe2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxaw3d/blobs/sha256:ce52f2da8dd74a3df5d277ffeb678f86a9572b0c52a29e513aa688d37e704210
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxaw3d/blobs/sha256:06d7e75d366e78189c6669037314423a41ef33afb196d4f503017739f6ec5704
+sha256:
+  darwin_arm64: 6096ca109060e0d44327e3f087cac26e96fdad05e1abaf75e072ececf6390fed
+  darwin_amd64: 7c63814a4ba44cd9b855922ae73e393fe8d1c75e74451b26de218cf790fffe2d
+  linux_amd64: ce52f2da8dd74a3df5d277ffeb678f86a9572b0c52a29e513aa688d37e704210
+  linux_arm64: 06d7e75d366e78189c6669037314423a41ef33afb196d4f503017739f6ec5704
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - libxmu
+  - libxpm
+  - libxt

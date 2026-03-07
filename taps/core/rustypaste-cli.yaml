@@ -1,0 +1,19 @@
+name: rustypaste-cli
+version: 0.9.4
+description: CLI tool for rustypaste
+homepage: https://blog.orhun.dev/blazingly-fast-file-sharing
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustypaste-cli/blobs/sha256:4dd88e00b24e6d306c44f10f0b7934b84e083e87dbf394e9cdfde51613e79153
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustypaste-cli/blobs/sha256:b3d4c7cf0192536dc44b459779e281397c3c9f1b9c99bd32183d7922931918b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustypaste-cli/blobs/sha256:662b6202603b7a6330e922a227d676f7d33775355ce392d1eb6f2cd939d8466c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustypaste-cli/blobs/sha256:b4823974b668f741fd3d8daa19775536c224a34d8581c33d7709711aac52fc8b
+sha256:
+  darwin_arm64: 4dd88e00b24e6d306c44f10f0b7934b84e083e87dbf394e9cdfde51613e79153
+  darwin_amd64: b3d4c7cf0192536dc44b459779e281397c3c9f1b9c99bd32183d7922931918b6
+  linux_amd64: 662b6202603b7a6330e922a227d676f7d33775355ce392d1eb6f2cd939d8466c
+  linux_arm64: b4823974b668f741fd3d8daa19775536c224a34d8581c33d7709711aac52fc8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

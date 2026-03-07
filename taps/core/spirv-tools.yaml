@@ -1,0 +1,19 @@
+name: spirv-tools
+version: 1.4.341.0
+description: API and commands for processing SPIR-V modules
+homepage: https://github.com/KhronosGroup/SPIRV-Tools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spirv-tools/blobs/sha256:987d2e6c830ba5bd78ddb1ed153ff96300ae82f1214541da1b9d396b1ecf5fec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spirv-tools/blobs/sha256:06d3cde68bf229dcbd498dd5b120d073c06e6912ff434d795f46f2a6a5cb91e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spirv-tools/blobs/sha256:bbc4f609a57841786ca5829e4d41bb1d262035ef9e9239b2717dcb164a97d04e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spirv-tools/blobs/sha256:a43324ad7687e75cb9370a0fca2de2bdb1f2ce659d865dc21c9387e0ea5ede87
+sha256:
+  darwin_arm64: 987d2e6c830ba5bd78ddb1ed153ff96300ae82f1214541da1b9d396b1ecf5fec
+  darwin_amd64: 06d3cde68bf229dcbd498dd5b120d073c06e6912ff434d795f46f2a6a5cb91e1
+  linux_amd64: bbc4f609a57841786ca5829e4d41bb1d262035ef9e9239b2717dcb164a97d04e
+  linux_arm64: a43324ad7687e75cb9370a0fca2de2bdb1f2ce659d865dc21c9387e0ea5ede87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: mox
+version: 0.0.15
+description: Modern full-featured open source secure mail server
+homepage: https://www.xmox.nl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mox/blobs/sha256:e53a87c58244b39fc69bf6574ddb1970275338efdb332812236a056272cabf99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mox/blobs/sha256:287c8a9a4efd5c1f2bf3c284d21c951364a6610e05c3eda981528a4c91431e2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mox/blobs/sha256:b18b6fd28c67104f382de54350ed48397b79a1ec24aa3c079bb616f3ca0437e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mox/blobs/sha256:c8a1420818c826ba0f204499be6384edcd76ccdcf6925dc30c515f6c2180235c
+sha256:
+  darwin_arm64: e53a87c58244b39fc69bf6574ddb1970275338efdb332812236a056272cabf99
+  darwin_amd64: 287c8a9a4efd5c1f2bf3c284d21c951364a6610e05c3eda981528a4c91431e2e
+  linux_amd64: b18b6fd28c67104f382de54350ed48397b79a1ec24aa3c079bb616f3ca0437e2
+  linux_arm64: c8a1420818c826ba0f204499be6384edcd76ccdcf6925dc30c515f6c2180235c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

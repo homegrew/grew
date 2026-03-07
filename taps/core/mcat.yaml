@@ -1,0 +1,19 @@
+name: mcat
+version: 0.4.6
+description: Terminal image, video, directory, and Markdown viewer
+homepage: https://github.com/Skardyy/mcat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcat/blobs/sha256:4b540665d46e453d425a86d38af54b497cbc4a6673ad8c9f2a5d0aaf602706b1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcat/blobs/sha256:3e74346a135925395ed249a72bfd08f9ce8339d7b0becb916cc14729039ffdbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcat/blobs/sha256:f7f8a99a903865bb847e95826a7e3328e2f2f31833bc59a309b28d84a21f5346
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcat/blobs/sha256:0fd9fefc639638499ac67f90a0e20c6749587b434825889970f73c1600857c36
+sha256:
+  darwin_arm64: 4b540665d46e453d425a86d38af54b497cbc4a6673ad8c9f2a5d0aaf602706b1
+  darwin_amd64: 3e74346a135925395ed249a72bfd08f9ce8339d7b0becb916cc14729039ffdbf
+  linux_amd64: f7f8a99a903865bb847e95826a7e3328e2f2f31833bc59a309b28d84a21f5346
+  linux_arm64: 0fd9fefc639638499ac67f90a0e20c6749587b434825889970f73c1600857c36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

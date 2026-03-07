@@ -1,0 +1,21 @@
+name: convco
+version: 0.6.3
+description: Conventional commits, changelog, versioning, validation
+homepage: https://convco.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/convco/blobs/sha256:5d02ab94f2d6e468fee2255a72771a89f545c0869e5d0021350c93b8b17f27c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/convco/blobs/sha256:18aad1e5093825a344db20f15e992b149ec3948828008ec673069ae0074a9bf4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/convco/blobs/sha256:6ddde9364a84fcd9acbbb88c1537560d7b01795bd4c9dc7ae6f6ffa6a608a259
+  linux_arm64: https://ghcr.io/v2/homebrew/core/convco/blobs/sha256:7f48b217348b2f0ff2118a4cbd0f87d2574d6986fc700266910048655a09fd02
+sha256:
+  darwin_arm64: 5d02ab94f2d6e468fee2255a72771a89f545c0869e5d0021350c93b8b17f27c0
+  darwin_amd64: 18aad1e5093825a344db20f15e992b149ec3948828008ec673069ae0074a9bf4
+  linux_amd64: 6ddde9364a84fcd9acbbb88c1537560d7b01795bd4c9dc7ae6f6ffa6a608a259
+  linux_arm64: 7f48b217348b2f0ff2118a4cbd0f87d2574d6986fc700266910048655a09fd02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

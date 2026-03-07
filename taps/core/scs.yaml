@@ -1,0 +1,19 @@
+name: scs
+version: 3.2.11
+description: Conic optimization via operator splitting
+homepage: https://web.stanford.edu/~boyd/papers/scs.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scs/blobs/sha256:0a8a0ccadf4efdd208dbb6c465e8589c7f92db0eaaba81cbb9a8325ed8a56279
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scs/blobs/sha256:335a47718a3368a24425f8a38f7824ddd369afd79c05b9396d8b6e9cdbb3d12b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scs/blobs/sha256:84ef44e6427596c2b80d33b94f6373dfafb51c951d808d01a06dc5797874147b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scs/blobs/sha256:75e798c3ebcdfbb3650414059e3189cbecbd1ad26e6f3a5a6a3109be14ca97e3
+sha256:
+  darwin_arm64: 0a8a0ccadf4efdd208dbb6c465e8589c7f92db0eaaba81cbb9a8325ed8a56279
+  darwin_amd64: 335a47718a3368a24425f8a38f7824ddd369afd79c05b9396d8b6e9cdbb3d12b
+  linux_amd64: 84ef44e6427596c2b80d33b94f6373dfafb51c951d808d01a06dc5797874147b
+  linux_arm64: 75e798c3ebcdfbb3650414059e3189cbecbd1ad26e6f3a5a6a3109be14ca97e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

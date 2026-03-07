@@ -1,0 +1,20 @@
+name: electric
+version: 1.4.13
+description: Real-time sync for Postgres
+homepage: https://electric-sql.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/electric/blobs/sha256:85fd132c9430fc45e681273b1a57e720de20987c04746906fd2babf1c90a102c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/electric/blobs/sha256:e45e6005b1682867535dfa3bad41de5b5f2d8c4fde5b52161b3c0a1dd06cf1de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/electric/blobs/sha256:b108f186e3ee4a571c409ae585c452abe2b60573779eb16ebbb9732911518dbd
+sha256:
+  darwin_arm64: 85fd132c9430fc45e681273b1a57e720de20987c04746906fd2babf1c90a102c
+  linux_amd64: e45e6005b1682867535dfa3bad41de5b5f2d8c4fde5b52161b3c0a1dd06cf1de
+  linux_arm64: b108f186e3ee4a571c409ae585c452abe2b60573779eb16ebbb9732911518dbd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang
+  - openssl@3

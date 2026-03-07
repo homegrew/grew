@@ -1,0 +1,23 @@
+name: shub
+version: 2.16.0
+description: Scrapinghub command-line client
+homepage: https://shub.readthedocs.io/en/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shub/blobs/sha256:ff2b86fcc9e91303ccae53d4f7fcb3c683fe0d344cc6dfaf0773d8e3bbf1574d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shub/blobs/sha256:037628a76f59a6af099436cb81356f1ac3e901e1b23780fd2c4b20f3ea1d6b81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shub/blobs/sha256:8a67633d08fcbf6d06863a4e66e63867d9a56a63668e638e33563ea2e38e4a05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shub/blobs/sha256:221237e759342b9ed5b86291358f57b599d9b0f90777d5f562f9ae8eb526f7b3
+sha256:
+  darwin_arm64: ff2b86fcc9e91303ccae53d4f7fcb3c683fe0d344cc6dfaf0773d8e3bbf1574d
+  darwin_amd64: 037628a76f59a6af099436cb81356f1ac3e901e1b23780fd2c4b20f3ea1d6b81
+  linux_amd64: 8a67633d08fcbf6d06863a4e66e63867d9a56a63668e638e33563ea2e38e4a05
+  linux_arm64: 221237e759342b9ed5b86291358f57b599d9b0f90777d5f562f9ae8eb526f7b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

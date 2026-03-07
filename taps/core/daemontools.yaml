@@ -1,0 +1,19 @@
+name: daemontools
+version: 0.76
+description: Collection of tools for managing UNIX services
+homepage: https://cr.yp.to/daemontools.html
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/daemontools/blobs/sha256:4d2dc1ed742ae4b8ab911aef610c8315ea79b9dce79a4a9d21028f413352bd6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/daemontools/blobs/sha256:b2fbc29b09bf37004b7a31ff2a7f57bd705e757cef0b1970b2b9723f624bc8d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/daemontools/blobs/sha256:2f527c08fac6754686403613d81fe344434ead8477130d596ffa05862b4962fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/daemontools/blobs/sha256:78eeabb0f8b6f6d678f97dfcf0a84e51c1b0f667e5fba8c6a1ef4707f85a91ce
+sha256:
+  darwin_arm64: 4d2dc1ed742ae4b8ab911aef610c8315ea79b9dce79a4a9d21028f413352bd6c
+  darwin_amd64: b2fbc29b09bf37004b7a31ff2a7f57bd705e757cef0b1970b2b9723f624bc8d9
+  linux_amd64: 2f527c08fac6754686403613d81fe344434ead8477130d596ffa05862b4962fe
+  linux_arm64: 78eeabb0f8b6f6d678f97dfcf0a84e51c1b0f667e5fba8c6a1ef4707f85a91ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

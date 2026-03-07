@@ -1,0 +1,19 @@
+name: parqeye
+version: 0.0.2
+description: Peek inside Parquet files right from your terminal
+homepage: https://github.com/kaushiksrini/parqeye
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parqeye/blobs/sha256:bcdbc3ffdc5238b1d30348983dcc47c1c25a59a1d6a386869780cc99eb3faa98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parqeye/blobs/sha256:4f58d4d3834b9dd677ea7f720bcfe4c02dd36c65f28fa8231a227743830041fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parqeye/blobs/sha256:06ba0ddaec37c77ebe2260ff8aee31a0537e540bd1f0495742209c514b296417
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parqeye/blobs/sha256:9384c8f25f40c24911f5329fa86ade59496a29b95de02028c4f6c063e96589c0
+sha256:
+  darwin_arm64: bcdbc3ffdc5238b1d30348983dcc47c1c25a59a1d6a386869780cc99eb3faa98
+  darwin_amd64: 4f58d4d3834b9dd677ea7f720bcfe4c02dd36c65f28fa8231a227743830041fb
+  linux_amd64: 06ba0ddaec37c77ebe2260ff8aee31a0537e540bd1f0495742209c514b296417
+  linux_arm64: 9384c8f25f40c24911f5329fa86ade59496a29b95de02028c4f6c063e96589c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sui
+version: 1.67.1
+description: Next-generation smart contract platform powered by the Move programming language
+homepage: https://sui.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sui/blobs/sha256:fb87bbd23155ca13eca20c108aa32672d625cc995ba447f2f6d8e0f11f5ff9fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sui/blobs/sha256:abee3ebe216537b5834c93558c93a060c1a98ade4a10a3a12c3b37eb4b67c6b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sui/blobs/sha256:ba6704bd69a860365cbaf3624a3cfaf5fc159fdeed5beb8efb32f2395ce0a380
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sui/blobs/sha256:240afed19d29223ce827f65ba596785bbec566e5cf85462093b32bbc67f3eb61
+sha256:
+  darwin_arm64: fb87bbd23155ca13eca20c108aa32672d625cc995ba447f2f6d8e0f11f5ff9fb
+  darwin_amd64: abee3ebe216537b5834c93558c93a060c1a98ade4a10a3a12c3b37eb4b67c6b2
+  linux_amd64: ba6704bd69a860365cbaf3624a3cfaf5fc159fdeed5beb8efb32f2395ce0a380
+  linux_arm64: 240afed19d29223ce827f65ba596785bbec566e5cf85462093b32bbc67f3eb61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

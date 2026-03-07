@@ -1,0 +1,19 @@
+name: plank
+version: 1.6
+description: Framework for generating immutable model objects
+homepage: https://pinterest.github.io/plank/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plank/blobs/sha256:ac1ceb4106e80992e3660b5952f11d6a0e29c1269ebbef672f647cf752d26e20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plank/blobs/sha256:4acb07fc0f33ab110982572fd68f70b14af77fc6765feb5b02d0c50652238225
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plank/blobs/sha256:ea941cd9c41a8ac9cb53678eaf17d5f0eeb04930758bcac1be793d17d60fe861
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plank/blobs/sha256:69d69e6bee1ede7fecdb840ac121ce0d61d72d1d0218e501ca0bcea06c1a3d89
+sha256:
+  darwin_arm64: ac1ceb4106e80992e3660b5952f11d6a0e29c1269ebbef672f647cf752d26e20
+  darwin_amd64: 4acb07fc0f33ab110982572fd68f70b14af77fc6765feb5b02d0c50652238225
+  linux_amd64: ea941cd9c41a8ac9cb53678eaf17d5f0eeb04930758bcac1be793d17d60fe861
+  linux_arm64: 69d69e6bee1ede7fecdb840ac121ce0d61d72d1d0218e501ca0bcea06c1a3d89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

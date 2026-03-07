@@ -1,0 +1,11 @@
+name: nheko
+version: 0.12.1
+description: Desktop client for the Matrix protocol
+homepage: https://nheko-reborn.github.io/
+url:
+  darwin_arm64: https://github.com/Nheko-Reborn/nheko/releases/download/v0.12.1/nheko-v0.12.1-apple-silicon.dmg
+sha256:
+  darwin_arm64: 07390b869a5cef5226281b215a06c7d5c87b20b7bdfec9882c71ee005b2ac949
+artifacts:
+  app:
+    - nheko.app

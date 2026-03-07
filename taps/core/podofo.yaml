@@ -1,0 +1,26 @@
+name: podofo
+version: 1.0.3
+description: Library to work with the PDF file format
+homepage: https://github.com/podofo/podofo
+license: LGPL-2.0-only AND GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podofo/blobs/sha256:9a6e4ab30d6d9c3f4048d2e50af123295fe41aabf46f8cdf04fda16b80634f5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podofo/blobs/sha256:1e8b850aa39280bcd77c5c008f2a40368155dc1010d7ec2bf02a17b8b3f1c24c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podofo/blobs/sha256:312f1f9db2bb46c3de26b0062ea1316d641ecf47705c47f223ba99870eb37a96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podofo/blobs/sha256:ff0ffddeb53e9590f5ae388f4c33a79ff51b66604fa74f058b182d09b423006c
+sha256:
+  darwin_arm64: 9a6e4ab30d6d9c3f4048d2e50af123295fe41aabf46f8cdf04fda16b80634f5b
+  darwin_amd64: 1e8b850aa39280bcd77c5c008f2a40368155dc1010d7ec2bf02a17b8b3f1c24c
+  linux_amd64: 312f1f9db2bb46c3de26b0062ea1316d641ecf47705c47f223ba99870eb37a96
+  linux_arm64: ff0ffddeb53e9590f5ae388f4c33a79ff51b66604fa74f058b182d09b423006c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openssl@3

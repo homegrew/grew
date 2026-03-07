@@ -1,0 +1,27 @@
+name: gd
+version: 2.3.3
+description: Graphics library to dynamically manipulate images
+homepage: https://libgd.github.io/
+license: GD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gd/blobs/sha256:db4a448757d199dc1a925c0d0b36a990c8126ab81cf6a634374cd7307d042fb0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gd/blobs/sha256:7bc1099e53432209a4c5da106c8105e0f8e95728a6cc77438e2761c8b6fcf05b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gd/blobs/sha256:da124ea2c614748107f9683ed08afa140d98a5d429332137f4f6ce17460360ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gd/blobs/sha256:dd5992ca69dd7f7e38228b403e1e4297b56eee6850a7b59a592da2130d158ec7
+sha256:
+  darwin_arm64: db4a448757d199dc1a925c0d0b36a990c8126ab81cf6a634374cd7307d042fb0
+  darwin_amd64: 7bc1099e53432209a4c5da106c8105e0f8e95728a6cc77438e2761c8b6fcf05b
+  linux_amd64: da124ea2c614748107f9683ed08afa140d98a5d429332137f4f6ce17460360ec
+  linux_arm64: dd5992ca69dd7f7e38228b403e1e4297b56eee6850a7b59a592da2130d158ec7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libavif
+  - libpng
+  - libtiff
+  - webp

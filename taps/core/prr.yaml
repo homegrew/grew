@@ -1,0 +1,23 @@
+name: prr
+version: 0.21.0
+description: Mailing list style code reviews for github
+homepage: https://github.com/danobi/prr
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prr/blobs/sha256:9c3bcf26ee3499cc61c3f13ab5f4c72d35bf9780eef19fab281886d2b9e183c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prr/blobs/sha256:8349897e19839be43735a7f95e7437d2892f655aa35b7aec58bf29d80127fc49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prr/blobs/sha256:0b427337f5afde43310564971d2e70f3f683f0f7347de5e9f3f59edf8dd0f2fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prr/blobs/sha256:721d5359cc5e2b68b5951ad89e783c96bd300111c2eaa1a71d89b15147e98b42
+sha256:
+  darwin_arm64: 9c3bcf26ee3499cc61c3f13ab5f4c72d35bf9780eef19fab281886d2b9e183c5
+  darwin_amd64: 8349897e19839be43735a7f95e7437d2892f655aa35b7aec58bf29d80127fc49
+  linux_amd64: 0b427337f5afde43310564971d2e70f3f683f0f7347de5e9f3f59edf8dd0f2fd
+  linux_arm64: 721d5359cc5e2b68b5951ad89e783c96bd300111c2eaa1a71d89b15147e98b42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

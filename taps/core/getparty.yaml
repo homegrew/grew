@@ -1,0 +1,19 @@
+name: getparty
+version: 1.26.1
+description: Multi-part HTTP download manager
+homepage: https://github.com/vbauerster/getparty
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/getparty/blobs/sha256:1e8a738a875501fe17023af8dfa6452add13f86fe6fadf9ca6bdbd01f397c4d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/getparty/blobs/sha256:47a313f111332a6317c0e269292372b82cf575c4d58b70c1216664c0e2ef2769
+  linux_amd64: https://ghcr.io/v2/homebrew/core/getparty/blobs/sha256:d60e0469aa69f675344d6ee6843ef5ea2548ee836cc03531060593b658563e8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/getparty/blobs/sha256:70bdae3987a2a997178b166b937dfc1075307178a164b94fe5ace6e39313114f
+sha256:
+  darwin_arm64: 1e8a738a875501fe17023af8dfa6452add13f86fe6fadf9ca6bdbd01f397c4d1
+  darwin_amd64: 47a313f111332a6317c0e269292372b82cf575c4d58b70c1216664c0e2ef2769
+  linux_amd64: d60e0469aa69f675344d6ee6843ef5ea2548ee836cc03531060593b658563e8e
+  linux_arm64: 70bdae3987a2a997178b166b937dfc1075307178a164b94fe5ace6e39313114f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

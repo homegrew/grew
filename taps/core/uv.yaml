@@ -1,0 +1,19 @@
+name: uv
+version: 0.10.9
+description: Extremely fast Python package installer and resolver, written in Rust
+homepage: https://docs.astral.sh/uv/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uv/blobs/sha256:62bcdc0df2098cf7fc73db30df739e2be607954f7bfb0559309150582f208489
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uv/blobs/sha256:2122205670d95376ce1a7d7f8a8f69687181ba244f67de01796cd7b595c20dc8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uv/blobs/sha256:4c72ef271d6603b2cfaa665e6ab6b92eade5b2b3407bab8b562356a44b67fae7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uv/blobs/sha256:de2e094a2b04a68bb491373d1ed7df15d442c2c480bd33c5695b2f14147b35da
+sha256:
+  darwin_arm64: 62bcdc0df2098cf7fc73db30df739e2be607954f7bfb0559309150582f208489
+  darwin_amd64: 2122205670d95376ce1a7d7f8a8f69687181ba244f67de01796cd7b595c20dc8
+  linux_amd64: 4c72ef271d6603b2cfaa665e6ab6b92eade5b2b3407bab8b562356a44b67fae7
+  linux_arm64: de2e094a2b04a68bb491373d1ed7df15d442c2c480bd33c5695b2f14147b35da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cntlm
+version: 0.92.3
+description: NTLM authentication proxy with tunneling
+homepage: https://cntlm.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cntlm/blobs/sha256:730084818967f10d47a8458853ebb7a56bce4c2280759bda2f3c31d1edae9da3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cntlm/blobs/sha256:d0bdc1e0168ffef33d215c83d0af2e4164c9930c6b5a4ea5abe3b1504707c24e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cntlm/blobs/sha256:523184cb07c5b9c17d65a2a36f767ed37726570ec5ac3239ae49be84e12c5f6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cntlm/blobs/sha256:7d3ee84edf54985c366adab8d382412f0bae76dbcd117fd740cc36b009fead4f
+sha256:
+  darwin_arm64: 730084818967f10d47a8458853ebb7a56bce4c2280759bda2f3c31d1edae9da3
+  darwin_amd64: d0bdc1e0168ffef33d215c83d0af2e4164c9930c6b5a4ea5abe3b1504707c24e
+  linux_amd64: 523184cb07c5b9c17d65a2a36f767ed37726570ec5ac3239ae49be84e12c5f6b
+  linux_arm64: 7d3ee84edf54985c366adab8d382412f0bae76dbcd117fd740cc36b009fead4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

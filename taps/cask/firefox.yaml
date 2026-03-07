@@ -1,0 +1,13 @@
+name: firefox
+version: 148.0
+description: Web browser
+homepage: https://www.mozilla.org/firefox/
+url:
+  darwin_arm64: https://download-installer.cdn.mozilla.net/pub/firefox/releases/148.0/mac/en-US/Firefox%20148.0.dmg
+sha256:
+  darwin_arm64: ec50d7ed2337441d92272617f510cd4c11e44d68699349d466d62211b767e0a2
+artifacts:
+  app:
+    - Firefox.app
+  bin:
+    - firefox

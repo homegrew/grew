@@ -1,0 +1,19 @@
+name: libopennet
+version: 0.9.9
+description: Provides open_net() (similar to open())
+homepage: https://www.rkeene.org/oss/libopennet
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libopennet/blobs/sha256:543c5813be3a290d4f05c97abf94665d07cbc7cee5eb84c5c3c5b1689be5884d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libopennet/blobs/sha256:404801ea9f6feb9da41e23a40459c16edf74dcc8a03e5274f009821b622e8a6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libopennet/blobs/sha256:d12f92e4c1e648507685be0a40102bbf253da35bc2bf2bc25b412e8900165a6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libopennet/blobs/sha256:dd3619a3083c2078621061fde39ac45d20825f6312cd177828289861d70b63d6
+sha256:
+  darwin_arm64: 543c5813be3a290d4f05c97abf94665d07cbc7cee5eb84c5c3c5b1689be5884d
+  darwin_amd64: 404801ea9f6feb9da41e23a40459c16edf74dcc8a03e5274f009821b622e8a6b
+  linux_amd64: d12f92e4c1e648507685be0a40102bbf253da35bc2bf2bc25b412e8900165a6d
+  linux_arm64: dd3619a3083c2078621061fde39ac45d20825f6312cd177828289861d70b63d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: naga-cli
+version: 28.0.0
+description: Shader translation command-line tool
+homepage: https://wgpu.rs/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/naga-cli/blobs/sha256:8c69e7c83ea65bc05765053803877e9636d2ddd895c4515af8c5533babd42484
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/naga-cli/blobs/sha256:21e3665e06332d3367ffb4dacfacb228f3c96be73d23a92b29ee78416c305ced
+  linux_amd64: https://ghcr.io/v2/homebrew/core/naga-cli/blobs/sha256:27bb7e8ca1a5dffc2f9fa53dead92ad93831847204636f14fb440bc77e4770e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/naga-cli/blobs/sha256:7f7e6e77ec3143c9ca2ef364eaeb238931171fd0efae27578bb3542b30116263
+sha256:
+  darwin_arm64: 8c69e7c83ea65bc05765053803877e9636d2ddd895c4515af8c5533babd42484
+  darwin_amd64: 21e3665e06332d3367ffb4dacfacb228f3c96be73d23a92b29ee78416c305ced
+  linux_amd64: 27bb7e8ca1a5dffc2f9fa53dead92ad93831847204636f14fb440bc77e4770e3
+  linux_arm64: 7f7e6e77ec3143c9ca2ef364eaeb238931171fd0efae27578bb3542b30116263
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

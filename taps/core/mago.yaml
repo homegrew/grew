@@ -1,0 +1,19 @@
+name: mago
+version: 1.13.3
+description: Toolchain for PHP to help developers write better code
+homepage: https://github.com/carthage-software/mago
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mago/blobs/sha256:ede483d27a3c8072158e4dd564502cffe8156624b10f0cc31ecabcf775f621dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mago/blobs/sha256:9eb308e220bfbeffb5e2c516f996c7078283bfd65656fa3bcc022b7fb65fcde1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mago/blobs/sha256:30242f0e71cb06d4beb026ac70b21b6cd67b50d8cffe275b52fa47634c2d8158
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mago/blobs/sha256:7565aeced3e4f29fa27c947a39b13fab0f032935fae43de2f48e6c3e4d1e51e2
+sha256:
+  darwin_arm64: ede483d27a3c8072158e4dd564502cffe8156624b10f0cc31ecabcf775f621dc
+  darwin_amd64: 9eb308e220bfbeffb5e2c516f996c7078283bfd65656fa3bcc022b7fb65fcde1
+  linux_amd64: 30242f0e71cb06d4beb026ac70b21b6cd67b50d8cffe275b52fa47634c2d8158
+  linux_arm64: 7565aeced3e4f29fa27c947a39b13fab0f032935fae43de2f48e6c3e4d1e51e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

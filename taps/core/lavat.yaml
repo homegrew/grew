@@ -1,0 +1,19 @@
+name: lavat
+version: 3.0.0
+description: Lava lamp simulation using metaballs in the terminal
+homepage: https://github.com/AngelJumbo/lavat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lavat/blobs/sha256:f31fad68503809cf54692f4d288ce719cf7ed40072dbf82c4890122ad1b87674
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lavat/blobs/sha256:06cc6bb29764628d5cd862260b4e53f3adc807fc9ed508c0381bc69943567a6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lavat/blobs/sha256:3be6f15d6675cca37066f21f6e9b5e61528f90d18ad29173e1b3019dd7937338
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lavat/blobs/sha256:a1a3d35b4b53a479c21db06577fd62f3febcd9533ffa492de6607e4b564314d9
+sha256:
+  darwin_arm64: f31fad68503809cf54692f4d288ce719cf7ed40072dbf82c4890122ad1b87674
+  darwin_amd64: 06cc6bb29764628d5cd862260b4e53f3adc807fc9ed508c0381bc69943567a6a
+  linux_amd64: 3be6f15d6675cca37066f21f6e9b5e61528f90d18ad29173e1b3019dd7937338
+  linux_arm64: a1a3d35b4b53a479c21db06577fd62f3febcd9533ffa492de6607e4b564314d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,35 @@
+name: julia
+version: 1.12.5
+description: Fast, Dynamic Programming Language
+homepage: https://julialang.org/
+license: MIT AND BSD-3-Clause AND Apache-2.0 AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/julia/blobs/sha256:9785857320c7d661ee4658ebdf4b3e3983904beca996c081222ec8ec50b6ebc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/julia/blobs/sha256:ecb8100fb9924dbfe8ae53aaba483542b8cba21d3afe53a14bb667cea5b35f23
+  linux_amd64: https://ghcr.io/v2/homebrew/core/julia/blobs/sha256:4ff47b0a140358b3ccfa2891f41b8a2cc97a2d68853f7e2d96c54417adb15bd8
+sha256:
+  darwin_arm64: 9785857320c7d661ee4658ebdf4b3e3983904beca996c081222ec8ec50b6ebc2
+  darwin_amd64: ecb8100fb9924dbfe8ae53aaba483542b8cba21d3afe53a14bb667cea5b35f23
+  linux_amd64: 4ff47b0a140358b3ccfa2891f41b8a2cc97a2d68853f7e2d96c54417adb15bd8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+  - curl
+  - gcc
+  - gmp
+  - libblastrampoline
+  - libgit2
+  - libnghttp2
+  - libssh2
+  - mpfr
+  - openblas64
+  - openlibm
+  - openssl@3
+  - p7zip
+  - pcre2
+  - suite-sparse
+  - utf8proc
+  - zstd

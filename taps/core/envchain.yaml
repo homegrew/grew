@@ -1,0 +1,19 @@
+name: envchain
+version: 1.1.0
+description: Secure your credentials in environment variables
+homepage: https://github.com/sorah/envchain
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/envchain/blobs/sha256:1c6122f97e7ba7946f270192b4a995011ebc61f8f03948ccd06ed7e0e7df95c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/envchain/blobs/sha256:b9ac4877ddba27b20d986e8ade239c4fc12e9b85968d2f07106cbd3f1504a8ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/envchain/blobs/sha256:9a8253f12f7d1ec624b755a99a0906b501b6dfb4d299ddb552c8a35a397293cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/envchain/blobs/sha256:46dccfdddf8a917b6475930bd658b64103b7577f4fe5adff5f6c15dbb6aca052
+sha256:
+  darwin_arm64: 1c6122f97e7ba7946f270192b4a995011ebc61f8f03948ccd06ed7e0e7df95c8
+  darwin_amd64: b9ac4877ddba27b20d986e8ade239c4fc12e9b85968d2f07106cbd3f1504a8ec
+  linux_amd64: 9a8253f12f7d1ec624b755a99a0906b501b6dfb4d299ddb552c8a35a397293cc
+  linux_arm64: 46dccfdddf8a917b6475930bd658b64103b7577f4fe5adff5f6c15dbb6aca052
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

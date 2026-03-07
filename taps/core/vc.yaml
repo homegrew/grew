@@ -1,0 +1,19 @@
+name: vc
+version: 1.4.5
+description: SIMD Vector Classes for C++
+homepage: https://github.com/VcDevel/Vc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vc/blobs/sha256:d53132f09cec1f76a87908c55b8483b14597f078a4f94e54fd9db46e2d3d3011
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vc/blobs/sha256:de1f4a4224f4cb2a9b8cccbcc8bff55f6b54cc060df433f265cb6268e13beece
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vc/blobs/sha256:885b412d8d27d60b3db7c1a9ee1c6b2a41034e08bafd030f5e363a6e1301e7eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vc/blobs/sha256:7cebe6014bee0f108e6ca0d508c87907d81167b67c6561a9eab3a1ecf3254355
+sha256:
+  darwin_arm64: d53132f09cec1f76a87908c55b8483b14597f078a4f94e54fd9db46e2d3d3011
+  darwin_amd64: de1f4a4224f4cb2a9b8cccbcc8bff55f6b54cc060df433f265cb6268e13beece
+  linux_amd64: 885b412d8d27d60b3db7c1a9ee1c6b2a41034e08bafd030f5e363a6e1301e7eb
+  linux_arm64: 7cebe6014bee0f108e6ca0d508c87907d81167b67c6561a9eab3a1ecf3254355
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

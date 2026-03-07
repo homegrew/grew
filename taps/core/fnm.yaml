@@ -1,0 +1,19 @@
+name: fnm
+version: 1.39.0
+description: Fast and simple Node.js version manager
+homepage: https://github.com/Schniz/fnm
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fnm/blobs/sha256:504d89f4004b37c19fdbffd786c99982451c54d9112357f1f8bab27d85336ffc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fnm/blobs/sha256:4733aee6c9507e4100bbdb83ab062e421893ac53538dde7809d17ff619d3bd99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fnm/blobs/sha256:05e590e196d8cda53779aa9e9dd0aeb8eab19bfa1fcc699b3f11c15c70ea6b94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fnm/blobs/sha256:00c561bcdf8ad5c79b0be0dcc46ffcc3aae48fe5ac587530c9411de6ba1c6ed8
+sha256:
+  darwin_arm64: 504d89f4004b37c19fdbffd786c99982451c54d9112357f1f8bab27d85336ffc
+  darwin_amd64: 4733aee6c9507e4100bbdb83ab062e421893ac53538dde7809d17ff619d3bd99
+  linux_amd64: 05e590e196d8cda53779aa9e9dd0aeb8eab19bfa1fcc699b3f11c15c70ea6b94
+  linux_arm64: 00c561bcdf8ad5c79b0be0dcc46ffcc3aae48fe5ac587530c9411de6ba1c6ed8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

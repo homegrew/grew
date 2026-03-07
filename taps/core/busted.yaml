@@ -1,0 +1,21 @@
+name: busted
+version: 2.3.0
+description: Elegant Lua unit testing
+homepage: https://lunarmodules.github.io/busted/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/busted/blobs/sha256:b365b5128600da6de31d3d468d99d5008fb2c1a359362de3fbf7b206e9b307c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/busted/blobs/sha256:71b2b448322e152cb75656508cad75d28fbec3a66dcf804d87d9c8621853428c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/busted/blobs/sha256:e6f66483354265a0fb9b8648ca9038154805516078072e888c56c78eb533bb3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/busted/blobs/sha256:b7031313aeb06f0e4cbc1610759e962b0494670f28707c7843248f74ece309e4
+sha256:
+  darwin_arm64: b365b5128600da6de31d3d468d99d5008fb2c1a359362de3fbf7b206e9b307c3
+  darwin_amd64: 71b2b448322e152cb75656508cad75d28fbec3a66dcf804d87d9c8621853428c
+  linux_amd64: e6f66483354265a0fb9b8648ca9038154805516078072e888c56c78eb533bb3b
+  linux_arm64: b7031313aeb06f0e4cbc1610759e962b0494670f28707c7843248f74ece309e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua

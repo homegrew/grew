@@ -1,0 +1,19 @@
+name: stern
+version: 1.33.1
+description: "Tail multiple Kubernetes pods & their containers"
+homepage: https://github.com/stern/stern
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stern/blobs/sha256:af35aecefbd4c2b1be1e461142d3564e5b99560c4d219e3341298d2c7f0c33cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stern/blobs/sha256:e4f18fd2df16ec8934441ca211882cbb6a0786df1382f2bf19aa60ce7698d14f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stern/blobs/sha256:9ae5e78ab281417f4028b95007dac56edcd8ad20b630a9086529de253ab81671
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stern/blobs/sha256:09a7ad11ceae2bd689efa18a06031b9256cc2cce00906f12d97d3aafc71fb3dc
+sha256:
+  darwin_arm64: af35aecefbd4c2b1be1e461142d3564e5b99560c4d219e3341298d2c7f0c33cf
+  darwin_amd64: e4f18fd2df16ec8934441ca211882cbb6a0786df1382f2bf19aa60ce7698d14f
+  linux_amd64: 9ae5e78ab281417f4028b95007dac56edcd8ad20b630a9086529de253ab81671
+  linux_arm64: 09a7ad11ceae2bd689efa18a06031b9256cc2cce00906f12d97d3aafc71fb3dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

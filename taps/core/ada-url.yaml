@@ -1,0 +1,21 @@
+name: ada-url
+version: 3.4.3
+description: WHATWG-compliant and fast URL parser written in modern C++
+homepage: https://github.com/ada-url/ada
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ada-url/blobs/sha256:753d0af5b348fffc968be4e126f087b372c30229b5f70d545b68dbebe06ed71e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ada-url/blobs/sha256:f67e316aa2e08bb92b8471b7b15f1fb1f32a987330b947e3203249b6bfe06339
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ada-url/blobs/sha256:3a0ae11f98bf7f9330403835969eeba9e4330d1bd9c1d1a2941615f2c6ee492e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ada-url/blobs/sha256:34159fd23078f273e1031b8adcbf9b4f415033cdaece0abe0bee8b424e91cb35
+sha256:
+  darwin_arm64: 753d0af5b348fffc968be4e126f087b372c30229b5f70d545b68dbebe06ed71e
+  darwin_amd64: f67e316aa2e08bb92b8471b7b15f1fb1f32a987330b947e3203249b6bfe06339
+  linux_amd64: 3a0ae11f98bf7f9330403835969eeba9e4330d1bd9c1d1a2941615f2c6ee492e
+  linux_arm64: 34159fd23078f273e1031b8adcbf9b4f415033cdaece0abe0bee8b424e91cb35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt

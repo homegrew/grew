@@ -1,0 +1,24 @@
+name: mydumper
+version: 0.21.3-1
+description: MySQL logical backup tool
+homepage: https://github.com/mydumper/mydumper
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mydumper/blobs/sha256:6ceae1418a596ebf672a7f921bcbb298b1428408b1fd23e7ef14877c19b3ba39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mydumper/blobs/sha256:c1e1e4fe3ccb3b602d2fcf678e9c0626374cc970f53c2c3d9ffd3bd74d19cc9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mydumper/blobs/sha256:83fd06ce8a05b9badcd029600ebe977effdf8146e3718e602d89f39b2b9cf61b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mydumper/blobs/sha256:151822263f8176405cf8c3dc1329c1c1736294512d756b5b256c439e0e3bc010
+sha256:
+  darwin_arm64: 6ceae1418a596ebf672a7f921bcbb298b1428408b1fd23e7ef14877c19b3ba39
+  darwin_amd64: c1e1e4fe3ccb3b602d2fcf678e9c0626374cc970f53c2c3d9ffd3bd74d19cc9a
+  linux_amd64: 83fd06ce8a05b9badcd029600ebe977effdf8146e3718e602d89f39b2b9cf61b
+  linux_arm64: 151822263f8176405cf8c3dc1329c1c1736294512d756b5b256c439e0e3bc010
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - mariadb-connector-c
+  - pcre2
+  - openssl@3

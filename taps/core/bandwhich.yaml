@@ -1,0 +1,19 @@
+name: bandwhich
+version: 0.23.1
+description: Terminal bandwidth utilization tool
+homepage: https://github.com/imsnif/bandwhich
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bandwhich/blobs/sha256:ceb7beda5d377f5fb16336a194d7aca4fe90fc7efa0acd996bc597ce55684da8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bandwhich/blobs/sha256:20cc25bd2086b5641e01ddab375f3c1011f53ca385cb19f8cfb4b46a46e5b878
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bandwhich/blobs/sha256:7f381d378861391d73194970be1237864d4ef6acb6d508db75502da5981647d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bandwhich/blobs/sha256:f8b780c7481b3b9c4e70cab919adb4d3e8784d03f1c8e0e9ba38d08d764012f6
+sha256:
+  darwin_arm64: ceb7beda5d377f5fb16336a194d7aca4fe90fc7efa0acd996bc597ce55684da8
+  darwin_amd64: 20cc25bd2086b5641e01ddab375f3c1011f53ca385cb19f8cfb4b46a46e5b878
+  linux_amd64: 7f381d378861391d73194970be1237864d4ef6acb6d508db75502da5981647d7
+  linux_arm64: f8b780c7481b3b9c4e70cab919adb4d3e8784d03f1c8e0e9ba38d08d764012f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

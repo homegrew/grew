@@ -1,0 +1,13 @@
+name: glide-browser
+version: 0.1.59a
+description: Extensible, firefox-based web browser
+homepage: https://glide-browser.app/
+url:
+  darwin_arm64: https://github.com/glide-browser/glide/releases/download/0.1.59a/glide.macos-aarch64.dmg
+sha256:
+  darwin_arm64: 983fdf518d934306f4ee7ea2ec51c183be828465a778985da7789421f463907a
+artifacts:
+  app:
+    - Glide.app
+  bin:
+    - glide

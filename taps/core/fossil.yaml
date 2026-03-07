@@ -1,0 +1,21 @@
+name: fossil
+version: 2.27
+description: Distributed software configuration management
+homepage: https://www.fossil-scm.org/home/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:7e094477bb5602aca979d117cf3ffad1fc51aeda6b5dbbbbaa1cdc34b6a1b34d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:5f4e26e48b7bc9389167e1af70ba8272fda1670143f26eafecd047acb0b9a517
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:9d02265c632ed51ce08808abaf7a9171e7173143eeddac0e02f944044e5108a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:0ffc405ac2b1467360a672fea2a8f1bcd1906fcfbba351010a2205a77f51c6f5
+sha256:
+  darwin_arm64: 7e094477bb5602aca979d117cf3ffad1fc51aeda6b5dbbbbaa1cdc34b6a1b34d
+  darwin_amd64: 5f4e26e48b7bc9389167e1af70ba8272fda1670143f26eafecd047acb0b9a517
+  linux_amd64: 9d02265c632ed51ce08808abaf7a9171e7173143eeddac0e02f944044e5108a8
+  linux_arm64: 0ffc405ac2b1467360a672fea2a8f1bcd1906fcfbba351010a2205a77f51c6f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

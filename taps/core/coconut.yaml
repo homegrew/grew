@@ -1,0 +1,21 @@
+name: coconut
+version: 3.2.0
+description: Simple, elegant, Pythonic functional programming
+homepage: https://coconut-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coconut/blobs/sha256:040ca85e616756590d1bc5e3f0f8c083bc9c9c9968202f9a6821b290dd5ac46b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coconut/blobs/sha256:3bb30bc217e0ef036a3fbe12e345450a1d8e9e79bf46c05129807beff7e3e264
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coconut/blobs/sha256:2f73d968aa3e8f182260d25a640d9424e63609ba5ebda21822db8d7c949f6732
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coconut/blobs/sha256:8c02250bddf8b7ce6c06e1117ff7d67d4ef0fe7f5c4eaa8bd0526ec7c96195c6
+sha256:
+  darwin_arm64: 040ca85e616756590d1bc5e3f0f8c083bc9c9c9968202f9a6821b290dd5ac46b
+  darwin_amd64: 3bb30bc217e0ef036a3fbe12e345450a1d8e9e79bf46c05129807beff7e3e264
+  linux_amd64: 2f73d968aa3e8f182260d25a640d9424e63609ba5ebda21822db8d7c949f6732
+  linux_arm64: 8c02250bddf8b7ce6c06e1117ff7d67d4ef0fe7f5c4eaa8bd0526ec7c96195c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,23 @@
+name: libxdamage
+version: 1.1.7
+description: "X.Org: X Damage Extension library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxdamage/blobs/sha256:bd8c72e12bc4390bc1cf580b95a249ed14796f2cebe20d561d8990a25f1704a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxdamage/blobs/sha256:aab270b6adedc70c4bee9306ee3f4fd14fd75c84a16f4a48c555a929e125f79e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxdamage/blobs/sha256:e516c9736d4b32e5d4130a9221119e543dbff845b82b421621b9b89ed698fb0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxdamage/blobs/sha256:c4d714e5c7143dc61b08d35be29c81703ce118e845d9a659d0dfa19018a56441
+sha256:
+  darwin_arm64: bd8c72e12bc4390bc1cf580b95a249ed14796f2cebe20d561d8990a25f1704a8
+  darwin_amd64: aab270b6adedc70c4bee9306ee3f4fd14fd75c84a16f4a48c555a929e125f79e
+  linux_amd64: e516c9736d4b32e5d4130a9221119e543dbff845b82b421621b9b89ed698fb0d
+  linux_arm64: c4d714e5c7143dc61b08d35be29c81703ce118e845d9a659d0dfa19018a56441
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxfixes
+  - xorgproto

@@ -1,0 +1,19 @@
+name: libnghttp2
+version: 1.68.0
+description: HTTP/2 C Library
+homepage: https://nghttp2.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:52867bf3affcb7431ad4c5d10071cb184090819fe54ed7e0d000fb3df35ffda8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:b848ec2c3a09ee31c4a1b6923c100dc0c1056e907f933f2d368c594a0175dd39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:e46e74960c990d7b866a1c931d1292fd921ff25e3508c6884d0845fb58633e1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:26ffb75ba49c68b33064eee833f985fd49004c3ef0c99640b15a93725461b60c
+sha256:
+  darwin_arm64: 52867bf3affcb7431ad4c5d10071cb184090819fe54ed7e0d000fb3df35ffda8
+  darwin_amd64: b848ec2c3a09ee31c4a1b6923c100dc0c1056e907f933f2d368c594a0175dd39
+  linux_amd64: e46e74960c990d7b866a1c931d1292fd921ff25e3508c6884d0845fb58633e1a
+  linux_arm64: 26ffb75ba49c68b33064eee833f985fd49004c3ef0c99640b15a93725461b60c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

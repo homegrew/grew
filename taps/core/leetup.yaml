@@ -1,0 +1,19 @@
+name: leetup
+version: 1.2.5
+description: Command-line tool to solve Leetcode problems
+homepage: https://github.com/dragfire/leetup
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leetup/blobs/sha256:c8be72a382a3802cc06ff3e1584b140b2a7d09a4812a52bcef0b88c92c8258ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leetup/blobs/sha256:1934aa6e87b0d6b10a688cab48469b40387536d8cb57cfd4f6e4fdd976f4f437
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leetup/blobs/sha256:3f06e66d4529f7489b4ca0b9bcf9976c376015d6ea635c0c00a09adcd4439dca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leetup/blobs/sha256:4ea3eaa914822acc5f7759fee87fef3ecce87cb7c2105a797c640a09032c20a4
+sha256:
+  darwin_arm64: c8be72a382a3802cc06ff3e1584b140b2a7d09a4812a52bcef0b88c92c8258ea
+  darwin_amd64: 1934aa6e87b0d6b10a688cab48469b40387536d8cb57cfd4f6e4fdd976f4f437
+  linux_amd64: 3f06e66d4529f7489b4ca0b9bcf9976c376015d6ea635c0c00a09adcd4439dca
+  linux_arm64: 4ea3eaa914822acc5f7759fee87fef3ecce87cb7c2105a797c640a09032c20a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

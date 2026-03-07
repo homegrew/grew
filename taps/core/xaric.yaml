@@ -1,0 +1,21 @@
+name: xaric
+version: 0.13.9
+description: IRC client
+homepage: https://xaric.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xaric/blobs/sha256:c6912be695b886211e28a85bc88a76e468102a70cf3a251181dcb98a7915ce0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xaric/blobs/sha256:f2a0e5f1c26055646e3f999ecb00a0a3ca1ab91e4e2dc20ed7836f213a9fc046
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xaric/blobs/sha256:633be739d85e31a8d4e7af822a11a8c07f30c0491035fb76cd68f3b81145940b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xaric/blobs/sha256:fcad340e8b719ea6a033f341a272696912a178f0945000ba90ccbf103ef5f041
+sha256:
+  darwin_arm64: c6912be695b886211e28a85bc88a76e468102a70cf3a251181dcb98a7915ce0f
+  darwin_amd64: f2a0e5f1c26055646e3f999ecb00a0a3ca1ab91e4e2dc20ed7836f213a9fc046
+  linux_amd64: 633be739d85e31a8d4e7af822a11a8c07f30c0491035fb76cd68f3b81145940b
+  linux_arm64: fcad340e8b719ea6a033f341a272696912a178f0945000ba90ccbf103ef5f041
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

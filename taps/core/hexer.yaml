@@ -1,0 +1,19 @@
+name: hexer
+version: 1.0.7
+description: Hex editor for the terminal with vi-like interface
+homepage: https://devel.ringlet.net/editors/hexer/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexer/blobs/sha256:eef99329e5443ebc3f24cfdcd2c8c725ab015a620af9f1a4530f72afa3029e77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexer/blobs/sha256:2914fe57154b3443708ca48d26df3ab1a2b1f506113c9669297e9b8d3cd26e6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexer/blobs/sha256:9ab11889d6fca09b6b36bb75fda742c4d6f584db0e8c6f28cc1ed24ba1f8c949
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexer/blobs/sha256:b3329fa37a49780438ad6fe2f84bfd10606064834b98ecae0c444c163f8cf964
+sha256:
+  darwin_arm64: eef99329e5443ebc3f24cfdcd2c8c725ab015a620af9f1a4530f72afa3029e77
+  darwin_amd64: 2914fe57154b3443708ca48d26df3ab1a2b1f506113c9669297e9b8d3cd26e6f
+  linux_amd64: 9ab11889d6fca09b6b36bb75fda742c4d6f584db0e8c6f28cc1ed24ba1f8c949
+  linux_arm64: b3329fa37a49780438ad6fe2f84bfd10606064834b98ecae0c444c163f8cf964
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

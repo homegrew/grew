@@ -1,0 +1,19 @@
+name: libgfshare
+version: 2.0.0
+description: Library for sharing secrets
+homepage: https://www.digital-scurf.org/software/libgfshare
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgfshare/blobs/sha256:03c3d5940533347a32f937380585a7d501783d97ff8161a3b8b72a41d4ec8ce7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgfshare/blobs/sha256:a8a4279f842d2809488dc30fe2ba7509412d0304e2d6f32e125ac80bf683f5cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgfshare/blobs/sha256:4439a61e14f81e80009ad0e85a4e2a8183c106161d29e232176faa061ba380ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgfshare/blobs/sha256:681eacdb672caf8dd195c5bb9bf891e5bb7c1317eb84e0e81faf1b155dd474ce
+sha256:
+  darwin_arm64: 03c3d5940533347a32f937380585a7d501783d97ff8161a3b8b72a41d4ec8ce7
+  darwin_amd64: a8a4279f842d2809488dc30fe2ba7509412d0304e2d6f32e125ac80bf683f5cc
+  linux_amd64: 4439a61e14f81e80009ad0e85a4e2a8183c106161d29e232176faa061ba380ba
+  linux_arm64: 681eacdb672caf8dd195c5bb9bf891e5bb7c1317eb84e0e81faf1b155dd474ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

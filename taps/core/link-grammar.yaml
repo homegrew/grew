@@ -1,0 +1,19 @@
+name: link-grammar
+version: 5.13.0
+description: "Carnegie Mellon University's link grammar parser"
+homepage: https://github.com/opencog/link-grammar
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/link-grammar/blobs/sha256:5082434ff9e6e700ef8355dbb540108970a46a576bd16adc45355d34942afe61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/link-grammar/blobs/sha256:547980bfce54be897fb4095e0a172523e96574d668d881dfe6788bf8783e6427
+  linux_amd64: https://ghcr.io/v2/homebrew/core/link-grammar/blobs/sha256:3c3a54388b2f5f386aa59849f1f5f6197c09a97da3b62bfaa1232eb0d820e093
+  linux_arm64: https://ghcr.io/v2/homebrew/core/link-grammar/blobs/sha256:33ffa53d4b71da419d2216e3d108ede83b23655ae0bddb3afab8f4f27be964b0
+sha256:
+  darwin_arm64: 5082434ff9e6e700ef8355dbb540108970a46a576bd16adc45355d34942afe61
+  darwin_amd64: 547980bfce54be897fb4095e0a172523e96574d668d881dfe6788bf8783e6427
+  linux_amd64: 3c3a54388b2f5f386aa59849f1f5f6197c09a97da3b62bfaa1232eb0d820e093
+  linux_arm64: 33ffa53d4b71da419d2216e3d108ede83b23655ae0bddb3afab8f4f27be964b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

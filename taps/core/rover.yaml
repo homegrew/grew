@@ -1,0 +1,21 @@
+name: rover
+version: 0.37.2
+description: CLI for managing and maintaining data graphs with Apollo Studio
+homepage: https://www.apollographql.com/docs/rover/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rover/blobs/sha256:98e2d9ad561d1a16b2f91c1259c5c793a9c26a292c7da254ece29877622ac7b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rover/blobs/sha256:aab791df636a3fe728b35287a972ff2ee3c255257e0dc9025a6e84cd9cbe5bcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rover/blobs/sha256:67bde9ee55f25f7ad4c3a0ab72cf67fe2970e254e6b3677c90e42f47bff81d79
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rover/blobs/sha256:b1bbb95c462ea62cc91a1866b91211f3f4ed403c2fb1c0079109079bb20f3e7d
+sha256:
+  darwin_arm64: 98e2d9ad561d1a16b2f91c1259c5c793a9c26a292c7da254ece29877622ac7b0
+  darwin_amd64: aab791df636a3fe728b35287a972ff2ee3c255257e0dc9025a6e84cd9cbe5bcf
+  linux_amd64: 67bde9ee55f25f7ad4c3a0ab72cf67fe2970e254e6b3677c90e42f47bff81d79
+  linux_arm64: b1bbb95c462ea62cc91a1866b91211f3f4ed403c2fb1c0079109079bb20f3e7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,19 @@
+name: dcm2niix
+version: 1.0.20250506
+description: DICOM to NIfTI converter
+homepage: https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcm2niix/blobs/sha256:887894cb6a9d368dcb707572a92a3fedbc7f274b2f5b4308b1a6dffbb9e661ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcm2niix/blobs/sha256:91a28ea73ffecf684bbc7d96d7ad551927c1cfc334f57f294708e04edaa422ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcm2niix/blobs/sha256:8d28346e349db8dd0a7cdb4b08242e52f79ca6c6a5214aa7a6987cb3142e870e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcm2niix/blobs/sha256:71555b10ff6f721b9ab11c482a6d8d0385987d34cebd7d19186e70fcc43fa903
+sha256:
+  darwin_arm64: 887894cb6a9d368dcb707572a92a3fedbc7f274b2f5b4308b1a6dffbb9e661ad
+  darwin_amd64: 91a28ea73ffecf684bbc7d96d7ad551927c1cfc334f57f294708e04edaa422ea
+  linux_amd64: 8d28346e349db8dd0a7cdb4b08242e52f79ca6c6a5214aa7a6987cb3142e870e
+  linux_arm64: 71555b10ff6f721b9ab11c482a6d8d0385987d34cebd7d19186e70fcc43fa903
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

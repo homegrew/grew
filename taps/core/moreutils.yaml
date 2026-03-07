@@ -1,0 +1,19 @@
+name: moreutils
+version: 0.70
+description: Collection of tools that nobody wrote when UNIX was young
+homepage: https://joeyh.name/code/moreutils/
+license: GPL-2.0-or-later AND (GPL-2.0-only OR Artistic-2.0)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moreutils/blobs/sha256:bb9c8584114eafbe7eab4f89b0502d72688b7ea7d1dea6fd485a1bd5e5541149
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moreutils/blobs/sha256:e26e5d2933b3012c95929c26c6d7298a1820370f9b15e2c05fa10ca4e8b020f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moreutils/blobs/sha256:06d1c740d7401fec23a230bcd5f113e8d10c00c0d80f8b12861acc5d64b79b3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moreutils/blobs/sha256:3f3ea30db435d1e85633c12f11dc1d4545530c21f0415999b651be6b7d02306f
+sha256:
+  darwin_arm64: bb9c8584114eafbe7eab4f89b0502d72688b7ea7d1dea6fd485a1bd5e5541149
+  darwin_amd64: e26e5d2933b3012c95929c26c6d7298a1820370f9b15e2c05fa10ca4e8b020f5
+  linux_amd64: 06d1c740d7401fec23a230bcd5f113e8d10c00c0d80f8b12861acc5d64b79b3a
+  linux_arm64: 3f3ea30db435d1e85633c12f11dc1d4545530c21f0415999b651be6b7d02306f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

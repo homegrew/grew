@@ -1,0 +1,21 @@
+name: lc0
+version: 0.32.1
+description: Open source neural network based chess engine
+homepage: https://lczero.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lc0/blobs/sha256:9af0c3404413f7d61bdabebed5b36f18cd46d38d67435add1737ea07c0c09849
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lc0/blobs/sha256:0864f484b7eec673ec082e6979c258db9e33243def5d23b9d003ff3d7877a42c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lc0/blobs/sha256:a37761e31c707318e6c92cb6b7c11567e3e1e925146270f86ec344fa0b038419
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lc0/blobs/sha256:01f90bf4ae497e1a3c8de9db65a7a85f3d3366e056eff269d2f6b0497fcda731
+sha256:
+  darwin_arm64: 9af0c3404413f7d61bdabebed5b36f18cd46d38d67435add1737ea07c0c09849
+  darwin_amd64: 0864f484b7eec673ec082e6979c258db9e33243def5d23b9d003ff3d7877a42c
+  linux_amd64: a37761e31c707318e6c92cb6b7c11567e3e1e925146270f86ec344fa0b038419
+  linux_arm64: 01f90bf4ae497e1a3c8de9db65a7a85f3d3366e056eff269d2f6b0497fcda731
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen

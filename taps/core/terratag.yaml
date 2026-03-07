@@ -1,0 +1,19 @@
+name: terratag
+version: 0.7.6
+description: "CLI to automate tagging for AWS, Azure & GCP resources in Terraform"
+homepage: https://www.terratag.io/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terratag/blobs/sha256:ec3de53b4f5ff7ad700ae77ac76986e7d56834296725e768766111bd1e962627
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terratag/blobs/sha256:7fb26745918e415535ac96dd21655cb3dca676cdb458234483b042e377ed601b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terratag/blobs/sha256:a1d2ddfd257b6fcb1b27d496d5b34b9842a733e56b4343bb3735384615b6a260
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terratag/blobs/sha256:ed92750d7fc30bc31568d9e5624debe9fa8e66d971d39d7a39ab0575990b81c7
+sha256:
+  darwin_arm64: ec3de53b4f5ff7ad700ae77ac76986e7d56834296725e768766111bd1e962627
+  darwin_amd64: 7fb26745918e415535ac96dd21655cb3dca676cdb458234483b042e377ed601b
+  linux_amd64: a1d2ddfd257b6fcb1b27d496d5b34b9842a733e56b4343bb3735384615b6a260
+  linux_arm64: ed92750d7fc30bc31568d9e5624debe9fa8e66d971d39d7a39ab0575990b81c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

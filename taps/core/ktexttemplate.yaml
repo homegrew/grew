@@ -1,0 +1,22 @@
+name: ktexttemplate
+version: 6.23.0
+description: Libraries for text templating with Qt
+homepage: https://api.kde.org/ktexttemplate-index.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktexttemplate/blobs/sha256:5e7c2aa5252254da4d94af44fce70f617902c67b38f5634ecc13b534752d091b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktexttemplate/blobs/sha256:32ebaee7e36ccf230c693a8866723afc95ba47f9b62e18f0aa0a567066f68c59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktexttemplate/blobs/sha256:c7b2cd2098d1ccf732b54928743865dc8324d82afaf8f9aca37d430ba436d21f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktexttemplate/blobs/sha256:4a3d3f0d54a6e7038a4218275e8709b0081ca787ed872ab6152b40267b746245
+sha256:
+  darwin_arm64: 5e7c2aa5252254da4d94af44fce70f617902c67b38f5634ecc13b534752d091b
+  darwin_amd64: 32ebaee7e36ccf230c693a8866723afc95ba47f9b62e18f0aa0a567066f68c59
+  linux_amd64: c7b2cd2098d1ccf732b54928743865dc8324d82afaf8f9aca37d430ba436d21f
+  linux_arm64: 4a3d3f0d54a6e7038a4218275e8709b0081ca787ed872ab6152b40267b746245
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

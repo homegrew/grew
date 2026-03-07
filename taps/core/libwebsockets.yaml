@@ -1,0 +1,23 @@
+name: libwebsockets
+version: 4.5.4
+description: C websockets server library
+homepage: https://github.com/warmcat/libwebsockets
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwebsockets/blobs/sha256:d9d43d42a69dac6d47cbe617823541a493204cea01c95c6988672fb7ef54a121
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwebsockets/blobs/sha256:bd18b625a62b637f6c21b71937a8e1ddb26e7bd2d9150fde24496db5c691f7e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwebsockets/blobs/sha256:072945865ba3253ef8c17fea3a921e17a2704613f4bc641f445cc6d81db3f64c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwebsockets/blobs/sha256:8a76cdb1930e82ce621d59813b605cc5ccaba8a13deb98f3731f9fd07eca053b
+sha256:
+  darwin_arm64: d9d43d42a69dac6d47cbe617823541a493204cea01c95c6988672fb7ef54a121
+  darwin_amd64: bd18b625a62b637f6c21b71937a8e1ddb26e7bd2d9150fde24496db5c691f7e7
+  linux_amd64: 072945865ba3253ef8c17fea3a921e17a2704613f4bc641f445cc6d81db3f64c
+  linux_arm64: 8a76cdb1930e82ce621d59813b605cc5ccaba8a13deb98f3731f9fd07eca053b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libuv
+  - openssl@3

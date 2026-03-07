@@ -1,0 +1,21 @@
+name: xmp
+version: 4.2.0
+description: Command-line player for module music formats (MOD, S3M, IT, etc)
+homepage: https://xmp.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmp/blobs/sha256:36e826302cd05a73582ffc6d1a196b64c71aa256069b9a605da25ab1692cb2d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmp/blobs/sha256:9ba602fd8dd7bf63d5aa794f5b3e265cca8b851107bae5db9dbb40396cb47eb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmp/blobs/sha256:bfa9f0f48823e7861c008d89c25cd43bdbe3553196b6684d15d962c8ca7087b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmp/blobs/sha256:43d7f8abecadad5b2730da6399bce8db70e7f27289be34a5fc404afccfda33c5
+sha256:
+  darwin_arm64: 36e826302cd05a73582ffc6d1a196b64c71aa256069b9a605da25ab1692cb2d4
+  darwin_amd64: 9ba602fd8dd7bf63d5aa794f5b3e265cca8b851107bae5db9dbb40396cb47eb8
+  linux_amd64: bfa9f0f48823e7861c008d89c25cd43bdbe3553196b6684d15d962c8ca7087b4
+  linux_arm64: 43d7f8abecadad5b2730da6399bce8db70e7f27289be34a5fc404afccfda33c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxmp

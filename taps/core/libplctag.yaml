@@ -1,0 +1,19 @@
+name: libplctag
+version: 2.6.15
+description: Portable and simple API for accessing AB PLC data over Ethernet
+homepage: https://github.com/libplctag/libplctag
+license: LGPL-2.0-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libplctag/blobs/sha256:aff64b8c92ab1386958f7854ac438f9227456c56a136fb6a948bed0682ddf554
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libplctag/blobs/sha256:5722b3c2de6172a7bb19469e86065fa2be3fd7a6e472f2992d3efc0aa55871c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libplctag/blobs/sha256:518cfe45d5e19a0a62f1fbc6b6d6e882c42c233b6c9add2d68c6bc11a3d770c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libplctag/blobs/sha256:73c996cb96cdd8414ed63c6ed62108da494508cf79ffd28315815c18f185b047
+sha256:
+  darwin_arm64: aff64b8c92ab1386958f7854ac438f9227456c56a136fb6a948bed0682ddf554
+  darwin_amd64: 5722b3c2de6172a7bb19469e86065fa2be3fd7a6e472f2992d3efc0aa55871c1
+  linux_amd64: 518cfe45d5e19a0a62f1fbc6b6d6e882c42c233b6c9add2d68c6bc11a3d770c1
+  linux_arm64: 73c996cb96cdd8414ed63c6ed62108da494508cf79ffd28315815c18f185b047
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

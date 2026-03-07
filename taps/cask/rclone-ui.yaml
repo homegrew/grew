@@ -1,0 +1,11 @@
+name: rclone-ui
+version: 3.5.0
+description: GUI for Rclone
+homepage: https://github.com/rclone-ui/rclone-ui
+url:
+  darwin_arm64: https://github.com/rclone-ui/rclone-ui/releases/download/v3.5.0/Rclone.UI_aarch64.dmg
+sha256:
+  darwin_arm64: 08cc0fe760e38ba9142d0b94de9834b6ee8726e4a0b1f842dc801735a2c880a2
+artifacts:
+  app:
+    - Rclone UI.app

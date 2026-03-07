@@ -1,0 +1,19 @@
+name: libghthash
+version: 0.6.2
+description: Generic hash table for C++
+homepage: https://github.com/SimonKagstrom/libghthash
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libghthash/blobs/sha256:d7096c6bf880a73709d0af12108c6692688023139171cbe08cf931c9a8a51748
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libghthash/blobs/sha256:14f20c876d6f2ea724a30b0263ceec725918ed15e4fab47f8cc6b524b1404d85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libghthash/blobs/sha256:5e68f5371484da5c89bbe2f40b66f8158334bfe4d436047aa521250d7ff111e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libghthash/blobs/sha256:616c6f3e4acf1224a29ddea3cdf3a8092b317a197076c006555c43b23999b534
+sha256:
+  darwin_arm64: d7096c6bf880a73709d0af12108c6692688023139171cbe08cf931c9a8a51748
+  darwin_amd64: 14f20c876d6f2ea724a30b0263ceec725918ed15e4fab47f8cc6b524b1404d85
+  linux_amd64: 5e68f5371484da5c89bbe2f40b66f8158334bfe4d436047aa521250d7ff111e6
+  linux_arm64: 616c6f3e4acf1224a29ddea3cdf3a8092b317a197076c006555c43b23999b534
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

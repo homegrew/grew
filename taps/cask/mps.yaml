@@ -1,0 +1,13 @@
+name: mps
+version: 2025.3,253.28294.432
+description: Create your own domain-specific language
+homepage: https://www.jetbrains.com/mps/
+url:
+  darwin_arm64: https://download.jetbrains.com/mps/2025.3/MPS-2025.3-macos-aarch64.dmg
+sha256:
+  darwin_arm64: dc79c41ce851448f4862306173914eee1e63e230410ed65356498efd2d5f0444
+artifacts:
+  app:
+    - MPS.app
+  bin:
+    - mps

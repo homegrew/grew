@@ -1,0 +1,11 @@
+name: netnewswire@beta
+version: 7.0.1
+description: Free and open-source RSS reader
+homepage: https://ranchero.com/netnewswire/
+url:
+  darwin_arm64: https://github.com/brentsimmons/NetNewsWire/releases/download/mac-7.0.1/NetNewsWire7.0.1.zip
+sha256:
+  darwin_arm64: d9f4943ae95ffc8af539475dd89fb3a7e9d169b4fd56537c8b9826b83de171fc
+artifacts:
+  app:
+    - NetNewsWire.app

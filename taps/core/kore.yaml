@@ -1,0 +1,21 @@
+name: kore
+version: 4.2.3
+description: Web application framework for writing web APIs in C
+homepage: https://kore.io/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kore/blobs/sha256:059c350956eced72b4ef7d31a358fac3e5df1b7132fabad051c2fef4a9f55c34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kore/blobs/sha256:87b0774ca1be1fadbe6353582a6af3fc01e53e80f31891fc152458584e3ac9b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kore/blobs/sha256:8f982ba054916139a8560c8826a450b30784e08c672aaebcc8736d6ca88e4eb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kore/blobs/sha256:38438db7080ee244c41fb90a46e7515d73171187f3e2ea7bc8a6c6b26277dda9
+sha256:
+  darwin_arm64: 059c350956eced72b4ef7d31a358fac3e5df1b7132fabad051c2fef4a9f55c34
+  darwin_amd64: 87b0774ca1be1fadbe6353582a6af3fc01e53e80f31891fc152458584e3ac9b0
+  linux_amd64: 8f982ba054916139a8560c8826a450b30784e08c672aaebcc8736d6ca88e4eb0
+  linux_arm64: 38438db7080ee244c41fb90a46e7515d73171187f3e2ea7bc8a6c6b26277dda9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,21 @@
+name: libhubbub
+version: 0.3.8
+description: HTML parser library
+homepage: https://www.netsurf-browser.org/projects/hubbub/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libhubbub/blobs/sha256:ab526b580a4df9a91bf5c6fb81f8c6af820367dbb28347b47de2fc743d46fe45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libhubbub/blobs/sha256:015c9012d635556347bf3a0e1f5d003b81a5834f2a91c717ebe9929e5fd8a232
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libhubbub/blobs/sha256:1156a785370dd503db4817f034028986f1c6eea21d79c0c59a2a66f6ca07391c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libhubbub/blobs/sha256:e72a8faff6cd381e00d0104392fea04a18cdea7254e62620b0738b8cdd4c569b
+sha256:
+  darwin_arm64: ab526b580a4df9a91bf5c6fb81f8c6af820367dbb28347b47de2fc743d46fe45
+  darwin_amd64: 015c9012d635556347bf3a0e1f5d003b81a5834f2a91c717ebe9929e5fd8a232
+  linux_amd64: 1156a785370dd503db4817f034028986f1c6eea21d79c0c59a2a66f6ca07391c
+  linux_arm64: e72a8faff6cd381e00d0104392fea04a18cdea7254e62620b0738b8cdd4c569b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libparserutils

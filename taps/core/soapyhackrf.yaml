@@ -1,0 +1,22 @@
+name: soapyhackrf
+version: 0.3.4
+description: SoapySDR HackRF module
+homepage: https://github.com/pothosware/SoapyHackRF/wiki
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soapyhackrf/blobs/sha256:9c90ca14cff4f27d529309b308ab277e65d808dc90500641162c395784efbb9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soapyhackrf/blobs/sha256:0e13b5a64f3a5038879c929a4108ac9d5d9c2804b7e949816a4645d9edfbcdef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soapyhackrf/blobs/sha256:f8112b3fa519d4f5c319c0dfc36fff70131a54e39616bdf9378ed4625f142374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soapyhackrf/blobs/sha256:aac2cfd5a931da22b6fa5bff2e99982da69875261ff6f2b5106f45b233294dbf
+sha256:
+  darwin_arm64: 9c90ca14cff4f27d529309b308ab277e65d808dc90500641162c395784efbb9e
+  darwin_amd64: 0e13b5a64f3a5038879c929a4108ac9d5d9c2804b7e949816a4645d9edfbcdef
+  linux_amd64: f8112b3fa519d4f5c319c0dfc36fff70131a54e39616bdf9378ed4625f142374
+  linux_arm64: aac2cfd5a931da22b6fa5bff2e99982da69875261ff6f2b5106f45b233294dbf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hackrf
+  - soapysdr

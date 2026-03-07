@@ -1,0 +1,19 @@
+name: wishlist
+version: 0.15.2
+description: Single entrypoint for multiple SSH endpoints
+homepage: https://github.com/charmbracelet/wishlist
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wishlist/blobs/sha256:7d701b7e532275ccddcde513950176e79743e50a2e4c602b24848d573418308d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wishlist/blobs/sha256:6ac28340cfa526431d73fa37c72eeef3c8da7847ae85034edfbd9f6686728ff9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wishlist/blobs/sha256:eb48dabd9a636100ec378e63bbda9ad471a14b742f323556143db04942fe2f04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wishlist/blobs/sha256:a07f7dc954c52c5eb7728c4e32e223cc23bb6756ad7b60fe9ec314e105830037
+sha256:
+  darwin_arm64: 7d701b7e532275ccddcde513950176e79743e50a2e4c602b24848d573418308d
+  darwin_amd64: 6ac28340cfa526431d73fa37c72eeef3c8da7847ae85034edfbd9f6686728ff9
+  linux_amd64: eb48dabd9a636100ec378e63bbda9ad471a14b742f323556143db04942fe2f04
+  linux_arm64: a07f7dc954c52c5eb7728c4e32e223cc23bb6756ad7b60fe9ec314e105830037
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

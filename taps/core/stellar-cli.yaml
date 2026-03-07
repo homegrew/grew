@@ -1,0 +1,21 @@
+name: stellar-cli
+version: 25.1.0
+description: Stellar command-line tool for interacting with the Stellar network
+homepage: https://developers.stellar.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stellar-cli/blobs/sha256:ca88988ccb6575e737f996f1d7408caf9d834d9238abf9188fe1500bda2df749
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stellar-cli/blobs/sha256:51368477401870cdf730749d90610af06ebfc58461421551d8199cdc286ea8d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stellar-cli/blobs/sha256:8fd0e2b5a0d80f494e382ad5d33fb9104ad584c0e3a963acb852ff8e3e857e10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stellar-cli/blobs/sha256:a9b7419736e49c812e69b2f64c08de8948c12aa835626eebd1d7957160a581fd
+sha256:
+  darwin_arm64: ca88988ccb6575e737f996f1d7408caf9d834d9238abf9188fe1500bda2df749
+  darwin_amd64: 51368477401870cdf730749d90610af06ebfc58461421551d8199cdc286ea8d7
+  linux_amd64: 8fd0e2b5a0d80f494e382ad5d33fb9104ad584c0e3a963acb852ff8e3e857e10
+  linux_arm64: a9b7419736e49c812e69b2f64c08de8948c12aa835626eebd1d7957160a581fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

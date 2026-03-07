@@ -1,0 +1,19 @@
+name: msdl
+version: 1.2.7-r2
+description: Downloader for various streaming protocols
+homepage: https://msdl.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msdl/blobs/sha256:1624aa62efe3286085580bfc9482ff6e163e9dc3be33a0b485ebca7a0a91dd3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msdl/blobs/sha256:d1e540f838d6ed599d61c07efebd39d83021dfc9cc1eff67bc401a0fc924204b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msdl/blobs/sha256:5664cc49f99975d426fab1e8518356d8842512ab773aa4c2a3abe0fb957d1881
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msdl/blobs/sha256:e60c658707ae055375b4402d09b83e121bd25f28ed5167cdd810d50ef02342c9
+sha256:
+  darwin_arm64: 1624aa62efe3286085580bfc9482ff6e163e9dc3be33a0b485ebca7a0a91dd3a
+  darwin_amd64: d1e540f838d6ed599d61c07efebd39d83021dfc9cc1eff67bc401a0fc924204b
+  linux_amd64: 5664cc49f99975d426fab1e8518356d8842512ab773aa4c2a3abe0fb957d1881
+  linux_arm64: e60c658707ae055375b4402d09b83e121bd25f28ed5167cdd810d50ef02342c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

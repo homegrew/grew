@@ -1,0 +1,23 @@
+name: cruft
+version: 2.16.0
+description: Utility that creates projects from templates and maintains the cruft afterwards
+homepage: https://cruft.github.io/cruft/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cruft/blobs/sha256:fdfd6b696586942c5e8a5f97a1fa1e1597cdc1c1a6900aed3bdab43954bcf557
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cruft/blobs/sha256:5dadfbdd91312929c3be56d5036f67f45d8d048726ef90fb932acb59813cfc42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cruft/blobs/sha256:fbcefed8890162bd9094ceaba1615003bb5d09b7158a31c98a4b5b5bb01d3628
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cruft/blobs/sha256:37397341d7af90f63f3c57c45ec961365e4c8d8eeeec2dd4e99ad1e9f2591edb
+sha256:
+  darwin_arm64: fdfd6b696586942c5e8a5f97a1fa1e1597cdc1c1a6900aed3bdab43954bcf557
+  darwin_amd64: 5dadfbdd91312929c3be56d5036f67f45d8d048726ef90fb932acb59813cfc42
+  linux_amd64: fbcefed8890162bd9094ceaba1615003bb5d09b7158a31c98a4b5b5bb01d3628
+  linux_arm64: 37397341d7af90f63f3c57c45ec961365e4c8d8eeeec2dd4e99ad1e9f2591edb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

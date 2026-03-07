@@ -1,0 +1,21 @@
+name: lutok
+version: 0.6.2
+description: Lightweight C++ API for Lua
+homepage: https://github.com/freebsd/lutok
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lutok/blobs/sha256:5375d9b2d49d55cda41f53ba11c44a47b6c9fe76e52a5b3592bf48afda9b9871
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lutok/blobs/sha256:0f73bf9da21d6a0a923303f03d2ae52373a1885e39eb050ed291e35d33a1934a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lutok/blobs/sha256:e216fa951f1f38a59d2a4962c6d58e61ec90ac9d7f27403940cbd9a79c06c4ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lutok/blobs/sha256:6d750bc1a48d2b4b621462e267437c33c32b0305ad4acb72c51900759068f5a5
+sha256:
+  darwin_arm64: 5375d9b2d49d55cda41f53ba11c44a47b6c9fe76e52a5b3592bf48afda9b9871
+  darwin_amd64: 0f73bf9da21d6a0a923303f03d2ae52373a1885e39eb050ed291e35d33a1934a
+  linux_amd64: e216fa951f1f38a59d2a4962c6d58e61ec90ac9d7f27403940cbd9a79c06c4ad
+  linux_arm64: 6d750bc1a48d2b4b621462e267437c33c32b0305ad4acb72c51900759068f5a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua

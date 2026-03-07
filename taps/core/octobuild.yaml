@@ -1,0 +1,19 @@
+name: octobuild
+version: 1.8.1
+description: Compiler cache for Unreal Engine
+homepage: https://github.com/octobuild/octobuild
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/octobuild/blobs/sha256:ae3196c00596806784136909afae180ce3556bc53770ca95c8266324c285f1a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/octobuild/blobs/sha256:58d75af4d61aa6ade3e137c414c4b355949e63835c731db228f939b0e3e20c7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/octobuild/blobs/sha256:252412dd4df54aa83cfe00168e09b16c2404a1269ce0ae86da3cbdff8d88fbab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/octobuild/blobs/sha256:32cd6cd48bb96e40477d91f1b0519c30ddf8b26654c0620060a107e931cd999a
+sha256:
+  darwin_arm64: ae3196c00596806784136909afae180ce3556bc53770ca95c8266324c285f1a3
+  darwin_amd64: 58d75af4d61aa6ade3e137c414c4b355949e63835c731db228f939b0e3e20c7c
+  linux_amd64: 252412dd4df54aa83cfe00168e09b16c2404a1269ce0ae86da3cbdff8d88fbab
+  linux_arm64: 32cd6cd48bb96e40477d91f1b0519c30ddf8b26654c0620060a107e931cd999a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

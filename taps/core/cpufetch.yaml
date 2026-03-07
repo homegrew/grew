@@ -1,0 +1,19 @@
+name: cpufetch
+version: 1.07
+description: CPU architecture fetching tool
+homepage: https://github.com/Dr-Noob/cpufetch
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpufetch/blobs/sha256:cbdea8515700936d548b6baab978624be7e9fcc94dd3121a5962d58074cec48c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpufetch/blobs/sha256:0554f98200441b7743a72bfe61a55f753c2d19f56d8af453924248da7efb7db5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpufetch/blobs/sha256:5544e250a55c6c3506d74586d7d566194dbbba1c97bb6b10acacc5ede672ebe3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpufetch/blobs/sha256:6d1bcfcfcb32100c81cf2c17b3e8a9c08c1260935f8572db1a7f3e8ace87a3d6
+sha256:
+  darwin_arm64: cbdea8515700936d548b6baab978624be7e9fcc94dd3121a5962d58074cec48c
+  darwin_amd64: 0554f98200441b7743a72bfe61a55f753c2d19f56d8af453924248da7efb7db5
+  linux_amd64: 5544e250a55c6c3506d74586d7d566194dbbba1c97bb6b10acacc5ede672ebe3
+  linux_arm64: 6d1bcfcfcb32100c81cf2c17b3e8a9c08c1260935f8572db1a7f3e8ace87a3d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

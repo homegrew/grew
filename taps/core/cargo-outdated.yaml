@@ -1,0 +1,22 @@
+name: cargo-outdated
+version: 0.18.0
+description: Cargo subcommand for displaying when Rust dependencies are out of date
+homepage: https://github.com/kbknapp/cargo-outdated
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-outdated/blobs/sha256:f8504bf9f925b96d25650f9e54b66ab2b4bdad03152e32852925f91d8ace013f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-outdated/blobs/sha256:d2e13f92d39844c992b1027ca25eb291f6d423ba4b99ba2817326057af1df28e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-outdated/blobs/sha256:2964bf4703ecdcf66ed3a80c955db9dada8663c959fa28b89057449649ba9cf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-outdated/blobs/sha256:5f957cffbd6b076b0b845866372797d8d47af68ae1edb9a7e9bfd899cd07351d
+sha256:
+  darwin_arm64: f8504bf9f925b96d25650f9e54b66ab2b4bdad03152e32852925f91d8ace013f
+  darwin_amd64: d2e13f92d39844c992b1027ca25eb291f6d423ba4b99ba2817326057af1df28e
+  linux_amd64: 2964bf4703ecdcf66ed3a80c955db9dada8663c959fa28b89057449649ba9cf2
+  linux_arm64: 5f957cffbd6b076b0b845866372797d8d47af68ae1edb9a7e9bfd899cd07351d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - openssl@3

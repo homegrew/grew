@@ -1,0 +1,11 @@
+name: far2l
+version: 2.7.0
+description: Unix fork of FAR Manager v2
+homepage: https://github.com/elfmz/far2l
+url:
+  darwin_arm64: https://github.com/elfmz/far2l/releases/download/v_2.7.0/far2l-2.7.0-beta-MacOS-11.2-universal.dmg
+sha256:
+  darwin_arm64: bdd73f85ac99b2a9655422c188c315d94c4db6e72dbc21d764ca0db2532ef186
+artifacts:
+  app:
+    - far2l.app

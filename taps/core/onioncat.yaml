@@ -1,0 +1,21 @@
+name: onioncat
+version: 4.11.0
+description: VPN-adapter that provides location privacy using Tor or I2P
+homepage: https://github.com/rahra/onioncat
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onioncat/blobs/sha256:376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onioncat/blobs/sha256:b3f88f8aa7942ec817d17c5d9f6807f3bdaa98c82bdabb281e865b26100df878
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onioncat/blobs/sha256:b7909dd65c46856bf1ba00a9253d6b51cd4c1b23b2595a57d0018607ca02bd94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onioncat/blobs/sha256:33f731f9fc0cb8ede749dd65d70b62581f80f59305a9bef7613ff69e8a2807c4
+sha256:
+  darwin_arm64: 376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2
+  darwin_amd64: b3f88f8aa7942ec817d17c5d9f6807f3bdaa98c82bdabb281e865b26100df878
+  linux_amd64: b7909dd65c46856bf1ba00a9253d6b51cd4c1b23b2595a57d0018607ca02bd94
+  linux_arm64: 33f731f9fc0cb8ede749dd65d70b62581f80f59305a9bef7613ff69e8a2807c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tor

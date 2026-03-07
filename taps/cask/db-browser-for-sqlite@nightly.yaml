@@ -1,0 +1,11 @@
+name: db-browser-for-sqlite@nightly
+version: 20260304
+description: Database browser for SQLite
+homepage: https://sqlitebrowser.org/
+url:
+  darwin_arm64: https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLite-universal_20260304.dmg
+sha256:
+  darwin_arm64: 04826acd4ef4d6ec8a5f915baa11c0f479162bd78381a923112bd32798aa818a
+artifacts:
+  app:
+    - DB Browser for SQLite Nightly.app

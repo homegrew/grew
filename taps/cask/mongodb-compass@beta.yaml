@@ -1,0 +1,11 @@
+name: mongodb-compass@beta
+version: 1.49.3-beta.1
+description: GUI for MongoDB
+homepage: https://www.mongodb.com/try/download/compass
+url:
+  darwin_arm64: https://downloads.mongodb.com/compass/beta/mongodb-compass-1.49.3-beta.1-darwin-arm64.dmg
+sha256:
+  darwin_arm64: 2bfb2e142d8e896cb60006b92ae90927a1e80cf9d6b8995ebca5370437c8941c
+artifacts:
+  app:
+    - MongoDB Compass Beta.app

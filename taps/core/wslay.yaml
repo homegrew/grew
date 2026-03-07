@@ -1,0 +1,19 @@
+name: wslay
+version: 1.1.1
+description: C websocket library
+homepage: https://wslay.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wslay/blobs/sha256:25dba65b78dad270fd7ac6f2b7324354a528bc5d3d7c68cbcc296b9740905c10
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wslay/blobs/sha256:8215cb7e32c441a1f92c93ede616c06c12eb1b70817185e8d7f606737522aa71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wslay/blobs/sha256:eee1f87dcfd142d6131fdb354f5aacdfc22991d8666e267dc5ff7fcc6df57eff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wslay/blobs/sha256:b4d236a3f3f420ec499cb1ff460838a2e64995c6b8127dfc657582452e9bd232
+sha256:
+  darwin_arm64: 25dba65b78dad270fd7ac6f2b7324354a528bc5d3d7c68cbcc296b9740905c10
+  darwin_amd64: 8215cb7e32c441a1f92c93ede616c06c12eb1b70817185e8d7f606737522aa71
+  linux_amd64: eee1f87dcfd142d6131fdb354f5aacdfc22991d8666e267dc5ff7fcc6df57eff
+  linux_arm64: b4d236a3f3f420ec499cb1ff460838a2e64995c6b8127dfc657582452e9bd232
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,40 @@
+name: r
+version: 4.5.2
+description: Software environment for statistical computing
+homepage: https://www.r-project.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/r/blobs/sha256:2474ff7f168e955586e0ca6862f8620674fc6769813bdcc85ce288c4d049bf91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/r/blobs/sha256:ba81d8ee1aeb933f14886be2847c8c1be95a6ed4824d18e4d99d5dccb6106574
+  linux_amd64: https://ghcr.io/v2/homebrew/core/r/blobs/sha256:38363e959c0d47027fa1f6a02c33e33e625cf078175658ad7c1425bf24948623
+  linux_arm64: https://ghcr.io/v2/homebrew/core/r/blobs/sha256:c877730f839b18e156b9a14c92207cdb456ae457cec0454d9820dd669cc8f2b0
+sha256:
+  darwin_arm64: 2474ff7f168e955586e0ca6862f8620674fc6769813bdcc85ce288c4d049bf91
+  darwin_amd64: ba81d8ee1aeb933f14886be2847c8c1be95a6ed4824d18e4d99d5dccb6106574
+  linux_amd64: 38363e959c0d47027fa1f6a02c33e33e625cf078175658ad7c1425bf24948623
+  linux_arm64: c877730f839b18e156b9a14c92207cdb456ae457cec0454d9820dd669cc8f2b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gcc
+  - gettext
+  - jpeg-turbo
+  - libpng
+  - libxext
+  - openblas
+  - pcre2
+  - readline
+  - tcl-tk
+  - xz
+  - zstd
+  - fontconfig
+  - freetype
+  - libx11
+  - libxau
+  - libxcb
+  - libxdmcp
+  - libxrender
+  - pixman

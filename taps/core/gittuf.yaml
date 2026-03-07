@@ -1,0 +1,19 @@
+name: gittuf
+version: 0.13.0
+description: Security layer for Git repositories
+homepage: https://gittuf.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gittuf/blobs/sha256:3e09513abecbd1ffe1a71e0ae1445dbca4fcd079c7b01dfff81d53aed3d6ecc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gittuf/blobs/sha256:854bc48c4e811614d1bff212df4e513e496a337c05b9e463eb4dd7fc0f5917a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gittuf/blobs/sha256:1a61aa84c0e5238451165c9c55aca2111c72af2ba6ddd77895aa898d71441118
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gittuf/blobs/sha256:6f6bf02fadce3597bef198b92def02902f580c6f7e627d1e2a7e5b420218de52
+sha256:
+  darwin_arm64: 3e09513abecbd1ffe1a71e0ae1445dbca4fcd079c7b01dfff81d53aed3d6ecc7
+  darwin_amd64: 854bc48c4e811614d1bff212df4e513e496a337c05b9e463eb4dd7fc0f5917a0
+  linux_amd64: 1a61aa84c0e5238451165c9c55aca2111c72af2ba6ddd77895aa898d71441118
+  linux_arm64: 6f6bf02fadce3597bef198b92def02902f580c6f7e627d1e2a7e5b420218de52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

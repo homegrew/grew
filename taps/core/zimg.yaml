@@ -1,0 +1,19 @@
+name: zimg
+version: 3.0.6
+description: Scaling, colorspace conversion, and dithering library
+homepage: https://github.com/sekrit-twc/zimg
+license: WTFPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zimg/blobs/sha256:2beb74e61904dd631d9dfc8e43ae710572041e93058d759b77c37b20c6a9a431
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zimg/blobs/sha256:354ba1f7b397e045e605cec5fc47abee64523b66b93e1cf7bab14e7aa92886f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zimg/blobs/sha256:1586618acff0317dbdcc0e93f56a1a3cc8fc64ab9f59d1f4f4afbfaf4ba9581e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zimg/blobs/sha256:ca819fe840f4ca92cf5fd514a1617215da500f76051a5c26f14c261329989e64
+sha256:
+  darwin_arm64: 2beb74e61904dd631d9dfc8e43ae710572041e93058d759b77c37b20c6a9a431
+  darwin_amd64: 354ba1f7b397e045e605cec5fc47abee64523b66b93e1cf7bab14e7aa92886f2
+  linux_amd64: 1586618acff0317dbdcc0e93f56a1a3cc8fc64ab9f59d1f4f4afbfaf4ba9581e
+  linux_arm64: ca819fe840f4ca92cf5fd514a1617215da500f76051a5c26f14c261329989e64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

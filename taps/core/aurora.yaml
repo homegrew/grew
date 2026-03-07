@@ -1,0 +1,19 @@
+name: aurora
+version: 2.2
+description: Beanstalkd queue server console
+homepage: https://xuri.me/aurora/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aurora/blobs/sha256:d851326e81898d1d2e48168b6bfdfaa7a9073361543e2fca53be0d0bb28a27ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aurora/blobs/sha256:6069583d481b3409513c421031a0f57ec2cc32f0c312f65043630e477d683e99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aurora/blobs/sha256:c045ae045444b0e5f6ad993b2d30697908b1925132ea47fe2d25b46e729a760c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aurora/blobs/sha256:8077df23766d9926fc9b8948ce0ea1861465dad40c42a3f7576a0599ce5f08b7
+sha256:
+  darwin_arm64: d851326e81898d1d2e48168b6bfdfaa7a9073361543e2fca53be0d0bb28a27ed
+  darwin_amd64: 6069583d481b3409513c421031a0f57ec2cc32f0c312f65043630e477d683e99
+  linux_amd64: c045ae045444b0e5f6ad993b2d30697908b1925132ea47fe2d25b46e729a760c
+  linux_arm64: 8077df23766d9926fc9b8948ce0ea1861465dad40c42a3f7576a0599ce5f08b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: uutils-diffutils
+version: 0.5.0
+description: Cross-platform Rust rewrite of the GNU diffutils
+homepage: https://uutils.github.io/diffutils/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uutils-diffutils/blobs/sha256:3335444221ff7d6756894ed48088e1a5b1c702699bb903f6631b8141ca384618
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uutils-diffutils/blobs/sha256:4d75c01d3d68f9fca442a8586c12d20928d5c7f04996ac3f1d1f23206a746d62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uutils-diffutils/blobs/sha256:2d1e9f3d5321efbd029288b90b287d8321ffc29e8dde1dbb203ae8a67db56bbf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uutils-diffutils/blobs/sha256:c96ae075a0ecf59313598b7c69f22cc41c3dbfd66b43d76c0813c35eb0a01d1b
+sha256:
+  darwin_arm64: 3335444221ff7d6756894ed48088e1a5b1c702699bb903f6631b8141ca384618
+  darwin_amd64: 4d75c01d3d68f9fca442a8586c12d20928d5c7f04996ac3f1d1f23206a746d62
+  linux_amd64: 2d1e9f3d5321efbd029288b90b287d8321ffc29e8dde1dbb203ae8a67db56bbf
+  linux_arm64: c96ae075a0ecf59313598b7c69f22cc41c3dbfd66b43d76c0813c35eb0a01d1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

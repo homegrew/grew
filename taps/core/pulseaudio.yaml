@@ -1,0 +1,28 @@
+name: pulseaudio
+version: 17.0
+description: Sound system for POSIX OSes
+homepage: https://wiki.freedesktop.org/www/Software/PulseAudio/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pulseaudio/blobs/sha256:73c349f7d337ebb0bdd1169325685e79f4cb4c253dd920339a7bc52c833ea4c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pulseaudio/blobs/sha256:07c3d88ac76789dc1c94b6881a11ea02868a3e0023f3fd3e2760b95c5aef2161
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pulseaudio/blobs/sha256:3e8c61fa5d337d64747fb305559f1a4821d75cecfd15dc59323450cde1816d29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pulseaudio/blobs/sha256:2122e7fdeb6dfbd23c71b1454e5da23792857aa2b0e9a78db172ab6448891675
+sha256:
+  darwin_arm64: 73c349f7d337ebb0bdd1169325685e79f4cb4c253dd920339a7bc52c833ea4c7
+  darwin_amd64: 07c3d88ac76789dc1c94b6881a11ea02868a3e0023f3fd3e2760b95c5aef2161
+  linux_amd64: 3e8c61fa5d337d64747fb305559f1a4821d75cecfd15dc59323450cde1816d29
+  linux_arm64: 2122e7fdeb6dfbd23c71b1454e5da23792857aa2b0e9a78db172ab6448891675
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libsndfile
+  - libsoxr
+  - libtool
+  - openssl@3
+  - orc
+  - speexdsp
+  - gettext

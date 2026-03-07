@@ -1,0 +1,25 @@
+name: woob
+version: 3.7
+description: Web Outside of Browsers
+homepage: https://woob.tech/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/woob/blobs/sha256:246026fe485d8c15400f06d41b629a1949d580325cdf23f21422f166b32f7c0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/woob/blobs/sha256:fbc8b76383263cc1082607b408bfa4a03a95fa73de01fb486768b003aef6a603
+  linux_amd64: https://ghcr.io/v2/homebrew/core/woob/blobs/sha256:f34fc3bc6e06d546013bbc6a0500e14b56f3b396b9185b3367a2d66986b9f9ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/woob/blobs/sha256:3004629a94ba9a763a524f41b19361e853e81ce16878c522e5ccc93720b80c78
+sha256:
+  darwin_arm64: 246026fe485d8c15400f06d41b629a1949d580325cdf23f21422f166b32f7c0e
+  darwin_amd64: fbc8b76383263cc1082607b408bfa4a03a95fa73de01fb486768b003aef6a603
+  linux_amd64: f34fc3bc6e06d546013bbc6a0500e14b56f3b396b9185b3367a2d66986b9f9ee
+  linux_arm64: 3004629a94ba9a763a524f41b19361e853e81ce16878c522e5ccc93720b80c78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - gnupg
+  - libyaml
+  - pillow
+  - python@3.14

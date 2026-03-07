@@ -1,0 +1,28 @@
+name: klee
+version: 3.2
+description: Symbolic Execution Engine
+homepage: https://klee-se.org
+license: NCSA
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/klee/blobs/sha256:5a6b573c25130976ca751247e04d9fccb13fcaed6c509c4c6b4fdad39344c470
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/klee/blobs/sha256:c5da5c3aa76ee6df601a07b20bc4c2c31ed07730a80d31764338a0684cf7318a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/klee/blobs/sha256:92dd88ee1ef927f42257db072817fa552f0040c9cecb3128792de3643f1faf32
+sha256:
+  darwin_arm64: 5a6b573c25130976ca751247e04d9fccb13fcaed6c509c4c6b4fdad39344c470
+  darwin_amd64: c5da5c3aa76ee6df601a07b20bc4c2c31ed07730a80d31764338a0684cf7318a
+  linux_amd64: 92dd88ee1ef927f42257db072817fa552f0040c9cecb3128792de3643f1faf32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptominisat
+  - gperftools
+  - llvm@16
+  - python@3.14
+  - sqlite
+  - stp
+  - wllvm
+  - z3
+  - gmp
+  - minisat

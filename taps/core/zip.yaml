@@ -1,0 +1,20 @@
+name: zip
+version: 3.0
+description: Compression and file packaging/archive utility
+homepage: https://infozip.sourceforge.net/Zip.html
+license: Info-ZIP
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zip/blobs/sha256:83ba2b2ec5dae0c7d6b804ee92e433ed035b1350d679592280c7421d15bd5a8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zip/blobs/sha256:be38fc0beefdd3c6f662e57bd31f997ddba8cfbce7bf8137128fe2865b06529c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zip/blobs/sha256:526d0c20fa500e2440569e83d02643be31facbd1e788a2efceca7041a00f24d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zip/blobs/sha256:2e80a18894a12fc1771711c709cc20da6ac1d532d9fb10fbca79eb4165b026da
+sha256:
+  darwin_arm64: 83ba2b2ec5dae0c7d6b804ee92e433ed035b1350d679592280c7421d15bd5a8a
+  darwin_amd64: be38fc0beefdd3c6f662e57bd31f997ddba8cfbce7bf8137128fe2865b06529c
+  linux_amd64: 526d0c20fa500e2440569e83d02643be31facbd1e788a2efceca7041a00f24d3
+  linux_arm64: 2e80a18894a12fc1771711c709cc20da6ac1d532d9fb10fbca79eb4165b026da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

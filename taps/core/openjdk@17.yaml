@@ -1,0 +1,27 @@
+name: openjdk@17
+version: 17.0.18
+description: Development kit for the Java programming language
+homepage: https://openjdk.org/
+license: GPL-2.0-only WITH Classpath-exception-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openjdk/17/blobs/sha256:e9ad612f9cd77e4625a0ea2f435836a53c7daa3dfc096e8b7cc8e1692f90523f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openjdk/17/blobs/sha256:7c16fef9be614cc6034a5fae5f63f3c9ca46463888722ce37fab0eb2c6fa8467
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openjdk/17/blobs/sha256:a4705f945ae748f1a17d6217ec78e4c2addc0959c4842847641941d155a20361
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openjdk/17/blobs/sha256:70f0f1b67c3bb57dd855c0cfd7818e4c9f3a4cdaf8b91e7b8d9a77af1936de2d
+sha256:
+  darwin_arm64: e9ad612f9cd77e4625a0ea2f435836a53c7daa3dfc096e8b7cc8e1692f90523f
+  darwin_amd64: 7c16fef9be614cc6034a5fae5f63f3c9ca46463888722ce37fab0eb2c6fa8467
+  linux_amd64: a4705f945ae748f1a17d6217ec78e4c2addc0959c4842847641941d155a20361
+  linux_arm64: 70f0f1b67c3bb57dd855c0cfd7818e4c9f3a4cdaf8b91e7b8d9a77af1936de2d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - giflib
+  - harfbuzz
+  - jpeg-turbo
+  - libpng
+  - little-cms2
+keg_only: true

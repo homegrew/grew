@@ -1,0 +1,19 @@
+name: tree-sitter-ruby
+version: 0.23.1
+description: Ruby grammar for tree-sitter
+homepage: https://github.com/tree-sitter/tree-sitter-ruby
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-ruby/blobs/sha256:394475b85b7a20b4a98422f2c7a39c7b76a0f0b2bfb185419a4dd18601f33d97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-ruby/blobs/sha256:e13afc01e9224d48f0f8a7782a90a75b06c468032020a7c18af3247e6fb48495
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-ruby/blobs/sha256:be1edebb84a8f3a3fc6d609e49ae2f4c0125b3837ed9243376cd96b879478483
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-ruby/blobs/sha256:3f10a6194456b2b4dbd140b6953b656e7eadc49c8d37cc3a031bb56106809bee
+sha256:
+  darwin_arm64: 394475b85b7a20b4a98422f2c7a39c7b76a0f0b2bfb185419a4dd18601f33d97
+  darwin_amd64: e13afc01e9224d48f0f8a7782a90a75b06c468032020a7c18af3247e6fb48495
+  linux_amd64: be1edebb84a8f3a3fc6d609e49ae2f4c0125b3837ed9243376cd96b879478483
+  linux_arm64: 3f10a6194456b2b4dbd140b6953b656e7eadc49c8d37cc3a031bb56106809bee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

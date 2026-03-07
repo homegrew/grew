@@ -1,0 +1,19 @@
+name: runit
+version: 2.3.1
+description: Collection of tools for managing UNIX services
+homepage: https://smarden.org/runit/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/runit/blobs/sha256:9df648ce12c6d653303f224386961cda0ac9f8b0745fcc41821f671538a28c08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/runit/blobs/sha256:e35ad2f49f4b0cf4a0dd60d08c3d071e96a26b87ce4a8bf872e43488794eb4ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/runit/blobs/sha256:291aed06b55caca42f5af93eec0143d85d2e96db8556a53eb4f9e62b6a84045c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/runit/blobs/sha256:b54ca8cbb080d15c9eafc949d595dd23d456595a6bfc4f9ef1231f662ea79c74
+sha256:
+  darwin_arm64: 9df648ce12c6d653303f224386961cda0ac9f8b0745fcc41821f671538a28c08
+  darwin_amd64: e35ad2f49f4b0cf4a0dd60d08c3d071e96a26b87ce4a8bf872e43488794eb4ca
+  linux_amd64: 291aed06b55caca42f5af93eec0143d85d2e96db8556a53eb4f9e62b6a84045c
+  linux_arm64: b54ca8cbb080d15c9eafc949d595dd23d456595a6bfc4f9ef1231f662ea79c74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

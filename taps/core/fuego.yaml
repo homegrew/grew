@@ -1,0 +1,21 @@
+name: fuego
+version: 1.1
+description: Collection of C++ libraries for the game of Go
+homepage: https://fuego.sourceforge.net/
+license: GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fuego/blobs/sha256:3985560eb7b1c53182f39df987972bbcd06bd8bcd6c16eb609623a43eb19de2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fuego/blobs/sha256:edb923e3b530b4a3c54c92ef05cc4166747173fdf04495e7d1ee6583e09dbf0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fuego/blobs/sha256:af8c62d00784576b78a9dd73f796cde7bfc29ffde66cd17c437eb3759630d013
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fuego/blobs/sha256:7608d687864d3edb733ad68725d273f05da35477398bbcd4ada9d468e669be0c
+sha256:
+  darwin_arm64: 3985560eb7b1c53182f39df987972bbcd06bd8bcd6c16eb609623a43eb19de2f
+  darwin_amd64: edb923e3b530b4a3c54c92ef05cc4166747173fdf04495e7d1ee6583e09dbf0e
+  linux_amd64: af8c62d00784576b78a9dd73f796cde7bfc29ffde66cd17c437eb3759630d013
+  linux_arm64: 7608d687864d3edb733ad68725d273f05da35477398bbcd4ada9d468e669be0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

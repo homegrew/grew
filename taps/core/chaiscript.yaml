@@ -1,0 +1,19 @@
+name: chaiscript
+version: 6.1.0
+description: Easy to use embedded scripting language for C++
+homepage: https://chaiscript.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chaiscript/blobs/sha256:5a5e765882d43b75315f316297eca0a972b83c5e5c77c6b00bcc28ec4602bf64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chaiscript/blobs/sha256:ec4acd72304685e0abc9b1cfe7d958377c1c67f428be643f08e027a4d8fbf283
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chaiscript/blobs/sha256:34af5a03731cb336dad74d83505e8c9485092a275b632da30ca2d34a73d31461
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chaiscript/blobs/sha256:48c885b02e7e02084d00622d66b9348f78a108ac315106752a19d5a0a58e65c8
+sha256:
+  darwin_arm64: 5a5e765882d43b75315f316297eca0a972b83c5e5c77c6b00bcc28ec4602bf64
+  darwin_amd64: ec4acd72304685e0abc9b1cfe7d958377c1c67f428be643f08e027a4d8fbf283
+  linux_amd64: 34af5a03731cb336dad74d83505e8c9485092a275b632da30ca2d34a73d31461
+  linux_arm64: 48c885b02e7e02084d00622d66b9348f78a108ac315106752a19d5a0a58e65c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

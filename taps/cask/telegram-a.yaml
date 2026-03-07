@@ -1,0 +1,11 @@
+name: telegram-a
+version: 10.9.51
+description: Web client for Telegram messenger
+homepage: https://web.telegram.org/a/get
+url:
+  darwin_arm64: https://github.com/Ajaxy/telegram-tt/releases/download/v10.9.51/Telegram-A-arm64.dmg
+sha256:
+  darwin_arm64: 9299cc0b54a6ed896f07d0347476084401e2e96ae01476c3c9fac222ce528e09
+artifacts:
+  app:
+    - Telegram A.app

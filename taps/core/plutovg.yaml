@@ -1,0 +1,19 @@
+name: plutovg
+version: 1.3.2
+description: Tiny 2D vector graphics library in C
+homepage: https://github.com/sammycage/plutovg
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plutovg/blobs/sha256:6f152f77d73192095314d68f309103f56fd4cdf9c72d109337c96cc1ce77ae61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plutovg/blobs/sha256:2e7e3cb897b94ff5aefc38c6e2ddf768d9fe8593208877777a0398cf67a7025a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plutovg/blobs/sha256:49ff00cd89be194a241c1cc4b96f0ea61263be83fe7d3cd3e1c7e25c8fa63129
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plutovg/blobs/sha256:119e6c35d5c8dc051d244e5ae8a30ad374b4bdf9446adf59a0f5d05d96f7e9cc
+sha256:
+  darwin_arm64: 6f152f77d73192095314d68f309103f56fd4cdf9c72d109337c96cc1ce77ae61
+  darwin_amd64: 2e7e3cb897b94ff5aefc38c6e2ddf768d9fe8593208877777a0398cf67a7025a
+  linux_amd64: 49ff00cd89be194a241c1cc4b96f0ea61263be83fe7d3cd3e1c7e25c8fa63129
+  linux_arm64: 119e6c35d5c8dc051d244e5ae8a30ad374b4bdf9446adf59a0f5d05d96f7e9cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

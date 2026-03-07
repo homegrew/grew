@@ -1,0 +1,19 @@
+name: loki
+version: 3.6.7
+description: Horizontally-scalable, highly-available log aggregation system
+homepage: https://grafana.com/loki
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/loki/blobs/sha256:5656ca1e872d46a3ed0005d056acdd4da55485209894a3b77601c7932bbe6ec5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/loki/blobs/sha256:12352e118f8fd30ddab4d099680afe1ff398b11d41aa27e8f2e6386953112182
+  linux_amd64: https://ghcr.io/v2/homebrew/core/loki/blobs/sha256:7d9364f647318663802ab9db8b5e7bdf2e1727343af7c22c72f58a1ab11b093c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/loki/blobs/sha256:446f836e3dcda523f08bdc445725d968c17238c98b21630b24653b1034bdbcf8
+sha256:
+  darwin_arm64: 5656ca1e872d46a3ed0005d056acdd4da55485209894a3b77601c7932bbe6ec5
+  darwin_amd64: 12352e118f8fd30ddab4d099680afe1ff398b11d41aa27e8f2e6386953112182
+  linux_amd64: 7d9364f647318663802ab9db8b5e7bdf2e1727343af7c22c72f58a1ab11b093c
+  linux_arm64: 446f836e3dcda523f08bdc445725d968c17238c98b21630b24653b1034bdbcf8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

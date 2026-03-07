@@ -1,0 +1,21 @@
+name: helmfile
+version: 1.4.1
+description: Deploy Kubernetes Helm Charts
+homepage: https://github.com/helmfile/helmfile
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helmfile/blobs/sha256:90a4e606bd85998d832ec546947ae1a890babe09333222f9585561e051659c5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helmfile/blobs/sha256:a144a34fea2e31711cd20665d268d6dfeab2402c36d1f973bae3e34f2480360a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helmfile/blobs/sha256:771d5ba595720c0ad6c72815e26b7006c46cddf37d139abc72bece4760a061c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helmfile/blobs/sha256:b75962ca4d4196868b8de7bb59fb9e036be7178bc58f5fae90b14fa297916e46
+sha256:
+  darwin_arm64: 90a4e606bd85998d832ec546947ae1a890babe09333222f9585561e051659c5a
+  darwin_amd64: a144a34fea2e31711cd20665d268d6dfeab2402c36d1f973bae3e34f2480360a
+  linux_amd64: 771d5ba595720c0ad6c72815e26b7006c46cddf37d139abc72bece4760a061c9
+  linux_arm64: b75962ca4d4196868b8de7bb59fb9e036be7178bc58f5fae90b14fa297916e46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - helm

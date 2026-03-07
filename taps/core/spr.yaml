@@ -1,0 +1,19 @@
+name: spr
+version: 1.3.7
+description: Submit pull requests for individual, amendable, rebaseable commits to GitHub
+homepage: https://spacedentist.github.io/spr/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spr/blobs/sha256:77939b958880db3631587b135834ebd6a52733fa5800b68dc8132effe1167202
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spr/blobs/sha256:8859772520af8cd0c3f23cd98da54cd1196164ee4f6295cf4efe204c1e03bca6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spr/blobs/sha256:ff79ed181ff54c4d3dfe9235d356c632d7b1524cb91fdb59e08dbf4ddf73837d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spr/blobs/sha256:b1a84d4a3c5e1be826286e82449f3859ca243077fa8c3ae3c74f663090b0062b
+sha256:
+  darwin_arm64: 77939b958880db3631587b135834ebd6a52733fa5800b68dc8132effe1167202
+  darwin_amd64: 8859772520af8cd0c3f23cd98da54cd1196164ee4f6295cf4efe204c1e03bca6
+  linux_amd64: ff79ed181ff54c4d3dfe9235d356c632d7b1524cb91fdb59e08dbf4ddf73837d
+  linux_arm64: b1a84d4a3c5e1be826286e82449f3859ca243077fa8c3ae3c74f663090b0062b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

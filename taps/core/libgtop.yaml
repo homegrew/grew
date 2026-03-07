@@ -1,0 +1,23 @@
+name: libgtop
+version: 2.40.0
+description: Library for portably obtaining information about processes
+homepage: https://gitlab.gnome.org/GNOME/libgtop
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgtop/blobs/sha256:382e8b7e104d1ce90d94d855cf90d2fc04526ed66699aff6225088850d8ca8a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgtop/blobs/sha256:337d36977c59d423acfbf3fd0bc258069f50b80eb4a3f537ae006e5cc42cf948
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgtop/blobs/sha256:e397a31d868662a5cdc37e9c4f6dba1557a0f6d07d76c212f7ccf5775b7a70a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgtop/blobs/sha256:43bbad6856591e1a58262e9abfc56ae5bb28f3bc0b5e727d2ce547a4bc0b92db
+sha256:
+  darwin_arm64: 382e8b7e104d1ce90d94d855cf90d2fc04526ed66699aff6225088850d8ca8a5
+  darwin_amd64: 337d36977c59d423acfbf3fd0bc258069f50b80eb4a3f537ae006e5cc42cf948
+  linux_amd64: e397a31d868662a5cdc37e9c4f6dba1557a0f6d07d76c212f7ccf5775b7a70a3
+  linux_arm64: 43bbad6856591e1a58262e9abfc56ae5bb28f3bc0b5e727d2ce547a4bc0b92db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib
+  - libxau

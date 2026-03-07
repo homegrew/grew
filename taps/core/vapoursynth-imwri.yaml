@@ -1,0 +1,25 @@
+name: vapoursynth-imwri
+version: 2
+description: VapourSynth filters - ImageMagick HDRI writer/reader
+homepage: https://github.com/vapoursynth/vs-imwri
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth-imwri/blobs/sha256:7a8829c333c4d82d927f3cfc9c88a5d162b230924f17003b44b86f8b61966ff8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth-imwri/blobs/sha256:11435523067bbf5c1cfd7c9597b1340afe4f34c94c64f8d0667e3d580c84ebe5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth-imwri/blobs/sha256:21b4c595a5528b6d61eaba2d223e2f51bdf2b69ff50d623a915fc55a98263513
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth-imwri/blobs/sha256:b72bf4ebcdaade6cb9e1ac993c2334fda6aa69b54dab5c5deb58b804fd193d5d
+sha256:
+  darwin_arm64: 7a8829c333c4d82d927f3cfc9c88a5d162b230924f17003b44b86f8b61966ff8
+  darwin_amd64: 11435523067bbf5c1cfd7c9597b1340afe4f34c94c64f8d0667e3d580c84ebe5
+  linux_amd64: 21b4c595a5528b6d61eaba2d223e2f51bdf2b69ff50d623a915fc55a98263513
+  linux_arm64: b72bf4ebcdaade6cb9e1ac993c2334fda6aa69b54dab5c5deb58b804fd193d5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imagemagick
+  - libheif
+  - vapoursynth
+  - jpeg-xl
+  - libtiff

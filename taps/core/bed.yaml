@@ -1,0 +1,19 @@
+name: bed
+version: 0.2.8
+description: Binary editor written in Go
+homepage: https://github.com/itchyny/bed
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bed/blobs/sha256:8cded6610391dae61838f8e3d1fed830a47bb036830fcfe6bae85a11d7ebaffc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bed/blobs/sha256:f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bed/blobs/sha256:68f7873e2b5d5e5f871862af9004cdcd4b99fc6b51af6d1e8d100afe4418fe21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bed/blobs/sha256:a2562c5a4257daa51a5cca6592df17b3cd87389f0f8a54677ebf684b327723aa
+sha256:
+  darwin_arm64: 8cded6610391dae61838f8e3d1fed830a47bb036830fcfe6bae85a11d7ebaffc
+  darwin_amd64: f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557
+  linux_amd64: 68f7873e2b5d5e5f871862af9004cdcd4b99fc6b51af6d1e8d100afe4418fe21
+  linux_arm64: a2562c5a4257daa51a5cca6592df17b3cd87389f0f8a54677ebf684b327723aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

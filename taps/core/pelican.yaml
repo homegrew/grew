@@ -1,0 +1,21 @@
+name: pelican
+version: 4.11.0.post0
+description: Static site generator that supports Markdown and reST syntax
+homepage: https://getpelican.com/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pelican/blobs/sha256:3e277d1a8e8d1625d447c9ef37653d430857521bc09b9de7a1807312f4607b68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pelican/blobs/sha256:82afdff03fb2b0e88758d388eee5ff6ea171f5bc127550a9acfb734856fd9129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pelican/blobs/sha256:1f7771d3e1183bb045c920f33d6531fe2020423a0d3c4e16ecbd0abb19501618
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pelican/blobs/sha256:ab92e94e5f5c2d8790df1a5cf7d923ef13d763094c731ae34d7e26fcef83f662
+sha256:
+  darwin_arm64: 3e277d1a8e8d1625d447c9ef37653d430857521bc09b9de7a1807312f4607b68
+  darwin_amd64: 82afdff03fb2b0e88758d388eee5ff6ea171f5bc127550a9acfb734856fd9129
+  linux_amd64: 1f7771d3e1183bb045c920f33d6531fe2020423a0d3c4e16ecbd0abb19501618
+  linux_arm64: ab92e94e5f5c2d8790df1a5cf7d923ef13d763094c731ae34d7e26fcef83f662
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

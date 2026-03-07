@@ -1,0 +1,19 @@
+name: gaul
+version: 0.1850-0
+description: Genetic Algorithm Utility Library
+homepage: https://gaul.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gaul/blobs/sha256:e6d6c2c5f3c790afcff2232f8d2dc371a425fdedc42aa52a33daf94b0816439e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gaul/blobs/sha256:fae30be9623f54eafac733017939004e128f0b45ba6e554e5e3b3734371611eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gaul/blobs/sha256:86d80af0c4bdef2186dccac01b0046ca2ca2c81c484b7c5f279553b2e190b53c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gaul/blobs/sha256:53fc9d9d00e8829b40586ca4786c0848b543d5f42b191bde994139d284371a4c
+sha256:
+  darwin_arm64: e6d6c2c5f3c790afcff2232f8d2dc371a425fdedc42aa52a33daf94b0816439e
+  darwin_amd64: fae30be9623f54eafac733017939004e128f0b45ba6e554e5e3b3734371611eb
+  linux_amd64: 86d80af0c4bdef2186dccac01b0046ca2ca2c81c484b7c5f279553b2e190b53c
+  linux_arm64: 53fc9d9d00e8829b40586ca4786c0848b543d5f42b191bde994139d284371a4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

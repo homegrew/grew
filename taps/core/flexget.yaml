@@ -1,0 +1,24 @@
+name: flexget
+version: 3.19.0
+description: Multipurpose automation tool for content
+homepage: https://www.flexget.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flexget/blobs/sha256:aa9563b4775ca07067906a95c9c4c0e3b4313e2170233dc198ada244ebc1fddb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flexget/blobs/sha256:622ca055e3e1e23aff4212e6d39edc65ab274d4bada6a27c9c84d19f2ff75119
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flexget/blobs/sha256:0aee0001c88b8ec3a3e42851507667ee0f78c03399ab7390ce1d14c17cdf5c11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flexget/blobs/sha256:ff6f8c77ca421c82867fb48ea7ea33df965ef6d3a9d9e6d911bab18eed488c51
+sha256:
+  darwin_arm64: aa9563b4775ca07067906a95c9c4c0e3b4313e2170233dc198ada244ebc1fddb
+  darwin_amd64: 622ca055e3e1e23aff4212e6d39edc65ab274d4bada6a27c9c84d19f2ff75119
+  linux_amd64: 0aee0001c88b8ec3a3e42851507667ee0f78c03399ab7390ce1d14c17cdf5c11
+  linux_arm64: ff6f8c77ca421c82867fb48ea7ea33df965ef6d3a9d9e6d911bab18eed488c51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

@@ -1,0 +1,19 @@
+name: advancecomp
+version: 2.6
+description: Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files
+homepage: https://www.advancemame.it/comp-readme.html
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/advancecomp/blobs/sha256:645f12c923d703bc3ebe073a81ae42f37f057a80f5be2e47def6e0c42455617e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/advancecomp/blobs/sha256:e39bf043068c5ffb9dd0452ea3d6293f9bacd291c4364c05115f8539e2703b74
+  linux_amd64: https://ghcr.io/v2/homebrew/core/advancecomp/blobs/sha256:e1795b527eb952aaa3e1300a6e76c0af53a612421f05245f207ee8b7bedb5a7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/advancecomp/blobs/sha256:0fe07baf766ba36840dbde997efba699f819afca12354bc8ec2f5ccd2c163c1a
+sha256:
+  darwin_arm64: 645f12c923d703bc3ebe073a81ae42f37f057a80f5be2e47def6e0c42455617e
+  darwin_amd64: e39bf043068c5ffb9dd0452ea3d6293f9bacd291c4364c05115f8539e2703b74
+  linux_amd64: e1795b527eb952aaa3e1300a6e76c0af53a612421f05245f207ee8b7bedb5a7f
+  linux_arm64: 0fe07baf766ba36840dbde997efba699f819afca12354bc8ec2f5ccd2c163c1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

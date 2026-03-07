@@ -1,0 +1,19 @@
+name: xorgproto
+version: 2025.1
+description: "X.Org: Protocol Headers"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xorgproto/blobs/sha256:c65163b3daadd9160d9e2ba92f0541800577833c6b06b50c10aab69c1ce38f25
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xorgproto/blobs/sha256:c65163b3daadd9160d9e2ba92f0541800577833c6b06b50c10aab69c1ce38f25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xorgproto/blobs/sha256:22b221145e4420b8d0444ff4699d93726fc20c63ec1c789b41acf35075174a6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xorgproto/blobs/sha256:22b221145e4420b8d0444ff4699d93726fc20c63ec1c789b41acf35075174a6d
+sha256:
+  darwin_arm64: c65163b3daadd9160d9e2ba92f0541800577833c6b06b50c10aab69c1ce38f25
+  darwin_amd64: c65163b3daadd9160d9e2ba92f0541800577833c6b06b50c10aab69c1ce38f25
+  linux_amd64: 22b221145e4420b8d0444ff4699d93726fc20c63ec1c789b41acf35075174a6d
+  linux_arm64: 22b221145e4420b8d0444ff4699d93726fc20c63ec1c789b41acf35075174a6d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

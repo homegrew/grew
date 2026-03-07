@@ -1,0 +1,23 @@
+name: cyrus-sasl
+version: 2.1.28
+description: Simple Authentication and Security Layer
+homepage: https://www.cyrusimap.org/sasl/
+license: BSD-3-Clause-Attribution
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cyrus-sasl/blobs/sha256:17e620e6b3ab58620c3b6d2f06eca63d45ed857243b19f67b607ed144a68acd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cyrus-sasl/blobs/sha256:5112a83906ea31b699c5a1ee149729298c160585cdc1c65702a81b6de5318193
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cyrus-sasl/blobs/sha256:f1bc6d528c1c0e53c2eecb599e5127070654a7bdfb9acb0232cfd08bfaf38efd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cyrus-sasl/blobs/sha256:66658e5a01892c2952754447404b14f73a888c1cd5b97dbed3c6244dc4d62a2a
+sha256:
+  darwin_arm64: 17e620e6b3ab58620c3b6d2f06eca63d45ed857243b19f67b607ed144a68acd0
+  darwin_amd64: 5112a83906ea31b699c5a1ee149729298c160585cdc1c65702a81b6de5318193
+  linux_amd64: f1bc6d528c1c0e53c2eecb599e5127070654a7bdfb9acb0232cfd08bfaf38efd
+  linux_arm64: 66658e5a01892c2952754447404b14f73a888c1cd5b97dbed3c6244dc4d62a2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - krb5
+  - openssl@3
+keg_only: true

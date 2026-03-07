@@ -1,0 +1,21 @@
+name: gosec
+version: 2.24.7
+description: Golang security checker
+homepage: https://securego.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gosec/blobs/sha256:d48a4bbe0278928d98c21533a518bc9198dcbe0421f032a945e4604f00393f13
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gosec/blobs/sha256:3ec8031f5d1cb5851ae00799922539126fdb9c0e6fab4e1de360da4cf4190260
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gosec/blobs/sha256:9cc08fad2d16a7e64f60cb1a637924e54f3e8aa5eae7af9b3f7822b1e24d468b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gosec/blobs/sha256:cfd342de31b57317ec57938db8daa3730910a5935bd3931cfbb149a40c7d20b6
+sha256:
+  darwin_arm64: d48a4bbe0278928d98c21533a518bc9198dcbe0421f032a945e4604f00393f13
+  darwin_amd64: 3ec8031f5d1cb5851ae00799922539126fdb9c0e6fab4e1de360da4cf4190260
+  linux_amd64: 9cc08fad2d16a7e64f60cb1a637924e54f3e8aa5eae7af9b3f7822b1e24d468b
+  linux_arm64: cfd342de31b57317ec57938db8daa3730910a5935bd3931cfbb149a40c7d20b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

@@ -1,0 +1,19 @@
+name: lego
+version: 4.32.0
+description: "Let's Encrypt client and ACME library"
+homepage: https://go-acme.github.io/lego/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lego/blobs/sha256:73540f4ea8d6d7ac84c6371d466dd269c98cc5216b1d6207279c3701eae373db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lego/blobs/sha256:ade514cdfd6d1c66c8d936083262fb842cb311da68a5162f019f78df0f4146ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lego/blobs/sha256:e0729e5df6035aef9657830b3efca0e34dd84b1f735a4666aed2de5a3322d905
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lego/blobs/sha256:45691b76d7bc067cfeaa2abcfe17ea559cb32c96490a11039a786a55f07eb24c
+sha256:
+  darwin_arm64: 73540f4ea8d6d7ac84c6371d466dd269c98cc5216b1d6207279c3701eae373db
+  darwin_amd64: ade514cdfd6d1c66c8d936083262fb842cb311da68a5162f019f78df0f4146ef
+  linux_amd64: e0729e5df6035aef9657830b3efca0e34dd84b1f735a4666aed2de5a3322d905
+  linux_arm64: 45691b76d7bc067cfeaa2abcfe17ea559cb32c96490a11039a786a55f07eb24c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

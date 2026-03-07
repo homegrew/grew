@@ -1,0 +1,19 @@
+name: ory-hydra
+version: 25.4.0
+description: OpenID Certified OAuth 2.0 Server and OpenID Connect Provider
+homepage: https://www.ory.sh/hydra/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ory-hydra/blobs/sha256:274aabae4b98765b98ce3f76009442d38da0bc5ddd0f7c742525b45f61f68026
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ory-hydra/blobs/sha256:f69f9f90d69047df0462ff793e2685e1e04ff1135a7efb3b44da1b6ef68b3472
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ory-hydra/blobs/sha256:50dd566a516cde0ed8a8cbcc8a0771a61331c5ef275a2573e2275098330260bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ory-hydra/blobs/sha256:5ca48ceb1eaff823a4b9e9f8ad04f94f161407f3e8c83dc9aab5e232c2aec688
+sha256:
+  darwin_arm64: 274aabae4b98765b98ce3f76009442d38da0bc5ddd0f7c742525b45f61f68026
+  darwin_amd64: f69f9f90d69047df0462ff793e2685e1e04ff1135a7efb3b44da1b6ef68b3472
+  linux_amd64: 50dd566a516cde0ed8a8cbcc8a0771a61331c5ef275a2573e2275098330260bf
+  linux_arm64: 5ca48ceb1eaff823a4b9e9f8ad04f94f161407f3e8c83dc9aab5e232c2aec688
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

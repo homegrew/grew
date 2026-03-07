@@ -1,0 +1,19 @@
+name: libusrsctp
+version: 0.9.5.0
+description: Portable SCTP userland stack
+homepage: https://github.com/sctplab/usrsctp
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libusrsctp/blobs/sha256:6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libusrsctp/blobs/sha256:55c6cbd763cd6733dde2c9cd09185aaae980d4ec5b6fe509fb707100fcae8400
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libusrsctp/blobs/sha256:1ed390a46abf6f2244181acd53fafe4280a4b0f41e07720e3161d27995b0cbff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libusrsctp/blobs/sha256:32b23193aec4c98b68aed3e46c9d09ed6e924a3cc0ef1aa567dbe749fc92363a
+sha256:
+  darwin_arm64: 6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378
+  darwin_amd64: 55c6cbd763cd6733dde2c9cd09185aaae980d4ec5b6fe509fb707100fcae8400
+  linux_amd64: 1ed390a46abf6f2244181acd53fafe4280a4b0f41e07720e3161d27995b0cbff
+  linux_arm64: 32b23193aec4c98b68aed3e46c9d09ed6e924a3cc0ef1aa567dbe749fc92363a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

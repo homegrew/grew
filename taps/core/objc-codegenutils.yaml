@@ -1,0 +1,15 @@
+name: objc-codegenutils
+version: 1.0
+description: Three small tools to help work with XCode
+homepage: https://github.com/puls/objc-codegenutils
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/objc-codegenutils/blobs/sha256:ae4db60ac9757d78ddb5870ca7b39d1de92d4ebda85497ee129e84c26e3f23ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/objc-codegenutils/blobs/sha256:6e1172fa8991a275968751bcef4020b07f26d410cefe2f4c9efd07a91ff9165a
+sha256:
+  darwin_arm64: ae4db60ac9757d78ddb5870ca7b39d1de92d4ebda85497ee129e84c26e3f23ac
+  darwin_amd64: 6e1172fa8991a275968751bcef4020b07f26d410cefe2f4c9efd07a91ff9165a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

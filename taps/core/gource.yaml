@@ -1,0 +1,27 @@
+name: gource
+version: 0.56
+description: Version Control Visualization Tool
+homepage: https://gource.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gource/blobs/sha256:195d55d440abf1c3e5104a9a672d5bc2e26493ed55b7f8082b491b70f4bd8114
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gource/blobs/sha256:892e81a39c48e764d9cb54db41544789e29e22578392c6a05ea560aef0b6d2ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gource/blobs/sha256:c042625f61fdcafba8f37a0bfd60181d7ed194101323ab408806c8d5b59a4425
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gource/blobs/sha256:0d8a1d48795700cc8d69560330eb550bdb6dd68e3bc05b0630e28bf91dcaaf97
+sha256:
+  darwin_arm64: 195d55d440abf1c3e5104a9a672d5bc2e26493ed55b7f8082b491b70f4bd8114
+  darwin_amd64: 892e81a39c48e764d9cb54db41544789e29e22578392c6a05ea560aef0b6d2ec
+  linux_amd64: c042625f61fdcafba8f37a0bfd60181d7ed194101323ab408806c8d5b59a4425
+  linux_arm64: 0d8a1d48795700cc8d69560330eb550bdb6dd68e3bc05b0630e28bf91dcaaf97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - freetype
+  - glew
+  - libpng
+  - pcre2
+  - sdl2
+  - sdl2_image

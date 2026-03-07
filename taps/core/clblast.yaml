@@ -1,0 +1,19 @@
+name: clblast
+version: 1.6.3
+description: Tuned OpenCL BLAS library
+homepage: https://github.com/CNugteren/CLBlast
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clblast/blobs/sha256:cfd48f3ebe4c5fd8a8154ffea4e8064d76a3f7629a07afafffcbfb34df4d6b5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clblast/blobs/sha256:7af136b15b5d8fc47a2c392052a7b35ec447c4530c3f57fab3675e45e55d1e96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clblast/blobs/sha256:7fc7ca301aa5cfd50033c67343f4fddcedffc6536274423081e71a2f86282e8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clblast/blobs/sha256:07ccdb7ac4ae569a10b3373edeb168b25505896269b7921f7f624094acf9b27a
+sha256:
+  darwin_arm64: cfd48f3ebe4c5fd8a8154ffea4e8064d76a3f7629a07afafffcbfb34df4d6b5b
+  darwin_amd64: 7af136b15b5d8fc47a2c392052a7b35ec447c4530c3f57fab3675e45e55d1e96
+  linux_amd64: 7fc7ca301aa5cfd50033c67343f4fddcedffc6536274423081e71a2f86282e8e
+  linux_arm64: 07ccdb7ac4ae569a10b3373edeb168b25505896269b7921f7f624094acf9b27a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

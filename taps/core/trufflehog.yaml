@@ -1,0 +1,19 @@
+name: trufflehog
+version: 3.93.7
+description: Find and verify credentials
+homepage: https://trufflesecurity.com/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trufflehog/blobs/sha256:77f2381cd18e1a83d514e9d8bf7a6bd75812b9a8f56d60703b28c6b7cbed4813
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trufflehog/blobs/sha256:16cf515a8fabdf574367b45ecd24546ce2dcee0b38412e4c6316cbdff65d5adc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trufflehog/blobs/sha256:33896ca2e69bda1b7be61ec8ea01a3d13600a72f192a6e0b59a7c64e9940ecdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trufflehog/blobs/sha256:fdaddb1022ad1e4b8065a907427e858e47d059ee8a373d8b34b1aef7917378e8
+sha256:
+  darwin_arm64: 77f2381cd18e1a83d514e9d8bf7a6bd75812b9a8f56d60703b28c6b7cbed4813
+  darwin_amd64: 16cf515a8fabdf574367b45ecd24546ce2dcee0b38412e4c6316cbdff65d5adc
+  linux_amd64: 33896ca2e69bda1b7be61ec8ea01a3d13600a72f192a6e0b59a7c64e9940ecdd
+  linux_arm64: fdaddb1022ad1e4b8065a907427e858e47d059ee8a373d8b34b1aef7917378e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

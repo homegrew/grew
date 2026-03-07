@@ -1,0 +1,11 @@
+name: amiberry
+version: 7.1.1
+description: Amiga emulator
+homepage: https://amiberry.com/
+url:
+  darwin_arm64: https://github.com/BlitterStudio/amiberry/releases/download/v7.1.1/Amiberry-v7.1.1-macOS-apple-silicon.zip
+sha256:
+  darwin_arm64: 6df092a58bc78f06409b0de6d3aaa3bddd9577b0df8554443e8a2117369c2e67
+artifacts:
+  app:
+    - Amiberry.app

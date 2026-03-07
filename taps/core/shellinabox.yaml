@@ -1,0 +1,21 @@
+name: shellinabox
+version: 2.21
+description: Export command-line tools to web based terminal emulator
+homepage: https://github.com/shellinabox/shellinabox
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shellinabox/blobs/sha256:7d44a97956451b5823ac5d47639cafe695be2866bcb2d9328c52fc4e6755f621
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shellinabox/blobs/sha256:7dba06f482a5bc45a102db5beb1fddd0e19bcfa715a9be908d04fb006e86c5c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shellinabox/blobs/sha256:c64cf382e610886021ffa6d53b10353798293afd68b9ac286930e429df6da58a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shellinabox/blobs/sha256:aaca8addc19bbac943421d2f17fff428722a7cd47607c42932acf57088ebd9bb
+sha256:
+  darwin_arm64: 7d44a97956451b5823ac5d47639cafe695be2866bcb2d9328c52fc4e6755f621
+  darwin_amd64: 7dba06f482a5bc45a102db5beb1fddd0e19bcfa715a9be908d04fb006e86c5c6
+  linux_amd64: c64cf382e610886021ffa6d53b10353798293afd68b9ac286930e429df6da58a
+  linux_arm64: aaca8addc19bbac943421d2f17fff428722a7cd47607c42932acf57088ebd9bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

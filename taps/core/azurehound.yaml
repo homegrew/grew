@@ -1,0 +1,19 @@
+name: azurehound
+version: 2.10.0
+description: Azure Data Exporter for BloodHound
+homepage: https://github.com/SpecterOps/AzureHound
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azurehound/blobs/sha256:5c219c34b4b97251da87cd3b561329828c3afc6a74548595f010c10535f9549d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azurehound/blobs/sha256:ea125c4f13a37b63dcdffe88e0244d5dbc4d7b5fa4ea52bab0de4f376537a698
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azurehound/blobs/sha256:0a26a61a72705de61a1050441c6f725dcd26d247607676ec41d8153c9731460f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azurehound/blobs/sha256:2ed0bee508e20fcfe2cdda934ad87e8416b0b0e4011a70a04293af5bc496c536
+sha256:
+  darwin_arm64: 5c219c34b4b97251da87cd3b561329828c3afc6a74548595f010c10535f9549d
+  darwin_amd64: ea125c4f13a37b63dcdffe88e0244d5dbc4d7b5fa4ea52bab0de4f376537a698
+  linux_amd64: 0a26a61a72705de61a1050441c6f725dcd26d247607676ec41d8153c9731460f
+  linux_arm64: 2ed0bee508e20fcfe2cdda934ad87e8416b0b0e4011a70a04293af5bc496c536
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

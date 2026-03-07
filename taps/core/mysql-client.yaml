@@ -1,0 +1,25 @@
+name: mysql-client
+version: 9.6.0
+description: Open source relational database management system
+homepage: https://github.com/mysql/mysql-server
+license: GPL-2.0-only WITH Universal-FOSS-exception-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mysql-client/blobs/sha256:3d6400b8506b200e4e7354a285c88f5ae9dcb7d9d63d39b9591475b64776508d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mysql-client/blobs/sha256:23e8086ec33e795a0d909d14a4cc0f2955a2022e2293c5d4b6bab24aa4e93069
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mysql-client/blobs/sha256:532740bb598637db0167e0cf56063d383e14c6f734684cf4a05c928de0f8b0dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mysql-client/blobs/sha256:6517f09f113664259d5d3661f8f4596cdaa6d395b73b2412ed0e923d79132178
+sha256:
+  darwin_arm64: 3d6400b8506b200e4e7354a285c88f5ae9dcb7d9d63d39b9591475b64776508d
+  darwin_amd64: 23e8086ec33e795a0d909d14a4cc0f2955a2022e2293c5d4b6bab24aa4e93069
+  linux_amd64: 532740bb598637db0167e0cf56063d383e14c6f734684cf4a05c928de0f8b0dc
+  linux_arm64: 6517f09f113664259d5d3661f8f4596cdaa6d395b73b2412ed0e923d79132178
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfido2
+  - openssl@3
+  - zlib-ng-compat
+  - zstd
+keg_only: true

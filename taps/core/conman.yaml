@@ -1,0 +1,21 @@
+name: conman
+version: 0.3.1
+description: Serial console management program supporting a large number of devices
+homepage: https://github.com/dun/conman
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/conman/blobs/sha256:3e0eeafbb0e2a0f4be6952f0a557232cf2ab06d7316fe798202562e7c1af9eb4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/conman/blobs/sha256:744c637c568d133c33075924f83f9c86b2dfcc3fee60c21fecc1144d9a0313dc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/conman/blobs/sha256:af3f62841fa09e43d3e42e41f7a1d5eaaa57112851b87221ea46a96a0fad6d52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/conman/blobs/sha256:b5e5d177019a93e60a157a8662ee5fcd5a40100d6472cfcb22707c985808494c
+sha256:
+  darwin_arm64: 3e0eeafbb0e2a0f4be6952f0a557232cf2ab06d7316fe798202562e7c1af9eb4
+  darwin_amd64: 744c637c568d133c33075924f83f9c86b2dfcc3fee60c21fecc1144d9a0313dc
+  linux_amd64: af3f62841fa09e43d3e42e41f7a1d5eaaa57112851b87221ea46a96a0fad6d52
+  linux_arm64: b5e5d177019a93e60a157a8662ee5fcd5a40100d6472cfcb22707c985808494c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freeipmi

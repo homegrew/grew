@@ -1,0 +1,23 @@
+name: boost
+version: 1.90.0
+description: Collection of portable C++ source libraries
+homepage: https://www.boost.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boost/blobs/sha256:47ceccf6792941c223a6464f974b6ac56e1d3457e6d72e1f71b4fdb742cef1d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boost/blobs/sha256:29e1095cff0cab11964d27ad12ca18556ff9715f2c6b3216f0deb389ffdba653
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boost/blobs/sha256:175119f6f95179930c676c24615133249fea40b9bd86e1f37340c1544c18f9bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boost/blobs/sha256:533706af6bd0f1e62589e7421f190466451755f4e7bc91937661e3b2a13560c3
+sha256:
+  darwin_arm64: 47ceccf6792941c223a6464f974b6ac56e1d3457e6d72e1f71b4fdb742cef1d0
+  darwin_amd64: 29e1095cff0cab11964d27ad12ca18556ff9715f2c6b3216f0deb389ffdba653
+  linux_amd64: 175119f6f95179930c676c24615133249fea40b9bd86e1f37340c1544c18f9bc
+  linux_arm64: 533706af6bd0f1e62589e7421f190466451755f4e7bc91937661e3b2a13560c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - xz
+  - zstd

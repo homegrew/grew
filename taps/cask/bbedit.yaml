@@ -1,0 +1,16 @@
+name: bbedit
+version: 15.5.5
+description: Text, code, and markup editor
+homepage: https://www.barebones.com/products/bbedit/
+url:
+  darwin_arm64: https://s3.amazonaws.com/BBSW-download/BBEdit_15.5.5.dmg
+sha256:
+  darwin_arm64: 0ecac68f689df5751fde7e79b34387a099d7e00418e40aa23fdb24697cac8219
+artifacts:
+  app:
+    - BBEdit.app
+  bin:
+    - bbedit
+    - bbdiff
+    - bbfind
+    - bbresults

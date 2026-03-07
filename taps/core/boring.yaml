@@ -1,0 +1,19 @@
+name: boring
+version: 0.12.0
+description: Simple command-line SSH tunnel manager that just works
+homepage: https://github.com/alebeck/boring
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boring/blobs/sha256:82d7a181b1bcb7115556412c386c6618cd0008c9d0f29d57797765651544e2c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boring/blobs/sha256:46b81c339e326c67b686284c304b3813783cef478e7f17ef3d5fdf90cbff8d25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boring/blobs/sha256:7aca59fda3df3f2d38b1e6b3d790abaa95aefe4476235929a29717ebb0f29cf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boring/blobs/sha256:6a76d714a17e63ca3cd1edc43ddad69dc984a419d4eb4809f8bfd3cd55283b0c
+sha256:
+  darwin_arm64: 82d7a181b1bcb7115556412c386c6618cd0008c9d0f29d57797765651544e2c9
+  darwin_amd64: 46b81c339e326c67b686284c304b3813783cef478e7f17ef3d5fdf90cbff8d25
+  linux_amd64: 7aca59fda3df3f2d38b1e6b3d790abaa95aefe4476235929a29717ebb0f29cf2
+  linux_arm64: 6a76d714a17e63ca3cd1edc43ddad69dc984a419d4eb4809f8bfd3cd55283b0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

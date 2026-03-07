@@ -1,0 +1,15 @@
+name: telnetd
+version: 306
+description: TELNET server
+homepage: https://opensource.apple.com/
+license: BSD-4-Clause-UC AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/telnetd/blobs/sha256:352b9a21a62d85b6636369978ad5b6bffa79323abbd985371f663d6da0c16e30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/telnetd/blobs/sha256:7fea7f6cc2ea119744bfa263e2c2a67766d169fb9ed0f73a97a6de8c00a0e06e
+sha256:
+  darwin_arm64: 352b9a21a62d85b6636369978ad5b6bffa79323abbd985371f663d6da0c16e30
+  darwin_amd64: 7fea7f6cc2ea119744bfa263e2c2a67766d169fb9ed0f73a97a6de8c00a0e06e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

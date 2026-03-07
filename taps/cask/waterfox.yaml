@@ -1,0 +1,13 @@
+name: waterfox
+version: 6.6.9
+description: Web browser
+homepage: https://www.waterfox.net/
+url:
+  darwin_arm64: https://cdn1.waterfox.net/waterfox/releases/6.6.9/Darwin_x86_64-aarch64/Waterfox%206.6.9.dmg
+sha256:
+  darwin_arm64: c5e658b0bdb75db8b5539401ccbcd780373514211ad53f8bfb98139d1b2de8ff
+artifacts:
+  app:
+    - Waterfox.app
+  bin:
+    - waterfox

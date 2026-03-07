@@ -1,0 +1,19 @@
+name: cmark
+version: 0.31.2
+description: Strongly specified, highly compatible implementation of Markdown
+homepage: https://commonmark.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmark/blobs/sha256:23df2262fb8ef016f8f60bdfcd875a08de7f184f60c2263991c79af9cd772ae6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmark/blobs/sha256:768afbf8cba6067e2c4935dfaf79c3fab51bd0561c0daebb126b6501d63054a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmark/blobs/sha256:4d4c24cef6d576e564ddcb2660e6796d73d76a656966d75075e2113088e4efac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmark/blobs/sha256:d653712866e26d9a1ccc17543cb7d88e6419ed94c5cc7617e25692482ec9b99e
+sha256:
+  darwin_arm64: 23df2262fb8ef016f8f60bdfcd875a08de7f184f60c2263991c79af9cd772ae6
+  darwin_amd64: 768afbf8cba6067e2c4935dfaf79c3fab51bd0561c0daebb126b6501d63054a6
+  linux_amd64: 4d4c24cef6d576e564ddcb2660e6796d73d76a656966d75075e2113088e4efac
+  linux_arm64: d653712866e26d9a1ccc17543cb7d88e6419ed94c5cc7617e25692482ec9b99e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

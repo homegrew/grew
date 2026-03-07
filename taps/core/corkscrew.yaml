@@ -1,0 +1,19 @@
+name: corkscrew
+version: 2.0
+description: Tunnel SSH through HTTP proxies
+homepage: https://packages.debian.org/sid/corkscrew
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/corkscrew/blobs/sha256:ddf9f9bccfc3f8abdac5ab156b3adebb82d263eec75503ca53b657dba4e310f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/corkscrew/blobs/sha256:58a7a24041d6103063a3f4f8c96e1729afc175370aa27df66d0604a887fb61c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/corkscrew/blobs/sha256:aad5bc0cad7686b7741300366d92107ed90c84eabc8868d309a2f61c96b3135d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/corkscrew/blobs/sha256:6961a98bcd314dd0590a00dcddf7101d673b5c6933b938b271e4f93a82d22c78
+sha256:
+  darwin_arm64: ddf9f9bccfc3f8abdac5ab156b3adebb82d263eec75503ca53b657dba4e310f3
+  darwin_amd64: 58a7a24041d6103063a3f4f8c96e1729afc175370aa27df66d0604a887fb61c3
+  linux_amd64: aad5bc0cad7686b7741300366d92107ed90c84eabc8868d309a2f61c96b3135d
+  linux_arm64: 6961a98bcd314dd0590a00dcddf7101d673b5c6933b938b271e4f93a82d22c78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

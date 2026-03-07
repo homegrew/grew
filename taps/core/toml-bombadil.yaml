@@ -1,0 +1,21 @@
+name: toml-bombadil
+version: 4.2.0
+description: Dotfile manager with templating
+homepage: https://github.com/oknozor/toml-bombadil
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toml-bombadil/blobs/sha256:a5312af9bf7cb58f95099a46733121f61259c40bef05749b57ce1a3be7f8192d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toml-bombadil/blobs/sha256:bf60b11d72eeb4e799e2b096f72593d76ddc9b7c2f240140d1e47ef2205cc691
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toml-bombadil/blobs/sha256:dbfc4c1f304f6a32a8106a2a57164220133f4266ef87d0955fc26e154124f4c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toml-bombadil/blobs/sha256:8066d1d03de5d940d4782c63f8e060a8e325efef99de59c057c956be6d809287
+sha256:
+  darwin_arm64: a5312af9bf7cb58f95099a46733121f61259c40bef05749b57ce1a3be7f8192d
+  darwin_amd64: bf60b11d72eeb4e799e2b096f72593d76ddc9b7c2f240140d1e47ef2205cc691
+  linux_amd64: dbfc4c1f304f6a32a8106a2a57164220133f4266ef87d0955fc26e154124f4c6
+  linux_arm64: 8066d1d03de5d940d4782c63f8e060a8e325efef99de59c057c956be6d809287
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

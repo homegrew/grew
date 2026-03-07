@@ -1,0 +1,19 @@
+name: fx
+version: 39.2.0
+description: Terminal JSON viewer
+homepage: https://fx.wtf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fx/blobs/sha256:5f79f0091b2439d09a282e4731414ca240b479b9ee1dce7017808b3b793b53fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fx/blobs/sha256:3b489b6facee5fad90c296a0b9368296b41c592bea225f7da4806f077675954b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fx/blobs/sha256:323e237254fe3e24924684401b371bd6ec9a6eab779e0a0b8dcc6c7ed43b0c02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fx/blobs/sha256:beedcca6635c1c157d142ec0728a1b4cf0e9dd60d933e59ad003d69120532643
+sha256:
+  darwin_arm64: 5f79f0091b2439d09a282e4731414ca240b479b9ee1dce7017808b3b793b53fe
+  darwin_amd64: 3b489b6facee5fad90c296a0b9368296b41c592bea225f7da4806f077675954b
+  linux_amd64: 323e237254fe3e24924684401b371bd6ec9a6eab779e0a0b8dcc6c7ed43b0c02
+  linux_arm64: beedcca6635c1c157d142ec0728a1b4cf0e9dd60d933e59ad003d69120532643
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

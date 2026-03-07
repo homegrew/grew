@@ -1,0 +1,31 @@
+name: rdkit
+version: 2025.09.6
+description: Open-source chemoinformatics library
+homepage: https://rdkit.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rdkit/blobs/sha256:ecc85277c1c01a4a5adfaebe6dcfbb091b934945dd443057ac7cb1baa4c7896b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rdkit/blobs/sha256:fc56856b0deb32c7591075aabe42c5188226617d9c9fa7624ade614d56bfb7b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rdkit/blobs/sha256:ab9ab230ec275942ff34c09d52fec2348864fca9ba838b9240a307ab1c653e3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rdkit/blobs/sha256:4ef776ec46cdbffd46c9929a242d82352e67d9df713e3fe17d1ad2288701c069
+sha256:
+  darwin_arm64: ecc85277c1c01a4a5adfaebe6dcfbb091b934945dd443057ac7cb1baa4c7896b
+  darwin_amd64: fc56856b0deb32c7591075aabe42c5188226617d9c9fa7624ade614d56bfb7b1
+  linux_amd64: ab9ab230ec275942ff34c09d52fec2348864fca9ba838b9240a307ab1c653e3a
+  linux_arm64: 4ef776ec46cdbffd46c9929a242d82352e67d9df713e3fe17d1ad2288701c069
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - boost-python3
+  - cairo
+  - coordgen
+  - eigen
+  - freetype
+  - inchi
+  - maeparser
+  - numpy
+  - py3cairo
+  - python@3.14

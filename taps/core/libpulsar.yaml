@@ -1,0 +1,24 @@
+name: libpulsar
+version: 4.0.1
+description: Apache Pulsar C++ library
+homepage: https://pulsar.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpulsar/blobs/sha256:79fe4c827b6fb763dba5f1f5bbb329adb00a2449d1ea2cad29e41cfe0978bd47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpulsar/blobs/sha256:33b13602d737a393edc1691c9c9f5d43cf008ac96f010021071c933b6f1ce14f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpulsar/blobs/sha256:881923602a4dc184afcdeba7ce4d2e37d2e6cd056ff6e8b68d3a01fc3aad9c16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpulsar/blobs/sha256:61187641172d5d7f73e3cd35f5f5b0c6e5732daeb2d947a53d5262095337c73c
+sha256:
+  darwin_arm64: 79fe4c827b6fb763dba5f1f5bbb329adb00a2449d1ea2cad29e41cfe0978bd47
+  darwin_amd64: 33b13602d737a393edc1691c9c9f5d43cf008ac96f010021071c933b6f1ce14f
+  linux_amd64: 881923602a4dc184afcdeba7ce4d2e37d2e6cd056ff6e8b68d3a01fc3aad9c16
+  linux_arm64: 61187641172d5d7f73e3cd35f5f5b0c6e5732daeb2d947a53d5262095337c73c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - protobuf
+  - snappy
+  - zstd

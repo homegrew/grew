@@ -1,0 +1,12 @@
+name: jamulus
+version: 3.11.0
+description: Play music online with friends
+homepage: https://jamulus.io/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/llcon/jamulus_3.11.0_mac.dmg
+sha256:
+  darwin_arm64: 4cf680b643dd1bbb2f52655f5fef71ce222024d3c19713997fbe2a3626cd7d6a
+artifacts:
+  app:
+    - Jamulus.app
+    - JamulusServer.app

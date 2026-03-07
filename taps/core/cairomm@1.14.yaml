@@ -1,0 +1,23 @@
+name: cairomm@1.14
+version: 1.14.5
+description: Vector graphics library with cross-device output support
+homepage: https://cairographics.org/cairomm/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cairomm/1.14/blobs/sha256:3c84812ac04258b3fe766341479b99b1e28a9572b995e7bd33e3184fdb29055a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cairomm/1.14/blobs/sha256:48cd095943b2001726bd9b8f678424725e73c3ac4d088e61cff65b973641ae0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cairomm/1.14/blobs/sha256:4fce5fb84ea0095ce2f9e0996c926fc8bb54f55a458a9eb1be50a40241f8a6e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cairomm/1.14/blobs/sha256:d23cd3b782f7fbaa3bdf7445334de4f170ab6349feefc443e3362944515a0190
+sha256:
+  darwin_arm64: 3c84812ac04258b3fe766341479b99b1e28a9572b995e7bd33e3184fdb29055a
+  darwin_amd64: 48cd095943b2001726bd9b8f678424725e73c3ac4d088e61cff65b973641ae0c
+  linux_amd64: 4fce5fb84ea0095ce2f9e0996c926fc8bb54f55a458a9eb1be50a40241f8a6e5
+  linux_arm64: d23cd3b782f7fbaa3bdf7445334de4f170ab6349feefc443e3362944515a0190
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - libpng
+  - libsigc++@2

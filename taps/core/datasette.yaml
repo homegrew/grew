@@ -1,0 +1,23 @@
+name: datasette
+version: 0.65.2
+description: Open source multi-tool for exploring and publishing data
+homepage: https://docs.datasette.io/en/stable/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/datasette/blobs/sha256:3ef9242ae28aaeb2d6917aff853ed7248ced3d9ba311e4d709fdc8a4d972c5d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/datasette/blobs/sha256:87ec3cfa47d7b87443b8a3d640c2e927cd17c7e82380d103d1ef030d3eeee9d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/datasette/blobs/sha256:0cb884c901163e452bbbff2825d3f33b37d59bc000768f5066a178d812496f3d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/datasette/blobs/sha256:02a042d830b6129bcb3df9f7a313ddd196ccbced502265deec15151b4e65ed3c
+sha256:
+  darwin_arm64: 3ef9242ae28aaeb2d6917aff853ed7248ced3d9ba311e4d709fdc8a4d972c5d1
+  darwin_amd64: 87ec3cfa47d7b87443b8a3d640c2e927cd17c7e82380d103d1ef030d3eeee9d2
+  linux_amd64: 0cb884c901163e452bbbff2825d3f33b37d59bc000768f5066a178d812496f3d
+  linux_arm64: 02a042d830b6129bcb3df9f7a313ddd196ccbced502265deec15151b4e65ed3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

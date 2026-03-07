@@ -1,0 +1,19 @@
+name: fetch-crl
+version: 3.0.23
+description: Retrieve certificate revocation lists (CRLs)
+homepage: https://wiki.nikhef.nl/grid/FetchCRL3
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fetch-crl/blobs/sha256:9d7e1263bc12cd3fe2919e2179c5e53e0f11ed1d38d45e08d612ec870fca65c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fetch-crl/blobs/sha256:7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fetch-crl/blobs/sha256:ad140d4dcb26765b4ab846846e7a2a0a2cd422405a123d1ad0b11c02f38193da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fetch-crl/blobs/sha256:7a73a914498af4f926cba98dd81c1fce335d36ca25ed0561650ff5a28ab4ab14
+sha256:
+  darwin_arm64: 9d7e1263bc12cd3fe2919e2179c5e53e0f11ed1d38d45e08d612ec870fca65c8
+  darwin_amd64: 7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967
+  linux_amd64: ad140d4dcb26765b4ab846846e7a2a0a2cd422405a123d1ad0b11c02f38193da
+  linux_arm64: 7a73a914498af4f926cba98dd81c1fce335d36ca25ed0561650ff5a28ab4ab14
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

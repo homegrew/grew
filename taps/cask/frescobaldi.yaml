@@ -1,0 +1,11 @@
+name: frescobaldi
+version: 4.0.5
+description: LilyPond editor
+homepage: https://frescobaldi.org/
+url:
+  darwin_arm64: https://github.com/frescobaldi/frescobaldi/releases/download/v4.0.5/Frescobaldi-4.0.5.dmg
+sha256:
+  darwin_arm64: 9ddd7e2b13484a7e40ea488c58cca29b437b458925765e885ca3f5cc4c15a771
+artifacts:
+  app:
+    - Frescobaldi.app

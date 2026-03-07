@@ -1,0 +1,19 @@
+name: sccache
+version: 0.14.0
+description: Used as a compiler wrapper and avoids compilation when possible
+homepage: https://github.com/mozilla/sccache
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sccache/blobs/sha256:1d78493b2b4aa6442d30d215533bf5fdc40335e2a441f5528b72bac5a02ce41a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sccache/blobs/sha256:f8423405b506fc8ac1b78060e9cce47ff74f8ef5228ba53682375ccffb69c8be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sccache/blobs/sha256:045e12f0c8a7ac055585962e6f9978339d84862c200bca4bd9545d8a07a8fdbf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sccache/blobs/sha256:e04a9be07ddd5016f6597255e03cb892d9ca9e45d40715c55203c324420d5de9
+sha256:
+  darwin_arm64: 1d78493b2b4aa6442d30d215533bf5fdc40335e2a441f5528b72bac5a02ce41a
+  darwin_amd64: f8423405b506fc8ac1b78060e9cce47ff74f8ef5228ba53682375ccffb69c8be
+  linux_amd64: 045e12f0c8a7ac055585962e6f9978339d84862c200bca4bd9545d8a07a8fdbf
+  linux_arm64: e04a9be07ddd5016f6597255e03cb892d9ca9e45d40715c55203c324420d5de9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

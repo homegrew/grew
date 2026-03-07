@@ -1,0 +1,19 @@
+name: tock
+version: 1.7.10
+description: Powerful time tracking tool for the command-line
+homepage: https://github.com/kriuchkov/tock
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tock/blobs/sha256:92905410e5a518360c74a183511517cee1928e5c26cdde7002ef8f1d658f36be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tock/blobs/sha256:1231860ea8700bf8f74f2186a391680a79f3116a709a0e359c89ea647ae74b86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tock/blobs/sha256:1dee1d021ef48c49076aef4e36b54ab7bd76ea5358bc349b900ac0abba0d58ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tock/blobs/sha256:164d8b6e94570695fea70438b7c61fdc332005426e5e5e7e7331d9f676063100
+sha256:
+  darwin_arm64: 92905410e5a518360c74a183511517cee1928e5c26cdde7002ef8f1d658f36be
+  darwin_amd64: 1231860ea8700bf8f74f2186a391680a79f3116a709a0e359c89ea647ae74b86
+  linux_amd64: 1dee1d021ef48c49076aef4e36b54ab7bd76ea5358bc349b900ac0abba0d58ee
+  linux_arm64: 164d8b6e94570695fea70438b7c61fdc332005426e5e5e7e7331d9f676063100
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

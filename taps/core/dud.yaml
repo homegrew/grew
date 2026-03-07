@@ -1,0 +1,19 @@
+name: dud
+version: 0.4.5
+description: CLI tool for versioning data
+homepage: https://kevin-hanselman.github.io/dud/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dud/blobs/sha256:b03ec73614b941708e676a4c170549a563d888265df0a547155ccb997973552a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dud/blobs/sha256:9ba8951fd0efc9b6a64503491025a2f9b6a0a741e3fcd147dc5f0855a9333a51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dud/blobs/sha256:a6d2d41cbcbda86daf9354b22905a9bdc50b1b866e9727510929ce13a11eb837
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dud/blobs/sha256:c04a5cb4ddcacc215aab792c1cec5570e020a9a70ede414e437dee8ef0437381
+sha256:
+  darwin_arm64: b03ec73614b941708e676a4c170549a563d888265df0a547155ccb997973552a
+  darwin_amd64: 9ba8951fd0efc9b6a64503491025a2f9b6a0a741e3fcd147dc5f0855a9333a51
+  linux_amd64: a6d2d41cbcbda86daf9354b22905a9bdc50b1b866e9727510929ce13a11eb837
+  linux_arm64: c04a5cb4ddcacc215aab792c1cec5570e020a9a70ede414e437dee8ef0437381
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

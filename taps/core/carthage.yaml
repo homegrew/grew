@@ -1,0 +1,15 @@
+name: carthage
+version: 0.40.0
+description: Decentralized dependency manager for Cocoa
+homepage: https://github.com/Carthage/Carthage
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carthage/blobs/sha256:20456de113008e847a0b4abbafcb6e829a537d8aec2f60702114b5978b3839c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carthage/blobs/sha256:6e5ee2180ddfa8a7e3675a49ad20ab17d4ffe2ce5519653ec7b738e62665ca1a
+sha256:
+  darwin_arm64: 20456de113008e847a0b4abbafcb6e829a537d8aec2f60702114b5978b3839c6
+  darwin_amd64: 6e5ee2180ddfa8a7e3675a49ad20ab17d4ffe2ce5519653ec7b738e62665ca1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

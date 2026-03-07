@@ -1,0 +1,19 @@
+name: superseedr
+version: 1.0.2
+description: BitTorrent Client in your Terminal
+homepage: https://github.com/Jagalite/superseedr
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/superseedr/blobs/sha256:772537b87aa22d0d7b216ebb1978fc579a38e21c9e9a0b6497aaf77c68b0bdb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/superseedr/blobs/sha256:59ae0f161a9517f832c66a7cb0322dadb7ed7ab38d5dc81c88a31ac88d139459
+  linux_amd64: https://ghcr.io/v2/homebrew/core/superseedr/blobs/sha256:a72ac1aff0f6e8671355eb327171173524a566a051826903d024f888c0d7ac65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/superseedr/blobs/sha256:f2d57c7aa54a8efc2695930ac58f3c684fca70a0b5d04f411b414f4d182c7ebf
+sha256:
+  darwin_arm64: 772537b87aa22d0d7b216ebb1978fc579a38e21c9e9a0b6497aaf77c68b0bdb5
+  darwin_amd64: 59ae0f161a9517f832c66a7cb0322dadb7ed7ab38d5dc81c88a31ac88d139459
+  linux_amd64: a72ac1aff0f6e8671355eb327171173524a566a051826903d024f888c0d7ac65
+  linux_arm64: f2d57c7aa54a8efc2695930ac58f3c684fca70a0b5d04f411b414f4d182c7ebf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

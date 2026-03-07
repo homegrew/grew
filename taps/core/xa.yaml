@@ -1,0 +1,19 @@
+name: xa
+version: 2.4.1
+description: 6502 cross assembler
+homepage: https://www.floodgap.com/retrotech/xa/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xa/blobs/sha256:dc108ff2d50d93bfab68fa7e95a6968a5adb2dcc3a8a8fa2fcb4ad1f6c500517
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xa/blobs/sha256:fd9d22c1fce31ad677470ef11937c660ed9ff4c852b57e232f1b09cd1ad19d38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xa/blobs/sha256:4e35f6c603bbc9e5a84d41c3b9980f572989c8573139ff3438e36304745a5950
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xa/blobs/sha256:988caaf9671af8cb7f041f4ef6380bf738ee75080321c41f4e45a391bf984a26
+sha256:
+  darwin_arm64: dc108ff2d50d93bfab68fa7e95a6968a5adb2dcc3a8a8fa2fcb4ad1f6c500517
+  darwin_amd64: fd9d22c1fce31ad677470ef11937c660ed9ff4c852b57e232f1b09cd1ad19d38
+  linux_amd64: 4e35f6c603bbc9e5a84d41c3b9980f572989c8573139ff3438e36304745a5950
+  linux_arm64: 988caaf9671af8cb7f041f4ef6380bf738ee75080321c41f4e45a391bf984a26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

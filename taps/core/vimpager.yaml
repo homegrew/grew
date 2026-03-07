@@ -1,0 +1,19 @@
+name: vimpager
+version: 2.06
+description: Use ViM as PAGER
+homepage: https://github.com/rkitover/vimpager
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vimpager/blobs/sha256:e3063e707ee99bf0930d116200bc09709807c0bd69ce7f9d69ba8f147c95ca35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vimpager/blobs/sha256:4f8a31227e01c9e95ee0fee475942de77686f3ea1b24fdb6fe518c5f4fc551b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vimpager/blobs/sha256:305b43fcc4537a7e89d1a30aef599be641925cb68fe6f87de8216e9cec4391ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vimpager/blobs/sha256:88731e26d05f8af78003b1fd55a7e19bb8c1bc3e1475ff4a5e995d459158acaf
+sha256:
+  darwin_arm64: e3063e707ee99bf0930d116200bc09709807c0bd69ce7f9d69ba8f147c95ca35
+  darwin_amd64: 4f8a31227e01c9e95ee0fee475942de77686f3ea1b24fdb6fe518c5f4fc551b7
+  linux_amd64: 305b43fcc4537a7e89d1a30aef599be641925cb68fe6f87de8216e9cec4391ad
+  linux_arm64: 88731e26d05f8af78003b1fd55a7e19bb8c1bc3e1475ff4a5e995d459158acaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: postgres-language-server
+version: 0.21.0
+description: Language Server for Postgres
+homepage: https://pg-language-server.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/postgres-language-server/blobs/sha256:926ee03e7cb3a129772305e64e15fbe81582c240a13581db079e5a053bcce27a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/postgres-language-server/blobs/sha256:03bad6dcad6f89c5f203d174dee0ebb086d0a36552dfea121f5e5f74b9553070
+  linux_amd64: https://ghcr.io/v2/homebrew/core/postgres-language-server/blobs/sha256:caa638af5cd4316583c8036b20cb3328a105e1bcfb3dec841832eff27e1a73f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/postgres-language-server/blobs/sha256:007203d2be4c18a14ceaab825157d0508c4b66e93dd4999a6b25d7209f778cde
+sha256:
+  darwin_arm64: 926ee03e7cb3a129772305e64e15fbe81582c240a13581db079e5a053bcce27a
+  darwin_amd64: 03bad6dcad6f89c5f203d174dee0ebb086d0a36552dfea121f5e5f74b9553070
+  linux_amd64: caa638af5cd4316583c8036b20cb3328a105e1bcfb3dec841832eff27e1a73f9
+  linux_arm64: 007203d2be4c18a14ceaab825157d0508c4b66e93dd4999a6b25d7209f778cde
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpg_query

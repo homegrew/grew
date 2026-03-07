@@ -1,0 +1,19 @@
+name: aicommit
+version: 0.6.5
+description: AI-powered commit message generator
+homepage: https://github.com/coder/aicommit
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aicommit/blobs/sha256:076bbcf508c5867b4b0b525a0075200c671c2a5f909799ab4292bab2a4e93a30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aicommit/blobs/sha256:03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aicommit/blobs/sha256:848a5368d7881eb41335e58e54eb995252a4339ef65802360df8abcd05928b6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aicommit/blobs/sha256:b473355665502296b1832fdc242a0056bac8dfec6eeb7fab010c89b596d3bb5f
+sha256:
+  darwin_arm64: 076bbcf508c5867b4b0b525a0075200c671c2a5f909799ab4292bab2a4e93a30
+  darwin_amd64: 03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4
+  linux_amd64: 848a5368d7881eb41335e58e54eb995252a4339ef65802360df8abcd05928b6b
+  linux_arm64: b473355665502296b1832fdc242a0056bac8dfec6eeb7fab010c89b596d3bb5f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

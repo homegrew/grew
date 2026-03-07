@@ -1,0 +1,23 @@
+name: imgproxy
+version: 3.30.1
+description: Fast and secure server for resizing and converting remote images
+homepage: https://imgproxy.net
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imgproxy/blobs/sha256:af03e1c2fb83394a349325a5ae4e58c25d9cef7174b532e904a90ce16e57819f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imgproxy/blobs/sha256:cb7b326929e752d3f57024eb2c7d481aa4cbfe70b9b57ffbbd276800a48c947d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imgproxy/blobs/sha256:9838b42cefbaedca10d093e8ccc29c63a789b10fc092f0a8a2d6193eb58a5191
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imgproxy/blobs/sha256:7a6c33c5d5c946971a406771854168b10fccb4d834a4c0296eeeeff10a0f20f3
+sha256:
+  darwin_arm64: af03e1c2fb83394a349325a5ae4e58c25d9cef7174b532e904a90ce16e57819f
+  darwin_amd64: cb7b326929e752d3f57024eb2c7d481aa4cbfe70b9b57ffbbd276800a48c947d
+  linux_amd64: 9838b42cefbaedca10d093e8ccc29c63a789b10fc092f0a8a2d6193eb58a5191
+  linux_arm64: 7a6c33c5d5c946971a406771854168b10fccb4d834a4c0296eeeeff10a0f20f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - vips
+  - gettext

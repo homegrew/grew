@@ -1,0 +1,11 @@
+name: quickwhisper
+version: 1.25.284
+description: Audio transcription tool
+homepage: https://quickwhisper.app/
+url:
+  darwin_arm64: https://quickwhisperapp.s3.us-west-002.backblazeb2.com/QuickWhisper_1.25.284.zip
+sha256:
+  darwin_arm64: 00948ee13eec153f70b6b162eeef2615c2e9417e1f61511d0728d434e890490b
+artifacts:
+  app:
+    - QuickWhisper.app

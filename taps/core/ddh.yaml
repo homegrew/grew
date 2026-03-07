@@ -1,0 +1,19 @@
+name: ddh
+version: 0.13.0
+description: Fast duplicate file finder
+homepage: https://github.com/darakian/ddh
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddh/blobs/sha256:2b2788b0596f11e1662e743517535b5b5d61a034fa8b6ad5d4df84853905e58e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddh/blobs/sha256:c66e8a238ae7fe72ee07cb89113274e147d75519c5169a751d62104feda7d25b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddh/blobs/sha256:119fff1c3e34608d859d79aef5a4958176a9685000f7686941bf6b26d5f3f5c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddh/blobs/sha256:fba06bfb3b2ac0e4e9c5163d60477a6bd69719ea8f7c629d47ebce573cadaed4
+sha256:
+  darwin_arm64: 2b2788b0596f11e1662e743517535b5b5d61a034fa8b6ad5d4df84853905e58e
+  darwin_amd64: c66e8a238ae7fe72ee07cb89113274e147d75519c5169a751d62104feda7d25b
+  linux_amd64: 119fff1c3e34608d859d79aef5a4958176a9685000f7686941bf6b26d5f3f5c6
+  linux_arm64: fba06bfb3b2ac0e4e9c5163d60477a6bd69719ea8f7c629d47ebce573cadaed4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

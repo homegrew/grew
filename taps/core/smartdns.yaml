@@ -1,0 +1,19 @@
+name: smartdns
+version: 0.13.0
+description: Rule-based DNS server for fast IP resolution, DoT/DoQ/DoH/DoH3 supported
+homepage: https://github.com/mokeyish/smartdns-rs
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smartdns/blobs/sha256:cca8fd83bf07a8acdc6376bc063ba43a1f8fcbc9307555cbf101d37bd941deb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smartdns/blobs/sha256:bb6c57ce62cbc27fc4692c82e5a7e664ec3a900620792f844fc77881f6db1693
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smartdns/blobs/sha256:2c7b6a4d74488b51e08444c54a09a6cd24dcc14e3335f1aac18b19af8ee9e379
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smartdns/blobs/sha256:d0a5fab40ff8bd77da35573c3139ef68d955af05e7fb8926b362fa61e601e858
+sha256:
+  darwin_arm64: cca8fd83bf07a8acdc6376bc063ba43a1f8fcbc9307555cbf101d37bd941deb5
+  darwin_amd64: bb6c57ce62cbc27fc4692c82e5a7e664ec3a900620792f844fc77881f6db1693
+  linux_amd64: 2c7b6a4d74488b51e08444c54a09a6cd24dcc14e3335f1aac18b19af8ee9e379
+  linux_arm64: d0a5fab40ff8bd77da35573c3139ef68d955af05e7fb8926b362fa61e601e858
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

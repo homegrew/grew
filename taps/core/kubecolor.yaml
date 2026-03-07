@@ -1,0 +1,19 @@
+name: kubecolor
+version: 0.5.3
+description: Colorize your kubectl output
+homepage: https://kubecolor.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubecolor/blobs/sha256:d69609824745f1ce761450aa5dfa153237d99e179310816b6bc51d9e30242b50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubecolor/blobs/sha256:c15be243a5ee680db0fa939a3aa20f34db76834b9c648f10cd0f5320acb2971b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubecolor/blobs/sha256:79297c1478d18887ebe83fd2078b25403eebbba9cf01550b29954cf5cb9bde4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubecolor/blobs/sha256:cd0dcb961bf16c19f64a6c3276b7c432ca5c9312aba94871356445014a5c6507
+sha256:
+  darwin_arm64: d69609824745f1ce761450aa5dfa153237d99e179310816b6bc51d9e30242b50
+  darwin_amd64: c15be243a5ee680db0fa939a3aa20f34db76834b9c648f10cd0f5320acb2971b
+  linux_amd64: 79297c1478d18887ebe83fd2078b25403eebbba9cf01550b29954cf5cb9bde4b
+  linux_arm64: cd0dcb961bf16c19f64a6c3276b7c432ca5c9312aba94871356445014a5c6507
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: io
+version: 2017.09.06
+description: Small prototype-based programming language
+homepage: http://iolanguage.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/io/blobs/sha256:f52b3f34e2163977455f08819a17df42ebec1148781c3df76411e3743e251d5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/io/blobs/sha256:9ceacf2ba834c91d5101adb7061bfd7c1ae702d9fbbbd9d8f78b5e82d049fd7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/io/blobs/sha256:28f27659192940b8773ab23b0d237befa1ebb90ca6b771f82852422631f6549e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/io/blobs/sha256:7fb2cd769bab17e5a6e13563e09fb02bbd1da5e25d4fe541335b97f9f22fbc04
+sha256:
+  darwin_arm64: f52b3f34e2163977455f08819a17df42ebec1148781c3df76411e3743e251d5c
+  darwin_amd64: 9ceacf2ba834c91d5101adb7061bfd7c1ae702d9fbbbd9d8f78b5e82d049fd7e
+  linux_amd64: 28f27659192940b8773ab23b0d237befa1ebb90ca6b771f82852422631f6549e
+  linux_arm64: 7fb2cd769bab17e5a6e13563e09fb02bbd1da5e25d4fe541335b97f9f22fbc04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: icloudpd
+version: 1.32.2
+description: Tool to download photos from iCloud
+homepage: https://github.com/icloud-photos-downloader/icloud_photos_downloader
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icloudpd/blobs/sha256:b27f3e721044bb6a01e7fe0d9d3d381f11abe082bc73f95743b84c21eef222ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icloudpd/blobs/sha256:2b3bf0438be993bc7fca2433930f2e39ab6fdb607352db1a51d8f7e4d91031b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icloudpd/blobs/sha256:aa3fbac50cf6116afae3249ec0e6f91cb286b4c1a960f4291b45576ed82491d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icloudpd/blobs/sha256:14ce26b4d8d9fcb4e0412baf9b0ba7b70c1d76be127185723730ddd86db80341
+sha256:
+  darwin_arm64: b27f3e721044bb6a01e7fe0d9d3d381f11abe082bc73f95743b84c21eef222ea
+  darwin_amd64: 2b3bf0438be993bc7fca2433930f2e39ab6fdb607352db1a51d8f7e4d91031b6
+  linux_amd64: aa3fbac50cf6116afae3249ec0e6f91cb286b4c1a960f4291b45576ed82491d6
+  linux_arm64: 14ce26b4d8d9fcb4e0412baf9b0ba7b70c1d76be127185723730ddd86db80341
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

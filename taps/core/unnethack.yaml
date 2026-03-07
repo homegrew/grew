@@ -1,0 +1,19 @@
+name: unnethack
+version: 5.3.2
+description: Fork of Nethack
+homepage: https://unnethack.wordpress.com/
+license: NGPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unnethack/blobs/sha256:95679ab2628590f991ccb63e169583d400bfadc242a7cc87cf914e733104f1f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unnethack/blobs/sha256:c3a805f2af26f6941d60c7366f6c4f05fe67851fbe61c30fc2f73d05963b07a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unnethack/blobs/sha256:31307b80abcdcf33c36d3716969e3a2b8202d80e6ea79574f3689d21eb3faac5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unnethack/blobs/sha256:fe7c3c84361536ea594420bcd89757bac4450462dfe0b9a2dd47e7626f3ec1d8
+sha256:
+  darwin_arm64: 95679ab2628590f991ccb63e169583d400bfadc242a7cc87cf914e733104f1f1
+  darwin_amd64: c3a805f2af26f6941d60c7366f6c4f05fe67851fbe61c30fc2f73d05963b07a9
+  linux_amd64: 31307b80abcdcf33c36d3716969e3a2b8202d80e6ea79574f3689d21eb3faac5
+  linux_arm64: fe7c3c84361536ea594420bcd89757bac4450462dfe0b9a2dd47e7626f3ec1d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

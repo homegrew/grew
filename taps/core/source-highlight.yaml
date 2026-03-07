@@ -1,0 +1,21 @@
+name: source-highlight
+version: 3.1.9
+description: Source-code syntax highlighter
+homepage: https://www.gnu.org/software/src-highlite/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/source-highlight/blobs/sha256:e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/source-highlight/blobs/sha256:72290398f59884c5ccfb7960219c3e15199bbacecad195f464c8750f7e448863
+  linux_amd64: https://ghcr.io/v2/homebrew/core/source-highlight/blobs/sha256:09c0f664ede1dd50549c8cae4dd1a57b587c81da49a3f03b5d0b78e33f15a935
+  linux_arm64: https://ghcr.io/v2/homebrew/core/source-highlight/blobs/sha256:05ca474d2414b0531fc722d5ee5977c5f0d61f32785f47761d0a8056cbc712bc
+sha256:
+  darwin_arm64: e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93
+  darwin_amd64: 72290398f59884c5ccfb7960219c3e15199bbacecad195f464c8750f7e448863
+  linux_amd64: 09c0f664ede1dd50549c8cae4dd1a57b587c81da49a3f03b5d0b78e33f15a935
+  linux_arm64: 05ca474d2414b0531fc722d5ee5977c5f0d61f32785f47761d0a8056cbc712bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

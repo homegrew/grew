@@ -1,0 +1,21 @@
+name: libgosu
+version: 1.4.6
+description: 2D game development library
+homepage: https://libgosu.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgosu/blobs/sha256:e0ecd1c01723e86606cf28780642bfe3992d3e8cf342715a13ec72ce563f30f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgosu/blobs/sha256:5bc693e53a3a48a990482ba76ef8d512099f48959a9be934d31d0e63533068da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgosu/blobs/sha256:925189b43a69daaf38ec2011cdfa605d5f6f07aded7ca4828eb33570dee8f695
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgosu/blobs/sha256:48f8286f58619e5155092fe286194251c63398dbcc20bdfd17bfe6ac82b792ba
+sha256:
+  darwin_arm64: e0ecd1c01723e86606cf28780642bfe3992d3e8cf342715a13ec72ce563f30f9
+  darwin_amd64: 5bc693e53a3a48a990482ba76ef8d512099f48959a9be934d31d0e63533068da
+  linux_amd64: 925189b43a69daaf38ec2011cdfa605d5f6f07aded7ca4828eb33570dee8f695
+  linux_arm64: 48f8286f58619e5155092fe286194251c63398dbcc20bdfd17bfe6ac82b792ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

@@ -1,0 +1,19 @@
+name: okteto
+version: 3.17.1
+description: Build better apps by developing and testing code directly in Kubernetes
+homepage: https://okteto.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/okteto/blobs/sha256:63f1c31b604e89303324098fb88e7a1340d2ae10ba397cb4b2a3acb93fd63bff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/okteto/blobs/sha256:47452824c097d129bb3659ca5cefe0f7aba87d85675dd60edc37b6c30b271a62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/okteto/blobs/sha256:3f0a68335d5a197b2678f285ffd0460d885a21b2b4b3cad6ccddde77aaa904f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/okteto/blobs/sha256:44f9af056d9d3ed8f15fe4083bc2f6de55211df67abf056862cdb1ad643a20a3
+sha256:
+  darwin_arm64: 63f1c31b604e89303324098fb88e7a1340d2ae10ba397cb4b2a3acb93fd63bff
+  darwin_amd64: 47452824c097d129bb3659ca5cefe0f7aba87d85675dd60edc37b6c30b271a62
+  linux_amd64: 3f0a68335d5a197b2678f285ffd0460d885a21b2b4b3cad6ccddde77aaa904f5
+  linux_arm64: 44f9af056d9d3ed8f15fe4083bc2f6de55211df67abf056862cdb1ad643a20a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

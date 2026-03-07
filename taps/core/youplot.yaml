@@ -1,0 +1,19 @@
+name: youplot
+version: 0.4.6
+description: Command-line tool that draw plots on the terminal
+homepage: https://github.com/red-data-tools/YouPlot/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/youplot/blobs/sha256:1c739f9e27747bdbec27e82a88c3cc9ce882974a6918a3815cf5547d19f255e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/youplot/blobs/sha256:c0f738a4dd673db99a6541d7ec7a94314c7d9823a6a543902f1a090c39ed46b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/youplot/blobs/sha256:7cf27ee6dd3a4fc889a2d085f897132c2586462351eb9e8731e8b8bd6952afb7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/youplot/blobs/sha256:5765565dd1195a9709e85821ae349f88b87b4519fc27f6305260460d6e4eb545
+sha256:
+  darwin_arm64: 1c739f9e27747bdbec27e82a88c3cc9ce882974a6918a3815cf5547d19f255e3
+  darwin_amd64: c0f738a4dd673db99a6541d7ec7a94314c7d9823a6a543902f1a090c39ed46b3
+  linux_amd64: 7cf27ee6dd3a4fc889a2d085f897132c2586462351eb9e8731e8b8bd6952afb7
+  linux_arm64: 5765565dd1195a9709e85821ae349f88b87b4519fc27f6305260460d6e4eb545
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

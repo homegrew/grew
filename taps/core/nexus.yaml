@@ -1,0 +1,21 @@
+name: nexus
+version: 3.89.1-02
+description: Repository manager for binary software components
+homepage: https://www.sonatype.com/
+license: EPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nexus/blobs/sha256:45a01160ff002116591e8c5150e5d66a4feb71023dc5e0fc0cdc87f97757e5d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nexus/blobs/sha256:25bbcbbfdfcb2fcec058338c0231c5c03c1e1a3818171cd4c49229e42bfd4bf9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nexus/blobs/sha256:337601441ce2122c9108368e1db16a32983ba5303ccd4a9f2efea58fa1032577
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nexus/blobs/sha256:f28d3d72c7f6216b784984c106183b4d500a74237c28d8156f562a7df016e888
+sha256:
+  darwin_arm64: 45a01160ff002116591e8c5150e5d66a4feb71023dc5e0fc0cdc87f97757e5d9
+  darwin_amd64: 25bbcbbfdfcb2fcec058338c0231c5c03c1e1a3818171cd4c49229e42bfd4bf9
+  linux_amd64: 337601441ce2122c9108368e1db16a32983ba5303ccd4a9f2efea58fa1032577
+  linux_arm64: f28d3d72c7f6216b784984c106183b4d500a74237c28d8156f562a7df016e888
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

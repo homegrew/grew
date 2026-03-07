@@ -1,0 +1,19 @@
+name: remind
+version: 06.02.05
+description: Sophisticated calendar and alarm
+homepage: https://dianne.skoll.ca/projects/remind/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/remind/blobs/sha256:879c816769dd9c0e6aaaf3f81a97a080dbb569071868b32b85894a4e37e3ba96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/remind/blobs/sha256:57aff04f19b77f3dff05cb7461c2dde8666978487c790acd6bdc86b5ee61ca8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/remind/blobs/sha256:7cbe9fbc9850ff11ebb9d955f718d502aeadf6f1c1561d1d1b9898e6fe946de1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/remind/blobs/sha256:12e530f6f29438a989021783db69941febb789d630911eb8967897f9088d1986
+sha256:
+  darwin_arm64: 879c816769dd9c0e6aaaf3f81a97a080dbb569071868b32b85894a4e37e3ba96
+  darwin_amd64: 57aff04f19b77f3dff05cb7461c2dde8666978487c790acd6bdc86b5ee61ca8b
+  linux_amd64: 7cbe9fbc9850ff11ebb9d955f718d502aeadf6f1c1561d1d1b9898e6fe946de1
+  linux_arm64: 12e530f6f29438a989021783db69941febb789d630911eb8967897f9088d1986
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

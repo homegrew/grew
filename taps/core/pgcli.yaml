@@ -1,0 +1,22 @@
+name: pgcli
+version: 4.4.0
+description: CLI for Postgres with auto-completion and syntax highlighting
+homepage: https://pgcli.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgcli/blobs/sha256:004f815714f5c5de83aa18d28df0e8217d8b3a0ea4a242f93e279faaa518e1c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgcli/blobs/sha256:1fb49c84a1e4eb67b1ea78a24113e1648c4236dd8ec26ba7f9506f20c97b735e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgcli/blobs/sha256:c5bcb06cabe91976eac46824f0c837954d1f62f73755a9de9bc7d4ce7078c395
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgcli/blobs/sha256:b9f1d47b9524844576959e612345de92b48d823771aebf80d0fce5cfc843be5b
+sha256:
+  darwin_arm64: 004f815714f5c5de83aa18d28df0e8217d8b3a0ea4a242f93e279faaa518e1c7
+  darwin_amd64: 1fb49c84a1e4eb67b1ea78a24113e1648c4236dd8ec26ba7f9506f20c97b735e
+  linux_amd64: c5bcb06cabe91976eac46824f0c837954d1f62f73755a9de9bc7d4ce7078c395
+  linux_arm64: b9f1d47b9524844576959e612345de92b48d823771aebf80d0fce5cfc843be5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - python@3.14

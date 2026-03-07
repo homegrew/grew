@@ -1,0 +1,21 @@
+name: qd
+version: 2.3.24
+description: C++/Fortran-90 double-double and quad-double package
+homepage: https://www.davidhbailey.com/dhbsoftware/
+license: BSD-3-Clause-LBNL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qd/blobs/sha256:3ca655810301b79586645117410defae98de1cd731c33980836abdb4d35d8515
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qd/blobs/sha256:62f94278c224f2b052894b132fb33bbf77ae1b12eb2c505416337cf66895b629
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qd/blobs/sha256:bdae75a75becb67577f375febf3594bbed031f7197252360234cc1509c6e14ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qd/blobs/sha256:f6b10538c68aa7fb95aba6d7df372be107ff09d64451d8a55dcf224e6f01a722
+sha256:
+  darwin_arm64: 3ca655810301b79586645117410defae98de1cd731c33980836abdb4d35d8515
+  darwin_amd64: 62f94278c224f2b052894b132fb33bbf77ae1b12eb2c505416337cf66895b629
+  linux_amd64: bdae75a75becb67577f375febf3594bbed031f7197252360234cc1509c6e14ef
+  linux_arm64: f6b10538c68aa7fb95aba6d7df372be107ff09d64451d8a55dcf224e6f01a722
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

@@ -1,0 +1,19 @@
+name: chamber
+version: 3.1.5
+description: CLI for managing secrets through AWS SSM Parameter Store
+homepage: https://github.com/segmentio/chamber
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chamber/blobs/sha256:0bb60479434b47f196bd4713bfc4920c9440a159db3292d7f49b13f16925061e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chamber/blobs/sha256:86496b736075f601b3b8fdc1da19a5b7e6475e1ff5403f306b444e073c6ccacc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chamber/blobs/sha256:6f489b3882af86fd29b39b39e4f3d44d3780c1ec20dad9bff964964c7bc91fa3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chamber/blobs/sha256:27b4a63228c2a4d1cd0a3e7a685c262e0522a9d4e332fee5dfb9ba4bb4bc6b1b
+sha256:
+  darwin_arm64: 0bb60479434b47f196bd4713bfc4920c9440a159db3292d7f49b13f16925061e
+  darwin_amd64: 86496b736075f601b3b8fdc1da19a5b7e6475e1ff5403f306b444e073c6ccacc
+  linux_amd64: 6f489b3882af86fd29b39b39e4f3d44d3780c1ec20dad9bff964964c7bc91fa3
+  linux_arm64: 27b4a63228c2a4d1cd0a3e7a685c262e0522a9d4e332fee5dfb9ba4bb4bc6b1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

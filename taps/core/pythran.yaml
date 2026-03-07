@@ -1,0 +1,25 @@
+name: pythran
+version: 0.18.1
+description: Ahead of Time compiler for numeric kernels
+homepage: https://pythran.readthedocs.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pythran/blobs/sha256:aff9d2c2a5d918f91c0a5b127b29d0bebd75fb0462792029c38328001aa2ff65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pythran/blobs/sha256:c286044b3234f30a258ad58e431437afb2d91f72c6279dc8bb73f83a1871f03e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pythran/blobs/sha256:149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pythran/blobs/sha256:149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d
+sha256:
+  darwin_arm64: aff9d2c2a5d918f91c0a5b127b29d0bebd75fb0462792029c38328001aa2ff65
+  darwin_amd64: c286044b3234f30a258ad58e431437afb2d91f72c6279dc8bb73f83a1871f03e
+  linux_amd64: 149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d
+  linux_arm64: 149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - numpy
+  - openblas
+  - python@3.14
+  - xsimd

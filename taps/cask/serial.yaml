@@ -1,0 +1,11 @@
+name: serial
+version: 2.0.18
+description: Connect to almost anything with a serial port
+homepage: https://www.decisivetactics.com/products/serial/
+url:
+  darwin_arm64: https://download.decisivetactics.com/downloads/serial/Serial_2.0.18.zip
+sha256:
+  darwin_arm64: 508a3fa86bafc216f6d0cef95d9142c3a0281b4ff65f1f765f81571b6b38509c
+artifacts:
+  app:
+    - Serial.app

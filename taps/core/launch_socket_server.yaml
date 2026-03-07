@@ -1,0 +1,15 @@
+name: launch_socket_server
+version: 2.0.0
+description: Bind to privileged ports without running a server as root
+homepage: https://github.com/mistydemeo/launch_socket_server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/launch_socket_server/blobs/sha256:cd7f62d360a2d0e3ccbc0d127e6c93cf7b04341547a0cc47712e9cc30bfada44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/launch_socket_server/blobs/sha256:bffce7fd244160abb5333fed263f40e868bd09c2da174a51d7be6b255101992f
+sha256:
+  darwin_arm64: cd7f62d360a2d0e3ccbc0d127e6c93cf7b04341547a0cc47712e9cc30bfada44
+  darwin_amd64: bffce7fd244160abb5333fed263f40e868bd09c2da174a51d7be6b255101992f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

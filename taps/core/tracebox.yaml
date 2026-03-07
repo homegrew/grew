@@ -1,0 +1,22 @@
+name: tracebox
+version: 0.4.4
+description: Middlebox detection tool
+homepage: https://github.com/tracebox/tracebox
+license: GPL-2.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tracebox/blobs/sha256:432ecef65439685b42ec4ca64303631cf4aec005e044ef86d18cfc290df88a29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tracebox/blobs/sha256:a08d814aa4b20912086878f89d5e34351be100e036b20bb23600d2525fc4c61f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tracebox/blobs/sha256:cb818d5e3f42f32603ef218fe02c60ece85c29b0aab05b2cae0959f91f6f1a58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tracebox/blobs/sha256:8a3523e55afbfb45e6019257f54cf8147ab00f3c07e4402629d85ea0059be568
+sha256:
+  darwin_arm64: 432ecef65439685b42ec4ca64303631cf4aec005e044ef86d18cfc290df88a29
+  darwin_amd64: a08d814aa4b20912086878f89d5e34351be100e036b20bb23600d2525fc4c61f
+  linux_amd64: cb818d5e3f42f32603ef218fe02c60ece85c29b0aab05b2cae0959f91f6f1a58
+  linux_arm64: 8a3523e55afbfb45e6019257f54cf8147ab00f3c07e4402629d85ea0059be568
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - lua

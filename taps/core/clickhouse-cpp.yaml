@@ -1,0 +1,24 @@
+name: clickhouse-cpp
+version: 2.6.0
+description: C++ client library for ClickHouse
+homepage: https://github.com/ClickHouse/clickhouse-cpp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-cpp/blobs/sha256:f6e3824acd6cbc7fb6eb0fca264341b71ce231bb8bcf9c49a8d2068233963616
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-cpp/blobs/sha256:1e34322b12d40a1c6a31a8a17448aed7c6ded46057340afe14bf3fe0be89acdc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-cpp/blobs/sha256:c1f392feecc378fec9d916616f84fc2ba97d96fb6910098cf5ceeb4b22e026bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-cpp/blobs/sha256:13b147b1c1087b24fb84ca2dc42691de39e60f24e12f774af1c1c701073646c7
+sha256:
+  darwin_arm64: f6e3824acd6cbc7fb6eb0fca264341b71ce231bb8bcf9c49a8d2068233963616
+  darwin_amd64: 1e34322b12d40a1c6a31a8a17448aed7c6ded46057340afe14bf3fe0be89acdc
+  linux_amd64: c1f392feecc378fec9d916616f84fc2ba97d96fb6910098cf5ceeb4b22e026bd
+  linux_arm64: 13b147b1c1087b24fb84ca2dc42691de39e60f24e12f774af1c1c701073646c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - lz4
+  - openssl@3
+  - zstd

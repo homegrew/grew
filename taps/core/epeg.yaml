@@ -1,0 +1,22 @@
+name: epeg
+version: 0.9.3
+description: JPEG/JPG thumbnail scaling
+homepage: https://github.com/mattes/epeg
+license: MIT-enna
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/epeg/blobs/sha256:b3d13a2831b4be8bb1314371dd6bdc343309fcd125083e6634f3ed55932914c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/epeg/blobs/sha256:8b9e05f577cb02c5b9e0e38826b3e0d4f7ebcdf4c0a2a79f8a024c809174af36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/epeg/blobs/sha256:f45862529530f078589482b8f997ca5e2c7028ab1efd32c193eb9244bcc042a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/epeg/blobs/sha256:ddfd2af17fcd9a2ed038e1aaef0ca0ebf1cf272b5bd83720cfc866a875ab4c07
+sha256:
+  darwin_arm64: b3d13a2831b4be8bb1314371dd6bdc343309fcd125083e6634f3ed55932914c6
+  darwin_amd64: 8b9e05f577cb02c5b9e0e38826b3e0d4f7ebcdf4c0a2a79f8a024c809174af36
+  linux_amd64: f45862529530f078589482b8f997ca5e2c7028ab1efd32c193eb9244bcc042a9
+  linux_arm64: ddfd2af17fcd9a2ed038e1aaef0ca0ebf1cf272b5bd83720cfc866a875ab4c07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libexif

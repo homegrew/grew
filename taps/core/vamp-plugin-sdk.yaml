@@ -1,0 +1,23 @@
+name: vamp-plugin-sdk
+version: 2.10.0
+description: Audio processing plugin system sdk
+homepage: https://www.vamp-plugins.org/
+license: X11 AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vamp-plugin-sdk/blobs/sha256:9bb7224a25dadc8224c09bee6594dcd2003a0d8a9f43f3bc392d889923ffb539
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vamp-plugin-sdk/blobs/sha256:046ceaa07d234cb1e8bb83998f35a0a9d8188e0a650c5f56b89556ca2926cc95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vamp-plugin-sdk/blobs/sha256:a9cb9dabefa0df5e50224c77c88a1b892f59fecbad8f987ac2cc94a87fd09a55
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vamp-plugin-sdk/blobs/sha256:f9db23c618723a54ba3fdf8481efeb39a46aed83c59c699eebb5e78e888f4aa0
+sha256:
+  darwin_arm64: 9bb7224a25dadc8224c09bee6594dcd2003a0d8a9f43f3bc392d889923ffb539
+  darwin_amd64: 046ceaa07d234cb1e8bb83998f35a0a9d8188e0a650c5f56b89556ca2926cc95
+  linux_amd64: a9cb9dabefa0df5e50224c77c88a1b892f59fecbad8f987ac2cc94a87fd09a55
+  linux_arm64: f9db23c618723a54ba3fdf8481efeb39a46aed83c59c699eebb5e78e888f4aa0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libogg
+  - libsndfile

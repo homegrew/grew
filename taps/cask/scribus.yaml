@@ -1,0 +1,11 @@
+name: scribus
+version: 1.6.5
+description: Free and open-source page layout program
+homepage: https://www.scribus.net/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/scribus/scribus/1.6.5/scribus-1.6.5-arm64.dmg
+sha256:
+  darwin_arm64: d3bdc88fa105e932be1db610689bad17395c05e06b133bfbf372410d5bdf102a
+artifacts:
+  app:
+    - Scribus.app

@@ -1,0 +1,24 @@
+name: ruby@3.2
+version: 3.2.10
+description: Powerful, clean, object-oriented scripting language
+homepage: https://www.ruby-lang.org/
+license: Ruby
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ruby/3.2/blobs/sha256:9fe16a31e4a4b150fc8a44081a038345c07945a220041e35c4f56af262b3dca3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ruby/3.2/blobs/sha256:2febca65e2693bfa578996c8cee5ee80d9c10f1ebd7dc5edaa7e9a537de5c843
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ruby/3.2/blobs/sha256:d438055d3bb5e59d2805deecd907fc5f84dc61d0d97b1c1f155026a283d08c3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ruby/3.2/blobs/sha256:9db798b59ca915800926592094b17b61571eed949eeeb2b06011a9c394d62301
+sha256:
+  darwin_arm64: 9fe16a31e4a4b150fc8a44081a038345c07945a220041e35c4f56af262b3dca3
+  darwin_amd64: 2febca65e2693bfa578996c8cee5ee80d9c10f1ebd7dc5edaa7e9a537de5c843
+  linux_amd64: d438055d3bb5e59d2805deecd907fc5f84dc61d0d97b1c1f155026a283d08c3b
+  linux_arm64: 9db798b59ca915800926592094b17b61571eed949eeeb2b06011a9c394d62301
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - openssl@3
+  - readline
+keg_only: true

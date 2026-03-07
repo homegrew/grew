@@ -1,0 +1,21 @@
+name: tmuxai
+version: 2.1.0
+description: AI-powered, non-intrusive terminal assistant
+homepage: https://tmuxai.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmuxai/blobs/sha256:21c0d6c8ca6109978def90e47719257a971c7a5ff8557b873d7425ce873f307f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmuxai/blobs/sha256:66c4fbbc2f883303b924e19723d448f0313db3ab8d45df65e4993f02134fd9b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmuxai/blobs/sha256:1aa42f0436c47e94b571e737e9e9f227b0f131aafc8e88ec76df2681dbc32d1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmuxai/blobs/sha256:9eba30c6f393f722e1bbe2fcf3c5ce8e900701ecc08f6cf1a45945cf97ea96a0
+sha256:
+  darwin_arm64: 21c0d6c8ca6109978def90e47719257a971c7a5ff8557b873d7425ce873f307f
+  darwin_amd64: 66c4fbbc2f883303b924e19723d448f0313db3ab8d45df65e4993f02134fd9b9
+  linux_amd64: 1aa42f0436c47e94b571e737e9e9f227b0f131aafc8e88ec76df2681dbc32d1a
+  linux_arm64: 9eba30c6f393f722e1bbe2fcf3c5ce8e900701ecc08f6cf1a45945cf97ea96a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tmux

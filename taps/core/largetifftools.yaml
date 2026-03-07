@@ -1,0 +1,25 @@
+name: largetifftools
+version: 1.4.2
+description: Collection of software that can help managing (very) large TIFF files
+homepage: https://pperso.ijclab.in2p3.fr/page_perso/Deroulers/software/largetifftools/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/largetifftools/blobs/sha256:84f779bd4774fc9825d78fc4b2b485652c52bb3b06dc4147fbf70efc99c61c61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/largetifftools/blobs/sha256:1d4d9cce695d92295f325ca875c16b7a4c2cf57223ce8e28f05beca25de519ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/largetifftools/blobs/sha256:dd6458d660821a0038f8ce37977442e31e638dd8a0e0f408f2cc3512eb1ea404
+  linux_arm64: https://ghcr.io/v2/homebrew/core/largetifftools/blobs/sha256:fba139ab0c3a04448191f5596e5d233824f672fb3e3bacb166c4b7e5e9363fb1
+sha256:
+  darwin_arm64: 84f779bd4774fc9825d78fc4b2b485652c52bb3b06dc4147fbf70efc99c61c61
+  darwin_amd64: 1d4d9cce695d92295f325ca875c16b7a4c2cf57223ce8e28f05beca25de519ee
+  linux_amd64: dd6458d660821a0038f8ce37977442e31e638dd8a0e0f408f2cc3512eb1ea404
+  linux_arm64: fba139ab0c3a04448191f5596e5d233824f672fb3e3bacb166c4b7e5e9363fb1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - webp
+  - zstd

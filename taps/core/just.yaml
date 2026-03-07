@@ -1,0 +1,19 @@
+name: just
+version: 1.46.0
+description: Handy way to save and run project-specific commands
+homepage: https://github.com/casey/just
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/just/blobs/sha256:768c90154511401701c95fe7d164b32d8c4034eab968b63102fe45127e5f4c48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/just/blobs/sha256:ca37ef9c9687418ba488b8c4070cf4682dc83c70504919361bf9cc60b7b645ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/just/blobs/sha256:7648640674f926617ba404a8a3097665aef0e531c3d2b9d8b56d55554ac2b9c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/just/blobs/sha256:f1c1cc78b5b7120a63ce6172f11f7fd3bec2b493143cdc25fe22e1dbc433f5e1
+sha256:
+  darwin_arm64: 768c90154511401701c95fe7d164b32d8c4034eab968b63102fe45127e5f4c48
+  darwin_amd64: ca37ef9c9687418ba488b8c4070cf4682dc83c70504919361bf9cc60b7b645ff
+  linux_amd64: 7648640674f926617ba404a8a3097665aef0e531c3d2b9d8b56d55554ac2b9c6
+  linux_arm64: f1c1cc78b5b7120a63ce6172f11f7fd3bec2b493143cdc25fe22e1dbc433f5e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: checkov
+version: 3.2.500
+description: Prevent cloud misconfigurations during build-time for IaC tools
+homepage: https://www.checkov.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/checkov/blobs/sha256:996989875cf9643a3c578431417dc832716174d17e1cb7e33b08fad826f2c2a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/checkov/blobs/sha256:3fc0673627ae1df0466ea80f30f253ecb1c5bf08576ae7c04cefb69c99acdd96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/checkov/blobs/sha256:6add308197a417b0a147918cc69496e18c77ad5c8133fec7ab633a01244ef23d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/checkov/blobs/sha256:1327e68d2e918101d2ac7e4d2ec8c87e3f31ed4d7c798069ab496cc566e8f252
+sha256:
+  darwin_arm64: 996989875cf9643a3c578431417dc832716174d17e1cb7e33b08fad826f2c2a3
+  darwin_amd64: 3fc0673627ae1df0466ea80f30f253ecb1c5bf08576ae7c04cefb69c99acdd96
+  linux_amd64: 6add308197a417b0a147918cc69496e18c77ad5c8133fec7ab633a01244ef23d
+  linux_arm64: 1327e68d2e918101d2ac7e4d2ec8c87e3f31ed4d7c798069ab496cc566e8f252
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - numpy
+  - pydantic
+  - python@3.14
+  - rpds-py

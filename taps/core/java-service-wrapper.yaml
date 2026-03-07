@@ -1,0 +1,19 @@
+name: java-service-wrapper
+version: 3.6.4
+description: Simplify the deployment, launch and monitoring of Java applications
+homepage: https://wrapper.tanukisoftware.com/
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/java-service-wrapper/blobs/sha256:50f02c8a22fd1aaf7fdaaa368d6157331857801e0e7bf9a37d650b1221186232
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/java-service-wrapper/blobs/sha256:191cce9ca2610ecd1e78bb8adecd93c4a0cecd7a944d45fba843e86d6ea84062
+  linux_amd64: https://ghcr.io/v2/homebrew/core/java-service-wrapper/blobs/sha256:91b2cc21432a561472471c185e163d99786e0e299e7933dc039656939c27ab16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/java-service-wrapper/blobs/sha256:609f36514596c3655739cbe1e39fbd842c0da0fd4b8a5cdcf9be41816283ecbf
+sha256:
+  darwin_arm64: 50f02c8a22fd1aaf7fdaaa368d6157331857801e0e7bf9a37d650b1221186232
+  darwin_amd64: 191cce9ca2610ecd1e78bb8adecd93c4a0cecd7a944d45fba843e86d6ea84062
+  linux_amd64: 91b2cc21432a561472471c185e163d99786e0e299e7933dc039656939c27ab16
+  linux_arm64: 609f36514596c3655739cbe1e39fbd842c0da0fd4b8a5cdcf9be41816283ecbf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

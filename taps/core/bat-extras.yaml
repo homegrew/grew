@@ -1,0 +1,19 @@
+name: bat-extras
+version: 2024.08.24
+description: Bash scripts that integrate bat with various command-line tools
+homepage: https://github.com/eth-p/bat-extras
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bat-extras/blobs/sha256:7695a2dcd409140a509215697b685659f50cf73d177b981fb8b3ab081ceeb38b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bat-extras/blobs/sha256:ad0c1049cd4c49a98517ab67a2bf6f9e5b4304ff26e2b930216e3badb069a054
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bat-extras/blobs/sha256:493e6115711432e8e2cc3527b3660bb47762a7e609d16dbdc19cbe8d6fb61307
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bat-extras/blobs/sha256:474398e0365c6378393ee7eaa78eb8e453ffa325f3082e6f7a304180bddbcf06
+sha256:
+  darwin_arm64: 7695a2dcd409140a509215697b685659f50cf73d177b981fb8b3ab081ceeb38b
+  darwin_amd64: ad0c1049cd4c49a98517ab67a2bf6f9e5b4304ff26e2b930216e3badb069a054
+  linux_amd64: 493e6115711432e8e2cc3527b3660bb47762a7e609d16dbdc19cbe8d6fb61307
+  linux_arm64: 474398e0365c6378393ee7eaa78eb8e453ffa325f3082e6f7a304180bddbcf06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

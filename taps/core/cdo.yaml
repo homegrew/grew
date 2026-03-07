@@ -1,0 +1,25 @@
+name: cdo
+version: 2.6.0
+description: Climate Data Operators
+homepage: https://code.mpimet.mpg.de/projects/cdo
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdo/blobs/sha256:6ba8a2f9742d13f5aa6a7cff08f8ba6e27df53a3f535762f0fafc432cf72150f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdo/blobs/sha256:fe86c49e27d75e036471845bbbbf26239fabcd7cd52d0f7df0471bcb9b214add
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdo/blobs/sha256:1a73f6c3ce13ff500639aa8905e35415bdc28e5a0161d3518f0f3f33c5e41b04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdo/blobs/sha256:fe3e3ca55382e51cc4d7ffefbe2cd9a073da639aefa05f289c2293a3de88d8e7
+sha256:
+  darwin_arm64: 6ba8a2f9742d13f5aa6a7cff08f8ba6e27df53a3f535762f0fafc432cf72150f
+  darwin_amd64: fe86c49e27d75e036471845bbbbf26239fabcd7cd52d0f7df0471bcb9b214add
+  linux_amd64: 1a73f6c3ce13ff500639aa8905e35415bdc28e5a0161d3518f0f3f33c5e41b04
+  linux_arm64: fe3e3ca55382e51cc4d7ffefbe2cd9a073da639aefa05f289c2293a3de88d8e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eccodes
+  - hdf5
+  - libaec
+  - netcdf
+  - proj

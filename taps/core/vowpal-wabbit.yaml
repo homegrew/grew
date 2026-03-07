@@ -1,0 +1,21 @@
+name: vowpal-wabbit
+version: 9.11.2
+description: Online learning algorithm
+homepage: https://github.com/VowpalWabbit/vowpal_wabbit
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vowpal-wabbit/blobs/sha256:b0aa875aad744729cb35b5d07e6d4f114fdfa56d547a671ca89b37f83f2aa2bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vowpal-wabbit/blobs/sha256:1860be73a277dd90ac3761230de3c903df37bbcc37e19fc7f4391c56a31dec21
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vowpal-wabbit/blobs/sha256:b464231f8052b9d51d4b3da74de076e5a93981dc60298c13cb2cac0c00ab1fd1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vowpal-wabbit/blobs/sha256:0059589a36a2a7bec959346f8ce478586c06a5d8bf6303fa845d87498cf069ef
+sha256:
+  darwin_arm64: b0aa875aad744729cb35b5d07e6d4f114fdfa56d547a671ca89b37f83f2aa2bc
+  darwin_amd64: 1860be73a277dd90ac3761230de3c903df37bbcc37e19fc7f4391c56a31dec21
+  linux_amd64: b464231f8052b9d51d4b3da74de076e5a93981dc60298c13cb2cac0c00ab1fd1
+  linux_arm64: 0059589a36a2a7bec959346f8ce478586c06a5d8bf6303fa845d87498cf069ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt

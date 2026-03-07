@@ -1,0 +1,26 @@
+name: dstack
+version: 0.20.12
+description: ML workflow orchestration system designed for reproducibility and collaboration
+homepage: https://dstack.ai/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dstack/blobs/sha256:ba6093260e056f195861de35b011a53aef4d6373c73ff5157f991726d47f044a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dstack/blobs/sha256:670529b9b12fc79e72bee735bf116dc8cfa9ac60c2b29b899105dc272ff2db70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dstack/blobs/sha256:3c1ceabd4a8049c62560e83c08645b5ebb114ece04ddc7c1b2e725032c622697
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dstack/blobs/sha256:d7ee0f58dd0f7317f83b7447d7e63bb01e4ee1263a0d5f41ab0b9cc69e625184
+sha256:
+  darwin_arm64: ba6093260e056f195861de35b011a53aef4d6373c73ff5157f991726d47f044a
+  darwin_amd64: 670529b9b12fc79e72bee735bf116dc8cfa9ac60c2b29b899105dc272ff2db70
+  linux_amd64: 3c1ceabd4a8049c62560e83c08645b5ebb114ece04ddc7c1b2e725032c622697
+  linux_arm64: d7ee0f58dd0f7317f83b7447d7e63bb01e4ee1263a0d5f41ab0b9cc69e625184
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - libyaml
+  - python@3.13
+  - rpds-py

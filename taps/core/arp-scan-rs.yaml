@@ -1,0 +1,19 @@
+name: arp-scan-rs
+version: 0.15.1
+description: ARP scan tool written in Rust for fast local network scans
+homepage: https://github.com/kongbytes/arp-scan-rs
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arp-scan-rs/blobs/sha256:14bd6fa1bb860ec13b1dc36252df0b426b542579156b511498cb5db789cc3f5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arp-scan-rs/blobs/sha256:564410dd322d19205f29167bb1681dd7b9efe81f1bd8ab5d5bb38e537c6a312b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arp-scan-rs/blobs/sha256:6750fe3231d3d634a0b9a3d0384479fdb3f658d869443689aa67ad8b6380a1d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arp-scan-rs/blobs/sha256:3a28a6dea691d50c0e4084c5f4fd9842a814bede065bc9174a41cebd08871c40
+sha256:
+  darwin_arm64: 14bd6fa1bb860ec13b1dc36252df0b426b542579156b511498cb5db789cc3f5a
+  darwin_amd64: 564410dd322d19205f29167bb1681dd7b9efe81f1bd8ab5d5bb38e537c6a312b
+  linux_amd64: 6750fe3231d3d634a0b9a3d0384479fdb3f658d869443689aa67ad8b6380a1d5
+  linux_arm64: 3a28a6dea691d50c0e4084c5f4fd9842a814bede065bc9174a41cebd08871c40
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

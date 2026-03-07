@@ -1,0 +1,21 @@
+name: vtcode
+version: 0.86.5
+description: CLI Semantic Coding Agent
+homepage: https://github.com/vinhnx/vtcode
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vtcode/blobs/sha256:8f69a80ef4da4cdaab9a58913f734155e16bd8b01b911177d14a418680fe5434
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vtcode/blobs/sha256:b440b0df836cb6a6cec3c8b94b0bc49ee23beb0878d9c51a094560e496a5ba48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vtcode/blobs/sha256:0176e811ecffdbcf283722f8019b8c3f18569c73409ff3ae1a1b8eee8171a2d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vtcode/blobs/sha256:f2b9b16d21f9921afaf1614cadf1efbcbad41168278030b245de120b534228d7
+sha256:
+  darwin_arm64: 8f69a80ef4da4cdaab9a58913f734155e16bd8b01b911177d14a418680fe5434
+  darwin_amd64: b440b0df836cb6a6cec3c8b94b0bc49ee23beb0878d9c51a094560e496a5ba48
+  linux_amd64: 0176e811ecffdbcf283722f8019b8c3f18569c73409ff3ae1a1b8eee8171a2d4
+  linux_arm64: f2b9b16d21f9921afaf1614cadf1efbcbad41168278030b245de120b534228d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ripgrep

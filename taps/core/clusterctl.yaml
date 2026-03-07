@@ -1,0 +1,19 @@
+name: clusterctl
+version: 1.12.3
+description: Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle
+homepage: https://cluster-api.sigs.k8s.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clusterctl/blobs/sha256:7a889facb73dee281853baed17b6b7d61188fe102f7dd0cbf58b3803e2d86a5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clusterctl/blobs/sha256:43159d0c100c2f3d905cff67772c3a1a09fc57b4b40c5dfc0229f9114793393b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clusterctl/blobs/sha256:ce194bf7d26a40dac251dc9d93f3bb3d4a81def30d6f440f6aa9393f1283cd5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clusterctl/blobs/sha256:23b4698b74215d3fdc6fc02131effb61dc3edc84b07ccdd3821397ca3f22258d
+sha256:
+  darwin_arm64: 7a889facb73dee281853baed17b6b7d61188fe102f7dd0cbf58b3803e2d86a5c
+  darwin_amd64: 43159d0c100c2f3d905cff67772c3a1a09fc57b4b40c5dfc0229f9114793393b
+  linux_amd64: ce194bf7d26a40dac251dc9d93f3bb3d4a81def30d6f440f6aa9393f1283cd5f
+  linux_arm64: 23b4698b74215d3fdc6fc02131effb61dc3edc84b07ccdd3821397ca3f22258d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

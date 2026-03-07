@@ -1,0 +1,22 @@
+name: cpdf
+version: 2.8.1
+description: PDF Command-line Tools
+homepage: https://github.com/johnwhitington/cpdf-source
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpdf/blobs/sha256:c3a25d6ed520e5a2a997da0992156246005d2449a26fb7a96132520764c0ea18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpdf/blobs/sha256:5e63b9e7612e18c9c577aa502c7be73ee534e46650c51911372ab8ec032e0b8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpdf/blobs/sha256:4bcaa237cb5ad235f05cab8067bac39d4a57aa49195462872f409195a744b4aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpdf/blobs/sha256:b190429b65b7f9dec51957e6f876901572d403a056db2bb37939b64b50d2df0f
+sha256:
+  darwin_arm64: c3a25d6ed520e5a2a997da0992156246005d2449a26fb7a96132520764c0ea18
+  darwin_amd64: 5e63b9e7612e18c9c577aa502c7be73ee534e46650c51911372ab8ec032e0b8c
+  linux_amd64: 4bcaa237cb5ad235f05cab8067bac39d4a57aa49195462872f409195a744b4aa
+  linux_arm64: b190429b65b7f9dec51957e6f876901572d403a056db2bb37939b64b50d2df0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - camlpdf
+  - ocaml

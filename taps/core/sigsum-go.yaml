@@ -1,0 +1,19 @@
+name: sigsum-go
+version: 0.14.0
+description: Key transparency toolkit
+homepage: https://sigsum.org
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sigsum-go/blobs/sha256:20a4e48e4609e9c78c83dcd16ca748a151ed15490239912ff5013659dff52462
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sigsum-go/blobs/sha256:f473d19be0693d6a03ff19138f843f93f4d2fdcc249d47984949fa776a074e25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sigsum-go/blobs/sha256:8bdd2858cb28d6b06b525a74c10a209061003f71bd49cde615f8a933c5bd1851
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sigsum-go/blobs/sha256:232269807e1fc5b04a19886da2b183c50f8ffeba85d64df951f34a65a79fc0bf
+sha256:
+  darwin_arm64: 20a4e48e4609e9c78c83dcd16ca748a151ed15490239912ff5013659dff52462
+  darwin_amd64: f473d19be0693d6a03ff19138f843f93f4d2fdcc249d47984949fa776a074e25
+  linux_amd64: 8bdd2858cb28d6b06b525a74c10a209061003f71bd49cde615f8a933c5bd1851
+  linux_arm64: 232269807e1fc5b04a19886da2b183c50f8ffeba85d64df951f34a65a79fc0bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: qtgrpc
+version: 6.10.2
+description: Provides support for communicating with gRPC services
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtgrpc/blobs/sha256:7256a1273b6e4e3cfc8c6aa4250324d3dfadcb41a679a3768380940a562c70a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtgrpc/blobs/sha256:6cae26f8159af59ac9f36b1237d24fec0ad15c2a3229267ad57a121f8511b26c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtgrpc/blobs/sha256:cc7d50aeb0c9d238626da66705137aeebfe0b02e08aeddb6042ff37f30d1984c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtgrpc/blobs/sha256:aafcb0e8749ed331f928fea39ed9ee631deb6c04ac65ac508cfc18c26d4e40fd
+sha256:
+  darwin_arm64: 7256a1273b6e4e3cfc8c6aa4250324d3dfadcb41a679a3768380940a562c70a4
+  darwin_amd64: 6cae26f8159af59ac9f36b1237d24fec0ad15c2a3229267ad57a121f8511b26c
+  linux_amd64: cc7d50aeb0c9d238626da66705137aeebfe0b02e08aeddb6042ff37f30d1984c
+  linux_arm64: aafcb0e8749ed331f928fea39ed9ee631deb6c04ac65ac508cfc18c26d4e40fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - protobuf
+  - qtbase
+  - qtdeclarative

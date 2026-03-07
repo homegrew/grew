@@ -1,0 +1,27 @@
+name: logstalgia
+version: 1.1.5
+description: Web server access log visualizer with retro style
+homepage: https://logstalgia.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logstalgia/blobs/sha256:2bcc3f749465347934eceb6ec6922c9c927e7b8bc04513a263c58e8b69615a87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logstalgia/blobs/sha256:eeabaeaedb6aa408ffa0d3248d69fb91230c36363b40e872a8248aa9dd109e6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logstalgia/blobs/sha256:2a9a18916c48cf23d57b90db044357e2283c8ca13c7956467257a153a09ad692
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logstalgia/blobs/sha256:a9847ee898ca58d0f4f77492b5fe95428a9ded03a01da144098d7c2275636cfb
+sha256:
+  darwin_arm64: 2bcc3f749465347934eceb6ec6922c9c927e7b8bc04513a263c58e8b69615a87
+  darwin_amd64: eeabaeaedb6aa408ffa0d3248d69fb91230c36363b40e872a8248aa9dd109e6b
+  linux_amd64: 2a9a18916c48cf23d57b90db044357e2283c8ca13c7956467257a153a09ad692
+  linux_arm64: a9847ee898ca58d0f4f77492b5fe95428a9ded03a01da144098d7c2275636cfb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - freetype
+  - glew
+  - libpng
+  - pcre2
+  - sdl2
+  - sdl2_image

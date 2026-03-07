@@ -1,0 +1,19 @@
+name: mac
+version: 12.50
+description: "Monkey's Audio lossless codec"
+homepage: https://www.monkeysaudio.com
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mac/blobs/sha256:881b4ae73a36f7abef37bd545a9987594e58f802de43fb654d0d34bde5337dce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mac/blobs/sha256:b9be73a6587512fe86bf60038bb79c514742338ed5bd0c2ab6b16bad011bede5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mac/blobs/sha256:f0b38ecd6383b268216758394d78888e3570a2c31382bfdc23e95dadbf74af83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mac/blobs/sha256:2b77c630a30825a9770590dc4165077b513629b347d1f6533e34f08a100401b2
+sha256:
+  darwin_arm64: 881b4ae73a36f7abef37bd545a9987594e58f802de43fb654d0d34bde5337dce
+  darwin_amd64: b9be73a6587512fe86bf60038bb79c514742338ed5bd0c2ab6b16bad011bede5
+  linux_amd64: f0b38ecd6383b268216758394d78888e3570a2c31382bfdc23e95dadbf74af83
+  linux_arm64: 2b77c630a30825a9770590dc4165077b513629b347d1f6533e34f08a100401b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

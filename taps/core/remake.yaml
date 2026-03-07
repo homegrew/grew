@@ -1,0 +1,21 @@
+name: remake
+version: 4.3-1.6
+description: GNU Make with improved error handling, tracing, and a debugger
+homepage: https://bashdb.sourceforge.net/remake/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/remake/blobs/sha256:f3e10b032f0c417f08105fa2c15a5717151f8da9f094e5244cee0572b38d7d37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/remake/blobs/sha256:b5cf395e923ae2dd635151eb563064ba9cdfc0521a0109d2a73bec3555289192
+  linux_amd64: https://ghcr.io/v2/homebrew/core/remake/blobs/sha256:caad81ec9c391c8a52c027ee7a7580d324c5743ad8fa1223c9ad11e41772d5b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/remake/blobs/sha256:492ff0695438a46997ed2012687feacdb6f30a1a93e47c9be3cad34b76ac8ea1
+sha256:
+  darwin_arm64: f3e10b032f0c417f08105fa2c15a5717151f8da9f094e5244cee0572b38d7d37
+  darwin_amd64: b5cf395e923ae2dd635151eb563064ba9cdfc0521a0109d2a73bec3555289192
+  linux_amd64: caad81ec9c391c8a52c027ee7a7580d324c5743ad8fa1223c9ad11e41772d5b0
+  linux_arm64: 492ff0695438a46997ed2012687feacdb6f30a1a93e47c9be3cad34b76ac8ea1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

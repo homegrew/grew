@@ -1,0 +1,22 @@
+name: zebra
+version: 2.2.10
+description: Information management system
+homepage: https://www.indexdata.com/resources/software/zebra/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zebra/blobs/sha256:19bbf8d4ccb9a2101ba988660c99f28619faadf473dc5841385cd1946f8327b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zebra/blobs/sha256:d5fd63bd6a150619f6ffbe4e314f286eabe3e999423e9cb9f35b71d86e681547
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zebra/blobs/sha256:3559c2ea4ab4cea38fc905077c4873dd471586252375aaa2bc744a5037694b29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zebra/blobs/sha256:eb2d58aaffda0097ed21f908680cc33e649366997d5dcafaf89fa08c0b67af5b
+sha256:
+  darwin_arm64: 19bbf8d4ccb9a2101ba988660c99f28619faadf473dc5841385cd1946f8327b9
+  darwin_amd64: d5fd63bd6a150619f6ffbe4e314f286eabe3e999423e9cb9f35b71d86e681547
+  linux_amd64: 3559c2ea4ab4cea38fc905077c4873dd471586252375aaa2bc744a5037694b29
+  linux_arm64: eb2d58aaffda0097ed21f908680cc33e649366997d5dcafaf89fa08c0b67af5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - yaz

@@ -1,0 +1,22 @@
+name: uvicorn
+version: 0.41.0
+description: ASGI web server
+homepage: https://www.uvicorn.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uvicorn/blobs/sha256:a45ebbc34e6d788bbf1c91eb594962a419e92c739686db438cc57b60d4c90b36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uvicorn/blobs/sha256:4f057fb63cdb2cb4b92cd49af636411a60ba9abbb921009c496065a442a74c16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uvicorn/blobs/sha256:f02a101bff832df1c2cc8eed0203a566f10fba6fcec07723e9226777ccb2a4f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uvicorn/blobs/sha256:b348c24ef14c76762fcc5f95d9d6b6c250463bea09550b064d9e84084aedfff1
+sha256:
+  darwin_arm64: a45ebbc34e6d788bbf1c91eb594962a419e92c739686db438cc57b60d4c90b36
+  darwin_amd64: 4f057fb63cdb2cb4b92cd49af636411a60ba9abbb921009c496065a442a74c16
+  linux_amd64: f02a101bff832df1c2cc8eed0203a566f10fba6fcec07723e9226777ccb2a4f3
+  linux_arm64: b348c24ef14c76762fcc5f95d9d6b6c250463bea09550b064d9e84084aedfff1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

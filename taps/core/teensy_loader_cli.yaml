@@ -1,0 +1,19 @@
+name: teensy_loader_cli
+version: 2.3
+description: Command-line integration for Teensy USB development boards
+homepage: https://www.pjrc.com/teensy/loader_cli.html
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/teensy_loader_cli/blobs/sha256:16c36bc25668e666c3ac22f0d6f2f6344e22eddd0488fbe8627481b1e0e4ea9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/teensy_loader_cli/blobs/sha256:0beb513ca87f99ee2a03e3700570bb2e82f7f6905b2921a5a14a31df6e0f12bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/teensy_loader_cli/blobs/sha256:578d01b193225d1af0f017f21000dc19fa544e15c090af656869c1de14eb7f44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/teensy_loader_cli/blobs/sha256:e48cb8f9df797606fcae3289ae2c308f39760ddc4e8c1a2c098e23af48ac5d1e
+sha256:
+  darwin_arm64: 16c36bc25668e666c3ac22f0d6f2f6344e22eddd0488fbe8627481b1e0e4ea9a
+  darwin_amd64: 0beb513ca87f99ee2a03e3700570bb2e82f7f6905b2921a5a14a31df6e0f12bf
+  linux_amd64: 578d01b193225d1af0f017f21000dc19fa544e15c090af656869c1de14eb7f44
+  linux_arm64: e48cb8f9df797606fcae3289ae2c308f39760ddc4e8c1a2c098e23af48ac5d1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

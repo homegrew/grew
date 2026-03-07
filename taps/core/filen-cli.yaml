@@ -1,0 +1,21 @@
+name: filen-cli
+version: 0.0.34
+description: Interface with Filen, an end-to-end encrypted cloud storage service
+homepage: https://github.com/FilenCloudDienste/filen-cli
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/filen-cli/blobs/sha256:01bb3644754303d6376205e6341922a8a874c479c20272c452e0971998010951
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/filen-cli/blobs/sha256:9807b7b18bb11585ceaf4057d74cf605cc71261c816129131389451652872238
+  linux_amd64: https://ghcr.io/v2/homebrew/core/filen-cli/blobs/sha256:028d167c8b43532da88e079138a17c3512d918ea509d6cf3c69a256f07fe5f2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/filen-cli/blobs/sha256:63124c5ef159ef428d16b4de0b0dc243fe30035778bccbd6f263e5423b78d247
+sha256:
+  darwin_arm64: 01bb3644754303d6376205e6341922a8a874c479c20272c452e0971998010951
+  darwin_amd64: 9807b7b18bb11585ceaf4057d74cf605cc71261c816129131389451652872238
+  linux_amd64: 028d167c8b43532da88e079138a17c3512d918ea509d6cf3c69a256f07fe5f2e
+  linux_arm64: 63124c5ef159ef428d16b4de0b0dc243fe30035778bccbd6f263e5423b78d247
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

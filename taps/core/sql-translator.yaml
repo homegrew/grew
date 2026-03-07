@@ -1,0 +1,19 @@
+name: sql-translator
+version: 1.62
+description: Manipulate structured data definitions (SQL and more)
+homepage: https://github.com/dbsrgits/sql-translator/
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sql-translator/blobs/sha256:6619655ae2fdbbcc5c2213ab55e2ffd0f45d964cf1f9eb1bef7db81e87e76b4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sql-translator/blobs/sha256:d66c552719a802570cc86bdbb667d0ec83c215b3e68dc3584e76a98cf0e3f245
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sql-translator/blobs/sha256:546f4079d19414f1b7fe9851c12f2b846e44869b6c9d4b44f600eea2a6c92a96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sql-translator/blobs/sha256:df14d63cd54e55fb81d663546e14f38ba6c58a49de115302d9dcd960b21f1ef3
+sha256:
+  darwin_arm64: 6619655ae2fdbbcc5c2213ab55e2ffd0f45d964cf1f9eb1bef7db81e87e76b4e
+  darwin_amd64: d66c552719a802570cc86bdbb667d0ec83c215b3e68dc3584e76a98cf0e3f245
+  linux_amd64: 546f4079d19414f1b7fe9851c12f2b846e44869b6c9d4b44f600eea2a6c92a96
+  linux_arm64: df14d63cd54e55fb81d663546e14f38ba6c58a49de115302d9dcd960b21f1ef3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

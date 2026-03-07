@@ -1,0 +1,21 @@
+name: sqlancer
+version: 2.0.0
+description: Detecting Logic Bugs in DBMS
+homepage: https://github.com/sqlancer/sqlancer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlancer/blobs/sha256:434aa776b8e6f535368a67b42df3b0a17dcea382c06c17aaf6ea8961aa7f5aac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlancer/blobs/sha256:d53935c68d2add8d86432c2a0671cc9200105bb85a0cb39dc5949a7b1bbd0611
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlancer/blobs/sha256:afe59e6d912d3a7b055f7cc05ad72ae6f7af06b0cd208241cf0aa4a0e0506d5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlancer/blobs/sha256:f0eaaca38cb007dc15618d07372f00fcbfe4f794b6f8fcc6114d92c03a3053a3
+sha256:
+  darwin_arm64: 434aa776b8e6f535368a67b42df3b0a17dcea382c06c17aaf6ea8961aa7f5aac
+  darwin_amd64: d53935c68d2add8d86432c2a0671cc9200105bb85a0cb39dc5949a7b1bbd0611
+  linux_amd64: afe59e6d912d3a7b055f7cc05ad72ae6f7af06b0cd208241cf0aa4a0e0506d5d
+  linux_arm64: f0eaaca38cb007dc15618d07372f00fcbfe4f794b6f8fcc6114d92c03a3053a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

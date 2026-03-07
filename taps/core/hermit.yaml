@@ -1,0 +1,19 @@
+name: hermit
+version: 0.50.0
+description: Manages isolated, self-bootstrapping sets of tools in software projects
+homepage: https://cashapp.github.io/hermit
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hermit/blobs/sha256:16e82e77cbe7d370ae84c906f3612160a5a80c87818038a0c01b5f4cc20acd0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hermit/blobs/sha256:0960776c7c2ef82fcc265a184a980c98075cf1dcb38e51bebd658f639ee3a07b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hermit/blobs/sha256:29c7e7a0cf8f74720c06187749d28a94685e91e36e3892aba725d79320486e85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hermit/blobs/sha256:227a9c6c0d48a41029f92ee8fe52fb1255a615ab4930150bd05770f041218831
+sha256:
+  darwin_arm64: 16e82e77cbe7d370ae84c906f3612160a5a80c87818038a0c01b5f4cc20acd0f
+  darwin_amd64: 0960776c7c2ef82fcc265a184a980c98075cf1dcb38e51bebd658f639ee3a07b
+  linux_amd64: 29c7e7a0cf8f74720c06187749d28a94685e91e36e3892aba725d79320486e85
+  linux_arm64: 227a9c6c0d48a41029f92ee8fe52fb1255a615ab4930150bd05770f041218831
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

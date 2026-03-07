@@ -1,0 +1,19 @@
+name: chuck
+version: 1.5.5.7
+description: Concurrent, on-the-fly audio programming language
+homepage: https://chuck.cs.princeton.edu/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chuck/blobs/sha256:739dc60aaf4b4c565ea6bac04e540910a26844e8ddc67ef0892745adfb3c6f88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chuck/blobs/sha256:680e5d7d7b1b0ff75269e81b947303ae48f7bedc1fba7225417f3a07616b0202
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chuck/blobs/sha256:fc96c971bccbabf7fc2e4d49cb6b8a878c957d7b7e0aed8361dbf9ecafcd60b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chuck/blobs/sha256:d6e3c18bd45e87ec2ada4a5415cf45d6ac1ac97eea28de0fb5868f16c4d593b4
+sha256:
+  darwin_arm64: 739dc60aaf4b4c565ea6bac04e540910a26844e8ddc67ef0892745adfb3c6f88
+  darwin_amd64: 680e5d7d7b1b0ff75269e81b947303ae48f7bedc1fba7225417f3a07616b0202
+  linux_amd64: fc96c971bccbabf7fc2e4d49cb6b8a878c957d7b7e0aed8361dbf9ecafcd60b0
+  linux_arm64: d6e3c18bd45e87ec2ada4a5415cf45d6ac1ac97eea28de0fb5868f16c4d593b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

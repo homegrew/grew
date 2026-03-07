@@ -1,0 +1,19 @@
+name: statesmith
+version: 0.20.0
+description: State machine code generation tool suitable for bare metal, embedded and more
+homepage: https://github.com/StateSmith/StateSmith
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/statesmith/blobs/sha256:0cf4441be541137a58c29cb73f53c5baee5b8908a5f1e91f9b179597702afbf3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/statesmith/blobs/sha256:c62691a1e4d14ba928be3c68fd6f3b8b4b68753ccf0c7fb5b248b66804c76837
+  linux_arm64: https://ghcr.io/v2/homebrew/core/statesmith/blobs/sha256:d366e58e1954728a52fb5ad6ed2af0d5f185e0677d4d3af3a15f0535cff05067
+sha256:
+  darwin_arm64: 0cf4441be541137a58c29cb73f53c5baee5b8908a5f1e91f9b179597702afbf3
+  linux_amd64: c62691a1e4d14ba928be3c68fd6f3b8b4b68753ccf0c7fb5b248b66804c76837
+  linux_arm64: d366e58e1954728a52fb5ad6ed2af0d5f185e0677d4d3af3a15f0535cff05067
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@9

@@ -1,0 +1,22 @@
+name: alembic
+version: 1.8.10
+description: Open computer graphics interchange framework
+homepage: http://www.alembic.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alembic/blobs/sha256:3a8207a61469b1d25e6b2b39968491931f8eeba421877ea6a24ec38044eaf9cd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alembic/blobs/sha256:819f54e39924e2e0ccbc1c00b74e7a9e4846497e0a6e0383543e4e037cd4b993
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alembic/blobs/sha256:03de0e5c013bd50a6cc411a5d4fd9200edd9b1273238327ab16f1e705ab1feb5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alembic/blobs/sha256:eefaabb5c8e230694b7e045df9e11afa70c1b4864fc26621b19a469ef15b1317
+sha256:
+  darwin_arm64: 3a8207a61469b1d25e6b2b39968491931f8eeba421877ea6a24ec38044eaf9cd
+  darwin_amd64: 819f54e39924e2e0ccbc1c00b74e7a9e4846497e0a6e0383543e4e037cd4b993
+  linux_amd64: 03de0e5c013bd50a6cc411a5d4fd9200edd9b1273238327ab16f1e705ab1feb5
+  linux_arm64: eefaabb5c8e230694b7e045df9e11afa70c1b4864fc26621b19a469ef15b1317
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5
+  - imath

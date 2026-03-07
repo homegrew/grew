@@ -1,0 +1,19 @@
+name: phpstan
+version: 2.1.40
+description: PHP Static Analysis Tool
+homepage: https://github.com/phpstan/phpstan
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/phpstan/blobs/sha256:ad508081566afc1df198cafb84e2e5a3be0ad23f3ef1678981ef34fa4037abb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/phpstan/blobs/sha256:efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+  linux_amd64: https://ghcr.io/v2/homebrew/core/phpstan/blobs/sha256:efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+  linux_arm64: https://ghcr.io/v2/homebrew/core/phpstan/blobs/sha256:efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+sha256:
+  darwin_arm64: ad508081566afc1df198cafb84e2e5a3be0ad23f3ef1678981ef34fa4037abb5
+  darwin_amd64: efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+  linux_amd64: efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+  linux_arm64: efafd9a9c3c0d4f6abf4be2c4a7de438106d66eff044c4f10cf3761ef352d919
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

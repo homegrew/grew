@@ -1,0 +1,11 @@
+name: bitbox
+version: 4.50.1
+description: Protect your coins with the latest Swiss made hardware wallet
+homepage: https://bitbox.swiss/
+url:
+  darwin_arm64: https://github.com/BitBoxSwiss/bitbox-wallet-app/releases/download/v4.50.1/BitBox-4.50.1-macOS.dmg
+sha256:
+  darwin_arm64: 25eac2dec5820863bff81f671c3b9b3dae4805995361a3624bf639f1231f57ed
+artifacts:
+  app:
+    - BitBox.app

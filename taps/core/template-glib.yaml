@@ -1,0 +1,23 @@
+name: template-glib
+version: 3.38.0
+description: GNOME templating library for GLib
+homepage: https://gitlab.gnome.org/GNOME/template-glib
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/template-glib/blobs/sha256:b3ab7adc6345abeb4dc093292a825914ecaffd78d30ba9f0847e12b5aa9f2d97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/template-glib/blobs/sha256:3ec54286435a0e5ce5c8eb74b984bfbac346e8170f83591dd5c9984d70c5ab4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/template-glib/blobs/sha256:ce711717e79f3d62de5c5462b667809227a3c7296e1c030b15aa2fe915f2a172
+  linux_arm64: https://ghcr.io/v2/homebrew/core/template-glib/blobs/sha256:4305c9ea3e417f2e4db5784a1eac0cccdf5a1043ea45f65bb1bd92ecfcb5e1bc
+sha256:
+  darwin_arm64: b3ab7adc6345abeb4dc093292a825914ecaffd78d30ba9f0847e12b5aa9f2d97
+  darwin_amd64: 3ec54286435a0e5ce5c8eb74b984bfbac346e8170f83591dd5c9984d70c5ab4e
+  linux_amd64: ce711717e79f3d62de5c5462b667809227a3c7296e1c030b15aa2fe915f2a172
+  linux_arm64: 4305c9ea3e417f2e4db5784a1eac0cccdf5a1043ea45f65bb1bd92ecfcb5e1bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gobject-introspection
+  - gettext

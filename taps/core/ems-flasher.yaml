@@ -1,0 +1,21 @@
+name: ems-flasher
+version: 0.03
+description: Software for flashing the EMS Gameboy USB cart
+homepage: https://lacklustre.net/projects/ems-flasher/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ems-flasher/blobs/sha256:a7f24072022ccf384517e60b21fe3d5c4f32290601710f0149362eb6bf9b9723
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ems-flasher/blobs/sha256:f0330f1a9397a958ecefcef656f7c93e6b901c37013f226560780adff292df0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ems-flasher/blobs/sha256:8081dea4fbc1c501388ffb3a38751d47a09ef38b0dacd3e09ad7995f66c9249a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ems-flasher/blobs/sha256:afe3f200bc7c6b136eef20237168d892b9201dd6bd1a70178f0ca1a8c3371a24
+sha256:
+  darwin_arm64: a7f24072022ccf384517e60b21fe3d5c4f32290601710f0149362eb6bf9b9723
+  darwin_amd64: f0330f1a9397a958ecefcef656f7c93e6b901c37013f226560780adff292df0a
+  linux_amd64: 8081dea4fbc1c501388ffb3a38751d47a09ef38b0dacd3e09ad7995f66c9249a
+  linux_arm64: afe3f200bc7c6b136eef20237168d892b9201dd6bd1a70178f0ca1a8c3371a24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

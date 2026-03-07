@@ -1,0 +1,15 @@
+name: chrome-cli
+version: 1.11.0
+description: Control Google Chrome from the command-line
+homepage: https://github.com/prasmussen/chrome-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chrome-cli/blobs/sha256:d551c02cfc196db2d8e930c9c58c6aa6c397ad2cddd4990a6b368db465b3a467
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chrome-cli/blobs/sha256:390e82e1ed87e9d5882ae863c68f7cdc2baad2cde72f862fc5efca511a4743c9
+sha256:
+  darwin_arm64: d551c02cfc196db2d8e930c9c58c6aa6c397ad2cddd4990a6b368db465b3a467
+  darwin_amd64: 390e82e1ed87e9d5882ae863c68f7cdc2baad2cde72f862fc5efca511a4743c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: slicot
+version: 5.9.1
+description: Fortran subroutines library for systems and control
+homepage: https://www.slicot.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slicot/blobs/sha256:fe100cde167f2c093216156513328bb28f2a4c7ea5258c266cfc10d467bf59a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slicot/blobs/sha256:e1686e0f706660d9fed58f3e75a2c89d8ef729f0b6a0c32ba6c27df8371bf743
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slicot/blobs/sha256:3ea5b7ec7913b21537a1372ee5644e9eb7fd2f70466c8b8a914a1cf82b589b41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slicot/blobs/sha256:9d5b8da792e3ef6cc877f3378cf09363e506a8f0343e2979d3119fb753859e04
+sha256:
+  darwin_arm64: fe100cde167f2c093216156513328bb28f2a4c7ea5258c266cfc10d467bf59a2
+  darwin_amd64: e1686e0f706660d9fed58f3e75a2c89d8ef729f0b6a0c32ba6c27df8371bf743
+  linux_amd64: 3ea5b7ec7913b21537a1372ee5644e9eb7fd2f70466c8b8a914a1cf82b589b41
+  linux_arm64: 9d5b8da792e3ef6cc877f3378cf09363e506a8f0343e2979d3119fb753859e04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - openblas

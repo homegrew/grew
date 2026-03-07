@@ -1,0 +1,19 @@
+name: memtester
+version: 4.7.1
+description: Utility for testing the memory subsystem
+homepage: https://pyropus.ca/software/memtester/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/memtester/blobs/sha256:b9c3829b3c8330abfec948e52e5bae58c7daf8e26bd45e4f62110b674115c419
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/memtester/blobs/sha256:dafebaa8af7e2774e55142b2b6c8ea9e741c6c69c2c757f6deecdfc5574d0379
+  linux_amd64: https://ghcr.io/v2/homebrew/core/memtester/blobs/sha256:09e87a3a5d5b2b187c4e48b815f6e3bd5b70a2e1024add16f0c3ef12952c91e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/memtester/blobs/sha256:f8c1b9a3a3a300d787761fbb46a118efdf1d70a8d1ab686832207e76c5e2a2f3
+sha256:
+  darwin_arm64: b9c3829b3c8330abfec948e52e5bae58c7daf8e26bd45e4f62110b674115c419
+  darwin_amd64: dafebaa8af7e2774e55142b2b6c8ea9e741c6c69c2c757f6deecdfc5574d0379
+  linux_amd64: 09e87a3a5d5b2b187c4e48b815f6e3bd5b70a2e1024add16f0c3ef12952c91e3
+  linux_arm64: f8c1b9a3a3a300d787761fbb46a118efdf1d70a8d1ab686832207e76c5e2a2f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

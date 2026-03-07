@@ -1,0 +1,19 @@
+name: chadwick
+version: 0.10.0
+description: Tools for manipulating baseball data
+homepage: https://chadwick.readthedocs.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chadwick/blobs/sha256:a25e4a468f0a8202822cbed14f6b357e9bb08d39ac2ab2b6440b76a1a5fbd468
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chadwick/blobs/sha256:674fb89cebb20d3c283cd3ebf3adf86349ceffcb0257aba582ad5f542505fc46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chadwick/blobs/sha256:29fda27d9cbc2fbf9caef380fe3d1a950d4586b8826f0ceed226b71cf6fbfaa9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chadwick/blobs/sha256:98e955a622c79cad9c246dd9889bc67ea5d24175599c788b7f2b510d44aaab5f
+sha256:
+  darwin_arm64: a25e4a468f0a8202822cbed14f6b357e9bb08d39ac2ab2b6440b76a1a5fbd468
+  darwin_amd64: 674fb89cebb20d3c283cd3ebf3adf86349ceffcb0257aba582ad5f542505fc46
+  linux_amd64: 29fda27d9cbc2fbf9caef380fe3d1a950d4586b8826f0ceed226b71cf6fbfaa9
+  linux_arm64: 98e955a622c79cad9c246dd9889bc67ea5d24175599c788b7f2b510d44aaab5f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

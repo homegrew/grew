@@ -1,0 +1,19 @@
+name: orogene
+version: 0.3.34
+description: `node_modules/` package manager and utility toolkit
+homepage: https://orogene.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orogene/blobs/sha256:d1b71b12add1cf3f8217e5d857e056c54a004638ad178be9f71ed0e7d55a0e7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orogene/blobs/sha256:e72c4f89a0517891879aab76a95a3f12b9055d1dfd8510275bb5211883153c52
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orogene/blobs/sha256:ead950a69b6ee4a7d7023264f55372d0d84e83984c46af445280d8f5281871fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orogene/blobs/sha256:f8fb64cd8e5659c0d3f72fe6c994248c8e7c7c63af9e8a1b5801df5e5e73b13d
+sha256:
+  darwin_arm64: d1b71b12add1cf3f8217e5d857e056c54a004638ad178be9f71ed0e7d55a0e7f
+  darwin_amd64: e72c4f89a0517891879aab76a95a3f12b9055d1dfd8510275bb5211883153c52
+  linux_amd64: ead950a69b6ee4a7d7023264f55372d0d84e83984c46af445280d8f5281871fc
+  linux_arm64: f8fb64cd8e5659c0d3f72fe6c994248c8e7c7c63af9e8a1b5801df5e5e73b13d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

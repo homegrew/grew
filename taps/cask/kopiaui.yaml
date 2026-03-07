@@ -1,0 +1,11 @@
+name: kopiaui
+version: 0.22.3
+description: Backup/restore tool
+homepage: https://kopia.io/
+url:
+  darwin_arm64: https://github.com/kopia/kopia/releases/download/v0.22.3/KopiaUI-0.22.3-arm64.dmg
+sha256:
+  darwin_arm64: bae50d8b9df7abef0cdf20e7e92338b1a2387cfd21b93c5ccee79e438fb72f12
+artifacts:
+  app:
+    - KopiaUI.app

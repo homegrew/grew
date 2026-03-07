@@ -1,0 +1,19 @@
+name: gwctl
+version: 0.2.0
+description: CLI for managing and inspecting Gateway API resources in Kubernetes clusters
+homepage: https://github.com/kubernetes-sigs/gwctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gwctl/blobs/sha256:efbf9a8653386ffd5de1672d8a2c537b4f4068ad8c2dae1f56bfb95564ed7b1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gwctl/blobs/sha256:f5ba3ab0c7b9434cd9f8262076fc135f33931c6cd42efd6fa6904737bfb70d7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gwctl/blobs/sha256:6287626230449f478eca11da68ede7fb7e75b202216f6ecf59405f5f9ba1e6fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gwctl/blobs/sha256:943bcc5c3a2fe743b4cc4f68e9b0e97000d8f86bb8b983530a9635e2b43f5da6
+sha256:
+  darwin_arm64: efbf9a8653386ffd5de1672d8a2c537b4f4068ad8c2dae1f56bfb95564ed7b1d
+  darwin_amd64: f5ba3ab0c7b9434cd9f8262076fc135f33931c6cd42efd6fa6904737bfb70d7a
+  linux_amd64: 6287626230449f478eca11da68ede7fb7e75b202216f6ecf59405f5f9ba1e6fa
+  linux_arm64: 943bcc5c3a2fe743b4cc4f68e9b0e97000d8f86bb8b983530a9635e2b43f5da6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

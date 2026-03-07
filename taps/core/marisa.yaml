@@ -1,0 +1,19 @@
+name: marisa
+version: 0.3.1
+description: Matching Algorithm with Recursively Implemented StorAge
+homepage: https://github.com/s-yata/marisa-trie
+license: BSD-2-Clause OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/marisa/blobs/sha256:f6975b75a559edc43c0638facb994e1cf76648e1fee7eefd5d28137a04790fbb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/marisa/blobs/sha256:c874e717b5012f666806f8e694fea477e64a923962fea32b721162274570010b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/marisa/blobs/sha256:945704062b08f0b172336f276cef502bb5d399a57b2c0aad9ce79d56f9fd8c65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/marisa/blobs/sha256:628a8b2d7534358ee7ca62275a44d99fd366f1d3ae16e43a683646d2e92bac3a
+sha256:
+  darwin_arm64: f6975b75a559edc43c0638facb994e1cf76648e1fee7eefd5d28137a04790fbb
+  darwin_amd64: c874e717b5012f666806f8e694fea477e64a923962fea32b721162274570010b
+  linux_amd64: 945704062b08f0b172336f276cef502bb5d399a57b2c0aad9ce79d56f9fd8c65
+  linux_arm64: 628a8b2d7534358ee7ca62275a44d99fd366f1d3ae16e43a683646d2e92bac3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nerdlog
+version: 1.10.0
+description: TUI log viewer with timeline histogram and no central server
+homepage: https://dmitryfrank.com/projects/nerdlog/article
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nerdlog/blobs/sha256:1c5c89f5703c5254d79bf17a35b93a5fee15af1df0b0ca8983c30e5994fce9f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nerdlog/blobs/sha256:942073a7a936ef2b14570bb472c2e044a21ccd43d9cc8076bb4524e2f026dd60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nerdlog/blobs/sha256:9007cfebff78d395297b19ebf89943c4ca617db012ba47246a8f9389030e5faf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nerdlog/blobs/sha256:8e9c31155687ffe5ca26602124ab8326b6241afe7c78ec2d7595ade960d85dbb
+sha256:
+  darwin_arm64: 1c5c89f5703c5254d79bf17a35b93a5fee15af1df0b0ca8983c30e5994fce9f7
+  darwin_amd64: 942073a7a936ef2b14570bb472c2e044a21ccd43d9cc8076bb4524e2f026dd60
+  linux_amd64: 9007cfebff78d395297b19ebf89943c4ca617db012ba47246a8f9389030e5faf
+  linux_arm64: 8e9c31155687ffe5ca26602124ab8326b6241afe7c78ec2d7595ade960d85dbb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

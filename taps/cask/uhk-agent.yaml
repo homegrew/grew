@@ -1,0 +1,11 @@
+name: uhk-agent
+version: 9.0.2
+description: Configuration application for the Ultimate Hacking Keyboard
+homepage: https://github.com/UltimateHackingKeyboard/agent
+url:
+  darwin_arm64: https://github.com/UltimateHackingKeyboard/agent/releases/download/v9.0.2/UHK.Agent-9.0.2-mac.dmg
+sha256:
+  darwin_arm64: a79ba14d6484a412095ba7f9074ce9f7691e620a5308d3f5b70185b00bc55a93
+artifacts:
+  app:
+    - UHK Agent.app

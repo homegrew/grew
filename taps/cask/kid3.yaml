@@ -1,0 +1,13 @@
+name: kid3
+version: 3.9.7
+description: Audio tagger focusing on efficiency
+homepage: https://kid3.kde.org/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/kid3/kid3-3.9.7-Darwin-arm64.dmg
+sha256:
+  darwin_arm64: f43e10d44fd2d4b33328f7e4db6d25e33a39716500bc9f1a7a3340e5b564b070
+artifacts:
+  app:
+    - kid3.app
+  bin:
+    - kid3-cli

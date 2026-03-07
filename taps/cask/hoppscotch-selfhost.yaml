@@ -1,0 +1,11 @@
+name: hoppscotch-selfhost
+version: 26.2.1-0
+description: Desktop client for SelfHost version of the Hoppscotch API development ecosystem
+homepage: https://hoppscotch.com/
+url:
+  darwin_arm64: https://github.com/hoppscotch/releases/releases/download/v26.2.1-0/Hoppscotch_SelfHost_mac_aarch64.dmg
+sha256:
+  darwin_arm64: 0a1406b82efd4cd19fe2a60c5eb79c5f851a1ce209ebbaf3db10c17fad750735
+artifacts:
+  app:
+    - Hoppscotch.app

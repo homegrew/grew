@@ -1,0 +1,21 @@
+name: e2tools
+version: 0.1.2
+description: Utilities to read, write, and manipulate files in ext2/3/4 filesystems
+homepage: https://e2tools.github.io/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/e2tools/blobs/sha256:956c82862c23ce3476acaf07cca07a5816443e06b8e9ad0f0617d2bc751372c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/e2tools/blobs/sha256:7b4a366c607a8bca05a57a5ae4b086a86370e33f7ee3d51d198b04fdfeffaa20
+  linux_amd64: https://ghcr.io/v2/homebrew/core/e2tools/blobs/sha256:181c2ef88431d8c4795507d7df121a32eae776ea8e89d1fb0029e00aaa017963
+  linux_arm64: https://ghcr.io/v2/homebrew/core/e2tools/blobs/sha256:2b96b8a916a9ac6332b720e7b2fa1863a4f7939b2d7de3e31ac71da74c7bfb2c
+sha256:
+  darwin_arm64: 956c82862c23ce3476acaf07cca07a5816443e06b8e9ad0f0617d2bc751372c4
+  darwin_amd64: 7b4a366c607a8bca05a57a5ae4b086a86370e33f7ee3d51d198b04fdfeffaa20
+  linux_amd64: 181c2ef88431d8c4795507d7df121a32eae776ea8e89d1fb0029e00aaa017963
+  linux_arm64: 2b96b8a916a9ac6332b720e7b2fa1863a4f7939b2d7de3e31ac71da74c7bfb2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - e2fsprogs

@@ -1,0 +1,13 @@
+name: rustrover
+version: 2025.3.4,253.31033.132
+description: Rust IDE
+homepage: https://www.jetbrains.com/rust/
+url:
+  darwin_arm64: https://download.jetbrains.com/rustrover/RustRover-2025.3.4-aarch64.dmg
+sha256:
+  darwin_arm64: 7e88458e38273399c7eb3c70c8ce0078a2ed19e34b894639e136496da326362e
+artifacts:
+  app:
+    - RustRover.app
+  bin:
+    - rustrover

@@ -1,0 +1,23 @@
+name: lighttpd
+version: 1.4.82
+description: Small memory footprint, flexible web-server
+homepage: https://www.lighttpd.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lighttpd/blobs/sha256:8e6000d9ebee3364d83babba1271abfb827020f0ac611bd1f137c59229132b84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lighttpd/blobs/sha256:cfdb31aa3e83547b1fc22979098f00453307751d367e5407825d1dcddb198123
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lighttpd/blobs/sha256:1895e77ef23228f1640ac369440fecfb78acc4d8ce9fcbd56af8a8fc01947aa6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lighttpd/blobs/sha256:84f45685dc6ea785eec1794bf41316bc38c85a3c11980d4d3dafa2b27cdae2ba
+sha256:
+  darwin_arm64: 8e6000d9ebee3364d83babba1271abfb827020f0ac611bd1f137c59229132b84
+  darwin_amd64: cfdb31aa3e83547b1fc22979098f00453307751d367e5407825d1dcddb198123
+  linux_amd64: 1895e77ef23228f1640ac369440fecfb78acc4d8ce9fcbd56af8a8fc01947aa6
+  linux_arm64: 84f45685dc6ea785eec1794bf41316bc38c85a3c11980d4d3dafa2b27cdae2ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openldap
+  - openssl@3
+  - pcre2

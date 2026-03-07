@@ -1,0 +1,19 @@
+name: proxyfor
+version: 0.5.0
+description: Proxy CLI for capturing and inspecting HTTP(S) and WS(S) traffic
+homepage: https://github.com/sigoden/proxyfor
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxyfor/blobs/sha256:949fa8ba3a87e64a58c042fe41b28d8f81891b08436757a0fd43c55a8a7276b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxyfor/blobs/sha256:60d4e3ed50f2cd2813b494a02be5386e9b41aade19c5ade38cfd9ecfeea0a6eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxyfor/blobs/sha256:88ea7fa84ae3d56bc167a24efa5aecd74e238bc22ba4fb618e0f68339c92a737
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxyfor/blobs/sha256:a4b6723eea32a8a33afe29de95462553e9abbf58dcc0b7e944a6504f84b74031
+sha256:
+  darwin_arm64: 949fa8ba3a87e64a58c042fe41b28d8f81891b08436757a0fd43c55a8a7276b6
+  darwin_amd64: 60d4e3ed50f2cd2813b494a02be5386e9b41aade19c5ade38cfd9ecfeea0a6eb
+  linux_amd64: 88ea7fa84ae3d56bc167a24efa5aecd74e238bc22ba4fb618e0f68339c92a737
+  linux_arm64: a4b6723eea32a8a33afe29de95462553e9abbf58dcc0b7e944a6504f84b74031
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

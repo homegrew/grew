@@ -1,0 +1,21 @@
+name: yaws
+version: 2.2.0
+description: Webserver for dynamic content (written in Erlang)
+homepage: https://erlyaws.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaws/blobs/sha256:4479efc9ab84cd8f012651d05d28a2ce94dbe56eb3c5bbfba8bed95652dff27a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaws/blobs/sha256:d2d4b74599fa98fdf09ac21cd21112418036dbfa5619cd3871810836b96172f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaws/blobs/sha256:f5585acc49cfeca4dc82ffb280b1ade5a2f8cb6164b801435718b9ee97858c77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaws/blobs/sha256:8c69ad4c9bdbcfa150427057eda6fff5827d3b9e1548bc52124dd1a572e0c0c4
+sha256:
+  darwin_arm64: 4479efc9ab84cd8f012651d05d28a2ce94dbe56eb3c5bbfba8bed95652dff27a
+  darwin_amd64: d2d4b74599fa98fdf09ac21cd21112418036dbfa5619cd3871810836b96172f7
+  linux_amd64: f5585acc49cfeca4dc82ffb280b1ade5a2f8cb6164b801435718b9ee97858c77
+  linux_arm64: 8c69ad4c9bdbcfa150427057eda6fff5827d3b9e1548bc52124dd1a572e0c0c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

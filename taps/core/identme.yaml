@@ -1,0 +1,19 @@
+name: identme
+version: 0.6.0
+description: Public IP address lookup
+homepage: https://www.ident.me
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/identme/blobs/sha256:fcc2884b11b9611ee7db60d19784821d87a0ea368454dcfb82f7207dd88b99bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/identme/blobs/sha256:9c44759d0efa524f4fb1dd080df603c5e76f07979e20cbd046d67a79f663ad4f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/identme/blobs/sha256:ab6f811abc28c9e9eb8402f34187210d1ee43ad0e915891c57f6a3962b43f22d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/identme/blobs/sha256:7374807cd07652348ba7d65f83719f748cca06c79f98a3384ba581ac57e6ed66
+sha256:
+  darwin_arm64: fcc2884b11b9611ee7db60d19784821d87a0ea368454dcfb82f7207dd88b99bb
+  darwin_amd64: 9c44759d0efa524f4fb1dd080df603c5e76f07979e20cbd046d67a79f663ad4f
+  linux_amd64: ab6f811abc28c9e9eb8402f34187210d1ee43ad0e915891c57f6a3962b43f22d
+  linux_arm64: 7374807cd07652348ba7d65f83719f748cca06c79f98a3384ba581ac57e6ed66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

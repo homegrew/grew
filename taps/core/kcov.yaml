@@ -1,0 +1,22 @@
+name: kcov
+version: 43
+description: Code coverage tester for compiled programs, Python, and shell scripts
+homepage: https://simonkagstrom.github.io/kcov/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kcov/blobs/sha256:66b47f9d61f53b74499405515b06143e082dbbb6dc2c7b5c1a5899f70a5e6627
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kcov/blobs/sha256:01edb51341252ffc753b17bdbdb63cf6c352cc2535742aa2f13c2915f07dda07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kcov/blobs/sha256:ad1cff7d8d0f3b6d044604c0ea0c6635048f01a9f2494724a91eac68646135a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kcov/blobs/sha256:7038d1494b3b56a5fc8f4d3f0b3bf3960597cd0516bf28bc90a2adf4068689b4
+sha256:
+  darwin_arm64: 66b47f9d61f53b74499405515b06143e082dbbb6dc2c7b5c1a5899f70a5e6627
+  darwin_amd64: 01edb51341252ffc753b17bdbdb63cf6c352cc2535742aa2f13c2915f07dda07
+  linux_amd64: ad1cff7d8d0f3b6d044604c0ea0c6635048f01a9f2494724a91eac68646135a4
+  linux_arm64: 7038d1494b3b56a5fc8f4d3f0b3bf3960597cd0516bf28bc90a2adf4068689b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dwarfutils
+  - openssl@3

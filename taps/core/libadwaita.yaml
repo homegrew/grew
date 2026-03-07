@@ -1,0 +1,28 @@
+name: libadwaita
+version: 1.8.4
+description: Building blocks for modern adaptive GNOME applications
+homepage: https://gnome.pages.gitlab.gnome.org/libadwaita/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libadwaita/blobs/sha256:4cd2ac3fbc9168f9555d8ad4fcaafe53cc40a2de410c9fe8ca123d37a6c161f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libadwaita/blobs/sha256:eebf0875e60949d43c7cf4ded9cc549d9669f64565a0af4fb0a5e09e894cce01
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libadwaita/blobs/sha256:6c2b9a7a44b8d61d33519f2bf2048117ef6d2d421cc4bc146a42bcb95b347b16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libadwaita/blobs/sha256:4d5bffba28cab52832a8f02ee841bfbd2794490eee813c0fd0104f04e01d25e6
+sha256:
+  darwin_arm64: 4cd2ac3fbc9168f9555d8ad4fcaafe53cc40a2de410c9fe8ca123d37a6c161f7
+  darwin_amd64: eebf0875e60949d43c7cf4ded9cc549d9669f64565a0af4fb0a5e09e894cce01
+  linux_amd64: 6c2b9a7a44b8d61d33519f2bf2048117ef6d2d421cc4bc146a42bcb95b347b16
+  linux_arm64: 4d5bffba28cab52832a8f02ee841bfbd2794490eee813c0fd0104f04e01d25e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - appstream
+  - fribidi
+  - glib
+  - graphene
+  - gtk4
+  - libsass
+  - pango
+  - gettext

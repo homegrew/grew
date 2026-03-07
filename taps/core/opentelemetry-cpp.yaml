@@ -1,0 +1,28 @@
+name: opentelemetry-cpp
+version: 1.25.0
+description: OpenTelemetry C++ Client
+homepage: https://opentelemetry.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opentelemetry-cpp/blobs/sha256:7276826eccdde252a6d3936070e35c009fec6c03009ab84e387ce8f309867d02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opentelemetry-cpp/blobs/sha256:d393fc5d8c0b8a8c967099170dfe05fba7e695dc6f2a8704052876dbc858ffe8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opentelemetry-cpp/blobs/sha256:3d6363a32208849226c719a83f2a5a3c8f9e59ffd0326ca2409214f285581864
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opentelemetry-cpp/blobs/sha256:d0af6c64e80568bcccff4c055e72814bdd7d55f7f17425aec95a71dc9c0e8e3c
+sha256:
+  darwin_arm64: 7276826eccdde252a6d3936070e35c009fec6c03009ab84e387ce8f309867d02
+  darwin_amd64: d393fc5d8c0b8a8c967099170dfe05fba7e695dc6f2a8704052876dbc858ffe8
+  linux_amd64: 3d6363a32208849226c719a83f2a5a3c8f9e59ffd0326ca2409214f285581864
+  linux_arm64: d0af6c64e80568bcccff4c055e72814bdd7d55f7f17425aec95a71dc9c0e8e3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - grpc
+  - nlohmann-json
+  - prometheus-cpp
+  - protobuf@33
+  - c-ares
+  - openssl@3
+  - re2

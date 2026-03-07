@@ -1,0 +1,19 @@
+name: libvidstab
+version: 1.1.1
+description: Transcode video stabilization plugin
+homepage: https://github.com/georgmartius/vid.stab
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvidstab/blobs/sha256:92e26eba0998b49ac6c3e2b5111e59007df158ffe697af89ed427c1f1fe7be0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvidstab/blobs/sha256:4263aef306ed5a576474d9101d8a75afc7c8e39f68a783940a81ae9fb772fe67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvidstab/blobs/sha256:d87451266aa81a807919bb25dec5cb85e2e79eca8fa768dba8c7b74f06e11be9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvidstab/blobs/sha256:4cd7955f3da1c7f0c168790291b6c93d4144593c5b351e9caec0ab0d69992aeb
+sha256:
+  darwin_arm64: 92e26eba0998b49ac6c3e2b5111e59007df158ffe697af89ed427c1f1fe7be0c
+  darwin_amd64: 4263aef306ed5a576474d9101d8a75afc7c8e39f68a783940a81ae9fb772fe67
+  linux_amd64: d87451266aa81a807919bb25dec5cb85e2e79eca8fa768dba8c7b74f06e11be9
+  linux_arm64: 4cd7955f3da1c7f0c168790291b6c93d4144593c5b351e9caec0ab0d69992aeb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: lla
+version: 0.5.4
+description: High-performance, extensible alternative to ls
+homepage: https://github.com/chaqchase/lla
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lla/blobs/sha256:870282c9e04501989eee4fcc8680ff9322cdde9086186a70d538e82cda2418e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lla/blobs/sha256:b63804de3daddb8f5a9b3f5022ff521e2ed881e7c540841b494ed7e4f90768a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lla/blobs/sha256:1ca1b85ec349925893810325d65802ed2fc836114cd6c88abb47ecf8ef4d11f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lla/blobs/sha256:a4e3158f446797d9b342be91cae1bd6872369b2f4c01cc2b69da553d136bf979
+sha256:
+  darwin_arm64: 870282c9e04501989eee4fcc8680ff9322cdde9086186a70d538e82cda2418e1
+  darwin_amd64: b63804de3daddb8f5a9b3f5022ff521e2ed881e7c540841b494ed7e4f90768a4
+  linux_amd64: 1ca1b85ec349925893810325d65802ed2fc836114cd6c88abb47ecf8ef4d11f7
+  linux_arm64: a4e3158f446797d9b342be91cae1bd6872369b2f4c01cc2b69da553d136bf979
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

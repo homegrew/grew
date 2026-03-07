@@ -1,0 +1,46 @@
+name: opencv
+version: 4.13.0
+description: Open source computer vision library
+homepage: https://opencv.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencv/blobs/sha256:5c2e4b59a294599914b71cfe295d00f2e2f7f1e2fb092371e8989f87fc3b6e9c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencv/blobs/sha256:08fd84dfb978d2ee062d00b86d3f5b90a1c3a2527489f6db065c41848cffdcd5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencv/blobs/sha256:b5246e45e8dd8cfb619724726a3d80d03346dbe6a42109da09abe188305e841e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencv/blobs/sha256:0115f8488bb9b3ff8835fe110700bfafa9fc3875eb4abd378d0cf673d85af122
+sha256:
+  darwin_arm64: 5c2e4b59a294599914b71cfe295d00f2e2f7f1e2fb092371e8989f87fc3b6e9c
+  darwin_amd64: 08fd84dfb978d2ee062d00b86d3f5b90a1c3a2527489f6db065c41848cffdcd5
+  linux_amd64: b5246e45e8dd8cfb619724726a3d80d03346dbe6a42109da09abe188305e841e
+  linux_arm64: 0115f8488bb9b3ff8835fe110700bfafa9fc3875eb4abd378d0cf673d85af122
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - ceres-solver
+  - eigen
+  - ffmpeg
+  - freetype
+  - gflags
+  - glog
+  - harfbuzz
+  - jpeg-turbo
+  - jsoncpp
+  - libpng
+  - libtiff
+  - numpy
+  - openblas
+  - openexr
+  - openjpeg
+  - openvino
+  - protobuf@33
+  - python@3.14
+  - tbb
+  - tesseract
+  - vtk
+  - webp
+  - glew
+  - imath
+  - libarchive

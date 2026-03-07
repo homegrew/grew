@@ -1,0 +1,19 @@
+name: rage
+version: 0.11.1
+description: Simple, modern, secure file encryption
+homepage: https://str4d.xyz/rage
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rage/blobs/sha256:25f8887b6d990b955f190d9ed8dcbdea5b812b984c69b7adc1b5604233f607ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rage/blobs/sha256:5030ea9c84062928ec800a5101edf75e70ec4459984aaa51858b9d250e80bcdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rage/blobs/sha256:87a45f4a404552dd7911b5f35180e7ca31a130628b420607d32c8699849deaa4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rage/blobs/sha256:e76cd438e4e721db962eb18c5e7d2d22c134be7b38fb9a3c2c197fa56a429399
+sha256:
+  darwin_arm64: 25f8887b6d990b955f190d9ed8dcbdea5b812b984c69b7adc1b5604233f607ab
+  darwin_amd64: 5030ea9c84062928ec800a5101edf75e70ec4459984aaa51858b9d250e80bcdb
+  linux_amd64: 87a45f4a404552dd7911b5f35180e7ca31a130628b420607d32c8699849deaa4
+  linux_arm64: e76cd438e4e721db962eb18c5e7d2d22c134be7b38fb9a3c2c197fa56a429399
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

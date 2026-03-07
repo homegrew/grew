@@ -1,0 +1,19 @@
+name: couchbase-shell
+version: 1.2.0
+description: Modern and fun shell for Couchbase Server and Capella
+homepage: https://couchbase.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/couchbase-shell/blobs/sha256:f594c38db7ee6a0a853ea4b07df60ff6d11f21550bbd0f3cf7567393789aedb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/couchbase-shell/blobs/sha256:10c55838e8d6cbc2c24c167a2b12bd506f76423d2be2dcc81fca15cd3b913de3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/couchbase-shell/blobs/sha256:134d0876c3c49d7b5263d167f66dd3fcd5dcbd017f611b303e6774bd46ebc646
+  linux_arm64: https://ghcr.io/v2/homebrew/core/couchbase-shell/blobs/sha256:2b73249abaa65a897832a3533057d118a70c2cf44801d7d3bf974a7b977458ab
+sha256:
+  darwin_arm64: f594c38db7ee6a0a853ea4b07df60ff6d11f21550bbd0f3cf7567393789aedb8
+  darwin_amd64: 10c55838e8d6cbc2c24c167a2b12bd506f76423d2be2dcc81fca15cd3b913de3
+  linux_amd64: 134d0876c3c49d7b5263d167f66dd3fcd5dcbd017f611b303e6774bd46ebc646
+  linux_arm64: 2b73249abaa65a897832a3533057d118a70c2cf44801d7d3bf974a7b977458ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

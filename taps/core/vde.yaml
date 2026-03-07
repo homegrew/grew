@@ -1,0 +1,19 @@
+name: vde
+version: 2.3.3
+description: Ethernet compliant virtual network
+homepage: https://github.com/virtualsquare/vde-2
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vde/blobs/sha256:7d38316ce1948eb727d590d88e81fb5c74f2ae4f0dcd9b7161266a4af1ff2e3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vde/blobs/sha256:9015f4eeed08db31898c74789119cbc543776f6eb13f4428da554f5d240c1697
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vde/blobs/sha256:d9ab4e00d44ce831749d0d4363ffee5332295292a5ebcf2d5379d64796b549d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vde/blobs/sha256:522952a405fbeafae167b3a044c95156d29ee89adbe317818906e750c0edf557
+sha256:
+  darwin_arm64: 7d38316ce1948eb727d590d88e81fb5c74f2ae4f0dcd9b7161266a4af1ff2e3b
+  darwin_amd64: 9015f4eeed08db31898c74789119cbc543776f6eb13f4428da554f5d240c1697
+  linux_amd64: d9ab4e00d44ce831749d0d4363ffee5332295292a5ebcf2d5379d64796b549d9
+  linux_arm64: 522952a405fbeafae167b3a044c95156d29ee89adbe317818906e750c0edf557
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

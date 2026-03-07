@@ -1,0 +1,22 @@
+name: goaccess
+version: 1.10.1
+description: Log analyzer and interactive viewer for the Apache Webserver
+homepage: https://goaccess.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goaccess/blobs/sha256:34069388b4e05e37b420a84dfe884befa76395c5821141ac2ecf131e3dd21e1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goaccess/blobs/sha256:8832a89900638b2c49c8ec52555115b5bb1e5a4684256b58773dfc97a7faaa31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goaccess/blobs/sha256:d6bbc76dd779693b909012b4507fc809738bf0df6478023cb5825b8bebfd368f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goaccess/blobs/sha256:788eb0bfa6852f5ee97084683b9219c1161b8078928e92f4c899a8ea0ea8d830
+sha256:
+  darwin_arm64: 34069388b4e05e37b420a84dfe884befa76395c5821141ac2ecf131e3dd21e1b
+  darwin_amd64: 8832a89900638b2c49c8ec52555115b5bb1e5a4684256b58773dfc97a7faaa31
+  linux_amd64: d6bbc76dd779693b909012b4507fc809738bf0df6478023cb5825b8bebfd368f
+  linux_arm64: 788eb0bfa6852f5ee97084683b9219c1161b8078928e92f4c899a8ea0ea8d830
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmaxminddb
+  - gettext

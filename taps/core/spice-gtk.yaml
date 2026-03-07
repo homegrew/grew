@@ -1,0 +1,43 @@
+name: spice-gtk
+version: 0.42
+description: GTK client/libraries for SPICE
+homepage: https://www.spice-space.org
+license: GPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spice-gtk/blobs/sha256:7ad0ed6ed58e9398be517b16d9ec4b6082d871e0662b49ae45d0228f4e6ce4ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spice-gtk/blobs/sha256:d52d67c6476174fc7389f1eb999f649097e2c5560ab1571db1489027393cf8b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spice-gtk/blobs/sha256:ca84d516eaae38af2beb7f30ebc30beaa744c6c34e84d7dcb3d9a72417b55918
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spice-gtk/blobs/sha256:25e897876c6900507c0cd80e3c20717d2526f1bc2240f81967565c84ed98e42b
+sha256:
+  darwin_arm64: 7ad0ed6ed58e9398be517b16d9ec4b6082d871e0662b49ae45d0228f4e6ce4ee
+  darwin_amd64: d52d67c6476174fc7389f1eb999f649097e2c5560ab1571db1489027393cf8b3
+  linux_amd64: ca84d516eaae38af2beb7f30ebc30beaa744c6c34e84d7dcb3d9a72417b55918
+  linux_arm64: 25e897876c6900507c0cd80e3c20717d2526f1bc2240f81967565c84ed98e42b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - glib
+  - gstreamer
+  - gtk+3
+  - jpeg-turbo
+  - json-glib
+  - libepoxy
+  - libsoup
+  - libusb
+  - libx11
+  - lz4
+  - openssl@3
+  - opus
+  - pango
+  - phodav
+  - pixman
+  - spice-protocol
+  - usbredir
+  - gobject-introspection
+  - harfbuzz

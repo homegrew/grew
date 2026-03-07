@@ -1,0 +1,19 @@
+name: libyubikey
+version: 1.13
+description: C library for manipulating Yubico one-time passwords
+homepage: https://yubico.github.io/yubico-c/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libyubikey/blobs/sha256:6f293dfc1a720368bb989bdb389bb507d785ac6cbab9d33753f56084255296f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libyubikey/blobs/sha256:e23c0a9cbcea4d8c864bb323cb36f800c75a7454eef58716a5bf32a2b4658a49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libyubikey/blobs/sha256:47be6e603ede5ef7fee2f40cfd4ac4338ca094d25b2a897388df4b90ca5101b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libyubikey/blobs/sha256:ba8cb3360047820a6e9bbc5147e99a5a4538c6061c60088aee8ed9ff65970061
+sha256:
+  darwin_arm64: 6f293dfc1a720368bb989bdb389bb507d785ac6cbab9d33753f56084255296f3
+  darwin_amd64: e23c0a9cbcea4d8c864bb323cb36f800c75a7454eef58716a5bf32a2b4658a49
+  linux_amd64: 47be6e603ede5ef7fee2f40cfd4ac4338ca094d25b2a897388df4b90ca5101b7
+  linux_arm64: ba8cb3360047820a6e9bbc5147e99a5a4538c6061c60088aee8ed9ff65970061
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

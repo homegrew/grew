@@ -1,0 +1,22 @@
+name: helib
+version: 2.3.0
+description: Implementation of homomorphic encryption
+homepage: https://github.com/homenc/HElib
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helib/blobs/sha256:803815f7a62fe41c3af529f91c0c5dec64562c76a9ed3c3af559f666e554a0a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helib/blobs/sha256:9da3101e6e55c978f00a9fc877a13ba5289ea18857ac5fe8fba073003ae61601
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helib/blobs/sha256:e2f2e649e6834f35404942593f0ad42da062d8bbadd314f05570d72a14b0dc3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helib/blobs/sha256:8c6145938664a747795370be1a28c3a06f586c02faf893053bd89c8507e47242
+sha256:
+  darwin_arm64: 803815f7a62fe41c3af529f91c0c5dec64562c76a9ed3c3af559f666e554a0a3
+  darwin_amd64: 9da3101e6e55c978f00a9fc877a13ba5289ea18857ac5fe8fba073003ae61601
+  linux_amd64: e2f2e649e6834f35404942593f0ad42da062d8bbadd314f05570d72a14b0dc3a
+  linux_arm64: 8c6145938664a747795370be1a28c3a06f586c02faf893053bd89c8507e47242
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - ntl

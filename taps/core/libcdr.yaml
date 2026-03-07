@@ -1,0 +1,23 @@
+name: libcdr
+version: 0.1.8
+description: C++ library to parse the file format of CorelDRAW documents
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libcdr
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcdr/blobs/sha256:e2428718f47c0d05853f80bc0e4578a223468a269320f8e5ca52c87e99afb96a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcdr/blobs/sha256:60e655184d0b933bb7c985e87d4b179e371421992d9cd68f3db6ca84c2612306
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcdr/blobs/sha256:79639eeb9420eed8e22b2757b6270bc7e5720ed7d8d28aa54a408a9533557b46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcdr/blobs/sha256:3425841969e05fc71350437f2f13388bc9e67fb3c1fb487f10e78cf227c8439c
+sha256:
+  darwin_arm64: e2428718f47c0d05853f80bc0e4578a223468a269320f8e5ca52c87e99afb96a
+  darwin_amd64: 60e655184d0b933bb7c985e87d4b179e371421992d9cd68f3db6ca84c2612306
+  linux_amd64: 79639eeb9420eed8e22b2757b6270bc7e5720ed7d8d28aa54a408a9533557b46
+  linux_arm64: 3425841969e05fc71350437f2f13388bc9e67fb3c1fb487f10e78cf227c8439c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - librevenge
+  - little-cms2

@@ -1,0 +1,19 @@
+name: tdb
+version: 1.4.15
+description: Trivial DataBase, by the Samba project
+homepage: https://tdb.samba.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tdb/blobs/sha256:263f2b310f2be1f0aeb5b98357dc28c88fbb6a46d116def650e7a30c05f3608e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tdb/blobs/sha256:960e975c3de42888b3b658be681a508da6b995997be2b5f7ea09bd7a07d4fd66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tdb/blobs/sha256:b07d10b7909161e804d6d707d300249a23bb86f9aee2cdf313cf92be772a1f47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tdb/blobs/sha256:d346592209e61e26edf76232e05e41f07deecbb3430e68f0d1bf6658a674b649
+sha256:
+  darwin_arm64: 263f2b310f2be1f0aeb5b98357dc28c88fbb6a46d116def650e7a30c05f3608e
+  darwin_amd64: 960e975c3de42888b3b658be681a508da6b995997be2b5f7ea09bd7a07d4fd66
+  linux_amd64: b07d10b7909161e804d6d707d300249a23bb86f9aee2cdf313cf92be772a1f47
+  linux_arm64: d346592209e61e26edf76232e05e41f07deecbb3430e68f0d1bf6658a674b649
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

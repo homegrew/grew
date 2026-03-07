@@ -1,0 +1,11 @@
+name: scrub-utility
+version: 1.3,2023.06
+description: Cleans folders and volumes to guard against potential leaks of sensitive data
+homepage: https://eclecticlight.co/lockrattler-systhist/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2023/06/scrub13.zip
+sha256:
+  darwin_arm64: d4537bc05615fcb4ef2a00b042a494b071b9cfaeb4ced7e8884fd3945034655d
+artifacts:
+  app:
+    - scrub13/Scrub.app

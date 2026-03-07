@@ -1,0 +1,23 @@
+name: suil
+version: 0.10.26
+description: Lightweight C library for loading and wrapping LV2 plugin UIs
+homepage: https://drobilla.net/software/suil.html
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/suil/blobs/sha256:adce2989ab987d21cf92671496284df3396f22dd113495c8ba44e2bbe90c22fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/suil/blobs/sha256:6a071ed376235a2f02b4a7a085b8eba6af48835aeccec1f4d3a44dd874a0e543
+  linux_amd64: https://ghcr.io/v2/homebrew/core/suil/blobs/sha256:96d50ae9d442fbc64791d9e12ea1fe44fb1aa0f3082bb37bcbff908e355c5e3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/suil/blobs/sha256:f33735b4417b37962f04cc8f6d4f199037af19d6ff15d2273e5784fa98efbfd3
+sha256:
+  darwin_arm64: adce2989ab987d21cf92671496284df3396f22dd113495c8ba44e2bbe90c22fb
+  darwin_amd64: 6a071ed376235a2f02b4a7a085b8eba6af48835aeccec1f4d3a44dd874a0e543
+  linux_amd64: 96d50ae9d442fbc64791d9e12ea1fe44fb1aa0f3082bb37bcbff908e355c5e3f
+  linux_arm64: f33735b4417b37962f04cc8f6d4f199037af19d6ff15d2273e5784fa98efbfd3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - lv2
+  - qt@5

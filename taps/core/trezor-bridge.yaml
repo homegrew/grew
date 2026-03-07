@@ -1,0 +1,19 @@
+name: trezor-bridge
+version: 2.0.33
+description: Trezor Communication Daemon
+homepage: https://github.com/trezor/trezord-go
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trezor-bridge/blobs/sha256:571d4d50ac297d3cbf185c383d7e9dce39043801ebef303bd63b5a07bf819777
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trezor-bridge/blobs/sha256:55eab81dca886c7fcb19eef1859d7166a3db6a4a24c1bcfae2b49829af8c45f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trezor-bridge/blobs/sha256:0039559d527cb2841e04cff9bb7bc59b6db17f6f74f442768af8a81776ccacd9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trezor-bridge/blobs/sha256:a1e934f0f4c538d7a228bcdf430b1f97df1c8e469e9cd685f8cfec93dd18334d
+sha256:
+  darwin_arm64: 571d4d50ac297d3cbf185c383d7e9dce39043801ebef303bd63b5a07bf819777
+  darwin_amd64: 55eab81dca886c7fcb19eef1859d7166a3db6a4a24c1bcfae2b49829af8c45f2
+  linux_amd64: 0039559d527cb2841e04cff9bb7bc59b6db17f6f74f442768af8a81776ccacd9
+  linux_arm64: a1e934f0f4c538d7a228bcdf430b1f97df1c8e469e9cd685f8cfec93dd18334d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

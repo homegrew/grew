@@ -1,0 +1,19 @@
+name: regal
+version: 0.39.0
+description: Linter and language server for Rego
+homepage: https://www.openpolicyagent.org/projects/regal
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/regal/blobs/sha256:38c9dc42a238d294e8af8d1845a95d3f78653f50a6e85156bb612953afec71ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/regal/blobs/sha256:18c5bfc4a88448032222accf5a1c995dbf2a7407385aa65be0137c2394f6b95f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/regal/blobs/sha256:c63569d05111bc400e338a73131f2750c3f24e8f0d5ccbe8132182542a770d9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/regal/blobs/sha256:958b0dc157f3981db595d4e07cacf717584060e637367ea075ebb734fe0ce018
+sha256:
+  darwin_arm64: 38c9dc42a238d294e8af8d1845a95d3f78653f50a6e85156bb612953afec71ef
+  darwin_amd64: 18c5bfc4a88448032222accf5a1c995dbf2a7407385aa65be0137c2394f6b95f
+  linux_amd64: c63569d05111bc400e338a73131f2750c3f24e8f0d5ccbe8132182542a770d9b
+  linux_arm64: 958b0dc157f3981db595d4e07cacf717584060e637367ea075ebb734fe0ce018
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

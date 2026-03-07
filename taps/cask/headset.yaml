@@ -1,0 +1,11 @@
+name: headset
+version: 4.2.1
+description: Music player powered by YouTube and Reddit
+homepage: https://headsetapp.co/
+url:
+  darwin_arm64: https://github.com/headsetapp/headset-electron/releases/download/v4.2.1/Headset-4.2.1-mac-arm64.zip
+sha256:
+  darwin_arm64: 073fb9b79225d516edf380fc2128083fcb8773e39d50e99cc4b9f9ea8ff33a68
+artifacts:
+  app:
+    - build/headset-darwin-arm64/Headset.app

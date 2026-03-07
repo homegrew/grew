@@ -1,0 +1,11 @@
+name: todoist-app
+version: 9.26.4
+description: To-do list
+homepage: https://todoist.com/home
+url:
+  darwin_arm64: https://electron-dl.todoist.com/mac/Todoist-darwin-9.26.4-arm64-latest.dmg
+sha256:
+  darwin_arm64: 4a846712cd043b6ed62d6612c0b5cca58ad84b6f13f9a43cac359c28107557af
+artifacts:
+  app:
+    - Todoist.app

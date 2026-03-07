@@ -1,0 +1,19 @@
+name: olsrd
+version: 0.9.8
+description: Implementation of the optimized link state routing protocol
+homepage: https://github.com/OLSR/olsrd
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/olsrd/blobs/sha256:d1b1dd66b69be130d7b2114b401afac090a19e908169401ae0ec784c17690569
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/olsrd/blobs/sha256:939cab603b98b8a89d3fc778b9c5dc7c4bebec64f731221a182442225ec6bf71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/olsrd/blobs/sha256:d2a2c0d6260662fcf37251ef13bb25010103ebf8c4fd57f2268ca2640f850313
+  linux_arm64: https://ghcr.io/v2/homebrew/core/olsrd/blobs/sha256:331929ce9da8857820aca9705abadb8681a883346e59031e2f43721d8dac0e70
+sha256:
+  darwin_arm64: d1b1dd66b69be130d7b2114b401afac090a19e908169401ae0ec784c17690569
+  darwin_amd64: 939cab603b98b8a89d3fc778b9c5dc7c4bebec64f731221a182442225ec6bf71
+  linux_amd64: d2a2c0d6260662fcf37251ef13bb25010103ebf8c4fd57f2268ca2640f850313
+  linux_arm64: 331929ce9da8857820aca9705abadb8681a883346e59031e2f43721d8dac0e70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

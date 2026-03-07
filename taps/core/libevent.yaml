@@ -1,0 +1,21 @@
+name: libevent
+version: 2.1.12
+description: Asynchronous event library
+homepage: https://libevent.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:c442ba9d640780f91257a853002b25840439b9c6b1c568864111901b760d328e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:5d54f13cd93d87185bd7bb592cb945d1f64cac3e88d1e46c2fb5d9ea538d9623
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:83ef4ce689a91f6fca013d6b4b0b2fcda3706080f8e0cccd056a3d94d6bc0f17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:2ebd43e299f937313fc4dc17c21a7446b53d5a46d7dad29922a763df1761acac
+sha256:
+  darwin_arm64: c442ba9d640780f91257a853002b25840439b9c6b1c568864111901b760d328e
+  darwin_amd64: 5d54f13cd93d87185bd7bb592cb945d1f64cac3e88d1e46c2fb5d9ea538d9623
+  linux_amd64: 83ef4ce689a91f6fca013d6b4b0b2fcda3706080f8e0cccd056a3d94d6bc0f17
+  linux_arm64: 2ebd43e299f937313fc4dc17c21a7446b53d5a46d7dad29922a763df1761acac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

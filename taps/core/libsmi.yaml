@@ -1,0 +1,19 @@
+name: libsmi
+version: 0.5.0
+description: Library to Access SMI MIB Information
+homepage: https://www.ibr.cs.tu-bs.de/projects/libsmi/
+license: TCL AND BSD-3-Clause AND Beerware
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsmi/blobs/sha256:4374c77eab2941ebb0d71538c6ebd82e9c4e39a0273fb64b7962f2357d7703b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsmi/blobs/sha256:bfcdbba78e4b03098907e36e11e66d2437951ff5de5e5c7a7c4d06fffb38bb5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsmi/blobs/sha256:7c1d475b1062dec302c4022771cbed447f00923a404a1ea131b79796f44d07f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsmi/blobs/sha256:f6d7e9c6409c712b8a8c414ba1ce204963a50731e659c748e8c24993fa175569
+sha256:
+  darwin_arm64: 4374c77eab2941ebb0d71538c6ebd82e9c4e39a0273fb64b7962f2357d7703b5
+  darwin_amd64: bfcdbba78e4b03098907e36e11e66d2437951ff5de5e5c7a7c4d06fffb38bb5d
+  linux_amd64: 7c1d475b1062dec302c4022771cbed447f00923a404a1ea131b79796f44d07f5
+  linux_arm64: f6d7e9c6409c712b8a8c414ba1ce204963a50731e659c748e8c24993fa175569
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

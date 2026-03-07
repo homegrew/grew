@@ -1,0 +1,24 @@
+name: suite-sparse
+version: 7.12.2
+description: Suite of Sparse Matrix Software
+homepage: https://people.engr.tamu.edu/davis/suitesparse.html
+license: BSD-3-Clause AND LGPL-2.1-or-later AND GPL-2.0-or-later AND Apache-2.0 AND GPL-3.0-only AND (LGPL-3.0-or-later OR GPL-2.0-or-later)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/suite-sparse/blobs/sha256:79e167c31cb17d1157e7a8ebad8acf1f78d35b2e9a470c6144f1a0863498e9f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/suite-sparse/blobs/sha256:3e193abe3edb85fd4b3d71dd576851713ed35609334a05dc1bd3ab1142ea0887
+  linux_amd64: https://ghcr.io/v2/homebrew/core/suite-sparse/blobs/sha256:257a2b7d9c80846940af149b3b139ff6e77dbd4dd150c14d467ca751d9834910
+  linux_arm64: https://ghcr.io/v2/homebrew/core/suite-sparse/blobs/sha256:a010fa4a7196e0f9f87df5b26918b0ad8c3454bfeeaeb30d3b2dff751d4f09f0
+sha256:
+  darwin_arm64: 79e167c31cb17d1157e7a8ebad8acf1f78d35b2e9a470c6144f1a0863498e9f9
+  darwin_amd64: 3e193abe3edb85fd4b3d71dd576851713ed35609334a05dc1bd3ab1142ea0887
+  linux_amd64: 257a2b7d9c80846940af149b3b139ff6e77dbd4dd150c14d467ca751d9834910
+  linux_arm64: a010fa4a7196e0f9f87df5b26918b0ad8c3454bfeeaeb30d3b2dff751d4f09f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - gmp
+  - mpfr
+  - libomp

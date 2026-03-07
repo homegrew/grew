@@ -1,0 +1,24 @@
+name: xcb-util-cursor
+version: 0.1.6
+description: XCB cursor library (replacement for libXcursor)
+homepage: https://xcb.freedesktop.org
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-cursor/blobs/sha256:414ef02d902f695b6f2b21b424bbc07006e3d04f197cf2a283078732330d60f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-cursor/blobs/sha256:acd487cbbeb0e1c7e0bc601c273f2323a0f34e5e30102c3a96a6cf132e776d52
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-cursor/blobs/sha256:3998270713b2f401a73790f53a64284bc41d20ecdb8245a2ce20e615c405920c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-cursor/blobs/sha256:9cb3947640cb3768b2b5f9d70570df4635a82fe8f596b257b884af324f5c4f9b
+sha256:
+  darwin_arm64: 414ef02d902f695b6f2b21b424bbc07006e3d04f197cf2a283078732330d60f8
+  darwin_amd64: acd487cbbeb0e1c7e0bc601c273f2323a0f34e5e30102c3a96a6cf132e776d52
+  linux_amd64: 3998270713b2f401a73790f53a64284bc41d20ecdb8245a2ce20e615c405920c
+  linux_arm64: 9cb3947640cb3768b2b5f9d70570df4635a82fe8f596b257b884af324f5c4f9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb
+  - xcb-util
+  - xcb-util-image
+  - xcb-util-renderutil

@@ -1,0 +1,19 @@
+name: uptoc
+version: 1.4.3
+description: Convenient static file deployment tool that supports multiple platforms
+homepage: https://github.com/bonaysoft/uptoc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uptoc/blobs/sha256:a3d7a5541827372a2aae8b7feafc0f335b732fd0697fb2cf1bd608c493b53662
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uptoc/blobs/sha256:898327e594c1901b920946634905310b4249f00d7d1e8a7aab3dd14e694785ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uptoc/blobs/sha256:ac376a91915fef295b2fc42dcc20591f5fc63246308ffe11d920a9ecf6ae59dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uptoc/blobs/sha256:423e183833efc41df40c270119843aa9eba45be0dc56187bebc095ca911721db
+sha256:
+  darwin_arm64: a3d7a5541827372a2aae8b7feafc0f335b732fd0697fb2cf1bd608c493b53662
+  darwin_amd64: 898327e594c1901b920946634905310b4249f00d7d1e8a7aab3dd14e694785ec
+  linux_amd64: ac376a91915fef295b2fc42dcc20591f5fc63246308ffe11d920a9ecf6ae59dc
+  linux_arm64: 423e183833efc41df40c270119843aa9eba45be0dc56187bebc095ca911721db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

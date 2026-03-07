@@ -1,0 +1,28 @@
+name: gtk-vnc
+version: 1.5.0
+description: VNC viewer widget for GTK
+homepage: https://gitlab.gnome.org/GNOME/gtk-vnc
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtk-vnc/blobs/sha256:83712dce18d0595c9f12c0a24ee58c518d944b7ac1d6fa1211dc1c73504cb351
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtk-vnc/blobs/sha256:812a78cc1831522196e0c032173f0ce36878b10270ac165bd7d9bfad1e00c110
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtk-vnc/blobs/sha256:2eb555c0acfd1a52c26080031a4938a3107a16a5aea2b531b2e034ece167940d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtk-vnc/blobs/sha256:83ecf718551bcb1caab684ab463cb3a3a2db17babf574aa3238fa3fd175d9124
+sha256:
+  darwin_arm64: 83712dce18d0595c9f12c0a24ee58c518d944b7ac1d6fa1211dc1c73504cb351
+  darwin_amd64: 812a78cc1831522196e0c032173f0ce36878b10270ac165bd7d9bfad1e00c110
+  linux_amd64: 2eb555c0acfd1a52c26080031a4938a3107a16a5aea2b531b2e034ece167940d
+  linux_arm64: 83ecf718551bcb1caab684ab463cb3a3a2db17babf574aa3238fa3fd175d9124
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gmp
+  - gnutls
+  - gtk+3
+  - libgcrypt
+  - gettext

@@ -1,0 +1,19 @@
+name: kapp
+version: 0.65.1
+description: CLI tool for Kubernetes users to group and manage bulk resources
+homepage: https://carvel.dev/kapp/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kapp/blobs/sha256:fe73d8448578e9c25d2d8d4796f8324ebc7128f92c19f676a897badebaf37009
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kapp/blobs/sha256:18ccb02f72f8fde9f6f795da1d7761f3ce93f80fad9c9f49e8d0296dea9ac52c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kapp/blobs/sha256:fd605a305a77e35c7bf97f2afb2f3a982181167a23be08dee14528e850b9374f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kapp/blobs/sha256:7c006f6de59bcb6d47d1ae1cbf1beeb15bdd7798fe7573f220fbbdafd5fd5931
+sha256:
+  darwin_arm64: fe73d8448578e9c25d2d8d4796f8324ebc7128f92c19f676a897badebaf37009
+  darwin_amd64: 18ccb02f72f8fde9f6f795da1d7761f3ce93f80fad9c9f49e8d0296dea9ac52c
+  linux_amd64: fd605a305a77e35c7bf97f2afb2f3a982181167a23be08dee14528e850b9374f
+  linux_arm64: 7c006f6de59bcb6d47d1ae1cbf1beeb15bdd7798fe7573f220fbbdafd5fd5931
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

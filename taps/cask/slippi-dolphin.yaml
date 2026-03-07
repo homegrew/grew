@@ -1,0 +1,11 @@
+name: slippi-dolphin
+version: 3.5.2
+description: Fork of the Dolphin GameCube and Wii emulator with netplay support via Slippi
+homepage: https://slippi.gg/
+url:
+  darwin_arm64: https://github.com/project-slippi/Ishiiruka/releases/download/v3.5.2/FM-Slippi-3.5.2-Mac.dmg
+sha256:
+  darwin_arm64: d6676d8a16d7f1ecc064b471b057209ca66c78e0854456168368ba6a1091c5cd
+artifacts:
+  app:
+    - Slippi Dolphin.app

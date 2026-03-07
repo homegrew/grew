@@ -1,0 +1,22 @@
+name: airshare
+version: 0.1.6
+description: Cross-platform content sharing in a local network
+homepage: https://airshare.readthedocs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/airshare/blobs/sha256:9636e624073ef0bf3852365718a9933eb208116b1d0ae2932a969c67f2c4b548
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/airshare/blobs/sha256:1ec4708178196534ee179dbf7a935c79ab727301e5dc40785b9266f5a9b543d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/airshare/blobs/sha256:1507a6fb1ca8151b9027443e9f81a5e62d4d452d7a872e90f0d37da94590e844
+  linux_arm64: https://ghcr.io/v2/homebrew/core/airshare/blobs/sha256:c02b42a4ae32c2de7fc16367ae5014a020ee3cbd1b9c0aae6c050ebafcc84a71
+sha256:
+  darwin_arm64: 9636e624073ef0bf3852365718a9933eb208116b1d0ae2932a969c67f2c4b548
+  darwin_amd64: 1ec4708178196534ee179dbf7a935c79ab727301e5dc40785b9266f5a9b543d1
+  linux_amd64: 1507a6fb1ca8151b9027443e9f81a5e62d4d452d7a872e90f0d37da94590e844
+  linux_arm64: c02b42a4ae32c2de7fc16367ae5014a020ee3cbd1b9c0aae6c050ebafcc84a71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

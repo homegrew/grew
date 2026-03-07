@@ -1,0 +1,21 @@
+name: ratfor
+version: 1.07
+description: Rational Fortran
+homepage: http://www.dgate.org/ratfor/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ratfor/blobs/sha256:033c1daa599d6e77dd8072fd53541f5772114d152a028599bd64cc8212217bf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ratfor/blobs/sha256:5b700039e4301b9b7e6ae3c9d4e377f0486673c450e63badb8d7c8fd953e5257
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ratfor/blobs/sha256:a8f68d0f668b609b9f5aaca3b14983db4f4c3b149eb6d3506a09cabf038b0446
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ratfor/blobs/sha256:1015c4ffcb3dc28fb45c5fc2700334b15fa67e1c6dbe133d172401b5d806ea42
+sha256:
+  darwin_arm64: 033c1daa599d6e77dd8072fd53541f5772114d152a028599bd64cc8212217bf7
+  darwin_amd64: 5b700039e4301b9b7e6ae3c9d4e377f0486673c450e63badb8d7c8fd953e5257
+  linux_amd64: a8f68d0f668b609b9f5aaca3b14983db4f4c3b149eb6d3506a09cabf038b0446
+  linux_arm64: 1015c4ffcb3dc28fb45c5fc2700334b15fa67e1c6dbe133d172401b5d806ea42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

@@ -1,0 +1,19 @@
+name: bstring
+version: 1.0.3
+description: "Fork of Paul Hsieh's Better String Library"
+homepage: https://mike.steinert.ca/bstring/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bstring/blobs/sha256:24503d1d048147dd52f869dadf9798aff2a658f0c79b6fc04239dc3fe91b8087
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bstring/blobs/sha256:3b7912d21554db0be416ba7b2d397062e3147463ca3ab62b6fecff5240e928f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bstring/blobs/sha256:c6f4ee274a77d1f62fa1220c2deffe2e08bb5e86ae39b993fae50813099b66a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bstring/blobs/sha256:94f20278cd1ff242a9015e59d4572f4e65a85dec934e9fcc6f81bd416b664ed6
+sha256:
+  darwin_arm64: 24503d1d048147dd52f869dadf9798aff2a658f0c79b6fc04239dc3fe91b8087
+  darwin_amd64: 3b7912d21554db0be416ba7b2d397062e3147463ca3ab62b6fecff5240e928f9
+  linux_amd64: c6f4ee274a77d1f62fa1220c2deffe2e08bb5e86ae39b993fae50813099b66a4
+  linux_arm64: 94f20278cd1ff242a9015e59d4572f4e65a85dec934e9fcc6f81bd416b664ed6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

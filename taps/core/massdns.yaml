@@ -1,0 +1,19 @@
+name: massdns
+version: 1.1.0
+description: High-performance DNS stub resolver
+homepage: https://github.com/blechschmidt/massdns
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/massdns/blobs/sha256:4ccc67bf2a881c34a2cd1ab5fab97cb109e9cdf1ac60eb6861ae8cea2f02b31d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/massdns/blobs/sha256:0faf77da9ccb9971a4007ef15e811faaadb03cef023719efce6538a7a4a1e21d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/massdns/blobs/sha256:191060c2099a28427517a56d63ba4ca14c410870a44ec6a2621fbdb2394853f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/massdns/blobs/sha256:1b8fc5d3cb53ae0d3f3b7e94757c3ec2cf458fec82695bda03aee3f7461f006c
+sha256:
+  darwin_arm64: 4ccc67bf2a881c34a2cd1ab5fab97cb109e9cdf1ac60eb6861ae8cea2f02b31d
+  darwin_amd64: 0faf77da9ccb9971a4007ef15e811faaadb03cef023719efce6538a7a4a1e21d
+  linux_amd64: 191060c2099a28427517a56d63ba4ca14c410870a44ec6a2621fbdb2394853f4
+  linux_arm64: 1b8fc5d3cb53ae0d3f3b7e94757c3ec2cf458fec82695bda03aee3f7461f006c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

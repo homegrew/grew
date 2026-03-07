@@ -1,0 +1,29 @@
+name: gtkspell3
+version: 3.0.10
+description: Gtk widget for highlighting and replacing misspelled words
+homepage: https://gtkspell.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkspell3/blobs/sha256:b64eeabbec9be14150c26d9213d525edb028af2546a0a1d85ea26e55d26d3b9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkspell3/blobs/sha256:0db8568fa754d743a6ee0a2e10804a464575a7cb2981599c4fccb0de4ff6fc10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkspell3/blobs/sha256:e59e7ffb60fbef74bbfd6c8191776880cf5b4cb697c5519dfcdf7f1e1a29fccf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkspell3/blobs/sha256:2107b9a48ac875459316fe149288cd8d0c48d1069000f009f15b007836a789df
+sha256:
+  darwin_arm64: b64eeabbec9be14150c26d9213d525edb028af2546a0a1d85ea26e55d26d3b9d
+  darwin_amd64: 0db8568fa754d743a6ee0a2e10804a464575a7cb2981599c4fccb0de4ff6fc10
+  linux_amd64: e59e7ffb60fbef74bbfd6c8191776880cf5b4cb697c5519dfcdf7f1e1a29fccf
+  linux_arm64: 2107b9a48ac875459316fe149288cd8d0c48d1069000f009f15b007836a789df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - enchant
+  - glib
+  - gtk+3
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango

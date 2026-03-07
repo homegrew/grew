@@ -1,0 +1,29 @@
+name: damask-grid
+version: 3.0.2
+description: Grid solver of DAMASK - Multi-physics crystal plasticity simulation package
+homepage: https://damask-multiphysics.org
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/damask-grid/blobs/sha256:ef7c164d6b15fac78f61d6c0b6832a4b3677a21bb055008518d4ed073c68a7d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/damask-grid/blobs/sha256:b8ea91f3e765b78baccb1fc875c2d3c8a40602b52a466c35a844a2c00e6d4c54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/damask-grid/blobs/sha256:aa33f2e59c50721d54fae4173af9537f24cd5b55354414f2a1f780c9553e8882
+  linux_arm64: https://ghcr.io/v2/homebrew/core/damask-grid/blobs/sha256:05a9a93b0cfa8969ffd550975e9180c39fb2fcd9db8741695ae0f02b1656b4a0
+sha256:
+  darwin_arm64: ef7c164d6b15fac78f61d6c0b6832a4b3677a21bb055008518d4ed073c68a7d1
+  darwin_amd64: b8ea91f3e765b78baccb1fc875c2d3c8a40602b52a466c35a844a2c00e6d4c54
+  linux_amd64: aa33f2e59c50721d54fae4173af9537f24cd5b55354414f2a1f780c9553e8882
+  linux_arm64: 05a9a93b0cfa8969ffd550975e9180c39fb2fcd9db8741695ae0f02b1656b4a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - gcc
+  - hdf5-mpi
+  - metis
+  - open-mpi
+  - openblas
+  - petsc
+  - scalapack
+  - libomp

@@ -1,0 +1,19 @@
+name: argo
+version: 4.0.1
+description: Get stuff done with container-native workflows for Kubernetes
+homepage: https://argoproj.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argo/blobs/sha256:a67cb283e6449b85920995f0a4baa01fbabf05933ea0a7e55b29cc80fee6503a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argo/blobs/sha256:ab9072783517374ae9bfa6e054d9a8ced67a71200efb603e096eea7d20c7c92f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argo/blobs/sha256:42173eecc5e063db39496883b381ec258934066f0ba1d2439963ddddd3c1e9b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argo/blobs/sha256:0d71920f391617f30c760247fc571ec1eb46461992a802637a6cf91780a1a628
+sha256:
+  darwin_arm64: a67cb283e6449b85920995f0a4baa01fbabf05933ea0a7e55b29cc80fee6503a
+  darwin_amd64: ab9072783517374ae9bfa6e054d9a8ced67a71200efb603e096eea7d20c7c92f
+  linux_amd64: 42173eecc5e063db39496883b381ec258934066f0ba1d2439963ddddd3c1e9b4
+  linux_arm64: 0d71920f391617f30c760247fc571ec1eb46461992a802637a6cf91780a1a628
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

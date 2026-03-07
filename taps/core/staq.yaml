@@ -1,0 +1,21 @@
+name: staq
+version: 3.5
+description: Full-stack quantum processing toolkit
+homepage: https://github.com/softwareQinc/staq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/staq/blobs/sha256:1518fdd5369e20863afefa4158c78b87fc4f01cf09967623a2b1af8225499790
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/staq/blobs/sha256:6b589aefacd45146637ecf6f4b39d69fd1e32aec9f2f60c0da80776cac60dc28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/staq/blobs/sha256:c16a8a25583b15bc7384c346ea277598642e637f19b36ebbab73dcd48e3dfb1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/staq/blobs/sha256:7c0ea0b4548a55c3c72c3f33761cc9bf58e460b84db244b951eb586b0c2b77d2
+sha256:
+  darwin_arm64: 1518fdd5369e20863afefa4158c78b87fc4f01cf09967623a2b1af8225499790
+  darwin_amd64: 6b589aefacd45146637ecf6f4b39d69fd1e32aec9f2f60c0da80776cac60dc28
+  linux_amd64: c16a8a25583b15bc7384c346ea277598642e637f19b36ebbab73dcd48e3dfb1b
+  linux_arm64: 7c0ea0b4548a55c3c72c3f33761cc9bf58e460b84db244b951eb586b0c2b77d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

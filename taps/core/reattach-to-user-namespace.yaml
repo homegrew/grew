@@ -1,0 +1,15 @@
+name: reattach-to-user-namespace
+version: 2.9
+description: Reattach process (e.g., tmux) to background
+homepage: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reattach-to-user-namespace/blobs/sha256:33e476a85796e31103b568becc52eacb83185bc9cd763cde17d4cf1cc8ef7198
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reattach-to-user-namespace/blobs/sha256:3cb86ce647f290fcc0752a0bc7d26776768a2fff11a9ec95c0bac3f82a137492
+sha256:
+  darwin_arm64: 33e476a85796e31103b568becc52eacb83185bc9cd763cde17d4cf1cc8ef7198
+  darwin_amd64: 3cb86ce647f290fcc0752a0bc7d26776768a2fff11a9ec95c0bac3f82a137492
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

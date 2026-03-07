@@ -1,0 +1,19 @@
+name: foreman
+version: 0.90.0
+description: Manage Procfile-based applications
+homepage: https://ddollar.github.io/foreman/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/foreman/blobs/sha256:961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/foreman/blobs/sha256:961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/foreman/blobs/sha256:23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061
+  linux_arm64: https://ghcr.io/v2/homebrew/core/foreman/blobs/sha256:23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061
+sha256:
+  darwin_arm64: 961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c
+  darwin_amd64: 961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c
+  linux_amd64: 23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061
+  linux_arm64: 23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nyan
+version: 1.2.5
+description: Colorizing `cat` command with syntax highlighting
+homepage: https://github.com/toshimaru/nyan
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nyan/blobs/sha256:7e97ca9001aaf786df7e79bb8eb4f1d9dbb7ff9aadedcb1dc4d0d7fcee9faf25
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nyan/blobs/sha256:3a814027797c17605f8002cbe8e1e2b269eac1dc44305f1d865495d52c832efd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nyan/blobs/sha256:ef4b49a2cb88228842ce74ccc4d8820c5d1a7cede0498e09e2e8cd58908699a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nyan/blobs/sha256:1e25e10f496c982017ae5f7274de92c9a25c8d04cfdd9a0a65ae899bd9aa6e45
+sha256:
+  darwin_arm64: 7e97ca9001aaf786df7e79bb8eb4f1d9dbb7ff9aadedcb1dc4d0d7fcee9faf25
+  darwin_amd64: 3a814027797c17605f8002cbe8e1e2b269eac1dc44305f1d865495d52c832efd
+  linux_amd64: ef4b49a2cb88228842ce74ccc4d8820c5d1a7cede0498e09e2e8cd58908699a1
+  linux_arm64: 1e25e10f496c982017ae5f7274de92c9a25c8d04cfdd9a0a65ae899bd9aa6e45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

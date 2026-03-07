@@ -1,0 +1,22 @@
+name: pwsafe
+version: 0.2.0
+description: Generate passwords and manage encrypted password databases
+homepage: https://github.com/nsd20463/pwsafe
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pwsafe/blobs/sha256:294f8a817d0eee693be29e24ea04c118f50a51d5f5d6c8531e994abf731f9041
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pwsafe/blobs/sha256:eb846550598837551cc50cf973ef55b655d385c25d47b4e7da87664963eff544
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pwsafe/blobs/sha256:8dcacc8d3f09ec672a4130e55695240788145e0159f6a606c67912d8411c2c0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pwsafe/blobs/sha256:400819e0247e3fd2cafc708b7e53f89760fd7f10ff016ab1bc370002de59899e
+sha256:
+  darwin_arm64: 294f8a817d0eee693be29e24ea04c118f50a51d5f5d6c8531e994abf731f9041
+  darwin_amd64: eb846550598837551cc50cf973ef55b655d385c25d47b4e7da87664963eff544
+  linux_amd64: 8dcacc8d3f09ec672a4130e55695240788145e0159f6a606c67912d8411c2c0d
+  linux_arm64: 400819e0247e3fd2cafc708b7e53f89760fd7f10ff016ab1bc370002de59899e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - readline

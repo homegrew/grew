@@ -1,0 +1,19 @@
+name: nebula
+version: 1.10.3
+description: Scalable overlay networking tool for connecting computers anywhere
+homepage: https://github.com/slackhq/nebula
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nebula/blobs/sha256:cbcbf92df4cd5074d7436121cbe41427c49442ec460c1d6525d1a982bf834ce1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nebula/blobs/sha256:5fd259f54695506a796a449eaf67fbd1add757137f1f28f163d3cd040b91e2c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nebula/blobs/sha256:40b31d951db63e1c0f916363782ca95f0ec73d9291cb67f19c45d94465dcd93a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nebula/blobs/sha256:ab93ebe3981b35e264fbb4a38f01a17ad5232ab8de894b735a137f3260f96051
+sha256:
+  darwin_arm64: cbcbf92df4cd5074d7436121cbe41427c49442ec460c1d6525d1a982bf834ce1
+  darwin_amd64: 5fd259f54695506a796a449eaf67fbd1add757137f1f28f163d3cd040b91e2c2
+  linux_amd64: 40b31d951db63e1c0f916363782ca95f0ec73d9291cb67f19c45d94465dcd93a
+  linux_arm64: ab93ebe3981b35e264fbb4a38f01a17ad5232ab8de894b735a137f3260f96051
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

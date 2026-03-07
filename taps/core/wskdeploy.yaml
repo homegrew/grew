@@ -1,0 +1,19 @@
+name: wskdeploy
+version: 1.2.0
+description: Apache OpenWhisk project deployment utility
+homepage: https://openwhisk.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wskdeploy/blobs/sha256:b62f6e49c4bc8484a1da38511cef47eff090660658b6b284d0a75c0f2b00adcd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wskdeploy/blobs/sha256:7cff7f54d9f9a600e9f8871f921f105b2ceebef547433f39dbf9c13529519a60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wskdeploy/blobs/sha256:eabf999a20dc7a3ce1b521b85e4a60731b740413ea133e5299ea534b0c44764a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wskdeploy/blobs/sha256:64612b924eacd2f375233837be737190dce67172247069d910ca354dd00c60b0
+sha256:
+  darwin_arm64: b62f6e49c4bc8484a1da38511cef47eff090660658b6b284d0a75c0f2b00adcd
+  darwin_amd64: 7cff7f54d9f9a600e9f8871f921f105b2ceebef547433f39dbf9c13529519a60
+  linux_amd64: eabf999a20dc7a3ce1b521b85e4a60731b740413ea133e5299ea534b0c44764a
+  linux_arm64: 64612b924eacd2f375233837be737190dce67172247069d910ca354dd00c60b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

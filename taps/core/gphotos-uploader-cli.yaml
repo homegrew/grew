@@ -1,0 +1,19 @@
+name: gphotos-uploader-cli
+version: 5.1.0
+description: Command-line tool to mass upload media folders to Google Photos
+homepage: https://gphotosuploader.github.io/gphotos-uploader-cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gphotos-uploader-cli/blobs/sha256:619c45e2f8edb6b143cf1face0d0f1ec3850f84fda574a35678666f29811ea0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gphotos-uploader-cli/blobs/sha256:7d22f32e0a810b842b2e4732d6a75d862a71b2af77859919b87131f9947cdb79
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gphotos-uploader-cli/blobs/sha256:54ba84dbd457e5fde7e704902489b5b2f98fcc3871f112599b8dad26c674bbf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gphotos-uploader-cli/blobs/sha256:210a7402f800452b5acf3c5759d03c3173fa775567377536cdada1ab962abf10
+sha256:
+  darwin_arm64: 619c45e2f8edb6b143cf1face0d0f1ec3850f84fda574a35678666f29811ea0e
+  darwin_amd64: 7d22f32e0a810b842b2e4732d6a75d862a71b2af77859919b87131f9947cdb79
+  linux_amd64: 54ba84dbd457e5fde7e704902489b5b2f98fcc3871f112599b8dad26c674bbf2
+  linux_arm64: 210a7402f800452b5acf3c5759d03c3173fa775567377536cdada1ab962abf10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

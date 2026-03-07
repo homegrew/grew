@@ -1,0 +1,30 @@
+name: solarus
+version: 2.0.3
+description: Action-RPG game engine
+homepage: https://www.solarus-games.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solarus/blobs/sha256:4fd142b272d98d79ac590c1723f8719583d14288491f7293de89bdc2f1117883
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solarus/blobs/sha256:a88bc9b75edb70e32c2eeeb8406222e7d228fa5c1cbf9c41707de427b2a88449
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solarus/blobs/sha256:21cb7e8faea567a0e086e689d070f2faabb7a8cc61008e9a73add92df30e09b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solarus/blobs/sha256:eea3bd59dce92c3d7186f3657fc3f0483f2ea7710d1463faa2d46c184a20df5a
+sha256:
+  darwin_arm64: 4fd142b272d98d79ac590c1723f8719583d14288491f7293de89bdc2f1117883
+  darwin_amd64: a88bc9b75edb70e32c2eeeb8406222e7d228fa5c1cbf9c41707de427b2a88449
+  linux_amd64: 21cb7e8faea567a0e086e689d070f2faabb7a8cc61008e9a73add92df30e09b3
+  linux_arm64: eea3bd59dce92c3d7186f3657fc3f0483f2ea7710d1463faa2d46c184a20df5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glm
+  - libmodplug
+  - libogg
+  - libvorbis
+  - luajit
+  - openal-soft
+  - physfs
+  - sdl2
+  - sdl2_image
+  - sdl2_ttf

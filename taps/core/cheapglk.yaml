@@ -1,0 +1,20 @@
+name: cheapglk
+version: 1.0.7
+description: Extremely minimal Glk library
+homepage: https://www.eblong.com/zarf/glk/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cheapglk/blobs/sha256:22ed56d38b62431e69151ad10604e0e8831a5f4b88d2f0d7105bb71d00708cf3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cheapglk/blobs/sha256:5a18e98d351775e2419fa5a15484bdcadad75fc7861518fd4069900c14117b8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cheapglk/blobs/sha256:70161bfc4d712eed8c06bc1542de58ac63726e196b5a2cf22ea449f8a627e089
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cheapglk/blobs/sha256:18c73a83fb777146fd406d1f6da79a8cf3eb530d271eecd761e0c881233cefde
+sha256:
+  darwin_arm64: 22ed56d38b62431e69151ad10604e0e8831a5f4b88d2f0d7105bb71d00708cf3
+  darwin_amd64: 5a18e98d351775e2419fa5a15484bdcadad75fc7861518fd4069900c14117b8d
+  linux_amd64: 70161bfc4d712eed8c06bc1542de58ac63726e196b5a2cf22ea449f8a627e089
+  linux_arm64: 18c73a83fb777146fd406d1f6da79a8cf3eb530d271eecd761e0c881233cefde
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

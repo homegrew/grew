@@ -1,0 +1,11 @@
+name: fluid
+version: 2.1.2
+description: Tool to turn a website into a desktop app
+homepage: https://fluidapp.com/
+url:
+  darwin_arm64: https://fluidapp.com/dist/Fluid_2.1.2.zip
+sha256:
+  darwin_arm64: cf58c480f631d2adc050b423e65776e253f52989ade9c1aaf8d77b8ced63a653
+artifacts:
+  app:
+    - Fluid.app

@@ -1,0 +1,19 @@
+name: serveit
+version: 0.0.3
+description: Synchronous server and rebuilder of static content
+homepage: https://github.com/garybernhardt/serveit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serveit/blobs/sha256:5f667f37bc21e896dc225f76ca5755aa0c47d994928cc2a09ed06534fa3acc6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serveit/blobs/sha256:9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serveit/blobs/sha256:e33ce3c0dbb5df24170e177bf1f0246d923e061304e201b54ed3f78051687a2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serveit/blobs/sha256:00ccf2f05dfd700cf0f862c6b9c1c250327d9d303fb6062f83133ff307c95197
+sha256:
+  darwin_arm64: 5f667f37bc21e896dc225f76ca5755aa0c47d994928cc2a09ed06534fa3acc6a
+  darwin_amd64: 9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7
+  linux_amd64: e33ce3c0dbb5df24170e177bf1f0246d923e061304e201b54ed3f78051687a2d
+  linux_arm64: 00ccf2f05dfd700cf0f862c6b9c1c250327d9d303fb6062f83133ff307c95197
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

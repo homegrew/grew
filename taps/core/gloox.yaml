@@ -1,0 +1,22 @@
+name: gloox
+version: 1.0.28
+description: C++ Jabber/XMPP library that handles the low-level protocol
+homepage: https://camaya.net/gloox/
+license: GPL-3.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gloox/blobs/sha256:1818e6a640fd72abca657dee0f7dd846408f5f7854723c9a98d6c7c776f8a0f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gloox/blobs/sha256:a91156a42c6e11a6e4ee53e5ae6afd651a986ebca33cbfcce0b8dc447d9e265e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gloox/blobs/sha256:cc2eb3e53975d18eaebb6bf9e34fb002a68420432d36e53f709e1d94446a7d2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gloox/blobs/sha256:99fb4b6444c8f11419eed45d4d29df4919b9d1c35e75615b787fc1de9269feaa
+sha256:
+  darwin_arm64: 1818e6a640fd72abca657dee0f7dd846408f5f7854723c9a98d6c7c776f8a0f9
+  darwin_amd64: a91156a42c6e11a6e4ee53e5ae6afd651a986ebca33cbfcce0b8dc447d9e265e
+  linux_amd64: cc2eb3e53975d18eaebb6bf9e34fb002a68420432d36e53f709e1d94446a7d2d
+  linux_arm64: 99fb4b6444c8f11419eed45d4d29df4919b9d1c35e75615b787fc1de9269feaa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn
+  - openssl@3

@@ -1,0 +1,25 @@
+name: zenity
+version: 4.2.1
+description: GTK+ dialog boxes for the command-line
+homepage: https://wiki.gnome.org/Projects/Zenity
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zenity/blobs/sha256:8f857e8d696d9295e07f70eb9a5e0cc6cf719075067caa5165533bab70aeac34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zenity/blobs/sha256:ff2b7d1e22f598f6e57b680fd9be996d8bb55986dd4a6498ae4adc7b41402589
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zenity/blobs/sha256:7ee597ea5175404f2aad125c99e2dbfc2108933e6e6de537089ce0b2907bc889
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zenity/blobs/sha256:5439c7552f08d0dae1241b741ed4ccff7ba6feee581651043badb3cb395f2d53
+sha256:
+  darwin_arm64: 8f857e8d696d9295e07f70eb9a5e0cc6cf719075067caa5165533bab70aeac34
+  darwin_amd64: ff2b7d1e22f598f6e57b680fd9be996d8bb55986dd4a6498ae4adc7b41402589
+  linux_amd64: 7ee597ea5175404f2aad125c99e2dbfc2108933e6e6de537089ce0b2907bc889
+  linux_arm64: 5439c7552f08d0dae1241b741ed4ccff7ba6feee581651043badb3cb395f2d53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk4
+  - libadwaita
+  - pango
+  - gettext

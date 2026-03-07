@@ -1,0 +1,24 @@
+name: flintrock
+version: 2.1.0
+description: Tool for launching Apache Spark clusters
+homepage: https://github.com/nchammas/flintrock
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flintrock/blobs/sha256:1561728f5ee680f1cf1f42eef3667cdddba8800903c8b9a68c1d8f341d2a8c0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flintrock/blobs/sha256:e5d6aff8a0895ff834f6e74bbb1ef9166120566d264166fa339a1d6ef2d11f90
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flintrock/blobs/sha256:17ac5368bc13e842cb4b2649cf2872c3d75a7c2c47e3f29c3db2c8cd63cb7416
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flintrock/blobs/sha256:c57d22478c82da7ea46b9b3f7b11315a9f7decb7862e557bb24214efe141ec45
+sha256:
+  darwin_arm64: 1561728f5ee680f1cf1f42eef3667cdddba8800903c8b9a68c1d8f341d2a8c0f
+  darwin_amd64: e5d6aff8a0895ff834f6e74bbb1ef9166120566d264166fa339a1d6ef2d11f90
+  linux_amd64: 17ac5368bc13e842cb4b2649cf2872c3d75a7c2c47e3f29c3db2c8cd63cb7416
+  linux_arm64: c57d22478c82da7ea46b9b3f7b11315a9f7decb7862e557bb24214efe141ec45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libsodium
+  - libyaml
+  - python@3.14

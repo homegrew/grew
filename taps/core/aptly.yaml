@@ -1,0 +1,19 @@
+name: aptly
+version: 1.6.2
+description: Swiss army knife for Debian repository management
+homepage: https://www.aptly.info/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aptly/blobs/sha256:ba67fa93b8c34004f46f52be6bb9db588833f14e195c7225184a6a8bc3ad14e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aptly/blobs/sha256:13d85438f90917d1e5e0ec47d983373305e5cdf6880c8eca78d95dff2c6c6e29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aptly/blobs/sha256:ff56ef982a5265758be69344b4d222bebb20bc969382bffc6110604a627e3f2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aptly/blobs/sha256:816f00ebfe70c1dfeba581f6b8b3e046b727b7cd1c0aa49e2213814e4b22d505
+sha256:
+  darwin_arm64: ba67fa93b8c34004f46f52be6bb9db588833f14e195c7225184a6a8bc3ad14e2
+  darwin_amd64: 13d85438f90917d1e5e0ec47d983373305e5cdf6880c8eca78d95dff2c6c6e29
+  linux_amd64: ff56ef982a5265758be69344b4d222bebb20bc969382bffc6110604a627e3f2d
+  linux_arm64: 816f00ebfe70c1dfeba581f6b8b3e046b727b7cd1c0aa49e2213814e4b22d505
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: vlc-setup
+version: 3.70
+description: Set up VLC for VLC Remote
+homepage: https://hobbyistsoftware.com/VLC
+url:
+  darwin_arm64: https://hobbyistsoftware.com/Downloads/VLCRemote/Versions/VLCSetup_3.70.dmg
+sha256:
+  darwin_arm64: 61db4b11491cfffaa9c54184e99ae75dbf288a5f4ffff88a9f0f318c8b983d54
+artifacts:
+  app:
+    - VLC Setup.app

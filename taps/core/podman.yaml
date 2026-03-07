@@ -1,0 +1,19 @@
+name: podman
+version: 5.8.0
+description: Tool for managing OCI containers and pods
+homepage: https://podman.io/
+license: Apache-2.0 AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podman/blobs/sha256:672b0ed596b448d7e9799fc44bcc1d2697544df04939a45dcd072801c02ed1d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podman/blobs/sha256:7a40e00870b0be2ea0414d42bbd946d9a444e6a594780280405bfd287e464454
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podman/blobs/sha256:ab6f074a98a44bb35389c2cb089c8008f9122e6c9ba6391849af0d6e6c2be3e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podman/blobs/sha256:647cc30789cccb99510df27baa2ea6b2f024c4f483a706e3ea353835e56f103a
+sha256:
+  darwin_arm64: 672b0ed596b448d7e9799fc44bcc1d2697544df04939a45dcd072801c02ed1d4
+  darwin_amd64: 7a40e00870b0be2ea0414d42bbd946d9a444e6a594780280405bfd287e464454
+  linux_amd64: ab6f074a98a44bb35389c2cb089c8008f9122e6c9ba6391849af0d6e6c2be3e1
+  linux_arm64: 647cc30789cccb99510df27baa2ea6b2f024c4f483a706e3ea353835e56f103a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

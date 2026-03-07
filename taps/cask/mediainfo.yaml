@@ -1,0 +1,11 @@
+name: mediainfo
+version: 26.01
+description: Display technical and tag data for video and audio files
+homepage: https://mediaarea.net/en/MediaInfo
+url:
+  darwin_arm64: https://mediaarea.net/download/binary/mediainfo-gui/26.01/MediaInfo_GUI_26.01_Mac.dmg
+sha256:
+  darwin_arm64: 71841e8abe9e6f5982ee81daa77449428573ca02c7f2eadb10c1d52c86a8646d
+artifacts:
+  app:
+    - MediaInfo.app

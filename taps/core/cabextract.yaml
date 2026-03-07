@@ -1,0 +1,19 @@
+name: cabextract
+version: 1.11
+description: Extract files from Microsoft cabinet files
+homepage: https://www.cabextract.org.uk/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cabextract/blobs/sha256:dc0b66c1f358e20b4eac4f6c9d44c6bcc62143732eddb9bc998db15d892e37b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cabextract/blobs/sha256:dc0647788eb36c731bcd20897ac0e15b64d8cc51a950910098e2ef4ccaca0d4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cabextract/blobs/sha256:5631eaa72da365accb3b576606fcfcc619879e83bfdd97c74233c073f6f42374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cabextract/blobs/sha256:f8b8544edc056eb3c18bfb480b135d6375c1a6ae50e5ab6faa31db9eb96248e5
+sha256:
+  darwin_arm64: dc0b66c1f358e20b4eac4f6c9d44c6bcc62143732eddb9bc998db15d892e37b3
+  darwin_amd64: dc0647788eb36c731bcd20897ac0e15b64d8cc51a950910098e2ef4ccaca0d4a
+  linux_amd64: 5631eaa72da365accb3b576606fcfcc619879e83bfdd97c74233c073f6f42374
+  linux_arm64: f8b8544edc056eb3c18bfb480b135d6375c1a6ae50e5ab6faa31db9eb96248e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

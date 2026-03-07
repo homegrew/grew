@@ -1,0 +1,19 @@
+name: threatcl
+version: 0.4.3
+description: Documenting your Threat Models with HCL
+homepage: https://github.com/threatcl/threatcl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/threatcl/blobs/sha256:c663e7c1d82304c6ff9a5f01d74e074cc21bdaf8aa0a2a2e78ceea69f798dda4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/threatcl/blobs/sha256:65019618369eceffef536051b61569b4a0ea6e8f01529aa044b01ed1aa42de67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/threatcl/blobs/sha256:10501b62fecd136bb4a34f0fda34707237850745298a10d0e1fff85a310bc96b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/threatcl/blobs/sha256:d28a81c239b1d3ed101b40c78ee967ad9664439870783ea5342b0de6330ed892
+sha256:
+  darwin_arm64: c663e7c1d82304c6ff9a5f01d74e074cc21bdaf8aa0a2a2e78ceea69f798dda4
+  darwin_amd64: 65019618369eceffef536051b61569b4a0ea6e8f01529aa044b01ed1aa42de67
+  linux_amd64: 10501b62fecd136bb4a34f0fda34707237850745298a10d0e1fff85a310bc96b
+  linux_arm64: d28a81c239b1d3ed101b40c78ee967ad9664439870783ea5342b0de6330ed892
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

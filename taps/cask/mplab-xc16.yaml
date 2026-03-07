@@ -1,0 +1,24 @@
+name: mplab-xc16
+version: 2.10
+description: Compiler for 16-bit PIC and SAM MCUs and MPUs
+homepage: https://www.microchip.com/mplab/compilers
+url:
+  darwin_arm64: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc16-v2.10-full-install-osx64-installer.dmg
+sha256:
+  darwin_arm64: db0ac553fbe9a6e903113cafff1f343a692728aa839c28a7bff36a9b6a12de55
+artifacts:
+  bin:
+    - xc16-ar
+    - xc16-bin2hex
+    - xc16-cc1
+    - xc16-gcc
+    - xc16-ld
+    - xc16-nm
+    - xc16-objcopy
+    - xc16-objdump
+    - xc16-pa
+    - xc16-ranlib
+    - xc16-readelf
+    - xc16-strings
+    - xc16-strip
+    - xc16-as

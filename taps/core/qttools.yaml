@@ -1,0 +1,25 @@
+name: qttools
+version: 6.10.2
+description: Facilitate the design, development, testing and deployment of applications
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qttools/blobs/sha256:1bb2951b965ac91201b28aa2060fb88c3784478baea5bd86395fe17b23618539
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qttools/blobs/sha256:9d1cda0f05a6415afbafe2c8072b607d6b3f5b1c147803bd179292c221627c17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qttools/blobs/sha256:242c56b484d044f863a6c8d5b8e3c890d6e6ffeb35c5085bd602e922c16dea1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qttools/blobs/sha256:4036fe0f58be98de7b5f6f5e49b7cd496a7e322fc58f30723e1c5e30efab7e4e
+sha256:
+  darwin_arm64: 1bb2951b965ac91201b28aa2060fb88c3784478baea5bd86395fe17b23618539
+  darwin_amd64: 9d1cda0f05a6415afbafe2c8072b607d6b3f5b1c147803bd179292c221627c17
+  linux_amd64: 242c56b484d044f863a6c8d5b8e3c890d6e6ffeb35c5085bd602e922c16dea1f
+  linux_arm64: 4036fe0f58be98de7b5f6f5e49b7cd496a7e322fc58f30723e1c5e30efab7e4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - litehtml
+  - qtbase
+  - qtdeclarative
+  - zstd
+  - gumbo-parser

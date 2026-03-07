@@ -1,0 +1,24 @@
+name: hatch
+version: 1.16.5
+description: Modern, extensible Python project management
+homepage: https://hatch.pypa.io/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hatch/blobs/sha256:9a2e0e8c30cf1a691ff0f25b3d9efcf5b6367ae09a848e4fb07ef78214bf6a09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hatch/blobs/sha256:b2cc46956ea42e0e3dd2bbb19d659ca4166ce5204c9c29a93efe3c0732dccb77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hatch/blobs/sha256:15ce2d5ef9b93cf71aeeb799fc96605a18e6d5387ce065d3e5a32123debece36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hatch/blobs/sha256:15ce2d5ef9b93cf71aeeb799fc96605a18e6d5387ce065d3e5a32123debece36
+sha256:
+  darwin_arm64: 9a2e0e8c30cf1a691ff0f25b3d9efcf5b6367ae09a848e4fb07ef78214bf6a09
+  darwin_amd64: b2cc46956ea42e0e3dd2bbb19d659ca4166ce5204c9c29a93efe3c0732dccb77
+  linux_amd64: 15ce2d5ef9b93cf71aeeb799fc96605a18e6d5387ce065d3e5a32123debece36
+  linux_arm64: 15ce2d5ef9b93cf71aeeb799fc96605a18e6d5387ce065d3e5a32123debece36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - python@3.14
+  - uv

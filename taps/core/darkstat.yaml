@@ -1,0 +1,19 @@
+name: darkstat
+version: 3.0.722
+description: Network traffic analyzer
+homepage: https://unix4lyfe.org/darkstat/
+license: BSD-4-Clause-UC AND GPL-2.0-only AND GPL-3.0-or-later AND X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/darkstat/blobs/sha256:8cfccbabe435d29d446814260e1b72630779beffead9eadd470af5afe9312693
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/darkstat/blobs/sha256:381397a54498e721b83ac4367f14777baa722d28bab6ec8e319888a7047719af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/darkstat/blobs/sha256:8011056a0e2efc7eb4552ef971ae53c912c08609e1a91d92e2daf4c4858e728c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/darkstat/blobs/sha256:9b34c601064b8dc71f66617d12b0e69408dd78a7db0c4a83d58851dd33293e7a
+sha256:
+  darwin_arm64: 8cfccbabe435d29d446814260e1b72630779beffead9eadd470af5afe9312693
+  darwin_amd64: 381397a54498e721b83ac4367f14777baa722d28bab6ec8e319888a7047719af
+  linux_amd64: 8011056a0e2efc7eb4552ef971ae53c912c08609e1a91d92e2daf4c4858e728c
+  linux_arm64: 9b34c601064b8dc71f66617d12b0e69408dd78a7db0c4a83d58851dd33293e7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

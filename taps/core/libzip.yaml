@@ -1,0 +1,22 @@
+name: libzip
+version: 1.11.4
+description: C library for reading, creating, and modifying zip archives
+homepage: https://libzip.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libzip/blobs/sha256:08417964bf803b08c703fa297f87ff23998f73c6cfe0b327103d02c9a41582af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libzip/blobs/sha256:5b808617db89e546465d756a8d8e0ee7068806e7dc58ae06952eea528ebdce8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libzip/blobs/sha256:a6c30ff07c163ba9e53ccf30f1f21124a2fc2942adca5d34c8595840638f6ea2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libzip/blobs/sha256:0dd50da8a8ac50d993717bc5d59ed132a311a8d05ff65839ec038890b25bd518
+sha256:
+  darwin_arm64: 08417964bf803b08c703fa297f87ff23998f73c6cfe0b327103d02c9a41582af
+  darwin_amd64: 5b808617db89e546465d756a8d8e0ee7068806e7dc58ae06952eea528ebdce8f
+  linux_amd64: a6c30ff07c163ba9e53ccf30f1f21124a2fc2942adca5d34c8595840638f6ea2
+  linux_arm64: 0dd50da8a8ac50d993717bc5d59ed132a311a8d05ff65839ec038890b25bd518
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz
+  - zstd

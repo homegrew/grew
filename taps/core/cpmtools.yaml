@@ -1,0 +1,21 @@
+name: cpmtools
+version: 2.23
+description: Tools to access CP/M file systems
+homepage: https://www.moria.de/~michael/cpmtools/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpmtools/blobs/sha256:efe04ea8503804dc1106da71858d617f5daffe04adb89a312aa32116396af00d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpmtools/blobs/sha256:bd45e97e460395206b013112e9cf49de6420d1f3c90c317488f32b413245132f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpmtools/blobs/sha256:c0808ec1572a5afa52930067fef0ea776df7de12aacd3357e014edfb9e80a3e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpmtools/blobs/sha256:0a727fbd579fed896a13912602e3471abef4497d7c3119f8e2b2ab94949912fb
+sha256:
+  darwin_arm64: efe04ea8503804dc1106da71858d617f5daffe04adb89a312aa32116396af00d
+  darwin_amd64: bd45e97e460395206b013112e9cf49de6420d1f3c90c317488f32b413245132f
+  linux_amd64: c0808ec1572a5afa52930067fef0ea776df7de12aacd3357e014edfb9e80a3e6
+  linux_arm64: 0a727fbd579fed896a13912602e3471abef4497d7c3119f8e2b2ab94949912fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdsk

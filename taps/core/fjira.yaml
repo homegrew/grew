@@ -1,0 +1,19 @@
+name: fjira
+version: 1.5.1
+description: Fuzzy-find cli jira interface
+homepage: https://github.com/mk-5/fjira
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fjira/blobs/sha256:b83a4173e4933fb25d8a195d77373490a078f3a2174bf108f546db78cb41b072
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fjira/blobs/sha256:c38cd61dcd9d1c5927363e58a6b859a9bd14e79d513176c2419c52c790ede176
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fjira/blobs/sha256:57b273af104278cb40731f2104f484f98a9f86392d83f9b92295b5d93baddc8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fjira/blobs/sha256:789050c51754e093aac630a57e92bb81aed1633b1948851f3cbcbbcc85800816
+sha256:
+  darwin_arm64: b83a4173e4933fb25d8a195d77373490a078f3a2174bf108f546db78cb41b072
+  darwin_amd64: c38cd61dcd9d1c5927363e58a6b859a9bd14e79d513176c2419c52c790ede176
+  linux_amd64: 57b273af104278cb40731f2104f484f98a9f86392d83f9b92295b5d93baddc8d
+  linux_arm64: 789050c51754e093aac630a57e92bb81aed1633b1948851f3cbcbbcc85800816
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: echidna
+version: 2.3.1
+description: Ethereum smart contract fuzzer
+homepage: https://github.com/crytic/echidna
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/echidna/blobs/sha256:95899ade7e9c31097b1c4f0121b4c007deb0190243f2eb7c4fc7707f635455f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/echidna/blobs/sha256:395a3e87b997ae6ab4b770078e00c265badd2b87b70da9612ddf30df187d1752
+  linux_amd64: https://ghcr.io/v2/homebrew/core/echidna/blobs/sha256:e6a7540c87c2a4d60019cdc5b748d14fe26f7add7b75493c5d7a7fa2a2df12e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/echidna/blobs/sha256:ad2f6057bd74851ec6f4567602593e200a6eab5eaeaeccccbaf1eee7c7274032
+sha256:
+  darwin_arm64: 95899ade7e9c31097b1c4f0121b4c007deb0190243f2eb7c4fc7707f635455f2
+  darwin_amd64: 395a3e87b997ae6ab4b770078e00c265badd2b87b70da9612ddf30df187d1752
+  linux_amd64: e6a7540c87c2a4d60019cdc5b748d14fe26f7add7b75493c5d7a7fa2a2df12e3
+  linux_arm64: ad2f6057bd74851ec6f4567602593e200a6eab5eaeaeccccbaf1eee7c7274032
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - crytic-compile
+  - gmp
+  - libff
+  - secp256k1
+  - slither-analyzer

@@ -1,0 +1,19 @@
+name: libsigc++
+version: 3.8.0
+description: Callback framework for C++
+homepage: https://libsigcplusplus.github.io/libsigcplusplus/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsigcxx/blobs/sha256:e34388e22fe43082e4eec509563daebb6c22e4741b951c1f7e51ca9dbfc6c1cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsigcxx/blobs/sha256:9252bbe32c72a9648b1a1310e6c66951ef7c8d2d864fcbcb70b7776ad057b117
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsigcxx/blobs/sha256:da465553d96b4047d92ffb26069a6beba6c4b8ee03c1372a257d463e7ede8cea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsigcxx/blobs/sha256:8d5977874a94340f0762a03848e4d1bb0c2f892b1c0cd2547113ffdc95f582ee
+sha256:
+  darwin_arm64: e34388e22fe43082e4eec509563daebb6c22e4741b951c1f7e51ca9dbfc6c1cb
+  darwin_amd64: 9252bbe32c72a9648b1a1310e6c66951ef7c8d2d864fcbcb70b7776ad057b117
+  linux_amd64: da465553d96b4047d92ffb26069a6beba6c4b8ee03c1372a257d463e7ede8cea
+  linux_arm64: 8d5977874a94340f0762a03848e4d1bb0c2f892b1c0cd2547113ffdc95f582ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

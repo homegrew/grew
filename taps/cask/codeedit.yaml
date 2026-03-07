@@ -1,0 +1,11 @@
+name: codeedit
+version: 0.3.6
+description: Code editor
+homepage: https://www.codeedit.app/
+url:
+  darwin_arm64: https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.6/CodeEdit.dmg
+sha256:
+  darwin_arm64: fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9
+artifacts:
+  app:
+    - CodeEdit.app

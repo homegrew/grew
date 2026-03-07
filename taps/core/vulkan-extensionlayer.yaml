@@ -1,0 +1,25 @@
+name: vulkan-extensionlayer
+version: 1.4.341.0
+description: Layer providing Vulkan features when native support is unavailable
+homepage: https://github.com/KhronosGroup/Vulkan-ExtensionLayer
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-extensionlayer/blobs/sha256:4801ab6a83086e66d75089be132850327fa89f4f55c46dbb7e21274693e46729
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-extensionlayer/blobs/sha256:b81c95c4c366c34a3d662768bc8ae9be4d97b5ec78ef965372e4b2bc195da41d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-extensionlayer/blobs/sha256:ef211ce2ce607aa1f852ff1b06c60522f89f518c75274ef516e2776b0fb4090c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-extensionlayer/blobs/sha256:69541c5a33d57b3c1c041eda50aea03450d16c3ec6b53e941c99d29759add85a
+sha256:
+  darwin_arm64: 4801ab6a83086e66d75089be132850327fa89f4f55c46dbb7e21274693e46729
+  darwin_amd64: b81c95c4c366c34a3d662768bc8ae9be4d97b5ec78ef965372e4b2bc195da41d
+  linux_amd64: ef211ce2ce607aa1f852ff1b06c60522f89f518c75274ef516e2776b0fb4090c
+  linux_arm64: 69541c5a33d57b3c1c041eda50aea03450d16c3ec6b53e941c99d29759add85a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glslang
+  - spirv-headers
+  - spirv-tools
+  - vulkan-headers
+  - vulkan-utility-libraries

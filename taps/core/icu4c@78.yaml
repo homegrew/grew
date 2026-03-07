@@ -1,0 +1,20 @@
+name: icu4c@78
+version: 78.2
+description: C/C++ and Java libraries for Unicode and globalization
+homepage: https://icu.unicode.org/home
+license: ICU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icu4c/78/blobs/sha256:09a7b7f48d9545c653c69a5b815dd20688ab5645b42ec54b445197d79643e7d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icu4c/78/blobs/sha256:07e6f9e32f5b4a8faea004fd398d15e88b4868f7d524c39bf9d41dcfe08ad649
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icu4c/78/blobs/sha256:1551d2c21bfc6a1ef4143e41a030c8773eab13821f70491a16025e1419768893
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icu4c/78/blobs/sha256:b2922da686864b89f1667c55132a937376685960de702f7a2399d09061815a1c
+sha256:
+  darwin_arm64: 09a7b7f48d9545c653c69a5b815dd20688ab5645b42ec54b445197d79643e7d1
+  darwin_amd64: 07e6f9e32f5b4a8faea004fd398d15e88b4868f7d524c39bf9d41dcfe08ad649
+  linux_amd64: 1551d2c21bfc6a1ef4143e41a030c8773eab13821f70491a16025e1419768893
+  linux_arm64: b2922da686864b89f1667c55132a937376685960de702f7a2399d09061815a1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

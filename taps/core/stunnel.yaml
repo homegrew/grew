@@ -1,0 +1,21 @@
+name: stunnel
+version: 5.77
+description: SSL tunneling program
+homepage: https://www.stunnel.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stunnel/blobs/sha256:ac74092907babf1f1a5f40745d61cc2c8ea2df2ede28ca17ed922342bcaba2c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stunnel/blobs/sha256:4316263bd80f6627cb4a92de46eac2eed50dd039b3079043cb7f00abfba96445
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stunnel/blobs/sha256:bf84a75ce8992b9842965c10e2f3a82e52c52576f853e01e81f89d2d46fff99c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stunnel/blobs/sha256:cdda7e79c931dad1a231b0329227f0f4946f9aceaed127bdc7041bfe641a83d8
+sha256:
+  darwin_arm64: ac74092907babf1f1a5f40745d61cc2c8ea2df2ede28ca17ed922342bcaba2c3
+  darwin_amd64: 4316263bd80f6627cb4a92de46eac2eed50dd039b3079043cb7f00abfba96445
+  linux_amd64: bf84a75ce8992b9842965c10e2f3a82e52c52576f853e01e81f89d2d46fff99c
+  linux_arm64: cdda7e79c931dad1a231b0329227f0f4946f9aceaed127bdc7041bfe641a83d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

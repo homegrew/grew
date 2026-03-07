@@ -1,0 +1,19 @@
+name: samply
+version: 0.13.1
+description: CLI sampling profiler
+homepage: https://github.com/mstange/samply
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/samply/blobs/sha256:7c85be94ac3ab2741c5674f88393e4a40cebededb1bded0fa745a7014befb3e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/samply/blobs/sha256:21667380c1fd74f7b166beb990228af8d6344ccfa33139c8abbc4601afbce857
+  linux_amd64: https://ghcr.io/v2/homebrew/core/samply/blobs/sha256:6a6eef40b7f6a26e0013ddb66b430bb2bb2c252f568aca126398b31e0e32467e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/samply/blobs/sha256:919b8b8f007bc8f801f81dbc4ccdd51fb8ab4c3570bbfffa2c7436ac5409e4a4
+sha256:
+  darwin_arm64: 7c85be94ac3ab2741c5674f88393e4a40cebededb1bded0fa745a7014befb3e8
+  darwin_amd64: 21667380c1fd74f7b166beb990228af8d6344ccfa33139c8abbc4601afbce857
+  linux_amd64: 6a6eef40b7f6a26e0013ddb66b430bb2bb2c252f568aca126398b31e0e32467e
+  linux_arm64: 919b8b8f007bc8f801f81dbc4ccdd51fb8ab4c3570bbfffa2c7436ac5409e4a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: cargo-generate
+version: 0.23.7
+description: Use pre-existing git repositories as templates
+homepage: https://github.com/cargo-generate/cargo-generate
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-generate/blobs/sha256:34791473078f76879f23bfa46b602f9bc861fdd9dd33bb2af4f3672ba5d0ca3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-generate/blobs/sha256:96eeba249472831404dd4a494e368ec236301647294a993d02ea5f51aa91e369
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-generate/blobs/sha256:bfd95c9ae28e6dd897a42f4dce961cc4589e25d78034b2363b5a21c8422b6531
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-generate/blobs/sha256:3897578d246b7f1fbff2f9594a6f7f2832086dc0a26575d7dd2ef8ce7b4f5329
+sha256:
+  darwin_arm64: 34791473078f76879f23bfa46b602f9bc861fdd9dd33bb2af4f3672ba5d0ca3f
+  darwin_amd64: 96eeba249472831404dd4a494e368ec236301647294a993d02ea5f51aa91e369
+  linux_amd64: bfd95c9ae28e6dd897a42f4dce961cc4589e25d78034b2363b5a21c8422b6531
+  linux_arm64: 3897578d246b7f1fbff2f9594a6f7f2832086dc0a26575d7dd2ef8ce7b4f5329
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

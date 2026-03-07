@@ -1,0 +1,19 @@
+name: git-spice
+version: 0.24.2
+description: Manage stacked Git branches
+homepage: https://abhinav.github.io/git-spice/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-spice/blobs/sha256:377d48138de5d3a3d0957305cb1b52d83db9126d9d4ec3145e0fc883ba0cf96b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-spice/blobs/sha256:9d655c0b65bf4d3a061f7b55ae16530585eca0fc8b5d45f00255ce1355b41a07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-spice/blobs/sha256:3a9ee526792a2ae72bf7d38728e2455d9843482481bfbe45a570ea2bb8b21c20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-spice/blobs/sha256:de2dbe8a6bde74014878969036a97710c9f7ae34b3fcddbe0edd3bfa91c2beaf
+sha256:
+  darwin_arm64: 377d48138de5d3a3d0957305cb1b52d83db9126d9d4ec3145e0fc883ba0cf96b
+  darwin_amd64: 9d655c0b65bf4d3a061f7b55ae16530585eca0fc8b5d45f00255ce1355b41a07
+  linux_amd64: 3a9ee526792a2ae72bf7d38728e2455d9843482481bfbe45a570ea2bb8b21c20
+  linux_arm64: de2dbe8a6bde74014878969036a97710c9f7ae34b3fcddbe0edd3bfa91c2beaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

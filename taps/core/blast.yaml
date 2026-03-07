@@ -1,0 +1,24 @@
+name: blast
+version: 2.17.0
+description: Basic Local Alignment Search Tool
+homepage: https://blast.ncbi.nlm.nih.gov/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blast/blobs/sha256:c899b804e8fe6495c89198d57cc47c37a3a75bd20bd671e224244ef956be8459
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blast/blobs/sha256:eb6553ea5219eb2369852aa9da77bc0afc683172707b0b2e49cdca45a0d25dbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blast/blobs/sha256:08990287f4f3ae8cc07763209bfe7a5a52f04d79b9baca6207cdf50c25172ca9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blast/blobs/sha256:5f1789a3a285888887723a7a606c0a74c072f99557ae5590a30b7ccfc088c2a0
+sha256:
+  darwin_arm64: c899b804e8fe6495c89198d57cc47c37a3a75bd20bd671e224244ef956be8459
+  darwin_amd64: eb6553ea5219eb2369852aa9da77bc0afc683172707b0b2e49cdca45a0d25dbe
+  linux_amd64: 08990287f4f3ae8cc07763209bfe7a5a52f04d79b9baca6207cdf50c25172ca9
+  linux_arm64: 5f1789a3a285888887723a7a606c0a74c072f99557ae5590a30b7ccfc088c2a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lmdb
+  - mbedtls@3
+  - pcre2
+  - libomp

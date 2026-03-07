@@ -1,0 +1,19 @@
+name: triangle
+version: 2.0.0
+description: Convert images to computer generated art using Delaunay triangulation
+homepage: https://github.com/esimov/triangle
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/triangle/blobs/sha256:fc82e8afee9b3ce6d620eeb7beb96c1789560d5228a7511f738c68341e4b4214
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/triangle/blobs/sha256:b19fb41b35bcfd2afb20cedca877cb42dd165e93ff3076b7832954c4a2ed8cb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/triangle/blobs/sha256:93ce74ef95c2f4cb8ea2c3ece364712611680fd719884f1efbfdca4e0198784f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/triangle/blobs/sha256:183396419c6ca77cf3ce28777ecf0575734beb1e02a6c6f63f02b2b13077eee2
+sha256:
+  darwin_arm64: fc82e8afee9b3ce6d620eeb7beb96c1789560d5228a7511f738c68341e4b4214
+  darwin_amd64: b19fb41b35bcfd2afb20cedca877cb42dd165e93ff3076b7832954c4a2ed8cb7
+  linux_amd64: 93ce74ef95c2f4cb8ea2c3ece364712611680fd719884f1efbfdca4e0198784f
+  linux_arm64: 183396419c6ca77cf3ce28777ecf0575734beb1e02a6c6f63f02b2b13077eee2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

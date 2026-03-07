@@ -1,0 +1,19 @@
+name: celero
+version: 2.9.1
+description: C++ Benchmark Authoring Library/Framework
+homepage: https://github.com/DigitalInBlue/Celero
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/celero/blobs/sha256:e8ca29a93a9121f3b3753d3489bce47b34c9466131283e79eb7056bbad5d898a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/celero/blobs/sha256:0fcf1555bd7ec8845edcb9365b0b4c8dd72a0559dd6b4b6875be2a624a951971
+  linux_amd64: https://ghcr.io/v2/homebrew/core/celero/blobs/sha256:06957574cf0c8ea5e37d6a2c6fa4b67398faab55dfead8964f439de11ca0c3a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/celero/blobs/sha256:89551d7946653975b6474506e1169006a32dd276ff6d36caf0c2c601cb39430f
+sha256:
+  darwin_arm64: e8ca29a93a9121f3b3753d3489bce47b34c9466131283e79eb7056bbad5d898a
+  darwin_amd64: 0fcf1555bd7ec8845edcb9365b0b4c8dd72a0559dd6b4b6875be2a624a951971
+  linux_amd64: 06957574cf0c8ea5e37d6a2c6fa4b67398faab55dfead8964f439de11ca0c3a2
+  linux_arm64: 89551d7946653975b6474506e1169006a32dd276ff6d36caf0c2c601cb39430f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: netlify-cli
+version: 24.0.1
+description: Netlify command-line tool
+homepage: https://www.netlify.com/docs/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netlify-cli/blobs/sha256:c4126d82ce321e22554b2dbdc610f865b5fb651be9aeb32b67247b6a7ec86bd3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netlify-cli/blobs/sha256:adf0b3e91f288e22fc1f7cbe5f6e9f538474fe2a4462e73de4e50a3dbddd2a11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netlify-cli/blobs/sha256:cffc784420d0029efae49b1aeb3c6ce5c832c9d4753946a6d257974c16da37dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netlify-cli/blobs/sha256:e333d66bc521baa982c5f1c28bfcb4e4875a530dc04ee91175d10e52b1a683b0
+sha256:
+  darwin_arm64: c4126d82ce321e22554b2dbdc610f865b5fb651be9aeb32b67247b6a7ec86bd3
+  darwin_amd64: adf0b3e91f288e22fc1f7cbe5f6e9f538474fe2a4462e73de4e50a3dbddd2a11
+  linux_amd64: cffc784420d0029efae49b1aeb3c6ce5c832c9d4753946a6d257974c16da37dd
+  linux_arm64: e333d66bc521baa982c5f1c28bfcb4e4875a530dc04ee91175d10e52b1a683b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - node
+  - vips
+  - gettext

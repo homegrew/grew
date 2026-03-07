@@ -1,0 +1,21 @@
+name: odbc2parquet
+version: 8.1.6
+description: CLI to query an ODBC data source and write the result into a Parquet file
+homepage: https://github.com/pacman82/odbc2parquet
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odbc2parquet/blobs/sha256:1f08f2f96ba5ce06636afe5ca933ee6c7b95b072e09989a9ad17a108ff51a217
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odbc2parquet/blobs/sha256:556f7be800b8124db0dde42557f70533e4ad90f951eed3b8832fdae3626680ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odbc2parquet/blobs/sha256:204fdde3ae62dc2805f0272f8dc67a16003dc35cad39f4610bb10bae73972e99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odbc2parquet/blobs/sha256:5aaba4bc94196bf33fd8abb0c8bee9e700ec52cacb8fcf00e8411e8ebb444968
+sha256:
+  darwin_arm64: 1f08f2f96ba5ce06636afe5ca933ee6c7b95b072e09989a9ad17a108ff51a217
+  darwin_amd64: 556f7be800b8124db0dde42557f70533e4ad90f951eed3b8832fdae3626680ec
+  linux_amd64: 204fdde3ae62dc2805f0272f8dc67a16003dc35cad39f4610bb10bae73972e99
+  linux_arm64: 5aaba4bc94196bf33fd8abb0c8bee9e700ec52cacb8fcf00e8411e8ebb444968
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - unixodbc

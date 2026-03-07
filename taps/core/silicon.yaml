@@ -1,0 +1,23 @@
+name: silicon
+version: 0.5.3
+description: Create beautiful image of your source code
+homepage: https://github.com/Aloxaf/silicon/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/silicon/blobs/sha256:8c4f89277fc20079a76958b8b4f6fe533cb555ecdea671f3c852ea2bbc530627
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/silicon/blobs/sha256:6dddd3c3a90fcbf06dfade35bc46e276bbe6027d74326b8315fe9307a0d98146
+  linux_amd64: https://ghcr.io/v2/homebrew/core/silicon/blobs/sha256:afe03c08e0975b4d4b1a90fdbfdf9c82767bd7b85becc71e72b4e63ed59b3074
+  linux_arm64: https://ghcr.io/v2/homebrew/core/silicon/blobs/sha256:ace34668e40622982946b0611cb2abceae9f9c2bcf5168c1a33bb338793d2176
+sha256:
+  darwin_arm64: 8c4f89277fc20079a76958b8b4f6fe533cb555ecdea671f3c852ea2bbc530627
+  darwin_amd64: 6dddd3c3a90fcbf06dfade35bc46e276bbe6027d74326b8315fe9307a0d98146
+  linux_amd64: afe03c08e0975b4d4b1a90fdbfdf9c82767bd7b85becc71e72b4e63ed59b3074
+  linux_arm64: ace34668e40622982946b0611cb2abceae9f9c2bcf5168c1a33bb338793d2176
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - harfbuzz

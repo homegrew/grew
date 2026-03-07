@@ -1,0 +1,19 @@
+name: secp256k1
+version: 0.7.1
+description: Optimized C library for EC operations on curve secp256k1
+homepage: https://github.com/bitcoin-core/secp256k1
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/secp256k1/blobs/sha256:da2fa73c7222a2b0ecd611814895c92fe175fd59b4a2e60fb9886993c549b842
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/secp256k1/blobs/sha256:c6a1dfbc6bfaec13225ebc3a979b131dcce74b475afebc60bb8993dd59087112
+  linux_amd64: https://ghcr.io/v2/homebrew/core/secp256k1/blobs/sha256:f11de3494970a0d0e9b4206ea0a8d5eea0fc119efcd3927e309fed714944c19c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/secp256k1/blobs/sha256:684efba291dd63c1bae72882e46db5aa6a94b052ea45db027bc776d964544fe1
+sha256:
+  darwin_arm64: da2fa73c7222a2b0ecd611814895c92fe175fd59b4a2e60fb9886993c549b842
+  darwin_amd64: c6a1dfbc6bfaec13225ebc3a979b131dcce74b475afebc60bb8993dd59087112
+  linux_amd64: f11de3494970a0d0e9b4206ea0a8d5eea0fc119efcd3927e309fed714944c19c
+  linux_arm64: 684efba291dd63c1bae72882e46db5aa6a94b052ea45db027bc776d964544fe1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: hyper-mcp
+version: 0.4.6
+description: MCP server that extends its capabilities through WebAssembly plugins
+homepage: https://github.com/hyper-mcp-rs/hyper-mcp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hyper-mcp/blobs/sha256:7d051f8f0e23b3e86dcb9f49ab97c13f282ceccdb4b4d624df8c7562e184c3e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hyper-mcp/blobs/sha256:e28061d683434589f0eebf83a05a588f41b3d69f3d2e99f5d9e083a82e468b03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hyper-mcp/blobs/sha256:68d56652cfa1de26c17638f2045ab146a6490b297902949f2c7741e4d005c0d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hyper-mcp/blobs/sha256:ba49a101ff319ea08dde1871c206b63e8387226d95382fb46dc96a05cda93035
+sha256:
+  darwin_arm64: 7d051f8f0e23b3e86dcb9f49ab97c13f282ceccdb4b4d624df8c7562e184c3e7
+  darwin_amd64: e28061d683434589f0eebf83a05a588f41b3d69f3d2e99f5d9e083a82e468b03
+  linux_amd64: 68d56652cfa1de26c17638f2045ab146a6490b297902949f2c7741e4d005c0d1
+  linux_arm64: ba49a101ff319ea08dde1871c206b63e8387226d95382fb46dc96a05cda93035
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

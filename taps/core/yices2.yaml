@@ -1,0 +1,21 @@
+name: yices2
+version: 2.7.0
+description: Yices SMT Solver
+homepage: https://yices.csl.sri.com/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yices2/blobs/sha256:2df989805c717cb45574f0bf1d84eabdec50cf4d5748a9f1f8bdbf0cde5c9fa2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yices2/blobs/sha256:a96677d6a211fad706027741156659a27248c92cfdc551af54320447b60c6541
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yices2/blobs/sha256:2509483f7fa18241b1a4005a408ec700e5c4e5c567e0e63d6f7f1f783b179bbc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yices2/blobs/sha256:5c7c20fd75460a7097c96078649acb02fce6c2d0a51612e87c2f2471840358c3
+sha256:
+  darwin_arm64: 2df989805c717cb45574f0bf1d84eabdec50cf4d5748a9f1f8bdbf0cde5c9fa2
+  darwin_amd64: a96677d6a211fad706027741156659a27248c92cfdc551af54320447b60c6541
+  linux_amd64: 2509483f7fa18241b1a4005a408ec700e5c4e5c567e0e63d6f7f1f783b179bbc
+  linux_arm64: 5c7c20fd75460a7097c96078649acb02fce6c2d0a51612e87c2f2471840358c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

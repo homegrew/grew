@@ -1,0 +1,19 @@
+name: scws
+version: 1.2.3
+description: Simple Chinese Word Segmentation
+homepage: https://github.com/hightman/scws
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scws/blobs/sha256:bb7b68fb9fcbf51ad8170b10e1e25c4674c99bc1e99870446659c5dcc2f0b5ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scws/blobs/sha256:2544902ff66d5a1f98ffed9720d2fee60ed89a06399fbc9108b5b9862600dcab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scws/blobs/sha256:146dd8b73ef91bcb9118130d13e30803b4213eddeda7d80b5f2a5d75e83f7c64
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scws/blobs/sha256:760697469c3bd5b9d57792dafe9b130f751f56a727f743700070b0cc95fac108
+sha256:
+  darwin_arm64: bb7b68fb9fcbf51ad8170b10e1e25c4674c99bc1e99870446659c5dcc2f0b5ba
+  darwin_amd64: 2544902ff66d5a1f98ffed9720d2fee60ed89a06399fbc9108b5b9862600dcab
+  linux_amd64: 146dd8b73ef91bcb9118130d13e30803b4213eddeda7d80b5f2a5d75e83f7c64
+  linux_arm64: 760697469c3bd5b9d57792dafe9b130f751f56a727f743700070b0cc95fac108
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

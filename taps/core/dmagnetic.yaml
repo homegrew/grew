@@ -1,0 +1,19 @@
+name: dmagnetic
+version: 0.37
+description: Magnetic Scrolls Interpreter
+homepage: https://www.dettus.net/dMagnetic/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dmagnetic/blobs/sha256:1d303cc3cb631d54618e5c0d4f0f84590d3396dd85ae4826f065f6a5ebd7a7e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dmagnetic/blobs/sha256:8875753d82c275224ab8a96db378e71d23dc4d94f4cdd7b8938bd7e997585f95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dmagnetic/blobs/sha256:f2ccdaa11d29351b10335eb79f20f4ffeb23029d542a867fe0e6bc2274618a1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dmagnetic/blobs/sha256:d2f8462efd3fae04c958d7af9918a011f98343627968b1ffdc9ad24619a24c59
+sha256:
+  darwin_arm64: 1d303cc3cb631d54618e5c0d4f0f84590d3396dd85ae4826f065f6a5ebd7a7e6
+  darwin_amd64: 8875753d82c275224ab8a96db378e71d23dc4d94f4cdd7b8938bd7e997585f95
+  linux_amd64: f2ccdaa11d29351b10335eb79f20f4ffeb23029d542a867fe0e6bc2274618a1b
+  linux_arm64: d2f8462efd3fae04c958d7af9918a011f98343627968b1ffdc9ad24619a24c59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

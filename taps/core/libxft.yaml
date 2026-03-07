@@ -1,0 +1,24 @@
+name: libxft
+version: 2.3.9
+description: "X.Org: X FreeType library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxft/blobs/sha256:029403b085a933f82ecb960f9d263b5afa7ca397de39c09b4dbd0b60a6918ca7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxft/blobs/sha256:266e09f717174e5fdbc01c7a35ceca534d0de45e0eee073938ad3e6b0aaaec78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxft/blobs/sha256:dadcce8067a08c22dc9ccce62bdaa8d0a3161d2036c74c14925c13d8c1b33c7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxft/blobs/sha256:24ab212aedfbe76096d5d48ae6a27ca7af4146b351df27b96b3136bef762af1b
+sha256:
+  darwin_arm64: 029403b085a933f82ecb960f9d263b5afa7ca397de39c09b4dbd0b60a6918ca7
+  darwin_amd64: 266e09f717174e5fdbc01c7a35ceca534d0de45e0eee073938ad3e6b0aaaec78
+  linux_amd64: dadcce8067a08c22dc9ccce62bdaa8d0a3161d2036c74c14925c13d8c1b33c7b
+  linux_arm64: 24ab212aedfbe76096d5d48ae6a27ca7af4146b351df27b96b3136bef762af1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - libx11
+  - libxrender

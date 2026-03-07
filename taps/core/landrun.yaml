@@ -1,0 +1,15 @@
+name: landrun
+version: 0.1.15
+description: Lightweight, secure sandbox for running Linux processes using Landlock LSM
+homepage: https://github.com/Zouuup/landrun
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/landrun/blobs/sha256:c390166baa601f71d8dc11c07ec0b3e1780ed5573b9fe35ebaed59046fcfc259
+  linux_arm64: https://ghcr.io/v2/homebrew/core/landrun/blobs/sha256:bd1fe9ee50db6b17e5b6d698951ca85eeb7e635d7aaa9de60e3ca6bf03a5e051
+sha256:
+  linux_amd64: c390166baa601f71d8dc11c07ec0b3e1780ed5573b9fe35ebaed59046fcfc259
+  linux_arm64: bd1fe9ee50db6b17e5b6d698951ca85eeb7e635d7aaa9de60e3ca6bf03a5e051
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: clisp
+version: 2.49.92
+description: GNU CLISP, a Common Lisp implementation
+homepage: https://clisp.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clisp/blobs/sha256:7c6012970cf0b4c270ea9144deb1aa018a820f333dd0a23c98116a6da81cdccd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clisp/blobs/sha256:a4225bd790a152ba74e307d69ff945b69aa0c04fc43b1c98b67298085300c129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clisp/blobs/sha256:ac69bd943aac71e7e7d782747b3e3369923e13cb8de3990c3afe6adf90e42ba2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clisp/blobs/sha256:21dbffbe262f2cd831a5b80be895bb1747d5e58091f28d5067be710cab22d832
+sha256:
+  darwin_arm64: 7c6012970cf0b4c270ea9144deb1aa018a820f333dd0a23c98116a6da81cdccd
+  darwin_amd64: a4225bd790a152ba74e307d69ff945b69aa0c04fc43b1c98b67298085300c129
+  linux_amd64: ac69bd943aac71e7e7d782747b3e3369923e13cb8de3990c3afe6adf90e42ba2
+  linux_arm64: 21dbffbe262f2cd831a5b80be895bb1747d5e58091f28d5067be710cab22d832
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libffcall
+  - libsigsegv
+  - readline

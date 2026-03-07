@@ -1,0 +1,19 @@
+name: lpeg
+version: 1.1.0
+description: Parsing Expression Grammars For Lua
+homepage: https://www.inf.puc-rio.br/~roberto/lpeg/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lpeg/blobs/sha256:f3ef5600e2a654aea26c48469ab8ffee9fe117c71fe4d617646939b0f74059bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lpeg/blobs/sha256:973868eaace571f6f1c7764cf02a41f7fdd20b59b01d380f2905e76de06e439e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lpeg/blobs/sha256:9087115cb278f1b318ca5334804948f0a44c7983d36acb0b5b171b12bd97df3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lpeg/blobs/sha256:658195428657fbe6cbf45c95ab2e69dd416767ddbe6c02593a03984d1efcffdc
+sha256:
+  darwin_arm64: f3ef5600e2a654aea26c48469ab8ffee9fe117c71fe4d617646939b0f74059bd
+  darwin_amd64: 973868eaace571f6f1c7764cf02a41f7fdd20b59b01d380f2905e76de06e439e
+  linux_amd64: 9087115cb278f1b318ca5334804948f0a44c7983d36acb0b5b171b12bd97df3f
+  linux_arm64: 658195428657fbe6cbf45c95ab2e69dd416767ddbe6c02593a03984d1efcffdc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

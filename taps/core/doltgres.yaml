@@ -1,0 +1,21 @@
+name: doltgres
+version: 0.55.5
+description: Dolt for Postgres
+homepage: https://github.com/dolthub/doltgresql
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doltgres/blobs/sha256:2978ff02c13ea4e7fae4b815e8a2904b6922920e879cf5a362142051462a3f5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doltgres/blobs/sha256:fef92cd639bb76e36884566006d7c8b0c1ddbee7fe8108954a5d9ed41e771f03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doltgres/blobs/sha256:93cd2cef38cddf0a3fcdd25896cb7461c611a506c2effb2af9cd7405217e9161
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doltgres/blobs/sha256:00bfd71ba6ab96c7f1c6ab83d5494c519629cd81c3c628a37922347c8e8b0c09
+sha256:
+  darwin_arm64: 2978ff02c13ea4e7fae4b815e8a2904b6922920e879cf5a362142051462a3f5b
+  darwin_amd64: fef92cd639bb76e36884566006d7c8b0c1ddbee7fe8108954a5d9ed41e771f03
+  linux_amd64: 93cd2cef38cddf0a3fcdd25896cb7461c611a506c2effb2af9cd7405217e9161
+  linux_arm64: 00bfd71ba6ab96c7f1c6ab83d5494c519629cd81c3c628a37922347c8e8b0c09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78

@@ -1,0 +1,25 @@
+name: certbot
+version: 5.3.1
+description: "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
+homepage: https://certbot.eff.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/certbot/blobs/sha256:2c2ef34848151c578de9de1b03035c4dcbf79bf70f868a6cb53a2902847fb53b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/certbot/blobs/sha256:617af3fc77548a94bc69b48a75bf8ad40c0420186b91742f35a16b49c784a1b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/certbot/blobs/sha256:6d4a36eb382b2ece1a06331a9d07a2528260cfc86d293892255f0225cecc9056
+  linux_arm64: https://ghcr.io/v2/homebrew/core/certbot/blobs/sha256:cb2775567f405d36bd367d7c2df5e43fe9cce9d22b18dcc8a5ebf6905539d5ab
+sha256:
+  darwin_arm64: 2c2ef34848151c578de9de1b03035c4dcbf79bf70f868a6cb53a2902847fb53b
+  darwin_amd64: 617af3fc77548a94bc69b48a75bf8ad40c0420186b91742f35a16b49c784a1b8
+  linux_amd64: 6d4a36eb382b2ece1a06331a9d07a2528260cfc86d293892255f0225cecc9056
+  linux_arm64: cb2775567f405d36bd367d7c2df5e43fe9cce9d22b18dcc8a5ebf6905539d5ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - augeas
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

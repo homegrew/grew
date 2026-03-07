@@ -1,0 +1,19 @@
+name: fileql
+version: 0.10.0
+description: Run SQL-like query on local files instead of database files using the GitQL SDK
+homepage: https://github.com/AmrDeveloper/FileQL
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fileql/blobs/sha256:5a39972a32477bcc13c803f2d6dfe5e3c82f9f2cff43e0c82395d5cf38464400
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fileql/blobs/sha256:d86657e76e6854b5a4924936988f6f7ab2d46346a8409d6c44341acb37f27c1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fileql/blobs/sha256:cea79c715f434f14436ebe2cebb5d7ede2f5c2576a6956c18df1c5a0c25426b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fileql/blobs/sha256:82e6b09d1c4aae5fd9342910eb5551830a8cfd4b00998cc78f775d22c147c82e
+sha256:
+  darwin_arm64: 5a39972a32477bcc13c803f2d6dfe5e3c82f9f2cff43e0c82395d5cf38464400
+  darwin_amd64: d86657e76e6854b5a4924936988f6f7ab2d46346a8409d6c44341acb37f27c1e
+  linux_amd64: cea79c715f434f14436ebe2cebb5d7ede2f5c2576a6956c18df1c5a0c25426b5
+  linux_arm64: 82e6b09d1c4aae5fd9342910eb5551830a8cfd4b00998cc78f775d22c147c82e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

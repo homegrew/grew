@@ -1,0 +1,21 @@
+name: hpack
+version: 0.39.1
+description: Modern format for Haskell packages
+homepage: https://github.com/sol/hpack
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hpack/blobs/sha256:6d24fee8d0bbb3e9e5effcf8ab18f845e9f31c2f769925496fbb109c887e4c61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hpack/blobs/sha256:10acf47f872a22560f35cdfef1b78682691bc7d05d862d64892c99778c08016c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hpack/blobs/sha256:f8eb68c22ecd1373502fd2f657f99e26afa7f3cfce4700954130e7912529e213
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hpack/blobs/sha256:d98373f8b719147e0755b980225eead700cccc7c7a05e6ff63cec7cb49fb23e5
+sha256:
+  darwin_arm64: 6d24fee8d0bbb3e9e5effcf8ab18f845e9f31c2f769925496fbb109c887e4c61
+  darwin_amd64: 10acf47f872a22560f35cdfef1b78682691bc7d05d862d64892c99778c08016c
+  linux_amd64: f8eb68c22ecd1373502fd2f657f99e26afa7f3cfce4700954130e7912529e213
+  linux_arm64: d98373f8b719147e0755b980225eead700cccc7c7a05e6ff63cec7cb49fb23e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

@@ -1,0 +1,11 @@
+name: nextcloud-talk
+version: 2.1.1
+description: Official Nextcloud Talk Desktop client
+homepage: https://nextcloud.com/talk/
+url:
+  darwin_arm64: https://github.com/nextcloud-releases/talk-desktop/releases/download/v2.1.1/Nextcloud.Talk-macos-universal.dmg
+sha256:
+  darwin_arm64: ae9ebe6d86f763cc845d8518f9cb83a3b2f0e9cabf1149cf8cb22ab1c29e50b7
+artifacts:
+  app:
+    - Nextcloud Talk.app

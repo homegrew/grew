@@ -1,0 +1,21 @@
+name: libiscsi
+version: 1.20.3
+description: Client library and utilities for iscsi
+homepage: https://github.com/sahlberg/libiscsi
+license: LicenseRef-Homebrew-public-domain AND LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libiscsi/blobs/sha256:228ad58b2cfd83ee90f023e8eb33a905b2fd142121ac57ed7cebd4eab871aad2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libiscsi/blobs/sha256:e05be47eac3f6c387f663509646de8afb2483dea007288c5ce10e56e345ba93f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libiscsi/blobs/sha256:74ba286756eb043dbf79162eb0f4dc7c1f7b495d921ae7f92b7550cae1923b85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libiscsi/blobs/sha256:1e891819a67fc0053fed82690c58fcb76e72e67313bdd06ff11efd445546e28d
+sha256:
+  darwin_arm64: 228ad58b2cfd83ee90f023e8eb33a905b2fd142121ac57ed7cebd4eab871aad2
+  darwin_amd64: e05be47eac3f6c387f663509646de8afb2483dea007288c5ce10e56e345ba93f
+  linux_amd64: 74ba286756eb043dbf79162eb0f4dc7c1f7b495d921ae7f92b7550cae1923b85
+  linux_arm64: 1e891819a67fc0053fed82690c58fcb76e72e67313bdd06ff11efd445546e28d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cunit

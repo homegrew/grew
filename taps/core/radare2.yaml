@@ -1,0 +1,21 @@
+name: radare2
+version: 6.1.0
+description: Reverse engineering framework
+homepage: https://radare.org
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/radare2/blobs/sha256:240320fa43cb3033394631e6f6f5f33dbe1c1b4d693f119f557a9d0c0ac6da7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/radare2/blobs/sha256:12125ce71b89e52f82f9136d0e03116cbd35934c8e2fbd23c8b0eea1afdcdd8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/radare2/blobs/sha256:ce8996bbdb615680c988fd10d44fea3f0f70aae717c78629beedfc9ad9917075
+  linux_arm64: https://ghcr.io/v2/homebrew/core/radare2/blobs/sha256:b2965a379545e0946594687eeeff334355bcb3db3ff25815b2d6e4daa6cb43cd
+sha256:
+  darwin_arm64: 240320fa43cb3033394631e6f6f5f33dbe1c1b4d693f119f557a9d0c0ac6da7c
+  darwin_amd64: 12125ce71b89e52f82f9136d0e03116cbd35934c8e2fbd23c8b0eea1afdcdd8d
+  linux_amd64: ce8996bbdb615680c988fd10d44fea3f0f70aae717c78629beedfc9ad9917075
+  linux_arm64: b2965a379545e0946594687eeeff334355bcb3db3ff25815b2d6e4daa6cb43cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pkgconf

@@ -1,0 +1,19 @@
+name: elvish
+version: 0.21.0
+description: Friendly and expressive shell
+homepage: https://elv.sh/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elvish/blobs/sha256:6965613c8e432735d93e6db58d0cfeab81638acb8ee0f2b81db3e75560687c20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elvish/blobs/sha256:2bebab1544e5e8a296212b246bb12302e5115dc1bcdb5d9722d7b08c5219e126
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elvish/blobs/sha256:b9b4d25746ddb91b1c63be65408dd2e2c46b20e4703ebec8943e2697d9a7b990
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elvish/blobs/sha256:73d28cc43ad48e808dd7d5fe0942a7d53da195e538fe8d76363f04915d6b0936
+sha256:
+  darwin_arm64: 6965613c8e432735d93e6db58d0cfeab81638acb8ee0f2b81db3e75560687c20
+  darwin_amd64: 2bebab1544e5e8a296212b246bb12302e5115dc1bcdb5d9722d7b08c5219e126
+  linux_amd64: b9b4d25746ddb91b1c63be65408dd2e2c46b20e4703ebec8943e2697d9a7b990
+  linux_arm64: 73d28cc43ad48e808dd7d5fe0942a7d53da195e538fe8d76363f04915d6b0936
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

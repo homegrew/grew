@@ -1,0 +1,26 @@
+name: pocket-tts
+version: 1.1.1
+description: Text-to-speech application designed to run efficiently on CPUs
+homepage: https://github.com/kyutai-labs/pocket-tts
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pocket-tts/blobs/sha256:1b7cb3d46f3e40c285c62469d97f1e2099ad08cf194a53cd3ceff7bbbaa31908
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pocket-tts/blobs/sha256:45cdbac83668573a7a5e5f44aca03a67ae307ba4307099a9ab309114d65963f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pocket-tts/blobs/sha256:bd68880bcc3170ef73d2b54d635ee2569ea12a7024f67fe1dc78069883b002d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pocket-tts/blobs/sha256:14a3bd4ef7072db25e1b1de9f36c0f23bd321c63d1318dbf29f26d5ed8bd4393
+sha256:
+  darwin_arm64: 1b7cb3d46f3e40c285c62469d97f1e2099ad08cf194a53cd3ceff7bbbaa31908
+  darwin_amd64: 45cdbac83668573a7a5e5f44aca03a67ae307ba4307099a9ab309114d65963f9
+  linux_amd64: bd68880bcc3170ef73d2b54d635ee2569ea12a7024f67fe1dc78069883b002d8
+  linux_arm64: 14a3bd4ef7072db25e1b1de9f36c0f23bd321c63d1318dbf29f26d5ed8bd4393
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14
+  - pytorch
+  - scipy

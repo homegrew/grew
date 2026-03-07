@@ -1,0 +1,25 @@
+name: conda-lock
+version: 4.0.0
+description: Lightweight lockfile for conda environments
+homepage: https://github.com/conda/conda-lock
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/conda-lock/blobs/sha256:7d48d7761fa8c2c07637ea1dea48d5f936c6c41db3df2e5786ceba33736ad167
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/conda-lock/blobs/sha256:003291c80eb633147f2bb9d0895ac1d8b0f939cc26c54fcab4660c624eb446e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/conda-lock/blobs/sha256:6b34cb3c7c26c9933c82c8b204e76985d936e3402c4039276af6c84564a8d106
+  linux_arm64: https://ghcr.io/v2/homebrew/core/conda-lock/blobs/sha256:32b725e50ea0e59cc6402328d8bda2bf7afc98d732c2d38f1ae551ad87348ccb
+sha256:
+  darwin_arm64: 7d48d7761fa8c2c07637ea1dea48d5f936c6c41db3df2e5786ceba33736ad167
+  darwin_amd64: 003291c80eb633147f2bb9d0895ac1d8b0f939cc26c54fcab4660c624eb446e1
+  linux_amd64: 6b34cb3c7c26c9933c82c8b204e76985d936e3402c4039276af6c84564a8d106
+  linux_arm64: 32b725e50ea0e59cc6402328d8bda2bf7afc98d732c2d38f1ae551ad87348ccb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14
+  - zstd

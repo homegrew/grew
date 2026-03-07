@@ -1,0 +1,21 @@
+name: normalize
+version: 0.7.7
+description: Adjust volume of audio files to a standard level
+homepage: https://www.nongnu.org/normalize/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/normalize/blobs/sha256:f0163055e113a859911c0c03c9fda88323d0895ba8b37c6347456dd174f5ce7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/normalize/blobs/sha256:8c89f97455db64e450b7360d56b0c634f91d10b01a0234ba6e008eebd47baa4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/normalize/blobs/sha256:ac6f58e169897ddfc61943009dd38044958a8fc56a025e91632d2302de3063df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/normalize/blobs/sha256:a035755b426126bd056c7287f416cc068b3d399a100e56f8192178a6530048dc
+sha256:
+  darwin_arm64: f0163055e113a859911c0c03c9fda88323d0895ba8b37c6347456dd174f5ce7b
+  darwin_amd64: 8c89f97455db64e450b7360d56b0c634f91d10b01a0234ba6e008eebd47baa4d
+  linux_amd64: ac6f58e169897ddfc61943009dd38044958a8fc56a025e91632d2302de3063df
+  linux_arm64: a035755b426126bd056c7287f416cc068b3d399a100e56f8192178a6530048dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mad

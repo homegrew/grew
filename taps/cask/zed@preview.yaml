@@ -1,0 +1,13 @@
+name: zed@preview
+version: 0.227.1
+description: Multiplayer code editor
+homepage: https://zed.dev/
+url:
+  darwin_arm64: https://zed.dev/api/releases/preview/0.227.1/Zed-aarch64.dmg
+sha256:
+  darwin_arm64: d51d752e5aafd282cbab36db13a17b1614e4af8e3118ccbf15505d65056b1e2d
+artifacts:
+  app:
+    - Zed Preview.app
+  bin:
+    - zed-preview

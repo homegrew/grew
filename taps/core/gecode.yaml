@@ -1,0 +1,21 @@
+name: gecode
+version: 6.2.0
+description: Toolkit for developing constraint-based systems and applications
+homepage: https://www.gecode.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gecode/blobs/sha256:4bf3ed46450a9a436678fcf7bc2083d7ba8c9b4847e3846fa66b50423c4e273d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gecode/blobs/sha256:313e206a83f8a8459519f23e0c1d6e96978791ec62b162118aa7f036204615e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gecode/blobs/sha256:829f38b21be0258bcc84402afb8b7cefa9272a8a59e36f94aee33b7d8ace7ac4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gecode/blobs/sha256:d0762e8669a3b0aff790ec8673ca1fc8dda25b741368d289c3c3cc5c2d559c0a
+sha256:
+  darwin_arm64: 4bf3ed46450a9a436678fcf7bc2083d7ba8c9b4847e3846fa66b50423c4e273d
+  darwin_amd64: 313e206a83f8a8459519f23e0c1d6e96978791ec62b162118aa7f036204615e9
+  linux_amd64: 829f38b21be0258bcc84402afb8b7cefa9272a8a59e36f94aee33b7d8ace7ac4
+  linux_arm64: d0762e8669a3b0aff790ec8673ca1fc8dda25b741368d289c3c3cc5c2d559c0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

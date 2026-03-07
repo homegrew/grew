@@ -1,0 +1,11 @@
+name: electrum-grs
+version: 4.5.4
+description: Groestlcoin thin client
+homepage: https://www.groestlcoin.org/groestlcoin-electrum-wallet/
+url:
+  darwin_arm64: https://github.com/groestlcoin/electrum-grs/releases/download/v4.5.4/electrum-grs-4.5.4.dmg
+sha256:
+  darwin_arm64: 87fd71fe9cf8e2f185664778fd0106056c34a5c545d40b50322b91c705702cd1
+artifacts:
+  app:
+    - Electrum-GRS.app

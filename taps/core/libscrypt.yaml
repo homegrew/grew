@@ -1,0 +1,19 @@
+name: libscrypt
+version: 1.22
+description: Library for scrypt
+homepage: https://github.com/technion/libscrypt
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libscrypt/blobs/sha256:1282d862a6fe6bda7018c46eb83f037202246c3f8ba35fcddae779effc79b266
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libscrypt/blobs/sha256:82c9ff58481a5c6a44d7f85b083f614004371fc2572f9a8c8c07de4bee06cf0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libscrypt/blobs/sha256:62ae9fdeea1cbe282839585250e2adacea715d313975bf6eb863a579aa669a21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libscrypt/blobs/sha256:2a407f084d02366dfdbc3dd3801036bee1cf4a7c33f51337ce0418761532939c
+sha256:
+  darwin_arm64: 1282d862a6fe6bda7018c46eb83f037202246c3f8ba35fcddae779effc79b266
+  darwin_amd64: 82c9ff58481a5c6a44d7f85b083f614004371fc2572f9a8c8c07de4bee06cf0b
+  linux_amd64: 62ae9fdeea1cbe282839585250e2adacea715d313975bf6eb863a579aa669a21
+  linux_arm64: 2a407f084d02366dfdbc3dd3801036bee1cf4a7c33f51337ce0418761532939c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

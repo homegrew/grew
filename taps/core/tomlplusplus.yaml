@@ -1,0 +1,19 @@
+name: tomlplusplus
+version: 3.4.0
+description: Header-only TOML config file parser and serializer for C++17
+homepage: https://marzer.github.io/tomlplusplus/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tomlplusplus/blobs/sha256:871dfe4e410d713db5ee049a54446fc0d421163a1fc30a66d3d9c1946c886640
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tomlplusplus/blobs/sha256:6771afc5d63e1df3d2fd8858c305ef28e97df6cd43808692431f6a84881665c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tomlplusplus/blobs/sha256:f59dade0a31cf96a7708117ae8b8cb743bfacab47972dcdeb30ee1a8ba84bd5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tomlplusplus/blobs/sha256:aee73aaa4f42f852a53342e4575e66309e76197eb2fefcaf0385a298562d0e8a
+sha256:
+  darwin_arm64: 871dfe4e410d713db5ee049a54446fc0d421163a1fc30a66d3d9c1946c886640
+  darwin_amd64: 6771afc5d63e1df3d2fd8858c305ef28e97df6cd43808692431f6a84881665c9
+  linux_amd64: f59dade0a31cf96a7708117ae8b8cb743bfacab47972dcdeb30ee1a8ba84bd5f
+  linux_arm64: aee73aaa4f42f852a53342e4575e66309e76197eb2fefcaf0385a298562d0e8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

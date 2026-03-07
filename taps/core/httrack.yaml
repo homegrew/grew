@@ -1,0 +1,21 @@
+name: httrack
+version: 3.49.2
+description: Website copier/offline browser
+homepage: https://www.httrack.com/
+license: GPL-3.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httrack/blobs/sha256:9b8bc548b4e0708efd7b6f777f8b6b846d8322c1ba96266f435ac88b376a858d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httrack/blobs/sha256:5b17229775834bfbeccbf828c4f502ee76c4158e5362226a885c8b32c7a5136f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httrack/blobs/sha256:8d0665d92f867729256ebc7c6877e4fabe66d99aa2dcbff3f6cb4c3160f419d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httrack/blobs/sha256:5ab4f3d92a85acb8991909cae49edcfa1381941d92708632d871afda9e154c90
+sha256:
+  darwin_arm64: 9b8bc548b4e0708efd7b6f777f8b6b846d8322c1ba96266f435ac88b376a858d
+  darwin_amd64: 5b17229775834bfbeccbf828c4f502ee76c4158e5362226a885c8b32c7a5136f
+  linux_amd64: 8d0665d92f867729256ebc7c6877e4fabe66d99aa2dcbff3f6cb4c3160f419d7
+  linux_arm64: 5ab4f3d92a85acb8991909cae49edcfa1381941d92708632d871afda9e154c90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

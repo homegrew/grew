@@ -1,0 +1,19 @@
+name: sha1dc
+version: 1.0.3
+description: Tool to detect SHA-1 collisions in files, including SHAttered
+homepage: https://github.com/cr-marcstevens/sha1collisiondetection
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sha1dc/blobs/sha256:1c950f58012467621593e85886219563b034c7967bc8fb6d5af0b3f2be4bd2ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sha1dc/blobs/sha256:278844956e65f88d768cc841e8c39059738bc406683b96ca92b9ba2871075f5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sha1dc/blobs/sha256:981db3d0b2fcf5e914e1506a746dfb2bd14d83a191f268d8cdf5cb57401c0475
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sha1dc/blobs/sha256:e70a02cce5e9c673cd751665e913a54e3db1e67530aa702b86c3452e5d45db90
+sha256:
+  darwin_arm64: 1c950f58012467621593e85886219563b034c7967bc8fb6d5af0b3f2be4bd2ca
+  darwin_amd64: 278844956e65f88d768cc841e8c39059738bc406683b96ca92b9ba2871075f5f
+  linux_amd64: 981db3d0b2fcf5e914e1506a746dfb2bd14d83a191f268d8cdf5cb57401c0475
+  linux_arm64: e70a02cce5e9c673cd751665e913a54e3db1e67530aa702b86c3452e5d45db90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

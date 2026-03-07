@@ -1,0 +1,19 @@
+name: snap7
+version: 1.4.2
+description: Ethernet communication suite that works natively with Siemens S7 PLCs
+homepage: https://snap7.sourceforge.net/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snap7/blobs/sha256:abb76d2d02504c5bbc694f446a88b35f5d6c5e44c06cdf9f2ddef874eada0a8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snap7/blobs/sha256:7e71f373d8a05c5d5da25b25873add858ea0231d83fd0981d2f86ebe5171be8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snap7/blobs/sha256:9fbbcef4c1de91267df9cfad2d3be40570c3be564c5793d874c11452780dc315
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snap7/blobs/sha256:55a95fc3a66a84a3cd2a26e57635613ef236d855cf21f42991b7bfc36cd7c58c
+sha256:
+  darwin_arm64: abb76d2d02504c5bbc694f446a88b35f5d6c5e44c06cdf9f2ddef874eada0a8b
+  darwin_amd64: 7e71f373d8a05c5d5da25b25873add858ea0231d83fd0981d2f86ebe5171be8d
+  linux_amd64: 9fbbcef4c1de91267df9cfad2d3be40570c3be564c5793d874c11452780dc315
+  linux_arm64: 55a95fc3a66a84a3cd2a26e57635613ef236d855cf21f42991b7bfc36cd7c58c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

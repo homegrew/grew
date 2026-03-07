@@ -1,0 +1,19 @@
+name: faad2
+version: 2.11.2
+description: ISO AAC audio decoder
+homepage: https://sourceforge.net/projects/faac/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/faad2/blobs/sha256:b85c98bb399962a24b327bc0f361d4375169ee0490e2fa540e5958f65b7fe967
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/faad2/blobs/sha256:c35f541928355a39a84f727c99f1ec98792c7a4ea60cf1e4e4f004a503ef19ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/faad2/blobs/sha256:b83a27d69240eda9c177272cf3858a078d10240cd0d45783fda5836bcde86c6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/faad2/blobs/sha256:60e3d314b07dfa58ed8534ff0678217307d811ef4198f7e5abcbb46339757f2a
+sha256:
+  darwin_arm64: b85c98bb399962a24b327bc0f361d4375169ee0490e2fa540e5958f65b7fe967
+  darwin_amd64: c35f541928355a39a84f727c99f1ec98792c7a4ea60cf1e4e4f004a503ef19ce
+  linux_amd64: b83a27d69240eda9c177272cf3858a078d10240cd0d45783fda5836bcde86c6f
+  linux_arm64: 60e3d314b07dfa58ed8534ff0678217307d811ef4198f7e5abcbb46339757f2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

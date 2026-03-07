@@ -1,0 +1,21 @@
+name: ballerburg
+version: 1.2.3
+description: Castle combat game
+homepage: https://baller.frama.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ballerburg/blobs/sha256:cccde44114f408fbef049352adf60ffd2bfcdca158cde6b665cbbf03801daaa6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ballerburg/blobs/sha256:29c01bc593a8279839cee765f58ec00e8e7e52486099f8309b97b5f493e45e11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ballerburg/blobs/sha256:1aa85f3ee1fc21cda5916659e10333c563cd918356d3eca5016847a48ff03e57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ballerburg/blobs/sha256:9a7a8a678f0f6cdaf859468a93da5ef49d5a1aa095fbec77e7d1bf5184163dd3
+sha256:
+  darwin_arm64: cccde44114f408fbef049352adf60ffd2bfcdca158cde6b665cbbf03801daaa6
+  darwin_amd64: 29c01bc593a8279839cee765f58ec00e8e7e52486099f8309b97b5f493e45e11
+  linux_amd64: 1aa85f3ee1fc21cda5916659e10333c563cd918356d3eca5016847a48ff03e57
+  linux_arm64: 9a7a8a678f0f6cdaf859468a93da5ef49d5a1aa095fbec77e7d1bf5184163dd3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

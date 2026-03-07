@@ -1,0 +1,11 @@
+name: dhs
+version: 1.6.0
+description: Scans for dylib hijacking
+homepage: https://objective-see.org/products/dhs.html
+url:
+  darwin_arm64: https://github.com/objective-see/DylibHijackScanner/releases/download/v1.6.0/DHS_1.6.0.zip
+sha256:
+  darwin_arm64: 3e72ffa559332afb65a83bfbc3b5973064aac9a424dee9cc8bc57e63f86d728f
+artifacts:
+  app:
+    - DHS.app

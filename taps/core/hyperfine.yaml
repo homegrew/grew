@@ -1,0 +1,19 @@
+name: hyperfine
+version: 1.20.0
+description: Command-line benchmarking tool
+homepage: https://github.com/sharkdp/hyperfine
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hyperfine/blobs/sha256:2a79829da44dc03e12ea4977b6bfa122cea8487e741c24a7fbcc7ce6a4788db3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hyperfine/blobs/sha256:35f05803354dc8621b9bdf918d50aef83eca450b90babc5b9899ca151177c39a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hyperfine/blobs/sha256:a6cdec4cc985c9fdef714051f2c921b8d5158c444be11e73af825054589d0ddc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hyperfine/blobs/sha256:cc0b9a0eb7628a130fb45cd3a5abc08321daa6f48eb175e26f784ef44fa9a18f
+sha256:
+  darwin_arm64: 2a79829da44dc03e12ea4977b6bfa122cea8487e741c24a7fbcc7ce6a4788db3
+  darwin_amd64: 35f05803354dc8621b9bdf918d50aef83eca450b90babc5b9899ca151177c39a
+  linux_amd64: a6cdec4cc985c9fdef714051f2c921b8d5158c444be11e73af825054589d0ddc
+  linux_arm64: cc0b9a0eb7628a130fb45cd3a5abc08321daa6f48eb175e26f784ef44fa9a18f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

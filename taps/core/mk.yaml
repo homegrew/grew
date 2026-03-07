@@ -1,0 +1,23 @@
+name: mk
+version: 3.0.0
+description: Wrapper for auto-detecting build and test commands in a repository
+homepage: https://mk.readthedocs.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mk/blobs/sha256:f41a3e482b7b72e734ab98477364b45911a32d40ddddd96e7eef1cccd0f67053
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mk/blobs/sha256:fbd3f3511b55664d53b5f05f53916e56a52e8fbe6d5594bc1c6a41f9205ae6b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mk/blobs/sha256:6bfe5ff7651239de872fe84beaf0f86c9659b4db299998ab8eaf9d750f8cd38e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mk/blobs/sha256:6eff011b586681b6c3c0d3dabb16e5c46bbabf4abbffb2848e077ca018ffaf18
+sha256:
+  darwin_arm64: f41a3e482b7b72e734ab98477364b45911a32d40ddddd96e7eef1cccd0f67053
+  darwin_amd64: fbd3f3511b55664d53b5f05f53916e56a52e8fbe6d5594bc1c6a41f9205ae6b5
+  linux_amd64: 6bfe5ff7651239de872fe84beaf0f86c9659b4db299998ab8eaf9d750f8cd38e
+  linux_arm64: 6eff011b586681b6c3c0d3dabb16e5c46bbabf4abbffb2848e077ca018ffaf18
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

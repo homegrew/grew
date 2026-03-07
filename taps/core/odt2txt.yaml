@@ -1,0 +1,19 @@
+name: odt2txt
+version: 0.5
+description: Convert OpenDocument files to plain text
+homepage: https://github.com/dstosberg/odt2txt/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odt2txt/blobs/sha256:ca8de3bdaff0abb474769434e2e6092d96befa2c79d741d387ea29be3c5c0969
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odt2txt/blobs/sha256:b554ee321e2dae2d44819148d0d1d6a01f5565df9d899f129a5d975a4454e353
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odt2txt/blobs/sha256:742559144816885e1eaaa016a1ab273445fd6d31ebb9e4b636ede27c4963df4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odt2txt/blobs/sha256:762a04dc77992f1dd8040b8a922808bc103aa52b8a3a83e9a4270474aa778dc4
+sha256:
+  darwin_arm64: ca8de3bdaff0abb474769434e2e6092d96befa2c79d741d387ea29be3c5c0969
+  darwin_amd64: b554ee321e2dae2d44819148d0d1d6a01f5565df9d899f129a5d975a4454e353
+  linux_amd64: 742559144816885e1eaaa016a1ab273445fd6d31ebb9e4b636ede27c4963df4d
+  linux_arm64: 762a04dc77992f1dd8040b8a922808bc103aa52b8a3a83e9a4270474aa778dc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

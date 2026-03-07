@@ -1,0 +1,19 @@
+name: tfprovidercheck
+version: 1.0.7
+description: CLI to prevent malicious Terraform Providers from being executed
+homepage: https://github.com/suzuki-shunsuke/tfprovidercheck
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfprovidercheck/blobs/sha256:427a2a1015f2145bd56bfab2f7e55da6e9dd51d269f52865b74332595bc17d1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfprovidercheck/blobs/sha256:4cbaf50f5a3e8dc17c9a1afe95c18337234b75e478723f2511ff6152617723f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfprovidercheck/blobs/sha256:31a2633383d7a927d45d1591203d5781cc6e0e5681e6a3d5155a48a1837368fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfprovidercheck/blobs/sha256:8b8f7a9fb706c0b91832695220d4afb0db43549beaae7707ceeebfc53050886e
+sha256:
+  darwin_arm64: 427a2a1015f2145bd56bfab2f7e55da6e9dd51d269f52865b74332595bc17d1e
+  darwin_amd64: 4cbaf50f5a3e8dc17c9a1afe95c18337234b75e478723f2511ff6152617723f6
+  linux_amd64: 31a2633383d7a927d45d1591203d5781cc6e0e5681e6a3d5155a48a1837368fa
+  linux_arm64: 8b8f7a9fb706c0b91832695220d4afb0db43549beaae7707ceeebfc53050886e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

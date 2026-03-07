@@ -1,0 +1,21 @@
+name: homeworlds
+version: 1.1.0
+description: C++ framework for the game of Binary Homeworlds
+homepage: https://github.com/Quuxplusone/Homeworlds/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/homeworlds/blobs/sha256:45a30b6daf394079ea156c6708a4831b7d3e752e56f5dd7e72c9e0986c56ff5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/homeworlds/blobs/sha256:e7711669fb6570ea72d2678ab9d6f424efeb17162f65417f86bcfcec336fe410
+  linux_amd64: https://ghcr.io/v2/homebrew/core/homeworlds/blobs/sha256:029d312f8762b3accec75527e02af6d9d29260aef2b888b2d7190d1ca823794b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/homeworlds/blobs/sha256:1028e2b8dbb347b5a05fb84b47f80ef8c74efb4df461deb24f1e6a868e2fbe1a
+sha256:
+  darwin_arm64: 45a30b6daf394079ea156c6708a4831b7d3e752e56f5dd7e72c9e0986c56ff5d
+  darwin_amd64: e7711669fb6570ea72d2678ab9d6f424efeb17162f65417f86bcfcec336fe410
+  linux_amd64: 029d312f8762b3accec75527e02af6d9d29260aef2b888b2d7190d1ca823794b
+  linux_arm64: 1028e2b8dbb347b5a05fb84b47f80ef8c74efb4df461deb24f1e6a868e2fbe1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - wxwidgets

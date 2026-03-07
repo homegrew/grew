@@ -1,0 +1,23 @@
+name: apr-util
+version: 1.6.3
+description: Companion library to apr, the Apache Portable Runtime library
+homepage: https://apr.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apr-util/blobs/sha256:c1b6ca1239679046b74a5ea73032f87a83cbc9c503455a0cf3bc12a54777a03d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apr-util/blobs/sha256:a59301c0e98b321c57fc3c8fac679a1e1bcdd5bce470fef60adc240f9c575674
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apr-util/blobs/sha256:5ad68f7525d3368b7e1fae3157c0338fffad2d33a907413c87ce8728c2e19378
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apr-util/blobs/sha256:830c11d6eb7e0d08d27adeac35c24865e6a49c1bef237b6dc704ca4057062a7d
+sha256:
+  darwin_arm64: c1b6ca1239679046b74a5ea73032f87a83cbc9c503455a0cf3bc12a54777a03d
+  darwin_amd64: a59301c0e98b321c57fc3c8fac679a1e1bcdd5bce470fef60adc240f9c575674
+  linux_amd64: 5ad68f7525d3368b7e1fae3157c0338fffad2d33a907413c87ce8728c2e19378
+  linux_arm64: 830c11d6eb7e0d08d27adeac35c24865e6a49c1bef237b6dc704ca4057062a7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - openssl@3
+keg_only: true

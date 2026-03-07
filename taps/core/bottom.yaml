@@ -1,0 +1,19 @@
+name: bottom
+version: 0.12.3
+description: Yet another cross-platform graphical process/system monitor
+homepage: https://clementtsang.github.io/bottom/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bottom/blobs/sha256:5a02813cfb7ca84b845f962deead91139eed67c2bbae957324542893d94e6368
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bottom/blobs/sha256:c76de8e325b1aff84e084aa957c2f9b265d69334ff892958d1dd0a3e5f34aeae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bottom/blobs/sha256:f36dfcc415534dc27bea91f8b8748875b56481733aee085df9e47752822d1af5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bottom/blobs/sha256:bedc68cfbb094ff38f13238f5962d8945d18820bd5478e4feb046d4913ac9198
+sha256:
+  darwin_arm64: 5a02813cfb7ca84b845f962deead91139eed67c2bbae957324542893d94e6368
+  darwin_amd64: c76de8e325b1aff84e084aa957c2f9b265d69334ff892958d1dd0a3e5f34aeae
+  linux_amd64: f36dfcc415534dc27bea91f8b8748875b56481733aee085df9e47752822d1af5
+  linux_arm64: bedc68cfbb094ff38f13238f5962d8945d18820bd5478e4feb046d4913ac9198
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

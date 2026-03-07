@@ -1,0 +1,21 @@
+name: ocproxy
+version: 1.60
+description: User-level SOCKS and port forwarding proxy
+homepage: https://github.com/cernekee/ocproxy
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocproxy/blobs/sha256:232ed1e8370dfc9d92ffba5176c4792024f8a682e1091c427ed252a9c550c0d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocproxy/blobs/sha256:7a25236711849a703c3aff501fff6b004a6f4005724ca9c39e46a7e488a7c637
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocproxy/blobs/sha256:04fbf035ccc8cc3ab0073c0d2299d47276268f8d47aa298cac9b8897cc9065e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocproxy/blobs/sha256:f0a1a2ac8cb2cbb91663cfcf06be5ac5d931ea8e9168ddbd3ca498cd1e2ff98e
+sha256:
+  darwin_arm64: 232ed1e8370dfc9d92ffba5176c4792024f8a682e1091c427ed252a9c550c0d8
+  darwin_amd64: 7a25236711849a703c3aff501fff6b004a6f4005724ca9c39e46a7e488a7c637
+  linux_amd64: 04fbf035ccc8cc3ab0073c0d2299d47276268f8d47aa298cac9b8897cc9065e1
+  linux_arm64: f0a1a2ac8cb2cbb91663cfcf06be5ac5d931ea8e9168ddbd3ca498cd1e2ff98e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent

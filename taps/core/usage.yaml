@@ -1,0 +1,19 @@
+name: usage
+version: 2.18.2
+description: Tool for working with usage-spec CLIs
+homepage: https://usage.jdx.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/usage/blobs/sha256:8ae655f2a7629f0db7e62957072198d32c38ba787bff994deb268b02c23aee28
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/usage/blobs/sha256:c3158fdf4272ff2c5ad8e47342ac481e508cffa084adc95b26e04f15dee13e94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/usage/blobs/sha256:4b3fa22284f633a2ee78c2c7f003d2cfa64f4a5641f221d5472e6fd57188660f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/usage/blobs/sha256:07df6e45a31e4d664588e1447bbe1d8af91a71d146c99a99cb2cce9ec25704b1
+sha256:
+  darwin_arm64: 8ae655f2a7629f0db7e62957072198d32c38ba787bff994deb268b02c23aee28
+  darwin_amd64: c3158fdf4272ff2c5ad8e47342ac481e508cffa084adc95b26e04f15dee13e94
+  linux_amd64: 4b3fa22284f633a2ee78c2c7f003d2cfa64f4a5641f221d5472e6fd57188660f
+  linux_arm64: 07df6e45a31e4d664588e1447bbe1d8af91a71d146c99a99cb2cce9ec25704b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

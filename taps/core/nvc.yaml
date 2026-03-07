@@ -1,0 +1,22 @@
+name: nvc
+version: 1.19.2
+description: VHDL compiler and simulator
+homepage: https://www.nickg.me.uk/nvc/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nvc/blobs/sha256:b467e19b0d2a785bc36db0827b31651b09d23f9ea8948288c269c505d600ed40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nvc/blobs/sha256:ebecb69c5eaf66b60cc71be0b902385ca9d67bb7ba76330db5acdcdf9cf91106
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nvc/blobs/sha256:6146b9b03cf106559cd206051ea76f4556baa6a74b240c6f5016b298a8c0f7b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nvc/blobs/sha256:fd734fb5f10ad512c18b2def8382e848e0c1e3b09013ef7eda3e28075686cf12
+sha256:
+  darwin_arm64: b467e19b0d2a785bc36db0827b31651b09d23f9ea8948288c269c505d600ed40
+  darwin_amd64: ebecb69c5eaf66b60cc71be0b902385ca9d67bb7ba76330db5acdcdf9cf91106
+  linux_amd64: 6146b9b03cf106559cd206051ea76f4556baa6a74b240c6f5016b298a8c0f7b1
+  linux_arm64: fd734fb5f10ad512c18b2def8382e848e0c1e3b09013ef7eda3e28075686cf12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm
+  - zstd

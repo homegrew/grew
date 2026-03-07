@@ -1,0 +1,21 @@
+name: libff
+version: 0.2.1
+description: C++ library for Finite Fields and Elliptic Curves
+homepage: https://github.com/scipr-lab/libff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libff/blobs/sha256:db4d97e98593d209602d684828214f50938db098fc7abae7ddc562dd86bf49ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libff/blobs/sha256:9a90009291176dfd59e1e73c15d069663e72a477fcb2f51b09867c8cf45593c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libff/blobs/sha256:e0c274f4e83f703347f24d6c6c487224b19c72eb4f199daecfbb6c794380cd17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libff/blobs/sha256:9339a1479a02fdbdd670479385040323050ada9e6022e4d4be3b167b8a477cac
+sha256:
+  darwin_arm64: db4d97e98593d209602d684828214f50938db098fc7abae7ddc562dd86bf49ec
+  darwin_amd64: 9a90009291176dfd59e1e73c15d069663e72a477fcb2f51b09867c8cf45593c1
+  linux_amd64: e0c274f4e83f703347f24d6c6c487224b19c72eb4f199daecfbb6c794380cd17
+  linux_arm64: 9339a1479a02fdbdd670479385040323050ada9e6022e4d4be3b167b8a477cac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

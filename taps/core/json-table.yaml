@@ -1,0 +1,19 @@
+name: json-table
+version: 4.3.3
+description: Transform nested JSON data into tabular data in the shell
+homepage: https://github.com/micha/json-table
+license: EPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/json-table/blobs/sha256:15a5edca4af928b348bdd6eb9c121fec87b790aaf13431e8a0a1753756e3d433
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/json-table/blobs/sha256:2c3cdf120fa2be2558c5e2b2fefb059ca2fbe676522bf59c595f5cecd75b1af4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/json-table/blobs/sha256:c2a8b0576a8a0be8e8bc9bcafcb70ad0fd98197a2f465d4713163fff48ba7696
+  linux_arm64: https://ghcr.io/v2/homebrew/core/json-table/blobs/sha256:c564b0eb11b11de703ca70ad8ab48319c67053309ccfbac1c569184098d27c2d
+sha256:
+  darwin_arm64: 15a5edca4af928b348bdd6eb9c121fec87b790aaf13431e8a0a1753756e3d433
+  darwin_amd64: 2c3cdf120fa2be2558c5e2b2fefb059ca2fbe676522bf59c595f5cecd75b1af4
+  linux_amd64: c2a8b0576a8a0be8e8bc9bcafcb70ad0fd98197a2f465d4713163fff48ba7696
+  linux_arm64: c564b0eb11b11de703ca70ad8ab48319c67053309ccfbac1c569184098d27c2d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

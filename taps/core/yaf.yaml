@@ -1,0 +1,25 @@
+name: yaf
+version: 2.18.2
+description: "Yet another flowmeter: processes packet data from pcap(3)"
+homepage: https://tools.netsa.cert.org/yaf/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaf/blobs/sha256:756afdea15655c6538c81f170dd9db318293eefa96ab01663530151fb5292536
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaf/blobs/sha256:4b4a407d6be6b4e06a9a2e6ed3d282761d8ee2e41ec0521deecdae25537fc705
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaf/blobs/sha256:b884b07695ba889516f481a2025328b2f11b94529f4c608288e1da05bc3b1309
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaf/blobs/sha256:4020382f47f691a4c43be0767d52e1be8bff6cec7cef443b5d1bab204d48092f
+sha256:
+  darwin_arm64: 756afdea15655c6538c81f170dd9db318293eefa96ab01663530151fb5292536
+  darwin_amd64: 4b4a407d6be6b4e06a9a2e6ed3d282761d8ee2e41ec0521deecdae25537fc705
+  linux_amd64: b884b07695ba889516f481a2025328b2f11b94529f4c608288e1da05bc3b1309
+  linux_arm64: 4020382f47f691a4c43be0767d52e1be8bff6cec7cef443b5d1bab204d48092f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libfixbuf
+  - libtool
+  - gettext
+  - openssl@3

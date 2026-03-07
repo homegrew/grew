@@ -1,0 +1,22 @@
+name: djvulibre
+version: 3.5.29
+description: DjVu viewer
+homepage: https://djvu.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/djvulibre/blobs/sha256:61ac827cdfc87e9056b7490d09970c49b652e26303ce0c71e68808ae11dfc49f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/djvulibre/blobs/sha256:6af726701b6112d300f266ed794040fe2fdfcf8ee489df594841443f0e603f95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/djvulibre/blobs/sha256:79310252531b97960283b93c1de09ee14c6c4fcb8e56ca893a5e48fc23a7d2fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/djvulibre/blobs/sha256:4be3c4c0603b32ce06a6cd8176e3f7a96e30c482147d900cd8294f80d03f9896
+sha256:
+  darwin_arm64: 61ac827cdfc87e9056b7490d09970c49b652e26303ce0c71e68808ae11dfc49f
+  darwin_amd64: 6af726701b6112d300f266ed794040fe2fdfcf8ee489df594841443f0e603f95
+  linux_amd64: 79310252531b97960283b93c1de09ee14c6c4fcb8e56ca893a5e48fc23a7d2fa
+  linux_arm64: 4be3c4c0603b32ce06a6cd8176e3f7a96e30c482147d900cd8294f80d03f9896
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libtiff

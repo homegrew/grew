@@ -1,0 +1,11 @@
+name: doxie
+version: 3.5.1
+description: Companion app for scanner hardware
+homepage: https://www.getdoxie.com/
+url:
+  darwin_arm64: https://download.getdoxie.com/Doxie-3.5.1.dmg
+sha256:
+  darwin_arm64: f461a68ef142991d4f02db81992e3e9e8fe2896583d4d35c035df708190f2b78
+artifacts:
+  app:
+    - Doxie.app

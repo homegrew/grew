@@ -1,0 +1,21 @@
+name: healpix
+version: 3.83
+description: Hierarchical Equal Area isoLatitude Pixelization of a sphere
+homepage: https://healpix.sourceforge.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/healpix/blobs/sha256:2cd47768112373cf69d551358a450576de47148b04927854453825f6f4d7ea34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/healpix/blobs/sha256:95a5b5a8fa81458c51480629f45133744ae06bedd47c89c9b6ec37b846caed2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/healpix/blobs/sha256:2e564d3d9c546315968321c06b82468e6f6120b873dfb9422c4316bd13d3e238
+  linux_arm64: https://ghcr.io/v2/homebrew/core/healpix/blobs/sha256:2192382257e157d5c43c23f0ceb74e2ceb6616e286d21f1918d914a1afa7eef1
+sha256:
+  darwin_arm64: 2cd47768112373cf69d551358a450576de47148b04927854453825f6f4d7ea34
+  darwin_amd64: 95a5b5a8fa81458c51480629f45133744ae06bedd47c89c9b6ec37b846caed2c
+  linux_amd64: 2e564d3d9c546315968321c06b82468e6f6120b873dfb9422c4316bd13d3e238
+  linux_arm64: 2192382257e157d5c43c23f0ceb74e2ceb6616e286d21f1918d914a1afa7eef1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio

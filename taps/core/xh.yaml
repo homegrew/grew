@@ -1,0 +1,19 @@
+name: xh
+version: 0.25.3
+description: Friendly and fast tool for sending HTTP requests
+homepage: https://github.com/ducaale/xh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xh/blobs/sha256:e4a8f271b52fc229048df16f0e422010c50d10484d8d6eb1b5fa2a9724b5d3ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xh/blobs/sha256:d44547a1508f6ebf8de1943b226971b02ca2958f7a5b57e2b6812470f8b6cb92
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xh/blobs/sha256:997b2b36f8648efe2c3ea81e77edcbd3111470c5b13346f850d7f4f03ff4ea3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xh/blobs/sha256:143b423684816dafd6748cce6f394499d1150f677eed136758ceae3dde7c3d8e
+sha256:
+  darwin_arm64: e4a8f271b52fc229048df16f0e422010c50d10484d8d6eb1b5fa2a9724b5d3ab
+  darwin_amd64: d44547a1508f6ebf8de1943b226971b02ca2958f7a5b57e2b6812470f8b6cb92
+  linux_amd64: 997b2b36f8648efe2c3ea81e77edcbd3111470c5b13346f850d7f4f03ff4ea3e
+  linux_arm64: 143b423684816dafd6748cce6f394499d1150f677eed136758ceae3dde7c3d8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

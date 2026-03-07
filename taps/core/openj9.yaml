@@ -1,0 +1,28 @@
+name: openj9
+version: 0.57.0
+description: High performance, scalable, Java virtual machine
+homepage: https://www.eclipse.org/openj9/
+license: EPL-2.0 OR Apache-2.0 OR (GPL-2.0-only WITH Classpath-exception-2.0) OR (GPL-2.0-only WITH OpenJDK-assembly-exception-1.0)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openj9/blobs/sha256:6003734f9820a7cf2ecd84c2e935c0fd46430278eaeeee0278d4968b39e78f12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openj9/blobs/sha256:40123706274b3123b211881e250e220e5be8051a08507514ff0d5ea976b891a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openj9/blobs/sha256:f6c07e1ebf0cc612a87525cd8ac92d7c1133d4a2a9f3647ce90454542d1a2d05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openj9/blobs/sha256:14d82b2581a27cb50d2906087a25b1d8d69d27514b500a4b80350ef1854ef442
+sha256:
+  darwin_arm64: 6003734f9820a7cf2ecd84c2e935c0fd46430278eaeeee0278d4968b39e78f12
+  darwin_amd64: 40123706274b3123b211881e250e220e5be8051a08507514ff0d5ea976b891a7
+  linux_amd64: f6c07e1ebf0cc612a87525cd8ac92d7c1133d4a2a9f3647ce90454542d1a2d05
+  linux_arm64: 14d82b2581a27cb50d2906087a25b1d8d69d27514b500a4b80350ef1854ef442
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - giflib
+  - harfbuzz
+  - jpeg-turbo
+  - libpng
+  - little-cms2
+keg_only: true

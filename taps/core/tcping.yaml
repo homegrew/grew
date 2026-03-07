@@ -1,0 +1,19 @@
+name: tcping
+version: 2.1.0
+description: TCP connect to the given IP/port combo
+homepage: https://github.com/mkirchner/tcping
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcping/blobs/sha256:f9b6f59dabfa7d65422fa6ec42a7fec5fb60b41aeeeb732b8d90edf146494a47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcping/blobs/sha256:c1cc2aea721c8489ca2f2dd6e6141062bbce6b926e0fbd7137b28d4c33907007
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcping/blobs/sha256:16c2e18d02839e6b0e79ac685045de38f37afd44543cd43c82ae1e0cec435282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcping/blobs/sha256:b53bd88f1bb3f5be9aa7c52013cdb0fd60eaf39d8c05baca7556dd8600b4c6f7
+sha256:
+  darwin_arm64: f9b6f59dabfa7d65422fa6ec42a7fec5fb60b41aeeeb732b8d90edf146494a47
+  darwin_amd64: c1cc2aea721c8489ca2f2dd6e6141062bbce6b926e0fbd7137b28d4c33907007
+  linux_amd64: 16c2e18d02839e6b0e79ac685045de38f37afd44543cd43c82ae1e0cec435282
+  linux_arm64: b53bd88f1bb3f5be9aa7c52013cdb0fd60eaf39d8c05baca7556dd8600b4c6f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: opendbx
+version: 1.4.6
+description: Lightweight but extensible database access library in C
+homepage: https://linuxnetworks.de/doc/index.php/OpenDBX
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opendbx/blobs/sha256:8cc990504a450685d677e758cf6741b058dd5b82e1ddf2f10c1e70bac003d58a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opendbx/blobs/sha256:4c4dff477fde71d015a7ba53c377fcdbc88e31a7e3b430597da5b15a4138d3ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opendbx/blobs/sha256:9ef3f4d6acb641cbe910f05f8ec191ffdc886b80c1bed89a962a27031071a940
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opendbx/blobs/sha256:16be2c0b756f68f456251052c96ac4436e92a96be74ff9c0e2d935be95bd2e62
+sha256:
+  darwin_arm64: 8cc990504a450685d677e758cf6741b058dd5b82e1ddf2f10c1e70bac003d58a
+  darwin_amd64: 4c4dff477fde71d015a7ba53c377fcdbc88e31a7e3b430597da5b15a4138d3ba
+  linux_amd64: 9ef3f4d6acb641cbe910f05f8ec191ffdc886b80c1bed89a962a27031071a940
+  linux_arm64: 16be2c0b756f68f456251052c96ac4436e92a96be74ff9c0e2d935be95bd2e62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline
+  - sqlite

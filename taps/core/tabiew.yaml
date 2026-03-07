@@ -1,0 +1,21 @@
+name: tabiew
+version: 0.12.0
+description: TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
+homepage: https://github.com/shshemi/tabiew
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tabiew/blobs/sha256:5fe26af0d775f7f38e58a4af2cd5c8a9877bd5c9e745dda6fc9b200066d41bfa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tabiew/blobs/sha256:168ce86a9420304295c58ed81f8bd0940dc8ab18b93d14896f3a11c913dccb0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tabiew/blobs/sha256:2593655526975484ea5ad31526ce5e1adb57b6a9b701fe1f837cb66802329420
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tabiew/blobs/sha256:ab43c2c430f32bd4b400f0f60c671937f257e70dce5feb62acbedaf9aa1b4226
+sha256:
+  darwin_arm64: 5fe26af0d775f7f38e58a4af2cd5c8a9877bd5c9e745dda6fc9b200066d41bfa
+  darwin_amd64: 168ce86a9420304295c58ed81f8bd0940dc8ab18b93d14896f3a11c913dccb0b
+  linux_amd64: 2593655526975484ea5ad31526ce5e1adb57b6a9b701fe1f837cb66802329420
+  linux_arm64: ab43c2c430f32bd4b400f0f60c671937f257e70dce5feb62acbedaf9aa1b4226
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

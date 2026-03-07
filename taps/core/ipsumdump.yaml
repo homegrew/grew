@@ -1,0 +1,19 @@
+name: ipsumdump
+version: 1.86
+description: Summarizes TCP/IP dump files into a self-describing ASCII format
+homepage: https://read.seas.harvard.edu/~kohler/ipsumdump/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipsumdump/blobs/sha256:4b887c63e1aec769b9142c42cc8e5ddbb8020ab232604111f635c06e4a61ba6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipsumdump/blobs/sha256:ed6f33b6662a53b8f5fa73dbceff2a2ecafdc517dbc986ad6e091cf74201d2c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipsumdump/blobs/sha256:27e438253bf0b215381e8f27d3898eab9e905181266347997c5f59cfdc46175a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipsumdump/blobs/sha256:64cca494a61a1849068d908106a059039b47fe6bae0504056995c2af2f43e2fd
+sha256:
+  darwin_arm64: 4b887c63e1aec769b9142c42cc8e5ddbb8020ab232604111f635c06e4a61ba6d
+  darwin_amd64: ed6f33b6662a53b8f5fa73dbceff2a2ecafdc517dbc986ad6e091cf74201d2c9
+  linux_amd64: 27e438253bf0b215381e8f27d3898eab9e905181266347997c5f59cfdc46175a
+  linux_arm64: 64cca494a61a1849068d908106a059039b47fe6bae0504056995c2af2f43e2fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: qtquick3dphysics
+version: 6.10.2
+description: High-level QML module adding physical simulation capabilities to Qt Quick 3D
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtquick3dphysics/blobs/sha256:78179ed0b5ae48f69edb42c6f43279742c16aefa3393ed16fde72a25d821b4f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtquick3dphysics/blobs/sha256:0ea745a2f51e4487bfbb89edce65f72498fe807a855223d221e6135b08f1c221
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtquick3dphysics/blobs/sha256:43d230e0cd2359d8b50d69f095ac1081832cf913f543b26d5ce20866fff3883d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtquick3dphysics/blobs/sha256:809f9f155425ba89dcf6873eb25013662993f5abb461ee35e4178590d5e293f5
+sha256:
+  darwin_arm64: 78179ed0b5ae48f69edb42c6f43279742c16aefa3393ed16fde72a25d821b4f6
+  darwin_amd64: 0ea745a2f51e4487bfbb89edce65f72498fe807a855223d221e6135b08f1c221
+  linux_amd64: 43d230e0cd2359d8b50d69f095ac1081832cf913f543b26d5ce20866fff3883d
+  linux_arm64: 809f9f155425ba89dcf6873eb25013662993f5abb461ee35e4178590d5e293f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtquick3d
+  - qtshadertools

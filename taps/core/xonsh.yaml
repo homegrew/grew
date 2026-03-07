@@ -1,0 +1,21 @@
+name: xonsh
+version: 0.22.6
+description: Python-powered, cross-platform, Unix-gazing shell language and command prompt
+homepage: https://github.com/xonsh/xonsh
+license: BSD-2-Clause-Views
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xonsh/blobs/sha256:7149c6bba10a7371c1f6acb3c7acf428fcec6b699884af79d4b24d36e68a2564
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xonsh/blobs/sha256:fde0d09bc990213507b4f071f77eea6a0b564cde0ba3c25e600fa6f46ebcbe46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xonsh/blobs/sha256:98cd6172706cb1e114c7fc889a7ef6e8dccff88b7b1cf9dbd1e34957927717f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xonsh/blobs/sha256:b9cc24c5af25c8618b29dd59463965b6d4313108469ac90f4bd6f97e687e4a85
+sha256:
+  darwin_arm64: 7149c6bba10a7371c1f6acb3c7acf428fcec6b699884af79d4b24d36e68a2564
+  darwin_amd64: fde0d09bc990213507b4f071f77eea6a0b564cde0ba3c25e600fa6f46ebcbe46
+  linux_amd64: 98cd6172706cb1e114c7fc889a7ef6e8dccff88b7b1cf9dbd1e34957927717f5
+  linux_arm64: b9cc24c5af25c8618b29dd59463965b6d4313108469ac90f4bd6f97e687e4a85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

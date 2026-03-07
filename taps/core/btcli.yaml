@@ -1,0 +1,25 @@
+name: btcli
+version: 9.17.0
+description: Bittensor command-line tool
+homepage: https://docs.bittensor.com/btcli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/btcli/blobs/sha256:f1c364753095c657851c73fb26b2962d5b4c3793d1842f36b616a6809540cb75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/btcli/blobs/sha256:cd1862a6d26b6f70172743f8c515206d96e5d50419f682013172726cf1ebd757
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btcli/blobs/sha256:673b41391d8b2d70838233fc679014869a03a9e5ecaef5f95e208e7784bd361d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btcli/blobs/sha256:4e521c0d314e588415a26542f6c63344e7ecdfb1ad5c1218ae6c2a6c4bb418e3
+sha256:
+  darwin_arm64: f1c364753095c657851c73fb26b2962d5b4c3793d1842f36b616a6809540cb75
+  darwin_amd64: cd1862a6d26b6f70172743f8c515206d96e5d50419f682013172726cf1ebd757
+  linux_amd64: 673b41391d8b2d70838233fc679014869a03a9e5ecaef5f95e208e7784bd361d
+  linux_arm64: 4e521c0d314e588415a26542f6c63344e7ecdfb1ad5c1218ae6c2a6c4bb418e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - numpy
+  - openssl@3
+  - python@3.14

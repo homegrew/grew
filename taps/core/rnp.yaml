@@ -1,0 +1,22 @@
+name: rnp
+version: 0.18.1
+description: High performance C++ OpenPGP library used by Mozilla Thunderbird
+homepage: https://github.com/rnpgp/rnp
+license: MIT AND BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rnp/blobs/sha256:6a2ecfe7414873e058469fd0220f05572a35b83a62cf22d9f12cf58c26d79fc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rnp/blobs/sha256:c74ab53d956170a5c321b3eeb984c4e100ce15c995e0f606de5bcab0b5fcd060
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rnp/blobs/sha256:561a320aae32d97588869ea843fdec9cac8c18eb00201293f69c5db30263bfcd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rnp/blobs/sha256:82d8e226eb32638112fde260c44d95cebe551190e30bd50b69f416d43b4b2cd4
+sha256:
+  darwin_arm64: 6a2ecfe7414873e058469fd0220f05572a35b83a62cf22d9f12cf58c26d79fc7
+  darwin_amd64: c74ab53d956170a5c321b3eeb984c4e100ce15c995e0f606de5bcab0b5fcd060
+  linux_amd64: 561a320aae32d97588869ea843fdec9cac8c18eb00201293f69c5db30263bfcd
+  linux_arm64: 82d8e226eb32638112fde260c44d95cebe551190e30bd50b69f416d43b4b2cd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - botan
+  - json-c

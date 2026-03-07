@@ -1,0 +1,21 @@
+name: pkcs11-tools
+version: 2.6.0
+description: "Tools to manage objects on PKCS#11 crypotographic tokens"
+homepage: https://github.com/Mastercard/pkcs11-tools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pkcs11-tools/blobs/sha256:99d3a5104235020c9ba34054b886dff32a538917592f9b9a7d4535c26513b072
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pkcs11-tools/blobs/sha256:2086010d622865bce37c477946bda04a16d7f488f7a9d7cee6ba94bad3708f80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pkcs11-tools/blobs/sha256:204de485eee7fdc9c63d60924bf2a2559bcddb2b13badbd60f97c8fcbd6ab4c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pkcs11-tools/blobs/sha256:4de234bc0e7f615fe95f3ab3604d8d5915d2bfa2948f778fb10921b92c83dc2c
+sha256:
+  darwin_arm64: 99d3a5104235020c9ba34054b886dff32a538917592f9b9a7d4535c26513b072
+  darwin_amd64: 2086010d622865bce37c477946bda04a16d7f488f7a9d7cee6ba94bad3708f80
+  linux_amd64: 204de485eee7fdc9c63d60924bf2a2559bcddb2b13badbd60f97c8fcbd6ab4c3
+  linux_arm64: 4de234bc0e7f615fe95f3ab3604d8d5915d2bfa2948f778fb10921b92c83dc2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

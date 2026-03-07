@@ -1,0 +1,19 @@
+name: yaml2json
+version: 1.3.5
+description: Command-line tool convert from YAML to JSON
+homepage: https://github.com/bronze1man/yaml2json
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaml2json/blobs/sha256:4c8f34dd512a3f098cf8a17a3272e81c0b3431babe075795ec2ca02966e01d5e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaml2json/blobs/sha256:3d2dd72115aaa4fc3e4cc60dc285c2d76f58283ea90241687ff3bd55fafdbe9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaml2json/blobs/sha256:4d1ad585751d061cdf59a0b4722b31fb48c34f92159426cb2e74d313db63d0b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaml2json/blobs/sha256:d0fb799728cbc565f86a7bf1d30f4abef6d91234237653f3d209ef65c54c68a4
+sha256:
+  darwin_arm64: 4c8f34dd512a3f098cf8a17a3272e81c0b3431babe075795ec2ca02966e01d5e
+  darwin_amd64: 3d2dd72115aaa4fc3e4cc60dc285c2d76f58283ea90241687ff3bd55fafdbe9d
+  linux_amd64: 4d1ad585751d061cdf59a0b4722b31fb48c34f92159426cb2e74d313db63d0b1
+  linux_arm64: d0fb799728cbc565f86a7bf1d30f4abef6d91234237653f3d209ef65c54c68a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

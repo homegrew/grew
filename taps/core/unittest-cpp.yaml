@@ -1,0 +1,19 @@
+name: unittest-cpp
+version: 2.0.0
+description: Unit testing framework for C++
+homepage: https://github.com/unittest-cpp/unittest-cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unittest-cpp/blobs/sha256:2323ac44a3d90775803af02237bc15b7b3ea93c3fa0e7b1aadfb792e4fd29193
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unittest-cpp/blobs/sha256:28884982e1d90392cf66cc823860eda61d9bd4cb6b3946b05f7bb3f36d6115e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unittest-cpp/blobs/sha256:b00aa2974e4ab2714fb6d98ada6b1dc127a20641f05170196ecf58beea63d6a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unittest-cpp/blobs/sha256:7d3f6916cc0b8b7006d3a5c5480ad23154ed7ab4ca58d187d1412b4655c12800
+sha256:
+  darwin_arm64: 2323ac44a3d90775803af02237bc15b7b3ea93c3fa0e7b1aadfb792e4fd29193
+  darwin_amd64: 28884982e1d90392cf66cc823860eda61d9bd4cb6b3946b05f7bb3f36d6115e1
+  linux_amd64: b00aa2974e4ab2714fb6d98ada6b1dc127a20641f05170196ecf58beea63d6a7
+  linux_arm64: 7d3f6916cc0b8b7006d3a5c5480ad23154ed7ab4ca58d187d1412b4655c12800
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

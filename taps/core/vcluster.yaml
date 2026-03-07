@@ -1,0 +1,22 @@
+name: vcluster
+version: 0.32.1
+description: "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
+homepage: https://www.vcluster.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vcluster/blobs/sha256:d196ca0611cbd1529b4a72ae6f8efd882381754932676d1ff7f7b7e882ed4751
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vcluster/blobs/sha256:5e138ae11ea0259f4c2ab60784191ae83873c7ad1927e1b660aca7682c02b650
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vcluster/blobs/sha256:f80c7db3b9515adad2bdb61d71dd537931bcdeec305bdc573ab77bebb4b3002e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vcluster/blobs/sha256:b22b4e19e58dcf19daf62dfc4b0833b87bcfde2f3b362508975c6e65d3cf322f
+sha256:
+  darwin_arm64: d196ca0611cbd1529b4a72ae6f8efd882381754932676d1ff7f7b7e882ed4751
+  darwin_amd64: 5e138ae11ea0259f4c2ab60784191ae83873c7ad1927e1b660aca7682c02b650
+  linux_amd64: f80c7db3b9515adad2bdb61d71dd537931bcdeec305bdc573ab77bebb4b3002e
+  linux_arm64: b22b4e19e58dcf19daf62dfc4b0833b87bcfde2f3b362508975c6e65d3cf322f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - helm@3
+  - kubernetes-cli

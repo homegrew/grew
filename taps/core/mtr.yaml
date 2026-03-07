@@ -1,0 +1,21 @@
+name: mtr
+version: 0.96
+description: "'traceroute' and 'ping' in a single tool"
+homepage: https://www.bitwizard.nl/mtr/
+license: GPL-2.0-only AND BSD-3-Clause AND LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mtr/blobs/sha256:e895fc7ed39c99111d74a2ca15aeaee2ff99c4106af7517f60a6accc71560eec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mtr/blobs/sha256:f89057c3a1fe1c6ed781ff12794f8313e1aa8b40c6fb8c921d30f4b16b4ec1fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mtr/blobs/sha256:4e5bc25c0c9a1c56b8d0f5b4f1276f629a283e50f0fd901ecfe8eb7e2c76f43f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mtr/blobs/sha256:55386202173e44242ea3fc0cab0f6d3e0a82e958661470c6a554580631a25cc3
+sha256:
+  darwin_arm64: e895fc7ed39c99111d74a2ca15aeaee2ff99c4106af7517f60a6accc71560eec
+  darwin_amd64: f89057c3a1fe1c6ed781ff12794f8313e1aa8b40c6fb8c921d30f4b16b4ec1fe
+  linux_amd64: 4e5bc25c0c9a1c56b8d0f5b4f1276f629a283e50f0fd901ecfe8eb7e2c76f43f
+  linux_arm64: 55386202173e44242ea3fc0cab0f6d3e0a82e958661470c6a554580631a25cc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson

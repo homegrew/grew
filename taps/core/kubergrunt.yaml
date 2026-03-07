@@ -1,0 +1,19 @@
+name: kubergrunt
+version: 0.19.0
+description: Collection of commands to fill in the gaps between Terraform, Helm, and Kubectl
+homepage: https://github.com/gruntwork-io/kubergrunt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubergrunt/blobs/sha256:9f1c2def529c9a4c7077b49de33fa173a5178fc74310a7bd91fe43c89d939413
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubergrunt/blobs/sha256:882c7940ab2db99842727401de7c2f07d08b407eb7018b49d761fd09a50b09ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubergrunt/blobs/sha256:7d71c4ea2bdbceee1b90cc2b869da0511b722ba45187e11a3d5f50f14db1c4ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubergrunt/blobs/sha256:1ec4dbf35e1ef6fa3afd74291c1b140498d90b2e1b3ca043f06a76be7e758b3a
+sha256:
+  darwin_arm64: 9f1c2def529c9a4c7077b49de33fa173a5178fc74310a7bd91fe43c89d939413
+  darwin_amd64: 882c7940ab2db99842727401de7c2f07d08b407eb7018b49d761fd09a50b09ef
+  linux_amd64: 7d71c4ea2bdbceee1b90cc2b869da0511b722ba45187e11a3d5f50f14db1c4ff
+  linux_arm64: 1ec4dbf35e1ef6fa3afd74291c1b140498d90b2e1b3ca043f06a76be7e758b3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

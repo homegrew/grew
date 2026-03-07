@@ -1,0 +1,32 @@
+name: fdroidserver
+version: 2.4.3
+description: Create and manage Android app repositories for F-Droid
+homepage: https://f-droid.org
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fdroidserver/blobs/sha256:70ac1e098dc6b6825452b392081ad96452acc28722fc3ee68244fbe8f0a34504
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fdroidserver/blobs/sha256:a80a9acb9fc70de5d2ef250a740689f93c90966ef56358102a4102dff9a97b1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fdroidserver/blobs/sha256:38338b5bf0093aaf3d2ac753bb6f5c85bd383b8ddc5dafb125a59a3d400e68a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fdroidserver/blobs/sha256:2bf6796016a9a86875ac317e234d9c2bcd99a027578b82e3329b799cb0e3f0c2
+sha256:
+  darwin_arm64: 70ac1e098dc6b6825452b392081ad96452acc28722fc3ee68244fbe8f0a34504
+  darwin_amd64: a80a9acb9fc70de5d2ef250a740689f93c90966ef56358102a4102dff9a97b1d
+  linux_amd64: 38338b5bf0093aaf3d2ac753bb6f5c85bd383b8ddc5dafb125a59a3d400e68a6
+  linux_arm64: 2bf6796016a9a86875ac317e234d9c2bcd99a027578b82e3329b799cb0e3f0c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - freetype
+  - libmagic
+  - libsodium
+  - libyaml
+  - numpy
+  - pillow
+  - python@3.14
+  - qhull
+  - rclone
+  - s3cmd

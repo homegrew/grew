@@ -1,0 +1,19 @@
+name: cpputest
+version: 4.0
+description: C /C++ based unit xUnit test framework
+homepage: https://cpputest.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpputest/blobs/sha256:abff3233390673fd95af1c7bccd0b1b9c9687db0057b816cdb43b996f1d0bf73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpputest/blobs/sha256:c287a3cab4f7364184c2ec63cf45c249eb8d3faf6a4b21c529cdc20ace922ec1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpputest/blobs/sha256:a4fb771aa9c96a9d5fa6f88f1172d94ed171b1b2ce87a353828771b48d732c68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpputest/blobs/sha256:d93627b9eacfae5a05edbc1a678dfb89652ca842905d10993b35861913fde598
+sha256:
+  darwin_arm64: abff3233390673fd95af1c7bccd0b1b9c9687db0057b816cdb43b996f1d0bf73
+  darwin_amd64: c287a3cab4f7364184c2ec63cf45c249eb8d3faf6a4b21c529cdc20ace922ec1
+  linux_amd64: a4fb771aa9c96a9d5fa6f88f1172d94ed171b1b2ce87a353828771b48d732c68
+  linux_arm64: d93627b9eacfae5a05edbc1a678dfb89652ca842905d10993b35861913fde598
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: bwa
+version: 0.7.19
+description: Burrow-Wheeler Aligner for pairwise alignment of DNA
+homepage: https://github.com/lh3/bwa
+license: GPL-3.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bwa/blobs/sha256:cd17b7367cbda46d49bba96116e29ec1ffae87d4595bb599180608d3d2bd8f36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bwa/blobs/sha256:a5db6c986e2526f8857cfa30d97c7c7c685a26e936f05b2e1cca6e63b62dd262
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bwa/blobs/sha256:195e334b5f9c69bbbddd656bec4b6b6be44e264a20fa1379e379bc57725bd621
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bwa/blobs/sha256:11f9c38e101df4dfb8b60fce5b1f81f2a70c6728fdda14aa4c7fadea5f1b89de
+sha256:
+  darwin_arm64: cd17b7367cbda46d49bba96116e29ec1ffae87d4595bb599180608d3d2bd8f36
+  darwin_amd64: a5db6c986e2526f8857cfa30d97c7c7c685a26e936f05b2e1cca6e63b62dd262
+  linux_amd64: 195e334b5f9c69bbbddd656bec4b6b6be44e264a20fa1379e379bc57725bd621
+  linux_arm64: 11f9c38e101df4dfb8b60fce5b1f81f2a70c6728fdda14aa4c7fadea5f1b89de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

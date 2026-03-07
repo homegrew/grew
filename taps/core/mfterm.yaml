@@ -1,0 +1,22 @@
+name: mfterm
+version: 1.0.7
+description: Terminal for working with Mifare Classic 1-4k Tags
+homepage: https://github.com/4ZM/mfterm
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mfterm/blobs/sha256:ac306ee70b005b1e01bda26e00b9905ae5d4c940cf59df3a103c02fb1b95e45b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mfterm/blobs/sha256:12c14653abe38cfd1333ddd11f24fe60e54e9eb5a19e5d6422983fb843a2bc96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mfterm/blobs/sha256:84f878e049935d495a6621ac26fb0757f6a936c4e85fa2f6ba1058feb4e7d844
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mfterm/blobs/sha256:b288c27869934494b9292653aa589910b896d63537cdfcc4e6674455a443c0c7
+sha256:
+  darwin_arm64: ac306ee70b005b1e01bda26e00b9905ae5d4c940cf59df3a103c02fb1b95e45b
+  darwin_amd64: 12c14653abe38cfd1333ddd11f24fe60e54e9eb5a19e5d6422983fb843a2bc96
+  linux_amd64: 84f878e049935d495a6621ac26fb0757f6a936c4e85fa2f6ba1058feb4e7d844
+  linux_arm64: b288c27869934494b9292653aa589910b896d63537cdfcc4e6674455a443c0c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnfc
+  - openssl@3

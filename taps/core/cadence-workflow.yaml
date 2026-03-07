@@ -1,0 +1,19 @@
+name: cadence-workflow
+version: 1.4.0
+description: Distributed, scalable, durable, and highly available orchestration engine
+homepage: https://cadenceworkflow.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cadence-workflow/blobs/sha256:c8a3964e7a66146c41e9513dc6c9a1186595e2e80e58ab4b008e146c4d2716b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cadence-workflow/blobs/sha256:95c75946272ffdeb70ce9265054e41845b8741da3f25b65df63f03adc05aed81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cadence-workflow/blobs/sha256:91650d5bac50e659793533f28ab8fc036b77734fc30237d73061be3e6df5b41d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cadence-workflow/blobs/sha256:980bb6386730269f3e5e4c8907cef1f1539e46aa82b908f93db1a54cfde78cda
+sha256:
+  darwin_arm64: c8a3964e7a66146c41e9513dc6c9a1186595e2e80e58ab4b008e146c4d2716b5
+  darwin_amd64: 95c75946272ffdeb70ce9265054e41845b8741da3f25b65df63f03adc05aed81
+  linux_amd64: 91650d5bac50e659793533f28ab8fc036b77734fc30237d73061be3e6df5b41d
+  linux_arm64: 980bb6386730269f3e5e4c8907cef1f1539e46aa82b908f93db1a54cfde78cda
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

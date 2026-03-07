@@ -1,0 +1,29 @@
+name: nwchem
+version: 7.3.1
+description: High-performance computational chemistry tools
+homepage: https://nwchemgit.github.io
+license: ECL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nwchem/blobs/sha256:33fc3d51309ae901d070e2380d5a0552ff0e2a2da355c94fbc36afaa7dd46eba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nwchem/blobs/sha256:c037408994a20f9552262a4e1005da9639f7e23fbb7fa8f3fd2e4c211d709680
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nwchem/blobs/sha256:daa6ff90b5ea14633f27c3f1853cbfe019c80d5e66996a5abf76d1dfbf26f8e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nwchem/blobs/sha256:788f61cfc30939a21bdbc11cfac058565bd0a51d63ffd65d82faa75e13e2b981
+sha256:
+  darwin_arm64: 33fc3d51309ae901d070e2380d5a0552ff0e2a2da355c94fbc36afaa7dd46eba
+  darwin_amd64: c037408994a20f9552262a4e1005da9639f7e23fbb7fa8f3fd2e4c211d709680
+  linux_amd64: daa6ff90b5ea14633f27c3f1853cbfe019c80d5e66996a5abf76d1dfbf26f8e7
+  linux_arm64: 788f61cfc30939a21bdbc11cfac058565bd0a51d63ffd65d82faa75e13e2b981
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - hwloc
+  - libxc
+  - open-mpi
+  - openblas
+  - pkgconf
+  - python@3.14
+  - scalapack
+  - libomp

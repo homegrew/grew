@@ -1,0 +1,21 @@
+name: archey4
+version: 4.15.0.0
+description: Simple system information tool written in Python
+homepage: https://github.com/HorlogeSkynet/archey4
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/archey4/blobs/sha256:8b51742b76a0d2c6fa1f889d22c4c1346ff2a1c696adff0e27936ef1b113ee84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/archey4/blobs/sha256:72a8d23ac8b71a3d221173b763cbc0b24741585707134ba3b5a1da295014c721
+  linux_amd64: https://ghcr.io/v2/homebrew/core/archey4/blobs/sha256:fcf85f57e5437fd832700cf479064e7c1d5ee3582abfe235d9b42c51ffb92f70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/archey4/blobs/sha256:2903334f800483b711c76502cde2a16ed6a44c8d2ce4ddeae17a9299a230dad6
+sha256:
+  darwin_arm64: 8b51742b76a0d2c6fa1f889d22c4c1346ff2a1c696adff0e27936ef1b113ee84
+  darwin_amd64: 72a8d23ac8b71a3d221173b763cbc0b24741585707134ba3b5a1da295014c721
+  linux_amd64: fcf85f57e5437fd832700cf479064e7c1d5ee3582abfe235d9b42c51ffb92f70
+  linux_arm64: 2903334f800483b711c76502cde2a16ed6a44c8d2ce4ddeae17a9299a230dad6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

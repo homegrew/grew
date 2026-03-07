@@ -1,0 +1,21 @@
+name: duo_unix
+version: 2.2.3
+description: Two-factor authentication for SSH
+homepage: https://www.duosecurity.com/docs/duounix
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duo_unix/blobs/sha256:76285c5a46ff71f3d834c49b7c4ecc96daa7141c03a272c62b56e8be8de28e18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duo_unix/blobs/sha256:dc2def25dde741ed3a88deb37d6b864079f21e0c59a94d56a248e754c5336cb6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duo_unix/blobs/sha256:e6b732ccd3f10ab695925616ef0b031454eec757e5b9fe7c2d854254f30db884
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duo_unix/blobs/sha256:dde0bca5fbf5c159f16571f85545240787e67b156eab72b148c9d89a076e28e8
+sha256:
+  darwin_arm64: 76285c5a46ff71f3d834c49b7c4ecc96daa7141c03a272c62b56e8be8de28e18
+  darwin_amd64: dc2def25dde741ed3a88deb37d6b864079f21e0c59a94d56a248e754c5336cb6
+  linux_amd64: e6b732ccd3f10ab695925616ef0b031454eec757e5b9fe7c2d854254f30db884
+  linux_arm64: dde0bca5fbf5c159f16571f85545240787e67b156eab72b148c9d89a076e28e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

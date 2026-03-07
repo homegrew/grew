@@ -1,0 +1,46 @@
+name: mpd
+version: 0.24.8
+description: Music Player Daemon
+homepage: https://www.musicpd.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpd/blobs/sha256:39b1019ffa4607191c7a2ee7f4efd9ecc80ec52b84bef0dc4b03247f932dafcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpd/blobs/sha256:c0cb496d9eabe140bca15f819a8bdc6ebd5f20539afebfdbc6d712fc6bd4df3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpd/blobs/sha256:fb7fba4df84c9ef971b43cc2cc93ea7ee31a40773c567d290c8248519e845f91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpd/blobs/sha256:1564b3e496d627b86828ff555084ab6753977c881cb73e8a7508c4a4498556d0
+sha256:
+  darwin_arm64: 39b1019ffa4607191c7a2ee7f4efd9ecc80ec52b84bef0dc4b03247f932dafcf
+  darwin_amd64: c0cb496d9eabe140bca15f819a8bdc6ebd5f20539afebfdbc6d712fc6bd4df3d
+  linux_amd64: fb7fba4df84c9ef971b43cc2cc93ea7ee31a40773c567d290c8248519e845f91
+  linux_arm64: 1564b3e496d627b86828ff555084ab6753977c881cb73e8a7508c4a4498556d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - chromaprint
+  - faad2
+  - ffmpeg
+  - flac
+  - fluid-synth
+  - fmt
+  - game-music-emu
+  - icu4c@78
+  - lame
+  - libao
+  - libid3tag
+  - libmikmod
+  - libmpdclient
+  - libnfs
+  - libnpupnp
+  - libogg
+  - libsamplerate
+  - libshout
+  - libsndfile
+  - libsoxr
+  - libvorbis
+  - mpg123
+  - opus
+  - pcre2
+  - sqlite
+  - wavpack

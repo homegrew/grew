@@ -1,0 +1,11 @@
+name: gitlight
+version: 0.17.6
+description: "Desktop notifications for GitHub & GitLab"
+homepage: https://gitlight.app/
+url:
+  darwin_arm64: https://github.com/colinlienard/gitlight/releases/download/gitlight-v0.17.6/GitLight_0.17.6_aarch64.dmg
+sha256:
+  darwin_arm64: 939c3774cf3ea4e3b8e8b308d16dbdae7e07ee00778125633170c52559c812ce
+artifacts:
+  app:
+    - GitLight.app

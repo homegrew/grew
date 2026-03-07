@@ -1,0 +1,19 @@
+name: otel-cli
+version: 0.4.5
+description: "Tool for sending events from shell scripts & similar environments"
+homepage: https://github.com/equinix-labs/otel-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/otel-cli/blobs/sha256:a313a9133dd11b8af9799ab905e85d5621e0f39bf352644e507b50d917acf8f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/otel-cli/blobs/sha256:58427fbc110afd673b17749c06ab3016b1f068871e16d7a652aeae0a21231010
+  linux_amd64: https://ghcr.io/v2/homebrew/core/otel-cli/blobs/sha256:ad99c92f5002dcc5dd39e9e1cb4206ee327e6ef5514842fb972b4874a8f11ae5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/otel-cli/blobs/sha256:82c89926433523c86889f4308e4e39c05a68af344017b877911d269b68f66118
+sha256:
+  darwin_arm64: a313a9133dd11b8af9799ab905e85d5621e0f39bf352644e507b50d917acf8f1
+  darwin_amd64: 58427fbc110afd673b17749c06ab3016b1f068871e16d7a652aeae0a21231010
+  linux_amd64: ad99c92f5002dcc5dd39e9e1cb4206ee327e6ef5514842fb972b4874a8f11ae5
+  linux_arm64: 82c89926433523c86889f4308e4e39c05a68af344017b877911d269b68f66118
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

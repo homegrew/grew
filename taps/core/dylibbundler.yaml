@@ -1,0 +1,19 @@
+name: dylibbundler
+version: 1.0.5
+description: Utility to bundle libraries into executables for macOS
+homepage: https://github.com/auriamg/macdylibbundler
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dylibbundler/blobs/sha256:00c51e669f0098b7a2a6271542b9b6be6909cb3634e2b458dfbc708357d6f9c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dylibbundler/blobs/sha256:16c203c632e322567f8ce932652b5ff785302f4bb6623f01fc4e935ea0583d9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dylibbundler/blobs/sha256:b8c2ea435fa7ee838cc3fa07684b4f1b68ac5f65a224c7b5860b5bf06d254f50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dylibbundler/blobs/sha256:0aa6fe3ae7b295e016e05dd3ceefe4056166f9ce7b9f8633c14345106a135f84
+sha256:
+  darwin_arm64: 00c51e669f0098b7a2a6271542b9b6be6909cb3634e2b458dfbc708357d6f9c8
+  darwin_amd64: 16c203c632e322567f8ce932652b5ff785302f4bb6623f01fc4e935ea0583d9d
+  linux_amd64: b8c2ea435fa7ee838cc3fa07684b4f1b68ac5f65a224c7b5860b5bf06d254f50
+  linux_arm64: 0aa6fe3ae7b295e016e05dd3ceefe4056166f9ce7b9f8633c14345106a135f84
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

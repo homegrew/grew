@@ -1,0 +1,21 @@
+name: epsilon
+version: 0.9.2
+description: Powerful wavelet image compressor
+homepage: https://sourceforge.net/projects/epsilon-project/
+license: BSD-3-Clause AND (GPL-3.0-or-later OR LGPL-3.0-or-later)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/epsilon/blobs/sha256:0620e9ab8265a63a2c80dd4dfe7cb5b0f548f12fa5c597b679dd4cfdd079e4f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/epsilon/blobs/sha256:8ea2dd12b11122303dd029e7ec9cef23d820278b4bdccbc7554d434a8bafb305
+  linux_amd64: https://ghcr.io/v2/homebrew/core/epsilon/blobs/sha256:d74732822ae5b53c57fc5bc613e70de84daca229438e47739c875f6dc50b21b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/epsilon/blobs/sha256:f972e745ea9bbb3c9452a75a36d12eecde3ed86a1a0a93e45a924d5a3cce7c4a
+sha256:
+  darwin_arm64: 0620e9ab8265a63a2c80dd4dfe7cb5b0f548f12fa5c597b679dd4cfdd079e4f1
+  darwin_amd64: 8ea2dd12b11122303dd029e7ec9cef23d820278b4bdccbc7554d434a8bafb305
+  linux_amd64: d74732822ae5b53c57fc5bc613e70de84daca229438e47739c875f6dc50b21b1
+  linux_arm64: f972e745ea9bbb3c9452a75a36d12eecde3ed86a1a0a93e45a924d5a3cce7c4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - popt

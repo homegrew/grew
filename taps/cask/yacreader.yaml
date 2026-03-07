@@ -1,0 +1,12 @@
+name: yacreader
+version: 9.16.3.26010361
+description: Comic reader
+homepage: https://www.yacreader.com/
+url:
+  darwin_arm64: https://github.com/YACReader/yacreader/releases/download/9.16.3/YACReader-9.16.3.26010361.MacOSX-U.Qt6.dmg
+sha256:
+  darwin_arm64: a0c97fb566ba3964d0de189165172e2885cb164a314a7cb72a73cab4f3231300
+artifacts:
+  app:
+    - YACReader.app
+    - YACReaderLibrary.app

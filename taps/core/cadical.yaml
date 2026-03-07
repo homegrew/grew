@@ -1,0 +1,19 @@
+name: cadical
+version: 3.0.0
+description: Clean and efficient state-of-the-art SAT solver
+homepage: https://fmv.jku.at/cadical/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cadical/blobs/sha256:2967cc0540cdaf175371d3a4f566ada6998c14f565af4f3a0e844c38655e25d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cadical/blobs/sha256:c79fc253f0b70e9271afec97af7ccfa616c27399ae98469493bf269cd0329e27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cadical/blobs/sha256:7d52a60004435c341e172b804ab0aa96e12170ab4b94e6f2919707a61f59b9e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cadical/blobs/sha256:0b1269bb97bdc24a8a221815916362376d69f3a9f200adf44eb7052a6cb37161
+sha256:
+  darwin_arm64: 2967cc0540cdaf175371d3a4f566ada6998c14f565af4f3a0e844c38655e25d0
+  darwin_amd64: c79fc253f0b70e9271afec97af7ccfa616c27399ae98469493bf269cd0329e27
+  linux_amd64: 7d52a60004435c341e172b804ab0aa96e12170ab4b94e6f2919707a61f59b9e6
+  linux_arm64: 0b1269bb97bdc24a8a221815916362376d69f3a9f200adf44eb7052a6cb37161
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

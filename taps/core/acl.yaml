@@ -1,0 +1,15 @@
+name: acl
+version: 2.3.2
+description: Commands for manipulating POSIX access control lists
+homepage: https://savannah.nongnu.org/projects/acl/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/acl/blobs/sha256:65c9042358cb23a7510fb0a52f938e5b4e48d32c1a19c756165c6c814dd5146e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/acl/blobs/sha256:df5af5425e87eda102251eacdf2a56622bfbda1b285441d438186d471cbd4cb7
+sha256:
+  linux_amd64: 65c9042358cb23a7510fb0a52f938e5b4e48d32c1a19c756165c6c814dd5146e
+  linux_arm64: df5af5425e87eda102251eacdf2a56622bfbda1b285441d438186d471cbd4cb7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

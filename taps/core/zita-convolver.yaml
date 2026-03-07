@@ -1,0 +1,21 @@
+name: zita-convolver
+version: 4.0.3
+description: Fast, partitioned convolution engine library
+homepage: https://kokkinizita.linuxaudio.org/linuxaudio/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zita-convolver/blobs/sha256:27ab1f512bc3b1f0eec036f702eb55b9f0d14d720229f2eae6b029c827185624
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zita-convolver/blobs/sha256:95aafd5ff8d7905f664c95046c2a0cf7f9d3490f941ac549f0d333d6354ca1fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zita-convolver/blobs/sha256:3eb63c0ffaffec4c0e2f1798d73119eb4d124f97e421aa350ad8da0722ca5225
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zita-convolver/blobs/sha256:4756b908b348d2b18c80ad68a255021c9545aa0d8dee560c7139b21b0185c15b
+sha256:
+  darwin_arm64: 27ab1f512bc3b1f0eec036f702eb55b9f0d14d720229f2eae6b029c827185624
+  darwin_amd64: 95aafd5ff8d7905f664c95046c2a0cf7f9d3490f941ac549f0d333d6354ca1fe
+  linux_amd64: 3eb63c0ffaffec4c0e2f1798d73119eb4d124f97e421aa350ad8da0722ca5225
+  linux_arm64: 4756b908b348d2b18c80ad68a255021c9545aa0d8dee560c7139b21b0185c15b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw

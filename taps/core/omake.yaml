@@ -1,0 +1,19 @@
+name: omake
+version: 0.10.7
+description: Build system designed for scalability, portability, and concision
+homepage: http://projects.camlcity.org/projects/omake.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/omake/blobs/sha256:4de04e995e24ff3f5ce9b25a34dbf77464d3722ae1fc0e0d6a4e37e308ea7815
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/omake/blobs/sha256:f7b331439ec53664c6475b856a53f33c51f09c6065d029101315b2e3c8f37ca4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/omake/blobs/sha256:8663b8c6c736ad807b39f45681cd3295ed9cdf1ff8ed58a3301da2e16eefd68b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/omake/blobs/sha256:e147fab15c1388ed0a7ba8c067663417a2e779dba1c4747a130ecd3989a4bf7b
+sha256:
+  darwin_arm64: 4de04e995e24ff3f5ce9b25a34dbf77464d3722ae1fc0e0d6a4e37e308ea7815
+  darwin_amd64: f7b331439ec53664c6475b856a53f33c51f09c6065d029101315b2e3c8f37ca4
+  linux_amd64: 8663b8c6c736ad807b39f45681cd3295ed9cdf1ff8ed58a3301da2e16eefd68b
+  linux_arm64: e147fab15c1388ed0a7ba8c067663417a2e779dba1c4747a130ecd3989a4bf7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: nano-node
+version: 28.2
+description: Local node for the Nano cryptocurrency
+homepage: https://nano.org/
+url:
+  darwin_arm64: https://github.com/nanocurrency/nano-node/releases/download/V28.2/nano-node-V28.2-Darwin.dmg
+sha256:
+  darwin_arm64: b57b17d8f21836b376edfd30420573067240d6ed5b4c5fce73a9772e50f535c5
+artifacts:
+  app:
+    - Nano.app

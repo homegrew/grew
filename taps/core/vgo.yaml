@@ -1,0 +1,19 @@
+name: vgo
+version: 0.3.0
+description: Project scaffolder for Go, written in Go
+homepage: https://github.com/vg006/vgo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vgo/blobs/sha256:ff3f68e2c54740a2b3cdd2074e33ba392fc4d4398c7ab77c441f96b5294cd4dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vgo/blobs/sha256:f1f6d163d6dc4217b8501804008210bdba10fd415b31112d4d78da74e351219a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vgo/blobs/sha256:2ea7f580c8df4839b99a44f522001776ec0dba68b005afff0b08cc567aafbdd1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vgo/blobs/sha256:7d885ec1ff53867945a651083c1c1db6b0aa08fb5eef94f4bf05e47fa65e64b4
+sha256:
+  darwin_arm64: ff3f68e2c54740a2b3cdd2074e33ba392fc4d4398c7ab77c441f96b5294cd4dc
+  darwin_amd64: f1f6d163d6dc4217b8501804008210bdba10fd415b31112d4d78da74e351219a
+  linux_amd64: 2ea7f580c8df4839b99a44f522001776ec0dba68b005afff0b08cc567aafbdd1
+  linux_arm64: 7d885ec1ff53867945a651083c1c1db6b0aa08fb5eef94f4bf05e47fa65e64b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

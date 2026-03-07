@@ -1,0 +1,22 @@
+name: flann
+version: 1.9.2
+description: Fast Library for Approximate Nearest Neighbors
+homepage: https://github.com/flann-lib/flann
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flann/blobs/sha256:6635599071926575a5e3eef3bd48521d93b5fb74da6e21fbf60d99c4b6823ff1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flann/blobs/sha256:9ac7f30cfe97912e5ea39b164fc24d1031af8db3cae79c357bcd6c3149325af4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flann/blobs/sha256:f9d5d3a9637124dff3e43fd033f0887a2520b63fe57a0605951cf888e87b7fb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flann/blobs/sha256:998d5a26830677da31aea0f6131483c3ac3922c1f2b4e7ba71641bd2902a641c
+sha256:
+  darwin_arm64: 6635599071926575a5e3eef3bd48521d93b5fb74da6e21fbf60d99c4b6823ff1
+  darwin_amd64: 9ac7f30cfe97912e5ea39b164fc24d1031af8db3cae79c357bcd6c3149325af4
+  linux_amd64: f9d5d3a9637124dff3e43fd033f0887a2520b63fe57a0605951cf888e87b7fb2
+  linux_arm64: 998d5a26830677da31aea0f6131483c3ac3922c1f2b4e7ba71641bd2902a641c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5
+  - lz4

@@ -1,0 +1,19 @@
+name: wasm-bindgen
+version: 0.2.114
+description: Facilitating high-level interactions between Wasm modules and JavaScript
+homepage: https://wasm-bindgen.github.io/wasm-bindgen/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm-bindgen/blobs/sha256:c0989ef1536b75a4dd53ee41a2a59cecebc5c452f3bfb9daf6f696a2504ddb33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm-bindgen/blobs/sha256:6bdccc2e4c764593a9daf5eff188b3bbb56e1528c144020f2a6a1ca7d964cea1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm-bindgen/blobs/sha256:ffacbc9bbc86b4bb7fdf0dc0c24e6e1cb04d09f27e2b088fbfc6b70768ad6921
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm-bindgen/blobs/sha256:22c74f37cae833357f02d71367b79358b76a20f32685f0df969f25738f4e06fd
+sha256:
+  darwin_arm64: c0989ef1536b75a4dd53ee41a2a59cecebc5c452f3bfb9daf6f696a2504ddb33
+  darwin_amd64: 6bdccc2e4c764593a9daf5eff188b3bbb56e1528c144020f2a6a1ca7d964cea1
+  linux_amd64: ffacbc9bbc86b4bb7fdf0dc0c24e6e1cb04d09f27e2b088fbfc6b70768ad6921
+  linux_arm64: 22c74f37cae833357f02d71367b79358b76a20f32685f0df969f25738f4e06fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

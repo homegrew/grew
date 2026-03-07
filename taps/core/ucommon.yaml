@@ -1,0 +1,22 @@
+name: ucommon
+version: 7.0.1
+description: GNU C++ runtime library for threads, sockets, and parsing
+homepage: https://www.gnu.org/software/commoncpp/
+license: LGPL-3.0-or-later AND (GPL-2.0-or-later WITH mif-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ucommon/blobs/sha256:47d6c23a79119bb4b597cb141c4054018cec80e5dabd11b5379a15cd406d96b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ucommon/blobs/sha256:d9e52557eb8da88b69857f8ada8e310ece430553c7ac5c1b1769fa4b354cc497
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ucommon/blobs/sha256:3cb9863a696fdced7013b30774bea48fced75770d6e2c7a85d4dda337f1ee271
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ucommon/blobs/sha256:44f61ccf52f496b65a2225aad7bd15381c4a8f881a6a13ccdc25d76dbadd2948
+sha256:
+  darwin_arm64: 47d6c23a79119bb4b597cb141c4054018cec80e5dabd11b5379a15cd406d96b9
+  darwin_amd64: d9e52557eb8da88b69857f8ada8e310ece430553c7ac5c1b1769fa4b354cc497
+  linux_amd64: 3cb9863a696fdced7013b30774bea48fced75770d6e2c7a85d4dda337f1ee271
+  linux_arm64: 44f61ccf52f496b65a2225aad7bd15381c4a8f881a6a13ccdc25d76dbadd2948
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - gettext

@@ -1,0 +1,17 @@
+name: fastbuild
+version: 1.19
+description: High performance build system for Windows, OSX and Linux
+homepage: https://fastbuild.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastbuild/blobs/sha256:a95661f3b3667aeb271bc2eca4ab45c748fa6414684be88ec151ecd0df6feb73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastbuild/blobs/sha256:9588121fcfcf5433ce1b0357df57b80407a97885198003c4dd9949bde471b69c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastbuild/blobs/sha256:7374315d541cf5b53077ef653910e6d76bb1e6a3b7ae4c5c28e1e638808fb54f
+sha256:
+  darwin_arm64: a95661f3b3667aeb271bc2eca4ab45c748fa6414684be88ec151ecd0df6feb73
+  darwin_amd64: 9588121fcfcf5433ce1b0357df57b80407a97885198003c4dd9949bde471b69c
+  linux_amd64: 7374315d541cf5b53077ef653910e6d76bb1e6a3b7ae4c5c28e1e638808fb54f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

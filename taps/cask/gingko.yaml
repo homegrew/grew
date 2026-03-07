@@ -1,0 +1,11 @@
+name: gingko
+version: 2.4.15
+description: Word processor that shows structure and content
+homepage: https://gingkowriter.com/
+url:
+  darwin_arm64: https://github.com/gingko/client/releases/download/v2.4.15/Gingko-2.4.15-mac.zip
+sha256:
+  darwin_arm64: bb1367b0a07a80872be253eda0519ec801e0b96b04d59c5bff3f825cf9e380c4
+artifacts:
+  app:
+    - Gingko.app

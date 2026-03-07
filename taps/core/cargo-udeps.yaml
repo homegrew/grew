@@ -1,0 +1,23 @@
+name: cargo-udeps
+version: 0.1.60
+description: Find unused dependencies in Cargo.toml
+homepage: https://github.com/est31/cargo-udeps
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-udeps/blobs/sha256:b0f1babf90db0b6d472b3d54b4229ab27d4d477bcace4e3e72f0a6ad1a745236
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-udeps/blobs/sha256:d28ca37096bf81553f948de03994f7bface8758ff248163c9d58fd3d307a1684
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-udeps/blobs/sha256:6d5767124eb006fd03faf9a346c96d88fd69edecabe53715939402b9c0ad24fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-udeps/blobs/sha256:2f5206f7c22a18f322ebc4eea01b96e509d4831eca1cad867525b2aa06d45082
+sha256:
+  darwin_arm64: b0f1babf90db0b6d472b3d54b4229ab27d4d477bcace4e3e72f0a6ad1a745236
+  darwin_amd64: d28ca37096bf81553f948de03994f7bface8758ff248163c9d58fd3d307a1684
+  linux_amd64: 6d5767124eb006fd03faf9a346c96d88fd69edecabe53715939402b9c0ad24fd
+  linux_arm64: 2f5206f7c22a18f322ebc4eea01b96e509d4831eca1cad867525b2aa06d45082
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

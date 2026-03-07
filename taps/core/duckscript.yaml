@@ -1,0 +1,19 @@
+name: duckscript
+version: 0.11.1
+description: Simple, extendable and embeddable scripting language
+homepage: https://sagiegurari.github.io/duckscript
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duckscript/blobs/sha256:511837c8de4a2edc3cec770ac4a5d732767cf3074755cb58cb14b359be3647a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duckscript/blobs/sha256:0821ca6f519677e8504aeb4307b2f9c2fbfa6a7423eff300e2a8da4e6aae966a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duckscript/blobs/sha256:5235e7033e0a8ed818f198f52df387bd1d82422000c9a32297b7265df247ac36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duckscript/blobs/sha256:ea5de2c68d6c5afabb1ebfd8b0551911c627bad105f050d87f489a295c04eb98
+sha256:
+  darwin_arm64: 511837c8de4a2edc3cec770ac4a5d732767cf3074755cb58cb14b359be3647a2
+  darwin_amd64: 0821ca6f519677e8504aeb4307b2f9c2fbfa6a7423eff300e2a8da4e6aae966a
+  linux_amd64: 5235e7033e0a8ed818f198f52df387bd1d82422000c9a32297b7265df247ac36
+  linux_arm64: ea5de2c68d6c5afabb1ebfd8b0551911c627bad105f050d87f489a295c04eb98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

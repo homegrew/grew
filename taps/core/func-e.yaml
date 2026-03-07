@@ -1,0 +1,19 @@
+name: func-e
+version: 1.4.0
+description: Easily run Envoy
+homepage: https://func-e.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/func-e/blobs/sha256:50312b58ab29066d403d2223ee4984ca03bfc44e96e3e3e2b9a6848b9c6fb4b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/func-e/blobs/sha256:159edb37bc2a32ee7cb161335fb98fec97c14606aae75b4db9e10591ce4e60be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/func-e/blobs/sha256:7fdbe813a99dcfa62b20860c1e349000a3cb88c9e60982cbae35c3cf952286a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/func-e/blobs/sha256:37abe96369388aa7a44b7fbcc53ee09ae2a523f94c090a420ff5533b8f7d0472
+sha256:
+  darwin_arm64: 50312b58ab29066d403d2223ee4984ca03bfc44e96e3e3e2b9a6848b9c6fb4b6
+  darwin_amd64: 159edb37bc2a32ee7cb161335fb98fec97c14606aae75b4db9e10591ce4e60be
+  linux_amd64: 7fdbe813a99dcfa62b20860c1e349000a3cb88c9e60982cbae35c3cf952286a8
+  linux_arm64: 37abe96369388aa7a44b7fbcc53ee09ae2a523f94c090a420ff5533b8f7d0472
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

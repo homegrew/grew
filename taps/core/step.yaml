@@ -1,0 +1,19 @@
+name: step
+version: 0.29.0
+description: Crypto and x509 Swiss-Army-Knife
+homepage: https://smallstep.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/step/blobs/sha256:01da5647995127822d8dae5c5fecca39b2d8271b9c00a61bc6bd7a6af068b38e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/step/blobs/sha256:3b6e856f77b53c3aab8b60b105e19eccb30cd634035dc4c0fe8ae7bbf1924c99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/step/blobs/sha256:f0562a6d6d0f1da43ffad332117a3f67f207e41f4009fe57bd3b85244ae83339
+  linux_arm64: https://ghcr.io/v2/homebrew/core/step/blobs/sha256:ab47cb83f0d77ad75196a4df9bc6bf49d56dc7e154596592c4ecd8ff01092ced
+sha256:
+  darwin_arm64: 01da5647995127822d8dae5c5fecca39b2d8271b9c00a61bc6bd7a6af068b38e
+  darwin_amd64: 3b6e856f77b53c3aab8b60b105e19eccb30cd634035dc4c0fe8ae7bbf1924c99
+  linux_amd64: f0562a6d6d0f1da43ffad332117a3f67f207e41f4009fe57bd3b85244ae83339
+  linux_arm64: ab47cb83f0d77ad75196a4df9bc6bf49d56dc7e154596592c4ecd8ff01092ced
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: c7n
+version: 0.9.49.0
+description: Rules engine for cloud security, cost optimization, and governance
+homepage: https://github.com/cloud-custodian/cloud-custodian
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c7n/blobs/sha256:a9dac537ea251f664ce56cf9f2aa5094403a353031a80f545f68aa35f2ecbc23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c7n/blobs/sha256:37665a19ced3db873f95d19e001a2077323a66bb3e91abfcfaf2058c2936ca2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c7n/blobs/sha256:50b81664894d361f31d99622dde15a222742c592420f17803c333f35163e165b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c7n/blobs/sha256:3f12bdb60b8522eb665671a5bb5a32c68d4aa1d9073dc63a2e597e57dc150b47
+sha256:
+  darwin_arm64: a9dac537ea251f664ce56cf9f2aa5094403a353031a80f545f68aa35f2ecbc23
+  darwin_amd64: 37665a19ced3db873f95d19e001a2077323a66bb3e91abfcfaf2058c2936ca2a
+  linux_amd64: 50b81664894d361f31d99622dde15a222742c592420f17803c333f35163e165b
+  linux_arm64: 3f12bdb60b8522eb665671a5bb5a32c68d4aa1d9073dc63a2e597e57dc150b47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libyaml
+  - python@3.14
+  - rpds-py

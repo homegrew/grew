@@ -1,0 +1,21 @@
+name: sratoolkit
+version: 3.3.0
+description: Data tools for INSDC Sequence Read Archive
+homepage: https://github.com/ncbi/sra-tools
+license: LicenseRef-Homebrew-public-domain AND GPL-3.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sratoolkit/blobs/sha256:159cc6b0addb50eac67eb61286eeceb03d14c50715fb440e9377fe8e555b7edf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sratoolkit/blobs/sha256:25290dba86c7b7b2e9fc2b2d79d74db9dfa329d5ed7c4eaaa2bfdc43370bb716
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sratoolkit/blobs/sha256:3fae8a4dfcb3e32aa9e81d70d66759019f0fe5de66d5324e376bcce443a4d6a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sratoolkit/blobs/sha256:b64ea9757dcd7c669a1b2f048beccdf68b8f1cab8ee360a6adfd65a1e91e8bc0
+sha256:
+  darwin_arm64: 159cc6b0addb50eac67eb61286eeceb03d14c50715fb440e9377fe8e555b7edf
+  darwin_amd64: 25290dba86c7b7b2e9fc2b2d79d74db9dfa329d5ed7c4eaaa2bfdc43370bb716
+  linux_amd64: 3fae8a4dfcb3e32aa9e81d70d66759019f0fe5de66d5324e376bcce443a4d6a5
+  linux_arm64: b64ea9757dcd7c669a1b2f048beccdf68b8f1cab8ee360a6adfd65a1e91e8bc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5

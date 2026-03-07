@@ -1,0 +1,19 @@
+name: libcue
+version: 2.3.0
+description: Cue sheet parser library for C
+homepage: https://github.com/lipnitsk/libcue
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcue/blobs/sha256:f874bb169fb510eac8614949b467eec60f3eb77a9f82e9d80b2356298265fc26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcue/blobs/sha256:0f391c7328b30c5e10263e59f1f313f9d5898a47fec936530b233734bdda5e24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcue/blobs/sha256:981c06a396357ab4014a50e803216c936cd5d6f3da3befa199a5e6926ad3b42a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcue/blobs/sha256:3474394b89c9462d00db5ce4d0c0bf90de7fe657256288a4600cf90f21c78b2e
+sha256:
+  darwin_arm64: f874bb169fb510eac8614949b467eec60f3eb77a9f82e9d80b2356298265fc26
+  darwin_amd64: 0f391c7328b30c5e10263e59f1f313f9d5898a47fec936530b233734bdda5e24
+  linux_amd64: 981c06a396357ab4014a50e803216c936cd5d6f3da3befa199a5e6926ad3b42a
+  linux_arm64: 3474394b89c9462d00db5ce4d0c0bf90de7fe657256288a4600cf90f21c78b2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

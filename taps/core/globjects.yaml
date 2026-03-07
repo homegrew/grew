@@ -1,0 +1,22 @@
+name: globjects
+version: 1.1.0
+description: C++ library strictly wrapping OpenGL objects
+homepage: https://globjects.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/globjects/blobs/sha256:a7f1bf646d61bcbf6af39af096376d92c2f44b3f869251768efc78c20c3c2584
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/globjects/blobs/sha256:275eaa25310c701e9ba4e1022b1b9bdadf3bdb64cf6a86ae77298523d152329c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/globjects/blobs/sha256:4fb290699d5ea7fa3ab29b1d53ffcb2ad1580115b04258cd237e26a4f3e2a717
+  linux_arm64: https://ghcr.io/v2/homebrew/core/globjects/blobs/sha256:ce8e15f50d3531a9368c305fb260a5b13c9114b1f3b29671c42b9ce9f6f5c98f
+sha256:
+  darwin_arm64: a7f1bf646d61bcbf6af39af096376d92c2f44b3f869251768efc78c20c3c2584
+  darwin_amd64: 275eaa25310c701e9ba4e1022b1b9bdadf3bdb64cf6a86ae77298523d152329c
+  linux_amd64: 4fb290699d5ea7fa3ab29b1d53ffcb2ad1580115b04258cd237e26a4f3e2a717
+  linux_arm64: ce8e15f50d3531a9368c305fb260a5b13c9114b1f3b29671c42b9ce9f6f5c98f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glbinding@2
+  - glm

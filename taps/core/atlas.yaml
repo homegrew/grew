@@ -1,0 +1,19 @@
+name: atlas
+version: 1.1.0
+description: Database toolkit
+homepage: https://atlasgo.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atlas/blobs/sha256:b5f2097d31ddefa63bd8ff6c37112d164c639d85096bf433d0983129d9795396
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atlas/blobs/sha256:495dcf514d848e5fac7e92565e523bb9b4a9a1bc98ae70ff7a7e57d76e0f75e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atlas/blobs/sha256:6b69686cdfb127d6653aebb8bc94b22b7d2ad50dae95f7bf05255dcd0ae8408f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atlas/blobs/sha256:bbeb0003802e61293bc9622a90fa18761f5980a6754392acdba835e998f4b92b
+sha256:
+  darwin_arm64: b5f2097d31ddefa63bd8ff6c37112d164c639d85096bf433d0983129d9795396
+  darwin_amd64: 495dcf514d848e5fac7e92565e523bb9b4a9a1bc98ae70ff7a7e57d76e0f75e0
+  linux_amd64: 6b69686cdfb127d6653aebb8bc94b22b7d2ad50dae95f7bf05255dcd0ae8408f
+  linux_arm64: bbeb0003802e61293bc9622a90fa18761f5980a6754392acdba835e998f4b92b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

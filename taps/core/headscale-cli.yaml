@@ -1,0 +1,19 @@
+name: headscale-cli
+version: 0.28.0
+description: CLI for headscale, an open-source implementation of the Tailscale control server
+homepage: https://github.com/juanfont/headscale
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/headscale-cli/blobs/sha256:8ffb957c9bfde2f1a540934b0eac1b5cd110235afc6e58a4533312655021da1a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/headscale-cli/blobs/sha256:5698834718f5d740d0b62a61dab7fea00ad22e7933d3b3536def125729cfd4f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/headscale-cli/blobs/sha256:ea88cc0d6beb9e083bb135c0d2e578e21b4128da64daa2a1f10560e5517fa77b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/headscale-cli/blobs/sha256:abc2c20cf18a262b149af247135da5d287e7db75f1265eec43c6c7d83f547a45
+sha256:
+  darwin_arm64: 8ffb957c9bfde2f1a540934b0eac1b5cd110235afc6e58a4533312655021da1a
+  darwin_amd64: 5698834718f5d740d0b62a61dab7fea00ad22e7933d3b3536def125729cfd4f3
+  linux_amd64: ea88cc0d6beb9e083bb135c0d2e578e21b4128da64daa2a1f10560e5517fa77b
+  linux_arm64: abc2c20cf18a262b149af247135da5d287e7db75f1265eec43c6c7d83f547a45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: sniffnet
+version: 1.4.2
+description: Cross-platform application to monitor your network traffic
+homepage: https://sniffnet.net/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sniffnet/blobs/sha256:7a6044656799fbb1c3834c323e39fbb4564d54716bacdc1b1324487a3c0642aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sniffnet/blobs/sha256:628b4d505e61357664fcfa85193e755ebd59b04b2f72f6944c2f6bbbe0dccf48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sniffnet/blobs/sha256:1a245e62ff02c4d56dc2588888c03b728165b1348c13e031a0c2080b0756f3dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sniffnet/blobs/sha256:f3d3d86d6d894281e8fa2c7d4e0bb9597254218a3d1dfbe96356bbf97a33b0eb
+sha256:
+  darwin_arm64: 7a6044656799fbb1c3834c323e39fbb4564d54716bacdc1b1324487a3c0642aa
+  darwin_amd64: 628b4d505e61357664fcfa85193e755ebd59b04b2f72f6944c2f6bbbe0dccf48
+  linux_amd64: 1a245e62ff02c4d56dc2588888c03b728165b1348c13e031a0c2080b0756f3dc
+  linux_arm64: f3d3d86d6d894281e8fa2c7d4e0bb9597254218a3d1dfbe96356bbf97a33b0eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

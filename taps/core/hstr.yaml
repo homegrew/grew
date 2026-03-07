@@ -1,0 +1,21 @@
+name: hstr
+version: 3.2
+description: Bash and zsh history suggest box
+homepage: https://github.com/dvorka/hstr
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hstr/blobs/sha256:9348756624b912bde30a667b01d54dc146823647642f16783fd43b64172d19c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hstr/blobs/sha256:bb7c70afe249596ea8ddc54273638cce6f2bd59bc7e88680e922bd99f3e279cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hstr/blobs/sha256:8b95920a4bed1c587f8c86e4d3e520ca1849da7cd53107c6890459c7763dca43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hstr/blobs/sha256:3c0f07a862b669a185a4da02d995fd01ff12d19945b3628e09c2f59b5a7d7a97
+sha256:
+  darwin_arm64: 9348756624b912bde30a667b01d54dc146823647642f16783fd43b64172d19c1
+  darwin_amd64: bb7c70afe249596ea8ddc54273638cce6f2bd59bc7e88680e922bd99f3e279cf
+  linux_amd64: 8b95920a4bed1c587f8c86e4d3e520ca1849da7cd53107c6890459c7763dca43
+  linux_arm64: 3c0f07a862b669a185a4da02d995fd01ff12d19945b3628e09c2f59b5a7d7a97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

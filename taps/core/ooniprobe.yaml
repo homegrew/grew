@@ -1,0 +1,21 @@
+name: ooniprobe
+version: 3.29.0
+description: Network interference detection tool
+homepage: https://ooni.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ooniprobe/blobs/sha256:132117e055ba6054b4a0791a5c59ca80b094bc0e68910111aa753ca31a2b1d95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ooniprobe/blobs/sha256:eb606d21d089fdda86cfc0e3eef4b5c671f1156a395b8c318c9998d1337585e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ooniprobe/blobs/sha256:414a8e8fa70fb813587b2464c8c7b4fafab381fbdce587fa4068cc33095519f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ooniprobe/blobs/sha256:81ad7442bbc972fe3c8a5c4be4c891f226089f6518a09eb6209a14fb6f53a5da
+sha256:
+  darwin_arm64: 132117e055ba6054b4a0791a5c59ca80b094bc0e68910111aa753ca31a2b1d95
+  darwin_amd64: eb606d21d089fdda86cfc0e3eef4b5c671f1156a395b8c318c9998d1337585e7
+  linux_amd64: 414a8e8fa70fb813587b2464c8c7b4fafab381fbdce587fa4068cc33095519f5
+  linux_arm64: 81ad7442bbc972fe3c8a5c4be4c891f226089f6518a09eb6209a14fb6f53a5da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tor

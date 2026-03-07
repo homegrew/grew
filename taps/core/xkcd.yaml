@@ -1,0 +1,19 @@
+name: xkcd
+version: 2.0.0
+description: Fetch latest, random or any particular xkcd comic right in your terminal
+homepage: https://git.hanabi.in/xkcd-go
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xkcd/blobs/sha256:12b749bea35ff4bdf2e22379ecbaf6fe1932dbed2ad24593fec9991690eb1802
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xkcd/blobs/sha256:96e9f2ab8f605303a09f88e6daa4536e03aeefa6b258b2495b13eccedff96b4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xkcd/blobs/sha256:7748cc8d6d3651b22cd1960ccf30ca9b52314540fdbe5655888dfeee6c33bc0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xkcd/blobs/sha256:4add881c8653e7f3ac3b9282cbd7a334ee3e90c68c71081a4fe4f6d9d76466ee
+sha256:
+  darwin_arm64: 12b749bea35ff4bdf2e22379ecbaf6fe1932dbed2ad24593fec9991690eb1802
+  darwin_amd64: 96e9f2ab8f605303a09f88e6daa4536e03aeefa6b258b2495b13eccedff96b4c
+  linux_amd64: 7748cc8d6d3651b22cd1960ccf30ca9b52314540fdbe5655888dfeee6c33bc0b
+  linux_arm64: 4add881c8653e7f3ac3b9282cbd7a334ee3e90c68c71081a4fe4f6d9d76466ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

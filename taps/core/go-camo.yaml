@@ -1,0 +1,19 @@
+name: go-camo
+version: 2.7.3
+description: Secure image proxy server
+homepage: https://github.com/cactus/go-camo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-camo/blobs/sha256:af0c15a84d50414f7d242c71a733fb18d33b856ded9a21f417cc7ebf64d5a047
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-camo/blobs/sha256:55febc5b14eaa80b0a937bcd03dedf879855d08f86630cc4152f8aad096658a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-camo/blobs/sha256:8eccf14c9dc9be9c7f5b3488e0937f618af6ef2086ab4c0ba44b5de8216f9d87
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-camo/blobs/sha256:1121a0839b27bf1f278b2c8b55abff0d9574390830cda0614040f432c337c83b
+sha256:
+  darwin_arm64: af0c15a84d50414f7d242c71a733fb18d33b856ded9a21f417cc7ebf64d5a047
+  darwin_amd64: 55febc5b14eaa80b0a937bcd03dedf879855d08f86630cc4152f8aad096658a1
+  linux_amd64: 8eccf14c9dc9be9c7f5b3488e0937f618af6ef2086ab4c0ba44b5de8216f9d87
+  linux_arm64: 1121a0839b27bf1f278b2c8b55abff0d9574390830cda0614040f432c337c83b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

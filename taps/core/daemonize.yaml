@@ -1,0 +1,19 @@
+name: daemonize
+version: 1.7.8
+description: Run a command as a UNIX daemon
+homepage: https://software.clapper.org/daemonize/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/daemonize/blobs/sha256:44f7c8ffc66e91dd8390c9918dfac5d913fb1ff3099a5e29965b49e6c4560c21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/daemonize/blobs/sha256:150530a6f011ca60ce9ed72707c51d2a31c2260e7b4540afbed8c35bc718c765
+  linux_amd64: https://ghcr.io/v2/homebrew/core/daemonize/blobs/sha256:ccae89928e0e598a4b36e6077c509bb4a36020519b4aa49aa3bd58b42de2a3ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/daemonize/blobs/sha256:5f2837cbc66d881b57213af108138f2b18bc05a5ade76c9ae7ce5dc4ca515781
+sha256:
+  darwin_arm64: 44f7c8ffc66e91dd8390c9918dfac5d913fb1ff3099a5e29965b49e6c4560c21
+  darwin_amd64: 150530a6f011ca60ce9ed72707c51d2a31c2260e7b4540afbed8c35bc718c765
+  linux_amd64: ccae89928e0e598a4b36e6077c509bb4a36020519b4aa49aa3bd58b42de2a3ce
+  linux_arm64: 5f2837cbc66d881b57213af108138f2b18bc05a5ade76c9ae7ce5dc4ca515781
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

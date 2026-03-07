@@ -1,0 +1,19 @@
+name: gopeed
+version: 1.9.1
+description: Modern download manager that supports all platform
+homepage: https://gopeed.com
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gopeed/blobs/sha256:eb2603abe43db5588aabf5917f8644f72e5e28970b3de6db3962ed43e776c69e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gopeed/blobs/sha256:6b5f7c025b7584a43655942abbee5760a95b637ba3685164bf6364f8f191851f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gopeed/blobs/sha256:debb1dfe749930277304410cc2e34610aa1526e12fc1cef84403f94e425b5ce2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gopeed/blobs/sha256:22772f0e15a20aec1cc2a24c269e0c11adea5cca2804db99db12592c3ecaf706
+sha256:
+  darwin_arm64: eb2603abe43db5588aabf5917f8644f72e5e28970b3de6db3962ed43e776c69e
+  darwin_amd64: 6b5f7c025b7584a43655942abbee5760a95b637ba3685164bf6364f8f191851f
+  linux_amd64: debb1dfe749930277304410cc2e34610aa1526e12fc1cef84403f94e425b5ce2
+  linux_arm64: 22772f0e15a20aec1cc2a24c269e0c11adea5cca2804db99db12592c3ecaf706
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

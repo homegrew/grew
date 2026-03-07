@@ -1,0 +1,21 @@
+name: t-rec
+version: 0.8.2
+description: Blazingly fast terminal recorder that generates animated gif images for the web
+homepage: https://github.com/sassman/t-rec-rs
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/t-rec/blobs/sha256:157385e3762d2e024b351cffb777869ce4e7ad9113047b8cae70abfd6e572254
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/t-rec/blobs/sha256:5276859a6a2b1beb31ecb92edc804f73f3241e7caa71fc175415b15362a02d65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/t-rec/blobs/sha256:626548f7c83623216cf151c1238264e074a2d7e6cae14256f50a59147f357db9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/t-rec/blobs/sha256:3e88a77bda09c3124d85389a9c1942a1af5cdf4886304dbefb770514fc30c172
+sha256:
+  darwin_arm64: 157385e3762d2e024b351cffb777869ce4e7ad9113047b8cae70abfd6e572254
+  darwin_amd64: 5276859a6a2b1beb31ecb92edc804f73f3241e7caa71fc175415b15362a02d65
+  linux_amd64: 626548f7c83623216cf151c1238264e074a2d7e6cae14256f50a59147f357db9
+  linux_arm64: 3e88a77bda09c3124d85389a9c1942a1af5cdf4886304dbefb770514fc30c172
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imagemagick

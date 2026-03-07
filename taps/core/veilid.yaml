@@ -1,0 +1,19 @@
+name: veilid
+version: 0.5.2
+description: Peer-to-peer network for easily sharing various kinds of data
+homepage: https://veilid.com/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/veilid/blobs/sha256:ff48154cbce45f6ad710afa3117c942d4f92a00b860bb19253e5e7bc19cd6786
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/veilid/blobs/sha256:5ca7e3ddcd6058124adaf1e01d06aa751b059cae501bc17a1e67cda98f4054b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/veilid/blobs/sha256:eeef8192bd8e3c355ad18e07156a4c1993dd1629fd96dafc5c714b513d5a6f9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/veilid/blobs/sha256:951e22994f2f7c0336ee7d0ad15ab3e9e96ea15b843a23808812ee7e362adf90
+sha256:
+  darwin_arm64: ff48154cbce45f6ad710afa3117c942d4f92a00b860bb19253e5e7bc19cd6786
+  darwin_amd64: 5ca7e3ddcd6058124adaf1e01d06aa751b059cae501bc17a1e67cda98f4054b1
+  linux_amd64: eeef8192bd8e3c355ad18e07156a4c1993dd1629fd96dafc5c714b513d5a6f9b
+  linux_arm64: 951e22994f2f7c0336ee7d0ad15ab3e9e96ea15b843a23808812ee7e362adf90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

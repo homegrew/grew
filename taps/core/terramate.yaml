@@ -1,0 +1,19 @@
+name: terramate
+version: 0.16.0
+description: Managing Terraform stacks with change detections and code generations
+homepage: https://terramate.io/docs/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terramate/blobs/sha256:05c85ea7a7237e5f3c23a4ade0fdba3fca893b4853a24c332aff42f7b0f6d4cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terramate/blobs/sha256:2ff912ba808b068f5682ac8b1f07850b1fb01d0e98407a436f39a9f3bf5ec732
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terramate/blobs/sha256:a73f470f48a43f23f66a6923de64b743fc44c6364fe9ad8d33b92e80bf2ad2ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terramate/blobs/sha256:24064d9cb71e9b10fbb2ea9446c91fb0146d4c489ff14c4e50ab4ab5a913882d
+sha256:
+  darwin_arm64: 05c85ea7a7237e5f3c23a4ade0fdba3fca893b4853a24c332aff42f7b0f6d4cf
+  darwin_amd64: 2ff912ba808b068f5682ac8b1f07850b1fb01d0e98407a436f39a9f3bf5ec732
+  linux_amd64: a73f470f48a43f23f66a6923de64b743fc44c6364fe9ad8d33b92e80bf2ad2ec
+  linux_arm64: 24064d9cb71e9b10fbb2ea9446c91fb0146d4c489ff14c4e50ab4ab5a913882d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

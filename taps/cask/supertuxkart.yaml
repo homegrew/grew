@@ -1,0 +1,11 @@
+name: supertuxkart
+version: 1.5
+description: Kart racing game
+homepage: https://supertuxkart.net/Main_Page
+url:
+  darwin_arm64: https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5-mac-signed.zip
+sha256:
+  darwin_arm64: c266acdb8a63a3fe30f52652d9b749f5beba4abeb9e54382fbb934b00c53b303
+artifacts:
+  app:
+    - SuperTuxKart.app

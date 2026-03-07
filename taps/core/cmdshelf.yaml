@@ -1,0 +1,19 @@
+name: cmdshelf
+version: 2.0.2
+description: Better scripting life with cmdshelf
+homepage: https://github.com/toshi0383/cmdshelf
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmdshelf/blobs/sha256:1861366a11845c9df0ea980488fa0717b74897c9a4e15db3fe69b1b6060c5022
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmdshelf/blobs/sha256:4658ed5c59252828c4d8137ccc105228477dcb18512284899fce0ea2359791b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmdshelf/blobs/sha256:f54c84920fa8bd1abe7126270c1f1046a5a8d4932baad7b14982a9dbb4ec2189
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmdshelf/blobs/sha256:987be95a898af28fd47ade9f5279020f1bf1674ed3b279b7f32b21cda9b1ac6f
+sha256:
+  darwin_arm64: 1861366a11845c9df0ea980488fa0717b74897c9a4e15db3fe69b1b6060c5022
+  darwin_amd64: 4658ed5c59252828c4d8137ccc105228477dcb18512284899fce0ea2359791b6
+  linux_amd64: f54c84920fa8bd1abe7126270c1f1046a5a8d4932baad7b14982a9dbb4ec2189
+  linux_arm64: 987be95a898af28fd47ade9f5279020f1bf1674ed3b279b7f32b21cda9b1ac6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

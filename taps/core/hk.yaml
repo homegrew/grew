@@ -1,0 +1,23 @@
+name: hk
+version: 1.38.0
+description: Git hook and pre-commit lint manager
+homepage: https://hk.jdx.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hk/blobs/sha256:b55a6dc6d8abfdc893798930aff0d43971d693ad860f5969ae2887465019f0be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hk/blobs/sha256:798bede591a9846f9c30693279348146d7423540428e1d13e45b0e36fdec8e49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hk/blobs/sha256:1b8f5dce2e44fb60d3e3a2b6a4cc4ea43d9bd71a6482c1dbfb7078bf18d712ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hk/blobs/sha256:80be20a7d43c7ed47f4ecefa5f4c80abc68f91e4fe3abfcfa6c2df6a4692720c
+sha256:
+  darwin_arm64: b55a6dc6d8abfdc893798930aff0d43971d693ad860f5969ae2887465019f0be
+  darwin_amd64: 798bede591a9846f9c30693279348146d7423540428e1d13e45b0e36fdec8e49
+  linux_amd64: 1b8f5dce2e44fb60d3e3a2b6a4cc4ea43d9bd71a6482c1dbfb7078bf18d712ba
+  linux_arm64: 80be20a7d43c7ed47f4ecefa5f4c80abc68f91e4fe3abfcfa6c2df6a4692720c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pkl
+  - usage

@@ -1,0 +1,21 @@
+name: yash
+version: 2.61
+description: "Yet another shell: a POSIX-compliant command-line shell"
+homepage: https://magicant.github.io/yash/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yash/blobs/sha256:46f099f162e3f4662a0175e1c63afbf9021bf504863a8fce232234dd1ffe018b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yash/blobs/sha256:285ef911cd740e054a202981e84afe4675fd23ae13bb2a67c0c21b009d38537c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yash/blobs/sha256:7e73a8a59ca2879eee08bcd2e4a3b4262685536ed0197b6cadbc6977aef87ede
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yash/blobs/sha256:5c532a1a557fcd41f9db0992442d8565c678404f14f3b1903cd45cfa48d4d55a
+sha256:
+  darwin_arm64: 46f099f162e3f4662a0175e1c63afbf9021bf504863a8fce232234dd1ffe018b
+  darwin_amd64: 285ef911cd740e054a202981e84afe4675fd23ae13bb2a67c0c21b009d38537c
+  linux_amd64: 7e73a8a59ca2879eee08bcd2e4a3b4262685536ed0197b6cadbc6977aef87ede
+  linux_arm64: 5c532a1a557fcd41f9db0992442d8565c678404f14f3b1903cd45cfa48d4d55a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

@@ -1,0 +1,19 @@
+name: krep
+version: 2.2.0
+description: High-Performance String Search Utility
+homepage: https://github.com/davidesantangelo/krep
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/krep/blobs/sha256:d99fae9a30396e953908f6cd63619ed879d838b0a539244f507f939af4716848
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/krep/blobs/sha256:253cd400937e1bc9ff303d848a41174dcd12127039ce60fce7d196db61ce56b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/krep/blobs/sha256:e0311b8223de6354143d8e91d395b5919b430aada13e01e46d951014618c2f98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/krep/blobs/sha256:f8f909892abf293dcdf6dcdf0ea684b281f167980ad35cceed8d8af52fed2989
+sha256:
+  darwin_arm64: d99fae9a30396e953908f6cd63619ed879d838b0a539244f507f939af4716848
+  darwin_amd64: 253cd400937e1bc9ff303d848a41174dcd12127039ce60fce7d196db61ce56b1
+  linux_amd64: e0311b8223de6354143d8e91d395b5919b430aada13e01e46d951014618c2f98
+  linux_arm64: f8f909892abf293dcdf6dcdf0ea684b281f167980ad35cceed8d8af52fed2989
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

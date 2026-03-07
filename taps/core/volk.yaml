@@ -1,0 +1,24 @@
+name: volk
+version: 3.3.0
+description: Vector Optimized Library of Kernels
+homepage: https://www.libvolk.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/volk/blobs/sha256:cd42ce70e4c94cb454ab5c6995c2416a96df076fef77da55048cdf885b219cf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/volk/blobs/sha256:9ca0dab8d3ed4bdf05dcc156699e4915228373aac1341e77ffe7e0a338e331a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/volk/blobs/sha256:4522eba14d4066335b54c627d62cd100b2bd5162dd1b4e86bb562a17ffcaba59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/volk/blobs/sha256:07a0efa05eaa738bf120a65525ddda81790f5f7cf775aaf597fedcff7d4f914a
+sha256:
+  darwin_arm64: cd42ce70e4c94cb454ab5c6995c2416a96df076fef77da55048cdf885b219cf0
+  darwin_amd64: 9ca0dab8d3ed4bdf05dcc156699e4915228373aac1341e77ffe7e0a338e331a6
+  linux_amd64: 4522eba14d4066335b54c627d62cd100b2bd5162dd1b4e86bb562a17ffcaba59
+  linux_arm64: 07a0efa05eaa738bf120a65525ddda81790f5f7cf775aaf597fedcff7d4f914a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cpu_features
+  - fmt
+  - orc
+  - python@3.14

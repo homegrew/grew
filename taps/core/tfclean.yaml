@@ -1,0 +1,19 @@
+name: tfclean
+version: 0.0.16
+description: Remove applied moved block, import block, etc
+homepage: https://github.com/takaishi/tfclean
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfclean/blobs/sha256:07fad1bc85357498c303eb9965a521ce57869f5caf9bb967178278d5b2086aed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfclean/blobs/sha256:abfce71e4e7b4741a3d47647f7968173cceac59c36f00d58cb35ba24ddc2a030
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfclean/blobs/sha256:3b7e1f6778001d75a5ae3afab242fe42a1614908145034e6367ef896c15f5237
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfclean/blobs/sha256:45aa2f693a0b21c4cbc52cf9fe420f333c5b9252c8c9d7d4a72b4d8a6a218504
+sha256:
+  darwin_arm64: 07fad1bc85357498c303eb9965a521ce57869f5caf9bb967178278d5b2086aed
+  darwin_amd64: abfce71e4e7b4741a3d47647f7968173cceac59c36f00d58cb35ba24ddc2a030
+  linux_amd64: 3b7e1f6778001d75a5ae3afab242fe42a1614908145034e6367ef896c15f5237
+  linux_arm64: 45aa2f693a0b21c4cbc52cf9fe420f333c5b9252c8c9d7d4a72b4d8a6a218504
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

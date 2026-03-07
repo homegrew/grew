@@ -1,0 +1,26 @@
+name: prowler
+version: 5.19.0
+description: Tool for cloud security assessments, audits, incident response, and more
+homepage: https://prowler.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prowler/blobs/sha256:052ed1b011c7ec4ab26957cf2633a7ef7b23496b9a055e8476d4160b5aaf3fa8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prowler/blobs/sha256:14c92c663130777784547beb0499b2bcdd801445c80e0d268a1a1819b57cc703
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prowler/blobs/sha256:e70a58510eed7a82c2b14575cc389dad447c20be29fc9893ff57ebbd222576f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prowler/blobs/sha256:1d76453eea35dff1df5af5b3702fe121cbafe04cead808918306c124d75f2dea
+sha256:
+  darwin_arm64: 052ed1b011c7ec4ab26957cf2633a7ef7b23496b9a055e8476d4160b5aaf3fa8
+  darwin_amd64: 14c92c663130777784547beb0499b2bcdd801445c80e0d268a1a1819b57cc703
+  linux_amd64: e70a58510eed7a82c2b14575cc389dad447c20be29fc9893ff57ebbd222576f8
+  linux_arm64: 1d76453eea35dff1df5af5b3702fe121cbafe04cead808918306c124d75f2dea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libsodium
+  - libyaml
+  - lz4
+  - openssl@3
+  - python@3.12

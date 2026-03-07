@@ -1,0 +1,19 @@
+name: bam
+version: 0.5.1
+description: Build system that uses Lua to describe the build process
+homepage: https://matricks.github.io/bam/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bam/blobs/sha256:4b8de9dd63dfda7b5b54d80b09458897660a18f8bc7e81ccf5fcf10e30890f69
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bam/blobs/sha256:a02a2877930db310c3de63b2a8fa34892ed25ca66030f90ef5db29c0169923ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bam/blobs/sha256:1220e1a71792eacface17e8168d217ca657aeecf3b30a672a0815375536e2d1d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bam/blobs/sha256:c8b66adf43d301d47e35cb5b45bf01bed4923f7eaf7496d08ded5d2bf70b2b64
+sha256:
+  darwin_arm64: 4b8de9dd63dfda7b5b54d80b09458897660a18f8bc7e81ccf5fcf10e30890f69
+  darwin_amd64: a02a2877930db310c3de63b2a8fa34892ed25ca66030f90ef5db29c0169923ca
+  linux_amd64: 1220e1a71792eacface17e8168d217ca657aeecf3b30a672a0815375536e2d1d
+  linux_arm64: c8b66adf43d301d47e35cb5b45bf01bed4923f7eaf7496d08ded5d2bf70b2b64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

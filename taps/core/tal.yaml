@@ -1,0 +1,19 @@
+name: tal
+version: 1.9
+description: Align line endings if they match
+homepage: https://thomasjensen.com/software/tal/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tal/blobs/sha256:a3aad8a5f10c8cee1e5b9dbfb673a6b05ff97774e5cb2f0f813b76c893b3e424
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tal/blobs/sha256:beb5a6e9a3745345a2de1441503f9718428c27aca657c319a15615bdff1ed993
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tal/blobs/sha256:568fa7d6db8a642d71501bd804351e281c512fa82f3c2757bc870e7e8d871ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tal/blobs/sha256:779b8afc3da3186f16ce41fd9d40257f24e01b80520b625ddcf848f636646357
+sha256:
+  darwin_arm64: a3aad8a5f10c8cee1e5b9dbfb673a6b05ff97774e5cb2f0f813b76c893b3e424
+  darwin_amd64: beb5a6e9a3745345a2de1441503f9718428c27aca657c319a15615bdff1ed993
+  linux_amd64: 568fa7d6db8a642d71501bd804351e281c512fa82f3c2757bc870e7e8d871ecd
+  linux_arm64: 779b8afc3da3186f16ce41fd9d40257f24e01b80520b625ddcf848f636646357
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

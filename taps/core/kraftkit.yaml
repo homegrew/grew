@@ -1,0 +1,21 @@
+name: kraftkit
+version: 0.12.5
+description: Build and use highly customized and ultra-lightweight unikernel VMs
+homepage: https://unikraft.org/docs/cli
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kraftkit/blobs/sha256:4460e2412f7ea04f7c54620fc216d2003e52ec18105c7d6bc5f31fde127f308f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kraftkit/blobs/sha256:780657ed9827075fb1c6e8ce48505e82c5ff042d348d864579f80b80eb585102
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kraftkit/blobs/sha256:cce0e5b120ca6b93221ee7f940f72fc080ff4c5034bb5268b56f08aeecf6368a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kraftkit/blobs/sha256:b38b10881e0648a3a369a5f5c15d46ee5d8016ab695aa319fa44c4d13a6e8d00
+sha256:
+  darwin_arm64: 4460e2412f7ea04f7c54620fc216d2003e52ec18105c7d6bc5f31fde127f308f
+  darwin_amd64: 780657ed9827075fb1c6e8ce48505e82c5ff042d348d864579f80b80eb585102
+  linux_amd64: cce0e5b120ca6b93221ee7f940f72fc080ff4c5034bb5268b56f08aeecf6368a
+  linux_arm64: b38b10881e0648a3a369a5f5c15d46ee5d8016ab695aa319fa44c4d13a6e8d00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

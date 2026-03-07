@@ -1,0 +1,19 @@
+name: nethack
+version: 3.6.7
+description: Single-player roguelike video game
+homepage: https://www.nethack.org/
+license: NGPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nethack/blobs/sha256:9266431ce0bd0980d82d8a6a0a899d1e31ad90236598706d79600b6acf76cdef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nethack/blobs/sha256:496413acccb6c48f8ae064d8beed827062858948e4f28dd7e792ef256d6236ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nethack/blobs/sha256:e8904c482b7915880b90dd409d7a66d74b46524d07071f3eb720aa870cf78a83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nethack/blobs/sha256:d4278220da343d3dcd08254e40c10167c03e6fc83af8634433f241ab9c3e9b0c
+sha256:
+  darwin_arm64: 9266431ce0bd0980d82d8a6a0a899d1e31ad90236598706d79600b6acf76cdef
+  darwin_amd64: 496413acccb6c48f8ae064d8beed827062858948e4f28dd7e792ef256d6236ad
+  linux_amd64: e8904c482b7915880b90dd409d7a66d74b46524d07071f3eb720aa870cf78a83
+  linux_arm64: d4278220da343d3dcd08254e40c10167c03e6fc83af8634433f241ab9c3e9b0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

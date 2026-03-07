@@ -1,0 +1,26 @@
+name: collectd
+version: 5.12.0
+description: Statistics collection and monitoring daemon
+homepage: https://collectd.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/collectd/blobs/sha256:96b35082902fad36f2eebfadecfb13424f4f019cb051fb7cc8a80aa10369e618
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/collectd/blobs/sha256:a43c1a21faa9efe89488e6f8804bafbe299ffa1ef88700257a274b964b9ab94f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/collectd/blobs/sha256:34583c194f6ce6c0b08ebd64e91b079083b038139c24bd9a8d93c1ba35883526
+  linux_arm64: https://ghcr.io/v2/homebrew/core/collectd/blobs/sha256:ffdcf420ea811f4ed5dfb2679314260669bd20fa13ff7b309fe112eae86758f7
+sha256:
+  darwin_arm64: 96b35082902fad36f2eebfadecfb13424f4f019cb051fb7cc8a80aa10369e618
+  darwin_amd64: a43c1a21faa9efe89488e6f8804bafbe299ffa1ef88700257a274b964b9ab94f
+  linux_amd64: 34583c194f6ce6c0b08ebd64e91b079083b038139c24bd9a8d93c1ba35883526
+  linux_arm64: ffdcf420ea811f4ed5dfb2679314260669bd20fa13ff7b309fe112eae86758f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libtool
+  - net-snmp
+  - protobuf-c
+  - riemann-client
+  - libgpg-error

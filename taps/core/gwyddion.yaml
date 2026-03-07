@@ -1,0 +1,33 @@
+name: gwyddion
+version: 2.70
+description: Scanning Probe Microscopy visualization and analysis tool
+homepage: https://gwyddion.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gwyddion/blobs/sha256:2a9be119dd5c8893162a0dcbfac468e8d92b8542e308005b171d98e671d1017d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gwyddion/blobs/sha256:507f7a6ed8de871c6e6ea6576ede975c04bff306deeaeb9511b6e2c4a23d7944
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gwyddion/blobs/sha256:2abe37cb9a8afe42ec478fb057e3dfc4ca19ca1de0b5428ace7df39ab8cc5a2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gwyddion/blobs/sha256:e73cf62e1f3a43063c484d2bbdc962a7f94ef40b6e1688b8eb657bbb40bf9bf6
+sha256:
+  darwin_arm64: 2a9be119dd5c8893162a0dcbfac468e8d92b8542e308005b171d98e671d1017d
+  darwin_amd64: 507f7a6ed8de871c6e6ea6576ede975c04bff306deeaeb9511b6e2c4a23d7944
+  linux_amd64: 2abe37cb9a8afe42ec478fb057e3dfc4ca19ca1de0b5428ace7df39ab8cc5a2b
+  linux_arm64: e73cf62e1f3a43063c484d2bbdc962a7f94ef40b6e1688b8eb657bbb40bf9bf6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fftw
+  - gdk-pixbuf
+  - glib
+  - gtk+
+  - gtkglext
+  - libpng
+  - libxml2
+  - minizip
+  - pango
+  - at-spi2-core
+  - gettext
+  - harfbuzz

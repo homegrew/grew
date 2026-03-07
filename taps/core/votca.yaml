@@ -1,0 +1,29 @@
+name: votca
+version: 2025.1
+description: Versatile Object-oriented Toolkit for Coarse-graining Applications
+homepage: https://www.votca.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/votca/blobs/sha256:8ea2eec9085cfb8e8f8c964828081125904a2c2307ae570859446d8e371a0cd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/votca/blobs/sha256:87c727bb540e8db157ecd161bd32b8d5770a12c9d847ef196021ebe14c921d3f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/votca/blobs/sha256:db9c23d28cb952eb02b554b5d59ceb3c8a0c3abdd6ca536d8293684ee48f1f5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/votca/blobs/sha256:95f1fd91d2adac48f6d14ad03b818de5b73a76b5b7b0e63738c6575b5519a7a1
+sha256:
+  darwin_arm64: 8ea2eec9085cfb8e8f8c964828081125904a2c2307ae570859446d8e371a0cd1
+  darwin_amd64: 87c727bb540e8db157ecd161bd32b8d5770a12c9d847ef196021ebe14c921d3f
+  linux_amd64: db9c23d28cb952eb02b554b5d59ceb3c8a0c3abdd6ca536d8293684ee48f1f5e
+  linux_arm64: 95f1fd91d2adac48f6d14ad03b818de5b73a76b5b7b0e63738c6575b5519a7a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - eigen
+  - fftw
+  - gromacs
+  - hdf5
+  - libecpint
+  - libint
+  - libxc
+  - libomp

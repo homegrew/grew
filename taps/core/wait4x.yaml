@@ -1,0 +1,19 @@
+name: wait4x
+version: 3.6.0
+description: Wait for a port or a service to enter the requested state
+homepage: https://wait4x.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wait4x/blobs/sha256:873a4dbc6c0a3cba863b54345638cd99e42b94d4bf8f5f30f703872dfee6998a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wait4x/blobs/sha256:a2fb789e633fc517647f200b1b70a76947f44cd33ae7b3a204277442a0994122
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wait4x/blobs/sha256:50ac8efca6a7f91489119531764c7adb18f3b5e31770088fc79da375202b6986
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wait4x/blobs/sha256:07256649fd60fdac7e2aedceddb3805f7aeb5ef030014beaf9fa4ffbf0a36a4e
+sha256:
+  darwin_arm64: 873a4dbc6c0a3cba863b54345638cd99e42b94d4bf8f5f30f703872dfee6998a
+  darwin_amd64: a2fb789e633fc517647f200b1b70a76947f44cd33ae7b3a204277442a0994122
+  linux_amd64: 50ac8efca6a7f91489119531764c7adb18f3b5e31770088fc79da375202b6986
+  linux_arm64: 07256649fd60fdac7e2aedceddb3805f7aeb5ef030014beaf9fa4ffbf0a36a4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: ccextractor
+version: 0.96.6
+description: Tool for extracting closed captions from video files
+homepage: https://www.ccextractor.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccextractor/blobs/sha256:12c08c826b1c250658d66d379f72561580175beefe027cc0c171dffa67eba093
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccextractor/blobs/sha256:123f78f64acb113f4d0115ff351399d7f4c7e370b53aed233294b8edf0647cfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccextractor/blobs/sha256:a0ef2ceeff67d6a30349edf4eeef1e452788f44f0c8d7d880c76cb58ae25a8c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccextractor/blobs/sha256:8594c9a98cd6eb8251c1c88cbcea50d1dd4ece4dfe8461664847558e4d3d3f12
+sha256:
+  darwin_arm64: 12c08c826b1c250658d66d379f72561580175beefe027cc0c171dffa67eba093
+  darwin_amd64: 123f78f64acb113f4d0115ff351399d7f4c7e370b53aed233294b8edf0647cfb
+  linux_amd64: a0ef2ceeff67d6a30349edf4eeef1e452788f44f0c8d7d880c76cb58ae25a8c6
+  linux_arm64: 8594c9a98cd6eb8251c1c88cbcea50d1dd4ece4dfe8461664847558e4d3d3f12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - gpac
+  - libpng
+  - protobuf-c
+  - utf8proc

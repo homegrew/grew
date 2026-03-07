@@ -1,0 +1,19 @@
+name: glui
+version: 2.37
+description: C++ user interface library
+homepage: https://github.com/libglui/glui
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glui/blobs/sha256:291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glui/blobs/sha256:723eecbda46e12ba8d1c0c65c4d582bc86b8240e893656695d1392ac4dc10e40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glui/blobs/sha256:b399324e278b5f0ec7d1dece5994eb01384929dfbb85893743b97c929467a743
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glui/blobs/sha256:c229cda6f60b66c2f598d50dbf71a9dda1099d731c16f5d70ac7704c0c19f112
+sha256:
+  darwin_arm64: 291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb
+  darwin_amd64: 723eecbda46e12ba8d1c0c65c4d582bc86b8240e893656695d1392ac4dc10e40
+  linux_amd64: b399324e278b5f0ec7d1dece5994eb01384929dfbb85893743b97c929467a743
+  linux_arm64: c229cda6f60b66c2f598d50dbf71a9dda1099d731c16f5d70ac7704c0c19f112
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

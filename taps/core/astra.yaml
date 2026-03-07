@@ -1,0 +1,21 @@
+name: astra
+version: 1.0.4
+description: Command-Line Interface for DataStax Astra
+homepage: https://docs.datastax.com/en/astra-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/astra/blobs/sha256:63abb48bd1b0a501230708ff114e7972c10cc0b2dd052473dfae0fbc17ed8ffb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/astra/blobs/sha256:6275bd6d3284f07955a4794e3e49c1df8a0a744d17ea94d9cbbf25057b69d3c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/astra/blobs/sha256:4a119bcef3ab863320bd967812e1c4c9d88a6c73360143ef65447558ff82ea69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/astra/blobs/sha256:1320d2fcc71f6789eba8b974127bff7f0d925c9a10f1e466854f5a2e4d88b657
+sha256:
+  darwin_arm64: 63abb48bd1b0a501230708ff114e7972c10cc0b2dd052473dfae0fbc17ed8ffb
+  darwin_amd64: 6275bd6d3284f07955a4794e3e49c1df8a0a744d17ea94d9cbbf25057b69d3c6
+  linux_amd64: 4a119bcef3ab863320bd967812e1c4c9d88a6c73360143ef65447558ff82ea69
+  linux_arm64: 1320d2fcc71f6789eba8b974127bff7f0d925c9a10f1e466854f5a2e4d88b657
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

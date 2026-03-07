@@ -1,0 +1,27 @@
+name: mysql
+version: 9.6.0
+description: Open source relational database management system
+homepage: https://github.com/mysql/mysql-server
+license: GPL-2.0-only WITH Universal-FOSS-exception-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mysql/blobs/sha256:6573ec50c12093ae93ec15a92263d47b851967a6eded430628d05e090cf26a01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mysql/blobs/sha256:e926da5459b0500fcd73f068a265d494d360163aa9bb97f016ea5e99f0436564
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mysql/blobs/sha256:76d18d45f93ae32637af3a6cef24c4dd7b06616ff27b29eb97197997f05b9fd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mysql/blobs/sha256:e9b933faa1243cfd308f6a40f8a8b958c09cb41c5e64a9b6d7d88c8888288fa4
+sha256:
+  darwin_arm64: 6573ec50c12093ae93ec15a92263d47b851967a6eded430628d05e090cf26a01
+  darwin_amd64: e926da5459b0500fcd73f068a265d494d360163aa9bb97f016ea5e99f0436564
+  linux_amd64: 76d18d45f93ae32637af3a6cef24c4dd7b06616ff27b29eb97197997f05b9fd5
+  linux_arm64: e9b933faa1243cfd308f6a40f8a8b958c09cb41c5e64a9b6d7d88c8888288fa4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - icu4c@78
+  - lz4
+  - openssl@3
+  - protobuf
+  - zlib-ng-compat
+  - zstd

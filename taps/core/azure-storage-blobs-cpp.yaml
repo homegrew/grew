@@ -1,0 +1,22 @@
+name: azure-storage-blobs-cpp
+version: 12.16.0
+description: Microsoft Azure Storage Blobs SDK for C++
+homepage: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azure-storage-blobs-cpp/blobs/sha256:df7ab62e091932cd093337f3de4ed407ac93a610b9cb19880fd370d2c4575891
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azure-storage-blobs-cpp/blobs/sha256:03b2433bac7a34f859af853d73b8831f50ef8aee6387f1f741ee0024264f8cdd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azure-storage-blobs-cpp/blobs/sha256:dbda435defceea5df55a8b3cf926e62ee4cd68a6cec73d5646db885d5d8cca50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azure-storage-blobs-cpp/blobs/sha256:df8fcd320188cf1325b281189cfaadafe879195fc765fb743851d7cf16498106
+sha256:
+  darwin_arm64: df7ab62e091932cd093337f3de4ed407ac93a610b9cb19880fd370d2c4575891
+  darwin_amd64: 03b2433bac7a34f859af853d73b8831f50ef8aee6387f1f741ee0024264f8cdd
+  linux_amd64: dbda435defceea5df55a8b3cf926e62ee4cd68a6cec73d5646db885d5d8cca50
+  linux_arm64: df8fcd320188cf1325b281189cfaadafe879195fc765fb743851d7cf16498106
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - azure-core-cpp
+  - azure-storage-common-cpp

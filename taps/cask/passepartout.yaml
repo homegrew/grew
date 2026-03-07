@@ -1,0 +1,11 @@
+name: passepartout
+version: 3.6.9
+description: OpenVPN and WireGuard client
+homepage: https://passepartoutvpn.app/
+url:
+  darwin_arm64: https://github.com/passepartoutvpn/passepartout/releases/download/v3.6.9/Passepartout.arm64.dmg
+sha256:
+  darwin_arm64: 320ffc1cc950e313db40324e09b0afd6909482dd8f779796ac90094ce0e1b16b
+artifacts:
+  app:
+    - Passepartout.app

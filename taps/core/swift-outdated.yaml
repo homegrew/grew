@@ -1,0 +1,19 @@
+name: swift-outdated
+version: 0.11.0
+description: Check for outdated Swift package manager dependencies
+homepage: https://github.com/kiliankoe/swift-outdated
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swift-outdated/blobs/sha256:e4f66dca24aa12662cb6a24db12b9230e422f3c5cf4b9f7b2f1e6d869967f08d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swift-outdated/blobs/sha256:483e5440044df796bd31cbf9d860ff580dd621494fb724525cce4fef5c72a9fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swift-outdated/blobs/sha256:a1ecfe9c2f5011cb9317a1ecf20b52ce93dd4dc25786b39d6acc7a7d60497b12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swift-outdated/blobs/sha256:3729f576e3636160c37316d7aa7788cbdde8dc2c999651654c0a16439af019d4
+sha256:
+  darwin_arm64: e4f66dca24aa12662cb6a24db12b9230e422f3c5cf4b9f7b2f1e6d869967f08d
+  darwin_amd64: 483e5440044df796bd31cbf9d860ff580dd621494fb724525cce4fef5c72a9fd
+  linux_amd64: a1ecfe9c2f5011cb9317a1ecf20b52ce93dd4dc25786b39d6acc7a7d60497b12
+  linux_arm64: 3729f576e3636160c37316d7aa7788cbdde8dc2c999651654c0a16439af019d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

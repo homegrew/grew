@@ -1,0 +1,19 @@
+name: dovi_tool
+version: 2.3.1
+description: CLI tool for Dolby Vision metadata on video streams
+homepage: https://github.com/quietvoid/dovi_tool/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dovi_tool/blobs/sha256:d501377cf2e0ad9c041a5d6f0aeee3ba51a9886c196483017e8e60f47c5703cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dovi_tool/blobs/sha256:0c051cf1e27759e3ee49b1dd0e50fa726953447c61c2060b60bfb93c88615cff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dovi_tool/blobs/sha256:435abf7e0424828fe2aba09c1625ef91e92fd36b1104656233f4334507d4c408
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dovi_tool/blobs/sha256:13b7825ac9b6d1058cb4b743d25a77473126ca1d907b1a473908c29ff25166ff
+sha256:
+  darwin_arm64: d501377cf2e0ad9c041a5d6f0aeee3ba51a9886c196483017e8e60f47c5703cc
+  darwin_amd64: 0c051cf1e27759e3ee49b1dd0e50fa726953447c61c2060b60bfb93c88615cff
+  linux_amd64: 435abf7e0424828fe2aba09c1625ef91e92fd36b1104656233f4334507d4c408
+  linux_arm64: 13b7825ac9b6d1058cb4b743d25a77473126ca1d907b1a473908c29ff25166ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

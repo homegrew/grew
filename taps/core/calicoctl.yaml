@@ -1,0 +1,19 @@
+name: calicoctl
+version: 3.31.4
+description: Calico CLI tool
+homepage: https://www.tigera.io/project-calico/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/calicoctl/blobs/sha256:0f687ec8c275038dab2e31e96db36e528684608f8505341b40df2dcbf951b3a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/calicoctl/blobs/sha256:50491933a4958b0575ed46b364d1452742efbbd11a3a25e18307c0d23fce2b06
+  linux_amd64: https://ghcr.io/v2/homebrew/core/calicoctl/blobs/sha256:972408c9352769432d7bd7717387f48d3ea937244e47fc67002b7f033a27624b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/calicoctl/blobs/sha256:4b662159f4602e0636d3081d3787fbaa60456ec1690ea8f5dd24ca5b4f88f935
+sha256:
+  darwin_arm64: 0f687ec8c275038dab2e31e96db36e528684608f8505341b40df2dcbf951b3a5
+  darwin_amd64: 50491933a4958b0575ed46b364d1452742efbbd11a3a25e18307c0d23fce2b06
+  linux_amd64: 972408c9352769432d7bd7717387f48d3ea937244e47fc67002b7f033a27624b
+  linux_arm64: 4b662159f4602e0636d3081d3787fbaa60456ec1690ea8f5dd24ca5b4f88f935
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

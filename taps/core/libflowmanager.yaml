@@ -1,0 +1,21 @@
+name: libflowmanager
+version: 3.0.0
+description: Flow-based measurement tasks with packet-based inputs
+homepage: https://github.com/LibtraceTeam/libflowmanager
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libflowmanager/blobs/sha256:f13149f2c98c93aefc337e29981ccf5a09d48abb58cfbb90763fd9fbc0d32216
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libflowmanager/blobs/sha256:8cfa25c922ff04f9012e8f41683f69a94907d37a9d183ec734c49554a512df3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libflowmanager/blobs/sha256:447c6ca7a8d3774ddc4e5adcb21b9735aff22be9287bb6fbd054e7cd95063286
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libflowmanager/blobs/sha256:90b6a7d18fac55711aeaa7c43caa493db1684451a2d89d2694b8b4fca2b84a28
+sha256:
+  darwin_arm64: f13149f2c98c93aefc337e29981ccf5a09d48abb58cfbb90763fd9fbc0d32216
+  darwin_amd64: 8cfa25c922ff04f9012e8f41683f69a94907d37a9d183ec734c49554a512df3a
+  linux_amd64: 447c6ca7a8d3774ddc4e5adcb21b9735aff22be9287bb6fbd054e7cd95063286
+  linux_arm64: 90b6a7d18fac55711aeaa7c43caa493db1684451a2d89d2694b8b4fca2b84a28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtrace

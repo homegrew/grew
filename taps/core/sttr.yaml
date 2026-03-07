@@ -1,0 +1,19 @@
+name: sttr
+version: 0.2.30
+description: CLI to perform various operations on string
+homepage: https://github.com/abhimanyu003/sttr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sttr/blobs/sha256:a1fabf7a53aab3e69a2b42a474f524143bf15bf5f2a448fd6bb5aaceff8eff52
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sttr/blobs/sha256:eff47c0cfbea20e7735f4187b0034c20ae1e833f4f3fff832b9409a57412d7a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sttr/blobs/sha256:8a3c432bf1cb5babeb063aafc6a8f468f02b9c801724369058e675105dc22a09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sttr/blobs/sha256:66489b5018db928761078bcfaf11c87ad3ea74e981943fbb53af7c06e684f296
+sha256:
+  darwin_arm64: a1fabf7a53aab3e69a2b42a474f524143bf15bf5f2a448fd6bb5aaceff8eff52
+  darwin_amd64: eff47c0cfbea20e7735f4187b0034c20ae1e833f4f3fff832b9409a57412d7a5
+  linux_amd64: 8a3c432bf1cb5babeb063aafc6a8f468f02b9c801724369058e675105dc22a09
+  linux_arm64: 66489b5018db928761078bcfaf11c87ad3ea74e981943fbb53af7c06e684f296
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

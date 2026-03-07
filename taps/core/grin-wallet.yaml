@@ -1,0 +1,19 @@
+name: grin-wallet
+version: 5.3.3
+description: Official wallet for the cryptocurrency Grin
+homepage: https://grin.mw
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grin-wallet/blobs/sha256:a72f69bac55b83e42fa1262eb6dec2cb14026fd28c8bd68cf7b6170dc69761c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grin-wallet/blobs/sha256:edf969535683ee653d73a8ec8e3e7e5f5034d138afaeb1e73d7e6d002e1aa0fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grin-wallet/blobs/sha256:fb8c9ea2d9d49a06a26ca2fd622921b83ae9144e496829f0c52d451a4fbe7286
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grin-wallet/blobs/sha256:533126a1a649000709dd1dc17796a482232e9b448f9f220985a3630d924ddfe6
+sha256:
+  darwin_arm64: a72f69bac55b83e42fa1262eb6dec2cb14026fd28c8bd68cf7b6170dc69761c5
+  darwin_amd64: edf969535683ee653d73a8ec8e3e7e5f5034d138afaeb1e73d7e6d002e1aa0fa
+  linux_amd64: fb8c9ea2d9d49a06a26ca2fd622921b83ae9144e496829f0c52d451a4fbe7286
+  linux_arm64: 533126a1a649000709dd1dc17796a482232e9b448f9f220985a3630d924ddfe6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

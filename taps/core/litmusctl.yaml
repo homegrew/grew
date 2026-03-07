@@ -1,0 +1,19 @@
+name: litmusctl
+version: 1.23.0
+description: Command-line interface for interacting with LitmusChaos
+homepage: https://litmuschaos.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/litmusctl/blobs/sha256:bfa70e6c499ce39c5570b0096da4cd97e7558f8efe6c7451ec6eb97ef63c7312
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/litmusctl/blobs/sha256:cbd2b6a7eee27a547d59d563d3a9c1066f479cf2801f4ef99f2a619d02a8eee6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/litmusctl/blobs/sha256:8cd0c7f33de7a7f7ae270d35f9f50f3d72d40b87fdcddd5330de70abe3269526
+  linux_arm64: https://ghcr.io/v2/homebrew/core/litmusctl/blobs/sha256:c6363786e48e79091aa1bdb2a690007317037f0ea20a2bbe4d349f86dea2c1c4
+sha256:
+  darwin_arm64: bfa70e6c499ce39c5570b0096da4cd97e7558f8efe6c7451ec6eb97ef63c7312
+  darwin_amd64: cbd2b6a7eee27a547d59d563d3a9c1066f479cf2801f4ef99f2a619d02a8eee6
+  linux_amd64: 8cd0c7f33de7a7f7ae270d35f9f50f3d72d40b87fdcddd5330de70abe3269526
+  linux_arm64: c6363786e48e79091aa1bdb2a690007317037f0ea20a2bbe4d349f86dea2c1c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

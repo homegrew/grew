@@ -1,0 +1,21 @@
+name: kalign
+version: 3.5.1
+description: Fast multiple sequence alignment program for biological sequences
+homepage: https://github.com/TimoLassmann/kalign
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kalign/blobs/sha256:8f71e40d9b45732086ee415ec130e03e09db751f393cffb319bc842992ea28b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kalign/blobs/sha256:10acec6e6df25811d99e0719a143a5a7c7bba1e1c223baf2e249b942c3dfb0f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kalign/blobs/sha256:f797b66afe74876d22fb87c3e59b2d0ba9f004873d2127e631a4026178409e5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kalign/blobs/sha256:86fb9adacf8e8c08495cf7c8673618272540df6c7b26cc4d584d850b066b1d64
+sha256:
+  darwin_arm64: 8f71e40d9b45732086ee415ec130e03e09db751f393cffb319bc842992ea28b2
+  darwin_amd64: 10acec6e6df25811d99e0719a143a5a7c7bba1e1c223baf2e249b942c3dfb0f0
+  linux_amd64: f797b66afe74876d22fb87c3e59b2d0ba9f004873d2127e631a4026178409e5f
+  linux_arm64: 86fb9adacf8e8c08495cf7c8673618272540df6c7b26cc4d584d850b066b1d64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

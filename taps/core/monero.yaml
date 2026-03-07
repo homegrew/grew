@@ -1,0 +1,27 @@
+name: monero
+version: 0.18.4.5
+description: Official Monero wallet and CPU miner
+homepage: https://www.getmonero.org/downloads/#cli
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monero/blobs/sha256:9abda2d7e64821bb17097447405975a1eb42bd009144fcbbd59c178bd24cc38f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monero/blobs/sha256:38f6a3ce15bd649acc39499985d6808455f5c4141c0d41e0f2a9b441c0ebcda0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monero/blobs/sha256:8900fe698480acba97ba549e930f53ff4a197eae7eae1f0a466f4c548f480533
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monero/blobs/sha256:65f6e4d7e1c524a68b261eefbcfe77a74d34cfb85e151bf9d6fc57b4681ba2f0
+sha256:
+  darwin_arm64: 9abda2d7e64821bb17097447405975a1eb42bd009144fcbbd59c178bd24cc38f
+  darwin_amd64: 38f6a3ce15bd649acc39499985d6808455f5c4141c0d41e0f2a9b441c0ebcda0
+  linux_amd64: 8900fe698480acba97ba549e930f53ff4a197eae7eae1f0a466f4c548f480533
+  linux_arm64: 65f6e4d7e1c524a68b261eefbcfe77a74d34cfb85e151bf9d6fc57b4681ba2f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - hidapi
+  - libsodium
+  - openssl@3
+  - readline
+  - unbound
+  - zeromq

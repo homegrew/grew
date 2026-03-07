@@ -1,0 +1,22 @@
+name: flex
+version: 2.6.4
+description: Fast Lexical Analyzer, generates Scanners (tokenizers)
+homepage: https://github.com/westes/flex
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flex/blobs/sha256:62ca8b8763bc2c97fe3ec02a4f55e410a6bf80ab26c291b0914313a82d004afe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flex/blobs/sha256:cebd471efdf0faed6d8fdc615c7637a99bef34e5a21d41f75317d0067ffcc293
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flex/blobs/sha256:b2bff056ad86d8a1cb1a08944867b5f60636ad4e7edca623810937330d87d8eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flex/blobs/sha256:87601a69b6f78fbd8135aad3717263a9fc4469de7a34418bbffc8b035c8d4837
+sha256:
+  darwin_arm64: 62ca8b8763bc2c97fe3ec02a4f55e410a6bf80ab26c291b0914313a82d004afe
+  darwin_amd64: cebd471efdf0faed6d8fdc615c7637a99bef34e5a21d41f75317d0067ffcc293
+  linux_amd64: b2bff056ad86d8a1cb1a08944867b5f60636ad4e7edca623810937330d87d8eb
+  linux_arm64: 87601a69b6f78fbd8135aad3717263a9fc4469de7a34418bbffc8b035c8d4837
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+keg_only: true

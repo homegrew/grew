@@ -1,0 +1,19 @@
+name: zrepl
+version: 0.7.0
+description: "One-stop ZFS backup & replication solution"
+homepage: https://zrepl.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zrepl/blobs/sha256:208277fa477884e0419b882934545194b9cc42f94b429bb94cec29095f8294de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zrepl/blobs/sha256:65f3263bab397da62393bedef12b5b8ed811e0cd747f57fad5bbf7f89c4683d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zrepl/blobs/sha256:97a0feee7878c048a4e3a54f09a4706d433ac1cef303f42e278b074a8f86b84d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zrepl/blobs/sha256:bbf631d984241bf60b21e381ed24570835fa12a40ba3840fdbd73bbda4f8ae26
+sha256:
+  darwin_arm64: 208277fa477884e0419b882934545194b9cc42f94b429bb94cec29095f8294de
+  darwin_amd64: 65f3263bab397da62393bedef12b5b8ed811e0cd747f57fad5bbf7f89c4683d6
+  linux_amd64: 97a0feee7878c048a4e3a54f09a4706d433ac1cef303f42e278b074a8f86b84d
+  linux_arm64: bbf631d984241bf60b21e381ed24570835fa12a40ba3840fdbd73bbda4f8ae26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

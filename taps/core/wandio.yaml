@@ -1,0 +1,24 @@
+name: wandio
+version: 4.2.6
+description: Transparently read from and write to zip, bzip2, lzma or zstd archives
+homepage: https://github.com/LibtraceTeam/wandio
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wandio/blobs/sha256:5673ce841d6d082afc1432971b3b2e28596c4f931aa409b22f86e74317039ec4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wandio/blobs/sha256:8ee2891b8d44dbcf55985d9b08528b728c097704e5479e8c82b5d863f949246d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wandio/blobs/sha256:89523d49509881d50d6e96f15f1c36127f38ba6b8337c9f0dd7b08dc3075389a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wandio/blobs/sha256:e9be468d23893b34c86f3c4f6bb69ec719f82174b8e876d3a6a86f59afa64288
+sha256:
+  darwin_arm64: 5673ce841d6d082afc1432971b3b2e28596c4f931aa409b22f86e74317039ec4
+  darwin_amd64: 8ee2891b8d44dbcf55985d9b08528b728c097704e5479e8c82b5d863f949246d
+  linux_amd64: 89523d49509881d50d6e96f15f1c36127f38ba6b8337c9f0dd7b08dc3075389a
+  linux_arm64: e9be468d23893b34c86f3c4f6bb69ec719f82174b8e876d3a6a86f59afa64288
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - lzo
+  - xz
+  - zstd

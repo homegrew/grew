@@ -1,0 +1,24 @@
+name: scdl
+version: 3.0.4
+description: Command-line tool to download music from SoundCloud
+homepage: https://github.com/scdl-org/scdl
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scdl/blobs/sha256:8c53dd9bca484cb1314f2b245366cfe2827398fd37cb90825dfdf7c33b124834
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scdl/blobs/sha256:bf0119c66fbca86e2385c89eaa216a3b7f28e666c6651a060ca0290fff64cec2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scdl/blobs/sha256:440a651fb52aa6dbfea3b5e05f3127d22df5d75092933d31889233f64dc5ff39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scdl/blobs/sha256:60ab05fbd09e5ab81f729edd62c934749e68a50726bf0fc0ef79dce5022c697a
+sha256:
+  darwin_arm64: 8c53dd9bca484cb1314f2b245366cfe2827398fd37cb90825dfdf7c33b124834
+  darwin_amd64: bf0119c66fbca86e2385c89eaa216a3b7f28e666c6651a060ca0290fff64cec2
+  linux_amd64: 440a651fb52aa6dbfea3b5e05f3127d22df5d75092933d31889233f64dc5ff39
+  linux_arm64: 60ab05fbd09e5ab81f729edd62c934749e68a50726bf0fc0ef79dce5022c697a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - ffmpeg
+  - python@3.14

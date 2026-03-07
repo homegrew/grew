@@ -1,0 +1,19 @@
+name: worktrunk
+version: 0.28.2
+description: CLI for Git worktree management, designed for parallel AI agent workflows
+homepage: https://worktrunk.dev
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/worktrunk/blobs/sha256:09754f73cb50b53677670fadc082d3a53596357507888550a271940620eddae4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/worktrunk/blobs/sha256:58678c465b6df296f14d60106eb442dd644bbf7124ffa2c9899d193d8fbbe797
+  linux_amd64: https://ghcr.io/v2/homebrew/core/worktrunk/blobs/sha256:9e65cd756037cd1324aee40e85ee3b06e4a2f22661b05cfae2b8f08bd4894f26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/worktrunk/blobs/sha256:d2f988398de2849cb6a4ade99b67c24868c2692bdf81ba1966e9cbd1db6f5bdd
+sha256:
+  darwin_arm64: 09754f73cb50b53677670fadc082d3a53596357507888550a271940620eddae4
+  darwin_amd64: 58678c465b6df296f14d60106eb442dd644bbf7124ffa2c9899d193d8fbbe797
+  linux_amd64: 9e65cd756037cd1324aee40e85ee3b06e4a2f22661b05cfae2b8f08bd4894f26
+  linux_arm64: d2f988398de2849cb6a4ade99b67c24868c2692bdf81ba1966e9cbd1db6f5bdd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

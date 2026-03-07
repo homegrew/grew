@@ -1,0 +1,19 @@
+name: sevenzip
+version: 26.00
+description: 7-Zip is a file archiver with a high compression ratio
+homepage: https://7-zip.org
+license: LGPL-2.1-or-later AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sevenzip/blobs/sha256:b57c0f8f5f4caea6aa212b4e6020a6e133d60020c707b37fbf6b541298bad869
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sevenzip/blobs/sha256:d569733581c4b7b1e3fb53d91713e0d1f04ca40e2f895a6f7f932bef8aca9336
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sevenzip/blobs/sha256:d55e8686adb08a769e36501df2303a21f02886f0c0e77275d65ceb83c9afbec3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sevenzip/blobs/sha256:e7ad36bed9fb936409523c18a6ed46aa1025b64c8a8db0182cbd20188a400ed3
+sha256:
+  darwin_arm64: b57c0f8f5f4caea6aa212b4e6020a6e133d60020c707b37fbf6b541298bad869
+  darwin_amd64: d569733581c4b7b1e3fb53d91713e0d1f04ca40e2f895a6f7f932bef8aca9336
+  linux_amd64: d55e8686adb08a769e36501df2303a21f02886f0c0e77275d65ceb83c9afbec3
+  linux_arm64: e7ad36bed9fb936409523c18a6ed46aa1025b64c8a8db0182cbd20188a400ed3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

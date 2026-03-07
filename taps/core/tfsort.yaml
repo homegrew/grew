@@ -1,0 +1,19 @@
+name: tfsort
+version: 0.7.1
+description: CLI to sort Terraform variables and outputs
+homepage: https://github.com/AlexNabokikh/tfsort
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfsort/blobs/sha256:a909ead38b4e912cdb01422b2de69df0c1e4ec6dca044df587e54ecda98bdfe4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfsort/blobs/sha256:997f3dbd8f733cb8ac4885f5c1e847167aab98aa2026e2bff412538b5feea54d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfsort/blobs/sha256:3424821cc7dd576fa0a9814cf0da0b292b5f754ef8e63485af5f85b7e15233f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfsort/blobs/sha256:87487fc1f259042ccd78e6cf15983308a5f9dd856193fcb59a73f838e9e768ea
+sha256:
+  darwin_arm64: a909ead38b4e912cdb01422b2de69df0c1e4ec6dca044df587e54ecda98bdfe4
+  darwin_amd64: 997f3dbd8f733cb8ac4885f5c1e847167aab98aa2026e2bff412538b5feea54d
+  linux_amd64: 3424821cc7dd576fa0a9814cf0da0b292b5f754ef8e63485af5f85b7e15233f2
+  linux_arm64: 87487fc1f259042ccd78e6cf15983308a5f9dd856193fcb59a73f838e9e768ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

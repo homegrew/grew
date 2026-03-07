@@ -1,0 +1,19 @@
+name: speexdsp
+version: 1.2.1
+description: Speex audio processing library
+homepage: https://speex.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/speexdsp/blobs/sha256:e7647620836f6c58957deb0c5994b29b087c0574b5feca71fbaa9dd67d15a092
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/speexdsp/blobs/sha256:d36e29b66b65a4d81e246d825187877ef05f47325bf032948c8bc4cddb826613
+  linux_amd64: https://ghcr.io/v2/homebrew/core/speexdsp/blobs/sha256:c417e96a3739f41fb59aca0ceba32fd45b07f79175d8eda837dd125159098453
+  linux_arm64: https://ghcr.io/v2/homebrew/core/speexdsp/blobs/sha256:e4f60d49f781e99446057cfcee58ac1ebc00f3d003d377a8615b662b56a5b9b3
+sha256:
+  darwin_arm64: e7647620836f6c58957deb0c5994b29b087c0574b5feca71fbaa9dd67d15a092
+  darwin_amd64: d36e29b66b65a4d81e246d825187877ef05f47325bf032948c8bc4cddb826613
+  linux_amd64: c417e96a3739f41fb59aca0ceba32fd45b07f79175d8eda837dd125159098453
+  linux_arm64: e4f60d49f781e99446057cfcee58ac1ebc00f3d003d377a8615b662b56a5b9b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: libgig
+version: 4.5.2
+description: Library for Gigasampler and DLS (Downloadable Sounds) Level 1/2 files
+homepage: https://www.linuxsampler.org/libgig/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgig/blobs/sha256:e08b4cbd024fad1e563040ed574ced16e22ee0b3fb72a084e0375eafe9c7a102
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgig/blobs/sha256:68ce5928dba5671504d28a8268fc58b8ab5e1dd6cc85e2d65cc46a51f1665cdd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgig/blobs/sha256:a528fc44ec562e7304d15d3be8728a35c32a209f82985bd99f59cb5b03fbc781
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgig/blobs/sha256:7c7488a743c560200d37a7620fe90c4f480134d944f8c81efb3458feff9e61e7
+sha256:
+  darwin_arm64: e08b4cbd024fad1e563040ed574ced16e22ee0b3fb72a084e0375eafe9c7a102
+  darwin_amd64: 68ce5928dba5671504d28a8268fc58b8ab5e1dd6cc85e2d65cc46a51f1665cdd
+  linux_amd64: a528fc44ec562e7304d15d3be8728a35c32a209f82985bd99f59cb5b03fbc781
+  linux_arm64: 7c7488a743c560200d37a7620fe90c4f480134d944f8c81efb3458feff9e61e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsndfile

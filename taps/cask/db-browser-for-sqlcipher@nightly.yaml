@@ -1,0 +1,11 @@
+name: db-browser-for-sqlcipher@nightly
+version: 20260304
+description: Database browser for SQLCipher
+homepage: https://sqlitebrowser.org/
+url:
+  darwin_arm64: https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLCipher-universal_20260304.dmg
+sha256:
+  darwin_arm64: 00f83324c28e40047b732e3a636ad90f5ac75b752ed53e46f4ae62a88cf9234c
+artifacts:
+  app:
+    - DB Browser for SQLCipher Nightly.app

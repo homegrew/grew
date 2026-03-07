@@ -1,0 +1,19 @@
+name: mintoolkit
+version: 1.41.8
+description: Minify and secure Docker images
+homepage: https://slimtoolkit.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mintoolkit/blobs/sha256:46b2ab6b6a9737f6cdd6d71144c5761c0d81800a31dd71c97d3be9833a089940
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mintoolkit/blobs/sha256:fa22f8c22cf3b4dcfe49dca2ed42b3c5c9b2c11276f1e37a5eebee5aed27ef63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mintoolkit/blobs/sha256:eb4218cf724bbe79c844c3dc8922ae4ff957aa74cdffd7232ff4d79c6ef5f3a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mintoolkit/blobs/sha256:ad6e2ebb12043106ffd49dc4b23a5ca82e5517cd34acb67227a654438ceafa76
+sha256:
+  darwin_arm64: 46b2ab6b6a9737f6cdd6d71144c5761c0d81800a31dd71c97d3be9833a089940
+  darwin_amd64: fa22f8c22cf3b4dcfe49dca2ed42b3c5c9b2c11276f1e37a5eebee5aed27ef63
+  linux_amd64: eb4218cf724bbe79c844c3dc8922ae4ff957aa74cdffd7232ff4d79c6ef5f3a0
+  linux_arm64: ad6e2ebb12043106ffd49dc4b23a5ca82e5517cd34acb67227a654438ceafa76
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

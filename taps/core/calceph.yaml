@@ -1,0 +1,21 @@
+name: calceph
+version: 4.0.5
+description: C library to access the binary planetary ephemeris files
+homepage: https://www.imcce.fr/inpop/calceph
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/calceph/blobs/sha256:4a1697db0c615f68049b055034beca20f3ebe94327c9976074176ef65141b89f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/calceph/blobs/sha256:17b0aa7869f8977327c1ba0d5838fecc882dd85a3a6a6872806593f375ce0ad7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/calceph/blobs/sha256:7a14165e0bb191f70ea0b083004328096ed866efa64e5b301ddd394c4df12d67
+  linux_arm64: https://ghcr.io/v2/homebrew/core/calceph/blobs/sha256:527d6c7622d8df61721200858ab0e1eb2d538fb3e4742e19e1a7ab3ff3692c77
+sha256:
+  darwin_arm64: 4a1697db0c615f68049b055034beca20f3ebe94327c9976074176ef65141b89f
+  darwin_amd64: 17b0aa7869f8977327c1ba0d5838fecc882dd85a3a6a6872806593f375ce0ad7
+  linux_amd64: 7a14165e0bb191f70ea0b083004328096ed866efa64e5b301ddd394c4df12d67
+  linux_arm64: 527d6c7622d8df61721200858ab0e1eb2d538fb3e4742e19e1a7ab3ff3692c77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

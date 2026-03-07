@@ -1,0 +1,19 @@
+name: taktuk
+version: 3.7.8
+description: Deploy commands to (a potentially large set of) remote nodes
+homepage: https://taktuk.gitlabpages.inria.fr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taktuk/blobs/sha256:9b7af9bb1751fc08c3a0c738daa15c25213bd52e741330334386bb13f407c7a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taktuk/blobs/sha256:6a0d53be5717eb2f8df21692d10fdd0adb02a409986905a0b68848df8ea99ecd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taktuk/blobs/sha256:324acdbdacf274b1b1ac362d386d010b5c4cbc84a534ee5f7a7717a8c20f5692
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taktuk/blobs/sha256:06b5805260616eda515108c0ecce2dd476e4b01efd5cb16101f069bb8534778b
+sha256:
+  darwin_arm64: 9b7af9bb1751fc08c3a0c738daa15c25213bd52e741330334386bb13f407c7a8
+  darwin_amd64: 6a0d53be5717eb2f8df21692d10fdd0adb02a409986905a0b68848df8ea99ecd
+  linux_amd64: 324acdbdacf274b1b1ac362d386d010b5c4cbc84a534ee5f7a7717a8c20f5692
+  linux_arm64: 06b5805260616eda515108c0ecce2dd476e4b01efd5cb16101f069bb8534778b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

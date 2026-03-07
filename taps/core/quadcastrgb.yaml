@@ -1,0 +1,21 @@
+name: quadcastrgb
+version: 1.0.5
+description: Set RGB lights on HyperX QuadCast S and Duocast microphones
+homepage: https://ors1mer.xyz/quadcastrgb.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quadcastrgb/blobs/sha256:4f5fd1f115292a34a1d8c04ff306313c41c37d97a174d933d08197654e6dc2ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quadcastrgb/blobs/sha256:a48b6ff4a332dfb6fb30312ef091372bf4f84d73692ec73e041fe1df4af8b8aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quadcastrgb/blobs/sha256:2801d5cd4a174741bc30148f65714b4aa8fcf15a97294df3e7482bb088bd6d56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quadcastrgb/blobs/sha256:6310f846898c6bf48c71a78426a47015594bf4b96f2a522ae9dde2d1716e8565
+sha256:
+  darwin_arm64: 4f5fd1f115292a34a1d8c04ff306313c41c37d97a174d933d08197654e6dc2ea
+  darwin_amd64: a48b6ff4a332dfb6fb30312ef091372bf4f84d73692ec73e041fe1df4af8b8aa
+  linux_amd64: 2801d5cd4a174741bc30148f65714b4aa8fcf15a97294df3e7482bb088bd6d56
+  linux_arm64: 6310f846898c6bf48c71a78426a47015594bf4b96f2a522ae9dde2d1716e8565
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

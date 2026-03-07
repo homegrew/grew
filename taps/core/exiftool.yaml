@@ -1,0 +1,19 @@
+name: exiftool
+version: 13.50
+description: Perl lib for reading and writing EXIF metadata
+homepage: https://exiftool.org
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exiftool/blobs/sha256:416d7b391c1765cd0d1d14fbae34a226a074adee20e16a63024f626186ed4935
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exiftool/blobs/sha256:28ae052442b9b7a8fe4f76189e50e14c9ba51e141c5214983fff86368ada86d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exiftool/blobs/sha256:11bda5dc7f5a6a5f6bd54aaf55c924c8d021a1a731d5860da4d420502dbbd560
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exiftool/blobs/sha256:95596b30070a21851fb7f765176c31f482e817c01d754beef8a4aba1e2d60ea5
+sha256:
+  darwin_arm64: 416d7b391c1765cd0d1d14fbae34a226a074adee20e16a63024f626186ed4935
+  darwin_amd64: 28ae052442b9b7a8fe4f76189e50e14c9ba51e141c5214983fff86368ada86d3
+  linux_amd64: 11bda5dc7f5a6a5f6bd54aaf55c924c8d021a1a731d5860da4d420502dbbd560
+  linux_arm64: 95596b30070a21851fb7f765176c31f482e817c01d754beef8a4aba1e2d60ea5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: joe
+version: 4.6
+description: Full featured terminal-based screen editor
+homepage: https://joe-editor.sourceforge.io/
+license: GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/joe/blobs/sha256:d75751dfb61cb1bdfee67fddef1a388620fcd01b46e17c1bbca7efd0dfd00159
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/joe/blobs/sha256:80843ad7715fd67b88449dfcf1db5e28b2f99ebb953503d11353c179b5b835de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/joe/blobs/sha256:ca9c9790b7d1c6b64cec4974c90d6855bd2e977b80399a7240d2a3392551a874
+  linux_arm64: https://ghcr.io/v2/homebrew/core/joe/blobs/sha256:4b9a2c586152f8f8b238b0ea531b5dc7982eeb2b5cc7e3bb76d7ce32c87cc96d
+sha256:
+  darwin_arm64: d75751dfb61cb1bdfee67fddef1a388620fcd01b46e17c1bbca7efd0dfd00159
+  darwin_amd64: 80843ad7715fd67b88449dfcf1db5e28b2f99ebb953503d11353c179b5b835de
+  linux_amd64: ca9c9790b7d1c6b64cec4974c90d6855bd2e977b80399a7240d2a3392551a874
+  linux_arm64: 4b9a2c586152f8f8b238b0ea531b5dc7982eeb2b5cc7e3bb76d7ce32c87cc96d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

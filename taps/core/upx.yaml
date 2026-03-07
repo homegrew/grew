@@ -1,0 +1,19 @@
+name: upx
+version: 5.1.1
+description: Compress/expand executable files
+homepage: https://upx.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/upx/blobs/sha256:ea9792e388feed47fb93fa3ac4445c29da427c1c58ce7d61893bfebe07b432ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/upx/blobs/sha256:ceace73c72ce5579b77e459c8c2cc0937dd59d996d3318239052de60b73189a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/upx/blobs/sha256:ae12d1951368371224a793b2fefbf7f76fb25eca11eaf32caf039fcd348c0b61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/upx/blobs/sha256:3e9ee8e3613ef3434dff4dfed0ff37eb87406446a6c9cd5dfff4f8beff451754
+sha256:
+  darwin_arm64: ea9792e388feed47fb93fa3ac4445c29da427c1c58ce7d61893bfebe07b432ec
+  darwin_amd64: ceace73c72ce5579b77e459c8c2cc0937dd59d996d3318239052de60b73189a0
+  linux_amd64: ae12d1951368371224a793b2fefbf7f76fb25eca11eaf32caf039fcd348c0b61
+  linux_arm64: 3e9ee8e3613ef3434dff4dfed0ff37eb87406446a6c9cd5dfff4f8beff451754
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

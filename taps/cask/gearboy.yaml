@@ -1,0 +1,11 @@
+name: gearboy
+version: 3.7.5
+description: Game Boy and Game Boy Color emulator
+homepage: https://github.com/drhelius/Gearboy
+url:
+  darwin_arm64: https://github.com/drhelius/Gearboy/releases/download/3.7.5/Gearboy-3.7.5-macos-arm.zip
+sha256:
+  darwin_arm64: 465279d3b8c91e04b8e96898ee801024b241d8614bb2485729d0feccc3d481c2
+artifacts:
+  app:
+    - Gearboy.app

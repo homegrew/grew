@@ -1,0 +1,16 @@
+name: glibc@2.17
+version: 2.17
+description: GNU C Library
+homepage: https://www.gnu.org/software/libc/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glibc/2.17/blobs/sha256:23e8506f5365138f86d33a39c62dd543813acdc71d160c9de6bde623c6b2d1ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glibc/2.17/blobs/sha256:c7e6ac88b5b12fdbecfe5f82846bbd0071fc7ff7c5b8d01c6896ed1318416499
+sha256:
+  linux_amd64: 23e8506f5365138f86d33a39c62dd543813acdc71d160c9de6bde623c6b2d1ef
+  linux_arm64: c7e6ac88b5b12fdbecfe5f82846bbd0071fc7ff7c5b8d01c6896ed1318416499
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

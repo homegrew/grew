@@ -1,0 +1,39 @@
+name: freeswitch
+version: 1.10.12
+description: Telephony platform to route various communication protocols
+homepage: https://freeswitch.org
+license: MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freeswitch/blobs/sha256:b286c2b3c74a917b36e09864502f009bfb081ea0de083904ae598e28face567c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freeswitch/blobs/sha256:ca349fae6d174f73f3adbfd3a63cd057f56dd8dc7ceae9ff0abe07d566832634
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freeswitch/blobs/sha256:6edd236baa6e161b412388f9f374aac174c53b65adf7822f86f768fed363ac00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freeswitch/blobs/sha256:705bf06d87ee2f4e46d2fa6fb6665dd45fcf2be054bc1351aa3bda2cd71980d5
+sha256:
+  darwin_arm64: b286c2b3c74a917b36e09864502f009bfb081ea0de083904ae598e28face567c
+  darwin_amd64: ca349fae6d174f73f3adbfd3a63cd057f56dd8dc7ceae9ff0abe07d566832634
+  linux_amd64: 6edd236baa6e161b412388f9f374aac174c53b65adf7822f86f768fed363ac00
+  linux_arm64: 705bf06d87ee2f4e46d2fa6fb6665dd45fcf2be054bc1351aa3bda2cd71980d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg@7
+  - freetype
+  - jpeg-turbo
+  - ldns
+  - libks
+  - libpng
+  - libpq
+  - libsndfile
+  - libtiff
+  - lua
+  - opencore-amr
+  - openssl@3
+  - opus
+  - pcre2
+  - signalwire-client-c
+  - sofia-sip
+  - speex
+  - speexdsp
+  - sqlite

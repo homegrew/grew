@@ -1,0 +1,23 @@
+name: fcl
+version: 0.7.0
+description: Flexible Collision Library
+homepage: https://flexible-collision-library.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fcl/blobs/sha256:520b5eb150c605c3d52439c344b97fc921978a7b766141f0deeb000d52a2be6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fcl/blobs/sha256:c940f7e641313fc86f737a53cdee88816a34e0d89b67f626df78144c9d932147
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fcl/blobs/sha256:5213117e4717273be6ea9baf0bccda5ad8ec98a258be6e125b41d151b0cc5e32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fcl/blobs/sha256:8a6759eb4c1576b674bdf4528dc205df0e1ded7d98701282abc1b5868084767b
+sha256:
+  darwin_arm64: 520b5eb150c605c3d52439c344b97fc921978a7b766141f0deeb000d52a2be6c
+  darwin_amd64: c940f7e641313fc86f737a53cdee88816a34e0d89b67f626df78144c9d932147
+  linux_amd64: 5213117e4717273be6ea9baf0bccda5ad8ec98a258be6e125b41d151b0cc5e32
+  linux_arm64: 8a6759eb4c1576b674bdf4528dc205df0e1ded7d98701282abc1b5868084767b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen
+  - libccd
+  - octomap

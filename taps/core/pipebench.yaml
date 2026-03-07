@@ -1,0 +1,19 @@
+name: pipebench
+version: 0.40
+description: Measure the speed of STDIN/STDOUT communication
+homepage: https://www.habets.pp.se/synscan/programs_pipebench.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pipebench/blobs/sha256:d072d62376b997ef53206ada73eb8eb22c9ad10b04f5c4c53ebbf77f92706b8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pipebench/blobs/sha256:330b5c2d7b56101540829652a392086ca686b6c4154bf9b6cca81d607c14f89a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipebench/blobs/sha256:2230dc11d838a89ac74db6c346dee27398a0d4fb7377c93ca9f27876f51a6591
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipebench/blobs/sha256:8f0404896dc102bec6f5934ed5f5cff1a9458b1afc182ebd0feab239bb0caa1c
+sha256:
+  darwin_arm64: d072d62376b997ef53206ada73eb8eb22c9ad10b04f5c4c53ebbf77f92706b8a
+  darwin_amd64: 330b5c2d7b56101540829652a392086ca686b6c4154bf9b6cca81d607c14f89a
+  linux_amd64: 2230dc11d838a89ac74db6c346dee27398a0d4fb7377c93ca9f27876f51a6591
+  linux_arm64: 8f0404896dc102bec6f5934ed5f5cff1a9458b1afc182ebd0feab239bb0caa1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

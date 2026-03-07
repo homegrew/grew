@@ -1,0 +1,22 @@
+name: libgee
+version: 0.20.8
+description: Collection library providing GObject-based interfaces
+homepage: https://wiki.gnome.org/Projects/Libgee
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgee/blobs/sha256:f2b5d2af9aaf72eca39ea04074d26eae49e96fcf2d43e38f659cfd5115443a55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgee/blobs/sha256:54b304a5bb1c6cd0b4cf4ad92e33497616250375a1d199b056f712059484c8f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgee/blobs/sha256:695ca3b94a6452ef5d365da12bcf3b9b12a3e80c298f5c6d032bd873926a9ef4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgee/blobs/sha256:e3a4b234964285662e7ae86aba11035910b5b435c74d1d86755b53d803e2ef15
+sha256:
+  darwin_arm64: f2b5d2af9aaf72eca39ea04074d26eae49e96fcf2d43e38f659cfd5115443a55
+  darwin_amd64: 54b304a5bb1c6cd0b4cf4ad92e33497616250375a1d199b056f712059484c8f8
+  linux_amd64: 695ca3b94a6452ef5d365da12bcf3b9b12a3e80c298f5c6d032bd873926a9ef4
+  linux_arm64: e3a4b234964285662e7ae86aba11035910b5b435c74d1d86755b53d803e2ef15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

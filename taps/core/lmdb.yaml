@@ -1,0 +1,19 @@
+name: lmdb
+version: 0.9.35
+description: "Lightning memory-mapped database: key-value data store"
+homepage: https://www.symas.com/symas-embedded-database-lmdb
+license: OLDAP-2.8
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lmdb/blobs/sha256:ff8ea47014d75d42bf16d283dadd6b342953175fda71ec580cba3751ffbf14c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lmdb/blobs/sha256:74efd6cfd1355ccd8f1ea00232c9a163b939999fb209fc04111f622c9a59231b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lmdb/blobs/sha256:aedd3488e577959f8e83ad4d26329e3d5c878e3c6be837d5d09ae7e5012756ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lmdb/blobs/sha256:438f6fde81f43d28c4774ab7e5bfcc907c5c2093b5fdf636aa3ef4e4af75adb3
+sha256:
+  darwin_arm64: ff8ea47014d75d42bf16d283dadd6b342953175fda71ec580cba3751ffbf14c9
+  darwin_amd64: 74efd6cfd1355ccd8f1ea00232c9a163b939999fb209fc04111f622c9a59231b
+  linux_amd64: aedd3488e577959f8e83ad4d26329e3d5c878e3c6be837d5d09ae7e5012756ff
+  linux_arm64: 438f6fde81f43d28c4774ab7e5bfcc907c5c2093b5fdf636aa3ef4e4af75adb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

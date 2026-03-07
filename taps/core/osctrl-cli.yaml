@@ -1,0 +1,19 @@
+name: osctrl-cli
+version: 0.5.0
+description: Fast and efficient osquery management
+homepage: https://osctrl.net
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osctrl-cli/blobs/sha256:a072f936507390bb64aa7a9f51d37e8fa3f6a8c70b5afab370f1d886c108f21d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osctrl-cli/blobs/sha256:fd0d7f382100a1d1aa624da878bb71acc509bec18b5cd5250569e8cfd0e43d1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osctrl-cli/blobs/sha256:881de821567b42067b7bf79e1068d4806441154d2ae54e911423a55321474aa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osctrl-cli/blobs/sha256:4c40ca5841e215c3efc3e98f2586436b804a92ea3786aef7e131e70fdabd39ba
+sha256:
+  darwin_arm64: a072f936507390bb64aa7a9f51d37e8fa3f6a8c70b5afab370f1d886c108f21d
+  darwin_amd64: fd0d7f382100a1d1aa624da878bb71acc509bec18b5cd5250569e8cfd0e43d1d
+  linux_amd64: 881de821567b42067b7bf79e1068d4806441154d2ae54e911423a55321474aa1
+  linux_arm64: 4c40ca5841e215c3efc3e98f2586436b804a92ea3786aef7e131e70fdabd39ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

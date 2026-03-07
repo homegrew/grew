@@ -1,0 +1,11 @@
+name: zedis
+version: 0.2.5
+description: Redis GUI built with Rust and GPUI
+homepage: https://github.com/vicanso/zedis
+url:
+  darwin_arm64: https://github.com/vicanso/zedis/releases/download/v0.2.5/Zedis-aarch64.dmg
+sha256:
+  darwin_arm64: 761da541cc19923b39eeb74c8a9431ebaca3ff1c0bf021246bd2bdf6316fadab
+artifacts:
+  app:
+    - Zedis.app

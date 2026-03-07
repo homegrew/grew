@@ -1,0 +1,21 @@
+name: qtserialport
+version: 6.10.2
+description: Provides classes to interact with hardware and virtual serial ports
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtserialport/blobs/sha256:8b58bd62abf1078b6afb8cc625389d0b7a55b55ddfc8f3be6e30885a3785cfaf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtserialport/blobs/sha256:93f5a8e7b9bdb30f6d41a4900978506b98b848613220abc0b502e56e02d641a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtserialport/blobs/sha256:3c4f28bc9114ceacd542571568f95878dfb528f36f9f6d5b495e5c630d94de24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtserialport/blobs/sha256:0c37ff62b11198825040aa761dcaebb78b7b9fafc6c07812bd41c21b8914d881
+sha256:
+  darwin_arm64: 8b58bd62abf1078b6afb8cc625389d0b7a55b55ddfc8f3be6e30885a3785cfaf
+  darwin_amd64: 93f5a8e7b9bdb30f6d41a4900978506b98b848613220abc0b502e56e02d641a8
+  linux_amd64: 3c4f28bc9114ceacd542571568f95878dfb528f36f9f6d5b495e5c630d94de24
+  linux_arm64: 0c37ff62b11198825040aa761dcaebb78b7b9fafc6c07812bd41c21b8914d881
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

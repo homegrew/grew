@@ -1,0 +1,19 @@
+name: libucl
+version: 0.9.4
+description: Universal configuration library parser
+homepage: https://github.com/vstakhov/libucl
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libucl/blobs/sha256:d558ba4973cfffdba49a2728ca9945ae938c9f8b18cb1170919e51fad82338d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libucl/blobs/sha256:e5c65c529626b4433ad606574b842312534f05e049df186251955e55c66af882
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libucl/blobs/sha256:ba43e46b697f805c3908c81591fd5163703a51e8deebcf372fd01510041a02a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libucl/blobs/sha256:00fd13ad0b9d87427f303f93466f006e14e9f5d2bc14b64aa87487c9d3f0320d
+sha256:
+  darwin_arm64: d558ba4973cfffdba49a2728ca9945ae938c9f8b18cb1170919e51fad82338d6
+  darwin_amd64: e5c65c529626b4433ad606574b842312534f05e049df186251955e55c66af882
+  linux_amd64: ba43e46b697f805c3908c81591fd5163703a51e8deebcf372fd01510041a02a8
+  linux_arm64: 00fd13ad0b9d87427f303f93466f006e14e9f5d2bc14b64aa87487c9d3f0320d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

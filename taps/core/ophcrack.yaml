@@ -1,0 +1,21 @@
+name: ophcrack
+version: 3.8.0
+description: Microsoft Windows password cracker using rainbow tables
+homepage: https://ophcrack.sourceforge.io/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ophcrack/blobs/sha256:2553d9e208e58765c20d11a8ce7a24ba4564caca492eaeec39ff7f3143452bed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ophcrack/blobs/sha256:03a63578e3db4ec721c74962a36a81bf3c417d05f8c557240ce0791a8c74ef4b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ophcrack/blobs/sha256:18e7c06d3f04cebc060e100f2b1a8c5825736fbd13047e6f1732a7e2d006235e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ophcrack/blobs/sha256:fe021b18a96a207453ab400f344773412a39a7d1a527bcc2bb1b76417f2e13b2
+sha256:
+  darwin_arm64: 2553d9e208e58765c20d11a8ce7a24ba4564caca492eaeec39ff7f3143452bed
+  darwin_amd64: 03a63578e3db4ec721c74962a36a81bf3c417d05f8c557240ce0791a8c74ef4b
+  linux_amd64: 18e7c06d3f04cebc060e100f2b1a8c5825736fbd13047e6f1732a7e2d006235e
+  linux_arm64: fe021b18a96a207453ab400f344773412a39a7d1a527bcc2bb1b76417f2e13b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

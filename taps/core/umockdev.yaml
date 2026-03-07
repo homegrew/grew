@@ -1,0 +1,19 @@
+name: umockdev
+version: 0.19.5
+description: Mock hardware devices for creating unit tests and bug reporting
+homepage: https://github.com/martinpitt/umockdev
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/umockdev/blobs/sha256:57809a46842bcb007a73103868d5758b05291bf6f2f24792c335ab260b9a1433
+  linux_arm64: https://ghcr.io/v2/homebrew/core/umockdev/blobs/sha256:44ed4a06fea13a89af68990a2c52d172bed4df2d25f0ff77a43f8961fb7edf13
+sha256:
+  linux_amd64: 57809a46842bcb007a73103868d5758b05291bf6f2f24792c335ab260b9a1433
+  linux_arm64: 44ed4a06fea13a89af68990a2c52d172bed4df2d25f0ff77a43f8961fb7edf13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libpcap
+  - systemd

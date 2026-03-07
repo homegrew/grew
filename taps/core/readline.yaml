@@ -1,0 +1,20 @@
+name: readline
+version: 8.3.3
+description: Library for command-line editing
+homepage: https://tiswww.case.edu/php/chet/readline/rltop.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:1c6234c033c83ea742d50aa45fd60821947fa800d5cadecb0a1aa045564bb7d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:67a24889119e6429144cd15fb9b0dc8ae37cf272388605a5780bb734f8e6b093
+  linux_amd64: https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:ea989e13a1df95ab899b8b1d35713def4330950259e7a48053fcd7967ee316b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:5cbd86f40534c4ef8b800e605408411bc6b047bf7c4f3911b2c020b1cfa39b89
+sha256:
+  darwin_arm64: 1c6234c033c83ea742d50aa45fd60821947fa800d5cadecb0a1aa045564bb7d1
+  darwin_amd64: 67a24889119e6429144cd15fb9b0dc8ae37cf272388605a5780bb734f8e6b093
+  linux_amd64: ea989e13a1df95ab899b8b1d35713def4330950259e7a48053fcd7967ee316b2
+  linux_arm64: 5cbd86f40534c4ef8b800e605408411bc6b047bf7c4f3911b2c020b1cfa39b89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,21 @@
+name: libmms
+version: 0.6.4
+description: "Library for parsing mms:// and mmsh:// network streams"
+homepage: https://sourceforge.net/projects/libmms/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmms/blobs/sha256:aa6cb8c3240b6fbcc6e58fc69c3e117ff0a1c1c1a3eaa22b6374d13a91b2c2fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmms/blobs/sha256:311410a29d2c125854503091ab13680dee5abd4420e6b3dd26a595e8b07b3456
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmms/blobs/sha256:5bf0654cdf09b4ca5c749e75d8920ff2eddee195e31a468c64bee07f74571b29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmms/blobs/sha256:ed7a66b304d548c1426e5b0fa507a7cd3f06923aa13d8d14876b9e94e81146ff
+sha256:
+  darwin_arm64: aa6cb8c3240b6fbcc6e58fc69c3e117ff0a1c1c1a3eaa22b6374d13a91b2c2fa
+  darwin_amd64: 311410a29d2c125854503091ab13680dee5abd4420e6b3dd26a595e8b07b3456
+  linux_amd64: 5bf0654cdf09b4ca5c749e75d8920ff2eddee195e31a468c64bee07f74571b29
+  linux_arm64: ed7a66b304d548c1426e5b0fa507a7cd3f06923aa13d8d14876b9e94e81146ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

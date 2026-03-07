@@ -1,0 +1,11 @@
+name: jedit
+version: 5.7.0
+description: Text editor
+homepage: https://www.jedit.org/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/jedit/jedit5.7.0install.dmg
+sha256:
+  darwin_arm64: 5f3582c076e400dc79673a0b1f5a3314e1229288791d9019c693f2108d6d0bb5
+artifacts:
+  app:
+    - jEdit.app

@@ -1,0 +1,13 @@
+name: kaleidoscope@2
+version: 2.4.5,1457,dec-20-2021
+description: Spot and merge differences in text and image files or folders
+homepage: https://kaleidoscope.app/
+url:
+  darwin_arm64: https://updates.kaleidoscope.app/v2/prod/Kaleidoscope-2.4.5-1457-dec-20-2021.app.zip
+sha256:
+  darwin_arm64: bbe5afc9f9292309527b6149e832c85460624e330c0768cd706d0629e0755611
+artifacts:
+  app:
+    - Kaleidoscope.app
+  bin:
+    - ksdiff

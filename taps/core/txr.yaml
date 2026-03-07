@@ -1,0 +1,19 @@
+name: txr
+version: 302
+description: Lisp-like programming language for convenient data munging
+homepage: https://www.nongnu.org/txr/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/txr/blobs/sha256:5a3e2696544766b198f2d6be38cee732e7757bc465a85951d3cc69c589a74490
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/txr/blobs/sha256:0db191f5177f88c2347a3374bd99847bc65034f200bd83ed891de7cb69d56823
+  linux_amd64: https://ghcr.io/v2/homebrew/core/txr/blobs/sha256:28c0d4e14ed8bf41888293d49df188ed82b731ef0dd5fe30fe279c69f4a17b1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/txr/blobs/sha256:ef7c5786a174ca30e31d3d87afa2aeb796cab3c72a837f01397af9011cfe9885
+sha256:
+  darwin_arm64: 5a3e2696544766b198f2d6be38cee732e7757bc465a85951d3cc69c589a74490
+  darwin_amd64: 0db191f5177f88c2347a3374bd99847bc65034f200bd83ed891de7cb69d56823
+  linux_amd64: 28c0d4e14ed8bf41888293d49df188ed82b731ef0dd5fe30fe279c69f4a17b1f
+  linux_arm64: ef7c5786a174ca30e31d3d87afa2aeb796cab3c72a837f01397af9011cfe9885
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

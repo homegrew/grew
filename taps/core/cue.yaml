@@ -1,0 +1,19 @@
+name: cue
+version: 0.16.0
+description: Validate and define text-based and dynamic configuration
+homepage: https://cuelang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cue/blobs/sha256:283fc576a33f724a6dcc301136ed9570932302305199ff73520045152683b744
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cue/blobs/sha256:97ca9e03644d7282c33f5b12528876909340ecab5b279444c2e4e8512fcde323
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cue/blobs/sha256:2b52392d7ad11f7f9b24d615f5b92d1712c3e243a5ccab2e656ad5fe65247668
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cue/blobs/sha256:356c1262b0e80ef595a17296e698953859a9ef753a5ce04d35d159a056f025f2
+sha256:
+  darwin_arm64: 283fc576a33f724a6dcc301136ed9570932302305199ff73520045152683b744
+  darwin_amd64: 97ca9e03644d7282c33f5b12528876909340ecab5b279444c2e4e8512fcde323
+  linux_amd64: 2b52392d7ad11f7f9b24d615f5b92d1712c3e243a5ccab2e656ad5fe65247668
+  linux_arm64: 356c1262b0e80ef595a17296e698953859a9ef753a5ce04d35d159a056f025f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

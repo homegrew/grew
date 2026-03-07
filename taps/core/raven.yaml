@@ -1,0 +1,23 @@
+name: raven
+version: 1.0.9
+description: Risk Analysis and Vulnerability Enumeration for CI/CD
+homepage: https://github.com/CycodeLabs/raven
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/raven/blobs/sha256:d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/raven/blobs/sha256:ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688
+  linux_amd64: https://ghcr.io/v2/homebrew/core/raven/blobs/sha256:9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123
+  linux_arm64: https://ghcr.io/v2/homebrew/core/raven/blobs/sha256:2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28
+sha256:
+  darwin_arm64: d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80
+  darwin_amd64: ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688
+  linux_amd64: 9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123
+  linux_arm64: 2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

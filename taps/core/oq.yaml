@@ -1,0 +1,23 @@
+name: oq
+version: 1.3.5
+description: Performant, and portable jq wrapper to support formats other than JSON
+homepage: https://blacksmoke16.github.io/oq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oq/blobs/sha256:023cabb88d541a227fe92c766625d0c1cd39a4d754d632db66d3c50b2e569fe2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oq/blobs/sha256:eb071190d60a7ca25bfdd41b2f7b6e6532cc67fa2de3ca2de9eed499e98c882e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oq/blobs/sha256:f5b40019bdaf79268a1b35432bd8a5af1529a3cbcce8bc7b5eaa1b434e6d10b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oq/blobs/sha256:fcbe0948bfc1edc6f5fc03b667784348d8b3a4213a5a2970a0ad1c564795e1f3
+sha256:
+  darwin_arm64: 023cabb88d541a227fe92c766625d0c1cd39a4d754d632db66d3c50b2e569fe2
+  darwin_amd64: eb071190d60a7ca25bfdd41b2f7b6e6532cc67fa2de3ca2de9eed499e98c882e
+  linux_amd64: f5b40019bdaf79268a1b35432bd8a5af1529a3cbcce8bc7b5eaa1b434e6d10b1
+  linux_arm64: fcbe0948bfc1edc6f5fc03b667784348d8b3a4213a5a2970a0ad1c564795e1f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - libyaml
+  - pcre2

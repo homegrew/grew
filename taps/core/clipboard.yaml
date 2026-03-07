@@ -1,0 +1,21 @@
+name: clipboard
+version: 0.10.0
+description: Cut, copy, and paste anything, anywhere, all from the terminal
+homepage: https://getclipboard.app
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clipboard/blobs/sha256:f5aa10de8e148bedda7f84cab8c848b785ab77c5cd5753cfbce5eb88574499c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clipboard/blobs/sha256:c551b2ece1d81249476f06ee13336c52a948fdf469b02b02b892a16bab58862d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clipboard/blobs/sha256:1d390684f0efa26d3fe4a5a5b93f98daaf10c678cf1b0a638ae52aeca7ec1ebb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clipboard/blobs/sha256:222d40b953ed0218c7d3f4b51708294764afd22cb6f9fbdffa5c6cd9465a6c34
+sha256:
+  darwin_arm64: f5aa10de8e148bedda7f84cab8c848b785ab77c5cd5753cfbce5eb88574499c5
+  darwin_amd64: c551b2ece1d81249476f06ee13336c52a948fdf469b02b02b892a16bab58862d
+  linux_amd64: 1d390684f0efa26d3fe4a5a5b93f98daaf10c678cf1b0a638ae52aeca7ec1ebb
+  linux_arm64: 222d40b953ed0218c7d3f4b51708294764afd22cb6f9fbdffa5c6cd9465a6c34
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

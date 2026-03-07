@@ -1,0 +1,22 @@
+name: dwdiff
+version: 2.1.4
+description: Diff that operates at the word level
+homepage: https://os.ghalkes.nl/dwdiff.html
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dwdiff/blobs/sha256:72db22b7bee1b3fbb618afb253f77a38a89d8f48dce43a05e4e43f00c33f49a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dwdiff/blobs/sha256:430674eaa122cd86c378f0e894868125b0608cac9c2b7e384e09f2334560c36f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dwdiff/blobs/sha256:c8bdedde5a536590f5ad26a0912ea0ae15f3f0c0bd605c5356193a3e5ef4eace
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dwdiff/blobs/sha256:9c01d60e8341d578e959b78c1c65d40a21770e70bbadd696b0ea9253446ea584
+sha256:
+  darwin_arm64: 72db22b7bee1b3fbb618afb253f77a38a89d8f48dce43a05e4e43f00c33f49a1
+  darwin_amd64: 430674eaa122cd86c378f0e894868125b0608cac9c2b7e384e09f2334560c36f
+  linux_amd64: c8bdedde5a536590f5ad26a0912ea0ae15f3f0c0bd605c5356193a3e5ef4eace
+  linux_arm64: 9c01d60e8341d578e959b78c1c65d40a21770e70bbadd696b0ea9253446ea584
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - gettext

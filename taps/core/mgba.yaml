@@ -1,0 +1,28 @@
+name: mgba
+version: 0.10.5
+description: Game Boy Advance emulator
+homepage: https://mgba.io/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mgba/blobs/sha256:8411364c77931ae04e12dd3b53f2774340b1b57bf38a13feb4f3698d629acf31
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mgba/blobs/sha256:b6f194de7413b6116a40547f1f1b704c459f92077a825a4c448748bd6d249bdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mgba/blobs/sha256:222d1ca423303f2566862188a3ad8cfbf5494b812e6191b0c7ccccc7b8555e84
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mgba/blobs/sha256:5fa6abdc364db3f23966f56256075cd45285a43af359c70b8734ca37e53978b4
+sha256:
+  darwin_arm64: 8411364c77931ae04e12dd3b53f2774340b1b57bf38a13feb4f3698d629acf31
+  darwin_amd64: b6f194de7413b6116a40547f1f1b704c459f92077a825a4c448748bd6d249bdb
+  linux_amd64: 222d1ca423303f2566862188a3ad8cfbf5494b812e6191b0c7ccccc7b8555e84
+  linux_arm64: 5fa6abdc364db3f23966f56256075cd45285a43af359c70b8734ca37e53978b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt@5
+  - ffmpeg
+  - libepoxy
+  - libpng
+  - libzip
+  - lua
+  - sdl2
+  - sqlite

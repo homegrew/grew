@@ -1,0 +1,19 @@
+name: base16384
+version: 2.3.2
+description: Encode binary files to printable utf16be
+homepage: https://github.com/fumiama/base16384
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/base16384/blobs/sha256:1f5f8def255ca57e635603ef572bb652a7920bae85be2e2c84a13c446d6d4615
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/base16384/blobs/sha256:b9c40a9eeae7fb639505085bf436817583a4bef68ab415966a232facbb1634b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/base16384/blobs/sha256:3010ed072ea82794a4f40a0ec7a11e2bc51a6f0a8d25aa18483be84976b9a2b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/base16384/blobs/sha256:292b2d8e8b87a90ee2dbb426a69ed69f8c58945cda95c879478eeab33d38c818
+sha256:
+  darwin_arm64: 1f5f8def255ca57e635603ef572bb652a7920bae85be2e2c84a13c446d6d4615
+  darwin_amd64: b9c40a9eeae7fb639505085bf436817583a4bef68ab415966a232facbb1634b8
+  linux_amd64: 3010ed072ea82794a4f40a0ec7a11e2bc51a6f0a8d25aa18483be84976b9a2b3
+  linux_arm64: 292b2d8e8b87a90ee2dbb426a69ed69f8c58945cda95c879478eeab33d38c818
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

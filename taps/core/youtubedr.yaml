@@ -1,0 +1,19 @@
+name: youtubedr
+version: 2.10.5
+description: Download Youtube Video in Golang
+homepage: https://github.com/kkdai/youtube
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/youtubedr/blobs/sha256:7b7981af15f827a881e2aa7fceab42b16e005910d4ff2d46d6db633a7d575264
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/youtubedr/blobs/sha256:05c20777846400eca21ac26fdfdada02d52204ed8afb125ba38b3390a572e21e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/youtubedr/blobs/sha256:40235abb2ff3934b3dbc9ac18320034def5efd627ac026bf224b93f0d0f83b1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/youtubedr/blobs/sha256:710706ec6dbf8eed88a69bbf9e612d4091d68b56ba681a158693a5da12d78464
+sha256:
+  darwin_arm64: 7b7981af15f827a881e2aa7fceab42b16e005910d4ff2d46d6db633a7d575264
+  darwin_amd64: 05c20777846400eca21ac26fdfdada02d52204ed8afb125ba38b3390a572e21e
+  linux_amd64: 40235abb2ff3934b3dbc9ac18320034def5efd627ac026bf224b93f0d0f83b1e
+  linux_arm64: 710706ec6dbf8eed88a69bbf9e612d4091d68b56ba681a158693a5da12d78464
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

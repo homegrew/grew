@@ -1,0 +1,19 @@
+name: pkl
+version: 0.31.0
+description: CLI for the Pkl programming language
+homepage: https://pkl-lang.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pkl/blobs/sha256:b6324d87a932f1bc3ec822ff89ca53c346968e5994930e05d722ff582d2985e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pkl/blobs/sha256:3a068b34a1e823a08b6bc048e1d6b515b1fba2d5c18efff4fdc9b1bbcedeb030
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pkl/blobs/sha256:9f21e45e485932e7878ec7ff1b15db4c37de9a4b2531480757631b23bbe5901d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pkl/blobs/sha256:5835a5af985c643d0f8ce240220c304b45949b6e8dcf1f74407252b3e2a98bf9
+sha256:
+  darwin_arm64: b6324d87a932f1bc3ec822ff89ca53c346968e5994930e05d722ff582d2985e0
+  darwin_amd64: 3a068b34a1e823a08b6bc048e1d6b515b1fba2d5c18efff4fdc9b1bbcedeb030
+  linux_amd64: 9f21e45e485932e7878ec7ff1b15db4c37de9a4b2531480757631b23bbe5901d
+  linux_arm64: 5835a5af985c643d0f8ce240220c304b45949b6e8dcf1f74407252b3e2a98bf9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libtecla
+version: 1.6.3
+description: Command-line editing facilities similar to the tcsh shell
+homepage: https://sites.astro.caltech.edu/~mcs/tecla/
+license: ICU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtecla/blobs/sha256:3883edbec56c880a52d9805b5fa4688136ccdb26fe9fe8b4c8b302b3f3c79de4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtecla/blobs/sha256:4d98e5f24629c7b5620f3e343a44607076988af0c447672acb9953b81d4ec24c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtecla/blobs/sha256:8bcf6021a1cff18af685065c3778f709fdcc17e22767818c6e5fef4e309adc3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtecla/blobs/sha256:3a0a9b8648b8766487a1d4c13c394f2560d4b24af9df0e10109fa89dd87b0415
+sha256:
+  darwin_arm64: 3883edbec56c880a52d9805b5fa4688136ccdb26fe9fe8b4c8b302b3f3c79de4
+  darwin_amd64: 4d98e5f24629c7b5620f3e343a44607076988af0c447672acb9953b81d4ec24c
+  linux_amd64: 8bcf6021a1cff18af685065c3778f709fdcc17e22767818c6e5fef4e309adc3e
+  linux_arm64: 3a0a9b8648b8766487a1d4c13c394f2560d4b24af9df0e10109fa89dd87b0415
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

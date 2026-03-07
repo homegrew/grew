@@ -1,0 +1,19 @@
+name: yaegi
+version: 0.16.1
+description: Yet another elegant Go interpreter
+homepage: https://github.com/traefik/yaegi
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaegi/blobs/sha256:a1b6aa50f88c249b67a801d000919fae39cc280bc0bdf873ca9da5b0d6bd8df9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaegi/blobs/sha256:bd0481cb3feb07c198f773d117a5153a60b91c126f88d99fcf178dbf5f0bd542
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaegi/blobs/sha256:7a431dd9b644a57c9fdf96231d53ddbd7f1f8ac9047d87c633e1677b4d9cbf89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaegi/blobs/sha256:9d9c2fc672532d05981a633e0cfed9cffb5978c6ccec6df79275302bde86ba4e
+sha256:
+  darwin_arm64: a1b6aa50f88c249b67a801d000919fae39cc280bc0bdf873ca9da5b0d6bd8df9
+  darwin_amd64: bd0481cb3feb07c198f773d117a5153a60b91c126f88d99fcf178dbf5f0bd542
+  linux_amd64: 7a431dd9b644a57c9fdf96231d53ddbd7f1f8ac9047d87c633e1677b4d9cbf89
+  linux_arm64: 9d9c2fc672532d05981a633e0cfed9cffb5978c6ccec6df79275302bde86ba4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

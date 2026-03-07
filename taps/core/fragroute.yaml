@@ -1,0 +1,22 @@
+name: fragroute
+version: 1.2
+description: Intercepts, modifies and rewrites egress traffic for a specified host
+homepage: https://www.monkey.org/~dugsong/fragroute/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fragroute/blobs/sha256:ebec262153f742a8cbeab49c03b74b8323d709899f725630fe89cdee1e167114
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fragroute/blobs/sha256:ffb78174b4cfdbdb6721e5e6bfe9fe76acdf412b34af9e6cf5eacb7d227f3c66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fragroute/blobs/sha256:8bb5693e0c2a0b3f5b0d10750d306b75fde72e4e7d9247c8e3717f95204aa534
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fragroute/blobs/sha256:d523c515c30c72b7c706b497f2f84facb09e3b97a952efbdfd14791fb8fe10b7
+sha256:
+  darwin_arm64: ebec262153f742a8cbeab49c03b74b8323d709899f725630fe89cdee1e167114
+  darwin_amd64: ffb78174b4cfdbdb6721e5e6bfe9fe76acdf412b34af9e6cf5eacb7d227f3c66
+  linux_amd64: 8bb5693e0c2a0b3f5b0d10750d306b75fde72e4e7d9247c8e3717f95204aa534
+  linux_arm64: d523c515c30c72b7c706b497f2f84facb09e3b97a952efbdfd14791fb8fe10b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdnet
+  - libevent

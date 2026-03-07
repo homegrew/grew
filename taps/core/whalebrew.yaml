@@ -1,0 +1,19 @@
+name: whalebrew
+version: 0.5.0
+description: Homebrew, but with Docker images
+homepage: https://github.com/whalebrew/whalebrew
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/whalebrew/blobs/sha256:c1f6830e7d52fc290dc2436ff9c6284990599dcb4c0425ea5f88e7010e0e6e40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/whalebrew/blobs/sha256:37d1cce1732c129b95ecb9802c4e59cf6d404407835d545f0d5019387e0ef37d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/whalebrew/blobs/sha256:0143e7491195c0620ed7a492aab85c01fbe901849955acc5278a23d224b01550
+  linux_arm64: https://ghcr.io/v2/homebrew/core/whalebrew/blobs/sha256:d87aaaf730a6451d6442f3caa38545e5bb3ed6779926d712ea111823d26f3058
+sha256:
+  darwin_arm64: c1f6830e7d52fc290dc2436ff9c6284990599dcb4c0425ea5f88e7010e0e6e40
+  darwin_amd64: 37d1cce1732c129b95ecb9802c4e59cf6d404407835d545f0d5019387e0ef37d
+  linux_amd64: 0143e7491195c0620ed7a492aab85c01fbe901849955acc5278a23d224b01550
+  linux_arm64: d87aaaf730a6451d6442f3caa38545e5bb3ed6779926d712ea111823d26f3058
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

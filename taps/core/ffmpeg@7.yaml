@@ -1,0 +1,64 @@
+name: ffmpeg@7
+version: 7.1.3
+description: Play, record, convert, and stream audio and video
+homepage: https://ffmpeg.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/7/blobs/sha256:937f36beebc1a352eb0d13858369f91dc4764eb2affc9de8ca777525ba17e26a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/7/blobs/sha256:f3d5a3849438960c3b6ff47cce8774cafccd4e6e0b50d67d2e9cdca4a501b12d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/7/blobs/sha256:dc3b931b06d3eda59de2afd77db701b8be7f65c1080ca813a4df0a0aa841d270
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/7/blobs/sha256:591ad8e5883fdbc299a18b0e6a0c1cef7aa0b49cbbefd2a903f05b93e3f83cb5
+sha256:
+  darwin_arm64: 937f36beebc1a352eb0d13858369f91dc4764eb2affc9de8ca777525ba17e26a
+  darwin_amd64: f3d5a3849438960c3b6ff47cce8774cafccd4e6e0b50d67d2e9cdca4a501b12d
+  linux_amd64: dc3b931b06d3eda59de2afd77db701b8be7f65c1080ca813a4df0a0aa841d270
+  linux_arm64: 591ad8e5883fdbc299a18b0e6a0c1cef7aa0b49cbbefd2a903f05b93e3f83cb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aom
+  - aribb24
+  - dav1d
+  - fontconfig
+  - freetype
+  - frei0r
+  - gnutls
+  - harfbuzz
+  - jpeg-xl
+  - lame
+  - libass
+  - libbluray
+  - librist
+  - libsoxr
+  - libssh
+  - libvidstab
+  - libvmaf
+  - libvorbis
+  - libvpx
+  - libx11
+  - libxcb
+  - opencore-amr
+  - openjpeg
+  - opus
+  - rav1e
+  - rubberband
+  - sdl2
+  - snappy
+  - speex
+  - srt
+  - svt-av1
+  - tesseract
+  - theora
+  - webp
+  - x264
+  - x265
+  - xvid
+  - xz
+  - zeromq
+  - zimg
+  - libarchive
+  - libogg
+  - libsamplerate
+keg_only: true

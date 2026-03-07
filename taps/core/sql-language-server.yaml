@@ -1,0 +1,22 @@
+name: sql-language-server
+version: 1.7.1
+description: Language Server for SQL
+homepage: https://github.com/joe-re/sql-language-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sql-language-server/blobs/sha256:cf25118bc997d51a285ac4cbad9ceb6ca1e45ded96ef52c11834a30bf935d5e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sql-language-server/blobs/sha256:c24bb22b07a5ba4ce0a6ee838fc5976c7bc50a7d51880f9694ad421fe5faaeb3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sql-language-server/blobs/sha256:07b1cdb55cc9429d8f2d34f30bfe5103c93efce6752d4f76cf35053616af74c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sql-language-server/blobs/sha256:00eeaa0a119c6512fea47329da49f21c6c04f6d7832eac78d46e0f74f3339d7a
+sha256:
+  darwin_arm64: cf25118bc997d51a285ac4cbad9ceb6ca1e45ded96ef52c11834a30bf935d5e0
+  darwin_amd64: c24bb22b07a5ba4ce0a6ee838fc5976c7bc50a7d51880f9694ad421fe5faaeb3
+  linux_amd64: 07b1cdb55cc9429d8f2d34f30bfe5103c93efce6752d4f76cf35053616af74c0
+  linux_arm64: 00eeaa0a119c6512fea47329da49f21c6c04f6d7832eac78d46e0f74f3339d7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - terminal-notifier

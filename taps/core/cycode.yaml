@@ -1,0 +1,26 @@
+name: cycode
+version: 3.11.1
+description: "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
+homepage: https://github.com/cycodehq/cycode-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cycode/blobs/sha256:dcced40281b8bd06e023032a9cc44f422dc3f3217a5149aa7a516f83c067417a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cycode/blobs/sha256:184923a62764772618d1e03e552e1abbf3a6e329a3614b5dc8d41da550c6b6e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cycode/blobs/sha256:5d8c74def9a9f41122b9761f6ee78555219d98656136d33c3ef4f07886e777f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cycode/blobs/sha256:4d8c4c1fda1fc3db95829ce277b338351801122a11a3c88e76f7aa42c25b77de
+sha256:
+  darwin_arm64: dcced40281b8bd06e023032a9cc44f422dc3f3217a5149aa7a516f83c067417a
+  darwin_amd64: 184923a62764772618d1e03e552e1abbf3a6e329a3614b5dc8d41da550c6b6e4
+  linux_amd64: 5d8c74def9a9f41122b9761f6ee78555219d98656136d33c3ef4f07886e777f1
+  linux_arm64: 4d8c4c1fda1fc3db95829ce277b338351801122a11a3c88e76f7aa42c25b77de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pydantic
+  - python@3.14
+  - rpds-py

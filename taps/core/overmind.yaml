@@ -1,0 +1,21 @@
+name: overmind
+version: 2.5.1
+description: Process manager for Procfile-based applications and tmux
+homepage: https://github.com/DarthSim/overmind
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/overmind/blobs/sha256:7e75f7028eb9c455f06ca7d1bbfdc0dd56a1b93b50f957a2b43ae25850737eca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/overmind/blobs/sha256:75d9f3f07a21c2bd979f50fd520bec07a4221fecf0e70afe2e167d91ca263360
+  linux_amd64: https://ghcr.io/v2/homebrew/core/overmind/blobs/sha256:ba8a085f0aae6ddeec87817674bc44a085c2ae884e0a90568b23d9e37c5a3cee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/overmind/blobs/sha256:905ba5269700b1a1484869ab1a8450752ff42a38f54a070a6cb55dceac025dc3
+sha256:
+  darwin_arm64: 7e75f7028eb9c455f06ca7d1bbfdc0dd56a1b93b50f957a2b43ae25850737eca
+  darwin_amd64: 75d9f3f07a21c2bd979f50fd520bec07a4221fecf0e70afe2e167d91ca263360
+  linux_amd64: ba8a085f0aae6ddeec87817674bc44a085c2ae884e0a90568b23d9e37c5a3cee
+  linux_arm64: 905ba5269700b1a1484869ab1a8450752ff42a38f54a070a6cb55dceac025dc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tmux

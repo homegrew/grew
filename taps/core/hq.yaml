@@ -1,0 +1,19 @@
+name: hq
+version: 1.2.2
+description: Jq, but for HTML
+homepage: https://github.com/orf/html-query
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hq/blobs/sha256:cc649ddcba40f11b96eb1ad1589f4aa507f4df907c67a249cceb9837f068dfe3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hq/blobs/sha256:96168009af37277c094136a7fdfab3de012ffcfe9758becb2ab885279c3cbdfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hq/blobs/sha256:98e9c85bd5a5304f6be3adb3ea8b0b69659f1622fc873dfae7b7fdfbaaee8ed2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hq/blobs/sha256:85a77b0126bc74d1645877c96fda56a2132373d0ec5d32488c8206d2e0367e26
+sha256:
+  darwin_arm64: cc649ddcba40f11b96eb1ad1589f4aa507f4df907c67a249cceb9837f068dfe3
+  darwin_amd64: 96168009af37277c094136a7fdfab3de012ffcfe9758becb2ab885279c3cbdfb
+  linux_amd64: 98e9c85bd5a5304f6be3adb3ea8b0b69659f1622fc873dfae7b7fdfbaaee8ed2
+  linux_arm64: 85a77b0126bc74d1645877c96fda56a2132373d0ec5d32488c8206d2e0367e26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

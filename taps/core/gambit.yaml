@@ -1,0 +1,21 @@
+name: gambit
+version: 16.5.0
+description: Software tools for game theory
+homepage: https://www.gambit-project.org/
+license: GPL-2.0-or-later AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gambit/blobs/sha256:07b45fa28f0cff285c25115f5e4c8f28563a5e97495102ae7d2f56766c409814
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gambit/blobs/sha256:135e56b8549ff2b4b80446a65980ecadb5f2170d7e083124fd3fa5628ffb6b48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gambit/blobs/sha256:8998d9006ff244d16b87675a92ab015b86640bffcf71009be652fe9c2b8469b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gambit/blobs/sha256:0515813bdcbc1ba0d699de5eac0003b32adb865f43362dfc469420bc886df14f
+sha256:
+  darwin_arm64: 07b45fa28f0cff285c25115f5e4c8f28563a5e97495102ae7d2f56766c409814
+  darwin_amd64: 135e56b8549ff2b4b80446a65980ecadb5f2170d7e083124fd3fa5628ffb6b48
+  linux_amd64: 8998d9006ff244d16b87675a92ab015b86640bffcf71009be652fe9c2b8469b0
+  linux_arm64: 0515813bdcbc1ba0d699de5eac0003b32adb865f43362dfc469420bc886df14f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - wxwidgets

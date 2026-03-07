@@ -1,0 +1,28 @@
+name: gtksourceview4
+version: 4.8.4
+description: Text view with syntax, undo/redo, and text marks
+homepage: https://projects.gnome.org/gtksourceview/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtksourceview4/blobs/sha256:cf116d257b9203f04a8c94b4a1f108d7cda39aa99204c2d676bd568e49a91d2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtksourceview4/blobs/sha256:417952ba6c8701a201a9139abf5c6c9b23df98050b6ed76ce0d468bce25ef1f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtksourceview4/blobs/sha256:d9a2f07312d927bbad589dd5fe36d6b3a87d423b21992ce3aa505bd1963db23a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtksourceview4/blobs/sha256:840c123f04d4684b34b902cf69297a15900cd055269c6cae4e05a9468729c770
+sha256:
+  darwin_arm64: cf116d257b9203f04a8c94b4a1f108d7cda39aa99204c2d676bd568e49a91d2b
+  darwin_amd64: 417952ba6c8701a201a9139abf5c6c9b23df98050b6ed76ce0d468bce25ef1f8
+  linux_amd64: d9a2f07312d927bbad589dd5fe36d6b3a87d423b21992ce3aa505bd1963db23a
+  linux_arm64: 840c123f04d4684b34b902cf69297a15900cd055269c6cae4e05a9468729c770
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - fribidi
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango
+  - gettext

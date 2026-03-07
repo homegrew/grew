@@ -1,0 +1,11 @@
+name: smcfancontrol@beta
+version: 2.6.1
+description: Sets a minimum speed for built-in fans
+homepage: https://github.com/hholtmann/smcFanControl
+url:
+  darwin_arm64: https://github.com/hholtmann/smcFanControl/releases/download/2.6.1%C3%9F1/smcFanControl_2_6_1.zip
+sha256:
+  darwin_arm64: d9dcd2c01e2583b74e14a6303ffd75d659dea7f99e1e42de4d8fcb0115cbcec3
+artifacts:
+  app:
+    - smcFanControl.app

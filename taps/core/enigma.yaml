@@ -1,0 +1,29 @@
+name: enigma
+version: 1.30
+description: "Puzzle game inspired by Oxyd and Rock'n'Roll"
+homepage: https://www.nongnu.org/enigma/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enigma/blobs/sha256:10b0cd3364cfc8994f9a702a205e87968c36000fd23bf18c10bf0c8974e905dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enigma/blobs/sha256:37bc631fd1d8ec80a8a17a6634f9cfe0f089eb94cdf4128940bfe1f79e2cb830
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enigma/blobs/sha256:ca6b0609a467268d92dfe296d79b9dc31fd1dc126d4a9e3ed7d2af6c79f8fbc8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enigma/blobs/sha256:5b08fcc7d57a457dd3fb211db55f2e187daadafe6699891f818b644281adb44f
+sha256:
+  darwin_arm64: 10b0cd3364cfc8994f9a702a205e87968c36000fd23bf18c10bf0c8974e905dd
+  darwin_amd64: 37bc631fd1d8ec80a8a17a6634f9cfe0f089eb94cdf4128940bfe1f79e2cb830
+  linux_amd64: ca6b0609a467268d92dfe296d79b9dc31fd1dc126d4a9e3ed7d2af6c79f8fbc8
+  linux_arm64: 5b08fcc7d57a457dd3fb211db55f2e187daadafe6699891f818b644281adb44f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - enet
+  - freetype
+  - libpng
+  - sdl2
+  - sdl2_image
+  - sdl2_mixer
+  - sdl2_ttf
+  - xerces-c
+  - gettext

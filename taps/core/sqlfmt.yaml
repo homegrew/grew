@@ -1,0 +1,19 @@
+name: sqlfmt
+version: 0.5.0
+description: SQL formatter with width-aware output
+homepage: https://sqlfum.pt/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlfmt/blobs/sha256:c84039488c47b3d05d7453f65bbf8eded5b1229d9b06c398741dd99e1ee2b303
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlfmt/blobs/sha256:cf05930ebc73ec4e027c7463a3e8ceb327492d32d2e32ad7c571f381fa9e9bc6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlfmt/blobs/sha256:a3d79be793a67b641b58cee79ed6da1320b6d4ed2cd007d500e5e9ad26e70378
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlfmt/blobs/sha256:4d7b6e3172634e1e59220fc0d57360ad2e99fac2073ffa45552736a7cff9eb21
+sha256:
+  darwin_arm64: c84039488c47b3d05d7453f65bbf8eded5b1229d9b06c398741dd99e1ee2b303
+  darwin_amd64: cf05930ebc73ec4e027c7463a3e8ceb327492d32d2e32ad7c571f381fa9e9bc6
+  linux_amd64: a3d79be793a67b641b58cee79ed6da1320b6d4ed2cd007d500e5e9ad26e70378
+  linux_arm64: 4d7b6e3172634e1e59220fc0d57360ad2e99fac2073ffa45552736a7cff9eb21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

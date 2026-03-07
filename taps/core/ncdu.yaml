@@ -1,0 +1,22 @@
+name: ncdu
+version: 2.9.2
+description: NCurses Disk Usage
+homepage: https://dev.yorhel.nl/ncdu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncdu/blobs/sha256:9a08dd709b18d87d90b016b8685d56f2de8d537e437ab44cf4ed92203df7a245
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncdu/blobs/sha256:768ace20bc54c22b86ddce63d51bd8488cb04816e28e330286a2685047d5484e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncdu/blobs/sha256:762c13f508d0699c363f0a3a0741a19cbd14d1ef8a86fdd1d70aeaaf2f7bd851
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncdu/blobs/sha256:2a2d143126f866ae7a7f0aeecc2d12282bde98542e1ece1203d821a8d499343b
+sha256:
+  darwin_arm64: 9a08dd709b18d87d90b016b8685d56f2de8d537e437ab44cf4ed92203df7a245
+  darwin_amd64: 768ace20bc54c22b86ddce63d51bd8488cb04816e28e330286a2685047d5484e
+  linux_amd64: 762c13f508d0699c363f0a3a0741a19cbd14d1ef8a86fdd1d70aeaaf2f7bd851
+  linux_arm64: 2a2d143126f866ae7a7f0aeecc2d12282bde98542e1ece1203d821a8d499343b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - zstd

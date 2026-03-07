@@ -1,0 +1,22 @@
+name: wxmaxima
+version: 26.01.0
+description: Cross platform GUI for Maxima
+homepage: https://wxmaxima-developers.github.io/wxmaxima/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wxmaxima/blobs/sha256:f6877ee5d4e4da0c2b6f315e2c27183b6019c5f565edf66dba54139df3eba76c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wxmaxima/blobs/sha256:a19bbfe267972e72605bb7884c0c9d8b9fb539f937fd642a87865e3c1d67cbbb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wxmaxima/blobs/sha256:62036c3bcfda784e60870f80e48e8f150baf74077c7d669d6da629eb470f77ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wxmaxima/blobs/sha256:43c9ad33a0979f718b17bea6b4960ec3a7a79d2317df34274f4f25ed032f3301
+sha256:
+  darwin_arm64: f6877ee5d4e4da0c2b6f315e2c27183b6019c5f565edf66dba54139df3eba76c
+  darwin_amd64: a19bbfe267972e72605bb7884c0c9d8b9fb539f937fd642a87865e3c1d67cbbb
+  linux_amd64: 62036c3bcfda784e60870f80e48e8f150baf74077c7d669d6da629eb470f77ef
+  linux_arm64: 43c9ad33a0979f718b17bea6b4960ec3a7a79d2317df34274f4f25ed032f3301
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - maxima
+  - wxwidgets

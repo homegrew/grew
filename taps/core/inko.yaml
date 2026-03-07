@@ -1,0 +1,21 @@
+name: inko
+version: 0.19.1
+description: Safe and concurrent object-oriented programming language
+homepage: https://inko-lang.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inko/blobs/sha256:c9d6cce4fd8ddc942c18921f753e2a044c199f127b368ba8430e9b2386d4e9b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inko/blobs/sha256:b0f312f237328f7e847f52a5e153d1c9e323786e3794e1413127d1efd73fe519
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inko/blobs/sha256:c8eba3d51bac7359f601fdbd010525f559ce0386fcfd85cee0ae5a1d90849544
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inko/blobs/sha256:3ec14147195e7d84ea9a995cf7329b24ae6275a9cd4169fb680fa58ed4d9f39f
+sha256:
+  darwin_arm64: c9d6cce4fd8ddc942c18921f753e2a044c199f127b368ba8430e9b2386d4e9b2
+  darwin_amd64: b0f312f237328f7e847f52a5e153d1c9e323786e3794e1413127d1efd73fe519
+  linux_amd64: c8eba3d51bac7359f601fdbd010525f559ce0386fcfd85cee0ae5a1d90849544
+  linux_arm64: 3ec14147195e7d84ea9a995cf7329b24ae6275a9cd4169fb680fa58ed4d9f39f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

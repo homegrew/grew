@@ -1,0 +1,11 @@
+name: asana
+version: 2.6.0
+description: Manage team projects and tasks
+homepage: https://asana.com/
+url:
+  darwin_arm64: https://desktop-downloads.asana.com/darwin_arm64/prod/v2.6.0/Asana-darwin-arm64-2.6.0.zip
+sha256:
+  darwin_arm64: 086f0dd28a291f1d7affbe99d725eee799951c25917cd7ff5a021e1a7c4210da
+artifacts:
+  app:
+    - Asana.app

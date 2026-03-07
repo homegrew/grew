@@ -1,0 +1,11 @@
+name: remoteviewer
+version: 0.5.7-1
+description: Connect to virtual machines using SPICE
+homepage: https://www.spice-space.org/osx-client.html
+url:
+  darwin_arm64: https://people.freedesktop.org/~teuf/spice-gtk-osx/dmg/0.5.7/RemoteViewer-0.5.7-1.dmg
+sha256:
+  darwin_arm64: 96ec9eb33422ac8a717238a7f99fded7c50503198d7302028a09f4e536b02849
+artifacts:
+  app:
+    - RemoteViewer.app

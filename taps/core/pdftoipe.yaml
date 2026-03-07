@@ -1,0 +1,21 @@
+name: pdftoipe
+version: 7.2.29.2
+description: Reads arbitrary PDF files and generates an XML file readable by Ipe
+homepage: https://github.com/otfried/ipe-tools
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdftoipe/blobs/sha256:7b0514955c452b9caac3b8fe502f4b1aa3eb6c05666002e0b39d0ea3f76ce91f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdftoipe/blobs/sha256:32faef4740ea692d32d316e2b5f87e2b989274dfea7796f396d8e314e2e1e941
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdftoipe/blobs/sha256:91a47d78a7cdc55924649eaa4987a062a0f84e00c0909d59d63303129e3d74cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdftoipe/blobs/sha256:118fdfe3d540b443edf3f3b1bb874b58d5855e11f4c13c93ceaa724a4f5a3ef4
+sha256:
+  darwin_arm64: 7b0514955c452b9caac3b8fe502f4b1aa3eb6c05666002e0b39d0ea3f76ce91f
+  darwin_amd64: 32faef4740ea692d32d316e2b5f87e2b989274dfea7796f396d8e314e2e1e941
+  linux_amd64: 91a47d78a7cdc55924649eaa4987a062a0f84e00c0909d59d63303129e3d74cf
+  linux_arm64: 118fdfe3d540b443edf3f3b1bb874b58d5855e11f4c13c93ceaa724a4f5a3ef4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - poppler

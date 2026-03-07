@@ -1,0 +1,23 @@
+name: teslamate
+version: 3.0.0
+description: Self-hosted data logger for your Tesla
+homepage: https://docs.teslamate.org
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/teslamate/blobs/sha256:365e32212184579cd3ad2e8645994e88d5a2d19e5bf46ac32ebcab53ff0f1b99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/teslamate/blobs/sha256:c761eaccdc2122fb4544aa9521e9b7d5d4e411a34907228fd60c13e8966cf03e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/teslamate/blobs/sha256:15897cb1032f908f271565db40062499ee6fb30b4793a657600c559470ec242b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/teslamate/blobs/sha256:44b5037040201b926c88283fa5f582fbd638f78744fbd66586aa3b4b477097d2
+sha256:
+  darwin_arm64: 365e32212184579cd3ad2e8645994e88d5a2d19e5bf46ac32ebcab53ff0f1b99
+  darwin_amd64: c761eaccdc2122fb4544aa9521e9b7d5d4e411a34907228fd60c13e8966cf03e
+  linux_amd64: 15897cb1032f908f271565db40062499ee6fb30b4793a657600c559470ec242b
+  linux_arm64: 44b5037040201b926c88283fa5f582fbd638f78744fbd66586aa3b4b477097d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elixir
+  - erlang
+  - openssl@3

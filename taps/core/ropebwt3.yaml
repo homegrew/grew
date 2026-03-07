@@ -1,0 +1,21 @@
+name: ropebwt3
+version: 3.10
+description: BWT construction and search
+homepage: https://github.com/lh3/ropebwt3
+license: MIT AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ropebwt3/blobs/sha256:ceb1467adeb7b88f75b34df0e9e4d4680428c3d3f470731a54b89654240f0c02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ropebwt3/blobs/sha256:c0d44bb1e7c876d6ca2793a8992c8c63155a8748df7874986897d0fcf9540998
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ropebwt3/blobs/sha256:01a4f42c930c3b6bbe46d536c2ed6bba3296c2b932ebd5c793abe4742f7d1f1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ropebwt3/blobs/sha256:e61fd03b0a5f96a969c73397d94fb5d1dd7659dd55bc791544accc4c58179777
+sha256:
+  darwin_arm64: ceb1467adeb7b88f75b34df0e9e4d4680428c3d3f470731a54b89654240f0c02
+  darwin_amd64: c0d44bb1e7c876d6ca2793a8992c8c63155a8748df7874986897d0fcf9540998
+  linux_amd64: 01a4f42c930c3b6bbe46d536c2ed6bba3296c2b932ebd5c793abe4742f7d1f1b
+  linux_arm64: e61fd03b0a5f96a969c73397d94fb5d1dd7659dd55bc791544accc4c58179777
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

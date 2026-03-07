@@ -1,0 +1,19 @@
+name: typeshare
+version: 1.13.4
+description: Synchronize type definitions between Rust and other languages for seamless FFI
+homepage: https://github.com/1Password/typeshare
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typeshare/blobs/sha256:7d8a99434dafc99d2d1bf95260f67e6f081794cf4617108ce5548909ab93879d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typeshare/blobs/sha256:333a99ff0ce9d2c86037777214605a9de1b95ca6a4b70e3a68d8dad1470cbc97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typeshare/blobs/sha256:06d19e281d8d0fae7f7c11dff97efaacb3865a6f98a59c4d7f7ba057b011ff9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typeshare/blobs/sha256:b19487d84e9a5273fa77f0c637c5e27ea8f29ff1c903b743ceae37404956789a
+sha256:
+  darwin_arm64: 7d8a99434dafc99d2d1bf95260f67e6f081794cf4617108ce5548909ab93879d
+  darwin_amd64: 333a99ff0ce9d2c86037777214605a9de1b95ca6a4b70e3a68d8dad1470cbc97
+  linux_amd64: 06d19e281d8d0fae7f7c11dff97efaacb3865a6f98a59c4d7f7ba057b011ff9d
+  linux_arm64: b19487d84e9a5273fa77f0c637c5e27ea8f29ff1c903b743ceae37404956789a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

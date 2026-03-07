@@ -1,0 +1,21 @@
+name: morse
+version: 2.6
+description: QSO generator and morse code trainer
+homepage: http://www.catb.org/~esr/morse/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/morse/blobs/sha256:5af8e1138400c0410e669f190bfc8b780ae1d54152e5e9cba157d4fdc8d73792
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/morse/blobs/sha256:c49300c884c3b036c4c00f7db535681b09a4bbca76a1c49d37a94a8ac2bd2074
+  linux_amd64: https://ghcr.io/v2/homebrew/core/morse/blobs/sha256:de0434c6211f07598c07af76d70b457f30a2ceb45bd0fdba0082225b112cf5fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/morse/blobs/sha256:9cd879e547ca150605b72464bf388e6c81e75c27a8b05714c5bd3599a39168d4
+sha256:
+  darwin_arm64: 5af8e1138400c0410e669f190bfc8b780ae1d54152e5e9cba157d4fdc8d73792
+  darwin_amd64: c49300c884c3b036c4c00f7db535681b09a4bbca76a1c49d37a94a8ac2bd2074
+  linux_amd64: de0434c6211f07598c07af76d70b457f30a2ceb45bd0fdba0082225b112cf5fa
+  linux_arm64: 9cd879e547ca150605b72464bf388e6c81e75c27a8b05714c5bd3599a39168d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pulseaudio

@@ -1,0 +1,11 @@
+name: mucommander
+version: 1.5.2-1
+description: File manager with a dual-pane interface
+homepage: https://www.mucommander.com/
+url:
+  darwin_arm64: https://github.com/mucommander/mucommander/releases/download/1.5.2-1/muCommander-1.5.2-1-aarch64.dmg
+sha256:
+  darwin_arm64: 43f9206c7f886071cb3e2b15d7604acabd9d8b9940be0d284b88661da90037f7
+artifacts:
+  app:
+    - muCommander.app

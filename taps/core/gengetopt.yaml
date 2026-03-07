@@ -1,0 +1,19 @@
+name: gengetopt
+version: 2.23
+description: Generate C code to parse command-line arguments via getopt_long
+homepage: https://www.gnu.org/software/gengetopt/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gengetopt/blobs/sha256:f37f85a3ddffa7c215b078fc05f2980490d18d0202e6a92bcffd5ab88b2c9121
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gengetopt/blobs/sha256:22d37123ae7d0c95c2eedc1beac9d713ba4bd9f97c37d2211b2c13c30d91a2de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gengetopt/blobs/sha256:379c0b354e21a5da13e62c6dbce3edfc1580561fb59015f015769c18cc804a60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gengetopt/blobs/sha256:44cfbe8a7d55d574a917f8f35264ecf1f4798c3686c8288750ea971b66a0d9d6
+sha256:
+  darwin_arm64: f37f85a3ddffa7c215b078fc05f2980490d18d0202e6a92bcffd5ab88b2c9121
+  darwin_amd64: 22d37123ae7d0c95c2eedc1beac9d713ba4bd9f97c37d2211b2c13c30d91a2de
+  linux_amd64: 379c0b354e21a5da13e62c6dbce3edfc1580561fb59015f015769c18cc804a60
+  linux_arm64: 44cfbe8a7d55d574a917f8f35264ecf1f4798c3686c8288750ea971b66a0d9d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

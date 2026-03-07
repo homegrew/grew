@@ -1,0 +1,19 @@
+name: pcapmirror
+version: 0.6.1
+description: Tool for capturing network traffic on remote host using TZSP or ERSPAN
+homepage: https://git.freestone.net/cramer/pcapmirror
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcapmirror/blobs/sha256:16bc789f10ee4295caa87094965aa79ea94bd622ca90323aaa2edef273cb95a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcapmirror/blobs/sha256:edc10b49130adeb581e4ff3b5c962b1374de3ccf416984fcca13cc5a2e2045ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcapmirror/blobs/sha256:b38420c8c3bfad8a5334c2d82d7ca1adf1897eb515e8a0710115d4c8dc3bbbaa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcapmirror/blobs/sha256:46ea8fd30ca7740102c048d9f9f5aecc3a80cc1a4938b6f2eb4f05471703fad5
+sha256:
+  darwin_arm64: 16bc789f10ee4295caa87094965aa79ea94bd622ca90323aaa2edef273cb95a5
+  darwin_amd64: edc10b49130adeb581e4ff3b5c962b1374de3ccf416984fcca13cc5a2e2045ff
+  linux_amd64: b38420c8c3bfad8a5334c2d82d7ca1adf1897eb515e8a0710115d4c8dc3bbbaa
+  linux_arm64: 46ea8fd30ca7740102c048d9f9f5aecc3a80cc1a4938b6f2eb4f05471703fad5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

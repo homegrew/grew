@@ -1,0 +1,11 @@
+name: openboard
+version: 1.7.6
+description: Interactive whiteboard application
+homepage: https://openboard.ch/index.en.html
+url:
+  darwin_arm64: https://github.com/OpenBoard-org/OpenBoard/releases/download/v1.7.6/OpenBoard-1.7.6.dmg
+sha256:
+  darwin_arm64: 33c41fc8debe93dbb99fb2643470ea07418f02071900c7c9b68f44dfe59d9332
+artifacts:
+  app:
+    - OpenBoard.app

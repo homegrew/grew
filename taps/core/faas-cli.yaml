@@ -1,0 +1,19 @@
+name: faas-cli
+version: 0.18.3
+description: CLI for templating and/or deploying FaaS functions
+homepage: https://www.openfaas.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/faas-cli/blobs/sha256:2f79bf57d24958dcc28d605c77cb28a19dc0458956e16f85900b9205f841f24d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/faas-cli/blobs/sha256:c432886dac017a98c9724d559c8e9d64e965345a833c35e69f4d3df901edca93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/faas-cli/blobs/sha256:775f8b09ca8720de999af4403615f07c586e62c7d2545a8ca1cf6426fc9178dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/faas-cli/blobs/sha256:05b148d700ef381ca20a0e3b853279bb90c7b5033e7e0294c72d827001329e11
+sha256:
+  darwin_arm64: 2f79bf57d24958dcc28d605c77cb28a19dc0458956e16f85900b9205f841f24d
+  darwin_amd64: c432886dac017a98c9724d559c8e9d64e965345a833c35e69f4d3df901edca93
+  linux_amd64: 775f8b09ca8720de999af4403615f07c586e62c7d2545a8ca1cf6426fc9178dd
+  linux_arm64: 05b148d700ef381ca20a0e3b853279bb90c7b5033e7e0294c72d827001329e11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

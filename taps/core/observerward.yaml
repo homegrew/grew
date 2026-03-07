@@ -1,0 +1,19 @@
+name: observerward
+version: 2026.1.13
+description: Web application and service fingerprint identification tool
+homepage: https://blog.kali-team.cn/projects/observer_ward/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/observerward/blobs/sha256:a512214aebb7ce2c5b30521407db42d54444ffe70138d9ef5148be6256ec6797
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/observerward/blobs/sha256:4b97113459bf0f3cfd930ce7108670b5669c425e9ae3bbcea8e203ba7bfd6ed1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/observerward/blobs/sha256:2996035aa9b94a3a89a82f5fc45758a3cf1cb30fea55c7a5967e6fd7c3bd3924
+  linux_arm64: https://ghcr.io/v2/homebrew/core/observerward/blobs/sha256:a220e4fc24e90d8f1cc080b1cd79fc46de666a7323392cb45c0fd9c45ed54751
+sha256:
+  darwin_arm64: a512214aebb7ce2c5b30521407db42d54444ffe70138d9ef5148be6256ec6797
+  darwin_amd64: 4b97113459bf0f3cfd930ce7108670b5669c425e9ae3bbcea8e203ba7bfd6ed1
+  linux_amd64: 2996035aa9b94a3a89a82f5fc45758a3cf1cb30fea55c7a5967e6fd7c3bd3924
+  linux_arm64: a220e4fc24e90d8f1cc080b1cd79fc46de666a7323392cb45c0fd9c45ed54751
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

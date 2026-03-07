@@ -1,0 +1,19 @@
+name: snowflake
+version: 2.11.0
+description: Pluggable Transport using WebRTC, inspired by Flashproxy
+homepage: https://www.torproject.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snowflake/blobs/sha256:5920f2c958a7b2b3ffa409a3edd139fba2a8e7e6290846918e447ca5e725124e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snowflake/blobs/sha256:664910374fec0499630a0c149725965d955385fc9f31f024d9b916d474b41d29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snowflake/blobs/sha256:cacc65f14ee6603e2ebcc0a107b814648554a2d14657ba69127116f22999e784
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snowflake/blobs/sha256:997eec71835cafd9b1f1c1abd0448ad5e817b5315c26fd8b3d41c5d0fe93a2d4
+sha256:
+  darwin_arm64: 5920f2c958a7b2b3ffa409a3edd139fba2a8e7e6290846918e447ca5e725124e
+  darwin_amd64: 664910374fec0499630a0c149725965d955385fc9f31f024d9b916d474b41d29
+  linux_amd64: cacc65f14ee6603e2ebcc0a107b814648554a2d14657ba69127116f22999e784
+  linux_arm64: 997eec71835cafd9b1f1c1abd0448ad5e817b5315c26fd8b3d41c5d0fe93a2d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

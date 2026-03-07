@@ -1,0 +1,19 @@
+name: qstat
+version: 2.18
+description: Query Quake servers from the command-line
+homepage: https://github.com/Unity-Technologies/qstat
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qstat/blobs/sha256:c7a13c065f07c78ac3ece908defa738146039d54b9d3642e06d06766031e5d8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qstat/blobs/sha256:dbe7c4cc53a379cd620bab83df9c7ed807b67b0793518b262139d465841b3eca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qstat/blobs/sha256:3ae181c9f7e61cb31c66d525ff2bcfd6da52c803e412b795e3009881879f0ca5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qstat/blobs/sha256:7e6d928552859166fd08ef486163d0894745c1b5b6c40b789205ab06c4208794
+sha256:
+  darwin_arm64: c7a13c065f07c78ac3ece908defa738146039d54b9d3642e06d06766031e5d8e
+  darwin_amd64: dbe7c4cc53a379cd620bab83df9c7ed807b67b0793518b262139d465841b3eca
+  linux_amd64: 3ae181c9f7e61cb31c66d525ff2bcfd6da52c803e412b795e3009881879f0ca5
+  linux_arm64: 7e6d928552859166fd08ef486163d0894745c1b5b6c40b789205ab06c4208794
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

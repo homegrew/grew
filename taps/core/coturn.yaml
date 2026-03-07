@@ -1,0 +1,24 @@
+name: coturn
+version: 4.9.0
+description: Free open source implementation of TURN and STUN Server
+homepage: https://github.com/coturn/coturn
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coturn/blobs/sha256:e1bc1cd5d0a26a528e51ffce5f780106f91851b2256ddc3524acd3f7e37d49fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coturn/blobs/sha256:57898556ba6dd2ca2db060c21638a87f836dfdec414305cd1b9bc3e871aceab2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coturn/blobs/sha256:ba12ae36102a8e832e27a97fc93c085071a1296e77d1fef465d18821f4771683
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coturn/blobs/sha256:bcbf83817ad6bb9f5877771e1e428fc092dd984c8ef4bc4dd3452b9c3742b64c
+sha256:
+  darwin_arm64: e1bc1cd5d0a26a528e51ffce5f780106f91851b2256ddc3524acd3f7e37d49fc
+  darwin_amd64: 57898556ba6dd2ca2db060c21638a87f836dfdec414305cd1b9bc3e871aceab2
+  linux_amd64: ba12ae36102a8e832e27a97fc93c085071a1296e77d1fef465d18821f4771683
+  linux_arm64: bcbf83817ad6bb9f5877771e1e428fc092dd984c8ef4bc4dd3452b9c3742b64c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hiredis
+  - libevent
+  - libpq
+  - openssl@3

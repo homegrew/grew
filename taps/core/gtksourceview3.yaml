@@ -1,0 +1,28 @@
+name: gtksourceview3
+version: 3.24.11
+description: Text view with syntax, undo/redo, and text marks
+homepage: https://projects.gnome.org/gtksourceview/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtksourceview3/blobs/sha256:72ddfb15569484b9703111b8e49c012ef5b58ef5e13c528d7b69773e1033826e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtksourceview3/blobs/sha256:0f7bc2f472cdfcc84b6010bf32748e1244e695b899d946d8b49513fac2907c7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtksourceview3/blobs/sha256:c7614f41dcc75bd7ecd2b004547af214c35199b55d9aa0e1040f57239938f03c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtksourceview3/blobs/sha256:e2c6ba8b631090fdd53be054401f3446d36c4efeb4c5032e40304c92cad14dee
+sha256:
+  darwin_arm64: 72ddfb15569484b9703111b8e49c012ef5b58ef5e13c528d7b69773e1033826e
+  darwin_amd64: 0f7bc2f472cdfcc84b6010bf32748e1244e695b899d946d8b49513fac2907c7b
+  linux_amd64: c7614f41dcc75bd7ecd2b004547af214c35199b55d9aa0e1040f57239938f03c
+  linux_arm64: e2c6ba8b631090fdd53be054401f3446d36c4efeb4c5032e40304c92cad14dee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango
+  - gettext
+  - harfbuzz

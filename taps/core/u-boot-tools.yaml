@@ -1,0 +1,21 @@
+name: u-boot-tools
+version: 2026.01
+description: Universal boot loader
+homepage: https://www.denx.de/wiki/U-Boot/
+license: GPL-2.0-only AND GPL-2.0-or-later AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/u-boot-tools/blobs/sha256:88479294771ca0eb46089a2d4c8f587ab4aae4c6d9bb3d36873862148beb6837
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/u-boot-tools/blobs/sha256:f38775bf05bd5991b1d1bf5c0b105cf276ea782037e11b1e091badacc1777842
+  linux_amd64: https://ghcr.io/v2/homebrew/core/u-boot-tools/blobs/sha256:999e0af3ac7448b1c8d8eb2c36afb58985e27b9f4057b4aab2151c7e952a7bdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/u-boot-tools/blobs/sha256:06daa7f7fa4fd38bd3f7d4f587e49ad3539c769d7b00586be1cd0f4086fa451c
+sha256:
+  darwin_arm64: 88479294771ca0eb46089a2d4c8f587ab4aae4c6d9bb3d36873862148beb6837
+  darwin_amd64: f38775bf05bd5991b1d1bf5c0b105cf276ea782037e11b1e091badacc1777842
+  linux_amd64: 999e0af3ac7448b1c8d8eb2c36afb58985e27b9f4057b4aab2151c7e952a7bdc
+  linux_arm64: 06daa7f7fa4fd38bd3f7d4f587e49ad3539c769d7b00586be1cd0f4086fa451c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

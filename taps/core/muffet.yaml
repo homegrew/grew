@@ -1,0 +1,19 @@
+name: muffet
+version: 2.11.2
+description: Fast website link checker in Go
+homepage: https://github.com/raviqqe/muffet
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/muffet/blobs/sha256:fb71acafe9cd0f03be60e2a870046c7ca2896aeb138334382e66c4b4a14f8953
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/muffet/blobs/sha256:5f4cb0df2bb0b46e9e8d398762c4cbbc4f1e0210b07bd3de1dfa2588cc0a1526
+  linux_amd64: https://ghcr.io/v2/homebrew/core/muffet/blobs/sha256:889b6520680af87d4fe7f843d84cb6f07680cf0b531ba678ebb4105b7a253756
+  linux_arm64: https://ghcr.io/v2/homebrew/core/muffet/blobs/sha256:24c3ed122b0b527b8310e31e08e1756782c25944a2f8275c367ecfc7c23ddb62
+sha256:
+  darwin_arm64: fb71acafe9cd0f03be60e2a870046c7ca2896aeb138334382e66c4b4a14f8953
+  darwin_amd64: 5f4cb0df2bb0b46e9e8d398762c4cbbc4f1e0210b07bd3de1dfa2588cc0a1526
+  linux_amd64: 889b6520680af87d4fe7f843d84cb6f07680cf0b531ba678ebb4105b7a253756
+  linux_arm64: 24c3ed122b0b527b8310e31e08e1756782c25944a2f8275c367ecfc7c23ddb62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

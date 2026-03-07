@@ -1,0 +1,19 @@
+name: cloudprober
+version: 0.14.1
+description: Active monitoring software to detect failures before your customers do
+homepage: https://cloudprober.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudprober/blobs/sha256:a5e186d2b53a8186f0dc6a15cb4b778b2f7b89016fa061d7aa7bccebf84afc1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudprober/blobs/sha256:0350fc4bd2488211cc0df6e1dab417af67f93994d772ea9338ff3358bdfd884c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudprober/blobs/sha256:6441c40f98cf187f97e9b9ad75b00252173f5ab7cde05a6651b218e34c7944f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudprober/blobs/sha256:35d464a5fedb85512d339040eb43710422b50d8d8d32cca686ea38d621d4ed62
+sha256:
+  darwin_arm64: a5e186d2b53a8186f0dc6a15cb4b778b2f7b89016fa061d7aa7bccebf84afc1d
+  darwin_amd64: 0350fc4bd2488211cc0df6e1dab417af67f93994d772ea9338ff3358bdfd884c
+  linux_amd64: 6441c40f98cf187f97e9b9ad75b00252173f5ab7cde05a6651b218e34c7944f9
+  linux_arm64: 35d464a5fedb85512d339040eb43710422b50d8d8d32cca686ea38d621d4ed62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

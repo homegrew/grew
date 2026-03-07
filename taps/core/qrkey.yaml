@@ -1,0 +1,19 @@
+name: qrkey
+version: 0.0.1
+description: Generate and recover QR codes from files for offline private key backup
+homepage: https://github.com/Techwolf12/qrkey
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qrkey/blobs/sha256:000b8efd1105c3c7ada0fcd77de138f093678fa63e05d0d34a7a7edaa31336aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qrkey/blobs/sha256:5e5f34e26dc4ce6f5d5550da929450890bfd239c7901ee84841b48c9e5c6bc7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qrkey/blobs/sha256:0f6ebcb2f32c7a3b58c487d805fcfdee662261822452ce937e78752a2d599f6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qrkey/blobs/sha256:462db6ae6587e670d20a97470164005097e561aab011c95d0664ae62dbc81179
+sha256:
+  darwin_arm64: 000b8efd1105c3c7ada0fcd77de138f093678fa63e05d0d34a7a7edaa31336aa
+  darwin_amd64: 5e5f34e26dc4ce6f5d5550da929450890bfd239c7901ee84841b48c9e5c6bc7b
+  linux_amd64: 0f6ebcb2f32c7a3b58c487d805fcfdee662261822452ce937e78752a2d599f6b
+  linux_arm64: 462db6ae6587e670d20a97470164005097e561aab011c95d0664ae62dbc81179
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

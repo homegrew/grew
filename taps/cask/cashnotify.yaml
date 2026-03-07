@@ -1,0 +1,11 @@
+name: cashnotify
+version: 3.7.0
+description: Monitor your Stripe and Paypal accounts from your menubar
+homepage: https://cashnotify.com/
+url:
+  darwin_arm64: https://github.com/BaguetteEngineering/download.cashnotify.com/releases/download/v3.7.0/CashNotify-3.7.0.dmg
+sha256:
+  darwin_arm64: 98977df0f1b9776b890285c353bebf1f03eed1cf3d15cb6d85412f5bee30db87
+artifacts:
+  app:
+    - CashNotify.app

@@ -1,0 +1,22 @@
+name: cucumber-cpp
+version: 0.8.0
+description: Support for writing Cucumber step definitions in C++
+homepage: https://cucumber.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cucumber-cpp/blobs/sha256:35223aa4c6b55a58d5791ee51e2ae47359e11a8c4cf4512227e13150d443a4e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cucumber-cpp/blobs/sha256:3b9169520a6eb955a10b97cdcd5de61709a49df4b047a60fb52db09e03a0b83b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cucumber-cpp/blobs/sha256:f94c8fe6c5d816f8b8a8e7cb6885d032e8a27431827ad6fd96aea155d37bc66c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cucumber-cpp/blobs/sha256:18c389442081099600284c429bcb1693cdbde8af1c2705750d4d358918e4cbfd
+sha256:
+  darwin_arm64: 35223aa4c6b55a58d5791ee51e2ae47359e11a8c4cf4512227e13150d443a4e3
+  darwin_amd64: 3b9169520a6eb955a10b97cdcd5de61709a49df4b047a60fb52db09e03a0b83b
+  linux_amd64: f94c8fe6c5d816f8b8a8e7cb6885d032e8a27431827ad6fd96aea155d37bc66c
+  linux_arm64: 18c389442081099600284c429bcb1693cdbde8af1c2705750d4d358918e4cbfd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - asio
+  - tclap

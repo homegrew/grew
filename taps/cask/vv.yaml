@@ -1,0 +1,13 @@
+name: vv
+version: 2.6.2
+description: Neovim client
+homepage: https://github.com/vv-vim/vv
+url:
+  darwin_arm64: https://github.com/vv-vim/vv/releases/download/v2.6.2/VV-2.6.2-universal.dmg
+sha256:
+  darwin_arm64: 87fcc6b32ba68675974dc5771c99d73f71be23db20b5e47ea830d6e414edbd91
+artifacts:
+  app:
+    - VV.app
+  bin:
+    - vv

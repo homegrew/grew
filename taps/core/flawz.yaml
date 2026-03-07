@@ -1,0 +1,19 @@
+name: flawz
+version: 0.3.0
+description: Terminal UI for browsing security vulnerabilities (CVEs)
+homepage: https://github.com/orhun/flawz
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flawz/blobs/sha256:046a2a4a09bd81b23f85f689737a922f89312f70d3624f564930014e74d38e45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flawz/blobs/sha256:0120b7ac67721ca6d74ec1fdf08e082fba851447998f54d698afb0a18f9f1d24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flawz/blobs/sha256:76314b097693e33dfaffe268be3fd2dea5519df259c39958e6b6cffa334bfec2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flawz/blobs/sha256:8d9de54dbf400fb51a6b4a749309ee41df0e2a0dd0048c0ff73f349af5eafc41
+sha256:
+  darwin_arm64: 046a2a4a09bd81b23f85f689737a922f89312f70d3624f564930014e74d38e45
+  darwin_amd64: 0120b7ac67721ca6d74ec1fdf08e082fba851447998f54d698afb0a18f9f1d24
+  linux_amd64: 76314b097693e33dfaffe268be3fd2dea5519df259c39958e6b6cffa334bfec2
+  linux_arm64: 8d9de54dbf400fb51a6b4a749309ee41df0e2a0dd0048c0ff73f349af5eafc41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

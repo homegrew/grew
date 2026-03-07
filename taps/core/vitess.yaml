@@ -1,0 +1,21 @@
+name: vitess
+version: 23.0.3
+description: Database clustering system for horizontal scaling of MySQL
+homepage: https://vitess.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vitess/blobs/sha256:9942b02f88dcf12545b44ecfef3a29a9deb5db4dc2c01494534e00a54d123894
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vitess/blobs/sha256:21713748331a18a52f2190d7c34327f2a27dc86be27f46ce554dce430fe8aca5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vitess/blobs/sha256:e7d5a210645a270884ba33ed343a8f68b02f572dac87045d080404ae55209f50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vitess/blobs/sha256:6ee569d4d05b5a880f9b508cbe7849427ae3851522517b094fa5c1cf324c8477
+sha256:
+  darwin_arm64: 9942b02f88dcf12545b44ecfef3a29a9deb5db4dc2c01494534e00a54d123894
+  darwin_amd64: 21713748331a18a52f2190d7c34327f2a27dc86be27f46ce554dce430fe8aca5
+  linux_amd64: e7d5a210645a270884ba33ed343a8f68b02f572dac87045d080404ae55209f50
+  linux_arm64: 6ee569d4d05b5a880f9b508cbe7849427ae3851522517b094fa5c1cf324c8477
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - etcd

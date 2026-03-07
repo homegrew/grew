@@ -1,0 +1,22 @@
+name: soapyrtlsdr
+version: 0.3.3
+description: SoapySDR RTL-SDR Support Module
+homepage: https://github.com/pothosware/SoapyRTLSDR/wiki
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soapyrtlsdr/blobs/sha256:48f1464d0739465385b31f436ae6f9ea01ce68132730976767238c830f13c318
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soapyrtlsdr/blobs/sha256:984fedf5e1b8712bacc86a3e2fcb225233dbd751955e17f61896cdd8cb811cb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soapyrtlsdr/blobs/sha256:e4169428867a8b2d9fa11b6f601c735b8c2d5ffa0f46d3289cd1d1f58dfea6dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soapyrtlsdr/blobs/sha256:17be80002546fb45015241d6c2e4de81d93067637128c4137a2e21035236d6be
+sha256:
+  darwin_arm64: 48f1464d0739465385b31f436ae6f9ea01ce68132730976767238c830f13c318
+  darwin_amd64: 984fedf5e1b8712bacc86a3e2fcb225233dbd751955e17f61896cdd8cb811cb5
+  linux_amd64: e4169428867a8b2d9fa11b6f601c735b8c2d5ffa0f46d3289cd1d1f58dfea6dc
+  linux_arm64: 17be80002546fb45015241d6c2e4de81d93067637128c4137a2e21035236d6be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librtlsdr
+  - soapysdr

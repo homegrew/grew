@@ -1,0 +1,21 @@
+name: ngt
+version: 2.6.0
+description: Neighborhood graph and tree for indexing high-dimensional data
+homepage: https://github.com/yahoojapan/NGT
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ngt/blobs/sha256:3f96824a9cf45270fd9e239582c5033b5c0b5577591fe2b8e0367f7084193202
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ngt/blobs/sha256:1d6ba107a62a6df04d776860ca9e12aa48356a08f66d5d3268b2007e94fb87b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ngt/blobs/sha256:0d78c262b4baf0078ddbf14783945d1adddf4b75dc19de7bc0795dbc49d6fb31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ngt/blobs/sha256:07e78a9ba2d08e7c477d6841b9cf901b85f2a1c87731133142490ffb1344921b
+sha256:
+  darwin_arm64: 3f96824a9cf45270fd9e239582c5033b5c0b5577591fe2b8e0367f7084193202
+  darwin_amd64: 1d6ba107a62a6df04d776860ca9e12aa48356a08f66d5d3268b2007e94fb87b1
+  linux_amd64: 0d78c262b4baf0078ddbf14783945d1adddf4b75dc19de7bc0795dbc49d6fb31
+  linux_arm64: 07e78a9ba2d08e7c477d6841b9cf901b85f2a1c87731133142490ffb1344921b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

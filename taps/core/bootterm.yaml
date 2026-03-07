@@ -1,0 +1,19 @@
+name: bootterm
+version: 0.5
+description: Simple, reliable and powerful terminal to ease connection to serial ports
+homepage: https://github.com/wtarreau/bootterm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bootterm/blobs/sha256:b2092a71f18955ebffa5397ce9350880cdade272e5010568da99ea58f2d7ec89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bootterm/blobs/sha256:10d45c378a0d8437c2fa3f9697c0cd9514f41bcb41c41dbb36bd3d41fa566301
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bootterm/blobs/sha256:ffec9a2836da5cdeecccc33cd9ce2a78fb2048121c48b07bf28b0f6317a60c23
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bootterm/blobs/sha256:1cd346e782d0dfab70dbc82d9677d4c834088439530ac4e91bbfa30e6d28ec1f
+sha256:
+  darwin_arm64: b2092a71f18955ebffa5397ce9350880cdade272e5010568da99ea58f2d7ec89
+  darwin_amd64: 10d45c378a0d8437c2fa3f9697c0cd9514f41bcb41c41dbb36bd3d41fa566301
+  linux_amd64: ffec9a2836da5cdeecccc33cd9ce2a78fb2048121c48b07bf28b0f6317a60c23
+  linux_arm64: 1cd346e782d0dfab70dbc82d9677d4c834088439530ac4e91bbfa30e6d28ec1f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

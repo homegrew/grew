@@ -1,0 +1,22 @@
+name: less
+version: 692
+description: Pager program similar to more
+homepage: https://www.greenwoodsoftware.com/less/index.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/less/blobs/sha256:b722c9aa81a00fae94f5db080f405fe169691d739adfe87773538f911b4f7f6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/less/blobs/sha256:11411cbab4a546b0017adcc73aad460a36698512f8c7db96e7a483667cf8ccf8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/less/blobs/sha256:f4ebb640487e5fde5b887326fe22373eafc0af64bbc9da3ad9d03a5d65c8e92b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/less/blobs/sha256:7aa23eb672f228b03513584c06a12a182bfb31bc48ba23bda1d46b3e8c7eaba0
+sha256:
+  darwin_arm64: b722c9aa81a00fae94f5db080f405fe169691d739adfe87773538f911b4f7f6b
+  darwin_amd64: 11411cbab4a546b0017adcc73aad460a36698512f8c7db96e7a483667cf8ccf8
+  linux_amd64: f4ebb640487e5fde5b887326fe22373eafc0af64bbc9da3ad9d03a5d65c8e92b
+  linux_arm64: 7aa23eb672f228b03513584c06a12a182bfb31bc48ba23bda1d46b3e8c7eaba0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - pcre2

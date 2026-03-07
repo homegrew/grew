@@ -1,0 +1,19 @@
+name: oauth2c
+version: 1.19.0
+description: User-friendly CLI for OAuth2
+homepage: https://github.com/cloudentity/oauth2c
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oauth2c/blobs/sha256:e75715a36d6ef6248ca5d9ea3c3640a84f56ea674cd473dead06e2c5ca30160a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oauth2c/blobs/sha256:212dedc74ce1045c7d9ddfd7c6f7b5bbafe868598b33e29a6b998d74b9a6f825
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oauth2c/blobs/sha256:bff01427c8c97ff748c92541c90d2a1274bca0853011afd944ab6acae4ec619c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oauth2c/blobs/sha256:451c6e4bfef376b6484a2af2e95a75fa2075670ce4a521e41a46709c356955e2
+sha256:
+  darwin_arm64: e75715a36d6ef6248ca5d9ea3c3640a84f56ea674cd473dead06e2c5ca30160a
+  darwin_amd64: 212dedc74ce1045c7d9ddfd7c6f7b5bbafe868598b33e29a6b998d74b9a6f825
+  linux_amd64: bff01427c8c97ff748c92541c90d2a1274bca0853011afd944ab6acae4ec619c
+  linux_arm64: 451c6e4bfef376b6484a2af2e95a75fa2075670ce4a521e41a46709c356955e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

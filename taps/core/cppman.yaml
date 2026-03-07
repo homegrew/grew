@@ -1,0 +1,22 @@
+name: cppman
+version: 0.6.0
+description: C++ 98/11/14/17/20 manual pages from cplusplus.com and cppreference.com
+homepage: https://github.com/aitjcize/cppman
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppman/blobs/sha256:7184fa151468a442a6e2e41fbab77436eb6d4adafd69ac9e662e656b88435511
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppman/blobs/sha256:809ee26af759160cc6d3c6d6b320932f8dc766c1d66327b025d67ab53a89f501
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppman/blobs/sha256:03473c5d1e5e996ce55e6d193924ea46be2732078206e7a09c92e33c6d6f4873
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppman/blobs/sha256:1d2d75cb9e77490ce03d20740f93d743530d7aed815b2518e28c82660fc32a03
+sha256:
+  darwin_arm64: 7184fa151468a442a6e2e41fbab77436eb6d4adafd69ac9e662e656b88435511
+  darwin_amd64: 809ee26af759160cc6d3c6d6b320932f8dc766c1d66327b025d67ab53a89f501
+  linux_amd64: 03473c5d1e5e996ce55e6d193924ea46be2732078206e7a09c92e33c6d6f4873
+  linux_arm64: 1d2d75cb9e77490ce03d20740f93d743530d7aed815b2518e28c82660fc32a03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - groff

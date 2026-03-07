@@ -1,0 +1,22 @@
+name: libmng
+version: 2.0.3
+description: MNG/JNG reference library
+homepage: https://sourceforge.net/projects/libmng/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmng/blobs/sha256:c1e187e0cbf4b730d8116e16edab09cc0b774101d4af55605239de0afe858d8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmng/blobs/sha256:9bc364469479667acd2f770cc23c08214a0ed8df7cb807d0aad931c69e93b003
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmng/blobs/sha256:0f91c91262cde7078e9bd6c31810e1fd3e338b85e03ca6467ce6deb1451edf3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmng/blobs/sha256:7fcc2b1c40ef908b1106fc6823a44071ec282337683fe27dbdb80d3d7bf1bd52
+sha256:
+  darwin_arm64: c1e187e0cbf4b730d8116e16edab09cc0b774101d4af55605239de0afe858d8f
+  darwin_amd64: 9bc364469479667acd2f770cc23c08214a0ed8df7cb807d0aad931c69e93b003
+  linux_amd64: 0f91c91262cde7078e9bd6c31810e1fd3e338b85e03ca6467ce6deb1451edf3b
+  linux_arm64: 7fcc2b1c40ef908b1106fc6823a44071ec282337683fe27dbdb80d3d7bf1bd52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - little-cms2

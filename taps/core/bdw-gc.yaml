@@ -1,0 +1,19 @@
+name: bdw-gc
+version: 8.2.12
+description: Garbage collector for C and C++
+homepage: https://www.hboehm.info/gc/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:31d372ffb4bcce22e9871a81aeba2864f2233a9050b4f326deafdfbb31d21a58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:0bbf5a3924c6e7ffcdca91a2d3bd2569d918ae0c97ac7cc5caaa948dc881d106
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:bd45675d8ded697e19ec009c1d6ad2848e6a28af0c2ff26cd41222f9627cd411
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:c2db694f39b6f10d361221b3a8641152bac1a50624e120c4f4e8755efc3cdaef
+sha256:
+  darwin_arm64: 31d372ffb4bcce22e9871a81aeba2864f2233a9050b4f326deafdfbb31d21a58
+  darwin_amd64: 0bbf5a3924c6e7ffcdca91a2d3bd2569d918ae0c97ac7cc5caaa948dc881d106
+  linux_amd64: bd45675d8ded697e19ec009c1d6ad2848e6a28af0c2ff26cd41222f9627cd411
+  linux_arm64: c2db694f39b6f10d361221b3a8641152bac1a50624e120c4f4e8755efc3cdaef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

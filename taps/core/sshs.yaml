@@ -1,0 +1,19 @@
+name: sshs
+version: 4.7.2
+description: Graphical command-line client for SSH
+homepage: https://github.com/quantumsheep/sshs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sshs/blobs/sha256:2443c66fec7f7bfb754004d9a1770583c4ecd3788e267733a5f1d179aef82fc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sshs/blobs/sha256:f1fa7aba391712fb5797c09cb9f77e41662e722402754aad4acde490dc0d2429
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshs/blobs/sha256:e4fdb3557d5009b2c521a74fc93c456b1bc3b2772da8002fb072cfbd445d14be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshs/blobs/sha256:78da6be289b347c12f3c4d25788707e582fcb499be6a9e548d54add0c0254a75
+sha256:
+  darwin_arm64: 2443c66fec7f7bfb754004d9a1770583c4ecd3788e267733a5f1d179aef82fc6
+  darwin_amd64: f1fa7aba391712fb5797c09cb9f77e41662e722402754aad4acde490dc0d2429
+  linux_amd64: e4fdb3557d5009b2c521a74fc93c456b1bc3b2772da8002fb072cfbd445d14be
+  linux_arm64: 78da6be289b347c12f3c4d25788707e582fcb499be6a9e548d54add0c0254a75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

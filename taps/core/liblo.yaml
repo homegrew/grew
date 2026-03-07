@@ -1,0 +1,19 @@
+name: liblo
+version: 0.34
+description: Lightweight Open Sound Control implementation
+homepage: https://liblo.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblo/blobs/sha256:f08a0362c895fd58456663358085ba1641a39f0fc74d62136c07efeb4d25e299
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblo/blobs/sha256:e6e20a668824e9b917bc5b07dad6c338668c4e4ed561df20b630fceb24c0321e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblo/blobs/sha256:e119d8b42b66ba6da8115416827c9dfdbcaeea774b2b2d707c74fdce4e467da2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblo/blobs/sha256:10cedad46fbb3f57a057122e5d4fad858108996c40b1cec044d6d9fe9e096ddc
+sha256:
+  darwin_arm64: f08a0362c895fd58456663358085ba1641a39f0fc74d62136c07efeb4d25e299
+  darwin_amd64: e6e20a668824e9b917bc5b07dad6c338668c4e4ed561df20b630fceb24c0321e
+  linux_amd64: e119d8b42b66ba6da8115416827c9dfdbcaeea774b2b2d707c74fdce4e467da2
+  linux_arm64: 10cedad46fbb3f57a057122e5d4fad858108996c40b1cec044d6d9fe9e096ddc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

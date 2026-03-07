@@ -1,0 +1,19 @@
+name: netris
+version: 0.52
+description: Networked variant of tetris
+homepage: https://packages.debian.org/sid/netris
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netris/blobs/sha256:9a995775e35da0c6d44ebab95bc19340273c50fa742670b5f1178b848fda29b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netris/blobs/sha256:6b25332165118d1aa8dac47a118bffd50346bbae5fced003ac1e9c150edeefc4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netris/blobs/sha256:7209cea9b9b79f4bc89a1aafdf2ac00af1b76aefcc9fb3f0e90f5d2dc3873232
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netris/blobs/sha256:10152777ead84d310f8d140c904b68a69f94c1504b03e4dc0be441dc4b3f9e84
+sha256:
+  darwin_arm64: 9a995775e35da0c6d44ebab95bc19340273c50fa742670b5f1178b848fda29b8
+  darwin_amd64: 6b25332165118d1aa8dac47a118bffd50346bbae5fced003ac1e9c150edeefc4
+  linux_amd64: 7209cea9b9b79f4bc89a1aafdf2ac00af1b76aefcc9fb3f0e90f5d2dc3873232
+  linux_arm64: 10152777ead84d310f8d140c904b68a69f94c1504b03e4dc0be441dc4b3f9e84
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

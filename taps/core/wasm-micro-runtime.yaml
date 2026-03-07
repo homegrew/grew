@@ -1,0 +1,19 @@
+name: wasm-micro-runtime
+version: 2.4.4
+description: WebAssembly Micro Runtime (WAMR)
+homepage: https://github.com/bytecodealliance/wasm-micro-runtime
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm-micro-runtime/blobs/sha256:cb1fb11460b0ba366b42a53826db2f0dc32c572650a5658f741696f76a0af5aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm-micro-runtime/blobs/sha256:1f916c8ea659a2ea61fa5e5058475823a22002ee0b282cf45c49861428b95e88
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm-micro-runtime/blobs/sha256:50a35bc9d1fd6da9029443fd5120883f0deee39044e87bbb755f109c5197c374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm-micro-runtime/blobs/sha256:c465af087d23419ecdf9895fe47703c6dcff7a9707c923ee6d8330d9f135ee3f
+sha256:
+  darwin_arm64: cb1fb11460b0ba366b42a53826db2f0dc32c572650a5658f741696f76a0af5aa
+  darwin_amd64: 1f916c8ea659a2ea61fa5e5058475823a22002ee0b282cf45c49861428b95e88
+  linux_amd64: 50a35bc9d1fd6da9029443fd5120883f0deee39044e87bbb755f109c5197c374
+  linux_arm64: c465af087d23419ecdf9895fe47703c6dcff7a9707c923ee6d8330d9f135ee3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

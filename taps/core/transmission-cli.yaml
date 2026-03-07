@@ -1,0 +1,22 @@
+name: transmission-cli
+version: 4.1.1
+description: Lightweight BitTorrent client
+homepage: https://transmissionbt.com/
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/transmission-cli/blobs/sha256:fe9261335dbea9b764860e7f7896c130224e8303c5531396c4c7ed10169c3e80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/transmission-cli/blobs/sha256:416b077bc874b0cb0a5da08a14162401d6edae76bf23c15e78fbd218d965fa82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/transmission-cli/blobs/sha256:48925f46cf3a75f1538b3860fc126eee79b69a56858c7a33f78af872aa56b82b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/transmission-cli/blobs/sha256:54110a1b36c0687ce75ff829bb125bb338790574bbc13a5412552f20523b7261
+sha256:
+  darwin_arm64: fe9261335dbea9b764860e7f7896c130224e8303c5531396c4c7ed10169c3e80
+  darwin_amd64: 416b077bc874b0cb0a5da08a14162401d6edae76bf23c15e78fbd218d965fa82
+  linux_amd64: 48925f46cf3a75f1538b3860fc126eee79b69a56858c7a33f78af872aa56b82b
+  linux_arm64: 54110a1b36c0687ce75ff829bb125bb338790574bbc13a5412552f20523b7261
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - miniupnpc

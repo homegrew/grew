@@ -1,0 +1,25 @@
+name: dvr-scan
+version: 1.8.2
+description: Extract scenes with motion from videos
+homepage: https://www.dvr-scan.com/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvr-scan/blobs/sha256:464bddf177aeb6c154631675e314162fc3e1462bc9deb38ae99ac8018a103429
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvr-scan/blobs/sha256:a2d5d5db27b73844d6a4e972696e4fd0de5c243ba9777f3a5ecd4f7f50572a59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvr-scan/blobs/sha256:6b02e8587351d6ae7e8b6b15698ec3d20129ba7f2f7c8490cd3fef86225030b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvr-scan/blobs/sha256:641ec3e00a7615df22dc06d476fab1e8388e35fab29967818f3daff6e1807a26
+sha256:
+  darwin_arm64: 464bddf177aeb6c154631675e314162fc3e1462bc9deb38ae99ac8018a103429
+  darwin_amd64: a2d5d5db27b73844d6a4e972696e4fd0de5c243ba9777f3a5ecd4f7f50572a59
+  linux_amd64: 6b02e8587351d6ae7e8b6b15698ec3d20129ba7f2f7c8490cd3fef86225030b8
+  linux_arm64: 641ec3e00a7615df22dc06d476fab1e8388e35fab29967818f3daff6e1807a26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - numpy
+  - opencv
+  - pillow
+  - python@3.14

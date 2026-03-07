@@ -1,0 +1,23 @@
+name: ruby@3.4
+version: 3.4.8
+description: Powerful, clean, object-oriented scripting language
+homepage: https://www.ruby-lang.org/
+license: Ruby
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ruby/3.4/blobs/sha256:409b025b3b21185bd1c28f38d0223a2b86dda40119d0ada9bc757b3b2080612f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ruby/3.4/blobs/sha256:825f4d8c4026e2b326d69081233294eeed9c15dbeeafe0bc280d7de007d8e507
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ruby/3.4/blobs/sha256:9535eb45c07db0e35f004d12e694e8879e2843e88456f06b38a33bc92fa48c0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ruby/3.4/blobs/sha256:c25fa11da95ac93b19562930e94500500398caf5598e0691b00161ef80efe2a9
+sha256:
+  darwin_arm64: 409b025b3b21185bd1c28f38d0223a2b86dda40119d0ada9bc757b3b2080612f
+  darwin_amd64: 825f4d8c4026e2b326d69081233294eeed9c15dbeeafe0bc280d7de007d8e507
+  linux_amd64: 9535eb45c07db0e35f004d12e694e8879e2843e88456f06b38a33bc92fa48c0e
+  linux_arm64: c25fa11da95ac93b19562930e94500500398caf5598e0691b00161ef80efe2a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - openssl@3
+keg_only: true

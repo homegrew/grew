@@ -1,0 +1,19 @@
+name: macchina
+version: 6.4.0
+description: System information fetcher, with an emphasis on performance and minimalism
+homepage: https://github.com/Macchina-CLI/macchina
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macchina/blobs/sha256:b7b34599b2e3d2973b88aeb0f9a84f168419455377c74dd295e0101ddcea9934
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macchina/blobs/sha256:922e43abc17df8b48ffa744fd346f50f60754ea4abb2a5b82703b94686f91620
+  linux_amd64: https://ghcr.io/v2/homebrew/core/macchina/blobs/sha256:c2dee8bb6fa398bbe5e7ed7dc13dbf811d9511a131a9ec678aa487b323e2528b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/macchina/blobs/sha256:5597f411de344cdc7261ae72f1262dd5c9f0aa02201d76fc2e0d95adc75106ec
+sha256:
+  darwin_arm64: b7b34599b2e3d2973b88aeb0f9a84f168419455377c74dd295e0101ddcea9934
+  darwin_amd64: 922e43abc17df8b48ffa744fd346f50f60754ea4abb2a5b82703b94686f91620
+  linux_amd64: c2dee8bb6fa398bbe5e7ed7dc13dbf811d9511a131a9ec678aa487b323e2528b
+  linux_arm64: 5597f411de344cdc7261ae72f1262dd5c9f0aa02201d76fc2e0d95adc75106ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

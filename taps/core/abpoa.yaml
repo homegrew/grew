@@ -1,0 +1,19 @@
+name: abpoa
+version: 1.5.6
+description: SIMD-based C library for fast partial order alignment using adaptive band
+homepage: https://github.com/yangao07/abPOA
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abpoa/blobs/sha256:385dc39ec7ec7ff7b18b1e9f914a5473fd1fdae1f1e0bc2ea7a6fab61790fe14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abpoa/blobs/sha256:8647decaef2b90818811f34483f13e0a7500eea5330b79265ed860c511a9696c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abpoa/blobs/sha256:f98773ad924e6a5004944605195cadec43bb2c17cb9025ba755cd60cd07ba275
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abpoa/blobs/sha256:ca4f53634e2fb57b1682ead57b30f37eeea6aef17851ab0ecde89d68f064ad6a
+sha256:
+  darwin_arm64: 385dc39ec7ec7ff7b18b1e9f914a5473fd1fdae1f1e0bc2ea7a6fab61790fe14
+  darwin_amd64: 8647decaef2b90818811f34483f13e0a7500eea5330b79265ed860c511a9696c
+  linux_amd64: f98773ad924e6a5004944605195cadec43bb2c17cb9025ba755cd60cd07ba275
+  linux_arm64: ca4f53634e2fb57b1682ead57b30f37eeea6aef17851ab0ecde89d68f064ad6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

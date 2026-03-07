@@ -1,0 +1,19 @@
+name: bioawk
+version: 1.0
+description: AWK modified for biological data
+homepage: https://github.com/lh3/bioawk
+license: HPND
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bioawk/blobs/sha256:dc8c77af3f46588cab03f40541d48dfa09fe06115be3be5c42495213ad7fa003
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bioawk/blobs/sha256:6eb824cbf1be1f383777e3cfc835929ccf9e872aff310edad8cd279a0e503550
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bioawk/blobs/sha256:7e0a03da1e2774fcef306bcf11edac499e446d2fc9bd413078ce56f38ed1ad52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bioawk/blobs/sha256:cf7bf412ddbdf9a37d1e63c4227290886366f91d3a97b1a574c2577a93a99380
+sha256:
+  darwin_arm64: dc8c77af3f46588cab03f40541d48dfa09fe06115be3be5c42495213ad7fa003
+  darwin_amd64: 6eb824cbf1be1f383777e3cfc835929ccf9e872aff310edad8cd279a0e503550
+  linux_amd64: 7e0a03da1e2774fcef306bcf11edac499e446d2fc9bd413078ce56f38ed1ad52
+  linux_arm64: cf7bf412ddbdf9a37d1e63c4227290886366f91d3a97b1a574c2577a93a99380
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

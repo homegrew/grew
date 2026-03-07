@@ -1,0 +1,13 @@
+name: github
+version: 3.5.5-95c667e3
+description: Desktop client for GitHub repositories
+homepage: https://desktop.github.com/
+url:
+  darwin_arm64: https://desktop.githubusercontent.com/releases/3.5.5-95c667e3/GitHubDesktop-arm64.zip
+sha256:
+  darwin_arm64: 910e1709f6988b847a95725a391d99875245e826b4df790e21169e1d013d0ded
+artifacts:
+  app:
+    - GitHub Desktop.app
+  bin:
+    - github

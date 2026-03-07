@@ -1,0 +1,27 @@
+name: coal
+version: 3.0.2
+description: Extension of the Flexible Collision Library
+homepage: https://github.com/coal-library/coal
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coal/blobs/sha256:fd213abe328948a7c9911a43373ed8046d0710fb8a0a9889d2d6ff11bbf4b73f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coal/blobs/sha256:087d9dabc09adca03410b614932ad56798a671c6ee52aad74ddafd63ffdc4192
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coal/blobs/sha256:1d396d1e1014d58558ab9f2a9e560845ee86dbfa429d2511a95776780894372a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coal/blobs/sha256:e9567a4db7fe0a8cfc17a0ba7d5a5f9d2d1d58002cf07675480d5c1746ce50e7
+sha256:
+  darwin_arm64: fd213abe328948a7c9911a43373ed8046d0710fb8a0a9889d2d6ff11bbf4b73f
+  darwin_amd64: 087d9dabc09adca03410b614932ad56798a671c6ee52aad74ddafd63ffdc4192
+  linux_amd64: 1d396d1e1014d58558ab9f2a9e560845ee86dbfa429d2511a95776780894372a
+  linux_arm64: e9567a4db7fe0a8cfc17a0ba7d5a5f9d2d1d58002cf07675480d5c1746ce50e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - assimp
+  - boost
+  - boost-python3
+  - eigen
+  - eigenpy
+  - octomap
+  - python@3.14

@@ -1,0 +1,19 @@
+name: octomap
+version: 1.10.0
+description: Efficient probabilistic 3D mapping framework based on octrees
+homepage: https://octomap.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/octomap/blobs/sha256:f538d4ca1ff6befd6b3f0e3dd2388a1265b302d379047be9d9ad8e57f18e5cbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/octomap/blobs/sha256:7d6b02432d6144a747ca089b0b5bf3c873162373b4239b550bdfaf64968f027d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/octomap/blobs/sha256:6c9e829f1df5f7f11c58e4477884ac1ba082590820b0cd00e361ba02effc6b50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/octomap/blobs/sha256:523d6db6329bdbb4d6ed11dd3334643c0cf8d4e61f20bec4e39bef09955d8f72
+sha256:
+  darwin_arm64: f538d4ca1ff6befd6b3f0e3dd2388a1265b302d379047be9d9ad8e57f18e5cbf
+  darwin_amd64: 7d6b02432d6144a747ca089b0b5bf3c873162373b4239b550bdfaf64968f027d
+  linux_amd64: 6c9e829f1df5f7f11c58e4477884ac1ba082590820b0cd00e361ba02effc6b50
+  linux_arm64: 523d6db6329bdbb4d6ed11dd3334643c0cf8d4e61f20bec4e39bef09955d8f72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

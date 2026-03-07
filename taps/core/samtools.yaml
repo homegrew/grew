@@ -1,0 +1,21 @@
+name: samtools
+version: 1.23
+description: Tools for manipulating next-generation sequencing data
+homepage: https://www.htslib.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/samtools/blobs/sha256:9dace01b0700008a8d7e35976ec194476446b50f04014dfedffadb670e948622
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/samtools/blobs/sha256:95e4b92fac0ea9636086e37185ea9297f8a97924f2ee523ea1c3916ac561ac25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/samtools/blobs/sha256:47c382f55855c466ff8283fbfd4f6f7571de3ae0cf9f1200499feab9d4710397
+  linux_arm64: https://ghcr.io/v2/homebrew/core/samtools/blobs/sha256:b4ece12543cbdba33b6409698a3683f2148d6e35f27a19cda26f06a7a56181d2
+sha256:
+  darwin_arm64: 9dace01b0700008a8d7e35976ec194476446b50f04014dfedffadb670e948622
+  darwin_amd64: 95e4b92fac0ea9636086e37185ea9297f8a97924f2ee523ea1c3916ac561ac25
+  linux_amd64: 47c382f55855c466ff8283fbfd4f6f7571de3ae0cf9f1200499feab9d4710397
+  linux_arm64: b4ece12543cbdba33b6409698a3683f2148d6e35f27a19cda26f06a7a56181d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - htslib

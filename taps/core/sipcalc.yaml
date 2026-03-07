@@ -1,0 +1,19 @@
+name: sipcalc
+version: 1.1.6
+description: Advanced console-based IP subnet calculator
+homepage: https://www.routemeister.net/projects/sipcalc/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sipcalc/blobs/sha256:4f70922f3ffc35376cbd0deeaf75ed218c3d8b5aebe055c106924be78479dc39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sipcalc/blobs/sha256:5f4c2014ec92fc178ee8a13ec43d528fb11eea75afbde7b4900659b7e3de12b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sipcalc/blobs/sha256:32b27f7515668c3962b6f3e629928524026bf005b6ed247449779064bb65e1d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sipcalc/blobs/sha256:a08824e18de04aa9673ef0fe31bd7ea568eb4029210c58b57002f4f3110ba732
+sha256:
+  darwin_arm64: 4f70922f3ffc35376cbd0deeaf75ed218c3d8b5aebe055c106924be78479dc39
+  darwin_amd64: 5f4c2014ec92fc178ee8a13ec43d528fb11eea75afbde7b4900659b7e3de12b0
+  linux_amd64: 32b27f7515668c3962b6f3e629928524026bf005b6ed247449779064bb65e1d7
+  linux_arm64: a08824e18de04aa9673ef0fe31bd7ea568eb4029210c58b57002f4f3110ba732
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

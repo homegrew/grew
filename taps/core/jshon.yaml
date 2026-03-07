@@ -1,0 +1,21 @@
+name: jshon
+version: 20131105
+description: Parse, read, and create JSON from the shell
+homepage: https://github.com/keenerd/jshon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jshon/blobs/sha256:ba745cfbfa0a47f539e46b599633805b202ca8766b1cce5831b49d6bf99ca7bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jshon/blobs/sha256:5368b1d8cdca07e75d70b448bb6414f62876344d82c8c26c0c5785def3fc0dc0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jshon/blobs/sha256:75afb2192ca7b1257b811c27359474bed0d281e1d67eb3fdb86fbf04005563db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jshon/blobs/sha256:0afe7df1a37e88dd5f3f54e74c972fb4e8233722b321b6e67f5a0318720fe7be
+sha256:
+  darwin_arm64: ba745cfbfa0a47f539e46b599633805b202ca8766b1cce5831b49d6bf99ca7bf
+  darwin_amd64: 5368b1d8cdca07e75d70b448bb6414f62876344d82c8c26c0c5785def3fc0dc0
+  linux_amd64: 75afb2192ca7b1257b811c27359474bed0d281e1d67eb3fdb86fbf04005563db
+  linux_arm64: 0afe7df1a37e88dd5f3f54e74c972fb4e8233722b321b6e67f5a0318720fe7be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson

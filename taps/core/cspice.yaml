@@ -1,0 +1,19 @@
+name: cspice
+version: 67
+description: Observation geometry system for robotic space science missions
+homepage: https://naif.jpl.nasa.gov/naif/toolkit.html
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cspice/blobs/sha256:040bfcb0ac95b84d33600b31a20d6bb50a81f606a713077d86bc4fe47f115108
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cspice/blobs/sha256:03e8ae8aec875223b2706a0c593879fb1eb483eab90ee30d9a89ac1cdd0bae61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cspice/blobs/sha256:5c49763f72469907d773eef66b54ae8dce74c3df9f2f5dee29468de3ea9f0953
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cspice/blobs/sha256:eab82a1e15614b89d2873ae64760df4da1053990b6f7e288d97a618a2d0c4ab2
+sha256:
+  darwin_arm64: 040bfcb0ac95b84d33600b31a20d6bb50a81f606a713077d86bc4fe47f115108
+  darwin_amd64: 03e8ae8aec875223b2706a0c593879fb1eb483eab90ee30d9a89ac1cdd0bae61
+  linux_amd64: 5c49763f72469907d773eef66b54ae8dce74c3df9f2f5dee29468de3ea9f0953
+  linux_arm64: eab82a1e15614b89d2873ae64760df4da1053990b6f7e288d97a618a2d0c4ab2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

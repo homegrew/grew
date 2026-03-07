@@ -1,0 +1,11 @@
+name: legcord
+version: 1.2.2
+description: Custom Discord client
+homepage: https://legcord.app/
+url:
+  darwin_arm64: https://github.com/legcord/legcord/releases/download/v1.2.2/legcord-1.2.2-mac-universal.dmg
+sha256:
+  darwin_arm64: 3249d00b55414860a568579766efaa042c7bf4e4b470fdd87750cd37be49091f
+artifacts:
+  app:
+    - legcord.app

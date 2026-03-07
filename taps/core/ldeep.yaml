@@ -1,0 +1,22 @@
+name: ldeep
+version: 2.0.0
+description: LDAP enumeration utility
+homepage: https://github.com/franc-pentest/ldeep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldeep/blobs/sha256:1a8de26428da8a86151dff98c2a256c8fef36787993b39fc66662a74614d089e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldeep/blobs/sha256:34ab5c16c7615c3c1047aacb26060551d356fd7aa96f00f078ce1aed6d7e68af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldeep/blobs/sha256:d963bef17426d6513cb847a59fc38c8590bacb6faf158b44565713b88b2bd364
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldeep/blobs/sha256:632348af704a7a3dd9bf012b9f9297530126accd9d565fa15554557253278e26
+sha256:
+  darwin_arm64: 1a8de26428da8a86151dff98c2a256c8fef36787993b39fc66662a74614d089e
+  darwin_amd64: 34ab5c16c7615c3c1047aacb26060551d356fd7aa96f00f078ce1aed6d7e68af
+  linux_amd64: d963bef17426d6513cb847a59fc38c8590bacb6faf158b44565713b88b2bd364
+  linux_arm64: 632348af704a7a3dd9bf012b9f9297530126accd9d565fa15554557253278e26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - python@3.14

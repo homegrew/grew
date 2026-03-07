@@ -1,0 +1,19 @@
+name: difftastic
+version: 0.67.0
+description: Diff that understands syntax
+homepage: https://github.com/Wilfred/difftastic
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/difftastic/blobs/sha256:41b43ca36a81709bbfb02b6a760ecd0c5a48931a534fadc1d3e921900ed61444
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/difftastic/blobs/sha256:0488707d086e79a839c484207a246cf1b0ad017ada8ad98b9049557a13d665f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/difftastic/blobs/sha256:f7720915a13a06f8e765532669ff58f632d6ccab8f12e3c639421452f8f71111
+  linux_arm64: https://ghcr.io/v2/homebrew/core/difftastic/blobs/sha256:5588b99c39afd7375c0ffdc6abf1c04d0d78c22075adb3964a1e36055a0c7ae6
+sha256:
+  darwin_arm64: 41b43ca36a81709bbfb02b6a760ecd0c5a48931a534fadc1d3e921900ed61444
+  darwin_amd64: 0488707d086e79a839c484207a246cf1b0ad017ada8ad98b9049557a13d665f4
+  linux_amd64: f7720915a13a06f8e765532669ff58f632d6ccab8f12e3c639421452f8f71111
+  linux_arm64: 5588b99c39afd7375c0ffdc6abf1c04d0d78c22075adb3964a1e36055a0c7ae6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

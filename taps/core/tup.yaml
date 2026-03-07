@@ -1,0 +1,17 @@
+name: tup
+version: 0.8
+description: File-based build system
+homepage: https://gittup.org/tup/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tup/blobs/sha256:2d1f0921353b16d91b7e91ad6bbaf443f784eebb3f9d1f2ce22058e3e888d9f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tup/blobs/sha256:04d0f54b9afb1fd40a96877e366db5a482b201e01e2d5bde296c618c1738314d
+sha256:
+  linux_amd64: 2d1f0921353b16d91b7e91ad6bbaf443f784eebb3f9d1f2ce22058e3e888d9f5
+  linux_arm64: 04d0f54b9afb1fd40a96877e366db5a482b201e01e2d5bde296c618c1738314d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse

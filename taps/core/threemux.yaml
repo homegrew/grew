@@ -1,0 +1,19 @@
+name: threemux
+version: 1.1.0
+description: Terminal multiplexer inspired by i3
+homepage: https://github.com/aaronjanse/3mux
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/threemux/blobs/sha256:21124333bddcbd848413f1f91b1277a848777555165c7f649518236370c237de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/threemux/blobs/sha256:fa0adac1469fbe07b01febde46412e9f4d182a5d891c7816b788f1264fc53d06
+  linux_amd64: https://ghcr.io/v2/homebrew/core/threemux/blobs/sha256:33200f3fd9175837129386fdfa67575eebacc806d9da099d98b0888aaff56124
+  linux_arm64: https://ghcr.io/v2/homebrew/core/threemux/blobs/sha256:33160e89fe6932ee113b37f9a8799cb2348d8713a8bf3f7220ac06871707ce69
+sha256:
+  darwin_arm64: 21124333bddcbd848413f1f91b1277a848777555165c7f649518236370c237de
+  darwin_amd64: fa0adac1469fbe07b01febde46412e9f4d182a5d891c7816b788f1264fc53d06
+  linux_amd64: 33200f3fd9175837129386fdfa67575eebacc806d9da099d98b0888aaff56124
+  linux_arm64: 33160e89fe6932ee113b37f9a8799cb2348d8713a8bf3f7220ac06871707ce69
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

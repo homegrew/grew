@@ -1,0 +1,34 @@
+name: fwupd
+version: 2.0.20
+description: Firmware update daemon
+homepage: https://github.com/fwupd/fwupd
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fwupd/blobs/sha256:f02db25fe25e03c3caf97cfcc8464c5495b143e96c7d6b808e476618478e5063
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fwupd/blobs/sha256:6e14d639902116b5eb0ff6981dd20acd8c7dd15e1f3fb26388b7638aeb5e9949
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fwupd/blobs/sha256:140928bd8985ee49e3d470de4545ad797d363b1ebd296a5b072247d0c65310ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fwupd/blobs/sha256:16cba80279645f7f0eeb0c082aebe0e9b7a49bdfdf059c11225a27f4095164df
+sha256:
+  darwin_arm64: f02db25fe25e03c3caf97cfcc8464c5495b143e96c7d6b808e476618478e5063
+  darwin_amd64: 6e14d639902116b5eb0ff6981dd20acd8c7dd15e1f3fb26388b7638aeb5e9949
+  linux_amd64: 140928bd8985ee49e3d470de4545ad797d363b1ebd296a5b072247d0c65310ae
+  linux_arm64: 16cba80279645f7f0eeb0c082aebe0e9b7a49bdfdf059c11225a27f4095164df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - json-glib
+  - libarchive
+  - libcbor
+  - libjcat
+  - libusb
+  - libxmlb
+  - protobuf-c
+  - readline
+  - sqlite
+  - usb.ids
+  - xz
+  - gettext

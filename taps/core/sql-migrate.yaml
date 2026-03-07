@@ -1,0 +1,19 @@
+name: sql-migrate
+version: 1.8.1
+description: SQL schema migration tool for Go
+homepage: https://github.com/rubenv/sql-migrate
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sql-migrate/blobs/sha256:e74775985c88da05f258b8a93603927850ab35ac4dbe29869dcf87ad8ea4596a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sql-migrate/blobs/sha256:56a606763e249c6d1dfc2992c46582ea35ce05059bd487058bb3d1ac10e8b8cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sql-migrate/blobs/sha256:8de0556c176c7b4c83cca6d516ebd9567e4af916b05e0a9c578343b23b6c66e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sql-migrate/blobs/sha256:cde3f70a007cc9957640ced5366a1140d4f3e7d03754d81b527de6d9935b4594
+sha256:
+  darwin_arm64: e74775985c88da05f258b8a93603927850ab35ac4dbe29869dcf87ad8ea4596a
+  darwin_amd64: 56a606763e249c6d1dfc2992c46582ea35ce05059bd487058bb3d1ac10e8b8cd
+  linux_amd64: 8de0556c176c7b4c83cca6d516ebd9567e4af916b05e0a9c578343b23b6c66e0
+  linux_arm64: cde3f70a007cc9957640ced5366a1140d4f3e7d03754d81b527de6d9935b4594
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

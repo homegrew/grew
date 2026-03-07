@@ -1,0 +1,19 @@
+name: doxygen
+version: 1.16.1
+description: Generate documentation for several programming languages
+homepage: https://www.doxygen.nl/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doxygen/blobs/sha256:d1f4cf02f9ce45b0b994819f4e38a1aa243a28dddfec953fef8679d47064e2e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doxygen/blobs/sha256:1fb471112843de03b9dfe61c0f1612dd6d5deb69f28b273d0f0b1e08aec25447
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doxygen/blobs/sha256:d66ed3672e6af0d95a9a29585dab4bd7ed73a9397627038dd5d4a7cb8a5efc46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doxygen/blobs/sha256:eb514ebc6d4e2b9aead5758c4d1d907bbaf74861ea40d3a9b4ced03afd64b289
+sha256:
+  darwin_arm64: d1f4cf02f9ce45b0b994819f4e38a1aa243a28dddfec953fef8679d47064e2e0
+  darwin_amd64: 1fb471112843de03b9dfe61c0f1612dd6d5deb69f28b273d0f0b1e08aec25447
+  linux_amd64: d66ed3672e6af0d95a9a29585dab4bd7ed73a9397627038dd5d4a7cb8a5efc46
+  linux_arm64: eb514ebc6d4e2b9aead5758c4d1d907bbaf74861ea40d3a9b4ced03afd64b289
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

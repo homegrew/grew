@@ -1,0 +1,21 @@
+name: ncrack
+version: 0.7
+description: Network authentication cracking tool
+homepage: https://nmap.org/ncrack/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncrack/blobs/sha256:f73a2674042b2e7cf64f321316d88dd2a9f92fa116b6a77d73f2d2f348c6e742
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncrack/blobs/sha256:52d3c2ce600c1124c6b23231bd23ad9342f20481cb94f3ae8b94856c4dabc427
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncrack/blobs/sha256:9e0c60c65ad23af0cfa59dfa65d970850ae9fab8d270c105ffc1b0672af75d60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncrack/blobs/sha256:6fd8f73ef2ee53e70fb6e58641425eb6b4e692fd1b891bf6c53d279539e37eaa
+sha256:
+  darwin_arm64: f73a2674042b2e7cf64f321316d88dd2a9f92fa116b6a77d73f2d2f348c6e742
+  darwin_amd64: 52d3c2ce600c1124c6b23231bd23ad9342f20481cb94f3ae8b94856c4dabc427
+  linux_amd64: 9e0c60c65ad23af0cfa59dfa65d970850ae9fab8d270c105ffc1b0672af75d60
+  linux_arm64: 6fd8f73ef2ee53e70fb6e58641425eb6b4e692fd1b891bf6c53d279539e37eaa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

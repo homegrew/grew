@@ -1,0 +1,19 @@
+name: hivemind
+version: 1.1.0
+description: Process manager for Procfile-based applications
+homepage: https://github.com/DarthSim/hivemind
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hivemind/blobs/sha256:86b3f4017f9920e1035a4d888d7bcdbb34d99c75ae1f6500570eb099a241aa4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hivemind/blobs/sha256:dbbd5d0316e6b88c627c0c06f9e5cffee12b1db773ee32f243c4dbf06e2c452c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hivemind/blobs/sha256:c702f980c6b3a024c20bd50af65de981ab55b360e10013b22aa6797d834f7c85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hivemind/blobs/sha256:59ded5a99d5aa39ca906ae688d9d57ef5407316329f662f2299ade76cec93e6b
+sha256:
+  darwin_arm64: 86b3f4017f9920e1035a4d888d7bcdbb34d99c75ae1f6500570eb099a241aa4e
+  darwin_amd64: dbbd5d0316e6b88c627c0c06f9e5cffee12b1db773ee32f243c4dbf06e2c452c
+  linux_amd64: c702f980c6b3a024c20bd50af65de981ab55b360e10013b22aa6797d834f7c85
+  linux_arm64: 59ded5a99d5aa39ca906ae688d9d57ef5407316329f662f2299ade76cec93e6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

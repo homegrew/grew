@@ -1,0 +1,19 @@
+name: kanata
+version: 1.11.0
+description: Cross-platform software keyboard remapper for Linux, macOS and Windows
+homepage: https://github.com/jtroo/kanata
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kanata/blobs/sha256:1e33042a173476ca96bae7cbda19836a4efc074089ed3dbb558f929c3e20b15e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kanata/blobs/sha256:3f77ca47aa8567ebbd73a4b818cae0ae19d59fd343aae43bbc5b8dc0fef28d0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kanata/blobs/sha256:a453561372b89c594e1ca37945f577f39648e30098012c9fad3469a03e7eb07e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kanata/blobs/sha256:5620864dec3da6c090906d8582fc95e05fb06b6835f039f9843cf583db01af00
+sha256:
+  darwin_arm64: 1e33042a173476ca96bae7cbda19836a4efc074089ed3dbb558f929c3e20b15e
+  darwin_amd64: 3f77ca47aa8567ebbd73a4b818cae0ae19d59fd343aae43bbc5b8dc0fef28d0c
+  linux_amd64: a453561372b89c594e1ca37945f577f39648e30098012c9fad3469a03e7eb07e
+  linux_arm64: 5620864dec3da6c090906d8582fc95e05fb06b6835f039f9843cf583db01af00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

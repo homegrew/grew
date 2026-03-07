@@ -1,0 +1,21 @@
+name: iperf3
+version: 3.20
+description: "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
+homepage: https://github.com/esnet/iperf
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iperf3/blobs/sha256:21d104a64ab9a03149a6a68621fe7c34113107d7c241aae10b30f7f54fc63278
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iperf3/blobs/sha256:7b8079f6dc2f72de7a70d62aec60312220fe395646f9b6d1307d9e8fafd82ade
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iperf3/blobs/sha256:8b2515f7071e158cb4c44bdc26a5ca183e81cb00565b4e1f2fbb7393d5cc7183
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iperf3/blobs/sha256:b0ae4a5324a6eae284b7863f6ca0d94fde6b0bc53dea043093533953a1c1bccb
+sha256:
+  darwin_arm64: 21d104a64ab9a03149a6a68621fe7c34113107d7c241aae10b30f7f54fc63278
+  darwin_amd64: 7b8079f6dc2f72de7a70d62aec60312220fe395646f9b6d1307d9e8fafd82ade
+  linux_amd64: 8b2515f7071e158cb4c44bdc26a5ca183e81cb00565b4e1f2fbb7393d5cc7183
+  linux_arm64: b0ae4a5324a6eae284b7863f6ca0d94fde6b0bc53dea043093533953a1c1bccb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

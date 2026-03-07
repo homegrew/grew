@@ -1,0 +1,27 @@
+name: forbidden
+version: 13.4
+description: Bypass 4xx HTTP response status codes and more
+homepage: https://github.com/ivan-sincek/forbidden
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forbidden/blobs/sha256:d21fcb52bada13dd9d0cf51e1d76d8c9aa791f001f51889ce62943bf7768f453
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forbidden/blobs/sha256:38cd1caa2f9c02ed4957ff7519fd10c945a5ddb5cbb8abf564d2a7aa9448261e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forbidden/blobs/sha256:0f91cf6f82e3aed050177a1b5dcd57a7fbcba8447ef197373aafe634e721bc73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forbidden/blobs/sha256:b5c5f55da4309ba5621107f839031fa983fee11077e567137e5efc49bde484ba
+sha256:
+  darwin_arm64: d21fcb52bada13dd9d0cf51e1d76d8c9aa791f001f51889ce62943bf7768f453
+  darwin_amd64: 38cd1caa2f9c02ed4957ff7519fd10c945a5ddb5cbb8abf564d2a7aa9448261e
+  linux_amd64: 0f91cf6f82e3aed050177a1b5dcd57a7fbcba8447ef197373aafe634e721bc73
+  linux_arm64: b5c5f55da4309ba5621107f839031fa983fee11077e567137e5efc49bde484ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - cryptography
+  - curl
+  - openssl@3
+  - pycparser
+  - python@3.14

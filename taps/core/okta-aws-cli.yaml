@@ -1,0 +1,19 @@
+name: okta-aws-cli
+version: 2.6.0
+description: Okta federated identity for AWS CLI
+homepage: https://github.com/okta/okta-aws-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/okta-aws-cli/blobs/sha256:5e7ed56735b06b45c7c08503291102b4d933b825d960142280a4956f64ea4d93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/okta-aws-cli/blobs/sha256:2b8257c2a91a3bb3665b238f94270b7e76e90757cea404191ef3b79ff04bcb40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/okta-aws-cli/blobs/sha256:2c38c00fe03b0d4944ba3ca2e094400242088bcc601dd460f4ba5602938ac9d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/okta-aws-cli/blobs/sha256:2725d92b1b5bb4d9c8e53ae37c62364d850032419d64577623470e62dd269673
+sha256:
+  darwin_arm64: 5e7ed56735b06b45c7c08503291102b4d933b825d960142280a4956f64ea4d93
+  darwin_amd64: 2b8257c2a91a3bb3665b238f94270b7e76e90757cea404191ef3b79ff04bcb40
+  linux_amd64: 2c38c00fe03b0d4944ba3ca2e094400242088bcc601dd460f4ba5602938ac9d2
+  linux_arm64: 2725d92b1b5bb4d9c8e53ae37c62364d850032419d64577623470e62dd269673
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

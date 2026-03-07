@@ -1,0 +1,21 @@
+name: mage
+version: 1.15.0
+description: Make/rake-like build tool using Go
+homepage: https://magefile.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mage/blobs/sha256:f47478f5ca2560f1d26a4419dca1894f19220204024bd322d607a7d4d3d301fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mage/blobs/sha256:c8fea11b3b195466ee1a8977b4cf79e03076bf44ea18bb90f227025859fe639b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mage/blobs/sha256:2e003ef001493785054e1e95b8746f6503a28e66a431028fcd751d070139637a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mage/blobs/sha256:8e6b55c77f8da7119b98edf75d7ac96b38929f785a87d04bc045a7c3b50d9fe5
+sha256:
+  darwin_arm64: f47478f5ca2560f1d26a4419dca1894f19220204024bd322d607a7d4d3d301fc
+  darwin_amd64: c8fea11b3b195466ee1a8977b4cf79e03076bf44ea18bb90f227025859fe639b
+  linux_amd64: 2e003ef001493785054e1e95b8746f6503a28e66a431028fcd751d070139637a
+  linux_arm64: 8e6b55c77f8da7119b98edf75d7ac96b38929f785a87d04bc045a7c3b50d9fe5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

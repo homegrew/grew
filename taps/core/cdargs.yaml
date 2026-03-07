@@ -1,0 +1,19 @@
+name: cdargs
+version: 2.1
+description: Directory bookmarking system - Enhanced cd utilities
+homepage: https://github.com/cbxbiker61/cdargs
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdargs/blobs/sha256:7276e0e92053255d34a6ab190a36dbbc58154253ba76d69f61f224d435c2675a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdargs/blobs/sha256:ddc21725211421991e9335eec785ca97fde89ceb4840942d46dd2238d426277e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdargs/blobs/sha256:064d2b42b2a03248b41e077184e0244c28b65b7b0a7fab0711f4c9725fce3ba1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdargs/blobs/sha256:2ad0944191220f6159c473279b6575743b2516589d835031c7bd914698dc1b93
+sha256:
+  darwin_arm64: 7276e0e92053255d34a6ab190a36dbbc58154253ba76d69f61f224d435c2675a
+  darwin_amd64: ddc21725211421991e9335eec785ca97fde89ceb4840942d46dd2238d426277e
+  linux_amd64: 064d2b42b2a03248b41e077184e0244c28b65b7b0a7fab0711f4c9725fce3ba1
+  linux_arm64: 2ad0944191220f6159c473279b6575743b2516589d835031c7bd914698dc1b93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

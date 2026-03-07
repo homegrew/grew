@@ -1,0 +1,21 @@
+name: aws-c-cal
+version: 0.9.13
+description: AWS Crypto Abstraction Layer
+homepage: https://github.com/awslabs/aws-c-cal
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-cal/blobs/sha256:b4a682ef0ffb80c87cd6cfa4023c66c7ab159deb3f7500d7601014cbe58fb8c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-cal/blobs/sha256:4ffd05da94b7ff7f0c8a3479b101a9a964955c111a7c4f4e59653e210de8b38c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-cal/blobs/sha256:0e801e0e9a5800ce24c4a726e42be9c7a24cf75c8de42d1c70073346a9627a09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-cal/blobs/sha256:1332c1328220c4357acdbef60ee792897c7c1e17d3f6ba7892d4406997aaa3ce
+sha256:
+  darwin_arm64: b4a682ef0ffb80c87cd6cfa4023c66c7ab159deb3f7500d7601014cbe58fb8c0
+  darwin_amd64: 4ffd05da94b7ff7f0c8a3479b101a9a964955c111a7c4f4e59653e210de8b38c
+  linux_amd64: 0e801e0e9a5800ce24c4a726e42be9c7a24cf75c8de42d1c70073346a9627a09
+  linux_arm64: 1332c1328220c4357acdbef60ee792897c7c1e17d3f6ba7892d4406997aaa3ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-common

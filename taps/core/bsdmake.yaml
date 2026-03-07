@@ -1,0 +1,15 @@
+name: bsdmake
+version: 24
+description: BSD version of the Make build tool
+homepage: https://opensource.apple.com/
+license: BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause-UC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bsdmake/blobs/sha256:5318ec01ebc418bab6c1977ee2023e10901a0c9527cce2e277a9a66d86379399
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bsdmake/blobs/sha256:2161f0b91983b77abfff210022d1175228354b0633d8ce9cbdb17f5647994c37
+sha256:
+  darwin_arm64: 5318ec01ebc418bab6c1977ee2023e10901a0c9527cce2e277a9a66d86379399
+  darwin_amd64: 2161f0b91983b77abfff210022d1175228354b0633d8ce9cbdb17f5647994c37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

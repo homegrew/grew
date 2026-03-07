@@ -1,0 +1,19 @@
+name: container-structure-test
+version: 1.22.1
+description: Validate the structure of your container images
+homepage: https://github.com/GoogleContainerTools/container-structure-test
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/container-structure-test/blobs/sha256:ffadb4b8e066a730a44df161a8994706c19299d4b2016e1f6446c4b87f4300d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/container-structure-test/blobs/sha256:9e1bbe8f1cf6043c62b4108fca2107d9e967138b2bc064bb39a23a4f4762f607
+  linux_amd64: https://ghcr.io/v2/homebrew/core/container-structure-test/blobs/sha256:0a5370012785c55e9fec1d69ccc950b88e84a36d4f6de86f322ba9a3919c3099
+  linux_arm64: https://ghcr.io/v2/homebrew/core/container-structure-test/blobs/sha256:dcac556f58434bb4a0886090be35ee58c844b20507704c679a30043680c36cce
+sha256:
+  darwin_arm64: ffadb4b8e066a730a44df161a8994706c19299d4b2016e1f6446c4b87f4300d7
+  darwin_amd64: 9e1bbe8f1cf6043c62b4108fca2107d9e967138b2bc064bb39a23a4f4762f607
+  linux_amd64: 0a5370012785c55e9fec1d69ccc950b88e84a36d4f6de86f322ba9a3919c3099
+  linux_arm64: dcac556f58434bb4a0886090be35ee58c844b20507704c679a30043680c36cce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

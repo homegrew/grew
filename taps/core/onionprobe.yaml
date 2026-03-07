@@ -1,0 +1,25 @@
+name: onionprobe
+version: 1.4.1
+description: Test and monitoring tool for Tor Onion Services
+homepage: https://tpo.pages.torproject.net/onion-services/onionprobe/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/onionprobe/blobs/sha256:04a8ca03ee045bdae4f7fde3fe80d3ee387b2470194c1cfdae9feee909ed1133
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/onionprobe/blobs/sha256:b7a4b8121426f977e25cee87d5ef2cf6b81571677ce393cb8f5e82c4b65d0b4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onionprobe/blobs/sha256:e95554404ae4c20cb25f091e2b0e0badde8edcf31f2ed396b52fb5c948839594
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onionprobe/blobs/sha256:d339b485fbf56e8a77ff473c5ee47ff7ea3243a76642e4bae74905892ea41183
+sha256:
+  darwin_arm64: 04a8ca03ee045bdae4f7fde3fe80d3ee387b2470194c1cfdae9feee909ed1133
+  darwin_amd64: b7a4b8121426f977e25cee87d5ef2cf6b81571677ce393cb8f5e82c4b65d0b4c
+  linux_amd64: e95554404ae4c20cb25f091e2b0e0badde8edcf31f2ed396b52fb5c948839594
+  linux_arm64: d339b485fbf56e8a77ff473c5ee47ff7ea3243a76642e4bae74905892ea41183
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14
+  - tor

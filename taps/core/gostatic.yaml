@@ -1,0 +1,19 @@
+name: gostatic
+version: 2.36
+description: Fast static site generator
+homepage: https://github.com/piranha/gostatic
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gostatic/blobs/sha256:6f90c04fe4dae3f6edce58241bb7346f784e96f70cfb136a586bfb901e644bfe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gostatic/blobs/sha256:ed125d328bd2511ad9b6fd3c81c29ab9f624122b1bb7d80e56ded13ee419e825
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gostatic/blobs/sha256:3fc806119828adc0ed8433ff0dfdb9573f76bac686ffa19d368726d978d7aacb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gostatic/blobs/sha256:25383ed9edc30c872a42d57184bc8555aac628c482eb8705ba7deed28f526050
+sha256:
+  darwin_arm64: 6f90c04fe4dae3f6edce58241bb7346f784e96f70cfb136a586bfb901e644bfe
+  darwin_amd64: ed125d328bd2511ad9b6fd3c81c29ab9f624122b1bb7d80e56ded13ee419e825
+  linux_amd64: 3fc806119828adc0ed8433ff0dfdb9573f76bac686ffa19d368726d978d7aacb
+  linux_arm64: 25383ed9edc30c872a42d57184bc8555aac628c482eb8705ba7deed28f526050
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

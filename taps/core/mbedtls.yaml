@@ -1,0 +1,19 @@
+name: mbedtls
+version: 4.0.0
+description: "Cryptographic & SSL/TLS library"
+homepage: https://tls.mbed.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mbedtls/blobs/sha256:27ea10c369948aae4c0569064e1b8628ca5fd5dcab0bbb02214f494b2bf3f2bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mbedtls/blobs/sha256:c96bd36a7136fcf036acff89c6e71fc91bbed9d4b20905d7dceeb0b5ba3c26f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mbedtls/blobs/sha256:df82e43cbff336f226c4ee56c7db63190cb3915af6287fad76b99c458f1fb4bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mbedtls/blobs/sha256:fba7c9b4c5b1562ec7161c3406b4a87b5b7fcce2b372fab323261482c96ea253
+sha256:
+  darwin_arm64: 27ea10c369948aae4c0569064e1b8628ca5fd5dcab0bbb02214f494b2bf3f2bb
+  darwin_amd64: c96bd36a7136fcf036acff89c6e71fc91bbed9d4b20905d7dceeb0b5ba3c26f3
+  linux_amd64: df82e43cbff336f226c4ee56c7db63190cb3915af6287fad76b99c458f1fb4bc
+  linux_arm64: fba7c9b4c5b1562ec7161c3406b4a87b5b7fcce2b372fab323261482c96ea253
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

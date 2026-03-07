@@ -1,0 +1,11 @@
+name: cirrus
+version: 1.16,2025.06
+description: Inspector for iCloud Drive folders
+homepage: https://eclecticlight.co/cirrus-bailiff/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2025/06/cirrus116.zip
+sha256:
+  darwin_arm64: bcdeeaaf734fa9359336f65033d81a51bf405a91b431fe7f33d7626d1ad46ccf
+artifacts:
+  app:
+    - cirrus116/Cirrus.app

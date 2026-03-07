@@ -1,0 +1,19 @@
+name: kafkactl
+version: 5.18.0
+description: CLI for managing Apache Kafka
+homepage: https://deviceinsight.github.io/kafkactl/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kafkactl/blobs/sha256:4281fec8deef02f0999cf85c76239496d84e6f2bc570e8fc78dc5a1fbe424665
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kafkactl/blobs/sha256:cf2c04d06546043f4e4079e480d7e3a48f12c4a0f14e98c8df47f8f24f075eb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kafkactl/blobs/sha256:36cfecee236a47e0abfbdfb126edb31a6d5cf5fc1223e9c78d96eeda132ce09d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kafkactl/blobs/sha256:45730352148fd6b5d21fec66f97339eb49d7886d78ccf244ea77013ffefbd8e0
+sha256:
+  darwin_arm64: 4281fec8deef02f0999cf85c76239496d84e6f2bc570e8fc78dc5a1fbe424665
+  darwin_amd64: cf2c04d06546043f4e4079e480d7e3a48f12c4a0f14e98c8df47f8f24f075eb2
+  linux_amd64: 36cfecee236a47e0abfbdfb126edb31a6d5cf5fc1223e9c78d96eeda132ce09d
+  linux_arm64: 45730352148fd6b5d21fec66f97339eb49d7886d78ccf244ea77013ffefbd8e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

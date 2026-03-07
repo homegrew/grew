@@ -1,0 +1,19 @@
+name: miniserve
+version: 0.33.0
+description: High performance static file server
+homepage: https://github.com/svenstaro/miniserve
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/miniserve/blobs/sha256:51a652974e5b6cbc0c900aa59db2d90ee9b09bdc4eee6d4ac53439508aac1778
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/miniserve/blobs/sha256:c234fcbed960c1ce0590db9111b6ced642f9b52ceb70ac09956f07775406da31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/miniserve/blobs/sha256:24966360e41ff69713840bfbac5c95c02bc9b55856123230745108787a1536f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/miniserve/blobs/sha256:4054184cc0c0ae822c6e09b27b0b7134d96b0981b31631a328008a8689507c90
+sha256:
+  darwin_arm64: 51a652974e5b6cbc0c900aa59db2d90ee9b09bdc4eee6d4ac53439508aac1778
+  darwin_amd64: c234fcbed960c1ce0590db9111b6ced642f9b52ceb70ac09956f07775406da31
+  linux_amd64: 24966360e41ff69713840bfbac5c95c02bc9b55856123230745108787a1536f2
+  linux_arm64: 4054184cc0c0ae822c6e09b27b0b7134d96b0981b31631a328008a8689507c90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

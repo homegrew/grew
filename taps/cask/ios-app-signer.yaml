@@ -1,0 +1,11 @@
+name: ios-app-signer
+version: 1.14
+description: App for (re)signing iOS apps and bundling them
+homepage: https://dantheman827.github.io/ios-app-signer/
+url:
+  darwin_arm64: https://github.com/DanTheMan827/ios-app-signer/releases/download/1.14/iOS.App.Signer.app.zip
+sha256:
+  darwin_arm64: 7738a2b75b72ca9493a6f9c8ee4a7a6118fbfc77c61ddf6f02d41bfac8c739d2
+artifacts:
+  app:
+    - iOS App Signer.app

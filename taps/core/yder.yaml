@@ -1,0 +1,21 @@
+name: yder
+version: 1.4.20
+description: Logging library for C applications
+homepage: https://babelouest.github.io/yder/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yder/blobs/sha256:9f885260fb16abe855f8334ab2c1b6bddaf032e7e19e1a119bf9ba6280b8e784
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yder/blobs/sha256:699d2dad4ab3e4ee74be1e3a65e31cfa803efda441726b7f246ce7f77c69b647
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yder/blobs/sha256:c1b907e430a7ac5a0b6c610655f0254943c3c3f4b0e1a31e59bb787223d4872b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yder/blobs/sha256:94e170cd9620c2ca378cd7e30d6638c2a7dad5c662757cf6121f5810f1f4b3df
+sha256:
+  darwin_arm64: 9f885260fb16abe855f8334ab2c1b6bddaf032e7e19e1a119bf9ba6280b8e784
+  darwin_amd64: 699d2dad4ab3e4ee74be1e3a65e31cfa803efda441726b7f246ce7f77c69b647
+  linux_amd64: c1b907e430a7ac5a0b6c610655f0254943c3c3f4b0e1a31e59bb787223d4872b
+  linux_arm64: 94e170cd9620c2ca378cd7e30d6638c2a7dad5c662757cf6121f5810f1f4b3df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - orcania

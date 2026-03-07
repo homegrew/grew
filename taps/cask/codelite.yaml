@@ -1,0 +1,11 @@
+name: codelite
+version: 18.2.0
+description: IDE for C, C++, PHP and Node.js
+homepage: https://codelite.org/
+url:
+  darwin_arm64: https://downloads.codelite.org/codelite/18.2.0/codelite-macOS_15.6.1-arm64.app.tar.gz
+sha256:
+  darwin_arm64: 49f919ebed4cf42e49275dc89b5df12bc14cbd4b435f07dbcdaeddef4849a9df
+artifacts:
+  app:
+    - codelite.app

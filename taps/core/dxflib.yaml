@@ -1,0 +1,19 @@
+name: dxflib
+version: 3.26.4
+description: C++ library for parsing DXF files
+homepage: https://www.ribbonsoft.com/en/what-is-dxflib
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dxflib/blobs/sha256:3bbe74f4cb179ff9cd5df3e09b664f29033deb63211128b73bab5cf18c6b71a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dxflib/blobs/sha256:7428941eb92a81ca91bba17c724a82392ad210bd545eba3566d89be9dc028d59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dxflib/blobs/sha256:e71a7e5920a5c7d7029edcf188bebf88aea640021d459ba1e2c0fa7266970c3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dxflib/blobs/sha256:5c3d6128db7bb1a09a4e280074706cece0535a47ec8db471d4e7ad941dc7e2f1
+sha256:
+  darwin_arm64: 3bbe74f4cb179ff9cd5df3e09b664f29033deb63211128b73bab5cf18c6b71a1
+  darwin_amd64: 7428941eb92a81ca91bba17c724a82392ad210bd545eba3566d89be9dc028d59
+  linux_amd64: e71a7e5920a5c7d7029edcf188bebf88aea640021d459ba1e2c0fa7266970c3a
+  linux_arm64: 5c3d6128db7bb1a09a4e280074706cece0535a47ec8db471d4e7ad941dc7e2f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

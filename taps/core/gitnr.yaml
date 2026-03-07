@@ -1,0 +1,21 @@
+name: gitnr
+version: 0.2.2
+description: Create `.gitignore` using templates from TopTal, GitHub or your own collection
+homepage: https://github.com/reemus-dev/gitnr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitnr/blobs/sha256:e6f55ca6ffd7a5014925821fe4377caf19874f75837f9a5396dbd12482221d0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitnr/blobs/sha256:96444e77d1b7399ac511fdd49fe358bffe34717f97f820047d09e21f59981f9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitnr/blobs/sha256:fcb4d3b8d42018f3f4c5273361a9f375000bfecccfb59b32f04f45246ab166a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitnr/blobs/sha256:d72e48d034a9e4298b71f1cf912286668a9b898381ab8ffc2c960918d18df611
+sha256:
+  darwin_arm64: e6f55ca6ffd7a5014925821fe4377caf19874f75837f9a5396dbd12482221d0a
+  darwin_amd64: 96444e77d1b7399ac511fdd49fe358bffe34717f97f820047d09e21f59981f9c
+  linux_amd64: fcb4d3b8d42018f3f4c5273361a9f375000bfecccfb59b32f04f45246ab166a0
+  linux_arm64: d72e48d034a9e4298b71f1cf912286668a9b898381ab8ffc2c960918d18df611
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,25 @@
+name: networkit
+version: 11.2.1
+description: Performance toolkit for large-scale network analysis
+homepage: https://networkit.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/networkit/blobs/sha256:ced2920bc1e6701e30cca2d8fc70cf0f9b785cb5fdced49dcaae63ddb2f77d9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/networkit/blobs/sha256:84202ae39b325a754d091cb55f9ea530fd378fc9bf81f3aea896b49f3cf8bcd1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/networkit/blobs/sha256:f3490cbbda12ffaeff0028a1353d8763c526d8dd430b01512f4c908cb8619905
+  linux_arm64: https://ghcr.io/v2/homebrew/core/networkit/blobs/sha256:b0a4297e282a3eece612c67f3ef520ef56df2687e060588bc8fea3d13cec2b36
+sha256:
+  darwin_arm64: ced2920bc1e6701e30cca2d8fc70cf0f9b785cb5fdced49dcaae63ddb2f77d9b
+  darwin_amd64: 84202ae39b325a754d091cb55f9ea530fd378fc9bf81f3aea896b49f3cf8bcd1
+  linux_amd64: f3490cbbda12ffaeff0028a1353d8763c526d8dd430b01512f4c908cb8619905
+  linux_arm64: b0a4297e282a3eece612c67f3ef520ef56df2687e060588bc8fea3d13cec2b36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnetworkit
+  - numpy
+  - python@3.14
+  - scipy
+  - libomp

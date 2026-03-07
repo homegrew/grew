@@ -1,0 +1,23 @@
+name: prjtrellis
+version: 1.4
+description: Documenting the Lattice ECP5 bit-stream format
+homepage: https://github.com/YosysHQ/prjtrellis
+license: ISC AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prjtrellis/blobs/sha256:36912b5c1a3ef5ce08ab7debc15ab3a008b08414a278ea427e2aaac4c680f7f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prjtrellis/blobs/sha256:6d6c1a930acb39324a74a5b2b8fdc95a7ff0557121051e57b1e83b0206fe32f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prjtrellis/blobs/sha256:85f2fc246b54917d76e6dd898ab68b56fa8311482ad8db4f817cdae537cd81a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prjtrellis/blobs/sha256:94308fe20b1a9d6924cd1a3576b1f1b1eddc39e2ea6844a2575b07c1b6606482
+sha256:
+  darwin_arm64: 36912b5c1a3ef5ce08ab7debc15ab3a008b08414a278ea427e2aaac4c680f7f0
+  darwin_amd64: 6d6c1a930acb39324a74a5b2b8fdc95a7ff0557121051e57b1e83b0206fe32f1
+  linux_amd64: 85f2fc246b54917d76e6dd898ab68b56fa8311482ad8db4f817cdae537cd81a1
+  linux_arm64: 94308fe20b1a9d6924cd1a3576b1f1b1eddc39e2ea6844a2575b07c1b6606482
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - boost-python3
+  - python@3.14

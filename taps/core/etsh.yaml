@@ -1,0 +1,19 @@
+name: etsh
+version: 5.4.0
+description: Two ports of /bin/sh from V6 UNIX (circa 1975)
+homepage: https://etsh.dev/
+license: BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/etsh/blobs/sha256:563a005afcf2e27e22f7be999febc8c5f2cb26659f6e12a8ef2081531f6ded4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/etsh/blobs/sha256:50e1f0bf4a1b1ac60c5dafd61bd40d90e40c4985f63013ed7d2bbd076acf3c14
+  linux_amd64: https://ghcr.io/v2/homebrew/core/etsh/blobs/sha256:3b63d3ead94501c6b8a1f2fd2e6cf5465e7d0f36dc1d2e1303b0ed23254141d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/etsh/blobs/sha256:7aa92ba50cb31d82079bc087cef138c9d3a230741948f8a4995fbfbc558c8be5
+sha256:
+  darwin_arm64: 563a005afcf2e27e22f7be999febc8c5f2cb26659f6e12a8ef2081531f6ded4f
+  darwin_amd64: 50e1f0bf4a1b1ac60c5dafd61bd40d90e40c4985f63013ed7d2bbd076acf3c14
+  linux_amd64: 3b63d3ead94501c6b8a1f2fd2e6cf5465e7d0f36dc1d2e1303b0ed23254141d2
+  linux_arm64: 7aa92ba50cb31d82079bc087cef138c9d3a230741948f8a4995fbfbc558c8be5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

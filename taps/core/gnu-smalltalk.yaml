@@ -1,0 +1,26 @@
+name: gnu-smalltalk
+version: 3.2.5
+description: Implementation of the Smalltalk language
+homepage: https://www.gnu.org/software/smalltalk/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-smalltalk/blobs/sha256:0b4242a4f666b10130804e15b8ac1cb06db8ca8c2dce4b3ff22809b27e3bed03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-smalltalk/blobs/sha256:8153d28cbf7150c2c8f5067f37f8ff9a0fe6c2dcfda627d3838fd02130ca0b3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-smalltalk/blobs/sha256:e4cbaebdce96bc94f1fe18569515079f6c6e370146805bb04a6e4bbc7e19a331
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-smalltalk/blobs/sha256:0c98372d450e874686423037537b0be9f07793cb285b8e63b7d5ab5318354b02
+sha256:
+  darwin_arm64: 0b4242a4f666b10130804e15b8ac1cb06db8ca8c2dce4b3ff22809b27e3bed03
+  darwin_amd64: 8153d28cbf7150c2c8f5067f37f8ff9a0fe6c2dcfda627d3838fd02130ca0b3c
+  linux_amd64: e4cbaebdce96bc94f1fe18569515079f6c6e370146805bb04a6e4bbc7e19a331
+  linux_arm64: 0c98372d450e874686423037537b0be9f07793cb285b8e63b7d5ab5318354b02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdbm
+  - gmp
+  - gnutls
+  - libsigsegv
+  - libtool
+  - readline

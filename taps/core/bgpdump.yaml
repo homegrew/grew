@@ -1,0 +1,19 @@
+name: bgpdump
+version: 1.6.2
+description: C library for analyzing MRT/Zebra/Quagga dump files
+homepage: https://github.com/RIPE-NCC/bgpdump/wiki
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bgpdump/blobs/sha256:b7466c828dd9c4dc63b62c670ad9bf9270ae4b7b4a512ad7ea6d4f3852100879
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bgpdump/blobs/sha256:ec5587f68240ae4c67304b2d3a95d3b4956436c2cacebf2d8e40c3f7a4947efe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bgpdump/blobs/sha256:3e87438d5bebcb4e594b7af638eb0f5b81b89838a5deca962c319d1027a25d7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bgpdump/blobs/sha256:f9301becc1293c918c53f5699ff9ed9f6973d685e9c5fc91550199031d0aae91
+sha256:
+  darwin_arm64: b7466c828dd9c4dc63b62c670ad9bf9270ae4b7b4a512ad7ea6d4f3852100879
+  darwin_amd64: ec5587f68240ae4c67304b2d3a95d3b4956436c2cacebf2d8e40c3f7a4947efe
+  linux_amd64: 3e87438d5bebcb4e594b7af638eb0f5b81b89838a5deca962c319d1027a25d7f
+  linux_arm64: f9301becc1293c918c53f5699ff9ed9f6973d685e9c5fc91550199031d0aae91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

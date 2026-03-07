@@ -1,0 +1,19 @@
+name: nickel
+version: 1.16.0
+description: Better configuration for less
+homepage: https://nickel-lang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nickel/blobs/sha256:f316961ea89f7b1a77eb0b41f48309bfa04d44cdb38933ab6c451b8f9f27304d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nickel/blobs/sha256:8cc26de79d5d969db534b40647e280b09a593ed2850b361368bc15c11f9a9cd2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nickel/blobs/sha256:415e3d13763bee6ac4eadc9e3dcb71d15452b9db84ee92c70fd61ddf4d7e186d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nickel/blobs/sha256:4784a57659030969606e685be6ae02acb143aa849e8b44c4aaee46756e7355ba
+sha256:
+  darwin_arm64: f316961ea89f7b1a77eb0b41f48309bfa04d44cdb38933ab6c451b8f9f27304d
+  darwin_amd64: 8cc26de79d5d969db534b40647e280b09a593ed2850b361368bc15c11f9a9cd2
+  linux_amd64: 415e3d13763bee6ac4eadc9e3dcb71d15452b9db84ee92c70fd61ddf4d7e186d
+  linux_arm64: 4784a57659030969606e685be6ae02acb143aa849e8b44c4aaee46756e7355ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

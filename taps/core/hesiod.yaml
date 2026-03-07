@@ -1,0 +1,21 @@
+name: hesiod
+version: 3.2.1
+description: Library for the simple string lookup service built on top of DNS
+homepage: https://github.com/achernya/hesiod
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hesiod/blobs/sha256:735e3fed1785ef6b190ece9c2d9e4da37dab5d07e246302d786fad85c6bee0c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hesiod/blobs/sha256:e84876e787316bb428e51e487e32bba65ad77323d34c4d2f3d1b72a0749e69ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hesiod/blobs/sha256:3f798b02cd050763429e1db3c6e8afbb591bca678a8352fa8305cdbaa544a3f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hesiod/blobs/sha256:61a92d40669db1231ac941a5d2f4f71a09e9bad4907e36239dd22f9b71da305c
+sha256:
+  darwin_arm64: 735e3fed1785ef6b190ece9c2d9e4da37dab5d07e246302d786fad85c6bee0c7
+  darwin_amd64: e84876e787316bb428e51e487e32bba65ad77323d34c4d2f3d1b72a0749e69ab
+  linux_amd64: 3f798b02cd050763429e1db3c6e8afbb591bca678a8352fa8305cdbaa544a3f9
+  linux_arm64: 61a92d40669db1231ac941a5d2f4f71a09e9bad4907e36239dd22f9b71da305c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn

@@ -1,0 +1,19 @@
+name: intltool
+version: 0.51.0
+description: String tool
+homepage: https://wiki.freedesktop.org/www/Software/intltool
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/intltool/blobs/sha256:a3b02903a82a77d89d14776957ba50c442e5bdf8948079c65ed927d80765f04a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/intltool/blobs/sha256:a15ddf828a10f73b8ecbc8126bc6a5b9c659c94dcc9f8c3f761cda1a40e725cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/intltool/blobs/sha256:b3760928e8e228b469f78ad5ebf3468a745b6dedbbeb7b7968b4f4ac7ae40bd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/intltool/blobs/sha256:dfd00166b42210512d2499bf7d45eb3bd86bc4b64f0c40f9da0f57b15710ba22
+sha256:
+  darwin_arm64: a3b02903a82a77d89d14776957ba50c442e5bdf8948079c65ed927d80765f04a
+  darwin_amd64: a15ddf828a10f73b8ecbc8126bc6a5b9c659c94dcc9f8c3f761cda1a40e725cb
+  linux_amd64: b3760928e8e228b469f78ad5ebf3468a745b6dedbbeb7b7968b4f4ac7ae40bd5
+  linux_arm64: dfd00166b42210512d2499bf7d45eb3bd86bc4b64f0c40f9da0f57b15710ba22
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

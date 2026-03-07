@@ -1,0 +1,29 @@
+name: mcabber
+version: 1.1.2
+description: Console Jabber client
+homepage: https://mcabber.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcabber/blobs/sha256:5a3fd194c38f6e2cdde387ac0d822bb4d44735e3a5dee9e04bd847cff9febaf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcabber/blobs/sha256:91739babcca8744a2b366cdfe13a3504bb55b38531301c5ed131a68aa761e7ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcabber/blobs/sha256:fb62852c31174e4df62f12848a3a3cb942a7c0d86dd77f3ca0643d75ba088d97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcabber/blobs/sha256:80babf982f8b324a1b5930c44faf244e4b342fb3e14fb0a4f8eed724b0578446
+sha256:
+  darwin_arm64: 5a3fd194c38f6e2cdde387ac0d822bb4d44735e3a5dee9e04bd847cff9febaf7
+  darwin_amd64: 91739babcca8744a2b366cdfe13a3504bb55b38531301c5ed131a68aa761e7ae
+  linux_amd64: fb62852c31174e4df62f12848a3a3cb942a7c0d86dd77f3ca0643d75ba088d97
+  linux_arm64: 80babf982f8b324a1b5930c44faf244e4b342fb3e14fb0a4f8eed724b0578446
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gpgme
+  - libgcrypt
+  - libidn
+  - libotr
+  - loudmouth
+  - gettext
+  - libassuan
+  - libgpg-error

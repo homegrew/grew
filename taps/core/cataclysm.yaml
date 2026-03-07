@@ -1,0 +1,27 @@
+name: cataclysm
+version: 0.H
+description: Fork/variant of Cataclysm Roguelike
+homepage: https://github.com/CleverRaven/Cataclysm-DDA
+license: CC-BY-SA-3.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cataclysm/blobs/sha256:492b7c7f2a66af205374ca334b4424cfe0beed549aacaac6e9380e1132cb366e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cataclysm/blobs/sha256:a7b35b49b7b630c8e30748a52cd20e9224a9bdb3b44ec0019124f6c5a6d9f416
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cataclysm/blobs/sha256:60f13c7d80e9b622b4153053872837e318be0aa3116535deaa138f49fc0a7a3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cataclysm/blobs/sha256:11de987a3cc2dea85f666402020210db6c9af56ba5c9f3594c3bb6169c58ef9a
+sha256:
+  darwin_arm64: 492b7c7f2a66af205374ca334b4424cfe0beed549aacaac6e9380e1132cb366e
+  darwin_amd64: a7b35b49b7b630c8e30748a52cd20e9224a9bdb3b44ec0019124f6c5a6d9f416
+  linux_amd64: 60f13c7d80e9b622b4153053872837e318be0aa3116535deaa138f49fc0a7a3b
+  linux_arm64: 11de987a3cc2dea85f666402020210db6c9af56ba5c9f3594c3bb6169c58ef9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - libvorbis
+  - sdl2
+  - sdl2_image
+  - sdl2_mixer
+  - sdl2_ttf
+  - gettext

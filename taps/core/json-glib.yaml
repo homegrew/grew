@@ -1,0 +1,22 @@
+name: json-glib
+version: 1.10.8
+description: Library for JSON, based on GLib
+homepage: https://wiki.gnome.org/Projects/JsonGlib
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/json-glib/blobs/sha256:795e22cfc4a12fef555dfba6a3222af6cb6d30631cf69f176d1964169c14ba73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/json-glib/blobs/sha256:ae6a5d8e3370868b8bef9efd5601cd7849798cf9c182825d22d55d89f83a6399
+  linux_amd64: https://ghcr.io/v2/homebrew/core/json-glib/blobs/sha256:f0337f01c95836d4b64a4df3547862711e1d12575ea127d00ef934cb196d41f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/json-glib/blobs/sha256:ee6d0e4f76dad15b66411637c444dddf8c262decee036e92a9af731c9bf537d8
+sha256:
+  darwin_arm64: 795e22cfc4a12fef555dfba6a3222af6cb6d30631cf69f176d1964169c14ba73
+  darwin_amd64: ae6a5d8e3370868b8bef9efd5601cd7849798cf9c182825d22d55d89f83a6399
+  linux_amd64: f0337f01c95836d4b64a4df3547862711e1d12575ea127d00ef934cb196d41f7
+  linux_arm64: ee6d0e4f76dad15b66411637c444dddf8c262decee036e92a9af731c9bf537d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

@@ -1,0 +1,19 @@
+name: watchexec
+version: 2.5.0
+description: Execute commands when watched files change
+homepage: https://watchexec.github.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/watchexec/blobs/sha256:01b2d0cc11294bb6507fbfeccc4b902c9aaa7705425bb6352e5fe754c1a6374a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/watchexec/blobs/sha256:70ab9ca2e6824e1ef42aa13c59bb8584c1093084046165d7a7b37f905e10ba7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/watchexec/blobs/sha256:3ff3495e018244cc115e1596d104fc1577e2b1f4d9fd2198800299b9e97a2adf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/watchexec/blobs/sha256:1b1ddf69cdccdbc84ac41efb97db43b736821934b16068016604c2f8733b8d48
+sha256:
+  darwin_arm64: 01b2d0cc11294bb6507fbfeccc4b902c9aaa7705425bb6352e5fe754c1a6374a
+  darwin_amd64: 70ab9ca2e6824e1ef42aa13c59bb8584c1093084046165d7a7b37f905e10ba7b
+  linux_amd64: 3ff3495e018244cc115e1596d104fc1577e2b1f4d9fd2198800299b9e97a2adf
+  linux_arm64: 1b1ddf69cdccdbc84ac41efb97db43b736821934b16068016604c2f8733b8d48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

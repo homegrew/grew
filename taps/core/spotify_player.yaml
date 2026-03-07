@@ -1,0 +1,19 @@
+name: spotify_player
+version: 0.22.1
+description: Command driven spotify player
+homepage: https://github.com/aome510/spotify-player
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spotify_player/blobs/sha256:31ed14265c054ef0a89fa4a37c5060db27f504e8f6c5497b0c379eca02ecbb70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spotify_player/blobs/sha256:02ae4815fd6cf3fb23fd0eaba71e8b947143aa2c8e83c6cb9acdfad735a8c84e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spotify_player/blobs/sha256:012899c71ab30f0343d55d7f3227145391e86b20e1ddd02503d341737bed1134
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spotify_player/blobs/sha256:a1e71a778dd27a24991a496beedb0e0447a6ceb9cfb3700917433ba904c69f90
+sha256:
+  darwin_arm64: 31ed14265c054ef0a89fa4a37c5060db27f504e8f6c5497b0c379eca02ecbb70
+  darwin_amd64: 02ae4815fd6cf3fb23fd0eaba71e8b947143aa2c8e83c6cb9acdfad735a8c84e
+  linux_amd64: 012899c71ab30f0343d55d7f3227145391e86b20e1ddd02503d341737bed1134
+  linux_arm64: a1e71a778dd27a24991a496beedb0e0447a6ceb9cfb3700917433ba904c69f90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

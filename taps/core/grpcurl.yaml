@@ -1,0 +1,19 @@
+name: grpcurl
+version: 1.9.3
+description: Like cURL, but for gRPC
+homepage: https://github.com/fullstorydev/grpcurl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grpcurl/blobs/sha256:4f0fd06ad531b223c2059d6163ad171e27b62942634eeceadd63f1092cb568bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grpcurl/blobs/sha256:73e6d2427885ab08ae862f8e43be8b3d988917a1fdc722026cdd587be1629d1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grpcurl/blobs/sha256:14e2492169d85b40c8251c3ca7891c58d35f2f12cd781b720c29582573e12c9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grpcurl/blobs/sha256:d37e79c73502d787668a26837157ac3cbf673ad47cc63c2c7571cd70a93ad8c4
+sha256:
+  darwin_arm64: 4f0fd06ad531b223c2059d6163ad171e27b62942634eeceadd63f1092cb568bf
+  darwin_amd64: 73e6d2427885ab08ae862f8e43be8b3d988917a1fdc722026cdd587be1629d1e
+  linux_amd64: 14e2492169d85b40c8251c3ca7891c58d35f2f12cd781b720c29582573e12c9a
+  linux_arm64: d37e79c73502d787668a26837157ac3cbf673ad47cc63c2c7571cd70a93ad8c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

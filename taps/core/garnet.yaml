@@ -1,0 +1,21 @@
+name: garnet
+version: 1.1.0
+description: High-performance cache-store
+homepage: https://microsoft.github.io/garnet/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/garnet/blobs/sha256:0ba9942cc336036c0d99da3728499b6614431ad4c7037c457adf19ff58e831a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/garnet/blobs/sha256:ef7af77c8f13be9668b7fe8e8d1c9e60f39475e4a8401d4f869382892877cda7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/garnet/blobs/sha256:655ca948d59e7fc63979332cfd4bf6412393656fe12cd61af7f7f0637adfedaf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/garnet/blobs/sha256:d142170a9cc11ac9411782aa89ce8b212b0a447067ed0c9503ae24626323abf1
+sha256:
+  darwin_arm64: 0ba9942cc336036c0d99da3728499b6614431ad4c7037c457adf19ff58e831a6
+  darwin_amd64: ef7af77c8f13be9668b7fe8e8d1c9e60f39475e4a8401d4f869382892877cda7
+  linux_amd64: 655ca948d59e7fc63979332cfd4bf6412393656fe12cd61af7f7f0637adfedaf
+  linux_arm64: d142170a9cc11ac9411782aa89ce8b212b0a447067ed0c9503ae24626323abf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet

@@ -1,0 +1,19 @@
+name: drone-cli
+version: 1.9.0
+description: Command-line client for the Drone continuous integration server
+homepage: https://drone.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/drone-cli/blobs/sha256:37626e0ade2e2b7c103e6340104645027985986195a56bc2152edee6e022702d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/drone-cli/blobs/sha256:72b2623cbe6e8319cdf8a8b1044116a59215698b9004a34405f2e1f4c8a66216
+  linux_amd64: https://ghcr.io/v2/homebrew/core/drone-cli/blobs/sha256:edbf3ac83206ebc7d2272c111ec6fc63cf24fd305d65149bd3e4e0aac8ec96db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/drone-cli/blobs/sha256:843947dbc29fa19b8309c3bbd004b4237954eef1f696d8c5d51c50eb8af4412d
+sha256:
+  darwin_arm64: 37626e0ade2e2b7c103e6340104645027985986195a56bc2152edee6e022702d
+  darwin_amd64: 72b2623cbe6e8319cdf8a8b1044116a59215698b9004a34405f2e1f4c8a66216
+  linux_amd64: edbf3ac83206ebc7d2272c111ec6fc63cf24fd305d65149bd3e4e0aac8ec96db
+  linux_arm64: 843947dbc29fa19b8309c3bbd004b4237954eef1f696d8c5d51c50eb8af4412d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

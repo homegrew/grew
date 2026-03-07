@@ -1,0 +1,19 @@
+name: bartib
+version: 1.1.0
+description: Simple timetracker for the command-line
+homepage: https://github.com/nikolassv/bartib
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bartib/blobs/sha256:52b6b03f65e39ab962199f96aad40078bac3c6b13214803724efc8bd3490cbac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bartib/blobs/sha256:741cc1e4303b22c965b48b659745eb1fffc7189c09424e408ad92bd07bb8aa24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bartib/blobs/sha256:67345dd0da6698d9c95b8ed43a394fa960574f29f3d45fd1d548561d559c34b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bartib/blobs/sha256:c652215df17112bc66caf38b274458b81c97a6d22ca7b91cf4fbe6ad908d3328
+sha256:
+  darwin_arm64: 52b6b03f65e39ab962199f96aad40078bac3c6b13214803724efc8bd3490cbac
+  darwin_amd64: 741cc1e4303b22c965b48b659745eb1fffc7189c09424e408ad92bd07bb8aa24
+  linux_amd64: 67345dd0da6698d9c95b8ed43a394fa960574f29f3d45fd1d548561d559c34b6
+  linux_arm64: c652215df17112bc66caf38b274458b81c97a6d22ca7b91cf4fbe6ad908d3328
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

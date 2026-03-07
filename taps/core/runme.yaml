@@ -1,0 +1,19 @@
+name: runme
+version: 3.16.5
+description: Execute commands inside your runbooks, docs, and READMEs
+homepage: https://runme.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/runme/blobs/sha256:bda0e61227f5a597835d07637d4f8e384cf15e67b63c151cfd8856faf192bb42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/runme/blobs/sha256:22adcc64e262ba08150046439c88822f988e08195b6eed73d55b1f3f9fb44b24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/runme/blobs/sha256:877e785fa88a28ca95ecba232b01c1ca75da6c03e68491da19361900b51921b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/runme/blobs/sha256:19a56c27a5371dc2cbfd88a11cbcf487e774d91fae856ec58e56d2d14f15a56f
+sha256:
+  darwin_arm64: bda0e61227f5a597835d07637d4f8e384cf15e67b63c151cfd8856faf192bb42
+  darwin_amd64: 22adcc64e262ba08150046439c88822f988e08195b6eed73d55b1f3f9fb44b24
+  linux_amd64: 877e785fa88a28ca95ecba232b01c1ca75da6c03e68491da19361900b51921b7
+  linux_arm64: 19a56c27a5371dc2cbfd88a11cbcf487e774d91fae856ec58e56d2d14f15a56f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

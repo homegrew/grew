@@ -1,0 +1,19 @@
+name: foremost
+version: 1.5.7
+description: Console program to recover files based on their headers and footers
+homepage: https://foremost.sourceforge.net/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/foremost/blobs/sha256:d52d6e93501d0378121aab45c81f3091eba21303e633ae7194670860e36a5740
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/foremost/blobs/sha256:5272ace8913590e9e04a3b68f1e0af19ea697e146f0e6ff8f3ffd2cc417661bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/foremost/blobs/sha256:4ef5c3ada1ea10d3c0a815cdac8f3bb5489897f81dcbd24fbb2edd49efe1188b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/foremost/blobs/sha256:58e2366417862112c8567bcaa5387c99b8d855bb76228ce6f928fe36224a3cdf
+sha256:
+  darwin_arm64: d52d6e93501d0378121aab45c81f3091eba21303e633ae7194670860e36a5740
+  darwin_amd64: 5272ace8913590e9e04a3b68f1e0af19ea697e146f0e6ff8f3ffd2cc417661bb
+  linux_amd64: 4ef5c3ada1ea10d3c0a815cdac8f3bb5489897f81dcbd24fbb2edd49efe1188b
+  linux_arm64: 58e2366417862112c8567bcaa5387c99b8d855bb76228ce6f928fe36224a3cdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: neovide
+version: 0.15.2
+description: No Nonsense Neovim Client in Rust
+homepage: https://neovide.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neovide/blobs/sha256:dc3c1b70d73e5b021480db2b0443600703f16e5ec1b52d4135d8d41c0d55186b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neovide/blobs/sha256:0e3d1b2500c1e5fd422814f8cec203172457a6ceda246873f7adced0e60ebdb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neovide/blobs/sha256:65507179c2ec993fa6c6922104aa8743f2ff0c13d57fddaf840847ea76e087f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neovide/blobs/sha256:b66a170728606d26271bbb98d9707847a6b31b6ccb22cb46af69d8957683100b
+sha256:
+  darwin_arm64: dc3c1b70d73e5b021480db2b0443600703f16e5ec1b52d4135d8d41c0d55186b
+  darwin_amd64: 0e3d1b2500c1e5fd422814f8cec203172457a6ceda246873f7adced0e60ebdb7
+  linux_amd64: 65507179c2ec993fa6c6922104aa8743f2ff0c13d57fddaf840847ea76e087f9
+  linux_arm64: b66a170728606d26271bbb98d9707847a6b31b6ccb22cb46af69d8957683100b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neovim

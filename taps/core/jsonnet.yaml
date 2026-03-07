@@ -1,0 +1,19 @@
+name: jsonnet
+version: 0.21.0
+description: Domain specific configuration language for defining JSON data
+homepage: https://jsonnet.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsonnet/blobs/sha256:b4e3f6d0c90d3cca8ed7b6405d525fe5ddda8f63f7c61dec24c1deb9fddcf9bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsonnet/blobs/sha256:d779b7d3f5968eef74405f45d0fa213246baff6167d5b30332ae58c0e40ae433
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsonnet/blobs/sha256:0d40920e6c3486ac5d0e52355bd7ad9709439be11676e791e6b5eb31881dca4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsonnet/blobs/sha256:d1dbbf7eef0126d88c484d629eb06569f318808e133120cf98478c31befdc8f6
+sha256:
+  darwin_arm64: b4e3f6d0c90d3cca8ed7b6405d525fe5ddda8f63f7c61dec24c1deb9fddcf9bf
+  darwin_amd64: d779b7d3f5968eef74405f45d0fa213246baff6167d5b30332ae58c0e40ae433
+  linux_amd64: 0d40920e6c3486ac5d0e52355bd7ad9709439be11676e791e6b5eb31881dca4e
+  linux_arm64: d1dbbf7eef0126d88c484d629eb06569f318808e133120cf98478c31befdc8f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

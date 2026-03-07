@@ -1,0 +1,30 @@
+name: percona-xtrabackup@8.0
+version: 8.0.35-35
+description: Open source hot backup tool for InnoDB and XtraDB databases
+homepage: https://www.percona.com/software/mysql-database/percona-xtrabackup
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/percona-xtrabackup/8.0/blobs/sha256:dcdeddbf59e0b9218784bf99e76a642421d0ecf830e1c25b1a119fc9015cb2c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/percona-xtrabackup/8.0/blobs/sha256:d19ff4de3d97148b38fdaad3d4d19382fc86e7952b51c2dd93164859a7e39fcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/percona-xtrabackup/8.0/blobs/sha256:79a8925340f84bab3b4ca91509c44e826fa5fd5cdac93ee9c6d51d760a309d32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/percona-xtrabackup/8.0/blobs/sha256:e5d21b91abb7a30819530c099e52665be41b8f823012c4ecc98a3335415c0f21
+sha256:
+  darwin_arm64: dcdeddbf59e0b9218784bf99e76a642421d0ecf830e1c25b1a119fc9015cb2c2
+  darwin_amd64: d19ff4de3d97148b38fdaad3d4d19382fc86e7952b51c2dd93164859a7e39fcd
+  linux_amd64: 79a8925340f84bab3b4ca91509c44e826fa5fd5cdac93ee9c6d51d760a309d32
+  linux_arm64: e5d21b91abb7a30819530c099e52665be41b8f823012c4ecc98a3335415c0f21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - libev
+  - libgcrypt
+  - lz4
+  - openssl@3
+  - perl-dbd-mysql
+  - protobuf
+  - zlib-ng-compat
+  - zstd
+keg_only: true

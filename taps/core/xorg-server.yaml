@@ -1,0 +1,38 @@
+name: xorg-server
+version: 21.1.21
+description: X Window System display server
+homepage: https://www.x.org
+license: MIT AND APSL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xorg-server/blobs/sha256:f058e8d9ef4de941cd6666f08eccc1438ad6d270f5670d22a828047c8fe03326
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xorg-server/blobs/sha256:c5cd0e5ddc3485c4e871ac0a6713f9e33c62ad3bd26b9aba02f51ca3be24b4b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xorg-server/blobs/sha256:71a264687ab492cb3e77004426f7c8bca0602232ec8867a3aa72b6eb17459d19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xorg-server/blobs/sha256:5d8bc153d1aa91bf152d10f0a2adf6d044d08643a1534e34bd80e8c586341812
+sha256:
+  darwin_arm64: f058e8d9ef4de941cd6666f08eccc1438ad6d270f5670d22a828047c8fe03326
+  darwin_amd64: c5cd0e5ddc3485c4e871ac0a6713f9e33c62ad3bd26b9aba02f51ca3be24b4b9
+  linux_amd64: 71a264687ab492cb3e77004426f7c8bca0602232ec8867a3aa72b6eb17459d19
+  linux_arm64: 5d8bc153d1aa91bf152d10f0a2adf6d044d08643a1534e34bd80e8c586341812
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxau
+  - libxcb
+  - libxdmcp
+  - libxext
+  - libxfixes
+  - libxfont2
+  - mesa
+  - pixman
+  - xauth
+  - xcb-util
+  - xcb-util-image
+  - xcb-util-keysyms
+  - xcb-util-renderutil
+  - xcb-util-wm
+  - xkbcomp
+  - xkeyboard-config
+  - libapplewm

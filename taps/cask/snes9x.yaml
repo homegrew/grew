@@ -1,0 +1,11 @@
+name: snes9x
+version: 1.63
+description: Video game console emulator
+homepage: https://www.snes9x.com/
+url:
+  darwin_arm64: https://github.com/snes9xgit/snes9x/releases/download/1.63/snes9x-1.63-Mac.zip
+sha256:
+  darwin_arm64: dce88223b0b373357249bfb604415a379dcba6a996ca254bdeca5b16a8564c69
+artifacts:
+  app:
+    - Snes9x.app

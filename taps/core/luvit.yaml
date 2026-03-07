@@ -1,0 +1,24 @@
+name: luvit
+version: 2.18.1
+description: Asynchronous I/O for Lua
+homepage: https://luvit.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luvit/blobs/sha256:862862dae86f1671a3161b38313a871c3c13b723077c20963cbefdf83eade96d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luvit/blobs/sha256:13d083e4f97b10e4d2af80c754c023f01dfb2dc09b647d837a3b943b36b88d2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luvit/blobs/sha256:30e393a9efaf163254d9d922d298ea1b2b908cb6be5a2ce7fa9c9cb05178b6f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luvit/blobs/sha256:d190dc1288150174e2bd9c423d8721f6121559612edcec89d718e4e6695cd717
+sha256:
+  darwin_arm64: 862862dae86f1671a3161b38313a871c3c13b723077c20963cbefdf83eade96d
+  darwin_amd64: 13d083e4f97b10e4d2af80c754c023f01dfb2dc09b647d837a3b943b36b88d2c
+  linux_amd64: 30e393a9efaf163254d9d922d298ea1b2b908cb6be5a2ce7fa9c9cb05178b6f9
+  linux_arm64: d190dc1288150174e2bd9c423d8721f6121559612edcec89d718e4e6695cd717
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv
+  - luajit
+  - openssl@3
+  - pcre2

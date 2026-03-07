@@ -1,0 +1,19 @@
+name: shush
+version: 1.5.5
+description: Encrypt and decrypt secrets using the AWS Key Management Service
+homepage: https://github.com/realestate-com-au/shush
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shush/blobs/sha256:eb7a0c98b5ea7620cc88ee17ad45fcb0897fec6752592c0ce4c177602e3f3700
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shush/blobs/sha256:2f4578b270925b1861d476ea6e55e5aed44e3d690f27c9a2118e2079f3ed1fc7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shush/blobs/sha256:5dd8b6893291ab04f6aab2a7928e694cef9601feddc6b7bf4f59b1f54df023a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shush/blobs/sha256:ee89a1978ca2de39602e1e0b0bdd7b66b01a428af95621dc9b6c7b2f66297753
+sha256:
+  darwin_arm64: eb7a0c98b5ea7620cc88ee17ad45fcb0897fec6752592c0ce4c177602e3f3700
+  darwin_amd64: 2f4578b270925b1861d476ea6e55e5aed44e3d690f27c9a2118e2079f3ed1fc7
+  linux_amd64: 5dd8b6893291ab04f6aab2a7928e694cef9601feddc6b7bf4f59b1f54df023a3
+  linux_arm64: ee89a1978ca2de39602e1e0b0bdd7b66b01a428af95621dc9b6c7b2f66297753
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

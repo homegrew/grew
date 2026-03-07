@@ -1,0 +1,21 @@
+name: feluda
+version: 1.11.1
+description: Detect license usage restrictions in your project
+homepage: https://github.com/anistark/feluda
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/feluda/blobs/sha256:f8bda65949c192b41fc8018a393bff44fce7312681b70a72dff419f3fa32d8f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/feluda/blobs/sha256:90fca6ae9d8936959af23b3598763d510ecc285326a0606be0f72256cf7c0e02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/feluda/blobs/sha256:4307b81c8979bb3699aa88ca68c6dcfbd1d9f91e14eea2ca0a49534346dcf51e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/feluda/blobs/sha256:5e28cd22412bd283c1b295950c417579d210d2e6026556de84093d5a37cf809b
+sha256:
+  darwin_arm64: f8bda65949c192b41fc8018a393bff44fce7312681b70a72dff419f3fa32d8f7
+  darwin_amd64: 90fca6ae9d8936959af23b3598763d510ecc285326a0606be0f72256cf7c0e02
+  linux_amd64: 4307b81c8979bb3699aa88ca68c6dcfbd1d9f91e14eea2ca0a49534346dcf51e
+  linux_arm64: 5e28cd22412bd283c1b295950c417579d210d2e6026556de84093d5a37cf809b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

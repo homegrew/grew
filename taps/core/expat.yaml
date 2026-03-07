@@ -1,0 +1,20 @@
+name: expat
+version: 2.7.4
+description: XML 1.0 parser
+homepage: https://libexpat.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/expat/blobs/sha256:a3fbc5fb0909f92b7ea4dfaf1bbf539bab9601c5ece083706b63717835809a4b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/expat/blobs/sha256:57abe74689ba80399ff73e144d5798b8aee8f17e4a8f9bec90fbfeb4dec6c66e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/expat/blobs/sha256:64be96154732d144366f78afde810acc3c4d19ee550c972b5c98a3b6921f8cf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/expat/blobs/sha256:77a85b00651abbacd0c092a4b5a103524f2fc7b9527423b3d623c603565910e6
+sha256:
+  darwin_arm64: a3fbc5fb0909f92b7ea4dfaf1bbf539bab9601c5ece083706b63717835809a4b
+  darwin_amd64: 57abe74689ba80399ff73e144d5798b8aee8f17e4a8f9bec90fbfeb4dec6c66e
+  linux_amd64: 64be96154732d144366f78afde810acc3c4d19ee550c972b5c98a3b6921f8cf9
+  linux_arm64: 77a85b00651abbacd0c092a4b5a103524f2fc7b9527423b3d623c603565910e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

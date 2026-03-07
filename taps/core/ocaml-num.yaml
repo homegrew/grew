@@ -1,0 +1,21 @@
+name: ocaml-num
+version: 1.6
+description: OCaml legacy Num library for arbitrary-precision arithmetic
+homepage: https://github.com/ocaml/num
+license: LGPL-2.1-only WITH OCaml-LGPL-linking-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocaml-num/blobs/sha256:8ee79694c29aed327203abaa275dee7f5e041f318cd137c3a3eceaf487317cf6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocaml-num/blobs/sha256:10857c605731b1a3f944b1a3c6fcc03a2cca2857faa0ba46e0970413bb4a8b62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocaml-num/blobs/sha256:1558cfe67cec4a8ce6f51be96437ddcad3a4c0ebc017e8dac395b9aacb2afa70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocaml-num/blobs/sha256:713ed3e565058a66c023563a55c0f53fd44d479b5cf0df611fd734913711837f
+sha256:
+  darwin_arm64: 8ee79694c29aed327203abaa275dee7f5e041f318cd137c3a3eceaf487317cf6
+  darwin_amd64: 10857c605731b1a3f944b1a3c6fcc03a2cca2857faa0ba46e0970413bb4a8b62
+  linux_amd64: 1558cfe67cec4a8ce6f51be96437ddcad3a4c0ebc017e8dac395b9aacb2afa70
+  linux_arm64: 713ed3e565058a66c023563a55c0f53fd44d479b5cf0df611fd734913711837f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

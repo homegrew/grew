@@ -1,0 +1,19 @@
+name: kamal-proxy
+version: 0.9.2
+description: Lightweight proxy server for Kamal
+homepage: https://kamal-deploy.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kamal-proxy/blobs/sha256:478c74971a4fa286300ae1880211ffe67d9f11b03967de22b126da6e7b5e7018
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kamal-proxy/blobs/sha256:bf864dd9aea86ee2f33e469fa39c48ba1124170e37b030f8a35b577b6ed53478
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kamal-proxy/blobs/sha256:6eb60afa749bd752d782ccd3557b4306f1bce197e195bac901b0fe17887a6684
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kamal-proxy/blobs/sha256:72c88174507d978e9ffa83473089ec872a2aeb535258f84b00b39d73c42a2b86
+sha256:
+  darwin_arm64: 478c74971a4fa286300ae1880211ffe67d9f11b03967de22b126da6e7b5e7018
+  darwin_amd64: bf864dd9aea86ee2f33e469fa39c48ba1124170e37b030f8a35b577b6ed53478
+  linux_amd64: 6eb60afa749bd752d782ccd3557b4306f1bce197e195bac901b0fe17887a6684
+  linux_arm64: 72c88174507d978e9ffa83473089ec872a2aeb535258f84b00b39d73c42a2b86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

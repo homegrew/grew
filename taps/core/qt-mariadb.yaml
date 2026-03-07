@@ -1,0 +1,22 @@
+name: qt-mariadb
+version: 6.10.2
+description: Qt SQL Database Driver
+homepage: https://www.qt.io/
+license: GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt-mariadb/blobs/sha256:c4d54e61581d63521946cfd0ac1547c2e2be3db5906464e49ec563fe6d4c856e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt-mariadb/blobs/sha256:95ab28010e2efc0af9bb34b28064c8f30de65599486aba7e063b409bead3ce71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt-mariadb/blobs/sha256:0667753d0899ce3105783e97e7d1b8575a78bfe4027e90224c8c92ca1e025858
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt-mariadb/blobs/sha256:4e444cf87d98aea84d9d485fcb5378cd05d9dc3fcdf0f9c2d21f3331afa30cd9
+sha256:
+  darwin_arm64: c4d54e61581d63521946cfd0ac1547c2e2be3db5906464e49ec563fe6d4c856e
+  darwin_amd64: 95ab28010e2efc0af9bb34b28064c8f30de65599486aba7e063b409bead3ce71
+  linux_amd64: 0667753d0899ce3105783e97e7d1b8575a78bfe4027e90224c8c92ca1e025858
+  linux_arm64: 4e444cf87d98aea84d9d485fcb5378cd05d9dc3fcdf0f9c2d21f3331afa30cd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mariadb-connector-c
+  - qtbase

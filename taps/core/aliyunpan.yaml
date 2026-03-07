@@ -1,0 +1,19 @@
+name: aliyunpan
+version: 0.3.8
+description: Command-line client tool for Alibaba aDrive disk
+homepage: https://github.com/tickstep/aliyunpan
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aliyunpan/blobs/sha256:2895d750b8c776cd0b7d9b5cc343ee6f60c31a4af82d5a620a9c834fcdf9b9d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aliyunpan/blobs/sha256:9a71887221ca3045539c9eb62b76ed8b054630e3df107b79b714c224557b4e46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aliyunpan/blobs/sha256:9d7730f0728b08b2c26780220bff930e382df30a500cc9612e3fdaa450eed83e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aliyunpan/blobs/sha256:4879106b40c7ded64aa3dc54022b1bc185bcfb8ae717a24f84a8b810a5745c60
+sha256:
+  darwin_arm64: 2895d750b8c776cd0b7d9b5cc343ee6f60c31a4af82d5a620a9c834fcdf9b9d5
+  darwin_amd64: 9a71887221ca3045539c9eb62b76ed8b054630e3df107b79b714c224557b4e46
+  linux_amd64: 9d7730f0728b08b2c26780220bff930e382df30a500cc9612e3fdaa450eed83e
+  linux_arm64: 4879106b40c7ded64aa3dc54022b1bc185bcfb8ae717a24f84a8b810a5745c60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

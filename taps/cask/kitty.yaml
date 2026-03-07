@@ -1,0 +1,14 @@
+name: kitty
+version: 0.45.0
+description: GPU-based terminal emulator
+homepage: https://github.com/kovidgoyal/kitty
+url:
+  darwin_arm64: https://github.com/kovidgoyal/kitty/releases/download/v0.45.0/kitty-0.45.0.dmg
+sha256:
+  darwin_arm64: c0e2afb7580fcf1f4cad410d525068c9d082679c3106a743962610fade4d7381
+artifacts:
+  app:
+    - kitty.app
+  bin:
+    - kitty
+    - kitten

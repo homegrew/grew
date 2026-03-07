@@ -1,0 +1,33 @@
+name: neomutt
+version: 20260105
+description: E-mail reader with support for Notmuch, NNTP and much more
+homepage: https://neomutt.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neomutt/blobs/sha256:1f42abf2fdac462a7ce9c5d41f4c23333413e4bf345da91be3d9c14ae88166ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neomutt/blobs/sha256:f64a616c6efaf6506c72782eee4a690731afc8d74da4333c206a45877155f37a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neomutt/blobs/sha256:687e6ca6eca2b79df485e06ea9eac3f1a5b0a270e5d6c80ffbe4e67813e01f71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neomutt/blobs/sha256:e990060d151f3c6f4c99bc0b52b22b9735d39e1f619c1449d0c909ca3849a526
+sha256:
+  darwin_arm64: 1f42abf2fdac462a7ce9c5d41f4c23333413e4bf345da91be3d9c14ae88166ef
+  darwin_amd64: f64a616c6efaf6506c72782eee4a690731afc8d74da4333c206a45877155f37a
+  linux_amd64: 687e6ca6eca2b79df485e06ea9eac3f1a5b0a270e5d6c80ffbe4e67813e01f71
+  linux_arm64: e990060d151f3c6f4c99bc0b52b22b9735d39e1f619c1449d0c909ca3849a526
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - gpgme
+  - libidn2
+  - lmdb
+  - lua
+  - ncurses
+  - notmuch
+  - openssl@3
+  - pcre2
+  - sqlite
+  - tokyo-cabinet
+  - libgpg-error
+  - libiconv

@@ -1,0 +1,13 @@
+name: maestral
+version: 1.9.5
+description: Open-source Dropbox client
+homepage: https://maestral.app/
+url:
+  darwin_arm64: https://github.com/SamSchott/maestral/releases/download/v1.9.5/Maestral-1.9.5.dmg
+sha256:
+  darwin_arm64: cd8f393abba8a70794e527ee30c4d3f11b5da6e935fb315fbe6ff00bf8f79e4c
+artifacts:
+  app:
+    - Maestral.app
+  bin:
+    - maestral

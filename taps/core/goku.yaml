@@ -1,0 +1,19 @@
+name: goku
+version: 2.0.1
+description: HTTP load testing tool
+homepage: https://github.com/jcaromiq/goku
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goku/blobs/sha256:1d6407e5fdade887008fde8a4d62d2386e5a2b8026344ff1281b40824b3ce3a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goku/blobs/sha256:5d9857b2559d6910f97afaf7ccda968a7e06e5862b61325a9530ecd1f39cb375
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goku/blobs/sha256:19bd242cddad6a7b15aac7fc5f7615cbf230431332f876c485a3705f7bf3b893
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goku/blobs/sha256:5fae4eab315fc29a9bb00d18c5db79955358787eb09c5a39a07c5b11c3827574
+sha256:
+  darwin_arm64: 1d6407e5fdade887008fde8a4d62d2386e5a2b8026344ff1281b40824b3ce3a9
+  darwin_amd64: 5d9857b2559d6910f97afaf7ccda968a7e06e5862b61325a9530ecd1f39cb375
+  linux_amd64: 19bd242cddad6a7b15aac7fc5f7615cbf230431332f876c485a3705f7bf3b893
+  linux_arm64: 5fae4eab315fc29a9bb00d18c5db79955358787eb09c5a39a07c5b11c3827574
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

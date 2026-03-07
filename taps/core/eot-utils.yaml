@@ -1,0 +1,19 @@
+name: eot-utils
+version: 1.1
+description: Tools to convert fonts from OTF/TTF to EOT format
+homepage: https://www.w3.org/Tools/eot-utils/
+license: W3C
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eot-utils/blobs/sha256:64e5e47e5219e1d27e3683f4c4d174c5cb79117aa6cbf99e1a6939530a359143
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eot-utils/blobs/sha256:fa9707f3206765baa965478369db3855b6f42b4f3ca5fd9274ac47dfa6aef9e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eot-utils/blobs/sha256:48cf7e721c0bd57766f90fa9cde2704d44e997016d814994b2df85d345b90f8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eot-utils/blobs/sha256:8fb16ef58c49f4b1b9029ca5994093ed3305976d8a7f7f5077413135515b3c66
+sha256:
+  darwin_arm64: 64e5e47e5219e1d27e3683f4c4d174c5cb79117aa6cbf99e1a6939530a359143
+  darwin_amd64: fa9707f3206765baa965478369db3855b6f42b4f3ca5fd9274ac47dfa6aef9e4
+  linux_amd64: 48cf7e721c0bd57766f90fa9cde2704d44e997016d814994b2df85d345b90f8d
+  linux_arm64: 8fb16ef58c49f4b1b9029ca5994093ed3305976d8a7f7f5077413135515b3c66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: pixi-pack
+version: 0.7.5
+description: Pack and unpack conda environments created with pixi
+homepage: https://pixi.sh/latest/advanced/production_deployment/#pixi-pack
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixi-pack/blobs/sha256:5094eaeeaca0e597ec2640496e34f27c66978f350bf30756d8f930bbb2352866
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixi-pack/blobs/sha256:ec8d7ca35ddf4eec3d09a4226b060982db752c0aeb1e921ea5607487fdf9e95a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixi-pack/blobs/sha256:4a83f3b85f68fb5da1094d86a22c34a44976b52c6f7d359886688312265447ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixi-pack/blobs/sha256:32d6b6f1baee029273569d2f97d450d5948f9229a156a2f0a92b7ef0e831d388
+sha256:
+  darwin_arm64: 5094eaeeaca0e597ec2640496e34f27c66978f350bf30756d8f930bbb2352866
+  darwin_amd64: ec8d7ca35ddf4eec3d09a4226b060982db752c0aeb1e921ea5607487fdf9e95a
+  linux_amd64: 4a83f3b85f68fb5da1094d86a22c34a44976b52c6f7d359886688312265447ed
+  linux_arm64: 32d6b6f1baee029273569d2f97d450d5948f9229a156a2f0a92b7ef0e831d388
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

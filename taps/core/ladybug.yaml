@@ -1,0 +1,19 @@
+name: ladybug
+version: 0.15.1
+description: Embedded graph database built for query speed and scalability
+homepage: https://ladybugdb.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ladybug/blobs/sha256:8a24fec08f9b548893f88702a8ad38c7db8c625598caa93605a7e482775ba7ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ladybug/blobs/sha256:186590eb268e01eb3e07ee54fcbe6e62541b195bbb727f26c809625fe10b446e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ladybug/blobs/sha256:971920b37f7d66d589cc654c03fb9e4d972f24bd9a90ce4a3659faffa304507f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ladybug/blobs/sha256:4b1c67e0800fe5b569b0d0955533212c6a55829583aefd63017986bbcb3b3a82
+sha256:
+  darwin_arm64: 8a24fec08f9b548893f88702a8ad38c7db8c625598caa93605a7e482775ba7ec
+  darwin_amd64: 186590eb268e01eb3e07ee54fcbe6e62541b195bbb727f26c809625fe10b446e
+  linux_amd64: 971920b37f7d66d589cc654c03fb9e4d972f24bd9a90ce4a3659faffa304507f
+  linux_arm64: 4b1c67e0800fe5b569b0d0955533212c6a55829583aefd63017986bbcb3b3a82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

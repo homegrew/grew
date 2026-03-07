@@ -1,0 +1,17 @@
+name: ladspa-sdk
+version: 1.17
+description: "Linux Audio Developer's Simple Plugin"
+homepage: https://www.ladspa.org
+license: LGPL-2.1-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ladspa-sdk/blobs/sha256:f05cf54a06c2c0e50295cd52f63f5fc096a5812470e0a3248c790c228cd5db8f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ladspa-sdk/blobs/sha256:c040c53ca46e36809ad0b9729b4fc3381d9ffb665bf9deb81726d27bb847170c
+sha256:
+  linux_amd64: f05cf54a06c2c0e50295cd52f63f5fc096a5812470e0a3248c790c228cd5db8f
+  linux_arm64: c040c53ca46e36809ad0b9729b4fc3381d9ffb665bf9deb81726d27bb847170c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsndfile

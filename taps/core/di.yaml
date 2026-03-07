@@ -1,0 +1,19 @@
+name: di
+version: 6.2.2.2
+description: Advanced df-like disk information utility
+homepage: https://diskinfo-di.sourceforge.io/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/di/blobs/sha256:62d724a0e3eb3478b48eb8d94c7ba89f3b72e4675f75d523177e7a18a6b37516
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/di/blobs/sha256:004ef54b06af5aaedd8a6884719e64ce765d565e42fa012fda3408d1af69d3fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/di/blobs/sha256:57ad47925b5cb2b800c1c540469598c1fde34be1aa3de30790292999af5fb8e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/di/blobs/sha256:8a5589a65efc777ac948a4c538bdd867516b9f173cebb3701fc8cd80526c1a7b
+sha256:
+  darwin_arm64: 62d724a0e3eb3478b48eb8d94c7ba89f3b72e4675f75d523177e7a18a6b37516
+  darwin_amd64: 004ef54b06af5aaedd8a6884719e64ce765d565e42fa012fda3408d1af69d3fd
+  linux_amd64: 57ad47925b5cb2b800c1c540469598c1fde34be1aa3de30790292999af5fb8e1
+  linux_arm64: 8a5589a65efc777ac948a4c538bdd867516b9f173cebb3701fc8cd80526c1a7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

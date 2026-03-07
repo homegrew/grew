@@ -1,0 +1,19 @@
+name: srgn
+version: 0.14.2
+description: Code surgeon for precise text and code transplantation
+homepage: https://github.com/alexpovel/srgn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/srgn/blobs/sha256:3f5107accdec90fde7867d0221c94e00f7fca9fa241dcd2a81dcfcd7524a4e57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/srgn/blobs/sha256:d683f84a05fad0c898297cf994169d84597a1008198e6123467a43e6e65fceae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/srgn/blobs/sha256:97ee55a9233b7d6fac1e1c5ad81d17d3d311ed86f9da3fc93967b1ae02c81e68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/srgn/blobs/sha256:bd17abab9141b6d7e6c616f8391794bce236dafda6c61dfbaf3d19ae831ed737
+sha256:
+  darwin_arm64: 3f5107accdec90fde7867d0221c94e00f7fca9fa241dcd2a81dcfcd7524a4e57
+  darwin_amd64: d683f84a05fad0c898297cf994169d84597a1008198e6123467a43e6e65fceae
+  linux_amd64: 97ee55a9233b7d6fac1e1c5ad81d17d3d311ed86f9da3fc93967b1ae02c81e68
+  linux_arm64: bd17abab9141b6d7e6c616f8391794bce236dafda6c61dfbaf3d19ae831ed737
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

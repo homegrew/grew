@@ -1,0 +1,15 @@
+name: kqwait
+version: 1.0.3
+description: Wait for events on files or directories on macOS
+homepage: https://github.com/sschober/kqwait
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kqwait/blobs/sha256:a8037aef7b7c8539a012c549077b2653aeebeb3b6fa7860263bfe677625b5380
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kqwait/blobs/sha256:30bea99e246e8c62407490ef3ccf3ce5ce5df3cbb39a8672a6654f14f7bbc025
+sha256:
+  darwin_arm64: a8037aef7b7c8539a012c549077b2653aeebeb3b6fa7860263bfe677625b5380
+  darwin_amd64: 30bea99e246e8c62407490ef3ccf3ce5ce5df3cbb39a8672a6654f14f7bbc025
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

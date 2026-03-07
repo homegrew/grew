@@ -1,0 +1,19 @@
+name: shc
+version: 4.0.3
+description: Shell Script Compiler
+homepage: https://neurobin.github.io/shc
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shc/blobs/sha256:f6761e8e367e12be8e6c775517cf9799ea7633944000c130ed26e32df8ebbc6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shc/blobs/sha256:986e78b01d80d0b0299147bc07ae137cfae98ccf26468cac072e60d1aab25460
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shc/blobs/sha256:2a659b8f040806dcf7303f42a3cc50eb61acf894c9d2066acefd897dc71f1452
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shc/blobs/sha256:7f215d4f82dede86a688d3924fb39a447b87159ab534b336971f2741b7989cfe
+sha256:
+  darwin_arm64: f6761e8e367e12be8e6c775517cf9799ea7633944000c130ed26e32df8ebbc6f
+  darwin_amd64: 986e78b01d80d0b0299147bc07ae137cfae98ccf26468cac072e60d1aab25460
+  linux_amd64: 2a659b8f040806dcf7303f42a3cc50eb61acf894c9d2066acefd897dc71f1452
+  linux_arm64: 7f215d4f82dede86a688d3924fb39a447b87159ab534b336971f2741b7989cfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

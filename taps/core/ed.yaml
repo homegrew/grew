@@ -1,0 +1,20 @@
+name: ed
+version: 1.22.5
+description: Classic UNIX line editor
+homepage: https://www.gnu.org/software/ed/ed.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ed/blobs/sha256:80b2d6d72abc4010a156e6deba62553dd617df431c09afb1b47716bc8a5b3d7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ed/blobs/sha256:72f5ff75a704c662101223a085c6af24941c68212c64e0ce9a3e675bb710cfbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ed/blobs/sha256:9aafcf322545be9737d4169d9556998e79b67ba84d0ed77dc10a7ed53149bcb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ed/blobs/sha256:ae82ddc23421a1b75370233b72b5e5ae5cf11814f28d7e7c36cb5161c0968f24
+sha256:
+  darwin_arm64: 80b2d6d72abc4010a156e6deba62553dd617df431c09afb1b47716bc8a5b3d7d
+  darwin_amd64: 72f5ff75a704c662101223a085c6af24941c68212c64e0ce9a3e675bb710cfbe
+  linux_amd64: 9aafcf322545be9737d4169d9556998e79b67ba84d0ed77dc10a7ed53149bcb1
+  linux_arm64: ae82ddc23421a1b75370233b72b5e5ae5cf11814f28d7e7c36cb5161c0968f24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

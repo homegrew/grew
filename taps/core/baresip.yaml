@@ -1,0 +1,22 @@
+name: baresip
+version: 4.6.0
+description: Modular SIP useragent
+homepage: https://github.com/baresip/baresip
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/baresip/blobs/sha256:7ed2a57d5ae220202dafe49d4b719f654e975969633054ad93f92e892f125a4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/baresip/blobs/sha256:48e5b25337757869b3e7e193079d1a9576664475d3814024da6a5c33f74b4b5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/baresip/blobs/sha256:31f13b9ffde3dfa6925185f86f5d10494a022ff89d7c11239c5683cd03190a69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/baresip/blobs/sha256:3a4dd485ef3608c2bd96a0734c5ee9b2bda1bc892198d843d6fe44ea32c1b110
+sha256:
+  darwin_arm64: 7ed2a57d5ae220202dafe49d4b719f654e975969633054ad93f92e892f125a4f
+  darwin_amd64: 48e5b25337757869b3e7e193079d1a9576664475d3814024da6a5c33f74b4b5f
+  linux_amd64: 31f13b9ffde3dfa6925185f86f5d10494a022ff89d7c11239c5683cd03190a69
+  linux_arm64: 3a4dd485ef3608c2bd96a0734c5ee9b2bda1bc892198d843d6fe44ea32c1b110
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libre
+  - openssl@3

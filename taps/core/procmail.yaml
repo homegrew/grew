@@ -1,0 +1,19 @@
+name: procmail
+version: 3.24
+description: Autonomous mail processor
+homepage: https://github.com/BuGlessRB/procmail
+license: GPL-2.0-or-later OR Artistic-1.0-Perl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/procmail/blobs/sha256:b1bfc16b0cf3a29c2782b0bd30bbf11b04f0586a01a6ebeac2aad63fbb9a8c16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/procmail/blobs/sha256:d075ce7ac129209d21b5eeb25f2c5431f7921bb42d36140913855c27ee1aa53d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/procmail/blobs/sha256:09534e911a38143ef58d749661b6359585308a1f42cb842b425f3fa6f803ff70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/procmail/blobs/sha256:e5f7f578ac20ba0e61130aaf67f1e0357cae7419791754ed9163a90c758a005c
+sha256:
+  darwin_arm64: b1bfc16b0cf3a29c2782b0bd30bbf11b04f0586a01a6ebeac2aad63fbb9a8c16
+  darwin_amd64: d075ce7ac129209d21b5eeb25f2c5431f7921bb42d36140913855c27ee1aa53d
+  linux_amd64: 09534e911a38143ef58d749661b6359585308a1f42cb842b425f3fa6f803ff70
+  linux_arm64: e5f7f578ac20ba0e61130aaf67f1e0357cae7419791754ed9163a90c758a005c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: gitui
+version: 0.28.0
+description: Blazing fast terminal-ui for git written in rust
+homepage: https://github.com/gitui-org/gitui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitui/blobs/sha256:3bf06c89899c36b3f312246fe1e2638fec683b7d21cb4b230071980a126be480
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitui/blobs/sha256:c5b29d634487cbed56de2c817401da5755ef13d7a31123666d5a0481b1a60988
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitui/blobs/sha256:e53d035e90f92966f561ee6ceb697aea0722a5fe7933fa47867bf24b2c02e879
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitui/blobs/sha256:bf71424e3d0d7ed2c46366864891f447697e1037c7178f7a2f219be7477a505d
+sha256:
+  darwin_arm64: 3bf06c89899c36b3f312246fe1e2638fec683b7d21cb4b230071980a126be480
+  darwin_amd64: c5b29d634487cbed56de2c817401da5755ef13d7a31123666d5a0481b1a60988
+  linux_amd64: e53d035e90f92966f561ee6ceb697aea0722a5fe7933fa47867bf24b2c02e879
+  linux_arm64: bf71424e3d0d7ed2c46366864891f447697e1037c7178f7a2f219be7477a505d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

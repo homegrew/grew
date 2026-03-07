@@ -1,0 +1,19 @@
+name: braid
+version: 1.1.10
+description: Simple tool to help track vendor branches in a Git repository
+homepage: https://cristibalan.github.io/braid/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/braid/blobs/sha256:78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/braid/blobs/sha256:78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/braid/blobs/sha256:15697bebe2c12c8ae85c97b3fbfb612805e7e780366c55a492068484bd0d1fa7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/braid/blobs/sha256:227918651f6ee7548fa9f85de4ee3bfbf4ed168591caafaaac909b65e56fa6f3
+sha256:
+  darwin_arm64: 78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b
+  darwin_amd64: 78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b
+  linux_amd64: 15697bebe2c12c8ae85c97b3fbfb612805e7e780366c55a492068484bd0d1fa7
+  linux_arm64: 227918651f6ee7548fa9f85de4ee3bfbf4ed168591caafaaac909b65e56fa6f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

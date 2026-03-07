@@ -1,0 +1,22 @@
+name: apib
+version: 1.2.1
+description: HTTP performance-testing tool
+homepage: https://github.com/apigee/apib
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apib/blobs/sha256:337cb9a61b2d654dd1217f9abb5c6b36056b0a9a1b0309493761e48b70e3c087
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apib/blobs/sha256:8312ece497888c99b07749e20beb873192dcc2ccc16cd0f0f0193324e9bec9f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apib/blobs/sha256:43509a772521b80a03d3702dba034b752371581c0739c6cfb7f1c48217398a42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apib/blobs/sha256:3f95d7ee859f9339c976338e990352bf0416c79a14645c66eda6ee7387f4089b
+sha256:
+  darwin_arm64: 337cb9a61b2d654dd1217f9abb5c6b36056b0a9a1b0309493761e48b70e3c087
+  darwin_amd64: 8312ece497888c99b07749e20beb873192dcc2ccc16cd0f0f0193324e9bec9f1
+  linux_amd64: 43509a772521b80a03d3702dba034b752371581c0739c6cfb7f1c48217398a42
+  linux_arm64: 3f95d7ee859f9339c976338e990352bf0416c79a14645c66eda6ee7387f4089b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libev
+  - openssl@3

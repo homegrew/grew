@@ -1,0 +1,18 @@
+name: connectiq
+version: 8.4.1,2026-02-03,e9f77eeaa
+description: Build wearable experiences for Garmin devices and sensors with ConnectIQ SDK
+homepage: https://developer.garmin.com/connect-iq/
+url:
+  darwin_arm64: https://developer.garmin.com/downloads/connect-iq/sdks/connectiq-sdk-mac-8.4.1-2026-02-03-e9f77eeaa.dmg
+sha256:
+  darwin_arm64: 37dc8eb0fbfdb875843aad52706a1dbf53089216c3d7c403a0a6a04a8cad005b
+artifacts:
+  app:
+    - connectiq-sdk-mac-8.4.1-2026-02-03-e9f77eeaa/bin/MonkeyMotion.app
+    - connectiq-sdk-mac-8.4.1-2026-02-03-e9f77eeaa/bin/ConnectIQ.app
+  bin:
+    - monkeyc
+    - monkeydoc
+    - shell
+    - monkeydo
+    - monkeybrains.jar

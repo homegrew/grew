@@ -1,0 +1,19 @@
+name: gotz
+version: 0.1.15
+description: Displays timezones in your terminal
+homepage: https://github.com/merschformann/gotz
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotz/blobs/sha256:d457f2bd6b2993597ea67b8ffc167994723fe0150d50cd972c474f8520c9dc71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotz/blobs/sha256:f35197d8f5d2ebdd0fe4c50fc98508544cf6f3abff6424e57a09faf83506bfa9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotz/blobs/sha256:a90de77faf04ceafa5b9a07dfe685ddba60dd8ec2d395e3da1b62c15230cc44e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotz/blobs/sha256:9267b0365ca7e9ae17f11c3cdc3b7ea3c47aaf751ce458a9549c34aeab1e7f92
+sha256:
+  darwin_arm64: d457f2bd6b2993597ea67b8ffc167994723fe0150d50cd972c474f8520c9dc71
+  darwin_amd64: f35197d8f5d2ebdd0fe4c50fc98508544cf6f3abff6424e57a09faf83506bfa9
+  linux_amd64: a90de77faf04ceafa5b9a07dfe685ddba60dd8ec2d395e3da1b62c15230cc44e
+  linux_arm64: 9267b0365ca7e9ae17f11c3cdc3b7ea3c47aaf751ce458a9549c34aeab1e7f92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

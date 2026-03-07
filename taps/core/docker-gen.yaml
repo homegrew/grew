@@ -1,0 +1,19 @@
+name: docker-gen
+version: 0.16.2
+description: Generate files from docker container metadata
+homepage: https://github.com/nginx-proxy/docker-gen
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-gen/blobs/sha256:4788abb89cac4c67bdb00d4e36f0a4e99f92e2af5a495d0ca585086cadf46a5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-gen/blobs/sha256:1243875666b91b334b8e68d2ccb902216dba1cf37cfbd4d671c014b3a780f260
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-gen/blobs/sha256:d3c3799499f4f3283d76d098d1268e7c30cf38ab0a6019fb6fbee859037f2de6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-gen/blobs/sha256:a9d08d30eee0f19c1d87bbb07defa3b86d74069fd1a7905535ef0a36817f5824
+sha256:
+  darwin_arm64: 4788abb89cac4c67bdb00d4e36f0a4e99f92e2af5a495d0ca585086cadf46a5a
+  darwin_amd64: 1243875666b91b334b8e68d2ccb902216dba1cf37cfbd4d671c014b3a780f260
+  linux_amd64: d3c3799499f4f3283d76d098d1268e7c30cf38ab0a6019fb6fbee859037f2de6
+  linux_arm64: a9d08d30eee0f19c1d87bbb07defa3b86d74069fd1a7905535ef0a36817f5824
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

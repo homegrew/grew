@@ -1,0 +1,21 @@
+name: yazpp
+version: 1.9.1
+description: C++ API for the Yaz toolkit
+homepage: https://www.indexdata.com/resources/software/yazpp/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yazpp/blobs/sha256:677c4daba736dcf25027fbf4f5959ee72362f7f5fe48dadcc486c7d825c9d370
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yazpp/blobs/sha256:9de8a746324a0f109f6925a679ada8ce20d36e459354b135318a7486bda5e26d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yazpp/blobs/sha256:4795313aadd5eb1836d8299386570dd872993f28226031de66d371de07ff3161
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yazpp/blobs/sha256:ec4cb7a2b40cc13cb050563725363088cfa8f5865fa2823ecea89e4dcd1b96cf
+sha256:
+  darwin_arm64: 677c4daba736dcf25027fbf4f5959ee72362f7f5fe48dadcc486c7d825c9d370
+  darwin_amd64: 9de8a746324a0f109f6925a679ada8ce20d36e459354b135318a7486bda5e26d
+  linux_amd64: 4795313aadd5eb1836d8299386570dd872993f28226031de66d371de07ff3161
+  linux_arm64: ec4cb7a2b40cc13cb050563725363088cfa8f5865fa2823ecea89e4dcd1b96cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - yaz

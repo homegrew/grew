@@ -1,0 +1,19 @@
+name: cpptest
+version: 2.0.0
+description: Unit testing framework handling automated tests in C++
+homepage: https://cpptest.sourceforge.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpptest/blobs/sha256:b7ba7a08b1659d230bf822ed02e72535423504b3b5fe659cac6b16f6aa64d3bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpptest/blobs/sha256:da7e6e96d0971b33f75b13306310d9b73b20e353c359c65e0f8acb4af6a7b443
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpptest/blobs/sha256:ebb0d38cb3fb4038067867b4b10ff93cdc330528dc0f163d4af0a87a427a7375
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpptest/blobs/sha256:f3e97b7775d83ef913b5d0e0c7ba785f2d12b16de00747f7aa5a6734a032ff1a
+sha256:
+  darwin_arm64: b7ba7a08b1659d230bf822ed02e72535423504b3b5fe659cac6b16f6aa64d3bd
+  darwin_amd64: da7e6e96d0971b33f75b13306310d9b73b20e353c359c65e0f8acb4af6a7b443
+  linux_amd64: ebb0d38cb3fb4038067867b4b10ff93cdc330528dc0f163d4af0a87a427a7375
+  linux_arm64: f3e97b7775d83ef913b5d0e0c7ba785f2d12b16de00747f7aa5a6734a032ff1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

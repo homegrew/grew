@@ -1,0 +1,25 @@
+name: asymptote
+version: 3.09
+description: Powerful descriptive vector graphics language
+homepage: https://asymptote.sourceforge.io
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asymptote/blobs/sha256:4c2be38a066de5c264b603c7f5fd00f4725eb3f046034f5b22e1c3137f75c3e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asymptote/blobs/sha256:69a63f5e14bd64739e5d0f1a2489462ec97c77713fb105aa5fd282ce3c578329
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asymptote/blobs/sha256:9bfc3f9c60aa6eb60888e5616bc469e2d38b401e79aa0e7fcb4b170fe902981b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asymptote/blobs/sha256:f62d00e4f17e09acc01c550f82a08235669a0d42295e5d1b899856b2b3ba64fa
+sha256:
+  darwin_arm64: 4c2be38a066de5c264b603c7f5fd00f4725eb3f046034f5b22e1c3137f75c3e6
+  darwin_amd64: 69a63f5e14bd64739e5d0f1a2489462ec97c77713fb105aa5fd282ce3c578329
+  linux_amd64: 9bfc3f9c60aa6eb60888e5616bc469e2d38b401e79aa0e7fcb4b170fe902981b
+  linux_arm64: f62d00e4f17e09acc01c550f82a08235669a0d42295e5d1b899856b2b3ba64fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - fftw
+  - ghostscript
+  - gsl
+  - readline

@@ -1,0 +1,21 @@
+name: bfs
+version: 4.1
+description: Breadth-first version of find
+homepage: https://tavianator.com/projects/bfs.html
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bfs/blobs/sha256:2d197823d3ea09db80ff41a0a887b3278c9b1f28db50c683f17f8233a26e95c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bfs/blobs/sha256:4c121ba08ed118750411c1003e9e078420e98a819258816f133b6ca0c83f2473
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bfs/blobs/sha256:724d215224af855240f52ca8f0ad7fccc8c1d2dace5f770692f699a8dd91c09f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bfs/blobs/sha256:2b3a3ee53d9833b58291c0e426afbdd4bac5a880c9bc77585d42e0205fb00785
+sha256:
+  darwin_arm64: 2d197823d3ea09db80ff41a0a887b3278c9b1f28db50c683f17f8233a26e95c9
+  darwin_amd64: 4c121ba08ed118750411c1003e9e078420e98a819258816f133b6ca0c83f2473
+  linux_amd64: 724d215224af855240f52ca8f0ad7fccc8c1d2dace5f770692f699a8dd91c09f
+  linux_arm64: 2b3a3ee53d9833b58291c0e426afbdd4bac5a880c9bc77585d42e0205fb00785
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

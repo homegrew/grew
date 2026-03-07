@@ -1,0 +1,19 @@
+name: wasi-libc
+version: 30
+description: Libc implementation for WebAssembly
+homepage: https://wasi.dev
+license: Apache-2.0 AND MIT AND (Apache-2.0 WITH LLVM-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasi-libc/blobs/sha256:6c77e6bf24a06212673eec6f88fe8d8b4e31bf85ed122f3c82c90b6481e40d61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasi-libc/blobs/sha256:6c77e6bf24a06212673eec6f88fe8d8b4e31bf85ed122f3c82c90b6481e40d61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasi-libc/blobs/sha256:dcc7103b2ae890070d7ea994ceafc80baf30f8d19983edc488c218ff907874e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasi-libc/blobs/sha256:dcc7103b2ae890070d7ea994ceafc80baf30f8d19983edc488c218ff907874e9
+sha256:
+  darwin_arm64: 6c77e6bf24a06212673eec6f88fe8d8b4e31bf85ed122f3c82c90b6481e40d61
+  darwin_amd64: 6c77e6bf24a06212673eec6f88fe8d8b4e31bf85ed122f3c82c90b6481e40d61
+  linux_amd64: dcc7103b2ae890070d7ea994ceafc80baf30f8d19983edc488c218ff907874e9
+  linux_arm64: dcc7103b2ae890070d7ea994ceafc80baf30f8d19983edc488c218ff907874e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

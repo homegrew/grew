@@ -1,0 +1,22 @@
+name: git-delta
+version: 0.18.2
+description: Syntax-highlighting pager for git and diff output
+homepage: https://github.com/dandavison/delta
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-delta/blobs/sha256:f3559522f4412c5ef418e3f79d2e4a438e603fbf45940c4f83acccfcf406564e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-delta/blobs/sha256:3c86f88322008a32a9f93ce98f0da59a2d5e5042d4f87722b9d396393a3c1f36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-delta/blobs/sha256:9f7b957d7e7ba089db5f3561c9b56b036f0c4b03a2bc15de37db29a2a26d8f3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-delta/blobs/sha256:aaff50ccf9af8b738bed04cc7d222014a0eca828e8754b598b3bc767a5dfe8ff
+sha256:
+  darwin_arm64: f3559522f4412c5ef418e3f79d2e4a438e603fbf45940c4f83acccfcf406564e
+  darwin_amd64: 3c86f88322008a32a9f93ce98f0da59a2d5e5042d4f87722b9d396393a3c1f36
+  linux_amd64: 9f7b957d7e7ba089db5f3561c9b56b036f0c4b03a2bc15de37db29a2a26d8f3e
+  linux_arm64: aaff50ccf9af8b738bed04cc7d222014a0eca828e8754b598b3bc767a5dfe8ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - oniguruma

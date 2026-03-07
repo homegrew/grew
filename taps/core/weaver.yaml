@@ -1,0 +1,15 @@
+name: weaver
+version: 1.1.7
+description: Command-line tool for Weaver
+homepage: https://github.com/scribd/Weaver
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/weaver/blobs/sha256:9cf53f642dde97db220e7bff17a8d7660c230416fea7ab058af0aab8ff20ebfe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/weaver/blobs/sha256:46ec011fe16385d889653c9e3eb7c6ed689107cb92c8c7d6482e3f3b72d7ec27
+sha256:
+  darwin_arm64: 9cf53f642dde97db220e7bff17a8d7660c230416fea7ab058af0aab8ff20ebfe
+  darwin_amd64: 46ec011fe16385d889653c9e3eb7c6ed689107cb92c8c7d6482e3f3b72d7ec27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

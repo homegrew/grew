@@ -1,0 +1,19 @@
+name: goodls
+version: 2.0.6
+description: CLI tool to download shared files and folders from Google Drive
+homepage: https://github.com/tanaikech/goodls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goodls/blobs/sha256:bb271f1eea59804e392908cff1ac2387179f00e0e9a02fdc8bf51e6ed464f14d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goodls/blobs/sha256:16161f75d9eabbe1263b7115aedd206dc84581c7e20f6775ad2d3f51ae355f2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goodls/blobs/sha256:590b91e949cadbf80fdeaca615297fa72ed5afd864fa762fc584d49368958390
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goodls/blobs/sha256:9480958e7d8d1901b2b4f21204a54a53562d089f4298d36521201cdb03c7ce0f
+sha256:
+  darwin_arm64: bb271f1eea59804e392908cff1ac2387179f00e0e9a02fdc8bf51e6ed464f14d
+  darwin_amd64: 16161f75d9eabbe1263b7115aedd206dc84581c7e20f6775ad2d3f51ae355f2c
+  linux_amd64: 590b91e949cadbf80fdeaca615297fa72ed5afd864fa762fc584d49368958390
+  linux_arm64: 9480958e7d8d1901b2b4f21204a54a53562d089f4298d36521201cdb03c7ce0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

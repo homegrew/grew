@@ -1,0 +1,13 @@
+name: gitbutler
+version: 0.19.5,2897
+description: Git client for simultaneous branches on top of your existing workflow
+homepage: https://gitbutler.com/
+url:
+  darwin_arm64: https://releases.gitbutler.com/releases/release/0.19.5-2897/macos/aarch64/GitButler.app.tar.gz
+sha256:
+  darwin_arm64: d5b9ed9b694d4509823ae1c0597127383b6450efc53e9986baaeafac1bdec607
+artifacts:
+  app:
+    - GitButler.app
+  bin:
+    - but

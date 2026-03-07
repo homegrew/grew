@@ -1,0 +1,24 @@
+name: arturo
+version: 0.10.0
+description: Simple, modern and portable programming language for efficient scripting
+homepage: https://arturo-lang.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arturo/blobs/sha256:ebba8e3fbb4a744beaac399da9b1ffb8307a0804d7c05b7076fb785613b5d552
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arturo/blobs/sha256:1d3f1fda2e54e2a47a255e4da81b268e00cb004990957cc920bc83b5fb867c7d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arturo/blobs/sha256:c0ca9d6b0315a3d4cd6ad14ab1b385a0cbc42d5eaa0cce0ec69241931bd2b864
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arturo/blobs/sha256:1d022b862b9319ffddd133b8701fbc1d57c012288d0edb3a4d5481b53a3ec4f0
+sha256:
+  darwin_arm64: ebba8e3fbb4a744beaac399da9b1ffb8307a0804d7c05b7076fb785613b5d552
+  darwin_amd64: 1d3f1fda2e54e2a47a255e4da81b268e00cb004990957cc920bc83b5fb867c7d
+  linux_amd64: c0ca9d6b0315a3d4cd6ad14ab1b385a0cbc42d5eaa0cce0ec69241931bd2b864
+  linux_arm64: 1d022b862b9319ffddd133b8701fbc1d57c012288d0edb3a4d5481b53a3ec4f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - openssl@3
+  - pcre2

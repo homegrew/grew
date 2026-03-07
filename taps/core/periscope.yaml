@@ -1,0 +1,19 @@
+name: periscope
+version: 1.0.1
+description: Organize and de-duplicate your files without losing data
+homepage: https://github.com/anishathalye/periscope
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/periscope/blobs/sha256:3189320a2bd3be0f1919621582743539f0af9915a92b26c2d4e95dc43466dc21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/periscope/blobs/sha256:3e3e839701f4e03c35810ccbbdff7a656e0c378bd41aa45bd3043b05c9b24878
+  linux_amd64: https://ghcr.io/v2/homebrew/core/periscope/blobs/sha256:abf9ca3d7a4b3289def2009de76d1a93969011bdc3dcd344845fe3fbc9ca69ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/periscope/blobs/sha256:345da8c73fe8c8f7a7be4162ada3b06ac3c7bb5dcb713e901175867a6ea8b19a
+sha256:
+  darwin_arm64: 3189320a2bd3be0f1919621582743539f0af9915a92b26c2d4e95dc43466dc21
+  darwin_amd64: 3e3e839701f4e03c35810ccbbdff7a656e0c378bd41aa45bd3043b05c9b24878
+  linux_amd64: abf9ca3d7a4b3289def2009de76d1a93969011bdc3dcd344845fe3fbc9ca69ca
+  linux_arm64: 345da8c73fe8c8f7a7be4162ada3b06ac3c7bb5dcb713e901175867a6ea8b19a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

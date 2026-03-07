@@ -1,0 +1,21 @@
+name: remarshal
+version: 1.3.0
+description: Convert between TOML, YAML and JSON
+homepage: https://github.com/remarshal-project/remarshal
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/remarshal/blobs/sha256:976887f25e153e0d8e6bce43d4c050e1ec7e831c05b990128e8a54774f9c0c05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/remarshal/blobs/sha256:b0dbbde294fb942f049f465337b5e02a76598edcbcb8fedefe694ff8dcfd7f0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/remarshal/blobs/sha256:cb032e66414af64855feb123d8ef61839498e83a31ffebfbf88b4ae31a412933
+  linux_arm64: https://ghcr.io/v2/homebrew/core/remarshal/blobs/sha256:76bcb67af3643ca48bbcfe543736abcb3bcd026102c587328c820c9086defcdc
+sha256:
+  darwin_arm64: 976887f25e153e0d8e6bce43d4c050e1ec7e831c05b990128e8a54774f9c0c05
+  darwin_amd64: b0dbbde294fb942f049f465337b5e02a76598edcbcb8fedefe694ff8dcfd7f0c
+  linux_amd64: cb032e66414af64855feb123d8ef61839498e83a31ffebfbf88b4ae31a412933
+  linux_arm64: 76bcb67af3643ca48bbcfe543736abcb3bcd026102c587328c820c9086defcdc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

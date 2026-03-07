@@ -1,0 +1,19 @@
+name: ipmiutil
+version: 3.2.2
+description: IPMI server management utility
+homepage: https://ipmiutil.sourceforge.net/
+license: BSD-2-Clause AND BSD-3-Clause AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipmiutil/blobs/sha256:24816a224f9fa258ad7c86b36f9ee07f2d327c0410d5e251158b763d94f5914c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipmiutil/blobs/sha256:673431272778abfd4ee2d782ab4be47bb47744c820419a6216f73b962f5f9263
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipmiutil/blobs/sha256:9b026ef33532c2472981201448f1c65523dce6db4fc6fdc6bbbd5fdfbccba8e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipmiutil/blobs/sha256:2dfc5417038aac6b08f426630e297eef8e3247e0c3e501fa2dc133fdc6a3a2a4
+sha256:
+  darwin_arm64: 24816a224f9fa258ad7c86b36f9ee07f2d327c0410d5e251158b763d94f5914c
+  darwin_amd64: 673431272778abfd4ee2d782ab4be47bb47744c820419a6216f73b962f5f9263
+  linux_amd64: 9b026ef33532c2472981201448f1c65523dce6db4fc6fdc6bbbd5fdfbccba8e3
+  linux_arm64: 2dfc5417038aac6b08f426630e297eef8e3247e0c3e501fa2dc133fdc6a3a2a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

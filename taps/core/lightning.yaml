@@ -1,0 +1,19 @@
+name: lightning
+version: 2.2.3
+description: Generates assembly language code at run-time
+homepage: https://www.gnu.org/software/lightning/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lightning/blobs/sha256:e7c4c0c882b4401d5ec4866e90d7f67b719af0b8bfcf62a527e4441b7c18399d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lightning/blobs/sha256:6bbab88edb452016502a26349f899eb4c4a5547b698c6496d78df6ed7c012fb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lightning/blobs/sha256:f8a31092e058742cf79549bb7d50979296326151bec52214ea580dc823748a20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lightning/blobs/sha256:5af0fa5ffd268c4d721624a01ee21826d6a5bbcccd277be7f12a6ce1df7f32ac
+sha256:
+  darwin_arm64: e7c4c0c882b4401d5ec4866e90d7f67b719af0b8bfcf62a527e4441b7c18399d
+  darwin_amd64: 6bbab88edb452016502a26349f899eb4c4a5547b698c6496d78df6ed7c012fb8
+  linux_amd64: f8a31092e058742cf79549bb7d50979296326151bec52214ea580dc823748a20
+  linux_arm64: 5af0fa5ffd268c4d721624a01ee21826d6a5bbcccd277be7f12a6ce1df7f32ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

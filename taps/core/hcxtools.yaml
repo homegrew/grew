@@ -1,0 +1,21 @@
+name: hcxtools
+version: 7.1.2
+description: Utils for conversion of cap/pcap/pcapng WiFi dump files
+homepage: https://github.com/ZerBea/hcxtools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hcxtools/blobs/sha256:b786532da808f3d2df2a0196664c412cbcb7b9e8075ff4986be97516c7dda34c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hcxtools/blobs/sha256:f780ee105f6fad885e76c94ca9dc0d0f262c45bcdbee5ab91f9db46c6006d6b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hcxtools/blobs/sha256:8168c9e6a68a1707ec3c18c7f4c141664f1f9609f3432b761e2e076c0a3f71a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hcxtools/blobs/sha256:a5dd620ba49c62840721470976e8c9fc315ccf53073a970e2fb773fab2b514a8
+sha256:
+  darwin_arm64: b786532da808f3d2df2a0196664c412cbcb7b9e8075ff4986be97516c7dda34c
+  darwin_amd64: f780ee105f6fad885e76c94ca9dc0d0f262c45bcdbee5ab91f9db46c6006d6b9
+  linux_amd64: 8168c9e6a68a1707ec3c18c7f4c141664f1f9609f3432b761e2e076c0a3f71a7
+  linux_arm64: a5dd620ba49c62840721470976e8c9fc315ccf53073a970e2fb773fab2b514a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

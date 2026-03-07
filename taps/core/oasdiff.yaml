@@ -1,0 +1,19 @@
+name: oasdiff
+version: 1.11.10
+description: OpenAPI Diff and Breaking Changes
+homepage: https://www.oasdiff.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oasdiff/blobs/sha256:1fd604b3a3ac32f99714c3c3a8540e3f57bb8cdbb39c3aee030ced2df42ed48c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oasdiff/blobs/sha256:beebc669299e649dc4d301998d90f46bbf79a470b692c1a87beff05a271307fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oasdiff/blobs/sha256:889dc6308c9b5cf3483a8de9a4dfed4bae652601ee2bb79beb69c70dd12aac86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oasdiff/blobs/sha256:ada830c3ef643a0463b6c3a89f0ad751805b72b8dcf71c5e61bbff6b3ec61e8f
+sha256:
+  darwin_arm64: 1fd604b3a3ac32f99714c3c3a8540e3f57bb8cdbb39c3aee030ced2df42ed48c
+  darwin_amd64: beebc669299e649dc4d301998d90f46bbf79a470b692c1a87beff05a271307fe
+  linux_amd64: 889dc6308c9b5cf3483a8de9a4dfed4bae652601ee2bb79beb69c70dd12aac86
+  linux_arm64: ada830c3ef643a0463b6c3a89f0ad751805b72b8dcf71c5e61bbff6b3ec61e8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

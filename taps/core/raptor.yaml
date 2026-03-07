@@ -1,0 +1,19 @@
+name: raptor
+version: 2.0.16
+description: RDF parser toolkit
+homepage: https://librdf.org/raptor/
+license: LGPL-2.1-or-later OR GPL-2.0-or-later OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/raptor/blobs/sha256:1bfb13b805a48dff3dabd1424ffdccda68a6862eb2b245f544e8cf9b1a02c0d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/raptor/blobs/sha256:3497318f771ce19a3c8184d9497ddee0e20fd9255507a7004d4d48c47c48c096
+  linux_amd64: https://ghcr.io/v2/homebrew/core/raptor/blobs/sha256:ef7db540be1c6410ffe3fe285641fa07a3eb71f81908de7f36f801c16484f333
+  linux_arm64: https://ghcr.io/v2/homebrew/core/raptor/blobs/sha256:3a740a47101fb3c218cb991c1e0a17171d581fe40065550ba25f50c325466e3f
+sha256:
+  darwin_arm64: 1bfb13b805a48dff3dabd1424ffdccda68a6862eb2b245f544e8cf9b1a02c0d8
+  darwin_amd64: 3497318f771ce19a3c8184d9497ddee0e20fd9255507a7004d4d48c47c48c096
+  linux_amd64: ef7db540be1c6410ffe3fe285641fa07a3eb71f81908de7f36f801c16484f333
+  linux_arm64: 3a740a47101fb3c218cb991c1e0a17171d581fe40065550ba25f50c325466e3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

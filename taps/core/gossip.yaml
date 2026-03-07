@@ -1,0 +1,19 @@
+name: gossip
+version: 0.14.0
+description: Desktop client for Nostr written in Rust
+homepage: https://github.com/mikedilger/gossip
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gossip/blobs/sha256:f92aa10431368840267d013fff2476487a70badc319682d5bd649cf00681917d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gossip/blobs/sha256:3bc84869c2e363b24b75f51e8bd0953c8b065dfadc6be87d942f4f2003ee6065
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gossip/blobs/sha256:bfb28f95a965f5ef4ffc6be6870a87dbc90d7ed00a9bd511df04ab45bf9f56dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gossip/blobs/sha256:aee8f60a43435d9dea1b85a1335d45ccb0d6667d9b0480e4342afe5ce89b9aba
+sha256:
+  darwin_arm64: f92aa10431368840267d013fff2476487a70badc319682d5bd649cf00681917d
+  darwin_amd64: 3bc84869c2e363b24b75f51e8bd0953c8b065dfadc6be87d942f4f2003ee6065
+  linux_amd64: bfb28f95a965f5ef4ffc6be6870a87dbc90d7ed00a9bd511df04ab45bf9f56dd
+  linux_arm64: aee8f60a43435d9dea1b85a1335d45ccb0d6667d9b0480e4342afe5ce89b9aba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

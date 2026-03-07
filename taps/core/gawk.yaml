@@ -1,0 +1,24 @@
+name: gawk
+version: 5.4.0
+description: GNU awk utility
+homepage: https://www.gnu.org/software/gawk/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gawk/blobs/sha256:e1bc77dcb48a44183688670a386ee6a3cd715eab698ee0b80ee31137315142f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gawk/blobs/sha256:5d049a18eed72add370ea73a187e7ee23521321f0b56a228eca4fb32b4e7704d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gawk/blobs/sha256:299c7fbc71fe23b5c30380b6cc6419536183cd53769630bce5f86fc3311b586b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gawk/blobs/sha256:7d360bbda03e7212c6c001dfbb9b6dc97fb0c2117f001e7dafffc119f1016c3c
+sha256:
+  darwin_arm64: e1bc77dcb48a44183688670a386ee6a3cd715eab698ee0b80ee31137315142f1
+  darwin_amd64: 5d049a18eed72add370ea73a187e7ee23521321f0b56a228eca4fb32b4e7704d
+  linux_amd64: 299c7fbc71fe23b5c30380b6cc6419536183cd53769630bce5f86fc3311b586b
+  linux_arm64: 7d360bbda03e7212c6c001dfbb9b6dc97fb0c2117f001e7dafffc119f1016c3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - readline
+  - gettext

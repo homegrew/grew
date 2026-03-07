@@ -1,0 +1,19 @@
+name: delve
+version: 1.26.1
+description: Debugger for the Go programming language
+homepage: https://github.com/go-delve/delve
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/delve/blobs/sha256:860a3030deba778d991e3f7f32a82f8c85df8fc53e2f52861f3cf3ae5da6e85a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/delve/blobs/sha256:73eabe3da7276ed59abe741cf3d4af043b84bf03ad34d28645bce04ea6e580a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/delve/blobs/sha256:e61ef4e5c1178f6bc95f5be201e8f56541ce2d0a3487d281107b2de069b557f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/delve/blobs/sha256:6600bcd3fe110c6b453b36b5055ed23dced1125c25d4e20cdcb1333f8c089ab3
+sha256:
+  darwin_arm64: 860a3030deba778d991e3f7f32a82f8c85df8fc53e2f52861f3cf3ae5da6e85a
+  darwin_amd64: 73eabe3da7276ed59abe741cf3d4af043b84bf03ad34d28645bce04ea6e580a2
+  linux_amd64: e61ef4e5c1178f6bc95f5be201e8f56541ce2d0a3487d281107b2de069b557f8
+  linux_arm64: 6600bcd3fe110c6b453b36b5055ed23dced1125c25d4e20cdcb1333f8c089ab3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

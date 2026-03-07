@@ -1,0 +1,21 @@
+name: fades
+version: 9.0.2
+description: Automatically handle virtualenvs for python scripts
+homepage: https://fades.readthedocs.io/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fades/blobs/sha256:a4ba1f34d9b0ea8d6e49e5ed4e459640eb0889c2ea8bd37fed8def5eb0be8b63
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fades/blobs/sha256:55dbc5b431725a5be9f9da921bb903db6ace6f7945db3d007956d94797c1f68e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fades/blobs/sha256:333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fades/blobs/sha256:333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2
+sha256:
+  darwin_arm64: a4ba1f34d9b0ea8d6e49e5ed4e459640eb0889c2ea8bd37fed8def5eb0be8b63
+  darwin_amd64: 55dbc5b431725a5be9f9da921bb903db6ace6f7945db3d007956d94797c1f68e
+  linux_amd64: 333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2
+  linux_arm64: 333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

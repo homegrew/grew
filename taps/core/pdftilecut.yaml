@@ -1,0 +1,22 @@
+name: pdftilecut
+version: 0.6
+description: Sub-divide a PDF page(s) into smaller pages so you can print them
+homepage: https://github.com/oxplot/pdftilecut
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdftilecut/blobs/sha256:90ee505ab0b2f3afc41e42a5ef8e5e3b02474868b9787fc73cb16d5ab66d909c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdftilecut/blobs/sha256:02a045c5f5f1ea061b661c5f34fc9f557fa12a8a2ac47ba9ca5c240c0fe60433
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdftilecut/blobs/sha256:ad6f8074acd3375047c5419afcd65722aae5949982d6611e95becfa6ee0cfc37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdftilecut/blobs/sha256:cd6a82f54be78a6a4a939ff44e7364993048d76f20c9063764b61ab7b21d5473
+sha256:
+  darwin_arm64: 90ee505ab0b2f3afc41e42a5ef8e5e3b02474868b9787fc73cb16d5ab66d909c
+  darwin_amd64: 02a045c5f5f1ea061b661c5f34fc9f557fa12a8a2ac47ba9ca5c240c0fe60433
+  linux_amd64: ad6f8074acd3375047c5419afcd65722aae5949982d6611e95becfa6ee0cfc37
+  linux_arm64: cd6a82f54be78a6a4a939ff44e7364993048d76f20c9063764b61ab7b21d5473
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - qpdf

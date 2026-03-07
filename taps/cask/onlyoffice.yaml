@@ -1,0 +1,11 @@
+name: onlyoffice
+version: 9.3.1
+description: Document editor
+homepage: https://www.onlyoffice.com/
+url:
+  darwin_arm64: https://download.onlyoffice.com/install/desktop/editors/mac/arm/updates/ONLYOFFICE-arm-9.3.1.zip
+sha256:
+  darwin_arm64: c7c17bd32eaa86f2a33cf2e7f5de85d58d65d022ff3667bcf3cf1eed69eed511
+artifacts:
+  app:
+    - ONLYOFFICE.app

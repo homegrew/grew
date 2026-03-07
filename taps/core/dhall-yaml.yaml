@@ -1,0 +1,21 @@
+name: dhall-yaml
+version: 1.2.12
+description: Convert between Dhall and YAML
+homepage: https://github.com/dhall-lang/dhall-haskell/tree/main/dhall-yaml
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhall-yaml/blobs/sha256:ab53adbde4511b5fc4bd6b3f4a3488e92ebfcb208aa7766c1c8a59dbf779685d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhall-yaml/blobs/sha256:360adbadc892b9de74c0a13d1fffc96b3d5ee5b616fd748cc89bb9e11a89f9c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhall-yaml/blobs/sha256:8c1a5d2074be5365245dca2f9fa478b07487fc3ebf11e4e1b0b29e86df3afe38
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhall-yaml/blobs/sha256:1bacadaf5ffb007a013de69071aec868f42333dc142bfc408503319873333904
+sha256:
+  darwin_arm64: ab53adbde4511b5fc4bd6b3f4a3488e92ebfcb208aa7766c1c8a59dbf779685d
+  darwin_amd64: 360adbadc892b9de74c0a13d1fffc96b3d5ee5b616fd748cc89bb9e11a89f9c6
+  linux_amd64: 8c1a5d2074be5365245dca2f9fa478b07487fc3ebf11e4e1b0b29e86df3afe38
+  linux_arm64: 1bacadaf5ffb007a013de69071aec868f42333dc142bfc408503319873333904
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

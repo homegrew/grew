@@ -1,0 +1,21 @@
+name: unshield
+version: 1.6.2
+description: Extract files from InstallShield cabinet files
+homepage: https://github.com/twogood/unshield
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unshield/blobs/sha256:a71745f5ca81751bdc007d2d767fa242595cf190b27bc15e2197184061c574fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unshield/blobs/sha256:91f0c94d83e2a9e4ee096fa22a11b64242eeb09dd8e378e57ae8da0cefead494
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unshield/blobs/sha256:094b707a57cd05087eb1737f692213a5b55eb1937f832e606d2418fddb8e867e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unshield/blobs/sha256:c11473c5338c952d85e2596e71c221ea48a837f21a7fd09b5925c6da66eac99f
+sha256:
+  darwin_arm64: a71745f5ca81751bdc007d2d767fa242595cf190b27bc15e2197184061c574fc
+  darwin_amd64: 91f0c94d83e2a9e4ee096fa22a11b64242eeb09dd8e378e57ae8da0cefead494
+  linux_amd64: 094b707a57cd05087eb1737f692213a5b55eb1937f832e606d2418fddb8e867e
+  linux_arm64: c11473c5338c952d85e2596e71c221ea48a837f21a7fd09b5925c6da66eac99f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

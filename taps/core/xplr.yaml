@@ -1,0 +1,21 @@
+name: xplr
+version: 1.1.0
+description: Hackable, minimal, fast TUI file explorer
+homepage: https://github.com/sayanarijit/xplr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xplr/blobs/sha256:81fd46b952f4e77c21f80a2ed0846d6eab2f427448b6c419968e035134cebc45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xplr/blobs/sha256:3d3e87f43f39d456b01d425f102d4cdc6e775c131b515a7d8e2571a00be46d75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xplr/blobs/sha256:580c25a69c5e025bc2ca4c26a6c9ceb0344ddbef285d87589d3df58d7a221b4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xplr/blobs/sha256:eb602d89f46080d0da072cdc9496fb9e150c86aa15bc8defe3aff9cab9ef887f
+sha256:
+  darwin_arm64: 81fd46b952f4e77c21f80a2ed0846d6eab2f427448b6c419968e035134cebc45
+  darwin_amd64: 3d3e87f43f39d456b01d425f102d4cdc6e775c131b515a7d8e2571a00be46d75
+  linux_amd64: 580c25a69c5e025bc2ca4c26a6c9ceb0344ddbef285d87589d3df58d7a221b4c
+  linux_arm64: eb602d89f46080d0da072cdc9496fb9e150c86aa15bc8defe3aff9cab9ef887f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - luajit

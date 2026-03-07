@@ -1,0 +1,19 @@
+name: infracost
+version: 0.10.43
+description: Cost estimates for Terraform
+homepage: https://www.infracost.io/docs/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/infracost/blobs/sha256:45592f4284a4afe029e485aecaa415fbeaf0a831eb801f24f622a1a67e29a52d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/infracost/blobs/sha256:e1c476e5b68acc3f437d0a2304cc7ad3700762a6fc128e16637d723eaa060fd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/infracost/blobs/sha256:66dead16524f33f4e7dede778dcaab0f20e5f91b5f08f5cff4c83b9c1f45e1c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/infracost/blobs/sha256:f7e1f629c6c0862f18865f910d3fa043ad5236d54ab69b8087adae83b923d25a
+sha256:
+  darwin_arm64: 45592f4284a4afe029e485aecaa415fbeaf0a831eb801f24f622a1a67e29a52d
+  darwin_amd64: e1c476e5b68acc3f437d0a2304cc7ad3700762a6fc128e16637d723eaa060fd9
+  linux_amd64: 66dead16524f33f4e7dede778dcaab0f20e5f91b5f08f5cff4c83b9c1f45e1c4
+  linux_arm64: f7e1f629c6c0862f18865f910d3fa043ad5236d54ab69b8087adae83b923d25a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

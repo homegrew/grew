@@ -1,0 +1,19 @@
+name: docker-desktop
+version: 4.63.0,220185
+description: App to build and share containerised applications and microservices
+homepage: https://www.docker.com/products/docker-desktop
+url:
+  darwin_arm64: https://desktop.docker.com/mac/main/arm64/220185/Docker.dmg
+sha256:
+  darwin_arm64: 02d8fb3dfc8b5a0a1d29779e5c99321ee3d586b4c2067943e3de0b7bcf027c09
+artifacts:
+  app:
+    - Docker.app
+  bin:
+    - /usr/local/cli-plugins/docker-compose
+    - /usr/local/bin/hub-tool
+    - /usr/local/bin/kubectl.docker
+    - /usr/local/bin/docker
+    - /usr/local/bin/docker-credential-desktop
+    - /usr/local/bin/docker-credential-ecr-login
+    - /usr/local/bin/docker-credential-osxkeychain

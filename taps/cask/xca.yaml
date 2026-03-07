@@ -1,0 +1,11 @@
+name: xca
+version: 2.9.0
+description: X Certificate and Key management
+homepage: https://hohnstaedt.de/xca/
+url:
+  darwin_arm64: https://github.com/chris2511/xca/releases/download/RELEASE.2.9.0/xca-2.9.0-Darwin.dmg
+sha256:
+  darwin_arm64: 90df40a56bb57bbf46158b4db1c9fddd8a2d7cc48477b5522b457ec4e12cd45a
+artifacts:
+  app:
+    - xca.app

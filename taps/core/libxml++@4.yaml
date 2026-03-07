@@ -1,0 +1,21 @@
+name: libxml++@4
+version: 4.4.0
+description: C++ wrapper for libxml
+homepage: https://libxmlplusplus.github.io/libxmlplusplus/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmlxx/4/blobs/sha256:1e04e6bfb0b3cc19ff05dcd146ea78d30f9a55e7376e4ba95d93cf1f9c2224f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmlxx/4/blobs/sha256:d8e7a9c15686a095e503026b73c80cb4b2f74aa3212d894912d123ecc7298ca4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmlxx/4/blobs/sha256:046a2ee75cafd9694e66eee8caf210a18a327aa78e792c27554acaa352f04685
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmlxx/4/blobs/sha256:6369f95363a411ac8b1de7a3d51b9b437bfea9432f89443500ea073fdecab1e9
+sha256:
+  darwin_arm64: 1e04e6bfb0b3cc19ff05dcd146ea78d30f9a55e7376e4ba95d93cf1f9c2224f5
+  darwin_amd64: d8e7a9c15686a095e503026b73c80cb4b2f74aa3212d894912d123ecc7298ca4
+  linux_amd64: 046a2ee75cafd9694e66eee8caf210a18a327aa78e792c27554acaa352f04685
+  linux_arm64: 6369f95363a411ac8b1de7a3d51b9b437bfea9432f89443500ea073fdecab1e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glibmm

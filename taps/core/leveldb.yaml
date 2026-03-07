@@ -1,0 +1,21 @@
+name: leveldb
+version: 1.23
+description: Key-value storage library with ordered mapping
+homepage: https://github.com/google/leveldb/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leveldb/blobs/sha256:3a3373ff147b1d86903e34ffbb189d010826bf7acfeae4de3481fabd01e156e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leveldb/blobs/sha256:5a757793bb447bf5a91ee7fc38864c7dd4d870f857324524a4bd016c767afdda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leveldb/blobs/sha256:ff14a180346c9cece9aa3ddaaab5882eb6f9fa5074cde29d874ab640b351fed2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leveldb/blobs/sha256:f7e65c084c1d96f275941227d504bf22bc4e8b0733d01658e7c5d6e0efc61a21
+sha256:
+  darwin_arm64: 3a3373ff147b1d86903e34ffbb189d010826bf7acfeae4de3481fabd01e156e4
+  darwin_amd64: 5a757793bb447bf5a91ee7fc38864c7dd4d870f857324524a4bd016c767afdda
+  linux_amd64: ff14a180346c9cece9aa3ddaaab5882eb6f9fa5074cde29d874ab640b351fed2
+  linux_arm64: f7e65c084c1d96f275941227d504bf22bc4e8b0733d01658e7c5d6e0efc61a21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - snappy

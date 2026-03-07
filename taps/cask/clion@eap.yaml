@@ -1,0 +1,13 @@
+name: clion@eap
+version: 2026.1,261.22158.47
+description: CLion Early Access Program
+homepage: https://www.jetbrains.com/clion/nextversion
+url:
+  darwin_arm64: https://download.jetbrains.com/cpp/CLion-261.22158.47-aarch64.dmg
+sha256:
+  darwin_arm64: cd9247b82341eaf1160934b6adc91cea4b7ea6f9db7d37ae4c56fe0bd3c85b3b
+artifacts:
+  app:
+    - CLion 2026.1 EAP.app
+  bin:
+    - clion-eap

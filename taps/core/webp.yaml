@@ -1,0 +1,24 @@
+name: webp
+version: 1.6.0
+description: Image format providing lossless and lossy compression for web images
+homepage: https://developers.google.com/speed/webp/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webp/blobs/sha256:11a19ac5db13a8485d4d6f712d65d48531f99e8d7237407ab42718777eefacb3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webp/blobs/sha256:ea4e1ab3ff7e848a8b26a6e851e032887c0a5853d4586e77e98ca586b7f96a35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webp/blobs/sha256:5520d52bce6d837491accd768420cb44e9c64b6bcd4063817668fd5245fc9cfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webp/blobs/sha256:4d8b90c79d3e912e86136a88e49295f76fe2b67803b299c5fbe7ab12f01f4faf
+sha256:
+  darwin_arm64: 11a19ac5db13a8485d4d6f712d65d48531f99e8d7237407ab42718777eefacb3
+  darwin_amd64: ea4e1ab3ff7e848a8b26a6e851e032887c0a5853d4586e77e98ca586b7f96a35
+  linux_amd64: 5520d52bce6d837491accd768420cb44e9c64b6bcd4063817668fd5245fc9cfc
+  linux_arm64: 4d8b90c79d3e912e86136a88e49295f76fe2b67803b299c5fbe7ab12f01f4faf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - giflib
+  - jpeg-turbo
+  - libpng
+  - libtiff

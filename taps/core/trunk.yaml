@@ -1,0 +1,21 @@
+name: trunk
+version: 0.21.14
+description: "Build, bundle & ship your Rust WASM application to the web"
+homepage: https://trunkrs.dev/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trunk/blobs/sha256:93022640040f9f21249a52ac60776e812e0aed4a02b9e0b61676eb8b51ac6f96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trunk/blobs/sha256:327a4675ef5bbe597bb701f9bf8fae1f5c0a5158a9b6e6b995e0beadd480adf6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trunk/blobs/sha256:75d36fb9a7d305547ce7580004d3da051ddd6089a8338fff63e2a033efb17578
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trunk/blobs/sha256:4f03d00804c927fda2616c5ac7ad5a145bf84e361d6b36369a6fc4383562006d
+sha256:
+  darwin_arm64: 93022640040f9f21249a52ac60776e812e0aed4a02b9e0b61676eb8b51ac6f96
+  darwin_amd64: 327a4675ef5bbe597bb701f9bf8fae1f5c0a5158a9b6e6b995e0beadd480adf6
+  linux_amd64: 75d36fb9a7d305547ce7580004d3da051ddd6089a8338fff63e2a033efb17578
+  linux_arm64: 4f03d00804c927fda2616c5ac7ad5a145bf84e361d6b36369a6fc4383562006d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,11 @@
+name: ethui
+version: 1.27.0
+description: Ethereum development toolkit with wallet and anvil support
+homepage: https://ethui.dev/
+url:
+  darwin_arm64: https://github.com/ethui/ethui/releases/download/v1.27.0/ethui_1.27.0_universal.dmg
+sha256:
+  darwin_arm64: 7a5eb15dfc66556ee6f2ec0480605db587ef74b6a4f9e9e028df73d296b90623
+artifacts:
+  app:
+    - ethui.app

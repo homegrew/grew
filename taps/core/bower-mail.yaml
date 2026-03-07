@@ -1,0 +1,23 @@
+name: bower-mail
+version: 1.1.1
+description: Curses terminal client for the Notmuch email system
+homepage: https://github.com/wangp/bower
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bower-mail/blobs/sha256:6c529955bcdd18e610441bd154d41cdbb03e164ea51aee9be99db4d4fa388553
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bower-mail/blobs/sha256:5def685cc6179746680820800b1f8d9639c59624b12f2e2f50bbe976fc7171d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bower-mail/blobs/sha256:a66cb33b65d91e09351fbc8b01b884bee0f70737756666cbfd7f93057d746954
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bower-mail/blobs/sha256:e14703850f860c54de0e5e13c331e6e267bb001e90893d0079f31bc319ce90b8
+sha256:
+  darwin_arm64: 6c529955bcdd18e610441bd154d41cdbb03e164ea51aee9be99db4d4fa388553
+  darwin_amd64: 5def685cc6179746680820800b1f8d9639c59624b12f2e2f50bbe976fc7171d8
+  linux_amd64: a66cb33b65d91e09351fbc8b01b884bee0f70737756666cbfd7f93057d746954
+  linux_arm64: e14703850f860c54de0e5e13c331e6e267bb001e90893d0079f31bc319ce90b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme
+  - ncurses
+  - notmuch

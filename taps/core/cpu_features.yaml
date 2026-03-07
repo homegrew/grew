@@ -1,0 +1,19 @@
+name: cpu_features
+version: 0.10.1
+description: Cross platform C99 library to get cpu features at runtime
+homepage: https://github.com/google/cpu_features
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpu_features/blobs/sha256:fd159612cdd2ab4419b292cc51c82f58faf76bf9914958b5e9349f35ab2c3ac5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpu_features/blobs/sha256:473045353940853796b7698a7fb015255acd4fba2721ae20440669a7cf6fed51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpu_features/blobs/sha256:9f4909cd169aaa589c4f32fb189f6457127355b2064689303bf96a720c120494
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpu_features/blobs/sha256:71a88007b4da1b4346f18463e45ab8722c8177f62155ba53fd7cd8451145ef1e
+sha256:
+  darwin_arm64: fd159612cdd2ab4419b292cc51c82f58faf76bf9914958b5e9349f35ab2c3ac5
+  darwin_amd64: 473045353940853796b7698a7fb015255acd4fba2721ae20440669a7cf6fed51
+  linux_amd64: 9f4909cd169aaa589c4f32fb189f6457127355b2064689303bf96a720c120494
+  linux_arm64: 71a88007b4da1b4346f18463e45ab8722c8177f62155ba53fd7cd8451145ef1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

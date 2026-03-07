@@ -1,0 +1,23 @@
+name: libxxf86vm
+version: 1.1.7
+description: "X.Org: XFree86-VidMode X extension"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxxf86vm/blobs/sha256:eecafb9b9780c7af7c07b4f50393d44a2b0f068bbdf7dfa1cfb1a8ada5362729
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxxf86vm/blobs/sha256:cdde3acf54e35e37cd9db3fd9dfb8068803d9fc447ffc0b51de8cadd29f45a9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxxf86vm/blobs/sha256:ad19e4a6ab9d92b97a090b9a5f725d23dca70095cc79e62d6134d7afec7407e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxxf86vm/blobs/sha256:5b0fa1889b9360a9b0cb8f7a5bac5a5842366d34701d1ae217b29a2794c4d7dc
+sha256:
+  darwin_arm64: eecafb9b9780c7af7c07b4f50393d44a2b0f068bbdf7dfa1cfb1a8ada5362729
+  darwin_amd64: cdde3acf54e35e37cd9db3fd9dfb8068803d9fc447ffc0b51de8cadd29f45a9f
+  linux_amd64: ad19e4a6ab9d92b97a090b9a5f725d23dca70095cc79e62d6134d7afec7407e3
+  linux_arm64: 5b0fa1889b9360a9b0cb8f7a5bac5a5842366d34701d1ae217b29a2794c4d7dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

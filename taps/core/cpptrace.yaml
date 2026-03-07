@@ -1,0 +1,22 @@
+name: cpptrace
+version: 1.0.4
+description: Simple, portable, and self-contained stacktrace library for C++11 and newer
+homepage: https://github.com/jeremy-rifkin/cpptrace
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpptrace/blobs/sha256:714c67c234ab6bd2171290fd8d6738e1a79baf2ac93f3fb9ddcba22f510b8492
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpptrace/blobs/sha256:6c3fa5f1410a4005238b36afa5c1e444f8e8716b540731dec1092a1a70dad5e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpptrace/blobs/sha256:14595a27d917a2b8d41000b814f5db6dfcadec7b7a0b6a6c3ecd5ac020114e3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpptrace/blobs/sha256:425e59efde03a6d782b628dda04c279f8d889e77af26cedf375dfb036c860c0f
+sha256:
+  darwin_arm64: 714c67c234ab6bd2171290fd8d6738e1a79baf2ac93f3fb9ddcba22f510b8492
+  darwin_amd64: 6c3fa5f1410a4005238b36afa5c1e444f8e8716b540731dec1092a1a70dad5e3
+  linux_amd64: 14595a27d917a2b8d41000b814f5db6dfcadec7b7a0b6a6c3ecd5ac020114e3e
+  linux_arm64: 425e59efde03a6d782b628dda04c279f8d889e77af26cedf375dfb036c860c0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dwarfutils
+  - zstd

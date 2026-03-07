@@ -1,0 +1,21 @@
+name: hindent
+version: 6.3.0
+description: Haskell pretty printer
+homepage: https://github.com/mihaimaruseac/hindent
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hindent/blobs/sha256:a9064e9f051f701b3838a050166eb32ff0d3b63658931e8d2e29ed6805b4a2e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hindent/blobs/sha256:abaaaad9675273a1b29ecac2a408e184828dcdcfa51a15c2fb1c5ef3faa28892
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hindent/blobs/sha256:9fc168486315c2d03459ab2025810d2c88c6e8268c0f1b3d938cfd7ea29d390e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hindent/blobs/sha256:e6c786888802e34042a222067dde33ae147d1d44ce79ec04be7547dc442068ca
+sha256:
+  darwin_arm64: a9064e9f051f701b3838a050166eb32ff0d3b63658931e8d2e29ed6805b4a2e2
+  darwin_amd64: abaaaad9675273a1b29ecac2a408e184828dcdcfa51a15c2fb1c5ef3faa28892
+  linux_amd64: 9fc168486315c2d03459ab2025810d2c88c6e8268c0f1b3d938cfd7ea29d390e
+  linux_arm64: e6c786888802e34042a222067dde33ae147d1d44ce79ec04be7547dc442068ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

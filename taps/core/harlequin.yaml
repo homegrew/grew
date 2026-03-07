@@ -1,0 +1,25 @@
+name: harlequin
+version: 2.5.1
+description: Easy, fast, and beautiful database client for the terminal
+homepage: https://harlequin.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/harlequin/blobs/sha256:85cc96ad842f761bf540e9aaf524ffff7b5bc1459550932155f211f462a5951e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/harlequin/blobs/sha256:ee8606be279605a5501840588136660ca467729f53f39c1392e4cc152f2bc983
+  linux_amd64: https://ghcr.io/v2/homebrew/core/harlequin/blobs/sha256:a77dc5f63acc868cc10d7a9ce47e11372973273fd2244f42d5dae5938e906ef4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/harlequin/blobs/sha256:ad1d4e57c51c7141529bd1b24cbcf50393c050802e6595c9b879911a0c18897e
+sha256:
+  darwin_arm64: 85cc96ad842f761bf540e9aaf524ffff7b5bc1459550932155f211f462a5951e
+  darwin_amd64: ee8606be279605a5501840588136660ca467729f53f39c1392e4cc152f2bc983
+  linux_amd64: a77dc5f63acc868cc10d7a9ce47e11372973273fd2244f42d5dae5938e906ef4
+  linux_arm64: ad1d4e57c51c7141529bd1b24cbcf50393c050802e6595c9b879911a0c18897e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-arrow
+  - libpq
+  - numpy
+  - python@3.14
+  - unixodbc

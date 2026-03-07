@@ -1,0 +1,11 @@
+name: makeracam
+version: 0.2.1.8
+description: CAM software for Makera CNCs
+homepage: https://www.makera.com/pages/software
+url:
+  darwin_arm64: https://github.com/MakeraInc/MakeraCAM/releases/download/v0.2.1.8/MakeraCAM_Mac_v0.2.1.8.dmg
+sha256:
+  darwin_arm64: 861ecc9f1604e91c5ecdb672fcd0ee837ce27adb5b1f79158f920d1924bbaf13
+artifacts:
+  app:
+    - MakeraCAM.app

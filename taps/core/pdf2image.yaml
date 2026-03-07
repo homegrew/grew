@@ -1,0 +1,22 @@
+name: pdf2image
+version: 0.53
+description: Convert PDFs to images
+homepage: https://code.google.com/p/pdf2image/
+license: FSFUL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdf2image/blobs/sha256:3441323b63b2667e68a90b70633c40813b10f0597933aadd8a46ff7a36413f8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdf2image/blobs/sha256:cbd829422ed134b39732586a0a439ee2a3322e27590eb5eb9503496e1dc8320a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdf2image/blobs/sha256:86497b2d47fec1c951e40a9ed363e8826ded682eaf6d36403ab394f0dc09e7ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdf2image/blobs/sha256:7b1588d8a5fb1c0dac620c9bebada39b426bea18c9310c9bea1de7586885a381
+sha256:
+  darwin_arm64: 3441323b63b2667e68a90b70633c40813b10f0597933aadd8a46ff7a36413f8a
+  darwin_amd64: cbd829422ed134b39732586a0a439ee2a3322e27590eb5eb9503496e1dc8320a
+  linux_amd64: 86497b2d47fec1c951e40a9ed363e8826ded682eaf6d36403ab394f0dc09e7ff
+  linux_arm64: 7b1588d8a5fb1c0dac620c9bebada39b426bea18c9310c9bea1de7586885a381
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - ghostscript

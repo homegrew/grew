@@ -1,0 +1,19 @@
+name: stuntman
+version: 1.2.16
+description: Implementation of the STUN protocol
+homepage: https://www.stunprotocol.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stuntman/blobs/sha256:edaf5c91bca97b2753c2c91faf0c174e2310e48c98ede3b6aa28f5d679ff4369
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stuntman/blobs/sha256:f7ebbf887c71acd20349ad10d69f4f0e4fd5106bdc2c42bc1d804b84dea42782
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stuntman/blobs/sha256:bddee00f936559705e2837cc56956efbc2569f98da27d7abb41640d7f87df7d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stuntman/blobs/sha256:cf40ac5709a4a0db7eee925acc32d0b2ca7e3a8b4dc3548314d3f2377060e1ec
+sha256:
+  darwin_arm64: edaf5c91bca97b2753c2c91faf0c174e2310e48c98ede3b6aa28f5d679ff4369
+  darwin_amd64: f7ebbf887c71acd20349ad10d69f4f0e4fd5106bdc2c42bc1d804b84dea42782
+  linux_amd64: bddee00f936559705e2837cc56956efbc2569f98da27d7abb41640d7f87df7d0
+  linux_arm64: cf40ac5709a4a0db7eee925acc32d0b2ca7e3a8b4dc3548314d3f2377060e1ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: hysteria
+version: 2.7.1
+description: "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
+homepage: https://hysteria.network/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hysteria/blobs/sha256:8749b2a53c3868a6c2693ed4f339ee62d72f1c94dffb76fafa5eebeadffc38af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hysteria/blobs/sha256:2e9339b6dfbbc93c37ec2da860a9cea19dac801136303867e0b204da7b281ad9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hysteria/blobs/sha256:77b70f530ca438284197d1d181cff3fb3c635918783d63cde9f1b7a20b94651f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hysteria/blobs/sha256:a514fd8872e5b7d0bce77b45b95e3e27b1912b39a154ecd061cf1ff44e16602f
+sha256:
+  darwin_arm64: 8749b2a53c3868a6c2693ed4f339ee62d72f1c94dffb76fafa5eebeadffc38af
+  darwin_amd64: 2e9339b6dfbbc93c37ec2da860a9cea19dac801136303867e0b204da7b281ad9
+  linux_amd64: 77b70f530ca438284197d1d181cff3fb3c635918783d63cde9f1b7a20b94651f
+  linux_arm64: a514fd8872e5b7d0bce77b45b95e3e27b1912b39a154ecd061cf1ff44e16602f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

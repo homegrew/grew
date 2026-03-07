@@ -1,0 +1,22 @@
+name: mpfi
+version: 1.5.4
+description: Multiple precision interval arithmetic library
+homepage: https://perso.ens-lyon.fr/nathalie.revol/software.html
+license: GPL-3.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpfi/blobs/sha256:d14d9dd673a7e6bdcb8b910766ad693f6f3be81aea82d329a4ceed79e90aea4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpfi/blobs/sha256:305c236ee8065a63a1f65a16375f7ac06863b0e0266fc9793b91c28f5147ad61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpfi/blobs/sha256:43395ab987d381a3f22eb91b2ce74c8a7d39623e0eac8a78f95d2e50b644b1cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpfi/blobs/sha256:9207b79383b311f8d1c89240bc6274793c3fdba17706b08bb018e5c4162138c6
+sha256:
+  darwin_arm64: d14d9dd673a7e6bdcb8b910766ad693f6f3be81aea82d329a4ceed79e90aea4e
+  darwin_amd64: 305c236ee8065a63a1f65a16375f7ac06863b0e0266fc9793b91c28f5147ad61
+  linux_amd64: 43395ab987d381a3f22eb91b2ce74c8a7d39623e0eac8a78f95d2e50b644b1cd
+  linux_arm64: 9207b79383b311f8d1c89240bc6274793c3fdba17706b08bb018e5c4162138c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr

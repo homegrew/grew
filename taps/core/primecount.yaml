@@ -1,0 +1,22 @@
+name: primecount
+version: 8.2
+description: Fast prime counting function program and C/C++ library
+homepage: https://github.com/kimwalisch/primecount
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/primecount/blobs/sha256:e5bafa9ed909a8f306433c3136eb0973b12c869854699a0b68b4f080b1754671
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/primecount/blobs/sha256:dc7d918669464ea47ed5a28d899acb222987b86f31973f447f28c52900f5fd78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/primecount/blobs/sha256:018799ca38a0df81b385891690be551cc705301e02e4a22a9ff6366759538e85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/primecount/blobs/sha256:caac747ff7853027853c52c240426d3d2c274a818ba73f494a4cd730be8065bf
+sha256:
+  darwin_arm64: e5bafa9ed909a8f306433c3136eb0973b12c869854699a0b68b4f080b1754671
+  darwin_amd64: dc7d918669464ea47ed5a28d899acb222987b86f31973f447f28c52900f5fd78
+  linux_amd64: 018799ca38a0df81b385891690be551cc705301e02e4a22a9ff6366759538e85
+  linux_arm64: caac747ff7853027853c52c240426d3d2c274a818ba73f494a4cd730be8065bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - primesieve
+  - libomp

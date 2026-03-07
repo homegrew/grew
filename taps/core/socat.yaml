@@ -1,0 +1,21 @@
+name: socat
+version: 1.8.1.1
+description: "SOcket CAT: netcat on steroids"
+homepage: http://www.dest-unreach.org/socat/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/socat/blobs/sha256:ac0c47bcebd304502db55e0a67b3fbca2af8b882c331f6f238f00f543c997ea6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/socat/blobs/sha256:00617f292b2d5e3887321fead711ee7a7de79b773829027f872f66e898ce4bb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/socat/blobs/sha256:3f5785c495d7e676ca4b2c34d16ad61363fb3c7efd5f2f7e2cc5e7bb1e413fa5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/socat/blobs/sha256:8516bb17bc2e9ff8382a3038ec2ad58c2d2198224cbc1601e0086adeb5bed764
+sha256:
+  darwin_arm64: ac0c47bcebd304502db55e0a67b3fbca2af8b882c331f6f238f00f543c997ea6
+  darwin_amd64: 00617f292b2d5e3887321fead711ee7a7de79b773829027f872f66e898ce4bb5
+  linux_amd64: 3f5785c495d7e676ca4b2c34d16ad61363fb3c7efd5f2f7e2cc5e7bb1e413fa5
+  linux_arm64: 8516bb17bc2e9ff8382a3038ec2ad58c2d2198224cbc1601e0086adeb5bed764
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

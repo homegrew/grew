@@ -1,0 +1,19 @@
+name: pipet
+version: 0.3.0
+description: Swiss-army tool for web scraping, made for hackers
+homepage: https://github.com/bjesus/pipet
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pipet/blobs/sha256:63abd2f8e1acdd4351fa4e9f87a98b41574785f4a841347110b6ab01b3037eb0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pipet/blobs/sha256:80d52f08edf8293bf7c71ae75dfff7e79df2575251bff9f6c9b5041a0168d8e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipet/blobs/sha256:524fe9b1d57b91baafd8ebad6440a9745e6659fdf95ddf2c956226f649ebbc1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipet/blobs/sha256:155b71857798f70e3829c1bbf5eb418530a7c97a6eb00c39d2685c41aaf0657f
+sha256:
+  darwin_arm64: 63abd2f8e1acdd4351fa4e9f87a98b41574785f4a841347110b6ab01b3037eb0
+  darwin_amd64: 80d52f08edf8293bf7c71ae75dfff7e79df2575251bff9f6c9b5041a0168d8e6
+  linux_amd64: 524fe9b1d57b91baafd8ebad6440a9745e6659fdf95ddf2c956226f649ebbc1f
+  linux_arm64: 155b71857798f70e3829c1bbf5eb418530a7c97a6eb00c39d2685c41aaf0657f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

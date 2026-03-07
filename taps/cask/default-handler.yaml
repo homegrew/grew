@@ -1,0 +1,11 @@
+name: default-handler
+version: 1.1.1,8
+description: Utility for changing default URL scheme handlers
+homepage: https://blog.edovia.com/2024/03/14/introducing-default-handler/
+url:
+  darwin_arm64: https://updates.edovia.com/com.edovia.Default-Handler/DefaultHandler_1.1.1b8.zip
+sha256:
+  darwin_arm64: f35f3a171f99adf337d7be762ba4627186c26519c17683ddf15776a151c17602
+artifacts:
+  app:
+    - Default Handler.app

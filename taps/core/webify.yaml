@@ -1,0 +1,19 @@
+name: webify
+version: 1.5.0
+description: Wrapper for shell commands as web services
+homepage: https://github.com/beefsack/webify
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webify/blobs/sha256:58f65712d5c510614847dbcd64d5e96fa1728a35de3f3a31438aa644ed02afe6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webify/blobs/sha256:ee516a9a392724609863042f96c8bf2ff8a8ad0ac941f89813a02ce746348765
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webify/blobs/sha256:9bfcea38ac0326979bfc1c189dd9bf3c19437a5d92c8cade9a41f3c1fe976d83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webify/blobs/sha256:ec575d86612a39bd2e879f5bc7d6ae16e8787670d66c8c23da15df7d09f8d378
+sha256:
+  darwin_arm64: 58f65712d5c510614847dbcd64d5e96fa1728a35de3f3a31438aa644ed02afe6
+  darwin_amd64: ee516a9a392724609863042f96c8bf2ff8a8ad0ac941f89813a02ce746348765
+  linux_amd64: 9bfcea38ac0326979bfc1c189dd9bf3c19437a5d92c8cade9a41f3c1fe976d83
+  linux_arm64: ec575d86612a39bd2e879f5bc7d6ae16e8787670d66c8c23da15df7d09f8d378
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

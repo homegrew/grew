@@ -1,0 +1,21 @@
+name: librttopo
+version: 1.1.0
+description: RT Topology Library
+homepage: https://git.osgeo.org/gitea/rttopo/librttopo
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librttopo/blobs/sha256:96402f9ebcae6c7b387f95565523e927a702cee02b90253b8fa0c1e654e3a4a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librttopo/blobs/sha256:e6e7886d1eb7273ee7d7b8745111f9d4eaccbc789138bcd0fb5b05ceb9883222
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librttopo/blobs/sha256:7d6d9cbbb4846b4a3147ef8be9041c2d155e2b9c8c3b7b3720b71ec78b472667
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librttopo/blobs/sha256:9665c432abd2195df0985819c583373e355ad0ca39d57fc05814e90194a4d745
+sha256:
+  darwin_arm64: 96402f9ebcae6c7b387f95565523e927a702cee02b90253b8fa0c1e654e3a4a5
+  darwin_amd64: e6e7886d1eb7273ee7d7b8745111f9d4eaccbc789138bcd0fb5b05ceb9883222
+  linux_amd64: 7d6d9cbbb4846b4a3147ef8be9041c2d155e2b9c8c3b7b3720b71ec78b472667
+  linux_arm64: 9665c432abd2195df0985819c583373e355ad0ca39d57fc05814e90194a4d745
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - geos

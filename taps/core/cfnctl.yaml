@@ -1,0 +1,19 @@
+name: cfnctl
+version: 0.1.1
+description: Brings the Terraform cli experience to AWS Cloudformation
+homepage: https://github.com/rogerwelin/cfnctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfnctl/blobs/sha256:16608ad765e5b6736d2470bf0473b1d2ed1aa6431f6446fe8a7f34f90f496364
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfnctl/blobs/sha256:09f3b8deeefea7efd4bbdc4f7abc993cf90e9c8791fd32bc45685bd290bc0372
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfnctl/blobs/sha256:4c656851efb6ce909bc879ba960c4d134c824d725909b01799dea6a29405cfe9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfnctl/blobs/sha256:0d041b39ff1b823af16f06c2e647a5c30d8d9ff0705aefb9791002e0a3bd953f
+sha256:
+  darwin_arm64: 16608ad765e5b6736d2470bf0473b1d2ed1aa6431f6446fe8a7f34f90f496364
+  darwin_amd64: 09f3b8deeefea7efd4bbdc4f7abc993cf90e9c8791fd32bc45685bd290bc0372
+  linux_amd64: 4c656851efb6ce909bc879ba960c4d134c824d725909b01799dea6a29405cfe9
+  linux_arm64: 0d041b39ff1b823af16f06c2e647a5c30d8d9ff0705aefb9791002e0a3bd953f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

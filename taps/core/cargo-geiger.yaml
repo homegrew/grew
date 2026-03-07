@@ -1,0 +1,21 @@
+name: cargo-geiger
+version: 0.13.0
+description: Detects usage of unsafe Rust in a Rust crate and its dependencies
+homepage: https://github.com/geiger-rs/cargo-geiger
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-geiger/blobs/sha256:88ec2b410e24b605256007ac5638b8a5a49d5ffb1a62e60393961e11971a1d42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-geiger/blobs/sha256:777ba436a9bb9416bcf1bdd7988a8da9ac1a4b50943990b7dd78f974b070889a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-geiger/blobs/sha256:991088f8555c7dabbe84f4519d8d4b527d14bc035f6db978da4a605efb9f1145
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-geiger/blobs/sha256:043847d1967ef34c4e55f3825c3498fa3f919ce919232316323bdcb3e3ed1e18
+sha256:
+  darwin_arm64: 88ec2b410e24b605256007ac5638b8a5a49d5ffb1a62e60393961e11971a1d42
+  darwin_amd64: 777ba436a9bb9416bcf1bdd7988a8da9ac1a4b50943990b7dd78f974b070889a
+  linux_amd64: 991088f8555c7dabbe84f4519d8d4b527d14bc035f6db978da4a605efb9f1145
+  linux_arm64: 043847d1967ef34c4e55f3825c3498fa3f919ce919232316323bdcb3e3ed1e18
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

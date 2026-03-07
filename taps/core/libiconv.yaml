@@ -1,0 +1,16 @@
+name: libiconv
+version: 1.18
+description: Conversion library
+homepage: https://www.gnu.org/software/libiconv/
+license: GPL-3.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libiconv/blobs/sha256:8a61991512d58131934103c9ca06ece31c6219c0fe30efb9cba93dbc95edea18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libiconv/blobs/sha256:9b5c0480b3c407b6b629e0f18f9e6888319c45fd6d9a87f1443b4baea9aa7577
+sha256:
+  darwin_arm64: 8a61991512d58131934103c9ca06ece31c6219c0fe30efb9cba93dbc95edea18
+  darwin_amd64: 9b5c0480b3c407b6b629e0f18f9e6888319c45fd6d9a87f1443b4baea9aa7577
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

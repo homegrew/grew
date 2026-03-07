@@ -1,0 +1,14 @@
+name: perforce
+version: 2025.2,2882317
+description: Version control
+homepage: https://www.perforce.com/
+url:
+  darwin_arm64: https://filehost.perforce.com/perforce/r25.2/bin.macosx12arm64/helix-core-server.tgz
+sha256:
+  darwin_arm64: c741f815458e175cd6dde0190e8474b90a3b00857cd544acbbf73b594a709435
+artifacts:
+  bin:
+    - p4
+    - p4broker
+    - p4d
+    - p4p

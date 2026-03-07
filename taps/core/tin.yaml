@@ -1,0 +1,23 @@
+name: tin
+version: 2.6.5
+description: Threaded, NNTP-, and spool-based UseNet newsreader
+homepage: http://www.tin.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tin/blobs/sha256:96069ba7501f4b095fa09d2cb6b60e6e3c613ca546422cf8c5cbac897947d1e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tin/blobs/sha256:5240d4c495d46cdcc73409c3ba63bb3a16244defa0cdc24174c2ac2baffe2b6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tin/blobs/sha256:31ab2a4d9691671a8b512319dc59c3cc4112ddb678a5b3079722fdec7cbd601e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tin/blobs/sha256:48098319c7de44f58c85885af2cede333bb309c9f663b86cf59f6635e86b92af
+sha256:
+  darwin_arm64: 96069ba7501f4b095fa09d2cb6b60e6e3c613ca546422cf8c5cbac897947d1e4
+  darwin_amd64: 5240d4c495d46cdcc73409c3ba63bb3a16244defa0cdc24174c2ac2baffe2b6b
+  linux_amd64: 31ab2a4d9691671a8b512319dc59c3cc4112ddb678a5b3079722fdec7cbd601e
+  linux_arm64: 48098319c7de44f58c85885af2cede333bb309c9f663b86cf59f6635e86b92af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2
+  - gettext
+  - libunistring

@@ -1,0 +1,22 @@
+name: evernote-backup
+version: 1.13.1
+description: "Backup & export all Evernote notes and notebooks"
+homepage: https://github.com/vzhd1701/evernote-backup
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evernote-backup/blobs/sha256:a2cd56aff30b3f5a29767f2bd5dbd630041b59f01faa236e1fd1c8e05d2f76bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evernote-backup/blobs/sha256:093929e8f1eda46f58cebb7b344c7d60ccc117e1a4b6d621d4f9345c208097cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evernote-backup/blobs/sha256:a1afd5db279d948b37096cb11383384d345f1a666ed9d4f2cf0154906798dc87
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evernote-backup/blobs/sha256:82d8dbbf369c581856bfdfc711f85d73f3c8e5e98d2b61d3508f1c0505b49582
+sha256:
+  darwin_arm64: a2cd56aff30b3f5a29767f2bd5dbd630041b59f01faa236e1fd1c8e05d2f76bb
+  darwin_amd64: 093929e8f1eda46f58cebb7b344c7d60ccc117e1a4b6d621d4f9345c208097cb
+  linux_amd64: a1afd5db279d948b37096cb11383384d345f1a666ed9d4f2cf0154906798dc87
+  linux_arm64: 82d8dbbf369c581856bfdfc711f85d73f3c8e5e98d2b61d3508f1c0505b49582
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

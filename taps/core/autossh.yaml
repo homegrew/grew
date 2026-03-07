@@ -1,0 +1,19 @@
+name: autossh
+version: 1.4g
+description: Automatically restart SSH sessions and tunnels
+homepage: https://www.harding.motd.ca/autossh/
+license: BSD-1-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autossh/blobs/sha256:33e051fb258b827ab535ba5909806f87dc63a82f3d3fe9117be1f3c0aa7f4045
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autossh/blobs/sha256:15ac495d0360f64bbd48a11967af2aab8f12b17b7250579653fd1e085e33feb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autossh/blobs/sha256:382150d095c1ca848c38eabfd93635ecf9868291ec5cb85bdae6a16a53dc7ea9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autossh/blobs/sha256:d60fa3c4409563c4ee150db9420c1690afd67a5ddc4b275164a388543b2d6e54
+sha256:
+  darwin_arm64: 33e051fb258b827ab535ba5909806f87dc63a82f3d3fe9117be1f3c0aa7f4045
+  darwin_amd64: 15ac495d0360f64bbd48a11967af2aab8f12b17b7250579653fd1e085e33feb7
+  linux_amd64: 382150d095c1ca848c38eabfd93635ecf9868291ec5cb85bdae6a16a53dc7ea9
+  linux_arm64: d60fa3c4409563c4ee150db9420c1690afd67a5ddc4b275164a388543b2d6e54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

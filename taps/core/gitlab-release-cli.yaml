@@ -1,0 +1,19 @@
+name: gitlab-release-cli
+version: 0.24.0
+description: Toolset to create, retrieve and update releases on GitLab
+homepage: https://gitlab.com/gitlab-org/release-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitlab-release-cli/blobs/sha256:ae973f1eb71e6e7adec764c889d3fa8a05ef399aef1674ec67919f52eccba9df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitlab-release-cli/blobs/sha256:5480d1281a3356e1ddb811a9b4a6634969286682e14366641166a30c150d8202
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitlab-release-cli/blobs/sha256:21aed32d1e61d02a7c6b3b5d111df239e576a3f5eeb82795ef150c5f3f8bc741
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitlab-release-cli/blobs/sha256:14c1c3d4f20395d7ccd252126c1db2517441269591cce2205645adb6ee33616b
+sha256:
+  darwin_arm64: ae973f1eb71e6e7adec764c889d3fa8a05ef399aef1674ec67919f52eccba9df
+  darwin_amd64: 5480d1281a3356e1ddb811a9b4a6634969286682e14366641166a30c150d8202
+  linux_amd64: 21aed32d1e61d02a7c6b3b5d111df239e576a3f5eeb82795ef150c5f3f8bc741
+  linux_arm64: 14c1c3d4f20395d7ccd252126c1db2517441269591cce2205645adb6ee33616b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

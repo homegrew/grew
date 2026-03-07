@@ -1,0 +1,21 @@
+name: ltex-ls
+version: 16.0.0
+description: LSP for LanguageTool with support for Latex, Markdown and Others
+homepage: https://valentjn.github.io/ltex/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ltex-ls/blobs/sha256:5d2dc1612c126df0a99920f428ae300efea2ad97902c12246abb3dbb190ab487
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ltex-ls/blobs/sha256:a41867cfd4839ddf272fb8725ebcfd4c4614874dff3b41d4762ff1bd4b179f68
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ltex-ls/blobs/sha256:fba7ce38f22bf78b00f6c297436db4bf134b1d81c1e9d0fb6352b464dc38fc1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ltex-ls/blobs/sha256:8f08e498833b5667fd9fb364169d817272f62dca9d1519da4d7c683c9f9cdc72
+sha256:
+  darwin_arm64: 5d2dc1612c126df0a99920f428ae300efea2ad97902c12246abb3dbb190ab487
+  darwin_amd64: a41867cfd4839ddf272fb8725ebcfd4c4614874dff3b41d4762ff1bd4b179f68
+  linux_amd64: fba7ce38f22bf78b00f6c297436db4bf134b1d81c1e9d0fb6352b464dc38fc1f
+  linux_arm64: 8f08e498833b5667fd9fb364169d817272f62dca9d1519da4d7c683c9f9cdc72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@21

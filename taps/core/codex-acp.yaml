@@ -1,0 +1,21 @@
+name: codex-acp
+version: 0.9.5
+description: "Use Codex from ACP-compatible clients such as Zed!"
+homepage: https://github.com/zed-industries/codex-acp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codex-acp/blobs/sha256:72ccd5d313035da642ff75d0f4af9112a2a737f03885f2fa1d5723754803d9dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codex-acp/blobs/sha256:0dc7296382b976e519fb39a3ecf1d121d8df4d1d2f5fcb0947bd368d92a9cb8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codex-acp/blobs/sha256:3ad7f4dcf3de465e7098e076693d40da0e91370516d11a9bf17a804b57f00c53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codex-acp/blobs/sha256:49cd30cfa6ca6393ee03e5724ecd472ca9de94e69ebf2795b19f7b764b873709
+sha256:
+  darwin_arm64: 72ccd5d313035da642ff75d0f4af9112a2a737f03885f2fa1d5723754803d9dd
+  darwin_amd64: 0dc7296382b976e519fb39a3ecf1d121d8df4d1d2f5fcb0947bd368d92a9cb8d
+  linux_amd64: 3ad7f4dcf3de465e7098e076693d40da0e91370516d11a9bf17a804b57f00c53
+  linux_arm64: 49cd30cfa6ca6393ee03e5724ecd472ca9de94e69ebf2795b19f7b764b873709
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

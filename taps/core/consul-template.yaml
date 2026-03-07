@@ -1,0 +1,19 @@
+name: consul-template
+version: 0.41.4
+description: Generic template rendering and notifications with Consul
+homepage: https://github.com/hashicorp/consul-template
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/consul-template/blobs/sha256:cd50e82ed464e77fc8a23cb0a5cfa54aa06521221bacc8dba0e3d7b3dbb7a091
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/consul-template/blobs/sha256:2076db783aec86f3e549c472edc21aaa7491c0b743725a26b561bf0268a73a6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/consul-template/blobs/sha256:6ecd0c5ca62803292ab51ef15111b01ad653591645256b5202f0b97e9a23b978
+  linux_arm64: https://ghcr.io/v2/homebrew/core/consul-template/blobs/sha256:b79ba9a0eb28221866fd3f1220ae6470783a4d381d03d01f9d95ed4ef687cb78
+sha256:
+  darwin_arm64: cd50e82ed464e77fc8a23cb0a5cfa54aa06521221bacc8dba0e3d7b3dbb7a091
+  darwin_amd64: 2076db783aec86f3e549c472edc21aaa7491c0b743725a26b561bf0268a73a6e
+  linux_amd64: 6ecd0c5ca62803292ab51ef15111b01ad653591645256b5202f0b97e9a23b978
+  linux_arm64: b79ba9a0eb28221866fd3f1220ae6470783a4d381d03d01f9d95ed4ef687cb78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

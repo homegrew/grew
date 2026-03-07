@@ -1,0 +1,11 @@
+name: quiet
+version: 7.0.0
+description: "Private, p2p alternative to Slack and Discord built on Tor & IPFS"
+homepage: https://tryquiet.org/
+url:
+  darwin_arm64: https://github.com/TryQuiet/quiet/releases/download/@quiet/desktop@7.0.0/Quiet-7.0.0.dmg
+sha256:
+  darwin_arm64: ed8d2f83d457d51b0b0731144b99a0a332a4c03f6dea7010fd9e8c534700308e
+artifacts:
+  app:
+    - Quiet.app

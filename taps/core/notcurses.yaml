@@ -1,0 +1,24 @@
+name: notcurses
+version: 3.0.17
+description: Blingful character graphics/TUI library
+homepage: https://nick-black.com/dankwiki/index.php/Notcurses
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/notcurses/blobs/sha256:b0b8b649a5a676859495f2061505cde8e7795e6d0be2a43133afd97f7843081d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/notcurses/blobs/sha256:140d9bfa2fd4c8654c96be30d3c4c513a7f24d2681d40868ce306ea13b689be2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/notcurses/blobs/sha256:57dea2e9fe2812b6028b6de3e2c7a4368248c3d3737538041c5047e30ace23ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/notcurses/blobs/sha256:fde4c010fb9bfa94f995ccb10f672d621cc0a704dd740bd7d643db6c0a86b82a
+sha256:
+  darwin_arm64: b0b8b649a5a676859495f2061505cde8e7795e6d0be2a43133afd97f7843081d
+  darwin_amd64: 140d9bfa2fd4c8654c96be30d3c4c513a7f24d2681d40868ce306ea13b689be2
+  linux_amd64: 57dea2e9fe2812b6028b6de3e2c7a4368248c3d3737538041c5047e30ace23ad
+  linux_arm64: fde4c010fb9bfa94f995ccb10f672d621cc0a704dd740bd7d643db6c0a86b82a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - libdeflate
+  - libunistring
+  - ncurses

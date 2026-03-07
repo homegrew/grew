@@ -1,0 +1,19 @@
+name: mint
+version: 0.18.0
+description: Dependency manager that installs and runs Swift command-line tool packages
+homepage: https://github.com/yonaskolb/Mint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mint/blobs/sha256:2b8ee3e9e0b9057b49327c202d96c8b713589098579e3c3f6fad275babe47808
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mint/blobs/sha256:c46cfdc50fbaf93e0881988ba995420b04bfca1fe3fe6f401e8acf7565ff1669
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mint/blobs/sha256:b8475fe55ddddff036a03d1cb6d255167b1c3418bcab0be6fe8e0b1801bcdc5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mint/blobs/sha256:4908cc3e06dccb23970b73cacd57d7984d813448d5322cad346a5960c2ab255a
+sha256:
+  darwin_arm64: 2b8ee3e9e0b9057b49327c202d96c8b713589098579e3c3f6fad275babe47808
+  darwin_amd64: c46cfdc50fbaf93e0881988ba995420b04bfca1fe3fe6f401e8acf7565ff1669
+  linux_amd64: b8475fe55ddddff036a03d1cb6d255167b1c3418bcab0be6fe8e0b1801bcdc5e
+  linux_arm64: 4908cc3e06dccb23970b73cacd57d7984d813448d5322cad346a5960c2ab255a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

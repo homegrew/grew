@@ -1,0 +1,22 @@
+name: s3cmd
+version: 2.4.0
+description: Command-line tool for the Amazon S3 service
+homepage: https://s3tools.org/s3cmd
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s3cmd/blobs/sha256:6aeb3a68ea12a0f0a2f8027d4f91d99e6552fa148533c440133a1d1f48c45028
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s3cmd/blobs/sha256:e75a71a49e2e70e1fa9028dc92bae05d58d14d808f5dbd23b7c46ed439002992
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s3cmd/blobs/sha256:c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s3cmd/blobs/sha256:c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c
+sha256:
+  darwin_arm64: 6aeb3a68ea12a0f0a2f8027d4f91d99e6552fa148533c440133a1d1f48c45028
+  darwin_amd64: e75a71a49e2e70e1fa9028dc92bae05d58d14d808f5dbd23b7c46ed439002992
+  linux_amd64: c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c
+  linux_arm64: c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - python@3.14

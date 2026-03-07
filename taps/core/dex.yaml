@@ -1,0 +1,19 @@
+name: dex
+version: 1.0
+description: Dextrous text editor
+homepage: https://github.com/tihirvon/dex
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dex/blobs/sha256:99cd1ca32c018d46a6f468a3baab876a0dd11153a5d766b58c9a3c5ad438f13e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dex/blobs/sha256:ab3bae4071dfea549c9ef469f8ddf8d3ccfde4ed5f32022a799319ebaf3e42ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dex/blobs/sha256:53f45193c090faaeefd2c6ca8a492f51af29d6b72f7a13eacb9650b6fffd46c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dex/blobs/sha256:d0e976083ba5b7bffc80bd67406135fc4dc08226ecfd3d2336f5e8bb39b634c9
+sha256:
+  darwin_arm64: 99cd1ca32c018d46a6f468a3baab876a0dd11153a5d766b58c9a3c5ad438f13e
+  darwin_amd64: ab3bae4071dfea549c9ef469f8ddf8d3ccfde4ed5f32022a799319ebaf3e42ba
+  linux_amd64: 53f45193c090faaeefd2c6ca8a492f51af29d6b72f7a13eacb9650b6fffd46c5
+  linux_arm64: d0e976083ba5b7bffc80bd67406135fc4dc08226ecfd3d2336f5e8bb39b634c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

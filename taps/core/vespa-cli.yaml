@@ -1,0 +1,19 @@
+name: vespa-cli
+version: 8.651.80
+description: Command-line tool for Vespa.ai
+homepage: https://vespa.ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vespa-cli/blobs/sha256:17080a79c216aa80fb4ae28fb94a42896978ff728c7c945ffef4c56cce5f8572
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vespa-cli/blobs/sha256:9d472675472f8621543d7dd492de50a83edd7b7d0a0310d5760faf1c41de2c70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vespa-cli/blobs/sha256:26f1621752cbc4259719257e7eb94fe02ca740301496c8500b716762d9d22fcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vespa-cli/blobs/sha256:7ad273eefcd7980f7ede0e9927dc7ce97007e846b85138b0e600356e81059664
+sha256:
+  darwin_arm64: 17080a79c216aa80fb4ae28fb94a42896978ff728c7c945ffef4c56cce5f8572
+  darwin_amd64: 9d472675472f8621543d7dd492de50a83edd7b7d0a0310d5760faf1c41de2c70
+  linux_amd64: 26f1621752cbc4259719257e7eb94fe02ca740301496c8500b716762d9d22fcf
+  linux_arm64: 7ad273eefcd7980f7ede0e9927dc7ce97007e846b85138b0e600356e81059664
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: tarsnap
+version: 1.0.41
+description: Online backups for the truly paranoid
+homepage: https://www.tarsnap.com/
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tarsnap/blobs/sha256:ca2b3013ba1c54f48150e5d0e7e14319e34c30dab2672ed07e5ed0ae892094a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tarsnap/blobs/sha256:3304b5c996c73844068ad9baef54cb66f93cb30abed8da61d0e1f58794ca7ab2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tarsnap/blobs/sha256:7053a34f26dfd83767bf485f74fafcf8c48aefc7270c66461342d4f4f4a3db6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tarsnap/blobs/sha256:6439740896ab865ec1ea55f3f00522288cd72cd4eae4c0f563c784c783ab3b7b
+sha256:
+  darwin_arm64: ca2b3013ba1c54f48150e5d0e7e14319e34c30dab2672ed07e5ed0ae892094a5
+  darwin_amd64: 3304b5c996c73844068ad9baef54cb66f93cb30abed8da61d0e1f58794ca7ab2
+  linux_amd64: 7053a34f26dfd83767bf485f74fafcf8c48aefc7270c66461342d4f4f4a3db6a
+  linux_arm64: 6439740896ab865ec1ea55f3f00522288cd72cd4eae4c0f563c784c783ab3b7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

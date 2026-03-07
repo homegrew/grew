@@ -1,0 +1,23 @@
+name: tern
+version: 2.12.1
+description: Software Bill of Materials (SBOM) tool
+homepage: https://github.com/tern-tools/tern
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tern/blobs/sha256:e46ade560dae11e2b9648e11376b4c52deea6dbd1bfe81be681d99dd62eeb4a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tern/blobs/sha256:d46ed204d49b0670c2de94063662bda2fd7d9e20e07bd24625053bbdcc3f8dd5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tern/blobs/sha256:89d5aaf7868a4a9149f232f8bb253252dad574563fb983b98343527ac4fd9762
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tern/blobs/sha256:9428d38d4d3b50c4f3ee0e9fc5799235f3a9215e5eec66b2c32716c1cfb5c0a3
+sha256:
+  darwin_arm64: e46ade560dae11e2b9648e11376b4c52deea6dbd1bfe81be681d99dd62eeb4a5
+  darwin_amd64: d46ed204d49b0670c2de94063662bda2fd7d9e20e07bd24625053bbdcc3f8dd5
+  linux_amd64: 89d5aaf7868a4a9149f232f8bb253252dad574563fb983b98343527ac4fd9762
+  linux_arm64: 9428d38d4d3b50c4f3ee0e9fc5799235f3a9215e5eec66b2c32716c1cfb5c0a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

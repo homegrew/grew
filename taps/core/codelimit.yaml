@@ -1,0 +1,23 @@
+name: codelimit
+version: 0.21.0
+description: Your Refactoring Alarm
+homepage: https://github.com/getcodelimit/codelimit
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codelimit/blobs/sha256:de65fb9f85f38054d30ce66eaadbcfe5ef6ba075c46948ebf99bd112b43e383c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codelimit/blobs/sha256:ba08062e856c430f4b3fd1fa5aa42212934a214a652fd6572d817dd801fa268b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codelimit/blobs/sha256:a9fea9adbd1e85370595eb41d018b9c8a726c7dfc8dd24039bf52b850b4fb5a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codelimit/blobs/sha256:818507befbc7eb2ae1d1794905d0f79001b853cfa807734c3ec5709bca8ca9d3
+sha256:
+  darwin_arm64: de65fb9f85f38054d30ce66eaadbcfe5ef6ba075c46948ebf99bd112b43e383c
+  darwin_amd64: ba08062e856c430f4b3fd1fa5aa42212934a214a652fd6572d817dd801fa268b
+  linux_amd64: a9fea9adbd1e85370595eb41d018b9c8a726c7dfc8dd24039bf52b850b4fb5a4
+  linux_arm64: 818507befbc7eb2ae1d1794905d0f79001b853cfa807734c3ec5709bca8ca9d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

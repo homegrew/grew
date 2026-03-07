@@ -1,0 +1,24 @@
+name: cadaver
+version: 0.28
+description: Command-line client for DAV
+homepage: https://notroj.github.io/cadaver/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cadaver/blobs/sha256:f2bf16931909ac6eec57117bf09175a2e0caa1082d2b6e2ae3b7a8245af29bc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cadaver/blobs/sha256:3149e1aad7c35c9a2d5bcde614fd25a8e53cfd8117c10044867ebcb827fe1cf9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cadaver/blobs/sha256:ea95ccc4cb3825ef2732ea6df7864c87016b40915fed14dac542bdff5a0b6868
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cadaver/blobs/sha256:d8a6f3859f5db0c9cd26fbf52e655392bf1a06ca6298aca1d0ddf45e85a53122
+sha256:
+  darwin_arm64: f2bf16931909ac6eec57117bf09175a2e0caa1082d2b6e2ae3b7a8245af29bc7
+  darwin_amd64: 3149e1aad7c35c9a2d5bcde614fd25a8e53cfd8117c10044867ebcb827fe1cf9
+  linux_amd64: ea95ccc4cb3825ef2732ea6df7864c87016b40915fed14dac542bdff5a0b6868
+  linux_arm64: d8a6f3859f5db0c9cd26fbf52e655392bf1a06ca6298aca1d0ddf45e85a53122
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neon
+  - openssl@3
+  - readline
+  - gettext

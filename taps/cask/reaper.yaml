@@ -1,0 +1,11 @@
+name: reaper
+version: 7.64
+description: Digital audio production application
+homepage: https://www.reaper.fm/
+url:
+  darwin_arm64: https://dlcf.reaper.fm/7.x/reaper764_universal.dmg
+sha256:
+  darwin_arm64: 4bc15bbaf08eefeb81d0dee01536050d83aad929655a07c0ca4503ba6c4c5afb
+artifacts:
+  app:
+    - REAPER.app

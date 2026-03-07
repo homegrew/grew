@@ -1,0 +1,19 @@
+name: dumpling
+version: 8.5.5
+description: Creating SQL dump from a MySQL-compatible database
+homepage: https://github.com/pingcap/tidb
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dumpling/blobs/sha256:5844a11f18582d626238f91d0a2aa0e5df9067b14b4ff6481d76751c49ca6bae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dumpling/blobs/sha256:4e379fc76aad5816a8b9bf3711a12c47c0b64e67de8271670b1467f9ba6ff623
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dumpling/blobs/sha256:cfc64eb60af9ecd9ba221226e92abf183890db5e55ebfca027681ec52c0a2700
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dumpling/blobs/sha256:be17bd146f8d0e5214ad39a850dc55d2f741bbcf495a968e3857024df44fd664
+sha256:
+  darwin_arm64: 5844a11f18582d626238f91d0a2aa0e5df9067b14b4ff6481d76751c49ca6bae
+  darwin_amd64: 4e379fc76aad5816a8b9bf3711a12c47c0b64e67de8271670b1467f9ba6ff623
+  linux_amd64: cfc64eb60af9ecd9ba221226e92abf183890db5e55ebfca027681ec52c0a2700
+  linux_arm64: be17bd146f8d0e5214ad39a850dc55d2f741bbcf495a968e3857024df44fd664
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

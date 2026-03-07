@@ -1,0 +1,22 @@
+name: cyclonedx-python
+version: 7.2.2
+description: Creates CycloneDX Software Bill of Materials (SBOM) from Python projects
+homepage: https://cyclonedx.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cyclonedx-python/blobs/sha256:03101e546a677ab28102a723d0bc9ce2f170ae967c0d5b580ca4fdfc612ddffb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cyclonedx-python/blobs/sha256:88cf4ff9c5aa27b23b61dd58f8748e118ea5fd4203c951374a4526e6d5bcf2c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cyclonedx-python/blobs/sha256:8f737773c701f27e17251bd49f9aa5d99b2c48abcaaea1a0151b96b9c23ff67f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cyclonedx-python/blobs/sha256:00576aeb1ce474573a6de55a1d51243080baa6b4ceec9b421095488ab5a8bb02
+sha256:
+  darwin_arm64: 03101e546a677ab28102a723d0bc9ce2f170ae967c0d5b580ca4fdfc612ddffb
+  darwin_amd64: 88cf4ff9c5aa27b23b61dd58f8748e118ea5fd4203c951374a4526e6d5bcf2c0
+  linux_amd64: 8f737773c701f27e17251bd49f9aa5d99b2c48abcaaea1a0151b96b9c23ff67f
+  linux_arm64: 00576aeb1ce474573a6de55a1d51243080baa6b4ceec9b421095488ab5a8bb02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - rpds-py

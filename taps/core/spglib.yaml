@@ -1,0 +1,19 @@
+name: spglib
+version: 2.7.0
+description: C library for finding and handling crystal symmetries
+homepage: https://spglib.readthedocs.io/en/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spglib/blobs/sha256:0ac52612168b066678114e398e0c280774a507fa7368dac07b1485b93c268846
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spglib/blobs/sha256:b04a116c09270ca9d4a648abb13330250b7131eeb5927453780af847dd50903b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spglib/blobs/sha256:79a41e046b7f33096acbbc6018b0e23885cd732501dbc0083aa1c77ea5abfcce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spglib/blobs/sha256:3af78dc77ef69efe7487239209ea4f4fb73d149dc03e8e140c89d71f91987b74
+sha256:
+  darwin_arm64: 0ac52612168b066678114e398e0c280774a507fa7368dac07b1485b93c268846
+  darwin_amd64: b04a116c09270ca9d4a648abb13330250b7131eeb5927453780af847dd50903b
+  linux_amd64: 79a41e046b7f33096acbbc6018b0e23885cd732501dbc0083aa1c77ea5abfcce
+  linux_arm64: 3af78dc77ef69efe7487239209ea4f4fb73d149dc03e8e140c89d71f91987b74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

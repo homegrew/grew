@@ -1,0 +1,30 @@
+name: klavaro
+version: 3.14
+description: Free touch typing tutor program
+homepage: https://klavaro.sourceforge.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/klavaro/blobs/sha256:1953be5367f25a7ff30e60797c10c98d1c7a5cf28911c512e4904faf5f9f9519
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/klavaro/blobs/sha256:9a3e25bfb9566643a127ceccd4b646b90cfbbe733f0416fcd0f8ad46f9e6759b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/klavaro/blobs/sha256:847abc58af56c8af7a36c95f7ea4a239906b0078b2fe39393750397c8c03db53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/klavaro/blobs/sha256:a42fad29e4aba488b46ffc11945cef3d1210d85efb853a3469b3b27e40f68a0f
+sha256:
+  darwin_arm64: 1953be5367f25a7ff30e60797c10c98d1c7a5cf28911c512e4904faf5f9f9519
+  darwin_amd64: 9a3e25bfb9566643a127ceccd4b646b90cfbbe733f0416fcd0f8ad46f9e6759b
+  linux_amd64: 847abc58af56c8af7a36c95f7ea4a239906b0078b2fe39393750397c8c03db53
+  linux_arm64: a42fad29e4aba488b46ffc11945cef3d1210d85efb853a3469b3b27e40f68a0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - glib
+  - gtk+3
+  - gtkdatabox
+  - pango
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz

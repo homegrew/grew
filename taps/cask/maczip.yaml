@@ -1,0 +1,11 @@
+name: maczip
+version: 2.4
+description: Utility to open, create and modify archive files
+homepage: https://ezip.awehunt.com/
+url:
+  darwin_arm64: https://cdn.awehunt.com/ezip/release/MacZip_V2.4.dmg
+sha256:
+  darwin_arm64: 4d5ab6cc2ca41415930d3d82decdff677591de53574bdda42f04c7a659915cde
+artifacts:
+  app:
+    - MacZip.app

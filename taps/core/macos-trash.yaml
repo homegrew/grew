@@ -1,0 +1,16 @@
+name: macos-trash
+version: 3.0.0
+description: Move files and folders to the trash
+homepage: https://github.com/sindresorhus/macos-trash
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macos-trash/blobs/sha256:91b9dff20bd5ab363fbd573dadf35f0b78410dfb275e77e3d77c1e424fa6cd3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macos-trash/blobs/sha256:7fe04e7f88a301551cf89a98f82e3178536c1b12b609bf9a846b06f10e3437df
+sha256:
+  darwin_arm64: 91b9dff20bd5ab363fbd573dadf35f0b78410dfb275e77e3d77c1e424fa6cd3e
+  darwin_amd64: 7fe04e7f88a301551cf89a98f82e3178536c1b12b609bf9a846b06f10e3437df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,19 @@
+name: iftop
+version: 1.0pre4
+description: "Display an interface's bandwidth usage"
+homepage: https://pdw.ex-parrot.com/iftop/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iftop/blobs/sha256:67c10b03293053b57eb788b632e71ecb2f4bb4eb56d5a2766b1838a654866413
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iftop/blobs/sha256:c8d45797f98dcb4ef91e762c716766de3da3c04b7c977300ea4e73ff34b8712d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iftop/blobs/sha256:eef5cd5b14c8b7b2e7964b39a3833a2cbe3253d93905157f92632c78555a8190
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iftop/blobs/sha256:74167e8ae57c728a312c3008a6039f7ef440bc59e0cd6f7a80db27a244697133
+sha256:
+  darwin_arm64: 67c10b03293053b57eb788b632e71ecb2f4bb4eb56d5a2766b1838a654866413
+  darwin_amd64: c8d45797f98dcb4ef91e762c716766de3da3c04b7c977300ea4e73ff34b8712d
+  linux_amd64: eef5cd5b14c8b7b2e7964b39a3833a2cbe3253d93905157f92632c78555a8190
+  linux_arm64: 74167e8ae57c728a312c3008a6039f7ef440bc59e0cd6f7a80db27a244697133
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

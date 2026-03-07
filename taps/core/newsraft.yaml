@@ -1,0 +1,21 @@
+name: newsraft
+version: 0.35
+description: Terminal feed reader
+homepage: https://codeberg.org/newsraft/newsraft
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/newsraft/blobs/sha256:3359d9c4fe6e8c481cb183cbf285db4dd79de23b3a62b3aaede24949673ec4a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/newsraft/blobs/sha256:5099cad517f5cfd2705c0e91e8dff754fbc51026cb32a8a511fda6e986053bbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/newsraft/blobs/sha256:d188302de5fed681da52c266c876d425418c44435624dbd790b384f31b20f13e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/newsraft/blobs/sha256:a837f6a4e8dc1b0cda26326ed191c520c4c0007b4aa65a225dac0ffe241621b8
+sha256:
+  darwin_arm64: 3359d9c4fe6e8c481cb183cbf285db4dd79de23b3a62b3aaede24949673ec4a6
+  darwin_amd64: 5099cad517f5cfd2705c0e91e8dff754fbc51026cb32a8a511fda6e986053bbd
+  linux_amd64: d188302de5fed681da52c266c876d425418c44435624dbd790b384f31b20f13e
+  linux_arm64: a837f6a4e8dc1b0cda26326ed191c520c4c0007b4aa65a225dac0ffe241621b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gumbo-parser

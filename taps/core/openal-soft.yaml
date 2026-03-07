@@ -1,0 +1,20 @@
+name: openal-soft
+version: 1.25.1
+description: Implementation of the OpenAL 3D audio API
+homepage: https://openal-soft.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openal-soft/blobs/sha256:83919a2e3ef9f755f0066d2df50e09bfaffdae8d07221f387862a9c3fe594813
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openal-soft/blobs/sha256:2c765d69fefa596eac8e5370092b84a693e6c078d901d69d801c192654cd87ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openal-soft/blobs/sha256:3bb84bd9af616c2189791b30b51914d2c60a941159bc7587a77b9934071a07e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openal-soft/blobs/sha256:583b33dc70f6b7fd7631b18a92cd109f789005e4bd91297e92ff5a539e458a9f
+sha256:
+  darwin_arm64: 83919a2e3ef9f755f0066d2df50e09bfaffdae8d07221f387862a9c3fe594813
+  darwin_amd64: 2c765d69fefa596eac8e5370092b84a693e6c078d901d69d801c192654cd87ab
+  linux_amd64: 3bb84bd9af616c2189791b30b51914d2c60a941159bc7587a77b9934071a07e4
+  linux_arm64: 583b33dc70f6b7fd7631b18a92cd109f789005e4bd91297e92ff5a539e458a9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

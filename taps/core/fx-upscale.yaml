@@ -1,0 +1,13 @@
+name: fx-upscale
+version: 1.2.6
+description: Metal-powered video upscaling
+homepage: https://github.com/finnvoor/fx-upscale
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fx-upscale/blobs/sha256:a0f620bda60b7d000408b66c42e1e96605035df1405052d68256cdcb56ef5406
+sha256:
+  darwin_arm64: a0f620bda60b7d000408b66c42e1e96605035df1405052d68256cdcb56ef5406
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

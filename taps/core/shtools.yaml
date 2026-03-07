@@ -1,0 +1,23 @@
+name: shtools
+version: 4.14.1
+description: Spherical Harmonic Tools
+homepage: https://shtools.github.io/SHTOOLS/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shtools/blobs/sha256:551f3742a534b688159c5b556212ff3af70f28358077e979597a0cc35389cbe1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shtools/blobs/sha256:9577ab0f56e7437427b62f14c349c426ef5175fcc863c15abce72ef3fb842c6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shtools/blobs/sha256:051f326f89c54321931c050881900955cfb9098004a554ad10921d34325b3a20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shtools/blobs/sha256:b9a8be3b4650a68496fef0e3a6b720ac3cc31bc74e1bb0c226382591a6866703
+sha256:
+  darwin_arm64: 551f3742a534b688159c5b556212ff3af70f28358077e979597a0cc35389cbe1
+  darwin_amd64: 9577ab0f56e7437427b62f14c349c426ef5175fcc863c15abce72ef3fb842c6f
+  linux_amd64: 051f326f89c54321931c050881900955cfb9098004a554ad10921d34325b3a20
+  linux_arm64: b9a8be3b4650a68496fef0e3a6b720ac3cc31bc74e1bb0c226382591a6866703
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - gcc
+  - openblas

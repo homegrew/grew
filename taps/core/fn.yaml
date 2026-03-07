@@ -1,0 +1,19 @@
+name: fn
+version: 0.6.48
+description: Command-line tool for the fn project
+homepage: https://fnproject.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fn/blobs/sha256:cf0d5e9b0d421a79554f945f35aff48c52da6af096ed8fb2befd474195b0c496
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fn/blobs/sha256:d91059eb771012797a4926e414817294c292254a8e7d36721ea48461dd847ebc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fn/blobs/sha256:f58cfa37abfed8c3b1bc4e0bea6ec71322a804ee7a038788e0825e0611c7e413
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fn/blobs/sha256:865d93df6f467635e6a8458986c1f54e58904ea9218e6537abc4591f3a5d80f4
+sha256:
+  darwin_arm64: cf0d5e9b0d421a79554f945f35aff48c52da6af096ed8fb2befd474195b0c496
+  darwin_amd64: d91059eb771012797a4926e414817294c292254a8e7d36721ea48461dd847ebc
+  linux_amd64: f58cfa37abfed8c3b1bc4e0bea6ec71322a804ee7a038788e0825e0611c7e413
+  linux_arm64: 865d93df6f467635e6a8458986c1f54e58904ea9218e6537abc4591f3a5d80f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

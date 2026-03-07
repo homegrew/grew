@@ -1,0 +1,19 @@
+name: revive
+version: 1.15.0
+description: Fast, configurable, extensible, flexible, and beautiful linter for Go
+homepage: https://revive.run
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/revive/blobs/sha256:4337a14af0e46666de7a19a6c2466a23228d4e62670cb52a7d89c62f9815ca2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/revive/blobs/sha256:6fb205ea00722af30605e0b0fa2c1fb0a5dc5b5a5374ff34296f3aa6b5711c30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/revive/blobs/sha256:e579ed73be078aecb76280cefb87bb80c966a98f255d499cbfb05c874754730f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/revive/blobs/sha256:ba3a985bd2e8ff34933a604a32dbd64fe29d70abc64c1fb3fe7f46894371c213
+sha256:
+  darwin_arm64: 4337a14af0e46666de7a19a6c2466a23228d4e62670cb52a7d89c62f9815ca2c
+  darwin_amd64: 6fb205ea00722af30605e0b0fa2c1fb0a5dc5b5a5374ff34296f3aa6b5711c30
+  linux_amd64: e579ed73be078aecb76280cefb87bb80c966a98f255d499cbfb05c874754730f
+  linux_arm64: ba3a985bd2e8ff34933a604a32dbd64fe29d70abc64c1fb3fe7f46894371c213
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

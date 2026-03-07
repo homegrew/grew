@@ -1,0 +1,19 @@
+name: fzf
+version: 0.70.0
+description: Command-line fuzzy finder written in Go
+homepage: https://github.com/junegunn/fzf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:a827b08efd0eaef42cb8e30b4b083d0add8ca9e1597074bd8b11cba175a5c62b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:1b484a00f87a8d3804de7acabba2c73bbf1584fde07d8e5ab61139d6364cfa2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:109c13f8befd3eec002ae9ad129f3b83c1fc01f8202a27cbd5de6dcdd958b55f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:b8ee3e993e819d52aa8684ef224126b5efeda16025557b9ee728e31e3d444019
+sha256:
+  darwin_arm64: a827b08efd0eaef42cb8e30b4b083d0add8ca9e1597074bd8b11cba175a5c62b
+  darwin_amd64: 1b484a00f87a8d3804de7acabba2c73bbf1584fde07d8e5ab61139d6364cfa2b
+  linux_amd64: 109c13f8befd3eec002ae9ad129f3b83c1fc01f8202a27cbd5de6dcdd958b55f
+  linux_arm64: b8ee3e993e819d52aa8684ef224126b5efeda16025557b9ee728e31e3d444019
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

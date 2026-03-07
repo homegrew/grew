@@ -1,0 +1,19 @@
+name: clblas
+version: 2.12
+description: Library containing BLAS functions written in OpenCL
+homepage: https://github.com/clMathLibraries/clBLAS
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clblas/blobs/sha256:e6c3905b2128cd5fece2722262321cf7b446cb8119cc0c96f33e87a0e534a9d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clblas/blobs/sha256:07b22046dd5a9005ac31e41f688afd50aea6284d716ec67ab304d587d0f40f9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clblas/blobs/sha256:afc8e13fe7b5d465840eac248a461975d7fd33b89ba74a238cb743c1ac6c7c1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clblas/blobs/sha256:b645eb13199f77329df60710febfdbf4ca896fab88df65e3c03b2c4e221fc675
+sha256:
+  darwin_arm64: e6c3905b2128cd5fece2722262321cf7b446cb8119cc0c96f33e87a0e534a9d1
+  darwin_amd64: 07b22046dd5a9005ac31e41f688afd50aea6284d716ec67ab304d587d0f40f9e
+  linux_amd64: afc8e13fe7b5d465840eac248a461975d7fd33b89ba74a238cb743c1ac6c7c1f
+  linux_arm64: b645eb13199f77329df60710febfdbf4ca896fab88df65e3c03b2c4e221fc675
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

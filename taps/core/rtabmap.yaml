@@ -1,0 +1,40 @@
+name: rtabmap
+version: 0.23.1
+description: Visual and LiDAR SLAM library and standalone application
+homepage: https://introlab.github.io/rtabmap
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtabmap/blobs/sha256:fb8ac77b86a442fb36bb09a2d95c578f7ae0bfc7c3fa62536aaefabb18c86998
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtabmap/blobs/sha256:0bfcfde8fab19a643afcd9a6937da6dfe46fe4a2acf02135f475990ed25eea4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtabmap/blobs/sha256:d239e486ed15db1b5170667fcf06d8365d39de3c577aafef60bc4a4a4b345fe2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtabmap/blobs/sha256:6ae741f4341e2ac209b7766acf95481d814c1c6ee340211b60669a099fb535ed
+sha256:
+  darwin_arm64: fb8ac77b86a442fb36bb09a2d95c578f7ae0bfc7c3fa62536aaefabb18c86998
+  darwin_amd64: 0bfcfde8fab19a643afcd9a6937da6dfe46fe4a2acf02135f475990ed25eea4a
+  linux_amd64: d239e486ed15db1b5170667fcf06d8365d39de3c577aafef60bc4a4a4b345fe2
+  linux_arm64: 6ae741f4341e2ac209b7766acf95481d814c1c6ee340211b60669a099fb535ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - g2o
+  - librealsense
+  - octomap
+  - opencv
+  - pcl
+  - pdal
+  - qtbase
+  - qtsvg
+  - sqlite
+  - vtk
+  - boost
+  - flann
+  - freetype
+  - glew
+  - libfreenect
+  - libomp
+  - libpcap
+  - libpng
+  - lz4
+  - qhull

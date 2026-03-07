@@ -1,0 +1,19 @@
+name: font-util
+version: 1.4.1
+description: "X.Org: Font package creation/installation utilities"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/font-util/blobs/sha256:1e81859b3665bc1d739ed7a6d7844fb00408b423a1a974dba3f4d53afcfdb15f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/font-util/blobs/sha256:4a762c78c7117532ef466b0f92cb9afe68067fdebecf6a702281f7daac8273be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/font-util/blobs/sha256:59a413b8a4634f05af50fa9f6be3ff29f872314bc644701ab17e5aaffe3d0361
+  linux_arm64: https://ghcr.io/v2/homebrew/core/font-util/blobs/sha256:aab35c752e837191fc9ae9aa898844651080a4ad9cf97e0b8047331671f04510
+sha256:
+  darwin_arm64: 1e81859b3665bc1d739ed7a6d7844fb00408b423a1a974dba3f4d53afcfdb15f
+  darwin_amd64: 4a762c78c7117532ef466b0f92cb9afe68067fdebecf6a702281f7daac8273be
+  linux_amd64: 59a413b8a4634f05af50fa9f6be3ff29f872314bc644701ab17e5aaffe3d0361
+  linux_arm64: aab35c752e837191fc9ae9aa898844651080a4ad9cf97e0b8047331671f04510
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

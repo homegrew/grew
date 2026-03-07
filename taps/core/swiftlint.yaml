@@ -1,0 +1,19 @@
+name: swiftlint
+version: 0.63.2
+description: Tool to enforce Swift style and conventions
+homepage: https://github.com/realm/SwiftLint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swiftlint/blobs/sha256:9ad276ba7ae7348568afe4a5bb626a9f051e0aac2f1c601764e2bf23d3947c49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swiftlint/blobs/sha256:6950d654181f4ba4c82ffb760c95b2e19cfed713ba924baef08f9a2a3ce3c9de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swiftlint/blobs/sha256:d8408453159a1aae0ea8abfc5bf3c8c3b3275891099130e13f96bfbd53a0bedb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swiftlint/blobs/sha256:6ef09967cda2dc493af8039f8b13731a22a4e09d6bfa761de608b5944eb01a96
+sha256:
+  darwin_arm64: 9ad276ba7ae7348568afe4a5bb626a9f051e0aac2f1c601764e2bf23d3947c49
+  darwin_amd64: 6950d654181f4ba4c82ffb760c95b2e19cfed713ba924baef08f9a2a3ce3c9de
+  linux_amd64: d8408453159a1aae0ea8abfc5bf3c8c3b3275891099130e13f96bfbd53a0bedb
+  linux_arm64: 6ef09967cda2dc493af8039f8b13731a22a4e09d6bfa761de608b5944eb01a96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

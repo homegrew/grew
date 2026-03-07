@@ -1,0 +1,19 @@
+name: libesedb
+version: 20240420
+description: Library and tools for Extensible Storage Engine (ESE) Database files
+homepage: https://github.com/libyal/libesedb
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libesedb/blobs/sha256:d36e22ce4b36711d56c57c00138f650d3820cc868b00943efe923b85ab475c93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libesedb/blobs/sha256:ca35e641f9022088e61dd568b98b928beac7247b6606a3dda6e5c925e6ded138
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libesedb/blobs/sha256:0de46fa5de3819ee8025595a4579aac0982dcac0345302d6293228258bdee6dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libesedb/blobs/sha256:07462cd653aae3448ae737536aebe605064ae7c75113dd467787fbc767ee8f3b
+sha256:
+  darwin_arm64: d36e22ce4b36711d56c57c00138f650d3820cc868b00943efe923b85ab475c93
+  darwin_amd64: ca35e641f9022088e61dd568b98b928beac7247b6606a3dda6e5c925e6ded138
+  linux_amd64: 0de46fa5de3819ee8025595a4579aac0982dcac0345302d6293228258bdee6dd
+  linux_arm64: 07462cd653aae3448ae737536aebe605064ae7c75113dd467787fbc767ee8f3b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

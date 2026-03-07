@@ -1,0 +1,19 @@
+name: buildifier
+version: 8.5.1
+description: Format bazel BUILD files with a standard convention
+homepage: https://github.com/bazelbuild/buildtools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buildifier/blobs/sha256:2e4e70597b1f5e45ce815ad0612fd3a93e046502a1e1e38116b7632a54bcf50d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buildifier/blobs/sha256:1f5af17e2918b7cb2eebdd8f7965115716a837fc398182d4bd9dc123ff1bd0cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buildifier/blobs/sha256:7db8cf0a58bbad28267d15f4d8219de4098115afd38180586e4491d555c72eea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buildifier/blobs/sha256:e6aa077cbc9cbdefc7e8bc774b9d1b9322b4dac24f035da678f3bd42a84690ad
+sha256:
+  darwin_arm64: 2e4e70597b1f5e45ce815ad0612fd3a93e046502a1e1e38116b7632a54bcf50d
+  darwin_amd64: 1f5af17e2918b7cb2eebdd8f7965115716a837fc398182d4bd9dc123ff1bd0cd
+  linux_amd64: 7db8cf0a58bbad28267d15f4d8219de4098115afd38180586e4491d555c72eea
+  linux_arm64: e6aa077cbc9cbdefc7e8bc774b9d1b9322b4dac24f035da678f3bd42a84690ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

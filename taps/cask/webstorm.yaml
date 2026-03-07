@@ -1,0 +1,13 @@
+name: webstorm
+version: 2025.3.3,253.31033.133
+description: JavaScript IDE
+homepage: https://www.jetbrains.com/webstorm/
+url:
+  darwin_arm64: https://download.jetbrains.com/webstorm/WebStorm-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: 434728b9851867eff9215b1f0004341a60c71cc57e3e3af108bcb7cacdd55e6c
+artifacts:
+  app:
+    - WebStorm.app
+  bin:
+    - webstorm

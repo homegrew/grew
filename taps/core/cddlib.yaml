@@ -1,0 +1,21 @@
+name: cddlib
+version: 0.94n
+description: Double description method for general polyhedral cones
+homepage: https://www.inf.ethz.ch/personal/fukudak/cdd_home/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cddlib/blobs/sha256:d689cf16077c6e02f851c4d2a45b73539c9ad2eab766ab75cbf3ab7c21b50267
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cddlib/blobs/sha256:e202144c2c75c4e40345c13eb02b22ea80fe6177b91fd5bfd04ad5546f19c351
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cddlib/blobs/sha256:ebc67a9e27992e7053430117534a76f2fce8ec8f91aad21418bc85bbdadd8fad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cddlib/blobs/sha256:30e583fcfb964d44dbad623186b1fe4e5376711d0b911bcc3ece78148878db07
+sha256:
+  darwin_arm64: d689cf16077c6e02f851c4d2a45b73539c9ad2eab766ab75cbf3ab7c21b50267
+  darwin_amd64: e202144c2c75c4e40345c13eb02b22ea80fe6177b91fd5bfd04ad5546f19c351
+  linux_amd64: ebc67a9e27992e7053430117534a76f2fce8ec8f91aad21418bc85bbdadd8fad
+  linux_arm64: 30e583fcfb964d44dbad623186b1fe4e5376711d0b911bcc3ece78148878db07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

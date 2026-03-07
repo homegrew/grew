@@ -1,0 +1,19 @@
+name: mantra
+version: 3.1
+description: Tool to hunt down API key leaks in JS files and pages
+homepage: https://github.com/brosck/mantra
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mantra/blobs/sha256:999c55a42a047937fb47e7f438f93041c3fcff6295ca273ef1fb812626fba325
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mantra/blobs/sha256:ad0307f0e619dcdeb51cf5ae48aa906e7cb1d97133beb064e506ebc47cf4aa0f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mantra/blobs/sha256:8c37cc06e99d712dc61fcc3b708660da350183a0e3bb83bf1273c2c822ca324a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mantra/blobs/sha256:d80b6e994904283deff4964a708498d2123a11b703dd4b41ef419fe7dc884504
+sha256:
+  darwin_arm64: 999c55a42a047937fb47e7f438f93041c3fcff6295ca273ef1fb812626fba325
+  darwin_amd64: ad0307f0e619dcdeb51cf5ae48aa906e7cb1d97133beb064e506ebc47cf4aa0f
+  linux_amd64: 8c37cc06e99d712dc61fcc3b708660da350183a0e3bb83bf1273c2c822ca324a
+  linux_arm64: d80b6e994904283deff4964a708498d2123a11b703dd4b41ef419fe7dc884504
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

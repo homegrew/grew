@@ -1,0 +1,25 @@
+name: putty
+version: 0.83
+description: Implementation of Telnet and SSH
+homepage: https://putty.software/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/putty/blobs/sha256:4435fad45783e698f8e87ac2a9c4a99aa0341cbe7b5a3f4f200cb8e8daa6852f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/putty/blobs/sha256:4578c6f0f69004373c7e7f99d7a5c11a46884bc361aa3817f02ea89a1a78c4bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/putty/blobs/sha256:7401a1dd4eeb3dd9d0ff69ac9c60f88a3174cc143bbc321803b604d00249e8e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/putty/blobs/sha256:d8ecc1dafeb153935ef7ea554f65257fa91109f67b1a569e92d750f07c4d6445
+sha256:
+  darwin_arm64: 4435fad45783e698f8e87ac2a9c4a99aa0341cbe7b5a3f4f200cb8e8daa6852f
+  darwin_amd64: 4578c6f0f69004373c7e7f99d7a5c11a46884bc361aa3817f02ea89a1a78c4bf
+  linux_amd64: 7401a1dd4eeb3dd9d0ff69ac9c60f88a3174cc143bbc321803b604d00249e8e2
+  linux_arm64: d8ecc1dafeb153935ef7ea554f65257fa91109f67b1a569e92d750f07c4d6445
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango

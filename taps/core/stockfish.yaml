@@ -1,0 +1,19 @@
+name: stockfish
+version: 18
+description: Strong open-source chess engine
+homepage: https://stockfishchess.org/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stockfish/blobs/sha256:9a5b9fefb7c4839d8c27bade2699cc10a567224b1c8eed3138cec4a8baa6766d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stockfish/blobs/sha256:013a1a1baf3128725386ad3828dfd47f1d5daf24ca923ea71b863a40c367b169
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stockfish/blobs/sha256:9bfa9ba2618027d9e2a95148008f77151521014fcc992e28799eda4299b9f63d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stockfish/blobs/sha256:70c600097da4cf8be54ce859cf65b060c8acb50f9b8d5e470e4fa99263352744
+sha256:
+  darwin_arm64: 9a5b9fefb7c4839d8c27bade2699cc10a567224b1c8eed3138cec4a8baa6766d
+  darwin_amd64: 013a1a1baf3128725386ad3828dfd47f1d5daf24ca923ea71b863a40c367b169
+  linux_amd64: 9bfa9ba2618027d9e2a95148008f77151521014fcc992e28799eda4299b9f63d
+  linux_arm64: 70c600097da4cf8be54ce859cf65b060c8acb50f9b8d5e470e4fa99263352744
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

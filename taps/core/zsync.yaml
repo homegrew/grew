@@ -1,0 +1,19 @@
+name: zsync
+version: 0.6.3
+description: File transfer program
+homepage: https://zsync.moria.org.uk/
+license: Artistic-2.0 AND Zlib AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zsync/blobs/sha256:7d4a20e196767857208a02278c4b0d5bf3378ae40402d1a67e948bf58cff27d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zsync/blobs/sha256:db75f0fa2e8fd02c11b06fb4a75ac536da7aa768f35df369137bf72d87490c36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zsync/blobs/sha256:61c5c7c1ea629dd5b29e60e554bd87b30528abe65e58730a8034c680c4eeb476
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zsync/blobs/sha256:3b1d6196e007d24f8416604d28391ed198a28f30fe72b98fc8d3623b4952b01c
+sha256:
+  darwin_arm64: 7d4a20e196767857208a02278c4b0d5bf3378ae40402d1a67e948bf58cff27d6
+  darwin_amd64: db75f0fa2e8fd02c11b06fb4a75ac536da7aa768f35df369137bf72d87490c36
+  linux_amd64: 61c5c7c1ea629dd5b29e60e554bd87b30528abe65e58730a8034c680c4eeb476
+  linux_arm64: 3b1d6196e007d24f8416604d28391ed198a28f30fe72b98fc8d3623b4952b01c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: kumactl
+version: 2.13.2
+description: Kuma control plane command-line utility
+homepage: https://kuma.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kumactl/blobs/sha256:9bb99618860b4c625af823c6bb19cb18033413a5363e37aba670320bfa8a4469
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kumactl/blobs/sha256:7fb6c546a372f8c5f16c30227d8c5b026fd2c5d6795e0e5157c960713205cbf7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kumactl/blobs/sha256:85b6e4fc70160d67b409c7873eba3948132c76a32e3de0770c6f774f2fae2199
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kumactl/blobs/sha256:586c3013ffefd9670319c135705a48f3ed85154bebfce80aca046e5fa2db6360
+sha256:
+  darwin_arm64: 9bb99618860b4c625af823c6bb19cb18033413a5363e37aba670320bfa8a4469
+  darwin_amd64: 7fb6c546a372f8c5f16c30227d8c5b026fd2c5d6795e0e5157c960713205cbf7
+  linux_amd64: 85b6e4fc70160d67b409c7873eba3948132c76a32e3de0770c6f774f2fae2199
+  linux_arm64: 586c3013ffefd9670319c135705a48f3ed85154bebfce80aca046e5fa2db6360
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

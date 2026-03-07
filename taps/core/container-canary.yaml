@@ -1,0 +1,19 @@
+name: container-canary
+version: 0.5.0
+description: Test and validate container requirements against versioned manifests
+homepage: https://github.com/NVIDIA/container-canary
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/container-canary/blobs/sha256:fcbdae7844f8bce0c68e61297e385395bf4a2d7796ad9006a339b7c981d71ac1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/container-canary/blobs/sha256:578d69b9d161431ab116310231cc67d468c2e2926a8f2b93530647a797070cea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/container-canary/blobs/sha256:5dcb359196033e637aafe4cedcdf69237e76307ba651ce1a8fe449c468ec5b40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/container-canary/blobs/sha256:efa81b38e25db9d6a96122fc20e2f92ee6e5330fea75397b72c9780b117c2a2e
+sha256:
+  darwin_arm64: fcbdae7844f8bce0c68e61297e385395bf4a2d7796ad9006a339b7c981d71ac1
+  darwin_amd64: 578d69b9d161431ab116310231cc67d468c2e2926a8f2b93530647a797070cea
+  linux_amd64: 5dcb359196033e637aafe4cedcdf69237e76307ba651ce1a8fe449c468ec5b40
+  linux_arm64: efa81b38e25db9d6a96122fc20e2f92ee6e5330fea75397b72c9780b117c2a2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

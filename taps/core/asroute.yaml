@@ -1,0 +1,19 @@
+name: asroute
+version: 0.1.0
+description: CLI to interpret traceroute -a output to show AS names traversed
+homepage: https://github.com/stevenpack/asroute
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asroute/blobs/sha256:c6742a4381bdb0de6f208dfcaba3e95ca02ffa9c7ff2263ed492ac082af55d24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asroute/blobs/sha256:02dbd3f936395cec14d177103c5d3d810421859e3a25d903ab83955034fe97f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asroute/blobs/sha256:d188308819d803382363c7a89e9aa531721a65c05fdba1092b4e08791caa4254
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asroute/blobs/sha256:4dcb080985610f556b9a60a133f1f22176456cd94bbb898acd08461c1f6cbab9
+sha256:
+  darwin_arm64: c6742a4381bdb0de6f208dfcaba3e95ca02ffa9c7ff2263ed492ac082af55d24
+  darwin_amd64: 02dbd3f936395cec14d177103c5d3d810421859e3a25d903ab83955034fe97f6
+  linux_amd64: d188308819d803382363c7a89e9aa531721a65c05fdba1092b4e08791caa4254
+  linux_arm64: 4dcb080985610f556b9a60a133f1f22176456cd94bbb898acd08461c1f6cbab9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

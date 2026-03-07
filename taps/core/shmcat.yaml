@@ -1,0 +1,19 @@
+name: shmcat
+version: 1.9
+description: Tool that dumps shared memory segments (System V and POSIX)
+homepage: https://shmcat.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shmcat/blobs/sha256:3d2215296ac7593c43a7ae9fb164cff3b11804dc7c0ec1b20af35397701a3b2d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shmcat/blobs/sha256:406f35b9aa4941ea2324ae88feb143a0591442bcf0f5c66d7a85e2bfa9ca52d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shmcat/blobs/sha256:ccb601cd0dfebcb5b7633bf1e8610ba8b1a3858b67feb9848020a3ad1152e780
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shmcat/blobs/sha256:08d6b2ad911eb82d4426537e8958ea7e8e8fe408fa3c9041dde2a14f710b9dfe
+sha256:
+  darwin_arm64: 3d2215296ac7593c43a7ae9fb164cff3b11804dc7c0ec1b20af35397701a3b2d
+  darwin_amd64: 406f35b9aa4941ea2324ae88feb143a0591442bcf0f5c66d7a85e2bfa9ca52d7
+  linux_amd64: ccb601cd0dfebcb5b7633bf1e8610ba8b1a3858b67feb9848020a3ad1152e780
+  linux_arm64: 08d6b2ad911eb82d4426537e8958ea7e8e8fe408fa3c9041dde2a14f710b9dfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

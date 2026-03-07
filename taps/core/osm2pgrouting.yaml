@@ -1,0 +1,25 @@
+name: osm2pgrouting
+version: 3.0.0
+description: Import OSM data into pgRouting database
+homepage: https://pgrouting.org/docs/tools/osm2pgrouting.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osm2pgrouting/blobs/sha256:a91a2713349eee362e0573e68b3ec50eb81b9f9cfcb2eef36b9e487df9311da5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osm2pgrouting/blobs/sha256:dabb062d43c2eb3c333325fc23e21c0c8ef4f10cf1cc25702fea5ef6971a3479
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osm2pgrouting/blobs/sha256:a4f6bed7ff0a1a0bfffc5c4a25a5e5874cb5fbad7c151ec861916bd8bf63d70c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osm2pgrouting/blobs/sha256:6ca30d07f2c57c79fe534fe378a27df5be505ee58f30abb0295e5985650dbb6b
+sha256:
+  darwin_arm64: a91a2713349eee362e0573e68b3ec50eb81b9f9cfcb2eef36b9e487df9311da5
+  darwin_amd64: dabb062d43c2eb3c333325fc23e21c0c8ef4f10cf1cc25702fea5ef6971a3479
+  linux_amd64: a4f6bed7ff0a1a0bfffc5c4a25a5e5874cb5fbad7c151ec861916bd8bf63d70c
+  linux_arm64: 6ca30d07f2c57c79fe534fe378a27df5be505ee58f30abb0295e5985650dbb6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - libpq
+  - libpqxx
+  - pgrouting
+  - postgis

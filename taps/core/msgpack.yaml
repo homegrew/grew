@@ -1,0 +1,19 @@
+name: msgpack
+version: 6.1.0
+description: Library for a binary-based efficient data interchange format
+homepage: https://msgpack.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msgpack/blobs/sha256:5a412a93e8367e656022e5c0810632cba0d5c924e1cdf5f5bc64f1a0501a6aa9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msgpack/blobs/sha256:f8a10c653f0e071f725866c790eebef4161f4c172315388aefdada07682c46bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msgpack/blobs/sha256:95d7d9a41f1c13c5ce0e1a2ec77f119a3b55e2ad88f0f98d3e5a04d323896171
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msgpack/blobs/sha256:07097acd7e8f4e885cf3917b684a45721344db7aa38edea9ad01c8c6acdbe141
+sha256:
+  darwin_arm64: 5a412a93e8367e656022e5c0810632cba0d5c924e1cdf5f5bc64f1a0501a6aa9
+  darwin_amd64: f8a10c653f0e071f725866c790eebef4161f4c172315388aefdada07682c46bd
+  linux_amd64: 95d7d9a41f1c13c5ce0e1a2ec77f119a3b55e2ad88f0f98d3e5a04d323896171
+  linux_arm64: 07097acd7e8f4e885cf3917b684a45721344db7aa38edea9ad01c8c6acdbe141
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libzzip
+version: 0.13.80
+description: Library providing read access on ZIP-archives
+homepage: https://github.com/gdraheim/zziplib
+license: LGPL-2.0-or-later OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libzzip/blobs/sha256:69735dbc14d4c13a8f0c66f8dd6012e2f9618a79033d87a899cac0c84e31cf22
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libzzip/blobs/sha256:ea36297cb31148dec501489f673b73bd6975582c6ceab0cef2c1958c02a0bfad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libzzip/blobs/sha256:893de6dc5addc31b890f9815d24a1f4f1fa4dfc4a497132ecc12f224c205e4de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libzzip/blobs/sha256:4e9eb837697a4f0bbaf369811bf8a58f0598c333886438a3ed5934b163f0cb99
+sha256:
+  darwin_arm64: 69735dbc14d4c13a8f0c66f8dd6012e2f9618a79033d87a899cac0c84e31cf22
+  darwin_amd64: ea36297cb31148dec501489f673b73bd6975582c6ceab0cef2c1958c02a0bfad
+  linux_amd64: 893de6dc5addc31b890f9815d24a1f4f1fa4dfc4a497132ecc12f224c205e4de
+  linux_arm64: 4e9eb837697a4f0bbaf369811bf8a58f0598c333886438a3ed5934b163f0cb99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

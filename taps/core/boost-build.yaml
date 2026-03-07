@@ -1,0 +1,19 @@
+name: boost-build
+version: 1.90.0
+description: C++ build system
+homepage: https://www.boost.org/build/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boost-build/blobs/sha256:d99b2722089128220de57924c1cc3b92aa9d2aaad47ad94e4653ea4a0e76db3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boost-build/blobs/sha256:0d2954beea42cc8679ac98500ec9d9aee4e2b51797598ee7c68581cea310a82a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boost-build/blobs/sha256:b899989a117bc0a5c9779703517038c4e5af07656ffdbf0b8a8c176943ad49f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boost-build/blobs/sha256:7c70e6871a6d978fa90d943e0502639ac738a5dd1ab2428ff84449aacd9cbe6d
+sha256:
+  darwin_arm64: d99b2722089128220de57924c1cc3b92aa9d2aaad47ad94e4653ea4a0e76db3e
+  darwin_amd64: 0d2954beea42cc8679ac98500ec9d9aee4e2b51797598ee7c68581cea310a82a
+  linux_amd64: b899989a117bc0a5c9779703517038c4e5af07656ffdbf0b8a8c176943ad49f2
+  linux_arm64: 7c70e6871a6d978fa90d943e0502639ac738a5dd1ab2428ff84449aacd9cbe6d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

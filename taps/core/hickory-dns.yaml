@@ -1,0 +1,19 @@
+name: hickory-dns
+version: 0.25.2
+description: Rust based DNS client, server, and resolver
+homepage: https://github.com/hickory-dns/hickory-dns
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hickory-dns/blobs/sha256:00338c97c57b343444b4d6383b5f4537a74ce7eefe7267699773bf176697121a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hickory-dns/blobs/sha256:93208fe97224110bb8ff4638f3ee46936701f6a25d219e8b85a0b08224aaa343
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hickory-dns/blobs/sha256:d5a06249c3bc754dac00f8f5924b864dd2658476c309d82c38a82b6ddefee282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hickory-dns/blobs/sha256:cffb447b25434f6d148933f632a8445b5dfbcaf5208f195707b21348be3ad0ef
+sha256:
+  darwin_arm64: 00338c97c57b343444b4d6383b5f4537a74ce7eefe7267699773bf176697121a
+  darwin_amd64: 93208fe97224110bb8ff4638f3ee46936701f6a25d219e8b85a0b08224aaa343
+  linux_amd64: d5a06249c3bc754dac00f8f5924b864dd2658476c309d82c38a82b6ddefee282
+  linux_arm64: cffb447b25434f6d148933f632a8445b5dfbcaf5208f195707b21348be3ad0ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

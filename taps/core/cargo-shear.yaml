@@ -1,0 +1,19 @@
+name: cargo-shear
+version: 1.9.1
+description: Detect and remove unused dependencies from `Cargo.toml` in Rust projects
+homepage: https://github.com/Boshen/cargo-shear
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-shear/blobs/sha256:18024fdd034df07f4f212e1e96eed38cbf907cf8fa4c23936d7c9968a4110175
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-shear/blobs/sha256:23cf9e4cb6f815e64be3376a35c344a412a277bd98c01cb7d19395f84d809c4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-shear/blobs/sha256:afca1a869aff37054ca4ebe855200c30785ada31b456be07198dbc85e40908b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-shear/blobs/sha256:67f0ff8184e34a1604b931c57c132e56761f181ce07e602afa640ea57b7254ce
+sha256:
+  darwin_arm64: 18024fdd034df07f4f212e1e96eed38cbf907cf8fa4c23936d7c9968a4110175
+  darwin_amd64: 23cf9e4cb6f815e64be3376a35c344a412a277bd98c01cb7d19395f84d809c4a
+  linux_amd64: afca1a869aff37054ca4ebe855200c30785ada31b456be07198dbc85e40908b4
+  linux_arm64: 67f0ff8184e34a1604b931c57c132e56761f181ce07e602afa640ea57b7254ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

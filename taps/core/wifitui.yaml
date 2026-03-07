@@ -1,0 +1,19 @@
+name: wifitui
+version: 0.10.0
+description: Fast featureful friendly wifi terminal UI
+homepage: https://github.com/shazow/wifitui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wifitui/blobs/sha256:0e2791a7bddacd152a1091695170b243851da70d59e260ff8ac4c8babc5ce903
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wifitui/blobs/sha256:10f4706fcd36c6289ec2220c4d106a6c1ddb750ec36162c5cc973d4872dc061e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wifitui/blobs/sha256:402b9c5aeca965c896321621037dbc2bb1a90c177ae735a5a4f55685e3272578
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wifitui/blobs/sha256:96e7de0d2d8bc89e9913306a60e0c9706a2a76254acc5a21768753f77ed16bd1
+sha256:
+  darwin_arm64: 0e2791a7bddacd152a1091695170b243851da70d59e260ff8ac4c8babc5ce903
+  darwin_amd64: 10f4706fcd36c6289ec2220c4d106a6c1ddb750ec36162c5cc973d4872dc061e
+  linux_amd64: 402b9c5aeca965c896321621037dbc2bb1a90c177ae735a5a4f55685e3272578
+  linux_arm64: 96e7de0d2d8bc89e9913306a60e0c9706a2a76254acc5a21768753f77ed16bd1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

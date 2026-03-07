@@ -1,0 +1,17 @@
+name: device-mapper
+version: 2.03.38
+description: Userspace library and tools for logical volume management
+homepage: https://sourceware.org/dm
+license: LGPL-2.1-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/device-mapper/blobs/sha256:386ed70dd25c7a97c1a66f46fc9c328c5292988542da6330f3e56aee2771a389
+  linux_arm64: https://ghcr.io/v2/homebrew/core/device-mapper/blobs/sha256:d2aee4bf5e1d751dc34b70f7f66c1e099d7c0de5aa7b11c4c61839d128ba17b7
+sha256:
+  linux_amd64: 386ed70dd25c7a97c1a66f46fc9c328c5292988542da6330f3e56aee2771a389
+  linux_arm64: d2aee4bf5e1d751dc34b70f7f66c1e099d7c0de5aa7b11c4c61839d128ba17b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libaio

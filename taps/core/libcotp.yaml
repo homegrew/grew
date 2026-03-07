@@ -1,0 +1,21 @@
+name: libcotp
+version: 4.0.0
+description: C library that generates TOTP and HOTP
+homepage: https://github.com/paolostivanin/libcotp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcotp/blobs/sha256:366cde6e9830afd63b98a7072b8944c2ffd884538fdfb7b2a7654a19ce92940d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcotp/blobs/sha256:b0c06d774fd8497727ff3d2c817cc9c79a030dbf4dc95fab77bbe8b22b389659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcotp/blobs/sha256:00d8f4381f2cf656c98d513bdb3a68212b5222ed529c7726876b9f14c9fb5fa7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcotp/blobs/sha256:339708868c22ab1e04a054e2d3fa6b97101f89831cb82b30adc992194b63f1b6
+sha256:
+  darwin_arm64: 366cde6e9830afd63b98a7072b8944c2ffd884538fdfb7b2a7654a19ce92940d
+  darwin_amd64: b0c06d774fd8497727ff3d2c817cc9c79a030dbf4dc95fab77bbe8b22b389659
+  linux_amd64: 00d8f4381f2cf656c98d513bdb3a68212b5222ed529c7726876b9f14c9fb5fa7
+  linux_arm64: 339708868c22ab1e04a054e2d3fa6b97101f89831cb82b30adc992194b63f1b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt

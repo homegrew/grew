@@ -1,0 +1,19 @@
+name: json-c
+version: 0.18
+description: JSON parser for C
+homepage: https://github.com/json-c/json-c/wiki
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/json-c/blobs/sha256:bb064fc1c259000bed8cc895e41a429a1afec18235e37fc32e9d0711d4d30b80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/json-c/blobs/sha256:9630b473e74aa113e050b6ba4d3760d3f0d7c67c6460855217b312c597253eea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/json-c/blobs/sha256:6afd63b22756b317e0dd21aa71644f47ec11996366bc60c8d5c9306f87044caa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/json-c/blobs/sha256:2e3fe7e9e1412e97926ce0716633d5f7ee5f8f22de5f9d59cbb31900b4cd6c46
+sha256:
+  darwin_arm64: bb064fc1c259000bed8cc895e41a429a1afec18235e37fc32e9d0711d4d30b80
+  darwin_amd64: 9630b473e74aa113e050b6ba4d3760d3f0d7c67c6460855217b312c597253eea
+  linux_amd64: 6afd63b22756b317e0dd21aa71644f47ec11996366bc60c8d5c9306f87044caa
+  linux_arm64: 2e3fe7e9e1412e97926ce0716633d5f7ee5f8f22de5f9d59cbb31900b4cd6c46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

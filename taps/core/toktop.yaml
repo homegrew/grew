@@ -1,0 +1,19 @@
+name: toktop
+version: 0.1.5
+description: LLM usage monitor in terminal
+homepage: https://github.com/htin1/toktop
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toktop/blobs/sha256:81b60c4db8d8e71b854343dce34ad15cb3a4d218c7c820ec7a42e6752d3524a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toktop/blobs/sha256:a85dbdc95d247db1c715d22f3ed796e5f8b9f766f6675eec437061f9ee1ce55a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toktop/blobs/sha256:5ea37e348919685e3147df282f19caf6a07f3b6d13f8a1e7142a8e60adacebdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toktop/blobs/sha256:c79110b2d6f8b06be709551489dc9560e49c12f488e55807b96445b2ff0fd03a
+sha256:
+  darwin_arm64: 81b60c4db8d8e71b854343dce34ad15cb3a4d218c7c820ec7a42e6752d3524a2
+  darwin_amd64: a85dbdc95d247db1c715d22f3ed796e5f8b9f766f6675eec437061f9ee1ce55a
+  linux_amd64: 5ea37e348919685e3147df282f19caf6a07f3b6d13f8a1e7142a8e60adacebdf
+  linux_arm64: c79110b2d6f8b06be709551489dc9560e49c12f488e55807b96445b2ff0fd03a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

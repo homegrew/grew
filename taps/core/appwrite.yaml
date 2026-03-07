@@ -1,0 +1,21 @@
+name: appwrite
+version: 14.0.1
+description: Command-line tool for Appwrite
+homepage: https://appwrite.io
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/appwrite/blobs/sha256:5badbe6341c662802092b9e42c9d8783d0b30570556c90c257d7924e978a492b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/appwrite/blobs/sha256:d500cba193197a3fe69988274d7138fe3c5809be4648c6add4c41c08f535edfa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/appwrite/blobs/sha256:0f01b52a85e4b96a956f8d186097fda3a799f93791a2be2aaee1d72f2b70fe28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/appwrite/blobs/sha256:0f01b52a85e4b96a956f8d186097fda3a799f93791a2be2aaee1d72f2b70fe28
+sha256:
+  darwin_arm64: 5badbe6341c662802092b9e42c9d8783d0b30570556c90c257d7924e978a492b
+  darwin_amd64: d500cba193197a3fe69988274d7138fe3c5809be4648c6add4c41c08f535edfa
+  linux_amd64: 0f01b52a85e4b96a956f8d186097fda3a799f93791a2be2aaee1d72f2b70fe28
+  linux_arm64: 0f01b52a85e4b96a956f8d186097fda3a799f93791a2be2aaee1d72f2b70fe28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

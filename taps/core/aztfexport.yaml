@@ -1,0 +1,19 @@
+name: aztfexport
+version: 0.19.0
+description: Bring your existing Azure resources under the management of Terraform
+homepage: https://azure.github.io/aztfexport/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aztfexport/blobs/sha256:17d6ac76357f0d14269f333ba6d24a2824d5b1be8e44656cdf2baec885a57f03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aztfexport/blobs/sha256:6db2ce1c76f929d24e20ade80bc54b240c2ab6b5e526086660a88ceb0b57cff0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aztfexport/blobs/sha256:67ae721579552390be22c9fa69f428988c4b2e070638ecea479564f8d533d718
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aztfexport/blobs/sha256:aa28f882c85a2a0e1cbcfe9a37bb8c8dc21681bdc09e3dc2c93b684382bafd4a
+sha256:
+  darwin_arm64: 17d6ac76357f0d14269f333ba6d24a2824d5b1be8e44656cdf2baec885a57f03
+  darwin_amd64: 6db2ce1c76f929d24e20ade80bc54b240c2ab6b5e526086660a88ceb0b57cff0
+  linux_amd64: 67ae721579552390be22c9fa69f428988c4b2e070638ecea479564f8d533d718
+  linux_arm64: aa28f882c85a2a0e1cbcfe9a37bb8c8dc21681bdc09e3dc2c93b684382bafd4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

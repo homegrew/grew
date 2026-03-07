@@ -1,0 +1,24 @@
+name: wasmedge
+version: 0.16.1
+description: Lightweight, high-performance, and extensible WebAssembly runtime
+homepage: https://WasmEdge.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasmedge/blobs/sha256:b74cd16cf0d26056adf5ff7045b7fc62a22786717933f1f49d50b6cf5fd21d2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasmedge/blobs/sha256:6af51419bc3294ade55e569848c81818d668df0b1a47ca39dbe8e3d8683f4fc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasmedge/blobs/sha256:bae8285dce0643fd38456fb163ecc2e1a0869e841c979d5f87d9bbf8898274cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasmedge/blobs/sha256:f106a5e86dc8482c9844b7588157e62b222f7a27531efbb4902e57e1017f624e
+sha256:
+  darwin_arm64: b74cd16cf0d26056adf5ff7045b7fc62a22786717933f1f49d50b6cf5fd21d2a
+  darwin_amd64: 6af51419bc3294ade55e569848c81818d668df0b1a47ca39dbe8e3d8683f4fc5
+  linux_amd64: bae8285dce0643fd38456fb163ecc2e1a0869e841c979d5f87d9bbf8898274cb
+  linux_arm64: f106a5e86dc8482c9844b7588157e62b222f7a27531efbb4902e57e1017f624e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - lld
+  - llvm
+  - spdlog

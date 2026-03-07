@@ -1,0 +1,33 @@
+name: rofi
+version: 2.0.0
+description: Window switcher, application launcher and dmenu replacement
+homepage: https://davatorium.github.io/rofi/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rofi/blobs/sha256:56cf0ce09c7e1c24b44a42074ce27963461dc6f1494a231d67878607cc4445da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rofi/blobs/sha256:9b93ea8da34ccd6ba683b62e20d354377704b272e5f288fc09e786d549a027f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rofi/blobs/sha256:fcfbd2f40d45b02ada2b790949354a4b17382edd6fb84a16815f57045e1e6793
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rofi/blobs/sha256:481b5771288fe8bdda79947b5662d8660b3db1d497259bcf251954d3a9ec000d
+sha256:
+  darwin_arm64: 56cf0ce09c7e1c24b44a42074ce27963461dc6f1494a231d67878607cc4445da
+  darwin_amd64: 9b93ea8da34ccd6ba683b62e20d354377704b272e5f288fc09e786d549a027f2
+  linux_amd64: fcfbd2f40d45b02ada2b790949354a4b17382edd6fb84a16815f57045e1e6793
+  linux_arm64: 481b5771288fe8bdda79947b5662d8660b3db1d497259bcf251954d3a9ec000d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - glib
+  - harfbuzz
+  - libxcb
+  - libxkbcommon
+  - pango
+  - startup-notification
+  - xcb-util
+  - xcb-util-cursor
+  - xcb-util-wm
+  - xorg-server

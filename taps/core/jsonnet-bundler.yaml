@@ -1,0 +1,19 @@
+name: jsonnet-bundler
+version: 0.6.0
+description: Package manager for Jsonnet
+homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsonnet-bundler/blobs/sha256:f4e614b4857b69871fc27b90b18d4e17d24951b2351f70596b39e247c9c36d67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsonnet-bundler/blobs/sha256:c4c52bef64a185727912ff7b00236894042acbc88e5ecd25796eed36b98296a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsonnet-bundler/blobs/sha256:2bb12716302170c607b6887c0ba3601668b3855f29c4041588e8228d754fe6bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsonnet-bundler/blobs/sha256:2399698bd1950f20494f2d50bfb636503c34d404781473749688abbc0e2e09ad
+sha256:
+  darwin_arm64: f4e614b4857b69871fc27b90b18d4e17d24951b2351f70596b39e247c9c36d67
+  darwin_amd64: c4c52bef64a185727912ff7b00236894042acbc88e5ecd25796eed36b98296a4
+  linux_amd64: 2bb12716302170c607b6887c0ba3601668b3855f29c4041588e8228d754fe6bd
+  linux_arm64: 2399698bd1950f20494f2d50bfb636503c34d404781473749688abbc0e2e09ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

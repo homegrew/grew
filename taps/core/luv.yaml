@@ -1,0 +1,21 @@
+name: luv
+version: 1.51.0-2
+description: Bare libuv bindings for lua
+homepage: https://github.com/luvit/luv
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luv/blobs/sha256:f39bd668b051ad916ffb10aea31c37f98f79c7cdc49b04794c69f4c79ecdbbf8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luv/blobs/sha256:620178b0f1d05295fd0495e178ad56ae7598f874d159272f6d0d65e5678f3d94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luv/blobs/sha256:cf8b734095fa3c4a6e6a27654b482aeff434f0d5aace030a08c5df23d1fb4fe1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luv/blobs/sha256:98cd8bfa1d3ce4b30f6ab88dcd3c318874fa80a5324f50f6973488449b12197f
+sha256:
+  darwin_arm64: f39bd668b051ad916ffb10aea31c37f98f79c7cdc49b04794c69f4c79ecdbbf8
+  darwin_amd64: 620178b0f1d05295fd0495e178ad56ae7598f874d159272f6d0d65e5678f3d94
+  linux_amd64: cf8b734095fa3c4a6e6a27654b482aeff434f0d5aace030a08c5df23d1fb4fe1
+  linux_arm64: 98cd8bfa1d3ce4b30f6ab88dcd3c318874fa80a5324f50f6973488449b12197f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv

@@ -1,0 +1,19 @@
+name: gputils
+version: 1.5.2
+description: GNU PIC Utilities
+homepage: https://gputils.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gputils/blobs/sha256:2320be53fb17f6a272346de555bd3aa73422f990493a92c24e693346e334f5e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gputils/blobs/sha256:b45ab055abbfd7004c6ea59354b0e845944b2d140fc44aaa845482f49dfae0ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gputils/blobs/sha256:980a09d45f616f560b368078822553d130d7630b813d92696fd15f894593bf4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gputils/blobs/sha256:0178958e579afb1c56b89d025d007eea69af1b68fc6bd7e7e4d8cb550e344212
+sha256:
+  darwin_arm64: 2320be53fb17f6a272346de555bd3aa73422f990493a92c24e693346e334f5e8
+  darwin_amd64: b45ab055abbfd7004c6ea59354b0e845944b2d140fc44aaa845482f49dfae0ce
+  linux_amd64: 980a09d45f616f560b368078822553d130d7630b813d92696fd15f894593bf4b
+  linux_arm64: 0178958e579afb1c56b89d025d007eea69af1b68fc6bd7e7e4d8cb550e344212
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

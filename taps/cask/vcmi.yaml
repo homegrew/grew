@@ -1,0 +1,11 @@
+name: vcmi
+version: 1.7.3
+description: "Open-source engine for Heroes of Might & Magic III"
+homepage: https://vcmi.eu/
+url:
+  darwin_arm64: https://github.com/vcmi/vcmi/releases/download/1.7.3/VCMI-macOS-arm.dmg
+sha256:
+  darwin_arm64: 0f74dbd3719734f356118f1803159159edf46dc2ecedfbf42bdc18599ff5b5d7
+artifacts:
+  app:
+    - VCMI.app

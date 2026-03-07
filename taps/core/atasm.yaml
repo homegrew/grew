@@ -1,0 +1,19 @@
+name: atasm
+version: 1.30
+description: Atari MAC/65 compatible assembler for Unix
+homepage: https://sourceforge.net/projects/atasm/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atasm/blobs/sha256:729fb2476730654734f87152e0925af39a747afeda5a1d1719d74c0fb1b77b94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atasm/blobs/sha256:2465fe4a6ff41737c651a8d9ea59bdfa1fe00842ec23373e43c6bb80371fee78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atasm/blobs/sha256:9c9938e74e5a9bdd32cd294b8fa073eb27a13312fa6dec6027c346a5a2a42699
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atasm/blobs/sha256:c55e4b9e3127a958e9925d8a7ec67ec21c410df64a6e1d9a1c15b1a048a20a68
+sha256:
+  darwin_arm64: 729fb2476730654734f87152e0925af39a747afeda5a1d1719d74c0fb1b77b94
+  darwin_amd64: 2465fe4a6ff41737c651a8d9ea59bdfa1fe00842ec23373e43c6bb80371fee78
+  linux_amd64: 9c9938e74e5a9bdd32cd294b8fa073eb27a13312fa6dec6027c346a5a2a42699
+  linux_arm64: c55e4b9e3127a958e9925d8a7ec67ec21c410df64a6e1d9a1c15b1a048a20a68
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

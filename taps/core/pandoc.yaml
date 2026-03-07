@@ -1,0 +1,21 @@
+name: pandoc
+version: 3.9
+description: Swiss-army knife of markup format conversion
+homepage: https://pandoc.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pandoc/blobs/sha256:1f542627ebcb8ad39d56fa80f4f3300c2baab0341d9e6b0324557414790a951a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pandoc/blobs/sha256:e5e53a135af84a63c19f15eecb44249064e198e0f5f92964f55462beba538f2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pandoc/blobs/sha256:c0d27d61a020c0b9cfe48e0837a82e59438404d13d7736e58ec7c4e61a8af464
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pandoc/blobs/sha256:8f97d5b9bd4606fa3a400a3237eecca2bca017b8f15b5e1b307fbcd86f263a16
+sha256:
+  darwin_arm64: 1f542627ebcb8ad39d56fa80f4f3300c2baab0341d9e6b0324557414790a951a
+  darwin_amd64: e5e53a135af84a63c19f15eecb44249064e198e0f5f92964f55462beba538f2e
+  linux_amd64: c0d27d61a020c0b9cfe48e0837a82e59438404d13d7736e58ec7c4e61a8af464
+  linux_arm64: 8f97d5b9bd4606fa3a400a3237eecca2bca017b8f15b5e1b307fbcd86f263a16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

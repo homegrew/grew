@@ -1,0 +1,11 @@
+name: typora@dev
+version: 1.13.0-dev
+description: Configurable document editor that supports Markdown
+homepage: https://typora.io/
+url:
+  darwin_arm64: https://downloads.typora.io/mac/Typora-1.13.0-dev.dmg
+sha256:
+  darwin_arm64: 760d8a79bfe3e4636132adbc0f28642153f74ebc1ef42e5912cee6faf4aec841
+artifacts:
+  app:
+    - Typora.app

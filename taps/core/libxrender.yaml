@@ -1,0 +1,22 @@
+name: libxrender
+version: 0.9.12
+description: "X.Org: Library for the Render Extension to the X11 protocol"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxrender/blobs/sha256:6405639931b8924b009e16163b7d99f50a10274189cb7f7eba12a4585d1ef255
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxrender/blobs/sha256:97554360bb9c9e82ebc7140f0186f02c103e877988c1d4a0139fbd5be1990f6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxrender/blobs/sha256:44bddde0557643e137ddd5aa00d60bf220527719d2cb9263e397098dee2664c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxrender/blobs/sha256:6370f22ed262b6bbf0ce75fc0993b26b4b0fa7a332e02ac21586ebe11c5ecb35
+sha256:
+  darwin_arm64: 6405639931b8924b009e16163b7d99f50a10274189cb7f7eba12a4585d1ef255
+  darwin_amd64: 97554360bb9c9e82ebc7140f0186f02c103e877988c1d4a0139fbd5be1990f6a
+  linux_amd64: 44bddde0557643e137ddd5aa00d60bf220527719d2cb9263e397098dee2664c5
+  linux_arm64: 6370f22ed262b6bbf0ce75fc0993b26b4b0fa7a332e02ac21586ebe11c5ecb35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - xorgproto

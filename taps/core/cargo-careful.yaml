@@ -1,0 +1,19 @@
+name: cargo-careful
+version: 0.4.9
+description: Execute Rust code carefully, with extra checking along the way
+homepage: https://github.com/RalfJung/cargo-careful
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-careful/blobs/sha256:9dceb1280616b1beed9f40c200ade53af14ab9da69a0bb97bff131ad061798da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-careful/blobs/sha256:988d5fea11a9cac95b15d2be04704940f5485710c305c0095b653e0030ee854f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-careful/blobs/sha256:682bcb542c28e2f6d6a134c1da144a6f4ca36c046337cfac0da7b467ccc9ade0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-careful/blobs/sha256:9ea8b838592392f6adf0d79986abb86193cca86ed7d941967c90fc8f3fdf392c
+sha256:
+  darwin_arm64: 9dceb1280616b1beed9f40c200ade53af14ab9da69a0bb97bff131ad061798da
+  darwin_amd64: 988d5fea11a9cac95b15d2be04704940f5485710c305c0095b653e0030ee854f
+  linux_amd64: 682bcb542c28e2f6d6a134c1da144a6f4ca36c046337cfac0da7b467ccc9ade0
+  linux_arm64: 9ea8b838592392f6adf0d79986abb86193cca86ed7d941967c90fc8f3fdf392c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: suricata
+version: 8.0.3
+description: Network IDS, IPS, and security monitoring engine
+homepage: https://suricata.io
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/suricata/blobs/sha256:fd5e6e2522356ca02512d0313ae32dd7b3b8800cb141d426c0fdfcb735d65fb0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/suricata/blobs/sha256:e7f6f3864cf9e57fac55d523d17ab819d66e3ed0f53694dcc2bc384d2070bce9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/suricata/blobs/sha256:13fe942b3e209cc0d3b60903385abde8088398dba900a632f3199e05a7946c0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/suricata/blobs/sha256:f77e2862a4778fa6ee94d785167a0153e70b2dc2cf42728661f445aec085c677
+sha256:
+  darwin_arm64: fd5e6e2522356ca02512d0313ae32dd7b3b8800cb141d426c0fdfcb735d65fb0
+  darwin_amd64: e7f6f3864cf9e57fac55d523d17ab819d66e3ed0f53694dcc2bc384d2070bce9
+  linux_amd64: 13fe942b3e209cc0d3b60903385abde8088398dba900a632f3199e05a7946c0b
+  linux_arm64: f77e2862a4778fa6ee94d785167a0153e70b2dc2cf42728661f445aec085c677
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson
+  - libmagic
+  - libnet
+  - libyaml
+  - lz4
+  - pcre2
+  - python@3.14

@@ -1,0 +1,19 @@
+name: csmith
+version: 2.3.0
+description: Generates random C programs conforming to the C99 standard
+homepage: https://github.com/csmith-project/csmith
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/csmith/blobs/sha256:5dd099418eb9b36019dfabac7bad13d6d2c0eb6d01700c57fbb6323b6c8331d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/csmith/blobs/sha256:d848b6c49abb0999c8ab6da4ee3ed292cd014338ad26bc5a1e007f58f7cefb03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/csmith/blobs/sha256:527b8e04eb83e46dd0a24ea321f71bed291f11a158338c1106241365ba3a849b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/csmith/blobs/sha256:7dcd32413bf5de8028c02d4e648fca8799aa716f58ae19a7df00eada072888da
+sha256:
+  darwin_arm64: 5dd099418eb9b36019dfabac7bad13d6d2c0eb6d01700c57fbb6323b6c8331d2
+  darwin_amd64: d848b6c49abb0999c8ab6da4ee3ed292cd014338ad26bc5a1e007f58f7cefb03
+  linux_amd64: 527b8e04eb83e46dd0a24ea321f71bed291f11a158338c1106241365ba3a849b
+  linux_arm64: 7dcd32413bf5de8028c02d4e648fca8799aa716f58ae19a7df00eada072888da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

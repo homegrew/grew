@@ -1,0 +1,15 @@
+name: ddcctl
+version: 1
+description: DDC monitor controls (brightness) for Mac OSX command-line
+homepage: https://github.com/kfix/ddcctl
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddcctl/blobs/sha256:0377e06b8510577260ae7a490fd2dc63ca9477a43384559cc454409ac9c89dbd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddcctl/blobs/sha256:d8365113eb8f035269bdd0b58913d39ceaf9e6fbe4f9b0412b2b3bb1c5f7b20a
+sha256:
+  darwin_arm64: 0377e06b8510577260ae7a490fd2dc63ca9477a43384559cc454409ac9c89dbd
+  darwin_amd64: d8365113eb8f035269bdd0b58913d39ceaf9e6fbe4f9b0412b2b3bb1c5f7b20a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

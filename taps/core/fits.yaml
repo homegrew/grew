@@ -1,0 +1,19 @@
+name: fits
+version: 1.6.0
+description: File Information Tool Set
+homepage: https://harvard-lts.github.io/fits/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fits/blobs/sha256:d71b24d9369f9b5737617ae4573432b87c30e8a465f433f6e99af6a78375cc09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fits/blobs/sha256:4c775bd176df5777b6120f68b38684513455679064b96ac07f4c6e02afa8b4bf
+sha256:
+  darwin_arm64: d71b24d9369f9b5737617ae4573432b87c30e8a465f433f6e99af6a78375cc09
+  darwin_amd64: 4c775bd176df5777b6120f68b38684513455679064b96ac07f4c6e02afa8b4bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - exiftool
+  - libmediainfo
+  - openjdk

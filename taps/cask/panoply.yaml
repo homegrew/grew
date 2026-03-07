@@ -1,0 +1,11 @@
+name: panoply
+version: 5.9.1
+description: Plot geo-referenced data from netCDF, HDF, and GRIB
+homepage: https://www.giss.nasa.gov/tools/panoply/
+url:
+  darwin_arm64: https://www.giss.nasa.gov/tools/panoply/download/PanoplyMacOS-arm64-5.9.1.dmg
+sha256:
+  darwin_arm64: ee0af052dde865eaf89ae5ce6eeb63310cdbb7e168ebae450c77d92d1ee45529
+artifacts:
+  app:
+    - Panoply.app

@@ -1,0 +1,24 @@
+name: xrootd
+version: 5.9.1
+description: High performance, scalable, fault-tolerant access to data
+homepage: https://xrootd.slac.stanford.edu/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xrootd/blobs/sha256:1278b69fc8fa1e6fa1dc37f09315147671cc28b352b261052fb28b3788747135
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xrootd/blobs/sha256:0b011704d071049320e8915002d889f72c348ffe22017565dc4f1a3698e1b751
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xrootd/blobs/sha256:a5f3cfa19a96faa8b60fb0300f01b171cae453e8f073327e545918d65de0f68f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xrootd/blobs/sha256:c131286fd8a2b9f33d120b72fd83439e97668b02322433d63d3d496f4df27d38
+sha256:
+  darwin_arm64: 1278b69fc8fa1e6fa1dc37f09315147671cc28b352b261052fb28b3788747135
+  darwin_amd64: 0b011704d071049320e8915002d889f72c348ffe22017565dc4f1a3698e1b751
+  linux_amd64: a5f3cfa19a96faa8b60fb0300f01b171cae453e8f073327e545918d65de0f68f
+  linux_arm64: c131286fd8a2b9f33d120b72fd83439e97668b02322433d63d3d496f4df27d38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - davix
+  - krb5
+  - openssl@3
+  - readline

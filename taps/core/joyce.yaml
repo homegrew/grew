@@ -1,0 +1,23 @@
+name: joyce
+version: 2.4.2
+description: Emulates the Amstrad PCW on Unix, Windows and macOS
+homepage: https://www.seasip.info/Unix/Joyce/index.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/joyce/blobs/sha256:20c5f21b6b676f4519154d1102c52754dd27dabdc86b315608606df1c3ba37b4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/joyce/blobs/sha256:fb292d0294d469f5581f695956bc4c2ca6126c2fc4f138d7d2397fc4675115b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/joyce/blobs/sha256:844d5e4d8fa06ff2d18adba05365c9a5378d712cfc867d89ef8087e8ef742395
+  linux_arm64: https://ghcr.io/v2/homebrew/core/joyce/blobs/sha256:b43b277ef8c1c0cf306e87253cb9857809b5a03823fd511982745c2081b63f28
+sha256:
+  darwin_arm64: 20c5f21b6b676f4519154d1102c52754dd27dabdc86b315608606df1c3ba37b4
+  darwin_amd64: fb292d0294d469f5581f695956bc4c2ca6126c2fc4f138d7d2397fc4675115b7
+  linux_amd64: 844d5e4d8fa06ff2d18adba05365c9a5378d712cfc867d89ef8087e8ef742395
+  linux_arm64: b43b277ef8c1c0cf306e87253cb9857809b5a03823fd511982745c2081b63f28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdsk
+  - libpng
+  - sdl12-compat

@@ -1,0 +1,21 @@
+name: hadolint
+version: 2.14.0
+description: Smarter Dockerfile linter to validate best practices
+homepage: https://github.com/hadolint/hadolint
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hadolint/blobs/sha256:5fb72dd7116d76a9c78806853ed98d4da2f15f8ca46c9f5511ef66e3c9c36225
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hadolint/blobs/sha256:d3fb60d34da4c25bde58751038a8b9d794fe6c9863e5a945250bfa7877e5446b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hadolint/blobs/sha256:e5b8c9a91f19e10eced2063d35eb89e54c239e0270caed1a3ff72afd62292674
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hadolint/blobs/sha256:f6bbbbade4308b73a44f059afe1d9926e0d787ba9a48d1508789a74d7913d0ae
+sha256:
+  darwin_arm64: 5fb72dd7116d76a9c78806853ed98d4da2f15f8ca46c9f5511ef66e3c9c36225
+  darwin_amd64: d3fb60d34da4c25bde58751038a8b9d794fe6c9863e5a945250bfa7877e5446b
+  linux_amd64: e5b8c9a91f19e10eced2063d35eb89e54c239e0270caed1a3ff72afd62292674
+  linux_arm64: f6bbbbade4308b73a44f059afe1d9926e0d787ba9a48d1508789a74d7913d0ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

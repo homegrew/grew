@@ -1,0 +1,27 @@
+name: sdl3_image
+version: 3.4.0
+description: Library for loading images as SDL surfaces and textures
+homepage: https://github.com/libsdl-org/SDL_image
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl3_image/blobs/sha256:747ea7edb3b3be0c4b68e2d7a5596ff506aecc5c747f23d707c8096bf76d1823
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl3_image/blobs/sha256:ade19831bd658d85858ba693fa23863ed07d6a889a2cb7202610137671da8e2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl3_image/blobs/sha256:20ea7ba27dcefae4c2f4d6d20e272faaa299d6c2407965d148d2ddc81c18277f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl3_image/blobs/sha256:3a426057a80eed6a63bf4c1ade0126fd2c4cf5b3c40a50a89163fc14dd7aef80
+sha256:
+  darwin_arm64: 747ea7edb3b3be0c4b68e2d7a5596ff506aecc5c747f23d707c8096bf76d1823
+  darwin_amd64: ade19831bd658d85858ba693fa23863ed07d6a889a2cb7202610137671da8e2f
+  linux_amd64: 20ea7ba27dcefae4c2f4d6d20e272faaa299d6c2407965d148d2ddc81c18277f
+  linux_arm64: 3a426057a80eed6a63bf4c1ade0126fd2c4cf5b3c40a50a89163fc14dd7aef80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - jpeg-xl
+  - libavif
+  - libpng
+  - libtiff
+  - sdl3
+  - webp

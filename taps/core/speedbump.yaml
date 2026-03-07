@@ -1,0 +1,19 @@
+name: speedbump
+version: 1.1.0
+description: TCP proxy for simulating variable, yet predictable network latency
+homepage: https://github.com/kffl/speedbump
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/speedbump/blobs/sha256:f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/speedbump/blobs/sha256:1c9913bedf3327c303880d65524548a33401ba639e09b1b08d7657ea6d6b6e4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/speedbump/blobs/sha256:653ea4f77ffba07e1cd95c4d3805709c6c15f860641faf264a38d66bcc98ed78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/speedbump/blobs/sha256:ae045cae2fd336d9da73e4b33eebd244a35d804c61b2a08e8742ab2f0ead585e
+sha256:
+  darwin_arm64: f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc
+  darwin_amd64: 1c9913bedf3327c303880d65524548a33401ba639e09b1b08d7657ea6d6b6e4c
+  linux_amd64: 653ea4f77ffba07e1cd95c4d3805709c6c15f860641faf264a38d66bcc98ed78
+  linux_arm64: ae045cae2fd336d9da73e4b33eebd244a35d804c61b2a08e8742ab2f0ead585e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

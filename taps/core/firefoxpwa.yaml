@@ -1,0 +1,19 @@
+name: firefoxpwa
+version: 2.18.0
+description: Tool to install, manage and use Progressive Web Apps in Mozilla Firefox
+homepage: https://pwasforfirefox.filips.si/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/firefoxpwa/blobs/sha256:744c68f9ec2fa9273159c711dee849c7256c16ceaf180b60735becbaa97371d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/firefoxpwa/blobs/sha256:1cdfd35e1a646506a0dce7c326a8d15a602b682b1fceefce9472a0431e22fe66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/firefoxpwa/blobs/sha256:ba3a14e84e2c1823745c8bba97e8d4ba28d444d61bc438010b1bff23df30a9a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/firefoxpwa/blobs/sha256:d5473e3582fcedc5542f14c16a8a1c76cfe1ad602147ea003c921a4a4f303f9a
+sha256:
+  darwin_arm64: 744c68f9ec2fa9273159c711dee849c7256c16ceaf180b60735becbaa97371d5
+  darwin_amd64: 1cdfd35e1a646506a0dce7c326a8d15a602b682b1fceefce9472a0431e22fe66
+  linux_amd64: ba3a14e84e2c1823745c8bba97e8d4ba28d444d61bc438010b1bff23df30a9a1
+  linux_arm64: d5473e3582fcedc5542f14c16a8a1c76cfe1ad602147ea003c921a4a4f303f9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

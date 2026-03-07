@@ -1,0 +1,19 @@
+name: porter
+version: 1.4.0
+description: App artifacts, tools, configs, and logic packaged as distributable installer
+homepage: https://porter.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/porter/blobs/sha256:9d2e6cd91af0e966c8a821789017b81a0f22cfc0e8c9cf4a255ed92f7c852286
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/porter/blobs/sha256:a08aa9a85a9ba314cdf72d562d4a696146d10f3fa25847a4064a14feb10cdae3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/porter/blobs/sha256:69bfc2a23597a0050b2f267d0bb0f2183a599ed65e79f3a49ac89f282063f412
+  linux_arm64: https://ghcr.io/v2/homebrew/core/porter/blobs/sha256:7db333f4042ce5cbd45a23cc16d9fecfbd532989d70b4b63cfcb36a68fc43226
+sha256:
+  darwin_arm64: 9d2e6cd91af0e966c8a821789017b81a0f22cfc0e8c9cf4a255ed92f7c852286
+  darwin_amd64: a08aa9a85a9ba314cdf72d562d4a696146d10f3fa25847a4064a14feb10cdae3
+  linux_amd64: 69bfc2a23597a0050b2f267d0bb0f2183a599ed65e79f3a49ac89f282063f412
+  linux_arm64: 7db333f4042ce5cbd45a23cc16d9fecfbd532989d70b4b63cfcb36a68fc43226
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

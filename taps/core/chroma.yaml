@@ -1,0 +1,19 @@
+name: chroma
+version: 2.23.1
+description: General purpose syntax highlighter in pure Go
+homepage: https://github.com/alecthomas/chroma
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chroma/blobs/sha256:f1da95b99aa0957f9f91d27470f6f523af5e85a83489265081fb4853c3e0e10a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chroma/blobs/sha256:b62b7bede674d658a4d4d53029998ff6de919eb782b2053cc529862ce1d4af84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chroma/blobs/sha256:3b2bf8ad75617ece86443d200795d13ba61ebeb5dbb18795bc9269e797b76478
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chroma/blobs/sha256:ec026fbf748b7e0f9f392e72b56645ac970c27641b0c94b3db82fea072b02c36
+sha256:
+  darwin_arm64: f1da95b99aa0957f9f91d27470f6f523af5e85a83489265081fb4853c3e0e10a
+  darwin_amd64: b62b7bede674d658a4d4d53029998ff6de919eb782b2053cc529862ce1d4af84
+  linux_amd64: 3b2bf8ad75617ece86443d200795d13ba61ebeb5dbb18795bc9269e797b76478
+  linux_arm64: ec026fbf748b7e0f9f392e72b56645ac970c27641b0c94b3db82fea072b02c36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,35 @@
+name: pdal
+version: 2.10.0
+description: Point data abstraction library
+homepage: https://pdal.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdal/blobs/sha256:9e0016f885a83d366f0bceeb076869ce9d82197cccf15e92b20250a4b01c3023
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdal/blobs/sha256:0a60db38ee951ecb87fe733b021cf83073e11ddf5b690f994447e1d2b34b1f38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdal/blobs/sha256:4ca80129201d5d8c311e15e15e275398b053a662ba6df24ccf0ac003322b5097
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdal/blobs/sha256:03153aa21808408e7c45cf6eb79bf6893dc79205024ebe1b838d1350bc023925
+sha256:
+  darwin_arm64: 9e0016f885a83d366f0bceeb076869ce9d82197cccf15e92b20250a4b01c3023
+  darwin_amd64: 0a60db38ee951ecb87fe733b021cf83073e11ddf5b690f994447e1d2b34b1f38
+  linux_amd64: 4ca80129201d5d8c311e15e15e275398b053a662ba6df24ccf0ac003322b5097
+  linux_arm64: 03153aa21808408e7c45cf6eb79bf6893dc79205024ebe1b838d1350bc023925
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-arrow
+  - curl
+  - draco
+  - gdal
+  - hdf5
+  - libgeotiff
+  - libpq
+  - libxml2
+  - lz4
+  - numpy
+  - openssl@3
+  - proj
+  - tiledb
+  - xerces-c
+  - zstd

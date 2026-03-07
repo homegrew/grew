@@ -1,0 +1,22 @@
+name: docmd
+version: 0.5.1
+description: Minimal Markdown documentation generator
+homepage: https://docmd.mgks.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docmd/blobs/sha256:ddcf4279962b7bbfcd4a00929e56b2204da917021983ab27bb3367eb2a8c0f62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docmd/blobs/sha256:5c4b0f2bc34fdcd70a69a8d08b0182610b123bca3a7db8af8612cd10722bd968
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docmd/blobs/sha256:4bfc51f86292e049321ab078f71b41d288a4f4042ccea0ec1f29e1289831b2f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docmd/blobs/sha256:4bfc51f86292e049321ab078f71b41d288a4f4042ccea0ec1f29e1289831b2f2
+sha256:
+  darwin_arm64: ddcf4279962b7bbfcd4a00929e56b2204da917021983ab27bb3367eb2a8c0f62
+  darwin_amd64: 5c4b0f2bc34fdcd70a69a8d08b0182610b123bca3a7db8af8612cd10722bd968
+  linux_amd64: 4bfc51f86292e049321ab078f71b41d288a4f4042ccea0ec1f29e1289831b2f2
+  linux_arm64: 4bfc51f86292e049321ab078f71b41d288a4f4042ccea0ec1f29e1289831b2f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - esbuild
+  - node

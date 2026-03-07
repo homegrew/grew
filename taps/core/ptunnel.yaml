@@ -1,0 +1,19 @@
+name: ptunnel
+version: 0.72
+description: Tunnel over ICMP
+homepage: https://www.cs.uit.no/~daniels/PingTunnel/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ptunnel/blobs/sha256:0049b270a67c200fc498f50bfa732e2812106e758b2ee1eac0e43ca41e48c241
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ptunnel/blobs/sha256:f65aa88ce0023383667679f121c2c849fe0391b6684ddb25d79255d18773a67b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ptunnel/blobs/sha256:635b36ee0d56fa5b28aebb302aad7d8d3e922c4a143854b17cc8087e7f2c0683
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ptunnel/blobs/sha256:8b8e66df9c54317634708382da6d32f7d5f0e8fa5b2e6a226dae499338e335ec
+sha256:
+  darwin_arm64: 0049b270a67c200fc498f50bfa732e2812106e758b2ee1eac0e43ca41e48c241
+  darwin_amd64: f65aa88ce0023383667679f121c2c849fe0391b6684ddb25d79255d18773a67b
+  linux_amd64: 635b36ee0d56fa5b28aebb302aad7d8d3e922c4a143854b17cc8087e7f2c0683
+  linux_arm64: 8b8e66df9c54317634708382da6d32f7d5f0e8fa5b2e6a226dae499338e335ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

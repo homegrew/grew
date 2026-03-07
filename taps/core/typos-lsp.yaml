@@ -1,0 +1,19 @@
+name: typos-lsp
+version: 0.1.50
+description: Language Server for typos-cli
+homepage: https://github.com/tekumara/typos-lsp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typos-lsp/blobs/sha256:9113ebe6aaf348618c19199ed469220877583a8a86299f60f201e99e80c98a42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typos-lsp/blobs/sha256:531b181daa82a5b5c82772268bc5db6909fd8c6dc791032faaac2641c1465c73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typos-lsp/blobs/sha256:ac8ff42d892d755e74d87b61d53cd02083a95d8bf0d5ef46237c0493b7df92cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typos-lsp/blobs/sha256:1a0bf2fc3b1f9620c1119b0a7e046af7d0a3a4dcbeff925cfe6afb854a4069ab
+sha256:
+  darwin_arm64: 9113ebe6aaf348618c19199ed469220877583a8a86299f60f201e99e80c98a42
+  darwin_amd64: 531b181daa82a5b5c82772268bc5db6909fd8c6dc791032faaac2641c1465c73
+  linux_amd64: ac8ff42d892d755e74d87b61d53cd02083a95d8bf0d5ef46237c0493b7df92cd
+  linux_arm64: 1a0bf2fc3b1f9620c1119b0a7e046af7d0a3a4dcbeff925cfe6afb854a4069ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

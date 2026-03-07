@@ -1,0 +1,21 @@
+name: ironclaw
+version: 0.16.1
+description: Security-first personal AI assistant with WASM sandbox channels
+homepage: https://github.com/nearai/ironclaw
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ironclaw/blobs/sha256:1af76ca52da79e552f96e9b1b66132bc4f259035c5dd487b68ba858bea47c016
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ironclaw/blobs/sha256:48a5e9c7de0796c3b602f444b73c166ce0ea06d12dbc65d879314ffd60c98f32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ironclaw/blobs/sha256:0c412a9930376dde39f0bf763950aa2ce1abd84d818899c0c451287257f8e10d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ironclaw/blobs/sha256:f663d4cd2048388e6e257b8ddce762ead85c7dc592b7f0b7dec96fabcf75c938
+sha256:
+  darwin_arm64: 1af76ca52da79e552f96e9b1b66132bc4f259035c5dd487b68ba858bea47c016
+  darwin_amd64: 48a5e9c7de0796c3b602f444b73c166ce0ea06d12dbc65d879314ffd60c98f32
+  linux_amd64: 0c412a9930376dde39f0bf763950aa2ce1abd84d818899c0c451287257f8e10d
+  linux_arm64: f663d4cd2048388e6e257b8ddce762ead85c7dc592b7f0b7dec96fabcf75c938
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,11 @@
+name: snapmaker-orca
+version: 2.2.4
+description: Slicing software for Snapmaker 3D printers, a fork of OrcaSlicer
+homepage: https://www.snapmaker.com/snapmaker-orca
+url:
+  darwin_arm64: https://github.com/snapmaker/orcaslicer/releases/download/v2.2.4/Snapmaker_Orca_Mac_universal_V2.2.4.dmg
+sha256:
+  darwin_arm64: fb105a5df92d522e474dabc6e6847f1c383f1e49ca19cc3675b73fa21b5af399
+artifacts:
+  app:
+    - Snapmaker Orca.app

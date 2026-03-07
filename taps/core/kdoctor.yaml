@@ -1,0 +1,15 @@
+name: kdoctor
+version: 1.1.0
+description: Environment diagnostics for Kotlin Multiplatform Mobile app development
+homepage: https://github.com/kotlin/kdoctor
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kdoctor/blobs/sha256:2920f1f61486ab85236383e1ea160b405a2132ec97b54d690bedc0737459fc54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kdoctor/blobs/sha256:1109e4a03e28acc679a4816ae81348af33609ed2304d2fed74d8b331e58b4601
+sha256:
+  darwin_arm64: 2920f1f61486ab85236383e1ea160b405a2132ec97b54d690bedc0737459fc54
+  darwin_amd64: 1109e4a03e28acc679a4816ae81348af33609ed2304d2fed74d8b331e58b4601
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

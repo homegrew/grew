@@ -1,0 +1,19 @@
+name: lux
+version: 0.24.1
+description: Fast and simple video downloader
+homepage: https://github.com/iawia002/lux
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lux/blobs/sha256:3d1177667581ce7d8f5dab853e3e6c88d2eba6fc3855b5821a29e3a525880585
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lux/blobs/sha256:9d09d3f7176d099619dd6f5578c65af77e9e74a0604cc248f879959c204136a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lux/blobs/sha256:52fd63821ac62400e3c1a1ade593edd328d4f6136d44a21309fd9d188120c115
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lux/blobs/sha256:0e97fcc580fd60597f9373e72a185c7863f2ea3cd0dbb3d46f3f85d9c3d81de2
+sha256:
+  darwin_arm64: 3d1177667581ce7d8f5dab853e3e6c88d2eba6fc3855b5821a29e3a525880585
+  darwin_amd64: 9d09d3f7176d099619dd6f5578c65af77e9e74a0604cc248f879959c204136a8
+  linux_amd64: 52fd63821ac62400e3c1a1ade593edd328d4f6136d44a21309fd9d188120c115
+  linux_arm64: 0e97fcc580fd60597f9373e72a185c7863f2ea3cd0dbb3d46f3f85d9c3d81de2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

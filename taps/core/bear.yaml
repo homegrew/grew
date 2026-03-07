@@ -1,0 +1,19 @@
+name: bear
+version: 4.0.4
+description: Generate compilation database for clang tooling
+homepage: https://github.com/rizsotto/Bear
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bear/blobs/sha256:dff39fe2a75cdaa8f208bcb88add9374cfeb94099f9b1e4a9277c8aa462a9e60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bear/blobs/sha256:424136238384167d6140333113688d865f4f1d1d0a7c475c2602cef2b333b57d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bear/blobs/sha256:7694330edf9b1182a4111328927632191bf892f537d23a9d053819c991a4093d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bear/blobs/sha256:2acf72c5b7ecfbacf3173f7ccc7d54da6f3c36761ece9dc611aa2ccd419bad54
+sha256:
+  darwin_arm64: dff39fe2a75cdaa8f208bcb88add9374cfeb94099f9b1e4a9277c8aa462a9e60
+  darwin_amd64: 424136238384167d6140333113688d865f4f1d1d0a7c475c2602cef2b333b57d
+  linux_amd64: 7694330edf9b1182a4111328927632191bf892f537d23a9d053819c991a4093d
+  linux_arm64: 2acf72c5b7ecfbacf3173f7ccc7d54da6f3c36761ece9dc611aa2ccd419bad54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

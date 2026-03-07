@@ -1,0 +1,19 @@
+name: fastga
+version: 1.5
+description: Pairwise whole genome aligner
+homepage: https://github.com/thegenemyers/FASTGA
+license: BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastga/blobs/sha256:dc7e3ef73e130726949e4e4634d3bd7aa78d1fb22c5fd9bde34123417ced18b4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastga/blobs/sha256:93ff80dce20906e24e09a813db8d110535e3e6c7ea7bfdd140023ab14dfb3d58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastga/blobs/sha256:483d64fefe5df9f673614f9b122cd4326a3af4742780a03021ee3937cc1bce1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastga/blobs/sha256:af70dcfdb57ed0d5da744ff2b4e436eda1a41d0c0280d0f173cd78b711393091
+sha256:
+  darwin_arm64: dc7e3ef73e130726949e4e4634d3bd7aa78d1fb22c5fd9bde34123417ced18b4
+  darwin_amd64: 93ff80dce20906e24e09a813db8d110535e3e6c7ea7bfdd140023ab14dfb3d58
+  linux_amd64: 483d64fefe5df9f673614f9b122cd4326a3af4742780a03021ee3937cc1bce1f
+  linux_arm64: af70dcfdb57ed0d5da744ff2b4e436eda1a41d0c0280d0f173cd78b711393091
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

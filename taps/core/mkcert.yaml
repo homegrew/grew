@@ -1,0 +1,19 @@
+name: mkcert
+version: 1.4.4
+description: Simple tool to make locally trusted development certificates
+homepage: https://github.com/FiloSottile/mkcert
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkcert/blobs/sha256:9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkcert/blobs/sha256:192c46a98732881bdd19acd6da8799ad9a931dbb9b895d22408a8eb8539f822e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkcert/blobs/sha256:f674faa8be61e225ae604b2ffe215927f6ecbc992aac75e769185862820d2881
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkcert/blobs/sha256:231294ec75a53e64f54d300c71d8b28a4b7c89ba468d426dc751ef242e9876d6
+sha256:
+  darwin_arm64: 9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0
+  darwin_amd64: 192c46a98732881bdd19acd6da8799ad9a931dbb9b895d22408a8eb8539f822e
+  linux_amd64: f674faa8be61e225ae604b2ffe215927f6ecbc992aac75e769185862820d2881
+  linux_arm64: 231294ec75a53e64f54d300c71d8b28a4b7c89ba468d426dc751ef242e9876d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

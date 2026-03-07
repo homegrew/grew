@@ -1,0 +1,27 @@
+name: libmp3splt
+version: 0.9.2
+description: Utility library to split mp3, ogg, and FLAC files
+homepage: https://mp3splt.sourceforge.net/mp3splt_page/home.php
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmp3splt/blobs/sha256:71e27509f2f5051c193c6dde207ea520cbd24d1f3d7a90664cd67befce73adb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmp3splt/blobs/sha256:9bb8fa8d9d96fb01773c04fa564c8b4103c82fbd9e686198dc02944b09b2dbbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmp3splt/blobs/sha256:b2b5ae6925094b4619cc97902c8bdd27088fbbd78343f5acc4d9fe2b6153d58d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmp3splt/blobs/sha256:999824bf55c08a531c0eb124f5fc53f9b9b7b66287cec4243a3ce5c2445f522a
+sha256:
+  darwin_arm64: 71e27509f2f5051c193c6dde207ea520cbd24d1f3d7a90664cd67befce73adb1
+  darwin_amd64: 9bb8fa8d9d96fb01773c04fa564c8b4103c82fbd9e686198dc02944b09b2dbbc
+  linux_amd64: b2b5ae6925094b4619cc97902c8bdd27088fbbd78343f5acc4d9fe2b6153d58d
+  linux_arm64: 999824bf55c08a531c0eb124f5fc53f9b9b7b66287cec4243a3ce5c2445f522a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libid3tag
+  - libogg
+  - libtool
+  - libvorbis
+  - mad
+  - gettext

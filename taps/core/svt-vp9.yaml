@@ -1,0 +1,13 @@
+name: svt-vp9
+version: 0.3.1
+description: Scalable Video Technology for VP9 Encoder
+homepage: https://github.com/OpenVisualCloud/SVT-VP9
+license: BSD-2-Clause-Patent
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svt-vp9/blobs/sha256:f651f843f3c74d02f346f08b5b5cb2c5fac49a13d63d24a6209b8ad6801a6625
+sha256:
+  linux_amd64: f651f843f3c74d02f346f08b5b5cb2c5fac49a13d63d24a6209b8ad6801a6625
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

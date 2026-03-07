@@ -1,0 +1,21 @@
+name: noweb
+version: 2.13
+description: WEB-like literate-programming tool
+homepage: https://www.cs.tufts.edu/~nr/noweb/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/noweb/blobs/sha256:5b0ebc62d33b6e1452815e9257c313a3b886caa203124fdbc785001aa8f5e0d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/noweb/blobs/sha256:3f44a86284253361d5994fb42060b4f051569a98e4e6e0593dc9ed02fee1af63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/noweb/blobs/sha256:7b0483e38e12bf0bcc968685af551d17a421ff7d27cf0433082fc08bd5135a0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/noweb/blobs/sha256:c2fb0ea050c3968ff76ff68f19043aeab5898c7c47d2310b779044ce2f6c709d
+sha256:
+  darwin_arm64: 5b0ebc62d33b6e1452815e9257c313a3b886caa203124fdbc785001aa8f5e0d4
+  darwin_amd64: 3f44a86284253361d5994fb42060b4f051569a98e4e6e0593dc9ed02fee1af63
+  linux_amd64: 7b0483e38e12bf0bcc968685af551d17a421ff7d27cf0433082fc08bd5135a0d
+  linux_arm64: c2fb0ea050c3968ff76ff68f19043aeab5898c7c47d2310b779044ce2f6c709d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icon

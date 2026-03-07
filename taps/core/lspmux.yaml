@@ -1,0 +1,21 @@
+name: lspmux
+version: 0.3.0
+description: Share one language instance between multiple LSP clients to save resources
+homepage: https://codeberg.org/p2502/lspmux
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lspmux/blobs/sha256:5d37f6ac1c9841457e8533f39ca4b7090d6f7a0851722a8ed777677798b875f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lspmux/blobs/sha256:c3304e7b57e6455f4a8deed2fc292bac9400d5ff0bbc84bd4a96f177b161f506
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lspmux/blobs/sha256:4c45d94f75046f86d12aa28761fd4d29735598fec4277662d2a1f8f3511319c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lspmux/blobs/sha256:e90116b031291bf519f529efac2ab4995b32408f4466121c4c0a756edd43a87c
+sha256:
+  darwin_arm64: 5d37f6ac1c9841457e8533f39ca4b7090d6f7a0851722a8ed777677798b875f9
+  darwin_amd64: c3304e7b57e6455f4a8deed2fc292bac9400d5ff0bbc84bd4a96f177b161f506
+  linux_amd64: 4c45d94f75046f86d12aa28761fd4d29735598fec4277662d2a1f8f3511319c1
+  linux_arm64: e90116b031291bf519f529efac2ab4995b32408f4466121c4c0a756edd43a87c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rust-analyzer

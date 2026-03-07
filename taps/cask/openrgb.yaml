@@ -1,0 +1,11 @@
+name: openrgb
+version: 0.9,b5f46e3
+description: "Open source RGB lighting control that doesn't depend on manufacturer software"
+homepage: https://openrgb.org/
+url:
+  darwin_arm64: https://openrgb.org/releases/release_0.9/OpenRGB_0.9_MacOS_ARM64_b5f46e3.zip
+sha256:
+  darwin_arm64: 9d14e4ba253b45d39ddcbc52e63b9f9b6982dcca40492190f4580a6d9ef94de7
+artifacts:
+  app:
+    - OpenRGB.app

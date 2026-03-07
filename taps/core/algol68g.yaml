@@ -1,0 +1,19 @@
+name: algol68g
+version: 3.10.12
+description: Algol 68 compiler-interpreter
+homepage: https://jmvdveer.home.xs4all.nl/algol.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/algol68g/blobs/sha256:adf7a071a3db8a93aa317baa658b520454fcccf7254f35c24b1b3c977f5d4183
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/algol68g/blobs/sha256:f16f0f4c542c890aaffde5a81faf8b285e483a71486e990c400ad3f86ae6022e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/algol68g/blobs/sha256:518e0e92889629b8f5d858f1dff4b90f2be5d8ca7efc3cb2fdc3d562ad2f8465
+  linux_arm64: https://ghcr.io/v2/homebrew/core/algol68g/blobs/sha256:3bceee6f46e6bc9d5fa2e0051da79bea95ee4c8598a24eb0d93bc202f9a9be82
+sha256:
+  darwin_arm64: adf7a071a3db8a93aa317baa658b520454fcccf7254f35c24b1b3c977f5d4183
+  darwin_amd64: f16f0f4c542c890aaffde5a81faf8b285e483a71486e990c400ad3f86ae6022e
+  linux_amd64: 518e0e92889629b8f5d858f1dff4b90f2be5d8ca7efc3cb2fdc3d562ad2f8465
+  linux_arm64: 3bceee6f46e6bc9d5fa2e0051da79bea95ee4c8598a24eb0d93bc202f9a9be82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: viable
+version: 1b12,2023.11
+description: Create and run macOS virtual machines on Apple silicon Macs
+homepage: https://eclecticlight.co/virtualisation-on-apple-silicon/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2023/11/viable1b12.zip
+sha256:
+  darwin_arm64: 6613cf7f0ae9a6737eeec8a15f3110e53cb6986b51f3a236913046e8d3769d00
+artifacts:
+  app:
+    - viable1b12/Viable.app

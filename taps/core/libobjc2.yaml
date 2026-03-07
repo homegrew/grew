@@ -1,0 +1,15 @@
+name: libobjc2
+version: 2.3
+description: Objective-C runtime library intended for use with Clang
+homepage: https://github.com/gnustep/libobjc2
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libobjc2/blobs/sha256:c6d20fc9b954bab4b841f4249bf92440214685726aa61033b866791898b4e8d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libobjc2/blobs/sha256:f3555edab456c1bc62c1d549893f3bf913382b7e3b8ab56b367d3d3d4ce212b9
+sha256:
+  linux_amd64: c6d20fc9b954bab4b841f4249bf92440214685726aa61033b866791898b4e8d1
+  linux_arm64: f3555edab456c1bc62c1d549893f3bf913382b7e3b8ab56b367d3d3d4ce212b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

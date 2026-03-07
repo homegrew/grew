@@ -1,0 +1,19 @@
+name: dsvpn
+version: 0.1.5
+description: Dead Simple VPN
+homepage: https://github.com/jedisct1/dsvpn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dsvpn/blobs/sha256:06ad6babce8270f21d7b98ea3e7aaac1b2bcfa4815b39b75561de68193149a9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dsvpn/blobs/sha256:db2467dae361b23cdfc06e2a98a4d64f987b8a314d74eb2a3e54087c0e55e142
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dsvpn/blobs/sha256:e4329c90e50ec594f40ba135a486f53781a838491792f72f0e2be6b5997df7af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dsvpn/blobs/sha256:2d67ee9ff361e38d1f7c78f22c110b4f07d7a00568f6327254a3c2fe326f72e1
+sha256:
+  darwin_arm64: 06ad6babce8270f21d7b98ea3e7aaac1b2bcfa4815b39b75561de68193149a9b
+  darwin_amd64: db2467dae361b23cdfc06e2a98a4d64f987b8a314d74eb2a3e54087c0e55e142
+  linux_amd64: e4329c90e50ec594f40ba135a486f53781a838491792f72f0e2be6b5997df7af
+  linux_arm64: 2d67ee9ff361e38d1f7c78f22c110b4f07d7a00568f6327254a3c2fe326f72e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

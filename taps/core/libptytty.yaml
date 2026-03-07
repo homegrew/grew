@@ -1,0 +1,19 @@
+name: libptytty
+version: 2.0
+description: Library for OS-independent pseudo-TTY management
+homepage: https://software.schmorp.de/pkg/libptytty.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libptytty/blobs/sha256:5a8043eb470230c18db586ab547552e89aa343c13f3d101df7a8ddfb8ef2cd2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libptytty/blobs/sha256:6d499c4ab02c6f3a3c2d43a1f5e50a937e8284f7fc89f856d693c05c023245cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libptytty/blobs/sha256:3e60096e3e90c812a12c09d5e7c35e7b5e000650b06c76df6927d3346db9d8c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libptytty/blobs/sha256:3680a528ff52576a2d14faead10016e97ea2b8466f577c789c7e68d0b73e9dad
+sha256:
+  darwin_arm64: 5a8043eb470230c18db586ab547552e89aa343c13f3d101df7a8ddfb8ef2cd2f
+  darwin_amd64: 6d499c4ab02c6f3a3c2d43a1f5e50a937e8284f7fc89f856d693c05c023245cb
+  linux_amd64: 3e60096e3e90c812a12c09d5e7c35e7b5e000650b06c76df6927d3346db9d8c8
+  linux_arm64: 3680a528ff52576a2d14faead10016e97ea2b8466f577c789c7e68d0b73e9dad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

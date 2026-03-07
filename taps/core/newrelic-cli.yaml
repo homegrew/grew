@@ -1,0 +1,19 @@
+name: newrelic-cli
+version: 0.107.2
+description: Command-line interface for New Relic
+homepage: https://github.com/newrelic/newrelic-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/newrelic-cli/blobs/sha256:17f1050c1e498b77a66751789c616503062bfd7559d914cc4bd8c7e88198f16f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/newrelic-cli/blobs/sha256:7661135720eb20d5ffdac268c07201c6c1b018628dcfa091c2c79f93198f9ff3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/newrelic-cli/blobs/sha256:05c8cc0844492c4d4be6aa0ae07353088e5265d31e1e6c33b588bf37acf5ace4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/newrelic-cli/blobs/sha256:8e077efbf5feff227f05dfa2be3154145de8332d492c8b6afd2cab60b9638596
+sha256:
+  darwin_arm64: 17f1050c1e498b77a66751789c616503062bfd7559d914cc4bd8c7e88198f16f
+  darwin_amd64: 7661135720eb20d5ffdac268c07201c6c1b018628dcfa091c2c79f93198f9ff3
+  linux_amd64: 05c8cc0844492c4d4be6aa0ae07353088e5265d31e1e6c33b588bf37acf5ace4
+  linux_arm64: 8e077efbf5feff227f05dfa2be3154145de8332d492c8b6afd2cab60b9638596
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

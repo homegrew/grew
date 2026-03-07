@@ -1,0 +1,19 @@
+name: senpai
+version: 0.4.1
+description: Modern terminal IRC client
+homepage: https://sr.ht/~delthas/senpai/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/senpai/blobs/sha256:3babf5b4950b6fe98db4af1331a97661168b54b4d1c9a6648b8ef0da5bafbf90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/senpai/blobs/sha256:6fdd32340fc297f5d1eef67bfd938089a2c0d07ce57d49bde8d7447adff97c32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/senpai/blobs/sha256:5e40211b47b193298d47b6aed526b5ac662f6e5ff3fe39dc71c7e6f7dbf187c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/senpai/blobs/sha256:7f9b02ed34a5b67f8641080d8df39172a50382982dd08f8663f9c7ce8678d469
+sha256:
+  darwin_arm64: 3babf5b4950b6fe98db4af1331a97661168b54b4d1c9a6648b8ef0da5bafbf90
+  darwin_amd64: 6fdd32340fc297f5d1eef67bfd938089a2c0d07ce57d49bde8d7447adff97c32
+  linux_amd64: 5e40211b47b193298d47b6aed526b5ac662f6e5ff3fe39dc71c7e6f7dbf187c8
+  linux_arm64: 7f9b02ed34a5b67f8641080d8df39172a50382982dd08f8663f9c7ce8678d469
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

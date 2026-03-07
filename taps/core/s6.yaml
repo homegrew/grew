@@ -1,0 +1,22 @@
+name: s6
+version: 2.14.0.1
+description: "Small & secure supervision software suite"
+homepage: https://skarnet.org/software/s6/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s6/blobs/sha256:e95cfad8adbf092855ba5944124b102614af34d54a2e230705079e5ff40fc24c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s6/blobs/sha256:864fbc30f870d4a8558093e66f1dc61cb80bfd824bcc532a288cb0b64c7a085b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s6/blobs/sha256:f1fd2a0f981c7fac694786821beedb20d65b697c486fe6b3d2f575a53ef1334d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s6/blobs/sha256:0982099a11389c9d3f4d38985de2c070f8c88b1ddc6b7b38e218a0791b7e55e3
+sha256:
+  darwin_arm64: e95cfad8adbf092855ba5944124b102614af34d54a2e230705079e5ff40fc24c
+  darwin_amd64: 864fbc30f870d4a8558093e66f1dc61cb80bfd824bcc532a288cb0b64c7a085b
+  linux_amd64: f1fd2a0f981c7fac694786821beedb20d65b697c486fe6b3d2f575a53ef1334d
+  linux_arm64: 0982099a11389c9d3f4d38985de2c070f8c88b1ddc6b7b38e218a0791b7e55e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - execline
+  - skalibs

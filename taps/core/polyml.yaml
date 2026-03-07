@@ -1,0 +1,19 @@
+name: polyml
+version: 5.9.2
+description: Standard ML implementation
+homepage: https://www.polyml.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/polyml/blobs/sha256:2e1a65ca5584fbed5d8809d26b612abdedd723df506daa33d82bdd2144a8c8f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/polyml/blobs/sha256:ebfa52db23d6ce50906a8c66957230db9ba791429c5e1e5cbc96bd2ad3eed16c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/polyml/blobs/sha256:cce638901b7e6baf678c145347a882cbc4589d92e52b61e0dc45ea5b30199592
+  linux_arm64: https://ghcr.io/v2/homebrew/core/polyml/blobs/sha256:dbb61f66617d3c19fc0d8cc1d5eadd8c2986fa048af9e1e720540ae3e8aae40a
+sha256:
+  darwin_arm64: 2e1a65ca5584fbed5d8809d26b612abdedd723df506daa33d82bdd2144a8c8f7
+  darwin_amd64: ebfa52db23d6ce50906a8c66957230db9ba791429c5e1e5cbc96bd2ad3eed16c
+  linux_amd64: cce638901b7e6baf678c145347a882cbc4589d92e52b61e0dc45ea5b30199592
+  linux_arm64: dbb61f66617d3c19fc0d8cc1d5eadd8c2986fa048af9e1e720540ae3e8aae40a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

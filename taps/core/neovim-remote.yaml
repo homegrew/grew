@@ -1,0 +1,22 @@
+name: neovim-remote
+version: 2.5.1
+description: Control nvim processes using `nvr` command-line tool
+homepage: https://github.com/mhinz/neovim-remote
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neovim-remote/blobs/sha256:39fb97daec07a2e2afaa777ab9e7decb4de2f2c6aba92368eb34f5559f01ca61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neovim-remote/blobs/sha256:bdadf165dd2f228dc45df5cd7708ff0b76659762d1f6bc429de1c621298e27c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neovim-remote/blobs/sha256:07600909a154a7328424524eb6656bac2933a8fb4a588aef301c6ee24a04c1f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neovim-remote/blobs/sha256:f2ae1769694653c05cde760892623a734d5793d8c86facd3e1cd45b50e64cb2f
+sha256:
+  darwin_arm64: 39fb97daec07a2e2afaa777ab9e7decb4de2f2c6aba92368eb34f5559f01ca61
+  darwin_amd64: bdadf165dd2f228dc45df5cd7708ff0b76659762d1f6bc429de1c621298e27c8
+  linux_amd64: 07600909a154a7328424524eb6656bac2933a8fb4a588aef301c6ee24a04c1f7
+  linux_arm64: f2ae1769694653c05cde760892623a734d5793d8c86facd3e1cd45b50e64cb2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neovim
+  - python@3.14

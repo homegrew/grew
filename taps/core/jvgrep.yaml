@@ -1,0 +1,19 @@
+name: jvgrep
+version: 5.8.12
+description: Grep for Japanese users of Vim
+homepage: https://github.com/mattn/jvgrep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jvgrep/blobs/sha256:115262945550f47749bbb3e4a15006ffc60121b5daecaad2778861dc3191643b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jvgrep/blobs/sha256:3bf79835ac8078c953f7f86e12bed6dc332e268a22455349531945b2ca3414d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jvgrep/blobs/sha256:d60b337f4a9d97f4107e04eaa49ca7cdca98cb44a158df7664b55a33724639ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jvgrep/blobs/sha256:783f014d41c4fd1ed3dc1ada0024f9b8b62677e05218f2c83535d99b3ce1469e
+sha256:
+  darwin_arm64: 115262945550f47749bbb3e4a15006ffc60121b5daecaad2778861dc3191643b
+  darwin_amd64: 3bf79835ac8078c953f7f86e12bed6dc332e268a22455349531945b2ca3414d1
+  linux_amd64: d60b337f4a9d97f4107e04eaa49ca7cdca98cb44a158df7664b55a33724639ed
+  linux_arm64: 783f014d41c4fd1ed3dc1ada0024f9b8b62677e05218f2c83535d99b3ce1469e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

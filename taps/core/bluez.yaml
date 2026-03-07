@@ -1,0 +1,21 @@
+name: bluez
+version: 5.86
+description: Bluetooth protocol stack for Linux
+homepage: https://www.bluez.org
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bluez/blobs/sha256:5d7e0351068a6edd6921f781e6825778085eaf3fec9d55f841741b679ba0df4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bluez/blobs/sha256:75d23317eadf590b4b45a76966106adae232125433566c95775615e9b7b5d785
+sha256:
+  linux_amd64: 5d7e0351068a6edd6921f781e6825778085eaf3fec9d55f841741b679ba0df4c
+  linux_arm64: 75d23317eadf590b4b45a76966106adae232125433566c95775615e9b7b5d785
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dbus
+  - glib
+  - libical
+  - readline
+  - systemd

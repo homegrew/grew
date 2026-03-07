@@ -1,0 +1,19 @@
+name: cmigemo
+version: 20110227
+description: Migemo is a tool that supports Japanese incremental search with Romaji
+homepage: https://www.kaoriya.net/software/cmigemo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmigemo/blobs/sha256:b8bf233fe044c8a2bd5bc24fc9bf11eed7aeb0464f67bd7d7ad48f6d9e8edbbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmigemo/blobs/sha256:98d5b0ab1db6fa4d3ce9aea1932b88cf9dd973e1130a0fe1a5803bfd69fa8012
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmigemo/blobs/sha256:3551bebcc00f059d5acf9e60c4e757596c4c8349cb2870a00fcfdb75aa079db1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmigemo/blobs/sha256:e6b4c7d33ec77482edaa20121f9060c0661de32d941565e67da798e5adc37b8c
+sha256:
+  darwin_arm64: b8bf233fe044c8a2bd5bc24fc9bf11eed7aeb0464f67bd7d7ad48f6d9e8edbbf
+  darwin_amd64: 98d5b0ab1db6fa4d3ce9aea1932b88cf9dd973e1130a0fe1a5803bfd69fa8012
+  linux_amd64: 3551bebcc00f059d5acf9e60c4e757596c4c8349cb2870a00fcfdb75aa079db1
+  linux_arm64: e6b4c7d33ec77482edaa20121f9060c0661de32d941565e67da798e5adc37b8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

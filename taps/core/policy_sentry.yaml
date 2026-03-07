@@ -1,0 +1,23 @@
+name: policy_sentry
+version: 0.15.1
+description: Generate locked-down AWS IAM Policies
+homepage: https://policy-sentry.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/policy_sentry/blobs/sha256:31e5634165dcc2a6e7644943ed850a23e3562e4c2cab8e2cf591a8b5341ec39c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/policy_sentry/blobs/sha256:46bd05dd8b27ae3663abb605253848156d98bfeae932705328bd054e3c04c6c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/policy_sentry/blobs/sha256:b9af54e08154c456233abde208c8f656ce9bacdb3dadd52addd169c2bff9d9cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/policy_sentry/blobs/sha256:8b43a6623a56759c2454e08e2c2e04c71fc3b04b45031c54c56b367efd2b3b78
+sha256:
+  darwin_arm64: 31e5634165dcc2a6e7644943ed850a23e3562e4c2cab8e2cf591a8b5341ec39c
+  darwin_amd64: 46bd05dd8b27ae3663abb605253848156d98bfeae932705328bd054e3c04c6c6
+  linux_amd64: b9af54e08154c456233abde208c8f656ce9bacdb3dadd52addd169c2bff9d9cd
+  linux_arm64: 8b43a6623a56759c2454e08e2c2e04c71fc3b04b45031c54c56b367efd2b3b78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

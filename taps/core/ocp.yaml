@@ -1,0 +1,32 @@
+name: ocp
+version: 3.2.0
+description: UNIX port of the Open Cubic Player
+homepage: https://stian.cubic.org/project-ocp.php
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocp/blobs/sha256:414fcd1dcc5e1a3fc03bcb53c0f3eec4044fd87b8df8bb1273f34540d73e9637
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocp/blobs/sha256:17c7965a78768c612d9b836dc36904b9fc4b1985ceea69ae4945648a1429e365
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocp/blobs/sha256:7f2e230299f3db23ac72465114fe0f74eb0693227c18a6ef73bcaeaf9c6f93a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocp/blobs/sha256:94ab3e17dd820d8408243bed7b41d25a27ea6099139c19dfdbcb7b1c40d41fd6
+sha256:
+  darwin_arm64: 414fcd1dcc5e1a3fc03bcb53c0f3eec4044fd87b8df8bb1273f34540d73e9637
+  darwin_amd64: 17c7965a78768c612d9b836dc36904b9fc4b1985ceea69ae4945648a1429e365
+  linux_amd64: 7f2e230299f3db23ac72465114fe0f74eb0693227c18a6ef73bcaeaf9c6f93a7
+  linux_arm64: 94ab3e17dd820d8408243bed7b41d25a27ea6099139c19dfdbcb7b1c40d41fd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ancient
+  - cjson
+  - flac
+  - freetype
+  - game-music-emu
+  - jpeg-turbo
+  - libdiscid
+  - libpng
+  - libvorbis
+  - mad
+  - sdl3
+  - libogg

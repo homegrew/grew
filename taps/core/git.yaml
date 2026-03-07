@@ -1,0 +1,23 @@
+name: git
+version: 2.53.0
+description: Distributed revision control system
+homepage: https://git-scm.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git/blobs/sha256:822dc9a395af7f1977ae98bd584f76ccd7390381de71b5420a4b0d69b15665cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git/blobs/sha256:4831766b1d63c27c19f6c84e2f74a2c2b1131a69f818467fab6b84536ca26d90
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git/blobs/sha256:d8c0fc6ac9824ad9c77d566018db78c252ac3c2ce0652c72d8b6d0b861867034
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git/blobs/sha256:f6946b453ca295f25ba4c855fe51e65c23b29983dc97e4f8b14c21a8b4854985
+sha256:
+  darwin_arm64: 822dc9a395af7f1977ae98bd584f76ccd7390381de71b5420a4b0d69b15665cf
+  darwin_amd64: 4831766b1d63c27c19f6c84e2f74a2c2b1131a69f818467fab6b84536ca26d90
+  linux_amd64: d8c0fc6ac9824ad9c77d566018db78c252ac3c2ce0652c72d8b6d0b861867034
+  linux_arm64: f6946b453ca295f25ba4c855fe51e65c23b29983dc97e4f8b14c21a8b4854985
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - pcre2
+  - libiconv

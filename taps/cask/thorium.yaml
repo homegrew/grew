@@ -1,0 +1,11 @@
+name: thorium
+version: 3.3.0
+description: Epub reader
+homepage: https://www.edrlab.org/software/thorium-reader/
+url:
+  darwin_arm64: https://github.com/edrlab/thorium-reader/releases/download/v3.3.0/Thorium-3.3.0-arm64.dmg
+sha256:
+  darwin_arm64: b19fe0b336f360137403c6050a6ba7288668fc2d0b7d0428bbac958689b21325
+artifacts:
+  app:
+    - Thorium.app

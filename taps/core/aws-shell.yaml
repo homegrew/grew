@@ -1,0 +1,22 @@
+name: aws-shell
+version: 0.2.2
+description: Integrated shell for working with the AWS CLI
+homepage: https://github.com/awslabs/aws-shell
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-shell/blobs/sha256:a938e5299d6f350cf4a45c5a23cf09e29352f88c5ac8591440656c0aede59138
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-shell/blobs/sha256:cb97ff177d0f0baf62658a863160b88bebd696cb9646781df7527089e0d1f2fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-shell/blobs/sha256:9ac536281bf38ce4336cc25cf11d342092ae3b52b68feda775f78a1a262a5da4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-shell/blobs/sha256:2a5f35a00069e06d9834f5602df342750f50c92a0dcb3e1e90e81fa8fc7de688
+sha256:
+  darwin_arm64: a938e5299d6f350cf4a45c5a23cf09e29352f88c5ac8591440656c0aede59138
+  darwin_amd64: cb97ff177d0f0baf62658a863160b88bebd696cb9646781df7527089e0d1f2fb
+  linux_amd64: 9ac536281bf38ce4336cc25cf11d342092ae3b52b68feda775f78a1a262a5da4
+  linux_arm64: 2a5f35a00069e06d9834f5602df342750f50c92a0dcb3e1e90e81fa8fc7de688
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

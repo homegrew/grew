@@ -1,0 +1,19 @@
+name: kubeshark
+version: 53.1.0
+description: API Traffic Analyzer providing real-time visibility into Kubernetes network
+homepage: https://kubeshark.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubeshark/blobs/sha256:22762e550f43a4a363377fd5230464288bb77121af2419908316288eaa6421b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubeshark/blobs/sha256:e197f27e0b2058bb6d648200c36e5c604922e852ce7039261d25d43d767f6570
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubeshark/blobs/sha256:fef61f28b288c37e1d043c84a085ca98fba52974c2b9ff9affd194c338a1ea73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubeshark/blobs/sha256:322941647cc7da376abea027f05c7a2b9ca89fc05bc5adc1eae372839a447eec
+sha256:
+  darwin_arm64: 22762e550f43a4a363377fd5230464288bb77121af2419908316288eaa6421b9
+  darwin_amd64: e197f27e0b2058bb6d648200c36e5c604922e852ce7039261d25d43d767f6570
+  linux_amd64: fef61f28b288c37e1d043c84a085ca98fba52974c2b9ff9affd194c338a1ea73
+  linux_arm64: 322941647cc7da376abea027f05c7a2b9ca89fc05bc5adc1eae372839a447eec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

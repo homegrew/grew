@@ -1,0 +1,25 @@
+name: ttyd
+version: 1.7.7
+description: Command-line tool for sharing terminal over the web
+homepage: https://tsl0922.github.io/ttyd/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttyd/blobs/sha256:4ba588d78a1d3766248e1442db108477c3351ca8a7afae101ea68b1518a62a15
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttyd/blobs/sha256:377d9fab121e18e4a92ec95b7fb625cd96d00e9dfa61698ce4b9ff4c7e4adc37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttyd/blobs/sha256:339e9e8741a339589cb8af7d7cf391881a459691b6d1505e457c3e96f46f2586
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttyd/blobs/sha256:c4152dff96aed5cb76ca0a2b5a9aadd1281445165039f44de462188204a7f5df
+sha256:
+  darwin_arm64: 4ba588d78a1d3766248e1442db108477c3351ca8a7afae101ea68b1518a62a15
+  darwin_amd64: 377d9fab121e18e4a92ec95b7fb625cd96d00e9dfa61698ce4b9ff4c7e4adc37
+  linux_amd64: 339e9e8741a339589cb8af7d7cf391881a459691b6d1505e457c3e96f46f2586
+  linux_arm64: c4152dff96aed5cb76ca0a2b5a9aadd1281445165039f44de462188204a7f5df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - libevent
+  - libuv
+  - libwebsockets
+  - openssl@3

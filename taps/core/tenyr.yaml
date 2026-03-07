@@ -1,0 +1,22 @@
+name: tenyr
+version: 0.9.9
+description: 32-bit computing environment (including simulated CPU)
+homepage: https://kulp.github.io/tenyr/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tenyr/blobs/sha256:594fd49bb4b9498796f617ff227b3524b3d7612e8c3eca557f22cfd1ec0fde0b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tenyr/blobs/sha256:d9847884a384e0b167e004c67fed4250131b69620291d924208f1f07e98be419
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tenyr/blobs/sha256:f5c12c61e48eeb39a813598a9d1723095d0d0aaa5d6b30118457df84ac4f57de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tenyr/blobs/sha256:21cc8e97d6069437c1117ead2fce89372a5251458e8878f58ff8127ce5e52f7f
+sha256:
+  darwin_arm64: 594fd49bb4b9498796f617ff227b3524b3d7612e8c3eca557f22cfd1ec0fde0b
+  darwin_amd64: d9847884a384e0b167e004c67fed4250131b69620291d924208f1f07e98be419
+  linux_amd64: f5c12c61e48eeb39a813598a9d1723095d0d0aaa5d6b30118457df84ac4f57de
+  linux_arm64: 21cc8e97d6069437c1117ead2fce89372a5251458e8878f58ff8127ce5e52f7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2
+  - sdl2_image

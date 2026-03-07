@@ -1,0 +1,11 @@
+name: redream
+version: 1.5.0
+description: Dreamcast emulator
+homepage: https://redream.io/
+url:
+  darwin_arm64: https://redream.io/download/redream.x86_64-mac-v1.5.0.tar.gz
+sha256:
+  darwin_arm64: e5253527a3705b4c99234ddf8ece59d19dfadb416822ad714f7009b82afc097b
+artifacts:
+  app:
+    - redream.app

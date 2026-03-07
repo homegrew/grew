@@ -1,0 +1,23 @@
+name: surelog
+version: 1.86
+description: SystemVerilog Pre-processor, parser, elaborator, UHDM compiler
+homepage: https://github.com/chipsalliance/Surelog
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/surelog/blobs/sha256:0978fd1dbcfe7d7bb43219ad2be34f104c1ab1a2ed0f04e1a31821bfdc7c8d12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/surelog/blobs/sha256:81f5930c01af25a0952ea3edbcc6638814fa2a3ea8c7d67343278470e7f541ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/surelog/blobs/sha256:0cd2cd9d2f89d3771e7a7e1416756a9ae50f613bb189a2051c3187de09e8e8c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/surelog/blobs/sha256:baf400ac5af969702fcdc432fed2afdf7722cc2c5f8b6b1ba49f44dc5964d4dc
+sha256:
+  darwin_arm64: 0978fd1dbcfe7d7bb43219ad2be34f104c1ab1a2ed0f04e1a31821bfdc7c8d12
+  darwin_amd64: 81f5930c01af25a0952ea3edbcc6638814fa2a3ea8c7d67343278470e7f541ac
+  linux_amd64: 0cd2cd9d2f89d3771e7a7e1416756a9ae50f613bb189a2051c3187de09e8e8c8
+  linux_arm64: baf400ac5af969702fcdc432fed2afdf7722cc2c5f8b6b1ba49f44dc5964d4dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - antlr4-cpp-runtime
+  - capnp
+  - uhdm

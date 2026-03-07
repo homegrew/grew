@@ -1,0 +1,19 @@
+name: awk
+version: 20251225
+description: Text processing scripting language
+homepage: https://www.cs.princeton.edu/~bwk/btl.mirror/
+license: SMLNJ
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/awk/blobs/sha256:7f7b544085ef1748054d2608fcf47960b075e7019d0ac02ce1ccffbc253d475a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/awk/blobs/sha256:26ad610e1d59ff73a5ef82043fd65532ffd823887d557b0ae0d6aee4118e9546
+  linux_amd64: https://ghcr.io/v2/homebrew/core/awk/blobs/sha256:f21ff67369791acd4905ac3b9bde948e67060901b6c25df4404fc03ef4406d8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/awk/blobs/sha256:68a2fadd6010beaf7e19ce1043d24e726ef67662a9ed8e4a5a626a45ba849e87
+sha256:
+  darwin_arm64: 7f7b544085ef1748054d2608fcf47960b075e7019d0ac02ce1ccffbc253d475a
+  darwin_amd64: 26ad610e1d59ff73a5ef82043fd65532ffd823887d557b0ae0d6aee4118e9546
+  linux_amd64: f21ff67369791acd4905ac3b9bde948e67060901b6c25df4404fc03ef4406d8c
+  linux_arm64: 68a2fadd6010beaf7e19ce1043d24e726ef67662a9ed8e4a5a626a45ba849e87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

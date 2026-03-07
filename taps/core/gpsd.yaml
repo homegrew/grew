@@ -1,0 +1,19 @@
+name: gpsd
+version: 3.27.5
+description: Global Positioning System (GPS) daemon
+homepage: https://gpsd.gitlab.io/gpsd/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpsd/blobs/sha256:a5cdc0a238acdc4be1f968169fd823ee8a138bacad9eff804f893be065dc7d82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpsd/blobs/sha256:80c664a6bbd8649eb3e82e2b3c357f41552996310a7c6a6d84e6101561705692
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpsd/blobs/sha256:f1966e876bbef9de7ddc508979cd0557c66f5d0cb321fa7d333b855e43a5b6e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpsd/blobs/sha256:d0e890be6d0dad6ef97fc14eb6cfd7cfafec60ce53c61d15def98640dfb50bfe
+sha256:
+  darwin_arm64: a5cdc0a238acdc4be1f968169fd823ee8a138bacad9eff804f893be065dc7d82
+  darwin_amd64: 80c664a6bbd8649eb3e82e2b3c357f41552996310a7c6a6d84e6101561705692
+  linux_amd64: f1966e876bbef9de7ddc508979cd0557c66f5d0cb321fa7d333b855e43a5b6e8
+  linux_arm64: d0e890be6d0dad6ef97fc14eb6cfd7cfafec60ce53c61d15def98640dfb50bfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

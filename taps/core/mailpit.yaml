@@ -1,0 +1,19 @@
+name: mailpit
+version: 1.29.2
+description: Web and API based SMTP testing
+homepage: https://mailpit.axllent.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mailpit/blobs/sha256:00441c44f786a0d09f1b584b532705fadc5116ec20ebd0b843009ee9cb3174c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mailpit/blobs/sha256:064a379e2b8b56d578fece31369674f0ccbe60a8f015315dbfc4e368fe61cf3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mailpit/blobs/sha256:f419e3144cac23825fb3179969b87f4fda160387ca5e1232de837eaf6f3f9d73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mailpit/blobs/sha256:f9d99da7b9b3af0f74fa5c6093288c92fab3b7dcb7c05d92f064d68ed442628e
+sha256:
+  darwin_arm64: 00441c44f786a0d09f1b584b532705fadc5116ec20ebd0b843009ee9cb3174c3
+  darwin_amd64: 064a379e2b8b56d578fece31369674f0ccbe60a8f015315dbfc4e368fe61cf3d
+  linux_amd64: f419e3144cac23825fb3179969b87f4fda160387ca5e1232de837eaf6f3f9d73
+  linux_arm64: f9d99da7b9b3af0f74fa5c6093288c92fab3b7dcb7c05d92f064d68ed442628e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

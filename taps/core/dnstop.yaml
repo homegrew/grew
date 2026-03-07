@@ -1,0 +1,19 @@
+name: dnstop
+version: 20140915
+description: Console tool to analyze DNS traffic
+homepage: http://dns.measurement-factory.com/tools/dnstop/index.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnstop/blobs/sha256:46e3c705bd4c7649ab67f2712d623825f0006cb764e844131a654fe057de19ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnstop/blobs/sha256:3476a73413a818b4fecca690a8e176974bc0cb09858d6e478f4dbd77f56f9f35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnstop/blobs/sha256:6d8b4de6f9441442ff6c59476101ebf5fbcf6073882c971556fa566afda211bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnstop/blobs/sha256:67a05c4b6fd3fd1f3008513be83d42d8d1c93d8b9cea2e747a909a5a9d2bb938
+sha256:
+  darwin_arm64: 46e3c705bd4c7649ab67f2712d623825f0006cb764e844131a654fe057de19ec
+  darwin_amd64: 3476a73413a818b4fecca690a8e176974bc0cb09858d6e478f4dbd77f56f9f35
+  linux_amd64: 6d8b4de6f9441442ff6c59476101ebf5fbcf6073882c971556fa566afda211bd
+  linux_arm64: 67a05c4b6fd3fd1f3008513be83d42d8d1c93d8b9cea2e747a909a5a9d2bb938
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

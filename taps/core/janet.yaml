@@ -1,0 +1,19 @@
+name: janet
+version: 1.41.2
+description: Dynamic language and bytecode vm
+homepage: https://janet-lang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/janet/blobs/sha256:95713b9d30546fdaab9f6f1f5f519f1cbc80089fe98afca9862639e7736ba51d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/janet/blobs/sha256:dbd1061f7b9eb25f476d1f8f1c1e0a3dee4b38bfe779c78a61af65d47c0beec1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/janet/blobs/sha256:355439f1ee0ff6b1c47e00fb2ab241bc3d584cc9409c28b8978981095d08dd36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/janet/blobs/sha256:b93f65debdf478e42ade08470c501b78f89c9c4bfa759d228eb91bf9a412426c
+sha256:
+  darwin_arm64: 95713b9d30546fdaab9f6f1f5f519f1cbc80089fe98afca9862639e7736ba51d
+  darwin_amd64: dbd1061f7b9eb25f476d1f8f1c1e0a3dee4b38bfe779c78a61af65d47c0beec1
+  linux_amd64: 355439f1ee0ff6b1c47e00fb2ab241bc3d584cc9409c28b8978981095d08dd36
+  linux_arm64: b93f65debdf478e42ade08470c501b78f89c9c4bfa759d228eb91bf9a412426c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

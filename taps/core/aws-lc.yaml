@@ -1,0 +1,20 @@
+name: aws-lc
+version: 1.69.0
+description: General-purpose cryptographic library
+homepage: https://github.com/aws/aws-lc
+license: Apache-2.0 AND ISC AND OpenSSL AND MIT AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-lc/blobs/sha256:f6a691a60b6fc37157c5353d82c21ccdfe2b88c3389f33a29dab9869bf1d1849
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-lc/blobs/sha256:2892a62221e5b9689cfbfeefa10dac0314237b66b81f27876c2bef848009c06c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-lc/blobs/sha256:d3e524fa3d415609fc19c2f7596884dd6acdc18a934f4ad4c3b2da2fd02b5c8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-lc/blobs/sha256:a394320dcc1a69f90a126819044c0688c726b40fbe5798c3963c1b8e766f8294
+sha256:
+  darwin_arm64: f6a691a60b6fc37157c5353d82c21ccdfe2b88c3389f33a29dab9869bf1d1849
+  darwin_amd64: 2892a62221e5b9689cfbfeefa10dac0314237b66b81f27876c2bef848009c06c
+  linux_amd64: d3e524fa3d415609fc19c2f7596884dd6acdc18a934f4ad4c3b2da2fd02b5c8a
+  linux_arm64: a394320dcc1a69f90a126819044c0688c726b40fbe5798c3963c1b8e766f8294
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,21 @@
+name: cvs
+version: 1.12.13
+description: Version control system
+homepage: https://www.nongnu.org/cvs/
+license: GPL-2.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cvs/blobs/sha256:12f7b6ba364b0131ac464c51dac10844da7be696fa3ec85b2aaa5ab0ee10fbce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cvs/blobs/sha256:d23f89d868c88f29bd4447915da42d8e5eb4e9efeb05d83e41adbf031f967bce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cvs/blobs/sha256:7eb7d12ce9a3935d6c1caad26fd473cfad09f4e22dcba970fab57ab5f8dca9c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cvs/blobs/sha256:f3f13423ddb87b2c109ef4a83bc27adb7cfb2fed004e76d1b8902f7b5c8ee856
+sha256:
+  darwin_arm64: 12f7b6ba364b0131ac464c51dac10844da7be696fa3ec85b2aaa5ab0ee10fbce
+  darwin_amd64: d23f89d868c88f29bd4447915da42d8e5eb4e9efeb05d83e41adbf031f967bce
+  linux_amd64: 7eb7d12ce9a3935d6c1caad26fd473cfad09f4e22dcba970fab57ab5f8dca9c6
+  linux_arm64: f3f13423ddb87b2c109ef4a83bc27adb7cfb2fed004e76d1b8902f7b5c8ee856
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

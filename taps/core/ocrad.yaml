@@ -1,0 +1,21 @@
+name: ocrad
+version: 0.29
+description: Optical character recognition (OCR) program
+homepage: https://www.gnu.org/software/ocrad/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocrad/blobs/sha256:116d23e8c9dd05261d3591a6c71bc68f21eaf4f31ecb196ab1663a922a382e4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocrad/blobs/sha256:0b70492d341de711f603f80862cc1843a6f95b618845e0e20e4abfafe1957e2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocrad/blobs/sha256:9ee19eae3b90d6753c188ab4db09ccdf39b2df45d8ecafb91c122935c83c5fef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocrad/blobs/sha256:3084377e8340cf1599a2d841e69252f5e6320801154cca9f9ec9d6e8b85b2762
+sha256:
+  darwin_arm64: 116d23e8c9dd05261d3591a6c71bc68f21eaf4f31ecb196ab1663a922a382e4a
+  darwin_amd64: 0b70492d341de711f603f80862cc1843a6f95b618845e0e20e4abfafe1957e2b
+  linux_amd64: 9ee19eae3b90d6753c188ab4db09ccdf39b2df45d8ecafb91c122935c83c5fef
+  linux_arm64: 3084377e8340cf1599a2d841e69252f5e6320801154cca9f9ec9d6e8b85b2762
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

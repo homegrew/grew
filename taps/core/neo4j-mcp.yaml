@@ -1,0 +1,19 @@
+name: neo4j-mcp
+version: 1.4.5
+description: Neo4j official Model Context Protocol server for AI tools
+homepage: https://neo4j.com/docs/mcp/current/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neo4j-mcp/blobs/sha256:bdd3c959de552f1b368121b0b78e14ee64ee42077a2497d1e14ef3a6464aa468
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neo4j-mcp/blobs/sha256:0b95ac371e974f249f0f48973ede44eb52c4e224f0d7374673cf3cf604c7c21e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neo4j-mcp/blobs/sha256:55461d132e2cfe6d9d8fd266f3cd323d73f3c93dc4f54016d66494db98d817e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neo4j-mcp/blobs/sha256:973d7008f4af960574a8d367afebf2e46ceba9e24c1f1785964beffbaebd109d
+sha256:
+  darwin_arm64: bdd3c959de552f1b368121b0b78e14ee64ee42077a2497d1e14ef3a6464aa468
+  darwin_amd64: 0b95ac371e974f249f0f48973ede44eb52c4e224f0d7374673cf3cf604c7c21e
+  linux_amd64: 55461d132e2cfe6d9d8fd266f3cd323d73f3c93dc4f54016d66494db98d817e6
+  linux_arm64: 973d7008f4af960574a8d367afebf2e46ceba9e24c1f1785964beffbaebd109d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

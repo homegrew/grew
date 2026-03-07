@@ -1,0 +1,21 @@
+name: lakekeeper
+version: 0.11.2
+description: Apache Iceberg REST Catalog
+homepage: https://github.com/lakekeeper/lakekeeper
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lakekeeper/blobs/sha256:6f7271f10f1ec09aa7985c8d27f5a7d4d74aa9ef44473159c6b71904855e0f6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lakekeeper/blobs/sha256:cecaff2bd1aa57acaaacd56a16dc197127fa1fd8815d2ebf1700cd596a004448
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lakekeeper/blobs/sha256:ca3e632b99ffc2205d7dbadc9250d47b64fa2f7593317259652c81ef65c93f71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lakekeeper/blobs/sha256:1e629ffb3d5e156c74a055068ccbeef84b02fbf3c99d0a3e6693f339525ae2e2
+sha256:
+  darwin_arm64: 6f7271f10f1ec09aa7985c8d27f5a7d4d74aa9ef44473159c6b71904855e0f6c
+  darwin_amd64: cecaff2bd1aa57acaaacd56a16dc197127fa1fd8815d2ebf1700cd596a004448
+  linux_amd64: ca3e632b99ffc2205d7dbadc9250d47b64fa2f7593317259652c81ef65c93f71
+  linux_arm64: 1e629ffb3d5e156c74a055068ccbeef84b02fbf3c99d0a3e6693f339525ae2e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

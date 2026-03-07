@@ -1,0 +1,21 @@
+name: jjui
+version: 0.9.12
+description: TUI for interacting with the Jujutsu version control system
+homepage: https://github.com/idursun/jjui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jjui/blobs/sha256:f23b326270667d228b1fe675224ac893651cf354753b415556535e23b0196df6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jjui/blobs/sha256:bd2446b1a9ff6a20fc6ed6794f1ba291d87c53f3cffad3a8280416142436f5f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jjui/blobs/sha256:e315e2b4ec08cfd18e87626acb140beb9d0485d2d26cd4f5dbb9f196196d9663
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jjui/blobs/sha256:b64b931c97a2d1ad8a977fa85da05cda8627c68f09138c808fce943f8e89e306
+sha256:
+  darwin_arm64: f23b326270667d228b1fe675224ac893651cf354753b415556535e23b0196df6
+  darwin_amd64: bd2446b1a9ff6a20fc6ed6794f1ba291d87c53f3cffad3a8280416142436f5f6
+  linux_amd64: e315e2b4ec08cfd18e87626acb140beb9d0485d2d26cd4f5dbb9f196196d9663
+  linux_arm64: b64b931c97a2d1ad8a977fa85da05cda8627c68f09138c808fce943f8e89e306
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jj

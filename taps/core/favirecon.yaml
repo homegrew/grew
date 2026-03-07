@@ -1,0 +1,19 @@
+name: favirecon
+version: 1.0.2
+description: Uses favicon.ico to improve the target recon phase
+homepage: https://github.com/edoardottt/favirecon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/favirecon/blobs/sha256:24148b45f6af8b3bf04d326f518bb13f21ca8451e7e8bb7b136620211b542d88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/favirecon/blobs/sha256:a56331bc32be1117c2a49575b6370f5e42b52792bd4052d5740f6aebee0c77ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/favirecon/blobs/sha256:2f34ea1eb51f6fee500858b616af0e49a8e00e52a19979c22ecfacb69cc0e22d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/favirecon/blobs/sha256:c7f5e22feed110507aeaf85688294ca108621b86a2eff5dbc469c48edc145458
+sha256:
+  darwin_arm64: 24148b45f6af8b3bf04d326f518bb13f21ca8451e7e8bb7b136620211b542d88
+  darwin_amd64: a56331bc32be1117c2a49575b6370f5e42b52792bd4052d5740f6aebee0c77ec
+  linux_amd64: 2f34ea1eb51f6fee500858b616af0e49a8e00e52a19979c22ecfacb69cc0e22d
+  linux_arm64: c7f5e22feed110507aeaf85688294ca108621b86a2eff5dbc469c48edc145458
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

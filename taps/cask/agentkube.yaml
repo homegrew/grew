@@ -1,0 +1,11 @@
+name: agentkube
+version: 0.0.12
+description: AI-powered Kubernetes IDE
+homepage: https://agentkube.com/
+url:
+  darwin_arm64: https://github.com/agentkube/agentkube/releases/download/v0.0.12/agentkube_0.0.12_aarch64.dmg
+sha256:
+  darwin_arm64: c8c80699198b681ad79a31f8294df24e718e4f2aa935e90e2708f2535dd93dc4
+artifacts:
+  app:
+    - Agentkube.app

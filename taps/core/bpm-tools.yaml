@@ -1,0 +1,19 @@
+name: bpm-tools
+version: 0.3
+description: Detect tempo of audio files using beats-per-minute (BPM)
+homepage: https://www.pogo.org.uk/~mark/bpm-tools/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bpm-tools/blobs/sha256:634c02b83f4eed1869654538098c52c10571bde389661e7624c7a3a4ba14ebc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bpm-tools/blobs/sha256:5f59f612366fde2bb900c8bd8481bef6c041baf0be571e622e0e4f336fbddfbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bpm-tools/blobs/sha256:e78a1d3a9c96635e57bf0ce8c329a88b8b3406a0e0ba4a19cb97e4b42727f6a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bpm-tools/blobs/sha256:46138982bb7ffca2a4f763f1fde359ac3b0cddadb65e8f2e7dbadeede5274143
+sha256:
+  darwin_arm64: 634c02b83f4eed1869654538098c52c10571bde389661e7624c7a3a4ba14ebc2
+  darwin_amd64: 5f59f612366fde2bb900c8bd8481bef6c041baf0be571e622e0e4f336fbddfbc
+  linux_amd64: e78a1d3a9c96635e57bf0ce8c329a88b8b3406a0e0ba4a19cb97e4b42727f6a0
+  linux_arm64: 46138982bb7ffca2a4f763f1fde359ac3b0cddadb65e8f2e7dbadeede5274143
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

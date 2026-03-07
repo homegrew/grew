@@ -1,0 +1,26 @@
+name: snyk-agent-scan
+version: 0.4.4
+description: Constrain, log and scan your MCP connections for security vulnerabilities
+homepage: https://github.com/snyk/agent-scan
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snyk-agent-scan/blobs/sha256:bd75eb68aaa61a77601ffbd51a76e94656ab254d186b8c50d81ff566b75cb4e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snyk-agent-scan/blobs/sha256:396d8359403f551dc2d990bb656f0f59c6a16054fb7db1c2310e3d084cce38f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snyk-agent-scan/blobs/sha256:2290a32866e422e8dee739fe94cfe226840f46a8668ce411b73f230ae05b178c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snyk-agent-scan/blobs/sha256:c1a93e97710e32440f06b6388496cb181bbb628b0f309dbceceb3a648e85feac
+sha256:
+  darwin_arm64: bd75eb68aaa61a77601ffbd51a76e94656ab254d186b8c50d81ff566b75cb4e2
+  darwin_amd64: 396d8359403f551dc2d990bb656f0f59c6a16054fb7db1c2310e3d084cce38f3
+  linux_amd64: 2290a32866e422e8dee739fe94cfe226840f46a8668ce411b73f230ae05b178c
+  linux_arm64: c1a93e97710e32440f06b6388496cb181bbb628b0f309dbceceb3a648e85feac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pydantic
+  - python@3.14
+  - rpds-py

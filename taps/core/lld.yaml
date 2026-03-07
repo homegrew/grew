@@ -1,0 +1,22 @@
+name: lld
+version: 22.1.0
+description: LLVM Project Linker
+homepage: https://lld.llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lld/blobs/sha256:49565c7e4d982be4966f463ce52546149c90c8d5a62d13999934d9c4a4e821dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lld/blobs/sha256:c6301b7e626d8aa24bddcc666783c626dcd27d0cace4ff156f777fe66128b40f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lld/blobs/sha256:811ee6904c5c5aa95070e3df114ab4a64da348652e5cd3f5474c796d8ecee237
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lld/blobs/sha256:9e14e53340d90a11af6c8620fc4682b16e87934e3050fc6cbbfd5c00f1833f33
+sha256:
+  darwin_arm64: 49565c7e4d982be4966f463ce52546149c90c8d5a62d13999934d9c4a4e821dd
+  darwin_amd64: c6301b7e626d8aa24bddcc666783c626dcd27d0cace4ff156f777fe66128b40f
+  linux_amd64: 811ee6904c5c5aa95070e3df114ab4a64da348652e5cd3f5474c796d8ecee237
+  linux_arm64: 9e14e53340d90a11af6c8620fc4682b16e87934e3050fc6cbbfd5c00f1833f33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm
+  - zstd

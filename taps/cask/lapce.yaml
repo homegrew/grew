@@ -1,0 +1,13 @@
+name: lapce
+version: 0.4.6
+description: Open source code editor written in Rust
+homepage: https://lapce.dev/
+url:
+  darwin_arm64: https://github.com/lapce/lapce/releases/download/v0.4.6/Lapce-macos.dmg
+sha256:
+  darwin_arm64: d4ba42218148446c265c6a823107a969b3b0dca5e14df834563f2859927228f5
+artifacts:
+  app:
+    - Lapce.app
+  bin:
+    - lapce

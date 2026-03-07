@@ -1,0 +1,11 @@
+name: celestia
+version: 1.6.4
+description: Space simulation for exploring the universe in three dimensions
+homepage: https://celestiaproject.space/
+url:
+  darwin_arm64: https://github.com/CelestiaProject/Celestia/releases/download/1.6.4/celestia-1.6.4-macOS.zip
+sha256:
+  darwin_arm64: bfb0d0070be9a240a9e3df39495a43223a18dc7757f523ba71dbe8f0bdcaf9e3
+artifacts:
+  app:
+    - Celestia.app

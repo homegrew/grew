@@ -1,0 +1,23 @@
+name: dotnet
+version: 10.0.103
+description: .NET Core
+homepage: https://dotnet.microsoft.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotnet/blobs/sha256:c7a20890580a32e135b5e72329962ed04b74bf308ceca4a945a4d562f91ff3ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotnet/blobs/sha256:96556ea4496f6e3fa7d2657f55697ae816ed7805d84afb2cc1bd2e18f4202dd3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotnet/blobs/sha256:f115905c3bb05f74489b893f6d05792171d531ece66bd2bcefb93c6914498673
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotnet/blobs/sha256:85bc4fb6a26d2e9205ff544afea190088a8ac6bd1c89f25e15cf70585dcb7cdc
+sha256:
+  darwin_arm64: c7a20890580a32e135b5e72329962ed04b74bf308ceca4a945a4d562f91ff3ca
+  darwin_amd64: 96556ea4496f6e3fa7d2657f55697ae816ed7805d84afb2cc1bd2e18f4202dd3
+  linux_amd64: f115905c3bb05f74489b893f6d05792171d531ece66bd2bcefb93c6914498673
+  linux_arm64: 85bc4fb6a26d2e9205ff544afea190088a8ac6bd1c89f25e15cf70585dcb7cdc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - icu4c@78
+  - openssl@3

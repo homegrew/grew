@@ -1,0 +1,61 @@
+name: ffmpeg@5
+version: 5.1.8
+description: Play, record, convert, and stream audio and video
+homepage: https://ffmpeg.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/5/blobs/sha256:25940f9804b20a917bacee01f7de60822a471c13f2517ae39290cbd3e274817c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/5/blobs/sha256:5c3273cc532bfea336151a84474eb6fdb8ca5707114689cac10712b226673e2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/5/blobs/sha256:9e6cfd2b7a048ddd255994a16eeacc0918a54b2f07ba5c35a9e3bd0cf10c8283
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/5/blobs/sha256:ec24e53289159d9b67a6107571242a19a77926be1d84968bce4665e132bfa2c8
+sha256:
+  darwin_arm64: 25940f9804b20a917bacee01f7de60822a471c13f2517ae39290cbd3e274817c
+  darwin_amd64: 5c3273cc532bfea336151a84474eb6fdb8ca5707114689cac10712b226673e2b
+  linux_amd64: 9e6cfd2b7a048ddd255994a16eeacc0918a54b2f07ba5c35a9e3bd0cf10c8283
+  linux_arm64: ec24e53289159d9b67a6107571242a19a77926be1d84968bce4665e132bfa2c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aom
+  - aribb24
+  - dav1d
+  - fontconfig
+  - freetype
+  - frei0r
+  - gnutls
+  - lame
+  - libass
+  - libbluray
+  - librist
+  - libsoxr
+  - libvidstab
+  - libvmaf
+  - libvorbis
+  - libvpx
+  - libx11
+  - libxcb
+  - opencore-amr
+  - openjpeg
+  - opus
+  - rav1e
+  - rubberband
+  - sdl2
+  - snappy
+  - speex
+  - srt
+  - svt-av1
+  - tesseract
+  - theora
+  - webp
+  - x264
+  - x265
+  - xvid
+  - xz
+  - zeromq
+  - zimg
+  - libarchive
+  - libogg
+  - libsamplerate
+keg_only: true

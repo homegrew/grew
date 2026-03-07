@@ -1,0 +1,21 @@
+name: ipmitool
+version: 1.8.19
+description: Utility for IPMI control with kernel driver or LAN interface
+homepage: https://codeberg.org/IPMITool/ipmitool
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipmitool/blobs/sha256:3e1a327a4ff22704b4c6868fc1e17a29f2d138106d8b9ea495916c7e4ce8d059
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipmitool/blobs/sha256:6486e5cfbef27dc3affea78d2ce0d06b50b44030e27606095f25ad9f42dafce7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipmitool/blobs/sha256:610caf753fee4dcb908b7213554bb2397a9e303c00c95b52a7168da42ba804f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipmitool/blobs/sha256:9a89dea49852f23f465ae0c9d72c718cb06f593e097dc8e1370f22061800ba7c
+sha256:
+  darwin_arm64: 3e1a327a4ff22704b4c6868fc1e17a29f2d138106d8b9ea495916c7e4ce8d059
+  darwin_amd64: 6486e5cfbef27dc3affea78d2ce0d06b50b44030e27606095f25ad9f42dafce7
+  linux_amd64: 610caf753fee4dcb908b7213554bb2397a9e303c00c95b52a7168da42ba804f7
+  linux_arm64: 9a89dea49852f23f465ae0c9d72c718cb06f593e097dc8e1370f22061800ba7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

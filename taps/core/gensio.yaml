@@ -1,0 +1,26 @@
+name: gensio
+version: 3.0.2
+description: Stream I/O Library
+homepage: https://github.com/cminyard/gensio
+license: LGPL-2.1-only AND GPL-2.0-only AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gensio/blobs/sha256:0db89caf2ed24a6fe56baad6d75e2c330f3d844615476130ed40c96886ce1d8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gensio/blobs/sha256:33301c2bd0538d62b33f72ab6ab7356b0de2d95416f2f85bad06467f3a87b072
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gensio/blobs/sha256:0d72619224d245f776aa9866523a636f1546e1479fea40f928fde9e5af98961e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gensio/blobs/sha256:d28a9500f998e1e699484373c0044827613b2dc4e4707b6814fec1603604272b
+sha256:
+  darwin_arm64: 0db89caf2ed24a6fe56baad6d75e2c330f3d844615476130ed40c96886ce1d8e
+  darwin_amd64: 33301c2bd0538d62b33f72ab6ab7356b0de2d95416f2f85bad06467f3a87b072
+  linux_amd64: 0d72619224d245f776aa9866523a636f1546e1479fea40f928fde9e5af98961e
+  linux_arm64: d28a9500f998e1e699484373c0044827613b2dc4e4707b6814fec1603604272b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - openssl@3
+  - python@3.14
+  - tcl-tk
+  - gettext
+  - portaudio

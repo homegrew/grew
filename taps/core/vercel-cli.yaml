@@ -1,0 +1,21 @@
+name: vercel-cli
+version: 50.28.0
+description: Command-line interface for Vercel
+homepage: https://vercel.com/home
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vercel-cli/blobs/sha256:340e6b4b1d840ed5ec7d337f25722e3879b896dbaf39569905a29da032560d27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vercel-cli/blobs/sha256:fe763ca3c3e0eb65547101532475716395d6eb736e2f70b748872db4bad53ae5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vercel-cli/blobs/sha256:ffa57fbccc29d36d7ca69c35f12069a157186eaf188c128dd1e8dbb36f916654
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vercel-cli/blobs/sha256:99bc03717c30173ae1c6b8e5c41728a942f0236a14c8a1d3066992193172f61e
+sha256:
+  darwin_arm64: 340e6b4b1d840ed5ec7d337f25722e3879b896dbaf39569905a29da032560d27
+  darwin_amd64: fe763ca3c3e0eb65547101532475716395d6eb736e2f70b748872db4bad53ae5
+  linux_amd64: ffa57fbccc29d36d7ca69c35f12069a157186eaf188c128dd1e8dbb36f916654
+  linux_arm64: 99bc03717c30173ae1c6b8e5c41728a942f0236a14c8a1d3066992193172f61e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

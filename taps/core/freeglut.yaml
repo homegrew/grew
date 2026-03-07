@@ -1,0 +1,25 @@
+name: freeglut
+version: 3.8.0
+description: Open-source alternative to the OpenGL Utility Toolkit (GLUT) library
+homepage: https://freeglut.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freeglut/blobs/sha256:c702ef020f0ee587f8a6c583bd91f0e0ae905aae875b19c9ce91a30918b04c77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freeglut/blobs/sha256:271aaea7bbd3cce73d950c7dfbe2f68d1246e2dc35d3efd7e1e111f921aa870d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freeglut/blobs/sha256:d1a792596562e423cfc3c800166b2347d12b805a70395339bfe175752474d354
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freeglut/blobs/sha256:a4028f390685ccdbc27d63e8a13b13ac04eeb38d59ea713a02e0e4cd957cd87e
+sha256:
+  darwin_arm64: c702ef020f0ee587f8a6c583bd91f0e0ae905aae875b19c9ce91a30918b04c77
+  darwin_amd64: 271aaea7bbd3cce73d950c7dfbe2f68d1246e2dc35d3efd7e1e111f921aa870d
+  linux_amd64: d1a792596562e423cfc3c800166b2347d12b805a70395339bfe175752474d354
+  linux_arm64: a4028f390685ccdbc27d63e8a13b13ac04eeb38d59ea713a02e0e4cd957cd87e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxi
+  - libxrandr
+  - libxxf86vm
+  - mesa

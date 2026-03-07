@@ -1,0 +1,19 @@
+name: zfind
+version: 0.4.7
+description: Search for files (even inside tar/zip/7z/rar) using a SQL-WHERE filter
+homepage: https://github.com/laktak/zfind
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zfind/blobs/sha256:9484b12aa34aabcad72ece4f46b0dd3bd97591c180a40363116d3e3f31c6244b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zfind/blobs/sha256:f91bac0d8be49b7de9c64e288c9e8ce3430202d7fa6f258255fa97242dc52786
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zfind/blobs/sha256:2f07a3ba2af17209191e615c27b235be99fc748fba24f932b15d6005b588a6fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zfind/blobs/sha256:ac0501815e21e830c29c41970de83f98ae716601343d65e94a61aa56e4963d0f
+sha256:
+  darwin_arm64: 9484b12aa34aabcad72ece4f46b0dd3bd97591c180a40363116d3e3f31c6244b
+  darwin_amd64: f91bac0d8be49b7de9c64e288c9e8ce3430202d7fa6f258255fa97242dc52786
+  linux_amd64: 2f07a3ba2af17209191e615c27b235be99fc748fba24f932b15d6005b588a6fb
+  linux_arm64: ac0501815e21e830c29c41970de83f98ae716601343d65e94a61aa56e4963d0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

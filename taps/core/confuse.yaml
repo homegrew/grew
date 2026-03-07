@@ -1,0 +1,19 @@
+name: confuse
+version: 3.3
+description: Configuration file parser library written in C
+homepage: https://github.com/libconfuse/libconfuse
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/confuse/blobs/sha256:8c9faf9f2e1e5d1d0745acf79b46347b499053b9bcba4e4f4f89296bd5f8aad3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/confuse/blobs/sha256:38fa9c049ceed5cb948bb4c113f0c394a713873cb942f9e3ff97b6e40730927d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/confuse/blobs/sha256:a5fbe815c75f10344684dab03501ecab39cec4b157e46d955f6e2c70062d120b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/confuse/blobs/sha256:0be4562183f1ec990e0a9f2e082e82528048a0261b292013a8fc5b3f06e4b7db
+sha256:
+  darwin_arm64: 8c9faf9f2e1e5d1d0745acf79b46347b499053b9bcba4e4f4f89296bd5f8aad3
+  darwin_amd64: 38fa9c049ceed5cb948bb4c113f0c394a713873cb942f9e3ff97b6e40730927d
+  linux_amd64: a5fbe815c75f10344684dab03501ecab39cec4b157e46d955f6e2c70062d120b
+  linux_arm64: 0be4562183f1ec990e0a9f2e082e82528048a0261b292013a8fc5b3f06e4b7db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: itstool
+version: 2.0.7
+description: Make XML documents translatable through PO files
+homepage: https://itstool.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/itstool/blobs/sha256:716cb0efd44428ef62000438ff166627c117befbdd87b6d9c5580afac54c9dc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/itstool/blobs/sha256:9304cac2b3d4b0ce0cc09134157dcd281536f5ece469dda5f2bff14fbb16c126
+  linux_amd64: https://ghcr.io/v2/homebrew/core/itstool/blobs/sha256:8847008ec88f06667281b8517d4a934cf68757cb3b835d2c00a0fe356190f02a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/itstool/blobs/sha256:d6482a8c862c867c1c53bd78c2128c9997d67a0905c700ba05eebbc0417742d6
+sha256:
+  darwin_arm64: 716cb0efd44428ef62000438ff166627c117befbdd87b6d9c5580afac54c9dc2
+  darwin_amd64: 9304cac2b3d4b0ce0cc09134157dcd281536f5ece469dda5f2bff14fbb16c126
+  linux_amd64: 8847008ec88f06667281b8517d4a934cf68757cb3b835d2c00a0fe356190f02a
+  linux_arm64: d6482a8c862c867c1c53bd78c2128c9997d67a0905c700ba05eebbc0417742d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxml2
+  - python@3.14

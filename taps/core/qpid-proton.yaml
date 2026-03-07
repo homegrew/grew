@@ -1,0 +1,22 @@
+name: qpid-proton
+version: 0.40.0
+description: High-performance, lightweight AMQP 1.0 messaging library
+homepage: https://qpid.apache.org/proton/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qpid-proton/blobs/sha256:fb2e582995d74fa3b379e8e4d895fbf0d8ddd291cdb79e9d8d11c82e42180da1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qpid-proton/blobs/sha256:91a726082f6b056f11bf05f702270977a08c3c3d842f1e5ecc3c0e6501501dcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qpid-proton/blobs/sha256:529a54660787834c31b10aae535c4b99faf146b5f567715f9a44e06fdc3b37b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qpid-proton/blobs/sha256:264e02d20e0fe761f2c866e52d21955063c016c58841a8333255cf70a8d677f8
+sha256:
+  darwin_arm64: fb2e582995d74fa3b379e8e4d895fbf0d8ddd291cdb79e9d8d11c82e42180da1
+  darwin_amd64: 91a726082f6b056f11bf05f702270977a08c3c3d842f1e5ecc3c0e6501501dcd
+  linux_amd64: 529a54660787834c31b10aae535c4b99faf146b5f567715f9a44e06fdc3b37b0
+  linux_arm64: 264e02d20e0fe761f2c866e52d21955063c016c58841a8333255cf70a8d677f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv
+  - openssl@3

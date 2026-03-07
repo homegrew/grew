@@ -1,0 +1,23 @@
+name: xroar
+version: 1.10
+description: Dragon and Tandy 8-bit computer emulator
+homepage: https://www.6809.org.uk/xroar/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xroar/blobs/sha256:52681ca01fcb75069b25d62f754db55d9c1968ba97302d808aa0819077b24091
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xroar/blobs/sha256:d1f01e6bbabcb9330824fb1c5a002d4bd9ec806b3a95b4d58e64ddd52ea94860
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xroar/blobs/sha256:e47407779ad729169ce38b140396558791b16ff01f6e2f1b32f37f70720c26ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xroar/blobs/sha256:f0c1417b6d9167ea76ca199b4b29a041d964180753e51c42a2450af222d445be
+sha256:
+  darwin_arm64: 52681ca01fcb75069b25d62f754db55d9c1968ba97302d808aa0819077b24091
+  darwin_amd64: d1f01e6bbabcb9330824fb1c5a002d4bd9ec806b3a95b4d58e64ddd52ea94860
+  linux_amd64: e47407779ad729169ce38b140396558791b16ff01f6e2f1b32f37f70720c26ba
+  linux_arm64: f0c1417b6d9167ea76ca199b4b29a041d964180753e51c42a2450af222d445be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - libsndfile
+  - sdl2

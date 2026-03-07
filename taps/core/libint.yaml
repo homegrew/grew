@@ -1,0 +1,22 @@
+name: libint
+version: 2.13.1
+description: Library for computing electron repulsion integrals efficiently
+homepage: https://github.com/evaleev/libint
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libint/blobs/sha256:4b03a7d26170b597d8420de0020de22fca8622a1a5990f6139b11df4727722df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libint/blobs/sha256:8f26efba8c16c3e353832d6b9a070cf68a005a853fe473feacad779aaf5f65a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libint/blobs/sha256:34def8f50947bcdf2d36667e9bbb9bed785d9b52f62a7ebfef7020dd02f52b5b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libint/blobs/sha256:963b6d12f7047ea666a2b5f18f021bde6578bdcebc25f5007a49137b157d023e
+sha256:
+  darwin_arm64: 4b03a7d26170b597d8420de0020de22fca8622a1a5990f6139b11df4727722df
+  darwin_amd64: 8f26efba8c16c3e353832d6b9a070cf68a005a853fe473feacad779aaf5f65a7
+  linux_amd64: 34def8f50947bcdf2d36667e9bbb9bed785d9b52f62a7ebfef7020dd02f52b5b
+  linux_arm64: 963b6d12f7047ea666a2b5f18f021bde6578bdcebc25f5007a49137b157d023e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - eigen

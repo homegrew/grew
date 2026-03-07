@@ -1,0 +1,11 @@
+name: yed
+version: 3.25.1
+description: Create diagrams manually, or import external data for analysis
+homepage: https://www.yworks.com/products/yed
+url:
+  darwin_arm64: https://www.yworks.com/resources/yed/demo/yEd-3.25.1_with-JRE21_arm64.dmg
+sha256:
+  darwin_arm64: db6870a59f3128b3e9b42afb80723963478378cb6e05e6dd9cd3c8a3d99e903b
+artifacts:
+  app:
+    - yEd.app

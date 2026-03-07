@@ -1,0 +1,31 @@
+name: gtk+3
+version: 3.24.51
+description: Toolkit for creating graphical user interfaces
+homepage: https://gtk.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkx3/blobs/sha256:8a6b1cf042150d78cc3707274cad033f554eaac9b20732a3b700406e382cdabd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkx3/blobs/sha256:801962fdd5db7aace2774d1f007b480b744d8c6e52cb0a2a3f9e02b4fae867d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkx3/blobs/sha256:ae3319b30112bf8f755220fa0aad79edd051f3b710fb66ad6406d93ab2cd9690
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkx3/blobs/sha256:3789850042fdd0cd821f80f634ac9b1c86998eb1e6b34e0231d8ab087e3a51a5
+sha256:
+  darwin_arm64: 8a6b1cf042150d78cc3707274cad033f554eaac9b20732a3b700406e382cdabd
+  darwin_amd64: 801962fdd5db7aace2774d1f007b480b744d8c6e52cb0a2a3f9e02b4fae867d9
+  linux_amd64: ae3319b30112bf8f755220fa0aad79edd051f3b710fb66ad6406d93ab2cd9690
+  linux_arm64: 3789850042fdd0cd821f80f634ac9b1c86998eb1e6b34e0231d8ab087e3a51a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - fribidi
+  - gdk-pixbuf
+  - glib
+  - gsettings-desktop-schemas
+  - harfbuzz
+  - hicolor-icon-theme
+  - libepoxy
+  - pango
+  - gettext

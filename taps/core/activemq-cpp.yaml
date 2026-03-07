@@ -1,0 +1,22 @@
+name: activemq-cpp
+version: 3.9.5
+description: C++ API for message brokers such as Apache ActiveMQ
+homepage: https://activemq.apache.org/components/cms/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/activemq-cpp/blobs/sha256:a0f11adf35cbc7f7295a0d056b8255af8d54bab66c242fa31704f54070aaa1a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/activemq-cpp/blobs/sha256:48bb7e137e7277ec31c056f662ad7b799d706a0440ffa353af2ab857e28a3e7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/activemq-cpp/blobs/sha256:fa16d5eb67f51eb3d9e648447398db44713695f5e1c5279c70f7a2229e607a9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/activemq-cpp/blobs/sha256:07d0b32de8d78022c5498d1ff144d16c573bd5de3edf91239f8404dc72cd64a2
+sha256:
+  darwin_arm64: a0f11adf35cbc7f7295a0d056b8255af8d54bab66c242fa31704f54070aaa1a7
+  darwin_amd64: 48bb7e137e7277ec31c056f662ad7b799d706a0440ffa353af2ab857e28a3e7b
+  linux_amd64: fa16d5eb67f51eb3d9e648447398db44713695f5e1c5279c70f7a2229e607a9a
+  linux_arm64: 07d0b32de8d78022c5498d1ff144d16c573bd5de3edf91239f8404dc72cd64a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - openssl@3

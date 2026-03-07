@@ -1,0 +1,31 @@
+name: enter-tex
+version: 3.49.0
+description: TeX/LaTeX text editor
+homepage: https://gitlab.gnome.org/swilmet/enter-tex
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enter-tex/blobs/sha256:d4f3f78d741b6b74ee5d5614d371083d7170d3632831fbeba0bd4b0860c0e09a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enter-tex/blobs/sha256:e5081612b8cfb7600fd27ea1f3d10effb7f9dda93d23f9cd468c37bca10dadb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enter-tex/blobs/sha256:76fde6a58a4d9e38b0db038361296fc5c1b435b58cbdc2d33fdc2c2369928a98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enter-tex/blobs/sha256:62c99fb21e459a0035af2fe1f7ff9a26578d0050e394a80a6657571945a30da0
+sha256:
+  darwin_arm64: d4f3f78d741b6b74ee5d5614d371083d7170d3632831fbeba0bd4b0860c0e09a
+  darwin_amd64: e5081612b8cfb7600fd27ea1f3d10effb7f9dda93d23f9cd468c37bca10dadb2
+  linux_amd64: 76fde6a58a4d9e38b0db038361296fc5c1b435b58cbdc2d33fdc2c2369928a98
+  linux_arm64: 62c99fb21e459a0035af2fe1f7ff9a26578d0050e394a80a6657571945a30da0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - gdk-pixbuf
+  - glib
+  - gspell
+  - gtk+3
+  - libgedit-amtk
+  - libgedit-gtksourceview
+  - libgedit-tepl
+  - libgee
+  - pango
+  - gettext

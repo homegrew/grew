@@ -1,0 +1,21 @@
+name: glog
+version: 0.7.1
+description: Application-level logging library
+homepage: https://google.github.io/glog/stable/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glog/blobs/sha256:15bf109a841f9381cd9086d7aecefc7d782670c90a5142bbf9f281604deff968
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glog/blobs/sha256:9e1493169d73ac812775f431b0f227f45d21504d0eeed8f296f7f2fcb071b919
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glog/blobs/sha256:2c624a10ebd6da940a6f6d1c3ddb4cfe5a025bc588ece4de923aeeebadfeb8a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glog/blobs/sha256:55330f966af37454c000fe47f329a6eba4504393bf0752d35f0c3690bd2155fc
+sha256:
+  darwin_arm64: 15bf109a841f9381cd9086d7aecefc7d782670c90a5142bbf9f281604deff968
+  darwin_amd64: 9e1493169d73ac812775f431b0f227f45d21504d0eeed8f296f7f2fcb071b919
+  linux_amd64: 2c624a10ebd6da940a6f6d1c3ddb4cfe5a025bc588ece4de923aeeebadfeb8a2
+  linux_arm64: 55330f966af37454c000fe47f329a6eba4504393bf0752d35f0c3690bd2155fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gflags

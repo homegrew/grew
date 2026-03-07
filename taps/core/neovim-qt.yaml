@@ -1,0 +1,24 @@
+name: neovim-qt
+version: 0.2.19
+description: Neovim GUI, in Qt
+homepage: https://github.com/equalsraf/neovim-qt
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neovim-qt/blobs/sha256:a4ebd18a46757494d4d8914121aea77a08843626580df268d728840f28083fa2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neovim-qt/blobs/sha256:ce37d682b255a3c6fbee35f0146eaf6a5022b44ba5e318b460e361fc260ebfe4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neovim-qt/blobs/sha256:0622186421cd33e3edb8e64d74c630a4632b31c613eb2e88949f440415be0f45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neovim-qt/blobs/sha256:c47a0daa850d84c38744b4cad5018643b473bb94258802672ba8abdcdffa9443
+sha256:
+  darwin_arm64: a4ebd18a46757494d4d8914121aea77a08843626580df268d728840f28083fa2
+  darwin_amd64: ce37d682b255a3c6fbee35f0146eaf6a5022b44ba5e318b460e361fc260ebfe4
+  linux_amd64: 0622186421cd33e3edb8e64d74c630a4632b31c613eb2e88949f440415be0f45
+  linux_arm64: c47a0daa850d84c38744b4cad5018643b473bb94258802672ba8abdcdffa9443
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - msgpack
+  - neovim
+  - qtbase
+  - qtsvg

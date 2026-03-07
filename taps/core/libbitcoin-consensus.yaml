@@ -1,0 +1,19 @@
+name: libbitcoin-consensus
+version: 3.8.0
+description: Bitcoin Consensus Library (optional)
+homepage: https://github.com/libbitcoin/libbitcoin-consensus
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbitcoin-consensus/blobs/sha256:a208eab2c355028b035129dac7a3f1316dff9cec8d84aeee74a0ffc66fc94ac4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbitcoin-consensus/blobs/sha256:6f7adeb8f31361a7962ec8130c23829f8a8c5efe265d54c541bce38642a9fbb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbitcoin-consensus/blobs/sha256:32b0d72b5ff1f2de8effc219182d08b8e3a4a92ec714ddea76691196ca42df61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbitcoin-consensus/blobs/sha256:9f14d11d115821d69e9aff1270ad08ef647468621148af9693b71d8d59fa0a57
+sha256:
+  darwin_arm64: a208eab2c355028b035129dac7a3f1316dff9cec8d84aeee74a0ffc66fc94ac4
+  darwin_amd64: 6f7adeb8f31361a7962ec8130c23829f8a8c5efe265d54c541bce38642a9fbb4
+  linux_amd64: 32b0d72b5ff1f2de8effc219182d08b8e3a4a92ec714ddea76691196ca42df61
+  linux_arm64: 9f14d11d115821d69e9aff1270ad08ef647468621148af9693b71d8d59fa0a57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

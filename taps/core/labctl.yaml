@@ -1,0 +1,19 @@
+name: labctl
+version: 0.1.61
+description: CLI tool for interacting with iximiuz labs and playgrounds
+homepage: https://github.com/iximiuz/labctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/labctl/blobs/sha256:6f443936dc09347cff9e80d69d666fa5cd532d326a1558cb133eced28896473d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/labctl/blobs/sha256:98e84ff460413353e7934aec0be1b1b6b010a6d0e75af0f42a59d20241c66fd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/labctl/blobs/sha256:46d38130df7906f8435b6f683bcf7f6b1909666e91e0ccdcdbb72c2a9a752d20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/labctl/blobs/sha256:d0f5c1769c8464c8d7ef2694676c1f5dce557e52b69762a1ab1133101e166d66
+sha256:
+  darwin_arm64: 6f443936dc09347cff9e80d69d666fa5cd532d326a1558cb133eced28896473d
+  darwin_amd64: 98e84ff460413353e7934aec0be1b1b6b010a6d0e75af0f42a59d20241c66fd9
+  linux_amd64: 46d38130df7906f8435b6f683bcf7f6b1909666e91e0ccdcdbb72c2a9a752d20
+  linux_arm64: d0f5c1769c8464c8d7ef2694676c1f5dce557e52b69762a1ab1133101e166d66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

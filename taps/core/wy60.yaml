@@ -1,0 +1,19 @@
+name: wy60
+version: 2.0.9
+description: Wyse 60 compatible terminal emulator
+homepage: https://code.google.com/archive/p/wy60/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wy60/blobs/sha256:27074202271ebad114a776e830498514e56da281471bdd05eed3d4eb00dbee09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wy60/blobs/sha256:fdfd9a3863cbb38a5d87eeeb04de4ccab9e503243848d7384173b47a7b7075cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wy60/blobs/sha256:a6e03720948c91ccddf6881bf9770a13ff9b1560b52e4ab007da15257c1bb3c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wy60/blobs/sha256:49410228b9210e6f2cfb22d8cf47ec007ce53b63ce2ad77980696efa5ea5f61f
+sha256:
+  darwin_arm64: 27074202271ebad114a776e830498514e56da281471bdd05eed3d4eb00dbee09
+  darwin_amd64: fdfd9a3863cbb38a5d87eeeb04de4ccab9e503243848d7384173b47a7b7075cb
+  linux_amd64: a6e03720948c91ccddf6881bf9770a13ff9b1560b52e4ab007da15257c1bb3c1
+  linux_arm64: 49410228b9210e6f2cfb22d8cf47ec007ce53b63ce2ad77980696efa5ea5f61f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

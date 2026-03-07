@@ -1,0 +1,22 @@
+name: httpie
+version: 3.2.4
+description: User-friendly cURL replacement (command-line HTTP client)
+homepage: https://httpie.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httpie/blobs/sha256:7f8f71ba45dab93fecec998b897c0fa5eb65d759baf67b1fac90724707d6ec50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httpie/blobs/sha256:fcc15842003edfed809482f5c4246e319a88769e45e9d6fad98897c647f48206
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httpie/blobs/sha256:5291b610184ac63499ce0d0f7cee7382c9d392c56667ff2106730d33de3f3f4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httpie/blobs/sha256:84f9c006ca35c74d811488d7ab0ca797f9ceda0f9da0c706121b314315213fb1
+sha256:
+  darwin_arm64: 7f8f71ba45dab93fecec998b897c0fa5eb65d759baf67b1fac90724707d6ec50
+  darwin_amd64: fcc15842003edfed809482f5c4246e319a88769e45e9d6fad98897c647f48206
+  linux_amd64: 5291b610184ac63499ce0d0f7cee7382c9d392c56667ff2106730d33de3f3f4b
+  linux_arm64: 84f9c006ca35c74d811488d7ab0ca797f9ceda0f9da0c706121b314315213fb1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

@@ -1,0 +1,11 @@
+name: kextviewr
+version: 2.0.0
+description: Display all currently loaded kexts
+homepage: https://objective-see.org/products/kextviewr.html
+url:
+  darwin_arm64: https://github.com/objective-see/KextViewr/releases/download/v2.0.0/KextViewr_2.0.0.zip
+sha256:
+  darwin_arm64: cd92141750812797cffd626f697c133fac84b615b5d4cd5dae56a8160320968e
+artifacts:
+  app:
+    - KextViewr.app

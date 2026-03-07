@@ -1,0 +1,19 @@
+name: bombadillo
+version: 2.4.0
+description: Non-web browser, designed for a growing list of protocols
+homepage: https://bombadillo.colorfield.space/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bombadillo/blobs/sha256:31498bb84196e03bdbb936dc1528b02b3355832cc0a8ebd01dbdf176376caabc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bombadillo/blobs/sha256:a11e33aea16006a92c4106d122b756465d1fdda704c35a136e25824ca9926e99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bombadillo/blobs/sha256:8512c76f2d7a4ed9535fad9ed424f0e0da8a39240bbd90448c3e37600b13d650
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bombadillo/blobs/sha256:22151314103e03dba1c70db82812e1e7565fcf636b615d039f155a59217e050c
+sha256:
+  darwin_arm64: 31498bb84196e03bdbb936dc1528b02b3355832cc0a8ebd01dbdf176376caabc
+  darwin_amd64: a11e33aea16006a92c4106d122b756465d1fdda704c35a136e25824ca9926e99
+  linux_amd64: 8512c76f2d7a4ed9535fad9ed424f0e0da8a39240bbd90448c3e37600b13d650
+  linux_arm64: 22151314103e03dba1c70db82812e1e7565fcf636b615d039f155a59217e050c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: btllib
+version: 1.7.5
+description: Bioinformatics Technology Lab common code library
+homepage: https://github.com/bcgsc/btllib
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/btllib/blobs/sha256:f28456234329c7647f0f2cc58540744e0f9790b626b77d62cc4e1fc15811857f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/btllib/blobs/sha256:e5c99cf0f8b060c9fed4bf52fe89bf90fd5e1535571fe59b67b0a80323afe58d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btllib/blobs/sha256:3473b3fa6fc735ad5f8262edf31a5decf2d998cf046880420dec5dc97679bac0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btllib/blobs/sha256:ad898baf48d8ac49e1d40209b1a1e5a5f47cf3a79fbffb6975e55dcd77194e90
+sha256:
+  darwin_arm64: f28456234329c7647f0f2cc58540744e0f9790b626b77d62cc4e1fc15811857f
+  darwin_amd64: e5c99cf0f8b060c9fed4bf52fe89bf90fd5e1535571fe59b67b0a80323afe58d
+  linux_amd64: 3473b3fa6fc735ad5f8262edf31a5decf2d998cf046880420dec5dc97679bac0
+  linux_arm64: ad898baf48d8ac49e1d40209b1a1e5a5f47cf3a79fbffb6975e55dcd77194e90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

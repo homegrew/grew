@@ -1,0 +1,11 @@
+name: ricoh-theta
+version: 3.21.0
+description: Companion software for 360 degree cameras
+homepage: https://theta360.com/en/support/download/pcmac/
+url:
+  darwin_arm64: https://theta360-statics.s3.amazonaws.com/app/viewer/SphericalViewerUpdate/RICOH%20THETA.3.21.0.app.zip
+sha256:
+  darwin_arm64: 4c1d58b4bb1087c9129b99ac9cce1ff4cdc0439d1fa269b683b7f8b9e608f7a3
+artifacts:
+  app:
+    - RICOH THETA.app

@@ -1,0 +1,33 @@
+name: gnuplot
+version: 6.0.4
+description: Command-driven, interactive function plotting
+homepage: http://www.gnuplot.info/
+license: gnuplot
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnuplot/blobs/sha256:2423f8956648248d70bca9f18a3d01ae80093ba2fb6285456220af59d48f1e88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnuplot/blobs/sha256:a85e158ae09b9ea340fb6203d2932c5c59479d2e68530e505d0236590a5e4e77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnuplot/blobs/sha256:dbd1c5da00d909c309acd5354b6063ae903fa1a91961c739b1625af87538de80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnuplot/blobs/sha256:28cd7475405d3677b56f326d9a9b35fab9deb3d62110628030ab9e7015c4bfb2
+sha256:
+  darwin_arm64: 2423f8956648248d70bca9f18a3d01ae80093ba2fb6285456220af59d48f1e88
+  darwin_amd64: a85e158ae09b9ea340fb6203d2932c5c59479d2e68530e505d0236590a5e4e77
+  linux_amd64: dbd1c5da00d909c309acd5354b6063ae903fa1a91961c739b1625af87538de80
+  linux_arm64: 28cd7475405d3677b56f326d9a9b35fab9deb3d62110628030ab9e7015c4bfb2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gd
+  - glib
+  - libcerf
+  - lua
+  - pango
+  - qt5compat
+  - qtbase
+  - qtsvg
+  - readline
+  - webp
+  - gettext
+  - harfbuzz

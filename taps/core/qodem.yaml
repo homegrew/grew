@@ -1,0 +1,19 @@
+name: qodem
+version: 1.0.1
+description: Terminal emulator and BBS client
+homepage: https://qodem.sourceforge.io/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qodem/blobs/sha256:62259c018c435331adcb0c9d99b72f119e03d4cb549a100e758f96deae273b8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qodem/blobs/sha256:e8d54c0a6aeddabfb41011dc78dd6ad6a5c3363a89574cefb7f93835ff54c335
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qodem/blobs/sha256:19414f9b69d7423a5f2ab1ecb2690bf1bd285f96832d151835741867f22f2e6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qodem/blobs/sha256:6e3c2992c032736b98f58b50eaa897b282a3843012fc22371dd43bd93cd4ed7b
+sha256:
+  darwin_arm64: 62259c018c435331adcb0c9d99b72f119e03d4cb549a100e758f96deae273b8f
+  darwin_amd64: e8d54c0a6aeddabfb41011dc78dd6ad6a5c3363a89574cefb7f93835ff54c335
+  linux_amd64: 19414f9b69d7423a5f2ab1ecb2690bf1bd285f96832d151835741867f22f2e6e
+  linux_arm64: 6e3c2992c032736b98f58b50eaa897b282a3843012fc22371dd43bd93cd4ed7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

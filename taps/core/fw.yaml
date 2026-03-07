@@ -1,0 +1,21 @@
+name: fw
+version: 2.21.0
+description: Workspace productivity booster
+homepage: https://github.com/brocode/fw
+license: WTFPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fw/blobs/sha256:7780f59e32df0457b9148d55505e274053393a4545cf61fcf790cb0b23dfe19e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fw/blobs/sha256:40916ca263737c78e58fd02c91d7aa82e738fad567031cd62c0a67d7e8c4ac6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fw/blobs/sha256:d3ebff57c1fc6a7739a8486817e893a075902406d6c00ef329818f5bbbf46ad2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fw/blobs/sha256:0c60ab562c31623fcb540d57810708e49c38f652430c85a239b46210b5fdab21
+sha256:
+  darwin_arm64: 7780f59e32df0457b9148d55505e274053393a4545cf61fcf790cb0b23dfe19e
+  darwin_amd64: 40916ca263737c78e58fd02c91d7aa82e738fad567031cd62c0a67d7e8c4ac6b
+  linux_amd64: d3ebff57c1fc6a7739a8486817e893a075902406d6c00ef329818f5bbbf46ad2
+  linux_arm64: 0c60ab562c31623fcb540d57810708e49c38f652430c85a239b46210b5fdab21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

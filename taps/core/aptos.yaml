@@ -1,0 +1,19 @@
+name: aptos
+version: 8.1.0
+description: Layer 1 blockchain built to support fair access to decentralized assets for all
+homepage: https://aptosfoundation.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aptos/blobs/sha256:f5484791aaa8b146a2eede6933c79f981136cbf30bf86163fd5045549575912e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aptos/blobs/sha256:32faaf97acb487b6bbab5770185835cd263583c271989e360cd5d27457a529a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aptos/blobs/sha256:ecf7659c5c7940620fd655119a058e29b9cf6271875763b524cdf7c11b38b80e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aptos/blobs/sha256:c1fef6ff1cca807bb631ffd06eaa08e0ade37cd7e5f16ea8e3c020d0c173a0a0
+sha256:
+  darwin_arm64: f5484791aaa8b146a2eede6933c79f981136cbf30bf86163fd5045549575912e
+  darwin_amd64: 32faaf97acb487b6bbab5770185835cd263583c271989e360cd5d27457a529a1
+  linux_amd64: ecf7659c5c7940620fd655119a058e29b9cf6271875763b524cdf7c11b38b80e
+  linux_arm64: c1fef6ff1cca807bb631ffd06eaa08e0ade37cd7e5f16ea8e3c020d0c173a0a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

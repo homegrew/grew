@@ -1,0 +1,19 @@
+name: goproxy
+version: 2.0.7
+description: Global proxy for Go modules
+homepage: https://goproxy.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goproxy/blobs/sha256:a6fe5b22a2855bc41c990c21c058242eddda66aaccf7651ddc499bb45086213f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goproxy/blobs/sha256:963349b8116bfaece90f5fece31b68238c547cdc89b865d35a8a65b4addc6087
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goproxy/blobs/sha256:aea5ace7890ba7d5035f69fab75985928a2f8e1a8514e2ab2ec58c3470d9c250
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goproxy/blobs/sha256:6cf00fbcaaca348415583ef697f7cb15a358399a99efaab9156de1d99a5f2839
+sha256:
+  darwin_arm64: a6fe5b22a2855bc41c990c21c058242eddda66aaccf7651ddc499bb45086213f
+  darwin_amd64: 963349b8116bfaece90f5fece31b68238c547cdc89b865d35a8a65b4addc6087
+  linux_amd64: aea5ace7890ba7d5035f69fab75985928a2f8e1a8514e2ab2ec58c3470d9c250
+  linux_arm64: 6cf00fbcaaca348415583ef697f7cb15a358399a99efaab9156de1d99a5f2839
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

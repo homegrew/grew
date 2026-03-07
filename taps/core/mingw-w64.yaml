@@ -1,0 +1,25 @@
+name: mingw-w64
+version: 13.0.0
+description: Minimalist GNU for Windows and GCC cross-compilers
+homepage: https://sourceforge.net/projects/mingw-w64/
+license: ZPL-2.1 AND (GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-3.0-only) AND (GPL-3.0-or-later WITH GCC-exception-3.1)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mingw-w64/blobs/sha256:687705e89853f818c4750c2e254eba8ff42a6e4383776e29ad4202f54f9be2c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mingw-w64/blobs/sha256:07abc35bcfcf64297df6a8bb50a587148921b2618f94aec95ba9da370fa17222
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mingw-w64/blobs/sha256:b483173565e227feb70a894630749d8538de3067672ac00786c2612d0c8824cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mingw-w64/blobs/sha256:d51e6d1a3acc70fe646a710fe8d9a0a4d672ddf0f23087c0ca5b25e5a176480b
+sha256:
+  darwin_arm64: 687705e89853f818c4750c2e254eba8ff42a6e4383776e29ad4202f54f9be2c2
+  darwin_amd64: 07abc35bcfcf64297df6a8bb50a587148921b2618f94aec95ba9da370fa17222
+  linux_amd64: b483173565e227feb70a894630749d8538de3067672ac00786c2612d0c8824cd
+  linux_arm64: d51e6d1a3acc70fe646a710fe8d9a0a4d672ddf0f23087c0ca5b25e5a176480b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - isl
+  - libmpc
+  - mpfr
+  - zstd

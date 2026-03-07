@@ -1,0 +1,22 @@
+name: openkim-models
+version: 2021-08-11
+description: All OpenKIM Models compatible with kim-api
+homepage: https://openkim.org
+license: CDDL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openkim-models/blobs/sha256:f0835dfa801e64cfd8157312b79d8f4c7e1de78625e6d9f8fab9fa6aa3d6d9e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openkim-models/blobs/sha256:ac768544fe9309e2850baac18955339bf1f1ddc6a2139811342613aad3aee00d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openkim-models/blobs/sha256:b10942f7fcbe44a43a4390fceef8b8b508c80c020ce5dec6101b3b30bc3977e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openkim-models/blobs/sha256:2d35e7b5241239dc19a17ba45ee5ed24d6f06689796d612abfec2ba28d0b393c
+sha256:
+  darwin_arm64: f0835dfa801e64cfd8157312b79d8f4c7e1de78625e6d9f8fab9fa6aa3d6d9e4
+  darwin_amd64: ac768544fe9309e2850baac18955339bf1f1ddc6a2139811342613aad3aee00d
+  linux_amd64: b10942f7fcbe44a43a4390fceef8b8b508c80c020ce5dec6101b3b30bc3977e7
+  linux_arm64: 2d35e7b5241239dc19a17ba45ee5ed24d6f06689796d612abfec2ba28d0b393c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kim-api
+  - gcc

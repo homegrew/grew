@@ -1,0 +1,22 @@
+name: deno
+version: 2.7.4
+description: Secure runtime for JavaScript and TypeScript
+homepage: https://deno.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/deno/blobs/sha256:060199a766eabffb4dac1f2f2ee7a5a77a3a27d12268f36b9d74b7c42c363e14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/deno/blobs/sha256:f507eb7b850faab425c0afeb5f254e5fd26294a1cb1e8ee0b665a6ee56915799
+  linux_amd64: https://ghcr.io/v2/homebrew/core/deno/blobs/sha256:3bee3104d521868e9bfaaeaa553d212d784f984f12a8e7c5bd40ed83f97a78fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/deno/blobs/sha256:1f8133760dede779227b3a119e38de9c1f1cc9b599897ecc44c3670345766c29
+sha256:
+  darwin_arm64: 060199a766eabffb4dac1f2f2ee7a5a77a3a27d12268f36b9d74b7c42c363e14
+  darwin_amd64: f507eb7b850faab425c0afeb5f254e5fd26294a1cb1e8ee0b665a6ee56915799
+  linux_amd64: 3bee3104d521868e9bfaaeaa553d212d784f984f12a8e7c5bd40ed83f97a78fd
+  linux_arm64: 1f8133760dede779227b3a119e38de9c1f1cc9b599897ecc44c3670345766c29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - little-cms2
+  - sqlite

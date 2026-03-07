@@ -1,0 +1,19 @@
+name: tuios
+version: 0.6.0
+description: Terminal UI OS (Terminal Multiplexer)
+homepage: https://github.com/Gaurav-Gosain/tuios
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tuios/blobs/sha256:e08771c4d69980c52802f937b63cc40ac7c6088c90f5d973aa6f257d9cb0fd0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tuios/blobs/sha256:b839698c72b70875aed723ef2c29e8096256db5f189498849b7704cb99f8d9f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tuios/blobs/sha256:8e0750ab97df56afb8a6a33a08f3cb41bd735e95f81fc51b1eacdb77b8ae6f09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tuios/blobs/sha256:ae813b65158d68c11f04c06e054d0b564d6424d086a6db5cc27aab4a984e237c
+sha256:
+  darwin_arm64: e08771c4d69980c52802f937b63cc40ac7c6088c90f5d973aa6f257d9cb0fd0f
+  darwin_amd64: b839698c72b70875aed723ef2c29e8096256db5f189498849b7704cb99f8d9f3
+  linux_amd64: 8e0750ab97df56afb8a6a33a08f3cb41bd735e95f81fc51b1eacdb77b8ae6f09
+  linux_arm64: ae813b65158d68c11f04c06e054d0b564d6424d086a6db5cc27aab4a984e237c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

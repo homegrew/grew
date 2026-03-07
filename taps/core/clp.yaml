@@ -1,0 +1,23 @@
+name: clp
+version: 1.17.10
+description: Linear programming solver
+homepage: https://github.com/coin-or/Clp
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clp/blobs/sha256:f875557c40925c2c5b0776bf226aa6c8a9f49594d16d7535c50c7e1984176144
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clp/blobs/sha256:73f92e5e65141f07f3b878b8fa5a212f70dadc4b9d19f803cf45e3a00edddd0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clp/blobs/sha256:3de80fe042a6689294193c7efbb4d794ee37c3e1194dcdb311b740acb6ffba09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clp/blobs/sha256:2d629ba3d4e212476ae6e6c4172ccc97bf88acac38f1982de82aa07560da98a7
+sha256:
+  darwin_arm64: f875557c40925c2c5b0776bf226aa6c8a9f49594d16d7535c50c7e1984176144
+  darwin_amd64: 73f92e5e65141f07f3b878b8fa5a212f70dadc4b9d19f803cf45e3a00edddd0c
+  linux_amd64: 3de80fe042a6689294193c7efbb4d794ee37c3e1194dcdb311b740acb6ffba09
+  linux_arm64: 2d629ba3d4e212476ae6e6c4172ccc97bf88acac38f1982de82aa07560da98a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coinutils
+  - openblas
+  - osi

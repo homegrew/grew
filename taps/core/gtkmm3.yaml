@@ -1,0 +1,28 @@
+name: gtkmm3
+version: 3.24.10
+description: C++ interfaces for GTK+ and GNOME
+homepage: https://www.gtkmm.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkmm3/blobs/sha256:21289ec23a109fe9b676fc7de8d81687646d6b442a9dec2b8a6af8f718ce8b01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkmm3/blobs/sha256:87c03521300deea80cdcde65cd5cafbb5d37973929b06882aa03e408e367bd46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkmm3/blobs/sha256:f955e7ece517c27b273e28ffeb1375f14142bccd51c0b6fcfebb6f3b0fcd09f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkmm3/blobs/sha256:b97dd9a0f48a85b6f8c5aecae71d7bf07a39ec2d3228bdde8ea155a49c2b94ba
+sha256:
+  darwin_arm64: 21289ec23a109fe9b676fc7de8d81687646d6b442a9dec2b8a6af8f718ce8b01
+  darwin_amd64: 87c03521300deea80cdcde65cd5cafbb5d37973929b06882aa03e408e367bd46
+  linux_amd64: f955e7ece517c27b273e28ffeb1375f14142bccd51c0b6fcfebb6f3b0fcd09f9
+  linux_arm64: b97dd9a0f48a85b6f8c5aecae71d7bf07a39ec2d3228bdde8ea155a49c2b94ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atkmm@2.28
+  - cairomm@1.14
+  - gdk-pixbuf
+  - glib
+  - glibmm@2.66
+  - gtk+3
+  - libsigc++@2
+  - pangomm@2.46

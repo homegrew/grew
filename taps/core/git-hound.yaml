@@ -1,0 +1,19 @@
+name: git-hound
+version: 1.0.0
+description: Git plugin that prevents sensitive data from being committed
+homepage: https://github.com/ezekg/git-hound
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-hound/blobs/sha256:15f176bb2320758e6a88797ee77011a189b7814857a0ed920dd4b32a3335012d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-hound/blobs/sha256:8313b4d62a2b0d21d21bc42812431573b07585c179cbbad7c2d5bd1fba20d88d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-hound/blobs/sha256:f27441dca7619968e685c5b91221d251872376412332fea4d318a17d4c283c4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-hound/blobs/sha256:b3f6b4750e32e5f6b3a11bd754c2b026261373e3e1b54256b6ae3e48dc3bc4a2
+sha256:
+  darwin_arm64: 15f176bb2320758e6a88797ee77011a189b7814857a0ed920dd4b32a3335012d
+  darwin_amd64: 8313b4d62a2b0d21d21bc42812431573b07585c179cbbad7c2d5bd1fba20d88d
+  linux_amd64: f27441dca7619968e685c5b91221d251872376412332fea4d318a17d4c283c4c
+  linux_arm64: b3f6b4750e32e5f6b3a11bd754c2b026261373e3e1b54256b6ae3e48dc3bc4a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

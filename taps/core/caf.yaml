@@ -1,0 +1,21 @@
+name: caf
+version: 1.1.0
+description: Implementation of the Actor Model for C++
+homepage: https://www.actor-framework.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/caf/blobs/sha256:faa09c3ddebe8332936b1cc01028494b75a7b80763b045256840983be78f3785
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/caf/blobs/sha256:aa3ca3370d07b8ed67d9e319eccf4412e8b7cd8a654eadd8df8fbf1f2c2feff3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/caf/blobs/sha256:18dd86732ab832bc6b035af48f3fcc8d05c6ec4dca5ec068d09f43fc3b724335
+  linux_arm64: https://ghcr.io/v2/homebrew/core/caf/blobs/sha256:980f1e6bf7b3462f90c1251a2fc22ca9cdee8f81e1ae631fd34cdd48469aad7c
+sha256:
+  darwin_arm64: faa09c3ddebe8332936b1cc01028494b75a7b80763b045256840983be78f3785
+  darwin_amd64: aa3ca3370d07b8ed67d9e319eccf4412e8b7cd8a654eadd8df8fbf1f2c2feff3
+  linux_amd64: 18dd86732ab832bc6b035af48f3fcc8d05c6ec4dca5ec068d09f43fc3b724335
+  linux_arm64: 980f1e6bf7b3462f90c1251a2fc22ca9cdee8f81e1ae631fd34cdd48469aad7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,21 @@
+name: opensubdiv
+version: 3.7.0
+description: Open-source subdivision surface library
+homepage: https://graphics.pixar.com/opensubdiv/docs/intro.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opensubdiv/blobs/sha256:0008ddc2f7b700de6b4be9c40e34265cd286eb82e2c8f3dbd5644765c7ba7992
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opensubdiv/blobs/sha256:1d441722962464d68ef89db0062fca468ba4e61ecfbb11192054947202aaa268
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opensubdiv/blobs/sha256:110adddf9314496f0f21654961e0a173e72bb02c3c18a50152ab7ceeef52b586
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opensubdiv/blobs/sha256:b8a10d139e39100f49e3a599fa968a5e3914d93c9e6ac86ba365ea5fe2116ed1
+sha256:
+  darwin_arm64: 0008ddc2f7b700de6b4be9c40e34265cd286eb82e2c8f3dbd5644765c7ba7992
+  darwin_amd64: 1d441722962464d68ef89db0062fca468ba4e61ecfbb11192054947202aaa268
+  linux_amd64: 110adddf9314496f0f21654961e0a173e72bb02c3c18a50152ab7ceeef52b586
+  linux_arm64: b8a10d139e39100f49e3a599fa968a5e3914d93c9e6ac86ba365ea5fe2116ed1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glfw

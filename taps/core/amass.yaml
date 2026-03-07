@@ -1,0 +1,19 @@
+name: amass
+version: 5.0.1
+description: In-depth attack surface mapping and asset discovery
+homepage: https://owasp.org/www-project-amass/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/amass/blobs/sha256:91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/amass/blobs/sha256:58786c0989372a5d55673fff78637bbe533a4efac67979e379e666e5b5a98f18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/amass/blobs/sha256:af6fec44a8e37e2acf94f169a8f888551fcfdd33a1d22b4d742204fc02ac85e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/amass/blobs/sha256:c2d310e25c95898c0c70021e1cd9319d9b8e1cd1aad50d54f2f7f4991547ebb0
+sha256:
+  darwin_arm64: 91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e
+  darwin_amd64: 58786c0989372a5d55673fff78637bbe533a4efac67979e379e666e5b5a98f18
+  linux_amd64: af6fec44a8e37e2acf94f169a8f888551fcfdd33a1d22b4d742204fc02ac85e6
+  linux_arm64: c2d310e25c95898c0c70021e1cd9319d9b8e1cd1aad50d54f2f7f4991547ebb0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

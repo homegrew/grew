@@ -1,0 +1,19 @@
+name: seqtk
+version: 1.5
+description: Toolkit for processing sequences in FASTA/Q formats
+homepage: https://github.com/lh3/seqtk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/seqtk/blobs/sha256:1c3982f3b57602403755867dd064d61c6f02f091100b46eb415b1899ad133a95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/seqtk/blobs/sha256:10001de19a08b1f96495e316d8654e245ce6ed56cd6a4c4dacc3b0cacb486fc4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/seqtk/blobs/sha256:e8996464a2266a07bb97db6a6a69b5376c40dfb4476c4d2413aed6f840a59705
+  linux_arm64: https://ghcr.io/v2/homebrew/core/seqtk/blobs/sha256:2ae523d2e84ab2cd7d9bbdfc0ffa5244b53ff80776575b11d675e9025b76ee96
+sha256:
+  darwin_arm64: 1c3982f3b57602403755867dd064d61c6f02f091100b46eb415b1899ad133a95
+  darwin_amd64: 10001de19a08b1f96495e316d8654e245ce6ed56cd6a4c4dacc3b0cacb486fc4
+  linux_amd64: e8996464a2266a07bb97db6a6a69b5376c40dfb4476c4d2413aed6f840a59705
+  linux_arm64: 2ae523d2e84ab2cd7d9bbdfc0ffa5244b53ff80776575b11d675e9025b76ee96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

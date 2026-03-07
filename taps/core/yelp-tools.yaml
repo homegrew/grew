@@ -1,0 +1,23 @@
+name: yelp-tools
+version: 42.1
+description: Tools that help create and edit Mallard or DocBook documentation
+homepage: https://gitlab.gnome.org/GNOME/yelp-tools
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yelp-tools/blobs/sha256:aadb2689c5b993d7f4905f462f40ef9f83c2460e35122d580da4e7fd5303b3db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yelp-tools/blobs/sha256:80c6a766ea856ce7c3bc6350687e7d2462ad9ee068bde3aa7cb9c7595c77f3b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yelp-tools/blobs/sha256:116324ef6b430649dec205fb66c33adc09ba9f719cadf7f33cf9d32e54c48de1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yelp-tools/blobs/sha256:5c81f1d642b3dcb2ba87061c787c8bc93836b1b82d572b5cc188283c2912db85
+sha256:
+  darwin_arm64: aadb2689c5b993d7f4905f462f40ef9f83c2460e35122d580da4e7fd5303b3db
+  darwin_amd64: 80c6a766ea856ce7c3bc6350687e7d2462ad9ee068bde3aa7cb9c7595c77f3b8
+  linux_amd64: 116324ef6b430649dec205fb66c33adc09ba9f719cadf7f33cf9d32e54c48de1
+  linux_arm64: 5c81f1d642b3dcb2ba87061c787c8bc93836b1b82d572b5cc188283c2912db85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - itstool
+  - libxml2
+  - python@3.14

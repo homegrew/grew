@@ -1,0 +1,19 @@
+name: kingfisher
+version: 1.86.0
+description: "MongoDB's blazingly fast secret scanning and validation tool"
+homepage: https://github.com/mongodb/kingfisher
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kingfisher/blobs/sha256:2cd505fa7cf0549c01ba714d191d9c30cd0b1b1a631f0fa30a23a3bb63df6641
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kingfisher/blobs/sha256:4a2c34fa6e9f599d38c0be1e607a7656fec2d7d0250866b3989ead489beee608
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kingfisher/blobs/sha256:f118f5053d4fc941f2546d103685c7f9d6d9c6f3fa3ac93ed9db6c18fe6fdfc4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kingfisher/blobs/sha256:e71d0517b906776f0b27c58b472ac6f9b8010aed50c915f34393c6f430f68785
+sha256:
+  darwin_arm64: 2cd505fa7cf0549c01ba714d191d9c30cd0b1b1a631f0fa30a23a3bb63df6641
+  darwin_amd64: 4a2c34fa6e9f599d38c0be1e607a7656fec2d7d0250866b3989ead489beee608
+  linux_amd64: f118f5053d4fc941f2546d103685c7f9d6d9c6f3fa3ac93ed9db6c18fe6fdfc4
+  linux_arm64: e71d0517b906776f0b27c58b472ac6f9b8010aed50c915f34393c6f430f68785
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

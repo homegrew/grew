@@ -1,0 +1,22 @@
+name: rabbitmq-c
+version: 0.15.0
+description: C AMQP client library for RabbitMQ
+homepage: https://github.com/alanxz/rabbitmq-c
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rabbitmq-c/blobs/sha256:ed808af191d028a6eff168ded49fb10a38aacfc2f8d92147e78f06b0b7f7742a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rabbitmq-c/blobs/sha256:3fb725256372918473d3bcfbdbab2f86f90a218f4f67e491f49fa27fe870b209
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rabbitmq-c/blobs/sha256:835505a60c65b2630a70ded7eedd09fa35a48102e5b65509a0af22a26d204a2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rabbitmq-c/blobs/sha256:02df84684b63e2ea8013274c96df59017f26c5ea45787eae6a7503962e5c5555
+sha256:
+  darwin_arm64: ed808af191d028a6eff168ded49fb10a38aacfc2f8d92147e78f06b0b7f7742a
+  darwin_amd64: 3fb725256372918473d3bcfbdbab2f86f90a218f4f67e491f49fa27fe870b209
+  linux_amd64: 835505a60c65b2630a70ded7eedd09fa35a48102e5b65509a0af22a26d204a2a
+  linux_arm64: 02df84684b63e2ea8013274c96df59017f26c5ea45787eae6a7503962e5c5555
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - popt

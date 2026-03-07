@@ -1,0 +1,23 @@
+name: erlang
+version: 28.4
+description: Programming language for highly scalable real-time systems
+homepage: https://www.erlang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erlang/blobs/sha256:f51107d974b58bc302b6688134f75ad88b3e73a580d4d5ac2e09552e5e988fe5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erlang/blobs/sha256:2d14f20d7e70713768cdb4e33cb69922f94ced79ce14617cadeca18f5c78adc7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erlang/blobs/sha256:4005db32c47d20fb5993b4ea37b6d99f6472ea2ca579b01063e2f6c15e340b2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erlang/blobs/sha256:c7807ee1a3e7658ddd8981390609da8711c3200835f0c14c581665b0033e6e0c
+sha256:
+  darwin_arm64: f51107d974b58bc302b6688134f75ad88b3e73a580d4d5ac2e09552e5e988fe5
+  darwin_amd64: 2d14f20d7e70713768cdb4e33cb69922f94ced79ce14617cadeca18f5c78adc7
+  linux_amd64: 4005db32c47d20fb5993b4ea37b6d99f6472ea2ca579b01063e2f6c15e340b2d
+  linux_arm64: c7807ee1a3e7658ddd8981390609da8711c3200835f0c14c581665b0033e6e0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - unixodbc
+  - wxwidgets@3.2

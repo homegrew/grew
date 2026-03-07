@@ -1,0 +1,19 @@
+name: melange
+version: 0.43.6
+description: Build APKs from source code
+homepage: https://github.com/chainguard-dev/melange
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/melange/blobs/sha256:50f96c88402156e95e11161b52071873857d40775e001dbbeed6ef8134a293da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/melange/blobs/sha256:b13b37061388132457d5eb54373c7919bb79dc7c60c2619883e51200cebcb8a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/melange/blobs/sha256:5fc548175d4283c34e7180082f537b55f9d671ac9e3d0631964f43ca84725308
+  linux_arm64: https://ghcr.io/v2/homebrew/core/melange/blobs/sha256:7f4000bb0ae0f7bf48e97c93e3a5ac541c21e03ea9c176c1e97d9c0e7714ce0d
+sha256:
+  darwin_arm64: 50f96c88402156e95e11161b52071873857d40775e001dbbeed6ef8134a293da
+  darwin_amd64: b13b37061388132457d5eb54373c7919bb79dc7c60c2619883e51200cebcb8a1
+  linux_amd64: 5fc548175d4283c34e7180082f537b55f9d671ac9e3d0631964f43ca84725308
+  linux_arm64: 7f4000bb0ae0f7bf48e97c93e3a5ac541c21e03ea9c176c1e97d9c0e7714ce0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

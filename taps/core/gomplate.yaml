@@ -1,0 +1,19 @@
+name: gomplate
+version: 5.0.0
+description: Command-line Golang template processor
+homepage: https://gomplate.ca/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gomplate/blobs/sha256:2a8b1d45c8ff343326acad5cedda9425037baea7ffdccb76f760235edbfa91f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gomplate/blobs/sha256:423da3b81cb17fbd41d3aa735aa6eda7b0c6ea64e9db9c577252ddc7bf907ea9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gomplate/blobs/sha256:c2063d2b9adec8f5c0afa3ad71a468298588bcf62eb3171a637204217019eab3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gomplate/blobs/sha256:92672fcbabdba54bf8e53d004b8bcb6c860c1e0b96837a05772864103a19dff6
+sha256:
+  darwin_arm64: 2a8b1d45c8ff343326acad5cedda9425037baea7ffdccb76f760235edbfa91f1
+  darwin_amd64: 423da3b81cb17fbd41d3aa735aa6eda7b0c6ea64e9db9c577252ddc7bf907ea9
+  linux_amd64: c2063d2b9adec8f5c0afa3ad71a468298588bcf62eb3171a637204217019eab3
+  linux_arm64: 92672fcbabdba54bf8e53d004b8bcb6c860c1e0b96837a05772864103a19dff6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

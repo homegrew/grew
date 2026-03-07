@@ -1,0 +1,19 @@
+name: async-profiler
+version: 4.3
+description: "Sampling CPU & HEAP profiler for Java using AsyncGetCallTrace + perf_events"
+homepage: https://github.com/async-profiler/async-profiler
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/async-profiler/blobs/sha256:a22cc696b639d326786fb71cd8a1dc121aba26962aaa87e5ec68057795edccc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/async-profiler/blobs/sha256:eaa11bd51896193995a0902f7bc5ad698154169cc01920793d1270f95bce7fce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/async-profiler/blobs/sha256:e2b7eb1b4d1c8704e028f8e4ea609de3b94c84348da76d65d765b525a4904f93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/async-profiler/blobs/sha256:cb5b1bb4f00674a12985f31b5aa79f9fd9a33f62b96a640c3b57bfdcfe877ba4
+sha256:
+  darwin_arm64: a22cc696b639d326786fb71cd8a1dc121aba26962aaa87e5ec68057795edccc2
+  darwin_amd64: eaa11bd51896193995a0902f7bc5ad698154169cc01920793d1270f95bce7fce
+  linux_amd64: e2b7eb1b4d1c8704e028f8e4ea609de3b94c84348da76d65d765b525a4904f93
+  linux_arm64: cb5b1bb4f00674a12985f31b5aa79f9fd9a33f62b96a640c3b57bfdcfe877ba4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: shfmt
+version: 3.12.0
+description: Autoformat shell script source code
+homepage: https://github.com/mvdan/sh
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shfmt/blobs/sha256:3f1b1d608e46c6a7ac98efd1bf44b821393f479809ee357f04762b34ee2614b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shfmt/blobs/sha256:2a7f654ebd0ad605b8f47f4d182e1106050ad6f34cb1b68967d979c54e72e86c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shfmt/blobs/sha256:38a4a4aef3735b47289c4d985c8f922b1b96ef9e36232a90d4aa88c80eeb997c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shfmt/blobs/sha256:a322ef4b30bc6f54f645988c0cb5b4a02887bff693af18f75dbf42bb022adb8c
+sha256:
+  darwin_arm64: 3f1b1d608e46c6a7ac98efd1bf44b821393f479809ee357f04762b34ee2614b2
+  darwin_amd64: 2a7f654ebd0ad605b8f47f4d182e1106050ad6f34cb1b68967d979c54e72e86c
+  linux_amd64: 38a4a4aef3735b47289c4d985c8f922b1b96ef9e36232a90d4aa88c80eeb997c
+  linux_arm64: a322ef4b30bc6f54f645988c0cb5b4a02887bff693af18f75dbf42bb022adb8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: claude-agent-acp
+version: 0.20.2
+description: "Use Claude Code from any ACP client such as Zed!"
+homepage: https://github.com/zed-industries/claude-agent-acp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/claude-agent-acp/blobs/sha256:ee7bcab68f18025c9857421f7be20c6f9f6e2c3d5819e260603c1f7348303c73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/claude-agent-acp/blobs/sha256:e59e14af30636a75a447f69397236caeab3653af09f015a416e8466a2bb878f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/claude-agent-acp/blobs/sha256:57caff9c55eae04fe4def313e7fb0005e5a7ad6c67f62c522049536535f570d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/claude-agent-acp/blobs/sha256:10184b4258e8cec400ae22f10ef91bf32aac8f9194e3f537ce0a3458ae686bb2
+sha256:
+  darwin_arm64: ee7bcab68f18025c9857421f7be20c6f9f6e2c3d5819e260603c1f7348303c73
+  darwin_amd64: e59e14af30636a75a447f69397236caeab3653af09f015a416e8466a2bb878f0
+  linux_amd64: 57caff9c55eae04fe4def313e7fb0005e5a7ad6c67f62c522049536535f570d4
+  linux_arm64: 10184b4258e8cec400ae22f10ef91bf32aac8f9194e3f537ce0a3458ae686bb2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - ripgrep

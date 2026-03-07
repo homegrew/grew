@@ -1,0 +1,22 @@
+name: nmh
+version: 1.8
+description: New version of the MH mail handler
+homepage: https://www.nongnu.org/nmh/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nmh/blobs/sha256:a5e47512714ba643f7419b066b01383a222d550272e0cd7e01274302f1b1f492
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nmh/blobs/sha256:8c65bdbcf7a531a8a5e10793fe5ce6ae73941f2e589ce6bcda2a093835b8c3ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nmh/blobs/sha256:b53a0fb7791c968e762ac99a4ed0bc708ba6f0e3c39a7963cb3b29edb3b77845
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nmh/blobs/sha256:4a390dfd9f429b5730138804bd89c2823531ae7f6aebb654637789f7917512d7
+sha256:
+  darwin_arm64: a5e47512714ba643f7419b066b01383a222d550272e0cd7e01274302f1b1f492
+  darwin_amd64: 8c65bdbcf7a531a8a5e10793fe5ce6ae73941f2e589ce6bcda2a093835b8c3ed
+  linux_amd64: b53a0fb7791c968e762ac99a4ed0bc708ba6f0e3c39a7963cb3b29edb3b77845
+  linux_arm64: 4a390dfd9f429b5730138804bd89c2823531ae7f6aebb654637789f7917512d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - w3m

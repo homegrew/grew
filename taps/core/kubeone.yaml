@@ -1,0 +1,19 @@
+name: kubeone
+version: 1.12.3
+description: Automate cluster operations on all your environments
+homepage: https://kubeone.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubeone/blobs/sha256:1158d6ea55c0f747ff5f2b54b7bdae9fbef2ffc8a4ff66b22bda97fd5917efb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubeone/blobs/sha256:41427e09361bfdae9223bd6af5db924c0917e3363f65de0aba621e4293cfa428
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubeone/blobs/sha256:c53617475de2de791385dea16acfcafeabf2e94778b273c2d843f7076a1a2cfd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubeone/blobs/sha256:327d3a1613607205a64a052fd635ddfd55ae0ae3ced98d0b4844a89916365a89
+sha256:
+  darwin_arm64: 1158d6ea55c0f747ff5f2b54b7bdae9fbef2ffc8a4ff66b22bda97fd5917efb7
+  darwin_amd64: 41427e09361bfdae9223bd6af5db924c0917e3363f65de0aba621e4293cfa428
+  linux_amd64: c53617475de2de791385dea16acfcafeabf2e94778b273c2d843f7076a1a2cfd
+  linux_arm64: 327d3a1613607205a64a052fd635ddfd55ae0ae3ced98d0b4844a89916365a89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

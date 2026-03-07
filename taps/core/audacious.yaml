@@ -1,0 +1,48 @@
+name: audacious
+version: 4.5.1
+description: Lightweight and versatile audio player
+homepage: https://audacious-media-player.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/audacious/blobs/sha256:2a9bed2f6fa8f367145efa89c3c7e001d7269f291a136351fe13195ddc684d87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/audacious/blobs/sha256:795d2a596cbab91cbfc18c7ed0132d94063dad3b1752e351f57d47d10b1e2469
+  linux_amd64: https://ghcr.io/v2/homebrew/core/audacious/blobs/sha256:c8b1e35da03f33d6aaea389e5c72e2e0240dcd5621ac04c8d32efaa51b26d804
+  linux_arm64: https://ghcr.io/v2/homebrew/core/audacious/blobs/sha256:fc1ab8c829c3c57689dd2bcbacedec1da1942ee3563a4185667b3f249f5272f1
+sha256:
+  darwin_arm64: 2a9bed2f6fa8f367145efa89c3c7e001d7269f291a136351fe13195ddc684d87
+  darwin_amd64: 795d2a596cbab91cbfc18c7ed0132d94063dad3b1752e351f57d47d10b1e2469
+  linux_amd64: c8b1e35da03f33d6aaea389e5c72e2e0240dcd5621ac04c8d32efaa51b26d804
+  linux_arm64: fc1ab8c829c3c57689dd2bcbacedec1da1942ee3563a4185667b3f249f5272f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - faad2
+  - ffmpeg
+  - flac
+  - fluid-synth
+  - gdk-pixbuf
+  - glib
+  - lame
+  - libbs2b
+  - libcue
+  - libmodplug
+  - libnotify
+  - libogg
+  - libopenmpt
+  - libsamplerate
+  - libsidplayfp
+  - libsndfile
+  - libsoxr
+  - libvorbis
+  - mpg123
+  - neon
+  - opusfile
+  - qtbase
+  - qtimageformats
+  - qtmultimedia
+  - qtsvg
+  - sdl2
+  - wavpack
+  - gettext

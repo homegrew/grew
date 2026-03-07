@@ -1,0 +1,23 @@
+name: kdoctools
+version: 6.23.0
+description: Create documentation from DocBook
+homepage: https://l10n.kde.org/docs/doc-primer/
+license: BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later AND (LGPL-2.1-only OR LGPL-3.0-only)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kdoctools/blobs/sha256:d1d7a75b115fa9c1bac6240c704a4e976a53e7c3ed66f292f66d5253594261a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kdoctools/blobs/sha256:bc2a44b65babd4950ca8b03436df7b24d96aecfd61e93919dca16e8953c7e9e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kdoctools/blobs/sha256:f8c97a400bc3ea474f795e2fec9646c3c3004c4389272949f98028f48c264d65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kdoctools/blobs/sha256:6394923e50a2c9dae269fdd0068ab5956ab98af02e5d29fbcee878037f8ec90c
+sha256:
+  darwin_arm64: d1d7a75b115fa9c1bac6240c704a4e976a53e7c3ed66f292f66d5253594261a9
+  darwin_amd64: bc2a44b65babd4950ca8b03436df7b24d96aecfd61e93919dca16e8953c7e9e3
+  linux_amd64: f8c97a400bc3ea474f795e2fec9646c3c3004c4389272949f98028f48c264d65
+  linux_arm64: 6394923e50a2c9dae269fdd0068ab5956ab98af02e5d29fbcee878037f8ec90c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - docbook-xsl
+  - karchive
+  - qtbase

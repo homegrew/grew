@@ -1,0 +1,19 @@
+name: cpp-peglib
+version: 1.9.1
+description: Header-only PEG (Parsing Expression Grammars) library for C++
+homepage: https://github.com/yhirose/cpp-peglib
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpp-peglib/blobs/sha256:1faee0c9bfafa9d959755e07b3b67d7cd6cdd6d90044ea73d39b00a85b139dca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpp-peglib/blobs/sha256:c792060f2dc7c50971f47fced6a91ad21ce4b2716370b310f30a152c6ee7336c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpp-peglib/blobs/sha256:76d939b93adb7280e5a2a7632acb1341317f6a243656e51be439b5d5cb0566a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpp-peglib/blobs/sha256:3dba6d295fb60a0018b6cb8618de1bcc9f0e76560c0b43d63e57f62e9a7a72c9
+sha256:
+  darwin_arm64: 1faee0c9bfafa9d959755e07b3b67d7cd6cdd6d90044ea73d39b00a85b139dca
+  darwin_amd64: c792060f2dc7c50971f47fced6a91ad21ce4b2716370b310f30a152c6ee7336c
+  linux_amd64: 76d939b93adb7280e5a2a7632acb1341317f6a243656e51be439b5d5cb0566a0
+  linux_arm64: 3dba6d295fb60a0018b6cb8618de1bcc9f0e76560c0b43d63e57f62e9a7a72c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

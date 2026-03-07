@@ -1,0 +1,19 @@
+name: git-graph
+version: 0.7.0
+description: Command-line tool to show clear git graphs arranged for your branching model
+homepage: https://github.com/mlange-42/git-graph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-graph/blobs/sha256:1048c932a8deab74c8eb90e4cdae3a4a4b63fd73f945607a85ae507fcc89a043
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-graph/blobs/sha256:138badaf5ce366f4c77866725e3b367eb706ba8d6a1d309c5e8d58c4ced62f2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-graph/blobs/sha256:7b7173c050dfb74dd21608c3fd490921e68219491015baa161cf66153dea32ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-graph/blobs/sha256:62c0d6fd0d897f0ae8825a34463d50c764f5942c80c8106a255c5ae9b879261e
+sha256:
+  darwin_arm64: 1048c932a8deab74c8eb90e4cdae3a4a4b63fd73f945607a85ae507fcc89a043
+  darwin_amd64: 138badaf5ce366f4c77866725e3b367eb706ba8d6a1d309c5e8d58c4ced62f2c
+  linux_amd64: 7b7173c050dfb74dd21608c3fd490921e68219491015baa161cf66153dea32ae
+  linux_arm64: 62c0d6fd0d897f0ae8825a34463d50c764f5942c80c8106a255c5ae9b879261e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

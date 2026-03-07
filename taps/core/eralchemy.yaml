@@ -1,0 +1,24 @@
+name: eralchemy
+version: 1.6.0
+description: Simple entity relation (ER) diagrams generation
+homepage: https://github.com/eralchemy/eralchemy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eralchemy/blobs/sha256:49a346cfaa425cda1007f4fc5cccca83546f2297770cb007d63d9f3b0f84e2e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eralchemy/blobs/sha256:d8d2db3e30495966876ddd5e78cd9105333ce3d89f88b71515a87eca3997b051
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eralchemy/blobs/sha256:17c170fcb2656f9089d5142b82ca21c6b9b2793cadd458505714b65803b237c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eralchemy/blobs/sha256:c79fa38699df65ebad7ff99554d7775d9fe5b91a4a5c94e0ceccce3a2663d2d9
+sha256:
+  darwin_arm64: 49a346cfaa425cda1007f4fc5cccca83546f2297770cb007d63d9f3b0f84e2e6
+  darwin_amd64: d8d2db3e30495966876ddd5e78cd9105333ce3d89f88b71515a87eca3997b051
+  linux_amd64: 17c170fcb2656f9089d5142b82ca21c6b9b2793cadd458505714b65803b237c9
+  linux_arm64: c79fa38699df65ebad7ff99554d7775d9fe5b91a4a5c94e0ceccce3a2663d2d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - graphviz
+  - libpq
+  - openssl@3
+  - python@3.14

@@ -1,0 +1,22 @@
+name: fltk
+version: 1.4.4
+description: Cross-platform C++ GUI toolkit
+homepage: https://www.fltk.org/
+license: LGPL-2.0-only WITH FLTK-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fltk/blobs/sha256:a336acc1290d177f51ff0ebeb70d0eacd45bf5b473489d2bb5af6df720fde6f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fltk/blobs/sha256:870d5060045c0116ae47372a0229db2864d61ee1f765126c93650bc739963b39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fltk/blobs/sha256:a90426f91678df9321e01dc8dcaea265da0725dd05975aa7cf6be6da7bc7cf14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fltk/blobs/sha256:1f960238c43d81c044200cb4a00950b1f764c4d150c4754e43c312243540334d
+sha256:
+  darwin_arm64: a336acc1290d177f51ff0ebeb70d0eacd45bf5b473489d2bb5af6df720fde6f4
+  darwin_amd64: 870d5060045c0116ae47372a0229db2864d61ee1f765126c93650bc739963b39
+  linux_amd64: a90426f91678df9321e01dc8dcaea265da0725dd05975aa7cf6be6da7bc7cf14
+  linux_arm64: 1f960238c43d81c044200cb4a00950b1f764c4d150c4754e43c312243540334d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng

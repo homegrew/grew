@@ -1,0 +1,11 @@
+name: subsurface
+version: 6.0.5504
+description: Open source divelog program
+homepage: https://subsurface-divelog.org/
+url:
+  darwin_arm64: https://subsurface-divelog.org/downloads/Subsurface-6.0.5504-CICD-release.dmg
+sha256:
+  darwin_arm64: 7c2daefcdb2a5409021bd6d3825d8b1a5f2a068e6d22cca535f3245b68db2d34
+artifacts:
+  app:
+    - Subsurface.app

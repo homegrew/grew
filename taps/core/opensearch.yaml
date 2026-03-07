@@ -1,0 +1,21 @@
+name: opensearch
+version: 3.5.0
+description: Open source distributed and RESTful search engine
+homepage: https://github.com/opensearch-project/OpenSearch
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:86ef68a72cdf2c2195157289cfe84b40c25907a8dac42440455eb7a671ec4ff9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:d2ffadce6eb4d5fbf29d006f5e0fcbcf03f3192a96f2fb3bd78e4a36b9eed9f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:1be1ab2eb8ab7c984570e732f6a9476236c603d7a46950e93053d568d216b12d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:d4c7449efd06d179d4b505fb21e6919d32310e0003aae71d56574feaa1671b80
+sha256:
+  darwin_arm64: 86ef68a72cdf2c2195157289cfe84b40c25907a8dac42440455eb7a671ec4ff9
+  darwin_amd64: d2ffadce6eb4d5fbf29d006f5e0fcbcf03f3192a96f2fb3bd78e4a36b9eed9f7
+  linux_amd64: 1be1ab2eb8ab7c984570e732f6a9476236c603d7a46950e93053d568d216b12d
+  linux_arm64: d4c7449efd06d179d4b505fb21e6919d32310e0003aae71d56574feaa1671b80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

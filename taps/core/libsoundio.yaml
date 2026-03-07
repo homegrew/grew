@@ -1,0 +1,19 @@
+name: libsoundio
+version: 2.0.1-7
+description: Cross-platform audio input and output
+homepage: http://libsound.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsoundio/blobs/sha256:7fa51b262723750c0393660e45d6fa7e3c049f903e17d75f5814cfb5a8bbf5ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsoundio/blobs/sha256:fd982bcdc2ab3d9ec3e0a714295a41d1568a51a6f050d01314bbb9822505549a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsoundio/blobs/sha256:6e1b9e90eb51ce8918bf817febf0bf785da0941cb793a430e8299492bdaafa4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsoundio/blobs/sha256:f30bc80b540e0150e47fd34157068ccd2734dcdcfa4a9f90768a1d4e9fb00213
+sha256:
+  darwin_arm64: 7fa51b262723750c0393660e45d6fa7e3c049f903e17d75f5814cfb5a8bbf5ef
+  darwin_amd64: fd982bcdc2ab3d9ec3e0a714295a41d1568a51a6f050d01314bbb9822505549a
+  linux_amd64: 6e1b9e90eb51ce8918bf817febf0bf785da0941cb793a430e8299492bdaafa4d
+  linux_arm64: f30bc80b540e0150e47fd34157068ccd2734dcdcfa4a9f90768a1d4e9fb00213
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

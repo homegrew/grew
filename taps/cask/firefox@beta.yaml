@@ -1,0 +1,11 @@
+name: firefox@beta
+version: 149.0b5
+description: Web browser
+homepage: https://www.mozilla.org/firefox/channel/desktop/#beta
+url:
+  darwin_arm64: https://download-installer.cdn.mozilla.net/pub/firefox/releases/149.0b5/mac/en-US/Firefox%20149.0b5.dmg
+sha256:
+  darwin_arm64: 7bca909999df7ce1a6d6b8a1ebcf121f9f85a2f20dc0205d70362b9de813df51
+artifacts:
+  app:
+    - Firefox.app

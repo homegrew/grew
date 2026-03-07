@@ -1,0 +1,22 @@
+name: htslib
+version: 1.23
+description: C library for high-throughput sequencing data formats
+homepage: https://www.htslib.org/
+license: MIT AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htslib/blobs/sha256:47588a34d25dc0536df24f4bc060bcff70d8a42222305e216547ce018d1c8cd8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htslib/blobs/sha256:88b4bc1d39788edb7cead6d140357d67098a24fdde0d8eac503085218ef59f60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htslib/blobs/sha256:3e5135181a4e4a25dfbe64e1084c4e0ce0603f37d645a01aabd849fc267aeb89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htslib/blobs/sha256:f9dec45c4d70d148f6c36841697520a39ddc56b6648f10bbcc692399b7a0aa16
+sha256:
+  darwin_arm64: 47588a34d25dc0536df24f4bc060bcff70d8a42222305e216547ce018d1c8cd8
+  darwin_amd64: 88b4bc1d39788edb7cead6d140357d67098a24fdde0d8eac503085218ef59f60
+  linux_amd64: 3e5135181a4e4a25dfbe64e1084c4e0ce0603f37d645a01aabd849fc267aeb89
+  linux_arm64: f9dec45c4d70d148f6c36841697520a39ddc56b6648f10bbcc692399b7a0aa16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdeflate
+  - xz

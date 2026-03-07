@@ -1,0 +1,11 @@
+name: josm
+version: 19481
+description: Extensible editor for OpenStreetMap
+homepage: https://josm.openstreetmap.de/
+url:
+  darwin_arm64: https://github.com/JOSM/josm/releases/download/19481-tested/JOSM-macOS-java24-19481-aarch64.zip
+sha256:
+  darwin_arm64: 45ac7b0b41caf7545e7aa083d6f2bdfd24e1822e34ed8d29d2dc0ee48b39486d
+artifacts:
+  app:
+    - JOSM_24_arm64.app

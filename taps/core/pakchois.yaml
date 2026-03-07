@@ -1,0 +1,19 @@
+name: pakchois
+version: 0.4
+description: "PKCS #11 wrapper library"
+homepage: https://www.manyfish.co.uk/pakchois/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pakchois/blobs/sha256:7f225dfdf9d1ac84b9bbd38a83157664f5b03b6951a09b9888b8b67ab586ae59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pakchois/blobs/sha256:95aae319e6a66c11f7f6826ded41ac0b2b45e4768319267321866118d828289c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pakchois/blobs/sha256:e9e96d8cef014042091db67065c8b02439cba4cfd381ca7651bc721ec120ad4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pakchois/blobs/sha256:f1d80aa63347835060c9d57d93c36226dc116d3c4b573e3db74128a86e4bfc1b
+sha256:
+  darwin_arm64: 7f225dfdf9d1ac84b9bbd38a83157664f5b03b6951a09b9888b8b67ab586ae59
+  darwin_amd64: 95aae319e6a66c11f7f6826ded41ac0b2b45e4768319267321866118d828289c
+  linux_amd64: e9e96d8cef014042091db67065c8b02439cba4cfd381ca7651bc721ec120ad4a
+  linux_arm64: f1d80aa63347835060c9d57d93c36226dc116d3c4b573e3db74128a86e4bfc1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

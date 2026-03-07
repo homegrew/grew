@@ -1,0 +1,21 @@
+name: zls
+version: 0.15.1
+description: Language Server for Zig
+homepage: https://zigtools.org/zls/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zls/blobs/sha256:912517e70986dc8b31f03dd170ec42e4656b011839a7b9be0c411d9e15d3ed90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zls/blobs/sha256:62af47f178f960cc1bce1b884e20fa4152f36773d4b70a51dee9da6a5d8b866c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zls/blobs/sha256:e1047a7ce5b87627cb4f024c7466db76e41e06f888164a8d0174f9901f48f287
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zls/blobs/sha256:35c82e4a09bf0942d42852ba9a0d57ba07912c286af306e0746aa7afceb86101
+sha256:
+  darwin_arm64: 912517e70986dc8b31f03dd170ec42e4656b011839a7b9be0c411d9e15d3ed90
+  darwin_amd64: 62af47f178f960cc1bce1b884e20fa4152f36773d4b70a51dee9da6a5d8b866c
+  linux_amd64: e1047a7ce5b87627cb4f024c7466db76e41e06f888164a8d0174f9901f48f287
+  linux_arm64: 35c82e4a09bf0942d42852ba9a0d57ba07912c286af306e0746aa7afceb86101
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zig

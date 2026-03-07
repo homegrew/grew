@@ -1,0 +1,19 @@
+name: copilot
+version: 1.34.1
+description: CLI tool for Amazon ECS and AWS Fargate
+homepage: https://aws.github.io/copilot-cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/copilot/blobs/sha256:6956e0e2fd50ea21db1b36dc6a23a1577c302f659b4b8d1d48d08b0c74df87a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/copilot/blobs/sha256:f6bd3082d39efbe86dda980e542f93186871646ec9ac23b951f7683d3422f6c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/copilot/blobs/sha256:fbed548a000b6f038d80263542e7f794a6ceaae95ecfd3c2cc321bcf9d89d5bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/copilot/blobs/sha256:c72c7b0fdb9e03d19111e4eb6b77e4146779cd18a42a2820666fd5f73e6c4d0e
+sha256:
+  darwin_arm64: 6956e0e2fd50ea21db1b36dc6a23a1577c302f659b4b8d1d48d08b0c74df87a6
+  darwin_amd64: f6bd3082d39efbe86dda980e542f93186871646ec9ac23b951f7683d3422f6c9
+  linux_amd64: fbed548a000b6f038d80263542e7f794a6ceaae95ecfd3c2cc321bcf9d89d5bf
+  linux_arm64: c72c7b0fdb9e03d19111e4eb6b77e4146779cd18a42a2820666fd5f73e6c4d0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

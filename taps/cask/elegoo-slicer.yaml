@@ -1,0 +1,11 @@
+name: elegoo-slicer
+version: 1.3.0.11
+description: Open-source slicer for FDM 3D printers
+homepage: https://github.com/ELEGOO-3D/ElegooSlicer
+url:
+  darwin_arm64: https://github.com/ELEGOO-3D/ElegooSlicer/releases/download/v1.3.0.11/ElegooSlicer_Mac_arm64_V1.3.0.11.dmg
+sha256:
+  darwin_arm64: 579ef77abc1ccea2813403bcbc0a83f01f46a79edeeb5d0b09f6a4806d41ce49
+artifacts:
+  app:
+    - ElegooSlicer.app

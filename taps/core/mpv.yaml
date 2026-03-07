@@ -1,0 +1,36 @@
+name: mpv
+version: 0.41.0
+description: Media player based on MPlayer and mplayer2
+homepage: https://mpv.io
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpv/blobs/sha256:62fb8fa00d4e5acfbc2a4205e6fdab481df3948f7e98e2f153eaa01a38c20198
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpv/blobs/sha256:fef537744382c65ff62fb3d64b1d18f171d568e8b5ce00fbd1f6d9b7129c447e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpv/blobs/sha256:a4e8f082ff1c243cf5affd384e6826ba06df3dc3b15076abe2e2cf5df5b36af2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpv/blobs/sha256:c3acb7d4c41c7733d672b8ab558c371a7ceb725c8d2fee5f7617df11a0557b96
+sha256:
+  darwin_arm64: 62fb8fa00d4e5acfbc2a4205e6fdab481df3948f7e98e2f153eaa01a38c20198
+  darwin_amd64: fef537744382c65ff62fb3d64b1d18f171d568e8b5ce00fbd1f6d9b7129c447e
+  linux_amd64: a4e8f082ff1c243cf5affd384e6826ba06df3dc3b15076abe2e2cf5df5b36af2
+  linux_arm64: c3acb7d4c41c7733d672b8ab558c371a7ceb725c8d2fee5f7617df11a0557b96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - jpeg-turbo
+  - libarchive
+  - libass
+  - libbluray
+  - libplacebo
+  - little-cms2
+  - luajit
+  - mujs
+  - rubberband
+  - uchardet
+  - vapoursynth
+  - vulkan-loader
+  - yt-dlp
+  - zimg
+  - molten-vk

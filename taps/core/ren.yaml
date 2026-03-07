@@ -1,0 +1,19 @@
+name: ren
+version: 1.0
+description: Rename multiple files in a directory
+homepage: https://pdb.finkproject.org/pdb/package.php/ren
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ren/blobs/sha256:9f780992d99547f095b09b50acb32ffe22ac0b9e973965931cbb2ce796ba2d1f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ren/blobs/sha256:2d06caa4062b59b1cddb36e26d3e69dada887ed756a53d3da5cf33583851e01e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ren/blobs/sha256:355528c07f8022b72a8f20419d97004040f5348e60596f84ab9f3ab461cbb13f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ren/blobs/sha256:64e739899aad37892c2f55907c142bacc1fe090cf2363aa8256e1d8564e4a845
+sha256:
+  darwin_arm64: 9f780992d99547f095b09b50acb32ffe22ac0b9e973965931cbb2ce796ba2d1f
+  darwin_amd64: 2d06caa4062b59b1cddb36e26d3e69dada887ed756a53d3da5cf33583851e01e
+  linux_amd64: 355528c07f8022b72a8f20419d97004040f5348e60596f84ab9f3ab461cbb13f
+  linux_arm64: 64e739899aad37892c2f55907c142bacc1fe090cf2363aa8256e1d8564e4a845
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: gf
+version: 2.10.0
+description: App development framework of Golang
+homepage: https://goframe.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gf/blobs/sha256:a4d7a8a438475499ad52ea4fc1777812671d01423c5e4dfc2aad975eded1c888
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gf/blobs/sha256:ef452d21db984ffa75e083a8829f0688f1d41de9f72df7c3288cb1eef20d7363
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gf/blobs/sha256:4483f55ac441f0c233fd906ce76c9c296af1f62e8b37fba20bc10609dcbaf99c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gf/blobs/sha256:2269f3db515de33608d4c9638318b6cb73b3bd7a91631b1c6e7882a30a1189be
+sha256:
+  darwin_arm64: a4d7a8a438475499ad52ea4fc1777812671d01423c5e4dfc2aad975eded1c888
+  darwin_amd64: ef452d21db984ffa75e083a8829f0688f1d41de9f72df7c3288cb1eef20d7363
+  linux_amd64: 4483f55ac441f0c233fd906ce76c9c296af1f62e8b37fba20bc10609dcbaf99c
+  linux_arm64: 2269f3db515de33608d4c9638318b6cb73b3bd7a91631b1c6e7882a30a1189be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

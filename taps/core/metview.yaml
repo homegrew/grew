@@ -1,0 +1,39 @@
+name: metview
+version: 5.26.2
+description: Meteorological workstation software
+homepage: https://metview.readthedocs.io/en/latest/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/metview/blobs/sha256:8ea0aac6d5efa12195864cd47b2a6c3f2947fb67c08dcd20484776aabc6ee1c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/metview/blobs/sha256:9967ae04346f24e99ef21b3f8cb173b2bd60adc0282f0f148bff79b7917d6923
+  linux_amd64: https://ghcr.io/v2/homebrew/core/metview/blobs/sha256:81dbd92e9ed28d630b33df5e19c966dde006ce193601edb94713d1a8c7d4636c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/metview/blobs/sha256:7924342f589a4aa78003c16731d9a13dfdf2ce19cc2c666f214083a263c667fe
+sha256:
+  darwin_arm64: 8ea0aac6d5efa12195864cd47b2a6c3f2947fb67c08dcd20484776aabc6ee1c8
+  darwin_amd64: 9967ae04346f24e99ef21b3f8cb173b2bd60adc0282f0f148bff79b7917d6923
+  linux_amd64: 81dbd92e9ed28d630b33df5e19c966dde006ce193601edb94713d1a8c7d4636c
+  linux_arm64: 7924342f589a4aa78003c16731d9a13dfdf2ce19cc2c666f214083a263c667fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - eccodes
+  - eigen
+  - fftw
+  - gdbm
+  - glib
+  - libaec
+  - lz4
+  - magics
+  - netcdf
+  - netcdf-cxx
+  - pango
+  - qt5compat
+  - qtbase
+  - qtsvg
+  - snappy
+  - gcc
+  - gettext
+  - harfbuzz

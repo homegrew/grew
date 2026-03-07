@@ -1,0 +1,21 @@
+name: mongoose
+version: 7.20
+description: Web server build on top of Libmongoose embedded library
+homepage: https://mongoose.ws/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongoose/blobs/sha256:811150b16e4dd4a6747e92e83f63340ca31c4e6d042fb307cb145820a64c9bf5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongoose/blobs/sha256:4bd98a3a8c27be0e5c86ee34eb0d65f7aac3621f3b08e3dd9d95d7f5d633481c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongoose/blobs/sha256:5e02ac4d9a40bd8cdda354dcc2939dceee56eb604efb65cc5510d0df9c359cf1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongoose/blobs/sha256:4f6296e92ee63ca83a980a0f4b122703a0dac0bc9638ce2c7ca8aaa86d0a548c
+sha256:
+  darwin_arm64: 811150b16e4dd4a6747e92e83f63340ca31c4e6d042fb307cb145820a64c9bf5
+  darwin_amd64: 4bd98a3a8c27be0e5c86ee34eb0d65f7aac3621f3b08e3dd9d95d7f5d633481c
+  linux_amd64: 5e02ac4d9a40bd8cdda354dcc2939dceee56eb604efb65cc5510d0df9c359cf1
+  linux_arm64: 4f6296e92ee63ca83a980a0f4b122703a0dac0bc9638ce2c7ca8aaa86d0a548c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

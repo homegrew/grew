@@ -1,0 +1,21 @@
+name: dynomite
+version: 0.6.22
+description: Generic dynamo implementation for different k-v storage engines
+homepage: https://github.com/Netflix/dynomite
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dynomite/blobs/sha256:ec342954369e6726e60c027f71e8e1fb3e6fcc8fba63255ba73149a02fa50043
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dynomite/blobs/sha256:1f189756392ee5476ffd10499b054c0d21a71b5addd75632cd84a37a3a4f25ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dynomite/blobs/sha256:9251d7d3c85de18d648cee8fec1d415a634a820efe26559702a61b01f47c0e52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dynomite/blobs/sha256:2839e6134a007f1e5471394362bef65e4083c1a17c98ec6fe51caac34e349b81
+sha256:
+  darwin_arm64: ec342954369e6726e60c027f71e8e1fb3e6fcc8fba63255ba73149a02fa50043
+  darwin_amd64: 1f189756392ee5476ffd10499b054c0d21a71b5addd75632cd84a37a3a4f25ce
+  linux_amd64: 9251d7d3c85de18d648cee8fec1d415a634a820efe26559702a61b01f47c0e52
+  linux_arm64: 2839e6134a007f1e5471394362bef65e4083c1a17c98ec6fe51caac34e349b81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

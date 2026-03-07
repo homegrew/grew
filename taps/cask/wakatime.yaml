@@ -1,0 +1,11 @@
+name: wakatime
+version: 5.28.3
+description: System tray app for automatic time tracking
+homepage: https://wakatime.com/mac
+url:
+  darwin_arm64: https://github.com/wakatime/macos-wakatime/releases/download/v5.28.3/macos-wakatime.zip
+sha256:
+  darwin_arm64: b2532e1d43d3b23f85a83f9162a10f5f70a1802a20952e72b71e46cb88c85a64
+artifacts:
+  app:
+    - WakaTime.app

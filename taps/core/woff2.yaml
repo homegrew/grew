@@ -1,0 +1,21 @@
+name: woff2
+version: 1.0.2
+description: Utilities to create and convert Web Open Font File (WOFF) files
+homepage: https://github.com/google/woff2
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/woff2/blobs/sha256:909e53d8bfc53e5f3f8a696caf90d3a2a950614f5590215b3ce6121ec1af3d40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/woff2/blobs/sha256:c0251f8aefd2a85acc108c31942c788b6e8b7c7dc76b39f91ece021f6e1393c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/woff2/blobs/sha256:cc6bb16039075d8610786f74387551da3a4852d0d6227ebefe1c5ef9add29d43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/woff2/blobs/sha256:7da30c0a9c4dfa9f52943749d7ec8bb8f25af1734a162015c009c422463fbb37
+sha256:
+  darwin_arm64: 909e53d8bfc53e5f3f8a696caf90d3a2a950614f5590215b3ce6121ec1af3d40
+  darwin_amd64: c0251f8aefd2a85acc108c31942c788b6e8b7c7dc76b39f91ece021f6e1393c2
+  linux_amd64: cc6bb16039075d8610786f74387551da3a4852d0d6227ebefe1c5ef9add29d43
+  linux_arm64: 7da30c0a9c4dfa9f52943749d7ec8bb8f25af1734a162015c009c422463fbb37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli

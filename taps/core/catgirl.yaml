@@ -1,0 +1,21 @@
+name: catgirl
+version: 2.2a
+description: Terminal IRC client
+homepage: https://git.causal.agency/catgirl/about/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/catgirl/blobs/sha256:351867ae899c5212701dff3cbc5aaf3e64ae7f250343de7d10b411365e1ab87e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/catgirl/blobs/sha256:13112c4d7607f8ca1f991a1980b1a72636d5359b5a8e6e09826ce5a6167abbff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/catgirl/blobs/sha256:b6849416058a2849403173bf34aba0a45d8c27f3a3ff2e43973f0480f6552c00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/catgirl/blobs/sha256:ad047d854587f1e4456b6fc7c82afb23dffe5ca589de4affb3fa35da7c594bd6
+sha256:
+  darwin_arm64: 351867ae899c5212701dff3cbc5aaf3e64ae7f250343de7d10b411365e1ab87e
+  darwin_amd64: 13112c4d7607f8ca1f991a1980b1a72636d5359b5a8e6e09826ce5a6167abbff
+  linux_amd64: b6849416058a2849403173bf34aba0a45d8c27f3a3ff2e43973f0480f6552c00
+  linux_arm64: ad047d854587f1e4456b6fc7c82afb23dffe5ca589de4affb3fa35da7c594bd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libretls

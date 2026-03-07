@@ -1,0 +1,27 @@
+name: libsoup
+version: 3.6.6
+description: HTTP client/server library for GNOME
+homepage: https://wiki.gnome.org/Projects/libsoup
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsoup/blobs/sha256:5f72f9159dbbe2d66fe9fe9b2dedeacba280390f50d10ff337b35d2343fedf0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsoup/blobs/sha256:6829a788855e2989eaa02a3f3cd96f043a8902729d045c9f36f620653c7ef5fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsoup/blobs/sha256:7ebfdb0452d9fb68b33bc374afe63441ce9ee387f5b666342a617f1074bbf128
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsoup/blobs/sha256:f90f3792a0ace929f8b719754fa5fac11cb8fa1677f1e64dd50083bc007ed7a6
+sha256:
+  darwin_arm64: 5f72f9159dbbe2d66fe9fe9b2dedeacba280390f50d10ff337b35d2343fedf0c
+  darwin_amd64: 6829a788855e2989eaa02a3f3cd96f043a8902729d045c9f36f620653c7ef5fd
+  linux_amd64: 7ebfdb0452d9fb68b33bc374afe63441ce9ee387f5b666342a617f1074bbf128
+  linux_arm64: f90f3792a0ace929f8b719754fa5fac11cb8fa1677f1e64dd50083bc007ed7a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - glib-networking
+  - gnutls
+  - libnghttp2
+  - libpsl
+  - sqlite
+  - gettext

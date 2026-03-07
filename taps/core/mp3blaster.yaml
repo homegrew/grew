@@ -1,0 +1,21 @@
+name: mp3blaster
+version: 3.2.6
+description: Text-based mp3 player
+homepage: https://mp3blaster.sourceforge.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3blaster/blobs/sha256:2cbfef0efe3e24570f47c861959ab0cd66697709e878f9fc29525b8b25ce703e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3blaster/blobs/sha256:cde9f28105e542dec0abd01ed0e2dd7bb92396af46769f305e2379cad95b98ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3blaster/blobs/sha256:2ecc188df98ee829da61e43203f0f1d9601eb7a362b4821638ab08bba6f8c2b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3blaster/blobs/sha256:d360c18d25fd220b0bb7f887ef96014bee0a8766d95076e2e107e0f9a7a97efc
+sha256:
+  darwin_arm64: 2cbfef0efe3e24570f47c861959ab0cd66697709e878f9fc29525b8b25ce703e
+  darwin_amd64: cde9f28105e542dec0abd01ed0e2dd7bb92396af46769f305e2379cad95b98ce
+  linux_amd64: 2ecc188df98ee829da61e43203f0f1d9601eb7a362b4821638ab08bba6f8c2b5
+  linux_arm64: d360c18d25fd220b0bb7f887ef96014bee0a8766d95076e2e107e0f9a7a97efc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl12-compat

@@ -1,0 +1,19 @@
+name: ko
+version: 0.18.1
+description: Build and deploy Go applications on Kubernetes
+homepage: https://ko.build
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ko/blobs/sha256:0bde2f0196739939b8d40c71a749f703663511d505757d0c037d47a4452aa3e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ko/blobs/sha256:9cbfa0acc43aa64e3f99f16c54fb117bddb6eda078de8b411d8815115b90233f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ko/blobs/sha256:1d92244e21a8a0f4f080d93831ad9f873809aeb50f5308fa9e19667de080978c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ko/blobs/sha256:6b17a62d65df38d8e704d192a17fa800a56a487427cdbfb0c5b25e3f5f3ee544
+sha256:
+  darwin_arm64: 0bde2f0196739939b8d40c71a749f703663511d505757d0c037d47a4452aa3e1
+  darwin_amd64: 9cbfa0acc43aa64e3f99f16c54fb117bddb6eda078de8b411d8815115b90233f
+  linux_amd64: 1d92244e21a8a0f4f080d93831ad9f873809aeb50f5308fa9e19667de080978c
+  linux_arm64: 6b17a62d65df38d8e704d192a17fa800a56a487427cdbfb0c5b25e3f5f3ee544
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

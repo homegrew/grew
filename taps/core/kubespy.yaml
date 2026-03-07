@@ -1,0 +1,19 @@
+name: kubespy
+version: 0.6.3
+description: Tools for observing Kubernetes resources in realtime
+homepage: https://github.com/pulumi/kubespy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubespy/blobs/sha256:029feef7bf428cc4b613f95bdbd189e7277d400cb6f54165933dddbcb04be245
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubespy/blobs/sha256:624ad6a1151a4771a25cfea3900ca0292ce77d97aa2da129cc7e9c9db2733513
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubespy/blobs/sha256:f904a862816e12c913d12694bcfe8dab2bd6735704c2a33f75267e9888452f45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubespy/blobs/sha256:5f43edfd8aafe2b5519b54c17e7028b53b365c29f5543b6af289ea84da49749d
+sha256:
+  darwin_arm64: 029feef7bf428cc4b613f95bdbd189e7277d400cb6f54165933dddbcb04be245
+  darwin_amd64: 624ad6a1151a4771a25cfea3900ca0292ce77d97aa2da129cc7e9c9db2733513
+  linux_amd64: f904a862816e12c913d12694bcfe8dab2bd6735704c2a33f75267e9888452f45
+  linux_arm64: 5f43edfd8aafe2b5519b54c17e7028b53b365c29f5543b6af289ea84da49749d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

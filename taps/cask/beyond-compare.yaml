@@ -1,0 +1,13 @@
+name: beyond-compare
+version: 5.2.0.31950
+description: Compare files and folders
+homepage: https://www.scootersoftware.com/
+url:
+  darwin_arm64: https://www.scootersoftware.com/files/BCompareOSX-5.2.0.31950.zip
+sha256:
+  darwin_arm64: 47e1b6665af4ef88b65b819a103c1e2b4734abcb67ce3b3a334375d3a5950258
+artifacts:
+  app:
+    - Beyond Compare.app
+  bin:
+    - bcomp

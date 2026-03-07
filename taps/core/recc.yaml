@@ -1,0 +1,28 @@
+name: recc
+version: 1.3.54
+description: Remote Execution Caching Compiler
+homepage: https://buildgrid.gitlab.io/recc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/recc/blobs/sha256:05fb392b57616e38462e67bc283659386cc3eee89df2b4bd64d2f12142b6de33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/recc/blobs/sha256:1b53eea423310058a864ea8620abbccc2415e59a749270da3c70d9c53c07e5fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/recc/blobs/sha256:432de0e934fa88acfd4dbf1c109dc9942fdcfe0a9608158ccf886a6a6e952cc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/recc/blobs/sha256:f5f3801071de31c55226f5abe17c9c63627649d21ea1c288421fcd9683cd9861
+sha256:
+  darwin_arm64: 05fb392b57616e38462e67bc283659386cc3eee89df2b4bd64d2f12142b6de33
+  darwin_amd64: 1b53eea423310058a864ea8620abbccc2415e59a749270da3c70d9c53c07e5fc
+  linux_amd64: 432de0e934fa88acfd4dbf1c109dc9942fdcfe0a9608158ccf886a6a6e952cc3
+  linux_arm64: f5f3801071de31c55226f5abe17c9c63627649d21ea1c288421fcd9683cd9861
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - c-ares
+  - glog
+  - grpc
+  - openssl@3
+  - protobuf@33
+  - re2
+  - gflags

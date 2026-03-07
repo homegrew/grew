@@ -1,0 +1,11 @@
+name: structuredlogviewer
+version: 2.3.143
+description: "Interactive log viewer for MSBuild structured logs (*.binlog)"
+homepage: https://msbuildlog.com/
+url:
+  darwin_arm64: https://github.com/KirillOsenkov/MSBuildStructuredLog/releases/download/v2.3.143/StructuredLogViewer-arm64.dmg
+sha256:
+  darwin_arm64: 53d824eb5b6df5af7eda93e0774f57b117aeaf686d2d519a852a530c0720109f
+artifacts:
+  app:
+    - StructuredLogViewer.app

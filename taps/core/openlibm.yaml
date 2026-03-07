@@ -1,0 +1,19 @@
+name: openlibm
+version: 0.8.7
+description: High quality, portable, open source libm implementation
+homepage: https://openlibm.org
+license: MIT AND ISC AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openlibm/blobs/sha256:0f69832aa3e0b5037e36303fa31570016dd59cfc981e6a84e8a130803939e45a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openlibm/blobs/sha256:1d6f591d67d422a6982b28e3a59902d44bb71b24cb2133c8db0fd321f57383a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openlibm/blobs/sha256:a0c35b3584719869ecc0b55090a1edd31b5df57c52b55f110cb0be30b9849d89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openlibm/blobs/sha256:dbe1119287757ad8439a93b6cfdf94930ba7cd379e77d7f3f9ccee84043c7ee5
+sha256:
+  darwin_arm64: 0f69832aa3e0b5037e36303fa31570016dd59cfc981e6a84e8a130803939e45a
+  darwin_amd64: 1d6f591d67d422a6982b28e3a59902d44bb71b24cb2133c8db0fd321f57383a8
+  linux_amd64: a0c35b3584719869ecc0b55090a1edd31b5df57c52b55f110cb0be30b9849d89
+  linux_arm64: dbe1119287757ad8439a93b6cfdf94930ba7cd379e77d7f3f9ccee84043c7ee5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

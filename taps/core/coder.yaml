@@ -1,0 +1,19 @@
+name: coder
+version: 2.30.3
+description: Tool for provisioning self-hosted development environments with Terraform
+homepage: https://coder.com
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coder/blobs/sha256:c93d508d5df0fa4847ef7ec31173588cb27cdb619ae4b820f5880f73dabfed4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coder/blobs/sha256:6d7b54565ea576fc4d9f2d8c8c00df008d7874e1e7e4e155c3daf24443158512
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coder/blobs/sha256:6aa4a00ba2a2c264dbf8a80e816ecdb232aaa16eef9072d2f28f7a44b5dea0bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coder/blobs/sha256:45c9212f004943e8602795b893efabdf860b5a895e1e4d09bd79bde2a49b7ef9
+sha256:
+  darwin_arm64: c93d508d5df0fa4847ef7ec31173588cb27cdb619ae4b820f5880f73dabfed4e
+  darwin_amd64: 6d7b54565ea576fc4d9f2d8c8c00df008d7874e1e7e4e155c3daf24443158512
+  linux_amd64: 6aa4a00ba2a2c264dbf8a80e816ecdb232aaa16eef9072d2f28f7a44b5dea0bd
+  linux_arm64: 45c9212f004943e8602795b893efabdf860b5a895e1e4d09bd79bde2a49b7ef9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

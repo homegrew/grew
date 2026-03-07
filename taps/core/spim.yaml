@@ -1,0 +1,19 @@
+name: spim
+version: 9.1.24
+description: MIPS32 simulator
+homepage: https://spimsimulator.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spim/blobs/sha256:6ce31175ac12463b4fedd31724fe17aeef8119826168717c3aaf57fa049ace15
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spim/blobs/sha256:df97a10541f2bb5940ae426aaeaac7e973a5ce5c02f00f57cc9ac057f5853f27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spim/blobs/sha256:3152719ea751f8e21e5febb3053cc7e8d9c171644b519ebd61e18a753b00225c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spim/blobs/sha256:c4ad7c44cf7df0e7624ff25309bf64cd966d352db59cbdeb8598c6a7ea1caf37
+sha256:
+  darwin_arm64: 6ce31175ac12463b4fedd31724fe17aeef8119826168717c3aaf57fa049ace15
+  darwin_amd64: df97a10541f2bb5940ae426aaeaac7e973a5ce5c02f00f57cc9ac057f5853f27
+  linux_amd64: 3152719ea751f8e21e5febb3053cc7e8d9c171644b519ebd61e18a753b00225c
+  linux_arm64: c4ad7c44cf7df0e7624ff25309bf64cd966d352db59cbdeb8598c6a7ea1caf37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

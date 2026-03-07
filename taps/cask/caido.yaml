@@ -1,0 +1,13 @@
+name: caido
+version: 0.55.3
+description: Web security auditing toolkit
+homepage: https://caido.io/
+url:
+  darwin_arm64: https://caido.download/releases/v0.55.3/caido-desktop-v0.55.3-mac-aarch64.dmg
+sha256:
+  darwin_arm64: 7c4ccf37ce33a12be522050161598fb5aed25264c3450821a093136575bb788e
+artifacts:
+  app:
+    - Caido.app
+  bin:
+    - caido-cli

@@ -1,0 +1,11 @@
+name: bentobox
+version: 1.1.4
+description: Window manager that organizes desktop applications into predefined zones
+homepage: https://bentoboxapp.com/
+url:
+  darwin_arm64: https://releases.bentobox.friendlyventures.org/1.1.4/bentobox-macos-universal.zip
+sha256:
+  darwin_arm64: ee327cbf91a8cd7c071af11104f1027b7eff1c3f0edfab75af5b8e76674e9d5e
+artifacts:
+  app:
+    - BentoBox.app

@@ -1,0 +1,21 @@
+name: libgcrypt
+version: 1.12.1
+description: Cryptographic library based on the code from GnuPG
+homepage: https://gnupg.org/related_software/libgcrypt/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgcrypt/blobs/sha256:cff8b6a3c92ffd76aa26ccbcc13e21e10ca6b3b231ded3d35e81e38ed5b05a6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgcrypt/blobs/sha256:41423fc76f133a106758d801991bcd20fcb0dfdc2eed8f1ccbcbb1b324481a16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgcrypt/blobs/sha256:ec18f27e8109b7fb873ad1ead6acb4150af9ffb6c3a2f9f40c6e80c28c73e67e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgcrypt/blobs/sha256:9910126e491fb609f3671bcdc0ca9d9aeeb633361dc65fae56def5b5a3d4b7b7
+sha256:
+  darwin_arm64: cff8b6a3c92ffd76aa26ccbcc13e21e10ca6b3b231ded3d35e81e38ed5b05a6d
+  darwin_amd64: 41423fc76f133a106758d801991bcd20fcb0dfdc2eed8f1ccbcbb1b324481a16
+  linux_amd64: ec18f27e8109b7fb873ad1ead6acb4150af9ffb6c3a2f9f40c6e80c28c73e67e
+  linux_arm64: 9910126e491fb609f3671bcdc0ca9d9aeeb633361dc65fae56def5b5a3d4b7b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgpg-error

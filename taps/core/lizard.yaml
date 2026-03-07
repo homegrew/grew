@@ -1,0 +1,19 @@
+name: lizard
+version: 2.1
+description: Efficient compressor with very fast decompression
+homepage: https://github.com/inikep/lizard
+license: BSD-2-Clause AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lizard/blobs/sha256:027cd559caf4e36ee689c1430cbd1d6719ef7859daf9f3b62fcbabeb52bf65c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lizard/blobs/sha256:9bd2c13adb64d92944260e290b9416218f4eeb424487ea49ae83bb015ffd9f81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lizard/blobs/sha256:baf6aa7976a0ebf3f70dca4b20b19dac4cebcf104d40806af223fa0be2b0607f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lizard/blobs/sha256:6212d114544ae8160922823d29a649f51b2bb89fe30a114e93b6b063e9ebac0f
+sha256:
+  darwin_arm64: 027cd559caf4e36ee689c1430cbd1d6719ef7859daf9f3b62fcbabeb52bf65c9
+  darwin_amd64: 9bd2c13adb64d92944260e290b9416218f4eeb424487ea49ae83bb015ffd9f81
+  linux_amd64: baf6aa7976a0ebf3f70dca4b20b19dac4cebcf104d40806af223fa0be2b0607f
+  linux_arm64: 6212d114544ae8160922823d29a649f51b2bb89fe30a114e93b6b063e9ebac0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

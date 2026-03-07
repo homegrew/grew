@@ -1,0 +1,15 @@
+name: osxutils
+version: 1.9.0
+description: Collection of macOS command-line utilities
+homepage: https://github.com/specious/osxutils
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osxutils/blobs/sha256:a45395a57ca736e18ff87ce1f5e6d6a1f125a56957b26680ccb93e2611a9784b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osxutils/blobs/sha256:ee76c0bc782077f10bc0ac79076f6bf37f99411cacba2f4bb45fd2fcafa6002e
+sha256:
+  darwin_arm64: a45395a57ca736e18ff87ce1f5e6d6a1f125a56957b26680ccb93e2611a9784b
+  darwin_amd64: ee76c0bc782077f10bc0ac79076f6bf37f99411cacba2f4bb45fd2fcafa6002e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

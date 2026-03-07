@@ -1,0 +1,13 @@
+name: datagrip
+version: 2025.3.5,253.31033.21
+description: Databases and SQL IDE
+homepage: https://www.jetbrains.com/datagrip/
+url:
+  darwin_arm64: https://download.jetbrains.com/datagrip/datagrip-2025.3.5-aarch64.dmg
+sha256:
+  darwin_arm64: 944d1bf2cdfb9811c9eded221df2925bff6fa44f7977ffb0a6322091c18372bf
+artifacts:
+  app:
+    - DataGrip.app
+  bin:
+    - datagrip

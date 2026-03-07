@@ -1,0 +1,19 @@
+name: cdecl
+version: 18.7.2
+description: Turn English phrases to C or C++ declarations
+homepage: https://github.com/paul-j-lucas/cdecl
+license: GPL-3.0-or-later AND LGPL-2.1-or-later AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdecl/blobs/sha256:0db165b173c52c419fc2c7f763b42e6834ac534b24fc63203c0242e386d6ef7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdecl/blobs/sha256:22a55bd22e6a8c3b3c787e0c0f3cd60d0abbe11ef199b93399d30aa1bea04753
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdecl/blobs/sha256:aa596153a512c8d1cabffd75ab0f1ac4555dc21efe9a6e11ac4893be66074557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdecl/blobs/sha256:b56eddf396e6798959e9e6f408704ca917cfa00b0cca83c67063b1a27578b911
+sha256:
+  darwin_arm64: 0db165b173c52c419fc2c7f763b42e6834ac534b24fc63203c0242e386d6ef7e
+  darwin_amd64: 22a55bd22e6a8c3b3c787e0c0f3cd60d0abbe11ef199b93399d30aa1bea04753
+  linux_amd64: aa596153a512c8d1cabffd75ab0f1ac4555dc21efe9a6e11ac4893be66074557
+  linux_arm64: b56eddf396e6798959e9e6f408704ca917cfa00b0cca83c67063b1a27578b911
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

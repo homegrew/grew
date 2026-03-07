@@ -1,0 +1,19 @@
+name: kimwitu++
+version: 2.3.13
+description: Tool for processing trees (i.e. terms)
+homepage: https://savannah.nongnu.org/projects/kimwitu-pp
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kimwituxx/blobs/sha256:4f61b0ab3ba1cb98d66955c552211df3a280a78c0d922641ef9388803b1d7c55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kimwituxx/blobs/sha256:ab6ad6f27ecf0cffb9459cb6dcdc8cb5272deace442b41f261807ac7dc8e180a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kimwituxx/blobs/sha256:cece1163e971acd007363d1bd70c61a0d85a056b85cd878d53b520c330479754
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kimwituxx/blobs/sha256:e0031ff223a86e82dfb9450e9d0b0f9a9f77a07f3ce4d4a1c7ed8d7103aff4fe
+sha256:
+  darwin_arm64: 4f61b0ab3ba1cb98d66955c552211df3a280a78c0d922641ef9388803b1d7c55
+  darwin_amd64: ab6ad6f27ecf0cffb9459cb6dcdc8cb5272deace442b41f261807ac7dc8e180a
+  linux_amd64: cece1163e971acd007363d1bd70c61a0d85a056b85cd878d53b520c330479754
+  linux_arm64: e0031ff223a86e82dfb9450e9d0b0f9a9f77a07f3ce4d4a1c7ed8d7103aff4fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

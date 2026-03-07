@@ -1,0 +1,19 @@
+name: conftest
+version: 0.66.0
+description: Test your configuration files using Open Policy Agent
+homepage: https://www.conftest.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/conftest/blobs/sha256:5dcad1365b01900bf73ccf60ff30e8aa514c17f57d593917b74bf80a110c6757
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/conftest/blobs/sha256:c3f059bd9b5adbd2a5b5b9bd6b049932c24c14a1de35df5d042cd7b6bfa30378
+  linux_amd64: https://ghcr.io/v2/homebrew/core/conftest/blobs/sha256:fdcdb4b32b2dbd8c511ebc0ac072f242ace0d2620b43f79f6b31e2bbc657a97b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/conftest/blobs/sha256:e83664bd32c398e990d83c893d262799f0369d688166f929189ea1d67da27986
+sha256:
+  darwin_arm64: 5dcad1365b01900bf73ccf60ff30e8aa514c17f57d593917b74bf80a110c6757
+  darwin_amd64: c3f059bd9b5adbd2a5b5b9bd6b049932c24c14a1de35df5d042cd7b6bfa30378
+  linux_amd64: fdcdb4b32b2dbd8c511ebc0ac072f242ace0d2620b43f79f6b31e2bbc657a97b
+  linux_arm64: e83664bd32c398e990d83c893d262799f0369d688166f929189ea1d67da27986
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

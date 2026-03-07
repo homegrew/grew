@@ -1,0 +1,19 @@
+name: jnv
+version: 0.6.2
+description: Interactive JSON filter using jq
+homepage: https://github.com/ynqa/jnv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jnv/blobs/sha256:fc43618a6dd580b20af4dd52152c1e6fee6bc781664b226fdc3117de1632bab9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jnv/blobs/sha256:a1f94e2da0507ed5fbccbce883672a77ae65434a8bbb7c2338b25595a5b5d7bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jnv/blobs/sha256:8c17cec2f694a06164ab359d4605bf21e358cdca3883da79e0cc31bf1b94800b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jnv/blobs/sha256:0a35d5569a5c3e9d7ae07d510b76e6e074f168b2cd48586760d4ed71b9151ac1
+sha256:
+  darwin_arm64: fc43618a6dd580b20af4dd52152c1e6fee6bc781664b226fdc3117de1632bab9
+  darwin_amd64: a1f94e2da0507ed5fbccbce883672a77ae65434a8bbb7c2338b25595a5b5d7bc
+  linux_amd64: 8c17cec2f694a06164ab359d4605bf21e358cdca3883da79e0cc31bf1b94800b
+  linux_arm64: 0a35d5569a5c3e9d7ae07d510b76e6e074f168b2cd48586760d4ed71b9151ac1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: zigmod
+version: 99
+description: Package manager for the Zig programming language
+homepage: https://nektro.github.io/zigmod/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zigmod/blobs/sha256:fcd2ad3392aae6c20b201de6a0ae1885d1d05e6ab2fb1c9166a3c258d92dd1c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zigmod/blobs/sha256:ae568a5381dbba1ca1dd0e8864cf4cd3d098d5e1b65bdc507706e7bb99e653ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zigmod/blobs/sha256:404076d214fae1b64dcc4f17ec37606fc303fa18f475342933cfd93331817323
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zigmod/blobs/sha256:c6667190a84c317f48674c5ea1c9d67c7f0c2267d1c407ffc24acafae5c241e0
+sha256:
+  darwin_arm64: fcd2ad3392aae6c20b201de6a0ae1885d1d05e6ab2fb1c9166a3c258d92dd1c3
+  darwin_amd64: ae568a5381dbba1ca1dd0e8864cf4cd3d098d5e1b65bdc507706e7bb99e653ab
+  linux_amd64: 404076d214fae1b64dcc4f17ec37606fc303fa18f475342933cfd93331817323
+  linux_arm64: c6667190a84c317f48674c5ea1c9d67c7f0c2267d1c407ffc24acafae5c241e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zig@0.14

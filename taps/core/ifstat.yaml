@@ -1,0 +1,19 @@
+name: ifstat
+version: 1.1
+description: Tool to report network interface bandwidth
+homepage: http://gael.roualland.free.fr/ifstat/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ifstat/blobs/sha256:6b215d7076e20b7465ac37f21c3141a87bb5801d17bbc238a9cf35ad5ebebd29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ifstat/blobs/sha256:26750a5b02680ff19a5d8009360516de185fa5e048fa8ef1924e92549597f962
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ifstat/blobs/sha256:80bb1ac13a6750229f428e108b349523896fa1bbe1823300f07e366e58cfa1c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ifstat/blobs/sha256:ccc66717dd6d93615459286fc714279141b2bbbaabe598dbc0aab40215161a43
+sha256:
+  darwin_arm64: 6b215d7076e20b7465ac37f21c3141a87bb5801d17bbc238a9cf35ad5ebebd29
+  darwin_amd64: 26750a5b02680ff19a5d8009360516de185fa5e048fa8ef1924e92549597f962
+  linux_amd64: 80bb1ac13a6750229f428e108b349523896fa1bbe1823300f07e366e58cfa1c9
+  linux_arm64: ccc66717dd6d93615459286fc714279141b2bbbaabe598dbc0aab40215161a43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

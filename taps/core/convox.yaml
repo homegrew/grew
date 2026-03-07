@@ -1,0 +1,19 @@
+name: convox
+version: 3.23.3
+description: Command-line interface for the Convox PaaS
+homepage: https://convox.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/convox/blobs/sha256:f3fe951da5d03bdf5f1514dce65817b717fd4cfb9810682f591cac20b04fa809
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/convox/blobs/sha256:0f3005e790a517cdb41ddd294701924da22a4dfae557db4942ad653fcb83c9f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/convox/blobs/sha256:9c3632f8722af63454f1b39eadeec94553da0f28db1ed99aaccfd3523ec9b9a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/convox/blobs/sha256:d283e7e8886f5ace2872e8c2dca1e25b9785e9adb840c6925c55b9b2ea5bf830
+sha256:
+  darwin_arm64: f3fe951da5d03bdf5f1514dce65817b717fd4cfb9810682f591cac20b04fa809
+  darwin_amd64: 0f3005e790a517cdb41ddd294701924da22a4dfae557db4942ad653fcb83c9f5
+  linux_amd64: 9c3632f8722af63454f1b39eadeec94553da0f28db1ed99aaccfd3523ec9b9a9
+  linux_arm64: d283e7e8886f5ace2872e8c2dca1e25b9785e9adb840c6925c55b9b2ea5bf830
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

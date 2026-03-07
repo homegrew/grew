@@ -1,0 +1,11 @@
+name: bdash
+version: 1.32.0
+description: Simple SQL Client for lightweight data analysis
+homepage: https://github.com/bdash-app/bdash
+url:
+  darwin_arm64: https://github.com/bdash-app/bdash/releases/download/v1.32.0/Bdash-1.32.0-universal-mac.zip
+sha256:
+  darwin_arm64: 5ef33147ff54414ea877683ec6cd3d83de8434d255a5f3290368a8d6bb9f8130
+artifacts:
+  app:
+    - Bdash.app

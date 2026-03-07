@@ -1,0 +1,26 @@
+name: pdfsandwich
+version: 0.1.7
+description: Generate sandwich OCR PDFs from scanned file
+homepage: http://www.tobias-elze.de/pdfsandwich/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfsandwich/blobs/sha256:16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfsandwich/blobs/sha256:b6530b56f5e6629c147e124dc31f70d2632903681bcfcd23368bafcfc11531a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfsandwich/blobs/sha256:6f77d1aa373059a0b32d879bc45f075527a28c6a0a2068b8d38d634dfd2d7d60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfsandwich/blobs/sha256:38e8f84c9d73b6ee9caa30ecdc46eca87ad44042d0b2afd212ade6b04711fe9b
+sha256:
+  darwin_arm64: 16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed
+  darwin_amd64: b6530b56f5e6629c147e124dc31f70d2632903681bcfcd23368bafcfc11531a8
+  linux_amd64: 6f77d1aa373059a0b32d879bc45f075527a28c6a0a2068b8d38d634dfd2d7d60
+  linux_arm64: 38e8f84c9d73b6ee9caa30ecdc46eca87ad44042d0b2afd212ade6b04711fe9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - exact-image
+  - ghostscript
+  - imagemagick
+  - poppler
+  - tesseract
+  - unpaper

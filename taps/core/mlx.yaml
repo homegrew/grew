@@ -1,0 +1,15 @@
+name: mlx
+version: 0.31.0
+description: Array framework for Apple silicon
+homepage: https://github.com/ml-explore/mlx
+license: MIT AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mlx/blobs/sha256:f4685ddaa6b45829845085eda5ae8046a633f4cb8879df85e0c6420dd39fc00d
+sha256:
+  darwin_arm64: f4685ddaa6b45829845085eda5ae8046a633f4cb8879df85e0c6420dd39fc00d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

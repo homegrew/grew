@@ -1,0 +1,23 @@
+name: conan
+version: 2.26.2
+description: Distributed, open source, package manager for C/C++
+homepage: https://conan.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/conan/blobs/sha256:5989aaceee91ffbe7e26a2880cc9b42375403daad0d52c4b52bf43282213b321
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/conan/blobs/sha256:6cf89542187c1c7cbeb1b37680f7f03bf7ea266cf30551c795e6ebd98e0b9ade
+  linux_amd64: https://ghcr.io/v2/homebrew/core/conan/blobs/sha256:32ec231977e02b1a6530e117348ce05e237dc31538481ff8213f279972910dbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/conan/blobs/sha256:1cf73c3839e437f0751d7354f0fbcf042e52ddb84c7504b1d1b3254dde104fa4
+sha256:
+  darwin_arm64: 5989aaceee91ffbe7e26a2880cc9b42375403daad0d52c4b52bf43282213b321
+  darwin_amd64: 6cf89542187c1c7cbeb1b37680f7f03bf7ea266cf30551c795e6ebd98e0b9ade
+  linux_amd64: 32ec231977e02b1a6530e117348ce05e237dc31538481ff8213f279972910dbd
+  linux_arm64: 1cf73c3839e437f0751d7354f0fbcf042e52ddb84c7504b1d1b3254dde104fa4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

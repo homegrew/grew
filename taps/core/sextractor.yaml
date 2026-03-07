@@ -1,0 +1,23 @@
+name: sextractor
+version: 2.28.2
+description: Extract catalogs of sources from astronomical images
+homepage: https://www.astromatic.net/software/sextractor/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sextractor/blobs/sha256:06bd29cd706f67f6b684f6cf2e4393e2977e0db250a242254c70ea95712358d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sextractor/blobs/sha256:3a7f9a4b0880e0de0dca905679bea7e8747f3a299755f10a8437bd5432f65a30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sextractor/blobs/sha256:6b0fd897f186d16e044a010354109fbf0fd4b7ba4afddc4b7715cca6e741186e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sextractor/blobs/sha256:eabbbb4573111bd7b50bf6fb15b0fa73a03146276d22d752c6a338f506a2f412
+sha256:
+  darwin_arm64: 06bd29cd706f67f6b684f6cf2e4393e2977e0db250a242254c70ea95712358d4
+  darwin_amd64: 3a7f9a4b0880e0de0dca905679bea7e8747f3a299755f10a8437bd5432f65a30
+  linux_amd64: 6b0fd897f186d16e044a010354109fbf0fd4b7ba4afddc4b7715cca6e741186e
+  linux_arm64: eabbbb4573111bd7b50bf6fb15b0fa73a03146276d22d752c6a338f506a2f412
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio
+  - fftw
+  - openblas

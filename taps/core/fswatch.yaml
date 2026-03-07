@@ -1,0 +1,19 @@
+name: fswatch
+version: 1.18.3
+description: Monitor a directory for changes and run a shell command
+homepage: https://github.com/emcrisostomo/fswatch
+license: GPL-3.0-or-later AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fswatch/blobs/sha256:8172ca1617fd1842b1268e21c501568d754aa38c44814a60a146316b5683b07b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fswatch/blobs/sha256:91e198310bdd2d8b35707ff94cf6994b7d903a1eb3bc59b4bfaa5a95f59dbf97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fswatch/blobs/sha256:5551e2ed7bd36248bbf92916bbb1dc193e15963aab05cce5819ed270309ff3af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fswatch/blobs/sha256:28847e0988e7273c44f2fd0d973f72bb54f1b31eb28cc29e99bc7570f8522e8a
+sha256:
+  darwin_arm64: 8172ca1617fd1842b1268e21c501568d754aa38c44814a60a146316b5683b07b
+  darwin_amd64: 91e198310bdd2d8b35707ff94cf6994b7d903a1eb3bc59b4bfaa5a95f59dbf97
+  linux_amd64: 5551e2ed7bd36248bbf92916bbb1dc193e15963aab05cce5819ed270309ff3af
+  linux_arm64: 28847e0988e7273c44f2fd0d973f72bb54f1b31eb28cc29e99bc7570f8522e8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

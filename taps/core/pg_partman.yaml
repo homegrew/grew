@@ -1,0 +1,19 @@
+name: pg_partman
+version: 5.4.3
+description: Partition management extension for PostgreSQL
+homepage: https://github.com/pgpartman/pg_partman
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pg_partman/blobs/sha256:9b20aa24f431772b40f3c469f4d2d1c41ff63d4653d5a784c6a790776623a152
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pg_partman/blobs/sha256:b8bbe80932384f7b87d52ca474fce6240c65b151a70b2afc1e6bedcd7a71f09a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pg_partman/blobs/sha256:64eb2a80985e23aed1165c51466f426448d24455e420e621d74accd84fb023e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pg_partman/blobs/sha256:c737e57d771637252d4c1f26503ba98f93e3473719cf3af479f527b72e892dd4
+sha256:
+  darwin_arm64: 9b20aa24f431772b40f3c469f4d2d1c41ff63d4653d5a784c6a790776623a152
+  darwin_amd64: b8bbe80932384f7b87d52ca474fce6240c65b151a70b2afc1e6bedcd7a71f09a
+  linux_amd64: 64eb2a80985e23aed1165c51466f426448d24455e420e621d74accd84fb023e1
+  linux_arm64: c737e57d771637252d4c1f26503ba98f93e3473719cf3af479f527b72e892dd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

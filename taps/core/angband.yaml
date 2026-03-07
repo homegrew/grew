@@ -1,0 +1,19 @@
+name: angband
+version: 4.2.6
+description: Dungeon exploration game
+homepage: https://rephial.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/angband/blobs/sha256:d4aef25f1be9724500e460e68ca2da76fd2294d56e4467bb4f85b156e5193934
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/angband/blobs/sha256:d6eab62f0ab0ed7f927fbec829699d7d345bc40b21dbdefb86ef2719e3a1a587
+  linux_amd64: https://ghcr.io/v2/homebrew/core/angband/blobs/sha256:b2f09d71bee68e3c1b051d87ead34426cf2ce64af363afa7b24f9f72bdd0bbf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/angband/blobs/sha256:c3ed6d0c2f79f256df6f136700eeea2f123ff8cd5e4785184062802682f262c7
+sha256:
+  darwin_arm64: d4aef25f1be9724500e460e68ca2da76fd2294d56e4467bb4f85b156e5193934
+  darwin_amd64: d6eab62f0ab0ed7f927fbec829699d7d345bc40b21dbdefb86ef2719e3a1a587
+  linux_amd64: b2f09d71bee68e3c1b051d87ead34426cf2ce64af363afa7b24f9f72bdd0bbf9
+  linux_arm64: c3ed6d0c2f79f256df6f136700eeea2f123ff8cd5e4785184062802682f262c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

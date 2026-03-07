@@ -1,0 +1,19 @@
+name: tinyproxy
+version: 1.11.2
+description: HTTP/HTTPS proxy for POSIX systems
+homepage: https://tinyproxy.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinyproxy/blobs/sha256:01f10b26d4d6e3bcf831ca8b921981b9f873d81b6556e2b52b4784ec4805a54d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinyproxy/blobs/sha256:be4b5eec4472a4d922473d1c267397ac88d8114edc0fa761ec243aea70a9d56b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinyproxy/blobs/sha256:dd37a722840d2d5e0366cba9377cd3d70abee9480845bb5200c7bb089f0a5e58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinyproxy/blobs/sha256:5d3ed227aff8eb302a9fd053c1939e1bb968fef0e5aeb36204ec59b01749eb0a
+sha256:
+  darwin_arm64: 01f10b26d4d6e3bcf831ca8b921981b9f873d81b6556e2b52b4784ec4805a54d
+  darwin_amd64: be4b5eec4472a4d922473d1c267397ac88d8114edc0fa761ec243aea70a9d56b
+  linux_amd64: dd37a722840d2d5e0366cba9377cd3d70abee9480845bb5200c7bb089f0a5e58
+  linux_arm64: 5d3ed227aff8eb302a9fd053c1939e1bb968fef0e5aeb36204ec59b01749eb0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

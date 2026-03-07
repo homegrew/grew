@@ -1,0 +1,11 @@
+name: scummvm-app
+version: 2026.1.0
+description: Run classic graphical adventure and role-playing games
+homepage: https://www.scummvm.org/
+url:
+  darwin_arm64: https://downloads.scummvm.org/frs/scummvm/2026.1.0/scummvm-2026.1.0-macosx.dmg
+sha256:
+  darwin_arm64: 759815f40affd7424abaec987117080b4d200d713f76027319fe3ae158b13aff
+artifacts:
+  app:
+    - ScummVM.app

@@ -1,0 +1,25 @@
+name: mediaconch
+version: 25.04
+description: Conformance checker and technical metadata reporter
+homepage: https://mediaarea.net/MediaConch
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mediaconch/blobs/sha256:8364c862db65aa723612eea3215ea4399c074701e4321b4f1a6a705b8cf6c925
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mediaconch/blobs/sha256:5168de6b8b71887d861dab17f49e835d8467de0f765018b0b7cdc9380f10080e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mediaconch/blobs/sha256:75fa4fbd9aaebac202c91e5966d8054cb80ac5da0251e6954dd050649d4ed888
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mediaconch/blobs/sha256:f14fccda9ccb8ec1d160149e1a2c6ecb8cecdb62d615a7af0c622397a4232520
+sha256:
+  darwin_arm64: 8364c862db65aa723612eea3215ea4399c074701e4321b4f1a6a705b8cf6c925
+  darwin_amd64: 5168de6b8b71887d861dab17f49e835d8467de0f765018b0b7cdc9380f10080e
+  linux_amd64: 75fa4fbd9aaebac202c91e5966d8054cb80ac5da0251e6954dd050649d4ed888
+  linux_arm64: f14fccda9ccb8ec1d160149e1a2c6ecb8cecdb62d615a7af0c622397a4232520
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson
+  - libevent
+  - libmediainfo
+  - libzen
+  - sqlite

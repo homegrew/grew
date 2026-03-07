@@ -1,0 +1,21 @@
+name: ascii2binary
+version: 2.14
+description: Converting Text to Binary and Back
+homepage: https://billposer.org/Software/a2b.html
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ascii2binary/blobs/sha256:04f82b33a8a3806b57864a4295dc727744275e1d57494803780ea373cadaff54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ascii2binary/blobs/sha256:d9430468703535a3bf50d32fdd39b90b140e493d662e002cdf1a11869b5bfdde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ascii2binary/blobs/sha256:bb4b9cc5fe32d49bbb8e0b8acd72396dbbd8fde547777f441b0deab8be17ac57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ascii2binary/blobs/sha256:dae63772ba06b7609d29d51fa608f8db00d29703b6c42837098b6629a35ac0a6
+sha256:
+  darwin_arm64: 04f82b33a8a3806b57864a4295dc727744275e1d57494803780ea373cadaff54
+  darwin_amd64: d9430468703535a3bf50d32fdd39b90b140e493d662e002cdf1a11869b5bfdde
+  linux_amd64: bb4b9cc5fe32d49bbb8e0b8acd72396dbbd8fde547777f441b0deab8be17ac57
+  linux_arm64: dae63772ba06b7609d29d51fa608f8db00d29703b6c42837098b6629a35ac0a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

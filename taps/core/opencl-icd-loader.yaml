@@ -1,0 +1,20 @@
+name: opencl-icd-loader
+version: 2025.07.22
+description: OpenCL Installable Client Driver (ICD) Loader
+homepage: https://www.khronos.org/registry/OpenCL/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencl-icd-loader/blobs/sha256:e0d457a1acf0efbcc69f119d0cebad5a3cb5c073690e94349c3bfdcfde5f6c77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencl-icd-loader/blobs/sha256:3b29127cbd3ad9bfd0c59cea68ba772ce5c1c4e323b5d566d5249a1528b869b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencl-icd-loader/blobs/sha256:eaff23dec7418eeb114b986687c61f1e00aa3262d1a9d0843d06dbfe900fa4d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencl-icd-loader/blobs/sha256:74bad9df1b4a44f9f0675fabf03d7af9225993f5c3144f4104db82cace1d42cb
+sha256:
+  darwin_arm64: e0d457a1acf0efbcc69f119d0cebad5a3cb5c073690e94349c3bfdcfde5f6c77
+  darwin_amd64: 3b29127cbd3ad9bfd0c59cea68ba772ce5c1c4e323b5d566d5249a1528b869b9
+  linux_amd64: eaff23dec7418eeb114b986687c61f1e00aa3262d1a9d0843d06dbfe900fa4d0
+  linux_arm64: 74bad9df1b4a44f9f0675fabf03d7af9225993f5c3144f4104db82cace1d42cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

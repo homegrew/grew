@@ -1,0 +1,19 @@
+name: terraform-graph-beautifier
+version: 0.3.4
+description: CLI to beautify `terraform graph` output
+homepage: https://github.com/pcasteran/terraform-graph-beautifier
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-graph-beautifier/blobs/sha256:d25d1b1141dac30d981d344f63b304c48b778155f6a457b000b965eed8a219d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-graph-beautifier/blobs/sha256:967666b68ef9c9fe345f6d8386a43394f334f42a7b99dc6210b1daf40ddfbbbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-graph-beautifier/blobs/sha256:bfe06d0bcfb50ee315da696362d5a635846067f2601f2669b6b1274b8d8cff48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-graph-beautifier/blobs/sha256:fc3a3550aa27a8ef0d719a9e9e256fdf9995034b3e67de8ece8c1f0812d3bc5a
+sha256:
+  darwin_arm64: d25d1b1141dac30d981d344f63b304c48b778155f6a457b000b965eed8a219d2
+  darwin_amd64: 967666b68ef9c9fe345f6d8386a43394f334f42a7b99dc6210b1daf40ddfbbbf
+  linux_amd64: bfe06d0bcfb50ee315da696362d5a635846067f2601f2669b6b1274b8d8cff48
+  linux_arm64: fc3a3550aa27a8ef0d719a9e9e256fdf9995034b3e67de8ece8c1f0812d3bc5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: rlog
+version: 1.4
+description: Flexible message logging facility for C++
+homepage: https://github.com/vgough/rlog
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rlog/blobs/sha256:abe2bf8a021e632b0e828b667b5e2e09be2cb2bf5356b40adc7787248c16b12e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rlog/blobs/sha256:d1e8d4a9e1765d6d916b4c5882bc88ef3eaeb277d5de3384a922c4d680003521
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rlog/blobs/sha256:a272cb9d709fffe4c798d278a49455a5a05a0e4c408e158609b168718b9c5e1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rlog/blobs/sha256:5bde76b56501c03e8394ffb8302a2e80523b25b64a664ab6155a49a71a7ef88c
+sha256:
+  darwin_arm64: abe2bf8a021e632b0e828b667b5e2e09be2cb2bf5356b40adc7787248c16b12e
+  darwin_amd64: d1e8d4a9e1765d6d916b4c5882bc88ef3eaeb277d5de3384a922c4d680003521
+  linux_amd64: a272cb9d709fffe4c798d278a49455a5a05a0e4c408e158609b168718b9c5e1b
+  linux_arm64: 5bde76b56501c03e8394ffb8302a2e80523b25b64a664ab6155a49a71a7ef88c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

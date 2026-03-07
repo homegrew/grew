@@ -1,0 +1,24 @@
+name: pygobject3
+version: 3.56.0
+description: GNOME Python bindings (based on GObject Introspection)
+homepage: https://pygobject.gnome.org
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pygobject3/blobs/sha256:ac853e2459fd94b982895b8b0f56e24357c5516cac34189bab95016bc6021681
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pygobject3/blobs/sha256:c7ef0cee4bb5aabf15887c355eb28c258150eb8d0641b731e4af39d8ff779a55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pygobject3/blobs/sha256:040e872cb57fb5603dca08688b6d3f211efc3d3b21973ec0e55b0e2d2ba97c09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pygobject3/blobs/sha256:0c63bb35ab8d2193cb731c1e1554e6f8963adf6065bc23e5ab815c0f9f62a247
+sha256:
+  darwin_arm64: ac853e2459fd94b982895b8b0f56e24357c5516cac34189bab95016bc6021681
+  darwin_amd64: c7ef0cee4bb5aabf15887c355eb28c258150eb8d0641b731e4af39d8ff779a55
+  linux_amd64: 040e872cb57fb5603dca08688b6d3f211efc3d3b21973ec0e55b0e2d2ba97c09
+  linux_arm64: 0c63bb35ab8d2193cb731c1e1554e6f8963adf6065bc23e5ab815c0f9f62a247
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - gobject-introspection
+  - py3cairo

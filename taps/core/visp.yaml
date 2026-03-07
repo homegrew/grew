@@ -1,0 +1,38 @@
+name: visp
+version: 3.7.0
+description: Visual Servoing Platform library
+homepage: https://visp.inria.fr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/visp/blobs/sha256:e87d360a93bc731123468c94b5477f5ba0b7671d0c8e82287e5485961d75f748
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/visp/blobs/sha256:a81d6d090c775ff46b13ff5f20907245f7e7bf9040d36a7cc7014817bf4213ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/visp/blobs/sha256:6917b75a0f3820248a9fedde0ccc1be313ed093ece978de18824e5ed8fb8adaa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/visp/blobs/sha256:f3f4da4c18762977aee9a6229ce25c8548aae804e458ea5035343cc3853b647a
+sha256:
+  darwin_arm64: e87d360a93bc731123468c94b5477f5ba0b7671d0c8e82287e5485961d75f748
+  darwin_amd64: a81d6d090c775ff46b13ff5f20907245f7e7bf9040d36a7cc7014817bf4213ee
+  linux_amd64: 6917b75a0f3820248a9fedde0ccc1be313ed093ece978de18824e5ed8fb8adaa
+  linux_arm64: f3f4da4c18762977aee9a6229ce25c8548aae804e458ea5035343cc3853b647a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen
+  - gsl
+  - jpeg-turbo
+  - libdc1394
+  - libpng
+  - lz4
+  - openblas
+  - opencv
+  - pcl
+  - vtk
+  - zbar
+  - boost
+  - flann
+  - glew
+  - libomp
+  - libpcap
+  - qhull
+  - qtbase

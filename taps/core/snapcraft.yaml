@@ -1,0 +1,30 @@
+name: snapcraft
+version: 8.14.2
+description: Package any app for every Linux desktop, server, cloud or device
+homepage: https://snapcraft.io/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snapcraft/blobs/sha256:294d4e228379cf8fcea9bd97320ce6e67ff3e0804cf96838a08301baf54d742b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snapcraft/blobs/sha256:f8cd450695530dd710288ae3c1d3d563af33d533823a76fa7258a8cb294189aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snapcraft/blobs/sha256:f64db0e7fae0e08ce2461ed91c95faf0a5bd58695358365e9cf1a343a4c0fed0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snapcraft/blobs/sha256:6e90c015172e19e90357302c1c72eb1d00dbe97ebfc516c5ab373b60f18f2d39
+sha256:
+  darwin_arm64: 294d4e228379cf8fcea9bd97320ce6e67ff3e0804cf96838a08301baf54d742b
+  darwin_amd64: f8cd450695530dd710288ae3c1d3d563af33d533823a76fa7258a8cb294189aa
+  linux_amd64: f64db0e7fae0e08ce2461ed91c95faf0a5bd58695358365e9cf1a343a4c0fed0
+  linux_arm64: 6e90c015172e19e90357302c1c72eb1d00dbe97ebfc516c5ab373b60f18f2d39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - libyaml
+  - lxc
+  - pydantic
+  - pygit2
+  - python@3.14
+  - snap
+  - xdelta

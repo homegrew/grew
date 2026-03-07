@@ -1,0 +1,21 @@
+name: llama.cpp
+version: 8220
+description: LLM inference in C/C++
+homepage: https://github.com/ggml-org/llama.cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llama.cpp/blobs/sha256:899e2e57bf1c6516c7a8f7b7dfe1e4ccea7ff0dd3e7472f70c1c735bc2cdaff4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llama.cpp/blobs/sha256:2ee52dfce29f8284e5384ec87a28bb8766b67299512cb172c1f54b383d2214a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llama.cpp/blobs/sha256:bcef4a0c53e61011505ce5910e142d4b203cb2a540f4ba96d7af7be5f515d785
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llama.cpp/blobs/sha256:4ba2aa2a7e0f893f392d6522f368405c560afe56dbdc13fff97155ccf8709a88
+sha256:
+  darwin_arm64: 899e2e57bf1c6516c7a8f7b7dfe1e4ccea7ff0dd3e7472f70c1c735bc2cdaff4
+  darwin_amd64: 2ee52dfce29f8284e5384ec87a28bb8766b67299512cb172c1f54b383d2214a9
+  linux_amd64: bcef4a0c53e61011505ce5910e142d4b203cb2a540f4ba96d7af7be5f515d785
+  linux_arm64: 4ba2aa2a7e0f893f392d6522f368405c560afe56dbdc13fff97155ccf8709a88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

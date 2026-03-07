@@ -1,0 +1,19 @@
+name: vrc-get
+version: 1.9.1
+description: Open Source alternative of Command-line client of VRChat Package Manager
+homepage: https://github.com/vrc-get/vrc-get
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vrc-get/blobs/sha256:de850d693542af7f6e08660d844b13e76331feed2e0ac47367bebbf9816bc4b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vrc-get/blobs/sha256:3c4202ebc728de42372a7db3a926572b7de9de197a1deeb35f207be9f5d131b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vrc-get/blobs/sha256:fcf026916c83f75b0ede1071e1cd8c1eb87a74d131456a6bd417d8e31edc7580
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vrc-get/blobs/sha256:ecec52be3888898c5755c085e97cdb6aab7c36ea33ccf5a8adf81735de95bc93
+sha256:
+  darwin_arm64: de850d693542af7f6e08660d844b13e76331feed2e0ac47367bebbf9816bc4b7
+  darwin_amd64: 3c4202ebc728de42372a7db3a926572b7de9de197a1deeb35f207be9f5d131b7
+  linux_amd64: fcf026916c83f75b0ede1071e1cd8c1eb87a74d131456a6bd417d8e31edc7580
+  linux_arm64: ecec52be3888898c5755c085e97cdb6aab7c36ea33ccf5a8adf81735de95bc93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

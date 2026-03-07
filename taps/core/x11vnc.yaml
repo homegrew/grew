@@ -1,0 +1,22 @@
+name: x11vnc
+version: 0.9.17
+description: VNC server for real X displays
+homepage: https://github.com/LibVNC/x11vnc
+license: GPL-2.0-or-later WITH x11vnc-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x11vnc/blobs/sha256:f1a4ed13ffea08fefdfaed2e5b5405a29d302c3e1dfe0ea8f8be69bee9cb4d9c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x11vnc/blobs/sha256:88e64a8742c4ade347ddc88ccf385b94b02da30b6be1f90cfd9793ff4cfe421b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x11vnc/blobs/sha256:676b00ad2fdec853d0f1e29c3b31f33ec88be24b1ec75f1bbf05b4449d9146f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x11vnc/blobs/sha256:a0f7c9f45cf87d7609f58dd039c0f0a8ef1c3cfe2eec0afcb5a6d817829b3f82
+sha256:
+  darwin_arm64: f1a4ed13ffea08fefdfaed2e5b5405a29d302c3e1dfe0ea8f8be69bee9cb4d9c
+  darwin_amd64: 88e64a8742c4ade347ddc88ccf385b94b02da30b6be1f90cfd9793ff4cfe421b
+  linux_amd64: 676b00ad2fdec853d0f1e29c3b31f33ec88be24b1ec75f1bbf05b4449d9146f4
+  linux_arm64: a0f7c9f45cf87d7609f58dd039c0f0a8ef1c3cfe2eec0afcb5a6d817829b3f82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libvncserver
+  - openssl@3

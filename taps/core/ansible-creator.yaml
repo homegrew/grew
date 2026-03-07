@@ -1,0 +1,22 @@
+name: ansible-creator
+version: 26.3.0
+description: CLI tool for scaffolding Ansible Content
+homepage: https://ansible.readthedocs.io/projects/creator/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansible-creator/blobs/sha256:a8a18f1ace1320008b78c347f1e6c553ff26cb45fe3ebfa113cab4d244a69093
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansible-creator/blobs/sha256:ceb8d34466e35b1ec4c1b35329b73860a0d07d98b1a689092790b022e611659c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansible-creator/blobs/sha256:c1c60a33a747843bef9072ab17c11c9aeb70827daf7e8f1c1bdaf25f8a4df4f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansible-creator/blobs/sha256:0e6c424de4e9ebbecae510d36326f4a1594d7451f55ff9bb9e150d1249bcd173
+sha256:
+  darwin_arm64: a8a18f1ace1320008b78c347f1e6c553ff26cb45fe3ebfa113cab4d244a69093
+  darwin_amd64: ceb8d34466e35b1ec4c1b35329b73860a0d07d98b1a689092790b022e611659c
+  linux_amd64: c1c60a33a747843bef9072ab17c11c9aeb70827daf7e8f1c1bdaf25f8a4df4f6
+  linux_arm64: 0e6c424de4e9ebbecae510d36326f4a1594d7451f55ff9bb9e150d1249bcd173
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

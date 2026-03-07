@@ -1,0 +1,19 @@
+name: mimirtool
+version: 3.0.3
+description: CLI for interacting with Grafana Mimir
+homepage: https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mimirtool/blobs/sha256:7263833f43e202a900885ec203720da22a9dc0c76ba74086357b6c9000a8c997
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mimirtool/blobs/sha256:385f6a0aa742bdc421c381f68f5a35658c70370e000ab2db83626eb2df57ecb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mimirtool/blobs/sha256:90552d6e7f6b5edea69fc3eda319090f528e8522d159be4105f1819b4394f4c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mimirtool/blobs/sha256:99f799f1f2d8fe1016acf80ac180f5f332713f2c4dcde9868e9f4b34bb353bcf
+sha256:
+  darwin_arm64: 7263833f43e202a900885ec203720da22a9dc0c76ba74086357b6c9000a8c997
+  darwin_amd64: 385f6a0aa742bdc421c381f68f5a35658c70370e000ab2db83626eb2df57ecb5
+  linux_amd64: 90552d6e7f6b5edea69fc3eda319090f528e8522d159be4105f1819b4394f4c8
+  linux_arm64: 99f799f1f2d8fe1016acf80ac180f5f332713f2c4dcde9868e9f4b34bb353bcf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

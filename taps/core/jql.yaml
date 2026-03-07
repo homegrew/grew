@@ -1,0 +1,19 @@
+name: jql
+version: 8.0.10
+description: JSON query language CLI tool
+homepage: https://github.com/yamafaktory/jql
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jql/blobs/sha256:84968f0bd4795164136f2812467afce9bf94fa885d84ed3a63e859d568f2dcf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jql/blobs/sha256:ac630a373ba506551dea9f991535546476344e6536ee2d9e48df75f78b5a9c79
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jql/blobs/sha256:c9df115cbf7add4f682b2ef2d54f2c65dcf5147570537795709f30299cfc5523
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jql/blobs/sha256:f33adb947aa5c5868e1ccc1437f47a45e4a397b26ff164d9fbf56202a09d5c26
+sha256:
+  darwin_arm64: 84968f0bd4795164136f2812467afce9bf94fa885d84ed3a63e859d568f2dcf0
+  darwin_amd64: ac630a373ba506551dea9f991535546476344e6536ee2d9e48df75f78b5a9c79
+  linux_amd64: c9df115cbf7add4f682b2ef2d54f2c65dcf5147570537795709f30299cfc5523
+  linux_arm64: f33adb947aa5c5868e1ccc1437f47a45e4a397b26ff164d9fbf56202a09d5c26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

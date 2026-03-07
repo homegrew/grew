@@ -1,0 +1,19 @@
+name: mksh
+version: 59c
+description: MirBSD Korn Shell
+homepage: https://mbsd.evolvis.org/mksh.htm
+license: MirOS
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mksh/blobs/sha256:99d5701b22abd93460ac4d8dff1779534e5a74ccb010f96091a70bc7499ec464
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mksh/blobs/sha256:b207ba72de0409491e51887f2660ffd299f773af5111326d367380ba5a508fb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mksh/blobs/sha256:c371844df8480e29acc7a3f4096944880b9652a4490d0036f6f845b4c6c3d8be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mksh/blobs/sha256:84fbeb841b6f1cdeb5b8e68daa1b4a4fd72fb689b9a6f597bf9e886e01d3d08f
+sha256:
+  darwin_arm64: 99d5701b22abd93460ac4d8dff1779534e5a74ccb010f96091a70bc7499ec464
+  darwin_amd64: b207ba72de0409491e51887f2660ffd299f773af5111326d367380ba5a508fb4
+  linux_amd64: c371844df8480e29acc7a3f4096944880b9652a4490d0036f6f845b4c6c3d8be
+  linux_arm64: 84fbeb841b6f1cdeb5b8e68daa1b4a4fd72fb689b9a6f597bf9e886e01d3d08f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

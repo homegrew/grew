@@ -1,0 +1,11 @@
+name: apache-couchdb
+version: 3.5.1
+description: Multi-master syncing database
+homepage: https://couchdb.apache.org/
+url:
+  darwin_arm64: https://couchdbneighbourhoodie.fra1.digitaloceanspaces.com/downloads/3.5.1/mac/arm64/Apache-CouchDB.zip
+sha256:
+  darwin_arm64: 0adddf00aabc686f6f471546345712c86f9eb573fd364eff87e0768d0a96f11e
+artifacts:
+  app:
+    - Apache CouchDB.app

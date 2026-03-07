@@ -1,0 +1,19 @@
+name: vramsteg
+version: 1.1.0
+description: Add progress bars to command-line applications
+homepage: https://gothenburgbitfactory.org/vramsteg/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vramsteg/blobs/sha256:a5479befe15922fb1599789c162d94db24b307d31ab67508ac4ca5ab2e416a8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vramsteg/blobs/sha256:824cff846fd4ad84038fc095676cf1e64927c7414742a536b9f0679f6adebd1c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vramsteg/blobs/sha256:17541c74c89bdac3887fca1b40afe76b5a1778aef0ccb8dd092d04088ed3b281
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vramsteg/blobs/sha256:c7d833b721091e38b120fb58944129769f20109b74d881735f7ab1dadf62b487
+sha256:
+  darwin_arm64: a5479befe15922fb1599789c162d94db24b307d31ab67508ac4ca5ab2e416a8a
+  darwin_amd64: 824cff846fd4ad84038fc095676cf1e64927c7414742a536b9f0679f6adebd1c
+  linux_amd64: 17541c74c89bdac3887fca1b40afe76b5a1778aef0ccb8dd092d04088ed3b281
+  linux_arm64: c7d833b721091e38b120fb58944129769f20109b74d881735f7ab1dadf62b487
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

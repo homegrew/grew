@@ -1,0 +1,19 @@
+name: technitium-library
+version: 14.3.0
+description: Library for technitium .net based applications
+homepage: https://technitium.com
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/technitium-library/blobs/sha256:03ac8d281987c3d5dec0fc64f3563e3a383e958012d7d73ba6fb9aef6e310f43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/technitium-library/blobs/sha256:50049dcaf0f433dece95d5a3317be951011f130f5d59c29a94fbb49448cd80d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/technitium-library/blobs/sha256:cbf6a1094b1888bd698833c335dc298b0829f55cd6590da4e9a5dd99d98097a3
+sha256:
+  darwin_arm64: 03ac8d281987c3d5dec0fc64f3563e3a383e958012d7d73ba6fb9aef6e310f43
+  linux_amd64: 50049dcaf0f433dece95d5a3317be951011f130f5d59c29a94fbb49448cd80d9
+  linux_arm64: cbf6a1094b1888bd698833c335dc298b0829f55cd6590da4e9a5dd99d98097a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@9

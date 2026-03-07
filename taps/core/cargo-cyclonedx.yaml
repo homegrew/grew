@@ -1,0 +1,19 @@
+name: cargo-cyclonedx
+version: 0.5.7
+description: Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects
+homepage: https://cyclonedx.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-cyclonedx/blobs/sha256:68b837ec5f02542da6437fa257ea5be3b4d673c476a153aae8a7abf10fa2e664
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-cyclonedx/blobs/sha256:994e07617590f95137b4263cbe94e447f206a29e8407990f3aa61dadc001bde5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-cyclonedx/blobs/sha256:f69b0e972207579b8a06176252815648a3b6b33c43a468f66c919118bd72462a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-cyclonedx/blobs/sha256:cb031e5cd29ab00b10ed9979a9483256da08b39350505fc935221814ce743bdf
+sha256:
+  darwin_arm64: 68b837ec5f02542da6437fa257ea5be3b4d673c476a153aae8a7abf10fa2e664
+  darwin_amd64: 994e07617590f95137b4263cbe94e447f206a29e8407990f3aa61dadc001bde5
+  linux_amd64: f69b0e972207579b8a06176252815648a3b6b33c43a468f66c919118bd72462a
+  linux_arm64: cb031e5cd29ab00b10ed9979a9483256da08b39350505fc935221814ce743bdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

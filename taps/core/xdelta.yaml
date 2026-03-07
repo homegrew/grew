@@ -1,0 +1,21 @@
+name: xdelta
+version: 3.1.0
+description: Binary diff, differential compression tools
+homepage: https://github.com/jmacd/xdelta
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xdelta/blobs/sha256:ee37900b3dc66de43cbffbd9fc486d9532f519cf36a10c66a198c64ae7a94e07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xdelta/blobs/sha256:cab53d9abbfb5e25e8401c04b68402f5678f0dbd731cee77aa089203768adbc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xdelta/blobs/sha256:4015bbc1061c1ac1ba9b56e9465b2b18bd22f1557e79651f1cf9feaf5e37c486
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xdelta/blobs/sha256:07505153f0433a184f123e5f0d9468511854f2fc10b811bc45cf9628b9da14d4
+sha256:
+  darwin_arm64: ee37900b3dc66de43cbffbd9fc486d9532f519cf36a10c66a198c64ae7a94e07
+  darwin_amd64: cab53d9abbfb5e25e8401c04b68402f5678f0dbd731cee77aa089203768adbc2
+  linux_amd64: 4015bbc1061c1ac1ba9b56e9465b2b18bd22f1557e79651f1cf9feaf5e37c486
+  linux_arm64: 07505153f0433a184f123e5f0d9468511854f2fc10b811bc45cf9628b9da14d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

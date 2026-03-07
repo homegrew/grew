@@ -1,0 +1,19 @@
+name: codesnap
+version: 0.13.1
+description: Generates code snapshots in various formats
+homepage: https://github.com/codesnap-rs/codesnap
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codesnap/blobs/sha256:b09e81e2e477b4766f7131c2c7cce96c0c4f324ed6b536b8c7f620be8925ed8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codesnap/blobs/sha256:5a408a988e5588a6105fe3fda0fc271aaebc86c84f97fbacf8a743f1787b5925
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codesnap/blobs/sha256:82461844e1d7743af3f1ed81053a3478c68161d031b6de6cf6715d0340b50579
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codesnap/blobs/sha256:9bd2da94e62d3648e54e1cb6428f6842e500e46c7a04bcb83c7c1147aaee92d2
+sha256:
+  darwin_arm64: b09e81e2e477b4766f7131c2c7cce96c0c4f324ed6b536b8c7f620be8925ed8b
+  darwin_amd64: 5a408a988e5588a6105fe3fda0fc271aaebc86c84f97fbacf8a743f1787b5925
+  linux_amd64: 82461844e1d7743af3f1ed81053a3478c68161d031b6de6cf6715d0340b50579
+  linux_arm64: 9bd2da94e62d3648e54e1cb6428f6842e500e46c7a04bcb83c7c1147aaee92d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

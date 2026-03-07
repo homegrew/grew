@@ -1,0 +1,21 @@
+name: devspace
+version: 6.3.20
+description: CLI helps develop/deploy/debug apps with Docker and k8s
+homepage: https://devspace.sh/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/devspace/blobs/sha256:f0495c288eb44ccfc746225597a44d43f7b3252f4dfd7918625c5de86ef2f288
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/devspace/blobs/sha256:26655e1bedf0dc9dbb682be6e3859e5d4105fe8280aa9b9a26649eeff11287fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/devspace/blobs/sha256:f898f61966e7c602acaa05e77d82b0528901125975dc68774a473f7e105ed4ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/devspace/blobs/sha256:dfdb89b85a1d6dd6f03771c2e17355456e594af201a0d78d15583ba1e6b67ae7
+sha256:
+  darwin_arm64: f0495c288eb44ccfc746225597a44d43f7b3252f4dfd7918625c5de86ef2f288
+  darwin_amd64: 26655e1bedf0dc9dbb682be6e3859e5d4105fe8280aa9b9a26649eeff11287fb
+  linux_amd64: f898f61966e7c602acaa05e77d82b0528901125975dc68774a473f7e105ed4ba
+  linux_arm64: dfdb89b85a1d6dd6f03771c2e17355456e594af201a0d78d15583ba1e6b67ae7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kubernetes-cli

@@ -1,0 +1,19 @@
+name: terrahash
+version: 0.1.0
+description: Create and store a hash of the Terraform modules used by your configuration
+homepage: https://github.com/ned1313/terrahash
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terrahash/blobs/sha256:56190ed3f9318c57e6dad7a1f6677d39b0a5e13990594e4bcf73582b98b450f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terrahash/blobs/sha256:5b6d7d22b28b3616d5278c4cc98d6ca602426c6837e79103667f7692c8cb6aee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terrahash/blobs/sha256:7a23ea4fdea487b4be85ba254b680311c6e0c2d7520d2857c46c22dfd9ef4eb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terrahash/blobs/sha256:31790db6c755801fe40fbeab1859d383e624ef08584612f3e375df48fea56583
+sha256:
+  darwin_arm64: 56190ed3f9318c57e6dad7a1f6677d39b0a5e13990594e4bcf73582b98b450f2
+  darwin_amd64: 5b6d7d22b28b3616d5278c4cc98d6ca602426c6837e79103667f7692c8cb6aee
+  linux_amd64: 7a23ea4fdea487b4be85ba254b680311c6e0c2d7520d2857c46c22dfd9ef4eb1
+  linux_arm64: 31790db6c755801fe40fbeab1859d383e624ef08584612f3e375df48fea56583
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

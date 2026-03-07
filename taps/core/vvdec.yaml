@@ -1,0 +1,19 @@
+name: vvdec
+version: 3.1.0
+description: Fraunhofer Versatile Video Decoder
+homepage: https://github.com/fraunhoferhhi/vvdec
+license: BSD-3-Clause-Clear
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vvdec/blobs/sha256:c75e17e8c9fb124b6c6fb2f85a14e594db0fad6c28e3369f532435cb81972db9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vvdec/blobs/sha256:4efbd249e28c544c82677e60af0a71e40b58c06d6141532f8b90414383f62ec6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vvdec/blobs/sha256:293646906147b719adf026300bd74aa3904f8f69451f49571b175a71dddfba1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vvdec/blobs/sha256:ca300e6bae34c24004cad069751444ea2b7b6747478700261a2ee9518e2ff277
+sha256:
+  darwin_arm64: c75e17e8c9fb124b6c6fb2f85a14e594db0fad6c28e3369f532435cb81972db9
+  darwin_amd64: 4efbd249e28c544c82677e60af0a71e40b58c06d6141532f8b90414383f62ec6
+  linux_amd64: 293646906147b719adf026300bd74aa3904f8f69451f49571b175a71dddfba1e
+  linux_arm64: ca300e6bae34c24004cad069751444ea2b7b6747478700261a2ee9518e2ff277
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

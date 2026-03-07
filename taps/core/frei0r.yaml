@@ -1,0 +1,19 @@
+name: frei0r
+version: 2.5.5
+description: Minimalistic plugin API for video effects
+homepage: https://frei0r.dyne.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/frei0r/blobs/sha256:b4b9fdb23adb1a2929dfd626d476a3d3847c539ff7e470eabba69845171b8dad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/frei0r/blobs/sha256:6ad642481f264d5e966a4a39b80121cfe612d95d106c5b2e2e1dc99db29f0c1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/frei0r/blobs/sha256:335d422eddda2cf9d320548778fb337d4b6b20ef40d43835876b789f964237e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/frei0r/blobs/sha256:77d7dae245358f62b9785476ce1b7f1b025c3045c89d2241189ca0dd42308870
+sha256:
+  darwin_arm64: b4b9fdb23adb1a2929dfd626d476a3d3847c539ff7e470eabba69845171b8dad
+  darwin_amd64: 6ad642481f264d5e966a4a39b80121cfe612d95d106c5b2e2e1dc99db29f0c1f
+  linux_amd64: 335d422eddda2cf9d320548778fb337d4b6b20ef40d43835876b789f964237e5
+  linux_arm64: 77d7dae245358f62b9785476ce1b7f1b025c3045c89d2241189ca0dd42308870
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

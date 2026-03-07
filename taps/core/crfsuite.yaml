@@ -1,0 +1,21 @@
+name: crfsuite
+version: 0.12
+description: Fast implementation of conditional random fields
+homepage: https://www.chokkan.org/software/crfsuite/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crfsuite/blobs/sha256:65a13d4653a19e899bdbcec57f9d7dc4852dce18c753e31c42102f7ce734bda6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crfsuite/blobs/sha256:80c120367694a16a8aa47bea0107a4bbdf34cd765b1cb111e6ee59bc76815df3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crfsuite/blobs/sha256:45a6dd13114c20e2a4bd3d82033e463316b635d8c7a61c582e299bca8832ec58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crfsuite/blobs/sha256:057472092e2730abbd995d9b23b61f77e9b6f5f829f36b63786110ef657c27f2
+sha256:
+  darwin_arm64: 65a13d4653a19e899bdbcec57f9d7dc4852dce18c753e31c42102f7ce734bda6
+  darwin_amd64: 80c120367694a16a8aa47bea0107a4bbdf34cd765b1cb111e6ee59bc76815df3
+  linux_amd64: 45a6dd13114c20e2a4bd3d82033e463316b635d8c7a61c582e299bca8832ec58
+  linux_arm64: 057472092e2730abbd995d9b23b61f77e9b6f5f829f36b63786110ef657c27f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - liblbfgs

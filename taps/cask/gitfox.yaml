@@ -1,0 +1,13 @@
+name: gitfox
+version: 4.1.1,11023
+description: Git client
+homepage: https://www.gitfox.app/
+url:
+  darwin_arm64: https://update.gitfox.app/builds/retail/11023/Gitfox.11023.zip
+sha256:
+  darwin_arm64: 74253e770749932b2cb06d3bbf77431eb0c97f28e48ee6be2ca6fceadc90d516
+artifacts:
+  app:
+    - Gitfox.app
+  bin:
+    - gitfox

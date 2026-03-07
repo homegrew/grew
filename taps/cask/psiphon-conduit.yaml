@@ -1,0 +1,11 @@
+name: psiphon-conduit
+version: 1.8.0-RC.2
+description: Psiphon network proxy tool
+homepage: https://conduit.psiphon.ca/
+url:
+  darwin_arm64: https://github.com/Psiphon-Inc/conduit/releases/download/release-mac-1.8.0-RC.2/conduit.dmg
+sha256:
+  darwin_arm64: 56a6be1708a2e458965fcc31743cfd8ecd186f3b6e739baaa9e027996bbf1ae4
+artifacts:
+  app:
+    - Conduit.app

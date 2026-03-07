@@ -1,0 +1,15 @@
+name: rootlesskit
+version: 2.3.6
+description: "Linux-native \"fake root\" for implementing rootless containers"
+homepage: https://github.com/rootless-containers/rootlesskit
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rootlesskit/blobs/sha256:a72021b4a7cc7003b5f3f282c6d826ef85bb3920023d71a8432720b658ef9c53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rootlesskit/blobs/sha256:8f0ab7ce1faaaa56061faa92db5906afcdb4826ec098d7a2f112f56eabb664f0
+sha256:
+  linux_amd64: a72021b4a7cc7003b5f3f282c6d826ef85bb3920023d71a8432720b658ef9c53
+  linux_arm64: 8f0ab7ce1faaaa56061faa92db5906afcdb4826ec098d7a2f112f56eabb664f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

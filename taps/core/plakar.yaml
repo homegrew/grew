@@ -1,0 +1,19 @@
+name: plakar
+version: 1.0.6
+description: Create backups with compression, encryption and deduplication
+homepage: https://plakar.io
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plakar/blobs/sha256:054379a5d933068e2b4cb8f48fc11769a05ec55f5cc798520266046948bbee35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plakar/blobs/sha256:d4ded53b51adcfce38ee43603aaa60d7cc9222e26f18ca0ece5a69dbc5927346
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plakar/blobs/sha256:58e4bd7f403dc08a91f22db461e9e3647aeb5fde6c269d096bad97a5eca34f71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plakar/blobs/sha256:5a75c2526701fa560eb4af9eb9f49ee348a10591a2de1827b19c82efe6986532
+sha256:
+  darwin_arm64: 054379a5d933068e2b4cb8f48fc11769a05ec55f5cc798520266046948bbee35
+  darwin_amd64: d4ded53b51adcfce38ee43603aaa60d7cc9222e26f18ca0ece5a69dbc5927346
+  linux_amd64: 58e4bd7f403dc08a91f22db461e9e3647aeb5fde6c269d096bad97a5eca34f71
+  linux_arm64: 5a75c2526701fa560eb4af9eb9f49ee348a10591a2de1827b19c82efe6986532
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

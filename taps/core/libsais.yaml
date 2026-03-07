@@ -1,0 +1,19 @@
+name: libsais
+version: 2.10.4
+description: Fast linear time suffix array, lcp array and bwt construction
+homepage: https://github.com/IlyaGrebnov/libsais
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsais/blobs/sha256:79b1f20b666c77eca72b9f827a036dabe7a8114e93aae6c0c8fcc635410a79c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsais/blobs/sha256:af064b9655232645376cf0c0c47b58fdb2f14cd698f8ea55e541a9f521a102ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsais/blobs/sha256:4dc70d2f05f2cc95896bc3e28d1df5d4974df21c9bc303341e6b60d4de385a98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsais/blobs/sha256:63e009572fc39dfdd39424201b784cb5b5b6728e5f21ba9ee906da515888d638
+sha256:
+  darwin_arm64: 79b1f20b666c77eca72b9f827a036dabe7a8114e93aae6c0c8fcc635410a79c8
+  darwin_amd64: af064b9655232645376cf0c0c47b58fdb2f14cd698f8ea55e541a9f521a102ba
+  linux_amd64: 4dc70d2f05f2cc95896bc3e28d1df5d4974df21c9bc303341e6b60d4de385a98
+  linux_arm64: 63e009572fc39dfdd39424201b784cb5b5b6728e5f21ba9ee906da515888d638
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

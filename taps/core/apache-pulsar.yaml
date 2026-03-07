@@ -1,0 +1,21 @@
+name: apache-pulsar
+version: 4.1.3
+description: Cloud-native distributed messaging and streaming platform
+homepage: https://pulsar.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apache-pulsar/blobs/sha256:f1a33d93802cdbbbf4bb27971edfcb6ad2d4ca4f8f010f00040b0bd6401d183d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apache-pulsar/blobs/sha256:4041aeed452b2e2bf410a850199037a32b96150378e21553ac5d86cebb5b4004
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apache-pulsar/blobs/sha256:f8eb29f460bb5935e502f3954e3bb7c4bf5e713b129ab31907155cfc1e6c4dc4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apache-pulsar/blobs/sha256:4c3aaa63c29eeb090f400a7f33d9517edcea5753527ec9e2270942dd35b2d6ea
+sha256:
+  darwin_arm64: f1a33d93802cdbbbf4bb27971edfcb6ad2d4ca4f8f010f00040b0bd6401d183d
+  darwin_amd64: 4041aeed452b2e2bf410a850199037a32b96150378e21553ac5d86cebb5b4004
+  linux_amd64: f8eb29f460bb5935e502f3954e3bb7c4bf5e713b129ab31907155cfc1e6c4dc4
+  linux_arm64: 4c3aaa63c29eeb090f400a7f33d9517edcea5753527ec9e2270942dd35b2d6ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@21

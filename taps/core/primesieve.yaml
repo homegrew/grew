@@ -1,0 +1,19 @@
+name: primesieve
+version: 12.13
+description: Fast C/C++ prime number generator
+homepage: https://github.com/kimwalisch/primesieve
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/primesieve/blobs/sha256:14ac2584e2e13ec4d2154342a6928be5dd798abcd36b3968a98294a36ce938e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/primesieve/blobs/sha256:085aa6f8743c2d186c31aa02a0df8d66b829d17539c771bc2db94fd6c0dba04c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/primesieve/blobs/sha256:458c1e93376e3e244d8c4835f6cbb0b3b34d6e15a86044c6249ad29e57271e65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/primesieve/blobs/sha256:29cd0c69ea9f6be89d8da4fb8ff25c63b360f21c974dccbbb908bbd34664ad6a
+sha256:
+  darwin_arm64: 14ac2584e2e13ec4d2154342a6928be5dd798abcd36b3968a98294a36ce938e3
+  darwin_amd64: 085aa6f8743c2d186c31aa02a0df8d66b829d17539c771bc2db94fd6c0dba04c
+  linux_amd64: 458c1e93376e3e244d8c4835f6cbb0b3b34d6e15a86044c6249ad29e57271e65
+  linux_arm64: 29cd0c69ea9f6be89d8da4fb8ff25c63b360f21c974dccbbb908bbd34664ad6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

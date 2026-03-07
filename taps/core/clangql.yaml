@@ -1,0 +1,21 @@
+name: clangql
+version: 0.23.0
+description: Run a SQL like language to perform queries on C/C++ files
+homepage: https://github.com/AmrDeveloper/ClangQL
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clangql/blobs/sha256:02785e5e478d81ab65d4ba22bb52d9d63de81d4c33485363c972ebd6f6ae804e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clangql/blobs/sha256:4b164924eb731e51b32b6d7bba098b3bf2fa3e6557b85d64d3641649e1f2fac5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clangql/blobs/sha256:b74cae08c14d98f1e672d1ea149d28a299fcb698a6d657a1216c0e5ef95dca2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clangql/blobs/sha256:cfeb186e26729d019ced82cf94306af7ccc13ef03cc7a6d7d5d97c6332b7044a
+sha256:
+  darwin_arm64: 02785e5e478d81ab65d4ba22bb52d9d63de81d4c33485363c972ebd6f6ae804e
+  darwin_amd64: 4b164924eb731e51b32b6d7bba098b3bf2fa3e6557b85d64d3641649e1f2fac5
+  linux_amd64: b74cae08c14d98f1e672d1ea149d28a299fcb698a6d657a1216c0e5ef95dca2e
+  linux_arm64: cfeb186e26729d019ced82cf94306af7ccc13ef03cc7a6d7d5d97c6332b7044a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

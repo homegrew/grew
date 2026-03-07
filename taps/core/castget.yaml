@@ -1,0 +1,23 @@
+name: castget
+version: 2.0.1
+description: Command-line podcast and RSS enclosure downloader
+homepage: https://castget.johndal.com/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/castget/blobs/sha256:6260cc2436ada19971dceea5edf959d05602b072b8c9e4fe4e3cd4ba2d1cd414
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/castget/blobs/sha256:3646b6392004a2f98d56791883ba1ca786ec99adae13d51ca03f92ad5e7b60d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/castget/blobs/sha256:2ad8497c3d8ea308f9e37f9da0fed84e68dc1194d44e9a5f27c89b2b37d0ce44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/castget/blobs/sha256:84883011e5ed23dc9d2fa31362f00893d18f6f8071c736b60e5068a0ed9785ca
+sha256:
+  darwin_arm64: 6260cc2436ada19971dceea5edf959d05602b072b8c9e4fe4e3cd4ba2d1cd414
+  darwin_amd64: 3646b6392004a2f98d56791883ba1ca786ec99adae13d51ca03f92ad5e7b60d0
+  linux_amd64: 2ad8497c3d8ea308f9e37f9da0fed84e68dc1194d44e9a5f27c89b2b37d0ce44
+  linux_arm64: 84883011e5ed23dc9d2fa31362f00893d18f6f8071c736b60e5068a0ed9785ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - id3lib
+  - gettext

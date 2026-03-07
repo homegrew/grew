@@ -1,0 +1,19 @@
+name: libb64
+version: 1.2.1
+description: Base64 encoding/decoding library
+homepage: https://libb64.sourceforge.net/
+license: CC-PDDC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libb64/blobs/sha256:3b92d742579da7f5934e8b7d99144b42167ff17b40144299d86924f828148368
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libb64/blobs/sha256:488c12e6ee679e7aeab34d38888ce9887086fef109f5d5cf96d40cf4e02ad682
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libb64/blobs/sha256:8da3dbc95cbf4c396038b3b71fbb2b6b583f72f46277cb6deea7b7afb410e9f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libb64/blobs/sha256:f3308134e879205166e277b0139eed2ac6a73ccdaf5dce0cea2b087469e698a1
+sha256:
+  darwin_arm64: 3b92d742579da7f5934e8b7d99144b42167ff17b40144299d86924f828148368
+  darwin_amd64: 488c12e6ee679e7aeab34d38888ce9887086fef109f5d5cf96d40cf4e02ad682
+  linux_amd64: 8da3dbc95cbf4c396038b3b71fbb2b6b583f72f46277cb6deea7b7afb410e9f7
+  linux_arm64: f3308134e879205166e277b0139eed2ac6a73ccdaf5dce0cea2b087469e698a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

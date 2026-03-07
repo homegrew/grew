@@ -1,0 +1,15 @@
+name: rio-terminal
+version: 0.2.37
+description: Hardware-accelerated GPU terminal emulator powered by WebGPU
+homepage: https://rioterm.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rio-terminal/blobs/sha256:4ec1c734913b51180765a587f8d9833e4953a279f2345bf5dbc01c84bc9ea1cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rio-terminal/blobs/sha256:2c89e84004d60d160ca370d253718685329774e705a7e4ce3c1295c703a616ae
+sha256:
+  darwin_arm64: 4ec1c734913b51180765a587f8d9833e4953a279f2345bf5dbc01c84bc9ea1cb
+  darwin_amd64: 2c89e84004d60d160ca370d253718685329774e705a7e4ce3c1295c703a616ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

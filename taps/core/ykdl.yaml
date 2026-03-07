@@ -1,0 +1,21 @@
+name: ykdl
+version: 1.8.2
+description: Video downloader that focus on China mainland video sites
+homepage: https://github.com/LifeActor/ykdl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ykdl/blobs/sha256:dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ykdl/blobs/sha256:064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ykdl/blobs/sha256:dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ykdl/blobs/sha256:064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd
+sha256:
+  darwin_arm64: dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5
+  darwin_amd64: 064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd
+  linux_amd64: dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5
+  linux_arm64: 064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

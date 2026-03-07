@@ -1,0 +1,19 @@
+name: mcap
+version: 0.0.62
+description: Serialization-agnostic container file format for pub/sub messages
+homepage: https://mcap.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcap/blobs/sha256:dcfc09bff02929c8813f1d545e41e4738575bdfc1a48a99424cf8c6ef6fa0db9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcap/blobs/sha256:32f7b0c66b3930630d4d7543f22c59fd0ae77945f3a404874aca550d9176ef71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcap/blobs/sha256:f50e7b18012cf9f724e5c337ead3ee11318969c02aed65de3ceb4b8bf8a960bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcap/blobs/sha256:90c6e2f435b64a6227ab7ec3221a804537e68aecc3f00423297554f399a39cd9
+sha256:
+  darwin_arm64: dcfc09bff02929c8813f1d545e41e4738575bdfc1a48a99424cf8c6ef6fa0db9
+  darwin_amd64: 32f7b0c66b3930630d4d7543f22c59fd0ae77945f3a404874aca550d9176ef71
+  linux_amd64: f50e7b18012cf9f724e5c337ead3ee11318969c02aed65de3ceb4b8bf8a960bc
+  linux_arm64: 90c6e2f435b64a6227ab7ec3221a804537e68aecc3f00423297554f399a39cd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

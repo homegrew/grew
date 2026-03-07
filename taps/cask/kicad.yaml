@@ -1,0 +1,15 @@
+name: kicad
+version: 9.0.7
+description: Electronics design automation suite
+homepage: https://kicad.org/
+url:
+  darwin_arm64: https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-unified-universal-9.0.7.dmg
+sha256:
+  darwin_arm64: 449525e4ac119dc79a36b9a5aba5e6a269ecdc1905b94dce9eaf44ea45fd84c2
+artifacts:
+  bin:
+    - idf2vrml
+    - idfcyl
+    - kicad-cli
+    - idfrect
+    - dxf2idf

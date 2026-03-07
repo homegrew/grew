@@ -1,0 +1,22 @@
+name: mozjpeg
+version: 4.1.5
+description: Improved JPEG encoder
+homepage: https://github.com/mozilla/mozjpeg
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mozjpeg/blobs/sha256:ae8b8e5b56ea7d13b5f68225ade34c5e8818d169d8df8a1aa8f12b445dfbe6ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mozjpeg/blobs/sha256:fcb0583588eeba6f707aea5899ad93dd5eb49d2982019a4836d817ae0dfbb8bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mozjpeg/blobs/sha256:e69f9e76bf590d31a85839acdc52bbee9b1c4ccef0370f82f5a80e9d21c69298
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mozjpeg/blobs/sha256:b2ecf43cea49223d6fd0bd8e781ed50e2104eb3fe7e5b4a6ec9ca30cbd87ca94
+sha256:
+  darwin_arm64: ae8b8e5b56ea7d13b5f68225ade34c5e8818d169d8df8a1aa8f12b445dfbe6ff
+  darwin_amd64: fcb0583588eeba6f707aea5899ad93dd5eb49d2982019a4836d817ae0dfbb8bf
+  linux_amd64: e69f9e76bf590d31a85839acdc52bbee9b1c4ccef0370f82f5a80e9d21c69298
+  linux_arm64: b2ecf43cea49223d6fd0bd8e781ed50e2104eb3fe7e5b4a6ec9ca30cbd87ca94
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+keg_only: true

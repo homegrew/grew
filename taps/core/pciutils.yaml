@@ -1,0 +1,17 @@
+name: pciutils
+version: 3.14.0
+description: PCI utilities
+homepage: https://github.com/pciutils/pciutils
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pciutils/blobs/sha256:a202068569c6c4beb49b207d584ffbf6a586ef55cb330e7fe305bda336bd1ea8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pciutils/blobs/sha256:1365e67a35ba8ba7e9ab1988409a040861f7086a21e98ba80a61c634ba022cd2
+sha256:
+  linux_amd64: a202068569c6c4beb49b207d584ffbf6a586ef55cb330e7fe305bda336bd1ea8
+  linux_arm64: 1365e67a35ba8ba7e9ab1988409a040861f7086a21e98ba80a61c634ba022cd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zlib-ng-compat

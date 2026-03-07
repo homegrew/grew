@@ -1,0 +1,22 @@
+name: tinc
+version: 1.0.37
+description: Virtual Private Network (VPN) tool
+homepage: https://www.tinc-vpn.org/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinc/blobs/sha256:897c1713ce7c66a1d3f86969cc83533f95698b45329b69b433960455956dc381
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinc/blobs/sha256:491fc00a0fefb950612e107b07aad81cb0d181609f091d4286fc775411f1468e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinc/blobs/sha256:42b16b3f616da81e4f7b8311c4746bb60d73a14c8544308c52181bd241766f03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinc/blobs/sha256:850d77178d63e341487866033023e8616b199932fc8debfea28cb9eaa4ad1d2a
+sha256:
+  darwin_arm64: 897c1713ce7c66a1d3f86969cc83533f95698b45329b69b433960455956dc381
+  darwin_amd64: 491fc00a0fefb950612e107b07aad81cb0d181609f091d4286fc775411f1468e
+  linux_amd64: 42b16b3f616da81e4f7b8311c4746bb60d73a14c8544308c52181bd241766f03
+  linux_arm64: 850d77178d63e341487866033023e8616b199932fc8debfea28cb9eaa4ad1d2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lzo
+  - openssl@3

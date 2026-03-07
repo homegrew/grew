@@ -1,0 +1,19 @@
+name: geos
+version: 3.14.1
+description: Geometry Engine
+homepage: https://libgeos.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geos/blobs/sha256:14dd1aa5cc405dfeae08d1d91447a88324b7695161ae5dab0e8857f7ca483f48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geos/blobs/sha256:931850437a3095cfc4ea651c31ec15c26d3abc5d595690a1dc5550db88e73fe0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geos/blobs/sha256:09b8dd1db22e06a341963a5c2c0e6dc4d83153ac7d80afc117fbbaa548569d17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geos/blobs/sha256:72195e62b8abb9efc31d422cfddf24caf0b99d3a394e3ece252114e14b0dc8d9
+sha256:
+  darwin_arm64: 14dd1aa5cc405dfeae08d1d91447a88324b7695161ae5dab0e8857f7ca483f48
+  darwin_amd64: 931850437a3095cfc4ea651c31ec15c26d3abc5d595690a1dc5550db88e73fe0
+  linux_amd64: 09b8dd1db22e06a341963a5c2c0e6dc4d83153ac7d80afc117fbbaa548569d17
+  linux_arm64: 72195e62b8abb9efc31d422cfddf24caf0b99d3a394e3ece252114e14b0dc8d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

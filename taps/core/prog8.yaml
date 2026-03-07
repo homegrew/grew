@@ -1,0 +1,22 @@
+name: prog8
+version: 12.1.1
+description: Compiled programming language targeting the 8-bit 6502 CPU family
+homepage: https://prog8.readthedocs.io
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prog8/blobs/sha256:ba0938701b0d057c9e8e37a0465854cad58077ad0a2ea371d57c49ac6c55118a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prog8/blobs/sha256:9ba0760196e702e6b2ce31eb89b30bbc52f2ef9644c34e0bc143a3b427d7301e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prog8/blobs/sha256:7aaaf99528177558c2f1cc6109efd62281810ed8aad6dc307d703dedc763f387
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prog8/blobs/sha256:be5491e2071cecbe66a83e4fa5da9b4e3a9ef58f0af25c0eb9b4b5324e83ecf1
+sha256:
+  darwin_arm64: ba0938701b0d057c9e8e37a0465854cad58077ad0a2ea371d57c49ac6c55118a
+  darwin_amd64: 9ba0760196e702e6b2ce31eb89b30bbc52f2ef9644c34e0bc143a3b427d7301e
+  linux_amd64: 7aaaf99528177558c2f1cc6109efd62281810ed8aad6dc307d703dedc763f387
+  linux_arm64: be5491e2071cecbe66a83e4fa5da9b4e3a9ef58f0af25c0eb9b4b5324e83ecf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk
+  - tass64

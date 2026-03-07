@@ -1,0 +1,19 @@
+name: catch2
+version: 3.13.0
+description: Modern, C++-native, test framework
+homepage: https://github.com/catchorg/Catch2
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/catch2/blobs/sha256:ece311edb2ae65de9224e579597eca0ea7fdf77945df496810eb89f923271326
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/catch2/blobs/sha256:fc4a77abe14e7c1398f3c7113b590d768c158f9e323f74676f3b8164d2323719
+  linux_amd64: https://ghcr.io/v2/homebrew/core/catch2/blobs/sha256:ade355fe90ce4cf9f241d8a22e9465c49e6e773d1193f25a97225acf586234a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/catch2/blobs/sha256:6b2aaf48545afddf324378906d4e840c7ebed8990adb07f898b12f29e0fc041d
+sha256:
+  darwin_arm64: ece311edb2ae65de9224e579597eca0ea7fdf77945df496810eb89f923271326
+  darwin_amd64: fc4a77abe14e7c1398f3c7113b590d768c158f9e323f74676f3b8164d2323719
+  linux_amd64: ade355fe90ce4cf9f241d8a22e9465c49e6e773d1193f25a97225acf586234a8
+  linux_arm64: 6b2aaf48545afddf324378906d4e840c7ebed8990adb07f898b12f29e0fc041d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

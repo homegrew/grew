@@ -1,0 +1,19 @@
+name: giflib
+version: 5.2.2
+description: Library and utilities for processing GIFs
+homepage: https://giflib.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/giflib/blobs/sha256:aab2a621b970bab0baf55c4cd72cebd118a7e283a3a0ce4a85a91546707df2f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/giflib/blobs/sha256:40d390aab5bc396eb3efa0ae00987efd8c9eb8049239f709f486a879577a41ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/giflib/blobs/sha256:db5d2754722a81e5a842a66236aeebe889ebae26b08329dbd506007b9e63339c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/giflib/blobs/sha256:162732cc2ffcd48bfb68353fc4b454e6fbd5c2316b15eb6d98cbe8926f3ecb25
+sha256:
+  darwin_arm64: aab2a621b970bab0baf55c4cd72cebd118a7e283a3a0ce4a85a91546707df2f1
+  darwin_amd64: 40d390aab5bc396eb3efa0ae00987efd8c9eb8049239f709f486a879577a41ef
+  linux_amd64: db5d2754722a81e5a842a66236aeebe889ebae26b08329dbd506007b9e63339c
+  linux_arm64: 162732cc2ffcd48bfb68353fc4b454e6fbd5c2316b15eb6d98cbe8926f3ecb25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

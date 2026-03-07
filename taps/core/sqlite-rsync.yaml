@@ -1,0 +1,19 @@
+name: sqlite-rsync
+version: 3.51.2
+description: SQLite remote copy tool
+homepage: https://www.sqlite.org/
+license: blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlite-rsync/blobs/sha256:fb5a262c2d0b25e42af75c29a75b7c45a0e698070222a2e9f7025917e1c8480d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlite-rsync/blobs/sha256:d3f04d82254099dc46da069e0f186f74def6a9376724f21a4b74949368ed2cc0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlite-rsync/blobs/sha256:11e4113cb62bdbe11f37bf2c6ebb02519258392e6981924aa4d56d3b201b90d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlite-rsync/blobs/sha256:878cdefc8fa47685d866404aa4bb0208f3573c8e7a0a1f96607e4164b0083535
+sha256:
+  darwin_arm64: fb5a262c2d0b25e42af75c29a75b7c45a0e698070222a2e9f7025917e1c8480d
+  darwin_amd64: d3f04d82254099dc46da069e0f186f74def6a9376724f21a4b74949368ed2cc0
+  linux_amd64: 11e4113cb62bdbe11f37bf2c6ebb02519258392e6981924aa4d56d3b201b90d7
+  linux_arm64: 878cdefc8fa47685d866404aa4bb0208f3573c8e7a0a1f96607e4164b0083535
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

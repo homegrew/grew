@@ -1,0 +1,19 @@
+name: bacon-ls
+version: 0.26.0
+description: Rust diagnostic provider based on Bacon
+homepage: https://github.com/crisidev/bacon-ls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bacon-ls/blobs/sha256:19cfe53cfbe6f2678ef39ad539c91ef137b7758dd82b5ebd7314c8acb4ab7a9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bacon-ls/blobs/sha256:412876e7da24accfc7f15ef33b7ede13b609b925998b470987190480a3201402
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bacon-ls/blobs/sha256:82f4b0dcafcee4bb3c35a894e7685905fba7b6d44eec9efa3d8e883fcaf44509
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bacon-ls/blobs/sha256:99fdae0423cc88bded73bfd25ff31cd9496baefd17f3ef162828be7760b4b464
+sha256:
+  darwin_arm64: 19cfe53cfbe6f2678ef39ad539c91ef137b7758dd82b5ebd7314c8acb4ab7a9d
+  darwin_amd64: 412876e7da24accfc7f15ef33b7ede13b609b925998b470987190480a3201402
+  linux_amd64: 82f4b0dcafcee4bb3c35a894e7685905fba7b6d44eec9efa3d8e883fcaf44509
+  linux_arm64: 99fdae0423cc88bded73bfd25ff31cd9496baefd17f3ef162828be7760b4b464
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

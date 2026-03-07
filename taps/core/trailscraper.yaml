@@ -1,0 +1,21 @@
+name: trailscraper
+version: 0.10.0
+description: Tool to get valuable information out of AWS CloudTrail
+homepage: https://github.com/flosell/trailscraper
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trailscraper/blobs/sha256:b75034356da3260458e0567a725a63309954f0337ee1927d35de360453b10d8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trailscraper/blobs/sha256:a21f0e01d22553e0687f6d8616097d51fb27fbe96a6c6aa166f77769bac07cae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trailscraper/blobs/sha256:0aaf0c7a03725b4eb6621b4189e4965a6f5450379ad1d6a65fae1b9abe29b527
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trailscraper/blobs/sha256:f46250b5a745a5bd00c317c3a655904309dfbd7893400c3a6898e7e171822855
+sha256:
+  darwin_arm64: b75034356da3260458e0567a725a63309954f0337ee1927d35de360453b10d8b
+  darwin_amd64: a21f0e01d22553e0687f6d8616097d51fb27fbe96a6c6aa166f77769bac07cae
+  linux_amd64: 0aaf0c7a03725b4eb6621b4189e4965a6f5450379ad1d6a65fae1b9abe29b527
+  linux_arm64: f46250b5a745a5bd00c317c3a655904309dfbd7893400c3a6898e7e171822855
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,19 @@
+name: avce00
+version: 2.0.0
+description: Make Arc/Info (binary) Vector Coverages appear as E00
+homepage: http://avce00.maptools.org/avce00/index.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/avce00/blobs/sha256:380d933d3d32aa65c7afd933544c0f8a3d4b9fd349288627eeb6211753ad8c0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/avce00/blobs/sha256:0ac923114152eb0f5cb0dc2a5bd77f095bb10d93ef207c0a08934f52992bfe5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avce00/blobs/sha256:ac93d6ed79eb10699125a47c23e8ece19290f75bd186a670dc25396ef32b1f86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avce00/blobs/sha256:716bd0aa9bdbc244c1ae81d687a5d2b1755e4e94b7dc131bf08490c18147bf4b
+sha256:
+  darwin_arm64: 380d933d3d32aa65c7afd933544c0f8a3d4b9fd349288627eeb6211753ad8c0c
+  darwin_amd64: 0ac923114152eb0f5cb0dc2a5bd77f095bb10d93ef207c0a08934f52992bfe5d
+  linux_amd64: ac93d6ed79eb10699125a47c23e8ece19290f75bd186a670dc25396ef32b1f86
+  linux_arm64: 716bd0aa9bdbc244c1ae81d687a5d2b1755e4e94b7dc131bf08490c18147bf4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

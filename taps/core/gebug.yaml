@@ -1,0 +1,19 @@
+name: gebug
+version: 1.0.7
+description: Debug Dockerized Go applications better
+homepage: https://github.com/moshebe/gebug
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gebug/blobs/sha256:5e4d6f729ca5b8587e2b444e3a4f8f75f1cb6dcb8561f5b40c0f06aa2bb84513
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gebug/blobs/sha256:6bfc58de4fccfcf5fd5bd95abdf39711c8be7604a533ac96b2b979dba1631598
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gebug/blobs/sha256:db711bf46b680fb8cc9281aca1be97b803ac9ea2fe3734f1b736fec989c074c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gebug/blobs/sha256:d0bdb92d2b744c85b4b0dd0dc5846b0517716ce8edf62fb2503803e72acb0e07
+sha256:
+  darwin_arm64: 5e4d6f729ca5b8587e2b444e3a4f8f75f1cb6dcb8561f5b40c0f06aa2bb84513
+  darwin_amd64: 6bfc58de4fccfcf5fd5bd95abdf39711c8be7604a533ac96b2b979dba1631598
+  linux_amd64: db711bf46b680fb8cc9281aca1be97b803ac9ea2fe3734f1b736fec989c074c3
+  linux_arm64: d0bdb92d2b744c85b4b0dd0dc5846b0517716ce8edf62fb2503803e72acb0e07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

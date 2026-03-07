@@ -1,0 +1,19 @@
+name: dqlite
+version: 1.18.5
+description: Embeddable, replicated and fault-tolerant SQLite-powered engine
+homepage: https://dqlite.io
+license: LGPL-3.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dqlite/blobs/sha256:5c5961a37d4bb0127ac28d0d94445deb15737164321f5f2bc5621a37f1a029ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dqlite/blobs/sha256:e9364da2df2f613b1fb2fbfca0c78faab1578b9085b8128ebc32bc7c22934fe1
+sha256:
+  linux_amd64: 5c5961a37d4bb0127ac28d0d94445deb15737164321f5f2bc5621a37f1a029ae
+  linux_arm64: e9364da2df2f613b1fb2fbfca0c78faab1578b9085b8128ebc32bc7c22934fe1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv
+  - lz4
+  - sqlite

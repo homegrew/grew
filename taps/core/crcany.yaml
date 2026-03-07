@@ -1,0 +1,19 @@
+name: crcany
+version: 2.1
+description: Compute any CRC, a bit at a time, a byte at a time, and a word at a time
+homepage: https://github.com/madler/crcany
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crcany/blobs/sha256:310705bfcb672936583047b27aa427f521040ed64ac1caf7857658f0ad573bb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crcany/blobs/sha256:5a01329d39b966b06f4333eb90d44c5997139e55ef3e62954c09c52d392321ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crcany/blobs/sha256:a8ef2be75d86b017a0d85c1abb309cec9bc01695c4ccf9ae9db2ce8fd2d04293
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crcany/blobs/sha256:b23fda4ece11205730aa4f947f916627f75e7609b1e56ff65a8c9744f10b1518
+sha256:
+  darwin_arm64: 310705bfcb672936583047b27aa427f521040ed64ac1caf7857658f0ad573bb5
+  darwin_amd64: 5a01329d39b966b06f4333eb90d44c5997139e55ef3e62954c09c52d392321ca
+  linux_amd64: a8ef2be75d86b017a0d85c1abb309cec9bc01695c4ccf9ae9db2ce8fd2d04293
+  linux_arm64: b23fda4ece11205730aa4f947f916627f75e7609b1e56ff65a8c9744f10b1518
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

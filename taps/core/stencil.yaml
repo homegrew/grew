@@ -1,0 +1,19 @@
+name: stencil
+version: 2.14.1
+description: Modern living-template engine for evolving repositories
+homepage: https://stencil.rgst.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stencil/blobs/sha256:e84ac966c07a96eeb34c99c87c2cc3cc8968427cbde83060f9f16cb6463adf27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stencil/blobs/sha256:98f2a0365a4b01da1d9c5a1778b8a1f926da472bd52a1c9ec68d938223652424
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stencil/blobs/sha256:689e15f2687eb3d9e6c3c0830644749ce1cf413094a69f1c4f8b47ab3bb95cea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stencil/blobs/sha256:650b5f1747dc935f159a5f120779ac642392303bba9f6debdcf99f473c4a1150
+sha256:
+  darwin_arm64: e84ac966c07a96eeb34c99c87c2cc3cc8968427cbde83060f9f16cb6463adf27
+  darwin_amd64: 98f2a0365a4b01da1d9c5a1778b8a1f926da472bd52a1c9ec68d938223652424
+  linux_amd64: 689e15f2687eb3d9e6c3c0830644749ce1cf413094a69f1c4f8b47ab3bb95cea
+  linux_arm64: 650b5f1747dc935f159a5f120779ac642392303bba9f6debdcf99f473c4a1150
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

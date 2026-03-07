@@ -1,0 +1,19 @@
+name: geoipupdate
+version: 7.1.1
+description: Automatic updates of GeoIP2 and GeoIP Legacy databases
+homepage: https://github.com/maxmind/geoipupdate
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geoipupdate/blobs/sha256:6ffcdd5b4d20042abc7c43cfad948193d2dcc608bbcf3a0e8df942b05c0995ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geoipupdate/blobs/sha256:1c1a3de1f94838ecf0836a3966342dcafa2101f3c44908823e88493ae3262574
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geoipupdate/blobs/sha256:96189a674d2791bf8d4eb5063077bf00ba59c7c78d9044f17a12d4cf58afb114
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geoipupdate/blobs/sha256:800bb13a38ccb17e75e9dc3c724f7e859a2bf5ba4c32e9fb55947e42c183a675
+sha256:
+  darwin_arm64: 6ffcdd5b4d20042abc7c43cfad948193d2dcc608bbcf3a0e8df942b05c0995ad
+  darwin_amd64: 1c1a3de1f94838ecf0836a3966342dcafa2101f3c44908823e88493ae3262574
+  linux_amd64: 96189a674d2791bf8d4eb5063077bf00ba59c7c78d9044f17a12d4cf58afb114
+  linux_arm64: 800bb13a38ccb17e75e9dc3c724f7e859a2bf5ba4c32e9fb55947e42c183a675
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

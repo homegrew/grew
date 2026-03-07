@@ -1,0 +1,19 @@
+name: nomino
+version: 1.6.4
+description: Batch rename utility
+homepage: https://github.com/yaa110/nomino
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nomino/blobs/sha256:3f5f816f0bc309590106511a3913e3864719fecabb585ce02fa7628d32de348c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nomino/blobs/sha256:dc995512aaa7e49fa27d1d758e423aa8f89172382291ffd73fd1a0e4def4c04b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nomino/blobs/sha256:f688e778ba20b4394687dd2cc845df0aacdce99a06ea2fb200bf0c0b8aac44c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nomino/blobs/sha256:31653756284a49363a9d7ea3d169f8e7cba14ba660e06b8b86647f792905f189
+sha256:
+  darwin_arm64: 3f5f816f0bc309590106511a3913e3864719fecabb585ce02fa7628d32de348c
+  darwin_amd64: dc995512aaa7e49fa27d1d758e423aa8f89172382291ffd73fd1a0e4def4c04b
+  linux_amd64: f688e778ba20b4394687dd2cc845df0aacdce99a06ea2fb200bf0c0b8aac44c6
+  linux_arm64: 31653756284a49363a9d7ea3d169f8e7cba14ba660e06b8b86647f792905f189
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

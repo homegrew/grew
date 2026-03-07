@@ -1,0 +1,24 @@
+name: msolve
+version: 0.9.4
+description: Library for Polynomial System Solving through Algebraic Methods
+homepage: https://msolve.lip6.fr
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msolve/blobs/sha256:2c7f0d287740d36905e727ca856177e561df3215c73f1e963a425548c6231016
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msolve/blobs/sha256:a6a9cdac2b29dbf693c5dc92ef7445023c8fca636ac156e84ccfb7fb438528e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msolve/blobs/sha256:a6bb5946a6a9d2b47581533d4662830aa0c5b23af46333709c8e6c72ab84e771
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msolve/blobs/sha256:2dbe678837db8a5ed35138e936d86c9e7e8df99cf05076d31960de9733e4d648
+sha256:
+  darwin_arm64: 2c7f0d287740d36905e727ca856177e561df3215c73f1e963a425548c6231016
+  darwin_amd64: a6a9cdac2b29dbf693c5dc92ef7445023c8fca636ac156e84ccfb7fb438528e9
+  linux_amd64: a6bb5946a6a9d2b47581533d4662830aa0c5b23af46333709c8e6c72ab84e771
+  linux_arm64: 2dbe678837db8a5ed35138e936d86c9e7e8df99cf05076d31960de9733e4d648
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flint
+  - gmp
+  - mpfr
+  - libomp

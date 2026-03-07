@@ -1,0 +1,21 @@
+name: sslscan
+version: 2.2.1
+description: Test SSL/TLS enabled services to discover supported cipher suites
+homepage: https://github.com/rbsec/sslscan
+license: GPL-3.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sslscan/blobs/sha256:59eaeaf7377f2090db9387111e883e16afdb594416bf57345871b43a6e0fdd8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sslscan/blobs/sha256:4b8013ee4250f05a64bf02e63041debb13416b54c9be84de5559c05b981ce027
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sslscan/blobs/sha256:fbf48ad55a6b3186ad74f4c4506487f8e0ca48b91f218c4a36e36d1b4bee3275
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sslscan/blobs/sha256:636df179d6fff1c849f0ce0262fece31e37d7afb038f4d1eae541da989bc2217
+sha256:
+  darwin_arm64: 59eaeaf7377f2090db9387111e883e16afdb594416bf57345871b43a6e0fdd8f
+  darwin_amd64: 4b8013ee4250f05a64bf02e63041debb13416b54c9be84de5559c05b981ce027
+  linux_amd64: fbf48ad55a6b3186ad74f4c4506487f8e0ca48b91f218c4a36e36d1b4bee3275
+  linux_arm64: 636df179d6fff1c849f0ce0262fece31e37d7afb038f4d1eae541da989bc2217
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

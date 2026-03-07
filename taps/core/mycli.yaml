@@ -1,0 +1,25 @@
+name: mycli
+version: 1.60.0
+description: CLI for MySQL with auto-completion and syntax highlighting
+homepage: https://www.mycli.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mycli/blobs/sha256:4a13a5d564761b4276bed4d22d1f530b2187fb52a0ff0bb1a2b1067430c943a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mycli/blobs/sha256:b019b30bc263a8975487f6ffcec2d50cb2b2acddad20f115a42313cf2b4d76ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mycli/blobs/sha256:6f75d122b043977f9e94a394281ab924a501febdeb709469d5df4627121d47ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mycli/blobs/sha256:cf4fee81696d7eac298851728ab3441a83da36e428aadb2c700311821dae3a36
+sha256:
+  darwin_arm64: 4a13a5d564761b4276bed4d22d1f530b2187fb52a0ff0bb1a2b1067430c943a6
+  darwin_amd64: b019b30bc263a8975487f6ffcec2d50cb2b2acddad20f115a42313cf2b4d76ff
+  linux_amd64: 6f75d122b043977f9e94a394281ab924a501febdeb709469d5df4627121d47ee
+  linux_arm64: cf4fee81696d7eac298851728ab3441a83da36e428aadb2c700311821dae3a36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pydantic
+  - python@3.14

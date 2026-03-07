@@ -1,0 +1,21 @@
+name: malcontent
+version: 1.21.1
+description: Supply Chain Attack Detection, via context differential analysis and YARA
+homepage: https://github.com/chainguard-dev/malcontent
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/malcontent/blobs/sha256:5a3340047025c20a048cc4148bdfca8f433f3e3fe60da7284d84c62b54361d21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/malcontent/blobs/sha256:aa61ae9d61492dca9aafabd70ad98982dbdec7067666137cfef9e39b7785e706
+  linux_amd64: https://ghcr.io/v2/homebrew/core/malcontent/blobs/sha256:55807609cdbe4961dab084d70ab1ccc1cc26a085fd3f49de191a302cd56bfe76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/malcontent/blobs/sha256:6886de316b2a9931bfc9ea8dbfafd54d35d19bb3022f47d080e8d1f906e4d1ca
+sha256:
+  darwin_arm64: 5a3340047025c20a048cc4148bdfca8f433f3e3fe60da7284d84c62b54361d21
+  darwin_amd64: aa61ae9d61492dca9aafabd70ad98982dbdec7067666137cfef9e39b7785e706
+  linux_amd64: 55807609cdbe4961dab084d70ab1ccc1cc26a085fd3f49de191a302cd56bfe76
+  linux_arm64: 6886de316b2a9931bfc9ea8dbfafd54d35d19bb3022f47d080e8d1f906e4d1ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - yara-x

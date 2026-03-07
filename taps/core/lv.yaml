@@ -1,0 +1,19 @@
+name: lv
+version: 4.51-10
+description: Powerful multi-lingual file viewer/grep
+homepage: https://salsa.debian.org/debian/lv
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lv/blobs/sha256:104d96df6f6d0a2d7dea6682973d5b13e7c676e3e919f745dd1f7215b80980a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lv/blobs/sha256:1d572a28261e7bb59a07d707ce3f28299d297442c09c90735196a08525db2c01
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lv/blobs/sha256:46f6669252eb821a07cd2648d0356449e22906673c9abbbbd8c604c98a827b27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lv/blobs/sha256:192fa6eb2d9d0076d20e695110731f03e55633592e090db713ec81a81f2296e0
+sha256:
+  darwin_arm64: 104d96df6f6d0a2d7dea6682973d5b13e7c676e3e919f745dd1f7215b80980a0
+  darwin_amd64: 1d572a28261e7bb59a07d707ce3f28299d297442c09c90735196a08525db2c01
+  linux_amd64: 46f6669252eb821a07cd2648d0356449e22906673c9abbbbd8c604c98a827b27
+  linux_arm64: 192fa6eb2d9d0076d20e695110731f03e55633592e090db713ec81a81f2296e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

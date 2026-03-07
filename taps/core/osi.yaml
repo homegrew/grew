@@ -1,0 +1,22 @@
+name: osi
+version: 0.108.11
+description: Open Solver Interface
+homepage: https://github.com/coin-or/Osi
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osi/blobs/sha256:cba7ab1ccf3bfe814eef30dfe9def0b9ff44a29a31e93efbcdef050174d08f5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osi/blobs/sha256:c24c4a4d44b819fa097e9b3f77602f8d21175a1ca94199933396ffb334575306
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osi/blobs/sha256:093a334ad180ed10951e23866b1d6df68087fc29aee54a749899bb8b5d629780
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osi/blobs/sha256:215b27d8b21a6756ec8174cebb1e8e9c2f0a2769bee7fef39b95630f7b67cb47
+sha256:
+  darwin_arm64: cba7ab1ccf3bfe814eef30dfe9def0b9ff44a29a31e93efbcdef050174d08f5b
+  darwin_amd64: c24c4a4d44b819fa097e9b3f77602f8d21175a1ca94199933396ffb334575306
+  linux_amd64: 093a334ad180ed10951e23866b1d6df68087fc29aee54a749899bb8b5d629780
+  linux_arm64: 215b27d8b21a6756ec8174cebb1e8e9c2f0a2769bee7fef39b95630f7b67cb47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coinutils
+  - openblas

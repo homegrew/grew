@@ -1,0 +1,11 @@
+name: devcleaner
+version: 2.8.0-511
+description: Reclaim storage used for Xcode caches
+homepage: https://github.com/vashpan/xcode-dev-cleaner
+url:
+  darwin_arm64: https://github.com/vashpan/xcode-dev-cleaner/releases/download/2.8.0/DevCleaner-2.8.0-511.zip
+sha256:
+  darwin_arm64: 52714f13cbd0f4bd41b6f45acfc9ab7f179fe2bbe64dc5dbe497b084f27389b0
+artifacts:
+  app:
+    - DevCleaner.app

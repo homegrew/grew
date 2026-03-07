@@ -1,0 +1,19 @@
+name: fd
+version: 10.4.0
+description: Simple, fast and user-friendly alternative to find
+homepage: https://github.com/sharkdp/fd
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fd/blobs/sha256:e036c2f80f6edaab1e76e1e1d5c647d525394ef4c597fc1a83f1751f7286e37c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fd/blobs/sha256:3062163d9a25a5b802bae2e0f123f782d49940b48d7c03d59862d4245de43dfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fd/blobs/sha256:9f55366b3b28255ebc9073cdd14fdcfbe22f600024a95c40c7d6d94532186bc0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fd/blobs/sha256:a2095e41dcf09f947f9a9aa274d99df788a96f683b54dc59c98c48f110321b8f
+sha256:
+  darwin_arm64: e036c2f80f6edaab1e76e1e1d5c647d525394ef4c597fc1a83f1751f7286e37c
+  darwin_amd64: 3062163d9a25a5b802bae2e0f123f782d49940b48d7c03d59862d4245de43dfb
+  linux_amd64: 9f55366b3b28255ebc9073cdd14fdcfbe22f600024a95c40c7d6d94532186bc0
+  linux_arm64: a2095e41dcf09f947f9a9aa274d99df788a96f683b54dc59c98c48f110321b8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: lue-reader
+version: 0.4.0
+description: Terminal eBook reader with text-to-speech and multi-format support
+homepage: https://github.com/superstarryeyes/lue
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lue-reader/blobs/sha256:a37ede75691b404e47a6c7d176338f59b911f00989a6f355f4f8fcd8838d1742
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lue-reader/blobs/sha256:9035e7d864690bf2e4b7e3361ec533ae483001120374fe170202ca8a2c31500d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lue-reader/blobs/sha256:6b171c47fae2cadcbe2e1f8fdcee93f9695f7c88275549503532ba0172eee835
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lue-reader/blobs/sha256:d51373d0230a9c39e273349a4c327d4faf87f5cee885475e8d0187be56ae1eb4
+sha256:
+  darwin_arm64: a37ede75691b404e47a6c7d176338f59b911f00989a6f355f4f8fcd8838d1742
+  darwin_amd64: 9035e7d864690bf2e4b7e3361ec533ae483001120374fe170202ca8a2c31500d
+  linux_amd64: 6b171c47fae2cadcbe2e1f8fdcee93f9695f7c88275549503532ba0172eee835
+  linux_arm64: d51373d0230a9c39e273349a4c327d4faf87f5cee885475e8d0187be56ae1eb4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - pymupdf
+  - python@3.14

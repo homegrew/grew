@@ -1,0 +1,24 @@
+name: redis-leveldb
+version: 1.4
+description: Redis-protocol compatible frontend to leveldb
+homepage: https://github.com/KDr2/redis-leveldb
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redis-leveldb/blobs/sha256:c271d1f63c3d093c40dfe5b388ff1fb8a16189fd3856af03a03de7b997ceacc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redis-leveldb/blobs/sha256:edac4282df53a53882efe10586ee1d39c06b3f03f150d128f6acfa115c039cf8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redis-leveldb/blobs/sha256:6323dd8c468b9cc40d9310fdeb776de380e1c32c622e682713dd98a9cf42e659
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redis-leveldb/blobs/sha256:13d9141ccb43a5ee14216ff11730d74b63b1ad72ed0e5ecaea73389fd967f442
+sha256:
+  darwin_arm64: c271d1f63c3d093c40dfe5b388ff1fb8a16189fd3856af03a03de7b997ceacc6
+  darwin_amd64: edac4282df53a53882efe10586ee1d39c06b3f03f150d128f6acfa115c039cf8
+  linux_amd64: 6323dd8c468b9cc40d9310fdeb776de380e1c32c622e682713dd98a9cf42e659
+  linux_arm64: 13d9141ccb43a5ee14216ff11730d74b63b1ad72ed0e5ecaea73389fd967f442
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - leveldb
+  - libev
+  - snappy

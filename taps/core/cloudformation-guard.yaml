@@ -1,0 +1,19 @@
+name: cloudformation-guard
+version: 3.2.0
+description: Checks CloudFormation templates for compliance using a declarative syntax
+homepage: https://github.com/aws-cloudformation/cloudformation-guard
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudformation-guard/blobs/sha256:afbeeccd08ce9e9478104a3299b1df72d8a9688afd03258de24526a615555e23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudformation-guard/blobs/sha256:71dea79d22078b7ff7d3c3eaf20e367ba3e6bb3dc6eeb1cf3d3186d65ac59a4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudformation-guard/blobs/sha256:e83c9e7e45a54ba52a14857ac3b3ea0e33fae54534d467c12a568d60c7367bea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudformation-guard/blobs/sha256:670bec81b31d1b0d6d07833109d9b17258167923b8ad1adc1a4bcffca831c322
+sha256:
+  darwin_arm64: afbeeccd08ce9e9478104a3299b1df72d8a9688afd03258de24526a615555e23
+  darwin_amd64: 71dea79d22078b7ff7d3c3eaf20e367ba3e6bb3dc6eeb1cf3d3186d65ac59a4a
+  linux_amd64: e83c9e7e45a54ba52a14857ac3b3ea0e33fae54534d467c12a568d60c7367bea
+  linux_arm64: 670bec81b31d1b0d6d07833109d9b17258167923b8ad1adc1a4bcffca831c322
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: gcli
+version: 2.10.0
+description: "Portable Git(hub|lab|tea)/Forgejo/Bugzilla CLI tool"
+homepage: https://herrhotzenplotz.de/gcli/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gcli/blobs/sha256:3ed8bca5940b303f3f1637ff75a4edd33bf4b7a7261ea6ac078c83ba4265b9f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gcli/blobs/sha256:bcb8f2c876dc256421965dadabe5f2cce00bf01c5b1a848d9bcdb7e153a325b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcli/blobs/sha256:766b5e4ee7c4d0bd37d14dc7d07c0f104b4795f595fe4a1456f1d443e4a2f18c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcli/blobs/sha256:070aa65dde3c80d77327ff1589f5042909f5bac2842d3c04a3e5e30eae3de97a
+sha256:
+  darwin_arm64: 3ed8bca5940b303f3f1637ff75a4edd33bf4b7a7261ea6ac078c83ba4265b9f1
+  darwin_amd64: bcb8f2c876dc256421965dadabe5f2cce00bf01c5b1a848d9bcdb7e153a325b2
+  linux_amd64: 766b5e4ee7c4d0bd37d14dc7d07c0f104b4795f595fe4a1456f1d443e4a2f18c
+  linux_arm64: 070aa65dde3c80d77327ff1589f5042909f5bac2842d3c04a3e5e30eae3de97a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lowdown
+  - openssl@3

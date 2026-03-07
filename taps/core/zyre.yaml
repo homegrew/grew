@@ -1,0 +1,22 @@
+name: zyre
+version: 2.0.1
+description: Local Area Clustering for Peer-to-Peer Applications
+homepage: https://github.com/zeromq/zyre
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zyre/blobs/sha256:b97b8410e7d03d6c84387280d17c503707788453fa8016649bcac985509472dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zyre/blobs/sha256:5c6bb1deeeaa92251d717d7243e579f912073e0057b1880f793b1def41cd6b7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zyre/blobs/sha256:b873e7ea6e908ca4c97adcf840eaf865e1dc827716a99b2fe8d7b7ea56fc0991
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zyre/blobs/sha256:12b70df001f17c23de1b0650226e22391ea328ac495ec448b7dcfb407955012b
+sha256:
+  darwin_arm64: b97b8410e7d03d6c84387280d17c503707788453fa8016649bcac985509472dd
+  darwin_amd64: 5c6bb1deeeaa92251d717d7243e579f912073e0057b1880f793b1def41cd6b7c
+  linux_amd64: b873e7ea6e908ca4c97adcf840eaf865e1dc827716a99b2fe8d7b7ea56fc0991
+  linux_arm64: 12b70df001f17c23de1b0650226e22391ea328ac495ec448b7dcfb407955012b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - czmq
+  - zeromq

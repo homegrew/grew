@@ -1,0 +1,19 @@
+name: dav1d
+version: 1.5.3
+description: AV1 decoder targeted to be small and fast
+homepage: https://code.videolan.org/videolan/dav1d
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dav1d/blobs/sha256:cda8a6b7d3184cb2a083b8629ae5f9b00f8e04b36da71d8f56f149cbdeebfdbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dav1d/blobs/sha256:8697d509b54358c4ad2b8a370841ee5244431d2d85c2883bb7624f60c59ec7b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dav1d/blobs/sha256:b8dae4c806758642d9e2dc6d064b0f62dd7b692c951c2bba171394ac94e69a8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dav1d/blobs/sha256:89f1cacc3d5d6de20cd85b098e0abed0eaf552dbda07cb3715cf06decf5c1fcc
+sha256:
+  darwin_arm64: cda8a6b7d3184cb2a083b8629ae5f9b00f8e04b36da71d8f56f149cbdeebfdbf
+  darwin_amd64: 8697d509b54358c4ad2b8a370841ee5244431d2d85c2883bb7624f60c59ec7b6
+  linux_amd64: b8dae4c806758642d9e2dc6d064b0f62dd7b692c951c2bba171394ac94e69a8d
+  linux_arm64: 89f1cacc3d5d6de20cd85b098e0abed0eaf552dbda07cb3715cf06decf5c1fcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

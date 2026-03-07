@@ -1,0 +1,19 @@
+name: azure-dev
+version: 1.23.8
+description: Developer CLI that provides commands for working with Azure resources
+homepage: https://aka.ms/azd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azure-dev/blobs/sha256:4fec09db6b72570be23cebc5ee69f7ffb7af743e7a8b8ff94328aa619f19bd57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azure-dev/blobs/sha256:2bd61af0c3717949027481207a4652180eba859a4ca3437ccd42240dd3103865
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azure-dev/blobs/sha256:dbb35d94f72eb54606b256e7692761643c63251b8ca08d67d63addabf0d3e9bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azure-dev/blobs/sha256:6943900ae2752b59e2a9c2aaf871682d09736cfa902840dbfeca40fcd1909931
+sha256:
+  darwin_arm64: 4fec09db6b72570be23cebc5ee69f7ffb7af743e7a8b8ff94328aa619f19bd57
+  darwin_amd64: 2bd61af0c3717949027481207a4652180eba859a4ca3437ccd42240dd3103865
+  linux_amd64: dbb35d94f72eb54606b256e7692761643c63251b8ca08d67d63addabf0d3e9bc
+  linux_arm64: 6943900ae2752b59e2a9c2aaf871682d09736cfa902840dbfeca40fcd1909931
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

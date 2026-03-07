@@ -1,0 +1,19 @@
+name: bender
+version: 0.31.0
+description: Dependency management tool for hardware projects
+homepage: https://github.com/pulp-platform/bender
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bender/blobs/sha256:65085211d2ab9229701cdd216eb917708b6963f98d3301acecb9d51674d257a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bender/blobs/sha256:b1d60f88ea984716d828cdb133c94209a9e805526a25b92a3842ba91e4da23b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bender/blobs/sha256:9488f4a1f1321757d1ef2e1b4ff00194b00898d40049a5580191f2665aa5c54c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bender/blobs/sha256:0aeee5275f1ff86d5b488ec25ff0bc1af62573ffc87813ab88429c5d75dd77bb
+sha256:
+  darwin_arm64: 65085211d2ab9229701cdd216eb917708b6963f98d3301acecb9d51674d257a6
+  darwin_amd64: b1d60f88ea984716d828cdb133c94209a9e805526a25b92a3842ba91e4da23b0
+  linux_amd64: 9488f4a1f1321757d1ef2e1b4ff00194b00898d40049a5580191f2665aa5c54c
+  linux_arm64: 0aeee5275f1ff86d5b488ec25ff0bc1af62573ffc87813ab88429c5d75dd77bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

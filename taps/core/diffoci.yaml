@@ -1,0 +1,19 @@
+name: diffoci
+version: 0.1.8
+description: Diff for Docker and OCI container images
+homepage: https://github.com/reproducible-containers/diffoci
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffoci/blobs/sha256:8a82a319d9dd41da78de7ebf39679728d6bf717464633090e8b40a40b41424fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffoci/blobs/sha256:ba83691299b16adcf8e966b390a19a3d1bae6725076975ff3cec4625a096aa26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffoci/blobs/sha256:56ccb44913fb72336ba70b383eb58dadb313688ad7e4b92a3384a830cd5c4121
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffoci/blobs/sha256:5bf9d32792a3fbd7f79727910c36b5ee35f7a79ae404e174fdfbaa67faae6c5e
+sha256:
+  darwin_arm64: 8a82a319d9dd41da78de7ebf39679728d6bf717464633090e8b40a40b41424fd
+  darwin_amd64: ba83691299b16adcf8e966b390a19a3d1bae6725076975ff3cec4625a096aa26
+  linux_amd64: 56ccb44913fb72336ba70b383eb58dadb313688ad7e4b92a3384a830cd5c4121
+  linux_arm64: 5bf9d32792a3fbd7f79727910c36b5ee35f7a79ae404e174fdfbaa67faae6c5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

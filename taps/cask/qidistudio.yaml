@@ -1,0 +1,11 @@
+name: qidistudio
+version: 2.04.01.11
+description: Slicer software for QIDI 3D printers
+homepage: https://us.qidi3d.com/pages/qidi-studio
+url:
+  darwin_arm64: https://github.com/QIDITECH/QIDIStudio/releases/download/v2.04.01.11/QIDIStudio_v02.04.01.11_MacOS_universal.dmg
+sha256:
+  darwin_arm64: 9c4899a714163d052199530f3a1d5c9badcc164b977894fdb4486d6e285660ab
+artifacts:
+  app:
+    - QIDIStudio.app

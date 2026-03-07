@@ -1,0 +1,19 @@
+name: lucky-commit
+version: 2.2.5
+description: "Customize your git commit hashes!"
+homepage: https://github.com/not-an-aardvark/lucky-commit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lucky-commit/blobs/sha256:07d58a7fd30317d98c7d3ee2a5b78afe8b274b6272ec68dbb12a519c04c71eca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lucky-commit/blobs/sha256:1cad169a029b5a10886af7b82d32f3a353df1ffdb4c253feff12fb99ed3efcbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lucky-commit/blobs/sha256:71e04671feeb1d045a3eb1ddc47ff6f4b765b0f5f4512b6e975a3bb8be79de6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lucky-commit/blobs/sha256:1f1b4db17c27f0b29b0aa25395e3849f2869ad538371a813c695b794a4dc4257
+sha256:
+  darwin_arm64: 07d58a7fd30317d98c7d3ee2a5b78afe8b274b6272ec68dbb12a519c04c71eca
+  darwin_amd64: 1cad169a029b5a10886af7b82d32f3a353df1ffdb4c253feff12fb99ed3efcbf
+  linux_amd64: 71e04671feeb1d045a3eb1ddc47ff6f4b765b0f5f4512b6e975a3bb8be79de6a
+  linux_arm64: 1f1b4db17c27f0b29b0aa25395e3849f2869ad538371a813c695b794a4dc4257
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

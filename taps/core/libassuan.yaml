@@ -1,0 +1,21 @@
+name: libassuan
+version: 3.0.2
+description: Assuan IPC Library
+homepage: https://www.gnupg.org/related_software/libassuan/
+license: LGPL-2.1-or-later AND GPL-3.0-or-later AND FSFULLR
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libassuan/blobs/sha256:0561b0dae24dbd1bfb2ebcc1b6ca6b4f10cab80d30a73558b8b87ab129415dc5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libassuan/blobs/sha256:0ec4ad2607107d27bb8b0acb1f7fb3a81c8bea66ed17b69afbd6bec70a9a5b98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libassuan/blobs/sha256:620108c517ecfeb00c843bd34f86b75bf84c1bd92be9b554c86424fad3b99f08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libassuan/blobs/sha256:c1cc44ec4ce43e405be679fbee9a434a7bdbf86f267ac946cb4a8642cdf89df7
+sha256:
+  darwin_arm64: 0561b0dae24dbd1bfb2ebcc1b6ca6b4f10cab80d30a73558b8b87ab129415dc5
+  darwin_amd64: 0ec4ad2607107d27bb8b0acb1f7fb3a81c8bea66ed17b69afbd6bec70a9a5b98
+  linux_amd64: 620108c517ecfeb00c843bd34f86b75bf84c1bd92be9b554c86424fad3b99f08
+  linux_arm64: c1cc44ec4ce43e405be679fbee9a434a7bdbf86f267ac946cb4a8642cdf89df7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgpg-error

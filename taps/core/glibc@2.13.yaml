@@ -1,0 +1,14 @@
+name: glibc@2.13
+version: 2.13
+description: GNU C Library
+homepage: https://www.gnu.org/software/libc/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glibc/2.13/blobs/sha256:fcfd8511ae57b126f377789db1294e74bd48c2be941badd8e33a378dbdef9e16
+sha256:
+  linux_amd64: fcfd8511ae57b126f377789db1294e74bd48c2be941badd8e33a378dbdef9e16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

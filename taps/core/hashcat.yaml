@@ -1,0 +1,22 @@
+name: hashcat
+version: 7.1.2
+description: "World's fastest and most advanced password recovery utility"
+homepage: https://hashcat.net/hashcat/
+license: MIT AND LZMA-SDK-9.22 AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hashcat/blobs/sha256:e7a4a2f834223bbd0a6cc98fa37c322c50df75e3af42106973cd015c38d80f4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hashcat/blobs/sha256:f48e951eb2e1d4779cedf97bc64f57dc77c34aa906d17af8952fbf629ae88006
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hashcat/blobs/sha256:71e6f0aca36375f3ce64d931210cbcf6e84f28e16d96c0f7af8e80be8e169ce4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hashcat/blobs/sha256:2f87ec3529e895d0023ba9aad41bfa23561ec90f7d078e118f69cf94d1ae1fac
+sha256:
+  darwin_arm64: e7a4a2f834223bbd0a6cc98fa37c322c50df75e3af42106973cd015c38d80f4f
+  darwin_amd64: f48e951eb2e1d4779cedf97bc64f57dc77c34aa906d17af8952fbf629ae88006
+  linux_amd64: 71e6f0aca36375f3ce64d931210cbcf6e84f28e16d96c0f7af8e80be8e169ce4
+  linux_arm64: 2f87ec3529e895d0023ba9aad41bfa23561ec90f7d078e118f69cf94d1ae1fac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - minizip
+  - xxhash

@@ -1,0 +1,27 @@
+name: bbot
+version: 2.8.3
+description: OSINT automation tool
+homepage: https://github.com/blacklanternsecurity/bbot
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bbot/blobs/sha256:af6afbb81852e0c8e281508dde9c53601ce939681641f9752def1a7eb45d7cbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bbot/blobs/sha256:42b8f9a8d13841f3733a2e8180f100686dfdeb6a4eb2de11e8e9aea2fa67f6c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bbot/blobs/sha256:a7cc6f6169d9f8e36897a9b8b53d21731a8d232081b40f41a07e24ee5ed5fce9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bbot/blobs/sha256:be789e834ad736ff868fe59a7bb516a66e1f4669d18dba739e593195edba70a2
+sha256:
+  darwin_arm64: af6afbb81852e0c8e281508dde9c53601ce939681641f9752def1a7eb45d7cbe
+  darwin_amd64: 42b8f9a8d13841f3733a2e8180f100686dfdeb6a4eb2de11e8e9aea2fa67f6c3
+  linux_amd64: a7cc6f6169d9f8e36897a9b8b53d21731a8d232081b40f41a07e24ee5ed5fce9
+  linux_arm64: be789e834ad736ff868fe59a7bb516a66e1f4669d18dba739e593195edba70a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - openssl@3
+  - pydantic
+  - python@3.14
+  - zeromq

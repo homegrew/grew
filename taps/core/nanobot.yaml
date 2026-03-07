@@ -1,0 +1,19 @@
+name: nanobot
+version: 0.0.58
+description: Build MCP Agents
+homepage: https://www.nanobot.ai/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nanobot/blobs/sha256:407a9c1fb5256f98a8092bbdd276cf22de1c900d872245c2611a8267bc0fcf8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nanobot/blobs/sha256:dc7c1eb99de31b1fcdad4360f82cd98b142f8e5df8124593a9315137cb215a9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nanobot/blobs/sha256:957c9f7ecade288ad1cd253e10f012131ec4b409e1e4948e65e7035eeead8d85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nanobot/blobs/sha256:33767e9579efee179865eee7407490827d3295959d6bd05326baf3f3b2d4ac50
+sha256:
+  darwin_arm64: 407a9c1fb5256f98a8092bbdd276cf22de1c900d872245c2611a8267bc0fcf8f
+  darwin_amd64: dc7c1eb99de31b1fcdad4360f82cd98b142f8e5df8124593a9315137cb215a9d
+  linux_amd64: 957c9f7ecade288ad1cd253e10f012131ec4b409e1e4948e65e7035eeead8d85
+  linux_arm64: 33767e9579efee179865eee7407490827d3295959d6bd05326baf3f3b2d4ac50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

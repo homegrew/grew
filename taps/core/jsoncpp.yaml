@@ -1,0 +1,19 @@
+name: jsoncpp
+version: 1.9.6
+description: Library for interacting with JSON
+homepage: https://github.com/open-source-parsers/jsoncpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsoncpp/blobs/sha256:b67edf4eb071c0a0976e373c5a67015158f6f35bcf69f6692723aac69e9ef221
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsoncpp/blobs/sha256:8917f4a14ef0bd4f4d59f8d1a4689c653dd69180fe6ae7c3915bcd904db1d056
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsoncpp/blobs/sha256:460d3286f4bdf820e9426b66e3773551420c1a1dd1b3bf62d7f20bf2e7e955c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsoncpp/blobs/sha256:9447d9e39e2d2af144df7436aad79a6f7c3bb9cf75bb21e2409dfcae273fa4e2
+sha256:
+  darwin_arm64: b67edf4eb071c0a0976e373c5a67015158f6f35bcf69f6692723aac69e9ef221
+  darwin_amd64: 8917f4a14ef0bd4f4d59f8d1a4689c653dd69180fe6ae7c3915bcd904db1d056
+  linux_amd64: 460d3286f4bdf820e9426b66e3773551420c1a1dd1b3bf62d7f20bf2e7e955c1
+  linux_arm64: 9447d9e39e2d2af144df7436aad79a6f7c3bb9cf75bb21e2409dfcae273fa4e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

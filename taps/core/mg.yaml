@@ -1,0 +1,19 @@
+name: mg
+version: 7.3
+description: Small Emacs-like editor
+homepage: https://github.com/ibara/mg
+license: LicenseRef-Homebrew-public-domain AND ISC AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mg/blobs/sha256:8be28a3fd77e3ae1a7a94dc2f2effed298f61b92528075c748535ff78a542eab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mg/blobs/sha256:898a96da03a4a7adf3fd3ec361fc457153c43e9e803f9d00fcefed541591b6d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mg/blobs/sha256:df7547e37e627c0504896e045d8c8df6adc3ea3dbdade674b1b964fcf333397f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mg/blobs/sha256:9cc7f3ad4ae912fabafe2f0aaf6cb1624a2d786769a7632ea956bd03c72b8c09
+sha256:
+  darwin_arm64: 8be28a3fd77e3ae1a7a94dc2f2effed298f61b92528075c748535ff78a542eab
+  darwin_amd64: 898a96da03a4a7adf3fd3ec361fc457153c43e9e803f9d00fcefed541591b6d3
+  linux_amd64: df7547e37e627c0504896e045d8c8df6adc3ea3dbdade674b1b964fcf333397f
+  linux_arm64: 9cc7f3ad4ae912fabafe2f0aaf6cb1624a2d786769a7632ea956bd03c72b8c09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: binwalk
+version: 3.1.0
+description: Searches a binary image for embedded files and executable code
+homepage: https://github.com/ReFirmLabs/binwalk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/binwalk/blobs/sha256:11b3d0c518f81eaba097392205c002a136e25b73a81ec35551b9ca1e3858c700
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/binwalk/blobs/sha256:3666d1ed2f81484d360d03bba8eb74a5175dd5a0461175c20bf1aa559e6add6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/binwalk/blobs/sha256:9bad450fef7ba5832e71804dc11fcb87d817fabbbf735c2b1dc9fa6c508a1090
+  linux_arm64: https://ghcr.io/v2/homebrew/core/binwalk/blobs/sha256:c28f00bf24601ddcb037e1822dbea082dceda5f26ac9a152e11d78532a488b5b
+sha256:
+  darwin_arm64: 11b3d0c518f81eaba097392205c002a136e25b73a81ec35551b9ca1e3858c700
+  darwin_amd64: 3666d1ed2f81484d360d03bba8eb74a5175dd5a0461175c20bf1aa559e6add6f
+  linux_amd64: 9bad450fef7ba5832e71804dc11fcb87d817fabbbf735c2b1dc9fa6c508a1090
+  linux_arm64: c28f00bf24601ddcb037e1822dbea082dceda5f26ac9a152e11d78532a488b5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - p7zip
+  - xz

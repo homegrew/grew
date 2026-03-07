@@ -1,0 +1,19 @@
+name: vitetris
+version: 0.59.1
+description: Terminal-based Tetris clone
+homepage: https://www.victornils.net/tetris/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vitetris/blobs/sha256:ab9a0fde775af14600b636a041e026c987933c871cec3e67a4184f6521a61b2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vitetris/blobs/sha256:7cc3b8950c3b0b366c192dadad3b3ab1293322a1db723144168c0122e2681986
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vitetris/blobs/sha256:a8081c35e8f308bd3c0bd5521edce69ed47a4af99700a9799ebffe8e52430989
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vitetris/blobs/sha256:2b8820b3b339b4694117c0598599f072ed88a046ccb8941f6cb437895a1042da
+sha256:
+  darwin_arm64: ab9a0fde775af14600b636a041e026c987933c871cec3e67a4184f6521a61b2e
+  darwin_amd64: 7cc3b8950c3b0b366c192dadad3b3ab1293322a1db723144168c0122e2681986
+  linux_amd64: a8081c35e8f308bd3c0bd5521edce69ed47a4af99700a9799ebffe8e52430989
+  linux_arm64: 2b8820b3b339b4694117c0598599f072ed88a046ccb8941f6cb437895a1042da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

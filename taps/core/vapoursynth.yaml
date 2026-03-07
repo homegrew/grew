@@ -1,0 +1,22 @@
+name: vapoursynth
+version: 73
+description: Video processing framework with simplicity in mind
+homepage: https://www.vapoursynth.com
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth/blobs/sha256:badc56f5fb9d2c6c5963df0f619b08c74b098d1835126f8cd9c1b15fcce33aee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth/blobs/sha256:bd2188a75e9cd09589e746facd492c5ff8342fbffc71e7f6aebda2b74bb523a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth/blobs/sha256:a020d5253bc39fbe0f077128478632d24ab5d19e375e94a1d8ed08583558c0df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth/blobs/sha256:ca5e6a5ecdb6203b2979ab67a27bcc400fe4baffc42459346e5d83c2f187696a
+sha256:
+  darwin_arm64: badc56f5fb9d2c6c5963df0f619b08c74b098d1835126f8cd9c1b15fcce33aee
+  darwin_amd64: bd2188a75e9cd09589e746facd492c5ff8342fbffc71e7f6aebda2b74bb523a2
+  linux_amd64: a020d5253bc39fbe0f077128478632d24ab5d19e375e94a1d8ed08583558c0df
+  linux_arm64: ca5e6a5ecdb6203b2979ab67a27bcc400fe4baffc42459346e5d83c2f187696a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - zimg

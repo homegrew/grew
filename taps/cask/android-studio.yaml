@@ -1,0 +1,13 @@
+name: android-studio
+version: 2025.3.2.6,panda2
+description: Tools for building Android applications
+homepage: https://developer.android.com/studio/
+url:
+  darwin_arm64: https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-mac_arm.dmg
+sha256:
+  darwin_arm64: 6c9944ce8dac9b5dd05e96a46f2e042628ced568557d29d1299adf5dad817cb7
+artifacts:
+  app:
+    - Android Studio.app
+  bin:
+    - studio

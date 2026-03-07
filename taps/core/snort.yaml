@@ -1,0 +1,30 @@
+name: snort
+version: 3.11.1.0
+description: Flexible Network Intrusion Detection System
+homepage: https://www.snort.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snort/blobs/sha256:177d8367bd804e840b652dc80456c60fbd0fc36de2dec314c237f6dc63f9051a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snort/blobs/sha256:c08a26e8c78cd44ea33713777630d0aecd8e54dd081ece075fe8408083c29fbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snort/blobs/sha256:cf72acf3710c8cd48b1e88606e59bfd1e87645147563831ec5fab7614f0263c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snort/blobs/sha256:6d611cb0f3e8dddbe82d7014d246da1ac49c7b1d04109c74ebee550d30693cdf
+sha256:
+  darwin_arm64: 177d8367bd804e840b652dc80456c60fbd0fc36de2dec314c237f6dc63f9051a
+  darwin_amd64: c08a26e8c78cd44ea33713777630d0aecd8e54dd081ece075fe8408083c29fbc
+  linux_amd64: cf72acf3710c8cd48b1e88606e59bfd1e87645147563831ec5fab7614f0263c6
+  linux_arm64: 6d611cb0f3e8dddbe82d7014d246da1ac49c7b1d04109c74ebee550d30693cdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - daq
+  - hwloc
+  - jemalloc
+  - libdnet
+  - libpcap
+  - luajit
+  - openssl@3
+  - pcre2
+  - vectorscan
+  - xz

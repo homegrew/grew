@@ -1,0 +1,19 @@
+name: libdshconfig
+version: 0.20.13
+description: Distributed shell library
+homepage: https://www.netfort.gr.jp/~dancer/software/dsh.html.en
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdshconfig/blobs/sha256:7d835c92dc8a1d1ce812a79d4fbbe8a900a77711f9a959362a1d03db8b7bfe8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdshconfig/blobs/sha256:7ba35555d2fccf06c7de51ae24455cbd3492cdb8f862aab21a12ac76095d7fb6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdshconfig/blobs/sha256:4ad27e681ca7e49ff1b99f92fe3a62ecd6edd34bfb3fbc0f4f8cbc9ad386cc86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdshconfig/blobs/sha256:6d07f65b30564eeab22a2f2e50f02fe6983ea927e381b1c1c398b044f456cb2a
+sha256:
+  darwin_arm64: 7d835c92dc8a1d1ce812a79d4fbbe8a900a77711f9a959362a1d03db8b7bfe8c
+  darwin_amd64: 7ba35555d2fccf06c7de51ae24455cbd3492cdb8f862aab21a12ac76095d7fb6
+  linux_amd64: 4ad27e681ca7e49ff1b99f92fe3a62ecd6edd34bfb3fbc0f4f8cbc9ad386cc86
+  linux_arm64: 6d07f65b30564eeab22a2f2e50f02fe6983ea927e381b1c1c398b044f456cb2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

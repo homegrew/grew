@@ -1,0 +1,22 @@
+name: pre-commit
+version: 4.5.1
+description: Framework for managing multi-language pre-commit hooks
+homepage: https://pre-commit.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pre-commit/blobs/sha256:bfe5781f7e3d2edded24cec74fefd25d1d58d37f3045adc3b7280135c84e387e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pre-commit/blobs/sha256:8a14b50a953534f2f63d448c62039a64fd61297bf8cc74a13c3f87ef15783eec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pre-commit/blobs/sha256:af1cdac01361e5fb75c642aa81742155864ca6068251b09fba59c3d380068cc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pre-commit/blobs/sha256:85b66c178aeca53dc18def7133c75316bb86d550c882a704d93e34c46571b39a
+sha256:
+  darwin_arm64: bfe5781f7e3d2edded24cec74fefd25d1d58d37f3045adc3b7280135c84e387e
+  darwin_amd64: 8a14b50a953534f2f63d448c62039a64fd61297bf8cc74a13c3f87ef15783eec
+  linux_amd64: af1cdac01361e5fb75c642aa81742155864ca6068251b09fba59c3d380068cc3
+  linux_arm64: 85b66c178aeca53dc18def7133c75316bb86d550c882a704d93e34c46571b39a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: evtx
+version: 0.11.1
+description: Windows XML Event Log parser
+homepage: https://github.com/omerbenamram/evtx
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evtx/blobs/sha256:7ad2a98dbb129359b978ee095ee6e9004cf723841d0b7001288e326d1e79f896
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evtx/blobs/sha256:5e99b685ee246720c41d180c960085172b9bb9eba8300441e47e22b098dfb0f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evtx/blobs/sha256:1121bd8b48bcbe67e5954045d7231f2cec10bb67d0ede6f15021214ff990ee01
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evtx/blobs/sha256:d9c6beb8eafb842fd973785b96d9f906a37107168aab459f82e44e8406c6d84a
+sha256:
+  darwin_arm64: 7ad2a98dbb129359b978ee095ee6e9004cf723841d0b7001288e326d1e79f896
+  darwin_amd64: 5e99b685ee246720c41d180c960085172b9bb9eba8300441e47e22b098dfb0f3
+  linux_amd64: 1121bd8b48bcbe67e5954045d7231f2cec10bb67d0ede6f15021214ff990ee01
+  linux_arm64: d9c6beb8eafb842fd973785b96d9f906a37107168aab459f82e44e8406c6d84a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

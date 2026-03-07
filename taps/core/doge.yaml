@@ -1,0 +1,19 @@
+name: doge
+version: 0.2.9
+description: Command-line DNS client
+homepage: https://dog.ramfield.net/
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doge/blobs/sha256:71948198c956b00eb4a7876019460f9280593408830d4283419976b223699961
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doge/blobs/sha256:efce39ee93945f293a68d081a90865e4702ad02979d6c71a6dfa4e5baf0cabb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doge/blobs/sha256:0e1a7aa1977d9189061c8d1b0a25f8117f3f1a5b4d920dd832fb49cc5461e62c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doge/blobs/sha256:af6ca23e2bd46b2076cb90e8d5a36de27c701ced018d45ae062f6861d23a486f
+sha256:
+  darwin_arm64: 71948198c956b00eb4a7876019460f9280593408830d4283419976b223699961
+  darwin_amd64: efce39ee93945f293a68d081a90865e4702ad02979d6c71a6dfa4e5baf0cabb2
+  linux_amd64: 0e1a7aa1977d9189061c8d1b0a25f8117f3f1a5b4d920dd832fb49cc5461e62c
+  linux_arm64: af6ca23e2bd46b2076cb90e8d5a36de27c701ced018d45ae062f6861d23a486f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

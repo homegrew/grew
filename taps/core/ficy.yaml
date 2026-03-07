@@ -1,0 +1,19 @@
+name: ficy
+version: 1.0.21
+description: Icecast/Shoutcast stream grabber suite
+homepage: https://www.thregr.org/wavexx/software/fIcy/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ficy/blobs/sha256:a229e2cdd5d347698dba54b95b66a0a17db438be849e798ba7b2c82ca4db924d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ficy/blobs/sha256:fee05645b50006a82bd985781fdac941a7c1b7797a243014c8b864eee0d47b43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ficy/blobs/sha256:0b055098e6bef712df9dbcf449f550b5e9b47d9b5ddbda657815f224dd2326bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ficy/blobs/sha256:5b077fa05c6e598149b0bf1b7c7d2bc098d7712be5b1857d1c52ecb289689c23
+sha256:
+  darwin_arm64: a229e2cdd5d347698dba54b95b66a0a17db438be849e798ba7b2c82ca4db924d
+  darwin_amd64: fee05645b50006a82bd985781fdac941a7c1b7797a243014c8b864eee0d47b43
+  linux_amd64: 0b055098e6bef712df9dbcf449f550b5e9b47d9b5ddbda657815f224dd2326bb
+  linux_arm64: 5b077fa05c6e598149b0bf1b7c7d2bc098d7712be5b1857d1c52ecb289689c23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

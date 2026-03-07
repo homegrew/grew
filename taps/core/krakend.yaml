@@ -1,0 +1,19 @@
+name: krakend
+version: 2.13.1
+description: Ultra-High performance API Gateway built in Go
+homepage: https://www.krakend.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/krakend/blobs/sha256:4a4a26f20452b4ebb78655b9a3b3ac896cd481a164d26f9cc02961046f9d2892
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/krakend/blobs/sha256:c8f3091e5818ab546a74c8800b8b206ec72450050b5b13fe82bfca104d48809d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/krakend/blobs/sha256:1b8eec58a748fe36b27143cf991e08a4d29a5e0073f61f8ba302d1b5b873919d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/krakend/blobs/sha256:447b6275821053e1ae16b16dfab59f5ed8fb360544debc8020df6763d4e7acc5
+sha256:
+  darwin_arm64: 4a4a26f20452b4ebb78655b9a3b3ac896cd481a164d26f9cc02961046f9d2892
+  darwin_amd64: c8f3091e5818ab546a74c8800b8b206ec72450050b5b13fe82bfca104d48809d
+  linux_amd64: 1b8eec58a748fe36b27143cf991e08a4d29a5e0073f61f8ba302d1b5b873919d
+  linux_arm64: 447b6275821053e1ae16b16dfab59f5ed8fb360544debc8020df6763d4e7acc5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

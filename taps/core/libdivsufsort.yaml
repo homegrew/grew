@@ -1,0 +1,19 @@
+name: libdivsufsort
+version: 2.0.1
+description: Lightweight suffix-sorting library
+homepage: https://github.com/y-256/libdivsufsort
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdivsufsort/blobs/sha256:bbf20ce9184a5f8406898278ef84cc7b98fc891cbace4b6cc5a00254d7e7637b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdivsufsort/blobs/sha256:8e606142a047b8801fb49e7880be49a47f7638ff6a2b57ced99166a39c3ff309
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdivsufsort/blobs/sha256:8dd08aad6b719e629af05911116cadfa9436beb1e0231280cfd2ad9d11ff8cc4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdivsufsort/blobs/sha256:58c77deac3c2e8838698dccf6f116d21b32542b1768cabdc7fb412d330b9710e
+sha256:
+  darwin_arm64: bbf20ce9184a5f8406898278ef84cc7b98fc891cbace4b6cc5a00254d7e7637b
+  darwin_amd64: 8e606142a047b8801fb49e7880be49a47f7638ff6a2b57ced99166a39c3ff309
+  linux_amd64: 8dd08aad6b719e629af05911116cadfa9436beb1e0231280cfd2ad9d11ff8cc4
+  linux_arm64: 58c77deac3c2e8838698dccf6f116d21b32542b1768cabdc7fb412d330b9710e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: librime
+version: 1.16.1
+description: Rime Input Method Engine
+homepage: https://rime.im
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librime/blobs/sha256:654b9fd252224219de309cd53a8f39420a440f78c8f563008cc78d97a1ecbeb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librime/blobs/sha256:390c9aef53873722bbda5fdc5d2cefcd94698df4ba5669a96aab24cb5aaa7362
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librime/blobs/sha256:4b99d2dffe86f4c2ccb055a6c607b9456f2357f2d0c240a5f83f48661b39159a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librime/blobs/sha256:bf23b3d017fe7bf9703e3ee5980e57f33c15979e566c15dbbcf0ca59525d7871
+sha256:
+  darwin_arm64: 654b9fd252224219de309cd53a8f39420a440f78c8f563008cc78d97a1ecbeb8
+  darwin_amd64: 390c9aef53873722bbda5fdc5d2cefcd94698df4ba5669a96aab24cb5aaa7362
+  linux_amd64: 4b99d2dffe86f4c2ccb055a6c607b9456f2357f2d0c240a5f83f48661b39159a
+  linux_arm64: bf23b3d017fe7bf9703e3ee5980e57f33c15979e566c15dbbcf0ca59525d7871
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capnp
+  - gflags
+  - glog
+  - leveldb
+  - lua
+  - marisa
+  - opencc
+  - yaml-cpp

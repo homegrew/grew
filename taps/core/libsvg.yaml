@@ -1,0 +1,22 @@
+name: libsvg
+version: 0.1.4
+description: Library for SVG files
+homepage: https://cairographics.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsvg/blobs/sha256:091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsvg/blobs/sha256:aab50b6244e0d5ecc012c6e7c57eead017e45e7498beebd0ace1636ea88e7a55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsvg/blobs/sha256:15d4f5e9b94291566d7a4542c8a7a58cc6fac2572825e1ecaa41edfa7d266787
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsvg/blobs/sha256:a7070d99efb5a529a8c86d31f0b00cc42f5840ee6abb6a240fa6778516b99d49
+sha256:
+  darwin_arm64: 091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad
+  darwin_amd64: aab50b6244e0d5ecc012c6e7c57eead017e45e7498beebd0ace1636ea88e7a55
+  linux_amd64: 15d4f5e9b94291566d7a4542c8a7a58cc6fac2572825e1ecaa41edfa7d266787
+  linux_arm64: a7070d99efb5a529a8c86d31f0b00cc42f5840ee6abb6a240fa6778516b99d49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng

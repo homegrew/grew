@@ -1,0 +1,19 @@
+name: python-launcher
+version: 1.0.1
+description: Launch your Python interpreter the lazy/smart way
+homepage: https://github.com/brettcannon/python-launcher
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-launcher/blobs/sha256:d27061039235be846906ba326bd45b8f80aeb0141be76073b509711d3fe28cb3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-launcher/blobs/sha256:04dae312adf70a9df94f79210ccf241013f58ce4aadf6cc29951c03cc16957b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-launcher/blobs/sha256:252b4ae87c81431c5f8929f9c41922224856ac40aaf928e2c7874ff5400acf3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-launcher/blobs/sha256:1a6564958fb0d3fa22689e1806b8dfdb86b25f0d243b6eb6e3a3b513c4a7eb87
+sha256:
+  darwin_arm64: d27061039235be846906ba326bd45b8f80aeb0141be76073b509711d3fe28cb3
+  darwin_amd64: 04dae312adf70a9df94f79210ccf241013f58ce4aadf6cc29951c03cc16957b5
+  linux_amd64: 252b4ae87c81431c5f8929f9c41922224856ac40aaf928e2c7874ff5400acf3b
+  linux_arm64: 1a6564958fb0d3fa22689e1806b8dfdb86b25f0d243b6eb6e3a3b513c4a7eb87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

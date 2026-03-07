@@ -1,0 +1,13 @@
+name: visual-studio-code@insiders
+version: 1.111.0-insider,1772835039703,3d96350ed546b786ace7de5ff1d13ab7433073f6
+description: Open-source code editor
+homepage: https://code.visualstudio.com/insiders/
+url:
+  darwin_arm64: https://vscode.download.prss.microsoft.com/dbazure/download/insider/3d96350ed546b786ace7de5ff1d13ab7433073f6/VSCode-darwin-arm64.zip
+sha256:
+  darwin_arm64: 71f9c6fe0a3b75be4920981eef935db71b6d054ed069d1c39e40a5b608cd9d22
+artifacts:
+  app:
+    - Visual Studio Code - Insiders.app
+  bin:
+    - code-insiders

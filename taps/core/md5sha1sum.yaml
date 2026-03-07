@@ -1,0 +1,22 @@
+name: md5sha1sum
+version: 0.9.5
+description: Hash utilities
+homepage: http://microbrew.org/tools/md5sha1sum/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/md5sha1sum/blobs/sha256:5d30a62c330be15f2314718cebf8e2c4ff270ee97398e0e9c94c99ea32b3e146
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/md5sha1sum/blobs/sha256:5f3870382f7bfa8e95a952fb263d0225a6b0405264d1fbcdcdf3c693a9c787af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/md5sha1sum/blobs/sha256:0055fc19d2c8072e2e576b7df8de777126f2b5ab2c1269ff224476f8aaf9d65b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/md5sha1sum/blobs/sha256:12341c831b007a3869b399f63e29861fcd1b6929ef852b16944b60614c90c601
+sha256:
+  darwin_arm64: 5d30a62c330be15f2314718cebf8e2c4ff270ee97398e0e9c94c99ea32b3e146
+  darwin_amd64: 5f3870382f7bfa8e95a952fb263d0225a6b0405264d1fbcdcdf3c693a9c787af
+  linux_amd64: 0055fc19d2c8072e2e576b7df8de777126f2b5ab2c1269ff224476f8aaf9d65b
+  linux_arm64: 12341c831b007a3869b399f63e29861fcd1b6929ef852b16944b60614c90c601
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

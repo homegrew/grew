@@ -1,0 +1,27 @@
+name: dnsdist
+version: 2.0.2
+description: Highly DNS-, DoS- and abuse-aware loadbalancer
+homepage: https://www.dnsdist.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnsdist/blobs/sha256:fbee023f28414231a54fe396bcc08d5bb4e5ffa2a06a6272d781fb148f43567d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnsdist/blobs/sha256:14b4c030de8c8aaac5576edb7dd283fa56072fbe2e0c5f13312ac3c7ae9a6713
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnsdist/blobs/sha256:cfad2f9f9f79aa4f09c4c5cb93bb76f00218183b540e52d8b0feab38a30c5d42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnsdist/blobs/sha256:01adc30a863af92cffac4ada15498e4bae8fd6e05da8c2700482be4081cf197a
+sha256:
+  darwin_arm64: fbee023f28414231a54fe396bcc08d5bb4e5ffa2a06a6272d781fb148f43567d
+  darwin_amd64: 14b4c030de8c8aaac5576edb7dd283fa56072fbe2e0c5f13312ac3c7ae9a6713
+  linux_amd64: cfad2f9f9f79aa4f09c4c5cb93bb76f00218183b540e52d8b0feab38a30c5d42
+  linux_arm64: 01adc30a863af92cffac4ada15498e4bae8fd6e05da8c2700482be4081cf197a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fstrm
+  - libnghttp2
+  - libsodium
+  - luajit
+  - openssl@3
+  - re2
+  - tinycdb

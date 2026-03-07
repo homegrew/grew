@@ -1,0 +1,15 @@
+name: sbjson
+version: 5.0.3
+description: "JSON CLI parser & reformatter based on SBJson v5"
+homepage: https://github.com/SBJson/SBJson
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sbjson/blobs/sha256:454bec6b83f7734cc9b882e1270baedd9f23d798dde872de9ac6ec7c938bafb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sbjson/blobs/sha256:ef69d2867ef68302e06051ba2cb3d9d883a719f60dec7db49ebbfc36d18ef38a
+sha256:
+  darwin_arm64: 454bec6b83f7734cc9b882e1270baedd9f23d798dde872de9ac6ec7c938bafb5
+  darwin_amd64: ef69d2867ef68302e06051ba2cb3d9d883a719f60dec7db49ebbfc36d18ef38a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

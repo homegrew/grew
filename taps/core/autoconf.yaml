@@ -1,0 +1,21 @@
+name: autoconf
+version: 2.72
+description: Automatic configure script builder
+homepage: https://www.gnu.org/software/autoconf/
+license: GPL-3.0-or-later AND (GPL-3.0-or-later WITH Autoconf-exception-3.0)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autoconf/blobs/sha256:3374908e36c28948511beea4bdb005556f3d3c382a1377301c9b8eba2bf8ee77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autoconf/blobs/sha256:3374908e36c28948511beea4bdb005556f3d3c382a1377301c9b8eba2bf8ee77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autoconf/blobs/sha256:55e5cfc7d6f3d91895fe5a345b2158498f8e96b05574b073edf667de4122413d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autoconf/blobs/sha256:55fcb698584173e2d750696d104f3658dbe37fae4651dc7c72d28e6b3a2fb4e9
+sha256:
+  darwin_arm64: 3374908e36c28948511beea4bdb005556f3d3c382a1377301c9b8eba2bf8ee77
+  darwin_amd64: 3374908e36c28948511beea4bdb005556f3d3c382a1377301c9b8eba2bf8ee77
+  linux_amd64: 55e5cfc7d6f3d91895fe5a345b2158498f8e96b05574b073edf667de4122413d
+  linux_arm64: 55fcb698584173e2d750696d104f3658dbe37fae4651dc7c72d28e6b3a2fb4e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - m4

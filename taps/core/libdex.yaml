@@ -1,0 +1,21 @@
+name: libdex
+version: 1.0.0
+description: Future-based programming for GLib-based applications
+homepage: https://gitlab.gnome.org/GNOME/libdex
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdex/blobs/sha256:d74ef293c9daa90394d446acd3fb1342b15fecb7d4485e60d0216949c03877d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdex/blobs/sha256:e8c5f95abe69182953f873dd4be613052a7c5b765ef010fe772e8e7aeec84671
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdex/blobs/sha256:c324d8bb769ca8a7efa4543c69dd6587813b53b66719b14e49598fb5ecb6747f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdex/blobs/sha256:080cb4dad9402929fbd9a6120e0fea64886ca33cbb076eb01b7af53a50634a85
+sha256:
+  darwin_arm64: d74ef293c9daa90394d446acd3fb1342b15fecb7d4485e60d0216949c03877d7
+  darwin_amd64: e8c5f95abe69182953f873dd4be613052a7c5b765ef010fe772e8e7aeec84671
+  linux_amd64: c324d8bb769ca8a7efa4543c69dd6587813b53b66719b14e49598fb5ecb6747f
+  linux_arm64: 080cb4dad9402929fbd9a6120e0fea64886ca33cbb076eb01b7af53a50634a85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

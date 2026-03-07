@@ -1,0 +1,21 @@
+name: tcpreplay
+version: 4.5.2
+description: Replay saved tcpdump files at arbitrary speeds
+homepage: https://tcpreplay.appneta.com/
+license: BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND GPL-3.0-or-later AND ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcpreplay/blobs/sha256:b176ea94713287877a7ea7070827e6c878b02dc5b041fbb72d86959844067489
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcpreplay/blobs/sha256:02f52b95155aa75b197e8c1c726acb334c3f3c24bf76fcd1823bed6610afbc0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcpreplay/blobs/sha256:1602f54ea30d09b224bf50cb03fd4c505aafc866a73a8eb58182bca38dae5dbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcpreplay/blobs/sha256:7adebd39df6e58f28d5da9cb969966b411a6e6dcf844e0fc65956ce9fea96a29
+sha256:
+  darwin_arm64: b176ea94713287877a7ea7070827e6c878b02dc5b041fbb72d86959844067489
+  darwin_amd64: 02f52b95155aa75b197e8c1c726acb334c3f3c24bf76fcd1823bed6610afbc0e
+  linux_amd64: 1602f54ea30d09b224bf50cb03fd4c505aafc866a73a8eb58182bca38dae5dbd
+  linux_arm64: 7adebd39df6e58f28d5da9cb969966b411a6e6dcf844e0fc65956ce9fea96a29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdnet

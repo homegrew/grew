@@ -1,0 +1,19 @@
+name: grpcui
+version: 1.4.3
+description: Interactive web UI for gRPC, along the lines of postman
+homepage: https://github.com/fullstorydev/grpcui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grpcui/blobs/sha256:96371f211cdbdcd5d568f474d105235f0b3ebdb624b46af9d29691a7769f9c28
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grpcui/blobs/sha256:ba7e1920f634f492ee2b36de11763a0dc3b3f16e6c4691ef66bf5d1a6c651a30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grpcui/blobs/sha256:2a604659d4ba4f40852cc1d2b7924e0540f3e59f9f5628472826dfc6b0022dde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grpcui/blobs/sha256:678cb499d5e1ff8120437eb008be019761b5afc74175df5ac292262a09dec25f
+sha256:
+  darwin_arm64: 96371f211cdbdcd5d568f474d105235f0b3ebdb624b46af9d29691a7769f9c28
+  darwin_amd64: ba7e1920f634f492ee2b36de11763a0dc3b3f16e6c4691ef66bf5d1a6c651a30
+  linux_amd64: 2a604659d4ba4f40852cc1d2b7924e0540f3e59f9f5628472826dfc6b0022dde
+  linux_arm64: 678cb499d5e1ff8120437eb008be019761b5afc74175df5ac292262a09dec25f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: jdk-mission-control
+version: 9.1.2,05
+description: Tools to manage, monitor, profile and troubleshoot Java applications
+homepage: https://jdk.java.net/jmc/9/
+url:
+  darwin_arm64: https://download.java.net/java/GA/jmc9/05/binaries/jmc-9.1.2_macos-aarch64.tar.gz
+sha256:
+  darwin_arm64: c31c384e1d41e03a24826f0b3c6719f82538ee3a0045dee633e2922b38074676
+artifacts:
+  app:
+    - jmc-9.1.2_macos-aarch64/JDK Mission Control.app

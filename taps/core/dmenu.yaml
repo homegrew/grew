@@ -1,0 +1,24 @@
+name: dmenu
+version: 5.4
+description: Dynamic menu for X11
+homepage: https://tools.suckless.org/dmenu/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dmenu/blobs/sha256:48572596abd24b3c86d85ca49f4ea5eccb8b531e2589df523adc5dee2f2b011d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dmenu/blobs/sha256:164c867ca65c1a5b9cb815dbdb188d988a19e11b608a530835ddfb90ec935b3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dmenu/blobs/sha256:90f70c92c682c828f0e538a032421fd468268959c45b4ba2dd36647a34e28d9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dmenu/blobs/sha256:775a0ea9139f8e05234fcf09917ae846b11d50caa08dcefdb22ac6c5836d8fee
+sha256:
+  darwin_arm64: 48572596abd24b3c86d85ca49f4ea5eccb8b531e2589df523adc5dee2f2b011d
+  darwin_amd64: 164c867ca65c1a5b9cb815dbdb188d988a19e11b608a530835ddfb90ec935b3d
+  linux_amd64: 90f70c92c682c828f0e538a032421fd468268959c45b4ba2dd36647a34e28d9d
+  linux_arm64: 775a0ea9139f8e05234fcf09917ae846b11d50caa08dcefdb22ac6c5836d8fee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - libx11
+  - libxft
+  - libxinerama

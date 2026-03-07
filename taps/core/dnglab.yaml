@@ -1,0 +1,19 @@
+name: dnglab
+version: 0.7.2
+description: Camera RAW to DNG file format converter
+homepage: https://github.com/dnglab/dnglab
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnglab/blobs/sha256:fe9618a52eeffbc84cecafa06705a9d3c806f99294f612a311d66d534a0cd404
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnglab/blobs/sha256:e13ffba5f8e11e9e23259e3f43331dee3e0ce42d9e8d77af348396ad4126b406
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnglab/blobs/sha256:c5aa5198b9e98a48afaec32d4eda37a4194815bb5dd198300b55901214a92d4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnglab/blobs/sha256:f229a7e6fba3acacbbc9369c03942d1a8442753b3cead012824763874e12c7ef
+sha256:
+  darwin_arm64: fe9618a52eeffbc84cecafa06705a9d3c806f99294f612a311d66d534a0cd404
+  darwin_amd64: e13ffba5f8e11e9e23259e3f43331dee3e0ce42d9e8d77af348396ad4126b406
+  linux_amd64: c5aa5198b9e98a48afaec32d4eda37a4194815bb5dd198300b55901214a92d4c
+  linux_arm64: f229a7e6fba3acacbbc9369c03942d1a8442753b3cead012824763874e12c7ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

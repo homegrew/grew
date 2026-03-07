@@ -1,0 +1,19 @@
+name: etcd
+version: 3.6.8
+description: Key value store for shared configuration and service discovery
+homepage: https://github.com/etcd-io/etcd
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/etcd/blobs/sha256:b1904fa2d037fa83abe4c064dc008b98bafb3a40555182e279f52542e369771d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/etcd/blobs/sha256:1bfb689cb93e001d567697f89d60b21c9e9ca2afaf1e83906b5e11c0043e2245
+  linux_amd64: https://ghcr.io/v2/homebrew/core/etcd/blobs/sha256:f1fc9f80896726bf4a80e50d5d6ed8b3a14c567dfe10448f4ba963ad1ad68a71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/etcd/blobs/sha256:5707760efeadebcd3066d47a867d9b587a430e6aa7c20487c3f89c28010a5da0
+sha256:
+  darwin_arm64: b1904fa2d037fa83abe4c064dc008b98bafb3a40555182e279f52542e369771d
+  darwin_amd64: 1bfb689cb93e001d567697f89d60b21c9e9ca2afaf1e83906b5e11c0043e2245
+  linux_amd64: f1fc9f80896726bf4a80e50d5d6ed8b3a14c567dfe10448f4ba963ad1ad68a71
+  linux_arm64: 5707760efeadebcd3066d47a867d9b587a430e6aa7c20487c3f89c28010a5da0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

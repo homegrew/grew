@@ -1,0 +1,19 @@
+name: chdig
+version: 26.2.3
+description: Dig into ClickHouse with TUI interface
+homepage: https://github.com/azat/chdig
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chdig/blobs/sha256:82b1f8af833047a8f9a11173fbcc6054c9c4d17d75e432da6bde14064ad51063
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chdig/blobs/sha256:1fca71ddde544243c3858e3c5a7cdafa5c17fa6376dd33da4d70f5b30ea64e15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chdig/blobs/sha256:25b9891422340d3d4aa85d9ed8b7d91263a4aa2c45cbe8a8392b12b5d52326b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chdig/blobs/sha256:807cc8744cd3ce84156d3c5a716d3e98a1faab59c8535b4318249faff64eb89a
+sha256:
+  darwin_arm64: 82b1f8af833047a8f9a11173fbcc6054c9c4d17d75e432da6bde14064ad51063
+  darwin_amd64: 1fca71ddde544243c3858e3c5a7cdafa5c17fa6376dd33da4d70f5b30ea64e15
+  linux_amd64: 25b9891422340d3d4aa85d9ed8b7d91263a4aa2c45cbe8a8392b12b5d52326b4
+  linux_arm64: 807cc8744cd3ce84156d3c5a716d3e98a1faab59c8535b4318249faff64eb89a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

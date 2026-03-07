@@ -1,0 +1,22 @@
+name: aoe
+version: 0.14.0
+description: Terminal session manager for AI coding agents
+homepage: https://github.com/njbrake/agent-of-empires
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aoe/blobs/sha256:7f661fc6c95c07e4587045f5d2aedaaed139432fcd86106e772deadd8b4d35ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aoe/blobs/sha256:575f144be71e64c0c3087f00c51ce5b88c586ca30735f63672a1859f258136ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aoe/blobs/sha256:2d602d77bc103480e4b13095c1b35995aebcf1cdc364fdd24b864cddc48c2244
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aoe/blobs/sha256:7913db9381d0522dc42ef12b7c7146e1474e5c6f69b87b8735fe1e44f4303381
+sha256:
+  darwin_arm64: 7f661fc6c95c07e4587045f5d2aedaaed139432fcd86106e772deadd8b4d35ef
+  darwin_amd64: 575f144be71e64c0c3087f00c51ce5b88c586ca30735f63672a1859f258136ee
+  linux_amd64: 2d602d77bc103480e4b13095c1b35995aebcf1cdc364fdd24b864cddc48c2244
+  linux_arm64: 7913db9381d0522dc42ef12b7c7146e1474e5c6f69b87b8735fe1e44f4303381
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - tmux

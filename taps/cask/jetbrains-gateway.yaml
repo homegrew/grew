@@ -1,0 +1,13 @@
+name: jetbrains-gateway
+version: 2025.3.2,253.30387.104
+description: Remote development gateway by Jetbrains
+homepage: https://www.jetbrains.com/remote-development/gateway/
+url:
+  darwin_arm64: https://download.jetbrains.com/idea/gateway/JetBrainsGateway-2025.3.2-aarch64.dmg
+sha256:
+  darwin_arm64: e4b3ca2ad08eade8982045856d034f21392d8ce44603cbfedb6b5b66151cf949
+artifacts:
+  app:
+    - JetBrains Gateway.app
+  bin:
+    - gateway

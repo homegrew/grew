@@ -1,0 +1,19 @@
+name: virtctl
+version: 1.7.0
+description: Allows for using more advanced kubevirt features
+homepage: https://kubevirt.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/virtctl/blobs/sha256:17ce8dc50ceafbb57d9e81bcbde5895e237220c92c911e7bb348f1d52fea56a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/virtctl/blobs/sha256:57d0c0b6842f45586eedc236040a56b820ef7cc1d298e0839af753e11b534889
+  linux_amd64: https://ghcr.io/v2/homebrew/core/virtctl/blobs/sha256:bcb0457cec7d329f1cad8f2d371a62511bea01bbb28652729e4a9ad180a1783d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/virtctl/blobs/sha256:c926412df85cdc9493630a7aa414ba96f94fb94ca1b4fc180bcd0eafa25e1b80
+sha256:
+  darwin_arm64: 17ce8dc50ceafbb57d9e81bcbde5895e237220c92c911e7bb348f1d52fea56a7
+  darwin_amd64: 57d0c0b6842f45586eedc236040a56b820ef7cc1d298e0839af753e11b534889
+  linux_amd64: bcb0457cec7d329f1cad8f2d371a62511bea01bbb28652729e4a9ad180a1783d
+  linux_arm64: c926412df85cdc9493630a7aa414ba96f94fb94ca1b4fc180bcd0eafa25e1b80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

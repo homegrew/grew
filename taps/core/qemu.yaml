@@ -1,0 +1,35 @@
+name: qemu
+version: 10.2.1
+description: Generic machine emulator and virtualizer
+homepage: https://www.qemu.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qemu/blobs/sha256:033d2157dda25d3ec6ec98b0bffbc81d803b3a2a0d3a2e89c2fd7611454f73f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qemu/blobs/sha256:da5b6999f71b0bc28abf0b0baa08d7f98ea5b5f819ebeb2eae3298803f694c0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qemu/blobs/sha256:b0fd9931793b9d15843dd2fba7dbcd21b739fc6d874a73bcc0e248791242c03b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qemu/blobs/sha256:6b2ed879ce16cd8ec1d76a79b76feb7002f998c0e4badc8fe7392dd3b2b7d11e
+sha256:
+  darwin_arm64: 033d2157dda25d3ec6ec98b0bffbc81d803b3a2a0d3a2e89c2fd7611454f73f6
+  darwin_amd64: da5b6999f71b0bc28abf0b0baa08d7f98ea5b5f819ebeb2eae3298803f694c0e
+  linux_amd64: b0fd9931793b9d15843dd2fba7dbcd21b739fc6d874a73bcc0e248791242c03b
+  linux_arm64: 6b2ed879ce16cd8ec1d76a79b76feb7002f998c0e4badc8fe7392dd3b2b7d11e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone
+  - dtc
+  - glib
+  - gnutls
+  - jpeg-turbo
+  - libpng
+  - libslirp
+  - libssh
+  - libusb
+  - lzo
+  - ncurses
+  - pixman
+  - snappy
+  - vde
+  - zstd

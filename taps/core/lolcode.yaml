@@ -1,0 +1,19 @@
+name: lolcode
+version: 1.3
+description: Esoteric programming language
+homepage: http://www.lolcode.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lolcode/blobs/sha256:2a103e4121ee76d588ecb6a4a7c157c316e6f2068a91d2a43a7ef44fe56c90e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lolcode/blobs/sha256:572f3bbd7b11caafc7634441abe9951fdf0a74a399cf8cf30f750c4b120c92e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lolcode/blobs/sha256:fa3c6be395ffbf5dab1a5f65be4334889511c5ef765d5f06b0fad50000327725
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lolcode/blobs/sha256:0b11c7827b71720dc4095a5cf8246a57dcd94aafd1c9010ac05f71dca6a8c063
+sha256:
+  darwin_arm64: 2a103e4121ee76d588ecb6a4a7c157c316e6f2068a91d2a43a7ef44fe56c90e1
+  darwin_amd64: 572f3bbd7b11caafc7634441abe9951fdf0a74a399cf8cf30f750c4b120c92e0
+  linux_amd64: fa3c6be395ffbf5dab1a5f65be4334889511c5ef765d5f06b0fad50000327725
+  linux_arm64: 0b11c7827b71720dc4095a5cf8246a57dcd94aafd1c9010ac05f71dca6a8c063
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

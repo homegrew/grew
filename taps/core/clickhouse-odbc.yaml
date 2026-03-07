@@ -1,0 +1,24 @@
+name: clickhouse-odbc
+version: 1.5.2.20260217
+description: Official ODBC driver implementation for accessing ClickHouse as a data source
+homepage: https://github.com/ClickHouse/clickhouse-odbc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-odbc/blobs/sha256:89296c91b32113125e5ac2c219a7aacbd6bb11478bd3524cc83d11be62e7b571
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-odbc/blobs/sha256:ebbec4eea87bac088c76e1b289809e1250ea11499af1fd80d5fd6dd5033fc3a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-odbc/blobs/sha256:96cfd281e3e8d81bd8430a6d9afa1a4c4ad032bd6a88ef2bb1634caa3003159e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-odbc/blobs/sha256:df4fef12b3548774f912114e8808c566bf3db708a8c9df15e6f6d70038a10cb1
+sha256:
+  darwin_arm64: 89296c91b32113125e5ac2c219a7aacbd6bb11478bd3524cc83d11be62e7b571
+  darwin_amd64: ebbec4eea87bac088c76e1b289809e1250ea11499af1fd80d5fd6dd5033fc3a3
+  linux_amd64: 96cfd281e3e8d81bd8430a6d9afa1a4c4ad032bd6a88ef2bb1634caa3003159e
+  linux_arm64: df4fef12b3548774f912114e8808c566bf3db708a8c9df15e6f6d70038a10cb1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - openssl@3
+  - poco
+  - unixodbc

@@ -1,0 +1,22 @@
+name: get_iplayer
+version: 3.36
+description: Utility for downloading TV and radio programmes from BBC iPlayer
+homepage: https://github.com/get-iplayer/get_iplayer
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/get_iplayer/blobs/sha256:6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/get_iplayer/blobs/sha256:7e3d88866060016afedd3a9f2f1e0391b23acc14382965aaccc5b69f3c78d67b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/get_iplayer/blobs/sha256:f59d1d219e4d21eac63b70301c62e9c5bc28f82e4d63530ba88f02f2b2b36d8f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/get_iplayer/blobs/sha256:3da975c4e996da72f40d5e744461409a18eedf3001d3d75c66bac1446e75b2d4
+sha256:
+  darwin_arm64: 6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d
+  darwin_amd64: 7e3d88866060016afedd3a9f2f1e0391b23acc14382965aaccc5b69f3c78d67b
+  linux_amd64: f59d1d219e4d21eac63b70301c62e9c5bc28f82e4d63530ba88f02f2b2b36d8f
+  linux_arm64: 3da975c4e996da72f40d5e744461409a18eedf3001d3d75c66bac1446e75b2d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atomicparsley
+  - ffmpeg

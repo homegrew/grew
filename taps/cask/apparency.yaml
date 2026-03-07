@@ -1,0 +1,13 @@
+name: apparency
+version: 3.1
+description: Inspect application bundles
+homepage: https://www.mothersruin.com/software/Apparency/
+url:
+  darwin_arm64: https://www.mothersruin.com/software/archives/Apparency-3.1.dmg
+sha256:
+  darwin_arm64: 41d64d14a07bf7533da6f77e082b7b046e006659cf6c1b05db60f85de08747ea
+artifacts:
+  app:
+    - Apparency.app
+  bin:
+    - appy

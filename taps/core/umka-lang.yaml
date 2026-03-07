@@ -1,0 +1,19 @@
+name: umka-lang
+version: 1.5.5
+description: Statically typed embeddable scripting language
+homepage: https://github.com/vtereshkov/umka-lang
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/umka-lang/blobs/sha256:71a5436d053b21e283fbb06d9af7e7759aa48e97595e75ee2a9988b057562bd4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/umka-lang/blobs/sha256:67a296c502cdd51cde57976e7bb79096d6de79ca7ced79a938e07867925b4838
+  linux_amd64: https://ghcr.io/v2/homebrew/core/umka-lang/blobs/sha256:c75995cc4b4357d4df58387e9c25e310b599dfb7d9e4fa2ca38acc5a64213eee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/umka-lang/blobs/sha256:166e489ab4ebceca8e323def456813df04abcc2ebb9d2e5954399baa66884a5a
+sha256:
+  darwin_arm64: 71a5436d053b21e283fbb06d9af7e7759aa48e97595e75ee2a9988b057562bd4
+  darwin_amd64: 67a296c502cdd51cde57976e7bb79096d6de79ca7ced79a938e07867925b4838
+  linux_amd64: c75995cc4b4357d4df58387e9c25e310b599dfb7d9e4fa2ca38acc5a64213eee
+  linux_arm64: 166e489ab4ebceca8e323def456813df04abcc2ebb9d2e5954399baa66884a5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

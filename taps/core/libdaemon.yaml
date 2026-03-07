@@ -1,0 +1,19 @@
+name: libdaemon
+version: 0.14
+description: C library that eases writing UNIX daemons
+homepage: https://0pointer.de/lennart/projects/libdaemon/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdaemon/blobs/sha256:b5a484b80371d6d282f43e26bad28db36b03be6ffb54e54e0a453ab57492c3ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdaemon/blobs/sha256:7d725995c1dd243717fa590f3dc3bb5996d9584c7e6ed490695f80e4f00357a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdaemon/blobs/sha256:66573e3e026fca5fab4dd7e1f7c9712e837fd65ca21cfc1e0687e719d8905c90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdaemon/blobs/sha256:3f6cddfcdcd44cbd7592ef623e20fffcf98471f6e375e25f23c99b8c0c7198cd
+sha256:
+  darwin_arm64: b5a484b80371d6d282f43e26bad28db36b03be6ffb54e54e0a453ab57492c3ef
+  darwin_amd64: 7d725995c1dd243717fa590f3dc3bb5996d9584c7e6ed490695f80e4f00357a4
+  linux_amd64: 66573e3e026fca5fab4dd7e1f7c9712e837fd65ca21cfc1e0687e719d8905c90
+  linux_arm64: 3f6cddfcdcd44cbd7592ef623e20fffcf98471f6e375e25f23c99b8c0c7198cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

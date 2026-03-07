@@ -1,0 +1,11 @@
+name: notesollama
+version: 0.2.6
+description: LLM support for Apple Notes through Ollama
+homepage: https://smallest.app/notesollama/
+url:
+  darwin_arm64: https://smallest.app/notesollama/dist/NotesOllama-0.2.6.zip
+sha256:
+  darwin_arm64: 9b2a94e5d366686bee91942bad9967e6e00558024d78438b05efd92f3bee79b1
+artifacts:
+  app:
+    - NotesOllama.app

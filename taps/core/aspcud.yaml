@@ -1,0 +1,21 @@
+name: aspcud
+version: 1.9.6
+description: Package dependency solver
+homepage: https://potassco.org/aspcud/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aspcud/blobs/sha256:38a5c5010a8e9f38e95233d7b20dcdb75b76c33e1cb3f80410dc01b277ddc17e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aspcud/blobs/sha256:edc44ff90fbf5353a53ddc431d73054561379ebb1d512fbb3779a1ba6a92ac2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aspcud/blobs/sha256:38882525e9e80e2f8436800e20415bd7f584130f264fdacf484c4c11a2ee0076
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aspcud/blobs/sha256:eda6f25c685bc5b196faf5a997403db0ed730f2cf4e7f680ca316861ac979bce
+sha256:
+  darwin_arm64: 38a5c5010a8e9f38e95233d7b20dcdb75b76c33e1cb3f80410dc01b277ddc17e
+  darwin_amd64: edc44ff90fbf5353a53ddc431d73054561379ebb1d512fbb3779a1ba6a92ac2b
+  linux_amd64: 38882525e9e80e2f8436800e20415bd7f584130f264fdacf484c4c11a2ee0076
+  linux_arm64: eda6f25c685bc5b196faf5a997403db0ed730f2cf4e7f680ca316861ac979bce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - clingo

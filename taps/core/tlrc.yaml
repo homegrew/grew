@@ -1,0 +1,19 @@
+name: tlrc
+version: 1.12.0
+description: Official tldr client written in Rust
+homepage: https://tldr.sh/tlrc/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tlrc/blobs/sha256:09c51b3ef2e33c87d899f0480a720bb4224f65329a091370344b984d42f48eac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tlrc/blobs/sha256:202da0505b809d8acd1000455f1ae63ccdcb589a5ec8b416f7c34c5a2b46a505
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tlrc/blobs/sha256:a7ce495afb5e5f4e97c9393d46f6b6a09e716626f2352729840a0c055db562e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tlrc/blobs/sha256:38d841e720d52704ac843b20260fb9e5ab5ee89f57e4cde8b6aea4172be3e835
+sha256:
+  darwin_arm64: 09c51b3ef2e33c87d899f0480a720bb4224f65329a091370344b984d42f48eac
+  darwin_amd64: 202da0505b809d8acd1000455f1ae63ccdcb589a5ec8b416f7c34c5a2b46a505
+  linux_amd64: a7ce495afb5e5f4e97c9393d46f6b6a09e716626f2352729840a0c055db562e0
+  linux_arm64: 38d841e720d52704ac843b20260fb9e5ab5ee89f57e4cde8b6aea4172be3e835
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

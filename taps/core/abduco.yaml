@@ -1,0 +1,19 @@
+name: abduco
+version: 0.6
+description: "Provides session management: i.e. separate programs from terminals"
+homepage: https://www.brain-dump.org/projects/abduco/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abduco/blobs/sha256:c2c4bcd34f6b83f1a2b3a04e223b7eab8b29d6a39043127f422f59d7c38c7e6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abduco/blobs/sha256:e4fe0b940ecf7445830a525f829bc2f2b3bf358947117ca93642336a21ff2090
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abduco/blobs/sha256:2129c6039968a818f71997e800575b581128b56f8783eeb32c990f8a5e8b81ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abduco/blobs/sha256:4e84ed7e82b55ae643f46c6b81488e55535269cb37a95e7eec87a06b60f66427
+sha256:
+  darwin_arm64: c2c4bcd34f6b83f1a2b3a04e223b7eab8b29d6a39043127f422f59d7c38c7e6e
+  darwin_amd64: e4fe0b940ecf7445830a525f829bc2f2b3bf358947117ca93642336a21ff2090
+  linux_amd64: 2129c6039968a818f71997e800575b581128b56f8783eeb32c990f8a5e8b81ad
+  linux_arm64: 4e84ed7e82b55ae643f46c6b81488e55535269cb37a95e7eec87a06b60f66427
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

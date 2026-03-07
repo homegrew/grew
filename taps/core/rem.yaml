@@ -1,0 +1,15 @@
+name: rem
+version: 20150618
+description: Command-line tool to access OSX Reminders.app database
+homepage: https://github.com/kykim/rem
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rem/blobs/sha256:3f0f26a3c93f78baac169c18c7fa119e351fdb10d8cce429fae0f45942676775
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rem/blobs/sha256:03e3eae7390b3b17b2bc20c3f13c9bb2f5bd5f5efca57d7d63009b1c9d05900c
+sha256:
+  darwin_arm64: 3f0f26a3c93f78baac169c18c7fa119e351fdb10d8cce429fae0f45942676775
+  darwin_amd64: 03e3eae7390b3b17b2bc20c3f13c9bb2f5bd5f5efca57d7d63009b1c9d05900c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

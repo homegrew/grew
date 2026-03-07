@@ -1,0 +1,18 @@
+name: ntfs-3g
+version: 2022.10.3
+description: Read-write NTFS driver for FUSE
+homepage: https://www.tuxera.com/community/open-source-ntfs-3g/
+license: GPL-2.0-or-later AND LGPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ntfs-3g/blobs/sha256:3fe3041e69391706e917d335a8d6bebd1dd502126e5d19e4b0fabded9a3e40f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ntfs-3g/blobs/sha256:13c0f887f2cef53978d28dfcb8c1a3f69f8c70407bf2267ad6033eef0b5cfc2c
+sha256:
+  linux_amd64: 3fe3041e69391706e917d335a8d6bebd1dd502126e5d19e4b0fabded9a3e40f7
+  linux_arm64: 13c0f887f2cef53978d28dfcb8c1a3f69f8c70407bf2267ad6033eef0b5cfc2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - libfuse@2

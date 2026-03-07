@@ -1,0 +1,19 @@
+name: wcstools
+version: 3.9.7
+description: Tools for using World Coordinate Systems (WCS) in astronomical images
+homepage: http://tdc-www.harvard.edu/wcstools/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wcstools/blobs/sha256:77a31db1617c161a3b9b32c79738444ee90e0493eae441dc5782b790331a37a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wcstools/blobs/sha256:1455e3bd5761a326b1d3e9bdce635dbfc10ade55f9e271ac59df798c89bf44be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wcstools/blobs/sha256:8cbcde8f555ee9b4399110632e784cadb293066619453e7519b8cd27aa547181
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wcstools/blobs/sha256:788c9065153fc7d13d24d8154a61cf067f2fceba1c5333f9d0946f3d52e74cf2
+sha256:
+  darwin_arm64: 77a31db1617c161a3b9b32c79738444ee90e0493eae441dc5782b790331a37a0
+  darwin_amd64: 1455e3bd5761a326b1d3e9bdce635dbfc10ade55f9e271ac59df798c89bf44be
+  linux_amd64: 8cbcde8f555ee9b4399110632e784cadb293066619453e7519b8cd27aa547181
+  linux_arm64: 788c9065153fc7d13d24d8154a61cf067f2fceba1c5333f9d0946f3d52e74cf2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

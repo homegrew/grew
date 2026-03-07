@@ -1,0 +1,19 @@
+name: gaze
+version: 1.2.1
+description: Execute commands for you
+homepage: https://github.com/wtetsu/gaze
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gaze/blobs/sha256:03bc7867f5e987568ac45067ecc0bcac7c53ca56c5cdcea630e5de0c23b8bc14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gaze/blobs/sha256:8165d4fde34b016e36c5455ee3578c475e90e6e13e21f14f07e67738a4ffa4fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gaze/blobs/sha256:5704cda4c55581a1a1c2fbf7e6cce916ad75276ac2bbde5b2389823c0c2f6cdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gaze/blobs/sha256:8518d80910736965f914e54249f8f375bfd8873cf459faee57665d41b9c4e564
+sha256:
+  darwin_arm64: 03bc7867f5e987568ac45067ecc0bcac7c53ca56c5cdcea630e5de0c23b8bc14
+  darwin_amd64: 8165d4fde34b016e36c5455ee3578c475e90e6e13e21f14f07e67738a4ffa4fd
+  linux_amd64: 5704cda4c55581a1a1c2fbf7e6cce916ad75276ac2bbde5b2389823c0c2f6cdd
+  linux_arm64: 8518d80910736965f914e54249f8f375bfd8873cf459faee57665d41b9c4e564
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

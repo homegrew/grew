@@ -1,0 +1,11 @@
+name: museeks
+version: 0.23.4
+description: Music player
+homepage: https://museeks.io/
+url:
+  darwin_arm64: https://github.com/martpie/museeks/releases/download/0.23.4/Museeks_0.23.4_universal.dmg
+sha256:
+  darwin_arm64: ff8b3053fefdabb99c54868e74b4857087ac501bf91a026df60776bded2befb7
+artifacts:
+  app:
+    - Museeks.app

@@ -1,0 +1,13 @@
+name: pycharm
+version: 2025.3.3,253.31033.139
+description: IDE for professional Python development
+homepage: https://www.jetbrains.com/pycharm/
+url:
+  darwin_arm64: https://download.jetbrains.com/python/pycharm-professional-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: 571e597463ce858ace37ff0d7e63c3dee2f75d543a16b1b426333ab6fb3303d9
+artifacts:
+  app:
+    - PyCharm.app
+  bin:
+    - pycharm

@@ -1,0 +1,19 @@
+name: docker-buildx
+version: 0.32.1
+description: Docker CLI plugin for extended build capabilities with BuildKit
+homepage: https://docs.docker.com/buildx/working-with-buildx/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-buildx/blobs/sha256:ad3fd7283b4f47ad805b80a547122c0f625397fe46e3d5ee1cfdb4cdea0fd6a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-buildx/blobs/sha256:895f9694b2fe6b569e9abcd00572edd7aa8af9113a636833106a3b295cc4fcb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-buildx/blobs/sha256:2483ee1c17dceed78b395a64c9f3f292479f34ce9af079faaa09d490bbbe0dac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-buildx/blobs/sha256:c38cec0b8c93dc3d22abddda84ed55f17f020749e5a93d13ef1ac5ea033de944
+sha256:
+  darwin_arm64: ad3fd7283b4f47ad805b80a547122c0f625397fe46e3d5ee1cfdb4cdea0fd6a2
+  darwin_amd64: 895f9694b2fe6b569e9abcd00572edd7aa8af9113a636833106a3b295cc4fcb7
+  linux_amd64: 2483ee1c17dceed78b395a64c9f3f292479f34ce9af079faaa09d490bbbe0dac
+  linux_arm64: c38cec0b8c93dc3d22abddda84ed55f17f020749e5a93d13ef1ac5ea033de944
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

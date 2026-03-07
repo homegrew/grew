@@ -1,0 +1,19 @@
+name: mpegdemux
+version: 0.1.5
+description: MPEG1/2 system stream demultiplexer
+homepage: http://www.hampa.ch/mpegdemux/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpegdemux/blobs/sha256:c8009d2002ba680af6e0ef4d3addb176638b15450967b07caa5817f95606e80b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpegdemux/blobs/sha256:f803850378b1602a599253c2d247c7473f8db4f5db4acc0bdd230e08f091622d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpegdemux/blobs/sha256:fd54e487becb88cdbd5e2acad97281980762b9de0c49f44df81d43d1273afcc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpegdemux/blobs/sha256:ea5d1210f203661390c44054f5b5cdddac0989530e733cf077d52bb325f3c93b
+sha256:
+  darwin_arm64: c8009d2002ba680af6e0ef4d3addb176638b15450967b07caa5817f95606e80b
+  darwin_amd64: f803850378b1602a599253c2d247c7473f8db4f5db4acc0bdd230e08f091622d
+  linux_amd64: fd54e487becb88cdbd5e2acad97281980762b9de0c49f44df81d43d1273afcc1
+  linux_arm64: ea5d1210f203661390c44054f5b5cdddac0989530e733cf077d52bb325f3c93b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

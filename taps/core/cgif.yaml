@@ -1,0 +1,19 @@
+name: cgif
+version: 0.5.2
+description: GIF encoder written in C
+homepage: https://github.com/dloebl/cgif
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgif/blobs/sha256:934ef90557be33d46d6fdac7ac1d49bf96a22f802113415fbda84bf3cca86c99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgif/blobs/sha256:6d437fa9f6ac96eb2fdd69041229db21a58e3edb114c39237e9cc8ce1312c6d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgif/blobs/sha256:d9d1c0d0963842934dbc8dfb39973c9b4b84844648a4e35a677f900675728f0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgif/blobs/sha256:c818912c75c81835494a2ab27f557162617fe6dc9ba6ebeed87a9e51313db8d2
+sha256:
+  darwin_arm64: 934ef90557be33d46d6fdac7ac1d49bf96a22f802113415fbda84bf3cca86c99
+  darwin_amd64: 6d437fa9f6ac96eb2fdd69041229db21a58e3edb114c39237e9cc8ce1312c6d4
+  linux_amd64: d9d1c0d0963842934dbc8dfb39973c9b4b84844648a4e35a677f900675728f0e
+  linux_arm64: c818912c75c81835494a2ab27f557162617fe6dc9ba6ebeed87a9e51313db8d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

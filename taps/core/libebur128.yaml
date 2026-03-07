@@ -1,0 +1,21 @@
+name: libebur128
+version: 1.2.6
+description: Library implementing the EBU R128 loudness standard
+homepage: https://github.com/jiixyj/libebur128
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libebur128/blobs/sha256:d5dfb17bae178c81481704de421043199a4712b8b2b0f7acba7a0806fcaa6f04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libebur128/blobs/sha256:63d0d10ecbffeab12456962728b12b62d36645536f3255885b18a879cecf3310
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libebur128/blobs/sha256:9f9bf1bedd635dce44252d8abf9ab008d53275ff1fc35ae7522685e403b5cdac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libebur128/blobs/sha256:a6a0b3d33651d9c7352b6178c3d98ab9ac932ae9d2a10242a1267feb513f2838
+sha256:
+  darwin_arm64: d5dfb17bae178c81481704de421043199a4712b8b2b0f7acba7a0806fcaa6f04
+  darwin_amd64: 63d0d10ecbffeab12456962728b12b62d36645536f3255885b18a879cecf3310
+  linux_amd64: 9f9bf1bedd635dce44252d8abf9ab008d53275ff1fc35ae7522685e403b5cdac
+  linux_arm64: a6a0b3d33651d9c7352b6178c3d98ab9ac932ae9d2a10242a1267feb513f2838
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - speex

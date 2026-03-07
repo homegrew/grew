@@ -1,0 +1,22 @@
+name: freetds
+version: 1.5.14
+description: Libraries to talk to Microsoft SQL Server and Sybase databases
+homepage: https://www.freetds.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freetds/blobs/sha256:a3b41eb2fe8bbba550c09eff5ad4fb7e8c4c81d802a27f8856a1e21c3ffb3b3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freetds/blobs/sha256:54c8bb9dfad33c58a5096952b1fa3cb917e1a35bd2c7254bab682c580f90043a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freetds/blobs/sha256:421daec42c1c2bd5c90b84c24cce77e843c364514673515e3a059a825aff803b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freetds/blobs/sha256:23aa57c375f7c741be43085311618ff8cfc30d9fc65a2c3fef314e45c5a504ca
+sha256:
+  darwin_arm64: a3b41eb2fe8bbba550c09eff5ad4fb7e8c4c81d802a27f8856a1e21c3ffb3b3c
+  darwin_amd64: 54c8bb9dfad33c58a5096952b1fa3cb917e1a35bd2c7254bab682c580f90043a
+  linux_amd64: 421daec42c1c2bd5c90b84c24cce77e843c364514673515e3a059a825aff803b
+  linux_arm64: 23aa57c375f7c741be43085311618ff8cfc30d9fc65a2c3fef314e45c5a504ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - unixodbc

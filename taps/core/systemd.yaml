@@ -1,0 +1,25 @@
+name: systemd
+version: 259.3
+description: System and service manager
+homepage: https://systemd.io
+license: LGPL-2.1-or-later AND GPL-2.0-or-later AND CC0-1.0 AND LGPL-2.0-or-later AND MIT AND MIT-0 AND LicenseRef-Homebrew-public-domain AND (LGPL-2.0-or-later WITH Linux-syscall-note) AND (GPL-1.0-or-later WITH Linux-syscall-note) AND (GPL-2.0-or-later WITH Linux-syscall-note) AND (GPL-2.0-only WITH Linux-syscall-note) AND (BSD-3-Clause OR (GPL-2.0-only WITH Linux-syscall-note)) AND (MIT OR (GPL-2.0-only WITH Linux-syscall-note)) AND (MIT OR (GPL-2.0-or-later WITH Linux-syscall-note)) AND (GPL-2.0-only OR BSD-2-Clause)
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/systemd/blobs/sha256:5cfa23eb60b58acd0a59cd8f4840c0829a73d10af2d55e2ee75313b43f8f6da2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/systemd/blobs/sha256:ef2e5304a41bc976fe3dab58d833820d178dba7dcb2de251b9880a49cde20886
+sha256:
+  linux_amd64: 5cfa23eb60b58acd0a59cd8f4840c0829a73d10af2d55e2ee75313b43f8f6da2
+  linux_arm64: ef2e5304a41bc976fe3dab58d833820d178dba7dcb2de251b9880a49cde20886
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libcap
+  - libxcrypt
+  - lz4
+  - openssl@3
+  - util-linux
+  - xz
+  - zstd
+keg_only: true

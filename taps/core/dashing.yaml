@@ -1,0 +1,19 @@
+name: dashing
+version: 0.4.0
+description: Generate Dash documentation from HTML files
+homepage: https://github.com/technosophos/dashing
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dashing/blobs/sha256:78209eefb9ac2ea5604da56e5128386f4f14f0e520377a1ec2a3541eebe452de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dashing/blobs/sha256:ab329a945ab070afaf9b8b6b210b207b823e4a929922766029c281ae630c7079
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dashing/blobs/sha256:982d82dc58980aa81fadf686557c5c075ddb95b9ef0f8456e7b32b6ed49aa382
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dashing/blobs/sha256:6ac970aad0a46e0f50606334b2218aa1b2103347300e59e01fc2cc942580e7d1
+sha256:
+  darwin_arm64: 78209eefb9ac2ea5604da56e5128386f4f14f0e520377a1ec2a3541eebe452de
+  darwin_amd64: ab329a945ab070afaf9b8b6b210b207b823e4a929922766029c281ae630c7079
+  linux_amd64: 982d82dc58980aa81fadf686557c5c075ddb95b9ef0f8456e7b32b6ed49aa382
+  linux_arm64: 6ac970aad0a46e0f50606334b2218aa1b2103347300e59e01fc2cc942580e7d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

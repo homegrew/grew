@@ -1,0 +1,21 @@
+name: docker-machine-driver-vultr
+version: 2.3.0
+description: Docker Machine driver plugin for Vultr Cloud
+homepage: https://github.com/vultr/docker-machine-driver-vultr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-machine-driver-vultr/blobs/sha256:3dda2f729047493afd3de8c833bad9a0d2a92ac9cda6756c6518e30ee7f3b865
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-machine-driver-vultr/blobs/sha256:606c6391582f3353b25bf1c2cb58e7c5a0388c9df9aee77445e1b6e5e959261a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-machine-driver-vultr/blobs/sha256:fc02dec3304a23cbda77067ae6a1bc315265468eb40cf015ee74e8c04954a03a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-machine-driver-vultr/blobs/sha256:fcbda52b4860cc84ddfefa6b21e9b5a9284324cc5e2c9451bf7ca7eb9747fe1c
+sha256:
+  darwin_arm64: 3dda2f729047493afd3de8c833bad9a0d2a92ac9cda6756c6518e30ee7f3b865
+  darwin_amd64: 606c6391582f3353b25bf1c2cb58e7c5a0388c9df9aee77445e1b6e5e959261a
+  linux_amd64: fc02dec3304a23cbda77067ae6a1bc315265468eb40cf015ee74e8c04954a03a
+  linux_arm64: fcbda52b4860cc84ddfefa6b21e9b5a9284324cc5e2c9451bf7ca7eb9747fe1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - docker-machine

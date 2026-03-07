@@ -1,0 +1,19 @@
+name: watcher
+version: 0.14.5
+description: Filesystem watcher, works anywhere, simple, efficient and friendly
+homepage: https://github.com/e-dant/watcher
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/watcher/blobs/sha256:739685078edc48db766556d91a9fcd4f17da74c1c67da8228db762c64e8366c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/watcher/blobs/sha256:db6db083bb5006cdcfd9260e7e6e08c10d0bb1df8648431e975d54c09d7d9e19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/watcher/blobs/sha256:55db0f93a4bde710d9f45754dac33a8ba8b1532750c909169eafafcb115bf863
+  linux_arm64: https://ghcr.io/v2/homebrew/core/watcher/blobs/sha256:2a1036a5c22d84a193a05a44cd44486a76f94d13d45bac789ed35236a462db81
+sha256:
+  darwin_arm64: 739685078edc48db766556d91a9fcd4f17da74c1c67da8228db762c64e8366c1
+  darwin_amd64: db6db083bb5006cdcfd9260e7e6e08c10d0bb1df8648431e975d54c09d7d9e19
+  linux_amd64: 55db0f93a4bde710d9f45754dac33a8ba8b1532750c909169eafafcb115bf863
+  linux_arm64: 2a1036a5c22d84a193a05a44cd44486a76f94d13d45bac789ed35236a462db81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

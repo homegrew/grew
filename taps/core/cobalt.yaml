@@ -1,0 +1,19 @@
+name: cobalt
+version: 0.20.4
+description: Static site generator written in Rust
+homepage: https://cobalt-org.github.io/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cobalt/blobs/sha256:7f3e66329a31b4bd2cfc2c4104c33fa18c8e3d29b8e31ec8bacddc433e9eeee3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cobalt/blobs/sha256:f8421b9bc3aade05d10ea0744ca9cf2b4696ff85283a7e1b5eaeecccba431a74
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cobalt/blobs/sha256:6e75ee3e155b750a00833882cef7a966a3d02feabeb8ab965fa8091af6e7b808
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cobalt/blobs/sha256:addedad1239ca5cf0bfc4d65199d26c33f980041407d0f1fb64c0fc63b06d91c
+sha256:
+  darwin_arm64: 7f3e66329a31b4bd2cfc2c4104c33fa18c8e3d29b8e31ec8bacddc433e9eeee3
+  darwin_amd64: f8421b9bc3aade05d10ea0744ca9cf2b4696ff85283a7e1b5eaeecccba431a74
+  linux_amd64: 6e75ee3e155b750a00833882cef7a966a3d02feabeb8ab965fa8091af6e7b808
+  linux_arm64: addedad1239ca5cf0bfc4d65199d26c33f980041407d0f1fb64c0fc63b06d91c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

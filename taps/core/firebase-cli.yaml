@@ -1,0 +1,21 @@
+name: firebase-cli
+version: 15.9.0
+description: Firebase command-line tools
+homepage: https://firebase.google.com/docs/cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/firebase-cli/blobs/sha256:6ad84489155af06d17101ab449436fdc176a54c625a898b7a05d25bd8e2d2b86
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/firebase-cli/blobs/sha256:177880606435e3a972d793099ed83dd2be9390533c71a831a25cb037e984cec8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/firebase-cli/blobs/sha256:90c5c08de009241353664ce1af4d450cd7e294ba501a9b79362a0b9a8002e7da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/firebase-cli/blobs/sha256:95ec311c87241645a79757ce9c82c6aa134997ff0bbfed03edd2170520d4c4a0
+sha256:
+  darwin_arm64: 6ad84489155af06d17101ab449436fdc176a54c625a898b7a05d25bd8e2d2b86
+  darwin_amd64: 177880606435e3a972d793099ed83dd2be9390533c71a831a25cb037e984cec8
+  linux_amd64: 90c5c08de009241353664ce1af4d450cd7e294ba501a9b79362a0b9a8002e7da
+  linux_arm64: 95ec311c87241645a79757ce9c82c6aa134997ff0bbfed03edd2170520d4c4a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

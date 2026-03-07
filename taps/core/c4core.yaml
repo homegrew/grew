@@ -1,0 +1,19 @@
+name: c4core
+version: 0.2.8
+description: C++ utilities
+homepage: https://github.com/biojppm/c4core
+license: MIT AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c4core/blobs/sha256:1a554d823764d6c65e0d7ec045bb472cc5fac22fb9a42827fa9e0aefaddc9c74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c4core/blobs/sha256:9339d0df1b1225eb31fecac86de3cb574907ee293b9a2c852183e9cc32cf6275
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c4core/blobs/sha256:06d0bba26b2899cbca6e5484be8c98390da6e4dd446fff62bb647cdeae9b6278
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c4core/blobs/sha256:e765b22cfa7ac54b78da4d2a8ed2e440838d2269c7e7d9cb08cbd608b20ed1c9
+sha256:
+  darwin_arm64: 1a554d823764d6c65e0d7ec045bb472cc5fac22fb9a42827fa9e0aefaddc9c74
+  darwin_amd64: 9339d0df1b1225eb31fecac86de3cb574907ee293b9a2c852183e9cc32cf6275
+  linux_amd64: 06d0bba26b2899cbca6e5484be8c98390da6e4dd446fff62bb647cdeae9b6278
+  linux_arm64: e765b22cfa7ac54b78da4d2a8ed2e440838d2269c7e7d9cb08cbd608b20ed1c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

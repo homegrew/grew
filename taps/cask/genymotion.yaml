@@ -1,0 +1,14 @@
+name: genymotion
+version: 3.9.0
+description: Android emulator
+homepage: https://www.genymotion.com/
+url:
+  darwin_arm64: https://dl.genymotion.com/releases/genymotion-3.9.0/genymotion-3.9.0.dmg
+sha256:
+  darwin_arm64: 9a559715cb3e0851cbbc5ca7fc17f599b65b35baab32ee00182b7f2c4880d136
+artifacts:
+  app:
+    - Genymotion.app
+    - Genymotion Shell.app
+  bin:
+    - genyshell

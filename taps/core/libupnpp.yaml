@@ -1,0 +1,21 @@
+name: libupnpp
+version: 1.0.3
+description: C++ wrapper for libnpupnp
+homepage: https://www.lesbonscomptes.com/upmpdcli/libupnpp-refdoc/libupnpp-ctl.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libupnpp/blobs/sha256:fe7ac3cf9bb208dd79f7b71de0e47c0c536604b6878280d281ebc0d0ab92fc5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libupnpp/blobs/sha256:077d55290db1c66da57b9bb6e46ae09eeb244a718927844609d0265b49257c3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libupnpp/blobs/sha256:27ff2c93ece22ce524c998da3bfd86666979944821fee422b8973ddaa67b2482
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libupnpp/blobs/sha256:3ea1d55a675da80f8b4fe995981c23e99c0dc4ed0f011b24558096c58c6e3c90
+sha256:
+  darwin_arm64: fe7ac3cf9bb208dd79f7b71de0e47c0c536604b6878280d281ebc0d0ab92fc5d
+  darwin_amd64: 077d55290db1c66da57b9bb6e46ae09eeb244a718927844609d0265b49257c3d
+  linux_amd64: 27ff2c93ece22ce524c998da3bfd86666979944821fee422b8973ddaa67b2482
+  linux_arm64: 3ea1d55a675da80f8b4fe995981c23e99c0dc4ed0f011b24558096c58c6e3c90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnpupnp

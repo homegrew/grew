@@ -1,0 +1,22 @@
+name: asciiquarium
+version: 1.1
+description: Aquarium animation in ASCII art
+homepage: https://robobunny.com/projects/asciiquarium/html/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asciiquarium/blobs/sha256:3a1be21d11ec20615ff2c00ab0e5de809faac013935caefb4806e3760371768b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asciiquarium/blobs/sha256:5170e968489608bd26069c5ea75151d67811f3555308f12009fcd6a3825bf93a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asciiquarium/blobs/sha256:d307a446c2b1c54a8f6b6636253479844b123ceb66a7b3b669993b29275befd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asciiquarium/blobs/sha256:f412126cb90749fdff6d137087dc9fff2eccbe08c537b873119c1916f2b0c6fc
+sha256:
+  darwin_arm64: 3a1be21d11ec20615ff2c00ab0e5de809faac013935caefb4806e3760371768b
+  darwin_amd64: 5170e968489608bd26069c5ea75151d67811f3555308f12009fcd6a3825bf93a
+  linux_amd64: d307a446c2b1c54a8f6b6636253479844b123ceb66a7b3b669993b29275befd2
+  linux_arm64: f412126cb90749fdff6d137087dc9fff2eccbe08c537b873119c1916f2b0c6fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - perl

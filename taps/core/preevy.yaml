@@ -1,0 +1,21 @@
+name: preevy
+version: 0.0.67
+description: Quickly deploy preview environments to the cloud
+homepage: https://preevy.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/preevy/blobs/sha256:0ecfe50451d749ef862d67a719df6877d1bc707ae3a4254fabd37635ac0581a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/preevy/blobs/sha256:a511ef38d0a334bb9eb9ab49781d75974a33d08074870a153339087e9e950428
+  linux_amd64: https://ghcr.io/v2/homebrew/core/preevy/blobs/sha256:7a58855d54fa97236e0fad7088c96a745ac2ef33b6f3a9caf03bd6cfd08ebaa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/preevy/blobs/sha256:4e99bec653db6fb724499c73557bfde947aad0f58d6e1b0698ec173803efa175
+sha256:
+  darwin_arm64: 0ecfe50451d749ef862d67a719df6877d1bc707ae3a4254fabd37635ac0581a7
+  darwin_amd64: a511ef38d0a334bb9eb9ab49781d75974a33d08074870a153339087e9e950428
+  linux_amd64: 7a58855d54fa97236e0fad7088c96a745ac2ef33b6f3a9caf03bd6cfd08ebaa1
+  linux_arm64: 4e99bec653db6fb724499c73557bfde947aad0f58d6e1b0698ec173803efa175
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

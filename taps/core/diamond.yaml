@@ -1,0 +1,19 @@
+name: diamond
+version: 2.1.23
+description: Accelerated BLAST compatible local sequence aligner
+homepage: https://github.com/bbuchfink/diamond
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diamond/blobs/sha256:e6548e006c2ee39452c85d7acbd888b4b664b665b05777f44b2e54646423a66a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diamond/blobs/sha256:69806bd545b2608766869f8873b1eb6461b34c949ebc513b346719c15c2bd0ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diamond/blobs/sha256:0b2df73c8eeb630511baababc770f358ce5ed3cd516a76d401438f9b50f5eafc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diamond/blobs/sha256:eb1559108f988480835bd87f0015654b5b608927cd7a020c5e1f1861b7436413
+sha256:
+  darwin_arm64: e6548e006c2ee39452c85d7acbd888b4b664b665b05777f44b2e54646423a66a
+  darwin_amd64: 69806bd545b2608766869f8873b1eb6461b34c949ebc513b346719c15c2bd0ba
+  linux_amd64: 0b2df73c8eeb630511baababc770f358ce5ed3cd516a76d401438f9b50f5eafc
+  linux_arm64: eb1559108f988480835bd87f0015654b5b608927cd7a020c5e1f1861b7436413
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

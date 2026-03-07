@@ -1,0 +1,21 @@
+name: vcprompt
+version: 1.3.0
+description: Provide version control info in shell prompts
+homepage: https://github.com/powerman/vcprompt
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vcprompt/blobs/sha256:c88613793fa29e4eef8e6871f9974a4486fc0129194e7ceafe26d257a253d06c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vcprompt/blobs/sha256:172c06fc8931c12d95d40773f0660aa5d26810ef44e9f9007d5b9f116cded777
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vcprompt/blobs/sha256:d41e332c1f9175c9e63429921c6e96490e6cec5e785736f3a844cb8f9b4da873
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vcprompt/blobs/sha256:444f2645da1b8fe40ecc443ab2aa1ca804fa85da5a96c189b54fd1708e1c7037
+sha256:
+  darwin_arm64: c88613793fa29e4eef8e6871f9974a4486fc0129194e7ceafe26d257a253d06c
+  darwin_amd64: 172c06fc8931c12d95d40773f0660aa5d26810ef44e9f9007d5b9f116cded777
+  linux_amd64: d41e332c1f9175c9e63429921c6e96490e6cec5e785736f3a844cb8f9b4da873
+  linux_arm64: 444f2645da1b8fe40ecc443ab2aa1ca804fa85da5a96c189b54fd1708e1c7037
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sqlite

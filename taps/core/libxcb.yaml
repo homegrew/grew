@@ -1,0 +1,22 @@
+name: libxcb
+version: 1.17.0
+description: "X.Org: Interface to the X Window System protocol"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxcb/blobs/sha256:059edd054b17234abb0ce8a34dcbbd927e104445d09a3f5904ea82f7c5aa7ded
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxcb/blobs/sha256:d7cbef805f6d1aab547a65a931972df59a768bb48ff845ecdcbf7b404f64cfa6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxcb/blobs/sha256:1ccb2f6e9f4feb73b3dbc56248554bc8ce30cb34771ed987eec1bd956f8563e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxcb/blobs/sha256:8ab6cbc2dd873785c24e669f1749dc1e694740b9de496eef4289be27f389c79d
+sha256:
+  darwin_arm64: 059edd054b17234abb0ce8a34dcbbd927e104445d09a3f5904ea82f7c5aa7ded
+  darwin_amd64: d7cbef805f6d1aab547a65a931972df59a768bb48ff845ecdcbf7b404f64cfa6
+  linux_amd64: 1ccb2f6e9f4feb73b3dbc56248554bc8ce30cb34771ed987eec1bd956f8563e2
+  linux_arm64: 8ab6cbc2dd873785c24e669f1749dc1e694740b9de496eef4289be27f389c79d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxau
+  - libxdmcp

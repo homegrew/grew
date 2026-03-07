@@ -1,0 +1,19 @@
+name: lifelines
+version: 3.0.62
+description: Text-based genealogy software
+homepage: https://lifelines.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lifelines/blobs/sha256:c5cb2ca42297800da646da5d0503df4968cfc6a5426b355a1adcde9d34f455a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lifelines/blobs/sha256:80c4e7bab14f13997695abe0a742939d9c730c249ba11a357e472c7f92eafddf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lifelines/blobs/sha256:4372b0ed3cfd9ca0d9a89696a502f7ba9e989698dd7064761296dabcc47003f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lifelines/blobs/sha256:532a5dbb1bc790b73bff79343958cc3ee07ece8171406a059a86af2db1fd8edc
+sha256:
+  darwin_arm64: c5cb2ca42297800da646da5d0503df4968cfc6a5426b355a1adcde9d34f455a5
+  darwin_amd64: 80c4e7bab14f13997695abe0a742939d9c730c249ba11a357e472c7f92eafddf
+  linux_amd64: 4372b0ed3cfd9ca0d9a89696a502f7ba9e989698dd7064761296dabcc47003f3
+  linux_arm64: 532a5dbb1bc790b73bff79343958cc3ee07ece8171406a059a86af2db1fd8edc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

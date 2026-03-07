@@ -1,0 +1,22 @@
+name: grip
+version: 4.6.2
+description: GitHub Markdown previewer
+homepage: https://github.com/joeyespo/grip
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grip/blobs/sha256:aee704443a491f443fa52166e37f0438b7158f2d987a7f4fb8aa7a0ae378b10c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grip/blobs/sha256:5cf6d3de6cc339b29feebd3cb94c7de1f9f3c0936b530d580cf9e0b41ec41ea0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grip/blobs/sha256:9d6b5bc02009314adc6ce9674f559b2aafffbfd930d3392841c4fe84fc205b45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grip/blobs/sha256:352854030ae915b5e38a06984b2b3a60cd871e5beef064c88e2165e04e7b7b78
+sha256:
+  darwin_arm64: aee704443a491f443fa52166e37f0438b7158f2d987a7f4fb8aa7a0ae378b10c
+  darwin_amd64: 5cf6d3de6cc339b29feebd3cb94c7de1f9f3c0936b530d580cf9e0b41ec41ea0
+  linux_amd64: 9d6b5bc02009314adc6ce9674f559b2aafffbfd930d3392841c4fe84fc205b45
+  linux_arm64: 352854030ae915b5e38a06984b2b3a60cd871e5beef064c88e2165e04e7b7b78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

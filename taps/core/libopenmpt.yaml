@@ -1,0 +1,26 @@
+name: libopenmpt
+version: 0.8.4
+description: Software library to decode tracked music files
+homepage: https://lib.openmpt.org/libopenmpt/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libopenmpt/blobs/sha256:e09315408f5be893af14c0d36d2e3a8d5e5aa9443e97d8acdcae39d9b22c1dd4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libopenmpt/blobs/sha256:3eb20b31542271030cbaa404eb33b268b405deac211fcf9f2d4e3e558efdcb7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libopenmpt/blobs/sha256:74e45d0330a851a48b800b669fc813b22ed5cb977623be03c13fb82122303a3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libopenmpt/blobs/sha256:d878406b38aa781f2f2db18fd061bf3b92a594e2cd179366f1517ad25de49156
+sha256:
+  darwin_arm64: e09315408f5be893af14c0d36d2e3a8d5e5aa9443e97d8acdcae39d9b22c1dd4
+  darwin_amd64: 3eb20b31542271030cbaa404eb33b268b405deac211fcf9f2d4e3e558efdcb7a
+  linux_amd64: 74e45d0330a851a48b800b669fc813b22ed5cb977623be03c13fb82122303a3e
+  linux_arm64: d878406b38aa781f2f2db18fd061bf3b92a594e2cd179366f1517ad25de49156
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libogg
+  - libsndfile
+  - libvorbis
+  - mpg123
+  - portaudio

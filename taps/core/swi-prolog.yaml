@@ -1,0 +1,27 @@
+name: swi-prolog
+version: 10.0.1
+description: ISO/Edinburgh-style Prolog interpreter
+homepage: https://www.swi-prolog.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swi-prolog/blobs/sha256:ec138c06b1b609386119a1a01de26d4a2d13c220b35087772f3f617cb6757f82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swi-prolog/blobs/sha256:10a5ebed010d3892c549e2a2bf614dd943698f60f67209f272573e2e350c0b0d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swi-prolog/blobs/sha256:9822768754b2e7fb206050ab4b3c9950768920477166e142dd8441f8451e97ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swi-prolog/blobs/sha256:d63fb5ffd077083e93a2c3de24bcbcb6720ca6d05249c0eb373f3fd38591f2ec
+sha256:
+  darwin_arm64: ec138c06b1b609386119a1a01de26d4a2d13c220b35087772f3f617cb6757f82
+  darwin_amd64: 10a5ebed010d3892c549e2a2bf614dd943698f60f67209f272573e2e350c0b0d
+  linux_amd64: 9822768754b2e7fb206050ab4b3c9950768920477166e142dd8441f8451e97ba
+  linux_arm64: d63fb5ffd077083e93a2c3de24bcbcb6720ca6d05249c0eb373f3fd38591f2ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - gmp
+  - libarchive
+  - libyaml
+  - openssl@3
+  - pcre2
+  - unixodbc

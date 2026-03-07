@@ -1,0 +1,22 @@
+name: pgsync
+version: 0.8.1
+description: Sync Postgres data between databases
+homepage: https://github.com/ankane/pgsync
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgsync/blobs/sha256:fe769a833d393d4a1a2d14e5ec710ce30ba26100f26c7de7afe3070772f92406
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgsync/blobs/sha256:892cb4b2ca7209d33bf1c80d44e71c4b5e6c91000ff3bd719612dbb281bd6fd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgsync/blobs/sha256:57b9865d679544372d9bd0dabbb86025790c1a8f401e00a9251352f0b4a8a004
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgsync/blobs/sha256:9596851af03225d8b7b43404b9cca41330948a7db7eb79601f4bde1c4a5f72ca
+sha256:
+  darwin_arm64: fe769a833d393d4a1a2d14e5ec710ce30ba26100f26c7de7afe3070772f92406
+  darwin_amd64: 892cb4b2ca7209d33bf1c80d44e71c4b5e6c91000ff3bd719612dbb281bd6fd9
+  linux_amd64: 57b9865d679544372d9bd0dabbb86025790c1a8f401e00a9251352f0b4a8a004
+  linux_arm64: 9596851af03225d8b7b43404b9cca41330948a7db7eb79601f4bde1c4a5f72ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - ruby

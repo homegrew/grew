@@ -1,0 +1,21 @@
+name: speex
+version: 1.2.1
+description: Audio codec designed for speech
+homepage: https://speex.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/speex/blobs/sha256:a7608ef62c92fd11d5eed0e3643e769087e4f0eb6de3a321fa602d6dd041387d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/speex/blobs/sha256:7dec70341e9b992efda633567a11bd75ce9bc9a21ab3490a2a37800cf0a0fc55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/speex/blobs/sha256:3ea2ee48a402525421cb3ef8b83173d4bc57741c10e84fe6fae66691905293ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/speex/blobs/sha256:a2e8649afd3a104cc1e685c4047bf6e44d9229f226981c86cb558bb512818da6
+sha256:
+  darwin_arm64: a7608ef62c92fd11d5eed0e3643e769087e4f0eb6de3a321fa602d6dd041387d
+  darwin_amd64: 7dec70341e9b992efda633567a11bd75ce9bc9a21ab3490a2a37800cf0a0fc55
+  linux_amd64: 3ea2ee48a402525421cb3ef8b83173d4bc57741c10e84fe6fae66691905293ec
+  linux_arm64: a2e8649afd3a104cc1e685c4047bf6e44d9229f226981c86cb558bb512818da6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg

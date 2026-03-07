@@ -1,0 +1,19 @@
+name: coredns
+version: 1.14.2
+description: DNS server that chains plugins
+homepage: https://coredns.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coredns/blobs/sha256:1da7753a8f94320d1bbb065365ad1a02a0d890094d04cb209f784512434feccb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coredns/blobs/sha256:0a0a0142119856959a89f535bf3e7b6d0664f46b19120c3b9a3374e991bb4792
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coredns/blobs/sha256:ed0ac795fba0748a088b65d6068b59eb21ad045cc14b3af2b363ee5330eef655
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coredns/blobs/sha256:b1097610915972b932b1157db5a15c5cd3807cd979f6811d247d6f373e46c4f7
+sha256:
+  darwin_arm64: 1da7753a8f94320d1bbb065365ad1a02a0d890094d04cb209f784512434feccb
+  darwin_amd64: 0a0a0142119856959a89f535bf3e7b6d0664f46b19120c3b9a3374e991bb4792
+  linux_amd64: ed0ac795fba0748a088b65d6068b59eb21ad045cc14b3af2b363ee5330eef655
+  linux_arm64: b1097610915972b932b1157db5a15c5cd3807cd979f6811d247d6f373e46c4f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

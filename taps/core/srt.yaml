@@ -1,0 +1,21 @@
+name: srt
+version: 1.5.4
+description: Secure Reliable Transport
+homepage: https://www.srtalliance.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/srt/blobs/sha256:023760d7f2e532bf14d215764aa8d64c2d4e52d6fd116d51f50252269813d5ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/srt/blobs/sha256:a32f1c565c530f10c2a9e1d943d0eacac64b129ba745a2eb6da520d574bd798b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/srt/blobs/sha256:f6e779a8068e881ea3977fd8ede3863b108f621589ee1f87a28360fd6d6ee257
+  linux_arm64: https://ghcr.io/v2/homebrew/core/srt/blobs/sha256:58d61f9d71831b4739cfc90208ccb2bc051e417e30f88ff91b131cd3a679be21
+sha256:
+  darwin_arm64: 023760d7f2e532bf14d215764aa8d64c2d4e52d6fd116d51f50252269813d5ba
+  darwin_amd64: a32f1c565c530f10c2a9e1d943d0eacac64b129ba745a2eb6da520d574bd798b
+  linux_amd64: f6e779a8068e881ea3977fd8ede3863b108f621589ee1f87a28360fd6d6ee257
+  linux_arm64: 58d61f9d71831b4739cfc90208ccb2bc051e417e30f88ff91b131cd3a679be21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

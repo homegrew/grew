@@ -1,0 +1,22 @@
+name: cython
+version: 3.2.4
+description: Compiler for writing C extensions for the Python language
+homepage: https://cython.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cython/blobs/sha256:2275bff675c022e817525d3506587e8493146285c2c903e2cc52bcf14c963c0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cython/blobs/sha256:96d84017528cb1850a627c5d0e3665bd39572542808e9c0053cb5eb3d5509e35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cython/blobs/sha256:16afa410ecef6646080b4b82f376f5f00aabc41d342c59bc4317fa5120785d29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cython/blobs/sha256:df8630249fef1eebb4d86fedf72037eeba54fbe0c44190f07aad274dcc27a925
+sha256:
+  darwin_arm64: 2275bff675c022e817525d3506587e8493146285c2c903e2cc52bcf14c963c0c
+  darwin_amd64: 96d84017528cb1850a627c5d0e3665bd39572542808e9c0053cb5eb3d5509e35
+  linux_amd64: 16afa410ecef6646080b4b82f376f5f00aabc41d342c59bc4317fa5120785d29
+  linux_arm64: df8630249fef1eebb4d86fedf72037eeba54fbe0c44190f07aad274dcc27a925
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+keg_only: true

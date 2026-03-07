@@ -1,0 +1,19 @@
+name: micro
+version: 2.0.15
+description: Modern and intuitive terminal-based text editor
+homepage: https://github.com/zyedidia/micro
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/micro/blobs/sha256:d25910f57cce5ca973e4972f2d44981bd55028d76b0ddd44837f2b1d0dce67c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/micro/blobs/sha256:0cec91e4e36257c85bdddcf97b30fe45ea97ea376dc56cc0bbe7b3fe90dd6924
+  linux_amd64: https://ghcr.io/v2/homebrew/core/micro/blobs/sha256:bba59c362169e2e8076262a2c663ca8c6a0f07510ca1098c3b15ce9513bc1239
+  linux_arm64: https://ghcr.io/v2/homebrew/core/micro/blobs/sha256:494dbb05834b14a1ccfa9da555a9d09fa6b6b18081f13da4a520ee1dd1430611
+sha256:
+  darwin_arm64: d25910f57cce5ca973e4972f2d44981bd55028d76b0ddd44837f2b1d0dce67c5
+  darwin_amd64: 0cec91e4e36257c85bdddcf97b30fe45ea97ea376dc56cc0bbe7b3fe90dd6924
+  linux_amd64: bba59c362169e2e8076262a2c663ca8c6a0f07510ca1098c3b15ce9513bc1239
+  linux_arm64: 494dbb05834b14a1ccfa9da555a9d09fa6b6b18081f13da4a520ee1dd1430611
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

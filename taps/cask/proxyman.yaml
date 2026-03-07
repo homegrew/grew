@@ -1,0 +1,13 @@
+name: proxyman
+version: 6.6.0,60600
+description: HTTP debugging proxy
+homepage: https://proxyman.com/
+url:
+  darwin_arm64: https://download.proxyman.com/60600/Proxyman_6.6.0.dmg
+sha256:
+  darwin_arm64: f921be9730f1b35f4c604c755c21779a56dfbb0717e888ea7dd7ee1522e9e478
+artifacts:
+  app:
+    - Proxyman.app
+  bin:
+    - proxyman-cli

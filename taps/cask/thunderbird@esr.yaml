@@ -1,0 +1,11 @@
+name: thunderbird@esr
+version: 140.8.0esr
+description: Customizable email client
+homepage: https://www.thunderbird.net/en-US/download/esr/
+url:
+  darwin_arm64: https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/140.8.0esr/mac/en-US/Thunderbird%20140.8.0esr.dmg
+sha256:
+  darwin_arm64: ec99771f1eedb53781f4f5d8c359c50a9bd988fc242a0b54ab783475adccf90d
+artifacts:
+  app:
+    - Thunderbird.app

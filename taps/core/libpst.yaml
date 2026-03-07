@@ -1,0 +1,23 @@
+name: libpst
+version: 0.6.76
+description: Utilities for the PST file format
+homepage: https://www.five-ten-sg.com/libpst/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpst/blobs/sha256:fd7349c417348d0e83213928612500c662ae584e15e66310898c9f49118d6a40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpst/blobs/sha256:a40ac01b3554f6f3cb978fccff5c6a9d0a1bf58e6bf7031988b93b02e2886b5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpst/blobs/sha256:ea909a3fa65389eb8a332f741bd5a948ed7cb006f597d0ecf3c6e46f07d991ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpst/blobs/sha256:0e1781e796d88004b7ec5ed47a6955a434711a8eaabab2289693f6507788889c
+sha256:
+  darwin_arm64: fd7349c417348d0e83213928612500c662ae584e15e66310898c9f49118d6a40
+  darwin_amd64: a40ac01b3554f6f3cb978fccff5c6a9d0a1bf58e6bf7031988b93b02e2886b5d
+  linux_amd64: ea909a3fa65389eb8a332f741bd5a948ed7cb006f597d0ecf3c6e46f07d991ad
+  linux_arm64: 0e1781e796d88004b7ec5ed47a6955a434711a8eaabab2289693f6507788889c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libgsf
+  - gettext

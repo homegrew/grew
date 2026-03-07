@@ -1,0 +1,21 @@
+name: chromaprint
+version: 1.6.0
+description: Core component of the AcoustID project (Audio fingerprinting)
+homepage: https://acoustid.org/chromaprint
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chromaprint/blobs/sha256:4dc6986a45afaf618fee24fad316ea1380dd32ee8c682f0d6486cbe7c4178a29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chromaprint/blobs/sha256:4df5e7cfb646cbc99f90997aefa13232f3531739d76fa4e985cdb09addba8a30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chromaprint/blobs/sha256:b1ca1441154c133e79dd7bc470b21978df7882ccd8949c33ff1fb0d2f38eea72
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chromaprint/blobs/sha256:9f10d33931b5924245417ef9c879ce51712326b150bf839da05b1d8eb8560f9c
+sha256:
+  darwin_arm64: 4dc6986a45afaf618fee24fad316ea1380dd32ee8c682f0d6486cbe7c4178a29
+  darwin_amd64: 4df5e7cfb646cbc99f90997aefa13232f3531739d76fa4e985cdb09addba8a30
+  linux_amd64: b1ca1441154c133e79dd7bc470b21978df7882ccd8949c33ff1fb0d2f38eea72
+  linux_arm64: 9f10d33931b5924245417ef9c879ce51712326b150bf839da05b1d8eb8560f9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg

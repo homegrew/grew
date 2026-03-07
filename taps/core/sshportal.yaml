@@ -1,0 +1,19 @@
+name: sshportal
+version: 1.19.5
+description: "SSH & Telnet bastion server"
+homepage: https://v1.manfred.life/sshportal/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sshportal/blobs/sha256:abcd2ec2450e2535d5cb8536a5098fc61acdcc34b75c02ce84be5ea958689bfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sshportal/blobs/sha256:d4a1076a63578d51bb79f4d6f7c35432771c479d6baf00d2d96556436da6dfd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshportal/blobs/sha256:5184e0795bf5e6e3c1d785919a77d4473c9edbb12bc1e3fc4714c48887b2d178
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshportal/blobs/sha256:dcaa3b282c7d701cc33799bb3d7c754b545d1278367a08421e366e8e330ba374
+sha256:
+  darwin_arm64: abcd2ec2450e2535d5cb8536a5098fc61acdcc34b75c02ce84be5ea958689bfb
+  darwin_amd64: d4a1076a63578d51bb79f4d6f7c35432771c479d6baf00d2d96556436da6dfd8
+  linux_amd64: 5184e0795bf5e6e3c1d785919a77d4473c9edbb12bc1e3fc4714c48887b2d178
+  linux_arm64: dcaa3b282c7d701cc33799bb3d7c754b545d1278367a08421e366e8e330ba374
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

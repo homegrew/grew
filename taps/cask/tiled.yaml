@@ -1,0 +1,13 @@
+name: tiled
+version: 1.11.2
+description: Flexible level editor
+homepage: https://www.mapeditor.org/
+url:
+  darwin_arm64: https://github.com/mapeditor/tiled/releases/download/v1.11.2/Tiled-1.11.2_macOS-11+.zip
+sha256:
+  darwin_arm64: 1170faae26789569ac9c6ff9a176e0cc1c3a6c3beecf148f9c91760fd3b72bb5
+artifacts:
+  app:
+    - Tiled.app
+  bin:
+    - tiled

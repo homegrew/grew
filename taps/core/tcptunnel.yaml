@@ -1,0 +1,19 @@
+name: tcptunnel
+version: 0.8
+description: TCP port forwarder
+homepage: https://vakuumverpackt.de/tcptunnel/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcptunnel/blobs/sha256:7a7efb2e5ce2524bfa04b2942b08e245786ac43a8bf4fe6bfd74ec31b9deef4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcptunnel/blobs/sha256:ab42208d9916d141100118933e3f68d98622d9008af6fb3547e44433769bf9ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcptunnel/blobs/sha256:b82ce2df1293960dc7d0e4b5b9d809198073121331d7287edacbd5cffe17d94c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcptunnel/blobs/sha256:59d0cdd268a8b0d3fe0ca85c547c68b185b5a7b6f1159b3a8eb5ac9f50178785
+sha256:
+  darwin_arm64: 7a7efb2e5ce2524bfa04b2942b08e245786ac43a8bf4fe6bfd74ec31b9deef4c
+  darwin_amd64: ab42208d9916d141100118933e3f68d98622d9008af6fb3547e44433769bf9ff
+  linux_amd64: b82ce2df1293960dc7d0e4b5b9d809198073121331d7287edacbd5cffe17d94c
+  linux_arm64: 59d0cdd268a8b0d3fe0ca85c547c68b185b5a7b6f1159b3a8eb5ac9f50178785
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

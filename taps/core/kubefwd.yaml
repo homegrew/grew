@@ -1,0 +1,19 @@
+name: kubefwd
+version: 1.25.12
+description: Bulk port forwarding Kubernetes services for local development
+homepage: https://kubefwd.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubefwd/blobs/sha256:19e63fdd7f9f9bce2dcb919db5eb39f5a162cfd3f8e11ca0fb83aa7e0964e570
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubefwd/blobs/sha256:8f3713585eb31120c3d5af702c4a1a7c64e3bd93e7e119022548a8de4f53bdd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubefwd/blobs/sha256:61a5c0d0697b4efa5a8303e4abbbc1d4ace4cf684ca2122c24ac3971c477358f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubefwd/blobs/sha256:0712b4d0f7d6f29aa4f2a1f0963189e28e5ebdb0bfda8972d77ed4d2de014bc8
+sha256:
+  darwin_arm64: 19e63fdd7f9f9bce2dcb919db5eb39f5a162cfd3f8e11ca0fb83aa7e0964e570
+  darwin_amd64: 8f3713585eb31120c3d5af702c4a1a7c64e3bd93e7e119022548a8de4f53bdd4
+  linux_amd64: 61a5c0d0697b4efa5a8303e4abbbc1d4ace4cf684ca2122c24ac3971c477358f
+  linux_arm64: 0712b4d0f7d6f29aa4f2a1f0963189e28e5ebdb0bfda8972d77ed4d2de014bc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

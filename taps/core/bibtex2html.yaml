@@ -1,0 +1,19 @@
+name: bibtex2html
+version: 1.99
+description: BibTeX to HTML converter
+homepage: https://usr.lmf.cnrs.fr/~jcf/bibtex2html/index.en.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bibtex2html/blobs/sha256:261c680993c384f4739fb747b85d0c6b346e5075a0450c588d4cd25093359d30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bibtex2html/blobs/sha256:ce5becfa433595e55c9849f1d4fe5f6f2d8775ca82b9d223627032ad4b97f372
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bibtex2html/blobs/sha256:ad67db6800da40bac05bfa7e9158ca392d135241e82e300e58cded0533349a11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bibtex2html/blobs/sha256:de9b81d5eaae752f37d96d2015cad99401acf76322e440eb7e56cc46db59d9f6
+sha256:
+  darwin_arm64: 261c680993c384f4739fb747b85d0c6b346e5075a0450c588d4cd25093359d30
+  darwin_amd64: ce5becfa433595e55c9849f1d4fe5f6f2d8775ca82b9d223627032ad4b97f372
+  linux_amd64: ad67db6800da40bac05bfa7e9158ca392d135241e82e300e58cded0533349a11
+  linux_arm64: de9b81d5eaae752f37d96d2015cad99401acf76322e440eb7e56cc46db59d9f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

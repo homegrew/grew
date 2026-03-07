@@ -1,0 +1,21 @@
+name: color-code
+version: 0.8.7
+description: Free advanced MasterMind clone
+homepage: http://colorcode.laebisch.com/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/color-code/blobs/sha256:ad3f82efc9695c34bf0108765bd03a823567321fb844bbd2dfed5ed7b679ba4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/color-code/blobs/sha256:7d1b463d79dd8300b303a00ab0f578d1468e43cdce5c7a13b1638cf68f91c49e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/color-code/blobs/sha256:dd2a46ae5f69b106738617bd41d8fe1d2a71a34dcb876850ac1c698b4ca09496
+  linux_arm64: https://ghcr.io/v2/homebrew/core/color-code/blobs/sha256:e8bbc4be9fdd3d92db8ca9620bac00252cd3eee18dce7ebdbdfab5d83d13aa33
+sha256:
+  darwin_arm64: ad3f82efc9695c34bf0108765bd03a823567321fb844bbd2dfed5ed7b679ba4d
+  darwin_amd64: 7d1b463d79dd8300b303a00ab0f578d1468e43cdce5c7a13b1638cf68f91c49e
+  linux_amd64: dd2a46ae5f69b106738617bd41d8fe1d2a71a34dcb876850ac1c698b4ca09496
+  linux_arm64: e8bbc4be9fdd3d92db8ca9620bac00252cd3eee18dce7ebdbdfab5d83d13aa33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt@5

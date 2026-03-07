@@ -1,0 +1,23 @@
+name: polynote
+version: 0.7.2
+description: Polyglot notebook with first-class Scala support
+homepage: https://polynote.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/polynote/blobs/sha256:9e426d1ec0e516570fd0c40d836821823e100f7a5a9d80652ec27c4627d335b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/polynote/blobs/sha256:ef680a88951b4c4c06d5bc61dbbbf4d755840bc82598758010b034389d9e0da8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/polynote/blobs/sha256:27764487ba7979d2f67f53d6828aef8d2d5a56a9aea1972c0e9c4a5e6b1fe542
+  linux_arm64: https://ghcr.io/v2/homebrew/core/polynote/blobs/sha256:1dbf3c452f49fa6153801b8800f2d2a5df304785a8a5d7bf7904ccdb42ac703c
+sha256:
+  darwin_arm64: 9e426d1ec0e516570fd0c40d836821823e100f7a5a9d80652ec27c4627d335b9
+  darwin_amd64: ef680a88951b4c4c06d5bc61dbbbf4d755840bc82598758010b034389d9e0da8
+  linux_amd64: 27764487ba7979d2f67f53d6828aef8d2d5a56a9aea1972c0e9c4a5e6b1fe542
+  linux_arm64: 1dbf3c452f49fa6153801b8800f2d2a5df304785a8a5d7bf7904ccdb42ac703c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - numpy
+  - openjdk
+  - python@3.14

@@ -1,0 +1,19 @@
+name: roll
+version: 2.6.1
+description: CLI program for rolling a dice sequence
+homepage: https://matteocorti.github.io/roll/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/roll/blobs/sha256:e60f90ae43698201f51529d50768ba5cd57326e62953c81a91280c6e760f5829
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/roll/blobs/sha256:588feb890e23a61032f2bc5b394e7ba6c3e134d91be3c49cfe6c131efc139280
+  linux_amd64: https://ghcr.io/v2/homebrew/core/roll/blobs/sha256:e98554d4358ec561afd285196543baf10606cfcb0a6b842ba4949cf7b477894d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/roll/blobs/sha256:904914c6aeae44b64aa7fe97d2567ec15ee48c0b1dc8700381a8608b20259174
+sha256:
+  darwin_arm64: e60f90ae43698201f51529d50768ba5cd57326e62953c81a91280c6e760f5829
+  darwin_amd64: 588feb890e23a61032f2bc5b394e7ba6c3e134d91be3c49cfe6c131efc139280
+  linux_amd64: e98554d4358ec561afd285196543baf10606cfcb0a6b842ba4949cf7b477894d
+  linux_arm64: 904914c6aeae44b64aa7fe97d2567ec15ee48c0b1dc8700381a8608b20259174
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

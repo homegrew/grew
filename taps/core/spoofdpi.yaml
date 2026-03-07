@@ -1,0 +1,19 @@
+name: spoofdpi
+version: 1.2.1
+description: Simple and fast anti-censorship tool written in Go
+homepage: https://spoofdpi.xvzc.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spoofdpi/blobs/sha256:40a08acefbf566f815df741732f55fdbb0ad8701ac54a1e5470b65e1ccc0f860
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spoofdpi/blobs/sha256:ccb0d0c4db0886e7ad706427a12b039f410e5db2aa89a9a07c8643211485a6f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spoofdpi/blobs/sha256:4b1e53d83d9af5c6366b4cc892b86f4322a6f403c1e34e5ff069b694865df5f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spoofdpi/blobs/sha256:7c9a8b5cd47ae4fd4b5ef068ee531fa87fee3e420c2b3cc43999d5b7feac9590
+sha256:
+  darwin_arm64: 40a08acefbf566f815df741732f55fdbb0ad8701ac54a1e5470b65e1ccc0f860
+  darwin_amd64: ccb0d0c4db0886e7ad706427a12b039f410e5db2aa89a9a07c8643211485a6f7
+  linux_amd64: 4b1e53d83d9af5c6366b4cc892b86f4322a6f403c1e34e5ff069b694865df5f7
+  linux_arm64: 7c9a8b5cd47ae4fd4b5ef068ee531fa87fee3e420c2b3cc43999d5b7feac9590
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

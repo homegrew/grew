@@ -1,0 +1,15 @@
+name: ghdl
+version: 5.1.1
+description: VHDL 2008/93/87 simulator
+homepage: https://ghdl.github.io/ghdl/
+url:
+  darwin_arm64: https://github.com/ghdl/ghdl/releases/download/v5.1.1/ghdl-llvm-5.1.1-macos15-aarch64.tar.gz
+sha256:
+  darwin_arm64: 0445652a460d01ab94d3a95fa88f398ae9550973daf5873f66c2480d2c73e209
+artifacts:
+  bin:
+    - ghdl
+    - ghwdump
+    - ghdl1-llvm
+    - $HOMEBREW_PREFIX/include/ghdl
+    - $HOMEBREW_PREFIX/lib/ghdl

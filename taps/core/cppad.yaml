@@ -1,0 +1,19 @@
+name: cppad
+version: 20260000.0
+description: Differentiation of C++ Algorithms
+homepage: https://cppad.readthedocs.io/latest/
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppad/blobs/sha256:aa14284fc5488a36f4aa1dc1be45515d6d96425e4ce6156117a67de19affcc1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppad/blobs/sha256:cce0487a84168dc9bb427918621ffc42f61795afce0e108439b6c8e15532389e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppad/blobs/sha256:43af0c723529ed52a763fa69cc12132230ae0098f7768f81554d1adf309d050c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppad/blobs/sha256:a191c00757e8dcbb8bb90b1752deca422aa78cdd319c978d33ce84098e0a9021
+sha256:
+  darwin_arm64: aa14284fc5488a36f4aa1dc1be45515d6d96425e4ce6156117a67de19affcc1c
+  darwin_amd64: cce0487a84168dc9bb427918621ffc42f61795afce0e108439b6c8e15532389e
+  linux_amd64: 43af0c723529ed52a763fa69cc12132230ae0098f7768f81554d1adf309d050c
+  linux_arm64: a191c00757e8dcbb8bb90b1752deca422aa78cdd319c978d33ce84098e0a9021
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

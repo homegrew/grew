@@ -1,0 +1,19 @@
+name: quran
+version: 1.0.1
+description: "Print Qur'an chapters and verses right in the terminal"
+homepage: https://git.hanabi.in/quran-go
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quran/blobs/sha256:b24abef229a42a67114aa6c1153955c0a494ad3348c320dc58358ca63082f103
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quran/blobs/sha256:504abbff199d534add1e55f97f712cd9957a925faeffea7c91c032a0e43c80b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quran/blobs/sha256:93cc2a0059d0e6faf82b0723bebe80e77fb4056895ad6a6488be408c9123cb02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quran/blobs/sha256:80f68e6c0762664536967f559c8543c726e14ecb1bbf87f5fedc3cf84b8c8caf
+sha256:
+  darwin_arm64: b24abef229a42a67114aa6c1153955c0a494ad3348c320dc58358ca63082f103
+  darwin_amd64: 504abbff199d534add1e55f97f712cd9957a925faeffea7c91c032a0e43c80b8
+  linux_amd64: 93cc2a0059d0e6faf82b0723bebe80e77fb4056895ad6a6488be408c9123cb02
+  linux_arm64: 80f68e6c0762664536967f559c8543c726e14ecb1bbf87f5fedc3cf84b8c8caf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: literate-git
+version: 0.5.1
+description: Render hierarchical git repositories into HTML
+homepage: https://github.com/bennorth/literate-git
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/literate-git/blobs/sha256:baa5c3c33cfc0dfd36ec6cbfaf9ea54ce40a08e438cb18825d5183c491fb1f1a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/literate-git/blobs/sha256:692ecccfe5818fbf0f4faf1947530b8ff6f2022c4793798e991ecc2cc528a6a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/literate-git/blobs/sha256:51040f0a845e2ee1681f70d9a0f4e938256f140989954aa9107144879802c5ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/literate-git/blobs/sha256:06d08aec5338c04b67f400c002b8b8727df6caa12b209e9893ae997d3471e09f
+sha256:
+  darwin_arm64: baa5c3c33cfc0dfd36ec6cbfaf9ea54ce40a08e438cb18825d5183c491fb1f1a
+  darwin_amd64: 692ecccfe5818fbf0f4faf1947530b8ff6f2022c4793798e991ecc2cc528a6a0
+  linux_amd64: 51040f0a845e2ee1681f70d9a0f4e938256f140989954aa9107144879802c5ab
+  linux_arm64: 06d08aec5338c04b67f400c002b8b8727df6caa12b209e9893ae997d3471e09f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pygit2
+  - python@3.14

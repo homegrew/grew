@@ -1,0 +1,24 @@
+name: inspircd
+version: 4.9.0
+description: Modular C++ Internet Relay Chat daemon
+homepage: https://www.inspircd.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inspircd/blobs/sha256:0a11881e997b3a7081c32ac81997eff669d9a095308c3acdf739a8f9ae72f147
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inspircd/blobs/sha256:8ceefe65a8e19894ee592e38c5c0402dab4bc3ada94efb9b1dae5623a7aa16eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inspircd/blobs/sha256:2550979ff57ed3a71bfeea1a5f32d4f008c678d1a0924544d1af59219b024930
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inspircd/blobs/sha256:ec40abcb3387a8b0aef724867a40e9ccadcc4646e158e38d2fbca73e59656e4b
+sha256:
+  darwin_arm64: 0a11881e997b3a7081c32ac81997eff669d9a095308c3acdf739a8f9ae72f147
+  darwin_amd64: 8ceefe65a8e19894ee592e38c5c0402dab4bc3ada94efb9b1dae5623a7aa16eb
+  linux_amd64: 2550979ff57ed3a71bfeea1a5f32d4f008c678d1a0924544d1af59219b024930
+  linux_arm64: ec40abcb3387a8b0aef724867a40e9ccadcc4646e158e38d2fbca73e59656e4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argon2
+  - gnutls
+  - libpq
+  - mariadb-connector-c

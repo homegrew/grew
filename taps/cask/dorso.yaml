@@ -1,0 +1,11 @@
+name: dorso
+version: 1.10.4
+description: Posture monitoring app
+homepage: https://github.com/tldev/dorso
+url:
+  darwin_arm64: https://github.com/tldev/dorso/releases/download/v1.10.4/Dorso-v1.10.4.dmg
+sha256:
+  darwin_arm64: 5cfabb7a1770914e4cf4ad92759283a66641dd10fcb656856da3aac13033f321
+artifacts:
+  app:
+    - Dorso.app

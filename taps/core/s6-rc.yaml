@@ -1,0 +1,23 @@
+name: s6-rc
+version: 0.6.0.0
+description: Process supervision suite
+homepage: https://skarnet.org/software/s6-rc/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s6-rc/blobs/sha256:fe87f78bdf90ce4b333fd938fefe7ddb83610d5ff56c8702379423aabb9e2aeb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s6-rc/blobs/sha256:cb335b14006884fa6f1767bde6055e9d8999fcd9be783c766482828b197daf53
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s6-rc/blobs/sha256:86e2c5dd3090eb3b36a5c0d40b22f677337f4256a97c5118d0c34d5b7f2882fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s6-rc/blobs/sha256:89222f77047fe7d4830bf67744275a0d3b068e7cadf713e21fb84f791d535ee6
+sha256:
+  darwin_arm64: fe87f78bdf90ce4b333fd938fefe7ddb83610d5ff56c8702379423aabb9e2aeb
+  darwin_amd64: cb335b14006884fa6f1767bde6055e9d8999fcd9be783c766482828b197daf53
+  linux_amd64: 86e2c5dd3090eb3b36a5c0d40b22f677337f4256a97c5118d0c34d5b7f2882fb
+  linux_arm64: 89222f77047fe7d4830bf67744275a0d3b068e7cadf713e21fb84f791d535ee6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - execline
+  - s6
+  - skalibs

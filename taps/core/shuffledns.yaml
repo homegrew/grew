@@ -1,0 +1,19 @@
+name: shuffledns
+version: 1.2.1
+description: "Enumerate subdomains using active bruteforce & resolve subdomains with wildcards"
+homepage: https://github.com/projectdiscovery/shuffledns
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shuffledns/blobs/sha256:169bd116ca2c2ded412843dc7bc8ae58c7d80fe88dbeff1e4b921bd689d94d11
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shuffledns/blobs/sha256:defb16f81861103feb5d35841c03a1bce871e490754cc688c576737977879aec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shuffledns/blobs/sha256:52df73fdcdf19cf5244cfc9c83d934681e7491a153c1ae98d94fba7a7cf33836
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shuffledns/blobs/sha256:6e8c9e9fabb9c728dbda633cd189d0a8c33cc1a568b67cbaa6b97c3932cf235d
+sha256:
+  darwin_arm64: 169bd116ca2c2ded412843dc7bc8ae58c7d80fe88dbeff1e4b921bd689d94d11
+  darwin_amd64: defb16f81861103feb5d35841c03a1bce871e490754cc688c576737977879aec
+  linux_amd64: 52df73fdcdf19cf5244cfc9c83d934681e7491a153c1ae98d94fba7a7cf33836
+  linux_arm64: 6e8c9e9fabb9c728dbda633cd189d0a8c33cc1a568b67cbaa6b97c3932cf235d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

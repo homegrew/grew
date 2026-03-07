@@ -1,0 +1,22 @@
+name: ezstream
+version: 1.0.2
+description: Client for Icecast streaming servers
+homepage: https://icecast.org/ezstream/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ezstream/blobs/sha256:985d55fee7a55d60c0d2cfa98a71f35e87b1e03272c9ecece67e267e14f53eae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ezstream/blobs/sha256:9d21015b77c920498b613d65a7467749cb595e76a48358ddd7461cf8c3eb1d13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ezstream/blobs/sha256:ff747b5e7626436d26008c0c4f328e9817e6bf61b78ec187e2dab279cea25029
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ezstream/blobs/sha256:953f775b15e5a138f324c0a65ac9147202c683d4ca3395e3d7718c3c30045772
+sha256:
+  darwin_arm64: 985d55fee7a55d60c0d2cfa98a71f35e87b1e03272c9ecece67e267e14f53eae
+  darwin_amd64: 9d21015b77c920498b613d65a7467749cb595e76a48358ddd7461cf8c3eb1d13
+  linux_amd64: ff747b5e7626436d26008c0c4f328e9817e6bf61b78ec187e2dab279cea25029
+  linux_arm64: 953f775b15e5a138f324c0a65ac9147202c683d4ca3395e3d7718c3c30045772
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libshout
+  - taglib

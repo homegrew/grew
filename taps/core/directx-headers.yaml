@@ -1,0 +1,15 @@
+name: directx-headers
+version: 1.619.1
+description: Official DirectX headers available under an open source license
+homepage: https://devblogs.microsoft.com/directx/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/directx-headers/blobs/sha256:a605831ddbce7dc030332a6f37b2acaca0cc200a4ea479f561ee3ec54101b428
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/directx-headers/blobs/sha256:c18d3cbd758e2177eb9cf24e15bf4f574c1a34e9f73ec25eec672ff168f789d8
+sha256:
+  darwin_arm64: a605831ddbce7dc030332a6f37b2acaca0cc200a4ea479f561ee3ec54101b428
+  darwin_amd64: c18d3cbd758e2177eb9cf24e15bf4f574c1a34e9f73ec25eec672ff168f789d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

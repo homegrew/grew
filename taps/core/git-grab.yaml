@@ -1,0 +1,19 @@
+name: git-grab
+version: 4.0.1
+description: Clone a git repository into a standard location organised by domain and path
+homepage: https://github.com/wezm/git-grab
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-grab/blobs/sha256:075c51d96c664c13d360040e6603257e37181c629a195d990258d25e06fd9540
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-grab/blobs/sha256:6e6eab11a1005cf3bc5caec03844638fa863fdea647b7ee374bbf1b8c4ed727d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-grab/blobs/sha256:46bceb04f6dcdfb898f6af02f4c285e29a2ed50f7694ca5dc8aef88d64d2592d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-grab/blobs/sha256:1d8a40549cc942135ea8db73a4154263078b1b803fe269e436dad35756463bcf
+sha256:
+  darwin_arm64: 075c51d96c664c13d360040e6603257e37181c629a195d990258d25e06fd9540
+  darwin_amd64: 6e6eab11a1005cf3bc5caec03844638fa863fdea647b7ee374bbf1b8c4ed727d
+  linux_amd64: 46bceb04f6dcdfb898f6af02f4c285e29a2ed50f7694ca5dc8aef88d64d2592d
+  linux_arm64: 1d8a40549cc942135ea8db73a4154263078b1b803fe269e436dad35756463bcf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

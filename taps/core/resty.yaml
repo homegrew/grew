@@ -1,0 +1,19 @@
+name: resty
+version: 3.0
+description: Command-line REST client that can be used in pipelines
+homepage: https://github.com/micha/resty
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/resty/blobs/sha256:822ecff7134608cd2f8b77f018ed5cdfe080ff2246ae16676b878d80e37dfee3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/resty/blobs/sha256:bc5f8426043e865dfb78710f4df699da3eaadee702b1c0665a0c95630bdc318a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/resty/blobs/sha256:664f2cbfde2529e7749b5f9b078cf1382fd0cf8f00a984b646d0b6c710a4a3b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/resty/blobs/sha256:6adf9e604e373a8dcb502b444e938daa08a8eee573a1e9b757eb3af4fb2848f2
+sha256:
+  darwin_arm64: 822ecff7134608cd2f8b77f018ed5cdfe080ff2246ae16676b878d80e37dfee3
+  darwin_amd64: bc5f8426043e865dfb78710f4df699da3eaadee702b1c0665a0c95630bdc318a
+  linux_amd64: 664f2cbfde2529e7749b5f9b078cf1382fd0cf8f00a984b646d0b6c710a4a3b5
+  linux_arm64: 6adf9e604e373a8dcb502b444e938daa08a8eee573a1e9b757eb3af4fb2848f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

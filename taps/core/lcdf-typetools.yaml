@@ -1,0 +1,19 @@
+name: lcdf-typetools
+version: 2.110
+description: Manipulate OpenType and multiple-master fonts
+homepage: https://www.lcdf.org/type/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lcdf-typetools/blobs/sha256:014a5797b27475c13f3b8511f5e5c76db375fdd5b1a7aabbca35a2d020918aec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lcdf-typetools/blobs/sha256:ad5b178aa2847ac19ed1dd15d43137d90758d84978ff8b36df9db66437323be8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lcdf-typetools/blobs/sha256:bc299e560c0228488ee8205b9e9a91d007d205beddd06c0461fa6e8d4e9d2589
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lcdf-typetools/blobs/sha256:934b2e2900efd242c6ca0f1d6a4b4c25e92e5ba0f6548fb6899fd8ae83a529f6
+sha256:
+  darwin_arm64: 014a5797b27475c13f3b8511f5e5c76db375fdd5b1a7aabbca35a2d020918aec
+  darwin_amd64: ad5b178aa2847ac19ed1dd15d43137d90758d84978ff8b36df9db66437323be8
+  linux_amd64: bc299e560c0228488ee8205b9e9a91d007d205beddd06c0461fa6e8d4e9d2589
+  linux_arm64: 934b2e2900efd242c6ca0f1d6a4b4c25e92e5ba0f6548fb6899fd8ae83a529f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

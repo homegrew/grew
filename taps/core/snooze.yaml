@@ -1,0 +1,19 @@
+name: snooze
+version: 0.5.1
+description: Run a command at a particular time
+homepage: https://github.com/leahneukirchen/snooze
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snooze/blobs/sha256:b939563950d008b7b55c180cfbca14a881ec02bea69c305d52b6ae9beaa572a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snooze/blobs/sha256:fbeda0b945fd00cd421ff125ad342fde3d205a00251a263ffca5acbc332fe4e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snooze/blobs/sha256:d1a636a409a86b9d904cf1d8a5e8aa9fc7ee94fc2015308daf907413200e8f63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snooze/blobs/sha256:71a32859378d3d23ceed3b0174af3fbbcbffc727acb2dc191507e2229dc864bf
+sha256:
+  darwin_arm64: b939563950d008b7b55c180cfbca14a881ec02bea69c305d52b6ae9beaa572a2
+  darwin_amd64: fbeda0b945fd00cd421ff125ad342fde3d205a00251a263ffca5acbc332fe4e3
+  linux_amd64: d1a636a409a86b9d904cf1d8a5e8aa9fc7ee94fc2015308daf907413200e8f63
+  linux_arm64: 71a32859378d3d23ceed3b0174af3fbbcbffc727acb2dc191507e2229dc864bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

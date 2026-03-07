@@ -1,0 +1,19 @@
+name: gauth
+version: 1.5.0
+description: Google Authenticator in your terminal
+homepage: https://github.com/pcarrier/gauth
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gauth/blobs/sha256:e07c7cf508ea13a153defdeb3c81b662d5672d7572edecac06920a093cecb1ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gauth/blobs/sha256:51e2838fc31e6a7dd13880b2f95ef69d7732e8db0832feeec7f30b6ec18354b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gauth/blobs/sha256:7f0fe17b342e5ff16879bea09f90bdf1ab70f33a9dea3b3ba9fbf3cfbf47028d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gauth/blobs/sha256:f1e7e417bad6562df6256368f6ec1c99816222be6dd5e05af4c600cd38509469
+sha256:
+  darwin_arm64: e07c7cf508ea13a153defdeb3c81b662d5672d7572edecac06920a093cecb1ff
+  darwin_amd64: 51e2838fc31e6a7dd13880b2f95ef69d7732e8db0832feeec7f30b6ec18354b1
+  linux_amd64: 7f0fe17b342e5ff16879bea09f90bdf1ab70f33a9dea3b3ba9fbf3cfbf47028d
+  linux_arm64: f1e7e417bad6562df6256368f6ec1c99816222be6dd5e05af4c600cd38509469
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

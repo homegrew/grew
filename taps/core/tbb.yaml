@@ -1,0 +1,21 @@
+name: tbb
+version: 2022.3.0
+description: Rich and complete approach to parallelism in C++
+homepage: https://uxlfoundation.github.io/oneTBB/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tbb/blobs/sha256:cc9fcdb5dd902f43174d0da933d9fd5cbefbc0a64782564b5b8193abc627ec0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tbb/blobs/sha256:8a759acc184a76c75165db15bd39903332e980221963da164b8a0356780acfcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tbb/blobs/sha256:d8e86274bf47f0546c742ffbd718b78c83703e3d6f8a2cd33ca7bd93c34b9291
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tbb/blobs/sha256:7cac87ad2e8f4fbf64aea23ea3ed64a54b8df675102b3013a09407ea0f43fb0b
+sha256:
+  darwin_arm64: cc9fcdb5dd902f43174d0da933d9fd5cbefbc0a64782564b5b8193abc627ec0f
+  darwin_amd64: 8a759acc184a76c75165db15bd39903332e980221963da164b8a0356780acfcd
+  linux_amd64: d8e86274bf47f0546c742ffbd718b78c83703e3d6f8a2cd33ca7bd93c34b9291
+  linux_arm64: 7cac87ad2e8f4fbf64aea23ea3ed64a54b8df675102b3013a09407ea0f43fb0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hwloc

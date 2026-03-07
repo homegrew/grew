@@ -1,0 +1,19 @@
+name: nfdump
+version: 1.7.7
+description: Tools to collect and process netflow data on the command-line
+homepage: https://github.com/phaag/nfdump
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nfdump/blobs/sha256:6a203863decd6e32077b5596b28d7ff5f3d7add64c3185d4308d5175dc2e8659
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nfdump/blobs/sha256:f1895991433aadeddb6c7a75a838b1b39c192fafe5958b5e1925d7c6195871ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nfdump/blobs/sha256:48f7c1063e36f2d139855e443c713a7d9d3bbc691b042d76717a2684217b15f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nfdump/blobs/sha256:2e0e2ad726ff8ab3d891ebf44f3f020e16ab49a0eade592a3aeced3de419f6f3
+sha256:
+  darwin_arm64: 6a203863decd6e32077b5596b28d7ff5f3d7add64c3185d4308d5175dc2e8659
+  darwin_amd64: f1895991433aadeddb6c7a75a838b1b39c192fafe5958b5e1925d7c6195871ab
+  linux_amd64: 48f7c1063e36f2d139855e443c713a7d9d3bbc691b042d76717a2684217b15f1
+  linux_arm64: 2e0e2ad726ff8ab3d891ebf44f3f020e16ab49a0eade592a3aeced3de419f6f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

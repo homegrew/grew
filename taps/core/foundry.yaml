@@ -1,0 +1,21 @@
+name: foundry
+version: 1.5.1
+description: Blazing fast, portable and modular toolkit for Ethereum application development
+homepage: https://github.com/foundry-rs/foundry
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/foundry/blobs/sha256:d10d6f1d4f608af12fee2b0d5acd0d46149ab171f9cc91e1ded7b52caa7a02ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/foundry/blobs/sha256:3fa93ea839450ffe3bdf5a2903ecc5c22d0ed28f805d9f82e21b35a06e9ece1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/foundry/blobs/sha256:453027b09191e33b00015be9a4b2c806d6bf626a2d223c08a10f03a23f3e0fd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/foundry/blobs/sha256:c196da5a75be8eb147e84af7cd387d4207b597508016f53d291d25d11d2de869
+sha256:
+  darwin_arm64: d10d6f1d4f608af12fee2b0d5acd0d46149ab171f9cc91e1ded7b52caa7a02ab
+  darwin_amd64: 3fa93ea839450ffe3bdf5a2903ecc5c22d0ed28f805d9f82e21b35a06e9ece1d
+  linux_amd64: 453027b09191e33b00015be9a4b2c806d6bf626a2d223c08a10f03a23f3e0fd0
+  linux_arm64: c196da5a75be8eb147e84af7cd387d4207b597508016f53d291d25d11d2de869
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

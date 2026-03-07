@@ -1,0 +1,19 @@
+name: jwt-hack
+version: 2.5.0
+description: JSON Web Token Hack Toolkit
+homepage: https://github.com/hahwul/jwt-hack
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jwt-hack/blobs/sha256:c774db25ff55344e74cc44cdcd769585185762a3acca17d019df869a31a22608
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jwt-hack/blobs/sha256:eac5190ed5651ff1b4c9912ab71bbc28048d5b47b6f4d517462f3c7468cd722f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jwt-hack/blobs/sha256:9c1e09b4e3dfd12d38c0f9e09a3ae9b48418a04b20be9f0c25a74704bd9f12e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jwt-hack/blobs/sha256:bf4553cbc30e92a05ccff655210d1bf78d0b489d89d039480f673fd2c6245693
+sha256:
+  darwin_arm64: c774db25ff55344e74cc44cdcd769585185762a3acca17d019df869a31a22608
+  darwin_amd64: eac5190ed5651ff1b4c9912ab71bbc28048d5b47b6f4d517462f3c7468cd722f
+  linux_amd64: 9c1e09b4e3dfd12d38c0f9e09a3ae9b48418a04b20be9f0c25a74704bd9f12e5
+  linux_arm64: bf4553cbc30e92a05ccff655210d1bf78d0b489d89d039480f673fd2c6245693
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

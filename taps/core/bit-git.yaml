@@ -1,0 +1,19 @@
+name: bit-git
+version: 1.1.2
+description: Bit is a modern Git CLI
+homepage: https://github.com/chriswalz/bit
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bit-git/blobs/sha256:6e2c5d5baedcd742c9f2808e15e1310c4762fe49bde321b2786bbdf5e5746319
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bit-git/blobs/sha256:f1848708a2ca3bf3ad52aad8e4005adc464b824da5b38c3eb69bc80d9c8979d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bit-git/blobs/sha256:c9242804e17ecbd8e6a42368a26c83fd8d97567ce6adbe5c2471dce9f6969f90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bit-git/blobs/sha256:353231b7f6e264d45c4aaeac8e79b17bbc5dd10f917c333725f28084644824fd
+sha256:
+  darwin_arm64: 6e2c5d5baedcd742c9f2808e15e1310c4762fe49bde321b2786bbdf5e5746319
+  darwin_amd64: f1848708a2ca3bf3ad52aad8e4005adc464b824da5b38c3eb69bc80d9c8979d5
+  linux_amd64: c9242804e17ecbd8e6a42368a26c83fd8d97567ce6adbe5c2471dce9f6969f90
+  linux_arm64: 353231b7f6e264d45c4aaeac8e79b17bbc5dd10f917c333725f28084644824fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

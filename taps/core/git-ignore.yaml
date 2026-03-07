@@ -1,0 +1,19 @@
+name: git-ignore
+version: 1.4.0
+description: List, fetch and generate .gitignore templates
+homepage: https://github.com/sondr3/git-ignore
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-ignore/blobs/sha256:daab0c3b00b1314130ec974b9e4ff30622dcbbe324d07b45f05045bd87020061
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-ignore/blobs/sha256:74cdcc6265ecd3014caf6e9d06a3581b7d02b2e1eb1aeb19577917dadadfe0bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-ignore/blobs/sha256:e74eded3d0a43226202ee0c8ccbf9fc56e5c73ec31d73968d395c6bf5b7df4c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-ignore/blobs/sha256:bcbf4de3e675c9c457757851101f6f863e8ca63d1807d86ecf5e73326b397330
+sha256:
+  darwin_arm64: daab0c3b00b1314130ec974b9e4ff30622dcbbe324d07b45f05045bd87020061
+  darwin_amd64: 74cdcc6265ecd3014caf6e9d06a3581b7d02b2e1eb1aeb19577917dadadfe0bd
+  linux_amd64: e74eded3d0a43226202ee0c8ccbf9fc56e5c73ec31d73968d395c6bf5b7df4c9
+  linux_arm64: bcbf4de3e675c9c457757851101f6f863e8ca63d1807d86ecf5e73326b397330
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

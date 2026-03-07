@@ -1,0 +1,19 @@
+name: enchive
+version: 3.5
+description: Encrypted personal archives
+homepage: https://github.com/skeeto/enchive
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enchive/blobs/sha256:a0c663f95e9a509534933df146b2ca6792ce0388907cc07b8eaffb3025ed139f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enchive/blobs/sha256:4c5cd5ffdc8e1849860c173711a5ab29f356b452d86efaf944dca480afe70963
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enchive/blobs/sha256:116e7fa59dc5c555ef911ca1668175cb71fce934dcc3f475433e84ce6d2f4d14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enchive/blobs/sha256:9f0cbe65f702629660b17db25d09bb215a4383d569b781251cabb82acb5de040
+sha256:
+  darwin_arm64: a0c663f95e9a509534933df146b2ca6792ce0388907cc07b8eaffb3025ed139f
+  darwin_amd64: 4c5cd5ffdc8e1849860c173711a5ab29f356b452d86efaf944dca480afe70963
+  linux_amd64: 116e7fa59dc5c555ef911ca1668175cb71fce934dcc3f475433e84ce6d2f4d14
+  linux_arm64: 9f0cbe65f702629660b17db25d09bb215a4383d569b781251cabb82acb5de040
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

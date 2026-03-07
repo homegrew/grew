@@ -1,0 +1,19 @@
+name: cf
+version: 1.2.8
+description: Filter to replace numeric timestamps with a formatted date time
+homepage: https://ee.lbl.gov/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cf/blobs/sha256:f9a58bff4b385a95708503e3e0888e6a62230018f8d56396c46ffd8ecb8f5a8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cf/blobs/sha256:8adfb68d96bb5baf3559102add0b8242e1c2d2eb4f4ec577624adf49b326b034
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cf/blobs/sha256:78ac7581dae658e0e16a2413c5c9fda7725460394f707c3f78c65b99f9557692
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cf/blobs/sha256:465bafd8f283eff64e7b301eb57b3ddf87d783be1bc965e7efcec56636a2b49d
+sha256:
+  darwin_arm64: f9a58bff4b385a95708503e3e0888e6a62230018f8d56396c46ffd8ecb8f5a8f
+  darwin_amd64: 8adfb68d96bb5baf3559102add0b8242e1c2d2eb4f4ec577624adf49b326b034
+  linux_amd64: 78ac7581dae658e0e16a2413c5c9fda7725460394f707c3f78c65b99f9557692
+  linux_arm64: 465bafd8f283eff64e7b301eb57b3ddf87d783be1bc965e7efcec56636a2b49d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

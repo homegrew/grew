@@ -1,0 +1,19 @@
+name: genders
+version: 1.32.1
+description: Static cluster configuration database for cluster management
+homepage: https://github.com/chaos/genders
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/genders/blobs/sha256:eba68a608683a6b5b812d8aaa3a59b4836ec5bf50af50a4115fde697a790274e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/genders/blobs/sha256:dc5878427ff5e64542ee04d17fe4cafe426b0aa8de57ce6772d6caefa858eb67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/genders/blobs/sha256:9d4d80a5708b75bb42090098c791379194c9da4fc9cb41a1ff40193b69d0bea3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/genders/blobs/sha256:a2ae24d08bac380a175921c187843271b0248c7a9e37d5d9f2e214636f27bec3
+sha256:
+  darwin_arm64: eba68a608683a6b5b812d8aaa3a59b4836ec5bf50af50a4115fde697a790274e
+  darwin_amd64: dc5878427ff5e64542ee04d17fe4cafe426b0aa8de57ce6772d6caefa858eb67
+  linux_amd64: 9d4d80a5708b75bb42090098c791379194c9da4fc9cb41a1ff40193b69d0bea3
+  linux_arm64: a2ae24d08bac380a175921c187843271b0248c7a9e37d5d9f2e214636f27bec3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

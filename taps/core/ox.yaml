@@ -1,0 +1,19 @@
+name: ox
+version: 0.7.7
+description: Independent Rust text editor that runs in your terminal
+homepage: https://github.com/curlpipe/ox
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ox/blobs/sha256:0a82610add3dfd5db1da081200dc059858b37fce50d927b991f3c6c66a113279
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ox/blobs/sha256:c468c1a3b8020dcc6a5eed5e715c64ed474501016fa48d205a1aa0e8fadadb32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ox/blobs/sha256:f56fa97255719ee87aebf29c4ba0b7afdc917e399dd6dcc3788e088699136de9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ox/blobs/sha256:31fb3bc58c5857cc0aadcef6a5601cc0b4b7bb7ea2fd47b5ca12d3739d044859
+sha256:
+  darwin_arm64: 0a82610add3dfd5db1da081200dc059858b37fce50d927b991f3c6c66a113279
+  darwin_amd64: c468c1a3b8020dcc6a5eed5e715c64ed474501016fa48d205a1aa0e8fadadb32
+  linux_amd64: f56fa97255719ee87aebf29c4ba0b7afdc917e399dd6dcc3788e088699136de9
+  linux_arm64: 31fb3bc58c5857cc0aadcef6a5601cc0b4b7bb7ea2fd47b5ca12d3739d044859
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

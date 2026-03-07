@@ -1,0 +1,19 @@
+name: helix
+version: 25.07.1
+description: Post-modern modal text editor
+homepage: https://helix-editor.com
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helix/blobs/sha256:7f0f62bb6efba768f5d1f2e39cd060be9e17d35704c66597955da5bb3a898c25
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helix/blobs/sha256:0549f3a3483f52e6f4cf91d1eb5d0bbc7337f8306cce31c33f833ce41acbe1b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helix/blobs/sha256:8c25fb6e1058913aaeb3b39e024bd7c917ceb6bb701ade5ce9cfe2e967113363
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helix/blobs/sha256:fb65655cfc088fb01da162a60ab75b419bbacb4f9e262c3be09c4193c382b56d
+sha256:
+  darwin_arm64: 7f0f62bb6efba768f5d1f2e39cd060be9e17d35704c66597955da5bb3a898c25
+  darwin_amd64: 0549f3a3483f52e6f4cf91d1eb5d0bbc7337f8306cce31c33f833ce41acbe1b4
+  linux_amd64: 8c25fb6e1058913aaeb3b39e024bd7c917ceb6bb701ade5ce9cfe2e967113363
+  linux_arm64: fb65655cfc088fb01da162a60ab75b419bbacb4f9e262c3be09c4193c382b56d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

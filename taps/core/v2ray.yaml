@@ -1,0 +1,19 @@
+name: v2ray
+version: 5.44.1
+description: Platform for building proxies to bypass network restrictions
+homepage: https://v2fly.org/
+license: MIT AND CC-BY-SA-4.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/v2ray/blobs/sha256:425f3b5f3ca1f653e2d3fd258818c4594bf86ec8503150e187ac9ae5077d38ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/v2ray/blobs/sha256:94d505a6fa0d44b125ff6591f05b3b30c716dbb39f3376595f318099b5ce621d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/v2ray/blobs/sha256:7406404b69b61b21176e77607ea9142b8e9b16c8b2504f41ce636d8e76a58c2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/v2ray/blobs/sha256:24c033643be2d055a4447a4b21822c59dec1e3ec32a013c4a7e03f2c5b0d61a3
+sha256:
+  darwin_arm64: 425f3b5f3ca1f653e2d3fd258818c4594bf86ec8503150e187ac9ae5077d38ce
+  darwin_amd64: 94d505a6fa0d44b125ff6591f05b3b30c716dbb39f3376595f318099b5ce621d
+  linux_amd64: 7406404b69b61b21176e77607ea9142b8e9b16c8b2504f41ce636d8e76a58c2b
+  linux_arm64: 24c033643be2d055a4447a4b21822c59dec1e3ec32a013c4a7e03f2c5b0d61a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

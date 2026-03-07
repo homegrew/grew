@@ -1,0 +1,21 @@
+name: lrdf
+version: 0.6.1
+description: RDF library for accessing plugin metadata in the LADSPA plugin system
+homepage: https://github.com/swh/LRDF
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lrdf/blobs/sha256:c09fe231441b197696150fc815ddabbcad7a895048555bf374f2064eaf277d09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lrdf/blobs/sha256:ea821b325e68ec373f605f434dc4bf99fa2ecc98dee3a1c4fa7b28051ab2e183
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lrdf/blobs/sha256:4cb0169c0f75331b17aedb8d9f54283c5487230015b284429f6a6ee9f72344d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lrdf/blobs/sha256:7ebc904f67f824e682d13f0ca1f0176c17b8aadcea4270c1cf476a4bcfd40835
+sha256:
+  darwin_arm64: c09fe231441b197696150fc815ddabbcad7a895048555bf374f2064eaf277d09
+  darwin_amd64: ea821b325e68ec373f605f434dc4bf99fa2ecc98dee3a1c4fa7b28051ab2e183
+  linux_amd64: 4cb0169c0f75331b17aedb8d9f54283c5487230015b284429f6a6ee9f72344d2
+  linux_arm64: 7ebc904f67f824e682d13f0ca1f0176c17b8aadcea4270c1cf476a4bcfd40835
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - raptor

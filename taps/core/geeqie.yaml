@@ -1,0 +1,44 @@
+name: geeqie
+version: 2.7
+description: Lightweight Gtk+ based image viewer
+homepage: https://www.geeqie.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geeqie/blobs/sha256:d3fd0f03b1df26f2e61b742079f7f664a5918cf7044e09bd98d2f6693af73816
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geeqie/blobs/sha256:a26edfc97367bd2628218bfac629b31d72fee788236b9bab6b76f79a38a81472
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geeqie/blobs/sha256:dc92b1f6a42205906725f03bee3a7ef0f1fdd2637bac9d8e45a5d8bca4f12d42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geeqie/blobs/sha256:c7f84e3cbe65148e8d8e0436a1cea684ac80958aba99b211500d5d80b1a4c427
+sha256:
+  darwin_arm64: d3fd0f03b1df26f2e61b742079f7f664a5918cf7044e09bd98d2f6693af73816
+  darwin_amd64: a26edfc97367bd2628218bfac629b31d72fee788236b9bab6b76f79a38a81472
+  linux_amd64: dc92b1f6a42205906725f03bee3a7ef0f1fdd2637bac9d8e45a5d8bca4f12d42
+  linux_arm64: c7f84e3cbe65148e8d8e0436a1cea684ac80958aba99b211500d5d80b1a4c427
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - djvulibre
+  - exiv2
+  - ffmpegthumbnailer
+  - gdk-pixbuf
+  - glib
+  - gspell
+  - gtk+3
+  - imagemagick
+  - imath
+  - jpeg-turbo
+  - jpeg-xl
+  - libarchive
+  - libheif
+  - libraw
+  - libtiff
+  - little-cms2
+  - openexr
+  - openjpeg
+  - pango
+  - poppler
+  - webp
+  - gettext

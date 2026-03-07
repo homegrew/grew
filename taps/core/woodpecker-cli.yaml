@@ -1,0 +1,19 @@
+name: woodpecker-cli
+version: 3.13.0
+description: CLI client for the Woodpecker Continuous Integration server
+homepage: https://woodpecker-ci.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/woodpecker-cli/blobs/sha256:8fd4b19b9cfd0e7ba841f346e4f541fe1ad1b9dc73ba3741babe57027fb3f586
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/woodpecker-cli/blobs/sha256:112c2d9fba139e54bd05cce40c4e1c62dd5d01285f46fce0b76607f108b86e80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/woodpecker-cli/blobs/sha256:0da612e7334c621f34092406f7ad1328696e911a9a82fb190593c9918a976958
+  linux_arm64: https://ghcr.io/v2/homebrew/core/woodpecker-cli/blobs/sha256:a36e900e3891748e4a2063fe51398c9b9824aa3ed4e6cc030a1345955f446a12
+sha256:
+  darwin_arm64: 8fd4b19b9cfd0e7ba841f346e4f541fe1ad1b9dc73ba3741babe57027fb3f586
+  darwin_amd64: 112c2d9fba139e54bd05cce40c4e1c62dd5d01285f46fce0b76607f108b86e80
+  linux_amd64: 0da612e7334c621f34092406f7ad1328696e911a9a82fb190593c9918a976958
+  linux_arm64: a36e900e3891748e4a2063fe51398c9b9824aa3ed4e6cc030a1345955f446a12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

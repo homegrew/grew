@@ -1,0 +1,22 @@
+name: mdv
+version: 1.7.5
+description: Styled terminal markdown viewer
+homepage: https://github.com/axiros/terminal_markdown_viewer
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdv/blobs/sha256:cb111a674b82866651a2cc13f11fac8fe37cc68e4559963f04c40ccb0cdcb06e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdv/blobs/sha256:aa784301843d3bdd4ae5badde5a1336575b337fea7dcd7efc181e299134f3397
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdv/blobs/sha256:c891c0e81a3f78060d0d7e4df72d477d0f3dd04017b425b6b7400a8aef24d8d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdv/blobs/sha256:1f8dd2691dfae52301c4ddf31f5e89a76b38b8cbb19025e89392a83830d62795
+sha256:
+  darwin_arm64: cb111a674b82866651a2cc13f11fac8fe37cc68e4559963f04c40ccb0cdcb06e
+  darwin_amd64: aa784301843d3bdd4ae5badde5a1336575b337fea7dcd7efc181e299134f3397
+  linux_amd64: c891c0e81a3f78060d0d7e4df72d477d0f3dd04017b425b6b7400a8aef24d8d3
+  linux_arm64: 1f8dd2691dfae52301c4ddf31f5e89a76b38b8cbb19025e89392a83830d62795
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: tmux-mem-cpu-load
+version: 3.8.2
+description: CPU, RAM memory, and load monitor for use with tmux
+homepage: https://github.com/thewtex/tmux-mem-cpu-load
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmux-mem-cpu-load/blobs/sha256:19c2ae55cb2ffbc4cfeff943ea057a2b6e98c444c3b7a851bc25adc4969679a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmux-mem-cpu-load/blobs/sha256:73c300b2c57ff480f97b6013a9627c3b74532e8983829b1512f84a8ca5604107
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmux-mem-cpu-load/blobs/sha256:9dcb9393b62f525dcadb1e1c463e3f0e34d9553038e8089db2c82548f180e56f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmux-mem-cpu-load/blobs/sha256:c91113c2894a4d31d72697bbf71047a6318b938c67d5750386bf333d0140e2f3
+sha256:
+  darwin_arm64: 19c2ae55cb2ffbc4cfeff943ea057a2b6e98c444c3b7a851bc25adc4969679a6
+  darwin_amd64: 73c300b2c57ff480f97b6013a9627c3b74532e8983829b1512f84a8ca5604107
+  linux_amd64: 9dcb9393b62f525dcadb1e1c463e3f0e34d9553038e8089db2c82548f180e56f
+  linux_arm64: c91113c2894a4d31d72697bbf71047a6318b938c67d5750386bf333d0140e2f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

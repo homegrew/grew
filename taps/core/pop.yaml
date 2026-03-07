@@ -1,0 +1,19 @@
+name: pop
+version: 0.2.0
+description: Send emails from your terminal
+homepage: https://github.com/charmbracelet/pop
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pop/blobs/sha256:f9daaf2bd102ae4cfa8ef52a81f956d5ec03b1554497c3c227605c2c75eb48d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pop/blobs/sha256:3751ae162f97749c387f4b0962a231a2f70b616ab21e45396c1cb5a3049256c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pop/blobs/sha256:6bb612af3210b31359c2c083f7e72fd37663ea3c15c9de1f5e4ab06f46854e86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pop/blobs/sha256:b43d251eab1371931673e69267d5e1efec1afec1f892cb88e35136d06d9dcfd1
+sha256:
+  darwin_arm64: f9daaf2bd102ae4cfa8ef52a81f956d5ec03b1554497c3c227605c2c75eb48d7
+  darwin_amd64: 3751ae162f97749c387f4b0962a231a2f70b616ab21e45396c1cb5a3049256c8
+  linux_amd64: 6bb612af3210b31359c2c083f7e72fd37663ea3c15c9de1f5e4ab06f46854e86
+  linux_arm64: b43d251eab1371931673e69267d5e1efec1afec1f892cb88e35136d06d9dcfd1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

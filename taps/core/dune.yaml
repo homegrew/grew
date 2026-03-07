@@ -1,0 +1,19 @@
+name: dune
+version: 3.21.1
+description: Composable build system for OCaml
+homepage: https://dune.build/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dune/blobs/sha256:b252fd38dd6e83bf949e8bcfdfbf528a944e11cfed72a04012c1d7318daf2212
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dune/blobs/sha256:1fe1f11d7fd73c6221598e8284ccd3bdf34dfb25c16fa0f4d6ef8072adb38927
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dune/blobs/sha256:3b71e0a5a1e5960164dbaa7825e9bd8e23f875774f11b707723fb44373fdb35e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dune/blobs/sha256:63826c690a019fe8e38b331bc566ec9bead61f2d5079e8077c85df2d08504489
+sha256:
+  darwin_arm64: b252fd38dd6e83bf949e8bcfdfbf528a944e11cfed72a04012c1d7318daf2212
+  darwin_amd64: 1fe1f11d7fd73c6221598e8284ccd3bdf34dfb25c16fa0f4d6ef8072adb38927
+  linux_amd64: 3b71e0a5a1e5960164dbaa7825e9bd8e23f875774f11b707723fb44373fdb35e
+  linux_arm64: 63826c690a019fe8e38b331bc566ec9bead61f2d5079e8077c85df2d08504489
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

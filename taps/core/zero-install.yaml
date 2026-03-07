@@ -1,0 +1,21 @@
+name: zero-install
+version: 2.18
+description: Decentralised cross-platform software installation system
+homepage: https://0install.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zero-install/blobs/sha256:72363e55fe980db764f061a8963c2e9fe3fb58370b1daa7fa48ce4bb2729990f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zero-install/blobs/sha256:813a1b599f5fc67cab8418cd70ddf64a0c7c8f62e78520cb221bf58ea0a54df8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zero-install/blobs/sha256:dcc1fe5759e42d2757f7ab28cdd33eecc9339ef83bf8aebb60cba6d8b5dd94d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zero-install/blobs/sha256:eaa97baccdef4813578e7a9bd8ad445a65358b1ebd48598ceddf53b0a156859e
+sha256:
+  darwin_arm64: 72363e55fe980db764f061a8963c2e9fe3fb58370b1daa7fa48ce4bb2729990f
+  darwin_amd64: 813a1b599f5fc67cab8418cd70ddf64a0c7c8f62e78520cb221bf58ea0a54df8
+  linux_amd64: dcc1fe5759e42d2757f7ab28cdd33eecc9339ef83bf8aebb60cba6d8b5dd94d6
+  linux_arm64: eaa97baccdef4813578e7a9bd8ad445a65358b1ebd48598ceddf53b0a156859e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg

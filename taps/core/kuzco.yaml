@@ -1,0 +1,19 @@
+name: kuzco
+version: 1.8.0
+description: Reviews Terraform and OpenTofu resources and uses AI to suggest improvements
+homepage: https://github.com/RoseSecurity/Kuzco
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kuzco/blobs/sha256:176c9b96744ec4e124b20aebfdbd0adab2acf7f0bff9dd7c08a294ae92ae15fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kuzco/blobs/sha256:f9ce248f4d9322f433d5b48e7a90d60db06920971717171eaa2a6f120284da56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kuzco/blobs/sha256:f3fffefd67f030e20b69ce51d5edadea20cbbccb745c7f22489d0fc60a6daf2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kuzco/blobs/sha256:b5a2ee10d34b20b83d1409f1f15ae96311c6f890daad7032b339c840fd5ce924
+sha256:
+  darwin_arm64: 176c9b96744ec4e124b20aebfdbd0adab2acf7f0bff9dd7c08a294ae92ae15fc
+  darwin_amd64: f9ce248f4d9322f433d5b48e7a90d60db06920971717171eaa2a6f120284da56
+  linux_amd64: f3fffefd67f030e20b69ce51d5edadea20cbbccb745c7f22489d0fc60a6daf2b
+  linux_arm64: b5a2ee10d34b20b83d1409f1f15ae96311c6f890daad7032b339c840fd5ce924
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

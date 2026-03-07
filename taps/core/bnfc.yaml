@@ -1,0 +1,21 @@
+name: bnfc
+version: 2.9.6.2
+description: BNF Converter
+homepage: https://github.com/BNFC/bnfc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bnfc/blobs/sha256:fc1a05687a2bd431e6371fb5068f41ff0bf70648e809111d5453415d194e532e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bnfc/blobs/sha256:e955c51e0323aef6c80360cc55765f46f1b3593df94b6044090078749767fd37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bnfc/blobs/sha256:f523f3617e9b794c4aa57e752fb7e056adc60b2f48cf436b38692aa5de2904a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bnfc/blobs/sha256:0422a1119274343c4a342b076321170f9f987a8dd67f78a6d40c4e0efb391ac9
+sha256:
+  darwin_arm64: fc1a05687a2bd431e6371fb5068f41ff0bf70648e809111d5453415d194e532e
+  darwin_amd64: e955c51e0323aef6c80360cc55765f46f1b3593df94b6044090078749767fd37
+  linux_amd64: f523f3617e9b794c4aa57e752fb7e056adc60b2f48cf436b38692aa5de2904a3
+  linux_arm64: 0422a1119274343c4a342b076321170f9f987a8dd67f78a6d40c4e0efb391ac9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

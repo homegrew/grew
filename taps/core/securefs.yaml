@@ -1,0 +1,26 @@
+name: securefs
+version: 2.0.0
+description: Filesystem with transparent authenticated encryption
+homepage: https://github.com/netheril96/securefs
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/securefs/blobs/sha256:edaeb4feb94f768fa002e6bca9d6b9473946d545703007102e195ff49b246a0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/securefs/blobs/sha256:eb8ecc3d54f6cddcf748bd267356e56daf0fb4337a1759ca313893ae1a84c442
+sha256:
+  linux_amd64: edaeb4feb94f768fa002e6bca9d6b9473946d545703007102e195ff49b246a0a
+  linux_arm64: eb8ecc3d54f6cddcf748bd267356e56daf0fb4337a1759ca313893ae1a84c442
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - argon2
+  - cryptopp
+  - fruit
+  - jsoncpp
+  - libfuse@2
+  - protobuf
+  - sqlite
+  - uni-algo
+  - utf8proc

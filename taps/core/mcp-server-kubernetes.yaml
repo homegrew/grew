@@ -1,0 +1,21 @@
+name: mcp-server-kubernetes
+version: 3.3.0
+description: MCP Server for kubernetes management commands
+homepage: https://github.com/Flux159/mcp-server-kubernetes
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcp-server-kubernetes/blobs/sha256:2fe3a9a7a3f34fe4fc78b54951e480f8906663a5e56144b99215ce3483def915
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcp-server-kubernetes/blobs/sha256:da6e3c1b740d6d4dfadb60b05d1086d68e2626d8cdb3535ef4c3ed713d836afd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcp-server-kubernetes/blobs/sha256:4767ed3dd6e19f8e2901353633b6361148d708c6cc0ffa4def14cfef9b16c22d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcp-server-kubernetes/blobs/sha256:f4b93e0c7421c5f96845c633645aa04f6a7f4e0e099f6fad7fb47cb1c1dbef66
+sha256:
+  darwin_arm64: 2fe3a9a7a3f34fe4fc78b54951e480f8906663a5e56144b99215ce3483def915
+  darwin_amd64: da6e3c1b740d6d4dfadb60b05d1086d68e2626d8cdb3535ef4c3ed713d836afd
+  linux_amd64: 4767ed3dd6e19f8e2901353633b6361148d708c6cc0ffa4def14cfef9b16c22d
+  linux_arm64: f4b93e0c7421c5f96845c633645aa04f6a7f4e0e099f6fad7fb47cb1c1dbef66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

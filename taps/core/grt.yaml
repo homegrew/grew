@@ -1,0 +1,19 @@
+name: grt
+version: 0.2.4
+description: Gesture Recognition Toolkit for real-time machine learning
+homepage: https://nickgillian.com/grt/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grt/blobs/sha256:c6059dfbaae19edd07d9b9c4df53dc8797cfe6d918ce9cfec5628bfefc6ca3f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grt/blobs/sha256:6cbbeba38afd1267c3db39c759771e7a58d28a82eeaac6c3e90e0bba92185f02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grt/blobs/sha256:c9faf092937716c46062df1823e3af440e986eba4d3de6a965fbedd619b4e43e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grt/blobs/sha256:4e0eeec38e25fa39e7e63c6e2a3a740e088522c789c77ea3361b5d6d7fd30e9f
+sha256:
+  darwin_arm64: c6059dfbaae19edd07d9b9c4df53dc8797cfe6d918ce9cfec5628bfefc6ca3f7
+  darwin_amd64: 6cbbeba38afd1267c3db39c759771e7a58d28a82eeaac6c3e90e0bba92185f02
+  linux_amd64: c9faf092937716c46062df1823e3af440e986eba4d3de6a965fbedd619b4e43e
+  linux_arm64: 4e0eeec38e25fa39e7e63c6e2a3a740e088522c789c77ea3361b5d6d7fd30e9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

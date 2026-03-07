@@ -1,0 +1,19 @@
+name: libxo
+version: 1.7.5
+description: Allows an application to generate text, XML, JSON, and HTML output
+homepage: https://juniper.github.io/libxo/libxo-manual.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxo/blobs/sha256:c68c67c6e39b78400523b00d29533997b73c324847c4a0682fc3409c9bd7ca58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxo/blobs/sha256:9176bd1a62a3c7e3781cdfd1c2fd2f8958b468d08f6086a4229741e4f32e4229
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxo/blobs/sha256:5fa4473b566e7039ec3b98394c7ce6c863cbe3f4eeacc000012976a4cde4ea83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxo/blobs/sha256:17647ad9619b33d7dd984b9c04312e5d717a6bd078608be42b17882ed6ad4237
+sha256:
+  darwin_arm64: c68c67c6e39b78400523b00d29533997b73c324847c4a0682fc3409c9bd7ca58
+  darwin_amd64: 9176bd1a62a3c7e3781cdfd1c2fd2f8958b468d08f6086a4229741e4f32e4229
+  linux_amd64: 5fa4473b566e7039ec3b98394c7ce6c863cbe3f4eeacc000012976a4cde4ea83
+  linux_arm64: 17647ad9619b33d7dd984b9c04312e5d717a6bd078608be42b17882ed6ad4237
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

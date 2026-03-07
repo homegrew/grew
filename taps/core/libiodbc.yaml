@@ -1,0 +1,20 @@
+name: libiodbc
+version: 3.52.16
+description: Database connectivity layer based on ODBC. (alternative to unixodbc)
+homepage: https://www.iodbc.org/
+license: BSD-3-Clause OR LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libiodbc/blobs/sha256:ab0c5ad41cb17f93a5d9b29ad4d64f6e1be2fb6f1c76bcd7db04b8ded60549e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libiodbc/blobs/sha256:51d457af2187861576522c3a4bf4d9dcd092bd6626b1e9f838a2f717330ed32e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libiodbc/blobs/sha256:6a55f7da0eb9e5afb600e861bb089d7f7a74d393b4c29c9d7d9383c75a717883
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libiodbc/blobs/sha256:2fed59ad000ff8d08665d2ea43a4b4d997fca1fadccc470c58290d72bdc9259d
+sha256:
+  darwin_arm64: ab0c5ad41cb17f93a5d9b29ad4d64f6e1be2fb6f1c76bcd7db04b8ded60549e4
+  darwin_amd64: 51d457af2187861576522c3a4bf4d9dcd092bd6626b1e9f838a2f717330ed32e
+  linux_amd64: 6a55f7da0eb9e5afb600e861bb089d7f7a74d393b4c29c9d7d9383c75a717883
+  linux_arm64: 2fed59ad000ff8d08665d2ea43a4b4d997fca1fadccc470c58290d72bdc9259d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,11 @@
+name: k6-studio
+version: 1.11.0
+description: Application for generating k6 test scripts
+homepage: https://grafana.com/docs/k6-studio
+url:
+  darwin_arm64: https://github.com/grafana/k6-studio/releases/download/v1.11.0/k6.Studio-1.11.0-arm64.dmg
+sha256:
+  darwin_arm64: 26ad80549e3464f56567bf8ba7e2e75dbc8059498e900146dea42195871f144f
+artifacts:
+  app:
+    - k6 Studio.app

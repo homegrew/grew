@@ -1,0 +1,27 @@
+name: fceux
+version: 2.6.6
+description: All-in-one NES/Famicom Emulator
+homepage: https://fceux.com/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fceux/blobs/sha256:9bbe75f88e4ef4f07b66016f279989d0152b3b9b4eda6205116248a8ff493e7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fceux/blobs/sha256:3b270af853ae3f5485310667683262f23d2420940db6e1eaa0291a01e0d9409d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fceux/blobs/sha256:6d51564f3c8477453d8b0ea8045237bf8c8c73e770679b3a60518eeda71a3c40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fceux/blobs/sha256:23e56b704f9059aca2ac48e73eeae0c74ada48f58296ac98e58f5a6f69479044
+sha256:
+  darwin_arm64: 9bbe75f88e4ef4f07b66016f279989d0152b3b9b4eda6205116248a8ff493e7f
+  darwin_amd64: 3b270af853ae3f5485310667683262f23d2420940db6e1eaa0291a01e0d9409d
+  linux_amd64: 6d51564f3c8477453d8b0ea8045237bf8c8c73e770679b3a60518eeda71a3c40
+  linux_arm64: 23e56b704f9059aca2ac48e73eeae0c74ada48f58296ac98e58f5a6f69479044
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - libarchive
+  - minizip
+  - qtbase
+  - sdl2
+  - x264
+  - x265

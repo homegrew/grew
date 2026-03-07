@@ -1,0 +1,23 @@
+name: megatools
+version: 1.11.5.20250706
+description: Command-line client for Mega.co.nz
+homepage: https://xff.cz/megatools/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/megatools/blobs/sha256:7217cae7f353389333d5f34a1dfbf0d5327372d0a869641a6f38a305a0e2fa42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/megatools/blobs/sha256:c95b1c27bf14bccfb31ea2ea00540910a81b00861176b2facc32ae1d392628ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/megatools/blobs/sha256:bb702e9c4d883d99115f1003bac6dc09f0717ee64c9b52ca50b5e91a36d4cbe0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/megatools/blobs/sha256:3cf9bf34c4d780c22dcd0aed0d34d5d9f3ee3f1df79fd96c2db62f07f2054147
+sha256:
+  darwin_arm64: 7217cae7f353389333d5f34a1dfbf0d5327372d0a869641a6f38a305a0e2fa42
+  darwin_amd64: c95b1c27bf14bccfb31ea2ea00540910a81b00861176b2facc32ae1d392628ca
+  linux_amd64: bb702e9c4d883d99115f1003bac6dc09f0717ee64c9b52ca50b5e91a36d4cbe0
+  linux_arm64: 3cf9bf34c4d780c22dcd0aed0d34d5d9f3ee3f1df79fd96c2db62f07f2054147
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - openssl@3
+  - gettext

@@ -1,0 +1,19 @@
+name: confd
+version: 0.16.0
+description: Manage local application configuration files using templates
+homepage: https://github.com/kelseyhightower/confd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/confd/blobs/sha256:e942ea00a80dc2d920a1f6bbee2903b81b82d3a0578e97f46ab169bad181a798
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/confd/blobs/sha256:20ef434c3daa75110a05e2634555a72bc2ffe40a257b151d3f08e1e92dd88547
+  linux_amd64: https://ghcr.io/v2/homebrew/core/confd/blobs/sha256:a67a6ca1953e416e2d1278d6426f8c98e778d829cbff9485d6e12cddd0067b50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/confd/blobs/sha256:844a6849db16075e11b3679e03bfc034b52365c0ef44f341835d80c4fb965617
+sha256:
+  darwin_arm64: e942ea00a80dc2d920a1f6bbee2903b81b82d3a0578e97f46ab169bad181a798
+  darwin_amd64: 20ef434c3daa75110a05e2634555a72bc2ffe40a257b151d3f08e1e92dd88547
+  linux_amd64: a67a6ca1953e416e2d1278d6426f8c98e778d829cbff9485d6e12cddd0067b50
+  linux_arm64: 844a6849db16075e11b3679e03bfc034b52365c0ef44f341835d80c4fb965617
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

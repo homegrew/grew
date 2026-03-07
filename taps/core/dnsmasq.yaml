@@ -1,0 +1,19 @@
+name: dnsmasq
+version: 2.92
+description: Lightweight DNS forwarder and DHCP server
+homepage: https://thekelleys.org.uk/dnsmasq/doc.html
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnsmasq/blobs/sha256:4087c3f45434a6029c6ea7ba65d900b5e8cb0710a991f6245d9112dc87dc5c5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnsmasq/blobs/sha256:89d78775d031b10a8e9a8b9da7566df28984392b0956aead0a0d8f6244c213b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnsmasq/blobs/sha256:df026a9ad95a66aafb276bb28fdbbe23809bef4344acee595c072cbe59be9508
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnsmasq/blobs/sha256:1c05bb3e06a434205b8150ecce4f75896b8fcafb29756f40a48e68fd49633df1
+sha256:
+  darwin_arm64: 4087c3f45434a6029c6ea7ba65d900b5e8cb0710a991f6245d9112dc87dc5c5c
+  darwin_amd64: 89d78775d031b10a8e9a8b9da7566df28984392b0956aead0a0d8f6244c213b6
+  linux_amd64: df026a9ad95a66aafb276bb28fdbbe23809bef4344acee595c072cbe59be9508
+  linux_arm64: 1c05bb3e06a434205b8150ecce4f75896b8fcafb29756f40a48e68fd49633df1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

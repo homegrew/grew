@@ -1,0 +1,19 @@
+name: ejdb
+version: 2.73
+description: Embeddable JSON Database engine C11 library
+homepage: https://ejdb.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ejdb/blobs/sha256:c56f28aa34314717114685cbfbf7590c67747ceb211b0585bb55d97fd607049e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ejdb/blobs/sha256:52d1253849cb1549564033fce4841d5c0b5b67f9802eda77bd171d39b5e74279
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ejdb/blobs/sha256:69a8f6d1769f13275c84bb8b1bc96eb68727d85863bbf4f423f6cc6aefa1aed9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ejdb/blobs/sha256:4e728b6fa0f94e81ba515b9e8d134b46846ffc6d880302c0a6557806076296ee
+sha256:
+  darwin_arm64: c56f28aa34314717114685cbfbf7590c67747ceb211b0585bb55d97fd607049e
+  darwin_amd64: 52d1253849cb1549564033fce4841d5c0b5b67f9802eda77bd171d39b5e74279
+  linux_amd64: 69a8f6d1769f13275c84bb8b1bc96eb68727d85863bbf4f423f6cc6aefa1aed9
+  linux_arm64: 4e728b6fa0f94e81ba515b9e8d134b46846ffc6d880302c0a6557806076296ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

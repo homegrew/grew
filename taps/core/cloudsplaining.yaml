@@ -1,0 +1,23 @@
+name: cloudsplaining
+version: 0.8.2
+description: AWS IAM Security Assessment tool
+homepage: https://cloudsplaining.readthedocs.io/en/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudsplaining/blobs/sha256:0103e9cc09e4b6072e5cd552a11273f11701f1c217d419a117b136c100e083e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudsplaining/blobs/sha256:f714888e4047cb5fc070405b8f626df19c9623278cdbc50bc01da7e8d07181f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudsplaining/blobs/sha256:07aca2b39d8f73dc209eb6dc8fa528ff47a5ad5952dde0d7e64312114b8d7134
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudsplaining/blobs/sha256:79e89b7367ec766796aeecb6286b4428547f97a4990e331ba8f5e1fe14b538aa
+sha256:
+  darwin_arm64: 0103e9cc09e4b6072e5cd552a11273f11701f1c217d419a117b136c100e083e7
+  darwin_amd64: f714888e4047cb5fc070405b8f626df19c9623278cdbc50bc01da7e8d07181f9
+  linux_amd64: 07aca2b39d8f73dc209eb6dc8fa528ff47a5ad5952dde0d7e64312114b8d7134
+  linux_arm64: 79e89b7367ec766796aeecb6286b4428547f97a4990e331ba8f5e1fe14b538aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

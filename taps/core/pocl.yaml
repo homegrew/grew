@@ -1,0 +1,23 @@
+name: pocl
+version: 7.1
+description: Portable Computing Language
+homepage: https://portablecl.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pocl/blobs/sha256:bb711ac8b9f001246637a341af5aa351a3a05cb54e189537e851946c723acb9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pocl/blobs/sha256:700d6876251438d70c9f3202ab104cb02dca09e510ca66f92ae8f704f4dcc448
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pocl/blobs/sha256:5f0004f051b01482186efaeb3d7cc9323aa6bb67c29c113be3c3d4b5da2cf0ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pocl/blobs/sha256:edc29649f782e47466b12f5195be6eb6baace8b041c87676b256c88d442f7ce7
+sha256:
+  darwin_arm64: bb711ac8b9f001246637a341af5aa351a3a05cb54e189537e851946c723acb9a
+  darwin_amd64: 700d6876251438d70c9f3202ab104cb02dca09e510ca66f92ae8f704f4dcc448
+  linux_amd64: 5f0004f051b01482186efaeb3d7cc9323aa6bb67c29c113be3c3d4b5da2cf0ea
+  linux_arm64: edc29649f782e47466b12f5195be6eb6baace8b041c87676b256c88d442f7ce7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hwloc
+  - llvm@21
+  - opencl-icd-loader

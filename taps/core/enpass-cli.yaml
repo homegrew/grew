@@ -1,0 +1,19 @@
+name: enpass-cli
+version: 1.9.0
+description: Enpass command-line client
+homepage: https://github.com/hazcod/enpass-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enpass-cli/blobs/sha256:1ce36f144f8e8a9d5a1623cb2da4249f8299fa753f05deedf435c2060631205f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enpass-cli/blobs/sha256:638c10edcff1b0ec6198d13bd117c474f655ab3a568999069141f3b575a955e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enpass-cli/blobs/sha256:9f1d4c5edd81420f6148dbc1a9177bb9b79ad4c1516292a01928dc9d426781bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enpass-cli/blobs/sha256:bba60eb71ac340fa99101d3bbd73c307876159d2071a8270a44ef7e167a51d47
+sha256:
+  darwin_arm64: 1ce36f144f8e8a9d5a1623cb2da4249f8299fa753f05deedf435c2060631205f
+  darwin_amd64: 638c10edcff1b0ec6198d13bd117c474f655ab3a568999069141f3b575a955e1
+  linux_amd64: 9f1d4c5edd81420f6148dbc1a9177bb9b79ad4c1516292a01928dc9d426781bb
+  linux_arm64: bba60eb71ac340fa99101d3bbd73c307876159d2071a8270a44ef7e167a51d47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

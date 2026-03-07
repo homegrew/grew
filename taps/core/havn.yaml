@@ -1,0 +1,19 @@
+name: havn
+version: 0.3.4
+description: Fast configurable port scanner with reasonable defaults
+homepage: https://github.com/mrjackwills/havn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/havn/blobs/sha256:097c569ae386d7ce4b8ed8879102a2938087a54f31ea119da7a36e4d380efafe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/havn/blobs/sha256:0be09461e4936c64c4e5954fad4fd9e64be79bca379e578f63583a2395f2219a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/havn/blobs/sha256:f417347f406ba5056c301827111895064d0f7d5f77c76afd60dcaef6c828f607
+  linux_arm64: https://ghcr.io/v2/homebrew/core/havn/blobs/sha256:900e082d98860e20d6a8cd9d5a385525ce5be7be616840d50ddaa5ab6866683c
+sha256:
+  darwin_arm64: 097c569ae386d7ce4b8ed8879102a2938087a54f31ea119da7a36e4d380efafe
+  darwin_amd64: 0be09461e4936c64c4e5954fad4fd9e64be79bca379e578f63583a2395f2219a
+  linux_amd64: f417347f406ba5056c301827111895064d0f7d5f77c76afd60dcaef6c828f607
+  linux_arm64: 900e082d98860e20d6a8cd9d5a385525ce5be7be616840d50ddaa5ab6866683c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

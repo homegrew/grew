@@ -1,0 +1,13 @@
+name: sdm
+version: 23.74.0,DB54956AC61175C8A6F81412772AAA5631811D3C
+description: StrongDM client
+homepage: https://www.strongdm.com/
+url:
+  darwin_arm64: https://downloads.strongdm.com/builds/desktop/23.74.0/darwin-universal/DB54956AC61175C8A6F81412772AAA5631811D3C/SDM-23.74.0.universal.zip
+sha256:
+  darwin_arm64: 61f065bb8f129b569241524d24e7afc1ba5cd0fc9ce872ee1d33f673c5112d0c
+artifacts:
+  app:
+    - SDM.app
+  bin:
+    - sdm

@@ -1,0 +1,19 @@
+name: lutgen
+version: 1.0.1
+description: Blazingly fast interpolated LUT generator and applicator for color palettes
+homepage: https://ozwaldorf.github.io/lutgen-rs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lutgen/blobs/sha256:693dc106ab4fff5ba6fa4b9fe839f29f43d859af36e668acf74148ff224ad6fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lutgen/blobs/sha256:d64054fa7a6b3658ea510612991dd13ee760d3d93bbfb683767515b07c4756df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lutgen/blobs/sha256:4553254a230bc178d676685b13c386452c3c45eb1f17b4b1523638dfb69819e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lutgen/blobs/sha256:40b2f313af315693b1444a60b7625109803f2f2ae5510e3560b861d0d96a4728
+sha256:
+  darwin_arm64: 693dc106ab4fff5ba6fa4b9fe839f29f43d859af36e668acf74148ff224ad6fc
+  darwin_amd64: d64054fa7a6b3658ea510612991dd13ee760d3d93bbfb683767515b07c4756df
+  linux_amd64: 4553254a230bc178d676685b13c386452c3c45eb1f17b4b1523638dfb69819e7
+  linux_arm64: 40b2f313af315693b1444a60b7625109803f2f2ae5510e3560b861d0d96a4728
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

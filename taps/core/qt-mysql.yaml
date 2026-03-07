@@ -1,0 +1,22 @@
+name: qt-mysql
+version: 6.10.2
+description: Qt SQL Database Driver
+homepage: https://www.qt.io/
+license: GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt-mysql/blobs/sha256:51e00fb45e7d667ee9151ec2a0cff846d04fe12ca3d5cbe3292fd5cc653960fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt-mysql/blobs/sha256:8ecdc498a67e7abde62117fd3330c6545d55f7ef354ad08e0f9e7fa7fbf8e41f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt-mysql/blobs/sha256:8a3d9138f32c9a220f353aedbbf759246dfa42714a4f95bda0422a27e6cec0ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt-mysql/blobs/sha256:a0ce114476dc0aefc25bc41163ccbbab26e42426c0c903b7f438d2c2afb56090
+sha256:
+  darwin_arm64: 51e00fb45e7d667ee9151ec2a0cff846d04fe12ca3d5cbe3292fd5cc653960fc
+  darwin_amd64: 8ecdc498a67e7abde62117fd3330c6545d55f7ef354ad08e0f9e7fa7fbf8e41f
+  linux_amd64: 8a3d9138f32c9a220f353aedbbf759246dfa42714a4f95bda0422a27e6cec0ab
+  linux_arm64: a0ce114476dc0aefc25bc41163ccbbab26e42426c0c903b7f438d2c2afb56090
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mysql-client
+  - qtbase

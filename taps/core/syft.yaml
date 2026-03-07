@@ -1,0 +1,19 @@
+name: syft
+version: 1.42.1
+description: CLI for generating a Software Bill of Materials from container images
+homepage: https://github.com/anchore/syft
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/syft/blobs/sha256:d78b57041acf2ca2e8834bfb1926e7382d5adf5a784ddaa13419d73d6d917fdc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/syft/blobs/sha256:e98331f10c5b55198c8d8eb579b08d89e5695c2cf3a580c5176e23d6e06d0dec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/syft/blobs/sha256:a78476fb93f30e7d0b44ee74148d9e0f6dceee3e75b61a74da8a2c522e375802
+  linux_arm64: https://ghcr.io/v2/homebrew/core/syft/blobs/sha256:7e33d2121f6387f56671f893eb04ea92b92103d8cde0852e46acf6a51697ce38
+sha256:
+  darwin_arm64: d78b57041acf2ca2e8834bfb1926e7382d5adf5a784ddaa13419d73d6d917fdc
+  darwin_amd64: e98331f10c5b55198c8d8eb579b08d89e5695c2cf3a580c5176e23d6e06d0dec
+  linux_amd64: a78476fb93f30e7d0b44ee74148d9e0f6dceee3e75b61a74da8a2c522e375802
+  linux_arm64: 7e33d2121f6387f56671f893eb04ea92b92103d8cde0852e46acf6a51697ce38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

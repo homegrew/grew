@@ -1,0 +1,19 @@
+name: pcapplusplus
+version: 25.05
+description: C++ network sniffing, packet parsing and crafting framework
+homepage: https://pcapplusplus.github.io
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcapplusplus/blobs/sha256:badacc3ee645e30f563ebd4c127a993b0ecb64beb34d2663965e7e57daae345c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcapplusplus/blobs/sha256:9019452d1e6616946480223d5725df1f1ea43c3bdb5652c0c387b10a8239d2c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcapplusplus/blobs/sha256:42c2a06a698bfd44bef147d045900a270af1418a3d2828d0ff406f1eeb0c02af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcapplusplus/blobs/sha256:e09fd13802dd4b8149f58fb69cfaf46dab0faeff6b0db6381809ee03fb9188bf
+sha256:
+  darwin_arm64: badacc3ee645e30f563ebd4c127a993b0ecb64beb34d2663965e7e57daae345c
+  darwin_amd64: 9019452d1e6616946480223d5725df1f1ea43c3bdb5652c0c387b10a8239d2c4
+  linux_amd64: 42c2a06a698bfd44bef147d045900a270af1418a3d2828d0ff406f1eeb0c02af
+  linux_arm64: e09fd13802dd4b8149f58fb69cfaf46dab0faeff6b0db6381809ee03fb9188bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

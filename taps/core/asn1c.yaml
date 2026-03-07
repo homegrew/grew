@@ -1,0 +1,19 @@
+name: asn1c
+version: 0.9.28
+description: Compile ASN.1 specifications into C source code
+homepage: https://lionet.info/asn1c/blog
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asn1c/blobs/sha256:101f876e913d345e99ac08ef2e9144b578e3979491f8338a62cf3c0e0d346144
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asn1c/blobs/sha256:72e535073c4021897bcf9a79d2032a6375d59c60fd95d512d5b2f50b4f0d93b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asn1c/blobs/sha256:fe7fa5f68ab94a7d748a2af7451d496192c7bc543bd9dc9c660673cb8026bda4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asn1c/blobs/sha256:1cf47d0986b911c566f919454694f2abc20927425eb4b002d1761c2e9c8d714a
+sha256:
+  darwin_arm64: 101f876e913d345e99ac08ef2e9144b578e3979491f8338a62cf3c0e0d346144
+  darwin_amd64: 72e535073c4021897bcf9a79d2032a6375d59c60fd95d512d5b2f50b4f0d93b3
+  linux_amd64: fe7fa5f68ab94a7d748a2af7451d496192c7bc543bd9dc9c660673cb8026bda4
+  linux_arm64: 1cf47d0986b911c566f919454694f2abc20927425eb4b002d1761c2e9c8d714a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

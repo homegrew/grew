@@ -1,0 +1,21 @@
+name: libdv
+version: 1.0.0
+description: Codec for DV video encoding format
+homepage: https://libdv.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdv/blobs/sha256:c14359502e9d8c606b0424966181a93c26fec27eb9ca41f2313af62888716c4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdv/blobs/sha256:d67945be1d2aba728715b9f67f68bd91fab88599bb351a179bfa89829bb5ac19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdv/blobs/sha256:b4e579189286f35409557243fe450e7509536f831777f37ae2f7519913bddcf8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdv/blobs/sha256:a7be333d02ace53395d0dcaad23163a9bf3a159aa05cc71a7202ee8eb917adf3
+sha256:
+  darwin_arm64: c14359502e9d8c606b0424966181a93c26fec27eb9ca41f2313af62888716c4d
+  darwin_amd64: d67945be1d2aba728715b9f67f68bd91fab88599bb351a179bfa89829bb5ac19
+  linux_amd64: b4e579189286f35409557243fe450e7509536f831777f37ae2f7519913bddcf8
+  linux_arm64: a7be333d02ace53395d0dcaad23163a9bf3a159aa05cc71a7202ee8eb917adf3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - popt

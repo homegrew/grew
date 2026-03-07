@@ -1,0 +1,21 @@
+name: libks
+version: 2.0.10
+description: Foundational support for signalwire C products
+homepage: https://github.com/signalwire/libks
+license: MIT AND BSD-3-Clause AND HPND AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libks/blobs/sha256:a4e047c7d6a018d97d15aed23f7898d8f1f4f0f46c7fe9ae790432b082e7cc1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libks/blobs/sha256:6bfeeb306bea73531d3ce22ee0f92292024cbd1c20e3f1325cb14df1b149145a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libks/blobs/sha256:dfc07b908ad7fdd8b6eab80ff9d607542c225a1ef81f8fb061798ee812a68c18
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libks/blobs/sha256:4cf5d4dd4dfe67a804525da361f14112da1ebae458b30f7a135c1ff9963a51e1
+sha256:
+  darwin_arm64: a4e047c7d6a018d97d15aed23f7898d8f1f4f0f46c7fe9ae790432b082e7cc1c
+  darwin_amd64: 6bfeeb306bea73531d3ce22ee0f92292024cbd1c20e3f1325cb14df1b149145a
+  linux_amd64: dfc07b908ad7fdd8b6eab80ff9d607542c225a1ef81f8fb061798ee812a68c18
+  linux_arm64: 4cf5d4dd4dfe67a804525da361f14112da1ebae458b30f7a135c1ff9963a51e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

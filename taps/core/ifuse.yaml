@@ -1,0 +1,20 @@
+name: ifuse
+version: 1.2.0
+description: FUSE module for iOS devices
+homepage: https://libimobiledevice.org/
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ifuse/blobs/sha256:61d48166f2afbac7409f38dc618df93dd97dee916fc6d0c32410d4c112bcf282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ifuse/blobs/sha256:22167141508080750debc73ef0718dee5bcf9fa06266e7620764ce5e4d2a7c75
+sha256:
+  linux_amd64: 61d48166f2afbac7409f38dc618df93dd97dee916fc6d0c32410d4c112bcf282
+  linux_arm64: 22167141508080750debc73ef0718dee5bcf9fa06266e7620764ce5e4d2a7c75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libfuse
+  - libimobiledevice
+  - libplist

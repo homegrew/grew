@@ -1,0 +1,25 @@
+name: appstream
+version: 1.1.2
+description: Tools and libraries to work with AppStream metadata
+homepage: https://www.freedesktop.org/wiki/Distributions/AppStream/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/appstream/blobs/sha256:f2c581be46ed6b1247e389b64e1ad6362873ab8c03302cbf0dedc0120ab92299
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/appstream/blobs/sha256:92b9ee15d004bc825753ae940b52a5ee6af25ff76baab576d7aacc5314515013
+  linux_amd64: https://ghcr.io/v2/homebrew/core/appstream/blobs/sha256:9739adf95825abbf49377ad78790e4878f40e871ead0f2f38dd547f021b97b9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/appstream/blobs/sha256:4570742f348cdfc3f3308550fdd3a87997f7b32a5f1cce32bf514989bcae08b6
+sha256:
+  darwin_arm64: f2c581be46ed6b1247e389b64e1ad6362873ab8c03302cbf0dedc0120ab92299
+  darwin_amd64: 92b9ee15d004bc825753ae940b52a5ee6af25ff76baab576d7aacc5314515013
+  linux_amd64: 9739adf95825abbf49377ad78790e4878f40e871ead0f2f38dd547f021b97b9e
+  linux_arm64: 4570742f348cdfc3f3308550fdd3a87997f7b32a5f1cce32bf514989bcae08b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libfyaml
+  - libxmlb
+  - zstd
+  - gettext

@@ -1,0 +1,19 @@
+name: libcpucycles
+version: 20260105
+description: Microlibrary for counting CPU cycles
+homepage: https://cpucycles.cr.yp.to/
+license: LicenseRef-Homebrew-public-domain OR CC0-1.0 OR 0BSD OR MIT-0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcpucycles/blobs/sha256:6d0d624a923f07935e6e91ea524def9d852f5a6916bf501b8661e4c7983fc2af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcpucycles/blobs/sha256:05e0ac733b7b0ba78b14dc929bf41901aceedfc293a9b1aa55f767814d45e79f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcpucycles/blobs/sha256:9a6bac3d0373927187fc0aa235374d1c0e1bc9b4df30bff91f80cb3242996504
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcpucycles/blobs/sha256:79fa7b230fc71e0576f56eaed3ba4656e76844a52e5272efd4dfa55f04605c35
+sha256:
+  darwin_arm64: 6d0d624a923f07935e6e91ea524def9d852f5a6916bf501b8661e4c7983fc2af
+  darwin_amd64: 05e0ac733b7b0ba78b14dc929bf41901aceedfc293a9b1aa55f767814d45e79f
+  linux_amd64: 9a6bac3d0373927187fc0aa235374d1c0e1bc9b4df30bff91f80cb3242996504
+  linux_arm64: 79fa7b230fc71e0576f56eaed3ba4656e76844a52e5272efd4dfa55f04605c35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

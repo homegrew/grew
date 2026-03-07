@@ -1,0 +1,11 @@
+name: tor-browser@alpha
+version: 16.0a3
+description: Web browser focusing on security
+homepage: https://www.torproject.org/
+url:
+  darwin_arm64: https://dist.torproject.org/torbrowser/16.0a3/tor-browser-macos-16.0a3.dmg
+sha256:
+  darwin_arm64: bd73a97be94a118c3a271a48fec4d03a7628aa82650b3123a72b847cd4b78278
+artifacts:
+  app:
+    - Tor Browser Alpha.app

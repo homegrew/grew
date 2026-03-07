@@ -1,0 +1,11 @@
+name: thunderbird@beta
+version: 149.0b2
+description: Customizable email client
+homepage: https://www.thunderbird.net/en-US/download/beta/
+url:
+  darwin_arm64: https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/149.0b2/mac/en-US/Thunderbird%20149.0b2.dmg
+sha256:
+  darwin_arm64: 61468ecb07b6642fb173fd40ab4186ea792657f847cfcb402869a4cd6e0bda8f
+artifacts:
+  app:
+    - Thunderbird Beta.app

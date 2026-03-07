@@ -1,0 +1,19 @@
+name: juman
+version: 7.01
+description: Japanese morphological analysis system
+homepage: https://nlp.ist.i.kyoto-u.ac.jp/index.php?JUMAN
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/juman/blobs/sha256:68ea21f6a0d59d8aaca739e79302615c6dee8dfc5f5f15f6e686a3df478e8372
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/juman/blobs/sha256:d2a2aa1611d8028a63e9d2cd8d3eea9c9cf9b66e2e5ee05e4ff5e91b4a34ffa0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/juman/blobs/sha256:dc72214b5b06cb06dee3a256586b433541d36d3c1af89282952dbdc5e1f232b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/juman/blobs/sha256:e04f2b077fb8fbaa2064b621c875966f1c6f8424f5f9c7d6d4ab2cd162b484bd
+sha256:
+  darwin_arm64: 68ea21f6a0d59d8aaca739e79302615c6dee8dfc5f5f15f6e686a3df478e8372
+  darwin_amd64: d2a2aa1611d8028a63e9d2cd8d3eea9c9cf9b66e2e5ee05e4ff5e91b4a34ffa0
+  linux_amd64: dc72214b5b06cb06dee3a256586b433541d36d3c1af89282952dbdc5e1f232b4
+  linux_arm64: e04f2b077fb8fbaa2064b621c875966f1c6f8424f5f9c7d6d4ab2cd162b484bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: blockstream
+version: 3.1.0
+description: Multi-platform Bitcoin and Liquid wallet
+homepage: https://blockstream.com/green/
+url:
+  darwin_arm64: https://github.com/Blockstream/green_qt/releases/download/release_3.1.0/Blockstream-arm64.dmg
+sha256:
+  darwin_arm64: 1766850e79d566a5c58fb440e43c0c22f7f35f7f40e5b679519cef3b9ffbaa90
+artifacts:
+  app:
+    - Blockstream.app

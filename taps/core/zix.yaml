@@ -1,0 +1,21 @@
+name: zix
+version: 0.8.0
+description: C99 portability and data structure library
+homepage: https://gitlab.com/drobilla/zix
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zix/blobs/sha256:a2caa9a4a3c1d808886349f7e83a4faf142e9bd013b881047ecfcee1ce5b6338
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zix/blobs/sha256:0d3ee7b239f61e53be24ca66fc61b1fa51e64709e855c705e4013c96c46b7e76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zix/blobs/sha256:94d2a4ebb9e9d5f9a1bd1d991ed5da942df3630636b45b5c31db7537bc811e1c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zix/blobs/sha256:abb43fca2d5a4418b636b99560f30e051b1d83f57c16b2a171b5d4e9590624fa
+sha256:
+  darwin_arm64: a2caa9a4a3c1d808886349f7e83a4faf142e9bd013b881047ecfcee1ce5b6338
+  darwin_amd64: 0d3ee7b239f61e53be24ca66fc61b1fa51e64709e855c705e4013c96c46b7e76
+  linux_amd64: 94d2a4ebb9e9d5f9a1bd1d991ed5da942df3630636b45b5c31db7537bc811e1c
+  linux_arm64: abb43fca2d5a4418b636b99560f30e051b1d83f57c16b2a171b5d4e9590624fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

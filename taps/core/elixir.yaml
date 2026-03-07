@@ -1,0 +1,21 @@
+name: elixir
+version: 1.19.5
+description: Functional metaprogramming aware language built on Erlang VM
+homepage: https://elixir-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elixir/blobs/sha256:786c67ab9d62cbc12fa8d4f82ba793deb6e1709ae17893e56052b3898b242b9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elixir/blobs/sha256:472c46ab5c968e22076c4fae7d1bd1a532dd476707eea57c4b5f0ee04eff7aaa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elixir/blobs/sha256:8443035821fa8345ad64183634b17e8945736331c8d9692e28424341a3058cbc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elixir/blobs/sha256:0301eddeaf80ff83bdf56b419c5e176914cd8b0e620ba309c65b3f182bd12f35
+sha256:
+  darwin_arm64: 786c67ab9d62cbc12fa8d4f82ba793deb6e1709ae17893e56052b3898b242b9a
+  darwin_amd64: 472c46ab5c968e22076c4fae7d1bd1a532dd476707eea57c4b5f0ee04eff7aaa
+  linux_amd64: 8443035821fa8345ad64183634b17e8945736331c8d9692e28424341a3058cbc
+  linux_arm64: 0301eddeaf80ff83bdf56b419c5e176914cd8b0e620ba309c65b3f182bd12f35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

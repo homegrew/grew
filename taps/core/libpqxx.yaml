@@ -1,0 +1,21 @@
+name: libpqxx
+version: 7.10.5
+description: C++ connector for PostgreSQL
+homepage: https://pqxx.org/development/libpqxx/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpqxx/blobs/sha256:8c37900dc12a476a4d4c1d6027e28f5bcbd48dd0c13d0d5eef9130365db04f09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpqxx/blobs/sha256:04c3c2f21bfd8c568c4de68c41c6110ec3bd96fbff44a22eec8c1b0cc1c41bbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpqxx/blobs/sha256:1d837edceff2ce790992504d93fc7c46fbb1856ed6ccc747c78a5ccc8261be89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpqxx/blobs/sha256:7e2d5fa38a95abfaee1581de92d57b84b059364ad4d20908aaf53295467d6a76
+sha256:
+  darwin_arm64: 8c37900dc12a476a4d4c1d6027e28f5bcbd48dd0c13d0d5eef9130365db04f09
+  darwin_amd64: 04c3c2f21bfd8c568c4de68c41c6110ec3bd96fbff44a22eec8c1b0cc1c41bbc
+  linux_amd64: 1d837edceff2ce790992504d93fc7c46fbb1856ed6ccc747c78a5ccc8261be89
+  linux_arm64: 7e2d5fa38a95abfaee1581de92d57b84b059364ad4d20908aaf53295467d6a76
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq

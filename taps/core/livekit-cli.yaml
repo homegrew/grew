@@ -1,0 +1,19 @@
+name: livekit-cli
+version: 2.15.0
+description: Command-line interface to LiveKit
+homepage: https://livekit.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/livekit-cli/blobs/sha256:5c04d193c20d0906adf91cb8e61d2a6fc63bfe9d9ac784476ed0e4a95a2ba049
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/livekit-cli/blobs/sha256:32c69c94ff4e5352d347ba4c8b64e11d791629c0001a806130c5f95b55ec03a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/livekit-cli/blobs/sha256:c13e3fb1ab044131ec599e50913b51e111a70d92ca10d6246de9c188768b65b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/livekit-cli/blobs/sha256:79188fa0f76c747910ba8fe712be75e474d1b2fca421ed7fd2858c1681b63dd7
+sha256:
+  darwin_arm64: 5c04d193c20d0906adf91cb8e61d2a6fc63bfe9d9ac784476ed0e4a95a2ba049
+  darwin_amd64: 32c69c94ff4e5352d347ba4c8b64e11d791629c0001a806130c5f95b55ec03a6
+  linux_amd64: c13e3fb1ab044131ec599e50913b51e111a70d92ca10d6246de9c188768b65b4
+  linux_arm64: 79188fa0f76c747910ba8fe712be75e474d1b2fca421ed7fd2858c1681b63dd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

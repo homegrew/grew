@@ -1,0 +1,13 @@
+name: plistedit-pro
+version: 1.10.0
+description: Property list and JSON editor
+homepage: https://www.fatcatsoftware.com/plisteditpro/
+url:
+  darwin_arm64: https://www.fatcatsoftware.com/plisteditpro/downloads/PlistEditPro_1100.zip
+sha256:
+  darwin_arm64: 0ad2f7a4066945b5a67db0667e946748cc4f33858f786554779c54f1a6608c4e
+artifacts:
+  app:
+    - PlistEdit Pro.app
+  bin:
+    - pledit

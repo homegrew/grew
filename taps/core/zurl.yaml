@@ -1,0 +1,22 @@
+name: zurl
+version: 1.12.0
+description: HTTP and WebSocket client worker with ZeroMQ interface
+homepage: https://github.com/fanout/zurl
+license: GPL-3.0-or-later AND LGPL-2.1-or-later AND curl AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zurl/blobs/sha256:eb2c86141ca65e087181c6d802dad72bb3d0b3ecd75286663077b29ef5ee8ed6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zurl/blobs/sha256:318fd22b894af157b9a54a874d13c805b1474d97a43cd50e0e39f15262472b40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zurl/blobs/sha256:fd9298662889e90ecfc5078599cfeab0862621e9839b92af94a93b32b5db4430
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zurl/blobs/sha256:591a82d1ae225eeab0cd35808e860c1b69b9cf84d13ef87962aa4f0b24c0ddfc
+sha256:
+  darwin_arm64: eb2c86141ca65e087181c6d802dad72bb3d0b3ecd75286663077b29ef5ee8ed6
+  darwin_amd64: 318fd22b894af157b9a54a874d13c805b1474d97a43cd50e0e39f15262472b40
+  linux_amd64: fd9298662889e90ecfc5078599cfeab0862621e9839b92af94a93b32b5db4430
+  linux_arm64: 591a82d1ae225eeab0cd35808e860c1b69b9cf84d13ef87962aa4f0b24c0ddfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - zeromq

@@ -1,0 +1,21 @@
+name: vncsnapshot
+version: 1.2a
+description: Command-line utility for taking VNC snapshots
+homepage: https://sourceforge.net/projects/vncsnapshot/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vncsnapshot/blobs/sha256:cdc55184ba7f8d8bf9c418d2f76e64a0a58e53e99d6bc9cf0e1859c671e7879d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vncsnapshot/blobs/sha256:b1e90c81cca208e37ed22a280346fc29aa50af24c816ace37a2dd16bc2e4fa39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vncsnapshot/blobs/sha256:459ee8dd2f28c227d911c6ca369fc93846332434f4cce220c8fb2f1adc89a582
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vncsnapshot/blobs/sha256:53c67a5e9fe1c779d602da06f27f67d1b2e4ea041aaaafad4fbb619f2f6b85e2
+sha256:
+  darwin_arm64: cdc55184ba7f8d8bf9c418d2f76e64a0a58e53e99d6bc9cf0e1859c671e7879d
+  darwin_amd64: b1e90c81cca208e37ed22a280346fc29aa50af24c816ace37a2dd16bc2e4fa39
+  linux_amd64: 459ee8dd2f28c227d911c6ca369fc93846332434f4cce220c8fb2f1adc89a582
+  linux_arm64: 53c67a5e9fe1c779d602da06f27f67d1b2e4ea041aaaafad4fbb619f2f6b85e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo

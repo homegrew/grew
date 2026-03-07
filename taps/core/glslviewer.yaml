@@ -1,0 +1,22 @@
+name: glslviewer
+version: 3.5.2
+description: Live-coding console tool that renders GLSL Shaders
+homepage: https://patriciogonzalezvivo.com/2015/glslViewer/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glslviewer/blobs/sha256:5f1579f56c5a86e383914f713e890eac7d18f78389edee0b66343a42ea8fa462
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glslviewer/blobs/sha256:db23b8590ebdbbbeed58dfd817ab2d52a3a838abf18e740ea55d330c8016f535
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glslviewer/blobs/sha256:f4df83c750277d08f1b53aa5aa065e2d35075c122ec34dc8568e441ab06bbad2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glslviewer/blobs/sha256:a33b5a5f882330cd436aed165045841b8a84f6f627fc56c270f032c5035f50ea
+sha256:
+  darwin_arm64: 5f1579f56c5a86e383914f713e890eac7d18f78389edee0b66343a42ea8fa462
+  darwin_amd64: db23b8590ebdbbbeed58dfd817ab2d52a3a838abf18e740ea55d330c8016f535
+  linux_amd64: f4df83c750277d08f1b53aa5aa065e2d35075c122ec34dc8568e441ab06bbad2
+  linux_arm64: a33b5a5f882330cd436aed165045841b8a84f6f627fc56c270f032c5035f50ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - glfw

@@ -1,0 +1,13 @@
+name: obsidian
+version: 1.12.4
+description: Knowledge base that works on top of a local folder of plain text Markdown files
+homepage: https://obsidian.md/
+url:
+  darwin_arm64: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/Obsidian-1.12.4.dmg
+sha256:
+  darwin_arm64: 7ad9b42528e2e47e841ba8e07227b8fd0c4036c7c4271fb36731cba4504dbbba
+artifacts:
+  app:
+    - Obsidian.app
+  bin:
+    - obsidian

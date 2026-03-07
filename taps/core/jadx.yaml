@@ -1,0 +1,21 @@
+name: jadx
+version: 1.5.5
+description: Dex to Java decompiler
+homepage: https://github.com/skylot/jadx
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jadx/blobs/sha256:056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jadx/blobs/sha256:056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jadx/blobs/sha256:6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jadx/blobs/sha256:6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a
+sha256:
+  darwin_arm64: 056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0
+  darwin_amd64: 056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0
+  linux_amd64: 6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a
+  linux_arm64: 6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

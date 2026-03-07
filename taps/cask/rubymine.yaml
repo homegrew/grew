@@ -1,0 +1,13 @@
+name: rubymine
+version: 2025.3.3,253.31033.144
+description: Ruby on Rails IDE
+homepage: https://www.jetbrains.com/ruby/
+url:
+  darwin_arm64: https://download.jetbrains.com/ruby/RubyMine-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: 856aa5f1024e1db8bb1ff03b68bd6a47422b99eda9d24b23ad1e20e5daca0256
+artifacts:
+  app:
+    - RubyMine.app
+  bin:
+    - rubymine

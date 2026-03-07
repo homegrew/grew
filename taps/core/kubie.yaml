@@ -1,0 +1,19 @@
+name: kubie
+version: 0.26.1
+description: Much more powerful alternative to kubectx and kubens
+homepage: https://sbstp.ca
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubie/blobs/sha256:a2cec37696426c7c26d87657e9cc983d027a976306801e7e1e5158e98ae2b2e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubie/blobs/sha256:7d821cb910123136095f94994d9ccf8baff163542e18f01f960830bf51a33e43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubie/blobs/sha256:6f22560c73cb18b0b7a19c6af3e1eb69220d33cf259994107d5a3e7651bc8c07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubie/blobs/sha256:5b3eaa3da4dcf756b29f51b0a17d640cf894c09ab4a6da59166e6ec1e91f2b9a
+sha256:
+  darwin_arm64: a2cec37696426c7c26d87657e9cc983d027a976306801e7e1e5158e98ae2b2e1
+  darwin_amd64: 7d821cb910123136095f94994d9ccf8baff163542e18f01f960830bf51a33e43
+  linux_amd64: 6f22560c73cb18b0b7a19c6af3e1eb69220d33cf259994107d5a3e7651bc8c07
+  linux_arm64: 5b3eaa3da4dcf756b29f51b0a17d640cf894c09ab4a6da59166e6ec1e91f2b9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

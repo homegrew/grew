@@ -1,0 +1,30 @@
+name: pillow
+version: 12.1.1
+description: Friendly PIL fork (Python Imaging Library)
+homepage: https://python-pillow.github.io/
+license: HPND
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pillow/blobs/sha256:608dc8063cbbea272a1d80555038705ba9faf8a732ae510ebd15e84dd426271a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pillow/blobs/sha256:b6e52594c64c36b21ad89fca370b5820adec04233ef7cc083f7c35f38e86052a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pillow/blobs/sha256:b5ae4fb7868bc8cf959a5fd340f76014276e9cf40aa1421dfa92d242d305819c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pillow/blobs/sha256:befb876d3acb63de7c9365043b85f589cdaaf79750dcbd402befbcc772147842
+sha256:
+  darwin_arm64: 608dc8063cbbea272a1d80555038705ba9faf8a732ae510ebd15e84dd426271a
+  darwin_amd64: b6e52594c64c36b21ad89fca370b5820adec04233ef7cc083f7c35f38e86052a
+  linux_amd64: b5ae4fb7868bc8cf959a5fd340f76014276e9cf40aa1421dfa92d242d305819c
+  linux_arm64: befb876d3acb63de7c9365043b85f589cdaaf79750dcbd402befbcc772147842
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - jpeg-turbo
+  - libavif
+  - libimagequant
+  - libraqm
+  - libtiff
+  - libxcb
+  - little-cms2
+  - openjpeg
+  - webp

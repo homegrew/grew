@@ -1,0 +1,19 @@
+name: rune
+version: 0.14.0
+description: Embeddable dynamic programming language for Rust
+homepage: https://rune-rs.github.io
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rune/blobs/sha256:98e5d320cbbbb7e69af88b3336419fef1300f6533d3cf0681446bd4dc5fc115b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rune/blobs/sha256:3d746cfbab04df2582234d67eca27d2a6be15b5a9c31c391a6a775448193844e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rune/blobs/sha256:e28dcbc87969e792495a32fdd21f244ec98eaf4f145ffa9b315143c98161a843
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rune/blobs/sha256:75b2583e54c1bd7da75aabea5b82e2247ae45648a4256621852f22dbbee5d81e
+sha256:
+  darwin_arm64: 98e5d320cbbbb7e69af88b3336419fef1300f6533d3cf0681446bd4dc5fc115b
+  darwin_amd64: 3d746cfbab04df2582234d67eca27d2a6be15b5a9c31c391a6a775448193844e
+  linux_amd64: e28dcbc87969e792495a32fdd21f244ec98eaf4f145ffa9b315143c98161a843
+  linux_arm64: 75b2583e54c1bd7da75aabea5b82e2247ae45648a4256621852f22dbbee5d81e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

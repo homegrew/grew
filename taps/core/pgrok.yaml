@@ -1,0 +1,19 @@
+name: pgrok
+version: 1.5.0
+description: "Poor man's ngrok, multi-tenant HTTP/TCP reverse tunnel solution"
+homepage: https://github.com/pgrok/pgrok
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgrok/blobs/sha256:cf15fcb2cdcc2f5be2f04781be608941f86663e90d3ee1ff48d970281263aa8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgrok/blobs/sha256:68efbbd93c7aae98d6cc6a0c15f8cd4dce013eac925aa8d482eb2276e878ad32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgrok/blobs/sha256:2e303842681daf112dc720aaa3d091096b5e5cb0bd6771a42ad9d84ea631487e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgrok/blobs/sha256:419e8c45a8430f1b6c793a8e7ad3e5dff7d539e3ff19b6abb8ffacdaca86fb45
+sha256:
+  darwin_arm64: cf15fcb2cdcc2f5be2f04781be608941f86663e90d3ee1ff48d970281263aa8c
+  darwin_amd64: 68efbbd93c7aae98d6cc6a0c15f8cd4dce013eac925aa8d482eb2276e878ad32
+  linux_amd64: 2e303842681daf112dc720aaa3d091096b5e5cb0bd6771a42ad9d84ea631487e
+  linux_arm64: 419e8c45a8430f1b6c793a8e7ad3e5dff7d539e3ff19b6abb8ffacdaca86fb45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

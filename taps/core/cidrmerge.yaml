@@ -1,0 +1,19 @@
+name: cidrmerge
+version: 1.5.3
+description: CIDR merging with network exclusion
+homepage: https://cidrmerge.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cidrmerge/blobs/sha256:a1557d597adadd169e8de642a61a2adcc610583022f4fbfc391a80c6bc7fe46e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cidrmerge/blobs/sha256:42b18c978627a6d1ab10408d503ce83e15312adf053fd190c064c3d62b344ece
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cidrmerge/blobs/sha256:1587da7aaa0f1a2617f1a3880601c40a1aa1f342eb5b67fb68bb7c47db896452
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cidrmerge/blobs/sha256:a91cbef65b241fab63d8e66b0e8f438f38e683da0cb0c622395b0e6ff1738e00
+sha256:
+  darwin_arm64: a1557d597adadd169e8de642a61a2adcc610583022f4fbfc391a80c6bc7fe46e
+  darwin_amd64: 42b18c978627a6d1ab10408d503ce83e15312adf053fd190c064c3d62b344ece
+  linux_amd64: 1587da7aaa0f1a2617f1a3880601c40a1aa1f342eb5b67fb68bb7c47db896452
+  linux_arm64: a91cbef65b241fab63d8e66b0e8f438f38e683da0cb0c622395b0e6ff1738e00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

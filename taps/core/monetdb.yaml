@@ -1,0 +1,25 @@
+name: monetdb
+version: 11.55.3
+description: Column-store database
+homepage: https://www.monetdb.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monetdb/blobs/sha256:7c3536841c412cfa0564540cf569935c9f4d93cff2d85f82c7f7c89398a83ed5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monetdb/blobs/sha256:d2414b833b2874a2bc8224d97561e4fe68b89811d7e7b807b99ed944faeb9fa4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monetdb/blobs/sha256:447f37b30a3e92f8886a1c80eda479ae058519fe1c47b457e3a8a444f6eeea71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monetdb/blobs/sha256:d247bbffc4afc7e931a9354938e2b3ff9168aa9c5b70333df1d4e221855730a3
+sha256:
+  darwin_arm64: 7c3536841c412cfa0564540cf569935c9f4d93cff2d85f82c7f7c89398a83ed5
+  darwin_amd64: d2414b833b2874a2bc8224d97561e4fe68b89811d7e7b807b99ed944faeb9fa4
+  linux_amd64: 447f37b30a3e92f8886a1c80eda479ae058519fe1c47b457e3a8a444f6eeea71
+  linux_arm64: d247bbffc4afc7e931a9354938e2b3ff9168aa9c5b70333df1d4e221855730a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - openssl@3
+  - pcre2
+  - readline
+  - xz

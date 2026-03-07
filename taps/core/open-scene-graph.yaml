@@ -1,0 +1,24 @@
+name: open-scene-graph
+version: 3.6.5
+description: 3D graphics toolkit
+homepage: https://github.com/openscenegraph/OpenSceneGraph
+license: LGPL-2.1-or-later WITH WxWindows-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-scene-graph/blobs/sha256:e3174f80b6cec2585f35be266d182172c198b4ae8e0d10adf55e023d5d670b6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-scene-graph/blobs/sha256:40f22b2e52822a8497bd217b8e6f4911a85a5a687741aae2c1d4c7c9d7732861
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-scene-graph/blobs/sha256:7ff70fc25d3113a46721cccb3498b4e21e90b81246d08bbb6f725c19b8a35c3d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-scene-graph/blobs/sha256:b5ac9df2c542db731f565e9d13b4082c54976160e98ca3db80b23b57fb33dbe1
+sha256:
+  darwin_arm64: e3174f80b6cec2585f35be266d182172c198b4ae8e0d10adf55e023d5d670b6c
+  darwin_amd64: 40f22b2e52822a8497bd217b8e6f4911a85a5a687741aae2c1d4c7c9d7732861
+  linux_amd64: 7ff70fc25d3113a46721cccb3498b4e21e90b81246d08bbb6f725c19b8a35c3d
+  linux_arm64: b5ac9df2c542db731f565e9d13b4082c54976160e98ca3db80b23b57fb33dbe1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - sdl2

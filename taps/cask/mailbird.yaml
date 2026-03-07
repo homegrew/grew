@@ -1,0 +1,11 @@
+name: mailbird
+version: 1.9.2
+description: Email client
+homepage: https://www.getmailbird.com/
+url:
+  darwin_arm64: https://download.getmailbird.com/installers/mailbird_next/macos/Mailbird-for-Mac-1.9.2.dmg
+sha256:
+  darwin_arm64: 1b77fcd1c04de9be968930e778c93de37557db3c53839bf2e0e95cb045a7a47e
+artifacts:
+  app:
+    - Mailbird.app

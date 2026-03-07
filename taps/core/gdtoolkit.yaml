@@ -1,0 +1,22 @@
+name: gdtoolkit
+version: 4.5.0
+description: Independent set of GDScript tools - parser, linter, formatter, and more
+homepage: https://github.com/Scony/godot-gdscript-toolkit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdtoolkit/blobs/sha256:d6c17d46835130db35d368974625d777f12231fa0dba2a766c22f1637b63b05c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdtoolkit/blobs/sha256:f51de9f2ab4879db48646fcd0548d26bdf87bdf8cacd2047d5ac15126b93c3dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdtoolkit/blobs/sha256:8affd1ec7249d34797488715e52464e5c3e5ee743ea93298129c77e4ac8f7f30
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdtoolkit/blobs/sha256:308fb3375acf24412ed4126d15503cf8ad8fe181ee68ff9bb37a012171344959
+sha256:
+  darwin_arm64: d6c17d46835130db35d368974625d777f12231fa0dba2a766c22f1637b63b05c
+  darwin_amd64: f51de9f2ab4879db48646fcd0548d26bdf87bdf8cacd2047d5ac15126b93c3dd
+  linux_amd64: 8affd1ec7249d34797488715e52464e5c3e5ee743ea93298129c77e4ac8f7f30
+  linux_arm64: 308fb3375acf24412ed4126d15503cf8ad8fe181ee68ff9bb37a012171344959
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: bittwist
+version: 4.7
+description: Libcap-based Ethernet packet generator
+homepage: https://bittwist.sourceforge.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bittwist/blobs/sha256:a7b5eded04554c702c03d007fc3154db054b0e2626fdf96cc7f3deb5507c3565
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bittwist/blobs/sha256:523fc5af61f3f3815d23cfbc1089548d86b072a301c5424923cdac4028a61d95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bittwist/blobs/sha256:f85b61e9d72e5d329a7b3a01813b01f2c72e81dc451bf144e8860b0cd868472d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bittwist/blobs/sha256:6e718fe79ba09665d846a8479a6ff2cb593540e48aa477114322af1bab5ccdc4
+sha256:
+  darwin_arm64: a7b5eded04554c702c03d007fc3154db054b0e2626fdf96cc7f3deb5507c3565
+  darwin_amd64: 523fc5af61f3f3815d23cfbc1089548d86b072a301c5424923cdac4028a61d95
+  linux_amd64: f85b61e9d72e5d329a7b3a01813b01f2c72e81dc451bf144e8860b0cd868472d
+  linux_arm64: 6e718fe79ba09665d846a8479a6ff2cb593540e48aa477114322af1bab5ccdc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

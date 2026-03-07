@@ -1,0 +1,21 @@
+name: opensc
+version: 0.26.1
+description: Tools and libraries for smart cards
+homepage: https://github.com/OpenSC/OpenSC/wiki
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opensc/blobs/sha256:96eafdcef6376fa91178d0a442131ac4d8859edec6aefe130ccced5f3b8ea147
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opensc/blobs/sha256:7fba702bde073f6006fc7c108d6f72dd51898c2e3e7c40dc48606e88cfec13aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opensc/blobs/sha256:aa839dfd0de004bc95bbc41534ad751936c657931b343e7aad89f2a79ca14d02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opensc/blobs/sha256:17611acadab74a5131577374a5428856b1885c903e2c174f22622ce4dcac6f80
+sha256:
+  darwin_arm64: 96eafdcef6376fa91178d0a442131ac4d8859edec6aefe130ccced5f3b8ea147
+  darwin_amd64: 7fba702bde073f6006fc7c108d6f72dd51898c2e3e7c40dc48606e88cfec13aa
+  linux_amd64: aa839dfd0de004bc95bbc41534ad751936c657931b343e7aad89f2a79ca14d02
+  linux_arm64: 17611acadab74a5131577374a5428856b1885c903e2c174f22622ce4dcac6f80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

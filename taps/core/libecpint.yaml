@@ -1,0 +1,22 @@
+name: libecpint
+version: 1.0.7
+description: Library for the efficient evaluation of integrals over effective core potentials
+homepage: https://github.com/robashaw/libecpint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libecpint/blobs/sha256:a5d5b23e49813b83e94c2db21f568761f730637fb53dd094b44a4d5ebc66300b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libecpint/blobs/sha256:a6f706be76c6675f4ec6ae3e4745557764273336a650c6dd35272f07221c35bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libecpint/blobs/sha256:87eb0928e103b94c921b2a7dc1c12b0e12033e917f67ba0b01d2015af1d126b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libecpint/blobs/sha256:beadc5b890d76cc2a78af3a2d848dd5b647b9287bb38d38ce81affc88aa2ebf6
+sha256:
+  darwin_arm64: a5d5b23e49813b83e94c2db21f568761f730637fb53dd094b44a4d5ebc66300b
+  darwin_amd64: a6f706be76c6675f4ec6ae3e4745557764273336a650c6dd35272f07221c35bf
+  linux_amd64: 87eb0928e103b94c921b2a7dc1c12b0e12033e917f67ba0b01d2015af1d126b9
+  linux_arm64: beadc5b890d76cc2a78af3a2d848dd5b647b9287bb38d38ce81affc88aa2ebf6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcerf
+  - pugixml

@@ -1,0 +1,19 @@
+name: reproc
+version: 14.2.5
+description: Cross-platform (C99/C++11) process library
+homepage: https://github.com/DaanDeMeyer/reproc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reproc/blobs/sha256:a9dc4b5152435ee4d4d0a3507837b170a60b74bc69c62942d790a475a799e20e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reproc/blobs/sha256:d3c2d756ae1b3b10b4c5d4d4f820612a7d47b5c0a028b19da44bc730dbe3f862
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reproc/blobs/sha256:693fb2c4503373a230ecae82f0b78cf91c2c83da3d7e16bb88c4d7efc86b7fae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reproc/blobs/sha256:cbfbe1cfa82ec3ccb364ab971a8d7dcfaacd98c708a57f1c3b4031381e745896
+sha256:
+  darwin_arm64: a9dc4b5152435ee4d4d0a3507837b170a60b74bc69c62942d790a475a799e20e
+  darwin_amd64: d3c2d756ae1b3b10b4c5d4d4f820612a7d47b5c0a028b19da44bc730dbe3f862
+  linux_amd64: 693fb2c4503373a230ecae82f0b78cf91c2c83da3d7e16bb88c4d7efc86b7fae
+  linux_arm64: cbfbe1cfa82ec3ccb364ab971a8d7dcfaacd98c708a57f1c3b4031381e745896
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ctlptl
+version: 0.9.0
+description: Making local Kubernetes clusters fun and easy to set up
+homepage: https://github.com/tilt-dev/ctlptl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctlptl/blobs/sha256:a2db00a1209c73af9306a064fdec47d228607864c37905bec3ab7393dd063675
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctlptl/blobs/sha256:909c40fae7217e48845fa9625df6fcee26cce215b214650f8c386a62dab8cd1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctlptl/blobs/sha256:8ccd09303d6544ba705ac0876d0f0b851514af99388f65b297904b75968ccdc0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctlptl/blobs/sha256:6046f3a5c9912524696d7f3cd007f2b61c6e3b955785ca0e44d7acb18f99ba36
+sha256:
+  darwin_arm64: a2db00a1209c73af9306a064fdec47d228607864c37905bec3ab7393dd063675
+  darwin_amd64: 909c40fae7217e48845fa9625df6fcee26cce215b214650f8c386a62dab8cd1a
+  linux_amd64: 8ccd09303d6544ba705ac0876d0f0b851514af99388f65b297904b75968ccdc0
+  linux_arm64: 6046f3a5c9912524696d7f3cd007f2b61c6e3b955785ca0e44d7acb18f99ba36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

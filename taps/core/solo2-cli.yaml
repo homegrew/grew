@@ -1,0 +1,19 @@
+name: solo2-cli
+version: 0.2.2
+description: CLI to update and use Solo 2 security keys
+homepage: https://solokeys.com/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solo2-cli/blobs/sha256:dad9f3c2ecd0fa082e66d3013262b487a46c9d5000dd93af6ecb092d1c1b9298
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solo2-cli/blobs/sha256:4b0ce4ae4cc661cb11b6746b536e736256c6a3b978af3508ea36997bd667d0c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solo2-cli/blobs/sha256:00c7bd01f05ac244c1b50fbfc559a9dcc641c23d71a2f9664e8d88d22a522316
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solo2-cli/blobs/sha256:9a38668bcd74a109b726bc666553352c1688ee7c9b51061e2f0767cd3bb7d06a
+sha256:
+  darwin_arm64: dad9f3c2ecd0fa082e66d3013262b487a46c9d5000dd93af6ecb092d1c1b9298
+  darwin_amd64: 4b0ce4ae4cc661cb11b6746b536e736256c6a3b978af3508ea36997bd667d0c9
+  linux_amd64: 00c7bd01f05ac244c1b50fbfc559a9dcc641c23d71a2f9664e8d88d22a522316
+  linux_arm64: 9a38668bcd74a109b726bc666553352c1688ee7c9b51061e2f0767cd3bb7d06a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

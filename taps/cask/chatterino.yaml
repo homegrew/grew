@@ -1,0 +1,11 @@
+name: chatterino
+version: 2.5.4
+description: "Chat client for https://twitch.tv"
+homepage: https://chatterino.com/
+url:
+  darwin_arm64: https://chatterino.fra1.digitaloceanspaces.com/bin/2.5.4/Chatterino.dmg
+sha256:
+  darwin_arm64: 8ca8983e7c6995f1870ee4850902755cdb2b5e529c16763dcb61ed16f74d166d
+artifacts:
+  app:
+    - chatterino.app

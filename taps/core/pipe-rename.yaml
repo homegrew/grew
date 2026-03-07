@@ -1,0 +1,19 @@
+name: pipe-rename
+version: 1.6.7
+description: Rename your files using your favorite text editor
+homepage: https://github.com/marcusbuffett/pipe-rename
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pipe-rename/blobs/sha256:8886d9edd07b147fbf3ce064fc16e76dbf8e6743adcf51e430a96840a4ad8d37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pipe-rename/blobs/sha256:a03aa9abc0ed27030089de75e0c528e2a556526441761668417be2e2cea9dcc7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipe-rename/blobs/sha256:9e9bb134cc3f9d6e85c6165c6f942e8ec532a96a1d1dd7f329fdcbd5fa1eae21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipe-rename/blobs/sha256:47fc5b5e6bb06cf1e0e152f47a4cf5676874206be8c6950dc92370274c300ef1
+sha256:
+  darwin_arm64: 8886d9edd07b147fbf3ce064fc16e76dbf8e6743adcf51e430a96840a4ad8d37
+  darwin_amd64: a03aa9abc0ed27030089de75e0c528e2a556526441761668417be2e2cea9dcc7
+  linux_amd64: 9e9bb134cc3f9d6e85c6165c6f942e8ec532a96a1d1dd7f329fdcbd5fa1eae21
+  linux_arm64: 47fc5b5e6bb06cf1e0e152f47a4cf5676874206be8c6950dc92370274c300ef1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

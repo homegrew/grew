@@ -1,0 +1,19 @@
+name: clock-rs
+version: 0.2.0
+description: Modern, digital clock that effortlessly runs in your terminal
+homepage: https://github.com/Oughie/clock-rs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clock-rs/blobs/sha256:5e841d0eb84054586edaf2751fd68365a9b745891b7f00d53cdae6258b528e2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clock-rs/blobs/sha256:3364739f735631db743eab7680817e6a405f6eaa4347f4122dccdbac1a8715c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clock-rs/blobs/sha256:3f3234a4b3c5b7e5388b736bc315686856b331b7619578c51eb9b3854215f276
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clock-rs/blobs/sha256:9d18d53bec5e6504c4d15b2098d0288325486888d7b1f42af2aa9b40645201f7
+sha256:
+  darwin_arm64: 5e841d0eb84054586edaf2751fd68365a9b745891b7f00d53cdae6258b528e2b
+  darwin_amd64: 3364739f735631db743eab7680817e6a405f6eaa4347f4122dccdbac1a8715c0
+  linux_amd64: 3f3234a4b3c5b7e5388b736bc315686856b331b7619578c51eb9b3854215f276
+  linux_arm64: 9d18d53bec5e6504c4d15b2098d0288325486888d7b1f42af2aa9b40645201f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

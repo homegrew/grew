@@ -1,0 +1,19 @@
+name: claude-squad
+version: 1.0.16
+description: Manage multiple AI agents like Claude Code, Aider and Codex in your terminal
+homepage: https://smtg-ai.github.io/claude-squad/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/claude-squad/blobs/sha256:c91b57567f1775130a2c84e6a6320ec64204695268e9f762f9017620d29a08c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/claude-squad/blobs/sha256:be2ed5b4b1b392bbbc6593defdef15b991896ca91459e52aa68b765687392387
+  linux_amd64: https://ghcr.io/v2/homebrew/core/claude-squad/blobs/sha256:8819ca1f84628e9be60d3a9d45b68690af27a34345cb4688038b520eaf738372
+  linux_arm64: https://ghcr.io/v2/homebrew/core/claude-squad/blobs/sha256:e4b4219e375b35dcf60822db199ffe0b091969d6bcd6dbecba66310a5d6c870a
+sha256:
+  darwin_arm64: c91b57567f1775130a2c84e6a6320ec64204695268e9f762f9017620d29a08c1
+  darwin_amd64: be2ed5b4b1b392bbbc6593defdef15b991896ca91459e52aa68b765687392387
+  linux_amd64: 8819ca1f84628e9be60d3a9d45b68690af27a34345cb4688038b520eaf738372
+  linux_arm64: e4b4219e375b35dcf60822db199ffe0b091969d6bcd6dbecba66310a5d6c870a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

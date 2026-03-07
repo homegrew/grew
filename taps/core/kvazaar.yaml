@@ -1,0 +1,19 @@
+name: kvazaar
+version: 2.3.2
+description: Ultravideo HEVC encoder
+homepage: https://github.com/ultravideo/kvazaar
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kvazaar/blobs/sha256:c5c12e32e6a313ca224723c9749e8f3be3e50af939f681bced612633dcf4ca53
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kvazaar/blobs/sha256:9e53260ba87411d8148b346835daba4c6c5e0cf5dc75875074c5aa129f57f88b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kvazaar/blobs/sha256:e018d21e4380d6d65485dd2873dc883e939372c668ad99b1cbf8d1b5ca8e6183
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kvazaar/blobs/sha256:4c2a03b189d0cf04ba65181e7bf54f654443cc0289679f56a4f10dc675080597
+sha256:
+  darwin_arm64: c5c12e32e6a313ca224723c9749e8f3be3e50af939f681bced612633dcf4ca53
+  darwin_amd64: 9e53260ba87411d8148b346835daba4c6c5e0cf5dc75875074c5aa129f57f88b
+  linux_amd64: e018d21e4380d6d65485dd2873dc883e939372c668ad99b1cbf8d1b5ca8e6183
+  linux_arm64: 4c2a03b189d0cf04ba65181e7bf54f654443cc0289679f56a4f10dc675080597
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

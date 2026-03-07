@@ -1,0 +1,22 @@
+name: vdirsyncer
+version: 0.20.0
+description: Synchronize calendars and contacts
+homepage: https://github.com/pimutils/vdirsyncer
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vdirsyncer/blobs/sha256:07ff77e0ac5f505da9b8c654f9b2d971b0ddfc1c0a33009884f565bb22373f43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vdirsyncer/blobs/sha256:7ba3d0219248edaa8b458f4b430383314af5f8455dfe7907f3469bc0aa0cfca8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vdirsyncer/blobs/sha256:49e60cc5575e18d7c48ef4a3ea7faf8032a244478519d5069b53a4f24f03bd0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vdirsyncer/blobs/sha256:4cabd433cf2c58979c471134d3da4600f43dd340af11ccac1809c59303d6f98c
+sha256:
+  darwin_arm64: 07ff77e0ac5f505da9b8c654f9b2d971b0ddfc1c0a33009884f565bb22373f43
+  darwin_amd64: 7ba3d0219248edaa8b458f4b430383314af5f8455dfe7907f3469bc0aa0cfca8
+  linux_amd64: 49e60cc5575e18d7c48ef4a3ea7faf8032a244478519d5069b53a4f24f03bd0f
+  linux_arm64: 4cabd433cf2c58979c471134d3da4600f43dd340af11ccac1809c59303d6f98c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

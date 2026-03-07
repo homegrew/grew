@@ -1,0 +1,11 @@
+name: munkiadmin
+version: 1.10.1
+description: Tool to manage Munki repositories
+homepage: https://hjuutilainen.github.io/munkiadmin/
+url:
+  darwin_arm64: https://github.com/hjuutilainen/munkiadmin/releases/download/v1.10.1/MunkiAdmin-1.10.1.dmg
+sha256:
+  darwin_arm64: 29a4c5ba0ba9cddde9045a78098d7426d1972ff516707af77cd43c3b82b2222f
+artifacts:
+  app:
+    - MunkiAdmin.app

@@ -1,0 +1,19 @@
+name: railway
+version: 4.31.0
+description: Develop and deploy code with zero configuration
+homepage: https://railway.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/railway/blobs/sha256:377b21b8d3480c6189fb7db06d78b3fe94bb3355c7596b90922981c20c7a1cf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/railway/blobs/sha256:631210f208f2f883c4b5218bea863a4ed6a043d0e969a7c4947d4d1c4090fe3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/railway/blobs/sha256:2d3d4f5a1cd59a216dc26527aba330c59a518fd91800e4296f38c9a6effb503a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/railway/blobs/sha256:4c323adc9a9cb627bec77d32767a7fba312abe0ae9bab3171400b7f5f6eb71ee
+sha256:
+  darwin_arm64: 377b21b8d3480c6189fb7db06d78b3fe94bb3355c7596b90922981c20c7a1cf9
+  darwin_amd64: 631210f208f2f883c4b5218bea863a4ed6a043d0e969a7c4947d4d1c4090fe3b
+  linux_amd64: 2d3d4f5a1cd59a216dc26527aba330c59a518fd91800e4296f38c9a6effb503a
+  linux_arm64: 4c323adc9a9cb627bec77d32767a7fba312abe0ae9bab3171400b7f5f6eb71ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

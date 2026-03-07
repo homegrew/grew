@@ -1,0 +1,23 @@
+name: ospray
+version: 3.2.0
+description: Ray-tracing-based rendering engine for high-fidelity visualization
+homepage: https://www.ospray.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ospray/blobs/sha256:37889fb9d563aaffcfd8b7fee60874967a6d4d16e10f5a9947d629f977222c1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ospray/blobs/sha256:46f203d6c6db606e4fe48a8b63da54ece1badb1c4eae09cbcd842e297f6d04c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ospray/blobs/sha256:5ce0ebb61c0d3a09ce6e51d886f705e306b881d289fc9bbe62abe892b144532b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ospray/blobs/sha256:3c0dbef40ef62c06ac0d81fdad78b51f2c2f4a1f81dc7a5f605abedf4c75ad57
+sha256:
+  darwin_arm64: 37889fb9d563aaffcfd8b7fee60874967a6d4d16e10f5a9947d629f977222c1b
+  darwin_amd64: 46f203d6c6db606e4fe48a8b63da54ece1badb1c4eae09cbcd842e297f6d04c1
+  linux_amd64: 5ce0ebb61c0d3a09ce6e51d886f705e306b881d289fc9bbe62abe892b144532b
+  linux_arm64: 3c0dbef40ef62c06ac0d81fdad78b51f2c2f4a1f81dc7a5f605abedf4c75ad57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - embree
+  - ispc
+  - tbb

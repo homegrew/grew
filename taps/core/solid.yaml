@@ -1,0 +1,19 @@
+name: solid
+version: 3.5.8
+description: Collision detection library for geometric objects in 3D space
+homepage: https://github.com/dtecta/solid3/
+license: GPL-2.0-only OR QPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solid/blobs/sha256:d60b8794f39a07abe48ee17d5d5d71de75ee92f8d39dc81fe32bb31b12020558
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solid/blobs/sha256:e53aa3117c1e597cb122e90029527b58a5e5aed4d0d19efe743fe75052662043
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solid/blobs/sha256:cf61db5178e9b3286d47dee7ec43fbb18da035dd2bfad28d269e74aa01ff7d1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solid/blobs/sha256:4834bad27ab6bcb57d0fdd0bec5983e526a8cb1d340b2f9cb6ba6df8bd163764
+sha256:
+  darwin_arm64: d60b8794f39a07abe48ee17d5d5d71de75ee92f8d39dc81fe32bb31b12020558
+  darwin_amd64: e53aa3117c1e597cb122e90029527b58a5e5aed4d0d19efe743fe75052662043
+  linux_amd64: cf61db5178e9b3286d47dee7ec43fbb18da035dd2bfad28d269e74aa01ff7d1e
+  linux_arm64: 4834bad27ab6bcb57d0fdd0bec5983e526a8cb1d340b2f9cb6ba6df8bd163764
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: logswan
+version: 2.1.15
+description: Fast Web log analyzer using probabilistic data structures
+homepage: https://www.logswan.org
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logswan/blobs/sha256:30a337fd2c49156260471d813e013520c1313476d6c8a8d5b6ac933b3033cf55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logswan/blobs/sha256:e9c9114e2891d2c055a7ba55fc456b269082c11e32aadc7c894e8104b18c59cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logswan/blobs/sha256:339fb70c5c850f38feb2410126b57ea5b4b03e813aac818a28d2050ddb8c6f35
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logswan/blobs/sha256:6d6c645f860d61304eafebf743fbfd4a2854c2e390bd9873c5e9defd8f917c09
+sha256:
+  darwin_arm64: 30a337fd2c49156260471d813e013520c1313476d6c8a8d5b6ac933b3033cf55
+  darwin_amd64: e9c9114e2891d2c055a7ba55fc456b269082c11e32aadc7c894e8104b18c59cf
+  linux_amd64: 339fb70c5c850f38feb2410126b57ea5b4b03e813aac818a28d2050ddb8c6f35
+  linux_arm64: 6d6c645f860d61304eafebf743fbfd4a2854c2e390bd9873c5e9defd8f917c09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson
+  - libmaxminddb

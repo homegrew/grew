@@ -1,0 +1,19 @@
+name: sersniff
+version: 0.0.5
+description: Program to tunnel/sniff between 2 serial ports
+homepage: https://www.earth.li/projectpurple/progs/sersniff.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sersniff/blobs/sha256:a497adbb93a2bfefadc8e54b0d25dca7829014ae9dc1bab68ba32d6308fb8dc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sersniff/blobs/sha256:756ba4cb630261cad8a7da71c63e826d586b1d73b35dfbf19564d634d7a8a791
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sersniff/blobs/sha256:f846011946336bff588b904e16d8c0857b4b196467ca98604cd001c0c361f34c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sersniff/blobs/sha256:a6cc2f34cc92c711ec8c23b221fa6653e049d603b5f62396cc7045b6f193046e
+sha256:
+  darwin_arm64: a497adbb93a2bfefadc8e54b0d25dca7829014ae9dc1bab68ba32d6308fb8dc3
+  darwin_amd64: 756ba4cb630261cad8a7da71c63e826d586b1d73b35dfbf19564d634d7a8a791
+  linux_amd64: f846011946336bff588b904e16d8c0857b4b196467ca98604cd001c0c361f34c
+  linux_arm64: a6cc2f34cc92c711ec8c23b221fa6653e049d603b5f62396cc7045b6f193046e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

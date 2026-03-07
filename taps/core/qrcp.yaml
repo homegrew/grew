@@ -1,0 +1,19 @@
+name: qrcp
+version: 0.11.6
+description: Transfer files to and from your computer by scanning a QR code
+homepage: https://qrcp.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qrcp/blobs/sha256:7a8bbc5ad237bf97d73501062a2f1e30d7ce8a5b9a38912f6ffb158370c96a8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qrcp/blobs/sha256:ffc63e2c7d66b1e1faedb36c2df428c712fb5852f1d88d55c7ed80bb7b18bb2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qrcp/blobs/sha256:d18ce31b0d751e4fffb64ecbac9d20fcb3bcda31877ca6de1950070fa3c06c91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qrcp/blobs/sha256:9a37b2bba75a20fd96c2dc6754444afb0bb152258e869d855644fa5bebb185a9
+sha256:
+  darwin_arm64: 7a8bbc5ad237bf97d73501062a2f1e30d7ce8a5b9a38912f6ffb158370c96a8e
+  darwin_amd64: ffc63e2c7d66b1e1faedb36c2df428c712fb5852f1d88d55c7ed80bb7b18bb2e
+  linux_amd64: d18ce31b0d751e4fffb64ecbac9d20fcb3bcda31877ca6de1950070fa3c06c91
+  linux_arm64: 9a37b2bba75a20fd96c2dc6754444afb0bb152258e869d855644fa5bebb185a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

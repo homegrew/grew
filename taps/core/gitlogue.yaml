@@ -1,0 +1,21 @@
+name: gitlogue
+version: 0.8.0
+description: Cinematic Git commit replay tool
+homepage: https://github.com/unhappychoice/gitlogue
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitlogue/blobs/sha256:4f63ea0f7914c4ab208970f17cfdb6c246b6b8cefff3e1a0600c190eeba1e3a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitlogue/blobs/sha256:54c344f28d451873dce18aa74f78374d772b7c4cb569035ff3e90be198bfdbcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitlogue/blobs/sha256:f714d7c8819483b88f93c5d135c18cce4994d4534d2c364b001d80ecc8b50896
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitlogue/blobs/sha256:f55baa328b363c2b56dc55651c1ebeb925c2f8b9adb2312db9c59c288997c781
+sha256:
+  darwin_arm64: 4f63ea0f7914c4ab208970f17cfdb6c246b6b8cefff3e1a0600c190eeba1e3a5
+  darwin_amd64: 54c344f28d451873dce18aa74f78374d772b7c4cb569035ff3e90be198bfdbcf
+  linux_amd64: f714d7c8819483b88f93c5d135c18cce4994d4534d2c364b001d80ecc8b50896
+  linux_arm64: f55baa328b363c2b56dc55651c1ebeb925c2f8b9adb2312db9c59c288997c781
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

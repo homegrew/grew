@@ -1,0 +1,25 @@
+name: arrayfire
+version: 3.10.0
+description: General purpose GPU library
+homepage: https://arrayfire.com
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arrayfire/blobs/sha256:45b5cfac3cb25a07325eac265b8d6cea9e37bbd4fb2f8644504b5fe2e0139bcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arrayfire/blobs/sha256:40c0ace3c5ae615ccd637b15fa97fb0a0a9bf82c48b8d145fef0a4180900f559
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arrayfire/blobs/sha256:36fc469e1f75325c9c3385617669df228d485f4d1321de4d01dd4f7d31bc1429
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arrayfire/blobs/sha256:f58ae3f1e735ffab39d04c3a0739fb76e82467029fa11c18b6a79832e1542e85
+sha256:
+  darwin_arm64: 45b5cfac3cb25a07325eac265b8d6cea9e37bbd4fb2f8644504b5fe2e0139bcf
+  darwin_amd64: 40c0ace3c5ae615ccd637b15fa97fb0a0a9bf82c48b8d145fef0a4180900f559
+  linux_amd64: 36fc469e1f75325c9c3385617669df228d485f4d1321de4d01dd4f7d31bc1429
+  linux_arm64: f58ae3f1e735ffab39d04c3a0739fb76e82467029fa11c18b6a79832e1542e85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - clblast
+  - fftw
+  - fmt
+  - openblas
+  - spdlog

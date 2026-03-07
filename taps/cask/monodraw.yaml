@@ -1,0 +1,13 @@
+name: monodraw
+version: 1.7.1,118
+description: Tool to create text-based art
+homepage: https://monodraw.helftone.com/
+url:
+  darwin_arm64: https://updates.helftone.com/monodraw/downloads/Monodraw-b118.zip
+sha256:
+  darwin_arm64: eed8bf157a3134c852615ed359378ff2602709daae908d12803756e91450b057
+artifacts:
+  app:
+    - Monodraw.app
+  bin:
+    - monodraw

@@ -1,0 +1,22 @@
+name: e2fsprogs
+version: 1.47.3
+description: Utilities for the ext2, ext3, and ext4 file systems
+homepage: https://e2fsprogs.sourceforge.net/
+license: GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.0-only AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/e2fsprogs/blobs/sha256:cf282a67dba8d6df346d2cced1c23b024517299c13a7d8558121dd6730bc19c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/e2fsprogs/blobs/sha256:f56432934bf673ee57900c3be5f9da1dd7341d2f6465642b106729361e2c77da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/e2fsprogs/blobs/sha256:d66bd31538beae13ac1db1d4f53a81cf32ec32d0bcc9e17bc7b32d33420eedcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/e2fsprogs/blobs/sha256:dc14ab2441da84c2d2db5baea06deb6bc6dae44ae5f9818849f005664c58a6d0
+sha256:
+  darwin_arm64: cf282a67dba8d6df346d2cced1c23b024517299c13a7d8558121dd6730bc19c6
+  darwin_amd64: f56432934bf673ee57900c3be5f9da1dd7341d2f6465642b106729361e2c77da
+  linux_amd64: d66bd31538beae13ac1db1d4f53a81cf32ec32d0bcc9e17bc7b32d33420eedcb
+  linux_arm64: dc14ab2441da84c2d2db5baea06deb6bc6dae44ae5f9818849f005664c58a6d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+keg_only: true

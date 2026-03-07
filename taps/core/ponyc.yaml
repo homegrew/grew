@@ -1,0 +1,19 @@
+name: ponyc
+version: 0.61.0
+description: Object-oriented, actor-model, capabilities-secure programming language
+homepage: https://www.ponylang.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ponyc/blobs/sha256:a607579fb0763c69dd3b85a8b366984ade6d8da215a411866fd75894bb694e56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ponyc/blobs/sha256:dafd057fae809776d547a68758857d6d23f6392f97ab0af9601a13cefc9e2dbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ponyc/blobs/sha256:2f8204b8876faf1ebfd7c1931dbc6a93b2bb80b2dd5d581ade60a862e5e10f04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ponyc/blobs/sha256:e776af8e23906a67e4316de8068a21da5b425c9fb254f025724365ee45a39f6b
+sha256:
+  darwin_arm64: a607579fb0763c69dd3b85a8b366984ade6d8da215a411866fd75894bb694e56
+  darwin_amd64: dafd057fae809776d547a68758857d6d23f6392f97ab0af9601a13cefc9e2dbe
+  linux_amd64: 2f8204b8876faf1ebfd7c1931dbc6a93b2bb80b2dd5d581ade60a862e5e10f04
+  linux_arm64: e776af8e23906a67e4316de8068a21da5b425c9fb254f025724365ee45a39f6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

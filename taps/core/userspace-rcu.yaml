@@ -1,0 +1,19 @@
+name: userspace-rcu
+version: 0.15.6
+description: Library for userspace RCU (read-copy-update)
+homepage: https://liburcu.org
+license: LGPL-2.1-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/userspace-rcu/blobs/sha256:97c106090ca81cb3e86be9ea95d52cb8a91b6652e5c4e4049a4ec06d66f05d07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/userspace-rcu/blobs/sha256:7a6692c07a9ab4ec2d9061def09dc3ddb0170702be741b4e563c00e9285df6c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/userspace-rcu/blobs/sha256:e0ed3d7bc023151f2d4d73c30d3e3b1dc0a49ebd853c752233d8b1032e49e696
+  linux_arm64: https://ghcr.io/v2/homebrew/core/userspace-rcu/blobs/sha256:a7ba41748b5ed3ee19e34487067d2708cb80aa5050daacd24259c2f38fa31448
+sha256:
+  darwin_arm64: 97c106090ca81cb3e86be9ea95d52cb8a91b6652e5c4e4049a4ec06d66f05d07
+  darwin_amd64: 7a6692c07a9ab4ec2d9061def09dc3ddb0170702be741b4e563c00e9285df6c6
+  linux_amd64: e0ed3d7bc023151f2d4d73c30d3e3b1dc0a49ebd853c752233d8b1032e49e696
+  linux_arm64: a7ba41748b5ed3ee19e34487067d2708cb80aa5050daacd24259c2f38fa31448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

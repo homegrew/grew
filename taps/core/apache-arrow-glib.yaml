@@ -1,0 +1,22 @@
+name: apache-arrow-glib
+version: 23.0.1
+description: GLib bindings for Apache Arrow
+homepage: https://arrow.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apache-arrow-glib/blobs/sha256:24553932397543b3d41feebb2fa20c8d559ddcadf6e3f06c6ff779975372a821
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apache-arrow-glib/blobs/sha256:86ad2fa2782c4882f9c00ff72baa65b62860071112085f9b9484291eb06f167a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apache-arrow-glib/blobs/sha256:a3e637fb77960c7cbd20190a3c5aa65ec646d275b6dc9c56836114f7fb943143
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apache-arrow-glib/blobs/sha256:cbe8b75ac2f2bcaa5fb4da3ec5d04e67f4792dba890d93bdeb9db4524d844caa
+sha256:
+  darwin_arm64: 24553932397543b3d41feebb2fa20c8d559ddcadf6e3f06c6ff779975372a821
+  darwin_amd64: 86ad2fa2782c4882f9c00ff72baa65b62860071112085f9b9484291eb06f167a
+  linux_amd64: a3e637fb77960c7cbd20190a3c5aa65ec646d275b6dc9c56836114f7fb943143
+  linux_arm64: cbe8b75ac2f2bcaa5fb4da3ec5d04e67f4792dba890d93bdeb9db4524d844caa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-arrow
+  - glib

@@ -1,0 +1,19 @@
+name: micasa
+version: 1.65.0
+description: TUI for tracking home projects, maintenance schedules, appliances and quotes
+homepage: https://micasa.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/micasa/blobs/sha256:c7102804cbe36ac508953e75f12dc9549b92133d7a9dedfc118349a0cb7cf0b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/micasa/blobs/sha256:17907836a2dd2dda85ceda0bb77c26031d7ef9d9a92db2f995e1fb8ed14f1638
+  linux_amd64: https://ghcr.io/v2/homebrew/core/micasa/blobs/sha256:c1a4147ce922070b35ba14abfa62fdf5a8eb9877a056c408af06144ef89a0363
+  linux_arm64: https://ghcr.io/v2/homebrew/core/micasa/blobs/sha256:bec3832f9e9ee3e9c4af8634c10fd7c9a82f807c90ae27f22391d67c2b2ac6fc
+sha256:
+  darwin_arm64: c7102804cbe36ac508953e75f12dc9549b92133d7a9dedfc118349a0cb7cf0b3
+  darwin_amd64: 17907836a2dd2dda85ceda0bb77c26031d7ef9d9a92db2f995e1fb8ed14f1638
+  linux_amd64: c1a4147ce922070b35ba14abfa62fdf5a8eb9877a056c408af06144ef89a0363
+  linux_arm64: bec3832f9e9ee3e9c4af8634c10fd7c9a82f807c90ae27f22391d67c2b2ac6fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

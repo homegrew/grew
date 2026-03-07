@@ -1,0 +1,19 @@
+name: bosh-cli
+version: 7.9.18
+description: Cloud Foundry BOSH CLI v2
+homepage: https://bosh.io/docs/cli-v2/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bosh-cli/blobs/sha256:9f6d126910b625017e1efc2c43f1409742e6f1775fa0211d58aafd3fb2270d73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bosh-cli/blobs/sha256:9cf307f2765dfb0e425d43a24ce8cb6c320a4755eafff70c6178addf5ce8ff7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bosh-cli/blobs/sha256:0abeb88cbfeef9f66bfa6fcc34f4b18bba7e38d896999256bd3295c547cbc800
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bosh-cli/blobs/sha256:7c80d9249b31fea3f84fbcf6119f79e119682dbb817ac6452d152b2006f26537
+sha256:
+  darwin_arm64: 9f6d126910b625017e1efc2c43f1409742e6f1775fa0211d58aafd3fb2270d73
+  darwin_amd64: 9cf307f2765dfb0e425d43a24ce8cb6c320a4755eafff70c6178addf5ce8ff7e
+  linux_amd64: 0abeb88cbfeef9f66bfa6fcc34f4b18bba7e38d896999256bd3295c547cbc800
+  linux_arm64: 7c80d9249b31fea3f84fbcf6119f79e119682dbb817ac6452d152b2006f26537
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

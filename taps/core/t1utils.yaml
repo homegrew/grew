@@ -1,0 +1,19 @@
+name: t1utils
+version: 1.42
+description: Command-line tools for dealing with Type 1 fonts
+homepage: https://www.lcdf.org/type/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/t1utils/blobs/sha256:8ed3f6fa16af01bfaa19c580a6983eb4ad9a4010461102a94417dccb6943ed8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/t1utils/blobs/sha256:56d7a58388334348f11c453b460ad3d9c6d2058d7a0e6350d0d3597af8d3a37a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/t1utils/blobs/sha256:bc65100916f687ae2019390d262a22eb6bfa2e203bb3f125be5d7d10469764e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/t1utils/blobs/sha256:e74d6d74eb231a5293e768585845df223e2f6825bdaaf432497b393af5324be5
+sha256:
+  darwin_arm64: 8ed3f6fa16af01bfaa19c580a6983eb4ad9a4010461102a94417dccb6943ed8f
+  darwin_amd64: 56d7a58388334348f11c453b460ad3d9c6d2058d7a0e6350d0d3597af8d3a37a
+  linux_amd64: bc65100916f687ae2019390d262a22eb6bfa2e203bb3f125be5d7d10469764e4
+  linux_arm64: e74d6d74eb231a5293e768585845df223e2f6825bdaaf432497b393af5324be5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

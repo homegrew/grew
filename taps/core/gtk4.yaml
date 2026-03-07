@@ -1,0 +1,31 @@
+name: gtk4
+version: 4.22.0
+description: Toolkit for creating graphical user interfaces
+homepage: https://gtk.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtk4/blobs/sha256:efddc2db8b67e644d8033ccbfbe1e40efada45f260a02201088a2366f058e151
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtk4/blobs/sha256:eb25dfce38a7f74f9cb877dc0886812e262873beee30d5895d12aa695eab3ff9
+sha256:
+  darwin_arm64: efddc2db8b67e644d8033ccbfbe1e40efada45f260a02201088a2366f058e151
+  darwin_amd64: eb25dfce38a7f74f9cb877dc0886812e262873beee30d5895d12aa695eab3ff9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - fribidi
+  - gdk-pixbuf
+  - glib
+  - graphene
+  - harfbuzz
+  - hicolor-icon-theme
+  - jpeg-turbo
+  - libepoxy
+  - libpng
+  - librsvg
+  - libtiff
+  - pango
+  - gettext

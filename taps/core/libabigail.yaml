@@ -1,0 +1,20 @@
+name: libabigail
+version: 2.9
+description: ABI Generic Analysis and Instrumentation Library
+homepage: https://sourceware.org/libabigail/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libabigail/blobs/sha256:7dcc8580840ca683c97b467b61d78ef524c31bbb85029a0e3ffc65c2ec525d72
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libabigail/blobs/sha256:f16a811a8930cd335c913c9c7757b68d12b5e21d246eac6f0bc5e8991b9c2a63
+sha256:
+  linux_amd64: 7dcc8580840ca683c97b467b61d78ef524c31bbb85029a0e3ffc65c2ec525d72
+  linux_arm64: f16a811a8930cd335c913c9c7757b68d12b5e21d246eac6f0bc5e8991b9c2a63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elfutils
+  - libxml2
+  - xxhash
+  - xz

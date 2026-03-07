@@ -1,0 +1,19 @@
+name: nasm
+version: 3.01
+description: Netwide Assembler (NASM) is an 80x86 assembler
+homepage: https://www.nasm.us/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nasm/blobs/sha256:f5074568719d225be8b29c51a67afb5a4feec97f58736cd18cd1534eefa11df5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nasm/blobs/sha256:56b4849156efbe9ef0a4d615a36a4e58f5d9cc098a4c56e161489490189e6f56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nasm/blobs/sha256:c2bb9cd0b3ae85202e0584e4a088c9bcec70cccbb4f619465fae0210f95151dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nasm/blobs/sha256:2653ec1582df302177334313b005f06c6ae4df44194f72742406eaa47e5b6065
+sha256:
+  darwin_arm64: f5074568719d225be8b29c51a67afb5a4feec97f58736cd18cd1534eefa11df5
+  darwin_amd64: 56b4849156efbe9ef0a4d615a36a4e58f5d9cc098a4c56e161489490189e6f56
+  linux_amd64: c2bb9cd0b3ae85202e0584e4a088c9bcec70cccbb4f619465fae0210f95151dc
+  linux_arm64: 2653ec1582df302177334313b005f06c6ae4df44194f72742406eaa47e5b6065
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

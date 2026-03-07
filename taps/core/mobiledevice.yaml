@@ -1,0 +1,15 @@
+name: mobiledevice
+version: 2.0.0
+description: "CLI for Apple's Private (Closed) Mobile Device Framework"
+homepage: https://github.com/imkira/mobiledevice
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mobiledevice/blobs/sha256:391242e35998f146f7b0051104f106b49f9ba4f2ec2817b2cb086fa23aa48831
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mobiledevice/blobs/sha256:60f7ec7961466d17cee5a093926a00a906f99e944bb9f6dbd0daa0e54f9b5767
+sha256:
+  darwin_arm64: 391242e35998f146f7b0051104f106b49f9ba4f2ec2817b2cb086fa23aa48831
+  darwin_amd64: 60f7ec7961466d17cee5a093926a00a906f99e944bb9f6dbd0daa0e54f9b5767
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

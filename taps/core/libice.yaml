@@ -1,0 +1,21 @@
+name: libice
+version: 1.1.2
+description: "X.Org: Inter-Client Exchange Library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libice/blobs/sha256:7c7fe005691e3b774bd67fd52e5a16bfe335a6a326a53ee47dc7027ccc26c911
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libice/blobs/sha256:c62d9319100ce6332a7c6335c3365b2e2a216f7df9aa5bf1daae891bdb88edd0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libice/blobs/sha256:b4031d0484219c9a701184de11ae283694a3e1067a0103ff661a29e165acc52b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libice/blobs/sha256:b4347742f36796e398b33430cd91fd1935f50aa73473dfea2aedb48bf62b5943
+sha256:
+  darwin_arm64: 7c7fe005691e3b774bd67fd52e5a16bfe335a6a326a53ee47dc7027ccc26c911
+  darwin_amd64: c62d9319100ce6332a7c6335c3365b2e2a216f7df9aa5bf1daae891bdb88edd0
+  linux_amd64: b4031d0484219c9a701184de11ae283694a3e1067a0103ff661a29e165acc52b
+  linux_arm64: b4347742f36796e398b33430cd91fd1935f50aa73473dfea2aedb48bf62b5943
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xorgproto

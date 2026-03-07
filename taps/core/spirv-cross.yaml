@@ -1,0 +1,19 @@
+name: spirv-cross
+version: 1.4.341.0
+description: Performing reflection and disassembling SPIR-V
+homepage: https://github.com/KhronosGroup/SPIRV-Cross
+license: Apache-2.0 AND MIT AND CC-BY-4.0 AND MIT-Khronos-old
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spirv-cross/blobs/sha256:1977a16037658806a6d931d7949d5f06596cb7d6ccccca7416bef5c8813617e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spirv-cross/blobs/sha256:e1bf1109ba614d7d6f511e703868c80a5ce44443bf75ed4ce131be730e3885d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spirv-cross/blobs/sha256:c103084c571b223da6aa75f97471553926afc2bc4d9cab205f8084791ac6f858
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spirv-cross/blobs/sha256:6c7fd48dabbefd574382784f2b66f679d36293dd50af3def498b4008c83a0370
+sha256:
+  darwin_arm64: 1977a16037658806a6d931d7949d5f06596cb7d6ccccca7416bef5c8813617e2
+  darwin_amd64: e1bf1109ba614d7d6f511e703868c80a5ce44443bf75ed4ce131be730e3885d0
+  linux_amd64: c103084c571b223da6aa75f97471553926afc2bc4d9cab205f8084791ac6f858
+  linux_arm64: 6c7fd48dabbefd574382784f2b66f679d36293dd50af3def498b4008c83a0370
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

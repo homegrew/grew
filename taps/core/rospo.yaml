@@ -1,0 +1,19 @@
+name: rospo
+version: 0.15.3
+description: Simple, reliable, persistent ssh tunnels with embedded ssh server
+homepage: https://github.com/ferama/rospo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rospo/blobs/sha256:43494ada262f259f82c05219386a821a57d24053dc7d17f5bf0466509c2a529a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rospo/blobs/sha256:19405ba3bdc6ee02655fa1ab3eb9b89aedeb4459792b08d313731e5bab9edd69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rospo/blobs/sha256:2180b3eabb574fdf196c1ec808c62d602637982a7eca1a01dc9d2b0afeea7873
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rospo/blobs/sha256:3772e1d03c5b37d9a00700c5628c8680fa3ab3d7801145f60a3270d2e2aba275
+sha256:
+  darwin_arm64: 43494ada262f259f82c05219386a821a57d24053dc7d17f5bf0466509c2a529a
+  darwin_amd64: 19405ba3bdc6ee02655fa1ab3eb9b89aedeb4459792b08d313731e5bab9edd69
+  linux_amd64: 2180b3eabb574fdf196c1ec808c62d602637982a7eca1a01dc9d2b0afeea7873
+  linux_arm64: 3772e1d03c5b37d9a00700c5628c8680fa3ab3d7801145f60a3270d2e2aba275
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

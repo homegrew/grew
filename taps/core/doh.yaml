@@ -1,0 +1,19 @@
+name: doh
+version: 0.1
+description: Stand-alone DNS-over-HTTPS resolver using libcurl
+homepage: https://github.com/curl/doh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doh/blobs/sha256:b9c8bb12c19ed1f9ee5a81150ab5238dc1521692b97ee7e2ac9f7b332c98de28
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doh/blobs/sha256:17325afc86aa5389af5b957dcbd13155bff5ec0372e7c89fb5608f84deac154b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doh/blobs/sha256:0272e7f336538f7360c59c54889b19bb5d9f0cd723f44bc87e641bcd1f124de2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doh/blobs/sha256:75b94ee73ea07d08efdc21cbc6ddd11298e438c7c41efcb7d35bdce181a8e7e8
+sha256:
+  darwin_arm64: b9c8bb12c19ed1f9ee5a81150ab5238dc1521692b97ee7e2ac9f7b332c98de28
+  darwin_amd64: 17325afc86aa5389af5b957dcbd13155bff5ec0372e7c89fb5608f84deac154b
+  linux_amd64: 0272e7f336538f7360c59c54889b19bb5d9f0cd723f44bc87e641bcd1f124de2
+  linux_arm64: 75b94ee73ea07d08efdc21cbc6ddd11298e438c7c41efcb7d35bdce181a8e7e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

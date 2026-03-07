@@ -1,0 +1,20 @@
+name: unifdef
+version: 2.12
+description: Selectively process conditional C preprocessor directives
+homepage: https://dotat.at/prog/unifdef/
+license: BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unifdef/blobs/sha256:32f10f0ec152a2e92709ac763ae4538cc33d0504be7981302da2d9e183d55334
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unifdef/blobs/sha256:20af4f3b948e04fda28c60eb66b3f8b641073d2b4f84ecc54c0df4172961484f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unifdef/blobs/sha256:cb229f3727c18db662a53be7406a73ed233acd172bb161e53af606baa4de016b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unifdef/blobs/sha256:ea9e4af82e2fb61fc1cc1ebeac02116bd1cf6a62d2d3e6fd3f4aabaac946487f
+sha256:
+  darwin_arm64: 32f10f0ec152a2e92709ac763ae4538cc33d0504be7981302da2d9e183d55334
+  darwin_amd64: 20af4f3b948e04fda28c60eb66b3f8b641073d2b4f84ecc54c0df4172961484f
+  linux_amd64: cb229f3727c18db662a53be7406a73ed233acd172bb161e53af606baa4de016b
+  linux_arm64: ea9e4af82e2fb61fc1cc1ebeac02116bd1cf6a62d2d3e6fd3f4aabaac946487f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,19 @@
+name: gator
+version: 3.21.1
+description: CLI Utility for Open Policy Agent Gatekeeper
+homepage: https://open-policy-agent.github.io/gatekeeper/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gator/blobs/sha256:5f78b4ea8a9b1721567a1ffc6c48d667bfb4ce78684d55b346afe909265229ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gator/blobs/sha256:13b90a13c0891c605513229574a746b2f7862585fc805c80a1eda6a3f2223814
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gator/blobs/sha256:37c68be917fc8d1e17705bf7edd66296b11ff61e9a08b30775468a3f298925e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gator/blobs/sha256:15e4effdb3c0614f6809ffb16427d7924e349082e0aa5d10e87194ee53f26faa
+sha256:
+  darwin_arm64: 5f78b4ea8a9b1721567a1ffc6c48d667bfb4ce78684d55b346afe909265229ca
+  darwin_amd64: 13b90a13c0891c605513229574a746b2f7862585fc805c80a1eda6a3f2223814
+  linux_amd64: 37c68be917fc8d1e17705bf7edd66296b11ff61e9a08b30775468a3f298925e2
+  linux_arm64: 15e4effdb3c0614f6809ffb16427d7924e349082e0aa5d10e87194ee53f26faa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

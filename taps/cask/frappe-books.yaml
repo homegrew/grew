@@ -1,0 +1,11 @@
+name: frappe-books
+version: 0.36.0
+description: Book-keeping software for small businesses and freelancers
+homepage: https://frappe.io/books/
+url:
+  darwin_arm64: https://github.com/frappe/books/releases/download/v0.36.0/Frappe-Books-v0.36.0-mac-arm64.dmg
+sha256:
+  darwin_arm64: 26ffa956c54a3de41f8768046b6c9c63c7772a0c0b3096578ae06a69f999c8bd
+artifacts:
+  app:
+    - Frappe Books.app

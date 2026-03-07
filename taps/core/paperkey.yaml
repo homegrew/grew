@@ -1,0 +1,19 @@
+name: paperkey
+version: 1.6
+description: Extract just secret information out of OpenPGP secret keys
+homepage: https://www.jabberwocky.com/software/paperkey/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/paperkey/blobs/sha256:fc50488f52f09cbf1b0fabc8ddefa543104654dff3a462d9d0dfdca67e89ffcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/paperkey/blobs/sha256:2e0ff420725418bfaf5cb4f18985772bdf516087d88e2b37a7916f3a382fcf75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/paperkey/blobs/sha256:065de554c087ac3f19246e81fdbf2a60b64c2307f420b91029d781ec901b2d94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/paperkey/blobs/sha256:53cfe21caff97562617b491ee78d77e79761907e8e490d739334999ecd89fd77
+sha256:
+  darwin_arm64: fc50488f52f09cbf1b0fabc8ddefa543104654dff3a462d9d0dfdca67e89ffcf
+  darwin_amd64: 2e0ff420725418bfaf5cb4f18985772bdf516087d88e2b37a7916f3a382fcf75
+  linux_amd64: 065de554c087ac3f19246e81fdbf2a60b64c2307f420b91029d781ec901b2d94
+  linux_arm64: 53cfe21caff97562617b491ee78d77e79761907e8e490d739334999ecd89fd77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

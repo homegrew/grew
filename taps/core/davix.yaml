@@ -1,0 +1,21 @@
+name: davix
+version: 0.8.10
+description: Library and tools for advanced file I/O with HTTP-based protocols
+homepage: https://github.com/cern-fts/davix
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/davix/blobs/sha256:147668e36df19a8719d55dbb89b1e3e2cdd0d8c024e945986ff606182570db6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/davix/blobs/sha256:ca1f0617f83aa057c573860e846f9805f789b8ddbfa6bbcc4d5686b11b534406
+  linux_amd64: https://ghcr.io/v2/homebrew/core/davix/blobs/sha256:e8097034116f7ade56b9aa9206c51d823ddb1b687dd7c7d38eaf300fa25caa17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/davix/blobs/sha256:90ba00d5d1122350f59985e06eee426689bf071bfb4afbfc1b1fcf039d2e3d8b
+sha256:
+  darwin_arm64: 147668e36df19a8719d55dbb89b1e3e2cdd0d8c024e945986ff606182570db6e
+  darwin_amd64: ca1f0617f83aa057c573860e846f9805f789b8ddbfa6bbcc4d5686b11b534406
+  linux_amd64: e8097034116f7ade56b9aa9206c51d823ddb1b687dd7c7d38eaf300fa25caa17
+  linux_arm64: 90ba00d5d1122350f59985e06eee426689bf071bfb4afbfc1b1fcf039d2e3d8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

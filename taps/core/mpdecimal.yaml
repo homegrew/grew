@@ -1,0 +1,19 @@
+name: mpdecimal
+version: 4.0.1
+description: Library for decimal floating point arithmetic
+homepage: https://www.bytereef.org/mpdecimal/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:518dd69097ceef4b2f5b51603d930d7f5a334237c52b83f8d9822e58c83de172
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:1f2c31483c9abd01e1ec3af7be8ca14f02a0cdc920313a8b3ab7d3b0b20a6386
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:f540928b0baae439b6b7bbbb54aa0b0d8fda3631a2fb46c1d1ccd6bf9c2b5389
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:d5f5f08846de66026cc3d4029e3202498ffb3996d4eca62623da85ade7b6f106
+sha256:
+  darwin_arm64: 518dd69097ceef4b2f5b51603d930d7f5a334237c52b83f8d9822e58c83de172
+  darwin_amd64: 1f2c31483c9abd01e1ec3af7be8ca14f02a0cdc920313a8b3ab7d3b0b20a6386
+  linux_amd64: f540928b0baae439b6b7bbbb54aa0b0d8fda3631a2fb46c1d1ccd6bf9c2b5389
+  linux_arm64: d5f5f08846de66026cc3d4029e3202498ffb3996d4eca62623da85ade7b6f106
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

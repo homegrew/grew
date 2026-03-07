@@ -1,0 +1,19 @@
+name: gibbslda
+version: 0.2
+description: "Library wrapping imlib2's context API"
+homepage: https://gibbslda.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gibbslda/blobs/sha256:16474e9a022ecbe4d80701a9d8c87952298af65fa230430a84be3e3dd6a1cc60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gibbslda/blobs/sha256:dd693de81f93ba6758cd14c39af74de1bd77a7e4f5a7767b21f686315aaac4f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gibbslda/blobs/sha256:7a30b74269c34fa81e23d50d036a12d3788a8de0dbbe985e1c1efbb66ea54b8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gibbslda/blobs/sha256:17faba95a1fb48b7e0a8989b01fae56959a8cbeabbb64ccdae297e3e8888df1a
+sha256:
+  darwin_arm64: 16474e9a022ecbe4d80701a9d8c87952298af65fa230430a84be3e3dd6a1cc60
+  darwin_amd64: dd693de81f93ba6758cd14c39af74de1bd77a7e4f5a7767b21f686315aaac4f4
+  linux_amd64: 7a30b74269c34fa81e23d50d036a12d3788a8de0dbbe985e1c1efbb66ea54b8a
+  linux_arm64: 17faba95a1fb48b7e0a8989b01fae56959a8cbeabbb64ccdae297e3e8888df1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

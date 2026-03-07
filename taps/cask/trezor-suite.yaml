@@ -1,0 +1,11 @@
+name: trezor-suite
+version: 26.2.3
+description: Companion app for the Trezor hardware wallet
+homepage: https://suite.trezor.io/
+url:
+  darwin_arm64: https://data.trezor.io/suite/releases/desktop/latest/Trezor-Suite-26.2.3-mac-arm64.dmg
+sha256:
+  darwin_arm64: 13a1678c85a2a7003beb9acc60c023304bb8be6e6fe33bee0ddcb9d4a918a968
+artifacts:
+  app:
+    - Trezor Suite.app

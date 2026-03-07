@@ -1,0 +1,21 @@
+name: spaceship
+version: 4.21.1
+description: Zsh prompt for Astronauts
+homepage: https://spaceship-prompt.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:a2421657d8dcbacf2b8b3b6f855b852558f734265d37832713e5f9e1acd1176b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:424db35acba28ca4391c38e16f4190c1e54bd59295d9fdb4c2724b45c8c35782
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:ab31e4ef50b85e128051345873cdd6459a9d95d4ad7a429a6f043a45b1aec567
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:09f164e70cbb277f7e6ac06836fb2a60779644520ed1ba8032b2f50b134683ee
+sha256:
+  darwin_arm64: a2421657d8dcbacf2b8b3b6f855b852558f734265d37832713e5f9e1acd1176b
+  darwin_amd64: 424db35acba28ca4391c38e16f4190c1e54bd59295d9fdb4c2724b45c8c35782
+  linux_amd64: ab31e4ef50b85e128051345873cdd6459a9d95d4ad7a429a6f043a45b1aec567
+  linux_arm64: 09f164e70cbb277f7e6ac06836fb2a60779644520ed1ba8032b2f50b134683ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zsh-async

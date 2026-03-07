@@ -1,0 +1,19 @@
+name: flake
+version: 0.11
+description: FLAC audio encoder
+homepage: https://flake-enc.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flake/blobs/sha256:a74ce50f62b9fcfaad31673092ece8fb2abed1a710117f8ed0bd0e62d01bfe6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flake/blobs/sha256:49d09d4d7a0eab7cf3e65c933e972787dcb5084cc3fe458e3952e31aed6bdeff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flake/blobs/sha256:8fab554771a1e61cc3b14670fd0394fef5b60c4e545558ef6eb75b33edf5b258
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flake/blobs/sha256:52410b17b1618768e0840ed8a48c6bbb250a198231dd179d68c5a969adc12a72
+sha256:
+  darwin_arm64: a74ce50f62b9fcfaad31673092ece8fb2abed1a710117f8ed0bd0e62d01bfe6a
+  darwin_amd64: 49d09d4d7a0eab7cf3e65c933e972787dcb5084cc3fe458e3952e31aed6bdeff
+  linux_amd64: 8fab554771a1e61cc3b14670fd0394fef5b60c4e545558ef6eb75b33edf5b258
+  linux_arm64: 52410b17b1618768e0840ed8a48c6bbb250a198231dd179d68c5a969adc12a72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: arss
+version: 0.2.3
+description: Analyze a sound file into a spectrogram
+homepage: https://arss.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arss/blobs/sha256:bfe57aa3bd356a8a7d3b616e96f854b484a92be45620cbf9ce3729a7ded493bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arss/blobs/sha256:1fb3b69447553ca6d5ab2c3a98a44573e0dd3b176a68310b4fc543c68d72f7af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arss/blobs/sha256:c5c0a1ade41f7ff063620d37b071556cd71382e9728f160c24393809f89c0f80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arss/blobs/sha256:3e094f664eda5e0dabb7269b9a6129d97028bf76e10a6f0d3966479fee9cc79f
+sha256:
+  darwin_arm64: bfe57aa3bd356a8a7d3b616e96f854b484a92be45620cbf9ce3729a7ded493bb
+  darwin_amd64: 1fb3b69447553ca6d5ab2c3a98a44573e0dd3b176a68310b4fc543c68d72f7af
+  linux_amd64: c5c0a1ade41f7ff063620d37b071556cd71382e9728f160c24393809f89c0f80
+  linux_arm64: 3e094f664eda5e0dabb7269b9a6129d97028bf76e10a6f0d3966479fee9cc79f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw

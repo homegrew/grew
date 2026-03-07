@@ -1,0 +1,19 @@
+name: render
+version: 2.12.0
+description: Command-line interface for Render
+homepage: https://render.com/docs/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/render/blobs/sha256:f1c3fa9a297c32c41f674de990449615c3e8c96ee29f48a9f9b844fcf780cfba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/render/blobs/sha256:5b488c8cbf35798e029860711491f6ed5fe1ec01a1d5a100b4f29e10963b0b84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/render/blobs/sha256:0233cf3c92701e2b68aaa62f781931ad805d0678bd36dcb1143ddb3ebf954788
+  linux_arm64: https://ghcr.io/v2/homebrew/core/render/blobs/sha256:f8ec6a1873b37caeeecd2c8b9279d1a6f02576036db827778501717c180f02f1
+sha256:
+  darwin_arm64: f1c3fa9a297c32c41f674de990449615c3e8c96ee29f48a9f9b844fcf780cfba
+  darwin_amd64: 5b488c8cbf35798e029860711491f6ed5fe1ec01a1d5a100b4f29e10963b0b84
+  linux_amd64: 0233cf3c92701e2b68aaa62f781931ad805d0678bd36dcb1143ddb3ebf954788
+  linux_arm64: f8ec6a1873b37caeeecd2c8b9279d1a6f02576036db827778501717c180f02f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

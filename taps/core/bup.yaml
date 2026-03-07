@@ -1,0 +1,22 @@
+name: bup
+version: 0.33.10
+description: Backup tool
+homepage: https://bup.github.io/
+license: BSD-2-Clause AND LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bup/blobs/sha256:e8dd1764fdfdcb4e0a3be1c0187a5c9fae165c38130282620f4683d47bc4886f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bup/blobs/sha256:a132b47d549095e472be6cb7703c0c8cf78f8850b0aa8dadc76210a00120e055
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bup/blobs/sha256:1419ad06f33c6f879c55e6e40596f58ffd7d83a903c801433ee1f5b993adb5cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bup/blobs/sha256:1916cb6c7346701861a8d1206d68eaf8e19bd79ff1e93a9cd60f7c6de26b7a27
+sha256:
+  darwin_arm64: e8dd1764fdfdcb4e0a3be1c0187a5c9fae165c38130282620f4683d47bc4886f
+  darwin_amd64: a132b47d549095e472be6cb7703c0c8cf78f8850b0aa8dadc76210a00120e055
+  linux_amd64: 1419ad06f33c6f879c55e6e40596f58ffd7d83a903c801433ee1f5b993adb5cd
+  linux_arm64: 1916cb6c7346701861a8d1206d68eaf8e19bd79ff1e93a9cd60f7c6de26b7a27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - readline

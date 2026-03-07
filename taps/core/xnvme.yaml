@@ -1,0 +1,19 @@
+name: xnvme
+version: 0.7.5
+description: Cross-platform libraries and tools for efficient I/O and low-level control
+homepage: https://xnvme.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xnvme/blobs/sha256:f5a3ced6f2d26e622f6a619c2f8606916aafb9c6704cb58a52a7b976f9f00fdc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xnvme/blobs/sha256:ab2c11503d96c5d333b599ce0c2a18a4f25712bb8c7c53c681b34de481d8c6b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xnvme/blobs/sha256:1f6f44f9a1deeec057afbff777aa156acf353fbf02f6c85ecb858a4d741baf69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xnvme/blobs/sha256:e9d905badf1945c4991a143fb6d817d510998578f76afe30130894b1eae8a07e
+sha256:
+  darwin_arm64: f5a3ced6f2d26e622f6a619c2f8606916aafb9c6704cb58a52a7b976f9f00fdc
+  darwin_amd64: ab2c11503d96c5d333b599ce0c2a18a4f25712bb8c7c53c681b34de481d8c6b4
+  linux_amd64: 1f6f44f9a1deeec057afbff777aa156acf353fbf02f6c85ecb858a4d741baf69
+  linux_arm64: e9d905badf1945c4991a143fb6d817d510998578f76afe30130894b1eae8a07e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

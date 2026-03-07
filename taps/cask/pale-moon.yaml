@@ -1,0 +1,11 @@
+name: pale-moon
+version: 34.1.0
+description: Web browser
+homepage: https://www.palemoon.org/
+url:
+  darwin_arm64: https://rm-us.palemoon.org/release/palemoon-34.1.0.arm64.dmg
+sha256:
+  darwin_arm64: f2232b07bc912bf9ed39eebcb766a292673d3db0ff377ba510c063917d759076
+artifacts:
+  app:
+    - Pale Moon.app

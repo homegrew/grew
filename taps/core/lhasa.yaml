@@ -1,0 +1,19 @@
+name: lhasa
+version: 0.5.0
+description: LHA implementation to decompress .lzh and .lzs archives
+homepage: https://fragglet.github.io/lhasa/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lhasa/blobs/sha256:c54634d428cfdd0fe31a8d993387e1d4d166e1081b82ab919354805a948ed432
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lhasa/blobs/sha256:8f514fe7d1d4d3621ceec8d41d130e0a362ceefd0be091e4cce36c01658d426e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lhasa/blobs/sha256:fdb0cf0122a0acc12b80c409bc0d5e6e5a023909948068eeb2f3753f2ef9008c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lhasa/blobs/sha256:8ad64de0374f0f74a9517c25f1641881a1e9fd24c538f500ae54445794831c2b
+sha256:
+  darwin_arm64: c54634d428cfdd0fe31a8d993387e1d4d166e1081b82ab919354805a948ed432
+  darwin_amd64: 8f514fe7d1d4d3621ceec8d41d130e0a362ceefd0be091e4cce36c01658d426e
+  linux_amd64: fdb0cf0122a0acc12b80c409bc0d5e6e5a023909948068eeb2f3753f2ef9008c
+  linux_arm64: 8ad64de0374f0f74a9517c25f1641881a1e9fd24c538f500ae54445794831c2b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

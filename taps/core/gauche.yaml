@@ -1,0 +1,22 @@
+name: gauche
+version: 0.9.15
+description: R7RS Scheme implementation, developed to be a handy script interpreter
+homepage: https://practical-scheme.net/gauche/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gauche/blobs/sha256:4dcc399b09f0db638cb74c51b46a1d289f7d9eb7602e1632f409af0d780d6b70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gauche/blobs/sha256:53b8b035250f0814c8a2cc90c59e05ca51ef82116a487fc76ceece4cfad07e48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gauche/blobs/sha256:ad6815598d031b43b878c75511c43cee7e1d18bafc3cb1e59781c0fcdd5c560d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gauche/blobs/sha256:1b93c768dbd692d811173b3c6b9773165d88060cfca88764493b05f0e9ba05a2
+sha256:
+  darwin_arm64: 4dcc399b09f0db638cb74c51b46a1d289f7d9eb7602e1632f409af0d780d6b70
+  darwin_amd64: 53b8b035250f0814c8a2cc90c59e05ca51ef82116a487fc76ceece4cfad07e48
+  linux_amd64: ad6815598d031b43b878c75511c43cee7e1d18bafc3cb1e59781c0fcdd5c560d
+  linux_arm64: 1b93c768dbd692d811173b3c6b9773165d88060cfca88764493b05f0e9ba05a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+  - mbedtls@3

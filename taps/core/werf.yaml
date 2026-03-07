@@ -1,0 +1,19 @@
+name: werf
+version: 2.57.2
+description: Consistent delivery tool for Kubernetes
+homepage: https://werf.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/werf/blobs/sha256:5d33496e3b3e657afe33c6ffbfe4c5545cec8d216ac3e1e590729c0d2387e28b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/werf/blobs/sha256:8bfc6e01c3a023127510520eb5904904daae8b19c3b93237a811573ebc22454b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/werf/blobs/sha256:ec0d25a21168a455eb2b309e5378238f1f497c90bba4301fe02df4fde9747e0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/werf/blobs/sha256:a870fe4584de27cedbc710cd5c093196e5d221b07be506d6a884eb4209fd7b0c
+sha256:
+  darwin_arm64: 5d33496e3b3e657afe33c6ffbfe4c5545cec8d216ac3e1e590729c0d2387e28b
+  darwin_amd64: 8bfc6e01c3a023127510520eb5904904daae8b19c3b93237a811573ebc22454b
+  linux_amd64: ec0d25a21168a455eb2b309e5378238f1f497c90bba4301fe02df4fde9747e0c
+  linux_arm64: a870fe4584de27cedbc710cd5c093196e5d221b07be506d6a884eb4209fd7b0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

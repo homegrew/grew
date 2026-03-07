@@ -1,0 +1,21 @@
+name: mecab-ipadic
+version: 2.7.0-20070801
+description: IPA dictionary compiled for MeCab
+homepage: https://taku910.github.io/mecab/
+license: NAIST-2003
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mecab-ipadic/blobs/sha256:3bdeed6d823a573bbac30e4994b79e26ae025379d2cb9b2193128b0cda7aca85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mecab-ipadic/blobs/sha256:12212f7bc769338a7747d2ac184bf669454486336ca32335f15f140d3a0121bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mecab-ipadic/blobs/sha256:23ec6f722695c38dc93487d1320dc7e34c79b359647d4c8edd2cef0a045ed851
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mecab-ipadic/blobs/sha256:0c7669401d92374cb6f57a0f71be0b65bc73c0fabcd62e1d2fd0480cadf9d697
+sha256:
+  darwin_arm64: 3bdeed6d823a573bbac30e4994b79e26ae025379d2cb9b2193128b0cda7aca85
+  darwin_amd64: 12212f7bc769338a7747d2ac184bf669454486336ca32335f15f140d3a0121bf
+  linux_amd64: 23ec6f722695c38dc93487d1320dc7e34c79b359647d4c8edd2cef0a045ed851
+  linux_arm64: 0c7669401d92374cb6f57a0f71be0b65bc73c0fabcd62e1d2fd0480cadf9d697
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mecab

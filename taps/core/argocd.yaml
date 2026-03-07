@@ -1,0 +1,19 @@
+name: argocd
+version: 3.3.2
+description: GitOps Continuous Delivery for Kubernetes
+homepage: https://argoproj.github.io/cd/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argocd/blobs/sha256:fea38b9df4989a4b980b6adebb1c93b44e8df07d47699fea51b0ede0ca44a825
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argocd/blobs/sha256:96d07b7a70b529bba1f82b6c25d66522a175b04a31a78e44e0824337b16a9f4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argocd/blobs/sha256:c644a47d27477181a7aff230e4bf80a61b81064e5190c409b7f1334983599c91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argocd/blobs/sha256:3cd2eee8a42f7fdf53e5d2dcc04b434a5ee4d2a6291feb6813f72cd381d956b5
+sha256:
+  darwin_arm64: fea38b9df4989a4b980b6adebb1c93b44e8df07d47699fea51b0ede0ca44a825
+  darwin_amd64: 96d07b7a70b529bba1f82b6c25d66522a175b04a31a78e44e0824337b16a9f4e
+  linux_amd64: c644a47d27477181a7aff230e4bf80a61b81064e5190c409b7f1334983599c91
+  linux_arm64: 3cd2eee8a42f7fdf53e5d2dcc04b434a5ee4d2a6291feb6813f72cd381d956b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

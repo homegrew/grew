@@ -1,0 +1,19 @@
+name: blocky
+version: 0.29.0
+description: Fast and lightweight DNS proxy as ad-blocker for local network
+homepage: https://0xerr0r.github.io/blocky/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blocky/blobs/sha256:aae4b193ea5f8a18fde101faeba0ae14411cca6a47195090bd3a26d8f49afa48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blocky/blobs/sha256:cfc14fb077737658e9bcbf37a01780358c3207b4a97382398148829fd420c86d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blocky/blobs/sha256:8306ee682957dcb06faf9825e3c34b188de22b4a7da043453682da6ceeb76b53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blocky/blobs/sha256:3395e62f6b3751b066583d61b8fbbf4ef07266529780a3c34920383e77236c06
+sha256:
+  darwin_arm64: aae4b193ea5f8a18fde101faeba0ae14411cca6a47195090bd3a26d8f49afa48
+  darwin_amd64: cfc14fb077737658e9bcbf37a01780358c3207b4a97382398148829fd420c86d
+  linux_amd64: 8306ee682957dcb06faf9825e3c34b188de22b4a7da043453682da6ceeb76b53
+  linux_arm64: 3395e62f6b3751b066583d61b8fbbf4ef07266529780a3c34920383e77236c06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

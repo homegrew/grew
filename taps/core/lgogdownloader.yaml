@@ -1,0 +1,26 @@
+name: lgogdownloader
+version: 3.18
+description: Unofficial downloader for GOG.com games
+homepage: https://sites.google.com/site/gogdownloader/
+license: WTFPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lgogdownloader/blobs/sha256:42e874eee147a72ce96a7326b5d3dae82cec90156e5c10d7f204c69f1a2842a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lgogdownloader/blobs/sha256:4242df1de313063ff369a3da546a6d8f9933d152a1e6a26c2d2a80c6fd343313
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lgogdownloader/blobs/sha256:dbe52df8fafbe4ded3f94210ac2014de0cb41197a98d2da988ed1638b724be24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lgogdownloader/blobs/sha256:6b3caac3f84d42ebe9c273bfab66f15d8899f405f9d273b7be318f96e430d5b0
+sha256:
+  darwin_arm64: 42e874eee147a72ce96a7326b5d3dae82cec90156e5c10d7f204c69f1a2842a3
+  darwin_amd64: 4242df1de313063ff369a3da546a6d8f9933d152a1e6a26c2d2a80c6fd343313
+  linux_amd64: dbe52df8fafbe4ded3f94210ac2014de0cb41197a98d2da988ed1638b724be24
+  linux_arm64: 6b3caac3f84d42ebe9c273bfab66f15d8899f405f9d273b7be318f96e430d5b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - htmlcxx
+  - jsoncpp
+  - rhash
+  - tidy-html5
+  - tinyxml2

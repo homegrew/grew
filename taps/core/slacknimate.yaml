@@ -1,0 +1,19 @@
+name: slacknimate
+version: 1.1.0
+description: Text animation for Slack messages
+homepage: https://github.com/mroth/slacknimate
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slacknimate/blobs/sha256:2d16153371e5e8375e39cdfb1733d6cfaf21490305b53c1792484f91ce5b1f20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slacknimate/blobs/sha256:237383328fe4307d81c19f79f5f8522d98997d1807095ffd7ced04a6bd4990cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slacknimate/blobs/sha256:198c82b7bdd71a589e1e9e811f10a8f619bf0fe1de0accb3b1c8aaeb5621049b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slacknimate/blobs/sha256:1c7190147489c731c8266d014b7919c8ef489cef1d86fa4a2ebf8206bd2ba7d0
+sha256:
+  darwin_arm64: 2d16153371e5e8375e39cdfb1733d6cfaf21490305b53c1792484f91ce5b1f20
+  darwin_amd64: 237383328fe4307d81c19f79f5f8522d98997d1807095ffd7ced04a6bd4990cf
+  linux_amd64: 198c82b7bdd71a589e1e9e811f10a8f619bf0fe1de0accb3b1c8aaeb5621049b
+  linux_arm64: 1c7190147489c731c8266d014b7919c8ef489cef1d86fa4a2ebf8206bd2ba7d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

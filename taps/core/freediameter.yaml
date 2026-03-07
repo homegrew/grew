@@ -1,0 +1,23 @@
+name: freediameter
+version: 1.6.0
+description: Open source Diameter (Authentication) protocol implementation
+homepage: https://github.com/freeDiameter/freeDiameter
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freediameter/blobs/sha256:6101f02874dba7633196889ea14e9d5d397d8ec51d1c47f603d15413cb2ef6eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freediameter/blobs/sha256:1a07c7755a97e4d8e35bf575330316ab84b260d265205c963deb719d828a7dc7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freediameter/blobs/sha256:217a7b1ac6a2719401fc8978f58b46e68f4daabe4e0d6dd4f21f950903581e9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freediameter/blobs/sha256:f8e8a5d5d8e5e831dbd4fd69a673c44828e663a96edbbf1c8da9178cf2c0ea62
+sha256:
+  darwin_arm64: 6101f02874dba7633196889ea14e9d5d397d8ec51d1c47f603d15413cb2ef6eb
+  darwin_amd64: 1a07c7755a97e4d8e35bf575330316ab84b260d265205c963deb719d828a7dc7
+  linux_amd64: 217a7b1ac6a2719401fc8978f58b46e68f4daabe4e0d6dd4f21f950903581e9b
+  linux_arm64: f8e8a5d5d8e5e831dbd4fd69a673c44828e663a96edbbf1c8da9178cf2c0ea62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - libgcrypt
+  - libidn2

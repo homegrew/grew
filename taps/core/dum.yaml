@@ -1,0 +1,19 @@
+name: dum
+version: 0.1.20
+description: Npm scripts runner written in Rust
+homepage: https://github.com/egoist/dum
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dum/blobs/sha256:975c574d188d562cd6a96ea7596200dc1af0863b800472f19ca4e790e3c8b3d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dum/blobs/sha256:9a2a36f535842db5effd2ebe482db07b634c8f801d75fe91eea29f273aa624e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dum/blobs/sha256:e9db9dd61b5327e9bde5c5ebffd66076e3a72911012aecd8a8b3fda81057ea26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dum/blobs/sha256:1b601f2b4fa4dd366ab91f84aefd8ce246987edc79721118b4b2fdd40d749708
+sha256:
+  darwin_arm64: 975c574d188d562cd6a96ea7596200dc1af0863b800472f19ca4e790e3c8b3d3
+  darwin_amd64: 9a2a36f535842db5effd2ebe482db07b634c8f801d75fe91eea29f273aa624e1
+  linux_amd64: e9db9dd61b5327e9bde5c5ebffd66076e3a72911012aecd8a8b3fda81057ea26
+  linux_arm64: 1b601f2b4fa4dd366ab91f84aefd8ce246987edc79721118b4b2fdd40d749708
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

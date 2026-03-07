@@ -1,0 +1,19 @@
+name: verovio
+version: 6.0.1
+description: Command-line MEI music notation engraver
+homepage: https://www.verovio.org
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/verovio/blobs/sha256:aadb6c87539d12cbfd0959b6b8c1cdb4be64581b5f4e87da1acc25e2b661c679
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/verovio/blobs/sha256:112664273a397282700ecdd0890fa324b0b5e6c0fc49f7622fd7bc0e25d63c8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/verovio/blobs/sha256:4c098961e5702827cf587d776504261e364b4b7e7f11ee735e20ded7ebff48be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/verovio/blobs/sha256:98f983780f1265952a2659327ef681f764cf9000eaba91eb28c2571d8e8fe61c
+sha256:
+  darwin_arm64: aadb6c87539d12cbfd0959b6b8c1cdb4be64581b5f4e87da1acc25e2b661c679
+  darwin_amd64: 112664273a397282700ecdd0890fa324b0b5e6c0fc49f7622fd7bc0e25d63c8c
+  linux_amd64: 4c098961e5702827cf587d776504261e364b4b7e7f11ee735e20ded7ebff48be
+  linux_arm64: 98f983780f1265952a2659327ef681f764cf9000eaba91eb28c2571d8e8fe61c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

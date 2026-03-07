@@ -1,0 +1,19 @@
+name: libid3tag
+version: 0.16.4
+description: ID3 tag manipulation library
+homepage: https://codeberg.org/tenacityteam/libid3tag
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libid3tag/blobs/sha256:100a58c3e4e26404d62e85fcabe8d0b5ba411094db8c97c46be1d916f95524ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libid3tag/blobs/sha256:b3c1ed4dfbe28dedb19408cdd3fbddab9beb38ab3268b01585418a0e694bbcdf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libid3tag/blobs/sha256:b7ebccce6746bc7b0ce3cbd51794cb119ff4b1a5a3c7713ba20567744261b062
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libid3tag/blobs/sha256:33f3757644b9124896fc61ecdc425b351cea0086a4268979925be50fca2bb5c2
+sha256:
+  darwin_arm64: 100a58c3e4e26404d62e85fcabe8d0b5ba411094db8c97c46be1d916f95524ca
+  darwin_amd64: b3c1ed4dfbe28dedb19408cdd3fbddab9beb38ab3268b01585418a0e694bbcdf
+  linux_amd64: b7ebccce6746bc7b0ce3cbd51794cb119ff4b1a5a3c7713ba20567744261b062
+  linux_arm64: 33f3757644b9124896fc61ecdc425b351cea0086a4268979925be50fca2bb5c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

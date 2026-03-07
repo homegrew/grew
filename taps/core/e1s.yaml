@@ -1,0 +1,19 @@
+name: e1s
+version: 1.0.53
+description: TUI for managing AWS ECS, inspired by k9s
+homepage: https://github.com/keidarcy/e1s
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/e1s/blobs/sha256:956efa09d22006af0d594aa4074f5d56a59f59c98b921c2a11b5d178227b4deb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/e1s/blobs/sha256:c26b95f97627bb02af628d243b2b30d9ccc88c0dfc1a6b075ddc64dbf6dc21a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/e1s/blobs/sha256:954696ee65202bef01a079757c4ed5d3bd8c9bab92f9054b48a5040776df453b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/e1s/blobs/sha256:d82cfca717d176b42ae9de03ffb5552f4f553520fb4fbf81fdc28b8888dcc900
+sha256:
+  darwin_arm64: 956efa09d22006af0d594aa4074f5d56a59f59c98b921c2a11b5d178227b4deb
+  darwin_amd64: c26b95f97627bb02af628d243b2b30d9ccc88c0dfc1a6b075ddc64dbf6dc21a9
+  linux_amd64: 954696ee65202bef01a079757c4ed5d3bd8c9bab92f9054b48a5040776df453b
+  linux_arm64: d82cfca717d176b42ae9de03ffb5552f4f553520fb4fbf81fdc28b8888dcc900
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

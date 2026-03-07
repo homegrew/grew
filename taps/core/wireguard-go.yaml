@@ -1,0 +1,19 @@
+name: wireguard-go
+version: 0.0.20250522
+description: Userspace Go implementation of WireGuard
+homepage: https://www.wireguard.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wireguard-go/blobs/sha256:2ae096c9cefaf2ddf1d4c1eebf19ed71a02adf9c9b020b538f6216244fe3a2fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wireguard-go/blobs/sha256:db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wireguard-go/blobs/sha256:e0fa36967d0cf07ae25e5af14c9b136de29cf5d53f6bfc4f58e66574d3a5aa61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wireguard-go/blobs/sha256:dfba7916b334b184cde873b2fb11f67369ca88c1a55d176e3bee0811b679a53f
+sha256:
+  darwin_arm64: 2ae096c9cefaf2ddf1d4c1eebf19ed71a02adf9c9b020b538f6216244fe3a2fa
+  darwin_amd64: db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61
+  linux_amd64: e0fa36967d0cf07ae25e5af14c9b136de29cf5d53f6bfc4f58e66574d3a5aa61
+  linux_arm64: dfba7916b334b184cde873b2fb11f67369ca88c1a55d176e3bee0811b679a53f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

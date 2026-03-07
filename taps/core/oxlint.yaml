@@ -1,0 +1,19 @@
+name: oxlint
+version: 1.51.0
+description: High-performance linter for JavaScript and TypeScript written in Rust
+homepage: https://oxc.rs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oxlint/blobs/sha256:cb6eacdb3f9af010a0d8a9eec0edea7956ee4642e5f6889c7ddb32bac4699640
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oxlint/blobs/sha256:d9715dcaed7a8fee1fc755f8f08ed495f0d05f03657350cb0627588f627e6ad9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oxlint/blobs/sha256:9b9e33425383f0a2346e4654b20dedbd0c0a94eea769e62991f1716632511e3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oxlint/blobs/sha256:e40ddf87ea766f91e57036c034e04f203560549a307f544a926f023611dc83f6
+sha256:
+  darwin_arm64: cb6eacdb3f9af010a0d8a9eec0edea7956ee4642e5f6889c7ddb32bac4699640
+  darwin_amd64: d9715dcaed7a8fee1fc755f8f08ed495f0d05f03657350cb0627588f627e6ad9
+  linux_amd64: 9b9e33425383f0a2346e4654b20dedbd0c0a94eea769e62991f1716632511e3a
+  linux_arm64: e40ddf87ea766f91e57036c034e04f203560549a307f544a926f023611dc83f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: mdless
+version: 2.1.62
+description: Provides a formatted and highlighted view of Markdown files in Terminal
+homepage: https://github.com/ttscoff/mdless
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdless/blobs/sha256:11949a05aecb70154127649ab6e7fda3d75770269b197463b2bd33c0cb15402a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdless/blobs/sha256:66a314542add622d3d1f6fb253dbde821f84e945baf86f4400c9962f4d326a7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdless/blobs/sha256:76d804aca01c89a186456ef369cdf630cdf0bd84c436d6d25430c894adb1624f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdless/blobs/sha256:584bb364b3412bc3f864e1e634a5d130a3e253d0788d6a169994efd3d9b468dc
+sha256:
+  darwin_arm64: 11949a05aecb70154127649ab6e7fda3d75770269b197463b2bd33c0cb15402a
+  darwin_amd64: 66a314542add622d3d1f6fb253dbde821f84e945baf86f4400c9962f4d326a7b
+  linux_amd64: 76d804aca01c89a186456ef369cdf630cdf0bd84c436d6d25430c894adb1624f
+  linux_arm64: 584bb364b3412bc3f864e1e634a5d130a3e253d0788d6a169994efd3d9b468dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

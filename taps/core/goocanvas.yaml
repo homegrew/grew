@@ -1,0 +1,28 @@
+name: goocanvas
+version: 3.0.0
+description: Canvas widget for GTK+ using the Cairo 2D library for drawing
+homepage: https://wiki.gnome.org/Projects/GooCanvas
+license: LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goocanvas/blobs/sha256:fb3b0618b234fb12e646ae2494b14e83ca2d5ee50c4d7891d4a2914b7a88763f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goocanvas/blobs/sha256:6994404c6b91d235eda6a3a10b5a3a1a6b268d1fbbcdbc81ea3d538b19c71db0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goocanvas/blobs/sha256:33355d4dbdef036db01c5948d764d8202047838d08a68c1de6d323e5f18bc6ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goocanvas/blobs/sha256:6c3bb638ce2932282d43879c06235c8f16d0548f2be355ee19b480266b253792
+sha256:
+  darwin_arm64: fb3b0618b234fb12e646ae2494b14e83ca2d5ee50c4d7891d4a2914b7a88763f
+  darwin_amd64: 6994404c6b91d235eda6a3a10b5a3a1a6b268d1fbbcdbc81ea3d538b19c71db0
+  linux_amd64: 33355d4dbdef036db01c5948d764d8202047838d08a68c1de6d323e5f18bc6ef
+  linux_arm64: 6c3bb638ce2932282d43879c06235c8f16d0548f2be355ee19b480266b253792
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - pango
+  - gettext
+  - harfbuzz

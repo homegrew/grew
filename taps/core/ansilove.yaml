@@ -1,0 +1,21 @@
+name: ansilove
+version: 4.2.1
+description: ANSI/ASCII art to PNG converter
+homepage: https://www.ansilove.org
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansilove/blobs/sha256:aa355a28549b83c25a3a8253d2310839916f36fdb297bb0b9501b8de0d976f74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansilove/blobs/sha256:0c4afe55030fe391aee91079e6a914a4bc989176d1e6cda14c571447de1ce8c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansilove/blobs/sha256:4bd6f63f8bfdd6b56e2ce0cb6cff1cbb54c0fb34c36e96d71d9104a5d2ef0ae3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansilove/blobs/sha256:d1ae03d326bb2fa1250f8bf6d86a790d997ab6c5e9a05a211d9dc7583c3e9d5c
+sha256:
+  darwin_arm64: aa355a28549b83c25a3a8253d2310839916f36fdb297bb0b9501b8de0d976f74
+  darwin_amd64: 0c4afe55030fe391aee91079e6a914a4bc989176d1e6cda14c571447de1ce8c4
+  linux_amd64: 4bd6f63f8bfdd6b56e2ce0cb6cff1cbb54c0fb34c36e96d71d9104a5d2ef0ae3
+  linux_arm64: d1ae03d326bb2fa1250f8bf6d86a790d997ab6c5e9a05a211d9dc7583c3e9d5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libansilove

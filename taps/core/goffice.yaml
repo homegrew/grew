@@ -1,0 +1,30 @@
+name: goffice
+version: 0.10.60
+description: Gnumeric spreadsheet program
+homepage: https://gitlab.gnome.org/GNOME/goffice
+license: GPL-3.0-only OR GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goffice/blobs/sha256:bac138cd3f363ebd627fc6de468106df6fe5e5c55b64b4846e0fe66267077714
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goffice/blobs/sha256:80f44565bc28f967973d4288c75b8d7752be8c3fc65a849dfcd425b11bc5e903
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goffice/blobs/sha256:4e6f8ab8d12f8d7b7b0cbdadafd7bd5f0404c63d7d4e67d4bd4fd7f16055c672
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goffice/blobs/sha256:9f1421d8076912d40ba9aaefaa93dca043041500352231f354eef946299ad742
+sha256:
+  darwin_arm64: bac138cd3f363ebd627fc6de468106df6fe5e5c55b64b4846e0fe66267077714
+  darwin_amd64: 80f44565bc28f967973d4288c75b8d7752be8c3fc65a849dfcd425b11bc5e903
+  linux_amd64: 4e6f8ab8d12f8d7b7b0cbdadafd7bd5f0404c63d7d4e67d4bd4fd7f16055c672
+  linux_arm64: 9f1421d8076912d40ba9aaefaa93dca043041500352231f354eef946299ad742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - libgsf
+  - librsvg
+  - pango
+  - gettext
+  - harfbuzz

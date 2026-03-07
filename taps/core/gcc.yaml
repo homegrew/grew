@@ -1,0 +1,25 @@
+name: gcc
+version: 15.2.0
+description: GNU compiler collection
+homepage: https://gcc.gnu.org/
+license: GPL-3.0-or-later WITH GCC-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gcc/blobs/sha256:e208fa3a5ea6887bb9a81cee5ca629230f1f24eff3970f0d69f7dcf5dd5b7b80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gcc/blobs/sha256:6def38300e2044dbbe17801485f0a959fb05b408545f5c6c0ccc160d7e9e40c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcc/blobs/sha256:606c8f502852d586f85fba5754e255fa8bf8b81d371c1f75cf7edae19d852f0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcc/blobs/sha256:cf5774859ce6ff3958bb987ff07d9308d3d72da4d9afda38085d4c9379b5887f
+sha256:
+  darwin_arm64: e208fa3a5ea6887bb9a81cee5ca629230f1f24eff3970f0d69f7dcf5dd5b7b80
+  darwin_amd64: 6def38300e2044dbbe17801485f0a959fb05b408545f5c6c0ccc160d7e9e40c2
+  linux_amd64: 606c8f502852d586f85fba5754e255fa8bf8b81d371c1f75cf7edae19d852f0c
+  linux_arm64: cf5774859ce6ff3958bb987ff07d9308d3d72da4d9afda38085d4c9379b5887f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - isl
+  - libmpc
+  - mpfr
+  - zstd

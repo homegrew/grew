@@ -1,0 +1,25 @@
+name: dnsrobocert
+version: 3.26.1
+description: "Manage Let's Encrypt SSL certificates based on DNS challenges"
+homepage: https://dnsrobocert.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnsrobocert/blobs/sha256:926e1d3d3eada06efbcbcd1718a12c5a9a0827327a3661751a0ccb17b09d0808
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnsrobocert/blobs/sha256:130fed5ca48671b2203540e953b598506a0ed9c2fc76962646019bf08e1ed5e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnsrobocert/blobs/sha256:1b2f23086b8c665b5bf1a106f7badb812ca328cd8beb994ae9107b446192fe3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnsrobocert/blobs/sha256:43195480b5a553b6fddea2e16b05b7ed3304e3acc4a184ad6f5c727d7d3d2e74
+sha256:
+  darwin_arm64: 926e1d3d3eada06efbcbcd1718a12c5a9a0827327a3661751a0ccb17b09d0808
+  darwin_amd64: 130fed5ca48671b2203540e953b598506a0ed9c2fc76962646019bf08e1ed5e6
+  linux_amd64: 1b2f23086b8c665b5bf1a106f7badb812ca328cd8beb994ae9107b446192fe3c
+  linux_arm64: 43195480b5a553b6fddea2e16b05b7ed3304e3acc4a184ad6f5c727d7d3d2e74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14
+  - rpds-py

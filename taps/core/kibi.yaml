@@ -1,0 +1,19 @@
+name: kibi
+version: 0.3.3
+description: Text editor in ≤1024 lines of code, written in Rust
+homepage: https://github.com/ilai-deutel/kibi
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kibi/blobs/sha256:bb06d019acc78dbbe42b1f3859743ca1d516eb54cf54a72229aaeb5ee62aacc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kibi/blobs/sha256:2aa697080d2ca9d9f7d66d979cbe2fdeb18a06c724cf4dcf546a0e545342b432
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kibi/blobs/sha256:25f6258f4378e983e8272f46106fd76caa30914eb5f6a7eb990a7b05b83cfdb7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kibi/blobs/sha256:3852d8aa7f19bdea039b6b82944b8de02cba83deebbf86e291977aaba780f6ca
+sha256:
+  darwin_arm64: bb06d019acc78dbbe42b1f3859743ca1d516eb54cf54a72229aaeb5ee62aacc3
+  darwin_amd64: 2aa697080d2ca9d9f7d66d979cbe2fdeb18a06c724cf4dcf546a0e545342b432
+  linux_amd64: 25f6258f4378e983e8272f46106fd76caa30914eb5f6a7eb990a7b05b83cfdb7
+  linux_arm64: 3852d8aa7f19bdea039b6b82944b8de02cba83deebbf86e291977aaba780f6ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

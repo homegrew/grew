@@ -1,0 +1,22 @@
+name: gastown
+version: 0.11.0
+description: Multi-agent workspace manager
+homepage: https://github.com/steveyegge/gastown
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gastown/blobs/sha256:3784b3598bfcbeee5ae44110ac86cf6c0dea678a89dbae7b05fad797dfced360
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gastown/blobs/sha256:35ac62230bee9e0767236f73a4ea31a5cd6dd5b11c36a7f47617617651484e00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gastown/blobs/sha256:b5631e014075213cc2c5fbd416896461f1f953d3a462b3cdf78117e51897a816
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gastown/blobs/sha256:cf1521a2ceb9e6eaa3648f86408b4fcac3f90370c095f9ed9d0b720d36878101
+sha256:
+  darwin_arm64: 3784b3598bfcbeee5ae44110ac86cf6c0dea678a89dbae7b05fad797dfced360
+  darwin_amd64: 35ac62230bee9e0767236f73a4ea31a5cd6dd5b11c36a7f47617617651484e00
+  linux_amd64: b5631e014075213cc2c5fbd416896461f1f953d3a462b3cdf78117e51897a816
+  linux_arm64: cf1521a2ceb9e6eaa3648f86408b4fcac3f90370c095f9ed9d0b720d36878101
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - beads
+  - icu4c@78

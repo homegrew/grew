@@ -1,0 +1,19 @@
+name: rkhunter
+version: 1.4.6
+description: Rootkit hunter
+homepage: https://rkhunter.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rkhunter/blobs/sha256:6b58dd966408841d1c6bb19fa135f3eec96744806fba465a04b294c28c906839
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rkhunter/blobs/sha256:f0e854c86f509718bc7c3acc2da1d7228405179dbef528c449bd091ce104e189
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rkhunter/blobs/sha256:85138f7ce8fcb3790c94d0322d64315e3d683e50a6a690700b7600cd4ce1fda1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rkhunter/blobs/sha256:6484f6217389b50e66ad8f992e532cb19e9fd27330510d2303060c2f7de70bbd
+sha256:
+  darwin_arm64: 6b58dd966408841d1c6bb19fa135f3eec96744806fba465a04b294c28c906839
+  darwin_amd64: f0e854c86f509718bc7c3acc2da1d7228405179dbef528c449bd091ce104e189
+  linux_amd64: 85138f7ce8fcb3790c94d0322d64315e3d683e50a6a690700b7600cd4ce1fda1
+  linux_arm64: 6484f6217389b50e66ad8f992e532cb19e9fd27330510d2303060c2f7de70bbd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

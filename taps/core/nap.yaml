@@ -1,0 +1,19 @@
+name: nap
+version: 0.1.1
+description: Code snippets in your terminal
+homepage: https://github.com/maaslalani/nap
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nap/blobs/sha256:13961de8d0dcd0c3ced9aa8ebd2ef3f9df61c4fa1bb67a7c1b1b368947f2277a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nap/blobs/sha256:82eedff6a8561d4ffb1cc02b96c26ad249a3941ba49cd65963839b8fc87ad487
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nap/blobs/sha256:b9a201267139b6f4d72d65a5651b981efba2fd74d0583221b87071ec34ad1051
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nap/blobs/sha256:cdf8ed4b88c3ce3467132f96b2db5315853e4a01207c9edf25ca25f58c1286ab
+sha256:
+  darwin_arm64: 13961de8d0dcd0c3ced9aa8ebd2ef3f9df61c4fa1bb67a7c1b1b368947f2277a
+  darwin_amd64: 82eedff6a8561d4ffb1cc02b96c26ad249a3941ba49cd65963839b8fc87ad487
+  linux_amd64: b9a201267139b6f4d72d65a5651b981efba2fd74d0583221b87071ec34ad1051
+  linux_arm64: cdf8ed4b88c3ce3467132f96b2db5315853e4a01207c9edf25ca25f58c1286ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

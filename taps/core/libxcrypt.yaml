@@ -1,0 +1,20 @@
+name: libxcrypt
+version: 4.5.2
+description: Extended crypt library for descrypt, md5crypt, bcrypt, and others
+homepage: https://github.com/besser82/libxcrypt
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxcrypt/blobs/sha256:45b16874ed374eda84779a795aa32640f86759dd480f470567949b7639a8e3ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxcrypt/blobs/sha256:909d2e42bae6c62c05e5c52f6f45aa3da6a4c668c6a88f90a0cc6ebb6794f212
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxcrypt/blobs/sha256:9319e1e70e1e3e476e421956baaeebc0d7be9c3030897844a3c348fe4dd116a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxcrypt/blobs/sha256:591376dcb066e3abf120b46895aabe9409aadf8f9577bd2672e52524f05a1952
+sha256:
+  darwin_arm64: 45b16874ed374eda84779a795aa32640f86759dd480f470567949b7639a8e3ee
+  darwin_amd64: 909d2e42bae6c62c05e5c52f6f45aa3da6a4c668c6a88f90a0cc6ebb6794f212
+  linux_amd64: 9319e1e70e1e3e476e421956baaeebc0d7be9c3030897844a3c348fe4dd116a5
+  linux_arm64: 591376dcb066e3abf120b46895aabe9409aadf8f9577bd2672e52524f05a1952
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

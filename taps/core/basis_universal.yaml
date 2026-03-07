@@ -1,0 +1,19 @@
+name: basis_universal
+version: 2.0.3
+description: Basis Universal GPU texture codec command-line compression tool
+homepage: https://github.com/BinomialLLC/basis_universal
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/basis_universal/blobs/sha256:3dc7c611ed4004fc0dcdf042aa0747285a3f0b2897b65a3e7399301f6de223dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/basis_universal/blobs/sha256:c5eb258e55b03bb874b3bf6f8bc9e24e8410c94ce0b381edef1b4c2d25b08818
+  linux_amd64: https://ghcr.io/v2/homebrew/core/basis_universal/blobs/sha256:8c28de13b23e24e6fa486df544bb774a9af405dd3ab1ed2ec82b2b6f71718e5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/basis_universal/blobs/sha256:bf15b0a27c515239009bffe662c5af46aaeaa95e3bc4524a09762bdfa0ab5907
+sha256:
+  darwin_arm64: 3dc7c611ed4004fc0dcdf042aa0747285a3f0b2897b65a3e7399301f6de223dc
+  darwin_amd64: c5eb258e55b03bb874b3bf6f8bc9e24e8410c94ce0b381edef1b4c2d25b08818
+  linux_amd64: 8c28de13b23e24e6fa486df544bb774a9af405dd3ab1ed2ec82b2b6f71718e5d
+  linux_arm64: bf15b0a27c515239009bffe662c5af46aaeaa95e3bc4524a09762bdfa0ab5907
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

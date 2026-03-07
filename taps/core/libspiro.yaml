@@ -1,0 +1,19 @@
+name: libspiro
+version: 20240903
+description: Library to simplify the drawing of curves
+homepage: https://github.com/fontforge/libspiro
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libspiro/blobs/sha256:108c9578c13a97e6b0b0eed7c7a4ec74d43d5128300f7c68c6688e223ccd0bf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libspiro/blobs/sha256:993047020b74cfc6c22f4b7f6ccc71d177b76b0804729cdcc03af63ac5d9ffd0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libspiro/blobs/sha256:27ecaaf681b49db47d118fe90a1fe0b9600dceb7b95f770233d8a218a67fe438
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libspiro/blobs/sha256:b086a99529c5a1725d4b5381f1f3f8ea34167db13247dfe0612f97deeef8f4df
+sha256:
+  darwin_arm64: 108c9578c13a97e6b0b0eed7c7a4ec74d43d5128300f7c68c6688e223ccd0bf7
+  darwin_amd64: 993047020b74cfc6c22f4b7f6ccc71d177b76b0804729cdcc03af63ac5d9ffd0
+  linux_amd64: 27ecaaf681b49db47d118fe90a1fe0b9600dceb7b95f770233d8a218a67fe438
+  linux_arm64: b086a99529c5a1725d4b5381f1f3f8ea34167db13247dfe0612f97deeef8f4df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

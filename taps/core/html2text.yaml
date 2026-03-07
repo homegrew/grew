@@ -1,0 +1,19 @@
+name: html2text
+version: 2.4.0
+description: Advanced HTML-to-text converter
+homepage: https://gitlab.com/grobian/html2text
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/html2text/blobs/sha256:9e719fed3a98611bfe8ca70a7b301f6f1a304a56e4f2d4b4dbfecab8ee0bd29a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/html2text/blobs/sha256:455f23776916aae17d03e1eb7037fc8c513ca3649839248f00bd0110b41d9d65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/html2text/blobs/sha256:023827730941513938e30fbcd440c0ee215b76abb7a2ac194cb4a56b26dec816
+  linux_arm64: https://ghcr.io/v2/homebrew/core/html2text/blobs/sha256:4a4a2f5b2a38d767681fdba41f5e8e2e5b8aa761cacde154c4b025af77be193f
+sha256:
+  darwin_arm64: 9e719fed3a98611bfe8ca70a7b301f6f1a304a56e4f2d4b4dbfecab8ee0bd29a
+  darwin_amd64: 455f23776916aae17d03e1eb7037fc8c513ca3649839248f00bd0110b41d9d65
+  linux_amd64: 023827730941513938e30fbcd440c0ee215b76abb7a2ac194cb4a56b26dec816
+  linux_arm64: 4a4a2f5b2a38d767681fdba41f5e8e2e5b8aa761cacde154c4b025af77be193f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

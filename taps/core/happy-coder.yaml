@@ -1,0 +1,23 @@
+name: happy-coder
+version: 0.13.0
+description: CLI for operating AI coding agents from mobile devices
+homepage: https://happy.engineering
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/happy-coder/blobs/sha256:03313b663fe8310e65192bf523cec55c71aac6c6921a19812e713789647cc11c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/happy-coder/blobs/sha256:7e961c5aaee5f1b54553a239ec2dee90a4b16942217ce6027d3ee442a904a9f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/happy-coder/blobs/sha256:bb9de9d2959ccac07a1d8ec38ea92c54cb850cb98b5da6e038ebaf077a475d17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/happy-coder/blobs/sha256:bb9de9d2959ccac07a1d8ec38ea92c54cb850cb98b5da6e038ebaf077a475d17
+sha256:
+  darwin_arm64: 03313b663fe8310e65192bf523cec55c71aac6c6921a19812e713789647cc11c
+  darwin_amd64: 7e961c5aaee5f1b54553a239ec2dee90a4b16942217ce6027d3ee442a904a9f2
+  linux_amd64: bb9de9d2959ccac07a1d8ec38ea92c54cb850cb98b5da6e038ebaf077a475d17
+  linux_arm64: bb9de9d2959ccac07a1d8ec38ea92c54cb850cb98b5da6e038ebaf077a475d17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - difftastic
+  - node
+  - ripgrep

@@ -1,0 +1,21 @@
+name: prs
+version: 0.5.7
+description: "Secure, fast & convenient password manager CLI with GPG & git sync"
+homepage: https://timvisee.com/projects/prs
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prs/blobs/sha256:f53f048b8032b0c131746e445fd4c896a65e5aae465e7b084a71a79a82cebe38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prs/blobs/sha256:7f82b973048c8f4b0f3b3c724a251f72269debbe48122154cfd32c110b63058d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prs/blobs/sha256:ab608fbae7c8ed1b01104fe4e95d8035c815a751e299355d9af19492b6c35225
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prs/blobs/sha256:80b326c45a7233857d739be2a63869e098b78a048a8c9e6a65a80fc544a44d7c
+sha256:
+  darwin_arm64: f53f048b8032b0c131746e445fd4c896a65e5aae465e7b084a71a79a82cebe38
+  darwin_amd64: 7f82b973048c8f4b0f3b3c724a251f72269debbe48122154cfd32c110b63058d
+  linux_amd64: ab608fbae7c8ed1b01104fe4e95d8035c815a751e299355d9af19492b6c35225
+  linux_arm64: 80b326c45a7233857d739be2a63869e098b78a048a8c9e6a65a80fc544a44d7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

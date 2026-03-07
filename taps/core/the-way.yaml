@@ -1,0 +1,19 @@
+name: the-way
+version: 0.20.3
+description: Code snippets manager for your terminal
+homepage: https://github.com/out-of-cheese-error/the-way
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/the-way/blobs/sha256:2e845a243d3985c6399c2284687ccce5b3fb6d222aac698f9be8f7cd3b32ee15
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/the-way/blobs/sha256:3ace9e79b695db8059908af5b68196e9da01251dfa8802c6ac592bb0fb4e4b0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/the-way/blobs/sha256:e13db7053f848a032d23750e6facfbf5cb9738bfdb0025786f4308f407455994
+  linux_arm64: https://ghcr.io/v2/homebrew/core/the-way/blobs/sha256:845ef37713caf44d84308259c0e6c84be204d8dbab39ac2eeca81dc4061be11a
+sha256:
+  darwin_arm64: 2e845a243d3985c6399c2284687ccce5b3fb6d222aac698f9be8f7cd3b32ee15
+  darwin_amd64: 3ace9e79b695db8059908af5b68196e9da01251dfa8802c6ac592bb0fb4e4b0c
+  linux_amd64: e13db7053f848a032d23750e6facfbf5cb9738bfdb0025786f4308f407455994
+  linux_arm64: 845ef37713caf44d84308259c0e6c84be204d8dbab39ac2eeca81dc4061be11a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

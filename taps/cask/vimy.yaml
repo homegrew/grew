@@ -1,0 +1,11 @@
+name: vimy
+version: 07,2023.11
+description: Double-click to run macOS virtual machines on Apple silicon Macs
+homepage: https://eclecticlight.co/virtualisation-on-apple-silicon/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2023/11/vimy07.zip
+sha256:
+  darwin_arm64: b1d9c5eee5d7c82985b88ff3a986e859f94aba4011343d42a6d96e5d818989b9
+artifacts:
+  app:
+    - vimy07/Vimy.app

@@ -1,0 +1,19 @@
+name: orbiton
+version: 2.73.0
+description: Fast and config-free text editor and IDE limited by VT100
+homepage: https://roboticoverlords.org/orbiton/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orbiton/blobs/sha256:4319349c86486ca5ac9c47fe2ecdd1ca4a3f7ddcaa31dbefb57375aa16ff14c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orbiton/blobs/sha256:d80c6aebc974e7112d2761ec1affa772e4b54bf54ad23776fe0794901ee3e284
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orbiton/blobs/sha256:3966b77b23d5877d0c4b6ccdfb43cb61f33261a8f9915dfa035792c5ec4a6f75
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orbiton/blobs/sha256:45b3fb1185bc51861835a2be4e752ecd629dfda3f83c5bca33eff16a4448a4f2
+sha256:
+  darwin_arm64: 4319349c86486ca5ac9c47fe2ecdd1ca4a3f7ddcaa31dbefb57375aa16ff14c6
+  darwin_amd64: d80c6aebc974e7112d2761ec1affa772e4b54bf54ad23776fe0794901ee3e284
+  linux_amd64: 3966b77b23d5877d0c4b6ccdfb43cb61f33261a8f9915dfa035792c5ec4a6f75
+  linux_arm64: 45b3fb1185bc51861835a2be4e752ecd629dfda3f83c5bca33eff16a4448a4f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

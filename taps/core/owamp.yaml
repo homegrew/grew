@@ -1,0 +1,21 @@
+name: owamp
+version: 3.4-10
+description: Implementation of the One-Way Active Measurement Protocol
+homepage: https://www.internet2.edu/products-services/performance-analytics/performance-tools/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/owamp/blobs/sha256:408c62feb4e3c55838e9c1d60474f7e5f4879abee08e1a60ac341dc7098f4117
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/owamp/blobs/sha256:3d185d38755423475b80da8ba32c38a363ee38aea467a69bf4ce782e4bdb8442
+  linux_amd64: https://ghcr.io/v2/homebrew/core/owamp/blobs/sha256:7861b9b519cb1dd21940335fa2e904a72105938981e66637a4887db79988067b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/owamp/blobs/sha256:77ffadd4a4b4124cc3321d7a2a86d04beba9dc525f56f0883d9d358d70c97adf
+sha256:
+  darwin_arm64: 408c62feb4e3c55838e9c1d60474f7e5f4879abee08e1a60ac341dc7098f4117
+  darwin_amd64: 3d185d38755423475b80da8ba32c38a363ee38aea467a69bf4ce782e4bdb8442
+  linux_amd64: 7861b9b519cb1dd21940335fa2e904a72105938981e66637a4887db79988067b
+  linux_arm64: 77ffadd4a4b4124cc3321d7a2a86d04beba9dc525f56f0883d9d358d70c97adf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - i2util

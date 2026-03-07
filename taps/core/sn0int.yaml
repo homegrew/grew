@@ -1,0 +1,21 @@
+name: sn0int
+version: 0.26.1
+description: Semi-automatic OSINT framework and package manager
+homepage: https://sn0int.readthedocs.io/en/stable/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sn0int/blobs/sha256:1118ce08023c035b3b612fb228f0cd9054f47e29e96ed42a4253e5ea6ab92060
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sn0int/blobs/sha256:b00f3aa80e595baeb07464d03118671e43731845dd141209566869e44bce384a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sn0int/blobs/sha256:799345e368ecb3b46e5ce18b62976a75707f78a3e717d33b5524d6af3b3a9819
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sn0int/blobs/sha256:3add946dfd2e12c6ee97bc9c766c82f2b18b7468eb4e72620c380c7441518efd
+sha256:
+  darwin_arm64: 1118ce08023c035b3b612fb228f0cd9054f47e29e96ed42a4253e5ea6ab92060
+  darwin_amd64: b00f3aa80e595baeb07464d03118671e43731845dd141209566869e44bce384a
+  linux_amd64: 799345e368ecb3b46e5ce18b62976a75707f78a3e717d33b5524d6af3b3a9819
+  linux_arm64: 3add946dfd2e12c6ee97bc9c766c82f2b18b7468eb4e72620c380c7441518efd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

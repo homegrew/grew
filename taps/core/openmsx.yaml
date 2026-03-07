@@ -1,0 +1,29 @@
+name: openmsx
+version: 21.0
+description: MSX emulator
+homepage: https://openmsx.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openmsx/blobs/sha256:e5ae1c09d02fecd72160c6d855f89a4deba2bb7e772bbc2786de450ecb4c9fa5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openmsx/blobs/sha256:79258e774e8e2ab3b893546a75ef070bc40ff80cae847619c47b4a8405f00923
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openmsx/blobs/sha256:c5879ce754cabf63705ab53bbf4620d882611e4106b87bca5567f818db5d4b97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openmsx/blobs/sha256:b40df8913652a5d810da13e575a6c3a32293ecbc9310e7be18c12090c7dbda10
+sha256:
+  darwin_arm64: e5ae1c09d02fecd72160c6d855f89a4deba2bb7e772bbc2786de450ecb4c9fa5
+  darwin_amd64: 79258e774e8e2ab3b893546a75ef070bc40ff80cae847619c47b4a8405f00923
+  linux_amd64: c5879ce754cabf63705ab53bbf4620d882611e4106b87bca5567f818db5d4b97
+  linux_arm64: b40df8913652a5d810da13e575a6c3a32293ecbc9310e7be18c12090c7dbda10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - glew
+  - libogg
+  - libpng
+  - libvorbis
+  - sdl2
+  - sdl2_ttf
+  - tcl-tk
+  - theora

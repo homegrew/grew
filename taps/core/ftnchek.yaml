@@ -1,0 +1,19 @@
+name: ftnchek
+version: 3.3.1
+description: Fortran 77 program checker
+homepage: https://www.dsm.fordham.edu/~ftnchek/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ftnchek/blobs/sha256:51bc89f67465eed6818e10244d47118c0710024a7d27223df320dce824035774
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ftnchek/blobs/sha256:f8079667f5a436173c2d7c7bb80551edad62853f0a2ee50d09cb6c3144072ade
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ftnchek/blobs/sha256:b2183ef638b6941d2ae9916e3f7047f5a3599d4c54df8576e722874b7b8240fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ftnchek/blobs/sha256:cef69e1ad1770f524bc1b9ad957c69c5c2384a488f5d12f239b604ab50bb4cbf
+sha256:
+  darwin_arm64: 51bc89f67465eed6818e10244d47118c0710024a7d27223df320dce824035774
+  darwin_amd64: f8079667f5a436173c2d7c7bb80551edad62853f0a2ee50d09cb6c3144072ade
+  linux_amd64: b2183ef638b6941d2ae9916e3f7047f5a3599d4c54df8576e722874b7b8240fc
+  linux_arm64: cef69e1ad1770f524bc1b9ad957c69c5c2384a488f5d12f239b604ab50bb4cbf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

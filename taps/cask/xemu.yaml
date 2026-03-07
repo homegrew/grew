@@ -1,0 +1,11 @@
+name: xemu
+version: 0.8.134
+description: Original Xbox Emulator
+homepage: https://xemu.app/
+url:
+  darwin_arm64: https://github.com/xemu-project/xemu/releases/download/v0.8.134/xemu-0.8.134-macos-universal.zip
+sha256:
+  darwin_arm64: aa7581db3211ab6c59a291c2bfa8c9eb4dfae2c6f394be89db07a0e90d2f8bcb
+artifacts:
+  app:
+    - Xemu.app

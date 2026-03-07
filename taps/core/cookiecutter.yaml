@@ -1,0 +1,23 @@
+name: cookiecutter
+version: 2.7.1
+description: Utility that creates projects from templates
+homepage: https://github.com/cookiecutter/cookiecutter
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cookiecutter/blobs/sha256:635f4aec34562bdacdad83c80a7acaf12b1ea895556a0c9069e0afb9cb712ff8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cookiecutter/blobs/sha256:06be4f1883231ae523a024ebbe2238f52cabff84251e61c9eed6aab9a43e4f27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cookiecutter/blobs/sha256:f28864f327301a046771d4a5fea37fc35b1adc9331919fe38e96fdd8ad9d1757
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cookiecutter/blobs/sha256:706dc3df7bdff7580819bebd32e91947317205809d33f5961f4477199112daae
+sha256:
+  darwin_arm64: 635f4aec34562bdacdad83c80a7acaf12b1ea895556a0c9069e0afb9cb712ff8
+  darwin_amd64: 06be4f1883231ae523a024ebbe2238f52cabff84251e61c9eed6aab9a43e4f27
+  linux_amd64: f28864f327301a046771d4a5fea37fc35b1adc9331919fe38e96fdd8ad9d1757
+  linux_arm64: 706dc3df7bdff7580819bebd32e91947317205809d33f5961f4477199112daae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

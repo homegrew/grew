@@ -1,0 +1,23 @@
+name: spidermonkey
+version: 140.8.0
+description: JavaScript-C Engine
+homepage: https://spidermonkey.dev
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spidermonkey/blobs/sha256:31428b379fd3f3ee7d8316162170efe9805fe333f1ab3838801b218a95e45570
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spidermonkey/blobs/sha256:fb366b9a3e485e86929a7be919148742f7f37f1a7df24083d6ee9533cd3b3dca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spidermonkey/blobs/sha256:f82c9a804de4870c366e5518d3ef87096a39eb0c01defc9214e81aff9e53beb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spidermonkey/blobs/sha256:b275c51aa42ac9ace563319362280c5aaa00080e3a11420050f53d7159f74ea7
+sha256:
+  darwin_arm64: 31428b379fd3f3ee7d8316162170efe9805fe333f1ab3838801b218a95e45570
+  darwin_amd64: fb366b9a3e485e86929a7be919148742f7f37f1a7df24083d6ee9533cd3b3dca
+  linux_amd64: f82c9a804de4870c366e5518d3ef87096a39eb0c01defc9214e81aff9e53beb1
+  linux_arm64: b275c51aa42ac9ace563319362280c5aaa00080e3a11420050f53d7159f74ea7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - nspr
+  - readline

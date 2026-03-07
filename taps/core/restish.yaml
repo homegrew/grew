@@ -1,0 +1,19 @@
+name: restish
+version: 0.21.2
+description: CLI tool for interacting with REST-ish HTTP APIs
+homepage: https://rest.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/restish/blobs/sha256:d9fdc528fbe2fccaca3bfab636db7872d1ede385b5709ed9c61e50085def7f66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/restish/blobs/sha256:ae17b3c10c11df3bb120154a6801e30e61a98242f9e42cf29f20e3d4fe80279b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/restish/blobs/sha256:33df4c0eccc2dc3c8cdca8c428ac26a756eac84750f3846ca0ff871aa0ff22d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/restish/blobs/sha256:04054f2b8bbe4ae53bcb9a9b469d8e597f153ef2016bdf64f3982193d2b80cf1
+sha256:
+  darwin_arm64: d9fdc528fbe2fccaca3bfab636db7872d1ede385b5709ed9c61e50085def7f66
+  darwin_amd64: ae17b3c10c11df3bb120154a6801e30e61a98242f9e42cf29f20e3d4fe80279b
+  linux_amd64: 33df4c0eccc2dc3c8cdca8c428ac26a756eac84750f3846ca0ff871aa0ff22d6
+  linux_arm64: 04054f2b8bbe4ae53bcb9a9b469d8e597f153ef2016bdf64f3982193d2b80cf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

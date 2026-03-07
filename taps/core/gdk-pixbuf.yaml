@@ -1,0 +1,25 @@
+name: gdk-pixbuf
+version: 2.44.5
+description: Toolkit for image loading and pixel buffer manipulation
+homepage: https://gtk.org
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdk-pixbuf/blobs/sha256:0d6052d4db7c5a04aaf283aade5ebed7b59897ef3c71d078b1370971d0273fa6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdk-pixbuf/blobs/sha256:6a7f1775452b41c9ce4925dbe83663c5901773a0ae7796f67b94f87b0fb340c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdk-pixbuf/blobs/sha256:248afff2035368912d6e199728bca9db35e0e856712ba54221d5edc208e31a22
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdk-pixbuf/blobs/sha256:e9b3519a2c8c45040212087aad4f5d757ddb9f2438072126e9938bdaa99fbdc2
+sha256:
+  darwin_arm64: 0d6052d4db7c5a04aaf283aade5ebed7b59897ef3c71d078b1370971d0273fa6
+  darwin_amd64: 6a7f1775452b41c9ce4925dbe83663c5901773a0ae7796f67b94f87b0fb340c7
+  linux_amd64: 248afff2035368912d6e199728bca9db35e0e856712ba54221d5edc208e31a22
+  linux_arm64: e9b3519a2c8c45040212087aad4f5d757ddb9f2438072126e9938bdaa99fbdc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - gettext

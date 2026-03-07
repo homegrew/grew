@@ -1,0 +1,21 @@
+name: cubejs-cli
+version: 1.6.19
+description: Cube.js command-line interface
+homepage: https://cube.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cubejs-cli/blobs/sha256:bb825805528cbeed36e9604c281ad2aebb6af5262486272bc930cec86dbe9191
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cubejs-cli/blobs/sha256:5f1d903a0aa5a4b127dac3da7854b6bca2bff6a00533656a9ac585445b155351
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cubejs-cli/blobs/sha256:f9d3969f3b661f8086cd5f2ad9ab93e57f2229fd363c64d0e3571f3b07a4150c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cubejs-cli/blobs/sha256:f9d3969f3b661f8086cd5f2ad9ab93e57f2229fd363c64d0e3571f3b07a4150c
+sha256:
+  darwin_arm64: bb825805528cbeed36e9604c281ad2aebb6af5262486272bc930cec86dbe9191
+  darwin_amd64: 5f1d903a0aa5a4b127dac3da7854b6bca2bff6a00533656a9ac585445b155351
+  linux_amd64: f9d3969f3b661f8086cd5f2ad9ab93e57f2229fd363c64d0e3571f3b07a4150c
+  linux_arm64: f9d3969f3b661f8086cd5f2ad9ab93e57f2229fd363c64d0e3571f3b07a4150c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

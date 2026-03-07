@@ -1,0 +1,34 @@
+name: node@22
+version: 22.22.1
+description: Open-source, cross-platform JavaScript runtime environment
+homepage: https://nodejs.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/node/22/blobs/sha256:5dbe895bffd3a9da5becab439364a328981c3579d10ecf55e78a952f045693a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/node/22/blobs/sha256:4a708049f5e884763570acf571bda69a51d43af20529a0de5052857afd22981e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/node/22/blobs/sha256:86418132aa13ab28f712f4e33e0653fcd41e90321e59e6b862ed9e86428fa49b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/node/22/blobs/sha256:68c416e539e5136e652e7ca623efbb32319f161e814fc25671d8ca55bd1e854e
+sha256:
+  darwin_arm64: 5dbe895bffd3a9da5becab439364a328981c3579d10ecf55e78a952f045693a7
+  darwin_amd64: 4a708049f5e884763570acf571bda69a51d43af20529a0de5052857afd22981e
+  linux_amd64: 86418132aa13ab28f712f4e33e0653fcd41e90321e59e6b862ed9e86428fa49b
+  linux_arm64: 68c416e539e5136e652e7ca623efbb32319f161e814fc25671d8ca55bd1e854e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - c-ares
+  - icu4c@78
+  - libnghttp2
+  - libnghttp3
+  - libngtcp2
+  - libuv
+  - openssl@3
+  - simdjson
+  - simdutf
+  - sqlite
+  - uvwasi
+  - zstd
+keg_only: true

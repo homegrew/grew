@@ -1,0 +1,13 @@
+name: satdump
+version: 1.2.2
+description: Generic satellite data processing software
+homepage: https://www.satdump.org/
+url:
+  darwin_arm64: https://github.com/SatDump/SatDump/releases/download/1.2.2/SatDump-macOS-Silicon.dmg
+sha256:
+  darwin_arm64: a84cdf81b27a8b484b654ccafe6072cd5b3e7dc06fc3280dd2b801a2ffeef93c
+artifacts:
+  app:
+    - SatDump.app
+  bin:
+    - satdump

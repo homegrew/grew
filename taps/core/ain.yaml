@@ -1,0 +1,19 @@
+name: ain
+version: 1.6.0
+description: HTTP API client for the terminal
+homepage: https://github.com/jonaslu/ain
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ain/blobs/sha256:e0f860b88ce92fc60e45285259aad2671904bfca0d1b929e47204c2a32bddab2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ain/blobs/sha256:9299bcb45b88a76fa588d7352925a379b41cc6cfc0d23f4c38b80903b2391bf5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ain/blobs/sha256:0b63dff05d2c4e4c322a6f4213271cf5e5a80d9a55d8a0cdca5dcbf3bda87748
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ain/blobs/sha256:c56fbc38b0d4116a3fff8bfd8dcc8d0ed9860433b03625a7dd4a60c6c628ead7
+sha256:
+  darwin_arm64: e0f860b88ce92fc60e45285259aad2671904bfca0d1b929e47204c2a32bddab2
+  darwin_amd64: 9299bcb45b88a76fa588d7352925a379b41cc6cfc0d23f4c38b80903b2391bf5
+  linux_amd64: 0b63dff05d2c4e4c322a6f4213271cf5e5a80d9a55d8a0cdca5dcbf3bda87748
+  linux_arm64: c56fbc38b0d4116a3fff8bfd8dcc8d0ed9860433b03625a7dd4a60c6c628ead7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

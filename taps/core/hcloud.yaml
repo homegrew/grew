@@ -1,0 +1,19 @@
+name: hcloud
+version: 1.61.0
+description: Command-line interface for Hetzner Cloud
+homepage: https://github.com/hetznercloud/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hcloud/blobs/sha256:5d6f30a931983997ef14b383558216328b786b64eec64d11fa1248bca2c70742
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hcloud/blobs/sha256:58471d520acb9f6854a3cf0e1e90cdb38085493b4b5429c54bb4e0a9549a3f1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hcloud/blobs/sha256:cef8841a8741b1736526db75fb1e52ff14cb31afc7a5cdac2a57d96ef6cb2e93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hcloud/blobs/sha256:d72dfad8b325798ee9e47b7a53a157bba678073b1c669128855a7670b9daa7ca
+sha256:
+  darwin_arm64: 5d6f30a931983997ef14b383558216328b786b64eec64d11fa1248bca2c70742
+  darwin_amd64: 58471d520acb9f6854a3cf0e1e90cdb38085493b4b5429c54bb4e0a9549a3f1f
+  linux_amd64: cef8841a8741b1736526db75fb1e52ff14cb31afc7a5cdac2a57d96ef6cb2e93
+  linux_arm64: d72dfad8b325798ee9e47b7a53a157bba678073b1c669128855a7670b9daa7ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

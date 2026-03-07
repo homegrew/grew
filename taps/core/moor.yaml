@@ -1,0 +1,19 @@
+name: moor
+version: 2.11.1
+description: Nice to use pager for humans
+homepage: https://github.com/walles/moor
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moor/blobs/sha256:00363bfe97610515be5613d29d2e06c0d6640d8d3eee31efa2aedc6b4532901e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moor/blobs/sha256:41bd61e248090d37e786c23990e626b0636ee0b9271f89ce79fbc25915f4bcb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moor/blobs/sha256:74d503072bda34dda322e4cdcdf165fede3a7b6a0e2609375701549479f209df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moor/blobs/sha256:dade48ceeb46d92004cdec3e1e9f992d973e36e48e74af5cc1c9078645b15756
+sha256:
+  darwin_arm64: 00363bfe97610515be5613d29d2e06c0d6640d8d3eee31efa2aedc6b4532901e
+  darwin_amd64: 41bd61e248090d37e786c23990e626b0636ee0b9271f89ce79fbc25915f4bcb1
+  linux_amd64: 74d503072bda34dda322e4cdcdf165fede3a7b6a0e2609375701549479f209df
+  linux_arm64: dade48ceeb46d92004cdec3e1e9f992d973e36e48e74af5cc1c9078645b15756
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: tokyo-dystopia
+version: 0.9.15
+description: Lightweight full-text search system
+homepage: https://dbmx.net/tokyodystopia/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tokyo-dystopia/blobs/sha256:a2f63111d93534d9aee115227c1f069d622d08d0df19e9d9664f653c28b60dc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tokyo-dystopia/blobs/sha256:b79acb9af00f15c839c1248e5cd38897f8d8dff2fe20cd87033bdc93573458a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tokyo-dystopia/blobs/sha256:1babf4df457924711f3ad2fc7e8f9f797950f53de9f1b740290ec1c112ca83e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tokyo-dystopia/blobs/sha256:6c1c01fa3151f25a7d15fde5db6d0c5e27cf836b8b57d40c4f39bb3a82dddec7
+sha256:
+  darwin_arm64: a2f63111d93534d9aee115227c1f069d622d08d0df19e9d9664f653c28b60dc4
+  darwin_amd64: b79acb9af00f15c839c1248e5cd38897f8d8dff2fe20cd87033bdc93573458a5
+  linux_amd64: 1babf4df457924711f3ad2fc7e8f9f797950f53de9f1b740290ec1c112ca83e8
+  linux_arm64: 6c1c01fa3151f25a7d15fde5db6d0c5e27cf836b8b57d40c4f39bb3a82dddec7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tokyo-cabinet

@@ -1,0 +1,21 @@
+name: oils-for-unix
+version: 0.37.0
+description: Bash-compatible Unix shell with more consistent syntax and semantics
+homepage: https://oils.pub/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oils-for-unix/blobs/sha256:78ad773133116d4f0552f7aee472eadaeb746242c18709af21f1174b56dbfe40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oils-for-unix/blobs/sha256:21baa2abb4dead1655801f44a1ec764ba37c3dbc99ff0e3489affb94b711065d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oils-for-unix/blobs/sha256:0b779dc36db8448f09582af439acb8b41e2d712dbb7ebbbc340526cb7c3f9131
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oils-for-unix/blobs/sha256:96888e840150140c0101352d2f6aa8ba526b48cec35564555255edc65e36c57b
+sha256:
+  darwin_arm64: 78ad773133116d4f0552f7aee472eadaeb746242c18709af21f1174b56dbfe40
+  darwin_amd64: 21baa2abb4dead1655801f44a1ec764ba37c3dbc99ff0e3489affb94b711065d
+  linux_amd64: 0b779dc36db8448f09582af439acb8b41e2d712dbb7ebbbc340526cb7c3f9131
+  linux_arm64: 96888e840150140c0101352d2f6aa8ba526b48cec35564555255edc65e36c57b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

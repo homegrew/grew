@@ -1,0 +1,19 @@
+name: genact
+version: 1.5.1
+description: Nonsense activity generator
+homepage: https://github.com/svenstaro/genact
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/genact/blobs/sha256:9c8aa46fe815cb6071fa2d2ef972e90f8cff20cb20d9ac6f1bd7f29c71e58349
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/genact/blobs/sha256:9fae2a7cae987cb1cfad8a48fa42d57b68e6760e767d2beae851ccff0d337201
+  linux_amd64: https://ghcr.io/v2/homebrew/core/genact/blobs/sha256:eef6ed32cd4140f969d859c3f3c46fb7e39facafb1b50430dd7a6b73e0e6a208
+  linux_arm64: https://ghcr.io/v2/homebrew/core/genact/blobs/sha256:e88c678ec203a1dbbb34426823d2a38316e51609756b20808ac4953ffcf69917
+sha256:
+  darwin_arm64: 9c8aa46fe815cb6071fa2d2ef972e90f8cff20cb20d9ac6f1bd7f29c71e58349
+  darwin_amd64: 9fae2a7cae987cb1cfad8a48fa42d57b68e6760e767d2beae851ccff0d337201
+  linux_amd64: eef6ed32cd4140f969d859c3f3c46fb7e39facafb1b50430dd7a6b73e0e6a208
+  linux_arm64: e88c678ec203a1dbbb34426823d2a38316e51609756b20808ac4953ffcf69917
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

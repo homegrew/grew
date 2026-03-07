@@ -1,0 +1,19 @@
+name: pget
+version: 0.2.1
+description: File download client
+homepage: https://github.com/Code-Hex/pget
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pget/blobs/sha256:6cc7cd05524fed05854389575505915428d98b973b8c3c392ea5869fbae72c04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pget/blobs/sha256:0acfc3036de4f6d29e1a6cc004aa1b452dae41249adb8e60b85b5578bdf32310
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pget/blobs/sha256:f6edaa4e8d20796136fa7f95f21390d4827e88b4f596b04756489cde00260fa6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pget/blobs/sha256:5a6da0d673fdea5f2de05288170a73637d3e22b3a5505c46812e63ac468d60e3
+sha256:
+  darwin_arm64: 6cc7cd05524fed05854389575505915428d98b973b8c3c392ea5869fbae72c04
+  darwin_amd64: 0acfc3036de4f6d29e1a6cc004aa1b452dae41249adb8e60b85b5578bdf32310
+  linux_amd64: f6edaa4e8d20796136fa7f95f21390d4827e88b4f596b04756489cde00260fa6
+  linux_arm64: 5a6da0d673fdea5f2de05288170a73637d3e22b3a5505c46812e63ac468d60e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ntfy
+version: 2.17.0
+description: Send push notifications to your phone or desktop via PUT/POST
+homepage: https://ntfy.sh/
+license: Apache-2.0 OR GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ntfy/blobs/sha256:6c018ba855796004e3b4dfa1582c5c9ed9964df75ebf23383dc5c5c834860e9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ntfy/blobs/sha256:01a068412e199efd658905bae38a8e3112d08952b7d6dd885664a1e42ebb3b33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ntfy/blobs/sha256:f93854dcbd600a5c3b37d52c0c0b21fe7697421c5850814368d1e074a3f263c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ntfy/blobs/sha256:25b41bdc8af0342561e1f443ab76329dcb13fcf3fff9a8076c38ffad01185a3f
+sha256:
+  darwin_arm64: 6c018ba855796004e3b4dfa1582c5c9ed9964df75ebf23383dc5c5c834860e9e
+  darwin_amd64: 01a068412e199efd658905bae38a8e3112d08952b7d6dd885664a1e42ebb3b33
+  linux_amd64: f93854dcbd600a5c3b37d52c0c0b21fe7697421c5850814368d1e074a3f263c7
+  linux_arm64: 25b41bdc8af0342561e1f443ab76329dcb13fcf3fff9a8076c38ffad01185a3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: vsearch
+version: 2.30.4
+description: Versatile open-source tool for microbiome analysis
+homepage: https://github.com/torognes/vsearch
+license: BSD-2-Clause OR GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vsearch/blobs/sha256:539fbd49a21e13368243fbcdd1e64fae33c828d1de79e6e2ea1fef30fcdd28ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vsearch/blobs/sha256:3443ada3ee79013abb6ce44dbda9e5f61f05e4dc06b268f8b3d8e6fed61ce2a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vsearch/blobs/sha256:6bbd6e819eb473c28c706996763dd8abdeafe707b7bf99838fee5e453f13ba77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vsearch/blobs/sha256:1c6b5be25b7266edcda3ec361080bb234405f0a760f56f5fe874ebfff4569770
+sha256:
+  darwin_arm64: 539fbd49a21e13368243fbcdd1e64fae33c828d1de79e6e2ea1fef30fcdd28ed
+  darwin_amd64: 3443ada3ee79013abb6ce44dbda9e5f61f05e4dc06b268f8b3d8e6fed61ce2a8
+  linux_amd64: 6bbd6e819eb473c28c706996763dd8abdeafe707b7bf99838fee5e453f13ba77
+  linux_arm64: 1c6b5be25b7266edcda3ec361080bb234405f0a760f56f5fe874ebfff4569770
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

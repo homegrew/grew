@@ -1,0 +1,22 @@
+name: tcl-tk
+version: 9.0.3
+description: Tool Command Language
+homepage: https://www.tcl-lang.org
+license: TCL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcl-tk/blobs/sha256:05f176d9255ff98aa4910a30500bfe8cc5611fd592aa8a6a7cd0e0aaddda0b70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcl-tk/blobs/sha256:7b56375c63b3e3c7d43e1354cc77ab4e36a28dc34884589c6b6575cf3dacf3ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcl-tk/blobs/sha256:40e4c170b60a470cc659b19958c3b0ff3d478fcdf87a4164062bc2d3cfdd7f5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcl-tk/blobs/sha256:7a36d991f2cdbcd843741c25892821f4b855fe5ddfd81254a8231737bab7ccee
+sha256:
+  darwin_arm64: 05f176d9255ff98aa4910a30500bfe8cc5611fd592aa8a6a7cd0e0aaddda0b70
+  darwin_amd64: 7b56375c63b3e3c7d43e1354cc77ab4e36a28dc34884589c6b6575cf3dacf3ab
+  linux_amd64: 40e4c170b60a470cc659b19958c3b0ff3d478fcdf87a4164062bc2d3cfdd7f5a
+  linux_arm64: 7a36d991f2cdbcd843741c25892821f4b855fe5ddfd81254a8231737bab7ccee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtommath
+  - openssl@3

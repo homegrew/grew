@@ -1,0 +1,19 @@
+name: replxx
+version: 0.0.4
+description: Readline and libedit replacement
+homepage: https://github.com/AmokHuginnsson/replxx
+license: BSD-3-Clause AND Unicode-TOU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/replxx/blobs/sha256:6f9776e783d8c4f8a9b2d570e3d713fab96a4d971e9299c433ce5f13693201a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/replxx/blobs/sha256:0fdd6b76bc801980b0ffe7f0d6d2054d9c29ce0a65fe6765cab150414b0ae7d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/replxx/blobs/sha256:f3dda3e653e8248fcef21065c08ee18ca0e693544d48e733502ca8f594c2bfe0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/replxx/blobs/sha256:44f5f6e6baf5168f5a86c4a2966114935de9e4c71b1d5a13676d1157b5fea3d3
+sha256:
+  darwin_arm64: 6f9776e783d8c4f8a9b2d570e3d713fab96a4d971e9299c433ce5f13693201a0
+  darwin_amd64: 0fdd6b76bc801980b0ffe7f0d6d2054d9c29ce0a65fe6765cab150414b0ae7d4
+  linux_amd64: f3dda3e653e8248fcef21065c08ee18ca0e693544d48e733502ca8f594c2bfe0
+  linux_arm64: 44f5f6e6baf5168f5a86c4a2966114935de9e4c71b1d5a13676d1157b5fea3d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

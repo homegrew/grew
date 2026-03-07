@@ -1,0 +1,19 @@
+name: tygo
+version: 0.2.21
+description: Generate Typescript types from Golang source code
+homepage: https://github.com/gzuidhof/tygo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tygo/blobs/sha256:d6e0ae5facaea779a8caa8e373545281381c6c489d1d59faa80f7f29291e7620
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tygo/blobs/sha256:6fe4d2012cf85e05ea22599a7bd21015598b1facfc84d87616138e7c39869e31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tygo/blobs/sha256:027f518b0f4829a2b3a7340652877d4157e45c28780c75b1e64a2b25f92cd016
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tygo/blobs/sha256:5a63d67c0d602c13917d2bb06e643c4d896dd95fb688b788bbbb4b470eae9a44
+sha256:
+  darwin_arm64: d6e0ae5facaea779a8caa8e373545281381c6c489d1d59faa80f7f29291e7620
+  darwin_amd64: 6fe4d2012cf85e05ea22599a7bd21015598b1facfc84d87616138e7c39869e31
+  linux_amd64: 027f518b0f4829a2b3a7340652877d4157e45c28780c75b1e64a2b25f92cd016
+  linux_arm64: 5a63d67c0d602c13917d2bb06e643c4d896dd95fb688b788bbbb4b470eae9a44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: findomain
+version: 10.0.1
+description: Cross-platform subdomain enumerator
+homepage: https://github.com/Findomain/Findomain
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/findomain/blobs/sha256:2902d22ca4f66ec6f1549cc6a391cc9b11eec6c00256a443b1298e8c22190b9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/findomain/blobs/sha256:dcb0ada61e17bafa0698afe7fd63d3a00d3f3eca2611bf1e31f48624f315f798
+  linux_amd64: https://ghcr.io/v2/homebrew/core/findomain/blobs/sha256:d66e42b9aab95ae691640efaeb89d232491d144010b208285fb73b986a0c4a6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/findomain/blobs/sha256:a1b59bf4dc0ed116bf7c1ec94a706f0e48ba2c7523eff3abd77d421d5a54f0ed
+sha256:
+  darwin_arm64: 2902d22ca4f66ec6f1549cc6a391cc9b11eec6c00256a443b1298e8c22190b9d
+  darwin_amd64: dcb0ada61e17bafa0698afe7fd63d3a00d3f3eca2611bf1e31f48624f315f798
+  linux_amd64: d66e42b9aab95ae691640efaeb89d232491d144010b208285fb73b986a0c4a6a
+  linux_arm64: a1b59bf4dc0ed116bf7c1ec94a706f0e48ba2c7523eff3abd77d421d5a54f0ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

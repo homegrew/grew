@@ -1,0 +1,23 @@
+name: qtwebview
+version: 6.10.2
+description: Displays web content in a QML application
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtwebview/blobs/sha256:f535a0b6a3f7acc0a5e0c560f66405abda13ba96ca069665ea16f5a78a0b7636
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtwebview/blobs/sha256:0f4f9b49977ae160c67359148df70c9e841f36370d1d94d7781e255ed8cd5e85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtwebview/blobs/sha256:22fcf8717c8d5570c44eba55ac6d119a854d5860f0fb0a2f68094001da7d68db
+sha256:
+  darwin_arm64: f535a0b6a3f7acc0a5e0c560f66405abda13ba96ca069665ea16f5a78a0b7636
+  darwin_amd64: 0f4f9b49977ae160c67359148df70c9e841f36370d1d94d7781e255ed8cd5e85
+  linux_amd64: 22fcf8717c8d5570c44eba55ac6d119a854d5860f0fb0a2f68094001da7d68db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtwebengine
+  - qtpositioning
+  - qtwebchannel

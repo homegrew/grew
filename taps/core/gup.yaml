@@ -1,0 +1,21 @@
+name: gup
+version: 1.1.3
+description: Update binaries installed by go install
+homepage: https://github.com/nao1215/gup
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gup/blobs/sha256:c3c040994d0e742244ca64ff9480f2bd622178e5efc80495b3f4081eb525006e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gup/blobs/sha256:44fadf420265faff145e383d2793796b4d4780c02297d3db4842e74af96451ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gup/blobs/sha256:7c8ddb72bab46b8e49c700bbf588fff72f6b549ee8df82b486bba951341dec19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gup/blobs/sha256:3075dbf87151110f0bda7dc500f5203fd5b7d0e6997cedd389a5c8959ff3b0ee
+sha256:
+  darwin_arm64: c3c040994d0e742244ca64ff9480f2bd622178e5efc80495b3f4081eb525006e
+  darwin_amd64: 44fadf420265faff145e383d2793796b4d4780c02297d3db4842e74af96451ad
+  linux_amd64: 7c8ddb72bab46b8e49c700bbf588fff72f6b549ee8df82b486bba951341dec19
+  linux_arm64: 3075dbf87151110f0bda7dc500f5203fd5b7d0e6997cedd389a5c8959ff3b0ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

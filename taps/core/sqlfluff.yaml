@@ -1,0 +1,22 @@
+name: sqlfluff
+version: 4.0.4
+description: SQL linter and auto-formatter for Humans
+homepage: https://docs.sqlfluff.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlfluff/blobs/sha256:5ceb759a24f3785f4c3a75d62bd37103ab3d30cebcb0c9fa4124008b6d733844
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlfluff/blobs/sha256:7752b9001fa9b51f1c71854a9c67d8bface66ada3cfea76ef9a4c8c9a9ff14ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlfluff/blobs/sha256:c509eca213950a5924f590b69c7c2cd038e085ce97b15539d14892355b1b0e98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlfluff/blobs/sha256:b30354dc65a9836aaa43f0fe14e0faf927f6e1792922c0c99a6398dc5534aca8
+sha256:
+  darwin_arm64: 5ceb759a24f3785f4c3a75d62bd37103ab3d30cebcb0c9fa4124008b6d733844
+  darwin_amd64: 7752b9001fa9b51f1c71854a9c67d8bface66ada3cfea76ef9a4c8c9a9ff14ff
+  linux_amd64: c509eca213950a5924f590b69c7c2cd038e085ce97b15539d14892355b1b0e98
+  linux_arm64: b30354dc65a9836aaa43f0fe14e0faf927f6e1792922c0c99a6398dc5534aca8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

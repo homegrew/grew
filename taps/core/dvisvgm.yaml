@@ -1,0 +1,26 @@
+name: dvisvgm
+version: 3.6
+description: Fast DVI to SVG converter
+homepage: https://dvisvgm.de
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvisvgm/blobs/sha256:4e4e50ff08bb77348f99e721bbc28da6b979642cf35b02a4ad3c77670dbb9206
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvisvgm/blobs/sha256:9c5c57dd7f7c9d78ce7364898fdc654f69ef139e1808ef3dbac83627fb33871e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvisvgm/blobs/sha256:8e5bf36eeba83828c796f3c32ec68ecb32a7fc81c9635e5ef4cc3d2788a7e1d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvisvgm/blobs/sha256:e4109e7ac608cb01d54f5cc3cd407f7b9808592deedd2276d95d642a7bed5574
+sha256:
+  darwin_arm64: 4e4e50ff08bb77348f99e721bbc28da6b979642cf35b02a4ad3c77670dbb9206
+  darwin_amd64: 9c5c57dd7f7c9d78ce7364898fdc654f69ef139e1808ef3dbac83627fb33871e
+  linux_amd64: 8e5bf36eeba83828c796f3c32ec68ecb32a7fc81c9635e5ef4cc3d2788a7e1d4
+  linux_arm64: e4109e7ac608cb01d54f5cc3cd407f7b9808592deedd2276d95d642a7bed5574
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - freetype
+  - ghostscript
+  - potrace
+  - texlive
+  - woff2

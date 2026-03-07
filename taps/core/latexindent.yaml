@@ -1,0 +1,21 @@
+name: latexindent
+version: 3.24.7
+description: Add indentation to LaTeX files
+homepage: https://latexindentpl.readthedocs.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/latexindent/blobs/sha256:c8968ad8832757ec7735a9d85fee1f221338d14fe5356ae827ad51cc79d2d93e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/latexindent/blobs/sha256:6ac91cecd5ca28baca7b9c427f7ddc629b5523a1ef5dd91d7885bec422b99191
+  linux_amd64: https://ghcr.io/v2/homebrew/core/latexindent/blobs/sha256:9f8001b0b14905f9c561a0e90d445ee14008db2de494271341aab70e0093e2c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/latexindent/blobs/sha256:4e491ff88a404ab91d242975ebea0beb16aa14ab184af0c3de857204b0266b12
+sha256:
+  darwin_arm64: c8968ad8832757ec7735a9d85fee1f221338d14fe5356ae827ad51cc79d2d93e
+  darwin_amd64: 6ac91cecd5ca28baca7b9c427f7ddc629b5523a1ef5dd91d7885bec422b99191
+  linux_amd64: 9f8001b0b14905f9c561a0e90d445ee14008db2de494271341aab70e0093e2c0
+  linux_arm64: 4e491ff88a404ab91d242975ebea0beb16aa14ab184af0c3de857204b0266b12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

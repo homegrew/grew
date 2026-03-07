@@ -1,0 +1,19 @@
+name: cocot
+version: 1.2-20171118
+description: Code converter on tty
+homepage: https://vmi.jp/software/cygwin/cocot.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cocot/blobs/sha256:f6a142983575a21225d725208388e9952675f5b32b1e8b99b5cf26c32ab137a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cocot/blobs/sha256:cb231dd02c02f24677d3b8b5b74c451efdd11f8300f108abed6e85f467ce3b89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cocot/blobs/sha256:b2cd1dd3dbbe2f6474e43965f09859c3d9921a6b7e21507c2a2c70fe69335c01
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cocot/blobs/sha256:9a9115e39b97cc0ff0b0097a76904c4e2947ea30efc4904fd9a214efa9b59c7a
+sha256:
+  darwin_arm64: f6a142983575a21225d725208388e9952675f5b32b1e8b99b5cf26c32ab137a6
+  darwin_amd64: cb231dd02c02f24677d3b8b5b74c451efdd11f8300f108abed6e85f467ce3b89
+  linux_amd64: b2cd1dd3dbbe2f6474e43965f09859c3d9921a6b7e21507c2a2c70fe69335c01
+  linux_arm64: 9a9115e39b97cc0ff0b0097a76904c4e2947ea30efc4904fd9a214efa9b59c7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

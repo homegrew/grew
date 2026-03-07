@@ -1,0 +1,22 @@
+name: mkfontscale
+version: 1.2.3
+description: Create an index of scalable font files for X
+homepage: https://www.x.org/
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkfontscale/blobs/sha256:2029b136126ebb853f7c72befec91cb833b8218d54e04e1707c51a61a51d9ed8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkfontscale/blobs/sha256:9a091c7ef6f917c5227d1311c66a72bf9981b74aff2fcb3b2592bb2883dfe74f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkfontscale/blobs/sha256:b3112c5e6d39688bdfee2ed411f2c9f9a98416a9751212f3c5bc305694ef2a0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkfontscale/blobs/sha256:84f1ae828213f379ec6558b5206633cbece34cca0d40fe965dd683591e825f0f
+sha256:
+  darwin_arm64: 2029b136126ebb853f7c72befec91cb833b8218d54e04e1707c51a61a51d9ed8
+  darwin_amd64: 9a091c7ef6f917c5227d1311c66a72bf9981b74aff2fcb3b2592bb2883dfe74f
+  linux_amd64: b3112c5e6d39688bdfee2ed411f2c9f9a98416a9751212f3c5bc305694ef2a0f
+  linux_arm64: 84f1ae828213f379ec6558b5206633cbece34cca0d40fe965dd683591e825f0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - libfontenc

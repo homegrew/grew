@@ -1,0 +1,23 @@
+name: librist
+version: 0.2.11
+description: Reliable Internet Stream Transport (RIST)
+homepage: https://code.videolan.org/rist/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librist/blobs/sha256:a3ec6f80dbc0c4a2f462a6e1485383684404cbc2cf0bef1e8893a847cf40cbc0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librist/blobs/sha256:de3c3d22ff646e823a60df6e77fee66031de804e73dc7580fc6ba89972acdf27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librist/blobs/sha256:1f293ec4fefab0d33b17e43019ad4593e764506d5fdb336d1884d829ba9fe531
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librist/blobs/sha256:18175c43e2082dfff0edb5f4a0d9c3558d792995bf9985fb0bf4aa059cd0cc9c
+sha256:
+  darwin_arm64: a3ec6f80dbc0c4a2f462a6e1485383684404cbc2cf0bef1e8893a847cf40cbc0
+  darwin_amd64: de3c3d22ff646e823a60df6e77fee66031de804e73dc7580fc6ba89972acdf27
+  linux_amd64: 1f293ec4fefab0d33b17e43019ad4593e764506d5fdb336d1884d829ba9fe531
+  linux_arm64: 18175c43e2082dfff0edb5f4a0d9c3558d792995bf9985fb0bf4aa059cd0cc9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cjson
+  - libmicrohttpd
+  - mbedtls@3

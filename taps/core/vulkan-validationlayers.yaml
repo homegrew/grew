@@ -1,0 +1,25 @@
+name: vulkan-validationlayers
+version: 1.4.341.0
+description: Vulkan layers that enable developers to verify correct use of the Vulkan API
+homepage: https://github.com/KhronosGroup/Vulkan-ValidationLayers
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-validationlayers/blobs/sha256:d587e63d697495df391155967d4961abefcc7fbae00f7b0cffbf316ef6267982
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-validationlayers/blobs/sha256:c46930e660bc6ce4ae5604c60f9789af631483bd43f948eca3389ee9a893b650
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-validationlayers/blobs/sha256:caf1177297cec627adeba9594320e093f6838173dc8862f982d59ee5a85f6cda
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-validationlayers/blobs/sha256:53f930a8eabb0c0e813813f2ff9f4ca33a61c6f8e1fd6a30b39346e79e3e22b8
+sha256:
+  darwin_arm64: d587e63d697495df391155967d4961abefcc7fbae00f7b0cffbf316ef6267982
+  darwin_amd64: c46930e660bc6ce4ae5604c60f9789af631483bd43f948eca3389ee9a893b650
+  linux_amd64: caf1177297cec627adeba9594320e093f6838173dc8862f982d59ee5a85f6cda
+  linux_arm64: 53f930a8eabb0c0e813813f2ff9f4ca33a61c6f8e1fd6a30b39346e79e3e22b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glslang
+  - spirv-tools
+  - vulkan-headers
+  - vulkan-loader
+  - vulkan-utility-libraries

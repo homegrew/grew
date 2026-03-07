@@ -1,0 +1,21 @@
+name: imap-backup
+version: 16.6.0
+description: Backup GMail (or other IMAP) accounts to disk
+homepage: https://github.com/joeyates/imap-backup
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imap-backup/blobs/sha256:27032b92ee4a547f2ba88cf4b99934d61a372447eb354e5a3196c753064deb5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imap-backup/blobs/sha256:afeda25fe9409022479da559e368e397e3e08be45510c490ca50fe1d1893d0cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imap-backup/blobs/sha256:5f3c38aafbfc5172824709cb2c4f99d7777597dd05eb3c1a3156b2215e62a577
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imap-backup/blobs/sha256:baae0a0eeba4def6d8ee83f0e413d9135602c128a3a737047146604dc3b33771
+sha256:
+  darwin_arm64: 27032b92ee4a547f2ba88cf4b99934d61a372447eb354e5a3196c753064deb5f
+  darwin_amd64: afeda25fe9409022479da559e368e397e3e08be45510c490ca50fe1d1893d0cd
+  linux_amd64: 5f3c38aafbfc5172824709cb2c4f99d7777597dd05eb3c1a3156b2215e62a577
+  linux_arm64: baae0a0eeba4def6d8ee83f0e413d9135602c128a3a737047146604dc3b33771
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

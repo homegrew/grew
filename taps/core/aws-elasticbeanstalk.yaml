@@ -1,0 +1,25 @@
+name: aws-elasticbeanstalk
+version: 3.26
+description: Client for Amazon Elastic Beanstalk web service
+homepage: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-elasticbeanstalk/blobs/sha256:3ca67a64edb1c8ce61f3c863d94a93ee05c346214b28951a72fcd7aeeb2c7806
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-elasticbeanstalk/blobs/sha256:cd7d9ee2ee0d4f41d386409c0e020aa39d9f3e2bf972ff4903aa40614ee22383
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-elasticbeanstalk/blobs/sha256:a338ed82cc0e56cdc47c2ab7c89fc8286eef5f4cf52401f4a5a29054b08506f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-elasticbeanstalk/blobs/sha256:5d7ddabbae13253ca070d649053e043ea4d0357bb61fbd749db9914b9dd3f2a9
+sha256:
+  darwin_arm64: 3ca67a64edb1c8ce61f3c863d94a93ee05c346214b28951a72fcd7aeeb2c7806
+  darwin_amd64: cd7d9ee2ee0d4f41d386409c0e020aa39d9f3e2bf972ff4903aa40614ee22383
+  linux_amd64: a338ed82cc0e56cdc47c2ab7c89fc8286eef5f4cf52401f4a5a29054b08506f3
+  linux_arm64: 5d7ddabbae13253ca070d649053e043ea4d0357bb61fbd749db9914b9dd3f2a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - libyaml
+  - python@3.14

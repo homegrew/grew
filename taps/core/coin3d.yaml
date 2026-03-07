@@ -1,0 +1,21 @@
+name: coin3d
+version: 4.0.7
+description: Open Inventor 2.1 API implementation (Coin)
+homepage: https://coin3d.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coin3d/blobs/sha256:49443d09f0467d12e81c022f986b92c6c2ea98aed128e2c04d7343b4b089734e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coin3d/blobs/sha256:bdd27ec1686977865494c754219a9d0c8e15fd3edea4d3e4097de330fb40b3bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coin3d/blobs/sha256:ccd152688f979fb8d5f33f635d51ea71a887fabada4ae949bd9280590d77815b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coin3d/blobs/sha256:297309b6aafc080387697d01842df94757b58000c84b4ef00ea8a1ee44437cdf
+sha256:
+  darwin_arm64: 49443d09f0467d12e81c022f986b92c6c2ea98aed128e2c04d7343b4b089734e
+  darwin_amd64: bdd27ec1686977865494c754219a9d0c8e15fd3edea4d3e4097de330fb40b3bf
+  linux_amd64: ccd152688f979fb8d5f33f635d51ea71a887fabada4ae949bd9280590d77815b
+  linux_arm64: 297309b6aafc080387697d01842df94757b58000c84b4ef00ea8a1ee44437cdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

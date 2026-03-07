@@ -1,0 +1,19 @@
+name: dosfstools
+version: 4.2
+description: Tools to create, check and label file systems of the FAT family
+homepage: https://github.com/dosfstools
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dosfstools/blobs/sha256:d54a1407f985fc34279f07ead09aa53ae0cbe1a24b8a7328d4cbcb8fb24d9c49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dosfstools/blobs/sha256:4b06025314c13c2f4d2c1e8c2af272bfed50dcb51f2845ff12e19485851b78ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dosfstools/blobs/sha256:584daa5a52ed21b3b23eba4323ebec3fa8421062c9cac5d833e60b91da0a7636
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dosfstools/blobs/sha256:0f175df17e208a3e33de63fa36168da5daff1fe7a5ae61be6e7e140838171b95
+sha256:
+  darwin_arm64: d54a1407f985fc34279f07ead09aa53ae0cbe1a24b8a7328d4cbcb8fb24d9c49
+  darwin_amd64: 4b06025314c13c2f4d2c1e8c2af272bfed50dcb51f2845ff12e19485851b78ba
+  linux_amd64: 584daa5a52ed21b3b23eba4323ebec3fa8421062c9cac5d833e60b91da0a7636
+  linux_arm64: 0f175df17e208a3e33de63fa36168da5daff1fe7a5ae61be6e7e140838171b95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sidekick
+version: 0.6.6
+description: Deploy applications to your VPS
+homepage: https://github.com/MightyMoud/sidekick
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sidekick/blobs/sha256:b47090a52636675f0dfae5f548f852059b7dc088872a2d8d64eec484e19db617
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sidekick/blobs/sha256:0ee43e780bc61973ce3d767a9685e535bda44b5fe2c92c0f387c1dc07b7b0dde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sidekick/blobs/sha256:39755a46cd0a9f3fa863f933fc9fbf682d4e8841be7a882547fe6eaca455a089
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sidekick/blobs/sha256:0f0fc03a04c528d79af849d0ca02d8b168f2ab860699d2d98e1c48a27642ff43
+sha256:
+  darwin_arm64: b47090a52636675f0dfae5f548f852059b7dc088872a2d8d64eec484e19db617
+  darwin_amd64: 0ee43e780bc61973ce3d767a9685e535bda44b5fe2c92c0f387c1dc07b7b0dde
+  linux_amd64: 39755a46cd0a9f3fa863f933fc9fbf682d4e8841be7a882547fe6eaca455a089
+  linux_arm64: 0f0fc03a04c528d79af849d0ca02d8b168f2ab860699d2d98e1c48a27642ff43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

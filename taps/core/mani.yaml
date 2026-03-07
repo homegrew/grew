@@ -1,0 +1,19 @@
+name: mani
+version: 0.32.0
+description: CLI tool to help you manage repositories
+homepage: https://manicli.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mani/blobs/sha256:4fd99addf4ca0ecc539b7b2e55ed95cca0e0c9aea8f7edb7814d2ed964a51602
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mani/blobs/sha256:27be6de31d5b65fc29273df8968b5bb60d9a3979ad2d4f490576d824310a38b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mani/blobs/sha256:ae938083622d72bb131aa2210a0568e0a5a2a60527469e41080866040f85cce1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mani/blobs/sha256:d0ba27a8d4b80afc88021e279a24bc1c5684611e3d920d20eba9a8101dcafd45
+sha256:
+  darwin_arm64: 4fd99addf4ca0ecc539b7b2e55ed95cca0e0c9aea8f7edb7814d2ed964a51602
+  darwin_amd64: 27be6de31d5b65fc29273df8968b5bb60d9a3979ad2d4f490576d824310a38b7
+  linux_amd64: ae938083622d72bb131aa2210a0568e0a5a2a60527469e41080866040f85cce1
+  linux_arm64: d0ba27a8d4b80afc88021e279a24bc1c5684611e3d920d20eba9a8101dcafd45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

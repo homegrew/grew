@@ -1,0 +1,18 @@
+name: gcl
+version: 2.7.1
+description: GNU Common Lisp
+homepage: https://www.gnu.org/software/gcl/
+license: LGPL-2.0-or-later AND GPL-1.0-or-later AND LOOP
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcl/blobs/sha256:28c991bd2a4fcde47e5ed5199c69d521406cfe75a1e84b9b9ac282b6c3bbe384
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcl/blobs/sha256:dfa35d12b4ccf9fb802cbfef7fdc2e8300734a3d6eb375520db4070ef8b5428d
+sha256:
+  linux_amd64: 28c991bd2a4fcde47e5ed5199c69d521406cfe75a1e84b9b9ac282b6c3bbe384
+  linux_arm64: dfa35d12b4ccf9fb802cbfef7fdc2e8300734a3d6eb375520db4070ef8b5428d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libtirpc

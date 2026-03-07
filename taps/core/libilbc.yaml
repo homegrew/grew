@@ -1,0 +1,19 @@
+name: libilbc
+version: 3.0.4
+description: Packaged version of iLBC codec from the WebRTC project
+homepage: https://github.com/TimothyGu/libilbc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libilbc/blobs/sha256:b55c9c6554101b871be2016309c318fdc796dfa89addd0df918179fd048e80a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libilbc/blobs/sha256:d5d2dc90d135c52f15befb996483d7c2705c77205d7aa57b2286ff96678f3f7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libilbc/blobs/sha256:11914a90369fc2c32d1373c3c8d5a98275c44de6e70301c23067b67310d6bba0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libilbc/blobs/sha256:5848c1f801acd864b6e44672dff531f3cd357e93a64ee64ff8bc3bda3ef6e2a7
+sha256:
+  darwin_arm64: b55c9c6554101b871be2016309c318fdc796dfa89addd0df918179fd048e80a0
+  darwin_amd64: d5d2dc90d135c52f15befb996483d7c2705c77205d7aa57b2286ff96678f3f7a
+  linux_amd64: 11914a90369fc2c32d1373c3c8d5a98275c44de6e70301c23067b67310d6bba0
+  linux_arm64: 5848c1f801acd864b6e44672dff531f3cd357e93a64ee64ff8bc3bda3ef6e2a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

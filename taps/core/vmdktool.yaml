@@ -1,0 +1,19 @@
+name: vmdktool
+version: 1.4
+description: Converts raw filesystems to VMDK files and vice versa
+homepage: https://manned.org/vmdktool
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vmdktool/blobs/sha256:9c80ae2a1f31f2ce299e628833d1e506ac03b5a0a27ba6ad7cae14455a62eec1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vmdktool/blobs/sha256:a26422ba4a199adc6522ab9493a017e13c3c08d9d7996b847fbcefddb692b11d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vmdktool/blobs/sha256:c0293474570a72314f6b3b336a82ed951d1df9779fbd127aa02e441932f4c31c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vmdktool/blobs/sha256:2eb533d8189838729771f500e530db0e691947b3bb774706b831ee3d59701184
+sha256:
+  darwin_arm64: 9c80ae2a1f31f2ce299e628833d1e506ac03b5a0a27ba6ad7cae14455a62eec1
+  darwin_amd64: a26422ba4a199adc6522ab9493a017e13c3c08d9d7996b847fbcefddb692b11d
+  linux_amd64: c0293474570a72314f6b3b336a82ed951d1df9779fbd127aa02e441932f4c31c
+  linux_arm64: 2eb533d8189838729771f500e530db0e691947b3bb774706b831ee3d59701184
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

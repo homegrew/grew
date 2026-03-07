@@ -1,0 +1,19 @@
+name: fastjar
+version: 0.98
+description: "Implementation of Sun's jar tool"
+homepage: https://savannah.nongnu.org/projects/fastjar
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastjar/blobs/sha256:1cb7800d86e7f8733755399304f9ccc3ea3d44c7d7ca6fd81b2f6aeaf5cc6061
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastjar/blobs/sha256:10e990e3753d3b28c8921e6b9005389da42ee4967ae7ba85f266364068208847
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastjar/blobs/sha256:7cf0d96826dfa9aa1ed077add9271eb0be8da1d8af8b0a31344d8fb9bce550ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastjar/blobs/sha256:640961ee6c8698dd49deb1426d811811f9a65aa31e7baa565780c2b51914cbb0
+sha256:
+  darwin_arm64: 1cb7800d86e7f8733755399304f9ccc3ea3d44c7d7ca6fd81b2f6aeaf5cc6061
+  darwin_amd64: 10e990e3753d3b28c8921e6b9005389da42ee4967ae7ba85f266364068208847
+  linux_amd64: 7cf0d96826dfa9aa1ed077add9271eb0be8da1d8af8b0a31344d8fb9bce550ba
+  linux_arm64: 640961ee6c8698dd49deb1426d811811f9a65aa31e7baa565780c2b51914cbb0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: theharvester
+version: 4.10.1
+description: Gather materials from public sources (for pen testers)
+homepage: https://www.edge-security.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/theharvester/blobs/sha256:636d1505928e2d2caeee8060a354e057ccf41d06e71e2ca404bdb8c2514db213
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/theharvester/blobs/sha256:d17f9018009b14c85ac8083eabfc5377e4f0ebc659ecdc62407a55a884c253bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/theharvester/blobs/sha256:ddc8a5cda194958c55ccf31e7b3eb97d282900c24a9136a74edc759b8ac01724
+  linux_arm64: https://ghcr.io/v2/homebrew/core/theharvester/blobs/sha256:9e689de814ac121f7eacf512a3a9be59dcd45450bd93ebd35780ddb7b1b639ae
+sha256:
+  darwin_arm64: 636d1505928e2d2caeee8060a354e057ccf41d06e71e2ca404bdb8c2514db213
+  darwin_amd64: d17f9018009b14c85ac8083eabfc5377e4f0ebc659ecdc62407a55a884c253bd
+  linux_amd64: ddc8a5cda194958c55ccf31e7b3eb97d282900c24a9136a74edc759b8ac01724
+  linux_arm64: 9e689de814ac121f7eacf512a3a9be59dcd45450bd93ebd35780ddb7b1b639ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - libyaml
+  - pydantic
+  - python@3.14

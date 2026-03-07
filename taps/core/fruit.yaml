@@ -1,0 +1,19 @@
+name: fruit
+version: 3.7.1
+description: Dependency injection framework for C++
+homepage: https://github.com/google/fruit/wiki
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fruit/blobs/sha256:4bda90128aa536a15d5e5cff13df7542d5070289c6c16674915b3470ab6046b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fruit/blobs/sha256:76cfc99b1622805e2a51012911d1c9d1fbea28d6832f52654b0fc0850f472229
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fruit/blobs/sha256:e67f3fbe98944d1758385a4f188435b4b81b7fc5a192fe2c9c1a6e37e6b8d7cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fruit/blobs/sha256:6cbe793d133f5e840dc23feeac8ad00715283b2cbc2645580175ca4c2be8a2cd
+sha256:
+  darwin_arm64: 4bda90128aa536a15d5e5cff13df7542d5070289c6c16674915b3470ab6046b9
+  darwin_amd64: 76cfc99b1622805e2a51012911d1c9d1fbea28d6832f52654b0fc0850f472229
+  linux_amd64: e67f3fbe98944d1758385a4f188435b4b81b7fc5a192fe2c9c1a6e37e6b8d7cb
+  linux_arm64: 6cbe793d133f5e840dc23feeac8ad00715283b2cbc2645580175ca4c2be8a2cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

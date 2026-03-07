@@ -1,0 +1,21 @@
+name: whisper-cpp
+version: 1.8.3
+description: "Port of OpenAI's Whisper model in C/C++"
+homepage: https://github.com/ggml-org/whisper.cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/whisper-cpp/blobs/sha256:5eedd491cfac5e7fb0212068d794ff129ab2b7b1e0353c16e9b69c3ef8040278
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/whisper-cpp/blobs/sha256:e6c2f78cbc5d6b311dfe24d8c5d4ffc68a634465c5e35ed11746068583d273c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/whisper-cpp/blobs/sha256:09defdf76a98554ed27b2fd4c2e34472b83603b17ed0411505166146799800ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/whisper-cpp/blobs/sha256:684199fd6bec28cddfa086c584a49d236386c109f901a443b577b857fd052f83
+sha256:
+  darwin_arm64: 5eedd491cfac5e7fb0212068d794ff129ab2b7b1e0353c16e9b69c3ef8040278
+  darwin_amd64: e6c2f78cbc5d6b311dfe24d8c5d4ffc68a634465c5e35ed11746068583d273c4
+  linux_amd64: 09defdf76a98554ed27b2fd4c2e34472b83603b17ed0411505166146799800ac
+  linux_arm64: 684199fd6bec28cddfa086c584a49d236386c109f901a443b577b857fd052f83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

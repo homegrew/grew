@@ -1,0 +1,21 @@
+name: gopass-jsonapi
+version: 1.16.1
+description: Gopass Browser Bindings
+homepage: https://github.com/gopasspw/gopass-jsonapi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gopass-jsonapi/blobs/sha256:63e40f2563f43b12908bdb89509d8b568ac3e797fe43d1c0bee05f56bcd4aa2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gopass-jsonapi/blobs/sha256:ff59e9b4d90e3bf9d5fe694477827b7b6676f21ba75fc1ca00d63fa4c56a904c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gopass-jsonapi/blobs/sha256:497f201696c8c1e7d5098e55e064f5537c4ace06a40eac22a6ea6f552dfb94c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gopass-jsonapi/blobs/sha256:4da1e2900218d466f4e58fa97948b8d19e0dc20078d503b06bf0406415cb176f
+sha256:
+  darwin_arm64: 63e40f2563f43b12908bdb89509d8b568ac3e797fe43d1c0bee05f56bcd4aa2a
+  darwin_amd64: ff59e9b4d90e3bf9d5fe694477827b7b6676f21ba75fc1ca00d63fa4c56a904c
+  linux_amd64: 497f201696c8c1e7d5098e55e064f5537c4ace06a40eac22a6ea6f552dfb94c8
+  linux_arm64: 4da1e2900218d466f4e58fa97948b8d19e0dc20078d503b06bf0406415cb176f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gopass

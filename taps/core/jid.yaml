@@ -1,0 +1,19 @@
+name: jid
+version: 0.7.6
+description: Json incremental digger
+homepage: https://github.com/simeji/jid
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jid/blobs/sha256:dd788b2fba27931b86f826dc8fb3ff5f2e021df22864ec4b453a86bd640cbcd3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jid/blobs/sha256:c50129673b66bb9cee8ce889ea95082e1d479e605ce7a99c18c522c2b54150a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jid/blobs/sha256:2c2d04634a851f7ad8d10869571b6820cd31da2ef068a5c7fd6b03f512f5dc4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jid/blobs/sha256:440c0003187faeac72ff82a00fd05eb4de6cc849d82a21e1a07c30b319320abc
+sha256:
+  darwin_arm64: dd788b2fba27931b86f826dc8fb3ff5f2e021df22864ec4b453a86bd640cbcd3
+  darwin_amd64: c50129673b66bb9cee8ce889ea95082e1d479e605ce7a99c18c522c2b54150a5
+  linux_amd64: 2c2d04634a851f7ad8d10869571b6820cd31da2ef068a5c7fd6b03f512f5dc4c
+  linux_arm64: 440c0003187faeac72ff82a00fd05eb4de6cc849d82a21e1a07c30b319320abc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

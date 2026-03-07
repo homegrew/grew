@@ -1,0 +1,21 @@
+name: gnu-indent
+version: 2.2.13
+description: C code prettifier
+homepage: https://www.gnu.org/software/indent/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-indent/blobs/sha256:9734507ce86daffede4a8529ea0da48daa0993cd639900769d131d677f4d5c64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-indent/blobs/sha256:08ff0b0519d556b0a9bcb55c6511704c9a0190bb831733c9d0b0342e6cfe42bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-indent/blobs/sha256:ca7c98aad69c128e21dc47666737ffc57d55118fe1e5e73b4e63874dfb1f6721
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-indent/blobs/sha256:75f78490b2047df1500e85d9c33ac481815fea272ab7ea3c91358b1d4a3fe48a
+sha256:
+  darwin_arm64: 9734507ce86daffede4a8529ea0da48daa0993cd639900769d131d677f4d5c64
+  darwin_amd64: 08ff0b0519d556b0a9bcb55c6511704c9a0190bb831733c9d0b0342e6cfe42bb
+  linux_amd64: ca7c98aad69c128e21dc47666737ffc57d55118fe1e5e73b4e63874dfb1f6721
+  linux_arm64: 75f78490b2047df1500e85d9c33ac481815fea272ab7ea3c91358b1d4a3fe48a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

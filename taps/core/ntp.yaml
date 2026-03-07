@@ -1,0 +1,21 @@
+name: ntp
+version: 4.2.8p18
+description: Network Time Protocol (NTP) Distribution
+homepage: https://www.ntp.org
+license: BSD-2-Clause AND NTP
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ntp/blobs/sha256:67f312e7b755756bb74869269cb8b4fd9e582e6f265be0730c39d541422b54cd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ntp/blobs/sha256:9128d709ea91a5cea9a64a6c804d2d2c96a5231166ae6479e43343cb6bd781ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ntp/blobs/sha256:b7e45f68bdcd6758f869f30271115cbe845d5b9e0d1b72b9429e63624109bc09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ntp/blobs/sha256:40bf8bb2e6bd82b46d60e28e3f2c0d65e5a68778560d89a17b6296410358dc40
+sha256:
+  darwin_arm64: 67f312e7b755756bb74869269cb8b4fd9e582e6f265be0730c39d541422b54cd
+  darwin_amd64: 9128d709ea91a5cea9a64a6c804d2d2c96a5231166ae6479e43343cb6bd781ac
+  linux_amd64: b7e45f68bdcd6758f869f30271115cbe845d5b9e0d1b72b9429e63624109bc09
+  linux_arm64: 40bf8bb2e6bd82b46d60e28e3f2c0d65e5a68778560d89a17b6296410358dc40
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

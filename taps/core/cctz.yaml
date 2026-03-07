@@ -1,0 +1,19 @@
+name: cctz
+version: 2.5
+description: C++ library for translating between absolute and civil times
+homepage: https://github.com/google/cctz
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cctz/blobs/sha256:6284d05bd82c833d038e7fe7a1b46288db768f917dc7a54c0cbd0ec60ef49474
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cctz/blobs/sha256:48dd11816116da849effe5f734883373c47b676c25e9704bccd477b4ffa76cdd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cctz/blobs/sha256:12c1b89beed6a56b0b9220e98b9eb6fc671b7d8876a753426a424318d809355a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cctz/blobs/sha256:032ab04e69e1f663c647f6e40ffbc590a349b4cbae8b69a6d33193169f4a4210
+sha256:
+  darwin_arm64: 6284d05bd82c833d038e7fe7a1b46288db768f917dc7a54c0cbd0ec60ef49474
+  darwin_amd64: 48dd11816116da849effe5f734883373c47b676c25e9704bccd477b4ffa76cdd
+  linux_amd64: 12c1b89beed6a56b0b9220e98b9eb6fc671b7d8876a753426a424318d809355a
+  linux_arm64: 032ab04e69e1f663c647f6e40ffbc590a349b4cbae8b69a6d33193169f4a4210
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

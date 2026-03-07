@@ -1,0 +1,21 @@
+name: xcb-util-renderutil
+version: 0.3.10
+description: Convenience functions for the X Render extension
+homepage: https://xcb.freedesktop.org
+license: X11 AND HPND-sell-variant
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-renderutil/blobs/sha256:4f0545144b6e7c459497ebb586c522a1d3b3b5eef1160987fbe5b45e275a026c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-renderutil/blobs/sha256:e774fa85f56ee12251edbf29a61b54f4d82715939b8fb9127b62a134cdd1f1be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-renderutil/blobs/sha256:9de153c6d1351a146e6cd98c7b8b0b5dddc413dbbc5baa739d3310813186839d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-renderutil/blobs/sha256:4e290a280c48d596dd1946a5d3d8670ce85b6d24ecdd565d2c46106fdaa8128f
+sha256:
+  darwin_arm64: 4f0545144b6e7c459497ebb586c522a1d3b3b5eef1160987fbe5b45e275a026c
+  darwin_amd64: e774fa85f56ee12251edbf29a61b54f4d82715939b8fb9127b62a134cdd1f1be
+  linux_amd64: 9de153c6d1351a146e6cd98c7b8b0b5dddc413dbbc5baa739d3310813186839d
+  linux_arm64: 4e290a280c48d596dd1946a5d3d8670ce85b6d24ecdd565d2c46106fdaa8128f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb

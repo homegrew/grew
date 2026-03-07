@@ -1,0 +1,17 @@
+name: cmake-app
+version: 4.2.3
+description: Family of tools to build, test and package software
+homepage: https://cmake.org/
+url:
+  darwin_arm64: https://cmake.org/files/v4.2/cmake-4.2.3-macos-universal.dmg
+sha256:
+  darwin_arm64: d3ac47185cbad9e264d7afac18eb964139f90a641f8442189e64d1da388f120d
+artifacts:
+  app:
+    - CMake.app
+  bin:
+    - cmake
+    - cmake-gui
+    - cpack
+    - ctest
+    - ccmake

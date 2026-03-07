@@ -1,0 +1,19 @@
+name: swiftformat
+version: 0.60.0
+description: Formatting tool for reformatting Swift code
+homepage: https://github.com/nicklockwood/SwiftFormat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swiftformat/blobs/sha256:502c5b970e389388682f14b326e5837ada9ac90f6c8476d8060a1d505d378b43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swiftformat/blobs/sha256:6f504b473e25f7dc2086d64a39543905ca213da8b6120e9b0f875a663c60a308
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swiftformat/blobs/sha256:c914a037aa5f20a1a8015775fd0b004c3120c431e0ad81ce0241eda3847f6794
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swiftformat/blobs/sha256:17de90d31b216eb00218450859d48e9916c8b1871ee235f182c001b97cfd8067
+sha256:
+  darwin_arm64: 502c5b970e389388682f14b326e5837ada9ac90f6c8476d8060a1d505d378b43
+  darwin_amd64: 6f504b473e25f7dc2086d64a39543905ca213da8b6120e9b0f875a663c60a308
+  linux_amd64: c914a037aa5f20a1a8015775fd0b004c3120c431e0ad81ce0241eda3847f6794
+  linux_arm64: 17de90d31b216eb00218450859d48e9916c8b1871ee235f182c001b97cfd8067
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

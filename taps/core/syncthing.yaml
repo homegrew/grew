@@ -1,0 +1,19 @@
+name: syncthing
+version: 2.0.15
+description: Open source continuous file synchronization application
+homepage: https://syncthing.net/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:fcb99b56e4d9ddd047fb4aa69422e98fa6e2274b66f057b58c9ba1913ca64c67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:40af7562cac991b285833343541a84da07d6726695f7a56443abd00391753f21
+  linux_amd64: https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:4461c4e8895cf94d94798fb3039b8bde2f83efe183f433fe167567fe2625de08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:3e6fa3b6a53351bfdb886aaa81fb51066b74149240e42d43dbef0378e7fd1d24
+sha256:
+  darwin_arm64: fcb99b56e4d9ddd047fb4aa69422e98fa6e2274b66f057b58c9ba1913ca64c67
+  darwin_amd64: 40af7562cac991b285833343541a84da07d6726695f7a56443abd00391753f21
+  linux_amd64: 4461c4e8895cf94d94798fb3039b8bde2f83efe183f433fe167567fe2625de08
+  linux_arm64: 3e6fa3b6a53351bfdb886aaa81fb51066b74149240e42d43dbef0378e7fd1d24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

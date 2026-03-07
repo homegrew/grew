@@ -1,0 +1,27 @@
+name: ceres-solver
+version: 2.2.0
+description: C++ library for large-scale optimization
+homepage: http://ceres-solver.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ceres-solver/blobs/sha256:8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ceres-solver/blobs/sha256:0f8775984f506622a7760a114108ea0623708e4657f4b0763f5fa2fd85d73aed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ceres-solver/blobs/sha256:9827d7d0b9acc123b2d2841d8755be3ff1e4761917740fcd35f4836006360101
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ceres-solver/blobs/sha256:7cff4740905f47653e817429811c68ed7d7f8615c988bac94778eefd49896c5a
+sha256:
+  darwin_arm64: 8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7
+  darwin_amd64: 0f8775984f506622a7760a114108ea0623708e4657f4b0763f5fa2fd85d73aed
+  linux_amd64: 9827d7d0b9acc123b2d2841d8755be3ff1e4761917740fcd35f4836006360101
+  linux_arm64: 7cff4740905f47653e817429811c68ed7d7f8615c988bac94778eefd49896c5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gflags
+  - glog
+  - eigen
+  - metis
+  - openblas
+  - suite-sparse
+  - tbb

@@ -1,0 +1,21 @@
+name: mitie
+version: 0.7
+description: Library and tools for information extraction
+homepage: https://github.com/mit-nlp/MITIE/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mitie/blobs/sha256:025cb3eb83b916c6311a5282c51ba1c44d9890dcb158b4b8327e5ae0deda4a8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mitie/blobs/sha256:71792924c5aca7fe2d3db9db416c89552b95690ecf236e681cbe2d1e846ba72e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mitie/blobs/sha256:906519532491d62f21e16e31ef3fccb49672ca033bf811cf289f93bcb6468eeb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mitie/blobs/sha256:c9999c37c7d297991dd328c5868a1eea42dc26a193e5725d9a766e2c11852394
+sha256:
+  darwin_arm64: 025cb3eb83b916c6311a5282c51ba1c44d9890dcb158b4b8327e5ae0deda4a8b
+  darwin_amd64: 71792924c5aca7fe2d3db9db416c89552b95690ecf236e681cbe2d1e846ba72e
+  linux_amd64: 906519532491d62f21e16e31ef3fccb49672ca033bf811cf289f93bcb6468eeb
+  linux_arm64: c9999c37c7d297991dd328c5868a1eea42dc26a193e5725d9a766e2c11852394
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

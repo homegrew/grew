@@ -1,0 +1,19 @@
+name: symfony-cli
+version: 5.16.1
+description: Build, run, and manage Symfony applications
+homepage: https://github.com/symfony-cli/symfony-cli
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/symfony-cli/blobs/sha256:3686f63b764302e774456bf898f2674bedcc295fff45a9f88e9dc229329207f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/symfony-cli/blobs/sha256:2e0389f858e43fb275cf0de8728acaf09b2487f9e09641aa936f9fe9d153d1ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/symfony-cli/blobs/sha256:b96691de854b7d81284dabc89f3f1ade63e227139a250278578dba99067f67bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/symfony-cli/blobs/sha256:2f2af81225d2ab9e606f1fc01ad814469797a3fce2b4cf42125b02834b80942c
+sha256:
+  darwin_arm64: 3686f63b764302e774456bf898f2674bedcc295fff45a9f88e9dc229329207f0
+  darwin_amd64: 2e0389f858e43fb275cf0de8728acaf09b2487f9e09641aa936f9fe9d153d1ab
+  linux_amd64: b96691de854b7d81284dabc89f3f1ade63e227139a250278578dba99067f67bb
+  linux_arm64: 2f2af81225d2ab9e606f1fc01ad814469797a3fce2b4cf42125b02834b80942c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

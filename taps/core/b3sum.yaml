@@ -1,0 +1,19 @@
+name: b3sum
+version: 1.8.3
+description: Command-line implementation of the BLAKE3 cryptographic hash function
+homepage: https://github.com/BLAKE3-team/BLAKE3
+license: CC0-1.0 OR Apache-2.0 OR (Apache-2.0 WITH LLVM-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/b3sum/blobs/sha256:6aaf982754d33580087973ca57abe9cac3e80a9555177128acfb0d172deabbb9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/b3sum/blobs/sha256:b268f3ce958127c16a7ea5d433c4ca3ee91d1363ea18f575d1f185610cf2b8e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/b3sum/blobs/sha256:826be694ff9a93cb3dea1f7dee19533475c00e97a7c058878ae0dd3dcfc44df1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/b3sum/blobs/sha256:45792accea89ca0d2d227df9261cf7d894cc7aab297abf8edcb258e085c70aba
+sha256:
+  darwin_arm64: 6aaf982754d33580087973ca57abe9cac3e80a9555177128acfb0d172deabbb9
+  darwin_amd64: b268f3ce958127c16a7ea5d433c4ca3ee91d1363ea18f575d1f185610cf2b8e6
+  linux_amd64: 826be694ff9a93cb3dea1f7dee19533475c00e97a7c058878ae0dd3dcfc44df1
+  linux_arm64: 45792accea89ca0d2d227df9261cf7d894cc7aab297abf8edcb258e085c70aba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

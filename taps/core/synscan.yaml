@@ -1,0 +1,21 @@
+name: synscan
+version: 5.02
+description: Asynchronous half-open TCP portscanner
+homepage: https://digit-labs.org/files/tools/synscan/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/synscan/blobs/sha256:377c4e84126ddf0320b437927b8c7274bf0429aa68862b4b46187b1572a11d6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/synscan/blobs/sha256:afd77d2ccf5cd89e3143cfe7046ff6d17d1ec67629513a773a6f8969723ecad5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/synscan/blobs/sha256:5f3f43c87b2ace513582f4ac1b91374ca102a2ab8d0cbcad314d71cafb3f0c62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/synscan/blobs/sha256:a54e6111c8971ea407b04134141a081f98f69666757a961f211b6ebcedfce707
+sha256:
+  darwin_arm64: 377c4e84126ddf0320b437927b8c7274bf0429aa68862b4b46187b1572a11d6a
+  darwin_amd64: afd77d2ccf5cd89e3143cfe7046ff6d17d1ec67629513a773a6f8969723ecad5
+  linux_amd64: 5f3f43c87b2ace513582f4ac1b91374ca102a2ab8d0cbcad314d71cafb3f0c62
+  linux_arm64: a54e6111c8971ea407b04134141a081f98f69666757a961f211b6ebcedfce707
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpcap

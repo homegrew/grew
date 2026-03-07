@@ -1,0 +1,23 @@
+name: riemann-client
+version: 2.2.2
+description: C client library for the Riemann monitoring system
+homepage: https://git.madhouse-project.org/algernon/riemann-c-client
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/riemann-client/blobs/sha256:c90018c4763d88af535cdb0bdc4ac02c6f40ed9a26b41105c48bb75714f5cf8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/riemann-client/blobs/sha256:426da29c687af12a8f693ad486f02a4fb7a1f6cca60416bb6715a536c5d62ffb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/riemann-client/blobs/sha256:fc7736635610401fa99e4911155329f537c997b57d218821538f0e6b8b212111
+  linux_arm64: https://ghcr.io/v2/homebrew/core/riemann-client/blobs/sha256:c15ce11aff7a4925e518713074b6fc53c8746eef3efc5540dc975ca83a026147
+sha256:
+  darwin_arm64: c90018c4763d88af535cdb0bdc4ac02c6f40ed9a26b41105c48bb75714f5cf8e
+  darwin_amd64: 426da29c687af12a8f693ad486f02a4fb7a1f6cca60416bb6715a536c5d62ffb
+  linux_amd64: fc7736635610401fa99e4911155329f537c997b57d218821538f0e6b8b212111
+  linux_arm64: c15ce11aff7a4925e518713074b6fc53c8746eef3efc5540dc975ca83a026147
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - openssl@3
+  - protobuf-c

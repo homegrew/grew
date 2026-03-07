@@ -1,0 +1,28 @@
+name: libheif
+version: 1.21.2
+description: "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
+homepage: https://www.libde265.org/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libheif/blobs/sha256:74409afd4371c441de5349908173d75a5d04525c41a4f145cb6f669b1a98ed4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libheif/blobs/sha256:3a6428ddc1440471e8b92203faff7a3047b6a52f7243ea7ce240982df5c7aee2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libheif/blobs/sha256:f4b94da88750ba94317be8a3123ecafd7c635ca33e23c3381e28d57982a28baf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libheif/blobs/sha256:6a6a3852712f9beba084f87ccc72f42300083525c7ee5a023f16f4ba0987755c
+sha256:
+  darwin_arm64: 74409afd4371c441de5349908173d75a5d04525c41a4f145cb6f669b1a98ed4f
+  darwin_amd64: 3a6428ddc1440471e8b92203faff7a3047b6a52f7243ea7ce240982df5c7aee2
+  linux_amd64: f4b94da88750ba94317be8a3123ecafd7c635ca33e23c3381e28d57982a28baf
+  linux_arm64: 6a6a3852712f9beba084f87ccc72f42300083525c7ee5a023f16f4ba0987755c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aom
+  - jpeg-turbo
+  - libde265
+  - libpng
+  - libtiff
+  - shared-mime-info
+  - webp
+  - x265

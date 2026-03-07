@@ -1,0 +1,19 @@
+name: spicetify-cli
+version: 2.42.13
+description: Command-line tool to customize Spotify client
+homepage: https://spicetify.app/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spicetify-cli/blobs/sha256:5c1bc20c4a20246085725c2276197e29f4418358aacbda1c323262dc7e8f064c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spicetify-cli/blobs/sha256:8930bac07876c6be24b5fa61d92fbca3872d83b2f9c37c5dd6afc7f449755c4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spicetify-cli/blobs/sha256:4a4641c93bf248bb73d399489bd088785acd3e3503e976fd6e3e071f7008f826
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spicetify-cli/blobs/sha256:da6cf099c356c996622a5920897e578973aeeaaf4a3e14f3cd501258bf61b9b6
+sha256:
+  darwin_arm64: 5c1bc20c4a20246085725c2276197e29f4418358aacbda1c323262dc7e8f064c
+  darwin_amd64: 8930bac07876c6be24b5fa61d92fbca3872d83b2f9c37c5dd6afc7f449755c4c
+  linux_amd64: 4a4641c93bf248bb73d399489bd088785acd3e3503e976fd6e3e071f7008f826
+  linux_arm64: da6cf099c356c996622a5920897e578973aeeaaf4a3e14f3cd501258bf61b9b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

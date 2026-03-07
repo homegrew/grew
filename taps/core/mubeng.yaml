@@ -1,0 +1,19 @@
+name: mubeng
+version: 0.23.0
+description: "Incredibly fast proxy checker & IP rotator with ease"
+homepage: https://github.com/mubeng/mubeng
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mubeng/blobs/sha256:180f314d468ebc17cecabecfc0986cead05b47c09c614d1211781fd55dbff0ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mubeng/blobs/sha256:f4c4a171a1183c4a5f2786dfd43c60e1f7d1974b1ac8c4ec7e49b71cf99da9c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mubeng/blobs/sha256:6a67076731b843403953aa84c40487ff346fe6699833f46dfa07f6f95a6e515d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mubeng/blobs/sha256:ce56204c6fe76e17b551d782c71ba39ca92cdc003f841fbcf2d84c8298cf45fe
+sha256:
+  darwin_arm64: 180f314d468ebc17cecabecfc0986cead05b47c09c614d1211781fd55dbff0ad
+  darwin_amd64: f4c4a171a1183c4a5f2786dfd43c60e1f7d1974b1ac8c4ec7e49b71cf99da9c4
+  linux_amd64: 6a67076731b843403953aa84c40487ff346fe6699833f46dfa07f6f95a6e515d
+  linux_arm64: ce56204c6fe76e17b551d782c71ba39ca92cdc003f841fbcf2d84c8298cf45fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

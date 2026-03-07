@@ -1,0 +1,21 @@
+name: hdt
+version: 1.3.3
+description: Header Dictionary Triples (HDT) is a compression format for RDF data
+homepage: https://github.com/rdfhdt/hdt-cpp
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hdt/blobs/sha256:46d5822d2e9fe086b04b5e0f698e8fbbc6235da2f5a95987ac71479b6c2b232a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hdt/blobs/sha256:557a38517d6af2dc25f191758a590acae074f7c0d549c49cdf2af3781f6d6ae4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hdt/blobs/sha256:44f1d786ef6d43ec1e4daca46268d2e57d1855985fd06871bb78c4c0228f5e89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hdt/blobs/sha256:142304a83cb7d18dab6b9f8b56791f9148d15a9e30641fb21d54553f12e10b28
+sha256:
+  darwin_arm64: 46d5822d2e9fe086b04b5e0f698e8fbbc6235da2f5a95987ac71479b6c2b232a
+  darwin_amd64: 557a38517d6af2dc25f191758a590acae074f7c0d549c49cdf2af3781f6d6ae4
+  linux_amd64: 44f1d786ef6d43ec1e4daca46268d2e57d1855985fd06871bb78c4c0228f5e89
+  linux_arm64: 142304a83cb7d18dab6b9f8b56791f9148d15a9e30641fb21d54553f12e10b28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - serd

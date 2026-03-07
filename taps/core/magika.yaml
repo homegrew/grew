@@ -1,0 +1,21 @@
+name: magika
+version: 1.0.2
+description: Fast and accurate AI powered file content types detection
+homepage: https://securityresearch.google/magika/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/magika/blobs/sha256:1e6ee660187e00222ac8f275a6dcc58fe871223bc94f452297cff6d476687810
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/magika/blobs/sha256:9de81c192a555a3354d7d84c644e6bcff977eef3b64efd95e81b014a2c629971
+  linux_amd64: https://ghcr.io/v2/homebrew/core/magika/blobs/sha256:18f9da459f002f582bf144208f7c3edb44a58025b7da24283797980216849cdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/magika/blobs/sha256:236bb3ef4c60314dbadb3ec928f32056372f1c27d49a8c3974f60aef1248f6ac
+sha256:
+  darwin_arm64: 1e6ee660187e00222ac8f275a6dcc58fe871223bc94f452297cff6d476687810
+  darwin_amd64: 9de81c192a555a3354d7d84c644e6bcff977eef3b64efd95e81b014a2c629971
+  linux_amd64: 18f9da459f002f582bf144208f7c3edb44a58025b7da24283797980216849cdf
+  linux_arm64: 236bb3ef4c60314dbadb3ec928f32056372f1c27d49a8c3974f60aef1248f6ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

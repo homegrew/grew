@@ -1,0 +1,19 @@
+name: circleci
+version: 0.1.34770
+description: Enables you to reproduce the CircleCI environment locally
+homepage: https://circleci.com/docs/guides/toolkit/local-cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/circleci/blobs/sha256:63be07ccbbf07837e4439b1f7b07eee1740e5da0a60aa64ac6fafc8c05288fbd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/circleci/blobs/sha256:933656e74d7b47cc46c1c07668090135676ba727e171f3b6dd1215424b225b2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/circleci/blobs/sha256:d002cb19c616c890fe74987348f82436594fee9df483c82f922a614c8721f94e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/circleci/blobs/sha256:84af66b02c6a96047833f53fabcbbfac19736f8aed712d5cca89576101138448
+sha256:
+  darwin_arm64: 63be07ccbbf07837e4439b1f7b07eee1740e5da0a60aa64ac6fafc8c05288fbd
+  darwin_amd64: 933656e74d7b47cc46c1c07668090135676ba727e171f3b6dd1215424b225b2a
+  linux_amd64: d002cb19c616c890fe74987348f82436594fee9df483c82f922a614c8721f94e
+  linux_arm64: 84af66b02c6a96047833f53fabcbbfac19736f8aed712d5cca89576101138448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: gdb
+version: 17.1
+description: GNU debugger
+homepage: https://www.gnu.org/software/gdb/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdb/blobs/sha256:2295e7004a3c90fe6098270d09ca48a7889925dcf34a07c54e9a1a47e09db70e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdb/blobs/sha256:9116ddb519db553a99c6cdcebfa34dbb9aaf0ebdea8e7567863d7aa5616e4a38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdb/blobs/sha256:76d485370e5c8e7619e13de8d01af7f47c105eb934174c0e7fe083b4b95e8d9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdb/blobs/sha256:3e10f1975104a93f54a48cd586357cb8279dbfed8e91cd1d78e4eea9d532e215
+sha256:
+  darwin_arm64: 2295e7004a3c90fe6098270d09ca48a7889925dcf34a07c54e9a1a47e09db70e
+  darwin_amd64: 9116ddb519db553a99c6cdcebfa34dbb9aaf0ebdea8e7567863d7aa5616e4a38
+  linux_amd64: 76d485370e5c8e7619e13de8d01af7f47c105eb934174c0e7fe083b4b95e8d9e
+  linux_arm64: 3e10f1975104a93f54a48cd586357cb8279dbfed8e91cd1d78e4eea9d532e215
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - ncurses
+  - python@3.14
+  - readline
+  - xz
+  - zstd

@@ -1,0 +1,19 @@
+name: libnghttp3
+version: 1.15.0
+description: HTTP/3 library written in C
+homepage: https://nghttp2.org/nghttp3/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnghttp3/blobs/sha256:97ef00ffe4282cd24334ae030b8d9a822bfac20405fe9f31dae8b4f1e80b2133
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnghttp3/blobs/sha256:8deca6fa2c6dc3f7ca526a4c5fa82a5d8bb7bc8b3fb49df1fc1ba03511ae57c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnghttp3/blobs/sha256:16f16337f4028ce9c324bd3e9f1379791a1cdfe993e8e0374cfb6c262651d25b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnghttp3/blobs/sha256:e1aa2913d174e7defeccaa8ea7399c291f27bef7587092f5198e5ad81a3605cc
+sha256:
+  darwin_arm64: 97ef00ffe4282cd24334ae030b8d9a822bfac20405fe9f31dae8b4f1e80b2133
+  darwin_amd64: 8deca6fa2c6dc3f7ca526a4c5fa82a5d8bb7bc8b3fb49df1fc1ba03511ae57c1
+  linux_amd64: 16f16337f4028ce9c324bd3e9f1379791a1cdfe993e8e0374cfb6c262651d25b
+  linux_arm64: e1aa2913d174e7defeccaa8ea7399c291f27bef7587092f5198e5ad81a3605cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

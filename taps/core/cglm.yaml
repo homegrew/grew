@@ -1,0 +1,19 @@
+name: cglm
+version: 0.9.6
+description: Optimized OpenGL/Graphics Math (glm) for C
+homepage: https://github.com/recp/cglm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cglm/blobs/sha256:ff546743d100ac764a31e90c9022f32f4c8ca42cd067a8ba62103bd96ef94bde
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cglm/blobs/sha256:7d9694362e4b318417b226674b69b217246e14325d404190197c3f993473cdb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cglm/blobs/sha256:3e6d1b5f157811a284f493a0b8847b5e011c96557579ae56aafaabf2ef6fb77b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cglm/blobs/sha256:0a339de32e874c67b2b66f5e2a8b300ba03edfe549ff0afbb01566ac90893a18
+sha256:
+  darwin_arm64: ff546743d100ac764a31e90c9022f32f4c8ca42cd067a8ba62103bd96ef94bde
+  darwin_amd64: 7d9694362e4b318417b226674b69b217246e14325d404190197c3f993473cdb2
+  linux_amd64: 3e6d1b5f157811a284f493a0b8847b5e011c96557579ae56aafaabf2ef6fb77b
+  linux_arm64: 0a339de32e874c67b2b66f5e2a8b300ba03edfe549ff0afbb01566ac90893a18
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

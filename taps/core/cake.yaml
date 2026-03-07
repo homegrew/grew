@@ -1,0 +1,21 @@
+name: cake
+version: 6.1.0
+description: "Cross platform build automation system with a C# DSL"
+homepage: https://cakebuild.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cake/blobs/sha256:207852e14fb8ef1856aac7e6e73639eb214d1817d8b4f1c3f2b9034896c35d36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cake/blobs/sha256:8c06c9bc2cedf9e8f85dbf53a09cf05c169aeaa9520f84b8c2d5797a301ca7e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cake/blobs/sha256:b82b8d10fcf983f195b1422d768f9fcc1b2d49de038c906043846084f3104e0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cake/blobs/sha256:162608928ded9568ceea964a9ce4ffde2a87220f9343c3f8d1d87a89e067097e
+sha256:
+  darwin_arm64: 207852e14fb8ef1856aac7e6e73639eb214d1817d8b4f1c3f2b9034896c35d36
+  darwin_amd64: 8c06c9bc2cedf9e8f85dbf53a09cf05c169aeaa9520f84b8c2d5797a301ca7e8
+  linux_amd64: b82b8d10fcf983f195b1422d768f9fcc1b2d49de038c906043846084f3104e0e
+  linux_arm64: 162608928ded9568ceea964a9ce4ffde2a87220f9343c3f8d1d87a89e067097e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet

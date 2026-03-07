@@ -1,0 +1,23 @@
+name: webp-pixbuf-loader
+version: 0.2.7
+description: WebP Image format GdkPixbuf loader
+homepage: https://github.com/aruiz/webp-pixbuf-loader
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webp-pixbuf-loader/blobs/sha256:e3a73f1544d69019b2b351dfe0d77e7d43267dbe80fa5f74afe35f88f1f99618
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webp-pixbuf-loader/blobs/sha256:841913a93d467056a49f176338a660069c6998a4c2e07d04d668569b4f0a6ddf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webp-pixbuf-loader/blobs/sha256:623c54e77f46a6687ba4662cbec44fde554ea84a43b1bea5432ec759f4e2367a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webp-pixbuf-loader/blobs/sha256:11d831a6753d21c518cac32cdc6d67e8f3751cf08bc3cb4f1d887fc6dc1bf44f
+sha256:
+  darwin_arm64: e3a73f1544d69019b2b351dfe0d77e7d43267dbe80fa5f74afe35f88f1f99618
+  darwin_amd64: 841913a93d467056a49f176338a660069c6998a4c2e07d04d668569b4f0a6ddf
+  linux_amd64: 623c54e77f46a6687ba4662cbec44fde554ea84a43b1bea5432ec759f4e2367a
+  linux_arm64: 11d831a6753d21c518cac32cdc6d67e8f3751cf08bc3cb4f1d887fc6dc1bf44f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - webp

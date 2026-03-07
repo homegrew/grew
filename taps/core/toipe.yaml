@@ -1,0 +1,19 @@
+name: toipe
+version: 0.5.0
+description: Yet another typing test, but crab flavoured
+homepage: https://github.com/Samyak2/toipe
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toipe/blobs/sha256:e5069bda110d16a90d262f87fccd6e4029d144bfa2f3f3c5a33e47117efb2221
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toipe/blobs/sha256:638314ee280e0178d2a5fd3df5b83ed79ad4800fa6124ff55c691b15841a6b99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toipe/blobs/sha256:8017e2889572c9c07f45b7a7f394cbfbd0267e50b408eba36fba5d13cf24521b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toipe/blobs/sha256:a761b2cd6f5ccb7f6fff0ea85a7cfad080dd73bdc13a065f6e42bfb1768da455
+sha256:
+  darwin_arm64: e5069bda110d16a90d262f87fccd6e4029d144bfa2f3f3c5a33e47117efb2221
+  darwin_amd64: 638314ee280e0178d2a5fd3df5b83ed79ad4800fa6124ff55c691b15841a6b99
+  linux_amd64: 8017e2889572c9c07f45b7a7f394cbfbd0267e50b408eba36fba5d13cf24521b
+  linux_arm64: a761b2cd6f5ccb7f6fff0ea85a7cfad080dd73bdc13a065f6e42bfb1768da455
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

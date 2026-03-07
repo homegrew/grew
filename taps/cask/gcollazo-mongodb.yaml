@@ -1,0 +1,11 @@
+name: gcollazo-mongodb
+version: 8.0.5-build.1
+description: App wrapper for MongoDB
+homepage: https://gcollazo.com/mongodb-app/
+url:
+  darwin_arm64: https://github.com/gcollazo/mongodbapp/releases/download/8.0.5-build.1/MongoDB.zip
+sha256:
+  darwin_arm64: bc545179d510b4fc80ac9866d34228faa7153137eea8f5ebcac957abf9d3ef89
+artifacts:
+  app:
+    - MongoDB.app

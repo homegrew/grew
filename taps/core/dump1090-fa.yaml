@@ -1,0 +1,23 @@
+name: dump1090-fa
+version: 10.2
+description: FlightAware ADS-B Ground Station System for SDRs
+homepage: https://github.com/flightaware/dump1090
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dump1090-fa/blobs/sha256:1b1beb064155552de153c46e76829e48848e3d12ad29d146ddb0ff6470828bb9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dump1090-fa/blobs/sha256:143e0079e96f0022fc9e4d118e3140288fb96d44a9c560580356444b46859f98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dump1090-fa/blobs/sha256:4ba610d7e1fcb90a5ee3280ba6c1ca8f16915216bd398e60afcef481cbe7e0e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dump1090-fa/blobs/sha256:657aacbfc8f08a7cf09dc96e0f0187e7bba4e48900c5e1257ca2659e38e3f1ed
+sha256:
+  darwin_arm64: 1b1beb064155552de153c46e76829e48848e3d12ad29d146ddb0ff6470828bb9
+  darwin_amd64: 143e0079e96f0022fc9e4d118e3140288fb96d44a9c560580356444b46859f98
+  linux_amd64: 4ba610d7e1fcb90a5ee3280ba6c1ca8f16915216bd398e60afcef481cbe7e0e6
+  linux_arm64: 657aacbfc8f08a7cf09dc96e0f0187e7bba4e48900c5e1257ca2659e38e3f1ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libbladerf
+  - librtlsdr
+  - ncurses

@@ -1,0 +1,19 @@
+name: gnupg@1.4
+version: 1.4.23
+description: GNU Privacy Guard (OpenPGP)
+homepage: https://www.gnupg.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnupg/1.4/blobs/sha256:4ca96fcb6e85fd587e3716a10c8aadc3117fd1055e368627efb8eb8ecbbd486f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnupg/1.4/blobs/sha256:7721cebd4f645feeb8b7587177c0553377a1589ab89023dced381afdec98788f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnupg/1.4/blobs/sha256:7f184495fcd172935dea746755da90bb1fe3fb04e0b59e1faecc426a8325b8bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnupg/1.4/blobs/sha256:15bb19626345f79fdb0ad5be25352cb1622d71de933e907384195dc3ada271af
+sha256:
+  darwin_arm64: 4ca96fcb6e85fd587e3716a10c8aadc3117fd1055e368627efb8eb8ecbbd486f
+  darwin_amd64: 7721cebd4f645feeb8b7587177c0553377a1589ab89023dced381afdec98788f
+  linux_amd64: 7f184495fcd172935dea746755da90bb1fe3fb04e0b59e1faecc426a8325b8bc
+  linux_arm64: 15bb19626345f79fdb0ad5be25352cb1622d71de933e907384195dc3ada271af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

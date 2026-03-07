@@ -1,0 +1,19 @@
+name: ffe
+version: 0.3.9a
+description: Parse flat file structures and print them in different formats
+homepage: https://ff-extractor.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffe/blobs/sha256:83fd52f2c29e71aa022e6be65813c2da6385204d65bd9f74e7568a5e6222068a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffe/blobs/sha256:3cd2f309d44bbc5d7a429d078f6cec664e4ec170e08b8993477000e7d843605c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffe/blobs/sha256:95cd58d701bdd204a70498b668326d01679493ccb77d8b84b517472d9838df0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffe/blobs/sha256:8a4528a12f9748f4fae9cc5d1157a49662cea7dc3df9b9d26da970ab900e8fed
+sha256:
+  darwin_arm64: 83fd52f2c29e71aa022e6be65813c2da6385204d65bd9f74e7568a5e6222068a
+  darwin_amd64: 3cd2f309d44bbc5d7a429d078f6cec664e4ec170e08b8993477000e7d843605c
+  linux_amd64: 95cd58d701bdd204a70498b668326d01679493ccb77d8b84b517472d9838df0b
+  linux_arm64: 8a4528a12f9748f4fae9cc5d1157a49662cea7dc3df9b9d26da970ab900e8fed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

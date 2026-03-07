@@ -1,0 +1,26 @@
+name: sleuthkit
+version: 4.14.0
+description: Forensic toolkit
+homepage: https://www.sleuthkit.org/
+license: IPL-1.0 AND CPL-1.0 AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sleuthkit/blobs/sha256:b509c1e4664588e04309784d104c6b151ade8962c2596d1a6887254bd2c25c0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sleuthkit/blobs/sha256:d877f5a2a7235ec0c29907a204133365be7e1a7b94bb95bd47bae415136801f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sleuthkit/blobs/sha256:4694ab7a319e1555839c78f109726ce9c6c2b3b47b6c51f325b7da3c09eed8b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sleuthkit/blobs/sha256:46d88741845bb3810889a280fbff58850b928532b501ecb15b35a016cafb3b7e
+sha256:
+  darwin_arm64: b509c1e4664588e04309784d104c6b151ade8962c2596d1a6887254bd2c25c0c
+  darwin_amd64: d877f5a2a7235ec0c29907a204133365be7e1a7b94bb95bd47bae415136801f5
+  linux_amd64: 4694ab7a319e1555839c78f109726ce9c6c2b3b47b6c51f325b7da3c09eed8b2
+  linux_arm64: 46d88741845bb3810889a280fbff58850b928532b501ecb15b35a016cafb3b7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - afflib
+  - libewf
+  - libpq
+  - openjdk
+  - openssl@3
+  - sqlite

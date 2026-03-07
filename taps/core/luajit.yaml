@@ -1,0 +1,19 @@
+name: luajit
+version: 2.1.1772619647
+description: Just-In-Time Compiler (JIT) for the Lua programming language
+homepage: https://luajit.org/luajit.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luajit/blobs/sha256:9c6722b20dc237716e8dc6750086db01bbe3899d029e33c71d366ee3f232cd6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luajit/blobs/sha256:dcba12fa9550be383355214627eb9a4330dbd50bdc80aec40e3bb05c738e7bfe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luajit/blobs/sha256:21847f9a773b5081a6a84dc84e63477676caa089119bb55f9373a4d4b0bed48c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luajit/blobs/sha256:3b021558aece085a8638d1186a5ff0adbc125f13a2cb86eb1c2a76ba95c4e79b
+sha256:
+  darwin_arm64: 9c6722b20dc237716e8dc6750086db01bbe3899d029e33c71d366ee3f232cd6e
+  darwin_amd64: dcba12fa9550be383355214627eb9a4330dbd50bdc80aec40e3bb05c738e7bfe
+  linux_amd64: 21847f9a773b5081a6a84dc84e63477676caa089119bb55f9373a4d4b0bed48c
+  linux_arm64: 3b021558aece085a8638d1186a5ff0adbc125f13a2cb86eb1c2a76ba95c4e79b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

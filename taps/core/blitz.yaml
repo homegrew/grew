@@ -1,0 +1,19 @@
+name: blitz
+version: 1.0.2
+description: Multi-dimensional array library for C++
+homepage: https://github.com/blitzpp/blitz/wiki
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blitz/blobs/sha256:0980f40ce384ebf7abbb720f1761764fbfd3118085b50ecefe1fcdc740418f88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blitz/blobs/sha256:ae6ec0760dd9cc8addde2a038106fadb227e379a5a8f611333c2e2ed5eb480e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blitz/blobs/sha256:69b643943846376a48b8cf266f639fff523ad74430a2e784c2bfdfab21137179
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blitz/blobs/sha256:634d7e0692358f5c7b6fc9de0b4f553b52b244cfa13cd3e42a1dd0dc1ece06c7
+sha256:
+  darwin_arm64: 0980f40ce384ebf7abbb720f1761764fbfd3118085b50ecefe1fcdc740418f88
+  darwin_amd64: ae6ec0760dd9cc8addde2a038106fadb227e379a5a8f611333c2e2ed5eb480e6
+  linux_amd64: 69b643943846376a48b8cf266f639fff523ad74430a2e784c2bfdfab21137179
+  linux_arm64: 634d7e0692358f5c7b6fc9de0b4f553b52b244cfa13cd3e42a1dd0dc1ece06c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

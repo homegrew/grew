@@ -1,0 +1,21 @@
+name: asak
+version: 0.3.5
+description: Cross-platform audio recording/playback CLI tool with TUI
+homepage: https://github.com/chaosprint/asak
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asak/blobs/sha256:0eacdb4a479c653f777726c669eec0fc89c2a922c13b15bbfd8370c3b24417fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asak/blobs/sha256:971aa9cc9f4caad9bea64347102ffa2ac2ebc89de06aa6e1b1fc7c486fd21ac4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asak/blobs/sha256:47670f65f8c158c2a27772c5ad9de162b9f11234c5b5bf110a87f3434d14bb78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asak/blobs/sha256:df0d9919f8e49aea1800986f43644c84e3b0000b04de81ba7e2aeae1072320b2
+sha256:
+  darwin_arm64: 0eacdb4a479c653f777726c669eec0fc89c2a922c13b15bbfd8370c3b24417fc
+  darwin_amd64: 971aa9cc9f4caad9bea64347102ffa2ac2ebc89de06aa6e1b1fc7c486fd21ac4
+  linux_amd64: 47670f65f8c158c2a27772c5ad9de162b9f11234c5b5bf110a87f3434d14bb78
+  linux_arm64: df0d9919f8e49aea1800986f43644c84e3b0000b04de81ba7e2aeae1072320b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jack

@@ -1,0 +1,13 @@
+name: dropshare
+version: 6.10,6172
+description: File sharing solution
+homepage: https://dropshare.app/
+url:
+  darwin_arm64: https://d2wvuuix8c9e48.cloudfront.net/Dropshare6-6172.app.zip
+sha256:
+  darwin_arm64: 145be75bb13bea0a8f94064f5bb2e68f382e71c55a05184b0f504c575306435b
+artifacts:
+  app:
+    - Dropshare 6.app
+  bin:
+    - ds

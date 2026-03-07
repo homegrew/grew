@@ -1,0 +1,19 @@
+name: mdq
+version: 0.9.0
+description: Like jq but for Markdown
+homepage: https://github.com/yshavit/mdq
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdq/blobs/sha256:2cbe40254385b510ef1774c77dbf19bc02b31474ad65b67aa31d284d995a62e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdq/blobs/sha256:5ab3ce177808cdaa6b6f4609b04df7b3c228f0abc616773e204b35eb381d2936
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdq/blobs/sha256:604e57bf2afb7d1b7be2b83fc4bde9135116320bef7938d46e26aef21667f7f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdq/blobs/sha256:2fde41d406551a3b5052f9aaf298c217069ef51e3d46d89a6f130b2e2c198052
+sha256:
+  darwin_arm64: 2cbe40254385b510ef1774c77dbf19bc02b31474ad65b67aa31d284d995a62e2
+  darwin_amd64: 5ab3ce177808cdaa6b6f4609b04df7b3c228f0abc616773e204b35eb381d2936
+  linux_amd64: 604e57bf2afb7d1b7be2b83fc4bde9135116320bef7938d46e26aef21667f7f4
+  linux_arm64: 2fde41d406551a3b5052f9aaf298c217069ef51e3d46d89a6f130b2e2c198052
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

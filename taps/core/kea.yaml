@@ -1,0 +1,23 @@
+name: kea
+version: 3.0.2
+description: DHCP server
+homepage: https://www.isc.org/kea/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kea/blobs/sha256:ea50b361b103099e1706a14a54167b404eb4b0d3dbb3d0fa50e54174ef98efe0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kea/blobs/sha256:bf4458f5fe1881fb360424d4d4d506fcf9b43a55bab87382f97385b0e6531aad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kea/blobs/sha256:7e150ede33a403e0b2c4678f19efb46551f165cfce0e2c5ef097bc1a3b847d91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kea/blobs/sha256:8b05fc13b992c935779f01a0af7d8eae0157ec70b0d64ee60b9982f0fb599fc9
+sha256:
+  darwin_arm64: ea50b361b103099e1706a14a54167b404eb4b0d3dbb3d0fa50e54174ef98efe0
+  darwin_amd64: bf4458f5fe1881fb360424d4d4d506fcf9b43a55bab87382f97385b0e6531aad
+  linux_amd64: 7e150ede33a403e0b2c4678f19efb46551f165cfce0e2c5ef097bc1a3b847d91
+  linux_arm64: 8b05fc13b992c935779f01a0af7d8eae0157ec70b0d64ee60b9982f0fb599fc9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - log4cplus
+  - openssl@3

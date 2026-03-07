@@ -1,0 +1,29 @@
+name: backgroundremover
+version: 0.4.1
+description: Remove background from images and video using AI
+homepage: https://github.com/nadermx/backgroundremover
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/backgroundremover/blobs/sha256:2f293e0f99f0f0ae2376f32bea8f72fe4e6f2f0347c2cb93afc4c842ac60fd02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/backgroundremover/blobs/sha256:8b6e59b504ff16296e83555d8b2a01bbe45da6820812067c1906d8951bc755f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/backgroundremover/blobs/sha256:ce448dd479031fc5b446ff962a85f82039a4b9d4c6aac0b37a638369e99631fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/backgroundremover/blobs/sha256:37b2c30408aa2af453c1d10fea7168bf7ac09bda1c9641c8e1b9115e4af2bc8b
+sha256:
+  darwin_arm64: 2f293e0f99f0f0ae2376f32bea8f72fe4e6f2f0347c2cb93afc4c842ac60fd02
+  darwin_amd64: 8b6e59b504ff16296e83555d8b2a01bbe45da6820812067c1906d8951bc755f6
+  linux_amd64: ce448dd479031fc5b446ff962a85f82039a4b9d4c6aac0b37a638369e99631fb
+  linux_arm64: 37b2c30408aa2af453c1d10fea7168bf7ac09bda1c9641c8e1b9115e4af2bc8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - libheif
+  - llvm@20
+  - pillow
+  - python@3.14
+  - scikit-image
+  - scipy
+  - torchvision

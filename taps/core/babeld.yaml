@@ -1,0 +1,19 @@
+name: babeld
+version: 1.13.1
+description: Loop-avoiding distance-vector routing protocol
+homepage: https://www.irif.fr/~jch/software/babel/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/babeld/blobs/sha256:f977cf0194b8bb8a3a60a434904a2a858b0b9f336176327800a731ef007ab1a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/babeld/blobs/sha256:df247b0cb0a9ba370ed3436aca781312806eec813a33a4b87008a8a09871e0ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/babeld/blobs/sha256:73e9228c77443e9d1c349091f0fecb2b5f61daaf340b99a6b2120def482a8f9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/babeld/blobs/sha256:8ee2de3eeddb40b1c2bc7f4eee384c0e14bc00e4b403cb5f8f46e2e0ba202dd2
+sha256:
+  darwin_arm64: f977cf0194b8bb8a3a60a434904a2a858b0b9f336176327800a731ef007ab1a1
+  darwin_amd64: df247b0cb0a9ba370ed3436aca781312806eec813a33a4b87008a8a09871e0ac
+  linux_amd64: 73e9228c77443e9d1c349091f0fecb2b5f61daaf340b99a6b2120def482a8f9a
+  linux_arm64: 8ee2de3eeddb40b1c2bc7f4eee384c0e14bc00e4b403cb5f8f46e2e0ba202dd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

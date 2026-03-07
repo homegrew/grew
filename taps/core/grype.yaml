@@ -1,0 +1,19 @@
+name: grype
+version: 0.109.0
+description: Vulnerability scanner for container images and filesystems
+homepage: https://github.com/anchore/grype
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grype/blobs/sha256:c1ed4546c06af987ec7482e40901bd35edbc3b31d401dde46729ff0ac31e8d51
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grype/blobs/sha256:9bacf8177d442004ece022d4268f2bf958b5929ff3ddfb830e20d64ecd2c7f95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grype/blobs/sha256:b4a404f3cea5656d352d4d8727a1981e136b8f7b8c25482f0a402af60b743737
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grype/blobs/sha256:82ac4ced052867e8b819b283493eb9db6b9be4e61373287d9b1971042b4cb340
+sha256:
+  darwin_arm64: c1ed4546c06af987ec7482e40901bd35edbc3b31d401dde46729ff0ac31e8d51
+  darwin_amd64: 9bacf8177d442004ece022d4268f2bf958b5929ff3ddfb830e20d64ecd2c7f95
+  linux_amd64: b4a404f3cea5656d352d4d8727a1981e136b8f7b8c25482f0a402af60b743737
+  linux_arm64: 82ac4ced052867e8b819b283493eb9db6b9be4e61373287d9b1971042b4cb340
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

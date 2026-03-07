@@ -1,0 +1,19 @@
+name: dns2tcp
+version: 0.5.2
+description: TCP over DNS tunnel
+homepage: https://packages.debian.org/sid/dns2tcp
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dns2tcp/blobs/sha256:2cefc14058fc1f4bff6d872e8b5ad5e5504891f7992857a5fa8b7f469617c4d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dns2tcp/blobs/sha256:9dbcb52754890df8f97104ec51ede39386ab56db8c14790fdf91391aeba9ad6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dns2tcp/blobs/sha256:44282da4806ffc130f6a3326925e708d70379c9c44ec735b251010927d5b920e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dns2tcp/blobs/sha256:3439b7a053baae453e709bbab25fc3ed8f389037b73234d0cd886ae492f51c13
+sha256:
+  darwin_arm64: 2cefc14058fc1f4bff6d872e8b5ad5e5504891f7992857a5fa8b7f469617c4d5
+  darwin_amd64: 9dbcb52754890df8f97104ec51ede39386ab56db8c14790fdf91391aeba9ad6f
+  linux_amd64: 44282da4806ffc130f6a3326925e708d70379c9c44ec735b251010927d5b920e
+  linux_arm64: 3439b7a053baae453e709bbab25fc3ed8f389037b73234d0cd886ae492f51c13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

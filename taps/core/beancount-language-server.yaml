@@ -1,0 +1,19 @@
+name: beancount-language-server
+version: 1.9.2
+description: Language server for beancount files
+homepage: https://github.com/polarmutex/beancount-language-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beancount-language-server/blobs/sha256:3706c546f4094adf3e5bdf53fabdcd425bd623835e8b4cafe1802bf220abdcc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beancount-language-server/blobs/sha256:786b3c6ef59350110b0c7fc8ba0785787fd9b33004611a3b723f515e9a9c04e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beancount-language-server/blobs/sha256:9f34b4c9f7b7e4ceaf9cb3c4d9c891b8f3f751af79e88db163d2538ff3846e0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beancount-language-server/blobs/sha256:9235ff896d1955d442758b350b19dbe03496ac7aed9af26f214d6cacc25c345e
+sha256:
+  darwin_arm64: 3706c546f4094adf3e5bdf53fabdcd425bd623835e8b4cafe1802bf220abdcc3
+  darwin_amd64: 786b3c6ef59350110b0c7fc8ba0785787fd9b33004611a3b723f515e9a9c04e3
+  linux_amd64: 9f34b4c9f7b7e4ceaf9cb3c4d9c891b8f3f751af79e88db163d2538ff3846e0e
+  linux_arm64: 9235ff896d1955d442758b350b19dbe03496ac7aed9af26f214d6cacc25c345e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cortex
+version: 1.20.1
+description: Long term storage for Prometheus
+homepage: https://cortexmetrics.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cortex/blobs/sha256:3e86a0a76dd5d0c010675f07735b3cbbf94f487a5332764915f54697eb4db89b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cortex/blobs/sha256:cecedb96cd0e90c2c5214da360068360140864f71773b0c077e8756ec8b0e128
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cortex/blobs/sha256:208cf7780d98e6531262b1242560688cffaa2a43aef6d1cd98f792a41dc17974
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cortex/blobs/sha256:649fa031a84da07ea86a2b8d8a26d685b92dc2dc65126d694abd27bcbcf7d9bf
+sha256:
+  darwin_arm64: 3e86a0a76dd5d0c010675f07735b3cbbf94f487a5332764915f54697eb4db89b
+  darwin_amd64: cecedb96cd0e90c2c5214da360068360140864f71773b0c077e8756ec8b0e128
+  linux_amd64: 208cf7780d98e6531262b1242560688cffaa2a43aef6d1cd98f792a41dc17974
+  linux_arm64: 649fa031a84da07ea86a2b8d8a26d685b92dc2dc65126d694abd27bcbcf7d9bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

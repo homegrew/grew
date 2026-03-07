@@ -1,0 +1,19 @@
+name: terrascan
+version: 1.19.9
+description: Detect compliance and security violations across Infrastructure as Code
+homepage: https://runterrascan.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terrascan/blobs/sha256:036641e1af3550fa344928b99fdabcb1b11961e3b0812bb15f8f3cddaa259023
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terrascan/blobs/sha256:c48066b69004a0dca1cbc0c5c8071430f9bb61c208a85c43e1814a3d48573614
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terrascan/blobs/sha256:1da9aea6b543cbb9ffb3716413505ed1ed0ec1ad731a62309b54c39211ab3b51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terrascan/blobs/sha256:ca058cf4a6962757ebe84e7c2c4a910a53a17f26a52f6b7675248c6437613f1c
+sha256:
+  darwin_arm64: 036641e1af3550fa344928b99fdabcb1b11961e3b0812bb15f8f3cddaa259023
+  darwin_amd64: c48066b69004a0dca1cbc0c5c8071430f9bb61c208a85c43e1814a3d48573614
+  linux_amd64: 1da9aea6b543cbb9ffb3716413505ed1ed0ec1ad731a62309b54c39211ab3b51
+  linux_arm64: ca058cf4a6962757ebe84e7c2c4a910a53a17f26a52f6b7675248c6437613f1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libusb
+version: 1.0.29
+description: Library for USB device access
+homepage: https://libusb.info/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libusb/blobs/sha256:b7e94047913739bcf330be575aa4a6f09f4008ffc7c6289fd7f52a0af8ca55f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libusb/blobs/sha256:ace918b6a959314990d4653e81496f99594e2999f5a36fd61f538fa3b469db3f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libusb/blobs/sha256:70face621f55df85bc16900355953c3ea8f522d7e9f030df490c3494e8898b2c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libusb/blobs/sha256:bc6fdd8e4ea046dbe90ba929765570c3066d4463d37da4e055b69297c954994c
+sha256:
+  darwin_arm64: b7e94047913739bcf330be575aa4a6f09f4008ffc7c6289fd7f52a0af8ca55f2
+  darwin_amd64: ace918b6a959314990d4653e81496f99594e2999f5a36fd61f538fa3b469db3f
+  linux_amd64: 70face621f55df85bc16900355953c3ea8f522d7e9f030df490c3494e8898b2c
+  linux_arm64: bc6fdd8e4ea046dbe90ba929765570c3066d4463d37da4e055b69297c954994c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

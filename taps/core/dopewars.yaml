@@ -1,0 +1,22 @@
+name: dopewars
+version: 1.6.2
+description: "Free rewrite of a game originally based on \"Drug Wars\""
+homepage: https://dopewars.sourceforge.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dopewars/blobs/sha256:e8059b057bea2eb7a0c33542aebc0be5dfb26ba9f681594af77f6584accd328f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dopewars/blobs/sha256:e6982cf7073199453e1aeca1fd7b0fa6ec852ad5162c45579baac9fec3d46a59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dopewars/blobs/sha256:7a543edc764a62a6b9c5e9884acb00b034e4631248f9c6b44e4c0cd8483f4e50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dopewars/blobs/sha256:bed017e7392dec34e43b0c79583de05fe42da19359046dbae1e5f8ea46144c38
+sha256:
+  darwin_arm64: e8059b057bea2eb7a0c33542aebc0be5dfb26ba9f681594af77f6584accd328f
+  darwin_amd64: e6982cf7073199453e1aeca1fd7b0fa6ec852ad5162c45579baac9fec3d46a59
+  linux_amd64: 7a543edc764a62a6b9c5e9884acb00b034e4631248f9c6b44e4c0cd8483f4e50
+  linux_arm64: bed017e7392dec34e43b0c79583de05fe42da19359046dbae1e5f8ea46144c38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

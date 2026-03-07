@@ -1,0 +1,19 @@
+name: gnmic
+version: 0.45.0
+description: GNMI CLI client and collector
+homepage: https://gnmic.openconfig.net
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnmic/blobs/sha256:77d60f36777ffc35eda87eac7a4e08f5850c2d1615705539db9dedd3ee0711de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnmic/blobs/sha256:cfe60090931a5ca1322ce3947d4b67dc0c9dd9c6461378136445c692886e8f14
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnmic/blobs/sha256:b6658800fe3c4fff610a3e98c16026f0133273ed160c98a50f3fb140a7d7fb11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnmic/blobs/sha256:74a7d3f6c3582109701eb390f20b0c6bb263b50ab70605639c031a9c2d744b00
+sha256:
+  darwin_arm64: 77d60f36777ffc35eda87eac7a4e08f5850c2d1615705539db9dedd3ee0711de
+  darwin_amd64: cfe60090931a5ca1322ce3947d4b67dc0c9dd9c6461378136445c692886e8f14
+  linux_amd64: b6658800fe3c4fff610a3e98c16026f0133273ed160c98a50f3fb140a7d7fb11
+  linux_arm64: 74a7d3f6c3582109701eb390f20b0c6bb263b50ab70605639c031a9c2d744b00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

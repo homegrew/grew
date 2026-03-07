@@ -1,0 +1,11 @@
+name: rippling
+version: 3.6.48
+description: MDM for Rippling
+homepage: https://www.rippling.com/device-management
+url:
+  darwin_arm64: https://public-assets.ripplingcdn.com/global/hardware-public/device_release/electron-installer/3.6.48/macos/Rippling.dmg
+sha256:
+  darwin_arm64: 58958dd911c53eddf4778186d1c736dbbfacf6381a571b24a7ee0c6c3bbfd672
+artifacts:
+  app:
+    - Rippling.app

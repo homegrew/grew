@@ -1,0 +1,19 @@
+name: cargo-binutils
+version: 0.4.0
+description: Cargo subcommands to invoke the LLVM tools shipped with the Rust toolchain
+homepage: https://github.com/rust-embedded/cargo-binutils
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-binutils/blobs/sha256:1462ea07e63a12bca4c626cb452706ea56780f777a580ba4080c87978b661af8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-binutils/blobs/sha256:5abc3d0339e2790b66b6a2fbc35efc00b80b6738194e16306174debe08b02a9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-binutils/blobs/sha256:f02d15c4bedcd6f632dc69a1d2edfd39d8bd8e4388240e0d7e2823aa0fc88d3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-binutils/blobs/sha256:18d798e56c93c493b1902da4a8e741093f1cd6dff28ed0ac50ef6c4da439fe52
+sha256:
+  darwin_arm64: 1462ea07e63a12bca4c626cb452706ea56780f777a580ba4080c87978b661af8
+  darwin_amd64: 5abc3d0339e2790b66b6a2fbc35efc00b80b6738194e16306174debe08b02a9b
+  linux_amd64: f02d15c4bedcd6f632dc69a1d2edfd39d8bd8e4388240e0d7e2823aa0fc88d3f
+  linux_arm64: 18d798e56c93c493b1902da4a8e741093f1cd6dff28ed0ac50ef6c4da439fe52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

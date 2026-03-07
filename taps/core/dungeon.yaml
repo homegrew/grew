@@ -1,0 +1,21 @@
+name: dungeon
+version: 4.1
+description: Classic text adventure game
+homepage: https://github.com/GOFAI/dungeon
+license: HPND
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dungeon/blobs/sha256:f2275404ff5d7dc7bb33a0b5f90d2828faad83a4172b4678521fa6b248a99cee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dungeon/blobs/sha256:18130669bbc21c7b6ee6a51d7e751771588c95c92ddbab5d68b62ffcbe148c9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dungeon/blobs/sha256:d67e7796b6a55b602bfd0112450b4fffee2c640599fc380dedbf4108d090877d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dungeon/blobs/sha256:641cccd8b42a81e9e30af8849bcde552d59b00c75fb45f88fb4842612be02b6f
+sha256:
+  darwin_arm64: f2275404ff5d7dc7bb33a0b5f90d2828faad83a4172b4678521fa6b248a99cee
+  darwin_amd64: 18130669bbc21c7b6ee6a51d7e751771588c95c92ddbab5d68b62ffcbe148c9d
+  linux_amd64: d67e7796b6a55b602bfd0112450b4fffee2c640599fc380dedbf4108d090877d
+  linux_arm64: 641cccd8b42a81e9e30af8849bcde552d59b00c75fb45f88fb4842612be02b6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

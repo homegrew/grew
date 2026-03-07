@@ -1,0 +1,19 @@
+name: sixtunnel
+version: 0.14
+description: "Tunnelling for application that don't speak IPv6"
+homepage: https://github.com/wojtekka/6tunnel
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sixtunnel/blobs/sha256:31ea36bb0c9a65137e00a01c1771740d1e716bbec5fcbd9d1395488ed8fbe9d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sixtunnel/blobs/sha256:9f82314d3df1855fa85b58b14ab63196645a341e9ea7803fbd5b2970844d70fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sixtunnel/blobs/sha256:e1f95d4c2df935b35c82ee57674400ae4a62069d73d0ac4f59a785da0dba34bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sixtunnel/blobs/sha256:8fbacca36b438381c95c88458edd9b7dcffc9bbbb0cad1b0dd92cbce113467d0
+sha256:
+  darwin_arm64: 31ea36bb0c9a65137e00a01c1771740d1e716bbec5fcbd9d1395488ed8fbe9d5
+  darwin_amd64: 9f82314d3df1855fa85b58b14ab63196645a341e9ea7803fbd5b2970844d70fc
+  linux_amd64: e1f95d4c2df935b35c82ee57674400ae4a62069d73d0ac4f59a785da0dba34bb
+  linux_arm64: 8fbacca36b438381c95c88458edd9b7dcffc9bbbb0cad1b0dd92cbce113467d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

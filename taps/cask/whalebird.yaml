@@ -1,0 +1,11 @@
+name: whalebird
+version: 6.2.7
+description: Mastodon, Pleroma, and Misskey client
+homepage: https://whalebird.social/
+url:
+  darwin_arm64: https://github.com/h3poteto/whalebird-desktop/releases/download/v6.2.7/Whalebird-6.2.7-mac-universal.dmg
+sha256:
+  darwin_arm64: d11b785dbf0e4bcf0d32149bf50d15d4442ab7e93673f1c8dfc6df2c723ab917
+artifacts:
+  app:
+    - Whalebird.app

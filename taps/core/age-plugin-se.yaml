@@ -1,0 +1,15 @@
+name: age-plugin-se
+version: 0.1.4
+description: Age plugin for Apple Secure Enclave
+homepage: https://github.com/remko/age-plugin-se
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/age-plugin-se/blobs/sha256:55a0b7d025debf0f2de2c023e0590391e04deedea8c90068d041dd2926616d26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/age-plugin-se/blobs/sha256:599dfc3ab78c9c6cf7bbacf9e3e0feab93a092d7689b66d485a6c8fc5971cdcc
+sha256:
+  darwin_arm64: 55a0b7d025debf0f2de2c023e0590391e04deedea8c90068d041dd2926616d26
+  darwin_amd64: 599dfc3ab78c9c6cf7bbacf9e3e0feab93a092d7689b66d485a6c8fc5971cdcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

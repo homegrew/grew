@@ -1,0 +1,15 @@
+name: rswift
+version: 7.8.0
+description: Get strong typed, autocompleted resources like images, fonts and segues
+homepage: https://github.com/mac-cain13/R.swift
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rswift/blobs/sha256:03c1c4c066560ead4096db89baa3667cb8c4c346f7ccdb590316b78402e7fa2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rswift/blobs/sha256:dff1efc08234604ae33b0fb75e0b70f3df7b694caced22ae33366a1fec3db047
+sha256:
+  darwin_arm64: 03c1c4c066560ead4096db89baa3667cb8c4c346f7ccdb590316b78402e7fa2a
+  darwin_amd64: dff1efc08234604ae33b0fb75e0b70f3df7b694caced22ae33366a1fec3db047
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

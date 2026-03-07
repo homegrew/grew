@@ -1,0 +1,11 @@
+name: gitkraken-on-premise-serverless
+version: 11.10.0
+description: Git client focusing on productivity
+homepage: https://www.gitkraken.com/git-client/on-premise
+url:
+  darwin_arm64: https://api.gitkraken.dev/releases/standalone/production/darwin/arm64/11.10.0/GitKraken-v11.10.0.zip
+sha256:
+  darwin_arm64: b3fa6554416c38455f443c7c8c5282abc132954999fe3cbd500dd873dbe98ed3
+artifacts:
+  app:
+    - GitKraken.app

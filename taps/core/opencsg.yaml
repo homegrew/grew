@@ -1,0 +1,19 @@
+name: opencsg
+version: 1.8.2
+description: Constructive solid geometry rendering library
+homepage: https://www.opencsg.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencsg/blobs/sha256:362dad05f66ac74163331f99199b56325be26a434092f7fa5b4ae3485a8d254f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencsg/blobs/sha256:4f4b2a9ccd0dcac8ce40d638cc8ad040aa690ec690eb7cb052c00cc60d589124
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencsg/blobs/sha256:282d1a99124702682ac0b2e186d5b53b678989e1f72c0b8b7d9e541fea29963a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencsg/blobs/sha256:2fd31ac04e11aef37ee2bc879d5936554265d50763da2bc77f488c867edea383
+sha256:
+  darwin_arm64: 362dad05f66ac74163331f99199b56325be26a434092f7fa5b4ae3485a8d254f
+  darwin_amd64: 4f4b2a9ccd0dcac8ce40d638cc8ad040aa690ec690eb7cb052c00cc60d589124
+  linux_amd64: 282d1a99124702682ac0b2e186d5b53b678989e1f72c0b8b7d9e541fea29963a
+  linux_arm64: 2fd31ac04e11aef37ee2bc879d5936554265d50763da2bc77f488c867edea383
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

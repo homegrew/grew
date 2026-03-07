@@ -1,0 +1,25 @@
+name: tmt
+version: 1.68.0
+description: Test Management Tool
+homepage: https://tmt.readthedocs.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmt/blobs/sha256:ee3ee4c60435e2885b64e67629be554233cba9aeac3bcd3acdf2d722d304c5e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmt/blobs/sha256:155417c833d499adf04e5be469dd9d7d02d6c237005bf427720c0eee14c4132a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmt/blobs/sha256:2d48f057efaf86a9a43488b9ad20ab66939a79191d45665a25f9ba9e4e0af9ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmt/blobs/sha256:bb12031e2f989fef31cc13819578b52db7500c5b7c8eea9a9b434a2af5171e6a
+sha256:
+  darwin_arm64: ee3ee4c60435e2885b64e67629be554233cba9aeac3bcd3acdf2d722d304c5e7
+  darwin_amd64: 155417c833d499adf04e5be469dd9d7d02d6c237005bf427720c0eee14c4132a
+  linux_amd64: 2d48f057efaf86a9a43488b9ad20ab66939a79191d45665a25f9ba9e4e0af9ee
+  linux_arm64: bb12031e2f989fef31cc13819578b52db7500c5b7c8eea9a9b434a2af5171e6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - beakerlib
+  - certifi
+  - pydantic
+  - python@3.14
+  - rpds-py

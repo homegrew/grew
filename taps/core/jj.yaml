@@ -1,0 +1,19 @@
+name: jj
+version: 0.39.0
+description: Git-compatible distributed version control system
+homepage: https://github.com/jj-vcs/jj
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jj/blobs/sha256:94418d1c38adb5add9e8e4a9de853af1cc61d6ab981959df17b1a78c457837c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jj/blobs/sha256:d0699fd6c863c0eae151964d64aa5a1e2bd95e729a3df571b14e8c858932115d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jj/blobs/sha256:543c47f1eb390ae92b04c750874d1abd2b0fa92cf6b905be36defffffa7764dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jj/blobs/sha256:8bf180e9b14f44065ee151c2784c1b8616f17eeccbad42d760d6ff490f8a9626
+sha256:
+  darwin_arm64: 94418d1c38adb5add9e8e4a9de853af1cc61d6ab981959df17b1a78c457837c9
+  darwin_amd64: d0699fd6c863c0eae151964d64aa5a1e2bd95e729a3df571b14e8c858932115d
+  linux_amd64: 543c47f1eb390ae92b04c750874d1abd2b0fa92cf6b905be36defffffa7764dc
+  linux_arm64: 8bf180e9b14f44065ee151c2784c1b8616f17eeccbad42d760d6ff490f8a9626
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

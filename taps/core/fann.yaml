@@ -1,0 +1,19 @@
+name: fann
+version: 2.2.0
+description: Fast artificial neural network library
+homepage: https://sourceforge.net/projects/fann/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fann/blobs/sha256:2ac389dc68554448627859dcea8a703c0d81adce8de6fd1c32a4f43ac467ec7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fann/blobs/sha256:0b08fdabfb9f16f1a62e12d2317bf0914251f9f145807a142fdfac16f5e6587f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fann/blobs/sha256:1596e86f9b80da14fc97d5841253dc22c3ffe2e47991ef0c161d4512ef72f65d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fann/blobs/sha256:be290090d8260f04dd59deda3e8197a1d0547686e3387d49379ea850990d57d9
+sha256:
+  darwin_arm64: 2ac389dc68554448627859dcea8a703c0d81adce8de6fd1c32a4f43ac467ec7a
+  darwin_amd64: 0b08fdabfb9f16f1a62e12d2317bf0914251f9f145807a142fdfac16f5e6587f
+  linux_amd64: 1596e86f9b80da14fc97d5841253dc22c3ffe2e47991ef0c161d4512ef72f65d
+  linux_arm64: be290090d8260f04dd59deda3e8197a1d0547686e3387d49379ea850990d57d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

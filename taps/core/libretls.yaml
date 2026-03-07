@@ -1,0 +1,21 @@
+name: libretls
+version: 3.8.1
+description: Libtls for OpenSSL
+homepage: https://git.causal.agency/libretls/about/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libretls/blobs/sha256:38becb1d91ff6265dd0127e0396ed3e4a67802772e2a389761c2415a51a146b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libretls/blobs/sha256:73bf7016f11e9ac566bab92a996855e0b324ca455aeffeb80c4625b40e06bd18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libretls/blobs/sha256:44fe94119c4fd8be706393a1b2818af2e7851985fc3ec7dc4ebec2aa2045697e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libretls/blobs/sha256:5ca54d06ba267e8bc15a341c50abc0b2dcd6b64c1d07a734281d025f5a4485ce
+sha256:
+  darwin_arm64: 38becb1d91ff6265dd0127e0396ed3e4a67802772e2a389761c2415a51a146b8
+  darwin_amd64: 73bf7016f11e9ac566bab92a996855e0b324ca455aeffeb80c4625b40e06bd18
+  linux_amd64: 44fe94119c4fd8be706393a1b2818af2e7851985fc3ec7dc4ebec2aa2045697e
+  linux_arm64: 5ca54d06ba267e8bc15a341c50abc0b2dcd6b64c1d07a734281d025f5a4485ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

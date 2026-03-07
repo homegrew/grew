@@ -1,0 +1,19 @@
+name: sc68
+version: 2.2.1
+description: Play music originally designed for Atari ST and Amiga computers
+homepage: https://sc68.atari.org/project.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sc68/blobs/sha256:53d85d767390195f2981d328f9454b5df20000eedb86dba469cb3c2283f44362
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sc68/blobs/sha256:ac28932ddb06977f5433011fc5ccb445f8e224e04450937c526d87602fd75e3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sc68/blobs/sha256:a0a017e21ee44eb366f596f25060e63bff20d4b591845b6e933dddf6eda65c8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sc68/blobs/sha256:e84036f32f6d2611c303b5a94a6dfded890325f32be9136a29a1cb6f07bc7bf2
+sha256:
+  darwin_arm64: 53d85d767390195f2981d328f9454b5df20000eedb86dba469cb3c2283f44362
+  darwin_amd64: ac28932ddb06977f5433011fc5ccb445f8e224e04450937c526d87602fd75e3e
+  linux_amd64: a0a017e21ee44eb366f596f25060e63bff20d4b591845b6e933dddf6eda65c8c
+  linux_arm64: e84036f32f6d2611c303b5a94a6dfded890325f32be9136a29a1cb6f07bc7bf2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

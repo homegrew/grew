@@ -1,0 +1,19 @@
+name: cfonts
+version: 1.3.0
+description: Sexy ANSI fonts for the console
+homepage: https://github.com/dominikwilkowski/cfonts
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfonts/blobs/sha256:f46ca452dd65aeaff877569858af6fa472cd5110e70f5e0aae8348424cdc9517
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfonts/blobs/sha256:aa7c8429f052b8ce53015ccfcda717230dce8d7085bfd93a399b3a58c845f4da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfonts/blobs/sha256:f51801962e384e5762855f70db76503ecc871f1ea012fc6dae86d9e5ac2d3d11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfonts/blobs/sha256:fa5ed6124f164c73452b19b8e7c04c9ed22286275adc2f34609f20cb8a243653
+sha256:
+  darwin_arm64: f46ca452dd65aeaff877569858af6fa472cd5110e70f5e0aae8348424cdc9517
+  darwin_amd64: aa7c8429f052b8ce53015ccfcda717230dce8d7085bfd93a399b3a58c845f4da
+  linux_amd64: f51801962e384e5762855f70db76503ecc871f1ea012fc6dae86d9e5ac2d3d11
+  linux_arm64: fa5ed6124f164c73452b19b8e7c04c9ed22286275adc2f34609f20cb8a243653
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

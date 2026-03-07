@@ -1,0 +1,19 @@
+name: lndir
+version: 1.0.5
+description: Create a shadow directory of symbolic links to another directory tree
+homepage: https://gitlab.freedesktop.org/xorg/util/lndir
+license: MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lndir/blobs/sha256:975d212727bfab2bbd984d471dd118acb1c435f96c766aa04c4e6252a5822004
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lndir/blobs/sha256:0775ac61f0fa93c88554dc25c9e0f040fca75acb151b1cdc93b08004c6ee633c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lndir/blobs/sha256:ecf4313dfc583a1197e94925c502cdfe08d777e5aead7dd44bc3ab360f9c8b3d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lndir/blobs/sha256:7ed64c18f82fc9ab722824a0090e4feffc0bec9a8eb1f2f85876e6fc41485f0b
+sha256:
+  darwin_arm64: 975d212727bfab2bbd984d471dd118acb1c435f96c766aa04c4e6252a5822004
+  darwin_amd64: 0775ac61f0fa93c88554dc25c9e0f040fca75acb151b1cdc93b08004c6ee633c
+  linux_amd64: ecf4313dfc583a1197e94925c502cdfe08d777e5aead7dd44bc3ab360f9c8b3d
+  linux_arm64: 7ed64c18f82fc9ab722824a0090e4feffc0bec9a8eb1f2f85876e6fc41485f0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

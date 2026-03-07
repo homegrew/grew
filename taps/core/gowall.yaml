@@ -1,0 +1,21 @@
+name: gowall
+version: 0.2.3
+description: "Tool to convert a Wallpaper's color scheme / palette"
+homepage: https://achno.github.io/gowall-docs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gowall/blobs/sha256:0b1f1aa0078ac05b46c70b74261bd9f30d63a4ebab6c3ada4eab89e6b2311497
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gowall/blobs/sha256:1d2a9a2c7a89efbd9562623f87587e4fc38171955464727de01b4e77fc1da775
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gowall/blobs/sha256:0d071f57db77904d4a293c760949c5bdc01b92d6ffd9933faaae0638815cd742
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gowall/blobs/sha256:e3c6cdbc1ee9bdfbab964f423a21ae86f3c65e2912ea2b4b529fc0c7862e04c6
+sha256:
+  darwin_arm64: 0b1f1aa0078ac05b46c70b74261bd9f30d63a4ebab6c3ada4eab89e6b2311497
+  darwin_amd64: 1d2a9a2c7a89efbd9562623f87587e4fc38171955464727de01b4e77fc1da775
+  linux_amd64: 0d071f57db77904d4a293c760949c5bdc01b92d6ffd9933faaae0638815cd742
+  linux_arm64: e3c6cdbc1ee9bdfbab964f423a21ae86f3c65e2912ea2b4b529fc0c7862e04c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mupdf

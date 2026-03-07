@@ -1,0 +1,11 @@
+name: minstaller
+version: 3.2.4
+description: Downloader and manager for MotionVFX products
+homepage: https://www.motionvfx.com/
+url:
+  darwin_arm64: https://s3.motionvfx.com/mvfxpublic/mInstaller/sparkle/mInstaller-3.2.4.zip
+sha256:
+  darwin_arm64: a02c3e7361b6f1789cc62d87db453e7f1d31804e2d58842758ce2ac21f00ca43
+artifacts:
+  app:
+    - mInstaller.app

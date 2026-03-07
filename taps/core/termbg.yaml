@@ -1,0 +1,19 @@
+name: termbg
+version: 0.6.2
+description: Rust library for terminal background color detection
+homepage: https://github.com/dalance/termbg
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termbg/blobs/sha256:0966ba2c3c68175f179c88b293c396a89867b38aeb1293200527aa66039dfda5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termbg/blobs/sha256:185c02be7e39375a0b96aaa18443010547bfab80b7afa1856b6c85db29bcb39e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termbg/blobs/sha256:98b27a88db545fce6ca91fa68de4370a715636f9313a000dc99a6e9188f8cb84
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termbg/blobs/sha256:eb326e7812e6470aeb2da3737d385f02106bd8cf5b36f4d4abfd41c3d0a4f692
+sha256:
+  darwin_arm64: 0966ba2c3c68175f179c88b293c396a89867b38aeb1293200527aa66039dfda5
+  darwin_amd64: 185c02be7e39375a0b96aaa18443010547bfab80b7afa1856b6c85db29bcb39e
+  linux_amd64: 98b27a88db545fce6ca91fa68de4370a715636f9313a000dc99a6e9188f8cb84
+  linux_arm64: eb326e7812e6470aeb2da3737d385f02106bd8cf5b36f4d4abfd41c3d0a4f692
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

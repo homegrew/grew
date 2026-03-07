@@ -1,0 +1,21 @@
+name: libthai
+version: 0.1.30
+description: Thai language support library
+homepage: https://linux.thai.net/projects/libthai
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libthai/blobs/sha256:683257ceaae0ebf522c07e2fd39b82863ff54d35ac8a985d9d62597bda8a05b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libthai/blobs/sha256:151b8c0772dce394bc4c1112d90b45999d18be1b0406abf322be74f5976cf63a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libthai/blobs/sha256:54551ab441971407573f2f97d085cd26ec3b61eda8fbf6d599ce2a41bfdb5f02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libthai/blobs/sha256:424e3a5b178a1eaf5cd0c9d56bfd3671c316cd88096e9297d407836c826d5296
+sha256:
+  darwin_arm64: 683257ceaae0ebf522c07e2fd39b82863ff54d35ac8a985d9d62597bda8a05b3
+  darwin_amd64: 151b8c0772dce394bc4c1112d90b45999d18be1b0406abf322be74f5976cf63a
+  linux_amd64: 54551ab441971407573f2f97d085cd26ec3b61eda8fbf6d599ce2a41bfdb5f02
+  linux_arm64: 424e3a5b178a1eaf5cd0c9d56bfd3671c316cd88096e9297d407836c826d5296
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdatrie

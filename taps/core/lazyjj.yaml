@@ -1,0 +1,21 @@
+name: lazyjj
+version: 0.6.1
+description: TUI for Jujutsu/jj
+homepage: https://github.com/Cretezy/lazyjj
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lazyjj/blobs/sha256:8c7e851a5bddfbceb3bd566d77745bf5ac11ed2b9d5d46a8818dd0393aa95e8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lazyjj/blobs/sha256:d974fc54a97bc59287f4be8dc743f0bc333a892c51ee2a00a0b267aec6fb123a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lazyjj/blobs/sha256:355ec9f7c70a53c3f9b80171821709738cfc7e9bde7f38a5498f537a9d6c6811
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lazyjj/blobs/sha256:adba3877089a9cd7b45dd398b8e16e06d2f62db3d6297d470f9bc13db7541cc5
+sha256:
+  darwin_arm64: 8c7e851a5bddfbceb3bd566d77745bf5ac11ed2b9d5d46a8818dd0393aa95e8a
+  darwin_amd64: d974fc54a97bc59287f4be8dc743f0bc333a892c51ee2a00a0b267aec6fb123a
+  linux_amd64: 355ec9f7c70a53c3f9b80171821709738cfc7e9bde7f38a5498f537a9d6c6811
+  linux_arm64: adba3877089a9cd7b45dd398b8e16e06d2f62db3d6297d470f9bc13db7541cc5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jj

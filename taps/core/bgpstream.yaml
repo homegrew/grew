@@ -1,0 +1,22 @@
+name: bgpstream
+version: 2.3.0
+description: For live and historical BGP data analysis
+homepage: https://bgpstream.caida.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bgpstream/blobs/sha256:c060368caac64c91df708d5b62f1e5ff276d94447b98c59cd168a0158890d1e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bgpstream/blobs/sha256:a4aef360bb939d7ed5f7eef8e25248480b23af24914d8493af34fd9dc64478b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bgpstream/blobs/sha256:bb6547761ec1c1a5b8bd0c71899bc0c7acf4316c2d9c109b7ac66754c26d6341
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bgpstream/blobs/sha256:87a539b41d619711093bbd3fb76e30d78feaa1d4ff134f26afe6e0ac15263b17
+sha256:
+  darwin_arm64: c060368caac64c91df708d5b62f1e5ff276d94447b98c59cd168a0158890d1e2
+  darwin_amd64: a4aef360bb939d7ed5f7eef8e25248480b23af24914d8493af34fd9dc64478b4
+  linux_amd64: bb6547761ec1c1a5b8bd0c71899bc0c7acf4316c2d9c109b7ac66754c26d6341
+  linux_arm64: 87a539b41d619711093bbd3fb76e30d78feaa1d4ff134f26afe6e0ac15263b17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librdkafka
+  - wandio

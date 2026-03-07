@@ -1,0 +1,19 @@
+name: podlet
+version: 0.3.1
+description: Generate podman quadlet files from a podman command or compose file
+homepage: https://github.com/containers/podlet
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podlet/blobs/sha256:bc471108617fc203ecceac688a9eb703c744680c2e5a9d9f873e477515a04f92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podlet/blobs/sha256:1168964af1504a1cc1166d2e66bdbae4faa93e0f5ce016b9c4db0934cc45d182
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podlet/blobs/sha256:182fd52f71ae3ff1d511d083d76c18dd267cd22b44bcaa974088afb452902c11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podlet/blobs/sha256:2c00b41f7eed19cd547b29e50af9aaadbb27ae14518612eb5eff92d7fd88db30
+sha256:
+  darwin_arm64: bc471108617fc203ecceac688a9eb703c744680c2e5a9d9f873e477515a04f92
+  darwin_amd64: 1168964af1504a1cc1166d2e66bdbae4faa93e0f5ce016b9c4db0934cc45d182
+  linux_amd64: 182fd52f71ae3ff1d511d083d76c18dd267cd22b44bcaa974088afb452902c11
+  linux_arm64: 2c00b41f7eed19cd547b29e50af9aaadbb27ae14518612eb5eff92d7fd88db30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

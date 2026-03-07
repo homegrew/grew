@@ -1,0 +1,19 @@
+name: kubevela
+version: 1.10.7
+description: Application Platform based on Kubernetes and Open Application Model
+homepage: https://kubevela.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubevela/blobs/sha256:80cfb7d28a2b4e674a9de69b463fec9c8d1bba75510fe10f62aeb42257dd92fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubevela/blobs/sha256:86adcaafbff254bf6ac1230e8011ddea914eab4e618527e0e179de5977d18b2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubevela/blobs/sha256:93e5c3ec0e3af9e22c8a7c2bea483545a1c8f7c49119b2949096346c68819c26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubevela/blobs/sha256:128706b2eb0a5eb1acd8ee2c252dd0b96f843d344ac044684ffab9973bc3933b
+sha256:
+  darwin_arm64: 80cfb7d28a2b4e674a9de69b463fec9c8d1bba75510fe10f62aeb42257dd92fd
+  darwin_amd64: 86adcaafbff254bf6ac1230e8011ddea914eab4e618527e0e179de5977d18b2a
+  linux_amd64: 93e5c3ec0e3af9e22c8a7c2bea483545a1c8f7c49119b2949096346c68819c26
+  linux_arm64: 128706b2eb0a5eb1acd8ee2c252dd0b96f843d344ac044684ffab9973bc3933b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

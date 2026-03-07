@@ -1,0 +1,19 @@
+name: as-tree
+version: 0.12.0
+description: Print a list of paths as a tree of paths
+homepage: https://github.com/jez/as-tree
+license: BlueOak-1.0.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/as-tree/blobs/sha256:21036f05ea5294ef3b8f2fb17517631a76c8d2c2ed521311322a55ba2320a28e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/as-tree/blobs/sha256:a5a2de8891810abc35ac5c0815003aac603e9467633eaebe161a71e8ccc5dadd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/as-tree/blobs/sha256:82337903e0b8ee48cd19517b4d1bd8e0b66d5c17e212a03f6e15d2b12130d85b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/as-tree/blobs/sha256:0c877d85a4310115448ce71c13d75b93976ee2bea0b0ef0e890c53a469e8f85d
+sha256:
+  darwin_arm64: 21036f05ea5294ef3b8f2fb17517631a76c8d2c2ed521311322a55ba2320a28e
+  darwin_amd64: a5a2de8891810abc35ac5c0815003aac603e9467633eaebe161a71e8ccc5dadd
+  linux_amd64: 82337903e0b8ee48cd19517b4d1bd8e0b66d5c17e212a03f6e15d2b12130d85b
+  linux_arm64: 0c877d85a4310115448ce71c13d75b93976ee2bea0b0ef0e890c53a469e8f85d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

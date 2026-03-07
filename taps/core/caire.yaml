@@ -1,0 +1,19 @@
+name: caire
+version: 1.5.0
+description: Content aware image resize tool
+homepage: https://github.com/esimov/caire
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/caire/blobs/sha256:413a46b531e0f7f0fd954c70d65ca5158a8b01ae7748b56859eb07cf4eb97d31
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/caire/blobs/sha256:70d79acf65528d8c7b30ef658380fac4d0c9cd6cf8ebdfe2a75d6e1e9ef2fb87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/caire/blobs/sha256:9d6d577c0674569e1ec5951618888fff00373551779eeacbfa2712b95fe936d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/caire/blobs/sha256:3054ab90f891eee21ac084564e33c4b280c99870f66bae2beb1f198edd665f72
+sha256:
+  darwin_arm64: 413a46b531e0f7f0fd954c70d65ca5158a8b01ae7748b56859eb07cf4eb97d31
+  darwin_amd64: 70d79acf65528d8c7b30ef658380fac4d0c9cd6cf8ebdfe2a75d6e1e9ef2fb87
+  linux_amd64: 9d6d577c0674569e1ec5951618888fff00373551779eeacbfa2712b95fe936d2
+  linux_arm64: 3054ab90f891eee21ac084564e33c4b280c99870f66bae2beb1f198edd665f72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

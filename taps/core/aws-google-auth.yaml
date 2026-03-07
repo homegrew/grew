@@ -1,0 +1,23 @@
+name: aws-google-auth
+version: 0.0.38
+description: Acquire AWS credentials using Google Apps
+homepage: https://github.com/cevoaustralia/aws-google-auth
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-google-auth/blobs/sha256:28c25bf71c4b34dee1e142dfc65dd855d07e8e91bab29048ad477ee0f75e1544
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-google-auth/blobs/sha256:450847cfae4aea0422421b051f22c19c464ad5687680c1e6a744710a676194f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-google-auth/blobs/sha256:d978a7c26a3698872ea52cd41afb1c663223e46635c69eb7a551cd840edbbf6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-google-auth/blobs/sha256:84ed2bc606e0af339317b8f051e778b51eeefa7da3542f3a3cd2651f171657d1
+sha256:
+  darwin_arm64: 28c25bf71c4b34dee1e142dfc65dd855d07e8e91bab29048ad477ee0f75e1544
+  darwin_amd64: 450847cfae4aea0422421b051f22c19c464ad5687680c1e6a744710a676194f5
+  linux_amd64: d978a7c26a3698872ea52cd41afb1c663223e46635c69eb7a551cd840edbbf6e
+  linux_arm64: 84ed2bc606e0af339317b8f051e778b51eeefa7da3542f3a3cd2651f171657d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - pillow
+  - python@3.14

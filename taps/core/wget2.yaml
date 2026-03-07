@@ -1,0 +1,31 @@
+name: wget2
+version: 2.2.1
+description: Successor of GNU Wget, a file and recursive website downloader
+homepage: https://gitlab.com/gnuwget/wget2
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wget2/blobs/sha256:d907ed01032e6655193fa18c47e45b5e1b202cdd1f328ebefbff065c180cd9e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wget2/blobs/sha256:a65fde8f14db9841aa9e30890f13693c3a5381d21bf7724fc4f284fa64db91a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wget2/blobs/sha256:ea2c0e17b1e5d8e0dac92529034ca89b7651f7ba9d065e66a7a0ebc19683133a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wget2/blobs/sha256:5dfee2ad6e5c7a7ecf5efb3f9afe902df0b8f986e1207775dafc855b2d241cea
+sha256:
+  darwin_arm64: d907ed01032e6655193fa18c47e45b5e1b202cdd1f328ebefbff065c180cd9e8
+  darwin_amd64: a65fde8f14db9841aa9e30890f13693c3a5381d21bf7724fc4f284fa64db91a4
+  linux_amd64: ea2c0e17b1e5d8e0dac92529034ca89b7651f7ba9d065e66a7a0ebc19683133a
+  linux_arm64: 5dfee2ad6e5c7a7ecf5efb3f9afe902df0b8f986e1207775dafc855b2d241cea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - gnutls
+  - gpgme
+  - libidn2
+  - libnghttp2
+  - libpsl
+  - lzlib
+  - pcre2
+  - xz
+  - zstd
+  - gettext

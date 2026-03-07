@@ -1,0 +1,21 @@
+name: snakeviz
+version: 2.2.2
+description: Web-based viewer for Python profiler output
+homepage: https://jiffyclub.github.io/snakeviz/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snakeviz/blobs/sha256:eefaa7c2dadc370f5ccca63450201f68b10163e61d6dc50ae3c26c16bd686c57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snakeviz/blobs/sha256:f619789876c65dd82de1630d89ed6fc4cb9521d67c15d9955edca63f00079dff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snakeviz/blobs/sha256:7db4646f3bcfb62c5e601aa8e14ea8bbae28b1eefab03156f80764acc2778cc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snakeviz/blobs/sha256:333d060ac20fa6c1ff54c80a5bb1243187f658fb60356bc56c47c2c074450bae
+sha256:
+  darwin_arm64: eefaa7c2dadc370f5ccca63450201f68b10163e61d6dc50ae3c26c16bd686c57
+  darwin_amd64: f619789876c65dd82de1630d89ed6fc4cb9521d67c15d9955edca63f00079dff
+  linux_amd64: 7db4646f3bcfb62c5e601aa8e14ea8bbae28b1eefab03156f80764acc2778cc1
+  linux_arm64: 333d060ac20fa6c1ff54c80a5bb1243187f658fb60356bc56c47c2c074450bae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

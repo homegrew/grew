@@ -1,0 +1,22 @@
+name: berkeley-db
+version: 18.1.40
+description: High performance key/value database
+homepage: https://www.oracle.com/database/technologies/related/berkeleydb.html
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/berkeley-db/blobs/sha256:8ab6e76001b5a945ed16eaa85a4a5676bd3a7f54365c2255c90565d73096ff0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/berkeley-db/blobs/sha256:01746c62817e50160208bd9acb690eec9352e89b5a3b8bda6bea3952b9bc4352
+  linux_amd64: https://ghcr.io/v2/homebrew/core/berkeley-db/blobs/sha256:3ba948d2977fbfcc865086fab6d6567b4f3972fcc46e327817fb7600f64d4312
+  linux_arm64: https://ghcr.io/v2/homebrew/core/berkeley-db/blobs/sha256:8ae89765b5bcd261562a5dd527459d9fadb46d2aa264240b634e0acc21076a58
+sha256:
+  darwin_arm64: 8ab6e76001b5a945ed16eaa85a4a5676bd3a7f54365c2255c90565d73096ff0e
+  darwin_amd64: 01746c62817e50160208bd9acb690eec9352e89b5a3b8bda6bea3952b9bc4352
+  linux_amd64: 3ba948d2977fbfcc865086fab6d6567b4f3972fcc46e327817fb7600f64d4312
+  linux_arm64: 8ae89765b5bcd261562a5dd527459d9fadb46d2aa264240b634e0acc21076a58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

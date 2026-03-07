@@ -1,0 +1,19 @@
+name: gau
+version: 2.2.4
+description: Open Threat Exchange, Wayback Machine, and Common Crawl URL fetcher
+homepage: https://github.com/lc/gau
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gau/blobs/sha256:cdb5963c60a98561b2dde38f29f9f784d74f30b73a200622fe6879eac67068c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gau/blobs/sha256:10d23c1e073ad46bc37e270a2f8c9bab12fb8a620114b86cc3192556922f3265
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gau/blobs/sha256:0e7a5ed750fc77cf005a7cd657dcffab2f58d5b75f16ccfefff2fd59f5a881d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gau/blobs/sha256:b77e7c4e7ccd70bd3fb6c34d962dddef411791c84e4c77bcbe736cabab0cf4d5
+sha256:
+  darwin_arm64: cdb5963c60a98561b2dde38f29f9f784d74f30b73a200622fe6879eac67068c8
+  darwin_amd64: 10d23c1e073ad46bc37e270a2f8c9bab12fb8a620114b86cc3192556922f3265
+  linux_amd64: 0e7a5ed750fc77cf005a7cd657dcffab2f58d5b75f16ccfefff2fd59f5a881d9
+  linux_arm64: b77e7c4e7ccd70bd3fb6c34d962dddef411791c84e4c77bcbe736cabab0cf4d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

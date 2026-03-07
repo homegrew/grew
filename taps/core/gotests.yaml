@@ -1,0 +1,19 @@
+name: gotests
+version: 1.9.0
+description: Automatically generate Go test boilerplate from your source code
+homepage: https://github.com/cweill/gotests
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotests/blobs/sha256:9df20fdd667942ed0db364896b9d3ec5dea05ba66569cf265319c892bf16922a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotests/blobs/sha256:cfa2259d33d113f8a7800ca1ea057cf0aba2025bf27f9c76a298e66bdbc475da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotests/blobs/sha256:7ac759554a3d2758bc73f3f0fe37bf65cc2f75e02adbc876a01b4378e073a87d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotests/blobs/sha256:e0c504b5b5866a465e6ee748d60d33cc96f65af20f7270c8db0c6d4291c948f2
+sha256:
+  darwin_arm64: 9df20fdd667942ed0db364896b9d3ec5dea05ba66569cf265319c892bf16922a
+  darwin_amd64: cfa2259d33d113f8a7800ca1ea057cf0aba2025bf27f9c76a298e66bdbc475da
+  linux_amd64: 7ac759554a3d2758bc73f3f0fe37bf65cc2f75e02adbc876a01b4378e073a87d
+  linux_arm64: e0c504b5b5866a465e6ee748d60d33cc96f65af20f7270c8db0c6d4291c948f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

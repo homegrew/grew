@@ -1,0 +1,16 @@
+name: cni-plugins
+version: 1.9.0
+description: Container Network Interface plugins
+homepage: https://www.cni.dev
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cni-plugins/blobs/sha256:b951c1f4e1e4f7b25c09a802d7e5eac98beac36c36109f37b77281a04c98959f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cni-plugins/blobs/sha256:17f6ba7c9c16583da1cfbb60e5c41066f55477e048357fb0be322457973d0469
+sha256:
+  linux_amd64: b951c1f4e1e4f7b25c09a802d7e5eac98beac36c36109f37b77281a04c98959f
+  linux_arm64: 17f6ba7c9c16583da1cfbb60e5c41066f55477e048357fb0be322457973d0469
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

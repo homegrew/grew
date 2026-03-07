@@ -1,0 +1,19 @@
+name: cern-ndiff
+version: 5.09.03
+description: Numerical diff tool
+homepage: https://mad.web.cern.ch/mad/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cern-ndiff/blobs/sha256:e193003d9dc156d3c9f2740ace0ca73ce36299ef0de327abadf3d8a971235186
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cern-ndiff/blobs/sha256:807d3f5b977b2d2012901b5c9ed066ecd3ff4561a7758a03e503021a2e0594b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cern-ndiff/blobs/sha256:b79c1e4f9d23f8dd06659de060aa2fe4bf0b863a2f9d1e1da8cab2c3347c108b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cern-ndiff/blobs/sha256:bcf2ffd38ba56b8c9c6c12a5da6be040a8fc0e73c338a46ddc47fa4d78e9df87
+sha256:
+  darwin_arm64: e193003d9dc156d3c9f2740ace0ca73ce36299ef0de327abadf3d8a971235186
+  darwin_amd64: 807d3f5b977b2d2012901b5c9ed066ecd3ff4561a7758a03e503021a2e0594b2
+  linux_amd64: b79c1e4f9d23f8dd06659de060aa2fe4bf0b863a2f9d1e1da8cab2c3347c108b
+  linux_arm64: bcf2ffd38ba56b8c9c6c12a5da6be040a8fc0e73c338a46ddc47fa4d78e9df87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

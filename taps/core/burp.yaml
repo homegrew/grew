@@ -1,0 +1,22 @@
+name: burp
+version: 3.2.0
+description: Network backup and restore
+homepage: https://burp.grke.org/
+license: AGPL-3.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/burp/blobs/sha256:8299d856b7c33e46727a2baeca69c5a99cf072afa966c420d555d2b778ba382b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/burp/blobs/sha256:286a00e3a1be4055262eefdbe1250e7d4ca888dde0534c767c0e2b3eb45e47b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/burp/blobs/sha256:3eed28a4c204464ea71a807e81554b05a12a3aacd71c12ded2e6925ff0c7a0eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/burp/blobs/sha256:08d555e3cd1915263f34d05eda67342ed8d83dddfeba72b462ba3f9b967aaada
+sha256:
+  darwin_arm64: 8299d856b7c33e46727a2baeca69c5a99cf072afa966c420d555d2b778ba382b
+  darwin_amd64: 286a00e3a1be4055262eefdbe1250e7d4ca888dde0534c767c0e2b3eb45e47b0
+  linux_amd64: 3eed28a4c204464ea71a807e81554b05a12a3aacd71c12ded2e6925ff0c7a0eb
+  linux_arm64: 08d555e3cd1915263f34d05eda67342ed8d83dddfeba72b462ba3f9b967aaada
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librsync
+  - openssl@3

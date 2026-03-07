@@ -1,0 +1,11 @@
+name: blink1control
+version: 2.2.9
+description: Utility to control blink(1) USB RGB LED devices
+homepage: https://blink1.thingm.com/
+url:
+  darwin_arm64: https://github.com/todbot/Blink1Control2/releases/download/v2.2.9/Blink1Control2-2.2.9-mac-arm64.dmg
+sha256:
+  darwin_arm64: 5201cc77aa1b51b927d90e59f6221ff55f147f5910f6e75b6acd0966b3f4c099
+artifacts:
+  app:
+    - Blink1Control2.app

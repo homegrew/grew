@@ -1,0 +1,19 @@
+name: openlist
+version: 4.1.10
+description: New AList fork addressing anti-trust issues
+homepage: https://doc.oplist.org/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openlist/blobs/sha256:435f540dd5c76ee03b1315c8d84efeff51edc21b3f31df2e841226008087d4f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openlist/blobs/sha256:397b95f8f40afa663ee0746faa0a6f12208c41d78841aae4ba0661359cb63820
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openlist/blobs/sha256:26b013899c56ef2e1c85b47cddc7eeaf543d2f9170a56ad96b802e06f0d0d8fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openlist/blobs/sha256:1bcbdc6e59f842b464d23478193e73c77bac6d117f8c9d0b8297ddc3a96354b4
+sha256:
+  darwin_arm64: 435f540dd5c76ee03b1315c8d84efeff51edc21b3f31df2e841226008087d4f4
+  darwin_amd64: 397b95f8f40afa663ee0746faa0a6f12208c41d78841aae4ba0661359cb63820
+  linux_amd64: 26b013899c56ef2e1c85b47cddc7eeaf543d2f9170a56ad96b802e06f0d0d8fa
+  linux_arm64: 1bcbdc6e59f842b464d23478193e73c77bac6d117f8c9d0b8297ddc3a96354b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

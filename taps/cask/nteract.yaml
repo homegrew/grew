@@ -1,0 +1,11 @@
+name: nteract
+version: 0.28.0
+description: Interactive computing suite
+homepage: https://github.com/nteract/nteract
+url:
+  darwin_arm64: https://github.com/nteract/nteract/releases/download/v0.28.0/nteract-0.28.0.dmg
+sha256:
+  darwin_arm64: de65abe5ed76489217a9c29bcc177aa5b2ee2f0657cd017301af33280ca8a737
+artifacts:
+  app:
+    - nteract.app

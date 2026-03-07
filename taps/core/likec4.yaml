@@ -1,0 +1,22 @@
+name: likec4
+version: 1.51.0
+description: Architecture modeling tool with live diagrams from code
+homepage: https://likec4.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/likec4/blobs/sha256:927a31865121bc60da9ae9aca34a585813e95926105f618bdca4f3edba7dc367
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/likec4/blobs/sha256:949910cdd0c841b4acafd57015f86e3c1d409b1d0ada9a3d0586603751a9fe9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/likec4/blobs/sha256:63b97caba6f76522d1eb51f0cafbc7fdf9c19814302ea50addbd9d27f402bb98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/likec4/blobs/sha256:215234b8d03ff68bfcbe0ddfb872455e119c27c3b6ffad547e2157842b73b942
+sha256:
+  darwin_arm64: 927a31865121bc60da9ae9aca34a585813e95926105f618bdca4f3edba7dc367
+  darwin_amd64: 949910cdd0c841b4acafd57015f86e3c1d409b1d0ada9a3d0586603751a9fe9c
+  linux_amd64: 63b97caba6f76522d1eb51f0cafbc7fdf9c19814302ea50addbd9d27f402bb98
+  linux_arm64: 215234b8d03ff68bfcbe0ddfb872455e119c27c3b6ffad547e2157842b73b942
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - graphviz
+  - node

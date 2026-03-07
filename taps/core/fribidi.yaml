@@ -1,0 +1,19 @@
+name: fribidi
+version: 1.0.16
+description: Implementation of the Unicode BiDi algorithm
+homepage: https://github.com/fribidi/fribidi
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fribidi/blobs/sha256:4f6b90cece7f5eb2491a4938689366c84e5cba64e4a99009f20c92aaf341d186
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fribidi/blobs/sha256:abda3f3925574ac53d9fa5a7629102dda29132a64cf1a9f756eedc3258d1e855
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fribidi/blobs/sha256:da83ac3be7e395ab2444c0968fb3dce389161f10c2b481ddd4b18a9056bc2d60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fribidi/blobs/sha256:f77859595dfecda802be39353e61b545c1cf1c67e9630f9441be68010f555d00
+sha256:
+  darwin_arm64: 4f6b90cece7f5eb2491a4938689366c84e5cba64e4a99009f20c92aaf341d186
+  darwin_amd64: abda3f3925574ac53d9fa5a7629102dda29132a64cf1a9f756eedc3258d1e855
+  linux_amd64: da83ac3be7e395ab2444c0968fb3dce389161f10c2b481ddd4b18a9056bc2d60
+  linux_arm64: f77859595dfecda802be39353e61b545c1cf1c67e9630f9441be68010f555d00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

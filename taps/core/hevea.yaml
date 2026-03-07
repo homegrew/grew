@@ -1,0 +1,21 @@
+name: hevea
+version: 2.38
+description: LaTeX-to-HTML translator
+homepage: https://hevea.inria.fr/
+license: QPL-1.0 AND GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hevea/blobs/sha256:807e064c4a8f903cd9ef077f1e272392e2a4ca4a4c4f5ba370ade28637c07ac5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hevea/blobs/sha256:4abee9f15ba945b2a7e9df32509827f3fa79388dc4f15f371d0eaa3ab4b79687
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hevea/blobs/sha256:d44b4d1c07b514272c2cbdaf70590061b965879e23c57dd5c361323fad5e7e23
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hevea/blobs/sha256:dbf9630c685fe8d90adce84c80cfda8d3c915f86d02a44fc78835e5bac20298a
+sha256:
+  darwin_arm64: 807e064c4a8f903cd9ef077f1e272392e2a4ca4a4c4f5ba370ade28637c07ac5
+  darwin_amd64: 4abee9f15ba945b2a7e9df32509827f3fa79388dc4f15f371d0eaa3ab4b79687
+  linux_amd64: d44b4d1c07b514272c2cbdaf70590061b965879e23c57dd5c361323fad5e7e23
+  linux_arm64: dbf9630c685fe8d90adce84c80cfda8d3c915f86d02a44fc78835e5bac20298a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

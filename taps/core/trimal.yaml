@@ -1,0 +1,19 @@
+name: trimal
+version: 1.5.1
+description: Automated alignment trimming in large-scale phylogenetic analyses
+homepage: https://trimal.readthedocs.io/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trimal/blobs/sha256:1fe61c76b43717d3473edb88ac31f0fe55bf01d25b0aa1dc707eb65eb2cd6cc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trimal/blobs/sha256:2be9d1d1dccd3dcb6fb0993819c342136ffce1a8bc2c39cd665d669df5361f51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trimal/blobs/sha256:c30eb8f10dbe34b3966809eed08575df37d44030305ef9ce5926b5aa00c838e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trimal/blobs/sha256:8a141a6f76311ad740ed1e6b83d62b031d9c8cc957b803bd8cfc82553d92a7a0
+sha256:
+  darwin_arm64: 1fe61c76b43717d3473edb88ac31f0fe55bf01d25b0aa1dc707eb65eb2cd6cc4
+  darwin_amd64: 2be9d1d1dccd3dcb6fb0993819c342136ffce1a8bc2c39cd665d669df5361f51
+  linux_amd64: c30eb8f10dbe34b3966809eed08575df37d44030305ef9ce5926b5aa00c838e5
+  linux_arm64: 8a141a6f76311ad740ed1e6b83d62b031d9c8cc957b803bd8cfc82553d92a7a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

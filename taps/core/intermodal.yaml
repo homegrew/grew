@@ -1,0 +1,19 @@
+name: intermodal
+version: 0.1.15
+description: Command-line utility for BitTorrent torrent file creation, verification, etc.
+homepage: https://imdl.io
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/intermodal/blobs/sha256:2be891c2b96611a332b05e919ae9bd4d94bc353f649fc907954a49a649d3eb1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/intermodal/blobs/sha256:9e113d9474e825dc7e86a67360e1f713a515aef547c52008c6ede62611576aac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/intermodal/blobs/sha256:b50de11de888eb84d65e2ff265bd6a16effc63be4ef067cf71bb3cbb6cda22a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/intermodal/blobs/sha256:0c308e078efd80e3ef65cf6db4d62a87272d2897d960b4c41a10fd9350edd05a
+sha256:
+  darwin_arm64: 2be891c2b96611a332b05e919ae9bd4d94bc353f649fc907954a49a649d3eb1d
+  darwin_amd64: 9e113d9474e825dc7e86a67360e1f713a515aef547c52008c6ede62611576aac
+  linux_amd64: b50de11de888eb84d65e2ff265bd6a16effc63be4ef067cf71bb3cbb6cda22a4
+  linux_arm64: 0c308e078efd80e3ef65cf6db4d62a87272d2897d960b4c41a10fd9350edd05a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

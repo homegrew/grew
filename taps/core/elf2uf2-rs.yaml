@@ -1,0 +1,19 @@
+name: elf2uf2-rs
+version: 2.2.0
+description: Convert ELF files to UF2 for USB Flashing Bootloaders
+homepage: https://github.com/JoNil/elf2uf2-rs
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elf2uf2-rs/blobs/sha256:1b6d36f51c622f0baf332930c8ae232cdf04395cfdae78fae45b8560ec51ab54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elf2uf2-rs/blobs/sha256:b88fb516410369897f97f16030f48eb276955bb32c9dbf446d532eca2add68a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elf2uf2-rs/blobs/sha256:4f360ea5ae0f17d0a57012f80aa69c18a887d964211475e33414e32442d17616
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elf2uf2-rs/blobs/sha256:e95dda0368015306a494e58f3bbd22717e23b592391b8b0dd0fcd30a0cd617c1
+sha256:
+  darwin_arm64: 1b6d36f51c622f0baf332930c8ae232cdf04395cfdae78fae45b8560ec51ab54
+  darwin_amd64: b88fb516410369897f97f16030f48eb276955bb32c9dbf446d532eca2add68a2
+  linux_amd64: 4f360ea5ae0f17d0a57012f80aa69c18a887d964211475e33414e32442d17616
+  linux_arm64: e95dda0368015306a494e58f3bbd22717e23b592391b8b0dd0fcd30a0cd617c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

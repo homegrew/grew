@@ -1,0 +1,24 @@
+name: open-babel
+version: 3.1.1
+description: Chemical toolbox
+homepage: https://github.com/openbabel/openbabel
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-babel/blobs/sha256:2c456fe61ba2215e23fa09d39cb689657c1ca8f73d46eac8e9216171e3464ac1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-babel/blobs/sha256:97be0b112e05a4f9ab90c96895d8893316edb68e05deffff11b9d0ccdb7e8a47
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-babel/blobs/sha256:af664d295e831c8bb50b88cf5457936d37843930d17685b7d2b7cddcf4e7a960
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-babel/blobs/sha256:89bea578b4834dc7ec4e571d6d5902f997d1bc98dbc0ae2b47354eb714e514c7
+sha256:
+  darwin_arm64: 2c456fe61ba2215e23fa09d39cb689657c1ca8f73d46eac8e9216171e3464ac1
+  darwin_amd64: 97be0b112e05a4f9ab90c96895d8893316edb68e05deffff11b9d0ccdb7e8a47
+  linux_amd64: af664d295e831c8bb50b88cf5457936d37843930d17685b7d2b7cddcf4e7a960
+  linux_arm64: 89bea578b4834dc7ec4e571d6d5902f997d1bc98dbc0ae2b47354eb714e514c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - eigen
+  - inchi
+  - python@3.14

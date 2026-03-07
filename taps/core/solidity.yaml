@@ -1,0 +1,22 @@
+name: solidity
+version: 0.8.34
+description: Contract-oriented programming language
+homepage: https://soliditylang.org
+license: GPL-3.0-or-later AND MIT AND BSD-3-Clause AND Apache-2.0 AND CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solidity/blobs/sha256:9e3645a6ebe0c93c918472d8ec36ef17c3cbc34d3ed2aa271dfb675c9d5b0efb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solidity/blobs/sha256:4decbd94b65937c3474f4d165f5af5a4d4f5585e8532614ffb385e53f66c7a6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solidity/blobs/sha256:17ac2f832e86cc676ba6db3c807b18098cf0c423e02ee352b1d0aec3ad26d9f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solidity/blobs/sha256:5f103c5adec2f4ad20ba718d74164d359f018b643ca8ffe2567f5edd1b7c827c
+sha256:
+  darwin_arm64: 9e3645a6ebe0c93c918472d8ec36ef17c3cbc34d3ed2aa271dfb675c9d5b0efb
+  darwin_amd64: 4decbd94b65937c3474f4d165f5af5a4d4f5585e8532614ffb385e53f66c7a6d
+  linux_amd64: 17ac2f832e86cc676ba6db3c807b18098cf0c423e02ee352b1d0aec3ad26d9f7
+  linux_arm64: 5f103c5adec2f4ad20ba718d74164d359f018b643ca8ffe2567f5edd1b7c827c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - z3

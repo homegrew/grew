@@ -1,0 +1,21 @@
+name: gnu-units
+version: 2.26
+description: GNU unit conversion tool
+homepage: https://www.gnu.org/software/units/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-units/blobs/sha256:9a69e56dc2085d57456a0985f04fc72e0b84b246763e08a2cefe1b6428ca302b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-units/blobs/sha256:09c0231fe742c2cb3d4fdcb0d1bfa224e64e247f0b78ed93b35ca661a33dd99a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-units/blobs/sha256:dec4d4db96599675669c5ab715175a9808d1808c921e37d9bd46ed5b71911af3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-units/blobs/sha256:c15e11c53430a74765f0650e47742d10acc4f162c22e6d2f7881eb228aba8088
+sha256:
+  darwin_arm64: 9a69e56dc2085d57456a0985f04fc72e0b84b246763e08a2cefe1b6428ca302b
+  darwin_amd64: 09c0231fe742c2cb3d4fdcb0d1bfa224e64e247f0b78ed93b35ca661a33dd99a
+  linux_amd64: dec4d4db96599675669c5ab715175a9808d1808c921e37d9bd46ed5b71911af3
+  linux_arm64: c15e11c53430a74765f0650e47742d10acc4f162c22e6d2f7881eb228aba8088
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

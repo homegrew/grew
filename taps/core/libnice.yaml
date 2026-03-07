@@ -1,0 +1,23 @@
+name: libnice
+version: 0.1.23
+description: GLib ICE implementation
+homepage: https://wiki.freedesktop.org/nice/
+license: LGPL-2.1-only OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnice/blobs/sha256:aff56c13ea1c1b8a67106c35abd4b1e8cfb0c25a050b19a709e9b7dda05a21a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnice/blobs/sha256:125053ae9a07a8ab04b8bc523c97249ccd92e4ff2f48b244bb0d7a42ecd4d694
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnice/blobs/sha256:fa1c1187e54ab5e09063d9cb5e92575c30e8f7d8826d8c2c2ecf96357cd6ca7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnice/blobs/sha256:3c95ab94575eafa055c04796fc29518f6d57bc7f2db24a672c7a6a449698641b
+sha256:
+  darwin_arm64: aff56c13ea1c1b8a67106c35abd4b1e8cfb0c25a050b19a709e9b7dda05a21a6
+  darwin_amd64: 125053ae9a07a8ab04b8bc523c97249ccd92e4ff2f48b244bb0d7a42ecd4d694
+  linux_amd64: fa1c1187e54ab5e09063d9cb5e92575c30e8f7d8826d8c2c2ecf96357cd6ca7c
+  linux_arm64: 3c95ab94575eafa055c04796fc29518f6d57bc7f2db24a672c7a6a449698641b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - gettext

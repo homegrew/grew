@@ -1,0 +1,25 @@
+name: rawdog
+version: 0.1.6
+description: CLI tool to generate and run code with llms
+homepage: https://mentat.ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rawdog/blobs/sha256:1745ef1bb89788586d6ceb717ef7625fe1229b3ff2956d06933d1fb4224b683f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rawdog/blobs/sha256:6a25918e6bcff5209af01f2df726ffa585923924cbe2ee998a89aca693e596c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rawdog/blobs/sha256:489a44c7852a697dfaa8101735b3675f34694d19e2b38cb9c0252d6d9e927411
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rawdog/blobs/sha256:d006ac34d28931da9e5518698dea5d0b9380e842da402e8cef2498cff2dad1f5
+sha256:
+  darwin_arm64: 1745ef1bb89788586d6ceb717ef7625fe1229b3ff2956d06933d1fb4224b683f
+  darwin_amd64: 6a25918e6bcff5209af01f2df726ffa585923924cbe2ee998a89aca693e596c8
+  linux_amd64: 489a44c7852a697dfaa8101735b3675f34694d19e2b38cb9c0252d6d9e927411
+  linux_arm64: d006ac34d28931da9e5518698dea5d0b9380e842da402e8cef2498cff2dad1f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14
+  - rpds-py

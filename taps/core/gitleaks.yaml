@@ -1,0 +1,19 @@
+name: gitleaks
+version: 8.30.0
+description: Audit git repos for secrets
+homepage: https://gitleaks.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitleaks/blobs/sha256:a25a14d9aee2d018bc591993a0d711763f646dfb2470febbcbdac35fc2702e18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitleaks/blobs/sha256:01e8b3aec5550aa8899176fb08566b6415d021ad6aedf1e474cea029291ddb8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitleaks/blobs/sha256:eb7706128893697dae8df92801a9303f2c6658782c23ceb2b3605667a293c6d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitleaks/blobs/sha256:77faf8e34c459370948485c9e24acdcd19b9c88f9866952e969a19ecf00f3ba7
+sha256:
+  darwin_arm64: a25a14d9aee2d018bc591993a0d711763f646dfb2470febbcbdac35fc2702e18
+  darwin_amd64: 01e8b3aec5550aa8899176fb08566b6415d021ad6aedf1e474cea029291ddb8d
+  linux_amd64: eb7706128893697dae8df92801a9303f2c6658782c23ceb2b3605667a293c6d2
+  linux_arm64: 77faf8e34c459370948485c9e24acdcd19b9c88f9866952e969a19ecf00f3ba7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

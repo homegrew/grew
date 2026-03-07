@@ -1,0 +1,22 @@
+name: bpython
+version: 0.26
+description: Fancy interface to the Python interpreter
+homepage: https://bpython-interpreter.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bpython/blobs/sha256:993caa0f820df15958cf204030750aa1ba8e1b02ec27de609b7097ad333059e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bpython/blobs/sha256:4e7c426822b644ea7a879329f20e540c414d8eeed1263cfd60d3ec1a8162076b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bpython/blobs/sha256:cced3a11eaf8380ec74cd46476852805bb6b0d20487c9e44ff3991cbc2660ba2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bpython/blobs/sha256:fcb94ebfba3d03fe2259f7fe0199cd854db7041d4834a4749e407014bd01a60f
+sha256:
+  darwin_arm64: 993caa0f820df15958cf204030750aa1ba8e1b02ec27de609b7097ad333059e1
+  darwin_amd64: 4e7c426822b644ea7a879329f20e540c414d8eeed1263cfd60d3ec1a8162076b
+  linux_amd64: cced3a11eaf8380ec74cd46476852805bb6b0d20487c9e44ff3991cbc2660ba2
+  linux_arm64: fcb94ebfba3d03fe2259f7fe0199cd854db7041d4834a4749e407014bd01a60f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

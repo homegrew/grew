@@ -1,0 +1,19 @@
+name: ferron
+version: 2.5.5
+description: Fast, memory-safe web server written in Rust
+homepage: https://www.ferronweb.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ferron/blobs/sha256:a78ad2dcfd18eb4bb4a6e43b167602800c469d4a4e98543594500c363a7417ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ferron/blobs/sha256:ee5550b14ce9ed6b6e99c17b76a4e2f56c716f942e8e59189826339644a0c9bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ferron/blobs/sha256:8e0bd422a75596f1cbf1a1496cbe9fb1c10ef8686ac9d1b4021ac71e5ef8e2d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ferron/blobs/sha256:0916ae5fbb6fea267ab42ab47d5ec3fc4634895018f184e9cc08252bccccb5f1
+sha256:
+  darwin_arm64: a78ad2dcfd18eb4bb4a6e43b167602800c469d4a4e98543594500c363a7417ab
+  darwin_amd64: ee5550b14ce9ed6b6e99c17b76a4e2f56c716f942e8e59189826339644a0c9bd
+  linux_amd64: 8e0bd422a75596f1cbf1a1496cbe9fb1c10ef8686ac9d1b4021ac71e5ef8e2d3
+  linux_arm64: 0916ae5fbb6fea267ab42ab47d5ec3fc4634895018f184e9cc08252bccccb5f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

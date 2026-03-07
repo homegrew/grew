@@ -1,0 +1,11 @@
+name: itermbrowserplugin
+version: 1.0
+description: Enables an integrated web browser in iTerm2
+homepage: https://iterm2.com/browser-plugin.html
+url:
+  darwin_arm64: https://iterm2.com/downloads/browser-plugin/iTermBrowserPlugin-1.0.zip
+sha256:
+  darwin_arm64: 6d41bd32fd1022cf935d3fdf92bc530f90c4d17666b981137efdfcfe42128fbd
+artifacts:
+  app:
+    - iTermBrowserPlugin.app

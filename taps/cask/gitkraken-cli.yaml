@@ -1,0 +1,11 @@
+name: gitkraken-cli
+version: 3.1.53
+description: CLI for GitKraken
+homepage: https://github.com/gitkraken/gk-cli
+url:
+  darwin_arm64: https://github.com/gitkraken/gk-cli/releases/download/v3.1.53/gk_3.1.53_darwin_arm64.zip
+sha256:
+  darwin_arm64: 69b571d2384b677e18c60e534b57edeecc349b897f56d70fc6cb06f6d9f58051
+artifacts:
+  bin:
+    - gk

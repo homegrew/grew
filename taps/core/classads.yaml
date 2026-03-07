@@ -1,0 +1,19 @@
+name: classads
+version: 1.0.10
+description: Classified Advertisements (used by HTCondor Central Manager)
+homepage: https://research.cs.wisc.edu/htcondor/classad/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/classads/blobs/sha256:ed590f0506873b6a0335e92654469e50424ca16a916afc92b9f5180906060bfc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/classads/blobs/sha256:f1e93502256b06a0fca5214a1df36c5f35b211b14d376f718d2a86088465dfe5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/classads/blobs/sha256:0f04a28af4368948ee8ce693f3ab6e30d9d6294d726e2a04ad7ca44e84ffcf07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/classads/blobs/sha256:8f93a457d340d975d207f60f2b88049fab2ac1fc59f957421bb5e6d71a1817b9
+sha256:
+  darwin_arm64: ed590f0506873b6a0335e92654469e50424ca16a916afc92b9f5180906060bfc
+  darwin_amd64: f1e93502256b06a0fca5214a1df36c5f35b211b14d376f718d2a86088465dfe5
+  linux_amd64: 0f04a28af4368948ee8ce693f3ab6e30d9d6294d726e2a04ad7ca44e84ffcf07
+  linux_arm64: 8f93a457d340d975d207f60f2b88049fab2ac1fc59f957421bb5e6d71a1817b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

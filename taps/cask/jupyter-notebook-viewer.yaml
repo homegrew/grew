@@ -1,0 +1,11 @@
+name: jupyter-notebook-viewer
+version: 0.1.6
+description: Utility to render Jupyter notebooks
+homepage: https://github.com/tuxu/nbviewer-app
+url:
+  darwin_arm64: https://github.com/tuxu/nbviewer-app/releases/download/0.1.6/nbviewer-app.zip
+sha256:
+  darwin_arm64: af77fa5f0d80e99c2efd977b0dba9b11fb16d33ee10f53f9e34989fb16f12514
+artifacts:
+  app:
+    - Jupyter Notebook Viewer.app

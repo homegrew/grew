@@ -1,0 +1,22 @@
+name: openldap
+version: 2.6.12
+description: Open source suite of directory software
+homepage: https://www.openldap.org/software/
+license: OLDAP-2.8
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:8cb64538e7047125ebed0c6e4c3cad8faab9bd88b9c9c7619c2a86df7c61d06c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:49334307f6719cd0beb84944ff4a909cca9d138f63729e1689ed344de9e5545f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:1c9d3e5c1c68949711f2a272a420a1e44f6451fbd42a7fe47ed6ca966f7365d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:b84940413640e188179bf85dbf1435402299f3d9c37e6690bfe17b66dc009328
+sha256:
+  darwin_arm64: 8cb64538e7047125ebed0c6e4c3cad8faab9bd88b9c9c7619c2a86df7c61d06c
+  darwin_amd64: 49334307f6719cd0beb84944ff4a909cca9d138f63729e1689ed344de9e5545f
+  linux_amd64: 1c9d3e5c1c68949711f2a272a420a1e44f6451fbd42a7fe47ed6ca966f7365d3
+  linux_arm64: b84940413640e188179bf85dbf1435402299f3d9c37e6690bfe17b66dc009328
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

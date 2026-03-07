@@ -1,0 +1,19 @@
+name: kubeseal
+version: 0.36.0
+description: Kubernetes controller and tool for one-way encrypted Secrets
+homepage: https://github.com/bitnami-labs/sealed-secrets
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubeseal/blobs/sha256:91a8a2830b103afc0774dbee71f138bd6096189d9b306e8a341291e8be1c3716
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubeseal/blobs/sha256:417583a9de4ab2f44fcb85c5a6bccfbd339722207f312bf4970a0e4d4462396d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubeseal/blobs/sha256:cbe4898f6f762e700d50740fa8dc70e09296e87f48b826ba6957daf80a1136bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubeseal/blobs/sha256:7ef2384b16cda6da4945eee46222922547990d8aff8da91a6d36baa7811ae31b
+sha256:
+  darwin_arm64: 91a8a2830b103afc0774dbee71f138bd6096189d9b306e8a341291e8be1c3716
+  darwin_amd64: 417583a9de4ab2f44fcb85c5a6bccfbd339722207f312bf4970a0e4d4462396d
+  linux_amd64: cbe4898f6f762e700d50740fa8dc70e09296e87f48b826ba6957daf80a1136bb
+  linux_arm64: 7ef2384b16cda6da4945eee46222922547990d8aff8da91a6d36baa7811ae31b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: cargo-crev
+version: 0.26.5
+description: Code review system for the cargo package manager
+homepage: https://github.com/crev-dev/cargo-crev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-crev/blobs/sha256:81b2fa2f7315f2665d8dcccb6752d37b56652bd7ef02c18129a8f5a406277c43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-crev/blobs/sha256:205486c193ca878625a1c5e2eecc5105ef46239be6057814f5e423da7ab73d44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-crev/blobs/sha256:616a84800440e0d72026f04b52adbc1dd7c2768cba516fb3517f1e98658ba50c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-crev/blobs/sha256:307f024d7d29778e3341fe7e2a39864d0cf546bd1965f4b3cea1b4bc8cefec7c
+sha256:
+  darwin_arm64: 81b2fa2f7315f2665d8dcccb6752d37b56652bd7ef02c18129a8f5a406277c43
+  darwin_amd64: 205486c193ca878625a1c5e2eecc5105ef46239be6057814f5e423da7ab73d44
+  linux_amd64: 616a84800440e0d72026f04b52adbc1dd7c2768cba516fb3517f1e98658ba50c
+  linux_arm64: 307f024d7d29778e3341fe7e2a39864d0cf546bd1965f4b3cea1b4bc8cefec7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,13 @@
+name: godot-mono
+version: 4.6.1
+description: "C# scripting capable version of Godot game engine"
+homepage: https://godotengine.org/
+url:
+  darwin_arm64: https://github.com/godotengine/godot/releases/download/4.6.1-stable/Godot_v4.6.1-stable_mono_macos.universal.zip
+sha256:
+  darwin_arm64: 9e2d65407037cdd77b5612367f5cac443f52a17628b64d4fd59249639c7d4f01
+artifacts:
+  app:
+    - Godot_mono.app
+  bin:
+    - godot-mono

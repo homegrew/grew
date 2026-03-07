@@ -1,0 +1,17 @@
+name: juise
+version: 3.0.0
+description: JUNOS user interface scripting environment
+homepage: https://github.com/Juniper/juise/wiki
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/juise/blobs/sha256:7d7c0ee1120c72a4615a7c3eb947db45c9daf1c841e7e0a6dcadacfbd12e562b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/juise/blobs/sha256:1e3b075c24e4fa37d85fbf1adee7d01520ae0bb37167e13f8d8369431292309f
+sha256:
+  darwin_arm64: 7d7c0ee1120c72a4615a7c3eb947db45c9daf1c841e7e0a6dcadacfbd12e562b
+  darwin_amd64: 1e3b075c24e4fa37d85fbf1adee7d01520ae0bb37167e13f8d8369431292309f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libslax

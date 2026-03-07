@@ -1,0 +1,19 @@
+name: automysqlbackup
+version: 3.0-rc6
+description: Automate MySQL backups
+homepage: https://sourceforge.net/projects/automysqlbackup/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/automysqlbackup/blobs/sha256:47848e3272f89cc4d30787693b27799507fe8d7593d51b2586431e88eb92c6dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/automysqlbackup/blobs/sha256:c34d3e9363096874a38e300b7ca801587d5e3076de4fd0b9504229b3544cfb50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/automysqlbackup/blobs/sha256:eae5fa097a6796bd0aeb27e2a4026257d8b8a868263f292a693723c32404a0d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/automysqlbackup/blobs/sha256:eae5fa097a6796bd0aeb27e2a4026257d8b8a868263f292a693723c32404a0d3
+sha256:
+  darwin_arm64: 47848e3272f89cc4d30787693b27799507fe8d7593d51b2586431e88eb92c6dc
+  darwin_amd64: c34d3e9363096874a38e300b7ca801587d5e3076de4fd0b9504229b3544cfb50
+  linux_amd64: eae5fa097a6796bd0aeb27e2a4026257d8b8a868263f292a693723c32404a0d3
+  linux_arm64: eae5fa097a6796bd0aeb27e2a4026257d8b8a868263f292a693723c32404a0d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

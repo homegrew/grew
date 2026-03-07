@@ -1,0 +1,19 @@
+name: dbus
+version: 1.16.2
+description: Message bus system, providing inter-application communication
+homepage: https://wiki.freedesktop.org/www/Software/dbus
+license: AFL-2.1 OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dbus/blobs/sha256:708eed3cc7031e486c760cc9debe777b7e8de93faf74320b66d3bc42e27499c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dbus/blobs/sha256:438a1da22c323246b958e0fbc63c5e7405dba77e9274809ebd73ab8c886a19d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dbus/blobs/sha256:42841a5373f596cbccd52b4cf3eae4f3ec6a853309b14e36e869a7030fabd21a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dbus/blobs/sha256:f636ed77fc07ab232ec75012b8b5a69cee10f8f239d48b1d5622baa83d9d9d7e
+sha256:
+  darwin_arm64: 708eed3cc7031e486c760cc9debe777b7e8de93faf74320b66d3bc42e27499c3
+  darwin_amd64: 438a1da22c323246b958e0fbc63c5e7405dba77e9274809ebd73ab8c886a19d7
+  linux_amd64: 42841a5373f596cbccd52b4cf3eae4f3ec6a853309b14e36e869a7030fabd21a
+  linux_arm64: f636ed77fc07ab232ec75012b8b5a69cee10f8f239d48b1d5622baa83d9d9d7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

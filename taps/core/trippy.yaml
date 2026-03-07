@@ -1,0 +1,19 @@
+name: trippy
+version: 0.13.0
+description: Network diagnostic tool, inspired by mtr
+homepage: https://trippy.rs/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trippy/blobs/sha256:43b6f631c8a293fc7afa5b9f2752bb95b46beef7ee132d185c4e2a7b13caf570
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trippy/blobs/sha256:488a25a98d18e87bc3ffcacc8e22f2f1cb8c087bb714dfef5a20fb4a6df3e8ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trippy/blobs/sha256:c67898cd0f8db4cf94b36fdd02b59434b2f8092d4a0d31f9608202ef67fd62a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trippy/blobs/sha256:36282bf41fbc68b6fdb67dc6dd604573d24d2a3805db6c1d500a9d3d12428334
+sha256:
+  darwin_arm64: 43b6f631c8a293fc7afa5b9f2752bb95b46beef7ee132d185c4e2a7b13caf570
+  darwin_amd64: 488a25a98d18e87bc3ffcacc8e22f2f1cb8c087bb714dfef5a20fb4a6df3e8ba
+  linux_amd64: c67898cd0f8db4cf94b36fdd02b59434b2f8092d4a0d31f9608202ef67fd62a0
+  linux_arm64: 36282bf41fbc68b6fdb67dc6dd604573d24d2a3805db6c1d500a9d3d12428334
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

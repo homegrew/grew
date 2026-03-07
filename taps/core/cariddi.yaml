@@ -1,0 +1,19 @@
+name: cariddi
+version: 1.4.5
+description: Scan for endpoints, secrets, API keys, file extensions, tokens and more
+homepage: https://github.com/edoardottt/cariddi
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cariddi/blobs/sha256:1567c8ea44905b59e5573ef3b985d8435de0ec04142a922bd9075b3471999e1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cariddi/blobs/sha256:8659f20d5a386c128bb0032b05fa80b90341d7c8abd4077382e0261d99181139
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cariddi/blobs/sha256:0864ddf6c8669dcd49a400213d6e2bf2d0a10dc4b5d4655fead6d91ae89165b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cariddi/blobs/sha256:2dc1e4f046d0bf61b1a41fc46487e30861a77eb4a7e45c3db05845db1af7d002
+sha256:
+  darwin_arm64: 1567c8ea44905b59e5573ef3b985d8435de0ec04142a922bd9075b3471999e1b
+  darwin_amd64: 8659f20d5a386c128bb0032b05fa80b90341d7c8abd4077382e0261d99181139
+  linux_amd64: 0864ddf6c8669dcd49a400213d6e2bf2d0a10dc4b5d4655fead6d91ae89165b3
+  linux_arm64: 2dc1e4f046d0bf61b1a41fc46487e30861a77eb4a7e45c3db05845db1af7d002
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

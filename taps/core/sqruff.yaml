@@ -1,0 +1,19 @@
+name: sqruff
+version: 0.35.0
+description: Fast SQL formatter/linter
+homepage: https://github.com/quarylabs/sqruff
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqruff/blobs/sha256:ed16860c96e33fc6b2c9cad858d6986b924c316a01bfc5d1ecdaac8b5ec6b589
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqruff/blobs/sha256:05bb35786415fd019a9a97ca4303aa4d3d401a335b61fb5c7785d8baa7c4947b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqruff/blobs/sha256:0aae44016f8822a037c47efbbaa85e9c9f62444d0bc18e1af1c0daae95d36465
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqruff/blobs/sha256:b0b052176a4021cb95ce9aeb335252f2da78afd9b71968035bc39b10b073e5fa
+sha256:
+  darwin_arm64: ed16860c96e33fc6b2c9cad858d6986b924c316a01bfc5d1ecdaac8b5ec6b589
+  darwin_amd64: 05bb35786415fd019a9a97ca4303aa4d3d401a335b61fb5c7785d8baa7c4947b
+  linux_amd64: 0aae44016f8822a037c47efbbaa85e9c9f62444d0bc18e1af1c0daae95d36465
+  linux_arm64: b0b052176a4021cb95ce9aeb335252f2da78afd9b71968035bc39b10b073e5fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: keystone
+version: 0.9.2
+description: "Assembler framework: Core + bindings"
+homepage: https://www.keystone-engine.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keystone/blobs/sha256:db234233227f5659094d618cc75191413354559df733c63ed1aac7bcb9796dbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keystone/blobs/sha256:51d036d346993a190ad6e348e4188590bd9c953a440d4dcf2e044e2e3c700ebd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keystone/blobs/sha256:7bc74b3742a7af0e95d1bda251428ebd57ff0bb6062fca7ca14d54c4ea92a176
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keystone/blobs/sha256:7b6e10619b3e6bfcf7ae709db1d468690f5afd260516c982df46d1180ed414ac
+sha256:
+  darwin_arm64: db234233227f5659094d618cc75191413354559df733c63ed1aac7bcb9796dbf
+  darwin_amd64: 51d036d346993a190ad6e348e4188590bd9c953a440d4dcf2e044e2e3c700ebd
+  linux_amd64: 7bc74b3742a7af0e95d1bda251428ebd57ff0bb6062fca7ca14d54c4ea92a176
+  linux_arm64: 7b6e10619b3e6bfcf7ae709db1d468690f5afd260516c982df46d1180ed414ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

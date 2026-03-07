@@ -1,0 +1,19 @@
+name: abseil
+version: 20260107.1
+description: C++ Common Libraries
+homepage: https://abseil.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abseil/blobs/sha256:90697dc0727974c4a873ed19e63c30bc4c9525566cbd0ff968f980ce15047ae8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abseil/blobs/sha256:e26f9da379d1a093b080e00ce65f550a8c1568edc2d66eec623ec3938fe0ea5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abseil/blobs/sha256:df32cf7d435a18a293204adadceea594bc6c2889765d500d98acc7fb769671ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abseil/blobs/sha256:33017a9d85883c652d83a8df3098066e3f482ec3c07d1247461587c9761df664
+sha256:
+  darwin_arm64: 90697dc0727974c4a873ed19e63c30bc4c9525566cbd0ff968f980ce15047ae8
+  darwin_amd64: e26f9da379d1a093b080e00ce65f550a8c1568edc2d66eec623ec3938fe0ea5f
+  linux_amd64: df32cf7d435a18a293204adadceea594bc6c2889765d500d98acc7fb769671ac
+  linux_arm64: 33017a9d85883c652d83a8df3098066e3f482ec3c07d1247461587c9761df664
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

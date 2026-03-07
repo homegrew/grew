@@ -1,0 +1,11 @@
+name: git-it
+version: 4.4.0
+description: Desktop app for learning Git and GitHub
+homepage: https://github.com/jlord/git-it-electron
+url:
+  darwin_arm64: https://github.com/jlord/git-it-electron/releases/download/4.4.0/Git-it-Mac-x64.zip
+sha256:
+  darwin_arm64: b96c06bca744af94e2f035824fbd16f59673c4c454fd4bf96aa4bde965fe711d
+artifacts:
+  app:
+    - Git-it-Mac-x64/Git-it.app

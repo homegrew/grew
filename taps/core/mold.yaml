@@ -1,0 +1,23 @@
+name: mold
+version: 2.40.4
+description: Modern Linker
+homepage: https://github.com/rui314/mold
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mold/blobs/sha256:5733b66bbcb80581733ce9c5b890d920ece84dd8fbf19416ca3565f6ea6de0be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mold/blobs/sha256:d68d8c192b9d685abb2260d42ad117cc2aa0aa35ede04b6a33435e5c18af899a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mold/blobs/sha256:d0a3edd10d03ae3340bcb0e13cff3a55e2a59e0d0f4c2c6ecf7eeec41ce2e3c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mold/blobs/sha256:a0e5fe128a94e3665ae2423743f9fc0cdcf775cb21b021c1ca4379910a645eed
+sha256:
+  darwin_arm64: 5733b66bbcb80581733ce9c5b890d920ece84dd8fbf19416ca3565f6ea6de0be
+  darwin_amd64: d68d8c192b9d685abb2260d42ad117cc2aa0aa35ede04b6a33435e5c18af899a
+  linux_amd64: d0a3edd10d03ae3340bcb0e13cff3a55e2a59e0d0f4c2c6ecf7eeec41ce2e3c3
+  linux_arm64: a0e5fe128a94e3665ae2423743f9fc0cdcf775cb21b021c1ca4379910a645eed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - blake3
+  - tbb
+  - zstd

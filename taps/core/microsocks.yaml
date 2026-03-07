@@ -1,0 +1,19 @@
+name: microsocks
+version: 1.0.5
+description: Tiny, portable SOCKS5 server with very moderate resource usage
+homepage: https://github.com/rofl0r/microsocks
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/microsocks/blobs/sha256:1a897bf8b4ab23861c2fd23b129f7562da267b7cdf389e7626a42b786c3ab7c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/microsocks/blobs/sha256:fd1e474defa7ff10d8effbaae96178ab7698e53c8ab365895b46f19e9aa450d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/microsocks/blobs/sha256:da9b7567d172d896cbf1b8040de3801a26c25608259428a3d7b1a12b0bae6a4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/microsocks/blobs/sha256:f9d5c4ce96b7e33f52a23d435741c367c056a83ceb84efa8d38059dd6a4e252a
+sha256:
+  darwin_arm64: 1a897bf8b4ab23861c2fd23b129f7562da267b7cdf389e7626a42b786c3ab7c0
+  darwin_amd64: fd1e474defa7ff10d8effbaae96178ab7698e53c8ab365895b46f19e9aa450d1
+  linux_amd64: da9b7567d172d896cbf1b8040de3801a26c25608259428a3d7b1a12b0bae6a4e
+  linux_arm64: f9d5c4ce96b7e33f52a23d435741c367c056a83ceb84efa8d38059dd6a4e252a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: telegram-downloader
+version: 0.20.1
+description: Telegram Messenger downloader/tools written in Golang
+homepage: https://docs.iyear.me/tdl/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/telegram-downloader/blobs/sha256:e8339d29ba5273b92d44fc6bc5049a32983c07f2f86cae0b973ba228738d841c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/telegram-downloader/blobs/sha256:2f3897b9520bced64992a3b99333883e781398f49b66afbf198cf09d96692cb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/telegram-downloader/blobs/sha256:5343c953d5db2d4cd0e79396c59fc1e74e4bbe4782f1d75ec7c953c8754f4405
+  linux_arm64: https://ghcr.io/v2/homebrew/core/telegram-downloader/blobs/sha256:34ba9a77fcf8c49efc02a92d8b6a70c1e609cf3f02c54bdd79bb8d57faa964cb
+sha256:
+  darwin_arm64: e8339d29ba5273b92d44fc6bc5049a32983c07f2f86cae0b973ba228738d841c
+  darwin_amd64: 2f3897b9520bced64992a3b99333883e781398f49b66afbf198cf09d96692cb1
+  linux_amd64: 5343c953d5db2d4cd0e79396c59fc1e74e4bbe4782f1d75ec7c953c8754f4405
+  linux_arm64: 34ba9a77fcf8c49efc02a92d8b6a70c1e609cf3f02c54bdd79bb8d57faa964cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sdns
+version: 1.6.1
+description: Privacy important, fast, recursive dns resolver server with dnssec support
+homepage: https://sdns.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdns/blobs/sha256:bf922789a11b285d105a4336f11057654f91b1770b5cfe7c963abbdd7c0bf304
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdns/blobs/sha256:549b928df80acc8c457706f5437fd43192d8efe20948c971e9057231a27c1539
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdns/blobs/sha256:8ef3c077c3a3ad44941049282a7190e4818896b7fcc8485c82264aba08f1b432
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdns/blobs/sha256:39b7338d089d0f02217b80e24d40df74b216eb9fa23a15272ca6d38d5158aed6
+sha256:
+  darwin_arm64: bf922789a11b285d105a4336f11057654f91b1770b5cfe7c963abbdd7c0bf304
+  darwin_amd64: 549b928df80acc8c457706f5437fd43192d8efe20948c971e9057231a27c1539
+  linux_amd64: 8ef3c077c3a3ad44941049282a7190e4818896b7fcc8485c82264aba08f1b432
+  linux_arm64: 39b7338d089d0f02217b80e24d40df74b216eb9fa23a15272ca6d38d5158aed6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

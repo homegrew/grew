@@ -1,0 +1,22 @@
+name: dafny
+version: 4.11.0
+description: Verification-aware programming language
+homepage: https://github.com/dafny-lang/dafny/blob/master/README.md
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dafny/blobs/sha256:8e05c17dd373fc4990bfdbb912d8fa47eb1981a5fd34ec150283f53eddaa0c9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dafny/blobs/sha256:531c8d8608f45143c240ebcdb7c7bc92a47cf23d20b972f9d0d435318198a569
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dafny/blobs/sha256:af77022b146755d7d3504323a153d62fd2d234fd23b831884555d1d6a037e16f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dafny/blobs/sha256:61c5799971f66478103d85b42562172496531a3aa2e8e8566befc75079bb7154
+sha256:
+  darwin_arm64: 8e05c17dd373fc4990bfdbb912d8fa47eb1981a5fd34ec150283f53eddaa0c9e
+  darwin_amd64: 531c8d8608f45143c240ebcdb7c7bc92a47cf23d20b972f9d0d435318198a569
+  linux_amd64: af77022b146755d7d3504323a153d62fd2d234fd23b831884555d1d6a037e16f
+  linux_arm64: 61c5799971f66478103d85b42562172496531a3aa2e8e8566befc75079bb7154
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@8
+  - z3

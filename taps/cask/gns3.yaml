@@ -1,0 +1,11 @@
+name: gns3
+version: 3.0.6
+description: GUI for the Dynamips Cisco router emulator
+homepage: https://www.gns3.com/
+url:
+  darwin_arm64: https://github.com/GNS3/gns3-gui/releases/download/v3.0.6/GNS3-3.0.6.dmg
+sha256:
+  darwin_arm64: 0b557edb15127ac942f422ff9bff57640bb7c10e4c0e1db331653a2a05dd12ea
+artifacts:
+  app:
+    - GNS3.app

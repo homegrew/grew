@@ -1,0 +1,19 @@
+name: j
+version: 9.6.3
+description: Programming language for mathematical, statistical and logical analysis of data
+homepage: https://www.jsoftware.com/
+url:
+  darwin_arm64: https://www.jsoftware.com/download/j9.6/install/j9.6.3_mac64.zip
+sha256:
+  darwin_arm64: 4a39e4f3f90382c04387bf46bcc7c2331461368dd08cc40cc647e05430572461
+artifacts:
+  app:
+    - j9.6/jbrk.app
+    - j9.6/jqt.app
+    - j9.6/jcon.app
+  bin:
+    - jconsole
+    - jcon
+    - jbrk
+    - jhs
+    - jqt

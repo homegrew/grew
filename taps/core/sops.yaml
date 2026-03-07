@@ -1,0 +1,19 @@
+name: sops
+version: 3.12.1
+description: Editor of encrypted files
+homepage: https://getsops.io/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sops/blobs/sha256:a5237fb710b59b9b31e4d174b4fc03b6dc0a0f8fc5af1a7e6c957b6d0f28814b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sops/blobs/sha256:2a9e45fbfd096881a7a236b3562d4c863e0f7460dde8263d9ce5a16840310943
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sops/blobs/sha256:8c62e7d3201d9c9b54031fd4a0085a8cb422201f669b2686f93341374b5a950f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sops/blobs/sha256:5b3e9d1e1897116dfd75698674f9c313914ddc573371e9437a62608fa7dba120
+sha256:
+  darwin_arm64: a5237fb710b59b9b31e4d174b4fc03b6dc0a0f8fc5af1a7e6c957b6d0f28814b
+  darwin_amd64: 2a9e45fbfd096881a7a236b3562d4c863e0f7460dde8263d9ce5a16840310943
+  linux_amd64: 8c62e7d3201d9c9b54031fd4a0085a8cb422201f669b2686f93341374b5a950f
+  linux_arm64: 5b3e9d1e1897116dfd75698674f9c313914ddc573371e9437a62608fa7dba120
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

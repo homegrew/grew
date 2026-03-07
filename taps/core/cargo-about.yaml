@@ -1,0 +1,19 @@
+name: cargo-about
+version: 0.8.4
+description: Cargo plugin to generate list of all licenses for a crate
+homepage: https://github.com/EmbarkStudios/cargo-about
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-about/blobs/sha256:98e117bc49a0b0136e1912a2869208cc6cf10c09dd00d167bc059f5eca47fdfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-about/blobs/sha256:f23c95ee75095b2215aa9fb5b7c0e36da553ca2fa3777a976a40970c7bf691ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-about/blobs/sha256:ae9ab1ded1a289b0a63393feb59d98d71b7804f82bac0d660242b684a7bf7907
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-about/blobs/sha256:cdf084e7ac1d3c70c6abd688c9e827b3bc2501af8c86caa7198e61cdd9a56af0
+sha256:
+  darwin_arm64: 98e117bc49a0b0136e1912a2869208cc6cf10c09dd00d167bc059f5eca47fdfb
+  darwin_amd64: f23c95ee75095b2215aa9fb5b7c0e36da553ca2fa3777a976a40970c7bf691ae
+  linux_amd64: ae9ab1ded1a289b0a63393feb59d98d71b7804f82bac0d660242b684a7bf7907
+  linux_arm64: cdf084e7ac1d3c70c6abd688c9e827b3bc2501af8c86caa7198e61cdd9a56af0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

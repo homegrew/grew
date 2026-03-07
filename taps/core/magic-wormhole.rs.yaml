@@ -1,0 +1,19 @@
+name: magic-wormhole.rs
+version: 0.7.6
+description: Rust implementation of Magic Wormhole, with new features and enhancements
+homepage: https://github.com/magic-wormhole/magic-wormhole.rs
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/magic-wormhole.rs/blobs/sha256:39364a5af652c25322b8a54c683a2e79be6d37899841f8e233094bb3b529e874
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/magic-wormhole.rs/blobs/sha256:d314198a3901d447399ad6ebd117abfec4ab8cd0f54baf6b5b3e9abcfff9175e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/magic-wormhole.rs/blobs/sha256:1e782d1de02d84ac02c48447eaa78fca5a60b23d3131d3f661683f2ce41ec734
+  linux_arm64: https://ghcr.io/v2/homebrew/core/magic-wormhole.rs/blobs/sha256:a29c5e0d8c9519a3d2ac5e19c27bcdd43cf9541f95a30c9610f71ccdd2fe586f
+sha256:
+  darwin_arm64: 39364a5af652c25322b8a54c683a2e79be6d37899841f8e233094bb3b529e874
+  darwin_amd64: d314198a3901d447399ad6ebd117abfec4ab8cd0f54baf6b5b3e9abcfff9175e
+  linux_amd64: 1e782d1de02d84ac02c48447eaa78fca5a60b23d3131d3f661683f2ce41ec734
+  linux_arm64: a29c5e0d8c9519a3d2ac5e19c27bcdd43cf9541f95a30c9610f71ccdd2fe586f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: libpanel
+version: 1.10.4
+description: Dock/panel library for GTK 4
+homepage: https://gitlab.gnome.org/GNOME/libpanel
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpanel/blobs/sha256:6a216b47f6d3b8df07769ae54d79e77fe2f2b0e7eb16047ff8db33a84f0cea27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpanel/blobs/sha256:ae99017a0cd281b87384b01b450f8d8249906edb252fde63a95c33a3dd7d70f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpanel/blobs/sha256:53941d0e1aa07814775b7ec7602c02bf1365af0446542537e7f14a1d3b1b354d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpanel/blobs/sha256:ba6e37513eedd02b62735e484d834426953a80542b35c59cb73aaa8a2c3c9e6a
+sha256:
+  darwin_arm64: 6a216b47f6d3b8df07769ae54d79e77fe2f2b0e7eb16047ff8db33a84f0cea27
+  darwin_amd64: ae99017a0cd281b87384b01b450f8d8249906edb252fde63a95c33a3dd7d70f9
+  linux_amd64: 53941d0e1aa07814775b7ec7602c02bf1365af0446542537e7f14a1d3b1b354d
+  linux_arm64: ba6e37513eedd02b62735e484d834426953a80542b35c59cb73aaa8a2c3c9e6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gi-docgen
+  - glib
+  - graphene
+  - gtk4
+  - libadwaita
+  - gettext

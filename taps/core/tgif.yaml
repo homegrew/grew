@@ -1,0 +1,27 @@
+name: tgif
+version: 4.2.5
+description: Xlib-based interactive 2D drawing tool
+homepage: https://sourceforge.net/projects/tgif/
+license: QPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tgif/blobs/sha256:ba92789379368bb14652f941fc7381ef677fc5bd0b6dea2232d9b85dd4df22b4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tgif/blobs/sha256:c79d27017a0486db3a1692e69327ef73776236a97d2bf60d4538f9e8499ef969
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tgif/blobs/sha256:212c0490a0803881d8206c697ec41e7b11b9da6cf564c97d5915df75f2430e2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tgif/blobs/sha256:1ee763ee877d11815044afc3074b8fc732034e1cfd21f0df361463099cc485a9
+sha256:
+  darwin_arm64: ba92789379368bb14652f941fc7381ef677fc5bd0b6dea2232d9b85dd4df22b4
+  darwin_amd64: c79d27017a0486db3a1692e69327ef73776236a97d2bf60d4538f9e8499ef969
+  linux_amd64: 212c0490a0803881d8206c697ec41e7b11b9da6cf564c97d5915df75f2430e2e
+  linux_arm64: 1ee763ee877d11815044afc3074b8fc732034e1cfd21f0df361463099cc485a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libice
+  - libidn
+  - libsm
+  - libx11
+  - libxext
+  - libxmu
+  - libxt

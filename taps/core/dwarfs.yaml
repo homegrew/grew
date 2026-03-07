@@ -1,0 +1,40 @@
+name: dwarfs
+version: 0.14.1
+description: Fast high compression read-only file system for Linux, Windows, and macOS
+homepage: https://github.com/mhx/dwarfs
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dwarfs/blobs/sha256:6ca40d057c2756095abe58a4070780788eb036e4a5992b7ce6f7a4c3cd32014b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dwarfs/blobs/sha256:6a0f9ddf890a22d1db9b164c365c468ab27def793edc99d4c7a029524eddadc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dwarfs/blobs/sha256:8fbda565e1e410986963686d44c24e0736e96c4f32e2b40601abf0b26ca2f24d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dwarfs/blobs/sha256:8e64760457c3691501128512b9fee94a30779d6d63e31abb6b093c9d4df559f6
+sha256:
+  darwin_arm64: 6ca40d057c2756095abe58a4070780788eb036e4a5992b7ce6f7a4c3cd32014b
+  darwin_amd64: 6a0f9ddf890a22d1db9b164c365c468ab27def793edc99d4c7a029524eddadc1
+  linux_amd64: 8fbda565e1e410986963686d44c24e0736e96c4f32e2b40601abf0b26ca2f24d
+  linux_arm64: 8e64760457c3691501128512b9fee94a30779d6d63e31abb6b093c9d4df559f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - brotli
+  - double-conversion
+  - flac
+  - fmt
+  - gflags
+  - glog
+  - howard-hinnant-date
+  - libarchive
+  - libevent
+  - libsodium
+  - lz4
+  - nlohmann-json
+  - openssl@3
+  - parallel-hashmap
+  - range-v3
+  - utf8cpp
+  - xxhash
+  - xz
+  - zstd

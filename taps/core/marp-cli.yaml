@@ -1,0 +1,21 @@
+name: marp-cli
+version: 4.2.3
+description: Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
+homepage: https://github.com/marp-team/marp-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/marp-cli/blobs/sha256:7e9ceb263b61d6f55746ab7c5ab6f4e12ce5bb749a618b17912e49ae7315e417
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/marp-cli/blobs/sha256:b62c5e31eff56dae8f99b73947a2d343a32f321797b559d1eac71e6127776b34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/marp-cli/blobs/sha256:6ea40b743d6849ed00af718af64ce987ca7564569eb42f6fda93430ca64566db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/marp-cli/blobs/sha256:17b66788e0faf313b438502fd14fa066c6c589073c7c2f4df78b3556b2cc7869
+sha256:
+  darwin_arm64: 7e9ceb263b61d6f55746ab7c5ab6f4e12ce5bb749a618b17912e49ae7315e417
+  darwin_amd64: b62c5e31eff56dae8f99b73947a2d343a32f321797b559d1eac71e6127776b34
+  linux_amd64: 6ea40b743d6849ed00af718af64ce987ca7564569eb42f6fda93430ca64566db
+  linux_arm64: 17b66788e0faf313b438502fd14fa066c6c589073c7c2f4df78b3556b2cc7869
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node@24

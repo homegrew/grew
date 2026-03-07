@@ -1,0 +1,21 @@
+name: zboy
+version: 0.71
+description: GameBoy emulator
+homepage: https://zboy.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zboy/blobs/sha256:6a88b48f0f07f47bea0da0a31aee45ba535c2f9afc3a612a859c68b322db3e0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zboy/blobs/sha256:e0b8bbd2f090406aa2c67b4b3dd1ade28c8007f1b5b96552134e534d50652e37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zboy/blobs/sha256:e2baaf6491fe70279c22f669b2a64bd5467506ea9be7aa86807a06519f0b9311
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zboy/blobs/sha256:21f25a5ddc14d43b31ce8bbceff130e74252568f856359be2e99d3179b1cee8a
+sha256:
+  darwin_arm64: 6a88b48f0f07f47bea0da0a31aee45ba535c2f9afc3a612a859c68b322db3e0d
+  darwin_amd64: e0b8bbd2f090406aa2c67b4b3dd1ade28c8007f1b5b96552134e534d50652e37
+  linux_amd64: e2baaf6491fe70279c22f669b2a64bd5467506ea9be7aa86807a06519f0b9311
+  linux_arm64: 21f25a5ddc14d43b31ce8bbceff130e74252568f856359be2e99d3179b1cee8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

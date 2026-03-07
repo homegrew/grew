@@ -1,0 +1,19 @@
+name: sqtop
+version: 2015-02-08
+description: Display information about active connections for a Squid proxy
+homepage: https://github.com/paleg/sqtop
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqtop/blobs/sha256:8850e7822e47d6a8371e31210542a776644252960fe3cfdbc3a348563d047d4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqtop/blobs/sha256:b0eaaf8009ba705393183cfe4a2d4bb0a0eab311fe5cf5e20e72058c88f4665f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqtop/blobs/sha256:4f7bd15bf5407710e19ab7c3bd414c18b163b251274d14e058208a526353a7e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqtop/blobs/sha256:02d8d356631939d3201e72c24a96353e5032ddd6abfe1613cd7ac07de0720dd7
+sha256:
+  darwin_arm64: 8850e7822e47d6a8371e31210542a776644252960fe3cfdbc3a348563d047d4d
+  darwin_amd64: b0eaaf8009ba705393183cfe4a2d4bb0a0eab311fe5cf5e20e72058c88f4665f
+  linux_amd64: 4f7bd15bf5407710e19ab7c3bd414c18b163b251274d14e058208a526353a7e0
+  linux_arm64: 02d8d356631939d3201e72c24a96353e5032ddd6abfe1613cd7ac07de0720dd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

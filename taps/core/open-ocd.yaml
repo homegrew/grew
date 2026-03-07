@@ -1,0 +1,24 @@
+name: open-ocd
+version: 0.12.0
+description: On-chip debugging, in-system programming and boundary-scan testing
+homepage: https://openocd.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-ocd/blobs/sha256:2f69ce7044f8af47279213325e0e46feae77ec451c1d0277a2619f62f4f3c370
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-ocd/blobs/sha256:e757c2d3988325ebc500d2226f2e81f56a7ff73a4e1e435487c0d14f3a5e31a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-ocd/blobs/sha256:d912d763421e62bcd0a860b392e48f0d4ceda88c3020394ed054b90ad78f4466
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-ocd/blobs/sha256:0dd5d6c05b98f949a9fdd11a83de25df223bf8848d3e070c68d4a2b0a8095d9d
+sha256:
+  darwin_arm64: 2f69ce7044f8af47279213325e0e46feae77ec451c1d0277a2619f62f4f3c370
+  darwin_amd64: e757c2d3988325ebc500d2226f2e81f56a7ff73a4e1e435487c0d14f3a5e31a3
+  linux_amd64: d912d763421e62bcd0a860b392e48f0d4ceda88c3020394ed054b90ad78f4466
+  linux_arm64: 0dd5d6c05b98f949a9fdd11a83de25df223bf8848d3e070c68d4a2b0a8095d9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone
+  - hidapi
+  - libftdi
+  - libusb

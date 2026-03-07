@@ -1,0 +1,24 @@
+name: rpl
+version: 2.0.4
+description: Text replacement utility
+homepage: https://github.com/rrthomas/rpl
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpl/blobs/sha256:b9818e66d4be4d4459dc59bba02beca0044596cf508c26ba29f7cb98f4c0ab1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpl/blobs/sha256:efd688e33dad7f7bc9de4319febb6ed07e836fd5ed8c2fe1c2ec4035c97ad852
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpl/blobs/sha256:e1ea919345b90a09395c9a0f57441c3b0a917ef1f2e7f4b1af006e66e96bce24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpl/blobs/sha256:e0049ccf0f0623607cbb7e5123b55b0699948e5a9691e222763b12450fc4cbb3
+sha256:
+  darwin_arm64: b9818e66d4be4d4459dc59bba02beca0044596cf508c26ba29f7cb98f4c0ab1e
+  darwin_amd64: efd688e33dad7f7bc9de4319febb6ed07e836fd5ed8c2fe1c2ec4035c97ad852
+  linux_amd64: e1ea919345b90a09395c9a0f57441c3b0a917ef1f2e7f4b1af006e66e96bce24
+  linux_arm64: e0049ccf0f0623607cbb7e5123b55b0699948e5a9691e222763b12450fc4cbb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - pcre2
+  - uchardet
+  - gettext

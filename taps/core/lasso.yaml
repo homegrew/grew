@@ -1,0 +1,25 @@
+name: lasso
+version: 2.9.0
+description: Library for Liberty Alliance and SAML protocols
+homepage: https://lasso.entrouvert.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lasso/blobs/sha256:4c4370dad3e210054a0f2044fa45ba21cba1eb9069c93566f346085c6090dba4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lasso/blobs/sha256:d357adc4f1e1df85e9023df25fd34dbbe5beac77619d62d5ed6a265c0fda5bcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lasso/blobs/sha256:5e09b8efe054109d88cf8712058d974bfdb361e6226fe4a2b7c684fbf5d06732
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lasso/blobs/sha256:9dec9909dba0ebad064501a11a1a52966f41ac9855b7ab4c6e46854ee2a39857
+sha256:
+  darwin_arm64: 4c4370dad3e210054a0f2044fa45ba21cba1eb9069c93566f346085c6090dba4
+  darwin_amd64: d357adc4f1e1df85e9023df25fd34dbbe5beac77619d62d5ed6a265c0fda5bcf
+  linux_amd64: 5e09b8efe054109d88cf8712058d974bfdb361e6226fe4a2b7c684fbf5d06732
+  linux_arm64: 9dec9909dba0ebad064501a11a1a52966f41ac9855b7ab4c6e46854ee2a39857
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libxml2
+  - libxmlsec1
+  - openssl@3
+  - gettext

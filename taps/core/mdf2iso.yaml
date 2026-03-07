@@ -1,0 +1,19 @@
+name: mdf2iso
+version: 0.3.1
+description: "Tool to convert MDF (Alcohol 120% images) images to ISO images"
+homepage: https://packages.debian.org/sid/mdf2iso
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdf2iso/blobs/sha256:0c648a8e13264b77de5d985cc394c4987d48b5acd55f32e8a3f1fc15a2585504
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdf2iso/blobs/sha256:a3b321e6ef2421a75ea98cae15bf983886dc0024b6f12a0be3deca4beedf954f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdf2iso/blobs/sha256:5a24e6b2c8771e9f5119bc4baa9bb8da4570df954d44782ba43e6b5c6f7e6a3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdf2iso/blobs/sha256:d4e0fcb1b65f5e0680c63e7d4dd2c481315d5879876ba4a6cd0ea1ea5d8bea4f
+sha256:
+  darwin_arm64: 0c648a8e13264b77de5d985cc394c4987d48b5acd55f32e8a3f1fc15a2585504
+  darwin_amd64: a3b321e6ef2421a75ea98cae15bf983886dc0024b6f12a0be3deca4beedf954f
+  linux_amd64: 5a24e6b2c8771e9f5119bc4baa9bb8da4570df954d44782ba43e6b5c6f7e6a3a
+  linux_arm64: d4e0fcb1b65f5e0680c63e7d4dd2c481315d5879876ba4a6cd0ea1ea5d8bea4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

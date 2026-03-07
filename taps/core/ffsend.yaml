@@ -1,0 +1,19 @@
+name: ffsend
+version: 0.2.77
+description: Fully featured Firefox Send client
+homepage: https://gitlab.com/timvisee/ffsend
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffsend/blobs/sha256:77cae62ecbbd3f434c1d50b40ac1f7fb281ea070d2afecf5751d2d1e7694735b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffsend/blobs/sha256:58610267085cd19c5445172c1f59662c58b840b6ac3bcc4da04a8598ba222f6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffsend/blobs/sha256:2800da04659f26aacbd7ca4619fa0a06762cc5ef0c652630c139881f64c5aeba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffsend/blobs/sha256:57499a24df5e2e1f1042b40d7d81fc7257af612d36e593516935d6a768a560ef
+sha256:
+  darwin_arm64: 77cae62ecbbd3f434c1d50b40ac1f7fb281ea070d2afecf5751d2d1e7694735b
+  darwin_amd64: 58610267085cd19c5445172c1f59662c58b840b6ac3bcc4da04a8598ba222f6a
+  linux_amd64: 2800da04659f26aacbd7ca4619fa0a06762cc5ef0c652630c139881f64c5aeba
+  linux_arm64: 57499a24df5e2e1f1042b40d7d81fc7257af612d36e593516935d6a768a560ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

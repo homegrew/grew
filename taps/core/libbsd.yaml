@@ -1,0 +1,19 @@
+name: libbsd
+version: 0.12.2
+description: Utility functions from BSD systems
+homepage: https://libbsd.freedesktop.org/
+license: BSD-3-Clause AND BSD-2-Clause AND Beerware AND ISC AND libutil-David-Nugent AND MIT AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbsd/blobs/sha256:c7f96d1094ff2cc9da0513b16d0b0367baf7181648c7b95c18e038283cd76e0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbsd/blobs/sha256:75da4f4a420c5f2bf1d05a57bd1709768b135c2a9d7b464e788ee07360e58546
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbsd/blobs/sha256:d82953bbd9f2e841648eb4a768da6d598d2b023d1976056e67245295dc84adf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbsd/blobs/sha256:9fc7e073b4e59abb66635d251ee2b38613647c439adaae8ab3e3a414cfc55107
+sha256:
+  darwin_arm64: c7f96d1094ff2cc9da0513b16d0b0367baf7181648c7b95c18e038283cd76e0d
+  darwin_amd64: 75da4f4a420c5f2bf1d05a57bd1709768b135c2a9d7b464e788ee07360e58546
+  linux_amd64: d82953bbd9f2e841648eb4a768da6d598d2b023d1976056e67245295dc84adf9
+  linux_arm64: 9fc7e073b4e59abb66635d251ee2b38613647c439adaae8ab3e3a414cfc55107
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

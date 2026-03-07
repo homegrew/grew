@@ -1,0 +1,22 @@
+name: pyqt@5
+version: 5.15.11
+description: Python bindings for v5 of Qt
+homepage: https://www.riverbankcomputing.com/software/pyqt/intro
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyqt/5/blobs/sha256:d3944d21d80b85aadc871416d4072fad865a21b7d19c213bcced248534c1c1c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyqt/5/blobs/sha256:9071ce79a740aaf8fad54d9f28796bc76a1a81342a377df0c143647155f09eb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyqt/5/blobs/sha256:cba9e3e411e7161d02642f0bf4cd4254d03b180a5c108f184d45e346b9c7c123
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyqt/5/blobs/sha256:92f0b1de8c364103ad2bdca8a22f6b786960d0f3df2ca86ec981ad8908bc0f5b
+sha256:
+  darwin_arm64: d3944d21d80b85aadc871416d4072fad865a21b7d19c213bcced248534c1c1c2
+  darwin_amd64: 9071ce79a740aaf8fad54d9f28796bc76a1a81342a377df0c143647155f09eb5
+  linux_amd64: cba9e3e411e7161d02642f0bf4cd4254d03b180a5c108f184d45e346b9c7c123
+  linux_arm64: 92f0b1de8c364103ad2bdca8a22f6b786960d0f3df2ca86ec981ad8908bc0f5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - qt@5

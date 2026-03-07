@@ -1,0 +1,25 @@
+name: python-matplotlib
+version: 3.10.8
+description: Python library for creating static, animated, and interactive visualizations
+homepage: https://matplotlib.org/
+license: PSF-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-matplotlib/blobs/sha256:3fcf17aae7bce1bc0f60593d06da0262bdbe8d47ab9e052fc89d9d8529272e4b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-matplotlib/blobs/sha256:6f2a62c931e3a70c3234a2dab29b6cb72fe834cfd1c72338a30cd7d8c5c0d4f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-matplotlib/blobs/sha256:26b228caf6e0ddc4f67b283a9598982c6bbae482c6026e7012c9b579ae0e3135
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-matplotlib/blobs/sha256:cc423cb522c0dc6746a2a4aab561d56893cbde080a78e28a6333b1957d090997
+sha256:
+  darwin_arm64: 3fcf17aae7bce1bc0f60593d06da0262bdbe8d47ab9e052fc89d9d8529272e4b
+  darwin_amd64: 6f2a62c931e3a70c3234a2dab29b6cb72fe834cfd1c72338a30cd7d8c5c0d4f3
+  linux_amd64: 26b228caf6e0ddc4f67b283a9598982c6bbae482c6026e7012c9b579ae0e3135
+  linux_arm64: cc423cb522c0dc6746a2a4aab561d56893cbde080a78e28a6333b1957d090997
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - numpy
+  - pillow
+  - python@3.14
+  - qhull

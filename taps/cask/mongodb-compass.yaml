@@ -1,0 +1,11 @@
+name: mongodb-compass
+version: 1.49.2
+description: Interactive tool for analyzing MongoDB data
+homepage: https://www.mongodb.com/products/compass
+url:
+  darwin_arm64: https://downloads.mongodb.com/compass/mongodb-compass-1.49.2-darwin-arm64.dmg
+sha256:
+  darwin_arm64: 4f0c9807c87934a05c3e4ab35b07e93fbafbbb402ccf21d2de444507445885b8
+artifacts:
+  app:
+    - MongoDB Compass.app

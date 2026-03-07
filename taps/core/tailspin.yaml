@@ -1,0 +1,19 @@
+name: tailspin
+version: 5.5.0
+description: Log file highlighter
+homepage: https://github.com/bensadeh/tailspin
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tailspin/blobs/sha256:95494039cb74f12c62c4d37a73dda0cdeffd7289e8d943e3e2886edf0b9202fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tailspin/blobs/sha256:b12c37ddda9f095c000238c85caa5f97045f782fd9f573a859a1268257e1bb3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tailspin/blobs/sha256:5aca6beeb105f23fa5564d72ed192d7994351a7faa1c0e89e167472c9dadfe6c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tailspin/blobs/sha256:c9b8c4d226fe1c26a0ceab3934e20a74a252dd839c426dc26dde346336b044b6
+sha256:
+  darwin_arm64: 95494039cb74f12c62c4d37a73dda0cdeffd7289e8d943e3e2886edf0b9202fb
+  darwin_amd64: b12c37ddda9f095c000238c85caa5f97045f782fd9f573a859a1268257e1bb3b
+  linux_amd64: 5aca6beeb105f23fa5564d72ed192d7994351a7faa1c0e89e167472c9dadfe6c
+  linux_arm64: c9b8c4d226fe1c26a0ceab3934e20a74a252dd839c426dc26dde346336b044b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

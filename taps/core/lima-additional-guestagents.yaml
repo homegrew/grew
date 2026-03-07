@@ -1,0 +1,22 @@
+name: lima-additional-guestagents
+version: 2.0.3
+description: Additional guest agents for Lima
+homepage: https://lima-vm.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lima-additional-guestagents/blobs/sha256:067f8a048142239ccc91b511a7dfd848298160116d8ed469375acf8a01a1261e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lima-additional-guestagents/blobs/sha256:7541e22bfc280d9520f5326dd6775b53390f8087037d0b09e5841cfaee696c4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lima-additional-guestagents/blobs/sha256:dce0179511a3227d6ee9db567e4b3d64e7bfe4c2651920553286fe8eab81b20b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lima-additional-guestagents/blobs/sha256:73715002140b399d10dbb0dd982465913575d76ebea2db14cbccfb49ad326a32
+sha256:
+  darwin_arm64: 067f8a048142239ccc91b511a7dfd848298160116d8ed469375acf8a01a1261e
+  darwin_amd64: 7541e22bfc280d9520f5326dd6775b53390f8087037d0b09e5841cfaee696c4e
+  linux_amd64: dce0179511a3227d6ee9db567e4b3d64e7bfe4c2651920553286fe8eab81b20b
+  linux_arm64: 73715002140b399d10dbb0dd982465913575d76ebea2db14cbccfb49ad326a32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lima
+  - qemu

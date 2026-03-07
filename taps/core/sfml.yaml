@@ -1,0 +1,24 @@
+name: sfml
+version: 3.0.2
+description: Multi-media library with bindings for multiple languages
+homepage: https://www.sfml-dev.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sfml/blobs/sha256:f90a54b2514303d50f3e7ce23554246b9a4bd6765db89158da55eef3b780ce98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sfml/blobs/sha256:01fb208923654ba730e48e3fbb5ca3bf78c09838f5a9e15bd389045732e65baa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sfml/blobs/sha256:a4c2c78c094ed8eb9b9ec3a5c2d45b0cf0975edcf165ed97d58762b371fb7fe9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sfml/blobs/sha256:0cd68b13bddd404db5daa8a3a8a8ae8fd9236f59896374fb50514dea41628ecf
+sha256:
+  darwin_arm64: f90a54b2514303d50f3e7ce23554246b9a4bd6765db89158da55eef3b780ce98
+  darwin_amd64: 01fb208923654ba730e48e3fbb5ca3bf78c09838f5a9e15bd389045732e65baa
+  linux_amd64: a4c2c78c094ed8eb9b9ec3a5c2d45b0cf0975edcf165ed97d58762b371fb7fe9
+  linux_arm64: 0cd68b13bddd404db5daa8a3a8a8ae8fd9236f59896374fb50514dea41628ecf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - freetype
+  - libogg
+  - libvorbis

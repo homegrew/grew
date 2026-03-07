@@ -1,0 +1,19 @@
+name: luit
+version: 20250912
+description: Filter run between arbitrary application and UTF-8 terminal emulator
+homepage: https://invisible-island.net/luit/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luit/blobs/sha256:34fe7ef5c7484db64581c5f869a42e054a74996177ce74c93a2623dd9695d345
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luit/blobs/sha256:5a0508f2e99339bb372a134092c562a6f5bd83b2b5187cf303c31d77f6849c82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luit/blobs/sha256:32a25f291b796b14cd3885b2007fb54efc12d256ba1e44705986bbcae7a5708c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luit/blobs/sha256:81f95c06decc5fba417ef18968914855efd095abbbb57a71e999fa9ff91d10b5
+sha256:
+  darwin_arm64: 34fe7ef5c7484db64581c5f869a42e054a74996177ce74c93a2623dd9695d345
+  darwin_amd64: 5a0508f2e99339bb372a134092c562a6f5bd83b2b5187cf303c31d77f6849c82
+  linux_amd64: 32a25f291b796b14cd3885b2007fb54efc12d256ba1e44705986bbcae7a5708c
+  linux_arm64: 81f95c06decc5fba417ef18968914855efd095abbbb57a71e999fa9ff91d10b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

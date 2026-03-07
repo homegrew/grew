@@ -1,0 +1,11 @@
+name: vysor
+version: 5.0.7
+description: Mirror and control your phone
+homepage: https://www.vysor.io/
+url:
+  darwin_arm64: https://github.com/koush/vysor.io/releases/download/v5.0.7/Vysor-mac-5.0.7.zip
+sha256:
+  darwin_arm64: b3db71a61e6b46df7242038335b0ff6be961fcfd3e31250fda0488236bcadd6f
+artifacts:
+  app:
+    - Vysor.app

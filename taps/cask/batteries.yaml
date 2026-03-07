@@ -1,0 +1,11 @@
+name: batteries
+version: 3.0.0
+description: "Track all your devices' batteries"
+homepage: https://www.fadel.io/batteries/
+url:
+  darwin_arm64: https://github.com/ronyfadel/BatteriesReleases/releases/download/v3.0.0/Batteries.dmg
+sha256:
+  darwin_arm64: e6b0c797f9fe6c804b2d058563e47c02206c65eee5ae74f21166b8f105612f74
+artifacts:
+  app:
+    - Batteries.app

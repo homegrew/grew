@@ -1,0 +1,33 @@
+name: mikutter
+version: 5.1.1
+description: Extensible Twitter client
+homepage: https://mikutter.hachune.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mikutter/blobs/sha256:e322500fe59264b6d359eb84689553329d2bd6eb256fe2a50299bf820a8a6e5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mikutter/blobs/sha256:3e85adaf09e0ee1c33ebdf2865b96a0f1763ebfcdca90cc3138e5596c0c404d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mikutter/blobs/sha256:2b74497a2473777e1c3ad642e346afe6117e41cb1a3695987b48051085968f17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mikutter/blobs/sha256:2707a48772a913e137c39e9e4927b718685bcaec5e13033f26caad85901d7c83
+sha256:
+  darwin_arm64: e322500fe59264b6d359eb84689553329d2bd6eb256fe2a50299bf820a8a6e5b
+  darwin_amd64: 3e85adaf09e0ee1c33ebdf2865b96a0f1763ebfcdca90cc3138e5596c0c404d7
+  linux_amd64: 2b74497a2473777e1c3ad642e346afe6117e41cb1a3695987b48051085968f17
+  linux_arm64: 2707a48772a913e137c39e9e4927b718685bcaec5e13033f26caad85901d7c83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - fontconfig
+  - freetype
+  - gdk-pixbuf
+  - glib
+  - gobject-introspection
+  - gtk+3
+  - harfbuzz
+  - pango
+  - ruby
+  - gettext
+  - terminal-notifier

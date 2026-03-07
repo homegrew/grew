@@ -1,0 +1,19 @@
+name: auditbeat
+version: 9.3.1
+description: Lightweight Shipper for Audit Data
+homepage: https://www.elastic.co/beats/auditbeat
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/auditbeat/blobs/sha256:ce1e93b91f8895acc15e76ec72fbfff4f27e82082a2e5d2a1fede4258d852a34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/auditbeat/blobs/sha256:538281cd2bb5440b164a32c6663af8c1baad69959d4a45ca365719c2b3bb3a42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/auditbeat/blobs/sha256:404e3f412384a8c5908f4b715ea371e01a290ad1eea21a9591447a30edb1dc39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/auditbeat/blobs/sha256:96ca8c568eab8e1847e2d01f62e2eb017303c97644d78d322eca3b6967d828b9
+sha256:
+  darwin_arm64: ce1e93b91f8895acc15e76ec72fbfff4f27e82082a2e5d2a1fede4258d852a34
+  darwin_amd64: 538281cd2bb5440b164a32c6663af8c1baad69959d4a45ca365719c2b3bb3a42
+  linux_amd64: 404e3f412384a8c5908f4b715ea371e01a290ad1eea21a9591447a30edb1dc39
+  linux_arm64: 96ca8c568eab8e1847e2d01f62e2eb017303c97644d78d322eca3b6967d828b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

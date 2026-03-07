@@ -1,0 +1,22 @@
+name: vcdimager
+version: 2.0.1
+description: (Super) video CD authoring solution
+homepage: https://www.gnu.org/software/vcdimager/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vcdimager/blobs/sha256:4fc5cf3e045233757dcf29a78fb731148d3c5ce9692df7825024b0b3ae66619e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vcdimager/blobs/sha256:ead756089657c553a3d6e6f0fe321aa4075743698b15525101fcd6196bd1584f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vcdimager/blobs/sha256:0352ab14296e214d729962fb5c50eb822c7abcacede083e5107c273a908fbaee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vcdimager/blobs/sha256:8ea9d3fa898a61767152f2a7fbdddc2375a42a10b24b7c38542d509d760bc7a7
+sha256:
+  darwin_arm64: 4fc5cf3e045233757dcf29a78fb731148d3c5ce9692df7825024b0b3ae66619e
+  darwin_amd64: ead756089657c553a3d6e6f0fe321aa4075743698b15525101fcd6196bd1584f
+  linux_amd64: 0352ab14296e214d729962fb5c50eb822c7abcacede083e5107c273a908fbaee
+  linux_arm64: 8ea9d3fa898a61767152f2a7fbdddc2375a42a10b24b7c38542d509d760bc7a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcdio
+  - popt

@@ -1,0 +1,21 @@
+name: xcb-util
+version: 0.4.1
+description: Additional extensions to the XCB library
+homepage: https://xcb.freedesktop.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcb-util/blobs/sha256:325a22ce66ff9fd565932b080bdb02e5bdbafd6240e5664fb8a22c1ee87b29ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcb-util/blobs/sha256:d51d1ab192eeb49eb7a333fdf1b34b20a5f35059b0436d2d664683a732ae3776
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcb-util/blobs/sha256:2808f955e6ac8cb3d1262e4a01b589c5148b125eec6c57a6ccf02902cf01b182
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcb-util/blobs/sha256:e9f845b0c76c96c28ae201d82574694cd56ce41f3b4244a4ca6cb369b5c43d06
+sha256:
+  darwin_arm64: 325a22ce66ff9fd565932b080bdb02e5bdbafd6240e5664fb8a22c1ee87b29ff
+  darwin_amd64: d51d1ab192eeb49eb7a333fdf1b34b20a5f35059b0436d2d664683a732ae3776
+  linux_amd64: 2808f955e6ac8cb3d1262e4a01b589c5148b125eec6c57a6ccf02902cf01b182
+  linux_arm64: e9f845b0c76c96c28ae201d82574694cd56ce41f3b4244a4ca6cb369b5c43d06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb

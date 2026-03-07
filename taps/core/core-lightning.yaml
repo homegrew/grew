@@ -1,0 +1,22 @@
+name: core-lightning
+version: 25.09.3
+description: Lightning Network implementation focusing on spec compliance and performance
+homepage: https://github.com/ElementsProject/lightning
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/core-lightning/blobs/sha256:413d64741f471efb89d9ebe501c850392dccbc957e1a4056d3d4b0a3dc164ec4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/core-lightning/blobs/sha256:0cb2e696030b3c28ae9322dcc626190beb150506533cded15e03e081b9aa2745
+  linux_amd64: https://ghcr.io/v2/homebrew/core/core-lightning/blobs/sha256:4468958e1d22bc0546b582961665ff5beb0ae84dc01ecee317566e0c88a4a2f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/core-lightning/blobs/sha256:94699dd32738861f7200ad7dae15a81064871016c12b4acbe7c9bdaeeab934b6
+sha256:
+  darwin_arm64: 413d64741f471efb89d9ebe501c850392dccbc957e1a4056d3d4b0a3dc164ec4
+  darwin_amd64: 0cb2e696030b3c28ae9322dcc626190beb150506533cded15e03e081b9aa2745
+  linux_amd64: 4468958e1d22bc0546b582961665ff5beb0ae84dc01ecee317566e0c88a4a2f9
+  linux_arm64: 94699dd32738861f7200ad7dae15a81064871016c12b4acbe7c9bdaeeab934b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bitcoin
+  - libsodium

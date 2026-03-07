@@ -1,0 +1,11 @@
+name: sauce-connect
+version: 5.5.0
+description: Proxy server to securely connect to the Sauce Labs automated testing platform
+homepage: https://docs.saucelabs.com/secure-connections/sauce-connect-5/
+url:
+  darwin_arm64: https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.5.0_darwin.all.zip
+sha256:
+  darwin_arm64: 2bb83c08a28be4f60307c6b9806a09d4eafe90ec0bcedf61af2da41541ce13a0
+artifacts:
+  bin:
+    - sc

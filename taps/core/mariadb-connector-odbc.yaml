@@ -1,0 +1,23 @@
+name: mariadb-connector-odbc
+version: 3.2.8
+description: Database driver using the industry standard ODBC API
+homepage: https://mariadb.org/download/?tab=connector&prod=connector-odbc
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mariadb-connector-odbc/blobs/sha256:6503f5e12ba9a93fe77b5e3c3531da76a86250f87fb4213334e16cdfca4c9198
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mariadb-connector-odbc/blobs/sha256:e34194f7649b50234942d6b531a73720d2a1d4b61895dc5856f9bf6f70c27313
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mariadb-connector-odbc/blobs/sha256:0a136c005bebcf4467b18b05958444557bb152c016a3d74fd4e2d60b00cc331f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mariadb-connector-odbc/blobs/sha256:3c4da9595f5dd992339dd64d9edc7c017dbb59e880cf315385fc6d4471ee2468
+sha256:
+  darwin_arm64: 6503f5e12ba9a93fe77b5e3c3531da76a86250f87fb4213334e16cdfca4c9198
+  darwin_amd64: e34194f7649b50234942d6b531a73720d2a1d4b61895dc5856f9bf6f70c27313
+  linux_amd64: 0a136c005bebcf4467b18b05958444557bb152c016a3d74fd4e2d60b00cc331f
+  linux_arm64: 3c4da9595f5dd992339dd64d9edc7c017dbb59e880cf315385fc6d4471ee2468
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mariadb-connector-c
+  - openssl@3
+  - unixodbc

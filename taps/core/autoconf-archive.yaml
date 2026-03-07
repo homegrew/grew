@@ -1,0 +1,21 @@
+name: autoconf-archive
+version: 2024.10.16
+description: Collection of over 500 reusable autoconf macros
+homepage: https://savannah.gnu.org/projects/autoconf-archive/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autoconf-archive/blobs/sha256:75991b9174b35f768e55c113e3cca5f1b88939590ea865b4072426230fdef4ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autoconf-archive/blobs/sha256:ffb73dbda72f41e7b21402df83c9b72f2570e37a8cdad47d0a90768aa5b5d2a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autoconf-archive/blobs/sha256:1ce036c58366f08d63911e57d2bf5db88d008ac6fce194f8e8a41a073e92a1a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autoconf-archive/blobs/sha256:8185cedad20ff9606d383493e300a38f608a408b677490b7192ad698b3b02ba7
+sha256:
+  darwin_arm64: 75991b9174b35f768e55c113e3cca5f1b88939590ea865b4072426230fdef4ae
+  darwin_amd64: ffb73dbda72f41e7b21402df83c9b72f2570e37a8cdad47d0a90768aa5b5d2a3
+  linux_amd64: 1ce036c58366f08d63911e57d2bf5db88d008ac6fce194f8e8a41a073e92a1a8
+  linux_arm64: 8185cedad20ff9606d383493e300a38f608a408b677490b7192ad698b3b02ba7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - autoconf

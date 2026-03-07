@@ -1,0 +1,19 @@
+name: gollama
+version: 2.0.4
+description: Go manage your Ollama models
+homepage: https://smcleod.net
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gollama/blobs/sha256:d66391783a4c840bd993e3ac94f801da743950ff88eae5ef924696fb6d0548fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gollama/blobs/sha256:33bc660c2c335927d214b5375c83625b16ebe33e27f295bec16e0c2059926d71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gollama/blobs/sha256:4f1f1d18dd85dd323dff7fce82347df8e3dd890bfabbe6f73aede42838b6106c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gollama/blobs/sha256:0bbd9909240697985a1e988c0ca38b6f7eb179c7b6cf0e4264b822cbd923b6d8
+sha256:
+  darwin_arm64: d66391783a4c840bd993e3ac94f801da743950ff88eae5ef924696fb6d0548fc
+  darwin_amd64: 33bc660c2c335927d214b5375c83625b16ebe33e27f295bec16e0c2059926d71
+  linux_amd64: 4f1f1d18dd85dd323dff7fce82347df8e3dd890bfabbe6f73aede42838b6106c
+  linux_arm64: 0bbd9909240697985a1e988c0ca38b6f7eb179c7b6cf0e4264b822cbd923b6d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

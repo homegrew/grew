@@ -1,0 +1,19 @@
+name: kubeconform
+version: 0.7.0
+description: "FAST Kubernetes manifests validator, with support for Custom Resources!"
+homepage: https://github.com/yannh/kubeconform
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubeconform/blobs/sha256:9fc0bd5fff9f4711f940b5e715bbd3a29bc6b95af8b03f93593c45cf35eb2e90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubeconform/blobs/sha256:c4a2a5d5b68ca69d05ce2ead6c5e67e282c4a25bd31bee697ff0d8356ad38324
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubeconform/blobs/sha256:2b430e93e88f9c3182f8e7a7c511c220e3e469564b4413d600815fc72d336bdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubeconform/blobs/sha256:be5bff53c729946857a4eeb647d3ec19ea7d40ef99365c3995dda6ac19e66034
+sha256:
+  darwin_arm64: 9fc0bd5fff9f4711f940b5e715bbd3a29bc6b95af8b03f93593c45cf35eb2e90
+  darwin_amd64: c4a2a5d5b68ca69d05ce2ead6c5e67e282c4a25bd31bee697ff0d8356ad38324
+  linux_amd64: 2b430e93e88f9c3182f8e7a7c511c220e3e469564b4413d600815fc72d336bdb
+  linux_arm64: be5bff53c729946857a4eeb647d3ec19ea7d40ef99365c3995dda6ac19e66034
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

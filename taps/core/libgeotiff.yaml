@@ -1,0 +1,23 @@
+name: libgeotiff
+version: 1.7.4
+description: Library and tools for dealing with GeoTIFF
+homepage: https://github.com/OSGeo/libgeotiff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgeotiff/blobs/sha256:f4845032ded85e98d5076c95ca25441cd055d761c691a033f90e6fa5d3accfbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgeotiff/blobs/sha256:d6537ddbe3f8af5599681df8bd75b1ab3e92a49693f777a50ac527aa15b56e50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgeotiff/blobs/sha256:2ee650205449595ed8207f93c753bbeb77b1669d00a7f8f9bad9ddf9442840c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgeotiff/blobs/sha256:d29727b80535b2ca64f493348e0e8fcbfe704eb1f34e542c3a5a14b6c791f85f
+sha256:
+  darwin_arm64: f4845032ded85e98d5076c95ca25441cd055d761c691a033f90e6fa5d3accfbc
+  darwin_amd64: d6537ddbe3f8af5599681df8bd75b1ab3e92a49693f777a50ac527aa15b56e50
+  linux_amd64: 2ee650205449595ed8207f93c753bbeb77b1669d00a7f8f9bad9ddf9442840c6
+  linux_arm64: d29727b80535b2ca64f493348e0e8fcbfe704eb1f34e542c3a5a14b6c791f85f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libtiff
+  - proj

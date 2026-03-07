@@ -1,0 +1,11 @@
+name: macpass
+version: 0.8.1
+description: Open-source, KeePass-client and password manager
+homepage: https://macpass.github.io/
+url:
+  darwin_arm64: https://github.com/MacPass/MacPass/releases/download/0.8.1/MacPass-0.8.1.zip
+sha256:
+  darwin_arm64: 2d0d3bdc945b42c0c1fe79b1eb74e5969b5f768ffc56aa286d73d3492873b173
+artifacts:
+  app:
+    - MacPass.app

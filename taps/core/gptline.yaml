@@ -1,0 +1,31 @@
+name: gptline
+version: 1.0.8
+description: ChatGPT client with native iTerm2 support
+homepage: https://github.com/gnachman/gptline
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gptline/blobs/sha256:3b68546847da50b9cece4ddc6d89203926bff1815c1192bcc34b56286ac9835a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gptline/blobs/sha256:2462048f5ac6f6b4f51a46c996f693f48fa1a05183a2d847658f47cf80b30f57
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gptline/blobs/sha256:b9858d23587a9ea0dd2033d3ea7433e8e7eb99537851175f2883375aa6ed123e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gptline/blobs/sha256:a4cc843c66b7e36e99927aaadcef9ccc6c5decec168b312a1085704e52ebee57
+sha256:
+  darwin_arm64: 3b68546847da50b9cece4ddc6d89203926bff1815c1192bcc34b56286ac9835a
+  darwin_amd64: 2462048f5ac6f6b4f51a46c996f693f48fa1a05183a2d847658f47cf80b30f57
+  linux_amd64: b9858d23587a9ea0dd2033d3ea7433e8e7eb99537851175f2883375aa6ed123e
+  linux_arm64: a4cc843c66b7e36e99927aaadcef9ccc6c5decec168b312a1085704e52ebee57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - freetype
+  - jpeg-turbo
+  - libraqm
+  - libtiff
+  - libyaml
+  - little-cms2
+  - pillow
+  - pydantic
+  - python@3.14
+  - webp

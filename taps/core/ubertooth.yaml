@@ -1,0 +1,22 @@
+name: ubertooth
+version: 2020-12-R1
+description: Host tools for Project Ubertooth
+homepage: https://greatscottgadgets.com/ubertoothone/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ubertooth/blobs/sha256:7013ad79a01ca1cf9d46d00110bc15a9610de9a2bf80a7951244ab2cfdf1adb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ubertooth/blobs/sha256:50f74c97eecde210eeb23a86df867e4824034605544048ae9e39f0e9bfd2d532
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ubertooth/blobs/sha256:2cd546fd818a705d9da6c089bf001471ca9d46b03fd6241a2528f0da22c71b9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ubertooth/blobs/sha256:452dcee2cfe766cd5b230dd29fa5c8e2691c15f0d9850e64afe45cdda1cf43d9
+sha256:
+  darwin_arm64: 7013ad79a01ca1cf9d46d00110bc15a9610de9a2bf80a7951244ab2cfdf1adb7
+  darwin_amd64: 50f74c97eecde210eeb23a86df867e4824034605544048ae9e39f0e9bfd2d532
+  linux_amd64: 2cd546fd818a705d9da6c089bf001471ca9d46b03fd6241a2528f0da22c71b9c
+  linux_arm64: 452dcee2cfe766cd5b230dd29fa5c8e2691c15f0d9850e64afe45cdda1cf43d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libbtbb
+  - libusb

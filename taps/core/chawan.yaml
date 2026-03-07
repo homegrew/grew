@@ -1,0 +1,23 @@
+name: chawan
+version: 0.3.3
+description: TUI web browser with CSS, inline image and JavaScript support
+homepage: https://sr.ht/~bptato/chawan/
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chawan/blobs/sha256:90360e8b7da49b4271a5b0e6cfc783fa0c74828cc9f13192642f2814b173e187
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chawan/blobs/sha256:d74463206c96e4fed9e95878d3cde9a748a181c40b526a608a747218cbb0e129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chawan/blobs/sha256:f746919e0b1b5957d148061e859fc8267fd700b0c989b8d719ac23f20ca7b26f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chawan/blobs/sha256:0034327f3c9aa289cb2bcb96df0aea048f5b32ffc3e4c87ce5cbffdda2dffd89
+sha256:
+  darwin_arm64: 90360e8b7da49b4271a5b0e6cfc783fa0c74828cc9f13192642f2814b173e187
+  darwin_amd64: d74463206c96e4fed9e95878d3cde9a748a181c40b526a608a747218cbb0e129
+  linux_amd64: f746919e0b1b5957d148061e859fc8267fd700b0c989b8d719ac23f20ca7b26f
+  linux_arm64: 0034327f3c9aa289cb2bcb96df0aea048f5b32ffc3e4c87ce5cbffdda2dffd89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - libssh2
+  - openssl@3

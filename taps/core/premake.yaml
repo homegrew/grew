@@ -1,0 +1,19 @@
+name: premake
+version: 5.0.0-beta8
+description: Write once, build anywhere Lua-based build system
+homepage: https://premake.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/premake/blobs/sha256:8208d6a888a07776ef2783f9922722bd447d0c0a670d6589b6c4d8f59b3cead3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/premake/blobs/sha256:9aa1523add5b5ea2bfd9fbf80baa237a41e120bbd38a625507281afbbe52795e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/premake/blobs/sha256:01caf266ed92e54b10c818c032ef8546def23020d74c784133bf3f713be683ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/premake/blobs/sha256:b35d7adbc0ef9d17faeb7838b5a00b53889708a3705b833ada04288049db1b1b
+sha256:
+  darwin_arm64: 8208d6a888a07776ef2783f9922722bd447d0c0a670d6589b6c4d8f59b3cead3
+  darwin_amd64: 9aa1523add5b5ea2bfd9fbf80baa237a41e120bbd38a625507281afbbe52795e
+  linux_amd64: 01caf266ed92e54b10c818c032ef8546def23020d74c784133bf3f713be683ba
+  linux_arm64: b35d7adbc0ef9d17faeb7838b5a00b53889708a3705b833ada04288049db1b1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

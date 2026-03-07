@@ -1,0 +1,19 @@
+name: tex-fmt
+version: 0.5.6
+description: Extremely fast LaTeX formatter written in Rust
+homepage: https://wgunderwood.github.io/tex-fmt/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tex-fmt/blobs/sha256:308e7c17a6e05131ff3e483eee3845fa7287c5b41c20b45d2832b7ee75763ed2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tex-fmt/blobs/sha256:93713998c6d2477d3981309c914b0cd7f54fd3eb7a5e2c7c3eb05c2d2c5eda83
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tex-fmt/blobs/sha256:6800478c7df7b44b8437fdcc3c87133dd812445db40c7f4c98c2af4ff151afb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tex-fmt/blobs/sha256:3675c374858ef61f677ede0867d97efd2c06a7127ad8136d2c7a0fd5f5c83914
+sha256:
+  darwin_arm64: 308e7c17a6e05131ff3e483eee3845fa7287c5b41c20b45d2832b7ee75763ed2
+  darwin_amd64: 93713998c6d2477d3981309c914b0cd7f54fd3eb7a5e2c7c3eb05c2d2c5eda83
+  linux_amd64: 6800478c7df7b44b8437fdcc3c87133dd812445db40c7f4c98c2af4ff151afb3
+  linux_arm64: 3675c374858ef61f677ede0867d97efd2c06a7127ad8136d2c7a0fd5f5c83914
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: localai
+version: 3.12.1
+description: OpenAI alternative
+homepage: https://localai.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/localai/blobs/sha256:ab43749b5afd0fc2da53017f3342c82808cc22823b7481010590f88e96f4bd62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/localai/blobs/sha256:0f14c2fc950e8b9ae45146a384441693c590de1afb8526680a43b5116ef1f380
+  linux_amd64: https://ghcr.io/v2/homebrew/core/localai/blobs/sha256:6ab6236bdc7fd350c37f68e2c822ecaee639bceb0a463ed4510ffeef0f557143
+  linux_arm64: https://ghcr.io/v2/homebrew/core/localai/blobs/sha256:ecf44155ecdd0217d282cf5f14b655eed413ab663eff611c3540d0fb636e37ee
+sha256:
+  darwin_arm64: ab43749b5afd0fc2da53017f3342c82808cc22823b7481010590f88e96f4bd62
+  darwin_amd64: 0f14c2fc950e8b9ae45146a384441693c590de1afb8526680a43b5116ef1f380
+  linux_amd64: 6ab6236bdc7fd350c37f68e2c822ecaee639bceb0a463ed4510ffeef0f557143
+  linux_arm64: ecf44155ecdd0217d282cf5f14b655eed413ab663eff611c3540d0fb636e37ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

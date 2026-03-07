@@ -1,0 +1,21 @@
+name: gfold
+version: 2025.12.0
+description: Help keep track of your Git repositories, written in Rust
+homepage: https://github.com/nickgerace/gfold
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gfold/blobs/sha256:b169463826c6f1c2198d6d189f165f603c214d428b236921a01891ba7eaa9369
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gfold/blobs/sha256:e82a9e593da89543e433c6a6deac44cbb06c7e322f1b8a7ffacc7d9c9b49d812
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gfold/blobs/sha256:e74fb427b9eab422ec4539ef4821bc16f1b27797c6f9b67c8a8e3d00c9177ef5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gfold/blobs/sha256:79f7422c37ee4b9afc3294589753e6b48038f27d37e44a5237de501d36d6ebed
+sha256:
+  darwin_arm64: b169463826c6f1c2198d6d189f165f603c214d428b236921a01891ba7eaa9369
+  darwin_amd64: e82a9e593da89543e433c6a6deac44cbb06c7e322f1b8a7ffacc7d9c9b49d812
+  linux_amd64: e74fb427b9eab422ec4539ef4821bc16f1b27797c6f9b67c8a8e3d00c9177ef5
+  linux_arm64: 79f7422c37ee4b9afc3294589753e6b48038f27d37e44a5237de501d36d6ebed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

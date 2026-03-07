@@ -1,0 +1,19 @@
+name: xray
+version: 26.2.6
+description: Platform for building proxies to bypass network restrictions
+homepage: https://xtls.github.io/
+license: MPL-2.0 AND CC-BY-SA-4.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xray/blobs/sha256:f92da454b89199aa6c48c76e1c003342bb513af7b962cf7ab428dff5458b91ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xray/blobs/sha256:65d12bc1f05523bb07d1599a56fd84babea5ad6a0b5b2d8248af1cd79a67257c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xray/blobs/sha256:a79f11956710dff040c0560e8b7a462dffd34232ed25f857b825a374db53eea7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xray/blobs/sha256:42fb5b479fbe65b4226e5131556ab6c91b72399d2848d23339960216b85462ef
+sha256:
+  darwin_arm64: f92da454b89199aa6c48c76e1c003342bb513af7b962cf7ab428dff5458b91ac
+  darwin_amd64: 65d12bc1f05523bb07d1599a56fd84babea5ad6a0b5b2d8248af1cd79a67257c
+  linux_amd64: a79f11956710dff040c0560e8b7a462dffd34232ed25f857b825a374db53eea7
+  linux_arm64: 42fb5b479fbe65b4226e5131556ab6c91b72399d2848d23339960216b85462ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

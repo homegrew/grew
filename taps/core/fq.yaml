@@ -1,0 +1,22 @@
+name: fq
+version: 0.13.12
+description: Brokered message queue optimized for performance
+homepage: https://github.com/circonus-labs/fq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fq/blobs/sha256:319d0358ae90ea27c5159a4585fc403b3d7aad3e58a9b6d0f9b2cc5e336e4228
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fq/blobs/sha256:1d570f53f452d8ec4c4083cd66c8584afaef37ffa23127e048eeb11f8088885e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fq/blobs/sha256:2425df3421667d23f2734b087ca7c28707ece5604dc7b521313134e102865ba0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fq/blobs/sha256:598374e01be91a1db12f92c5a04c4722ee287d11e44437628a99043a7f4a9c3c
+sha256:
+  darwin_arm64: 319d0358ae90ea27c5159a4585fc403b3d7aad3e58a9b6d0f9b2cc5e336e4228
+  darwin_amd64: 1d570f53f452d8ec4c4083cd66c8584afaef37ffa23127e048eeb11f8088885e
+  linux_amd64: 2425df3421667d23f2734b087ca7c28707ece5604dc7b521313134e102865ba0
+  linux_arm64: 598374e01be91a1db12f92c5a04c4722ee287d11e44437628a99043a7f4a9c3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - concurrencykit
+  - jlog

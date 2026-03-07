@@ -1,0 +1,13 @@
+name: gitup-app
+version: 1.4.3
+description: Git interface focused on visual interaction
+homepage: https://gitup.co/
+url:
+  darwin_arm64: https://github.com/git-up/GitUp/releases/download/v1.4.3/GitUp.zip
+sha256:
+  darwin_arm64: f0f1896dae7a17e3f51f6872cc57a79061ab3f47692d64b5a8216cfb6dddb4dc
+artifacts:
+  app:
+    - GitUp.app
+  bin:
+    - gitup

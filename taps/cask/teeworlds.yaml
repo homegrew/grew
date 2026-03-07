@@ -1,0 +1,12 @@
+name: teeworlds
+version: 0.7.5
+description: ""
+homepage: https://www.teeworlds.com/
+url:
+  darwin_arm64: https://downloads.teeworlds.com/teeworlds-0.7.5-osx.dmg
+sha256:
+  darwin_arm64: a79155c8bd7a0ce08457760f1ce37d8b7611f86717659bb3d90cd0e2dae5194b
+artifacts:
+  app:
+    - Teeworlds.app
+    - Teeworlds Server.app

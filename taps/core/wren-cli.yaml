@@ -1,0 +1,19 @@
+name: wren-cli
+version: 0.4.0
+description: Simple REPL and CLI tool for running Wren scripts
+homepage: https://github.com/wren-lang/wren-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wren-cli/blobs/sha256:94398558d4e785bfeaf83be6aeec15896129441f07d3226003521bf882a1a200
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wren-cli/blobs/sha256:26e8aa2bdb4bd752760649c2bdb0be3446a6ef032dde08e12be8be9148f0cdcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wren-cli/blobs/sha256:2014cc9da16b381e355b12f19a020eaba1cc182c41f07fcb4a17dab5597f6a61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wren-cli/blobs/sha256:c0103413af78077f54ef210d0bb3ef707bfcc9301868252685ec6fb133087d36
+sha256:
+  darwin_arm64: 94398558d4e785bfeaf83be6aeec15896129441f07d3226003521bf882a1a200
+  darwin_amd64: 26e8aa2bdb4bd752760649c2bdb0be3446a6ef032dde08e12be8be9148f0cdcc
+  linux_amd64: 2014cc9da16b381e355b12f19a020eaba1cc182c41f07fcb4a17dab5597f6a61
+  linux_arm64: c0103413af78077f54ef210d0bb3ef707bfcc9301868252685ec6fb133087d36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

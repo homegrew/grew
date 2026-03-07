@@ -1,0 +1,19 @@
+name: tun2proxy
+version: 0.7.19
+description: Tunnel (TUN) interface for SOCKS and HTTP proxies
+homepage: https://github.com/tun2proxy/tun2proxy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tun2proxy/blobs/sha256:c242daa0a2c886c8346585c1777dbabb1de956d0b0e55b91b4905013db4ecdbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tun2proxy/blobs/sha256:a3305dd85bc551ac80fb7210db425c8d8264b04be45f6b610181aebadcbdb6bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tun2proxy/blobs/sha256:7ba6d9f98c511ac9b84e6d2885f2393bd67bb9df10a0139b682587be088dea7a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tun2proxy/blobs/sha256:6dcfba492c9d8923a62aa701da1a93ce459bab15893b9606df072b9a393ab840
+sha256:
+  darwin_arm64: c242daa0a2c886c8346585c1777dbabb1de956d0b0e55b91b4905013db4ecdbe
+  darwin_amd64: a3305dd85bc551ac80fb7210db425c8d8264b04be45f6b610181aebadcbdb6bc
+  linux_amd64: 7ba6d9f98c511ac9b84e6d2885f2393bd67bb9df10a0139b682587be088dea7a
+  linux_arm64: 6dcfba492c9d8923a62aa701da1a93ce459bab15893b9606df072b9a393ab840
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

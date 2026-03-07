@@ -1,0 +1,26 @@
+name: genometools
+version: 1.6.6
+description: Versatile open source genome analysis software
+homepage: https://genometools.org/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/genometools/blobs/sha256:93b7227c19b00dcfc203cd07035c587c581f50290c60d9c2c01aa8eb8243ef39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/genometools/blobs/sha256:710d23047dbe28c95592437e8d08e9cdaed34d416f5430090354efe0f0552564
+  linux_amd64: https://ghcr.io/v2/homebrew/core/genometools/blobs/sha256:20bd4d59acfc6ceb6c15053a4e00494a563cfaa4a0736a18a18db2e0a73d0b08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/genometools/blobs/sha256:a6183d1cfa09dea81e547a747785a419753cc0c044934f96e0919c79e9858e18
+sha256:
+  darwin_arm64: 93b7227c19b00dcfc203cd07035c587c581f50290c60d9c2c01aa8eb8243ef39
+  darwin_amd64: 710d23047dbe28c95592437e8d08e9cdaed34d416f5430090354efe0f0552564
+  linux_amd64: 20bd4d59acfc6ceb6c15053a4e00494a563cfaa4a0736a18a18db2e0a73d0b08
+  linux_arm64: a6183d1cfa09dea81e547a747785a419753cc0c044934f96e0919c79e9858e18
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - pango
+  - tre
+  - gettext
+  - harfbuzz

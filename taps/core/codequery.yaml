@@ -1,0 +1,23 @@
+name: codequery
+version: 1.0.1
+description: Code-understanding, code-browsing or code-search tool
+homepage: https://ruben2020.github.io/codequery/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codequery/blobs/sha256:ec9b55288deede50bb5a39e76846aa3a0c7179be2a1ceb1f682b6de5291abdc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codequery/blobs/sha256:57c3b03bff1a8f7a3311aff6a89c0fb2c530f2f361857af15a9b158ced25476b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codequery/blobs/sha256:18b9c0955396a9cd0b50d7b05d4e4b7edc97f8a7a32e693c64f5cfe7f16bbd1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codequery/blobs/sha256:b9ef3ff7ab094e9ed1e668874c8dd629a2bceee86fc78f7ad08a90ab72491170
+sha256:
+  darwin_arm64: ec9b55288deede50bb5a39e76846aa3a0c7179be2a1ceb1f682b6de5291abdc3
+  darwin_amd64: 57c3b03bff1a8f7a3311aff6a89c0fb2c530f2f361857af15a9b158ced25476b
+  linux_amd64: 18b9c0955396a9cd0b50d7b05d4e4b7edc97f8a7a32e693c64f5cfe7f16bbd1b
+  linux_arm64: b9ef3ff7ab094e9ed1e668874c8dd629a2bceee86fc78f7ad08a90ab72491170
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt5compat
+  - qtbase
+  - sqlite

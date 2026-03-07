@@ -1,0 +1,13 @@
+name: blender
+version: 5.0.1
+description: 3D creation suite
+homepage: https://www.blender.org/
+url:
+  darwin_arm64: https://download.blender.org/release/Blender5.0/blender-5.0.1-macos-arm64.dmg
+sha256:
+  darwin_arm64: 102a81ddee5346c96339c6a529069a2d52df05f330eb9bfd431c8dd79fb4afb6
+artifacts:
+  app:
+    - Blender.app
+  bin:
+    - blender

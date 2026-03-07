@@ -1,0 +1,21 @@
+name: numdiff
+version: 5.9.0
+description: Putative files comparison tool
+homepage: https://www.nongnu.org/numdiff
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/numdiff/blobs/sha256:54f00b428c20f3de9065177cbc84a59cffb9865351b4062ea429b337197c2c8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/numdiff/blobs/sha256:670605c39b10b5f5eb8fc0227b92d01219f0e08d54ebe26e1e051580e0f838e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/numdiff/blobs/sha256:c9334ab2846721f6a4b643e061dc1ef76f693a8a07f99f05dda3dfdc190165a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/numdiff/blobs/sha256:ebf440325cddaad6e20bce018736dc65e4ea1895de1ce590f21c267b3ab304ad
+sha256:
+  darwin_arm64: 54f00b428c20f3de9065177cbc84a59cffb9865351b4062ea429b337197c2c8b
+  darwin_amd64: 670605c39b10b5f5eb8fc0227b92d01219f0e08d54ebe26e1e051580e0f838e0
+  linux_amd64: c9334ab2846721f6a4b643e061dc1ef76f693a8a07f99f05dda3dfdc190165a9
+  linux_arm64: ebf440325cddaad6e20bce018736dc65e4ea1895de1ce590f21c267b3ab304ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

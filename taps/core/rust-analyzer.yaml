@@ -1,0 +1,19 @@
+name: rust-analyzer
+version: 2026-03-02
+description: Experimental Rust compiler front-end for IDEs
+homepage: https://rust-analyzer.github.io/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rust-analyzer/blobs/sha256:dbb86cc23fd39f7fdd1cd6b5a43bd93be6bca796a87f67d1993a8e23b60cc7b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rust-analyzer/blobs/sha256:38d4991fb86c799cdd58eec643ef0fb9b93515a40067d227b4f2047a85785131
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rust-analyzer/blobs/sha256:267047d1a79f02e1d37db9b5e0030f9053887187ff74c586cdf87b78667126f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rust-analyzer/blobs/sha256:2cb1ff93503104f1b0d688586e3baf03973fdb98b432fd1b6d5f838fa3c10c40
+sha256:
+  darwin_arm64: dbb86cc23fd39f7fdd1cd6b5a43bd93be6bca796a87f67d1993a8e23b60cc7b9
+  darwin_amd64: 38d4991fb86c799cdd58eec643ef0fb9b93515a40067d227b4f2047a85785131
+  linux_amd64: 267047d1a79f02e1d37db9b5e0030f9053887187ff74c586cdf87b78667126f4
+  linux_arm64: 2cb1ff93503104f1b0d688586e3baf03973fdb98b432fd1b6d5f838fa3c10c40
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

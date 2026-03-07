@@ -1,0 +1,19 @@
+name: steamguard-cli
+version: 0.17.1
+description: CLI for steamguard
+homepage: https://github.com/dyc3/steamguard-cli
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/steamguard-cli/blobs/sha256:81a075cea4c7595936f22b9454c239a1c915657653242032faa8cdd5afaa1712
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/steamguard-cli/blobs/sha256:f4b364956ebc494e435ab63d2a16885f71d35fa7d99f6a94a299598e24a73c3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/steamguard-cli/blobs/sha256:aab0d522a9b69debbfc758612a4649a00e221567065b311b745bc7f9342d9d50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/steamguard-cli/blobs/sha256:29f056815ab5b0055bb09e8b813d2799e3e3a90e0dd0720764ebe65797155d78
+sha256:
+  darwin_arm64: 81a075cea4c7595936f22b9454c239a1c915657653242032faa8cdd5afaa1712
+  darwin_amd64: f4b364956ebc494e435ab63d2a16885f71d35fa7d99f6a94a299598e24a73c3a
+  linux_amd64: aab0d522a9b69debbfc758612a4649a00e221567065b311b745bc7f9342d9d50
+  linux_arm64: 29f056815ab5b0055bb09e8b813d2799e3e3a90e0dd0720764ebe65797155d78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

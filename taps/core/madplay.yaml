@@ -1,0 +1,22 @@
+name: madplay
+version: 0.15.2b
+description: MPEG Audio Decoder
+homepage: https://www.underbit.com/products/mad/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/madplay/blobs/sha256:72e70d67702779f7e7afaf31037db5b66789f54396a574e1932f222ca3bac912
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/madplay/blobs/sha256:719d4a1feb495f2c6f4f4e9e9e00689bdf4c4b21ad54add5d91ba97238fbd687
+  linux_amd64: https://ghcr.io/v2/homebrew/core/madplay/blobs/sha256:dcf38528c7c57f08ecc8e8ec764d8d7a4be39fb7cec6a37320bb5999cc495e17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/madplay/blobs/sha256:cc83e5325da519f92d3ea70ea21391bb1019435cc38b30fd6b13792e5db35abd
+sha256:
+  darwin_arm64: 72e70d67702779f7e7afaf31037db5b66789f54396a574e1932f222ca3bac912
+  darwin_amd64: 719d4a1feb495f2c6f4f4e9e9e00689bdf4c4b21ad54add5d91ba97238fbd687
+  linux_amd64: dcf38528c7c57f08ecc8e8ec764d8d7a4be39fb7cec6a37320bb5999cc495e17
+  linux_arm64: cc83e5325da519f92d3ea70ea21391bb1019435cc38b30fd6b13792e5db35abd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libid3tag
+  - mad

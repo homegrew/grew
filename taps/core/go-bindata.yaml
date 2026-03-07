@@ -1,0 +1,21 @@
+name: go-bindata
+version: 4.0.2
+description: Small utility that generates Go code from any file
+homepage: https://github.com/kevinburke/go-bindata
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-bindata/blobs/sha256:b8be1fb86c897d65b0b6697108ef7c1ebe6c6fc775e560d5a912b995fc64b6d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-bindata/blobs/sha256:3546c1b7bb0397e9f8fde3eaee97b5c89a6fc0a7519dc45d718d6ed68a5d8916
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-bindata/blobs/sha256:fc06d08b284da8bc9425c70ed2b7d8463799f0ec962c15904a8bb6a84b9eef18
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-bindata/blobs/sha256:ed6a27aace940fd9da6a3d92f175bee2c085cfc25497cf7367403998fafc1818
+sha256:
+  darwin_arm64: b8be1fb86c897d65b0b6697108ef7c1ebe6c6fc775e560d5a912b995fc64b6d0
+  darwin_amd64: 3546c1b7bb0397e9f8fde3eaee97b5c89a6fc0a7519dc45d718d6ed68a5d8916
+  linux_amd64: fc06d08b284da8bc9425c70ed2b7d8463799f0ec962c15904a8bb6a84b9eef18
+  linux_arm64: ed6a27aace940fd9da6a3d92f175bee2c085cfc25497cf7367403998fafc1818
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

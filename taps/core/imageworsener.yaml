@@ -1,0 +1,22 @@
+name: imageworsener
+version: 1.3.5
+description: Utility and library for image scaling and processing
+homepage: https://entropymine.com/imageworsener/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imageworsener/blobs/sha256:2ea02018611e3a89bd678dc6e1daa778ed958dc03d69bdc4a447cd6c43502ff7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imageworsener/blobs/sha256:f3207ea97421c3105dda00945d0382f71fc3c2345b9171c28325cb032094878d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imageworsener/blobs/sha256:b929b424d3049ee109d5974d83589f92d3f7303b35a597a429334f62bb4e8e4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imageworsener/blobs/sha256:0211d900e4e2ec8d216be3435a9146a811c259add289e0b92e53deca7596f83a
+sha256:
+  darwin_arm64: 2ea02018611e3a89bd678dc6e1daa778ed958dc03d69bdc4a447cd6c43502ff7
+  darwin_amd64: f3207ea97421c3105dda00945d0382f71fc3c2345b9171c28325cb032094878d
+  linux_amd64: b929b424d3049ee109d5974d83589f92d3f7303b35a597a429334f62bb4e8e4e
+  linux_arm64: 0211d900e4e2ec8d216be3435a9146a811c259add289e0b92e53deca7596f83a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng

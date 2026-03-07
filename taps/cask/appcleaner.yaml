@@ -1,0 +1,11 @@
+name: appcleaner
+version: 3.6.8
+description: Application uninstaller
+homepage: https://freemacsoft.net/appcleaner/
+url:
+  darwin_arm64: https://www.freemacsoft.net/downloads/AppCleaner_3.6.8.zip
+sha256:
+  darwin_arm64: e012f729442473c20e7cce334b00182521e4b6672ea681b34931b180feb3d6be
+artifacts:
+  app:
+    - AppCleaner.app

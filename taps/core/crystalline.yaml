@@ -1,0 +1,26 @@
+name: crystalline
+version: 0.17.1
+description: Language Server Protocol implementation for Crystal
+homepage: https://github.com/elbywan/crystalline
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crystalline/blobs/sha256:7647fb168c313d4d25f4b21888b3afcb144986451952f8d621b2f1b4381065df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crystalline/blobs/sha256:347bad1d0b85a7387eabfc33429a74d7eb983667940b569f5f4fc3c36f63337a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crystalline/blobs/sha256:92b9d14b44b3d4af23b559024db819723f34a0d491e839ceae54a237e2357cb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crystalline/blobs/sha256:263005d3911af92e69ab2f818d0d0d65bfee6fc805cbb7a6be6a3f9466fbcd7c
+sha256:
+  darwin_arm64: 7647fb168c313d4d25f4b21888b3afcb144986451952f8d621b2f1b4381065df
+  darwin_amd64: 347bad1d0b85a7387eabfc33429a74d7eb983667940b569f5f4fc3c36f63337a
+  linux_amd64: 92b9d14b44b3d4af23b559024db819723f34a0d491e839ceae54a237e2357cb4
+  linux_arm64: 263005d3911af92e69ab2f818d0d0d65bfee6fc805cbb7a6be6a3f9466fbcd7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - crystal
+  - libevent
+  - libyaml
+  - llvm
+  - pcre2

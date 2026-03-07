@@ -1,0 +1,25 @@
+name: grpc
+version: 1.78.1
+description: Next generation open source RPC library and framework
+homepage: https://grpc.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grpc/blobs/sha256:dfde9b2bdd706c7dd90e8b552edbcced92afb8a42f54a7e39aff102e2b1755ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grpc/blobs/sha256:959919be7e85ad43e06dae7d5b76ec91b5bae106c758d71f3a3911bf44837e98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grpc/blobs/sha256:6e923857c20dcef6b434051e27126a4eddd17aefcbec0818d67126ef2e25bddd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grpc/blobs/sha256:faa60f8447dbe3ff42fb2ac86e93b29ec3df1025e1af70d4b2d06eed3c9c8dee
+sha256:
+  darwin_arm64: dfde9b2bdd706c7dd90e8b552edbcced92afb8a42f54a7e39aff102e2b1755ef
+  darwin_amd64: 959919be7e85ad43e06dae7d5b76ec91b5bae106c758d71f3a3911bf44837e98
+  linux_amd64: 6e923857c20dcef6b434051e27126a4eddd17aefcbec0818d67126ef2e25bddd
+  linux_arm64: faa60f8447dbe3ff42fb2ac86e93b29ec3df1025e1af70d4b2d06eed3c9c8dee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - c-ares
+  - openssl@3
+  - protobuf@33
+  - re2

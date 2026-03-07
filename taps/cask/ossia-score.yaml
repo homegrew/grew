@@ -1,0 +1,11 @@
+name: ossia-score
+version: 3.8.0
+description: Interactive sequencer for intermedia art
+homepage: https://ossia.io/
+url:
+  darwin_arm64: https://github.com/ossia/score/releases/download/v3.8.0/ossia.score-3.8.0-macOS-AppleSilicon.dmg
+sha256:
+  darwin_arm64: 505a30ffa39ff761415106eb82dcb3a580727b6fec12ce0d101d59a323736022
+artifacts:
+  app:
+    - ossia score.app

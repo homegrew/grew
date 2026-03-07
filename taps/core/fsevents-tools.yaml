@@ -1,0 +1,15 @@
+name: fsevents-tools
+version: 1.0.0
+description: Command-line utilities for the FSEvents API
+homepage: https://geoff.greer.fm/fsevents/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fsevents-tools/blobs/sha256:e9c957de83e07813d6363e58bf6d8e1c9ade1592ce6a965817d57a0b824fd165
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fsevents-tools/blobs/sha256:367075f9a0a7b7c725905609d2fa4c5808a43a468a24c791ccf09ec75672d4b1
+sha256:
+  darwin_arm64: e9c957de83e07813d6363e58bf6d8e1c9ade1592ce6a965817d57a0b824fd165
+  darwin_amd64: 367075f9a0a7b7c725905609d2fa4c5808a43a468a24c791ccf09ec75672d4b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nbsdgames
+version: 5
+description: Text-based modern games
+homepage: https://github.com/abakh/nbsdgames
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nbsdgames/blobs/sha256:7e6bf700f1b8b33e34ae73df1f19cc45b7be8451723adbaddea87ff03607a1d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nbsdgames/blobs/sha256:499fd563e5c7029ce2f4888343c592013b0a0d0f7756ae27220e75b41bb9aa31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nbsdgames/blobs/sha256:b311d8c8354dc0688b51024c40b2d632ff7d22587c89deeed8d559af092cce4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nbsdgames/blobs/sha256:973ede434c4c08704345cc53e1a09e1bf9b6d98958e89caf9d56f613445e1520
+sha256:
+  darwin_arm64: 7e6bf700f1b8b33e34ae73df1f19cc45b7be8451723adbaddea87ff03607a1d5
+  darwin_amd64: 499fd563e5c7029ce2f4888343c592013b0a0d0f7756ae27220e75b41bb9aa31
+  linux_amd64: b311d8c8354dc0688b51024c40b2d632ff7d22587c89deeed8d559af092cce4a
+  linux_arm64: 973ede434c4c08704345cc53e1a09e1bf9b6d98958e89caf9d56f613445e1520
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

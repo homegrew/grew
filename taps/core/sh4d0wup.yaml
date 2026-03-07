@@ -1,0 +1,24 @@
+name: sh4d0wup
+version: 0.11.0
+description: Signing-key abuse and update exploitation framework
+homepage: https://github.com/kpcyrd/sh4d0wup
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sh4d0wup/blobs/sha256:099af7350fa6b8abe3e0cdede86d930f195e06484082345a511ca64eea219b40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sh4d0wup/blobs/sha256:5f916dd0b4809e160f6d44f5536d4eec43f75d4dade3b3023dc0667062b73254
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sh4d0wup/blobs/sha256:12ed1c91190821ba799e038cb7723ce0af1ef207b45b74fcc732e8adb233d017
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sh4d0wup/blobs/sha256:37e09448fc27e25b451c296e0849affe15ee491ebbbaf080756818da61bb6085
+sha256:
+  darwin_arm64: 099af7350fa6b8abe3e0cdede86d930f195e06484082345a511ca64eea219b40
+  darwin_amd64: 5f916dd0b4809e160f6d44f5536d4eec43f75d4dade3b3023dc0667062b73254
+  linux_amd64: 12ed1c91190821ba799e038cb7723ce0af1ef207b45b74fcc732e8adb233d017
+  linux_arm64: 37e09448fc27e25b451c296e0849affe15ee491ebbbaf080756818da61bb6085
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pcsc-lite
+  - xz
+  - zstd

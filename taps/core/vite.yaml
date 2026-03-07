@@ -1,0 +1,21 @@
+name: vite
+version: 7.3.1
+description: "Next generation frontend tooling. It's fast!"
+homepage: https://vitejs.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vite/blobs/sha256:e43fb5537f0135fc9428b8bb44475da40ebc208cf6755cc45afb6aff94a51a41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vite/blobs/sha256:28150dda3e9814e02c0ac18572fafabdb0ba139ab91f7d8f9e9b948779e67786
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vite/blobs/sha256:3bde990a64b80ebb7234ff436c16cdfc2bf67a45d09d2d83259b8d5c9bb18e48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vite/blobs/sha256:45a663eb6e1f53b5fe331cd0affc216be184fdad969fd6a6152096e5f2e646bc
+sha256:
+  darwin_arm64: e43fb5537f0135fc9428b8bb44475da40ebc208cf6755cc45afb6aff94a51a41
+  darwin_amd64: 28150dda3e9814e02c0ac18572fafabdb0ba139ab91f7d8f9e9b948779e67786
+  linux_amd64: 3bde990a64b80ebb7234ff436c16cdfc2bf67a45d09d2d83259b8d5c9bb18e48
+  linux_arm64: 45a663eb6e1f53b5fe331cd0affc216be184fdad969fd6a6152096e5f2e646bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

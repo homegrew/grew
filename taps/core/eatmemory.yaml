@@ -1,0 +1,19 @@
+name: eatmemory
+version: 0.1.10
+description: Simple program to allocate memory from the command-line
+homepage: https://github.com/julman99/eatmemory
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eatmemory/blobs/sha256:f8816bc9f7b336f38099833e0160b4d10d7745b5ce01fb00c808f48d24851e77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eatmemory/blobs/sha256:6bb8add10952008d5593e4c2d9e4903c4f4f65cbe3514afb94a761187944c734
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eatmemory/blobs/sha256:aba9a1f17ead302e4ab2d261c51ab0efc87ad1365ae68da4cead1ccd2361e030
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eatmemory/blobs/sha256:ed53f21c996fdf536866743894c9e1ee7836b0464137560e463e38bb95f5080f
+sha256:
+  darwin_arm64: f8816bc9f7b336f38099833e0160b4d10d7745b5ce01fb00c808f48d24851e77
+  darwin_amd64: 6bb8add10952008d5593e4c2d9e4903c4f4f65cbe3514afb94a761187944c734
+  linux_amd64: aba9a1f17ead302e4ab2d261c51ab0efc87ad1365ae68da4cead1ccd2361e030
+  linux_arm64: ed53f21c996fdf536866743894c9e1ee7836b0464137560e463e38bb95f5080f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

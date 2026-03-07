@@ -1,0 +1,19 @@
+name: libquantum
+version: 1.0.0
+description: C library for the simulation of quantum mechanics
+homepage: http://www.libquantum.de/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libquantum/blobs/sha256:f5e852b2b95f054f6b23ebe164e034efef63568d27c86743b49af217d2599ecf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libquantum/blobs/sha256:1d6995bf93a43629913112835f1c5e38e5fdcb9889d5b36eb0f695e3deb44f44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libquantum/blobs/sha256:2a528197ff682bb96434f58a4739f933e9010f7e76b368f43d1788fe22468deb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libquantum/blobs/sha256:848db672f68b69d8f19e8a80c220aaa182bb762c7bbea799177935fb0208f326
+sha256:
+  darwin_arm64: f5e852b2b95f054f6b23ebe164e034efef63568d27c86743b49af217d2599ecf
+  darwin_amd64: 1d6995bf93a43629913112835f1c5e38e5fdcb9889d5b36eb0f695e3deb44f44
+  linux_amd64: 2a528197ff682bb96434f58a4739f933e9010f7e76b368f43d1788fe22468deb
+  linux_arm64: 848db672f68b69d8f19e8a80c220aaa182bb762c7bbea799177935fb0208f326
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

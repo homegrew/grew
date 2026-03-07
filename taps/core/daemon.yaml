@@ -1,0 +1,19 @@
+name: daemon
+version: 0.8.4
+description: Turn other processes into daemons
+homepage: https://libslack.org/daemon/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/daemon/blobs/sha256:9accc09cd67f7ea55479b1d0aec44f2fc6a2d88df38e3d93e51900b970ae8f29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/daemon/blobs/sha256:2d183e8493116bd6a715e34ae2db121fe7b6c04b2f6b255daf6c171ddda1510a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/daemon/blobs/sha256:861a0eb58cced7a2c88edb3309eef07521084b317725b9fe4f67acf71b83f331
+  linux_arm64: https://ghcr.io/v2/homebrew/core/daemon/blobs/sha256:87c4ae0cde212781fe52c0ac599a2b867063595596d7b3260497969b9d610f6f
+sha256:
+  darwin_arm64: 9accc09cd67f7ea55479b1d0aec44f2fc6a2d88df38e3d93e51900b970ae8f29
+  darwin_amd64: 2d183e8493116bd6a715e34ae2db121fe7b6c04b2f6b255daf6c171ddda1510a
+  linux_amd64: 861a0eb58cced7a2c88edb3309eef07521084b317725b9fe4f67acf71b83f331
+  linux_arm64: 87c4ae0cde212781fe52c0ac599a2b867063595596d7b3260497969b9d610f6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

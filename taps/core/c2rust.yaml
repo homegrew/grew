@@ -1,0 +1,21 @@
+name: c2rust
+version: 0.22.1
+description: Migrate C code to Rust
+homepage: https://c2rust.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c2rust/blobs/sha256:df88c851f1831af9a3e630295ffa9e798d2c0ab97b9b8cf6c24e7b35ee432aa3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c2rust/blobs/sha256:c542f2ebe2d58181c143b71a6931fc143dd861792db988a6c5c446158b36e6a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c2rust/blobs/sha256:a3e5ca318401131f2e847996218bcbf7e2797f7e4c5cf893233bdfd8772750fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c2rust/blobs/sha256:9274c9595424047d95fae4ebba0178c55f427612cdd9fc93863a8d91189e83f3
+sha256:
+  darwin_arm64: df88c851f1831af9a3e630295ffa9e798d2c0ab97b9b8cf6c24e7b35ee432aa3
+  darwin_amd64: c542f2ebe2d58181c143b71a6931fc143dd861792db988a6c5c446158b36e6a1
+  linux_amd64: a3e5ca318401131f2e847996218bcbf7e2797f7e4c5cf893233bdfd8772750fe
+  linux_arm64: 9274c9595424047d95fae4ebba0178c55f427612cdd9fc93863a8d91189e83f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@21

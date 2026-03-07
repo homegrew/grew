@@ -1,0 +1,21 @@
+name: stolon
+version: 0.17.0
+description: Cloud native PostgreSQL manager for high availability
+homepage: https://github.com/sorintlab/stolon
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stolon/blobs/sha256:b989bb383b1ce5523628d9b310afe7a911ab92f8e9797aaa8ea655ec576ebd05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stolon/blobs/sha256:9c7dcb4122593003e6ced2dc77fada593f90c897a0ff6f23b607d530d554cdcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stolon/blobs/sha256:30ca55abf39725e1760d6610e38ea05f089fd382724da55c170f2cf914ee1050
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stolon/blobs/sha256:67caae9099da0e3af8994b0eac951f6148883b71cfdee78cd15a911bcf4b7d15
+sha256:
+  darwin_arm64: b989bb383b1ce5523628d9b310afe7a911ab92f8e9797aaa8ea655ec576ebd05
+  darwin_amd64: 9c7dcb4122593003e6ced2dc77fada593f90c897a0ff6f23b607d530d554cdcd
+  linux_amd64: 30ca55abf39725e1760d6610e38ea05f089fd382724da55c170f2cf914ee1050
+  linux_arm64: 67caae9099da0e3af8994b0eac951f6148883b71cfdee78cd15a911bcf4b7d15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq

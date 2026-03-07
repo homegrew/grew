@@ -1,0 +1,19 @@
+name: makensis
+version: 3.11
+description: System to create Windows installers
+homepage: https://nsis.sourceforge.net/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/makensis/blobs/sha256:37bf97b867b0e8d8dd1322e5e330a2345d941934417e1c7bc956dd6ef02f265d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/makensis/blobs/sha256:031c1099e339009d054af61e9665dad745136eec93085b639c2bc8f2d0e30b4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/makensis/blobs/sha256:591f9144c014b90068724623f2b6acee6e58ea6811e2c1ffc99c0d9dd2dbf0f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/makensis/blobs/sha256:668f6299c22e38c737e7b56d9843bc0d8d50a65d0433626a4a05667841cc393d
+sha256:
+  darwin_arm64: 37bf97b867b0e8d8dd1322e5e330a2345d941934417e1c7bc956dd6ef02f265d
+  darwin_amd64: 031c1099e339009d054af61e9665dad745136eec93085b639c2bc8f2d0e30b4e
+  linux_amd64: 591f9144c014b90068724623f2b6acee6e58ea6811e2c1ffc99c0d9dd2dbf0f3
+  linux_arm64: 668f6299c22e38c737e7b56d9843bc0d8d50a65d0433626a4a05667841cc393d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

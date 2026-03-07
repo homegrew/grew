@@ -1,0 +1,19 @@
+name: pict
+version: 3.7.4
+description: Pairwise Independent Combinatorial Tool
+homepage: https://github.com/Microsoft/pict/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pict/blobs/sha256:1943785b6611e724bda4f429efa2ccaaef18a26850370d6712b933968478c4c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pict/blobs/sha256:ed4ba842b942185dc01d6d83fe06320c947a5e33066171a8f6c9130a57809b2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pict/blobs/sha256:7bc79051760ece4228b1b8effde4c16289f250aa9f6feb14f05e6065e3aba070
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pict/blobs/sha256:cdc336a65ed22afd3c31ef236658d19e6b829e4b5ce09799e0689b09265b74e7
+sha256:
+  darwin_arm64: 1943785b6611e724bda4f429efa2ccaaef18a26850370d6712b933968478c4c7
+  darwin_amd64: ed4ba842b942185dc01d6d83fe06320c947a5e33066171a8f6c9130a57809b2f
+  linux_amd64: 7bc79051760ece4228b1b8effde4c16289f250aa9f6feb14f05e6065e3aba070
+  linux_arm64: cdc336a65ed22afd3c31ef236658d19e6b829e4b5ce09799e0689b09265b74e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

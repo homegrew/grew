@@ -1,0 +1,21 @@
+name: ubi
+version: 0.9.0
+description: Universal Binary Installer
+homepage: https://github.com/houseabsolute/ubi
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ubi/blobs/sha256:760699c2377dc0f5624ab15da20ae3e2283cc497a5ed9ac57b1b85a2df80954c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ubi/blobs/sha256:cc544dc0a7eed7f1b239caefabca618d6217d6f0954939ab350a6a809587de3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ubi/blobs/sha256:c9a99c46d9f23a0ff48f46dfbc524f63066b52981b88af55d76ce009a3718f20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ubi/blobs/sha256:582fe47be0a3bf56cc2696c21de8cc69ca636a92e3eb7bbd338be4f9c74cc0de
+sha256:
+  darwin_arm64: 760699c2377dc0f5624ab15da20ae3e2283cc497a5ed9ac57b1b85a2df80954c
+  darwin_amd64: cc544dc0a7eed7f1b239caefabca618d6217d6f0954939ab350a6a809587de3d
+  linux_amd64: c9a99c46d9f23a0ff48f46dfbc524f63066b52981b88af55d76ce009a3718f20
+  linux_arm64: 582fe47be0a3bf56cc2696c21de8cc69ca636a92e3eb7bbd338be4f9c74cc0de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

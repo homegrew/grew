@@ -1,0 +1,19 @@
+name: glow
+version: 2.1.1
+description: Render markdown on the CLI
+homepage: https://github.com/charmbracelet/glow
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glow/blobs/sha256:405c8ef5d9d73d681262c71f23f0ed7961ba5c5eff080e60b8aa54d26064412a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glow/blobs/sha256:1520aab400517fb4fc94839296343ef10d585551a37eb36a316722091415fb2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glow/blobs/sha256:84ac1b0534794163758eb6c05728732620ff8b595d037fea7052f23633f2f179
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glow/blobs/sha256:8abf70a282b522fe4a74596f2520b4cfe0b500904f37e25839b13ce2c875b94e
+sha256:
+  darwin_arm64: 405c8ef5d9d73d681262c71f23f0ed7961ba5c5eff080e60b8aa54d26064412a
+  darwin_amd64: 1520aab400517fb4fc94839296343ef10d585551a37eb36a316722091415fb2f
+  linux_amd64: 84ac1b0534794163758eb6c05728732620ff8b595d037fea7052f23633f2f179
+  linux_arm64: 8abf70a282b522fe4a74596f2520b4cfe0b500904f37e25839b13ce2c875b94e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

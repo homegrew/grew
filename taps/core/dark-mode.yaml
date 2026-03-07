@@ -1,0 +1,15 @@
+name: dark-mode
+version: 3.0.2
+description: Control the macOS dark mode from the command-line
+homepage: https://github.com/sindresorhus/dark-mode
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dark-mode/blobs/sha256:f6217678dfa4b8d1be25c7db9e62e604458cf16219b6cc5a4630f5c5d4bdb9f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dark-mode/blobs/sha256:1daf58b83385b1dd3e852d8ca4b051a875e510e02115b6d0502082fa52ef0058
+sha256:
+  darwin_arm64: f6217678dfa4b8d1be25c7db9e62e604458cf16219b6cc5a4630f5c5d4bdb9f2
+  darwin_amd64: 1daf58b83385b1dd3e852d8ca4b051a875e510e02115b6d0502082fa52ef0058
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

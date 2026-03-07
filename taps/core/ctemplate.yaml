@@ -1,0 +1,19 @@
+name: ctemplate
+version: 2.4
+description: Template language for C++
+homepage: https://github.com/olafvdspek/ctemplate
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctemplate/blobs/sha256:d6900c980a0644c4e4e8d8884d7393e6bf9fb28108901ad207206d93c5ff0508
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctemplate/blobs/sha256:182d6a82a8d4b2a529965002e528c53b0d6449ecbd2d5f83388dbc79132ef31d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctemplate/blobs/sha256:376a70935eec4f3f5965bcd0b39603f25459b8995d12d124c3ab10184e15f3ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctemplate/blobs/sha256:d8952fd11178e7d1378d3be330d5cb5d393d15837544f375700badd9044d5d38
+sha256:
+  darwin_arm64: d6900c980a0644c4e4e8d8884d7393e6bf9fb28108901ad207206d93c5ff0508
+  darwin_amd64: 182d6a82a8d4b2a529965002e528c53b0d6449ecbd2d5f83388dbc79132ef31d
+  linux_amd64: 376a70935eec4f3f5965bcd0b39603f25459b8995d12d124c3ab10184e15f3ae
+  linux_arm64: d8952fd11178e7d1378d3be330d5cb5d393d15837544f375700badd9044d5d38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

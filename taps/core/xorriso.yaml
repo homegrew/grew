@@ -1,0 +1,19 @@
+name: xorriso
+version: 1.5.6.pl02
+description: ISO9660+RR manipulation tool
+homepage: https://www.gnu.org/software/xorriso/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xorriso/blobs/sha256:fceeb65166fc6b9aec4b74b77897da475a890384717df9ebc46488a3bfbcdeb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xorriso/blobs/sha256:7393a7926142ea960892a3b72efc423f4600ebe0be7cf089f8d94201edd5c5e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xorriso/blobs/sha256:0f19040f286ffb85071c95e2633570117b4fa2e68196c3d42b2ca178ec8d8805
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xorriso/blobs/sha256:c6bf70c1bb510be7dee6854d6e6ef20c69da79b2c080d42c3d0a2b84c8f783c7
+sha256:
+  darwin_arm64: fceeb65166fc6b9aec4b74b77897da475a890384717df9ebc46488a3bfbcdeb5
+  darwin_amd64: 7393a7926142ea960892a3b72efc423f4600ebe0be7cf089f8d94201edd5c5e8
+  linux_amd64: 0f19040f286ffb85071c95e2633570117b4fa2e68196c3d42b2ca178ec8d8805
+  linux_arm64: c6bf70c1bb510be7dee6854d6e6ef20c69da79b2c080d42c3d0a2b84c8f783c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

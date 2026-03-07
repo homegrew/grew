@@ -1,0 +1,24 @@
+name: yle-dl
+version: 20250730
+description: Download Yle videos from the command-line
+homepage: https://aajanki.github.io/yle-dl/index-en.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yle-dl/blobs/sha256:0d67b5633ba8b0e56a467d11488447b79550f54c2465111f52b40aa6e4a98573
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yle-dl/blobs/sha256:b502856a8098e86d4acac6143c0d1ec4d4ce24c511b6422c4705211549d5f859
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yle-dl/blobs/sha256:471c142f296490781521ce551a8c1bc96973a1fe02ed3180da9f8864e9099abd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yle-dl/blobs/sha256:d9f47466eac8bb391ef77e43bfb88eb67d68f5fc576bc1cf9b7745682e0a6d2e
+sha256:
+  darwin_arm64: 0d67b5633ba8b0e56a467d11488447b79550f54c2465111f52b40aa6e4a98573
+  darwin_amd64: b502856a8098e86d4acac6143c0d1ec4d4ce24c511b6422c4705211549d5f859
+  linux_amd64: 471c142f296490781521ce551a8c1bc96973a1fe02ed3180da9f8864e9099abd
+  linux_arm64: d9f47466eac8bb391ef77e43bfb88eb67d68f5fc576bc1cf9b7745682e0a6d2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - python@3.14
+  - rtmpdump

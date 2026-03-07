@@ -1,0 +1,21 @@
+name: bazel
+version: 9.0.0
+description: "Google's own build tool"
+homepage: https://bazel.build/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bazel/blobs/sha256:b93b8c24160c8008e82e14cf343bf965d903d5f389a9953775675941f9517a3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bazel/blobs/sha256:07e3928b177f750d658ebc419aebc2310078f6eb0c887b04376359a0b1143d8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bazel/blobs/sha256:bc9980313a5778b1bfbe939a02d35790681fc92ad6e0e7d9c99b9569ba10a936
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bazel/blobs/sha256:223f7372762ef62f8cb2ace6d3cd4903529ad09e02b57f4d8be9e1ea3ac83c8b
+sha256:
+  darwin_arm64: b93b8c24160c8008e82e14cf343bf965d903d5f389a9953775675941f9517a3f
+  darwin_amd64: 07e3928b177f750d658ebc419aebc2310078f6eb0c887b04376359a0b1143d8a
+  linux_amd64: bc9980313a5778b1bfbe939a02d35790681fc92ad6e0e7d9c99b9569ba10a936
+  linux_arm64: 223f7372762ef62f8cb2ace6d3cd4903529ad09e02b57f4d8be9e1ea3ac83c8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@21

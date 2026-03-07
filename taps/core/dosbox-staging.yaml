@@ -1,0 +1,31 @@
+name: dosbox-staging
+version: 0.82.2
+description: Modernized DOSBox soft-fork
+homepage: https://dosbox-staging.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dosbox-staging/blobs/sha256:88db4c380c543140ebfbd668033e1a8ca44e528a3acb1d1c9028be36f0373b30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dosbox-staging/blobs/sha256:3feabb1aecd2f540708f685c837a4c4c633bf941a783b44115388d1a2fb19531
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dosbox-staging/blobs/sha256:86a154ce4e2d98e228d8fae799c47ec6f5c1a19d50bb439759a27bee4e6de011
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dosbox-staging/blobs/sha256:e69923a5122d7e81660e996d7222b8a6af8de0f3d3211c47048af92bc4ffa93b
+sha256:
+  darwin_arm64: 88db4c380c543140ebfbd668033e1a8ca44e528a3acb1d1c9028be36f0373b30
+  darwin_amd64: 3feabb1aecd2f540708f685c837a4c4c633bf941a783b44115388d1a2fb19531
+  linux_amd64: 86a154ce4e2d98e228d8fae799c47ec6f5c1a19d50bb439759a27bee4e6de011
+  linux_arm64: e69923a5122d7e81660e996d7222b8a6af8de0f3d3211c47048af92bc4ffa93b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fluid-synth
+  - glib
+  - iir1
+  - libpng
+  - libslirp
+  - mt32emu
+  - opusfile
+  - sdl2
+  - sdl2_image
+  - sdl2_net
+  - speexdsp

@@ -1,0 +1,19 @@
+name: unison
+version: 2.53.8
+description: File synchronization tool
+homepage: https://www.cis.upenn.edu/~bcpierce/unison/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unison/blobs/sha256:e960ee6843d389ce54b269d5b0c3bce094c6bc88a7c11e2d7a6c681307921acc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unison/blobs/sha256:e1b1f719237894bf6b5225e28cff289327a0f5d006d19b77796bce4da66149d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unison/blobs/sha256:13617b296ef3577bffa235f06e94cb8c79789b7f55a6b6a5034dbb28e8679ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unison/blobs/sha256:25a927077afe54cfca1a4f9241575456e6dd5e8e8be8533334bc42280b76cf98
+sha256:
+  darwin_arm64: e960ee6843d389ce54b269d5b0c3bce094c6bc88a7c11e2d7a6c681307921acc
+  darwin_amd64: e1b1f719237894bf6b5225e28cff289327a0f5d006d19b77796bce4da66149d9
+  linux_amd64: 13617b296ef3577bffa235f06e94cb8c79789b7f55a6b6a5034dbb28e8679ecd
+  linux_arm64: 25a927077afe54cfca1a4f9241575456e6dd5e8e8be8533334bc42280b76cf98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

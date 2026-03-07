@@ -1,0 +1,11 @@
+name: tla+-toolbox
+version: 1.7.4
+description: IDE for TLA+
+homepage: https://lamport.azurewebsites.net/tla/toolbox.html
+url:
+  darwin_arm64: https://github.com/tlaplus/tlaplus/releases/download/v1.7.4/TLAToolbox-1.7.4-macosx.cocoa.x86_64.zip
+sha256:
+  darwin_arm64: 258677703e28a65d2d85c75388756a51198041a2555923e52ad5d6925f5c5bd7
+artifacts:
+  app:
+    - TLA+ Toolbox.app

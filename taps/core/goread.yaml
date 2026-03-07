@@ -1,0 +1,19 @@
+name: goread
+version: 1.7.3
+description: RSS/Atom feeds in the terminal
+homepage: https://github.com/TypicalAM/goread
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goread/blobs/sha256:c3f2abcbf279010d6288ba9103f6f06e98f06293bd5b175fd047e4529cdfc644
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goread/blobs/sha256:872638c548cd01fdfac5d2067ffe292c69f4de26daf2e3082c03be0ce6317341
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goread/blobs/sha256:aff2dfdb38dc38094eda152368a17a74174e146cb1bd7709ba11ec28ea26550b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goread/blobs/sha256:8135fd745a08cb6fcc5c594068d20f4473f825f000ab5d3dfb073fd3be9f143a
+sha256:
+  darwin_arm64: c3f2abcbf279010d6288ba9103f6f06e98f06293bd5b175fd047e4529cdfc644
+  darwin_amd64: 872638c548cd01fdfac5d2067ffe292c69f4de26daf2e3082c03be0ce6317341
+  linux_amd64: aff2dfdb38dc38094eda152368a17a74174e146cb1bd7709ba11ec28ea26550b
+  linux_arm64: 8135fd745a08cb6fcc5c594068d20f4473f825f000ab5d3dfb073fd3be9f143a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

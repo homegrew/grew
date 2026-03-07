@@ -1,0 +1,19 @@
+name: oha
+version: 1.14.0
+description: HTTP load generator, inspired by rakyll/hey with tui animation
+homepage: https://github.com/hatoo/oha/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oha/blobs/sha256:54df364aa3c5fc5dde6796fe3c2544ed79937589c9fec975dee291632815ea2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oha/blobs/sha256:9df7eeb03187b9258dd06f627ed93567865315d5c99b3fa01682ba36efb972c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oha/blobs/sha256:2cdae1c9bc6797eda4e7a7384df7d65e62be88fac4bcd7ddcd75e29e18d61d7a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oha/blobs/sha256:9abd021241ca1cedd700471bdafc6ab19b2822ced8f2a6611d7c66cd2169d543
+sha256:
+  darwin_arm64: 54df364aa3c5fc5dde6796fe3c2544ed79937589c9fec975dee291632815ea2a
+  darwin_amd64: 9df7eeb03187b9258dd06f627ed93567865315d5c99b3fa01682ba36efb972c7
+  linux_amd64: 2cdae1c9bc6797eda4e7a7384df7d65e62be88fac4bcd7ddcd75e29e18d61d7a
+  linux_arm64: 9abd021241ca1cedd700471bdafc6ab19b2822ced8f2a6611d7c66cd2169d543
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

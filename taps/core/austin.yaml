@@ -1,0 +1,19 @@
+name: austin
+version: 4.0.0
+description: Python frame stack sampler for CPython
+homepage: https://github.com/P403n1x87/austin
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/austin/blobs/sha256:da1ec3babb470a9b8e4f12b70ece43a4d0d00b5de8663477bfb88d5a10544b14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/austin/blobs/sha256:ff93fdbf6c416993ffc4e25f03c56ccc9a832d8d06fb6bda5a4142ff41083b0f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/austin/blobs/sha256:8881075b254897ac5c175df033cf18c4e3c9be2c8f7da9c089ff51f829121833
+  linux_arm64: https://ghcr.io/v2/homebrew/core/austin/blobs/sha256:29c1aee7c3027fa88156dfbe09656e9a577f0c38f145ce3b40fe1daafc93a474
+sha256:
+  darwin_arm64: da1ec3babb470a9b8e4f12b70ece43a4d0d00b5de8663477bfb88d5a10544b14
+  darwin_amd64: ff93fdbf6c416993ffc4e25f03c56ccc9a832d8d06fb6bda5a4142ff41083b0f
+  linux_amd64: 8881075b254897ac5c175df033cf18c4e3c9be2c8f7da9c089ff51f829121833
+  linux_arm64: 29c1aee7c3027fa88156dfbe09656e9a577f0c38f145ce3b40fe1daafc93a474
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

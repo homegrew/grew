@@ -1,0 +1,19 @@
+name: xapian
+version: 1.4.31
+description: C++ search engine library
+homepage: https://xapian.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xapian/blobs/sha256:1187ef07a3e2a9897e45f4ed680bf4edf8c7f9da085e55f632f37ff9402bd78f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xapian/blobs/sha256:d715cdb15a596daa2109ed0e1a22a927d0ed6d96bb3ffac46c99708c1e237994
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xapian/blobs/sha256:841f77ec2f355da5b42256315fa255b7da6e458466dc0642bdfa997761387add
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xapian/blobs/sha256:3c9e666fae75687880b9ff40c49a96a5e0a6595f9e487e840798977045330909
+sha256:
+  darwin_arm64: 1187ef07a3e2a9897e45f4ed680bf4edf8c7f9da085e55f632f37ff9402bd78f
+  darwin_amd64: d715cdb15a596daa2109ed0e1a22a927d0ed6d96bb3ffac46c99708c1e237994
+  linux_amd64: 841f77ec2f355da5b42256315fa255b7da6e458466dc0642bdfa997761387add
+  linux_arm64: 3c9e666fae75687880b9ff40c49a96a5e0a6595f9e487e840798977045330909
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

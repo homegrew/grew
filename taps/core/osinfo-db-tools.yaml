@@ -1,0 +1,25 @@
+name: osinfo-db-tools
+version: 1.12.0
+description: Tools for managing the libosinfo database files
+homepage: https://libosinfo.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osinfo-db-tools/blobs/sha256:5613764761db0551e4dd70012bf9088d11d03b38a3ab30af568d5b92cfac2b36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osinfo-db-tools/blobs/sha256:197d84a4fa2c29c46477f2140366dff49d33050d1dfbe270c37777df1a0aaf20
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osinfo-db-tools/blobs/sha256:5432275a5e7c855af96a4eee2c464566ed2b46c379ad81fe86feb1f9f940fd49
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osinfo-db-tools/blobs/sha256:298c576ca5746eb674c6c9bce5d51e6f1e4fcdcdd47367e50c74a6f7b4442e0f
+sha256:
+  darwin_arm64: 5613764761db0551e4dd70012bf9088d11d03b38a3ab30af568d5b92cfac2b36
+  darwin_amd64: 197d84a4fa2c29c46477f2140366dff49d33050d1dfbe270c37777df1a0aaf20
+  linux_amd64: 5432275a5e7c855af96a4eee2c464566ed2b46c379ad81fe86feb1f9f940fd49
+  linux_arm64: 298c576ca5746eb674c6c9bce5d51e6f1e4fcdcdd47367e50c74a6f7b4442e0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib
+  - json-glib
+  - libarchive
+  - libsoup

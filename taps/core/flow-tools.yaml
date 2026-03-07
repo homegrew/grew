@@ -1,0 +1,19 @@
+name: flow-tools
+version: 0.68.5.1
+description: Collect, send, process, and generate NetFlow data reports
+homepage: https://code.google.com/archive/p/flow-tools/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flow-tools/blobs/sha256:c6ac8dfec95def2a25acdf33db6ddd896f473f64c402e415753a316d0eef78b1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flow-tools/blobs/sha256:9d5da70fb239297657612492fd4448ec29ebd54612fc2e3fc77db0d0802fece5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flow-tools/blobs/sha256:6ea0a8b997faf61a95f480149b697f9ee4446674e12bf5deaf34c132a1e314e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flow-tools/blobs/sha256:86b056849f21682bd1cb1c180e5df2e62790f79717c27f2cc2bd4d09ef3019be
+sha256:
+  darwin_arm64: c6ac8dfec95def2a25acdf33db6ddd896f473f64c402e415753a316d0eef78b1
+  darwin_amd64: 9d5da70fb239297657612492fd4448ec29ebd54612fc2e3fc77db0d0802fece5
+  linux_amd64: 6ea0a8b997faf61a95f480149b697f9ee4446674e12bf5deaf34c132a1e314e8
+  linux_arm64: 86b056849f21682bd1cb1c180e5df2e62790f79717c27f2cc2bd4d09ef3019be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: gtkdatabox
+version: 1.0.0
+description: Widget for live display of large amounts of changing data
+homepage: https://sourceforge.net/projects/gtkdatabox/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkdatabox/blobs/sha256:8f8e5772768a8b7e7530d36c8fb991ff76c361cdab7729e508a8e7e8c12dceec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkdatabox/blobs/sha256:bfaacbe85617357013ed6368753b261bc87963366680eac5f73cf85183710f96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkdatabox/blobs/sha256:1585023f5e6799a8eab163fae37ba597262d3352a01f2bee7763359224f94388
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkdatabox/blobs/sha256:60cc0df3c42c25bf990182f6a0e7655292bca03dfcf43821421d0e45a7b02b75
+sha256:
+  darwin_arm64: 8f8e5772768a8b7e7530d36c8fb991ff76c361cdab7729e508a8e7e8c12dceec
+  darwin_amd64: bfaacbe85617357013ed6368753b261bc87963366680eac5f73cf85183710f96
+  linux_amd64: 1585023f5e6799a8eab163fae37ba597262d3352a01f2bee7763359224f94388
+  linux_arm64: 60cc0df3c42c25bf990182f6a0e7655292bca03dfcf43821421d0e45a7b02b75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glib
+  - gtk+3
+  - pango
+  - at-spi2-core
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz

@@ -1,0 +1,23 @@
+name: aircrack-ng
+version: 1.7
+description: Next-generation aircrack with lots of new features
+homepage: https://aircrack-ng.org/
+license: BSD-3-Clause AND GPL-2.0-or-later AND (GPL-2.0-or-later WITH cryptsetup-OpenSSL-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aircrack-ng/blobs/sha256:c1461024ee7d85a1f0024b7e79aee529a2ffc577b4e7f55df1b93bce01a4a9c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aircrack-ng/blobs/sha256:e5e3a8ae160dcdca43edb6382efc2873748e6a02f537cbcb27003b2321e7c44d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aircrack-ng/blobs/sha256:4aa4f09ec6d620ea76c8a799abebea56382ed5c055b4a4aed414a6339a7a3591
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aircrack-ng/blobs/sha256:73fe80cec55d4e7058ed7d3bf9fc5a57e30d39941fd665714ed90d74c63d2ab5
+sha256:
+  darwin_arm64: c1461024ee7d85a1f0024b7e79aee529a2ffc577b4e7f55df1b93bce01a4a9c0
+  darwin_amd64: e5e3a8ae160dcdca43edb6382efc2873748e6a02f537cbcb27003b2321e7c44d
+  linux_amd64: 4aa4f09ec6d620ea76c8a799abebea56382ed5c055b4a4aed414a6339a7a3591
+  linux_arm64: 73fe80cec55d4e7058ed7d3bf9fc5a57e30d39941fd665714ed90d74c63d2ab5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pcre2
+  - sqlite

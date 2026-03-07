@@ -1,0 +1,22 @@
+name: retdec
+version: 5.0
+description: Retargetable machine-code decompiler based on LLVM
+homepage: https://github.com/avast/retdec
+license: MIT AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/retdec/blobs/sha256:636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/retdec/blobs/sha256:600a0786558e55c549ee2f437a05adb2370866ddf23212af0d018b57d22f923d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/retdec/blobs/sha256:6400aaaa25aba6846a2d8efd43e7c20b608a181c0cb4a2bfddb5c99618b1ac93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/retdec/blobs/sha256:cf3181456a91b4f47359036729f37ef32762af922cafd4f26451cf4f8e5eabd8
+sha256:
+  darwin_arm64: 636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc
+  darwin_amd64: 600a0786558e55c549ee2f437a05adb2370866ddf23212af0d018b57d22f923d
+  linux_amd64: 6400aaaa25aba6846a2d8efd43e7c20b608a181c0cb4a2bfddb5c99618b1ac93
+  linux_arm64: cf3181456a91b4f47359036729f37ef32762af922cafd4f26451cf4f8e5eabd8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - python@3.14

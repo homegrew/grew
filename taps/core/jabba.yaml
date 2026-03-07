@@ -1,0 +1,19 @@
+name: jabba
+version: 0.15.0
+description: Cross-platform Java Version Manager
+homepage: https://github.com/Jabba-Team/jabba
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jabba/blobs/sha256:0ad1617eea05f061bf712ec27367696f9ce94de19c9640f87b4c826198843f27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jabba/blobs/sha256:b09a6b0160a4a952d440eba94a5ec65a4988faaef0c24b3151cab3b92c082874
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jabba/blobs/sha256:ca6d53eede11f5eab0c9b75e53ac133f978a3978491452c2bca2c4411a0e9b36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jabba/blobs/sha256:2de862360086fe9b87293e4eb6e2b0ababde201289a570343379dc31ec99368e
+sha256:
+  darwin_arm64: 0ad1617eea05f061bf712ec27367696f9ce94de19c9640f87b4c826198843f27
+  darwin_amd64: b09a6b0160a4a952d440eba94a5ec65a4988faaef0c24b3151cab3b92c082874
+  linux_amd64: ca6d53eede11f5eab0c9b75e53ac133f978a3978491452c2bca2c4411a0e9b36
+  linux_arm64: 2de862360086fe9b87293e4eb6e2b0ababde201289a570343379dc31ec99368e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

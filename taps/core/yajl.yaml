@@ -1,0 +1,19 @@
+name: yajl
+version: 2.1.0
+description: Yet Another JSON Library
+homepage: https://lloyd.github.io/yajl/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yajl/blobs/sha256:ee1d81b4f6c8e21b07003ba2057aa1c0edc24acde0aea4f0570295227fb36ae6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yajl/blobs/sha256:d3669145f9a916ca3c1ec00e787e2bfb9be62f822d69f7cac414355692406d5b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yajl/blobs/sha256:c206281370fe7277f21d17ff50fe9511233aff74501238516918027006c9cbf3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yajl/blobs/sha256:8b1df8e59b01fee163b184e36bf7f607c8ff83be33f94361f9bdf67ce5b8e636
+sha256:
+  darwin_arm64: ee1d81b4f6c8e21b07003ba2057aa1c0edc24acde0aea4f0570295227fb36ae6
+  darwin_amd64: d3669145f9a916ca3c1ec00e787e2bfb9be62f822d69f7cac414355692406d5b
+  linux_amd64: c206281370fe7277f21d17ff50fe9511233aff74501238516918027006c9cbf3
+  linux_arm64: 8b1df8e59b01fee163b184e36bf7f607c8ff83be33f94361f9bdf67ce5b8e636
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cmatrix
+version: 2.0
+description: Console Matrix
+homepage: https://github.com/abishekvashok/cmatrix/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmatrix/blobs/sha256:3e9a355625f0fde46f71845797d28ee84f3613df8ede85373b754f13ca156170
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmatrix/blobs/sha256:68d9ab783759a41f8c263c9b1d63e77056978571e738018a45ce1e3f7d9a48d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmatrix/blobs/sha256:15aea39b9be08c26c94c9e2f8c82e977aaa7bf0884fbc4543114a52321e6cbc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmatrix/blobs/sha256:f3001650675f0947543d0556e8b3338984368e8fb81eb6ffa4555523b34d2644
+sha256:
+  darwin_arm64: 3e9a355625f0fde46f71845797d28ee84f3613df8ede85373b754f13ca156170
+  darwin_amd64: 68d9ab783759a41f8c263c9b1d63e77056978571e738018a45ce1e3f7d9a48d7
+  linux_amd64: 15aea39b9be08c26c94c9e2f8c82e977aaa7bf0884fbc4543114a52321e6cbc2
+  linux_arm64: f3001650675f0947543d0556e8b3338984368e8fb81eb6ffa4555523b34d2644
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

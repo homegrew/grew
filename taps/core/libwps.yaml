@@ -1,0 +1,21 @@
+name: libwps
+version: 0.4.14
+description: Library to import files in MS Works format
+homepage: https://libwps.sourceforge.net/
+license: LGPL-2.1-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwps/blobs/sha256:a1a1238d044325d8d266d1d13531ce09f837f8fe7ee2fe1474971456f3b5fe6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwps/blobs/sha256:eafcfcc4568c94cb334613505826f62aeee27380acab0ddff6f88c5e832ee128
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwps/blobs/sha256:1947ed7197be31c9abf52b092a535de6d3d1416c9fef915661ba81da4cee37b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwps/blobs/sha256:66e66c4fe9ca468d38f275f3fafeb4c5fcdabffc65f7f09c4256f10454421a14
+sha256:
+  darwin_arm64: a1a1238d044325d8d266d1d13531ce09f837f8fe7ee2fe1474971456f3b5fe6b
+  darwin_amd64: eafcfcc4568c94cb334613505826f62aeee27380acab0ddff6f88c5e832ee128
+  linux_amd64: 1947ed7197be31c9abf52b092a535de6d3d1416c9fef915661ba81da4cee37b6
+  linux_arm64: 66e66c4fe9ca468d38f275f3fafeb4c5fcdabffc65f7f09c4256f10454421a14
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge

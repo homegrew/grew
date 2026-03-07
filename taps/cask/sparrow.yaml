@@ -1,0 +1,11 @@
+name: sparrow
+version: 2.4.1
+description: Bitcoin wallet application
+homepage: https://sparrowwallet.com/
+url:
+  darwin_arm64: https://github.com/sparrowwallet/sparrow/releases/download/2.4.1/Sparrow-2.4.1-aarch64.dmg
+sha256:
+  darwin_arm64: ed4030adc0df69db250b15fd956f6c09a0f8b4a8d31243d78185533ea9a6cb21
+artifacts:
+  app:
+    - Sparrow.app

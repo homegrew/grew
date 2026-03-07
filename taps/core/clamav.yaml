@@ -1,0 +1,24 @@
+name: clamav
+version: 1.5.2
+description: Anti-virus software
+homepage: https://www.clamav.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clamav/blobs/sha256:da2ff01e94f58f60ccc44ef66cc0c20c4b05150352789c041617daedc2180d7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clamav/blobs/sha256:e93c879894036a2e2ce2992e59dd3a03bac19bd37a6ff10120e1d273f36385c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clamav/blobs/sha256:f57a456f57e5d758a01c7ffc075a661e70cbb35e46eed22f4d17f44982c555fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clamav/blobs/sha256:95a1bedac2b683a30b354406b4ddbe6c465965446fc134d8699ceeab98374f71
+sha256:
+  darwin_arm64: da2ff01e94f58f60ccc44ef66cc0c20c4b05150352789c041617daedc2180d7b
+  darwin_amd64: e93c879894036a2e2ce2992e59dd3a03bac19bd37a6ff10120e1d273f36385c7
+  linux_amd64: f57a456f57e5d758a01c7ffc075a661e70cbb35e46eed22f4d17f44982c555fe
+  linux_arm64: 95a1bedac2b683a30b354406b4ddbe6c465965446fc134d8699ceeab98374f71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - openssl@3
+  - pcre2
+  - yara

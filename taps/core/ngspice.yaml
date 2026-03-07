@@ -1,0 +1,31 @@
+name: ngspice
+version: 45.2
+description: Spice circuit simulator
+homepage: https://ngspice.sourceforge.io/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ngspice/blobs/sha256:fdf2c82d303c3b5944bdbd049ef15a40c388450879d085479965fd481148ed48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ngspice/blobs/sha256:e589ca50ee6186e1ebe7d078df4cab987786504dce9f8e49f21686ffe775fe69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ngspice/blobs/sha256:4825e30255d2c0fdb9d41e374ddf3984eb38f5eaae5e9e1a0439abd425c35eb7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ngspice/blobs/sha256:943fc32abf2e74b11faa47f458a0c39c7789ca041bef2fe1ea5358b95afa67a6
+sha256:
+  darwin_arm64: fdf2c82d303c3b5944bdbd049ef15a40c388450879d085479965fd481148ed48
+  darwin_amd64: e589ca50ee6186e1ebe7d078df4cab987786504dce9f8e49f21686ffe775fe69
+  linux_amd64: 4825e30255d2c0fdb9d41e374ddf3984eb38f5eaae5e9e1a0439abd425c35eb7
+  linux_arm64: 943fc32abf2e74b11faa47f458a0c39c7789ca041bef2fe1ea5358b95afa67a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - freetype
+  - libngspice
+  - libx11
+  - libxaw
+  - libxt
+  - readline
+  - libice
+  - libsm
+  - libxext
+  - libxmu

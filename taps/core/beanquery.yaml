@@ -1,0 +1,21 @@
+name: beanquery
+version: 0.2.0
+description: Customizable lightweight SQL query tool
+homepage: https://github.com/beancount/beanquery
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beanquery/blobs/sha256:b0ea637446c2d7eb8930e746b3be679eeae47b1076caf5058db7663c8a58af38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beanquery/blobs/sha256:40dd1c6d699b8e9ec7ffe963810b8dfe632d6ec400ff2a194f6f2e757af73ce5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beanquery/blobs/sha256:ed19884643dbf00f34a7ed9765324a7d04d84adf58432bce9281b27629e57290
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beanquery/blobs/sha256:39e9789b913f6c9cab4d48316faa39cf02c2f4ac679516039dde84136c7d66e2
+sha256:
+  darwin_arm64: b0ea637446c2d7eb8930e746b3be679eeae47b1076caf5058db7663c8a58af38
+  darwin_amd64: 40dd1c6d699b8e9ec7ffe963810b8dfe632d6ec400ff2a194f6f2e757af73ce5
+  linux_amd64: ed19884643dbf00f34a7ed9765324a7d04d84adf58432bce9281b27629e57290
+  linux_arm64: 39e9789b913f6c9cab4d48316faa39cf02c2f4ac679516039dde84136c7d66e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

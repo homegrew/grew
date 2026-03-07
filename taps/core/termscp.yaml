@@ -1,0 +1,22 @@
+name: termscp
+version: 0.19.1
+description: Feature rich terminal file transfer and explorer
+homepage: https://termscp.veeso.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termscp/blobs/sha256:8bdec1e7b0df8b1245316318cd2a94add2b2a3bd6e87c6b1ec45498401c19b1f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termscp/blobs/sha256:29b1da4bed40847c693bb52e32511d4dfc53e6ac04524a3217e5cf0282a47f13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termscp/blobs/sha256:c0bec0fcc27065085c36f6cf69efec45e3d7744ff5892c6cadc4293c8de73962
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termscp/blobs/sha256:aa3958d217ee1d3a5d45de489b1cfb4df90587269211060643017c9ff45e5308
+sha256:
+  darwin_arm64: 8bdec1e7b0df8b1245316318cd2a94add2b2a3bd6e87c6b1ec45498401c19b1f
+  darwin_amd64: 29b1da4bed40847c693bb52e32511d4dfc53e6ac04524a3217e5cf0282a47f13
+  linux_amd64: c0bec0fcc27065085c36f6cf69efec45e3d7744ff5892c6cadc4293c8de73962
+  linux_arm64: aa3958d217ee1d3a5d45de489b1cfb4df90587269211060643017c9ff45e5308
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - samba

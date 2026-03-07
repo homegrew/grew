@@ -1,0 +1,28 @@
+name: scummvm-tools
+version: 2.9.0
+description: Collection of tools for ScummVM
+homepage: https://www.scummvm.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scummvm-tools/blobs/sha256:d28a7955a87d0efcbf04f382122f517576a039283383c6f22ddb6298b00edfad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scummvm-tools/blobs/sha256:1e10ac9dd30c9d189516e5a3fc756c1e316637b3739b831a3d025a4e89fdb31f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scummvm-tools/blobs/sha256:da2882fe5bdb6fc4b5a9eca98543fc23a47ec15a8ad352dfbe38387f5649882d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scummvm-tools/blobs/sha256:fb7c611303c6cb34706789248e67fe70ec974ce5e0fe76920a6b95ed2888fff2
+sha256:
+  darwin_arm64: d28a7955a87d0efcbf04f382122f517576a039283383c6f22ddb6298b00edfad
+  darwin_amd64: 1e10ac9dd30c9d189516e5a3fc756c1e316637b3739b831a3d025a4e89fdb31f
+  linux_amd64: da2882fe5bdb6fc4b5a9eca98543fc23a47ec15a8ad352dfbe38387f5649882d
+  linux_arm64: fb7c611303c6cb34706789248e67fe70ec974ce5e0fe76920a6b95ed2888fff2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - flac
+  - freetype
+  - libogg
+  - libpng
+  - libvorbis
+  - mad
+  - wxwidgets

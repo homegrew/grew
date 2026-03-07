@@ -1,0 +1,21 @@
+name: sdb
+version: 2.3.4
+description: Ondisk/memory hashtable based on CDB
+homepage: https://www.radare.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdb/blobs/sha256:a1a4dd3159fac8732d6b7b5cd11d04048e2b181a4798b6f8ad0baf1ae0efa2e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdb/blobs/sha256:679a835d8c2dbf05b71b44157a948eb3ea3bf2f4a6da503126ed5d17511d272f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdb/blobs/sha256:1302c9024fb30296ed0656328aa73fa2937279e452d5c2f0256f6ea0bf4eb455
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdb/blobs/sha256:0a847c514b996a6e73fd594567e66169bd63b1ad8d38d050e50616235ba55e67
+sha256:
+  darwin_arm64: a1a4dd3159fac8732d6b7b5cd11d04048e2b181a4798b6f8ad0baf1ae0efa2e0
+  darwin_amd64: 679a835d8c2dbf05b71b44157a948eb3ea3bf2f4a6da503126ed5d17511d272f
+  linux_amd64: 1302c9024fb30296ed0656328aa73fa2937279e452d5c2f0256f6ea0bf4eb455
+  linux_arm64: 0a847c514b996a6e73fd594567e66169bd63b1ad8d38d050e50616235ba55e67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

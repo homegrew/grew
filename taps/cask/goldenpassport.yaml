@@ -1,0 +1,11 @@
+name: goldenpassport
+version: 0.1.7
+description: Native implementation of Google Authenticator based on Swift3
+homepage: https://github.com/stanzhai/GoldenPassport
+url:
+  darwin_arm64: https://github.com/stanzhai/GoldenPassport/releases/download/v0.1.7/GoldenPassport.zip
+sha256:
+  darwin_arm64: 696a2cd0c6245502727b2cab0f0a2d92c636fca6e4c3c1fbfa289e152cadc46c
+artifacts:
+  app:
+    - GoldenPassport.app

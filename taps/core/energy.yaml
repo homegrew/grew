@@ -1,0 +1,19 @@
+name: energy
+version: 2.5.6
+description: CLI is used to initialize the Energy development environment tools
+homepage: https://energye.github.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/energy/blobs/sha256:3f1c4d8d7329b810db0084e6fc69404fabc13ceda82d4b309406d15af639a9ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/energy/blobs/sha256:2cd61a31ad9a8ad40952fc005535b2e1ae2604d80cce285a85cc1b48a1dd713f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/energy/blobs/sha256:d6e0b7ad8af0188f7d672afa31ad19d9fade20037fec8acc4137bf7001c0de9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/energy/blobs/sha256:47e341406fc77ae2d1ceae579e4680a24fff61c313b1621e0654cfbbb2bfa919
+sha256:
+  darwin_arm64: 3f1c4d8d7329b810db0084e6fc69404fabc13ceda82d4b309406d15af639a9ca
+  darwin_amd64: 2cd61a31ad9a8ad40952fc005535b2e1ae2604d80cce285a85cc1b48a1dd713f
+  linux_amd64: d6e0b7ad8af0188f7d672afa31ad19d9fade20037fec8acc4137bf7001c0de9b
+  linux_arm64: 47e341406fc77ae2d1ceae579e4680a24fff61c313b1621e0654cfbbb2bfa919
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

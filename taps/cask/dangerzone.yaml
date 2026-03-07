@@ -1,0 +1,11 @@
+name: dangerzone
+version: 0.10.0
+description: Convert potentially dangerous PDFs or Office documents into safe PDFs
+homepage: https://dangerzone.rocks/
+url:
+  darwin_arm64: https://github.com/freedomofpress/dangerzone/releases/download/v0.10.0/Dangerzone-0.10.0-arm64.dmg
+sha256:
+  darwin_arm64: 20b0b32d30b46c53907b7d8543091c7d31cf02dc8bd1ee1ae67f7469ac001821
+artifacts:
+  app:
+    - Dangerzone.app

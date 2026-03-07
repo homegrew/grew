@@ -1,0 +1,19 @@
+name: mesheryctl
+version: 0.8.205
+description: Command-line utility for Meshery, the cloud native management plane
+homepage: https://meshery.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mesheryctl/blobs/sha256:eee6ce835af43f6ea58c1731ddec6d300dbef1564b4e7617cbfadbe13125ac1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mesheryctl/blobs/sha256:9e3c1486054660bed37ca5f585a26f20d4cf92bc83a41f6d3e4dcba109ca0c6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mesheryctl/blobs/sha256:4bd7c4aad785ed65af3a895488ed1b55ec68e7313cf2238e11e2fbb93c512748
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mesheryctl/blobs/sha256:3ccdd67998b3216447412decafb1223e65d8426c8e31b1aee3819b83af962de9
+sha256:
+  darwin_arm64: eee6ce835af43f6ea58c1731ddec6d300dbef1564b4e7617cbfadbe13125ac1d
+  darwin_amd64: 9e3c1486054660bed37ca5f585a26f20d4cf92bc83a41f6d3e4dcba109ca0c6a
+  linux_amd64: 4bd7c4aad785ed65af3a895488ed1b55ec68e7313cf2238e11e2fbb93c512748
+  linux_arm64: 3ccdd67998b3216447412decafb1223e65d8426c8e31b1aee3819b83af962de9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

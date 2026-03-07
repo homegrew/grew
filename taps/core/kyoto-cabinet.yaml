@@ -1,0 +1,19 @@
+name: kyoto-cabinet
+version: 1.2.80
+description: Library of routines for managing a database
+homepage: https://dbmx.net/kyotocabinet/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kyoto-cabinet/blobs/sha256:8c03d0a70b2156784bf4db81491d582b8dd5791125a5621a00d9cdbd5d34da4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kyoto-cabinet/blobs/sha256:1eec27e4a7aa9f4f345ee8c2c4025551b4d195013b6e001028d03ddbd3845d8e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kyoto-cabinet/blobs/sha256:c8fab699165ea045c5067847edb04c38d8b7326ad4cf0936031d93838709944e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kyoto-cabinet/blobs/sha256:12244c6b610c93626dd6163c17077439df64c9390f11f145ad94392bee33dffd
+sha256:
+  darwin_arm64: 8c03d0a70b2156784bf4db81491d582b8dd5791125a5621a00d9cdbd5d34da4e
+  darwin_amd64: 1eec27e4a7aa9f4f345ee8c2c4025551b4d195013b6e001028d03ddbd3845d8e
+  linux_amd64: c8fab699165ea045c5067847edb04c38d8b7326ad4cf0936031d93838709944e
+  linux_arm64: 12244c6b610c93626dd6163c17077439df64c9390f11f145ad94392bee33dffd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

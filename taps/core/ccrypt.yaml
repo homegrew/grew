@@ -1,0 +1,19 @@
+name: ccrypt
+version: 1.11
+description: Encrypt and decrypt files and streams
+homepage: https://ccrypt.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccrypt/blobs/sha256:cebf96f7115ebb2be8b7f058e24de430aa06506c3dcfa5aaf9c0ff67d1bd780b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccrypt/blobs/sha256:86ff4e2d100a5abd9a6a96ce38ef6aa7ff85aecb65c749d71d2f86f4f7cc8824
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccrypt/blobs/sha256:3e2c5e49110742fb547d82b661695d2044a2404869e7224c1de1be036dd253de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccrypt/blobs/sha256:66d34366219e543be249e3763823d38d772d6569159611ea1b2f6efa1daef601
+sha256:
+  darwin_arm64: cebf96f7115ebb2be8b7f058e24de430aa06506c3dcfa5aaf9c0ff67d1bd780b
+  darwin_amd64: 86ff4e2d100a5abd9a6a96ce38ef6aa7ff85aecb65c749d71d2f86f4f7cc8824
+  linux_amd64: 3e2c5e49110742fb547d82b661695d2044a2404869e7224c1de1be036dd253de
+  linux_arm64: 66d34366219e543be249e3763823d38d772d6569159611ea1b2f6efa1daef601
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

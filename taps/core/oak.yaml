@@ -1,0 +1,19 @@
+name: oak
+version: 0.3
+description: Expressive, simple, dynamic programming language
+homepage: https://oaklang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oak/blobs/sha256:815a55a839e22f2903fa5dcd1b0b0c7add13323dba55b9b6cf25e3bf6b89644d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oak/blobs/sha256:14951dfef1335e5db61166951db1cef221b86f5cd10e62ccde2170c9302e4538
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oak/blobs/sha256:c902712d736c06e8f065b2046ad172b66c7ae075a2ccdd3c19c859616577fe50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oak/blobs/sha256:50a204d94668d846405a53b9c16d42edea86f7448c8961139b3450702c382028
+sha256:
+  darwin_arm64: 815a55a839e22f2903fa5dcd1b0b0c7add13323dba55b9b6cf25e3bf6b89644d
+  darwin_amd64: 14951dfef1335e5db61166951db1cef221b86f5cd10e62ccde2170c9302e4538
+  linux_amd64: c902712d736c06e8f065b2046ad172b66c7ae075a2ccdd3c19c859616577fe50
+  linux_arm64: 50a204d94668d846405a53b9c16d42edea86f7448c8961139b3450702c382028
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

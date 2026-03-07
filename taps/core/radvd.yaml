@@ -1,0 +1,21 @@
+name: radvd
+version: 2.20
+description: IPv6 Router Advertisement Daemon
+homepage: https://radvd.litech.org/
+license: radvd
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/radvd/blobs/sha256:d37d87602c7c0ca6e9b088215c1ca3a7bf01e8b62aa3be7b76ada6a9823f9078
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/radvd/blobs/sha256:a4f4a3af815645871d6eadf2574adad2450da398f767876acdbdd06fe04fb93b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/radvd/blobs/sha256:b4e8076563de9d02831b7ebfcedca64b085732111b2363ed46da86faeb382c51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/radvd/blobs/sha256:ad3ddab263acc0d7b55b37cb661117c8f1c72c4b3a87347bfef40e94552799b8
+sha256:
+  darwin_arm64: d37d87602c7c0ca6e9b088215c1ca3a7bf01e8b62aa3be7b76ada6a9823f9078
+  darwin_amd64: a4f4a3af815645871d6eadf2574adad2450da398f767876acdbdd06fe04fb93b
+  linux_amd64: b4e8076563de9d02831b7ebfcedca64b085732111b2363ed46da86faeb382c51
+  linux_arm64: ad3ddab263acc0d7b55b37cb661117c8f1c72c4b3a87347bfef40e94552799b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libbsd

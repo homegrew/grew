@@ -1,0 +1,25 @@
+name: pstoedit
+version: 4.3
+description: Convert PostScript and PDF files to editable vector graphics
+homepage: http://www.pstoedit.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pstoedit/blobs/sha256:71b16f3464e1314670842c663a4cfee626a740a6bc39f7ea6219cb7f21329fee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pstoedit/blobs/sha256:80cd866453569577436a25984e996e66d45b8cf0b719c771bc25da182d92342d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pstoedit/blobs/sha256:9e40b2f416da1059d432772976a9782362d5911680ca6026c1af161ce9bc462e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pstoedit/blobs/sha256:c68b2fe60978946380b35dc59bf333c260dab5ac1fe3c6c17f75f4c6fbf52eb6
+sha256:
+  darwin_arm64: 71b16f3464e1314670842c663a4cfee626a740a6bc39f7ea6219cb7f21329fee
+  darwin_amd64: 80cd866453569577436a25984e996e66d45b8cf0b719c771bc25da182d92342d
+  linux_amd64: 9e40b2f416da1059d432772976a9782362d5911680ca6026c1af161ce9bc462e
+  linux_arm64: c68b2fe60978946380b35dc59bf333c260dab5ac1fe3c6c17f75f4c6fbf52eb6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd
+  - ghostscript
+  - imagemagick
+  - libzip
+  - plotutils

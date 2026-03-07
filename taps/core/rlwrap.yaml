@@ -1,0 +1,22 @@
+name: rlwrap
+version: 0.48
+description: "Readline wrapper: adds readline support to tools that lack it"
+homepage: https://github.com/hanslub42/rlwrap
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rlwrap/blobs/sha256:4caef889ab3bee246054ca4857517e098960d4be9ff556c5c545d3f7170b2b1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rlwrap/blobs/sha256:7c3435731fd7e0a80089fa9d72d83715c19e953dc3e8cfa61d539a0393ff0700
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rlwrap/blobs/sha256:6c5a1f7a230f7987b1b78f5cea9c34afc36ec4bdaa7bca0bdb30fd321359d6a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rlwrap/blobs/sha256:305d08434011dd7bebeb463ac8bfc314b78d38a8c81371a33210b2bd12b74580
+sha256:
+  darwin_arm64: 4caef889ab3bee246054ca4857517e098960d4be9ff556c5c545d3f7170b2b1d
+  darwin_amd64: 7c3435731fd7e0a80089fa9d72d83715c19e953dc3e8cfa61d539a0393ff0700
+  linux_amd64: 6c5a1f7a230f7987b1b78f5cea9c34afc36ec4bdaa7bca0bdb30fd321359d6a9
+  linux_arm64: 305d08434011dd7bebeb463ac8bfc314b78d38a8c81371a33210b2bd12b74580
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libptytty
+  - readline

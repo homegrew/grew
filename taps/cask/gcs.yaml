@@ -1,0 +1,11 @@
+name: gcs
+version: 5.42.0
+description: Character sheet editor for the GURPS Fourth Edition roleplaying game
+homepage: https://gurpscharactersheet.com/
+url:
+  darwin_arm64: https://github.com/richardwilkes/gcs/releases/download/v5.42.0/gcs-5.42.0-macos-arm64.dmg
+sha256:
+  darwin_arm64: 5ef43e48382b77d09c2c99fe9d24bc8720a20a866657872c7e1d5cd551acb585
+artifacts:
+  app:
+    - GCS.app

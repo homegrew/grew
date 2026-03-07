@@ -1,0 +1,36 @@
+name: adios2
+version: 2.11.0
+description: Next generation of ADIOS developed in the Exascale Computing Program
+homepage: https://adios2.readthedocs.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/adios2/blobs/sha256:0fc0bba06d97e22d5c1869d158bc966d4edae99020e4ca7c8c4c13004f3b52c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/adios2/blobs/sha256:d9fef9268fa1e89e72598057dac3eb94651f795bda0db338ddd995c76c62fb0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/adios2/blobs/sha256:b52a6393a46cb6e8c64b502f88b2d032f029d15148347038cc709870f156cfb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/adios2/blobs/sha256:534704afd26df44507961778f55a3792962cfe487fd94efe4b9148330e976b12
+sha256:
+  darwin_arm64: 0fc0bba06d97e22d5c1869d158bc966d4edae99020e4ca7c8c4c13004f3b52c4
+  darwin_amd64: d9fef9268fa1e89e72598057dac3eb94651f795bda0db338ddd995c76c62fb0e
+  linux_amd64: b52a6393a46cb6e8c64b502f88b2d032f029d15148347038cc709870f156cfb4
+  linux_arm64: 534704afd26df44507961778f55a3792962cfe487fd94efe4b9148330e976b12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-blosc2
+  - gcc
+  - libfabric
+  - libpng
+  - libsodium
+  - mpi4py
+  - numpy
+  - open-mpi
+  - openssl@3
+  - pugixml
+  - python@3.14
+  - sqlite
+  - yaml-cpp
+  - zeromq
+  - lz4
+  - zstd

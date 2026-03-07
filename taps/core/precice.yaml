@@ -1,0 +1,26 @@
+name: precice
+version: 3.3.1
+description: Coupling library for partitioned multi-physics simulations
+homepage: https://precice.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/precice/blobs/sha256:06017d88e61cd6037ba3e281a462cd3b5a949c7feb6bd0361329d515e13ca564
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/precice/blobs/sha256:0dd151e2399335ae8caa1cc02edc266e389f79658329015afc981f3e8d97c4b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/precice/blobs/sha256:ec4b27f5dda87bff3e4bf28384d24a837b129e5d49fbb2aa6caea96a29741424
+  linux_arm64: https://ghcr.io/v2/homebrew/core/precice/blobs/sha256:6d54f37577fb4adfcb8e7ee71f4a722b953fd43b1a6da957bbfef85e8385767e
+sha256:
+  darwin_arm64: 06017d88e61cd6037ba3e281a462cd3b5a949c7feb6bd0361329d515e13ca564
+  darwin_amd64: 0dd151e2399335ae8caa1cc02edc266e389f79658329015afc981f3e8d97c4b0
+  linux_amd64: ec4b27f5dda87bff3e4bf28384d24a837b129e5d49fbb2aa6caea96a29741424
+  linux_arm64: 6d54f37577fb4adfcb8e7ee71f4a722b953fd43b1a6da957bbfef85e8385767e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - eigen
+  - numpy
+  - open-mpi
+  - petsc
+  - python@3.14

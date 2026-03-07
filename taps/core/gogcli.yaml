@@ -1,0 +1,19 @@
+name: gogcli
+version: 0.11.0
+description: Google Suite CLI
+homepage: https://gogcli.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gogcli/blobs/sha256:31752579a902a6ccf11193860beea0817e7a534a7b3e345f83e483165768ddba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gogcli/blobs/sha256:5f96d925dc0294595b6eec98a24bcc52d8588cfa3cd6262195db7169b10fcb33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gogcli/blobs/sha256:c91891c9c33c6534ecf396665357fd9696b4f827210f721836c1e1a5dce34f25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gogcli/blobs/sha256:7d113eaa0ee259c65fa22c739e3a47f6f7a781098dd22dd9c31bf0f5aeaab6d0
+sha256:
+  darwin_arm64: 31752579a902a6ccf11193860beea0817e7a534a7b3e345f83e483165768ddba
+  darwin_amd64: 5f96d925dc0294595b6eec98a24bcc52d8588cfa3cd6262195db7169b10fcb33
+  linux_amd64: c91891c9c33c6534ecf396665357fd9696b4f827210f721836c1e1a5dce34f25
+  linux_arm64: 7d113eaa0ee259c65fa22c739e3a47f6f7a781098dd22dd9c31bf0f5aeaab6d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

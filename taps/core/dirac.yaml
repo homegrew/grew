@@ -1,0 +1,19 @@
+name: dirac
+version: 1.0.2
+description: General-purpose video codec aimed at a range of resolutions
+homepage: https://sourceforge.net/projects/dirac/
+license: MPL-1.1 OR GPL-2.0-only OR LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dirac/blobs/sha256:67319e9ad9710a1d9bb80f78716b453430f164ed95a0b45ad62bad1bccbd879b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dirac/blobs/sha256:bf547d33dffd0442908ab57c0aa4bfcb59c5943112f260b31e6e0aa2fe6c0469
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dirac/blobs/sha256:96695c27a2cd1fbabc1281d052e798b4da85d75ba1a92c6b072808d0a59c62bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dirac/blobs/sha256:c02ecb26cb2992df035ad54868de88e9706b0abecf9f949413bc584b9eea8a4f
+sha256:
+  darwin_arm64: 67319e9ad9710a1d9bb80f78716b453430f164ed95a0b45ad62bad1bccbd879b
+  darwin_amd64: bf547d33dffd0442908ab57c0aa4bfcb59c5943112f260b31e6e0aa2fe6c0469
+  linux_amd64: 96695c27a2cd1fbabc1281d052e798b4da85d75ba1a92c6b072808d0a59c62bb
+  linux_arm64: c02ecb26cb2992df035ad54868de88e9706b0abecf9f949413bc584b9eea8a4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

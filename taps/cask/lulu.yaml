@@ -1,0 +1,11 @@
+name: lulu
+version: 4.2.1
+description: Open-source firewall to block unknown outgoing connections
+homepage: https://objective-see.org/products/lulu.html
+url:
+  darwin_arm64: https://github.com/objective-see/LuLu/releases/download/v4.2.1/LuLu_4.2.1.dmg
+sha256:
+  darwin_arm64: ed580410f38e8cc8f17cd4724182f9b7a6bbb1524797ff8e8019428a285244a0
+artifacts:
+  app:
+    - LuLu.app

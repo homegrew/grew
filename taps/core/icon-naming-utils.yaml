@@ -1,0 +1,19 @@
+name: icon-naming-utils
+version: 0.8.90
+description: Script to handle icon names in desktop icon themes
+homepage: https://specifications.freedesktop.org/icon-naming/latest/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icon-naming-utils/blobs/sha256:0297c134b4aed0221b17224be3da86f54004e5d1ce7d12e4e9138b3335f65190
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icon-naming-utils/blobs/sha256:4875c2788c7c77a35e9af5ecda0d4ba48ec06668ed12acd5b95b77860a8e25ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icon-naming-utils/blobs/sha256:2808ba5e1f6d084d4f424e084ead17462349b6b2c5d60e5162ecd633c7e3be2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icon-naming-utils/blobs/sha256:089bbe93b74c60c6520d3269999e652427cf02a30e8825a7e70261af6ba7beaf
+sha256:
+  darwin_arm64: 0297c134b4aed0221b17224be3da86f54004e5d1ce7d12e4e9138b3335f65190
+  darwin_amd64: 4875c2788c7c77a35e9af5ecda0d4ba48ec06668ed12acd5b95b77860a8e25ca
+  linux_amd64: 2808ba5e1f6d084d4f424e084ead17462349b6b2c5d60e5162ecd633c7e3be2f
+  linux_arm64: 089bbe93b74c60c6520d3269999e652427cf02a30e8825a7e70261af6ba7beaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

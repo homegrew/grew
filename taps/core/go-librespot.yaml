@@ -1,0 +1,23 @@
+name: go-librespot
+version: 0.7.1
+description: Spotify client
+homepage: https://github.com/devgianlu/go-librespot
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-librespot/blobs/sha256:16b97c3c124cf7017cda09378810639238d52295dd623c0fd4ffd37f5d56f781
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-librespot/blobs/sha256:1fe1dc4546772e9c55f71b26eecd8914e3f7492bae1804f36b049042abb986a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-librespot/blobs/sha256:a4917c7564cc077bbe491d407957c123d8035c4db508fa0fa79f936f6d8ffdc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-librespot/blobs/sha256:5bab75619906a8ef10a661a03f4599dd5351c6c7ab3ca5fde2ebbbfe2e2b7f71
+sha256:
+  darwin_arm64: 16b97c3c124cf7017cda09378810639238d52295dd623c0fd4ffd37f5d56f781
+  darwin_amd64: 1fe1dc4546772e9c55f71b26eecd8914e3f7492bae1804f36b049042abb986a3
+  linux_amd64: a4917c7564cc077bbe491d407957c123d8035c4db508fa0fa79f936f6d8ffdc2
+  linux_arm64: 5bab75619906a8ef10a661a03f4599dd5351c6c7ab3ca5fde2ebbbfe2e2b7f71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libogg
+  - libvorbis

@@ -1,0 +1,19 @@
+name: ndiff
+version: 2.00
+description: Virtual package provided by nmap
+homepage: https://www.math.utah.edu/~beebe/software/ndiff/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ndiff/blobs/sha256:cdab0b2f97b5b9256157324af89023d7e61e7a3789a30d0ffd39064fc71fe219
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ndiff/blobs/sha256:4b4c46a18f21ebab95fba30b75734e9cc3e9e392909961e8901e43624faf2f74
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ndiff/blobs/sha256:417d767a85801798bdd56f860a6554abbac5cf980080106ab5767be4c53121ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ndiff/blobs/sha256:c030a5b399fa30e0f1ce974e9900718dead459f3fffd5d856ada54ebc277c204
+sha256:
+  darwin_arm64: cdab0b2f97b5b9256157324af89023d7e61e7a3789a30d0ffd39064fc71fe219
+  darwin_amd64: 4b4c46a18f21ebab95fba30b75734e9cc3e9e392909961e8901e43624faf2f74
+  linux_amd64: 417d767a85801798bdd56f860a6554abbac5cf980080106ab5767be4c53121ca
+  linux_arm64: c030a5b399fa30e0f1ce974e9900718dead459f3fffd5d856ada54ebc277c204
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

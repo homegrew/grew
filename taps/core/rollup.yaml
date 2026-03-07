@@ -1,0 +1,21 @@
+name: rollup
+version: 4.59.0
+description: Next-generation ES module bundler
+homepage: https://rollupjs.org/
+license: ISC AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rollup/blobs/sha256:cfe9060e90ecaf4365e5a8e6637db99a14655f86279f89d0fe953f1ea240c4ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rollup/blobs/sha256:5584f8ef5e130abe0499708855ee01292345fe87cd35ff3d65770d315d929c10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rollup/blobs/sha256:53573f45b191a5266e1ac61cec54b4389566754b29200e65e2523eecda3d5959
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rollup/blobs/sha256:3fc755b1252565809b34995a1e78e64003372ce3a175d94703b4682ba2a63098
+sha256:
+  darwin_arm64: cfe9060e90ecaf4365e5a8e6637db99a14655f86279f89d0fe953f1ea240c4ca
+  darwin_amd64: 5584f8ef5e130abe0499708855ee01292345fe87cd35ff3d65770d315d929c10
+  linux_amd64: 53573f45b191a5266e1ac61cec54b4389566754b29200e65e2523eecda3d5959
+  linux_arm64: 3fc755b1252565809b34995a1e78e64003372ce3a175d94703b4682ba2a63098
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

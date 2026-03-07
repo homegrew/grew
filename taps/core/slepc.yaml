@@ -1,0 +1,28 @@
+name: slepc
+version: 3.24.2
+description: Scalable Library for Eigenvalue Problem Computations (real)
+homepage: https://slepc.upv.es
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slepc/blobs/sha256:f8a0d07e4438573d61b32608da83121bf0d6c29cf99f437fcd7bbdd2f9103572
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slepc/blobs/sha256:6b2b9207882bb06cf37ad0c79e47adc366f7c33c257c2f35da5001c59c442bd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slepc/blobs/sha256:77b9c8642b9ad527e6df71cdbe7c93d9478bcbdc1e9ed3ec1052a1fccdf56162
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slepc/blobs/sha256:51cc7f2d18cac19dd45c720b727f48b62ba986ae3585ffbe69528dd973ce2682
+sha256:
+  darwin_arm64: f8a0d07e4438573d61b32608da83121bf0d6c29cf99f437fcd7bbdd2f9103572
+  darwin_amd64: 6b2b9207882bb06cf37ad0c79e47adc366f7c33c257c2f35da5001c59c442bd8
+  linux_amd64: 77b9c8642b9ad527e6df71cdbe7c93d9478bcbdc1e9ed3ec1052a1fccdf56162
+  linux_arm64: 51cc7f2d18cac19dd45c720b727f48b62ba986ae3585ffbe69528dd973ce2682
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - openblas
+  - petsc
+  - scalapack
+  - fftw
+  - gcc
+  - hdf5-mpi
+  - metis

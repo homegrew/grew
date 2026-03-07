@@ -1,0 +1,21 @@
+name: vulkan-utility-libraries
+version: 1.4.341.0
+description: Utility Libraries for Vulkan
+homepage: https://github.com/KhronosGroup/Vulkan-Utility-Libraries
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-utility-libraries/blobs/sha256:3a174d54ac81ba158e6f0e515fcfa47678f71c3691b9b835c8568c4e45153df4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-utility-libraries/blobs/sha256:087d30a74f7adc47c6ada5dfe03b5e264f0f492155312fca026d66a7889f5cad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-utility-libraries/blobs/sha256:b426fdbc4324524057a3f7a64e653a9f8dc80b09d00ee74e15c122737aa5b68a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-utility-libraries/blobs/sha256:5adc359916bc846855c5206782500fdc1d109e3d31275606c311eac1fdd8e244
+sha256:
+  darwin_arm64: 3a174d54ac81ba158e6f0e515fcfa47678f71c3691b9b835c8568c4e45153df4
+  darwin_amd64: 087d30a74f7adc47c6ada5dfe03b5e264f0f492155312fca026d66a7889f5cad
+  linux_amd64: b426fdbc4324524057a3f7a64e653a9f8dc80b09d00ee74e15c122737aa5b68a
+  linux_arm64: 5adc359916bc846855c5206782500fdc1d109e3d31275606c311eac1fdd8e244
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - vulkan-headers

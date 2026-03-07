@@ -1,0 +1,19 @@
+name: gmp
+version: 6.3.0
+description: GNU multiple precision arithmetic library
+homepage: https://gmplib.org/
+license: LGPL-3.0-or-later OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:db8075f389ca0a9f9aba54762c93760db66ef92ee989f4a32b5e13b4b987339c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:3f2654a4c29cd2b8605bea7a9473d6984ecbefa6413662b0d976f1457099f24d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:3dca3544faca889c7389a5fdbd2b5b00582c34a4e14607033573ad3b06ca7882
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:5f23ebfcde217dbc697dc961d103ca602445a5775c2ed19a29eaec98f4cfa3c0
+sha256:
+  darwin_arm64: db8075f389ca0a9f9aba54762c93760db66ef92ee989f4a32b5e13b4b987339c
+  darwin_amd64: 3f2654a4c29cd2b8605bea7a9473d6984ecbefa6413662b0d976f1457099f24d
+  linux_amd64: 3dca3544faca889c7389a5fdbd2b5b00582c34a4e14607033573ad3b06ca7882
+  linux_arm64: 5f23ebfcde217dbc697dc961d103ca602445a5775c2ed19a29eaec98f4cfa3c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

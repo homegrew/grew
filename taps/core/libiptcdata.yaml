@@ -1,0 +1,21 @@
+name: libiptcdata
+version: 1.0.5
+description: Virtual package provided by libiptcdata0
+homepage: https://libiptcdata.sourceforge.net/
+license: LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libiptcdata/blobs/sha256:56f886ae4863583e9c8d911dd0f312b1ddb7330043e3296eb5cdeeb14cdf13f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libiptcdata/blobs/sha256:3f94564c26a2283a245b5593d1e9082440932730071ae8527ba51f927b1997c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libiptcdata/blobs/sha256:5118f85e9d7a8cdc95465502824841fa6dc745d481dabc5f5d09686ba8872534
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libiptcdata/blobs/sha256:b9007e8fd2a48d129709d296367e69eaa4c6d5b20a3682590f91fe5110c153e8
+sha256:
+  darwin_arm64: 56f886ae4863583e9c8d911dd0f312b1ddb7330043e3296eb5cdeeb14cdf13f2
+  darwin_amd64: 3f94564c26a2283a245b5593d1e9082440932730071ae8527ba51f927b1997c5
+  linux_amd64: 5118f85e9d7a8cdc95465502824841fa6dc745d481dabc5f5d09686ba8872534
+  linux_arm64: b9007e8fd2a48d129709d296367e69eaa4c6d5b20a3682590f91fe5110c153e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

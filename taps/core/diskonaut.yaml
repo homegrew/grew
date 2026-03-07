@@ -1,0 +1,19 @@
+name: diskonaut
+version: 0.11.0
+description: Terminal visual disk space navigator
+homepage: https://github.com/imsnif/diskonaut
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diskonaut/blobs/sha256:46ddaf75fd4b61414cb76fa4ac54aabb931aac13253e52e68888852468c14ede
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diskonaut/blobs/sha256:ad0bc71719adfce24bb4313c7f7e98dd8f1a13d51f99732ab9c8ec734d3d4c81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diskonaut/blobs/sha256:af43639e44daac484d6b43f33400310a21abf9632c85c198d41aad2edd34a0bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diskonaut/blobs/sha256:01640068ad07f5330d00b480b129e6c39558740133453c80002f9f0485654c88
+sha256:
+  darwin_arm64: 46ddaf75fd4b61414cb76fa4ac54aabb931aac13253e52e68888852468c14ede
+  darwin_amd64: ad0bc71719adfce24bb4313c7f7e98dd8f1a13d51f99732ab9c8ec734d3d4c81
+  linux_amd64: af43639e44daac484d6b43f33400310a21abf9632c85c198d41aad2edd34a0bc
+  linux_arm64: 01640068ad07f5330d00b480b129e6c39558740133453c80002f9f0485654c88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

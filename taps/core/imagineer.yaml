@@ -1,0 +1,19 @@
+name: imagineer
+version: 0.24.0
+description: Image processing and conversion from the terminal
+homepage: https://github.com/foresterre/imagineer
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imagineer/blobs/sha256:e4ca11e59cd76c386376633456490a78f142113529373e9952d6eaa0498bff96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imagineer/blobs/sha256:8f4057299fe24aa4fe3991b89269ca831417b64f96f6aef7f92b06a34ba3a4fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imagineer/blobs/sha256:221eef6b88965107e0ecbad082d7bbb16394df8f1f8eb26786e8735a8b367941
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imagineer/blobs/sha256:0e6bbcfec405b3c2f501296234ce3b1a6dd9c01a855b4d27023d5c9e20c2821f
+sha256:
+  darwin_arm64: e4ca11e59cd76c386376633456490a78f142113529373e9952d6eaa0498bff96
+  darwin_amd64: 8f4057299fe24aa4fe3991b89269ca831417b64f96f6aef7f92b06a34ba3a4fb
+  linux_amd64: 221eef6b88965107e0ecbad082d7bbb16394df8f1f8eb26786e8735a8b367941
+  linux_arm64: 0e6bbcfec405b3c2f501296234ce3b1a6dd9c01a855b4d27023d5c9e20c2821f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

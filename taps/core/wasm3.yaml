@@ -1,0 +1,21 @@
+name: wasm3
+version: 0.5.0
+description: High performance WebAssembly interpreter
+homepage: https://github.com/wasm3/wasm3
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm3/blobs/sha256:67558c58d6f3470d32cc63b037032141ef9d5333b140266449b61ce990b0e5f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm3/blobs/sha256:b73049c21f9f23a48183a202350067d97499166bc56645b724f04a41549e37b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm3/blobs/sha256:81583583d30963a9a92c39f2dad088571eff6ae11b3617bc8b39f585475161a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm3/blobs/sha256:6ecffe5df21d1f012c6a2139c8cb57e5673a390e0352b1250deef8a1004c171e
+sha256:
+  darwin_arm64: 67558c58d6f3470d32cc63b037032141ef9d5333b140266449b61ce990b0e5f0
+  darwin_amd64: b73049c21f9f23a48183a202350067d97499166bc56645b724f04a41549e37b8
+  linux_amd64: 81583583d30963a9a92c39f2dad088571eff6ae11b3617bc8b39f585475161a0
+  linux_arm64: 6ecffe5df21d1f012c6a2139c8cb57e5673a390e0352b1250deef8a1004c171e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - uvwasi

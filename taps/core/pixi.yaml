@@ -1,0 +1,19 @@
+name: pixi
+version: 0.65.0
+description: Package management made easy
+homepage: https://pixi.sh
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixi/blobs/sha256:d13fab0d72698fdd1ff0e003ebe69e7664c50263180a15fb8fe1a3bbf6a88fb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixi/blobs/sha256:cb6b6e7893d83f57b08a1970600e7d0bc5c703875eadc46e362c06dc02f1acdf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixi/blobs/sha256:c2dd82119ce5658918827289862d4270e2a220bb790228eb5434ca1c478461c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixi/blobs/sha256:54ea64aee6e81ad0054f0e723ad5ce036cc6a67713bf91842c7e6a04f01a5810
+sha256:
+  darwin_arm64: d13fab0d72698fdd1ff0e003ebe69e7664c50263180a15fb8fe1a3bbf6a88fb2
+  darwin_amd64: cb6b6e7893d83f57b08a1970600e7d0bc5c703875eadc46e362c06dc02f1acdf
+  linux_amd64: c2dd82119ce5658918827289862d4270e2a220bb790228eb5434ca1c478461c1
+  linux_arm64: 54ea64aee6e81ad0054f0e723ad5ce036cc6a67713bf91842c7e6a04f01a5810
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

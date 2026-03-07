@@ -1,0 +1,22 @@
+name: memtier_benchmark
+version: 2.2.2
+description: Redis and Memcache traffic generation and benchmarking tool
+homepage: https://github.com/RedisLabs/memtier_benchmark
+license: GPL-2.0-only AND (CC0-1.0 OR BSD-2-Clause)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/memtier_benchmark/blobs/sha256:cd330b2ee5b361831eb3f7db5967ac7a56c83d32226820dbf48153a9ca15c214
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/memtier_benchmark/blobs/sha256:23541ae391f3bc4d61fe99b0b2d18aca23be0df01c489ab6fd55d8fcc4299e6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/memtier_benchmark/blobs/sha256:44c04faf18845e81f48fe29fb5c1ced7cbf3889d542b88ac847f09c5302df9dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/memtier_benchmark/blobs/sha256:8e06c30cbd3b096ba8e7942fc41357636e4473daa9f971f552befea05ca91705
+sha256:
+  darwin_arm64: cd330b2ee5b361831eb3f7db5967ac7a56c83d32226820dbf48153a9ca15c214
+  darwin_amd64: 23541ae391f3bc4d61fe99b0b2d18aca23be0df01c489ab6fd55d8fcc4299e6b
+  linux_amd64: 44c04faf18845e81f48fe29fb5c1ced7cbf3889d542b88ac847f09c5302df9dd
+  linux_arm64: 8e06c30cbd3b096ba8e7942fc41357636e4473daa9f971f552befea05ca91705
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - openssl@3

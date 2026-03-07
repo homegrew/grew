@@ -1,0 +1,19 @@
+name: go-jira
+version: 1.0.27
+description: Simple jira command-line client in Go
+homepage: https://github.com/go-jira/jira
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-jira/blobs/sha256:379b37138dec50af1a721ea979bc968474ff2f5dd901e853516836fbe205b456
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-jira/blobs/sha256:609f2bfd921e78ecb37ebed62ac71ce480c8a6713c1525950c42ab56cac6cfee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-jira/blobs/sha256:6892ea2385e3c1eb948612c8a9c98a14442ccbdb046779fb0948db892112dc74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-jira/blobs/sha256:138271ad126a983ec28561e6a57cc82755e3efd4eed795612cece818a482c42e
+sha256:
+  darwin_arm64: 379b37138dec50af1a721ea979bc968474ff2f5dd901e853516836fbe205b456
+  darwin_amd64: 609f2bfd921e78ecb37ebed62ac71ce480c8a6713c1525950c42ab56cac6cfee
+  linux_amd64: 6892ea2385e3c1eb948612c8a9c98a14442ccbdb046779fb0948db892112dc74
+  linux_arm64: 138271ad126a983ec28561e6a57cc82755e3efd4eed795612cece818a482c42e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: git-workspace
+version: 1.10.0
+description: Sync personal and work git repositories from multiple providers
+homepage: https://github.com/orf/git-workspace
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-workspace/blobs/sha256:23285696507de756063d31a918d4612422e6bc6a09f13f24a96b4d1ae851e9d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-workspace/blobs/sha256:813610ed6838c17768cf836b7d2def4742c4133871e537ba72112a65ecb9ccdc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-workspace/blobs/sha256:fbf315965767ecb21efbe93e21fc3f8292155b718afd2d1062ef748826d1d422
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-workspace/blobs/sha256:2e1014d431a4abd86c219d13c68e5bda12fef8d6ddcb10e5388f368f4b13e773
+sha256:
+  darwin_arm64: 23285696507de756063d31a918d4612422e6bc6a09f13f24a96b4d1ae851e9d7
+  darwin_amd64: 813610ed6838c17768cf836b7d2def4742c4133871e537ba72112a65ecb9ccdc
+  linux_amd64: fbf315965767ecb21efbe93e21fc3f8292155b718afd2d1062ef748826d1d422
+  linux_arm64: 2e1014d431a4abd86c219d13c68e5bda12fef8d6ddcb10e5388f368f4b13e773
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

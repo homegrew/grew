@@ -1,0 +1,21 @@
+name: mkp224o
+version: 1.7.0
+description: Vanity address generator for tor onion v3 (ed25519) hidden services
+homepage: https://github.com/cathugger/mkp224o
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkp224o/blobs/sha256:4963af60f493125859687fd0ccdba625997d92d403d90849813a909bd3143a62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkp224o/blobs/sha256:fa5df29c3c00e7877e777d3cabb36cd66252c2c952673b542afa3d5102621436
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkp224o/blobs/sha256:7614290d244905ffde9a1c969687b56c400aa3d16a272a10ed511d2cd42737af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkp224o/blobs/sha256:eedd254c44252b322d95df443fd20f4d7f48d827a0f6cc6f4f1af702e1cd4a3e
+sha256:
+  darwin_arm64: 4963af60f493125859687fd0ccdba625997d92d403d90849813a909bd3143a62
+  darwin_amd64: fa5df29c3c00e7877e777d3cabb36cd66252c2c952673b542afa3d5102621436
+  linux_amd64: 7614290d244905ffde9a1c969687b56c400aa3d16a272a10ed511d2cd42737af
+  linux_arm64: eedd254c44252b322d95df443fd20f4d7f48d827a0f6cc6f4f1af702e1cd4a3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

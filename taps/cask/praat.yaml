@@ -1,0 +1,13 @@
+name: praat
+version: 6.4.61,6461
+description: Doing phonetics by computer
+homepage: https://praat.org/
+url:
+  darwin_arm64: https://github.com/praat/praat.github.io/releases/download/v6.4.61/praat6461_mac.dmg
+sha256:
+  darwin_arm64: 98582c78fb4695f97faaacd3fbb13bc6b9b0b15f35180c79842cab884d170374
+artifacts:
+  app:
+    - Praat.app
+  bin:
+    - praat

@@ -1,0 +1,19 @@
+name: fetch
+version: 0.4.8
+description: Download assets from a commit, branch, or tag of GitHub repositories
+homepage: https://www.gruntwork.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fetch/blobs/sha256:16084f167de5082df4b3ce7198fcf44672bd2039929c2e61e2a1118710e3debc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fetch/blobs/sha256:06a16319c84b85d5e26f0586a344f9f95572ff3afff275ff494846e98794ed5b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fetch/blobs/sha256:10b5de8d86085f6b4b75c5dc54e38301f452adfc9de38b49d0cb907acb8929bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fetch/blobs/sha256:930d8ca1b12f0cc94cce20a1b637ffb956499bc0f515882fb4780c5e3892bf88
+sha256:
+  darwin_arm64: 16084f167de5082df4b3ce7198fcf44672bd2039929c2e61e2a1118710e3debc
+  darwin_amd64: 06a16319c84b85d5e26f0586a344f9f95572ff3afff275ff494846e98794ed5b
+  linux_amd64: 10b5de8d86085f6b4b75c5dc54e38301f452adfc9de38b49d0cb907acb8929bb
+  linux_arm64: 930d8ca1b12f0cc94cce20a1b637ffb956499bc0f515882fb4780c5e3892bf88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

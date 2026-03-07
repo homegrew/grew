@@ -1,0 +1,19 @@
+name: liblbfgs
+version: 1.10
+description: C library for limited-memory BFGS optimization algorithm
+homepage: https://www.chokkan.org/software/liblbfgs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblbfgs/blobs/sha256:d88172caad8ef6e5a35ca17ed81ee20ecb8bfe0a245f9ea1b7b16e0c88bc3cb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblbfgs/blobs/sha256:56d3aece128cfb420a427eb7f6513e539a6e51b777d281c8c6fa6bf804693305
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblbfgs/blobs/sha256:c462aa266b91b96ed0f85ce8a495cb29ed9c571943ffb0eb8b65f5bd7406d7cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblbfgs/blobs/sha256:b45e6bbae731b52f94d92784f30120bf36bf7169df1d6956b5398473438d6f95
+sha256:
+  darwin_arm64: d88172caad8ef6e5a35ca17ed81ee20ecb8bfe0a245f9ea1b7b16e0c88bc3cb7
+  darwin_amd64: 56d3aece128cfb420a427eb7f6513e539a6e51b777d281c8c6fa6bf804693305
+  linux_amd64: c462aa266b91b96ed0f85ce8a495cb29ed9c571943ffb0eb8b65f5bd7406d7cc
+  linux_arm64: b45e6bbae731b52f94d92784f30120bf36bf7169df1d6956b5398473438d6f95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

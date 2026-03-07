@@ -1,0 +1,22 @@
+name: innoextract
+version: 1.9
+description: Tool to unpack installers created by Inno Setup
+homepage: https://constexpr.org/innoextract/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/innoextract/blobs/sha256:1150222eb02fdb776418d3253e62ba75592481225b162026bf45ad687784d730
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/innoextract/blobs/sha256:eccddde976f66e9cddc35f6f72cac7c2377312343bb8cdfb954797c3173ead17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/innoextract/blobs/sha256:4fcfb3e634def1947791fab8be9c9b2ede7a6c453de29d92491a35638090afee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/innoextract/blobs/sha256:54d89c53d511089ab43432dc90c8cf8acc3ea5c3bb5ddf0f01f1954bcd9ec4ab
+sha256:
+  darwin_arm64: 1150222eb02fdb776418d3253e62ba75592481225b162026bf45ad687784d730
+  darwin_amd64: eccddde976f66e9cddc35f6f72cac7c2377312343bb8cdfb954797c3173ead17
+  linux_amd64: 4fcfb3e634def1947791fab8be9c9b2ede7a6c453de29d92491a35638090afee
+  linux_arm64: 54d89c53d511089ab43432dc90c8cf8acc3ea5c3bb5ddf0f01f1954bcd9ec4ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - xz

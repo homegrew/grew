@@ -1,0 +1,19 @@
+name: qqqa
+version: 1.0.0
+description: "Fast, stateless LLM for your shell: qq answers; qa runs commands"
+homepage: https://github.com/iagooar/qqqa
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qqqa/blobs/sha256:b68fcc1e9cfd889ac4e999468edfe4bd0630a08c6cd14c1fb647b09362df8e09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qqqa/blobs/sha256:c2217c738205d2df48b557f20c6bd9215200dab98c63caf6c707033ebd4ef936
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qqqa/blobs/sha256:e849ef147830e67fa4a59d2331ca9d88ce6c286ecccc9abd0dead94d6f5b86f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qqqa/blobs/sha256:1100cb26ad99b07e360377cf70294c19e73cfaf6c8c396ca25d0551b3cb10b9f
+sha256:
+  darwin_arm64: b68fcc1e9cfd889ac4e999468edfe4bd0630a08c6cd14c1fb647b09362df8e09
+  darwin_amd64: c2217c738205d2df48b557f20c6bd9215200dab98c63caf6c707033ebd4ef936
+  linux_amd64: e849ef147830e67fa4a59d2331ca9d88ce6c286ecccc9abd0dead94d6f5b86f7
+  linux_arm64: 1100cb26ad99b07e360377cf70294c19e73cfaf6c8c396ca25d0551b3cb10b9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: fastgron
+version: 0.7.7
+description: High-performance JSON to GRON converter
+homepage: https://github.com/adamritter/fastgron
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastgron/blobs/sha256:a0ba70774cc9059d34d06e9f02cdcffe2f4c0aa7913b91e1d7de51172cec688b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastgron/blobs/sha256:3ff4b53ee3e5687edd4a35f270a3b13b4d822cdb50cab09ef22b51f608493659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastgron/blobs/sha256:149b9bd41abdc81948522c8b37dc2580eaa2242a1045798eb22ac6da45201b08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastgron/blobs/sha256:3b7a7799cd2c68dc38b4d4837c1e4c841b5956c5455929a1ad70995d3a5fb3f1
+sha256:
+  darwin_arm64: a0ba70774cc9059d34d06e9f02cdcffe2f4c0aa7913b91e1d7de51172cec688b
+  darwin_amd64: 3ff4b53ee3e5687edd4a35f270a3b13b4d822cdb50cab09ef22b51f608493659
+  linux_amd64: 149b9bd41abdc81948522c8b37dc2580eaa2242a1045798eb22ac6da45201b08
+  linux_arm64: 3b7a7799cd2c68dc38b4d4837c1e4c841b5956c5455929a1ad70995d3a5fb3f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

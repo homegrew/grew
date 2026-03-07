@@ -1,0 +1,19 @@
+name: geographiclib
+version: 2.7
+description: C++ geography library
+homepage: https://geographiclib.sourceforge.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geographiclib/blobs/sha256:b6a55025ea7a55de13c663dd377c4038a09e45ffea33a3122111adc29038f148
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geographiclib/blobs/sha256:189b852fe826d044bd8c28fa0939943e966043839fc955b301e780a4fd7264fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geographiclib/blobs/sha256:2077b4d7060f8b04a11c8cf2cc2a7d6a2391212e2528d7a72a4870b8287da3a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geographiclib/blobs/sha256:2dcd5700fcfd6cd0d72aa1cc937d75e1e9d95bb7f003467892a212839fdfe8ee
+sha256:
+  darwin_arm64: b6a55025ea7a55de13c663dd377c4038a09e45ffea33a3122111adc29038f148
+  darwin_amd64: 189b852fe826d044bd8c28fa0939943e966043839fc955b301e780a4fd7264fc
+  linux_amd64: 2077b4d7060f8b04a11c8cf2cc2a7d6a2391212e2528d7a72a4870b8287da3a1
+  linux_arm64: 2dcd5700fcfd6cd0d72aa1cc937d75e1e9d95bb7f003467892a212839fdfe8ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

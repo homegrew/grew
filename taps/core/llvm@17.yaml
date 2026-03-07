@@ -1,0 +1,22 @@
+name: llvm@17
+version: 17.0.6
+description: Next-gen compiler infrastructure
+homepage: https://llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llvm/17/blobs/sha256:f2de15b5a454478b08b3e67e08bd9568a84b4468120194ec0856e2408123f9e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llvm/17/blobs/sha256:072e278dc552e73e2e1d6d29615960ad8245401ceb3fa0ff2902f47ddb1dc006
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llvm/17/blobs/sha256:57f164368ffe36bec042d02163a267b43710e41a1b7273caa9953fba02fd0ec1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llvm/17/blobs/sha256:5f6210ba3e1a24e90c0ea03737922a05be4b9ffb3d4c20baf5e7b95f1573b365
+sha256:
+  darwin_arm64: f2de15b5a454478b08b3e67e08bd9568a84b4468120194ec0856e2408123f9e9
+  darwin_amd64: 072e278dc552e73e2e1d6d29615960ad8245401ceb3fa0ff2902f47ddb1dc006
+  linux_amd64: 57f164368ffe36bec042d02163a267b43710e41a1b7273caa9953fba02fd0ec1
+  linux_arm64: 5f6210ba3e1a24e90c0ea03737922a05be4b9ffb3d4c20baf5e7b95f1573b365
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd
+keg_only: true

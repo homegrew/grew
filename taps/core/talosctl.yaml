@@ -1,0 +1,19 @@
+name: talosctl
+version: 1.12.4
+description: CLI for out-of-band management of Kubernetes nodes created by Talos
+homepage: https://www.talos.dev/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/talosctl/blobs/sha256:31dd17538fb5020736614c6e4bbc971a8cf6050dc88ae91efbcb1b48ae053882
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/talosctl/blobs/sha256:e7f6c58d95f63f6324ab4509a00b98a8a8fa9cf63373a349e4d1b177e2b9efe2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/talosctl/blobs/sha256:6b2d928e7e024381f78890b9cfdbacd2ad5522fbd37407f0dbc7d93c85895e97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/talosctl/blobs/sha256:91a2d6f13fb77f82a3629805e2258e175d05f75cdcc9aae2c0ed8425e13d3f7f
+sha256:
+  darwin_arm64: 31dd17538fb5020736614c6e4bbc971a8cf6050dc88ae91efbcb1b48ae053882
+  darwin_amd64: e7f6c58d95f63f6324ab4509a00b98a8a8fa9cf63373a349e4d1b177e2b9efe2
+  linux_amd64: 6b2d928e7e024381f78890b9cfdbacd2ad5522fbd37407f0dbc7d93c85895e97
+  linux_arm64: 91a2d6f13fb77f82a3629805e2258e175d05f75cdcc9aae2c0ed8425e13d3f7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

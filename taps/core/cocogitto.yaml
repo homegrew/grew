@@ -1,0 +1,21 @@
+name: cocogitto
+version: 7.0.0
+description: Conventional Commits toolbox
+homepage: https://docs.cocogitto.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cocogitto/blobs/sha256:88ff662284f7f242372e75430dacd7eafcfc26918e61981abfd74de963c9b34e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cocogitto/blobs/sha256:e3aa13b9c500755886f8cef11eb5d4b68d01d3d60d237a3a2cd1d73978f4923a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cocogitto/blobs/sha256:3404ea70767d5d51bd225b30da32e17fbf6c45df751731360c76610027ad7268
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cocogitto/blobs/sha256:2c28d53145ad804f7f71bc5140425a21d31b0093fbf3318a64aa378f3220e5e3
+sha256:
+  darwin_arm64: 88ff662284f7f242372e75430dacd7eafcfc26918e61981abfd74de963c9b34e
+  darwin_amd64: e3aa13b9c500755886f8cef11eb5d4b68d01d3d60d237a3a2cd1d73978f4923a
+  linux_amd64: 3404ea70767d5d51bd225b30da32e17fbf6c45df751731360c76610027ad7268
+  linux_arm64: 2c28d53145ad804f7f71bc5140425a21d31b0093fbf3318a64aa378f3220e5e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

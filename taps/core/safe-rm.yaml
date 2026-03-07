@@ -1,0 +1,19 @@
+name: safe-rm
+version: 1.1.0
+description: Wraps rm to prevent dangerous deletion of files
+homepage: https://launchpad.net/safe-rm
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/safe-rm/blobs/sha256:f1bb7edb463f2986370ba1b913007cb4a3f75d6928bcb4600ceae3945c7e0aba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/safe-rm/blobs/sha256:bbb5656291635d514c83f1c2a9cdf197d25fe608f5bc1ec50bd08afde77adc85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/safe-rm/blobs/sha256:e91dab1f67e634f6c93fe3461d2839d46c73b6e7fcf7c6f4091dc09b863a3f65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/safe-rm/blobs/sha256:64314d265408ed5be7deb792f7710cffa50f64a442af0f1a138c2edf29719db2
+sha256:
+  darwin_arm64: f1bb7edb463f2986370ba1b913007cb4a3f75d6928bcb4600ceae3945c7e0aba
+  darwin_amd64: bbb5656291635d514c83f1c2a9cdf197d25fe608f5bc1ec50bd08afde77adc85
+  linux_amd64: e91dab1f67e634f6c93fe3461d2839d46c73b6e7fcf7c6f4091dc09b863a3f65
+  linux_arm64: 64314d265408ed5be7deb792f7710cffa50f64a442af0f1a138c2edf29719db2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

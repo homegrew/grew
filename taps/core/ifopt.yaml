@@ -1,0 +1,22 @@
+name: ifopt
+version: 2.1.4
+description: Light-weight C++ Interface to Nonlinear Programming Solvers
+homepage: https://wiki.ros.org/ifopt
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ifopt/blobs/sha256:864f67e4c11108278a44b019f9a10520097c130d228a634a83e23875eb36ed73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ifopt/blobs/sha256:3976d40d74d9048118daf380378bc640c6021de1937ea449d3734a05de924e0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ifopt/blobs/sha256:4fd84637f15ad2aa59f01b9c42186bf9bc76d5a3ffd2a8d1e95af3b4e70ed7f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ifopt/blobs/sha256:957a65e9e0bfa0b1cea42e6d6fa0be3d1f362bc8d3070f0a2cdfde313cbec2dd
+sha256:
+  darwin_arm64: 864f67e4c11108278a44b019f9a10520097c130d228a634a83e23875eb36ed73
+  darwin_amd64: 3976d40d74d9048118daf380378bc640c6021de1937ea449d3734a05de924e0c
+  linux_amd64: 4fd84637f15ad2aa59f01b9c42186bf9bc76d5a3ffd2a8d1e95af3b4e70ed7f3
+  linux_arm64: 957a65e9e0bfa0b1cea42e6d6fa0be3d1f362bc8d3070f0a2cdfde313cbec2dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen
+  - ipopt

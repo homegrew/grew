@@ -1,0 +1,19 @@
+name: tf-summarize
+version: 0.3.20
+description: CLI to print the summary of the terraform plan
+homepage: https://github.com/dineshba/tf-summarize
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tf-summarize/blobs/sha256:2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tf-summarize/blobs/sha256:58861206aaff1656dcf4ce76441d734c233ad6a30742edc2e4eb39b001a5fd04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tf-summarize/blobs/sha256:e06d54a3fa8a91d5a9e3e006ec589d0f2fb9c8be2236b5ca39a7c713ee20dccc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tf-summarize/blobs/sha256:748e71928987b8a3dc5a2bb6917de52ad01637b66eb08a748f2565f0b249721f
+sha256:
+  darwin_arm64: 2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6
+  darwin_amd64: 58861206aaff1656dcf4ce76441d734c233ad6a30742edc2e4eb39b001a5fd04
+  linux_amd64: e06d54a3fa8a91d5a9e3e006ec589d0f2fb9c8be2236b5ca39a7c713ee20dccc
+  linux_arm64: 748e71928987b8a3dc5a2bb6917de52ad01637b66eb08a748f2565f0b249721f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

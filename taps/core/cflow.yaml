@@ -1,0 +1,19 @@
+name: cflow
+version: 1.8
+description: Generate call graphs from C code
+homepage: https://www.gnu.org/software/cflow/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cflow/blobs/sha256:7677a8663bf8dbc2178670bc1db544f12fbb8c87d644c3863457e40ff6a6ea84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cflow/blobs/sha256:8347d85dfa5f30c5e3697842e7130d6ef3b712eb250eb945d312a97040020581
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cflow/blobs/sha256:fc739d521aacfc482f787c8843057c122317b3a91434bafd55cf94f182ef4f93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cflow/blobs/sha256:dbcdfdec9d78e04d94d2ed339ead98ffd3d1c45ff101d5f06d546582bcbc19c0
+sha256:
+  darwin_arm64: 7677a8663bf8dbc2178670bc1db544f12fbb8c87d644c3863457e40ff6a6ea84
+  darwin_amd64: 8347d85dfa5f30c5e3697842e7130d6ef3b712eb250eb945d312a97040020581
+  linux_amd64: fc739d521aacfc482f787c8843057c122317b3a91434bafd55cf94f182ef4f93
+  linux_arm64: dbcdfdec9d78e04d94d2ed339ead98ffd3d1c45ff101d5f06d546582bcbc19c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: selene
+version: 0.30.1
+description: Blazing-fast modern Lua linter
+homepage: https://kampfkarren.github.io/selene
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/selene/blobs/sha256:cbcf7c178fa11c1afbdd4e8b6774a63f59548f83271c410459e8ab880ad657d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/selene/blobs/sha256:b80ff59bc0699f7a96ccef7827855fefb8a4753989c0486ae095bec7b82b8edc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/selene/blobs/sha256:2fd0ce6b395be9edd863fcfa1323417a4f22d8d853ea82edcb7974defe81cd40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/selene/blobs/sha256:89bcf20592930998bea9b22b5356d469999997747ddbbf9247421be333389113
+sha256:
+  darwin_arm64: cbcf7c178fa11c1afbdd4e8b6774a63f59548f83271c410459e8ab880ad657d8
+  darwin_amd64: b80ff59bc0699f7a96ccef7827855fefb8a4753989c0486ae095bec7b82b8edc
+  linux_amd64: 2fd0ce6b395be9edd863fcfa1323417a4f22d8d853ea82edcb7974defe81cd40
+  linux_arm64: 89bcf20592930998bea9b22b5356d469999997747ddbbf9247421be333389113
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: pdfly
+version: 0.5.1
+description: CLI tool to extract (meta)data from PDF and manipulate PDF files
+homepage: https://pdfly.readthedocs.io/en/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfly/blobs/sha256:4ea44d78881d375b45a39b23b9acae8830750f59cc915832b188a639f2b3c61b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfly/blobs/sha256:a7e6500812b02a7c5023404c7fcd91a467d389143e79642bab6eddfe95695173
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfly/blobs/sha256:06d6eaf42fce1264346ad1386555d31bf75c78e8c7e5b03f1beb29c1f97765ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfly/blobs/sha256:ce1f7d78d6e744f7567c6c0e879cba4628c01fff6cc1a5795aa88dd4cb5016aa
+sha256:
+  darwin_arm64: 4ea44d78881d375b45a39b23b9acae8830750f59cc915832b188a639f2b3c61b
+  darwin_amd64: a7e6500812b02a7c5023404c7fcd91a467d389143e79642bab6eddfe95695173
+  linux_amd64: 06d6eaf42fce1264346ad1386555d31bf75c78e8c7e5b03f1beb29c1f97765ef
+  linux_arm64: ce1f7d78d6e744f7567c6c0e879cba4628c01fff6cc1a5795aa88dd4cb5016aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - openssl@3
+  - pillow
+  - pydantic
+  - python@3.14

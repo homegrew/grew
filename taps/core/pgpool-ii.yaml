@@ -1,0 +1,22 @@
+name: pgpool-ii
+version: 4.7.1
+description: PostgreSQL connection pool server
+homepage: https://www.pgpool.net/mediawiki/index.php/Main_Page
+license: HPND AND ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgpool-ii/blobs/sha256:898916cee76fefbf45347cc364f3fce32a05b0071740a4ab491ce779803ed179
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgpool-ii/blobs/sha256:24476956742b91a87968d2642b5b6b7c4b876afc00dc33eed699538a154ba08c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgpool-ii/blobs/sha256:a3856790fbe145805893209d93eff5538d25a3408e85c2683239df9d8c7a471b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgpool-ii/blobs/sha256:a0c94479e17ef08a249523d3218ae1bdb5973832309743f88879a854594fd07c
+sha256:
+  darwin_arm64: 898916cee76fefbf45347cc364f3fce32a05b0071740a4ab491ce779803ed179
+  darwin_amd64: 24476956742b91a87968d2642b5b6b7c4b876afc00dc33eed699538a154ba08c
+  linux_amd64: a3856790fbe145805893209d93eff5538d25a3408e85c2683239df9d8c7a471b
+  linux_arm64: a0c94479e17ef08a249523d3218ae1bdb5973832309743f88879a854594fd07c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmemcached
+  - libpq

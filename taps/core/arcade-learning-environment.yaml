@@ -1,0 +1,24 @@
+name: arcade-learning-environment
+version: 0.11.2
+description: Platform for AI research
+homepage: https://github.com/Farama-Foundation/Arcade-Learning-Environment
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arcade-learning-environment/blobs/sha256:76355356efae81795ecaccb33fa80a2b4a4e91c2d9e3f41a38d857d0b3ad139b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arcade-learning-environment/blobs/sha256:5434effd020431c4a6eeb795eff45fff2f7469ccd58d2b679367b4cf952a1f06
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arcade-learning-environment/blobs/sha256:36d134126295238dbfaebbcdff48e0954ab769e11915df02c62f863eedcfb967
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arcade-learning-environment/blobs/sha256:e21960f3aa4002f7060e68a54b3d389c5988e56bc9b8f5d3218571324bc80cc8
+sha256:
+  darwin_arm64: 76355356efae81795ecaccb33fa80a2b4a4e91c2d9e3f41a38d857d0b3ad139b
+  darwin_amd64: 5434effd020431c4a6eeb795eff45fff2f7469ccd58d2b679367b4cf952a1f06
+  linux_amd64: 36d134126295238dbfaebbcdff48e0954ab769e11915df02c62f863eedcfb967
+  linux_arm64: e21960f3aa4002f7060e68a54b3d389c5988e56bc9b8f5d3218571324bc80cc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - numpy
+  - opencv
+  - python@3.14
+  - sdl2

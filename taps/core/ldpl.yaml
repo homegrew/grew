@@ -1,0 +1,19 @@
+name: ldpl
+version: 5.1.0
+description: COBOL-like programming language that compiles to C++
+homepage: https://www.ldpl-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldpl/blobs/sha256:0b4e78d126c188ebd64b75565d021fb50e83c1254ba7964961b6d2d8ebea60d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldpl/blobs/sha256:59bf789c52ad3829174aec9d44e85be7dd32c077c226aefecf4fa4cde0a878ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldpl/blobs/sha256:b8266370542b6a1d279f3b461cdf52885e9e5b5cf6d65009c5002542e922f03a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldpl/blobs/sha256:fb841150d1ce3ab5de353c4f5a6c9eaa9caa63ff816c4aacb7c179fd5a36c92f
+sha256:
+  darwin_arm64: 0b4e78d126c188ebd64b75565d021fb50e83c1254ba7964961b6d2d8ebea60d3
+  darwin_amd64: 59bf789c52ad3829174aec9d44e85be7dd32c077c226aefecf4fa4cde0a878ba
+  linux_amd64: b8266370542b6a1d279f3b461cdf52885e9e5b5cf6d65009c5002542e922f03a
+  linux_arm64: fb841150d1ce3ab5de353c4f5a6c9eaa9caa63ff816c4aacb7c179fd5a36c92f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

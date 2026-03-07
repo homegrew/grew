@@ -1,0 +1,19 @@
+name: hoedown
+version: 3.0.7
+description: Secure Markdown processing (a revived fork of Sundown)
+homepage: https://github.com/hoedown/hoedown
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hoedown/blobs/sha256:73ef87613d6b099fc9431c878d5b38912eaa0e9d1fa5c60dd6710695e54065e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hoedown/blobs/sha256:2b75fd94f2f468aa5990c8f5383bc71453e2fb96a2280c88043cf7d375b1dd2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hoedown/blobs/sha256:3d9c93dc9fcdfd9daa56e0dc4c410ec0003a11150b211124bc0c367098fb5132
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hoedown/blobs/sha256:09bbf5d61c9d83cd75e37e09ac33cf02b267a99fb6702879bb28e096753d6470
+sha256:
+  darwin_arm64: 73ef87613d6b099fc9431c878d5b38912eaa0e9d1fa5c60dd6710695e54065e0
+  darwin_amd64: 2b75fd94f2f468aa5990c8f5383bc71453e2fb96a2280c88043cf7d375b1dd2d
+  linux_amd64: 3d9c93dc9fcdfd9daa56e0dc4c410ec0003a11150b211124bc0c367098fb5132
+  linux_arm64: 09bbf5d61c9d83cd75e37e09ac33cf02b267a99fb6702879bb28e096753d6470
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: fluid-synth
+version: 2.5.3
+description: Real-time software synthesizer based on the SoundFont 2 specs
+homepage: https://www.fluidsynth.org
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fluid-synth/blobs/sha256:969995c79b2651580bac91d62795022084354c975a3ecd6ca17e20f0854061b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fluid-synth/blobs/sha256:b784773a748dcc50b884c9c7e71b054900a0026cd028f7a10234d611d5a973e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fluid-synth/blobs/sha256:d84d702848cf52f6be9fbfb74e5083815ab75c3132c262d24ece015586b559fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fluid-synth/blobs/sha256:516b90be09a28312b40090a818ee74122374af18f33cab7c2fb2efb98562e67c
+sha256:
+  darwin_arm64: 969995c79b2651580bac91d62795022084354c975a3ecd6ca17e20f0854061b5
+  darwin_amd64: b784773a748dcc50b884c9c7e71b054900a0026cd028f7a10234d611d5a973e9
+  linux_amd64: d84d702848cf52f6be9fbfb74e5083815ab75c3132c262d24ece015586b559fd
+  linux_arm64: 516b90be09a28312b40090a818ee74122374af18f33cab7c2fb2efb98562e67c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libsndfile
+  - portaudio
+  - readline
+  - gettext

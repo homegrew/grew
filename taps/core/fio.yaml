@@ -1,0 +1,19 @@
+name: fio
+version: 3.41
+description: I/O benchmark and stress test
+homepage: https://github.com/axboe/fio
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fio/blobs/sha256:3cb5e54c2ed3c71f2ee65c468d09f5517fd0a907a964ee65239fff10f0cc3e92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fio/blobs/sha256:402d67954f91a966b989ef13a06f131d2179c643f7d5dd40ccb3745d52e9fe16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fio/blobs/sha256:c8d5370cc5ea1c91fa145ba9f59f214d3a87c5c59758e00164d9a18aa3258edc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fio/blobs/sha256:11567a64f191b14ac26cc2d05a805c61a12f76fd2a135e2cc5b7bc06a733d72c
+sha256:
+  darwin_arm64: 3cb5e54c2ed3c71f2ee65c468d09f5517fd0a907a964ee65239fff10f0cc3e92
+  darwin_amd64: 402d67954f91a966b989ef13a06f131d2179c643f7d5dd40ccb3745d52e9fe16
+  linux_amd64: c8d5370cc5ea1c91fa145ba9f59f214d3a87c5c59758e00164d9a18aa3258edc
+  linux_arm64: 11567a64f191b14ac26cc2d05a805c61a12f76fd2a135e2cc5b7bc06a733d72c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sponge
+version: 0.70
+description: Soak up standard input and write to a file
+homepage: https://joeyh.name/code/moreutils/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sponge/blobs/sha256:71b1f42aa7b050750fe4887dd349ac22ec8050fd092b2d491dcedd73725cee90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sponge/blobs/sha256:a3725ce0dca9b5bc8666199d9a44b142be0eda23b9f9f66086f06298e24a36da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sponge/blobs/sha256:12987019e4ea708b67334ec946a8cc5e7e052e87db10107cd7bbea862268dcbf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sponge/blobs/sha256:0a3387e07bc7db6d8e0aea84ddc12a7870c42bd5b47ac404079f94341e2332e8
+sha256:
+  darwin_arm64: 71b1f42aa7b050750fe4887dd349ac22ec8050fd092b2d491dcedd73725cee90
+  darwin_amd64: a3725ce0dca9b5bc8666199d9a44b142be0eda23b9f9f66086f06298e24a36da
+  linux_amd64: 12987019e4ea708b67334ec946a8cc5e7e052e87db10107cd7bbea862268dcbf
+  linux_arm64: 0a3387e07bc7db6d8e0aea84ddc12a7870c42bd5b47ac404079f94341e2332e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

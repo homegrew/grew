@@ -1,0 +1,27 @@
+name: tinysparql
+version: 3.10.1
+description: Low-footprint RDF triple store with SPARQL 1.1 interface
+homepage: https://tinysparql.org/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinysparql/blobs/sha256:845cd93f5a701ab4297653c6ef23b242f5a2f4a820f8d61a26c06f2f4e570d5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinysparql/blobs/sha256:b9b30ec6e30f93fabd4b834821daed5ef87d0f4c20cc9ce7b660f7899eab4581
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinysparql/blobs/sha256:af5e3d9e4f303698993dde336842e0dd37afc08f701ae88ca86c51693265cc25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinysparql/blobs/sha256:fd75e5b220b81b87cdd19bf356eab55984992e3327b0dd885a818a9af332d654
+sha256:
+  darwin_arm64: 845cd93f5a701ab4297653c6ef23b242f5a2f4a820f8d61a26c06f2f4e570d5f
+  darwin_amd64: b9b30ec6e30f93fabd4b834821daed5ef87d0f4c20cc9ce7b660f7899eab4581
+  linux_amd64: af5e3d9e4f303698993dde336842e0dd37afc08f701ae88ca86c51693265cc25
+  linux_arm64: fd75e5b220b81b87cdd19bf356eab55984992e3327b0dd885a818a9af332d654
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dbus
+  - glib
+  - icu4c@78
+  - json-glib
+  - libsoup
+  - sqlite
+  - gettext

@@ -1,0 +1,21 @@
+name: castxml
+version: 0.7.0
+description: C-family Abstract Syntax Tree XML Output
+homepage: https://github.com/CastXML/CastXML
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/castxml/blobs/sha256:dac8eb2ebe8f34868e8f9e4851507ec1b36d2617be04670149d09df4ba7e8a77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/castxml/blobs/sha256:196b284a940cb82eeaaef68c69816322d3780fd0ccff403f238064dc08e79073
+  linux_amd64: https://ghcr.io/v2/homebrew/core/castxml/blobs/sha256:c1746325a50cb2b71178fd06d9759de65091313333efe38bca72faff558deff9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/castxml/blobs/sha256:a3582afd45fd31626602e6e800110bc4433c7aaee98552d590bea3d19b739aff
+sha256:
+  darwin_arm64: dac8eb2ebe8f34868e8f9e4851507ec1b36d2617be04670149d09df4ba7e8a77
+  darwin_amd64: 196b284a940cb82eeaaef68c69816322d3780fd0ccff403f238064dc08e79073
+  linux_amd64: c1746325a50cb2b71178fd06d9759de65091313333efe38bca72faff558deff9
+  linux_arm64: a3582afd45fd31626602e6e800110bc4433c7aaee98552d590bea3d19b739aff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

@@ -1,0 +1,28 @@
+name: bigloo
+version: 4.6a
+description: Scheme implementation with object system, C, and Java interfaces
+homepage: https://www-sop.inria.fr/indes/fp/Bigloo/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bigloo/blobs/sha256:58fd054dced50f890349a99de351aba43c55166c09535636547b5ba901266281
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bigloo/blobs/sha256:1ce2fd31a7a7d39ca08dd51e888ab21d6aa0b82e747e97eaa9349cca4970888a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bigloo/blobs/sha256:a56a68b65951a1ce99b2f4615929f6ef4c8f9b5dbb80348cbcfc94ba17da5e4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bigloo/blobs/sha256:dec793d2615180d1e9174f4c89083d8ab77195c6cbb5589a2ee2952dde557687
+sha256:
+  darwin_arm64: 58fd054dced50f890349a99de351aba43c55166c09535636547b5ba901266281
+  darwin_amd64: 1ce2fd31a7a7d39ca08dd51e888ab21d6aa0b82e747e97eaa9349cca4970888a
+  linux_amd64: a56a68b65951a1ce99b2f4615929f6ef4c8f9b5dbb80348cbcfc94ba17da5e4c
+  linux_arm64: dec793d2615180d1e9174f4c89083d8ab77195c6cbb5589a2ee2952dde557687
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - gmp
+  - libunistring
+  - libuv
+  - openjdk
+  - openssl@3
+  - pcre2
+  - sqlite

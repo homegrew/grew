@@ -1,0 +1,21 @@
+name: astro
+version: 1.39.0
+description: To build and run Airflow DAGs locally and interact with the Astronomer API
+homepage: https://www.astronomer.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/astro/blobs/sha256:7028c49d04ef8ff6e7858aaf613c336d62b681ccf91f4f8e04a0b9985292770b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/astro/blobs/sha256:ce247832ee904507be764f003bf2107b6a620c187ea20335b407d765f331f953
+  linux_amd64: https://ghcr.io/v2/homebrew/core/astro/blobs/sha256:66d8be158ffb018a93e956ee08fbe1a1fe0e66f52d308bf381e7a93f20570504
+  linux_arm64: https://ghcr.io/v2/homebrew/core/astro/blobs/sha256:92d1daf49c0ec3ac962da87ac9ed288655cc2d978efa9f61906e00ffd7d44a11
+sha256:
+  darwin_arm64: 7028c49d04ef8ff6e7858aaf613c336d62b681ccf91f4f8e04a0b9985292770b
+  darwin_amd64: ce247832ee904507be764f003bf2107b6a620c187ea20335b407d765f331f953
+  linux_amd64: 66d8be158ffb018a93e956ee08fbe1a1fe0e66f52d308bf381e7a93f20570504
+  linux_arm64: 92d1daf49c0ec3ac962da87ac9ed288655cc2d978efa9f61906e00ffd7d44a11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - podman

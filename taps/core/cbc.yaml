@@ -1,0 +1,25 @@
+name: cbc
+version: 2.10.12
+description: Mixed integer linear programming solver
+homepage: https://github.com/coin-or/Cbc
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbc/blobs/sha256:e87c268c9db2c8b20388054604f1624339997bd8a2ce7cf8e2c3d4d7ca5b80b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbc/blobs/sha256:d5f563de373bec931482fd4c4bbc47da6f5fd1a2de1fcd3593758d27f936495b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbc/blobs/sha256:a29a22d7f976bd09ed6a0473f64c8bf0ab84a6729fb3d9635133c9bc36dc3fd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbc/blobs/sha256:064164adf65fadf8402ba9af954a2fcd87dcaedbd1b4b400c5e2dbdb2422d6aa
+sha256:
+  darwin_arm64: e87c268c9db2c8b20388054604f1624339997bd8a2ce7cf8e2c3d4d7ca5b80b6
+  darwin_amd64: d5f563de373bec931482fd4c4bbc47da6f5fd1a2de1fcd3593758d27f936495b
+  linux_amd64: a29a22d7f976bd09ed6a0473f64c8bf0ab84a6729fb3d9635133c9bc36dc3fd5
+  linux_arm64: 064164adf65fadf8402ba9af954a2fcd87dcaedbd1b4b400c5e2dbdb2422d6aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cgl
+  - clp
+  - coinutils
+  - osi
+  - openblas

@@ -1,0 +1,30 @@
+name: lilypond
+version: 2.24.4
+description: Music engraving system
+homepage: https://lilypond.org
+license: GPL-3.0-or-later AND GPL-3.0-only AND OFL-1.1-RFN AND GFDL-1.3-no-invariants-or-later AND LicenseRef-Homebrew-public-domain AND MIT AND AGPL-3.0-only AND LPPL-1.3c
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lilypond/blobs/sha256:08e195be137c3be99594e3277083e3a87a1ddb795770df30a2c87054b5a8994f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lilypond/blobs/sha256:793294ac152b0b61343a9d38852246c995d12a6c12e445e2f928bb961b36cb1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lilypond/blobs/sha256:295fc0a3f0be89287c2856b2d7fbcc639a444f5d694ebe47e4af952c75b6029b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lilypond/blobs/sha256:5924a471b8630d1dee04084de229ba6423e1b7ceb4609cbe609592a8a07ddb93
+sha256:
+  darwin_arm64: 08e195be137c3be99594e3277083e3a87a1ddb795770df30a2c87054b5a8994f
+  darwin_amd64: 793294ac152b0b61343a9d38852246c995d12a6c12e445e2f928bb961b36cb1f
+  linux_amd64: 295fc0a3f0be89287c2856b2d7fbcc639a444f5d694ebe47e4af952c75b6029b
+  linux_arm64: 5924a471b8630d1dee04084de229ba6423e1b7ceb4609cbe609592a8a07ddb93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - fontconfig
+  - freetype
+  - ghostscript
+  - glib
+  - guile
+  - pango
+  - python@3.14
+  - gettext
+  - harfbuzz

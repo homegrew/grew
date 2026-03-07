@@ -1,0 +1,21 @@
+name: fourmolu
+version: 0.19.0.1
+description: Formatter for Haskell source code
+homepage: https://github.com/fourmolu/fourmolu
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fourmolu/blobs/sha256:27d7f072d6628f3d209134278bea538caaed202d84f64179bc0f36b34916489c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fourmolu/blobs/sha256:74be792a2b287d7cecd14f6573a015744bc54aa3a90e2932509a3ccf8a8346fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fourmolu/blobs/sha256:6c33d9448da66ef7ef6b2336442fb7b925ea62dbbec8713cd337040f27bc0ba6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fourmolu/blobs/sha256:7781851b29b380175699e0985fada369c6d693ed5ca576ee39a9f425f60fd913
+sha256:
+  darwin_arm64: 27d7f072d6628f3d209134278bea538caaed202d84f64179bc0f36b34916489c
+  darwin_amd64: 74be792a2b287d7cecd14f6573a015744bc54aa3a90e2932509a3ccf8a8346fb
+  linux_amd64: 6c33d9448da66ef7ef6b2336442fb7b925ea62dbbec8713cd337040f27bc0ba6
+  linux_arm64: 7781851b29b380175699e0985fada369c6d693ed5ca576ee39a9f425f60fd913
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

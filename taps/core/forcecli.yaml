@@ -1,0 +1,19 @@
+name: forcecli
+version: 1.8.0
+description: Command-line interface to Force.com
+homepage: https://force-cli.herokuapp.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forcecli/blobs/sha256:1ce6c8ef8f40ae717271d264f48ee67973f48cc596141e2abbb97d568c2b9c59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forcecli/blobs/sha256:f17ffba1cba92ae22b568a356a428563bfcfc56da60294507e24c5732759aeda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forcecli/blobs/sha256:73eab8c3106b385a6cdab9ad81c988f4b0a77e0ef7f81f65df94aec148bcea02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forcecli/blobs/sha256:98f8b8b50162c999b8808614ad1080b272b227dd8e9a0e2cc71e7f7ab6b02b50
+sha256:
+  darwin_arm64: 1ce6c8ef8f40ae717271d264f48ee67973f48cc596141e2abbb97d568c2b9c59
+  darwin_amd64: f17ffba1cba92ae22b568a356a428563bfcfc56da60294507e24c5732759aeda
+  linux_amd64: 73eab8c3106b385a6cdab9ad81c988f4b0a77e0ef7f81f65df94aec148bcea02
+  linux_arm64: 98f8b8b50162c999b8808614ad1080b272b227dd8e9a0e2cc71e7f7ab6b02b50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

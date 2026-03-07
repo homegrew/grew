@@ -1,0 +1,24 @@
+name: ansible-lint
+version: 26.3.0
+description: Checks ansible playbooks for practices and behaviour
+homepage: https://ansible-lint.readthedocs.io/
+license: MIT AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansible-lint/blobs/sha256:ce1b88947b3de64acf4d2db1ba3e854417bde74df4446cfd0e32ad0e13c5556b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansible-lint/blobs/sha256:b6f45991e0ba933c98f6e9ec410e34e6f99a499aeea9c42fdf30998eff6ee412
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansible-lint/blobs/sha256:1ffd18658033d1be5ef4176c444113581fe724d8ea10c4978588c0e2179f6b6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansible-lint/blobs/sha256:8abe3a4db3fddcc0cb06bc50fb5b4b6e3d3ae98e68563d3da96dfe37d8b52d19
+sha256:
+  darwin_arm64: ce1b88947b3de64acf4d2db1ba3e854417bde74df4446cfd0e32ad0e13c5556b
+  darwin_amd64: b6f45991e0ba933c98f6e9ec410e34e6f99a499aeea9c42fdf30998eff6ee412
+  linux_amd64: 1ffd18658033d1be5ef4176c444113581fe724d8ea10c4978588c0e2179f6b6d
+  linux_arm64: 8abe3a4db3fddcc0cb06bc50fb5b4b6e3d3ae98e68563d3da96dfe37d8b52d19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libyaml
+  - python@3.14
+  - rpds-py

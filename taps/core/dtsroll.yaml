@@ -1,0 +1,21 @@
+name: dtsroll
+version: 1.8.0
+description: CLI tool for bundling TypeScript declaration files
+homepage: https://github.com/privatenumber/dtsroll
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dtsroll/blobs/sha256:1867b9d98857cc28db679cf4eab2a9444121ad0c3e558a3831c469f8703c5263
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dtsroll/blobs/sha256:d9e75ff0d548e5cbbde778e9108121341107bdfa2753e5621b889083b2e6433b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dtsroll/blobs/sha256:8e30a45fbc6d378a35f8b827288c2cda4de617c847d72158b88cd299b4640b08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dtsroll/blobs/sha256:88f1076decbf725959b8d5413c18c20c432fee25bc811d55b0086b228b6b8821
+sha256:
+  darwin_arm64: 1867b9d98857cc28db679cf4eab2a9444121ad0c3e558a3831c469f8703c5263
+  darwin_amd64: d9e75ff0d548e5cbbde778e9108121341107bdfa2753e5621b889083b2e6433b
+  linux_amd64: 8e30a45fbc6d378a35f8b827288c2cda4de617c847d72158b88cd299b4640b08
+  linux_arm64: 88f1076decbf725959b8d5413c18c20c432fee25bc811d55b0086b228b6b8821
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

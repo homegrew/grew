@@ -1,0 +1,19 @@
+name: libchaos
+version: 1.0
+description: Advanced library for randomization, hashing and statistical analysis
+homepage: https://github.com/maciejczyzewski/libchaos
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libchaos/blobs/sha256:7e6429fc1638909e532b661ade2c4de6747e9ab3210f4b1d887d666af7517179
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libchaos/blobs/sha256:f3d5c1a274d22e7d33b85e239bcbbd91e9032a6e4a3dc733b4de47aae84326f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libchaos/blobs/sha256:a1add1c600d4abf7d5cb5e4268810c4f3f8f29a6a4a5ea267c95202230881b8f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libchaos/blobs/sha256:3d694020ddee200b924b4c7e82acb8993096e7afd2749c590fecf642302fd6cd
+sha256:
+  darwin_arm64: 7e6429fc1638909e532b661ade2c4de6747e9ab3210f4b1d887d666af7517179
+  darwin_amd64: f3d5c1a274d22e7d33b85e239bcbbd91e9032a6e4a3dc733b4de47aae84326f2
+  linux_amd64: a1add1c600d4abf7d5cb5e4268810c4f3f8f29a6a4a5ea267c95202230881b8f
+  linux_arm64: 3d694020ddee200b924b4c7e82acb8993096e7afd2749c590fecf642302fd6cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

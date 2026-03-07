@@ -1,0 +1,25 @@
+name: cabin
+version: 0.13.0
+description: Package manager and build system for C++
+homepage: https://github.com/cabinpkg/cabin
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cabin/blobs/sha256:ceb0df820b6831bad382ee05ec258c8170c9a4f6ed52faac9e42928bc3e99d10
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cabin/blobs/sha256:20944f5509556bde7cfcbcab5829f30b62ea286b675bf06450e2676751dbbd17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cabin/blobs/sha256:3b6308c79867c1290e4929b6e4ebf05b6b8cbd958f37fae619663ad954fb4fd8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cabin/blobs/sha256:21f009801cb40282ccb9374cffc72a5af2e2b4f7b1d9c204ad952cfffbf5167f
+sha256:
+  darwin_arm64: ceb0df820b6831bad382ee05ec258c8170c9a4f6ed52faac9e42928bc3e99d10
+  darwin_amd64: 20944f5509556bde7cfcbcab5829f30b62ea286b675bf06450e2676751dbbd17
+  linux_amd64: 3b6308c79867c1290e4929b6e4ebf05b6b8cbd958f37fae619663ad954fb4fd8
+  linux_arm64: 21f009801cb40282ccb9374cffc72a5af2e2b4f7b1d9c204ad952cfffbf5167f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - libgit2
+  - pkgconf
+  - spdlog
+  - tbb

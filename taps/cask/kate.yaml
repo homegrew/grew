@@ -1,0 +1,13 @@
+name: kate
+version: 25.12,11269
+description: Multi-document editor by KDE
+homepage: https://kate-editor.org/
+url:
+  darwin_arm64: https://cdn.kde.org/ci-builds/utilities/kate/release-25.12/macos-arm64/kate-release_25.12-11269-macos-clang-arm64.dmg
+sha256:
+  darwin_arm64: ab78611021eef3af2e6e83583e65d8df7a881ce58bd2e326060f9511fc92c1ff
+artifacts:
+  app:
+    - kate.app
+  bin:
+    - kate

@@ -1,0 +1,23 @@
+name: wiredtiger
+version: 11.3.1
+description: High performance NoSQL extensible platform for data management
+homepage: https://source.wiredtiger.com/
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wiredtiger/blobs/sha256:dfd76ff5a1f4613d737c82c0ebb8bcbf5cb79faf7a11a2b103c689bccfbed8f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wiredtiger/blobs/sha256:98b5ac96a1369d4e5f87e1538fc4c1d1888ce15949aa901e336561297796fa43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wiredtiger/blobs/sha256:440d19c8f513fc401876a626f5cbba6ba4750ef959c44bf3106481ec50277098
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wiredtiger/blobs/sha256:ba8058cc496593f04586db264681fa2698427402b7b44de3cccc99402596f2df
+sha256:
+  darwin_arm64: dfd76ff5a1f4613d737c82c0ebb8bcbf5cb79faf7a11a2b103c689bccfbed8f8
+  darwin_amd64: 98b5ac96a1369d4e5f87e1538fc4c1d1888ce15949aa901e336561297796fa43
+  linux_amd64: 440d19c8f513fc401876a626f5cbba6ba4750ef959c44bf3106481ec50277098
+  linux_arm64: ba8058cc496593f04586db264681fa2698427402b7b44de3cccc99402596f2df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - snappy
+  - zstd

@@ -1,0 +1,21 @@
+name: libre
+version: 4.6.0
+description: Toolkit library for asynchronous network I/O with protocol stacks
+homepage: https://github.com/baresip/re
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libre/blobs/sha256:7f6ffa21771c5db9fd4c727a14086581e7774b3fee41374c5a2a3a73d449cbb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libre/blobs/sha256:dd6626b910acaed136424c8b96934c433ac0c94b0d4b2bac23e3f46d4fd98d9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libre/blobs/sha256:c225de4a857fcdcbc4fe7081afe56212154156e52134e955bd0fd3ee68b3345d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libre/blobs/sha256:73ea09f512b0b3c0dc4f3a1d8c1caee5cc4793aa8495ad32c6b036266356c330
+sha256:
+  darwin_arm64: 7f6ffa21771c5db9fd4c727a14086581e7774b3fee41374c5a2a3a73d449cbb2
+  darwin_amd64: dd6626b910acaed136424c8b96934c433ac0c94b0d4b2bac23e3f46d4fd98d9e
+  linux_amd64: c225de4a857fcdcbc4fe7081afe56212154156e52134e955bd0fd3ee68b3345d
+  linux_arm64: 73ea09f512b0b3c0dc4f3a1d8c1caee5cc4793aa8495ad32c6b036266356c330
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

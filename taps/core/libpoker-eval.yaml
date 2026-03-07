@@ -1,0 +1,19 @@
+name: libpoker-eval
+version: 138.0
+description: C library to evaluate poker hands
+homepage: https://pokersource.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpoker-eval/blobs/sha256:6f5762c63d4446544cc57abeea2c605b43442f035a34401d50c4d437257f6ad3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpoker-eval/blobs/sha256:2c0023bc4da795dbade8572b92ba6aac7b5fd68ab945ee2f4e0d03739a960d1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpoker-eval/blobs/sha256:723cc1e71146dbe997acaacd71fd71f46266de3977b0ee24f3cf54fae280d208
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpoker-eval/blobs/sha256:6d17810f1cdeacb43e5ec95d567c84f39eb99582058d5d3ac2f110cca04d01b2
+sha256:
+  darwin_arm64: 6f5762c63d4446544cc57abeea2c605b43442f035a34401d50c4d437257f6ad3
+  darwin_amd64: 2c0023bc4da795dbade8572b92ba6aac7b5fd68ab945ee2f4e0d03739a960d1b
+  linux_amd64: 723cc1e71146dbe997acaacd71fd71f46266de3977b0ee24f3cf54fae280d208
+  linux_arm64: 6d17810f1cdeacb43e5ec95d567c84f39eb99582058d5d3ac2f110cca04d01b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

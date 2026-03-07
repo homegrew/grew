@@ -1,0 +1,21 @@
+name: capstone
+version: 5.0.7
+description: Multi-platform, multi-architecture disassembly framework
+homepage: https://www.capstone-engine.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/capstone/blobs/sha256:921a27cf982706500e7e16c12cc5ae870c24d81e777da7c148b8567a49a72e76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/capstone/blobs/sha256:b97f0af3c785ea395f7839dd26963b8760502b77ebba09f19d6d7250d0c0f090
+  linux_amd64: https://ghcr.io/v2/homebrew/core/capstone/blobs/sha256:0908fcf12ddcc240126a6b15addfbe2d3b4e5758786b541f3847f2a39d58703a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/capstone/blobs/sha256:5cddc772e19f285df16a76407672c04ce0e69e54e04f9fe80ac1028814a3a81d
+sha256:
+  darwin_arm64: 921a27cf982706500e7e16c12cc5ae870c24d81e777da7c148b8567a49a72e76
+  darwin_amd64: b97f0af3c785ea395f7839dd26963b8760502b77ebba09f19d6d7250d0c0f090
+  linux_amd64: 0908fcf12ddcc240126a6b15addfbe2d3b4e5758786b541f3847f2a39d58703a
+  linux_arm64: 5cddc772e19f285df16a76407672c04ce0e69e54e04f9fe80ac1028814a3a81d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

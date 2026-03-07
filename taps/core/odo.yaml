@@ -1,0 +1,19 @@
+name: odo
+version: 0.2.2
+description: Atomic odometer for the command-line
+homepage: https://github.com/atomicobject/odo
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odo/blobs/sha256:20a6c15a93b22bf5a00cbe51b03f517b71ac79ad055fe0a446b6b1296b25b0eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odo/blobs/sha256:cfe100be3b80f12c312de93500351befbb376e7991e9f0d86c2a67c9a9f43785
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odo/blobs/sha256:23644efe576abf9c3e3a469cf1baad05b3a3cde749998045b2992c290cf57884
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odo/blobs/sha256:247595e46c20ec2a990af435321894b79bb0d641dde13a5586e81b421f67794d
+sha256:
+  darwin_arm64: 20a6c15a93b22bf5a00cbe51b03f517b71ac79ad055fe0a446b6b1296b25b0eb
+  darwin_amd64: cfe100be3b80f12c312de93500351befbb376e7991e9f0d86c2a67c9a9f43785
+  linux_amd64: 23644efe576abf9c3e3a469cf1baad05b3a3cde749998045b2992c290cf57884
+  linux_arm64: 247595e46c20ec2a990af435321894b79bb0d641dde13a5586e81b421f67794d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,34 @@
+name: gnome-recipes
+version: 2.0.4
+description: Formula for GNOME recipes
+homepage: https://wiki.gnome.org/Apps/Recipes
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnome-recipes/blobs/sha256:aa4f377580d2f261bf6997d22203eab2ab4a41dd25ac493c31c156712ffeebb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnome-recipes/blobs/sha256:2adb5d5d5318f31ec63b8b76e3d220a2762dcb7ee47e66e64f97099ec10509a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnome-recipes/blobs/sha256:a1dae0cbe0ba46499542cd211ce00a349115b3493b918585813d648509300274
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnome-recipes/blobs/sha256:baf6811bce172b08ab17bf70be6d20075df33db91cd8a0b3476529d590f120a9
+sha256:
+  darwin_arm64: aa4f377580d2f261bf6997d22203eab2ab4a41dd25ac493c31c156712ffeebb8
+  darwin_amd64: 2adb5d5d5318f31ec63b8b76e3d220a2762dcb7ee47e66e64f97099ec10509a0
+  linux_amd64: a1dae0cbe0ba46499542cd211ce00a349115b3493b918585813d648509300274
+  linux_arm64: baf6811bce172b08ab17bf70be6d20075df33db91cd8a0b3476529d590f120a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gnome-autoar
+  - gspell
+  - gtk+3
+  - json-glib
+  - libcanberra
+  - libgoa
+  - librest
+  - libsoup
+  - pango
+  - gettext

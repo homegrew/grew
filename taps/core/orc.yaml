@@ -1,0 +1,19 @@
+name: orc
+version: 0.4.42
+description: Oil Runtime Compiler (ORC)
+homepage: https://gstreamer.freedesktop.org/modules/orc.html
+license: BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orc/blobs/sha256:a45340cf95a072f37cb00f9bcb8b1dfe31128fe4a9421957c9a57938a87341a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orc/blobs/sha256:177f50d05d85775089fab59021fdbc7d483814f42558d170cd8f26d146512262
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orc/blobs/sha256:f61c9e4d2bc4894d65d16c7ccedeba81ffaac9c07cbc337be00cd8d77d353c06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orc/blobs/sha256:f8b2f804f9e7cac847bc8d375976f29d9a6f3a1a78e2bedf91ce677d1801b5a5
+sha256:
+  darwin_arm64: a45340cf95a072f37cb00f9bcb8b1dfe31128fe4a9421957c9a57938a87341a1
+  darwin_amd64: 177f50d05d85775089fab59021fdbc7d483814f42558d170cd8f26d146512262
+  linux_amd64: f61c9e4d2bc4894d65d16c7ccedeba81ffaac9c07cbc337be00cd8d77d353c06
+  linux_arm64: f8b2f804f9e7cac847bc8d375976f29d9a6f3a1a78e2bedf91ce677d1801b5a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

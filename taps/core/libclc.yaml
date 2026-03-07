@@ -1,0 +1,19 @@
+name: libclc
+version: 22.1.0
+description: Implementation of the library requirements of the OpenCL C programming language
+homepage: https://libclc.llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libclc/blobs/sha256:38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libclc/blobs/sha256:38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libclc/blobs/sha256:42fb758912ea56012072ee1f48e8e11fc6ae3399b4261bc9af0306610611a8de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libclc/blobs/sha256:38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+sha256:
+  darwin_arm64: 38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+  darwin_amd64: 38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+  linux_amd64: 42fb758912ea56012072ee1f48e8e11fc6ae3399b4261bc9af0306610611a8de
+  linux_arm64: 38e4a66e44ae6e47041cdc211f538cc2346a892cd3e5dcab1580f00c974a1d75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

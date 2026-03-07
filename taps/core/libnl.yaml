@@ -1,0 +1,15 @@
+name: libnl
+version: 3.12.0
+description: Netlink Library Suite
+homepage: https://github.com/thom311/libnl
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnl/blobs/sha256:1d3128ef9d8dde95c5da2f454abc2b4b62670fd72528f4a0b9f62e7e163561f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnl/blobs/sha256:75c3dff2c1bd4a952ab0b661639b0629829b1d447e20cb6bb7471655d13ffe83
+sha256:
+  linux_amd64: 1d3128ef9d8dde95c5da2f454abc2b4b62670fd72528f4a0b9f62e7e163561f7
+  linux_arm64: 75c3dff2c1bd4a952ab0b661639b0629829b1d447e20cb6bb7471655d13ffe83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

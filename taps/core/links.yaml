@@ -1,0 +1,21 @@
+name: links
+version: 2.30
+description: Lynx-like WWW browser that supports tables, menus, etc.
+homepage: https://links.twibright.com/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/links/blobs/sha256:6ee67f16e936f4ee03ed3f99c64e702dcf4475fc9ef2159f80cb1bfb41992e48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/links/blobs/sha256:361875cdc9395d2ed97c87e0921c40c60d456ad49b4d9d0e7b8ddf78f39efacc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/links/blobs/sha256:b4a79dc1b18b5ef645e53246d0b13fedc1395492fef5bbaf979ae087e89f0bc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/links/blobs/sha256:5428de9880c1e619b93507a3d4acb7d4ee709323b10d3339148ec1c75ff87e81
+sha256:
+  darwin_arm64: 6ee67f16e936f4ee03ed3f99c64e702dcf4475fc9ef2159f80cb1bfb41992e48
+  darwin_amd64: 361875cdc9395d2ed97c87e0921c40c60d456ad49b4d9d0e7b8ddf78f39efacc
+  linux_amd64: b4a79dc1b18b5ef645e53246d0b13fedc1395492fef5bbaf979ae087e89f0bc2
+  linux_arm64: 5428de9880c1e619b93507a3d4acb7d4ee709323b10d3339148ec1c75ff87e81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

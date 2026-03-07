@@ -1,0 +1,21 @@
+name: include-what-you-use
+version: 0.25
+description: "Tool to analyze #includes in C and C++ source files"
+homepage: https://include-what-you-use.org/
+license: NCSA
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/include-what-you-use/blobs/sha256:cb16a8422501ee26489ab0dc70d2137f66fab074435382c390efa33271290a24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/include-what-you-use/blobs/sha256:d0f141120aaede9cf0d38d68b2f09907b02aadcd4b36abcf44fb14e82c06e15c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/include-what-you-use/blobs/sha256:de767ccb3a6ffb9f5fa5ac5e71202381a2aeb4b22de7d1df06c96a262f431e5c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/include-what-you-use/blobs/sha256:fe1f672fc5f6b859f9b7935ef7ec93826ec067eca641b6bc45c4aaea888bf424
+sha256:
+  darwin_arm64: cb16a8422501ee26489ab0dc70d2137f66fab074435382c390efa33271290a24
+  darwin_amd64: d0f141120aaede9cf0d38d68b2f09907b02aadcd4b36abcf44fb14e82c06e15c
+  linux_amd64: de767ccb3a6ffb9f5fa5ac5e71202381a2aeb4b22de7d1df06c96a262f431e5c
+  linux_arm64: fe1f672fc5f6b859f9b7935ef7ec93826ec067eca641b6bc45c4aaea888bf424
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@21

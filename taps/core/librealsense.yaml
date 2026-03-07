@@ -1,0 +1,22 @@
+name: librealsense
+version: 2.57.6
+description: Intel RealSense D400 series and SR300 capture
+homepage: https://github.com/IntelRealSense/librealsense
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librealsense/blobs/sha256:7bc396096eaa6a8b001b905f7325e4f2750f97043e8c1dc885e628e4a3873fc0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librealsense/blobs/sha256:63f4234403292e53fe885771f70a0cf2be7708acc136ab42f26950ebfffeb546
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librealsense/blobs/sha256:7590c965420c397348a2a5780972c9409b175e0b2df7b61f7b86c6b25d86e95f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librealsense/blobs/sha256:ad99a7fb88f1223e519f622604a9ccf2f439e2c30707160df1dcb9e493fc9744
+sha256:
+  darwin_arm64: 7bc396096eaa6a8b001b905f7325e4f2750f97043e8c1dc885e628e4a3873fc0
+  darwin_amd64: 63f4234403292e53fe885771f70a0cf2be7708acc136ab42f26950ebfffeb546
+  linux_amd64: 7590c965420c397348a2a5780972c9409b175e0b2df7b61f7b86c6b25d86e95f
+  linux_arm64: ad99a7fb88f1223e519f622604a9ccf2f439e2c30707160df1dcb9e493fc9744
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glfw
+  - libusb

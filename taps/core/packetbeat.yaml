@@ -1,0 +1,19 @@
+name: packetbeat
+version: 9.3.1
+description: Lightweight Shipper for Network Data
+homepage: https://www.elastic.co/products/beats/packetbeat
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/packetbeat/blobs/sha256:c5227f0339cf9cbbe3ea15d97468940c60df2b89f86700d83ee2f74fff0879c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/packetbeat/blobs/sha256:5899133fec5fc5bd58f50024716bacfc6d6cc5eae18fbe7bca1a3f8a0adbd2f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/packetbeat/blobs/sha256:35090bac7b835bfd6fbbc6c4eba04dda0d3ca67657c36123c7a6bb7011e75151
+  linux_arm64: https://ghcr.io/v2/homebrew/core/packetbeat/blobs/sha256:001d0b24c443106946bd165a4bcfead61c8e1f0f5f792c38fed9ef94259a9474
+sha256:
+  darwin_arm64: c5227f0339cf9cbbe3ea15d97468940c60df2b89f86700d83ee2f74fff0879c1
+  darwin_amd64: 5899133fec5fc5bd58f50024716bacfc6d6cc5eae18fbe7bca1a3f8a0adbd2f0
+  linux_amd64: 35090bac7b835bfd6fbbc6c4eba04dda0d3ca67657c36123c7a6bb7011e75151
+  linux_arm64: 001d0b24c443106946bd165a4bcfead61c8e1f0f5f792c38fed9ef94259a9474
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

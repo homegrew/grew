@@ -1,0 +1,21 @@
+name: snyk-cli
+version: 1.1303.1
+description: Scans and monitors projects for security vulnerabilities
+homepage: https://snyk.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snyk-cli/blobs/sha256:0d8386001350417a23a8427b0367c4ec41086c8809bd9a0383afd2f815324659
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snyk-cli/blobs/sha256:5b9b7c9be4957b53ec241f76d5d5429eca464688a579244d93779d7495ee33fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snyk-cli/blobs/sha256:bad0292a650d7d0860929a16224191fe1034fa8752e444ee124a22ab0793cd31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snyk-cli/blobs/sha256:8c1ef50faf81fe6e921243f8e0a16f0d96ad65c83ef1bb01d468cbb0ce1abcea
+sha256:
+  darwin_arm64: 0d8386001350417a23a8427b0367c4ec41086c8809bd9a0383afd2f815324659
+  darwin_amd64: 5b9b7c9be4957b53ec241f76d5d5429eca464688a579244d93779d7495ee33fa
+  linux_amd64: bad0292a650d7d0860929a16224191fe1034fa8752e444ee124a22ab0793cd31
+  linux_arm64: 8c1ef50faf81fe6e921243f8e0a16f0d96ad65c83ef1bb01d468cbb0ce1abcea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

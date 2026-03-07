@@ -1,0 +1,19 @@
+name: mawk
+version: 1.3.4-20260302
+description: Interpreter for the AWK Programming Language
+homepage: https://invisible-island.net/mawk/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mawk/blobs/sha256:cf4ed75710af2d4e5d6a50d1563303510e789498875b7724367805f6db524361
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mawk/blobs/sha256:788bb3c387eb0df4dfbf2f1a960198fffe2eb8016516fd38cf59b6eda544cb1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mawk/blobs/sha256:bb785fa963052b93f5b6a5e730baee05d3ce373b9898db1f547014208a6301fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mawk/blobs/sha256:76e535fca1e876b60ab619aada6e439830832e267846a8a64482e6c01b1bd27c
+sha256:
+  darwin_arm64: cf4ed75710af2d4e5d6a50d1563303510e789498875b7724367805f6db524361
+  darwin_amd64: 788bb3c387eb0df4dfbf2f1a960198fffe2eb8016516fd38cf59b6eda544cb1d
+  linux_amd64: bb785fa963052b93f5b6a5e730baee05d3ce373b9898db1f547014208a6301fa
+  linux_arm64: 76e535fca1e876b60ab619aada6e439830832e267846a8a64482e6c01b1bd27c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

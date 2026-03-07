@@ -1,0 +1,11 @@
+name: genesys-cloud
+version: 2.48.680,171
+description: Run Genesys Cloud as a stand-alone program, keeping it separate from web browser
+homepage: https://apps.mypurecloud.com/directory-mac/
+url:
+  darwin_arm64: https://app.mypurecloud.com/directory-mac/build-assets/2.48.680-171/genesys-cloud-mac-2.48.680.dmg
+sha256:
+  darwin_arm64: 74fed463ec0d7f0d2da606b40c41e4676c1e3d6a9ef628a3e4631c61877f934b
+artifacts:
+  app:
+    - Genesys Cloud.app

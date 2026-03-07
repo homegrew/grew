@@ -1,0 +1,11 @@
+name: notesnook
+version: 3.3.8
+description: Privacy-focused note taking app
+homepage: https://notesnook.com/
+url:
+  darwin_arm64: https://github.com/streetwriters/notesnook/releases/download/v3.3.8/notesnook_mac_arm64.dmg
+sha256:
+  darwin_arm64: 3f5c6a30518041056aefa3b5453a7ede466dcccd711af494a5b922eb82938e2f
+artifacts:
+  app:
+    - Notesnook.app

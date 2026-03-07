@@ -1,0 +1,26 @@
+name: thors-anvil
+version: 9.1.4
+description: Set of modern C++20 libraries for writing interactive Web-Services
+homepage: https://github.com/Loki-Astari/ThorsAnvil
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/thors-anvil/blobs/sha256:74f8aa5a692da362c892cfcd390d88ddf3fafcbbdb35213774c8a7e93ed14f4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/thors-anvil/blobs/sha256:0fb1dc066cec0c8d134695414da19671c060c45b4a121901ade596338e3a4136
+  linux_amd64: https://ghcr.io/v2/homebrew/core/thors-anvil/blobs/sha256:6f757818e0851b74530a3f6df3b0c03a5e80cc05725c309f2ee9d7ae53634a00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/thors-anvil/blobs/sha256:1b7f2b41af5799d43dba29bb8aa7bdecce54427c7592f7ab549fbebf2e19ea54
+sha256:
+  darwin_arm64: 74f8aa5a692da362c892cfcd390d88ddf3fafcbbdb35213774c8a7e93ed14f4d
+  darwin_amd64: 0fb1dc066cec0c8d134695414da19671c060c45b4a121901ade596338e3a4136
+  linux_amd64: 6f757818e0851b74530a3f6df3b0c03a5e80cc05725c309f2ee9d7ae53634a00
+  linux_arm64: 1b7f2b41af5799d43dba29bb8aa7bdecce54427c7592f7ab549fbebf2e19ea54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - libevent
+  - libyaml
+  - magic_enum
+  - openssl@3
+  - snappy

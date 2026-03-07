@@ -1,0 +1,19 @@
+name: fping
+version: 5.5
+description: Scriptable ping program for checking if multiple hosts are up
+homepage: https://fping.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fping/blobs/sha256:d8e132e94c41b8dcf3149faf3356beece440bc4f5b804e723e9f7ee9cb14817d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fping/blobs/sha256:f126c58d92896bc945c83969b8ee25e7ec5aee3b2480eb836f6c036a550f7c54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fping/blobs/sha256:2cc39f11322e6922333f12d26b85a755520ff205f4214b9602bb7062d79b7673
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fping/blobs/sha256:7df0fdc7745faf467a98549da150873dc5c944cf5a3deb49c64972d5a0eda5b7
+sha256:
+  darwin_arm64: d8e132e94c41b8dcf3149faf3356beece440bc4f5b804e723e9f7ee9cb14817d
+  darwin_amd64: f126c58d92896bc945c83969b8ee25e7ec5aee3b2480eb836f6c036a550f7c54
+  linux_amd64: 2cc39f11322e6922333f12d26b85a755520ff205f4214b9602bb7062d79b7673
+  linux_arm64: 7df0fdc7745faf467a98549da150873dc5c944cf5a3deb49c64972d5a0eda5b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

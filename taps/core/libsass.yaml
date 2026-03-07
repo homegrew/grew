@@ -1,0 +1,19 @@
+name: libsass
+version: 3.6.6
+description: C implementation of a Sass compiler
+homepage: https://github.com/sass/libsass
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsass/blobs/sha256:ed01028a87ef04e5dd829f40013f3db3cff5317e1cb0ee3f7ac9de135281cb61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsass/blobs/sha256:cf3dc9646ee1c1de9fbb48df62623c02267d77ca3fda6c78a9acc7b893387ec9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsass/blobs/sha256:091841d5a1c742f6574ef14d6bb952d54409c7fcbc2085222a11b18eee0e38ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsass/blobs/sha256:8b569c57c1429048b0e8d3c3f4e15bc6f9b9efc3943cdaa6a9e6f7d891f59750
+sha256:
+  darwin_arm64: ed01028a87ef04e5dd829f40013f3db3cff5317e1cb0ee3f7ac9de135281cb61
+  darwin_amd64: cf3dc9646ee1c1de9fbb48df62623c02267d77ca3fda6c78a9acc7b893387ec9
+  linux_amd64: 091841d5a1c742f6574ef14d6bb952d54409c7fcbc2085222a11b18eee0e38ba
+  linux_arm64: 8b569c57c1429048b0e8d3c3f4e15bc6f9b9efc3943cdaa6a9e6f7d891f59750
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

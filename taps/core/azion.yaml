@@ -1,0 +1,19 @@
+name: azion
+version: 4.18.0
+description: CLI for the Azion service
+homepage: https://github.com/aziontech/azion
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azion/blobs/sha256:2e3bf077bd910a4214b34cc14c9f98681a69dfebfef8e1084551ce52af128acf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azion/blobs/sha256:a5c94b30061391ecaf424e4ffd0224d5d9d07c964d1ddfbae5ab70c84cae0cca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azion/blobs/sha256:f2788bddb1ad2078c3bd5729021d457a081606e82cc8be1599e9cff32ae504c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azion/blobs/sha256:9d4daa45546fd587b3e0a56fc5e8c268008e37850405db24148aa43017775501
+sha256:
+  darwin_arm64: 2e3bf077bd910a4214b34cc14c9f98681a69dfebfef8e1084551ce52af128acf
+  darwin_amd64: a5c94b30061391ecaf424e4ffd0224d5d9d07c964d1ddfbae5ab70c84cae0cca
+  linux_amd64: f2788bddb1ad2078c3bd5729021d457a081606e82cc8be1599e9cff32ae504c6
+  linux_arm64: 9d4daa45546fd587b3e0a56fc5e8c268008e37850405db24148aa43017775501
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

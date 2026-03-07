@@ -1,0 +1,19 @@
+name: repeater
+version: 0.1.6
+description: Flashcard program that uses spaced repetition
+homepage: https://shaankhosla.github.io/repeater/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/repeater/blobs/sha256:17626e374cb42bffb39971fb7143dc3a765289588f524cb45d285a48cde04542
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/repeater/blobs/sha256:bf8a7f139c36a0797e575b98678000fc1075be2fbd23bc3165a6e10e7d1ce0b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/repeater/blobs/sha256:5974a529ba943738bdc1fd81b28c3b8c854625b410caaac1d8d65ac187dfa65b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/repeater/blobs/sha256:c9b0e61407a30403d6530ee579cd9866c42120dad7616cb58d03abd67943e4cf
+sha256:
+  darwin_arm64: 17626e374cb42bffb39971fb7143dc3a765289588f524cb45d285a48cde04542
+  darwin_amd64: bf8a7f139c36a0797e575b98678000fc1075be2fbd23bc3165a6e10e7d1ce0b5
+  linux_amd64: 5974a529ba943738bdc1fd81b28c3b8c854625b410caaac1d8d65ac187dfa65b
+  linux_arm64: c9b0e61407a30403d6530ee579cd9866c42120dad7616cb58d03abd67943e4cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

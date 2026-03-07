@@ -1,0 +1,19 @@
+name: moon
+version: 2.0.4
+description: Task runner and repo management tool for the web ecosystem, written in Rust
+homepage: https://moonrepo.dev/moon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moon/blobs/sha256:16dbde176adc69f087c338282c4360f1227743627a076e6c8eb739f79a875b8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moon/blobs/sha256:dc6db8586fa71ccca3e45e921babf31fb9b3731e48681ba6b147d32221fbd03d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moon/blobs/sha256:f8209aad9115ac91aadaa38e55ea6b123790ece5bdf45cd1ddfd447071d30b8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moon/blobs/sha256:bd6520d9dc33a1cb18bcbd96286e146be6031a70f2c1ac84ce3ca44ecfd4e7c5
+sha256:
+  darwin_arm64: 16dbde176adc69f087c338282c4360f1227743627a076e6c8eb739f79a875b8c
+  darwin_amd64: dc6db8586fa71ccca3e45e921babf31fb9b3731e48681ba6b147d32221fbd03d
+  linux_amd64: f8209aad9115ac91aadaa38e55ea6b123790ece5bdf45cd1ddfd447071d30b8b
+  linux_arm64: bd6520d9dc33a1cb18bcbd96286e146be6031a70f2c1ac84ce3ca44ecfd4e7c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

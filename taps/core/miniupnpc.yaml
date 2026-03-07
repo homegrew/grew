@@ -1,0 +1,19 @@
+name: miniupnpc
+version: 2.3.3
+description: UPnP IGD client library and daemon
+homepage: https://miniupnp.tuxfamily.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/miniupnpc/blobs/sha256:b73df945175626c5dc6c3d05061ec1718f81ed5023c24cd59fd15c569eecf0f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/miniupnpc/blobs/sha256:4b03e713001a5bde4ab0e36115d3bf20e81414099361a3ee7969e98c5f6dea35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/miniupnpc/blobs/sha256:21e083d283863e771c6927a44ad88f565f0c4af7b9448a96f99af0c773d66f8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/miniupnpc/blobs/sha256:8cd223f810f0720ac35009022063a6d3f03231f97a9a17b79f0f4f86e6095160
+sha256:
+  darwin_arm64: b73df945175626c5dc6c3d05061ec1718f81ed5023c24cd59fd15c569eecf0f0
+  darwin_amd64: 4b03e713001a5bde4ab0e36115d3bf20e81414099361a3ee7969e98c5f6dea35
+  linux_amd64: 21e083d283863e771c6927a44ad88f565f0c4af7b9448a96f99af0c773d66f8e
+  linux_arm64: 8cd223f810f0720ac35009022063a6d3f03231f97a9a17b79f0f4f86e6095160
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

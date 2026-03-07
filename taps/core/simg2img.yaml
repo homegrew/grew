@@ -1,0 +1,19 @@
+name: simg2img
+version: 1.1.5
+description: Tool to convert Android sparse images to raw images and back
+homepage: https://github.com/anestisb/android-simg2img
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simg2img/blobs/sha256:24a4849d1dd7c830c30fe616fb752e3fd0c2fb11313ada32d3355762d4765881
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simg2img/blobs/sha256:dbb8d4abc6e1771b2ad35ad31e8de166b9ffbdf4999c7578ab90d4fc381fcff9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simg2img/blobs/sha256:12395fc0ab3bc7182727330297eba9ac9db3d3ae9e52e256943f2dd0af38c561
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simg2img/blobs/sha256:47dc8a4e077eddf71ba9eec796d93fe4b2418ce7d848c17f0269a81865d93518
+sha256:
+  darwin_arm64: 24a4849d1dd7c830c30fe616fb752e3fd0c2fb11313ada32d3355762d4765881
+  darwin_amd64: dbb8d4abc6e1771b2ad35ad31e8de166b9ffbdf4999c7578ab90d4fc381fcff9
+  linux_amd64: 12395fc0ab3bc7182727330297eba9ac9db3d3ae9e52e256943f2dd0af38c561
+  linux_arm64: 47dc8a4e077eddf71ba9eec796d93fe4b2418ce7d848c17f0269a81865d93518
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

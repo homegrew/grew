@@ -1,0 +1,19 @@
+name: toxiproxy
+version: 2.12.0
+description: "TCP proxy to simulate network & system conditions for chaos & resiliency testing"
+homepage: https://github.com/shopify/toxiproxy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toxiproxy/blobs/sha256:366a468183e8c98dae90c4ce3dfaa6f740117e4d9485aee8caf687eac0b3b2eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toxiproxy/blobs/sha256:34c15b5c0ee7761719352512657dfabfe1971b672dc498f0dde8b31a066ae17b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toxiproxy/blobs/sha256:ff23599856b2b7c08cd3873700a345b07480950ceb7f8d4484c6efaf492b6788
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toxiproxy/blobs/sha256:be11e08a83dc827210a32100c31f7d94533b1dc526ee8b8ae597ab48d7e0454e
+sha256:
+  darwin_arm64: 366a468183e8c98dae90c4ce3dfaa6f740117e4d9485aee8caf687eac0b3b2eb
+  darwin_amd64: 34c15b5c0ee7761719352512657dfabfe1971b672dc498f0dde8b31a066ae17b
+  linux_amd64: ff23599856b2b7c08cd3873700a345b07480950ceb7f8d4484c6efaf492b6788
+  linux_arm64: be11e08a83dc827210a32100c31f7d94533b1dc526ee8b8ae597ab48d7e0454e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: vulkan-loader
+version: 1.4.341.0
+description: Vulkan ICD Loader
+homepage: https://github.com/KhronosGroup/Vulkan-Loader
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-loader/blobs/sha256:3295a53bff2bc054547a46bb7e62f44220a8401faca4dc74eb99ed247a2b2f45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-loader/blobs/sha256:9dff81362f512a5b18fe28ff26b1593c22f1928c4a197648aef5b7b950747777
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-loader/blobs/sha256:19929669867dd2f30bd4943506aa08ae295434a68712c649d299daf7422e2247
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-loader/blobs/sha256:384d36d5cda7ab774e0592dd2147aaf3928f762c063a0c5725f2b3189c9d3e7b
+sha256:
+  darwin_arm64: 3295a53bff2bc054547a46bb7e62f44220a8401faca4dc74eb99ed247a2b2f45
+  darwin_amd64: 9dff81362f512a5b18fe28ff26b1593c22f1928c4a197648aef5b7b950747777
+  linux_amd64: 19929669867dd2f30bd4943506aa08ae295434a68712c649d299daf7422e2247
+  linux_arm64: 384d36d5cda7ab774e0592dd2147aaf3928f762c063a0c5725f2b3189c9d3e7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - vulkan-headers

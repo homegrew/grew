@@ -1,0 +1,26 @@
+name: ola
+version: 0.10.9
+description: Open Lighting Architecture for lighting control information
+homepage: https://github.com/OpenLightingProject/ola
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ola/blobs/sha256:fb34b6180f13470dce28580f9bdd350c603ede26b8bd62bb3443129c0e4d5433
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ola/blobs/sha256:40566e57d5025b96c56d24e1a7923b078472b8d60ef7b25c1b7ad3f02c66d6aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ola/blobs/sha256:4145a9279e35b9da53fec95e9c3d83e10470f4035a672ad1bd4eb3aa3a09fe0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ola/blobs/sha256:6560cf82bf62934ffa92c091bf5f6caf10a0f666757b7ff472d54a00ebea4ce6
+sha256:
+  darwin_arm64: fb34b6180f13470dce28580f9bdd350c603ede26b8bd62bb3443129c0e4d5433
+  darwin_amd64: 40566e57d5025b96c56d24e1a7923b078472b8d60ef7b25c1b7ad3f02c66d6aa
+  linux_amd64: 4145a9279e35b9da53fec95e9c3d83e10470f4035a672ad1bd4eb3aa3a09fe0d
+  linux_arm64: 6560cf82bf62934ffa92c091bf5f6caf10a0f666757b7ff472d54a00ebea4ce6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - liblo
+  - libmicrohttpd
+  - libusb
+  - numpy
+  - protobuf

@@ -1,0 +1,13 @@
+name: hyper
+version: 3.4.1
+description: Terminal built on web technologies
+homepage: https://hyper.is/
+url:
+  darwin_arm64: https://github.com/vercel/hyper/releases/download/v3.4.1/Hyper-3.4.1-mac-arm64.zip
+sha256:
+  darwin_arm64: 7d2440fdd93fde4101e603fe2de46732b54292a868ad17dbcb55288e6f8430a8
+artifacts:
+  app:
+    - Hyper.app
+  bin:
+    - hyper

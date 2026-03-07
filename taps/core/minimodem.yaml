@@ -1,0 +1,23 @@
+name: minimodem
+version: 0.24
+description: General-purpose software audio FSK modem
+homepage: http://www.whence.com/minimodem/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minimodem/blobs/sha256:733a179f707e522c3b44c603a5fddfc616d22a4c94dc0a721f76f000c3499a66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minimodem/blobs/sha256:ae1f9e5a3adda8bd22e705739a3dd2f76fc1eb2aeb7accf21e0fdfad5164a378
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minimodem/blobs/sha256:e160d02015fdfd48ef348ef8f73bb6040e2a66ff9047cf1bc7f720ad94c173a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minimodem/blobs/sha256:fcc897c306d8db37b369010254a87762845eefd5aad185938639b0728250af53
+sha256:
+  darwin_arm64: 733a179f707e522c3b44c603a5fddfc616d22a4c94dc0a721f76f000c3499a66
+  darwin_amd64: ae1f9e5a3adda8bd22e705739a3dd2f76fc1eb2aeb7accf21e0fdfad5164a378
+  linux_amd64: e160d02015fdfd48ef348ef8f73bb6040e2a66ff9047cf1bc7f720ad94c173a7
+  linux_arm64: fcc897c306d8db37b369010254a87762845eefd5aad185938639b0728250af53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - libsndfile
+  - pulseaudio

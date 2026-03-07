@@ -1,0 +1,19 @@
+name: ente-cli
+version: 0.2.3
+description: Utility for exporting data from Ente and decrypt the export from Ente Auth
+homepage: https://github.com/ente-io/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ente-cli/blobs/sha256:02768405fae7635b534b796b20d1ac47d97688d6f9b52b84f2d0d295b85c646b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ente-cli/blobs/sha256:9fa97a816bcae266536982077798393b61a08859cfb455fee6a822640f8837ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ente-cli/blobs/sha256:8fad672f160147e34db13a96d0867946b3cd5ac076d295eef48b4b3b485d8ace
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ente-cli/blobs/sha256:6698caaf273ea5141fec0ad91777d7e85f73f640b186c3332cea1a9513433fc2
+sha256:
+  darwin_arm64: 02768405fae7635b534b796b20d1ac47d97688d6f9b52b84f2d0d295b85c646b
+  darwin_amd64: 9fa97a816bcae266536982077798393b61a08859cfb455fee6a822640f8837ee
+  linux_amd64: 8fad672f160147e34db13a96d0867946b3cd5ac076d295eef48b4b3b485d8ace
+  linux_arm64: 6698caaf273ea5141fec0ad91777d7e85f73f640b186c3332cea1a9513433fc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: clickhouse-sql-parser
+version: 0.4.19
+description: Writing clickhouse sql parser in pure Go
+homepage: https://github.com/AfterShip/clickhouse-sql-parser
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-sql-parser/blobs/sha256:96acd78821946c7970be95227c68d68a5232e6a6b15148f96a5bb9e593c5f7ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-sql-parser/blobs/sha256:6ea851c12b69401e5b89e17c25de3e0b8d972a4d0a1ec9bd9e334ade4e0632cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clickhouse-sql-parser/blobs/sha256:5d35ae72cc04d8c4354f5184881bda229338aa8a151704253daa42ae27283831
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clickhouse-sql-parser/blobs/sha256:a845d111fa897a78b0f03fe1ea39afa02ddd34fe5a4a10060c78fb0519c4d40d
+sha256:
+  darwin_arm64: 96acd78821946c7970be95227c68d68a5232e6a6b15148f96a5bb9e593c5f7ce
+  darwin_amd64: 6ea851c12b69401e5b89e17c25de3e0b8d972a4d0a1ec9bd9e334ade4e0632cd
+  linux_amd64: 5d35ae72cc04d8c4354f5184881bda229338aa8a151704253daa42ae27283831
+  linux_arm64: a845d111fa897a78b0f03fe1ea39afa02ddd34fe5a4a10060c78fb0519c4d40d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

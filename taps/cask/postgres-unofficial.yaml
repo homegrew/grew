@@ -1,0 +1,11 @@
+name: postgres-unofficial
+version: 2.9.4,14-15-16-17-18
+description: App wrapper for Postgres
+homepage: https://postgresapp.com/
+url:
+  darwin_arm64: https://github.com/PostgresApp/PostgresApp/releases/download/v2.9.4/Postgres-2.9.4-14-15-16-17-18.dmg
+sha256:
+  darwin_arm64: c73a65789546935c26baf3522bb9c44aa8da09ef1d4409efcdb98a567a34e158
+artifacts:
+  app:
+    - Postgres.app

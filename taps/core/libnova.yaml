@@ -1,0 +1,19 @@
+name: libnova
+version: 0.16
+description: Celestial mechanics, astrometry and astrodynamics library
+homepage: https://libnova.sourceforge.net/
+license: LGPL-2.0-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnova/blobs/sha256:fd79a01fd5a7306387bce5efbc22a21740446e9b8f6297bcd7c5dc2d9af64284
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnova/blobs/sha256:b8882a09bc05971cd86c3388602583dce5fd173b8426d2338e091ae67bd3ed1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnova/blobs/sha256:51c724966987330961113e03102032bbba991585716037b228750afec5e58d7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnova/blobs/sha256:b6f726ab15a2116d490f86ae09682688ee25eaca2804564b2d38d40d09030407
+sha256:
+  darwin_arm64: fd79a01fd5a7306387bce5efbc22a21740446e9b8f6297bcd7c5dc2d9af64284
+  darwin_amd64: b8882a09bc05971cd86c3388602583dce5fd173b8426d2338e091ae67bd3ed1e
+  linux_amd64: 51c724966987330961113e03102032bbba991585716037b228750afec5e58d7d
+  linux_arm64: b6f726ab15a2116d490f86ae09682688ee25eaca2804564b2d38d40d09030407
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: miruo
+version: 0.9.6b
+description: Pretty-print TCP session monitor/analyzer
+homepage: https://github.com/KLab/miruo/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/miruo/blobs/sha256:d2bbd65942dc88b12e85715f157eaf8f2f76976616a11d5177bb118a02515d5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/miruo/blobs/sha256:b8b65b937c59f9662343515dd8fb0450ba9e9828ef00cb4829b219c8bf379be9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/miruo/blobs/sha256:f079697d80cff4b00726c8c149727a4a19c3db789e417692f470175ad9f24f25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/miruo/blobs/sha256:981815843bbf557cc108baa34c2dc61b101df2fc14b23451c732102468527f81
+sha256:
+  darwin_arm64: d2bbd65942dc88b12e85715f157eaf8f2f76976616a11d5177bb118a02515d5f
+  darwin_amd64: b8b65b937c59f9662343515dd8fb0450ba9e9828ef00cb4829b219c8bf379be9
+  linux_amd64: f079697d80cff4b00726c8c149727a4a19c3db789e417692f470175ad9f24f25
+  linux_arm64: 981815843bbf557cc108baa34c2dc61b101df2fc14b23451c732102468527f81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

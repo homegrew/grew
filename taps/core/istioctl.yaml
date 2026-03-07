@@ -1,0 +1,19 @@
+name: istioctl
+version: 1.29.0
+description: Istio configuration command-line utility
+homepage: https://istio.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/istioctl/blobs/sha256:5eb7bcf1e091fb3e610b4da78cc9cd9c433d781bb7ef29b8c36806b091b82034
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/istioctl/blobs/sha256:2e0aa249b6da43cedf1c355a7e76f97c8b96ce71dd090ec5004dcc590419dc1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/istioctl/blobs/sha256:720e1ef4394d3502eb6666ad86e67d3650cca85be6faafd482d85ca17ca61200
+  linux_arm64: https://ghcr.io/v2/homebrew/core/istioctl/blobs/sha256:d8a274d239c90dfb2b514c12d86021bf5f6d0699970d057fe4fc1967e1975df3
+sha256:
+  darwin_arm64: 5eb7bcf1e091fb3e610b4da78cc9cd9c433d781bb7ef29b8c36806b091b82034
+  darwin_amd64: 2e0aa249b6da43cedf1c355a7e76f97c8b96ce71dd090ec5004dcc590419dc1a
+  linux_amd64: 720e1ef4394d3502eb6666ad86e67d3650cca85be6faafd482d85ca17ca61200
+  linux_arm64: d8a274d239c90dfb2b514c12d86021bf5f6d0699970d057fe4fc1967e1975df3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

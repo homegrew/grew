@@ -1,0 +1,19 @@
+name: glooctl
+version: 1.20.11
+description: Envoy-Powered API Gateway
+homepage: https://docs.solo.io/gloo-edge/main/reference/cli/glooctl/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glooctl/blobs/sha256:9e7727046028f43ab4c9c7f11deff75dade0b7801ad932438c3ec031548bedd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glooctl/blobs/sha256:4c1fac564a64a99ccd6a5a240082199f27b4560a8e35d2edced93b942327dcde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glooctl/blobs/sha256:b514907fde3334540f3987049bc222d013d934b994458a37064ad8a8a3071c6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glooctl/blobs/sha256:90c3e9e8d6a40d155763db6c7c41be94b8af9a1e6e2f1b3cb500d527b7bb2e85
+sha256:
+  darwin_arm64: 9e7727046028f43ab4c9c7f11deff75dade0b7801ad932438c3ec031548bedd5
+  darwin_amd64: 4c1fac564a64a99ccd6a5a240082199f27b4560a8e35d2edced93b942327dcde
+  linux_amd64: b514907fde3334540f3987049bc222d013d934b994458a37064ad8a8a3071c6f
+  linux_arm64: 90c3e9e8d6a40d155763db6c7c41be94b8af9a1e6e2f1b3cb500d527b7bb2e85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

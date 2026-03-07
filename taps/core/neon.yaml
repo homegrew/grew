@@ -1,0 +1,21 @@
+name: neon
+version: 0.37.0
+description: HTTP and WebDAV client library with a C interface
+homepage: https://notroj.github.io/neon/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neon/blobs/sha256:c13455e41cec857d37b5694facce12480f5e8640af9c09ba5c8233fa2a6f7902
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neon/blobs/sha256:40eebc8ea0f2265fdec954b7c084e941a987dc7461671fab43cd54cff1a69d38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neon/blobs/sha256:5b0b63351daff119266643ef63d4e185fd55388984f3118ca19bfa878db22a3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neon/blobs/sha256:44aeeff65f81018f7112e859eeed4f8b3f96d77093398967b817fab4200367a1
+sha256:
+  darwin_arm64: c13455e41cec857d37b5694facce12480f5e8640af9c09ba5c8233fa2a6f7902
+  darwin_amd64: 40eebc8ea0f2265fdec954b7c084e941a987dc7461671fab43cd54cff1a69d38
+  linux_amd64: 5b0b63351daff119266643ef63d4e185fd55388984f3118ca19bfa878db22a3f
+  linux_arm64: 44aeeff65f81018f7112e859eeed4f8b3f96d77093398967b817fab4200367a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

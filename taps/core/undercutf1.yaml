@@ -1,0 +1,24 @@
+name: undercutf1
+version: 4.0.51
+description: F1 Live Timing TUI for all F1 sessions with variable delay to sync to your TV
+homepage: https://github.com/JustAman62/undercut-f1
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/undercutf1/blobs/sha256:4b7a5f5b53e0c5553c84fe4490cef6ccdafc55145665f0e87645087fe6850c21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/undercutf1/blobs/sha256:3b49db28c4dcde729a4bbb4e09bfff9caebf594b3dc3fb834c0fef708c3c3a9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/undercutf1/blobs/sha256:f4376ea7d47c46563d49a5110bc4e653019a1c305c500093c9c20e39d2363d4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/undercutf1/blobs/sha256:0cf95b851d59f25d78028d86c58e41d9142c6b42aebae3e0c4a7854e091968bb
+sha256:
+  darwin_arm64: 4b7a5f5b53e0c5553c84fe4490cef6ccdafc55145665f0e87645087fe6850c21
+  darwin_amd64: 3b49db28c4dcde729a4bbb4e09bfff9caebf594b3dc3fb834c0fef708c3c3a9c
+  linux_amd64: f4376ea7d47c46563d49a5110bc4e653019a1c305c500093c9c20e39d2363d4f
+  linux_arm64: 0cf95b851d59f25d78028d86c58e41d9142c6b42aebae3e0c4a7854e091968bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet
+  - ffmpeg
+  - fontconfig
+  - mpg123

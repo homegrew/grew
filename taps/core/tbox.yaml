@@ -1,0 +1,19 @@
+name: tbox
+version: 1.8.0
+description: Glib-like multi-platform C library
+homepage: https://github.com/tboox/tbox
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tbox/blobs/sha256:b2e54884a4e796cfcf80f0626c4709cfb2457a7f55322620087960dd3898dc43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tbox/blobs/sha256:d43414168d16c5dcc7b64f140cc6a6bdc1dff6284e6115267aea03d7a5982192
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tbox/blobs/sha256:1cfd614c4c971f8b922e37ae936cb23625adc02c47c4f570587a5274ee357e26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tbox/blobs/sha256:988c17883fa3616f79372ae9e8856ca03249c33a8feee0ccbcfceedcc3d33c01
+sha256:
+  darwin_arm64: b2e54884a4e796cfcf80f0626c4709cfb2457a7f55322620087960dd3898dc43
+  darwin_amd64: d43414168d16c5dcc7b64f140cc6a6bdc1dff6284e6115267aea03d7a5982192
+  linux_amd64: 1cfd614c4c971f8b922e37ae936cb23625adc02c47c4f570587a5274ee357e26
+  linux_arm64: 988c17883fa3616f79372ae9e8856ca03249c33a8feee0ccbcfceedcc3d33c01
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

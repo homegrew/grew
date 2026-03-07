@@ -1,0 +1,21 @@
+name: fortran-stdlib
+version: 0.8.1
+description: Fortran Standard Library
+homepage: https://stdlib.fortran-lang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fortran-stdlib/blobs/sha256:019e3842f56d2193a7db71556efd8e93bdafe4defceea47da9ced6230444546e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fortran-stdlib/blobs/sha256:50ec9b4f641125459e9193afc056d479655502d8704267dd6bcf41a745690ff9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fortran-stdlib/blobs/sha256:00fa8e5b2da7e2e4e4f35962f605f4692d30e0dd964e82f43c3f2436d9486b20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fortran-stdlib/blobs/sha256:c25d5ce02e32da1a0e8a30c2bfcefb846244ffb5454c2f727394a0522336df5e
+sha256:
+  darwin_arm64: 019e3842f56d2193a7db71556efd8e93bdafe4defceea47da9ced6230444546e
+  darwin_amd64: 50ec9b4f641125459e9193afc056d479655502d8704267dd6bcf41a745690ff9
+  linux_amd64: 00fa8e5b2da7e2e4e4f35962f605f4692d30e0dd964e82f43c3f2436d9486b20
+  linux_arm64: c25d5ce02e32da1a0e8a30c2bfcefb846244ffb5454c2f727394a0522336df5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

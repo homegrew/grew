@@ -1,0 +1,19 @@
+name: monocle
+version: 1.2.0
+description: See through all BGP data with a monocle
+homepage: https://github.com/bgpkit/monocle
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monocle/blobs/sha256:68c50b97275bdc234b1cf83ef253609ee6e6843c771141036e1c1574bcf76364
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monocle/blobs/sha256:4bcc8fc5774dee12a10f86a9c2bc596160a16971fce5e13ae81b4fd2ac24d799
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monocle/blobs/sha256:22ae120beef85c07fd3d6bdd8295d194b156acf6c122c264a9415be1b51aa69b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monocle/blobs/sha256:b3979c3ae5bed0a90828ab2a1763236d0e302ce98e050a546936df401d8e0bcd
+sha256:
+  darwin_arm64: 68c50b97275bdc234b1cf83ef253609ee6e6843c771141036e1c1574bcf76364
+  darwin_amd64: 4bcc8fc5774dee12a10f86a9c2bc596160a16971fce5e13ae81b4fd2ac24d799
+  linux_amd64: 22ae120beef85c07fd3d6bdd8295d194b156acf6c122c264a9415be1b51aa69b
+  linux_arm64: b3979c3ae5bed0a90828ab2a1763236d0e302ce98e050a546936df401d8e0bcd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

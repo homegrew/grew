@@ -1,0 +1,25 @@
+name: rsyslog
+version: 8.2602.0
+description: Enhanced, multi-threaded syslogd
+homepage: https://www.rsyslog.com/
+license: Apache-2.0 AND GPL-3.0-or-later AND LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsyslog/blobs/sha256:e86c820fbc63e371fe8543bf2ff5365bbec589c2e7cbe4a2872d7d35632d11ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsyslog/blobs/sha256:2476dfb611e2179214663f2f8152c91a3dffe2d64d7bf83578786789a93cb8dc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsyslog/blobs/sha256:f62a69acef13cf839170010356966d48351d7deca8a6329e6ebcbf0555067112
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsyslog/blobs/sha256:37bea4b49af501f895823195f150974e661927d5117efceaf8151bf04caefb37
+sha256:
+  darwin_arm64: e86c820fbc63e371fe8543bf2ff5365bbec589c2e7cbe4a2872d7d35632d11ff
+  darwin_amd64: 2476dfb611e2179214663f2f8152c91a3dffe2d64d7bf83578786789a93cb8dc
+  linux_amd64: f62a69acef13cf839170010356966d48351d7deca8a6329e6ebcbf0555067112
+  linux_arm64: 37bea4b49af501f895823195f150974e661927d5117efceaf8151bf04caefb37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - libestr
+  - libfastjson
+  - protobuf-c
+  - snappy

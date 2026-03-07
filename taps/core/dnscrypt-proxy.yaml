@@ -1,0 +1,19 @@
+name: dnscrypt-proxy
+version: 2.1.15
+description: Secure communications between a client and a DNS resolver
+homepage: https://dnscrypt.info
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnscrypt-proxy/blobs/sha256:9f52afc199f9685dcfe202b307ab4dfb6570079b4ab0138b84db59b3be369931
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnscrypt-proxy/blobs/sha256:adaf7f330014bb1479e5ca2afaa0ce0641d7248327bbf637ef26bb71e928c097
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnscrypt-proxy/blobs/sha256:50ff10c841e16bc412d0d21d18f18a05909f8948a9861100f82b73cbfa0305fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnscrypt-proxy/blobs/sha256:3ee8dd5efa82fd9c23293928ac29b523ed1a4afebacc80b26047c3bea0596edb
+sha256:
+  darwin_arm64: 9f52afc199f9685dcfe202b307ab4dfb6570079b4ab0138b84db59b3be369931
+  darwin_amd64: adaf7f330014bb1479e5ca2afaa0ce0641d7248327bbf637ef26bb71e928c097
+  linux_amd64: 50ff10c841e16bc412d0d21d18f18a05909f8948a9861100f82b73cbfa0305fb
+  linux_arm64: 3ee8dd5efa82fd9c23293928ac29b523ed1a4afebacc80b26047c3bea0596edb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

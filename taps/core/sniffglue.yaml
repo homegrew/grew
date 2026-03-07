@@ -1,0 +1,19 @@
+name: sniffglue
+version: 0.16.1
+description: Secure multithreaded packet sniffer
+homepage: https://github.com/kpcyrd/sniffglue
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sniffglue/blobs/sha256:2b45c1ef8b0dd3da8de07cb373db7d60a8963466af4fe2c1998301aa121c1c3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sniffglue/blobs/sha256:3e384b4c3f1cec37f8bfc05895374176b0653d23da223e32fe8911c896509736
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sniffglue/blobs/sha256:975e2e1aa4e743d501b15ab83d7af6360d5d0ec2335051d2719ad817c56c6ac6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sniffglue/blobs/sha256:c2c11e8addb595af6b63ed633911aaeaddf6f373bb4ad43870fc0c1739858d34
+sha256:
+  darwin_arm64: 2b45c1ef8b0dd3da8de07cb373db7d60a8963466af4fe2c1998301aa121c1c3b
+  darwin_amd64: 3e384b4c3f1cec37f8bfc05895374176b0653d23da223e32fe8911c896509736
+  linux_amd64: 975e2e1aa4e743d501b15ab83d7af6360d5d0ec2335051d2719ad817c56c6ac6
+  linux_arm64: c2c11e8addb595af6b63ed633911aaeaddf6f373bb4ad43870fc0c1739858d34
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

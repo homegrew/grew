@@ -1,0 +1,11 @@
+name: netron
+version: 8.9.3
+description: Visualiser for neural network, deep learning, and machine learning models
+homepage: https://github.com/lutzroeder/netron
+url:
+  darwin_arm64: https://github.com/lutzroeder/netron/releases/download/v8.9.3/Netron-8.9.3-mac.zip
+sha256:
+  darwin_arm64: 05074f43d7332679323a58027faca3f53587e91371e4208a173ce4138aeda04e
+artifacts:
+  app:
+    - Netron.app

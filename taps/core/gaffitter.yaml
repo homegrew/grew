@@ -1,0 +1,19 @@
+name: gaffitter
+version: 1.0.0
+description: Efficiently fit files/folders to fixed size volumes (like DVDs)
+homepage: https://gaffitter.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gaffitter/blobs/sha256:4ec8f9b01a9b1fff4a2d4cdfb51df68589b7574dcd825f9f6895e0083fe3901f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gaffitter/blobs/sha256:283647aa4787df613fe2c408696a2ce3517391d50afab41336ef35a93e982670
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gaffitter/blobs/sha256:03da21621437817c39c5760eaf043615e7fe2d7653581763acc5ed87a71b2c6c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gaffitter/blobs/sha256:7932b1fe151d9f7ac8a018292fd05a15b2e0ae8204b553e6cca6767ce54e409f
+sha256:
+  darwin_arm64: 4ec8f9b01a9b1fff4a2d4cdfb51df68589b7574dcd825f9f6895e0083fe3901f
+  darwin_amd64: 283647aa4787df613fe2c408696a2ce3517391d50afab41336ef35a93e982670
+  linux_amd64: 03da21621437817c39c5760eaf043615e7fe2d7653581763acc5ed87a71b2c6c
+  linux_arm64: 7932b1fe151d9f7ac8a018292fd05a15b2e0ae8204b553e6cca6767ce54e409f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

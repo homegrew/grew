@@ -1,0 +1,23 @@
+name: grayskull
+version: 3.1.0
+description: Recipe generator for Conda
+homepage: https://github.com/conda/grayskull
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grayskull/blobs/sha256:0bea4584f95992631872492944f970fd8b6838029272e482f0af91ff4ec49fab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grayskull/blobs/sha256:455ecffa8668b228f7c533e17171c8e4652cad0777f5326fc8ef685cb34258e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grayskull/blobs/sha256:e5299e0fa8d78b94e14d85746dfa9c48897bdf6e88d533aa7d134e756e20e95d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grayskull/blobs/sha256:9946d2b6317b89568ce26e827e1474468225b0176fc6a4b8622dbf6ead0f9664
+sha256:
+  darwin_arm64: 0bea4584f95992631872492944f970fd8b6838029272e482f0af91ff4ec49fab
+  darwin_amd64: 455ecffa8668b228f7c533e17171c8e4652cad0777f5326fc8ef685cb34258e6
+  linux_amd64: e5299e0fa8d78b94e14d85746dfa9c48897bdf6e88d533aa7d134e756e20e95d
+  linux_arm64: 9946d2b6317b89568ce26e827e1474468225b0176fc6a4b8622dbf6ead0f9664
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

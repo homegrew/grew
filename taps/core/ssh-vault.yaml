@@ -1,0 +1,19 @@
+name: ssh-vault
+version: 1.2.2
+description: Encrypt/decrypt using SSH keys
+homepage: https://ssh-vault.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssh-vault/blobs/sha256:67019b55b41909e74e16677a447a2338250eab7ccf5e8b9dc6bd2d91be9c5e66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssh-vault/blobs/sha256:6ad1ada372d9d159169ddddf6067f8b3d4b1b56c75a3727cd76b004b26c14108
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssh-vault/blobs/sha256:6c94c0cc6d4adacfea2e4a75a51fef91bc50baf711b2f0bbde98d378fb1d7719
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssh-vault/blobs/sha256:248537ca22b938592ae89f4130ade2760e85c2d29b7a047ce275e39f6ccf46d1
+sha256:
+  darwin_arm64: 67019b55b41909e74e16677a447a2338250eab7ccf5e8b9dc6bd2d91be9c5e66
+  darwin_amd64: 6ad1ada372d9d159169ddddf6067f8b3d4b1b56c75a3727cd76b004b26c14108
+  linux_amd64: 6c94c0cc6d4adacfea2e4a75a51fef91bc50baf711b2f0bbde98d378fb1d7719
+  linux_arm64: 248537ca22b938592ae89f4130ade2760e85c2d29b7a047ce275e39f6ccf46d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

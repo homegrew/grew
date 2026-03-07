@@ -1,0 +1,24 @@
+name: oci-cli
+version: 3.75.0
+description: Oracle Cloud Infrastructure CLI
+homepage: https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm
+license: UPL-1.0 OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oci-cli/blobs/sha256:853f519d3a90f42f2543c910daacaf35e9fda31479444252e37a1622ad91d38a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oci-cli/blobs/sha256:983590fe1974ab5805508f328832b737e993bedb54cf0fe5818084466cac2087
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oci-cli/blobs/sha256:1832a679ffc031fbed501a77153818f66d0a0a2c7b36e3afcfa9d190b6ab8fc4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oci-cli/blobs/sha256:7482da1303374dcb6cffbbb50ecc5972ecce9782d9409acb75e374c95aeda6dd
+sha256:
+  darwin_arm64: 853f519d3a90f42f2543c910daacaf35e9fda31479444252e37a1622ad91d38a
+  darwin_amd64: 983590fe1974ab5805508f328832b737e993bedb54cf0fe5818084466cac2087
+  linux_amd64: 1832a679ffc031fbed501a77153818f66d0a0a2c7b36e3afcfa9d190b6ab8fc4
+  linux_arm64: 7482da1303374dcb6cffbbb50ecc5972ecce9782d9409acb75e374c95aeda6dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

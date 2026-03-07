@@ -1,0 +1,19 @@
+name: osqp
+version: 1.0.0
+description: Operator splitting QP solver
+homepage: https://osqp.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osqp/blobs/sha256:c954c2ec86a360b05b33c2adca519d53f4b4a668ec21dd1843c0a03811239b5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osqp/blobs/sha256:4870c87ac958b12511c5eee404fe346a0e2d0372b379855f934533ab8e2b039b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osqp/blobs/sha256:f28787efc1e418c84e3123f0364865950be5f51250246d916419ed8d53b09cd4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osqp/blobs/sha256:6544280d65567811ac1fa3bd1f659545a0a1e02f50ca43f946761d325818e85d
+sha256:
+  darwin_arm64: c954c2ec86a360b05b33c2adca519d53f4b4a668ec21dd1843c0a03811239b5d
+  darwin_amd64: 4870c87ac958b12511c5eee404fe346a0e2d0372b379855f934533ab8e2b039b
+  linux_amd64: f28787efc1e418c84e3123f0364865950be5f51250246d916419ed8d53b09cd4
+  linux_arm64: 6544280d65567811ac1fa3bd1f659545a0a1e02f50ca43f946761d325818e85d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

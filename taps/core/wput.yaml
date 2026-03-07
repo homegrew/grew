@@ -1,0 +1,19 @@
+name: wput
+version: 0.6.2
+description: Tiny, wget-like FTP client for uploading files
+homepage: https://wput.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wput/blobs/sha256:228f7a8a4bc5246862d4ccdd64c22f11ae8fc5400f1a5a923ca999ad308a5919
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wput/blobs/sha256:3300e6e7bbc43adc8f1525c8badcf307029b63127163912115555b7b5e99525f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wput/blobs/sha256:0fb27e180b9a6f8ef2b3508530874b467449fdac55a347c63f2e86ca360db073
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wput/blobs/sha256:ec9a4b8e069c941c18e07b232a30c5e5daf926003d9ff6120b0ac1e21d1f0e5b
+sha256:
+  darwin_arm64: 228f7a8a4bc5246862d4ccdd64c22f11ae8fc5400f1a5a923ca999ad308a5919
+  darwin_amd64: 3300e6e7bbc43adc8f1525c8badcf307029b63127163912115555b7b5e99525f
+  linux_amd64: 0fb27e180b9a6f8ef2b3508530874b467449fdac55a347c63f2e86ca360db073
+  linux_arm64: ec9a4b8e069c941c18e07b232a30c5e5daf926003d9ff6120b0ac1e21d1f0e5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

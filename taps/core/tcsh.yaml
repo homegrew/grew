@@ -1,0 +1,19 @@
+name: tcsh
+version: 6.24.16
+description: Enhanced, fully compatible version of the Berkeley C shell
+homepage: https://www.tcsh.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcsh/blobs/sha256:0df869ae003eeca37ff2acec0a8a9f604c1ffebda8b279facc0e3be826240dce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcsh/blobs/sha256:487cae9b37287fb4080711e0877f76e09948b6d45ce4dfd7aa00f16fcdc7f753
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcsh/blobs/sha256:695cc9b9c3dbf80e7e088cd0803b43019ff2e5844223c5ad0553ef483a08e45e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcsh/blobs/sha256:9570055136a3774880053458831d48cd936b3655b19f55f5b731481f7ae3671c
+sha256:
+  darwin_arm64: 0df869ae003eeca37ff2acec0a8a9f604c1ffebda8b279facc0e3be826240dce
+  darwin_amd64: 487cae9b37287fb4080711e0877f76e09948b6d45ce4dfd7aa00f16fcdc7f753
+  linux_amd64: 695cc9b9c3dbf80e7e088cd0803b43019ff2e5844223c5ad0553ef483a08e45e
+  linux_arm64: 9570055136a3774880053458831d48cd936b3655b19f55f5b731481f7ae3671c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

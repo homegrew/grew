@@ -1,0 +1,19 @@
+name: zlog
+version: 1.2.18
+description: High-performance C logging library
+homepage: https://github.com/HardySimpson/zlog
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zlog/blobs/sha256:e71ea809671f98c7c971dd32bb10b6277631f2216ad5c47b3742449c07f0c2f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zlog/blobs/sha256:fd76e9b11c931478c0106c32c4f67feb6f5c1ddfd10cdf985278ececff977aa6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zlog/blobs/sha256:868ff2416cf589e55963163d173f2b30515350a114b0dc70183f6b0183c62191
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zlog/blobs/sha256:2262180dca42195cb202e911f78dff3225ca41768ab9ea44c99854f8c34baa8c
+sha256:
+  darwin_arm64: e71ea809671f98c7c971dd32bb10b6277631f2216ad5c47b3742449c07f0c2f0
+  darwin_amd64: fd76e9b11c931478c0106c32c4f67feb6f5c1ddfd10cdf985278ececff977aa6
+  linux_amd64: 868ff2416cf589e55963163d173f2b30515350a114b0dc70183f6b0183c62191
+  linux_arm64: 2262180dca42195cb202e911f78dff3225ca41768ab9ea44c99854f8c34baa8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

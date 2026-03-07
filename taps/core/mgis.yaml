@@ -1,0 +1,24 @@
+name: mgis
+version: 3.1
+description: Provide tools to handle MFront generic interface behaviours
+homepage: https://thelfer.github.io/mgis/web/index.html
+license: LGPL-3.0-only OR CECILL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mgis/blobs/sha256:74c7f1e27791371b8e7c2014d3b1da8f7293ef0d3f6dd81e5bab33d43fb41cfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mgis/blobs/sha256:0e6b9dbe76a216c54c3844fd5ddec1bda82768074d85894a0eefc9c09f4b1377
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mgis/blobs/sha256:424ecd722ae433941899b73dc513fbabe4ff0631988cd5e8336c56cec5c5fa1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mgis/blobs/sha256:a9d509f8a2b1594e5baa6f14f365cd04d2c508c69c6452d6233a9b077e71a877
+sha256:
+  darwin_arm64: 74c7f1e27791371b8e7c2014d3b1da8f7293ef0d3f6dd81e5bab33d43fb41cfd
+  darwin_amd64: 0e6b9dbe76a216c54c3844fd5ddec1bda82768074d85894a0eefc9c09f4b1377
+  linux_amd64: 424ecd722ae433941899b73dc513fbabe4ff0631988cd5e8336c56cec5c5fa1f
+  linux_arm64: a9d509f8a2b1594e5baa6f14f365cd04d2c508c69c6452d6233a9b077e71a877
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - numpy
+  - python@3.14
+  - tbb

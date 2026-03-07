@@ -1,0 +1,19 @@
+name: daktilo
+version: 0.6.0
+description: Plays typewriter sounds every time you press a key
+homepage: https://daktilo.cli.rs
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/daktilo/blobs/sha256:4ff1fd88a5f22968066a2fa40a1bf920755081c46b445c51fd1513efd7de2d59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/daktilo/blobs/sha256:7e60d9deb2d00237f924690c9ad83c21fa0e9a39a2d5e21815b53d0a97e7a4aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/daktilo/blobs/sha256:d862c33b912fb26fb8564fdc3bef5f666265f8945c9cd17c2b7fc030ee3e3ce7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/daktilo/blobs/sha256:551661528d988f6e25e8723edb9b1d515d143178d237843da60fd52f946a5993
+sha256:
+  darwin_arm64: 4ff1fd88a5f22968066a2fa40a1bf920755081c46b445c51fd1513efd7de2d59
+  darwin_amd64: 7e60d9deb2d00237f924690c9ad83c21fa0e9a39a2d5e21815b53d0a97e7a4aa
+  linux_amd64: d862c33b912fb26fb8564fdc3bef5f666265f8945c9cd17c2b7fc030ee3e3ce7
+  linux_arm64: 551661528d988f6e25e8723edb9b1d515d143178d237843da60fd52f946a5993
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

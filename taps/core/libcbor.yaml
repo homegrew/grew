@@ -1,0 +1,19 @@
+name: libcbor
+version: 0.13.0
+description: CBOR protocol implementation for C and others
+homepage: https://github.com/PJK/libcbor
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcbor/blobs/sha256:f5c20790e57a940c90412368e2b013905e348111d24c3c1094b216d78aa5e79e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcbor/blobs/sha256:46da1181ecfad81747ba251a7bb0c386d2e96138c91b4b2317224e4e2d8f33a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcbor/blobs/sha256:18293a2b5aa8a0212b281cd516ab49a9b50238e2a0d32d287757800aea89d0bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcbor/blobs/sha256:7b3d54923878f373a76b6d36c4ecd15923fea36bb794485d7121e901110ac830
+sha256:
+  darwin_arm64: f5c20790e57a940c90412368e2b013905e348111d24c3c1094b216d78aa5e79e
+  darwin_amd64: 46da1181ecfad81747ba251a7bb0c386d2e96138c91b4b2317224e4e2d8f33a7
+  linux_amd64: 18293a2b5aa8a0212b281cd516ab49a9b50238e2a0d32d287757800aea89d0bc
+  linux_arm64: 7b3d54923878f373a76b6d36c4ecd15923fea36bb794485d7121e901110ac830
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: sile
+version: 0.15.13
+description: Modern typesetting system inspired by TeX
+homepage: https://sile-typesetter.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sile/blobs/sha256:84311a8e0777cad0808ef2e936df25589c908410fdf80f8e59a336c07530eb0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sile/blobs/sha256:1fbd167ab091deeb57811129b2c31446acef25597accf72de9a1bf9efe8c55e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sile/blobs/sha256:6074cb5bbd1485cbcda34b290269ed29990895d800d9458e7d8c814904b8ad11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sile/blobs/sha256:4f05214a3fe6b2a84909859ab5484935dcba0045e3aff5bc5104e2a39f56eb4a
+sha256:
+  darwin_arm64: 84311a8e0777cad0808ef2e936df25589c908410fdf80f8e59a336c07530eb0d
+  darwin_amd64: 1fbd167ab091deeb57811129b2c31446acef25597accf72de9a1bf9efe8c55e6
+  linux_amd64: 6074cb5bbd1485cbcda34b290269ed29990895d800d9458e7d8c814904b8ad11
+  linux_arm64: 4f05214a3fe6b2a84909859ab5484935dcba0045e3aff5bc5104e2a39f56eb4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - harfbuzz
+  - icu4c@78
+  - libpng
+  - luajit
+  - luarocks
+  - openssl@3
+  - freetype

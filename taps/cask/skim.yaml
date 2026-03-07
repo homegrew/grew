@@ -1,0 +1,15 @@
+name: skim
+version: 1.7.13
+description: PDF reader and note-taking application
+homepage: https://skim-app.sourceforge.io/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/skim-app/Skim/Skim-1.7.13/Skim-1.7.13.dmg
+sha256:
+  darwin_arm64: 685f33d6af6b7fbc569762bd2dc140696ade7fa80104590e5ac586e205ee3a3c
+artifacts:
+  app:
+    - Skim.app
+  bin:
+    - displayline
+    - skimnotes
+    - skimpdf

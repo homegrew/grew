@@ -1,0 +1,24 @@
+name: cnats
+version: 3.12.0
+description: C client for the NATS messaging system
+homepage: https://github.com/nats-io/nats.c
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cnats/blobs/sha256:d6b6a71f904ece5d05e820a00279676169c201dd29af015760f14ec90eedf6c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cnats/blobs/sha256:da0021e25b526acac1a1e0d4f6fbed9aae416f2986f4b000b31b1b80b72741b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cnats/blobs/sha256:1891557d88308406f2cb6525cd9825777c4bc280becc0b68878d471a82f9c2b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cnats/blobs/sha256:f811f0043da5c8aa249aa337e7a983fa76c8e82eb1f5f99c88934551ebfb3882
+sha256:
+  darwin_arm64: d6b6a71f904ece5d05e820a00279676169c201dd29af015760f14ec90eedf6c3
+  darwin_amd64: da0021e25b526acac1a1e0d4f6fbed9aae416f2986f4b000b31b1b80b72741b9
+  linux_amd64: 1891557d88308406f2cb6525cd9825777c4bc280becc0b68878d471a82f9c2b5
+  linux_arm64: f811f0043da5c8aa249aa337e7a983fa76c8e82eb1f5f99c88934551ebfb3882
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libuv
+  - openssl@3
+  - protobuf-c

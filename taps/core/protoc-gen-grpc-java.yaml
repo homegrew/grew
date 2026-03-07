@@ -1,0 +1,22 @@
+name: protoc-gen-grpc-java
+version: 1.79.0
+description: Protoc plugin for gRPC Java
+homepage: https://grpc.io/docs/languages/java/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/protoc-gen-grpc-java/blobs/sha256:dc81166bfbbc64d147609055d187836c7d5d98b66070850895f6e7d8b134ea8d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/protoc-gen-grpc-java/blobs/sha256:e93bf22c25a6b22f88c701d2d852bc1fcb0f8cc11b62b9a04376400e5556c2df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/protoc-gen-grpc-java/blobs/sha256:ff97c8b8d59d873bd5fb5025542edba9443b939d68b7809d1a50184cd4478be3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/protoc-gen-grpc-java/blobs/sha256:b4966cfe5e4db1cfd53cd3f48a2c147709bc0c5c123bb62092248462be8d5cd4
+sha256:
+  darwin_arm64: dc81166bfbbc64d147609055d187836c7d5d98b66070850895f6e7d8b134ea8d
+  darwin_amd64: e93bf22c25a6b22f88c701d2d852bc1fcb0f8cc11b62b9a04376400e5556c2df
+  linux_amd64: ff97c8b8d59d873bd5fb5025542edba9443b939d68b7809d1a50184cd4478be3
+  linux_arm64: b4966cfe5e4db1cfd53cd3f48a2c147709bc0c5c123bb62092248462be8d5cd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - protobuf

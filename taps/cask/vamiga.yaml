@@ -1,0 +1,11 @@
+name: vamiga
+version: 4.3.2
+description: Amiga 500, 1000, 2000 emulator
+homepage: https://dirkwhoffmann.github.io/vAmiga
+url:
+  darwin_arm64: https://github.com/dirkwhoffmann/vAmiga/releases/download/v4.3.2/vAmiga.app.zip
+sha256:
+  darwin_arm64: ed7bee36c04b254741becc44287b34395f07304aa881d4f82e58f0be385de8cc
+artifacts:
+  app:
+    - vAmiga.app

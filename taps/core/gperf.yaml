@@ -1,0 +1,19 @@
+name: gperf
+version: 3.3
+description: Perfect hash function generator
+homepage: https://www.gnu.org/software/gperf/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gperf/blobs/sha256:8431153ec71d07fd4f1ca9609c1c11e9f6cc487000cb2f5e4cbec971c0814536
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gperf/blobs/sha256:4e9bff915d62ffa5029f929aeefa07383aafe3f0f92921224f39447b3af71787
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gperf/blobs/sha256:b89551d7e9b6af83d8ff495b7ec376cbf0b73c37b39ee90a4164a115496cd11e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gperf/blobs/sha256:f53bc80b9dc52d53c19a2bcd50a32114860348be40cd3bf3252c8270f0bbf24f
+sha256:
+  darwin_arm64: 8431153ec71d07fd4f1ca9609c1c11e9f6cc487000cb2f5e4cbec971c0814536
+  darwin_amd64: 4e9bff915d62ffa5029f929aeefa07383aafe3f0f92921224f39447b3af71787
+  linux_amd64: b89551d7e9b6af83d8ff495b7ec376cbf0b73c37b39ee90a4164a115496cd11e
+  linux_arm64: f53bc80b9dc52d53c19a2bcd50a32114860348be40cd3bf3252c8270f0bbf24f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

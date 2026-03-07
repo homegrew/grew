@@ -1,0 +1,21 @@
+name: pgroll
+version: 0.16.1
+description: Postgres zero-downtime migrations made easy
+homepage: https://pgroll.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgroll/blobs/sha256:613fa928565d4ed0c5d4d0811f2b5d216eda6bb51c7ffdc0289115d6b94c2dcb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgroll/blobs/sha256:cbd5116889f85fdd4faf7af01310926f662ba86127cc3025354d07d778adffb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgroll/blobs/sha256:c01a2858ba6cb267d8e9f2d318d6f300d1db8cf7fe115a8b205d3e31d529a156
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgroll/blobs/sha256:7070edf104264980fa5cc5269e4d9ed6eef503d5fd3e8cf7836a080685ec555b
+sha256:
+  darwin_arm64: 613fa928565d4ed0c5d4d0811f2b5d216eda6bb51c7ffdc0289115d6b94c2dcb
+  darwin_amd64: cbd5116889f85fdd4faf7af01310926f662ba86127cc3025354d07d778adffb7
+  linux_amd64: c01a2858ba6cb267d8e9f2d318d6f300d1db8cf7fe115a8b205d3e31d529a156
+  linux_arm64: 7070edf104264980fa5cc5269e4d9ed6eef503d5fd3e8cf7836a080685ec555b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpg_query

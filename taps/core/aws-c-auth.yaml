@@ -1,0 +1,25 @@
+name: aws-c-auth
+version: 0.10.1
+description: C99 library implementation of AWS client-side authentication
+homepage: https://github.com/awslabs/aws-c-auth
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-auth/blobs/sha256:5c22d6769a7520e25ffa70a46af3e10473250d05c74a789905967406d7ab8258
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-auth/blobs/sha256:b1d8adbdf2074f37f166c394ed531d9552ed9d64b65257dfd09d52127b9280fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-auth/blobs/sha256:0ca8253a6169e929833cd828c6b1dd5fe72280a6e98330841c8fdbb7ff297534
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-auth/blobs/sha256:6c87d38254911fab65d7bbb91a1e2767714b0bb7cf3fd7fd5ab084d00f86e544
+sha256:
+  darwin_arm64: 5c22d6769a7520e25ffa70a46af3e10473250d05c74a789905967406d7ab8258
+  darwin_amd64: b1d8adbdf2074f37f166c394ed531d9552ed9d64b65257dfd09d52127b9280fa
+  linux_amd64: 0ca8253a6169e929833cd828c6b1dd5fe72280a6e98330841c8fdbb7ff297534
+  linux_arm64: 6c87d38254911fab65d7bbb91a1e2767714b0bb7cf3fd7fd5ab084d00f86e544
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-cal
+  - aws-c-common
+  - aws-c-http
+  - aws-c-io
+  - aws-c-sdkutils

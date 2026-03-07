@@ -1,0 +1,11 @@
+name: joplin
+version: 3.5.13
+description: Note taking and to-do application with synchronisation capabilities
+homepage: https://joplinapp.org/
+url:
+  darwin_arm64: https://github.com/laurent22/joplin/releases/download/v3.5.13/Joplin-3.5.13-arm64.DMG
+sha256:
+  darwin_arm64: 2f99fa5591f0ab5007e5e1cbff0dfb03055a1d78a15f003ec38594cd1f563aab
+artifacts:
+  app:
+    - Joplin.app

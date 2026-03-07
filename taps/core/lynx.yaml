@@ -1,0 +1,22 @@
+name: lynx
+version: 2.9.2
+description: Text-based web browser
+homepage: https://invisible-island.net/lynx/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lynx/blobs/sha256:f018c40ffe24220383f1e020875f64a62552bedc10e4948321992a4ceac5e83e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lynx/blobs/sha256:5a3157c1ed95544f85968690b9d51c36975d1cc52c75069328d9ea6de28c4ae5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lynx/blobs/sha256:6267a025209071f6109d8b8cfcb81de136bac11ead8b19ae2aa644ab74fee8fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lynx/blobs/sha256:fceb7120d16369c1cd5350ff34a39f3d8276061a5119a64eec00be26ffc6e5f5
+sha256:
+  darwin_arm64: f018c40ffe24220383f1e020875f64a62552bedc10e4948321992a4ceac5e83e
+  darwin_amd64: 5a3157c1ed95544f85968690b9d51c36975d1cc52c75069328d9ea6de28c4ae5
+  linux_amd64: 6267a025209071f6109d8b8cfcb81de136bac11ead8b19ae2aa644ab74fee8fb
+  linux_arm64: fceb7120d16369c1cd5350ff34a39f3d8276061a5119a64eec00be26ffc6e5f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - openssl@3

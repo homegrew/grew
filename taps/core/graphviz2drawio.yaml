@@ -1,0 +1,22 @@
+name: graphviz2drawio
+version: 1.1.0
+description: Convert graphviz (dot) files into draw.io / lucid (mxGraph) format
+homepage: https://github.com/hbmartin/graphviz2drawio/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/graphviz2drawio/blobs/sha256:954e1640d40392d3125956c08981e7899624b6e24b114bfc704b8fc4a5e0191a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/graphviz2drawio/blobs/sha256:50ffcd094a34c8ed5b05038c3bc068f0b14c01e7d2c82e28fc7f48bacf04bf9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/graphviz2drawio/blobs/sha256:680c4fc4b3f8c9ee6fa2fcb74236d86a4bff8d69098bd68fa34d41c7bf9c5704
+  linux_arm64: https://ghcr.io/v2/homebrew/core/graphviz2drawio/blobs/sha256:ff8bbabc5e86b17bf857aaa590244513757a9888a65da4186a29e7b00d74b4c3
+sha256:
+  darwin_arm64: 954e1640d40392d3125956c08981e7899624b6e24b114bfc704b8fc4a5e0191a
+  darwin_amd64: 50ffcd094a34c8ed5b05038c3bc068f0b14c01e7d2c82e28fc7f48bacf04bf9a
+  linux_amd64: 680c4fc4b3f8c9ee6fa2fcb74236d86a4bff8d69098bd68fa34d41c7bf9c5704
+  linux_arm64: ff8bbabc5e86b17bf857aaa590244513757a9888a65da4186a29e7b00d74b4c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - graphviz
+  - python@3.14

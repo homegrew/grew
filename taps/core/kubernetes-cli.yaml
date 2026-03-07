@@ -1,0 +1,19 @@
+name: kubernetes-cli
+version: 1.35.2
+description: Kubernetes command-line interface
+homepage: https://kubernetes.io/docs/reference/kubectl/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubernetes-cli/blobs/sha256:b046e3185705e96be7638188f2bf3efd7512d13f0f40c1d302c81d5a065db203
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubernetes-cli/blobs/sha256:5f23cb8f756876049e693128cad01255e9348fb2c4a67a7ab7459dbe6b6ff00d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubernetes-cli/blobs/sha256:5353f4e92bc86fc3fceae57e8115dd8725e55474a1c61f73d0502a70a50693b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubernetes-cli/blobs/sha256:a5aa9b04a45c8099f88574214502c9a7db4457db8f30c75b93cad8760c3a99b5
+sha256:
+  darwin_arm64: b046e3185705e96be7638188f2bf3efd7512d13f0f40c1d302c81d5a065db203
+  darwin_amd64: 5f23cb8f756876049e693128cad01255e9348fb2c4a67a7ab7459dbe6b6ff00d
+  linux_amd64: 5353f4e92bc86fc3fceae57e8115dd8725e55474a1c61f73d0502a70a50693b4
+  linux_arm64: a5aa9b04a45c8099f88574214502c9a7db4457db8f30c75b93cad8760c3a99b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

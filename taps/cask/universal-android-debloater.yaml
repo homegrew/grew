@@ -1,0 +1,11 @@
+name: universal-android-debloater
+version: 0.5.1
+description: GUI which uses ADB to debloat non-rooted Android devices
+homepage: https://github.com/0x192/universal-android-debloater
+url:
+  darwin_arm64: https://github.com/0x192/universal-android-debloater/releases/download/0.5.1/uad_gui-macos-opengl.tar.gz
+sha256:
+  darwin_arm64: 9b22d3da881482067fda33c46409b99a34b48ba13a8fb789007de2125772cc32
+artifacts:
+  bin:
+    - uad

@@ -1,0 +1,19 @@
+name: fclones
+version: 0.35.0
+description: Efficient Duplicate File Finder
+homepage: https://github.com/pkolaczk/fclones
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fclones/blobs/sha256:e10f85773e6a764bb09a61ee7bcce735fbfcc39fa34616d52c7b68e5812cd0ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fclones/blobs/sha256:92a41e489d01e0e26fd142e765e1c0e25369e5039b5e3947d638da3ed54c4408
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fclones/blobs/sha256:eea61b6f1d552320357ffda10b5b9b8d6ebafc9f22bbf4572df706d3d3d742b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fclones/blobs/sha256:61ca95e6eda9e7f1e4805ff143b929bd7e049ca904a18320007020674b66dac8
+sha256:
+  darwin_arm64: e10f85773e6a764bb09a61ee7bcce735fbfcc39fa34616d52c7b68e5812cd0ea
+  darwin_amd64: 92a41e489d01e0e26fd142e765e1c0e25369e5039b5e3947d638da3ed54c4408
+  linux_amd64: eea61b6f1d552320357ffda10b5b9b8d6ebafc9f22bbf4572df706d3d3d742b3
+  linux_arm64: 61ca95e6eda9e7f1e4805ff143b929bd7e049ca904a18320007020674b66dac8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

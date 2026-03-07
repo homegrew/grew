@@ -1,0 +1,19 @@
+name: scc
+version: 3.7.0
+description: Fast and accurate code counter with complexity and COCOMO estimates
+homepage: https://github.com/boyter/scc/
+license: MIT OR Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scc/blobs/sha256:a0e2990323b5fc911cc49cb1e76825d0d40dec63d6dd3005ca365661d54f91b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scc/blobs/sha256:d01d294651add28aac7cfd22bb92eb8a2d51a1391f86e1d1983b75f53a350f70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scc/blobs/sha256:9a1abde78079b9778eb24f26998b8857d001ad357c9219629993cc833a817f32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scc/blobs/sha256:982eab81bcfff356c30a69eebcb48b92dde737b2dd391a14ecc444688da246a8
+sha256:
+  darwin_arm64: a0e2990323b5fc911cc49cb1e76825d0d40dec63d6dd3005ca365661d54f91b6
+  darwin_amd64: d01d294651add28aac7cfd22bb92eb8a2d51a1391f86e1d1983b75f53a350f70
+  linux_amd64: 9a1abde78079b9778eb24f26998b8857d001ad357c9219629993cc833a817f32
+  linux_arm64: 982eab81bcfff356c30a69eebcb48b92dde737b2dd391a14ecc444688da246a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

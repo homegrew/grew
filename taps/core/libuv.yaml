@@ -1,0 +1,19 @@
+name: libuv
+version: 1.52.0
+description: Multi-platform support library with a focus on asynchronous I/O
+homepage: https://libuv.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libuv/blobs/sha256:6a96aec35787e6f9e8e3b999a04687a5331655d32d5c93ac47f7f4fa8c907d0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libuv/blobs/sha256:48d8a4231c7b1aff74abc49b5aceb41cdc337b1773d7235fe763ba21eeb013e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libuv/blobs/sha256:ceac8ca799cb1970dc17812ddb75a60f973723043221a504bc39fdc31e0aa44c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libuv/blobs/sha256:96dc73df2ad0952ae92074ab66762308e1d6b29a8ba081b59f1a95c508b32985
+sha256:
+  darwin_arm64: 6a96aec35787e6f9e8e3b999a04687a5331655d32d5c93ac47f7f4fa8c907d0c
+  darwin_amd64: 48d8a4231c7b1aff74abc49b5aceb41cdc337b1773d7235fe763ba21eeb013e0
+  linux_amd64: ceac8ca799cb1970dc17812ddb75a60f973723043221a504bc39fdc31e0aa44c
+  linux_arm64: 96dc73df2ad0952ae92074ab66762308e1d6b29a8ba081b59f1a95c508b32985
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

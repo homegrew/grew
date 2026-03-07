@@ -1,0 +1,19 @@
+name: scmpuff
+version: 0.6.3
+description: Adds numbered shortcuts for common git commands
+homepage: https://mroth.github.io/scmpuff/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scmpuff/blobs/sha256:d061291901d6dc2590b41057db86ac0df085bac9d0e2c2b070338842e8cecd0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scmpuff/blobs/sha256:42790a15d7d8d2cd061e50259c72f3519ecb9399e006cd5a9f010b527f1f934e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scmpuff/blobs/sha256:d40c99d18f64198dbb270be8f38bc1b9594c59263d49e283ecbb3269b0fe6066
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scmpuff/blobs/sha256:52e4a90f2c030af2626d5783003364c3fb19758368cb2aeaf006674265d756b4
+sha256:
+  darwin_arm64: d061291901d6dc2590b41057db86ac0df085bac9d0e2c2b070338842e8cecd0d
+  darwin_amd64: 42790a15d7d8d2cd061e50259c72f3519ecb9399e006cd5a9f010b527f1f934e
+  linux_amd64: d40c99d18f64198dbb270be8f38bc1b9594c59263d49e283ecbb3269b0fe6066
+  linux_arm64: 52e4a90f2c030af2626d5783003364c3fb19758368cb2aeaf006674265d756b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

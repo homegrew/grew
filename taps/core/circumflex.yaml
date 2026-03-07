@@ -1,0 +1,21 @@
+name: circumflex
+version: 3.9
+description: Hacker News in your terminal
+homepage: https://github.com/bensadeh/circumflex
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/circumflex/blobs/sha256:7c83a06eae0fbc270ddb34dd279062a1416ad1b9e19fb806946d24a8296e5fb9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/circumflex/blobs/sha256:2137b07aaee21bcc42ac1c292ee38dc1e4dc6c9edd4d100426adefc8467e76ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/circumflex/blobs/sha256:895b9bb9c58ac50967a72be03b5decf82db2449773ba79b525fa9d53450fce07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/circumflex/blobs/sha256:3444a94d4b08f460552b034a7b5e33f22083e10a18e7d9c9c9062e0a17d97f78
+sha256:
+  darwin_arm64: 7c83a06eae0fbc270ddb34dd279062a1416ad1b9e19fb806946d24a8296e5fb9
+  darwin_amd64: 2137b07aaee21bcc42ac1c292ee38dc1e4dc6c9edd4d100426adefc8467e76ab
+  linux_amd64: 895b9bb9c58ac50967a72be03b5decf82db2449773ba79b525fa9d53450fce07
+  linux_arm64: 3444a94d4b08f460552b034a7b5e33f22083e10a18e7d9c9c9062e0a17d97f78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - less

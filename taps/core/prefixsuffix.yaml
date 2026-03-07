@@ -1,0 +1,34 @@
+name: prefixsuffix
+version: 0.6.9
+description: GUI batch renaming utility
+homepage: https://github.com/murraycu/prefixsuffix
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prefixsuffix/blobs/sha256:9685f6462cb7c8c464ba24562d8d79038c4982fa6e173765570d11d7d2fef6bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prefixsuffix/blobs/sha256:e5750bf2bc2db7e78a87ce10a8e348c15b6cc8f560a1ee4f97dafcd3968a8dc9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prefixsuffix/blobs/sha256:1bd8de221d43b7d0d511a7a0cb6ebd3a35f045524a02917cf839eb426ae65d41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prefixsuffix/blobs/sha256:74bcf8905a1953a54f17b65d4c68b48d0fb78e0d5f3988204e99620aa6b474bc
+sha256:
+  darwin_arm64: 9685f6462cb7c8c464ba24562d8d79038c4982fa6e173765570d11d7d2fef6bb
+  darwin_amd64: e5750bf2bc2db7e78a87ce10a8e348c15b6cc8f560a1ee4f97dafcd3968a8dc9
+  linux_amd64: 1bd8de221d43b7d0d511a7a0cb6ebd3a35f045524a02917cf839eb426ae65d41
+  linux_arm64: 74bcf8905a1953a54f17b65d4c68b48d0fb78e0d5f3988204e99620aa6b474bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atkmm@2.28
+  - glib
+  - glibmm@2.66
+  - gtk+3
+  - gtkmm3
+  - libsigc++@2
+  - at-spi2-core
+  - cairo
+  - cairomm@1.14
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango
+  - pangomm@2.46

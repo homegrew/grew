@@ -1,0 +1,19 @@
+name: tractorgen
+version: 0.31.7
+description: Generates ASCII tractor art
+homepage: https://vergenet.net/~conrad/software/tractorgen/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tractorgen/blobs/sha256:81c1cbe1001cfa689511d5c002fdf3a4f619fa0973a3c86b376e34ef5bedfe4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tractorgen/blobs/sha256:2276a12b428001802e9b1c2fa9921260adf74219eb55e1595c249f3c2e1c288b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tractorgen/blobs/sha256:f332d2d3f6b3f7f4ce26f3bce0b598b44fec0e173fef2bec1bad5843b6b9744f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tractorgen/blobs/sha256:69199dd0c7cdbb707559f20a2cd85e9532ccceac3640496bc7807e38cfc099f6
+sha256:
+  darwin_arm64: 81c1cbe1001cfa689511d5c002fdf3a4f619fa0973a3c86b376e34ef5bedfe4c
+  darwin_amd64: 2276a12b428001802e9b1c2fa9921260adf74219eb55e1595c249f3c2e1c288b
+  linux_amd64: f332d2d3f6b3f7f4ce26f3bce0b598b44fec0e173fef2bec1bad5843b6b9744f
+  linux_arm64: 69199dd0c7cdbb707559f20a2cd85e9532ccceac3640496bc7807e38cfc099f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

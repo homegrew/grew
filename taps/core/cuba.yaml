@@ -1,0 +1,19 @@
+name: cuba
+version: 4.2.2
+description: Library for multidimensional numerical integration
+homepage: https://feynarts.de/cuba/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cuba/blobs/sha256:656aad080bcb7bc9dffcda4e7f23362e1c8799a8ca39ca9543605254b33fae82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cuba/blobs/sha256:3e78f98e4776716cb73bfeedcd8c3d273ed3b8b4cb83afd69f73fae24c99a601
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cuba/blobs/sha256:a6d0398225a7a9364431992f44347ee9fad5bb3a049f5ed628aabb23bd405ed7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cuba/blobs/sha256:a1ea99bdba4aae35094b0b0c80c4220f111209ed57d6ac254e68c20dfbaeb1d8
+sha256:
+  darwin_arm64: 656aad080bcb7bc9dffcda4e7f23362e1c8799a8ca39ca9543605254b33fae82
+  darwin_amd64: 3e78f98e4776716cb73bfeedcd8c3d273ed3b8b4cb83afd69f73fae24c99a601
+  linux_amd64: a6d0398225a7a9364431992f44347ee9fad5bb3a049f5ed628aabb23bd405ed7
+  linux_arm64: a1ea99bdba4aae35094b0b0c80c4220f111209ed57d6ac254e68c20dfbaeb1d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

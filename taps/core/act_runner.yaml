@@ -1,0 +1,19 @@
+name: act_runner
+version: 0.3.0
+description: "Action runner for Gitea based on Gitea's fork of act"
+homepage: https://docs.gitea.com/usage/actions/act-runner
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/act_runner/blobs/sha256:3822ef2af7e75a3ed04cabac772b74689d91e41d42503d69f3eb0334193dd0a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/act_runner/blobs/sha256:7b3b06abcafea1429536cba66342b9cb6fa8b561406c848b32c5f03a623700b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/act_runner/blobs/sha256:7f43b8eb37f9fffdb65a7d2fee6f44c93eb6b53f5184bfca105314b4da96513a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/act_runner/blobs/sha256:81828824a193041978901d8f68874f65c648f1303fe3c4fa153c254c45de4ef3
+sha256:
+  darwin_arm64: 3822ef2af7e75a3ed04cabac772b74689d91e41d42503d69f3eb0334193dd0a0
+  darwin_amd64: 7b3b06abcafea1429536cba66342b9cb6fa8b561406c848b32c5f03a623700b4
+  linux_amd64: 7f43b8eb37f9fffdb65a7d2fee6f44c93eb6b53f5184bfca105314b4da96513a
+  linux_arm64: 81828824a193041978901d8f68874f65c648f1303fe3c4fa153c254c45de4ef3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

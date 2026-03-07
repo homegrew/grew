@@ -1,0 +1,29 @@
+name: patchpal
+version: 0.7.1
+description: AI Assisted Patch Backporting Tool Frontend
+homepage: https://gitlab.com/patchpal-ai/patchpal-gui
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/patchpal/blobs/sha256:e9a475810e8411ec3754d137282cb6a95f0b38b4a941f9f964f8bf74c973f692
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/patchpal/blobs/sha256:064c1542ebff12a3b0e787da2e76f4ce8a48cf1c0c6987939813cf54ba629899
+  linux_amd64: https://ghcr.io/v2/homebrew/core/patchpal/blobs/sha256:1111812901527caac9bae653b5520fab630c98d971ed1e4983b6feab240b03c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/patchpal/blobs/sha256:d5313d5e3b77ee9a60037f850d081dba81d9904b5ea655e3f75f8d19f9c4ba13
+sha256:
+  darwin_arm64: e9a475810e8411ec3754d137282cb6a95f0b38b4a941f9f964f8bf74c973f692
+  darwin_amd64: 064c1542ebff12a3b0e787da2e76f4ce8a48cf1c0c6987939813cf54ba629899
+  linux_amd64: 1111812901527caac9bae653b5520fab630c98d971ed1e4983b6feab240b03c4
+  linux_arm64: d5313d5e3b77ee9a60037f850d081dba81d9904b5ea655e3f75f8d19f9c4ba13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - graphene
+  - gtk4
+  - harfbuzz
+  - llvm
+  - pango
+  - gettext

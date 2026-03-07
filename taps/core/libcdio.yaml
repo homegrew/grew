@@ -1,0 +1,19 @@
+name: libcdio
+version: 2.3.0
+description: Compact Disc Input and Control Library
+homepage: https://savannah.gnu.org/projects/libcdio/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcdio/blobs/sha256:0540e17ae70efae2eed49362ed8facd0d34e107fe1d957ee0e65163d73a98157
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcdio/blobs/sha256:f5f5849a0fba0231d2ec81f8a0e14501d25fbd5c1085ac150163c3b88f4eae42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcdio/blobs/sha256:91ce8a6bdca96d7b05c643598a02b3de6f13d70d845cbdd0cac40abf808255a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcdio/blobs/sha256:094b43451bd995b9369199268863682ec177fbd2a19da2e88ccbb37e26cafede
+sha256:
+  darwin_arm64: 0540e17ae70efae2eed49362ed8facd0d34e107fe1d957ee0e65163d73a98157
+  darwin_amd64: f5f5849a0fba0231d2ec81f8a0e14501d25fbd5c1085ac150163c3b88f4eae42
+  linux_amd64: 91ce8a6bdca96d7b05c643598a02b3de6f13d70d845cbdd0cac40abf808255a1
+  linux_arm64: 094b43451bd995b9369199268863682ec177fbd2a19da2e88ccbb37e26cafede
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

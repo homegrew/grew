@@ -1,0 +1,26 @@
+name: xml-tooling-c
+version: 3.3.0
+description: Provides a higher level interface to XML processing
+homepage: https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xml-tooling-c/blobs/sha256:98e9218a11ab243b50f41dc092aa691ea2b67e377c8f4c3180b2534daa3e282a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xml-tooling-c/blobs/sha256:bdccad5c69d8fc2e9b803d308e2a577e186d73126f2550e173bb6e73b5270d12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xml-tooling-c/blobs/sha256:2e44b389fa4a9ef04945d051fd6b66e6a22b4389b968eccdcae9a1634a221886
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xml-tooling-c/blobs/sha256:6a2daaf7d5f7c2851c7aedbe0916231d6f05a86bcca21deb89878a69160a8044
+sha256:
+  darwin_arm64: 98e9218a11ab243b50f41dc092aa691ea2b67e377c8f4c3180b2534daa3e282a
+  darwin_amd64: bdccad5c69d8fc2e9b803d308e2a577e186d73126f2550e173bb6e73b5270d12
+  linux_amd64: 2e44b389fa4a9ef04945d051fd6b66e6a22b4389b968eccdcae9a1634a221886
+  linux_arm64: 6a2daaf7d5f7c2851c7aedbe0916231d6f05a86bcca21deb89878a69160a8044
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - curl
+  - log4shib
+  - openssl@3
+  - xerces-c
+  - xml-security-c

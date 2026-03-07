@@ -1,0 +1,19 @@
+name: zet
+version: 2.0.1
+description: CLI utility to find the union, intersection, and set difference of files
+homepage: https://github.com/yarrow/zet
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zet/blobs/sha256:969859a7af56ff259df9c72e15a45dc0fb7ac11a7e0d70264a5f14dcf9efe80f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zet/blobs/sha256:4f7359f71bb633a4dca674758356c976b74cb8c9b0a78d705c07d33cbd157414
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zet/blobs/sha256:85c0892b0c2723950c55e1df613854ef10c21b708392084176ab0917c8a0ba7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zet/blobs/sha256:72716b50cfa1d1d51899f91f61ddf848b6f164e93082f2300a9088ef463921db
+sha256:
+  darwin_arm64: 969859a7af56ff259df9c72e15a45dc0fb7ac11a7e0d70264a5f14dcf9efe80f
+  darwin_amd64: 4f7359f71bb633a4dca674758356c976b74cb8c9b0a78d705c07d33cbd157414
+  linux_amd64: 85c0892b0c2723950c55e1df613854ef10c21b708392084176ab0917c8a0ba7c
+  linux_arm64: 72716b50cfa1d1d51899f91f61ddf848b6f164e93082f2300a9088ef463921db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

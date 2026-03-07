@@ -1,0 +1,19 @@
+name: powerlevel10k
+version: 1.20.0
+description: Theme for zsh
+homepage: https://github.com/romkatv/powerlevel10k
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/powerlevel10k/blobs/sha256:041441647fed3026648bee86884891b68238016a5c84f416c80a2332582460f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/powerlevel10k/blobs/sha256:df58ced2ccb576d8da9b0f3e5d6986c22414365354872cd2c9e620f2a8ce65e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/powerlevel10k/blobs/sha256:20bde83ee0e3a59d86aaca90273b6a88819264d47892cb23c66b47ab5230c22a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/powerlevel10k/blobs/sha256:e94d2b66f4c17f3060ab6440a604401aff259c965b8100e0442419a6448041e2
+sha256:
+  darwin_arm64: 041441647fed3026648bee86884891b68238016a5c84f416c80a2332582460f8
+  darwin_amd64: df58ced2ccb576d8da9b0f3e5d6986c22414365354872cd2c9e620f2a8ce65e4
+  linux_amd64: 20bde83ee0e3a59d86aaca90273b6a88819264d47892cb23c66b47ab5230c22a
+  linux_arm64: e94d2b66f4c17f3060ab6440a604401aff259c965b8100e0442419a6448041e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

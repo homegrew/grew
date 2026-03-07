@@ -1,0 +1,19 @@
+name: xorgrgb
+version: 1.1.1
+description: "X.Org: color names database"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xorgrgb/blobs/sha256:159d5fec59b9e636d32f19ea34afbede62f66570ccdf032640bcec65bab8dd8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xorgrgb/blobs/sha256:f7638605023153225dc39fb4322ef00ec039531ca1ba13f12ff26f2dbf8b17d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xorgrgb/blobs/sha256:4d3a5e626941b7b150c0e39f5101b8320d637f20ac0f03f6532d7f671aa2f001
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xorgrgb/blobs/sha256:625580b1d2ca0c33fa1aaea94a23cf29945e8d9a9de97286ea728369b5a8ff6f
+sha256:
+  darwin_arm64: 159d5fec59b9e636d32f19ea34afbede62f66570ccdf032640bcec65bab8dd8a
+  darwin_amd64: f7638605023153225dc39fb4322ef00ec039531ca1ba13f12ff26f2dbf8b17d6
+  linux_amd64: 4d3a5e626941b7b150c0e39f5101b8320d637f20ac0f03f6532d7f671aa2f001
+  linux_arm64: 625580b1d2ca0c33fa1aaea94a23cf29945e8d9a9de97286ea728369b5a8ff6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

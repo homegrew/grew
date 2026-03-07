@@ -1,0 +1,19 @@
+name: tuisky
+version: 0.2.2
+description: TUI client for bluesky
+homepage: https://github.com/sugyan/tuisky
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tuisky/blobs/sha256:a8b87016d190d22809fa5ad344ba07bb51ab1415daa6c7a5383a975418758f3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tuisky/blobs/sha256:2df26c17c036d72fd1eb39fc6d05b2b9a3735671e7a803a6c6b973d58dd17afd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tuisky/blobs/sha256:55cf2a6eb4e49aeca71cd2b534c71159278a4c0c254075b58eb8cb7e7347f03b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tuisky/blobs/sha256:9d923309cc7912539965ab0a69fb053de1d62f8f151db39467eb5188468e177d
+sha256:
+  darwin_arm64: a8b87016d190d22809fa5ad344ba07bb51ab1415daa6c7a5383a975418758f3f
+  darwin_amd64: 2df26c17c036d72fd1eb39fc6d05b2b9a3735671e7a803a6c6b973d58dd17afd
+  linux_amd64: 55cf2a6eb4e49aeca71cd2b534c71159278a4c0c254075b58eb8cb7e7347f03b
+  linux_arm64: 9d923309cc7912539965ab0a69fb053de1d62f8f151db39467eb5188468e177d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

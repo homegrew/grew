@@ -1,0 +1,19 @@
+name: diffstat
+version: 1.68
+description: Produce graph of changes introduced by a diff file
+homepage: https://invisible-island.net/diffstat/
+license: MIT-CMU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffstat/blobs/sha256:aabff535f1643aa62da222acc50f888468d1447a681fd772248776edcdb86b89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffstat/blobs/sha256:7dd431cf2efacf1ec9b3f171413962f0cabe1cac57a5c0dc838740b19df9181f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffstat/blobs/sha256:bbb2dfa4d3d9dfa85a897e3514edfd699c972200a758a998458569a7e369cac8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffstat/blobs/sha256:0d852a70b43e45bc2b4c7e6a175be6a363d34c13ae9bdb7d62f7bc7360cfcb24
+sha256:
+  darwin_arm64: aabff535f1643aa62da222acc50f888468d1447a681fd772248776edcdb86b89
+  darwin_amd64: 7dd431cf2efacf1ec9b3f171413962f0cabe1cac57a5c0dc838740b19df9181f
+  linux_amd64: bbb2dfa4d3d9dfa85a897e3514edfd699c972200a758a998458569a7e369cac8
+  linux_arm64: 0d852a70b43e45bc2b4c7e6a175be6a363d34c13ae9bdb7d62f7bc7360cfcb24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cdk
+version: 5.0-20260119
+description: Curses development kit provides predefined curses widget for apps
+homepage: https://invisible-island.net/cdk/
+license: BSD-4-Clause-UC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdk/blobs/sha256:1385097ea494ad07851d2830e58c15c855f9094dcbc157b9fa2e9eb2ca271158
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdk/blobs/sha256:ede3ad78d7a04193d0635ce068803cbdbc10f851229d6d17a44767f96f972923
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdk/blobs/sha256:b03b43b5924c1c6400f9e61b688e259acc265c6c1e76c16d6c327fb14497dfb9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdk/blobs/sha256:feb3f98579f8ed1542c61e78a0c9edab8c50f3f0ce2947ca58b075ba5653f928
+sha256:
+  darwin_arm64: 1385097ea494ad07851d2830e58c15c855f9094dcbc157b9fa2e9eb2ca271158
+  darwin_amd64: ede3ad78d7a04193d0635ce068803cbdbc10f851229d6d17a44767f96f972923
+  linux_amd64: b03b43b5924c1c6400f9e61b688e259acc265c6c1e76c16d6c327fb14497dfb9
+  linux_arm64: feb3f98579f8ed1542c61e78a0c9edab8c50f3f0ce2947ca58b075ba5653f928
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

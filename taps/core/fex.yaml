@@ -1,0 +1,19 @@
+name: fex
+version: 2.0.0
+description: Powerful field extraction tool
+homepage: https://www.semicomplete.com/projects/fex/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fex/blobs/sha256:176a130c8c8b14eee48303c89fcab8d8dd6534e43fb042d8fab5b30486e2641b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fex/blobs/sha256:e1a79707cd908a1c0999a22e7b817a57be8ed07c7eab273a4c26e5785a5988cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fex/blobs/sha256:c8ec5c054bfa085ae8e70f521aa235ddae7a2a481f4b9512751490c8a5166c09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fex/blobs/sha256:106493be88cc6c2467a1bf144a6bb3bf49779831d4c7577046a864d09adc6db7
+sha256:
+  darwin_arm64: 176a130c8c8b14eee48303c89fcab8d8dd6534e43fb042d8fab5b30486e2641b
+  darwin_amd64: e1a79707cd908a1c0999a22e7b817a57be8ed07c7eab273a4c26e5785a5988cf
+  linux_amd64: c8ec5c054bfa085ae8e70f521aa235ddae7a2a481f4b9512751490c8a5166c09
+  linux_arm64: 106493be88cc6c2467a1bf144a6bb3bf49779831d4c7577046a864d09adc6db7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

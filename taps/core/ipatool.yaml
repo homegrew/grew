@@ -1,0 +1,19 @@
+name: ipatool
+version: 2.3.0
+description: CLI tool for searching and downloading app packages from the iOS App Store
+homepage: https://github.com/majd/ipatool
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipatool/blobs/sha256:7ad348cdaaaa987f5e3865ebe510a871f9436daaadb20ff0466909dc1a1f9fcc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipatool/blobs/sha256:02cfbd05935f66f7410be475ebd6172c70aaa129b98f555477dd2d13e1adbd3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipatool/blobs/sha256:880c488679fcb1d9e0ca4bc6cb4105c4c74c468eb2c8ec8d50fbba6153c9ccac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipatool/blobs/sha256:6576f22a1a1c0ab725ca2dd65c9dc0cffb264b2b67a7fce2e5acc5866567a027
+sha256:
+  darwin_arm64: 7ad348cdaaaa987f5e3865ebe510a871f9436daaadb20ff0466909dc1a1f9fcc
+  darwin_amd64: 02cfbd05935f66f7410be475ebd6172c70aaa129b98f555477dd2d13e1adbd3b
+  linux_amd64: 880c488679fcb1d9e0ca4bc6cb4105c4c74c468eb2c8ec8d50fbba6153c9ccac
+  linux_arm64: 6576f22a1a1c0ab725ca2dd65c9dc0cffb264b2b67a7fce2e5acc5866567a027
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

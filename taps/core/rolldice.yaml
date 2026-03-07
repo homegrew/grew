@@ -1,0 +1,19 @@
+name: rolldice
+version: 1.16
+description: Rolls an amount of virtual dice
+homepage: https://github.com/sstrickl/rolldice
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rolldice/blobs/sha256:09a28787c7477eadf288aa7a5ae71453ad26dd4625bb10f16fc018268a30d3ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rolldice/blobs/sha256:9d31227c05f614fa803c1de1beba50ad7eafa06ac6f32afd8cf84af2798e778c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rolldice/blobs/sha256:92a41852d00239f7c3874e32f8cf7da6f8053a9ae0ddd906dd6e1f2c5da4176f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rolldice/blobs/sha256:ebac82e928ab9231e039a3081c30662038cb584b9f3fb8bbca4c6eaa380440c5
+sha256:
+  darwin_arm64: 09a28787c7477eadf288aa7a5ae71453ad26dd4625bb10f16fc018268a30d3ab
+  darwin_amd64: 9d31227c05f614fa803c1de1beba50ad7eafa06ac6f32afd8cf84af2798e778c
+  linux_amd64: 92a41852d00239f7c3874e32f8cf7da6f8053a9ae0ddd906dd6e1f2c5da4176f
+  linux_arm64: ebac82e928ab9231e039a3081c30662038cb584b9f3fb8bbca4c6eaa380440c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: tty-clock
+version: 2.3
+description: Digital clock in ncurses
+homepage: https://github.com/xorg62/tty-clock
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tty-clock/blobs/sha256:d8de065838a148bed951b9e337b8a06f8db5fda6dd7c16a2b299b42a14b8730a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tty-clock/blobs/sha256:0531b48964a9b4deca9fcae4230bec9c9216f909405770f9d4460c450f819dd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tty-clock/blobs/sha256:2b676f9ca583791e909a241667741a84289d4f75c5673fdd31176c48450ab701
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tty-clock/blobs/sha256:fe5ad63f95c7fcbe74f39fff2206c1e8d20145d023e29ad783109632f8868308
+sha256:
+  darwin_arm64: d8de065838a148bed951b9e337b8a06f8db5fda6dd7c16a2b299b42a14b8730a
+  darwin_amd64: 0531b48964a9b4deca9fcae4230bec9c9216f909405770f9d4460c450f819dd6
+  linux_amd64: 2b676f9ca583791e909a241667741a84289d4f75c5673fdd31176c48450ab701
+  linux_arm64: fe5ad63f95c7fcbe74f39fff2206c1e8d20145d023e29ad783109632f8868308
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

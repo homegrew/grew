@@ -1,0 +1,19 @@
+name: endlessh
+version: 1.1
+description: SSH tarpit that slowly sends an endless banner
+homepage: https://github.com/skeeto/endlessh
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/endlessh/blobs/sha256:4202f6d8cafa9fe5bba76475634b730a4b8235374ed727dccc887fa31ca9ec1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/endlessh/blobs/sha256:0acf3cfa595c82accf520069b701e2057c3a646d53521cff6f4f29f80cb732d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/endlessh/blobs/sha256:1e57658ab99509383d7a2c7ec8ee64de0ca64c8a6a14535fcedb62bf08473698
+  linux_arm64: https://ghcr.io/v2/homebrew/core/endlessh/blobs/sha256:6d8deb876ef8f365e1dfc727fa1d16cc201f409d5de3f763c0169e33bc3c4b48
+sha256:
+  darwin_arm64: 4202f6d8cafa9fe5bba76475634b730a4b8235374ed727dccc887fa31ca9ec1d
+  darwin_amd64: 0acf3cfa595c82accf520069b701e2057c3a646d53521cff6f4f29f80cb732d9
+  linux_amd64: 1e57658ab99509383d7a2c7ec8ee64de0ca64c8a6a14535fcedb62bf08473698
+  linux_arm64: 6d8deb876ef8f365e1dfc727fa1d16cc201f409d5de3f763c0169e33bc3c4b48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

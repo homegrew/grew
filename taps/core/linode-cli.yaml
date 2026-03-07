@@ -1,0 +1,23 @@
+name: linode-cli
+version: 5.65.1
+description: CLI for the Linode API
+homepage: https://github.com/linode/linode-cli
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/linode-cli/blobs/sha256:f7845aabaa0b4f6f8caa256251ee02d3320d33acf9605581a3a189d7f2c58a93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/linode-cli/blobs/sha256:62ebf8205639d68c4a28faf50f6f9a5fc6aee8b48694e2a392637e0ca117748d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linode-cli/blobs/sha256:335b9c099b2412832c1733ed0533cf065511de4cf2c6010541e0a069726e6352
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linode-cli/blobs/sha256:1a0bc8505ef6bb9312b00a60946320e0104b7a94420bb0936ddea36cfdfa9b78
+sha256:
+  darwin_arm64: f7845aabaa0b4f6f8caa256251ee02d3320d33acf9605581a3a189d7f2c58a93
+  darwin_amd64: 62ebf8205639d68c4a28faf50f6f9a5fc6aee8b48694e2a392637e0ca117748d
+  linux_amd64: 335b9c099b2412832c1733ed0533cf065511de4cf2c6010541e0a069726e6352
+  linux_arm64: 1a0bc8505ef6bb9312b00a60946320e0104b7a94420bb0936ddea36cfdfa9b78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: mhash
+version: 0.9.9.9
+description: Uniform interface to a large number of hash algorithms
+homepage: https://mhash.sourceforge.net/
+license: LGPL-2.0-or-later AND LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mhash/blobs/sha256:4c77322acecec89a57350e794b5712a3f2cf530d0550000918584f8071a9c563
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mhash/blobs/sha256:bf4915b6d6d2e38c61c22948831c93cdd30b4db8ce5d234066f0238a3fbc7805
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mhash/blobs/sha256:32a5e81c29e8407754448e5aa7f1f8ea2328bc5ce266ab5f3b350e3174373900
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mhash/blobs/sha256:55c3040b1081fba7cad5ff2ccd248b37b8face8513a609bdeff9a47c31241713
+sha256:
+  darwin_arm64: 4c77322acecec89a57350e794b5712a3f2cf530d0550000918584f8071a9c563
+  darwin_amd64: bf4915b6d6d2e38c61c22948831c93cdd30b4db8ce5d234066f0238a3fbc7805
+  linux_amd64: 32a5e81c29e8407754448e5aa7f1f8ea2328bc5ce266ab5f3b350e3174373900
+  linux_arm64: 55c3040b1081fba7cad5ff2ccd248b37b8face8513a609bdeff9a47c31241713
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

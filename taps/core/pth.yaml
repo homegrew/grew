@@ -1,0 +1,19 @@
+name: pth
+version: 2.0.7
+description: GNU Portable THreads
+homepage: https://www.gnu.org/software/pth/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pth/blobs/sha256:5d78afef8be0d57784a9fba9321b7939ac9e57492d9e1ff68192c465d1f001e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pth/blobs/sha256:42572a1ad204768fb92064ab80052ae590b6fb75428bfdd3211c3ed15518138c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pth/blobs/sha256:66cd52703b09b137d33237be545677ba50729264ef0ad34d5f4c3891bba86173
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pth/blobs/sha256:a8ac563cbeacea2eab01935e62cc4835b1811dfac30f9fb3c0d6a80cfc8b3f41
+sha256:
+  darwin_arm64: 5d78afef8be0d57784a9fba9321b7939ac9e57492d9e1ff68192c465d1f001e6
+  darwin_amd64: 42572a1ad204768fb92064ab80052ae590b6fb75428bfdd3211c3ed15518138c
+  linux_amd64: 66cd52703b09b137d33237be545677ba50729264ef0ad34d5f4c3891bba86173
+  linux_arm64: a8ac563cbeacea2eab01935e62cc4835b1811dfac30f9fb3c0d6a80cfc8b3f41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

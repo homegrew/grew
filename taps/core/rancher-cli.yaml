@@ -1,0 +1,19 @@
+name: rancher-cli
+version: 2.13.3
+description: Unified tool to manage your Rancher server
+homepage: https://github.com/rancher/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rancher-cli/blobs/sha256:d19498f5fbf9d6da4751b053053f32b0c571c3ad97269c508f164e6c7bac812e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rancher-cli/blobs/sha256:c365c63cb1da6c58c481fb1072a2ffc60af8b7b157a96d8b8584e49213ca476d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rancher-cli/blobs/sha256:620509749bd540523b51029db60bdc48256c17babda4b4ab8765f705cbe1287f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rancher-cli/blobs/sha256:881f2c3eb390c3d44382bb88bca1b41d1cc313b18a817748a14357bb0e7b2533
+sha256:
+  darwin_arm64: d19498f5fbf9d6da4751b053053f32b0c571c3ad97269c508f164e6c7bac812e
+  darwin_amd64: c365c63cb1da6c58c481fb1072a2ffc60af8b7b157a96d8b8584e49213ca476d
+  linux_amd64: 620509749bd540523b51029db60bdc48256c17babda4b4ab8765f705cbe1287f
+  linux_arm64: 881f2c3eb390c3d44382bb88bca1b41d1cc313b18a817748a14357bb0e7b2533
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

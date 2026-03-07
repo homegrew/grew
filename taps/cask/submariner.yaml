@@ -1,0 +1,11 @@
+name: submariner
+version: 3.4
+description: Subsonic client
+homepage: https://submarinerapp.com/
+url:
+  darwin_arm64: https://github.com/NattyNarwhal/Submariner/releases/download/v3.4/Submariner-3.4.zip
+sha256:
+  darwin_arm64: 9f8808430999ed7bb1d237b6f5ffe2ab9a04d7bb6a4c7249602aa5172f60483a
+artifacts:
+  app:
+    - Submariner.app

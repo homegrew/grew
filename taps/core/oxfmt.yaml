@@ -1,0 +1,21 @@
+name: oxfmt
+version: 0.36.0
+description: High-performance formatting tool for JavaScript and TypeScript
+homepage: https://oxc.rs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oxfmt/blobs/sha256:4f368f7c76163194ca49e3ccc91dedde0093a70ce7a948a6589724b80768d2c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oxfmt/blobs/sha256:579584d7bef51cf9f72e06899cb7774ab963919e277975dae0f04c0d2ec0897f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oxfmt/blobs/sha256:83fc435e899eddc8cd8db0b52b07b50cbc386dfe381081dd633617d9f185fe3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oxfmt/blobs/sha256:1ec8953d11c2b1db276da698527915a0ccc2ad728d492403cc169ef55d79dcaf
+sha256:
+  darwin_arm64: 4f368f7c76163194ca49e3ccc91dedde0093a70ce7a948a6589724b80768d2c9
+  darwin_amd64: 579584d7bef51cf9f72e06899cb7774ab963919e277975dae0f04c0d2ec0897f
+  linux_amd64: 83fc435e899eddc8cd8db0b52b07b50cbc386dfe381081dd633617d9f185fe3b
+  linux_arm64: 1ec8953d11c2b1db276da698527915a0ccc2ad728d492403cc169ef55d79dcaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

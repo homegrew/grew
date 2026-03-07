@@ -1,0 +1,22 @@
+name: pandoc-crossref
+version: 0.3.23a
+description: Pandoc filter for numbering and cross-referencing
+homepage: https://github.com/lierdakil/pandoc-crossref
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pandoc-crossref/blobs/sha256:d7df4148706fb1cd56efb60d5845d4c1a36cdaa18f9a038e6e1880a911e9b03d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pandoc-crossref/blobs/sha256:f0a48dbbb509de85612054b32a7392c8f7bea7f5dcfecab0fed17d2cb13c7d50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pandoc-crossref/blobs/sha256:c6b1eba3b664d7729513dc25c9e432efef4d6806e1c2a6ffee47dc2dcb088365
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pandoc-crossref/blobs/sha256:9cb7b83d51633cde32f701ab5fcca0e3081c26f7dd27b83a3d10376c793c271d
+sha256:
+  darwin_arm64: d7df4148706fb1cd56efb60d5845d4c1a36cdaa18f9a038e6e1880a911e9b03d
+  darwin_amd64: f0a48dbbb509de85612054b32a7392c8f7bea7f5dcfecab0fed17d2cb13c7d50
+  linux_amd64: c6b1eba3b664d7729513dc25c9e432efef4d6806e1c2a6ffee47dc2dcb088365
+  linux_arm64: 9cb7b83d51633cde32f701ab5fcca0e3081c26f7dd27b83a3d10376c793c271d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - pandoc

@@ -1,0 +1,19 @@
+name: harsh
+version: 0.14.0
+description: Habit tracking for geeks
+homepage: https://github.com/wakatara/harsh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/harsh/blobs/sha256:b7bac101904f829044aaa4fe5c3f02be5df38203997a6706ce1ce3f880029b84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/harsh/blobs/sha256:bdbd797695f7539f5ee44afa81e0e3b4463e87a083f0359d6e3d16c5feaf0af2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/harsh/blobs/sha256:657d7b50fd721eb7d7ac0efea36dbab57f61b2d66751d3f13610c9e73dcfc9bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/harsh/blobs/sha256:b6f72e1cd8e9188084454f03dd2abca21042efd359247eddb91907e54a70921c
+sha256:
+  darwin_arm64: b7bac101904f829044aaa4fe5c3f02be5df38203997a6706ce1ce3f880029b84
+  darwin_amd64: bdbd797695f7539f5ee44afa81e0e3b4463e87a083f0359d6e3d16c5feaf0af2
+  linux_amd64: 657d7b50fd721eb7d7ac0efea36dbab57f61b2d66751d3f13610c9e73dcfc9bf
+  linux_arm64: b6f72e1cd8e9188084454f03dd2abca21042efd359247eddb91907e54a70921c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

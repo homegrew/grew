@@ -1,0 +1,19 @@
+name: gffread
+version: 0.12.7
+description: GFF/GTF format conversions, region filtering, FASTA sequence extraction
+homepage: https://github.com/gpertea/gffread
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gffread/blobs/sha256:13fd1969b97e3117c0f06a55d3e957e2453dcef7331f03014d45a73a59fd70f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gffread/blobs/sha256:1c0b8963e2c47669ab50268bef64d09b89af8d6472a37de6c34c184f5e0f3a3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gffread/blobs/sha256:0786b5ced3ce7d42b8f02a3898c6e22b7c7e56ebcb779d987909a62ac0200563
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gffread/blobs/sha256:9910ca8dee44eb2dfecc42829678239da26ef39c301af53a0110572ad13f0f53
+sha256:
+  darwin_arm64: 13fd1969b97e3117c0f06a55d3e957e2453dcef7331f03014d45a73a59fd70f3
+  darwin_amd64: 1c0b8963e2c47669ab50268bef64d09b89af8d6472a37de6c34c184f5e0f3a3a
+  linux_amd64: 0786b5ced3ce7d42b8f02a3898c6e22b7c7e56ebcb779d987909a62ac0200563
+  linux_arm64: 9910ca8dee44eb2dfecc42829678239da26ef39c301af53a0110572ad13f0f53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

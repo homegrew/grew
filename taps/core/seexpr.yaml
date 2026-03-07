@@ -1,0 +1,21 @@
+name: seexpr
+version: 3.0.1
+description: Embeddable expression evaluation engine
+homepage: https://wdas.github.io/SeExpr/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/seexpr/blobs/sha256:d4fedca978d91b1a42b576ef1f225c684897945f78293fadee966d41f2217bdf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/seexpr/blobs/sha256:fe743ec07b0822631267242e83c572bbdbceb95dc12b991f0075b68fbba676cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/seexpr/blobs/sha256:c6c0b48fe9fe1f0239ff16864d3c1b28c5ff683a9d18cedfb27c28ee6c98ba61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/seexpr/blobs/sha256:f486c2cef08b8cc2e96b906608c22d77c4f22a3f302ffb1b31fecfaea85b53ba
+sha256:
+  darwin_arm64: d4fedca978d91b1a42b576ef1f225c684897945f78293fadee966d41f2217bdf
+  darwin_amd64: fe743ec07b0822631267242e83c572bbdbceb95dc12b991f0075b68fbba676cf
+  linux_amd64: c6c0b48fe9fe1f0239ff16864d3c1b28c5ff683a9d18cedfb27c28ee6c98ba61
+  linux_arm64: f486c2cef08b8cc2e96b906608c22d77c4f22a3f302ffb1b31fecfaea85b53ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

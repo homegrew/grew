@@ -1,0 +1,19 @@
+name: minigraph
+version: 0.21
+description: Proof-of-concept seq-to-graph mapper and graph generator
+homepage: https://lh3.github.io/minigraph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minigraph/blobs/sha256:48bcee41e459f118349bccc93b32a9e721ce9835f293b32ffc168edae3b6f900
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minigraph/blobs/sha256:c3bef0a3f41f36ffb586b5c531507f33a2f2b3fc83df47d788a799a596f798a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minigraph/blobs/sha256:777e02e932c650e53510af0b618c5d39db20e675450f6adf19ad49220b659b94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minigraph/blobs/sha256:909088318ee79b855fdedb8cb5228a4a5586dc05b8e09b46165b10230032b773
+sha256:
+  darwin_arm64: 48bcee41e459f118349bccc93b32a9e721ce9835f293b32ffc168edae3b6f900
+  darwin_amd64: c3bef0a3f41f36ffb586b5c531507f33a2f2b3fc83df47d788a799a596f798a8
+  linux_amd64: 777e02e932c650e53510af0b618c5d39db20e675450f6adf19ad49220b659b94
+  linux_arm64: 909088318ee79b855fdedb8cb5228a4a5586dc05b8e09b46165b10230032b773
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

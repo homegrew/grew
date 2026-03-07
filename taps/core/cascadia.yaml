@@ -1,0 +1,19 @@
+name: cascadia
+version: 1.5.0
+description: Go cascadia package command-line CSS selector
+homepage: https://github.com/suntong/cascadia
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cascadia/blobs/sha256:2d9da8a8796edfe3ae5b6d9c71d48bc856588bc9152cf6fec79f3eac3f53b636
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cascadia/blobs/sha256:1e86283adf0af56ae887df6c55967a7b03a62544b8f1b914e4b1d7d1b5ef57a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cascadia/blobs/sha256:a08db3834543b4f96b07377a34ca4203e5e7c1b6dbe73674017aded43b91e6b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cascadia/blobs/sha256:11f89dc57dc214953fd42f1651546cabf331f4fa5d06c5e5ff91b62f7e5ad998
+sha256:
+  darwin_arm64: 2d9da8a8796edfe3ae5b6d9c71d48bc856588bc9152cf6fec79f3eac3f53b636
+  darwin_amd64: 1e86283adf0af56ae887df6c55967a7b03a62544b8f1b914e4b1d7d1b5ef57a4
+  linux_amd64: a08db3834543b4f96b07377a34ca4203e5e7c1b6dbe73674017aded43b91e6b1
+  linux_arm64: 11f89dc57dc214953fd42f1651546cabf331f4fa5d06c5e5ff91b62f7e5ad998
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

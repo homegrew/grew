@@ -1,0 +1,21 @@
+name: backlog-md
+version: 1.40.0
+description: "Markdown‑native Task Manager & Kanban visualizer for any Git repository"
+homepage: https://github.com/MrLesk/Backlog.md
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/backlog-md/blobs/sha256:26d416b57cd9954c50c432ca4d3d60e422fcde4543f285c51bd004803a875ec1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/backlog-md/blobs/sha256:2cda117db8952124270695f3454eb95f4da840877f352a51dbe565afa7fcdfb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/backlog-md/blobs/sha256:5e4349fd38117334d6144151a65beaa79fc047e0f87aff14cce5891822feb0ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/backlog-md/blobs/sha256:2b5827b66e3ede888dde4926951fc144b14b3fb9afa3ba9aba4e19f669a66dc9
+sha256:
+  darwin_arm64: 26d416b57cd9954c50c432ca4d3d60e422fcde4543f285c51bd004803a875ec1
+  darwin_amd64: 2cda117db8952124270695f3454eb95f4da840877f352a51dbe565afa7fcdfb2
+  linux_amd64: 5e4349fd38117334d6144151a65beaa79fc047e0f87aff14cce5891822feb0ba
+  linux_arm64: 2b5827b66e3ede888dde4926951fc144b14b3fb9afa3ba9aba4e19f669a66dc9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

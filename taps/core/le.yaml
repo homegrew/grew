@@ -1,0 +1,19 @@
+name: le
+version: 1.16.7
+description: Text editor with block and binary operations
+homepage: https://github.com/lavv17/le
+license: GPL-3.0-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/le/blobs/sha256:536dab79fee1b51a836e94ae60923a4db7860c58512052249875a8012e816802
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/le/blobs/sha256:a390f3638590d77c06fdab55ac6795616bbdc950c23c33d101c544736a46f74e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/le/blobs/sha256:e51d99aa9b68a5ba6ec8fb1679f2dd79efd171d01a0921f268ad4247e41a50d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/le/blobs/sha256:1141446f014f63ea9dc676cdc5a5244a6a4a9161f521ad8a8bae9e5d76b5d9f4
+sha256:
+  darwin_arm64: 536dab79fee1b51a836e94ae60923a4db7860c58512052249875a8012e816802
+  darwin_amd64: a390f3638590d77c06fdab55ac6795616bbdc950c23c33d101c544736a46f74e
+  linux_amd64: e51d99aa9b68a5ba6ec8fb1679f2dd79efd171d01a0921f268ad4247e41a50d4
+  linux_arm64: 1141446f014f63ea9dc676cdc5a5244a6a4a9161f521ad8a8bae9e5d76b5d9f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

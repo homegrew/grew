@@ -1,0 +1,19 @@
+name: karn
+version: 0.1.0
+description: Manage multiple Git identities
+homepage: https://github.com/prydonius/karn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/karn/blobs/sha256:9c83b76119af53f55175126422dc60581a71961a4cec4ae02da465243d0a2fba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/karn/blobs/sha256:5817038e6b709fd657d220bee3d5d9bf8e8824e21e095e9381ff2e4ac5c09eb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/karn/blobs/sha256:8d05d6010fc0025f1200c6cb81deac286e22b1a5633833fb3eb99619cd0c2fc8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/karn/blobs/sha256:395f8506a10581db8267170b33441c3728f6f12234905bb64dc60635c4dee024
+sha256:
+  darwin_arm64: 9c83b76119af53f55175126422dc60581a71961a4cec4ae02da465243d0a2fba
+  darwin_amd64: 5817038e6b709fd657d220bee3d5d9bf8e8824e21e095e9381ff2e4ac5c09eb2
+  linux_amd64: 8d05d6010fc0025f1200c6cb81deac286e22b1a5633833fb3eb99619cd0c2fc8
+  linux_arm64: 395f8506a10581db8267170b33441c3728f6f12234905bb64dc60635c4dee024
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

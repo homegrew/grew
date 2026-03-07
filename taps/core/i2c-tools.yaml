@@ -1,0 +1,15 @@
+name: i2c-tools
+version: 4.4
+description: Heterogeneous set of I2C tools for Linux
+homepage: https://i2c.wiki.kernel.org/index.php/I2C_Tools
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i2c-tools/blobs/sha256:5adf339cef451fb12532d73760ad36036d22367f32ef951fbfaecf882d2b642e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i2c-tools/blobs/sha256:8f6ac4fca0fb5e2bb8dd2cc1891c75021b6af50de8e3e66cef13131a67e4bfee
+sha256:
+  linux_amd64: 5adf339cef451fb12532d73760ad36036d22367f32ef951fbfaecf882d2b642e
+  linux_arm64: 8f6ac4fca0fb5e2bb8dd2cc1891c75021b6af50de8e3e66cef13131a67e4bfee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: gismo
+version: 25.07.0
+description: C++ library for isogeometric analysis (IGA)
+homepage: https://gismo.github.io
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gismo/blobs/sha256:fd7006fc0945d60cb2d347a09f019f801c1527730b40730165c06ae76a88c842
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gismo/blobs/sha256:ba784d2ae9dcca467f6d9e861669791ff1ec1fe366e5427da632c9af96ba5bdd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gismo/blobs/sha256:0a427d0bff623017d3cd0d7572ef898df0a0bef277788019c08a0a7c89a1a294
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gismo/blobs/sha256:71a85158fdc809bceb5bee05754ffa396d4b25c6d4899138121b29447f559656
+sha256:
+  darwin_arm64: fd7006fc0945d60cb2d347a09f019f801c1527730b40730165c06ae76a88c842
+  darwin_amd64: ba784d2ae9dcca467f6d9e861669791ff1ec1fe366e5427da632c9af96ba5bdd
+  linux_amd64: 0a427d0bff623017d3cd0d7572ef898df0a0bef277788019c08a0a7c89a1a294
+  linux_arm64: 71a85158fdc809bceb5bee05754ffa396d4b25c6d4899138121b29447f559656
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas
+  - suite-sparse
+  - superlu
+  - libomp

@@ -1,0 +1,19 @@
+name: logdy
+version: 0.17.1
+description: Web based real-time log viewer
+homepage: https://logdy.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logdy/blobs/sha256:53f402762567926f939ba76f3f885f54828264dc2c160c6d5bcf46f8afe49227
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logdy/blobs/sha256:f77f84e02e77364a615b9aa0c20abe11e759944c4398b4b886fb2dc0766f8a72
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logdy/blobs/sha256:164bd9fef16faca0f6a3d14b38a72c63127c1b7a8c4739428e2aba731265b3bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logdy/blobs/sha256:d4251ec939cfdb8640b16d3c2a1f0a1c8a8afe46a84f5630936470b0ff4e9caf
+sha256:
+  darwin_arm64: 53f402762567926f939ba76f3f885f54828264dc2c160c6d5bcf46f8afe49227
+  darwin_amd64: f77f84e02e77364a615b9aa0c20abe11e759944c4398b4b886fb2dc0766f8a72
+  linux_amd64: 164bd9fef16faca0f6a3d14b38a72c63127c1b7a8c4739428e2aba731265b3bc
+  linux_arm64: d4251ec939cfdb8640b16d3c2a1f0a1c8a8afe46a84f5630936470b0ff4e9caf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

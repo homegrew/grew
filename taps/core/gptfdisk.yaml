@@ -1,0 +1,21 @@
+name: gptfdisk
+version: 1.0.10
+description: Text-mode partitioning tools
+homepage: https://www.rodsbooks.com/gdisk/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gptfdisk/blobs/sha256:54e5ae58037ac6fac2b63fd42b7f477699b2c42fb1b38d050950de551d670c76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gptfdisk/blobs/sha256:0f866a7fa08045f6cb0ccec6da7daa2f97f6160f3d1cbbfda57e3f5efa3f1547
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gptfdisk/blobs/sha256:28c7afa4c318fb486bcaa3dec28ca8a349fd98135d68435f69ec56917fb9d2ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gptfdisk/blobs/sha256:4fa3e95ed08561ff4010db7de68898854716dfacfd248bf1a4263aec35dc484e
+sha256:
+  darwin_arm64: 54e5ae58037ac6fac2b63fd42b7f477699b2c42fb1b38d050950de551d670c76
+  darwin_amd64: 0f866a7fa08045f6cb0ccec6da7daa2f97f6160f3d1cbbfda57e3f5efa3f1547
+  linux_amd64: 28c7afa4c318fb486bcaa3dec28ca8a349fd98135d68435f69ec56917fb9d2ff
+  linux_arm64: 4fa3e95ed08561ff4010db7de68898854716dfacfd248bf1a4263aec35dc484e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - popt

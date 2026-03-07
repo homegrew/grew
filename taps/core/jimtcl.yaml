@@ -1,0 +1,22 @@
+name: jimtcl
+version: 0.83
+description: Small footprint implementation of Tcl
+homepage: https://jim.tcl.tk/index.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jimtcl/blobs/sha256:05ae4713f0c3a97e7fe336d63e5d8820f5d0e13db8fc85feb26816941fe5ca8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jimtcl/blobs/sha256:3f903f30f40421547ff9b2c32cd1846776ceb8ed15a1e528342bfa674f789c35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jimtcl/blobs/sha256:ec2e913ae07ca6964043a8acd6ae2749ee86aba963284d115c64e58191b88a88
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jimtcl/blobs/sha256:44285a821b4033b99b40ee6d7689a24eca229e0b9535d64d074af9f6a61f37f4
+sha256:
+  darwin_arm64: 05ae4713f0c3a97e7fe336d63e5d8820f5d0e13db8fc85feb26816941fe5ca8a
+  darwin_amd64: 3f903f30f40421547ff9b2c32cd1846776ceb8ed15a1e528342bfa674f789c35
+  linux_amd64: ec2e913ae07ca6964043a8acd6ae2749ee86aba963284d115c64e58191b88a88
+  linux_arm64: 44285a821b4033b99b40ee6d7689a24eca229e0b9535d64d074af9f6a61f37f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - readline

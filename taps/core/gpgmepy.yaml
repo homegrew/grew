@@ -1,0 +1,22 @@
+name: gpgmepy
+version: 2.0.0
+description: Python bindings for gpgme
+homepage: https://www.gnupg.org/related_software/gpgme/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpgmepy/blobs/sha256:f21cfcd0bfbe06c868c45a70af197e336567098acbdf5cfe3c63197565eaab2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpgmepy/blobs/sha256:7953997037c8aaa348df99bd4d38f8338f78ffb5bb884dd5b401cff56a59583e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpgmepy/blobs/sha256:7df957ddc15a4b7d2c3b26868e8371b60363b2417e4b990eef4dcfd80b572f88
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpgmepy/blobs/sha256:f15297aab49987be773de7612b691c49f214ab2b0db01a123e8aa15d06f97872
+sha256:
+  darwin_arm64: f21cfcd0bfbe06c868c45a70af197e336567098acbdf5cfe3c63197565eaab2f
+  darwin_amd64: 7953997037c8aaa348df99bd4d38f8338f78ffb5bb884dd5b401cff56a59583e
+  linux_amd64: 7df957ddc15a4b7d2c3b26868e8371b60363b2417e4b990eef4dcfd80b572f88
+  linux_arm64: f15297aab49987be773de7612b691c49f214ab2b0db01a123e8aa15d06f97872
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme
+  - libgpg-error

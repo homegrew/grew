@@ -1,0 +1,19 @@
+name: stone
+version: 2.4
+description: TCP/IP packet repeater in the application layer
+homepage: https://www.gcd.org/sengoku/stone/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stone/blobs/sha256:6fb8cbc29b5fe932beb7b3af3f5d6c2d19bb2498bbbbba15ea02c75c16a8a684
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stone/blobs/sha256:10a43ae132027d4493cde68c07c224bf59869c626b3f9d2f1f5583a16486acdf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stone/blobs/sha256:1986132ca2eabd91ea5b1193fefabc4f5af2253df1b4e720df4ddf4cddf433a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stone/blobs/sha256:d7847a7917f3d83398ed86e5889bc83306bb80e73734bd1157aa72856b498f9e
+sha256:
+  darwin_arm64: 6fb8cbc29b5fe932beb7b3af3f5d6c2d19bb2498bbbbba15ea02c75c16a8a684
+  darwin_amd64: 10a43ae132027d4493cde68c07c224bf59869c626b3f9d2f1f5583a16486acdf
+  linux_amd64: 1986132ca2eabd91ea5b1193fefabc4f5af2253df1b4e720df4ddf4cddf433a0
+  linux_arm64: d7847a7917f3d83398ed86e5889bc83306bb80e73734bd1157aa72856b498f9e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

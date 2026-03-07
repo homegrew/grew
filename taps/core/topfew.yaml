@@ -1,0 +1,19 @@
+name: topfew
+version: 2.0.0
+description: Finds the field values which appear most often in a stream of records
+homepage: https://github.com/timbray/topfew
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/topfew/blobs/sha256:565223383079283a6c12ede0f085804a272ce65f14d8ae5882667b517db5434f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/topfew/blobs/sha256:6fa90b99c1b653a0c80c0f0468930f89ca1c3e50ab5927ddb38ff2f015f4e7b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/topfew/blobs/sha256:4dec313f97c765887b956f178a9794d411e67040886de5583bf3f7be97a263aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/topfew/blobs/sha256:342f33c16251a92b7b5ebf03802f9c005deff56d61c1a00cdcdc7c4b8289c5d0
+sha256:
+  darwin_arm64: 565223383079283a6c12ede0f085804a272ce65f14d8ae5882667b517db5434f
+  darwin_amd64: 6fa90b99c1b653a0c80c0f0468930f89ca1c3e50ab5927ddb38ff2f015f4e7b3
+  linux_amd64: 4dec313f97c765887b956f178a9794d411e67040886de5583bf3f7be97a263aa
+  linux_arm64: 342f33c16251a92b7b5ebf03802f9c005deff56d61c1a00cdcdc7c4b8289c5d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

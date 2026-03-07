@@ -1,0 +1,11 @@
+name: zxpinstaller
+version: 1.8.2
+description: Adobe extensions installer
+homepage: https://zxpinstaller.com/
+url:
+  darwin_arm64: https://github.com/elements-storage/ZXPInstaller/releases/download/v1.8.2/ZXPInstaller-1.8.2.dmg
+sha256:
+  darwin_arm64: 0d42ee30105096529bc89394c67733069c56b2139fd09dea69944d7e188f0972
+artifacts:
+  app:
+    - ZXPInstaller.app

@@ -1,0 +1,19 @@
+name: starlark-rust
+version: 0.13.0
+description: Rust implementation of the Starlark language
+homepage: https://github.com/facebook/starlark-rust
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/starlark-rust/blobs/sha256:d25035b0a2ca0a499dc940cd416dba460eb7b3d22871b17a67553c9d67fb0817
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/starlark-rust/blobs/sha256:9bf96fdd0735366f05e37edc5abbc585196aeebb1b697c37a9c3518981564dfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/starlark-rust/blobs/sha256:da66eb0fccc9b12bd61613f0027e869baeeb98d771ab5537ec61c30a488aa72e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/starlark-rust/blobs/sha256:fb6c2c092d1cda4e6535a19d73f00d925a0ad2aaf07741ec66fd85b099617e17
+sha256:
+  darwin_arm64: d25035b0a2ca0a499dc940cd416dba460eb7b3d22871b17a67553c9d67fb0817
+  darwin_amd64: 9bf96fdd0735366f05e37edc5abbc585196aeebb1b697c37a9c3518981564dfb
+  linux_amd64: da66eb0fccc9b12bd61613f0027e869baeeb98d771ab5537ec61c30a488aa72e
+  linux_arm64: fb6c2c092d1cda4e6535a19d73f00d925a0ad2aaf07741ec66fd85b099617e17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

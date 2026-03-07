@@ -1,0 +1,35 @@
+name: ocrmypdf
+version: 17.3.0
+description: Adds an OCR text layer to scanned PDF files
+homepage: https://ocrmypdf.readthedocs.io/en/latest/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocrmypdf/blobs/sha256:eda3d600cb52fdf1d609a10ba0d40a10aed7b7e8febfc3bea40ebf01147b5e80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocrmypdf/blobs/sha256:0dde28a9811894e67b5cc580fd3673b5acf069bb06c474018a648529c2a9ec44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocrmypdf/blobs/sha256:db735e75ae9af67a9beea2450959f8b215daa4b37c0f5c57db6afc0e523c2d68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocrmypdf/blobs/sha256:39dc07e9e04c13c6459d041d741c0cad11e3e81f70f2aa53aaacd13c10d682f4
+sha256:
+  darwin_arm64: eda3d600cb52fdf1d609a10ba0d40a10aed7b7e8febfc3bea40ebf01147b5e80
+  darwin_amd64: 0dde28a9811894e67b5cc580fd3673b5acf069bb06c474018a648529c2a9ec44
+  linux_amd64: db735e75ae9af67a9beea2450959f8b215daa4b37c0f5c57db6afc0e523c2d68
+  linux_arm64: 39dc07e9e04c13c6459d041d741c0cad11e3e81f70f2aa53aaacd13c10d682f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - freetype
+  - ghostscript
+  - img2pdf
+  - jbig2enc
+  - libheif
+  - libpng
+  - pillow
+  - pngquant
+  - pybind11
+  - pydantic
+  - python@3.14
+  - qpdf
+  - tesseract
+  - unpaper

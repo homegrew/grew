@@ -1,0 +1,19 @@
+name: opa
+version: 1.14.0
+description: Open source, general-purpose policy engine
+homepage: https://www.openpolicyagent.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opa/blobs/sha256:bc8e6ac89d69e44c6ec24eccac955ba50ef61d575614367225e9dca9afebe59c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opa/blobs/sha256:f83b6f59a33907c5ffa978649225f2d128e1b7a51b342f2cea1816729a0f09bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opa/blobs/sha256:e8bc318b148a0bb516b490fe6a060703c2f1f3b2444c89bd58465b84fd0ae6e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opa/blobs/sha256:a569860c03cb5dbc7c11aede3f6450ad5e811c7d1a366ae984d02eea6241a974
+sha256:
+  darwin_arm64: bc8e6ac89d69e44c6ec24eccac955ba50ef61d575614367225e9dca9afebe59c
+  darwin_amd64: f83b6f59a33907c5ffa978649225f2d128e1b7a51b342f2cea1816729a0f09bf
+  linux_amd64: e8bc318b148a0bb516b490fe6a060703c2f1f3b2444c89bd58465b84fd0ae6e3
+  linux_arm64: a569860c03cb5dbc7c11aede3f6450ad5e811c7d1a366ae984d02eea6241a974
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: tinysvm
+version: 0.09
+description: Support vector machine library for pattern recognition
+homepage: http://chasen.org/~taku/software/TinySVM/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinysvm/blobs/sha256:a2eb89bfd1881f7b67dce74b71a07303f8fb67833fb83d269f1a5546ef23250f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinysvm/blobs/sha256:12ea52272fb0b0d6d7a3dbd64037a014c0c8be9c5c1f1d32b1ea89626bb76041
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinysvm/blobs/sha256:8706fa788fd556b7f18b3c1aee12390a933b5eafaa909508304d6992f218e02d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinysvm/blobs/sha256:b94cad8abff9ac7cd69e6e0946255e477dba4c6038e1ff8609b9ea499c9d5e1e
+sha256:
+  darwin_arm64: a2eb89bfd1881f7b67dce74b71a07303f8fb67833fb83d269f1a5546ef23250f
+  darwin_amd64: 12ea52272fb0b0d6d7a3dbd64037a014c0c8be9c5c1f1d32b1ea89626bb76041
+  linux_amd64: 8706fa788fd556b7f18b3c1aee12390a933b5eafaa909508304d6992f218e02d
+  linux_arm64: b94cad8abff9ac7cd69e6e0946255e477dba4c6038e1ff8609b9ea499c9d5e1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

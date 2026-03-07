@@ -1,0 +1,19 @@
+name: kubescape
+version: 4.0.2
+description: Kubernetes testing according to Hardening Guidance by NSA and CISA
+homepage: https://kubescape.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubescape/blobs/sha256:ab1665abd9ed9a6f954616b391a376c9c94cbb725f82fbf7ff830d699cdefaa7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubescape/blobs/sha256:ccacab624ca54122163304aa5379514c2c52af5cf13bf1eab576aa74860ba6e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubescape/blobs/sha256:27fcdb3b9fe07a2c0f587c60a958858e4c9ab1e99e470f6a93dd7d27955c4530
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubescape/blobs/sha256:d95229c746ae5bfb9478be814c525874114e20525272ccae967be3fae629e0af
+sha256:
+  darwin_arm64: ab1665abd9ed9a6f954616b391a376c9c94cbb725f82fbf7ff830d699cdefaa7
+  darwin_amd64: ccacab624ca54122163304aa5379514c2c52af5cf13bf1eab576aa74860ba6e7
+  linux_amd64: 27fcdb3b9fe07a2c0f587c60a958858e4c9ab1e99e470f6a93dd7d27955c4530
+  linux_arm64: d95229c746ae5bfb9478be814c525874114e20525272ccae967be3fae629e0af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

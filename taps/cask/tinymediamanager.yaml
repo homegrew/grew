@@ -1,0 +1,11 @@
+name: tinymediamanager
+version: 5.2.8
+description: Media management tool
+homepage: https://www.tinymediamanager.org/
+url:
+  darwin_arm64: https://release.tinymediamanager.org/v5/dist/tinyMediaManager-5.2.8-macos-aarch64.dmg
+sha256:
+  darwin_arm64: 79551e9e8388f78c17be486c838805703db0801a1ceff8fa557e373f6eafd573
+artifacts:
+  app:
+    - tinyMediaManager.app

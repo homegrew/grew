@@ -1,0 +1,19 @@
+name: moribito
+version: 0.2.6
+description: TUI for LDAP Viewing/Queries
+homepage: https://ericschmar.github.io/moribito/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moribito/blobs/sha256:37034fa0d7d8f39b905f495d15d385ebad49b085045dc6ea469d29af44e2194b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moribito/blobs/sha256:b60752bdc952a103dc312c9ea4f404f1e0b260e5914fde7d810f91a996f31db2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moribito/blobs/sha256:9c70137bf656cf11da599cd653e60ad2976f1a5b00ee756ce9f6ec93766a3b27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moribito/blobs/sha256:60ff659612cd002a25d1b9f2210e354d5608a6a8be6b39a1ee8eedaff24e037a
+sha256:
+  darwin_arm64: 37034fa0d7d8f39b905f495d15d385ebad49b085045dc6ea469d29af44e2194b
+  darwin_amd64: b60752bdc952a103dc312c9ea4f404f1e0b260e5914fde7d810f91a996f31db2
+  linux_amd64: 9c70137bf656cf11da599cd653e60ad2976f1a5b00ee756ce9f6ec93766a3b27
+  linux_arm64: 60ff659612cd002a25d1b9f2210e354d5608a6a8be6b39a1ee8eedaff24e037a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

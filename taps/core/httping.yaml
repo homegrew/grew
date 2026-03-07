@@ -1,0 +1,23 @@
+name: httping
+version: 4.4.0
+description: Ping-like tool for HTTP requests
+homepage: https://github.com/folkertvanheusden/HTTPing
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httping/blobs/sha256:071348d10108c95a9cd23e105942b81e63fbd1caea8f2367427a554f406b68e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httping/blobs/sha256:aab01cd51be36a661adb1fab505740b3cdf0b156e13d96ba6886e1389761bf1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httping/blobs/sha256:51e8dc57762f328e29329501734ca6e2b9437a69613abcc68830cc4fcf13bbd7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httping/blobs/sha256:3dfe264e40fbf0b9759dbb72b968bc9b3a87fe01f8acb603dfab8d285880f509
+sha256:
+  darwin_arm64: 071348d10108c95a9cd23e105942b81e63fbd1caea8f2367427a554f406b68e4
+  darwin_amd64: aab01cd51be36a661adb1fab505740b3cdf0b156e13d96ba6886e1389761bf1a
+  linux_amd64: 51e8dc57762f328e29329501734ca6e2b9437a69613abcc68830cc4fcf13bbd7
+  linux_arm64: 3dfe264e40fbf0b9759dbb72b968bc9b3a87fe01f8acb603dfab8d285880f509
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - openssl@3
+  - gettext

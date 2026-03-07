@@ -1,0 +1,27 @@
+name: duc
+version: 1.4.6
+description: Suite of tools for inspecting disk usage
+homepage: https://github.com/zevv/duc
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duc/blobs/sha256:9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duc/blobs/sha256:f6ce54596642aa6f8dc27eb66d54f6dd2d6238dae6ecac8c225ee91b5b66bb2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duc/blobs/sha256:2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duc/blobs/sha256:88cc0ddde0081d9ca14f4d036f5f48b10ca1616543d7c1eed8b2ec5b47a4ad88
+sha256:
+  darwin_arm64: 9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7
+  darwin_amd64: f6ce54596642aa6f8dc27eb66d54f6dd2d6238dae6ecac8c225ee91b5b66bb2f
+  linux_amd64: 2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1
+  linux_arm64: 88cc0ddde0081d9ca14f4d036f5f48b10ca1616543d7c1eed8b2ec5b47a4ad88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - glfw
+  - glib
+  - pango
+  - tokyo-cabinet
+  - gettext
+  - harfbuzz

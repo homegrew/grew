@@ -1,0 +1,21 @@
+name: libxau
+version: 1.0.12
+description: "X.Org: A Sample Authorization Protocol for X"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxau/blobs/sha256:503040606c5d29dd415f2c8dcba7e181d259e4cdff02d1d8bde4e9ea5244765a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxau/blobs/sha256:46c7dff8ac6917ffc355a1ac7242fb37f53cb4e7276a9c297b31cd0d35b36b6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxau/blobs/sha256:eaab2aad3bf7abb8cf6f1b164cd6648731814a71b1b3cb1141055d48fa07914d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxau/blobs/sha256:ec2a9c4d8d2311c730503f3b7976086612efce6a9a03193508f61f47d8ef5c53
+sha256:
+  darwin_arm64: 503040606c5d29dd415f2c8dcba7e181d259e4cdff02d1d8bde4e9ea5244765a
+  darwin_amd64: 46c7dff8ac6917ffc355a1ac7242fb37f53cb4e7276a9c297b31cd0d35b36b6f
+  linux_amd64: eaab2aad3bf7abb8cf6f1b164cd6648731814a71b1b3cb1141055d48fa07914d
+  linux_arm64: ec2a9c4d8d2311c730503f3b7976086612efce6a9a03193508f61f47d8ef5c53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xorgproto

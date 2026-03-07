@@ -1,0 +1,15 @@
+name: black
+version: 26.3.0
+description: Python code formatter
+homepage: https://black.readthedocs.io/en/stable/
+license: MIT
+url:
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/black/blobs/sha256:4fa01972d8376c81a0bd39360fd6198d3106b3fbe4769391e7bb6de38149046d
+sha256:
+  darwin_amd64: 4fa01972d8376c81a0bd39360fd6198d3106b3fbe4769391e7bb6de38149046d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,23 @@
+name: squashfuse
+version: 0.6.1
+description: FUSE filesystem to mount squashfs archives
+homepage: https://github.com/vasi/squashfuse
+license: BSD-2-Clause
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/squashfuse/blobs/sha256:a02ea0c2e2ad0d15354c74b6dc3b55dd2f7f839ffd7592730e2049b6e60d0341
+  linux_arm64: https://ghcr.io/v2/homebrew/core/squashfuse/blobs/sha256:dca859436a32269db6a94a7fd36284a86ad466bff008d7b56a555e72c15d49f6
+sha256:
+  linux_amd64: a02ea0c2e2ad0d15354c74b6dc3b55dd2f7f839ffd7592730e2049b6e60d0341
+  linux_arm64: dca859436a32269db6a94a7fd36284a86ad466bff008d7b56a555e72c15d49f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse
+  - lz4
+  - lzo
+  - squashfs
+  - xz
+  - zlib-ng-compat
+  - zstd

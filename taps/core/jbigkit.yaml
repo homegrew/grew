@@ -1,0 +1,19 @@
+name: jbigkit
+version: 2.1
+description: JBIG1 data compression standard implementation
+homepage: https://www.cl.cam.ac.uk/~mgk25/jbigkit/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jbigkit/blobs/sha256:a7cc930c8a3652caa237eb15f5528d6a9384ba2e14b7414de8946fe0fedf6816
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jbigkit/blobs/sha256:5677beabb52b051e5c999c984ddf98bfae65d22c88883d5e36fdc1e3799fe40f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jbigkit/blobs/sha256:8d787da566c3d674b9ebc93fcf4291ca28325366fad703f3a90451bd6fbfbac1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jbigkit/blobs/sha256:e211cb4b191e33b3b01f40a4fabb35a59d770ccc8f4f873ba0ade76780598bc1
+sha256:
+  darwin_arm64: a7cc930c8a3652caa237eb15f5528d6a9384ba2e14b7414de8946fe0fedf6816
+  darwin_amd64: 5677beabb52b051e5c999c984ddf98bfae65d22c88883d5e36fdc1e3799fe40f
+  linux_amd64: 8d787da566c3d674b9ebc93fcf4291ca28325366fad703f3a90451bd6fbfbac1
+  linux_arm64: e211cb4b191e33b3b01f40a4fabb35a59d770ccc8f4f873ba0ade76780598bc1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,27 @@
+name: etcd-cpp-apiv3
+version: 0.15.4
+description: "C++ implementation for etcd's v3 client API, i.e., ETCDCTL_API=3"
+homepage: https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/etcd-cpp-apiv3/blobs/sha256:86e44fefa84f9e1e00217e1ddfe920d6bf8f730d230c6a05eb795937f8067bba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/etcd-cpp-apiv3/blobs/sha256:54af114e7dc476af95e2e7f78ef1a5bd677413c170ff8481b251bdd783738ecf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/etcd-cpp-apiv3/blobs/sha256:3eba3362b3badc575942733642743a5964702329b4b195d532b2f569898d6c7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/etcd-cpp-apiv3/blobs/sha256:cdb20b2b05599d68eeef2346a838965a3c0d15562958f6b1d21f1624f0020dae
+sha256:
+  darwin_arm64: 86e44fefa84f9e1e00217e1ddfe920d6bf8f730d230c6a05eb795937f8067bba
+  darwin_amd64: 54af114e7dc476af95e2e7f78ef1a5bd677413c170ff8481b251bdd783738ecf
+  linux_amd64: 3eba3362b3badc575942733642743a5964702329b4b195d532b2f569898d6c7f
+  linux_arm64: cdb20b2b05599d68eeef2346a838965a3c0d15562958f6b1d21f1624f0020dae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - c-ares
+  - cpprestsdk
+  - grpc
+  - openssl@3
+  - protobuf@33
+  - re2

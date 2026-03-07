@@ -1,0 +1,21 @@
+name: mdxmini
+version: 2.0.0
+description: Plays music in X68000 MDX chiptune format
+homepage: https://github.com/mistydemeo/mdxmini/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdxmini/blobs/sha256:9c7d6bb3128d117bd4730a9c7b59f0412b2f2ddf5dd1e2b1fe928d0f767f9750
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdxmini/blobs/sha256:3150134181a1ecf81ac05c0eba85eeae9f89819bdaf85b241c62b8450e6b0e2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdxmini/blobs/sha256:152c18564d3252af6530331c08788108b99fbac328066ace0c58f94428fe7b4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdxmini/blobs/sha256:b3ff3214766af3bc7c54164bec8a57cde4788169be18c7174d44db61c908a4d8
+sha256:
+  darwin_arm64: 9c7d6bb3128d117bd4730a9c7b59f0412b2f2ddf5dd1e2b1fe928d0f767f9750
+  darwin_amd64: 3150134181a1ecf81ac05c0eba85eeae9f89819bdaf85b241c62b8450e6b0e2a
+  linux_amd64: 152c18564d3252af6530331c08788108b99fbac328066ace0c58f94428fe7b4e
+  linux_arm64: b3ff3214766af3bc7c54164bec8a57cde4788169be18c7174d44db61c908a4d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

@@ -1,0 +1,21 @@
+name: cfssl
+version: 1.6.5
+description: "CloudFlare's PKI toolkit"
+homepage: https://cfssl.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfssl/blobs/sha256:601f2a0f658414311595bde5f9ac2c35b557ba0c4d5383fb73a9ae36743be9a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfssl/blobs/sha256:7343337bf340f001683abb5f00711d3d1e504ec77cdac8dd8f1905368fb312a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfssl/blobs/sha256:46934407006530d046e2171da9988fdc1cf8cc5e519924d7ba050ee6dee8f0fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfssl/blobs/sha256:74ef31d5f9c24be580f7ca74e48173640cc28a381eba8463bf56c6a0c81d2e9d
+sha256:
+  darwin_arm64: 601f2a0f658414311595bde5f9ac2c35b557ba0c4d5383fb73a9ae36743be9a5
+  darwin_amd64: 7343337bf340f001683abb5f00711d3d1e504ec77cdac8dd8f1905368fb312a7
+  linux_amd64: 46934407006530d046e2171da9988fdc1cf8cc5e519924d7ba050ee6dee8f0fb
+  linux_arm64: 74ef31d5f9c24be580f7ca74e48173640cc28a381eba8463bf56c6a0c81d2e9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool

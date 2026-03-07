@@ -1,0 +1,19 @@
+name: kubent
+version: 0.7.3
+description: Easily check your clusters for use of deprecated APIs
+homepage: https://github.com/doitintl/kube-no-trouble
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubent/blobs/sha256:f8207dfcf047d8e851f69cc9d59e13b0310f9af72b7641ba7163524f46f78da7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubent/blobs/sha256:b9f9a862ec8458c562ec9643e4c6876475d1e77071730f2c6876b29403d641f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubent/blobs/sha256:0a54e603d5dca3dd7c708ce765318b460eef6b5ca4407a28356edc0c16ae2bbe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubent/blobs/sha256:cbc3d5e73162945f8edd742a5f1716b03405c10186c7d8c4915c8fd53e9a0f41
+sha256:
+  darwin_arm64: f8207dfcf047d8e851f69cc9d59e13b0310f9af72b7641ba7163524f46f78da7
+  darwin_amd64: b9f9a862ec8458c562ec9643e4c6876475d1e77071730f2c6876b29403d641f1
+  linux_amd64: 0a54e603d5dca3dd7c708ce765318b460eef6b5ca4407a28356edc0c16ae2bbe
+  linux_arm64: cbc3d5e73162945f8edd742a5f1716b03405c10186c7d8c4915c8fd53e9a0f41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

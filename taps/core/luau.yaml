@@ -1,0 +1,19 @@
+name: luau
+version: 0.711
+description: Fast, safe, gradually typed embeddable scripting language derived from Lua
+homepage: https://luau.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luau/blobs/sha256:81a8d351bddac3a8e2059c9a73b07d0e957cddf611ca8fc7b508c2ac870fa158
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luau/blobs/sha256:cf5b5f062c960cdbed321fd2fb8ef4f89117434b3e50e9e985154da4445d50d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luau/blobs/sha256:867e534dfd363b2296d1a7f40f479d6d388bfcacb3f0962b6ab471a5f0c95c1c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luau/blobs/sha256:0f3496f19d8603602c3070c0937db6ed0e4ab5d817f4ffe3fd81219d323eaf30
+sha256:
+  darwin_arm64: 81a8d351bddac3a8e2059c9a73b07d0e957cddf611ca8fc7b508c2ac870fa158
+  darwin_amd64: cf5b5f062c960cdbed321fd2fb8ef4f89117434b3e50e9e985154da4445d50d8
+  linux_amd64: 867e534dfd363b2296d1a7f40f479d6d388bfcacb3f0962b6ab471a5f0c95c1c
+  linux_arm64: 0f3496f19d8603602c3070c0937db6ed0e4ab5d817f4ffe3fd81219d323eaf30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

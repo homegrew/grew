@@ -1,0 +1,21 @@
+name: librcsc
+version: 2024
+description: RoboCup Soccer Simulator library
+homepage: https://github.com/helios-base/librcsc
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librcsc/blobs/sha256:2b641eddf9a63f9283866990970730dc474aa28a8b6531a96004c82d709cbf98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librcsc/blobs/sha256:8648400acecb2198fba9299579882c0f2cc82b63ed4f953f96e3051621e0dedf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librcsc/blobs/sha256:3d680a74dd021cab8f5c6e5c4b0e2173e227a226c3b5e544d26d8fd7acff567a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librcsc/blobs/sha256:373a75834d3518cc59f7a40cfb688353c80128ee0c9ad28e6cc4e919fe7aabe8
+sha256:
+  darwin_arm64: 2b641eddf9a63f9283866990970730dc474aa28a8b6531a96004c82d709cbf98
+  darwin_amd64: 8648400acecb2198fba9299579882c0f2cc82b63ed4f953f96e3051621e0dedf
+  linux_amd64: 3d680a74dd021cab8f5c6e5c4b0e2173e227a226c3b5e544d26d8fd7acff567a
+  linux_arm64: 373a75834d3518cc59f7a40cfb688353c80128ee0c9ad28e6cc4e919fe7aabe8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - simdjson

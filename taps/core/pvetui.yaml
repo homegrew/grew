@@ -1,0 +1,19 @@
+name: pvetui
+version: 1.0.20
+description: Terminal UI for Proxmox VE
+homepage: https://github.com/devnullvoid/pvetui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pvetui/blobs/sha256:c289cd683ed7e8abf44e592cd9f188333bf2eb651e06994f4695beb63e864507
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pvetui/blobs/sha256:d447e1797fc7d9ab25d0bb30a387b738eef935b943880b6160794d9d8a17d777
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pvetui/blobs/sha256:21004fd3e8953d0d5aee613c4d028ea4bb03a9fc88e21293786873c1150ab606
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pvetui/blobs/sha256:4d63b24241a2141768a2feefe9df469e09cae35ef5d06fe4560af81ddbee88c3
+sha256:
+  darwin_arm64: c289cd683ed7e8abf44e592cd9f188333bf2eb651e06994f4695beb63e864507
+  darwin_amd64: d447e1797fc7d9ab25d0bb30a387b738eef935b943880b6160794d9d8a17d777
+  linux_amd64: 21004fd3e8953d0d5aee613c4d028ea4bb03a9fc88e21293786873c1150ab606
+  linux_arm64: 4d63b24241a2141768a2feefe9df469e09cae35ef5d06fe4560af81ddbee88c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

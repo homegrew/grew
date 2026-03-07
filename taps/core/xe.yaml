@@ -1,0 +1,19 @@
+name: xe
+version: 1.0
+description: Simple xargs and apply replacement
+homepage: https://github.com/leahneukirchen/xe
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xe/blobs/sha256:a86047483f4a438ba53a00fbff31112bcb4b3919e860427384a067d7e2c106e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xe/blobs/sha256:d94d2967cbbf062a92c28fe08bcef51c17eee159dbf2d029c1523815e99a1a69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xe/blobs/sha256:5b67d52094aa34b8882194aa6fa429b13ed8866abbc33ae906d3f0253b52ff61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xe/blobs/sha256:dd2b69d64dbad650050a09b32d026d15b07da7997e4c9af9f905501a7de30f32
+sha256:
+  darwin_arm64: a86047483f4a438ba53a00fbff31112bcb4b3919e860427384a067d7e2c106e5
+  darwin_amd64: d94d2967cbbf062a92c28fe08bcef51c17eee159dbf2d029c1523815e99a1a69
+  linux_amd64: 5b67d52094aa34b8882194aa6fa429b13ed8866abbc33ae906d3f0253b52ff61
+  linux_arm64: dd2b69d64dbad650050a09b32d026d15b07da7997e4c9af9f905501a7de30f32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

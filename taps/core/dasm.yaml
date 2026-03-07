@@ -1,0 +1,19 @@
+name: dasm
+version: 2.20.14.1
+description: Macro assembler with support for several 8-bit microprocessors
+homepage: https://dasm-assembler.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dasm/blobs/sha256:1f614d82306309db519d1ec6ab82849fa699b8a688a1d22ca8ae02342178697b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dasm/blobs/sha256:5f0b00c2325e27d6b47e040d6ccacacef637757f4d0d92dfce6303f133264f8e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dasm/blobs/sha256:255217da42c9f1a4b35791323593c0107306e2090fcc69b471d5afb193de7355
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dasm/blobs/sha256:8448f39661a2328dc9579d23cdf837c9dd28ee9d449c446e58f0d8a19b4592b8
+sha256:
+  darwin_arm64: 1f614d82306309db519d1ec6ab82849fa699b8a688a1d22ca8ae02342178697b
+  darwin_amd64: 5f0b00c2325e27d6b47e040d6ccacacef637757f4d0d92dfce6303f133264f8e
+  linux_amd64: 255217da42c9f1a4b35791323593c0107306e2090fcc69b471d5afb193de7355
+  linux_arm64: 8448f39661a2328dc9579d23cdf837c9dd28ee9d449c446e58f0d8a19b4592b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

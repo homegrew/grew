@@ -1,0 +1,21 @@
+name: ripgrep
+version: 15.1.0
+description: Search tool like grep and The Silver Searcher
+homepage: https://github.com/BurntSushi/ripgrep
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ripgrep/blobs/sha256:f4dc761b07edb8e6438b618d22f7e57252903e2f2b973e2c7aa0da518fc374b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ripgrep/blobs/sha256:ab382b4ae86aba1b7e6acab3bc50eb64be7bb08cf33a37a32987edb8bc6affe4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ripgrep/blobs/sha256:349bc55db5ad4b4e8935b889d44c745ae23605c1d57d6eb639dbd5c86d573a88
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ripgrep/blobs/sha256:bbdef955d5752e53473be06b698c45ce31682cd47d75e7c706365450bd08ff44
+sha256:
+  darwin_arm64: f4dc761b07edb8e6438b618d22f7e57252903e2f2b973e2c7aa0da518fc374b9
+  darwin_amd64: ab382b4ae86aba1b7e6acab3bc50eb64be7bb08cf33a37a32987edb8bc6affe4
+  linux_amd64: 349bc55db5ad4b4e8935b889d44c745ae23605c1d57d6eb639dbd5c86d573a88
+  linux_arm64: bbdef955d5752e53473be06b698c45ce31682cd47d75e7c706365450bd08ff44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

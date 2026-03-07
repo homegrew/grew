@@ -1,0 +1,15 @@
+name: oclint
+version: 24.11
+description: Static source code analysis tool
+homepage: https://github.com/oclint/oclint/
+url:
+  darwin_arm64: https://github.com/oclint/oclint/releases/download/v24.11/oclint-24.11-llvm-16.0.5-arm64-darwin-macos-15.1.1-xcode-16.1.tar.gz
+sha256:
+  darwin_arm64: 85062776d437bfa496df542077e6a87f88dfd7435cdbe651a01b17ed8f9df972
+artifacts:
+  bin:
+    - oclint-json-compilation-database
+    - oclint-xcodebuild
+    - oclint
+    - $HOMEBREW_PREFIX/lib/clang
+    - $HOMEBREW_PREFIX/lib/oclint

@@ -1,0 +1,48 @@
+name: pyside
+version: 6.10.2
+description: Official Python bindings for Qt
+homepage: https://wiki.qt.io/Qt_for_Python
+license: (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyside/blobs/sha256:1d31e4d4410de481977b89ba7fc1c57dece74cd4064bbc35486cac7e40c7957b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyside/blobs/sha256:1e3394704be6e83f8d192f5d082e640d590a72bb32f55056f81b49ca672d0670
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyside/blobs/sha256:9850022e3918536a2fb7896ff48db57e704cab0d8bd5e92017853105ce11000c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyside/blobs/sha256:6c68c71db54c96b7d1aad68214b422b5a14b0faf71847152a8c6b74896e339d3
+sha256:
+  darwin_arm64: 1d31e4d4410de481977b89ba7fc1c57dece74cd4064bbc35486cac7e40c7957b
+  darwin_amd64: 1e3394704be6e83f8d192f5d082e640d590a72bb32f55056f81b49ca672d0670
+  linux_amd64: 9850022e3918536a2fb7896ff48db57e704cab0d8bd5e92017853105ce11000c
+  linux_arm64: 6c68c71db54c96b7d1aad68214b422b5a14b0faf71847152a8c6b74896e339d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm
+  - python@3.14
+  - qt3d
+  - qtbase
+  - qtcharts
+  - qtconnectivity
+  - qtdatavis3d
+  - qtdeclarative
+  - qtgraphs
+  - qthttpserver
+  - qtlocation
+  - qtmultimedia
+  - qtnetworkauth
+  - qtpositioning
+  - qtquick3d
+  - qtremoteobjects
+  - qtscxml
+  - qtsensors
+  - qtserialbus
+  - qtserialport
+  - qtspeech
+  - qtsvg
+  - qttools
+  - qtwebchannel
+  - qtwebsockets
+  - qtshadertools
+  - qtwebengine
+  - qtwebview

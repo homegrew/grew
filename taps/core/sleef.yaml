@@ -1,0 +1,19 @@
+name: sleef
+version: 3.9.0
+description: SIMD library for evaluating elementary functions
+homepage: https://sleef.org
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sleef/blobs/sha256:6fe0e3a672461f15dd47162c7ba32505c6b81c41886524687a59c7690c16f0ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sleef/blobs/sha256:a26d81be375d9034c487372812dcd426c2573843173b610142214415cd635be7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sleef/blobs/sha256:c160ff9688e9d6f8c98f84d380c667e351f9ea9d0726d121f7b423e9a70ccf02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sleef/blobs/sha256:ffe74cf398e3979d201cba4686213e9719d71b2a0c24d9bdb1046d130b87e3be
+sha256:
+  darwin_arm64: 6fe0e3a672461f15dd47162c7ba32505c6b81c41886524687a59c7690c16f0ea
+  darwin_amd64: a26d81be375d9034c487372812dcd426c2573843173b610142214415cd635be7
+  linux_amd64: c160ff9688e9d6f8c98f84d380c667e351f9ea9d0726d121f7b423e9a70ccf02
+  linux_arm64: ffe74cf398e3979d201cba4686213e9719d71b2a0c24d9bdb1046d130b87e3be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

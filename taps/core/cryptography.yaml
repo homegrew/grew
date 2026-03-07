@@ -1,0 +1,22 @@
+name: cryptography
+version: 46.0.5
+description: Cryptographic recipes and primitives for Python
+homepage: https://cryptography.io/en/latest/
+license: Apache-2.0 OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cryptography/blobs/sha256:3c17ad3cdef6f82e663e11212b0d07ec47afe24ff61158181eafc805df1d1a03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cryptography/blobs/sha256:6af9ffaea0427a47fc13f6f24e140d31de098f7ad9c98c325ae4d0d890bb3194
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cryptography/blobs/sha256:f8671d11df09062c03c9c632f26926f7a6f27bcc36a0b50aca18565cbe7d587c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cryptography/blobs/sha256:614c023162d73ec087334fb9f26575f3eb259dc05612765406a6dc43f4949edd
+sha256:
+  darwin_arm64: 3c17ad3cdef6f82e663e11212b0d07ec47afe24ff61158181eafc805df1d1a03
+  darwin_amd64: 6af9ffaea0427a47fc13f6f24e140d31de098f7ad9c98c325ae4d0d890bb3194
+  linux_amd64: f8671d11df09062c03c9c632f26926f7a6f27bcc36a0b50aca18565cbe7d587c
+  linux_arm64: 614c023162d73ec087334fb9f26575f3eb259dc05612765406a6dc43f4949edd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cffi
+  - openssl@3

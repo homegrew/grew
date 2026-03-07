@@ -1,0 +1,19 @@
+name: gabo
+version: 1.7.5
+description: Generates GitHub Actions boilerplate
+homepage: https://github.com/ashishb/gabo
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gabo/blobs/sha256:42453a67c26248d3b55a58152ff3381659f926dca19327b45107e2a8805a328a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gabo/blobs/sha256:7a82ab26a00b1557723a04baee1fa95dc0acb9cade4519d33bdfd8bac879b711
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gabo/blobs/sha256:8a0ca45601beb77b6ef440cab41af9f8a4d6dec79b04ed2362bd68e528710bc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gabo/blobs/sha256:8f43ca873e3e561865e6198280ddeda55d93855302c5dc6297c3e1db4383f852
+sha256:
+  darwin_arm64: 42453a67c26248d3b55a58152ff3381659f926dca19327b45107e2a8805a328a
+  darwin_amd64: 7a82ab26a00b1557723a04baee1fa95dc0acb9cade4519d33bdfd8bac879b711
+  linux_amd64: 8a0ca45601beb77b6ef440cab41af9f8a4d6dec79b04ed2362bd68e528710bc2
+  linux_arm64: 8f43ca873e3e561865e6198280ddeda55d93855302c5dc6297c3e1db4383f852
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: libcouchbase
+version: 3.3.18
+description: C library for Couchbase
+homepage: https://docs.couchbase.com/c-sdk/current/hello-world/start-using-sdk.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcouchbase/blobs/sha256:f7e83031c6d40e0df4650245a4380fe5b8237d908128f4c729839983f36a6e24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcouchbase/blobs/sha256:67279b1cee297651fad2f9f3a898ccbc878112ff0a279ddd20ff02e70dd59e80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcouchbase/blobs/sha256:857eae4e85d993266775356d4f662de723976127f922c62200f7257da7539453
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcouchbase/blobs/sha256:4d67b5d13b9185a0606d2809812add342ee0a3ff765b100adda2f6a50899b68a
+sha256:
+  darwin_arm64: f7e83031c6d40e0df4650245a4380fe5b8237d908128f4c729839983f36a6e24
+  darwin_amd64: 67279b1cee297651fad2f9f3a898ccbc878112ff0a279ddd20ff02e70dd59e80
+  linux_amd64: 857eae4e85d993266775356d4f662de723976127f922c62200f7257da7539453
+  linux_arm64: 4d67b5d13b9185a0606d2809812add342ee0a3ff765b100adda2f6a50899b68a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libev
+  - libevent
+  - libuv
+  - openssl@3

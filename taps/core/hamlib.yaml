@@ -1,0 +1,23 @@
+name: hamlib
+version: 4.7.0
+description: Ham radio control libraries
+homepage: http://www.hamlib.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hamlib/blobs/sha256:795fb006175fc13444cf579440e6e125ac2b93f663eb91e465575ad928efb8b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hamlib/blobs/sha256:07a248953520ac1cb124b0c2658c8c09be0368263978a72af2a0cb0bcae3e621
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hamlib/blobs/sha256:fe36a3eb41674900111dd9754872026ced061dd66447d5e932fc7fd153e511eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hamlib/blobs/sha256:03dd51b236f22b14d4c4facdba2785626461b158f6b9cf5efec2dbfecbebc6ab
+sha256:
+  darwin_arm64: 795fb006175fc13444cf579440e6e125ac2b93f663eb91e465575ad928efb8b2
+  darwin_amd64: 07a248953520ac1cb124b0c2658c8c09be0368263978a72af2a0cb0bcae3e621
+  linux_amd64: fe36a3eb41674900111dd9754872026ced061dd66447d5e932fc7fd153e511eb
+  linux_arm64: 03dd51b236f22b14d4c4facdba2785626461b158f6b9cf5efec2dbfecbebc6ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool
+  - libusb
+  - libusb-compat

@@ -1,0 +1,19 @@
+name: ccat
+version: 1.1.0
+description: Like cat but displays content with syntax highlighting
+homepage: https://github.com/owenthereal/ccat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccat/blobs/sha256:21843d1726a746b8fcfffac1d1cfb9f28c56ecaa54d596ee041f531d78e02cdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccat/blobs/sha256:f75a66af97ef4956e89708382fa2165831f39e5528dc6da3cfd6a95bb51880b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccat/blobs/sha256:340dbf0c6e8f10d588a4a7c63edc14fe38c64cac809c2107f911d57f59a74f8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccat/blobs/sha256:74f9f37c1766000c954ceaba33a4238b8879a243dfc90f0fa215c5d98e2dd155
+sha256:
+  darwin_arm64: 21843d1726a746b8fcfffac1d1cfb9f28c56ecaa54d596ee041f531d78e02cdd
+  darwin_amd64: f75a66af97ef4956e89708382fa2165831f39e5528dc6da3cfd6a95bb51880b9
+  linux_amd64: 340dbf0c6e8f10d588a4a7c63edc14fe38c64cac809c2107f911d57f59a74f8c
+  linux_arm64: 74f9f37c1766000c954ceaba33a4238b8879a243dfc90f0fa215c5d98e2dd155
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

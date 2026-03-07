@@ -1,0 +1,19 @@
+name: redka
+version: 1.0.1
+description: Redis re-implemented with SQLite
+homepage: https://github.com/nalgeon/redka
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redka/blobs/sha256:5812ac99de3bb11d6ca678b33a9e27b9a6926ce6ec94383d4e012ea57ceedd59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redka/blobs/sha256:e097eefacbb60c621c164a1715a4104b519aa1a619c8c529b01b176677d8a31d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redka/blobs/sha256:c2ae836a787ad4fda861f459eddfe9b4a6deb24d2f8ed96e2fe020334518a702
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redka/blobs/sha256:351f5f86f1b2a06f930266abb6261423d0fd682cbf823e0cc0edbe6d2fe63762
+sha256:
+  darwin_arm64: 5812ac99de3bb11d6ca678b33a9e27b9a6926ce6ec94383d4e012ea57ceedd59
+  darwin_amd64: e097eefacbb60c621c164a1715a4104b519aa1a619c8c529b01b176677d8a31d
+  linux_amd64: c2ae836a787ad4fda861f459eddfe9b4a6deb24d2f8ed96e2fe020334518a702
+  linux_arm64: 351f5f86f1b2a06f930266abb6261423d0fd682cbf823e0cc0edbe6d2fe63762
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

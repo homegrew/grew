@@ -1,0 +1,19 @@
+name: gocheat
+version: 0.1.1
+description: TUI Cheatsheet for keybindings, hotkeys and more
+homepage: https://github.com/Achno/gocheat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gocheat/blobs/sha256:ae08f0650712309af012501f33769c1687deaaaaec02f3a0bedb58a0136a460e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gocheat/blobs/sha256:955708f2189090ecf8a3c9eb4186761ab97dcb6469db93a2f398ab00d9575f86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gocheat/blobs/sha256:62a71a0b01f80ddadd42cf1888bb9c086ce849727f2e01982ee19309748744f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gocheat/blobs/sha256:76cbed7ecfcf140e7265c160bf91e37b15d79beae99a9ba2964614e73b1ba173
+sha256:
+  darwin_arm64: ae08f0650712309af012501f33769c1687deaaaaec02f3a0bedb58a0136a460e
+  darwin_amd64: 955708f2189090ecf8a3c9eb4186761ab97dcb6469db93a2f398ab00d9575f86
+  linux_amd64: 62a71a0b01f80ddadd42cf1888bb9c086ce849727f2e01982ee19309748744f0
+  linux_arm64: 76cbed7ecfcf140e7265c160bf91e37b15d79beae99a9ba2964614e73b1ba173
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

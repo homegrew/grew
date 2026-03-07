@@ -1,0 +1,21 @@
+name: cobra-cli
+version: 1.3.0
+description: Tool to generate cobra applications and commands
+homepage: https://cobra.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cobra-cli/blobs/sha256:390cda2b8ba89e754ff53a554bd607688676c1f5e8e0c62af31921186e389a77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cobra-cli/blobs/sha256:d2570b9dfc87d3a357c35cbb15924f092d9d34842511e280c287e421953ba8ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cobra-cli/blobs/sha256:433e9e258e281a31d42a841ddbcf8cbf6329c45b290b29d3ce1c345aa78b3f52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cobra-cli/blobs/sha256:dd7143538bec872061451a5e5cec71ac837e62434f3417e8c2d124fb884d7291
+sha256:
+  darwin_arm64: 390cda2b8ba89e754ff53a554bd607688676c1f5e8e0c62af31921186e389a77
+  darwin_amd64: d2570b9dfc87d3a357c35cbb15924f092d9d34842511e280c287e421953ba8ee
+  linux_amd64: 433e9e258e281a31d42a841ddbcf8cbf6329c45b290b29d3ce1c345aa78b3f52
+  linux_arm64: dd7143538bec872061451a5e5cec71ac837e62434f3417e8c2d124fb884d7291
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

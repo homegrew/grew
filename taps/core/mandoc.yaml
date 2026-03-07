@@ -1,0 +1,19 @@
+name: mandoc
+version: 1.14.6
+description: UNIX manpage compiler toolset
+homepage: https://mandoc.bsd.lv/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mandoc/blobs/sha256:025ae8796e204d45e8fee68828ec019cbab0e8e91f34b2fd08b3a6520622f840
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mandoc/blobs/sha256:69da4a405b25fdd41e53b14db916b83b22546bc83f9531cb50223f72c649b36a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mandoc/blobs/sha256:00e953d4aff486cf7042ec8adb5cea2069458d739681b0383568b1c8346db23c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mandoc/blobs/sha256:f6bee14a821f1b72189e1428d1fde1507e4eae4ade75247fa16b15ba48adbef7
+sha256:
+  darwin_arm64: 025ae8796e204d45e8fee68828ec019cbab0e8e91f34b2fd08b3a6520622f840
+  darwin_amd64: 69da4a405b25fdd41e53b14db916b83b22546bc83f9531cb50223f72c649b36a
+  linux_amd64: 00e953d4aff486cf7042ec8adb5cea2069458d739681b0383568b1c8346db23c
+  linux_arm64: f6bee14a821f1b72189e1428d1fde1507e4eae4ade75247fa16b15ba48adbef7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

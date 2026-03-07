@@ -1,0 +1,19 @@
+name: xxhash
+version: 0.8.3
+description: Extremely fast non-cryptographic hash algorithm
+homepage: https://xxhash.com
+license: BSD-2-Clause AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xxhash/blobs/sha256:60aa4eca9aa378cbaa79fb2ffc0d1b4a142fd32c0aaf7371b09c291530fb85d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xxhash/blobs/sha256:e2355ea12831286d6858820e7fedcc3a044904f510ecc47d988698cd629a7ab0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xxhash/blobs/sha256:18dc2081164fec96866d5f6300bde1e3c3a80c0d7659183195e5810a8e438470
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xxhash/blobs/sha256:f094838a4f796f2314aa813a8e254d6d6582920fef2e0071a9f0c94ce538e350
+sha256:
+  darwin_arm64: 60aa4eca9aa378cbaa79fb2ffc0d1b4a142fd32c0aaf7371b09c291530fb85d2
+  darwin_amd64: e2355ea12831286d6858820e7fedcc3a044904f510ecc47d988698cd629a7ab0
+  linux_amd64: 18dc2081164fec96866d5f6300bde1e3c3a80c0d7659183195e5810a8e438470
+  linux_arm64: f094838a4f796f2314aa813a8e254d6d6582920fef2e0071a9f0c94ce538e350
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

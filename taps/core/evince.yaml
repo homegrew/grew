@@ -1,0 +1,38 @@
+name: evince
+version: 48.1
+description: GNOME document viewer
+homepage: https://apps.gnome.org/Evince/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evince/blobs/sha256:3b7e9c903699d610e7e118ac6268b5f2b0dcbbadd553257be807aaca0b2ff4d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evince/blobs/sha256:3a2e85b4add1137e10a843ef53563a53ef6bbaf2d92b05223edfee1009880767
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evince/blobs/sha256:696a73056be75f55f4ebeb0ad5976bf7366cfebc128a13436a1a1d606354cd6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evince/blobs/sha256:9d5b11ec7436eec5ece2dfd76ddc9b912135f1b5f5c0493fb5aca1fad97a9e33
+sha256:
+  darwin_arm64: 3b7e9c903699d610e7e118ac6268b5f2b0dcbbadd553257be807aaca0b2ff4d9
+  darwin_amd64: 3a2e85b4add1137e10a843ef53563a53ef6bbaf2d92b05223edfee1009880767
+  linux_amd64: 696a73056be75f55f4ebeb0ad5976bf7366cfebc128a13436a1a1d606354cd6d
+  linux_arm64: 9d5b11ec7436eec5ece2dfd76ddc9b912135f1b5f5c0493fb5aca1fad97a9e33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - at-spi2-core
+  - cairo
+  - djvulibre
+  - gdk-pixbuf
+  - glib
+  - gspell
+  - gtk+3
+  - hicolor-icon-theme
+  - libarchive
+  - libgxps
+  - libhandy
+  - libsecret
+  - libspectre
+  - libtiff
+  - pango
+  - poppler
+  - gettext

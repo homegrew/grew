@@ -1,0 +1,19 @@
+name: oxipng
+version: 10.1.0
+description: Multithreaded PNG optimizer written in Rust
+homepage: https://github.com/oxipng/oxipng
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oxipng/blobs/sha256:aab81d7715316e8bf9607ec5ec2cbc209c604b270d49b654702b756169214436
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oxipng/blobs/sha256:e047c7786bb1a05c04715b218cb9c6a9f17fe6dd2b1c019cb2b159c7c3753f32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oxipng/blobs/sha256:ed32b9803da3cf6d1dd947c3046b162a84b6f61c4afb589ab9221e60bc626d65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oxipng/blobs/sha256:8e507eac69b17c22b416f9b9be62e0d8a1b43e9e0767ca91ba7e358c326cf74a
+sha256:
+  darwin_arm64: aab81d7715316e8bf9607ec5ec2cbc209c604b270d49b654702b756169214436
+  darwin_amd64: e047c7786bb1a05c04715b218cb9c6a9f17fe6dd2b1c019cb2b159c7c3753f32
+  linux_amd64: ed32b9803da3cf6d1dd947c3046b162a84b6f61c4afb589ab9221e60bc626d65
+  linux_arm64: 8e507eac69b17c22b416f9b9be62e0d8a1b43e9e0767ca91ba7e358c326cf74a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

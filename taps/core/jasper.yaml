@@ -1,0 +1,21 @@
+name: jasper
+version: 4.2.9
+description: Library for manipulating JPEG-2000 images
+homepage: https://ece.engr.uvic.ca/~frodo/jasper/
+license: JasPer-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jasper/blobs/sha256:bc734fadc3ec13b979742b8be1aec388ae7ff06f514057253397af67f302ff96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jasper/blobs/sha256:3405ea02f8b961bc9e3ffbe4129b3d357c8040a7290f29944d5dc875ffffd6fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jasper/blobs/sha256:42e56bdae47308719c6a31f311c8b5a0ffd11cb4d98e69e7a81309ab0245562d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jasper/blobs/sha256:55dd397df06c897cd1809379a46a825266001fc180ed5543014c30aaa4d0564e
+sha256:
+  darwin_arm64: bc734fadc3ec13b979742b8be1aec388ae7ff06f514057253397af67f302ff96
+  darwin_amd64: 3405ea02f8b961bc9e3ffbe4129b3d357c8040a7290f29944d5dc875ffffd6fc
+  linux_amd64: 42e56bdae47308719c6a31f311c8b5a0ffd11cb4d98e69e7a81309ab0245562d
+  linux_arm64: 55dd397df06c897cd1809379a46a825266001fc180ed5543014c30aaa4d0564e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo

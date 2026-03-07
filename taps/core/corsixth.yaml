@@ -1,0 +1,26 @@
+name: corsixth
+version: 0.69.2
+description: Open source clone of Theme Hospital
+homepage: https://github.com/CorsixTH/CorsixTH
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/corsixth/blobs/sha256:b4f772b1be3d58659f0f2a8edf319f3d75a5cabce381c00a24249936ccb4c6f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/corsixth/blobs/sha256:b2fe6522ea0a6678c8ccd1d04c685d5eda18ce288aa9d52f283cab0ab38034d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/corsixth/blobs/sha256:6590db90107ccdd804ee592950f8f70719d0215feabc76e22bdb2f3525437770
+  linux_arm64: https://ghcr.io/v2/homebrew/core/corsixth/blobs/sha256:1abb0a5d9fce89718f14d908306a2bcd904cbfa6b9276309f3c7c2455daadc15
+sha256:
+  darwin_arm64: b4f772b1be3d58659f0f2a8edf319f3d75a5cabce381c00a24249936ccb4c6f1
+  darwin_amd64: b2fe6522ea0a6678c8ccd1d04c685d5eda18ce288aa9d52f283cab0ab38034d5
+  linux_amd64: 6590db90107ccdd804ee592950f8f70719d0215feabc76e22bdb2f3525437770
+  linux_arm64: 1abb0a5d9fce89718f14d908306a2bcd904cbfa6b9276309f3c7c2455daadc15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - freetype
+  - lpeg
+  - lua@5.4
+  - sdl2
+  - sdl2_mixer

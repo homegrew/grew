@@ -1,0 +1,11 @@
+name: poedit
+version: 3.8.2
+description: Translation editor
+homepage: https://poedit.net/
+url:
+  darwin_arm64: https://download.poedit.net/Poedit-3.8.2.zip
+sha256:
+  darwin_arm64: 559c5df2f67a7a952a5a134f7307a65e076f454cf5162ca0c9134f92c3578e0a
+artifacts:
+  app:
+    - Poedit.app

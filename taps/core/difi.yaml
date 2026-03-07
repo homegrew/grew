@@ -1,0 +1,19 @@
+name: difi
+version: 0.1.8
+description: Pixel-perfect terminal diff viewer
+homepage: https://github.com/oug-t/difi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/difi/blobs/sha256:bbddf124951df2b6b49f27fc584829ab2b3793e6369a0bd1394d3e48b4bffd89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/difi/blobs/sha256:2261af78a5d81386dcd79ff7b3e3af9b2bf37d38a3c6702ae53429d3cef435a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/difi/blobs/sha256:490fc7ea18e491fa6af66d9a02b9d1f4521591ca3eb03a4bb19079ef7432c36e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/difi/blobs/sha256:a65d0baf75bc80442b2f0343dec2f7682f4d637e0d24df2f60887855d0d26fef
+sha256:
+  darwin_arm64: bbddf124951df2b6b49f27fc584829ab2b3793e6369a0bd1394d3e48b4bffd89
+  darwin_amd64: 2261af78a5d81386dcd79ff7b3e3af9b2bf37d38a3c6702ae53429d3cef435a3
+  linux_amd64: 490fc7ea18e491fa6af66d9a02b9d1f4521591ca3eb03a4bb19079ef7432c36e
+  linux_arm64: a65d0baf75bc80442b2f0343dec2f7682f4d637e0d24df2f60887855d0d26fef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

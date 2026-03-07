@@ -1,0 +1,19 @@
+name: rmpc
+version: 0.11.0
+description: Terminal based Media Player Client with album art support
+homepage: https://mierak.github.io/rmpc/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rmpc/blobs/sha256:eae3f3a66d109441455c7d5a9ba1715b9acc66e3f9895a5cf78a68a723ff46eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rmpc/blobs/sha256:3eb5dc539954b54a5893ef01575b147e9b6a214dd94930d96a83b2c92b834996
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rmpc/blobs/sha256:cfb467d5b4fd4950b62fc7023e5e4d852755325e6d9d79c6fabedc171e0f4030
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rmpc/blobs/sha256:2246972890356c390f9c500cbb6686528a8072bbb84a2b3a3ae242e7f8cbe269
+sha256:
+  darwin_arm64: eae3f3a66d109441455c7d5a9ba1715b9acc66e3f9895a5cf78a68a723ff46eb
+  darwin_amd64: 3eb5dc539954b54a5893ef01575b147e9b6a214dd94930d96a83b2c92b834996
+  linux_amd64: cfb467d5b4fd4950b62fc7023e5e4d852755325e6d9d79c6fabedc171e0f4030
+  linux_arm64: 2246972890356c390f9c500cbb6686528a8072bbb84a2b3a3ae242e7f8cbe269
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

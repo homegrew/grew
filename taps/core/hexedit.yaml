@@ -1,0 +1,19 @@
+name: hexedit
+version: 1.6
+description: View and edit files in hexadecimal or ASCII
+homepage: https://rigaux.org/hexedit.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexedit/blobs/sha256:53b4ed34afba44fcb5795b16ee29da47f4226d7b75ed2984bddb2a2a74d74039
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexedit/blobs/sha256:8c2475e85e6883ff4693d020c4ffaf4864fa5f4bf4e9ab612a29a040d992519b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexedit/blobs/sha256:26a91b13749f1e68542e41109fed36f4001a23d79a412bf7a5830f2a08ddbe5c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexedit/blobs/sha256:545be837a1c5050d983a83141cc68eb447da849733f010fbc4b38c3264893215
+sha256:
+  darwin_arm64: 53b4ed34afba44fcb5795b16ee29da47f4226d7b75ed2984bddb2a2a74d74039
+  darwin_amd64: 8c2475e85e6883ff4693d020c4ffaf4864fa5f4bf4e9ab612a29a040d992519b
+  linux_amd64: 26a91b13749f1e68542e41109fed36f4001a23d79a412bf7a5830f2a08ddbe5c
+  linux_arm64: 545be837a1c5050d983a83141cc68eb447da849733f010fbc4b38c3264893215
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

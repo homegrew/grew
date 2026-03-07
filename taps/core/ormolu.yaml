@@ -1,0 +1,21 @@
+name: ormolu
+version: 0.8.0.2
+description: Formatter for Haskell source code
+homepage: https://github.com/tweag/ormolu
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ormolu/blobs/sha256:455d08345efdd35bd58fbc526d4fbeaa8591537350e526728340bf5df683e29e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ormolu/blobs/sha256:6be2df16ae9c2f99a69a414352b65edf125df8864ca4e0dfba63adde85c5698c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ormolu/blobs/sha256:e633c8de861af86457fb1af18577f7cdadca5fa8ca247e66803d38966c50350e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ormolu/blobs/sha256:312a416de29164e83c1fd85910ecf0d3568f27e4f9bdee3b7bde2b0ec103d7bb
+sha256:
+  darwin_arm64: 455d08345efdd35bd58fbc526d4fbeaa8591537350e526728340bf5df683e29e
+  darwin_amd64: 6be2df16ae9c2f99a69a414352b65edf125df8864ca4e0dfba63adde85c5698c
+  linux_amd64: e633c8de861af86457fb1af18577f7cdadca5fa8ca247e66803d38966c50350e
+  linux_arm64: 312a416de29164e83c1fd85910ecf0d3568f27e4f9bdee3b7bde2b0ec103d7bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

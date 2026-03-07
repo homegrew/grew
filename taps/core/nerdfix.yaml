@@ -1,0 +1,19 @@
+name: nerdfix
+version: 0.4.2
+description: Find/fix obsolete Nerd Font icons
+homepage: https://github.com/loichyan/nerdfix
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nerdfix/blobs/sha256:8154d59076667de95521fe0ed9ba39441627730a591c718aa0be6ed4a3d70627
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nerdfix/blobs/sha256:0e2875debaaa6b165db6d0a3fbb92a9593ac4eca542dea253da61f99c1581051
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nerdfix/blobs/sha256:c92886e7e4886f45c9d8f21a31389aff08e62bdf5b5bfda780b4e174c64f3656
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nerdfix/blobs/sha256:fbd2787883392023478e8725c0fc6a0181e359c390698090eafcd2a038a3358d
+sha256:
+  darwin_arm64: 8154d59076667de95521fe0ed9ba39441627730a591c718aa0be6ed4a3d70627
+  darwin_amd64: 0e2875debaaa6b165db6d0a3fbb92a9593ac4eca542dea253da61f99c1581051
+  linux_amd64: c92886e7e4886f45c9d8f21a31389aff08e62bdf5b5bfda780b4e174c64f3656
+  linux_arm64: fbd2787883392023478e8725c0fc6a0181e359c390698090eafcd2a038a3358d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

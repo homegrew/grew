@@ -1,0 +1,15 @@
+name: webarchiver
+version: 0.13
+description: Allows you to create Safari .webarchive files
+homepage: https://github.com/newzealandpaul/webarchiver
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webarchiver/blobs/sha256:1335d4184a0607f3a7ec9c5b9e1b95d7332e7c0f89fee407219150975c78646b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webarchiver/blobs/sha256:a8cb6227264b831514bb69badfc3ab0ebc70729b4dca1aecf77d3d81118b4be4
+sha256:
+  darwin_arm64: 1335d4184a0607f3a7ec9c5b9e1b95d7332e7c0f89fee407219150975c78646b
+  darwin_amd64: a8cb6227264b831514bb69badfc3ab0ebc70729b4dca1aecf77d3d81118b4be4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libwapcaplet
+version: 0.4.3
+description: String internment library
+homepage: https://www.netsurf-browser.org/projects/libwapcaplet/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwapcaplet/blobs/sha256:0fe941d8b4a3a5f43b00e57bb2d338c53fff1fa2df2070e28cc5bc3bdb4cee97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwapcaplet/blobs/sha256:15ce272c1fdafa38065a3a567fde1c81430a414ee10646ab2b2da2ec91948575
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwapcaplet/blobs/sha256:8d6d7288b404e81e20a7107f424e195d7faa5a8b8a68f5518bd8a8a0cdbdbd80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwapcaplet/blobs/sha256:805adde0d7a8af3bf673f484c91f30eec2625aa4164e9b7e1b84708623ac8041
+sha256:
+  darwin_arm64: 0fe941d8b4a3a5f43b00e57bb2d338c53fff1fa2df2070e28cc5bc3bdb4cee97
+  darwin_amd64: 15ce272c1fdafa38065a3a567fde1c81430a414ee10646ab2b2da2ec91948575
+  linux_amd64: 8d6d7288b404e81e20a7107f424e195d7faa5a8b8a68f5518bd8a8a0cdbdbd80
+  linux_arm64: 805adde0d7a8af3bf673f484c91f30eec2625aa4164e9b7e1b84708623ac8041
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

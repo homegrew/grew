@@ -1,0 +1,19 @@
+name: fleet-cli
+version: 0.14.3
+description: Manage large fleets of Kubernetes clusters
+homepage: https://github.com/rancher/fleet
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fleet-cli/blobs/sha256:8fe5b9b3a9cd99bba491b6589c0cbbc131138f6265d00ee426f9d4cfb46c5976
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fleet-cli/blobs/sha256:42af301c6895557ef3e7a96cedb26710e09b754ae64126b014661265f2c43076
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fleet-cli/blobs/sha256:e6acbd21a792fa330fd32b397792c6a51c61e8c19617d81b79301b203c1c3461
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fleet-cli/blobs/sha256:526f121f230320dcd7574dea90c0e3fc03204d7a5d1bb40bed7990702e15ac9f
+sha256:
+  darwin_arm64: 8fe5b9b3a9cd99bba491b6589c0cbbc131138f6265d00ee426f9d4cfb46c5976
+  darwin_amd64: 42af301c6895557ef3e7a96cedb26710e09b754ae64126b014661265f2c43076
+  linux_amd64: e6acbd21a792fa330fd32b397792c6a51c61e8c19617d81b79301b203c1c3461
+  linux_arm64: 526f121f230320dcd7574dea90c0e3fc03204d7a5d1bb40bed7990702e15ac9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

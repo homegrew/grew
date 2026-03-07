@@ -1,0 +1,19 @@
+name: ent
+version: 1.0
+description: Pseudorandom number sequence test program
+homepage: https://www.fourmilab.ch/random/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ent/blobs/sha256:ff6411a4c5575cb11e6a3e1177df3a8e09ea6f361f5ae870ba21745aa33f1a9c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ent/blobs/sha256:a61eafbc7b7629e3b4b2af2a14f7c08ee4374940f84aa07b76d26e730b701afb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ent/blobs/sha256:2473992bc5d574c4fff2dafdc65e23e72c6661fab3b939d6a853a98b45538e4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ent/blobs/sha256:ed90a387153d2eef621120f0fdd2ca1cdd77d5013ebfbe748ff1b824a2075592
+sha256:
+  darwin_arm64: ff6411a4c5575cb11e6a3e1177df3a8e09ea6f361f5ae870ba21745aa33f1a9c
+  darwin_amd64: a61eafbc7b7629e3b4b2af2a14f7c08ee4374940f84aa07b76d26e730b701afb
+  linux_amd64: 2473992bc5d574c4fff2dafdc65e23e72c6661fab3b939d6a853a98b45538e4e
+  linux_arm64: ed90a387153d2eef621120f0fdd2ca1cdd77d5013ebfbe748ff1b824a2075592
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

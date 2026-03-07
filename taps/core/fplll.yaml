@@ -1,0 +1,22 @@
+name: fplll
+version: 5.5.0
+description: Lattice algorithms using floating-point arithmetic
+homepage: https://github.com/fplll/fplll
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fplll/blobs/sha256:695205a1c567c9f190fa106bba08341983123bf5581b4ca39d6f4c57b536e2a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fplll/blobs/sha256:2333676f4b1a145a78f8143882a81a9b2b9c309ae7ab2f54f4736b4c88db2cb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fplll/blobs/sha256:0c9679fb7aa760cc54e7fb45622595f1c2364bacbd340275682292fe18fa89db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fplll/blobs/sha256:5c523f0fe723a7109241c868e8970ab3a3f72aa04c8cf5a71b287153355150c0
+sha256:
+  darwin_arm64: 695205a1c567c9f190fa106bba08341983123bf5581b4ca39d6f4c57b536e2a6
+  darwin_amd64: 2333676f4b1a145a78f8143882a81a9b2b9c309ae7ab2f54f4736b4c88db2cb7
+  linux_amd64: 0c9679fb7aa760cc54e7fb45622595f1c2364bacbd340275682292fe18fa89db
+  linux_arm64: 5c523f0fe723a7109241c868e8970ab3a3f72aa04c8cf5a71b287153355150c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr

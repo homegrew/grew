@@ -1,0 +1,19 @@
+name: bcal
+version: 2.5
+description: Storage conversion and expression calculator
+homepage: https://github.com/jarun/bcal
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bcal/blobs/sha256:d3282e866c6ab81d95728ba8e2f863a97bdf389417b194741c0b63f81eb65d03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bcal/blobs/sha256:27dd59b087eadb1eaea3287f49f37c12489d18a41a0f7ec2160cda03035b1805
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bcal/blobs/sha256:375590abb9324e0a68d3b0efb786624d10006fa3c8f766f4d9a2ed1745d92095
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bcal/blobs/sha256:b68b2889f1b14c7c4978f1836d7854a572ac94888f9f3f9932ecd67919fa31b2
+sha256:
+  darwin_arm64: d3282e866c6ab81d95728ba8e2f863a97bdf389417b194741c0b63f81eb65d03
+  darwin_amd64: 27dd59b087eadb1eaea3287f49f37c12489d18a41a0f7ec2160cda03035b1805
+  linux_amd64: 375590abb9324e0a68d3b0efb786624d10006fa3c8f766f4d9a2ed1745d92095
+  linux_arm64: b68b2889f1b14c7c4978f1836d7854a572ac94888f9f3f9932ecd67919fa31b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

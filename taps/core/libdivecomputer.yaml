@@ -1,0 +1,21 @@
+name: libdivecomputer
+version: 0.9.0
+description: Library for communication with various dive computers
+homepage: https://www.libdivecomputer.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdivecomputer/blobs/sha256:39dad657305fee0b4e643603b728a4c316395d17c0f7b88bd0919b662c25f827
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdivecomputer/blobs/sha256:e1aba4f43a2971def2371f2e09d0cdf1e46345d186ec0e0252cc28699e08a0ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdivecomputer/blobs/sha256:7d4b10471e85e6639f95ddfcac3e67736e9d34e726c8db0744886b6ecca25dcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdivecomputer/blobs/sha256:865c936f4b918b71680320620a856e27a210a5e5d787e3049dacaddf02580820
+sha256:
+  darwin_arm64: 39dad657305fee0b4e643603b728a4c316395d17c0f7b88bd0919b662c25f827
+  darwin_amd64: e1aba4f43a2971def2371f2e09d0cdf1e46345d186ec0e0252cc28699e08a0ae
+  linux_amd64: 7d4b10471e85e6639f95ddfcac3e67736e9d34e726c8db0744886b6ecca25dcb
+  linux_arm64: 865c936f4b918b71680320620a856e27a210a5e5d787e3049dacaddf02580820
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

@@ -1,0 +1,19 @@
+name: s-search
+version: 0.7.5
+description: Web search from the terminal
+homepage: https://github.com/zquestz/s
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s-search/blobs/sha256:f5da527e1a6e4bb8b7f9b79799312c08a1851c1090c34198b9419ee00e402a59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s-search/blobs/sha256:50de2910152b0055f4e60acb0a131d4ba1d6f9cfd8c6fc01fe3ec12ff8a6aaf3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s-search/blobs/sha256:77b55c3ddda370d75aa6e1cdee019b80de44884548c0476eb1d99ccc53722389
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s-search/blobs/sha256:b00fcf7d658b762f43a5566355864fb9ca076e5925c2e260c8ff030d867d2169
+sha256:
+  darwin_arm64: f5da527e1a6e4bb8b7f9b79799312c08a1851c1090c34198b9419ee00e402a59
+  darwin_amd64: 50de2910152b0055f4e60acb0a131d4ba1d6f9cfd8c6fc01fe3ec12ff8a6aaf3
+  linux_amd64: 77b55c3ddda370d75aa6e1cdee019b80de44884548c0476eb1d99ccc53722389
+  linux_arm64: b00fcf7d658b762f43a5566355864fb9ca076e5925c2e260c8ff030d867d2169
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

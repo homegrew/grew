@@ -1,0 +1,11 @@
+name: nightshade
+version: 1.0.2
+description: Tool that makes images unsuitable for AI model training
+homepage: https://nightshade.cs.uchicago.edu/index.html
+url:
+  darwin_arm64: https://mirror.cs.uchicago.edu/fawkes/files/nightshade/Nightshade-1.0.2-m1.dmg
+sha256:
+  darwin_arm64: d58c591bbcf4efde3c5e683658d1dde601c8bb4664e17120c64b3ffcaba0a769
+artifacts:
+  app:
+    - Nightshade.app

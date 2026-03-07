@@ -1,0 +1,19 @@
+name: cmu-pocketsphinx
+version: 5.0.4
+description: Lightweight speech recognition engine for mobile devices
+homepage: https://cmusphinx.github.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmu-pocketsphinx/blobs/sha256:c1a4f7025051837a5d8fa4386b9a2b30f64c965eaab47ab2a88bb4d480837fbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmu-pocketsphinx/blobs/sha256:2baa0d2ffe3d6d3608a51c20831cb299d4c85cf19cb048a5f04148e2abf9f163
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmu-pocketsphinx/blobs/sha256:5b035c6fbe339151707b82694ad2f9d793c2b6bb2f62bad2990d088bcbf2422b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmu-pocketsphinx/blobs/sha256:9780ac9cbd3ab1a9defa7729ed9c647e9fd6f9a72195225a786615c6ecbf6692
+sha256:
+  darwin_arm64: c1a4f7025051837a5d8fa4386b9a2b30f64c965eaab47ab2a88bb4d480837fbc
+  darwin_amd64: 2baa0d2ffe3d6d3608a51c20831cb299d4c85cf19cb048a5f04148e2abf9f163
+  linux_amd64: 5b035c6fbe339151707b82694ad2f9d793c2b6bb2f62bad2990d088bcbf2422b
+  linux_arm64: 9780ac9cbd3ab1a9defa7729ed9c647e9fd6f9a72195225a786615c6ecbf6692
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

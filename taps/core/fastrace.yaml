@@ -1,0 +1,19 @@
+name: fastrace
+version: 1.0.0
+description: Dependency-free traceroute implementation in pure C
+homepage: https://github.com/davidesantangelo/fastrace
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastrace/blobs/sha256:6833c864db6517ac2ef3272dc90fc1925e9b6709437a866b13f2c30e87fe2c2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastrace/blobs/sha256:1f5b5fe7dc3f03aee9127ecfc80fd225f01e79d580c1a1fa88351d0e136c0c59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastrace/blobs/sha256:9085419115cfb56b6b9f296442071c81da92b8d1d416f575e643d40f64e02be9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastrace/blobs/sha256:8710b017eb68e6e7bb3f34e128b4d490a5bceb66da91f31bb2801fe0c1fe7408
+sha256:
+  darwin_arm64: 6833c864db6517ac2ef3272dc90fc1925e9b6709437a866b13f2c30e87fe2c2f
+  darwin_amd64: 1f5b5fe7dc3f03aee9127ecfc80fd225f01e79d580c1a1fa88351d0e136c0c59
+  linux_amd64: 9085419115cfb56b6b9f296442071c81da92b8d1d416f575e643d40f64e02be9
+  linux_arm64: 8710b017eb68e6e7bb3f34e128b4d490a5bceb66da91f31bb2801fe0c1fe7408
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

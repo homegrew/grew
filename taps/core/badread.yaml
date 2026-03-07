@@ -1,0 +1,23 @@
+name: badread
+version: 0.4.1
+description: Long read simulator that can imitate many types of read problems
+homepage: https://github.com/rrwick/Badread
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/badread/blobs/sha256:cb61116ebca8bec9b22139071f9845635e88840e9911141661bd731c150e8027
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/badread/blobs/sha256:fb8cca5eec6cb16e79912f2ac38c4721461dd8e6278be9517fb9001311c33d7c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/badread/blobs/sha256:d9677618080b71fbe762f03a62173688539a4a56166f2f5b549e13a7aeffd586
+  linux_arm64: https://ghcr.io/v2/homebrew/core/badread/blobs/sha256:ff8895a97c93ecbf53bf382cb0d77e6b588e559beb05332da4877fb032c99916
+sha256:
+  darwin_arm64: cb61116ebca8bec9b22139071f9845635e88840e9911141661bd731c150e8027
+  darwin_amd64: fb8cca5eec6cb16e79912f2ac38c4721461dd8e6278be9517fb9001311c33d7c
+  linux_amd64: d9677618080b71fbe762f03a62173688539a4a56166f2f5b549e13a7aeffd586
+  linux_arm64: ff8895a97c93ecbf53bf382cb0d77e6b588e559beb05332da4877fb032c99916
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - numpy
+  - python@3.14
+  - scipy

@@ -1,0 +1,11 @@
+name: bitwarden
+version: 2026.2.1
+description: Desktop password and login vault
+homepage: https://bitwarden.com/
+url:
+  darwin_arm64: https://github.com/bitwarden/clients/releases/download/desktop-v2026.2.1/Bitwarden-2026.2.1-universal.dmg
+sha256:
+  darwin_arm64: 086697442f9db4eb2656704ac78261bca499510b7cdb49bfd8c08044672f1f61
+artifacts:
+  app:
+    - Bitwarden.app

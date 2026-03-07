@@ -1,0 +1,19 @@
+name: zlib-rs
+version: 0.6.3
+description: C API for zlib-rs
+homepage: https://github.com/trifectatechfoundation/zlib-rs/tree/main/libz-rs-sys-cdylib#libz-rs-sys-cdylib
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zlib-rs/blobs/sha256:93f8170aa05a16177d7a9b9e82935e1a6f4d821ee8a21c50ac75b9dcd390ffc1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zlib-rs/blobs/sha256:adf8703625fe9399c277e0ec25f4d847b33454e1c70041cc8ed1325c32aed43b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zlib-rs/blobs/sha256:b759889976a07c698067025d0eb02d3cea042f433497645349566a7d4c0dffed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zlib-rs/blobs/sha256:64bdb816774fae459ba97b7929253c33c2fd143bb02cc63acf09ba51ecff7c32
+sha256:
+  darwin_arm64: 93f8170aa05a16177d7a9b9e82935e1a6f4d821ee8a21c50ac75b9dcd390ffc1
+  darwin_amd64: adf8703625fe9399c277e0ec25f4d847b33454e1c70041cc8ed1325c32aed43b
+  linux_amd64: b759889976a07c698067025d0eb02d3cea042f433497645349566a7d4c0dffed
+  linux_arm64: 64bdb816774fae459ba97b7929253c33c2fd143bb02cc63acf09ba51ecff7c32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

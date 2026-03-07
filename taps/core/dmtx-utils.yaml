@@ -1,0 +1,30 @@
+name: dmtx-utils
+version: 0.7.6
+description: Read and write data matrix barcodes
+homepage: https://github.com/dmtx/dmtx-utils
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dmtx-utils/blobs/sha256:0d9a9f83919daef68ed7849bb0edeb5b0c99240b8854c4ea0b16aa95b061888a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dmtx-utils/blobs/sha256:e4166dd09301ba1d1bf09ca625d395b145b5271b6e8c6938c6299b1b6773eac7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dmtx-utils/blobs/sha256:86b15ef564fc867cfe335573ed209b3c96cb509859ac0507794433316d8246b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dmtx-utils/blobs/sha256:003e60bbcf5bf79f791eb3e4e695d45648ae4cdf6d2b600972d900484bc5440c
+sha256:
+  darwin_arm64: 0d9a9f83919daef68ed7849bb0edeb5b0c99240b8854c4ea0b16aa95b061888a
+  darwin_amd64: e4166dd09301ba1d1bf09ca625d395b145b5271b6e8c6938c6299b1b6773eac7
+  linux_amd64: 86b15ef564fc867cfe335573ed209b3c96cb509859ac0507794433316d8246b4
+  linux_arm64: 003e60bbcf5bf79f791eb3e4e695d45648ae4cdf6d2b600972d900484bc5440c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imagemagick
+  - libdmtx
+  - libtool
+  - fontconfig
+  - freetype
+  - gettext
+  - glib
+  - liblqr
+  - libomp
+  - little-cms2

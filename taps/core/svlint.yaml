@@ -1,0 +1,19 @@
+name: svlint
+version: 0.9.5
+description: SystemVerilog linter
+homepage: https://github.com/dalance/svlint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svlint/blobs/sha256:0c7f5d699c98ce1810f10f1341ddb6be404ef7bbb78f1691e54b1b30ca7ab11d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svlint/blobs/sha256:60542d776cd14eacbda668e5071821fd3afb3f46307c58fad1b3fb5e174bed0f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svlint/blobs/sha256:6335fa6a65a382040f5c71d8a377c97f65a0637771d955282303bbda39da9ea8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svlint/blobs/sha256:cb5f9fe1851248d81df1f8a116a6091cf818265bd85d80978f7a3a99f3fbe623
+sha256:
+  darwin_arm64: 0c7f5d699c98ce1810f10f1341ddb6be404ef7bbb78f1691e54b1b30ca7ab11d
+  darwin_amd64: 60542d776cd14eacbda668e5071821fd3afb3f46307c58fad1b3fb5e174bed0f
+  linux_amd64: 6335fa6a65a382040f5c71d8a377c97f65a0637771d955282303bbda39da9ea8
+  linux_arm64: cb5f9fe1851248d81df1f8a116a6091cf818265bd85d80978f7a3a99f3fbe623
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: blink1
+version: 2.4.0
+description: Control blink(1) indicator light
+homepage: https://blink1.thingm.com/
+license: CC-BY-SA-3.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blink1/blobs/sha256:d1ac7aaa3855a99d360f2884e59b4662dd398fd3240d2a6f247764f4468f6f53
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blink1/blobs/sha256:40fa9e8de27f1760fc30e89ec9aac8292ec38f3101e48ee795de323e64d3d138
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blink1/blobs/sha256:040a75103d64cc9ada264ea012553afe3f287cb91128373fabde2b0059a94d06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blink1/blobs/sha256:55795035b5ab8d7b87698d3aaafe2acb9ef8c1fbb6215677259f92c2a4478bb1
+sha256:
+  darwin_arm64: d1ac7aaa3855a99d360f2884e59b4662dd398fd3240d2a6f247764f4468f6f53
+  darwin_amd64: 40fa9e8de27f1760fc30e89ec9aac8292ec38f3101e48ee795de323e64d3d138
+  linux_amd64: 040a75103d64cc9ada264ea012553afe3f287cb91128373fabde2b0059a94d06
+  linux_arm64: 55795035b5ab8d7b87698d3aaafe2acb9ef8c1fbb6215677259f92c2a4478bb1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

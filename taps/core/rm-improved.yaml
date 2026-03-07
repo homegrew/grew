@@ -1,0 +1,19 @@
+name: rm-improved
+version: 0.13.1
+description: Command-line deletion tool focused on safety, ergonomics, and performance
+homepage: https://github.com/nivekuil/rip
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rm-improved/blobs/sha256:359402f5080c82f120e5acc163d030297d937245584604c5f0a8b4a7c55b6f33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rm-improved/blobs/sha256:2ae91f3e94a1df8dce11ff17712d83c086cac214944586e60cf072e4c2162400
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rm-improved/blobs/sha256:944efe35afd78abf0184654d4fbcc84b081d38c704021b5e964292016c917593
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rm-improved/blobs/sha256:e56ee338ef4aa487f6faccb3d08025df5ed64f60e25fc0137aeb2eb1d4b852cf
+sha256:
+  darwin_arm64: 359402f5080c82f120e5acc163d030297d937245584604c5f0a8b4a7c55b6f33
+  darwin_amd64: 2ae91f3e94a1df8dce11ff17712d83c086cac214944586e60cf072e4c2162400
+  linux_amd64: 944efe35afd78abf0184654d4fbcc84b081d38c704021b5e964292016c917593
+  linux_arm64: e56ee338ef4aa487f6faccb3d08025df5ed64f60e25fc0137aeb2eb1d4b852cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

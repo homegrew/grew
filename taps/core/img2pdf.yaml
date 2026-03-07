@@ -1,0 +1,23 @@
+name: img2pdf
+version: 0.6.3
+description: Convert images to PDF via direct JPEG inclusion
+homepage: https://gitlab.mister-muffin.de/josch/img2pdf
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/img2pdf/blobs/sha256:49cb1ad33cd2a254b41237c2ce064bda97dc24f74cfae3b81710ddb7d85be1c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/img2pdf/blobs/sha256:9f7d81616da3c98aaf7ae9821b1790a321bcb6c5b1ddfa93ed35d1cff5f06748
+  linux_amd64: https://ghcr.io/v2/homebrew/core/img2pdf/blobs/sha256:2fe8d3cf44d3c9199684b3f457b4aba7397f8c864d57ee60a0b09ac042717c60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/img2pdf/blobs/sha256:f8dfa6ee752c5a807e635c0dae1d411f62f0b2be1a7ea63df6367936555eacfb
+sha256:
+  darwin_arm64: 49cb1ad33cd2a254b41237c2ce064bda97dc24f74cfae3b81710ddb7d85be1c9
+  darwin_amd64: 9f7d81616da3c98aaf7ae9821b1790a321bcb6c5b1ddfa93ed35d1cff5f06748
+  linux_amd64: 2fe8d3cf44d3c9199684b3f457b4aba7397f8c864d57ee60a0b09ac042717c60
+  linux_arm64: f8dfa6ee752c5a807e635c0dae1d411f62f0b2be1a7ea63df6367936555eacfb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pillow
+  - python@3.14
+  - qpdf

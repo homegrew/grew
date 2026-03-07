@@ -1,0 +1,19 @@
+name: kn
+version: 1.21.0
+description: Command-line interface for managing Knative Serving and Eventing resources
+homepage: https://github.com/knative/client
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kn/blobs/sha256:cf30b69b4f1c305714768b732015dd7a703bd536e4a0a5021274fc0f17a991a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kn/blobs/sha256:5ff6f8b240ea7e60bf2b022b6cc9d65ae7ec8506cc190465eafa34ce48312283
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kn/blobs/sha256:d74f940af91492cee17f8547b8fe03a0805e1d32858604326bc20bfd932b8bba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kn/blobs/sha256:2d3c49ba8034b4b91f75e8427d829f9d470506c5cbeacae309a8083f52f3bbb9
+sha256:
+  darwin_arm64: cf30b69b4f1c305714768b732015dd7a703bd536e4a0a5021274fc0f17a991a3
+  darwin_amd64: 5ff6f8b240ea7e60bf2b022b6cc9d65ae7ec8506cc190465eafa34ce48312283
+  linux_amd64: d74f940af91492cee17f8547b8fe03a0805e1d32858604326bc20bfd932b8bba
+  linux_arm64: 2d3c49ba8034b4b91f75e8427d829f9d470506c5cbeacae309a8083f52f3bbb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

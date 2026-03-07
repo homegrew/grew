@@ -1,0 +1,19 @@
+name: leaps
+version: 0.9.1
+description: Collaborative web-based text editing service written in Golang
+homepage: https://github.com/jeffail/leaps
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leaps/blobs/sha256:103b30a47094dfd56795de6c70cf5baa989711429147f6db55328529aa2e8823
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leaps/blobs/sha256:da2312d241d0de20edb44ec000d71972e548030ff9d47ebceb3ed5d7d8078487
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leaps/blobs/sha256:8c1f94e5c2315b93194e5b5573de8ac9d57fe7b791e20538839df29b940d4824
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leaps/blobs/sha256:b7dc2241a2ae6660fa4d19bca4286fdbc3fbca175fc76706dec413a743bf8522
+sha256:
+  darwin_arm64: 103b30a47094dfd56795de6c70cf5baa989711429147f6db55328529aa2e8823
+  darwin_amd64: da2312d241d0de20edb44ec000d71972e548030ff9d47ebceb3ed5d7d8078487
+  linux_amd64: 8c1f94e5c2315b93194e5b5573de8ac9d57fe7b791e20538839df29b940d4824
+  linux_arm64: b7dc2241a2ae6660fa4d19bca4286fdbc3fbca175fc76706dec413a743bf8522
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

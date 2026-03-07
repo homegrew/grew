@@ -1,0 +1,19 @@
+name: pueue
+version: 4.0.4
+description: Command-line tool for managing long-running shell commands
+homepage: https://github.com/Nukesor/pueue
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pueue/blobs/sha256:d367b404f349334dbfe0e5aab8395787cdc5d4d37350694cb7123e05ef4e1a50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pueue/blobs/sha256:f25d53eb6eb6c5308a3ca6a8869d3b2ebc3dd4cd2a1e5832db0a05b9ff4b8251
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pueue/blobs/sha256:ba114cb8a262c8fc2673019d9c3ea66e4247181a425536d71a5b16f8288d8494
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pueue/blobs/sha256:735ff6f62896ab9cf12e72b11d46c17f5b8d6a221dc1273e3b0a5199c62d1740
+sha256:
+  darwin_arm64: d367b404f349334dbfe0e5aab8395787cdc5d4d37350694cb7123e05ef4e1a50
+  darwin_amd64: f25d53eb6eb6c5308a3ca6a8869d3b2ebc3dd4cd2a1e5832db0a05b9ff4b8251
+  linux_amd64: ba114cb8a262c8fc2673019d9c3ea66e4247181a425536d71a5b16f8288d8494
+  linux_arm64: 735ff6f62896ab9cf12e72b11d46c17f5b8d6a221dc1273e3b0a5199c62d1740
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

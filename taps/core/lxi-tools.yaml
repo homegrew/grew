@@ -1,0 +1,33 @@
+name: lxi-tools
+version: 2.8
+description: Open source tools for managing network attached LXI compatible instruments
+homepage: https://github.com/lxi-tools/lxi-tools
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lxi-tools/blobs/sha256:fb9a2f4a9856de51cd7b6f14d9a81ceb995fcc8405f83349701068a428c653f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lxi-tools/blobs/sha256:00cef47683c1a2b249a1ee5fea163275d0c8f883f23434d6e8d23e3b35d457a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lxi-tools/blobs/sha256:878f35d6506d8e5b11f207a6cfb2bbcc4a0e9c013a27b11a9f9990888d38b523
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lxi-tools/blobs/sha256:5d9c0399c7871eab15d70272c56a636e8fbbf4c755107b7411957dc1c44e83be
+sha256:
+  darwin_arm64: fb9a2f4a9856de51cd7b6f14d9a81ceb995fcc8405f83349701068a428c653f0
+  darwin_amd64: 00cef47683c1a2b249a1ee5fea163275d0c8f883f23434d6e8d23e3b35d457a8
+  linux_amd64: 878f35d6506d8e5b11f207a6cfb2bbcc4a0e9c013a27b11a9f9990888d38b523
+  linux_arm64: 5d9c0399c7871eab15d70272c56a636e8fbbf4c755107b7411957dc1c44e83be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - desktop-file-utils
+  - gdk-pixbuf
+  - glib
+  - gtk4
+  - gtksourceview5
+  - hicolor-icon-theme
+  - json-glib
+  - libadwaita
+  - liblxi
+  - lua
+  - readline
+  - gettext

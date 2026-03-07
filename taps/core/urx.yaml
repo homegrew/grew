@@ -1,0 +1,19 @@
+name: urx
+version: 0.9.0
+description: Extracts URLs from OSINT Archives for Security Insights
+homepage: https://github.com/hahwul/urx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urx/blobs/sha256:865f128ab19987d17236c1555768a52dcc5e5372a4440311b8e5f6713f1099c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urx/blobs/sha256:9460b73fd81f82ba9000d80736b1a55c2199e8356f91ea3c36cbde4e8b95157e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urx/blobs/sha256:8eaf1b6bfe9e371e1005a9659125ecf545cb6c18dfbee03d0a853d355da240fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urx/blobs/sha256:5b714988c3733c987a0c3178f8b6efba31f683c704f89b20efdd0ba9988e28d9
+sha256:
+  darwin_arm64: 865f128ab19987d17236c1555768a52dcc5e5372a4440311b8e5f6713f1099c7
+  darwin_amd64: 9460b73fd81f82ba9000d80736b1a55c2199e8356f91ea3c36cbde4e8b95157e
+  linux_amd64: 8eaf1b6bfe9e371e1005a9659125ecf545cb6c18dfbee03d0a853d355da240fb
+  linux_arm64: 5b714988c3733c987a0c3178f8b6efba31f683c704f89b20efdd0ba9988e28d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

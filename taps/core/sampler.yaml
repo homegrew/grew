@@ -1,0 +1,19 @@
+name: sampler
+version: 1.1.0
+description: Tool for shell commands execution, visualization and alerting
+homepage: https://sampler.dev
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sampler/blobs/sha256:aca2f9375a5efc43bcd98549ac7d7ba6becd88a86ba41b5791b9d751260d0616
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sampler/blobs/sha256:d85ed3f3b130be8bf7141e9c7b236668c1f758f0a1ed86e7cb0d6d98d1457ae8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sampler/blobs/sha256:71d294afc5ecad041132801fa2d6848f8e4fa1ca1756b2d17b440f23ccaa11ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sampler/blobs/sha256:2bb024eb1121fcbdb7591fc43d76192122a98b1e0f8805151fac95108e8ea20a
+sha256:
+  darwin_arm64: aca2f9375a5efc43bcd98549ac7d7ba6becd88a86ba41b5791b9d751260d0616
+  darwin_amd64: d85ed3f3b130be8bf7141e9c7b236668c1f758f0a1ed86e7cb0d6d98d1457ae8
+  linux_amd64: 71d294afc5ecad041132801fa2d6848f8e4fa1ca1756b2d17b440f23ccaa11ec
+  linux_arm64: 2bb024eb1121fcbdb7591fc43d76192122a98b1e0f8805151fac95108e8ea20a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

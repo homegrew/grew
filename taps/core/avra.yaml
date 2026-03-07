@@ -1,0 +1,19 @@
+name: avra
+version: 1.4.2
+description: Assembler for the Atmel AVR microcontroller family
+homepage: https://github.com/Ro5bert/avra
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/avra/blobs/sha256:00e1f1cfce097d5ffae9d1c99fec5a225eddc92bf806227ee55aa50c585d442f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/avra/blobs/sha256:30d659e79b1dbe58516222f50deed2673bcd6a5945b01e4b04ec66aec84df77a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avra/blobs/sha256:db5dc219fb53c28e191c9f2a4127efe2de53a27e7526b2b0d6b705c4ff57ee69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avra/blobs/sha256:12e71df9eb59795607bf04ad34be2fd45cafe2b73fa1e5eeb94197d31c40b13c
+sha256:
+  darwin_arm64: 00e1f1cfce097d5ffae9d1c99fec5a225eddc92bf806227ee55aa50c585d442f
+  darwin_amd64: 30d659e79b1dbe58516222f50deed2673bcd6a5945b01e4b04ec66aec84df77a
+  linux_amd64: db5dc219fb53c28e191c9f2a4127efe2de53a27e7526b2b0d6b705c4ff57ee69
+  linux_arm64: 12e71df9eb59795607bf04ad34be2fd45cafe2b73fa1e5eeb94197d31c40b13c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

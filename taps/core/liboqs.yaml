@@ -1,0 +1,21 @@
+name: liboqs
+version: 0.15.0
+description: Library for quantum-safe cryptography
+homepage: https://openquantumsafe.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liboqs/blobs/sha256:66a64fa3c0a45af280679399c5834168bdb8ad8e663336071a2e6922e3d60026
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liboqs/blobs/sha256:27fd2fc81eed55057d6b3e4bff5f79987fc8ba4c6122475f1dc79f5aae6d41f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liboqs/blobs/sha256:6716f67f3792c83e20161edbf20cc11cf8b6d9e7506cba2271b5986fcb5d2b55
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liboqs/blobs/sha256:44c8ae89e2ecbc135ba7f6ffb9b5c159671c00e6f5633dc785fdca1b820ea4c4
+sha256:
+  darwin_arm64: 66a64fa3c0a45af280679399c5834168bdb8ad8e663336071a2e6922e3d60026
+  darwin_amd64: 27fd2fc81eed55057d6b3e4bff5f79987fc8ba4c6122475f1dc79f5aae6d41f2
+  linux_amd64: 6716f67f3792c83e20161edbf20cc11cf8b6d9e7506cba2271b5986fcb5d2b55
+  linux_arm64: 44c8ae89e2ecbc135ba7f6ffb9b5c159671c00e6f5633dc785fdca1b820ea4c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

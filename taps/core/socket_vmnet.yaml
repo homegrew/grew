@@ -1,0 +1,16 @@
+name: socket_vmnet
+version: 1.2.2
+description: Daemon to provide vmnet.framework support for rootless QEMU
+homepage: https://github.com/lima-vm/socket_vmnet
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/socket_vmnet/blobs/sha256:15b3703e48a5f03c38e5f854d8c50dc24a532138af2fc94587767d19d7e2eea5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/socket_vmnet/blobs/sha256:a9c7d0037ddec9a8e178f8ac0dfa567a625be9412a690d42818b59acf5ea94d2
+sha256:
+  darwin_arm64: 15b3703e48a5f03c38e5f854d8c50dc24a532138af2fc94587767d19d7e2eea5
+  darwin_amd64: a9c7d0037ddec9a8e178f8ac0dfa567a625be9412a690d42818b59acf5ea94d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

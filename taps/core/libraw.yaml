@@ -1,0 +1,23 @@
+name: libraw
+version: 0.22.0
+description: Library for reading RAW files from digital photo cameras
+homepage: https://www.libraw.org/
+license: LGPL-2.1-only OR CDDL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libraw/blobs/sha256:84d64ea419852d30e62b845b818bf7787cdea94a320963e3c5b2aef4343cc9fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libraw/blobs/sha256:9bb269ce1bd8563a0ca1941a1d40bb267e4870823ad086d3fb4fc066295c03ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libraw/blobs/sha256:e670484b1d2a43f0a67e54418f3bfbe0cc152b9940d6a6fa118820a54d6cb472
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libraw/blobs/sha256:e9287051f314cfdc92f385016fb6b234054b62ceaaa96d4eff9ad00d2ce08fc5
+sha256:
+  darwin_arm64: 84d64ea419852d30e62b845b818bf7787cdea94a320963e3c5b2aef4343cc9fd
+  darwin_amd64: 9bb269ce1bd8563a0ca1941a1d40bb267e4870823ad086d3fb4fc066295c03ed
+  linux_amd64: e670484b1d2a43f0a67e54418f3bfbe0cc152b9940d6a6fa118820a54d6cb472
+  linux_arm64: e9287051f314cfdc92f385016fb6b234054b62ceaaa96d4eff9ad00d2ce08fc5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - little-cms2
+  - libomp

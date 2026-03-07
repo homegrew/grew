@@ -1,0 +1,46 @@
+name: imagemagick-full
+version: 7.1.2-15
+description: Tools and libraries to manipulate images in many formats
+homepage: https://imagemagick.org/index.php
+license: ImageMagick
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imagemagick-full/blobs/sha256:b2bc8cc8995fa93bf5fbe9c2383f71977b21df09d5b85ed12c5f603319efed36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imagemagick-full/blobs/sha256:c9e7eebff6e9c72102b5b58fddb080d6c650fc827d19f176e0717fb9b9047480
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imagemagick-full/blobs/sha256:add8ab3590d7371eac4772d2704d90ce113c8d8f4e45782ace34ed2b86375038
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imagemagick-full/blobs/sha256:647fc418e11b89683ed8593908083d4720502e0a5f6dcc3fe8eae46d486bd661
+sha256:
+  darwin_arm64: b2bc8cc8995fa93bf5fbe9c2383f71977b21df09d5b85ed12c5f603319efed36
+  darwin_amd64: c9e7eebff6e9c72102b5b58fddb080d6c650fc827d19f176e0717fb9b9047480
+  linux_amd64: add8ab3590d7371eac4772d2704d90ce113c8d8f4e45782ace34ed2b86375038
+  linux_arm64: 647fc418e11b89683ed8593908083d4720502e0a5f6dcc3fe8eae46d486bd661
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - freetype
+  - ghostscript
+  - glib
+  - jpeg-turbo
+  - jpeg-xl
+  - libheif
+  - liblqr
+  - libpng
+  - libraw
+  - librsvg
+  - libtiff
+  - libtool
+  - libultrahdr
+  - libzip
+  - little-cms2
+  - openexr
+  - openjpeg
+  - webp
+  - xz
+  - gdk-pixbuf
+  - gettext
+  - imath
+  - libomp
+keg_only: true

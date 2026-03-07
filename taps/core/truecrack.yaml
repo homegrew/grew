@@ -1,0 +1,19 @@
+name: truecrack
+version: 3.5
+description: Brute-force password cracker for TrueCrypt
+homepage: https://github.com/lvaccaro/truecrack
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/truecrack/blobs/sha256:fa006f2b40a1844949c625ee3ded3b0626420c1969b7595b5081ba471a8ce234
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/truecrack/blobs/sha256:1cf756cf417d9ae2be44f0d27e56b2ed785524df77cdbae2ff8f05e50805bdab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/truecrack/blobs/sha256:13ed8fdfc8e7a6289dd469d0dbc4bac91f00d8917d3609e5b2ac44d1d641fb86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/truecrack/blobs/sha256:fd2c903e910b747ac43ee9604851ea08131dbda84ed405b43f51110b3c29037a
+sha256:
+  darwin_arm64: fa006f2b40a1844949c625ee3ded3b0626420c1969b7595b5081ba471a8ce234
+  darwin_amd64: 1cf756cf417d9ae2be44f0d27e56b2ed785524df77cdbae2ff8f05e50805bdab
+  linux_amd64: 13ed8fdfc8e7a6289dd469d0dbc4bac91f00d8917d3609e5b2ac44d1d641fb86
+  linux_arm64: fd2c903e910b747ac43ee9604851ea08131dbda84ed405b43f51110b3c29037a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: osu@tachyon
+version: 2026.305.0-lazer
+description: Rhythm game
+homepage: https://github.com/ppy/osu/
+url:
+  darwin_arm64: https://github.com/ppy/osu/releases/download/2026.305.0-lazer/osu.app.Apple.Silicon.zip
+sha256:
+  darwin_arm64: f93db919dc99367597e67a6c18a71fcf8f6a067d02af6d8baec36d8aeb8cbde9
+artifacts:
+  app:
+    - "osu!.app"

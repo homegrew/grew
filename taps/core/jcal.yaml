@@ -1,0 +1,19 @@
+name: jcal
+version: 0.4.1
+description: UNIX-cal-like tool to display Jalali calendar
+homepage: https://savannah.nongnu.org/projects/jcal/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jcal/blobs/sha256:aba60dbce990bacb3f58d4a08e1a5251e74d2d3f57965eb206f2bc15a7bd2390
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jcal/blobs/sha256:ec81894b74a70c48921e691f448f6d30e12d04cbfd84d1463d6419464f1cedfc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jcal/blobs/sha256:e7b67ec668f4880126342f70bb106b66744773ebbe8afc9e11eacf96d5a11108
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jcal/blobs/sha256:e7566343f085ff5aa380a9a52b6ef5299c1b09f6dfc629fdcd9fe1937fb424f3
+sha256:
+  darwin_arm64: aba60dbce990bacb3f58d4a08e1a5251e74d2d3f57965eb206f2bc15a7bd2390
+  darwin_amd64: ec81894b74a70c48921e691f448f6d30e12d04cbfd84d1463d6419464f1cedfc
+  linux_amd64: e7b67ec668f4880126342f70bb106b66744773ebbe8afc9e11eacf96d5a11108
+  linux_arm64: e7566343f085ff5aa380a9a52b6ef5299c1b09f6dfc629fdcd9fe1937fb424f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

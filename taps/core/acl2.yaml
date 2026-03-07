@@ -1,0 +1,19 @@
+name: acl2
+version: 8.6
+description: Logic and programming language in which you can model computer systems
+homepage: https://www.cs.utexas.edu/~moore/acl2/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/acl2/blobs/sha256:1206a65d92771cb92c143f845aea5d823cd51e9509c4a9634f81ca6dbc34093c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/acl2/blobs/sha256:19f12e7e0c35bfae87ee58e66f0ec527138e1aa88120b173acce226b4d3b3a1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/acl2/blobs/sha256:36e546567d2531e1d88437d92508f20bf5800e016b5ac7b48afa805a8168ac90
+sha256:
+  darwin_arm64: 1206a65d92771cb92c143f845aea5d823cd51e9509c4a9634f81ca6dbc34093c
+  darwin_amd64: 19f12e7e0c35bfae87ee58e66f0ec527138e1aa88120b173acce226b4d3b3a1a
+  linux_amd64: 36e546567d2531e1d88437d92508f20bf5800e016b5ac7b48afa805a8168ac90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sbcl

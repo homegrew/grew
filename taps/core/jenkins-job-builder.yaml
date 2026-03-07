@@ -1,0 +1,23 @@
+name: jenkins-job-builder
+version: 6.4.4
+description: Configure Jenkins jobs with YAML files stored in Git
+homepage: https://docs.openstack.org/infra/jenkins-job-builder/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jenkins-job-builder/blobs/sha256:b439c039a35d760e22b0e72074231a60ebde6b8c0b0e5871b5db0cf95fd85563
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jenkins-job-builder/blobs/sha256:f1fb505216a8345c58cc6bd15d3b9647db938b55ab1fb9252e6899e7790a2bc7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jenkins-job-builder/blobs/sha256:4ea1e152ff095cfc65a624f312ae43b5fafecefbef928009a3db311e2488c7ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jenkins-job-builder/blobs/sha256:19c0a0f41a969499dd996559ebea537381d9898fe203a2e9dd0ec09fbae66e25
+sha256:
+  darwin_arm64: b439c039a35d760e22b0e72074231a60ebde6b8c0b0e5871b5db0cf95fd85563
+  darwin_amd64: f1fb505216a8345c58cc6bd15d3b9647db938b55ab1fb9252e6899e7790a2bc7
+  linux_amd64: 4ea1e152ff095cfc65a624f312ae43b5fafecefbef928009a3db311e2488c7ed
+  linux_arm64: 19c0a0f41a969499dd996559ebea537381d9898fe203a2e9dd0ec09fbae66e25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: permify
+version: 1.6.4
+description: "Open-source authorization service & policy engine based on Google Zanzibar"
+homepage: https://github.com/Permify/permify
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/permify/blobs/sha256:60339e3c5ed59376374fdd193411015979ccc1feb1c855148f1050510497048d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/permify/blobs/sha256:dc0f3a0ab5f7955b4d544996e07bc2c4e833f3de7152e89276db8c0cbd1c8d7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/permify/blobs/sha256:58c29084d9f27637d15d633079ffef4082b75c5a390e576b71c79037280dbadf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/permify/blobs/sha256:8043145719942f9e6bb93c75beaa0f59f6fcabfa958fb22c3e41f34196a54ead
+sha256:
+  darwin_arm64: 60339e3c5ed59376374fdd193411015979ccc1feb1c855148f1050510497048d
+  darwin_amd64: dc0f3a0ab5f7955b4d544996e07bc2c4e833f3de7152e89276db8c0cbd1c8d7a
+  linux_amd64: 58c29084d9f27637d15d633079ffef4082b75c5a390e576b71c79037280dbadf
+  linux_arm64: 8043145719942f9e6bb93c75beaa0f59f6fcabfa958fb22c3e41f34196a54ead
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

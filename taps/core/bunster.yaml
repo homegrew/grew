@@ -1,0 +1,21 @@
+name: bunster
+version: 0.14.0
+description: Compile shell scripts to static binaries
+homepage: https://bunster.netlify.app/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bunster/blobs/sha256:358db3b08f9fabcf962e0342003873fd4c2aa20cad61a6bf41ee2ae61a8b53f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bunster/blobs/sha256:c154f3dafa865c73e98519d29dab24692c12e418a6ef4dbb67d8f5da945634b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bunster/blobs/sha256:3a171f3ab3ab56a91691574af1b10aa145a625438e06a9e98e1d075eee9ba02e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bunster/blobs/sha256:cafa15d4686916f99ebf6db783521a268f3faf1172c820e5fa22a3f92b2bd56e
+sha256:
+  darwin_arm64: 358db3b08f9fabcf962e0342003873fd4c2aa20cad61a6bf41ee2ae61a8b53f6
+  darwin_amd64: c154f3dafa865c73e98519d29dab24692c12e418a6ef4dbb67d8f5da945634b4
+  linux_amd64: 3a171f3ab3ab56a91691574af1b10aa145a625438e06a9e98e1d075eee9ba02e
+  linux_arm64: cafa15d4686916f99ebf6db783521a268f3faf1172c820e5fa22a3f92b2bd56e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

@@ -1,0 +1,21 @@
+name: sdl2_net
+version: 2.2.0
+description: Small sample cross-platform networking library
+homepage: https://github.com/libsdl-org/SDL_net
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl2_net/blobs/sha256:fe6ac7f5d82fd91ba2ec6f8969327bc15ede3f548172cd990dfa820795640a8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl2_net/blobs/sha256:f433beb9819e47f6f85360f57cb5d925b4bb97e00f24637ab1847549b4d0c6ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl2_net/blobs/sha256:aa5783e335578a64d84051b2fc247b91585a8950f0406fc8b34ad06ea879872f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl2_net/blobs/sha256:ecd7a11a898ae2a291af9042b510a7e73537e11bac88c0655513450d378e1d3c
+sha256:
+  darwin_arm64: fe6ac7f5d82fd91ba2ec6f8969327bc15ede3f548172cd990dfa820795640a8b
+  darwin_amd64: f433beb9819e47f6f85360f57cb5d925b4bb97e00f24637ab1847549b4d0c6ae
+  linux_amd64: aa5783e335578a64d84051b2fc247b91585a8950f0406fc8b34ad06ea879872f
+  linux_arm64: ecd7a11a898ae2a291af9042b510a7e73537e11bac88c0655513450d378e1d3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

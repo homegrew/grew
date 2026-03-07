@@ -1,0 +1,15 @@
+name: nef
+version: 0.7.1
+description: Steroids for Xcode Playgrounds
+homepage: https://nef.bow-swift.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nef/blobs/sha256:f5be34019bcdbf094f59babc2e715f8fb410fbd8547dfd42a926478e125f249b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nef/blobs/sha256:2b261d31f2eb2c26978e7bced45707202d1bf571ab3f679958c135578a5633a0
+sha256:
+  darwin_arm64: f5be34019bcdbf094f59babc2e715f8fb410fbd8547dfd42a926478e125f249b
+  darwin_amd64: 2b261d31f2eb2c26978e7bced45707202d1bf571ab3f679958c135578a5633a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

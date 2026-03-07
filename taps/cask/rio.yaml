@@ -1,0 +1,14 @@
+name: rio
+version: 0.2.37
+description: Hardware-accelerated GPU terminal emulator
+homepage: https://github.com/raphamorim/rio/
+url:
+  darwin_arm64: https://github.com/raphamorim/rio/releases/download/v0.2.37/rio.dmg
+sha256:
+  darwin_arm64: bce440a131407d8f99e2177becedf57070085ced9bfc9827e1197ea6ef64d84b
+artifacts:
+  app:
+    - rio.app
+  bin:
+    - rio
+    - ~/.terminfo/72/rio

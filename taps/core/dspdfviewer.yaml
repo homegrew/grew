@@ -1,0 +1,32 @@
+name: dspdfviewer
+version: 1.15.1
+description: Dual-Screen PDF Viewer for latex-beamer
+homepage: https://dspdfviewer.danny-edel.de/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dspdfviewer/blobs/sha256:6ad754c8cc8521b9b1d0bc4b70539654a85d21825f8d7f9b3da942b3fe792e1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dspdfviewer/blobs/sha256:9cf13da6a32b08051b614bfe1ca5c46a44c4f8082461bb717f0c8df12621cd98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dspdfviewer/blobs/sha256:634605018de8fd7ec5995d15f25fe2a622b1e78d89b74e77fba6f00a2e32b533
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dspdfviewer/blobs/sha256:6916efa94ae9dde44f132bccaf1a7ba400e68c73f3975ed403719275dff24d23
+sha256:
+  darwin_arm64: 6ad754c8cc8521b9b1d0bc4b70539654a85d21825f8d7f9b3da942b3fe792e1b
+  darwin_amd64: 9cf13da6a32b08051b614bfe1ca5c46a44c4f8082461bb717f0c8df12621cd98
+  linux_amd64: 634605018de8fd7ec5995d15f25fe2a622b1e78d89b74e77fba6f00a2e32b533
+  linux_arm64: 6916efa94ae9dde44f132bccaf1a7ba400e68c73f3975ed403719275dff24d23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cairo
+  - fontconfig
+  - freetype
+  - glib
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openjpeg
+  - poppler-qt5
+  - qt@5
+  - gettext

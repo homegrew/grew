@@ -1,0 +1,19 @@
+name: typst
+version: 0.14.2
+description: Markup-based typesetting system
+homepage: https://typst.app/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typst/blobs/sha256:2738746c9daf5fb61f4876795e566c5588ff02470c327c0d3f6af4db503499c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typst/blobs/sha256:62962c34e2c3f8fc075fa8ca04e88965c2ae2715d09b96607781230eca0a8eac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typst/blobs/sha256:2fabd914210b5cd80e65fd8884ef448f4317920ab09dc890b07578947f9da1bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typst/blobs/sha256:ad6687a01c4aa1c72e513d29f57160feea70698a748c6556308d573b091b7603
+sha256:
+  darwin_arm64: 2738746c9daf5fb61f4876795e566c5588ff02470c327c0d3f6af4db503499c8
+  darwin_amd64: 62962c34e2c3f8fc075fa8ca04e88965c2ae2715d09b96607781230eca0a8eac
+  linux_amd64: 2fabd914210b5cd80e65fd8884ef448f4317920ab09dc890b07578947f9da1bb
+  linux_arm64: ad6687a01c4aa1c72e513d29f57160feea70698a748c6556308d573b091b7603
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

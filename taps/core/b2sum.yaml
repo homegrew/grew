@@ -1,0 +1,19 @@
+name: b2sum
+version: 20190724
+description: BLAKE2 b2sum reference binary
+homepage: https://github.com/BLAKE2/BLAKE2
+license: CC0-1.0 OR OpenSSL OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/b2sum/blobs/sha256:2c13b1572d5c05d0c824ffa7cc06a385d7a99c7e03ab695701a4a95964677abd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/b2sum/blobs/sha256:a7e35223790e6b251dbad52a84e5cd3c1bbfe774039afdfcbc6d40a7537126df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/b2sum/blobs/sha256:3de701be2858013ed380a477ce9b911db189812984990cd420b9f6d5df7a82bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/b2sum/blobs/sha256:045bcf83cd9918310902dcf419763b59bfa86c1cce653d2469a760e3cff05219
+sha256:
+  darwin_arm64: 2c13b1572d5c05d0c824ffa7cc06a385d7a99c7e03ab695701a4a95964677abd
+  darwin_amd64: a7e35223790e6b251dbad52a84e5cd3c1bbfe774039afdfcbc6d40a7537126df
+  linux_amd64: 3de701be2858013ed380a477ce9b911db189812984990cd420b9f6d5df7a82bd
+  linux_arm64: 045bcf83cd9918310902dcf419763b59bfa86c1cce653d2469a760e3cff05219
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

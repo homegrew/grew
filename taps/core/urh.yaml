@@ -1,0 +1,24 @@
+name: urh
+version: 2.10.0
+description: Universal Radio Hacker
+homepage: https://github.com/jopohl/urh
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urh/blobs/sha256:d045c9c12bfa3c15c40058b62984619e91fc1e7883b39ff2693e140e806f71fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urh/blobs/sha256:cb5dc00b8b7b0a563fc01e313b2a42aab04446fb17a02577d115a725ed336e12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urh/blobs/sha256:07c1c8a80f51c56feeed46ceeb671839ef925ddafffefc669ce3a67fc0c5947f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urh/blobs/sha256:519ef56378fa53f474781233ceb35cd6fc46b21c9be649aed61089846c3b1ee1
+sha256:
+  darwin_arm64: d045c9c12bfa3c15c40058b62984619e91fc1e7883b39ff2693e140e806f71fc
+  darwin_amd64: cb5dc00b8b7b0a563fc01e313b2a42aab04446fb17a02577d115a725ed336e12
+  linux_amd64: 07c1c8a80f51c56feeed46ceeb671839ef925ddafffefc669ce3a67fc0c5947f
+  linux_arm64: 519ef56378fa53f474781233ceb35cd6fc46b21c9be649aed61089846c3b1ee1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hackrf
+  - numpy
+  - pyqt
+  - python@3.14

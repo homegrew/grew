@@ -1,0 +1,19 @@
+name: kyma-cli
+version: 3.3.1
+description: Kyma command-line interface
+homepage: https://kyma-project.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kyma-cli/blobs/sha256:2b2857650aad511a6859bbd23f0a8dfbc9d844b9bdfd2fd13ffed7c07d7d8e08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kyma-cli/blobs/sha256:c36e4fb091e8ca9a70c3cf4bec4b0fa1a059f99463b64b4b8ed2a29c28322300
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kyma-cli/blobs/sha256:e9e3a3051c0ab24d090f521d47063c93537c175cb0bd2abb4169c42107cefbd7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kyma-cli/blobs/sha256:e78168e250054f1ddb267b060adab1e4c096ecebf334c674dc05b9c36254514f
+sha256:
+  darwin_arm64: 2b2857650aad511a6859bbd23f0a8dfbc9d844b9bdfd2fd13ffed7c07d7d8e08
+  darwin_amd64: c36e4fb091e8ca9a70c3cf4bec4b0fa1a059f99463b64b4b8ed2a29c28322300
+  linux_amd64: e9e3a3051c0ab24d090f521d47063c93537c175cb0bd2abb4169c42107cefbd7
+  linux_arm64: e78168e250054f1ddb267b060adab1e4c096ecebf334c674dc05b9c36254514f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

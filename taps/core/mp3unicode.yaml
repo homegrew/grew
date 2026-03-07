@@ -1,0 +1,21 @@
+name: mp3unicode
+version: 1.2.1
+description: Command-line utility to convert mp3 tags between different encodings
+homepage: https://mp3unicode.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3unicode/blobs/sha256:75d5fc48faf45713ba932224204b1a5334a4f0aff1955c22913fa40238d457cd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3unicode/blobs/sha256:81dcda2481711046268ce10a1980298d3ea38e3c3c94bba92bf510d2e4fc62e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3unicode/blobs/sha256:4360c1dd812097207ccf5ba329d8cf1082e152a78fba69a8f1273c29ac0bb89f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3unicode/blobs/sha256:54bfbaee2ebfdcef4e35e69cf8b9224e477b357d449e2badd94580014e0682e5
+sha256:
+  darwin_arm64: 75d5fc48faf45713ba932224204b1a5334a4f0aff1955c22913fa40238d457cd
+  darwin_amd64: 81dcda2481711046268ce10a1980298d3ea38e3c3c94bba92bf510d2e4fc62e0
+  linux_amd64: 4360c1dd812097207ccf5ba329d8cf1082e152a78fba69a8f1273c29ac0bb89f
+  linux_arm64: 54bfbaee2ebfdcef4e35e69cf8b9224e477b357d449e2badd94580014e0682e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - taglib

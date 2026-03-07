@@ -1,0 +1,21 @@
+name: bic
+version: 1.0.0
+description: C interpreter and API explorer
+homepage: https://github.com/hexagonal-sun/bic
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bic/blobs/sha256:95d273611ee6c62e77dbcf51696f2d1af33b20e76586a35d2e93975b92257cbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bic/blobs/sha256:4a93afe6568b694f333695ec33727a9545af2f981c546eb560205099afee3c68
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bic/blobs/sha256:18e8e74a600a6fd58a87eb2592dbc38c079bf9fd08b2e672c0e9a73ea66c0cce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bic/blobs/sha256:5d43b0b4a77554c2f5d43f0956994c5008368bd40d9246a364708457c8833932
+sha256:
+  darwin_arm64: 95d273611ee6c62e77dbcf51696f2d1af33b20e76586a35d2e93975b92257cbe
+  darwin_amd64: 4a93afe6568b694f333695ec33727a9545af2f981c546eb560205099afee3c68
+  linux_amd64: 18e8e74a600a6fd58a87eb2592dbc38c079bf9fd08b2e672c0e9a73ea66c0cce
+  linux_arm64: 5d43b0b4a77554c2f5d43f0956994c5008368bd40d9246a364708457c8833932
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

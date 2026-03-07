@@ -1,0 +1,19 @@
+name: kind
+version: 0.31.0
+description: Run local Kubernetes cluster in Docker
+homepage: https://kind.sigs.k8s.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kind/blobs/sha256:294786a773053174dd0207abd9f19a9149e9104f6f4bd025e4922ef18056e77d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kind/blobs/sha256:8991293d714f2a97961a74aaa270d45c1368c8dee3570d54f3bf1533c98b6a99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kind/blobs/sha256:a0725c9f5c415c504480815ddacad100756f3cc90601ec8f8f96f28fe3730d61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kind/blobs/sha256:fefb317de154724a6bef983c1e50f1709bab098b3ff829fe4aacef141307529a
+sha256:
+  darwin_arm64: 294786a773053174dd0207abd9f19a9149e9104f6f4bd025e4922ef18056e77d
+  darwin_amd64: 8991293d714f2a97961a74aaa270d45c1368c8dee3570d54f3bf1533c98b6a99
+  linux_amd64: a0725c9f5c415c504480815ddacad100756f3cc90601ec8f8f96f28fe3730d61
+  linux_arm64: fefb317de154724a6bef983c1e50f1709bab098b3ff829fe4aacef141307529a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

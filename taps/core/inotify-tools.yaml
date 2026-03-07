@@ -1,0 +1,15 @@
+name: inotify-tools
+version: 4.25.9.0
+description: C library and command-line programs providing a simple interface to inotify
+homepage: https://github.com/inotify-tools/inotify-tools
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inotify-tools/blobs/sha256:12f260b16fa1d829c38b346113f590a45260f3f75fb4d701a0c4fb35e11b054c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inotify-tools/blobs/sha256:398790457297fce591badb0fc5315513fb73eab4757f4ff6430eff016e30124c
+sha256:
+  linux_amd64: 12f260b16fa1d829c38b346113f590a45260f3f75fb4d701a0c4fb35e11b054c
+  linux_arm64: 398790457297fce591badb0fc5315513fb73eab4757f4ff6430eff016e30124c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

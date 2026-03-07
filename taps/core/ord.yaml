@@ -1,0 +1,19 @@
+name: ord
+version: 0.26.0
+description: Index, block explorer, and command-line wallet
+homepage: https://ordinals.com/
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ord/blobs/sha256:d9243b7e1b58214843a049eb7c7b9d2a5e72ef5f20fc2f78466554cab77b4618
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ord/blobs/sha256:1cf494361600f3aabb1ee8c3c6ce84a4f552517ed98747c0dc496f4f3a04f44d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ord/blobs/sha256:57e79a1f7c83a91da7d10b137b7ea9ba963d3fb2d66704649b40c962747f8269
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ord/blobs/sha256:98cc6d078045f424ad899e8c5b23be08c4aeeaadf1e1ca4685862cb47cd14927
+sha256:
+  darwin_arm64: d9243b7e1b58214843a049eb7c7b9d2a5e72ef5f20fc2f78466554cab77b4618
+  darwin_amd64: 1cf494361600f3aabb1ee8c3c6ce84a4f552517ed98747c0dc496f4f3a04f44d
+  linux_amd64: 57e79a1f7c83a91da7d10b137b7ea9ba963d3fb2d66704649b40c962747f8269
+  linux_arm64: 98cc6d078045f424ad899e8c5b23be08c4aeeaadf1e1ca4685862cb47cd14927
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

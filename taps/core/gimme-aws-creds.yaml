@@ -1,0 +1,24 @@
+name: gimme-aws-creds
+version: 2.8.2
+description: CLI to retrieve AWS credentials from Okta
+homepage: https://github.com/Nike-Inc/gimme-aws-creds
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gimme-aws-creds/blobs/sha256:6d5b602a3e658ba05973fae0430ee9578f6a1323609ee1c745ad63928392ccf4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gimme-aws-creds/blobs/sha256:78a52fe44060b7e6d817e8c233c67d12016b65be0f42ceac7bd949f855dca9f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gimme-aws-creds/blobs/sha256:3a3f8a0229adde3063cfa50d1c4a3801024c77855cc83660839231685dd0a98c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gimme-aws-creds/blobs/sha256:6c75159fa799a086c2dee047c48697627cd7f8e618a61342c0d62d77dbe0647b
+sha256:
+  darwin_arm64: 6d5b602a3e658ba05973fae0430ee9578f6a1323609ee1c745ad63928392ccf4
+  darwin_amd64: 78a52fe44060b7e6d817e8c233c67d12016b65be0f42ceac7bd949f855dca9f7
+  linux_amd64: 3a3f8a0229adde3063cfa50d1c4a3801024c77855cc83660839231685dd0a98c
+  linux_arm64: 6c75159fa799a086c2dee047c48697627cd7f8e618a61342c0d62d77dbe0647b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

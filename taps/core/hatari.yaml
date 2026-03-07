@@ -1,0 +1,22 @@
+name: hatari
+version: 2.6.1
+description: Atari ST/STE/TT/Falcon emulator
+homepage: https://www.hatari-emu.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hatari/blobs/sha256:59c4605bc0598ee25df898492190eeaf8156d177ffb41529b830d1df1c08fa4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hatari/blobs/sha256:306b691f4301f03902b61716da6532a5fdff119e88a58f51893a62855270ed19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hatari/blobs/sha256:7ab439d6a576b5afe27ad1546ffe23fab4bc7cc8ec92ac71fef92dc098c48182
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hatari/blobs/sha256:3f9133ea1e05b9d5fa6328e6b780a93be6cb682cc45c6deba48e6c9e4e6fae19
+sha256:
+  darwin_arm64: 59c4605bc0598ee25df898492190eeaf8156d177ffb41529b830d1df1c08fa4d
+  darwin_amd64: 306b691f4301f03902b61716da6532a5fdff119e88a58f51893a62855270ed19
+  linux_amd64: 7ab439d6a576b5afe27ad1546ffe23fab4bc7cc8ec92ac71fef92dc098c48182
+  linux_arm64: 3f9133ea1e05b9d5fa6328e6b780a93be6cb682cc45c6deba48e6c9e4e6fae19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - sdl2

@@ -1,0 +1,19 @@
+name: gpp
+version: 2.28
+description: General-purpose preprocessor with customizable syntax
+homepage: https://logological.org/gpp
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpp/blobs/sha256:08419eecda9054ce21e532801325406a18a5bd942851db8e7e8f6773d3076fcd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpp/blobs/sha256:9a24d307bb2b2049a7ff1c354441a3426ded7ffb8a01520d44c20d8a3487b35e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpp/blobs/sha256:be597ec6ac79fcb2df75a6dcf090a1f888cfff801f4da2c154105bf36ca0acd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpp/blobs/sha256:e2d7e8d993410beea27cca67e6e196df49e8c27d536fff9a1d26423259ed28e1
+sha256:
+  darwin_arm64: 08419eecda9054ce21e532801325406a18a5bd942851db8e7e8f6773d3076fcd
+  darwin_amd64: 9a24d307bb2b2049a7ff1c354441a3426ded7ffb8a01520d44c20d8a3487b35e
+  linux_amd64: be597ec6ac79fcb2df75a6dcf090a1f888cfff801f4da2c154105bf36ca0acd0
+  linux_arm64: e2d7e8d993410beea27cca67e6e196df49e8c27d536fff9a1d26423259ed28e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

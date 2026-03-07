@@ -1,0 +1,21 @@
+name: apache-polaris
+version: 1.3.0
+description: Interoperable, open source catalog for Apache Iceberg
+homepage: https://polaris.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apache-polaris/blobs/sha256:7fb75b040fe393a5b225af7ce9779e619a500f55bc87a75081bf824047e8510e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apache-polaris/blobs/sha256:e56e2613dd258ec7ee6c2029a038fed632320f207256081159177a81c98ecfc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apache-polaris/blobs/sha256:560c8e1e3afc88b55ff8f0f6995c6d997ba53c856dcc79730e4b0671f1536fcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apache-polaris/blobs/sha256:35ab94550957709bdaa5443e748d94a9821fa7d09ff91c7ce2d508c5f982e9d5
+sha256:
+  darwin_arm64: 7fb75b040fe393a5b225af7ce9779e619a500f55bc87a75081bf824047e8510e
+  darwin_amd64: e56e2613dd258ec7ee6c2029a038fed632320f207256081159177a81c98ecfc3
+  linux_amd64: 560c8e1e3afc88b55ff8f0f6995c6d997ba53c856dcc79730e4b0671f1536fcb
+  linux_arm64: 35ab94550957709bdaa5443e748d94a9821fa7d09ff91c7ce2d508c5f982e9d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

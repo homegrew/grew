@@ -1,0 +1,22 @@
+name: perl
+version: 5.42.0
+description: Highly capable, feature-rich programming language
+homepage: https://www.perl.org/
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/perl/blobs/sha256:ada9d51dfe97ea70568c95793a3e47802b14474483b28a74de7ac04fcf9aad24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/perl/blobs/sha256:666f349bcc58a6f431d39e4332dbefbb3f5a81c7fe945286e0fc3cfa25886b30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/perl/blobs/sha256:d787972ec3fa6de4a80d180e73cc92f6a7b5509db278c95f1a09e6c558d5d26e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/perl/blobs/sha256:f7fa9e1db53cb62a4c77f2c1b4a694344af2ccde2edb4e6128dcc16fbb13b878
+sha256:
+  darwin_arm64: ada9d51dfe97ea70568c95793a3e47802b14474483b28a74de7ac04fcf9aad24
+  darwin_amd64: 666f349bcc58a6f431d39e4332dbefbb3f5a81c7fe945286e0fc3cfa25886b30
+  linux_amd64: d787972ec3fa6de4a80d180e73cc92f6a7b5509db278c95f1a09e6c558d5d26e
+  linux_arm64: f7fa9e1db53cb62a4c77f2c1b4a694344af2ccde2edb4e6128dcc16fbb13b878
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - gdbm

@@ -1,0 +1,22 @@
+name: backupninja
+version: 1.2.2
+description: Backup automation tool
+homepage: https://0xacab.org/liberate/backupninja
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/backupninja/blobs/sha256:d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/backupninja/blobs/sha256:cbf31b7459787f092bd97a26c0a34998dd62552a9ffd074bae6e6701c1bc040e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/backupninja/blobs/sha256:c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/backupninja/blobs/sha256:c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65
+sha256:
+  darwin_arm64: d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b
+  darwin_amd64: cbf31b7459787f092bd97a26c0a34998dd62552a9ffd074bae6e6701c1bc040e
+  linux_amd64: c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65
+  linux_arm64: c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dialog
+  - bash

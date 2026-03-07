@@ -1,0 +1,24 @@
+name: flac123
+version: 2.1.1
+description: Command-line program for playing FLAC audio files
+homepage: https://github.com/flac123/flac123
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flac123/blobs/sha256:f7767128158cc744c62fda8c0c6e9c22dd2732e5e04e15b47b79d6bdef89c4a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flac123/blobs/sha256:6a11b91f03fd6601ce00e41b8835d2635a428ce78bdf1dce23db3b4b79da9365
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flac123/blobs/sha256:3afd087ed1f308b93681775fc2f35572d49156534cfba450cc3aaef4b0d10885
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flac123/blobs/sha256:782a7b74ca5a89826daf8870300d177f0c982f519a7c8f577ec331c4604b3c13
+sha256:
+  darwin_arm64: f7767128158cc744c62fda8c0c6e9c22dd2732e5e04e15b47b79d6bdef89c4a1
+  darwin_amd64: 6a11b91f03fd6601ce00e41b8835d2635a428ce78bdf1dce23db3b4b79da9365
+  linux_amd64: 3afd087ed1f308b93681775fc2f35572d49156534cfba450cc3aaef4b0d10885
+  linux_arm64: 782a7b74ca5a89826daf8870300d177f0c982f519a7c8f577ec331c4604b3c13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libao
+  - libogg
+  - popt

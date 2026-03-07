@@ -1,0 +1,19 @@
+name: websocketd
+version: 0.4.1
+description: WebSockets the Unix way
+homepage: http://websocketd.com
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/websocketd/blobs/sha256:be906b57564f8192370b7cdbe3febd1feff0c77ef06e84a4a56470d3af071ee9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/websocketd/blobs/sha256:3da7e9916ce61c0d78db8922d45937c631286400daad6493ebac334dd731c07f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/websocketd/blobs/sha256:74fdd936d2632aaf2e484ef2f796d8d2f4f281f643ab23c414708363116ca9b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/websocketd/blobs/sha256:adb13dc1219a6097b858acc72220eeba2500ef475b975062538cc2034d7ef49a
+sha256:
+  darwin_arm64: be906b57564f8192370b7cdbe3febd1feff0c77ef06e84a4a56470d3af071ee9
+  darwin_amd64: 3da7e9916ce61c0d78db8922d45937c631286400daad6493ebac334dd731c07f
+  linux_amd64: 74fdd936d2632aaf2e484ef2f796d8d2f4f281f643ab23c414708363116ca9b8
+  linux_arm64: adb13dc1219a6097b858acc72220eeba2500ef475b975062538cc2034d7ef49a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

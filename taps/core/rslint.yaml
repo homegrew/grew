@@ -1,0 +1,19 @@
+name: rslint
+version: 0.3.2
+description: Extremely fast JavaScript and TypeScript linter
+homepage: https://rslint.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rslint/blobs/sha256:a889ed0f08b3102adb969159e71ba2d28aa7c40b1809c5fa10d7d57350e9731f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rslint/blobs/sha256:a5c91e6d84fd85d4d8914caea6d4d261a514ce5c4bfa722d423f2bb78615c402
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rslint/blobs/sha256:e037bb0d096c7f58a2f36fa404af706c0a0d5814eb6cf659b30690604b15e9b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rslint/blobs/sha256:464a3bdc1181ddc042da940b4ed478ab546c5f62975a767f4494bea2b80407c5
+sha256:
+  darwin_arm64: a889ed0f08b3102adb969159e71ba2d28aa7c40b1809c5fa10d7d57350e9731f
+  darwin_amd64: a5c91e6d84fd85d4d8914caea6d4d261a514ce5c4bfa722d423f2bb78615c402
+  linux_amd64: e037bb0d096c7f58a2f36fa404af706c0a0d5814eb6cf659b30690604b15e9b8
+  linux_arm64: 464a3bdc1181ddc042da940b4ed478ab546c5f62975a767f4494bea2b80407c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

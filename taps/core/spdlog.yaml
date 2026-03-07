@@ -1,0 +1,21 @@
+name: spdlog
+version: 1.17.0
+description: Super fast C++ logging library
+homepage: https://github.com/gabime/spdlog
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spdlog/blobs/sha256:69443892af6734072aadc934bec0118cab7084e0dc71458e9a2e5942bdf24910
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spdlog/blobs/sha256:26eb42de91edf67fd36f48ad416eda0da84c101b99dac85057087727fb974c0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spdlog/blobs/sha256:ff71007269f44e4b90e0e3cabc7d4969ebddac67b2f0469d39a9b403d85c05b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spdlog/blobs/sha256:ea613072e73e447b4faba3f7ed8e03cda77dc0427ada1299ea429e7a4fea2604
+sha256:
+  darwin_arm64: 69443892af6734072aadc934bec0118cab7084e0dc71458e9a2e5942bdf24910
+  darwin_amd64: 26eb42de91edf67fd36f48ad416eda0da84c101b99dac85057087727fb974c0c
+  linux_amd64: ff71007269f44e4b90e0e3cabc7d4969ebddac67b2f0469d39a9b403d85c05b8
+  linux_arm64: ea613072e73e447b4faba3f7ed8e03cda77dc0427ada1299ea429e7a4fea2604
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt

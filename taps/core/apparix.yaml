@@ -1,0 +1,19 @@
+name: apparix
+version: 11-062
+description: File system navigation via bookmarking directories
+homepage: https://micans.org/apparix/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apparix/blobs/sha256:be86c4c318c45b049209995839f8bc3d5fd58d872595672ccd5399e7d081f77e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apparix/blobs/sha256:57755cd04d59e11e725962bb70a274dfc5c732c4020691431d73d1c3f14f7ecb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apparix/blobs/sha256:0597c7147ee8a66fe491ccb3e8c386e1580953cc1eedbc9ddbb0349037f312d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apparix/blobs/sha256:b30647a456f6b9b5d8990f73fc9cf1ef2f4456a666123f396914fb56a136af18
+sha256:
+  darwin_arm64: be86c4c318c45b049209995839f8bc3d5fd58d872595672ccd5399e7d081f77e
+  darwin_amd64: 57755cd04d59e11e725962bb70a274dfc5c732c4020691431d73d1c3f14f7ecb
+  linux_amd64: 0597c7147ee8a66fe491ccb3e8c386e1580953cc1eedbc9ddbb0349037f312d7
+  linux_arm64: b30647a456f6b9b5d8990f73fc9cf1ef2f4456a666123f396914fb56a136af18
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

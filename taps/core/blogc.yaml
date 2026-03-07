@@ -1,0 +1,19 @@
+name: blogc
+version: 0.20.1
+description: Blog compiler with template engine and markup language
+homepage: https://blogc.rgm.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blogc/blobs/sha256:54a616937c29e0fa6c68db2372e4d577e26632bf6ef9c3454f8f3571a9b28251
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blogc/blobs/sha256:c00764c88556c239149297995b261c607c8f733fa90774bbf7f35cf32c9ee4b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blogc/blobs/sha256:5188455011d94f56149adb535c9a159e925eba66e28ab4362639ebb3e72ba5ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blogc/blobs/sha256:dbf177c5bfece6942cd368cee01aec2fa762f4ecc02178441d3f35d26974c03b
+sha256:
+  darwin_arm64: 54a616937c29e0fa6c68db2372e4d577e26632bf6ef9c3454f8f3571a9b28251
+  darwin_amd64: c00764c88556c239149297995b261c607c8f733fa90774bbf7f35cf32c9ee4b0
+  linux_amd64: 5188455011d94f56149adb535c9a159e925eba66e28ab4362639ebb3e72ba5ba
+  linux_arm64: dbf177c5bfece6942cd368cee01aec2fa762f4ecc02178441d3f35d26974c03b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: yacas
+version: 1.9.1
+description: General purpose computer algebra system
+homepage: https://www.yacas.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yacas/blobs/sha256:8a8b658cbf16d46fc9c8284203475de7487cdd16120d1e32af3334a71b9cbb31
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yacas/blobs/sha256:4db9a0ab3d4901693dace66c15c4cc089057e23a589cee0174e7926fd07dc27e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yacas/blobs/sha256:a754ab2fbf89ee984bdca70f8cdfec48f2323a8d4acba7813d7b7aa621df99d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yacas/blobs/sha256:2f451d69b6a8e395921daba81adfa55b8bb7230c4a4ea1b6e524b9ba1fadcc14
+sha256:
+  darwin_arm64: 8a8b658cbf16d46fc9c8284203475de7487cdd16120d1e32af3334a71b9cbb31
+  darwin_amd64: 4db9a0ab3d4901693dace66c15c4cc089057e23a589cee0174e7926fd07dc27e
+  linux_amd64: a754ab2fbf89ee984bdca70f8cdfec48f2323a8d4acba7813d7b7aa621df99d9
+  linux_arm64: 2f451d69b6a8e395921daba81adfa55b8bb7230c4a4ea1b6e524b9ba1fadcc14
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

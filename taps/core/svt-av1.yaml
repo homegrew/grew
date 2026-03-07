@@ -1,0 +1,19 @@
+name: svt-av1
+version: 4.0.1
+description: AV1 encoder
+homepage: https://gitlab.com/AOMediaCodec/SVT-AV1
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svt-av1/blobs/sha256:f7bebdeefcfa1362b2a1ac7cd354f72468b396e6b969a9aa21f5a0bfa331aa6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svt-av1/blobs/sha256:98cf4aab77023163121366a30dc3a224a6e0cabb79965ac8d7512a1888c361db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svt-av1/blobs/sha256:0d9573303a838e5714aaacb71f6ea7cb88b9bcd6063f0854b7db3c13bfdc0dc6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svt-av1/blobs/sha256:6deb25e23c0701c15e68d5af77d213fccd82f6c8d9463cb3f388e74e6ef202da
+sha256:
+  darwin_arm64: f7bebdeefcfa1362b2a1ac7cd354f72468b396e6b969a9aa21f5a0bfa331aa6b
+  darwin_amd64: 98cf4aab77023163121366a30dc3a224a6e0cabb79965ac8d7512a1888c361db
+  linux_amd64: 0d9573303a838e5714aaacb71f6ea7cb88b9bcd6063f0854b7db3c13bfdc0dc6
+  linux_arm64: 6deb25e23c0701c15e68d5af77d213fccd82f6c8d9463cb3f388e74e6ef202da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

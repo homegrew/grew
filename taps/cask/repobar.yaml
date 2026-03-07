@@ -1,0 +1,11 @@
+name: repobar
+version: 0.2.0
+description: Menu bar dashboard for GitHub repository health
+homepage: https://repobar.app/
+url:
+  darwin_arm64: https://github.com/steipete/RepoBar/releases/download/v0.2.0/RepoBar-0.2.0.zip
+sha256:
+  darwin_arm64: dcc628c8073185ab0ea669190dfe88828368c307b3f7f21ca38f5ce320ccce2f
+artifacts:
+  app:
+    - RepoBar.app

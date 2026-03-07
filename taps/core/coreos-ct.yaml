@@ -1,0 +1,19 @@
+name: coreos-ct
+version: 0.9.4
+description: Convert a Container Linux Config into Ignition
+homepage: https://flatcar-linux.org/docs/latest/provisioning/config-transpiler/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coreos-ct/blobs/sha256:bbe2be9e5b17ddf5d2be97069bc9552adbe793b6739c6b6dfd07028af3aa1cc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coreos-ct/blobs/sha256:fb8712c14dc8c22531d57db5761aae9c52864bfb8c1c4efa3aa0a478a316c145
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coreos-ct/blobs/sha256:ebf7582f950db123c1c3e6281ca2947c95abe58b116af11681a24085d1eb1e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coreos-ct/blobs/sha256:1aea93999354ff21f48cf727352ce20bb8f0b1c52abee5c33f321020bb375cdf
+sha256:
+  darwin_arm64: bbe2be9e5b17ddf5d2be97069bc9552adbe793b6739c6b6dfd07028af3aa1cc3
+  darwin_amd64: fb8712c14dc8c22531d57db5761aae9c52864bfb8c1c4efa3aa0a478a316c145
+  linux_amd64: ebf7582f950db123c1c3e6281ca2947c95abe58b116af11681a24085d1eb1e82
+  linux_arm64: 1aea93999354ff21f48cf727352ce20bb8f0b1c52abee5c33f321020bb375cdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

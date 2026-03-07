@@ -1,0 +1,22 @@
+name: libicns
+version: 0.8.1
+description: Library for manipulation of the macOS .icns resource format
+homepage: https://icns.sourceforge.io/
+license: LGPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libicns/blobs/sha256:1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libicns/blobs/sha256:5abbb72a1c8631d30b54ea627c2548f7501b2ad1d958c8ee4ccb9abfe5862a2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libicns/blobs/sha256:6738c70d5d8f9025be9ba3cd49b1e2b2510b6c05b6a27b7605e39d60e27566df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libicns/blobs/sha256:86cdaaef4ee42294bb74455c92d6581d84189df3231686354316a9286a651742
+sha256:
+  darwin_arm64: 1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f
+  darwin_amd64: 5abbb72a1c8631d30b54ea627c2548f7501b2ad1d958c8ee4ccb9abfe5862a2d
+  linux_amd64: 6738c70d5d8f9025be9ba3cd49b1e2b2510b6c05b6a27b7605e39d60e27566df
+  linux_arm64: 86cdaaef4ee42294bb74455c92d6581d84189df3231686354316a9286a651742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jasper
+  - libpng

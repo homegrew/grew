@@ -1,0 +1,19 @@
+name: drill
+version: 0.9.0
+description: HTTP load testing application written in Rust
+homepage: https://github.com/fcsonline/drill
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/drill/blobs/sha256:13ae6a7c0008708c01518af46e904e89ad976758c366d4e01b532b705629bf57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/drill/blobs/sha256:9a0743d5cb645e6323ed57e8775844a617e967f9b9736862a4065101617c0a96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/drill/blobs/sha256:6aa7af21ce2ba9c1963ba394dd94bc2f34156e93cb3a150faa794f0a0148e79c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/drill/blobs/sha256:e5dfdcd4ad9eb746c6742df724fa52365cf9284c14abd4dc4de5a76dcfb00ca6
+sha256:
+  darwin_arm64: 13ae6a7c0008708c01518af46e904e89ad976758c366d4e01b532b705629bf57
+  darwin_amd64: 9a0743d5cb645e6323ed57e8775844a617e967f9b9736862a4065101617c0a96
+  linux_amd64: 6aa7af21ce2ba9c1963ba394dd94bc2f34156e93cb3a150faa794f0a0148e79c
+  linux_arm64: e5dfdcd4ad9eb746c6742df724fa52365cf9284c14abd4dc4de5a76dcfb00ca6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

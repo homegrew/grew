@@ -1,0 +1,19 @@
+name: go-task
+version: 3.48.0
+description: Task is a task runner/build tool that aims to be simpler and easier to use
+homepage: https://taskfile.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-task/blobs/sha256:328d885e406c56dfa8d89a909b4febf592ff22850acf4e68394f92e4317582dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-task/blobs/sha256:ccae21c25fe047925191d87f26b2d0578489a2697b96591b041ab8f010a67058
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-task/blobs/sha256:76154811a8827f0c84259fa70c311fbc6c785569af46bae786a6ece2fa3f5ac6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-task/blobs/sha256:4a3b8e759e87d9d1c8094e3741825005a0934981546390d2325feddc4eb53eed
+sha256:
+  darwin_arm64: 328d885e406c56dfa8d89a909b4febf592ff22850acf4e68394f92e4317582dd
+  darwin_amd64: ccae21c25fe047925191d87f26b2d0578489a2697b96591b041ab8f010a67058
+  linux_amd64: 76154811a8827f0c84259fa70c311fbc6c785569af46bae786a6ece2fa3f5ac6
+  linux_arm64: 4a3b8e759e87d9d1c8094e3741825005a0934981546390d2325feddc4eb53eed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

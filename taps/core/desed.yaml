@@ -1,0 +1,19 @@
+name: desed
+version: 1.2.2
+description: Debugger for Sed
+homepage: https://soptik.tech/articles/building-desed-the-sed-debugger.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/desed/blobs/sha256:96d7601c2d5624d9675565db1db7cf42269d14f4c0020658042019738a126f45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/desed/blobs/sha256:2160dd4cfb4d6c16d5563112a6871a012c2968e2313514c48cf7323fa2d1e714
+  linux_amd64: https://ghcr.io/v2/homebrew/core/desed/blobs/sha256:74c7143b9c97e0dfa4bd338b665434834ffd17d5c1cd3582f346ae7498b5f2ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/desed/blobs/sha256:3d7939fa70a8187c637bc200bbdcf9f3ff97950032b92425a2c9ccdbdb8141f2
+sha256:
+  darwin_arm64: 96d7601c2d5624d9675565db1db7cf42269d14f4c0020658042019738a126f45
+  darwin_amd64: 2160dd4cfb4d6c16d5563112a6871a012c2968e2313514c48cf7323fa2d1e714
+  linux_amd64: 74c7143b9c97e0dfa4bd338b665434834ffd17d5c1cd3582f346ae7498b5f2ad
+  linux_arm64: 3d7939fa70a8187c637bc200bbdcf9f3ff97950032b92425a2c9ccdbdb8141f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

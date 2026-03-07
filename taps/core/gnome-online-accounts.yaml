@@ -1,0 +1,29 @@
+name: gnome-online-accounts
+version: 3.56.4
+description: Single sign-on framework for GNOME
+homepage: https://gitlab.gnome.org/GNOME/gnome-online-accounts
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnome-online-accounts/blobs/sha256:fcff01578e2b85045e52c1b497a0d32a3e6a9fbaa1affe65cd9f7c58fef49e37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnome-online-accounts/blobs/sha256:a306d8a694a13ffe284a51455667244df35d8b420e7445de1c15978bb924b028
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnome-online-accounts/blobs/sha256:235cb8c71ebb3a6c451a793d446d6d7ac6394c673aa9af1a2d79870d129367b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnome-online-accounts/blobs/sha256:4d61155bde2872039fa2cf83db69d1649b140e21fb7518b89275f0c3af83062d
+sha256:
+  darwin_arm64: fcff01578e2b85045e52c1b497a0d32a3e6a9fbaa1affe65cd9f7c58fef49e37
+  darwin_amd64: a306d8a694a13ffe284a51455667244df35d8b420e7445de1c15978bb924b028
+  linux_amd64: 235cb8c71ebb3a6c451a793d446d6d7ac6394c673aa9af1a2d79870d129367b4
+  linux_arm64: 4d61155bde2872039fa2cf83db69d1649b140e21fb7518b89275f0c3af83062d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk4
+  - json-glib
+  - libadwaita
+  - libgoa
+  - librest
+  - libsecret
+  - libsoup
+  - gettext

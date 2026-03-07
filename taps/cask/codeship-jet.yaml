@@ -1,0 +1,11 @@
+name: codeship-jet
+version: 2.15.0
+description: CI/CD as a service
+homepage: https://docs.cloudbees.com/docs/cloudbees-codeship/latest/
+url:
+  darwin_arm64: https://codeship-jet-releases.s3.amazonaws.com/2.15.0/jet-darwin_amd64_2.15.0.tar.gz
+sha256:
+  darwin_arm64: 1b07ea4c3efd48a030943d0fde81a1e4ec1fa0a1c35a06ba52b9ac031f5aef3f
+artifacts:
+  bin:
+    - jet

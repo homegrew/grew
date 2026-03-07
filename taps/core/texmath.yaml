@@ -1,0 +1,21 @@
+name: texmath
+version: 0.13.1
+description: Haskell library for converting LaTeX math to MathML
+homepage: https://johnmacfarlane.net/texmath.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texmath/blobs/sha256:6c626851aa43ad8e20d494ea773623b8f0c5d671feb6d803e634058bb30fda1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texmath/blobs/sha256:28fb4dbe143f713f1f7baac2c6ca3a6fb4f97734a7458ebcf85d0b376e5573ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texmath/blobs/sha256:6928e2fda9738c9c8bac7c54f53f86d8720198178ce9dafa9412cc1b1f6238eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texmath/blobs/sha256:dfd50d962a89098c6eeea6845da9fd85c6f04b23b3bf7f7faed93028771cd264
+sha256:
+  darwin_arm64: 6c626851aa43ad8e20d494ea773623b8f0c5d671feb6d803e634058bb30fda1b
+  darwin_amd64: 28fb4dbe143f713f1f7baac2c6ca3a6fb4f97734a7458ebcf85d0b376e5573ef
+  linux_amd64: 6928e2fda9738c9c8bac7c54f53f86d8720198178ce9dafa9412cc1b1f6238eb
+  linux_arm64: dfd50d962a89098c6eeea6845da9fd85c6f04b23b3bf7f7faed93028771cd264
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

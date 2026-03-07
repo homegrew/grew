@@ -1,0 +1,19 @@
+name: flux
+version: 0.199.0
+description: Lightweight scripting language for querying databases
+homepage: https://www.influxdata.com/products/flux/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flux/blobs/sha256:92439376ca69ff4f1cc6fbf9e2919df9922b9400808767cc5a4701e5a14f32d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flux/blobs/sha256:25b8f043f3f68a1e15ee41a42c1ac267d760c183b1affc0c9b902383774dac6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flux/blobs/sha256:19eca4bdb796d7924eefdebf3a06f60f10aa8a1e8a5e59a87794b5aaed239f6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flux/blobs/sha256:9897e2edab7c9c303704b04de67807b82e062b7256d6d13249c1908ff07b6c86
+sha256:
+  darwin_arm64: 92439376ca69ff4f1cc6fbf9e2919df9922b9400808767cc5a4701e5a14f32d3
+  darwin_amd64: 25b8f043f3f68a1e15ee41a42c1ac267d760c183b1affc0c9b902383774dac6b
+  linux_amd64: 19eca4bdb796d7924eefdebf3a06f60f10aa8a1e8a5e59a87794b5aaed239f6e
+  linux_arm64: 9897e2edab7c9c303704b04de67807b82e062b7256d6d13249c1908ff07b6c86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

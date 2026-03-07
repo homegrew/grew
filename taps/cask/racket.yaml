@@ -1,0 +1,32 @@
+name: racket
+version: 9.1
+description: Modern programming language in the Lisp/Scheme family
+homepage: https://racket-lang.org/
+url:
+  darwin_arm64: https://mirror.racket-lang.org/installers/9.1/racket-9.1-aarch64-macosx-cs.dmg
+sha256:
+  darwin_arm64: 6a4b1311a1bfddeb217849ca86ae7c64160e056930c30c6a9b5ac14ab29ec052
+artifacts:
+  bin:
+    - drracket
+    - gracket
+    - gracket-text
+    - mred
+    - mred-text
+    - mzc
+    - mzpp
+    - mzscheme
+    - mztext
+    - pdf-slatex
+    - plt-games
+    - plt-help
+    - plt-r5rs
+    - plt-r6rs
+    - plt-web-server
+    - raco
+    - scribble
+    - setup-plt
+    - slatex
+    - slideshow
+    - swindle
+    - racket

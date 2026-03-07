@@ -1,0 +1,32 @@
+name: gnunet
+version: 0.26.2
+description: Framework for distributed, secure and privacy-preserving applications
+homepage: https://gnunet.org/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnunet/blobs/sha256:0099b68cd02f69fa642e104d27056897daa0d38a58c1f30b8036b18068388c65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnunet/blobs/sha256:1d8203547ab28301c849c6538ed54b84903b0fc49073a59e13fc487d6727641c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnunet/blobs/sha256:39d321f4c6a0b161dda0108d6f8f54f51ac246f130124894c4575ba9987ebadb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnunet/blobs/sha256:c1d5ea4893427f4f7e76fdb70f53e948af231fc1c3289e68a71e716c1fc9976b
+sha256:
+  darwin_arm64: 0099b68cd02f69fa642e104d27056897daa0d38a58c1f30b8036b18068388c65
+  darwin_amd64: 1d8203547ab28301c849c6538ed54b84903b0fc49073a59e13fc487d6727641c
+  linux_amd64: 39d321f4c6a0b161dda0108d6f8f54f51ac246f130124894c4575ba9987ebadb
+  linux_arm64: c1d5ea4893427f4f7e76fdb70f53e948af231fc1c3289e68a71e716c1fc9976b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - gmp
+  - gnutls
+  - jansson
+  - libextractor
+  - libgcrypt
+  - libidn2
+  - libmicrohttpd
+  - libsodium
+  - libtool
+  - libunistring
+  - libgpg-error

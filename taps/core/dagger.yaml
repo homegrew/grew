@@ -1,0 +1,19 @@
+name: dagger
+version: 0.20.1
+description: Portable devkit for CI/CD pipelines
+homepage: https://dagger.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dagger/blobs/sha256:bc0d92157d6c4bfdfa4a5caf462840e235e00f12a02d763e30a6c097d6fe21cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dagger/blobs/sha256:a66ba331f39f0993230dd04da9602fa192c4f9b146b215597cd7a888308c7af3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dagger/blobs/sha256:283214a3ed3b70d81af85f0e59a4fb9ffa41fa6c6eb517859a7761aee3bef70e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dagger/blobs/sha256:9b4b555b90d407e1e9e04fc96cb16c42d06f65fa23b9f461cc1ad6bfa5278806
+sha256:
+  darwin_arm64: bc0d92157d6c4bfdfa4a5caf462840e235e00f12a02d763e30a6c097d6fe21cf
+  darwin_amd64: a66ba331f39f0993230dd04da9602fa192c4f9b146b215597cd7a888308c7af3
+  linux_amd64: 283214a3ed3b70d81af85f0e59a4fb9ffa41fa6c6eb517859a7761aee3bef70e
+  linux_arm64: 9b4b555b90d407e1e9e04fc96cb16c42d06f65fa23b9f461cc1ad6bfa5278806
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

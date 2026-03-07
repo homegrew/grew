@@ -1,0 +1,19 @@
+name: swiftdraw
+version: 0.27.0
+description: Convert SVG into PDF, PNG, JPEG or SF Symbol
+homepage: https://github.com/swhitty/SwiftDraw
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swiftdraw/blobs/sha256:9860713c999ea29ab81e6351c350ff12212b0336729e5f8b8a418ca0520522b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swiftdraw/blobs/sha256:5332f74973a30b2b62cbbed253d4f2912fbb13f8c9229c9753a15599ccdc7f40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swiftdraw/blobs/sha256:596db70b9e5539d5c640134776bbf211fe5050ee4f6f9c8fa32108354fc89fda
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swiftdraw/blobs/sha256:3ca202714934f64462d5bf5c1616bbaed44eef28543adc71c83cd6001bcf66d6
+sha256:
+  darwin_arm64: 9860713c999ea29ab81e6351c350ff12212b0336729e5f8b8a418ca0520522b0
+  darwin_amd64: 5332f74973a30b2b62cbbed253d4f2912fbb13f8c9229c9753a15599ccdc7f40
+  linux_amd64: 596db70b9e5539d5c640134776bbf211fe5050ee4f6f9c8fa32108354fc89fda
+  linux_arm64: 3ca202714934f64462d5bf5c1616bbaed44eef28543adc71c83cd6001bcf66d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

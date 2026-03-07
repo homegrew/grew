@@ -1,0 +1,19 @@
+name: libjuice
+version: 1.7.0
+description: UDP Interactive Connectivity Establishment (ICE) library
+homepage: https://github.com/paullouisageneau/libjuice
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libjuice/blobs/sha256:f162c7efec28783d18424f4296e36b45e7667b5c43e24e0d97c25e19a778be47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libjuice/blobs/sha256:06ea06b5c2ab9114d52e10a3337ec7bde5effd4e4c6474e959f99e8ec22e4d34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libjuice/blobs/sha256:b22030b7b092dc674ef23d92693d528acd4595c93cdfad83828f935380cad72b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libjuice/blobs/sha256:4684874fd3b1e6e7129fbd01e7182fb60f10fe04ed6f022027d7ce09578fed4d
+sha256:
+  darwin_arm64: f162c7efec28783d18424f4296e36b45e7667b5c43e24e0d97c25e19a778be47
+  darwin_amd64: 06ea06b5c2ab9114d52e10a3337ec7bde5effd4e4c6474e959f99e8ec22e4d34
+  linux_amd64: b22030b7b092dc674ef23d92693d528acd4595c93cdfad83828f935380cad72b
+  linux_arm64: 4684874fd3b1e6e7129fbd01e7182fb60f10fe04ed6f022027d7ce09578fed4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

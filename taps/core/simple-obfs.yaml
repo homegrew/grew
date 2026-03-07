@@ -1,0 +1,21 @@
+name: simple-obfs
+version: 0.0.5
+description: Simple obfusacting plugin of shadowsocks-libev
+homepage: https://github.com/shadowsocks/simple-obfs
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simple-obfs/blobs/sha256:8e568d3031a09ab024c3b1aa96a5030bdfa52948af522c45958cb27db6b46397
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simple-obfs/blobs/sha256:771e320908bd201a58300ffa42ac29636459a76381a8ee9e67ba6d4c91e2336e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simple-obfs/blobs/sha256:e0032166acd2a834dce65e5cc5c1ad7b9871b33acc2661fc489d1e4204cc9e6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simple-obfs/blobs/sha256:d08c2cce26db77a73b54ccf237d3b9b9fb70e5d8791835dba3ab9163b62fb45d
+sha256:
+  darwin_arm64: 8e568d3031a09ab024c3b1aa96a5030bdfa52948af522c45958cb27db6b46397
+  darwin_amd64: 771e320908bd201a58300ffa42ac29636459a76381a8ee9e67ba6d4c91e2336e
+  linux_amd64: e0032166acd2a834dce65e5cc5c1ad7b9871b33acc2661fc489d1e4204cc9e6d
+  linux_arm64: d08c2cce26db77a73b54ccf237d3b9b9fb70e5d8791835dba3ab9163b62fb45d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libev

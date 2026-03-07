@@ -1,0 +1,24 @@
+name: liquidctl
+version: 1.16.0
+description: Cross-platform tool and drivers for liquid coolers and other devices
+homepage: https://github.com/liquidctl/liquidctl
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liquidctl/blobs/sha256:7a2f3026da192b9ba6b7428b02e53de8b5a42d5719317b058149ddd53d6533be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liquidctl/blobs/sha256:c632f9005aa0b61d636334d43762bdbad8b7fe692e95d91d5056704cc504a92d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liquidctl/blobs/sha256:2952ce4b674d0e11922bb15808c77f36b2bfafbc4246cd1edc39e8a62b71471f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liquidctl/blobs/sha256:5d07acbcfe6a0fb5614ee4d9dbff5bef534420e275a4fccda0892b94f7ff995e
+sha256:
+  darwin_arm64: 7a2f3026da192b9ba6b7428b02e53de8b5a42d5719317b058149ddd53d6533be
+  darwin_amd64: c632f9005aa0b61d636334d43762bdbad8b7fe692e95d91d5056704cc504a92d
+  linux_amd64: 2952ce4b674d0e11922bb15808c77f36b2bfafbc4246cd1edc39e8a62b71471f
+  linux_arm64: 5d07acbcfe6a0fb5614ee4d9dbff5bef534420e275a4fccda0892b94f7ff995e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hidapi
+  - libusb
+  - pillow
+  - python@3.14

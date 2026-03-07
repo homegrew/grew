@@ -1,0 +1,11 @@
+name: dockdoor
+version: 1.32.1
+description: Window peeking utility app
+homepage: https://dockdoor.net/
+url:
+  darwin_arm64: https://github.com/ejbills/DockDoor/releases/download/1.32.1/DockDoor.dmg
+sha256:
+  darwin_arm64: 171e3b5a37a3039e6facb6dcb13e37ef717ce2519627db22dcbe74beec01b19c
+artifacts:
+  app:
+    - DockDoor.app

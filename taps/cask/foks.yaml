@@ -1,0 +1,12 @@
+name: foks
+version: 0.1.5
+description: Federated Open Key Service; E2EE KV-store and Git hosting
+homepage: https://foks.pub/
+url:
+  darwin_arm64: https://pkgs.foks.pub/stable/darwin/foks-v0.1.5-darwin-brew-arm64.zip
+sha256:
+  darwin_arm64: 8ac2071b9380fe5381d9006fbdb6900ea238c65f014b575f46a3b1bf32351107
+artifacts:
+  bin:
+    - foks
+    - git-remote-foks

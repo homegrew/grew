@@ -1,0 +1,21 @@
+name: bootloadhid
+version: 2012-12-08
+description: HID-based USB bootloader for AVR microcontrollers
+homepage: https://www.obdev.at/products/vusb/bootloadhid.html
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bootloadhid/blobs/sha256:5b761a6cb6b73fde389f5aee23438b696185418e0f9c77775b7f93b83ed686a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bootloadhid/blobs/sha256:71cb01dcdccd3e01d4e99e23a5c6e78b0becf9921fc67645c54a3a06c71e2a47
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bootloadhid/blobs/sha256:eef4ea84385608a16af8533cd12d40b164a57e30bbfecfe9a58dd462e8cf22a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bootloadhid/blobs/sha256:51a4a8372175512d991362b12341aac01ac7d4b11b33af352de964815084e4cb
+sha256:
+  darwin_arm64: 5b761a6cb6b73fde389f5aee23438b696185418e0f9c77775b7f93b83ed686a6
+  darwin_amd64: 71cb01dcdccd3e01d4e99e23a5c6e78b0becf9921fc67645c54a3a06c71e2a47
+  linux_amd64: eef4ea84385608a16af8533cd12d40b164a57e30bbfecfe9a58dd462e8cf22a6
+  linux_arm64: 51a4a8372175512d991362b12341aac01ac7d4b11b33af352de964815084e4cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb-compat

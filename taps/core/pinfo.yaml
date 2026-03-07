@@ -1,0 +1,21 @@
+name: pinfo
+version: 0.6.13
+description: User-friendly, console-based viewer for Info documents
+homepage: https://packages.debian.org/sid/pinfo
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pinfo/blobs/sha256:667ab0c89a77262f57669ed57148c06df889bdc835231752a1dd4fd279142263
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pinfo/blobs/sha256:8c1ed7c9caa2cb4c5bd596b7ef1ff34b71769a1cacd84994934d85ecda801295
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pinfo/blobs/sha256:9823885d8c5febf0b8415e6ac455fec62834b65b75333eec2a314dfeaf2bfd61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pinfo/blobs/sha256:0fc3fd25aa157f655c7c9e98252b638f7233bb98de481e07808270df7f390a8f
+sha256:
+  darwin_arm64: 667ab0c89a77262f57669ed57148c06df889bdc835231752a1dd4fd279142263
+  darwin_amd64: 8c1ed7c9caa2cb4c5bd596b7ef1ff34b71769a1cacd84994934d85ecda801295
+  linux_amd64: 9823885d8c5febf0b8415e6ac455fec62834b65b75333eec2a314dfeaf2bfd61
+  linux_arm64: 0fc3fd25aa157f655c7c9e98252b638f7233bb98de481e07808270df7f390a8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

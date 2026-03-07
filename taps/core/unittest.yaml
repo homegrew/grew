@@ -1,0 +1,19 @@
+name: unittest
+version: 0.50-62
+description: C++ Unit Test Framework
+homepage: https://unittest.red-bean.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unittest/blobs/sha256:1dca828fc584f8c03ad644362e528a803710f424773a437bb3cd22a28356cec4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unittest/blobs/sha256:e99414011e169671d5946a628027bc27c4a76d633cd658524d5adaf9a5fccfae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unittest/blobs/sha256:253282b6d8bd11e9b124dea0b9356211b422502f0e809cd2f043f791275d7459
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unittest/blobs/sha256:fc7cca539bea1e17f6eb787a2061ee632cbde672e48ddb1f551a5802eab80b01
+sha256:
+  darwin_arm64: 1dca828fc584f8c03ad644362e528a803710f424773a437bb3cd22a28356cec4
+  darwin_amd64: e99414011e169671d5946a628027bc27c4a76d633cd658524d5adaf9a5fccfae
+  linux_amd64: 253282b6d8bd11e9b124dea0b9356211b422502f0e809cd2f043f791275d7459
+  linux_arm64: fc7cca539bea1e17f6eb787a2061ee632cbde672e48ddb1f551a5802eab80b01
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

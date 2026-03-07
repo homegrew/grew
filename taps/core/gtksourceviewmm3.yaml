@@ -1,0 +1,35 @@
+name: gtksourceviewmm3
+version: 3.18.0
+description: C++ bindings for gtksourceview3
+homepage: https://gitlab.gnome.org/GNOME/gtksourceviewmm
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtksourceviewmm3/blobs/sha256:9b6d8f50cc16f92feecf432734adc4837246ba8f3fdb933b126393f6137dadc1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtksourceviewmm3/blobs/sha256:6d967d0889a430e64312a18afbae33554340938c8fae2a90ddd652cd2beb86cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtksourceviewmm3/blobs/sha256:b6489e67344895dad8ef93a694a47c49fec20dc0735989355b11489cd85fbccd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtksourceviewmm3/blobs/sha256:b71c353cdef6b20cb4b871ad1ec98712271fe7f123d793917ca5738cbe0ce099
+sha256:
+  darwin_arm64: 9b6d8f50cc16f92feecf432734adc4837246ba8f3fdb933b126393f6137dadc1
+  darwin_amd64: 6d967d0889a430e64312a18afbae33554340938c8fae2a90ddd652cd2beb86cd
+  linux_amd64: b6489e67344895dad8ef93a694a47c49fec20dc0735989355b11489cd85fbccd
+  linux_arm64: b71c353cdef6b20cb4b871ad1ec98712271fe7f123d793917ca5738cbe0ce099
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atkmm@2.28
+  - cairomm@1.14
+  - glib
+  - glibmm@2.66
+  - gtk+3
+  - gtkmm3
+  - gtksourceview3
+  - libsigc++@2
+  - pangomm@2.46
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango

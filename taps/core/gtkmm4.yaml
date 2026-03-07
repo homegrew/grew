@@ -1,0 +1,29 @@
+name: gtkmm4
+version: 4.20.0
+description: C++ interfaces for GTK+ and GNOME
+homepage: https://www.gtkmm.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkmm4/blobs/sha256:75f595a7d74ebe4f7fb3d531be9ce70cc70e6b77194d0c6984907da14497d1fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkmm4/blobs/sha256:54c7c7e6a00276d3b9f21c144b8a2c3cc359f5cd2c073b6c5b51b82d4d48bb46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkmm4/blobs/sha256:3ea11d6e9eeb9634d885d182615693f80b81c890d650233dbb8f20e298f141e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkmm4/blobs/sha256:0077f613e776d7d5e27c23082c73cd2405a27534b025708443cf4e69979c2e29
+sha256:
+  darwin_arm64: 75f595a7d74ebe4f7fb3d531be9ce70cc70e6b77194d0c6984907da14497d1fd
+  darwin_amd64: 54c7c7e6a00276d3b9f21c144b8a2c3cc359f5cd2c073b6c5b51b82d4d48bb46
+  linux_amd64: 3ea11d6e9eeb9634d885d182615693f80b81c890d650233dbb8f20e298f141e0
+  linux_arm64: 0077f613e776d7d5e27c23082c73cd2405a27534b025708443cf4e69979c2e29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - cairomm
+  - gdk-pixbuf
+  - glib
+  - glibmm
+  - graphene
+  - gtk4
+  - libsigc++
+  - pangomm

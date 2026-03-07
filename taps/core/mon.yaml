@@ -1,0 +1,19 @@
+name: mon
+version: 1.2.3
+description: Monitor hosts/services/whatever and alert about problems
+homepage: https://github.com/tj/mon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mon/blobs/sha256:1113e36de927c4dfbb16bcb801d77fd6a1508104c9de9a5f885c768514fb1d3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mon/blobs/sha256:72f500fe72c9afecadef4ea76245d879a72250264d2c4dc75a0a6e0923391615
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mon/blobs/sha256:98cf650f601c5c437802ac8a979d24bdd8fe39cef4a3937f440109c91cadd69a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mon/blobs/sha256:00ecf73b33edac694c7a24207ead5f8604a20b0a97e681685d997d81080f19c1
+sha256:
+  darwin_arm64: 1113e36de927c4dfbb16bcb801d77fd6a1508104c9de9a5f885c768514fb1d3e
+  darwin_amd64: 72f500fe72c9afecadef4ea76245d879a72250264d2c4dc75a0a6e0923391615
+  linux_amd64: 98cf650f601c5c437802ac8a979d24bdd8fe39cef4a3937f440109c91cadd69a
+  linux_arm64: 00ecf73b33edac694c7a24207ead5f8604a20b0a97e681685d997d81080f19c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

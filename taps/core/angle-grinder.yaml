@@ -1,0 +1,19 @@
+name: angle-grinder
+version: 0.19.6
+description: Slice and dice log files on the command-line
+homepage: https://github.com/rcoh/angle-grinder
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/angle-grinder/blobs/sha256:98723fe85d178aac89df81a680eb6219bfb4559d4f5e2c78d7b09753e64b7ce3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/angle-grinder/blobs/sha256:2159b170bb90518e07ae0e8cfc5d3600c15d9289c88845ca2e9891f5618f731e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/angle-grinder/blobs/sha256:881ad5857fabe8dc722b466099b20ce47b582f7508612419425af047e73c2ba5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/angle-grinder/blobs/sha256:e0ee850784501fcc08b3a8e5b04b0ed884d15cd5563d5fade0e1bfcbcdbc1cc8
+sha256:
+  darwin_arm64: 98723fe85d178aac89df81a680eb6219bfb4559d4f5e2c78d7b09753e64b7ce3
+  darwin_amd64: 2159b170bb90518e07ae0e8cfc5d3600c15d9289c88845ca2e9891f5618f731e
+  linux_amd64: 881ad5857fabe8dc722b466099b20ce47b582f7508612419425af047e73c2ba5
+  linux_arm64: e0ee850784501fcc08b3a8e5b04b0ed884d15cd5563d5fade0e1bfcbcdbc1cc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

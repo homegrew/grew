@@ -1,0 +1,11 @@
+name: bose-updater
+version: 7.1.13.5399
+description: Software updates for Bose products
+homepage: https://btu.bose.com/
+url:
+  darwin_arm64: https://downloads.bose.com/ced/boseupdater/mac/BoseUpdater_7.1.13.5399.dmg
+sha256:
+  darwin_arm64: 134c700d5a32f1cc1f50ca8c8553c917b74258e075fb1be600db9d72b5e3c32f
+artifacts:
+  app:
+    - Bose Updater.app

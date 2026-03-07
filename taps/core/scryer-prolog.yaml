@@ -1,0 +1,21 @@
+name: scryer-prolog
+version: 0.10.0
+description: Modern ISO Prolog implementation written mostly in Rust
+homepage: https://www.scryer.pl
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scryer-prolog/blobs/sha256:d48c0a73df9bf67c54bc855ed865155ad79f41a4561591ed3f7359c3e9d2022d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scryer-prolog/blobs/sha256:ff71107fc21ebf2fad8c3be28b9801f65fba480207d8300af56b8df3975f5c1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scryer-prolog/blobs/sha256:549989dbd09c1d6885e73357b5f2ba49e762bcbd3eaa0d35110832b0719db02e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scryer-prolog/blobs/sha256:5e3d6f8f168ef2b0bdd2c27755d68f1d6a8133fe9740e52d4914c509fca6e5fc
+sha256:
+  darwin_arm64: d48c0a73df9bf67c54bc855ed865155ad79f41a4561591ed3f7359c3e9d2022d
+  darwin_amd64: ff71107fc21ebf2fad8c3be28b9801f65fba480207d8300af56b8df3975f5c1e
+  linux_amd64: 549989dbd09c1d6885e73357b5f2ba49e762bcbd3eaa0d35110832b0719db02e
+  linux_arm64: 5e3d6f8f168ef2b0bdd2c27755d68f1d6a8133fe9740e52d4914c509fca6e5fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,20 @@
+name: lsof
+version: 4.99.6
+description: Utility to list open files
+homepage: https://github.com/lsof-org/lsof
+license: lsof
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lsof/blobs/sha256:723b4a385c26103601f2309aae631784ea0420ef8d8dcbd7d256ad87a63af911
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lsof/blobs/sha256:8c7c40e806f10f7dadca60932e52e6a8bd26f4d3126736deb24ec3bb27066cbb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lsof/blobs/sha256:bf1994152f5a772548fc87218819a1384d2998b4105764b4424cbe5e8d43bde2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lsof/blobs/sha256:b13c6ef92722757432ad9a88024de642764e9b6aa7e145b4ca64757a69802223
+sha256:
+  darwin_arm64: 723b4a385c26103601f2309aae631784ea0420ef8d8dcbd7d256ad87a63af911
+  darwin_amd64: 8c7c40e806f10f7dadca60932e52e6a8bd26f4d3126736deb24ec3bb27066cbb
+  linux_amd64: bf1994152f5a772548fc87218819a1384d2998b4105764b4424cbe5e8d43bde2
+  linux_arm64: b13c6ef92722757432ad9a88024de642764e9b6aa7e145b4ca64757a69802223
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

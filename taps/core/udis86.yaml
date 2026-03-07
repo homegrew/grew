@@ -1,0 +1,19 @@
+name: udis86
+version: 1.7.2
+description: Minimalistic disassembler library for x86
+homepage: https://sourceforge.net/projects/udis86/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/udis86/blobs/sha256:64411bb2fb41c08729313426c8753ca7d79932086111c970803ecf5a87b6d06b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/udis86/blobs/sha256:96c8db68a32708148bbbdcbfdb0ed3144c8f118972eabdaca6d8ec49f868ba64
+  linux_amd64: https://ghcr.io/v2/homebrew/core/udis86/blobs/sha256:4799d288d7a86e2b63f0a9c55d7b50e21bae0770b6a728542e09a1fbcd62c96b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/udis86/blobs/sha256:d6468cbe7b75d58bd68d0907006195ce52159a18444febf1f260e19d81a1f08f
+sha256:
+  darwin_arm64: 64411bb2fb41c08729313426c8753ca7d79932086111c970803ecf5a87b6d06b
+  darwin_amd64: 96c8db68a32708148bbbdcbfdb0ed3144c8f118972eabdaca6d8ec49f868ba64
+  linux_amd64: 4799d288d7a86e2b63f0a9c55d7b50e21bae0770b6a728542e09a1fbcd62c96b
+  linux_arm64: d6468cbe7b75d58bd68d0907006195ce52159a18444febf1f260e19d81a1f08f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

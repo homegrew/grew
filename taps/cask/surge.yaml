@@ -1,0 +1,15 @@
+name: surge
+version: 6.4.3,10320,a70a06382543d5a6ae0c0296e4148569
+description: Network toolbox
+homepage: https://nssurge.com/
+url:
+  darwin_arm64: https://dl.nssurge.com/mac/v6/Surge-6.4.3-10320-a70a06382543d5a6ae0c0296e4148569.zip
+sha256:
+  darwin_arm64: 164ed394314dd21e12496715732d515b9187306a79928df743c899ef47ee59cd
+artifacts:
+  app:
+    - Surge.app
+  bin:
+    - $APPDIR/Surge Dashboard.app
+    - surge-cli
+    - $HOMEBREW_PREFIX/sbin/surge-dhcpd

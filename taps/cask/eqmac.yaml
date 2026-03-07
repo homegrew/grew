@@ -1,0 +1,11 @@
+name: eqmac
+version: 1.8.12
+description: System-wide audio equaliser
+homepage: https://eqmac.app/
+url:
+  darwin_arm64: https://github.com/bitgapp/eqMac/releases/download/v1.8.12/eqMac.dmg
+sha256:
+  darwin_arm64: ab75f4868390ae21e65d487cdbfe2be62acb3f2de4170bed4be16b3e059f1328
+artifacts:
+  app:
+    - eqMac.app

@@ -1,0 +1,22 @@
+name: tt
+version: 2.11.4
+description: Command-line utility to manage Tarantool applications
+homepage: https://github.com/tarantool/tt
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tt/blobs/sha256:52bff0cf515a1153cd390ced9961c8d9bd29563879ec6c5ec610eadb90404a3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tt/blobs/sha256:75fdb655649b07819f0ad417d1dd229fbca45b943ee9f746cca6f0a54afa5a93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tt/blobs/sha256:7595ac4484d04966db78be5bbe86e52c6caea396b3b3a2ffaf6cc094bb691b8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tt/blobs/sha256:235f244b5326b340d1ea1211251ad54ffc5f6b2a0f06ff170e5d88b03e00a246
+sha256:
+  darwin_arm64: 52bff0cf515a1153cd390ced9961c8d9bd29563879ec6c5ec610eadb90404a3f
+  darwin_amd64: 75fdb655649b07819f0ad417d1dd229fbca45b943ee9f746cca6f0a54afa5a93
+  linux_amd64: 7595ac4484d04966db78be5bbe86e52c6caea396b3b3a2ffaf6cc094bb691b8a
+  linux_arm64: 235f244b5326b340d1ea1211251ad54ffc5f6b2a0f06ff170e5d88b03e00a246
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - bash-completion

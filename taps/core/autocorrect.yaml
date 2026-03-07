@@ -1,0 +1,19 @@
+name: autocorrect
+version: 2.16.3
+description: Linter and formatter to improve copywriting, correct spaces, words between CJK
+homepage: https://huacnlee.github.io/autocorrect/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autocorrect/blobs/sha256:97083d441c65f09edcb3837ad336e449656c512606f03c644f9c8a7a1e606226
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autocorrect/blobs/sha256:970e03abc43df9fcbfd8888e113c1fa44b34bcd3da5db3a1ec361f3fe5f41907
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autocorrect/blobs/sha256:10f0c2f1cb081edda8e9c4f1da2794484ba1ccea18722c2ae3aeade46cdf6185
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autocorrect/blobs/sha256:dc0c738d58c9bc20119fcd7f5114a06fa6f66b73fe7c8dbb201037185806b69a
+sha256:
+  darwin_arm64: 97083d441c65f09edcb3837ad336e449656c512606f03c644f9c8a7a1e606226
+  darwin_amd64: 970e03abc43df9fcbfd8888e113c1fa44b34bcd3da5db3a1ec361f3fe5f41907
+  linux_amd64: 10f0c2f1cb081edda8e9c4f1da2794484ba1ccea18722c2ae3aeade46cdf6185
+  linux_arm64: dc0c738d58c9bc20119fcd7f5114a06fa6f66b73fe7c8dbb201037185806b69a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

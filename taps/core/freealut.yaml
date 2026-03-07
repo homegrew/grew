@@ -1,0 +1,19 @@
+name: freealut
+version: 1.1.0
+description: "Implementation of OpenAL's ALUT standard"
+homepage: https://github.com/vancegroup/freealut
+license: LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freealut/blobs/sha256:b10fa1d850fc453e04334c8e607bc944fdf9bc8e794e480d30ce53a5d2319ab5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freealut/blobs/sha256:920b3dbfa2b1cf0741f5ed96cad98291de73481b93c09c25598ae32844fcec32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freealut/blobs/sha256:05ed720d9817268e8941fba68a2d52e685562119fe2d79eba3f6ec107864d191
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freealut/blobs/sha256:55fd0316cf15d4add92c729d3c27b3847d377b1778e89b251c15056084d8ec5b
+sha256:
+  darwin_arm64: b10fa1d850fc453e04334c8e607bc944fdf9bc8e794e480d30ce53a5d2319ab5
+  darwin_amd64: 920b3dbfa2b1cf0741f5ed96cad98291de73481b93c09c25598ae32844fcec32
+  linux_amd64: 05ed720d9817268e8941fba68a2d52e685562119fe2d79eba3f6ec107864d191
+  linux_arm64: 55fd0316cf15d4add92c729d3c27b3847d377b1778e89b251c15056084d8ec5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

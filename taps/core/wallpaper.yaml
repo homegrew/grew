@@ -1,0 +1,15 @@
+name: wallpaper
+version: 2.3.3
+description: Manage the desktop wallpaper
+homepage: https://github.com/sindresorhus/macos-wallpaper
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wallpaper/blobs/sha256:f32335062b487623a8128191f5a991409f3be90893ff52e74762a08f129c7940
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wallpaper/blobs/sha256:d1723c93aa42b6b3fdf61a1821db8975d4b2fa031f0fbfd2688f6b558a869164
+sha256:
+  darwin_arm64: f32335062b487623a8128191f5a991409f3be90893ff52e74762a08f129c7940
+  darwin_amd64: d1723c93aa42b6b3fdf61a1821db8975d4b2fa031f0fbfd2688f6b558a869164
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

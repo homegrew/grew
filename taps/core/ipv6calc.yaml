@@ -1,0 +1,19 @@
+name: ipv6calc
+version: 4.4.0
+description: Small utility for manipulating IPv6 addresses
+homepage: https://www.deepspace6.net/projects/ipv6calc.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipv6calc/blobs/sha256:4daa29d6f6455a38c28aec5cb43b1fa6ff27c6af63b60971c50afbe72f414e27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipv6calc/blobs/sha256:3f4267c63a895aea520e08173811d432632307539e753084e4c54036addf77ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipv6calc/blobs/sha256:f3df1923853f9b43baf1eba4f9c028aea9d028c0d7329540d3c78db2380f5e06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipv6calc/blobs/sha256:e2d306270bd9d41949603264becb27b5b0af71030b7f3221ca6b210bc54b4f42
+sha256:
+  darwin_arm64: 4daa29d6f6455a38c28aec5cb43b1fa6ff27c6af63b60971c50afbe72f414e27
+  darwin_amd64: 3f4267c63a895aea520e08173811d432632307539e753084e4c54036addf77ea
+  linux_amd64: f3df1923853f9b43baf1eba4f9c028aea9d028c0d7329540d3c78db2380f5e06
+  linux_arm64: e2d306270bd9d41949603264becb27b5b0af71030b7f3221ca6b210bc54b4f42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

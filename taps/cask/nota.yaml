@@ -1,0 +1,13 @@
+name: nota
+version: 0.41.0
+description: Markdown files editor
+homepage: https://nota.md/
+url:
+  darwin_arm64: https://github.com/notaapp/releases/releases/download/0.41.0/Nota-0.41.0-arm64-mac.zip
+sha256:
+  darwin_arm64: 727571f727486376127f0a52b8b460f2bc6ab152e3f2c7377eb7154ef5ec88dd
+artifacts:
+  app:
+    - Nota.app
+  bin:
+    - nota

@@ -1,0 +1,19 @@
+name: dust
+version: 1.2.4
+description: More intuitive version of du in rust
+homepage: https://github.com/bootandy/dust
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dust/blobs/sha256:2ea7278341b70f5971cbcbb35c5dbb817eb69865e1acd6c59335a09ecba1ba26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dust/blobs/sha256:2b883a64823bb7861927ae575bbd3be0065f6ceccfe2b38f1f2924b51752f469
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dust/blobs/sha256:63c496858bede87bdd74dd11ff493cdaa855bed9321f0ba16899b6c12c6569a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dust/blobs/sha256:8e05fcc7b985571840fae0e6a9efc9f604ab1f9443525f2e0cb31c261485e07b
+sha256:
+  darwin_arm64: 2ea7278341b70f5971cbcbb35c5dbb817eb69865e1acd6c59335a09ecba1ba26
+  darwin_amd64: 2b883a64823bb7861927ae575bbd3be0065f6ceccfe2b38f1f2924b51752f469
+  linux_amd64: 63c496858bede87bdd74dd11ff493cdaa855bed9321f0ba16899b6c12c6569a0
+  linux_arm64: 8e05fcc7b985571840fae0e6a9efc9f604ab1f9443525f2e0cb31c261485e07b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

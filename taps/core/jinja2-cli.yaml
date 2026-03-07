@@ -1,0 +1,22 @@
+name: jinja2-cli
+version: 1.0.0
+description: CLI for the Jinja2 templating language
+homepage: https://github.com/mattrobenolt/jinja2-cli
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jinja2-cli/blobs/sha256:b528139b50bb29cf676845e237df5c3cdff7a17280b377d9513079607f338582
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jinja2-cli/blobs/sha256:4b49e0fcc8ac730c12d14a2de2d190497cf8e3c972f59cb166d05c0c047f5417
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jinja2-cli/blobs/sha256:1e4b2551085d23cb09309f3526f1e0903d67c72e72146dc686fffe0fce486563
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jinja2-cli/blobs/sha256:d631c54a86744ffa9848ab95a496749b06013296b8c52d078771d783ce73b4a4
+sha256:
+  darwin_arm64: b528139b50bb29cf676845e237df5c3cdff7a17280b377d9513079607f338582
+  darwin_amd64: 4b49e0fcc8ac730c12d14a2de2d190497cf8e3c972f59cb166d05c0c047f5417
+  linux_amd64: 1e4b2551085d23cb09309f3526f1e0903d67c72e72146dc686fffe0fce486563
+  linux_arm64: d631c54a86744ffa9848ab95a496749b06013296b8c52d078771d783ce73b4a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

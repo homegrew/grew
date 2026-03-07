@@ -1,0 +1,19 @@
+name: powerman-dockerize
+version: 0.24.2
+description: Utility to simplify running applications in docker containers
+homepage: https://github.com/powerman/dockerize
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/powerman-dockerize/blobs/sha256:c03de360eaaa2046b25d67d51f12f0f40100c37af8125fd4105eb2de56b75497
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/powerman-dockerize/blobs/sha256:5b2a0b96f2fdb90e2eb00fd8d5ac24b7f7fd33e70b5cf5d1eff11a8f14b62b3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/powerman-dockerize/blobs/sha256:c84b304af3f032e411b87f5750d4ba4a2cfadce7e442877f0bcfe2e056adee98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/powerman-dockerize/blobs/sha256:789da6f945f97e449374e63c000a47f28caa4819777adccb76e29abff2dc70f4
+sha256:
+  darwin_arm64: c03de360eaaa2046b25d67d51f12f0f40100c37af8125fd4105eb2de56b75497
+  darwin_amd64: 5b2a0b96f2fdb90e2eb00fd8d5ac24b7f7fd33e70b5cf5d1eff11a8f14b62b3a
+  linux_amd64: c84b304af3f032e411b87f5750d4ba4a2cfadce7e442877f0bcfe2e056adee98
+  linux_arm64: 789da6f945f97e449374e63c000a47f28caa4819777adccb76e29abff2dc70f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

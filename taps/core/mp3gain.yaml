@@ -1,0 +1,21 @@
+name: mp3gain
+version: 1.6.2
+description: Lossless mp3 normalizer with statistical analysis
+homepage: https://mp3gain.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3gain/blobs/sha256:29068cf92340a0434d5cb8bb98479ab79de6831d80f21916dbfc806ffabd71e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3gain/blobs/sha256:b2705beaa54c1f2acdc994664e190a83de082b3b453418c9410a9272cda66729
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3gain/blobs/sha256:a38486ace3008b4e9c5de0fa3d94c66c66108b5340e887ec0f322a3f9525d536
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3gain/blobs/sha256:98696b13ab4fde544d5baa9d81c1ce457f52520c9927f77dc89e72eb31e2a6ae
+sha256:
+  darwin_arm64: 29068cf92340a0434d5cb8bb98479ab79de6831d80f21916dbfc806ffabd71e2
+  darwin_amd64: b2705beaa54c1f2acdc994664e190a83de082b3b453418c9410a9272cda66729
+  linux_amd64: a38486ace3008b4e9c5de0fa3d94c66c66108b5340e887ec0f322a3f9525d536
+  linux_arm64: 98696b13ab4fde544d5baa9d81c1ce457f52520c9927f77dc89e72eb31e2a6ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mpg123

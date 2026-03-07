@@ -1,0 +1,19 @@
+name: ctrld
+version: 1.5.0
+description: Highly configurable, multi-protocol DNS forwarding proxy
+homepage: https://github.com/Control-D-Inc/ctrld
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctrld/blobs/sha256:4324a921f28ffc1b9fc425e0fa5c5e77146956b24160844ad869e0faffa0d035
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctrld/blobs/sha256:64e2211fc1c4e507d447c34e40abb14df01dc9afe57808f2f0ff914c3ef53329
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctrld/blobs/sha256:2b02388cf42314eafcff3ae5b51b01455c2a99698a574e73bdc42562c0351dac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctrld/blobs/sha256:9f4696a6ce4d9e81e1ddbc7372aa054a6326043af7089689759463a6a9376242
+sha256:
+  darwin_arm64: 4324a921f28ffc1b9fc425e0fa5c5e77146956b24160844ad869e0faffa0d035
+  darwin_amd64: 64e2211fc1c4e507d447c34e40abb14df01dc9afe57808f2f0ff914c3ef53329
+  linux_amd64: 2b02388cf42314eafcff3ae5b51b01455c2a99698a574e73bdc42562c0351dac
+  linux_arm64: 9f4696a6ce4d9e81e1ddbc7372aa054a6326043af7089689759463a6a9376242
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: gitify
+version: 6.17.0
+description: GitHub notifications on your menu bar
+homepage: https://github.com/gitify-app/gitify
+url:
+  darwin_arm64: https://github.com/gitify-app/gitify/releases/download/v6.17.0/Gitify-6.17.0-universal-mac.zip
+sha256:
+  darwin_arm64: d8f63898d8756fc301d7f21b4d9da23c6e145bfa5f95131c0327087c6a829ece
+artifacts:
+  app:
+    - Gitify.app

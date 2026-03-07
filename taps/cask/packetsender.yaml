@@ -1,0 +1,11 @@
+name: packetsender
+version: 8.10.4
+description: Network utility for sending / receiving TCP, UDP, SSL
+homepage: https://packetsender.com/
+url:
+  darwin_arm64: https://github.com/dannagle/PacketSender/releases/download/v8.10.4/PacketSender_v8.10.4.dmg
+sha256:
+  darwin_arm64: eabf44386f87e87aa4ed02266c0718b288dc6f64a67637be4be902ee72b16023
+artifacts:
+  app:
+    - PacketSender.app

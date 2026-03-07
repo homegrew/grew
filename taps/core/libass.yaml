@@ -1,0 +1,24 @@
+name: libass
+version: 0.17.4
+description: Subtitle renderer for the ASS/SSA subtitle format
+homepage: https://github.com/libass/libass
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libass/blobs/sha256:b7b56025da7bfcff9b6d784a2a8179d05f820d9662b67366173c99b3336c3b32
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libass/blobs/sha256:92276181000efe0ae9530213fed782fa369d434085817225c731785c155b582d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libass/blobs/sha256:7521ae0626fddeea2cb88b3d34c1243b9aa26ec7c76fb4e4a05b956f01a507e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libass/blobs/sha256:ec085b343bf997b2b0fa3fbdd4fa560c54953f5b6b1cb93ff42ec2fbcb0ce9cc
+sha256:
+  darwin_arm64: b7b56025da7bfcff9b6d784a2a8179d05f820d9662b67366173c99b3336c3b32
+  darwin_amd64: 92276181000efe0ae9530213fed782fa369d434085817225c731785c155b582d
+  linux_amd64: 7521ae0626fddeea2cb88b3d34c1243b9aa26ec7c76fb4e4a05b956f01a507e8
+  linux_arm64: ec085b343bf997b2b0fa3fbdd4fa560c54953f5b6b1cb93ff42ec2fbcb0ce9cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - fribidi
+  - harfbuzz
+  - libunibreak

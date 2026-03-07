@@ -1,0 +1,21 @@
+name: libgetdata
+version: 0.11.0
+description: Reference implementation of the Dirfile Standards
+homepage: https://getdata.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgetdata/blobs/sha256:bea9f976c185d2e9e5377cf772635f6e72a40380bda01cb5cbdb65e22a2a30bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgetdata/blobs/sha256:df59283bc4c705adf5fe040cd33a4a82f6e724a38f46907817a9f6f6f1064ef7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgetdata/blobs/sha256:71be7913ffccb6f8ba8a1cd425b2855046706c0ea14cd0607c1a3c0f295e01de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgetdata/blobs/sha256:c7e8f70f87715450ab87a39327ea8dbef1dcf0e83c3e962dc59a4ee8e3a7ea2f
+sha256:
+  darwin_arm64: bea9f976c185d2e9e5377cf772635f6e72a40380bda01cb5cbdb65e22a2a30bc
+  darwin_amd64: df59283bc4c705adf5fe040cd33a4a82f6e724a38f46907817a9f6f6f1064ef7
+  linux_amd64: 71be7913ffccb6f8ba8a1cd425b2855046706c0ea14cd0607c1a3c0f295e01de
+  linux_arm64: c7e8f70f87715450ab87a39327ea8dbef1dcf0e83c3e962dc59a4ee8e3a7ea2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool

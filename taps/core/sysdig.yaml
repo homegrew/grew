@@ -1,0 +1,27 @@
+name: sysdig
+version: 0.41.4
+description: System-level exploration and troubleshooting tool
+homepage: https://sysdig.com/
+license: Apache-2.0 AND (GPL-2.0-only OR MIT) AND (GPL-2.0-only WITH Linux-syscall-note)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sysdig/blobs/sha256:5fe1ce14148a8b284543bd91bc5f24d43ceab356dfc3c16c09bd6f859e0d5827
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sysdig/blobs/sha256:621d58241ed0c17c5cb0bfaa81be88515d79f8bd13c49e1d4f4ad46960105a08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sysdig/blobs/sha256:7091b67446ccc09c8d533abbe98b7e64db38168c896aa53dd9a8594f2631fce1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sysdig/blobs/sha256:b6b755a7075808d1ec446e11af7316d6aa1de2182a220e058cbe75ac6e4186e4
+sha256:
+  darwin_arm64: 5fe1ce14148a8b284543bd91bc5f24d43ceab356dfc3c16c09bd6f859e0d5827
+  darwin_amd64: 621d58241ed0c17c5cb0bfaa81be88515d79f8bd13c49e1d4f4ad46960105a08
+  linux_amd64: 7091b67446ccc09c8d533abbe98b7e64db38168c896aa53dd9a8594f2631fce1
+  linux_arm64: b6b755a7075808d1ec446e11af7316d6aa1de2182a220e058cbe75ac6e4186e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jsoncpp
+  - luajit
+  - ncurses
+  - re2
+  - tbb
+  - uthash
+  - yaml-cpp

@@ -1,0 +1,11 @@
+name: jcryptool
+version: 1.0.9
+description: Apply and analyze cryptographic algorithms
+homepage: https://www.cryptool.org/en/jct/downloads
+url:
+  darwin_arm64: https://github.com/jcryptool/core/releases/download/1.0.9/JCrypTool-1.0.9-macOS-64bit.tar.gz
+sha256:
+  darwin_arm64: 58ba00b265e0180eb3e68f82a8978603fe1112af88ff747959e35bd11b9d79ee
+artifacts:
+  app:
+    - JCrypTool.app

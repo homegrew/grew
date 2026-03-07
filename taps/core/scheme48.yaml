@@ -1,0 +1,19 @@
+name: scheme48
+version: 1.9.3
+description: Scheme byte-code interpreter
+homepage: https://www.s48.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scheme48/blobs/sha256:dd9573e777e45950f016f490b3d37b0e5fd1257d3869dbde62a834ed11aed64a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scheme48/blobs/sha256:6fe0332fee2ab61f724c9494c00e2519721e4d0cf482c74b5d70d2a68caa044f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scheme48/blobs/sha256:cb14bb2342582715834a1ea6dcf22b5c70292396b42b946182c0af189ad989ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scheme48/blobs/sha256:5f34e3f7fb0b982a57c1bc67fb6d5f18d608716833d1a0dc3a4617e8186fbf24
+sha256:
+  darwin_arm64: dd9573e777e45950f016f490b3d37b0e5fd1257d3869dbde62a834ed11aed64a
+  darwin_amd64: 6fe0332fee2ab61f724c9494c00e2519721e4d0cf482c74b5d70d2a68caa044f
+  linux_amd64: cb14bb2342582715834a1ea6dcf22b5c70292396b42b946182c0af189ad989ff
+  linux_arm64: 5f34e3f7fb0b982a57c1bc67fb6d5f18d608716833d1a0dc3a4617e8186fbf24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

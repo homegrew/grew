@@ -1,0 +1,21 @@
+name: bmon
+version: 4.0
+description: Interface bandwidth monitor
+homepage: https://github.com/tgraf/bmon
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bmon/blobs/sha256:93cdadcf5fec7072cb986a15fb5f6f3e405d09da4dbeb2048eff7b561b0b8af8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bmon/blobs/sha256:519c72fe28d46ab57034f262ce1972f2ca0d7dbf616c2c2c2adfc7d6034a9b43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bmon/blobs/sha256:4c35f5e85c98f864cb59ce589b03c05ce6dd37563a731d86c4491e8930449b8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bmon/blobs/sha256:00927e3a0dbf34649e09b491181022e05e8fb8b5c4924cc2f2bd1951228e716c
+sha256:
+  darwin_arm64: 93cdadcf5fec7072cb986a15fb5f6f3e405d09da4dbeb2048eff7b561b0b8af8
+  darwin_amd64: 519c72fe28d46ab57034f262ce1972f2ca0d7dbf616c2c2c2adfc7d6034a9b43
+  linux_amd64: 4c35f5e85c98f864cb59ce589b03c05ce6dd37563a731d86c4491e8930449b8d
+  linux_arm64: 00927e3a0dbf34649e09b491181022e05e8fb8b5c4924cc2f2bd1951228e716c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - confuse

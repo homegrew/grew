@@ -1,0 +1,19 @@
+name: ouch
+version: 0.6.1
+description: Painless compression and decompression for your terminal
+homepage: https://github.com/ouch-org/ouch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ouch/blobs/sha256:3e798b86b095e7f88bdf7ca263999a574fd8167f42964d9d57e4d490ebc6cbc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ouch/blobs/sha256:92caf7fc595680d7811e69ae09014aeaee688247180ae1cff6da1708dfbbb14b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ouch/blobs/sha256:8714aac8dea1ebb10eca5cec43b397c6fa52e771f3c2ce69c206148598268f88
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ouch/blobs/sha256:ce47dcc579ea3287f006936e98b11757410eb31405b980b2e0b24796193c1ce3
+sha256:
+  darwin_arm64: 3e798b86b095e7f88bdf7ca263999a574fd8167f42964d9d57e4d490ebc6cbc7
+  darwin_amd64: 92caf7fc595680d7811e69ae09014aeaee688247180ae1cff6da1708dfbbb14b
+  linux_amd64: 8714aac8dea1ebb10eca5cec43b397c6fa52e771f3c2ce69c206148598268f88
+  linux_arm64: ce47dcc579ea3287f006936e98b11757410eb31405b980b2e0b24796193c1ce3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

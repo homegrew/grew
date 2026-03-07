@@ -1,0 +1,19 @@
+name: kubehound
+version: 1.6.7
+description: Tool for building Kubernetes attack paths
+homepage: https://kubehound.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubehound/blobs/sha256:6ed0e5bcc02c1fe5fd9097597ec362a713a01d8dba8aed76a1dc35dca5423458
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubehound/blobs/sha256:79367aaf47312361c2e27be4467c9038e71a51eb1143dcb9ab22b34b7f6b7c5b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubehound/blobs/sha256:a7ae490424140e2fbd8d5d6ec33763774e4a566571cc70d77c2d10149e34d980
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubehound/blobs/sha256:714f67c61f7051582d98cbcb3ad49b36df56f2cef8c60f5aad12806b166877a4
+sha256:
+  darwin_arm64: 6ed0e5bcc02c1fe5fd9097597ec362a713a01d8dba8aed76a1dc35dca5423458
+  darwin_amd64: 79367aaf47312361c2e27be4467c9038e71a51eb1143dcb9ab22b34b7f6b7c5b
+  linux_amd64: a7ae490424140e2fbd8d5d6ec33763774e4a566571cc70d77c2d10149e34d980
+  linux_arm64: 714f67c61f7051582d98cbcb3ad49b36df56f2cef8c60f5aad12806b166877a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

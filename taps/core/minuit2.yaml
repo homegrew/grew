@@ -1,0 +1,19 @@
+name: minuit2
+version: 6.38.02
+description: Physics analysis tool for function minimization
+homepage: https://root.cern.ch/doc/master/Minuit2Page.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minuit2/blobs/sha256:db2f5fafc753ead3e5679f493e733c5d8d1190486e3eb6e38bf64c085972581c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minuit2/blobs/sha256:a9b92c8c50ae1fedef959c93430b2d69968cca1e0d8ba6bd73966ae39585dd9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minuit2/blobs/sha256:8431a7c9a3d2263327b3c4856b93d68d68779fc1d49787231356e3bc5cf6f913
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minuit2/blobs/sha256:00e37cba083d79910f84213200d9434c2b7228b5e3846749683f09a897fede5d
+sha256:
+  darwin_arm64: db2f5fafc753ead3e5679f493e733c5d8d1190486e3eb6e38bf64c085972581c
+  darwin_amd64: a9b92c8c50ae1fedef959c93430b2d69968cca1e0d8ba6bd73966ae39585dd9b
+  linux_amd64: 8431a7c9a3d2263327b3c4856b93d68d68779fc1d49787231356e3bc5cf6f913
+  linux_arm64: 00e37cba083d79910f84213200d9434c2b7228b5e3846749683f09a897fede5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

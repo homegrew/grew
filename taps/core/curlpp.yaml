@@ -1,0 +1,19 @@
+name: curlpp
+version: 0.8.1
+description: C++ wrapper for libcURL
+homepage: https://www.curlpp.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/curlpp/blobs/sha256:9a08aba8e10cfb6a543680b097a11d64a4422b7123058bcf8736e71ce334440b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/curlpp/blobs/sha256:5a84433043f3cd206ad6d9e772b8434cb8b297cbfc880640e374f9740cec45e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/curlpp/blobs/sha256:9983e70bd0a3e56372fd7f83bd535e33840b5169bfd104f44f0b29f0f97d92d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/curlpp/blobs/sha256:373f4b8a4898d60713521a626ebe7133cfeb40680ad167ddf8b4624f4483b925
+sha256:
+  darwin_arm64: 9a08aba8e10cfb6a543680b097a11d64a4422b7123058bcf8736e71ce334440b
+  darwin_amd64: 5a84433043f3cd206ad6d9e772b8434cb8b297cbfc880640e374f9740cec45e4
+  linux_amd64: 9983e70bd0a3e56372fd7f83bd535e33840b5169bfd104f44f0b29f0f97d92d1
+  linux_arm64: 373f4b8a4898d60713521a626ebe7133cfeb40680ad167ddf8b4624f4483b925
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

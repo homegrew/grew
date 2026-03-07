@@ -1,0 +1,19 @@
+name: fracturedjson
+version: 1.0.1
+description: JSON formatter that produces highly readable but fairly compact output
+homepage: https://github.com/j-brooke/FracturedJson
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fracturedjson/blobs/sha256:1dd71fb03ea6e15ff2b4b34255d76f7fb64a29e5b0098351b761ba1510cb74c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fracturedjson/blobs/sha256:31a5bd6552911fa0189e96031aac99bb82002fde4542118a7c95eeb852c247c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fracturedjson/blobs/sha256:53d0d41ec51fb341e160e8b01756124139cf983c118bdb7001d3023f5acc5cec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fracturedjson/blobs/sha256:fb23fe5446b5e3aa8990fee78c14ec5c98ef5a4d47ae47da812cd17b3fc9d286
+sha256:
+  darwin_arm64: 1dd71fb03ea6e15ff2b4b34255d76f7fb64a29e5b0098351b761ba1510cb74c7
+  darwin_amd64: 31a5bd6552911fa0189e96031aac99bb82002fde4542118a7c95eeb852c247c6
+  linux_amd64: 53d0d41ec51fb341e160e8b01756124139cf983c118bdb7001d3023f5acc5cec
+  linux_arm64: fb23fe5446b5e3aa8990fee78c14ec5c98ef5a4d47ae47da812cd17b3fc9d286
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

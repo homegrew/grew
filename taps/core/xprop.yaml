@@ -1,0 +1,21 @@
+name: xprop
+version: 1.2.8
+description: Property displayer for X
+homepage: https://gitlab.freedesktop.org/xorg/app/xprop
+license: MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xprop/blobs/sha256:16498c5be35fa49d3fb077e47270d30e791d045f9ad1a6ec52b5e375168b56aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xprop/blobs/sha256:1c66f81bd54f83a640e7f6e6a7ec95232f8d18715d7b9bf0b5c3b3b618b093f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xprop/blobs/sha256:14cddb19c4fd84f405036ecbdcf37e3d030840b3d21a81bff0ceec4da68a4a0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xprop/blobs/sha256:9365e5e98c06c4d155393e2e152ed39a61dfde7a5c74c3b470e978fbcf7712c5
+sha256:
+  darwin_arm64: 16498c5be35fa49d3fb077e47270d30e791d045f9ad1a6ec52b5e375168b56aa
+  darwin_amd64: 1c66f81bd54f83a640e7f6e6a7ec95232f8d18715d7b9bf0b5c3b3b618b093f5
+  linux_amd64: 14cddb19c4fd84f405036ecbdcf37e3d030840b3d21a81bff0ceec4da68a4a0a
+  linux_arm64: 9365e5e98c06c4d155393e2e152ed39a61dfde7a5c74c3b470e978fbcf7712c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11

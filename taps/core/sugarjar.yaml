@@ -1,0 +1,22 @@
+name: sugarjar
+version: 2.0.2
+description: Helper utility for a better Git/GitHub experience
+homepage: https://github.com/jaymzh/sugarjar/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sugarjar/blobs/sha256:1ea59ae258cb0a280477db2508df2f70645df8860d1713d34f1c3c7304e60d70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sugarjar/blobs/sha256:faa748b8acbc999bae3834785abfa3ee835bedd5c5ed1e11cd1a8d61b794e55b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sugarjar/blobs/sha256:5e3a13b8ac77471cf1ff034b5edb50ba9d77aba8856b45a82c57645647efdf78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sugarjar/blobs/sha256:a518760f0fae7fe19353cfa1ebcf304eb18dd15f60f362d28ebaef1cc2196256
+sha256:
+  darwin_arm64: 1ea59ae258cb0a280477db2508df2f70645df8860d1713d34f1c3c7304e60d70
+  darwin_amd64: faa748b8acbc999bae3834785abfa3ee835bedd5c5ed1e11cd1a8d61b794e55b
+  linux_amd64: 5e3a13b8ac77471cf1ff034b5edb50ba9d77aba8856b45a82c57645647efdf78
+  linux_arm64: a518760f0fae7fe19353cfa1ebcf304eb18dd15f60f362d28ebaef1cc2196256
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gh
+  - ruby

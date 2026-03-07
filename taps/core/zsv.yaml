@@ -1,0 +1,22 @@
+name: zsv
+version: 1.3.0
+description: Tabular data swiss-army knife CLI
+homepage: https://github.com/liquidaty/zsv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zsv/blobs/sha256:76284618eb9197f6a95662fef7b0561317264ca45478ca0b618c7cade04715af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zsv/blobs/sha256:f98f1e5a3782f5ef64573d80acfe89e75e7793dd56ea574cec7cad2cca30c4af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zsv/blobs/sha256:32cb9126d5d14d886c92d2e12b4e71cd7d45c3c6e1e6789b289f531db60a05f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zsv/blobs/sha256:e195404e9bc473770a34909d508a813dea95c0b3bb64e0b4e3d618bb3d060c9c
+sha256:
+  darwin_arm64: 76284618eb9197f6a95662fef7b0561317264ca45478ca0b618c7cade04715af
+  darwin_amd64: f98f1e5a3782f5ef64573d80acfe89e75e7793dd56ea574cec7cad2cca30c4af
+  linux_amd64: 32cb9126d5d14d886c92d2e12b4e71cd7d45c3c6e1e6789b289f531db60a05f6
+  linux_arm64: e195404e9bc473770a34909d508a813dea95c0b3bb64e0b4e3d618bb3d060c9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jq
+  - pcre2

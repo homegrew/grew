@@ -1,0 +1,21 @@
+name: trzsz
+version: 1.1.5
+description: Simple file transfer tools, similar to lrzsz (rz/sz), and compatible with tmux
+homepage: https://trzsz.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trzsz/blobs/sha256:18ceb2b8e4ef4b313862b6119dbf1e91bc466e3aed2bb69689d69af43047ed09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trzsz/blobs/sha256:9f42b5cc4b373447f9471d5c272791fb0bb9ed0191fa7cb7a540a1fa37a84097
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trzsz/blobs/sha256:4533c6cf24c2515bd79a4bca7cbcadbb276dc4bbb29fae8ba1078fbe14465b66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trzsz/blobs/sha256:ae88a004c6f5ae6bac55d16170511072994d19842a3cac6d629e7e43995aa7d5
+sha256:
+  darwin_arm64: 18ceb2b8e4ef4b313862b6119dbf1e91bc466e3aed2bb69689d69af43047ed09
+  darwin_amd64: 9f42b5cc4b373447f9471d5c272791fb0bb9ed0191fa7cb7a540a1fa37a84097
+  linux_amd64: 4533c6cf24c2515bd79a4bca7cbcadbb276dc4bbb29fae8ba1078fbe14465b66
+  linux_arm64: ae88a004c6f5ae6bac55d16170511072994d19842a3cac6d629e7e43995aa7d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

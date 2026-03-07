@@ -1,0 +1,13 @@
+name: m1ddc
+version: 1.2.0
+description: Control external displays (USB-C/DisplayPort Alt Mode) using DDC/CI on M1 Macs
+homepage: https://github.com/waydabber/m1ddc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/m1ddc/blobs/sha256:27dcf5e58af8b5e29fd6b2799e9d28798e945af2805bff47ed0be2ab3469d1f4
+sha256:
+  darwin_arm64: 27dcf5e58af8b5e29fd6b2799e9d28798e945af2805bff47ed0be2ab3469d1f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

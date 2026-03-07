@@ -1,0 +1,11 @@
+name: flame
+version: 3.0.0,80
+description: Rendezvous service browser for iPhone / iPod touch
+homepage: https://movieos.org/code/flame/
+url:
+  darwin_arm64: https://github.com/tominsam/flametouch/releases/download/3.0.0(80)/Flame.3.0.0.80.zip
+sha256:
+  darwin_arm64: cc09216769022fc4acb20eaddd37898ace0d3a9ca8d9f53fbc06cdbfd45868e0
+artifacts:
+  app:
+    - Flame.app

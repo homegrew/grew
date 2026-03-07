@@ -1,0 +1,19 @@
+name: reddix
+version: 0.2.9
+description: Reddit, refined for the terminal
+homepage: https://github.com/ck-zhang/reddix
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reddix/blobs/sha256:e36b6e3eb90ab065727639e5feeba9aaf128f2f5da15d632c1b7b8d45573ab38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reddix/blobs/sha256:86b57caf96d429888047520fd3e0b80441a529abe9364e289ba84cf4a14db09f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reddix/blobs/sha256:b461c3efb5a1425a1b4961aac63e43141787a10a0be669204b9e1da26991f7ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reddix/blobs/sha256:e3c97c722f8c987c38f74b01830953dd3bbc60fbfad023fa5aab2a27c914d8a3
+sha256:
+  darwin_arm64: e36b6e3eb90ab065727639e5feeba9aaf128f2f5da15d632c1b7b8d45573ab38
+  darwin_amd64: 86b57caf96d429888047520fd3e0b80441a529abe9364e289ba84cf4a14db09f
+  linux_amd64: b461c3efb5a1425a1b4961aac63e43141787a10a0be669204b9e1da26991f7ec
+  linux_arm64: e3c97c722f8c987c38f74b01830953dd3bbc60fbfad023fa5aab2a27c914d8a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

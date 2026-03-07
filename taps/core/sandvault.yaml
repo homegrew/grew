@@ -1,0 +1,15 @@
+name: sandvault
+version: 1.1.26
+description: Run AI agents isolated in a sandboxed macOS user account
+homepage: https://github.com/webcoyote/sandvault
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sandvault/blobs/sha256:21d91885e31c1f169456f3daacc92eb5e0104f5f1724c872710696bf23f7017d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sandvault/blobs/sha256:e4716223873027f454f3b57c2b7da6ea4eee1262897067dc28dbd2a698ba82ca
+sha256:
+  darwin_arm64: 21d91885e31c1f169456f3daacc92eb5e0104f5f1724c872710696bf23f7017d
+  darwin_amd64: e4716223873027f454f3b57c2b7da6ea4eee1262897067dc28dbd2a698ba82ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

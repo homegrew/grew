@@ -1,0 +1,24 @@
+name: rom-tools
+version: 0.286
+description: Tools for Multiple Arcade Machine Emulator
+homepage: https://www.mamedev.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rom-tools/blobs/sha256:5b5c8d91efbea5a5da2cc7e816d09fe4b118115590bbb5e45d44a3671eda0cbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rom-tools/blobs/sha256:196e97e1f51ef78b61daa4976e1435e83c5598700a6d64249cff29076300704f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rom-tools/blobs/sha256:2f03e3ff456f73878f7c97cdf0c406db9273bf488e128445f46de915cb0ce846
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rom-tools/blobs/sha256:bb0e6fbd357bf02c9361275a4efe55b87659abe2c45cbcd8447441800ba0b007
+sha256:
+  darwin_arm64: 5b5c8d91efbea5a5da2cc7e816d09fe4b118115590bbb5e45d44a3671eda0cbf
+  darwin_amd64: 196e97e1f51ef78b61daa4976e1435e83c5598700a6d64249cff29076300704f
+  linux_amd64: 2f03e3ff456f73878f7c97cdf0c406db9273bf488e128445f46de915cb0ce846
+  linux_arm64: bb0e6fbd357bf02c9361275a4efe55b87659abe2c45cbcd8447441800ba0b007
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - sdl3
+  - utf8proc
+  - zstd

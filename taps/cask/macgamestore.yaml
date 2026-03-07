@@ -1,0 +1,11 @@
+name: macgamestore
+version: 5.7.1,7036
+description: Buy, download, and play your games
+homepage: https://www.macgamestore.com/app/
+url:
+  darwin_arm64: https://www.macgamestore.com/api_clientapp/clientupdates/public/core7/MacGameStore_5.7.1_7036.zip
+sha256:
+  darwin_arm64: a541e63171c475a95e1bd47ee702cd58c13738a8b78c3463c7faab59aa0237f4
+artifacts:
+  app:
+    - MacGameStore.app

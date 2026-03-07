@@ -1,0 +1,19 @@
+name: httpry
+version: 0.1.8
+description: Packet sniffer for displaying and logging HTTP traffic
+homepage: https://github.com/jbittel/httpry
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httpry/blobs/sha256:4d7f9814a19d86ed059a4d1f4e6a6ae1e0463cba42b53eaf0405d4a624f55e78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httpry/blobs/sha256:d59fe1cd0cbceb67f849c6b39f65f391eaba5b8a31fe7eabe240646abb29ae17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httpry/blobs/sha256:362c2d3249eec72e7baebdde1a8c0a2e6a2b005e70b516733b96fa01e2aaf55e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httpry/blobs/sha256:a4bf3a6354608e592030d226229360572cd999dc311d46a2a11908736fec6cf3
+sha256:
+  darwin_arm64: 4d7f9814a19d86ed059a4d1f4e6a6ae1e0463cba42b53eaf0405d4a624f55e78
+  darwin_amd64: d59fe1cd0cbceb67f849c6b39f65f391eaba5b8a31fe7eabe240646abb29ae17
+  linux_amd64: 362c2d3249eec72e7baebdde1a8c0a2e6a2b005e70b516733b96fa01e2aaf55e
+  linux_arm64: a4bf3a6354608e592030d226229360572cd999dc311d46a2a11908736fec6cf3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

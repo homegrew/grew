@@ -1,0 +1,19 @@
+name: libsepol
+version: 3.10
+description: SELinux binary policy manipulation library
+homepage: https://github.com/SELinuxProject/selinux
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsepol/blobs/sha256:7b70e27cd3f015e277465bb7092996febc26b869fce6417315bc00cb5fe33359
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsepol/blobs/sha256:6fb7ec4b1d0a6b41a26f754d0cbf588db433852a9b32b1051fd006560ed9f84e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsepol/blobs/sha256:5c8a7db4cbdafa80b865af18bb9a82349b9049fbe056b6052e1e87dc5dd48fb4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsepol/blobs/sha256:15fa5b86884032378074358d534e3d09728bf088b186586cb1ba8f3d29184067
+sha256:
+  darwin_arm64: 7b70e27cd3f015e277465bb7092996febc26b869fce6417315bc00cb5fe33359
+  darwin_amd64: 6fb7ec4b1d0a6b41a26f754d0cbf588db433852a9b32b1051fd006560ed9f84e
+  linux_amd64: 5c8a7db4cbdafa80b865af18bb9a82349b9049fbe056b6052e1e87dc5dd48fb4
+  linux_arm64: 15fa5b86884032378074358d534e3d09728bf088b186586cb1ba8f3d29184067
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

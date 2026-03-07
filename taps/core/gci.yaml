@@ -1,0 +1,19 @@
+name: gci
+version: 0.14.0
+description: Control Golang package import order and make it always deterministic
+homepage: https://github.com/daixiang0/gci
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gci/blobs/sha256:004995409069782b3c3f8347ddc9cf8895a282abfcd2b6bdd16f53f0fabbc26a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gci/blobs/sha256:14cd5ae2da5a5c573cea93d2bb76d20f0a1e0359afd03b21bb2d070d955da57e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gci/blobs/sha256:9c2514f7cddb033f9ebdb2be7136861c0bb5b7f80d5dd30b0cc058e32cb465c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gci/blobs/sha256:502bc7e32fe6d7524c116a8936111c4d3f2d7cbf8ce59de8aed0cab091a33b70
+sha256:
+  darwin_arm64: 004995409069782b3c3f8347ddc9cf8895a282abfcd2b6bdd16f53f0fabbc26a
+  darwin_amd64: 14cd5ae2da5a5c573cea93d2bb76d20f0a1e0359afd03b21bb2d070d955da57e
+  linux_amd64: 9c2514f7cddb033f9ebdb2be7136861c0bb5b7f80d5dd30b0cc058e32cb465c6
+  linux_arm64: 502bc7e32fe6d7524c116a8936111c4d3f2d7cbf8ce59de8aed0cab091a33b70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

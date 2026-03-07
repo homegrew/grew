@@ -1,0 +1,19 @@
+name: nsuds
+version: 0.7B
+description: Ncurses Sudoku system
+homepage: https://nsuds.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nsuds/blobs/sha256:6a85cd2409e3f89ef8578b377b849b1c04ebe32fded4bee64e5ce1961ad1440c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nsuds/blobs/sha256:919378da9a48cb758e0e3e4fcd6abe39e81e04c369a77c868b33fbd78387408a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nsuds/blobs/sha256:bebff61d5efe0ebc66d905824e0316e2c2f46b0c48128855478271de5abb9bb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nsuds/blobs/sha256:e38b08c1f769caeeca6deaca0f3a1c0d22364ad89f38973edd6dd3edc6bfc5b0
+sha256:
+  darwin_arm64: 6a85cd2409e3f89ef8578b377b849b1c04ebe32fded4bee64e5ce1961ad1440c
+  darwin_amd64: 919378da9a48cb758e0e3e4fcd6abe39e81e04c369a77c868b33fbd78387408a
+  linux_amd64: bebff61d5efe0ebc66d905824e0316e2c2f46b0c48128855478271de5abb9bb0
+  linux_arm64: e38b08c1f769caeeca6deaca0f3a1c0d22364ad89f38973edd6dd3edc6bfc5b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

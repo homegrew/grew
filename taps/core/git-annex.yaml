@@ -1,0 +1,22 @@
+name: git-annex
+version: 10.20260213
+description: Manage files with git without checking in file contents
+homepage: https://git-annex.branchable.com/
+license: AGPL-3.0-or-later AND BSD-2-Clause AND BSD-3-Clause AND GPL-2.0-only AND GPL-3.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-annex/blobs/sha256:133f887edec6af6025775e9b5692669fe710723114114fa802c1ff24278e0b3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-annex/blobs/sha256:249df57bcd23d86943945123ccac7e7418a3545150370732063d31b07f734502
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-annex/blobs/sha256:8d64f896bc2bb1e588293d88dd0adf8d2b9f48c84ac62a7313c1a74306c5d1be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-annex/blobs/sha256:28fa86ade1fb88466d5f6b45f5e650ffb4a3e9f9e860434a9ed7ffcaa9e06b8b
+sha256:
+  darwin_arm64: 133f887edec6af6025775e9b5692669fe710723114114fa802c1ff24278e0b3c
+  darwin_amd64: 249df57bcd23d86943945123ccac7e7418a3545150370732063d31b07f734502
+  linux_amd64: 8d64f896bc2bb1e588293d88dd0adf8d2b9f48c84ac62a7313c1a74306c5d1be
+  linux_arm64: 28fa86ade1fb88466d5f6b45f5e650ffb4a3e9f9e860434a9ed7ffcaa9e06b8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libmagic

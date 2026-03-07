@@ -1,0 +1,21 @@
+name: mpfr
+version: 4.2.2
+description: C library for multiple-precision floating-point computations
+homepage: https://www.mpfr.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpfr/blobs/sha256:495b04c82ef8638368a5cc62141e7ac195377d292503f5b30e5915b1ff478dda
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpfr/blobs/sha256:0d1e2577e9911e6c8ece360c9a18292c373f23131fb72e6b73987b5216ca4e4b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpfr/blobs/sha256:91dfeb407daeeabb3c3caceb89af41dc02b1aa473b88e76c7533efbc2ad6066d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpfr/blobs/sha256:fc5527d722406e18631498339752226ebebecc915bf5da08bfa48cffebeb1ba1
+sha256:
+  darwin_arm64: 495b04c82ef8638368a5cc62141e7ac195377d292503f5b30e5915b1ff478dda
+  darwin_amd64: 0d1e2577e9911e6c8ece360c9a18292c373f23131fb72e6b73987b5216ca4e4b
+  linux_amd64: 91dfeb407daeeabb3c3caceb89af41dc02b1aa473b88e76c7533efbc2ad6066d
+  linux_arm64: fc5527d722406e18631498339752226ebebecc915bf5da08bfa48cffebeb1ba1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

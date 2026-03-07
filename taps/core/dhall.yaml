@@ -1,0 +1,21 @@
+name: dhall
+version: 1.42.3
+description: Interpreter for the Dhall language
+homepage: https://dhall-lang.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhall/blobs/sha256:8d1cada694c3dfd625aeb86fa339784b3fcc62bf88b561cc845bfb74f36d6f33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhall/blobs/sha256:1684b9448091971b87dc6e1764028f94f891a874056ebc72b24efdeac50eac01
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhall/blobs/sha256:a4988d54246a5d4db6d2419c51ff3ff53f48be865a35223d86a919a544fcb953
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhall/blobs/sha256:ae7bc8a7b099ffe0baf3d2c64be38d16b59eb193b9dde5dc593d4821a23d8229
+sha256:
+  darwin_arm64: 8d1cada694c3dfd625aeb86fa339784b3fcc62bf88b561cc845bfb74f36d6f33
+  darwin_amd64: 1684b9448091971b87dc6e1764028f94f891a874056ebc72b24efdeac50eac01
+  linux_amd64: a4988d54246a5d4db6d2419c51ff3ff53f48be865a35223d86a919a544fcb953
+  linux_arm64: ae7bc8a7b099ffe0baf3d2c64be38d16b59eb193b9dde5dc593d4821a23d8229
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

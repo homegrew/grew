@@ -1,0 +1,19 @@
+name: gnu-go
+version: 3.8
+description: Plays the game of Go
+homepage: https://www.gnu.org/software/gnugo/gnugo.html
+license: GPL-3.0-or-later AND LicenseRef-Homebrew-public-domain AND LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-go/blobs/sha256:65707404eb0034b25296dc8c9dfc0dd3ec1016b4ef97744500b702317c50b89c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-go/blobs/sha256:48d3216a86c7421d136801315c761c7a4e442cf353186b529e491677bf79cdfa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-go/blobs/sha256:99e7447f557b3af1f8c1e56d9a30cbe4315bd9f05ec734fb2fadac5887ab0474
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-go/blobs/sha256:66bcee409ac058dc82af44e5ef563cee1dedaab9f2d1e0b2e527a8b5aacc8336
+sha256:
+  darwin_arm64: 65707404eb0034b25296dc8c9dfc0dd3ec1016b4ef97744500b702317c50b89c
+  darwin_amd64: 48d3216a86c7421d136801315c761c7a4e442cf353186b529e491677bf79cdfa
+  linux_amd64: 99e7447f557b3af1f8c1e56d9a30cbe4315bd9f05ec734fb2fadac5887ab0474
+  linux_arm64: 66bcee409ac058dc82af44e5ef563cee1dedaab9f2d1e0b2e527a8b5aacc8336
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

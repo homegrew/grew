@@ -1,0 +1,22 @@
+name: hierarchy-builder
+version: 1.10.2
+description: High level commands to declare a hierarchy based on packed classes
+homepage: https://github.com/math-comp/hierarchy-builder
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hierarchy-builder/blobs/sha256:8435ecf6b9adc5053223492cc87c851436c18dab2a1b3ae657d39e50b479dadd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hierarchy-builder/blobs/sha256:55d0e68f65c555c9a851d8b13c98df625caac4af50a6dc91223516c86a3ce7b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hierarchy-builder/blobs/sha256:dbe18a947168ead238ceb27cd872927b084fa445f6035abbb361e4ec37df90f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hierarchy-builder/blobs/sha256:f475589256ca06143b501f1b4ae73f5cb422243cf69bf9509d4384dd5b2c6d75
+sha256:
+  darwin_arm64: 8435ecf6b9adc5053223492cc87c851436c18dab2a1b3ae657d39e50b479dadd
+  darwin_amd64: 55d0e68f65c555c9a851d8b13c98df625caac4af50a6dc91223516c86a3ce7b1
+  linux_amd64: dbe18a947168ead238ceb27cd872927b084fa445f6035abbb361e4ec37df90f4
+  linux_arm64: f475589256ca06143b501f1b4ae73f5cb422243cf69bf9509d4384dd5b2c6d75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rocq
+  - rocq-elpi

@@ -1,0 +1,19 @@
+name: ioping
+version: 1.3
+description: Tool to monitor I/O latency in real time
+homepage: https://github.com/koct9i/ioping
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ioping/blobs/sha256:89b62c484eb018e00e48c62aa6913d204e5a21d52b24b28906032c13ec278e87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ioping/blobs/sha256:a4f39831f232914d0caa0d1f8cac3093d561a7b5daf7016e5778ae9e782d148d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ioping/blobs/sha256:19e6f04bd51ce45365b256877f1b894023415a07f8966bab528c9eeba9feacb9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ioping/blobs/sha256:d215c9fae718ae0a3114e38361728c177e3d842db90b61f596d7b835041f3cd7
+sha256:
+  darwin_arm64: 89b62c484eb018e00e48c62aa6913d204e5a21d52b24b28906032c13ec278e87
+  darwin_amd64: a4f39831f232914d0caa0d1f8cac3093d561a7b5daf7016e5778ae9e782d148d
+  linux_amd64: 19e6f04bd51ce45365b256877f1b894023415a07f8966bab528c9eeba9feacb9
+  linux_arm64: d215c9fae718ae0a3114e38361728c177e3d842db90b61f596d7b835041f3cd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

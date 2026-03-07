@@ -1,0 +1,19 @@
+name: mbt
+version: 1.2.43
+description: Multi-Target Application (MTA) build tool for Cloud Applications
+homepage: https://sap.github.io/cloud-mta-build-tool
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mbt/blobs/sha256:311d8eb5123a3aea5fbdf32976abfa895b646419d2eca32684b744aab5559c81
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mbt/blobs/sha256:2fcfad38f3da1b077e469a44b13a93c7851f20c06e8ec5fc9ee77cb3b4f949b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mbt/blobs/sha256:cc414a4dc5df5fd9f1929201bb3ab02c4cf36faee99919bbffcfd2df1fb21c6c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mbt/blobs/sha256:d6dbf3a587e8d21a6777f0798e523950c7285208927a147da9cbc7a0615ffc8f
+sha256:
+  darwin_arm64: 311d8eb5123a3aea5fbdf32976abfa895b646419d2eca32684b744aab5559c81
+  darwin_amd64: 2fcfad38f3da1b077e469a44b13a93c7851f20c06e8ec5fc9ee77cb3b4f949b7
+  linux_amd64: cc414a4dc5df5fd9f1929201bb3ab02c4cf36faee99919bbffcfd2df1fb21c6c
+  linux_arm64: d6dbf3a587e8d21a6777f0798e523950c7285208927a147da9cbc7a0615ffc8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

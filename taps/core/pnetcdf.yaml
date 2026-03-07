@@ -1,0 +1,22 @@
+name: pnetcdf
+version: 1.14.1
+description: Parallel netCDF library for scientific data using the OpenMPI library
+homepage: https://parallel-netcdf.github.io/index.html
+license: NetCDF
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pnetcdf/blobs/sha256:bf7af9e280e7cd4ed65b1224c5162e438019e694acaddf3879fb762df70b9613
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pnetcdf/blobs/sha256:b81de914fd1a1240034c507f426aa28b0cf959abd106824cf39fd7e030a1481a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pnetcdf/blobs/sha256:8a3e4533fbc8a1a5d1267dfe81cb3a1ab389ac4b0971de4eb6ade996bc2cc7a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pnetcdf/blobs/sha256:f14a3eb2fdc8bdf79d7958132945e8756f9b5af261961efc7d943266b20a87cf
+sha256:
+  darwin_arm64: bf7af9e280e7cd4ed65b1224c5162e438019e694acaddf3879fb762df70b9613
+  darwin_amd64: b81de914fd1a1240034c507f426aa28b0cf959abd106824cf39fd7e030a1481a
+  linux_amd64: 8a3e4533fbc8a1a5d1267dfe81cb3a1ab389ac4b0971de4eb6ade996bc2cc7a6
+  linux_arm64: f14a3eb2fdc8bdf79d7958132945e8756f9b5af261961efc7d943266b20a87cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - open-mpi

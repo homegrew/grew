@@ -1,0 +1,19 @@
+name: teller
+version: 2.0.7
+description: Secrets management tool for developers
+homepage: https://github.com/tellerops/teller
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/teller/blobs/sha256:c3ab62c1579d3f41b3642fe3b3170a8c116be3abb320b09aac2c8f37b5ad51ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/teller/blobs/sha256:1e8cec0e0438ed0d2fd78f55732c0e25817a5f5b29abec395feab13ed7064ce4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/teller/blobs/sha256:d5a575efbb6d5fc01d43cd7ba2f6df6c0fc121e696b7b176a8b309c55b955503
+  linux_arm64: https://ghcr.io/v2/homebrew/core/teller/blobs/sha256:732e1ec643cafa019abff281687553156cb58b234b896f4294617137b37c21bc
+sha256:
+  darwin_arm64: c3ab62c1579d3f41b3642fe3b3170a8c116be3abb320b09aac2c8f37b5ad51ef
+  darwin_amd64: 1e8cec0e0438ed0d2fd78f55732c0e25817a5f5b29abec395feab13ed7064ce4
+  linux_amd64: d5a575efbb6d5fc01d43cd7ba2f6df6c0fc121e696b7b176a8b309c55b955503
+  linux_arm64: 732e1ec643cafa019abff281687553156cb58b234b896f4294617137b37c21bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

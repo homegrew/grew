@@ -1,0 +1,23 @@
+name: ohcount
+version: 4.0.0
+description: Source code line counter
+homepage: https://github.com/blackducksoftware/ohcount
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ohcount/blobs/sha256:9615278e57b6c482ce61401b0fedef9bdb322b7a7adb23f86c3322d1bfd18123
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ohcount/blobs/sha256:a152e81df3a3a299919fddce7809d4313b3ea1fc518274dcb460cce85055ded3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ohcount/blobs/sha256:bf23b772fbaf08da94df72051a63eb74562310b9b328c56a60f47b16d2414565
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ohcount/blobs/sha256:40730cf6a816e974616ac45b32abe5fb17b21a06b1d542274f02c44fdf3a834a
+sha256:
+  darwin_arm64: 9615278e57b6c482ce61401b0fedef9bdb322b7a7adb23f86c3322d1bfd18123
+  darwin_amd64: a152e81df3a3a299919fddce7809d4313b3ea1fc518274dcb460cce85055ded3
+  linux_amd64: bf23b772fbaf08da94df72051a63eb74562310b9b328c56a60f47b16d2414565
+  linux_arm64: 40730cf6a816e974616ac45b32abe5fb17b21a06b1d542274f02c44fdf3a834a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - pcre2
+  - ragel

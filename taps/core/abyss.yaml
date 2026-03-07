@@ -1,0 +1,23 @@
+name: abyss
+version: 2.3.10
+description: Genome sequence assembler for short reads
+homepage: https://www.bcgsc.ca/resources/software/abyss
+license: GPL-3.0-only AND LGPL-2.1-or-later AND MIT AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abyss/blobs/sha256:274f0f758f4cc8852779e2a55f8900ea34ccf7dd0e784396752f03c7e6c56767
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abyss/blobs/sha256:cd3d743d197a92d98b4cd43a45615de53d5cc403a36ac9e41cdf6e47ce7aee44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abyss/blobs/sha256:e7b36e68d3d7b88d89656707fd50185e8649d31bac5359575f160dc875c1d28f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abyss/blobs/sha256:57e42e8b368589c943fa3bd23e3c8f8a5af03b307530c445309dc45a72e2d2d8
+sha256:
+  darwin_arm64: 274f0f758f4cc8852779e2a55f8900ea34ccf7dd0e784396752f03c7e6c56767
+  darwin_amd64: cd3d743d197a92d98b4cd43a45615de53d5cc403a36ac9e41cdf6e47ce7aee44
+  linux_amd64: e7b36e68d3d7b88d89656707fd50185e8649d31bac5359575f160dc875c1d28f
+  linux_arm64: 57e42e8b368589c943fa3bd23e3c8f8a5af03b307530c445309dc45a72e2d2d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - btllib
+  - open-mpi
+  - libomp

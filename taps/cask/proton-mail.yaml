@@ -1,0 +1,11 @@
+name: proton-mail
+version: 1.12.1
+description: Client for Proton Mail and Proton Calendar
+homepage: https://proton.me/mail
+url:
+  darwin_arm64: https://proton.me/download/mail/macos/1.12.1/ProtonMail-desktop.dmg
+sha256:
+  darwin_arm64: cbc2a01e6f2921b2d001bd7fa480293416ec6848b995d2276385573418934252
+artifacts:
+  app:
+    - Proton Mail.app

@@ -1,0 +1,22 @@
+name: psqlodbc
+version: 17.00.0007
+description: Official PostgreSQL ODBC driver
+homepage: https://odbc.postgresql.org
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/psqlodbc/blobs/sha256:03b67640b469646a99bf276c37d0b69930ceaf598608757d83ccd8c14830ecfe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/psqlodbc/blobs/sha256:bf485ea2d9ed662eca21eee44e597ae4d775e584942122829bffe1712a7377e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/psqlodbc/blobs/sha256:ecb8ee6431090c3e9c8de6c55505b6a3fc623ed7065d1414392f472f02a3fc5c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/psqlodbc/blobs/sha256:3c22729921780e27592be2ec849f20a14b865e99425127b583fc204587902985
+sha256:
+  darwin_arm64: 03b67640b469646a99bf276c37d0b69930ceaf598608757d83ccd8c14830ecfe
+  darwin_amd64: bf485ea2d9ed662eca21eee44e597ae4d775e584942122829bffe1712a7377e9
+  linux_amd64: ecb8ee6431090c3e9c8de6c55505b6a3fc623ed7065d1414392f472f02a3fc5c
+  linux_arm64: 3c22729921780e27592be2ec849f20a14b865e99425127b583fc204587902985
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - unixodbc

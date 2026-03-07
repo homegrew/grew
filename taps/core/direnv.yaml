@@ -1,0 +1,21 @@
+name: direnv
+version: 2.37.1
+description: Load/unload environment variables based on $PWD
+homepage: https://direnv.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/direnv/blobs/sha256:5496ce0c1abb38345db8f58db469d2971d477ce4e077930ce52165b91d4a0a7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/direnv/blobs/sha256:9b274c4ce7351773cd91a9418a2aeb16c72ed5685383a9ea97269c24b81c1c86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/direnv/blobs/sha256:5a3705773719544d8c366610498528d6607de6a2961b2ecb1cdedb5781b9d1c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/direnv/blobs/sha256:56ea5661ae3fc5537e236f2cecde9117b7dc83e90cce9269c5edb0d2209caa89
+sha256:
+  darwin_arm64: 5496ce0c1abb38345db8f58db469d2971d477ce4e077930ce52165b91d4a0a7a
+  darwin_amd64: 9b274c4ce7351773cd91a9418a2aeb16c72ed5685383a9ea97269c24b81c1c86
+  linux_amd64: 5a3705773719544d8c366610498528d6607de6a2961b2ecb1cdedb5781b9d1c6
+  linux_arm64: 56ea5661ae3fc5537e236f2cecde9117b7dc83e90cce9269c5edb0d2209caa89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bash

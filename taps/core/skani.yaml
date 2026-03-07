@@ -1,0 +1,19 @@
+name: skani
+version: 0.3.1
+description: Fast, robust ANI and aligned fraction for (metagenomic) genomes and contigs
+homepage: https://github.com/bluenote-1577/skani
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skani/blobs/sha256:3546fc60dc5365b882e38900e4d073a448d0807017a361850b2431e14d4fa2ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skani/blobs/sha256:e916617176a333e48a633f62711fd64981759db8c7ab90130ce879f925126c7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skani/blobs/sha256:920c90c25b0714d398f7840d2004ca2ef26f7071f7d47a72e88784fe949bc207
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skani/blobs/sha256:7b45a01a56e17d9956fa8dcf3759eb38cc64ca85a5e8d653301b4e05452dd4a8
+sha256:
+  darwin_arm64: 3546fc60dc5365b882e38900e4d073a448d0807017a361850b2431e14d4fa2ad
+  darwin_amd64: e916617176a333e48a633f62711fd64981759db8c7ab90130ce879f925126c7e
+  linux_amd64: 920c90c25b0714d398f7840d2004ca2ef26f7071f7d47a72e88784fe949bc207
+  linux_arm64: 7b45a01a56e17d9956fa8dcf3759eb38cc64ca85a5e8d653301b4e05452dd4a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

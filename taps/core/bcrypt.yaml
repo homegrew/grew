@@ -1,0 +1,19 @@
+name: bcrypt
+version: 1.1
+description: Cross platform file encryption utility using blowfish
+homepage: https://bcrypt.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bcrypt/blobs/sha256:d49aa09bacc40f805eba8376e5b444b9c7824737b8beaffea99a15b9a1fe58b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bcrypt/blobs/sha256:8810055ef8834286872f5594e8baca4f24e95f37f9a1cac9ac5523e0d2e0d4e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bcrypt/blobs/sha256:fa2316da920f0a6857cf2ede173897a15ae590dbfa18d48d54bb35c3a9209621
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bcrypt/blobs/sha256:6c456f948c8acb858f885c385b2e579e13fc583041a3d20eb12e53043287bab6
+sha256:
+  darwin_arm64: d49aa09bacc40f805eba8376e5b444b9c7824737b8beaffea99a15b9a1fe58b3
+  darwin_amd64: 8810055ef8834286872f5594e8baca4f24e95f37f9a1cac9ac5523e0d2e0d4e9
+  linux_amd64: fa2316da920f0a6857cf2ede173897a15ae590dbfa18d48d54bb35c3a9209621
+  linux_arm64: 6c456f948c8acb858f885c385b2e579e13fc583041a3d20eb12e53043287bab6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

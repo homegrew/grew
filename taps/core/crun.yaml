@@ -1,0 +1,20 @@
+name: crun
+version: 1.26
+description: Fast and lightweight fully featured OCI runtime and C library
+homepage: https://github.com/containers/crun
+license: GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crun/blobs/sha256:45b964c428f2f3b53da28086c0113b227651cef23a0f5c1fe6595a0ef883bc1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crun/blobs/sha256:a03436c1ef83176ab51ccad70d071768d732587f9e458b1f95074a3ada9cd495
+sha256:
+  linux_amd64: 45b964c428f2f3b53da28086c0113b227651cef23a0f5c1fe6595a0ef883bc1a
+  linux_arm64: a03436c1ef83176ab51ccad70d071768d732587f9e458b1f95074a3ada9cd495
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcap
+  - libseccomp
+  - systemd
+  - yajl

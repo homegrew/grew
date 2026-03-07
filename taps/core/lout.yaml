@@ -1,0 +1,19 @@
+name: lout
+version: 3.43.3
+description: Text formatting like TeX, but simpler
+homepage: https://savannah.nongnu.org/projects/lout
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lout/blobs/sha256:a1afa5a52f5b999a4faedd548c53df1ee3d17e47f6f32031e2b056334e738a82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lout/blobs/sha256:4962fe83929db8cfa8e540db1895aa4af1fc15332aace87eb4349446d872fd3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lout/blobs/sha256:d1e920405f03ab021f8b7f4a00cb04891e7d60791255349a3e91921ad89ac35c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lout/blobs/sha256:47228ee2a75ab6708d6223724920b60c530d321e5cd7da70d237aea3bf909730
+sha256:
+  darwin_arm64: a1afa5a52f5b999a4faedd548c53df1ee3d17e47f6f32031e2b056334e738a82
+  darwin_amd64: 4962fe83929db8cfa8e540db1895aa4af1fc15332aace87eb4349446d872fd3d
+  linux_amd64: d1e920405f03ab021f8b7f4a00cb04891e7d60791255349a3e91921ad89ac35c
+  linux_arm64: 47228ee2a75ab6708d6223724920b60c530d321e5cd7da70d237aea3bf909730
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

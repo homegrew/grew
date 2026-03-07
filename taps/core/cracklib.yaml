@@ -1,0 +1,21 @@
+name: cracklib
+version: 2.10.3
+description: LibCrack password checking library
+homepage: https://github.com/cracklib/cracklib
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cracklib/blobs/sha256:bfe6f4fcc9715b80c772bc82847977a8514960010c677c3f497cef0ffe571338
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cracklib/blobs/sha256:35c49fa815da588e05b06289ef462503741f92ade3897d01fcf1f5cb1726d14c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cracklib/blobs/sha256:92844634f5c499f9b31242fa1f05dd4657ac68fb2d335e3cbe5bd6002970e2c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cracklib/blobs/sha256:707b67a337adda7425720a25ba33911c531845c3db75097e48151e6189117685
+sha256:
+  darwin_arm64: bfe6f4fcc9715b80c772bc82847977a8514960010c677c3f497cef0ffe571338
+  darwin_amd64: 35c49fa815da588e05b06289ef462503741f92ade3897d01fcf1f5cb1726d14c
+  linux_amd64: 92844634f5c499f9b31242fa1f05dd4657ac68fb2d335e3cbe5bd6002970e2c2
+  linux_arm64: 707b67a337adda7425720a25ba33911c531845c3db75097e48151e6189117685
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

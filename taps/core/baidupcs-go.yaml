@@ -1,0 +1,19 @@
+name: baidupcs-go
+version: 4.0.0
+description: Terminal utility for Baidu Network Disk
+homepage: https://github.com/qjfoidnh/BaiduPCS-Go
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/baidupcs-go/blobs/sha256:cd8b06861d6b86f64bf1eb47b3f8628a9879c4be2ccf3ed772157fce171e91ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/baidupcs-go/blobs/sha256:a64772100fb125322e607ce829505af09a2a4bf5be544930cf29987cafd74e1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/baidupcs-go/blobs/sha256:364e12c208ebd9a3f6a9cc340029b2df203612340e5f84be46556b7f72661745
+  linux_arm64: https://ghcr.io/v2/homebrew/core/baidupcs-go/blobs/sha256:0099d6d6aa2bb74dec1f372df837c7df08aee9cd9cd2dc0f2f0b0db9bc51b41f
+sha256:
+  darwin_arm64: cd8b06861d6b86f64bf1eb47b3f8628a9879c4be2ccf3ed772157fce171e91ac
+  darwin_amd64: a64772100fb125322e607ce829505af09a2a4bf5be544930cf29987cafd74e1b
+  linux_amd64: 364e12c208ebd9a3f6a9cc340029b2df203612340e5f84be46556b7f72661745
+  linux_arm64: 0099d6d6aa2bb74dec1f372df837c7df08aee9cd9cd2dc0f2f0b0db9bc51b41f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

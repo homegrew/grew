@@ -1,0 +1,19 @@
+name: shntool
+version: 3.0.10
+description: Multi-purpose tool for manipulating and analyzing WAV files
+homepage: http://shnutils.freeshell.org/shntool/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shntool/blobs/sha256:dac7c49e9256da92adfb0d881f723ad8869043632b6e81b03b0dfb1efa184822
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shntool/blobs/sha256:15ecde34bad9a23f28114d8703059e33e330244f56150997bda24abf77a9a13f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shntool/blobs/sha256:ca983c20f607f60e0bd5f2ea6bc5d138606351fada22c01b315d388e8620c3c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shntool/blobs/sha256:c719e4057a5cd6801dc734c26f3643e241bd0b547e91663a993ae62bbcb65de5
+sha256:
+  darwin_arm64: dac7c49e9256da92adfb0d881f723ad8869043632b6e81b03b0dfb1efa184822
+  darwin_amd64: 15ecde34bad9a23f28114d8703059e33e330244f56150997bda24abf77a9a13f
+  linux_amd64: ca983c20f607f60e0bd5f2ea6bc5d138606351fada22c01b315d388e8620c3c1
+  linux_arm64: c719e4057a5cd6801dc734c26f3643e241bd0b547e91663a993ae62bbcb65de5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

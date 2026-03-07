@@ -1,0 +1,19 @@
+name: phylum-cli
+version: 7.5.0
+description: Command-line interface for the Phylum API
+homepage: https://www.phylum.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/phylum-cli/blobs/sha256:a5c41404363af5e2bb318cad8f06e8cd609343c3b4efaeca80516e070c5b26b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/phylum-cli/blobs/sha256:3bd8a1e2cb8065e893c93345403ef305ee324629f02269268325899f15101d46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/phylum-cli/blobs/sha256:feac0ee8c27d884b9a2f4a04a1c240878b498abb40b0d050329b42b69a6d5bb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/phylum-cli/blobs/sha256:b5b7d147df44d98eae7c21b1eb90a6529a81209a11b197068c8da2172da8bd8c
+sha256:
+  darwin_arm64: a5c41404363af5e2bb318cad8f06e8cd609343c3b4efaeca80516e070c5b26b6
+  darwin_amd64: 3bd8a1e2cb8065e893c93345403ef305ee324629f02269268325899f15101d46
+  linux_amd64: feac0ee8c27d884b9a2f4a04a1c240878b498abb40b0d050329b42b69a6d5bb0
+  linux_arm64: b5b7d147df44d98eae7c21b1eb90a6529a81209a11b197068c8da2172da8bd8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

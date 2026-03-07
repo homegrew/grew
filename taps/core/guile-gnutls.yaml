@@ -1,0 +1,23 @@
+name: guile-gnutls
+version: 5.0.1
+description: Guile bindings for the GnuTLS library
+homepage: https://codeberg.org/guile-gnutls/guile-gnutls
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/guile-gnutls/blobs/sha256:975e9b65e6b30080b9bbac5a87afd83e2a5722c2b72920c90fb9122a2f45144c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/guile-gnutls/blobs/sha256:1046862293e93ae8a461b7a6dcaf2f823c4ec052ac4f24dd6ee8ac154196bce9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/guile-gnutls/blobs/sha256:e83b5913dec6fedd693056a6cc6a136b7036ffbc80ab83d21896c6a013244a1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/guile-gnutls/blobs/sha256:1bb943a6cbc6f7aab143dfb69b26e0b17ac316f9e88614e1b833a525d134ccc4
+sha256:
+  darwin_arm64: 975e9b65e6b30080b9bbac5a87afd83e2a5722c2b72920c90fb9122a2f45144c
+  darwin_amd64: 1046862293e93ae8a461b7a6dcaf2f823c4ec052ac4f24dd6ee8ac154196bce9
+  linux_amd64: e83b5913dec6fedd693056a6cc6a136b7036ffbc80ab83d21896c6a013244a1f
+  linux_arm64: 1bb943a6cbc6f7aab143dfb69b26e0b17ac316f9e88614e1b833a525d134ccc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - guile
+  - bdw-gc

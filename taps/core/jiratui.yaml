@@ -1,0 +1,27 @@
+name: jiratui
+version: 1.6.2
+description: Textual User Interface for interacting with Atlassian Jira from your shell
+homepage: https://jiratui.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jiratui/blobs/sha256:92294a5ceeed6fbbba103f8ccb4d1810ce14105f6092a48e940ef5bdf2c65d1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jiratui/blobs/sha256:cb0ea246afba848824fe38adbee77175adb0a4f597bb2f973f3fb94062aa5ac1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jiratui/blobs/sha256:0f704ab5cc3caaf3d350876c897bb3ab0a4719d9607ece076fb2be675074b9d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jiratui/blobs/sha256:8f8097f865ec0b6a6e26ba767a596c5e718367ca74db9142271a38eea9e75614
+sha256:
+  darwin_arm64: 92294a5ceeed6fbbba103f8ccb4d1810ce14105f6092a48e940ef5bdf2c65d1b
+  darwin_amd64: cb0ea246afba848824fe38adbee77175adb0a4f597bb2f973f3fb94062aa5ac1
+  linux_amd64: 0f704ab5cc3caaf3d350876c897bb3ab0a4719d9607ece076fb2be675074b9d1
+  linux_arm64: 8f8097f865ec0b6a6e26ba767a596c5e718367ca74db9142271a38eea9e75614
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libmagic
+  - libyaml
+  - pillow
+  - pydantic
+  - python@3.14

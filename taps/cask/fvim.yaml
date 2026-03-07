@@ -1,0 +1,11 @@
+name: fvim
+version: 0.3.549,ee4316c
+description: GUI for the Neovim text editor
+homepage: https://github.com/yatli/fvim
+url:
+  darwin_arm64: https://github.com/yatli/fvim/releases/download/v0.3.549%2Bee4316c/fvim-osx-x64-v0.3.548+g2e4087d-2-gee4316c.zip
+sha256:
+  darwin_arm64: 2e08052e16100189448f938f0f87dbd0cd6e81c20fcccb11ac70bc39df5bc412
+artifacts:
+  app:
+    - FVim.app

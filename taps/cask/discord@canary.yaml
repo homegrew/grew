@@ -1,0 +1,11 @@
+name: discord@canary
+version: 0.0.994
+description: Voice and text chat software
+homepage: https://canary.discord.com/
+url:
+  darwin_arm64: https://dl-canary.discordapp.net/apps/osx/0.0.994/DiscordCanary.dmg
+sha256:
+  darwin_arm64: 55bca1263a7611b95c9519d87f3b805673b1d5c755b5b71962e9c98af3520352
+artifacts:
+  app:
+    - Discord Canary.app

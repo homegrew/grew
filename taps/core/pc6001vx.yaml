@@ -1,0 +1,25 @@
+name: pc6001vx
+version: 4.3.0
+description: PC-6001 emulator
+homepage: https://github.com/eighttails/PC6001VX
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pc6001vx/blobs/sha256:0da9f1919b004524e9677255d6829e1e5fb9a472a04405db822cf38b0bb5ea37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pc6001vx/blobs/sha256:6642ccbb7526d4b08a5cd3fbae82119eec81c19634232d7fbb63d70d61cab34d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pc6001vx/blobs/sha256:0b90e9cc7da63eabbd08dec431bb01db9522c7529d7b02dca1bd7b44ea2c3ea4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pc6001vx/blobs/sha256:5e8afac0eb25d8086990982f1aa2e0bf2ea916e267beb9fc8a84661a30885bb2
+sha256:
+  darwin_arm64: 0da9f1919b004524e9677255d6829e1e5fb9a472a04405db822cf38b0bb5ea37
+  darwin_amd64: 6642ccbb7526d4b08a5cd3fbae82119eec81c19634232d7fbb63d70d61cab34d
+  linux_amd64: 0b90e9cc7da63eabbd08dec431bb01db9522c7529d7b02dca1bd7b44ea2c3ea4
+  linux_arm64: 5e8afac0eb25d8086990982f1aa2e0bf2ea916e267beb9fc8a84661a30885bb2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - qtbase
+  - qtmultimedia
+  - sdl2
+  - gettext

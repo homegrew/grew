@@ -1,0 +1,19 @@
+name: tfocus
+version: 0.1.5
+description: Tool for selecting and executing terraform plan/apply on specific resources
+homepage: https://github.com/nwiizo/tfocus
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfocus/blobs/sha256:258361e1ca78414d867f992032a024b6391dfc49737fbf25e184a3b6b6274cc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfocus/blobs/sha256:0b997ef677047ba1e07f50d7bef51846e68c022fc7dfb73fcf1a6abc1f674654
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfocus/blobs/sha256:8fac1961de78a056730c0b3a0695287a27eb52bed318bd05bb5606b105a0ac1c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfocus/blobs/sha256:773b63ffe352855a4c69c081dfa3286c894f02c352108f66bb2a7635fbc62542
+sha256:
+  darwin_arm64: 258361e1ca78414d867f992032a024b6391dfc49737fbf25e184a3b6b6274cc3
+  darwin_amd64: 0b997ef677047ba1e07f50d7bef51846e68c022fc7dfb73fcf1a6abc1f674654
+  linux_amd64: 8fac1961de78a056730c0b3a0695287a27eb52bed318bd05bb5606b105a0ac1c
+  linux_arm64: 773b63ffe352855a4c69c081dfa3286c894f02c352108f66bb2a7635fbc62542
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

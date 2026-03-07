@@ -1,0 +1,19 @@
+name: bob
+version: 4.1.6
+description: Version manager for neovim
+homepage: https://github.com/MordechaiHadad/bob
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bob/blobs/sha256:8de3f7f7d11e61ecb04e2ee99a314fbee20fab0f77767cf603e14aad61f98c46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bob/blobs/sha256:96a427685b9b5ed8ecbfc9fd6c0f8a574a3474ee60c6a5c5858a5088d1cc6149
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bob/blobs/sha256:0a3d6ea3dd4af3a4e03836e07ffa1b6907fb6115c9e49f7e4e4155638cea7074
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bob/blobs/sha256:d881e5d7ab658baba140e0476e7acc2bcffb3e55bc8775c2fd1b9ecf3297218d
+sha256:
+  darwin_arm64: 8de3f7f7d11e61ecb04e2ee99a314fbee20fab0f77767cf603e14aad61f98c46
+  darwin_amd64: 96a427685b9b5ed8ecbfc9fd6c0f8a574a3474ee60c6a5c5858a5088d1cc6149
+  linux_amd64: 0a3d6ea3dd4af3a4e03836e07ffa1b6907fb6115c9e49f7e4e4155638cea7074
+  linux_arm64: d881e5d7ab658baba140e0476e7acc2bcffb3e55bc8775c2fd1b9ecf3297218d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

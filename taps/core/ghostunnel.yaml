@@ -1,0 +1,19 @@
+name: ghostunnel
+version: 1.9.2
+description: Simple SSL/TLS proxy with mutual authentication
+homepage: https://github.com/ghostunnel/ghostunnel
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghostunnel/blobs/sha256:9b90f610097add9b870ad29b07fb6659f55b475b0410820f2870d4b62f40a7c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghostunnel/blobs/sha256:df424daf94f6d23d0b83312da54e7a086903b2b522f7902e542afe789977071f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghostunnel/blobs/sha256:a360f85e6688fc6c565441a31ce217ae97afdf67d6a7eb91c0d0991a1bfffeb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghostunnel/blobs/sha256:e2c73aa43c1bf08ae62db44035d052a8f726a76c063d3ab3127ffca63fb2a183
+sha256:
+  darwin_arm64: 9b90f610097add9b870ad29b07fb6659f55b475b0410820f2870d4b62f40a7c0
+  darwin_amd64: df424daf94f6d23d0b83312da54e7a086903b2b522f7902e542afe789977071f
+  linux_amd64: a360f85e6688fc6c565441a31ce217ae97afdf67d6a7eb91c0d0991a1bfffeb3
+  linux_arm64: e2c73aa43c1bf08ae62db44035d052a8f726a76c063d3ab3127ffca63fb2a183
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

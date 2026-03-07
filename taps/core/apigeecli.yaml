@@ -1,0 +1,19 @@
+name: apigeecli
+version: 2.17.0
+description: Apigee management API command-line interface
+homepage: https://cloud.google.com/apigee/docs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apigeecli/blobs/sha256:0a698c837530a57d10f1056d0b1f7d2d64dfde1992b585ea16ad116238c53f12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apigeecli/blobs/sha256:b9193afb8ac3b185cd798dccfd4bd8e0f7c4c2e6a9ea1ee0875aa3d04304d0d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apigeecli/blobs/sha256:ea511dedf463a3f405b822f3cca9ce2f1a70d5420ab06699c58a85a33a13ac16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apigeecli/blobs/sha256:63c76db440f9ff3f6e9823694f891b44fb08099e10bedbbc1a4470051c20f9dc
+sha256:
+  darwin_arm64: 0a698c837530a57d10f1056d0b1f7d2d64dfde1992b585ea16ad116238c53f12
+  darwin_amd64: b9193afb8ac3b185cd798dccfd4bd8e0f7c4c2e6a9ea1ee0875aa3d04304d0d4
+  linux_amd64: ea511dedf463a3f405b822f3cca9ce2f1a70d5420ab06699c58a85a33a13ac16
+  linux_arm64: 63c76db440f9ff3f6e9823694f891b44fb08099e10bedbbc1a4470051c20f9dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

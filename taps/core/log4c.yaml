@@ -1,0 +1,19 @@
+name: log4c
+version: 1.2.4
+description: Logging Framework for C
+homepage: https://log4c.sourceforge.net/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/log4c/blobs/sha256:ea35b2efc5487ef7bdc2fb3cfe79889d49df229641fe0df54ee2d97ba5da6da6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/log4c/blobs/sha256:79b5631ab866eb7263b716c5ef6d5103b9b1c8b0a9c87319661037e52ffcc384
+  linux_amd64: https://ghcr.io/v2/homebrew/core/log4c/blobs/sha256:5182c7b11972d29559087012a708f71137b9795294afb833aff1cf9d40168a9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/log4c/blobs/sha256:f5dda797e597bdf6ee587b2f8ad7b70403eff0f0069fce0d4bd9544e382c4bf2
+sha256:
+  darwin_arm64: ea35b2efc5487ef7bdc2fb3cfe79889d49df229641fe0df54ee2d97ba5da6da6
+  darwin_amd64: 79b5631ab866eb7263b716c5ef6d5103b9b1c8b0a9c87319661037e52ffcc384
+  linux_amd64: 5182c7b11972d29559087012a708f71137b9795294afb833aff1cf9d40168a9a
+  linux_arm64: f5dda797e597bdf6ee587b2f8ad7b70403eff0f0069fce0d4bd9544e382c4bf2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

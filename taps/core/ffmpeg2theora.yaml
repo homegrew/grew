@@ -1,0 +1,25 @@
+name: ffmpeg2theora
+version: 0.30
+description: Convert video files to Ogg Theora format
+homepage: https://gitlab.xiph.org/xiph/ffmpeg2theora
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg2theora/blobs/sha256:42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg2theora/blobs/sha256:c9af8b3a5b08e30151a56e2a58356d27ff7f37cf6418f622d0024d02ff7077ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg2theora/blobs/sha256:af084dab0150730e9197bd8c8d3ba09eb0aef171742918f257aabead5b5a664e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg2theora/blobs/sha256:f691b49ee844e7e946caf574c177c1e9389f9714aa18b3289d1b02337bace8b5
+sha256:
+  darwin_arm64: 42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757
+  darwin_amd64: c9af8b3a5b08e30151a56e2a58356d27ff7f37cf6418f622d0024d02ff7077ff
+  linux_amd64: af084dab0150730e9197bd8c8d3ba09eb0aef171742918f257aabead5b5a664e
+  linux_arm64: f691b49ee844e7e946caf574c177c1e9389f9714aa18b3289d1b02337bace8b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg@4
+  - libkate
+  - libogg
+  - libvorbis
+  - theora

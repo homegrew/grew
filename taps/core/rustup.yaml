@@ -1,0 +1,20 @@
+name: rustup
+version: 1.28.2
+description: Rust toolchain installer
+homepage: https://rust-lang.github.io/rustup/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustup/blobs/sha256:64f4ef0c6a93f3f1261e7a83e5e1de535af07109777de50e699d7bc76c5e8e7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustup/blobs/sha256:03a586bc26e67104067448d73c503074699639aa04eed6504651cfede0efeeef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustup/blobs/sha256:36d2915f62a55bffc816e6ffdb7032d6488b8672d1bb556836082eed53943cae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustup/blobs/sha256:02949aabdf891fe17a36471e9758775efff183255719d33496b89b48a171542e
+sha256:
+  darwin_arm64: 64f4ef0c6a93f3f1261e7a83e5e1de535af07109777de50e699d7bc76c5e8e7c
+  darwin_amd64: 03a586bc26e67104067448d73c503074699639aa04eed6504651cfede0efeeef
+  linux_amd64: 36d2915f62a55bffc816e6ffdb7032d6488b8672d1bb556836082eed53943cae
+  linux_arm64: 02949aabdf891fe17a36471e9758775efff183255719d33496b89b48a171542e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

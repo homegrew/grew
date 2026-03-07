@@ -1,0 +1,22 @@
+name: lldpd
+version: 1.0.20
+description: Implementation of IEEE 802.1ab (LLDP)
+homepage: https://lldpd.github.io/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lldpd/blobs/sha256:b06cc31ce05ecfd045b635377710710ec5fe085ed266004f8f7a37a8c5068326
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lldpd/blobs/sha256:e9f70ec215c94aeb86b18d98358a11733b349a765aa0fe3af97da03ce66f16e2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lldpd/blobs/sha256:a439e92e0747bcce38853c64504e732088c53507fbe1f1a8346d868b957d7bc0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lldpd/blobs/sha256:3381d8f39cc2ebbec18bd8feb89faccb7ca9db59569a7f5e7916b275ca223091
+sha256:
+  darwin_arm64: b06cc31ce05ecfd045b635377710710ec5fe085ed266004f8f7a37a8c5068326
+  darwin_amd64: e9f70ec215c94aeb86b18d98358a11733b349a765aa0fe3af97da03ce66f16e2
+  linux_amd64: a439e92e0747bcce38853c64504e732088c53507fbe1f1a8346d868b957d7bc0
+  linux_arm64: 3381d8f39cc2ebbec18bd8feb89faccb7ca9db59569a7f5e7916b275ca223091
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - readline

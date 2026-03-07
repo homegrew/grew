@@ -1,0 +1,19 @@
+name: figlet
+version: 2.2.5
+description: Banner-like program prints strings as ASCII art
+homepage: http://www.figlet.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/figlet/blobs/sha256:08cea07f0d5aa44680d79cf97dbae12da8f80e85deb70b36f0e701be0896efd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/figlet/blobs/sha256:4c1ce798c88dab71094733aed8969c787842894037637009dd4a7c06a00446da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/figlet/blobs/sha256:94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/figlet/blobs/sha256:becd8069f2e1a5c9db27cb7b30236450b4490d0f8ce082174cb59282344d7200
+sha256:
+  darwin_arm64: 08cea07f0d5aa44680d79cf97dbae12da8f80e85deb70b36f0e701be0896efd5
+  darwin_amd64: 4c1ce798c88dab71094733aed8969c787842894037637009dd4a7c06a00446da
+  linux_amd64: 94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff
+  linux_arm64: becd8069f2e1a5c9db27cb7b30236450b4490d0f8ce082174cb59282344d7200
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

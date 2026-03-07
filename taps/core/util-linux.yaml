@@ -1,0 +1,22 @@
+name: util-linux
+version: 2.41.3
+description: Collection of Linux utilities
+homepage: https://github.com/util-linux/util-linux
+license: BSD-3-Clause AND BSD-4-Clause-UC AND GPL-2.0-only AND GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.1-or-later AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/util-linux/blobs/sha256:a8603b1c1262144381fa966b199cc44cb741c78a273a89be1cad63ab7a683f98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/util-linux/blobs/sha256:a67370fc42a725684d4efe1c0628b648a606260daa04e586129213271d8db573
+  linux_amd64: https://ghcr.io/v2/homebrew/core/util-linux/blobs/sha256:780fd8935ee590bd6b9ad662d5a8e27d25e94174af6dde7a738256c3af723602
+  linux_arm64: https://ghcr.io/v2/homebrew/core/util-linux/blobs/sha256:f3ed9fde08fe40c39f4f2ea8b1ae02177d62165968d5fa7f5197f97d75e696a6
+sha256:
+  darwin_arm64: a8603b1c1262144381fa966b199cc44cb741c78a273a89be1cad63ab7a683f98
+  darwin_amd64: a67370fc42a725684d4efe1c0628b648a606260daa04e586129213271d8db573
+  linux_amd64: 780fd8935ee590bd6b9ad662d5a8e27d25e94174af6dde7a738256c3af723602
+  linux_arm64: f3ed9fde08fe40c39f4f2ea8b1ae02177d62165968d5fa7f5197f97d75e696a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+keg_only: true

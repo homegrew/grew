@@ -1,0 +1,21 @@
+name: ephemeralpg
+version: 3.4
+description: Run tests on an isolated, temporary Postgres database
+homepage: https://eradman.com/ephemeralpg/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ephemeralpg/blobs/sha256:05b1fb03e03f8f4dce4484d9ef866159c0b46ebacfaf93c25d542eee54281703
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ephemeralpg/blobs/sha256:a6b7fcbabd02a03bab68f74d523936a34a7461e69e499022985316b6bb16cbbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ephemeralpg/blobs/sha256:05c7d1aabdd8c6703627c23d63e5ef52e611046fab89e8a81030623b58f82095
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ephemeralpg/blobs/sha256:5b88cad663f4d20303d0b4e0f5f4fb62a78a7cbfaab950925eb1536f33564519
+sha256:
+  darwin_arm64: 05b1fb03e03f8f4dce4484d9ef866159c0b46ebacfaf93c25d542eee54281703
+  darwin_amd64: a6b7fcbabd02a03bab68f74d523936a34a7461e69e499022985316b6bb16cbbe
+  linux_amd64: 05c7d1aabdd8c6703627c23d63e5ef52e611046fab89e8a81030623b58f82095
+  linux_arm64: 5b88cad663f4d20303d0b4e0f5f4fb62a78a7cbfaab950925eb1536f33564519
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq

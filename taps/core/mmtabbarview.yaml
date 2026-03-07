@@ -1,0 +1,15 @@
+name: mmtabbarview
+version: 1.4.2
+description: Modernized and view-based rewrite of PSMTabBarControl
+homepage: https://mimo42.github.io/MMTabBarView/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmtabbarview/blobs/sha256:a502f7deb3e18188669316c46c503980256b4286d0c52d1e211a772d45919844
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmtabbarview/blobs/sha256:f6fcf8f6b9069275523c824545c19a90f5dc31170531ea727181476f21d62fc2
+sha256:
+  darwin_arm64: a502f7deb3e18188669316c46c503980256b4286d0c52d1e211a772d45919844
+  darwin_amd64: f6fcf8f6b9069275523c824545c19a90f5dc31170531ea727181476f21d62fc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

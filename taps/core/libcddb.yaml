@@ -1,0 +1,21 @@
+name: libcddb
+version: 1.3.2
+description: CDDB server access library
+homepage: https://libcddb.sourceforge.net/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcddb/blobs/sha256:6324ea57171157edaca9aa78bbc30d5bc2389a5b9357bd8929a71bbdb7800720
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcddb/blobs/sha256:ffd7868a8476a26e39995963a2732f1b9737052a0b6e3c4bb18bfee923617742
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcddb/blobs/sha256:a96b2ab16f2b983fa13921bc81d7b368a594620efd857d84ee8fb1667a18799d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcddb/blobs/sha256:2f420c361caf0d48657e9f488aab6fcb7abc5929b7c24e05494952b2c24bcb44
+sha256:
+  darwin_arm64: 6324ea57171157edaca9aa78bbc30d5bc2389a5b9357bd8929a71bbdb7800720
+  darwin_amd64: ffd7868a8476a26e39995963a2732f1b9737052a0b6e3c4bb18bfee923617742
+  linux_amd64: a96b2ab16f2b983fa13921bc81d7b368a594620efd857d84ee8fb1667a18799d
+  linux_arm64: 2f420c361caf0d48657e9f488aab6fcb7abc5929b7c24e05494952b2c24bcb44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcdio

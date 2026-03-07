@@ -1,0 +1,25 @@
+name: wxwidgets
+version: 3.3.2
+description: Cross-platform C++ GUI toolkit
+homepage: https://www.wxwidgets.org
+license: LGPL-2.0-or-later WITH WxWindows-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wxwidgets/blobs/sha256:57fc5a8e36c0f9879f9b6608634e05f0f77ef55c603c68d6903ee12cd21c0e94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wxwidgets/blobs/sha256:4d0a457ec48b7a690b6f17b6a2801e057f0bd2bd8972aa72cab5f2086f947dd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wxwidgets/blobs/sha256:b3185f508424b321f99d8c003c9f9971d4a8519e4617267f537a3316c85bf80e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wxwidgets/blobs/sha256:18e76da797b260a9609c6a9198e7ba0738f8f56cc355b07f747ecbd9b4fea483
+sha256:
+  darwin_arm64: 57fc5a8e36c0f9879f9b6608634e05f0f77ef55c603c68d6903ee12cd21c0e94
+  darwin_amd64: 4d0a457ec48b7a690b6f17b6a2801e057f0bd2bd8972aa72cab5f2086f947dd6
+  linux_amd64: b3185f508424b321f99d8c003c9f9971d4a8519e4617267f537a3316c85bf80e
+  linux_arm64: 18e76da797b260a9609c6a9198e7ba0738f8f56cc355b07f747ecbd9b4fea483
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - pcre2
+  - webp

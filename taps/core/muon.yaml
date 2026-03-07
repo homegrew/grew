@@ -1,0 +1,23 @@
+name: muon
+version: 0.5.0
+description: Meson-compatible build system
+homepage: https://muon.build
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/muon/blobs/sha256:ee83480a39f996d669a98cec8b764ae5411b5ffb22ba81c2576a529a90d45f82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/muon/blobs/sha256:7b84b3449e6fab539f2a740c055419775388cf9155711adf63c88f3fe140d0ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/muon/blobs/sha256:333c9fadf69b0e182ccca75f781c8017e5a5dbc2f0bde8924f6e59b0b1a47ac5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/muon/blobs/sha256:23221d5b0b3fe07ec7510852ed6cd065326204d26b95bd2ac254d07507cdd07b
+sha256:
+  darwin_arm64: ee83480a39f996d669a98cec8b764ae5411b5ffb22ba81c2576a529a90d45f82
+  darwin_amd64: 7b84b3449e6fab539f2a740c055419775388cf9155711adf63c88f3fe140d0ad
+  linux_amd64: 333c9fadf69b0e182ccca75f781c8017e5a5dbc2f0bde8924f6e59b0b1a47ac5
+  linux_arm64: 23221d5b0b3fe07ec7510852ed6cd065326204d26b95bd2ac254d07507cdd07b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libarchive
+  - ninja
+  - pkgconf

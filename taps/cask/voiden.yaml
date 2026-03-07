@@ -1,0 +1,11 @@
+name: voiden
+version: 1.2.1
+description: API development tool
+homepage: https://voiden.md/
+url:
+  darwin_arm64: https://voiden-releases.s3.eu-west-1.amazonaws.com/voiden/darwin/arm64/Voiden-darwin-arm64-1.2.1.zip
+sha256:
+  darwin_arm64: cee79fda3743cd094ec5d65f0f780ecd01f143ed231d85ff45bfc4ad4df3a8d0
+artifacts:
+  app:
+    - Voiden.app

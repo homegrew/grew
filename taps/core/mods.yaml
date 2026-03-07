@@ -1,0 +1,19 @@
+name: mods
+version: 1.8.1
+description: AI on the command-line
+homepage: https://github.com/charmbracelet/mods
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mods/blobs/sha256:cabb69b0f13a40d880de4f499d8858967b59f9eb53dead33c2791991cbaeb533
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mods/blobs/sha256:13855735a91fc4ec39118e17e99c3fe874153c1733629a012987709030927045
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mods/blobs/sha256:89100e59be7a746933965396dfbebcab35529ae7559329ac77c5df814d594d53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mods/blobs/sha256:4d5d54b0ff3b4722747d5bdc33ff27c985e3c836c31028d0763048a5908a401f
+sha256:
+  darwin_arm64: cabb69b0f13a40d880de4f499d8858967b59f9eb53dead33c2791991cbaeb533
+  darwin_amd64: 13855735a91fc4ec39118e17e99c3fe874153c1733629a012987709030927045
+  linux_amd64: 89100e59be7a746933965396dfbebcab35529ae7559329ac77c5df814d594d53
+  linux_arm64: 4d5d54b0ff3b4722747d5bdc33ff27c985e3c836c31028d0763048a5908a401f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

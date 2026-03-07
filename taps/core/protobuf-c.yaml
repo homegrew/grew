@@ -1,0 +1,22 @@
+name: protobuf-c
+version: 1.5.2
+description: Protocol buffers library
+homepage: https://github.com/protobuf-c/protobuf-c
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/protobuf-c/blobs/sha256:48996e72c65942fe6a8c5232430e2f47bc898095254b88f1746b85a8fbe058d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/protobuf-c/blobs/sha256:5b88cb85c69afc9aae7a15f0b6690db720d6332f15e5e577f75f5074e3e469b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/protobuf-c/blobs/sha256:26f89c7d7c5c7e0e46cc81f8da049a86cd69d02e35de2deacb02917a4ba5421a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/protobuf-c/blobs/sha256:8ab0878b33fb294aecc3967836cf21eb0b5276cb55111567bdb3532495004271
+sha256:
+  darwin_arm64: 48996e72c65942fe6a8c5232430e2f47bc898095254b88f1746b85a8fbe058d0
+  darwin_amd64: 5b88cb85c69afc9aae7a15f0b6690db720d6332f15e5e577f75f5074e3e469b6
+  linux_amd64: 26f89c7d7c5c7e0e46cc81f8da049a86cd69d02e35de2deacb02917a4ba5421a
+  linux_arm64: 8ab0878b33fb294aecc3967836cf21eb0b5276cb55111567bdb3532495004271
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - protobuf@33

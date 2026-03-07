@@ -1,0 +1,11 @@
+name: elan
+version: 7.0
+description: Annotation tool for audio and video recordings
+homepage: https://archive.mpi.nl/tla/elan
+url:
+  darwin_arm64: https://www.mpi.nl/tools/elan/ELAN_7-0_M1_mac.zip
+sha256:
+  darwin_arm64: ee067b519482f64dda66f082b0e6ad38315bca0c47d0f5166ced9ca5cd999be6
+artifacts:
+  app:
+    - ELAN_7-0_M1_mac/ELAN_7.0.app

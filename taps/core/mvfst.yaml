@@ -1,0 +1,27 @@
+name: mvfst
+version: 2026.03.02.00
+description: QUIC transport protocol implementation
+homepage: https://github.com/facebook/mvfst
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mvfst/blobs/sha256:0dc83c508d399a09e1ebcf38ee8b5f107e0dad7ae897956a09a1b4a2910c7dfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mvfst/blobs/sha256:b6f738bcf1b5262307a62396a04a6893f66b6d4e823ca5ceb1970dd97c7229e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mvfst/blobs/sha256:b48c5d12ac3e87302f30aebd252a70fd4eb82c0164f8d2c8d839613583a328a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mvfst/blobs/sha256:523b9c8324576f69281b2d4e02914ebe06749ca3c2f21ca102a3c651b6fe5bc0
+sha256:
+  darwin_arm64: 0dc83c508d399a09e1ebcf38ee8b5f107e0dad7ae897956a09a1b4a2910c7dfb
+  darwin_amd64: b6f738bcf1b5262307a62396a04a6893f66b6d4e823ca5ceb1970dd97c7229e3
+  linux_amd64: b48c5d12ac3e87302f30aebd252a70fd4eb82c0164f8d2c8d839613583a328a1
+  linux_arm64: 523b9c8324576f69281b2d4e02914ebe06749ca3c2f21ca102a3c651b6fe5bc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - double-conversion
+  - fizz
+  - fmt
+  - folly
+  - gflags
+  - glog
+  - openssl@3

@@ -1,0 +1,19 @@
+name: ad
+version: 0.4.0
+description: Adaptable text editor inspired by vi, kakoune, and acme
+homepage: https://github.com/sminez/ad
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ad/blobs/sha256:9b81b1437ce420a38ce5e3f64127fa25588ff01a5b692c4aab5ce21e59bf39a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ad/blobs/sha256:8c8c34033947dcbc878f8bc02e9b2823645f552868178710b7cb8a6dcb846139
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ad/blobs/sha256:84bed0130762a14769d5cbe2be6ed3ae399d060747613c1bb8f3aad144225bdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ad/blobs/sha256:2defe85dcaa26415d025f3b86cae81345a537297d4c1cc267e305af9d81531a2
+sha256:
+  darwin_arm64: 9b81b1437ce420a38ce5e3f64127fa25588ff01a5b692c4aab5ce21e59bf39a3
+  darwin_amd64: 8c8c34033947dcbc878f8bc02e9b2823645f552868178710b7cb8a6dcb846139
+  linux_amd64: 84bed0130762a14769d5cbe2be6ed3ae399d060747613c1bb8f3aad144225bdd
+  linux_arm64: 2defe85dcaa26415d025f3b86cae81345a537297d4c1cc267e305af9d81531a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

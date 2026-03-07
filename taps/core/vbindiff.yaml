@@ -1,0 +1,19 @@
+name: vbindiff
+version: 3.0_beta5
+description: Visual Binary Diff
+homepage: https://www.cjmweb.net/vbindiff/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vbindiff/blobs/sha256:e2e6e0b5616b035911aed46c5ab5fe7649886d86dbc880ea42e8c64cb70816c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vbindiff/blobs/sha256:8ea8ad10cca27cd58a5d1b5e34b2160624eae1d7c36c4e07e31a9c4289c98e84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vbindiff/blobs/sha256:e67eb1ec328a7cdfc6a1ffa6f6b8cdf60f106040ef5714d6b1b15067a37f6214
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vbindiff/blobs/sha256:1775e6fbae0723ad70926c4fe72cf62b4627880df9d2c05ae035eec0813ec335
+sha256:
+  darwin_arm64: e2e6e0b5616b035911aed46c5ab5fe7649886d86dbc880ea42e8c64cb70816c7
+  darwin_amd64: 8ea8ad10cca27cd58a5d1b5e34b2160624eae1d7c36c4e07e31a9c4289c98e84
+  linux_amd64: e67eb1ec328a7cdfc6a1ffa6f6b8cdf60f106040ef5714d6b1b15067a37f6214
+  linux_arm64: 1775e6fbae0723ad70926c4fe72cf62b4627880df9d2c05ae035eec0813ec335
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

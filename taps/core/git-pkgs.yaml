@@ -1,0 +1,19 @@
+name: git-pkgs
+version: 0.15.1
+description: Track package dependencies across git history
+homepage: https://github.com/git-pkgs/git-pkgs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-pkgs/blobs/sha256:2dbc5dcb41e8823f823a9932966134847ea0c3b0170eae3adb40f9c951cbee04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-pkgs/blobs/sha256:97b59d41057b8ee74e6022c597af52f8e2e2f9c76f4ca6b3528f428454033d30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-pkgs/blobs/sha256:f7ac0372ab24fcd889c834751d50b53714a016a862fad838d00810d828d7e868
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-pkgs/blobs/sha256:995c45e6e7b71f64060c2a10dd586d2bf2e90d94c9dd837b5e7699049cdba6db
+sha256:
+  darwin_arm64: 2dbc5dcb41e8823f823a9932966134847ea0c3b0170eae3adb40f9c951cbee04
+  darwin_amd64: 97b59d41057b8ee74e6022c597af52f8e2e2f9c76f4ca6b3528f428454033d30
+  linux_amd64: f7ac0372ab24fcd889c834751d50b53714a016a862fad838d00810d828d7e868
+  linux_arm64: 995c45e6e7b71f64060c2a10dd586d2bf2e90d94c9dd837b5e7699049cdba6db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

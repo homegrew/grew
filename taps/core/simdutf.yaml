@@ -1,0 +1,21 @@
+name: simdutf
+version: 8.1.0
+description: Unicode conversion routines, fast
+homepage: https://simdutf.github.io/simdutf/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simdutf/blobs/sha256:8bafee0245351d11c88f9439d2e17a872ae9c36bef7cbe3130e48f1687efdea1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simdutf/blobs/sha256:cef3b171225c4b6c471830baf8e797709dfda6cdbe129d23e5719820bd365ab6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simdutf/blobs/sha256:c00641461c4ecca00b0c5c8204ad62870f25fa76ff565a095ef98d4e2a8a7b61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simdutf/blobs/sha256:faefd84f4b4cc89ffe7b04ce57a5ebf91e8c0849f87848646011b071e9c03c1a
+sha256:
+  darwin_arm64: 8bafee0245351d11c88f9439d2e17a872ae9c36bef7cbe3130e48f1687efdea1
+  darwin_amd64: cef3b171225c4b6c471830baf8e797709dfda6cdbe129d23e5719820bd365ab6
+  linux_amd64: c00641461c4ecca00b0c5c8204ad62870f25fa76ff565a095ef98d4e2a8a7b61
+  linux_arm64: faefd84f4b4cc89ffe7b04ce57a5ebf91e8c0849f87848646011b071e9c03c1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78

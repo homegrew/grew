@@ -1,0 +1,19 @@
+name: argc
+version: 1.23.0
+description: Easily create and use cli based on bash script
+homepage: https://github.com/sigoden/argc
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argc/blobs/sha256:cd87f048d0c58c25a09af13aef7f6b61f922d312298bb71fd62b7a9ed922b88b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argc/blobs/sha256:50fe3f4adf05485dd7491edf7557457ad160bff95db98d4eb428af060b6254e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argc/blobs/sha256:bf572063a6a97cf2f9a663c93133e5467b7b06f37c233d0623dc9f8079bc7bd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argc/blobs/sha256:f4195f0d5d08d008ad7a470641d8a8246e737ee42395e5915dcf78272db830b4
+sha256:
+  darwin_arm64: cd87f048d0c58c25a09af13aef7f6b61f922d312298bb71fd62b7a9ed922b88b
+  darwin_amd64: 50fe3f4adf05485dd7491edf7557457ad160bff95db98d4eb428af060b6254e7
+  linux_amd64: bf572063a6a97cf2f9a663c93133e5467b7b06f37c233d0623dc9f8079bc7bd2
+  linux_arm64: f4195f0d5d08d008ad7a470641d8a8246e737ee42395e5915dcf78272db830b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

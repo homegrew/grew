@@ -1,0 +1,21 @@
+name: autorestic
+version: 1.8.3
+description: High level CLI utility for restic
+homepage: https://autorestic.vercel.app/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autorestic/blobs/sha256:1ce7af07dc44415cdfed0f1cfbc5ce1b742cb2d79b22cdebf4598e50baf7f1f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autorestic/blobs/sha256:d541446d59262d79dc73caddd565430e5e70eb66aeea54d792af7bb516a40dac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autorestic/blobs/sha256:39477e9220efcad3687bab295231fab1b5dc1937c78b4b60269fb2df6792d79b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autorestic/blobs/sha256:d120e2c17beb148344666f41f7d6cd3f656188e82108dede92b123d54f1f59b0
+sha256:
+  darwin_arm64: 1ce7af07dc44415cdfed0f1cfbc5ce1b742cb2d79b22cdebf4598e50baf7f1f3
+  darwin_amd64: d541446d59262d79dc73caddd565430e5e70eb66aeea54d792af7bb516a40dac
+  linux_amd64: 39477e9220efcad3687bab295231fab1b5dc1937c78b4b60269fb2df6792d79b
+  linux_arm64: d120e2c17beb148344666f41f7d6cd3f656188e82108dede92b123d54f1f59b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - restic

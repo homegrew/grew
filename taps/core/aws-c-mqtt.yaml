@@ -1,0 +1,23 @@
+name: aws-c-mqtt
+version: 0.14.0
+description: C99 implementation of the MQTT 3.1.1 specification
+homepage: https://github.com/awslabs/aws-c-mqtt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-mqtt/blobs/sha256:fdfdad7161f18bf2c39885ace11fbe8e05a423d09860e2c8a27663fec51aaa9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-mqtt/blobs/sha256:0ab5f253bc3a5f981b62939c0d56b9854423525b9d02e2a1e814a14e19e82a11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-mqtt/blobs/sha256:2e490ad8f531a51cdb4cd8f8bc6151c83084042b1fa93ebc0de99c8574292680
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-mqtt/blobs/sha256:2d484cd3999b3b977ad2071f9af337936769e8fd6f520eae072423cc6c335a83
+sha256:
+  darwin_arm64: fdfdad7161f18bf2c39885ace11fbe8e05a423d09860e2c8a27663fec51aaa9a
+  darwin_amd64: 0ab5f253bc3a5f981b62939c0d56b9854423525b9d02e2a1e814a14e19e82a11
+  linux_amd64: 2e490ad8f531a51cdb4cd8f8bc6151c83084042b1fa93ebc0de99c8574292680
+  linux_arm64: 2d484cd3999b3b977ad2071f9af337936769e8fd6f520eae072423cc6c335a83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-common
+  - aws-c-http
+  - aws-c-io

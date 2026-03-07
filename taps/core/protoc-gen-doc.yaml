@@ -1,0 +1,21 @@
+name: protoc-gen-doc
+version: 1.5.1
+description: Documentation generator plugin for Google Protocol Buffers
+homepage: https://github.com/pseudomuto/protoc-gen-doc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/protoc-gen-doc/blobs/sha256:1a25a72f55c678f4b410f42071ad746acae3648efd5a75f2a00a297d3fe4100f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/protoc-gen-doc/blobs/sha256:cfe51844f9ac4474fff2dc94b75350df856e2253f97dd4b463d195d6d849ac84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/protoc-gen-doc/blobs/sha256:b27ef3c389ef7756cc9a8399f8f49c527b03b3abe972e58e38f719787fe789e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/protoc-gen-doc/blobs/sha256:c249c91041de867871ec10f534418d65fd5904785762ed9da92f636817d20c47
+sha256:
+  darwin_arm64: 1a25a72f55c678f4b410f42071ad746acae3648efd5a75f2a00a297d3fe4100f
+  darwin_amd64: cfe51844f9ac4474fff2dc94b75350df856e2253f97dd4b463d195d6d849ac84
+  linux_amd64: b27ef3c389ef7756cc9a8399f8f49c527b03b3abe972e58e38f719787fe789e6
+  linux_arm64: c249c91041de867871ec10f534418d65fd5904785762ed9da92f636817d20c47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - protobuf

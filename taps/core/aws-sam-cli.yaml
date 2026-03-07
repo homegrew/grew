@@ -1,0 +1,27 @@
+name: aws-sam-cli
+version: 1.154.0
+description: CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
+homepage: https://aws.amazon.com/serverless/sam/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-sam-cli/blobs/sha256:77eafe3d6d4872eea68a5711a4ec9f080ca7494cd402f67a64f38d893615c847
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-sam-cli/blobs/sha256:c90160c07b27273149c9fb60e0b710ee9eb8980080605859d4470e96fdf55835
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-sam-cli/blobs/sha256:0e9e99093f29092f5c9eddc840ed3cb307164c9bcf4a9dfbb57c261c841f08c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-sam-cli/blobs/sha256:1a3712259767af37b1bf3de4436ec8d5c9a434293dd6be77f08ec8b37ea30b0f
+sha256:
+  darwin_arm64: 77eafe3d6d4872eea68a5711a4ec9f080ca7494cd402f67a64f38d893615c847
+  darwin_amd64: c90160c07b27273149c9fb60e0b710ee9eb8980080605859d4470e96fdf55835
+  linux_amd64: 0e9e99093f29092f5c9eddc840ed3cb307164c9bcf4a9dfbb57c261c841f08c8
+  linux_arm64: 1a3712259767af37b1bf3de4436ec8d5c9a434293dd6be77f08ec8b37ea30b0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - openssl@3
+  - pydantic
+  - python@3.13
+  - rpds-py

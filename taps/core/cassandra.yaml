@@ -1,0 +1,23 @@
+name: cassandra
+version: 5.0.6
+description: Eventually consistent, distributed key-value store
+homepage: https://cassandra.apache.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cassandra/blobs/sha256:0de4d2dcd50ab4a0b3aaa4dccf008d358d78226f7b21dfd3b2297ff667762c73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cassandra/blobs/sha256:0efec8e3d2a3127251d8272d781b6aef07443702e56bf4a02089dd2428d54879
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cassandra/blobs/sha256:707e81f60da7fd7e2cd1a68af2cc3523a1ef66d1278bc2e1bedb44c108baff0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cassandra/blobs/sha256:3bd31534c91dfd6979bbb6d169871918fc3854ff7ede8624f15a03f4bdd8c181
+sha256:
+  darwin_arm64: 0de4d2dcd50ab4a0b3aaa4dccf008d358d78226f7b21dfd3b2297ff667762c73
+  darwin_amd64: 0efec8e3d2a3127251d8272d781b6aef07443702e56bf4a02089dd2428d54879
+  linux_amd64: 707e81f60da7fd7e2cd1a68af2cc3523a1ef66d1278bc2e1bedb44c108baff0b
+  linux_arm64: 3bd31534c91dfd6979bbb6d169871918fc3854ff7ede8624f15a03f4bdd8c181
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libev
+  - openjdk@17
+  - python@3.11

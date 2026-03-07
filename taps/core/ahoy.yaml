@@ -1,0 +1,19 @@
+name: ahoy
+version: 2.5.0
+description: Creates self documenting CLI programs from commands in YAML files
+homepage: https://github.com/ahoy-cli/ahoy/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ahoy/blobs/sha256:a1d4f45c4c570160683c363f45827d0e8632297f68794018f8686ca1e88f02ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ahoy/blobs/sha256:fde6ef7692a9bf8513258596831c349e349b49beea85ff7ba06c0046305e3156
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ahoy/blobs/sha256:689b92185a351f9b622340c9fc7c1234df8a33e6bea026075bb79f52e2de13c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ahoy/blobs/sha256:6d628f6bd4c2687f8b9736b8b365e311472af4b81dfe798014816b436e08d8fc
+sha256:
+  darwin_arm64: a1d4f45c4c570160683c363f45827d0e8632297f68794018f8686ca1e88f02ee
+  darwin_amd64: fde6ef7692a9bf8513258596831c349e349b49beea85ff7ba06c0046305e3156
+  linux_amd64: 689b92185a351f9b622340c9fc7c1234df8a33e6bea026075bb79f52e2de13c5
+  linux_arm64: 6d628f6bd4c2687f8b9736b8b365e311472af4b81dfe798014816b436e08d8fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

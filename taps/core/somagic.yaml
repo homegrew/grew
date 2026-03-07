@@ -1,0 +1,23 @@
+name: somagic
+version: 1.1
+description: Linux capture program for the Somagic variants of EasyCAP
+homepage: https://code.google.com/archive/p/easycap-somagic-linux/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/somagic/blobs/sha256:f077c27f36c94d14196836cb4f397c6d720cf39a399d64da000c62d2d0faac16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/somagic/blobs/sha256:a42ebfd9151b089a6f92ab2ab34f1dfb944a08fdd9d33d9c65971e1c795de35e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/somagic/blobs/sha256:d574fbe24e39eaf6e35a4d8317c689ae890983a801e8abf8e5dc0a2941a1104b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/somagic/blobs/sha256:c355af02d26d71d5f7e858ae952f8c726cf37f240ee43bfec917bd47003427fd
+sha256:
+  darwin_arm64: f077c27f36c94d14196836cb4f397c6d720cf39a399d64da000c62d2d0faac16
+  darwin_amd64: a42ebfd9151b089a6f92ab2ab34f1dfb944a08fdd9d33d9c65971e1c795de35e
+  linux_amd64: d574fbe24e39eaf6e35a4d8317c689ae890983a801e8abf8e5dc0a2941a1104b
+  linux_arm64: c355af02d26d71d5f7e858ae952f8c726cf37f240ee43bfec917bd47003427fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libusb
+  - somagic-tools

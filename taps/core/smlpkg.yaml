@@ -1,0 +1,21 @@
+name: smlpkg
+version: 0.1.7
+description: Package manager for Standard ML libraries and programs
+homepage: https://github.com/diku-dk/smlpkg
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smlpkg/blobs/sha256:d8e1cbe7dc248864f639c141cf9282fb3dff7e11bd6add87392d35a1740b6e7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smlpkg/blobs/sha256:10955f7f09837e924c506a0493d6404e9c3ff80de01f6a6f309abbe307d76d86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smlpkg/blobs/sha256:cd22f030851de8fe8ad83f66ec207d9ee4b81c7a37ce400fe1889e9e1287f005
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smlpkg/blobs/sha256:43bb962689915134d7a9974ff609c680d3eebc8e995920b1219209165890aa5b
+sha256:
+  darwin_arm64: d8e1cbe7dc248864f639c141cf9282fb3dff7e11bd6add87392d35a1740b6e7a
+  darwin_amd64: 10955f7f09837e924c506a0493d6404e9c3ff80de01f6a6f309abbe307d76d86
+  linux_amd64: cd22f030851de8fe8ad83f66ec207d9ee4b81c7a37ce400fe1889e9e1287f005
+  linux_arm64: 43bb962689915134d7a9974ff609c680d3eebc8e995920b1219209165890aa5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

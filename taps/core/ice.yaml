@@ -1,0 +1,22 @@
+name: ice
+version: 3.8.1
+description: Comprehensive RPC framework
+homepage: https://zeroc.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ice/blobs/sha256:e73d5cc15f629eb8381d7dbbb6dc196f67234bba957ca78bc6f7884e925eb763
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ice/blobs/sha256:32f6816651a201d6c364b04745e2df920777bbaac0d3d5599e1edf0477a2097c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ice/blobs/sha256:8440c54d6797e2ccfdc0bd26dc0b64d6e3563b976a8d19936dbe4e2dd6280a8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ice/blobs/sha256:9586db5fca4281079514d7b00c50f9c40204d789d81abd854d99274e2261c595
+sha256:
+  darwin_arm64: e73d5cc15f629eb8381d7dbbb6dc196f67234bba957ca78bc6f7884e925eb763
+  darwin_amd64: 32f6816651a201d6c364b04745e2df920777bbaac0d3d5599e1edf0477a2097c
+  linux_amd64: 8440c54d6797e2ccfdc0bd26dc0b64d6e3563b976a8d19936dbe4e2dd6280a8b
+  linux_arm64: 9586db5fca4281079514d7b00c50f9c40204d789d81abd854d99274e2261c595
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lmdb
+  - mcpp

@@ -1,0 +1,19 @@
+name: terracognita
+version: 0.8.4
+description: Reads from existing Cloud Providers and generates Terraform code
+homepage: https://github.com/cycloidio/terracognita
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terracognita/blobs/sha256:3414c031aa7304a9c4af81caeee5f4f9f3da41c8ef762fd9657f787a1d10435a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terracognita/blobs/sha256:cf950d168859c9c7a3b40a524f2dda3f8d585834a275936fb70c2a20dd969f07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terracognita/blobs/sha256:22ca7df6e40ef40b990867a5a81b2e2b883f0867d1be7c8179c178d997e847a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terracognita/blobs/sha256:4d473c1cace1654e96eb0340c230d73160b1bb00cb3c6e60506fd21fed971dc6
+sha256:
+  darwin_arm64: 3414c031aa7304a9c4af81caeee5f4f9f3da41c8ef762fd9657f787a1d10435a
+  darwin_amd64: cf950d168859c9c7a3b40a524f2dda3f8d585834a275936fb70c2a20dd969f07
+  linux_amd64: 22ca7df6e40ef40b990867a5a81b2e2b883f0867d1be7c8179c178d997e847a1
+  linux_arm64: 4d473c1cace1654e96eb0340c230d73160b1bb00cb3c6e60506fd21fed971dc6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: eza
+version: 0.23.4
+description: Modern, maintained replacement for ls
+homepage: https://github.com/eza-community/eza
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eza/blobs/sha256:41991ad81cb8fd691125d28eda4bbfa0ebb14c6f902767402dc2ea8763ecf196
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eza/blobs/sha256:40120b86f48af531ff13393db0bbbf9fcb4c304bbdd6cb3bbab3bc70d0236c72
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eza/blobs/sha256:2bdf49feadb1e11bf7a5247cb64cf6a0efc6624ef7af0305f11e53bc0463bf77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eza/blobs/sha256:b8b0bd9691c73ab64a5542c0372d5f2f2e0e96bbc8fae25d5bb278ddde5e49b8
+sha256:
+  darwin_arm64: 41991ad81cb8fd691125d28eda4bbfa0ebb14c6f902767402dc2ea8763ecf196
+  darwin_amd64: 40120b86f48af531ff13393db0bbbf9fcb4c304bbdd6cb3bbab3bc70d0236c72
+  linux_amd64: 2bdf49feadb1e11bf7a5247cb64cf6a0efc6624ef7af0305f11e53bc0463bf77
+  linux_arm64: b8b0bd9691c73ab64a5542c0372d5f2f2e0e96bbc8fae25d5bb278ddde5e49b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

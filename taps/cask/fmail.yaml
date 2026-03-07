@@ -1,0 +1,11 @@
+name: fmail
+version: 2.7.6
+description: Unofficial native application for Fastmail
+homepage: https://arievanboxel.fr/fmail/en/
+url:
+  darwin_arm64: https://arievanboxel.fr/fmail/sparkle/FMail_276.zip
+sha256:
+  darwin_arm64: bdbcef213dbf2a92ad5404a5f56326bc22218bd95c40d8f1bd98eb9c1d78762f
+artifacts:
+  app:
+    - FMail.app

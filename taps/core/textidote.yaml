@@ -1,0 +1,21 @@
+name: textidote
+version: 0.8.3
+description: Spelling, grammar and style checking on LaTeX documents
+homepage: https://sylvainhalle.github.io/textidote
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/textidote/blobs/sha256:3341188f4b8fb7912f78dcb53dda8f624dcc8693f96a51c1ccaa49422746b84a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/textidote/blobs/sha256:39c5742e46605837bfb719356ba9aeb9811afa145ef5bdaabe0982704a270a30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/textidote/blobs/sha256:73b3a785959a0992e981b78f47a4c39932c59f158a3d4c3281fb5ccc5926abc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/textidote/blobs/sha256:1bf9049a7149770b7e587a8a0fd0437750306a7ab810b7f6d878aeca523a54e3
+sha256:
+  darwin_arm64: 3341188f4b8fb7912f78dcb53dda8f624dcc8693f96a51c1ccaa49422746b84a
+  darwin_amd64: 39c5742e46605837bfb719356ba9aeb9811afa145ef5bdaabe0982704a270a30
+  linux_amd64: 73b3a785959a0992e981b78f47a4c39932c59f158a3d4c3281fb5ccc5926abc5
+  linux_arm64: 1bf9049a7149770b7e587a8a0fd0437750306a7ab810b7f6d878aeca523a54e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

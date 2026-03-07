@@ -1,0 +1,11 @@
+name: ccmenu
+version: 15.0
+description: Application to monitor continuous integration servers
+homepage: https://ccmenu.org/
+url:
+  darwin_arm64: https://github.com/erikdoe/ccmenu/releases/download/v15.0/CCMenu.app.zip
+sha256:
+  darwin_arm64: 4ee3c5f65828c30c5cbe147064396d387a175042601076adf12b6c1a99792c1d
+artifacts:
+  app:
+    - CCMenu.app

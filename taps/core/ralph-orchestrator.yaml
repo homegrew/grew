@@ -1,0 +1,19 @@
+name: ralph-orchestrator
+version: 2.7.0
+description: Multi-agent orchestration framework for autonomous AI task completion
+homepage: https://github.com/mikeyobrien/ralph-orchestrator
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ralph-orchestrator/blobs/sha256:ca8fecb4d6ab9da06bd55c95b024cb9c04ee9fa87d69b79e70bf75090014ff3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ralph-orchestrator/blobs/sha256:71e2d98b7b976e6dce6813894479e440aa63395a24c7a7d5eb5a6968863cca6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ralph-orchestrator/blobs/sha256:5d49eb3155d81d08f1ada4e9b26a1ef569284b322c88f94c4e985ba90700697d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ralph-orchestrator/blobs/sha256:eb42df95058a7be76e5195b14381476c7070d5b1de1e5c358a6f3b48f97a5b4f
+sha256:
+  darwin_arm64: ca8fecb4d6ab9da06bd55c95b024cb9c04ee9fa87d69b79e70bf75090014ff3b
+  darwin_amd64: 71e2d98b7b976e6dce6813894479e440aa63395a24c7a7d5eb5a6968863cca6b
+  linux_amd64: 5d49eb3155d81d08f1ada4e9b26a1ef569284b322c88f94c4e985ba90700697d
+  linux_arm64: eb42df95058a7be76e5195b14381476c7070d5b1de1e5c358a6f3b48f97a5b4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

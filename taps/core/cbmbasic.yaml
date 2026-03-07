@@ -1,0 +1,19 @@
+name: cbmbasic
+version: 1.0
+description: Commodore BASIC V2 as a scripting language
+homepage: https://github.com/mist64/cbmbasic
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbmbasic/blobs/sha256:7a998e7b4ececefdb1441daedfc1d7e21499bf353d7d2b38f43ce9506eb7e876
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbmbasic/blobs/sha256:b6c3dab8aa52d31126d5945c15334343b4d83adc3c9ba4b0502709d6c4cc7bc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbmbasic/blobs/sha256:0e08527ac4b01d5d2c747776b5d8be5ae6e402862a87bafe7331c3c3b49d6170
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbmbasic/blobs/sha256:0d449cf17cf6a0c1b07c3f46721f68ec826913f703e7e98daeb6b5e42cfe2867
+sha256:
+  darwin_arm64: 7a998e7b4ececefdb1441daedfc1d7e21499bf353d7d2b38f43ce9506eb7e876
+  darwin_amd64: b6c3dab8aa52d31126d5945c15334343b4d83adc3c9ba4b0502709d6c4cc7bc1
+  linux_amd64: 0e08527ac4b01d5d2c747776b5d8be5ae6e402862a87bafe7331c3c3b49d6170
+  linux_arm64: 0d449cf17cf6a0c1b07c3f46721f68ec826913f703e7e98daeb6b5e42cfe2867
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

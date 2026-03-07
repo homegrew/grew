@@ -1,0 +1,22 @@
+name: ansible-cmdb
+version: 1.31
+description: Generates static HTML overview page from Ansible facts
+homepage: https://github.com/fboender/ansible-cmdb
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansible-cmdb/blobs/sha256:b6be47954b66a7ecc04bfff866f4417a531171c2bfa3dcf1ac7c17ed5bac7e5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansible-cmdb/blobs/sha256:5a4011e6d5933f8e6fa6f6933fd0a222d15ad535bcdf4f4849a89ca5b8200fcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansible-cmdb/blobs/sha256:c82c4713092df1c5856967eb0d0d4072622d531083501e3995dfa27f10f2fbdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansible-cmdb/blobs/sha256:e02eca8dd4bf47a7cb861cd1c6ee75f735a46696b1e7e665cd1eb5f2e8f9cda0
+sha256:
+  darwin_arm64: b6be47954b66a7ecc04bfff866f4417a531171c2bfa3dcf1ac7c17ed5bac7e5c
+  darwin_amd64: 5a4011e6d5933f8e6fa6f6933fd0a222d15ad535bcdf4f4849a89ca5b8200fcc
+  linux_amd64: c82c4713092df1c5856967eb0d0d4072622d531083501e3995dfa27f10f2fbdb
+  linux_arm64: e02eca8dd4bf47a7cb861cd1c6ee75f735a46696b1e7e665cd1eb5f2e8f9cda0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

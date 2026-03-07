@@ -1,0 +1,11 @@
+name: ssh-config-editor
+version: 2.6.11,112
+description: Tool for managing the OpenSSH ssh client configuration file
+homepage: https://www.hejki.org/ssheditor/
+url:
+  darwin_arm64: https://hejki.org/download/ssheditor/SSHConfigEditor-112.dmg
+sha256:
+  darwin_arm64: cf73dcea2b6b52185ef4438f3b0911d96b11cc03896a0d60524e18d481932fd7
+artifacts:
+  app:
+    - SSH Config Editor.app

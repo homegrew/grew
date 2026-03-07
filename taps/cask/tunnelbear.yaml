@@ -1,0 +1,11 @@
+name: tunnelbear
+version: 5.8.1
+description: VPN client for secure internet access and private browsing
+homepage: https://www.tunnelbear.com/
+url:
+  darwin_arm64: https://tunnelbear.s3.amazonaws.com/downloads/mac/TunnelBear-5.8.1.zip
+sha256:
+  darwin_arm64: 66049c139c5bc32c5d8bde0f84ba485555a8685405cc46d11a47c6110769d76b
+artifacts:
+  app:
+    - TunnelBear.app

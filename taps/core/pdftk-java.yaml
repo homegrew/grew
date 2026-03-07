@@ -1,0 +1,21 @@
+name: pdftk-java
+version: 3.3.3
+description: Port of pdftk in java
+homepage: https://gitlab.com/pdftk-java/pdftk
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdftk-java/blobs/sha256:626014736051e1e9c87441f86117b4b0edd3b5ae4ad8be645085b91447873085
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdftk-java/blobs/sha256:0a8f707c529d2f6a036448b5c5c864f5208b68403afb5aca2ae94052cb96b82b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdftk-java/blobs/sha256:87b00258f2f947e48b44b821179d569babbe5d0ad5ffa2728f7e56085cfccc4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdftk-java/blobs/sha256:fc976b8e0b2bea3916feab4a2d5d5c88133cacd10e71350ba5804d0536c193c6
+sha256:
+  darwin_arm64: 626014736051e1e9c87441f86117b4b0edd3b5ae4ad8be645085b91447873085
+  darwin_amd64: 0a8f707c529d2f6a036448b5c5c864f5208b68403afb5aca2ae94052cb96b82b
+  linux_amd64: 87b00258f2f947e48b44b821179d569babbe5d0ad5ffa2728f7e56085cfccc4f
+  linux_arm64: fc976b8e0b2bea3916feab4a2d5d5c88133cacd10e71350ba5804d0536c193c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

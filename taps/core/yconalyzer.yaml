@@ -1,0 +1,19 @@
+name: yconalyzer
+version: 1.0.4
+description: TCP traffic analyzer
+homepage: https://sourceforge.net/projects/yconalyzer/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yconalyzer/blobs/sha256:f8e293d34a2bfead5ac9adc620c89fa89f551e4ece73f6a1df952b7f6ab960b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yconalyzer/blobs/sha256:afb4f1f6d116174d7345045938dada5ab9f81910c7ac39d663c7308b1cdfc3ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yconalyzer/blobs/sha256:c416d91d76c10a6331d9703d23597b5e03fb67c97155247cb6e5e3f852f89953
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yconalyzer/blobs/sha256:ceb7984dedb18edb2dcd60885d5cb626ce8217ebc2b11246ed47af4eeb5bdee5
+sha256:
+  darwin_arm64: f8e293d34a2bfead5ac9adc620c89fa89f551e4ece73f6a1df952b7f6ab960b5
+  darwin_amd64: afb4f1f6d116174d7345045938dada5ab9f81910c7ac39d663c7308b1cdfc3ae
+  linux_amd64: c416d91d76c10a6331d9703d23597b5e03fb67c97155247cb6e5e3f852f89953
+  linux_arm64: ceb7984dedb18edb2dcd60885d5cb626ce8217ebc2b11246ed47af4eeb5bdee5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

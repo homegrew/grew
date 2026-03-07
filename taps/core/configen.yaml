@@ -1,0 +1,15 @@
+name: configen
+version: 1.1.2
+description: Configuration file code generator for use in Xcode projects
+homepage: https://github.com/theappbusiness/ConfigGenerator
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/configen/blobs/sha256:6065f7176f6749015d33a8b03a07fd9d4274686f797b8aadc81e2632669b242c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/configen/blobs/sha256:bd5e05cf96b07a4b0e59472fcbab58190b321cda1584cf5b3801e941c3ca11e0
+sha256:
+  darwin_arm64: 6065f7176f6749015d33a8b03a07fd9d4274686f797b8aadc81e2632669b242c
+  darwin_amd64: bd5e05cf96b07a4b0e59472fcbab58190b321cda1584cf5b3801e941c3ca11e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

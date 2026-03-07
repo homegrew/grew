@@ -1,0 +1,19 @@
+name: diffr
+version: 0.1.5
+description: LCS based diff highlighting tool to ease code review from your terminal
+homepage: https://github.com/mookid/diffr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffr/blobs/sha256:071c7a6bb8aa37bd0282e02096635a6aff9afb1e263dff03ae426a2d45351511
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffr/blobs/sha256:1b2001d7460d2d321838224631d7e1e06ca54e13e0276b69caeb39c4f5b6d76a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffr/blobs/sha256:6340e51e0dd0f436f0cf3450d125f3a16b652cadf4b7de0fe9127ea7d90007b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffr/blobs/sha256:ce5653f762bcb8260b50f894f1c0a3b52549fd8e36baaf95c320169585b58c90
+sha256:
+  darwin_arm64: 071c7a6bb8aa37bd0282e02096635a6aff9afb1e263dff03ae426a2d45351511
+  darwin_amd64: 1b2001d7460d2d321838224631d7e1e06ca54e13e0276b69caeb39c4f5b6d76a
+  linux_amd64: 6340e51e0dd0f436f0cf3450d125f3a16b652cadf4b7de0fe9127ea7d90007b1
+  linux_arm64: ce5653f762bcb8260b50f894f1c0a3b52549fd8e36baaf95c320169585b58c90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

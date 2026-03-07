@@ -1,0 +1,13 @@
+name: macsymbolicator
+version: 2.6
+description: Symbolicate Apple related crash reports
+homepage: https://github.com/inket/MacSymbolicator/
+url:
+  darwin_arm64: https://github.com/inket/MacSymbolicator/releases/download/2.6/MacSymbolicator.zip
+sha256:
+  darwin_arm64: d92f53c23e69997974df3944aa9ab5feb0d9c320dce3e13b2e7088677cd2b509
+artifacts:
+  app:
+    - MacSymbolicator.app
+  bin:
+    - mac-symbolicator-cli

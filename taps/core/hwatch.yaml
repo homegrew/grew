@@ -1,0 +1,19 @@
+name: hwatch
+version: 0.3.19
+description: Modern alternative to the watch command
+homepage: https://github.com/blacknon/hwatch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hwatch/blobs/sha256:b24003504b186e8c333d486d6b537096330efcc8ecf81fead08b461fbcbcaff2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hwatch/blobs/sha256:ae0f06837309e0c232866023b8258b77825353eb931b6f0c8adabf789cb8b7eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hwatch/blobs/sha256:e4fd00a8be3bb4833c96b76ca42e5ed029ff3da919deae9a199ed09273840038
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hwatch/blobs/sha256:e23c602171e0c2b3fef61c8efbaf763609dac8e410368c07798221acd54cd154
+sha256:
+  darwin_arm64: b24003504b186e8c333d486d6b537096330efcc8ecf81fead08b461fbcbcaff2
+  darwin_amd64: ae0f06837309e0c232866023b8258b77825353eb931b6f0c8adabf789cb8b7eb
+  linux_amd64: e4fd00a8be3bb4833c96b76ca42e5ed029ff3da919deae9a199ed09273840038
+  linux_arm64: e23c602171e0c2b3fef61c8efbaf763609dac8e410368c07798221acd54cd154
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

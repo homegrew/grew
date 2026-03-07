@@ -1,0 +1,19 @@
+name: asc
+version: 0.37.2
+description: Fast, lightweight CLI for App Store Connect
+homepage: https://asccli.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asc/blobs/sha256:d694dc1f39acc0ae3e3ecce14becf68a7ed140192fae538f97457832ff3d186e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asc/blobs/sha256:83376f7b52474641c1fee06bc6546b690111bdc488752592a0ba1f4fca6399c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asc/blobs/sha256:72db97fb50f0c47b3cf60f82293fa4ea4473ae88f6daee4229adf250f44ca4f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asc/blobs/sha256:7cfdf4feee132570062350ad7e370fc8d59ba65f09cf59693c46dc138fe1679c
+sha256:
+  darwin_arm64: d694dc1f39acc0ae3e3ecce14becf68a7ed140192fae538f97457832ff3d186e
+  darwin_amd64: 83376f7b52474641c1fee06bc6546b690111bdc488752592a0ba1f4fca6399c4
+  linux_amd64: 72db97fb50f0c47b3cf60f82293fa4ea4473ae88f6daee4229adf250f44ca4f9
+  linux_arm64: 7cfdf4feee132570062350ad7e370fc8d59ba65f09cf59693c46dc138fe1679c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

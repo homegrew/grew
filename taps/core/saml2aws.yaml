@@ -1,0 +1,19 @@
+name: saml2aws
+version: 2.36.19
+description: Login and retrieve AWS temporary credentials using a SAML IDP
+homepage: https://github.com/Versent/saml2aws
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/saml2aws/blobs/sha256:69e6077ecc29098c8898cb893541b71f13623162e33c8d2f2c8fdcba2b5d67f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/saml2aws/blobs/sha256:6aa3ed09c1047c5c9815cd2a3c5efac7de53695e20a4bad7e7350f6a87483683
+  linux_amd64: https://ghcr.io/v2/homebrew/core/saml2aws/blobs/sha256:29e62a8821f75bfab2b35ebdc176976725aac06f4f3e57813d6e8e49c8e2890b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/saml2aws/blobs/sha256:6d094d781c37e372b4281139da3bf06920af2c78a483852e69ea9c325bcd8635
+sha256:
+  darwin_arm64: 69e6077ecc29098c8898cb893541b71f13623162e33c8d2f2c8fdcba2b5d67f3
+  darwin_amd64: 6aa3ed09c1047c5c9815cd2a3c5efac7de53695e20a4bad7e7350f6a87483683
+  linux_amd64: 29e62a8821f75bfab2b35ebdc176976725aac06f4f3e57813d6e8e49c8e2890b
+  linux_arm64: 6d094d781c37e372b4281139da3bf06920af2c78a483852e69ea9c325bcd8635
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

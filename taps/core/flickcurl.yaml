@@ -1,0 +1,19 @@
+name: flickcurl
+version: 1.26
+description: Library for the Flickr API
+homepage: https://librdf.org/flickcurl/
+license: GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flickcurl/blobs/sha256:5ad4303f2feb50ec3bcac620cb35ec60de39f7c2f40f5d20587daa161064ce2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flickcurl/blobs/sha256:557f8c3f6763febcb01fabb8c919f5397ed33676ec13c867b9dfba0070d5e681
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flickcurl/blobs/sha256:ed038860376e8892ed82d641008301b6b4a02fbadc7404f5886b8574cdafbf91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flickcurl/blobs/sha256:169ae4f2f5b364383dbf1ec5bc0dfd5f8e1fec7581fed18d4503bd9ad201f661
+sha256:
+  darwin_arm64: 5ad4303f2feb50ec3bcac620cb35ec60de39f7c2f40f5d20587daa161064ce2e
+  darwin_amd64: 557f8c3f6763febcb01fabb8c919f5397ed33676ec13c867b9dfba0070d5e681
+  linux_amd64: ed038860376e8892ed82d641008301b6b4a02fbadc7404f5886b8574cdafbf91
+  linux_arm64: 169ae4f2f5b364383dbf1ec5bc0dfd5f8e1fec7581fed18d4503bd9ad201f661
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

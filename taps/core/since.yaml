@@ -1,0 +1,19 @@
+name: since
+version: 1.1
+description: "Stateful tail: show changes to files since last check"
+homepage: http://welz.org.za/projects/since
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/since/blobs/sha256:b463dd2eefbe33098ec0a7d4b1f98e186559a7d14d54e3ac5922873f871f6364
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/since/blobs/sha256:33908d6e9b5baf6b2d9b02fd43a46860eb89ad4e2371ed63f83dcfcd4bc50c28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/since/blobs/sha256:db033c09d09fa627dd0d98d52a4b32231a6f696f925c77b0c91d7b8f057ea3f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/since/blobs/sha256:e0686ce3cedc670157058d0c768236fd2276290197884ab1759aeba4f60789fb
+sha256:
+  darwin_arm64: b463dd2eefbe33098ec0a7d4b1f98e186559a7d14d54e3ac5922873f871f6364
+  darwin_amd64: 33908d6e9b5baf6b2d9b02fd43a46860eb89ad4e2371ed63f83dcfcd4bc50c28
+  linux_amd64: db033c09d09fa627dd0d98d52a4b32231a6f696f925c77b0c91d7b8f057ea3f4
+  linux_arm64: e0686ce3cedc670157058d0c768236fd2276290197884ab1759aeba4f60789fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

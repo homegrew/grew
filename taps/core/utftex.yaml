@@ -1,0 +1,19 @@
+name: utftex
+version: 1.30
+description: Pretty print math in monospace fonts, using a TeX-like syntax
+homepage: https://github.com/bartp5/libtexprintf
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/utftex/blobs/sha256:f45ab1902d0571453123de0675f47f45d5d2bb29c3dac5b542ea9846479e5a8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/utftex/blobs/sha256:396d5a9bcca537675cf15ba6813eb5481feff4064d9d83c6e1ee3315649fe787
+  linux_amd64: https://ghcr.io/v2/homebrew/core/utftex/blobs/sha256:540c5aaf70bff8d2862f2a18d5b78bb290f8f8924b7d4db20020846a0de3cf80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/utftex/blobs/sha256:1cba5a920c2169029ff3c7192e1b19a51e85112c5558e36f66925a05ace6fda6
+sha256:
+  darwin_arm64: f45ab1902d0571453123de0675f47f45d5d2bb29c3dac5b542ea9846479e5a8b
+  darwin_amd64: 396d5a9bcca537675cf15ba6813eb5481feff4064d9d83c6e1ee3315649fe787
+  linux_amd64: 540c5aaf70bff8d2862f2a18d5b78bb290f8f8924b7d4db20020846a0de3cf80
+  linux_arm64: 1cba5a920c2169029ff3c7192e1b19a51e85112c5558e36f66925a05ace6fda6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

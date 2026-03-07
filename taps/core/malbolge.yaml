@@ -1,0 +1,19 @@
+name: malbolge
+version: 0.1.0
+description: Deliberately difficult to program esoteric programming language
+homepage: https://esoteric.sange.fi/orphaned/malbolge/README.txt
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/malbolge/blobs/sha256:362a0dfad34c731bc75b81aa45736406c2b65b3f5f3c73894acb952d7025ec6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/malbolge/blobs/sha256:8cdaf2b347f1cde3026c930c0b928dd07d48c11fd958487b26fcac0fe6032161
+  linux_amd64: https://ghcr.io/v2/homebrew/core/malbolge/blobs/sha256:d562330170f412427bd1d214d7521b400c8dd5d198d27d86ff1c47cf60339322
+  linux_arm64: https://ghcr.io/v2/homebrew/core/malbolge/blobs/sha256:fde58cf2cc3ca5bd14497c96ec0edd11c89f9570b0c8d8da7cc1ff52c927517e
+sha256:
+  darwin_arm64: 362a0dfad34c731bc75b81aa45736406c2b65b3f5f3c73894acb952d7025ec6d
+  darwin_amd64: 8cdaf2b347f1cde3026c930c0b928dd07d48c11fd958487b26fcac0fe6032161
+  linux_amd64: d562330170f412427bd1d214d7521b400c8dd5d198d27d86ff1c47cf60339322
+  linux_arm64: fde58cf2cc3ca5bd14497c96ec0edd11c89f9570b0c8d8da7cc1ff52c927517e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

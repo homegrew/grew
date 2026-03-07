@@ -1,0 +1,19 @@
+name: podiff
+version: 1.4
+description: Compare textual information in two PO files
+homepage: https://puszcza.gnu.org.ua/software/podiff/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podiff/blobs/sha256:625ab776965963465a17dd8c25d5457d8e032218e5a2e329d0ae5d07e46d6350
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podiff/blobs/sha256:3979eade3df6735431d2246aa409e3d475f3b8beda8aaaa60b1643f2f32051b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podiff/blobs/sha256:4b64d367ffe00d91903f42a1b643e1b467b219f773f8d34b722d1c88ddfcc30c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podiff/blobs/sha256:26f2355ea5742f14c20c4ae5b57aa6a50dac0ed10364cf3ce8f2fd7075ed6388
+sha256:
+  darwin_arm64: 625ab776965963465a17dd8c25d5457d8e032218e5a2e329d0ae5d07e46d6350
+  darwin_amd64: 3979eade3df6735431d2246aa409e3d475f3b8beda8aaaa60b1643f2f32051b2
+  linux_amd64: 4b64d367ffe00d91903f42a1b643e1b467b219f773f8d34b722d1c88ddfcc30c
+  linux_arm64: 26f2355ea5742f14c20c4ae5b57aa6a50dac0ed10364cf3ce8f2fd7075ed6388
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

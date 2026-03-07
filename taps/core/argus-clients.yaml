@@ -1,0 +1,23 @@
+name: argus-clients
+version: 5.0.0
+description: Audit Record Generation and Utilization System clients
+homepage: https://openargus.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argus-clients/blobs/sha256:ae80fb8ebf1ce278fb8c74c1a7a9f4fdb5e615103e15dc63283c217ebf525024
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argus-clients/blobs/sha256:06fe4d80aadbd2a0d4cec2963d92706f7d168c9d43fff983689ac6aa755e9e70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argus-clients/blobs/sha256:eda872f8bd03edefe8f6c54e096030be6f21e7515c37dfc507944a56944d82db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argus-clients/blobs/sha256:51a9b33724d646314c65efc2841ada96f7825dfa8384aa9d6ecf0a8fbaaf4cae
+sha256:
+  darwin_arm64: ae80fb8ebf1ce278fb8c74c1a7a9f4fdb5e615103e15dc63283c217ebf525024
+  darwin_amd64: 06fe4d80aadbd2a0d4cec2963d92706f7d168c9d43fff983689ac6aa755e9e70
+  linux_amd64: eda872f8bd03edefe8f6c54e096030be6f21e7515c37dfc507944a56944d82db
+  linux_arm64: 51a9b33724d646314c65efc2841ada96f7825dfa8384aa9d6ecf0a8fbaaf4cae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl
+  - readline
+  - rrdtool

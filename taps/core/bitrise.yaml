@@ -1,0 +1,19 @@
+name: bitrise
+version: 2.39.1
+description: Command-line automation tool
+homepage: https://github.com/bitrise-io/bitrise
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bitrise/blobs/sha256:50046d845364a527c2d49bbf2166688ebb09c54557371b94c2354962ee27de39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bitrise/blobs/sha256:fe1bf6507ef22614133e5bf83354a3befa1242a44641b2f2b0e69706bfcc493d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bitrise/blobs/sha256:b05206c334b6a2d7ec20d3af2224ecb0114941826963d0d15c935d66471e6110
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bitrise/blobs/sha256:8b71e40fcd67ac0bbe1e5bd74bff503c96e10d28d170b2ce5f5d266217a6d089
+sha256:
+  darwin_arm64: 50046d845364a527c2d49bbf2166688ebb09c54557371b94c2354962ee27de39
+  darwin_amd64: fe1bf6507ef22614133e5bf83354a3befa1242a44641b2f2b0e69706bfcc493d
+  linux_amd64: b05206c334b6a2d7ec20d3af2224ecb0114941826963d0d15c935d66471e6110
+  linux_arm64: 8b71e40fcd67ac0bbe1e5bd74bff503c96e10d28d170b2ce5f5d266217a6d089
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

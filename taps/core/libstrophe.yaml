@@ -1,0 +1,21 @@
+name: libstrophe
+version: 0.14.0
+description: XMPP library for C
+homepage: https://strophe.im/libstrophe/
+license: GPL-3.0-only AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libstrophe/blobs/sha256:452f93fb9065a6120f12edd141f2c587e1d825714ff33e15408aae7e5ced9474
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libstrophe/blobs/sha256:1979d7003784e3fb42e13fa456e19bd917f53326336c098f4ab9749ab4ead761
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libstrophe/blobs/sha256:23e1b9e04065508e411e4590f98e1c0a5b23c51fc183bb1f48a2bf138603c913
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libstrophe/blobs/sha256:e53cffafb102848cc089db78fbd6d9d2d7e7bd6fe178722565e7088de5efa679
+sha256:
+  darwin_arm64: 452f93fb9065a6120f12edd141f2c587e1d825714ff33e15408aae7e5ced9474
+  darwin_amd64: 1979d7003784e3fb42e13fa456e19bd917f53326336c098f4ab9749ab4ead761
+  linux_amd64: 23e1b9e04065508e411e4590f98e1c0a5b23c51fc183bb1f48a2bf138603c913
+  linux_arm64: e53cffafb102848cc089db78fbd6d9d2d7e7bd6fe178722565e7088de5efa679
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

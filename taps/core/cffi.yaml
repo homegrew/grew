@@ -1,0 +1,21 @@
+name: cffi
+version: 2.0.0
+description: C Foreign Function Interface for Python
+homepage: https://cffi.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cffi/blobs/sha256:04b0f56120f37b235dc1a8063149e279bad1cc9132727b25158393db8c930c2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cffi/blobs/sha256:1252a16612b1585b96a870ac5c1d0af6beb31c1cfa76449e6599f87b5ec81698
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cffi/blobs/sha256:bad3335bd82f947b8283832392a0c37035e500e5732dd63b0f9878dcaf05d639
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cffi/blobs/sha256:cb50ba60bbd5cb6b2da0637c3f3090d07d3a68665076c5f553c65bfb061b1734
+sha256:
+  darwin_arm64: 04b0f56120f37b235dc1a8063149e279bad1cc9132727b25158393db8c930c2c
+  darwin_amd64: 1252a16612b1585b96a870ac5c1d0af6beb31c1cfa76449e6599f87b5ec81698
+  linux_amd64: bad3335bd82f947b8283832392a0c37035e500e5732dd63b0f9878dcaf05d639
+  linux_arm64: cb50ba60bbd5cb6b2da0637c3f3090d07d3a68665076c5f553c65bfb061b1734
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pycparser

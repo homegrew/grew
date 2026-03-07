@@ -1,0 +1,27 @@
+name: flactag
+version: 2.0.4
+description: Tag single album FLAC files with MusicBrainz CUE sheets
+homepage: https://flactag.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flactag/blobs/sha256:a51e19be9701ccbe86b20cbe0444217655d0e0c0c02779a0784b4e5bc5830f4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flactag/blobs/sha256:21d528f25b5c20a9be98ff0323b8bca94b41c0b33192b28b46956a09d65dd5c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flactag/blobs/sha256:cd364c130a6702197e495c69f00c3ed7306ea96734700a3c8ce63d9d8c1a1bba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flactag/blobs/sha256:f9b3c2851aee52a5b3f5954b61ec129ed2053e002abb0d2826aae54fdf447d37
+sha256:
+  darwin_arm64: a51e19be9701ccbe86b20cbe0444217655d0e0c0c02779a0784b4e5bc5830f4f
+  darwin_amd64: 21d528f25b5c20a9be98ff0323b8bca94b41c0b33192b28b46956a09d65dd5c2
+  linux_amd64: cd364c130a6702197e495c69f00c3ed7306ea96734700a3c8ce63d9d8c1a1bba
+  linux_arm64: f9b3c2851aee52a5b3f5954b61ec129ed2053e002abb0d2826aae54fdf447d37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - jpeg-turbo
+  - libdiscid
+  - libmusicbrainz
+  - neon
+  - s-lang
+  - unac

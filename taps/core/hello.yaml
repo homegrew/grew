@@ -1,0 +1,19 @@
+name: hello
+version: 2.12.2
+description: Program providing model for GNU coding standards and practices
+homepage: https://www.gnu.org/software/hello/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hello/blobs/sha256:d5eafb7348c3b7253714c061785a67f7878f36e953b454f04a80ec9c62482720
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hello/blobs/sha256:ab550a2d4c205ec56579129063cfdabe1cc893639a0f2d8be944456f5003aa6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hello/blobs/sha256:bc74355f9ea73a40f629dd7e5adcaaad7c0ac7ffda2f3acc860bd7e52baabb94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hello/blobs/sha256:b40508b42deb96206c71f987d3eab3da6e558f4217f92421c0f02da70f7a6881
+sha256:
+  darwin_arm64: d5eafb7348c3b7253714c061785a67f7878f36e953b454f04a80ec9c62482720
+  darwin_amd64: ab550a2d4c205ec56579129063cfdabe1cc893639a0f2d8be944456f5003aa6a
+  linux_amd64: bc74355f9ea73a40f629dd7e5adcaaad7c0ac7ffda2f3acc860bd7e52baabb94
+  linux_arm64: b40508b42deb96206c71f987d3eab3da6e558f4217f92421c0f02da70f7a6881
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

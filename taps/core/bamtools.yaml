@@ -1,0 +1,21 @@
+name: bamtools
+version: 2.5.3
+description: C++ API and command-line toolkit for BAM data
+homepage: https://github.com/pezmaster31/bamtools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bamtools/blobs/sha256:7f678e35ee8bbd84f50d0bc33a6ebeb840754b2581599be380d6bbd823f9b70e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bamtools/blobs/sha256:83b46fc21dd8d03010235b022abe2d98bff4219707b5ff6fbad3c7735609286f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bamtools/blobs/sha256:464bbce0fe1f5f7e302f4274e4e5bfb1153083f95b7e5d754b70690b8cc0748a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bamtools/blobs/sha256:0575567ce67f57826e323b0f26aa06f5b0d4f23db128c45b659bd4f1243fd903
+sha256:
+  darwin_arm64: 7f678e35ee8bbd84f50d0bc33a6ebeb840754b2581599be380d6bbd823f9b70e
+  darwin_amd64: 83b46fc21dd8d03010235b022abe2d98bff4219707b5ff6fbad3c7735609286f
+  linux_amd64: 464bbce0fe1f5f7e302f4274e4e5bfb1153083f95b7e5d754b70690b8cc0748a
+  linux_arm64: 0575567ce67f57826e323b0f26aa06f5b0d4f23db128c45b659bd4f1243fd903
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jsoncpp

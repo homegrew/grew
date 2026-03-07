@@ -1,0 +1,19 @@
+name: golang-migrate
+version: 4.19.1
+description: Database migrations CLI tool
+homepage: https://github.com/golang-migrate/migrate
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/golang-migrate/blobs/sha256:756f6f4046cb091c66fb0ec1e4db160d07a7fd3b552aeb1d75adbbc716401332
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/golang-migrate/blobs/sha256:d22e7d26b80ff378d6d1dcac7ddf4e6f745ad60703d8b93068bb5e130fa84259
+  linux_amd64: https://ghcr.io/v2/homebrew/core/golang-migrate/blobs/sha256:c67548a520ac1995c4e55700f0eb2ae492d386690c2103c493c903791909abda
+  linux_arm64: https://ghcr.io/v2/homebrew/core/golang-migrate/blobs/sha256:6aeda2e9ddda567c4009f53efde24d8cd80610e55ee159c3c030a41dc80cece2
+sha256:
+  darwin_arm64: 756f6f4046cb091c66fb0ec1e4db160d07a7fd3b552aeb1d75adbbc716401332
+  darwin_amd64: d22e7d26b80ff378d6d1dcac7ddf4e6f745ad60703d8b93068bb5e130fa84259
+  linux_amd64: c67548a520ac1995c4e55700f0eb2ae492d386690c2103c493c903791909abda
+  linux_arm64: 6aeda2e9ddda567c4009f53efde24d8cd80610e55ee159c3c030a41dc80cece2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: pngcheck
+version: 4.0.1
+description: Print info and check PNG, JNG, and MNG files
+homepage: https://github.com/pnggroup/pngcheck
+license: HPND
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pngcheck/blobs/sha256:06f4655ebdc1cb9a83d502e514cfcd8c5fa108984ac7e9536e117b3b6978a471
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pngcheck/blobs/sha256:637dc8b986af16b9f14fadbfd3fd9baa9ad3d7cba8301c046ee28cd78ab0186e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pngcheck/blobs/sha256:13b68192c37d494a1180cb2cdd43995796b1f314075e5c045d35c653c407f65b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pngcheck/blobs/sha256:fafce573ad3a6f08c1a64f544af99c62b605eca2d3fc65f3e9fbe955f968dde8
+sha256:
+  darwin_arm64: 06f4655ebdc1cb9a83d502e514cfcd8c5fa108984ac7e9536e117b3b6978a471
+  darwin_amd64: 637dc8b986af16b9f14fadbfd3fd9baa9ad3d7cba8301c046ee28cd78ab0186e
+  linux_amd64: 13b68192c37d494a1180cb2cdd43995796b1f314075e5c045d35c653c407f65b
+  linux_arm64: fafce573ad3a6f08c1a64f544af99c62b605eca2d3fc65f3e9fbe955f968dde8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

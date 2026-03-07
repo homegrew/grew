@@ -1,0 +1,22 @@
+name: gdbgui
+version: 0.15.3.0
+description: Modern, browser-based frontend to gdb (gnu debugger)
+homepage: https://www.gdbgui.com/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdbgui/blobs/sha256:305daf07812dd5941548e611414a1dd7ea509a8230275b12c7981f04481abb90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdbgui/blobs/sha256:3a5a99218db05c8875e10ed5dae431912493f7296c8933763c163adbe0c7e7da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdbgui/blobs/sha256:42ddd8b183bbf4134c83b15345f53480bc73d0f246ef71891de56179ee094cb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdbgui/blobs/sha256:e5cab7defea471b94a728c30bf2fcecb57f9b0ffcde63f704246cc02958e3a51
+sha256:
+  darwin_arm64: 305daf07812dd5941548e611414a1dd7ea509a8230275b12c7981f04481abb90
+  darwin_amd64: 3a5a99218db05c8875e10ed5dae431912493f7296c8933763c163adbe0c7e7da
+  linux_amd64: 42ddd8b183bbf4134c83b15345f53480bc73d0f246ef71891de56179ee094cb0
+  linux_arm64: e5cab7defea471b94a728c30bf2fcecb57f9b0ffcde63f704246cc02958e3a51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdb
+  - python@3.14

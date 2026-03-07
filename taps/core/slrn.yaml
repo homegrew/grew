@@ -1,0 +1,22 @@
+name: slrn
+version: 1.0.3a
+description: Powerful console-based newsreader
+homepage: https://slrn.info/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slrn/blobs/sha256:56945818d9c3961dc59b94440485c9c80baf04f29d791efa2803192b9ede727c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slrn/blobs/sha256:eb1b5847ca10bebffed3fb3fc5fadc37340d845780e536c020670fb6d6f01eb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slrn/blobs/sha256:5bf9ff614629b46445541310dd089e4893dbfa2e463944aff5596cb14476f812
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slrn/blobs/sha256:068f15a993a5007e14a1f8f1daf439682aedc5a098b58b271496f7996d011b5d
+sha256:
+  darwin_arm64: 56945818d9c3961dc59b94440485c9c80baf04f29d791efa2803192b9ede727c
+  darwin_amd64: eb1b5847ca10bebffed3fb3fc5fadc37340d845780e536c020670fb6d6f01eb8
+  linux_amd64: 5bf9ff614629b46445541310dd089e4893dbfa2e463944aff5596cb14476f812
+  linux_arm64: 068f15a993a5007e14a1f8f1daf439682aedc5a098b58b271496f7996d011b5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - s-lang

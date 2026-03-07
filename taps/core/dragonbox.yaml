@@ -1,0 +1,19 @@
+name: dragonbox
+version: 1.1.3
+description: Reference implementation of Dragonbox in C++
+homepage: https://github.com/jk-jeon/dragonbox
+license: BSL-1.0 OR (Apache-2.0 WITH LLVM-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dragonbox/blobs/sha256:e8d3d051a973de698e054f0cbd6635457ec76d3a290232b6637531587c06fc2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dragonbox/blobs/sha256:ea4c36f3d7b48b0d949a443ac9527b638d12bc67e7f75e15eddfc267bc8fb3d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dragonbox/blobs/sha256:bd3fe3c6c5efe142c195fc07706f632c654635a48b44d09dbda7a845db8add48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dragonbox/blobs/sha256:ab2a40a63f7e8ded666c88854f9f2ca6543db95ac304d965d5c4f87be3fa0d7f
+sha256:
+  darwin_arm64: e8d3d051a973de698e054f0cbd6635457ec76d3a290232b6637531587c06fc2f
+  darwin_amd64: ea4c36f3d7b48b0d949a443ac9527b638d12bc67e7f75e15eddfc267bc8fb3d8
+  linux_amd64: bd3fe3c6c5efe142c195fc07706f632c654635a48b44d09dbda7a845db8add48
+  linux_arm64: ab2a40a63f7e8ded666c88854f9f2ca6543db95ac304d965d5c4f87be3fa0d7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

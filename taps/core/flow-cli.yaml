@@ -1,0 +1,19 @@
+name: flow-cli
+version: 2.14.3
+description: Command-line interface that provides utilities for building Flow applications
+homepage: https://onflow.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flow-cli/blobs/sha256:6cde87b2c7348c5cb54d7fb45f81493593d27737b6e402f30487d43a6c5b2af3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flow-cli/blobs/sha256:5cb8847fab2447db5e22809a7a5caccff406a5c7501171e76a1b287eceea6eee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flow-cli/blobs/sha256:a194ef449ab70f39185f298cfbf3986d0a01ba0c9b7d6e45fb8861a29a35fb7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flow-cli/blobs/sha256:f10293f99eb21c2fcf84baa5e05388321f2bc46b65d283e2e522df483736a121
+sha256:
+  darwin_arm64: 6cde87b2c7348c5cb54d7fb45f81493593d27737b6e402f30487d43a6c5b2af3
+  darwin_amd64: 5cb8847fab2447db5e22809a7a5caccff406a5c7501171e76a1b287eceea6eee
+  linux_amd64: a194ef449ab70f39185f298cfbf3986d0a01ba0c9b7d6e45fb8861a29a35fb7b
+  linux_arm64: f10293f99eb21c2fcf84baa5e05388321f2bc46b65d283e2e522df483736a121
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

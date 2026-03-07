@@ -1,0 +1,22 @@
+name: nano
+version: 8.7.1
+description: Free (GNU) replacement for the Pico text editor
+homepage: https://www.nano-editor.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nano/blobs/sha256:035b76b35f03f3e8da0187d0a3858ba77989858b31557f1620239fe81377cc2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nano/blobs/sha256:3a3bf0c2345b449c94843d0413227b3445df31b065ee8558df467a4ae627dbaf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nano/blobs/sha256:a0fb3781c74d1a8672c5465b490b0062deba3043421dd344f98d1d9b5175c01c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nano/blobs/sha256:cea02dc07e9b0311fea704cd84e75c32cfd103076caf80cb2b63b3771b68cd3c
+sha256:
+  darwin_arm64: 035b76b35f03f3e8da0187d0a3858ba77989858b31557f1620239fe81377cc2f
+  darwin_amd64: 3a3bf0c2345b449c94843d0413227b3445df31b065ee8558df467a4ae627dbaf
+  linux_amd64: a0fb3781c74d1a8672c5465b490b0062deba3043421dd344f98d1d9b5175c01c
+  linux_arm64: cea02dc07e9b0311fea704cd84e75c32cfd103076caf80cb2b63b3771b68cd3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - gettext

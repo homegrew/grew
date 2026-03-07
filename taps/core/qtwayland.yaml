@@ -1,0 +1,22 @@
+name: qtwayland
+version: 6.10.2
+description: Wayland platform plugin and QtWaylandCompositor API
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause AND HPND AND LGPL-2.1-or-later AND MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtwayland/blobs/sha256:2fe4f64aa2c21c5b6ac5a0f93e8fbf2c340399a6c01f5078f1e8cf4cfb26fc45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtwayland/blobs/sha256:d31469fd73b406d844ec790555ae7ecbd1f76c04808193707b41647c19113588
+sha256:
+  linux_amd64: 2fe4f64aa2c21c5b6ac5a0f93e8fbf2c340399a6c01f5078f1e8cf4cfb26fc45
+  linux_arm64: d31469fd73b406d844ec790555ae7ecbd1f76c04808193707b41647c19113588
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxkbcommon
+  - mesa
+  - qtbase
+  - qtdeclarative
+  - qtsvg
+  - wayland

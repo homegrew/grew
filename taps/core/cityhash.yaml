@@ -1,0 +1,19 @@
+name: cityhash
+version: 1.1.1
+description: Hash functions for strings
+homepage: https://github.com/google/cityhash
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cityhash/blobs/sha256:a48224df147a6510be1f81144df6c5060ec5c053121bed9ff26e3bc0344585ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cityhash/blobs/sha256:bcc3ba4da5829115dcae4e1f57a6795a33ca041d356a1f97f02a440bbe8d033a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cityhash/blobs/sha256:f381c56f8063574fc86fa4eace73e99bf9be10155f90c1881362e70aea75826a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cityhash/blobs/sha256:729ba06d00e0929bb6e553259a22690423d14593d2b792695ec29ec80d21455e
+sha256:
+  darwin_arm64: a48224df147a6510be1f81144df6c5060ec5c053121bed9ff26e3bc0344585ed
+  darwin_amd64: bcc3ba4da5829115dcae4e1f57a6795a33ca041d356a1f97f02a440bbe8d033a
+  linux_amd64: f381c56f8063574fc86fa4eace73e99bf9be10155f90c1881362e70aea75826a
+  linux_arm64: 729ba06d00e0929bb6e553259a22690423d14593d2b792695ec29ec80d21455e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

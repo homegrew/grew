@@ -1,0 +1,19 @@
+name: three-body
+version: 0.6.5
+description: 三体编程语言 Three Body Language written in Rust
+homepage: https://github.com/rustq/3body-lang
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/three-body/blobs/sha256:80eaf013ad1372dff0e75a304e1a699669d19bed0d5eb9eaca11dc0563e647e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/three-body/blobs/sha256:0ea9365c8fb00a4cc63a309c4316bfb1b5978ea35505e0e3dcc7e8f4e3b62e7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/three-body/blobs/sha256:b8ed8e8bf645ee93eef6d9ea9566286f8ecd54d46ebae8f2b854574edda7721e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/three-body/blobs/sha256:c251fd07b1525f4cfa75465cc9dacad96dd2c5f0343ec9b4ccca6167c9f28d00
+sha256:
+  darwin_arm64: 80eaf013ad1372dff0e75a304e1a699669d19bed0d5eb9eaca11dc0563e647e7
+  darwin_amd64: 0ea9365c8fb00a4cc63a309c4316bfb1b5978ea35505e0e3dcc7e8f4e3b62e7b
+  linux_amd64: b8ed8e8bf645ee93eef6d9ea9566286f8ecd54d46ebae8f2b854574edda7721e
+  linux_arm64: c251fd07b1525f4cfa75465cc9dacad96dd2c5f0343ec9b4ccca6167c9f28d00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

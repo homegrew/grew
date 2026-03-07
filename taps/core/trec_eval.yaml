@@ -1,0 +1,19 @@
+name: trec_eval
+version: 9.0.8
+description: Evaluation software used in the Text Retrieval Conference
+homepage: https://trec.nist.gov/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trec_eval/blobs/sha256:76b82a760b649ff274423803886addc93b50219638567a293aa3cfbb996da7bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trec_eval/blobs/sha256:6d65df57d397752e4cd42b01eb7eb4a0160e08e357215a3ebbecacdb9baa1647
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trec_eval/blobs/sha256:dc3ec132aca6dc41b193e739765cbc951b20c705d84aac1a98f930a5ebb1ee32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trec_eval/blobs/sha256:cfa28a32fa647c2cd07ae80866f5962a1cd62a464e4e372d1d305920687b04f5
+sha256:
+  darwin_arm64: 76b82a760b649ff274423803886addc93b50219638567a293aa3cfbb996da7bf
+  darwin_amd64: 6d65df57d397752e4cd42b01eb7eb4a0160e08e357215a3ebbecacdb9baa1647
+  linux_amd64: dc3ec132aca6dc41b193e739765cbc951b20c705d84aac1a98f930a5ebb1ee32
+  linux_arm64: cfa28a32fa647c2cd07ae80866f5962a1cd62a464e4e372d1d305920687b04f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

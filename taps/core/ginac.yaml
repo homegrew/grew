@@ -1,0 +1,23 @@
+name: ginac
+version: 1.8.10
+description: Not a Computer algebra system
+homepage: https://www.ginac.de/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ginac/blobs/sha256:1dd266f5169a51f56de7328d2e8c14a4a163cbce58c1ec7f37d98c567be6f57d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ginac/blobs/sha256:6f2cf5490d43c329faa796449f917358f62fa7b0cd2fb9ccb07a2847095fa3c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ginac/blobs/sha256:3c093bd89027bbead008692395d750aa955e16e82459bd610fb76de5ace53e48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ginac/blobs/sha256:bf98079efbb1ede70fb28378ccc5b57f94aed5244c2359a6238e3cadc8d0ed27
+sha256:
+  darwin_arm64: 1dd266f5169a51f56de7328d2e8c14a4a163cbce58c1ec7f37d98c567be6f57d
+  darwin_amd64: 6f2cf5490d43c329faa796449f917358f62fa7b0cd2fb9ccb07a2847095fa3c9
+  linux_amd64: 3c093bd89027bbead008692395d750aa955e16e82459bd610fb76de5ace53e48
+  linux_arm64: bf98079efbb1ede70fb28378ccc5b57f94aed5244c2359a6238e3cadc8d0ed27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cln
+  - python@3.14
+  - readline

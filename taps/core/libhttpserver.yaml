@@ -1,0 +1,21 @@
+name: libhttpserver
+version: 0.19.0
+description: C++ library of embedded Rest HTTP server
+homepage: https://github.com/etr/libhttpserver
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libhttpserver/blobs/sha256:3c6d43ba60b58af6cbb736fcef51bc8378c8616ba1bc9be95699d19f588cfa4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libhttpserver/blobs/sha256:f7bd8a4823e25a2d328750d6e900cba1addc794c168bff61c89d49c2df2383fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libhttpserver/blobs/sha256:9d0e06fdd786113649df4bb86729c6fd53c94b77cb6985a0aa43831cdbbb43bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libhttpserver/blobs/sha256:f4983970f413cd3b10229548e9ead19177cd534aa1aefac1903d4e9a4b7b4d1e
+sha256:
+  darwin_arm64: 3c6d43ba60b58af6cbb736fcef51bc8378c8616ba1bc9be95699d19f588cfa4a
+  darwin_amd64: f7bd8a4823e25a2d328750d6e900cba1addc794c168bff61c89d49c2df2383fd
+  linux_amd64: 9d0e06fdd786113649df4bb86729c6fd53c94b77cb6985a0aa43831cdbbb43bc
+  linux_arm64: f4983970f413cd3b10229548e9ead19177cd534aa1aefac1903d4e9a4b7b4d1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmicrohttpd

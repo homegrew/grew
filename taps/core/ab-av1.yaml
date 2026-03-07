@@ -1,0 +1,21 @@
+name: ab-av1
+version: 0.11.1
+description: "AV1 re-encoding using ffmpeg, svt-av1 & vmaf"
+homepage: https://github.com/alexheretic/ab-av1
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ab-av1/blobs/sha256:a1b994a119dac5ea6a04f9b7cd1eb947c343e6a7086870163ac6cdc6a2389864
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ab-av1/blobs/sha256:8ee81ec9eb70bf4f3f0c8f132870c696037434f72bea0a83e8fc8633b9cc4102
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ab-av1/blobs/sha256:7e5c7872d9f192a9f94259b436fcb8e8db98a69a6d486f9a0bafb0226e24557f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ab-av1/blobs/sha256:1b12f2773fdf023b9a74a002b86bd54fec92a91c0e1cb48d5ef5d4740fb905cd
+sha256:
+  darwin_arm64: a1b994a119dac5ea6a04f9b7cd1eb947c343e6a7086870163ac6cdc6a2389864
+  darwin_amd64: 8ee81ec9eb70bf4f3f0c8f132870c696037434f72bea0a83e8fc8633b9cc4102
+  linux_amd64: 7e5c7872d9f192a9f94259b436fcb8e8db98a69a6d486f9a0bafb0226e24557f
+  linux_arm64: 1b12f2773fdf023b9a74a002b86bd54fec92a91c0e1cb48d5ef5d4740fb905cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg

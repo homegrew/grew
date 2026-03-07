@@ -1,0 +1,11 @@
+name: fs-uae-emulator
+version: 3.2.35
+description: Amiga emulator
+homepage: https://fs-uae.net/
+url:
+  darwin_arm64: https://github.com/FrodeSolheim/fs-uae/releases/download/v3.2.35/FS-UAE_3.2.35_macOS_ARM64.dmg
+sha256:
+  darwin_arm64: ef8115986c0ddb987dc024f159da59f788b96d20f7b77ca97b465a9f4492eff8
+artifacts:
+  app:
+    - FS-UAE.app

@@ -1,0 +1,19 @@
+name: ossp-uuid
+version: 1.6.2
+description: ISO-C API and CLI for generating UUIDs
+homepage: http://www.ossp.org/pkg/lib/uuid/
+license: BSD-1-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ossp-uuid/blobs/sha256:d25ab2444dc60f7fec95cbdc75fee7b6594071e0cb203fd395e6fe29fefae1db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ossp-uuid/blobs/sha256:f1055cbbeef1485ae007d2a71818cfb7f2a3b1e4a4cb6e7d69f7bf79796dfaf5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ossp-uuid/blobs/sha256:ec70863fae3001fc9281f76cef9ac231bd6dbb957c6382457a5848312ee1f1b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ossp-uuid/blobs/sha256:d085b0474a2dce5f3e7c587c3fdce4c41a1ae312c5f75657494f69dab899bd8f
+sha256:
+  darwin_arm64: d25ab2444dc60f7fec95cbdc75fee7b6594071e0cb203fd395e6fe29fefae1db
+  darwin_amd64: f1055cbbeef1485ae007d2a71818cfb7f2a3b1e4a4cb6e7d69f7bf79796dfaf5
+  linux_amd64: ec70863fae3001fc9281f76cef9ac231bd6dbb957c6382457a5848312ee1f1b0
+  linux_arm64: d085b0474a2dce5f3e7c587c3fdce4c41a1ae312c5f75657494f69dab899bd8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

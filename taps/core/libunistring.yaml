@@ -1,0 +1,19 @@
+name: libunistring
+version: 1.4.2
+description: C string library for manipulating Unicode strings
+homepage: https://www.gnu.org/software/libunistring/
+license: GPL-2.0-only OR LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libunistring/blobs/sha256:bae6d6d8dffc573c039a850a96e36f1b7fd846abd9ccada8260b7e888b5a3646
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libunistring/blobs/sha256:fbb3a7908a19f306823dbd51b417705c73f710a9a1fb1e34ba7aa67a3c966094
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libunistring/blobs/sha256:2491acf49407cf75d5f95a6296f2a1c0294646834022fdcad7e22471c0c9a6d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libunistring/blobs/sha256:362f8bd62dc8a3db8ca85938b2bfc7ebd09bd3d4f676ae1491183239d576b7ea
+sha256:
+  darwin_arm64: bae6d6d8dffc573c039a850a96e36f1b7fd846abd9ccada8260b7e888b5a3646
+  darwin_amd64: fbb3a7908a19f306823dbd51b417705c73f710a9a1fb1e34ba7aa67a3c966094
+  linux_amd64: 2491acf49407cf75d5f95a6296f2a1c0294646834022fdcad7e22471c0c9a6d4
+  linux_arm64: 362f8bd62dc8a3db8ca85938b2bfc7ebd09bd3d4f676ae1491183239d576b7ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

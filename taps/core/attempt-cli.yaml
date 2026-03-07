@@ -1,0 +1,19 @@
+name: attempt-cli
+version: 1.1.1
+description: CLI for retrying fallible commands
+homepage: https://github.com/MaxBondABE/attempt
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/attempt-cli/blobs/sha256:9a8881fa613c85f2f0c9a65950de36c1b684aafda39b6b3858f78c60d18a3e48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/attempt-cli/blobs/sha256:33006a9c41e7804a56c6cba52cf4c05d665b1b0cd1c10546e408a4d898381bbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/attempt-cli/blobs/sha256:3ab9bd07ecd55a0d594b9d94a4a037f5425a277dbd99572dba81eeedf51c4095
+  linux_arm64: https://ghcr.io/v2/homebrew/core/attempt-cli/blobs/sha256:0864b36766d2d2ea8917cc9abeb7e0f8eb421e0c40d4ff2ccf3de1048107dab5
+sha256:
+  darwin_arm64: 9a8881fa613c85f2f0c9a65950de36c1b684aafda39b6b3858f78c60d18a3e48
+  darwin_amd64: 33006a9c41e7804a56c6cba52cf4c05d665b1b0cd1c10546e408a4d898381bbd
+  linux_amd64: 3ab9bd07ecd55a0d594b9d94a4a037f5425a277dbd99572dba81eeedf51c4095
+  linux_arm64: 0864b36766d2d2ea8917cc9abeb7e0f8eb421e0c40d4ff2ccf3de1048107dab5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

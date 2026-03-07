@@ -1,0 +1,19 @@
+name: brainfuck
+version: 2.7.3
+description: Interpreter for the brainfuck language
+homepage: https://github.com/fabianishere/brainfuck
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brainfuck/blobs/sha256:d38b944beb199f418b1d798264e8319b6b2e89e592fceb0ba113bd8b8a151ecb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brainfuck/blobs/sha256:3b2cc8e0ad8efe56f633ac0970c2502f631080a04276eb34b35287eb9861f860
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brainfuck/blobs/sha256:3554b9a52daf8e246b2459186a891b82c2aa4ce70d900735288903cbc5150152
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brainfuck/blobs/sha256:acc255cdfcaf886863897df064d5aa0b548f1921a04d821c3df4074a7240e6e0
+sha256:
+  darwin_arm64: d38b944beb199f418b1d798264e8319b6b2e89e592fceb0ba113bd8b8a151ecb
+  darwin_amd64: 3b2cc8e0ad8efe56f633ac0970c2502f631080a04276eb34b35287eb9861f860
+  linux_amd64: 3554b9a52daf8e246b2459186a891b82c2aa4ce70d900735288903cbc5150152
+  linux_arm64: acc255cdfcaf886863897df064d5aa0b548f1921a04d821c3df4074a7240e6e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: plutoprint
+version: 0.18.0
+description: Generate PDFs and Images from HTML
+homepage: https://github.com/plutoprint/plutoprint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plutoprint/blobs/sha256:d7b632aa47bd4a198dd6fd316b68767d40113c19a6b6810f243924274f5038bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plutoprint/blobs/sha256:45f4915afcbd6091acb02a9074bdc55968ff71862f94260dd5149e6938aaf1f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plutoprint/blobs/sha256:c8d7e133cd587bba0fe93fca8f5350496e10f5da9c6907e88629f187dd8a85b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plutoprint/blobs/sha256:7556b1ddf6ea02ad6e3824d7f13f1188bd22109042ef892a6fac86e7bfb2d739
+sha256:
+  darwin_arm64: d7b632aa47bd4a198dd6fd316b68767d40113c19a6b6810f243924274f5038bb
+  darwin_amd64: 45f4915afcbd6091acb02a9074bdc55968ff71862f94260dd5149e6938aaf1f5
+  linux_amd64: c8d7e133cd587bba0fe93fca8f5350496e10f5da9c6907e88629f187dd8a85b0
+  linux_arm64: 7556b1ddf6ea02ad6e3824d7f13f1188bd22109042ef892a6fac86e7bfb2d739
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - plutobook
+  - python@3.14

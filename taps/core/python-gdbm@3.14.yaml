@@ -1,0 +1,22 @@
+name: python-gdbm@3.14
+version: 3.14.3
+description: Python interface to gdbm
+homepage: https://www.python.org/
+license: Python-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-gdbm/3.14/blobs/sha256:69e7e5faf2ce879d0c29a5d28716f94c2c4301fc1eb0012bffb58e5b44249d2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-gdbm/3.14/blobs/sha256:88f4034267c9fd249fb3180145e5946b9e4ea7c739b71a0a2c97c8921c18e340
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-gdbm/3.14/blobs/sha256:251e611096b158aaf897d49c73aa87b8b71a6ec354003c1fbaf19e2e4f2e4ed2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-gdbm/3.14/blobs/sha256:0037e048b183aedd3436c771a1f4c80841617c080d93c78f449281359445cea4
+sha256:
+  darwin_arm64: 69e7e5faf2ce879d0c29a5d28716f94c2c4301fc1eb0012bffb58e5b44249d2b
+  darwin_amd64: 88f4034267c9fd249fb3180145e5946b9e4ea7c739b71a0a2c97c8921c18e340
+  linux_amd64: 251e611096b158aaf897d49c73aa87b8b71a6ec354003c1fbaf19e2e4f2e4ed2
+  linux_arm64: 0037e048b183aedd3436c771a1f4c80841617c080d93c78f449281359445cea4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdbm
+  - python@3.14

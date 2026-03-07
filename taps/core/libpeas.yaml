@@ -1,0 +1,28 @@
+name: libpeas
+version: 2.2.1
+description: GObject plugin library
+homepage: https://wiki.gnome.org/Projects/Libpeas
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpeas/blobs/sha256:25e90353ab4047dcdcd86f39a5250782ec85ce114e22ecd8e3f3ac774776c639
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpeas/blobs/sha256:5f46e154e05f3c81023e0fa73e12a37fe5681dd886341889d0a67fa593d3ca8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpeas/blobs/sha256:0cc9daa94412c7c78a5538173c5cb2d6ae3b68bff551364e599739bef6db0c9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpeas/blobs/sha256:43c8a171cf58ee1a08460b6de1e5c62c6da8b5c9c4637358030bccbdad6db965
+sha256:
+  darwin_arm64: 25e90353ab4047dcdcd86f39a5250782ec85ce114e22ecd8e3f3ac774776c639
+  darwin_amd64: 5f46e154e05f3c81023e0fa73e12a37fe5681dd886341889d0a67fa593d3ca8b
+  linux_amd64: 0cc9daa94412c7c78a5538173c5cb2d6ae3b68bff551364e599739bef6db0c9d
+  linux_arm64: 43c8a171cf58ee1a08460b6de1e5c62c6da8b5c9c4637358030bccbdad6db965
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gjs
+  - glib
+  - gobject-introspection
+  - gtk+3
+  - pygobject3
+  - python@3.14
+  - spidermonkey
+  - gettext

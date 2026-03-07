@@ -1,0 +1,27 @@
+name: fastmcp
+version: 3.1.0
+description: Fast, Pythonic way to build MCP servers and clients
+homepage: https://gofastmcp.com/getting-started/welcome
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastmcp/blobs/sha256:5423d98df666af4eaca666fce138bb999378173d9a9f5fa093eccb43512dd9ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastmcp/blobs/sha256:c77fd37f519f31c64317a0e99039db9c3838583d2fa7c1164c22b796ee33fcbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastmcp/blobs/sha256:a86361afddbcb7699fe301178aaeb348543e68e397a36ce6b7b15f57a08e0e00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastmcp/blobs/sha256:65be8571a6b623a5442a2dda4236b2044e4e49a87ebf47f191f2d2d62fc2d848
+sha256:
+  darwin_arm64: 5423d98df666af4eaca666fce138bb999378173d9a9f5fa093eccb43512dd9ee
+  darwin_amd64: c77fd37f519f31c64317a0e99039db9c3838583d2fa7c1164c22b796ee33fcbe
+  linux_amd64: a86361afddbcb7699fe301178aaeb348543e68e397a36ce6b7b15f57a08e0e00
+  linux_arm64: 65be8571a6b623a5442a2dda4236b2044e4e49a87ebf47f191f2d2d62fc2d848
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pydantic
+  - python@3.14
+  - rpds-py
+  - uv

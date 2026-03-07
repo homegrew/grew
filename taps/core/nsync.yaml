@@ -1,0 +1,19 @@
+name: nsync
+version: 1.30.0
+description: C library that exports various synchronization primitives
+homepage: https://github.com/google/nsync
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nsync/blobs/sha256:34b5f37ee36a14b1e76e5052c2f593544e39d45acd8d7d7e0d90600226072802
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nsync/blobs/sha256:78b2f4271d03da7e849c0446837d338aceb66903a53bd9e89d8aeb559dda6f0d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nsync/blobs/sha256:70bf2bc57ecea6d5c4acc02275f360a67fc86ea714c2a76ebbbff1509453ef6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nsync/blobs/sha256:2f3bd67fa9e140561b815dcf454a09ee5950ca419fb5b5a49752558dc904be8a
+sha256:
+  darwin_arm64: 34b5f37ee36a14b1e76e5052c2f593544e39d45acd8d7d7e0d90600226072802
+  darwin_amd64: 78b2f4271d03da7e849c0446837d338aceb66903a53bd9e89d8aeb559dda6f0d
+  linux_amd64: 70bf2bc57ecea6d5c4acc02275f360a67fc86ea714c2a76ebbbff1509453ef6f
+  linux_arm64: 2f3bd67fa9e140561b815dcf454a09ee5950ca419fb5b5a49752558dc904be8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

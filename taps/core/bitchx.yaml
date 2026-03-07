@@ -1,0 +1,21 @@
+name: bitchx
+version: 1.2.1
+description: Text-based, scriptable IRC client
+homepage: https://bitchx.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bitchx/blobs/sha256:a24e61a92b29742aed083f0630542dafa1b11daabbfbfe02ec73a1ba904789ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bitchx/blobs/sha256:9a2c155cc9c8089674d95958a529145840263b0a9268707f30f2950e08ec3bad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bitchx/blobs/sha256:99bec310978096fc74fb480bd558108eb6f9a476ce0dc6721c84a5023f6913c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bitchx/blobs/sha256:4f34b4f508810bd50085303aa389932e4834bbf95db9ccecc01fc4b63a3e9039
+sha256:
+  darwin_arm64: a24e61a92b29742aed083f0630542dafa1b11daabbfbfe02ec73a1ba904789ff
+  darwin_amd64: 9a2c155cc9c8089674d95958a529145840263b0a9268707f30f2950e08ec3bad
+  linux_amd64: 99bec310978096fc74fb480bd558108eb6f9a476ce0dc6721c84a5023f6913c4
+  linux_arm64: 4f34b4f508810bd50085303aa389932e4834bbf95db9ccecc01fc4b63a3e9039
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

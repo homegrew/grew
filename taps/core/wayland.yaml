@@ -1,0 +1,19 @@
+name: wayland
+version: 1.24.0
+description: Protocol for a compositor to talk to its clients
+homepage: https://wayland.freedesktop.org
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wayland/blobs/sha256:dee44b400011624d32fa05d48af97d2ea6856180bee9859aa9d6e2026094891c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wayland/blobs/sha256:0402aef28c24817e975daefaffff0ef5b308e6de8e467cdded83d70a8ed75c39
+sha256:
+  linux_amd64: dee44b400011624d32fa05d48af97d2ea6856180bee9859aa9d6e2026094891c
+  linux_arm64: 0402aef28c24817e975daefaffff0ef5b308e6de8e467cdded83d70a8ed75c39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - expat
+  - libffi
+  - libxml2

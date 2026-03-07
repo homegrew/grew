@@ -1,0 +1,11 @@
+name: gama-jdk
+version: 2025.06.4
+description: IDE for building spatially explicit agent-based simulations
+homepage: https://gama-platform.org/
+url:
+  darwin_arm64: https://github.com/gama-platform/gama/releases/download/2025.06.4/GAMA_2025.06.4_MacOS_M1_with_JDK.dmg
+sha256:
+  darwin_arm64: 6b2c112a7783ecd77ae27a635990f44abe7eddfd52acfcf8398663b335c96300
+artifacts:
+  app:
+    - Gama.app

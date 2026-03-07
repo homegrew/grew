@@ -1,0 +1,21 @@
+name: sqlcipher
+version: 4.13.0
+description: SQLite extension providing 256-bit AES encryption
+homepage: https://www.zetetic.net/sqlcipher/
+license: BSD-3-Clause AND blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlcipher/blobs/sha256:e68a18abaa2253082f86d38b43c01ed3df41ecc999ef7de6b1bebe041e8f876d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlcipher/blobs/sha256:c718a9d068cf45ad7a0a265862b8953dd3e87a7660f5544a04ec4e6542aded9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlcipher/blobs/sha256:f8a7327016c96673dfbe06b4de00814345cf914f1e377aadd5340d8583329f32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlcipher/blobs/sha256:545b6d269df5b4ca96527f4dda09f8753015f7ea8646a311c3b5551f58133e29
+sha256:
+  darwin_arm64: e68a18abaa2253082f86d38b43c01ed3df41ecc999ef7de6b1bebe041e8f876d
+  darwin_amd64: c718a9d068cf45ad7a0a265862b8953dd3e87a7660f5544a04ec4e6542aded9d
+  linux_amd64: f8a7327016c96673dfbe06b4de00814345cf914f1e377aadd5340d8583329f32
+  linux_arm64: 545b6d269df5b4ca96527f4dda09f8753015f7ea8646a311c3b5551f58133e29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

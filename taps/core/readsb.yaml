@@ -1,0 +1,23 @@
+name: readsb
+version: 3.16.10
+description: ADS-B decoder swiss knife
+homepage: https://github.com/wiedehopf/readsb
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/readsb/blobs/sha256:7d7c845e293ef33793362c55a18398eb36d444923273703e130d209ef930b3e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/readsb/blobs/sha256:6e2a9212edcd85f9a0393cd7da623b2fa12183f0db5d74dbaeaeb75476b48f05
+  linux_amd64: https://ghcr.io/v2/homebrew/core/readsb/blobs/sha256:c0fff6863c5fb47de644f8a8a9d9d14debe5d3423e9395852f322e0361ab02c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/readsb/blobs/sha256:b83a062693b31150552368eb0d28644b0b84e1f8834a34bc57ca767c12d5bd90
+sha256:
+  darwin_arm64: 7d7c845e293ef33793362c55a18398eb36d444923273703e130d209ef930b3e3
+  darwin_amd64: 6e2a9212edcd85f9a0393cd7da623b2fa12183f0db5d74dbaeaeb75476b48f05
+  linux_amd64: c0fff6863c5fb47de644f8a8a9d9d14debe5d3423e9395852f322e0361ab02c8
+  linux_arm64: b83a062693b31150552368eb0d28644b0b84e1f8834a34bc57ca767c12d5bd90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librtlsdr
+  - zstd
+  - libusb

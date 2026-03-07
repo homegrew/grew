@@ -1,0 +1,23 @@
+name: ansible-builder
+version: 3.1.1
+description: CLI tool for building Ansible Execution Environments (Containers)
+homepage: https://ansible-builder.readthedocs.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansible-builder/blobs/sha256:030e0175318b171c3d580e0e1300b1d387a947b1e6d1d6a1bd619dab0cc46ce6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansible-builder/blobs/sha256:a81de84cbf633d655d4089ae76c19c28ab55b30db050873d8abdc46d917f619a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansible-builder/blobs/sha256:140f9e227e3758a28f256a5b213f54b73e8e130d7ebcf5784e5f8444b50021d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansible-builder/blobs/sha256:00f7fc506d516b318030fe07e59d2ef21435353014bf2d660d756a49940e8129
+sha256:
+  darwin_arm64: 030e0175318b171c3d580e0e1300b1d387a947b1e6d1d6a1bd619dab0cc46ce6
+  darwin_amd64: a81de84cbf633d655d4089ae76c19c28ab55b30db050873d8abdc46d917f619a
+  linux_amd64: 140f9e227e3758a28f256a5b213f54b73e8e130d7ebcf5784e5f8444b50021d0
+  linux_arm64: 00f7fc506d516b318030fe07e59d2ef21435353014bf2d660d756a49940e8129
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+  - rpds-py

@@ -1,0 +1,21 @@
+name: cloudflare-quiche
+version: 0.26.1
+description: Savoury implementation of the QUIC transport protocol and HTTP/3
+homepage: https://docs.quic.tech/quiche/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-quiche/blobs/sha256:ca8968b996a55e96b74b46a113faab89750e7df04ae765508358511e81b7b3c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudflare-quiche/blobs/sha256:86c3b9db3c51b27fbbbc1e56f31d40fcf56e2dddf4d4cdf5e93b870433bc857b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudflare-quiche/blobs/sha256:22b0bfdafe47603b38c6040099ec3a2573265f388cb2625702162cb2d12e8e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-quiche/blobs/sha256:370c6c86ea463fb456adae976bbd04ca0653231c6d9d926b476f91a50e864a0d
+sha256:
+  darwin_arm64: ca8968b996a55e96b74b46a113faab89750e7df04ae765508358511e81b7b3c8
+  darwin_amd64: 86c3b9db3c51b27fbbbc1e56f31d40fcf56e2dddf4d4cdf5e93b870433bc857b
+  linux_amd64: 22b0bfdafe47603b38c6040099ec3a2573265f388cb2625702162cb2d12e8e82
+  linux_arm64: 370c6c86ea463fb456adae976bbd04ca0653231c6d9d926b476f91a50e864a0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig

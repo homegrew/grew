@@ -1,0 +1,21 @@
+name: bedops
+version: 2.4.42
+description: Set and statistical operations on genomic data of arbitrary scale
+homepage: https://github.com/bedops/bedops
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bedops/blobs/sha256:02db95f7031e865972ba9811475cebf53b0bcd748ae61b0fb067187a5940de88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bedops/blobs/sha256:6f996efefbe566889602342fb2d270816c30121dfa1798125010bd59c70c7071
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bedops/blobs/sha256:8ffc6cb770da1fc79d627c28daa4cf7a6444f3203e1c17f9c78860f70521738f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bedops/blobs/sha256:4e60fd9252b86986cef3dd7adb62756695775f3747f120e44813607532881468
+sha256:
+  darwin_arm64: 02db95f7031e865972ba9811475cebf53b0bcd748ae61b0fb067187a5940de88
+  darwin_amd64: 6f996efefbe566889602342fb2d270816c30121dfa1798125010bd59c70c7071
+  linux_amd64: 8ffc6cb770da1fc79d627c28daa4cf7a6444f3203e1c17f9c78860f70521738f
+  linux_arm64: 4e60fd9252b86986cef3dd7adb62756695775f3747f120e44813607532881468
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson

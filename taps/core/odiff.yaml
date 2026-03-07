@@ -1,0 +1,19 @@
+name: odiff
+version: 4.3.2
+description: Very fast SIMD-first image comparison library (with nodejs API)
+homepage: https://github.com/dmtrKovalenko/odiff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odiff/blobs/sha256:9cb3a56bedb3dc706bc0d20f327ba133c475ede848805efc7c4b8bc05a731cdc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odiff/blobs/sha256:bfc842ad179c8d34d187a2954462d4982a3abec7ae3dccdf1f66218f1e6c9f00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odiff/blobs/sha256:225b4d5d1c7fd31f9db28de5e7e32bbd968548cead0a06932c3a2f3e6e86d236
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odiff/blobs/sha256:51037d5e22cc924480d398040e5f22301ba0cfcd0e2ac942daa1b805d4389443
+sha256:
+  darwin_arm64: 9cb3a56bedb3dc706bc0d20f327ba133c475ede848805efc7c4b8bc05a731cdc
+  darwin_amd64: bfc842ad179c8d34d187a2954462d4982a3abec7ae3dccdf1f66218f1e6c9f00
+  linux_amd64: 225b4d5d1c7fd31f9db28de5e7e32bbd968548cead0a06932c3a2f3e6e86d236
+  linux_arm64: 51037d5e22cc924480d398040e5f22301ba0cfcd0e2ac942daa1b805d4389443
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

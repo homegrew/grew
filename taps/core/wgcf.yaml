@@ -1,0 +1,19 @@
+name: wgcf
+version: 2.2.30
+description: Generate WireGuard profile from Cloudflare Warp account
+homepage: https://github.com/ViRb3/wgcf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wgcf/blobs/sha256:09a2d9d054df9f938a6ba1a2c6e78fef704c042cefa20d624d30814cffb1d659
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wgcf/blobs/sha256:abfb16110ebfe84fe340587f1e8f3e674094c468b4b14a6159325667e899dbe0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wgcf/blobs/sha256:9ae80ab0bb56632e4a8249c291db64c5143968422ec9548c7f87fe371d52b05b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wgcf/blobs/sha256:11e09aea187b8d8e88cc2c4846cf3c49aab45e900922b56b32cc78f3485e8079
+sha256:
+  darwin_arm64: 09a2d9d054df9f938a6ba1a2c6e78fef704c042cefa20d624d30814cffb1d659
+  darwin_amd64: abfb16110ebfe84fe340587f1e8f3e674094c468b4b14a6159325667e899dbe0
+  linux_amd64: 9ae80ab0bb56632e4a8249c291db64c5143968422ec9548c7f87fe371d52b05b
+  linux_arm64: 11e09aea187b8d8e88cc2c4846cf3c49aab45e900922b56b32cc78f3485e8079
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: osaurus
+version: 0.13.9
+description: LLM server built on MLX
+homepage: https://osaurus.ai/
+url:
+  darwin_arm64: https://github.com/osaurus-ai/osaurus/releases/download/0.13.9/Osaurus-0.13.9.dmg
+sha256:
+  darwin_arm64: 0a481df8da9bff99eccea7d35ebf4a333c268b46acf894de9cd4b9332477acd7
+artifacts:
+  app:
+    - Osaurus.app
+  bin:
+    - osaurus

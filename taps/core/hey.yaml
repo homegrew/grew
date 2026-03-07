@@ -1,0 +1,19 @@
+name: hey
+version: 0.1.5
+description: HTTP load generator, ApacheBench (ab) replacement
+homepage: https://github.com/rakyll/hey
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hey/blobs/sha256:2e6a32dc6db2049f5db08ae59f3e6028a97cfcaba825e1009c13ea4e61f24891
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hey/blobs/sha256:9eb4bb90608a7aa8696dc46499a68b61232adc9025891569240964175d1f35ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hey/blobs/sha256:2e7a5f536f001bef14f22277de52a94e50619e2800b9600ce107337f8ac9640e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hey/blobs/sha256:967741f2dcee79b7d0aba61b87753b4eff25cd8b74d0010a90205fa6ae5d7b3a
+sha256:
+  darwin_arm64: 2e6a32dc6db2049f5db08ae59f3e6028a97cfcaba825e1009c13ea4e61f24891
+  darwin_amd64: 9eb4bb90608a7aa8696dc46499a68b61232adc9025891569240964175d1f35ef
+  linux_amd64: 2e7a5f536f001bef14f22277de52a94e50619e2800b9600ce107337f8ac9640e
+  linux_arm64: 967741f2dcee79b7d0aba61b87753b4eff25cd8b74d0010a90205fa6ae5d7b3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

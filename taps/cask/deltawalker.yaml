@@ -1,0 +1,11 @@
+name: deltawalker
+version: 2.7.0
+description: Tool to compare and synchronise files and folders
+homepage: https://www.deltawalker.com/
+url:
+  darwin_arm64: https://deltawalker.s3.amazonaws.com/DeltaWalker-2.7.0_aarch64.dmg
+sha256:
+  darwin_arm64: 804c509f0813e28c3b960a24ab57f200331ba2333ed9ef9dee479f29ac3bf554
+artifacts:
+  app:
+    - DeltaWalker.app

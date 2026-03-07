@@ -1,0 +1,19 @@
+name: signmykey
+version: 0.8.9
+description: Automated SSH Certificate Authority
+homepage: https://signmykey.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/signmykey/blobs/sha256:90a3fa84385d0929c68ee02274431316e4084865eb5ad9dbb7cb060be7a7b354
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/signmykey/blobs/sha256:7ea74b2812543ca3d79a381359f2412bed177bd86cc3208dd4afad608781fb82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/signmykey/blobs/sha256:c5234e51f91e4299f1792be2cab5ec37bd1c669830851af5488dba303537edf6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/signmykey/blobs/sha256:0fabc7ade5f371c73f57886c343c2aba945fe667eb0b2ee8c6cd21522e4a1fd4
+sha256:
+  darwin_arm64: 90a3fa84385d0929c68ee02274431316e4084865eb5ad9dbb7cb060be7a7b354
+  darwin_amd64: 7ea74b2812543ca3d79a381359f2412bed177bd86cc3208dd4afad608781fb82
+  linux_amd64: c5234e51f91e4299f1792be2cab5ec37bd1c669830851af5488dba303537edf6
+  linux_arm64: 0fabc7ade5f371c73f57886c343c2aba945fe667eb0b2ee8c6cd21522e4a1fd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: go-agent
+version: 25.4.0,21793
+description: Agent for the Go Continuous Delivery platform
+homepage: https://www.gocd.org/
+url:
+  darwin_arm64: https://download.gocd.org/binaries/25.4.0-21793/osx/go-agent-25.4.0-21793-osx-aarch64.zip
+sha256:
+  darwin_arm64: 9983a201f318c40bd3f2935b6d8f190ed526ce891eda65fe241aa8dbc73ceed0
+artifacts:
+  bin:
+    - go-agent

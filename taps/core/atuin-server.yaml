@@ -1,0 +1,19 @@
+name: atuin-server
+version: 18.12.1
+description: Sync server for atuin - Improved shell history for zsh, bash, fish and nushell
+homepage: https://atuin.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atuin-server/blobs/sha256:b91b45a76e0bac77a47e71f924f23ee840c8c520a856c4f13e6cd6f0a710a937
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atuin-server/blobs/sha256:675b9c09cc3fa2921442bb263e1da5788c46913b58fae0206b5294da89db6b95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atuin-server/blobs/sha256:45611e30436438d07d9fbd3d3fbaee7208789676815fddf6f7acdd93d60ab458
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atuin-server/blobs/sha256:0cdf861bd78efe32114c907f7a01ab88a8c52cf5c60bb8af79d82a31275361dd
+sha256:
+  darwin_arm64: b91b45a76e0bac77a47e71f924f23ee840c8c520a856c4f13e6cd6f0a710a937
+  darwin_amd64: 675b9c09cc3fa2921442bb263e1da5788c46913b58fae0206b5294da89db6b95
+  linux_amd64: 45611e30436438d07d9fbd3d3fbaee7208789676815fddf6f7acdd93d60ab458
+  linux_arm64: 0cdf861bd78efe32114c907f7a01ab88a8c52cf5c60bb8af79d82a31275361dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

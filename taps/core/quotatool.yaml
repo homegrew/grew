@@ -1,0 +1,19 @@
+name: quotatool
+version: 1.6.5
+description: Edit disk quotas from the command-line
+homepage: https://quotatool.ekenberg.se/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quotatool/blobs/sha256:848359b8b48ae2e6d493cbdd7fbcc5a75445692e0d235acd937391bf01829973
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quotatool/blobs/sha256:b978f4cf5786ea8301c04df5c0ca7454c18532af3dda7b6ebc873ef05a57113a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quotatool/blobs/sha256:6c0feda58df20431481105e54c7cdc01e78168423035c50cbcf813c096dc5121
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quotatool/blobs/sha256:03e1221ed2e5f5bb52560e39b82a3facecf883aed167349499de3fb843712077
+sha256:
+  darwin_arm64: 848359b8b48ae2e6d493cbdd7fbcc5a75445692e0d235acd937391bf01829973
+  darwin_amd64: b978f4cf5786ea8301c04df5c0ca7454c18532af3dda7b6ebc873ef05a57113a
+  linux_amd64: 6c0feda58df20431481105e54c7cdc01e78168423035c50cbcf813c096dc5121
+  linux_arm64: 03e1221ed2e5f5bb52560e39b82a3facecf883aed167349499de3fb843712077
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

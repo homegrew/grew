@@ -1,0 +1,19 @@
+name: bchunk
+version: 1.2.2
+description: Convert CD images from .bin/.cue to .iso/.cdr
+homepage: http://he.fi/bchunk/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bchunk/blobs/sha256:3277369df1cbf1eee5bff5521a3c471311ac476f7bbc9deb3aebebe0d2f1ed06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bchunk/blobs/sha256:b9b2acfcb5072a9184b54326714ed28ef1535cd81e432f080aabc7c322cb47d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bchunk/blobs/sha256:97b11f40a695dccaf6033a9911a9377984ffa7d3ed59bc1272fce7b3a0958edf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bchunk/blobs/sha256:cb5ff1ac028a138667c1d1dae887d33348e009b44f4a9a042d7d10c7387b5d37
+sha256:
+  darwin_arm64: 3277369df1cbf1eee5bff5521a3c471311ac476f7bbc9deb3aebebe0d2f1ed06
+  darwin_amd64: b9b2acfcb5072a9184b54326714ed28ef1535cd81e432f080aabc7c322cb47d2
+  linux_amd64: 97b11f40a695dccaf6033a9911a9377984ffa7d3ed59bc1272fce7b3a0958edf
+  linux_arm64: cb5ff1ac028a138667c1d1dae887d33348e009b44f4a9a042d7d10c7387b5d37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

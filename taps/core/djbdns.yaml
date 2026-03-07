@@ -1,0 +1,22 @@
+name: djbdns
+version: 1.05
+description: "D.J. Bernstein's DNS tools"
+homepage: https://cr.yp.to/djbdns.html
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/djbdns/blobs/sha256:0be5754ae44ee59873e53f476c3da544b31aabf8107d97817cebb77c75ae14e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/djbdns/blobs/sha256:362cd5926caa703da34cf8221e86e1019fa197d1762a9531da088642001e806d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/djbdns/blobs/sha256:02f2234288612b979b6e5947072123ee049558864042839f5c929300d0fbb96f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/djbdns/blobs/sha256:064d2f4f4d5fb2c18488c5dc23d4803da0bba3ca4b4be16de6dc736c8e08bf1b
+sha256:
+  darwin_arm64: 0be5754ae44ee59873e53f476c3da544b31aabf8107d97817cebb77c75ae14e9
+  darwin_amd64: 362cd5926caa703da34cf8221e86e1019fa197d1762a9531da088642001e806d
+  linux_amd64: 02f2234288612b979b6e5947072123ee049558864042839f5c929300d0fbb96f
+  linux_arm64: 064d2f4f4d5fb2c18488c5dc23d4803da0bba3ca4b4be16de6dc736c8e08bf1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - daemontools
+  - ucspi-tcp

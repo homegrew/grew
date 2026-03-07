@@ -1,0 +1,19 @@
+name: infisical
+version: 0.43.58
+description: CLI for Infisical
+homepage: https://infisical.com/docs/cli/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/infisical/blobs/sha256:c08406dbb9c3acb381f91fd04768fc94dbb9d7ea3148985c808dcc3aa1b5f3a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/infisical/blobs/sha256:744c4c1261eef78136f83aff720d5b2442721fc1c62ed2c2399ab83815289151
+  linux_amd64: https://ghcr.io/v2/homebrew/core/infisical/blobs/sha256:5e70b66335df3b8c5cce2b2e342c4dfb703182466e2bde5a663eba53e914eaaa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/infisical/blobs/sha256:ff84b16a538f0c3b2f71e11eea9f42954eaab84e016526c5d14a50f4fada7eab
+sha256:
+  darwin_arm64: c08406dbb9c3acb381f91fd04768fc94dbb9d7ea3148985c808dcc3aa1b5f3a5
+  darwin_amd64: 744c4c1261eef78136f83aff720d5b2442721fc1c62ed2c2399ab83815289151
+  linux_amd64: 5e70b66335df3b8c5cce2b2e342c4dfb703182466e2bde5a663eba53e914eaaa
+  linux_arm64: ff84b16a538f0c3b2f71e11eea9f42954eaab84e016526c5d14a50f4fada7eab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

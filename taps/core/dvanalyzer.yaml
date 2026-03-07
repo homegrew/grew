@@ -1,0 +1,19 @@
+name: dvanalyzer
+version: 1.4.2
+description: Quality control tool for examining tape-to-file DV streams
+homepage: https://mediaarea.net/DVAnalyzer
+license: BSD-2-Clause AND GPL-3.0-or-later AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvanalyzer/blobs/sha256:e8bb414e0719a71fcc95ea8c1351f983fa7df1d0a3c350182c9be47b8064fefc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvanalyzer/blobs/sha256:309bb248ed85a89a2a03562dabb9b3e97c2c24b3f0a81dd8f51cf2511c1e380a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvanalyzer/blobs/sha256:a381c4467638323d1c9ab03fca279140ee97c76c99a3894c59b10757bfe1c711
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvanalyzer/blobs/sha256:f25ff17a0c20c42a7b826e116d5c5687354980a75c403026c2b732f27180b597
+sha256:
+  darwin_arm64: e8bb414e0719a71fcc95ea8c1351f983fa7df1d0a3c350182c9be47b8064fefc
+  darwin_amd64: 309bb248ed85a89a2a03562dabb9b3e97c2c24b3f0a81dd8f51cf2511c1e380a
+  linux_amd64: a381c4467638323d1c9ab03fca279140ee97c76c99a3894c59b10757bfe1c711
+  linux_arm64: f25ff17a0c20c42a7b826e116d5c5687354980a75c403026c2b732f27180b597
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

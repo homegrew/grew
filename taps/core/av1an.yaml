@@ -1,0 +1,23 @@
+name: av1an
+version: 0.5.2
+description: Cross-platform command-line encoding framework
+homepage: https://github.com/rust-av/Av1an
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/av1an/blobs/sha256:a9dc58aed5f017cf8a3de67b59c64c2a7e47ca23ede44d7061d9b7d4a64c1e4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/av1an/blobs/sha256:1d396a96498150fe0abe85305c440d12050a0b561bb70fa022a7f534dcaeb864
+  linux_amd64: https://ghcr.io/v2/homebrew/core/av1an/blobs/sha256:b6d176f8f98bc509f5b24b8d19daa35083c0e56c8387ee30fd5287d2b6b9c606
+  linux_arm64: https://ghcr.io/v2/homebrew/core/av1an/blobs/sha256:7a880b79680bee8ae19fa5f6156cd2112c2cdbf64d0bf30d950a37cdc1b65611
+sha256:
+  darwin_arm64: a9dc58aed5f017cf8a3de67b59c64c2a7e47ca23ede44d7061d9b7d4a64c1e4a
+  darwin_amd64: 1d396a96498150fe0abe85305c440d12050a0b561bb70fa022a7f534dcaeb864
+  linux_amd64: b6d176f8f98bc509f5b24b8d19daa35083c0e56c8387ee30fd5287d2b6b9c606
+  linux_arm64: 7a880b79680bee8ae19fa5f6156cd2112c2cdbf64d0bf30d950a37cdc1b65611
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - mkvtoolnix
+  - vapoursynth

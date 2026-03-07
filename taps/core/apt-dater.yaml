@@ -1,0 +1,23 @@
+name: apt-dater
+version: 1.0.4
+description: Manage package updates on remote hosts using SSH
+homepage: https://github.com/DE-IBH/apt-dater
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apt-dater/blobs/sha256:ca8d65020e488e692c5785619fda1d960a49f88b2f80e2213f1d56f39b6f40de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apt-dater/blobs/sha256:ad40cadf8e75368960e13f510c8e91977ff13908150431a50066bbab0dfd521b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apt-dater/blobs/sha256:b68bb3ff46e775c78d4201392f44d95e8e28aacdce0dd624469f5bfe6a839557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apt-dater/blobs/sha256:8aaa2fb5be47e7037a24f2b6bfc14fac79eabf28187a11d5c949db515b34b4a9
+sha256:
+  darwin_arm64: ca8d65020e488e692c5785619fda1d960a49f88b2f80e2213f1d56f39b6f40de
+  darwin_amd64: ad40cadf8e75368960e13f510c8e91977ff13908150431a50066bbab0dfd521b
+  linux_amd64: b68bb3ff46e775c78d4201392f44d95e8e28aacdce0dd624469f5bfe6a839557
+  linux_arm64: 8aaa2fb5be47e7037a24f2b6bfc14fac79eabf28187a11d5c949db515b34b4a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - popt
+  - gettext

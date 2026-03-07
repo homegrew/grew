@@ -1,0 +1,19 @@
+name: go-jsonnet
+version: 0.21.0
+description: Go implementation of configuration language for defining JSON data
+homepage: https://jsonnet.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-jsonnet/blobs/sha256:71970a3746e1df0623b04394d223a551253fc3fa2af026885d976f85df469def
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-jsonnet/blobs/sha256:857205b6b5af2d4cbf762b4479612ceb5cb330d89c4825a7519f216a39fd61f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-jsonnet/blobs/sha256:f561d3294310d773a7f59d4eeb506aca0a86b510a654965096bbebe041c87032
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-jsonnet/blobs/sha256:cd6fefa551f11430c771c4f9bc581a08b0ca166eb1caa02d52cfdae71e4e0065
+sha256:
+  darwin_arm64: 71970a3746e1df0623b04394d223a551253fc3fa2af026885d976f85df469def
+  darwin_amd64: 857205b6b5af2d4cbf762b4479612ceb5cb330d89c4825a7519f216a39fd61f6
+  linux_amd64: f561d3294310d773a7f59d4eeb506aca0a86b510a654965096bbebe041c87032
+  linux_arm64: cd6fefa551f11430c771c4f9bc581a08b0ca166eb1caa02d52cfdae71e4e0065
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

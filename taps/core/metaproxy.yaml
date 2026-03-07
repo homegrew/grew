@@ -1,0 +1,23 @@
+name: metaproxy
+version: 1.22.3
+description: Z39.50 proxy and router utilizing Yaz toolkit
+homepage: https://www.indexdata.com/resources/software/metaproxy/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/metaproxy/blobs/sha256:a7eb460d7ec0ac7fb969b7f5a28fe294e07be6920f744cd3197bb65e82af295f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/metaproxy/blobs/sha256:697ab1129a23df310aa052b7fd07b2c763d920a4c84d82d08b682e7fed9ca101
+  linux_amd64: https://ghcr.io/v2/homebrew/core/metaproxy/blobs/sha256:93ab93973838c8a4537df846e886efb25da6e83adfdf38129ec611f0cb1a4e60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/metaproxy/blobs/sha256:027749a6c0dac836bd413b5dee064ecc3ea1e71ad51b909f3f08e1c1fc7de864
+sha256:
+  darwin_arm64: a7eb460d7ec0ac7fb969b7f5a28fe294e07be6920f744cd3197bb65e82af295f
+  darwin_amd64: 697ab1129a23df310aa052b7fd07b2c763d920a4c84d82d08b682e7fed9ca101
+  linux_amd64: 93ab93973838c8a4537df846e886efb25da6e83adfdf38129ec611f0cb1a4e60
+  linux_arm64: 027749a6c0dac836bd413b5dee064ecc3ea1e71ad51b909f3f08e1c1fc7de864
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - yaz
+  - yazpp

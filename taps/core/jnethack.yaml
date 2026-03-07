@@ -1,0 +1,19 @@
+name: jnethack
+version: 3.6.7-0.1
+description: Japanese localization of NetHack
+homepage: https://github.com/jnethack/jnethack-release
+license: NGPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jnethack/blobs/sha256:201391d74743a2b3301e322324e49688ebb56767263f2d7d9961bf3517abe0c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jnethack/blobs/sha256:3b46b1e5f270af3786dcebde6c0fc008dd22ffdf0a51a3aaa6daa08fd96a0696
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jnethack/blobs/sha256:b9d9a667b5f140032db12e1384be61894be2bc94340bba0fd08dfcfd5ec16031
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jnethack/blobs/sha256:48967c39f0adeb6f89b7adef4b086372e4faa33b27218c314b2acbc5943cb246
+sha256:
+  darwin_arm64: 201391d74743a2b3301e322324e49688ebb56767263f2d7d9961bf3517abe0c8
+  darwin_amd64: 3b46b1e5f270af3786dcebde6c0fc008dd22ffdf0a51a3aaa6daa08fd96a0696
+  linux_amd64: b9d9a667b5f140032db12e1384be61894be2bc94340bba0fd08dfcfd5ec16031
+  linux_arm64: 48967c39f0adeb6f89b7adef4b086372e4faa33b27218c314b2acbc5943cb246
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

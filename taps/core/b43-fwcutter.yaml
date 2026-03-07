@@ -1,0 +1,19 @@
+name: b43-fwcutter
+version: 019
+description: Extract firmware from Braodcom 43xx driver files
+homepage: https://wireless.docs.kernel.org/en/latest/en/users/drivers/b43.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/b43-fwcutter/blobs/sha256:5e27ebebb8d25a8d3c1ddd0e03b4a9f174117c1cb977c590b1c5300f5b45629f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/b43-fwcutter/blobs/sha256:c24cffe8c519050b9e9810e28038cb84815a5526089e5aa15f239c8061c131f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/b43-fwcutter/blobs/sha256:730c1aaf1eca6cdcc4abab681ca38e7629699e85ac20bb0082b15abbf317a5ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/b43-fwcutter/blobs/sha256:13ef19f39b23087c593c3f7b9c61e0eec77695230bd14018c4af95600f56450b
+sha256:
+  darwin_arm64: 5e27ebebb8d25a8d3c1ddd0e03b4a9f174117c1cb977c590b1c5300f5b45629f
+  darwin_amd64: c24cffe8c519050b9e9810e28038cb84815a5526089e5aa15f239c8061c131f2
+  linux_amd64: 730c1aaf1eca6cdcc4abab681ca38e7629699e85ac20bb0082b15abbf317a5ca
+  linux_arm64: 13ef19f39b23087c593c3f7b9c61e0eec77695230bd14018c4af95600f56450b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

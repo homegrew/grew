@@ -1,0 +1,19 @@
+name: pit
+version: 0.1.0
+description: Project manager from hell (integrates with Git)
+homepage: https://github.com/michaeldv/pit
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pit/blobs/sha256:f777c3a9a9df0126578d3bfcac99340c9de06de98f9a81af90a5e0f1c11a2dfc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pit/blobs/sha256:c58c911d92fce75efe1c60827d6a3d55df5eb063e579d60e4272883a17bc9b33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pit/blobs/sha256:d9d22e313984a6d20930041fd3cbb5896826e0be8a687992866ceef0e79152c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pit/blobs/sha256:cb9c8ae7f2445d94adf1d721988c9c03e4501ce200d9b82ddb6e278befe533d4
+sha256:
+  darwin_arm64: f777c3a9a9df0126578d3bfcac99340c9de06de98f9a81af90a5e0f1c11a2dfc
+  darwin_amd64: c58c911d92fce75efe1c60827d6a3d55df5eb063e579d60e4272883a17bc9b33
+  linux_amd64: d9d22e313984a6d20930041fd3cbb5896826e0be8a687992866ceef0e79152c7
+  linux_arm64: cb9c8ae7f2445d94adf1d721988c9c03e4501ce200d9b82ddb6e278befe533d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

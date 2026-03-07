@@ -1,0 +1,21 @@
+name: openjdk@8
+version: 1.8.0-482
+description: Development kit for the Java programming language
+homepage: https://openjdk.org/
+license: GPL-2.0-only
+url:
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openjdk/8/blobs/sha256:00a07d38b70286d9aa1fd41bf437b5fac36ef59d47d0717dc8270dfe226739b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openjdk/8/blobs/sha256:9322d6b0d39dc54126928b937573645d0444b2f2d0ccd20b1087261d8d1fe650
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openjdk/8/blobs/sha256:6fbda949244ca72f7be006dc37f27ea7cab2dac0310a297c7cab697db9149486
+sha256:
+  darwin_amd64: 00a07d38b70286d9aa1fd41bf437b5fac36ef59d47d0717dc8270dfe226739b9
+  linux_amd64: 9322d6b0d39dc54126928b937573645d0444b2f2d0ccd20b1087261d8d1fe650
+  linux_arm64: 6fbda949244ca72f7be006dc37f27ea7cab2dac0310a297c7cab697db9149486
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - giflib
+keg_only: true

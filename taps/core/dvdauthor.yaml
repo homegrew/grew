@@ -1,0 +1,23 @@
+name: dvdauthor
+version: 0.7.2
+description: DVD-authoring toolset
+homepage: https://dvdauthor.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvdauthor/blobs/sha256:ed44deb629315e130b499c9e41a1cdfd789d62ed26e410c10d480a27ea93abec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvdauthor/blobs/sha256:dcecfc37b18314b6ac3fcd27b1a11785eeedf6d20e0d78d81e0888181250a4b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvdauthor/blobs/sha256:eb347b5f1afad654bd82dbf2158c3e1565b2ebfcf45b0e12828de5c5d3e46439
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvdauthor/blobs/sha256:eb55a46434f9c854c8aae0422b4f964c2fedc9ccc3fa01183e93dda87f196f47
+sha256:
+  darwin_arm64: ed44deb629315e130b499c9e41a1cdfd789d62ed26e410c10d480a27ea93abec
+  darwin_amd64: dcecfc37b18314b6ac3fcd27b1a11785eeedf6d20e0d78d81e0888181250a4b7
+  linux_amd64: eb347b5f1afad654bd82dbf2158c3e1565b2ebfcf45b0e12828de5c5d3e46439
+  linux_arm64: eb55a46434f9c854c8aae0422b4f964c2fedc9ccc3fa01183e93dda87f196f47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - libdvdread
+  - libpng

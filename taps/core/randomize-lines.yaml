@@ -1,0 +1,19 @@
+name: randomize-lines
+version: 0.2.7
+description: Reads and randomize lines from a file (or STDIN)
+homepage: https://arthurdejong.org/rl/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/randomize-lines/blobs/sha256:54390ca4a64d2cc044e4a562f868476d9821274a86758db0fd035079fe9e5db2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/randomize-lines/blobs/sha256:10e538eab3c969a0253e4febea9ce1d45b015e7b388c31a818438f850cbb5144
+  linux_amd64: https://ghcr.io/v2/homebrew/core/randomize-lines/blobs/sha256:5d3ca6029fbd900632e5f09b68c583b1f441cf1bb711041ab00d519ee8fd323a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/randomize-lines/blobs/sha256:764e49f56b35776d575f1c96474373185c667956751c0c3b829680038a32e9d9
+sha256:
+  darwin_arm64: 54390ca4a64d2cc044e4a562f868476d9821274a86758db0fd035079fe9e5db2
+  darwin_amd64: 10e538eab3c969a0253e4febea9ce1d45b015e7b388c31a818438f850cbb5144
+  linux_amd64: 5d3ca6029fbd900632e5f09b68c583b1f441cf1bb711041ab00d519ee8fd323a
+  linux_arm64: 764e49f56b35776d575f1c96474373185c667956751c0c3b829680038a32e9d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: phpbrew
+version: 2.2.0
+description: "Brew & manage PHP versions in pure PHP at HOME"
+homepage: https://phpbrew.github.io/phpbrew
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/phpbrew/blobs/sha256:992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/phpbrew/blobs/sha256:39b7ba820f4d4da27b1c33ba46b957cfd3bf05f5ff525e39c495bd7b89917649
+  linux_amd64: https://ghcr.io/v2/homebrew/core/phpbrew/blobs/sha256:992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/phpbrew/blobs/sha256:992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+sha256:
+  darwin_arm64: 992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+  darwin_amd64: 39b7ba820f4d4da27b1c33ba46b957cfd3bf05f5ff525e39c495bd7b89917649
+  linux_amd64: 992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+  linux_arm64: 992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - php@8.4

@@ -1,0 +1,19 @@
+name: pg-schema-diff
+version: 1.0.5
+description: Diff Postgres schemas and generating SQL migrations
+homepage: https://github.com/stripe/pg-schema-diff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pg-schema-diff/blobs/sha256:ce562e873fafe35ea9c104c0d30366a916b01c315d0a53e7e22a48666babb20d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pg-schema-diff/blobs/sha256:a357fe43e6cccb582d451a420d774a5317223d2d583c312e903e94c86a351428
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pg-schema-diff/blobs/sha256:fc47dac60204e4dcd0f0af5db2f253b7d40cd74d29ce27fbe55301250b3dd305
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pg-schema-diff/blobs/sha256:eda75ea6c5b0b62c8fdc9ccade5faf1991f217d7cd61d02010d433b862b7af99
+sha256:
+  darwin_arm64: ce562e873fafe35ea9c104c0d30366a916b01c315d0a53e7e22a48666babb20d
+  darwin_amd64: a357fe43e6cccb582d451a420d774a5317223d2d583c312e903e94c86a351428
+  linux_amd64: fc47dac60204e4dcd0f0af5db2f253b7d40cd74d29ce27fbe55301250b3dd305
+  linux_arm64: eda75ea6c5b0b62c8fdc9ccade5faf1991f217d7cd61d02010d433b862b7af99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

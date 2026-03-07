@@ -1,0 +1,19 @@
+name: libcaption
+version: 0.8
+description: Free open-source CEA608 / CEA708 closed-caption encoder/decoder
+homepage: https://github.com/szatmary/libcaption
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcaption/blobs/sha256:6b01b50b312db2c4a258c41771e39ae602a435307d50f039271db16dde82edc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcaption/blobs/sha256:fd88c25e69d6d19bf148e4dfa9e011c7e4d9cc3137191689b9e8562f76a23762
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcaption/blobs/sha256:a72274f3dd06de2c7d89616f06ebd6d4bff01e5caeea26d66662227bffdb2120
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcaption/blobs/sha256:56f5a140b1213e982ebaad543a9c74e2f525aa8758e59afd6eff40a2c0f6a2cc
+sha256:
+  darwin_arm64: 6b01b50b312db2c4a258c41771e39ae602a435307d50f039271db16dde82edc6
+  darwin_amd64: fd88c25e69d6d19bf148e4dfa9e011c7e4d9cc3137191689b9e8562f76a23762
+  linux_amd64: a72274f3dd06de2c7d89616f06ebd6d4bff01e5caeea26d66662227bffdb2120
+  linux_arm64: 56f5a140b1213e982ebaad543a9c74e2f525aa8758e59afd6eff40a2c0f6a2cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

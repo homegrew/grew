@@ -1,0 +1,17 @@
+name: net-tools
+version: 2.10
+description: Linux networking base tools
+homepage: https://sourceforge.net/projects/net-tools/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/net-tools/blobs/sha256:eecef80de080f3957e605ff06292e6bffc51f34385307f70896b64d1dd2c823b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/net-tools/blobs/sha256:a7d523b6843e87fd1b0791952b634c66f5918b78b97e4b851d9d2b3a413e9886
+sha256:
+  linux_amd64: eecef80de080f3957e605ff06292e6bffc51f34385307f70896b64d1dd2c823b
+  linux_arm64: a7d523b6843e87fd1b0791952b634c66f5918b78b97e4b851d9d2b3a413e9886
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdnet

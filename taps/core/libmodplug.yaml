@@ -1,0 +1,19 @@
+name: libmodplug
+version: 0.8.9.0
+description: Library from the Modplug-XMMS project
+homepage: https://modplug-xmms.sourceforge.net/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmodplug/blobs/sha256:1143c79498400dd323ef1a5e5c5e6ee7b6e1d6efc8cb742c63fa46b8cf7505b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmodplug/blobs/sha256:119d6db16f150a7398bd8209a230a13d47e0ab693b11c7671abf55be08e20f4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmodplug/blobs/sha256:d166a7f4a737de154ada685c9af4f82d22238a1b6cb323ce49a4496a3e9b2911
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmodplug/blobs/sha256:0209868506e112abe52575b8604d3aa1ac4f804ef2fec00937ca15711a24ce7c
+sha256:
+  darwin_arm64: 1143c79498400dd323ef1a5e5c5e6ee7b6e1d6efc8cb742c63fa46b8cf7505b9
+  darwin_amd64: 119d6db16f150a7398bd8209a230a13d47e0ab693b11c7671abf55be08e20f4d
+  linux_amd64: d166a7f4a737de154ada685c9af4f82d22238a1b6cb323ce49a4496a3e9b2911
+  linux_arm64: 0209868506e112abe52575b8604d3aa1ac4f804ef2fec00937ca15711a24ce7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

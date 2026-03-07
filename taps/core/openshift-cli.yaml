@@ -1,0 +1,19 @@
+name: openshift-cli
+version: 4.21.3
+description: OpenShift command-line interface tools
+homepage: https://www.openshift.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openshift-cli/blobs/sha256:13923d5b32e728564d2b999007f2be3fe5e0e795132da27aac0f7b894487a848
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openshift-cli/blobs/sha256:90b35a2ea3698f4a14e9c39d96bda197edfae71f199fed3a96ceed0de967ffad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openshift-cli/blobs/sha256:0964fb5d253f2fe9f54eb4e092baa4909c1909c17bb213e70e0c3f8a956e5aa8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openshift-cli/blobs/sha256:8ba69356991c48eada064614437878dd708fe8c363a40b72b9f9e13a4422c02e
+sha256:
+  darwin_arm64: 13923d5b32e728564d2b999007f2be3fe5e0e795132da27aac0f7b894487a848
+  darwin_amd64: 90b35a2ea3698f4a14e9c39d96bda197edfae71f199fed3a96ceed0de967ffad
+  linux_amd64: 0964fb5d253f2fe9f54eb4e092baa4909c1909c17bb213e70e0c3f8a956e5aa8
+  linux_arm64: 8ba69356991c48eada064614437878dd708fe8c363a40b72b9f9e13a4422c02e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

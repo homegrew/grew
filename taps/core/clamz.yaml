@@ -1,0 +1,22 @@
+name: clamz
+version: 0.5
+description: "Download MP3 files from Amazon's music store"
+homepage: https://code.google.com/archive/p/clamz/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clamz/blobs/sha256:0d263cb2b16259b06794b4470e155967eab994f538c670fdcb2db680c5c5f03f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clamz/blobs/sha256:e154f03f65107c9f7b3527cfc5d60bc42073ee99e0345c3c250e71a09333d6d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clamz/blobs/sha256:bedccbcf92f7884cf99615ea347345f035a6693e953b6ebf90e51695e4351c95
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clamz/blobs/sha256:57bbb9e4a40a6fba879e65f49b79177fe87c2c6a0592b4b06abc4a937535071c
+sha256:
+  darwin_arm64: 0d263cb2b16259b06794b4470e155967eab994f538c670fdcb2db680c5c5f03f
+  darwin_amd64: e154f03f65107c9f7b3527cfc5d60bc42073ee99e0345c3c250e71a09333d6d6
+  linux_amd64: bedccbcf92f7884cf99615ea347345f035a6693e953b6ebf90e51695e4351c95
+  linux_arm64: 57bbb9e4a40a6fba879e65f49b79177fe87c2c6a0592b4b06abc4a937535071c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libgpg-error

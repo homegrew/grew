@@ -1,0 +1,25 @@
+name: localstack
+version: 4.14.0
+description: Fully functional local AWS cloud stack
+homepage: https://localstack.cloud/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/localstack/blobs/sha256:ccd113f27ad95facbc3c18e2bc237397fb4ed6aed0cb0c6bb111c0c5dd6dddc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/localstack/blobs/sha256:fcea2f0dc077e255d9a92625247017f3e9012bb830803f19374d2c8b745e72e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/localstack/blobs/sha256:2dcded7c7e98d93a4957888804eeb9b49109b6e375cd82aba1adb803ba472c03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/localstack/blobs/sha256:5d96448b1abde830f51459eb00fd91d4047088781a9ea3af41593cf5eb72f2e7
+sha256:
+  darwin_arm64: ccd113f27ad95facbc3c18e2bc237397fb4ed6aed0cb0c6bb111c0c5dd6dddc7
+  darwin_amd64: fcea2f0dc077e255d9a92625247017f3e9012bb830803f19374d2c8b745e72e3
+  linux_amd64: 2dcded7c7e98d93a4957888804eeb9b49109b6e375cd82aba1adb803ba472c03
+  linux_arm64: 5d96448b1abde830f51459eb00fd91d4047088781a9ea3af41593cf5eb72f2e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - openssl@3
+  - python@3.14

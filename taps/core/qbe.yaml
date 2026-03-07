@@ -1,0 +1,19 @@
+name: qbe
+version: 1.2
+description: Compiler Backend
+homepage: https://c9x.me/compile/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qbe/blobs/sha256:c41fd6b7adfea92b2b90f14ff60a584d471f1b79d343949bcb4e42ff0b55bbc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qbe/blobs/sha256:59e80cb7758faa82c7f4b2541deef61f12fae3186843c869cb2a0856eef4d268
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qbe/blobs/sha256:eab98f6cfc7bc3c366c0aa92f785940bb8de5b2e0384495d6f1752629b4e9acf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qbe/blobs/sha256:45b6dfaf0ead4216cfe8d0f328fc30e5f69f5d827f03c9a18b8e576eb3027ba9
+sha256:
+  darwin_arm64: c41fd6b7adfea92b2b90f14ff60a584d471f1b79d343949bcb4e42ff0b55bbc6
+  darwin_amd64: 59e80cb7758faa82c7f4b2541deef61f12fae3186843c869cb2a0856eef4d268
+  linux_amd64: eab98f6cfc7bc3c366c0aa92f785940bb8de5b2e0384495d6f1752629b4e9acf
+  linux_arm64: 45b6dfaf0ead4216cfe8d0f328fc30e5f69f5d827f03c9a18b8e576eb3027ba9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: clpbar
+version: 1.11.1
+description: Command-line progress bar
+homepage: https://clpbar.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clpbar/blobs/sha256:428cfe8bba0bbe5074e6ea1f27f05ead41dd9fd65007b4ae9a9490e1673911af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clpbar/blobs/sha256:a4d8adb0e57f2e29c8ed5f2cf86793d5e3e1d96f2ee4df1dddeece67ac939b28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clpbar/blobs/sha256:34f612cc13329af2cb8bb90f7457a5222538acbd7304ad2ebf0a16650bec2dfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clpbar/blobs/sha256:a8ddd40caccc3e89ff5a39180cf69afcbec356f9579d9c40c5798cddfbfd46c6
+sha256:
+  darwin_arm64: 428cfe8bba0bbe5074e6ea1f27f05ead41dd9fd65007b4ae9a9490e1673911af
+  darwin_amd64: a4d8adb0e57f2e29c8ed5f2cf86793d5e3e1d96f2ee4df1dddeece67ac939b28
+  linux_amd64: 34f612cc13329af2cb8bb90f7457a5222538acbd7304ad2ebf0a16650bec2dfc
+  linux_arm64: a8ddd40caccc3e89ff5a39180cf69afcbec356f9579d9c40c5798cddfbfd46c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

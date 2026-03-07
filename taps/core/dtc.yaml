@@ -1,0 +1,19 @@
+name: dtc
+version: 1.7.2
+description: Device tree compiler
+homepage: https://git.kernel.org/pub/scm/utils/dtc/dtc.git
+license: GPL-2.0-or-later OR BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dtc/blobs/sha256:e651c82ed69b6efd392728727fe0a9d4831cbcd1decca9b6a17bf307e44d81cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dtc/blobs/sha256:e4eb4991109e9112f5edb62b92cec046239268ecedf2de275e21c9be7302016b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dtc/blobs/sha256:a73d1c865cba2244acd9bb059eae7fa4377506b64438ce12608f8f87d01e6640
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dtc/blobs/sha256:ca5cc69857d826ebc8b792e60d7fbc695785443f5a03bff22cd6a80d96953e52
+sha256:
+  darwin_arm64: e651c82ed69b6efd392728727fe0a9d4831cbcd1decca9b6a17bf307e44d81cb
+  darwin_amd64: e4eb4991109e9112f5edb62b92cec046239268ecedf2de275e21c9be7302016b
+  linux_amd64: a73d1c865cba2244acd9bb059eae7fa4377506b64438ce12608f8f87d01e6640
+  linux_arm64: ca5cc69857d826ebc8b792e60d7fbc695785443f5a03bff22cd6a80d96953e52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

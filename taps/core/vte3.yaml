@@ -1,0 +1,35 @@
+name: vte3
+version: 0.82.3
+description: Terminal emulator widget used by GNOME terminal
+homepage: https://wiki.gnome.org/Apps/Terminal/VTE
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vte3/blobs/sha256:36deb974dd17bdd2ddb3d5bc37c837f65f0737d743dc5867dc3d973983df5a3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vte3/blobs/sha256:56649ae909e5fdcb60945e0ff151de951631de9e163878a292d6720d7a42252c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vte3/blobs/sha256:322015e8408113931b4f8a9ea98ba633405ba11a009b7fc9dec0c5a255faa383
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vte3/blobs/sha256:dffac894c4173560d458a76295591f9518fd75d4a039d27bb776fe954b48bf98
+sha256:
+  darwin_arm64: 36deb974dd17bdd2ddb3d5bc37c837f65f0737d743dc5867dc3d973983df5a3f
+  darwin_amd64: 56649ae909e5fdcb60945e0ff151de951631de9e163878a292d6720d7a42252c
+  linux_amd64: 322015e8408113931b4f8a9ea98ba633405ba11a009b7fc9dec0c5a255faa383
+  linux_arm64: dffac894c4173560d458a76295591f9518fd75d4a039d27bb776fe954b48bf98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - fribidi
+  - gdk-pixbuf
+  - glib
+  - gnutls
+  - graphene
+  - gtk+3
+  - gtk4
+  - icu4c@78
+  - lz4
+  - pango
+  - pcre2
+  - simdutf
+  - gettext

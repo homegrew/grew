@@ -1,0 +1,19 @@
+name: bullet
+version: 3.25
+description: Physics SDK
+homepage: https://bulletphysics.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bullet/blobs/sha256:87c1a6671e6825d2886bd6025091c80f3633033cb1f61bfb343512e7aacfd346
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bullet/blobs/sha256:354ff9e050f7c14b6f25ee2aaa865a2949538da6fc017c5f0e688639fa46f9e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bullet/blobs/sha256:3c9c0d8ab57375f2ffedb24fdfb000e4d52c96d3e948a4c5ebd986ad32e7ed70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bullet/blobs/sha256:1fba99fe645c8290925e3a0dc6bdb8059e799b045de00c67cc0e67563bbdc33e
+sha256:
+  darwin_arm64: 87c1a6671e6825d2886bd6025091c80f3633033cb1f61bfb343512e7aacfd346
+  darwin_amd64: 354ff9e050f7c14b6f25ee2aaa865a2949538da6fc017c5f0e688639fa46f9e4
+  linux_amd64: 3c9c0d8ab57375f2ffedb24fdfb000e4d52c96d3e948a4c5ebd986ad32e7ed70
+  linux_arm64: 1fba99fe645c8290925e3a0dc6bdb8059e799b045de00c67cc0e67563bbdc33e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

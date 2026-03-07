@@ -1,0 +1,19 @@
+name: typedb
+version: 3.8.1
+description: Strongly-typed database with a rich and logical type system
+homepage: https://typedb.com/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typedb/blobs/sha256:d18441f5f7d2057de82ee4f22ae48c5c7fac1d602bad26469630a1cc1e81df47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typedb/blobs/sha256:c94b6b2f663a25861501c8a15581c7f59368377ed0557729f692b6a1cffbbcd3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typedb/blobs/sha256:b845e18b2db55d53e3f2a6b0fa1d5acd0c178c315fe21ab40a9ca0968628fe8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typedb/blobs/sha256:c97dfd89761690fdece00d16498896efcd9dcc7c203c9f1252418cbefdf61851
+sha256:
+  darwin_arm64: d18441f5f7d2057de82ee4f22ae48c5c7fac1d602bad26469630a1cc1e81df47
+  darwin_amd64: c94b6b2f663a25861501c8a15581c7f59368377ed0557729f692b6a1cffbbcd3
+  linux_amd64: b845e18b2db55d53e3f2a6b0fa1d5acd0c178c315fe21ab40a9ca0968628fe8e
+  linux_arm64: c97dfd89761690fdece00d16498896efcd9dcc7c203c9f1252418cbefdf61851
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

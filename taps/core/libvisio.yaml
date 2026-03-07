@@ -1,0 +1,22 @@
+name: libvisio
+version: 0.1.10
+description: Interpret and import Visio diagrams
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libvisio
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvisio/blobs/sha256:e241eb77c998c706f44a477749306d05bbc0b8217679cba715b97ede9f9ec2b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvisio/blobs/sha256:26419e2bf884b48b7d94dfdf19de9bbc8f118c89585f1d83818b90e46742c867
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvisio/blobs/sha256:69d9ebc9fa47e7fb49aa8d379935dee191957a24dbabb7b40d23ec0c0bd76159
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvisio/blobs/sha256:0f05a917fed1e4685878ed8b3821a5ba5cfc481ce5f4dca4ec6195bb985e4b6c
+sha256:
+  darwin_arm64: e241eb77c998c706f44a477749306d05bbc0b8217679cba715b97ede9f9ec2b6
+  darwin_amd64: 26419e2bf884b48b7d94dfdf19de9bbc8f118c89585f1d83818b90e46742c867
+  linux_amd64: 69d9ebc9fa47e7fb49aa8d379935dee191957a24dbabb7b40d23ec0c0bd76159
+  linux_arm64: 0f05a917fed1e4685878ed8b3821a5ba5cfc481ce5f4dca4ec6195bb985e4b6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - librevenge

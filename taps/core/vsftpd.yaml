@@ -1,0 +1,19 @@
+name: vsftpd
+version: 3.0.5
+description: Secure FTP server for UNIX
+homepage: https://security.appspot.com/vsftpd.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vsftpd/blobs/sha256:01dbfae43456eddf9dda1082d584faffbc1375610626a5b2c6229ae3fdbd13f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vsftpd/blobs/sha256:63fafab3ad2cc9aa1c22643d6b923292a58b0872abbc774fb028b0d79f3febe6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vsftpd/blobs/sha256:4443fcbe19aa4dd49e55a9c5fcd7e3c069a07320a4c86b9d252c4020ba7614ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vsftpd/blobs/sha256:a7e48ecdd12b194050395cc3532a82bcc3724a4d19d0f5e43cb0cc62723f3440
+sha256:
+  darwin_arm64: 01dbfae43456eddf9dda1082d584faffbc1375610626a5b2c6229ae3fdbd13f2
+  darwin_amd64: 63fafab3ad2cc9aa1c22643d6b923292a58b0872abbc774fb028b0d79f3febe6
+  linux_amd64: 4443fcbe19aa4dd49e55a9c5fcd7e3c069a07320a4c86b9d252c4020ba7614ee
+  linux_arm64: a7e48ecdd12b194050395cc3532a82bcc3724a4d19d0f5e43cb0cc62723f3440
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: go-parquet-tools
+version: 1.47.6
+description: Utility to deal with Parquet data
+homepage: https://github.com/hangxie/parquet-tools
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-parquet-tools/blobs/sha256:6ff64332bd2ef4b2bba8be5815faa13077becbf778aa6290bb95114b1ecf4d8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-parquet-tools/blobs/sha256:f21037ea514ae5cd8938289529aadfa2d6b3d26e4638ebd6e022f9f3e3b2d66b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-parquet-tools/blobs/sha256:e1b20e500b5407cf03bfecab3b20aaf1a1c10c12e4e1a300f6d02c1a43311864
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-parquet-tools/blobs/sha256:05a7a6681fb3db1a2de795ba748a1cb0bb019ce9c44e563312ac65ee4b500418
+sha256:
+  darwin_arm64: 6ff64332bd2ef4b2bba8be5815faa13077becbf778aa6290bb95114b1ecf4d8b
+  darwin_amd64: f21037ea514ae5cd8938289529aadfa2d6b3d26e4638ebd6e022f9f3e3b2d66b
+  linux_amd64: e1b20e500b5407cf03bfecab3b20aaf1a1c10c12e4e1a300f6d02c1a43311864
+  linux_arm64: 05a7a6681fb3db1a2de795ba748a1cb0bb019ce9c44e563312ac65ee4b500418
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

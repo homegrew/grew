@@ -1,0 +1,22 @@
+name: libvisual-projectm
+version: 2.1.2
+description: Visualization plug-in for projectM support from Libvisual
+homepage: https://github.com/projectM-visualizer/frontend-libvisual-plug-in
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvisual-projectm/blobs/sha256:859857caed5c2cd954dbcbc27024d76eab9c9b6d34444d3a941d00577a4cb723
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvisual-projectm/blobs/sha256:cde4f874618e5510008df0e300a7f758ec438559ddc470d9046fd2864fa7110b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvisual-projectm/blobs/sha256:690a7080b1b273f44e57a7d3b41908f2806e39add912dac5f9146009fbcc1032
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvisual-projectm/blobs/sha256:c15daec0a30a65bdabed7f628999eaf83c8c4bb89da4609d05c297749832c510
+sha256:
+  darwin_arm64: 859857caed5c2cd954dbcbc27024d76eab9c9b6d34444d3a941d00577a4cb723
+  darwin_amd64: cde4f874618e5510008df0e300a7f758ec438559ddc470d9046fd2864fa7110b
+  linux_amd64: 690a7080b1b273f44e57a7d3b41908f2806e39add912dac5f9146009fbcc1032
+  linux_arm64: c15daec0a30a65bdabed7f628999eaf83c8c4bb89da4609d05c297749832c510
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libvisual
+  - projectm

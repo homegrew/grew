@@ -1,0 +1,21 @@
+name: asio
+version: 1.36.0
+description: Cross-platform C++ Library for asynchronous programming
+homepage: https://think-async.com/Asio/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asio/blobs/sha256:c270edee8c7f97079ae4f4cf2c6ea3f072a02e3966354fa233a72df2dff6834b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asio/blobs/sha256:6a4f0422454474b28955a8d9bb203d703bdbb7c857096dc32bd6c191fb8a0ba5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asio/blobs/sha256:7b3a5307039ebc24abeba8e99bf96fdff91577b4d2a413715c3e83ff755c4ed4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asio/blobs/sha256:8d1cda2230726d6339c1233ea2a126525d9044aacac103fb6da0fd195698a68b
+sha256:
+  darwin_arm64: c270edee8c7f97079ae4f4cf2c6ea3f072a02e3966354fa233a72df2dff6834b
+  darwin_amd64: 6a4f0422454474b28955a8d9bb203d703bdbb7c857096dc32bd6c191fb8a0ba5
+  linux_amd64: 7b3a5307039ebc24abeba8e99bf96fdff91577b4d2a413715c3e83ff755c4ed4
+  linux_arm64: 8d1cda2230726d6339c1233ea2a126525d9044aacac103fb6da0fd195698a68b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,19 @@
+name: stress
+version: 1.0.7
+description: Tool to impose load on and stress test a computer system
+homepage: https://github.com/resurrecting-open-source-projects/stress
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stress/blobs/sha256:bc133ce107c928388f3e8e1ae2ec46c12fac73f1ae01281486530180d60adba7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stress/blobs/sha256:7c8460f9a1805d20e6f36f2e4768dce9ba5ade639186fa9204439fe52a55e2c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stress/blobs/sha256:ffa76db1094886481f76dcba90c949bd03f5d29971e943d9dce96a5f53f6da78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stress/blobs/sha256:f11fdfe50b66032ffa18ef2b2f7a4439b379f08b6224c5c0ee9acde23ae1e6c3
+sha256:
+  darwin_arm64: bc133ce107c928388f3e8e1ae2ec46c12fac73f1ae01281486530180d60adba7
+  darwin_amd64: 7c8460f9a1805d20e6f36f2e4768dce9ba5ade639186fa9204439fe52a55e2c3
+  linux_amd64: ffa76db1094886481f76dcba90c949bd03f5d29971e943d9dce96a5f53f6da78
+  linux_arm64: f11fdfe50b66032ffa18ef2b2f7a4439b379f08b6224c5c0ee9acde23ae1e6c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

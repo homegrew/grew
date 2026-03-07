@@ -1,0 +1,19 @@
+name: terraform-inventory
+version: 0.10
+description: Go app which generates a dynamic Ansible inventory from a Terraform state file
+homepage: https://github.com/adammck/terraform-inventory
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-inventory/blobs/sha256:bcdc79974fa55bb1087fe38999c01b1136c56f0b733706bf9b87fb937e81aa9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-inventory/blobs/sha256:4724f1231e34d9c006f69df14a35683a750407d6b3cfa92775f41e289a645804
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-inventory/blobs/sha256:853cf36916d4bb9834f0f6b491e347a109a2930d350a1a31b8e7b8233720c20b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-inventory/blobs/sha256:81cac3290ff42bd1c1759d9596b08e9647533f202dfabf5b9ad91e44a6f696bc
+sha256:
+  darwin_arm64: bcdc79974fa55bb1087fe38999c01b1136c56f0b733706bf9b87fb937e81aa9d
+  darwin_amd64: 4724f1231e34d9c006f69df14a35683a750407d6b3cfa92775f41e289a645804
+  linux_amd64: 853cf36916d4bb9834f0f6b491e347a109a2930d350a1a31b8e7b8233720c20b
+  linux_arm64: 81cac3290ff42bd1c1759d9596b08e9647533f202dfabf5b9ad91e44a6f696bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

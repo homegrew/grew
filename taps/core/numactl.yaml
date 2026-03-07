@@ -1,0 +1,15 @@
+name: numactl
+version: 2.0.19
+description: NUMA support for Linux
+homepage: https://github.com/numactl/numactl
+license: GPL-2.0-only AND LGPL-2.1-only AND LicenseRef-Homebrew-public-domain AND LicenseRef-Homebrew-cannot-represent
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/numactl/blobs/sha256:43bce9542369d74930001dfdc0e77f532ec0dd93f41f1ade35f0205c800270cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/numactl/blobs/sha256:cbabb9e7d3bccc03ad04aa04e52a009f37fc8d2f725d37fa369f9149de61fefa
+sha256:
+  linux_amd64: 43bce9542369d74930001dfdc0e77f532ec0dd93f41f1ade35f0205c800270cc
+  linux_arm64: cbabb9e7d3bccc03ad04aa04e52a009f37fc8d2f725d37fa369f9149de61fefa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

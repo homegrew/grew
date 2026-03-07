@@ -1,0 +1,19 @@
+name: asciitex
+version: 0.21
+description: Generate ASCII-art representations of mathematical equations
+homepage: https://asciitex.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asciitex/blobs/sha256:5b71c04bd0a92fe7d693aff5674b9464532b0a6160b918832dcf299354b2adc5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asciitex/blobs/sha256:8db42f4ab42823b6d60176e7ef225cc2d714e6a49c8ac280938300ab78180164
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asciitex/blobs/sha256:630265b0202b14fd9459b9f772f8f2c1518ddf1b5a5baf6f086f693c8054b470
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asciitex/blobs/sha256:0c58b7bfb137b8905ee389497448200beeaf56f9636938f926aaf7497b9dced9
+sha256:
+  darwin_arm64: 5b71c04bd0a92fe7d693aff5674b9464532b0a6160b918832dcf299354b2adc5
+  darwin_amd64: 8db42f4ab42823b6d60176e7ef225cc2d714e6a49c8ac280938300ab78180164
+  linux_amd64: 630265b0202b14fd9459b9f772f8f2c1518ddf1b5a5baf6f086f693c8054b470
+  linux_arm64: 0c58b7bfb137b8905ee389497448200beeaf56f9636938f926aaf7497b9dced9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

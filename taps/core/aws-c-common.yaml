@@ -1,0 +1,19 @@
+name: aws-c-common
+version: 0.12.6
+description: Core c99 package for AWS SDK for C
+homepage: https://github.com/awslabs/aws-c-common
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-common/blobs/sha256:2d0343c9653e92155e51a9ed8c832b3092f308b6f94f472f2e902c1976f3f463
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-common/blobs/sha256:36dfa3d4cc1268257c2e9c05cf18c678f20a9650e03201cfb115f187bac4cde9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-common/blobs/sha256:51c47099203ac0e0e63c6efdfb31097882df14b68f8817417eff2dbc2567fa8f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-common/blobs/sha256:67702cb1299ad594a38bf8ac8a5f28926cd9aa1aa60faa75270037120ff064d5
+sha256:
+  darwin_arm64: 2d0343c9653e92155e51a9ed8c832b3092f308b6f94f472f2e902c1976f3f463
+  darwin_amd64: 36dfa3d4cc1268257c2e9c05cf18c678f20a9650e03201cfb115f187bac4cde9
+  linux_amd64: 51c47099203ac0e0e63c6efdfb31097882df14b68f8817417eff2dbc2567fa8f
+  linux_arm64: 67702cb1299ad594a38bf8ac8a5f28926cd9aa1aa60faa75270037120ff064d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

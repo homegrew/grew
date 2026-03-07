@@ -1,0 +1,23 @@
+name: xsd
+version: 4.2.0
+description: XML Data Binding for C++
+homepage: https://www.codesynthesis.com/products/xsd/
+license: GPL-2.0-only WITH Classpath-exception-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xsd/blobs/sha256:9beb0bcaa0a49b5de1613b0ce1424a3f1ba33d0697860103c4a93ec4b7f4e748
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xsd/blobs/sha256:dcd70b1bada26e56ead16eaceeced482d7e8c4b84a8894d34073d46ad0c2f57e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xsd/blobs/sha256:d2ce6cba3e04b1e0239789b2c57ab98fbf8b465dc8477fb43c184da992002322
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xsd/blobs/sha256:4b203c546a627a452e99687209c707b56a69334aa9dd509bcf80f2e9e2e0c055
+sha256:
+  darwin_arm64: 9beb0bcaa0a49b5de1613b0ce1424a3f1ba33d0697860103c4a93ec4b7f4e748
+  darwin_amd64: dcd70b1bada26e56ead16eaceeced482d7e8c4b84a8894d34073d46ad0c2f57e
+  linux_amd64: d2ce6cba3e04b1e0239789b2c57ab98fbf8b465dc8477fb43c184da992002322
+  linux_arm64: 4b203c546a627a452e99687209c707b56a69334aa9dd509bcf80f2e9e2e0c055
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcutl
+  - libxsd-frontend
+  - xerces-c

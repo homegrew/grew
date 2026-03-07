@@ -1,0 +1,21 @@
+name: mpdas
+version: 0.4.5
+description: C++ client to submit tracks to audioscrobbler
+homepage: https://www.50hz.ws/mpdas/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpdas/blobs/sha256:42aa6fe164c3cd7c89bff4e7cbbe3b6488a6588067997a33b05b8e8b2f3673dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpdas/blobs/sha256:3c7355b55c373345b08f0fae9382e5800903a8380dc9f2b0a59b98af3013a311
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpdas/blobs/sha256:863be659b7b2e9ee5e61c73d284d0a753430f438fbf1225efcee4120850883d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpdas/blobs/sha256:c0b4ba425325dd627b3b62d9c90d7d10a6b5edf54414b4a56bcd1fe5b752d215
+sha256:
+  darwin_arm64: 42aa6fe164c3cd7c89bff4e7cbbe3b6488a6588067997a33b05b8e8b2f3673dc
+  darwin_amd64: 3c7355b55c373345b08f0fae9382e5800903a8380dc9f2b0a59b98af3013a311
+  linux_amd64: 863be659b7b2e9ee5e61c73d284d0a753430f438fbf1225efcee4120850883d2
+  linux_arm64: c0b4ba425325dd627b3b62d9c90d7d10a6b5edf54414b4a56bcd1fe5b752d215
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmpdclient

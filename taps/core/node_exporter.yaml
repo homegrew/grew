@@ -1,0 +1,19 @@
+name: node_exporter
+version: 1.10.2
+description: Prometheus exporter for machine metrics
+homepage: https://prometheus.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/node_exporter/blobs/sha256:3f221086f0c4d0faf31f467605f6ac41e9111836a1e2c0411c7452c30f45b378
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/node_exporter/blobs/sha256:db269f3eb33791698f3cc0ec9be4caa50e13de7586b863ad7b192c3bed04dc60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/node_exporter/blobs/sha256:ba514952afa5b376f711f35be1ee2ba1b6532824771e762c0c59d5d83a6033ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/node_exporter/blobs/sha256:dbf70540445b072f8d6ac83d0720e656dea7b8ccd97eb5c0ef5e4f109e97345e
+sha256:
+  darwin_arm64: 3f221086f0c4d0faf31f467605f6ac41e9111836a1e2c0411c7452c30f45b378
+  darwin_amd64: db269f3eb33791698f3cc0ec9be4caa50e13de7586b863ad7b192c3bed04dc60
+  linux_amd64: ba514952afa5b376f711f35be1ee2ba1b6532824771e762c0c59d5d83a6033ba
+  linux_arm64: dbf70540445b072f8d6ac83d0720e656dea7b8ccd97eb5c0ef5e4f109e97345e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

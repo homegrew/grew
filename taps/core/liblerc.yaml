@@ -1,0 +1,19 @@
+name: liblerc
+version: 4.0.0
+description: Ersi LERC library (Limited Error Raster Compression)
+homepage: https://github.com/Esri/lerc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblerc/blobs/sha256:f504026b3c217a7743fa818cd29f2576eba015765545340eb4dd95690dd548db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblerc/blobs/sha256:cd18579fc472762ec9ceba58ad5b11a46027af4fbb3a9f8dd64c6420aa9b0845
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblerc/blobs/sha256:5d409346584f40f2fd9aafa46860d7a5668b9c5f42b3de930868cf65daf556d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblerc/blobs/sha256:9f777d122d1776bb11be82bb12a18c4cfa17e2b9cc4aa5f8c807b1d16eb1138c
+sha256:
+  darwin_arm64: f504026b3c217a7743fa818cd29f2576eba015765545340eb4dd95690dd548db
+  darwin_amd64: cd18579fc472762ec9ceba58ad5b11a46027af4fbb3a9f8dd64c6420aa9b0845
+  linux_amd64: 5d409346584f40f2fd9aafa46860d7a5668b9c5f42b3de930868cf65daf556d7
+  linux_arm64: 9f777d122d1776bb11be82bb12a18c4cfa17e2b9cc4aa5f8c807b1d16eb1138c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

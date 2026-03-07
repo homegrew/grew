@@ -1,0 +1,22 @@
+name: abcl
+version: 1.9.2
+description: "Armed Bear Common Lisp: a full implementation of Common Lisp"
+homepage: https://github.com/armedbear/abcl
+license: GPL-2.0-or-later WITH Classpath-exception-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abcl/blobs/sha256:3231aead5669b78ca3b23ad314c5bc1135178182fcab8ec84da66ecdef470350
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abcl/blobs/sha256:87fc8d8c17166264571f39ab53428c48246cef454f31a2a631ac50a68606e82e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abcl/blobs/sha256:461c7a8fe2a872e92ff82e19767b6b80cb69cb6985676ef751dc169fc05737ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abcl/blobs/sha256:996a3421c3c9543e959914c14736756e4a9f4c30bbf77eb45db1ae8f7756a21c
+sha256:
+  darwin_arm64: 3231aead5669b78ca3b23ad314c5bc1135178182fcab8ec84da66ecdef470350
+  darwin_amd64: 87fc8d8c17166264571f39ab53428c48246cef454f31a2a631ac50a68606e82e
+  linux_amd64: 461c7a8fe2a872e92ff82e19767b6b80cb69cb6985676ef751dc169fc05737ab
+  linux_arm64: 996a3421c3c9543e959914c14736756e4a9f4c30bbf77eb45db1ae8f7756a21c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk
+  - rlwrap

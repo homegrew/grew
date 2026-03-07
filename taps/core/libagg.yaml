@@ -1,0 +1,21 @@
+name: libagg
+version: 2.5
+description: High fidelity 2D graphics library for C++
+homepage: https://agg.sourceforge.net/antigrain.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libagg/blobs/sha256:317463b1e1bc918e340935b5f8d4069df1a044ba7bd1e9607c9c9c6f1ea5ab48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libagg/blobs/sha256:fdf64bc8570ca6c042299e9f40486aeb6f510327406e5ece26f67ecc41d6075d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libagg/blobs/sha256:cee5823d550698b94dc7e494af8b5f8a83acebec701264a4c20dec2d828c2240
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libagg/blobs/sha256:b3fbb4b5c878b6566d343983213d2f21df250d77193d207637942d457bb8e049
+sha256:
+  darwin_arm64: 317463b1e1bc918e340935b5f8d4069df1a044ba7bd1e9607c9c9c6f1ea5ab48
+  darwin_amd64: fdf64bc8570ca6c042299e9f40486aeb6f510327406e5ece26f67ecc41d6075d
+  linux_amd64: cee5823d550698b94dc7e494af8b5f8a83acebec701264a4c20dec2d828c2240
+  linux_arm64: b3fbb4b5c878b6566d343983213d2f21df250d77193d207637942d457bb8e049
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl12-compat

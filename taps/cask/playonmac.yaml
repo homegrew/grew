@@ -1,0 +1,11 @@
+name: playonmac
+version: 4.4.4
+description: Allows installation and use of software designed for Windows
+homepage: https://www.playonmac.com/
+url:
+  darwin_arm64: https://repository.playonmac.com/PlayOnMac/PlayOnMac_4.4.4.dmg
+sha256:
+  darwin_arm64: 7be6bee16d8df3e0caa5df6f647ac437a5c4d77ed7fa1b11a1db02edf9c66522
+artifacts:
+  app:
+    - PlayOnMac.app

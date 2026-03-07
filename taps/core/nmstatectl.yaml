@@ -1,0 +1,19 @@
+name: nmstatectl
+version: 2.2.59
+description: Command-line tool that manages host networking settings in a declarative manner
+homepage: https://nmstate.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nmstatectl/blobs/sha256:a85d3d178668d388dd179d97d6555062a7e0c14f4b196e679997dbcaf947cc5a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nmstatectl/blobs/sha256:66d267584622c2a057d81840d7c8a1f50c842ebd2d83f717ff0efe31c249898c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nmstatectl/blobs/sha256:a536ee2d49aefbc614b2db14cd73a0d4c367fc755bc69efe7efee8bd781d0dad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nmstatectl/blobs/sha256:587b55f6655e117b2333cad8f86bfd26a0956c4717d66400fcf3dd55740ef901
+sha256:
+  darwin_arm64: a85d3d178668d388dd179d97d6555062a7e0c14f4b196e679997dbcaf947cc5a
+  darwin_amd64: 66d267584622c2a057d81840d7c8a1f50c842ebd2d83f717ff0efe31c249898c
+  linux_amd64: a536ee2d49aefbc614b2db14cd73a0d4c367fc755bc69efe7efee8bd781d0dad
+  linux_arm64: 587b55f6655e117b2333cad8f86bfd26a0956c4717d66400fcf3dd55740ef901
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

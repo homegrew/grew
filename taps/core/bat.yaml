@@ -1,0 +1,22 @@
+name: bat
+version: 0.26.1
+description: Clone of cat(1) with syntax highlighting and Git integration
+homepage: https://github.com/sharkdp/bat
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bat/blobs/sha256:d209bb9f1f7eab77b65f9b5573007ce52f39fb90b379ffefeffc2181119991aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bat/blobs/sha256:033b483e2d1b96c314365048f59a80a83c1827a82bcad99d7b7bc5ef90aa0f77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bat/blobs/sha256:3d5a088fbd751c14317ee725a3b9751b835bf0a5ecbd4cfa7671ef90ce8ca922
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bat/blobs/sha256:d0211b0cbe32b5b14b76a02a1a15f47c96f677c35102739a3789fb376183b5e4
+sha256:
+  darwin_arm64: d209bb9f1f7eab77b65f9b5573007ce52f39fb90b379ffefeffc2181119991aa
+  darwin_amd64: 033b483e2d1b96c314365048f59a80a83c1827a82bcad99d7b7bc5ef90aa0f77
+  linux_amd64: 3d5a088fbd751c14317ee725a3b9751b835bf0a5ecbd4cfa7671ef90ce8ca922
+  linux_arm64: d0211b0cbe32b5b14b76a02a1a15f47c96f677c35102739a3789fb376183b5e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - oniguruma

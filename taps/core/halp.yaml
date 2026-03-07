@@ -1,0 +1,19 @@
+name: halp
+version: 0.2.0
+description: CLI tool to get help with CLI tools
+homepage: https://halp.cli.rs/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/halp/blobs/sha256:e355185848abc6b530cde818d30f01f6d4aebc6340000867cf3260c4983dbd69
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/halp/blobs/sha256:ded7efbdeb80254547423d1538af040d268252a597d326663caf9aa469ea48b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/halp/blobs/sha256:525dfbe3581d9fce47ecb99abf03269c9b36282498bb6d971844846c66e01bf3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/halp/blobs/sha256:bf016a89b83b085ec2dfbec7654727141a413552afee4bd0cfecee15d0895217
+sha256:
+  darwin_arm64: e355185848abc6b530cde818d30f01f6d4aebc6340000867cf3260c4983dbd69
+  darwin_amd64: ded7efbdeb80254547423d1538af040d268252a597d326663caf9aa469ea48b6
+  linux_amd64: 525dfbe3581d9fce47ecb99abf03269c9b36282498bb6d971844846c66e01bf3
+  linux_arm64: bf016a89b83b085ec2dfbec7654727141a413552afee4bd0cfecee15d0895217
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,30 @@
+name: fricas
+version: 1.3.13
+description: Advanced computer algebra system
+homepage: https://fricas.github.io
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fricas/blobs/sha256:c15b302c244c29f0e21c64585a2853b6f6986fe9e0647f0140cbde85ac14206e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fricas/blobs/sha256:71707c3e44dff85ebba85e391fc62f5684155b8342347daa90cb97e775b767ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fricas/blobs/sha256:996a712fd6b8adf2e075d4fbb3a3fe9a88f6805e84aa563f4947aac5612e7e6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fricas/blobs/sha256:c64425203945bb32a826e1606d413c67a36ed3d0492fa8e00aeebc8d2e6595c5
+sha256:
+  darwin_arm64: c15b302c244c29f0e21c64585a2853b6f6986fe9e0647f0140cbde85ac14206e
+  darwin_amd64: 71707c3e44dff85ebba85e391fc62f5684155b8342347daa90cb97e775b767ec
+  linux_amd64: 996a712fd6b8adf2e075d4fbb3a3fe9a88f6805e84aa563f4947aac5612e7e6a
+  linux_arm64: c64425203945bb32a826e1606d413c67a36ed3d0492fa8e00aeebc8d2e6595c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libice
+  - libsm
+  - libx11
+  - libxau
+  - libxdmcp
+  - libxpm
+  - libxt
+  - sbcl
+  - zstd

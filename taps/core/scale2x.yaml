@@ -1,0 +1,21 @@
+name: scale2x
+version: 4.0
+description: Real-time graphics effect
+homepage: https://www.scale2x.it/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scale2x/blobs/sha256:46d736eb0b365a16a20ae85c4d4f1f957491666df314029dfa1183d986cf9f2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scale2x/blobs/sha256:cd2e6f84caf00aa13086023312951a244ab9eff1e5d4d6f85fd92cf7e9aca65a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scale2x/blobs/sha256:303eee8c3a01ff0d761da659aaa2d94f871f608221362dfdc668e124afebb69b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scale2x/blobs/sha256:f1b80d41351265e0cfd18667a46c1da1fedecc86016d34bb6d9f6e883eef12d3
+sha256:
+  darwin_arm64: 46d736eb0b365a16a20ae85c4d4f1f957491666df314029dfa1183d986cf9f2f
+  darwin_amd64: cd2e6f84caf00aa13086023312951a244ab9eff1e5d4d6f85fd92cf7e9aca65a
+  linux_amd64: 303eee8c3a01ff0d761da659aaa2d94f871f608221362dfdc668e124afebb69b
+  linux_arm64: f1b80d41351265e0cfd18667a46c1da1fedecc86016d34bb6d9f6e883eef12d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

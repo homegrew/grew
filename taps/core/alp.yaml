@@ -1,0 +1,19 @@
+name: alp
+version: 1.0.21
+description: Access Log Profiler
+homepage: https://github.com/tkuchiki/alp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alp/blobs/sha256:91314a180a6e144e0fc2e4d6d047c9f25b06143463961b42acf49dc625fa2660
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alp/blobs/sha256:a69566f9d09559ab696fdf61867d6e885a415689684402bad741ff209406c235
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alp/blobs/sha256:ea456ac8f3f0e0fe5f469436354ab388e558be059021a5e73acef44fcef04821
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alp/blobs/sha256:20a13083c36878ec80447a6a435651f11e3f1a6e135d1ccee55345cf007c16b5
+sha256:
+  darwin_arm64: 91314a180a6e144e0fc2e4d6d047c9f25b06143463961b42acf49dc625fa2660
+  darwin_amd64: a69566f9d09559ab696fdf61867d6e885a415689684402bad741ff209406c235
+  linux_amd64: ea456ac8f3f0e0fe5f469436354ab388e558be059021a5e73acef44fcef04821
+  linux_arm64: 20a13083c36878ec80447a6a435651f11e3f1a6e135d1ccee55345cf007c16b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

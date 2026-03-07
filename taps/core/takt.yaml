@@ -1,0 +1,21 @@
+name: takt
+version: 0.310
+description: Text-based music programming language
+homepage: https://takt.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/takt/blobs/sha256:fb1c2a27bc7182659239d0ef52d07617a56aa6e0fb1498f531cd12e7b045d434
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/takt/blobs/sha256:c1ab777ee7c89e4897a4d7cc7b115fb29a0acedb46b5fbfaf40368c78ed34cdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/takt/blobs/sha256:f448f82ff76bc5ea174cab0648cadca7d547688a783c424ab5e7a68a41fe8839
+  linux_arm64: https://ghcr.io/v2/homebrew/core/takt/blobs/sha256:d770c92134e4a2e483ff3d4f9371647ed5b688ab8f019d073917689927412a05
+sha256:
+  darwin_arm64: fb1c2a27bc7182659239d0ef52d07617a56aa6e0fb1498f531cd12e7b045d434
+  darwin_amd64: c1ab777ee7c89e4897a4d7cc7b115fb29a0acedb46b5fbfaf40368c78ed34cdb
+  linux_amd64: f448f82ff76bc5ea174cab0648cadca7d547688a783c424ab5e7a68a41fe8839
+  linux_arm64: d770c92134e4a2e483ff3d4f9371647ed5b688ab8f019d073917689927412a05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

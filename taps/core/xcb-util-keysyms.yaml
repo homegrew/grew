@@ -1,0 +1,21 @@
+name: xcb-util-keysyms
+version: 0.4.1
+description: Standard X constants and conversion to/from keycodes
+homepage: https://xcb.freedesktop.org
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-keysyms/blobs/sha256:53daefbc9047587b5a2f2e41bd1ef7381593ee69e66193d4464041f45fe24429
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-keysyms/blobs/sha256:bbbd83881b3b35058415b32a952b4124e11dcfc48e6a6680920efef22c07fd36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-keysyms/blobs/sha256:269947922f6128006e0201a6972c1cf622dc93200268c0dfa5801b8899902c35
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-keysyms/blobs/sha256:2bd06b66ac056a9d7defd40425046fd621bcc86d1b1a7ee73a6f5ada247f17df
+sha256:
+  darwin_arm64: 53daefbc9047587b5a2f2e41bd1ef7381593ee69e66193d4464041f45fe24429
+  darwin_amd64: bbbd83881b3b35058415b32a952b4124e11dcfc48e6a6680920efef22c07fd36
+  linux_amd64: 269947922f6128006e0201a6972c1cf622dc93200268c0dfa5801b8899902c35
+  linux_arm64: 2bd06b66ac056a9d7defd40425046fd621bcc86d1b1a7ee73a6f5ada247f17df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb

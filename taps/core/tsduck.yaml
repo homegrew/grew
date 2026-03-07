@@ -1,0 +1,24 @@
+name: tsduck
+version: 3.43-4549
+description: MPEG Transport Stream Toolkit
+homepage: https://tsduck.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tsduck/blobs/sha256:9689e7dc782eb2d4ba6a37c4892785031972c51a06f299221ad7a354b1273c77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tsduck/blobs/sha256:d91a66cdad84c2a14af8e36c40d63544e965fb37869684b8c9745cf00589b732
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tsduck/blobs/sha256:a0c3336e614147bf079ce1c5feb71c03a3757488d0b43dd3e675f9f23ee972a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tsduck/blobs/sha256:af4c880922c1767a187fda85b0f620aa98fb64d7652183df5ad52ab93cc7fe3f
+sha256:
+  darwin_arm64: 9689e7dc782eb2d4ba6a37c4892785031972c51a06f299221ad7a354b1273c77
+  darwin_amd64: d91a66cdad84c2a14af8e36c40d63544e965fb37869684b8c9745cf00589b732
+  linux_amd64: a0c3336e614147bf079ce1c5feb71c03a3757488d0b43dd3e675f9f23ee972a5
+  linux_arm64: af4c880922c1767a187fda85b0f620aa98fb64d7652183df5ad52ab93cc7fe3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librist
+  - libvatek
+  - openssl@3
+  - srt

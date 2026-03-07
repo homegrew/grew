@@ -1,0 +1,19 @@
+name: dcp
+version: 0.4.1
+description: Docker cp made easy
+homepage: https://github.com/exdx/dcp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcp/blobs/sha256:08061eec2befb7c29aed3087ba5e6ac7a6459410d80c5630d0b47efd3ba65ba0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcp/blobs/sha256:5609d9e502179089eb3822add208ff8e14643d3cb7f47ef2691f9760dff81647
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcp/blobs/sha256:8559472fddad82054a7b8d277036a6b45d75ea986e9df3196da8514678e6993b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcp/blobs/sha256:3b17162fddf2af0a22a18023eb38288ed084201a241572cb7a3bb66cbbe615b7
+sha256:
+  darwin_arm64: 08061eec2befb7c29aed3087ba5e6ac7a6459410d80c5630d0b47efd3ba65ba0
+  darwin_amd64: 5609d9e502179089eb3822add208ff8e14643d3cb7f47ef2691f9760dff81647
+  linux_amd64: 8559472fddad82054a7b8d277036a6b45d75ea986e9df3196da8514678e6993b
+  linux_arm64: 3b17162fddf2af0a22a18023eb38288ed084201a241572cb7a3bb66cbbe615b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

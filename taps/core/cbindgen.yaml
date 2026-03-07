@@ -1,0 +1,19 @@
+name: cbindgen
+version: 0.29.0
+description: Project for generating C bindings from Rust code
+homepage: https://github.com/mozilla/cbindgen
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbindgen/blobs/sha256:8216edac1c20fb2c910c259c6116838c3abf45f7b9a75b9ce4fcbf8ac74fa859
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbindgen/blobs/sha256:822ffd8c1587adf873984e6920d3f049f0d647c84b24544dd3375baf60997c00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbindgen/blobs/sha256:140899590bd0b5406efefecd35f9a34915cf8a3a2683e54e9a06bace887d152a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbindgen/blobs/sha256:3bb26820809e7148dd6910c040dbdbda13d1eb7f7accf5bdc28bb86db7b278c0
+sha256:
+  darwin_arm64: 8216edac1c20fb2c910c259c6116838c3abf45f7b9a75b9ce4fcbf8ac74fa859
+  darwin_amd64: 822ffd8c1587adf873984e6920d3f049f0d647c84b24544dd3375baf60997c00
+  linux_amd64: 140899590bd0b5406efefecd35f9a34915cf8a3a2683e54e9a06bace887d152a
+  linux_arm64: 3bb26820809e7148dd6910c040dbdbda13d1eb7f7accf5bdc28bb86db7b278c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

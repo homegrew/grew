@@ -1,0 +1,23 @@
+name: jigdo
+version: 0.8.2
+description: Tool to distribute very large files over the internet
+homepage: https://www.einval.com/~steve/software/jigdo/
+license: GPL-2.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jigdo/blobs/sha256:e8dc3605b3abe08d1608a08a2c30309226c58b6497848e43ba3332ecc2d463f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jigdo/blobs/sha256:a8a6118725052ad1d8c9b861c81aa2353334a40ca569eb81e6ad5a7c5dcd6d04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jigdo/blobs/sha256:0951aa918b28011dec191e3690a024dc14ce93c63112732482d07dabe7c92c06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jigdo/blobs/sha256:8afdb208a290a24a4ac92a58fc25a131fef91d95dd097e73094b7466cef39445
+sha256:
+  darwin_arm64: e8dc3605b3abe08d1608a08a2c30309226c58b6497848e43ba3332ecc2d463f7
+  darwin_amd64: a8a6118725052ad1d8c9b861c81aa2353334a40ca569eb81e6ad5a7c5dcd6d04
+  linux_amd64: 0951aa918b28011dec191e3690a024dc14ce93c63112732482d07dabe7c92c06
+  linux_arm64: 8afdb208a290a24a4ac92a58fc25a131fef91d95dd097e73094b7466cef39445
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - wget
+  - gettext

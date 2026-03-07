@@ -1,0 +1,24 @@
+name: librdkafka
+version: 2.13.2
+description: Apache Kafka C/C++ library
+homepage: https://github.com/confluentinc/librdkafka
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librdkafka/blobs/sha256:ed7480ac09e99c670809a37826aca6ce9458fb1d2d7a43f4c172b067c124cb16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librdkafka/blobs/sha256:f65151bb56ee1164112b68cecf98583cfa0205d2d7e6ca2aa2ee858a95124190
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librdkafka/blobs/sha256:988d1ca1076135373173eafce5be84c1fec7917409351f0c9a2fc9bc3e11e47f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librdkafka/blobs/sha256:e5aa9bfb034918440e2c41542b24d203cf500f96ddb5f3497c275941c51e2318
+sha256:
+  darwin_arm64: ed7480ac09e99c670809a37826aca6ce9458fb1d2d7a43f4c172b067c124cb16
+  darwin_amd64: f65151bb56ee1164112b68cecf98583cfa0205d2d7e6ca2aa2ee858a95124190
+  linux_amd64: 988d1ca1076135373173eafce5be84c1fec7917409351f0c9a2fc9bc3e11e47f
+  linux_arm64: e5aa9bfb034918440e2c41542b24d203cf500f96ddb5f3497c275941c51e2318
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - lzlib
+  - openssl@3
+  - zstd

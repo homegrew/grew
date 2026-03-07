@@ -1,0 +1,27 @@
+name: zeek
+version: 8.1.1
+description: Network security monitor
+homepage: https://zeek.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zeek/blobs/sha256:444fa891df006c4513561272d00eb7c7a07e98c6504637e8fe265be18c5a9a22
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zeek/blobs/sha256:6b331685a5819570105c8c5d37c68cfe4840ccf6b8b70d4d2f7a005e11035950
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zeek/blobs/sha256:20566003c46777f2c2b6c1eaef8630bd6034f20e3350e99625c6ac82a90defde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zeek/blobs/sha256:0b99912e2ce0c49354f6af8010d29cf35238304c70bebb81b6a0db296af4011c
+sha256:
+  darwin_arm64: 444fa891df006c4513561272d00eb7c7a07e98c6504637e8fe265be18c5a9a22
+  darwin_amd64: 6b331685a5819570105c8c5d37c68cfe4840ccf6b8b70d4d2f7a005e11035950
+  linux_amd64: 20566003c46777f2c2b6c1eaef8630bd6034f20e3350e99625c6ac82a90defde
+  linux_arm64: 0b99912e2ce0c49354f6af8010d29cf35238304c70bebb81b6a0db296af4011c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-ares
+  - libmaxminddb
+  - libuv
+  - node@24
+  - openssl@3
+  - python@3.14
+  - zeromq

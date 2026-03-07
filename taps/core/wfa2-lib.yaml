@@ -1,0 +1,21 @@
+name: wfa2-lib
+version: 2.3.5
+description: Wavefront alignment algorithm library v2
+homepage: https://github.com/smarco/WFA2-lib
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wfa2-lib/blobs/sha256:b0b6df4465be30f02a3550699339f680c3820ab31214f5134e1aacb3ac3939e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wfa2-lib/blobs/sha256:19a6a9bcef73e9d4ab9499360046695c51e256e45f34aa20509aa67672ebd38d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wfa2-lib/blobs/sha256:4f2df560ffb8551153a89a0c9ee9be215798c7adbac8f075ca8650538f7b20a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wfa2-lib/blobs/sha256:353ef4fd445ba3aa0fc83ead45dcdf670e8d864fbbe594bdd15794f638b2c53e
+sha256:
+  darwin_arm64: b0b6df4465be30f02a3550699339f680c3820ab31214f5134e1aacb3ac3939e0
+  darwin_amd64: 19a6a9bcef73e9d4ab9499360046695c51e256e45f34aa20509aa67672ebd38d
+  linux_amd64: 4f2df560ffb8551153a89a0c9ee9be215798c7adbac8f075ca8650538f7b20a7
+  linux_arm64: 353ef4fd445ba3aa0fc83ead45dcdf670e8d864fbbe594bdd15794f638b2c53e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

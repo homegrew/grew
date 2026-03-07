@@ -1,0 +1,21 @@
+name: feroxbuster
+version: 2.13.1
+description: Fast, simple, recursive content discovery tool written in Rust
+homepage: https://epi052.github.io/feroxbuster
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/feroxbuster/blobs/sha256:cf3d55e45eb9afabc85f7c67eae77c6709d1fc4a8185778623123a80122c6c28
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/feroxbuster/blobs/sha256:71c0e2331a9c2181491888c1bc1c76aadd6ee454fea4c872115ae661ea2abd19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/feroxbuster/blobs/sha256:20afd4144eff9917898c9708e1073c071c27a5a8b4dfff6ba65f211b86862c9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/feroxbuster/blobs/sha256:2352ef2c7a4f221b5ab323274e35ff40793ec3d787a0daf8744637645b7467f7
+sha256:
+  darwin_arm64: cf3d55e45eb9afabc85f7c67eae77c6709d1fc4a8185778623123a80122c6c28
+  darwin_amd64: 71c0e2331a9c2181491888c1bc1c76aadd6ee454fea4c872115ae661ea2abd19
+  linux_amd64: 20afd4144eff9917898c9708e1073c071c27a5a8b4dfff6ba65f211b86862c9c
+  linux_arm64: 2352ef2c7a4f221b5ab323274e35ff40793ec3d787a0daf8744637645b7467f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

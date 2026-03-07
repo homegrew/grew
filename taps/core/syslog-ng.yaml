@@ -1,0 +1,40 @@
+name: syslog-ng
+version: 4.11.0
+description: Log daemon with advanced processing pipeline and a wide range of I/O methods
+homepage: https://www.syslog-ng.com
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/syslog-ng/blobs/sha256:c52c4993b8d94ad310b3f8813c3c389b0dbb1b8804c3289254cebfdaf49d78eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/syslog-ng/blobs/sha256:4b86836967bbc00d1da57b1f5d2f003f92087493b29ec865eeae03c0373d0a68
+  linux_amd64: https://ghcr.io/v2/homebrew/core/syslog-ng/blobs/sha256:76f30dc02f912647bcc3dd6c1fd0a5499c18be83aa9ac106a2995e1eccf674fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/syslog-ng/blobs/sha256:e2673221bdbceccf122e2a43edcad4326d1d985c77e8ae4871197b367e99370a
+sha256:
+  darwin_arm64: c52c4993b8d94ad310b3f8813c3c389b0dbb1b8804c3289254cebfdaf49d78eb
+  darwin_amd64: 4b86836967bbc00d1da57b1f5d2f003f92087493b29ec865eeae03c0373d0a68
+  linux_amd64: 76f30dc02f912647bcc3dd6c1fd0a5499c18be83aa9ac106a2995e1eccf674fc
+  linux_arm64: e2673221bdbceccf122e2a43edcad4326d1d985c77e8ae4871197b367e99370a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - glib
+  - grpc
+  - hiredis
+  - ivykis
+  - json-c
+  - libdbi
+  - libmaxminddb
+  - libnet
+  - libpaho-mqtt
+  - librdkafka
+  - mongo-c-driver
+  - net-snmp
+  - openssl@3
+  - pcre2
+  - protobuf@33
+  - python@3.14
+  - rabbitmq-c
+  - riemann-client
+  - gettext

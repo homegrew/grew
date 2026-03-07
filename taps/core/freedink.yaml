@@ -1,0 +1,27 @@
+name: freedink
+version: 109.6
+description: Portable version of the Dink Smallwood game engine
+homepage: https://www.gnu.org/software/freedink/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freedink/blobs/sha256:68cd1561bc7d6a477d2d3457a0c1867bf19cec00fd84c46f0fe74fd18d961cf1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freedink/blobs/sha256:364f029de96f0aa207090ed4b64d8e4904138435724e4503545868b29e6cc3eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freedink/blobs/sha256:1cf508674933d7217495e690ffa65a37280aab02d731b415a1613aecffaea5e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freedink/blobs/sha256:435f2a3bc5473084034dd5052eda8f0e363674ea9bc59eae57b566274ca1f924
+sha256:
+  darwin_arm64: 68cd1561bc7d6a477d2d3457a0c1867bf19cec00fd84c46f0fe74fd18d961cf1
+  darwin_amd64: 364f029de96f0aa207090ed4b64d8e4904138435724e4503545868b29e6cc3eb
+  linux_amd64: 1cf508674933d7217495e690ffa65a37280aab02d731b415a1613aecffaea5e6
+  linux_arm64: 435f2a3bc5473084034dd5052eda8f0e363674ea9bc59eae57b566274ca1f924
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - sdl2
+  - sdl2_gfx
+  - sdl2_image
+  - sdl2_mixer
+  - sdl2_ttf
+  - gettext

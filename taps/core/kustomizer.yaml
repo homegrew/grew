@@ -1,0 +1,19 @@
+name: kustomizer
+version: 2.2.1
+description: Package manager for distributing Kubernetes configuration as OCI artifacts
+homepage: https://github.com/stefanprodan/kustomizer
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kustomizer/blobs/sha256:adbdf2f47318e66addd680e6528bb80c8891bc65baa74cbc91223c16587a4339
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kustomizer/blobs/sha256:c04691595c0fc7e67cffa06e89de8c42d4ac72762bf3ccf497778500049a3c89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kustomizer/blobs/sha256:518b679442ab62cd90e797ac9ede68f336ec9557eae9ff2ce157ebbd1785cb15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kustomizer/blobs/sha256:cd7029079ab5ac2601e34ef3f644f84498e392f8e200d0e552997b7a94150d02
+sha256:
+  darwin_arm64: adbdf2f47318e66addd680e6528bb80c8891bc65baa74cbc91223c16587a4339
+  darwin_amd64: c04691595c0fc7e67cffa06e89de8c42d4ac72762bf3ccf497778500049a3c89
+  linux_amd64: 518b679442ab62cd90e797ac9ede68f336ec9557eae9ff2ce157ebbd1785cb15
+  linux_arm64: cd7029079ab5ac2601e34ef3f644f84498e392f8e200d0e552997b7a94150d02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

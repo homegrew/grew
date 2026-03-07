@@ -1,0 +1,11 @@
+name: freecad
+version: 1.0.2
+description: 3D parametric modeller
+homepage: https://www.freecad.org/
+url:
+  darwin_arm64: https://github.com/FreeCAD/FreeCAD/releases/download/1.0.2/FreeCAD_1.0.2-conda-macOS-arm64-py311.dmg
+sha256:
+  darwin_arm64: 2fde16da356b62cfce656cd12effaa79f97f2f28a71f1520dd90fabb88f9d3fd
+artifacts:
+  app:
+    - FreeCAD.app

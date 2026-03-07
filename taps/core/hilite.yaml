@@ -1,0 +1,19 @@
+name: hilite
+version: 1.5
+description: CLI tool that runs a command and highlights STDERR output
+homepage: https://sourceforge.net/projects/hilite/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hilite/blobs/sha256:d0e8bd163b7a96b2ef1a79a9d69861cd045c6ffa351dbbda07bf25ba31899d68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hilite/blobs/sha256:1419bc243a91c8c7f71649cdeb80843940133dd48b0f26d475db261fd7af8571
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hilite/blobs/sha256:45f0c131886b8932ee87061c612877ff71fa38650e81340eab5694de95e6cb40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hilite/blobs/sha256:1da54468f24162b4804bcca235bce6c1320c722fd9d5c1dfde11e71885bde309
+sha256:
+  darwin_arm64: d0e8bd163b7a96b2ef1a79a9d69861cd045c6ffa351dbbda07bf25ba31899d68
+  darwin_amd64: 1419bc243a91c8c7f71649cdeb80843940133dd48b0f26d475db261fd7af8571
+  linux_amd64: 45f0c131886b8932ee87061c612877ff71fa38650e81340eab5694de95e6cb40
+  linux_arm64: 1da54468f24162b4804bcca235bce6c1320c722fd9d5c1dfde11e71885bde309
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

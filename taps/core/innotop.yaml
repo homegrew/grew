@@ -1,0 +1,21 @@
+name: innotop
+version: 1.15.2
+description: Top clone for MySQL
+homepage: https://github.com/innotop/innotop/
+license: GPL-2.0-only OR Artistic-1.0-Perl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/innotop/blobs/sha256:5f1f7200e8bc7f549dd1ac59d991d20fc90fefbd86e1aaa94e6c1106e02b651f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/innotop/blobs/sha256:5f1f7200e8bc7f549dd1ac59d991d20fc90fefbd86e1aaa94e6c1106e02b651f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/innotop/blobs/sha256:994567fc14ad431d0d5e464dd59887da03c8ea478d712b24492c20f5a3b5c827
+  linux_arm64: https://ghcr.io/v2/homebrew/core/innotop/blobs/sha256:1f2878c0dbd65584c8a7d7c7a04a569412c1301654a02ecc227f1b509df65a8b
+sha256:
+  darwin_arm64: 5f1f7200e8bc7f549dd1ac59d991d20fc90fefbd86e1aaa94e6c1106e02b651f
+  darwin_amd64: 5f1f7200e8bc7f549dd1ac59d991d20fc90fefbd86e1aaa94e6c1106e02b651f
+  linux_amd64: 994567fc14ad431d0d5e464dd59887da03c8ea478d712b24492c20f5a3b5c827
+  linux_arm64: 1f2878c0dbd65584c8a7d7c7a04a569412c1301654a02ecc227f1b509df65a8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl-dbd-mysql

@@ -1,0 +1,21 @@
+name: libfreenect
+version: 0.7.5
+description: Drivers and libraries for the Xbox Kinect device
+homepage: https://openkinect.org/
+license: Apache-2.0 OR GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfreenect/blobs/sha256:7dbfb69f15f0be8a9f5c9fc6e39ebb8c5abe9d120071ab3eca3f6a1f1ca057d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfreenect/blobs/sha256:b904426be3a9c6ed08769df3ff687a0864dcffb2175a508705783504fa62ee5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfreenect/blobs/sha256:1719d3272072df8495b60651dbfa15b865d4db9e0e481a1a050ba04afca4fc13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfreenect/blobs/sha256:5ae7b0d8bd7d70454f7179215f28270e75adb75b89fdd0c1ba54ee7f7ee0ac1a
+sha256:
+  darwin_arm64: 7dbfb69f15f0be8a9f5c9fc6e39ebb8c5abe9d120071ab3eca3f6a1f1ca057d6
+  darwin_amd64: b904426be3a9c6ed08769df3ff687a0864dcffb2175a508705783504fa62ee5c
+  linux_amd64: 1719d3272072df8495b60651dbfa15b865d4db9e0e481a1a050ba04afca4fc13
+  linux_arm64: 5ae7b0d8bd7d70454f7179215f28270e75adb75b89fdd0c1ba54ee7f7ee0ac1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

@@ -1,0 +1,19 @@
+name: ekhtml
+version: 0.3.2
+description: Forgiving SAX-style HTML parser
+homepage: https://ekhtml.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ekhtml/blobs/sha256:ab64bc1bb7447d50ce5f12aa6bb5f97c807c23f4895558c8c13cd8ff6b1de14e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ekhtml/blobs/sha256:075d049a35c03208bf88b4ebdd0326160d598ac105dc0277c733ae1df369bc1c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ekhtml/blobs/sha256:8841e4eeb677f92be17fbaa26ee2d5d1e2d6ce958eff178fdb4a9fcf33ea1363
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ekhtml/blobs/sha256:3f2ab2f0d6601017ddf04993f8223350d37b134248701391503ad0914067d902
+sha256:
+  darwin_arm64: ab64bc1bb7447d50ce5f12aa6bb5f97c807c23f4895558c8c13cd8ff6b1de14e
+  darwin_amd64: 075d049a35c03208bf88b4ebdd0326160d598ac105dc0277c733ae1df369bc1c
+  linux_amd64: 8841e4eeb677f92be17fbaa26ee2d5d1e2d6ce958eff178fdb4a9fcf33ea1363
+  linux_arm64: 3f2ab2f0d6601017ddf04993f8223350d37b134248701391503ad0914067d902
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

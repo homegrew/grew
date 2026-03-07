@@ -1,0 +1,22 @@
+name: qtwebsockets
+version: 6.10.2
+description: Provides WebSocket communication compliant with RFC 6455
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtwebsockets/blobs/sha256:4d23374faec1795881289c3fba3e59b6491eb3148363947981270618cf7b50cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtwebsockets/blobs/sha256:2c112d929561f275d812b338027e4a80d11f458722b8e328b4c7ac84dd49da1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtwebsockets/blobs/sha256:2e635e01a244a34dbe17a91306c4bd8776ca6c2899898e5dbee588002dc57fdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtwebsockets/blobs/sha256:2de1229f5f4519be6ecae4d2c6df9b3a8c47fcfcc0179684d51c0b6b06734bed
+sha256:
+  darwin_arm64: 4d23374faec1795881289c3fba3e59b6491eb3148363947981270618cf7b50cf
+  darwin_amd64: 2c112d929561f275d812b338027e4a80d11f458722b8e328b4c7ac84dd49da1b
+  linux_amd64: 2e635e01a244a34dbe17a91306c4bd8776ca6c2899898e5dbee588002dc57fdb
+  linux_arm64: 2de1229f5f4519be6ecae4d2c6df9b3a8c47fcfcc0179684d51c0b6b06734bed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

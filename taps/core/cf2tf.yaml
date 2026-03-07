@@ -1,0 +1,23 @@
+name: cf2tf
+version: 0.9.1
+description: Cloudformation templates to Terraform HCL converter
+homepage: https://github.com/DontShaveTheYak/cf2tf
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cf2tf/blobs/sha256:33434478c2bc6390106480dd33b588a36d4af10009d743bcb17ab35f7bfaf3ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cf2tf/blobs/sha256:223a13bf419abd5ad40794d4a8d5c96ba4b5a96c013b4efe3adf5ccb8aab55ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cf2tf/blobs/sha256:ebe5ccbc615e2c1dad36c252b2cc63fd143fff95d314e4ea00de8f1985d2d026
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cf2tf/blobs/sha256:e00762e2d5a068485470b12a1e33f6bfc8e9ea57c8a18310fbcc4d88134d5777
+sha256:
+  darwin_arm64: 33434478c2bc6390106480dd33b588a36d4af10009d743bcb17ab35f7bfaf3ab
+  darwin_amd64: 223a13bf419abd5ad40794d4a8d5c96ba4b5a96c013b4efe3adf5ccb8aab55ea
+  linux_amd64: ebe5ccbc615e2c1dad36c252b2cc63fd143fff95d314e4ea00de8f1985d2d026
+  linux_arm64: e00762e2d5a068485470b12a1e33f6bfc8e9ea57c8a18310fbcc4d88134d5777
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

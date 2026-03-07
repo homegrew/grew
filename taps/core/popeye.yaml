@@ -1,0 +1,19 @@
+name: popeye
+version: 0.22.1
+description: Kubernetes cluster resource sanitizer
+homepage: https://popeyecli.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/popeye/blobs/sha256:de4eb07bc059e0cfa41014bce3619f91f6d4cf60cdff0eea2b697dff007fa473
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/popeye/blobs/sha256:5b641ed59b339dc31cf366849c8c95c1be2e94df248620b29d4e0e4bf0c1e985
+  linux_amd64: https://ghcr.io/v2/homebrew/core/popeye/blobs/sha256:8f7675cf16525330166d626f6ab5e83f38cf48026d9baaf9b0333de52055cf37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/popeye/blobs/sha256:5991ede9c93a0b1036008a8f38df0693a054aac640f08629d0c7f9da44e3b2eb
+sha256:
+  darwin_arm64: de4eb07bc059e0cfa41014bce3619f91f6d4cf60cdff0eea2b697dff007fa473
+  darwin_amd64: 5b641ed59b339dc31cf366849c8c95c1be2e94df248620b29d4e0e4bf0c1e985
+  linux_amd64: 8f7675cf16525330166d626f6ab5e83f38cf48026d9baaf9b0333de52055cf37
+  linux_arm64: 5991ede9c93a0b1036008a8f38df0693a054aac640f08629d0c7f9da44e3b2eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

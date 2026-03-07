@@ -1,0 +1,22 @@
+name: libaacs
+version: 0.11.1
+description: Implements the Advanced Access Content System specification
+homepage: https://www.videolan.org/developers/libaacs.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libaacs/blobs/sha256:bb76e9a99df6cbd2ddafd00b7d2bfec36f1d2340573402d912e25f2602d2a9af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libaacs/blobs/sha256:8a98b41aa3b27875fc6bde0468647b2dfa0e5dce93e36539db11e587058e7ba4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libaacs/blobs/sha256:bc5a1b4925f4a25d7714f9ddebdd14478d2c75d7d292153a709a412dbb3ba63d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libaacs/blobs/sha256:bef6e8371ad31a24f757a5b645cc6ec1c608da65e05a5da1c09a7256cc47af27
+sha256:
+  darwin_arm64: bb76e9a99df6cbd2ddafd00b7d2bfec36f1d2340573402d912e25f2602d2a9af
+  darwin_amd64: 8a98b41aa3b27875fc6bde0468647b2dfa0e5dce93e36539db11e587058e7ba4
+  linux_amd64: bc5a1b4925f4a25d7714f9ddebdd14478d2c75d7d292153a709a412dbb3ba63d
+  linux_arm64: bef6e8371ad31a24f757a5b645cc6ec1c608da65e05a5da1c09a7256cc47af27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libgpg-error

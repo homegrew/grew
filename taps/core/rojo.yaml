@@ -1,0 +1,21 @@
+name: rojo
+version: 7.6.1
+description: Professional grade Roblox development tools
+homepage: https://rojo.space/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rojo/blobs/sha256:7342fb03360adf9da87f85e2f7e0a4d9165ed15fba501a5d570e417ea8131929
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rojo/blobs/sha256:1dd5086711d202388aefd2c5c0bfa918474440258ca4d5f7bca95ec74cb2c99d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rojo/blobs/sha256:cff0fe4bb57f025548214ff6227c8973ac5308a2414fde120542a0bb5332e7b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rojo/blobs/sha256:b89b0bbd30ab66f4bf75373ca1fd2334a19805b89a027282014a46bb7e90cbe0
+sha256:
+  darwin_arm64: 7342fb03360adf9da87f85e2f7e0a4d9165ed15fba501a5d570e417ea8131929
+  darwin_amd64: 1dd5086711d202388aefd2c5c0bfa918474440258ca4d5f7bca95ec74cb2c99d
+  linux_amd64: cff0fe4bb57f025548214ff6227c8973ac5308a2414fde120542a0bb5332e7b7
+  linux_arm64: b89b0bbd30ab66f4bf75373ca1fd2334a19805b89a027282014a46bb7e90cbe0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

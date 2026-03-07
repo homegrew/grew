@@ -1,0 +1,19 @@
+name: aliddns
+version: 0.0.23
+description: Aliyun(Alibaba Cloud) ddns for golang
+homepage: https://github.com/OpenIoTHub/aliddns
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aliddns/blobs/sha256:06b60c6460fba278ca18d975d72e209b6e7089b35012f21dfceba3334db24b92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aliddns/blobs/sha256:b8051122a13e743cc9c0e6aa0eccb86ec9bcf014dff7e23180683068e19bfb75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aliddns/blobs/sha256:bf0adee43a8efe19657d0aec5deb3aae6bf0d54030f3fe30dd1155935dcc192e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aliddns/blobs/sha256:04d29e980abbe4840c4a77b971d61dfa6ddc0239d72ab00de599c98d75ad5193
+sha256:
+  darwin_arm64: 06b60c6460fba278ca18d975d72e209b6e7089b35012f21dfceba3334db24b92
+  darwin_amd64: b8051122a13e743cc9c0e6aa0eccb86ec9bcf014dff7e23180683068e19bfb75
+  linux_amd64: bf0adee43a8efe19657d0aec5deb3aae6bf0d54030f3fe30dd1155935dcc192e
+  linux_arm64: 04d29e980abbe4840c4a77b971d61dfa6ddc0239d72ab00de599c98d75ad5193
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

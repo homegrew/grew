@@ -1,0 +1,19 @@
+name: asnmap
+version: 1.1.1
+description: Quickly map organization network ranges using ASN information
+homepage: https://github.com/projectdiscovery/asnmap
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/asnmap/blobs/sha256:6d30ae986746962385b61472a49d0d9d5ded178c4ab0fd02d45146d9d9514b83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/asnmap/blobs/sha256:f859f48ef91d69fe448c33284462f5802177d73619e39dfcc4894ad359212273
+  linux_amd64: https://ghcr.io/v2/homebrew/core/asnmap/blobs/sha256:5cc586b3ac93d7c6d675338f46ec034d1c0d20e3f46306bbd56c7f964b8f0fec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/asnmap/blobs/sha256:9028f3436f84bf3c7b7310c7cb0f7c1230601805db6b6a6152dd72fd4af5818f
+sha256:
+  darwin_arm64: 6d30ae986746962385b61472a49d0d9d5ded178c4ab0fd02d45146d9d9514b83
+  darwin_amd64: f859f48ef91d69fe448c33284462f5802177d73619e39dfcc4894ad359212273
+  linux_amd64: 5cc586b3ac93d7c6d675338f46ec034d1c0d20e3f46306bbd56c7f964b8f0fec
+  linux_arm64: 9028f3436f84bf3c7b7310c7cb0f7c1230601805db6b6a6152dd72fd4af5818f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

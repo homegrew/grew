@@ -1,0 +1,19 @@
+name: gdbm
+version: 1.26
+description: GNU database manager
+homepage: https://www.gnu.org.ua/software/gdbm/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:665930fdbccbaf710705195a7ee89f3b3e04122e11d585f6a50cac2ff2595296
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:cd2206fce6d0ecaaa40620b3aa6e73d5b227f444c10a2e9032813a50b6f89a52
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:4c4edca03ef3c629d9849d37084eb16afa5aaaf4b76d004f89c6f43e78af5adb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:bc56203964d55e8ed24b6ce88e6753301d72df6bb66ff8e92923a5e8fe128a63
+sha256:
+  darwin_arm64: 665930fdbccbaf710705195a7ee89f3b3e04122e11d585f6a50cac2ff2595296
+  darwin_amd64: cd2206fce6d0ecaaa40620b3aa6e73d5b227f444c10a2e9032813a50b6f89a52
+  linux_amd64: 4c4edca03ef3c629d9849d37084eb16afa5aaaf4b76d004f89c6f43e78af5adb
+  linux_arm64: bc56203964d55e8ed24b6ce88e6753301d72df6bb66ff8e92923a5e8fe128a63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

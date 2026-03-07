@@ -1,0 +1,13 @@
+name: cmux
+version: 0.61.0
+description: Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+homepage: https://www.cmux.dev/
+url:
+  darwin_arm64: https://github.com/manaflow-ai/cmux/releases/download/v0.61.0/cmux-macos.dmg
+sha256:
+  darwin_arm64: a113c6a43c18e323dfa91f2e39f19e20811cbac4605b639b99f9e3a9f338a528
+artifacts:
+  app:
+    - cmux.app
+  bin:
+    - cmux

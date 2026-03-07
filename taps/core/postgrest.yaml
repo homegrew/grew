@@ -1,0 +1,22 @@
+name: postgrest
+version: 14.5
+description: Serves a fully RESTful API from any existing PostgreSQL database
+homepage: https://github.com/PostgREST/postgrest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/postgrest/blobs/sha256:2e75c185ef1237b95628d3ca82dcdafc8ab14c629231106d9036cc9fb4137438
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/postgrest/blobs/sha256:f2fbdd7fc20abd3517679701ad3646e5f81ba46999d82c07f7b42ce6133a6e06
+  linux_amd64: https://ghcr.io/v2/homebrew/core/postgrest/blobs/sha256:0bc6147bfe85295e6770c349cd6e2a62e3295d28c9f798d3c36fff420c46642b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/postgrest/blobs/sha256:7bbf2306f812d5cd090be39dec1a35d03dd3c85a2fc816fb97aae479621cf052
+sha256:
+  darwin_arm64: 2e75c185ef1237b95628d3ca82dcdafc8ab14c629231106d9036cc9fb4137438
+  darwin_amd64: f2fbdd7fc20abd3517679701ad3646e5f81ba46999d82c07f7b42ce6133a6e06
+  linux_amd64: 0bc6147bfe85295e6770c349cd6e2a62e3295d28c9f798d3c36fff420c46642b
+  linux_arm64: 7bbf2306f812d5cd090be39dec1a35d03dd3c85a2fc816fb97aae479621cf052
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libpq

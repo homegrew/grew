@@ -1,0 +1,21 @@
+name: vpn-slice
+version: 0.16.1
+description: Vpnc-script replacement for easy and secure split-tunnel VPN setup
+homepage: https://github.com/dlenski/vpn-slice
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vpn-slice/blobs/sha256:1ce45fcd3f9bed8b11fd2780ecf0ec7379c9ba89d8f79e692b0c71bb31dfde26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vpn-slice/blobs/sha256:78fbe63be8429f0ab38427d75dd2ed511a578f89f5019d5a775a7acb4cc2784a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vpn-slice/blobs/sha256:e11db2b6fae77e64c63f5f9c3151a64d81a79db650bf5389e99dbeb406954734
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vpn-slice/blobs/sha256:8778f4daae86d96a51e7aed7efd2de7b556cc1dd1e41246855278da5622056d4
+sha256:
+  darwin_arm64: 1ce45fcd3f9bed8b11fd2780ecf0ec7379c9ba89d8f79e692b0c71bb31dfde26
+  darwin_amd64: 78fbe63be8429f0ab38427d75dd2ed511a578f89f5019d5a775a7acb4cc2784a
+  linux_amd64: e11db2b6fae77e64c63f5f9c3151a64d81a79db650bf5389e99dbeb406954734
+  linux_arm64: 8778f4daae86d96a51e7aed7efd2de7b556cc1dd1e41246855278da5622056d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

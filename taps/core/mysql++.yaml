@@ -1,0 +1,21 @@
+name: mysql++
+version: 3.3.0
+description: "C++ wrapper for MySQL's C API"
+homepage: https://tangentsoft.com/mysqlpp/home
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mysqlxx/blobs/sha256:bb03e282116800237c75a9374bb020f8cd9f6cd84b01a56549da52d595ff79e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mysqlxx/blobs/sha256:57348bc88e3ed7dfccd4c0b51a7c5416473a0e81d23eb6f9c863d21da02fa236
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mysqlxx/blobs/sha256:05a8a2b24a6e5b63f6ed9b997686059ea081726bce22555a0665c4b19826effa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mysqlxx/blobs/sha256:6fe9c4d8235e6b18d24d4c957347282d9c8a6476de38ac598568866d1b568fa9
+sha256:
+  darwin_arm64: bb03e282116800237c75a9374bb020f8cd9f6cd84b01a56549da52d595ff79e8
+  darwin_amd64: 57348bc88e3ed7dfccd4c0b51a7c5416473a0e81d23eb6f9c863d21da02fa236
+  linux_amd64: 05a8a2b24a6e5b63f6ed9b997686059ea081726bce22555a0665c4b19826effa
+  linux_arm64: 6fe9c4d8235e6b18d24d4c957347282d9c8a6476de38ac598568866d1b568fa9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mariadb-connector-c

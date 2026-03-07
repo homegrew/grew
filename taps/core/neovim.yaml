@@ -1,0 +1,28 @@
+name: neovim
+version: 0.11.6
+description: Ambitious Vim-fork focused on extensibility and agility
+homepage: https://neovim.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neovim/blobs/sha256:cfd8b300b05d3dea574845a7158b08c1733502816892522bc57205475f4c97c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neovim/blobs/sha256:0395c342b45728126663f10c945c2c238172763363f879c0628aa6933a19ca0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neovim/blobs/sha256:ca74f40e189c28deeff7aedc1387336fe1a31fd3b3b5a54afbedaa6ba0b8b7ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neovim/blobs/sha256:b78c6e371c8ee77189262e98078a7194365fb198dbf4c778ad69b2023732a34a
+sha256:
+  darwin_arm64: cfd8b300b05d3dea574845a7158b08c1733502816892522bc57205475f4c97c6
+  darwin_amd64: 0395c342b45728126663f10c945c2c238172763363f879c0628aa6933a19ca0b
+  linux_amd64: ca74f40e189c28deeff7aedc1387336fe1a31fd3b3b5a54afbedaa6ba0b8b7ff
+  linux_arm64: b78c6e371c8ee77189262e98078a7194365fb198dbf4c778ad69b2023732a34a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tree-sitter@0.25
+  - libuv
+  - lpeg
+  - luajit
+  - luv
+  - unibilium
+  - utf8proc
+  - gettext

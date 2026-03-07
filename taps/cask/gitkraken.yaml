@@ -1,0 +1,11 @@
+name: gitkraken
+version: 11.10.0
+description: Git client focusing on productivity
+homepage: https://www.gitkraken.com/
+url:
+  darwin_arm64: https://api.gitkraken.dev/releases/production/darwin/arm64/11.10.0/GitKraken-v11.10.0.zip
+sha256:
+  darwin_arm64: 9986b5bc7b9f6a8131121ce16992edb902652678ca549fab278bf8980def3b43
+artifacts:
+  app:
+    - GitKraken.app

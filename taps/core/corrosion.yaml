@@ -1,0 +1,19 @@
+name: corrosion
+version: 0.6.1
+description: Easy Rust and C/C++ Integration
+homepage: https://github.com/corrosion-rs/corrosion
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/corrosion/blobs/sha256:427c06338a5dfa2298f8b3d6e5e9da2aad80490fee56bce1042b70582414e65e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/corrosion/blobs/sha256:3cb6aa3505fc372e2c12959d32a2bb0aebe2637e2d12e85a778c048b8b53d4f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/corrosion/blobs/sha256:7ee053e890e2e07b58ad476ccc87dc5d0f7bcca492ab56432cc39051fd72c52e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/corrosion/blobs/sha256:6019280f5f172f6abfc2b2f21a9ea4507e28401e6c4c3072cfd9e87504a7b494
+sha256:
+  darwin_arm64: 427c06338a5dfa2298f8b3d6e5e9da2aad80490fee56bce1042b70582414e65e
+  darwin_amd64: 3cb6aa3505fc372e2c12959d32a2bb0aebe2637e2d12e85a778c048b8b53d4f6
+  linux_amd64: 7ee053e890e2e07b58ad476ccc87dc5d0f7bcca492ab56432cc39051fd72c52e
+  linux_arm64: 6019280f5f172f6abfc2b2f21a9ea4507e28401e6c4c3072cfd9e87504a7b494
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

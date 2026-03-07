@@ -1,0 +1,19 @@
+name: terrapin-scanner
+version: 1.1.3
+description: Vulnerability scanner for the Terrapin attack
+homepage: https://terrapin-attack.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terrapin-scanner/blobs/sha256:741220ba0403c3fef850bee62a4e95bc709a6c09b8c8fd649dedcbec624a7c71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terrapin-scanner/blobs/sha256:938c69dc59167cc7623e247801c78718b50153c920d8ccab9eb8ed605afcd542
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terrapin-scanner/blobs/sha256:d30e5880884a5379fd5a39238feac53605a78ef62c41a4c4cc591c338968a0db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terrapin-scanner/blobs/sha256:97b45e2b36eb504254135533af46052f9962759842d570fda198783847bd0884
+sha256:
+  darwin_arm64: 741220ba0403c3fef850bee62a4e95bc709a6c09b8c8fd649dedcbec624a7c71
+  darwin_amd64: 938c69dc59167cc7623e247801c78718b50153c920d8ccab9eb8ed605afcd542
+  linux_amd64: d30e5880884a5379fd5a39238feac53605a78ef62c41a4c4cc591c338968a0db
+  linux_arm64: 97b45e2b36eb504254135533af46052f9962759842d570fda198783847bd0884
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: sslh
+version: 2.3.1
+description: Forward connections based on first data packet sent by client
+homepage: https://www.rutschle.net/tech/sslh.shtml
+license: GPL-2.0-or-later AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sslh/blobs/sha256:5aa0861161f4e13c703825e23a3c885010d68a0f494c1af257929654dc3af9b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sslh/blobs/sha256:6fa68b12118c439cda8382787c169945c638a70881aa1b4efccb277a9043748d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sslh/blobs/sha256:c98c1400165331ac59969b19840ab324097188e3f79d9f0ee904463ea0724aad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sslh/blobs/sha256:0c6921906b1a5168ffb2ebb6bf2ee85bc391510420566cda8646cd778ef2782a
+sha256:
+  darwin_arm64: 5aa0861161f4e13c703825e23a3c885010d68a0f494c1af257929654dc3af9b6
+  darwin_amd64: 6fa68b12118c439cda8382787c169945c638a70881aa1b4efccb277a9043748d
+  linux_amd64: c98c1400165331ac59969b19840ab324097188e3f79d9f0ee904463ea0724aad
+  linux_arm64: 0c6921906b1a5168ffb2ebb6bf2ee85bc391510420566cda8646cd778ef2782a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libconfig
+  - libev
+  - pcre2

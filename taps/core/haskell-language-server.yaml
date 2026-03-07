@@ -1,0 +1,21 @@
+name: haskell-language-server
+version: 2.13.0.0
+description: Integration point for ghcide and haskell-ide-engine. One IDE to rule them all
+homepage: https://github.com/haskell/haskell-language-server
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/haskell-language-server/blobs/sha256:f6de8b8fa5d1f31b2ff6ef634396c9100cab345a8185824ad1c86b6787dda02c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/haskell-language-server/blobs/sha256:72ea8a68e64d2c5884c5088fb41615c3a0099cbf9aa8e0588d8bffe4c31c3b8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/haskell-language-server/blobs/sha256:42f44eef799fd9a7ed15d33b531bcc8c0242fac8424d053d39bc776af3837b55
+  linux_arm64: https://ghcr.io/v2/homebrew/core/haskell-language-server/blobs/sha256:1e1bd524e3263e877838a83420c514c109c704a7a1ac13a8818aae2d7995579b
+sha256:
+  darwin_arm64: f6de8b8fa5d1f31b2ff6ef634396c9100cab345a8185824ad1c86b6787dda02c
+  darwin_amd64: 72ea8a68e64d2c5884c5088fb41615c3a0099cbf9aa8e0588d8bffe4c31c3b8d
+  linux_amd64: 42f44eef799fd9a7ed15d33b531bcc8c0242fac8424d053d39bc776af3837b55
+  linux_arm64: 1e1bd524e3263e877838a83420c514c109c704a7a1ac13a8818aae2d7995579b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

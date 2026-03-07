@@ -1,0 +1,21 @@
+name: radicle
+version: 1.6.1
+description: Sovereign code forge built on Git
+homepage: https://radicle.xyz
+license: MIT AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/radicle/blobs/sha256:f82b1f36f71d6c52b290713efc2b47b4f6c020cb298ce6926938dd9a391dfbae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/radicle/blobs/sha256:813d5d88508b7895c495cd83d7259aee6058a9d48a4aa18af53f3cf54796c173
+  linux_amd64: https://ghcr.io/v2/homebrew/core/radicle/blobs/sha256:a9e82ca7d7210cf9bf27a910f505db24197c40d763359da8d6bfe349bb8590e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/radicle/blobs/sha256:1d90155b9be9457d45102ef00b1f88177e9750a7090b4d347edbd91184d1a5d6
+sha256:
+  darwin_arm64: f82b1f36f71d6c52b290713efc2b47b4f6c020cb298ce6926938dd9a391dfbae
+  darwin_amd64: 813d5d88508b7895c495cd83d7259aee6058a9d48a4aa18af53f3cf54796c173
+  linux_amd64: a9e82ca7d7210cf9bf27a910f505db24197c40d763359da8d6bfe349bb8590e8
+  linux_arm64: 1d90155b9be9457d45102ef00b1f88177e9750a7090b4d347edbd91184d1a5d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssh

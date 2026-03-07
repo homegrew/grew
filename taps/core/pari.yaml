@@ -1,0 +1,22 @@
+name: pari
+version: 2.17.3
+description: Computer algebra system designed for fast computations in number theory
+homepage: https://pari.math.u-bordeaux.fr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pari/blobs/sha256:687e5d1d2fa3ef5d2833933b52b3137c4894bdb3d56a1b4e04dcd045b271abc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pari/blobs/sha256:edecfbb507dc4abb0779a15e664d3ab0a292e88bd847f49c18dd41133d17f951
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pari/blobs/sha256:91b8c8184e5bc18e90a54da5f87bc5ba678a40b7cbb6338a14558162f0bb5f31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pari/blobs/sha256:1be7e33bcdf15fdddc9e4344ecc2fa87526aa2028b99ff15a9383de2056af163
+sha256:
+  darwin_arm64: 687e5d1d2fa3ef5d2833933b52b3137c4894bdb3d56a1b4e04dcd045b271abc3
+  darwin_amd64: edecfbb507dc4abb0779a15e664d3ab0a292e88bd847f49c18dd41133d17f951
+  linux_amd64: 91b8c8184e5bc18e90a54da5f87bc5ba678a40b7cbb6338a14558162f0bb5f31
+  linux_arm64: 1be7e33bcdf15fdddc9e4344ecc2fa87526aa2028b99ff15a9383de2056af163
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - readline

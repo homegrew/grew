@@ -1,0 +1,19 @@
+name: epinio
+version: 1.13.9
+description: CLI for Epinio, the Application Development Engine for Kubernetes
+homepage: https://epinio.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/epinio/blobs/sha256:6cfae1d834f2f7c6767e729148a7ef841b0930e561b10b780b2ce10ec0874356
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/epinio/blobs/sha256:9bc71df548bfc304a5847648d6079b6a8c94f828d33f1d11ae7f4def7445c85b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/epinio/blobs/sha256:12cc47d5378c19c77f5f24cc70e832514ce9fb8e0746a570df57dd023013ba39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/epinio/blobs/sha256:7172c23e8b46aeccdaead2b645c444e4504d2ee38c74f1df7938d2e1ac7d149c
+sha256:
+  darwin_arm64: 6cfae1d834f2f7c6767e729148a7ef841b0930e561b10b780b2ce10ec0874356
+  darwin_amd64: 9bc71df548bfc304a5847648d6079b6a8c94f828d33f1d11ae7f4def7445c85b
+  linux_amd64: 12cc47d5378c19c77f5f24cc70e832514ce9fb8e0746a570df57dd023013ba39
+  linux_arm64: 7172c23e8b46aeccdaead2b645c444e4504d2ee38c74f1df7938d2e1ac7d149c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

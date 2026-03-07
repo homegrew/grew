@@ -1,0 +1,31 @@
+name: nip4
+version: 9.0.17
+description: Image processing spreadsheet
+homepage: https://github.com/jcupitt/nip4
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nip4/blobs/sha256:4131b345acda2b46c787b53a13fb23193df905c3fe8b84ba4d21544f677be0cd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nip4/blobs/sha256:1e3c52d741422d3543a959ecaa5f3ee70003179ecd8f1c5d6ee1436edd81abe7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nip4/blobs/sha256:00d87bbfae7ba12dcd5cc7e5f28b30bac88c69f888e014fea552c97d048022ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nip4/blobs/sha256:fb20cb2ca0ead0b99e4756dcb766482fcbc9bbae4cfe1cb73223ddac4b26701d
+sha256:
+  darwin_arm64: 4131b345acda2b46c787b53a13fb23193df905c3fe8b84ba4d21544f677be0cd
+  darwin_amd64: 1e3c52d741422d3543a959ecaa5f3ee70003179ecd8f1c5d6ee1436edd81abe7
+  linux_amd64: 00d87bbfae7ba12dcd5cc7e5f28b30bac88c69f888e014fea552c97d048022ac
+  linux_arm64: fb20cb2ca0ead0b99e4756dcb766482fcbc9bbae4cfe1cb73223ddac4b26701d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - glib
+  - graphene
+  - gsl
+  - gtk4
+  - hicolor-icon-theme
+  - libxml2
+  - pango
+  - vips

@@ -1,0 +1,19 @@
+name: verilator
+version: 5.046
+description: Verilog simulator
+homepage: https://www.veripool.org/wiki/verilator
+license: LGPL-3.0-only OR Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/verilator/blobs/sha256:f3a956267b2cd69b966546a4c23989060e0026606f927791bf2bdb2d33163146
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/verilator/blobs/sha256:1df77d3bb9fcaf7473e094cf9067a1f9583a2983e8fa345798dcd09842b4b212
+  linux_amd64: https://ghcr.io/v2/homebrew/core/verilator/blobs/sha256:9daca86c4423b677b749c578b55ba1d29c194aad2313b4f7a6b312e1b161bf7a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/verilator/blobs/sha256:9fd6162a1f6e848a5dd21351a12ddcaf4a5fa2b2e80fdf1b27518a2462fa3fe6
+sha256:
+  darwin_arm64: f3a956267b2cd69b966546a4c23989060e0026606f927791bf2bdb2d33163146
+  darwin_amd64: 1df77d3bb9fcaf7473e094cf9067a1f9583a2983e8fa345798dcd09842b4b212
+  linux_amd64: 9daca86c4423b677b749c578b55ba1d29c194aad2313b4f7a6b312e1b161bf7a
+  linux_arm64: 9fd6162a1f6e848a5dd21351a12ddcaf4a5fa2b2e80fdf1b27518a2462fa3fe6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

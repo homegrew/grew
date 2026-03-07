@@ -1,0 +1,24 @@
+name: alot
+version: 0.12
+description: Text mode MUA using notmuch mail
+homepage: https://github.com/pazz/alot
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alot/blobs/sha256:3f75efaa2b8a673e7c156d2fe2f85351e16f96996ce3745aec793a3ab595601a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alot/blobs/sha256:dec524cd4c1013942005765ec9478e8cbbc39ffe5ba909799414a97ecebc8111
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alot/blobs/sha256:5295e73a1b7fbe558a8ac1654654139f6f9b2dde2648bd16d58e1c80ec039925
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alot/blobs/sha256:e0e294acc48f6670c5d9bd420a95ba19b124c6da01f57c846e7f93c6e1ef32a4
+sha256:
+  darwin_arm64: 3f75efaa2b8a673e7c156d2fe2f85351e16f96996ce3745aec793a3ab595601a
+  darwin_amd64: dec524cd4c1013942005765ec9478e8cbbc39ffe5ba909799414a97ecebc8111
+  linux_amd64: 5295e73a1b7fbe558a8ac1654654139f6f9b2dde2648bd16d58e1c80ec039925
+  linux_arm64: e0e294acc48f6670c5d9bd420a95ba19b124c6da01f57c846e7f93c6e1ef32a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgmepy
+  - libmagic
+  - notmuch
+  - python@3.14

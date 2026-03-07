@@ -1,0 +1,19 @@
+name: sss-cli
+version: 0.1.1
+description: Shamir secret share command-line interface
+homepage: https://github.com/dsprenkels/sss-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sss-cli/blobs/sha256:17aa2621801ef6f326675f97f014800f760ae7258fa1aad314a35489f43b1ff8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sss-cli/blobs/sha256:9992233773901abdcd62734c40e52b7ba3c46f268875e571de4577e7ea22a43a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sss-cli/blobs/sha256:a51a5e5b66359303bf80381c1134ca4daefd5c785a4bf1b3b5caeab9e351be58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sss-cli/blobs/sha256:48ed1627955117c7b60602aacc0d94f969daa207be3874b43f04ed007512f7cb
+sha256:
+  darwin_arm64: 17aa2621801ef6f326675f97f014800f760ae7258fa1aad314a35489f43b1ff8
+  darwin_amd64: 9992233773901abdcd62734c40e52b7ba3c46f268875e571de4577e7ea22a43a
+  linux_amd64: a51a5e5b66359303bf80381c1134ca4daefd5c785a4bf1b3b5caeab9e351be58
+  linux_arm64: 48ed1627955117c7b60602aacc0d94f969daa207be3874b43f04ed007512f7cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

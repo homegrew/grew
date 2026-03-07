@@ -1,0 +1,21 @@
+name: rebar3
+version: 3.27.0
+description: Erlang build tool
+homepage: https://rebar3.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rebar3/blobs/sha256:94b3bd9f293d74e1dc1b73bfc720da505e1231e47a37dc16dcc0692a42841361
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rebar3/blobs/sha256:0530db6336388349156d54bd48dc901762e9e2400f3451672c06e5760fd6a79d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rebar3/blobs/sha256:959e9d042c97cb228e137556169daa64f8c8823a8127a0f0123db68f876eabfe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rebar3/blobs/sha256:085765e94871855b1b5234c97cf96deadb21fe3b34635e32f1310e40c0d70fc7
+sha256:
+  darwin_arm64: 94b3bd9f293d74e1dc1b73bfc720da505e1231e47a37dc16dcc0692a42841361
+  darwin_amd64: 0530db6336388349156d54bd48dc901762e9e2400f3451672c06e5760fd6a79d
+  linux_amd64: 959e9d042c97cb228e137556169daa64f8c8823a8127a0f0123db68f876eabfe
+  linux_arm64: 085765e94871855b1b5234c97cf96deadb21fe3b34635e32f1310e40c0d70fc7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

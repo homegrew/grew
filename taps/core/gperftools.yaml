@@ -1,0 +1,19 @@
+name: gperftools
+version: 2.18.1
+description: Multi-threaded malloc() and performance analysis tools
+homepage: https://github.com/gperftools/gperftools
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gperftools/blobs/sha256:441be19e92f18df04aacfbe09dffe235c9bf8b070c5d5e3f8db6611c9890c23d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gperftools/blobs/sha256:96980b401d0332ec875685001597fee2a37006f40bd1e92d55bf53fa315c62bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gperftools/blobs/sha256:2dafaf048a2e362d06592fa527fba49a22eefa29f66c60edb14a10e9edbf0876
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gperftools/blobs/sha256:f6cf2911544eb57a83f4baeaf71e7b5e9b905af8c31d73461306cdf3bf5a728f
+sha256:
+  darwin_arm64: 441be19e92f18df04aacfbe09dffe235c9bf8b070c5d5e3f8db6611c9890c23d
+  darwin_amd64: 96980b401d0332ec875685001597fee2a37006f40bd1e92d55bf53fa315c62bb
+  linux_amd64: 2dafaf048a2e362d06592fa527fba49a22eefa29f66c60edb14a10e9edbf0876
+  linux_arm64: f6cf2911544eb57a83f4baeaf71e7b5e9b905af8c31d73461306cdf3bf5a728f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

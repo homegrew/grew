@@ -1,0 +1,19 @@
+name: swc
+version: 1.15.18
+description: Super-fast Rust-based JavaScript/TypeScript compiler
+homepage: https://swc.rs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swc/blobs/sha256:a2849922031c85346b7fb90400e42cd959fa04d639dd6cf492d1f312d7726a15
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swc/blobs/sha256:d4a2d46631afdcef21925b755b4dbdc7f3ebc9b62d59a6cb7a2a0edb949e6478
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swc/blobs/sha256:7d2633b1ca374615031a159790957765acbcd50ea4a4b48c504229626efb094c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swc/blobs/sha256:589760a048b5a6a4c6a62172aa55b0a8092e9ce2b17f8c817bb11cf54c35f6c3
+sha256:
+  darwin_arm64: a2849922031c85346b7fb90400e42cd959fa04d639dd6cf492d1f312d7726a15
+  darwin_amd64: d4a2d46631afdcef21925b755b4dbdc7f3ebc9b62d59a6cb7a2a0edb949e6478
+  linux_amd64: 7d2633b1ca374615031a159790957765acbcd50ea4a4b48c504229626efb094c
+  linux_arm64: 589760a048b5a6a4c6a62172aa55b0a8092e9ce2b17f8c817bb11cf54c35f6c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

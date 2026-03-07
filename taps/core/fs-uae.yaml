@@ -1,0 +1,27 @@
+name: fs-uae
+version: 3.2.35
+description: Amiga emulator
+homepage: https://fs-uae.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fs-uae/blobs/sha256:741ffe6927eb47d81ac9b456c89289250398f7d5b2baf6d353876620406f726c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fs-uae/blobs/sha256:5cac6160964a608e299f905cd36bbba764f7dc6130d0dd908f472ae2d3667de2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fs-uae/blobs/sha256:0685abd95a223cbf2af21a16b4f78dba2c73169c79a16d85063d7b8b3514078d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fs-uae/blobs/sha256:322f417b0344b31e267e41f328d9ae6281be7310c286bf2e61c3e162891ad349
+sha256:
+  darwin_arm64: 741ffe6927eb47d81ac9b456c89289250398f7d5b2baf6d353876620406f726c
+  darwin_amd64: 5cac6160964a608e299f905cd36bbba764f7dc6130d0dd908f472ae2d3667de2
+  linux_amd64: 0685abd95a223cbf2af21a16b4f78dba2c73169c79a16d85063d7b8b3514078d
+  linux_arm64: 322f417b0344b31e267e41f328d9ae6281be7310c286bf2e61c3e162891ad349
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - glew
+  - glib
+  - libmpeg2
+  - libpng
+  - sdl2
+  - gettext

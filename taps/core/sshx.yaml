@@ -1,0 +1,19 @@
+name: sshx
+version: 0.4.1
+description: Fast, collaborative live terminal sharing over the web
+homepage: https://sshx.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sshx/blobs/sha256:b9d50ad7a068ac3520358e2219172c137bddd2b1c6b415d7dff20c21a10896d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sshx/blobs/sha256:acb77c27444b26c774e81104783ae34f10773a454f43116ae97d368ddf26fc5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshx/blobs/sha256:71d9f3653dbfd7c5b4699821fa328d4681686bea5a21a6dea4f832f4efa45333
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshx/blobs/sha256:9055d91e23321fa85ab586a83204ad383caaeec4b1af12bf13bd5b901fc03461
+sha256:
+  darwin_arm64: b9d50ad7a068ac3520358e2219172c137bddd2b1c6b415d7dff20c21a10896d5
+  darwin_amd64: acb77c27444b26c774e81104783ae34f10773a454f43116ae97d368ddf26fc5a
+  linux_amd64: 71d9f3653dbfd7c5b4699821fa328d4681686bea5a21a6dea4f832f4efa45333
+  linux_arm64: 9055d91e23321fa85ab586a83204ad383caaeec4b1af12bf13bd5b901fc03461
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

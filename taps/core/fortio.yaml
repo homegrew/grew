@@ -1,0 +1,19 @@
+name: fortio
+version: 1.75.0
+description: HTTP and gRPC load testing and visualization tool and server
+homepage: https://fortio.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fortio/blobs/sha256:ac3178279e4fd5fa406bc4382fde16b136d1880410c07ab002d473a7ee9c6047
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fortio/blobs/sha256:a1c8c2d24180bff857df056d94d1f7c24438ccad3f6c127e2fa3183ebc6520e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fortio/blobs/sha256:1c971f274734f9c8e78809277b2bc28564083771f555b6f2ef66424daf368131
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fortio/blobs/sha256:d1a33f9749fec2e3d3e2f25886fcbe92ed60e8e3010c46a396861baa9db1213c
+sha256:
+  darwin_arm64: ac3178279e4fd5fa406bc4382fde16b136d1880410c07ab002d473a7ee9c6047
+  darwin_amd64: a1c8c2d24180bff857df056d94d1f7c24438ccad3f6c127e2fa3183ebc6520e9
+  linux_amd64: 1c971f274734f9c8e78809277b2bc28564083771f555b6f2ef66424daf368131
+  linux_arm64: d1a33f9749fec2e3d3e2f25886fcbe92ed60e8e3010c46a396861baa9db1213c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: kokkos
+version: 5.0.2
+description: C++ Performance Portability Ecosystem for parallel execution and abstraction
+homepage: https://kokkos.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kokkos/blobs/sha256:3df9280f1d6263c84962cdf9ae4f82f404c71d2881477adc1dcb894b84ebd2b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kokkos/blobs/sha256:c9aa45a9c304a9969aa2f64d1a6e7fab71829188d732d3d0b0f8c5cc59520b55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kokkos/blobs/sha256:3c1239687728a7746ca3d8319acbc931a9ae203a8616d7ed5e18289982b17a5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kokkos/blobs/sha256:5b6ae931661a41fb12af97d3283d501b6c8c5e0497fcba76a01e83015fd4195b
+sha256:
+  darwin_arm64: 3df9280f1d6263c84962cdf9ae4f82f404c71d2881477adc1dcb894b84ebd2b9
+  darwin_amd64: c9aa45a9c304a9969aa2f64d1a6e7fab71829188d732d3d0b0f8c5cc59520b55
+  linux_amd64: 3c1239687728a7746ca3d8319acbc931a9ae203a8616d7ed5e18289982b17a5f
+  linux_arm64: 5b6ae931661a41fb12af97d3283d501b6c8c5e0497fcba76a01e83015fd4195b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

@@ -1,0 +1,21 @@
+name: minimal-racket
+version: 9.1
+description: Modern programming language in the Lisp/Scheme family
+homepage: https://racket-lang.org/
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minimal-racket/blobs/sha256:f8e3cfee531b50c4bb5dd5b92566061d9bdf7fabd5d2848e7578d7d416194d63
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minimal-racket/blobs/sha256:49360583f8d75102cd8d3ccf3e810f5bccf81c867939f373f76f10c058284ee8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minimal-racket/blobs/sha256:9f5b9e82168584e00339df5624df392ea5005a1d2f5e87faa69d035e22cd661e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minimal-racket/blobs/sha256:6bc1bbf57d83f01e4e77ae53476225c4f1b2b7df61ca0bdb56d17daff6193d7b
+sha256:
+  darwin_arm64: f8e3cfee531b50c4bb5dd5b92566061d9bdf7fabd5d2848e7578d7d416194d63
+  darwin_amd64: 49360583f8d75102cd8d3ccf3e810f5bccf81c867939f373f76f10c058284ee8
+  linux_amd64: 9f5b9e82168584e00339df5624df392ea5005a1d2f5e87faa69d035e22cd661e
+  linux_arm64: 6bc1bbf57d83f01e4e77ae53476225c4f1b2b7df61ca0bdb56d17daff6193d7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

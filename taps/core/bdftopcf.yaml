@@ -1,0 +1,19 @@
+name: bdftopcf
+version: 1.1.2
+description: Convert X font from Bitmap Distribution Format to Portable Compiled Format
+homepage: https://gitlab.freedesktop.org/xorg/util/bdftopcf
+license: MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bdftopcf/blobs/sha256:c5cce829845d0c176e814c40a20e018c9d04a9fe01774bba881526ec0c85023b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bdftopcf/blobs/sha256:ee45ef9fa4bfcafde669505ffb448fb380af04ea4ece11c6e59b7b4a8148e3d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bdftopcf/blobs/sha256:d558ac21dd07f613ee4ebea998439f027b861a788fde3095a7d59193ea33562c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bdftopcf/blobs/sha256:9504712a8df5ab24fffa7944c6b5d6a698fc97463e133ca71a8da88d57c1587e
+sha256:
+  darwin_arm64: c5cce829845d0c176e814c40a20e018c9d04a9fe01774bba881526ec0c85023b
+  darwin_amd64: ee45ef9fa4bfcafde669505ffb448fb380af04ea4ece11c6e59b7b4a8148e3d7
+  linux_amd64: d558ac21dd07f613ee4ebea998439f027b861a788fde3095a7d59193ea33562c
+  linux_arm64: 9504712a8df5ab24fffa7944c6b5d6a698fc97463e133ca71a8da88d57c1587e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

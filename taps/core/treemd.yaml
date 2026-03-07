@@ -1,0 +1,19 @@
+name: treemd
+version: 0.5.9
+description: TUI and CLI dual pane markdown viewer
+homepage: https://github.com/epistates/treemd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/treemd/blobs/sha256:adfbd2215e10939fe2a9f3c4d4850216c7e835eec10f42ef0b9ae9047f232c9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/treemd/blobs/sha256:f2c9c77fb4f18cfd81124e750b69fa77bf804323d18cbe0600a064c39b9ca367
+  linux_amd64: https://ghcr.io/v2/homebrew/core/treemd/blobs/sha256:be75e3613547c587673e011d79fffd12ec025a31d22c8079c96011220ab0d3cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/treemd/blobs/sha256:03792b81b2fa4605d457a1928e950685e1f5e9d7a88d9a4198b78f7080ad5f58
+sha256:
+  darwin_arm64: adfbd2215e10939fe2a9f3c4d4850216c7e835eec10f42ef0b9ae9047f232c9f
+  darwin_amd64: f2c9c77fb4f18cfd81124e750b69fa77bf804323d18cbe0600a064c39b9ca367
+  linux_amd64: be75e3613547c587673e011d79fffd12ec025a31d22c8079c96011220ab0d3cc
+  linux_arm64: 03792b81b2fa4605d457a1928e950685e1f5e9d7a88d9a4198b78f7080ad5f58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

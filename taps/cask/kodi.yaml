@@ -1,0 +1,11 @@
+name: kodi
+version: 21.3-Omega
+description: Free and open-source media player
+homepage: https://kodi.tv/
+url:
+  darwin_arm64: https://mirrors.kodi.tv/releases/osx/arm64/kodi-21.3-Omega-arm64.dmg
+sha256:
+  darwin_arm64: 4ae19c4d20f41e81c8889302874179c5b8bf1d86bbb3c61b6a7e0d0f2e6cbf22
+artifacts:
+  app:
+    - Kodi.app

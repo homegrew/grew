@@ -1,0 +1,21 @@
+name: watch
+version: 4.0.6
+description: Executes a program periodically, showing output fullscreen
+homepage: https://gitlab.com/procps-ng/procps
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/watch/blobs/sha256:e18cef797bea2fae7d4fb254c5e04f671f245aa8cf13f6dde6e8e73e8dc9b2f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/watch/blobs/sha256:df9d846e7d79ae58e6324eef960c20d8dd6d6f4e6daeba0d87ffbd84481ae6cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/watch/blobs/sha256:01316c06ebb730cadb23fc62031039fda7d59cbacea80b41b021b28aa4ecd676
+  linux_arm64: https://ghcr.io/v2/homebrew/core/watch/blobs/sha256:1967de3c71371a3d0d2062d3a86e5724e8db863a6d13242a52980f1584c4ab41
+sha256:
+  darwin_arm64: e18cef797bea2fae7d4fb254c5e04f671f245aa8cf13f6dde6e8e73e8dc9b2f5
+  darwin_amd64: df9d846e7d79ae58e6324eef960c20d8dd6d6f4e6daeba0d87ffbd84481ae6cc
+  linux_amd64: 01316c06ebb730cadb23fc62031039fda7d59cbacea80b41b021b28aa4ecd676
+  linux_arm64: 1967de3c71371a3d0d2062d3a86e5724e8db863a6d13242a52980f1584c4ab41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

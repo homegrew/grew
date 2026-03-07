@@ -1,0 +1,19 @@
+name: kamel
+version: 2.9.1
+description: Apache Camel K CLI
+homepage: https://camel.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kamel/blobs/sha256:fb627b95421f4e70f8b9755294e6f6df367a8d603c7996a54f91d2bf6a9cf97b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kamel/blobs/sha256:e58377c1d306ddc59295de4ebc0638e7983341b2db1aab041acde48f4c75e650
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kamel/blobs/sha256:6ac5312075039bbd2e9972d719a3fb4918660b734cddd168aca20bfdf383a7c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kamel/blobs/sha256:141e178c3efa3e97a11e1a9a0966416823a56a1d40a725c761ca95a6a37c38d8
+sha256:
+  darwin_arm64: fb627b95421f4e70f8b9755294e6f6df367a8d603c7996a54f91d2bf6a9cf97b
+  darwin_amd64: e58377c1d306ddc59295de4ebc0638e7983341b2db1aab041acde48f4c75e650
+  linux_amd64: 6ac5312075039bbd2e9972d719a3fb4918660b734cddd168aca20bfdf383a7c5
+  linux_arm64: 141e178c3efa3e97a11e1a9a0966416823a56a1d40a725c761ca95a6a37c38d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: gpgmepp
+version: 2.0.0
+description: C++ bindings for gpgme
+homepage: https://www.gnupg.org/related_software/gpgme/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpgmepp/blobs/sha256:a92d04950e7ed7477e8e2f6323eee90f2f07acd03c374561e614c0c1b7d0207e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpgmepp/blobs/sha256:d34c39da789e4b801fe5885fc6b11ee105d92f01336e12e78c2bc918c569d8a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpgmepp/blobs/sha256:0b9eee0c77dff5bb7ae714c7976b05d4277198eb467afec6ddcec64029918730
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpgmepp/blobs/sha256:0cce58bc668ff2554392efd5d00861871edad5a3904a193405d6524a14639cc4
+sha256:
+  darwin_arm64: a92d04950e7ed7477e8e2f6323eee90f2f07acd03c374561e614c0c1b7d0207e
+  darwin_amd64: d34c39da789e4b801fe5885fc6b11ee105d92f01336e12e78c2bc918c569d8a0
+  linux_amd64: 0b9eee0c77dff5bb7ae714c7976b05d4277198eb467afec6ddcec64029918730
+  linux_arm64: 0cce58bc668ff2554392efd5d00861871edad5a3904a193405d6524a14639cc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

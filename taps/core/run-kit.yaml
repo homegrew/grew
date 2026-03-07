@@ -1,0 +1,19 @@
+name: run-kit
+version: 0.7.1
+description: Universal multi-language runner and smart REPL
+homepage: https://github.com/Esubaalew/run
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/run-kit/blobs/sha256:380199dd143b10971160564c14ef1b13f89c0629c021368b85dad8aa8bb6480e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/run-kit/blobs/sha256:db3484fd43b678e09b5aaad3b59d26be6b80902dde7984de579745042f60404b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/run-kit/blobs/sha256:3c3f3850f735a848d5ba672299ecb11e7ea248c0dc922262e0dde556e8855d1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/run-kit/blobs/sha256:970ebfae6cd274de6e0c0f1d91adadbb0a296f047297107af582386f55f4f0bf
+sha256:
+  darwin_arm64: 380199dd143b10971160564c14ef1b13f89c0629c021368b85dad8aa8bb6480e
+  darwin_amd64: db3484fd43b678e09b5aaad3b59d26be6b80902dde7984de579745042f60404b
+  linux_amd64: 3c3f3850f735a848d5ba672299ecb11e7ea248c0dc922262e0dde556e8855d1b
+  linux_arm64: 970ebfae6cd274de6e0c0f1d91adadbb0a296f047297107af582386f55f4f0bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,32 @@
+name: ghostscript
+version: 10.06.0
+description: Interpreter for PostScript and PDF
+homepage: https://www.ghostscript.com/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghostscript/blobs/sha256:36245de09fc9100dff794142e7ca847b465d24109c3b4e66fcda28e8818850c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghostscript/blobs/sha256:1849aec43a04e46e21b370fdeff7efd1cfcac63d017c9fc44dc235e6f2fa47af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghostscript/blobs/sha256:0c0ab563da757f637d27ac01d11013738701e3fdeef696e89ed878de66c5cdca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghostscript/blobs/sha256:c81897d05d33d36448bb7e9d4da9ea0d30dd16ababdd5265662e8ebec296d3ef
+sha256:
+  darwin_arm64: 36245de09fc9100dff794142e7ca847b465d24109c3b4e66fcda28e8818850c1
+  darwin_amd64: 1849aec43a04e46e21b370fdeff7efd1cfcac63d017c9fc44dc235e6f2fa47af
+  linux_amd64: 0c0ab563da757f637d27ac01d11013738701e3fdeef696e89ed878de66c5cdca
+  linux_arm64: c81897d05d33d36448bb7e9d4da9ea0d30dd16ababdd5265662e8ebec296d3ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jbig2dec
+  - jpeg-turbo
+  - leptonica
+  - libarchive
+  - libidn
+  - libpng
+  - libtiff
+  - little-cms2
+  - openjpeg
+  - tesseract

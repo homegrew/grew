@@ -1,0 +1,21 @@
+name: swagger-codegen
+version: 3.0.78
+description: Generate clients, server stubs, and docs from an OpenAPI spec
+homepage: https://swagger.io/tools/swagger-codegen/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swagger-codegen/blobs/sha256:fbc05b7faf526bf5ce367bd05ea68e3a6d52aba332354632ae13d9a4daabb04e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swagger-codegen/blobs/sha256:68fe830cad43ac807b77e385bb458cc15a1b49603277567ef6d6b41c2c04a81f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swagger-codegen/blobs/sha256:975705c95bb33ebf9e6e1fdeb09b694c3bc29abe53a8f4cccde101f8c7ff1198
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swagger-codegen/blobs/sha256:65837ea5799d785e2f5525a683afa1f882ef1d10f0b7f65e0a9e573f5ff50385
+sha256:
+  darwin_arm64: fbc05b7faf526bf5ce367bd05ea68e3a6d52aba332354632ae13d9a4daabb04e
+  darwin_amd64: 68fe830cad43ac807b77e385bb458cc15a1b49603277567ef6d6b41c2c04a81f
+  linux_amd64: 975705c95bb33ebf9e6e1fdeb09b694c3bc29abe53a8f4cccde101f8c7ff1198
+  linux_arm64: 65837ea5799d785e2f5525a683afa1f882ef1d10f0b7f65e0a9e573f5ff50385
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

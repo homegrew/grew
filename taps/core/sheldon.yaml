@@ -1,0 +1,23 @@
+name: sheldon
+version: 0.8.5
+description: Fast, configurable, shell plugin manager
+homepage: https://sheldon.cli.rs
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sheldon/blobs/sha256:4c847c1f57dab67c08f0b2bc28b2682ec8e82944693c08c9456a61faee416790
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sheldon/blobs/sha256:28e543aab665bd00bb249abdcc40b062f96a8305046136720772ec2d22afc55d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sheldon/blobs/sha256:7f589b7843646d3253cfc607b0169a416a0017125e5b602b5daa82dab7fc8796
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sheldon/blobs/sha256:2bb36c6d20e44524167470f658d6bf79dff452c6f2ca3470900d56c545f86724
+sha256:
+  darwin_arm64: 4c847c1f57dab67c08f0b2bc28b2682ec8e82944693c08c9456a61faee416790
+  darwin_amd64: 28e543aab665bd00bb249abdcc40b062f96a8305046136720772ec2d22afc55d
+  linux_amd64: 7f589b7843646d3253cfc607b0169a416a0017125e5b602b5daa82dab7fc8796
+  linux_arm64: 2bb36c6d20e44524167470f658d6bf79dff452c6f2ca3470900d56c545f86724
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

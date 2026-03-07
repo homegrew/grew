@@ -1,0 +1,11 @@
+name: wordpresscom-studio
+version: 1.7.5,12263
+description: WordPress local development environment
+homepage: https://developer.wordpress.com/studio/
+url:
+  darwin_arm64: https://appscdn.wordpress.com/downloads/wordpress-com-studio/mac-silicon/v1.7.5/12263/update/studio-arm64-v1.7.5.zip
+sha256:
+  darwin_arm64: ef43feb13b38f47a215587cabb254bf3301ad52d346d75da40ea3ead511f78f2
+artifacts:
+  app:
+    - Studio.app

@@ -1,0 +1,21 @@
+name: go-air
+version: 1.64.5
+description: Live reload for Go apps
+homepage: https://github.com/air-verse/air
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-air/blobs/sha256:12f3bc2d4b5e5fdcbd76612520f2906ee79c4fb0f768ce29eb0d3147d8cd92c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-air/blobs/sha256:b28c28519a3700172e21c7f4d30990c30433a39a28bf2759b22f79197229fe9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-air/blobs/sha256:42c93ec8eeda78f5fa45f843478cbf42feaa3764656888dfccee773348e4a2c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-air/blobs/sha256:970f3b4df1c5a7bcd28eeab5f1e3f6f0ab1f412ebba43f253a082b0ec9ef9627
+sha256:
+  darwin_arm64: 12f3bc2d4b5e5fdcbd76612520f2906ee79c4fb0f768ce29eb0d3147d8cd92c6
+  darwin_amd64: b28c28519a3700172e21c7f4d30990c30433a39a28bf2759b22f79197229fe9b
+  linux_amd64: 42c93ec8eeda78f5fa45f843478cbf42feaa3764656888dfccee773348e4a2c2
+  linux_arm64: 970f3b4df1c5a7bcd28eeab5f1e3f6f0ab1f412ebba43f253a082b0ec9ef9627
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

@@ -1,0 +1,19 @@
+name: certigo
+version: 1.17.1
+description: Utility to examine and validate certificates in a variety of formats
+homepage: https://github.com/square/certigo
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/certigo/blobs/sha256:f8ac461d690d136c9732b38b3aed77b6ee45044facc3bff02c8c1ab10c9da38d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/certigo/blobs/sha256:af2deb051e563fb696a4d9eabbb2b048264d0039502f3b06497d374031205e9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/certigo/blobs/sha256:c6cd101ccf0fc12278a68a8c7de6fb9d0f24b7230bc9a4b81a5f5e642cc8f245
+  linux_arm64: https://ghcr.io/v2/homebrew/core/certigo/blobs/sha256:4386ccf3e4676d87da7bf027d5eadc56eb40bf7fe9bfd000643b442a14235b9f
+sha256:
+  darwin_arm64: f8ac461d690d136c9732b38b3aed77b6ee45044facc3bff02c8c1ab10c9da38d
+  darwin_amd64: af2deb051e563fb696a4d9eabbb2b048264d0039502f3b06497d374031205e9a
+  linux_amd64: c6cd101ccf0fc12278a68a8c7de6fb9d0f24b7230bc9a4b81a5f5e642cc8f245
+  linux_arm64: 4386ccf3e4676d87da7bf027d5eadc56eb40bf7fe9bfd000643b442a14235b9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

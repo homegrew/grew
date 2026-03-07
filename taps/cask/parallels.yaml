@@ -1,0 +1,11 @@
+name: parallels
+version: 26.2.2-57373
+description: Desktop virtualization software
+homepage: https://www.parallels.com/products/desktop/
+url:
+  darwin_arm64: https://download.parallels.com/desktop/v26/26.2.2-57373/ParallelsDesktop-26.2.2-57373.dmg
+sha256:
+  darwin_arm64: 42c30c3f317b451c367adc472e238773ca1f4ab3beae4ff74f5637fb3027c273
+artifacts:
+  app:
+    - Parallels Desktop.app

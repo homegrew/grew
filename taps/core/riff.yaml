@@ -1,0 +1,19 @@
+name: riff
+version: 3.6.1
+description: Diff filter highlighting which line parts have changed
+homepage: https://github.com/walles/riff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/riff/blobs/sha256:08f487befc18a19c17342e9981152de7c15d73014a99b2a3f414f071521b7b91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/riff/blobs/sha256:439db215e250db18856f7efe62bc33dea7be3e1f5bbf9be1bc377e799f5d6d5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/riff/blobs/sha256:51692f8697578dc0a6d169cdf0389103cf215289f71d46854bac396d465dd8f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/riff/blobs/sha256:e5920fc8b61db3bf10d058e65ec057d7838ef2b7cea135a0b7b857992bf40e1e
+sha256:
+  darwin_arm64: 08f487befc18a19c17342e9981152de7c15d73014a99b2a3f414f071521b7b91
+  darwin_amd64: 439db215e250db18856f7efe62bc33dea7be3e1f5bbf9be1bc377e799f5d6d5d
+  linux_amd64: 51692f8697578dc0a6d169cdf0389103cf215289f71d46854bac396d465dd8f2
+  linux_arm64: e5920fc8b61db3bf10d058e65ec057d7838ef2b7cea135a0b7b857992bf40e1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

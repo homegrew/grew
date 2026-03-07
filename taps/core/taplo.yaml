@@ -1,0 +1,19 @@
+name: taplo
+version: 0.10.0
+description: TOML toolkit written in Rust
+homepage: https://taplo.tamasfe.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taplo/blobs/sha256:d2f39a73bc659d10bcc88514690a0830b9585e2411e5f3341e10a27e96ca7f0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taplo/blobs/sha256:38160e4bd1c2389f0790068445938f0c223ca45c8e7ee91f0dcbe3bd82e6fd1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taplo/blobs/sha256:d598a281ccf6b7749d8e15dc2a506e471c06c6baa982969e712120704dc3899b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taplo/blobs/sha256:8f0c83c7dbb6db7edb0d040085531e82fc78f9f44c675a4a53078c3b265ec183
+sha256:
+  darwin_arm64: d2f39a73bc659d10bcc88514690a0830b9585e2411e5f3341e10a27e96ca7f0f
+  darwin_amd64: 38160e4bd1c2389f0790068445938f0c223ca45c8e7ee91f0dcbe3bd82e6fd1b
+  linux_amd64: d598a281ccf6b7749d8e15dc2a506e471c06c6baa982969e712120704dc3899b
+  linux_arm64: 8f0c83c7dbb6db7edb0d040085531e82fc78f9f44c675a4a53078c3b265ec183
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

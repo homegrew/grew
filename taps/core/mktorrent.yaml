@@ -1,0 +1,21 @@
+name: mktorrent
+version: 1.1
+description: Create BitTorrent metainfo files
+homepage: https://github.com/pobrn/mktorrent/wiki
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mktorrent/blobs/sha256:933acd62ccfd2b56d26d97b232f9dd96fb291c1efb60dd00a7f4b0e5e30fee71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mktorrent/blobs/sha256:b964d918040da1a86e2fa3b4557dd14ecca65eac0845d289c2722464b2eb12a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mktorrent/blobs/sha256:2d977a90d91e84d0064b6d2134a85454c500d2093afece3e1b1e6d393c091cac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mktorrent/blobs/sha256:6e292323aabc0ae62a74a890caab3d43e94c26692f9a6fe171329a2add01a7a2
+sha256:
+  darwin_arm64: 933acd62ccfd2b56d26d97b232f9dd96fb291c1efb60dd00a7f4b0e5e30fee71
+  darwin_amd64: b964d918040da1a86e2fa3b4557dd14ecca65eac0845d289c2722464b2eb12a3
+  linux_amd64: 2d977a90d91e84d0064b6d2134a85454c500d2093afece3e1b1e6d393c091cac
+  linux_arm64: 6e292323aabc0ae62a74a890caab3d43e94c26692f9a6fe171329a2add01a7a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

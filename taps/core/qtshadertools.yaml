@@ -1,0 +1,21 @@
+name: qtshadertools
+version: 6.10.2
+description: Provides tools for the cross-platform Qt shader pipeline
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND (Apache-2.0 AND MIT-Khronos-old) AND (BSD-3-Clause AND MIT-Khronos-old AND Apache-2.0 AND AML-glslang AND (GPL-3.0-or-later WITH Bison-exception-2.2)) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtshadertools/blobs/sha256:e1db09b4421d5214a83fcc970cadddcbdf0d843966545fec43031ca4370009ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtshadertools/blobs/sha256:2dbe32335c1c01a689a30c9f7835cefeee0f472d108d50430617fee7f43fce31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtshadertools/blobs/sha256:da3bea745e68694e12a27ce818c975847b67449a843587dba3fc8cd26b9b29b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtshadertools/blobs/sha256:18b69a55adb7c0c8309c8c0a7ace86ca20b49607173964eb06f83f8f16f9f427
+sha256:
+  darwin_arm64: e1db09b4421d5214a83fcc970cadddcbdf0d843966545fec43031ca4370009ed
+  darwin_amd64: 2dbe32335c1c01a689a30c9f7835cefeee0f472d108d50430617fee7f43fce31
+  linux_amd64: da3bea745e68694e12a27ce818c975847b67449a843587dba3fc8cd26b9b29b1
+  linux_arm64: 18b69a55adb7c0c8309c8c0a7ace86ca20b49607173964eb06f83f8f16f9f427
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

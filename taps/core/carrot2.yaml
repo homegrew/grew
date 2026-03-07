@@ -1,0 +1,21 @@
+name: carrot2
+version: 4.8.5
+description: Search results clustering engine
+homepage: https://search.carrot2.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carrot2/blobs/sha256:e3ebf558eca09889cb51eab971329ed53702e48822312c681813f2784c830e1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carrot2/blobs/sha256:c650b18f7294a033dd0da63691d2484df8d568e88cc3fb1d597871adbfbec7cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/carrot2/blobs/sha256:3a2e5e829cbc7f6e77d24f2a4716f7543aafc373671e1dc0affe4c1cac5a0d08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/carrot2/blobs/sha256:040336ac829a9b85f5740271dbd51a758d94463c90065f1b9fc8085445c33249
+sha256:
+  darwin_arm64: e3ebf558eca09889cb51eab971329ed53702e48822312c681813f2784c830e1d
+  darwin_amd64: c650b18f7294a033dd0da63691d2484df8d568e88cc3fb1d597871adbfbec7cb
+  linux_amd64: 3a2e5e829cbc7f6e77d24f2a4716f7543aafc373671e1dc0affe4c1cac5a0d08
+  linux_arm64: 040336ac829a9b85f5740271dbd51a758d94463c90065f1b9fc8085445c33249
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

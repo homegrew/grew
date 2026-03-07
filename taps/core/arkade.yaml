@@ -1,0 +1,19 @@
+name: arkade
+version: 0.11.86
+description: Open Source Kubernetes Marketplace
+homepage: https://blog.alexellis.io/kubernetes-marketplace-two-year-update/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arkade/blobs/sha256:b83d884f346caa1014008d67820b4efe323d8bec093f7cfc1a55f7bda823a030
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arkade/blobs/sha256:e74d0ea7fcdb34f7c8744694a4bf1dd54c992031217d197bed380be424416e34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arkade/blobs/sha256:352ba358bf535b787df1719d5c94bb23f937b80aa5cf6f4abc9b67249ff36812
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arkade/blobs/sha256:20558f3f0dafaa7cca09a8a7f18e1aab328c96a10206c62b12f5f4f1751a985e
+sha256:
+  darwin_arm64: b83d884f346caa1014008d67820b4efe323d8bec093f7cfc1a55f7bda823a030
+  darwin_amd64: e74d0ea7fcdb34f7c8744694a4bf1dd54c992031217d197bed380be424416e34
+  linux_amd64: 352ba358bf535b787df1719d5c94bb23f937b80aa5cf6f4abc9b67249ff36812
+  linux_arm64: 20558f3f0dafaa7cca09a8a7f18e1aab328c96a10206c62b12f5f4f1751a985e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

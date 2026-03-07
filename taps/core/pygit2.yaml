@@ -1,0 +1,22 @@
+name: pygit2
+version: 1.19.1
+description: Bindings to the libgit2 shared library
+homepage: https://github.com/libgit2/pygit2
+license: GPL-2.0-only WITH GCC-exception-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pygit2/blobs/sha256:15f26a039eaeb8cf8650eaec7fb59014823ed90e02c161b9b982683382499fe9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pygit2/blobs/sha256:095d41bf399bc7b46c6f531c6ffec33913b2dd70a42c08ac44d37b5b21df3581
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pygit2/blobs/sha256:76d50bbc5185231ce8bcb987b07afaa758c5f8af3dbc888315f3c4082fa325cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pygit2/blobs/sha256:3c02462e83c3919b1125f1e442b252ae3ab69f993dcd7ee82e8d6ca5347326b9
+sha256:
+  darwin_arm64: 15f26a039eaeb8cf8650eaec7fb59014823ed90e02c161b9b982683382499fe9
+  darwin_amd64: 095d41bf399bc7b46c6f531c6ffec33913b2dd70a42c08ac44d37b5b21df3581
+  linux_amd64: 76d50bbc5185231ce8bcb987b07afaa758c5f8af3dbc888315f3c4082fa325cb
+  linux_arm64: 3c02462e83c3919b1125f1e442b252ae3ab69f993dcd7ee82e8d6ca5347326b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cffi
+  - libgit2

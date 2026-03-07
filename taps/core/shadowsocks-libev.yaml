@@ -1,0 +1,25 @@
+name: shadowsocks-libev
+version: 3.3.6
+description: Libev port of shadowsocks
+homepage: https://github.com/shadowsocks/shadowsocks-libev
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shadowsocks-libev/blobs/sha256:a42fdc941a6684fc34969d13cfb8943ab85ec4759e6648969c568c08f91578f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shadowsocks-libev/blobs/sha256:790bc99c821cc3fd8b4a685e37ec40ef4a6c0f470911a43b1863db3af4773f81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shadowsocks-libev/blobs/sha256:e622c9cb22667b5b5b27358b753e6d6a987df4620f56ca811ee54c6505e8a573
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shadowsocks-libev/blobs/sha256:36ee4c22c4c47e0a887832c226ce0d422fd69133a648afdb718f651faeff05e6
+sha256:
+  darwin_arm64: a42fdc941a6684fc34969d13cfb8943ab85ec4759e6648969c568c08f91578f9
+  darwin_amd64: 790bc99c821cc3fd8b4a685e37ec40ef4a6c0f470911a43b1863db3af4773f81
+  linux_amd64: e622c9cb22667b5b5b27358b753e6d6a987df4620f56ca811ee54c6505e8a573
+  linux_arm64: 36ee4c22c4c47e0a887832c226ce0d422fd69133a648afdb718f651faeff05e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-ares
+  - libev
+  - libsodium
+  - mbedtls@3
+  - pcre2

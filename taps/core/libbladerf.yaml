@@ -1,0 +1,22 @@
+name: libbladerf
+version: 2025.10
+description: USB 3.0 Superspeed Software Defined Radio Source
+homepage: https://nuand.com/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libbladerf/blobs/sha256:febcfae38d459de288b75923c21e2364c439f2eb550c8bebd881bdaa4d1ef74b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libbladerf/blobs/sha256:5142e90fbc653861b14ab374bfb6fffefbc1dbe832b0531efb5ab9cafa36cecb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbladerf/blobs/sha256:2eacf634e18793576da2d977db15e0e433beeff5bdf492489008a03eae22e990
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbladerf/blobs/sha256:1f14a8ae992f6d8ab74495ba8065a94d0e88eddaa20a2aedbb30e4c57afa5c81
+sha256:
+  darwin_arm64: febcfae38d459de288b75923c21e2364c439f2eb550c8bebd881bdaa4d1ef74b
+  darwin_amd64: 5142e90fbc653861b14ab374bfb6fffefbc1dbe832b0531efb5ab9cafa36cecb
+  linux_amd64: 2eacf634e18793576da2d977db15e0e433beeff5bdf492489008a03eae22e990
+  linux_arm64: 1f14a8ae992f6d8ab74495ba8065a94d0e88eddaa20a2aedbb30e4c57afa5c81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb
+  - ncurses

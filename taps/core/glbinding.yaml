@@ -1,0 +1,19 @@
+name: glbinding
+version: 3.5.0
+description: C++ binding for the OpenGL API
+homepage: https://glbinding.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glbinding/blobs/sha256:762f8e6516a5a5738ccf12cd97375005bb6f740400b95d9716abee36a9b824d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glbinding/blobs/sha256:63bf53958290dccffdb8ab55ceaf14491f10f2d8ab8e7225e56d3fa7f79f3c36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glbinding/blobs/sha256:add170cb3bec049265b779eb0bb602dd60d83d011887efdb21c8d47406a75c78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glbinding/blobs/sha256:0d4419c9275044ca9857a4208c2777c100aa6288e7b14febf2d8beab924233a1
+sha256:
+  darwin_arm64: 762f8e6516a5a5738ccf12cd97375005bb6f740400b95d9716abee36a9b824d9
+  darwin_amd64: 63bf53958290dccffdb8ab55ceaf14491f10f2d8ab8e7225e56d3fa7f79f3c36
+  linux_amd64: add170cb3bec049265b779eb0bb602dd60d83d011887efdb21c8d47406a75c78
+  linux_arm64: 0d4419c9275044ca9857a4208c2777c100aa6288e7b14febf2d8beab924233a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

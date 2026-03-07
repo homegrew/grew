@@ -1,0 +1,19 @@
+name: zxing-cpp
+version: 3.0.2
+description: Multi-format barcode image processing library written in C++
+homepage: https://github.com/zxing-cpp/zxing-cpp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zxing-cpp/blobs/sha256:1957bd2c1cd602a47a0e9458252fb997013ed247a40122dd3bb6f88574cf3977
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zxing-cpp/blobs/sha256:53c94ba2fdd891d609cee8390895289e1977a524edcea5f02cffde347f85b8e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zxing-cpp/blobs/sha256:956f8e6d040fb047032c2ed39956947b40ceeaecd7f6f21b561c14677cbd64fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zxing-cpp/blobs/sha256:ee67c2111a969786630560ea7f1f19766c487c2ac80a6000edd14a3c9b09eb37
+sha256:
+  darwin_arm64: 1957bd2c1cd602a47a0e9458252fb997013ed247a40122dd3bb6f88574cf3977
+  darwin_amd64: 53c94ba2fdd891d609cee8390895289e1977a524edcea5f02cffde347f85b8e5
+  linux_amd64: 956f8e6d040fb047032c2ed39956947b40ceeaecd7f6f21b561c14677cbd64fa
+  linux_arm64: ee67c2111a969786630560ea7f1f19766c487c2ac80a6000edd14a3c9b09eb37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

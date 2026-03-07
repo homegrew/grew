@@ -1,0 +1,19 @@
+name: ssh3
+version: 0.1.7
+description: Faster and richer secure shell using HTTP/3
+homepage: https://github.com/francoismichel/ssh3
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssh3/blobs/sha256:f4c9c05fd2c4cbaa2a0d9bfafbc7e0a8b7b2bd4e40cca873bf8d6154d1502520
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssh3/blobs/sha256:b59edc9f47796dcbf9009dd3e862e5558e21cfe78b8260cb0a6e5d519632e865
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssh3/blobs/sha256:89a55c20f0e83d74d05032b6e832bcd761d6377a226183e99d4102c1ad66935a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssh3/blobs/sha256:f5d55521952438ac8b31391476252c88f70bb6d59e3d978c86c2287a9bf46825
+sha256:
+  darwin_arm64: f4c9c05fd2c4cbaa2a0d9bfafbc7e0a8b7b2bd4e40cca873bf8d6154d1502520
+  darwin_amd64: b59edc9f47796dcbf9009dd3e862e5558e21cfe78b8260cb0a6e5d519632e865
+  linux_amd64: 89a55c20f0e83d74d05032b6e832bcd761d6377a226183e99d4102c1ad66935a
+  linux_arm64: f5d55521952438ac8b31391476252c88f70bb6d59e3d978c86c2287a9bf46825
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

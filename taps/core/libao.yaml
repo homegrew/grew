@@ -1,0 +1,19 @@
+name: libao
+version: 1.2.2
+description: Cross-platform Audio Library
+homepage: https://www.xiph.org/ao/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libao/blobs/sha256:e5015eef806ec149f9ad6e502d1aed412e9746da6f5ba2fa23947a5e58641d0b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libao/blobs/sha256:f6cb690857cde255ac71d09df367afc6de502bd9e7f27081e55116d9e174a075
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libao/blobs/sha256:bdb709d63e9de2e2dc947887fdc3a383b626d24c200cf80ce58eeaffa5ff7eb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libao/blobs/sha256:4afd643a9b5267277711e6d28a42d52f0bf7968d3973d3e325b4681a0b966929
+sha256:
+  darwin_arm64: e5015eef806ec149f9ad6e502d1aed412e9746da6f5ba2fa23947a5e58641d0b
+  darwin_amd64: f6cb690857cde255ac71d09df367afc6de502bd9e7f27081e55116d9e174a075
+  linux_amd64: bdb709d63e9de2e2dc947887fdc3a383b626d24c200cf80ce58eeaffa5ff7eb2
+  linux_arm64: 4afd643a9b5267277711e6d28a42d52f0bf7968d3973d3e325b4681a0b966929
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

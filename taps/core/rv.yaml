@@ -1,0 +1,19 @@
+name: rv
+version: 0.5.3
+description: Ruby version manager
+homepage: https://github.com/spinel-coop/rv
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rv/blobs/sha256:fdd6f3262596f5c3215661ae6815917e042bc9cbf45b3a356242fc33176e87d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rv/blobs/sha256:cac1a53b7e1f5cd643654a64edf103d43d689f95734ea738819917537c3c179c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rv/blobs/sha256:7d99e0354807d853e7aef8a07a4550453807857281387f1a3e7c23aa41b58650
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rv/blobs/sha256:78d04477826ae8a617dbc865044664fce68299308b418162b61a4cd61dc8dd2c
+sha256:
+  darwin_arm64: fdd6f3262596f5c3215661ae6815917e042bc9cbf45b3a356242fc33176e87d4
+  darwin_amd64: cac1a53b7e1f5cd643654a64edf103d43d689f95734ea738819917537c3c179c
+  linux_amd64: 7d99e0354807d853e7aef8a07a4550453807857281387f1a3e7c23aa41b58650
+  linux_arm64: 78d04477826ae8a617dbc865044664fce68299308b418162b61a4cd61dc8dd2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

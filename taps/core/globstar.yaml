@@ -1,0 +1,19 @@
+name: globstar
+version: 0.7.0
+description: Static analysis toolkit for writing and running code checkers
+homepage: https://globstar.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/globstar/blobs/sha256:0ba72c642f021e3bd727a487cee4410a86055019c9efb0b8c010c68f723165ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/globstar/blobs/sha256:997d61fe0a81bb3b10c7ce36499ce54e8c15b07c83ec04162f34d11899eeb551
+  linux_amd64: https://ghcr.io/v2/homebrew/core/globstar/blobs/sha256:a70f87f82041dc137573423d33bd685e47cf37f18da8c969208c9eabd7ad62cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/globstar/blobs/sha256:f8e25ef07cfe4dedf814d9580009b44875b715f5ea61a06410809ddeeb4c5318
+sha256:
+  darwin_arm64: 0ba72c642f021e3bd727a487cee4410a86055019c9efb0b8c010c68f723165ee
+  darwin_amd64: 997d61fe0a81bb3b10c7ce36499ce54e8c15b07c83ec04162f34d11899eeb551
+  linux_amd64: a70f87f82041dc137573423d33bd685e47cf37f18da8c969208c9eabd7ad62cd
+  linux_arm64: f8e25ef07cfe4dedf814d9580009b44875b715f5ea61a06410809ddeeb4c5318
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

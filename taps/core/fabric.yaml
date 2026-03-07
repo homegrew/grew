@@ -1,0 +1,23 @@
+name: fabric
+version: 3.2.2
+description: Library and command-line tool for SSH
+homepage: https://www.fabfile.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fabric/blobs/sha256:f9b2acc01c39a13558f594a1d85306bed24c5a236c60d81745e43e86b3227081
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fabric/blobs/sha256:658ddf7e201048c628e828460eba63ec816b2e9c536717c7c444cf0ac65de454
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fabric/blobs/sha256:00aa191e962828cdc383da9a8ef43bfc98c29e0737b2bfb89a26ca3fd24b12a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fabric/blobs/sha256:a8982af48a0f5c147505e4581ea9771c5a98e2f89eca310b501d1df54012e92a
+sha256:
+  darwin_arm64: f9b2acc01c39a13558f594a1d85306bed24c5a236c60d81745e43e86b3227081
+  darwin_amd64: 658ddf7e201048c628e828460eba63ec816b2e9c536717c7c444cf0ac65de454
+  linux_amd64: 00aa191e962828cdc383da9a8ef43bfc98c29e0737b2bfb89a26ca3fd24b12a8
+  linux_arm64: a8982af48a0f5c147505e4581ea9771c5a98e2f89eca310b501d1df54012e92a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libsodium
+  - python@3.14

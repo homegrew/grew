@@ -1,0 +1,19 @@
+name: bore-cli
+version: 0.6.0
+description: Modern, simple TCP tunnel in Rust that exposes local ports to a remote server
+homepage: https://github.com/ekzhang/bore
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bore-cli/blobs/sha256:10b6d41535558ab9df7926e6275f540ecf9774c443544cc5095af94f610729a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bore-cli/blobs/sha256:b722a8b975830007a221cdbff215e3ff127d80f30a9a734fc1a696c1843d0d65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bore-cli/blobs/sha256:642cb726161e0fa78e77642108e14fa502287262a7479998dccce2b042e2c2f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bore-cli/blobs/sha256:d9169a3f8a0c759aa78466c1740cca29e9848cc95c1b4621cf6aa47bdf810e4d
+sha256:
+  darwin_arm64: 10b6d41535558ab9df7926e6275f540ecf9774c443544cc5095af94f610729a5
+  darwin_amd64: b722a8b975830007a221cdbff215e3ff127d80f30a9a734fc1a696c1843d0d65
+  linux_amd64: 642cb726161e0fa78e77642108e14fa502287262a7479998dccce2b042e2c2f5
+  linux_arm64: d9169a3f8a0c759aa78466c1740cca29e9848cc95c1b4621cf6aa47bdf810e4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

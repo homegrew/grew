@@ -1,0 +1,19 @@
+name: tproxy
+version: 0.9.2
+description: CLI tool to proxy and analyze TCP connections
+homepage: https://github.com/kevwan/tproxy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tproxy/blobs/sha256:7ab25a051fc746628c60b3112afe09dd6acd27da5e6abdba9c899bcf726bea0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tproxy/blobs/sha256:14fc2adcdc0bc52e12e3a3a76abd49b182ff8a71efe1e87bb8cd632cfc6096a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tproxy/blobs/sha256:aa2b5079962182fcbf0d691a8f57d5271a9a6daacf256b88e984b42938cbcc33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tproxy/blobs/sha256:1d1ba9e470cf6a647f83c94cb2a4d34c27d2463d2e94993a248b3a2cd3f57537
+sha256:
+  darwin_arm64: 7ab25a051fc746628c60b3112afe09dd6acd27da5e6abdba9c899bcf726bea0d
+  darwin_amd64: 14fc2adcdc0bc52e12e3a3a76abd49b182ff8a71efe1e87bb8cd632cfc6096a3
+  linux_amd64: aa2b5079962182fcbf0d691a8f57d5271a9a6daacf256b88e984b42938cbcc33
+  linux_arm64: 1d1ba9e470cf6a647f83c94cb2a4d34c27d2463d2e94993a248b3a2cd3f57537
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

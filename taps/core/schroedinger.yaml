@@ -1,0 +1,21 @@
+name: schroedinger
+version: 1.0.11
+description: High-speed implementation of the Dirac codec
+homepage: https://launchpad.net/schroedinger
+license: MPL-1.1 OR LGPL-2.0-only OR GPL-2.0-only OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/schroedinger/blobs/sha256:802187a5994506ae665bb01bb4457ec3a3f7f41241f6d1734f59d28c02c0485d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/schroedinger/blobs/sha256:a4eeeabcf00b3a73ae1efd28b5f00b3a92d447dce55d92ffc2d6a88d15e330ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/schroedinger/blobs/sha256:32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/schroedinger/blobs/sha256:2f2674c5ae2910ea63da7347b73cbb12f45f1531babac60af4ef50d82a1f79cb
+sha256:
+  darwin_arm64: 802187a5994506ae665bb01bb4457ec3a3f7f41241f6d1734f59d28c02c0485d
+  darwin_amd64: a4eeeabcf00b3a73ae1efd28b5f00b3a92d447dce55d92ffc2d6a88d15e330ce
+  linux_amd64: 32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa
+  linux_arm64: 2f2674c5ae2910ea63da7347b73cbb12f45f1531babac60af4ef50d82a1f79cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - orc

@@ -1,0 +1,19 @@
+name: two-lame
+version: 0.4.0
+description: Optimized MPEG Audio Layer 2 (MP2) encoder
+homepage: https://www.twolame.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/two-lame/blobs/sha256:3d0622b14c8204b38bc567923186649071882fca6ef5e8315d049958c07ca5ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/two-lame/blobs/sha256:eba83a95de7443f34b27409f9bbb2d85311020f71f41d6611f430eafad9fa792
+  linux_amd64: https://ghcr.io/v2/homebrew/core/two-lame/blobs/sha256:0a0261525798a434c29f332eaa62ed01cf06c4bb2bdf76a64cdf2e6a46fd1b0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/two-lame/blobs/sha256:7878b98ffa5f6ca3ab73a54876e159bc42fa4bbfb9d73a5d7fa60af97d85812a
+sha256:
+  darwin_arm64: 3d0622b14c8204b38bc567923186649071882fca6ef5e8315d049958c07ca5ed
+  darwin_amd64: eba83a95de7443f34b27409f9bbb2d85311020f71f41d6611f430eafad9fa792
+  linux_amd64: 0a0261525798a434c29f332eaa62ed01cf06c4bb2bdf76a64cdf2e6a46fd1b0a
+  linux_arm64: 7878b98ffa5f6ca3ab73a54876e159bc42fa4bbfb9d73a5d7fa60af97d85812a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

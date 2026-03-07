@@ -1,0 +1,21 @@
+name: pyinstaller
+version: 6.19.0
+description: Bundle a Python application and all its dependencies
+homepage: https://pyinstaller.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyinstaller/blobs/sha256:44a696fd78cacec38fa8fecaea843f65bdb3e03c3ddfaaefcc0c0cd0c72ab872
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyinstaller/blobs/sha256:cf54dbf3b85768d852b5ab5a8c5bce0a33117b757fa7a59fa9233e4356fcd834
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyinstaller/blobs/sha256:ce89a7bde964bd597e0bd93fc18bc39f4659f813c711ffd329f0a4999618c18e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyinstaller/blobs/sha256:da47ef2ff3cf07b031384bbc51ae8dad8267bea9674afea3905e1f721bac71dc
+sha256:
+  darwin_arm64: 44a696fd78cacec38fa8fecaea843f65bdb3e03c3ddfaaefcc0c0cd0c72ab872
+  darwin_amd64: cf54dbf3b85768d852b5ab5a8c5bce0a33117b757fa7a59fa9233e4356fcd834
+  linux_amd64: ce89a7bde964bd597e0bd93fc18bc39f4659f813c711ffd329f0a4999618c18e
+  linux_arm64: da47ef2ff3cf07b031384bbc51ae8dad8267bea9674afea3905e1f721bac71dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

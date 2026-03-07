@@ -1,0 +1,22 @@
+name: mpi4py
+version: 4.1.1
+description: Python bindings for MPI
+homepage: https://mpi4py.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpi4py/blobs/sha256:90e4d286c7363f44451bef72bf75eb139d55454c35bb240eaf37d49c6649ab0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpi4py/blobs/sha256:6fe3a1ea44cc66cd2ab36531d66848f9f0e363591b14c272864d914c1e9422ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpi4py/blobs/sha256:749d4547c856b8cb35bd70869b15deffef02f4e42f9915792715da5338b3deb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpi4py/blobs/sha256:badce9774ee0885b972ce95082c2dc904d8f7113baae29231a09a884cabbcad2
+sha256:
+  darwin_arm64: 90e4d286c7363f44451bef72bf75eb139d55454c35bb240eaf37d49c6649ab0d
+  darwin_amd64: 6fe3a1ea44cc66cd2ab36531d66848f9f0e363591b14c272864d914c1e9422ba
+  linux_amd64: 749d4547c856b8cb35bd70869b15deffef02f4e42f9915792715da5338b3deb8
+  linux_arm64: badce9774ee0885b972ce95082c2dc904d8f7113baae29231a09a884cabbcad2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - python@3.14

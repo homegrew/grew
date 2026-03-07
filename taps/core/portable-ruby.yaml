@@ -1,0 +1,16 @@
+name: portable-ruby
+version: 4.0.1
+description: Powerful, clean, object-oriented scripting language
+homepage: https://www.ruby-lang.org/
+license: Ruby
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:e5868bc36f93b2d9caf5457ddaa0e790637c0962d84bae078f7200c4092c936e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:f2be97b1a8197bed52727448b6a6c5aae99b81f04a6dc40c5e0a0b4f86686573
+sha256:
+  linux_amd64: e5868bc36f93b2d9caf5457ddaa0e790637c0962d84bae078f7200c4092c936e
+  linux_arm64: f2be97b1a8197bed52727448b6a6c5aae99b81f04a6dc40c5e0a0b4f86686573
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

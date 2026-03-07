@@ -1,0 +1,11 @@
+name: codeql
+version: 2.24.3
+description: Semantic code analysis engine
+homepage: https://codeql.github.com/
+url:
+  darwin_arm64: https://github.com/github/codeql-cli-binaries/releases/download/v2.24.3/codeql-osx64.zip
+sha256:
+  darwin_arm64: 663ccd69db762f64b8e431ddad798c50d6fd844ae28ab631a89a7545f0077f90
+artifacts:
+  bin:
+    - codeql

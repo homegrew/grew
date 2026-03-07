@@ -1,0 +1,19 @@
+name: findent
+version: 4.3.6
+description: Indent and beautify Fortran sources and generate dependency information
+homepage: https://www.ratrabbit.nl/ratrabbit/findent/index.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/findent/blobs/sha256:7675b6946e4f800633e9453086e0b74087328099ff1b0da2c563727f057d3b5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/findent/blobs/sha256:a87271f8c35ab27b430e7b9098478844f1b7b108d35dc139a1a1c9d4a2f87f0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/findent/blobs/sha256:81c96ff0ab4ed60977f2dc5f33c452238560311068d3e841becf7e5e13764e8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/findent/blobs/sha256:ad9bd5159bcc677061bee187513b011454123ec3070d82e1106b63df17fce442
+sha256:
+  darwin_arm64: 7675b6946e4f800633e9453086e0b74087328099ff1b0da2c563727f057d3b5f
+  darwin_amd64: a87271f8c35ab27b430e7b9098478844f1b7b108d35dc139a1a1c9d4a2f87f0e
+  linux_amd64: 81c96ff0ab4ed60977f2dc5f33c452238560311068d3e841becf7e5e13764e8b
+  linux_arm64: ad9bd5159bcc677061bee187513b011454123ec3070d82e1106b63df17fce442
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

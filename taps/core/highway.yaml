@@ -1,0 +1,19 @@
+name: highway
+version: 1.3.0
+description: Performance-portable, length-agnostic SIMD with runtime dispatch
+homepage: https://github.com/google/highway
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/highway/blobs/sha256:05e894730e54a6fad0d82afc54683f1b0adb57030df6267b9bc5b9158fbdc8eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/highway/blobs/sha256:da1f77ecabc34ef77c51fc88b93822d97c71a2194e01718dbb0b022adcc65f18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/highway/blobs/sha256:7e2f815b1622ec617780ff5b796c16c97dbe0b7e148f428d329f49a9ec6bc72f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/highway/blobs/sha256:4608e3689ddc33b32d0328c2618eaafa332985bbea7ef32b211c680a15990be1
+sha256:
+  darwin_arm64: 05e894730e54a6fad0d82afc54683f1b0adb57030df6267b9bc5b9158fbdc8eb
+  darwin_amd64: da1f77ecabc34ef77c51fc88b93822d97c71a2194e01718dbb0b022adcc65f18
+  linux_amd64: 7e2f815b1622ec617780ff5b796c16c97dbe0b7e148f428d329f49a9ec6bc72f
+  linux_arm64: 4608e3689ddc33b32d0328c2618eaafa332985bbea7ef32b211c680a15990be1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: rainfrog
+version: 0.3.17
+description: Database management TUI for PostgreSQL/MySQL/SQLite
+homepage: https://github.com/achristmascarl/rainfrog
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rainfrog/blobs/sha256:e01b7a702363c34e11aabd4b0f5ec1c7b69d2eb4c1820c52f4e4cd7c23eba00d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rainfrog/blobs/sha256:983d09b1eb5d42a5ed2a5d74985d9776bada033fa3dd0750f4d7af41ccc74a2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rainfrog/blobs/sha256:f8a5c526f37faefd7839302f5668972e7419ff279a6433503a92ebe53adb443a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rainfrog/blobs/sha256:5ea51f267273d3db5a2a85a46d19a2c9593820fbb88ca445a6e62327301aae6b
+sha256:
+  darwin_arm64: e01b7a702363c34e11aabd4b0f5ec1c7b69d2eb4c1820c52f4e4cd7c23eba00d
+  darwin_amd64: 983d09b1eb5d42a5ed2a5d74985d9776bada033fa3dd0750f4d7af41ccc74a2f
+  linux_amd64: f8a5c526f37faefd7839302f5668972e7419ff279a6433503a92ebe53adb443a
+  linux_arm64: 5ea51f267273d3db5a2a85a46d19a2c9593820fbb88ca445a6e62327301aae6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

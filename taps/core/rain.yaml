@@ -1,0 +1,19 @@
+name: rain
+version: 1.24.3
+description: Command-line tool for working with AWS CloudFormation
+homepage: https://github.com/aws-cloudformation/rain
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rain/blobs/sha256:217dc323f8bc7e9b9aa6c25bcca31c5330a40f4c32a1ee39c0fe80c833d45b56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rain/blobs/sha256:8614c6ffc8fda0f6bc503b52b1e6f92b2539e6a884603bc20c16dff724ea3a26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rain/blobs/sha256:afa8e98cc7e27b32e63ec2f4263b07f642ceffe585577451ca29cf1c3bf794a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rain/blobs/sha256:38326eef10def213333f7d7cda09ba8da0067cd44e8f2fa1d0b077098aa54b41
+sha256:
+  darwin_arm64: 217dc323f8bc7e9b9aa6c25bcca31c5330a40f4c32a1ee39c0fe80c833d45b56
+  darwin_amd64: 8614c6ffc8fda0f6bc503b52b1e6f92b2539e6a884603bc20c16dff724ea3a26
+  linux_amd64: afa8e98cc7e27b32e63ec2f4263b07f642ceffe585577451ca29cf1c3bf794a5
+  linux_arm64: 38326eef10def213333f7d7cda09ba8da0067cd44e8f2fa1d0b077098aa54b41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

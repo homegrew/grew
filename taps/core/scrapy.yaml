@@ -1,0 +1,23 @@
+name: scrapy
+version: 2.14.1
+description: "Web crawling & scraping framework"
+homepage: https://scrapy.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scrapy/blobs/sha256:adf60e63466d69c7ecbdaa039ec52db39ca53ecc2bf038ebd34837c3428a1ec7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scrapy/blobs/sha256:39666b581cf3aa60fb7e421b8bff677a317cd0399fbf717b4a128e850e41a98e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scrapy/blobs/sha256:eefe161b06cb8459e9b7ab06e2eb3c61d5ccc65d36739bc6aa61960fdf567580
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scrapy/blobs/sha256:a7b66503f6eaf0be160b6c357c68fad6b67babacac3fc5f16c1515ba1dea4242
+sha256:
+  darwin_arm64: adf60e63466d69c7ecbdaa039ec52db39ca53ecc2bf038ebd34837c3428a1ec7
+  darwin_amd64: 39666b581cf3aa60fb7e421b8bff677a317cd0399fbf717b4a128e850e41a98e
+  linux_amd64: eefe161b06cb8459e9b7ab06e2eb3c61d5ccc65d36739bc6aa61960fdf567580
+  linux_arm64: a7b66503f6eaf0be160b6c357c68fad6b67babacac3fc5f16c1515ba1dea4242
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - python@3.14

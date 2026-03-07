@@ -1,0 +1,30 @@
+name: micromamba
+version: 2.5.0
+description: Fast Cross-Platform Package Manager
+homepage: https://github.com/mamba-org/mamba
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/micromamba/blobs/sha256:30f343a91fdde9847dfb26f55ce65d0bae331865265f662e99ff67b3d3ab4336
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/micromamba/blobs/sha256:4163d97f45febba38ecf475e6809d829d244f1244537901f08cd071689ab8acf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/micromamba/blobs/sha256:98a97c5555f0d139863d82e15cf3d3427ad4e1287a2614ed4ef7f2eacce73dea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/micromamba/blobs/sha256:c7fa0224be7bd8b246d441283ab6f4ca56d187df590c7a7041b971c53ee7688f
+sha256:
+  darwin_arm64: 30f343a91fdde9847dfb26f55ce65d0bae331865265f662e99ff67b3d3ab4336
+  darwin_amd64: 4163d97f45febba38ecf475e6809d829d244f1244537901f08cd071689ab8acf
+  linux_amd64: 98a97c5555f0d139863d82e15cf3d3427ad4e1287a2614ed4ef7f2eacce73dea
+  linux_arm64: c7fa0224be7bd8b246d441283ab6f4ca56d187df590c7a7041b971c53ee7688f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - libarchive
+  - libsolv
+  - lz4
+  - openssl@3
+  - reproc
+  - simdjson
+  - xz
+  - yaml-cpp
+  - zstd

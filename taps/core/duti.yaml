@@ -1,0 +1,15 @@
+name: duti
+version: 1.5.4
+description: Select default apps for documents and URL schemes on macOS
+homepage: https://github.com/moretension/duti/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duti/blobs/sha256:0682c28b17ef7f44de34a1fd7a6d3eba5b40b8428f78c18462619386bd564cb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duti/blobs/sha256:53e88a9b0bb7c477056523e4c90920e0ba1bf5885a6e573722c0bd904586d23b
+sha256:
+  darwin_arm64: 0682c28b17ef7f44de34a1fd7a6d3eba5b40b8428f78c18462619386bd564cb2
+  darwin_amd64: 53e88a9b0bb7c477056523e4c90920e0ba1bf5885a6e573722c0bd904586d23b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

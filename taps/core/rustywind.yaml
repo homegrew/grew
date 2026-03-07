@@ -1,0 +1,19 @@
+name: rustywind
+version: 0.24.3
+description: CLI for organizing Tailwind CSS classes
+homepage: https://github.com/avencera/rustywind
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustywind/blobs/sha256:8f6e9a477a66a134a75d813ce06471c85f5bbc114d56bd8a554a9ac13fe11544
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustywind/blobs/sha256:a7d1cce25f5053ab0f069c4cebf50f590eb4664be89545ffab5a9c72660240c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustywind/blobs/sha256:2421d6c93d562c17fd6f1704b3775b26e34e6b7f9aa98c21a20b138efdb63870
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustywind/blobs/sha256:d7b5399f8ded336f4fa1756c9a0d17a26bb52ee8b5da16bc06fcabdcb2e8f838
+sha256:
+  darwin_arm64: 8f6e9a477a66a134a75d813ce06471c85f5bbc114d56bd8a554a9ac13fe11544
+  darwin_amd64: a7d1cce25f5053ab0f069c4cebf50f590eb4664be89545ffab5a9c72660240c6
+  linux_amd64: 2421d6c93d562c17fd6f1704b3775b26e34e6b7f9aa98c21a20b138efdb63870
+  linux_arm64: d7b5399f8ded336f4fa1756c9a0d17a26bb52ee8b5da16bc06fcabdcb2e8f838
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

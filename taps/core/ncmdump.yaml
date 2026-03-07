@@ -1,0 +1,21 @@
+name: ncmdump
+version: 1.5.1
+description: Convert Netease Cloud Music ncm files to mp3/flac files
+homepage: https://github.com/taurusxin/ncmdump
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncmdump/blobs/sha256:99795c0e507a0a64b449c2688217ce0de2831260055765dbe37f56669c1ff9c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncmdump/blobs/sha256:ea72a6147d57e098312ea81119a4dd08b12464241db780a2ebaa0e7876c20189
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncmdump/blobs/sha256:6c4e754f69b305837012bc328cef7db9834483cf849a2a12c3d6a8f1e122636b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncmdump/blobs/sha256:f95e343c040760559382f6cb2b8f7bf9199cb14be12b0e72fda4538dd605c2dd
+sha256:
+  darwin_arm64: 99795c0e507a0a64b449c2688217ce0de2831260055765dbe37f56669c1ff9c7
+  darwin_amd64: ea72a6147d57e098312ea81119a4dd08b12464241db780a2ebaa0e7876c20189
+  linux_amd64: 6c4e754f69b305837012bc328cef7db9834483cf849a2a12c3d6a8f1e122636b
+  linux_arm64: f95e343c040760559382f6cb2b8f7bf9199cb14be12b0e72fda4538dd605c2dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - taglib

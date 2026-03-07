@@ -1,0 +1,19 @@
+name: libetpan
+version: 1.9.4
+description: Portable mail library handling several protocols
+homepage: https://www.etpan.org/libetpan.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libetpan/blobs/sha256:2f2bc6b0e25e04a695cbfb726a3cfcf699098d8bcb3f65341ce73bc7fe5ac2e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libetpan/blobs/sha256:6c780a96c2675aeb1dc3130c91a46f75e673e12ef3cc8a381d6973496a3ba361
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libetpan/blobs/sha256:cf8c5f3550de87ef79a8037cba4778e4d148581c4ef4b28353a3eb80cad9aa61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libetpan/blobs/sha256:793b454d15058dc0ba62741b7e094e27f9f311bcd56ec7fed2e197011b54eb6b
+sha256:
+  darwin_arm64: 2f2bc6b0e25e04a695cbfb726a3cfcf699098d8bcb3f65341ce73bc7fe5ac2e6
+  darwin_amd64: 6c780a96c2675aeb1dc3130c91a46f75e673e12ef3cc8a381d6973496a3ba361
+  linux_amd64: cf8c5f3550de87ef79a8037cba4778e4d148581c4ef4b28353a3eb80cad9aa61
+  linux_arm64: 793b454d15058dc0ba62741b7e094e27f9f311bcd56ec7fed2e197011b54eb6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: nftables
+version: 1.1.6
+description: Netfilter tables userspace tools
+homepage: https://netfilter.org/projects/nftables/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nftables/blobs/sha256:02da0add39259afda8f58278a408984fee95b27b711f281e8cfbd6dcbffeec27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nftables/blobs/sha256:58f4138191485285a528a4c2e5648dbe07fab4d2769d545f7c2b0fe96e1ff6e4
+sha256:
+  linux_amd64: 02da0add39259afda8f58278a408984fee95b27b711f281e8cfbd6dcbffeec27
+  linux_arm64: 58f4138191485285a528a4c2e5648dbe07fab4d2769d545f7c2b0fe96e1ff6e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - jansson
+  - libedit
+  - libmnl
+  - libnftnl
+  - ncurses
+  - readline

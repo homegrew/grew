@@ -1,0 +1,22 @@
+name: qtserialbus
+version: 6.10.2
+description: Provides access to serial industrial bus interfaces
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtserialbus/blobs/sha256:25ff906e3b32b6a31d9c41e529adf29df0f7b7abd6b81742e77a0315227b9962
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtserialbus/blobs/sha256:3c6c0db4d3fb4aeed022aa9e8a5c5432242064d5611ce987f25acd30f9d27631
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtserialbus/blobs/sha256:a33235a308a6d116a502a9476f70342b4ee41233b8425b13811e4e96f5e31818
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtserialbus/blobs/sha256:7d5caacca1e6ee9a5d741952a76020c2613e5fa80e60720ae125ddd80bef1de0
+sha256:
+  darwin_arm64: 25ff906e3b32b6a31d9c41e529adf29df0f7b7abd6b81742e77a0315227b9962
+  darwin_amd64: 3c6c0db4d3fb4aeed022aa9e8a5c5432242064d5611ce987f25acd30f9d27631
+  linux_amd64: a33235a308a6d116a502a9476f70342b4ee41233b8425b13811e4e96f5e31818
+  linux_arm64: 7d5caacca1e6ee9a5d741952a76020c2613e5fa80e60720ae125ddd80bef1de0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtserialport

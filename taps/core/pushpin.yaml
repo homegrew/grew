@@ -1,0 +1,25 @@
+name: pushpin
+version: 1.41.0
+description: Reverse proxy for realtime web services
+homepage: https://pushpin.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pushpin/blobs/sha256:9cb6d39776602c4d4169a89d281ae69733646412b8fbbba9b9a99344ba7b31a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pushpin/blobs/sha256:0be6e6bb46c5d8b38368b3d2719bff619c3c68ceca932e79b3961c3825b635a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pushpin/blobs/sha256:9b598f60bcaf636f79032f8e3d91544a495109746f7d02c7fde223e5befc4768
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pushpin/blobs/sha256:9fe7194d3f79941769c3b67d92ddae001ed7a5eb4bbcf50dd976729ab3c964fc
+sha256:
+  darwin_arm64: 9cb6d39776602c4d4169a89d281ae69733646412b8fbbba9b9a99344ba7b31a4
+  darwin_amd64: 0be6e6bb46c5d8b38368b3d2719bff619c3c68ceca932e79b3961c3825b635a5
+  linux_amd64: 9b598f60bcaf636f79032f8e3d91544a495109746f7d02c7fde223e5befc4768
+  linux_arm64: 9fe7194d3f79941769c3b67d92ddae001ed7a5eb4bbcf50dd976729ab3c964fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - python@3.14
+  - qtbase
+  - zeromq
+  - zurl

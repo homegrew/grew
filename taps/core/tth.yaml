@@ -1,0 +1,19 @@
+name: tth
+version: 4.16
+description: TeX/LaTeX to HTML converter
+homepage: http://silas.psfc.mit.edu/tth/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tth/blobs/sha256:78e1ec7d5be8797a77a217fcc2554a1449311cd638fba7ef1f3c9a706c50f027
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tth/blobs/sha256:567e126bb0a4f62da3051a005a9490d240d9c3d335c5998914e10c9ea991b29d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tth/blobs/sha256:d23d9a3cb16bbbd398fef5f4ed527bfcdbe5708ff653056ea1b3bdf7217783bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tth/blobs/sha256:0e4122efc9e5e4ae81a404ef164a420fe399d9b13d761f7805876a0f1078aeb5
+sha256:
+  darwin_arm64: 78e1ec7d5be8797a77a217fcc2554a1449311cd638fba7ef1f3c9a706c50f027
+  darwin_amd64: 567e126bb0a4f62da3051a005a9490d240d9c3d335c5998914e10c9ea991b29d
+  linux_amd64: d23d9a3cb16bbbd398fef5f4ed527bfcdbe5708ff653056ea1b3bdf7217783bd
+  linux_arm64: 0e4122efc9e5e4ae81a404ef164a420fe399d9b13d761f7805876a0f1078aeb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

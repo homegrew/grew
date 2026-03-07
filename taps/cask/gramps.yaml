@@ -1,0 +1,11 @@
+name: gramps
+version: 6.0.6,1
+description: Genealogy software
+homepage: https://gramps-project.org/blog/
+url:
+  darwin_arm64: https://github.com/gramps-project/gramps/releases/download/v6.0.6/Gramps-Arm-6.0.6-1.dmg
+sha256:
+  darwin_arm64: 2a80b056431581c574b3a5adb3db64b7be537de6b6e91972c7b94e63d7ddc7a1
+artifacts:
+  app:
+    - Gramps.app

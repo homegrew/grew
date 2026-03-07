@@ -1,0 +1,19 @@
+name: tree-sitter
+version: 0.26.6
+description: Incremental parsing library
+homepage: https://tree-sitter.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter/blobs/sha256:3ffa5c913de28a668be55b88b1ec4da3c78c2c36d4799aaf09fa3f81f3f4787c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter/blobs/sha256:838ce0601f02d1ef61f020b2fc513b17c1f7e75cc226695660bbaf8007d971f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter/blobs/sha256:f7fa92599098a02486788ff3180a686acfa4f9aa0bb611e6af1bd15a7a9b1f84
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter/blobs/sha256:f33a4c01f3269cadfd7384fdf200eed0e7bc0c6c3184cbaf6d5826184cee23e5
+sha256:
+  darwin_arm64: 3ffa5c913de28a668be55b88b1ec4da3c78c2c36d4799aaf09fa3f81f3f4787c
+  darwin_amd64: 838ce0601f02d1ef61f020b2fc513b17c1f7e75cc226695660bbaf8007d971f7
+  linux_amd64: f7fa92599098a02486788ff3180a686acfa4f9aa0bb611e6af1bd15a7a9b1f84
+  linux_arm64: f33a4c01f3269cadfd7384fdf200eed0e7bc0c6c3184cbaf6d5826184cee23e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

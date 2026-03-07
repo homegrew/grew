@@ -1,0 +1,19 @@
+name: bomber
+version: 0.5.1
+description: Scans Software Bill of Materials for security vulnerabilities
+homepage: https://github.com/devops-kung-fu/bomber
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bomber/blobs/sha256:16b7bea8527dff512ea3d05b41ef3a63b9cc0ab3e36d6a700d8f49f427dd7f3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bomber/blobs/sha256:a4a897a38cde09a42551fde0010301b17b41334ddb261a6386249704ce8a9741
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bomber/blobs/sha256:8041a282f0b4ec4162f928c91a501a1ad1e95a64b28fb21b771e2d2d357ddd6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bomber/blobs/sha256:8de74c0ad4a15499fcfaf276562b2821aec6f030ce81fe2897886b6dad93f417
+sha256:
+  darwin_arm64: 16b7bea8527dff512ea3d05b41ef3a63b9cc0ab3e36d6a700d8f49f427dd7f3b
+  darwin_amd64: a4a897a38cde09a42551fde0010301b17b41334ddb261a6386249704ce8a9741
+  linux_amd64: 8041a282f0b4ec4162f928c91a501a1ad1e95a64b28fb21b771e2d2d357ddd6a
+  linux_arm64: 8de74c0ad4a15499fcfaf276562b2821aec6f030ce81fe2897886b6dad93f417
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: hashlink
+version: 1.15
+description: Virtual machine for Haxe
+homepage: https://hashlink.haxe.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hashlink/blobs/sha256:63eb38d4dbc69ab9f8c71ecfd3c8b1f81673ddf015454e0141289747c0ac4269
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hashlink/blobs/sha256:8e5ebb95cd5752506bef4698f51e476d7de12aa64ed962a0664a48ffc63d60d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hashlink/blobs/sha256:2d7d71f666e42bc1e991d8376470e7755653ec6b1629b4d080e2a5d3bb541b4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hashlink/blobs/sha256:48372fc177336412549a92467756268d1da1ca27718ef3b68b2b4824bee10a8e
+sha256:
+  darwin_arm64: 63eb38d4dbc69ab9f8c71ecfd3c8b1f81673ddf015454e0141289747c0ac4269
+  darwin_amd64: 8e5ebb95cd5752506bef4698f51e476d7de12aa64ed962a0664a48ffc63d60d8
+  linux_amd64: 2d7d71f666e42bc1e991d8376470e7755653ec6b1629b4d080e2a5d3bb541b4d
+  linux_arm64: 48372fc177336412549a92467756268d1da1ca27718ef3b68b2b4824bee10a8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libogg
+  - libpng
+  - libuv
+  - libvorbis
+  - mbedtls@3
+  - openal-soft
+  - sdl2

@@ -1,0 +1,22 @@
+name: traildb
+version: 0.6
+description: Blazingly-fast database for log-structured data
+homepage: https://traildb.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/traildb/blobs/sha256:2595608345bc29813fa5bc78ab86cd54a890e8d6a70e04889ccc3205f8ecd143
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/traildb/blobs/sha256:b3d15cca75203e35bc56037c0ec9e1139c54ab909c81ec36a02d7b7ed9daa117
+  linux_amd64: https://ghcr.io/v2/homebrew/core/traildb/blobs/sha256:eacba47e211b4e29a1a44507087e2fc1cb501f00c853ee406a0c954c8ba4c47e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/traildb/blobs/sha256:3f4b1ec53424608bb138857437b16b36f9ec0ca5272e2833665d1c2280b25a20
+sha256:
+  darwin_arm64: 2595608345bc29813fa5bc78ab86cd54a890e8d6a70e04889ccc3205f8ecd143
+  darwin_amd64: b3d15cca75203e35bc56037c0ec9e1139c54ab909c81ec36a02d7b7ed9daa117
+  linux_amd64: eacba47e211b4e29a1a44507087e2fc1cb501f00c853ee406a0c954c8ba4c47e
+  linux_arm64: 3f4b1ec53424608bb138857437b16b36f9ec0ca5272e2833665d1c2280b25a20
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - judy
+  - libarchive

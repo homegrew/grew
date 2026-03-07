@@ -1,0 +1,11 @@
+name: remnote
+version: 1.24.0
+description: Spaced-repetition powered note-taking tool
+homepage: https://www.remnote.com/
+url:
+  darwin_arm64: https://download2.remnote.io/remnote-desktop2/RemNote-1.24.0-arm64-mac.zip
+sha256:
+  darwin_arm64: 6d9b5128e6a8e89abb437194c2a35742c61eecebec6e3688d14aa23e3f3fb062
+artifacts:
+  app:
+    - RemNote.app

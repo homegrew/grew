@@ -1,0 +1,19 @@
+name: lcs
+version: 4.07.4b
+description: Satirical console-based political role-playing/strategy game
+homepage: https://sourceforge.net/projects/lcsgame/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lcs/blobs/sha256:2a61e67dc07571f007602591630bd27ab9f7097b1fcec6de4f3d15bb9a28684b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lcs/blobs/sha256:ad71dc194ad2f21f033c2415649ff165266aef24aa10f60c94f7add9f82256f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lcs/blobs/sha256:ce3d505b47a5ada5e5b895876e51c224c3c716117c2f84e9853c05347ecddc4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lcs/blobs/sha256:102e4a404dd5be9cd65c41bf4eb03c582c405037360447d381baa173d2e52f4e
+sha256:
+  darwin_arm64: 2a61e67dc07571f007602591630bd27ab9f7097b1fcec6de4f3d15bb9a28684b
+  darwin_amd64: ad71dc194ad2f21f033c2415649ff165266aef24aa10f60c94f7add9f82256f2
+  linux_amd64: ce3d505b47a5ada5e5b895876e51c224c3c716117c2f84e9853c05347ecddc4c
+  linux_arm64: 102e4a404dd5be9cd65c41bf4eb03c582c405037360447d381baa173d2e52f4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

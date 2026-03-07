@@ -1,0 +1,13 @@
+name: pacifist
+version: 4.1.4
+description: Extract files and folders from package files, disk images, and archives
+homepage: https://www.charlessoft.com/
+url:
+  darwin_arm64: https://www.charlessoft.com/pacifist_download/Pacifist_4.1.4.dmg
+sha256:
+  darwin_arm64: d76e51f10a98460809c7f5711e7f44742a7cc7ed7372d7f1f4c14a8e41c249ea
+artifacts:
+  app:
+    - Pacifist.app
+  bin:
+    - pacifist

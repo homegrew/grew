@@ -1,0 +1,19 @@
+name: mcfly
+version: 0.9.4
+description: Fly through your shell history
+homepage: https://github.com/cantino/mcfly
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcfly/blobs/sha256:adb59f4c01dfe97f374aab237d28fb3206dc85daf3a85a0b425eb1aa6f1c8d29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcfly/blobs/sha256:1f25c5093b996476e61ae0182bca0b73a8ff66dba729f2a95c5ac942d109018d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcfly/blobs/sha256:8485745197b6e8cdbdbff7c2ad76b15519c62501614fd0389a5d29c0a5d99b0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcfly/blobs/sha256:4cc5e2c97279ba22d4f2114e05668037a40ee42591d9beec496ee4b928bac539
+sha256:
+  darwin_arm64: adb59f4c01dfe97f374aab237d28fb3206dc85daf3a85a0b425eb1aa6f1c8d29
+  darwin_amd64: 1f25c5093b996476e61ae0182bca0b73a8ff66dba729f2a95c5ac942d109018d
+  linux_amd64: 8485745197b6e8cdbdbff7c2ad76b15519c62501614fd0389a5d29c0a5d99b0c
+  linux_arm64: 4cc5e2c97279ba22d4f2114e05668037a40ee42591d9beec496ee4b928bac539
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

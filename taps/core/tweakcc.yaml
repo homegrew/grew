@@ -1,0 +1,21 @@
+name: tweakcc
+version: 4.0.11
+description: Customize your Claude Code themes, thinking verbs, and more
+homepage: https://github.com/Piebald-AI/tweakcc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tweakcc/blobs/sha256:3098213e27ec252b44f39452571a1a9a11b52921c20748ba510da1b8f8e554c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tweakcc/blobs/sha256:6b69333096876f591e7134f3969e5565c671c41013c972bcee97dffd37d8ade5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tweakcc/blobs/sha256:eaa7f9069ce85480aba65f896f49f01a2994353ac7813d41f91cfb02e635b725
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tweakcc/blobs/sha256:002bf695f71a950f250cffe0fa8ff7b2ffd83f6aae4a3c313f5a7f8d1a75a69c
+sha256:
+  darwin_arm64: 3098213e27ec252b44f39452571a1a9a11b52921c20748ba510da1b8f8e554c9
+  darwin_amd64: 6b69333096876f591e7134f3969e5565c671c41013c972bcee97dffd37d8ade5
+  linux_amd64: eaa7f9069ce85480aba65f896f49f01a2994353ac7813d41f91cfb02e635b725
+  linux_arm64: 002bf695f71a950f250cffe0fa8ff7b2ffd83f6aae4a3c313f5a7f8d1a75a69c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

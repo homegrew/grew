@@ -1,0 +1,23 @@
+name: sundials
+version: 7.6.0
+description: Nonlinear and differential/algebraic equations solver
+homepage: https://computing.llnl.gov/projects/sundials
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sundials/blobs/sha256:b051128524fb8b2c609e35b4449028196bc24613c499bd1110e0d49f54a6b9b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sundials/blobs/sha256:fe7a35cecf06f0db23ead8ddba87ffae08166c2685354244ec584c964c54982f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sundials/blobs/sha256:4d4449de953ce1f0ffc1eb592e178c39a2ca7bbd192672edb2c467b969f9a30f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sundials/blobs/sha256:82ca7dc8f48310ed5d19dc8b5b21ebf6d7d0884e820e7e0ce3a765f0056d32eb
+sha256:
+  darwin_arm64: b051128524fb8b2c609e35b4449028196bc24613c499bd1110e0d49f54a6b9b3
+  darwin_amd64: fe7a35cecf06f0db23ead8ddba87ffae08166c2685354244ec584c964c54982f
+  linux_amd64: 4d4449de953ce1f0ffc1eb592e178c39a2ca7bbd192672edb2c467b969f9a30f
+  linux_arm64: 82ca7dc8f48310ed5d19dc8b5b21ebf6d7d0884e820e7e0ce3a765f0056d32eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - openblas
+  - suite-sparse

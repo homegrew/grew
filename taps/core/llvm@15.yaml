@@ -1,0 +1,22 @@
+name: llvm@15
+version: 15.0.7
+description: Next-gen compiler infrastructure
+homepage: https://llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llvm/15/blobs/sha256:b767f1c1ae0719c1a8d1b5f7e7c7d9cead4eca26cab4b204c72800e824c06845
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llvm/15/blobs/sha256:08430f7b9a8b839fbc65b90f6e2ba5f7969daa8a6f05a6863a39b2af500527c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llvm/15/blobs/sha256:d478121e56352a43a1942f8d93e2a3283772aee536eec2b358907e7e81af912c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llvm/15/blobs/sha256:3a07622bd1154081b35df3aada0d62da27528a5d6fda372aaddb266ba143e6db
+sha256:
+  darwin_arm64: b767f1c1ae0719c1a8d1b5f7e7c7d9cead4eca26cab4b204c72800e824c06845
+  darwin_amd64: 08430f7b9a8b839fbc65b90f6e2ba5f7969daa8a6f05a6863a39b2af500527c1
+  linux_amd64: d478121e56352a43a1942f8d93e2a3283772aee536eec2b358907e7e81af912c
+  linux_arm64: 3a07622bd1154081b35df3aada0d62da27528a5d6fda372aaddb266ba143e6db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd
+keg_only: true

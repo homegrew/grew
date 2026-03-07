@@ -1,0 +1,19 @@
+name: dep-tree
+version: 0.23.4
+description: Tool for visualizing dependencies between files and enforcing dependency rules
+homepage: https://github.com/gabotechs/dep-tree
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dep-tree/blobs/sha256:db5b0ba7c68023a7131be5df7f465f19b3e648954cdbcc32b18a64de497e6b5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dep-tree/blobs/sha256:d53ad18af48f54b65b6ef9660a05f770517521c78864484a9c5578c596bd3fa3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dep-tree/blobs/sha256:79b4c548fcefaef96ec701766efffd0d20fa2a412d52d8d26a2f51a4e39fcf73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dep-tree/blobs/sha256:8d5805e360613eb12e4edf87da4ce8087ea292717af71ff5101dfa67f9710d27
+sha256:
+  darwin_arm64: db5b0ba7c68023a7131be5df7f465f19b3e648954cdbcc32b18a64de497e6b5c
+  darwin_amd64: d53ad18af48f54b65b6ef9660a05f770517521c78864484a9c5578c596bd3fa3
+  linux_amd64: 79b4c548fcefaef96ec701766efffd0d20fa2a412d52d8d26a2f51a4e39fcf73
+  linux_arm64: 8d5805e360613eb12e4edf87da4ce8087ea292717af71ff5101dfa67f9710d27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

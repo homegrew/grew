@@ -1,0 +1,19 @@
+name: bingrep
+version: 0.12.1
+description: Greps through binaries from various OSs and architectures
+homepage: https://github.com/m4b/bingrep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bingrep/blobs/sha256:1878348be278edd0d51079d6ffa3b4ff61f7735256fa47a622b0d870655050c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bingrep/blobs/sha256:94d00c5d9b0b82421914bcd4f385dd139cddaecd3e0b395beaa6a5a4f1c317ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bingrep/blobs/sha256:fb3fa1bf3e32bc5dc2ed33d374dcc9967bc3edd92a2332451d7dbe8e985335b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bingrep/blobs/sha256:ea34405aa7f4b7c1f1080a6f6d58392c261121eb8dd92993fb5fc8e367983aa1
+sha256:
+  darwin_arm64: 1878348be278edd0d51079d6ffa3b4ff61f7735256fa47a622b0d870655050c8
+  darwin_amd64: 94d00c5d9b0b82421914bcd4f385dd139cddaecd3e0b395beaa6a5a4f1c317ec
+  linux_amd64: fb3fa1bf3e32bc5dc2ed33d374dcc9967bc3edd92a2332451d7dbe8e985335b5
+  linux_arm64: ea34405aa7f4b7c1f1080a6f6d58392c261121eb8dd92993fb5fc8e367983aa1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

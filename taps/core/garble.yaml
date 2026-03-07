@@ -1,0 +1,19 @@
+name: garble
+version: 0.15.0
+description: Obfuscate Go builds
+homepage: https://github.com/burrowers/garble
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/garble/blobs/sha256:fac51277b744e6c16b8cc4667c9e5d0e07f7329a46bb292bc79f967b8013b392
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/garble/blobs/sha256:162c0db6b8d12680cfc17a4a0b5834d8e6d55c7bc91d0d97021699c9a597e15e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/garble/blobs/sha256:37842bb21aa6e908df86b1c8e8f2e8acb574eff16da04d88ad8e8321c39b634e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/garble/blobs/sha256:ce682fbe28be8c951bc1766cbed3564baff91fc79d0c2474efb92e8058511213
+sha256:
+  darwin_arm64: fac51277b744e6c16b8cc4667c9e5d0e07f7329a46bb292bc79f967b8013b392
+  darwin_amd64: 162c0db6b8d12680cfc17a4a0b5834d8e6d55c7bc91d0d97021699c9a597e15e
+  linux_amd64: 37842bb21aa6e908df86b1c8e8f2e8acb574eff16da04d88ad8e8321c39b634e
+  linux_arm64: ce682fbe28be8c951bc1766cbed3564baff91fc79d0c2474efb92e8058511213
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

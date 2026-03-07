@@ -1,0 +1,19 @@
+name: minder
+version: 0.1.1
+description: "CLI for interacting with Stacklok's Minder platform"
+homepage: https://mindersec.github.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minder/blobs/sha256:4f738bb44dccf7827a70b8671b5f96dae7e992dea9cf5bec5a6fc944771094a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minder/blobs/sha256:3c2f6a4cbde2279dfd58dbe45a55f7e1bdaede9a2ae36b8526b6ee47f25d0fe8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minder/blobs/sha256:8f44a33ac221f3db00805728a799ef75aee18199e2e6c7f79fe5343ea61a977e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minder/blobs/sha256:25e714b094bd5ec8adce20fd12354d0fb77335c87bc8cb4a53bdaf151c4ee0d6
+sha256:
+  darwin_arm64: 4f738bb44dccf7827a70b8671b5f96dae7e992dea9cf5bec5a6fc944771094a0
+  darwin_amd64: 3c2f6a4cbde2279dfd58dbe45a55f7e1bdaede9a2ae36b8526b6ee47f25d0fe8
+  linux_amd64: 8f44a33ac221f3db00805728a799ef75aee18199e2e6c7f79fe5343ea61a977e
+  linux_arm64: 25e714b094bd5ec8adce20fd12354d0fb77335c87bc8cb4a53bdaf151c4ee0d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

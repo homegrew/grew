@@ -1,0 +1,21 @@
+name: babl
+version: 0.1.122
+description: Dynamic, any-to-any, pixel format translation library
+homepage: https://www.gegl.org/babl/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/babl/blobs/sha256:068356ce3cb3c0b2de5caf5d90021792f130363042f3cf07f8886026ab70e76c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/babl/blobs/sha256:2c57b89583404bbd1328cce45bfdb2adebe41f32411f9f60b61361482d726360
+  linux_amd64: https://ghcr.io/v2/homebrew/core/babl/blobs/sha256:b43bf7024e313d6f6ddcf94ada47a8442f81a3b67508d0fffb48e5ea8dffef90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/babl/blobs/sha256:5e8e300c057a5bb2cc5e369758e3887aa94349a9aec3a8135f164f08aac7260e
+sha256:
+  darwin_arm64: 068356ce3cb3c0b2de5caf5d90021792f130363042f3cf07f8886026ab70e76c
+  darwin_amd64: 2c57b89583404bbd1328cce45bfdb2adebe41f32411f9f60b61361482d726360
+  linux_amd64: b43bf7024e313d6f6ddcf94ada47a8442f81a3b67508d0fffb48e5ea8dffef90
+  linux_arm64: 5e8e300c057a5bb2cc5e369758e3887aa94349a9aec3a8135f164f08aac7260e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - little-cms2

@@ -1,0 +1,19 @@
+name: qdbm
+version: 1.8.78
+description: Library of routines for managing a database
+homepage: https://dbmx.net/qdbm/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qdbm/blobs/sha256:8758b4bbc07fe322baf1aeb4815956e31dfe20720429254f6e78a2e6c500acbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qdbm/blobs/sha256:e972c7da4e44db7be3104ae998c53c23f3834aedba2eaf6a3169933327670571
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qdbm/blobs/sha256:4f532caae96d2ab1726eb1fd9196db93dd0b4511f9b407b209c545a801449877
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qdbm/blobs/sha256:8063229ce3fc0aac1e402f27c5f9c9ab27f7e1101006887aedc8047844b69fee
+sha256:
+  darwin_arm64: 8758b4bbc07fe322baf1aeb4815956e31dfe20720429254f6e78a2e6c500acbe
+  darwin_amd64: e972c7da4e44db7be3104ae998c53c23f3834aedba2eaf6a3169933327670571
+  linux_amd64: 4f532caae96d2ab1726eb1fd9196db93dd0b4511f9b407b209c545a801449877
+  linux_arm64: 8063229ce3fc0aac1e402f27c5f9c9ab27f7e1101006887aedc8047844b69fee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

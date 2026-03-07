@@ -1,0 +1,19 @@
+name: mp3check
+version: 0.8.7
+description: Tool to check mp3 files for consistency
+homepage: https://code.google.com/archive/p/mp3check/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3check/blobs/sha256:7b728bb5db4fb551bba2fe2ca58a59ae28df476caa8457d4b9ee5d04811d77ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3check/blobs/sha256:5054f3206f9d33b896b7a7f17afd87494d8e8dfaf0e970a2cb53972dd2f2c31e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3check/blobs/sha256:72769405fb206a5851bac35ea59bc0d4b7663c57a62cdc8bfa172fa21379130e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3check/blobs/sha256:8625b856fd021c64af2aac4b515ae9a8be25c0949231f6b7b24ba16b8df75b52
+sha256:
+  darwin_arm64: 7b728bb5db4fb551bba2fe2ca58a59ae28df476caa8457d4b9ee5d04811d77ac
+  darwin_amd64: 5054f3206f9d33b896b7a7f17afd87494d8e8dfaf0e970a2cb53972dd2f2c31e
+  linux_amd64: 72769405fb206a5851bac35ea59bc0d4b7663c57a62cdc8bfa172fa21379130e
+  linux_arm64: 8625b856fd021c64af2aac4b515ae9a8be25c0949231f6b7b24ba16b8df75b52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

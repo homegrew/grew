@@ -1,0 +1,22 @@
+name: gerbil-scheme
+version: 0.18.1
+description: Opinionated dialect of Scheme designed for Systems Programming
+homepage: https://cons.io
+license: LGPL-2.1-or-later OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gerbil-scheme/blobs/sha256:6745d8bce39a3b89bbf4b5c3c69cac16ada9073a9a8216ebba04507b63f298c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gerbil-scheme/blobs/sha256:e1c3c27f77b53389a64aa3c46179877217f8b1b411dec0de2940e57cc1efab07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gerbil-scheme/blobs/sha256:ead102fa71b688c6923afa46460741d75848aa18c13f521854358f545ae8d6a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gerbil-scheme/blobs/sha256:28192cc2a3d65cd154d33e86b8d4c341cd487fc32aa62762238285d34e2899bc
+sha256:
+  darwin_arm64: 6745d8bce39a3b89bbf4b5c3c69cac16ada9073a9a8216ebba04507b63f298c3
+  darwin_amd64: e1c3c27f77b53389a64aa3c46179877217f8b1b411dec0de2940e57cc1efab07
+  linux_amd64: ead102fa71b688c6923afa46460741d75848aa18c13f521854358f545ae8d6a7
+  linux_arm64: 28192cc2a3d65cd154d33e86b8d4c341cd487fc32aa62762238285d34e2899bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - gcc

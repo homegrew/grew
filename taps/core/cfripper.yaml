@@ -1,0 +1,23 @@
+name: cfripper
+version: 1.19.1
+description: Library and CLI tool to analyse CloudFormation templates for security issues
+homepage: https://cfripper.readthedocs.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfripper/blobs/sha256:41c727404875b0202db76056f481ce3716d2b8f3ad05258bc51449054f600d5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfripper/blobs/sha256:bddfb07fa0a6fd71a593fc29d6d49042bdf24750af507595bb65537896e3d438
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfripper/blobs/sha256:0d4aad0819170d90afcf74f4d16dd8df7f664d3133a59b731455047449be4b04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfripper/blobs/sha256:213d09a6c9ec686414c5b12cf94f29aa00ce764d76eb698883f73be97ad1a2cc
+sha256:
+  darwin_arm64: 41c727404875b0202db76056f481ce3716d2b8f3ad05258bc51449054f600d5d
+  darwin_amd64: bddfb07fa0a6fd71a593fc29d6d49042bdf24750af507595bb65537896e3d438
+  linux_amd64: 0d4aad0819170d90afcf74f4d16dd8df7f664d3133a59b731455047449be4b04
+  linux_arm64: 213d09a6c9ec686414c5b12cf94f29aa00ce764d76eb698883f73be97ad1a2cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - pydantic
+  - python@3.14

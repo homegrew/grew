@@ -1,0 +1,22 @@
+name: stella
+version: 7.0c
+description: Atari 2600 VCS emulator
+homepage: https://stella-emu.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stella/blobs/sha256:41e3a16e64aaf77fe123ddbd981aeeba3e994390c7d89c0c65f1c2925e7b7e9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stella/blobs/sha256:bdf6adb03cc6b6c704ef07ba259ed76dd8079c8188ec6bffa533143da369f42e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stella/blobs/sha256:217c38a50c75643714b44317e94b3eef8118cd15ec1327277641a5cdaf76f78a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stella/blobs/sha256:ecb978e4c694527a4ff05657d3eeee7afada54f357e13c145e1f49a61dec59cc
+sha256:
+  darwin_arm64: 41e3a16e64aaf77fe123ddbd981aeeba3e994390c7d89c0c65f1c2925e7b7e9a
+  darwin_amd64: bdf6adb03cc6b6c704ef07ba259ed76dd8079c8188ec6bffa533143da369f42e
+  linux_amd64: 217c38a50c75643714b44317e94b3eef8118cd15ec1327277641a5cdaf76f78a
+  linux_arm64: ecb978e4c694527a4ff05657d3eeee7afada54f357e13c145e1f49a61dec59cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - sdl2

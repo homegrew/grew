@@ -1,0 +1,19 @@
+name: gotify
+version: 2.3.2
+description: Command-line interface for pushing messages to gotify/server
+homepage: https://github.com/gotify/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotify/blobs/sha256:20c6354746bab0413fb7471f2803bd16834ff63588906115f73c137b71cc60f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotify/blobs/sha256:cddf34e9ad638380806a0805f7b2433e0222971046bb76d1abf099a8b12ee441
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotify/blobs/sha256:d8a14521daabae09419dbdd267df3598fa07e80fc418d2512a551807b26601f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotify/blobs/sha256:b762bcafcc18f90c82476ca1a077fb9a7ddf6df2da627b680832b91c25f20b0f
+sha256:
+  darwin_arm64: 20c6354746bab0413fb7471f2803bd16834ff63588906115f73c137b71cc60f3
+  darwin_amd64: cddf34e9ad638380806a0805f7b2433e0222971046bb76d1abf099a8b12ee441
+  linux_amd64: d8a14521daabae09419dbdd267df3598fa07e80fc418d2512a551807b26601f4
+  linux_arm64: b762bcafcc18f90c82476ca1a077fb9a7ddf6df2da627b680832b91c25f20b0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: gitlab-ci-linter
+version: 2.4.0
+description: Command-line tool to lint GitLab CI YAML files
+homepage: https://gitlab.com/orobardet/gitlab-ci-linter
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitlab-ci-linter/blobs/sha256:cc37c298c817d2e5f157425e6a0085371d236752da86c8445bc0f95496564683
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitlab-ci-linter/blobs/sha256:b39c7882d3c5a83b96668ffb1fe693e956f3787e462182b9501c13d4f74f718a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitlab-ci-linter/blobs/sha256:7b9292be7478c52c6b9852bc2a89ca00f3439ed12557f8b0dcb5ec65af128edc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitlab-ci-linter/blobs/sha256:82e74dc43a4a609bbceb7ffe5898decf6c03a139fe7be6fc516be670be520eab
+sha256:
+  darwin_arm64: cc37c298c817d2e5f157425e6a0085371d236752da86c8445bc0f95496564683
+  darwin_amd64: b39c7882d3c5a83b96668ffb1fe693e956f3787e462182b9501c13d4f74f718a
+  linux_amd64: 7b9292be7478c52c6b9852bc2a89ca00f3439ed12557f8b0dcb5ec65af128edc
+  linux_arm64: 82e74dc43a4a609bbceb7ffe5898decf6c03a139fe7be6fc516be670be520eab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

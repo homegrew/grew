@@ -1,0 +1,19 @@
+name: iceberg-cli
+version: 0.5.0
+description: Command-line interface for Apache Iceberg
+homepage: https://go.iceberg.apache.org/cli.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iceberg-cli/blobs/sha256:48004d523e189b27b46fedf18581e91bde99b85321a185c7e6cb558a069a9c5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iceberg-cli/blobs/sha256:b6dc3cf47cbe3bb89eeba7703bc39215156480cbdd09d929f9a3438bafec591e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iceberg-cli/blobs/sha256:5341e3ee9ea0366f779d961302f341926391ac17f291ef0e18ed1a64f65e5a9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iceberg-cli/blobs/sha256:640815332e781bc84780e0120611a7ab9eb588257220ab19c229a46730466e86
+sha256:
+  darwin_arm64: 48004d523e189b27b46fedf18581e91bde99b85321a185c7e6cb558a069a9c5c
+  darwin_amd64: b6dc3cf47cbe3bb89eeba7703bc39215156480cbdd09d929f9a3438bafec591e
+  linux_amd64: 5341e3ee9ea0366f779d961302f341926391ac17f291ef0e18ed1a64f65e5a9b
+  linux_arm64: 640815332e781bc84780e0120611a7ab9eb588257220ab19c229a46730466e86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

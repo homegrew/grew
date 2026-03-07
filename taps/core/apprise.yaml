@@ -1,0 +1,23 @@
+name: apprise
+version: 1.9.7
+description: Send notifications from the command-line to popular notification services
+homepage: https://pypi.org/project/apprise/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apprise/blobs/sha256:68a746b82167390f8f0af612c703e48fcda79d1a42d75abdaa0bb2145f1270f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apprise/blobs/sha256:dc0c5799f4b0546754dadda3a659f7b09904aa2afc9420fdd257fea62cbc902d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apprise/blobs/sha256:9693775916784897cba7792ba5d58ba1a0373f487ea25de99ed966f7de4b306c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apprise/blobs/sha256:c6177cf15c75a43f5a3f7f7e89748ca1c0a6b779ce0b4e174430b3e64e7ae07f
+sha256:
+  darwin_arm64: 68a746b82167390f8f0af612c703e48fcda79d1a42d75abdaa0bb2145f1270f0
+  darwin_amd64: dc0c5799f4b0546754dadda3a659f7b09904aa2afc9420fdd257fea62cbc902d
+  linux_amd64: 9693775916784897cba7792ba5d58ba1a0373f487ea25de99ed966f7de4b306c
+  linux_arm64: c6177cf15c75a43f5a3f7f7e89748ca1c0a6b779ce0b4e174430b3e64e7ae07f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

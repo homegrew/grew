@@ -1,0 +1,19 @@
+name: go-md2man
+version: 2.0.7
+description: Converts markdown into roff (man pages)
+homepage: https://github.com/cpuguy83/go-md2man
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-md2man/blobs/sha256:4879fc7e3aa3b31a88c26085ef7f7e15a2cf4df720e6809e26d1a2eb91f31fc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-md2man/blobs/sha256:001d4ae9334dbaffa5b3d40beb39a21397ceb816f60a458c765b034bff064870
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-md2man/blobs/sha256:0a1f544ec626911acd8c1572b41f2de2b97c1c2f49d0c6bcf85f31f12654ab3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-md2man/blobs/sha256:fa96d601898022e5d295bb25b910340e3a0be8353372480cc6415a38d677f471
+sha256:
+  darwin_arm64: 4879fc7e3aa3b31a88c26085ef7f7e15a2cf4df720e6809e26d1a2eb91f31fc4
+  darwin_amd64: 001d4ae9334dbaffa5b3d40beb39a21397ceb816f60a458c765b034bff064870
+  linux_amd64: 0a1f544ec626911acd8c1572b41f2de2b97c1c2f49d0c6bcf85f31f12654ab3f
+  linux_arm64: fa96d601898022e5d295bb25b910340e3a0be8353372480cc6415a38d677f471
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

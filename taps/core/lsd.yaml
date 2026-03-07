@@ -1,0 +1,19 @@
+name: lsd
+version: 1.2.0
+description: Clone of ls with colorful output, file type icons, and more
+homepage: https://github.com/lsd-rs/lsd
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lsd/blobs/sha256:fa8f25c1284258f51c9404613e9916de94bdddb03cbfad25035f31b744d5f783
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lsd/blobs/sha256:24ae6b9716b0c8313085cc09de1ed5a493a639fbd04a3c440b0f356051f077d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lsd/blobs/sha256:cdb617c2546080a6164e9badba18fdba7d1e1e6692168e15759f34d05f332765
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lsd/blobs/sha256:671174793531f94debdbbe7fb1017e41a070b99a3e0556eb7424bf06fcbf65c1
+sha256:
+  darwin_arm64: fa8f25c1284258f51c9404613e9916de94bdddb03cbfad25035f31b744d5f783
+  darwin_amd64: 24ae6b9716b0c8313085cc09de1ed5a493a639fbd04a3c440b0f356051f077d6
+  linux_amd64: cdb617c2546080a6164e9badba18fdba7d1e1e6692168e15759f34d05f332765
+  linux_arm64: 671174793531f94debdbbe7fb1017e41a070b99a3e0556eb7424bf06fcbf65c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: netfetch
+version: 0.5.4
+description: K8s tool to scan clusters for network policies and unprotected workloads
+homepage: https://github.com/deggja/netfetch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netfetch/blobs/sha256:52f348ae302224f4718f13a478c19f69d9ed76f4bafeeaaf1eb5225f120874c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netfetch/blobs/sha256:bed6e81af7eb73ac9f563dc29ec51012f8602fef87ff7d40329282000fae1ef2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netfetch/blobs/sha256:2e1457e33294c578c004ca1d16dd8c8f7c5691c7742c7ef1623c2cb7cd05e7fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netfetch/blobs/sha256:750307bf8f80020a6332c8dba8acaf373dd34b7cc28dc992724424610c862d97
+sha256:
+  darwin_arm64: 52f348ae302224f4718f13a478c19f69d9ed76f4bafeeaaf1eb5225f120874c9
+  darwin_amd64: bed6e81af7eb73ac9f563dc29ec51012f8602fef87ff7d40329282000fae1ef2
+  linux_amd64: 2e1457e33294c578c004ca1d16dd8c8f7c5691c7742c7ef1623c2cb7cd05e7fb
+  linux_arm64: 750307bf8f80020a6332c8dba8acaf373dd34b7cc28dc992724424610c862d97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

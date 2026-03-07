@@ -1,0 +1,24 @@
+name: archgw
+version: 0.3.22
+description: CLI for Arch Gateway
+homepage: https://github.com/katanemo/archgw/tree/main/arch/tools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/archgw/blobs/sha256:cde4cde267e77b58d5caeb355625111fe5ef351a9d42eb0c525be2b83dcb9498
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/archgw/blobs/sha256:ab8d8237720e64ac024e29b5add8f33a88417afbcfd706576b569e974c65b352
+  linux_amd64: https://ghcr.io/v2/homebrew/core/archgw/blobs/sha256:85566a740218450e7f0df93ce7923e05881c5cd18cce76f684e90216642bbf19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/archgw/blobs/sha256:c8e5e612c9bb8cd939e9e54458d3227ecb19a9c03fe99dbd9369edeec2bda1fc
+sha256:
+  darwin_arm64: cde4cde267e77b58d5caeb355625111fe5ef351a9d42eb0c525be2b83dcb9498
+  darwin_amd64: ab8d8237720e64ac024e29b5add8f33a88417afbcfd706576b569e974c65b352
+  linux_amd64: 85566a740218450e7f0df93ce7923e05881c5cd18cce76f684e90216642bbf19
+  linux_arm64: c8e5e612c9bb8cd939e9e54458d3227ecb19a9c03fe99dbd9369edeec2bda1fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

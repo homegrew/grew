@@ -1,0 +1,19 @@
+name: disktype
+version: 9
+description: Detect content format of a disk or disk image
+homepage: https://disktype.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/disktype/blobs/sha256:42c78cc38ea028f25b5c2122e72e66d49803b717c8994a45db84fda5b192f492
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/disktype/blobs/sha256:f526684921eb7bab672a8df27f08c0431fbb203fa026e88c7a1970ad207aa594
+  linux_amd64: https://ghcr.io/v2/homebrew/core/disktype/blobs/sha256:4b0dcc67cc8fee509011e50ff1299b4205b424f83ee9aedff5d97fb2e603b6bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/disktype/blobs/sha256:7e5b37f738b0519b463163cdfcea5a7ee21c829e409f613be7f7cbc8f9120afa
+sha256:
+  darwin_arm64: 42c78cc38ea028f25b5c2122e72e66d49803b717c8994a45db84fda5b192f492
+  darwin_amd64: f526684921eb7bab672a8df27f08c0431fbb203fa026e88c7a1970ad207aa594
+  linux_amd64: 4b0dcc67cc8fee509011e50ff1299b4205b424f83ee9aedff5d97fb2e603b6bc
+  linux_arm64: 7e5b37f738b0519b463163cdfcea5a7ee21c829e409f613be7f7cbc8f9120afa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

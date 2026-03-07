@@ -1,0 +1,28 @@
+name: nedit
+version: 5.7
+description: Fast, compact Motif/X11 plain text editor
+homepage: https://sourceforge.net/projects/nedit/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nedit/blobs/sha256:63e38eb761dcd2a048f2cb5dcb614fcfb7c5e89b66883316628c95eeec52e35d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nedit/blobs/sha256:8422e83c7f1428b1188a85db7c86ede8660169ebe97c14728a45a7428908d7a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nedit/blobs/sha256:cd75a55df6025af2525c13fb2657d74632fac30c2d813eda1d07ae1eea146ffa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nedit/blobs/sha256:55378caed6582cb7f9dc529539d45ec7195c4ef042eca0d152d76663c60af47a
+sha256:
+  darwin_arm64: 63e38eb761dcd2a048f2cb5dcb614fcfb7c5e89b66883316628c95eeec52e35d
+  darwin_amd64: 8422e83c7f1428b1188a85db7c86ede8660169ebe97c14728a45a7428908d7a7
+  linux_amd64: cd75a55df6025af2525c13fb2657d74632fac30c2d813eda1d07ae1eea146ffa
+  linux_arm64: 55378caed6582cb7f9dc529539d45ec7195c4ef042eca0d152d76663c60af47a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libice
+  - libsm
+  - libx11
+  - libxext
+  - libxp
+  - libxpm
+  - libxt
+  - openmotif

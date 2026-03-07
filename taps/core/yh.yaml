@@ -1,0 +1,19 @@
+name: yh
+version: 0.4.0
+description: YAML syntax highlighter to bring colours where only jq could
+homepage: https://github.com/andreazorzetto/yh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yh/blobs/sha256:e86e1650543e20f82c853e9f33f44dfa71ff7856fed04e03d9b40db36991546a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yh/blobs/sha256:9a65aaf84b0fb6c01d149ac73bc527f00317c716f472b650d3d1515b0ae5fa71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yh/blobs/sha256:7d24c1a925e08cc62ccb741d0587e59fb79c76a34b4b5b23599c51fa58ad6dd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yh/blobs/sha256:a31f46802b6d13d9e654ceef943f861c8c06d44a5c92385df91f942f0e610d43
+sha256:
+  darwin_arm64: e86e1650543e20f82c853e9f33f44dfa71ff7856fed04e03d9b40db36991546a
+  darwin_amd64: 9a65aaf84b0fb6c01d149ac73bc527f00317c716f472b650d3d1515b0ae5fa71
+  linux_amd64: 7d24c1a925e08cc62ccb741d0587e59fb79c76a34b4b5b23599c51fa58ad6dd2
+  linux_arm64: a31f46802b6d13d9e654ceef943f861c8c06d44a5c92385df91f942f0e610d43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

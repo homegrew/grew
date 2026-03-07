@@ -1,0 +1,19 @@
+name: shellshare
+version: 2.0.5
+description: Live Terminal Broadcast
+homepage: https://github.com/vitorbaptista/shellshare
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shellshare/blobs/sha256:a75120585874d126689d8dcc50415013565a05f9799e60841ca7c866562ff767
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shellshare/blobs/sha256:2041ec7a35883314d0725f679e0e3415ffb8bc7ed533f33f888222d67661a27d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shellshare/blobs/sha256:b268e373ed7c1086a794db27afc947f3ace5580dfc203f1c6b938a6147ce3481
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shellshare/blobs/sha256:dde954a53f74d89b49b405d25aa2279426605cad5bad5ecf3db0d38b494a7c64
+sha256:
+  darwin_arm64: a75120585874d126689d8dcc50415013565a05f9799e60841ca7c866562ff767
+  darwin_amd64: 2041ec7a35883314d0725f679e0e3415ffb8bc7ed533f33f888222d67661a27d
+  linux_amd64: b268e373ed7c1086a794db27afc947f3ace5580dfc203f1c6b938a6147ce3481
+  linux_arm64: dde954a53f74d89b49b405d25aa2279426605cad5bad5ecf3db0d38b494a7c64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

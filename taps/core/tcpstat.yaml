@@ -1,0 +1,19 @@
+name: tcpstat
+version: 0.1
+description: Active TCP connections monitoring tool
+homepage: https://github.com/jtt/tcpstat
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcpstat/blobs/sha256:819e87c8105c753f181730fced67949dbc440e4a6e790c089f030134e6903ec3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcpstat/blobs/sha256:54ea40debc75f08ad7120f8bccafceefea48cb0caa516f674a5d45f95cd84adb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcpstat/blobs/sha256:036527a4c4492a1ca44c9b7c29ab1437108fc2c57105ade2f98fa8cf43a4e839
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcpstat/blobs/sha256:bfd5b8071a1b3ad738db96ecd1ee944f6b58e781b9759cc9ec0d5be421fe99af
+sha256:
+  darwin_arm64: 819e87c8105c753f181730fced67949dbc440e4a6e790c089f030134e6903ec3
+  darwin_amd64: 54ea40debc75f08ad7120f8bccafceefea48cb0caa516f674a5d45f95cd84adb
+  linux_amd64: 036527a4c4492a1ca44c9b7c29ab1437108fc2c57105ade2f98fa8cf43a4e839
+  linux_arm64: bfd5b8071a1b3ad738db96ecd1ee944f6b58e781b9759cc9ec0d5be421fe99af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

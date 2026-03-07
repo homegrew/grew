@@ -1,0 +1,24 @@
+name: fastd
+version: 23
+description: Fast and Secure Tunnelling Daemon
+homepage: https://github.com/neocturne/fastd
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastd/blobs/sha256:9c8e775650403436785d0cdfc910c4266874951649102e80ab289ac810731789
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastd/blobs/sha256:4b2b7cbd3c7cd14efeb200d2e2a75ce9b1fb15633fe323d486ef7da2739ae129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastd/blobs/sha256:7578a78bec1555ad86e17cd3e88423093def42af998403fd316bbcf03d975789
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastd/blobs/sha256:20cf70054b026b5303e4f4e20992fd1888750cd5261ab396083a830375d70d20
+sha256:
+  darwin_arm64: 9c8e775650403436785d0cdfc910c4266874951649102e80ab289ac810731789
+  darwin_amd64: 4b2b7cbd3c7cd14efeb200d2e2a75ce9b1fb15633fe323d486ef7da2739ae129
+  linux_amd64: 7578a78bec1555ad86e17cd3e88423093def42af998403fd316bbcf03d975789
+  linux_arm64: 20cf70054b026b5303e4f4e20992fd1888750cd5261ab396083a830375d70d20
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - libsodium
+  - libuecc
+  - openssl@3

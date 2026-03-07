@@ -1,0 +1,22 @@
+name: po4a
+version: 0.74
+description: Documentation translation maintenance tool
+homepage: https://po4a.org
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/po4a/blobs/sha256:99b634ddaa9e1631a85c0367a75ebdcd4a0eed10a49c4e6061e54f3b0d4082c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/po4a/blobs/sha256:87725e834ae77d29191af104e14e07dfdd3828fa103cba1b17a01841e974a014
+  linux_amd64: https://ghcr.io/v2/homebrew/core/po4a/blobs/sha256:f9c07678029c1a5a1fb4c3cf4fd90ebbd4ae078c43eb25108137db79e0172a86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/po4a/blobs/sha256:8a61bae9e45efa69179520d1e3477d2ddfae746c0be7cb7420fb1dba12adce36
+sha256:
+  darwin_arm64: 99b634ddaa9e1631a85c0367a75ebdcd4a0eed10a49c4e6061e54f3b0d4082c5
+  darwin_amd64: 87725e834ae77d29191af104e14e07dfdd3828fa103cba1b17a01841e974a014
+  linux_amd64: f9c07678029c1a5a1fb4c3cf4fd90ebbd4ae078c43eb25108137db79e0172a86
+  linux_arm64: 8a61bae9e45efa69179520d1e3477d2ddfae746c0be7cb7420fb1dba12adce36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - perl

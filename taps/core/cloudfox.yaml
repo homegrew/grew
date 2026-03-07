@@ -1,0 +1,19 @@
+name: cloudfox
+version: 2.0.0
+description: Automating situational awareness for cloud penetration tests
+homepage: https://github.com/BishopFox/cloudfox
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudfox/blobs/sha256:78f58ed261a29e27825858cd4b99b200d68927589f1fc591c84e986d9286d91e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudfox/blobs/sha256:b44ac8a7e14b3c0bfa0f1be104220fd8e0cd965bcba200984892c7dc2a07e3c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudfox/blobs/sha256:9b5ae1d70456eb61bca41051b6541a577e9834f76a57641b14f8f69c964ebda9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudfox/blobs/sha256:9220bf69db639a1c07eb534963b6ee780b56a7547ad182ed6bacda9487f90fd2
+sha256:
+  darwin_arm64: 78f58ed261a29e27825858cd4b99b200d68927589f1fc591c84e986d9286d91e
+  darwin_amd64: b44ac8a7e14b3c0bfa0f1be104220fd8e0cd965bcba200984892c7dc2a07e3c3
+  linux_amd64: 9b5ae1d70456eb61bca41051b6541a577e9834f76a57641b14f8f69c964ebda9
+  linux_arm64: 9220bf69db639a1c07eb534963b6ee780b56a7547ad182ed6bacda9487f90fd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

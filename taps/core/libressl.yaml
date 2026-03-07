@@ -1,0 +1,22 @@
+name: libressl
+version: 4.2.1
+description: Version of the SSL/TLS protocol forked from OpenSSL
+homepage: https://www.libressl.org/
+license: OpenSSL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libressl/blobs/sha256:ba6ef9fa38ea1b994cb15718d4dd77104f8c140b1f2b7561c2ccbbebb77af94b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libressl/blobs/sha256:383e3ef03088ef5348c1b36e828ae2af3d098876c1265f8920a9138412a26798
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libressl/blobs/sha256:8690dae24ab88821c36d409f6ecf04ba2d85011fc92540d23d97c7ca72873f43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libressl/blobs/sha256:2eddbafa15b069f1abdae1d3df6a74cf5f3b4c30e0db216ee5fb2106e226f9d3
+sha256:
+  darwin_arm64: ba6ef9fa38ea1b994cb15718d4dd77104f8c140b1f2b7561c2ccbbebb77af94b
+  darwin_amd64: 383e3ef03088ef5348c1b36e828ae2af3d098876c1265f8920a9138412a26798
+  linux_amd64: 8690dae24ab88821c36d409f6ecf04ba2d85011fc92540d23d97c7ca72873f43
+  linux_arm64: 2eddbafa15b069f1abdae1d3df6a74cf5f3b4c30e0db216ee5fb2106e226f9d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+keg_only: true

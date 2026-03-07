@@ -1,0 +1,11 @@
+name: ipremoteutility
+version: 1.10.0
+description: Management of Flanders Scientific hardware
+homepage: https://www.flandersscientific.com/ip-remote/
+url:
+  darwin_arm64: https://www.flandersscientific.com/ip-remote/release/IPRemoteUtility-1.10.0-macOS.zip
+sha256:
+  darwin_arm64: 9d683e557c05b62341a9560fbe2c3de8415bf258b35edb75b7047b111e618521
+artifacts:
+  app:
+    - IPRemoteUtility.app

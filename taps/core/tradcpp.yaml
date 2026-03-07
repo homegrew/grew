@@ -1,0 +1,19 @@
+name: tradcpp
+version: 0.5.3
+description: "K&R-style C preprocessor"
+homepage: https://www.netbsd.org/~dholland/tradcpp/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tradcpp/blobs/sha256:68bb9f87e1ac6100139f901a1b2f1de048f4bc3a7c09604ed35c4e46791a886a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tradcpp/blobs/sha256:d6175a0b58881e2f0fcc5d45dec27aaddc6d7fc8d937c19b0c7183fd304116c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tradcpp/blobs/sha256:825a5e3d755cd11ad9e6e7cdb2f5d499cf273b294da1c78a7488535eccad598b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tradcpp/blobs/sha256:9699d8ebc30977e2f8caa90b4fcd8b3b7df9c015d0d561387c8f4a4e56735166
+sha256:
+  darwin_arm64: 68bb9f87e1ac6100139f901a1b2f1de048f4bc3a7c09604ed35c4e46791a886a
+  darwin_amd64: d6175a0b58881e2f0fcc5d45dec27aaddc6d7fc8d937c19b0c7183fd304116c0
+  linux_amd64: 825a5e3d755cd11ad9e6e7cdb2f5d499cf273b294da1c78a7488535eccad598b
+  linux_arm64: 9699d8ebc30977e2f8caa90b4fcd8b3b7df9c015d0d561387c8f4a4e56735166
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: viennacl
+version: 1.7.1
+description: Linear algebra library for many-core architectures and multi-core CPUs
+homepage: https://viennacl.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/viennacl/blobs/sha256:ef65ab6738404defb457637aa1d644b54db8bd55b9c0ddcc99dfb005e2653441
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/viennacl/blobs/sha256:8baf6eb07e9d6a0d8a302d5f0a406abeec1a734ead438b381e1a4b9343c06aba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/viennacl/blobs/sha256:8386a723438da51b3051c19ecc14af8c69f27c6a17f6f7e6b1bdcec6c1c85083
+  linux_arm64: https://ghcr.io/v2/homebrew/core/viennacl/blobs/sha256:8be9cf74c6fa495a1958540b784d738db97428ddfc84c582860ad952faa5162e
+sha256:
+  darwin_arm64: ef65ab6738404defb457637aa1d644b54db8bd55b9c0ddcc99dfb005e2653441
+  darwin_amd64: 8baf6eb07e9d6a0d8a302d5f0a406abeec1a734ead438b381e1a4b9343c06aba
+  linux_amd64: 8386a723438da51b3051c19ecc14af8c69f27c6a17f6f7e6b1bdcec6c1c85083
+  linux_arm64: 8be9cf74c6fa495a1958540b784d738db97428ddfc84c582860ad952faa5162e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

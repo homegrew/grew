@@ -1,0 +1,19 @@
+name: rustypaste
+version: 0.16.1
+description: Minimal file upload/pastebin service
+homepage: https://blog.orhun.dev/blazingly-fast-file-sharing
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustypaste/blobs/sha256:f740c83c45ab964419367ffeb9ee8120affba10e4101af891e8c93fca04520b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustypaste/blobs/sha256:02e9650aa4526b365b5f95873003221577ee2709d7f7ea1e68e0328b810bec13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustypaste/blobs/sha256:493ed14e58870919b7b0e7d89eaeb71298b836acefd00819db24169c61a5a9d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustypaste/blobs/sha256:dbce6cb426fef97c071dd06872cb7ebcf323c1a5c3dfb291a7d12e5d9ad6dbf8
+sha256:
+  darwin_arm64: f740c83c45ab964419367ffeb9ee8120affba10e4101af891e8c93fca04520b2
+  darwin_amd64: 02e9650aa4526b365b5f95873003221577ee2709d7f7ea1e68e0328b810bec13
+  linux_amd64: 493ed14e58870919b7b0e7d89eaeb71298b836acefd00819db24169c61a5a9d0
+  linux_arm64: dbce6cb426fef97c071dd06872cb7ebcf323c1a5c3dfb291a7d12e5d9ad6dbf8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cadence
+version: 1.9.10
+description: Resource-oriented smart contract programming language
+homepage: https://cadence-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cadence/blobs/sha256:bcc2d9c5011aeb19e0aa82466d67d81c3a6593d71ce77b8a4fce3c638e542738
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cadence/blobs/sha256:d0210d259a53ed17aa51a24d2a8b5b3a4841f7b993befb94dbecc46e134dceb0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cadence/blobs/sha256:6df45e8ec9acdbea98c8d7e2870239a80c8f80cee4267f5ecfac50b4620f70f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cadence/blobs/sha256:e9bcfb20cf6aa001b3235d1703d95467755521d9f0d89a73aa802413c65f2dcd
+sha256:
+  darwin_arm64: bcc2d9c5011aeb19e0aa82466d67d81c3a6593d71ce77b8a4fce3c638e542738
+  darwin_amd64: d0210d259a53ed17aa51a24d2a8b5b3a4841f7b993befb94dbecc46e134dceb0
+  linux_amd64: 6df45e8ec9acdbea98c8d7e2870239a80c8f80cee4267f5ecfac50b4620f70f9
+  linux_arm64: e9bcfb20cf6aa001b3235d1703d95467755521d9f0d89a73aa802413c65f2dcd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

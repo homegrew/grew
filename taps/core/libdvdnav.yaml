@@ -1,0 +1,21 @@
+name: libdvdnav
+version: 7.0.0
+description: DVD navigation library
+homepage: https://www.videolan.org/developers/libdvdnav.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdvdnav/blobs/sha256:de06e1e44ed91415e861f0bd79e41de8136e9786fc430d4cb81b46be8bdc9643
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdvdnav/blobs/sha256:05fc8e61a4945df5d16c96014062b79477a44a271b4371398f5c9f91a526fe71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdvdnav/blobs/sha256:013483294308424c90b6d2cf46335160df2f5ad9d2a12935d8bb0e12669d28d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdvdnav/blobs/sha256:18d641647018fcea9fac4d0bc26bf04aa8a47ef5206de9bdfa91af2d23f9ebd7
+sha256:
+  darwin_arm64: de06e1e44ed91415e861f0bd79e41de8136e9786fc430d4cb81b46be8bdc9643
+  darwin_amd64: 05fc8e61a4945df5d16c96014062b79477a44a271b4371398f5c9f91a526fe71
+  linux_amd64: 013483294308424c90b6d2cf46335160df2f5ad9d2a12935d8bb0e12669d28d7
+  linux_arm64: 18d641647018fcea9fac4d0bc26bf04aa8a47ef5206de9bdfa91af2d23f9ebd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdvdread

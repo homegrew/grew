@@ -1,0 +1,11 @@
+name: wljs-notebook
+version: 3.0.1
+description: Javascript frontend for Wolfram Engine
+homepage: https://jerryi.github.io/wljs-docs/
+url:
+  darwin_arm64: https://github.com/JerryI/wolfram-js-frontend/releases/download/v3.0.1/wljs-notebook-3.0.1-arm64-macos.dmg
+sha256:
+  darwin_arm64: 2d03135d196a32b849477d7881b216c88c175da368e181b27123a257f4527bbf
+artifacts:
+  app:
+    - WLJS Notebook.app

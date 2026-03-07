@@ -1,0 +1,19 @@
+name: libparserutils
+version: 0.2.5
+description: Library for building efficient parsers
+homepage: https://www.netsurf-browser.org/projects/libparserutils/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libparserutils/blobs/sha256:f611219c6ad2fa78766ef8c18c4518dedb5f4c271266107cdac37b35100e8a48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libparserutils/blobs/sha256:24f00f6da2bc5e10f716aee6e32847f42dcacd22babda850c2cd654c05181c7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libparserutils/blobs/sha256:1f36934cb62bb14686eb7383c94055e3e965295aad1c1338357940527eab90e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libparserutils/blobs/sha256:32ad8bbb44e2b6f06027e1117d02dced9c41c8961bc1a40aeefa8dd7c778a486
+sha256:
+  darwin_arm64: f611219c6ad2fa78766ef8c18c4518dedb5f4c271266107cdac37b35100e8a48
+  darwin_amd64: 24f00f6da2bc5e10f716aee6e32847f42dcacd22babda850c2cd654c05181c7f
+  linux_amd64: 1f36934cb62bb14686eb7383c94055e3e965295aad1c1338357940527eab90e3
+  linux_arm64: 32ad8bbb44e2b6f06027e1117d02dced9c41c8961bc1a40aeefa8dd7c778a486
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: lowdown
+version: 2.0.4
+description: Simple markdown translator
+homepage: https://kristaps.bsd.lv/lowdown
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lowdown/blobs/sha256:c04236bd938c39a042b3570751ce59bcd785e639446e5bad12f2682d9d53a0f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lowdown/blobs/sha256:e3b7f897174e501b6f8b21e1f745ae303046ee58fff9d4e08f56223f6f9e6e5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lowdown/blobs/sha256:823e5e1c662198ca5437cbe9aa0425456cbf6bf49ad1c4ecda0c042bdacb0cae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lowdown/blobs/sha256:908dd645e5624d1078b782df0e3fe0ca7743e2b4e72ad0e6d1e394ee0da71b19
+sha256:
+  darwin_arm64: c04236bd938c39a042b3570751ce59bcd785e639446e5bad12f2682d9d53a0f7
+  darwin_amd64: e3b7f897174e501b6f8b21e1f745ae303046ee58fff9d4e08f56223f6f9e6e5f
+  linux_amd64: 823e5e1c662198ca5437cbe9aa0425456cbf6bf49ad1c4ecda0c042bdacb0cae
+  linux_arm64: 908dd645e5624d1078b782df0e3fe0ca7743e2b4e72ad0e6d1e394ee0da71b19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: lua-language-server
+version: 3.17.1
+description: Language Server for the Lua language
+homepage: https://github.com/LuaLS/lua-language-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lua-language-server/blobs/sha256:343210c808436accc9ec883be989ecf7455f55ff66e4683fb4a0646b73884402
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lua-language-server/blobs/sha256:7e0b2481681da2c86cff51304a9a2cafd2d26b6e549bcbfaf22b1892c007811c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lua-language-server/blobs/sha256:44a10ed9818ad611862a647ca7948208bb5a6eb90a27023c52e3ed79b853b7e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lua-language-server/blobs/sha256:e7c6c4ef67e0ed03ec9e2026eb8b41db5431c83f150b23e59ad9707809498bb3
+sha256:
+  darwin_arm64: 343210c808436accc9ec883be989ecf7455f55ff66e4683fb4a0646b73884402
+  darwin_amd64: 7e0b2481681da2c86cff51304a9a2cafd2d26b6e549bcbfaf22b1892c007811c
+  linux_amd64: 44a10ed9818ad611862a647ca7948208bb5a6eb90a27023c52e3ed79b853b7e5
+  linux_arm64: e7c6c4ef67e0ed03ec9e2026eb8b41db5431c83f150b23e59ad9707809498bb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

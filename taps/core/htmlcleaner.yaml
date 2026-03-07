@@ -1,0 +1,21 @@
+name: htmlcleaner
+version: 2.29
+description: HTML parser written in Java
+homepage: https://htmlcleaner.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htmlcleaner/blobs/sha256:481e7ce48a7dc9bddaa359cd8b30412f993266133f606e0970031feb20a3e924
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htmlcleaner/blobs/sha256:5e7f1b1c468d1a5ead2ed450fed70e621ee5b429486da31ac05474d9871473ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htmlcleaner/blobs/sha256:49d3b92068ee5e037f6efe9232227d6b49069c0f6e0a09a1abd34467290755b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htmlcleaner/blobs/sha256:0cdd1dd6b3a16f874d8980cc78f599dddc97713c322b5e8f962a7cf88810efd9
+sha256:
+  darwin_arm64: 481e7ce48a7dc9bddaa359cd8b30412f993266133f606e0970031feb20a3e924
+  darwin_amd64: 5e7f1b1c468d1a5ead2ed450fed70e621ee5b429486da31ac05474d9871473ed
+  linux_amd64: 49d3b92068ee5e037f6efe9232227d6b49069c0f6e0a09a1abd34467290755b1
+  linux_arm64: 0cdd1dd6b3a16f874d8980cc78f599dddc97713c322b5e8f962a7cf88810efd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

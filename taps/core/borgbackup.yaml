@@ -1,0 +1,26 @@
+name: borgbackup
+version: 1.4.3
+description: Deduplicating archiver with compression and authenticated encryption
+homepage: https://www.borgbackup.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/borgbackup/blobs/sha256:d07a33bc5d32d39b5186bcc5d0a8513296d73c937bb76c4e0996c89af36e7d64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/borgbackup/blobs/sha256:02db69674ba7789ec901cffb9099e68e5e62e3c361d99193f51e17e054382f11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/borgbackup/blobs/sha256:d53150306ad352ba88a313abddf7b29a2147f57b4271a99c1e908402bcac1bf5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/borgbackup/blobs/sha256:9105767b33dcc8e4743a9f4b71e07f0af75935a0d40f43b33bc0e14f58257a89
+sha256:
+  darwin_arm64: d07a33bc5d32d39b5186bcc5d0a8513296d73c937bb76c4e0996c89af36e7d64
+  darwin_amd64: 02db69674ba7789ec901cffb9099e68e5e62e3c361d99193f51e17e054382f11
+  linux_amd64: d53150306ad352ba88a313abddf7b29a2147f57b4271a99c1e908402bcac1bf5
+  linux_arm64: 9105767b33dcc8e4743a9f4b71e07f0af75935a0d40f43b33bc0e14f58257a89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libb2
+  - lz4
+  - openssl@3
+  - python@3.14
+  - xxhash
+  - zstd

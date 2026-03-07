@@ -1,0 +1,11 @@
+name: unpkg
+version: 4.8
+description: Unarchiver for .pkg and .mpkg that unpacks all the files in a package
+homepage: https://www.timdoug.com/unpkg/
+url:
+  darwin_arm64: https://www.timdoug.com/unpkg/unpkg-4.8.zip
+sha256:
+  darwin_arm64: 1b8318d2fb642397471221344836a967176089bce44e70a2b99f5cb4f60eee09
+artifacts:
+  app:
+    - unpkg 4.8/unpkg.app

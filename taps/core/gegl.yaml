@@ -1,0 +1,29 @@
+name: gegl
+version: 0.4.66
+description: Graph based image processing framework
+homepage: https://www.gegl.org/
+license: LGPL-3.0-or-later AND GPL-3.0-or-later AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gegl/blobs/sha256:b6ffad6c67b31a894a7bb4d7440f820db314eedfd9ebc48e54f73584188a458a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gegl/blobs/sha256:0a91add40add32c0761a925702307147d1ae9413ac574bdec75c80335e201571
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gegl/blobs/sha256:8aa7315d44d80d2dc0bdaecfe6b1cd7c75bb3b73d93dda7679b4aa8a1043c9de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gegl/blobs/sha256:1b404456c1636ff170ae8266e6ee152546d9a0688d67d3c342d4bd12a909f9f3
+sha256:
+  darwin_arm64: b6ffad6c67b31a894a7bb4d7440f820db314eedfd9ebc48e54f73584188a458a
+  darwin_amd64: 0a91add40add32c0761a925702307147d1ae9413ac574bdec75c80335e201571
+  linux_amd64: 8aa7315d44d80d2dc0bdaecfe6b1cd7c75bb3b73d93dda7679b4aa8a1043c9de
+  linux_arm64: 1b404456c1636ff170ae8266e6ee152546d9a0688d67d3c342d4bd12a909f9f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - babl
+  - cairo
+  - glib
+  - jpeg-turbo
+  - json-glib
+  - libpng
+  - libtiff
+  - little-cms2
+  - gettext

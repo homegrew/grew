@@ -1,0 +1,21 @@
+name: triton
+version: 7.18.0
+description: Joyent Triton CLI
+homepage: https://www.npmjs.com/package/triton
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/triton/blobs/sha256:f659094baf39c772a72b10e6c14b525dca623dec1379b659ca83be1671af99dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/triton/blobs/sha256:7b19e16266ab18e6ab90bf3aa3672a0cabb7148df781076edf3ecd68fc14fc59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/triton/blobs/sha256:5815c9642d4141e9bafa0b1439779bc0f42da92f73146ba0348c8d799775e206
+  linux_arm64: https://ghcr.io/v2/homebrew/core/triton/blobs/sha256:7d46ab480b6e9321c5a1fa43791895e852cf7b36a1d29ee173e23a27b0571698
+sha256:
+  darwin_arm64: f659094baf39c772a72b10e6c14b525dca623dec1379b659ca83be1671af99dd
+  darwin_amd64: 7b19e16266ab18e6ab90bf3aa3672a0cabb7148df781076edf3ecd68fc14fc59
+  linux_amd64: 5815c9642d4141e9bafa0b1439779bc0f42da92f73146ba0348c8d799775e206
+  linux_arm64: 7d46ab480b6e9321c5a1fa43791895e852cf7b36a1d29ee173e23a27b0571698
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

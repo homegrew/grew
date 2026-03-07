@@ -1,0 +1,27 @@
+name: ncmpcpp
+version: 0.10.1
+description: Ncurses-based client for the Music Player Daemon
+homepage: https://rybczak.net/ncmpcpp/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncmpcpp/blobs/sha256:670759732597402da6dd7e0dc4ed92675e15277f7db85c62e56e771b8ac59dd7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncmpcpp/blobs/sha256:fda14cd49fe94f6396050895bceed1de192828a2650423a0037ff175bb9c4f86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncmpcpp/blobs/sha256:40b52492754a82d66f7a3a4e094a22f34326d14884d8c443319a9e184a833533
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncmpcpp/blobs/sha256:554b3da3b1e4925251ff8af6703013f911f8c76f915fce30ee478995848b76a7
+sha256:
+  darwin_arm64: 670759732597402da6dd7e0dc4ed92675e15277f7db85c62e56e771b8ac59dd7
+  darwin_amd64: fda14cd49fe94f6396050895bceed1de192828a2650423a0037ff175bb9c4f86
+  linux_amd64: 40b52492754a82d66f7a3a4e094a22f34326d14884d8c443319a9e184a833533
+  linux_arm64: 554b3da3b1e4925251ff8af6703013f911f8c76f915fce30ee478995848b76a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - fftw
+  - icu4c@78
+  - libmpdclient
+  - ncurses
+  - readline
+  - taglib

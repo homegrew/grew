@@ -1,0 +1,19 @@
+name: countdown
+version: 1.5.0
+description: Terminal countdown timer
+homepage: https://github.com/antonmedv/countdown
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/countdown/blobs/sha256:3783ce1aac69480284935fffe165cf53ff59b361d303ab22344d276bf1ee1d25
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/countdown/blobs/sha256:ddf45211af332196f188371a462c0af25b115d64e08d568c20370e5be9992b2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/countdown/blobs/sha256:aa3d5f2c9b3e7e4661b7aa92583175cd869bcfc37750b4a66dcb3e641be91554
+  linux_arm64: https://ghcr.io/v2/homebrew/core/countdown/blobs/sha256:2ba3dbb9ff589c36b45a9af95aad49d3c41536914f4337b9d4f982e501c7c14d
+sha256:
+  darwin_arm64: 3783ce1aac69480284935fffe165cf53ff59b361d303ab22344d276bf1ee1d25
+  darwin_amd64: ddf45211af332196f188371a462c0af25b115d64e08d568c20370e5be9992b2f
+  linux_amd64: aa3d5f2c9b3e7e4661b7aa92583175cd869bcfc37750b4a66dcb3e641be91554
+  linux_arm64: 2ba3dbb9ff589c36b45a9af95aad49d3c41536914f4337b9d4f982e501c7c14d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

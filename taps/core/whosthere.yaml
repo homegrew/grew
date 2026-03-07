@@ -1,0 +1,19 @@
+name: whosthere
+version: 0.6.1
+description: LAN discovery tool with a modern TUI written in Go
+homepage: https://github.com/ramonvermeulen/whosthere
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/whosthere/blobs/sha256:0946376455982d73d5113c149d7833ff5f11bf447a1a9837e555fa4131d57dac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/whosthere/blobs/sha256:307ed960c69cd44376d794aa7d1571ec49a9cd0dacf919fd7c6d16b2d9156f13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/whosthere/blobs/sha256:561c04d83ef76ba0aefe83511225c4ac136ad126dfb22cd3b5171355dc0f589b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/whosthere/blobs/sha256:a3bd3a4796bf24bd03bc9a79629b0c379c1254c1c5a99a6139c820d102664930
+sha256:
+  darwin_arm64: 0946376455982d73d5113c149d7833ff5f11bf447a1a9837e555fa4131d57dac
+  darwin_amd64: 307ed960c69cd44376d794aa7d1571ec49a9cd0dacf919fd7c6d16b2d9156f13
+  linux_amd64: 561c04d83ef76ba0aefe83511225c4ac136ad126dfb22cd3b5171355dc0f589b
+  linux_arm64: a3bd3a4796bf24bd03bc9a79629b0c379c1254c1c5a99a6139c820d102664930
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nexttrace
+version: 1.5.0
+description: Open source visual route tracking CLI tool
+homepage: https://www.nxtrace.org/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nexttrace/blobs/sha256:c57701d87189b5761e3017c781ace66d53323de23d2f5ae290ca57fcbd7cb95d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nexttrace/blobs/sha256:f5a83110f2c871b488da1c179dee214224a06c432a623d92984152df3188dd33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nexttrace/blobs/sha256:9a85180f795fbc50ce16d76d366c608daa73e75b5cd9acfd071497a50e4aaac3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nexttrace/blobs/sha256:b2d04c1d29b8554cfd13096a728202c22d1331dbcda8de0612e88067b4fcdffd
+sha256:
+  darwin_arm64: c57701d87189b5761e3017c781ace66d53323de23d2f5ae290ca57fcbd7cb95d
+  darwin_amd64: f5a83110f2c871b488da1c179dee214224a06c432a623d92984152df3188dd33
+  linux_amd64: 9a85180f795fbc50ce16d76d366c608daa73e75b5cd9acfd071497a50e4aaac3
+  linux_arm64: b2d04c1d29b8554cfd13096a728202c22d1331dbcda8de0612e88067b4fcdffd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

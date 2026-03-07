@@ -1,0 +1,13 @@
+name: openscad@snapshot
+version: 2026.03.01
+description: Programmable solid 3D CAD modeller
+homepage: https://www.openscad.org/downloads.html#snapshots
+url:
+  darwin_arm64: https://files.openscad.org/snapshots/OpenSCAD-2026.03.01.dmg
+sha256:
+  darwin_arm64: 9577a7fda581c7e8079793b065a717786f80b4dccc08b5533d3ffe8e4f5b9487
+artifacts:
+  app:
+    - OpenSCAD.app
+  bin:
+    - openscad

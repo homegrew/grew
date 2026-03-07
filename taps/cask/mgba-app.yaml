@@ -1,0 +1,11 @@
+name: mgba-app
+version: 0.10.5
+description: Game Boy Advance emulator
+homepage: https://mgba.io/
+url:
+  darwin_arm64: https://github.com/mgba-emu/mgba/releases/download/0.10.5/mGBA-0.10.5-macos.dmg
+sha256:
+  darwin_arm64: 443b490ec728293dfcde1cb9db160f73d94c457cb1864f3ce0407e60e174b09c
+artifacts:
+  app:
+    - mGBA.app

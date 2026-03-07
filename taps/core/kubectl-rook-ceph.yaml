@@ -1,0 +1,19 @@
+name: kubectl-rook-ceph
+version: 0.9.5
+description: Rook plugin for Ceph management
+homepage: https://rook.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubectl-rook-ceph/blobs/sha256:38ef6b6b5600bafd151530f7cd750328fe5ae537e29a8f0256c48c00b888ee51
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubectl-rook-ceph/blobs/sha256:ca5cffd2a78ceed9a0d2777c1eccb1b555e75a23215dbe9d1d42f1fc6d0f5884
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubectl-rook-ceph/blobs/sha256:c67ffb743c4d5fb29bfe87cb63617614c1fe094681bf390f937ae17aadeca7cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubectl-rook-ceph/blobs/sha256:f31f6d9ed0bcf0b233bf2deef70c717b46cc8a232d9ccd26f971fe376298b642
+sha256:
+  darwin_arm64: 38ef6b6b5600bafd151530f7cd750328fe5ae537e29a8f0256c48c00b888ee51
+  darwin_amd64: ca5cffd2a78ceed9a0d2777c1eccb1b555e75a23215dbe9d1d42f1fc6d0f5884
+  linux_amd64: c67ffb743c4d5fb29bfe87cb63617614c1fe094681bf390f937ae17aadeca7cc
+  linux_arm64: f31f6d9ed0bcf0b233bf2deef70c717b46cc8a232d9ccd26f971fe376298b642
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: colortail
+version: 0.3.5
+description: Like tail(1), but with various colors for specified output
+homepage: https://github.com/joakim666/colortail
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/colortail/blobs/sha256:9862416bf5401f2a2a61f90bdac87795f7445e95cf4baf6e0d0d73e984740a99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/colortail/blobs/sha256:6c5d498dedf3d26bf0636d10e5a82bdda798dbb480f89ab07a19fdc75159053a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/colortail/blobs/sha256:e7f6aa1cfcfd61cef470944acee240c93f2442639355dea39fe06e414d168cab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/colortail/blobs/sha256:78b490e972fd2d3c0b3f1a1975bdd221f61e990caf05acd383bf5a79ef675a48
+sha256:
+  darwin_arm64: 9862416bf5401f2a2a61f90bdac87795f7445e95cf4baf6e0d0d73e984740a99
+  darwin_amd64: 6c5d498dedf3d26bf0636d10e5a82bdda798dbb480f89ab07a19fdc75159053a
+  linux_amd64: e7f6aa1cfcfd61cef470944acee240c93f2442639355dea39fe06e414d168cab
+  linux_arm64: 78b490e972fd2d3c0b3f1a1975bdd221f61e990caf05acd383bf5a79ef675a48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

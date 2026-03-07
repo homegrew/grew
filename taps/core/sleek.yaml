@@ -1,0 +1,19 @@
+name: sleek
+version: 0.5.0
+description: CLI tool for formatting SQL
+homepage: https://github.com/nrempel/sleek
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sleek/blobs/sha256:92c4d088b2e718baf4797d96f1c47730de545422b7549728198bf7a18eb04ce9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sleek/blobs/sha256:e4e2ac88f2fdb8c1418d82f19ba13ad142f7c111fa5e9e143212167a9c80b99f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sleek/blobs/sha256:0a9e38b97cbd5cdcd3b1f8a2d77472dc4911e65ed205932606d1f56b752c21c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sleek/blobs/sha256:a0787c89db269a455792647f92c31b3dd0a8222ae400ce37ac22a8c11c694742
+sha256:
+  darwin_arm64: 92c4d088b2e718baf4797d96f1c47730de545422b7549728198bf7a18eb04ce9
+  darwin_amd64: e4e2ac88f2fdb8c1418d82f19ba13ad142f7c111fa5e9e143212167a9c80b99f
+  linux_amd64: 0a9e38b97cbd5cdcd3b1f8a2d77472dc4911e65ed205932606d1f56b752c21c8
+  linux_arm64: a0787c89db269a455792647f92c31b3dd0a8222ae400ce37ac22a8c11c694742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

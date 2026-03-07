@@ -1,0 +1,19 @@
+name: cloud-nuke
+version: 0.46.0
+description: CLI tool to nuke (delete) cloud resources
+homepage: https://gruntwork.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloud-nuke/blobs/sha256:4b81490fddf65ee581295217a3c976aa81853e1b90351c5617b231876f85cd39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloud-nuke/blobs/sha256:e9e99b0e05a43b5e302d4bbccd49fbb33ad7af9e18e82059e10b671040a779e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloud-nuke/blobs/sha256:6ee2b386f1e4aab54d9b71a8a3832a4946162a10fc76f5dcf744bd25ed5261c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloud-nuke/blobs/sha256:17b19c4bd24648c82f95896a557cf9beac21e407b7c1703d8443ff54690e4ad1
+sha256:
+  darwin_arm64: 4b81490fddf65ee581295217a3c976aa81853e1b90351c5617b231876f85cd39
+  darwin_amd64: e9e99b0e05a43b5e302d4bbccd49fbb33ad7af9e18e82059e10b671040a779e6
+  linux_amd64: 6ee2b386f1e4aab54d9b71a8a3832a4946162a10fc76f5dcf744bd25ed5261c3
+  linux_arm64: 17b19c4bd24648c82f95896a557cf9beac21e407b7c1703d8443ff54690e4ad1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

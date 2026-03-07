@@ -1,0 +1,19 @@
+name: cargo-dist
+version: 0.31.0
+description: Tool for building final distributable artifacts and uploading them to an archive
+homepage: https://opensource.axo.dev/cargo-dist/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-dist/blobs/sha256:a6ea59f0de4192fdb792c9bc2594b3d7d843a9193e275378dc604b94947ac871
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-dist/blobs/sha256:4d535ce54dffaf036da7202a1e2479f3da4e4efca5e3b1fc80ff04a294136658
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-dist/blobs/sha256:6d3e314ea5e9e1d888c3b3d9e9e6963337b40ba40a4cbbcbc920570762396c9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-dist/blobs/sha256:3a0dfa3e2449b06adce08ec524e89c2516a3dbb0c6672a28baab15e4cbb121d1
+sha256:
+  darwin_arm64: a6ea59f0de4192fdb792c9bc2594b3d7d843a9193e275378dc604b94947ac871
+  darwin_amd64: 4d535ce54dffaf036da7202a1e2479f3da4e4efca5e3b1fc80ff04a294136658
+  linux_amd64: 6d3e314ea5e9e1d888c3b3d9e9e6963337b40ba40a4cbbcbc920570762396c9d
+  linux_arm64: 3a0dfa3e2449b06adce08ec524e89c2516a3dbb0c6672a28baab15e4cbb121d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: httpx
+version: 1.8.1
+description: Fast and multi-purpose HTTP toolkit
+homepage: https://github.com/projectdiscovery/httpx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httpx/blobs/sha256:eb053ee31728725df8445811dc154df8fc618c9e912d6a4f8576288c896fab61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httpx/blobs/sha256:a9afaef26fb2013693302949b43f13d60ea4e8be35cd87ae8f81424b4baebae0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httpx/blobs/sha256:32d26892b13133b03906d45460228c11f8ab8cf15a03ff169a75904626c6fecb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httpx/blobs/sha256:ba657fae0927582e8d90c315c81a956c8be73321bde3363d0cb62b3eb36188ea
+sha256:
+  darwin_arm64: eb053ee31728725df8445811dc154df8fc618c9e912d6a4f8576288c896fab61
+  darwin_amd64: a9afaef26fb2013693302949b43f13d60ea4e8be35cd87ae8f81424b4baebae0
+  linux_amd64: 32d26892b13133b03906d45460228c11f8ab8cf15a03ff169a75904626c6fecb
+  linux_arm64: ba657fae0927582e8d90c315c81a956c8be73321bde3363d0cb62b3eb36188ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,15 @@
+name: swiftgen
+version: 6.6.3
+description: Swift code generator for assets, storyboards, Localizable.strings, etc.
+homepage: https://github.com/SwiftGen/SwiftGen
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swiftgen/blobs/sha256:001dc72c675528810114e961f7a9d743504ab3fd58c50e5be6363fcb76c91382
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swiftgen/blobs/sha256:20b600909007b301f5daae7954e1587b4275a2818671ab96ae584139fb6d184f
+sha256:
+  darwin_arm64: 001dc72c675528810114e961f7a9d743504ab3fd58c50e5be6363fcb76c91382
+  darwin_amd64: 20b600909007b301f5daae7954e1587b4275a2818671ab96ae584139fb6d184f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

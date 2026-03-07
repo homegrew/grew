@@ -1,0 +1,24 @@
+name: scipy
+version: 1.17.1
+description: Software for mathematics, science, and engineering
+homepage: https://www.scipy.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scipy/blobs/sha256:78f1f5aed3d3b4f72f9df7ca3a12f9fbbe38b037eb3ed1f5267dd743c6ca8e7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scipy/blobs/sha256:c8783212ebe892ba6f7b7ffae47c3cee9e75d73e51b27ce5b2c729c07251c954
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scipy/blobs/sha256:e270d3de3e13788049162a7fd4b7d215fc3ddf08b4ae96d76cdec9d11e0ceea6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scipy/blobs/sha256:8fff82c03b8ddb88896760fc68f86badcf38520a93046082af1d6937dcb21ca3
+sha256:
+  darwin_arm64: 78f1f5aed3d3b4f72f9df7ca3a12f9fbbe38b037eb3ed1f5267dd743c6ca8e7a
+  darwin_amd64: c8783212ebe892ba6f7b7ffae47c3cee9e75d73e51b27ce5b2c729c07251c954
+  linux_amd64: e270d3de3e13788049162a7fd4b7d215fc3ddf08b4ae96d76cdec9d11e0ceea6
+  linux_arm64: 8fff82c03b8ddb88896760fc68f86badcf38520a93046082af1d6937dcb21ca3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - numpy
+  - openblas
+  - xsimd

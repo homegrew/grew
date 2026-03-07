@@ -1,0 +1,19 @@
+name: advancescan
+version: 1.18
+description: Rom manager for AdvanceMAME/MESS
+homepage: https://www.advancemame.it/scan-readme.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/advancescan/blobs/sha256:911a3103d9849fb5bd1ec1b79d63a77efe11af81bdcda9306682ac32c0a5feaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/advancescan/blobs/sha256:5b8f678959fcf8389944302f432587b91a90d94249839d1752bdd89cc14a831f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/advancescan/blobs/sha256:3cb1c3cee50692f29ab979afff87ab75f36e117a0208070fa69834defb9879da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/advancescan/blobs/sha256:57f3ebcc210b8625a0d0ffce9773d26c6a40bc01568d14d754d97e578f6fc83d
+sha256:
+  darwin_arm64: 911a3103d9849fb5bd1ec1b79d63a77efe11af81bdcda9306682ac32c0a5feaa
+  darwin_amd64: 5b8f678959fcf8389944302f432587b91a90d94249839d1752bdd89cc14a831f
+  linux_amd64: 3cb1c3cee50692f29ab979afff87ab75f36e117a0208070fa69834defb9879da
+  linux_arm64: 57f3ebcc210b8625a0d0ffce9773d26c6a40bc01568d14d754d97e578f6fc83d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

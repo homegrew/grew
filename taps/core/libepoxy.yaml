@@ -1,0 +1,19 @@
+name: libepoxy
+version: 1.5.10
+description: Library for handling OpenGL function pointer management
+homepage: https://github.com/anholt/libepoxy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libepoxy/blobs/sha256:b6b93f3e18a09a60f0a2e7b6f91eef274d0a34840d5141446535f6ef949377b4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libepoxy/blobs/sha256:f0a692baa102940ea9ab31daef2dacb0ad2017d6049b4b58080417f900b0aeb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libepoxy/blobs/sha256:8798e1682f355df0c5009b8b968ecb2b9bd447f32683ad21f10e68ea60320819
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libepoxy/blobs/sha256:d353d0c6a998998b3563cc16177e88ab316aeab0f4e0cf199d59627248cba27f
+sha256:
+  darwin_arm64: b6b93f3e18a09a60f0a2e7b6f91eef274d0a34840d5141446535f6ef949377b4
+  darwin_amd64: f0a692baa102940ea9ab31daef2dacb0ad2017d6049b4b58080417f900b0aeb9
+  linux_amd64: 8798e1682f355df0c5009b8b968ecb2b9bd447f32683ad21f10e68ea60320819
+  linux_arm64: d353d0c6a998998b3563cc16177e88ab316aeab0f4e0cf199d59627248cba27f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

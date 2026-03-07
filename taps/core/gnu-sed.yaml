@@ -1,0 +1,19 @@
+name: gnu-sed
+version: 4.9
+description: GNU implementation of the famous stream editor
+homepage: https://www.gnu.org/software/sed/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-sed/blobs/sha256:48a39d1b81adb766f45db53a0f4f8e9ce8b942386c270cfcdad3fbd08cb653f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-sed/blobs/sha256:4993928cc2d43c4eeb320e5851bb4d2ab31bd88a1c52f287141af18e46afc4b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-sed/blobs/sha256:1b67527e8abadc04f961bb46ac20e54f731bcfe485d2813932735096f34ceca8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-sed/blobs/sha256:6a3e57a3c43b15a0bd0cfe27e176f0b935650fd482a028a184dbb6b67f47d0a9
+sha256:
+  darwin_arm64: 48a39d1b81adb766f45db53a0f4f8e9ce8b942386c270cfcdad3fbd08cb653f9
+  darwin_amd64: 4993928cc2d43c4eeb320e5851bb4d2ab31bd88a1c52f287141af18e46afc4b9
+  linux_amd64: 1b67527e8abadc04f961bb46ac20e54f731bcfe485d2813932735096f34ceca8
+  linux_arm64: 6a3e57a3c43b15a0bd0cfe27e176f0b935650fd482a028a184dbb6b67f47d0a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

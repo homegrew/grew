@@ -1,0 +1,11 @@
+name: ipfs-desktop
+version: 0.48.0
+description: Menu bar application for the IPFS peer-to-peer network
+homepage: https://github.com/ipfs/ipfs-desktop
+url:
+  darwin_arm64: https://github.com/ipfs/ipfs-desktop/releases/download/v0.48.0/ipfs-desktop-0.48.0-mac.dmg
+sha256:
+  darwin_arm64: 1e07d24673d041a7d336ad96d54f3e02b112b42185f9c6b00929c428eed3cd85
+artifacts:
+  app:
+    - IPFS Desktop.app

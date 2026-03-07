@@ -1,0 +1,19 @@
+name: base91
+version: 0.6.0
+description: Utility to encode and decode base91 files
+homepage: https://base91.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/base91/blobs/sha256:3c288d4a7310b87b44e080c9b10ae3f541945cc7ba1e990edd1006df84c6ad9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/base91/blobs/sha256:5631c841168b7506040aa82be29ac05c5a91714107e99cfa2d7f3b59fd1958cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/base91/blobs/sha256:c611713705345338da5415ea274901781c883f71e870384f92866fb7275083b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/base91/blobs/sha256:570aa4d67d764052049d02bb6f3843b306378950a45ac01145b0e11e183bebc0
+sha256:
+  darwin_arm64: 3c288d4a7310b87b44e080c9b10ae3f541945cc7ba1e990edd1006df84c6ad9e
+  darwin_amd64: 5631c841168b7506040aa82be29ac05c5a91714107e99cfa2d7f3b59fd1958cb
+  linux_amd64: c611713705345338da5415ea274901781c883f71e870384f92866fb7275083b3
+  linux_arm64: 570aa4d67d764052049d02bb6f3843b306378950a45ac01145b0e11e183bebc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

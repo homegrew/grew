@@ -1,0 +1,20 @@
+name: llvm@14
+version: 14.0.6
+description: Next-gen compiler infrastructure
+homepage: https://llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llvm/14/blobs/sha256:1b081d8bd775b69b5c95e98df2689844a3c44a77509bfd9adc1f169e9502c6a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llvm/14/blobs/sha256:88ef0c0f3a9876fe2831f1b7f38aee95b43fadd816b6622b76583461d685bbae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llvm/14/blobs/sha256:584cd6ac9de19540bce25bfb1e35af872d34f0ad5723dbb5a63c7561dfd1091d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llvm/14/blobs/sha256:f022789750bb9997fc7bfa5810d35cd3dbae901787885e92e4ef16e3b13a7ae9
+sha256:
+  darwin_arm64: 1b081d8bd775b69b5c95e98df2689844a3c44a77509bfd9adc1f169e9502c6a7
+  darwin_amd64: 88ef0c0f3a9876fe2831f1b7f38aee95b43fadd816b6622b76583461d685bbae
+  linux_amd64: 584cd6ac9de19540bce25bfb1e35af872d34f0ad5723dbb5a63c7561dfd1091d
+  linux_arm64: f022789750bb9997fc7bfa5810d35cd3dbae901787885e92e4ef16e3b13a7ae9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

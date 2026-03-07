@@ -1,0 +1,22 @@
+name: web-ext
+version: 9.4.0
+description: Command-line tool to help build, run, and test web extensions
+homepage: https://github.com/mozilla/web-ext
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/web-ext/blobs/sha256:9e345e1a320cb57cff6c7f78f7d233b10f231d3a9bfdca1e9e971bb7215e6cca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/web-ext/blobs/sha256:9e345e1a320cb57cff6c7f78f7d233b10f231d3a9bfdca1e9e971bb7215e6cca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/web-ext/blobs/sha256:57f04c57e5925120c038f5def15491102bb5b3fc9ea99c3a5063c25d245bf052
+  linux_arm64: https://ghcr.io/v2/homebrew/core/web-ext/blobs/sha256:57f04c57e5925120c038f5def15491102bb5b3fc9ea99c3a5063c25d245bf052
+sha256:
+  darwin_arm64: 9e345e1a320cb57cff6c7f78f7d233b10f231d3a9bfdca1e9e971bb7215e6cca
+  darwin_amd64: 9e345e1a320cb57cff6c7f78f7d233b10f231d3a9bfdca1e9e971bb7215e6cca
+  linux_amd64: 57f04c57e5925120c038f5def15491102bb5b3fc9ea99c3a5063c25d245bf052
+  linux_arm64: 57f04c57e5925120c038f5def15491102bb5b3fc9ea99c3a5063c25d245bf052
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - terminal-notifier

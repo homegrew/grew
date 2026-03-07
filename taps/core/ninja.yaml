@@ -1,0 +1,19 @@
+name: ninja
+version: 1.13.2
+description: Small build system for use with gyp or CMake
+homepage: https://ninja-build.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ninja/blobs/sha256:d311d593a271d255b4fd6337f8ef394f825b73aa77f7ebd51236ff850cf85033
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ninja/blobs/sha256:158b6f8679eca7ea16e76aecddd42465e2bdc44512c4d9fdab579b50fe3c7301
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ninja/blobs/sha256:5b3072c3b1944cb010705840243e7590cb1105445dfdcaf90de543b3dc06b545
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ninja/blobs/sha256:cb6ac675ebb7a42d4dc01de374378df60f83f076211d5d35c0880da3babf40bf
+sha256:
+  darwin_arm64: d311d593a271d255b4fd6337f8ef394f825b73aa77f7ebd51236ff850cf85033
+  darwin_amd64: 158b6f8679eca7ea16e76aecddd42465e2bdc44512c4d9fdab579b50fe3c7301
+  linux_amd64: 5b3072c3b1944cb010705840243e7590cb1105445dfdcaf90de543b3dc06b545
+  linux_arm64: cb6ac675ebb7a42d4dc01de374378df60f83f076211d5d35c0880da3babf40bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

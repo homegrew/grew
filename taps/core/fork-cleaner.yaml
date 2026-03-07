@@ -1,0 +1,19 @@
+name: fork-cleaner
+version: 2.4.0
+description: Cleans up old and inactive forks on your GitHub account
+homepage: https://github.com/caarlos0/fork-cleaner
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fork-cleaner/blobs/sha256:4d65037eb6fa84966a7d0739f6f9291bec56c4d9570cf55e158b9d08b8621f7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fork-cleaner/blobs/sha256:97d7f18ad8794af667717bdac50c24d0830691bb3f23d6bc2ff1a9f12a6a75cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fork-cleaner/blobs/sha256:ee7dc6c7d5b873e5fb7a52ebb8080ec5c544380842527522b161fdca7f79a593
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fork-cleaner/blobs/sha256:bb74331bc4d12930081b084cc5748e3d055be6653c5128f5e5dfb65ebe4313ac
+sha256:
+  darwin_arm64: 4d65037eb6fa84966a7d0739f6f9291bec56c4d9570cf55e158b9d08b8621f7e
+  darwin_amd64: 97d7f18ad8794af667717bdac50c24d0830691bb3f23d6bc2ff1a9f12a6a75cf
+  linux_amd64: ee7dc6c7d5b873e5fb7a52ebb8080ec5c544380842527522b161fdca7f79a593
+  linux_arm64: bb74331bc4d12930081b084cc5748e3d055be6653c5128f5e5dfb65ebe4313ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

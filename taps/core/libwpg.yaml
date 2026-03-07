@@ -1,0 +1,22 @@
+name: libwpg
+version: 0.3.4
+description: Library for reading and parsing Word Perfect Graphics format
+homepage: https://libwpg.sourceforge.net/
+license: LGPL-2.1-only AND MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwpg/blobs/sha256:2aaaa4050e20a26525852f0cfe451e805728c7b03597e883e088c7eb234eea89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwpg/blobs/sha256:aacf3220cfb291ab3d957eef407bc743ed767e17a0b926fa542db7fd785add80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwpg/blobs/sha256:c079bc2c2fc9c98e967d13ffa15b47ab25efc59ba66f731ce3758d1265017368
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwpg/blobs/sha256:0d08712e0baa978acef8431b8d295d02f82a3d50c7396034df4a3e17be1551c8
+sha256:
+  darwin_arm64: 2aaaa4050e20a26525852f0cfe451e805728c7b03597e883e088c7eb234eea89
+  darwin_amd64: aacf3220cfb291ab3d957eef407bc743ed767e17a0b926fa542db7fd785add80
+  linux_amd64: c079bc2c2fc9c98e967d13ffa15b47ab25efc59ba66f731ce3758d1265017368
+  linux_arm64: 0d08712e0baa978acef8431b8d295d02f82a3d50c7396034df4a3e17be1551c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge
+  - libwpd

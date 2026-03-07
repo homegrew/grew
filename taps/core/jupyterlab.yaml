@@ -1,0 +1,27 @@
+name: jupyterlab
+version: 4.5.5
+description: Interactive environments for writing and running code
+homepage: https://jupyter.org/
+license: BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jupyterlab/blobs/sha256:0b0d70887aa6ac52b77ea0a879c7bde16b8ff63c716cccce1627dd91901f9505
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jupyterlab/blobs/sha256:e57e2ef08fff36559217e271545692c3964bb340019ed55471eab8336975f44b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jupyterlab/blobs/sha256:4fa949d9dfceef91bbd14e65fe45af362eb2d9baeb62283144ec697ecaf8318e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jupyterlab/blobs/sha256:8c019e9b4dd2a74c9c22028d1ca70596ee48aba1107727b7308f6326052b8492
+sha256:
+  darwin_arm64: 0b0d70887aa6ac52b77ea0a879c7bde16b8ff63c716cccce1627dd91901f9505
+  darwin_amd64: e57e2ef08fff36559217e271545692c3964bb340019ed55471eab8336975f44b
+  linux_amd64: 4fa949d9dfceef91bbd14e65fe45af362eb2d9baeb62283144ec697ecaf8318e
+  linux_arm64: 8c019e9b4dd2a74c9c22028d1ca70596ee48aba1107727b7308f6326052b8492
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - node
+  - pandoc
+  - python@3.14
+  - rpds-py
+  - zeromq

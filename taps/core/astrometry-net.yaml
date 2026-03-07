@@ -1,0 +1,29 @@
+name: astrometry-net
+version: 0.97
+description: Automatic identification of astronomical images
+homepage: https://github.com/dstndstn/astrometry.net
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/astrometry-net/blobs/sha256:7f4f5d8b63f56580ab8358c167b88b4935edfd89c7a1f23795dd8cc17d7f7dd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/astrometry-net/blobs/sha256:5e5b7ea3ffc3f164fe4ef417ee07b3bd61635e0d013ad65a44750f949b868a39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/astrometry-net/blobs/sha256:7d90330bbdcaca59edfed36e5c276dbdfc4167fb0defff861fd94b23bdd28d52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/astrometry-net/blobs/sha256:1f885845949e0b6399a00d2628b78b06576b2c89137ff308e1c5b708d6b36162
+sha256:
+  darwin_arm64: 7f4f5d8b63f56580ab8358c167b88b4935edfd89c7a1f23795dd8cc17d7f7dd0
+  darwin_amd64: 5e5b7ea3ffc3f164fe4ef417ee07b3bd61635e0d013ad65a44750f949b868a39
+  linux_amd64: 7d90330bbdcaca59edfed36e5c276dbdfc4167fb0defff861fd94b23bdd28d52
+  linux_arm64: 1f885845949e0b6399a00d2628b78b06576b2c89137ff308e1c5b708d6b36162
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - cfitsio
+  - gsl
+  - jpeg-turbo
+  - libpng
+  - netpbm
+  - numpy
+  - python@3.14
+  - wcslib

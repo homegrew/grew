@@ -1,0 +1,11 @@
+name: diagnostics
+version: 1.4.1
+description: Diagnostic (crash) reports viewer
+homepage: https://github.com/macmade/Diagnostics
+url:
+  darwin_arm64: https://github.com/macmade/Diagnostics/releases/download/1.4.1/Diagnostics.app.zip
+sha256:
+  darwin_arm64: dac94f1e6b32224648d8d4a902acfb50e4b75a0cf295b508589858594899ef8f
+artifacts:
+  app:
+    - Diagnostics.app

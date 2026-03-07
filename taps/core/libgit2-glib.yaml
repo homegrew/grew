@@ -1,0 +1,23 @@
+name: libgit2-glib
+version: 1.2.1
+description: Glib wrapper library around libgit2 git access library
+homepage: https://gitlab.gnome.org/GNOME/libgit2-glib
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgit2-glib/blobs/sha256:003f423a05d4a12f3e922b31e4e0f782751fdc35415ca42224cf6b339bdd28cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgit2-glib/blobs/sha256:a08109665a8ba8789748dfdf2ba84b08bc8013e7cd59eaae676bd06d80382b9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgit2-glib/blobs/sha256:9720677ca97a144f7d851f9068e8fe5304968f6bc627f8af4a6fac30705f6029
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgit2-glib/blobs/sha256:7cccaa7fcd0b32e36b3b6ada4cd7a289664b16e6575d5369b70741c464613040
+sha256:
+  darwin_arm64: 003f423a05d4a12f3e922b31e4e0f782751fdc35415ca42224cf6b339bdd28cb
+  darwin_amd64: a08109665a8ba8789748dfdf2ba84b08bc8013e7cd59eaae676bd06d80382b9a
+  linux_amd64: 9720677ca97a144f7d851f9068e8fe5304968f6bc627f8af4a6fac30705f6029
+  linux_arm64: 7cccaa7fcd0b32e36b3b6ada4cd7a289664b16e6575d5369b70741c464613040
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libgit2
+  - gettext

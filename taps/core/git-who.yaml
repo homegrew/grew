@@ -1,0 +1,19 @@
+name: git-who
+version: 1.3
+description: Git blame for file trees
+homepage: https://github.com/sinclairtarget/git-who
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-who/blobs/sha256:ec34f46d1792d480bc256dfe1bdc810e533f97433ddbd6ac219b8a7c4d2c3789
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-who/blobs/sha256:2a5f6d518915a9fa085664721c1df20b578fe8bfa36c7f104e07600321ebeca2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-who/blobs/sha256:ebf7f36b22aff6e4fd4b8b2575680e00f02e674b808cd7d8cc3d92ddf92241f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-who/blobs/sha256:024b64101d871ea36214c5a63067d3a07a42f2fe30fe216f6f0bdfff122a077c
+sha256:
+  darwin_arm64: ec34f46d1792d480bc256dfe1bdc810e533f97433ddbd6ac219b8a7c4d2c3789
+  darwin_amd64: 2a5f6d518915a9fa085664721c1df20b578fe8bfa36c7f104e07600321ebeca2
+  linux_amd64: ebf7f36b22aff6e4fd4b8b2575680e00f02e674b808cd7d8cc3d92ddf92241f7
+  linux_arm64: 024b64101d871ea36214c5a63067d3a07a42f2fe30fe216f6f0bdfff122a077c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

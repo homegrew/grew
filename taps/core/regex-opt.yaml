@@ -1,0 +1,19 @@
+name: regex-opt
+version: 1.2.4
+description: Perl-compatible regular expression optimizer
+homepage: https://bisqwit.iki.fi/source/regexopt.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/regex-opt/blobs/sha256:fb8c9167137fd3a65707f40904f20a3e137082af231aeffffb3b2c85da9faa6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/regex-opt/blobs/sha256:c9916801c59c641417a206eaf39ffa0c9ac1d86e40116923f78355f3a66be8d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/regex-opt/blobs/sha256:9cf554c9bf9c98356aef52dc0d2eeeb514020d2505ed41764458f937e662b95e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/regex-opt/blobs/sha256:0ab2654a2088ac3ce8203f064d695612f9233dbbf2de6dbf892e589a1f1168e1
+sha256:
+  darwin_arm64: fb8c9167137fd3a65707f40904f20a3e137082af231aeffffb3b2c85da9faa6f
+  darwin_amd64: c9916801c59c641417a206eaf39ffa0c9ac1d86e40116923f78355f3a66be8d9
+  linux_amd64: 9cf554c9bf9c98356aef52dc0d2eeeb514020d2505ed41764458f937e662b95e
+  linux_arm64: 0ab2654a2088ac3ce8203f064d695612f9233dbbf2de6dbf892e589a1f1168e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: cloudflare-cli4
+version: 2.19.4.post3
+description: CLI for Cloudflare API v4
+homepage: https://github.com/cloudflare/python-cloudflare-cli4
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-cli4/blobs/sha256:b9710d1e00f4e93cb745b8d458b8cc3f3413e23bb2b075c251949965e0e3a05b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudflare-cli4/blobs/sha256:22616ef63b50c8f50241b221b07523e6b091082c25ff24f199cb788ee4ee3a12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudflare-cli4/blobs/sha256:8b21fe7364c0bcb218b31975c04298faaf97eec2daf63b7ab3c2865197c7f5d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-cli4/blobs/sha256:4a88895f966880af0860d81f239e7f243765d0b8d5c153ae205523d4dd994866
+sha256:
+  darwin_arm64: b9710d1e00f4e93cb745b8d458b8cc3f3413e23bb2b075c251949965e0e3a05b
+  darwin_amd64: 22616ef63b50c8f50241b221b07523e6b091082c25ff24f199cb788ee4ee3a12
+  linux_amd64: 8b21fe7364c0bcb218b31975c04298faaf97eec2daf63b7ab3c2865197c7f5d1
+  linux_arm64: 4a88895f966880af0860d81f239e7f243765d0b8d5c153ae205523d4dd994866
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

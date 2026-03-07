@@ -1,0 +1,22 @@
+name: pyspelling
+version: 2.12.1
+description: Spell checker automation tool
+homepage: https://facelessuser.github.io/pyspelling/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyspelling/blobs/sha256:02807a71a8e0381aef6431b7302fa785d68cb9e0e5b3824e005fd2307507f3f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyspelling/blobs/sha256:834326a17f27b9c8c4da911081b9f9530bdbe32c767ee9e8002fbd8cea03b796
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyspelling/blobs/sha256:989d40f2cd5c3403fc4b78b84dd307f9703f46acdc5b514c6ad9e8db8050a6ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyspelling/blobs/sha256:98f5cd10a7b8953a91812e0fb3f2b8138afc701ddb01e10da73174f6007bb4b3
+sha256:
+  darwin_arm64: 02807a71a8e0381aef6431b7302fa785d68cb9e0e5b3824e005fd2307507f3f7
+  darwin_amd64: 834326a17f27b9c8c4da911081b9f9530bdbe32c767ee9e8002fbd8cea03b796
+  linux_amd64: 989d40f2cd5c3403fc4b78b84dd307f9703f46acdc5b514c6ad9e8db8050a6ad
+  linux_arm64: 98f5cd10a7b8953a91812e0fb3f2b8138afc701ddb01e10da73174f6007bb4b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

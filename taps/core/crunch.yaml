@@ -1,0 +1,19 @@
+name: crunch
+version: 3.6
+description: Wordlist generator
+homepage: https://sourceforge.net/projects/crunch-wordlist/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crunch/blobs/sha256:d449463edb9406d92410104b8302202c4aebd190cc181d8fea3e4fea2e8ef0c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crunch/blobs/sha256:3e90eb0b16dc80dc8105256d758e8e561604795087b3f596ef3296bc1c01cb6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crunch/blobs/sha256:2da41fe3124d8d6fbfd6df0fa1eefd803b2fee839332cdce61b9c8a1e15e977d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crunch/blobs/sha256:abf2c62b42c660eeb58ac32c84c77ee4f425cef5b69a4eeedc2e00cea490a001
+sha256:
+  darwin_arm64: d449463edb9406d92410104b8302202c4aebd190cc181d8fea3e4fea2e8ef0c3
+  darwin_amd64: 3e90eb0b16dc80dc8105256d758e8e561604795087b3f596ef3296bc1c01cb6f
+  linux_amd64: 2da41fe3124d8d6fbfd6df0fa1eefd803b2fee839332cdce61b9c8a1e15e977d
+  linux_arm64: abf2c62b42c660eeb58ac32c84c77ee4f425cef5b69a4eeedc2e00cea490a001
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

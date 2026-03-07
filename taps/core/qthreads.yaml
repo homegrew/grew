@@ -1,0 +1,19 @@
+name: qthreads
+version: 1.23
+description: Lightweight locality-aware user-level threading runtime
+homepage: https://www.sandia.gov/qthreads/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qthreads/blobs/sha256:f455a5b42d23a1151bfcff2b905895f1a0c3e3fff9bd7c6db3f3c7532edb580b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qthreads/blobs/sha256:8fe16a4de2fb44ea1adaf8dae0786e46ba7199fdb57e4ef5584384bb76dd660e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qthreads/blobs/sha256:d1a54569cf1e22ecf35bceb1043fca31c97b86651c0782d00f856f1a31dc518c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qthreads/blobs/sha256:40ef0b72f54ac93aa7a7f0798d0d1e55ae5df9ce3a2329aa280ad76db0ecb482
+sha256:
+  darwin_arm64: f455a5b42d23a1151bfcff2b905895f1a0c3e3fff9bd7c6db3f3c7532edb580b
+  darwin_amd64: 8fe16a4de2fb44ea1adaf8dae0786e46ba7199fdb57e4ef5584384bb76dd660e
+  linux_amd64: d1a54569cf1e22ecf35bceb1043fca31c97b86651c0782d00f856f1a31dc518c
+  linux_arm64: 40ef0b72f54ac93aa7a7f0798d0d1e55ae5df9ce3a2329aa280ad76db0ecb482
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

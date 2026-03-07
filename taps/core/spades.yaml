@@ -1,0 +1,22 @@
+name: spades
+version: 4.2.0
+description: De novo genome sequence assembly
+homepage: https://ablab.github.io/spades/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spades/blobs/sha256:dfb1b8e8a099823127b97e10c3cf6951b71fa135cbab935f82ebf4beb5fc4bd7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spades/blobs/sha256:5c7ce0aa451474c9cb40dfaf9ea5d7d4331dafb3304eb3586e2fea88d3330a61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spades/blobs/sha256:56929dd62ca2109f9194096c04452dbe7f572a9858cdc54d1fbeeb7743af4563
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spades/blobs/sha256:4c9ee246e19db295757ed9cbf2b4f3b75d2476620778e28411feae289bc7ed34
+sha256:
+  darwin_arm64: dfb1b8e8a099823127b97e10c3cf6951b71fa135cbab935f82ebf4beb5fc4bd7
+  darwin_amd64: 5c7ce0aa451474c9cb40dfaf9ea5d7d4331dafb3304eb3586e2fea88d3330a61
+  linux_amd64: 56929dd62ca2109f9194096c04452dbe7f572a9858cdc54d1fbeeb7743af4563
+  linux_arm64: 4c9ee246e19db295757ed9cbf2b4f3b75d2476620778e28411feae289bc7ed34
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - libomp

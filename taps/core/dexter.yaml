@@ -1,0 +1,22 @@
+name: dexter
+version: 0.6.3
+description: Automatic indexer for Postgres
+homepage: https://github.com/ankane/dexter
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dexter/blobs/sha256:2b592f0c8333110a04e3c57a72faf10ea3936ac4fe2595a7ca6a3389c6ae66d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dexter/blobs/sha256:129ab1c754862ceab9958091546556d6460dddb4c5229bf8a225222de6852874
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dexter/blobs/sha256:b9b849261c597104bf285a9db07d30ef8ddf757061faf429e8b374d3247136b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dexter/blobs/sha256:a5b3e2ac62a51478d848a006cb2a09560f00f576636e1bd5d384376030cf97d8
+sha256:
+  darwin_arm64: 2b592f0c8333110a04e3c57a72faf10ea3936ac4fe2595a7ca6a3389c6ae66d0
+  darwin_amd64: 129ab1c754862ceab9958091546556d6460dddb4c5229bf8a225222de6852874
+  linux_amd64: b9b849261c597104bf285a9db07d30ef8ddf757061faf429e8b374d3247136b4
+  linux_arm64: a5b3e2ac62a51478d848a006cb2a09560f00f576636e1bd5d384376030cf97d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - ruby

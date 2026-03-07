@@ -1,0 +1,19 @@
+name: midicsv
+version: 1.1
+description: Convert MIDI audio files to human-readable CSV format
+homepage: https://www.fourmilab.ch/webtools/midicsv/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/midicsv/blobs/sha256:8d6c6d8de364a07a54ad4edb30cbd5393cb887e3f4e2a9ea0c072f70646148ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/midicsv/blobs/sha256:0c4868dd40cd68b5047cf9e9c925f50738350bce211788736faf717221a62f4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/midicsv/blobs/sha256:683cf72afc59037843aed1da2bf95b0ba3927d8521aabcbc96702329bebf4ee4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/midicsv/blobs/sha256:31000beeb43c4aed181a84d1ef69d516a7cc96515344b74a08c2989d2569fd36
+sha256:
+  darwin_arm64: 8d6c6d8de364a07a54ad4edb30cbd5393cb887e3f4e2a9ea0c072f70646148ec
+  darwin_amd64: 0c4868dd40cd68b5047cf9e9c925f50738350bce211788736faf717221a62f4c
+  linux_amd64: 683cf72afc59037843aed1da2bf95b0ba3927d8521aabcbc96702329bebf4ee4
+  linux_arm64: 31000beeb43c4aed181a84d1ef69d516a7cc96515344b74a08c2989d2569fd36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

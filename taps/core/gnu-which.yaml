@@ -1,0 +1,19 @@
+name: gnu-which
+version: 2.23
+description: GNU implementation of which utility
+homepage: https://savannah.gnu.org/projects/which/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-which/blobs/sha256:e90a6ecbd9fb9b0134ff618f44d6993edd632d8a7529d3ec51b03fb708722e94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-which/blobs/sha256:1a0d51cf354ef62e06eaeaf5a6fe4a76f655ba084025382dbf6405a35feacc42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-which/blobs/sha256:81baea2942f92fa1c2cfa15adc71aa2d9e845c48f4339586cc78985327b53666
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-which/blobs/sha256:665706e5c4562d4a250889303098d4773153ade7d14609fdcf317966cc50080c
+sha256:
+  darwin_arm64: e90a6ecbd9fb9b0134ff618f44d6993edd632d8a7529d3ec51b03fb708722e94
+  darwin_amd64: 1a0d51cf354ef62e06eaeaf5a6fe4a76f655ba084025382dbf6405a35feacc42
+  linux_amd64: 81baea2942f92fa1c2cfa15adc71aa2d9e845c48f4339586cc78985327b53666
+  linux_arm64: 665706e5c4562d4a250889303098d4773153ade7d14609fdcf317966cc50080c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

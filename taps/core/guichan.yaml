@@ -1,0 +1,19 @@
+name: guichan
+version: 0.8.3
+description: Small, efficient C++ GUI library designed for games
+homepage: https://github.com/darkbitsorg/guichan
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/guichan/blobs/sha256:2468a859fd2e4f902e76f3ace98dfc55a117ec1a4ed6fe3a114c63020d5743e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/guichan/blobs/sha256:642fc80010772295bbc9c393340137b0afaf4f51f3df6079a46103701ddde137
+  linux_amd64: https://ghcr.io/v2/homebrew/core/guichan/blobs/sha256:41d93c438a1966464eb85c1bc4f9d9743e9015502a06d90105e2f5b438c2df56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/guichan/blobs/sha256:d7a38413bdaf4f6c00720814ae66ca072ee9b860d174bd3b5d144fe01e90a039
+sha256:
+  darwin_arm64: 2468a859fd2e4f902e76f3ace98dfc55a117ec1a4ed6fe3a114c63020d5743e5
+  darwin_amd64: 642fc80010772295bbc9c393340137b0afaf4f51f3df6079a46103701ddde137
+  linux_amd64: 41d93c438a1966464eb85c1bc4f9d9743e9015502a06d90105e2f5b438c2df56
+  linux_arm64: d7a38413bdaf4f6c00720814ae66ca072ee9b860d174bd3b5d144fe01e90a039
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

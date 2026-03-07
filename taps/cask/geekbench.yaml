@@ -1,0 +1,11 @@
+name: geekbench
+version: 6.6.0
+description: "Tool to measure the computer system's performance"
+homepage: https://www.geekbench.com/
+url:
+  darwin_arm64: https://cdn.geekbench.com/Geekbench-6.6.0-Mac.zip
+sha256:
+  darwin_arm64: 7851e0cf8a856306d673dffd2d561858486f5b22a94001d579abcab2f62b91ef
+artifacts:
+  app:
+    - Geekbench 6.app

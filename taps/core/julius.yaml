@@ -1,0 +1,21 @@
+name: julius
+version: 4.6
+description: Two-pass large vocabulary continuous speech recognition engine
+homepage: https://github.com/julius-speech/julius
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/julius/blobs/sha256:b57b4070b691f3335a89ccbe7bc8160cf89ea13740554fe7bc139a44e27225fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/julius/blobs/sha256:bd47f837c69920f2fe4149028757fe97a97f5790d9f33ab33a023ffbabc6e332
+  linux_amd64: https://ghcr.io/v2/homebrew/core/julius/blobs/sha256:96922bc16267b3d31de8ff17570f1d163af94fd268168470ef560587b2059511
+  linux_arm64: https://ghcr.io/v2/homebrew/core/julius/blobs/sha256:b68ee6c4454bf90a201afdeb9877d96bcd69db13177ad1b16bfe8f598e53d18f
+sha256:
+  darwin_arm64: b57b4070b691f3335a89ccbe7bc8160cf89ea13740554fe7bc139a44e27225fc
+  darwin_amd64: bd47f837c69920f2fe4149028757fe97a97f5790d9f33ab33a023ffbabc6e332
+  linux_amd64: 96922bc16267b3d31de8ff17570f1d163af94fd268168470ef560587b2059511
+  linux_arm64: b68ee6c4454bf90a201afdeb9877d96bcd69db13177ad1b16bfe8f598e53d18f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsndfile

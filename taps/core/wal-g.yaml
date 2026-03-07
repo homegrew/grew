@@ -1,0 +1,23 @@
+name: wal-g
+version: 3.0.8
+description: Archival restoration tool for databases
+homepage: https://github.com/wal-g/wal-g
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wal-g/blobs/sha256:b51f4142cdcea4c4a43cc6f8f1773f69523cbe72b5283e6e30d8a3a9a6835c21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wal-g/blobs/sha256:ce4e3e6f90e8ce94b9649f623020565b95836cde1b7d6a8e63c32626b5456262
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wal-g/blobs/sha256:35fd271cdc3f2c241e2ba68b7e8c44f1ce49f54293e27c9fc0ac139689df45cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wal-g/blobs/sha256:f4038b929fb7ab597d0c1ecf1eb828097e4ed7b35d5f2d4d3bc671fed33e9da7
+sha256:
+  darwin_arm64: b51f4142cdcea4c4a43cc6f8f1773f69523cbe72b5283e6e30d8a3a9a6835c21
+  darwin_amd64: ce4e3e6f90e8ce94b9649f623020565b95836cde1b7d6a8e63c32626b5456262
+  linux_amd64: 35fd271cdc3f2c241e2ba68b7e8c44f1ce49f54293e27c9fc0ac139689df45cd
+  linux_arm64: f4038b929fb7ab597d0c1ecf1eb828097e4ed7b35d5f2d4d3bc671fed33e9da7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - libsodium
+  - lzo

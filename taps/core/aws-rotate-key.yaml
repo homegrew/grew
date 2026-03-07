@@ -1,0 +1,19 @@
+name: aws-rotate-key
+version: 1.2.0
+description: Easily rotate your AWS access key
+homepage: https://github.com/stefansundin/aws-rotate-key
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-rotate-key/blobs/sha256:8e59f500cb777981b12d0c2c2cabf293036235bd8c962888c83c3886f2b08850
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-rotate-key/blobs/sha256:9430280fe49a0045dbb0664c3c29e8159e4716d87a33bc66a68cf2247a311219
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-rotate-key/blobs/sha256:5c01910c4f482e31fa3f2980df4a370d7b7482ee199f16f47f2414d58ced1fc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-rotate-key/blobs/sha256:ed1c92bf08bb8ad18011883c64d164e25b8191f9781e3de86d953ad540193d89
+sha256:
+  darwin_arm64: 8e59f500cb777981b12d0c2c2cabf293036235bd8c962888c83c3886f2b08850
+  darwin_amd64: 9430280fe49a0045dbb0664c3c29e8159e4716d87a33bc66a68cf2247a311219
+  linux_amd64: 5c01910c4f482e31fa3f2980df4a370d7b7482ee199f16f47f2414d58ced1fc3
+  linux_arm64: ed1c92bf08bb8ad18011883c64d164e25b8191f9781e3de86d953ad540193d89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

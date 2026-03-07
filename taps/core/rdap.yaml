@@ -1,0 +1,19 @@
+name: rdap
+version: 0.9.1
+description: Command-line client for the Registration Data Access Protocol
+homepage: https://www.openrdap.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rdap/blobs/sha256:82be0fc5e32749b77743087bf6b5b6a62a61454b1891316e419242bcfaf9e6dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rdap/blobs/sha256:6941798ba46a5391886ce266bfb1c4b5bfeb9db8eb9cf11c33741256f0405784
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rdap/blobs/sha256:d791f01848f4e8c654a1174e55a1118d8f0ac743962bba87ec7350c81e027f58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rdap/blobs/sha256:1b7d525df05bcaa24b18f462587052208ff5456170bc1d45f405f0b0667649a6
+sha256:
+  darwin_arm64: 82be0fc5e32749b77743087bf6b5b6a62a61454b1891316e419242bcfaf9e6dc
+  darwin_amd64: 6941798ba46a5391886ce266bfb1c4b5bfeb9db8eb9cf11c33741256f0405784
+  linux_amd64: d791f01848f4e8c654a1174e55a1118d8f0ac743962bba87ec7350c81e027f58
+  linux_arm64: 1b7d525df05bcaa24b18f462587052208ff5456170bc1d45f405f0b0667649a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

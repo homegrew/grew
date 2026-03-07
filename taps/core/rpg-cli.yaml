@@ -1,0 +1,19 @@
+name: rpg-cli
+version: 1.2.0
+description: "Your filesystem as a dungeon!"
+homepage: https://github.com/facundoolano/rpg-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpg-cli/blobs/sha256:edd64ad86609935c99c399b86b814c9a7a610ab4cb5c4f18f11e5af5ff740d3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpg-cli/blobs/sha256:9b8763db1563256899273d21fb28c19886c4d0f65ec4d65cfe2ad3399d538c48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpg-cli/blobs/sha256:558c7cd2a9865a8f476b81da9c4f75dddad70a0f07ea4aab349ba9260ae822c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpg-cli/blobs/sha256:8c17280c6a4287274a9ea54c9986a47fc3ddb053bc21748ce0ca91d68a5c20d4
+sha256:
+  darwin_arm64: edd64ad86609935c99c399b86b814c9a7a610ab4cb5c4f18f11e5af5ff740d3b
+  darwin_amd64: 9b8763db1563256899273d21fb28c19886c4d0f65ec4d65cfe2ad3399d538c48
+  linux_amd64: 558c7cd2a9865a8f476b81da9c4f75dddad70a0f07ea4aab349ba9260ae822c6
+  linux_arm64: 8c17280c6a4287274a9ea54c9986a47fc3ddb053bc21748ce0ca91d68a5c20d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

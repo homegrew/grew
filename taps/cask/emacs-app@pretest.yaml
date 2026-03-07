@@ -1,0 +1,17 @@
+name: emacs-app@pretest
+version: 30.1.90
+description: Text editor
+homepage: https://emacsformacosx.com/
+url:
+  darwin_arm64: https://emacsformacosx.com/emacs-builds/Emacs-pretest-30.1.90-universal.dmg
+sha256:
+  darwin_arm64: e41b6b4dfbaf7ed1f0b4377546b48a0dc29fd20c948126b4847018069fb4a4a3
+artifacts:
+  app:
+    - Emacs.app
+  bin:
+    - emacs
+    - ctags
+    - ebrowse
+    - emacsclient
+    - etags

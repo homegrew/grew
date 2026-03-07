@@ -1,0 +1,21 @@
+name: bazel-diff
+version: 17.0.2
+description: Performs Bazel Target Diffing between two revisions in Git
+homepage: https://github.com/Tinder/bazel-diff/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bazel-diff/blobs/sha256:2ed505987bab4fa325694157e5772bb38f8521d159eb9ad799e62cbc06246642
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bazel-diff/blobs/sha256:2e96091c8788a31e0a41ff3f1a72ae56b8d9e3b9bcad6f45806ed16c28916aea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bazel-diff/blobs/sha256:41b75f87c782eed2b126e593a4493c41d0bb246fbf67b5acfe3f6a7a354481d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bazel-diff/blobs/sha256:587239f008a6387300acbddfda6304aba2b88f4cfa9a69dfce920f7612204fe2
+sha256:
+  darwin_arm64: 2ed505987bab4fa325694157e5772bb38f8521d159eb9ad799e62cbc06246642
+  darwin_amd64: 2e96091c8788a31e0a41ff3f1a72ae56b8d9e3b9bcad6f45806ed16c28916aea
+  linux_amd64: 41b75f87c782eed2b126e593a4493c41d0bb246fbf67b5acfe3f6a7a354481d4
+  linux_arm64: 587239f008a6387300acbddfda6304aba2b88f4cfa9a69dfce920f7612204fe2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

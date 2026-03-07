@@ -1,0 +1,19 @@
+name: task
+version: 3.4.2
+description: Feature-rich console based todo list manager
+homepage: https://taskwarrior.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/task/blobs/sha256:cc6340ca46a8ccbc3e2c8712e8ef69faa5cdb328b105d84bd605bb956777eafb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/task/blobs/sha256:3174738a25b98886b22b14bad71b49fdca9c7d0a13157ff695a3e45f1b8efc23
+  linux_amd64: https://ghcr.io/v2/homebrew/core/task/blobs/sha256:0391e1e4292445ce5006a922a5b24b0f25aa41844c6b0626e4a6e96e17df5d52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/task/blobs/sha256:5dfec83b72433cd1702bf4d9ccae6923547259053d742eb9e954305fea211295
+sha256:
+  darwin_arm64: cc6340ca46a8ccbc3e2c8712e8ef69faa5cdb328b105d84bd605bb956777eafb
+  darwin_amd64: 3174738a25b98886b22b14bad71b49fdca9c7d0a13157ff695a3e45f1b8efc23
+  linux_amd64: 0391e1e4292445ce5006a922a5b24b0f25aa41844c6b0626e4a6e96e17df5d52
+  linux_arm64: 5dfec83b72433cd1702bf4d9ccae6923547259053d742eb9e954305fea211295
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

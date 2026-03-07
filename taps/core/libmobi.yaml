@@ -1,0 +1,19 @@
+name: libmobi
+version: 0.12
+description: C library for handling Kindle (MOBI) formats of ebook documents
+homepage: https://github.com/bfabiszewski/libmobi
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmobi/blobs/sha256:2c692dcb58d257bfaeb352c4bf6240d7479ca2fe5ebc2064b2ca1b4d2466e592
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmobi/blobs/sha256:227cc265d99edfe9ffe1526ad3a64b774cdcf75afc42546f472af1fe5563d209
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmobi/blobs/sha256:189a28e29037f0925fa470adbcb876f4e07a16c09731ecd9c2ad2db060b49597
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmobi/blobs/sha256:f2a3bc46369f896c9b4211d84bf368829ca6d3bb98411c2675c0696cbf4e9f7e
+sha256:
+  darwin_arm64: 2c692dcb58d257bfaeb352c4bf6240d7479ca2fe5ebc2064b2ca1b4d2466e592
+  darwin_amd64: 227cc265d99edfe9ffe1526ad3a64b774cdcf75afc42546f472af1fe5563d209
+  linux_amd64: 189a28e29037f0925fa470adbcb876f4e07a16c09731ecd9c2ad2db060b49597
+  linux_arm64: f2a3bc46369f896c9b4211d84bf368829ca6d3bb98411c2675c0696cbf4e9f7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

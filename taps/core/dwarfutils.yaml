@@ -1,0 +1,19 @@
+name: dwarfutils
+version: 2.3.1
+description: Dump and produce DWARF debug information in ELF objects
+homepage: https://www.prevanders.net/dwarf.html
+license: BSD-2-Clause AND LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dwarfutils/blobs/sha256:752d45b11e29fc78e90a43bfecf382d5f768da1a8569db2371f525ecdaff17d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dwarfutils/blobs/sha256:2c1ab11b0d78fd578ce781274973360f73438a07e9d9ed2dbd58e4415f9a677e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dwarfutils/blobs/sha256:248698403849ffe50c05d9144e79db13c71a66b4e6d5c54589e3e749c42a1fc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dwarfutils/blobs/sha256:e65661754f9b85f1de0ca278b5069e542b9f69ae2faeba7a2185a84c9077263f
+sha256:
+  darwin_arm64: 752d45b11e29fc78e90a43bfecf382d5f768da1a8569db2371f525ecdaff17d7
+  darwin_amd64: 2c1ab11b0d78fd578ce781274973360f73438a07e9d9ed2dbd58e4415f9a677e
+  linux_amd64: 248698403849ffe50c05d9144e79db13c71a66b4e6d5c54589e3e749c42a1fc5
+  linux_arm64: e65661754f9b85f1de0ca278b5069e542b9f69ae2faeba7a2185a84c9077263f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

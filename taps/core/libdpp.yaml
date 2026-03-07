@@ -1,0 +1,23 @@
+name: libdpp
+version: 10.1.4
+description: C++ Discord API Bot Library
+homepage: https://github.com/brainboxdotcc/DPP
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdpp/blobs/sha256:c5022345a6b7fc9c4518698d511ad1487e53a295707b89368032cd9590ad32cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdpp/blobs/sha256:183dff2ab83799bc9ca38c00af58bebd310959ee13912a529d2615163152bea1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdpp/blobs/sha256:77e3dfffd350f286e85ac0fd66648f92ea0a6aaaf2d5dc9136821c8f637248c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdpp/blobs/sha256:051ebf325593da2a5c1940348c1d5b2ffc5228f87402b3a4899c8a0e35b919e1
+sha256:
+  darwin_arm64: c5022345a6b7fc9c4518698d511ad1487e53a295707b89368032cd9590ad32cc
+  darwin_amd64: 183dff2ab83799bc9ca38c00af58bebd310959ee13912a529d2615163152bea1
+  linux_amd64: 77e3dfffd350f286e85ac0fd66648f92ea0a6aaaf2d5dc9136821c8f637248c3
+  linux_arm64: 051ebf325593da2a5c1940348c1d5b2ffc5228f87402b3a4899c8a0e35b919e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - opus
+  - pkgconf

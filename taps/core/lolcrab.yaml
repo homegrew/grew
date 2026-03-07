@@ -1,0 +1,19 @@
+name: lolcrab
+version: 0.4.1
+description: Make your console colorful, with OpenSimplex noise
+homepage: https://github.com/mazznoer/lolcrab
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lolcrab/blobs/sha256:7735ea58e17ab33fa707c88762e57e78b126f328431536d2be729413be132957
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lolcrab/blobs/sha256:23839485ed95006cb6960ccee0c6b4ddb6c932492f76db97faea6512a70514c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lolcrab/blobs/sha256:cc1b66f9f87d0c806a6a62aa88e6d91913a6cad76148e13d8938c1fdfc8b7531
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lolcrab/blobs/sha256:b0970ecc7deade605cac17219372b3d90e9f10cce2814c3a5bb6149e30528ef5
+sha256:
+  darwin_arm64: 7735ea58e17ab33fa707c88762e57e78b126f328431536d2be729413be132957
+  darwin_amd64: 23839485ed95006cb6960ccee0c6b4ddb6c932492f76db97faea6512a70514c7
+  linux_amd64: cc1b66f9f87d0c806a6a62aa88e6d91913a6cad76148e13d8938c1fdfc8b7531
+  linux_arm64: b0970ecc7deade605cac17219372b3d90e9f10cce2814c3a5bb6149e30528ef5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

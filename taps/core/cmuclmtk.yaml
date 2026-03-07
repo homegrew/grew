@@ -1,0 +1,19 @@
+name: cmuclmtk
+version: 0.7
+description: Language model tools (from CMU Sphinx)
+homepage: https://cmusphinx.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmuclmtk/blobs/sha256:e382dbebb03c49d129bb2eacd23102d828d9814296bb751f275e2bd5cd4ac8e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmuclmtk/blobs/sha256:1585ae5f93e266d9189c985072808f6731b1ce52c75cc58d2caf4c27ec9edf4f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmuclmtk/blobs/sha256:708324bb6cf751c76f927c6a648416ee38012499dddfc80c4b2c50cf36431c4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmuclmtk/blobs/sha256:fbf62c45fadfecaf2d9cd51668c6ea132d904afe1e456f099f067427667b1284
+sha256:
+  darwin_arm64: e382dbebb03c49d129bb2eacd23102d828d9814296bb751f275e2bd5cd4ac8e4
+  darwin_amd64: 1585ae5f93e266d9189c985072808f6731b1ce52c75cc58d2caf4c27ec9edf4f
+  linux_amd64: 708324bb6cf751c76f927c6a648416ee38012499dddfc80c4b2c50cf36431c4d
+  linux_arm64: fbf62c45fadfecaf2d9cd51668c6ea132d904afe1e456f099f067427667b1284
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

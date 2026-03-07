@@ -1,0 +1,26 @@
+name: molecule
+version: 26.3.0
+description: Automated testing for Ansible roles
+homepage: https://molecule.readthedocs.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/molecule/blobs/sha256:65458a4484d79d54f90e56f8a154bcdd49b877765b38c4c1083b525eb6dbd538
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/molecule/blobs/sha256:79b554c71c1d18cc32053e430b523d0772521f5d8be05e93d702abf6142c6c61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/molecule/blobs/sha256:59d141710b1f88b8609ab95257e1d7704ff01f64dbc653bd0f820955966c36a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/molecule/blobs/sha256:b082be99b7255a5dc38b7029d97c593cdd4c06ddebb10b17ffc84ca178842e56
+sha256:
+  darwin_arm64: 65458a4484d79d54f90e56f8a154bcdd49b877765b38c4c1083b525eb6dbd538
+  darwin_amd64: 79b554c71c1d18cc32053e430b523d0772521f5d8be05e93d702abf6142c6c61
+  linux_amd64: 59d141710b1f88b8609ab95257e1d7704ff01f64dbc653bd0f820955966c36a7
+  linux_arm64: b082be99b7255a5dc38b7029d97c593cdd4c06ddebb10b17ffc84ca178842e56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ansible
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14
+  - rpds-py

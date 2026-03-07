@@ -1,0 +1,19 @@
+name: fcgi
+version: 2.4.7
+description: Protocol for interfacing interactive programs with a web server
+homepage: https://fastcgi-archives.github.io/
+license: OML
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fcgi/blobs/sha256:eb43b24ff7e561b526e8f85a3c04a855b7696e77a8150b8668407dabaffa1c8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fcgi/blobs/sha256:e6e30220570ac467e115490979060b091d3d54b6f82995b7779b5f7e91fd0abd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fcgi/blobs/sha256:1571a2ab11498d22cfe56ea3a859e864e835e5ee3fbb6634a10d82f6214008dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fcgi/blobs/sha256:5c0f414d30d3556e91bec294ae0025c954c21d0cdc3cc5125ab9061fda0574d1
+sha256:
+  darwin_arm64: eb43b24ff7e561b526e8f85a3c04a855b7696e77a8150b8668407dabaffa1c8c
+  darwin_amd64: e6e30220570ac467e115490979060b091d3d54b6f82995b7779b5f7e91fd0abd
+  linux_amd64: 1571a2ab11498d22cfe56ea3a859e864e835e5ee3fbb6634a10d82f6214008dc
+  linux_arm64: 5c0f414d30d3556e91bec294ae0025c954c21d0cdc3cc5125ab9061fda0574d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

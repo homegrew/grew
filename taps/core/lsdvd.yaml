@@ -1,0 +1,23 @@
+name: lsdvd
+version: 0.21
+description: Read the content info of a DVD
+homepage: https://sourceforge.net/projects/lsdvd/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lsdvd/blobs/sha256:854b44a0716635a744a6deed7eddd2661d613dbff82b55090b29326a7a302306
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lsdvd/blobs/sha256:78e3cfc9ffaf25187125a7eb66e1cc4e8ca3bebd017330a8a50b3208a3d782db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lsdvd/blobs/sha256:bb64d0cda764af93c0ae41ace40dfcc89a5c388388e981003a214b4f3d688b57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lsdvd/blobs/sha256:6cb0bebbc1be23440c8fa57039b03f196e52fc59b6dc87177ee7255dc28012ae
+sha256:
+  darwin_arm64: 854b44a0716635a744a6deed7eddd2661d613dbff82b55090b29326a7a302306
+  darwin_amd64: 78e3cfc9ffaf25187125a7eb66e1cc4e8ca3bebd017330a8a50b3208a3d782db
+  linux_amd64: bb64d0cda764af93c0ae41ace40dfcc89a5c388388e981003a214b4f3d688b57
+  linux_arm64: 6cb0bebbc1be23440c8fa57039b03f196e52fc59b6dc87177ee7255dc28012ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdvdcss
+  - libdvdread
+  - libxml2

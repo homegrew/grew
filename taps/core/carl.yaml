@@ -1,0 +1,19 @@
+name: carl
+version: 0.6.0
+description: Calendar for the command-line
+homepage: https://github.com/b1rger/carl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/carl/blobs/sha256:251335aec10fb79627aab7eb88a912fcf54f427dbaf5b57800da3475e884b07b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/carl/blobs/sha256:c9e9f3658080e784393f79ebd5da5d95dec09f7510e8aeaf67df8aaaee057449
+  linux_amd64: https://ghcr.io/v2/homebrew/core/carl/blobs/sha256:81bb73ea2cf38496e2bcc84d9074de0d93a467728a9f80fef7966f73afcd4ba9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/carl/blobs/sha256:7bcdedcb89f3fb5e7f46553a89e3b059572977fe240d6980f9c9c3239910ec43
+sha256:
+  darwin_arm64: 251335aec10fb79627aab7eb88a912fcf54f427dbaf5b57800da3475e884b07b
+  darwin_amd64: c9e9f3658080e784393f79ebd5da5d95dec09f7510e8aeaf67df8aaaee057449
+  linux_amd64: 81bb73ea2cf38496e2bcc84d9074de0d93a467728a9f80fef7966f73afcd4ba9
+  linux_arm64: 7bcdedcb89f3fb5e7f46553a89e3b059572977fe240d6980f9c9c3239910ec43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

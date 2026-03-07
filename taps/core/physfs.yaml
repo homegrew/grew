@@ -1,0 +1,19 @@
+name: physfs
+version: 3.2.0
+description: Library to provide abstract access to various archives
+homepage: https://icculus.org/physfs/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/physfs/blobs/sha256:0944ba1768fe03b03b2705b401890c25dccd9598ef9a0113796b95b6aeebdb49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/physfs/blobs/sha256:57d1132edf37fbffbd596c962efb07fbf60a038874c6fbaab3280cad289ddd24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/physfs/blobs/sha256:fd94c275f27747d40f025ed1ad50fd8a50e39853a8ca0be664f316e06fa7983f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/physfs/blobs/sha256:16a3df7f2d1830b906dc58a405ca2754d444887806397a796739b848270355f2
+sha256:
+  darwin_arm64: 0944ba1768fe03b03b2705b401890c25dccd9598ef9a0113796b95b6aeebdb49
+  darwin_amd64: 57d1132edf37fbffbd596c962efb07fbf60a038874c6fbaab3280cad289ddd24
+  linux_amd64: fd94c275f27747d40f025ed1ad50fd8a50e39853a8ca0be664f316e06fa7983f
+  linux_arm64: 16a3df7f2d1830b906dc58a405ca2754d444887806397a796739b848270355f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libuecc
+version: 7
+description: Very small Elliptic Curve Cryptography library
+homepage: https://git.universe-factory.net/fastd/libuecc
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libuecc/blobs/sha256:d27a92b37c542bc9880f60bdf8dce4dec889c93b469e8cfc855d963ade17f9f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libuecc/blobs/sha256:bc1bf4cc33f99950836c0dddc874c854d5db9303b123f0dadeac971b44eabadf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libuecc/blobs/sha256:4f4ead35052be0dce1efbee86333ca2bfb632cc3fb1bb00c8c836199f4f7d90c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libuecc/blobs/sha256:0856cd70a483837f05bc33484a8c23104e5e6bdd97b2bc04f30a837cadbe2e00
+sha256:
+  darwin_arm64: d27a92b37c542bc9880f60bdf8dce4dec889c93b469e8cfc855d963ade17f9f8
+  darwin_amd64: bc1bf4cc33f99950836c0dddc874c854d5db9303b123f0dadeac971b44eabadf
+  linux_amd64: 4f4ead35052be0dce1efbee86333ca2bfb632cc3fb1bb00c8c836199f4f7d90c
+  linux_arm64: 0856cd70a483837f05bc33484a8c23104e5e6bdd97b2bc04f30a837cadbe2e00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

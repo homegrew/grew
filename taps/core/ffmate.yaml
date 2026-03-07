@@ -1,0 +1,19 @@
+name: ffmate
+version: 2.0.18
+description: FFmpeg automation layer
+homepage: https://docs.ffmate.io
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmate/blobs/sha256:a4f901c820ac104d4256c8d761f6f5bfec7b621b19327601c314f70e8551296f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmate/blobs/sha256:df1a62ec4c813fd397ef41dbf05db9a6d635511e0631a992861491ec47d5cc1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmate/blobs/sha256:8871f212b527926a2ff1308b60d9ad8c3ce5e3c47edd793e8614512b9011a0bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmate/blobs/sha256:31a81ab007e6ecb47a8fb319ad244c84b492173a0c96db789e510549cba3d5fb
+sha256:
+  darwin_arm64: a4f901c820ac104d4256c8d761f6f5bfec7b621b19327601c314f70e8551296f
+  darwin_amd64: df1a62ec4c813fd397ef41dbf05db9a6d635511e0631a992861491ec47d5cc1a
+  linux_amd64: 8871f212b527926a2ff1308b60d9ad8c3ce5e3c47edd793e8614512b9011a0bc
+  linux_arm64: 31a81ab007e6ecb47a8fb319ad244c84b492173a0c96db789e510549cba3d5fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

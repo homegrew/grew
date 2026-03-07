@@ -1,0 +1,11 @@
+name: replaywebpage
+version: 2.4.3
+description: Web archive viewer for WARC and WACZ files
+homepage: https://replayweb.page/
+url:
+  darwin_arm64: https://github.com/webrecorder/replayweb.page/releases/download/v2.4.3/ReplayWeb.page-2.4.3.dmg
+sha256:
+  darwin_arm64: 64b30b1fdb79b85360a369d15398746a894f35dd16884ef961a2f839dbef5cfb
+artifacts:
+  app:
+    - ReplayWeb.page.app

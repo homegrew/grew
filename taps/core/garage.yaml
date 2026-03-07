@@ -1,0 +1,19 @@
+name: garage
+version: 2.2.0
+description: S3 object store so reliable you can run it outside datacenters
+homepage: https://garagehq.deuxfleurs.fr/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/garage/blobs/sha256:aaea47f576bc097b48ebc69ac3969fbe1384b50a6db452b898b41e0455436e40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/garage/blobs/sha256:e5cb293d845e1b4c2da8945b31f72c5ea0b6d7191ec58f923736abdf14b3cb10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/garage/blobs/sha256:da02dc0dfd278772fd1d528b5474605f0981d40cd679cd3ae6ada4d662579c0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/garage/blobs/sha256:3fc38f9d7826707a74b5577e794d1b69ae3522f4b523cf0e4392310c9261885f
+sha256:
+  darwin_arm64: aaea47f576bc097b48ebc69ac3969fbe1384b50a6db452b898b41e0455436e40
+  darwin_amd64: e5cb293d845e1b4c2da8945b31f72c5ea0b6d7191ec58f923736abdf14b3cb10
+  linux_amd64: da02dc0dfd278772fd1d528b5474605f0981d40cd679cd3ae6ada4d662579c0f
+  linux_arm64: 3fc38f9d7826707a74b5577e794d1b69ae3522f4b523cf0e4392310c9261885f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

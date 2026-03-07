@@ -1,0 +1,19 @@
+name: nkt
+version: 0.3.1
+description: TUI for fast and simple interacting with your BibLaTeX database
+homepage: https://git.sr.ht/~fjebaker/nkt
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nkt/blobs/sha256:5d86080df616f5dcad2cc5ce9599ecbc5fdbfb80a8db24a3de0bdf050ef35c8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nkt/blobs/sha256:40ddc496b017d3132c6cd4a57d4a75e80fcc4f1b97c61367a8c3f6c72034c0dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nkt/blobs/sha256:7bfad96393a8777fd9c745d034c8baf253c1a1a62c393f0a6322b3190bd9be07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nkt/blobs/sha256:c448f427484730ca96a5baffedd2be5c72fe384ce13a07012589ad5a0dbe61fd
+sha256:
+  darwin_arm64: 5d86080df616f5dcad2cc5ce9599ecbc5fdbfb80a8db24a3de0bdf050ef35c8a
+  darwin_amd64: 40ddc496b017d3132c6cd4a57d4a75e80fcc4f1b97c61367a8c3f6c72034c0dd
+  linux_amd64: 7bfad96393a8777fd9c745d034c8baf253c1a1a62c393f0a6322b3190bd9be07
+  linux_arm64: c448f427484730ca96a5baffedd2be5c72fe384ce13a07012589ad5a0dbe61fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

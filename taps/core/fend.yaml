@@ -1,0 +1,19 @@
+name: fend
+version: 1.5.8
+description: Arbitrary-precision unit-aware calculator
+homepage: https://printfn.github.io/fend
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fend/blobs/sha256:db21c648244b0a4d53fef9aeb10d7d0dc3b640af0229eb3a986fa58955cf417c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fend/blobs/sha256:2c50f9bac90906163d04042ec31be34db7f24836f410c3a42685afa379d6dd15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fend/blobs/sha256:c3643edb40ac0aff3cf9cf5cc6a3733bfa2e5eb562ed959f11e93b7914ee1225
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fend/blobs/sha256:5783a60f33bce682339b2fcc8a74c80196895022b3dd0a08b15d678836963a98
+sha256:
+  darwin_arm64: db21c648244b0a4d53fef9aeb10d7d0dc3b640af0229eb3a986fa58955cf417c
+  darwin_amd64: 2c50f9bac90906163d04042ec31be34db7f24836f410c3a42685afa379d6dd15
+  linux_amd64: c3643edb40ac0aff3cf9cf5cc6a3733bfa2e5eb562ed959f11e93b7914ee1225
+  linux_arm64: 5783a60f33bce682339b2fcc8a74c80196895022b3dd0a08b15d678836963a98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

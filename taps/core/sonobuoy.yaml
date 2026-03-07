@@ -1,0 +1,19 @@
+name: sonobuoy
+version: 0.57.4
+description: Kubernetes component that generates reports on cluster conformance
+homepage: https://sonobuoy.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sonobuoy/blobs/sha256:d38eeff7e2714c2a329f9028c96692c2c4997bf2772d530672dc893b70235735
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sonobuoy/blobs/sha256:7520b1997a933d60f51a3ac76778969f722c02d006e26640196b4bfc15a4342d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sonobuoy/blobs/sha256:1415146262a80affb1f033a826e071437e651d443da8f6df933fc58fe9d2b043
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sonobuoy/blobs/sha256:27202e2a75ff97b252c812426b61c3e16bed22b1e8de258e61c4c222d8056719
+sha256:
+  darwin_arm64: d38eeff7e2714c2a329f9028c96692c2c4997bf2772d530672dc893b70235735
+  darwin_amd64: 7520b1997a933d60f51a3ac76778969f722c02d006e26640196b4bfc15a4342d
+  linux_amd64: 1415146262a80affb1f033a826e071437e651d443da8f6df933fc58fe9d2b043
+  linux_arm64: 27202e2a75ff97b252c812426b61c3e16bed22b1e8de258e61c4c222d8056719
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

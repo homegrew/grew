@@ -1,0 +1,19 @@
+name: dvdrtools
+version: 0.2.1
+description: Fork of cdrtools DVD writer support
+homepage: https://savannah.nongnu.org/projects/dvdrtools/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvdrtools/blobs/sha256:d9ce7dd044c0b813f15a0a53332e50bd2f4b85fca18f7bb9951796f061abdb24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvdrtools/blobs/sha256:de8feee693d3923d18cc2e532afd15cb99b0886abfd790e948f67da4e88d612f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvdrtools/blobs/sha256:b0ded8f875ea08da1c4ac07675a925b475414f03e03071b6e4445ec690494d88
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvdrtools/blobs/sha256:8049f79b1ed1c0d2a581343623b60d621797365f0fdfec5f5b5e12ba1ea37650
+sha256:
+  darwin_arm64: d9ce7dd044c0b813f15a0a53332e50bd2f4b85fca18f7bb9951796f061abdb24
+  darwin_amd64: de8feee693d3923d18cc2e532afd15cb99b0886abfd790e948f67da4e88d612f
+  linux_amd64: b0ded8f875ea08da1c4ac07675a925b475414f03e03071b6e4445ec690494d88
+  linux_arm64: 8049f79b1ed1c0d2a581343623b60d621797365f0fdfec5f5b5e12ba1ea37650
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

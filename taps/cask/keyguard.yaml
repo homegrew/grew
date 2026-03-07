@@ -1,0 +1,11 @@
+name: keyguard
+version: 2.4.1,20260228.1
+description: Client for the Bitwarden platform
+homepage: https://github.com/AChep/keyguard-app
+url:
+  darwin_arm64: https://github.com/AChep/keyguard-app/releases/download/r20260228.1/Keyguard-2.4.1-apple.dmg
+sha256:
+  darwin_arm64: 7049a81d77a4cf61f601273fe384e6ad5c967a89147c8e95365b0b0d88dd0e43
+artifacts:
+  app:
+    - keyguard.app

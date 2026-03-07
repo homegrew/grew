@@ -1,0 +1,23 @@
+name: apache-serf
+version: 1.3.10
+description: High-performance asynchronous HTTP client library
+homepage: https://serf.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apache-serf/blobs/sha256:cafe248c972f4b6f4ed05745e4e4a9950a7469e6216b27b6cb6f29c99ecdf0bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apache-serf/blobs/sha256:eba08705a3beea2a24b1ef71f67269d0890a611fe066131b8c48b88759592489
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apache-serf/blobs/sha256:0bf90799a933a7d5aa306b5263bdf96e842375bb2fb777363399ed351c24ee19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apache-serf/blobs/sha256:4265ddae6471dda76a024ad50592a4871c52594e8f8e215b1f28201b22465b39
+sha256:
+  darwin_arm64: cafe248c972f4b6f4ed05745e4e4a9950a7469e6216b27b6cb6f29c99ecdf0bd
+  darwin_amd64: eba08705a3beea2a24b1ef71f67269d0890a611fe066131b8c48b88759592489
+  linux_amd64: 0bf90799a933a7d5aa306b5263bdf96e842375bb2fb777363399ed351c24ee19
+  linux_arm64: 4265ddae6471dda76a024ad50592a4871c52594e8f8e215b1f28201b22465b39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - openssl@3

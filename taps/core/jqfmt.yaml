@@ -1,0 +1,19 @@
+name: jqfmt
+version: 0.1.0
+description: Opinionated formatter for jq
+homepage: https://github.com/noperator/jqfmt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jqfmt/blobs/sha256:efccec434c604682d35d22fb555c76a6be98d32061659490e347cfc9899d4fd9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jqfmt/blobs/sha256:ba048efdbe947e7ad2d55b70950cf0aa2f240de0173d53a3ba16a247619b3cc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jqfmt/blobs/sha256:58e02aaa04a270883608b5bc66d032c99ef59d64f1806caa45f49db7637f0954
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jqfmt/blobs/sha256:268a458ea1f3b37a4216d39e20cc76d75867e9014082a6fa17671affd91861b6
+sha256:
+  darwin_arm64: efccec434c604682d35d22fb555c76a6be98d32061659490e347cfc9899d4fd9
+  darwin_amd64: ba048efdbe947e7ad2d55b70950cf0aa2f240de0173d53a3ba16a247619b3cc5
+  linux_amd64: 58e02aaa04a270883608b5bc66d032c99ef59d64f1806caa45f49db7637f0954
+  linux_arm64: 268a458ea1f3b37a4216d39e20cc76d75867e9014082a6fa17671affd91861b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

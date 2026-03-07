@@ -1,0 +1,24 @@
+name: svtplay-dl
+version: 4.173
+description: "Download videos from https://www.svtplay.se/"
+homepage: https://svtplay-dl.se/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svtplay-dl/blobs/sha256:57932040fc0611981c893a8d303d20e7e17c03d2720967246a3f014ead3b1a4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svtplay-dl/blobs/sha256:c2f3a06c598f0af40524a86b338e03e89e75dd2961fe7769d20e045e0f71e9a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svtplay-dl/blobs/sha256:1750a884743e616f56e2834dc6675a4ec0053492786357ceee36f10ab2d3d63a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svtplay-dl/blobs/sha256:d417f49366c5fedb6415db9aea4cad6fbf5bc3ccc36f2c0b903d06d06474d159
+sha256:
+  darwin_arm64: 57932040fc0611981c893a8d303d20e7e17c03d2720967246a3f014ead3b1a4f
+  darwin_amd64: c2f3a06c598f0af40524a86b338e03e89e75dd2961fe7769d20e045e0f71e9a8
+  linux_amd64: 1750a884743e616f56e2834dc6675a4ec0053492786357ceee36f10ab2d3d63a
+  linux_arm64: d417f49366c5fedb6415db9aea4cad6fbf5bc3ccc36f2c0b903d06d06474d159
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

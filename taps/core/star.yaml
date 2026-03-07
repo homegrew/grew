@@ -1,0 +1,19 @@
+name: star
+version: 2024-03-21
+description: Standard tap archiver
+homepage: https://codeberg.org/schilytools/schilytools
+license: CDDL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/star/blobs/sha256:68e80e10e9424184f4c94cdfff0adc5f3ef236fb89487142f228654ca44c5bd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/star/blobs/sha256:e30e6506794c00b9eb288edf39bd4910e8e0a9742793319b96c48dea5f24d81d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/star/blobs/sha256:a132ee6b490220cb5c060736aa796fb70b04227d53f115e605d30bf5d2784f9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/star/blobs/sha256:e5bab1fe56ec1b2294719de3bf9e6576f439478e076a7df062693d9efc22ace8
+sha256:
+  darwin_arm64: 68e80e10e9424184f4c94cdfff0adc5f3ef236fb89487142f228654ca44c5bd0
+  darwin_amd64: e30e6506794c00b9eb288edf39bd4910e8e0a9742793319b96c48dea5f24d81d
+  linux_amd64: a132ee6b490220cb5c060736aa796fb70b04227d53f115e605d30bf5d2784f9c
+  linux_arm64: e5bab1fe56ec1b2294719de3bf9e6576f439478e076a7df062693d9efc22ace8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

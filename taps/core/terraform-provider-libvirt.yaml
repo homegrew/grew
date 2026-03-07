@@ -1,0 +1,21 @@
+name: terraform-provider-libvirt
+version: 0.9.3
+description: Terraform provisioning with Linux KVM using libvirt
+homepage: https://github.com/dmacvicar/terraform-provider-libvirt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-provider-libvirt/blobs/sha256:68d2793ad483ff80f77b39012b77aec09e9ebbcc0419d225cf38d4de7a80838c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-provider-libvirt/blobs/sha256:8a0b6ad0a89ad3e490d8d9125287de44c4c1aa16dc3bce4f467bff1f0d514d8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-provider-libvirt/blobs/sha256:248c3e552abd6b4cd2990a0d5294c6112f6e6f1fafa9acc1c2658db94f69807b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-provider-libvirt/blobs/sha256:11b0d3becdd4256fd8b6bef37c14354d7b6d410afc9645cfa38d81defd397039
+sha256:
+  darwin_arm64: 68d2793ad483ff80f77b39012b77aec09e9ebbcc0419d225cf38d4de7a80838c
+  darwin_amd64: 8a0b6ad0a89ad3e490d8d9125287de44c4c1aa16dc3bce4f467bff1f0d514d8f
+  linux_amd64: 248c3e552abd6b4cd2990a0d5294c6112f6e6f1fafa9acc1c2658db94f69807b
+  linux_arm64: 11b0d3becdd4256fd8b6bef37c14354d7b6d410afc9645cfa38d81defd397039
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libvirt

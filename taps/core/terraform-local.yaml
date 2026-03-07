@@ -1,0 +1,22 @@
+name: terraform-local
+version: 0.25.0
+description: CLI wrapper to deploy your Terraform applications directly to LocalStack
+homepage: https://localstack.cloud/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-local/blobs/sha256:d7769f93ae62ca92910ef74f677fac98177afa1ae13ccfab7bf17b8e0f6902ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-local/blobs/sha256:aa4948a1fae033c666952dfa09f984a0ee5314158136da64d1e51f154ccdc479
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-local/blobs/sha256:05032bd60ac470f02aea4d768c57d94ceb890db6e6d5960f326aaadbc9c6d123
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-local/blobs/sha256:7e71ac39baa41b11fcfb11454020ad8cea46f6f2ef9f73045108ae6528914666
+sha256:
+  darwin_arm64: d7769f93ae62ca92910ef74f677fac98177afa1ae13ccfab7bf17b8e0f6902ee
+  darwin_amd64: aa4948a1fae033c666952dfa09f984a0ee5314158136da64d1e51f154ccdc479
+  linux_amd64: 05032bd60ac470f02aea4d768c57d94ceb890db6e6d5960f326aaadbc9c6d123
+  linux_arm64: 7e71ac39baa41b11fcfb11454020ad8cea46f6f2ef9f73045108ae6528914666
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - localstack
+  - python@3.14

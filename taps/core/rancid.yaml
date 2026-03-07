@@ -1,0 +1,19 @@
+name: rancid
+version: 3.14
+description: Really Awesome New Cisco confIg Differ
+homepage: https://www.shrubbery.net/rancid/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rancid/blobs/sha256:f5978661df2baf3b746206d0b2498d27ca0adfcc840b296abe9eabfd9e9a587a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rancid/blobs/sha256:df7cec970be7ccbed73e5b3a0a117707d1da7b884d0ce400b01cd7415acf59fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rancid/blobs/sha256:5b4b6267a47aef7344f8e3502be5b50d7ee70010b2a452062cd976daea23c61c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rancid/blobs/sha256:59d2743a72a538248c97c3112a9509b55296143b1142715f90c66a0360404ddd
+sha256:
+  darwin_arm64: f5978661df2baf3b746206d0b2498d27ca0adfcc840b296abe9eabfd9e9a587a
+  darwin_amd64: df7cec970be7ccbed73e5b3a0a117707d1da7b884d0ce400b01cd7415acf59fd
+  linux_amd64: 5b4b6267a47aef7344f8e3502be5b50d7ee70010b2a452062cd976daea23c61c
+  linux_arm64: 59d2743a72a538248c97c3112a9509b55296143b1142715f90c66a0360404ddd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: liblqr
+version: 0.4.3
+description: C/C++ seam carving library
+homepage: https://liblqr.wikidot.com/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblqr/blobs/sha256:c28916c964572477462f09ac74d07c2d633a21e36fae33ff5f63d6902a726613
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblqr/blobs/sha256:28335247f3e95ffe590d0e7f23ab6ce32bf70963da671336627a024d344cef10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblqr/blobs/sha256:df9a20d9afa1541e259edeadd06e3ec8501a9a5b75a5a973e61f321521c37c80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblqr/blobs/sha256:d2b6dff54f55b70b04004cf3bb64045a3b455cd9c9c12bf068c3ebc89ec079f5
+sha256:
+  darwin_arm64: c28916c964572477462f09ac74d07c2d633a21e36fae33ff5f63d6902a726613
+  darwin_amd64: 28335247f3e95ffe590d0e7f23ab6ce32bf70963da671336627a024d344cef10
+  linux_amd64: df9a20d9afa1541e259edeadd06e3ec8501a9a5b75a5a973e61f321521c37c80
+  linux_arm64: d2b6dff54f55b70b04004cf3bb64045a3b455cd9c9c12bf068c3ebc89ec079f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

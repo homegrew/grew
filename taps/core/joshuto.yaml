@@ -1,0 +1,19 @@
+name: joshuto
+version: 0.9.9
+description: Ranger-like terminal file manager written in Rust
+homepage: https://github.com/kamiyaa/joshuto
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/joshuto/blobs/sha256:997e069c04b3cc971c0a8ff11dd971e7e014d307f727465c48084472eabb83e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/joshuto/blobs/sha256:1fdf01d597c30f45454a3bde8c1868449de4e70ce162bd9649149c145462f3b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/joshuto/blobs/sha256:56029dfb47864947aee35b14b6cd4197570fb2337a7ddd1b3f8e7a8cee99997e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/joshuto/blobs/sha256:33cc8898574c29eac9f32aad0da3c49c248f5be87fa38c0bd3f21b4ed0662fa0
+sha256:
+  darwin_arm64: 997e069c04b3cc971c0a8ff11dd971e7e014d307f727465c48084472eabb83e0
+  darwin_amd64: 1fdf01d597c30f45454a3bde8c1868449de4e70ce162bd9649149c145462f3b9
+  linux_amd64: 56029dfb47864947aee35b14b6cd4197570fb2337a7ddd1b3f8e7a8cee99997e
+  linux_arm64: 33cc8898574c29eac9f32aad0da3c49c248f5be87fa38c0bd3f21b4ed0662fa0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

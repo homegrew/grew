@@ -1,0 +1,19 @@
+name: nbping
+version: 0.6.1
+description: Ping Tool in Rust with Real-Time Data and Visualizations
+homepage: https://github.com/hanshuaikang/Nping
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nbping/blobs/sha256:431941c8712b6981348065f4a865033d34c80dfef91ec7ce96abe5f487312a70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nbping/blobs/sha256:5fa582923df94fedb96125a9103c6b06788fb82ba6e513fb64133e28238fde6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nbping/blobs/sha256:a3a84486b4e069a4b8db18578295337209d4504ea001926606eb5e6e80c6c936
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nbping/blobs/sha256:9d09fffb3d8f23113b8b7fc3f8d4b621f04461e3a5d963e1880de665638f5f94
+sha256:
+  darwin_arm64: 431941c8712b6981348065f4a865033d34c80dfef91ec7ce96abe5f487312a70
+  darwin_amd64: 5fa582923df94fedb96125a9103c6b06788fb82ba6e513fb64133e28238fde6e
+  linux_amd64: a3a84486b4e069a4b8db18578295337209d4504ea001926606eb5e6e80c6c936
+  linux_arm64: 9d09fffb3d8f23113b8b7fc3f8d4b621f04461e3a5d963e1880de665638f5f94
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libzen
+version: 0.4.41
+description: Shared library for libmediainfo
+homepage: https://github.com/MediaArea/ZenLib
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libzen/blobs/sha256:ac591a473fcc4560644040121ea380ff05b3c9d376cae1e9126c40a62e2daf03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libzen/blobs/sha256:e7eed161ae90ec89df5168da54ba0232341d6731bcad47e5e0443d02345719c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libzen/blobs/sha256:b5fec7fc988c8b996f28e173e2ca09f561aa9883f9630c60066cb3bdc2d77f60
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libzen/blobs/sha256:e319284f784aa2603799c5500e0a688eb210f11755ec4b8b0114649d82a7ff4a
+sha256:
+  darwin_arm64: ac591a473fcc4560644040121ea380ff05b3c9d376cae1e9126c40a62e2daf03
+  darwin_amd64: e7eed161ae90ec89df5168da54ba0232341d6731bcad47e5e0443d02345719c2
+  linux_amd64: b5fec7fc988c8b996f28e173e2ca09f561aa9883f9630c60066cb3bdc2d77f60
+  linux_arm64: e319284f784aa2603799c5500e0a688eb210f11755ec4b8b0114649d82a7ff4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

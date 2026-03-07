@@ -1,0 +1,21 @@
+name: redict
+version: 7.3.6
+description: Distributed key/value database
+homepage: https://redict.io/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redict/blobs/sha256:cbfd75594013a1049c135b3d0175339033ae49b805707876505700b0d2fd0244
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redict/blobs/sha256:4b983424da0a10236d0afc57a2a76aa009a883760f80a482880b6060cd77c7bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redict/blobs/sha256:708796b8af5a02da1959552fb065bd81218b0f2ebfb649d345e0ae86b3db363f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redict/blobs/sha256:0599c6e40122c402656b72c5762babea440c71e4c32a89d593704c3be2ce07a6
+sha256:
+  darwin_arm64: cbfd75594013a1049c135b3d0175339033ae49b805707876505700b0d2fd0244
+  darwin_amd64: 4b983424da0a10236d0afc57a2a76aa009a883760f80a482880b6060cd77c7bd
+  linux_amd64: 708796b8af5a02da1959552fb065bd81218b0f2ebfb649d345e0ae86b3db363f
+  linux_arm64: 0599c6e40122c402656b72c5762babea440c71e4c32a89d593704c3be2ce07a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

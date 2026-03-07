@@ -1,0 +1,19 @@
+name: libpostal
+version: 1.1.4
+description: Library for parsing/normalizing street addresses around the world
+homepage: https://github.com/openvenues/libpostal
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpostal/blobs/sha256:cf3a9637bea332e8d28cde170dc85c7c5dbb4b5731886edd9f30bed504742e5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpostal/blobs/sha256:3f4ee3c0636f7fc19ddc1fc60a2273912f64a539dc314df0488d2eab8f856308
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpostal/blobs/sha256:79bf7b3b79c1e80a9d61a7ad19599b9d18440390bec4babbf85a17ad5219db34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpostal/blobs/sha256:32461394f17714bbf96a4a090b4e89240a2dd2a97637006ed0997d114d0831be
+sha256:
+  darwin_arm64: cf3a9637bea332e8d28cde170dc85c7c5dbb4b5731886edd9f30bed504742e5b
+  darwin_amd64: 3f4ee3c0636f7fc19ddc1fc60a2273912f64a539dc314df0488d2eab8f856308
+  linux_amd64: 79bf7b3b79c1e80a9d61a7ad19599b9d18440390bec4babbf85a17ad5219db34
+  linux_arm64: 32461394f17714bbf96a4a090b4e89240a2dd2a97637006ed0997d114d0831be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

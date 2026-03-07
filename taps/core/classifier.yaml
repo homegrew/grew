@@ -1,0 +1,21 @@
+name: classifier
+version: 2.3.2
+description: Text classification with Bayesian, LSI, Logistic Regression, and kNN
+homepage: https://rubyclassifier.com
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/classifier/blobs/sha256:19c7d40ed22261b05749e5a52ff43da0ef76227ae71ab08122df19ac8a92c6a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/classifier/blobs/sha256:8a94fc5ddb9dd37f9b5fc70b9c235c6f0ebb6210665028008666abf1a316771c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/classifier/blobs/sha256:226f342aede197ee58be92f02d971e5f03df3e9759418713c6ac9193098fa0f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/classifier/blobs/sha256:4d3da13cbd9672dda25f43e2f21bc851c0ae68c6ba9ce2579b3856764bf46abf
+sha256:
+  darwin_arm64: 19c7d40ed22261b05749e5a52ff43da0ef76227ae71ab08122df19ac8a92c6a3
+  darwin_amd64: 8a94fc5ddb9dd37f9b5fc70b9c235c6f0ebb6210665028008666abf1a316771c
+  linux_amd64: 226f342aede197ee58be92f02d971e5f03df3e9759418713c6ac9193098fa0f1
+  linux_arm64: 4d3da13cbd9672dda25f43e2f21bc851c0ae68c6ba9ce2579b3856764bf46abf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

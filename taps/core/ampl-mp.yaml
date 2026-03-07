@@ -1,0 +1,19 @@
+name: ampl-mp
+version: 4.1.0
+description: Open-source library for mathematical programming
+homepage: https://ampl.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ampl-mp/blobs/sha256:30101ed35bf353b25c5224e894becb501685e269097aa0877a9a4c286a6bd921
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ampl-mp/blobs/sha256:fe02fb7f4695515aabb254a421a0f6033e859593769792ba37900eb2c43810d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ampl-mp/blobs/sha256:fd14cb46a1706778ca2fe9d203ff74a90fb9c7d88dd8dd4eb3b3bb9dd53ced4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ampl-mp/blobs/sha256:cb19ab7bf83a1e77ff0c031e42ae25e2ec352d323e458eba67d3d96dd77eb06a
+sha256:
+  darwin_arm64: 30101ed35bf353b25c5224e894becb501685e269097aa0877a9a4c286a6bd921
+  darwin_amd64: fe02fb7f4695515aabb254a421a0f6033e859593769792ba37900eb2c43810d0
+  linux_amd64: fd14cb46a1706778ca2fe9d203ff74a90fb9c7d88dd8dd4eb3b3bb9dd53ced4a
+  linux_arm64: cb19ab7bf83a1e77ff0c031e42ae25e2ec352d323e458eba67d3d96dd77eb06a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

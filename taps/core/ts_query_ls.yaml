@@ -1,0 +1,19 @@
+name: ts_query_ls
+version: 3.16.0
+description: "LSP implementation for Tree-sitter's query files"
+homepage: https://github.com/ribru17/ts_query_ls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ts_query_ls/blobs/sha256:34334ac5ff1df55503f68c0d045dad01355c1649713de6558af6c11c085e314b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ts_query_ls/blobs/sha256:ff3a25bfe01cd3b80501a8e5e92169e00670348adf05d4c22a83319a0cd852d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ts_query_ls/blobs/sha256:ef863729111a1b0854d5928d5c52aeaa2a9abbf572ef13a35c1d5b29f06210b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ts_query_ls/blobs/sha256:8016e9f2ae358b6fc7c02c7e17f431da6c1e5d81e8a3f852cbf5f141f0eda8ee
+sha256:
+  darwin_arm64: 34334ac5ff1df55503f68c0d045dad01355c1649713de6558af6c11c085e314b
+  darwin_amd64: ff3a25bfe01cd3b80501a8e5e92169e00670348adf05d4c22a83319a0cd852d9
+  linux_amd64: ef863729111a1b0854d5928d5c52aeaa2a9abbf572ef13a35c1d5b29f06210b7
+  linux_arm64: 8016e9f2ae358b6fc7c02c7e17f431da6c1e5d81e8a3f852cbf5f141f0eda8ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

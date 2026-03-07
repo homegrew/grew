@@ -1,0 +1,22 @@
+name: gopass
+version: 1.16.1
+description: Slightly more awesome Standard Unix Password Manager for Teams
+homepage: https://www.gopass.pw/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gopass/blobs/sha256:cb2a3e09abbd49e3f9fdd82d2ec5d2f7fa748513069166b4cab95b298b6a6487
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gopass/blobs/sha256:c7d3f36b624e00966837507ffbf45067b8b5749c91e2c158498b808c80f9fb98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gopass/blobs/sha256:73de39c67865423e1bc107f39f995d297405448a3f97b7cb5ac8b419c70dfebc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gopass/blobs/sha256:5c2a02afd35b2159a0621849778470bf7e1a697b8fcb52205b103c526f6cb34b
+sha256:
+  darwin_arm64: cb2a3e09abbd49e3f9fdd82d2ec5d2f7fa748513069166b4cab95b298b6a6487
+  darwin_amd64: c7d3f36b624e00966837507ffbf45067b8b5749c91e2c158498b808c80f9fb98
+  linux_amd64: 73de39c67865423e1bc107f39f995d297405448a3f97b7cb5ac8b419c70dfebc
+  linux_arm64: 5c2a02afd35b2159a0621849778470bf7e1a697b8fcb52205b103c526f6cb34b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg
+  - terminal-notifier

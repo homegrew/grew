@@ -1,0 +1,22 @@
+name: nginx
+version: 1.29.5
+description: HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+homepage: https://nginx.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nginx/blobs/sha256:781945edff6bf08dfb7d5e0692ee922c44358fab5ac37f67705d90acbdf11686
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nginx/blobs/sha256:b696db27c352fe2cfc7128ec54121dd2aea3e560b36522f02acc534870e9aa76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nginx/blobs/sha256:e196db79361048ce6267673f874c5d5c0b5ec1caf4edb9f1e7524f156a1ab824
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nginx/blobs/sha256:4d98c3c458b3011324b8d6566f8d55be0cb8126d91a4af17e8935229bac4072d
+sha256:
+  darwin_arm64: 781945edff6bf08dfb7d5e0692ee922c44358fab5ac37f67705d90acbdf11686
+  darwin_amd64: b696db27c352fe2cfc7128ec54121dd2aea3e560b36522f02acc534870e9aa76
+  linux_amd64: e196db79361048ce6267673f874c5d5c0b5ec1caf4edb9f1e7524f156a1ab824
+  linux_arm64: 4d98c3c458b3011324b8d6566f8d55be0cb8126d91a4af17e8935229bac4072d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pcre2

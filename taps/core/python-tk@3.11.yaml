@@ -1,0 +1,22 @@
+name: python-tk@3.11
+version: 3.11.15
+description: Python interface to Tcl/Tk
+homepage: https://www.python.org/
+license: Python-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-tk/3.11/blobs/sha256:9d4c3595e2ea5d5cd9023119821ef0bd2a0de04e95747f61afee97c37163222a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-tk/3.11/blobs/sha256:b5e63b585151fdf740650d132c819c8d536ad515dae9adc2ea4dca3168b2d912
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-tk/3.11/blobs/sha256:fd083f95a984b7d674e4399acbe1278ebfa44653de01af5789dd59f8f6e33801
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-tk/3.11/blobs/sha256:8dcf8018fd89bb9e1341e8aa2cbebbe4a6f738e244a64d1db71c587a63e87d9f
+sha256:
+  darwin_arm64: 9d4c3595e2ea5d5cd9023119821ef0bd2a0de04e95747f61afee97c37163222a
+  darwin_amd64: b5e63b585151fdf740650d132c819c8d536ad515dae9adc2ea4dca3168b2d912
+  linux_amd64: fd083f95a984b7d674e4399acbe1278ebfa44653de01af5789dd59f8f6e33801
+  linux_arm64: 8dcf8018fd89bb9e1341e8aa2cbebbe4a6f738e244a64d1db71c587a63e87d9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.11
+  - tcl-tk@8

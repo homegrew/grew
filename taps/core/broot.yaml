@@ -1,0 +1,21 @@
+name: broot
+version: 1.55.0
+description: New way to see and navigate directory trees
+homepage: https://dystroy.org/broot/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/broot/blobs/sha256:d96b89249e040c7698aa4df2162affcfa9cd7c53ba829a439afa9695707cece3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/broot/blobs/sha256:14ff39658185bbbbf3accc4d848b038ff72e8225b0c92e7809c7af6645543078
+  linux_amd64: https://ghcr.io/v2/homebrew/core/broot/blobs/sha256:63b6d9b6287be016a97d08267c85d3bfce54f0f16976ada7733c9209db56d655
+  linux_arm64: https://ghcr.io/v2/homebrew/core/broot/blobs/sha256:74f0ebab5147d0e0b648be28b96e62fe719a7a93b8c4dab8b58ebd5557a4d5a8
+sha256:
+  darwin_arm64: d96b89249e040c7698aa4df2162affcfa9cd7c53ba829a439afa9695707cece3
+  darwin_amd64: 14ff39658185bbbbf3accc4d848b038ff72e8225b0c92e7809c7af6645543078
+  linux_amd64: 63b6d9b6287be016a97d08267c85d3bfce54f0f16976ada7733c9209db56d655
+  linux_arm64: 74f0ebab5147d0e0b648be28b96e62fe719a7a93b8c4dab8b58ebd5557a4d5a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb

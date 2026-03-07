@@ -1,0 +1,11 @@
+name: go-server
+version: 25.4.0,21793
+description: Server for the Go Continuous Delivery platform
+homepage: https://www.gocd.org/
+url:
+  darwin_arm64: https://download.gocd.org/binaries/25.4.0-21793/osx/go-server-25.4.0-21793-osx-aarch64.zip
+sha256:
+  darwin_arm64: 924ef5796796db06d0a2326668457ef5f1b1a61de26c16d81379319105a1501a
+artifacts:
+  bin:
+    - go-server

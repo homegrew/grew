@@ -1,0 +1,19 @@
+name: geph4
+version: 4.99.32
+description: Modular Internet censorship circumvention system to deal with national filtering
+homepage: https://geph.io/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geph4/blobs/sha256:fc9feafe9c20d28772706c2fabdcf31a2bb9516b01ed39a780978d7c89a0335f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geph4/blobs/sha256:f1f9f47bcdd806687fbe6797689ac67e23d3519325c96322022ce1e6a80360c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geph4/blobs/sha256:bde6c9148a586e0bf317a3991e2567231fcf15be78b1caa2ef340ff0f399c494
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geph4/blobs/sha256:ddfe22bccde62ad86f06c9060a8c3c2897fbc0f49e455d69c1aa808e917bae46
+sha256:
+  darwin_arm64: fc9feafe9c20d28772706c2fabdcf31a2bb9516b01ed39a780978d7c89a0335f
+  darwin_amd64: f1f9f47bcdd806687fbe6797689ac67e23d3519325c96322022ce1e6a80360c7
+  linux_amd64: bde6c9148a586e0bf317a3991e2567231fcf15be78b1caa2ef340ff0f399c494
+  linux_arm64: ddfe22bccde62ad86f06c9060a8c3c2897fbc0f49e455d69c1aa808e917bae46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

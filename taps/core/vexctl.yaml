@@ -1,0 +1,19 @@
+name: vexctl
+version: 0.4.1
+description: Tool to create, transform and attest VEX metadata
+homepage: https://openssf.org/projects/openvex/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vexctl/blobs/sha256:f2c5b287cf8b296ef3e6d85b38212179eebea16f070bfce1baea6ac0d119e7cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vexctl/blobs/sha256:dcae34a87491e8efef1aa942274facd1fc985f36e76cf6b9671e4b0d66738335
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vexctl/blobs/sha256:b9053ff8fcb65e7f520118e1d2a02dd377a0a9951b5dc3f4a667e640e81eb919
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vexctl/blobs/sha256:1adeeacdaf6ad3a33abafc10856dc356bfab928a5a18de8cfa69a015ad18f7ff
+sha256:
+  darwin_arm64: f2c5b287cf8b296ef3e6d85b38212179eebea16f070bfce1baea6ac0d119e7cf
+  darwin_amd64: dcae34a87491e8efef1aa942274facd1fc985f36e76cf6b9671e4b0d66738335
+  linux_amd64: b9053ff8fcb65e7f520118e1d2a02dd377a0a9951b5dc3f4a667e640e81eb919
+  linux_arm64: 1adeeacdaf6ad3a33abafc10856dc356bfab928a5a18de8cfa69a015ad18f7ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

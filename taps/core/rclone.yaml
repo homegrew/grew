@@ -1,0 +1,19 @@
+name: rclone
+version: 1.73.2
+description: Rsync for cloud storage
+homepage: https://rclone.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rclone/blobs/sha256:e5553e81bd020ada84540300d10b573a413a87dae23016b077083133f8e1e4c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rclone/blobs/sha256:cd4e026ddb0bade33bc6dea6b7142a3bc09864276c44e523e70ba74e2d67a425
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rclone/blobs/sha256:bea33396903d3b5fe8c69a756a85914dded40a2312048cf1a6d95f5b0e768561
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rclone/blobs/sha256:0faea04ca428cbdc8ed3643bf254751174049b92e97ded79b2a664bd5bb44036
+sha256:
+  darwin_arm64: e5553e81bd020ada84540300d10b573a413a87dae23016b077083133f8e1e4c9
+  darwin_amd64: cd4e026ddb0bade33bc6dea6b7142a3bc09864276c44e523e70ba74e2d67a425
+  linux_amd64: bea33396903d3b5fe8c69a756a85914dded40a2312048cf1a6d95f5b0e768561
+  linux_arm64: 0faea04ca428cbdc8ed3643bf254751174049b92e97ded79b2a664bd5bb44036
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

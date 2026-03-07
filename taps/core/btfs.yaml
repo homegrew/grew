@@ -1,0 +1,20 @@
+name: btfs
+version: 3.1
+description: BitTorrent filesystem based on FUSE
+homepage: https://github.com/johang/btfs
+license: GPL-3.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btfs/blobs/sha256:de0d62491fcf2a7793531a3b1e3900f10cca457b2a2f67d04f19588f9f1c0b62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btfs/blobs/sha256:cb3c4a3351015895e992b3c059b012aa24410edfa4795decafdbe7a850b9201c
+sha256:
+  linux_amd64: de0d62491fcf2a7793531a3b1e3900f10cca457b2a2f67d04f19588f9f1c0b62
+  linux_arm64: cb3c4a3351015895e992b3c059b012aa24410edfa4795decafdbe7a850b9201c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - libfuse
+  - libtorrent-rasterbar
+  - openssl@3

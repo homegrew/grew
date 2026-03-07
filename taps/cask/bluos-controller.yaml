@@ -1,0 +1,11 @@
+name: bluos-controller
+version: 4.12.2
+description: Manage audio systems
+homepage: https://www.bluesound.com/
+url:
+  darwin_arm64: https://content-bluesound-com.s3.amazonaws.com/uploads/BluOS-Controller-4.12.2-MacOS.zip
+sha256:
+  darwin_arm64: 6f45465b593daf4a33fd1ee3d773f85b5b2a188bc56a784c57fbf6bcaad13bb2
+artifacts:
+  app:
+    - BluOS Controller.app

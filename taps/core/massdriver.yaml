@@ -1,0 +1,19 @@
+name: massdriver
+version: 1.14.1
+description: Manage applications and infrastructure on Massdriver Cloud
+homepage: https://www.massdriver.cloud/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/massdriver/blobs/sha256:d170e047d22f54f16b1ff912896fde9b126130bfc93a1a37a3725ecaa977dfaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/massdriver/blobs/sha256:e603d62d5a772dc2c66349ee2256fe16c9de9331fd02937afeebb505167a2041
+  linux_amd64: https://ghcr.io/v2/homebrew/core/massdriver/blobs/sha256:91a91f6216ba1507451cf481f3a10e293e4de2445420d60a43acb670206a9d06
+  linux_arm64: https://ghcr.io/v2/homebrew/core/massdriver/blobs/sha256:01f0ee6fd48cb8febb544f70f8636b400cd5e887cc72a0e2989d05bfa8866bf7
+sha256:
+  darwin_arm64: d170e047d22f54f16b1ff912896fde9b126130bfc93a1a37a3725ecaa977dfaa
+  darwin_amd64: e603d62d5a772dc2c66349ee2256fe16c9de9331fd02937afeebb505167a2041
+  linux_amd64: 91a91f6216ba1507451cf481f3a10e293e4de2445420d60a43acb670206a9d06
+  linux_arm64: 01f0ee6fd48cb8febb544f70f8636b400cd5e887cc72a0e2989d05bfa8866bf7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

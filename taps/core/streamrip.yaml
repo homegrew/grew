@@ -1,0 +1,24 @@
+name: streamrip
+version: 2.1.0
+description: Scriptable music downloader for Qobuz, Tidal, SoundCloud, and Deezer
+homepage: https://github.com/nathom/streamrip
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/streamrip/blobs/sha256:7410e3c65b79df9f5b208ba8097f5552510d790c176ccbbdfd21726f58641a76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/streamrip/blobs/sha256:35ddef95f2e85edcb252d701b046f054307f40e8fc62759298ca942937e5b8e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/streamrip/blobs/sha256:97ef055ea54d754f48da23b5e4799c17b67eba27194803d40ce150eb5cd96f7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/streamrip/blobs/sha256:9a9e07cf21dd4e604991d45a8836a0fa79c37815eb23e4f0d180e98846b25fd2
+sha256:
+  darwin_arm64: 7410e3c65b79df9f5b208ba8097f5552510d790c176ccbbdfd21726f58641a76
+  darwin_amd64: 35ddef95f2e85edcb252d701b046f054307f40e8fc62759298ca942937e5b8e6
+  linux_amd64: 97ef055ea54d754f48da23b5e4799c17b67eba27194803d40ce150eb5cd96f7b
+  linux_arm64: 9a9e07cf21dd4e604991d45a8836a0fa79c37815eb23e4f0d180e98846b25fd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - pillow
+  - python@3.14

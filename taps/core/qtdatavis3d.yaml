@@ -1,0 +1,22 @@
+name: qtdatavis3d
+version: 6.10.2
+description: Provides functionality for 3D visualization
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtdatavis3d/blobs/sha256:32346fdbccc25a6e102599876016c5a9a47dfb4d75cb592d6693ffef2355fd1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtdatavis3d/blobs/sha256:d48d21cc0425467f736489ddaa29db17226ec1f917fd19d8819373335e6b4e80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtdatavis3d/blobs/sha256:9fe8ed1d453262b7ca797ea67e8c75acd938ae2b8ba0450b717e2796ce0237cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtdatavis3d/blobs/sha256:1dbfe61013000fa1b2bf2dedd3d5ebf1e5a0ba7f5ffdbd283906cfa688440ab8
+sha256:
+  darwin_arm64: 32346fdbccc25a6e102599876016c5a9a47dfb4d75cb592d6693ffef2355fd1b
+  darwin_amd64: d48d21cc0425467f736489ddaa29db17226ec1f917fd19d8819373335e6b4e80
+  linux_amd64: 9fe8ed1d453262b7ca797ea67e8c75acd938ae2b8ba0450b717e2796ce0237cc
+  linux_arm64: 1dbfe61013000fa1b2bf2dedd3d5ebf1e5a0ba7f5ffdbd283906cfa688440ab8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

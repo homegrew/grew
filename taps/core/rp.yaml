@@ -1,0 +1,19 @@
+name: rp
+version: 2.1.5
+description: Tool to find ROP sequences in PE/Elf/Mach-O x86/x64 binaries
+homepage: https://github.com/0vercl0k/rp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rp/blobs/sha256:e6e7d0e301739ea8b86bf88427a9795ae43af3acb7828e979872cece18961092
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rp/blobs/sha256:f1398c2e1b74b7e0f2902d9bcdec0197469d9e6bcb1f32aff45562cce3f7b4a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rp/blobs/sha256:7fc42c86ae8f60d97ae8a3eae5c738d4c49cde9ee31d2bf705d68def1d62adbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rp/blobs/sha256:f36ceb5d5cb7b6f944bbb4be0d4e74012ee0d36a8cb0a13cd5f4bdc1e8e41750
+sha256:
+  darwin_arm64: e6e7d0e301739ea8b86bf88427a9795ae43af3acb7828e979872cece18961092
+  darwin_amd64: f1398c2e1b74b7e0f2902d9bcdec0197469d9e6bcb1f32aff45562cce3f7b4a7
+  linux_amd64: 7fc42c86ae8f60d97ae8a3eae5c738d4c49cde9ee31d2bf705d68def1d62adbd
+  linux_arm64: f36ceb5d5cb7b6f944bbb4be0d4e74012ee0d36a8cb0a13cd5f4bdc1e8e41750
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

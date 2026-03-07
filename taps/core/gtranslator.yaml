@@ -1,0 +1,32 @@
+name: gtranslator
+version: 49.0
+description: GNOME gettext PO file editor
+homepage: https://wiki.gnome.org/Design/Apps/Translator
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtranslator/blobs/sha256:8ef70f227a7d23e55dadd47d469b18f05d348e963138d51f9a95c7af26cdb875
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtranslator/blobs/sha256:79f86b1f246d68aeb8379ba44b516f7dc6d65a6468d8e24cffb23a8d512482f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtranslator/blobs/sha256:c07eb0e8f150bb544073e24691d46cfcff6cbe3fedba16ce194f5da20faf749e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtranslator/blobs/sha256:2934cc290f01a16a4460ddf9c3bffdad423e7f36434bf660de959ffc1f1c9782
+sha256:
+  darwin_arm64: 8ef70f227a7d23e55dadd47d469b18f05d348e963138d51f9a95c7af26cdb875
+  darwin_amd64: 79f86b1f246d68aeb8379ba44b516f7dc6d65a6468d8e24cffb23a8d512482f7
+  linux_amd64: c07eb0e8f150bb544073e24691d46cfcff6cbe3fedba16ce194f5da20faf749e
+  linux_arm64: 2934cc290f01a16a4460ddf9c3bffdad423e7f36434bf660de959ffc1f1c9782
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - gettext
+  - glib
+  - gtk4
+  - gtksourceview5
+  - json-glib
+  - libadwaita
+  - libsoup
+  - libspelling
+  - pango
+  - sqlite

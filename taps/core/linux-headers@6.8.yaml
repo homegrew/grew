@@ -1,0 +1,16 @@
+name: linux-headers@6.8
+version: 6.8.12
+description: Header files of the Linux kernel
+homepage: https://kernel.org/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linux-headers/6.8/blobs/sha256:3f3000358f22ee25e733aa9dcf0881b5ec4f3c2805372d4fbe988039deaa1fef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linux-headers/6.8/blobs/sha256:64614bcba5f4d9b9535bdd54b68a588aa2c9f56f78fa048b60ddb6e98a21aea5
+sha256:
+  linux_amd64: 3f3000358f22ee25e733aa9dcf0881b5ec4f3c2805372d4fbe988039deaa1fef
+  linux_arm64: 64614bcba5f4d9b9535bdd54b68a588aa2c9f56f78fa048b60ddb6e98a21aea5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

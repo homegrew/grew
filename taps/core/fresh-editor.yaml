@@ -1,0 +1,19 @@
+name: fresh-editor
+version: 0.2.14
+description: "Text editor for your terminal: easy, powerful and fast"
+homepage: https://sinelaw.github.io/fresh/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fresh-editor/blobs/sha256:3f270d2fe3694e3979546dd9900aa9c958441d9aa12fa8a50edf6fb936daaccb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fresh-editor/blobs/sha256:9d6a25ac03b78705df8be8d2c2bbe1b0750499b5dd09077658a4e8e7c0a97fc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fresh-editor/blobs/sha256:ab8a43e796ef50ac05280894b730cc778f8af76f492bd22cdcab070dfe0cdc7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fresh-editor/blobs/sha256:d36ccd9bd86e3c65afabb55e45b4a279079130e74c1d9e1b756ae6d99d24b1a2
+sha256:
+  darwin_arm64: 3f270d2fe3694e3979546dd9900aa9c958441d9aa12fa8a50edf6fb936daaccb
+  darwin_amd64: 9d6a25ac03b78705df8be8d2c2bbe1b0750499b5dd09077658a4e8e7c0a97fc5
+  linux_amd64: ab8a43e796ef50ac05280894b730cc778f8af76f492bd22cdcab070dfe0cdc7c
+  linux_arm64: d36ccd9bd86e3c65afabb55e45b4a279079130e74c1d9e1b756ae6d99d24b1a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

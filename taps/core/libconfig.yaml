@@ -1,0 +1,19 @@
+name: libconfig
+version: 1.8.2
+description: Configuration file processing library
+homepage: https://hyperrealm.github.io/libconfig/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libconfig/blobs/sha256:c2aba8caea48796a25a27d4096e8815ac2504b89cce8f9d5338b370a59c47986
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libconfig/blobs/sha256:87545a69b32f537dc0e1c3c91009b6266007739e06bdddd3e2de4d3295e708f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libconfig/blobs/sha256:c8d07d69996141d177790414cdfac85da7c40d714a0d3343475c7748b196ad5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libconfig/blobs/sha256:1e0bf4cd0d19b56a595c906370f714f71489d3b823399750e7fe2045d186f84f
+sha256:
+  darwin_arm64: c2aba8caea48796a25a27d4096e8815ac2504b89cce8f9d5338b370a59c47986
+  darwin_amd64: 87545a69b32f537dc0e1c3c91009b6266007739e06bdddd3e2de4d3295e708f7
+  linux_amd64: c8d07d69996141d177790414cdfac85da7c40d714a0d3343475c7748b196ad5f
+  linux_arm64: 1e0bf4cd0d19b56a595c906370f714f71489d3b823399750e7fe2045d186f84f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: breitbandmessung
+version: 3.11.0
+description: Official internet speed test from the German Bundesnetzagentur
+homepage: https://www.breitbandmessung.de/
+url:
+  darwin_arm64: https://download.breitbandmessung.de/bbm/Breitbandmessung-3.11.0-mac.dmg
+sha256:
+  darwin_arm64: a4a2382a0e27817633c999f39a58a32319b3a022ac85d41aa35bfd256680579d
+artifacts:
+  app:
+    - Breitbandmessung.app

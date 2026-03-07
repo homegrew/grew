@@ -1,0 +1,19 @@
+name: yydecode
+version: 0.2.10
+description: Decode yEnc archives
+homepage: https://yydecode.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yydecode/blobs/sha256:054034a4990c7dab07cc32767d6d851fef67b58993c276573c8d510fd59698fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yydecode/blobs/sha256:ef2573d29ca6a691e1fc860b765b08c0955d1be74ab29bf63dba51f62860f30c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yydecode/blobs/sha256:2bc48318a8c556b45209f4c7a8bb41c638767ba44166f219f8cc67b94b7be8a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yydecode/blobs/sha256:8ce7595e4ff21d9847be7d4ed031f11144a86dc19222edcbad7a1539ba1e8e32
+sha256:
+  darwin_arm64: 054034a4990c7dab07cc32767d6d851fef67b58993c276573c8d510fd59698fe
+  darwin_amd64: ef2573d29ca6a691e1fc860b765b08c0955d1be74ab29bf63dba51f62860f30c
+  linux_amd64: 2bc48318a8c556b45209f4c7a8bb41c638767ba44166f219f8cc67b94b7be8a2
+  linux_arm64: 8ce7595e4ff21d9847be7d4ed031f11144a86dc19222edcbad7a1539ba1e8e32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: gupnp-av
+version: 0.14.4
+description: Library to help implement UPnP A/V profiles
+homepage: https://wiki.gnome.org/GUPnP/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gupnp-av/blobs/sha256:f06e97478af782faa70bedf35dd2413377774f378aaa3ba60acf34546f402473
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gupnp-av/blobs/sha256:2081869e1ec9e06dc5476636f27ad48bede7e7307a9dead6aae43a0ce2c1f687
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gupnp-av/blobs/sha256:cc49eb0fec7bd6b617c2c264fdec75d440d315b97849d5e2c92ae5f8eb4ae042
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gupnp-av/blobs/sha256:06135313292f8568506ac9a026adfbce37567c4fc0b1d9cca8b1ca8a693ef3ef
+sha256:
+  darwin_arm64: f06e97478af782faa70bedf35dd2413377774f378aaa3ba60acf34546f402473
+  darwin_amd64: 2081869e1ec9e06dc5476636f27ad48bede7e7307a9dead6aae43a0ce2c1f687
+  linux_amd64: cc49eb0fec7bd6b617c2c264fdec75d440d315b97849d5e2c92ae5f8eb4ae042
+  linux_arm64: 06135313292f8568506ac9a026adfbce37567c4fc0b1d9cca8b1ca8a693ef3ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib

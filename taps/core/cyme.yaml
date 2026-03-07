@@ -1,0 +1,19 @@
+name: cyme
+version: 2.2.11
+description: List system USB buses and devices
+homepage: https://github.com/tuna-f1sh/cyme
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cyme/blobs/sha256:4dfc959a50263654b3a555dd406ba225f20b9eccd190abbba9abac236f343e0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cyme/blobs/sha256:48bb8e6fdc8e229db6d43827b9ddb4a7c8101edd730f38c956e1f4c291f0ab1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cyme/blobs/sha256:4f7ec820d877989529135e06bbc54c5d5e142f7551ea1ae317ff84112cb47337
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cyme/blobs/sha256:219a07273a0ebe6e61a50c190fd07f63a30212684dbb8bcafc0200b448c922d5
+sha256:
+  darwin_arm64: 4dfc959a50263654b3a555dd406ba225f20b9eccd190abbba9abac236f343e0e
+  darwin_amd64: 48bb8e6fdc8e229db6d43827b9ddb4a7c8101edd730f38c956e1f4c291f0ab1e
+  linux_amd64: 4f7ec820d877989529135e06bbc54c5d5e142f7551ea1ae317ff84112cb47337
+  linux_arm64: 219a07273a0ebe6e61a50c190fd07f63a30212684dbb8bcafc0200b448c922d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: tgpt
+version: 2.11.1
+description: AI Chatbots in terminal without needing API keys
+homepage: https://github.com/aandrew-me/tgpt
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tgpt/blobs/sha256:9f170adfc7e221f022662f3890ce7c4e65096a54e89f0e299154a17783ee0666
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tgpt/blobs/sha256:e53e5ff3d4f95e69cae009c4d8bbfad4b7bc4962146bddd153fea7f49883010a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tgpt/blobs/sha256:e9f5022eceab6be3bfdd87b0a5784b1df7b52de614ce3f78472631fa0f4ba2e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tgpt/blobs/sha256:b806032f331d56a4f7cdf09d9dff1b84940f5f03537e73270ba6519814a55e5b
+sha256:
+  darwin_arm64: 9f170adfc7e221f022662f3890ce7c4e65096a54e89f0e299154a17783ee0666
+  darwin_amd64: e53e5ff3d4f95e69cae009c4d8bbfad4b7bc4962146bddd153fea7f49883010a
+  linux_amd64: e9f5022eceab6be3bfdd87b0a5784b1df7b52de614ce3f78472631fa0f4ba2e0
+  linux_arm64: b806032f331d56a4f7cdf09d9dff1b84940f5f03537e73270ba6519814a55e5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

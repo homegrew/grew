@@ -1,0 +1,19 @@
+name: trivy
+version: 0.69.3
+description: Vulnerability scanner for container images, file systems, and Git repos
+homepage: https://trivy.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trivy/blobs/sha256:8896cbac7e3358f40b7abe67282f3e48edbc968c7574109718623282c8e613ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trivy/blobs/sha256:f3a4b53fa2665514ee3354ee466c73e068b239048cb1553227e18e61cae64cee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trivy/blobs/sha256:22d76c73d1df4940c4582df814d58b8627f88b0a4762c3a23fcfa28003bb688c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trivy/blobs/sha256:6ca6c5adf4b3cfe7bbade34a47853b2b51277a5e1e616964d230c25d547594c3
+sha256:
+  darwin_arm64: 8896cbac7e3358f40b7abe67282f3e48edbc968c7574109718623282c8e613ff
+  darwin_amd64: f3a4b53fa2665514ee3354ee466c73e068b239048cb1553227e18e61cae64cee
+  linux_amd64: 22d76c73d1df4940c4582df814d58b8627f88b0a4762c3a23fcfa28003bb688c
+  linux_arm64: 6ca6c5adf4b3cfe7bbade34a47853b2b51277a5e1e616964d230c25d547594c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

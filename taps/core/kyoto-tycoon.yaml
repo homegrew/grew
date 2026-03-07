@@ -1,0 +1,21 @@
+name: kyoto-tycoon
+version: 0.9.56
+description: Database server with interface to Kyoto Cabinet
+homepage: https://dbmx.net/kyototycoon/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kyoto-tycoon/blobs/sha256:409039aba15f91854558024a2b4b4e7238164950a0f9aaecd576c0414c9b225b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kyoto-tycoon/blobs/sha256:0124e888f1cf8dd1384369bd9d0679cff458c2e6c317655cd36f92ed41191e16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kyoto-tycoon/blobs/sha256:2c980249e288c8d49296641182d32f63233d5da165f3a5a70e0d6fff82621385
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kyoto-tycoon/blobs/sha256:566a096ee78096abada9b56c8589a5a5a5a780e36887ba87fce266925d412499
+sha256:
+  darwin_arm64: 409039aba15f91854558024a2b4b4e7238164950a0f9aaecd576c0414c9b225b
+  darwin_amd64: 0124e888f1cf8dd1384369bd9d0679cff458c2e6c317655cd36f92ed41191e16
+  linux_amd64: 2c980249e288c8d49296641182d32f63233d5da165f3a5a70e0d6fff82621385
+  linux_arm64: 566a096ee78096abada9b56c8589a5a5a5a780e36887ba87fce266925d412499
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kyoto-cabinet

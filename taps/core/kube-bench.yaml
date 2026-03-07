@@ -1,0 +1,19 @@
+name: kube-bench
+version: 0.15.0
+description: Checks Kubernetes deployment against security best practices (CIS Benchmark)
+homepage: https://github.com/aquasecurity/kube-bench
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kube-bench/blobs/sha256:78f5fe779d3aaa2fe518a5a6a34a92d36993bb157f60848307d511194a5f443a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kube-bench/blobs/sha256:1eca0d5815a129efa69b75b756fdd554adcc6d85618110d83c5187ff60b2f837
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kube-bench/blobs/sha256:0b0883040ac4a1ae9a6c84a7dc6f76a92b801e5e619ecde4de77be1b3adb56d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kube-bench/blobs/sha256:2355e2d2cffbfab948499fa1a3c3d759becdd035cdd1dde35de0f66e012d55b3
+sha256:
+  darwin_arm64: 78f5fe779d3aaa2fe518a5a6a34a92d36993bb157f60848307d511194a5f443a
+  darwin_amd64: 1eca0d5815a129efa69b75b756fdd554adcc6d85618110d83c5187ff60b2f837
+  linux_amd64: 0b0883040ac4a1ae9a6c84a7dc6f76a92b801e5e619ecde4de77be1b3adb56d0
+  linux_arm64: 2355e2d2cffbfab948499fa1a3c3d759becdd035cdd1dde35de0f66e012d55b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

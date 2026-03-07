@@ -1,0 +1,19 @@
+name: azcopy
+version: 10.32.1
+description: Azure Storage data transfer utility
+homepage: https://github.com/Azure/azure-storage-azcopy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azcopy/blobs/sha256:58399f491b66ef2d86c62d04af516225d01da7579869d70164abac090aac8b06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azcopy/blobs/sha256:43d5701bf985abf9c2783aaa538732096ebb1a17e024a94d3cb0909ebcfcc7e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azcopy/blobs/sha256:f54b35681e16d7ad4b352e2fc245bb20ffaf78ba3cbccda7cf1a0d8803210c11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azcopy/blobs/sha256:e172b2aceb629f26509208085e7f232ab44eed1e6b1cb5be19ab1d4bfa8de939
+sha256:
+  darwin_arm64: 58399f491b66ef2d86c62d04af516225d01da7579869d70164abac090aac8b06
+  darwin_amd64: 43d5701bf985abf9c2783aaa538732096ebb1a17e024a94d3cb0909ebcfcc7e0
+  linux_amd64: f54b35681e16d7ad4b352e2fc245bb20ffaf78ba3cbccda7cf1a0d8803210c11
+  linux_arm64: e172b2aceb629f26509208085e7f232ab44eed1e6b1cb5be19ab1d4bfa8de939
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: pgbackrest
+version: 2.58.0
+description: "Reliable PostgreSQL Backup & Restore"
+homepage: https://pgbackrest.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgbackrest/blobs/sha256:ddf0b1c7f851c41a77323611559129b573d908defcf89c0ce441c43d742d02a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgbackrest/blobs/sha256:ab091b268bf5912d2d75eac9110303543d9d3e1a21fa30632bd38da38d3b4869
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgbackrest/blobs/sha256:aa984f5a9161767d92ea237ce5a55b01342b93c879da811baaba149ab3e0cabb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgbackrest/blobs/sha256:f94aa5e2ba0c8a37044fc749817bd8bdfa64c37095aee594c758aca26197c681
+sha256:
+  darwin_arm64: ddf0b1c7f851c41a77323611559129b573d908defcf89c0ce441c43d742d02a1
+  darwin_amd64: ab091b268bf5912d2d75eac9110303543d9d3e1a21fa30632bd38da38d3b4869
+  linux_amd64: aa984f5a9161767d92ea237ce5a55b01342b93c879da811baaba149ab3e0cabb
+  linux_arm64: f94aa5e2ba0c8a37044fc749817bd8bdfa64c37095aee594c758aca26197c681
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - libssh2
+  - libyaml
+  - lz4
+  - openssl@3
+  - zstd

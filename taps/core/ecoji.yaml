@@ -1,0 +1,19 @@
+name: ecoji
+version: 2.0.2
+description: Encodes (and decodes) data as emojis
+homepage: https://github.com/keith-turner/ecoji
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ecoji/blobs/sha256:8b8e9af1bfa4c147c763dac9dab83e1e2c0cc60a0323dc8e64dd52bb4ca8fcb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ecoji/blobs/sha256:ed4661683e62fe770b6e6187c957cd4d6cd78ccee5695dfa51378d3a677d2f3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ecoji/blobs/sha256:319db5e1d71bdc821fc64e4eb6a5f40784963eb32a49e6a3e685bf4c1c482bd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ecoji/blobs/sha256:063fbca010a729a6d83b71100ed50e7a9da28bf91a1c5bfad0956a8b63aca023
+sha256:
+  darwin_arm64: 8b8e9af1bfa4c147c763dac9dab83e1e2c0cc60a0323dc8e64dd52bb4ca8fcb5
+  darwin_amd64: ed4661683e62fe770b6e6187c957cd4d6cd78ccee5695dfa51378d3a677d2f3e
+  linux_amd64: 319db5e1d71bdc821fc64e4eb6a5f40784963eb32a49e6a3e685bf4c1c482bd0
+  linux_arm64: 063fbca010a729a6d83b71100ed50e7a9da28bf91a1c5bfad0956a8b63aca023
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

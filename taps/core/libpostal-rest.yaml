@@ -1,0 +1,21 @@
+name: libpostal-rest
+version: 1.1.0
+description: REST API for libpostal
+homepage: https://github.com/johnlonganecker/libpostal-rest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpostal-rest/blobs/sha256:905fe876b881844842cf56c6e4f5098bc59b23d0b9eee15e70ec7d07953f25df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpostal-rest/blobs/sha256:5364b98a31cf0dd48e851bb94be7cccc60f52568d4952b959b9e6a067dd1fd61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpostal-rest/blobs/sha256:945be628085aa46d50c62af4014749288db83af578bdd175b648032661adad25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpostal-rest/blobs/sha256:2c6c6f1cb64e46da29ede7308c2f9efcdc140f171f23d41cb0d55586f5c8c2b4
+sha256:
+  darwin_arm64: 905fe876b881844842cf56c6e4f5098bc59b23d0b9eee15e70ec7d07953f25df
+  darwin_amd64: 5364b98a31cf0dd48e851bb94be7cccc60f52568d4952b959b9e6a067dd1fd61
+  linux_amd64: 945be628085aa46d50c62af4014749288db83af578bdd175b648032661adad25
+  linux_arm64: 2c6c6f1cb64e46da29ede7308c2f9efcdc140f171f23d41cb0d55586f5c8c2b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpostal

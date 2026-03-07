@@ -1,0 +1,19 @@
+name: oasis
+version: 0.18.5
+description: CLI for interacting with the Oasis Protocol network
+homepage: https://github.com/oasisprotocol/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oasis/blobs/sha256:64084c58a254efa4ee65cca0ce85da5077108f260ae11026d1e2671c6b702fa8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oasis/blobs/sha256:8b1fd40a83e07b223d510d671c557a3496f535b7542a229122ef4dc8d9f8c85b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oasis/blobs/sha256:4c62e6eea739061fa3fbd6404f0bff990649d364e45681f77ba4137db6e58b0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oasis/blobs/sha256:a82e0e7359489d61ab8c99ba531eb46aa99bd736ed6be1fb7ede3f5dd2debb36
+sha256:
+  darwin_arm64: 64084c58a254efa4ee65cca0ce85da5077108f260ae11026d1e2671c6b702fa8
+  darwin_amd64: 8b1fd40a83e07b223d510d671c557a3496f535b7542a229122ef4dc8d9f8c85b
+  linux_amd64: 4c62e6eea739061fa3fbd6404f0bff990649d364e45681f77ba4137db6e58b0f
+  linux_arm64: a82e0e7359489d61ab8c99ba531eb46aa99bd736ed6be1fb7ede3f5dd2debb36
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: feh
+version: 3.11.3
+description: X11 image viewer
+homepage: https://feh.finalrewind.org/
+license: MIT-feh
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/feh/blobs/sha256:855a10dc5899354d94b6dda82e715f05d56e53bb31d8977da1088536a7da7c0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/feh/blobs/sha256:19dc6999bb9cc255c23ecb81920181539d7bd7a906898fc9d5382f5d6cb9d0a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/feh/blobs/sha256:cac79626c41c6eade6c1a8f59afaf420659a11537eb287973341667e75e07b3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/feh/blobs/sha256:23653e63d4d90c61fb8790ff35c4b4983794e6946428dc200d5d7d0d8ac48d5d
+sha256:
+  darwin_arm64: 855a10dc5899354d94b6dda82e715f05d56e53bb31d8977da1088536a7da7c0e
+  darwin_amd64: 19dc6999bb9cc255c23ecb81920181539d7bd7a906898fc9d5382f5d6cb9d0a4
+  linux_amd64: cac79626c41c6eade6c1a8f59afaf420659a11537eb287973341667e75e07b3e
+  linux_arm64: 23653e63d4d90c61fb8790ff35c4b4983794e6946428dc200d5d7d0d8ac48d5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imlib2
+  - libexif
+  - libpng
+  - libx11
+  - libxinerama
+  - libxt

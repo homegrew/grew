@@ -1,0 +1,21 @@
+name: keepassc
+version: 1.8.2
+description: Curses-based password manager for KeePass v.1.x and KeePassX
+homepage: https://github.com/raymontag/keepassc
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keepassc/blobs/sha256:01903f453e4afc999a98345cff835cdc781a8cec808fe49aee80d90f0de84171
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keepassc/blobs/sha256:b9e4bd9fa7f24ac7b95b6fd355554430611d0f3b6bf3ac39001fddb000bddc60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keepassc/blobs/sha256:1468f8a2747ba5d8576f0d4263ec8160b68646490c45b5e53287e4e639713139
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keepassc/blobs/sha256:09e9e115b01e92086c1c1ff02a4f2cb5a0943fbb60adc1a10fbb9483d4647139
+sha256:
+  darwin_arm64: 01903f453e4afc999a98345cff835cdc781a8cec808fe49aee80d90f0de84171
+  darwin_amd64: b9e4bd9fa7f24ac7b95b6fd355554430611d0f3b6bf3ac39001fddb000bddc60
+  linux_amd64: 1468f8a2747ba5d8576f0d4263ec8160b68646490c45b5e53287e4e639713139
+  linux_arm64: 09e9e115b01e92086c1c1ff02a4f2cb5a0943fbb60adc1a10fbb9483d4647139
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

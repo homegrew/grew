@@ -1,0 +1,25 @@
+name: mplayer
+version: 1.5
+description: UNIX movie player
+homepage: https://mplayerhq.hu/
+license: GPL-2.0-only AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mplayer/blobs/sha256:1d27bc5e20a020dfc9cbda188a2d8af4cb54203b3a29bf97205ec5ba5c15038c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mplayer/blobs/sha256:5f089d84929885e170a96efba53a2f48adca16fcba31fccabf7efc9ed29f14f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mplayer/blobs/sha256:6fe472a2eaa853dea397a8cf67c22788a961d4edd3723f96bf3d439003ee1bc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mplayer/blobs/sha256:b4a9bf7aa318aebb060bf0ef17d93ed5f335d79f7e2a56f2d3181755216c9ff4
+sha256:
+  darwin_arm64: 1d27bc5e20a020dfc9cbda188a2d8af4cb54203b3a29bf97205ec5ba5c15038c
+  darwin_amd64: 5f089d84929885e170a96efba53a2f48adca16fcba31fccabf7efc9ed29f14f8
+  linux_amd64: 6fe472a2eaa853dea397a8cf67c22788a961d4edd3723f96bf3d439003ee1bc3
+  linux_arm64: b4a9bf7aa318aebb060bf0ef17d93ed5f335d79f7e2a56f2d3181755216c9ff4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libcaca
+  - libpng

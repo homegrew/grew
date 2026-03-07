@@ -1,0 +1,19 @@
+name: dbacl
+version: 1.14.1
+description: Digramic Bayesian classifier
+homepage: https://dbacl.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dbacl/blobs/sha256:71b6ff99f31ad16b0e638be6e6c0470c61ccc8b9d51bfcabbe46ea7444976a77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dbacl/blobs/sha256:5c7721036d54906209c3ad37dc14fc001dd0646240e9fbce53298cc7495202ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dbacl/blobs/sha256:27ddb0fca1dfb2cc615befe472927ff657b689dad255e26913ce118f7d83dfcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dbacl/blobs/sha256:4e4f747f411c297f6c0eedf5f0da68f7c48df9190beba950accc13837ef5a912
+sha256:
+  darwin_arm64: 71b6ff99f31ad16b0e638be6e6c0470c61ccc8b9d51bfcabbe46ea7444976a77
+  darwin_amd64: 5c7721036d54906209c3ad37dc14fc001dd0646240e9fbce53298cc7495202ed
+  linux_amd64: 27ddb0fca1dfb2cc615befe472927ff657b689dad255e26913ce118f7d83dfcb
+  linux_arm64: 4e4f747f411c297f6c0eedf5f0da68f7c48df9190beba950accc13837ef5a912
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

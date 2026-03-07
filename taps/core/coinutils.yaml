@@ -1,0 +1,21 @@
+name: coinutils
+version: 2.11.12
+description: COIN-OR utilities
+homepage: https://github.com/coin-or/CoinUtils
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/coinutils/blobs/sha256:e7d81a41d6e627c20590a2274ddff867ef0cb374ada54382d4f42ac9c1aaf60a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/coinutils/blobs/sha256:e5294294a0e779ca3d0144f2868ff1a07fe442ccd409c33e1ef8472490b42866
+  linux_amd64: https://ghcr.io/v2/homebrew/core/coinutils/blobs/sha256:59a8562a21f95781aab014c8b5dd4001a0443e4b9dd2c8ae22d28879d6e9d75d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/coinutils/blobs/sha256:bbaef1db6779987275e5c6033bce45ce08e578868b86fb0a6c2a9c79a06670ec
+sha256:
+  darwin_arm64: e7d81a41d6e627c20590a2274ddff867ef0cb374ada54382d4f42ac9c1aaf60a
+  darwin_amd64: e5294294a0e779ca3d0144f2868ff1a07fe442ccd409c33e1ef8472490b42866
+  linux_amd64: 59a8562a21f95781aab014c8b5dd4001a0443e4b9dd2c8ae22d28879d6e9d75d
+  linux_arm64: bbaef1db6779987275e5c6033bce45ce08e578868b86fb0a6c2a9c79a06670ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas

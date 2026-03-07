@@ -1,0 +1,19 @@
+name: libmxml
+version: 4.0.4
+description: Mini-XML library
+homepage: https://michaelrsweet.github.io/mxml/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmxml/blobs/sha256:0f4b0dd844eb4bcbaa18bac4ff1a09791661681a1257d4d3a02af9673440c7d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmxml/blobs/sha256:cd8ed5ff1205d43cee4b76a4d1dd344657834556fc20297dce128f3d71917e11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmxml/blobs/sha256:6dc29cb18206b980b121c3a114f8c86114a5dcead1b2ae80e0b7eea78c17f0e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmxml/blobs/sha256:03c82073c6046eba93252707914149e70ba8ff2c4d7a1822c7721c2c7dde8fd4
+sha256:
+  darwin_arm64: 0f4b0dd844eb4bcbaa18bac4ff1a09791661681a1257d4d3a02af9673440c7d2
+  darwin_amd64: cd8ed5ff1205d43cee4b76a4d1dd344657834556fc20297dce128f3d71917e11
+  linux_amd64: 6dc29cb18206b980b121c3a114f8c86114a5dcead1b2ae80e0b7eea78c17f0e4
+  linux_arm64: 03c82073c6046eba93252707914149e70ba8ff2c4d7a1822c7721c2c7dde8fd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: mitmproxy
+version: 12.2.1
+description: Intercept, modify, replay, save HTTP/S traffic
+homepage: https://mitmproxy.org/
+url:
+  darwin_arm64: https://downloads.mitmproxy.org/12.2.1/mitmproxy-12.2.1-macos-arm64.tar.gz
+sha256:
+  darwin_arm64: 34d2719d91ff1b85ffa64acf20d3a56d6e3a98d308eb45a827ab4266bf68e179
+artifacts:
+  bin:
+    - mitmproxy
+    - mitmdump
+    - mitmweb

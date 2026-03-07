@@ -1,0 +1,23 @@
+name: bitcoin
+version: 30.2
+description: Decentralized, peer to peer payment network
+homepage: https://bitcoincore.org/
+license: MIT AND BSD-3-Clause AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bitcoin/blobs/sha256:5c0409619840c651a880ec360e992e0b68f0d27cb3105113eec42b698ac288e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bitcoin/blobs/sha256:409e8f2be7d2774ebab20eadc7023b8e38259629739e00f85d60a7047df17ecd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bitcoin/blobs/sha256:aa01580f9ecf9f7c7b7fdb14bfc4965a87dc83b54bb7ae45324d5999176feefb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bitcoin/blobs/sha256:2228d4aaaeee7a30d6886f6eb344b6f50fad4d45a2ffec3a82fef2daa12d45c8
+sha256:
+  darwin_arm64: 5c0409619840c651a880ec360e992e0b68f0d27cb3105113eec42b698ac288e5
+  darwin_amd64: 409e8f2be7d2774ebab20eadc7023b8e38259629739e00f85d60a7047df17ecd
+  linux_amd64: aa01580f9ecf9f7c7b7fdb14bfc4965a87dc83b54bb7ae45324d5999176feefb
+  linux_arm64: 2228d4aaaeee7a30d6886f6eb344b6f50fad4d45a2ffec3a82fef2daa12d45c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capnp
+  - libevent
+  - zeromq

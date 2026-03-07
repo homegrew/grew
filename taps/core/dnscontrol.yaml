@@ -1,0 +1,19 @@
+name: dnscontrol
+version: 4.36.0
+description: Synchronize your DNS to multiple providers from a simple DSL
+homepage: https://dnscontrol.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnscontrol/blobs/sha256:fd843ca25a591c9fd45029b24d4d0c6ff1d12d66c7d92eb22a778d1ad30ad9cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnscontrol/blobs/sha256:24555159a280c999a5eb82717d0a5d39832bdc0367780308341b6c81257b9326
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnscontrol/blobs/sha256:67f6ca613902dc240d605c9085623f5bd1d505c9022f4b1800fd50cd1afd5d83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnscontrol/blobs/sha256:450f6825bbeb979134710320fca31184c45eacdda1de67bcbea277e8226c0f43
+sha256:
+  darwin_arm64: fd843ca25a591c9fd45029b24d4d0c6ff1d12d66c7d92eb22a778d1ad30ad9cf
+  darwin_amd64: 24555159a280c999a5eb82717d0a5d39832bdc0367780308341b6c81257b9326
+  linux_amd64: 67f6ca613902dc240d605c9085623f5bd1d505c9022f4b1800fd50cd1afd5d83
+  linux_arm64: 450f6825bbeb979134710320fca31184c45eacdda1de67bcbea277e8226c0f43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

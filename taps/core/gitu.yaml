@@ -1,0 +1,19 @@
+name: gitu
+version: 0.40.0
+description: TUI Git client inspired by Magit
+homepage: https://github.com/altsem/gitu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitu/blobs/sha256:1072f759f85641066d62ef806512de85fd29ed91c88243e2ecfce2efadf7edd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitu/blobs/sha256:cea667d08a258bdf4c91c222d1b715c78e82657ee154761c27b1ff010d833512
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitu/blobs/sha256:9cf7e9202afc3c5ce064b6db4b699bdbb49f9f31d7808630d99b7657d00b19a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitu/blobs/sha256:bcd5cd7599db34a1e37b6114738d2f7ccd803856700f654a7316466a4510fa43
+sha256:
+  darwin_arm64: 1072f759f85641066d62ef806512de85fd29ed91c88243e2ecfce2efadf7edd1
+  darwin_amd64: cea667d08a258bdf4c91c222d1b715c78e82657ee154761c27b1ff010d833512
+  linux_amd64: 9cf7e9202afc3c5ce064b6db4b699bdbb49f9f31d7808630d99b7657d00b19a5
+  linux_arm64: bcd5cd7599db34a1e37b6114738d2f7ccd803856700f654a7316466a4510fa43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

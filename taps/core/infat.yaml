@@ -1,0 +1,15 @@
+name: infat
+version: 3.0.3
+description: Tool to set default openers for file formats and url schemes on macOS
+homepage: https://github.com/philocalyst/infat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/infat/blobs/sha256:a1f2cb6fd37b0c763c9fc03395c13858dab043c4d40d2c22762878adfbc7ae02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/infat/blobs/sha256:d9e02db5993f76fd6dd7355acba247259de511a6fc70d03cbafe29cde80fc16b
+sha256:
+  darwin_arm64: a1f2cb6fd37b0c763c9fc03395c13858dab043c4d40d2c22762878adfbc7ae02
+  darwin_amd64: d9e02db5993f76fd6dd7355acba247259de511a6fc70d03cbafe29cde80fc16b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

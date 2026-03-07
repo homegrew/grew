@@ -1,0 +1,22 @@
+name: gyb
+version: 1.95
+description: CLI for backing up and restoring Gmail messages
+homepage: https://github.com/GAM-team/got-your-back/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gyb/blobs/sha256:37fddd7a434ddbc88a53a8e2e43dbcf86d76f59ea9cd749ffb3822209c849bb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gyb/blobs/sha256:2f221e1cba8746c483eed0ec3e8cc66bf733b446554f91e61d68a23e9c86407e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gyb/blobs/sha256:232f8f4c3bfea904d5fe76e2118c26373e7d8c6efaea739af13e253d99434d64
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gyb/blobs/sha256:26f76bd20d931941941fa60cc98e2b18a5556e050d7d56bcf54fdbd7bc8a0f16
+sha256:
+  darwin_arm64: 37fddd7a434ddbc88a53a8e2e43dbcf86d76f59ea9cd749ffb3822209c849bb7
+  darwin_amd64: 2f221e1cba8746c483eed0ec3e8cc66bf733b446554f91e61d68a23e9c86407e
+  linux_amd64: 232f8f4c3bfea904d5fe76e2118c26373e7d8c6efaea739af13e253d99434d64
+  linux_arm64: 26f76bd20d931941941fa60cc98e2b18a5556e050d7d56bcf54fdbd7bc8a0f16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

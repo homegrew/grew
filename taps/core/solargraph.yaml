@@ -1,0 +1,22 @@
+name: solargraph
+version: 0.58.2
+description: Ruby language server
+homepage: https://solargraph.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solargraph/blobs/sha256:a47d973a60f7b0c90ca64c2f5303dcb715e15b6a67016d5e5c8c955b50666dde
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solargraph/blobs/sha256:0f81ef3e92622a05e4f5692e83f1054ce69325b5054ab44e06f6dc068c42cd1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solargraph/blobs/sha256:d6984aa7b9a852f661621069b3c461625581a2003bc8820de98e086e36652d33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solargraph/blobs/sha256:a1b6cc76947d67660a41908885f04641d3270faff30f1bdb08c0bc27f35a4ca4
+sha256:
+  darwin_arm64: a47d973a60f7b0c90ca64c2f5303dcb715e15b6a67016d5e5c8c955b50666dde
+  darwin_amd64: 0f81ef3e92622a05e4f5692e83f1054ce69325b5054ab44e06f6dc068c42cd1a
+  linux_amd64: d6984aa7b9a852f661621069b3c461625581a2003bc8820de98e086e36652d33
+  linux_arm64: a1b6cc76947d67660a41908885f04641d3270faff30f1bdb08c0bc27f35a4ca4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby
+  - xz

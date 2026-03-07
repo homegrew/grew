@@ -1,0 +1,24 @@
+name: cfengine
+version: 3.27.0
+description: Help manage and understand IT infrastructure
+homepage: https://cfengine.com/
+license: BSD-3-Clause AND GPL-2.0-or-later AND GPL-3.0-only AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfengine/blobs/sha256:88253c85fccbca421d2196a0f5bc2f90156d48fe00f30da27b5f35b2710981da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfengine/blobs/sha256:e0e0d90a26cbd07bdf1909a034fb4c928baf2e445a26b22964e1aa8a61ab05d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfengine/blobs/sha256:2d141b557648c744e4ff619b81d2590e27d1568d2bf6ad9939ce718c55c1832b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfengine/blobs/sha256:8903b84dc6823ed93ce4efd43b3c8fb634690dccd7f8011526cf21b91914293b
+sha256:
+  darwin_arm64: 88253c85fccbca421d2196a0f5bc2f90156d48fe00f30da27b5f35b2710981da
+  darwin_amd64: e0e0d90a26cbd07bdf1909a034fb4c928baf2e445a26b22964e1aa8a61ab05d0
+  linux_amd64: 2d141b557648c744e4ff619b81d2590e27d1568d2bf6ad9939ce718c55c1832b
+  linux_arm64: 8903b84dc6823ed93ce4efd43b3c8fb634690dccd7f8011526cf21b91914293b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librsync
+  - lmdb
+  - openssl@3
+  - pcre2

@@ -1,0 +1,26 @@
+name: jbig2enc
+version: 0.30
+description: JBIG2 encoder (for monochrome documents)
+homepage: https://github.com/agl/jbig2enc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jbig2enc/blobs/sha256:e4cac7beea1281386d93c5a6a086df2f628165c1b61829c2c1607715ae5e892a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jbig2enc/blobs/sha256:73b88ab1c2f8c17beda9109e62935813bce19ce84970b935ef810715c48d21f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jbig2enc/blobs/sha256:11281bffe9b33acf9e62c446ae9af7332b4154a87d9d58f3ba15b9d550198d93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jbig2enc/blobs/sha256:b8f1cda60e433c0a9e450ebac66c1cd12646f57a5fe691969870a45f96c21352
+sha256:
+  darwin_arm64: e4cac7beea1281386d93c5a6a086df2f628165c1b61829c2c1607715ae5e892a
+  darwin_amd64: 73b88ab1c2f8c17beda9109e62935813bce19ce84970b935ef810715c48d21f6
+  linux_amd64: 11281bffe9b33acf9e62c446ae9af7332b4154a87d9d58f3ba15b9d550198d93
+  linux_arm64: b8f1cda60e433c0a9e450ebac66c1cd12646f57a5fe691969870a45f96c21352
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - leptonica
+  - giflib
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - webp

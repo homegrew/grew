@@ -1,0 +1,26 @@
+name: nest
+version: 3.9
+description: Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)
+homepage: https://www.nest-simulator.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nest/blobs/sha256:e7fcbd42855eb593039616db156047167d3fccc6f61b24f4d32cd622cf8c5547
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nest/blobs/sha256:2edddd7433fab4f1088d86fef0fc91eec7b2e4b301af08c9f4b345eeb81ad6cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nest/blobs/sha256:87ae024785fb40c22e03f3bfea67fc1eb3ed3c924b582cc8b782c0f76f9fc680
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nest/blobs/sha256:17fcfc3ec66d959a29c1ab12cd8f18021b06e1dd9afb2363183a101cb105d9b4
+sha256:
+  darwin_arm64: e7fcbd42855eb593039616db156047167d3fccc6f61b24f4d32cd622cf8c5547
+  darwin_amd64: 2edddd7433fab4f1088d86fef0fc91eec7b2e4b301af08c9f4b345eeb81ad6cb
+  linux_amd64: 87ae024785fb40c22e03f3bfea67fc1eb3ed3c924b582cc8b782c0f76f9fc680
+  linux_arm64: 17fcfc3ec66d959a29c1ab12cd8f18021b06e1dd9afb2363183a101cb105d9b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gsl
+  - libtool
+  - numpy
+  - python@3.14
+  - readline
+  - libomp

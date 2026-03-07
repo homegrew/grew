@@ -1,0 +1,21 @@
+name: litehtml
+version: 0.9
+description: Fast and lightweight HTML/CSS rendering engine
+homepage: http://www.litehtml.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/litehtml/blobs/sha256:d07e7a815a2fd6e9a44e8f52233ea5a979d41b9dbb24828b0a53508df0ef6e39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/litehtml/blobs/sha256:bd159f548833cb3e58a2ccd7637661121d68b20ac24e2023f15d0361d2876b0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/litehtml/blobs/sha256:2b010dde65bdf09f5d5f5bc991512f64d21ed598532966b212123e643e4e1dcd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/litehtml/blobs/sha256:e533110ac64cb56657b385b8b9dca426ef402625b286de737caabf30a3b6bf24
+sha256:
+  darwin_arm64: d07e7a815a2fd6e9a44e8f52233ea5a979d41b9dbb24828b0a53508df0ef6e39
+  darwin_amd64: bd159f548833cb3e58a2ccd7637661121d68b20ac24e2023f15d0361d2876b0a
+  linux_amd64: 2b010dde65bdf09f5d5f5bc991512f64d21ed598532966b212123e643e4e1dcd
+  linux_arm64: e533110ac64cb56657b385b8b9dca426ef402625b286de737caabf30a3b6bf24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gumbo-parser

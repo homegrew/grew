@@ -1,0 +1,19 @@
+name: pug
+version: 0.6.5
+description: Drive terraform at terminal velocity
+homepage: https://github.com/leg100/pug
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pug/blobs/sha256:3f019b4a8fa406e46455d1fa1f1930a3e84ba7a8c91b27666fddefc3ee621de1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pug/blobs/sha256:762c86b31f69afa3270b3fd9179868bd4dbdef4c1092f7aaf0db0b00c2962ab7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pug/blobs/sha256:2583aa7db7860e667710770b11f021b1796dcc11cdc6c86feb33d8988f722b16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pug/blobs/sha256:b8c3970a5617f14543750c7d4127744944d111e650c892e0528ec0245af15f7d
+sha256:
+  darwin_arm64: 3f019b4a8fa406e46455d1fa1f1930a3e84ba7a8c91b27666fddefc3ee621de1
+  darwin_amd64: 762c86b31f69afa3270b3fd9179868bd4dbdef4c1092f7aaf0db0b00c2962ab7
+  linux_amd64: 2583aa7db7860e667710770b11f021b1796dcc11cdc6c86feb33d8988f722b16
+  linux_arm64: b8c3970a5617f14543750c7d4127744944d111e650c892e0528ec0245af15f7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

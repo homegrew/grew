@@ -1,0 +1,21 @@
+name: libmwaw
+version: 0.3.22
+description: Library for converting legacy Mac document formats
+homepage: https://sourceforge.net/p/libmwaw/wiki/Home/
+license: LGPL-2.1-or-later OR MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmwaw/blobs/sha256:fa0e72719088f76b8996124a739c41c4b34547cf9c4f260e58afd6ddcc870cd4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmwaw/blobs/sha256:ea299bef81d475c92fcfad1e645938f555c6d84a5079736731c0bbffde56713a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmwaw/blobs/sha256:2e148bc4687e804b19b7b4d6efa771453929595be6bd06d11957c2a91be6960c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmwaw/blobs/sha256:798c441a0e2c4381934c01b24f9092f808c3a40bd7535947b9bb16eea05f010c
+sha256:
+  darwin_arm64: fa0e72719088f76b8996124a739c41c4b34547cf9c4f260e58afd6ddcc870cd4
+  darwin_amd64: ea299bef81d475c92fcfad1e645938f555c6d84a5079736731c0bbffde56713a
+  linux_amd64: 2e148bc4687e804b19b7b4d6efa771453929595be6bd06d11957c2a91be6960c
+  linux_arm64: 798c441a0e2c4381934c01b24f9092f808c3a40bd7535947b9bb16eea05f010c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge

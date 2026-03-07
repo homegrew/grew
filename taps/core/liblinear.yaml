@@ -1,0 +1,19 @@
+name: liblinear
+version: 2.50
+description: Library for large linear classification
+homepage: https://www.csie.ntu.edu.tw/~cjlin/liblinear/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblinear/blobs/sha256:084eda55e8b1e787d35ba4b64b07973f28c03ba3b80caf34476453bfc0aa6fd3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblinear/blobs/sha256:112816fd22beb8a5b8ee79f0fa0c6094c9813384de039df65874dad76fd4d090
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblinear/blobs/sha256:746b7ce2c2f425061ad373dedcf34bb5daa031ebb059bbbc9424dbcd7f9ba9c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblinear/blobs/sha256:5c0831cc8dc54b0696cdeabb442f146bf430aa0547bb97e3240c5f51c0c135f6
+sha256:
+  darwin_arm64: 084eda55e8b1e787d35ba4b64b07973f28c03ba3b80caf34476453bfc0aa6fd3
+  darwin_amd64: 112816fd22beb8a5b8ee79f0fa0c6094c9813384de039df65874dad76fd4d090
+  linux_amd64: 746b7ce2c2f425061ad373dedcf34bb5daa031ebb059bbbc9424dbcd7f9ba9c1
+  linux_arm64: 5c0831cc8dc54b0696cdeabb442f146bf430aa0547bb97e3240c5f51c0c135f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

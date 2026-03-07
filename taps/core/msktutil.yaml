@@ -1,0 +1,21 @@
+name: msktutil
+version: 1.2.2
+description: Active Directory keytab management
+homepage: https://github.com/msktutil/msktutil
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msktutil/blobs/sha256:637b97314f04b43d95e6fea26acf3f8f531270aa5d1ce61e6b1622d9f54e6b22
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msktutil/blobs/sha256:3fcc25c8edbcb71d193079ba3108263410cc9b9057b51f9d995ba499982795cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msktutil/blobs/sha256:667123d6e8cd021378d8fd1bc556d0756dd9e694972b29c0fbc282716c8626a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msktutil/blobs/sha256:69a7a6390216722bbba0e2b1c6b3dcf7aef66cfd3625c2ff4a93c9647d14f157
+sha256:
+  darwin_arm64: 637b97314f04b43d95e6fea26acf3f8f531270aa5d1ce61e6b1622d9f54e6b22
+  darwin_amd64: 3fcc25c8edbcb71d193079ba3108263410cc9b9057b51f9d995ba499982795cc
+  linux_amd64: 667123d6e8cd021378d8fd1bc556d0756dd9e694972b29c0fbc282716c8626a7
+  linux_arm64: 69a7a6390216722bbba0e2b1c6b3dcf7aef66cfd3625c2ff4a93c9647d14f157
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - krb5

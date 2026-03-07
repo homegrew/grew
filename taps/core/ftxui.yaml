@@ -1,0 +1,19 @@
+name: ftxui
+version: 6.1.9
+description: C++ Functional Terminal User Interface
+homepage: https://github.com/ArthurSonzogni/FTXUI
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ftxui/blobs/sha256:adf940aea1828f7238f701f4662016c1664347b830bba7463b50a40c2f0e7407
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ftxui/blobs/sha256:dd41f7868452173504be6f2786966ed4836c1531d06c7f1f9c3b46fb8b587ba9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ftxui/blobs/sha256:26a35edfd086bb2cdc76b5e8d699094882a633285a4a2ead8323bb8bb2fc9b78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ftxui/blobs/sha256:bf56dd804ae10402637a259399706b18d9db65477f5472282181c8beff69f9e8
+sha256:
+  darwin_arm64: adf940aea1828f7238f701f4662016c1664347b830bba7463b50a40c2f0e7407
+  darwin_amd64: dd41f7868452173504be6f2786966ed4836c1531d06c7f1f9c3b46fb8b587ba9
+  linux_amd64: 26a35edfd086bb2cdc76b5e8d699094882a633285a4a2ead8323bb8bb2fc9b78
+  linux_arm64: bf56dd804ae10402637a259399706b18d9db65477f5472282181c8beff69f9e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

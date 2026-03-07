@@ -1,0 +1,19 @@
+name: run
+version: 0.11.2
+description: Easily manage and invoke small scripts and wrappers
+homepage: https://github.com/TekWizely/run
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/run/blobs/sha256:494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/run/blobs/sha256:f2540f33549ba66fc0db57e7ac1d33c9b94abad914d5134a8946aff8c04bece3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/run/blobs/sha256:d07a3ae592c55324e85305316310fad9c8d78d897a3705739071d0275fe5f472
+  linux_arm64: https://ghcr.io/v2/homebrew/core/run/blobs/sha256:f2129b6933244680b5e70c3a1636988ee5d2e1800a0dd8d2f3aed397453d015d
+sha256:
+  darwin_arm64: 494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a
+  darwin_amd64: f2540f33549ba66fc0db57e7ac1d33c9b94abad914d5134a8946aff8c04bece3
+  linux_amd64: d07a3ae592c55324e85305316310fad9c8d78d897a3705739071d0275fe5f472
+  linux_arm64: f2129b6933244680b5e70c3a1636988ee5d2e1800a0dd8d2f3aed397453d015d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

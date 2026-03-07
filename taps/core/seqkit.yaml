@@ -1,0 +1,19 @@
+name: seqkit
+version: 2.13.0
+description: Cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang
+homepage: https://bioinf.shenwei.me/seqkit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/seqkit/blobs/sha256:83997ac9d9a00ba0737ee1818844cc34198e68ca9944dd9e6018c0f57d96993e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/seqkit/blobs/sha256:95d0709017262c3e669769d2c9a6d9544a4b4b983d66976b250beb9cddc69c83
+  linux_amd64: https://ghcr.io/v2/homebrew/core/seqkit/blobs/sha256:bded6403f96e1a85ce904d78ee0c75d5cac6bbf370f32f621c09d7e672b588d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/seqkit/blobs/sha256:157a463c1adf24e9f7bbf104b9da79672cac9524a97e64056af8c1abfe0e7e92
+sha256:
+  darwin_arm64: 83997ac9d9a00ba0737ee1818844cc34198e68ca9944dd9e6018c0f57d96993e
+  darwin_amd64: 95d0709017262c3e669769d2c9a6d9544a4b4b983d66976b250beb9cddc69c83
+  linux_amd64: bded6403f96e1a85ce904d78ee0c75d5cac6bbf370f32f621c09d7e672b588d0
+  linux_arm64: 157a463c1adf24e9f7bbf104b9da79672cac9524a97e64056af8c1abfe0e7e92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

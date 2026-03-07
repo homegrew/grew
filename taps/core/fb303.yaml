@@ -1,0 +1,25 @@
+name: fb303
+version: 2026.03.02.00
+description: Thrift functions for querying information from a service
+homepage: https://github.com/facebook/fb303
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fb303/blobs/sha256:cd3e338c6362d32d5d3c72c9c03feb6a78b418538ca91491d7e7e15aec44d398
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fb303/blobs/sha256:9b3b7f7b3d29f8fd16cf21b328ebb6501f02ea5d69492e484c99f92fcfddaeeb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fb303/blobs/sha256:ca440f3fc101e8d966857dca4199d0775fd8b07276edd7dab6e204e8434dae63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fb303/blobs/sha256:6fb7641331aeab62e009b5be31fabaaac0f41948529aed129a121acbf634d18f
+sha256:
+  darwin_arm64: cd3e338c6362d32d5d3c72c9c03feb6a78b418538ca91491d7e7e15aec44d398
+  darwin_amd64: 9b3b7f7b3d29f8fd16cf21b328ebb6501f02ea5d69492e484c99f92fcfddaeeb
+  linux_amd64: ca440f3fc101e8d966857dca4199d0775fd8b07276edd7dab6e204e8434dae63
+  linux_arm64: 6fb7641331aeab62e009b5be31fabaaac0f41948529aed129a121acbf634d18f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fbthrift
+  - fmt
+  - folly
+  - gflags
+  - glog

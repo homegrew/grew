@@ -1,0 +1,22 @@
+name: libtrace
+version: 4.0.30
+description: Library for trace processing supporting multiple inputs
+homepage: https://github.com/LibtraceTeam/libtrace
+license: GPL-2.0-or-later AND LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtrace/blobs/sha256:cfe9ddfb74e19626fec9725c20436cef6515f7875e72190f55e78acb8db587f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtrace/blobs/sha256:9da327786a615a8428364e987422206d23422904cf4e1a6aca211e6525b2e9da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtrace/blobs/sha256:386ff1e7ccd8bd1f3327842a56bc059c5fcb31ad45751a938e076af18c279316
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtrace/blobs/sha256:eadb255c3c9fd7996493baa19fcf4ac182de1f672f882e68d37b607773ea61a6
+sha256:
+  darwin_arm64: cfe9ddfb74e19626fec9725c20436cef6515f7875e72190f55e78acb8db587f4
+  darwin_amd64: 9da327786a615a8428364e987422206d23422904cf4e1a6aca211e6525b2e9da
+  linux_amd64: 386ff1e7ccd8bd1f3327842a56bc059c5fcb31ad45751a938e076af18c279316
+  linux_arm64: eadb255c3c9fd7996493baa19fcf4ac182de1f672f882e68d37b607773ea61a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - wandio

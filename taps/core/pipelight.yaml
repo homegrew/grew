@@ -1,0 +1,19 @@
+name: pipelight
+version: 0.10.0
+description: Self-hosted, lightweight CI/CD pipelines for small projects via CLI
+homepage: https://pipelight.dev
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pipelight/blobs/sha256:9decdd34701f05d8da607c6246a21f895971966a1794c6ee1bb96497d8d5e1cd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pipelight/blobs/sha256:9538539a6b67e33d5db97fc883d0833661b6995b6174e380759beb75b732fe2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pipelight/blobs/sha256:46123e6bfd89ff6ad47c942c4c8ced3b26ba3dabe51969e42419c99c16804b40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pipelight/blobs/sha256:ee9c9c17ff2793a195f554a654f53bf342ffe7f8f833aae9fef01d371bcec1a4
+sha256:
+  darwin_arm64: 9decdd34701f05d8da607c6246a21f895971966a1794c6ee1bb96497d8d5e1cd
+  darwin_amd64: 9538539a6b67e33d5db97fc883d0833661b6995b6174e380759beb75b732fe2d
+  linux_amd64: 46123e6bfd89ff6ad47c942c4c8ced3b26ba3dabe51969e42419c99c16804b40
+  linux_arm64: ee9c9c17ff2793a195f554a654f53bf342ffe7f8f833aae9fef01d371bcec1a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: never
+version: 2.3.9
+description: Statically typed, embedded functional programming language
+homepage: https://never-lang.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/never/blobs/sha256:56ada0c97c552e92c8b84dadd236772dcf5b2c6315390f32a4fe99baf0481fff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/never/blobs/sha256:abbbe090dd2542052901dd60991fe207952aa1916e0fb936a4ac099140f5a565
+  linux_amd64: https://ghcr.io/v2/homebrew/core/never/blobs/sha256:3732a0e925be723674dea91079efea95b0df1863dade024d110b32214707d651
+  linux_arm64: https://ghcr.io/v2/homebrew/core/never/blobs/sha256:06ace732c395dcd140b9098c6842004a527d62dde2e6ea49974827f803847a30
+sha256:
+  darwin_arm64: 56ada0c97c552e92c8b84dadd236772dcf5b2c6315390f32a4fe99baf0481fff
+  darwin_amd64: abbbe090dd2542052901dd60991fe207952aa1916e0fb936a4ac099140f5a565
+  linux_amd64: 3732a0e925be723674dea91079efea95b0df1863dade024d110b32214707d651
+  linux_arm64: 06ace732c395dcd140b9098c6842004a527d62dde2e6ea49974827f803847a30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

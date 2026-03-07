@@ -1,0 +1,19 @@
+name: golines
+version: 0.13.0
+description: Golang formatter that fixes long lines
+homepage: https://github.com/segmentio/golines
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/golines/blobs/sha256:0a9cd3736e5ea0b6729260f8248667baec0c80eea786497407b7fa78d60c8879
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/golines/blobs/sha256:e2ee8ae303535f819313db09acfb54a1cfb649bd9ec3620cf8f9f4a5984fc675
+  linux_amd64: https://ghcr.io/v2/homebrew/core/golines/blobs/sha256:e70a09df4e69252b296398c24b6a557c5b16044117eb4d9987ae15c260b7dc57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/golines/blobs/sha256:de399995aed9ac22003ca96152ebc08604c49482a6034f509dd7e55e0387af91
+sha256:
+  darwin_arm64: 0a9cd3736e5ea0b6729260f8248667baec0c80eea786497407b7fa78d60c8879
+  darwin_amd64: e2ee8ae303535f819313db09acfb54a1cfb649bd9ec3620cf8f9f4a5984fc675
+  linux_amd64: e70a09df4e69252b296398c24b6a557c5b16044117eb4d9987ae15c260b7dc57
+  linux_arm64: de399995aed9ac22003ca96152ebc08604c49482a6034f509dd7e55e0387af91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

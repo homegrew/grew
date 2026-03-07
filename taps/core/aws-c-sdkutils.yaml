@@ -1,0 +1,21 @@
+name: aws-c-sdkutils
+version: 0.2.4
+description: C99 library implementing AWS SDK specific utilities
+homepage: https://github.com/awslabs/aws-c-sdkutils
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-sdkutils/blobs/sha256:d0f34c54b3e8be0bbff43be46378156e8b5177f90091499dbd51c27969e1de2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-sdkutils/blobs/sha256:6159606530f7ed2acd4b495413389c2efc43cc65a7cbb7b86dfcecfd5cf677cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-sdkutils/blobs/sha256:775f9fce83bb072b3a9d381a496bded25d40fba78a1d6a609888e58e573d3fbe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-sdkutils/blobs/sha256:50513535d8578d5536701e223d3b31f0ded0977a1d1350ce96b70913f556515f
+sha256:
+  darwin_arm64: d0f34c54b3e8be0bbff43be46378156e8b5177f90091499dbd51c27969e1de2a
+  darwin_amd64: 6159606530f7ed2acd4b495413389c2efc43cc65a7cbb7b86dfcecfd5cf677cb
+  linux_amd64: 775f9fce83bb072b3a9d381a496bded25d40fba78a1d6a609888e58e573d3fbe
+  linux_arm64: 50513535d8578d5536701e223d3b31f0ded0977a1d1350ce96b70913f556515f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-common

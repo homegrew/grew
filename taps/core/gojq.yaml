@@ -1,0 +1,19 @@
+name: gojq
+version: 0.12.18
+description: Pure Go implementation of jq
+homepage: https://github.com/itchyny/gojq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gojq/blobs/sha256:37bd8446bdc2eb465ae15f4b129bd4cb6f73dbc7914f7f9e8e1703a780ded75d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gojq/blobs/sha256:0eb951c058b4d2e9db22cebd674de96566738a1e463b366da147881531fc079f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gojq/blobs/sha256:d8d71e4f7a10b1d7bcc818f4dcd3b364a5bb4d86948ecddbb4cdbac66b6da5c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gojq/blobs/sha256:fb21b47235b018293a5167d7b2a5fd9f2a6540106bff1cb6a9f6b3bb81914c9d
+sha256:
+  darwin_arm64: 37bd8446bdc2eb465ae15f4b129bd4cb6f73dbc7914f7f9e8e1703a780ded75d
+  darwin_amd64: 0eb951c058b4d2e9db22cebd674de96566738a1e463b366da147881531fc079f
+  linux_amd64: d8d71e4f7a10b1d7bcc818f4dcd3b364a5bb4d86948ecddbb4cdbac66b6da5c4
+  linux_arm64: fb21b47235b018293a5167d7b2a5fd9f2a6540106bff1cb6a9f6b3bb81914c9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

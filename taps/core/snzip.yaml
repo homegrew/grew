@@ -1,0 +1,21 @@
+name: snzip
+version: 1.0.5
+description: Compression/decompression tool based on snappy
+homepage: https://github.com/kubo/snzip
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snzip/blobs/sha256:20fc236af1233f21612b61f558645aee313eecd552817ac67866852ce8cf7a87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snzip/blobs/sha256:1227301218adc7fbea53d8dd245fe7243b285340833fefaef0b5a5938b0c076f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snzip/blobs/sha256:ba8de3ad67c0529384b55511515d68e132f76b8b7a6da0772c62c2fde0a5a8f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snzip/blobs/sha256:1547af744396837b876bf93b86e470d1f66d8d2a2212dbc5ecc3273541e12db5
+sha256:
+  darwin_arm64: 20fc236af1233f21612b61f558645aee313eecd552817ac67866852ce8cf7a87
+  darwin_amd64: 1227301218adc7fbea53d8dd245fe7243b285340833fefaef0b5a5938b0c076f
+  linux_amd64: ba8de3ad67c0529384b55511515d68e132f76b8b7a6da0772c62c2fde0a5a8f5
+  linux_arm64: 1547af744396837b876bf93b86e470d1f66d8d2a2212dbc5ecc3273541e12db5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - snappy

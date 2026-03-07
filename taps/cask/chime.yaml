@@ -1,0 +1,13 @@
+name: chime
+version: 2.2.5,157
+description: Text and code editor
+homepage: https://www.chimehq.com/
+url:
+  darwin_arm64: https://updates.chimehq.com/com.chimehq.Edit/157/Chime.app.zip
+sha256:
+  darwin_arm64: 0a52a3cf970e38f07dd45c2854e1096926e4960219b438f3601b5af55a747453
+artifacts:
+  app:
+    - Chime.app
+  bin:
+    - chime

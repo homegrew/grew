@@ -1,0 +1,15 @@
+name: libcap-ng
+version: 0.9.1
+description: Library for Linux that makes using posix capabilities easy
+homepage: https://people.redhat.com/sgrubb/libcap-ng/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcap-ng/blobs/sha256:d06d023cf2e717f01befaa68e02a73bcaaad7f52e6ed61c004165a54a4c27d91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcap-ng/blobs/sha256:011f10f452c4e4dd3206ee56692ce4f8bc625b24a45a06e14aae2c4578c9a9ab
+sha256:
+  linux_amd64: d06d023cf2e717f01befaa68e02a73bcaaad7f52e6ed61c004165a54a4c27d91
+  linux_arm64: 011f10f452c4e4dd3206ee56692ce4f8bc625b24a45a06e14aae2c4578c9a9ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

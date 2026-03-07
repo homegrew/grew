@@ -1,0 +1,23 @@
+name: nzbget
+version: 26.0
+description: Binary newsgrabber for nzb files
+homepage: https://nzbget.com
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nzbget/blobs/sha256:0ef5b4f7469e5631621c1ed63d84933f7352abc73b937864bef5daecf00fa087
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nzbget/blobs/sha256:cfc0132db636459975d13d7670b11bc3be865932135ab4e4d079c1bfb9f55fea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nzbget/blobs/sha256:5baf160d0c98f2e683488824e3ee822a58b6f5abaab36f6f820036d53931965a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nzbget/blobs/sha256:c5d6e7929ac4cafac423cee1b6429a3d2728b9973d512af8ef478437d4402c48
+sha256:
+  darwin_arm64: 0ef5b4f7469e5631621c1ed63d84933f7352abc73b937864bef5daecf00fa087
+  darwin_amd64: cfc0132db636459975d13d7670b11bc3be865932135ab4e4d079c1bfb9f55fea
+  linux_amd64: 5baf160d0c98f2e683488824e3ee822a58b6f5abaab36f6f820036d53931965a
+  linux_arm64: c5d6e7929ac4cafac423cee1b6429a3d2728b9973d512af8ef478437d4402c48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - openssl@3
+  - sevenzip

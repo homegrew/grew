@@ -1,0 +1,19 @@
+name: rke
+version: 1.8.11
+description: Rancher Kubernetes Engine, a Kubernetes installer that works everywhere
+homepage: https://rke.docs.rancher.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rke/blobs/sha256:8204b96d2b412d62fc1f583f621c162214abe1fd774b59aa24e22d8c9ded53b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rke/blobs/sha256:9116a8610753206ddfbc415c3fd255ee40d35cd106dfe5d42363b56cdb7e824a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rke/blobs/sha256:5a281ef15ca29f9cc17efb569761c5e408e8364954b31cd1dd38e571e9933aea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rke/blobs/sha256:88442bb9d5411736ea0abe5ba1022e0b5610087f8429c3c3d37c0b5825da5e69
+sha256:
+  darwin_arm64: 8204b96d2b412d62fc1f583f621c162214abe1fd774b59aa24e22d8c9ded53b6
+  darwin_amd64: 9116a8610753206ddfbc415c3fd255ee40d35cd106dfe5d42363b56cdb7e824a
+  linux_amd64: 5a281ef15ca29f9cc17efb569761c5e408e8364954b31cd1dd38e571e9933aea
+  linux_arm64: 88442bb9d5411736ea0abe5ba1022e0b5610087f8429c3c3d37c0b5825da5e69
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

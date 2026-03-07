@@ -1,0 +1,19 @@
+name: lzlib
+version: 1.15
+description: Data compression library
+homepage: https://www.nongnu.org/lzip/lzlib.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzlib/blobs/sha256:fffdea895f5b64466a14d6642d73fece994c792b7bf8ee75be9cc5c178eb177a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzlib/blobs/sha256:e25b6fcd40cd2a97d0b36e0cd5557c4b30c66dd1a95685d20f7497252bcd9d70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzlib/blobs/sha256:e1fd813a8c33dd6a678184271f8eecc2075d522611827e0c9cb5b2190950cb3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzlib/blobs/sha256:1b370fbc07e1840563b7e65c23aabc942918ce7c98242a79d1ff37497731eafc
+sha256:
+  darwin_arm64: fffdea895f5b64466a14d6642d73fece994c792b7bf8ee75be9cc5c178eb177a
+  darwin_amd64: e25b6fcd40cd2a97d0b36e0cd5557c4b30c66dd1a95685d20f7497252bcd9d70
+  linux_amd64: e1fd813a8c33dd6a678184271f8eecc2075d522611827e0c9cb5b2190950cb3c
+  linux_arm64: 1b370fbc07e1840563b7e65c23aabc942918ce7c98242a79d1ff37497731eafc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

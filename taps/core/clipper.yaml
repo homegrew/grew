@@ -1,0 +1,15 @@
+name: clipper
+version: 2.1.0
+description: Share macOS clipboard with tmux and other local and remote apps
+homepage: https://github.com/wincent/clipper
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clipper/blobs/sha256:3c0df619d149a439aa768fe0ad2f378c814df645516f1b97e7208af8570e9bc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clipper/blobs/sha256:357b34301d35c90be7799c7cc702370ec0877e975e62c9033f2e2f1b8c5cfdf5
+sha256:
+  darwin_arm64: 3c0df619d149a439aa768fe0ad2f378c814df645516f1b97e7208af8570e9bc4
+  darwin_amd64: 357b34301d35c90be7799c7cc702370ec0877e975e62c9033f2e2f1b8c5cfdf5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

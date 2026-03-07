@@ -1,0 +1,25 @@
+name: redland
+version: 1.0.17
+description: RDF Library
+homepage: https://librdf.org/
+license: LGPL-2.1-or-later OR GPL-2.0-or-later OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redland/blobs/sha256:7c7aab000c18d388d284b94060060bdc54990d6aaa29475f702b8c85d9031ecb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redland/blobs/sha256:2c0269bd53d0f3dbd166a44ffb32ccdfb39c2a4408fe68b751e9b9e28b504810
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redland/blobs/sha256:5439aed60715d12f7bce18e9292ce3301fc93b89cdb2eae2bd072a0a59a5fc6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redland/blobs/sha256:40dd4a3c37bd52eb17f97912ab8baaefd3164c84f57ec8d8be6200677af307c8
+sha256:
+  darwin_arm64: 7c7aab000c18d388d284b94060060bdc54990d6aaa29475f702b8c85d9031ecb
+  darwin_amd64: 2c0269bd53d0f3dbd166a44ffb32ccdfb39c2a4408fe68b751e9b9e28b504810
+  linux_amd64: 5439aed60715d12f7bce18e9292ce3301fc93b89cdb2eae2bd072a0a59a5fc6b
+  linux_arm64: 40dd4a3c37bd52eb17f97912ab8baaefd3164c84f57ec8d8be6200677af307c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool
+  - raptor
+  - rasqal
+  - sqlite
+  - unixodbc

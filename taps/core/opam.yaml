@@ -1,0 +1,21 @@
+name: opam
+version: 2.5.0
+description: OCaml package manager
+homepage: https://opam.ocaml.org
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opam/blobs/sha256:49fa1631fb9dc7f680166f185f095d1eeedd84f30c34a363b9a57a86b286ab91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opam/blobs/sha256:aebc9646975f09d68083d69eddf58221fa8e0bb221958b67fecbb6b9ce95e8fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opam/blobs/sha256:0fc029045abb424f08f33f54b9bf6a48e6ffad9bce02f05c4e3e93a5093146b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opam/blobs/sha256:71866a75c2a3f2c6f87927e7d74b059d8f49d792a03968364583df919adec39d
+sha256:
+  darwin_arm64: 49fa1631fb9dc7f680166f185f095d1eeedd84f30c34a363b9a57a86b286ab91
+  darwin_amd64: aebc9646975f09d68083d69eddf58221fa8e0bb221958b67fecbb6b9ce95e8fb
+  linux_amd64: 0fc029045abb424f08f33f54b9bf6a48e6ffad9bce02f05c4e3e93a5093146b4
+  linux_arm64: 71866a75c2a3f2c6f87927e7d74b059d8f49d792a03968364583df919adec39d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rsync

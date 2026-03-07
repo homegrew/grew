@@ -1,0 +1,23 @@
+name: libpano
+version: 2.9.23
+description: Build panoramic images from a set of overlapping images
+homepage: https://panotools.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpano/blobs/sha256:bed5e7b25e2109ea77ea76567c3197f60752d2e866aefaf18ac4ddf2c248cce4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpano/blobs/sha256:eb39a8e4827912f36aa9693b13dd0ed1f588c98f3a37112ab85977569c9aabe4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpano/blobs/sha256:f128fb8a847e170a59c01964478ae7f141ae3be4683a26a3f008366376ac28b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpano/blobs/sha256:0a42aea9bc8bd4019a965019b13c7147670db0b28780e31105dd2ddc68e9dbec
+sha256:
+  darwin_arm64: bed5e7b25e2109ea77ea76567c3197f60752d2e866aefaf18ac4ddf2c248cce4
+  darwin_amd64: eb39a8e4827912f36aa9693b13dd0ed1f588c98f3a37112ab85977569c9aabe4
+  linux_amd64: f128fb8a847e170a59c01964478ae7f141ae3be4683a26a3f008366376ac28b6
+  linux_arm64: 0a42aea9bc8bd4019a965019b13c7147670db0b28780e31105dd2ddc68e9dbec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff

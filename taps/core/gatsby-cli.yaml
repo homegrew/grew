@@ -1,0 +1,21 @@
+name: gatsby-cli
+version: 5.16.0
+description: Gatsby command-line interface
+homepage: https://www.gatsbyjs.com/docs/reference/gatsby-cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gatsby-cli/blobs/sha256:5ec0da04fcc872c2f86669578e894eecaaa36f6d06dbf842fdae0459ac09ef77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gatsby-cli/blobs/sha256:4282280166a175ed9b5df0c29549a697307c85e294a7a33f5cb4b74dd613c33e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gatsby-cli/blobs/sha256:7f732a727f1571ef419773bcf65bbe98240f865746a749cf7740a6e791b10792
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gatsby-cli/blobs/sha256:6422a57c8317368134d02e4388b39783f9f3ceed917bae008d756d2610e06dd8
+sha256:
+  darwin_arm64: 5ec0da04fcc872c2f86669578e894eecaaa36f6d06dbf842fdae0459ac09ef77
+  darwin_amd64: 4282280166a175ed9b5df0c29549a697307c85e294a7a33f5cb4b74dd613c33e
+  linux_amd64: 7f732a727f1571ef419773bcf65bbe98240f865746a749cf7740a6e791b10792
+  linux_arm64: 6422a57c8317368134d02e4388b39783f9f3ceed917bae008d756d2610e06dd8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

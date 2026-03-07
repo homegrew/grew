@@ -1,0 +1,19 @@
+name: stanc3
+version: 2.38.0
+description: Stan transpiler
+homepage: https://github.com/stan-dev/stanc3
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stanc3/blobs/sha256:052f27eccaa5dd5a4b9c441846e3741cee2b3e5e733d52094db2c3e39e7dca54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stanc3/blobs/sha256:0bc2c520dc35d62340f74eea4243e70921af2d4c4e8b991edee6016e77781405
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stanc3/blobs/sha256:3b13da81774f275c774e28c92965d9469e136f9afbf2389d1f76cceace80ddb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stanc3/blobs/sha256:e0581e5129dd2feeb742d8bf10db92be453f5fc081c55bbf490f37eb9b6769c6
+sha256:
+  darwin_arm64: 052f27eccaa5dd5a4b9c441846e3741cee2b3e5e733d52094db2c3e39e7dca54
+  darwin_amd64: 0bc2c520dc35d62340f74eea4243e70921af2d4c4e8b991edee6016e77781405
+  linux_amd64: 3b13da81774f275c774e28c92965d9469e136f9afbf2389d1f76cceace80ddb3
+  linux_arm64: e0581e5129dd2feeb742d8bf10db92be453f5fc081c55bbf490f37eb9b6769c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

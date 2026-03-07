@@ -1,0 +1,21 @@
+name: libtpms
+version: 0.10.2
+description: Library for software emulation of a Trusted Platform Module
+homepage: https://github.com/stefanberger/libtpms
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtpms/blobs/sha256:66fd464e0e778e9d1c3bfff440e5f280891e5eee4d58e2c536a0d855bda23116
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtpms/blobs/sha256:f066899b2329dd5224682c03485d8f376538f888d443f4efa411cbb2ad5d01fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtpms/blobs/sha256:8726633ed87a22297c0943d83329308c0e9187496cfdab7c322789f536e8a4b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtpms/blobs/sha256:9647eaa61b0021650f0d1f7bf6f9d6dce81d4df1cf33cedbc2de1315e99035d3
+sha256:
+  darwin_arm64: 66fd464e0e778e9d1c3bfff440e5f280891e5eee4d58e2c536a0d855bda23116
+  darwin_amd64: f066899b2329dd5224682c03485d8f376538f888d443f4efa411cbb2ad5d01fd
+  linux_amd64: 8726633ed87a22297c0943d83329308c0e9187496cfdab7c322789f536e8a4b8
+  linux_arm64: 9647eaa61b0021650f0d1f7bf6f9d6dce81d4df1cf33cedbc2de1315e99035d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

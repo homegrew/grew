@@ -1,0 +1,11 @@
+name: ente
+version: 1.7.21
+description: Desktop client for Ente Photos
+homepage: https://ente.io/
+url:
+  darwin_arm64: https://github.com/ente-io/photos-desktop/releases/download/v1.7.21/ente-1.7.21-universal.dmg
+sha256:
+  darwin_arm64: 7ff4416e15320289a2c85b65b78558671e3527e018b6c40ddb9148fbd2209d7f
+artifacts:
+  app:
+    - ente.app

@@ -1,0 +1,19 @@
+name: opencore-amr
+version: 0.1.6
+description: Audio codecs extracted from Android open source project
+homepage: https://opencore-amr.sourceforge.net/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencore-amr/blobs/sha256:38dea780c6b453fcae6c1addb3054b0d14a4c216183a319e26575f61fda8050b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencore-amr/blobs/sha256:9c8eb887fac92ec6077aff4031f73c6cf493c0e41f1f54e3850e356ee911309d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencore-amr/blobs/sha256:63626c6d52b176f1289a792a8dea8845104f85e86538054e88efadbf920a9835
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencore-amr/blobs/sha256:8119c11b0478615bb8b9942f67e333a8947abea04766d36c3b38deb175c90a8d
+sha256:
+  darwin_arm64: 38dea780c6b453fcae6c1addb3054b0d14a4c216183a319e26575f61fda8050b
+  darwin_amd64: 9c8eb887fac92ec6077aff4031f73c6cf493c0e41f1f54e3850e356ee911309d
+  linux_amd64: 63626c6d52b176f1289a792a8dea8845104f85e86538054e88efadbf920a9835
+  linux_arm64: 8119c11b0478615bb8b9942f67e333a8947abea04766d36c3b38deb175c90a8d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

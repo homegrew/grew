@@ -1,0 +1,11 @@
+name: 86box
+version: 5.3,8200
+description: Emulator of x86-based machines based on PCem
+homepage: https://86box.net/
+url:
+  darwin_arm64: https://github.com/86Box/86Box/releases/download/v5.3/86Box-macOS-x86_64+arm64-b8200.zip
+sha256:
+  darwin_arm64: a4b718446f6064b541384490308cb76d0e7cf401a1f78d4d8d22372f96e04af1
+artifacts:
+  app:
+    - 86Box.app

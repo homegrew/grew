@@ -1,0 +1,24 @@
+name: squashfs
+version: 4.7.5
+description: Compressed read-only file system for Linux
+homepage: https://github.com/plougher/squashfs-tools
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/squashfs/blobs/sha256:4457ab0b11eff5278270c2bcf8de450879d4e8d9d3b6b3c2aac3d3aef822e5db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/squashfs/blobs/sha256:d0946ffe57592ee0837e4f9930c6af5fa5944054e1cc7ad19b4375c03a7537f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/squashfs/blobs/sha256:931a2bcc184485cc0b1d449de2a3e8bfbb128c655194648915d9638469f1f16c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/squashfs/blobs/sha256:72d51e9a40472471e870fbf47e31f77bdb2dcd58848a0575c6f46e4824045226
+sha256:
+  darwin_arm64: 4457ab0b11eff5278270c2bcf8de450879d4e8d9d3b6b3c2aac3d3aef822e5db
+  darwin_amd64: d0946ffe57592ee0837e4f9930c6af5fa5944054e1cc7ad19b4375c03a7537f1
+  linux_amd64: 931a2bcc184485cc0b1d449de2a3e8bfbb128c655194648915d9638469f1f16c
+  linux_arm64: 72d51e9a40472471e870fbf47e31f77bdb2dcd58848a0575c6f46e4824045226
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - lzo
+  - xz
+  - zstd

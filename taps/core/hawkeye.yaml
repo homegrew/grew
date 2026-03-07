@@ -1,0 +1,19 @@
+name: hawkeye
+version: 6.5.1
+description: Simple license header checker and formatter, in multiple distribution forms
+homepage: https://github.com/korandoru/hawkeye
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hawkeye/blobs/sha256:e856c08894188d6726f27fe6233bd2b4ba756e647e8bf9859b021bde14264a55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hawkeye/blobs/sha256:a2cf98250f379d33bcb002cb105e0fbd1d6f2ce40bbf8e8834f11c6fcc009b82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hawkeye/blobs/sha256:07f3953d9340e1d7c3dcd5d1f86b584824b9bafdd0cbe8fe282a0ddd425d7f92
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hawkeye/blobs/sha256:da76de8a0df8a47154a77701d1d7204656a2ed4d6869bac9219086d392528c9c
+sha256:
+  darwin_arm64: e856c08894188d6726f27fe6233bd2b4ba756e647e8bf9859b021bde14264a55
+  darwin_amd64: a2cf98250f379d33bcb002cb105e0fbd1d6f2ce40bbf8e8834f11c6fcc009b82
+  linux_amd64: 07f3953d9340e1d7c3dcd5d1f86b584824b9bafdd0cbe8fe282a0ddd425d7f92
+  linux_arm64: da76de8a0df8a47154a77701d1d7204656a2ed4d6869bac9219086d392528c9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

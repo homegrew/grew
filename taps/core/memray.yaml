@@ -1,0 +1,22 @@
+name: memray
+version: 1.19.1
+description: Memory profiler for Python applications
+homepage: https://bloomberg.github.io/memray/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/memray/blobs/sha256:d2d072fad3df8ecf71559500dd07394143b8049f6f2ac0fa6e7a68c448409dd9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/memray/blobs/sha256:39e3599c7842e1d7e4a317f4276cc2de6ad778208825a2ead26b3719a035ee3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/memray/blobs/sha256:d75359949ca5cb8466cd6bab8cbfc9af0236bea2bd2972c32ca8139892260729
+  linux_arm64: https://ghcr.io/v2/homebrew/core/memray/blobs/sha256:4bac4073dc761cb244574af394a24ee6c7018cc0315ec223702808b4dfaf294a
+sha256:
+  darwin_arm64: d2d072fad3df8ecf71559500dd07394143b8049f6f2ac0fa6e7a68c448409dd9
+  darwin_amd64: 39e3599c7842e1d7e4a317f4276cc2de6ad778208825a2ead26b3719a035ee3d
+  linux_amd64: d75359949ca5cb8466cd6bab8cbfc9af0236bea2bd2972c32ca8139892260729
+  linux_arm64: 4bac4073dc761cb244574af394a24ee6c7018cc0315ec223702808b4dfaf294a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - python@3.14

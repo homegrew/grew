@@ -1,0 +1,23 @@
+name: libgnt
+version: 2.14.4
+description: NCurses toolkit for creating text-mode graphical user interfaces
+homepage: https://pidgin.im/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgnt/blobs/sha256:8e41afafab8780d6c9415e0be6819934f2256539126ac13ca992f20a735a4dec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgnt/blobs/sha256:2bf80b7019063730cf2969de24002cee9fd5d5198607273b38b472bb92747701
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgnt/blobs/sha256:7b441c9f9f4ef6546098899d79a1a28705715d232e16e43cf1050ba96df1b00b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgnt/blobs/sha256:56791137e22a683d5eda5e39807f75c4a7350009c9d218969b5add59f54f7802
+sha256:
+  darwin_arm64: 8e41afafab8780d6c9415e0be6819934f2256539126ac13ca992f20a735a4dec
+  darwin_amd64: 2bf80b7019063730cf2969de24002cee9fd5d5198607273b38b472bb92747701
+  linux_amd64: 7b441c9f9f4ef6546098899d79a1a28705715d232e16e43cf1050ba96df1b00b
+  linux_arm64: 56791137e22a683d5eda5e39807f75c4a7350009c9d218969b5add59f54f7802
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - ncurses
+  - gettext

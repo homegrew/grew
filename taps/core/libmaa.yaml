@@ -1,0 +1,19 @@
+name: libmaa
+version: 1.5.1
+description: Low-level data structures including hash tables, sets, lists
+homepage: https://dict.org/bin/Dict
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmaa/blobs/sha256:651f1943384f685d850d27769fb94b266046b62880c3112c15bf4d03ee3ad4c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmaa/blobs/sha256:92b9875c3fcae14b3bfa42df2d5cc47c87170f214f8e70eb5dd111e1fe1791ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmaa/blobs/sha256:beb95d2918f10ee42290fb44faa0259e0e9f9e8a4f353822bcfee4268d3f5ef2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmaa/blobs/sha256:a34cd9122ac279b62ac94ccc64d5525566dc526c49581f29f4ef4161f8247a5c
+sha256:
+  darwin_arm64: 651f1943384f685d850d27769fb94b266046b62880c3112c15bf4d03ee3ad4c6
+  darwin_amd64: 92b9875c3fcae14b3bfa42df2d5cc47c87170f214f8e70eb5dd111e1fe1791ac
+  linux_amd64: beb95d2918f10ee42290fb44faa0259e0e9f9e8a4f353822bcfee4268d3f5ef2
+  linux_arm64: a34cd9122ac279b62ac94ccc64d5525566dc526c49581f29f4ef4161f8247a5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

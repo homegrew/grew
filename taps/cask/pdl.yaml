@@ -1,0 +1,13 @@
+name: pdl
+version: 0.9.3
+description: Declarative language for creating reliable, composable LLM prompts
+homepage: https://ibm.github.io/prompt-declaration-language/
+url:
+  darwin_arm64: https://github.com/IBM/prompt-declaration-language/releases/download/v0.9.3/PDL_0.9.3_universal.dmg
+sha256:
+  darwin_arm64: e01c41cb198f05dec7c3fb08b479ae50ee90e385406c1b95561f55d400bf76d9
+artifacts:
+  app:
+    - PDL.app
+  bin:
+    - pdl

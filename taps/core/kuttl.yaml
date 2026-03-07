@@ -1,0 +1,19 @@
+name: kuttl
+version: 0.25.0
+description: KUbernetes Test TooL
+homepage: https://github.com/kudobuilder/kuttl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kuttl/blobs/sha256:6303812f327a32e3b73b920b4add24d5b26d78012131b59575b841082e32dcb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kuttl/blobs/sha256:334dccceec0d32d9a8b6b140d6248692b21394d405cc1cb6d6a023417e6d5e21
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kuttl/blobs/sha256:6482d2e12015c7ec9429c12cd3c2db83d8d4fb617aad1142ef327d3f8c161553
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kuttl/blobs/sha256:de5c411baf3ea4b3f5fff733aff8b2a051b65332800c848e380cdede38e10f47
+sha256:
+  darwin_arm64: 6303812f327a32e3b73b920b4add24d5b26d78012131b59575b841082e32dcb7
+  darwin_amd64: 334dccceec0d32d9a8b6b140d6248692b21394d405cc1cb6d6a023417e6d5e21
+  linux_amd64: 6482d2e12015c7ec9429c12cd3c2db83d8d4fb617aad1142ef327d3f8c161553
+  linux_arm64: de5c411baf3ea4b3f5fff733aff8b2a051b65332800c848e380cdede38e10f47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

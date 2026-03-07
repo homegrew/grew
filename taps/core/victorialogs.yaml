@@ -1,0 +1,19 @@
+name: victorialogs
+version: 1.47.0
+description: Open source user-friendly database for logs from VictoriaMetrics
+homepage: https://docs.victoriametrics.com/victorialogs/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/victorialogs/blobs/sha256:57b63ad5be6fb2cd38febce86aab9ddef026918f51e83798eeb4b8bfad2d945b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/victorialogs/blobs/sha256:fc78b8de54a1dd4ca7b48f9957909669ba20fc3c71f7f5a093b1fde17cb85b55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/victorialogs/blobs/sha256:d55d7d7c10fe63281a32bf15d5f1fd526538dd5e0d50a4c59c1d8fa24e35d9c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/victorialogs/blobs/sha256:bcea2272f45e9f873554e46c76a944e756ef8873a02a499bc4ae1e9ece40cdf6
+sha256:
+  darwin_arm64: 57b63ad5be6fb2cd38febce86aab9ddef026918f51e83798eeb4b8bfad2d945b
+  darwin_amd64: fc78b8de54a1dd4ca7b48f9957909669ba20fc3c71f7f5a093b1fde17cb85b55
+  linux_amd64: d55d7d7c10fe63281a32bf15d5f1fd526538dd5e0d50a4c59c1d8fa24e35d9c2
+  linux_arm64: bcea2272f45e9f873554e46c76a944e756ef8873a02a499bc4ae1e9ece40cdf6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

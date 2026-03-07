@@ -1,0 +1,21 @@
+name: docbook2x
+version: 0.8.8
+description: Convert DocBook to UNIX manpages and GNU TeXinfo
+homepage: https://docbook2x.sourceforge.net/
+license: MIT AND DocBook-XML
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docbook2x/blobs/sha256:87b0d72f55d9ff922befd55d7e708a23804d99c0ae1fab7e57c7694a6f91e833
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docbook2x/blobs/sha256:2e3b1eef0115ce1a466629c07698dcc11bb3ba5521306ad8e8e166e7cc141473
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docbook2x/blobs/sha256:1e054b07a0d7e8817a58b2c656e8f435289cd1d2110d7fae083e1bf79eece522
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docbook2x/blobs/sha256:1e923a7ee931f5342768cc3c60503b9cf1e8c58bbc177225b0132f564deb175c
+sha256:
+  darwin_arm64: 87b0d72f55d9ff922befd55d7e708a23804d99c0ae1fab7e57c7694a6f91e833
+  darwin_amd64: 2e3b1eef0115ce1a466629c07698dcc11bb3ba5521306ad8e8e166e7cc141473
+  linux_amd64: 1e054b07a0d7e8817a58b2c656e8f435289cd1d2110d7fae083e1bf79eece522
+  linux_arm64: 1e923a7ee931f5342768cc3c60503b9cf1e8c58bbc177225b0132f564deb175c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - docbook

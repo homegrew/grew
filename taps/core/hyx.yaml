@@ -1,0 +1,19 @@
+name: hyx
+version: 2026.01.11
+description: Powerful hex editor for the console
+homepage: https://yx7.cc/code/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hyx/blobs/sha256:02dc7c7794bf71ba86674791229d5a5a128e3b65a29e45a277138f488ecb0b7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hyx/blobs/sha256:551a6a0ff4d2e4511f8d9992905f1ba983c2b30badfba6f5be0cffa62b83240b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hyx/blobs/sha256:66f76d65ed139e22da8c4425dae64c28ed56c5ede6de83d57288d5e4dce5045f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hyx/blobs/sha256:c0185c1cc5db86b21db59e9519419e65b7f70d118d627f363a7318aafbf2ce69
+sha256:
+  darwin_arm64: 02dc7c7794bf71ba86674791229d5a5a128e3b65a29e45a277138f488ecb0b7d
+  darwin_amd64: 551a6a0ff4d2e4511f8d9992905f1ba983c2b30badfba6f5be0cffa62b83240b
+  linux_amd64: 66f76d65ed139e22da8c4425dae64c28ed56c5ede6de83d57288d5e4dce5045f
+  linux_arm64: c0185c1cc5db86b21db59e9519419e65b7f70d118d627f363a7318aafbf2ce69
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

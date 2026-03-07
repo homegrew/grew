@@ -1,0 +1,24 @@
+name: msitools
+version: 0.106
+description: Windows installer (.MSI) tool
+homepage: https://wiki.gnome.org/msitools
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msitools/blobs/sha256:9184769d09209b3400d048bd93277ce6cdd0402cba3dfea7737522387162080a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msitools/blobs/sha256:26e11c16e3bc190016c67cd0f92e28e6602ee7ae4b27b1f50521a151220aff68
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msitools/blobs/sha256:20b6f97f44977fe47f6f56d2a58bb7fb1575fdce52855c03e0dfdfa41575e500
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msitools/blobs/sha256:197a202f269b1c6afbefc10e748e3ef6ae8f33c85831d7baf0b2350ae3b808b8
+sha256:
+  darwin_arm64: 9184769d09209b3400d048bd93277ce6cdd0402cba3dfea7737522387162080a
+  darwin_amd64: 26e11c16e3bc190016c67cd0f92e28e6602ee7ae4b27b1f50521a151220aff68
+  linux_amd64: 20b6f97f44977fe47f6f56d2a58bb7fb1575fdce52855c03e0dfdfa41575e500
+  linux_arm64: 197a202f269b1c6afbefc10e748e3ef6ae8f33c85831d7baf0b2350ae3b808b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcab
+  - glib
+  - libgsf
+  - gettext

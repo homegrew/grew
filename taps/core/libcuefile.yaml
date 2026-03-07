@@ -1,0 +1,19 @@
+name: libcuefile
+version: r475
+description: Library to work with CUE files
+homepage: https://www.musepack.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcuefile/blobs/sha256:1da2975f32e5909cf63724ba5a9479544a0398a7a0d2e958a5ded75262f83799
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcuefile/blobs/sha256:3e4c6861199211e904b725e50a8a03b4f0592ee5c01355f7ae2190dce3370522
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcuefile/blobs/sha256:8a8324a43e9b1e4782de409dacf6f82de5fa7b955ff871d2d10e56b2dd1324bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcuefile/blobs/sha256:dd236ed5afb1c8db194b07b9c36560b0f03871415f79244c431322f8aea62cd4
+sha256:
+  darwin_arm64: 1da2975f32e5909cf63724ba5a9479544a0398a7a0d2e958a5ded75262f83799
+  darwin_amd64: 3e4c6861199211e904b725e50a8a03b4f0592ee5c01355f7ae2190dce3370522
+  linux_amd64: 8a8324a43e9b1e4782de409dacf6f82de5fa7b955ff871d2d10e56b2dd1324bb
+  linux_arm64: dd236ed5afb1c8db194b07b9c36560b0f03871415f79244c431322f8aea62cd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

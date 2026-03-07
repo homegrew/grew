@@ -1,0 +1,22 @@
+name: yaz
+version: 5.37.0
+description: Toolkit for Z39.50/SRW/SRU clients/servers
+homepage: https://www.indexdata.com/resources/software/yaz/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaz/blobs/sha256:e84af7fa65a9d066d920995d1085730cc268015b81760645942a7d48e5caacbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaz/blobs/sha256:91b37a0873a49236f37a54afc1b1993d146261488cd7f42ac42ce07ad36275b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaz/blobs/sha256:5991097df1bb45e139e42c2fe9939020a283010e2cff59e8673381de966d4edf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaz/blobs/sha256:51a62fb7b1544676244df79fded10bee005162e0967ef0a29db7916b005ae142
+sha256:
+  darwin_arm64: e84af7fa65a9d066d920995d1085730cc268015b81760645942a7d48e5caacbe
+  darwin_amd64: 91b37a0873a49236f37a54afc1b1993d146261488cd7f42ac42ce07ad36275b8
+  linux_amd64: 5991097df1bb45e139e42c2fe9939020a283010e2cff59e8673381de966d4edf
+  linux_arm64: 51a62fb7b1544676244df79fded10bee005162e0967ef0a29db7916b005ae142
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - icu4c@78

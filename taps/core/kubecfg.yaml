@@ -1,0 +1,19 @@
+name: kubecfg
+version: 0.36.0
+description: Manage complex enterprise Kubernetes environments as code
+homepage: https://github.com/kubecfg/kubecfg
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubecfg/blobs/sha256:dafc40beef50da4e6258e2650d4e74d9038b8b47ac36d607937c2ae468d1e682
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubecfg/blobs/sha256:afcc53d1d2bdae49341594f9eaf3741194d1ba7b918a4a65aa21ef4ba39e5110
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubecfg/blobs/sha256:b82e88d3134489324a448c33bed9315a57878b9aab5b2508ce678a6e2be31a5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubecfg/blobs/sha256:03813301e8958ac9dfb657e548d38d919609aef21593df3bcc9917adccfa27bf
+sha256:
+  darwin_arm64: dafc40beef50da4e6258e2650d4e74d9038b8b47ac36d607937c2ae468d1e682
+  darwin_amd64: afcc53d1d2bdae49341594f9eaf3741194d1ba7b918a4a65aa21ef4ba39e5110
+  linux_amd64: b82e88d3134489324a448c33bed9315a57878b9aab5b2508ce678a6e2be31a5a
+  linux_arm64: 03813301e8958ac9dfb657e548d38d919609aef21593df3bcc9917adccfa27bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

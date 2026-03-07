@@ -1,0 +1,19 @@
+name: dyff
+version: 1.11.2
+description: Diff tool for YAML files, and sometimes JSON
+homepage: https://github.com/homeport/dyff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dyff/blobs/sha256:13437928dcb7db405af3c559054820b106788423a3ee9e1297f15bdadf487a30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dyff/blobs/sha256:a57dac835713300ae5e8e933000e71e257d9a0f50fc7f5d5f9f2f3b56320097d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dyff/blobs/sha256:07990d12963e184a42b788f9eeb722e45900b531fcdd5d6a6ed386faa4766b4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dyff/blobs/sha256:6f00212c3ae9b2004cbedf216c5b7b5084263fdccbf0c8927e068b155b19c43d
+sha256:
+  darwin_arm64: 13437928dcb7db405af3c559054820b106788423a3ee9e1297f15bdadf487a30
+  darwin_amd64: a57dac835713300ae5e8e933000e71e257d9a0f50fc7f5d5f9f2f3b56320097d
+  linux_amd64: 07990d12963e184a42b788f9eeb722e45900b531fcdd5d6a6ed386faa4766b4e
+  linux_arm64: 6f00212c3ae9b2004cbedf216c5b7b5084263fdccbf0c8927e068b155b19c43d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

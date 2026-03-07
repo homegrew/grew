@@ -1,0 +1,21 @@
+name: nx
+version: 22.5.4
+description: Smart, Fast and Extensible Build System
+homepage: https://nx.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nx/blobs/sha256:e0534d16c70b477b3adcd094855acf6e5343a6996aee8f5c9ad91b0f48f18961
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nx/blobs/sha256:4cd58ed7c3c845f1023672baa7b9f0a268b2372c812550f7632085ef5697d5c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nx/blobs/sha256:7310955763c59f75cafd50478afe53caec9706a4da92467954bf99693be487b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nx/blobs/sha256:6f19d29d869c12c21344edcf594a66c6936bceb8fafaae3355a540a0bf097dae
+sha256:
+  darwin_arm64: e0534d16c70b477b3adcd094855acf6e5343a6996aee8f5c9ad91b0f48f18961
+  darwin_amd64: 4cd58ed7c3c845f1023672baa7b9f0a268b2372c812550f7632085ef5697d5c0
+  linux_amd64: 7310955763c59f75cafd50478afe53caec9706a4da92467954bf99693be487b0
+  linux_arm64: 6f19d29d869c12c21344edcf594a66c6936bceb8fafaae3355a540a0bf097dae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

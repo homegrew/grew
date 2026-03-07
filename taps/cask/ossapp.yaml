@@ -1,0 +1,11 @@
+name: ossapp
+version: 0.3.5
+description: Unified package manager
+homepage: https://pkgx.app/
+url:
+  darwin_arm64: https://gui.pkgx.dev/release/ossapp-0.3.5-arm64-mac.zip
+sha256:
+  darwin_arm64: c8a4b3d9b11d6e2e04b2e2161d28af8695aa7fc7fa25d27ec2fdb2d71c5220aa
+artifacts:
+  app:
+    - ossapp.app

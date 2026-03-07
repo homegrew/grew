@@ -1,0 +1,21 @@
+name: nanomsgxx
+version: 0.2
+description: Nanomsg binding for C++11
+homepage: https://achille-roussel.github.io/nanomsgxx/doc/nanomsgxx.7.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nanomsgxx/blobs/sha256:e859aa7a86e2a0703c6c26f69a6c841a2a92bb00c0f5617f472cac0bfed51457
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nanomsgxx/blobs/sha256:2e682a0178342df86acb5df585a0df7a2af0455a86b151d7c45648e74c6ee8ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nanomsgxx/blobs/sha256:ed20e2617835e53e1ee41927a5066275c7b7a6058de093932be16bb89bf23cd4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nanomsgxx/blobs/sha256:5477033f88e080325eb53fbe0226f7e19c34fcbe0a0b5650c079d2029f319936
+sha256:
+  darwin_arm64: e859aa7a86e2a0703c6c26f69a6c841a2a92bb00c0f5617f472cac0bfed51457
+  darwin_amd64: 2e682a0178342df86acb5df585a0df7a2af0455a86b151d7c45648e74c6ee8ad
+  linux_amd64: ed20e2617835e53e1ee41927a5066275c7b7a6058de093932be16bb89bf23cd4
+  linux_arm64: 5477033f88e080325eb53fbe0226f7e19c34fcbe0a0b5650c079d2029f319936
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - nanomsg

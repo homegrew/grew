@@ -1,0 +1,11 @@
+name: feather
+version: 2.8.1
+description: Monero desktop wallet
+homepage: https://featherwallet.org/
+url:
+  darwin_arm64: https://github.com/feather-wallet/feather/releases/download/2.8.1/feather-2.8.1-mac-arm64.zip
+sha256:
+  darwin_arm64: a35f19be74ca59bad96f7331d3ca8e4f56ec47e82c193f5fc50ddbebce017233
+artifacts:
+  app:
+    - Feather.app

@@ -1,0 +1,21 @@
+name: libodfgen
+version: 0.1.8
+description: ODF export library for projects using librevenge
+homepage: https://sourceforge.net/p/libwpd/wiki/libodfgen/
+license: MPL-2.0 OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libodfgen/blobs/sha256:f322394dcaf548a6c82e55f4d39ddc2c35aced9c316a07c8ddf491f2735be66f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libodfgen/blobs/sha256:b826aea071dcf4ede7649c6c0c0eeca0f16cac90196f66572fa7373e33fca2e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libodfgen/blobs/sha256:334e33d8a2c52579f1aafd79f4b27b57d50bc8f663b88d884e8725f69bc849e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libodfgen/blobs/sha256:404a532810b4c156d28f6c297037a9cf60110bfc435101e8a9a6b2e7405e9eb6
+sha256:
+  darwin_arm64: f322394dcaf548a6c82e55f4d39ddc2c35aced9c316a07c8ddf491f2735be66f
+  darwin_amd64: b826aea071dcf4ede7649c6c0c0eeca0f16cac90196f66572fa7373e33fca2e0
+  linux_amd64: 334e33d8a2c52579f1aafd79f4b27b57d50bc8f663b88d884e8725f69bc849e5
+  linux_arm64: 404a532810b4c156d28f6c297037a9cf60110bfc435101e8a9a6b2e7405e9eb6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge

@@ -1,0 +1,22 @@
+name: openfpgaloader
+version: 1.1.0
+description: Universal utility for programming FPGA
+homepage: https://github.com/trabucayre/openFPGALoader
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openfpgaloader/blobs/sha256:7bfa075fb4fbff6421c6be6eb714613eb402a4040cebff4d709f69493ec82efa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openfpgaloader/blobs/sha256:e1dd0d24d9d7f47d93b5bd20843d54bceb97430601562141d7f7756551d8818d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openfpgaloader/blobs/sha256:4dba81a1e8d8629758c4875b0ee6e4de06d42211861df82ddc07b3877d87d7dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openfpgaloader/blobs/sha256:e9c891487369d745cf65dfe717a1d809848d7d2dfbd495a27b0afc8e3ca54073
+sha256:
+  darwin_arm64: 7bfa075fb4fbff6421c6be6eb714613eb402a4040cebff4d709f69493ec82efa
+  darwin_amd64: e1dd0d24d9d7f47d93b5bd20843d54bceb97430601562141d7f7756551d8818d
+  linux_amd64: 4dba81a1e8d8629758c4875b0ee6e4de06d42211861df82ddc07b3877d87d7dd
+  linux_arm64: e9c891487369d745cf65dfe717a1d809848d7d2dfbd495a27b0afc8e3ca54073
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libftdi
+  - libusb

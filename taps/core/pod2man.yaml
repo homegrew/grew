@@ -1,0 +1,20 @@
+name: pod2man
+version: 6.0.2
+description: Perl documentation generator
+homepage: https://www.eyrie.org/~eagle/software/podlators/
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pod2man/blobs/sha256:29bf28b46917bfa959a3e04e2285491b9da82a78540341141c45cef662db5897
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pod2man/blobs/sha256:c18bed6c302dfaa0c4373d546f99d0b1dbee75bc618fa2f914b54379e9a57bbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pod2man/blobs/sha256:269cdc0db938df147bab44127e86b05cf46074741bd9d8644b08f88a00e62f97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pod2man/blobs/sha256:36c74b6c69d5f917a362b69be53f2e269951278607071c65f700c39462ee422b
+sha256:
+  darwin_arm64: 29bf28b46917bfa959a3e04e2285491b9da82a78540341141c45cef662db5897
+  darwin_amd64: c18bed6c302dfaa0c4373d546f99d0b1dbee75bc618fa2f914b54379e9a57bbd
+  linux_amd64: 269cdc0db938df147bab44127e86b05cf46074741bd9d8644b08f88a00e62f97
+  linux_arm64: 36c74b6c69d5f917a362b69be53f2e269951278607071c65f700c39462ee422b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

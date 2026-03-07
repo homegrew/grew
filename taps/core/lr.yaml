@@ -1,0 +1,19 @@
+name: lr
+version: 2.0.1
+description: File list utility with features from ls(1), find(1), stat(1), and du(1)
+homepage: https://github.com/leahneukirchen/lr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lr/blobs/sha256:167285f3fa15655f9e876fc9490f55c9a8020eaba6ac352d0a6a321813a7fddf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lr/blobs/sha256:5230ca8371fdb46e61dbf67594c88c42e7c2ec6962b30d7f6e27210b59a3e269
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lr/blobs/sha256:ef7bf0e9c38ab1c0989106dcdad894777c9e6f0bdb6a8e939e394fd71a542d37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lr/blobs/sha256:47138d1f0cfdab17090ddeb7c6642dfed87ad578be30c7396c9969e193689035
+sha256:
+  darwin_arm64: 167285f3fa15655f9e876fc9490f55c9a8020eaba6ac352d0a6a321813a7fddf
+  darwin_amd64: 5230ca8371fdb46e61dbf67594c88c42e7c2ec6962b30d7f6e27210b59a3e269
+  linux_amd64: ef7bf0e9c38ab1c0989106dcdad894777c9e6f0bdb6a8e939e394fd71a542d37
+  linux_arm64: 47138d1f0cfdab17090ddeb7c6642dfed87ad578be30c7396c9969e193689035
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

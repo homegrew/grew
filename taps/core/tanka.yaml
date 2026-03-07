@@ -1,0 +1,21 @@
+name: tanka
+version: 0.36.3
+description: Flexible, reusable and concise configuration for Kubernetes using Jsonnet
+homepage: https://tanka.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tanka/blobs/sha256:05939160a82cc0678bb88eca469bb26ee1af28fdea4ed2c6ef80fc84d10474b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tanka/blobs/sha256:f8e351e56755adf054e5f30106ad392adca9075dc94e52f14c6f9b5a7fb308e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tanka/blobs/sha256:c6e54c7561f2d182ad471fad5b027f1fd21eb77d52f2242d33e6ad9b7b06ce90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tanka/blobs/sha256:fbbc8d142cbe680ab68e0b81fd05ec7c382b66ce6f4eac22441c5c17b14397bd
+sha256:
+  darwin_arm64: 05939160a82cc0678bb88eca469bb26ee1af28fdea4ed2c6ef80fc84d10474b9
+  darwin_amd64: f8e351e56755adf054e5f30106ad392adca9075dc94e52f14c6f9b5a7fb308e3
+  linux_amd64: c6e54c7561f2d182ad471fad5b027f1fd21eb77d52f2242d33e6ad9b7b06ce90
+  linux_arm64: fbbc8d142cbe680ab68e0b81fd05ec7c382b66ce6f4eac22441c5c17b14397bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kubernetes-cli

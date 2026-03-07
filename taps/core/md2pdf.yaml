@@ -1,0 +1,19 @@
+name: md2pdf
+version: 2.2.18
+description: CLI utility that generates PDF from Markdown
+homepage: https://github.com/solworktech/md2pdf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/md2pdf/blobs/sha256:6ba1a4bd35ea147d4af6dfd4e77c9c432f89d323a869e69946e81b065980d260
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/md2pdf/blobs/sha256:1067ffc7b46773d8b98334e7ce11bc5e654f06ec4d891e545856191d5d0ca597
+  linux_amd64: https://ghcr.io/v2/homebrew/core/md2pdf/blobs/sha256:210dde51799b9cd2fa6037e4f1be39042346be5ea96a1a4cceef8bfb8df00180
+  linux_arm64: https://ghcr.io/v2/homebrew/core/md2pdf/blobs/sha256:9cc40647488a0594fb91fb6f0db586a5134a8c42f178ce4e22b0829f0aa68dd7
+sha256:
+  darwin_arm64: 6ba1a4bd35ea147d4af6dfd4e77c9c432f89d323a869e69946e81b065980d260
+  darwin_amd64: 1067ffc7b46773d8b98334e7ce11bc5e654f06ec4d891e545856191d5d0ca597
+  linux_amd64: 210dde51799b9cd2fa6037e4f1be39042346be5ea96a1a4cceef8bfb8df00180
+  linux_arm64: 9cc40647488a0594fb91fb6f0db586a5134a8c42f178ce4e22b0829f0aa68dd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

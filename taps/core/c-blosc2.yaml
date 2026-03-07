@@ -1,0 +1,22 @@
+name: c-blosc2
+version: 2.23.1
+description: Fast, compressed, persistent binary data store library for C
+homepage: https://www.blosc.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c-blosc2/blobs/sha256:91448eaa6c8e16b006c19886acea4ac58264283dbf3ea8fd162ff1d39e6db9f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c-blosc2/blobs/sha256:bf86940c02cd637d88301284e74a606c4d4bffc830d53a48d711a4e744b8fbdf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c-blosc2/blobs/sha256:a9905447e2b2599757bebab05c143b0f94f5708d943d1e58b4520553abd1373c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c-blosc2/blobs/sha256:fc07ddbf6019521e4c51d1207772f53066a4e5edc613b52e46e578bdff046d1e
+sha256:
+  darwin_arm64: 91448eaa6c8e16b006c19886acea4ac58264283dbf3ea8fd162ff1d39e6db9f0
+  darwin_amd64: bf86940c02cd637d88301284e74a606c4d4bffc830d53a48d711a4e744b8fbdf
+  linux_amd64: a9905447e2b2599757bebab05c143b0f94f5708d943d1e58b4520553abd1373c
+  linux_arm64: fc07ddbf6019521e4c51d1207772f53066a4e5edc613b52e46e578bdff046d1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - zstd

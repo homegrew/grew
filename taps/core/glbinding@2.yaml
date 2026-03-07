@@ -1,0 +1,20 @@
+name: glbinding@2
+version: 2.1.4
+description: C++ binding for the OpenGL API
+homepage: https://glbinding.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glbinding/2/blobs/sha256:6dddc516878a360ff4c3204f6dbff543c7480ca9a636206f1db433de4af442a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glbinding/2/blobs/sha256:f3b925f4e2eada4a1c18e8bdf6506227bbf884141c5e21098450974838745633
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glbinding/2/blobs/sha256:28aa58dd696d850b91f8e6552e8b23389c0c437be19319c6939d3b7e52265dc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glbinding/2/blobs/sha256:61a0c29c4f4d29510e0737c374c85a42eed6da3504510c8107ab578e770e59eb
+sha256:
+  darwin_arm64: 6dddc516878a360ff4c3204f6dbff543c7480ca9a636206f1db433de4af442a5
+  darwin_amd64: f3b925f4e2eada4a1c18e8bdf6506227bbf884141c5e21098450974838745633
+  linux_amd64: 28aa58dd696d850b91f8e6552e8b23389c0c437be19319c6939d3b7e52265dc3
+  linux_arm64: 61a0c29c4f4d29510e0737c374c85a42eed6da3504510c8107ab578e770e59eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

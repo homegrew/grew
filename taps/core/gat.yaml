@@ -1,0 +1,19 @@
+name: gat
+version: 0.27.0
+description: Cat alternative written in Go
+homepage: https://github.com/koki-develop/gat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gat/blobs/sha256:d542a1cb66003a8c73263c4a770fd688572b58700902b517214be843a7ae1822
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gat/blobs/sha256:7bfa75af1b2b2e4a87ab744e4f06f7e9ce58bda94c7e131b88aab01d030943ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gat/blobs/sha256:11200ec6ecd192a0500412fad5a83bc461b0ae503099b13ad1c3c4c5ce5cdb68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gat/blobs/sha256:ab4d4d1c5b21ac74e06530482c20c46391de49fa3733658586f827dc60daab29
+sha256:
+  darwin_arm64: d542a1cb66003a8c73263c4a770fd688572b58700902b517214be843a7ae1822
+  darwin_amd64: 7bfa75af1b2b2e4a87ab744e4f06f7e9ce58bda94c7e131b88aab01d030943ba
+  linux_amd64: 11200ec6ecd192a0500412fad5a83bc461b0ae503099b13ad1c3c4c5ce5cdb68
+  linux_arm64: ab4d4d1c5b21ac74e06530482c20c46391de49fa3733658586f827dc60daab29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

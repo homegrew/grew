@@ -1,0 +1,19 @@
+name: kopia
+version: 0.22.3
+description: Fast and secure open-source backup
+homepage: https://kopia.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kopia/blobs/sha256:fa152b482994174f3ea5582caeb5674e22e5390dced68cce594f95b29644ac9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kopia/blobs/sha256:1b31399352d4faab38b09d24f8dfabbbb0a625c2639c75162e974b0db1b1550d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kopia/blobs/sha256:6ae8a88153ab2bc98543b57a5b6b8e5ca6d2a9bfa090fe5dba92ca23dfd1a9b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kopia/blobs/sha256:82829ed3e6a53242459ff107c1ef096dbb1ea7f388e399626f7993fa135d53bc
+sha256:
+  darwin_arm64: fa152b482994174f3ea5582caeb5674e22e5390dced68cce594f95b29644ac9d
+  darwin_amd64: 1b31399352d4faab38b09d24f8dfabbbb0a625c2639c75162e974b0db1b1550d
+  linux_amd64: 6ae8a88153ab2bc98543b57a5b6b8e5ca6d2a9bfa090fe5dba92ca23dfd1a9b4
+  linux_arm64: 82829ed3e6a53242459ff107c1ef096dbb1ea7f388e399626f7993fa135d53bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

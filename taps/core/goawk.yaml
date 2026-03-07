@@ -1,0 +1,19 @@
+name: goawk
+version: 1.31.0
+description: POSIX-compliant AWK interpreter written in Go
+homepage: https://benhoyt.com/writings/goawk/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goawk/blobs/sha256:7aa05da6706f6f37b6b6e39b5836857813c4076a7c58f91676d8ef4856032e4f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goawk/blobs/sha256:9e8db0d21391319af239e1d699968d412d98b88432f515b5a305338d5a9347aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goawk/blobs/sha256:0427800ae701c9b427ac9d7c492a2fa9dde61ed17716f2395e1a72515311e6d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goawk/blobs/sha256:69823243b989010cec1a19abbd4ec23078b3fea8277d22e0c88308d7a97668e2
+sha256:
+  darwin_arm64: 7aa05da6706f6f37b6b6e39b5836857813c4076a7c58f91676d8ef4856032e4f
+  darwin_amd64: 9e8db0d21391319af239e1d699968d412d98b88432f515b5a305338d5a9347aa
+  linux_amd64: 0427800ae701c9b427ac9d7c492a2fa9dde61ed17716f2395e1a72515311e6d1
+  linux_arm64: 69823243b989010cec1a19abbd4ec23078b3fea8277d22e0c88308d7a97668e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

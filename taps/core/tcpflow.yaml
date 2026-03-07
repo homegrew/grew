@@ -1,0 +1,21 @@
+name: tcpflow
+version: 1.6.1
+description: TCP/IP packet demultiplexer
+homepage: https://github.com/simsong/tcpflow
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcpflow/blobs/sha256:dad7f4b569f0c8e74af53589c23537d577f58717c07662496902d2feb152638c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcpflow/blobs/sha256:0921dda7fcdf893d64b1bd807d3e6a8cbc716105c49f12a2ae27019c173d77e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcpflow/blobs/sha256:7b23f8c43c21e3857d31fdee5007f650bc79fc06d2205028bd0a1c613f5b5aba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcpflow/blobs/sha256:f03cf13378d36ad9c60f50f3938054efd612de7be28bfc59a1a78c3ec11fd1df
+sha256:
+  darwin_arm64: dad7f4b569f0c8e74af53589c23537d577f58717c07662496902d2feb152638c
+  darwin_amd64: 0921dda7fcdf893d64b1bd807d3e6a8cbc716105c49f12a2ae27019c173d77e8
+  linux_amd64: 7b23f8c43c21e3857d31fdee5007f650bc79fc06d2205028bd0a1c613f5b5aba
+  linux_arm64: f03cf13378d36ad9c60f50f3938054efd612de7be28bfc59a1a78c3ec11fd1df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

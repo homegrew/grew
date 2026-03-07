@@ -1,0 +1,11 @@
+name: squidman
+version: 4.2
+description: Manage and install Squid proxy cache
+homepage: https://squidman.net/squidman/
+url:
+  darwin_arm64: https://squidman.net/resources/downloads/SquidMan4.2.dmg
+sha256:
+  darwin_arm64: 281e73b703b148448862fd3be8d31966f4c95339e4227d9ffc67ae698b2c9ef2
+artifacts:
+  app:
+    - SquidMan.app

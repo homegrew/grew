@@ -1,0 +1,19 @@
+name: gtrash
+version: 0.0.6
+description: "Featureful Trash CLI manager: alternative to rm and trash-cli"
+homepage: https://github.com/umlx5h/gtrash
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtrash/blobs/sha256:eb3b1bd8138c592581fc7ce7f3258e8cb63f0b249924bc868e73f24d6ddb2738
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtrash/blobs/sha256:3fcca14d1153b9a849fc117ca195c626be58f2466c46684f2cfd38392a6012ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtrash/blobs/sha256:5e639a18c6dd01c500543db61e10c3588abf938d46687d36a14be74aff27cc07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtrash/blobs/sha256:4fff31885606b9a3cf5642f91fdb40529488b74ff646913a72577ef156c31d59
+sha256:
+  darwin_arm64: eb3b1bd8138c592581fc7ce7f3258e8cb63f0b249924bc868e73f24d6ddb2738
+  darwin_amd64: 3fcca14d1153b9a849fc117ca195c626be58f2466c46684f2cfd38392a6012ad
+  linux_amd64: 5e639a18c6dd01c500543db61e10c3588abf938d46687d36a14be74aff27cc07
+  linux_arm64: 4fff31885606b9a3cf5642f91fdb40529488b74ff646913a72577ef156c31d59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

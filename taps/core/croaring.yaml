@@ -1,0 +1,19 @@
+name: croaring
+version: 4.6.0
+description: Roaring bitmaps in C (and C++)
+homepage: https://roaringbitmap.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/croaring/blobs/sha256:890c1a2380e6f2dfb65a1d7612c2eb0b893e9f6d6e138890b4753b4f56d29871
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/croaring/blobs/sha256:ae55fe413b7fcfc4b7f876907389b0a0e67216d51bafcbfe51aa6d4d0a566518
+  linux_amd64: https://ghcr.io/v2/homebrew/core/croaring/blobs/sha256:63c104c1ef48f1cdc3abcde86c058f71d3670b4d1b29a22872036877c4caf871
+  linux_arm64: https://ghcr.io/v2/homebrew/core/croaring/blobs/sha256:d518dd41c0f8483534ae3fa77dd1ff1123927f067c087cb43d4111cb7b10584a
+sha256:
+  darwin_arm64: 890c1a2380e6f2dfb65a1d7612c2eb0b893e9f6d6e138890b4753b4f56d29871
+  darwin_amd64: ae55fe413b7fcfc4b7f876907389b0a0e67216d51bafcbfe51aa6d4d0a566518
+  linux_amd64: 63c104c1ef48f1cdc3abcde86c058f71d3670b4d1b29a22872036877c4caf871
+  linux_arm64: d518dd41c0f8483534ae3fa77dd1ff1123927f067c087cb43d4111cb7b10584a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

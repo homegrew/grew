@@ -1,0 +1,21 @@
+name: balena-cli
+version: 24.0.3
+description: Command-line tool for interacting with the balenaCloud and balena API
+homepage: https://docs.balena.io/reference/balena-cli/latest/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/balena-cli/blobs/sha256:30e918ea831b797aae48717469a801364000832635cb277e00b4eff510a112e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/balena-cli/blobs/sha256:f1fccb23fe40ba474feddbf33eb718843fb662e17bf9792c03baef1cde316ee7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/balena-cli/blobs/sha256:4f65f81f5df1cb3c54ddfda6513358b658a55d096dbbc296d507cc416152919a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/balena-cli/blobs/sha256:ff2318e9e990cbb9672d87221907d2a77c7e3e00c7e6358369af143fd409abac
+sha256:
+  darwin_arm64: 30e918ea831b797aae48717469a801364000832635cb277e00b4eff510a112e4
+  darwin_amd64: f1fccb23fe40ba474feddbf33eb718843fb662e17bf9792c03baef1cde316ee7
+  linux_amd64: 4f65f81f5df1cb3c54ddfda6513358b658a55d096dbbc296d507cc416152919a
+  linux_arm64: ff2318e9e990cbb9672d87221907d2a77c7e3e00c7e6358369af143fd409abac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

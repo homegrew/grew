@@ -1,0 +1,22 @@
+name: btrfs-progs
+version: 6.19
+description: Userspace utilities to manage btrfs filesystems
+homepage: https://btrfs.readthedocs.io/en/latest/
+license: GPL-2.0-only AND LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btrfs-progs/blobs/sha256:deee61a9fcbc7117ede27db9161efa6ba5396e3f11ee0c29ee075a3d687b0cb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btrfs-progs/blobs/sha256:0db6518924a45b74b4a4977e64a79831b532c02b2033c09cf8f933cca26e0584
+sha256:
+  linux_amd64: deee61a9fcbc7117ede27db9161efa6ba5396e3f11ee0c29ee075a3d687b0cb2
+  linux_arm64: 0db6518924a45b74b4a4977e64a79831b532c02b2033c09cf8f933cca26e0584
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - e2fsprogs
+  - lzo
+  - systemd
+  - util-linux
+  - zlib-ng-compat
+  - zstd

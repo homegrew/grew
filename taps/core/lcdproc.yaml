@@ -1,0 +1,23 @@
+name: lcdproc
+version: 0.5.9
+description: Display real-time system information on a LCD
+homepage: https://www.lcdproc.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lcdproc/blobs/sha256:c2685b2448e1356097e6eac9c25749bb2ff46414f72c2724c23c40cc346ba1f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lcdproc/blobs/sha256:16efc1c9a35bf0563aa2c66a8f653c56e1ef4694956533c31acc722af6834f86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lcdproc/blobs/sha256:d869dec7aa2e03b2c6bc21a281ac56537d5a596e0a87442fc79fda035f000282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lcdproc/blobs/sha256:31e9cdd685bcf637f916a0f897c8bf9da80b89da8440b66a21fead876ed3f9c2
+sha256:
+  darwin_arm64: c2685b2448e1356097e6eac9c25749bb2ff46414f72c2724c23c40cc346ba1f9
+  darwin_amd64: 16efc1c9a35bf0563aa2c66a8f653c56e1ef4694956533c31acc722af6834f86
+  linux_amd64: d869dec7aa2e03b2c6bc21a281ac56537d5a596e0a87442fc79fda035f000282
+  linux_arm64: 31e9cdd685bcf637f916a0f897c8bf9da80b89da8440b66a21fead876ed3f9c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libftdi
+  - libusb
+  - libusb-compat

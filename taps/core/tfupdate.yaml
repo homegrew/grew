@@ -1,0 +1,19 @@
+name: tfupdate
+version: 0.9.3
+description: Update version constraints in your Terraform configurations
+homepage: https://github.com/minamijoyo/tfupdate
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfupdate/blobs/sha256:3c014bd0a204f53e02c5fe523946bdd4d07174e70e9ac7bc2588d82aabb9f81c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfupdate/blobs/sha256:b185c8075fdef935fee97a4a8b6e1ff5496839938c06584b96ef43e225ca2975
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfupdate/blobs/sha256:5f1aa6f6d8ffe595cd9878f3ad9d269f293631e2b6aa9c08e3661095e3a29e8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfupdate/blobs/sha256:f044c85acf28eb8fb06622077ecb325c6fb0393b5a72411ecfac32817ffe7b6a
+sha256:
+  darwin_arm64: 3c014bd0a204f53e02c5fe523946bdd4d07174e70e9ac7bc2588d82aabb9f81c
+  darwin_amd64: b185c8075fdef935fee97a4a8b6e1ff5496839938c06584b96ef43e225ca2975
+  linux_amd64: 5f1aa6f6d8ffe595cd9878f3ad9d269f293631e2b6aa9c08e3661095e3a29e8a
+  linux_arm64: f044c85acf28eb8fb06622077ecb325c6fb0393b5a72411ecfac32817ffe7b6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

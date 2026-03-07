@@ -1,0 +1,24 @@
+name: podcast-archiver
+version: 2.3.5
+description: Archive all episodes from your favorite podcasts
+homepage: https://codeberg.org/janw/podcast-archiver
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/podcast-archiver/blobs/sha256:1499cdadecadb46fed5a08442011f045051d80e457f98167258c5d63c258242b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/podcast-archiver/blobs/sha256:a40cae334289006a040f9050b0a440ee71d831a44df3b68fb5fc5fc3aaa4e2cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/podcast-archiver/blobs/sha256:730f1b8303f2da8cbdd661900c11a169c3d949fa065f858cfc43676aecefe6df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/podcast-archiver/blobs/sha256:807fbee5dc51034a659685c38e7088bc3471bee8363409e11f96fc9cf8a99f16
+sha256:
+  darwin_arm64: 1499cdadecadb46fed5a08442011f045051d80e457f98167258c5d63c258242b
+  darwin_amd64: a40cae334289006a040f9050b0a440ee71d831a44df3b68fb5fc5fc3aaa4e2cd
+  linux_amd64: 730f1b8303f2da8cbdd661900c11a169c3d949fa065f858cfc43676aecefe6df
+  linux_arm64: 807fbee5dc51034a659685c38e7088bc3471bee8363409e11f96fc9cf8a99f16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14

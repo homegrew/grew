@@ -1,0 +1,19 @@
+name: fprobe
+version: 1.1
+description: Libpcap-based NetFlow probe
+homepage: https://sourceforge.net/projects/fprobe/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fprobe/blobs/sha256:4cbf791e6fc38eca3bf5be7634eedee0a1b970783f0f1516227838541d708b47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fprobe/blobs/sha256:ff966a798c134ba1c15e224e5aa6803ce478dc0bf733b332e6f57c2fdbe1a20f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fprobe/blobs/sha256:e295fddc95d80d87b222455cca00e95aa3a429317c08daeee456aac1f3170732
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fprobe/blobs/sha256:437bdecb9e1ca25e8791a4bb7408f128b11ab7b14267913a1ba106dd0dc6635d
+sha256:
+  darwin_arm64: 4cbf791e6fc38eca3bf5be7634eedee0a1b970783f0f1516227838541d708b47
+  darwin_amd64: ff966a798c134ba1c15e224e5aa6803ce478dc0bf733b332e6f57c2fdbe1a20f
+  linux_amd64: e295fddc95d80d87b222455cca00e95aa3a429317c08daeee456aac1f3170732
+  linux_arm64: 437bdecb9e1ca25e8791a4bb7408f128b11ab7b14267913a1ba106dd0dc6635d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

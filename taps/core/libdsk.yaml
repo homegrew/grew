@@ -1,0 +1,19 @@
+name: libdsk
+version: 1.4.2
+description: Library for accessing discs and disc image files
+homepage: https://www.seasip.info/Unix/LibDsk/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdsk/blobs/sha256:feb56e14f0d05e880c42e25c4780cba7eb930b9e1aa4a313045accd8abdf4e49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdsk/blobs/sha256:c747e86cb14f14a46f3cc70433d08d9825d5b5c13b179457a53c136960b3cbf0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdsk/blobs/sha256:73e738d8f00362818ad45c1f155f52b99c97d72a2b56dae78390ff01f702bf99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdsk/blobs/sha256:ff17529b023259b9a186572ad5a7ebef05b0b69854816925bd050a3dbb95818d
+sha256:
+  darwin_arm64: feb56e14f0d05e880c42e25c4780cba7eb930b9e1aa4a313045accd8abdf4e49
+  darwin_amd64: c747e86cb14f14a46f3cc70433d08d9825d5b5c13b179457a53c136960b3cbf0
+  linux_amd64: 73e738d8f00362818ad45c1f155f52b99c97d72a2b56dae78390ff01f702bf99
+  linux_arm64: ff17529b023259b9a186572ad5a7ebef05b0b69854816925bd050a3dbb95818d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

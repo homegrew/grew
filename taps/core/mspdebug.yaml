@@ -1,0 +1,22 @@
+name: mspdebug
+version: 0.26
+description: Debugger for use with MSP430 MCUs
+homepage: https://dlbeer.co.nz/mspdebug/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mspdebug/blobs/sha256:951ce1dd56ff8622c0ea45cdeb334e1e1cf4bcb592684e4c2a571621b91a763c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mspdebug/blobs/sha256:249e03dfe230e9285a7f01f10998f9a9de49318ec5d34e6fe6084301bac623af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mspdebug/blobs/sha256:b5d9d737369d456925430120592413c6e75c1318775bdbb0b0cc94d8be79f533
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mspdebug/blobs/sha256:37d7c174a32eef149e2fb86b166beacecae8aedd98c10c652a2ac39764db9bc2
+sha256:
+  darwin_arm64: 951ce1dd56ff8622c0ea45cdeb334e1e1cf4bcb592684e4c2a571621b91a763c
+  darwin_amd64: 249e03dfe230e9285a7f01f10998f9a9de49318ec5d34e6fe6084301bac623af
+  linux_amd64: b5d9d737369d456925430120592413c6e75c1318775bdbb0b0cc94d8be79f533
+  linux_arm64: 37d7c174a32eef149e2fb86b166beacecae8aedd98c10c652a2ac39764db9bc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hidapi
+  - libusb-compat

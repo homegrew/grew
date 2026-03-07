@@ -1,0 +1,23 @@
+name: gssdp
+version: 1.6.4
+description: GUPnP library for resource discovery and announcement over SSDP
+homepage: https://wiki.gnome.org/GUPnP/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gssdp/blobs/sha256:757813a4572ec251ec2b0b5d08fac402448d7eb07e798f4ddae34beafb4dd786
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gssdp/blobs/sha256:bc05bf33af411e1488903ff6cd774eef71232b4ac8da91bbcab9089ccbef0c16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gssdp/blobs/sha256:912c3889c750253f08a991711db1d2cf6cfa44e99933d733c7441d42665251c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gssdp/blobs/sha256:30d8f9d8c169ad2f144275e2d20a6594aed7532e8050f236dd0ccf208e6a1392
+sha256:
+  darwin_arm64: 757813a4572ec251ec2b0b5d08fac402448d7eb07e798f4ddae34beafb4dd786
+  darwin_amd64: bc05bf33af411e1488903ff6cd774eef71232b4ac8da91bbcab9089ccbef0c16
+  linux_amd64: 912c3889c750253f08a991711db1d2cf6cfa44e99933d733c7441d42665251c3
+  linux_arm64: 30d8f9d8c169ad2f144275e2d20a6594aed7532e8050f236dd0ccf208e6a1392
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libsoup
+  - gettext

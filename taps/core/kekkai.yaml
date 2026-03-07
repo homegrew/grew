@@ -1,0 +1,19 @@
+name: kekkai
+version: 0.2.4
+description: File integrity monitoring tool
+homepage: https://github.com/catatsuy/kekkai
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kekkai/blobs/sha256:86714a4cba5f1b14e6208d337b944bae39cfb8c2653d16f6aaf151b9af9d2938
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kekkai/blobs/sha256:3af464afaba71a28d9916eb7a940f6e3fcd8556c42f94497b075bd1ab216395d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kekkai/blobs/sha256:92cfe0d1ba6ae5b18ae2df91270ad894f18e8316f83c50f1c22e3872d535bacc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kekkai/blobs/sha256:7e979005260d7a33cb8eeed014ab78956357a284cd0bb9b7ee15e0b4cea46656
+sha256:
+  darwin_arm64: 86714a4cba5f1b14e6208d337b944bae39cfb8c2653d16f6aaf151b9af9d2938
+  darwin_amd64: 3af464afaba71a28d9916eb7a940f6e3fcd8556c42f94497b075bd1ab216395d
+  linux_amd64: 92cfe0d1ba6ae5b18ae2df91270ad894f18e8316f83c50f1c22e3872d535bacc
+  linux_arm64: 7e979005260d7a33cb8eeed014ab78956357a284cd0bb9b7ee15e0b4cea46656
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

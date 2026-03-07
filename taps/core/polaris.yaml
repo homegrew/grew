@@ -1,0 +1,19 @@
+name: polaris
+version: 10.1.5
+description: Validation of best practices in your Kubernetes clusters
+homepage: https://www.fairwinds.com/polaris
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/polaris/blobs/sha256:fef9278597614ea01255880b8f612f7d963c1648d109d97c4aee76b2a435ffb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/polaris/blobs/sha256:d29a7d47a7de25939b032dae4309ddc63541cbdfa18230e7c7386d271596ab04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/polaris/blobs/sha256:953fa279b825ee5a2b122d9fce06ed20176bb31fc49020ddc7a03423a2f99384
+  linux_arm64: https://ghcr.io/v2/homebrew/core/polaris/blobs/sha256:a573dbb19714348e67985ecae2697648b5734006956b37cdec5fed7568d91ae3
+sha256:
+  darwin_arm64: fef9278597614ea01255880b8f612f7d963c1648d109d97c4aee76b2a435ffb8
+  darwin_amd64: d29a7d47a7de25939b032dae4309ddc63541cbdfa18230e7c7386d271596ab04
+  linux_amd64: 953fa279b825ee5a2b122d9fce06ed20176bb31fc49020ddc7a03423a2f99384
+  linux_arm64: a573dbb19714348e67985ecae2697648b5734006956b37cdec5fed7568d91ae3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

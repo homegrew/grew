@@ -1,0 +1,11 @@
+name: openlens
+version: 6.5.2-366
+description: Open source build of Lens Kubernetes IDE
+homepage: https://github.com/MuhammedKalkan/OpenLens/
+url:
+  darwin_arm64: https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.5.2-366/OpenLens-6.5.2-366-arm64.dmg
+sha256:
+  darwin_arm64: 2c53fa3ccf383e10c8a711ba23a6277800415173ba45ef12597b656c9d818e29
+artifacts:
+  app:
+    - OpenLens.app

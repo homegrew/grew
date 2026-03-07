@@ -1,0 +1,21 @@
+name: helix-db
+version: 2.3.1
+description: Open-source graph-vector database built from scratch in Rust
+homepage: https://helix-db.com
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helix-db/blobs/sha256:a0d64ec2183ada867eab36317c7be689f721d6a6d393a223aa74d59695646ca4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helix-db/blobs/sha256:245a3a2fad4771141ebed74009ad9595aff692729437d4fc3a11bda0e72781cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helix-db/blobs/sha256:351d97f972d8ef2766553dd5c52fcc1ea5d54198f13e1d62519041b21a869046
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helix-db/blobs/sha256:afcf94780bf886595000c4ff0238fb1ddf50618da799788eb054ff5a15fbc1ba
+sha256:
+  darwin_arm64: a0d64ec2183ada867eab36317c7be689f721d6a6d393a223aa74d59695646ca4
+  darwin_amd64: 245a3a2fad4771141ebed74009ad9595aff692729437d4fc3a11bda0e72781cc
+  linux_amd64: 351d97f972d8ef2766553dd5c52fcc1ea5d54198f13e1d62519041b21a869046
+  linux_arm64: afcf94780bf886595000c4ff0238fb1ddf50618da799788eb054ff5a15fbc1ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rust

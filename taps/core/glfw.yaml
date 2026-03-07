@@ -1,0 +1,19 @@
+name: glfw
+version: 3.4
+description: Multi-platform library for OpenGL applications
+homepage: https://www.glfw.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glfw/blobs/sha256:b6f994a80eff1c192e58bde265e72440f065899224dba202d1c2775baf6f46b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glfw/blobs/sha256:754e958d4c5c56ca1a93f2fffa99b3e9152b30510dd6d624a2e83cad8824138c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glfw/blobs/sha256:bc9db7e9be50b978984167690242f6bdeb30e639ef6f2692b66443dd923fe488
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glfw/blobs/sha256:446bea0d77cbdc446e196247b220750e0a3f5a07083c32c600004103e6bb5e74
+sha256:
+  darwin_arm64: b6f994a80eff1c192e58bde265e72440f065899224dba202d1c2775baf6f46b9
+  darwin_amd64: 754e958d4c5c56ca1a93f2fffa99b3e9152b30510dd6d624a2e83cad8824138c
+  linux_amd64: bc9db7e9be50b978984167690242f6bdeb30e639ef6f2692b66443dd923fe488
+  linux_arm64: 446bea0d77cbdc446e196247b220750e0a3f5a07083c32c600004103e6bb5e74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

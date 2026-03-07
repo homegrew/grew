@@ -1,0 +1,22 @@
+name: imposm3
+version: 0.14.2
+description: Imports OpenStreetMap data into PostgreSQL/PostGIS databases
+homepage: https://imposm.org/docs/imposm3/latest/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imposm3/blobs/sha256:8541b92a75fb1fc113a02f87794315e3f8f6638950eb3629d1bd79ac31965576
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imposm3/blobs/sha256:d665afcf5f6f08652ed1af431e1aa4d38eb0dd747b57ed3e7c6726d8cb75a175
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imposm3/blobs/sha256:d5f69476d6817e049c7177e14a69cff62546d2a436aff1334c83a34ee6c07d69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imposm3/blobs/sha256:2545034b671e36df257d6adbc876eb1e0eec26c15469c0bf0d4ab20c16638285
+sha256:
+  darwin_arm64: 8541b92a75fb1fc113a02f87794315e3f8f6638950eb3629d1bd79ac31965576
+  darwin_amd64: d665afcf5f6f08652ed1af431e1aa4d38eb0dd747b57ed3e7c6726d8cb75a175
+  linux_amd64: d5f69476d6817e049c7177e14a69cff62546d2a436aff1334c83a34ee6c07d69
+  linux_arm64: 2545034b671e36df257d6adbc876eb1e0eec26c15469c0bf0d4ab20c16638285
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - geos
+  - leveldb

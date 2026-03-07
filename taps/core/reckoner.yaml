@@ -1,0 +1,21 @@
+name: reckoner
+version: 6.2.0
+description: Declaratively install and manage multiple Helm chart releases
+homepage: https://github.com/FairwindsOps/reckoner
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reckoner/blobs/sha256:52f96d24f75c2000278fe7ed91fe73d982683297d158e118e345331d24580804
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reckoner/blobs/sha256:d14ba71c34740a9dd2ae9bbf97fd3f118dd1dcfd92bc267ef69d7daca27d8a8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reckoner/blobs/sha256:d44c9b58fe4752068e76ff69d1201a31434564482c05a7242220e4bf5fe26d98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reckoner/blobs/sha256:d20750b1c3e9b5c39f9c67970c2dd9295769a9d2fa3a581ce61a9d4a4ae546ec
+sha256:
+  darwin_arm64: 52f96d24f75c2000278fe7ed91fe73d982683297d158e118e345331d24580804
+  darwin_amd64: d14ba71c34740a9dd2ae9bbf97fd3f118dd1dcfd92bc267ef69d7daca27d8a8a
+  linux_amd64: d44c9b58fe4752068e76ff69d1201a31434564482c05a7242220e4bf5fe26d98
+  linux_arm64: d20750b1c3e9b5c39f9c67970c2dd9295769a9d2fa3a581ce61a9d4a4ae546ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - helm

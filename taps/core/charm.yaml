@@ -1,0 +1,19 @@
+name: charm
+version: 2.5.2
+description: Tool for managing Juju Charms
+homepage: https://github.com/juju/charmstore-client
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/charm/blobs/sha256:23c05ff713871756c9636e01d7de20645150e6180d9426f8fe33a3f4ff0e6885
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/charm/blobs/sha256:4a50613b56ac6dbd9bd7c8def6f03899188f3a4a0992098e75e6d49493b4cd19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/charm/blobs/sha256:393502f468997806b663a548026487a0cc7bdceec9bfce3bfa6cccba45551d59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/charm/blobs/sha256:60e259f6541281a54f94e6b9dea178bacc9d348330e7b781441995f35e97eb73
+sha256:
+  darwin_arm64: 23c05ff713871756c9636e01d7de20645150e6180d9426f8fe33a3f4ff0e6885
+  darwin_amd64: 4a50613b56ac6dbd9bd7c8def6f03899188f3a4a0992098e75e6d49493b4cd19
+  linux_amd64: 393502f468997806b663a548026487a0cc7bdceec9bfce3bfa6cccba45551d59
+  linux_arm64: 60e259f6541281a54f94e6b9dea178bacc9d348330e7b781441995f35e97eb73
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

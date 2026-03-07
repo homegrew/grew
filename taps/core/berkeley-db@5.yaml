@@ -1,0 +1,20 @@
+name: berkeley-db@5
+version: 5.3.28
+description: High performance key/value database
+homepage: https://www.oracle.com/database/technologies/related/berkeleydb.html
+license: Sleepycat
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/berkeley-db/5/blobs/sha256:a713c6c74511eb18a8dc92c92bbb1b7ca3f1e7c71c3325ab584634e6275ab1bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/berkeley-db/5/blobs/sha256:db128eb3926e9941b0db4aaf52df8848c74194128712f153f46df7810395ff5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/berkeley-db/5/blobs/sha256:c0e2906cc6657dc497fec75629560b0a404b81cebadf5e10c1f70616a14fa886
+  linux_arm64: https://ghcr.io/v2/homebrew/core/berkeley-db/5/blobs/sha256:356a948ed9ce8a65a5f280c5f68c0bb7d750ab962c06485c7972f557d779acf0
+sha256:
+  darwin_arm64: a713c6c74511eb18a8dc92c92bbb1b7ca3f1e7c71c3325ab584634e6275ab1bd
+  darwin_amd64: db128eb3926e9941b0db4aaf52df8848c74194128712f153f46df7810395ff5e
+  linux_amd64: c0e2906cc6657dc497fec75629560b0a404b81cebadf5e10c1f70616a14fa886
+  linux_arm64: 356a948ed9ce8a65a5f280c5f68c0bb7d750ab962c06485c7972f557d779acf0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

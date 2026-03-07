@@ -1,0 +1,23 @@
+name: mtbl
+version: 1.7.1
+description: Immutable sorted string table library
+homepage: https://github.com/farsightsec/mtbl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mtbl/blobs/sha256:7546780a577d53570daaea86bd9306fad67197ab4fb869090c43d17bbff88474
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mtbl/blobs/sha256:313e1023e84adcb21d608ecc2869e277b52b93a2bc5160a9ce3f9c711d291956
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mtbl/blobs/sha256:e6088b5d34bc9970ae90f0ca4885e17e4556a678ca44f540cd1ed34b24ed0279
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mtbl/blobs/sha256:b47a8e9c5014ccbcc1cba631fc6b6f6a41bb881b53d6345123dcff7730731100
+sha256:
+  darwin_arm64: 7546780a577d53570daaea86bd9306fad67197ab4fb869090c43d17bbff88474
+  darwin_amd64: 313e1023e84adcb21d608ecc2869e277b52b93a2bc5160a9ce3f9c711d291956
+  linux_amd64: e6088b5d34bc9970ae90f0ca4885e17e4556a678ca44f540cd1ed34b24ed0279
+  linux_arm64: b47a8e9c5014ccbcc1cba631fc6b6f6a41bb881b53d6345123dcff7730731100
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - snappy
+  - zstd

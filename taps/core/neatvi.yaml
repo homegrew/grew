@@ -1,0 +1,19 @@
+name: neatvi
+version: 18
+description: Clone of ex/vi for editing bidirectional utf-8 text
+homepage: https://repo.or.cz/neatvi.git
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neatvi/blobs/sha256:ad23d3dc375b18d42f5770acd705bf1adf326ead97fc33c59bc153444f694258
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neatvi/blobs/sha256:1373111890204196e4708c8c34246b3a5f81921a405245c31f99f213d1675dc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neatvi/blobs/sha256:0f97e1611e5ff8c3ccff3672e89db785d2d807ab7d7816e41935ba5ddbe28c0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neatvi/blobs/sha256:63c7f69520b21ce2c06436b7421166b5d1fec5abfc98bf0ca696952bf9877a4f
+sha256:
+  darwin_arm64: ad23d3dc375b18d42f5770acd705bf1adf326ead97fc33c59bc153444f694258
+  darwin_amd64: 1373111890204196e4708c8c34246b3a5f81921a405245c31f99f213d1675dc5
+  linux_amd64: 0f97e1611e5ff8c3ccff3672e89db785d2d807ab7d7816e41935ba5ddbe28c0c
+  linux_arm64: 63c7f69520b21ce2c06436b7421166b5d1fec5abfc98bf0ca696952bf9877a4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

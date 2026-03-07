@@ -1,0 +1,19 @@
+name: mergiraf
+version: 0.16.3
+description: Syntax-aware git merge driver
+homepage: https://mergiraf.org
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mergiraf/blobs/sha256:18490f889c68e66727a7160c98ff5d09349d928f0c80162289c007a6faa9ec89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mergiraf/blobs/sha256:93906bfff2b641d832991af3b12eb6e15983de3d8c9e1ce84ac3064339892fa5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mergiraf/blobs/sha256:fb17c2950357dfb68b64c9bdc7e52aad9a7893bd36ffa3e790b9e80da88b6aa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mergiraf/blobs/sha256:edf3f494751a5b80b73c00fef69d9d54d105ce877b178a3ec7d25e1c82ac6e54
+sha256:
+  darwin_arm64: 18490f889c68e66727a7160c98ff5d09349d928f0c80162289c007a6faa9ec89
+  darwin_amd64: 93906bfff2b641d832991af3b12eb6e15983de3d8c9e1ce84ac3064339892fa5
+  linux_amd64: fb17c2950357dfb68b64c9bdc7e52aad9a7893bd36ffa3e790b9e80da88b6aa1
+  linux_arm64: edf3f494751a5b80b73c00fef69d9d54d105ce877b178a3ec7d25e1c82ac6e54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

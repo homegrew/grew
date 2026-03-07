@@ -1,0 +1,19 @@
+name: msedit
+version: 1.2.1
+description: Simple text editor with clickable interface
+homepage: https://github.com/microsoft/edit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/msedit/blobs/sha256:bd62dbac464d403a1d01ca2b1dc5417cf0464722ed5046f9b2817e6dc001e6cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/msedit/blobs/sha256:ab51f79acc7a99a93dde6e3d150f0888eee399e8ab91e3c624f6019694426a2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/msedit/blobs/sha256:a7ea7cbd48b0add90c97b5dbe93a1c8945e46afafb367ca1433e53f7990b607a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/msedit/blobs/sha256:9b8aea7360ae38105ca7172ede2e3a6ce8cf8b217a05307d7ba38aae70c55964
+sha256:
+  darwin_arm64: bd62dbac464d403a1d01ca2b1dc5417cf0464722ed5046f9b2817e6dc001e6cc
+  darwin_amd64: ab51f79acc7a99a93dde6e3d150f0888eee399e8ab91e3c624f6019694426a2b
+  linux_amd64: a7ea7cbd48b0add90c97b5dbe93a1c8945e46afafb367ca1433e53f7990b607a
+  linux_arm64: 9b8aea7360ae38105ca7172ede2e3a6ce8cf8b217a05307d7ba38aae70c55964
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: jrtplib
+version: 3.11.2
+description: Fully featured C++ Library for RTP (Real-time Transport Protocol)
+homepage: https://research.edm.uhasselt.be/jori/jrtplib
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jrtplib/blobs/sha256:bcb22fe985a65c6e46980fa6837c761e266a0202076688362d846dcc48ff4a55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jrtplib/blobs/sha256:a6115879d309f486c2cccccd0564c24632a3393ad6b462892ee5e83ccef4479c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jrtplib/blobs/sha256:2c3a63a9f2e44c207522cb93a0bd93e429ed65937d74ea2b5d7a4110e46d9284
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jrtplib/blobs/sha256:5b43949d28bbbce5b86915445eafbd3bf25b40f38e8439487ccb3f7b54da00b4
+sha256:
+  darwin_arm64: bcb22fe985a65c6e46980fa6837c761e266a0202076688362d846dcc48ff4a55
+  darwin_amd64: a6115879d309f486c2cccccd0564c24632a3393ad6b462892ee5e83ccef4479c
+  linux_amd64: 2c3a63a9f2e44c207522cb93a0bd93e429ed65937d74ea2b5d7a4110e46d9284
+  linux_arm64: 5b43949d28bbbce5b86915445eafbd3bf25b40f38e8439487ccb3f7b54da00b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jthread

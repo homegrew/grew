@@ -1,0 +1,19 @@
+name: aws-spiffe-workload-helper
+version: 0.0.5
+description: Helper for providing AWS credentials to workloads using their SPIFFE identity
+homepage: https://github.com/spiffe/aws-spiffe-workload-helper
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-spiffe-workload-helper/blobs/sha256:f8f0d08b54b3b9afebdcea300e7b8b815cc73207139c73d7bf7401d503098e99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-spiffe-workload-helper/blobs/sha256:8b9681ce3e3137b5bcbbca25922c87f0659d537e867fe5757a73b69e19547b98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-spiffe-workload-helper/blobs/sha256:f7bf548d97cab892689d127a5284848748adbacf7f4dcc3f0e3eccd9c9d8bb57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-spiffe-workload-helper/blobs/sha256:77f121ce67cafbf8256ab11d73efbcba6d703202ae9d0a44324a3276ad38c4f7
+sha256:
+  darwin_arm64: f8f0d08b54b3b9afebdcea300e7b8b815cc73207139c73d7bf7401d503098e99
+  darwin_amd64: 8b9681ce3e3137b5bcbbca25922c87f0659d537e867fe5757a73b69e19547b98
+  linux_amd64: f7bf548d97cab892689d127a5284848748adbacf7f4dcc3f0e3eccd9c9d8bb57
+  linux_arm64: 77f121ce67cafbf8256ab11d73efbcba6d703202ae9d0a44324a3276ad38c4f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

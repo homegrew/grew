@@ -1,0 +1,21 @@
+name: tailwindcss
+version: 4.2.1
+description: Utility-first CSS framework
+homepage: https://tailwindcss.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tailwindcss/blobs/sha256:3e6ce1156598043de5f062b97c52ad3cd8386254e59ab34aa5cacc691b62f3a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tailwindcss/blobs/sha256:8b75318e3ca27d1fdb867761182e3f63e9cd0596830deb7baa86f66b5d1ccda7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tailwindcss/blobs/sha256:f103210391d714da0af3c7223c6f891129628a1810af904e83bbd2fbdc108864
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tailwindcss/blobs/sha256:490c7b63b7696ace096ac109ca93932c793065d457a60387c9b3c067dadb5cd6
+sha256:
+  darwin_arm64: 3e6ce1156598043de5f062b97c52ad3cd8386254e59ab34aa5cacc691b62f3a1
+  darwin_amd64: 8b75318e3ca27d1fdb867761182e3f63e9cd0596830deb7baa86f66b5d1ccda7
+  linux_amd64: f103210391d714da0af3c7223c6f891129628a1810af904e83bbd2fbdc108864
+  linux_arm64: 490c7b63b7696ace096ac109ca93932c793065d457a60387c9b3c067dadb5cd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

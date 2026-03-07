@@ -1,0 +1,19 @@
+name: xpipe
+version: 2.2
+description: Split input and feed it into the given utility
+homepage: https://www.netmeister.org/apps/xpipe.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xpipe/blobs/sha256:0e886c34608112f333f208e802b5e9fd4f40b336db9cb14629a7e0c6142891e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xpipe/blobs/sha256:1ce4bd5f2579c4c6c65e18b54f4ccc0a20bb95ad3cb1d76126300f709f67a50e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xpipe/blobs/sha256:85269e2a82a5296f82eaba5e4fc1004ac1176cb1d2f672a7865480fcde33a452
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xpipe/blobs/sha256:fb963f6a0f7bd758bc4ade850635c64cad0c8955455d4aa8f3ad600fff8c1895
+sha256:
+  darwin_arm64: 0e886c34608112f333f208e802b5e9fd4f40b336db9cb14629a7e0c6142891e4
+  darwin_amd64: 1ce4bd5f2579c4c6c65e18b54f4ccc0a20bb95ad3cb1d76126300f709f67a50e
+  linux_amd64: 85269e2a82a5296f82eaba5e4fc1004ac1176cb1d2f672a7865480fcde33a452
+  linux_arm64: fb963f6a0f7bd758bc4ade850635c64cad0c8955455d4aa8f3ad600fff8c1895
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

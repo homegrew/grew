@@ -1,0 +1,11 @@
+name: avitools
+version: 3.7.2
+description: Graphical interface for a variety of video file processing tools
+homepage: https://www.emmgunn.com/avitools-home/
+url:
+  darwin_arm64: https://www.emmgunn.com/downloads/avitools3.7.2.zip
+sha256:
+  darwin_arm64: 2a338b816efe6b861da3131cd263a99aebee7bb3e63459a600c901c1c1cfa0a7
+artifacts:
+  app:
+    - avitools3.7.2/AVItools.app

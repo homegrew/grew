@@ -1,0 +1,19 @@
+name: dante
+version: 1.4.4
+description: SOCKS server and client, implementing RFC 1928 and related standards
+homepage: https://www.inet.no/dante/
+license: BSD-Inferno-Nettverk
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dante/blobs/sha256:0e07933bcf9bcb90be5f3f0ff41bf6784fe6e3ad0c9f9eac9453513766c163ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dante/blobs/sha256:eacc7bdd820155843dc2d63c0854c269fde6b593b8848de7aa44b3519f8da57b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dante/blobs/sha256:bcee07022a78c86b18501024615b999f7d3127a155a47bfbd2e2eec01cdb6e65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dante/blobs/sha256:6411a6d10e9db93d0f71d4475e9ddd3eac46276060ff2ecf64d4affc2ba78bcc
+sha256:
+  darwin_arm64: 0e07933bcf9bcb90be5f3f0ff41bf6784fe6e3ad0c9f9eac9453513766c163ec
+  darwin_amd64: eacc7bdd820155843dc2d63c0854c269fde6b593b8848de7aa44b3519f8da57b
+  linux_amd64: bcee07022a78c86b18501024615b999f7d3127a155a47bfbd2e2eec01cdb6e65
+  linux_arm64: 6411a6d10e9db93d0f71d4475e9ddd3eac46276060ff2ecf64d4affc2ba78bcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: virtualbuddy
+version: 2.1,325
+description: Virtualization tool
+homepage: https://github.com/insidegui/VirtualBuddy
+url:
+  darwin_arm64: https://su.virtualbuddy.app/VirtualBuddy_v2.1-325.dmg
+sha256:
+  darwin_arm64: 6ed17e8d7245931fd405c419321ace7ef9333fe2e3d59b3a7f78e34fcbe628b6
+artifacts:
+  app:
+    - VirtualBuddy.app
+  bin:
+    - vctool

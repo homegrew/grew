@@ -1,0 +1,13 @@
+name: phpstorm
+version: 2025.3.3,253.31033.138
+description: PHP IDE by JetBrains
+homepage: https://www.jetbrains.com/phpstorm/
+url:
+  darwin_arm64: https://download.jetbrains.com/webide/PhpStorm-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: bc86ce761dace85c78e1958194bf8ed422a8b4c55661190e2aa57614d68467ed
+artifacts:
+  app:
+    - PhpStorm.app
+  bin:
+    - phpstorm

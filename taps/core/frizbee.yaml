@@ -1,0 +1,19 @@
+name: frizbee
+version: 0.1.8
+description: Throw a tag at and it comes back with a checksum
+homepage: https://github.com/stacklok/frizbee
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/frizbee/blobs/sha256:54dcefd9c3354478593515dd0936ee3701d233edabe7595becce20314c2e6745
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/frizbee/blobs/sha256:022944bb6501afcf31939f7098acb449e7f03e6b05d9e45133c257a5d66f7cc4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/frizbee/blobs/sha256:6faebec6de592e9c9399fb1824b3538331a7f95340d3b8aeba5af3562df9f2bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/frizbee/blobs/sha256:58ac3c352bbb19390d250e6829e5b268a7e95277ffc22545b306e03f566cffde
+sha256:
+  darwin_arm64: 54dcefd9c3354478593515dd0936ee3701d233edabe7595becce20314c2e6745
+  darwin_amd64: 022944bb6501afcf31939f7098acb449e7f03e6b05d9e45133c257a5d66f7cc4
+  linux_amd64: 6faebec6de592e9c9399fb1824b3538331a7f95340d3b8aeba5af3562df9f2bf
+  linux_arm64: 58ac3c352bbb19390d250e6829e5b268a7e95277ffc22545b306e03f566cffde
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

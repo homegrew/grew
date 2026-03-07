@@ -1,0 +1,19 @@
+name: cql
+version: 0.8.1
+description: Decentralized SQL database with blockchain features
+homepage: https://covenantsql.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cql/blobs/sha256:b2ed7ce113b81fa92f86a376923fd42bd294320b892005b8996f8950fe40e19a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cql/blobs/sha256:09ba7649987d1e9ff1cf09c6a9f092fd2dad9f869e081a0f138f9b5cb6c40fc0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cql/blobs/sha256:35126cd0a047a47d7f08b3dc2a2967eee1d2263ef55c8eccafe4b4bfa9047385
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cql/blobs/sha256:954bda484c06dd6041bc1e3e0e8c582db2b0257060a4f457df0557f1c9f6c591
+sha256:
+  darwin_arm64: b2ed7ce113b81fa92f86a376923fd42bd294320b892005b8996f8950fe40e19a
+  darwin_amd64: 09ba7649987d1e9ff1cf09c6a9f092fd2dad9f869e081a0f138f9b5cb6c40fc0
+  linux_amd64: 35126cd0a047a47d7f08b3dc2a2967eee1d2263ef55c8eccafe4b4bfa9047385
+  linux_arm64: 954bda484c06dd6041bc1e3e0e8c582db2b0257060a4f457df0557f1c9f6c591
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

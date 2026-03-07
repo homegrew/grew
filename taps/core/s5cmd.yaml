@@ -1,0 +1,19 @@
+name: s5cmd
+version: 2.3.0
+description: Parallel S3 and local filesystem execution tool
+homepage: https://github.com/peak/s5cmd/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s5cmd/blobs/sha256:61627603298bb1a3eb5eaea5f87ccadd359fcce806e7d117e793dde778a2b70e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s5cmd/blobs/sha256:9c2d0641ad6fcef280e6120b699cd5118d123b797ab6c8106921573146d72070
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s5cmd/blobs/sha256:0fb0bbbf11a900fb389b607b57acbc203a50bff71b0913a66b6308e658913dee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s5cmd/blobs/sha256:1c432ef257a603688321325afb9306286106c6e9fa55cd1d104a743e267ce17e
+sha256:
+  darwin_arm64: 61627603298bb1a3eb5eaea5f87ccadd359fcce806e7d117e793dde778a2b70e
+  darwin_amd64: 9c2d0641ad6fcef280e6120b699cd5118d123b797ab6c8106921573146d72070
+  linux_amd64: 0fb0bbbf11a900fb389b607b57acbc203a50bff71b0913a66b6308e658913dee
+  linux_arm64: 1c432ef257a603688321325afb9306286106c6e9fa55cd1d104a743e267ce17e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

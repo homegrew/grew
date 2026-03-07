@@ -1,0 +1,19 @@
+name: sqsmover
+version: 0.4.0
+description: AWS SQS Message mover
+homepage: https://github.com/mercury2269/sqsmover
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqsmover/blobs/sha256:faceaa44808fd35b7d1131f1bda53f0390a814864185b8a16cb76d0531fd54af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqsmover/blobs/sha256:062f576571aefdfd34b9e5eb773b537b0f8b129c165814a3fc4d3ca74d2217c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqsmover/blobs/sha256:3d101d0f696e787fae56b2bf5ae24f85a64411b332fabc938fdd399377436b9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqsmover/blobs/sha256:2df5ac12c16115813738e4e198d711f296561be672730d6bb9802e8863d91b3b
+sha256:
+  darwin_arm64: faceaa44808fd35b7d1131f1bda53f0390a814864185b8a16cb76d0531fd54af
+  darwin_amd64: 062f576571aefdfd34b9e5eb773b537b0f8b129c165814a3fc4d3ca74d2217c9
+  linux_amd64: 3d101d0f696e787fae56b2bf5ae24f85a64411b332fabc938fdd399377436b9e
+  linux_arm64: 2df5ac12c16115813738e4e198d711f296561be672730d6bb9802e8863d91b3b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

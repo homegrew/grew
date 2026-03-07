@@ -1,0 +1,20 @@
+name: apr
+version: 1.7.6
+description: Apache Portable Runtime library
+homepage: https://apr.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apr/blobs/sha256:a8dbcf3f996ba1148b936081612ff5228cb4ba5a08de6635a695bd9ec6963266
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apr/blobs/sha256:fdf0f628598225db7ea43128abaf944011df61e2469811709c250607745b8570
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apr/blobs/sha256:a52537b5ff653a7c477dd67be99faeb1684d3002cd9afe6c24501118083a6154
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apr/blobs/sha256:ee70c4b7041ea9743a1f87c8c0c9dc14e7a3372ab5d5e073912913b83cf2bcc3
+sha256:
+  darwin_arm64: a8dbcf3f996ba1148b936081612ff5228cb4ba5a08de6635a695bd9ec6963266
+  darwin_amd64: fdf0f628598225db7ea43128abaf944011df61e2469811709c250607745b8570
+  linux_amd64: a52537b5ff653a7c477dd67be99faeb1684d3002cd9afe6c24501118083a6154
+  linux_arm64: ee70c4b7041ea9743a1f87c8c0c9dc14e7a3372ab5d5e073912913b83cf2bcc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

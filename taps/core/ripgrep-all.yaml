@@ -1,0 +1,21 @@
+name: ripgrep-all
+version: 0.10.10
+description: Wrapper around ripgrep that adds multiple rich file types
+homepage: https://github.com/phiresky/ripgrep-all
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ripgrep-all/blobs/sha256:6a9273f9063c28cf81ea8cc7c5149e587a68ee73ebe6a11ca8d5899ad97b05a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ripgrep-all/blobs/sha256:492ea96a51e34f1ecdba5c5da4c587324eb0c7e5959d4e493a663b528b5b885c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ripgrep-all/blobs/sha256:640b5394853bac77a1805e11518ab09d1623a8ff9dcacd161eabbacc4c46cd85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ripgrep-all/blobs/sha256:039158fe4635df5c4b1596be7d62d4e0177a8c3caa09bd1ba5a9715c1e3dab75
+sha256:
+  darwin_arm64: 6a9273f9063c28cf81ea8cc7c5149e587a68ee73ebe6a11ca8d5899ad97b05a3
+  darwin_amd64: 492ea96a51e34f1ecdba5c5da4c587324eb0c7e5959d4e493a663b528b5b885c
+  linux_amd64: 640b5394853bac77a1805e11518ab09d1623a8ff9dcacd161eabbacc4c46cd85
+  linux_arm64: 039158fe4635df5c4b1596be7d62d4e0177a8c3caa09bd1ba5a9715c1e3dab75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ripgrep

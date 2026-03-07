@@ -1,0 +1,19 @@
+name: murex
+version: 7.2.1001
+description: Bash-like shell designed for greater command-line productivity and safer scripts
+homepage: https://murex.rocks
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/murex/blobs/sha256:c3193c6beaeec3c1fe73f4248f0a805441fc01887da904b9c8f7c240dd1230bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/murex/blobs/sha256:29d298fbd80b86cbdc2c095152d0395363c624e0a13dee033026506f2c21f108
+  linux_amd64: https://ghcr.io/v2/homebrew/core/murex/blobs/sha256:8c08cad92194f238c4f3e5e7176a395a1cf74de294ea03aac04e2ddc29176319
+  linux_arm64: https://ghcr.io/v2/homebrew/core/murex/blobs/sha256:5f832eb214eb64fd60640fec5889c3b4458b0d68c1ef05616aa3889f315f29d2
+sha256:
+  darwin_arm64: c3193c6beaeec3c1fe73f4248f0a805441fc01887da904b9c8f7c240dd1230bf
+  darwin_amd64: 29d298fbd80b86cbdc2c095152d0395363c624e0a13dee033026506f2c21f108
+  linux_amd64: 8c08cad92194f238c4f3e5e7176a395a1cf74de294ea03aac04e2ddc29176319
+  linux_arm64: 5f832eb214eb64fd60640fec5889c3b4458b0d68c1ef05616aa3889f315f29d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

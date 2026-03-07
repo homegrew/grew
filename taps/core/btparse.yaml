@@ -1,0 +1,19 @@
+name: btparse
+version: 0.35
+description: BibTeX utility libraries
+homepage: https://metacpan.org/dist/Text-BibTeX/view/btparse/doc/btparse.pod
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/btparse/blobs/sha256:6bcfac3d46e83b1217a57419de338fbea65b77c71d9a4f6de49665990e93b746
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/btparse/blobs/sha256:2c03d25c93b9dd5a6ef76494499f0504d38fec90f3e098fced14b4f9b1bf0236
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btparse/blobs/sha256:eb28ef3caa60d179c008ab9fbd54395014c35119cb9b1c1f2168a3e6bde294d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btparse/blobs/sha256:a38cb6010173a8291ff7f70a323775f1131adfcdb6a755a7ebdf3e8269397353
+sha256:
+  darwin_arm64: 6bcfac3d46e83b1217a57419de338fbea65b77c71d9a4f6de49665990e93b746
+  darwin_amd64: 2c03d25c93b9dd5a6ef76494499f0504d38fec90f3e098fced14b4f9b1bf0236
+  linux_amd64: eb28ef3caa60d179c008ab9fbd54395014c35119cb9b1c1f2168a3e6bde294d0
+  linux_arm64: a38cb6010173a8291ff7f70a323775f1131adfcdb6a755a7ebdf3e8269397353
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

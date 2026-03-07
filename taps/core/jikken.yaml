@@ -1,0 +1,19 @@
+name: jikken
+version: 0.8.2
+description: Powerful, source control friendly REST API testing toolkit
+homepage: https://jikken.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jikken/blobs/sha256:51dae7617f9a5b1df1c6d7c1a560b941765566919af5bb0a542d9140fedeea3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jikken/blobs/sha256:11bd0cf32af6ea9f71290b1d4b286558e6c1844039bcac9c47a717ee635e4d7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jikken/blobs/sha256:21a00686c078cf599d5cdd70c453104551c618eb5390025ef30db5c24ad72ffc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jikken/blobs/sha256:0895649db77b4f15a4ef8486c389c85b3ef24a0299a9080f29a6e6627e68526a
+sha256:
+  darwin_arm64: 51dae7617f9a5b1df1c6d7c1a560b941765566919af5bb0a542d9140fedeea3b
+  darwin_amd64: 11bd0cf32af6ea9f71290b1d4b286558e6c1844039bcac9c47a717ee635e4d7a
+  linux_amd64: 21a00686c078cf599d5cdd70c453104551c618eb5390025ef30db5c24ad72ffc
+  linux_arm64: 0895649db77b4f15a4ef8486c389c85b3ef24a0299a9080f29a6e6627e68526a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

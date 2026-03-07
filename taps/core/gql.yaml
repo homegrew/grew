@@ -1,0 +1,19 @@
+name: gql
+version: 0.42.0
+description: Git Query language is a SQL like language to perform queries on .git files
+homepage: https://amrdeveloper.github.io/GQL/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gql/blobs/sha256:c5e0640d64a69213d98ab169ad270a65aaf9eac592f3ba39a9c60c70d72cb1a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gql/blobs/sha256:32025f8458ae44b5829df944629a83f509dbfe4cf2da3e191b76c84ac5402248
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gql/blobs/sha256:5832ff15ecfb174f7d8f0dafabdb110cc95442c907b5bc7aa4bc3f0ba2bc8005
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gql/blobs/sha256:973032c5c3e5cab53346f33279d249663cccc00cf53aaa0feaca6cee6ca998e0
+sha256:
+  darwin_arm64: c5e0640d64a69213d98ab169ad270a65aaf9eac592f3ba39a9c60c70d72cb1a1
+  darwin_amd64: 32025f8458ae44b5829df944629a83f509dbfe4cf2da3e191b76c84ac5402248
+  linux_amd64: 5832ff15ecfb174f7d8f0dafabdb110cc95442c907b5bc7aa4bc3f0ba2bc8005
+  linux_arm64: 973032c5c3e5cab53346f33279d249663cccc00cf53aaa0feaca6cee6ca998e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: clang-uml
+version: 0.6.2
+description: Customizable automatic UML diagram generator for C++ based on Clang
+homepage: https://github.com/bkryza/clang-uml
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clang-uml/blobs/sha256:09d6e2f4a448df8604d583726c4bc4fad23804c6cb3cb11bcdb4007ebdf2c71f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clang-uml/blobs/sha256:1ae21e3d38f4ed9136b5ce7f36690306581114f09412127ca984ef082e027668
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clang-uml/blobs/sha256:053e3c88b09c766f03ff7ce0068399201d1e4c5893f5bf4704f343414365e266
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clang-uml/blobs/sha256:ac1e9e7930ab31e993181bc157bca9c3492522181d20aa64e1a76afebe66139d
+sha256:
+  darwin_arm64: 09d6e2f4a448df8604d583726c4bc4fad23804c6cb3cb11bcdb4007ebdf2c71f
+  darwin_amd64: 1ae21e3d38f4ed9136b5ce7f36690306581114f09412127ca984ef082e027668
+  linux_amd64: 053e3c88b09c766f03ff7ce0068399201d1e4c5893f5bf4704f343414365e266
+  linux_arm64: ac1e9e7930ab31e993181bc157bca9c3492522181d20aa64e1a76afebe66139d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@21
+  - yaml-cpp

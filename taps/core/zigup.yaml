@@ -1,0 +1,19 @@
+name: zigup
+version: 2025.05.24
+description: Download and manage zig compilers
+homepage: https://github.com/marler8997/zigup
+license: MIT-0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zigup/blobs/sha256:50aaa33ea1e56a31d29c250dca2e9b0996a6d6ac61b80371dc29206764291574
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zigup/blobs/sha256:0e81b978cea25b90e8719244f50e0c4fca8aa4b7681154aaa864d2482f650337
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zigup/blobs/sha256:ec4689d639d16b0ddc595eeecf71a24209d8d91bd8a4ffbcdbe2b18e6025715a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zigup/blobs/sha256:452d30fb9c7f491fcfa34fb38b47f7b2134887bee6e5a5767e0a9a905030fe26
+sha256:
+  darwin_arm64: 50aaa33ea1e56a31d29c250dca2e9b0996a6d6ac61b80371dc29206764291574
+  darwin_amd64: 0e81b978cea25b90e8719244f50e0c4fca8aa4b7681154aaa864d2482f650337
+  linux_amd64: ec4689d639d16b0ddc595eeecf71a24209d8d91bd8a4ffbcdbe2b18e6025715a
+  linux_arm64: 452d30fb9c7f491fcfa34fb38b47f7b2134887bee6e5a5767e0a9a905030fe26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

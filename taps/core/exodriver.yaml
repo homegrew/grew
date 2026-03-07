@@ -1,0 +1,21 @@
+name: exodriver
+version: 2.7.0
+description: Thin interface to LabJack devices
+homepage: https://labjack.com/support/linux-and-mac-os-x-drivers
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exodriver/blobs/sha256:f23e8cc706eadf6f9d2c92ba45bda0a06c3606a0c613342d6159a9b9a3cd26ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exodriver/blobs/sha256:bc4979f9cb06b3bf093a6f7a5d60c2b372299c0c0dab38e24cb0833767f6b4bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exodriver/blobs/sha256:b69e819a81bb5dea9e4281eb7edd24d70409c8db75c2d6eeba1a9f90c24ebf3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exodriver/blobs/sha256:6e93c4b3daba5af22be68619dbdc877fe90d092abc29b5789d1afd2394e163bb
+sha256:
+  darwin_arm64: f23e8cc706eadf6f9d2c92ba45bda0a06c3606a0c613342d6159a9b9a3cd26ca
+  darwin_amd64: bc4979f9cb06b3bf093a6f7a5d60c2b372299c0c0dab38e24cb0833767f6b4bd
+  linux_amd64: b69e819a81bb5dea9e4281eb7edd24d70409c8db75c2d6eeba1a9f90c24ebf3b
+  linux_arm64: 6e93c4b3daba5af22be68619dbdc877fe90d092abc29b5789d1afd2394e163bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

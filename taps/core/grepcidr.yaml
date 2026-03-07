@@ -1,0 +1,19 @@
+name: grepcidr
+version: 2.0
+description: Filter IP addresses matching IPv4 CIDR/network specification
+homepage: https://www.pc-tools.net/unix/grepcidr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grepcidr/blobs/sha256:abdf37c44368707f096b0fe3d2b5bfab47418823ffc48cf5137e4efdd58670d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grepcidr/blobs/sha256:de6f7398f7c2d44c4a79db11ae161a193060590264dbe46bc912dc52c8e5b2ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grepcidr/blobs/sha256:cb0c1384a2e7e8c25c10ca2c767732ba49a4b57d7e2249ce415d11b76c4dadc0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grepcidr/blobs/sha256:09dad0097782fb44285be071fa851331a56913239bc33dd6c868e28a1e133a75
+sha256:
+  darwin_arm64: abdf37c44368707f096b0fe3d2b5bfab47418823ffc48cf5137e4efdd58670d3
+  darwin_amd64: de6f7398f7c2d44c4a79db11ae161a193060590264dbe46bc912dc52c8e5b2ac
+  linux_amd64: cb0c1384a2e7e8c25c10ca2c767732ba49a4b57d7e2249ce415d11b76c4dadc0
+  linux_arm64: 09dad0097782fb44285be071fa851331a56913239bc33dd6c868e28a1e133a75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

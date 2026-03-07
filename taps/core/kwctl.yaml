@@ -1,0 +1,19 @@
+name: kwctl
+version: 1.32.1
+description: CLI tool for the Kubewarden policy engine for Kubernetes
+homepage: https://www.kubewarden.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kwctl/blobs/sha256:4f7d1d4cae388baf1545e914df1b3a610cc9f3d2ff785490c0c77cf4612a9e01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kwctl/blobs/sha256:2688b7abc1d897d7f185e8d07c5191251d945636c559663b66c6fb141bb7f368
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kwctl/blobs/sha256:70c0e545e605128f4102b60c70808f26fd4354bb28c49afabe43c6ac532f1728
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kwctl/blobs/sha256:b8f200d70c1cc57e34797e90e7f4bfa33adcb92b3c0c020aeec9677dc9f7cbe0
+sha256:
+  darwin_arm64: 4f7d1d4cae388baf1545e914df1b3a610cc9f3d2ff785490c0c77cf4612a9e01
+  darwin_amd64: 2688b7abc1d897d7f185e8d07c5191251d945636c559663b66c6fb141bb7f368
+  linux_amd64: 70c0e545e605128f4102b60c70808f26fd4354bb28c49afabe43c6ac532f1728
+  linux_arm64: b8f200d70c1cc57e34797e90e7f4bfa33adcb92b3c0c020aeec9677dc9f7cbe0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

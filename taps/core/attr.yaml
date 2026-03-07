@@ -1,0 +1,15 @@
+name: attr
+version: 2.5.2
+description: Manipulate filesystem extended attributes
+homepage: https://savannah.nongnu.org/projects/attr
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/attr/blobs/sha256:80c103ddb53c169071d3995ac74c7e4cca59aeed6bea4e5444eac1026d380528
+  linux_arm64: https://ghcr.io/v2/homebrew/core/attr/blobs/sha256:6d22ffeb1ac124b47032e96cfc44264b228f3fcabe9746a426e46a5f7db45c3a
+sha256:
+  linux_amd64: 80c103ddb53c169071d3995ac74c7e4cca59aeed6bea4e5444eac1026d380528
+  linux_arm64: 6d22ffeb1ac124b47032e96cfc44264b228f3fcabe9746a426e46a5f7db45c3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

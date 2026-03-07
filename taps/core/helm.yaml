@@ -1,0 +1,19 @@
+name: helm
+version: 4.1.1
+description: Kubernetes package manager
+homepage: https://helm.sh/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helm/blobs/sha256:7ec266bf5667bdbc8d5a5878e54ce6c604dbd7cbc260e8f6452e2b820a16e737
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helm/blobs/sha256:b6e63ef368835b1a57db34faf9d890eb8c5f8f27f74c129f6b647b96536f8071
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helm/blobs/sha256:be9cd6c8eafc109065c7b532f0b6741677869115aff06fcc067bdf4aa507892b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helm/blobs/sha256:214fa8e3dbd0549bf98dbb81e22dd0a250c5e6d10ead046f1e7bf32432743d35
+sha256:
+  darwin_arm64: 7ec266bf5667bdbc8d5a5878e54ce6c604dbd7cbc260e8f6452e2b820a16e737
+  darwin_amd64: b6e63ef368835b1a57db34faf9d890eb8c5f8f27f74c129f6b647b96536f8071
+  linux_amd64: be9cd6c8eafc109065c7b532f0b6741677869115aff06fcc067bdf4aa507892b
+  linux_arm64: 214fa8e3dbd0549bf98dbb81e22dd0a250c5e6d10ead046f1e7bf32432743d35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: when
+version: 1.1.45
+description: Tiny personal calendar
+homepage: https://www.lightandmatter.com/when/when.html
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/when/blobs/sha256:fb5fab0bd5a3c23aaac7bc49bed557d69c6e71e9691d9f855c6a30386dbe7002
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/when/blobs/sha256:fe1d8aaf972d667b218d7698246ae443830139cb7bed81719a5c8a0bba8ed799
+  linux_amd64: https://ghcr.io/v2/homebrew/core/when/blobs/sha256:d49cbde109823dc26ff8f009d3ea47ec366f0fe459e3e36373797c486fc5ab08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/when/blobs/sha256:9c2be1a18694aca6968ccdba5d11fb8f6923a66c91f208ccec902b4bf51219c6
+sha256:
+  darwin_arm64: fb5fab0bd5a3c23aaac7bc49bed557d69c6e71e9691d9f855c6a30386dbe7002
+  darwin_amd64: fe1d8aaf972d667b218d7698246ae443830139cb7bed81719a5c8a0bba8ed799
+  linux_amd64: d49cbde109823dc26ff8f009d3ea47ec366f0fe459e3e36373797c486fc5ab08
+  linux_arm64: 9c2be1a18694aca6968ccdba5d11fb8f6923a66c91f208ccec902b4bf51219c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

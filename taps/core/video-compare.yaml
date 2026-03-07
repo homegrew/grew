@@ -1,0 +1,23 @@
+name: video-compare
+version: 20260214
+description: Split screen video comparison tool using FFmpeg and SDL2
+homepage: https://github.com/pixop/video-compare
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/video-compare/blobs/sha256:5c41f5c842cb6567fef3b2154d5cdd9d4a10c563b7a01b58322c28d0e2f6453d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/video-compare/blobs/sha256:1181845ab67d5049456f91e6bafc417846a7feb943c1ec321b4bdadbb04e1808
+  linux_amd64: https://ghcr.io/v2/homebrew/core/video-compare/blobs/sha256:396cd7cb97832f0b6b6c909a3c11bc4375b829023d30ccadea7d440a1cbdad9f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/video-compare/blobs/sha256:b4f980acf1739beb513ce8714e94e931bf8aa1044dff63c615dad82636201160
+sha256:
+  darwin_arm64: 5c41f5c842cb6567fef3b2154d5cdd9d4a10c563b7a01b58322c28d0e2f6453d
+  darwin_amd64: 1181845ab67d5049456f91e6bafc417846a7feb943c1ec321b4bdadbb04e1808
+  linux_amd64: 396cd7cb97832f0b6b6c909a3c11bc4375b829023d30ccadea7d440a1cbdad9f
+  linux_arm64: b4f980acf1739beb513ce8714e94e931bf8aa1044dff63c615dad82636201160
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - sdl2
+  - sdl2_ttf

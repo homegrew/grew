@@ -1,0 +1,26 @@
+name: vgmstream
+version: r2083
+description: Library for playing streamed audio formats from video games
+homepage: https://vgmstream.org
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vgmstream/blobs/sha256:47cf5a573445ed7c118cb0845334179d1654073ead9c6de4e9b7a7f9c69b535d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vgmstream/blobs/sha256:75160c8ac0aa21de83575798cb142b8de59ef744b3f7b94bcff921cb05e29830
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vgmstream/blobs/sha256:e62e644e31513b5e22ce38bf207cf2b6a7afc49bc0b489b047ed18f91aae75e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vgmstream/blobs/sha256:5f26317e486d5c7857d83a0bfca2b75d443f603003e7be18faec10abe45c2700
+sha256:
+  darwin_arm64: 47cf5a573445ed7c118cb0845334179d1654073ead9c6de4e9b7a7f9c69b535d
+  darwin_amd64: 75160c8ac0aa21de83575798cb142b8de59ef744b3f7b94bcff921cb05e29830
+  linux_amd64: e62e644e31513b5e22ce38bf207cf2b6a7afc49bc0b489b047ed18f91aae75e2
+  linux_arm64: 5f26317e486d5c7857d83a0bfca2b75d443f603003e7be18faec10abe45c2700
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - libao
+  - libvorbis
+  - mpg123
+  - speex
+  - libogg

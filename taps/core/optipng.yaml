@@ -1,0 +1,21 @@
+name: optipng
+version: 7.9.1
+description: PNG file optimizer
+homepage: https://optipng.sourceforge.net/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/optipng/blobs/sha256:7bc1a16e16342def4b3cb3264737beaa1319d6487d812066d341b2d7e7652512
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/optipng/blobs/sha256:fce585cdebd10bee1694e8b44078da666cd5d1459634f8ac22a8202711254a55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/optipng/blobs/sha256:a0d382808f584669781d2c1bdc4db551cad72e10408669a4618db0f2e3532a67
+  linux_arm64: https://ghcr.io/v2/homebrew/core/optipng/blobs/sha256:ad4fcb25fbeaa03ff1a1f53a22c4660ab127f14a6e2370814135bd645692500e
+sha256:
+  darwin_arm64: 7bc1a16e16342def4b3cb3264737beaa1319d6487d812066d341b2d7e7652512
+  darwin_amd64: fce585cdebd10bee1694e8b44078da666cd5d1459634f8ac22a8202711254a55
+  linux_amd64: a0d382808f584669781d2c1bdc4db551cad72e10408669a4618db0f2e3532a67
+  linux_arm64: ad4fcb25fbeaa03ff1a1f53a22c4660ab127f14a6e2370814135bd645692500e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

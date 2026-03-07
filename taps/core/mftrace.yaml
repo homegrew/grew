@@ -1,0 +1,24 @@
+name: mftrace
+version: 1.2.20
+description: Trace TeX bitmap font to PFA, PFB, or TTF font
+homepage: https://lilypond.org/mftrace/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mftrace/blobs/sha256:2d4dbf098949319339b846a75c34f03b67e6b9288be17881dc7a958e79d76000
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mftrace/blobs/sha256:bd534c47c1a7b6c0d8ede69c36d0334ea7ce6acb61b9e120cde5ce2a1ecb21e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mftrace/blobs/sha256:c2f5a4759a519ac0eb0ca66dca1ce9d57d096dcd55855b00c803fa02f9921358
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mftrace/blobs/sha256:99a63f01ac23f29dc26b14cd63a5f51bb0cdc489d3a902e3d376ae4c64662d87
+sha256:
+  darwin_arm64: 2d4dbf098949319339b846a75c34f03b67e6b9288be17881dc7a958e79d76000
+  darwin_amd64: bd534c47c1a7b6c0d8ede69c36d0334ea7ce6acb61b9e120cde5ce2a1ecb21e5
+  linux_amd64: c2f5a4759a519ac0eb0ca66dca1ce9d57d096dcd55855b00c803fa02f9921358
+  linux_arm64: 99a63f01ac23f29dc26b14cd63a5f51bb0cdc489d3a902e3d376ae4c64662d87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontforge
+  - potrace
+  - python@3.14
+  - t1utils

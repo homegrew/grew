@@ -1,0 +1,11 @@
+name: geoda
+version: 1.22.0.21,1.22.0
+description: Spatial analysis, statistics, autocorrelation and regression
+homepage: https://geodacenter.github.io/
+url:
+  darwin_arm64: https://github.com/GeoDaCenter/geoda/releases/download/v1.22.0.21/GeoDa-1.22.0-arm64-MacOS.zip
+sha256:
+  darwin_arm64: bb7858799c66786812cab6002f59f2b107bc2a62d7d2e5d11fb984f3746138e6
+artifacts:
+  app:
+    - GeoDa.app

@@ -1,0 +1,24 @@
+name: pake
+version: 3.10.0
+description: Turn any webpage into a desktop app with Rust with ease
+homepage: https://github.com/tw93/Pake
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pake/blobs/sha256:22e581a4e3383ba1e9f718cf1787b7ecce766314c01a3d036b4b75059d33d68e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pake/blobs/sha256:ada60913bdf6fbf2e4ca4cd252b60df7ac8b0323182d49e51f34e68fbf629a53
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pake/blobs/sha256:4b245c079db633e252e3efb8ea41cc78d9280bdbc7c99317e4404250958c10a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pake/blobs/sha256:1d7c16c9940c548902878ec97d27d602261859f0d96c6aebc7e5ad49798347be
+sha256:
+  darwin_arm64: 22e581a4e3383ba1e9f718cf1787b7ecce766314c01a3d036b4b75059d33d68e
+  darwin_amd64: ada60913bdf6fbf2e4ca4cd252b60df7ac8b0323182d49e51f34e68fbf629a53
+  linux_amd64: 4b245c079db633e252e3efb8ea41cc78d9280bdbc7c99317e4404250958c10a5
+  linux_arm64: 1d7c16c9940c548902878ec97d27d602261859f0d96c6aebc7e5ad49798347be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - pnpm
+  - rust
+  - vips

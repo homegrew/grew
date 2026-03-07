@@ -1,0 +1,27 @@
+name: llgo
+version: 0.12.2
+description: Go compiler based on LLVM integrate with the C ecosystem and Python
+homepage: https://github.com/goplus/llgo
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llgo/blobs/sha256:478656cf92824d87b7ba41a8d166eb01c523019c17e03b35d00daedd826e277a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llgo/blobs/sha256:e67804fb00af76fc2e147a801b2174ff89083008f401de1af3acc006d2c66c86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llgo/blobs/sha256:5aae678328b29b9217d6952fa1d8d4c0e23f51c63b3a6556fe3052c70e8d965e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llgo/blobs/sha256:d805ea8a6ec80bc309013a6860062c4e584a973cd876a9a289f408407e3633f0
+sha256:
+  darwin_arm64: 478656cf92824d87b7ba41a8d166eb01c523019c17e03b35d00daedd826e277a
+  darwin_amd64: e67804fb00af76fc2e147a801b2174ff89083008f401de1af3acc006d2c66c86
+  linux_amd64: 5aae678328b29b9217d6952fa1d8d4c0e23f51c63b3a6556fe3052c70e8d965e
+  linux_arm64: d805ea8a6ec80bc309013a6860062c4e584a973cd876a9a289f408407e3633f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - go@1.25
+  - libuv
+  - lld@19
+  - llvm@19
+  - openssl@3
+  - pkgconf

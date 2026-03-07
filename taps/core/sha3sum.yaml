@@ -1,0 +1,21 @@
+name: sha3sum
+version: 1.2.4
+description: Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities
+homepage: https://codeberg.org/maandree/sha3sum
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sha3sum/blobs/sha256:196e039dfd0a59bd58b165bb5750ca0d9aa61b3731f7186ebbf9c77a58af8f2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sha3sum/blobs/sha256:5e7ec33ae779d189b665a2d37c3f448cd881ab52b4463cacb78236df6aace2e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sha3sum/blobs/sha256:5067fd0fb3a94ea541cdb58f5a67e9eb1f6d5b0e84690c2d9460c9e05b5f85ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sha3sum/blobs/sha256:fb109976a8f23bd0cbf029c9d27a4e7aba8e932cf559a955deb52c1a38665d4e
+sha256:
+  darwin_arm64: 196e039dfd0a59bd58b165bb5750ca0d9aa61b3731f7186ebbf9c77a58af8f2b
+  darwin_amd64: 5e7ec33ae779d189b665a2d37c3f448cd881ab52b4463cacb78236df6aace2e5
+  linux_amd64: 5067fd0fb3a94ea541cdb58f5a67e9eb1f6d5b0e84690c2d9460c9e05b5f85ce
+  linux_arm64: fb109976a8f23bd0cbf029c9d27a4e7aba8e932cf559a955deb52c1a38665d4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libkeccak

@@ -1,0 +1,19 @@
+name: spaceinvaders-go
+version: 1.2.1
+description: Space Invaders in your terminal written in Go
+homepage: https://github.com/asib/spaceinvaders
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spaceinvaders-go/blobs/sha256:b15177ecf88a2b31fa74e3abd9a792f2762cc58b50d201f2f6423d3c53a45dc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spaceinvaders-go/blobs/sha256:c1079b76c7447a6cdcc7bc6cb67527602725828a8eb690582f07da939435d88e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spaceinvaders-go/blobs/sha256:4d2e59d2248dd8e1ce86416197eb5109f7c3c51d98b686517ce3d9fde948d572
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spaceinvaders-go/blobs/sha256:758693fc598848fccb124fed344f21e01a2f686e4883b312f26b83b809fa0fcd
+sha256:
+  darwin_arm64: b15177ecf88a2b31fa74e3abd9a792f2762cc58b50d201f2f6423d3c53a45dc7
+  darwin_amd64: c1079b76c7447a6cdcc7bc6cb67527602725828a8eb690582f07da939435d88e
+  linux_amd64: 4d2e59d2248dd8e1ce86416197eb5109f7c3c51d98b686517ce3d9fde948d572
+  linux_arm64: 758693fc598848fccb124fed344f21e01a2f686e4883b312f26b83b809fa0fcd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: lunasvg
+version: 3.5.0
+description: SVG rendering and manipulation library in C++
+homepage: https://github.com/sammycage/lunasvg
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lunasvg/blobs/sha256:3ba4d114606c7abb635b3520f37ec4cb4ddd24c921d5b01086cd2a0c9cbea447
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lunasvg/blobs/sha256:62a69aaf4f59fe8d216d7ba3d114613d13cca88fcc82d001c8302821e3d026e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lunasvg/blobs/sha256:3926b29e2b76ef27165734559a8f8cc6a6812be61e8c97c04055478e5fca7da9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lunasvg/blobs/sha256:cf5601203a5abc7c1b45ea80120d5a2f4e077cac9cb2f227929b67e14ef63cd3
+sha256:
+  darwin_arm64: 3ba4d114606c7abb635b3520f37ec4cb4ddd24c921d5b01086cd2a0c9cbea447
+  darwin_amd64: 62a69aaf4f59fe8d216d7ba3d114613d13cca88fcc82d001c8302821e3d026e4
+  linux_amd64: 3926b29e2b76ef27165734559a8f8cc6a6812be61e8c97c04055478e5fca7da9
+  linux_arm64: cf5601203a5abc7c1b45ea80120d5a2f4e077cac9cb2f227929b67e14ef63cd3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - plutovg

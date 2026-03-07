@@ -1,0 +1,19 @@
+name: t1lib
+version: 5.1.2
+description: C library to generate/rasterize bitmaps from Type 1 fonts
+homepage: https://www.t1lib.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/t1lib/blobs/sha256:8d2eebfeac867815095b36e655608d597e57085aaf03946b961fd50b551ba984
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/t1lib/blobs/sha256:aaa86e53a2f28e3edae8eaad292cbb7beddc1251160bc9d28b7d6ae09e4cae7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/t1lib/blobs/sha256:51b691773063f4f7c0e6cbfa5be259516c77ad7b1c52bb189d045b8056216bf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/t1lib/blobs/sha256:53645a5cb98164213a964a7f5f38412e4ce9290e83d6147cb5d2cdf676354869
+sha256:
+  darwin_arm64: 8d2eebfeac867815095b36e655608d597e57085aaf03946b961fd50b551ba984
+  darwin_amd64: aaa86e53a2f28e3edae8eaad292cbb7beddc1251160bc9d28b7d6ae09e4cae7e
+  linux_amd64: 51b691773063f4f7c0e6cbfa5be259516c77ad7b1c52bb189d045b8056216bf9
+  linux_arm64: 53645a5cb98164213a964a7f5f38412e4ce9290e83d6147cb5d2cdf676354869
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

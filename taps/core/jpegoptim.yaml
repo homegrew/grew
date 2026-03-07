@@ -1,0 +1,21 @@
+name: jpegoptim
+version: 1.5.6
+description: Utility to optimize JPEG files
+homepage: https://github.com/tjko/jpegoptim
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jpegoptim/blobs/sha256:17b597c1c3a8a0d3ed76c1b01e068e9922d0dc2242c92494e88ab25a53da0c76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jpegoptim/blobs/sha256:b2aafb2a469573baffe37024b1086c2b04512e2f3087c1c70100533e3733f866
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jpegoptim/blobs/sha256:44cf0605e6d6dc761b5e75770b2534c52da44bfdb0aa913d8841933aa7db35fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jpegoptim/blobs/sha256:bd0b242dd53f3b2bfce6c34f065b399ced6b8452225df225e1655c42cf848efd
+sha256:
+  darwin_arm64: 17b597c1c3a8a0d3ed76c1b01e068e9922d0dc2242c92494e88ab25a53da0c76
+  darwin_amd64: b2aafb2a469573baffe37024b1086c2b04512e2f3087c1c70100533e3733f866
+  linux_amd64: 44cf0605e6d6dc761b5e75770b2534c52da44bfdb0aa913d8841933aa7db35fb
+  linux_arm64: bd0b242dd53f3b2bfce6c34f065b399ced6b8452225df225e1655c42cf848efd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo

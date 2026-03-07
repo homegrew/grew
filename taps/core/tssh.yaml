@@ -1,0 +1,19 @@
+name: tssh
+version: 2.1.4
+description: SSH Lightweight management tools
+homepage: https://github.com/luanruisong/tssh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tssh/blobs/sha256:44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tssh/blobs/sha256:5810f3b875548a049e3b59dff22ef18114783a8875f7d83106dcfdde3e40cfad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tssh/blobs/sha256:d92a59eaf31856c56126a1cfda5fff069a1bb7d4c3e12af3ab20b6a0fc6cc035
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tssh/blobs/sha256:2bf2c612ad29cb9719d3afae93b87e2ed62fb14925b0777a4c4c00c94faf179f
+sha256:
+  darwin_arm64: 44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b
+  darwin_amd64: 5810f3b875548a049e3b59dff22ef18114783a8875f7d83106dcfdde3e40cfad
+  linux_amd64: d92a59eaf31856c56126a1cfda5fff069a1bb7d4c3e12af3ab20b6a0fc6cc035
+  linux_arm64: 2bf2c612ad29cb9719d3afae93b87e2ed62fb14925b0777a4c4c00c94faf179f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

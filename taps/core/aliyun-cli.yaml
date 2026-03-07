@@ -1,0 +1,19 @@
+name: aliyun-cli
+version: 3.2.12
+description: Universal Command-Line Interface for Alibaba Cloud
+homepage: https://github.com/aliyun/aliyun-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aliyun-cli/blobs/sha256:051b8300f79519cee7bd6b49e4a79217740bbf137cdc44b94e2d44084d8fbc0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aliyun-cli/blobs/sha256:88f8083efe9977aa607228fb8db66df9296b0299822c919d731619e5bd6a8d87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aliyun-cli/blobs/sha256:70465745f35ad5c630a8c3d7d3963172e057c5c68ffdd7c99b837a161afe2eaa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aliyun-cli/blobs/sha256:24d6dc717f88e741b549e80add0f0358a79fd3fa58548f84d628671b3cefb231
+sha256:
+  darwin_arm64: 051b8300f79519cee7bd6b49e4a79217740bbf137cdc44b94e2d44084d8fbc0e
+  darwin_amd64: 88f8083efe9977aa607228fb8db66df9296b0299822c919d731619e5bd6a8d87
+  linux_amd64: 70465745f35ad5c630a8c3d7d3963172e057c5c68ffdd7c99b837a161afe2eaa
+  linux_arm64: 24d6dc717f88e741b549e80add0f0358a79fd3fa58548f84d628671b3cefb231
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

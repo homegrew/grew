@@ -1,0 +1,22 @@
+name: s3fs
+version: 1.97
+description: FUSE-based file system backed by Amazon S3
+homepage: https://github.com/s3fs-fuse/s3fs-fuse/wiki
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s3fs/blobs/sha256:3fd8a38dd94f3523cfe03b544b4e12cd3dbfe724a34098c3e7373bbe799bee11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s3fs/blobs/sha256:98936a769c49e9d9d7fe5e654304a08906a4fd9276f507d468f1d667a016528a
+sha256:
+  linux_amd64: 3fd8a38dd94f3523cfe03b544b4e12cd3dbfe724a34098c3e7373bbe799bee11
+  linux_arm64: 98936a769c49e9d9d7fe5e654304a08906a4fd9276f507d468f1d667a016528a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - gnutls
+  - libfuse
+  - libgcrypt
+  - libxml2
+  - nettle

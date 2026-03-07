@@ -1,0 +1,21 @@
+name: minisign
+version: 0.12
+description: "Sign files & verify signatures. Works with signify in OpenBSD"
+homepage: https://jedisct1.github.io/minisign/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minisign/blobs/sha256:3978ab782bb253378c31e91a018a64f5ebffd3f7094f7a731e47b09ed1424123
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minisign/blobs/sha256:db969ba861eb8b3f5ffae7e2b4109005bdd423a3c91451b4676963bde403be13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minisign/blobs/sha256:8855baa30f090e94dce8a04af5f1e8e507e64a545ceb244c178934718b78cd36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minisign/blobs/sha256:a4d8961c5711101c3176712e1719b5ecb0df1c12533ab9afff6fe32d880ed390
+sha256:
+  darwin_arm64: 3978ab782bb253378c31e91a018a64f5ebffd3f7094f7a731e47b09ed1424123
+  darwin_amd64: db969ba861eb8b3f5ffae7e2b4109005bdd423a3c91451b4676963bde403be13
+  linux_amd64: 8855baa30f090e94dce8a04af5f1e8e507e64a545ceb244c178934718b78cd36
+  linux_arm64: a4d8961c5711101c3176712e1719b5ecb0df1c12533ab9afff6fe32d880ed390
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

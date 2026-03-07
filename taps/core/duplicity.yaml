@@ -1,0 +1,27 @@
+name: duplicity
+version: 3.0.7
+description: Bandwidth-efficient encrypted backup
+homepage: https://gitlab.com/duplicity/duplicity
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duplicity/blobs/sha256:bc0eb712ad7514dc84479250cd34c6902e18a877dfd729ad679d5b3f94349acd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duplicity/blobs/sha256:8adf270393e09a13ebba9b9ba7214c2ba2e1ae71b366cb0aa71c696dfabd8cb0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duplicity/blobs/sha256:523a2bb22913b0845e3431a0fd0f2a58823f926bc59266c99c016801733d8ec4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duplicity/blobs/sha256:453b984023f23f9da7e13e890cd2e6510f3b00daeeb4ebef68ec9ea279ebb395
+sha256:
+  darwin_arm64: bc0eb712ad7514dc84479250cd34c6902e18a877dfd729ad679d5b3f94349acd
+  darwin_amd64: 8adf270393e09a13ebba9b9ba7214c2ba2e1ae71b366cb0aa71c696dfabd8cb0
+  linux_amd64: 523a2bb22913b0845e3431a0fd0f2a58823f926bc59266c99c016801733d8ec4
+  linux_arm64: 453b984023f23f9da7e13e890cd2e6510f3b00daeeb4ebef68ec9ea279ebb395
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - gnupg
+  - librsync
+  - libsodium
+  - libyaml
+  - python@3.14

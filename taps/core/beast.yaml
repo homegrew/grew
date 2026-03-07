@@ -1,0 +1,22 @@
+name: beast
+version: 10.5.0
+description: Bayesian Evolutionary Analysis Sampling Trees
+homepage: https://beast.community/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beast/blobs/sha256:f6bea503ebf5a08dec482d702efc5deb9a582e508b02c0801676e5b12d81cc38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beast/blobs/sha256:26662c5e73e42985a75df7fb1fa10f74eff789aa3271daf497323c8c66725dee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beast/blobs/sha256:34a93fd16e042a40f5d18973a31931ea504884cacb750acaabb1772a891435d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beast/blobs/sha256:68647073986327f94f8ee9ec7e8d4b0e34cb8555378591e99e0ab19f480d9e83
+sha256:
+  darwin_arm64: f6bea503ebf5a08dec482d702efc5deb9a582e508b02c0801676e5b12d81cc38
+  darwin_amd64: 26662c5e73e42985a75df7fb1fa10f74eff789aa3271daf497323c8c66725dee
+  linux_amd64: 34a93fd16e042a40f5d18973a31931ea504884cacb750acaabb1772a891435d3
+  linux_arm64: 68647073986327f94f8ee9ec7e8d4b0e34cb8555378591e99e0ab19f480d9e83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - beagle
+  - openjdk

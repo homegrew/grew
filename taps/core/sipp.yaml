@@ -1,0 +1,21 @@
+name: sipp
+version: 3.7.7
+description: Traffic generator for the SIP protocol
+homepage: https://sipp.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sipp/blobs/sha256:c3e1fdb229aa351f03286bb7f0307bfbe3dcfbb3cd50682dc014fb4374ea440c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sipp/blobs/sha256:c1f171d277ff1e496f6ae2aa12b993748d2c753e8ca0f9f7313c491fd5052872
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sipp/blobs/sha256:52b6070f03dc92b92d250606b5d3f0fbc60f5b842425dcfc5d477367ba5dc8bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sipp/blobs/sha256:6d83356a09523afc89c2b77fb8eb86d63f19ae5e08cd6bad4fe3678a5b8c464a
+sha256:
+  darwin_arm64: c3e1fdb229aa351f03286bb7f0307bfbe3dcfbb3cd50682dc014fb4374ea440c
+  darwin_amd64: c1f171d277ff1e496f6ae2aa12b993748d2c753e8ca0f9f7313c491fd5052872
+  linux_amd64: 52b6070f03dc92b92d250606b5d3f0fbc60f5b842425dcfc5d477367ba5dc8bb
+  linux_arm64: 6d83356a09523afc89c2b77fb8eb86d63f19ae5e08cd6bad4fe3678a5b8c464a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

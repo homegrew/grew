@@ -1,0 +1,19 @@
+name: ucon64
+version: 2.2.2
+description: "ROM backup tool and emulator's Swiss Army knife program"
+homepage: https://ucon64.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ucon64/blobs/sha256:5f3fb969676e2ae50d11401a3b4da71df0a5e99adc037ba0f04fca6c9def11d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ucon64/blobs/sha256:9ca84df8b500fbee8ca081cfd47baf5b3f3f90cdf30fa3e208ec265b093b02c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ucon64/blobs/sha256:469604929938639dcb7d0f9e5e246c4a817cbaecdbd18ae797bd6ea32394b4f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ucon64/blobs/sha256:68ab6314679f0e61da877eebbeb975f14395a331897ae1c5422e8b28b1ad8682
+sha256:
+  darwin_arm64: 5f3fb969676e2ae50d11401a3b4da71df0a5e99adc037ba0f04fca6c9def11d7
+  darwin_amd64: 9ca84df8b500fbee8ca081cfd47baf5b3f3f90cdf30fa3e208ec265b093b02c9
+  linux_amd64: 469604929938639dcb7d0f9e5e246c4a817cbaecdbd18ae797bd6ea32394b4f6
+  linux_arm64: 68ab6314679f0e61da877eebbeb975f14395a331897ae1c5422e8b28b1ad8682
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

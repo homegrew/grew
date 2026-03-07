@@ -1,0 +1,22 @@
+name: openiked
+version: 7.4
+description: IKEv2 daemon - portable version of OpenBSD iked
+homepage: https://openiked.org
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openiked/blobs/sha256:389a513ece12bdc1424bfd0413472870c92b2591d92f4e4fa5c11fbcd97ca0ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openiked/blobs/sha256:0fc6152ed7bab0d78931c74a821e771ac561b54b8a8735885cbef6707d4f01b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openiked/blobs/sha256:4d42194f764e5ed3cf329655303362999b79fb5350646e57df381c1ecd419c8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openiked/blobs/sha256:96d79b9b681bb06ede6d673219578710236f9547f28892fee23f5b38e9a269c0
+sha256:
+  darwin_arm64: 389a513ece12bdc1424bfd0413472870c92b2591d92f4e4fa5c11fbcd97ca0ea
+  darwin_amd64: 0fc6152ed7bab0d78931c74a821e771ac561b54b8a8735885cbef6707d4f01b8
+  linux_amd64: 4d42194f764e5ed3cf329655303362999b79fb5350646e57df381c1ecd419c8a
+  linux_arm64: 96d79b9b681bb06ede6d673219578710236f9547f28892fee23f5b38e9a269c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - openssl@3

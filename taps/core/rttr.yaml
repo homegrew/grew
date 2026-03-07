@@ -1,0 +1,19 @@
+name: rttr
+version: 0.9.6
+description: C++ Reflection Library
+homepage: https://www.rttr.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rttr/blobs/sha256:b7fbefc620c98f69bcb1b28040e8e12b972b59a462d6e0155eab4f9d962fe156
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rttr/blobs/sha256:79a60c3feaa552808753851ac7a5ee7c48d62160b17e3133d9ceea36a0288769
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rttr/blobs/sha256:2773d72369cd12e7ab3c26af035f13a68e908fbd69a0faad42e54d3185d25097
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rttr/blobs/sha256:c467dad3aa2b7d571f87ce82afa6e62afcfb128b4fefeb8a1a4e0914b0def40d
+sha256:
+  darwin_arm64: b7fbefc620c98f69bcb1b28040e8e12b972b59a462d6e0155eab4f9d962fe156
+  darwin_amd64: 79a60c3feaa552808753851ac7a5ee7c48d62160b17e3133d9ceea36a0288769
+  linux_amd64: 2773d72369cd12e7ab3c26af035f13a68e908fbd69a0faad42e54d3185d25097
+  linux_arm64: c467dad3aa2b7d571f87ce82afa6e62afcfb128b4fefeb8a1a4e0914b0def40d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

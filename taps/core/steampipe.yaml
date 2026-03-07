@@ -1,0 +1,19 @@
+name: steampipe
+version: 2.4.0
+description: Use SQL to instantly query your cloud services
+homepage: https://steampipe.io/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/steampipe/blobs/sha256:6d71e8de79941dbae4d3c6c67252e0fdda2e7dcd17ff94aa8f666080f5be1ed6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/steampipe/blobs/sha256:7e6720265404bdbae626b50fc303fc1baffac23fa0e077ca419b308af5e4010a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/steampipe/blobs/sha256:55987709cb69431e75f9c62e3f223dde0ec8c2ccacfe77728f699cd065f90532
+  linux_arm64: https://ghcr.io/v2/homebrew/core/steampipe/blobs/sha256:32a34ed171a2ca4088543d6b80965664f1815812b97ad1beb82896be1a65ca53
+sha256:
+  darwin_arm64: 6d71e8de79941dbae4d3c6c67252e0fdda2e7dcd17ff94aa8f666080f5be1ed6
+  darwin_amd64: 7e6720265404bdbae626b50fc303fc1baffac23fa0e077ca419b308af5e4010a
+  linux_amd64: 55987709cb69431e75f9c62e3f223dde0ec8c2ccacfe77728f699cd065f90532
+  linux_arm64: 32a34ed171a2ca4088543d6b80965664f1815812b97ad1beb82896be1a65ca53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: jamovi
+version: 2.7.23.0
+description: Statistical software
+homepage: https://www.jamovi.org/
+url:
+  darwin_arm64: https://www.jamovi.org/downloads/jamovi-2.7.23.0-macos-arm64.dmg
+sha256:
+  darwin_arm64: d772b80766dcb6db58d30c9e3f24dd4e4a22c1acb58a4d0980b8f32cc7c9b1a9
+artifacts:
+  app:
+    - jamovi.app

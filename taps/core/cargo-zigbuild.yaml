@@ -1,0 +1,21 @@
+name: cargo-zigbuild
+version: 0.22.1
+description: Compile Cargo project with zig as linker
+homepage: https://github.com/rust-cross/cargo-zigbuild
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-zigbuild/blobs/sha256:af5da4384db197c4fd9f58afcd0bca36e7442b20785646256bd76444d4b937e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-zigbuild/blobs/sha256:656140a8d2f8aef82f7b26d218b0125c69a560778fe3fa98232201da85a76b7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-zigbuild/blobs/sha256:72ae5f06dc175d78a1321050436e69a2eef38189be77b3086f82d63f52b839aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-zigbuild/blobs/sha256:71bcb6c332959f1802a65ce1113239c771841148ddde49ce64d4e1edac40f642
+sha256:
+  darwin_arm64: af5da4384db197c4fd9f58afcd0bca36e7442b20785646256bd76444d4b937e3
+  darwin_amd64: 656140a8d2f8aef82f7b26d218b0125c69a560778fe3fa98232201da85a76b7b
+  linux_amd64: 72ae5f06dc175d78a1321050436e69a2eef38189be77b3086f82d63f52b839aa
+  linux_arm64: 71bcb6c332959f1802a65ce1113239c771841148ddde49ce64d4e1edac40f642
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zig

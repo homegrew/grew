@@ -1,0 +1,19 @@
+name: havener
+version: 2.2.7
+description: Swiss army knife for Kubernetes tasks
+homepage: https://github.com/homeport/havener
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/havener/blobs/sha256:4397c0d71d256f7b8421d9594c5ee43c4f13b36b55bd54321537a24377b92545
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/havener/blobs/sha256:532bac41859f345e8109fbf42e907252e63baab9898ae6254f626119b6fc8d6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/havener/blobs/sha256:14c8e859323222fd570e03f56edd2290754bfdc6740c1f3de551683945967cf9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/havener/blobs/sha256:75dba74d30e26878c3c1640d43bfd02fc403d45b5292f52d19288da461cb3ab0
+sha256:
+  darwin_arm64: 4397c0d71d256f7b8421d9594c5ee43c4f13b36b55bd54321537a24377b92545
+  darwin_amd64: 532bac41859f345e8109fbf42e907252e63baab9898ae6254f626119b6fc8d6a
+  linux_amd64: 14c8e859323222fd570e03f56edd2290754bfdc6740c1f3de551683945967cf9
+  linux_arm64: 75dba74d30e26878c3c1640d43bfd02fc403d45b5292f52d19288da461cb3ab0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

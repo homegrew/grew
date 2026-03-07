@@ -1,0 +1,19 @@
+name: versitygw
+version: 1.3.1
+description: Versity S3 Gateway
+homepage: https://www.versity.com/products/versitygw/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/versitygw/blobs/sha256:f37e0dd51c3c2d0628f2ac32e748a81ea1a132978e6dfd782ac769a644a5919a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/versitygw/blobs/sha256:751102a110a45752b39419d46ad36466995a3fdf6320e365c9f8584f0867d319
+  linux_amd64: https://ghcr.io/v2/homebrew/core/versitygw/blobs/sha256:baa9962f4b13f88f3142854cc1680d4dbb74a7cbafd94f11325bb302a4569181
+  linux_arm64: https://ghcr.io/v2/homebrew/core/versitygw/blobs/sha256:be55a808564c07ebe5c8264f3272dfeaa5fc472e83af2bc30d2f766dd5cac9ed
+sha256:
+  darwin_arm64: f37e0dd51c3c2d0628f2ac32e748a81ea1a132978e6dfd782ac769a644a5919a
+  darwin_amd64: 751102a110a45752b39419d46ad36466995a3fdf6320e365c9f8584f0867d319
+  linux_amd64: baa9962f4b13f88f3142854cc1680d4dbb74a7cbafd94f11325bb302a4569181
+  linux_arm64: be55a808564c07ebe5c8264f3272dfeaa5fc472e83af2bc30d2f766dd5cac9ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: beanstalkd
+version: 1.13
+description: Generic work queue originally designed to reduce web latency
+homepage: https://beanstalkd.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beanstalkd/blobs/sha256:3822e7705185398f263482d69e922ffee29ccc195eb491bcc765a020ac6728ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beanstalkd/blobs/sha256:22599c35be1743c9dcb52fcf32aa04a2647ec8853857afbc6c2854e7b1d5c571
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beanstalkd/blobs/sha256:e523cebb72efcd0e73c3c11cbf695f6b0a3486894b9c6f6ea4c7590dc6a59a77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beanstalkd/blobs/sha256:3992100979d75afc23d85cdff92fbb3d0f2d662c0e5cb0ea3d5ed6b13aeb4533
+sha256:
+  darwin_arm64: 3822e7705185398f263482d69e922ffee29ccc195eb491bcc765a020ac6728ac
+  darwin_amd64: 22599c35be1743c9dcb52fcf32aa04a2647ec8853857afbc6c2854e7b1d5c571
+  linux_amd64: e523cebb72efcd0e73c3c11cbf695f6b0a3486894b9c6f6ea4c7590dc6a59a77
+  linux_arm64: 3992100979d75afc23d85cdff92fbb3d0f2d662c0e5cb0ea3d5ed6b13aeb4533
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

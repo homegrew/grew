@@ -1,0 +1,22 @@
+name: gom
+version: 0.5.6
+description: GObject wrapper around SQLite
+homepage: https://wiki.gnome.org/Projects/Gom
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gom/blobs/sha256:511ed8f353a51336ea55364d8cd3fd626ecb5f6d04f91d7cfc0c23be3b0fb04b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gom/blobs/sha256:d560aa062fcbb20f4a5085682fa3f862b6dca8c30eb21b562418e7e83965634c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gom/blobs/sha256:028268f8e15073088bd20359757d2436a43e0b018d07f44b9ff3d25c6a6eeacc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gom/blobs/sha256:c1131eafb65f0da08a9e3d1d63ff1b00e9caaf801bbd1ed5ce94f6d3b840c79d
+sha256:
+  darwin_arm64: 511ed8f353a51336ea55364d8cd3fd626ecb5f6d04f91d7cfc0c23be3b0fb04b
+  darwin_amd64: d560aa062fcbb20f4a5085682fa3f862b6dca8c30eb21b562418e7e83965634c
+  linux_amd64: 028268f8e15073088bd20359757d2436a43e0b018d07f44b9ff3d25c6a6eeacc
+  linux_arm64: c1131eafb65f0da08a9e3d1d63ff1b00e9caaf801bbd1ed5ce94f6d3b840c79d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - sqlite

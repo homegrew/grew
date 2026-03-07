@@ -1,0 +1,19 @@
+name: sq
+version: 0.50.0
+description: Data wrangler with jq-like query language
+homepage: https://sq.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sq/blobs/sha256:bcffc70c1e0315e1999e72b9258ae407f14114d42c889a8296ceaa939d713790
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sq/blobs/sha256:0c2b647d37e86459440eda9fcc06eb1cd859d0f51e73809a42c4eb568a20f050
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sq/blobs/sha256:18535bbeebdd4f659dd4e9074f351f046fe105f4849a0b03b3650337bb3acfd8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sq/blobs/sha256:dddf64c8ad704a8d410c384489d8e5b24940e095c6f8db6b3693fdf41150bca5
+sha256:
+  darwin_arm64: bcffc70c1e0315e1999e72b9258ae407f14114d42c889a8296ceaa939d713790
+  darwin_amd64: 0c2b647d37e86459440eda9fcc06eb1cd859d0f51e73809a42c4eb568a20f050
+  linux_amd64: 18535bbeebdd4f659dd4e9074f351f046fe105f4849a0b03b3650337bb3acfd8
+  linux_arm64: dddf64c8ad704a8d410c384489d8e5b24940e095c6f8db6b3693fdf41150bca5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

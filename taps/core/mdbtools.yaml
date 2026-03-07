@@ -1,0 +1,23 @@
+name: mdbtools
+version: 1.0.1
+description: Tools to facilitate the use of Microsoft Access databases
+homepage: https://github.com/mdbtools/mdbtools/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdbtools/blobs/sha256:5469dde016c654a16a39ccda261395dfc81bd033600fd826250a80f424d9fc8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdbtools/blobs/sha256:49722390bf0230475a1261a0c10d90540b6ff056a07c54b74680eab7276c3a04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdbtools/blobs/sha256:0e2ca3b97c784e7ce3e9d42e0bf58e15816b94944f2686c41d6ec698fc50ca0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdbtools/blobs/sha256:1d367189a2aadd23bfe3dcc0aa062cb780d2ac8a6fa4d51a8b30b7f6d9486fa3
+sha256:
+  darwin_arm64: 5469dde016c654a16a39ccda261395dfc81bd033600fd826250a80f424d9fc8f
+  darwin_amd64: 49722390bf0230475a1261a0c10d90540b6ff056a07c54b74680eab7276c3a04
+  linux_amd64: 0e2ca3b97c784e7ce3e9d42e0bf58e15816b94944f2686c41d6ec698fc50ca0f
+  linux_arm64: 1d367189a2aadd23bfe3dcc0aa062cb780d2ac8a6fa4d51a8b30b7f6d9486fa3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - readline
+  - gettext

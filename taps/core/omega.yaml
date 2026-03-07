@@ -1,0 +1,23 @@
+name: omega
+version: 1.4.31
+description: Packaged search engine for websites, built on top of Xapian
+homepage: https://xapian.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/omega/blobs/sha256:cee10369fe7fee6df22ca0aa69a14c71d4c8268b9bf71da6439f663929dd635d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/omega/blobs/sha256:2e86d65f179c025508632fea7a415bfa07283748e9bb0efb1e2f2909e431d7d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/omega/blobs/sha256:29f27f623abb65bcbe5a2715cb6e9d2a21b802df6e58bf7bcc5f92d797caf02a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/omega/blobs/sha256:9eeef925be6b3e3406591605fc0d230a1314be3bfa74f62061003fa4d13e4430
+sha256:
+  darwin_arm64: cee10369fe7fee6df22ca0aa69a14c71d4c8268b9bf71da6439f663929dd635d
+  darwin_amd64: 2e86d65f179c025508632fea7a415bfa07283748e9bb0efb1e2f2909e431d7d2
+  linux_amd64: 29f27f623abb65bcbe5a2715cb6e9d2a21b802df6e58bf7bcc5f92d797caf02a
+  linux_arm64: 9eeef925be6b3e3406591605fc0d230a1314be3bfa74f62061003fa4d13e4430
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - pcre2
+  - xapian

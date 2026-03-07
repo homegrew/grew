@@ -1,0 +1,21 @@
+name: jxl-oxide
+version: 0.12.5
+description: JPEG XL decoder
+homepage: https://github.com/tirr-c/jxl-oxide
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jxl-oxide/blobs/sha256:0a70deb73144f8230c8419e5956efc63c7f6d37a3a8335b91edae15a288f08c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jxl-oxide/blobs/sha256:4c04da909ff3a4bcae66bc39add9bf4ada194de1f69ac2d426673c7adcc868cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jxl-oxide/blobs/sha256:e2fa84c2b09c8b447c2ee868dccf242ac765e9b9a20a8ac6802bc720dcf7e76f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jxl-oxide/blobs/sha256:e61191f5aef0fa9c2c012460d7f8ab06fd80d91095df08fd2f5202070d1a0958
+sha256:
+  darwin_arm64: 0a70deb73144f8230c8419e5956efc63c7f6d37a3a8335b91edae15a288f08c0
+  darwin_amd64: 4c04da909ff3a4bcae66bc39add9bf4ada194de1f69ac2d426673c7adcc868cd
+  linux_amd64: e2fa84c2b09c8b447c2ee868dccf242ac765e9b9a20a8ac6802bc720dcf7e76f
+  linux_arm64: e61191f5aef0fa9c2c012460d7f8ab06fd80d91095df08fd2f5202070d1a0958
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - little-cms2

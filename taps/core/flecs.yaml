@@ -1,0 +1,19 @@
+name: flecs
+version: 4.1.4
+description: "Fast entity component system for C & C++"
+homepage: https://www.flecs.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flecs/blobs/sha256:1948ed7316bb35b72c97963a91e5b63283b3ab29d15d6142eec5a58aaa584b64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flecs/blobs/sha256:6575962e5371627197bccaeea24a6ee2ee43222068dac476b1bf2d69e354a187
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flecs/blobs/sha256:61397dd0b15abb4d5656cc819bf676d39e8d2043156baca646ffb5e8e11b8599
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flecs/blobs/sha256:e9a05018d389b69b91b4d5cdc506e99a77ada22faa368c987ce4038eadccc4ae
+sha256:
+  darwin_arm64: 1948ed7316bb35b72c97963a91e5b63283b3ab29d15d6142eec5a58aaa584b64
+  darwin_amd64: 6575962e5371627197bccaeea24a6ee2ee43222068dac476b1bf2d69e354a187
+  linux_amd64: 61397dd0b15abb4d5656cc819bf676d39e8d2043156baca646ffb5e8e11b8599
+  linux_arm64: e9a05018d389b69b91b4d5cdc506e99a77ada22faa368c987ce4038eadccc4ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: glider
+version: 0.16.4
+description: Forward proxy with multiple protocols support
+homepage: https://github.com/nadoo/glider
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glider/blobs/sha256:e40af9870b9ee99ab0c80b8dae8d4d751e8c19f6f8bb09dbc4349f69c3d7158d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glider/blobs/sha256:2cadbadff220b62c8c07db3672aea7160407b5b3e4f0b06e73cfc55285c6125a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glider/blobs/sha256:66726d56a1303bd8f9aa06a36ae3694630a7ec53cf084dbf060ecfff2485767b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glider/blobs/sha256:589ee7459491b0c33f29de22537c31bd4ed337c34424c2d9a8681c03d109b925
+sha256:
+  darwin_arm64: e40af9870b9ee99ab0c80b8dae8d4d751e8c19f6f8bb09dbc4349f69c3d7158d
+  darwin_amd64: 2cadbadff220b62c8c07db3672aea7160407b5b3e4f0b06e73cfc55285c6125a
+  linux_amd64: 66726d56a1303bd8f9aa06a36ae3694630a7ec53cf084dbf060ecfff2485767b
+  linux_arm64: 589ee7459491b0c33f29de22537c31bd4ed337c34424c2d9a8681c03d109b925
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cargo-fuzz
+version: 0.13.1
+description: Command-line helpers for fuzzing
+homepage: https://rust-fuzz.github.io/book/cargo-fuzz.html
+license: Apache-2.0 AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-fuzz/blobs/sha256:2d9d7d1111688f24dcda6cbc4daa6cd6a7bdbf7a24409c06dd83d2e55248c8fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-fuzz/blobs/sha256:893e1c8a1a414cb0c30e0a16a6b6b5d682e499463f53a74e15b243e958f84c89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-fuzz/blobs/sha256:0be5af994689c2d68c333c0a97d5e2b71e1f2efee008131929a92cc76f097fb5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-fuzz/blobs/sha256:831f04c442358ca91759ab573aa45d5fbb9d0a4363e82e079cd5dcb24dcd26f6
+sha256:
+  darwin_arm64: 2d9d7d1111688f24dcda6cbc4daa6cd6a7bdbf7a24409c06dd83d2e55248c8fb
+  darwin_amd64: 893e1c8a1a414cb0c30e0a16a6b6b5d682e499463f53a74e15b243e958f84c89
+  linux_amd64: 0be5af994689c2d68c333c0a97d5e2b71e1f2efee008131929a92cc76f097fb5
+  linux_arm64: 831f04c442358ca91759ab573aa45d5fbb9d0a4363e82e079cd5dcb24dcd26f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

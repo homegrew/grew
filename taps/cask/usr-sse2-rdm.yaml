@@ -1,0 +1,11 @@
+name: usr-sse2-rdm
+version: 2.5.0
+description: Set a Retina display to custom resolutions
+homepage: https://github.com/usr-sse2/RDM
+url:
+  darwin_arm64: https://github.com/usr-sse2/RDM/releases/download/2.5.0/RDM.zip
+sha256:
+  darwin_arm64: 9d583e43742018e45bad79c8af9e0accec6b6a10d94c60ac7d31721bbb3c237e
+artifacts:
+  app:
+    - RDM.app

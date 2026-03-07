@@ -1,0 +1,19 @@
+name: id3lib
+version: 3.8.3
+description: ID3 tag manipulation
+homepage: https://id3lib.sourceforge.net/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/id3lib/blobs/sha256:c32250cc13c45be4e25507819ad3fb788b3031ad781d97b61bb721c95e6001f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/id3lib/blobs/sha256:9cdc748bec10b52b864e3201a1ab0d1660fb92827b1587610e008b85a272b495
+  linux_amd64: https://ghcr.io/v2/homebrew/core/id3lib/blobs/sha256:6b2b224334a73c8dd5e56bf5b8ff37d5e82fd02a700a62c13bc149ad5f8493f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/id3lib/blobs/sha256:b2fc13b429cf5142874639c62498f0311474c8d09ff3aaed76843704359d82d6
+sha256:
+  darwin_arm64: c32250cc13c45be4e25507819ad3fb788b3031ad781d97b61bb721c95e6001f3
+  darwin_amd64: 9cdc748bec10b52b864e3201a1ab0d1660fb92827b1587610e008b85a272b495
+  linux_amd64: 6b2b224334a73c8dd5e56bf5b8ff37d5e82fd02a700a62c13bc149ad5f8493f6
+  linux_arm64: b2fc13b429cf5142874639c62498f0311474c8d09ff3aaed76843704359d82d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

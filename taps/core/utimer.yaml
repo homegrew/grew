@@ -1,0 +1,22 @@
+name: utimer
+version: 0.4
+description: Multifunction timer tool
+homepage: https://launchpad.net/utimer
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/utimer/blobs/sha256:e23eb9898bf6490db8dab00ca39f6c2b2e90fd358c3049e1f36a0c637ca06b6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/utimer/blobs/sha256:db50a4407088f9b9e67399934093cfd7fd5e703658176f07264f1555c9a42300
+  linux_amd64: https://ghcr.io/v2/homebrew/core/utimer/blobs/sha256:a44f6b1ef51bbbb0a61411585f06bc0d7e9d94083b04c11802f26ba2b2f36d8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/utimer/blobs/sha256:afd0dd70f2d6382759333b763d794b5f309ecb15f48e5228f4df6c00787414f2
+sha256:
+  darwin_arm64: e23eb9898bf6490db8dab00ca39f6c2b2e90fd358c3049e1f36a0c637ca06b6c
+  darwin_amd64: db50a4407088f9b9e67399934093cfd7fd5e703658176f07264f1555c9a42300
+  linux_amd64: a44f6b1ef51bbbb0a61411585f06bc0d7e9d94083b04c11802f26ba2b2f36d8e
+  linux_arm64: afd0dd70f2d6382759333b763d794b5f309ecb15f48e5228f4df6c00787414f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

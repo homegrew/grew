@@ -1,0 +1,11 @@
+name: gswitch
+version: 1.9.7
+description: Set which graphics card to use
+homepage: https://codyschrank.github.io/gSwitch/
+url:
+  darwin_arm64: https://github.com/CodySchrank/gSwitch/releases/download/1.9.7/gSwitch.zip
+sha256:
+  darwin_arm64: 5d212c1bd39f6bfae588797fa09b959051dc4eefd26ec05fbd26b798125b976a
+artifacts:
+  app:
+    - gSwitch.app

@@ -1,0 +1,21 @@
+name: haiti
+version: 4.0.0
+description: Hash type identifier
+homepage: https://noraj.github.io/haiti/#/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/haiti/blobs/sha256:ef09a5e3923e7e0ba00693183a5668851a36f8e47e768f13a5180132800568c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/haiti/blobs/sha256:2da2d09fcb8c96f0c3d84a39a8fc828203e78f7481ae0d5b13ef6092fa90ffba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/haiti/blobs/sha256:ca7559ce9ec6e944ce9516dfc68d0c9b19d01ad85b10604df164080ab280ba9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/haiti/blobs/sha256:067e1f33aede4a03ec15b5eed62e99079e842deca55926c36671efd0286c11fc
+sha256:
+  darwin_arm64: ef09a5e3923e7e0ba00693183a5668851a36f8e47e768f13a5180132800568c9
+  darwin_amd64: 2da2d09fcb8c96f0c3d84a39a8fc828203e78f7481ae0d5b13ef6092fa90ffba
+  linux_amd64: ca7559ce9ec6e944ce9516dfc68d0c9b19d01ad85b10604df164080ab280ba9a
+  linux_arm64: 067e1f33aede4a03ec15b5eed62e99079e842deca55926c36671efd0286c11fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

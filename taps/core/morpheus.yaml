@@ -1,0 +1,26 @@
+name: morpheus
+version: 2.3.10
+description: Modeling environment for multi-cellular systems biology
+homepage: https://morpheus.gitlab.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/morpheus/blobs/sha256:952cc824b7ea0a9ed9e82fdababc494f9bd6363f4316d8664e3a0318d40b8278
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/morpheus/blobs/sha256:368f285705c7c0689022b250de7b3a8c0b5dc87fc59d60006261da563c8039d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/morpheus/blobs/sha256:a10f7f2dae6692c6cefeef44e413a5e10cf65c9f439caa3bcc76bccc8271e91a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/morpheus/blobs/sha256:c37d67c8742447e3c169dd2c237d7bd9b1482b6c8877e0b77ffb54e648102cb4
+sha256:
+  darwin_arm64: 952cc824b7ea0a9ed9e82fdababc494f9bd6363f4316d8664e3a0318d40b8278
+  darwin_amd64: 368f285705c7c0689022b250de7b3a8c0b5dc87fc59d60006261da563c8039d8
+  linux_amd64: a10f7f2dae6692c6cefeef44e413a5e10cf65c9f439caa3bcc76bccc8271e91a
+  linux_arm64: c37d67c8742447e3c169dd2c237d7bd9b1482b6c8877e0b77ffb54e648102cb4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - ffmpeg
+  - graphviz
+  - libtiff
+  - qt@5
+  - libomp

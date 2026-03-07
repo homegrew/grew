@@ -1,0 +1,23 @@
+name: streamripper
+version: 1.64.6
+description: Separate tracks via Shoutcasts title-streaming
+homepage: https://streamripper.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/streamripper/blobs/sha256:f0f900d7d9b50f242d815eb6826684b2e6d2c76f7a3bc58f08ce6f06cd1302aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/streamripper/blobs/sha256:b193b872eaa4c70fa51fd38c22c378e0143a275a268ddcfcb5721045b2637235
+  linux_amd64: https://ghcr.io/v2/homebrew/core/streamripper/blobs/sha256:0e98a61e5ba076e3a325d7df46e9ec8d90104f15acc1ac302d6307ba984eb053
+  linux_arm64: https://ghcr.io/v2/homebrew/core/streamripper/blobs/sha256:987a8725e3adbfb98f1b5916f7fe4eb5727e61bea35d5265a038473616ceae83
+sha256:
+  darwin_arm64: f0f900d7d9b50f242d815eb6826684b2e6d2c76f7a3bc58f08ce6f06cd1302aa
+  darwin_amd64: b193b872eaa4c70fa51fd38c22c378e0143a275a268ddcfcb5721045b2637235
+  linux_amd64: 0e98a61e5ba076e3a325d7df46e9ec8d90104f15acc1ac302d6307ba984eb053
+  linux_arm64: 987a8725e3adbfb98f1b5916f7fe4eb5727e61bea35d5265a038473616ceae83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - mad
+  - gettext

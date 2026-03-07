@@ -1,0 +1,19 @@
+name: webdav
+version: 5.11.1
+description: Simple and standalone WebDAV server
+homepage: https://github.com/hacdias/webdav
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webdav/blobs/sha256:28251e5ff69dae66e558b8252aba8ac62985c2ea379689da87408dbe788d7c73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webdav/blobs/sha256:f4a85b129cbd63957651d8ec3fdddc0c849e68350cd4a921f90df15e3abf75aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webdav/blobs/sha256:ce4e1369ccdcf1a7f313279004bbd1d2f2a21a619a547e0684f3a26670fa65c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webdav/blobs/sha256:f8502ecfd229c3da0d8e737fc6495b594fdadddd097bceb59199e34ce4eacb44
+sha256:
+  darwin_arm64: 28251e5ff69dae66e558b8252aba8ac62985c2ea379689da87408dbe788d7c73
+  darwin_amd64: f4a85b129cbd63957651d8ec3fdddc0c849e68350cd4a921f90df15e3abf75aa
+  linux_amd64: ce4e1369ccdcf1a7f313279004bbd1d2f2a21a619a547e0684f3a26670fa65c3
+  linux_arm64: f8502ecfd229c3da0d8e737fc6495b594fdadddd097bceb59199e34ce4eacb44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cloudpan189-go
+version: 0.1.3
+description: Command-line client tool for Cloud189 web disk
+homepage: https://github.com/tickstep/cloudpan189-go
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudpan189-go/blobs/sha256:d292a2bd969d609f7f5f005b2f8e59a4a3807dfd6271d2e01d1b0d5807d1bae4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudpan189-go/blobs/sha256:0259637185f73febd2da780378accfa232b124b8cb46aa376a64ce5adc319140
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudpan189-go/blobs/sha256:21c193bc56690eef410bdbbce6d6b774fcf658f16b114ea0222afee18591d361
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudpan189-go/blobs/sha256:42247f05683ad756a121dfabe4afd9074ad416ea13d681670e686dfb1b4cb68f
+sha256:
+  darwin_arm64: d292a2bd969d609f7f5f005b2f8e59a4a3807dfd6271d2e01d1b0d5807d1bae4
+  darwin_amd64: 0259637185f73febd2da780378accfa232b124b8cb46aa376a64ce5adc319140
+  linux_amd64: 21c193bc56690eef410bdbbce6d6b774fcf658f16b114ea0222afee18591d361
+  linux_arm64: 42247f05683ad756a121dfabe4afd9074ad416ea13d681670e686dfb1b4cb68f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,30 @@
+name: sarif-tools
+version: 3.0.5
+description: Set of command-line tools and Python library for working with SARIF files
+homepage: https://github.com/microsoft/sarif-tools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sarif-tools/blobs/sha256:4522d807b4baa1223fb68ccc14ef1dee380fc0b069c4d9f3f1d2f162cd0a1478
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sarif-tools/blobs/sha256:ac4c2b51cbe8a7087e706aa3f611aafc3855a84ac6207faf38381e974b86cbe9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sarif-tools/blobs/sha256:f49083c2c06b3cfe2557f1a3486e1cca193c6158957f8b65f44a424e808a11d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sarif-tools/blobs/sha256:957623debd6182477f91f351e01b6562c816050a3e4ff3693bbeda789957a5fb
+sha256:
+  darwin_arm64: 4522d807b4baa1223fb68ccc14ef1dee380fc0b069c4d9f3f1d2f162cd0a1478
+  darwin_amd64: ac4c2b51cbe8a7087e706aa3f611aafc3855a84ac6207faf38381e974b86cbe9
+  linux_amd64: f49083c2c06b3cfe2557f1a3486e1cca193c6158957f8b65f44a424e808a11d2
+  linux_arm64: 957623debd6182477f91f351e01b6562c816050a3e4ff3693bbeda789957a5fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - jpeg-turbo
+  - libraqm
+  - libtiff
+  - libyaml
+  - little-cms2
+  - numpy
+  - pillow
+  - python@3.14
+  - webp

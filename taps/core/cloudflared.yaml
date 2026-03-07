@@ -1,0 +1,19 @@
+name: cloudflared
+version: 2026.2.0
+description: Cloudflare Tunnel client (formerly Argo Tunnel)
+homepage: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudflared/blobs/sha256:6a3460d94744b69b4d5c5554e58704260ab04dd2afb8f6e1bc0a9f20f302aadf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudflared/blobs/sha256:67f7cd6b3d0cfbb7c7a425c28eb30647e11149435c92e75fe7a973ac0a5db792
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudflared/blobs/sha256:a44034f0f0c06ce48431f83947ad30182a81fa5ad943eb0c74d821697bf33209
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudflared/blobs/sha256:d3ff8f088a710317c564b63d88310041c5706e028bea36216eb6d2f9cec0afd8
+sha256:
+  darwin_arm64: 6a3460d94744b69b4d5c5554e58704260ab04dd2afb8f6e1bc0a9f20f302aadf
+  darwin_amd64: 67f7cd6b3d0cfbb7c7a425c28eb30647e11149435c92e75fe7a973ac0a5db792
+  linux_amd64: a44034f0f0c06ce48431f83947ad30182a81fa5ad943eb0c74d821697bf33209
+  linux_arm64: d3ff8f088a710317c564b63d88310041c5706e028bea36216eb6d2f9cec0afd8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

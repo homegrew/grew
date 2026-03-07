@@ -1,0 +1,19 @@
+name: webhook
+version: 2.8.3
+description: Lightweight, configurable incoming webhook server
+homepage: https://github.com/adnanh/webhook
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webhook/blobs/sha256:e981d57e5b548be17004dc598f7bfe689c723c0b4ce3558c97e47790ca4e2c49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webhook/blobs/sha256:e855bcac49d862a81d538245bca6ec142db97abae337d83f9749db436556f683
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webhook/blobs/sha256:d34f9a2f7294e5ddf78166b5c971e107aaa9a21bdc79425fed4d779664021567
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webhook/blobs/sha256:795d2ced7d92d633a39ee8f94851dc480e92576d5f36a0bcedc593939924ae7b
+sha256:
+  darwin_arm64: e981d57e5b548be17004dc598f7bfe689c723c0b4ce3558c97e47790ca4e2c49
+  darwin_amd64: e855bcac49d862a81d538245bca6ec142db97abae337d83f9749db436556f683
+  linux_amd64: d34f9a2f7294e5ddf78166b5c971e107aaa9a21bdc79425fed4d779664021567
+  linux_arm64: 795d2ced7d92d633a39ee8f94851dc480e92576d5f36a0bcedc593939924ae7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

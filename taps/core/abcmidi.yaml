@@ -1,0 +1,19 @@
+name: abcmidi
+version: 2026.02.24
+description: Converts abc music notation files to MIDI files
+homepage: https://ifdo.ca/~seymour/runabc/top.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abcmidi/blobs/sha256:5a3a07a60e49c12005bffec31732154d8804869cc613860cf6abc29ec29930f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abcmidi/blobs/sha256:d0617dee6d9b27d0555b3e222862dc601227b88b525d5d72b99dfc5a7b060c39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abcmidi/blobs/sha256:7d9f98827b6310a4cabc2805420e9b8020b5b196450dec5622a804b2204cdaf1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abcmidi/blobs/sha256:2ab7a8616d14df1a830f10bc256190abd4db2de6ab3ea042823411dbdc1e95a8
+sha256:
+  darwin_arm64: 5a3a07a60e49c12005bffec31732154d8804869cc613860cf6abc29ec29930f0
+  darwin_amd64: d0617dee6d9b27d0555b3e222862dc601227b88b525d5d72b99dfc5a7b060c39
+  linux_amd64: 7d9f98827b6310a4cabc2805420e9b8020b5b196450dec5622a804b2204cdaf1
+  linux_arm64: 2ab7a8616d14df1a830f10bc256190abd4db2de6ab3ea042823411dbdc1e95a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

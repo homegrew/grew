@@ -1,0 +1,21 @@
+name: packmol
+version: 21.2.1
+description: Packing optimization for molecular dynamics simulations
+homepage: https://www.ime.unicamp.br/~martinez/packmol/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/packmol/blobs/sha256:66dca45d680f232725848fdc4694bf9dfadac085e552a7ed22dcfd427b809dd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/packmol/blobs/sha256:fcd7991577fa4dcc089dcbbfa53349adaa64f6e85ddb22822f6efd41e2117b66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/packmol/blobs/sha256:bfc65283514a3d88d3f4f28bf2b2749f2df38973fae0c82995570897d253574d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/packmol/blobs/sha256:2b39134f576191a899dd10173b0df655bbc196ac76a2ad296fdc7225ecb40f7f
+sha256:
+  darwin_arm64: 66dca45d680f232725848fdc4694bf9dfadac085e552a7ed22dcfd427b809dd1
+  darwin_amd64: fcd7991577fa4dcc089dcbbfa53349adaa64f6e85ddb22822f6efd41e2117b66
+  linux_amd64: bfc65283514a3d88d3f4f28bf2b2749f2df38973fae0c82995570897d253574d
+  linux_arm64: 2b39134f576191a899dd10173b0df655bbc196ac76a2ad296fdc7225ecb40f7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

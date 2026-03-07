@@ -1,0 +1,19 @@
+name: bonnie++
+version: 2.00a
+description: Benchmark suite for file systems and hard drives
+homepage: https://www.coker.com.au/bonnie++/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bonniexx/blobs/sha256:751104c5d03e4f91086a337c4ed4b12acd1464170f67b994cf20ec30f6456176
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bonniexx/blobs/sha256:097a86502ffbab14bbae35829de5d631181c0ff0db9e214d1b7c6c3899e1d5c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bonniexx/blobs/sha256:f0418a37628a09a44eeb05aecca9b6fc6149dcfdf40729d4a41f754f030fac51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bonniexx/blobs/sha256:d88efefa2ddd179f4ba11870b49a1c4166b44be03930ed9b801c070dd6f86ceb
+sha256:
+  darwin_arm64: 751104c5d03e4f91086a337c4ed4b12acd1464170f67b994cf20ec30f6456176
+  darwin_amd64: 097a86502ffbab14bbae35829de5d631181c0ff0db9e214d1b7c6c3899e1d5c2
+  linux_amd64: f0418a37628a09a44eeb05aecca9b6fc6149dcfdf40729d4a41f754f030fac51
+  linux_arm64: d88efefa2ddd179f4ba11870b49a1c4166b44be03930ed9b801c070dd6f86ceb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

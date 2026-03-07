@@ -1,0 +1,23 @@
+name: augustus
+version: 3.5.0
+description: Predict genes in eukaryotic genomic sequences
+homepage: https://bioinf.uni-greifswald.de/augustus/
+license: Artistic-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/augustus/blobs/sha256:6fb256fa27a7d7406a7c9d24c4430f62195b2ecaf6af40a0d0169457368d315e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/augustus/blobs/sha256:5f447d39caacea7d384d9eba20dcfeeb1b860d0a7547e66d1a85f7956b924631
+  linux_amd64: https://ghcr.io/v2/homebrew/core/augustus/blobs/sha256:473fb7831cc994c642bd11d7b873ac7e46e9b0640784ecae596dd5020c1762d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/augustus/blobs/sha256:49800030d9a1c940f8e41aab80d1710bcb11805d26083bc72782e2b69f414629
+sha256:
+  darwin_arm64: 6fb256fa27a7d7406a7c9d24c4430f62195b2ecaf6af40a0d0169457368d315e
+  darwin_amd64: 5f447d39caacea7d384d9eba20dcfeeb1b860d0a7547e66d1a85f7956b924631
+  linux_amd64: 473fb7831cc994c642bd11d7b873ac7e46e9b0640784ecae596dd5020c1762d4
+  linux_arm64: 49800030d9a1c940f8e41aab80d1710bcb11805d26083bc72782e2b69f414629
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bamtools
+  - boost
+  - htslib

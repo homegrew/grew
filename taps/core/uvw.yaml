@@ -1,0 +1,21 @@
+name: uvw
+version: 3.4.0
+description: Header-only, event based, tiny and easy to use libuv wrapper in modern C++
+homepage: https://github.com/skypjack/uvw
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uvw/blobs/sha256:594413006be49d686f144c3122cb960e9eb204a9dbc3503dd7622b8051b61e78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uvw/blobs/sha256:6e9929a431e28be34456a3c4eeffa04c4b045a98e416acc4727423d54a2c6815
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uvw/blobs/sha256:1df5b81661883a5eb47d2156a1def7b605a78d8270c255e8c367b347d8b06ceb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uvw/blobs/sha256:612431aeef05fad9b635b106bdd5fde18f7d03b30de86ff5e64f0655696aed45
+sha256:
+  darwin_arm64: 594413006be49d686f144c3122cb960e9eb204a9dbc3503dd7622b8051b61e78
+  darwin_amd64: 6e9929a431e28be34456a3c4eeffa04c4b045a98e416acc4727423d54a2c6815
+  linux_amd64: 1df5b81661883a5eb47d2156a1def7b605a78d8270c255e8c367b347d8b06ceb
+  linux_arm64: 612431aeef05fad9b635b106bdd5fde18f7d03b30de86ff5e64f0655696aed45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv

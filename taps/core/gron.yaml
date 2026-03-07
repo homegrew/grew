@@ -1,0 +1,19 @@
+name: gron
+version: 0.7.1
+description: Make JSON greppable
+homepage: https://github.com/tomnomnom/gron
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gron/blobs/sha256:c889681fcb82d04bc59b80fb2beffb61f61794bff3dbe0145454559639a0d7d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gron/blobs/sha256:98148084bf065904b2a75f4dc7b94982f09a277c62cd5e0d843918e6fb022f4f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gron/blobs/sha256:b10089d68a7958fb52643f3813b910fb5ab3a89ffb18d5161e5f717956b6bf2c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gron/blobs/sha256:e70945d74b90ca9e8cd455764ba671b2d25408c4548ff5fe99f97ede13e07d63
+sha256:
+  darwin_arm64: c889681fcb82d04bc59b80fb2beffb61f61794bff3dbe0145454559639a0d7d4
+  darwin_amd64: 98148084bf065904b2a75f4dc7b94982f09a277c62cd5e0d843918e6fb022f4f
+  linux_amd64: b10089d68a7958fb52643f3813b910fb5ab3a89ffb18d5161e5f717956b6bf2c
+  linux_arm64: e70945d74b90ca9e8cd455764ba671b2d25408c4548ff5fe99f97ede13e07d63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

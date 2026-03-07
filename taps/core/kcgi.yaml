@@ -1,0 +1,19 @@
+name: kcgi
+version: 1.0.1
+description: Minimal CGI and FastCGI library for C/C++
+homepage: https://kristaps.bsd.lv/kcgi/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kcgi/blobs/sha256:191a0d3f1d112f9585774eddd41909e942affd5338e7c8144d38803e986acc66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kcgi/blobs/sha256:47d68ef9bc518eae514f46b1dcb7a1b25b5445fec3b67ba9eb00e58af2a62067
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kcgi/blobs/sha256:884dac750cf8338c422c6fcd249002d42e77d2c9b6e332fea44ab048fff7c421
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kcgi/blobs/sha256:d2864c56de92d3996fe29fc5f3bd28e8cae3fc36e3823aee230b57b53c57952d
+sha256:
+  darwin_arm64: 191a0d3f1d112f9585774eddd41909e942affd5338e7c8144d38803e986acc66
+  darwin_amd64: 47d68ef9bc518eae514f46b1dcb7a1b25b5445fec3b67ba9eb00e58af2a62067
+  linux_amd64: 884dac750cf8338c422c6fcd249002d42e77d2c9b6e332fea44ab048fff7c421
+  linux_arm64: d2864c56de92d3996fe29fc5f3bd28e8cae3fc36e3823aee230b57b53c57952d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

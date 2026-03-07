@@ -1,0 +1,19 @@
+name: probe-rs-tools
+version: 0.31.0
+description: Collection of on chip debugging tools to communicate with microchips
+homepage: https://probe.rs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/probe-rs-tools/blobs/sha256:72561b7cfe019ec5388177cebfc6a282c072db438126f50fd6ba1040173fe7c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/probe-rs-tools/blobs/sha256:22c29bc2cfc86bc983ba5380adfe2000cee668230fd6454b46cdc13fa72f9062
+  linux_amd64: https://ghcr.io/v2/homebrew/core/probe-rs-tools/blobs/sha256:443675403cf06b8a7494b922aebd0dd1fbb491958e387b83d732fc486e02e8f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/probe-rs-tools/blobs/sha256:7f2f7b1c27291038dd79450360855ed5c5e503607469666f76f91324265fea75
+sha256:
+  darwin_arm64: 72561b7cfe019ec5388177cebfc6a282c072db438126f50fd6ba1040173fe7c1
+  darwin_amd64: 22c29bc2cfc86bc983ba5380adfe2000cee668230fd6454b46cdc13fa72f9062
+  linux_amd64: 443675403cf06b8a7494b922aebd0dd1fbb491958e387b83d732fc486e02e8f7
+  linux_arm64: 7f2f7b1c27291038dd79450360855ed5c5e503607469666f76f91324265fea75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

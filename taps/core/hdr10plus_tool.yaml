@@ -1,0 +1,19 @@
+name: hdr10plus_tool
+version: 1.7.2
+description: CLI utility to work with HDR10+ in HEVC files
+homepage: https://github.com/quietvoid/hdr10plus_tool
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hdr10plus_tool/blobs/sha256:19047e28a0a09f67a3468de226119e6ef0f9bc75fcffee81369b8a6605ecaf36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hdr10plus_tool/blobs/sha256:b523b4a7ee63a7fc2a837967be1e92743cac0b5c0eee032c3d63452ff0c3424b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hdr10plus_tool/blobs/sha256:e2f8bd3ce3cb730e2e071121e9b538c8ba942e329ca3a264f1e14833884f4b7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hdr10plus_tool/blobs/sha256:f938183f8ea89d2fce37120e7b4f8aa1ed9c08b72d154c899a9472f95bfc08e4
+sha256:
+  darwin_arm64: 19047e28a0a09f67a3468de226119e6ef0f9bc75fcffee81369b8a6605ecaf36
+  darwin_amd64: b523b4a7ee63a7fc2a837967be1e92743cac0b5c0eee032c3d63452ff0c3424b
+  linux_amd64: e2f8bd3ce3cb730e2e071121e9b538c8ba942e329ca3a264f1e14833884f4b7b
+  linux_arm64: f938183f8ea89d2fce37120e7b4f8aa1ed9c08b72d154c899a9472f95bfc08e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

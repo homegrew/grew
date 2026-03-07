@@ -1,0 +1,23 @@
+name: terminator
+version: 2.1.5
+description: Multiple GNOME terminals in one window
+homepage: https://gnome-terminator.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terminator/blobs/sha256:cbda9e2f530787bf8fd70762ca08efb46d62c2797d85d89e496341278a96e615
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terminator/blobs/sha256:f0a19f86cbd0e0823969bb007b6ab6898e6a41c453baecc97360afe450d2a2de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terminator/blobs/sha256:05acec1e4469598de53102f0009da36200afe641e3a75d20071843a71c6373ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terminator/blobs/sha256:3d283e891e6a1d4f90cb6ebf1a5c5230b4be167fa80228956654ae83c74eb07f
+sha256:
+  darwin_arm64: cbda9e2f530787bf8fd70762ca08efb46d62c2797d85d89e496341278a96e615
+  darwin_amd64: f0a19f86cbd0e0823969bb007b6ab6898e6a41c453baecc97360afe450d2a2de
+  linux_amd64: 05acec1e4469598de53102f0009da36200afe641e3a75d20071843a71c6373ab
+  linux_arm64: 3d283e891e6a1d4f90cb6ebf1a5c5230b4be167fa80228956654ae83c74eb07f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pygobject3
+  - python@3.14
+  - vte3

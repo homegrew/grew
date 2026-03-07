@@ -1,0 +1,31 @@
+name: mkvtoolnix
+version: 97.0
+description: Matroska media files manipulation tools
+homepage: https://mkvtoolnix.download/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkvtoolnix/blobs/sha256:931bca75c5e9e75a4de2c8c8a7aafcaaf09b82dbf3510b2a3b5f30531a6143a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkvtoolnix/blobs/sha256:4398e1b2789590bd093273eb94a1f447bdc2de4958346e6c907310bc49490854
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkvtoolnix/blobs/sha256:11cf9351d97011ce359a70304cbe942ed4a2b786526b6f537e86a252ec1eb51f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkvtoolnix/blobs/sha256:78073ffc9cd1eb2e3aa674d6d6aaf6596593d550f7c5bd109a73bc0ec5197457
+sha256:
+  darwin_arm64: 931bca75c5e9e75a4de2c8c8a7aafcaaf09b82dbf3510b2a3b5f30531a6143a3
+  darwin_amd64: 4398e1b2789590bd093273eb94a1f447bdc2de4958346e6c907310bc49490854
+  linux_amd64: 11cf9351d97011ce359a70304cbe942ed4a2b786526b6f537e86a252ec1eb51f
+  linux_arm64: 78073ffc9cd1eb2e3aa674d6d6aaf6596593d550f7c5bd109a73bc0ec5197457
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - flac
+  - fmt
+  - gmp
+  - libebml
+  - libmatroska
+  - libogg
+  - libvorbis
+  - pugixml
+  - qtbase
+  - gettext

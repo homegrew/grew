@@ -1,0 +1,23 @@
+name: dash-mpd-cli
+version: 0.2.31
+description: Download media content from a DASH-MPEG or DASH-WebM MPD manifest
+homepage: https://emarsden.github.io/dash-mpd-cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dash-mpd-cli/blobs/sha256:f7e5ce5092895a70e250727833537afeb98a946313ac89d2eb62256e30ae94c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dash-mpd-cli/blobs/sha256:43bda6e2da1acebb3336ee5d0189f6a2c7f07345e31b7c51aa2f358a8a6a4442
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dash-mpd-cli/blobs/sha256:bfb4300b1ee16a004beaf625c765d1c8d3912981d82c35914e2c8303958ee55b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dash-mpd-cli/blobs/sha256:8bcf2dda8f1573f8491820b55ef2da78239d5b5d700c5cf46fc56f74ce06b7c5
+sha256:
+  darwin_arm64: f7e5ce5092895a70e250727833537afeb98a946313ac89d2eb62256e30ae94c6
+  darwin_amd64: 43bda6e2da1acebb3336ee5d0189f6a2c7f07345e31b7c51aa2f358a8a6a4442
+  linux_amd64: bfb4300b1ee16a004beaf625c765d1c8d3912981d82c35914e2c8303958ee55b
+  linux_arm64: 8bcf2dda8f1573f8491820b55ef2da78239d5b5d700c5cf46fc56f74ce06b7c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bento4
+  - ffmpeg
+  - mkvtoolnix

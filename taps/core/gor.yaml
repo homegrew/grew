@@ -1,0 +1,19 @@
+name: gor
+version: 1.3.3
+description: Real-time HTTP traffic replay tool written in Go
+homepage: https://goreplay.org
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gor/blobs/sha256:f1b4493ea796d00e8d013a963a730e6f5e2d148d2c66be08f05fff8963f241ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gor/blobs/sha256:fafb32cdb0f4c995083b3a4e3e39288601b8f7f654455edf2e8d2541e3e68d6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gor/blobs/sha256:1239ddcc67670144a35dbdf90712514bc56f52ccbc755285eef6e54ed909afb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gor/blobs/sha256:30335e69674ba237da1cc12d9d250a222ef2f84685a2790490a4d64c4d017ab0
+sha256:
+  darwin_arm64: f1b4493ea796d00e8d013a963a730e6f5e2d148d2c66be08f05fff8963f241ff
+  darwin_amd64: fafb32cdb0f4c995083b3a4e3e39288601b8f7f654455edf2e8d2541e3e68d6e
+  linux_amd64: 1239ddcc67670144a35dbdf90712514bc56f52ccbc755285eef6e54ed909afb1
+  linux_arm64: 30335e69674ba237da1cc12d9d250a222ef2f84685a2790490a4d64c4d017ab0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: flashrom
+version: 1.7.0
+description: Identify, read, write, verify, and erase flash chips
+homepage: https://flashrom.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flashrom/blobs/sha256:bddf59497d339e94335a78dcd020f39c2abeb6ab6743d2879425af065cc09cf1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flashrom/blobs/sha256:7fff618fcbcc53469b5ccb96826f2db688098ef222a0afc55ecf2970dc5f6e8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flashrom/blobs/sha256:8746313816786192056a06b6f94cb8aa0111984edca71343560e72af081669c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flashrom/blobs/sha256:fa19b35b685c9ce8e2ba999ee52869440da81e6abe9271c843503548e9cfc85d
+sha256:
+  darwin_arm64: bddf59497d339e94335a78dcd020f39c2abeb6ab6743d2879425af065cc09cf1
+  darwin_amd64: 7fff618fcbcc53469b5ccb96826f2db688098ef222a0afc55ecf2970dc5f6e8f
+  linux_amd64: 8746313816786192056a06b6f94cb8aa0111984edca71343560e72af081669c0
+  linux_arm64: fa19b35b685c9ce8e2ba999ee52869440da81e6abe9271c843503548e9cfc85d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libftdi
+  - libusb
+  - openssl@3

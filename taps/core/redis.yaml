@@ -1,0 +1,21 @@
+name: redis
+version: 8.6.1
+description: Persistent key-value database, with built-in net interface
+homepage: https://redis.io/
+license: AGPL-3.0-only AND BSD-2-Clause AND BSL-1.0 AND MIT AND (CC0-1.0 OR BSD-2-Clause)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redis/blobs/sha256:ca41e968b63f67c895ea643e8779fec5d8415b5147a03c246af8deb80ed684f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redis/blobs/sha256:a8611fb5838323d0e18ea12ad164edf73731952d6221fee11eb4404815b62294
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redis/blobs/sha256:b11b567ada7461aa9638502533a446a8dc89021cca290214389d4693900fd5ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redis/blobs/sha256:bd42445613067005996dcb21e0af8c987c835e04e7d1fd8591287cfb15974a5a
+sha256:
+  darwin_arm64: ca41e968b63f67c895ea643e8779fec5d8415b5147a03c246af8deb80ed684f2
+  darwin_amd64: a8611fb5838323d0e18ea12ad164edf73731952d6221fee11eb4404815b62294
+  linux_amd64: b11b567ada7461aa9638502533a446a8dc89021cca290214389d4693900fd5ed
+  linux_arm64: bd42445613067005996dcb21e0af8c987c835e04e7d1fd8591287cfb15974a5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

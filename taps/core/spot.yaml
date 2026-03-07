@@ -1,0 +1,19 @@
+name: spot
+version: 2.14.5
+description: Platform for LTL and ω-automata manipulation
+homepage: https://spot.lre.epita.fr
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spot/blobs/sha256:8e2ae80fe051f56744bd18c1fb98c7f95da877d5be0cd0ae5abeaa7172d277d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spot/blobs/sha256:51c5717d7b691cf3772606962d492c663bb750d4622b43f01737c07a91840250
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spot/blobs/sha256:31c53a6f56b6f0fdb2855302518280692bf5e50cd6ae7cdef7fa3c2029a583c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spot/blobs/sha256:31a06e35f69b57052208f0ae22f71afbbc9101ac4a275e4b21e4241e2b07c97b
+sha256:
+  darwin_arm64: 8e2ae80fe051f56744bd18c1fb98c7f95da877d5be0cd0ae5abeaa7172d277d3
+  darwin_amd64: 51c5717d7b691cf3772606962d492c663bb750d4622b43f01737c07a91840250
+  linux_amd64: 31c53a6f56b6f0fdb2855302518280692bf5e50cd6ae7cdef7fa3c2029a583c7
+  linux_arm64: 31a06e35f69b57052208f0ae22f71afbbc9101ac4a275e4b21e4241e2b07c97b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

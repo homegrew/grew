@@ -1,0 +1,19 @@
+name: ethereum
+version: 1.17.1
+description: Official Go implementation of the Ethereum protocol
+homepage: https://geth.ethereum.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ethereum/blobs/sha256:83ff875f5e586fe78666b426b2221092cc4fb0efd8044de0a03d8e92cffc1a86
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ethereum/blobs/sha256:01affc8922be8d4c555c8b3a2d56f04e727cf955a69fe8dc8a81c19b3ca9bcd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ethereum/blobs/sha256:9872ae15730473ef3eca0cdb2119ce56fa0fd5386070f767f847929f6235e4d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ethereum/blobs/sha256:742997e1815d20c6b81c97490376742e31605368bc585570db5e3f2571e795d4
+sha256:
+  darwin_arm64: 83ff875f5e586fe78666b426b2221092cc4fb0efd8044de0a03d8e92cffc1a86
+  darwin_amd64: 01affc8922be8d4c555c8b3a2d56f04e727cf955a69fe8dc8a81c19b3ca9bcd6
+  linux_amd64: 9872ae15730473ef3eca0cdb2119ce56fa0fd5386070f767f847929f6235e4d6
+  linux_arm64: 742997e1815d20c6b81c97490376742e31605368bc585570db5e3f2571e795d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

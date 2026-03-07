@@ -1,0 +1,19 @@
+name: zxcc
+version: 0.5.7
+description: CP/M 2/3 emulator for cross-compiling and CP/M tools under UNIX
+homepage: https://www.seasip.info/Unix/Zxcc/
+license: GPL-2.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zxcc/blobs/sha256:e312260a654050c8776f39d0558ab6c5e9b7d62f4f219475a13dcd8e75fbd759
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zxcc/blobs/sha256:771d3fa5f8e286a2b0ed1d1e4765a69e348d0352ccadae189cd658a64a5e24b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zxcc/blobs/sha256:8a5baf11b9060b7aedcf4f25afca690fbad80df406a66a70389ddd32fe2c6075
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zxcc/blobs/sha256:f03ecace625722887a14453a0a0d9c8901b0eb83e5f61e2f8f774a2002f0c225
+sha256:
+  darwin_arm64: e312260a654050c8776f39d0558ab6c5e9b7d62f4f219475a13dcd8e75fbd759
+  darwin_amd64: 771d3fa5f8e286a2b0ed1d1e4765a69e348d0352ccadae189cd658a64a5e24b3
+  linux_amd64: 8a5baf11b9060b7aedcf4f25afca690fbad80df406a66a70389ddd32fe2c6075
+  linux_arm64: f03ecace625722887a14453a0a0d9c8901b0eb83e5f61e2f8f774a2002f0c225
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

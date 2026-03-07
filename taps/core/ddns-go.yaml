@@ -1,0 +1,19 @@
+name: ddns-go
+version: 6.16.0
+description: Simple and easy-to-use DDNS
+homepage: https://github.com/jeessy2/ddns-go
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddns-go/blobs/sha256:29ffed50f6d58140e91362e0dca71a8dc62d6c4a5b02ffcb51a870ef889df76f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddns-go/blobs/sha256:54db5105c1bce13bb1a7a69086aac561c3c51e5189ad2730f229882b7dbb5d1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddns-go/blobs/sha256:7d2cbd818d1da4b7c67dd7c18a0814a7a284d728cd1c6f2154394d3d7f259f53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddns-go/blobs/sha256:67d1a413eb59af04c3089dbf339398ae973b86934a495f6a13373daf0e6174a2
+sha256:
+  darwin_arm64: 29ffed50f6d58140e91362e0dca71a8dc62d6c4a5b02ffcb51a870ef889df76f
+  darwin_amd64: 54db5105c1bce13bb1a7a69086aac561c3c51e5189ad2730f229882b7dbb5d1f
+  linux_amd64: 7d2cbd818d1da4b7c67dd7c18a0814a7a284d728cd1c6f2154394d3d7f259f53
+  linux_arm64: 67d1a413eb59af04c3089dbf339398ae973b86934a495f6a13373daf0e6174a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

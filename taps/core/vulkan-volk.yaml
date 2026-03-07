@@ -1,0 +1,21 @@
+name: vulkan-volk
+version: 1.4.341.0
+description: Meta loader for Vulkan API
+homepage: https://github.com/zeux/volk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-volk/blobs/sha256:2de1b4a4bd37459f8eac627af471e3026d88f516a5e428a84faa3f50557f06c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-volk/blobs/sha256:c14f7d005be4ffed9d7737c4557b15a1d659f160f8a06a292e825a2a3a107e03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-volk/blobs/sha256:0934296bdcdafe16ebbccf85177c538b6239058d9b5c11d235ab74654225d558
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-volk/blobs/sha256:d4a847bb24e391265d104037e86aac0fffb06a76e8d544012deede7e0a91684d
+sha256:
+  darwin_arm64: 2de1b4a4bd37459f8eac627af471e3026d88f516a5e428a84faa3f50557f06c7
+  darwin_amd64: c14f7d005be4ffed9d7737c4557b15a1d659f160f8a06a292e825a2a3a107e03
+  linux_amd64: 0934296bdcdafe16ebbccf85177c538b6239058d9b5c11d235ab74654225d558
+  linux_arm64: d4a847bb24e391265d104037e86aac0fffb06a76e8d544012deede7e0a91684d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - vulkan-loader

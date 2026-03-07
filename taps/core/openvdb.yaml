@@ -1,0 +1,25 @@
+name: openvdb
+version: 13.0.0
+description: Sparse volumetric data processing toolkit
+homepage: https://www.openvdb.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openvdb/blobs/sha256:1293e06e4fc2e23da53c13d0ff875e61484d85c6d734a8df1817ac7522b368e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openvdb/blobs/sha256:a7edb4bef446e3b92421e3a66a282b6c0c0fa0440e79e8c8567c00b59f84bbd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openvdb/blobs/sha256:595a235b9cbabb8f5dd8797681e9bde7d00662a91835b21ad7a961f1ee9fa09b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openvdb/blobs/sha256:12ab28558982809431b5d9eb176a8f8e133b59698e40db52bb0fb8682a66b20b
+sha256:
+  darwin_arm64: 1293e06e4fc2e23da53c13d0ff875e61484d85c6d734a8df1817ac7522b368e9
+  darwin_amd64: a7edb4bef446e3b92421e3a66a282b6c0c0fa0440e79e8c8567c00b59f84bbd8
+  linux_amd64: 595a235b9cbabb8f5dd8797681e9bde7d00662a91835b21ad7a961f1ee9fa09b
+  linux_arm64: 12ab28558982809431b5d9eb176a8f8e133b59698e40db52bb0fb8682a66b20b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - c-blosc
+  - jemalloc
+  - openexr
+  - tbb

@@ -1,0 +1,17 @@
+name: procps
+version: 4.0.6
+description: Utilities for browsing procfs
+homepage: https://gitlab.com/procps-ng/procps
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/procps/blobs/sha256:a1a5259bfa1c75975bab8e502dfe76958c9a4e812ae652a8268c72aa5e4ec984
+  linux_arm64: https://ghcr.io/v2/homebrew/core/procps/blobs/sha256:c0d42a966b121bb5adc0ae6fbd70ad38061fdda92f4e49ecc55ed5ece21bfb03
+sha256:
+  linux_amd64: a1a5259bfa1c75975bab8e502dfe76958c9a4e812ae652a8268c72aa5e4ec984
+  linux_arm64: c0d42a966b121bb5adc0ae6fbd70ad38061fdda92f4e49ecc55ed5ece21bfb03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

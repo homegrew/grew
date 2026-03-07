@@ -1,0 +1,21 @@
+name: projectm
+version: 3.1.12
+description: Milkdrop-compatible music visualizer
+homepage: https://github.com/projectM-visualizer/projectm
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/projectm/blobs/sha256:7f0815b03bcecd38afe7c9a8750a0822d9a17646c7e92f420e0fedb096c2709c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/projectm/blobs/sha256:22a8e128f8a99fa09e7b99ad12cdb6da037e9417beb4f6ae4a712ed096d7f214
+  linux_amd64: https://ghcr.io/v2/homebrew/core/projectm/blobs/sha256:05caf42b3d5a023b4c22e2f51e7699645cc5077fbd37c7c27f1f8260025d608b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/projectm/blobs/sha256:c3813a64b58332351ad6fe801cd1ede4ac96bdc17d6eaae7937571e149f6a253
+sha256:
+  darwin_arm64: 7f0815b03bcecd38afe7c9a8750a0822d9a17646c7e92f420e0fedb096c2709c
+  darwin_amd64: 22a8e128f8a99fa09e7b99ad12cdb6da037e9417beb4f6ae4a712ed096d7f214
+  linux_amd64: 05caf42b3d5a023b4c22e2f51e7699645cc5077fbd37c7c27f1f8260025d608b
+  linux_arm64: c3813a64b58332351ad6fe801cd1ede4ac96bdc17d6eaae7937571e149f6a253
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

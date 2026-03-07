@@ -1,0 +1,19 @@
+name: esniper
+version: 2.35.0
+description: Snipe eBay auctions from the command-line
+homepage: https://sourceforge.net/projects/esniper/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/esniper/blobs/sha256:0009b1cbccaa056103dc110ff59bd1bebc1f2581bf91b64ffd5aee76009efda8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/esniper/blobs/sha256:d3b3829d27213eedbd1d088f1037ee95976ab02f910a1a9479d91cebc1db53e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/esniper/blobs/sha256:676227a142bc96ca566a352c446328a78c7ad02bb80b56e3f3f131e755994a31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/esniper/blobs/sha256:d51c39d3d114d8ed2a5dfa939ed50bcdf0df86ee908691a9113c92447ecb598f
+sha256:
+  darwin_arm64: 0009b1cbccaa056103dc110ff59bd1bebc1f2581bf91b64ffd5aee76009efda8
+  darwin_amd64: d3b3829d27213eedbd1d088f1037ee95976ab02f910a1a9479d91cebc1db53e3
+  linux_amd64: 676227a142bc96ca566a352c446328a78c7ad02bb80b56e3f3f131e755994a31
+  linux_arm64: d51c39d3d114d8ed2a5dfa939ed50bcdf0df86ee908691a9113c92447ecb598f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

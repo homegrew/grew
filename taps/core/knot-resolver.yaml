@@ -1,0 +1,30 @@
+name: knot-resolver
+version: 6.2.0
+description: Minimalistic, caching, DNSSEC-validating DNS resolver
+homepage: https://www.knot-resolver.cz
+license: CC0-1.0 AND GPL-3.0-or-later AND LGPL-2.1-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/knot-resolver/blobs/sha256:ddcc4fa27f264923b54c35196e6edae2f3b3df7a3b5c9a8ea49cc6d13e89983c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/knot-resolver/blobs/sha256:719ebcd371e7126931ed1721625cff7d5ab3b30ccbfe7d70e6a47bd64f130f78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/knot-resolver/blobs/sha256:9e1b841948f0dbb8c8f706edec71982111290cd2c03dcaa0268a4b45b7e78756
+  linux_arm64: https://ghcr.io/v2/homebrew/core/knot-resolver/blobs/sha256:39801f1e1ab9553964216de8106e296d6bedf8651c329cf0370a1b6281f4c2e9
+sha256:
+  darwin_arm64: ddcc4fa27f264923b54c35196e6edae2f3b3df7a3b5c9a8ea49cc6d13e89983c
+  darwin_amd64: 719ebcd371e7126931ed1721625cff7d5ab3b30ccbfe7d70e6a47bd64f130f78
+  linux_amd64: 9e1b841948f0dbb8c8f706edec71982111290cd2c03dcaa0268a4b45b7e78756
+  linux_arm64: 39801f1e1ab9553964216de8106e296d6bedf8651c329cf0370a1b6281f4c2e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fstrm
+  - gnutls
+  - knot
+  - libnghttp2
+  - libuv
+  - libyaml
+  - lmdb
+  - luajit
+  - protobuf-c
+  - python@3.14

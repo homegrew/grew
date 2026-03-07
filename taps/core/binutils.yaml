@@ -1,0 +1,22 @@
+name: binutils
+version: 2.46.0
+description: GNU binary tools for native development
+homepage: https://www.gnu.org/software/binutils/binutils.html
+license: GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/binutils/blobs/sha256:274e1e41ddb008e2089fe5faaa832a0383abdda48acf26134ee59510cb8aac63
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/binutils/blobs/sha256:9f4c9c9923a27f2be826e8d20d16ff9c1de50cd87aab5b10a1bd0e2641028d5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/binutils/blobs/sha256:016d03201f1fa5f3c65a17a041f176f2e9037ae6a9c888dcad56b4710aa629c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/binutils/blobs/sha256:f8ffe8d70c5462a8cd0364aa70ceb484707683e1a87e2f56d8315820ddf5beb5
+sha256:
+  darwin_arm64: 274e1e41ddb008e2089fe5faaa832a0383abdda48acf26134ee59510cb8aac63
+  darwin_amd64: 9f4c9c9923a27f2be826e8d20d16ff9c1de50cd87aab5b10a1bd0e2641028d5d
+  linux_amd64: 016d03201f1fa5f3c65a17a041f176f2e9037ae6a9c888dcad56b4710aa629c1
+  linux_arm64: f8ffe8d70c5462a8cd0364aa70ceb484707683e1a87e2f56d8315820ddf5beb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd
+keg_only: true

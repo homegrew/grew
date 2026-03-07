@@ -1,0 +1,19 @@
+name: showkey
+version: 1.9
+description: Simple keystroke visualizer
+homepage: http://www.catb.org/~esr/showkey/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/showkey/blobs/sha256:1c630fa31441f7dd28d2031d45523f39ea47e8fa55c8c9f8b2b35966690b7955
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/showkey/blobs/sha256:4af765defe4fb3b6c3dd2a5ef15d3f1a4d5b3521ccd5dbaa35fd0b04e29a7e55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/showkey/blobs/sha256:7921d9e1728c1576d6659fb218eabc169ae70c9fbe9396609b6e862145b0ad47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/showkey/blobs/sha256:05a4d7762f25e11ac1138e807470b910b4c7b370c7cb965f207f8f3ace251189
+sha256:
+  darwin_arm64: 1c630fa31441f7dd28d2031d45523f39ea47e8fa55c8c9f8b2b35966690b7955
+  darwin_amd64: 4af765defe4fb3b6c3dd2a5ef15d3f1a4d5b3521ccd5dbaa35fd0b04e29a7e55
+  linux_amd64: 7921d9e1728c1576d6659fb218eabc169ae70c9fbe9396609b6e862145b0ad47
+  linux_arm64: 05a4d7762f25e11ac1138e807470b910b4c7b370c7cb965f207f8f3ace251189
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

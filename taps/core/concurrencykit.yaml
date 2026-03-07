@@ -1,0 +1,19 @@
+name: concurrencykit
+version: 0.7.2
+description: Aid design and implementation of concurrent systems
+homepage: https://github.com/concurrencykit/ck
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/concurrencykit/blobs/sha256:78b475639766ea82bbc20c59535a1c87c7da041f39734ba5055f7bb91c1a3822
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/concurrencykit/blobs/sha256:d94a55b7f88f9cf03147ec862d25be282781c0c6fbcc6d2dbc1bd70ec0abfeb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/concurrencykit/blobs/sha256:ae7af3262f13d4917f84f0522cc36cc8709e482f458067578c6e58f0a26737ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/concurrencykit/blobs/sha256:fadc30ccce380bdd39bd85a9c26b4a15a733feb0378fbbb3399618575f2156bb
+sha256:
+  darwin_arm64: 78b475639766ea82bbc20c59535a1c87c7da041f39734ba5055f7bb91c1a3822
+  darwin_amd64: d94a55b7f88f9cf03147ec862d25be282781c0c6fbcc6d2dbc1bd70ec0abfeb1
+  linux_amd64: ae7af3262f13d4917f84f0522cc36cc8709e482f458067578c6e58f0a26737ac
+  linux_arm64: fadc30ccce380bdd39bd85a9c26b4a15a733feb0378fbbb3399618575f2156bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

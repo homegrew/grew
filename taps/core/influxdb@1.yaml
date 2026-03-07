@@ -1,0 +1,20 @@
+name: influxdb@1
+version: 1.12.2
+description: Time series, events, and metrics database
+homepage: https://influxdata.com/time-series-platform/influxdb/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/influxdb/1/blobs/sha256:a303342dbf45945584393fe98e87ae2e210dcf65c69f9fc23e358d98e34da8c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/influxdb/1/blobs/sha256:9d13ec4589a0ed0656ddccb0b945f69a40db80fa3818f1596aedbd6e86e788a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/influxdb/1/blobs/sha256:e3256763c89cf2904fbd1981ba27702f26e2f6883ec5d7f595769a8c59ef3d22
+  linux_arm64: https://ghcr.io/v2/homebrew/core/influxdb/1/blobs/sha256:404e18314bed394a1d1f177330f91a064d5db5f939b911b2b0e616e9a04eb4c4
+sha256:
+  darwin_arm64: a303342dbf45945584393fe98e87ae2e210dcf65c69f9fc23e358d98e34da8c5
+  darwin_amd64: 9d13ec4589a0ed0656ddccb0b945f69a40db80fa3818f1596aedbd6e86e788a6
+  linux_amd64: e3256763c89cf2904fbd1981ba27702f26e2f6883ec5d7f595769a8c59ef3d22
+  linux_arm64: 404e18314bed394a1d1f177330f91a064d5db5f939b911b2b0e616e9a04eb4c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

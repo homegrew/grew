@@ -1,0 +1,21 @@
+name: uhdm
+version: 1.86
+description: Universal Hardware Data Model, modeling of the SystemVerilog Object Model
+homepage: https://github.com/chipsalliance/UHDM
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uhdm/blobs/sha256:5e96d3e01bd59637e5ce39d819621a107fbe2c49fc71efe6fc2eb8f143d64e26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uhdm/blobs/sha256:f2d5eea05062e7ac58397defa58b6fc28994aaf894553baca2c71a950d2b14c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uhdm/blobs/sha256:676e3998e772e2e2a4732326fe2d3c6e895eed009cdd3b8c4612513dc75d3f4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uhdm/blobs/sha256:2e03fce26295440301f53d7d397ca0bd183478a17a27aaefe740d5650517a976
+sha256:
+  darwin_arm64: 5e96d3e01bd59637e5ce39d819621a107fbe2c49fc71efe6fc2eb8f143d64e26
+  darwin_amd64: f2d5eea05062e7ac58397defa58b6fc28994aaf894553baca2c71a950d2b14c6
+  linux_amd64: 676e3998e772e2e2a4732326fe2d3c6e895eed009cdd3b8c4612513dc75d3f4a
+  linux_arm64: 2e03fce26295440301f53d7d397ca0bd183478a17a27aaefe740d5650517a976
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capnp

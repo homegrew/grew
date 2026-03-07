@@ -1,0 +1,19 @@
+name: cyctl
+version: 0.21.1
+description: Customizable UI for Kubernetes workloads
+homepage: https://cyclops-ui.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cyctl/blobs/sha256:f07fdf29bb7e364b84535e67758c692c44763a245bdb63eb718135d16ee79188
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cyctl/blobs/sha256:19a8bf0780b4bec03bda21046b752f0ee013089ea7b6f988b0a4ad0c914cf6ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cyctl/blobs/sha256:5c0f445325ef4060e628b0ee17b4204e6263846f482632163913e45aac934ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cyctl/blobs/sha256:763911aa14516e73ccd145994385626fe1fba341bf34b3cf974a9d98fdc2b016
+sha256:
+  darwin_arm64: f07fdf29bb7e364b84535e67758c692c44763a245bdb63eb718135d16ee79188
+  darwin_amd64: 19a8bf0780b4bec03bda21046b752f0ee013089ea7b6f988b0a4ad0c914cf6ee
+  linux_amd64: 5c0f445325ef4060e628b0ee17b4204e6263846f482632163913e45aac934ecd
+  linux_arm64: 763911aa14516e73ccd145994385626fe1fba341bf34b3cf974a9d98fdc2b016
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,32 @@
+name: semgrep
+version: 1.154.0
+description: Easily detect and prevent bugs and anti-patterns in your codebase
+homepage: https://semgrep.dev
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/semgrep/blobs/sha256:e4cfc4d5511a3cfc3e3db6751f8360d2d6f7659875e872bed1dfd29b42604606
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/semgrep/blobs/sha256:ffb85e0a3a2b8699daad30d0e44de894fa45b39eba69722b416251c707aa6b71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/semgrep/blobs/sha256:5901b64b0b8758702936c619bf9bf72fa4e27b144b30e2316a5da7915181dcd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/semgrep/blobs/sha256:5ade6a2c25c10b4f09f82ad95252dd31cd39695e35cf05075e1d94fe186e0ec8
+sha256:
+  darwin_arm64: e4cfc4d5511a3cfc3e3db6751f8360d2d6f7659875e872bed1dfd29b42604606
+  darwin_amd64: ffb85e0a3a2b8699daad30d0e44de894fa45b39eba69722b416251c707aa6b71
+  linux_amd64: 5901b64b0b8758702936c619bf9bf72fa4e27b144b30e2316a5da7915181dcd0
+  linux_arm64: 5ade6a2c25c10b4f09f82ad95252dd31cd39695e35cf05075e1d94fe186e0ec8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - dwarfutils
+  - gmp
+  - libev
+  - pcre2
+  - pydantic
+  - python@3.14
+  - rpds-py
+  - sqlite
+  - tree-sitter
+  - zstd

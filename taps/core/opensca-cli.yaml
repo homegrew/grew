@@ -1,0 +1,19 @@
+name: opensca-cli
+version: 3.0.9
+description: OpenSCA is a supply-chain security tool for security researchers and developers
+homepage: https://opensca.xmirror.cn
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opensca-cli/blobs/sha256:76c50afaed0c9449571cd30869fd7af682ce4b904d090b0b3a33d95ac75e2194
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opensca-cli/blobs/sha256:fda462bc2c013f1ed5ba732184b234fe10d98273d1922deed8db8d44d894392b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opensca-cli/blobs/sha256:620a1d1c0201288411ede64b49d02a92d49d9966ce6a4ee85b1b03c208a1b166
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opensca-cli/blobs/sha256:1e722516e74504df275c56ec240f93b7fa5048563338cd38ef8bade3d7c34b94
+sha256:
+  darwin_arm64: 76c50afaed0c9449571cd30869fd7af682ce4b904d090b0b3a33d95ac75e2194
+  darwin_amd64: fda462bc2c013f1ed5ba732184b234fe10d98273d1922deed8db8d44d894392b
+  linux_amd64: 620a1d1c0201288411ede64b49d02a92d49d9966ce6a4ee85b1b03c208a1b166
+  linux_arm64: 1e722516e74504df275c56ec240f93b7fa5048563338cd38ef8bade3d7c34b94
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

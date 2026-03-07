@@ -1,0 +1,22 @@
+name: libmediainfo
+version: 26.01
+description: Shared library for mediainfo
+homepage: https://mediaarea.net/en/MediaInfo
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmediainfo/blobs/sha256:92de23d9cb0513aafc55d1e860fd2fd5cf59780dda14ca011ff4f836dfff1cb9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmediainfo/blobs/sha256:ab9338fd06ee4243ab5b8b6eb71d6377fdd3b99094a31b88a24c7f6158e3ca4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmediainfo/blobs/sha256:a7dd457a3095977080d1ae88a78e731641790447d533bc41681d7323c156ca53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmediainfo/blobs/sha256:50f3500f3fb67466199cb9e2044e568a940aefdaebcf1f91bdee485c56221bb5
+sha256:
+  darwin_arm64: 92de23d9cb0513aafc55d1e860fd2fd5cf59780dda14ca011ff4f836dfff1cb9
+  darwin_amd64: ab9338fd06ee4243ab5b8b6eb71d6377fdd3b99094a31b88a24c7f6158e3ca4d
+  linux_amd64: a7dd457a3095977080d1ae88a78e731641790447d533bc41681d7323c156ca53
+  linux_arm64: 50f3500f3fb67466199cb9e2044e568a940aefdaebcf1f91bdee485c56221bb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmms
+  - libzen

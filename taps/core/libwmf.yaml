@@ -1,0 +1,23 @@
+name: libwmf
+version: 0.2.14
+description: Library for converting WMF (Window Metafile Format) files
+homepage: https://github.com/caolanm/libwmf
+license: LGPL-2.0-or-later AND GPL-2.0-or-later AND GD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libwmf/blobs/sha256:faf6abfcf586e8a31abb4adf7742038ef80a5bc113f1f823090b6a288f660b44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libwmf/blobs/sha256:68000eda7f0280efa360d74723365f0ec9f5e93016ec74c875db546e2a5fb594
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwmf/blobs/sha256:359e45d8b108c0891d96f4db7870a7a643af455e7459fdb0fb9055ce0fcea069
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwmf/blobs/sha256:1c911a8926c22d6b84820616bed109c7e9dcb4c1cdf20544d1a696dd11170a66
+sha256:
+  darwin_arm64: faf6abfcf586e8a31abb4adf7742038ef80a5bc113f1f823090b6a288f660b44
+  darwin_amd64: 68000eda7f0280efa360d74723365f0ec9f5e93016ec74c875db546e2a5fb594
+  linux_amd64: 359e45d8b108c0891d96f4db7870a7a643af455e7459fdb0fb9055ce0fcea069
+  linux_arm64: 1c911a8926c22d6b84820616bed109c7e9dcb4c1cdf20544d1a696dd11170a66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - jpeg-turbo
+  - libpng

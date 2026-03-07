@@ -1,0 +1,21 @@
+name: gcovr
+version: 8.6
+description: Reports from gcov test coverage program
+homepage: https://gcovr.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gcovr/blobs/sha256:49fb3d1e586e2f9dc1cd64e58167158f38a8246f3014943327abcff092aa2bdf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gcovr/blobs/sha256:1ff642a465d7cefa35c1e8708bd3a2699b806105bf835102dfcf521bfe78f1f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcovr/blobs/sha256:798eca898b3c7345e82eb9240b05a0b60ca803fb202c9b602f01daa85caefb62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcovr/blobs/sha256:2833433cdbd2cd88bb6fca30ac2152e89fd4b4346f26657cace31524fe055f89
+sha256:
+  darwin_arm64: 49fb3d1e586e2f9dc1cd64e58167158f38a8246f3014943327abcff092aa2bdf
+  darwin_amd64: 1ff642a465d7cefa35c1e8708bd3a2699b806105bf835102dfcf521bfe78f1f7
+  linux_amd64: 798eca898b3c7345e82eb9240b05a0b60ca803fb202c9b602f01daa85caefb62
+  linux_arm64: 2833433cdbd2cd88bb6fca30ac2152e89fd4b4346f26657cace31524fe055f89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

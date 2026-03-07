@@ -1,0 +1,19 @@
+name: tkrzw
+version: 1.0.32
+description: Set of implementations of DBM
+homepage: https://dbmx.net/tkrzw/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tkrzw/blobs/sha256:4b7d88b7e147b4f11a63156fe098d9e2a3d725598291e8bb1626e500f8726e8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tkrzw/blobs/sha256:f6f4257aff9c7fccc0ff8c2bb6f6ae9723d0c85e406a4331ed27e900d22e1223
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tkrzw/blobs/sha256:a0bbd8fd655b6360e7cf7fab8fc05b19f58c9eb4aff8a91ac0d075b1afaeec12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tkrzw/blobs/sha256:a7ef046fc7c1fbfe96ecf02e483fd60563372f83a6615daa227b8150be5a88ea
+sha256:
+  darwin_arm64: 4b7d88b7e147b4f11a63156fe098d9e2a3d725598291e8bb1626e500f8726e8e
+  darwin_amd64: f6f4257aff9c7fccc0ff8c2bb6f6ae9723d0c85e406a4331ed27e900d22e1223
+  linux_amd64: a0bbd8fd655b6360e7cf7fab8fc05b19f58c9eb4aff8a91ac0d075b1afaeec12
+  linux_arm64: a7ef046fc7c1fbfe96ecf02e483fd60563372f83a6615daa227b8150be5a88ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

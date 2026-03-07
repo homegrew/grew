@@ -1,0 +1,19 @@
+name: easeprobe
+version: 2.3.0
+description: Simple, standalone, and lightWeight tool that can do health/status checking
+homepage: https://github.com/megaease/easeprobe
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/easeprobe/blobs/sha256:fb457afd21395276bd1ace4e9e2a74edcd6e480f2f9da42cddd84ebb904e6b09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/easeprobe/blobs/sha256:1337da6865466ead30338bb72c0f0eedb1214f5432180ac2db589018082c5732
+  linux_amd64: https://ghcr.io/v2/homebrew/core/easeprobe/blobs/sha256:8fa4762a61a546533ba77c2d8b742f646a263dfb99946454dd939cd635190bcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/easeprobe/blobs/sha256:304622d1864143ed99f1a8f410c7c070e040d84e415d9bc19ffbde248af9e3f5
+sha256:
+  darwin_arm64: fb457afd21395276bd1ace4e9e2a74edcd6e480f2f9da42cddd84ebb904e6b09
+  darwin_amd64: 1337da6865466ead30338bb72c0f0eedb1214f5432180ac2db589018082c5732
+  linux_amd64: 8fa4762a61a546533ba77c2d8b742f646a263dfb99946454dd939cd635190bcf
+  linux_arm64: 304622d1864143ed99f1a8f410c7c070e040d84e415d9bc19ffbde248af9e3f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

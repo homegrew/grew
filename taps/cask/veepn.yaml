@@ -1,0 +1,11 @@
+name: veepn
+version: 2.3.20
+description: VPN client
+homepage: https://veepn.com/vpn-apps/vpn-for-mac/
+url:
+  darwin_arm64: https://download.veepn.com/mac/VeePN_2.3.20.dmg
+sha256:
+  darwin_arm64: 43eeb49d5ea5bb2d63a16bd77803ea7ab08ceae43a09a21f0e814784738c0464
+artifacts:
+  app:
+    - VeePN.app

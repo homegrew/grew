@@ -1,0 +1,19 @@
+name: picoc
+version: 2.1
+description: C interpreter for scripting
+homepage: https://gitlab.com/zsaleeba/picoc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/picoc/blobs/sha256:190a69c827d572ea5c16c28021907f6eb657eaa4b3381fc379ebeeda16e1c102
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/picoc/blobs/sha256:6e15bc0d7c0729f0a32ef47dedf7b50a84cb2a9a5ab6238885cdf26b50e8f779
+  linux_amd64: https://ghcr.io/v2/homebrew/core/picoc/blobs/sha256:dbc930c96079c197b124afefbcf14153ad4435e9ff95d42753348778f6efb85e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/picoc/blobs/sha256:1054643132b3c1196e1630e283c7295c73e57d7e616f08eedba7ea03c5820cf4
+sha256:
+  darwin_arm64: 190a69c827d572ea5c16c28021907f6eb657eaa4b3381fc379ebeeda16e1c102
+  darwin_amd64: 6e15bc0d7c0729f0a32ef47dedf7b50a84cb2a9a5ab6238885cdf26b50e8f779
+  linux_amd64: dbc930c96079c197b124afefbcf14153ad4435e9ff95d42753348778f6efb85e
+  linux_arm64: 1054643132b3c1196e1630e283c7295c73e57d7e616f08eedba7ea03c5820cf4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

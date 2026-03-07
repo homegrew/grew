@@ -1,0 +1,19 @@
+name: vstr
+version: 1.0.15
+description: C string library
+homepage: http://www.and.org/vstr/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vstr/blobs/sha256:2725b8c09c36af9b495587022630130f5561972343fa3d91bba4de2773f7c76e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vstr/blobs/sha256:e8a6083d5029f10cde668b105012a8302eafcdde1d497ea92d6af9fcbb14a33f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vstr/blobs/sha256:8346f2277202db06584db705dcf754a00ca364c547791d911e7c3395072b1b6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vstr/blobs/sha256:a7507e113107828ddec905dfb3c2b373d11f676800cc342fdf080a12038df960
+sha256:
+  darwin_arm64: 2725b8c09c36af9b495587022630130f5561972343fa3d91bba4de2773f7c76e
+  darwin_amd64: e8a6083d5029f10cde668b105012a8302eafcdde1d497ea92d6af9fcbb14a33f
+  linux_amd64: 8346f2277202db06584db705dcf754a00ca364c547791d911e7c3395072b1b6e
+  linux_arm64: a7507e113107828ddec905dfb3c2b373d11f676800cc342fdf080a12038df960
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

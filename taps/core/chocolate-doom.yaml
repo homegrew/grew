@@ -1,0 +1,26 @@
+name: chocolate-doom
+version: 3.1.1
+description: Accurate source port of Doom
+homepage: https://www.chocolate-doom.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chocolate-doom/blobs/sha256:c2c512540ff8466c3ce24619831d65d9890388c6489c3cfa448e688a7ca0084e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chocolate-doom/blobs/sha256:c46dce1d3dd20058a9a8fa66f962e7854cb11e96ebe5ddec38cbf8da6ae695d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chocolate-doom/blobs/sha256:8abf7f8788b954ce7158be70e901dbd050139aa6f76975108dc2b8a2e6877a81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chocolate-doom/blobs/sha256:813f46eafb096fa5742e69f32953f9ca658e696930dadb24347cb560dd9d3c11
+sha256:
+  darwin_arm64: c2c512540ff8466c3ce24619831d65d9890388c6489c3cfa448e688a7ca0084e
+  darwin_amd64: c46dce1d3dd20058a9a8fa66f962e7854cb11e96ebe5ddec38cbf8da6ae695d2
+  linux_amd64: 8abf7f8788b954ce7158be70e901dbd050139aa6f76975108dc2b8a2e6877a81
+  linux_arm64: 813f46eafb096fa5742e69f32953f9ca658e696930dadb24347cb560dd9d3c11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fluid-synth
+  - libpng
+  - libsamplerate
+  - sdl2
+  - sdl2_mixer
+  - sdl2_net

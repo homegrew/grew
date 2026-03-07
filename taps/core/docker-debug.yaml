@@ -1,0 +1,19 @@
+name: docker-debug
+version: 0.7.11
+description: Use new container attach on already container go on debug
+homepage: https://github.com/zeromake/docker-debug
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-debug/blobs/sha256:f0faba1df5f1cadcedabd4487f30a0db88072ee50cd92d095f7366b410fb6c42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-debug/blobs/sha256:978911584a039d17fbc927934d0d9c9eb3477eba58b6ea1df5a461a6f3d4e92b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-debug/blobs/sha256:cacde51f354d073566e5f6452a545a0df24ae0ace59d8c2a60adb4954519cdf4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-debug/blobs/sha256:ec74e9da2a07744c7608e482b1573a9178746022cc19ddac7b4c0e7a1f7fc82a
+sha256:
+  darwin_arm64: f0faba1df5f1cadcedabd4487f30a0db88072ee50cd92d095f7366b410fb6c42
+  darwin_amd64: 978911584a039d17fbc927934d0d9c9eb3477eba58b6ea1df5a461a6f3d4e92b
+  linux_amd64: cacde51f354d073566e5f6452a545a0df24ae0ace59d8c2a60adb4954519cdf4
+  linux_arm64: ec74e9da2a07744c7608e482b1573a9178746022cc19ddac7b4c0e7a1f7fc82a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

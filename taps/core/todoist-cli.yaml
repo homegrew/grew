@@ -1,0 +1,19 @@
+name: todoist-cli
+version: 0.23.0
+description: CLI for Todoist
+homepage: https://github.com/sachaos/todoist
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/todoist-cli/blobs/sha256:fe24f3a9167095be7987e52601190e1b6ed8f8a0b09cf88320e7bf63db186a0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/todoist-cli/blobs/sha256:455337aed4d77945998de06dba80a3031f69bd537565052286109112a349990a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/todoist-cli/blobs/sha256:10c3e7eb3366de978e1ba7ad6a495ad9d26b99101eebdb8ab19c655190c2f8e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/todoist-cli/blobs/sha256:f49c51e0fe56cf86e2eab8c4d542601e980236fae1d7f0cf6d5934132b8f7d85
+sha256:
+  darwin_arm64: fe24f3a9167095be7987e52601190e1b6ed8f8a0b09cf88320e7bf63db186a0f
+  darwin_amd64: 455337aed4d77945998de06dba80a3031f69bd537565052286109112a349990a
+  linux_amd64: 10c3e7eb3366de978e1ba7ad6a495ad9d26b99101eebdb8ab19c655190c2f8e5
+  linux_arm64: f49c51e0fe56cf86e2eab8c4d542601e980236fae1d7f0cf6d5934132b8f7d85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

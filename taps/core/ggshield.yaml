@@ -1,0 +1,24 @@
+name: ggshield
+version: 1.48.0
+description: Scanner for secrets and sensitive data in code
+homepage: https://www.gitguardian.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ggshield/blobs/sha256:ad1ef295e011b13982c5ab458d14e645a7e904ed396f1fa1410f4e93832013c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ggshield/blobs/sha256:710e5cbbe1d480e78728137ae305c75cd86359ec03a95b6db52438b0b95e5114
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ggshield/blobs/sha256:e600655c15300ef7c4c3e24e129df3f9a55ecea06e8733ef7f93478a55955aa9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ggshield/blobs/sha256:3ad12aa065fe5d153fcecb381843eeed97bd1e25f671b29421713a7e4c5cc433
+sha256:
+  darwin_arm64: ad1ef295e011b13982c5ab458d14e645a7e904ed396f1fa1410f4e93832013c2
+  darwin_amd64: 710e5cbbe1d480e78728137ae305c75cd86359ec03a95b6db52438b0b95e5114
+  linux_amd64: e600655c15300ef7c4c3e24e129df3f9a55ecea06e8733ef7f93478a55955aa9
+  linux_arm64: 3ad12aa065fe5d153fcecb381843eeed97bd1e25f671b29421713a7e4c5cc433
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: flatcc
+version: 0.6.1
+description: FlatBuffers Compiler and Library in C for C
+homepage: https://github.com/dvidelabs/flatcc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flatcc/blobs/sha256:a34e8f0ebb3c59e0c2e18ce60fe470625395990400c9a6c35dc1051219b1c48d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flatcc/blobs/sha256:6546c16d361d757dd90cfa7d544c5ff32697b91d3fb921f137930bf70b22c2ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flatcc/blobs/sha256:800852160e2675ab180b1183d205daf90646f9e92c5cf3a9cd8ceaaf24c1242f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flatcc/blobs/sha256:c69fd96555dc590799efec63f216a37d4b052bcb3a6967823e739eee854389a1
+sha256:
+  darwin_arm64: a34e8f0ebb3c59e0c2e18ce60fe470625395990400c9a6c35dc1051219b1c48d
+  darwin_amd64: 6546c16d361d757dd90cfa7d544c5ff32697b91d3fb921f137930bf70b22c2ab
+  linux_amd64: 800852160e2675ab180b1183d205daf90646f9e92c5cf3a9cd8ceaaf24c1242f
+  linux_arm64: c69fd96555dc590799efec63f216a37d4b052bcb3a6967823e739eee854389a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

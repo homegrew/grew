@@ -1,0 +1,19 @@
+name: lsr
+version: 1.0.0
+description: Ls but with io_uring
+homepage: https://tangled.sh/@rockorager.dev/lsr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lsr/blobs/sha256:ee4d7eca5ce1db999d5e5efa67c6e8f5b9f5f681d17ec27a5212e1a8ef4c6b6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lsr/blobs/sha256:0e98cfe0a45ebdc07e08b3e06157612110df9824170d8a1eae573836b70bc98c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lsr/blobs/sha256:0044a4cca23cb76a32c0095cee321c50d049007a608ae54155268b0ac30a1213
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lsr/blobs/sha256:071775094aec0e406a570dafb3d15fc0515c3277f1136ea4424cbffd1b833e09
+sha256:
+  darwin_arm64: ee4d7eca5ce1db999d5e5efa67c6e8f5b9f5f681d17ec27a5212e1a8ef4c6b6e
+  darwin_amd64: 0e98cfe0a45ebdc07e08b3e06157612110df9824170d8a1eae573836b70bc98c
+  linux_amd64: 0044a4cca23cb76a32c0095cee321c50d049007a608ae54155268b0ac30a1213
+  linux_arm64: 071775094aec0e406a570dafb3d15fc0515c3277f1136ea4424cbffd1b833e09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

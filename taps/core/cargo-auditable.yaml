@@ -1,0 +1,19 @@
+name: cargo-auditable
+version: 0.7.4
+description: Make production Rust binaries auditable
+homepage: https://github.com/rust-secure-code/cargo-auditable
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-auditable/blobs/sha256:f3fce86e8db8ffe764d2ba4316d86dd1ee8ae2947f581e29e43c0a2730e09359
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-auditable/blobs/sha256:5bd3dbb96e21148f93e8f20fa136ab151c325bc850d2e776c2e9781015f625da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-auditable/blobs/sha256:4e1c83ef6cd06c3df7d29e57937050e2779c90d08d18ff316c422f08a05d4edf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-auditable/blobs/sha256:df75796af0beced442d90fcf41d5849174d05acabf8b9c282b29ba48aa3d52a9
+sha256:
+  darwin_arm64: f3fce86e8db8ffe764d2ba4316d86dd1ee8ae2947f581e29e43c0a2730e09359
+  darwin_amd64: 5bd3dbb96e21148f93e8f20fa136ab151c325bc850d2e776c2e9781015f625da
+  linux_amd64: 4e1c83ef6cd06c3df7d29e57937050e2779c90d08d18ff316c422f08a05d4edf
+  linux_arm64: df75796af0beced442d90fcf41d5849174d05acabf8b9c282b29ba48aa3d52a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

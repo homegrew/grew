@@ -1,0 +1,19 @@
+name: nuclei
+version: 3.7.1
+description: HTTP/DNS scanner configurable via YAML templates
+homepage: https://docs.projectdiscovery.io/tools/nuclei/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nuclei/blobs/sha256:193a1757ca83ec7e002922b6487e1031cbc58a456a18e9adf18457f7952168f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nuclei/blobs/sha256:76d56731fafc65c71188e0701a9be63ae44c9e5e190730f96959f85cd83f903c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nuclei/blobs/sha256:9d098d5456f49ecf4eec3675e72ebcce40bf6f4ca08f77a5301ff07ff327aee2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nuclei/blobs/sha256:fd8b26cbefe7f27d69344d6d2e41ac3fb7d875e659da9f6095972a41280b85d4
+sha256:
+  darwin_arm64: 193a1757ca83ec7e002922b6487e1031cbc58a456a18e9adf18457f7952168f7
+  darwin_amd64: 76d56731fafc65c71188e0701a9be63ae44c9e5e190730f96959f85cd83f903c
+  linux_amd64: 9d098d5456f49ecf4eec3675e72ebcce40bf6f4ca08f77a5301ff07ff327aee2
+  linux_arm64: fd8b26cbefe7f27d69344d6d2e41ac3fb7d875e659da9f6095972a41280b85d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: dynamodb-local
+version: 2026-01-18
+description: Development tool for DynamoDB
+homepage: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+url:
+  darwin_arm64: https://d1ni2b6xgvw0s0.cloudfront.net/v2.x/dynamodb_local_2026-01-18.tar.gz
+sha256:
+  darwin_arm64: c05dc320f4f9a6f90c6597bc4dc7239ab8200a6df0f280d9cbe4d5775943f898
+artifacts:
+  bin:
+    - dynamodb-local

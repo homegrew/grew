@@ -1,0 +1,81 @@
+name: gstreamer
+version: 1.28.1
+description: Development framework for multimedia applications
+homepage: https://gstreamer.freedesktop.org/
+license: LGPL-2.0-or-later AND LGPL-2.1-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gstreamer/blobs/sha256:75331c0fab7d9d309a3ea234cc52c9c32e05d32e7ea8ba1254217eceb1394b2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gstreamer/blobs/sha256:d7d8f73d695687a768bb01eee7a772199bed980dae59a9f7ec7ccb117be5753c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gstreamer/blobs/sha256:65838c00ee5ef28889fd6aab631dfed1fe2efbd6dd588bc1a65d30a58c115d6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gstreamer/blobs/sha256:b4cf93110905bce375158be2d16b5f09ec89998f81a8a4e338f7f98f531dcc4f
+sha256:
+  darwin_arm64: 75331c0fab7d9d309a3ea234cc52c9c32e05d32e7ea8ba1254217eceb1394b2e
+  darwin_amd64: d7d8f73d695687a768bb01eee7a772199bed980dae59a9f7ec7ccb117be5753c
+  linux_amd64: 65838c00ee5ef28889fd6aab631dfed1fe2efbd6dd588bc1a65d30a58c115d6e
+  linux_arm64: b4cf93110905bce375158be2d16b5f09ec89998f81a8a4e338f7f98f531dcc4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aom
+  - cairo
+  - dav1d
+  - faac
+  - faad2
+  - fdk-aac
+  - ffmpeg
+  - flac
+  - gdk-pixbuf
+  - glib
+  - graphene
+  - gtk+3
+  - gtk4
+  - imath
+  - jpeg-turbo
+  - json-glib
+  - lame
+  - libass
+  - libnice
+  - libogg
+  - libpng
+  - librsvg
+  - libshout
+  - libsndfile
+  - libsodium
+  - libsoup
+  - libusrsctp
+  - libvmaf
+  - libvorbis
+  - libvpx
+  - libx11
+  - libxcb
+  - libxext
+  - libxfixes
+  - libxi
+  - libxtst
+  - little-cms2
+  - mpg123
+  - nettle
+  - opencore-amr
+  - openexr
+  - openjpeg
+  - openssl@3
+  - opus
+  - orc
+  - pango
+  - pygobject3
+  - python@3.14
+  - rtmpdump
+  - speex
+  - srt
+  - srtp
+  - svt-av1
+  - taglib
+  - theora
+  - webp
+  - x264
+  - x265
+  - gettext
+  - harfbuzz
+  - musepack

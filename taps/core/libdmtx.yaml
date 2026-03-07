@@ -1,0 +1,19 @@
+name: libdmtx
+version: 0.7.8
+description: Data Matrix library
+homepage: https://libdmtx.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdmtx/blobs/sha256:0d00ba79d2fd03fa854321252a34f897d33324c970bef878a9f86386a7c9700a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdmtx/blobs/sha256:44c8a0c8b7ea70f42368c2633bd4569072dc724f7e38c21cd16ed567a510ce55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdmtx/blobs/sha256:db8cf01939d9ca1f8c7e6fd7fc6f9c3f243a20893052dbe4e8861eb2b67a7ce0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdmtx/blobs/sha256:1a368525adad2afbfc932f8d332f840b7bd5bafde75da5b8639974236123d73e
+sha256:
+  darwin_arm64: 0d00ba79d2fd03fa854321252a34f897d33324c970bef878a9f86386a7c9700a
+  darwin_amd64: 44c8a0c8b7ea70f42368c2633bd4569072dc724f7e38c21cd16ed567a510ce55
+  linux_amd64: db8cf01939d9ca1f8c7e6fd7fc6f9c3f243a20893052dbe4e8861eb2b67a7ce0
+  linux_arm64: 1a368525adad2afbfc932f8d332f840b7bd5bafde75da5b8639974236123d73e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

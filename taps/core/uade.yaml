@@ -1,0 +1,21 @@
+name: uade
+version: 3.05
+description: Play Amiga tunes through UAE emulation
+homepage: https://zakalwe.fi/uade/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uade/blobs/sha256:0f30d852e9fac327855a1871f8b00ffbb476b03d32162be3e7d690982eec541a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uade/blobs/sha256:8efa9e1dc22e259d2608f0300414f326405fa336fa8bc7323a1894cc9eba424f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uade/blobs/sha256:57119bf1df980db377ed2a47e16a386060756151ca74a3506bac17685834c4b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uade/blobs/sha256:8057cf30b698dd3e7756646839dc75910047f24f7752149e565499f86eed29f0
+sha256:
+  darwin_arm64: 0f30d852e9fac327855a1871f8b00ffbb476b03d32162be3e7d690982eec541a
+  darwin_amd64: 8efa9e1dc22e259d2608f0300414f326405fa336fa8bc7323a1894cc9eba424f
+  linux_amd64: 57119bf1df980db377ed2a47e16a386060756151ca74a3506bac17685834c4b9
+  linux_arm64: 8057cf30b698dd3e7756646839dc75910047f24f7752149e565499f86eed29f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libao

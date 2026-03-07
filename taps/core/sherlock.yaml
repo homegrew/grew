@@ -1,0 +1,23 @@
+name: sherlock
+version: 0.16.0
+description: Hunt down social media accounts by username
+homepage: https://github.com/sherlock-project/sherlock
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sherlock/blobs/sha256:172bfac00b591668aaadb6823c7f85246383069d6ef31db3a05f9ec17ae14144
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sherlock/blobs/sha256:c8216dc7eaf85a508cc893f85bb68d6f72dc3dc6b4181bbe47287260631af63e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sherlock/blobs/sha256:4f6e377caf203851c7a283a02a8dfdc6dbd5fc9ee67c53eda37f6983ebca5d4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sherlock/blobs/sha256:efc7f912dfd3f1152ef8404ff9b1899ff330f81e75e8e5da600dc575787b1d70
+sha256:
+  darwin_arm64: 172bfac00b591668aaadb6823c7f85246383069d6ef31db3a05f9ec17ae14144
+  darwin_amd64: c8216dc7eaf85a508cc893f85bb68d6f72dc3dc6b4181bbe47287260631af63e
+  linux_amd64: 4f6e377caf203851c7a283a02a8dfdc6dbd5fc9ee67c53eda37f6983ebca5d4b
+  linux_arm64: efc7f912dfd3f1152ef8404ff9b1899ff330f81e75e8e5da600dc575787b1d70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - numpy
+  - python@3.14

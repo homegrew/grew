@@ -1,0 +1,21 @@
+name: logstash
+version: 9.3.1
+description: Tool for managing events and logs
+homepage: https://www.elastic.co/products/logstash
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logstash/blobs/sha256:0ac666a0fd5760cb2f0a00b4af95888dde04e3dfff76ff786753159e5c18454e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logstash/blobs/sha256:4b441573f8657954e113b148571fe795a37bfe67606a7128864017fd9431522c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logstash/blobs/sha256:5e607efd3ae76c4a0d73c0a849546c122c1d4717d764088be9ff15f42288b8fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logstash/blobs/sha256:6ad07a814db24bf4a6f19feab2b7eff9a4880ac6a1a41d2392bf5de10abedba8
+sha256:
+  darwin_arm64: 0ac666a0fd5760cb2f0a00b4af95888dde04e3dfff76ff786753159e5c18454e
+  darwin_amd64: 4b441573f8657954e113b148571fe795a37bfe67606a7128864017fd9431522c
+  linux_amd64: 5e607efd3ae76c4a0d73c0a849546c122c1d4717d764088be9ff15f42288b8fb
+  linux_arm64: 6ad07a814db24bf4a6f19feab2b7eff9a4880ac6a1a41d2392bf5de10abedba8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@21

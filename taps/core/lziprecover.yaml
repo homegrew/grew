@@ -1,0 +1,19 @@
+name: lziprecover
+version: 1.26
+description: Data recovery tool and decompressor for files in the lzip compressed data format
+homepage: https://www.nongnu.org/lzip/lziprecover.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lziprecover/blobs/sha256:343f6706d13abac08b7b069f83c3cda00a7b3c7ebd15be78e9a476786665463f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lziprecover/blobs/sha256:09759201cdfab6f46d9e97f15cd893d4f10b0c1efe1fc650356e472062af2cd5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lziprecover/blobs/sha256:66cbf0d8af517659c8df84822d8a6d763c09cbd21c52882c1957073ce594a37f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lziprecover/blobs/sha256:d454115600543232b210e45c247bf103dde666cdf725509139da843899ab6ec7
+sha256:
+  darwin_arm64: 343f6706d13abac08b7b069f83c3cda00a7b3c7ebd15be78e9a476786665463f
+  darwin_amd64: 09759201cdfab6f46d9e97f15cd893d4f10b0c1efe1fc650356e472062af2cd5
+  linux_amd64: 66cbf0d8af517659c8df84822d8a6d763c09cbd21c52882c1957073ce594a37f
+  linux_arm64: d454115600543232b210e45c247bf103dde666cdf725509139da843899ab6ec7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

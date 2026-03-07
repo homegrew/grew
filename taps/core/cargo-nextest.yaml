@@ -1,0 +1,19 @@
+name: cargo-nextest
+version: 0.9.129
+description: Next-generation test runner for Rust
+homepage: https://nexte.st
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-nextest/blobs/sha256:6e5d320b111d5cefbaa4c386a95ec27c6929640f065fbf9d7bf47fc6caa9414d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-nextest/blobs/sha256:19fb2f164f8b285abbb6b56e8039584f1a59cb7f66c781a1e069ca4db10836ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-nextest/blobs/sha256:8c7a4fc1a52a3ae2d991befb98d2242a284d95e47e9090f03df882d252dc1e0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-nextest/blobs/sha256:96cd858991c09be9503b9424fbbfe43b8450a3023d65fdd75a92bf9ad052171f
+sha256:
+  darwin_arm64: 6e5d320b111d5cefbaa4c386a95ec27c6929640f065fbf9d7bf47fc6caa9414d
+  darwin_amd64: 19fb2f164f8b285abbb6b56e8039584f1a59cb7f66c781a1e069ca4db10836ff
+  linux_amd64: 8c7a4fc1a52a3ae2d991befb98d2242a284d95e47e9090f03df882d252dc1e0d
+  linux_arm64: 96cd858991c09be9503b9424fbbfe43b8450a3023d65fdd75a92bf9ad052171f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

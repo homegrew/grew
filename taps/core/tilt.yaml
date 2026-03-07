@@ -1,0 +1,19 @@
+name: tilt
+version: 0.37.0
+description: Define your dev environment as code. For microservice apps on Kubernetes
+homepage: https://tilt.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tilt/blobs/sha256:ef146e2f979d75f61e910f9b76856b681d0d87d78a80bf044a8492e7a85ad96e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tilt/blobs/sha256:c93acf8f6661b9be137a1a53c45a269087bff398e922d9c2df9dd31d96868fe0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tilt/blobs/sha256:e6e8dd9ec0fec8f5dba50cb4a3102558ae939bd572f4275d6896175f981bb4ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tilt/blobs/sha256:c9aab03206d8e7ab80b6ce88f4ea19eb10d695927eaa33510cc76c38dc143366
+sha256:
+  darwin_arm64: ef146e2f979d75f61e910f9b76856b681d0d87d78a80bf044a8492e7a85ad96e
+  darwin_amd64: c93acf8f6661b9be137a1a53c45a269087bff398e922d9c2df9dd31d96868fe0
+  linux_amd64: e6e8dd9ec0fec8f5dba50cb4a3102558ae939bd572f4275d6896175f981bb4ea
+  linux_arm64: c9aab03206d8e7ab80b6ce88f4ea19eb10d695927eaa33510cc76c38dc143366
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

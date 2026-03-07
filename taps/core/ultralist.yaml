@@ -1,0 +1,19 @@
+name: ultralist
+version: 1.7.0
+description: Simple GTD-style task management for the command-line
+homepage: https://ultralist.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ultralist/blobs/sha256:cf20c183b0f002e46e7120e832512041e727cf95055558a4883081888df4daa8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ultralist/blobs/sha256:3b8e53935f5471c24002269aa8e31a50553dfb4b691fd0f246eb241e64d8a63d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ultralist/blobs/sha256:c1d287b06c14adcd326d8dd626209fcfa7a287919dce6f755f80a6513b2ed6e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ultralist/blobs/sha256:eb37076414ad6dfb8788d0a12a0cbc3db6d1429a7bb2d3b8c664f11ef2587184
+sha256:
+  darwin_arm64: cf20c183b0f002e46e7120e832512041e727cf95055558a4883081888df4daa8
+  darwin_amd64: 3b8e53935f5471c24002269aa8e31a50553dfb4b691fd0f246eb241e64d8a63d
+  linux_amd64: c1d287b06c14adcd326d8dd626209fcfa7a287919dce6f755f80a6513b2ed6e7
+  linux_arm64: eb37076414ad6dfb8788d0a12a0cbc3db6d1429a7bb2d3b8c664f11ef2587184
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

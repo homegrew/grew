@@ -1,0 +1,24 @@
+name: qtwebengine
+version: 6.10.2
+description: Provides functionality for rendering regions of dynamic web content
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause AND Apache-2.0 AND blessing AND BSD-2-Clause AND LGPL-2.1-or-later AND libpng-2.0 AND MIT AND MPL-1.1 AND NCL AND SGI-B-2.0 AND SunPro AND Zlib AND LicenseRef-Homebrew-public-domain AND (ISC AND OpenSSL)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtwebengine/blobs/sha256:99dfde734b22c0064d6ed5168ba788470f16e2e6b94a5e2294bd473caa2dfcc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtwebengine/blobs/sha256:172e03a367cd18d35540c936dae17d3256afea431a49814044f55eb0ea2c91b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtwebengine/blobs/sha256:00d2b22e3ac0de9ac41fe7dec21b0b51b4d2d1d81d0debd2c33686fef9c5c1e3
+sha256:
+  darwin_arm64: 99dfde734b22c0064d6ed5168ba788470f16e2e6b94a5e2294bd473caa2dfcc7
+  darwin_amd64: 172e03a367cd18d35540c936dae17d3256afea431a49814044f55eb0ea2c91b8
+  linux_amd64: 00d2b22e3ac0de9ac41fe7dec21b0b51b4d2d1d81d0debd2c33686fef9c5c1e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - qtbase
+  - qtdeclarative
+  - qtpositioning
+  - qtwebchannel
+  - qttools

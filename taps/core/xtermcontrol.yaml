@@ -1,0 +1,19 @@
+name: xtermcontrol
+version: 3.10
+description: Control xterm properties such as colors, title, font and geometry
+homepage: https://thrysoee.dk/xtermcontrol/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xtermcontrol/blobs/sha256:3d4a267b1c10ee1076e61d3d07f3145f6162f85f8105aa40c5f637a24372d61f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xtermcontrol/blobs/sha256:9f3d0725dc8f0531f83b61cf552c46db71c3bcf63fb0580e9e4682d6fe63eb44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xtermcontrol/blobs/sha256:10810f15d508c5a29c6df7ff1b757d6c2bac3d332772bb0ba142aa7e687fc1d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xtermcontrol/blobs/sha256:cd86332aa4be9f0a12c74cc5c5998a522828586e107fbdc8a46862d14f2ed53f
+sha256:
+  darwin_arm64: 3d4a267b1c10ee1076e61d3d07f3145f6162f85f8105aa40c5f637a24372d61f
+  darwin_amd64: 9f3d0725dc8f0531f83b61cf552c46db71c3bcf63fb0580e9e4682d6fe63eb44
+  linux_amd64: 10810f15d508c5a29c6df7ff1b757d6c2bac3d332772bb0ba142aa7e687fc1d8
+  linux_arm64: cd86332aa4be9f0a12c74cc5c5998a522828586e107fbdc8a46862d14f2ed53f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

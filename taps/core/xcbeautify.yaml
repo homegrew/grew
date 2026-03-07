@@ -1,0 +1,19 @@
+name: xcbeautify
+version: 3.1.4
+description: Little beautifier tool for xcodebuild
+homepage: https://github.com/cpisciotta/xcbeautify
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcbeautify/blobs/sha256:ef3c331c4ca486199100920e7ebb678493ca783b1fb5611b91e2d2b35d18473c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcbeautify/blobs/sha256:aebfb0d907b480a352adde2c8bd36df26a53d09f10cb65558680486cd9ec6235
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcbeautify/blobs/sha256:f0114d59c8ccf060f943136d40d642afe80070ce11a1300086f600a2bd96dda0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcbeautify/blobs/sha256:f5c468e2572675f5f18ef0c1dd1e9a977f7d02c320503081a79650c2f7377935
+sha256:
+  darwin_arm64: ef3c331c4ca486199100920e7ebb678493ca783b1fb5611b91e2d2b35d18473c
+  darwin_amd64: aebfb0d907b480a352adde2c8bd36df26a53d09f10cb65558680486cd9ec6235
+  linux_amd64: f0114d59c8ccf060f943136d40d642afe80070ce11a1300086f600a2bd96dda0
+  linux_arm64: f5c468e2572675f5f18ef0c1dd1e9a977f7d02c320503081a79650c2f7377935
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

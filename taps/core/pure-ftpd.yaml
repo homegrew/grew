@@ -1,0 +1,22 @@
+name: pure-ftpd
+version: 1.0.53
+description: Secure and efficient FTP server
+homepage: https://www.pureftpd.org/
+license: BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pure-ftpd/blobs/sha256:03cfef54d53503a02151f0fa412d98d81e1aabc3467338279bd85d058dd41415
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pure-ftpd/blobs/sha256:d8f87d56821a23a8c1c8c81b0c4ff5f68670b710500964603194102161f901d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pure-ftpd/blobs/sha256:24c58c62b5c4ec5c7ace78c73ef9859b65f53ab3dfd15eeaf58d7ac7e52f51bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pure-ftpd/blobs/sha256:c8588b13b6b674e8d0b73ada5692c1af5fe752a4c27439be3f6f324bcbef6cd6
+sha256:
+  darwin_arm64: 03cfef54d53503a02151f0fa412d98d81e1aabc3467338279bd85d058dd41415
+  darwin_amd64: d8f87d56821a23a8c1c8c81b0c4ff5f68670b710500964603194102161f901d2
+  linux_amd64: 24c58c62b5c4ec5c7ace78c73ef9859b65f53ab3dfd15eeaf58d7ac7e52f51bc
+  linux_arm64: c8588b13b6b674e8d0b73ada5692c1af5fe752a4c27439be3f6f324bcbef6cd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium
+  - openssl@3

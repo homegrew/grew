@@ -1,0 +1,19 @@
+name: boost-bcp
+version: 1.90.0
+description: Utility for extracting subsets of the Boost library
+homepage: https://github.com/boostorg/bcp
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boost-bcp/blobs/sha256:a11c0cd500e8441eb556e7ad81baed855e3d0b93d4d7327ff7efb3a5e0670630
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boost-bcp/blobs/sha256:34b5df6c619143ac0155e6f350d5ea0272a07d79954a1c132a4e9a848e0b2172
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boost-bcp/blobs/sha256:7cddec666359924f6651452e275ff45901538cef7155dda368ea28d4eccbdc54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boost-bcp/blobs/sha256:6ca7095df4f8945dc06a9b23a4402e27ea7acf7ce408693e9f79008751fb527b
+sha256:
+  darwin_arm64: a11c0cd500e8441eb556e7ad81baed855e3d0b93d4d7327ff7efb3a5e0670630
+  darwin_amd64: 34b5df6c619143ac0155e6f350d5ea0272a07d79954a1c132a4e9a848e0b2172
+  linux_amd64: 7cddec666359924f6651452e275ff45901538cef7155dda368ea28d4eccbdc54
+  linux_arm64: 6ca7095df4f8945dc06a9b23a4402e27ea7acf7ce408693e9f79008751fb527b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

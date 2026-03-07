@@ -1,0 +1,19 @@
+name: libstxxl
+version: 1.4.1
+description: C++ implementation of STL for extra large data sets
+homepage: https://stxxl.sourceforge.net/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libstxxl/blobs/sha256:e9a97733a67a95ca7bcaeb336a2573cf54c7110163448db00a1d27e98d49c364
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libstxxl/blobs/sha256:8974e02f766e33348b526ff4545441e9edc78dfb55847b996c115b53a8811211
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libstxxl/blobs/sha256:8651bc71eeb58d5fc34d8b934576ceec8d7735575c595e50e8dd8e4d2dc84ae9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libstxxl/blobs/sha256:830762e021660cbe0143faa6737a34aa03104344f17f561b6bbabf5befaa799b
+sha256:
+  darwin_arm64: e9a97733a67a95ca7bcaeb336a2573cf54c7110163448db00a1d27e98d49c364
+  darwin_amd64: 8974e02f766e33348b526ff4545441e9edc78dfb55847b996c115b53a8811211
+  linux_amd64: 8651bc71eeb58d5fc34d8b934576ceec8d7735575c595e50e8dd8e4d2dc84ae9
+  linux_arm64: 830762e021660cbe0143faa6737a34aa03104344f17f561b6bbabf5befaa799b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

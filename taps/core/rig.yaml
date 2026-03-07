@@ -1,0 +1,19 @@
+name: rig
+version: 1.11
+description: Provides fake name and address data
+homepage: https://rig.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rig/blobs/sha256:dad2501e03504d0b5bbb423d2c9ef324aadf56f790f696c0a46ae04c6dab206f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rig/blobs/sha256:23fd05abeb97e297ba941e14570cfcbe0a2c06a4b41b1413d1845fa44215123e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rig/blobs/sha256:562461182b7a6e85a39b6128addfe1cf719486b27504f9b7e61d466cfec400bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rig/blobs/sha256:55d7f3414a507b5c8d884ccb5c5d515bf9741d1190ebc88aba59f1c1ea57c45c
+sha256:
+  darwin_arm64: dad2501e03504d0b5bbb423d2c9ef324aadf56f790f696c0a46ae04c6dab206f
+  darwin_amd64: 23fd05abeb97e297ba941e14570cfcbe0a2c06a4b41b1413d1845fa44215123e
+  linux_amd64: 562461182b7a6e85a39b6128addfe1cf719486b27504f9b7e61d466cfec400bd
+  linux_arm64: 55d7f3414a507b5c8d884ccb5c5d515bf9741d1190ebc88aba59f1c1ea57c45c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

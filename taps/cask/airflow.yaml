@@ -1,0 +1,11 @@
+name: airflow
+version: 3.3.10
+description: Watch local content on Apple TV and Chromecast
+homepage: https://airflowapp.com/
+url:
+  darwin_arm64: https://cdn.downloads.iocave.net/Airflow/Airflow%203.3.10.zip
+sha256:
+  darwin_arm64: 76a5da7cebebe651fc849d7510c948d960163bdcdcded0d1abb8c061da447c78
+artifacts:
+  app:
+    - Airflow.app

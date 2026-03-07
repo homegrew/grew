@@ -1,0 +1,11 @@
+name: restic-browser
+version: 0.3.3
+description: GUI to browse and restore restic backup repositories
+homepage: https://github.com/emuell/restic-browser
+url:
+  darwin_arm64: https://github.com/emuell/restic-browser/releases/download/v0.3.3/Restic-Browser-v0.3.3-macOS.zip
+sha256:
+  darwin_arm64: d2e772dd19912f0eed3053ba654cdd14ca44ea5039164be548362a8b0ab57e18
+artifacts:
+  app:
+    - Restic-Browser.app

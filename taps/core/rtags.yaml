@@ -1,0 +1,23 @@
+name: rtags
+version: 2.44
+description: Source code cross-referencer like ctags with a clang frontend
+homepage: https://github.com/Andersbakken/rtags
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtags/blobs/sha256:d5cbf12e8b49fea2e82bfe1d149fac6a4b8491cc88b134d5dfb364fbc4d116d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtags/blobs/sha256:06375c067b9667b6f201e3ce67853ca432133747249a90b53049bdec0742d0ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtags/blobs/sha256:6189640b1116d0a70c690175bf2c37bdae14eda7c9b42b0e97789d4e5d24d675
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtags/blobs/sha256:b9b7c563f938a73fd2537389b0c93037d95221f6b4002e0832b0a8518a4429f5
+sha256:
+  darwin_arm64: d5cbf12e8b49fea2e82bfe1d149fac6a4b8491cc88b134d5dfb364fbc4d116d8
+  darwin_amd64: 06375c067b9667b6f201e3ce67853ca432133747249a90b53049bdec0742d0ba
+  linux_amd64: 6189640b1116d0a70c690175bf2c37bdae14eda7c9b42b0e97789d4e5d24d675
+  linux_arm64: b9b7c563f938a73fd2537389b0c93037d95221f6b4002e0832b0a8518a4429f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - emacs
+  - llvm
+  - openssl@3

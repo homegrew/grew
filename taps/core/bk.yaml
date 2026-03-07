@@ -1,0 +1,19 @@
+name: bk
+version: 0.6.0
+description: Terminal EPUB Reader
+homepage: https://github.com/aeosynth/bk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bk/blobs/sha256:42cb86c453b9c30b09fd6d4cbec309748b0466a0de6cfbb9e5086c364d053e97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bk/blobs/sha256:8068f1d17daa139707c388f7941d5acd41f55a0d27d9e08c0b1f6e58b5667862
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bk/blobs/sha256:efc14a838d10cc7fa1ceb15224041d836eb77d36bbda8c8a966afe158aabb2e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bk/blobs/sha256:501750e75de55c4246ae4ba053ab3852be696d1d63a0f9e052a1ebae2f5e13e0
+sha256:
+  darwin_arm64: 42cb86c453b9c30b09fd6d4cbec309748b0466a0de6cfbb9e5086c364d053e97
+  darwin_amd64: 8068f1d17daa139707c388f7941d5acd41f55a0d27d9e08c0b1f6e58b5667862
+  linux_amd64: efc14a838d10cc7fa1ceb15224041d836eb77d36bbda8c8a966afe158aabb2e5
+  linux_arm64: 501750e75de55c4246ae4ba053ab3852be696d1d63a0f9e052a1ebae2f5e13e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

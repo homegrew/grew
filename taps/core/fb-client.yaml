@@ -1,0 +1,23 @@
+name: fb-client
+version: 2.3.0
+description: "Shell-script client for https://paste.xinu.at"
+homepage: https://paste.xinu.at
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fb-client/blobs/sha256:d8e28f243d35b05f844423d91864d16f6a762c9f504f275b844dd6b9a30e7cae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fb-client/blobs/sha256:8b4e5071281484647dc85aacd08e852e801300efc81a10020244a33682913c1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fb-client/blobs/sha256:710a8cfa181a40cf624baf02e392d55a72420764bff738d2e400ad099dc9dbca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fb-client/blobs/sha256:25a09e67f190d6b0fb898ff38b44fdae32c068f1710b240d1e2591cdd4c8c9d7
+sha256:
+  darwin_arm64: d8e28f243d35b05f844423d91864d16f6a762c9f504f275b844dd6b9a30e7cae
+  darwin_amd64: 8b4e5071281484647dc85aacd08e852e801300efc81a10020244a33682913c1b
+  linux_amd64: 710a8cfa181a40cf624baf02e392d55a72420764bff738d2e400ad099dc9dbca
+  linux_arm64: 25a09e67f190d6b0fb898ff38b44fdae32c068f1710b240d1e2591cdd4c8c9d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - openssl@3
+  - python@3.14

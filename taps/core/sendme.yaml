@@ -1,0 +1,19 @@
+name: sendme
+version: 0.31.0
+description: Tool to send files and directories, based on iroh
+homepage: https://iroh.computer/sendme
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sendme/blobs/sha256:deffd7e19f9f562d47795661c0aa9e58633f661e4bbf8c8d6a3b7db502b268b1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sendme/blobs/sha256:1d9e1f90e76cc02a10b798accc25452ed4129b7fbbc88c5ad254f02542e6ebd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sendme/blobs/sha256:e12efc7e94bfe59cc2d1c56ffd6553b3096e9690c0333917858989d69c6fe028
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sendme/blobs/sha256:e503cc2d8d24a526c01e52b8735c9d48b9465edbb2e4ccc127ec602f6e5ae01e
+sha256:
+  darwin_arm64: deffd7e19f9f562d47795661c0aa9e58633f661e4bbf8c8d6a3b7db502b268b1
+  darwin_amd64: 1d9e1f90e76cc02a10b798accc25452ed4129b7fbbc88c5ad254f02542e6ebd7
+  linux_amd64: e12efc7e94bfe59cc2d1c56ffd6553b3096e9690c0333917858989d69c6fe028
+  linux_arm64: e503cc2d8d24a526c01e52b8735c9d48b9465edbb2e4ccc127ec602f6e5ae01e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

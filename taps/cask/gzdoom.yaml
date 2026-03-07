@@ -1,0 +1,11 @@
+name: gzdoom
+version: 4.14.2
+description: Adds an OpenGL renderer to the ZDoom source port
+homepage: https://github.com/ZDoom/gzdoom
+url:
+  darwin_arm64: https://github.com/ZDoom/gzdoom/releases/download/g4.14.2/gzdoom-4-14-2-macOS.zip
+sha256:
+  darwin_arm64: 0f2e638574ce2a2b5adec3613cf3fc1c66f63468019d412bb8dc8787ee78fb05
+artifacts:
+  app:
+    - GZDoom.app

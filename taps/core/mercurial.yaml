@@ -1,0 +1,21 @@
+name: mercurial
+version: 7.2
+description: Scalable distributed version control system
+homepage: https://mercurial-scm.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mercurial/blobs/sha256:bb3d00caf9bf1b096f2550df2abdba9697da92594722e9250938fd470aa1861a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mercurial/blobs/sha256:dd224b1a49ef2e0c8ae23447910be5343f4c36df89fe34c900379216cd33103f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mercurial/blobs/sha256:54c23ed133b8a3c1484df8b07a4b7729358029eaa328d968c850c1f8344c0f44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mercurial/blobs/sha256:226d8f4d00541ff48163a76d4d29af196bb725264d8cfee14708008b15406795
+sha256:
+  darwin_arm64: bb3d00caf9bf1b096f2550df2abdba9697da92594722e9250938fd470aa1861a
+  darwin_amd64: dd224b1a49ef2e0c8ae23447910be5343f4c36df89fe34c900379216cd33103f
+  linux_amd64: 54c23ed133b8a3c1484df8b07a4b7729358029eaa328d968c850c1f8344c0f44
+  linux_arm64: 226d8f4d00541ff48163a76d4d29af196bb725264d8cfee14708008b15406795
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

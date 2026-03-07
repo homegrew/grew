@@ -1,0 +1,19 @@
+name: cloudfoundry-cli
+version: 8.18.0
+description: Official command-line client for Cloud Foundry
+homepage: https://docs.cloudfoundry.org/cf-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudfoundry-cli/blobs/sha256:b61decccbf35024e3257bc139377ff3a310cc0eac449200bca9ce662697591d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudfoundry-cli/blobs/sha256:b487d3d8ed11eaca1defe7c3151ad7352812b6f1fef8cef09c34387f99f12344
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudfoundry-cli/blobs/sha256:b139461c0739a4b9c0ec054df2bbce366f88887c40e7182e0c01a8ae3910d208
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudfoundry-cli/blobs/sha256:87092cf4cf85b8264f6d0767a0dc0cebfb69a33f4eb06ddcffbf4d639e1a0616
+sha256:
+  darwin_arm64: b61decccbf35024e3257bc139377ff3a310cc0eac449200bca9ce662697591d9
+  darwin_amd64: b487d3d8ed11eaca1defe7c3151ad7352812b6f1fef8cef09c34387f99f12344
+  linux_amd64: b139461c0739a4b9c0ec054df2bbce366f88887c40e7182e0c01a8ae3910d208
+  linux_arm64: 87092cf4cf85b8264f6d0767a0dc0cebfb69a33f4eb06ddcffbf4d639e1a0616
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

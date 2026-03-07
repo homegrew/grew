@@ -1,0 +1,11 @@
+name: pallotron-yubiswitch
+version: 0.18
+description: Status bar application to enable/disable Yubikey Nano
+homepage: https://github.com/pallotron/yubiswitch
+url:
+  darwin_arm64: https://github.com/pallotron/yubiswitch/releases/download/v0.18/yubiswitch_0.18.dmg
+sha256:
+  darwin_arm64: 79eee5f238f5a49763f928cc35670b7c757ffc6d051bd6dd06435cc5487c66e9
+artifacts:
+  app:
+    - yubiswitch.app

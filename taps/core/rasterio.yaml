@@ -1,0 +1,24 @@
+name: rasterio
+version: 1.5.0
+description: Reads and writes geospatial raster datasets
+homepage: https://rasterio.readthedocs.io/en/stable/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rasterio/blobs/sha256:39ba5bbf4162c1dbf507609cc7cedb2cc1930bc7137ee29d7d75a418bb92b702
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rasterio/blobs/sha256:2173a0213b06de5ee024e074236b00cbdfc4615745a3079be341b0448e3e8680
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rasterio/blobs/sha256:3f62b2e3268ad577e25f8d8a88733c7a5f472dfc292daffee1cd46ff7a774236
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rasterio/blobs/sha256:97f0e576838ae48c4f5aed779ba4ed53e4a6fa9ec647d2c126d6b1697cc10390
+sha256:
+  darwin_arm64: 39ba5bbf4162c1dbf507609cc7cedb2cc1930bc7137ee29d7d75a418bb92b702
+  darwin_amd64: 2173a0213b06de5ee024e074236b00cbdfc4615745a3079be341b0448e3e8680
+  linux_amd64: 3f62b2e3268ad577e25f8d8a88733c7a5f472dfc292daffee1cd46ff7a774236
+  linux_arm64: 97f0e576838ae48c4f5aed779ba4ed53e4a6fa9ec647d2c126d6b1697cc10390
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - gdal
+  - numpy
+  - python@3.14

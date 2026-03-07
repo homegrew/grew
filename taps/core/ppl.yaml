@@ -1,0 +1,21 @@
+name: ppl
+version: 1.2
+description: "Parma Polyhedra Library: numerical abstractions for analysis, verification"
+homepage: https://www.bugseng.com/ppl
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ppl/blobs/sha256:aea93f11cba2f9c6d6d64225405165be26d8ae84d9f668cdfd5f479a5a53e169
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ppl/blobs/sha256:a67e256076ad9de40aa134fe1ea3ae194fc1ef12454f0e637d74c4a037037722
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ppl/blobs/sha256:09999d2760a2d719f28918c3040eadeceffd32112eee8e5f28f5b93db80d4d9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ppl/blobs/sha256:cae59d336bc919b7924cf6507ed0fef355e1a9ecc9770f06cc34cd05741d96df
+sha256:
+  darwin_arm64: aea93f11cba2f9c6d6d64225405165be26d8ae84d9f668cdfd5f479a5a53e169
+  darwin_amd64: a67e256076ad9de40aa134fe1ea3ae194fc1ef12454f0e637d74c4a037037722
+  linux_amd64: 09999d2760a2d719f28918c3040eadeceffd32112eee8e5f28f5b93db80d4d9d
+  linux_arm64: cae59d336bc919b7924cf6507ed0fef355e1a9ecc9770f06cc34cd05741d96df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

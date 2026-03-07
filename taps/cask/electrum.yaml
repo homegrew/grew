@@ -1,0 +1,11 @@
+name: electrum
+version: 4.7.1
+description: Bitcoin thin client
+homepage: https://electrum.org/
+url:
+  darwin_arm64: https://download.electrum.org/4.7.1/electrum-4.7.1.dmg
+sha256:
+  darwin_arm64: 471146a829be482c94321a89bac3844666be2d762bc29c66837873c7b8be14da
+artifacts:
+  app:
+    - Electrum.app

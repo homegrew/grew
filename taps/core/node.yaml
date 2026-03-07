@@ -1,0 +1,35 @@
+name: node
+version: 25.8.0
+description: Open-source, cross-platform JavaScript runtime environment
+homepage: https://nodejs.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/node/blobs/sha256:d60d6a4faadca08c65f3473d7894f778993a049174e91974cc54b432ffb94e54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/node/blobs/sha256:6cdd9d6bb52228180e7c51e4b53789c7138d65ccd81484a3747c1cd9d6909847
+  linux_amd64: https://ghcr.io/v2/homebrew/core/node/blobs/sha256:6de763a44e54fd5e6e5051c97f521640903694be6167f68a6831d54e36794d13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/node/blobs/sha256:2326452e4357c39e352844ca111c13195f2059a4d09c3c39cb930eb7489adc0f
+sha256:
+  darwin_arm64: d60d6a4faadca08c65f3473d7894f778993a049174e91974cc54b432ffb94e54
+  darwin_amd64: 6cdd9d6bb52228180e7c51e4b53789c7138d65ccd81484a3747c1cd9d6909847
+  linux_amd64: 6de763a44e54fd5e6e5051c97f521640903694be6167f68a6831d54e36794d13
+  linux_arm64: 2326452e4357c39e352844ca111c13195f2059a4d09c3c39cb930eb7489adc0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ada-url
+  - brotli
+  - c-ares
+  - hdrhistogram_c
+  - icu4c@78
+  - libnghttp2
+  - libnghttp3
+  - libngtcp2
+  - libuv
+  - llhttp
+  - openssl@3
+  - simdjson
+  - sqlite
+  - uvwasi
+  - zstd

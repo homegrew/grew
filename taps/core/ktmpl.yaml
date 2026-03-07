@@ -1,0 +1,19 @@
+name: ktmpl
+version: 0.9.1
+description: Parameterized templates for Kubernetes manifests
+homepage: https://github.com/jimmycuadra/ktmpl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktmpl/blobs/sha256:7a4f4f2bafee96a36ab50f17f2c89af0c75c46269cd2f1ebb35de8de69984866
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktmpl/blobs/sha256:397b73eda60395e553fa2c0b251c030f51be17cd6a742356d50b0720613a148d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktmpl/blobs/sha256:ee2d87ec29cf08bcbc3c0c32d4a818f45cda4ce17ae6006e1185b1fa3cd25db1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktmpl/blobs/sha256:2a12fdd012882fd444cee9c9d8e17f5f1d2a55542bde2a4564b3617a640ebc80
+sha256:
+  darwin_arm64: 7a4f4f2bafee96a36ab50f17f2c89af0c75c46269cd2f1ebb35de8de69984866
+  darwin_amd64: 397b73eda60395e553fa2c0b251c030f51be17cd6a742356d50b0720613a148d
+  linux_amd64: ee2d87ec29cf08bcbc3c0c32d4a818f45cda4ce17ae6006e1185b1fa3cd25db1
+  linux_arm64: 2a12fdd012882fd444cee9c9d8e17f5f1d2a55542bde2a4564b3617a640ebc80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

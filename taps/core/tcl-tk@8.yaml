@@ -1,0 +1,22 @@
+name: tcl-tk@8
+version: 8.6.17
+description: Tool Command Language
+homepage: https://www.tcl-lang.org
+license: TCL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcl-tk/8/blobs/sha256:c3cef13113dc7af58e7636256289cea7e3f362347f06f96e9417895f5c84494d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcl-tk/8/blobs/sha256:06138d4241d0aa4b4b552dde04215678194643cb5435067b43cf0e8be2b5551e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcl-tk/8/blobs/sha256:dd71d9dee7ad8ff7ac1306e5696471b106ed15081dbf3ff227173a1bccc78fdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcl-tk/8/blobs/sha256:baea2f270066d9f00cdb3fc43d4657e1c566d21965b6602cefa310c6bbf586ab
+sha256:
+  darwin_arm64: c3cef13113dc7af58e7636256289cea7e3f362347f06f96e9417895f5c84494d
+  darwin_amd64: 06138d4241d0aa4b4b552dde04215678194643cb5435067b43cf0e8be2b5551e
+  linux_amd64: dd71d9dee7ad8ff7ac1306e5696471b106ed15081dbf3ff227173a1bccc78fdc
+  linux_arm64: baea2f270066d9f00cdb3fc43d4657e1c566d21965b6602cefa310c6bbf586ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

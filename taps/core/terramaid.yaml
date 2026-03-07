@@ -1,0 +1,19 @@
+name: terramaid
+version: 2.11.1
+description: Utility for generating Mermaid diagrams from Terraform configurations
+homepage: https://github.com/RoseSecurity/Terramaid
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terramaid/blobs/sha256:672bf91502762faf0b8f9e8ad5504809ae1181df8d88197ada1b4a39147d34ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terramaid/blobs/sha256:aa6139e8c8aad8ba20959e9829729ed52be0da05914bbfea9a48883b8ed50ebf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terramaid/blobs/sha256:b58a6329121b05445bdca335d2b27948c43fbfb88169b43251217ba163557036
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terramaid/blobs/sha256:85b0bbc1f6f01e1d04ce17847a38bc400b999a7375d82b6fc0d5f75a37d3c215
+sha256:
+  darwin_arm64: 672bf91502762faf0b8f9e8ad5504809ae1181df8d88197ada1b4a39147d34ff
+  darwin_amd64: aa6139e8c8aad8ba20959e9829729ed52be0da05914bbfea9a48883b8ed50ebf
+  linux_amd64: b58a6329121b05445bdca335d2b27948c43fbfb88169b43251217ba163557036
+  linux_arm64: 85b0bbc1f6f01e1d04ce17847a38bc400b999a7375d82b6fc0d5f75a37d3c215
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

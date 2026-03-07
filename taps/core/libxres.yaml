@@ -1,0 +1,22 @@
+name: libxres
+version: 1.2.3
+description: "X.Org: X-Resource extension client library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxres/blobs/sha256:ee5ef314b15e82ed7df2d475d90f1d899423f25d8a189bd1f59ceef05363c2b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxres/blobs/sha256:2422ab6e030e4e0b6bd8ab9b79aef44c053f9d8efd44f2da8dfedc2eecc32ebd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxres/blobs/sha256:8682132f7c2d181729a89346cc24cfe9f1dac6133cd197efa17b759775194ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxres/blobs/sha256:95deabb73d93e6d1db9e9fb6e08d5eeb969caa6e578b082a515c0a55b67658c9
+sha256:
+  darwin_arm64: ee5ef314b15e82ed7df2d475d90f1d899423f25d8a189bd1f59ceef05363c2b2
+  darwin_amd64: 2422ab6e030e4e0b6bd8ab9b79aef44c053f9d8efd44f2da8dfedc2eecc32ebd
+  linux_amd64: 8682132f7c2d181729a89346cc24cfe9f1dac6133cd197efa17b759775194ecd
+  linux_arm64: 95deabb73d93e6d1db9e9fb6e08d5eeb969caa6e578b082a515c0a55b67658c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext

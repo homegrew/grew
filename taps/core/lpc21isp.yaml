@@ -1,0 +1,19 @@
+name: lpc21isp
+version: 1.97
+description: In-circuit programming (ISP) tool for several NXP microcontrollers
+homepage: https://lpc21isp.sourceforge.net/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lpc21isp/blobs/sha256:e9869885d3e10505fb16dd89ef1b5047a77e0b8a4231b9acb7f94c0da9099ea0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lpc21isp/blobs/sha256:44b03359d767803f0f50dadc0dbc1c4ddaae4b320018328b53e5d7bf314d43bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lpc21isp/blobs/sha256:9b431e013e9df59ee8888f46bc8b972285c7f4c7d559c7441162179d7d920f66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lpc21isp/blobs/sha256:2d7b449d040a4108099e8d6569fed602400b95b762da98e134867185b3d6419b
+sha256:
+  darwin_arm64: e9869885d3e10505fb16dd89ef1b5047a77e0b8a4231b9acb7f94c0da9099ea0
+  darwin_amd64: 44b03359d767803f0f50dadc0dbc1c4ddaae4b320018328b53e5d7bf314d43bf
+  linux_amd64: 9b431e013e9df59ee8888f46bc8b972285c7f4c7d559c7441162179d7d920f66
+  linux_arm64: 2d7b449d040a4108099e8d6569fed602400b95b762da98e134867185b3d6419b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

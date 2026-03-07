@@ -1,0 +1,19 @@
+name: yor
+version: 0.1.200
+description: Extensible auto-tagger for your IaC files
+homepage: https://yor.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yor/blobs/sha256:5093c27de138a131d29e9b82498757aaea499bdaed28051c8267349ab14e9214
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yor/blobs/sha256:a2d75e2772ffaf1f6f57a6dedf7c535543e373d7dc640e2a9b2cb1c3671504a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yor/blobs/sha256:f04dc74ea3f0833efc5b250eec99459aea5d626f7ce9d08845fb30878919fcdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yor/blobs/sha256:ae580ba85dee0c2690c2055c86eea3834afe7dcd7fb10795c95218c32bff2874
+sha256:
+  darwin_arm64: 5093c27de138a131d29e9b82498757aaea499bdaed28051c8267349ab14e9214
+  darwin_amd64: a2d75e2772ffaf1f6f57a6dedf7c535543e373d7dc640e2a9b2cb1c3671504a4
+  linux_amd64: f04dc74ea3f0833efc5b250eec99459aea5d626f7ce9d08845fb30878919fcdc
+  linux_arm64: ae580ba85dee0c2690c2055c86eea3834afe7dcd7fb10795c95218c32bff2874
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

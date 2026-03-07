@@ -1,0 +1,19 @@
+name: req
+version: 1.1.0
+description: Simple and opinionated HTTP scripting language
+homepage: https://github.com/andrewpillar/req
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/req/blobs/sha256:16f15db092a3128344c2731a6294b92c13ac3f1a9a2578333127c40862c24169
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/req/blobs/sha256:8896fd67fc6bd2d72c653bcd2611d1cb561c6fbf46a8a80e0439c50d6a512da1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/req/blobs/sha256:235b2a9a3aa0e458c04d7c4d77fc8bfbb7951c98bedbe5e4d1f7263609e964a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/req/blobs/sha256:4459ae7f23e6236b6505f02322ba53e9a78a6c0a87b02b98236de6a32fff83d5
+sha256:
+  darwin_arm64: 16f15db092a3128344c2731a6294b92c13ac3f1a9a2578333127c40862c24169
+  darwin_amd64: 8896fd67fc6bd2d72c653bcd2611d1cb561c6fbf46a8a80e0439c50d6a512da1
+  linux_amd64: 235b2a9a3aa0e458c04d7c4d77fc8bfbb7951c98bedbe5e4d1f7263609e964a2
+  linux_arm64: 4459ae7f23e6236b6505f02322ba53e9a78a6c0a87b02b98236de6a32fff83d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

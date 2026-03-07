@@ -1,0 +1,21 @@
+name: purescript
+version: 0.15.15
+description: Strongly typed programming language that compiles to JavaScript
+homepage: https://www.purescript.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/purescript/blobs/sha256:6816c04335a5db15f75e148c2c5a32bda26768b80d0b5ff76162a50c568adf6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/purescript/blobs/sha256:307a30f58a38fe6991b6362d5f36d8b22094d595aefce3b4630566ee0e03180f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/purescript/blobs/sha256:7ab1488698c461b43eb948dc0dcd752ea4cdad6216ce45ef809b5d49209bf0c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/purescript/blobs/sha256:71a6893562316ed81a0b374eb74754435d0f512b727d3430952232d24e8ba397
+sha256:
+  darwin_arm64: 6816c04335a5db15f75e148c2c5a32bda26768b80d0b5ff76162a50c568adf6d
+  darwin_amd64: 307a30f58a38fe6991b6362d5f36d8b22094d595aefce3b4630566ee0e03180f
+  linux_amd64: 7ab1488698c461b43eb948dc0dcd752ea4cdad6216ce45ef809b5d49209bf0c7
+  linux_arm64: 71a6893562316ed81a0b374eb74754435d0f512b727d3430952232d24e8ba397
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

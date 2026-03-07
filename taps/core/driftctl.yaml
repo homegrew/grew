@@ -1,0 +1,19 @@
+name: driftctl
+version: 0.40.0
+description: Detect, track and alert on infrastructure drift
+homepage: https://github.com/snyk/driftctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/driftctl/blobs/sha256:1e1e9c8ecb8968ad121f735bb0caeaa299f0c672aee5ff126f75c5e995c60019
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/driftctl/blobs/sha256:f7d1581a548ade3dcb12fd89bcbf8ed88aa5da3ea34d6a6b3d70aa1889328e0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/driftctl/blobs/sha256:ce678543cb2a70b2450370e87969af8c857f2fa3218fc0436f2c36aa7fb86855
+  linux_arm64: https://ghcr.io/v2/homebrew/core/driftctl/blobs/sha256:ebdba827ebd29a059d3ac3f976e2a7f9ad2615e19c7e91ad69a4423bb489441d
+sha256:
+  darwin_arm64: 1e1e9c8ecb8968ad121f735bb0caeaa299f0c672aee5ff126f75c5e995c60019
+  darwin_amd64: f7d1581a548ade3dcb12fd89bcbf8ed88aa5da3ea34d6a6b3d70aa1889328e0b
+  linux_amd64: ce678543cb2a70b2450370e87969af8c857f2fa3218fc0436f2c36aa7fb86855
+  linux_arm64: ebdba827ebd29a059d3ac3f976e2a7f9ad2615e19c7e91ad69a4423bb489441d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

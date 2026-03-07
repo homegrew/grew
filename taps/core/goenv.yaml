@@ -1,0 +1,19 @@
+name: goenv
+version: 2.2.38
+description: Go version management
+homepage: https://github.com/go-nv/goenv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goenv/blobs/sha256:d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goenv/blobs/sha256:f4c4c6446bde9d0afb8a348c6af67d4f6848eb1b0aeaf4bfda78342f31ec77bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goenv/blobs/sha256:d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goenv/blobs/sha256:d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+sha256:
+  darwin_arm64: d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+  darwin_amd64: f4c4c6446bde9d0afb8a348c6af67d4f6848eb1b0aeaf4bfda78342f31ec77bf
+  linux_amd64: d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+  linux_arm64: d21c7170f8e183cfe24327e6c1439d20ca5faaf4dfbb26e12af4e6b6986c448f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

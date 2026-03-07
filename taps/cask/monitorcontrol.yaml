@@ -1,0 +1,11 @@
+name: monitorcontrol
+version: 4.3.3
+description: "Tool to control external monitor brightness & volume"
+homepage: https://github.com/MonitorControl/MonitorControl
+url:
+  darwin_arm64: https://github.com/MonitorControl/MonitorControl/releases/download/v4.3.3/MonitorControl.4.3.3.dmg
+sha256:
+  darwin_arm64: 9b2c7769da14dc5618aece8b1514a25edc12b286ae8e343f3d880017f5ee9368
+artifacts:
+  app:
+    - MonitorControl.app

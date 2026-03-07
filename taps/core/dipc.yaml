@@ -1,0 +1,19 @@
+name: dipc
+version: 1.2.0
+description: Convert your favorite images/wallpapers with your favorite color palettes/themes
+homepage: https://github.com/doprz/dipc
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dipc/blobs/sha256:7d52b47ebc1d3d20a2e250c465ac049a73fcf6656a28950be303c3d01eea1e5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dipc/blobs/sha256:03b62b264e757322dd4d3b023bf6c5976e6b040ad463ba0b7bb692821bd8e282
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dipc/blobs/sha256:0899ffeb4c35b37649259dc109f04d59ff709e58436bcc7e846bde5fc519a2cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dipc/blobs/sha256:a7a4f18d9c4334c7135584da6b98b09b993d53d01fc8d742dcf10f684d332d93
+sha256:
+  darwin_arm64: 7d52b47ebc1d3d20a2e250c465ac049a73fcf6656a28950be303c3d01eea1e5b
+  darwin_amd64: 03b62b264e757322dd4d3b023bf6c5976e6b040ad463ba0b7bb692821bd8e282
+  linux_amd64: 0899ffeb4c35b37649259dc109f04d59ff709e58436bcc7e846bde5fc519a2cf
+  linux_arm64: a7a4f18d9c4334c7135584da6b98b09b993d53d01fc8d742dcf10f684d332d93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

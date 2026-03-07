@@ -1,0 +1,21 @@
+name: composer
+version: 2.9.5
+description: Dependency Manager for PHP
+homepage: https://getcomposer.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/composer/blobs/sha256:9d4d080ee7c7a4668d4d1744bcb9db0f68297d1504fef0dbf3ebf6bc9f90ac9c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/composer/blobs/sha256:fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/composer/blobs/sha256:fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/composer/blobs/sha256:fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+sha256:
+  darwin_arm64: 9d4d080ee7c7a4668d4d1744bcb9db0f68297d1504fef0dbf3ebf6bc9f90ac9c
+  darwin_amd64: fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+  linux_amd64: fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+  linux_arm64: fa34806e3de45f4fc0f1d53168021264d97a70558708a21f8a588abe0f204d12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - php

@@ -1,0 +1,21 @@
+name: qtnetworkauth
+version: 6.10.2
+description: Provides support for OAuth-based authorization to online services
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtnetworkauth/blobs/sha256:2726598a83e50ecf146240f72b3f15fdef9ee095d5328bfa9d8293ff2419b080
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtnetworkauth/blobs/sha256:e8a9beab36dc63168b62e37fbd44a61c07b15579cffb12fc747a91e02f437cd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtnetworkauth/blobs/sha256:2f070b6f45e18494587396cedf37f8942028e57d2c944707484513d04d69ae82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtnetworkauth/blobs/sha256:ca5e9318edc921c269d495c79bcd7873d438afd72013c2fd5127338e844480bd
+sha256:
+  darwin_arm64: 2726598a83e50ecf146240f72b3f15fdef9ee095d5328bfa9d8293ff2419b080
+  darwin_amd64: e8a9beab36dc63168b62e37fbd44a61c07b15579cffb12fc747a91e02f437cd9
+  linux_amd64: 2f070b6f45e18494587396cedf37f8942028e57d2c944707484513d04d69ae82
+  linux_arm64: ca5e9318edc921c269d495c79bcd7873d438afd72013c2fd5127338e844480bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

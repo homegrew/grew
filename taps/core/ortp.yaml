@@ -1,0 +1,21 @@
+name: ortp
+version: 5.4.94
+description: Real-time transport protocol (RTP, RFC3550) library
+homepage: https://linphone.org/
+license: AGPL-3.0-or-later AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ortp/blobs/sha256:cb90d9e0659171e42e1105ff9fa8a7000ef8a6c005681f3dcc79b1253bac8c19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ortp/blobs/sha256:06fe4771cbb37d1e89a79f74ed56b056a4d990f5bb499ff2f923f8d020e11e11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ortp/blobs/sha256:7fd157a03dbef6574145f43a873be57b4b570d4266c975bf24b23b7a1c79487a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ortp/blobs/sha256:10515506c5228d3b5d1b5178800c1e72ec6df82bf6fcdf208024a8d5172bc0b5
+sha256:
+  darwin_arm64: cb90d9e0659171e42e1105ff9fa8a7000ef8a6c005681f3dcc79b1253bac8c19
+  darwin_amd64: 06fe4771cbb37d1e89a79f74ed56b056a4d990f5bb499ff2f923f8d020e11e11
+  linux_amd64: 7fd157a03dbef6574145f43a873be57b4b570d4266c975bf24b23b7a1c79487a
+  linux_arm64: 10515506c5228d3b5d1b5178800c1e72ec6df82bf6fcdf208024a8d5172bc0b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

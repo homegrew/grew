@@ -1,0 +1,19 @@
+name: qttranslations
+version: 6.10.2
+description: Qt translation catalogs
+homepage: https://www.qt.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qttranslations/blobs/sha256:e665f1b97d4259723d8c7fcc08e1497fa32166896a92b0c807a547c598e75f95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qttranslations/blobs/sha256:508e298d4224554488b122866bc08c99357003aeb5da5b322b4f4f78cfa7dc42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qttranslations/blobs/sha256:405d3640be84963f1d659ab55aa89a6077bee11c9fc0014ec6f80efe75083e9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qttranslations/blobs/sha256:742d2b461f33eb5573b75e72b0261a89437fc4ab8bc7f3926f1a2d085ac3667a
+sha256:
+  darwin_arm64: e665f1b97d4259723d8c7fcc08e1497fa32166896a92b0c807a547c598e75f95
+  darwin_amd64: 508e298d4224554488b122866bc08c99357003aeb5da5b322b4f4f78cfa7dc42
+  linux_amd64: 405d3640be84963f1d659ab55aa89a6077bee11c9fc0014ec6f80efe75083e9a
+  linux_arm64: 742d2b461f33eb5573b75e72b0261a89437fc4ab8bc7f3926f1a2d085ac3667a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

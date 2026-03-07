@@ -1,0 +1,19 @@
+name: iam-policy-json-to-terraform
+version: 1.9.2
+description: Convert a JSON IAM Policy into terraform
+homepage: https://github.com/flosell/iam-policy-json-to-terraform
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iam-policy-json-to-terraform/blobs/sha256:1ed193284c1d8208faae3abd91d94659eb6fb11ef1b7e22c34b8bcb7996331eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iam-policy-json-to-terraform/blobs/sha256:2ee1bf82c57af5d24d4afc9224ba88c3914e14c1c8c4b1436a15b71b48bcac64
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iam-policy-json-to-terraform/blobs/sha256:83859d9fba82033801b53077bcf0728c45db5a2f43f9765977aa94ca57b620f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iam-policy-json-to-terraform/blobs/sha256:8d821d3d49518f09297da65d562f1a4a9cfb9d8fc3aae30dcb616a7286e5d090
+sha256:
+  darwin_arm64: 1ed193284c1d8208faae3abd91d94659eb6fb11ef1b7e22c34b8bcb7996331eb
+  darwin_amd64: 2ee1bf82c57af5d24d4afc9224ba88c3914e14c1c8c4b1436a15b71b48bcac64
+  linux_amd64: 83859d9fba82033801b53077bcf0728c45db5a2f43f9765977aa94ca57b620f3
+  linux_arm64: 8d821d3d49518f09297da65d562f1a4a9cfb9d8fc3aae30dcb616a7286e5d090
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

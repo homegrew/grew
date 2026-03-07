@@ -1,0 +1,11 @@
+name: rocket-chat
+version: 4.13.0
+description: Official desktop client for Rocket.Chat
+homepage: https://rocket.chat/
+url:
+  darwin_arm64: https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/4.13.0/rocketchat-4.13.0-mac.dmg
+sha256:
+  darwin_arm64: fcef58ceb1ce15ad6a05bb48d8394648fc76551c47c8459eba01a253710dc4a2
+artifacts:
+  app:
+    - Rocket.Chat.app

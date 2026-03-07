@@ -1,0 +1,11 @@
+name: avogadro
+version: 1.103.0
+description: Molecule editor and visualiser
+homepage: https://avogadro.cc/
+url:
+  darwin_arm64: https://github.com/OpenChemistry/avogadrolibs/releases/download/1.103.0/Avogadro2-1.103.0-Darwin-arm64.dmg
+sha256:
+  darwin_arm64: 07abd6b4b7f4685f76dca04a06a27ea9eccc61fbc5fb5214359fbd1fbd1d2f3e
+artifacts:
+  app:
+    - Avogadro2.app

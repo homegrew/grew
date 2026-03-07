@@ -1,0 +1,22 @@
+name: bcftools
+version: 1.23
+description: Tools for BCF/VCF files and variant calling from samtools
+homepage: https://www.htslib.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bcftools/blobs/sha256:3168ab2f87336946ab3b30dba33b5ed48682fc4fff26ca98ccf8b97dad907f36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bcftools/blobs/sha256:7b90b9ff1350cb4954144446555ae24abddc1b2e68c2f6f30fec815edb1a130c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bcftools/blobs/sha256:7d1a9f3a9232627f5ed94a1412467ff185677951bde18d7cd9d11b6f5076b642
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bcftools/blobs/sha256:f0899a011add400aee632b0d1fd81dfc3a6f7b7a96527197e5b6af435a1d45d3
+sha256:
+  darwin_arm64: 3168ab2f87336946ab3b30dba33b5ed48682fc4fff26ca98ccf8b97dad907f36
+  darwin_amd64: 7b90b9ff1350cb4954144446555ae24abddc1b2e68c2f6f30fec815edb1a130c
+  linux_amd64: 7d1a9f3a9232627f5ed94a1412467ff185677951bde18d7cd9d11b6f5076b642
+  linux_arm64: f0899a011add400aee632b0d1fd81dfc3a6f7b7a96527197e5b6af435a1d45d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gsl
+  - htslib

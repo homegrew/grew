@@ -1,0 +1,19 @@
+name: kosli-cli
+version: 2.11.46
+description: CLI for managing Kosli
+homepage: https://docs.kosli.com/client_reference/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kosli-cli/blobs/sha256:23c1d4ba46dc6693ae15459e4385eb8e29c1ababd2b15b5ceef5fca42ca9c83a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kosli-cli/blobs/sha256:6cd2577e03b5f584d77cc06230e83cfa14bbfb4a655c74d3d786a72f13799f80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kosli-cli/blobs/sha256:29710a06800f342ea8f427557a709228dc397190a39d3f7511676e946addede0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kosli-cli/blobs/sha256:95a5c3c04a504e5e330b62889f34a5a4c483f4141d92c60132f566d6b979e935
+sha256:
+  darwin_arm64: 23c1d4ba46dc6693ae15459e4385eb8e29c1ababd2b15b5ceef5fca42ca9c83a
+  darwin_amd64: 6cd2577e03b5f584d77cc06230e83cfa14bbfb4a655c74d3d786a72f13799f80
+  linux_amd64: 29710a06800f342ea8f427557a709228dc397190a39d3f7511676e946addede0
+  linux_arm64: 95a5c3c04a504e5e330b62889f34a5a4c483f4141d92c60132f566d6b979e935
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

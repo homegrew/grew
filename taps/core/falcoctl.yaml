@@ -1,0 +1,19 @@
+name: falcoctl
+version: 0.12.2
+description: CLI tool for working with Falco and its ecosystem components
+homepage: https://github.com/falcosecurity/falcoctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/falcoctl/blobs/sha256:580f5b4448b45dbce6b0c81469ab2aa5fff60527bfba560e32aba21c4398065c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/falcoctl/blobs/sha256:9ffd3c24f261628ce5cd34e8e3ed7eb5f1400bfb6c6ef403ee20346b27e94d97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/falcoctl/blobs/sha256:a77803385d65096c0b0cad6fbf99aa6b78f47b00c501378e506921893cd7cbe1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/falcoctl/blobs/sha256:166745727c43a2c13dc11acbda8317b4eef4d2603a944dfe5aeee949bcc0792d
+sha256:
+  darwin_arm64: 580f5b4448b45dbce6b0c81469ab2aa5fff60527bfba560e32aba21c4398065c
+  darwin_amd64: 9ffd3c24f261628ce5cd34e8e3ed7eb5f1400bfb6c6ef403ee20346b27e94d97
+  linux_amd64: a77803385d65096c0b0cad6fbf99aa6b78f47b00c501378e506921893cd7cbe1
+  linux_arm64: 166745727c43a2c13dc11acbda8317b4eef4d2603a944dfe5aeee949bcc0792d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

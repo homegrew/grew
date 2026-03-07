@@ -1,0 +1,20 @@
+name: glktermw
+version: 1.0.4
+description: Terminal-window Glk library with Unicode support
+homepage: https://www.eblong.com/zarf/glk/
+license: Glulxe
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glktermw/blobs/sha256:4fa3de55e34832b4cd122d80784210b5d85389306182944ebc6e1a63b5b54262
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glktermw/blobs/sha256:5bb6f11abb30ca3c63f5f77a4aa3b9b73f008bb01d5ac7b93593fa1da22ad5a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glktermw/blobs/sha256:a3391048ffb327060e3cf8e18e253ac1a44de556fbef1c453ee0186c92b3b079
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glktermw/blobs/sha256:d1ba5b6b77eec49662678b249c1ab830d1b6d2b0d8b51b605d68e0d639a0201b
+sha256:
+  darwin_arm64: 4fa3de55e34832b4cd122d80784210b5d85389306182944ebc6e1a63b5b54262
+  darwin_amd64: 5bb6f11abb30ca3c63f5f77a4aa3b9b73f008bb01d5ac7b93593fa1da22ad5a0
+  linux_amd64: a3391048ffb327060e3cf8e18e253ac1a44de556fbef1c453ee0186c92b3b079
+  linux_arm64: d1ba5b6b77eec49662678b249c1ab830d1b6d2b0d8b51b605d68e0d639a0201b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

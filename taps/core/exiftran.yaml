@@ -1,0 +1,23 @@
+name: exiftran
+version: 2.14
+description: Transform digital camera jpegs and their EXIF data
+homepage: https://www.kraxel.org/blog/linux/fbida/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exiftran/blobs/sha256:47382320dca8114cb256770c2bca548abc28281ed6b90b309d62e6cfcd7cf2f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exiftran/blobs/sha256:4267824506175ba35297c38e433a1ee8ec5118dec80f8763e604c08a8ab8256b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exiftran/blobs/sha256:9d32a9b73cd9ea5dca9d5a34ce6e9b6c9684ae38617045fd87b172d5d9ac6a75
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exiftran/blobs/sha256:4f296de064b124fe142cf3975b32c59b162325f9dbb177ab13b12e6bd8fecdf8
+sha256:
+  darwin_arm64: 47382320dca8114cb256770c2bca548abc28281ed6b90b309d62e6cfcd7cf2f5
+  darwin_amd64: 4267824506175ba35297c38e433a1ee8ec5118dec80f8763e604c08a8ab8256b
+  linux_amd64: 9d32a9b73cd9ea5dca9d5a34ce6e9b6c9684ae38617045fd87b172d5d9ac6a75
+  linux_arm64: 4f296de064b124fe142cf3975b32c59b162325f9dbb177ab13b12e6bd8fecdf8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libexif
+  - pixman

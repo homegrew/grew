@@ -1,0 +1,21 @@
+name: libcdio-paranoia
+version: 10.2-2.0.2
+description: CD paranoia on top of libcdio
+homepage: https://github.com/libcdio/libcdio-paranoia
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcdio-paranoia/blobs/sha256:5107f894005e9d2dd51fbd16b522d244335231b572232e18a95ac838e2495d29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcdio-paranoia/blobs/sha256:8b89fb7bf1812fb9bd7910ab0a323996aade2c07bc46a8a163843fff6c531776
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcdio-paranoia/blobs/sha256:3d1e9aab49489534af51d75d1b222be76479ab2d15cfebc930ca570be8dd0d95
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcdio-paranoia/blobs/sha256:4a1ec8c229b09241872472ddddea228bd4a8aff3ea7406a8148a12ca78c7b333
+sha256:
+  darwin_arm64: 5107f894005e9d2dd51fbd16b522d244335231b572232e18a95ac838e2495d29
+  darwin_amd64: 8b89fb7bf1812fb9bd7910ab0a323996aade2c07bc46a8a163843fff6c531776
+  linux_amd64: 3d1e9aab49489534af51d75d1b222be76479ab2d15cfebc930ca570be8dd0d95
+  linux_arm64: 4a1ec8c229b09241872472ddddea228bd4a8aff3ea7406a8148a12ca78c7b333
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcdio

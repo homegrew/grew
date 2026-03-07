@@ -1,0 +1,11 @@
+name: outline-manager
+version: 1.19.0,1
+description: Tool to create and manage Outline servers, powered by Shadowsocks
+homepage: https://www.getoutline.org/
+url:
+  darwin_arm64: https://s3.amazonaws.com/outline-releases/manager/macos/1.19.0/1/Outline-Manager.dmg
+sha256:
+  darwin_arm64: 20181cbe8c76314cfe3fe2957651174c02b8977b133fa75683993255aa50b3a0
+artifacts:
+  app:
+    - Outline Manager.app

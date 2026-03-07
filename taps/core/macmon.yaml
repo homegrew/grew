@@ -1,0 +1,13 @@
+name: macmon
+version: 0.6.1
+description: Sudoless performance monitoring for Apple Silicon processors
+homepage: https://github.com/vladkens/macmon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macmon/blobs/sha256:707ca07e18e491427e8228ff6df5b5c880a9ca13f11cbcabfa20517bb4038912
+sha256:
+  darwin_arm64: 707ca07e18e491427e8228ff6df5b5c880a9ca13f11cbcabfa20517bb4038912
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

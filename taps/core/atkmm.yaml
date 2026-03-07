@@ -1,0 +1,25 @@
+name: atkmm
+version: 2.36.3
+description: Official C++ interface for the ATK accessibility toolkit library
+homepage: https://www.gtkmm.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atkmm/blobs/sha256:a0084966800d7cf115466eb824f41e5c4c8fa269437abdc7d874f1ba5d52c04d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atkmm/blobs/sha256:6454c0225d51922b4ad717b04dade8bf93b92aa26c836d77b41a55fbc41a0a14
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atkmm/blobs/sha256:cec181c4ae3a4be7b814e82d909f1128e5279592ff3a4ea6e7e85baebe27dbb0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atkmm/blobs/sha256:05e534d8d4d01ae147b7e2102e041262aea114c33ed580fb4000037a7ca41694
+sha256:
+  darwin_arm64: a0084966800d7cf115466eb824f41e5c4c8fa269437abdc7d874f1ba5d52c04d
+  darwin_amd64: 6454c0225d51922b4ad717b04dade8bf93b92aa26c836d77b41a55fbc41a0a14
+  linux_amd64: cec181c4ae3a4be7b814e82d909f1128e5279592ff3a4ea6e7e85baebe27dbb0
+  linux_arm64: 05e534d8d4d01ae147b7e2102e041262aea114c33ed580fb4000037a7ca41694
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - glib
+  - glibmm
+  - libsigc++
+  - gettext

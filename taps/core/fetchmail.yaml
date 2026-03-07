@@ -1,0 +1,21 @@
+name: fetchmail
+version: 6.6.2
+description: Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers
+homepage: https://www.fetchmail.info/
+license: LGPL-2.1-or-later AND ISC AND BSD-3-Clause AND LicenseRef-Homebrew-public-domain AND (GPL-2.0-or-later WITH openvpn-openssl-exception)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fetchmail/blobs/sha256:52ae4f8d948af438737e6ecff27dbb60f5e0b5985f7675657f6dc6a25d000b20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fetchmail/blobs/sha256:af36771e465fb908411295ddf164c3690c9b1b646431791efa120d3ceaca3818
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fetchmail/blobs/sha256:8942310d36cfc9e04abd493ad0761c414413595d2f96bb02e444104eecb7a75f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fetchmail/blobs/sha256:a795fec5c4a0582d04b84fafd7b4cee71fd836419c3c036c36009229e4f43cbb
+sha256:
+  darwin_arm64: 52ae4f8d948af438737e6ecff27dbb60f5e0b5985f7675657f6dc6a25d000b20
+  darwin_amd64: af36771e465fb908411295ddf164c3690c9b1b646431791efa120d3ceaca3818
+  linux_amd64: 8942310d36cfc9e04abd493ad0761c414413595d2f96bb02e444104eecb7a75f
+  linux_arm64: a795fec5c4a0582d04b84fafd7b4cee71fd836419c3c036c36009229e4f43cbb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

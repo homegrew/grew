@@ -1,0 +1,19 @@
+name: kaf
+version: 0.2.14
+description: Modern CLI for Apache Kafka
+homepage: https://github.com/birdayz/kaf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kaf/blobs/sha256:ca55afe9d549bc18b12c10c6df7789996d411ce1ca0a5ed34ce7df422dc0d3f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kaf/blobs/sha256:bd74e7cc23e0868a5cd22aa2531b47d990067477b85d630bccbdba70594e238a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kaf/blobs/sha256:3d8d96547b6a6125b3af63f366c78bcc8cba07c81760683547505dd5a0e61f73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kaf/blobs/sha256:7cc88b6d60e64066ca9558378b9337937d96f609d532b5aca5e822078b0805df
+sha256:
+  darwin_arm64: ca55afe9d549bc18b12c10c6df7789996d411ce1ca0a5ed34ce7df422dc0d3f8
+  darwin_amd64: bd74e7cc23e0868a5cd22aa2531b47d990067477b85d630bccbdba70594e238a
+  linux_amd64: 3d8d96547b6a6125b3af63f366c78bcc8cba07c81760683547505dd5a0e61f73
+  linux_arm64: 7cc88b6d60e64066ca9558378b9337937d96f609d532b5aca5e822078b0805df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: librsync
+version: 2.3.4
+description: Library that implements the rsync remote-delta algorithm
+homepage: https://librsync.github.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librsync/blobs/sha256:ac21e04cfd6723188b3894b674f618c9bfbeafc6c980c69edc49b1529d0f6d39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librsync/blobs/sha256:eb3e34cc997b059385dcba6f8914b7e88815fba9dc2163f633fccfc9185c558c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librsync/blobs/sha256:9c48743c4c502118826bf142d7bb393099a994c882b55c1c11430c656382af16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librsync/blobs/sha256:0ab058d81de355cad8a2e2bd385733d08a58394e95ab025165ec1bcb69dc969a
+sha256:
+  darwin_arm64: ac21e04cfd6723188b3894b674f618c9bfbeafc6c980c69edc49b1529d0f6d39
+  darwin_amd64: eb3e34cc997b059385dcba6f8914b7e88815fba9dc2163f633fccfc9185c558c
+  linux_amd64: 9c48743c4c502118826bf142d7bb393099a994c882b55c1c11430c656382af16
+  linux_arm64: 0ab058d81de355cad8a2e2bd385733d08a58394e95ab025165ec1bcb69dc969a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - popt

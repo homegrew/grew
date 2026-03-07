@@ -1,0 +1,19 @@
+name: tfsec
+version: 1.28.14
+description: Static analysis security scanner for your terraform code
+homepage: https://aquasecurity.github.io/tfsec/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfsec/blobs/sha256:eb1908905eba53c4bc447ab6b45f55e8993f2baa1e5b0a6633185ce20087df9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfsec/blobs/sha256:181f6a3acfe91948ad4482b079d602bc1c03ad5c415c916f2dba42d590eed863
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfsec/blobs/sha256:dde3909cdd3d6c5e799ad913a640ba9d2ba2af6e7112254ab4d280335dda52cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfsec/blobs/sha256:3ba4ea5c30dc01b827abd7f4f8719806a1a76ecda0ff3096a6a170a3461b4c82
+sha256:
+  darwin_arm64: eb1908905eba53c4bc447ab6b45f55e8993f2baa1e5b0a6633185ce20087df9a
+  darwin_amd64: 181f6a3acfe91948ad4482b079d602bc1c03ad5c415c916f2dba42d590eed863
+  linux_amd64: dde3909cdd3d6c5e799ad913a640ba9d2ba2af6e7112254ab4d280335dda52cf
+  linux_arm64: 3ba4ea5c30dc01b827abd7f4f8719806a1a76ecda0ff3096a6a170a3461b4c82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

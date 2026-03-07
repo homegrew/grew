@@ -1,0 +1,11 @@
+name: atv-remote
+version: 2.1.1
+description: Control Apple TV from your desktop
+homepage: https://github.com/bsharper/atv-desktop-remote
+url:
+  darwin_arm64: https://github.com/bsharper/atv-desktop-remote/releases/download/v2.1.1/ATV.Remote-2.1.1-arm64.dmg
+sha256:
+  darwin_arm64: 61c9133a3527ae2819ce8f256e036fa866ff3d16d760e753443005790a75305c
+artifacts:
+  app:
+    - ATV Remote.app

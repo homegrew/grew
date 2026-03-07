@@ -1,0 +1,21 @@
+name: aerc
+version: 0.21.0
+description: Email client that runs in your terminal
+homepage: https://aerc-mail.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aerc/blobs/sha256:a8f207daf51b4be7b0645bf3e81cacc2687190713bb13a59ad246419c469affb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aerc/blobs/sha256:8b46596c840dd14a947428e4669704bdee42c36d6ddaa617d8d69453137e5664
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aerc/blobs/sha256:5f8a0e69f2b07a3fbbc3615af3ed930151e4d601632f2c25a3e8928068106492
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aerc/blobs/sha256:6d9361c0ff2d2c7fb8bfb3d80ec789d012547fed90bab51941250c10a07c6024
+sha256:
+  darwin_arm64: a8f207daf51b4be7b0645bf3e81cacc2687190713bb13a59ad246419c469affb
+  darwin_amd64: 8b46596c840dd14a947428e4669704bdee42c36d6ddaa617d8d69453137e5664
+  linux_amd64: 5f8a0e69f2b07a3fbbc3615af3ed930151e4d601632f2c25a3e8928068106492
+  linux_arm64: 6d9361c0ff2d2c7fb8bfb3d80ec789d012547fed90bab51941250c10a07c6024
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - notmuch

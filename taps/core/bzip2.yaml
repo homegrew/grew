@@ -1,0 +1,20 @@
+name: bzip2
+version: 1.0.8
+description: Freely available high-quality data compressor
+homepage: https://sourceware.org/bzip2/
+license: bzip2-1.0.6
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bzip2/blobs/sha256:e823d1ae6f9409cd524669dfe94dd9922e5661998be5ae416b237aa4713c8d54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bzip2/blobs/sha256:0aa9de4f40daf644d2c5745e35a20fac2babda8df0218e58bd471d0132ba8457
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bzip2/blobs/sha256:a731afa70daaafec28359b4f10f1c68455c1955ae66cdbb6b6d52eee277bbd3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bzip2/blobs/sha256:3a85918b5e50c5e958e9a322630a2acab61aa4ac8857ab70c7967eeedded42e1
+sha256:
+  darwin_arm64: e823d1ae6f9409cd524669dfe94dd9922e5661998be5ae416b237aa4713c8d54
+  darwin_amd64: 0aa9de4f40daf644d2c5745e35a20fac2babda8df0218e58bd471d0132ba8457
+  linux_amd64: a731afa70daaafec28359b4f10f1c68455c1955ae66cdbb6b6d52eee277bbd3e
+  linux_arm64: 3a85918b5e50c5e958e9a322630a2acab61aa4ac8857ab70c7967eeedded42e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

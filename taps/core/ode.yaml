@@ -1,0 +1,21 @@
+name: ode
+version: 0.16.6
+description: Simulating articulated rigid body dynamics
+homepage: https://www.ode.org/
+license: LGPL-2.1-or-later OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ode/blobs/sha256:f85029563540277a80dfb3ed714d68d2dcb7e06d32b6bd190a07d6fa5f91847f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ode/blobs/sha256:3ee055bde9ea2aca43d4305de3cad0aeda9f54a3a1ff69dde4618487223f792b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ode/blobs/sha256:fb0f3a0439ddeada4699c0ca1004810a676e4bb07d910464d9641b3b5b4dddc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ode/blobs/sha256:cc65c81c28d4007bdfcaf7398d065c55ee477bbd4dd37abb7017810cb457fe5d
+sha256:
+  darwin_arm64: f85029563540277a80dfb3ed714d68d2dcb7e06d32b6bd190a07d6fa5f91847f
+  darwin_amd64: 3ee055bde9ea2aca43d4305de3cad0aeda9f54a3a1ff69dde4618487223f792b
+  linux_amd64: fb0f3a0439ddeada4699c0ca1004810a676e4bb07d910464d9641b3b5b4dddc1
+  linux_arm64: cc65c81c28d4007bdfcaf7398d065c55ee477bbd4dd37abb7017810cb457fe5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libccd

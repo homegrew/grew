@@ -1,0 +1,23 @@
+name: papis
+version: 0.15.0
+description: Powerful command-line document and bibliography manager
+homepage: https://papis.readthedocs.io/en/latest/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/papis/blobs/sha256:452a30b67172d09b33884fe9b9e462d02829cda86e4b75e77ef929e60fc84b3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/papis/blobs/sha256:f7d9a80dba6e2422d955484876bd241aef5762c0feafc2d6efa63e03394aa909
+  linux_amd64: https://ghcr.io/v2/homebrew/core/papis/blobs/sha256:6621abda2e2277851e94dfe723a73ab3751e60793d747aff35ec8ab91bef4b4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/papis/blobs/sha256:d06e159672e7bb9ff5b0c4412144e0b906bc7a524da9cb27187e01a3ecf03453
+sha256:
+  darwin_arm64: 452a30b67172d09b33884fe9b9e462d02829cda86e4b75e77ef929e60fc84b3b
+  darwin_amd64: f7d9a80dba6e2422d955484876bd241aef5762c0feafc2d6efa63e03394aa909
+  linux_amd64: 6621abda2e2277851e94dfe723a73ab3751e60793d747aff35ec8ab91bef4b4a
+  linux_arm64: d06e159672e7bb9ff5b0c4412144e0b906bc7a524da9cb27187e01a3ecf03453
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

@@ -1,0 +1,11 @@
+name: starnet2
+version: 02,2023
+description: Removes stars from astrophotography images using ML models
+homepage: https://www.starnetastro.com/
+url:
+  darwin_arm64: https://www.starnetastro.com/wp-content/uploads/2023/02/StarNet2T_MacOS.zip
+sha256:
+  darwin_arm64: d566cd0a59d15894a3b027354812707b4408ca0917275af36602520f4ddec918
+artifacts:
+  bin:
+    - starnet2

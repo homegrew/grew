@@ -1,0 +1,21 @@
+name: jailkit
+version: 2.23
+description: Utilities to create limited user accounts in a chroot jail
+homepage: https://olivier.sessink.nl/jailkit/
+license: BSD-3-Clause AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jailkit/blobs/sha256:3beb6a1ce60e6650160ff71cf64d77920834134018551376cad01365291f6be2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jailkit/blobs/sha256:692ef1ca0ffbe0e2295d789686a23accefe9cdd29a475118be97c06bdd8697bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jailkit/blobs/sha256:48db655b0b901abb3a6caaedbc6609a3a36fea0601676f23bf3894ddb800626c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jailkit/blobs/sha256:57de95e3030b4885a69a541fddeea9caf1b08eb25ae58549e482ccc245c565e7
+sha256:
+  darwin_arm64: 3beb6a1ce60e6650160ff71cf64d77920834134018551376cad01365291f6be2
+  darwin_amd64: 692ef1ca0ffbe0e2295d789686a23accefe9cdd29a475118be97c06bdd8697bc
+  linux_amd64: 48db655b0b901abb3a6caaedbc6609a3a36fea0601676f23bf3894ddb800626c
+  linux_arm64: 57de95e3030b4885a69a541fddeea9caf1b08eb25ae58549e482ccc245c565e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,19 @@
+name: jot
+version: 0.1.2
+description: Rapid note management for the terminal
+homepage: https://github.com/shashwatah/jot
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jot/blobs/sha256:c2251981468647abc1ef8ea360bd2dac2ab585a4cbffb5563dc12afcb448fee8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jot/blobs/sha256:75eb2d10462b9b9161c3a6830062fe83ec63907f53b2c1b1f42d11e44d532e62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jot/blobs/sha256:f99f5f3de62fcb33cda952afcfabc511d11bc30614f0795d7d15808ea1b6c13b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jot/blobs/sha256:85fbebdda3af0b8454bb99e24e6151c2eed317242fc23f0e5737f90b0c446467
+sha256:
+  darwin_arm64: c2251981468647abc1ef8ea360bd2dac2ab585a4cbffb5563dc12afcb448fee8
+  darwin_amd64: 75eb2d10462b9b9161c3a6830062fe83ec63907f53b2c1b1f42d11e44d532e62
+  linux_amd64: f99f5f3de62fcb33cda952afcfabc511d11bc30614f0795d7d15808ea1b6c13b
+  linux_arm64: 85fbebdda3af0b8454bb99e24e6151c2eed317242fc23f0e5737f90b0c446467
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

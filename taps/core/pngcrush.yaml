@@ -1,0 +1,21 @@
+name: pngcrush
+version: 1.8.13
+description: Optimizer for PNG files
+homepage: https://pmt.sourceforge.io/pngcrush/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pngcrush/blobs/sha256:d480e8fcafb2cce34d273a2142d1db3513fb094e2e1c6b638b67d2114b75a91f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pngcrush/blobs/sha256:9e118f22662c43c9d1520be4b73645146939660c600e428aa540df8261ea1843
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pngcrush/blobs/sha256:68503c123cc4886ca3b1e759a7b29e9c9e7abed51d31f78f37f197c4bf66affd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pngcrush/blobs/sha256:b2c169a69b99d3ca7c13d4b8779adfd09568b8b9059c0d510e66008905513f8a
+sha256:
+  darwin_arm64: d480e8fcafb2cce34d273a2142d1db3513fb094e2e1c6b638b67d2114b75a91f
+  darwin_amd64: 9e118f22662c43c9d1520be4b73645146939660c600e428aa540df8261ea1843
+  linux_amd64: 68503c123cc4886ca3b1e759a7b29e9c9e7abed51d31f78f37f197c4bf66affd
+  linux_arm64: b2c169a69b99d3ca7c13d4b8779adfd09568b8b9059c0d510e66008905513f8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

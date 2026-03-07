@@ -1,0 +1,19 @@
+name: apache-brooklyn-cli
+version: 1.1.0
+description: Apache Brooklyn command-line interface
+homepage: https://brooklyn.apache.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apache-brooklyn-cli/blobs/sha256:40f8748f92e5bf30f1451b1590f1bcfa7d2cb4001b3b464a3cba2536207dabfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apache-brooklyn-cli/blobs/sha256:4c95c57b459108b4ea53b4ad26ac0fa1f5f63bb7d48f4af8cf213f052e35235b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apache-brooklyn-cli/blobs/sha256:a7c85e245c2a3ba2ed68c1e2a64d9b6bbb7e1b0dbd5f1a4f3d941d0e0f19a25e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apache-brooklyn-cli/blobs/sha256:2ad44e932f78810e55add04db3a881b3ed6f0f90b9869ec404f37c17e690331a
+sha256:
+  darwin_arm64: 40f8748f92e5bf30f1451b1590f1bcfa7d2cb4001b3b464a3cba2536207dabfb
+  darwin_amd64: 4c95c57b459108b4ea53b4ad26ac0fa1f5f63bb7d48f4af8cf213f052e35235b
+  linux_amd64: a7c85e245c2a3ba2ed68c1e2a64d9b6bbb7e1b0dbd5f1a4f3d941d0e0f19a25e
+  linux_arm64: 2ad44e932f78810e55add04db3a881b3ed6f0f90b9869ec404f37c17e690331a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

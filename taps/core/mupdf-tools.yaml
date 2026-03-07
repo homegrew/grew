@@ -1,0 +1,19 @@
+name: mupdf-tools
+version: 1.27.2
+description: Lightweight PDF and XPS viewer
+homepage: https://mupdf.com/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mupdf-tools/blobs/sha256:97ad945f8b2bdf50c58442500597e7ab2ba18241af475df0773663072a7dcba3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mupdf-tools/blobs/sha256:937be5eac62e8ecfd52d4748f7fb08c9a17cd0516cd59e3a6f3a8b851b0086cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mupdf-tools/blobs/sha256:bb2e08cc4dbc91859d92cf84be6f8b871dab663ef5e5f3076966a5d1694bd0ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mupdf-tools/blobs/sha256:f387c3ce63781f1db96a2d839748c8e7611b10a0232c95690d9de1bb81d2f2ad
+sha256:
+  darwin_arm64: 97ad945f8b2bdf50c58442500597e7ab2ba18241af475df0773663072a7dcba3
+  darwin_amd64: 937be5eac62e8ecfd52d4748f7fb08c9a17cd0516cd59e3a6f3a8b851b0086cf
+  linux_amd64: bb2e08cc4dbc91859d92cf84be6f8b871dab663ef5e5f3076966a5d1694bd0ae
+  linux_arm64: f387c3ce63781f1db96a2d839748c8e7611b10a0232c95690d9de1bb81d2f2ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

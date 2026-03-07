@@ -1,0 +1,21 @@
+name: airspyhf
+version: 1.6.8
+description: Driver and tools for a software-defined radio
+homepage: https://airspy.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/airspyhf/blobs/sha256:1c1fd82f7cb86587bd29d675af8ea216722ed5e0aee0eca6a137afc0adda0ca2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/airspyhf/blobs/sha256:c6bb7ad085e41a534221d9fc96bb4f9692d6af6d49a821d973f9091dc7040615
+  linux_amd64: https://ghcr.io/v2/homebrew/core/airspyhf/blobs/sha256:e9d30b5b22a4dc96558528d46a73cdb6102b49601f9fe04abfc3f9c812606600
+  linux_arm64: https://ghcr.io/v2/homebrew/core/airspyhf/blobs/sha256:e84516121578b8b4e3ed09e2617fe1fe378e7267dd900d8ab08c5cea0de963ea
+sha256:
+  darwin_arm64: 1c1fd82f7cb86587bd29d675af8ea216722ed5e0aee0eca6a137afc0adda0ca2
+  darwin_amd64: c6bb7ad085e41a534221d9fc96bb4f9692d6af6d49a821d973f9091dc7040615
+  linux_amd64: e9d30b5b22a4dc96558528d46a73cdb6102b49601f9fe04abfc3f9c812606600
+  linux_arm64: e84516121578b8b4e3ed09e2617fe1fe378e7267dd900d8ab08c5cea0de963ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

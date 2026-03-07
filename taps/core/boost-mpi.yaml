@@ -1,0 +1,22 @@
+name: boost-mpi
+version: 1.90.0
+description: C++ library for C++/MPI interoperability
+homepage: https://www.boost.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boost-mpi/blobs/sha256:670dd9f317690572c55e29b35f850fdb2a9bf6173b24659b7386195129c6fee2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boost-mpi/blobs/sha256:1f4b7c4cc2fd1ee4a5553385d5885162e11779d969ad949e8ddb59f1f2e8930d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boost-mpi/blobs/sha256:d6b807df695489d80a4e89f0299941e10e733a4c1adc260bf31f425a3994db4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boost-mpi/blobs/sha256:68372159bf8d129e7212b757272a6b114637444382d9c246a170a2d7d5178c37
+sha256:
+  darwin_arm64: 670dd9f317690572c55e29b35f850fdb2a9bf6173b24659b7386195129c6fee2
+  darwin_amd64: 1f4b7c4cc2fd1ee4a5553385d5885162e11779d969ad949e8ddb59f1f2e8930d
+  linux_amd64: d6b807df695489d80a4e89f0299941e10e733a4c1adc260bf31f425a3994db4f
+  linux_arm64: 68372159bf8d129e7212b757272a6b114637444382d9c246a170a2d7d5178c37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - open-mpi

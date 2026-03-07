@@ -1,0 +1,19 @@
+name: millet
+version: 0.15.0
+description: Language server for Standard ML (SML)
+homepage: https://github.com/azdavis/millet
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/millet/blobs/sha256:602d9efe3d160330dfc40b662ab1e3fd3254c7544741b603f1422a4edce5ccad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/millet/blobs/sha256:52982a72dbd15ab2fa525a85e76d7a6219b2cb11852c6d3c27f9761a056d8b16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/millet/blobs/sha256:c368c30449aa0b21400effa109982de18688316887bc3ebc71e62a0767ca5a45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/millet/blobs/sha256:3fd6e9167bd12e3d6fd0dd75592c9589138d8b49706dfa03ac38113870dd51db
+sha256:
+  darwin_arm64: 602d9efe3d160330dfc40b662ab1e3fd3254c7544741b603f1422a4edce5ccad
+  darwin_amd64: 52982a72dbd15ab2fa525a85e76d7a6219b2cb11852c6d3c27f9761a056d8b16
+  linux_amd64: c368c30449aa0b21400effa109982de18688316887bc3ebc71e62a0767ca5a45
+  linux_arm64: 3fd6e9167bd12e3d6fd0dd75592c9589138d8b49706dfa03ac38113870dd51db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

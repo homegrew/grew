@@ -1,0 +1,19 @@
+name: unibilium
+version: 2.1.2
+description: Very basic terminfo library
+homepage: https://github.com/neovim/unibilium
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unibilium/blobs/sha256:a4e4de62f7bd54a11da5b031f9c831040eef3790b9e111f40332feaea4cdd682
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unibilium/blobs/sha256:19a58769977601b8bbc47959efeefb4bad5cc938d7dcde0c083c8227d8296026
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unibilium/blobs/sha256:62bf69d2c9fe15ec8c9fe12e690befc1d8971c05b7f3f2fb890e2f4740e88798
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unibilium/blobs/sha256:239e6447b0d84b67599683cea8cadae7f8dd273e51426f819603f635577a4dc8
+sha256:
+  darwin_arm64: a4e4de62f7bd54a11da5b031f9c831040eef3790b9e111f40332feaea4cdd682
+  darwin_amd64: 19a58769977601b8bbc47959efeefb4bad5cc938d7dcde0c083c8227d8296026
+  linux_amd64: 62bf69d2c9fe15ec8c9fe12e690befc1d8971c05b7f3f2fb890e2f4740e88798
+  linux_arm64: 239e6447b0d84b67599683cea8cadae7f8dd273e51426f819603f635577a4dc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

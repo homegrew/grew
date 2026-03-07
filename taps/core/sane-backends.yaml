@@ -1,0 +1,25 @@
+name: sane-backends
+version: 1.4.0
+description: Backends for scanner access
+homepage: http://www.sane-project.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sane-backends/blobs/sha256:27298da0362d4c23dfeea65ba2e3a3d0b4852299cb80d94d806309776abb7adc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sane-backends/blobs/sha256:50c480c2b051b99a6f31de7ec827db4e041163d888ac622dcf72b2c4191c5403
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sane-backends/blobs/sha256:7ecde9d4c8c9aeafdeacc8ed886c18ea91ee747c83e5d9ca1d1ecad894876903
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sane-backends/blobs/sha256:d0d46eb5a83650c66567911610413d9623c356483ba39586f8f8cb5d7b89a676
+sha256:
+  darwin_arm64: 27298da0362d4c23dfeea65ba2e3a3d0b4852299cb80d94d806309776abb7adc
+  darwin_amd64: 50c480c2b051b99a6f31de7ec827db4e041163d888ac622dcf72b2c4191c5403
+  linux_amd64: 7ecde9d4c8c9aeafdeacc8ed886c18ea91ee747c83e5d9ca1d1ecad894876903
+  linux_arm64: d0d46eb5a83650c66567911610413d9623c356483ba39586f8f8cb5d7b89a676
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - libusb
+  - net-snmp

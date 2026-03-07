@@ -1,0 +1,19 @@
+name: crabz
+version: 0.10.0
+description: Like pigz, but in Rust
+homepage: https://github.com/sstadick/crabz
+license: MIT OR Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crabz/blobs/sha256:184c885b4adbe8d9fae4388cea1347debaa6e62a0c9c5726e1b6623a5062c1f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crabz/blobs/sha256:577d2a7fbd81e94e01cea85c3b3da2c759a88146189c66d5a61f9b32f6d9ad10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crabz/blobs/sha256:5843ff105bb50beb4e6712e6479edb8e3be80d5f1508e10fb7743d19ca9a6277
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crabz/blobs/sha256:36844bc642d323b46061d065ce3f0ef54fb344950a711ace63ce737ab8c91272
+sha256:
+  darwin_arm64: 184c885b4adbe8d9fae4388cea1347debaa6e62a0c9c5726e1b6623a5062c1f0
+  darwin_amd64: 577d2a7fbd81e94e01cea85c3b3da2c759a88146189c66d5a61f9b32f6d9ad10
+  linux_amd64: 5843ff105bb50beb4e6712e6479edb8e3be80d5f1508e10fb7743d19ca9a6277
+  linux_arm64: 36844bc642d323b46061d065ce3f0ef54fb344950a711ace63ce737ab8c91272
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: act
+version: 0.2.84
+description: Run your GitHub Actions locally
+homepage: https://github.com/nektos/act
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/act/blobs/sha256:bd7f8f8ddd1c5ff74799385f0bbe6ba48dde0183c4efef4bc0db748b79b8a4fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/act/blobs/sha256:b950139f4318116a06c34001d465644ea1c295a383e90eb8100d5a0f701b9066
+  linux_amd64: https://ghcr.io/v2/homebrew/core/act/blobs/sha256:879e746d6d78f4fb9e2cf53a4e9def25ee25f7339344bc1bef5d30a979b623aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/act/blobs/sha256:e9be487dafffc4992bd017d7952416e843ec7d12e2221947f7b7d5bb3135c963
+sha256:
+  darwin_arm64: bd7f8f8ddd1c5ff74799385f0bbe6ba48dde0183c4efef4bc0db748b79b8a4fb
+  darwin_amd64: b950139f4318116a06c34001d465644ea1c295a383e90eb8100d5a0f701b9066
+  linux_amd64: 879e746d6d78f4fb9e2cf53a4e9def25ee25f7339344bc1bef5d30a979b623aa
+  linux_arm64: e9be487dafffc4992bd017d7952416e843ec7d12e2221947f7b7d5bb3135c963
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

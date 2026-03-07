@@ -1,0 +1,11 @@
+name: firebird-emu
+version: 1.6
+description: TI Nspire calculator emulator
+homepage: https://github.com/nspire-emus/firebird
+url:
+  darwin_arm64: https://github.com/nspire-emus/firebird/releases/download/v1.6/firebird-emu_macOS.zip
+sha256:
+  darwin_arm64: c68aae5b077bd447845f476316fed93cf261ac7221fac0a38dfc0a575a3392d2
+artifacts:
+  app:
+    - firebird-emu.app

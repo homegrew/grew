@@ -1,0 +1,19 @@
+name: phrase-cli
+version: 2.55.2
+description: Tool to interact with the Phrase API
+homepage: https://phrase.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/phrase-cli/blobs/sha256:73d9aec15539006800bc81753820a5975b5d8ce57fbf36bca180b95db0842cff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/phrase-cli/blobs/sha256:2439e7481e76302193be813cd6ca538cf9d4be1a184b567e674aa5372b201808
+  linux_amd64: https://ghcr.io/v2/homebrew/core/phrase-cli/blobs/sha256:e7e843ba9cd3e0582e4ac290239aae83ed2180eba10e3da0263ca94a51750709
+  linux_arm64: https://ghcr.io/v2/homebrew/core/phrase-cli/blobs/sha256:62d5ef87b9884fbae30589d0507b17995ad36e1788736fc5038ea130b3026b2b
+sha256:
+  darwin_arm64: 73d9aec15539006800bc81753820a5975b5d8ce57fbf36bca180b95db0842cff
+  darwin_amd64: 2439e7481e76302193be813cd6ca538cf9d4be1a184b567e674aa5372b201808
+  linux_amd64: e7e843ba9cd3e0582e4ac290239aae83ed2180eba10e3da0263ca94a51750709
+  linux_arm64: 62d5ef87b9884fbae30589d0507b17995ad36e1788736fc5038ea130b3026b2b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

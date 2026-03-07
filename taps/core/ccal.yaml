@@ -1,0 +1,19 @@
+name: ccal
+version: 2.5.3
+description: Create Chinese calendars for print or browsing
+homepage: https://ccal.chinesebay.com/ccal/ccal.htm
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccal/blobs/sha256:886e52e30ce5de3a7be8fecca2367e09629a0832f48d286d61b122e77fc98f95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccal/blobs/sha256:ee50d26ab3751fc41169edaddf069136ead8167383d537d21d7580216ebb7c5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccal/blobs/sha256:a3d0a1bcea11bb75c5a13e8217bab044677bb6d8e905d84a2c4ba53d8b0b8e5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccal/blobs/sha256:c88444adaeb8ba5d457d6332da395b62ee03b8ffc25ec9001db44db2ce0fb15c
+sha256:
+  darwin_arm64: 886e52e30ce5de3a7be8fecca2367e09629a0832f48d286d61b122e77fc98f95
+  darwin_amd64: ee50d26ab3751fc41169edaddf069136ead8167383d537d21d7580216ebb7c5f
+  linux_amd64: a3d0a1bcea11bb75c5a13e8217bab044677bb6d8e905d84a2c4ba53d8b0b8e5e
+  linux_arm64: c88444adaeb8ba5d457d6332da395b62ee03b8ffc25ec9001db44db2ce0fb15c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

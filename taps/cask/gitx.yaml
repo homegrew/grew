@@ -1,0 +1,13 @@
+name: gitx
+version: 1.2
+description: Git GUI
+homepage: https://github.com/gitx/gitx
+url:
+  darwin_arm64: https://github.com/gitx/gitx/releases/download/1.2/GitX-arm64.dmg
+sha256:
+  darwin_arm64: 2bf5cfa330e82ac9961879e1ad6571658ce589e96163eb92c89c86ebac915b96
+artifacts:
+  app:
+    - GitX.app
+  bin:
+    - gitx

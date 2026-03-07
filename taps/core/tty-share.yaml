@@ -1,0 +1,19 @@
+name: tty-share
+version: 2.4.1
+description: Terminal sharing over the Internet
+homepage: https://tty-share.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tty-share/blobs/sha256:df6d54c41d4ea39472c924d0741c20d7bfcc0782a97886f64e01ab211c5ece41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tty-share/blobs/sha256:d89b2fc16110d5ee948280744ed4a703d86242a31f96e00ca98f1b6dcb3b9adf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tty-share/blobs/sha256:c2a9c4c7c1155365d7eebcd4bfee4d22010b21584bc843f17d1b4c513182f01c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tty-share/blobs/sha256:dfe97df24936c6e03ff13104c270616dde9944f4ab07456f844bab82f92776d2
+sha256:
+  darwin_arm64: df6d54c41d4ea39472c924d0741c20d7bfcc0782a97886f64e01ab211c5ece41
+  darwin_amd64: d89b2fc16110d5ee948280744ed4a703d86242a31f96e00ca98f1b6dcb3b9adf
+  linux_amd64: c2a9c4c7c1155365d7eebcd4bfee4d22010b21584bc843f17d1b4c513182f01c
+  linux_arm64: dfe97df24936c6e03ff13104c270616dde9944f4ab07456f844bab82f92776d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

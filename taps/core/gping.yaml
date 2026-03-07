@@ -1,0 +1,19 @@
+name: gping
+version: 1.20.1
+description: Ping, but with a graph
+homepage: https://github.com/orf/gping
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gping/blobs/sha256:2ea7c7e96a88df4ee9e8cf12a47849a778eabdd015c2c56e0ac1b46dba8b329f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gping/blobs/sha256:88b15ad904d11c0353fb62c62a0e8aef8cbe054275324d281fcb1c36d2ca4882
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gping/blobs/sha256:773e0bb37bb0a63656ad1ff05f8f135054b5bb935440b58936f22726392aef09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gping/blobs/sha256:a071b10dbf714a17277fc3d007876025e8eeb7ccd8233871cec335845c2b15e8
+sha256:
+  darwin_arm64: 2ea7c7e96a88df4ee9e8cf12a47849a778eabdd015c2c56e0ac1b46dba8b329f
+  darwin_amd64: 88b15ad904d11c0353fb62c62a0e8aef8cbe054275324d281fcb1c36d2ca4882
+  linux_amd64: 773e0bb37bb0a63656ad1ff05f8f135054b5bb935440b58936f22726392aef09
+  linux_arm64: a071b10dbf714a17277fc3d007876025e8eeb7ccd8233871cec335845c2b15e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

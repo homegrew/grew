@@ -1,0 +1,21 @@
+name: bastet
+version: 0.43.2
+description: Bastard Tetris
+homepage: https://fph.altervista.org/prog/bastet.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bastet/blobs/sha256:4a36aae44f8d7241586755bf287e97d22d9c25a7063a829a4c27acf0f334e6ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bastet/blobs/sha256:a3b4dd087d6c1a9ebc3bd49d738bba4934e67120aae88c9ca48a78b92145e9f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bastet/blobs/sha256:27a2d5d98345001280889ceaf575f39c65519dacd8a6f45b197c0d24714ac1fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bastet/blobs/sha256:78ece6016f523525d749e367e4bbef4de709ac426add7c8ff7fb6db45480aedb
+sha256:
+  darwin_arm64: 4a36aae44f8d7241586755bf287e97d22d9c25a7063a829a4c27acf0f334e6ab
+  darwin_amd64: a3b4dd087d6c1a9ebc3bd49d738bba4934e67120aae88c9ca48a78b92145e9f9
+  linux_amd64: 27a2d5d98345001280889ceaf575f39c65519dacd8a6f45b197c0d24714ac1fc
+  linux_arm64: 78ece6016f523525d749e367e4bbef4de709ac426add7c8ff7fb6db45480aedb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

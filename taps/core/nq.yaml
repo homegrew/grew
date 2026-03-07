@@ -1,0 +1,19 @@
+name: nq
+version: 1.0
+description: Unix command-line queue utility
+homepage: https://github.com/leahneukirchen/nq
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nq/blobs/sha256:4c175806ee39e0ed6fd4efe5a59ae650c99226d48e099762c81ef36f61f369af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nq/blobs/sha256:a2cc1df79c5e57c03e1356d2c574477d43c0a2b4e3b43931d11137716e14065b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nq/blobs/sha256:1af85098406f38474034563e06b631e0fb9671331bbb057a9c3f0311f086f51f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nq/blobs/sha256:39d11e9a09a0007d3a1b94485f6cb005b6ee3f08201a43187d8b85b0a1b2df74
+sha256:
+  darwin_arm64: 4c175806ee39e0ed6fd4efe5a59ae650c99226d48e099762c81ef36f61f369af
+  darwin_amd64: a2cc1df79c5e57c03e1356d2c574477d43c0a2b4e3b43931d11137716e14065b
+  linux_amd64: 1af85098406f38474034563e06b631e0fb9671331bbb057a9c3f0311f086f51f
+  linux_arm64: 39d11e9a09a0007d3a1b94485f6cb005b6ee3f08201a43187d8b85b0a1b2df74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

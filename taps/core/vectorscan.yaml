@@ -1,0 +1,19 @@
+name: vectorscan
+version: 5.4.12
+description: High-performance regular expression matching library
+homepage: https://github.com/VectorCamp/vectorscan
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vectorscan/blobs/sha256:c6d394819c0355675f1ab7d48cf50cf99d68ae837bce318937c17893a9d2bd3e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vectorscan/blobs/sha256:9a688ccb297c63cd173638267cac86dc0ce20f3f128d5e4a37270bff8fed567e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vectorscan/blobs/sha256:08b6394af47d74481f091177957ac9b7ea5fb799975482102223714ddd2c5eba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vectorscan/blobs/sha256:431822dd8fb05a2df316274fa9b8e0bbf11585b00d34a72dd82262507c4929dd
+sha256:
+  darwin_arm64: c6d394819c0355675f1ab7d48cf50cf99d68ae837bce318937c17893a9d2bd3e
+  darwin_amd64: 9a688ccb297c63cd173638267cac86dc0ce20f3f128d5e4a37270bff8fed567e
+  linux_amd64: 08b6394af47d74481f091177957ac9b7ea5fb799975482102223714ddd2c5eba
+  linux_arm64: 431822dd8fb05a2df316274fa9b8e0bbf11585b00d34a72dd82262507c4929dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

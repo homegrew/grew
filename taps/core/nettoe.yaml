@@ -1,0 +1,19 @@
+name: nettoe
+version: 1.5.1
+description: Tic Tac Toe-like game for the console
+homepage: https://nettoe.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nettoe/blobs/sha256:f6d3b32a4b364e84aab80cfa135679ec141419e601724888c54a31310cd85d1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nettoe/blobs/sha256:286be67f32fae34001ff40ee7122b3fc44564b1605cc9a456298dd78ec01c567
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nettoe/blobs/sha256:f72b5ebf9338c0c725ee8df4e6843ec8f9a13fbb9935e3bd121ce8302c3ecbbc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nettoe/blobs/sha256:2f2fb05b5054fa36e1dc3164dd500e4a3a9616ad6d2fd515791493859b9a27d4
+sha256:
+  darwin_arm64: f6d3b32a4b364e84aab80cfa135679ec141419e601724888c54a31310cd85d1d
+  darwin_amd64: 286be67f32fae34001ff40ee7122b3fc44564b1605cc9a456298dd78ec01c567
+  linux_amd64: f72b5ebf9338c0c725ee8df4e6843ec8f9a13fbb9935e3bd121ce8302c3ecbbc
+  linux_arm64: 2f2fb05b5054fa36e1dc3164dd500e4a3a9616ad6d2fd515791493859b9a27d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

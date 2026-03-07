@@ -1,0 +1,19 @@
+name: pgvector
+version: 0.8.2
+description: Open-source vector similarity search for Postgres
+homepage: https://github.com/pgvector/pgvector
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgvector/blobs/sha256:8cf8043ead096eaa3f792e14a89702ec73d0383178afe9d9c778130774800e9c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgvector/blobs/sha256:bd3324af174e284d6e2b2499061e744b9f259eebb3b03732abb96a38eaf1581f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgvector/blobs/sha256:4654c76fc87533d553c91d2c5bc7f7452fbe28d54f7812f99ccb9b71833bafff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgvector/blobs/sha256:13085e8a50a501137a1e19ee44d2dfcf1a186fc69aa3969bacebd5a4a58c29e8
+sha256:
+  darwin_arm64: 8cf8043ead096eaa3f792e14a89702ec73d0383178afe9d9c778130774800e9c
+  darwin_amd64: bd3324af174e284d6e2b2499061e744b9f259eebb3b03732abb96a38eaf1581f
+  linux_amd64: 4654c76fc87533d553c91d2c5bc7f7452fbe28d54f7812f99ccb9b71833bafff
+  linux_arm64: 13085e8a50a501137a1e19ee44d2dfcf1a186fc69aa3969bacebd5a4a58c29e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: scdoc
+version: 1.11.4
+description: Small man page generator
+homepage: https://sr.ht/~sircmpwn/scdoc/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scdoc/blobs/sha256:c1ba3c08a09b33b58197d9dfde53fda881d4d4444d3396a7e4b63ba1baded7aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scdoc/blobs/sha256:2e981011c1be208d03d97447d9bfd3451d2fe8925d68a4853527c906481868b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scdoc/blobs/sha256:4f53e0feaf57b9e883533ce5d3ec38beeec40f1073b0fb465abaab100be8132d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scdoc/blobs/sha256:1d8bf46277a5da340b1556cb33cfc56e86564975ff9eccbec7aa3b295861eed3
+sha256:
+  darwin_arm64: c1ba3c08a09b33b58197d9dfde53fda881d4d4444d3396a7e4b63ba1baded7aa
+  darwin_amd64: 2e981011c1be208d03d97447d9bfd3451d2fe8925d68a4853527c906481868b6
+  linux_amd64: 4f53e0feaf57b9e883533ce5d3ec38beeec40f1073b0fb465abaab100be8132d
+  linux_arm64: 1d8bf46277a5da340b1556cb33cfc56e86564975ff9eccbec7aa3b295861eed3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

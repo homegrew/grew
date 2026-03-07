@@ -1,0 +1,19 @@
+name: forego
+version: 20180216151118
+description: Foreman in Go for Procfile-based application management
+homepage: https://github.com/ddollar/forego
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forego/blobs/sha256:0c76f88ef642e7133f7ac7db298cdda3ae5fd17a5c6c49bf5481d8dab5ebedb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forego/blobs/sha256:9d68b3831d4f0a74ec867a1a094b4358bf7e377a140b378ed326e753579413ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forego/blobs/sha256:9dca3d980006ef9588d0511bfcc5e1c471c786b0705e6b35f51e2f482a942675
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forego/blobs/sha256:f5931db5b7571c1ddccd603345fd8780cb7f9d37f1eefd28dc5853f6fbfea1ce
+sha256:
+  darwin_arm64: 0c76f88ef642e7133f7ac7db298cdda3ae5fd17a5c6c49bf5481d8dab5ebedb1
+  darwin_amd64: 9d68b3831d4f0a74ec867a1a094b4358bf7e377a140b378ed326e753579413ed
+  linux_amd64: 9dca3d980006ef9588d0511bfcc5e1c471c786b0705e6b35f51e2f482a942675
+  linux_arm64: f5931db5b7571c1ddccd603345fd8780cb7f9d37f1eefd28dc5853f6fbfea1ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

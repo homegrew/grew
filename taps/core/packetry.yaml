@@ -1,0 +1,28 @@
+name: packetry
+version: 0.5.0
+description: Fast, intuitive USB 2.0 protocol analysis application for use with Cynthion
+homepage: https://github.com/greatscottgadgets/packetry
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/packetry/blobs/sha256:7b44a327337008bac85d41e08c6c01d443ec193d25671791275bb846fbb49a98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/packetry/blobs/sha256:4cbed67c2f94db98371ffd4e1c22339461ced6aefcb3e1aed5aa780088a587df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/packetry/blobs/sha256:feb64fb888f5d3e9769b784226363100a57f2b81ff3ede2c8ebceec074d72d8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/packetry/blobs/sha256:2069f0fd40e8bb856ffa695b73c5d446b2f4f334413ecc63a1412e185160d162
+sha256:
+  darwin_arm64: 7b44a327337008bac85d41e08c6c01d443ec193d25671791275bb846fbb49a98
+  darwin_amd64: 4cbed67c2f94db98371ffd4e1c22339461ced6aefcb3e1aed5aa780088a587df
+  linux_amd64: feb64fb888f5d3e9769b784226363100a57f2b81ff3ede2c8ebceec074d72d8c
+  linux_arm64: 2069f0fd40e8bb856ffa695b73c5d446b2f4f334413ecc63a1412e185160d162
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk4
+  - pango
+  - gettext
+  - graphene
+  - harfbuzz

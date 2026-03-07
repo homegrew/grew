@@ -1,0 +1,25 @@
+name: harfbuzz
+version: 13.0.0
+description: OpenType text shaping engine
+homepage: https://github.com/harfbuzz/harfbuzz
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/harfbuzz/blobs/sha256:bda151a1bfbf79907da734748c575a71ec1c1ff2334b44d4caa249176eb7181a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/harfbuzz/blobs/sha256:cb5325b3c3d088fdec3168788c62dc0bb0df909875749a59417696fab4b462cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/harfbuzz/blobs/sha256:129751a82e917f40df5d13b1fe2a21d2b0e322d0e814a60eca43d48539e5262e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/harfbuzz/blobs/sha256:80e87c26e6aaf58d6dfb1e1eaf37d93f2b739269fda1af2534b9ed17b139505f
+sha256:
+  darwin_arm64: bda151a1bfbf79907da734748c575a71ec1c1ff2334b44d4caa249176eb7181a
+  darwin_amd64: cb5325b3c3d088fdec3168788c62dc0bb0df909875749a59417696fab4b462cd
+  linux_amd64: 129751a82e917f40df5d13b1fe2a21d2b0e322d0e814a60eca43d48539e5262e
+  linux_arm64: 80e87c26e6aaf58d6dfb1e1eaf37d93f2b739269fda1af2534b9ed17b139505f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - freetype
+  - glib
+  - graphite2
+  - icu4c@78

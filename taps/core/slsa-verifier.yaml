@@ -1,0 +1,19 @@
+name: slsa-verifier
+version: 2.7.1
+description: Verify provenance from SLSA compliant builders
+homepage: https://github.com/slsa-framework/slsa-verifier
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slsa-verifier/blobs/sha256:74a05f9a862de1e4b5ff0c5ec8a276684dddb282196ecb13010941960049274f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slsa-verifier/blobs/sha256:6af212bf84e8c9a121278554c084c8316cd360ecf3a29cbe0d9918b256e3f1dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slsa-verifier/blobs/sha256:e588593813873d0d0c768d1e85c38db2e6e1871cc567950fd7a2e053b4706841
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slsa-verifier/blobs/sha256:f211fb47549850522eb0187f98471eda17743dfc79c7572a6018aa282f141267
+sha256:
+  darwin_arm64: 74a05f9a862de1e4b5ff0c5ec8a276684dddb282196ecb13010941960049274f
+  darwin_amd64: 6af212bf84e8c9a121278554c084c8316cd360ecf3a29cbe0d9918b256e3f1dd
+  linux_amd64: e588593813873d0d0c768d1e85c38db2e6e1871cc567950fd7a2e053b4706841
+  linux_arm64: f211fb47549850522eb0187f98471eda17743dfc79c7572a6018aa282f141267
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

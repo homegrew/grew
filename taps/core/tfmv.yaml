@@ -1,0 +1,19 @@
+name: tfmv
+version: 1.0.0
+description: CLI to rename Terraform resources and generate moved blocks
+homepage: https://github.com/suzuki-shunsuke/tfmv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfmv/blobs/sha256:8f8c31d6cd0910bdb3dfef1cd3cd24eefbd5ef4c87beb1cee502c6474e6a74c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfmv/blobs/sha256:dfc830c36d5a0d948315027d6aafc7ef63046cac5c05bf3d5f8bde730d8bf22d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfmv/blobs/sha256:53413e3284046bc4560ccf3405f5e187f744083e5264d2f4c9c75cf064190be8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfmv/blobs/sha256:161f5173d9a7b3ee6942da6d157ad9570054e9b0af6b3e4c137536ea801582e0
+sha256:
+  darwin_arm64: 8f8c31d6cd0910bdb3dfef1cd3cd24eefbd5ef4c87beb1cee502c6474e6a74c0
+  darwin_amd64: dfc830c36d5a0d948315027d6aafc7ef63046cac5c05bf3d5f8bde730d8bf22d
+  linux_amd64: 53413e3284046bc4560ccf3405f5e187f744083e5264d2f4c9c75cf064190be8
+  linux_arm64: 161f5173d9a7b3ee6942da6d157ad9570054e9b0af6b3e4c137536ea801582e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

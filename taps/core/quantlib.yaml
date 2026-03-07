@@ -1,0 +1,21 @@
+name: quantlib
+version: 1.41
+description: Library for quantitative finance
+homepage: https://www.quantlib.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quantlib/blobs/sha256:3928aa0f4834d8aabc97762d5fbc4198e5e43ae3e2ec80bde053b094fbc575d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quantlib/blobs/sha256:02f6a2fcfe39e7ab28a6b347ff22c5d80987dbebb87332f9a614f0fbcd47d87e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quantlib/blobs/sha256:84189c896b25208c88447848bfc8381c33471514d85e316a3e4117bd9662e9d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quantlib/blobs/sha256:5a071b78ff0ecf0971d9460b456beeddf5484af56dcf07a5ce16720497967d32
+sha256:
+  darwin_arm64: 3928aa0f4834d8aabc97762d5fbc4198e5e43ae3e2ec80bde053b094fbc575d2
+  darwin_amd64: 02f6a2fcfe39e7ab28a6b347ff22c5d80987dbebb87332f9a614f0fbcd47d87e
+  linux_amd64: 84189c896b25208c88447848bfc8381c33471514d85e316a3e4117bd9662e9d7
+  linux_arm64: 5a071b78ff0ecf0971d9460b456beeddf5484af56dcf07a5ce16720497967d32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

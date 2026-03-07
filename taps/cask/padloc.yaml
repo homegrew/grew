@@ -1,0 +1,11 @@
+name: padloc
+version: 4.3.0
+description: Modern password manager
+homepage: https://padloc.app/
+url:
+  darwin_arm64: https://github.com/padloc/padloc/releases/download/v4.3.0/padloc_4.3.0_macos_electron_arm64.dmg
+sha256:
+  darwin_arm64: 0b20d0941d2c54a3201269954e92662444fef14baf06c2bd8410df9eb50158fb
+artifacts:
+  app:
+    - Padloc.app

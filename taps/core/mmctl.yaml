@@ -1,0 +1,19 @@
+name: mmctl
+version: 11.4.2
+description: Remote CLI tool for Mattermost server
+homepage: https://github.com/mattermost/mattermost
+license: AGPL-3.0-only AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmctl/blobs/sha256:01d277a2de3706674d74f5a179f43722c25d6f5865c6ddf378061b1f7897254e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmctl/blobs/sha256:b1795ea5e29f178c9af4dd321a0f1d26d86841b5b6f5e55717d9e2d1da6bbc18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mmctl/blobs/sha256:9f8acf24f0a59d20bc07ae7e1a0082bb17056c7d2b4b59d023b4ae175c7a9a47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mmctl/blobs/sha256:244035720d8965cfb436f89933f1ae3d7b1248324915190ae5d3a58ec627808c
+sha256:
+  darwin_arm64: 01d277a2de3706674d74f5a179f43722c25d6f5865c6ddf378061b1f7897254e
+  darwin_amd64: b1795ea5e29f178c9af4dd321a0f1d26d86841b5b6f5e55717d9e2d1da6bbc18
+  linux_amd64: 9f8acf24f0a59d20bc07ae7e1a0082bb17056c7d2b4b59d023b4ae175c7a9a47
+  linux_arm64: 244035720d8965cfb436f89933f1ae3d7b1248324915190ae5d3a58ec627808c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

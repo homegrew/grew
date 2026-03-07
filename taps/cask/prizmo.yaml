@@ -1,0 +1,11 @@
+name: prizmo
+version: 4.7.1
+description: Scanning application with Optical Character Recognition (OCR)
+homepage: https://creaceed.com/prizmo
+url:
+  darwin_arm64: https://creaceed.s3.amazonaws.com/downloads/prizmo4_4.7.1.zip
+sha256:
+  darwin_arm64: 71f085b54ec6dde38a25675a81a9e799661fcd82b27629b28bbf8e88907d6456
+artifacts:
+  app:
+    - Prizmo.app

@@ -1,0 +1,21 @@
+name: pdf-diff
+version: 0.0.1
+description: Tool for visualizing differences between two pdf files
+homepage: https://github.com/serhack/pdf-diff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdf-diff/blobs/sha256:3109937918e55155cabbc7db5bbe153bf22cc27f0f315e13c8539ccf8cf94529
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdf-diff/blobs/sha256:a459eb490a382b87a8e0145910830ace8b8a736eea8c0ce3ed7d18c80ac92883
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdf-diff/blobs/sha256:66929021a8898ca16128f0ed3b1fb9ffbc4ac8b5778bdb48259207c91daa64fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdf-diff/blobs/sha256:84cee2f29e043eacbe31386f0b25ec75558d4dd1971c627d71b4a5071ce5ae02
+sha256:
+  darwin_arm64: 3109937918e55155cabbc7db5bbe153bf22cc27f0f315e13c8539ccf8cf94529
+  darwin_amd64: a459eb490a382b87a8e0145910830ace8b8a736eea8c0ce3ed7d18c80ac92883
+  linux_amd64: 66929021a8898ca16128f0ed3b1fb9ffbc4ac8b5778bdb48259207c91daa64fa
+  linux_arm64: 84cee2f29e043eacbe31386f0b25ec75558d4dd1971c627d71b4a5071ce5ae02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - poppler

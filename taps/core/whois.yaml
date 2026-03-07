@@ -1,0 +1,22 @@
+name: whois
+version: 5.6.6
+description: Lookup tool for domain names and other internet resources
+homepage: https://github.com/rfc1036/whois
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/whois/blobs/sha256:9b65a782bd5207b250ef0fb7754658493326c1d4b72bd5f89bfdbb815795ebd7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/whois/blobs/sha256:fa5e4c41154dda1a222cab6cc7e94a325d1e65b81998306ff48766cde7f41a63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/whois/blobs/sha256:b994d8b2b6493b16adb403a54f455376383a0f368f9aa08f8906e365782aa2b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/whois/blobs/sha256:b74ce0496d081d448ec321bd25789c5417a9a105104ccbe4cbc98b0a2686c094
+sha256:
+  darwin_arm64: 9b65a782bd5207b250ef0fb7754658493326c1d4b72bd5f89bfdbb815795ebd7
+  darwin_amd64: fa5e4c41154dda1a222cab6cc7e94a325d1e65b81998306ff48766cde7f41a63
+  linux_amd64: b994d8b2b6493b16adb403a54f455376383a0f368f9aa08f8906e365782aa2b3
+  linux_arm64: b74ce0496d081d448ec321bd25789c5417a9a105104ccbe4cbc98b0a2686c094
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2
+keg_only: true

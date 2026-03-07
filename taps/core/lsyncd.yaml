@@ -1,0 +1,21 @@
+name: lsyncd
+version: 2.3.1
+description: Synchronize local directories with remote targets
+homepage: https://github.com/lsyncd/lsyncd
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lsyncd/blobs/sha256:da28ce3ac9d2171449adf629c00e7534e8d7309b30c656d2f143802b8d21c9ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lsyncd/blobs/sha256:0c11103090d25b5d5aff2a0674439ded937b0e79cc9328fcf3c306fc1ee28d62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lsyncd/blobs/sha256:515ce4cedcf728c4b540bb488e2c15145bb6bce49c83370f82cbffdd9b5511bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lsyncd/blobs/sha256:1a7b53aa9e756a873482e88be4e085240b285901a359f79924226ea82ca27fe8
+sha256:
+  darwin_arm64: da28ce3ac9d2171449adf629c00e7534e8d7309b30c656d2f143802b8d21c9ae
+  darwin_amd64: 0c11103090d25b5d5aff2a0674439ded937b0e79cc9328fcf3c306fc1ee28d62
+  linux_amd64: 515ce4cedcf728c4b540bb488e2c15145bb6bce49c83370f82cbffdd9b5511bc
+  linux_arm64: 1a7b53aa9e756a873482e88be4e085240b285901a359f79924226ea82ca27fe8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua@5.4

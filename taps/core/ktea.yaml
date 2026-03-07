@@ -1,0 +1,19 @@
+name: ktea
+version: 0.8.0
+description: Kafka TUI client
+homepage: https://github.com/jonas-grgt/ktea
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktea/blobs/sha256:ba120d2a3ebe8797d35a7e776358c06a4f741c8d1b14ae624ece0554c85fc19c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktea/blobs/sha256:8537976c5e1629a28caf0413542ec0fd35ff4f0a20b2b9f5d5c1d5594ccf9c7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktea/blobs/sha256:21177f8146ad242c92aaa340e4558369987fbb62395c423becab0e22d85c5292
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktea/blobs/sha256:a55355631ba40c61b309efeede7154d0b07137df1c817d6f6112fb012f76d0d5
+sha256:
+  darwin_arm64: ba120d2a3ebe8797d35a7e776358c06a4f741c8d1b14ae624ece0554c85fc19c
+  darwin_amd64: 8537976c5e1629a28caf0413542ec0fd35ff4f0a20b2b9f5d5c1d5594ccf9c7f
+  linux_amd64: 21177f8146ad242c92aaa340e4558369987fbb62395c423becab0e22d85c5292
+  linux_arm64: a55355631ba40c61b309efeede7154d0b07137df1c817d6f6112fb012f76d0d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

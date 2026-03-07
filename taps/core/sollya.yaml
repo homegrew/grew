@@ -1,0 +1,24 @@
+name: sollya
+version: 8.0
+description: Library for safe floating-point code development
+homepage: https://www.sollya.org/
+license: CECILL-C
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sollya/blobs/sha256:c3da627c992a35dc3af1daf6c84f1e74485277155ebb5793e10a7a68dc2f12a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sollya/blobs/sha256:b623d5218033d5f33a5b370b4f27ceab4177326cf7b3d71660ec2492d2818a95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sollya/blobs/sha256:1f3828e3be08c6b06af99a2c95fc5aa52d2ab5554ec2c79a62b2b4e557e52e11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sollya/blobs/sha256:9d25abc81dc57e49af305df1244e0c9fed2e6d5dfc2ef779bc021e02aaad81b9
+sha256:
+  darwin_arm64: c3da627c992a35dc3af1daf6c84f1e74485277155ebb5793e10a7a68dc2f12a3
+  darwin_amd64: b623d5218033d5f33a5b370b4f27ceab4177326cf7b3d71660ec2492d2818a95
+  linux_amd64: 1f3828e3be08c6b06af99a2c95fc5aa52d2ab5554ec2c79a62b2b4e557e52e11
+  linux_arm64: 9d25abc81dc57e49af305df1244e0c9fed2e6d5dfc2ef779bc021e02aaad81b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fplll
+  - gmp
+  - mpfi
+  - mpfr

@@ -1,0 +1,11 @@
+name: imagej
+version: 1.54
+description: Image Processing and Analysis in Java
+homepage: https://imagej.net/ij/
+url:
+  darwin_arm64: https://wsr.imagej.net/distros/osx/ij154-osx-arm-java13.zip
+sha256:
+  darwin_arm64: 8366d8c2d56602855fd375d7fb06a4d5b755258cb96ecd83e1310709d3959d90
+artifacts:
+  app:
+    - ImageJ.app

@@ -1,0 +1,19 @@
+name: pscale
+version: 0.273.0
+description: CLI for PlanetScale Database
+homepage: https://www.planetscale.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pscale/blobs/sha256:90951a641e482933679311760400ead6ed23868f65d6ef54932d21bf83013a12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pscale/blobs/sha256:6eb42555aaf1edd509557f32a73c8218076a19e16542d8250009eff924bfedc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pscale/blobs/sha256:eb69fb8132bda54027b68a113af7641ca539894d694100be204eea79e14a92fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pscale/blobs/sha256:773c9b6af9c82f5a6ac941c1c3e0afc8a0645b661334df2d086d5bff8cba33f3
+sha256:
+  darwin_arm64: 90951a641e482933679311760400ead6ed23868f65d6ef54932d21bf83013a12
+  darwin_amd64: 6eb42555aaf1edd509557f32a73c8218076a19e16542d8250009eff924bfedc1
+  linux_amd64: eb69fb8132bda54027b68a113af7641ca539894d694100be204eea79e14a92fd
+  linux_arm64: 773c9b6af9c82f5a6ac941c1c3e0afc8a0645b661334df2d086d5bff8cba33f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

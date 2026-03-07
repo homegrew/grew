@@ -1,0 +1,19 @@
+name: latino
+version: 1.4.4
+description: Open source programming language for Latinos and Hispanic speakers
+homepage: https://www.lenguajelatino.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/latino/blobs/sha256:6cf212c61bd3713e4a553669d53d6e8f151e2c7e4e87bc438a49d112219c8426
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/latino/blobs/sha256:63944aac895d9ec94344a647f9adeab4f4fb9a8d2bb548999d39aa7eb874af0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/latino/blobs/sha256:8732dbdcbb9723660ff9261f790d3f48f929a6e4d95842471d2a3076fe6618c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/latino/blobs/sha256:76af2f42cfac533a45afa82f95b24ee0b58a233ad7d96396d3c170f300fcdcc4
+sha256:
+  darwin_arm64: 6cf212c61bd3713e4a553669d53d6e8f151e2c7e4e87bc438a49d112219c8426
+  darwin_amd64: 63944aac895d9ec94344a647f9adeab4f4fb9a8d2bb548999d39aa7eb874af0b
+  linux_amd64: 8732dbdcbb9723660ff9261f790d3f48f929a6e4d95842471d2a3076fe6618c9
+  linux_arm64: 76af2f42cfac533a45afa82f95b24ee0b58a233ad7d96396d3c170f300fcdcc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

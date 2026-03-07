@@ -1,0 +1,22 @@
+name: haproxy
+version: 3.3.4
+description: Reliable, high performance TCP/HTTP load balancer
+homepage: https://www.haproxy.org/
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/haproxy/blobs/sha256:1c2282c9b6b1c327ce7aaca383b89be3b1777681a2c57144e0dfbf9e66b09d8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/haproxy/blobs/sha256:c333f80071fb587e85167a870cc92976c2178797c6f7ff8fd88445ae74a09a56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/haproxy/blobs/sha256:d9700d93e54a5521264fa64ad0229707187d45e0a04cd2f6f4d6bad4b17554b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/haproxy/blobs/sha256:425ee555906a34702d0d86686dc4bd40b30cad964f21abe1f1173071e5c86fc2
+sha256:
+  darwin_arm64: 1c2282c9b6b1c327ce7aaca383b89be3b1777681a2c57144e0dfbf9e66b09d8f
+  darwin_amd64: c333f80071fb587e85167a870cc92976c2178797c6f7ff8fd88445ae74a09a56
+  linux_amd64: d9700d93e54a5521264fa64ad0229707187d45e0a04cd2f6f4d6bad4b17554b3
+  linux_arm64: 425ee555906a34702d0d86686dc4bd40b30cad964f21abe1f1173071e5c86fc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pcre2

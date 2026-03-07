@@ -1,0 +1,11 @@
+name: jump-desktop
+version: 9.1.9,90109
+description: Remote desktop application
+homepage: https://jumpdesktop.com/#jdmac
+url:
+  darwin_arm64: https://mirror.jumpdesktop.com/downloads/jdm/JumpDesktopMac-90109.zip
+sha256:
+  darwin_arm64: 9ed0cf53d0e2a61ca741c2ba999f91e0ca13473b4ca59692a59c67d05c8cc199
+artifacts:
+  app:
+    - Jump Desktop.app

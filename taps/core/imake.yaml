@@ -1,0 +1,21 @@
+name: imake
+version: 1.0.11
+description: Build automation system written for X11
+homepage: https://xorg.freedesktop.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imake/blobs/sha256:e00d84afa586ef13b9a3839fb78191004c4bb76953057ccda30f602cc274565d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imake/blobs/sha256:63dbde50254d19999a5a6fd43f0107eb3cb7a5e43ef148eb27a725bc32f385e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imake/blobs/sha256:a5b7ebc580e66c9f4f72b61e1b6ad51228d41f25620d66e4959334bad6b5c15f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imake/blobs/sha256:513164454011b2cf9941f92eea4ad738a28b37265b3606838f26bd15223b2493
+sha256:
+  darwin_arm64: e00d84afa586ef13b9a3839fb78191004c4bb76953057ccda30f602cc274565d
+  darwin_amd64: 63dbde50254d19999a5a6fd43f0107eb3cb7a5e43ef148eb27a725bc32f385e9
+  linux_amd64: a5b7ebc580e66c9f4f72b61e1b6ad51228d41f25620d66e4959334bad6b5c15f
+  linux_arm64: 513164454011b2cf9941f92eea4ad738a28b37265b3606838f26bd15223b2493
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tradcpp

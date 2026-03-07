@@ -1,0 +1,19 @@
+name: snappy
+version: 1.2.2
+description: Compression/decompression library aiming for high speed
+homepage: https://google.github.io/snappy/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snappy/blobs/sha256:e735754860a1b086bf31814117dff6eaee6a1d9f26e8de33ee9d75f1decc770b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snappy/blobs/sha256:47444cd920b4f3232d1d77f51ead8a18e0a77fb5b154bff7c024bf17d700d273
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snappy/blobs/sha256:462767a5fd6f73305aa7fd232bc5119e96491ad17222092d8b532fe2616ca24e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snappy/blobs/sha256:c2d7ecfa6475c2ad07a45025ad99940c75bf03c7b3772850d830a3dd571ff09c
+sha256:
+  darwin_arm64: e735754860a1b086bf31814117dff6eaee6a1d9f26e8de33ee9d75f1decc770b
+  darwin_amd64: 47444cd920b4f3232d1d77f51ead8a18e0a77fb5b154bff7c024bf17d700d273
+  linux_amd64: 462767a5fd6f73305aa7fd232bc5119e96491ad17222092d8b532fe2616ca24e
+  linux_arm64: c2d7ecfa6475c2ad07a45025ad99940c75bf03c7b3772850d830a3dd571ff09c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

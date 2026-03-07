@@ -1,0 +1,32 @@
+name: folly
+version: 2026.03.02.00
+description: Collection of reusable C++ library artifacts developed at Facebook
+homepage: https://github.com/facebook/folly
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/folly/blobs/sha256:1cb23b2dda767c57c67f9af304c8b024f2e20915899f67a337babe2adcd6c439
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/folly/blobs/sha256:1bb078819c030ca11558a371a4a256d75937ad8633fbdf55d831f4df8506794a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/folly/blobs/sha256:bd64c8ea8cecfe6f2787fb9885d862efca2827f427a38bc93ee8f00d9eb47fad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/folly/blobs/sha256:f8887b0f37d7b75d7e0a92b07f3d23afdc742edd62c5562033e37b068bc43888
+sha256:
+  darwin_arm64: 1cb23b2dda767c57c67f9af304c8b024f2e20915899f67a337babe2adcd6c439
+  darwin_amd64: 1bb078819c030ca11558a371a4a256d75937ad8633fbdf55d831f4df8506794a
+  linux_amd64: bd64c8ea8cecfe6f2787fb9885d862efca2827f427a38bc93ee8f00d9eb47fad
+  linux_arm64: f8887b0f37d7b75d7e0a92b07f3d23afdc742edd62c5562033e37b068bc43888
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - double-conversion
+  - fmt
+  - gflags
+  - glog
+  - libevent
+  - libsodium
+  - lz4
+  - openssl@3
+  - snappy
+  - xz
+  - zstd

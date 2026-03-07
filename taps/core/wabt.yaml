@@ -1,0 +1,21 @@
+name: wabt
+version: 1.0.39
+description: Web Assembly Binary Toolkit
+homepage: https://github.com/WebAssembly/wabt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wabt/blobs/sha256:0291da71b80bccf8fdef8e90dba77ed9b9224b979600be3b147991283d07a1de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wabt/blobs/sha256:eff82080d216c36405ed575b7ba8f117b5ea0c2c5a54069d66e421e2f39b3c94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wabt/blobs/sha256:f0c0ca08d5ccfce51995c961ef4680d568ca98950adac3bb5af13724baf8afb6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wabt/blobs/sha256:3762402996fb5c1148b09f78bf9cae956fe1b1c411f0523a3d7bc8e8be6dd395
+sha256:
+  darwin_arm64: 0291da71b80bccf8fdef8e90dba77ed9b9224b979600be3b147991283d07a1de
+  darwin_amd64: eff82080d216c36405ed575b7ba8f117b5ea0c2c5a54069d66e421e2f39b3c94
+  linux_amd64: f0c0ca08d5ccfce51995c961ef4680d568ca98950adac3bb5af13724baf8afb6
+  linux_arm64: 3762402996fb5c1148b09f78bf9cae956fe1b1c411f0523a3d7bc8e8be6dd395
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

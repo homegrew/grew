@@ -1,0 +1,11 @@
+name: locationsimulator
+version: 0.2.2
+description: Application to spoof your iOS, iPadOS or iPhoneSimulator device location
+homepage: https://github.com/Schlaubischlump/LocationSimulator
+url:
+  darwin_arm64: https://github.com/Schlaubischlump/LocationSimulator/releases/download/v0.2.2/LocationSimulator.app.zip
+sha256:
+  darwin_arm64: 867941213a23e23c22a3e868e0fa5fec443d1e597e912eca8a1e97f68e7dbb08
+artifacts:
+  app:
+    - LocationSimulator.app

@@ -1,0 +1,21 @@
+name: archi-steam-farm
+version: 6.3.3.3
+description: Application for idling Steam cards from multiple accounts simultaneously
+homepage: https://github.com/JustArchiNET/ArchiSteamFarm
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/archi-steam-farm/blobs/sha256:945d083501cb01196aa1227b377f96285ab8c892137cc552aeca3071d622abf3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/archi-steam-farm/blobs/sha256:5c23baa695e1db0f4578020d5bb97195c2ac100dedc9e47014dd7649da964b51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/archi-steam-farm/blobs/sha256:e29e93c47c0682a11d4606a87ca721c4faf607c0ac3b29d5e2e8353e8e3225ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/archi-steam-farm/blobs/sha256:9ff6f9504b4a86474b54a3ca9b943e43196731e9cf5aabb3672a1448dcb737c7
+sha256:
+  darwin_arm64: 945d083501cb01196aa1227b377f96285ab8c892137cc552aeca3071d622abf3
+  darwin_amd64: 5c23baa695e1db0f4578020d5bb97195c2ac100dedc9e47014dd7649da964b51
+  linux_amd64: e29e93c47c0682a11d4606a87ca721c4faf607c0ac3b29d5e2e8353e8e3225ff
+  linux_arm64: 9ff6f9504b4a86474b54a3ca9b943e43196731e9cf5aabb3672a1448dcb737c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet

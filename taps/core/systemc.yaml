@@ -1,0 +1,19 @@
+name: systemc
+version: 3.0.2
+description: Core SystemC language and examples
+homepage: https://systemc.org/overview/systemc/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/systemc/blobs/sha256:15b664b77b7660ce613e8219fb38b3dc192431896fe645906b97a57ce3ef03d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/systemc/blobs/sha256:6e344cab620163cae309e39ddfef2a322d4906340b75b73a5ce236939f5dbfa9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/systemc/blobs/sha256:6b646135f7f9d2940ab5b0c4c6eafc5fcf0c2632933664964d5747cf9e1c87ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/systemc/blobs/sha256:2fa78339db2c12469cd5b4af5b79be4c5b0ec1c75cee2d28a54a049f62ad4ffb
+sha256:
+  darwin_arm64: 15b664b77b7660ce613e8219fb38b3dc192431896fe645906b97a57ce3ef03d2
+  darwin_amd64: 6e344cab620163cae309e39ddfef2a322d4906340b75b73a5ce236939f5dbfa9
+  linux_amd64: 6b646135f7f9d2940ab5b0c4c6eafc5fcf0c2632933664964d5747cf9e1c87ac
+  linux_arm64: 2fa78339db2c12469cd5b4af5b79be4c5b0ec1c75cee2d28a54a049f62ad4ffb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

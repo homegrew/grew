@@ -1,0 +1,40 @@
+name: gitg
+version: 44
+description: GNOME GUI client to view git repositories
+homepage: https://wiki.gnome.org/Apps/Gitg
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitg/blobs/sha256:7e0c120472cfb2223b7615d56e431e51a865850aa768160458f27c8b0e8ba30a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitg/blobs/sha256:b010e10497311ebb97003411fc0bb89e6ba1f0d65369ce9f7d0a47c6ee99cbd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitg/blobs/sha256:9367ce2434837207a786ae3faaec0362f577fe08d8820bf02436d0d01ce5572d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitg/blobs/sha256:175fd3c4967bc7c203ffccf8a49b95c918f238d4c586194131c3f2307c9d38cf
+sha256:
+  darwin_arm64: 7e0c120472cfb2223b7615d56e431e51a865850aa768160458f27c8b0e8ba30a
+  darwin_amd64: b010e10497311ebb97003411fc0bb89e6ba1f0d65369ce9f7d0a47c6ee99cbd6
+  linux_amd64: 9367ce2434837207a786ae3faaec0362f577fe08d8820bf02436d0d01ce5572d
+  linux_arm64: 175fd3c4967bc7c203ffccf8a49b95c918f238d4c586194131c3f2307c9d38cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gobject-introspection
+  - gpgme
+  - gspell
+  - gtk+3
+  - gtksourceview4
+  - hicolor-icon-theme
+  - json-glib
+  - libdazzle
+  - libgee
+  - libgit2
+  - libgit2-glib
+  - libhandy
+  - libpeas@1
+  - libsecret
+  - pango
+  - gettext

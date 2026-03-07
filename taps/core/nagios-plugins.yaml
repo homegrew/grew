@@ -1,0 +1,22 @@
+name: nagios-plugins
+version: 2.4.12
+description: Plugins for the nagios network monitoring system
+homepage: https://www.nagios-plugins.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nagios-plugins/blobs/sha256:6e751f176edcabbb88a2606c98ec0f3062e717b4b0ab5ffaa0e8d16b9406dc06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nagios-plugins/blobs/sha256:3a9c7c79fe4c09d02b7287c16b62d2f3d0870752f538b5e4a57857ba0e745803
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nagios-plugins/blobs/sha256:dd70e314dbf872a7f0e54bc7364a3c86ed14b8ebe621825512a6421df14f15eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nagios-plugins/blobs/sha256:355d267b73906c7fd019558f9f85019a9cc0547215e0bcbe3614724572d18149
+sha256:
+  darwin_arm64: 6e751f176edcabbb88a2606c98ec0f3062e717b4b0ab5ffaa0e8d16b9406dc06
+  darwin_amd64: 3a9c7c79fe4c09d02b7287c16b62d2f3d0870752f538b5e4a57857ba0e745803
+  linux_amd64: dd70e314dbf872a7f0e54bc7364a3c86ed14b8ebe621825512a6421df14f15eb
+  linux_arm64: 355d267b73906c7fd019558f9f85019a9cc0547215e0bcbe3614724572d18149
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - gettext

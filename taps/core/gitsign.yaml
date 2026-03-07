@@ -1,0 +1,19 @@
+name: gitsign
+version: 0.14.0
+description: Keyless Git signing using Sigstore
+homepage: https://github.com/sigstore/gitsign
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitsign/blobs/sha256:3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitsign/blobs/sha256:5e9965bfdcd0667a982743cdd836f0ec059f1c9780fac6b75949f224bf308dc8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitsign/blobs/sha256:19b45ca45444552cc4ae6ed18123f1af38b1a7791effe4f259d76890000bb727
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitsign/blobs/sha256:7bbddb53c8cfb0e35656cf3cff189e9d24e7862ecc77fcab61b9b1ab95c948c6
+sha256:
+  darwin_arm64: 3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b
+  darwin_amd64: 5e9965bfdcd0667a982743cdd836f0ec059f1c9780fac6b75949f224bf308dc8
+  linux_amd64: 19b45ca45444552cc4ae6ed18123f1af38b1a7791effe4f259d76890000bb727
+  linux_arm64: 7bbddb53c8cfb0e35656cf3cff189e9d24e7862ecc77fcab61b9b1ab95c948c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

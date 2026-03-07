@@ -1,0 +1,23 @@
+name: jupytext
+version: 1.19.1
+description: Jupyter notebooks as Markdown documents, Julia, Python or R scripts
+homepage: https://jupytext.readthedocs.io/en/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jupytext/blobs/sha256:3df1e08b257e02727f81f6661fe657cf2389775cdf95b300bf767155e7994c0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jupytext/blobs/sha256:0c0192fd18d04e9c60f6f3d30abbc543d3138b722e286198be13a02b7e8e32ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jupytext/blobs/sha256:a14eb817bc0e457b9b693b6c1d5094eb4d6269b7fc60c0e649ffd33c678f1286
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jupytext/blobs/sha256:f4904e7890cc517fdc33c58e8c97dbfdbfbdf791256d30e2598bd0dea384380e
+sha256:
+  darwin_arm64: 3df1e08b257e02727f81f6661fe657cf2389775cdf95b300bf767155e7994c0f
+  darwin_amd64: 0c0192fd18d04e9c60f6f3d30abbc543d3138b722e286198be13a02b7e8e32ad
+  linux_amd64: a14eb817bc0e457b9b693b6c1d5094eb4d6269b7fc60c0e649ffd33c678f1286
+  linux_arm64: f4904e7890cc517fdc33c58e8c97dbfdbfbdf791256d30e2598bd0dea384380e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+  - rpds-py

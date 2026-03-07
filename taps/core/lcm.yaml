@@ -1,0 +1,24 @@
+name: lcm
+version: 1.5.2
+description: Libraries and tools for message passing and data marshalling
+homepage: https://lcm-proj.github.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lcm/blobs/sha256:67786ac0f37fa1fd51a11d36eac2c7a15e8d9374f3bf402539455cab4a04e3d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lcm/blobs/sha256:0538d2bfe93470a2d9faf159a225adf8ec196f79f54af777236996341ad1aec8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lcm/blobs/sha256:c7867fc41099802b39b1ffcb7c70733c7d0dd99f22bbd0a719bb26ecde5ebb93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lcm/blobs/sha256:f2f6a5cc8b26cc546f7c02c6004f7309dcfeb4d8fbbfacd40fa29b4e766b19bb
+sha256:
+  darwin_arm64: 67786ac0f37fa1fd51a11d36eac2c7a15e8d9374f3bf402539455cab4a04e3d4
+  darwin_amd64: 0538d2bfe93470a2d9faf159a225adf8ec196f79f54af777236996341ad1aec8
+  linux_amd64: c7867fc41099802b39b1ffcb7c70733c7d0dd99f22bbd0a719bb26ecde5ebb93
+  linux_arm64: f2f6a5cc8b26cc546f7c02c6004f7309dcfeb4d8fbbfacd40fa29b4e766b19bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - lua
+  - openjdk
+  - python@3.14

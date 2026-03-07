@@ -1,0 +1,11 @@
+name: iterm2@beta
+version: 3.6.9beta1
+description: "Terminal emulator as alternative to Apple's Terminal app"
+homepage: https://iterm2.com/
+url:
+  darwin_arm64: https://iterm2.com/downloads/beta/iTerm2-3_6_9beta1.zip
+sha256:
+  darwin_arm64: 7d02db7e1a1e825b731edcb2d03c5eb94d8bf40cfbcce7e4c335c5f624c608eb
+artifacts:
+  app:
+    - iTerm.app

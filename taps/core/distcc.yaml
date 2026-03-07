@@ -1,0 +1,21 @@
+name: distcc
+version: 3.4
+description: Distributed compiler client and server
+homepage: https://github.com/distcc/distcc/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/distcc/blobs/sha256:09fcd33f368d1daff6716752ee32cf50cbb62f7acb0200a0a07bd676d65cd3f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/distcc/blobs/sha256:ab7cc55d6cfae2c77316093229ae3668f7e34d2d80713e4eec5f2c41f69983d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/distcc/blobs/sha256:d04aa534933e21b7e469f009c76e5bde6e50ecadecbab3d6de4f134db8f7eef2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/distcc/blobs/sha256:42071ee608cbbcfcc761fe4a9b18ed90499115dab3108c03ff72a27825a2beef
+sha256:
+  darwin_arm64: 09fcd33f368d1daff6716752ee32cf50cbb62f7acb0200a0a07bd676d65cd3f2
+  darwin_amd64: ab7cc55d6cfae2c77316093229ae3668f7e34d2d80713e4eec5f2c41f69983d2
+  linux_amd64: d04aa534933e21b7e469f009c76e5bde6e50ecadecbab3d6de4f134db8f7eef2
+  linux_arm64: 42071ee608cbbcfcc761fe4a9b18ed90499115dab3108c03ff72a27825a2beef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

@@ -1,0 +1,22 @@
+name: rubberband
+version: 4.0.0
+description: Audio time stretcher tool and library
+homepage: https://breakfastquay.com/rubberband/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rubberband/blobs/sha256:65ba1e050a7368f043369932bfc493de4f33f9dda9f6863250960559b5bdf1d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rubberband/blobs/sha256:3bcd1310c98256b7a382f3b5bbdf1e22a060bb41989fab028122e0b5cd87e6af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rubberband/blobs/sha256:982c2036c3528e0ae338680ba6baff4e8a0cd5ee16a2bafe4673e9cdea4d9e05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rubberband/blobs/sha256:a39402bd21e74bcd13aace129f59aa365409a63b26112d4bc782bef838d11aa8
+sha256:
+  darwin_arm64: 65ba1e050a7368f043369932bfc493de4f33f9dda9f6863250960559b5bdf1d8
+  darwin_amd64: 3bcd1310c98256b7a382f3b5bbdf1e22a060bb41989fab028122e0b5cd87e6af
+  linux_amd64: 982c2036c3528e0ae338680ba6baff4e8a0cd5ee16a2bafe4673e9cdea4d9e05
+  linux_arm64: a39402bd21e74bcd13aace129f59aa365409a63b26112d4bc782bef838d11aa8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsamplerate
+  - libsndfile

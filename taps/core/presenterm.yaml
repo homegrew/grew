@@ -1,0 +1,19 @@
+name: presenterm
+version: 0.16.1
+description: Terminal slideshow tool
+homepage: https://github.com/mfontanini/presenterm
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/presenterm/blobs/sha256:a559dffc87a6e1f99dcda563c601b46fdc92eb9bb5e7eafbb1fce4bb4eae5525
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/presenterm/blobs/sha256:cfbd3ddaa450703cafb04c7095cda74b89d0cc051b80ce862c598cde60c2def6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/presenterm/blobs/sha256:6693229d486d060cec14dd04bc6f6aed9a81dff7987594ae2461634a50f9ba7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/presenterm/blobs/sha256:4ce3035179cb094db6ad94da564d235c4359440fc0759d9ecf4c9bc708319a7a
+sha256:
+  darwin_arm64: a559dffc87a6e1f99dcda563c601b46fdc92eb9bb5e7eafbb1fce4bb4eae5525
+  darwin_amd64: cfbd3ddaa450703cafb04c7095cda74b89d0cc051b80ce862c598cde60c2def6
+  linux_amd64: 6693229d486d060cec14dd04bc6f6aed9a81dff7987594ae2461634a50f9ba7b
+  linux_arm64: 4ce3035179cb094db6ad94da564d235c4359440fc0759d9ecf4c9bc708319a7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

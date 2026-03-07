@@ -1,0 +1,11 @@
+name: macpacker
+version: 0.14.1
+description: Archive manager
+homepage: https://macpacker.app/
+url:
+  darwin_arm64: https://macpacker-releases.s3.amazonaws.com/MacPacker_v0.14.1.zip
+sha256:
+  darwin_arm64: 78e8664bfa530062c2cf26cc4891f37d73929ff89d2a2bdf5f36140d21d074cc
+artifacts:
+  app:
+    - MacPacker.app

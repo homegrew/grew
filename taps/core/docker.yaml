@@ -1,0 +1,21 @@
+name: docker
+version: 29.3.0
+description: Pack, ship and run any application as a lightweight container
+homepage: https://www.docker.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker/blobs/sha256:1963de2ef73d3d1ba3805f222538030ef179a820e89582e69767da68cd8a5857
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker/blobs/sha256:99a03c201bd092892f62c68908126f5cff6f16b191eec5cb55f9c4002d7bd6c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker/blobs/sha256:c428bc08700a2b54d031b9483975a24bc0babde7661c31c447b03ed6f3015647
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker/blobs/sha256:3ec0c8b58470dc0867d1ec8c82b5c4826184fca43d943f6a84a6461ea4cb6d3e
+sha256:
+  darwin_arm64: 1963de2ef73d3d1ba3805f222538030ef179a820e89582e69767da68cd8a5857
+  darwin_amd64: 99a03c201bd092892f62c68908126f5cff6f16b191eec5cb55f9c4002d7bd6c7
+  linux_amd64: c428bc08700a2b54d031b9483975a24bc0babde7661c31c447b03ed6f3015647
+  linux_arm64: 3ec0c8b58470dc0867d1ec8c82b5c4826184fca43d943f6a84a6461ea4cb6d3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - docker-completion

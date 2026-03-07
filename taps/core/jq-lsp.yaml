@@ -1,0 +1,19 @@
+name: jq-lsp
+version: 0.1.17
+description: Jq language server
+homepage: https://github.com/wader/jq-lsp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jq-lsp/blobs/sha256:47061ca69bab6c5e7f237e325b3fb2cbc65a0c5ce8c1bbbb23d8be1e360f1522
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jq-lsp/blobs/sha256:767cab6e7d0b1bad5d5123f2349fb6a2d9b11592e8d0df2b7f7694354d007d11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jq-lsp/blobs/sha256:91ad43fb3ff4ebc8e333e0253ffceeedb37b26f9f6da1d31fc1c719dd9a67322
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jq-lsp/blobs/sha256:2e7b0cb9205d7951db329ce637008f3b0dfeeb3b589318d7c0c7670c4ff36869
+sha256:
+  darwin_arm64: 47061ca69bab6c5e7f237e325b3fb2cbc65a0c5ce8c1bbbb23d8be1e360f1522
+  darwin_amd64: 767cab6e7d0b1bad5d5123f2349fb6a2d9b11592e8d0df2b7f7694354d007d11
+  linux_amd64: 91ad43fb3ff4ebc8e333e0253ffceeedb37b26f9f6da1d31fc1c719dd9a67322
+  linux_arm64: 2e7b0cb9205d7951db329ce637008f3b0dfeeb3b589318d7c0c7670c4ff36869
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

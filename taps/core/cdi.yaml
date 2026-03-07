@@ -1,0 +1,23 @@
+name: cdi
+version: 2.6.0
+description: C and Fortran Interface to access Climate and NWP model Data
+homepage: https://code.mpimet.mpg.de/projects/cdi
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdi/blobs/sha256:8a330b1485d0f2946c11c80ac4d90579c74afc2cfd1fba035f4d6058b13034bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdi/blobs/sha256:8874e946c7f954081da61f2c6c12207c412c8a7229c1c3e6a5cb6e3226fe2ca2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdi/blobs/sha256:237db750a11e5a226e617b6c571ccbe252d9c251a62163eb01fcbe0f8b29a267
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdi/blobs/sha256:aaf2ac68fef9354156f06864a46eff351e7100dcd687bc1fb579a62fab4330f8
+sha256:
+  darwin_arm64: 8a330b1485d0f2946c11c80ac4d90579c74afc2cfd1fba035f4d6058b13034bb
+  darwin_amd64: 8874e946c7f954081da61f2c6c12207c412c8a7229c1c3e6a5cb6e3226fe2ca2
+  linux_amd64: 237db750a11e5a226e617b6c571ccbe252d9c251a62163eb01fcbe0f8b29a267
+  linux_arm64: aaf2ac68fef9354156f06864a46eff351e7100dcd687bc1fb579a62fab4330f8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eccodes
+  - libaec
+  - netcdf

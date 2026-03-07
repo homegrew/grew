@@ -1,0 +1,23 @@
+name: libmspub
+version: 0.1.4
+description: Interpret and import Microsoft Publisher content
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libmspub
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmspub/blobs/sha256:5cecb8db1dca13e86f7b8a41e9270f34e37485235327f3cca023975fb2ce630c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmspub/blobs/sha256:dc435295289043990c51abaca7c3030409065cd293202dcb0e4d38a426e3dc04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmspub/blobs/sha256:fdc0c07625d05b05a48378cda67ba1d66ea6e549c2489b386d104594381a5f5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmspub/blobs/sha256:b15fe31563699e7f8021c51965fcd4785e18399a29a933465f68fc1f73d35b3c
+sha256:
+  darwin_arm64: 5cecb8db1dca13e86f7b8a41e9270f34e37485235327f3cca023975fb2ce630c
+  darwin_amd64: dc435295289043990c51abaca7c3030409065cd293202dcb0e4d38a426e3dc04
+  linux_amd64: fdc0c07625d05b05a48378cda67ba1d66ea6e549c2489b386d104594381a5f5e
+  linux_arm64: b15fe31563699e7f8021c51965fcd4785e18399a29a933465f68fc1f73d35b3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - librevenge
+  - libwpd

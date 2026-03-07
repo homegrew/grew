@@ -1,0 +1,21 @@
+name: opencbm
+version: 0.4.99.104
+description: Provides access to various floppy drive formats
+homepage: https://spiro.trikaliotis.net/opencbm
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencbm/blobs/sha256:d5e8f6b89063a3de0040990afe6bd3a5e135bf0ed37bf05f51af658af12a58f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencbm/blobs/sha256:c3c96a4d11cf6d06933aca2bf0ad4cdbc5d4cd7af512fdc7552bba26ec8e4bdd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencbm/blobs/sha256:d7258949de49e4b268d2d236217f42982663a39430d534f32fc1dc7b60d2d043
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencbm/blobs/sha256:267913de51b9eb95fc170c08943564b0106b90baf067099b415e64c588357c74
+sha256:
+  darwin_arm64: d5e8f6b89063a3de0040990afe6bd3a5e135bf0ed37bf05f51af658af12a58f5
+  darwin_amd64: c3c96a4d11cf6d06933aca2bf0ad4cdbc5d4cd7af512fdc7552bba26ec8e4bdd
+  linux_amd64: d7258949de49e4b268d2d236217f42982663a39430d534f32fc1dc7b60d2d043
+  linux_arm64: 267913de51b9eb95fc170c08943564b0106b90baf067099b415e64c588357c74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

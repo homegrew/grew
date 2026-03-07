@@ -1,0 +1,19 @@
+name: choose-rust
+version: 1.3.7
+description: Human-friendly and fast alternative to cut and (sometimes) awk
+homepage: https://github.com/theryangeary/choose
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/choose-rust/blobs/sha256:29ee75f6320e3145ddb814c62a382081af35cc61dce9290994f0448b12def968
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/choose-rust/blobs/sha256:2c5aff224bd3e37c218473daf84fe3050e30159dff63181ca049085f6574fff9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/choose-rust/blobs/sha256:33e20443e1345bb0e001ca5b793b47d95dfacb06a14c2fd83c1778ad64c2c45f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/choose-rust/blobs/sha256:45c43e8c557f4f2eaa9aefe2b02814db19366c069712e4d8fd102f64e0967910
+sha256:
+  darwin_arm64: 29ee75f6320e3145ddb814c62a382081af35cc61dce9290994f0448b12def968
+  darwin_amd64: 2c5aff224bd3e37c218473daf84fe3050e30159dff63181ca049085f6574fff9
+  linux_amd64: 33e20443e1345bb0e001ca5b793b47d95dfacb06a14c2fd83c1778ad64c2c45f
+  linux_arm64: 45c43e8c557f4f2eaa9aefe2b02814db19366c069712e4d8fd102f64e0967910
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

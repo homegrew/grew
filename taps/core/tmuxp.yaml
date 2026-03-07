@@ -1,0 +1,23 @@
+name: tmuxp
+version: 1.64.0
+description: Tmux session manager. Built on libtmux
+homepage: https://tmuxp.git-pull.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmuxp/blobs/sha256:0da0070d80d97416e21644a41b422b152c407291f5da9e57001c237cd39de771
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmuxp/blobs/sha256:d3858895fb3847dcdcc564b53d1d070b1ce1e2922f31e715e899f66d6c514f81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmuxp/blobs/sha256:13cc75bf4ae045347a2b51c262da51f7cdbf2171ab24790e3521f50c271c08b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmuxp/blobs/sha256:324265d879e56844a47115c7ac2a02a4a17c7da7c9fd4730c6927a88c88fef39
+sha256:
+  darwin_arm64: 0da0070d80d97416e21644a41b422b152c407291f5da9e57001c237cd39de771
+  darwin_amd64: d3858895fb3847dcdcc564b53d1d070b1ce1e2922f31e715e899f66d6c514f81
+  linux_amd64: 13cc75bf4ae045347a2b51c262da51f7cdbf2171ab24790e3521f50c271c08b9
+  linux_arm64: 324265d879e56844a47115c7ac2a02a4a17c7da7c9fd4730c6927a88c88fef39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+  - tmux

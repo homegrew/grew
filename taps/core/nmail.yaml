@@ -1,0 +1,24 @@
+name: nmail
+version: 5.10.3
+description: Terminal-based email client for Linux and macOS
+homepage: https://github.com/d99kris/nmail
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nmail/blobs/sha256:2e9d07e160b98ddd1f0bbc113de3b91460ed9515754ed07d80777bf46592507d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nmail/blobs/sha256:1923bcc5a6e28f585f4c23f158415865e9b49ce970423fd16a4104d734d7dc96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nmail/blobs/sha256:20a755e09c43cc399166abfcc3993840c0fb064244d2444c53c2b5605e3a227d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nmail/blobs/sha256:edc6b2f46d42887d69bd9566b022ccf4548d664cb932844ac354d53b3aad0fce
+sha256:
+  darwin_arm64: 2e9d07e160b98ddd1f0bbc113de3b91460ed9515754ed07d80777bf46592507d
+  darwin_amd64: 1923bcc5a6e28f585f4c23f158415865e9b49ce970423fd16a4104d734d7dc96
+  linux_amd64: 20a755e09c43cc399166abfcc3993840c0fb064244d2444c53c2b5605e3a227d
+  linux_arm64: edc6b2f46d42887d69bd9566b022ccf4548d664cb932844ac354d53b3aad0fce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - ncurses
+  - openssl@3
+  - xapian

@@ -1,0 +1,19 @@
+name: ahcpd
+version: 0.53
+description: Autoconfiguration protocol for IPv6 and IPv6/IPv4 networks
+homepage: https://www.irif.fr/~jch/software/ahcp/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ahcpd/blobs/sha256:7eb4adae6d9931eb81c4241ddb5475152e5908ba3fa4f1e3903aeb2f36f050ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ahcpd/blobs/sha256:a37d96a87622ed0de7ce0c019cb5e763fbbc6f2eb1196a369edbe175635129c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ahcpd/blobs/sha256:2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ahcpd/blobs/sha256:3989aae71302502a2cd749f088ae640087fe698da1cfefc412a9806b7bfde281
+sha256:
+  darwin_arm64: 7eb4adae6d9931eb81c4241ddb5475152e5908ba3fa4f1e3903aeb2f36f050ee
+  darwin_amd64: a37d96a87622ed0de7ce0c019cb5e763fbbc6f2eb1196a369edbe175635129c0
+  linux_amd64: 2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00
+  linux_arm64: 3989aae71302502a2cd749f088ae640087fe698da1cfefc412a9806b7bfde281
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

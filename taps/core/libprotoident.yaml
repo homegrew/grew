@@ -1,0 +1,22 @@
+name: libprotoident
+version: 2.0.15-2
+description: Performs application layer protocol identification for flows
+homepage: https://github.com/LibtraceTeam/libprotoident
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libprotoident/blobs/sha256:fdf436dbc3db7c88d53ab0d2a1ac534722344549e2bdf01a87d9186c5df82bd7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libprotoident/blobs/sha256:27514db399bbf3a0ac9466eab131d61a39c05dff2d9a3a6f7df0e66a6e3d82a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libprotoident/blobs/sha256:538f5938a6c533c1102a3c8d0b49d3e298e67b085fbca1fe8b8a71d92ae4f242
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libprotoident/blobs/sha256:29e0aab84eae088dc92a2bee2abac070cc55337f26d99b80c894d6ad3a0fae27
+sha256:
+  darwin_arm64: fdf436dbc3db7c88d53ab0d2a1ac534722344549e2bdf01a87d9186c5df82bd7
+  darwin_amd64: 27514db399bbf3a0ac9466eab131d61a39c05dff2d9a3a6f7df0e66a6e3d82a1
+  linux_amd64: 538f5938a6c533c1102a3c8d0b49d3e298e67b085fbca1fe8b8a71d92ae4f242
+  linux_arm64: 29e0aab84eae088dc92a2bee2abac070cc55337f26d99b80c894d6ad3a0fae27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libflowmanager
+  - libtrace

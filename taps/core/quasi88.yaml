@@ -1,0 +1,21 @@
+name: quasi88
+version: 0.7.3
+description: PC-8801 emulator
+homepage: https://www.eonet.ne.jp/~showtime/quasi88/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quasi88/blobs/sha256:842ac1ca7dff5eab4167dbc2c254c9d10906925b88ce89358d8d60d845915acb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quasi88/blobs/sha256:72f63671f466c20d84d1c148f2682283526d1ca2a4ea65dbcdf16d53fb476def
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quasi88/blobs/sha256:0f397f98e66812a49e708963bd8cccc62c07179828358bbebac9073fef06ecd6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quasi88/blobs/sha256:89265c3d0c0abaed57404054d2b2ebbb65d9eee0f79c9041428ef07c019d3f13
+sha256:
+  darwin_arm64: 842ac1ca7dff5eab4167dbc2c254c9d10906925b88ce89358d8d60d845915acb
+  darwin_amd64: 72f63671f466c20d84d1c148f2682283526d1ca2a4ea65dbcdf16d53fb476def
+  linux_amd64: 0f397f98e66812a49e708963bd8cccc62c07179828358bbebac9073fef06ecd6
+  linux_arm64: 89265c3d0c0abaed57404054d2b2ebbb65d9eee0f79c9041428ef07c019d3f13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

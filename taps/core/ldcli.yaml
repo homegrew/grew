@@ -1,0 +1,19 @@
+name: ldcli
+version: 2.2.0
+description: CLI for managing LaunchDarkly feature flags
+homepage: https://launchdarkly.com/docs/home/getting-started/ldcli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldcli/blobs/sha256:6bad3091ff64b14a85e1cb2e2009a63e52e3dd048fa17325ea8467467a2ea243
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldcli/blobs/sha256:0abf051719a2d28229b843a07d485b784b1b228c3c1c97cd566ead38565926fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldcli/blobs/sha256:84099d8090c65abb09415a06268f76a3852cf02aec83a1a3b99c64f8d0934ddd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldcli/blobs/sha256:934b9872ee56dfaa26efd4f3d7353047023f226fa337a90f3af281640a594967
+sha256:
+  darwin_arm64: 6bad3091ff64b14a85e1cb2e2009a63e52e3dd048fa17325ea8467467a2ea243
+  darwin_amd64: 0abf051719a2d28229b843a07d485b784b1b228c3c1c97cd566ead38565926fa
+  linux_amd64: 84099d8090c65abb09415a06268f76a3852cf02aec83a1a3b99c64f8d0934ddd
+  linux_arm64: 934b9872ee56dfaa26efd4f3d7353047023f226fa337a90f3af281640a594967
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

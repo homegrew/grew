@@ -1,0 +1,21 @@
+name: mecab-ko-dic
+version: 2.1.1-20180720
+description: See mecab
+homepage: https://bitbucket.org/eunjeon/mecab-ko-dic
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mecab-ko-dic/blobs/sha256:411a3b0709b2f5450a05106102c7f41f8a3004954d34b54279c7a9ab2bad91c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mecab-ko-dic/blobs/sha256:f9cd00df97f11f37a41f0c5eb56b98832126774d74a0cc98150dcb7a60d1ba78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mecab-ko-dic/blobs/sha256:4fda9a5da9f32090ef09eca7a8f5098b686079573483b4eb401b7e80db266552
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mecab-ko-dic/blobs/sha256:db85d7f7315243abae780af58802a0489fef9c429635eb2ded768465245f3824
+sha256:
+  darwin_arm64: 411a3b0709b2f5450a05106102c7f41f8a3004954d34b54279c7a9ab2bad91c8
+  darwin_amd64: f9cd00df97f11f37a41f0c5eb56b98832126774d74a0cc98150dcb7a60d1ba78
+  linux_amd64: 4fda9a5da9f32090ef09eca7a8f5098b686079573483b4eb401b7e80db266552
+  linux_arm64: db85d7f7315243abae780af58802a0489fef9c429635eb2ded768465245f3824
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mecab-ko

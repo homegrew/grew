@@ -1,0 +1,21 @@
+name: yek
+version: 0.25.2
+description: Fast Rust based tool to serialize text-based files for LLM consumption
+homepage: https://github.com/mohsen1/yek
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yek/blobs/sha256:7c708d2466411a06f586155d5fcd3b2a2a8047280d82eb2f8b8475370b47dce9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yek/blobs/sha256:50f16ea3b12bda86ae072fd28bac2bc6294868bafc92184e5639729d41b24ca5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yek/blobs/sha256:482dd8f60fe32a2a7c8f3611757d343b3e7ab0e6c503683b52446a9c94c14324
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yek/blobs/sha256:70c00518e83711b7ba8b1a9c3f6fab4fa87f4aeb6200620bc647832715b2bb1a
+sha256:
+  darwin_arm64: 7c708d2466411a06f586155d5fcd3b2a2a8047280d82eb2f8b8475370b47dce9
+  darwin_amd64: 50f16ea3b12bda86ae072fd28bac2bc6294868bafc92184e5639729d41b24ca5
+  linux_amd64: 482dd8f60fe32a2a7c8f3611757d343b3e7ab0e6c503683b52446a9c94c14324
+  linux_arm64: 70c00518e83711b7ba8b1a9c3f6fab4fa87f4aeb6200620bc647832715b2bb1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

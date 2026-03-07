@@ -1,0 +1,11 @@
+name: embyserver
+version: 4.9.3.0
+description: Personal media server with apps on just about every device
+homepage: https://emby.media/
+url:
+  darwin_arm64: https://github.com/MediaBrowser/Emby.Releases/releases/download/4.9.3.0/embyserver-osx-arm64-4.9.3.0.zip
+sha256:
+  darwin_arm64: 2f7e658e44592520f8cdb4839e8748557b541956997d1ab58e5aac81942c0e9b
+artifacts:
+  app:
+    - osx-arm64/EmbyServer.app

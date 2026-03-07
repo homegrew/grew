@@ -1,0 +1,19 @@
+name: aqua
+version: 2.56.7
+description: Declarative CLI Version manager
+homepage: https://aquaproj.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aqua/blobs/sha256:4e71ab2447dc42feb77e5700a0a8d820aff4e434d272b8f3899c7f6e1754cbfa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aqua/blobs/sha256:447b533243d029846251d64e52691c20be5b976785dcb8b9ee6d0a21c45b9792
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aqua/blobs/sha256:5505ff0d11f26847ef996a4a947493bd9097c455f0e88ca48c68b1a8607f43ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aqua/blobs/sha256:31cee0e053141043633c7440d7ea14db53f9f2b3f66ac8bf9abdde4dcdb4093b
+sha256:
+  darwin_arm64: 4e71ab2447dc42feb77e5700a0a8d820aff4e434d272b8f3899c7f6e1754cbfa
+  darwin_amd64: 447b533243d029846251d64e52691c20be5b976785dcb8b9ee6d0a21c45b9792
+  linux_amd64: 5505ff0d11f26847ef996a4a947493bd9097c455f0e88ca48c68b1a8607f43ad
+  linux_arm64: 31cee0e053141043633c7440d7ea14db53f9f2b3f66ac8bf9abdde4dcdb4093b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

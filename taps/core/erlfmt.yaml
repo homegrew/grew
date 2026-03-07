@@ -1,0 +1,21 @@
+name: erlfmt
+version: 1.8.0
+description: Automated code formatter for Erlang
+homepage: https://github.com/WhatsApp/erlfmt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erlfmt/blobs/sha256:7c4afe0a977c263dbf3a3092122de3ddc8b6a78f04a483eac966efa7da3ab04a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erlfmt/blobs/sha256:a7405e9ff053f412bfb1b04ef79f34cd714e0f385849dd3c4352272ee65a6845
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erlfmt/blobs/sha256:0ace846773bbc50b1ad7e69fad8bcb55976484c6628eb87986cfc968e02f94ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erlfmt/blobs/sha256:c423008872616122b6436941c0d2f8fdf8954afa573d313f19a14b5525852a19
+sha256:
+  darwin_arm64: 7c4afe0a977c263dbf3a3092122de3ddc8b6a78f04a483eac966efa7da3ab04a
+  darwin_amd64: a7405e9ff053f412bfb1b04ef79f34cd714e0f385849dd3c4352272ee65a6845
+  linux_amd64: 0ace846773bbc50b1ad7e69fad8bcb55976484c6628eb87986cfc968e02f94ad
+  linux_arm64: c423008872616122b6436941c0d2f8fdf8954afa573d313f19a14b5525852a19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

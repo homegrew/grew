@@ -1,0 +1,27 @@
+name: libgedit-gtksourceview
+version: 299.6.0
+description: Text editor widget for code editing
+homepage: https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgedit-gtksourceview/blobs/sha256:5b6c9b17b3bb740501d68195ec792ef4c9f5840675852a5f2920afdc5592d8e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgedit-gtksourceview/blobs/sha256:9243c6e8aca52ab616b575c01152734b3363b0dc0cfdea63139951dd1101ec53
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgedit-gtksourceview/blobs/sha256:dc9caa68f0e8cd1d3781419a388c021a54ed8e717a222ebe4df2e496135134eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgedit-gtksourceview/blobs/sha256:bba43ae578b878333c48f22d8a8aaafcf5a8fb851ec97850a5ace0f38ae6f0d1
+sha256:
+  darwin_arm64: 5b6c9b17b3bb740501d68195ec792ef4c9f5840675852a5f2920afdc5592d8e9
+  darwin_amd64: 9243c6e8aca52ab616b575c01152734b3363b0dc0cfdea63139951dd1101ec53
+  linux_amd64: dc9caa68f0e8cd1d3781419a388c021a54ed8e717a222ebe4df2e496135134eb
+  linux_arm64: bba43ae578b878333c48f22d8a8aaafcf5a8fb851ec97850a5ace0f38ae6f0d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - libxml2
+  - pango
+  - gettext

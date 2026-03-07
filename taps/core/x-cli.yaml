@@ -1,0 +1,19 @@
+name: x-cli
+version: 5.0.0
+description: Command-line power tool for Twitter
+homepage: https://github.com/sferik/x-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x-cli/blobs/sha256:56f1bc8609a45e0aa452a222e42fd75477401c7755fb7afb13b31cc8c879ad94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x-cli/blobs/sha256:7597be285be23fa533a0aba4312dd578947ceebea1bf3b0420030da0b1aa3d4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x-cli/blobs/sha256:f17521c54fe762cf8863f1af94842cce12ecb382e7496fafb82e07805f8e6143
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x-cli/blobs/sha256:130027094f9f3cc804d9c67750641d76016cb2f5ffca3cff890610df6d7827c4
+sha256:
+  darwin_arm64: 56f1bc8609a45e0aa452a222e42fd75477401c7755fb7afb13b31cc8c879ad94
+  darwin_amd64: 7597be285be23fa533a0aba4312dd578947ceebea1bf3b0420030da0b1aa3d4d
+  linux_amd64: f17521c54fe762cf8863f1af94842cce12ecb382e7496fafb82e07805f8e6143
+  linux_arm64: 130027094f9f3cc804d9c67750641d76016cb2f5ffca3cff890610df6d7827c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: esbuild
+version: 0.27.3
+description: Extremely fast JavaScript bundler and minifier
+homepage: https://esbuild.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/esbuild/blobs/sha256:a95668be4a38d020c2abafa9697c336d1593dfc2e58223036d9f1a04b3bb9926
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/esbuild/blobs/sha256:016acef2dee0cff19a79d6280675b37dcddc3126029280312fab8c347a42d919
+  linux_amd64: https://ghcr.io/v2/homebrew/core/esbuild/blobs/sha256:085a0b97746153c6de5bf7e972808e436b0e3fa70c92ec06967ac2dd735cc539
+  linux_arm64: https://ghcr.io/v2/homebrew/core/esbuild/blobs/sha256:178a4dee01d76ec8844744719c36e5d06213fd3716ffc7bfa81dead47ea88c7d
+sha256:
+  darwin_arm64: a95668be4a38d020c2abafa9697c336d1593dfc2e58223036d9f1a04b3bb9926
+  darwin_amd64: 016acef2dee0cff19a79d6280675b37dcddc3126029280312fab8c347a42d919
+  linux_amd64: 085a0b97746153c6de5bf7e972808e436b0e3fa70c92ec06967ac2dd735cc539
+  linux_arm64: 178a4dee01d76ec8844744719c36e5d06213fd3716ffc7bfa81dead47ea88c7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

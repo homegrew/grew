@@ -1,0 +1,19 @@
+name: exercism
+version: 3.5.8
+description: Command-line tool to interact with exercism.io
+homepage: https://exercism.io/cli/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exercism/blobs/sha256:1aaf7754295ebfad0033c5dda54b07308c495fc073e1ea7add2a98bfb510a5b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exercism/blobs/sha256:1b6a436c7f77575d6085829ddb221b002b42d984cb6e40b8f1d19517dc2d6313
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exercism/blobs/sha256:6cdfccf8375cf192881c31449e775e4dcb4ff07cf8e00752f484c323ee086eb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exercism/blobs/sha256:f7836067011aa064f86a81a59f943c872e4b0d42b144f0176ef95a7f5a80ba73
+sha256:
+  darwin_arm64: 1aaf7754295ebfad0033c5dda54b07308c495fc073e1ea7add2a98bfb510a5b0
+  darwin_amd64: 1b6a436c7f77575d6085829ddb221b002b42d984cb6e40b8f1d19517dc2d6313
+  linux_amd64: 6cdfccf8375cf192881c31449e775e4dcb4ff07cf8e00752f484c323ee086eb2
+  linux_arm64: f7836067011aa064f86a81a59f943c872e4b0d42b144f0176ef95a7f5a80ba73
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

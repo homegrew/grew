@@ -1,0 +1,23 @@
+name: tarantool
+version: 3.6.2
+description: In-memory database and Lua application server
+homepage: https://tarantool.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tarantool/blobs/sha256:1c2347f82df86f84d570b975d2d5ad55160a1840583b70019f69211361a6d4bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tarantool/blobs/sha256:63b6a3b25c08ad62a323bf867183d10d5bc985ac1ce5dd58683139e4993ab3c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tarantool/blobs/sha256:c244bc5235b092aab6a807de1fe7d32c9b0f81b86a95897314eafcf7a624118b
+sha256:
+  darwin_arm64: 1c2347f82df86f84d570b975d2d5ad55160a1840583b70019f69211361a6d4bc
+  linux_amd64: 63b6a3b25c08ad62a323bf867183d10d5bc985ac1ce5dd58683139e4993ab3c0
+  linux_arm64: c244bc5235b092aab6a807de1fe7d32c9b0f81b86a95897314eafcf7a624118b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - libyaml
+  - openssl@3
+  - readline
+  - zstd

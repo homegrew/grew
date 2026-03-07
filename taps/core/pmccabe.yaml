@@ -1,0 +1,19 @@
+name: pmccabe
+version: 2.8
+description: Calculate McCabe-style cyclomatic complexity for C/C++ code
+homepage: https://gitlab.com/pmccabe/pmccabe
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pmccabe/blobs/sha256:d6009f8f139c0e42442a816ca33c1bfdfc37139431948350fdc107d35d24c7cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pmccabe/blobs/sha256:cd57edd23101b3dfef261c1a490f465631ba19486d4f18ea25bab760d18de972
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pmccabe/blobs/sha256:90f8e8df8eab3561f9a8a91438cb4903395dda9d18d3f61daece3cd5f58445da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pmccabe/blobs/sha256:cdd2686801fae30006c4e4b28c937caa03fd01773b05c60c1c3900a90d4242fb
+sha256:
+  darwin_arm64: d6009f8f139c0e42442a816ca33c1bfdfc37139431948350fdc107d35d24c7cf
+  darwin_amd64: cd57edd23101b3dfef261c1a490f465631ba19486d4f18ea25bab760d18de972
+  linux_amd64: 90f8e8df8eab3561f9a8a91438cb4903395dda9d18d3f61daece3cd5f58445da
+  linux_arm64: cdd2686801fae30006c4e4b28c937caa03fd01773b05c60c1c3900a90d4242fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

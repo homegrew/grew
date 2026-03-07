@@ -1,0 +1,33 @@
+name: openmotif
+version: 2.3.8
+description: LGPL release of the Motif toolkit
+homepage: https://motif.ics.com/motif
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openmotif/blobs/sha256:371bb9f35979b5035726d70d03b8e5fee6cf8993b95f5328a77c8423f934c1b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openmotif/blobs/sha256:7a3a027c94087fbae8276b1b1ea1d5005aedf1e9a5c50f5bb5045f58678ebee9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openmotif/blobs/sha256:48f58afdf62747a75241a1be50fde497d04d74fe09e4385c47e01bcc4a572e4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openmotif/blobs/sha256:6853dee96064d53c771ee48fc99c0a93dcd8f503f9cdec71e0a6e715a8cbf899
+sha256:
+  darwin_arm64: 371bb9f35979b5035726d70d03b8e5fee6cf8993b95f5328a77c8423f934c1b7
+  darwin_amd64: 7a3a027c94087fbae8276b1b1ea1d5005aedf1e9a5c50f5bb5045f58678ebee9
+  linux_amd64: 48f58afdf62747a75241a1be50fde497d04d74fe09e4385c47e01bcc4a572e4f
+  linux_arm64: 6853dee96064d53c771ee48fc99c0a93dcd8f503f9cdec71e0a6e715a8cbf899
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libice
+  - libpng
+  - libsm
+  - libx11
+  - libxext
+  - libxft
+  - libxmu
+  - libxp
+  - libxt
+  - xbitmaps

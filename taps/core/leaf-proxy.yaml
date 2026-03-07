@@ -1,0 +1,19 @@
+name: leaf-proxy
+version: 0.14.2
+description: Lightweight and fast proxy utility
+homepage: https://github.com/eycorsican/leaf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leaf-proxy/blobs/sha256:ce4ddbc5258b07aa7d6fc9b17843eb49d3cb45df5d0a5d341d0d30a5557161e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leaf-proxy/blobs/sha256:143381004f03317bd67bc74f5e8457218e6d6ea42d99ee7053994eb26f48b02b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leaf-proxy/blobs/sha256:441cf4911893e34463aef2e632ad6255d48128c750f0b6f7c66ed3d94b86383e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leaf-proxy/blobs/sha256:a1d489c122431f770ff38e13b235af6403a14a826808da7c113ee1f87013dc5b
+sha256:
+  darwin_arm64: ce4ddbc5258b07aa7d6fc9b17843eb49d3cb45df5d0a5d341d0d30a5557161e0
+  darwin_amd64: 143381004f03317bd67bc74f5e8457218e6d6ea42d99ee7053994eb26f48b02b
+  linux_amd64: 441cf4911893e34463aef2e632ad6255d48128c750f0b6f7c66ed3d94b86383e
+  linux_arm64: a1d489c122431f770ff38e13b235af6403a14a826808da7c113ee1f87013dc5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

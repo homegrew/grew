@@ -1,0 +1,19 @@
+name: topiary
+version: 0.7.3
+description: Uniform formatter for simple languages, as part of the Tree-sitter ecosystem
+homepage: https://topiary.tweag.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/topiary/blobs/sha256:ba4ae09ed74f4e82ca182ca68a7254b08dbcd460b9b5f355558f64cc85d982e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/topiary/blobs/sha256:afe506d454dcb769fc8cb2e0b7680d5338f1d69099a7dcc14e84fdd6b27fb04e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/topiary/blobs/sha256:d8cd290ce47d704c275ebd7270f1de192cb9628564fc0eea502a00db687a51b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/topiary/blobs/sha256:478b22e372afa4592362c5ccba76f089850efa6e533795ff6b616baa6990daed
+sha256:
+  darwin_arm64: ba4ae09ed74f4e82ca182ca68a7254b08dbcd460b9b5f355558f64cc85d982e0
+  darwin_amd64: afe506d454dcb769fc8cb2e0b7680d5338f1d69099a7dcc14e84fdd6b27fb04e
+  linux_amd64: d8cd290ce47d704c275ebd7270f1de192cb9628564fc0eea502a00db687a51b4
+  linux_arm64: 478b22e372afa4592362c5ccba76f089850efa6e533795ff6b616baa6990daed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

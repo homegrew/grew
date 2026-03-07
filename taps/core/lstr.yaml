@@ -1,0 +1,19 @@
+name: lstr
+version: 0.2.1
+description: Fast, minimalist directory tree viewer
+homepage: https://github.com/bgreenwell/lstr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lstr/blobs/sha256:a145541e3eb562c02740fd457f3cd5a603b77718ffd570571ff2ea5fbb047e4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lstr/blobs/sha256:fa3ae1d10d7ca531c029c10588c96e8cd0a02d308cd0b3c77112f45843481397
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lstr/blobs/sha256:02ce861934304a640142f38b36bc5c1e523f4235766579e6cbac10bc17793b55
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lstr/blobs/sha256:60eff494111d095ffee7343cba34dfb34a26e6aac7bb3fa7bf1108d2b4b0cd13
+sha256:
+  darwin_arm64: a145541e3eb562c02740fd457f3cd5a603b77718ffd570571ff2ea5fbb047e4a
+  darwin_amd64: fa3ae1d10d7ca531c029c10588c96e8cd0a02d308cd0b3c77112f45843481397
+  linux_amd64: 02ce861934304a640142f38b36bc5c1e523f4235766579e6cbac10bc17793b55
+  linux_arm64: 60eff494111d095ffee7343cba34dfb34a26e6aac7bb3fa7bf1108d2b4b0cd13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

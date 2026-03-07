@@ -1,0 +1,35 @@
+name: libsail
+version: 0.9.10
+description: Missing small and fast image decoding library for humans (not for machines)
+homepage: https://github.com/HappySeaFox/sail
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsail/blobs/sha256:f9430ef88d447e7f1d33199e1669076af4a092de4122b1dbcfa07addf3c5ecfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsail/blobs/sha256:e09065341ed58f92a8f7ca3b9877fa173e6d27680484573c2ee88fbbd507d6ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsail/blobs/sha256:2c02036e2ff8515835ee3a530f26681c22edcc2e55d377bd8168ac4d9d62e65f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsail/blobs/sha256:0147ee45b7482d1b0b8dbbda068878427ac491781ad89917ddb5f76d257b2726
+sha256:
+  darwin_arm64: f9430ef88d447e7f1d33199e1669076af4a092de4122b1dbcfa07addf3c5ecfb
+  darwin_amd64: e09065341ed58f92a8f7ca3b9877fa173e6d27680484573c2ee88fbbd507d6ff
+  linux_amd64: 2c02036e2ff8515835ee3a530f26681c22edcc2e55d377bd8168ac4d9d62e65f
+  linux_arm64: 0147ee45b7482d1b0b8dbbda068878427ac491781ad89917ddb5f76d257b2726
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - giflib
+  - imath
+  - jpeg-turbo
+  - jpeg-xl
+  - libavif
+  - libheif
+  - libpng
+  - libtiff
+  - openexr
+  - openjpeg
+  - resvg
+  - webp
+  - brotli
+  - highway
+  - little-cms2

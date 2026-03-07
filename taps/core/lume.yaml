@@ -1,0 +1,13 @@
+name: lume
+version: 0.2.85
+description: Create and manage Apple Silicon-native virtual machines
+homepage: https://github.com/trycua/cua
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lume/blobs/sha256:24992e8949335cedcdae92597dac96dc63a71b55d4e2706f18f98f39e4a6381e
+sha256:
+  darwin_arm64: 24992e8949335cedcdae92597dac96dc63a71b55d4e2706f18f98f39e4a6381e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

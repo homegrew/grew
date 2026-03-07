@@ -1,0 +1,23 @@
+name: ltc-tools
+version: 0.7.0
+description: Tools to deal with linear-timecode (LTC)
+homepage: https://github.com/x42/ltc-tools
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ltc-tools/blobs/sha256:ec96e870047e02edacc44e7c436bbe4b818ad675effadfa4c809319594f7eb8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ltc-tools/blobs/sha256:3a92ea1ce6d7e1090c583abbab1c5332f1f016d34e7b8932693c7d263e706279
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ltc-tools/blobs/sha256:f067afb9aec069b45d0c8025574d673d701140d4262ba2530337a868c016bd81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ltc-tools/blobs/sha256:5cf1b3ebc4b537434144fb06a19917cf47f63f368a6376ad0c78bcc1f42c6695
+sha256:
+  darwin_arm64: ec96e870047e02edacc44e7c436bbe4b818ad675effadfa4c809319594f7eb8b
+  darwin_amd64: 3a92ea1ce6d7e1090c583abbab1c5332f1f016d34e7b8932693c7d263e706279
+  linux_amd64: f067afb9aec069b45d0c8025574d673d701140d4262ba2530337a868c016bd81
+  linux_arm64: 5cf1b3ebc4b537434144fb06a19917cf47f63f368a6376ad0c78bcc1f42c6695
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jack
+  - libltc
+  - libsndfile

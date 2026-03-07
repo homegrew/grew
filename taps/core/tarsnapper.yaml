@@ -1,0 +1,23 @@
+name: tarsnapper
+version: 0.5.0
+description: Tarsnap wrapper which expires backups using a gfs-scheme
+homepage: https://github.com/miracle2k/tarsnapper
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tarsnapper/blobs/sha256:32c13f98b225238a1c36beb4aea44cc7aa9fc5f0ea6916836e9f24c9009a759a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tarsnapper/blobs/sha256:4368cf715ad3a98e93ae54bcd6df1532199927753a4bb5915155141a183ea5a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tarsnapper/blobs/sha256:ba5eacaf4328d52c8277a96a4befdcac0570cb99372882717562683797c677c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tarsnapper/blobs/sha256:4a08f2b3ac06f061600d9a402ac6ffca74de70f9e973699fbf14e9f3dfaa7a08
+sha256:
+  darwin_arm64: 32c13f98b225238a1c36beb4aea44cc7aa9fc5f0ea6916836e9f24c9009a759a
+  darwin_amd64: 4368cf715ad3a98e93ae54bcd6df1532199927753a4bb5915155141a183ea5a0
+  linux_amd64: ba5eacaf4328d52c8277a96a4befdcac0570cb99372882717562683797c677c5
+  linux_arm64: 4a08f2b3ac06f061600d9a402ac6ffca74de70f9e973699fbf14e9f3dfaa7a08
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14
+  - tarsnap

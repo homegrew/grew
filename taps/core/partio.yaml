@@ -1,0 +1,21 @@
+name: partio
+version: 1.20.0
+description: Particle library for 3D graphics
+homepage: https://github.com/wdas/partio
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/partio/blobs/sha256:1df6144f110d59a0a2702a819891b5d2431c1b2d5320c8a754c70c7afe121979
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/partio/blobs/sha256:23633ba6707787461a94f4093040e6cf61a0d0e47e0bf4cc76122554952f5dcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/partio/blobs/sha256:dc0eb880e0fd2c7c033434e9433dd6ffc9af4b3ec6b61f81f705877f337f3bb6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/partio/blobs/sha256:d26cd91d005741e2c3953bd72ec068bad724c4bfe83914ab96b18f988aeac93f
+sha256:
+  darwin_arm64: 1df6144f110d59a0a2702a819891b5d2431c1b2d5320c8a754c70c7afe121979
+  darwin_amd64: 23633ba6707787461a94f4093040e6cf61a0d0e47e0bf4cc76122554952f5dcc
+  linux_amd64: dc0eb880e0fd2c7c033434e9433dd6ffc9af4b3ec6b61f81f705877f337f3bb6
+  linux_arm64: d26cd91d005741e2c3953bd72ec068bad724c4bfe83914ab96b18f988aeac93f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

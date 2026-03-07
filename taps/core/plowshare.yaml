@@ -1,0 +1,27 @@
+name: plowshare
+version: 2.1.7
+description: Download/upload tool for popular file sharing websites
+homepage: https://github.com/mcrapet/plowshare
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plowshare/blobs/sha256:66557c80ff43f15110e291740e2316392dc18ba4fb54dae5a15af57f5979e7db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plowshare/blobs/sha256:c209d74e947383bee551fb90c709fc46563ef924b69715b1dc5babdc5c033a51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plowshare/blobs/sha256:5fd6c57b4f4ca70158ec4b3b7849f0097fc57a83e70020f3dbf23dcd74ef9ab4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plowshare/blobs/sha256:5fd6c57b4f4ca70158ec4b3b7849f0097fc57a83e70020f3dbf23dcd74ef9ab4
+sha256:
+  darwin_arm64: 66557c80ff43f15110e291740e2316392dc18ba4fb54dae5a15af57f5979e7db
+  darwin_amd64: c209d74e947383bee551fb90c709fc46563ef924b69715b1dc5babdc5c033a51
+  linux_amd64: 5fd6c57b4f4ca70158ec4b3b7849f0097fc57a83e70020f3dbf23dcd74ef9ab4
+  linux_arm64: 5fd6c57b4f4ca70158ec4b3b7849f0097fc57a83e70020f3dbf23dcd74ef9ab4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - feh
+  - libcaca
+  - recode
+  - spidermonkey
+  - bash
+  - coreutils
+  - gnu-sed

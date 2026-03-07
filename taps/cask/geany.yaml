@@ -1,0 +1,11 @@
+name: geany
+version: 2.1
+description: Small and lightweight IDE
+homepage: https://www.geany.org/
+url:
+  darwin_arm64: https://download.geany.org/geany-2.1_osx_arm64.dmg
+sha256:
+  darwin_arm64: 13d6f0977c784193ffc1bad05e1a8b77f14f2a71f37ab158c788d33cb6203f80
+artifacts:
+  app:
+    - Geany.app

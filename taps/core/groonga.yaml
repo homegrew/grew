@@ -1,0 +1,27 @@
+name: groonga
+version: 16.0.0
+description: Fulltext search engine and column store
+homepage: https://groonga.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/groonga/blobs/sha256:7910a742eb29d2d570423205b3aacd0abc396276d6215c0f811f3e38d0f46714
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/groonga/blobs/sha256:2b488a31fe2550ccaac8501b78c52d52ab32f6355d34355af724f768252807fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/groonga/blobs/sha256:785265fa1be880554dcc9587daa48652897cff9baf7752c99b9d3c774bf13e79
+  linux_arm64: https://ghcr.io/v2/homebrew/core/groonga/blobs/sha256:c31791814bce7fe99918d95d8a1b9406eaeb6d0de2538ac79bd5a8544874f690
+sha256:
+  darwin_arm64: 7910a742eb29d2d570423205b3aacd0abc396276d6215c0f811f3e38d0f46714
+  darwin_amd64: 2b488a31fe2550ccaac8501b78c52d52ab32f6355d34355af724f768252807fd
+  linux_amd64: 785265fa1be880554dcc9587daa48652897cff9baf7752c99b9d3c774bf13e79
+  linux_arm64: c31791814bce7fe99918d95d8a1b9406eaeb6d0de2538ac79bd5a8544874f690
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - mecab
+  - mecab-ipadic
+  - msgpack
+  - onigmo
+  - simdjson
+  - zstd

@@ -1,0 +1,19 @@
+name: google-benchmark
+version: 1.9.5
+description: C++ microbenchmark support library
+homepage: https://github.com/google/benchmark
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/google-benchmark/blobs/sha256:5869b5f29dc83b37a1a7d44bc846149111d1e3b89e27fa3237502c507ce86945
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/google-benchmark/blobs/sha256:006f44aca539706c9b216afc902219256dd0bf8c018a704cb6f06178b17dfce2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/google-benchmark/blobs/sha256:4a3f4b7908ccd9c1b945a81f41cf07209bdb87c5e397e1ad34f5e271893152d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/google-benchmark/blobs/sha256:6a66268855a18d1595ae79c2c0321605009710dfec02cc1ab276dc39e1ee3bd6
+sha256:
+  darwin_arm64: 5869b5f29dc83b37a1a7d44bc846149111d1e3b89e27fa3237502c507ce86945
+  darwin_amd64: 006f44aca539706c9b216afc902219256dd0bf8c018a704cb6f06178b17dfce2
+  linux_amd64: 4a3f4b7908ccd9c1b945a81f41cf07209bdb87c5e397e1ad34f5e271893152d4
+  linux_arm64: 6a66268855a18d1595ae79c2c0321605009710dfec02cc1ab276dc39e1ee3bd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: pkcs11-helper
+version: 1.31.0
+description: "Library to simplify the interaction with PKCS#11"
+homepage: https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper
+license: BSD-3-Clause OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pkcs11-helper/blobs/sha256:dacc089490af7c5a5083427ddb8d3bbe72750c0895e9740a3b0c083366bec05d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pkcs11-helper/blobs/sha256:db89780cd8b197eb8e562f190d5cad113acc337c7689b8103f32c25fd70a3551
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pkcs11-helper/blobs/sha256:5567cc0f1a107804f649db18cf383f9fc0fac5927c4aa22d44c8d4b4d5a3edfa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pkcs11-helper/blobs/sha256:d4d683661a6a1c128adbdf1eabd49cbbedb2b3e7f3ed2c42883eed6889e9f326
+sha256:
+  darwin_arm64: dacc089490af7c5a5083427ddb8d3bbe72750c0895e9740a3b0c083366bec05d
+  darwin_amd64: db89780cd8b197eb8e562f190d5cad113acc337c7689b8103f32c25fd70a3551
+  linux_amd64: 5567cc0f1a107804f649db18cf383f9fc0fac5927c4aa22d44c8d4b4d5a3edfa
+  linux_arm64: d4d683661a6a1c128adbdf1eabd49cbbedb2b3e7f3ed2c42883eed6889e9f326
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

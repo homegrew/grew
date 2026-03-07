@@ -1,0 +1,19 @@
+name: mp3cat
+version: 0.5
+description: Reads and writes mp3 files
+homepage: https://tomclegg.ca/mp3cat
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3cat/blobs/sha256:a2e0124370647ca7c0f28de6ca280a78d6fd3fd93005a8dc60f9dffdea1fa665
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3cat/blobs/sha256:3624f0834cc2e7d9e613cc16c4102d49c9f64466ea1113a429a9e9849a850cc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3cat/blobs/sha256:1644ebe7bba692667cae251c36c2d7c7d2d5aa49e53291a247831bf866ed2ba4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3cat/blobs/sha256:2f43d17baaae1fdf3ad7d231ad245e93212ff4fca7af462567fcc6c5980735fa
+sha256:
+  darwin_arm64: a2e0124370647ca7c0f28de6ca280a78d6fd3fd93005a8dc60f9dffdea1fa665
+  darwin_amd64: 3624f0834cc2e7d9e613cc16c4102d49c9f64466ea1113a429a9e9849a850cc2
+  linux_amd64: 1644ebe7bba692667cae251c36c2d7c7d2d5aa49e53291a247831bf866ed2ba4
+  linux_arm64: 2f43d17baaae1fdf3ad7d231ad245e93212ff4fca7af462567fcc6c5980735fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: re2
+version: 2025-11-05
+description: Alternative to backtracking PCRE-style regular expression engines
+homepage: https://github.com/google/re2
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/re2/blobs/sha256:c3d8133e1af82433fd8491050aafc3cdf81e2728c1d171818e187001f5c5efb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/re2/blobs/sha256:336269669bfd8cab867b5ea69d99706e2b73dc0fa796ac987f5ad665010735cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/re2/blobs/sha256:5d2b0fa3b0b1954bd06ca343641936d0d0833d0a80a7aa543eaca0a95332c055
+  linux_arm64: https://ghcr.io/v2/homebrew/core/re2/blobs/sha256:74f2417e6840a1af5020085db3513cdc047e5dbe24bf9213871eb388b2af6bcc
+sha256:
+  darwin_arm64: c3d8133e1af82433fd8491050aafc3cdf81e2728c1d171818e187001f5c5efb1
+  darwin_amd64: 336269669bfd8cab867b5ea69d99706e2b73dc0fa796ac987f5ad665010735cf
+  linux_amd64: 5d2b0fa3b0b1954bd06ca343641936d0d0833d0a80a7aa543eaca0a95332c055
+  linux_arm64: 74f2417e6840a1af5020085db3513cdc047e5dbe24bf9213871eb388b2af6bcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil

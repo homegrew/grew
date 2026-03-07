@@ -1,0 +1,21 @@
+name: opensearch-dashboards
+version: 3.5.0
+description: Open source visualization dashboards for OpenSearch
+homepage: https://docs.opensearch.org/latest/dashboards/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opensearch-dashboards/blobs/sha256:e5369689ae3be0e9e808f09dc821cae04f31bd0f752e4fa7a59e4ff86ba712b1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opensearch-dashboards/blobs/sha256:ceaad13ff215cb201537cf0732c21787909b9a02f4265322c20ac80e1569aacc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opensearch-dashboards/blobs/sha256:b5d0de531389a23bdf3b4c5b6139da1421ca2d13d1a151bdd6517ce92d60d2cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opensearch-dashboards/blobs/sha256:3e3c1bd5bd0cd635ed9f9419560c13c9ca1c0e29b8864c4b0f0e99f6d6d1ec73
+sha256:
+  darwin_arm64: e5369689ae3be0e9e808f09dc821cae04f31bd0f752e4fa7a59e4ff86ba712b1
+  darwin_amd64: ceaad13ff215cb201537cf0732c21787909b9a02f4265322c20ac80e1569aacc
+  linux_amd64: b5d0de531389a23bdf3b4c5b6139da1421ca2d13d1a151bdd6517ce92d60d2cc
+  linux_arm64: 3e3c1bd5bd0cd635ed9f9419560c13c9ca1c0e29b8864c4b0f0e99f6d6d1ec73
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node@22

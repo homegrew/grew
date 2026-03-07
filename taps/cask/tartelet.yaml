@@ -1,0 +1,11 @@
+name: tartelet
+version: 0.12.0
+description: Manage GitHub Actions runners in virtual machines
+homepage: https://github.com/shapehq/tartelet
+url:
+  darwin_arm64: https://github.com/shapehq/tartelet/releases/download/0.12.0/Tartelet.zip
+sha256:
+  darwin_arm64: 2733db56fb15835df2e22cf8191d4f9cfc385d9779aa02d88649631fb85b016a
+artifacts:
+  app:
+    - Tartelet.app

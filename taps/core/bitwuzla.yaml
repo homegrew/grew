@@ -1,0 +1,21 @@
+name: bitwuzla
+version: 0.8.2
+description: SMT solver for bit-vectors, floating-points, arrays and uninterpreted functions
+homepage: https://bitwuzla.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bitwuzla/blobs/sha256:bd4be0f59690b95209e2d40eead07a3da969721e99bd7904ebbd65e2442dc4a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bitwuzla/blobs/sha256:d788de04dba4aeced6270c38f3d043ab65c821c4c0af992001847be5843b54b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bitwuzla/blobs/sha256:073560c6335ecdce5557e77b0c96f8f362f4af25002296da4c949673290f969e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bitwuzla/blobs/sha256:70695221d6796ec98c71e6f6d6b9754a78e6a776aa05c608feb72e080cacc261
+sha256:
+  darwin_arm64: bd4be0f59690b95209e2d40eead07a3da969721e99bd7904ebbd65e2442dc4a9
+  darwin_amd64: d788de04dba4aeced6270c38f3d043ab65c821c4c0af992001847be5843b54b4
+  linux_amd64: 073560c6335ecdce5557e77b0c96f8f362f4af25002296da4c949673290f969e
+  linux_arm64: 70695221d6796ec98c71e6f6d6b9754a78e6a776aa05c608feb72e080cacc261
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

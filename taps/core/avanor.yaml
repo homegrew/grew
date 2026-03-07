@@ -1,0 +1,19 @@
+name: avanor
+version: 0.5.8
+description: Quick-growing roguelike game with easy ADOM-like UI
+homepage: https://avanor.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/avanor/blobs/sha256:f4e7392f6932b4478f15b384de5435734302d9758907fac70bb02d70e8307ea6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/avanor/blobs/sha256:4bad762a39191e5bb9fa549ad6e9357c68031a1a0f0603585eb4d339956ac052
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avanor/blobs/sha256:99ac78a20ffc5cccb1a0b5617c9977501a41edb8823663ee4656d177fad7ed09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avanor/blobs/sha256:39d71fa50daeab0033fb05cbc656d28654effd5c1d650b8e4cbb339ef96004ec
+sha256:
+  darwin_arm64: f4e7392f6932b4478f15b384de5435734302d9758907fac70bb02d70e8307ea6
+  darwin_amd64: 4bad762a39191e5bb9fa549ad6e9357c68031a1a0f0603585eb4d339956ac052
+  linux_amd64: 99ac78a20ffc5cccb1a0b5617c9977501a41edb8823663ee4656d177fad7ed09
+  linux_arm64: 39d71fa50daeab0033fb05cbc656d28654effd5c1d650b8e4cbb339ef96004ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

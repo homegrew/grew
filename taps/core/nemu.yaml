@@ -1,0 +1,25 @@
+name: nemu
+version: 3.4.0
+description: Ncurses UI for QEMU
+homepage: https://github.com/nemuTUI/nemu
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nemu/blobs/sha256:e6f30abdf8f40e196974dad2c6f80ffb5353c98997f4a0733c388c0515e34ae8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nemu/blobs/sha256:bd4227695993da67ba07b55f0ee3eb3e671f33444dd013a62b060c76937489d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nemu/blobs/sha256:cc06ac5e231324623d7ef68c67c5a77c545b8c33aa1a1170357b6e62d8af8f21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nemu/blobs/sha256:53aa94025e389c228af7eae6478da28df2bc57dcae31ed8c19b594a923bff202
+sha256:
+  darwin_arm64: e6f30abdf8f40e196974dad2c6f80ffb5353c98997f4a0733c388c0515e34ae8
+  darwin_amd64: bd4227695993da67ba07b55f0ee3eb3e671f33444dd013a62b060c76937489d2
+  linux_amd64: cc06ac5e231324623d7ef68c67c5a77c545b8c33aa1a1170357b6e62d8af8f21
+  linux_arm64: 53aa94025e389c228af7eae6478da28df2bc57dcae31ed8c19b594a923bff202
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - libarchive
+  - ncurses
+  - openssl@3
+  - gettext

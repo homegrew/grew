@@ -1,0 +1,19 @@
+name: redir
+version: 3.3
+description: TCP port redirector for UNIX
+homepage: https://github.com/troglobit/redir
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redir/blobs/sha256:adeb67ec9908e136f48f9ef8cadf98ea0cb8a54d8250c4b444821dc156e1918e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redir/blobs/sha256:ed393b34639f9ff4309c3b1ebb718578ad79fded885c244a691eb943c6a4e27f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redir/blobs/sha256:42d0afabc5b8a627139420184283cd83e9c277f5aabcf8f3c3192f0508116ec8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redir/blobs/sha256:5f22d53958864744b669b59a139ee9c5de94755b0291f9524edbdf193668a764
+sha256:
+  darwin_arm64: adeb67ec9908e136f48f9ef8cadf98ea0cb8a54d8250c4b444821dc156e1918e
+  darwin_amd64: ed393b34639f9ff4309c3b1ebb718578ad79fded885c244a691eb943c6a4e27f
+  linux_amd64: 42d0afabc5b8a627139420184283cd83e9c277f5aabcf8f3c3192f0508116ec8
+  linux_arm64: 5f22d53958864744b669b59a139ee9c5de94755b0291f9524edbdf193668a764
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

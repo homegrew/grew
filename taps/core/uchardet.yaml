@@ -1,0 +1,19 @@
+name: uchardet
+version: 0.0.8
+description: Encoding detector library
+homepage: https://www.freedesktop.org/wiki/Software/uchardet/
+license: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uchardet/blobs/sha256:9c7726503e9063cc35716cd81cd22ebb8dbe34aec0922bd02d90b5a435940476
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uchardet/blobs/sha256:724236eec957527714222c9a831ffd648cdf0a371dea3d80dd1cd91fbd245aab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uchardet/blobs/sha256:6392159b044059cbf22acfbe579343e119a8639dcea266e93a49b5e1a0bf08df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uchardet/blobs/sha256:9fbe4342fd9a7bfd00ec092ca4cf8931d8dba18b79a7158496e60755790b18d9
+sha256:
+  darwin_arm64: 9c7726503e9063cc35716cd81cd22ebb8dbe34aec0922bd02d90b5a435940476
+  darwin_amd64: 724236eec957527714222c9a831ffd648cdf0a371dea3d80dd1cd91fbd245aab
+  linux_amd64: 6392159b044059cbf22acfbe579343e119a8639dcea266e93a49b5e1a0bf08df
+  linux_arm64: 9fbe4342fd9a7bfd00ec092ca4cf8931d8dba18b79a7158496e60755790b18d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

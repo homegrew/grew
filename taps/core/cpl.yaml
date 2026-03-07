@@ -1,0 +1,23 @@
+name: cpl
+version: 7.3.2
+description: ISO-C libraries for developing astronomical data-reduction tasks
+homepage: https://www.eso.org/sci/software/cpl/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpl/blobs/sha256:c6ae6b7cb1a84a01d0cf02626e62fa069c69ce1ddd58da71a7dbc650f4c233b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpl/blobs/sha256:a66a7bc13c9683f48d18ad24928ff5effa8737e61ac08da1717de9bb24d5de24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpl/blobs/sha256:90683dbc3fc0a9636c4fe77573a82895cd369ff2449d140a6ba5e84db6d571dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpl/blobs/sha256:fcd05867d38798a06a3afcac0afff080e67484785148b6d412031f44a9e44d4b
+sha256:
+  darwin_arm64: c6ae6b7cb1a84a01d0cf02626e62fa069c69ce1ddd58da71a7dbc650f4c233b5
+  darwin_amd64: a66a7bc13c9683f48d18ad24928ff5effa8737e61ac08da1717de9bb24d5de24
+  linux_amd64: 90683dbc3fc0a9636c4fe77573a82895cd369ff2449d140a6ba5e84db6d571dc
+  linux_arm64: fcd05867d38798a06a3afcac0afff080e67484785148b6d412031f44a9e44d4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio
+  - fftw
+  - wcslib

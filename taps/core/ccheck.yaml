@@ -1,0 +1,19 @@
+name: ccheck
+version: 1.0.1
+description: Check X509 certificate expiration from the command-line, with TAP output
+homepage: https://github.com/nerdlem/ccheck
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccheck/blobs/sha256:26489d1d45ade5e4462eaa3083558f872018bcd9d9e47b98e122f2dd086b402a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccheck/blobs/sha256:7bcefa37758f67958aa0862ba81fd0593e451b4d0487e933320851156c0dde70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccheck/blobs/sha256:441d2d833959bcf2908a40acf3677e974c2409719f2d353289431cb0bea40d04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccheck/blobs/sha256:02a98653ebd2b7dda5b82236bb39ca74772bf3d4ebce62a02e6039899d25f790
+sha256:
+  darwin_arm64: 26489d1d45ade5e4462eaa3083558f872018bcd9d9e47b98e122f2dd086b402a
+  darwin_amd64: 7bcefa37758f67958aa0862ba81fd0593e451b4d0487e933320851156c0dde70
+  linux_amd64: 441d2d833959bcf2908a40acf3677e974c2409719f2d353289431cb0bea40d04
+  linux_arm64: 02a98653ebd2b7dda5b82236bb39ca74772bf3d4ebce62a02e6039899d25f790
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

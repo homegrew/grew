@@ -1,0 +1,19 @@
+name: lazyjournal
+version: 0.8.5
+description: TUI for logs from journalctl, file system, Docker, Podman and Kubernetes pods
+homepage: https://github.com/Lifailon/lazyjournal
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lazyjournal/blobs/sha256:6bde455e98f3fe65e534813a5ed7bf17a0063083e970e1f44ef40a8ac62acdb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lazyjournal/blobs/sha256:5e0ae947a159934998b1440161ddb4ac72f3faf78566bb2c7e3eec28eeb9e58f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lazyjournal/blobs/sha256:555196fa2e59b70b597c09329b6a123bdcb60f544603eee363b7df53be4d783a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lazyjournal/blobs/sha256:30fea8709af118108b6f233e3fbcee3b6909bb045ec73825362af2a73ba645e5
+sha256:
+  darwin_arm64: 6bde455e98f3fe65e534813a5ed7bf17a0063083e970e1f44ef40a8ac62acdb7
+  darwin_amd64: 5e0ae947a159934998b1440161ddb4ac72f3faf78566bb2c7e3eec28eeb9e58f
+  linux_amd64: 555196fa2e59b70b597c09329b6a123bdcb60f544603eee363b7df53be4d783a
+  linux_arm64: 30fea8709af118108b6f233e3fbcee3b6909bb045ec73825362af2a73ba645e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

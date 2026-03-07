@@ -1,0 +1,19 @@
+name: geckodriver
+version: 0.36.0
+description: "WebDriver <-> Marionette proxy"
+homepage: https://github.com/mozilla/geckodriver
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geckodriver/blobs/sha256:ef35a96f86a562d2e4ce13a0bc898e5ae48512877091f31a1dc54b3c3da3d9e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geckodriver/blobs/sha256:de49fdc83e656b413608cfb40bc59425df4a3538d3e53162cb2b8a55466f219e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geckodriver/blobs/sha256:fa9e1b98be14b7ab9af9a7c1ee458ddc55045f11666e5fe8edcf7c59156fd1d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geckodriver/blobs/sha256:caea91cd4156e7b148c5328f5a0590cfc0fac5819a8baca8a80938cab96f28a2
+sha256:
+  darwin_arm64: ef35a96f86a562d2e4ce13a0bc898e5ae48512877091f31a1dc54b3c3da3d9e5
+  darwin_amd64: de49fdc83e656b413608cfb40bc59425df4a3538d3e53162cb2b8a55466f219e
+  linux_amd64: fa9e1b98be14b7ab9af9a7c1ee458ddc55045f11666e5fe8edcf7c59156fd1d3
+  linux_arm64: caea91cd4156e7b148c5328f5a0590cfc0fac5819a8baca8a80938cab96f28a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

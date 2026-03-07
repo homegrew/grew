@@ -1,0 +1,19 @@
+name: wakatime-cli
+version: 1.139.1
+description: Command-line interface to the WakaTime api
+homepage: https://wakatime.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wakatime-cli/blobs/sha256:de3972373abe285b5f1c702c7dcbd87f80b9c9413e232791374c1de96aad45e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wakatime-cli/blobs/sha256:cb597ce455810f0da4e24c6e60395ab4dbe460f77fd35df4b8b797fc6557993b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wakatime-cli/blobs/sha256:1a7f8f3795a5a9432396fa77295c133e22f9dcfe17296df975fb2cbf91b8a039
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wakatime-cli/blobs/sha256:3c8ac60ac7455a7c7077f5b8485cc118b076cb91b4bc2dcbfafc4319a68ef508
+sha256:
+  darwin_arm64: de3972373abe285b5f1c702c7dcbd87f80b9c9413e232791374c1de96aad45e3
+  darwin_amd64: cb597ce455810f0da4e24c6e60395ab4dbe460f77fd35df4b8b797fc6557993b
+  linux_amd64: 1a7f8f3795a5a9432396fa77295c133e22f9dcfe17296df975fb2cbf91b8a039
+  linux_arm64: 3c8ac60ac7455a7c7077f5b8485cc118b076cb91b4bc2dcbfafc4319a68ef508
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

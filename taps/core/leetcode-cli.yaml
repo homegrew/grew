@@ -1,0 +1,21 @@
+name: leetcode-cli
+version: 0.5.0
+description: May the code be with you
+homepage: https://github.com/clearloop/leetcode-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leetcode-cli/blobs/sha256:2714994b45df5976c2f02d57e02a860397738ef3c1b33bae6edb32955636b241
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leetcode-cli/blobs/sha256:655b0ad5fb1c9a7b7cdc9b09c42193fa11a10dda1008913ccb748bd6d24edf08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leetcode-cli/blobs/sha256:af6826c657dda9c1c44bcfe1f3c8b029168867e994a149cc4353e1fb849aec58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leetcode-cli/blobs/sha256:a6da7b9dd64506d8a577505d4b2716ce342bd0fdfd2b843d92996f35c7299b54
+sha256:
+  darwin_arm64: 2714994b45df5976c2f02d57e02a860397738ef3c1b33bae6edb32955636b241
+  darwin_amd64: 655b0ad5fb1c9a7b7cdc9b09c42193fa11a10dda1008913ccb748bd6d24edf08
+  linux_amd64: af6826c657dda9c1c44bcfe1f3c8b029168867e994a149cc4353e1fb849aec58
+  linux_arm64: a6da7b9dd64506d8a577505d4b2716ce342bd0fdfd2b843d92996f35c7299b54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

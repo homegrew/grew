@@ -1,0 +1,19 @@
+name: aiac
+version: 5.3.0
+description: Artificial Intelligence Infrastructure-as-Code Generator
+homepage: https://github.com/gofireflyio/aiac
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aiac/blobs/sha256:dd35116079cf1351dad53d6753863a5301638121559915331c21dcd2a8a10173
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aiac/blobs/sha256:2dbaa7b25dc9be8356f083cd11c3e5d6738b8b0545cac4f4000196bb4d2bf39a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aiac/blobs/sha256:9e74cfb47682506cce9ef87848aa085274b067c36139d49cdbaee1ed9259c193
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aiac/blobs/sha256:03d5c8fd027682c85c921bfa1fad5d4bb2b4ed7fa4c75f14777ec8c043ac9911
+sha256:
+  darwin_arm64: dd35116079cf1351dad53d6753863a5301638121559915331c21dcd2a8a10173
+  darwin_amd64: 2dbaa7b25dc9be8356f083cd11c3e5d6738b8b0545cac4f4000196bb4d2bf39a
+  linux_amd64: 9e74cfb47682506cce9ef87848aa085274b067c36139d49cdbaee1ed9259c193
+  linux_arm64: 03d5c8fd027682c85c921bfa1fad5d4bb2b4ed7fa4c75f14777ec8c043ac9911
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

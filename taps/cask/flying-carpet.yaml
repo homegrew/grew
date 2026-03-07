@@ -1,0 +1,11 @@
+name: flying-carpet
+version: 9.0.4,9.0.0
+description: File transfer over ad-hoc wifi
+homepage: https://github.com/spieglt/flyingcarpet
+url:
+  darwin_arm64: https://github.com/spieglt/FlyingCarpet/releases/download/v9.0.0/macOS_FlyingCarpet_9.0.4.zip
+sha256:
+  darwin_arm64: 686dfec58bbd3cbfd495c74dd5c8c7c7d5fd18b5b0b108e6e44b69d6433ac80a
+artifacts:
+  app:
+    - FlyingCarpet.app

@@ -1,0 +1,28 @@
+name: crystal
+version: 1.19.1
+description: Fast and statically typed, compiled language with Ruby-like syntax
+homepage: https://crystal-lang.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crystal/blobs/sha256:1e12ff8299d252518e4124e56ecc4cdb48ef0153d08c75715f7bcb076c8a2a0b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crystal/blobs/sha256:44a252cb01c1de8c5f7d22119ecaee4dbecc6b62d550364d5c3ee3d43a72971a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crystal/blobs/sha256:6114a8ba26bcae0bd6fc50468f9eeb217df1a245be1a2ee49eadf634e3f27e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crystal/blobs/sha256:23fb74f2869d8a7a111c32490076c5042d6307ce85bf4eb540ea32e9cc8a13eb
+sha256:
+  darwin_arm64: 1e12ff8299d252518e4124e56ecc4cdb48ef0153d08c75715f7bcb076c8a2a0b
+  darwin_amd64: 44a252cb01c1de8c5f7d22119ecaee4dbecc6b62d550364d5c3ee3d43a72971a
+  linux_amd64: 6114a8ba26bcae0bd6fc50468f9eeb217df1a245be1a2ee49eadf634e3f27e82
+  linux_arm64: 23fb74f2869d8a7a111c32490076c5042d6307ce85bf4eb540ea32e9cc8a13eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - gmp
+  - libffi
+  - libyaml
+  - llvm
+  - openssl@3
+  - pcre2
+  - pkgconf

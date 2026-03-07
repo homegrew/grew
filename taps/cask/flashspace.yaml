@@ -1,0 +1,13 @@
+name: flashspace
+version: 4.16.74
+description: Virtual workspace manager
+homepage: https://github.com/wojciech-kulik/FlashSpace
+url:
+  darwin_arm64: https://github.com/wojciech-kulik/FlashSpace/releases/download/v4.16.74/FlashSpace.app.zip
+sha256:
+  darwin_arm64: d9d5024d76bd262b853fd0860cbb1e89722a92a1752aa716b92db4ad5c2ae124
+artifacts:
+  app:
+    - FlashSpace.app
+  bin:
+    - flashspace

@@ -1,0 +1,28 @@
+name: gtk-gnutella
+version: 1.2.3
+description: Share files in a peer-to-peer (P2P) network
+homepage: https://gtk-gnutella.sourceforge.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtk-gnutella/blobs/sha256:dba801f9ab823ee9024246c6a648d1b1308e9dc8892e60f6fe7d8d0e91566cd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtk-gnutella/blobs/sha256:cfcb1c63b1eca9e9316526656150e508e3195148828959cfb8881b35a9e842aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtk-gnutella/blobs/sha256:8612a1b19289875510b282dcc3e728a00e3f275dcda53c3efa38cafef17a4b18
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtk-gnutella/blobs/sha256:00c1c423bb69cf660fe99d7166778f1ad1fb2204355ad5318a9860926251b4d8
+sha256:
+  darwin_arm64: dba801f9ab823ee9024246c6a648d1b1308e9dc8892e60f6fe7d8d0e91566cd0
+  darwin_amd64: cfcb1c63b1eca9e9316526656150e508e3195148828959cfb8881b35a9e842aa
+  linux_amd64: 8612a1b19289875510b282dcc3e728a00e3f275dcda53c3efa38cafef17a4b18
+  linux_arm64: 00c1c423bb69cf660fe99d7166778f1ad1fb2204355ad5318a9860926251b4d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - dbus
+  - gdk-pixbuf
+  - glib
+  - gtk+
+  - pango
+  - gettext
+  - harfbuzz

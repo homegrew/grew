@@ -1,0 +1,24 @@
+name: libjson-rpc-cpp
+version: 1.4.1
+description: C++ framework for json-rpc
+homepage: https://github.com/cinemast/libjson-rpc-cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libjson-rpc-cpp/blobs/sha256:6dc9f12a9b6bf936881daefc66364df558d40e4daa5ef1327313619b91e8ebd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libjson-rpc-cpp/blobs/sha256:1a06d33fb6dfb02a77dff103df8c5dccaf31732f57c5084894a6bb8a990fd40f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libjson-rpc-cpp/blobs/sha256:3e81e47b0e548b539d9be3449e951c2f8fbdd9274acfef193ca9a89e6255b67e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libjson-rpc-cpp/blobs/sha256:937c9426645552d0f435306f02dc4bea55498e2e6402c53d2bcbb5ab053c067c
+sha256:
+  darwin_arm64: 6dc9f12a9b6bf936881daefc66364df558d40e4daa5ef1327313619b91e8ebd1
+  darwin_amd64: 1a06d33fb6dfb02a77dff103df8c5dccaf31732f57c5084894a6bb8a990fd40f
+  linux_amd64: 3e81e47b0e548b539d9be3449e951c2f8fbdd9274acfef193ca9a89e6255b67e
+  linux_arm64: 937c9426645552d0f435306f02dc4bea55498e2e6402c53d2bcbb5ab053c067c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argtable
+  - hiredis
+  - jsoncpp
+  - libmicrohttpd

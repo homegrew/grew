@@ -1,0 +1,11 @@
+name: stremio
+version: 5.1.16
+description: Open-source media center
+homepage: https://www.strem.io/
+url:
+  darwin_arm64: https://dl.strem.io/stremio-shell-macos/v5.1.16/Stremio_arm64.dmg
+sha256:
+  darwin_arm64: d75053aea263d828dc48251c1633412c344522d5fcb5e96bd953815aff9d9cbd
+artifacts:
+  app:
+    - Stremio.app

@@ -1,0 +1,25 @@
+name: devil
+version: 1.8.0
+description: Cross-platform image library
+homepage: https://sourceforge.net/projects/openil/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/devil/blobs/sha256:b38672c3417c92fde8b5cca2a59f14c31201f9a5f043a1bb5d7d04c4983d5398
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/devil/blobs/sha256:98d8eaf39ca55e189b6add8d199d4527adbba229a7eaf170d5d21b7b41848dc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/devil/blobs/sha256:39cfc26d4075c7e2be8b1fcc8ae762bd8897dca6460c632e1b63f3df69888a56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/devil/blobs/sha256:35dca23ab5cbd470f6dfe8744a7ed0f7a414366215d0350c89819ca0b03d083e
+sha256:
+  darwin_arm64: b38672c3417c92fde8b5cca2a59f14c31201f9a5f043a1bb5d7d04c4983d5398
+  darwin_amd64: 98d8eaf39ca55e189b6add8d199d4527adbba229a7eaf170d5d21b7b41848dc2
+  linux_amd64: 39cfc26d4075c7e2be8b1fcc8ae762bd8897dca6460c632e1b63f3df69888a56
+  linux_arm64: 35dca23ab5cbd470f6dfe8744a7ed0f7a414366215d0350c89819ca0b03d083e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jasper
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - little-cms2

@@ -1,0 +1,19 @@
+name: vacuum
+version: 0.24.0
+description: "World's fastest OpenAPI & Swagger linter"
+homepage: https://quobix.com/vacuum/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vacuum/blobs/sha256:a38a9c96b47835dba266c2fb30df0012fef37bc5062de66ed1f2cf59d5401eee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vacuum/blobs/sha256:c439ae549f76d97204ee24977cb3679dfe5b1ac11711b9ac4cc1f0809ef9e3af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vacuum/blobs/sha256:5fce8d1fefe3cc9fb8f4e58393872e8553e0d7dcc777afb3314da913fe2cfa87
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vacuum/blobs/sha256:4e90a38e4a58cfb8f3c2062d74465ffff913982b6815df56017730af828a7d13
+sha256:
+  darwin_arm64: a38a9c96b47835dba266c2fb30df0012fef37bc5062de66ed1f2cf59d5401eee
+  darwin_amd64: c439ae549f76d97204ee24977cb3679dfe5b1ac11711b9ac4cc1f0809ef9e3af
+  linux_amd64: 5fce8d1fefe3cc9fb8f4e58393872e8553e0d7dcc777afb3314da913fe2cfa87
+  linux_arm64: 4e90a38e4a58cfb8f3c2062d74465ffff913982b6815df56017730af828a7d13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

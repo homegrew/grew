@@ -1,0 +1,19 @@
+name: nlopt
+version: 2.10.1
+description: Free/open-source library for nonlinear optimization
+homepage: https://nlopt.readthedocs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nlopt/blobs/sha256:895d8e1a5b7257380f335c5992c674660a122c64ee1d67eea566e65cdb1e0b84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nlopt/blobs/sha256:c468957d29935740a3e7bf6248709d088b7876f944379c3f33bf65c38b7fba47
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nlopt/blobs/sha256:ca3f9218108faa8cf151c88d784b7af7a090162f2efea0085d358eeb4164b5df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nlopt/blobs/sha256:ce2cfb1d74dfb5f66022516311d416acacf8beb7186dcc89fbe0f975c1eb6a2a
+sha256:
+  darwin_arm64: 895d8e1a5b7257380f335c5992c674660a122c64ee1d67eea566e65cdb1e0b84
+  darwin_amd64: c468957d29935740a3e7bf6248709d088b7876f944379c3f33bf65c38b7fba47
+  linux_amd64: ca3f9218108faa8cf151c88d784b7af7a090162f2efea0085d358eeb4164b5df
+  linux_arm64: ce2cfb1d74dfb5f66022516311d416acacf8beb7186dcc89fbe0f975c1eb6a2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

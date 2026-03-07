@@ -1,0 +1,21 @@
+name: mpc
+version: 0.35
+description: Command-line music player client for mpd
+homepage: https://www.musicpd.org/clients/mpc/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpc/blobs/sha256:a325c2d6c27f05beb9fda4c43029512fe2c8542793a3773cf27ac4684f794904
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpc/blobs/sha256:1dd3c6edc2ac8b09944f66a93a0cd3bad09afda8c0ae03cd6880a4aa62996789
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpc/blobs/sha256:a9195f0deda2f2ec4a6a9863275299136388eccfab23b6d46d682eca7e773591
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpc/blobs/sha256:0acf954601f5908c4fb4f2488b46f84abbed2759b8189eb237823a80c79adcea
+sha256:
+  darwin_arm64: a325c2d6c27f05beb9fda4c43029512fe2c8542793a3773cf27ac4684f794904
+  darwin_amd64: 1dd3c6edc2ac8b09944f66a93a0cd3bad09afda8c0ae03cd6880a4aa62996789
+  linux_amd64: a9195f0deda2f2ec4a6a9863275299136388eccfab23b6d46d682eca7e773591
+  linux_arm64: 0acf954601f5908c4fb4f2488b46f84abbed2759b8189eb237823a80c79adcea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmpdclient

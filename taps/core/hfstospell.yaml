@@ -1,0 +1,22 @@
+name: hfstospell
+version: 0.5.4
+description: Helsinki Finite-State Technology ospell
+homepage: https://hfst.github.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hfstospell/blobs/sha256:dd84297fca2dd33dcec237d5d54d0e45f52fcaf64e8d6e6b27695a7e0558825c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hfstospell/blobs/sha256:d5530f8b220068236908e9776a9535978878e230067c4fe7f8bc30d633cf99d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hfstospell/blobs/sha256:12e6440c7359b04a940556dfe100c181600a5832b01fed8c00c54693b5bc9c35
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hfstospell/blobs/sha256:8776bf8a9d43167fb8a09581a8b0870b2d7b3ac2061eba88d004c65274dfcb2b
+sha256:
+  darwin_arm64: dd84297fca2dd33dcec237d5d54d0e45f52fcaf64e8d6e6b27695a7e0558825c
+  darwin_amd64: d5530f8b220068236908e9776a9535978878e230067c4fe7f8bc30d633cf99d2
+  linux_amd64: 12e6440c7359b04a940556dfe100c181600a5832b01fed8c00c54693b5bc9c35
+  linux_arm64: 8776bf8a9d43167fb8a09581a8b0870b2d7b3ac2061eba88d004c65274dfcb2b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - libarchive

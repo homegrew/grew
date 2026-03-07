@@ -1,0 +1,21 @@
+name: itpp
+version: 4.3.1
+description: Library of math, signal, and communication classes and functions
+homepage: https://itpp.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/itpp/blobs/sha256:81d0b47a818e674b72ddec4f61ab65989c8ed629d9804d58afb01a1d615a8c09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/itpp/blobs/sha256:72a33b48a02269658ea8ac820b621d6c4c3a6e3192a739ab816cac68dfd5d746
+  linux_amd64: https://ghcr.io/v2/homebrew/core/itpp/blobs/sha256:804cfd8e327183c284a6018f22613896b1876aa2b5fffe99e7ecd594d6f4b006
+  linux_arm64: https://ghcr.io/v2/homebrew/core/itpp/blobs/sha256:9537b4762ac42062b61e93b08eca2bbd875fcbf1a5defe17a6a83b192ce409e7
+sha256:
+  darwin_arm64: 81d0b47a818e674b72ddec4f61ab65989c8ed629d9804d58afb01a1d615a8c09
+  darwin_amd64: 72a33b48a02269658ea8ac820b621d6c4c3a6e3192a739ab816cac68dfd5d746
+  linux_amd64: 804cfd8e327183c284a6018f22613896b1876aa2b5fffe99e7ecd594d6f4b006
+  linux_arm64: 9537b4762ac42062b61e93b08eca2bbd875fcbf1a5defe17a6a83b192ce409e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw

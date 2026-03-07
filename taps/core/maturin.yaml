@@ -1,0 +1,21 @@
+name: maturin
+version: 1.12.6
+description: Build and publish Rust crates as Python packages
+homepage: https://github.com/PyO3/maturin
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/maturin/blobs/sha256:9360fb507e5aa72dffaabc0d33aad003f7eb95362f6020a595c01c57de963105
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/maturin/blobs/sha256:4bcd43b3bb25296785e57ef41db3670e8b70bccc374a8f48ccb9b21a3c22a931
+  linux_amd64: https://ghcr.io/v2/homebrew/core/maturin/blobs/sha256:a0585ba62e439aed2513f92b1436c4ec80ac47b42cbded375023026049b5c8d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/maturin/blobs/sha256:e37298867b85609b5068fb7936c5e6a5d35f4b809ba9d536d681e8ce8dd2fbad
+sha256:
+  darwin_arm64: 9360fb507e5aa72dffaabc0d33aad003f7eb95362f6020a595c01c57de963105
+  darwin_amd64: 4bcd43b3bb25296785e57ef41db3670e8b70bccc374a8f48ccb9b21a3c22a931
+  linux_amd64: a0585ba62e439aed2513f92b1436c4ec80ac47b42cbded375023026049b5c8d9
+  linux_arm64: e37298867b85609b5068fb7936c5e6a5d35f4b809ba9d536d681e8ce8dd2fbad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

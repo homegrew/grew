@@ -1,0 +1,19 @@
+name: exempi
+version: 2.6.6
+description: Library to parse XMP metadata
+homepage: https://libopenraw.freedesktop.org/exempi/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exempi/blobs/sha256:f9404d65e273a1db86e861cf3cec91b90d84e6f9cf730b16be039e7e9e9fd9f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exempi/blobs/sha256:65bc8dfd34b2c7b532169e0fbb76a26b336a4f1df99047c9ecfb1c2d25807c3f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exempi/blobs/sha256:6abf2c8aca5a4756a7fa4514260d7fbe7efc715550ea806eaf9c1290cde06f73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exempi/blobs/sha256:b1fb6ef14d4db41974af4a667624c9222ac33f7fbb7c046d636fc324da4d2aff
+sha256:
+  darwin_arm64: f9404d65e273a1db86e861cf3cec91b90d84e6f9cf730b16be039e7e9e9fd9f7
+  darwin_amd64: 65bc8dfd34b2c7b532169e0fbb76a26b336a4f1df99047c9ecfb1c2d25807c3f
+  linux_amd64: 6abf2c8aca5a4756a7fa4514260d7fbe7efc715550ea806eaf9c1290cde06f73
+  linux_arm64: b1fb6ef14d4db41974af4a667624c9222ac33f7fbb7c046d636fc324da4d2aff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

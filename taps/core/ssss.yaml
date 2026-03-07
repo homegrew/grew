@@ -1,0 +1,22 @@
+name: ssss
+version: 0.5
+description: "Shamir's secret sharing scheme implementation"
+homepage: http://point-at-infinity.org/ssss/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssss/blobs/sha256:55d52ba91f9417c0fac93458bad42528c79b31f96c718f8d0ffeb614196344a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssss/blobs/sha256:afb9b9b92d41a40b64177bff47515842936549fe3309e4798a68435df813f322
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssss/blobs/sha256:74cef70f4478596824e7ecdb1356b650c6d03e1bd4bcf8202822622c16faf6b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssss/blobs/sha256:7b17a59f64cafbf6650d62aa354f65ff5971353ac0aa105652be34b091dca140
+sha256:
+  darwin_arm64: 55d52ba91f9417c0fac93458bad42528c79b31f96c718f8d0ffeb614196344a7
+  darwin_amd64: afb9b9b92d41a40b64177bff47515842936549fe3309e4798a68435df813f322
+  linux_amd64: 74cef70f4478596824e7ecdb1356b650c6d03e1bd4bcf8202822622c16faf6b2
+  linux_arm64: 7b17a59f64cafbf6650d62aa354f65ff5971353ac0aa105652be34b091dca140
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - xmltoman

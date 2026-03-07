@@ -1,0 +1,21 @@
+name: mlton
+version: 20241230
+description: Whole-program, optimizing compiler for Standard ML
+homepage: http://mlton.org
+license: HPND
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mlton/blobs/sha256:6f47a554a7b7d3cdf4a05db0c0c0018ddde8a352d6701834cd009a9afa4ea2d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mlton/blobs/sha256:6d43cf4850c6254329c6a4c1ee06f6e860bf133fca2772eac31c9d8f9e1645dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mlton/blobs/sha256:ed7629b2e4edf19250fc7c6311fbf582b2f8b63658b3e8dd37083ceb98c8a801
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mlton/blobs/sha256:8d7c7205060e030f40a39f4eb83ca2a24a177bba7fddfa929222ec287251eddd
+sha256:
+  darwin_arm64: 6f47a554a7b7d3cdf4a05db0c0c0018ddde8a352d6701834cd009a9afa4ea2d8
+  darwin_amd64: 6d43cf4850c6254329c6a4c1ee06f6e860bf133fca2772eac31c9d8f9e1645dd
+  linux_amd64: ed7629b2e4edf19250fc7c6311fbf582b2f8b63658b3e8dd37083ceb98c8a801
+  linux_arm64: 8d7c7205060e030f40a39f4eb83ca2a24a177bba7fddfa929222ec287251eddd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

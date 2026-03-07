@@ -1,0 +1,19 @@
+name: dnote
+version: 0.16.0
+description: Simple command-line notebook
+homepage: https://www.getdnote.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnote/blobs/sha256:9f637f4ab476f78b3958461227122f698b0f11f7ea63b24db9e58c3c766b075e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnote/blobs/sha256:55ef785d358763e6266ad5d5d806cd7bd115b25841b5d161537881babc60f91b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnote/blobs/sha256:f51a5368322863db842812dde4cd9ddc1db22feecf5fc7c937012c40155c28dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnote/blobs/sha256:9f11ba266b712e74a4a06caccd74592e975eba3e8157e88ed64bd0e228ade1e3
+sha256:
+  darwin_arm64: 9f637f4ab476f78b3958461227122f698b0f11f7ea63b24db9e58c3c766b075e
+  darwin_amd64: 55ef785d358763e6266ad5d5d806cd7bd115b25841b5d161537881babc60f91b
+  linux_amd64: f51a5368322863db842812dde4cd9ddc1db22feecf5fc7c937012c40155c28dd
+  linux_arm64: 9f11ba266b712e74a4a06caccd74592e975eba3e8157e88ed64bd0e228ade1e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

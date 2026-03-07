@@ -1,0 +1,21 @@
+name: tailwindcss-language-server
+version: 0.14.29
+description: LSP for TailwindCSS
+homepage: https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tailwindcss-language-server/blobs/sha256:b1851593616dfc24f7d20fad69d25478fe3628dd23a5a046aa0d219300265998
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tailwindcss-language-server/blobs/sha256:b1851593616dfc24f7d20fad69d25478fe3628dd23a5a046aa0d219300265998
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tailwindcss-language-server/blobs/sha256:feaa7ab8e63b03b7d9294fde0183f0e297f0bdb7039e862c245635a7f197dd16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tailwindcss-language-server/blobs/sha256:feaa7ab8e63b03b7d9294fde0183f0e297f0bdb7039e862c245635a7f197dd16
+sha256:
+  darwin_arm64: b1851593616dfc24f7d20fad69d25478fe3628dd23a5a046aa0d219300265998
+  darwin_amd64: b1851593616dfc24f7d20fad69d25478fe3628dd23a5a046aa0d219300265998
+  linux_amd64: feaa7ab8e63b03b7d9294fde0183f0e297f0bdb7039e862c245635a7f197dd16
+  linux_arm64: feaa7ab8e63b03b7d9294fde0183f0e297f0bdb7039e862c245635a7f197dd16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,21 @@
+name: bashdb
+version: 5.2-1.2.0
+description: Bash shell debugger
+homepage: https://bashdb.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bashdb/blobs/sha256:2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bashdb/blobs/sha256:ce33c2ad50ddabd3cbff0c1a2b6e0f9ebaf8ff28609df48fafd6d7e8e1c8962d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bashdb/blobs/sha256:2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bashdb/blobs/sha256:2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+sha256:
+  darwin_arm64: 2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+  darwin_amd64: ce33c2ad50ddabd3cbff0c1a2b6e0f9ebaf8ff28609df48fafd6d7e8e1c8962d
+  linux_amd64: 2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+  linux_arm64: 2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bash

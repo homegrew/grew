@@ -1,0 +1,19 @@
+name: rustic
+version: 0.11.1
+description: Fast, encrypted, and deduplicated backups powered by Rust
+homepage: https://rustic.cli.rs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustic/blobs/sha256:f1a6de393ea1a8c3d6c2f527e5a3a9e5f4b6865c1a098e79d6ec3c1fa93f89fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustic/blobs/sha256:be3e1e3957eee4859f1cb9350f46954fd2c666028828fb9bc0eb9d9b8432e6ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustic/blobs/sha256:c0628f4fb6a823deb7a5fe1b5631a4848fbba786e26c028d2418df52534aee2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustic/blobs/sha256:632b8038d9f6338b7bfc49c012700a01d6fdd61fdd842e71021914591f6222b6
+sha256:
+  darwin_arm64: f1a6de393ea1a8c3d6c2f527e5a3a9e5f4b6865c1a098e79d6ec3c1fa93f89fc
+  darwin_amd64: be3e1e3957eee4859f1cb9350f46954fd2c666028828fb9bc0eb9d9b8432e6ac
+  linux_amd64: c0628f4fb6a823deb7a5fe1b5631a4848fbba786e26c028d2418df52534aee2a
+  linux_arm64: 632b8038d9f6338b7bfc49c012700a01d6fdd61fdd842e71021914591f6222b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

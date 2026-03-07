@@ -1,0 +1,26 @@
+name: mysql-client@8.4
+version: 8.4.8
+description: Open source relational database management system
+homepage: https://github.com/mysql/mysql-server
+license: GPL-2.0-only WITH Universal-FOSS-exception-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mysql-client/8.4/blobs/sha256:ee47f0ba74c6ea94c43e214e89450bd07194d02acf4c19a3f578536958096d0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mysql-client/8.4/blobs/sha256:fafe52fe67573ada47c5da126feab6b7a27feb72a6150baa9e117d643527a33a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mysql-client/8.4/blobs/sha256:c25a6b36d58e833cfb5494d7314ed31ddde18f6e4c1fcae7a3a65e9ddea95285
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mysql-client/8.4/blobs/sha256:52370365ea0b1b217342060ef66a1d5a65f9e83564c9abca94d92055b756b14e
+sha256:
+  darwin_arm64: ee47f0ba74c6ea94c43e214e89450bd07194d02acf4c19a3f578536958096d0c
+  darwin_amd64: fafe52fe67573ada47c5da126feab6b7a27feb72a6150baa9e117d643527a33a
+  linux_amd64: c25a6b36d58e833cfb5494d7314ed31ddde18f6e4c1fcae7a3a65e9ddea95285
+  linux_arm64: 52370365ea0b1b217342060ef66a1d5a65f9e83564c9abca94d92055b756b14e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libfido2
+  - openssl@3
+  - zlib-ng-compat
+  - zstd
+keg_only: true

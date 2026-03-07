@@ -1,0 +1,22 @@
+name: pmix
+version: 5.0.10
+description: Process Management Interface for HPC environments
+homepage: https://openpmix.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pmix/blobs/sha256:5ae502e52b0701368cd61fd43b12f67df1c074bd2a6027bf5f1cbe1ef213817d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pmix/blobs/sha256:d93205b42ae1181cbfd0b84ee6fe6697cb60f8c6472cfffddc16c6af10f4a174
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pmix/blobs/sha256:93fd3b3e99b624b63f07fb8580d22684387aaacbcf8c3bf9a89536253b32ce09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pmix/blobs/sha256:d5c71a20e25fd1ad9d512dd40c882eef16c980a387a601e2617195913175c2b1
+sha256:
+  darwin_arm64: 5ae502e52b0701368cd61fd43b12f67df1c074bd2a6027bf5f1cbe1ef213817d
+  darwin_amd64: d93205b42ae1181cbfd0b84ee6fe6697cb60f8c6472cfffddc16c6af10f4a174
+  linux_amd64: 93fd3b3e99b624b63f07fb8580d22684387aaacbcf8c3bf9a89536253b32ce09
+  linux_arm64: d5c71a20e25fd1ad9d512dd40c882eef16c980a387a601e2617195913175c2b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hwloc
+  - libevent

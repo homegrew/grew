@@ -1,0 +1,21 @@
+name: jing-trang
+version: 20241231
+description: Schema validation and conversion based on RELAX NG
+homepage: http://www.thaiopensource.com/relaxng/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jing-trang/blobs/sha256:8615c4782772326c690705fd978dd13cd97baa9b897c3269f154405869955507
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jing-trang/blobs/sha256:073e593cac616bbae9b72dd5fbd417540b5c7019259a969965d3a0f64e567978
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jing-trang/blobs/sha256:1215b5eaf1160829b26fcb226de0a9050c40c6e29e291d6c339f7408faf900ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jing-trang/blobs/sha256:cc69a11eb46ce257e3c4e390b5f7f6e925cf6f1de2b5958016dabdd96fc57811
+sha256:
+  darwin_arm64: 8615c4782772326c690705fd978dd13cd97baa9b897c3269f154405869955507
+  darwin_amd64: 073e593cac616bbae9b72dd5fbd417540b5c7019259a969965d3a0f64e567978
+  linux_amd64: 1215b5eaf1160829b26fcb226de0a9050c40c6e29e291d6c339f7408faf900ab
+  linux_arm64: cc69a11eb46ce257e3c4e390b5f7f6e925cf6f1de2b5958016dabdd96fc57811
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

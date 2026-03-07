@@ -1,0 +1,19 @@
+name: aws-console
+version: 1.24.3
+description: Command-line to use AWS CLI credentials to launch the AWS console in a browser
+homepage: https://github.com/aws-cloudformation/rain
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-console/blobs/sha256:9d2fb3068e56b9af49e4c00557bc21382183b86b4650fedf2ddeb70b26d83240
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-console/blobs/sha256:6102d31d5fee5dd6341f1b3d511bcdb1034fbccb0b7c0a1881c12c5f537b64e2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-console/blobs/sha256:87841f67c0c336b6bcd299b59efbef9545bddc435780653795a9e0bf144638e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-console/blobs/sha256:aeb8dab79eaa20337c7da7de5336dc7c7bb0084e7c939141efdcbea33e231e2e
+sha256:
+  darwin_arm64: 9d2fb3068e56b9af49e4c00557bc21382183b86b4650fedf2ddeb70b26d83240
+  darwin_amd64: 6102d31d5fee5dd6341f1b3d511bcdb1034fbccb0b7c0a1881c12c5f537b64e2
+  linux_amd64: 87841f67c0c336b6bcd299b59efbef9545bddc435780653795a9e0bf144638e0
+  linux_arm64: aeb8dab79eaa20337c7da7de5336dc7c7bb0084e7c939141efdcbea33e231e2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

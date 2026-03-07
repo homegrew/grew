@@ -1,0 +1,19 @@
+name: geesefs
+version: 0.43.5
+description: FUSE FS implementation over S3
+homepage: https://github.com/yandex-cloud/geesefs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geesefs/blobs/sha256:7e31f7849b96b9ba604d69570a31d6e4f71defa4834611701a6d222a916e3f91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geesefs/blobs/sha256:62f92419fa6f16eb22765bf270ccb1eb40abea1a161ea775d9aba0388c121f73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geesefs/blobs/sha256:b3681fb383753925bdad905b8bc65c942441d1fbb56ee6f6882a2e7b9ef39baf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geesefs/blobs/sha256:7be4f2794c34e2c0236b0f06e280d956181c863fa0bcfcd3b66cc244fabeb7b4
+sha256:
+  darwin_arm64: 7e31f7849b96b9ba604d69570a31d6e4f71defa4834611701a6d222a916e3f91
+  darwin_amd64: 62f92419fa6f16eb22765bf270ccb1eb40abea1a161ea775d9aba0388c121f73
+  linux_amd64: b3681fb383753925bdad905b8bc65c942441d1fbb56ee6f6882a2e7b9ef39baf
+  linux_arm64: 7be4f2794c34e2c0236b0f06e280d956181c863fa0bcfcd3b66cc244fabeb7b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

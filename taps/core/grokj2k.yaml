@@ -1,0 +1,27 @@
+name: grokj2k
+version: 20.0.5
+description: JPEG 2000 Library
+homepage: https://github.com/GrokImageCompression/grok
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grokj2k/blobs/sha256:f3b758457d20893413e27e63a88f2ba85d53d54272279e05726d47e903efada6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grokj2k/blobs/sha256:ec278adc4c3d7d39aecf470d56510ef442f7ff2b5920b7584ce374ff7b133b48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grokj2k/blobs/sha256:d92e63e83ae6b91f7d7e6640a2e1abe6ee395b6bb245cb2460cab22289415d90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grokj2k/blobs/sha256:a7b29c0eb02a278f0521617aac47a2f02c6f62291e2febbf064f605f18760cfc
+sha256:
+  darwin_arm64: f3b758457d20893413e27e63a88f2ba85d53d54272279e05726d47e903efada6
+  darwin_amd64: ec278adc4c3d7d39aecf470d56510ef442f7ff2b5920b7584ce374ff7b133b48
+  linux_amd64: d92e63e83ae6b91f7d7e6640a2e1abe6ee395b6bb245cb2460cab22289415d90
+  linux_arm64: a7b29c0eb02a278f0521617aac47a2f02c6f62291e2febbf064f605f18760cfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - exiftool
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - little-cms2
+  - xz
+  - zstd

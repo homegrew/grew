@@ -1,0 +1,19 @@
+name: miniflux
+version: 2.2.17
+description: Minimalist and opinionated feed reader
+homepage: https://miniflux.app
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/miniflux/blobs/sha256:30b90cdd56f930cf376c0358c71dbe858bc546718718dbc3b0cc018d69dc24b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/miniflux/blobs/sha256:b5f18d20e0d7cb1131413c601b8afc9a37aac96014ed937bd6499aa09b963faf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/miniflux/blobs/sha256:4539765daf20c6e77048430702ec309dcec7fd712971afa654830c5990040c86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/miniflux/blobs/sha256:71831293ea409bdb7d743f7e7844837e750cb4fd2364d8b546392594e1ff6418
+sha256:
+  darwin_arm64: 30b90cdd56f930cf376c0358c71dbe858bc546718718dbc3b0cc018d69dc24b5
+  darwin_amd64: b5f18d20e0d7cb1131413c601b8afc9a37aac96014ed937bd6499aa09b963faf
+  linux_amd64: 4539765daf20c6e77048430702ec309dcec7fd712971afa654830c5990040c86
+  linux_arm64: 71831293ea409bdb7d743f7e7844837e750cb4fd2364d8b546392594e1ff6418
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

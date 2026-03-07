@@ -1,0 +1,21 @@
+name: pgroonga
+version: 4.0.5
+description: PostgreSQL plugin to use Groonga as index
+homepage: https://pgroonga.github.io/
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgroonga/blobs/sha256:a2f47f7e90efb15b9f07a65039b8da6928ba54f2fc9de435bc9a7528970beafd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgroonga/blobs/sha256:a37d21569aec5730eb2b83c5d78a4a26077ca44d15ff028081e515c21081c292
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgroonga/blobs/sha256:60269dc50f4ea28b4e35c57e0b560cbc4537d7b39774f201a57b4e8523793c8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgroonga/blobs/sha256:56b3138d9ff12939d75e17a1d7425d50a259f5048b6330116bcbf7a3df166c04
+sha256:
+  darwin_arm64: a2f47f7e90efb15b9f07a65039b8da6928ba54f2fc9de435bc9a7528970beafd
+  darwin_amd64: a37d21569aec5730eb2b83c5d78a4a26077ca44d15ff028081e515c21081c292
+  linux_amd64: 60269dc50f4ea28b4e35c57e0b560cbc4537d7b39774f201a57b4e8523793c8c
+  linux_arm64: 56b3138d9ff12939d75e17a1d7425d50a259f5048b6330116bcbf7a3df166c04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - groonga

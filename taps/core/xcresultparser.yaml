@@ -1,0 +1,15 @@
+name: xcresultparser
+version: 1.9.4
+description: Parse binary .xcresult bundles from Xcode builds and test runs
+homepage: https://github.com/a7ex/xcresultparser
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcresultparser/blobs/sha256:b0cdd90b56d58e1ec9b1e8ba98683309b9e443f08a434660416413fc5ebeef6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcresultparser/blobs/sha256:5a7181f5591f00d90252c29c0733370ad033fb0ef2780313c1932fb41f7bd290
+sha256:
+  darwin_arm64: b0cdd90b56d58e1ec9b1e8ba98683309b9e443f08a434660416413fc5ebeef6c
+  darwin_amd64: 5a7181f5591f00d90252c29c0733370ad033fb0ef2780313c1932fb41f7bd290
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

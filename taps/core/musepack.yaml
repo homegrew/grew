@@ -1,0 +1,22 @@
+name: musepack
+version: r475
+description: Audio compression format and tools
+homepage: https://www.musepack.net/
+license: BSD-3-Clause AND LGPL-2.1-or-later AND GPL-2.0-or-later AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/musepack/blobs/sha256:545fb3f5f74e2fc5acbbbfbad61b0dfb6c261cd7dbd26f998c1931c939086bd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/musepack/blobs/sha256:6a7652681b271cbcffdd9ac69f7394ee9c51460bc2efaca5ed684913b1b22199
+  linux_amd64: https://ghcr.io/v2/homebrew/core/musepack/blobs/sha256:a0d6143e42529aa943d6bd1ecebf0e1d0c85576eaab847692c9588a37a0ce1f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/musepack/blobs/sha256:0e70b9117f455bbd6f17bd6d2467c18f55067b51933a71b15b07b713c30687ac
+sha256:
+  darwin_arm64: 545fb3f5f74e2fc5acbbbfbad61b0dfb6c261cd7dbd26f998c1931c939086bd0
+  darwin_amd64: 6a7652681b271cbcffdd9ac69f7394ee9c51460bc2efaca5ed684913b1b22199
+  linux_amd64: a0d6143e42529aa943d6bd1ecebf0e1d0c85576eaab847692c9588a37a0ce1f7
+  linux_arm64: 0e70b9117f455bbd6f17bd6d2467c18f55067b51933a71b15b07b713c30687ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libcuefile
+  - libreplaygain

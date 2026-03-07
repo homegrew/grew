@@ -1,0 +1,31 @@
+name: ntopng
+version: 6.6
+description: Next generation version of the original ntop
+homepage: https://www.ntop.org/products/traffic-analysis/ntop/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ntopng/blobs/sha256:ad21a48529fb2d9342fae2ccd7917ea2ec48db11f39f1502b295a08d0014ab0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ntopng/blobs/sha256:70de138eb5a6b07cc28c555f784011e9c423cb61b0758ee24440f68debb8af8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ntopng/blobs/sha256:94c2efe3b6277a3f4942865476a329ae413a58c73047a9faed559344a9103654
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ntopng/blobs/sha256:febfe7fde846b678bcfd8f2aefeea4d807315d4a490cb9e8daee9ae34f6c7792
+sha256:
+  darwin_arm64: ad21a48529fb2d9342fae2ccd7917ea2ec48db11f39f1502b295a08d0014ab0c
+  darwin_amd64: 70de138eb5a6b07cc28c555f784011e9c423cb61b0758ee24440f68debb8af8f
+  linux_amd64: 94c2efe3b6277a3f4942865476a329ae413a58c73047a9faed559344a9103654
+  linux_arm64: febfe7fde846b678bcfd8f2aefeea4d807315d4a490cb9e8daee9ae34f6c7792
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hiredis
+  - json-c
+  - libmaxminddb
+  - libsodium
+  - mariadb-connector-c
+  - ndpi
+  - openssl@3
+  - rrdtool
+  - sqlite
+  - zeromq
+  - zstd

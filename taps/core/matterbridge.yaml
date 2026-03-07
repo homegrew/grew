@@ -1,0 +1,19 @@
+name: matterbridge
+version: 1.26.0
+description: Protocol bridge for multiple chat platforms
+homepage: https://github.com/42wim/matterbridge
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/matterbridge/blobs/sha256:5a41074e2c3eba976b8142b0f764732da7d5551396085b7b40ac5d62b5f1fd0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/matterbridge/blobs/sha256:0960b69b396c9439377a0f9e93bb0e69ff2af2be14deed3f50c38600e756f5d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/matterbridge/blobs/sha256:4b90de5cbda5865e1150bdc823dd02bf4eaaa9358fc85de873e983b576ff5f34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/matterbridge/blobs/sha256:e4aee8a1f75042ffafe421f8a228217ecf68b54c01499ea75db77495316b81e0
+sha256:
+  darwin_arm64: 5a41074e2c3eba976b8142b0f764732da7d5551396085b7b40ac5d62b5f1fd0d
+  darwin_amd64: 0960b69b396c9439377a0f9e93bb0e69ff2af2be14deed3f50c38600e756f5d9
+  linux_amd64: 4b90de5cbda5865e1150bdc823dd02bf4eaaa9358fc85de873e983b576ff5f34
+  linux_arm64: e4aee8a1f75042ffafe421f8a228217ecf68b54c01499ea75db77495316b81e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

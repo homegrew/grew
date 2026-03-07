@@ -1,0 +1,24 @@
+name: litecli
+version: 1.17.1
+description: CLI for SQLite Databases with auto-completion and syntax highlighting
+homepage: https://github.com/dbcli/litecli
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/litecli/blobs/sha256:d09527a75ebc37b768e5a24f7dcfe560fb55744b085bebcb587f3c80ce23966c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/litecli/blobs/sha256:c9d722db2165c56d7ba2e767ec5367ea4313b74c47562074e421b3754e8edfbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/litecli/blobs/sha256:a1ba22c40747a36d8078d09271bb3b7e345b1a5217707259e92510bded47a922
+  linux_arm64: https://ghcr.io/v2/homebrew/core/litecli/blobs/sha256:99c31c21b00cd7003ce6e63b40c0a0b79463d383897968fc57185d94c0d4673e
+sha256:
+  darwin_arm64: d09527a75ebc37b768e5a24f7dcfe560fb55744b085bebcb587f3c80ce23966c
+  darwin_amd64: c9d722db2165c56d7ba2e767ec5367ea4313b74c47562074e421b3754e8edfbc
+  linux_amd64: a1ba22c40747a36d8078d09271bb3b7e345b1a5217707259e92510bded47a922
+  linux_arm64: 99c31c21b00cd7003ce6e63b40c0a0b79463d383897968fc57185d94c0d4673e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14

@@ -1,0 +1,19 @@
+name: cheat
+version: 5.1.0
+description: "Create and view interactive cheat sheets for *nix commands"
+homepage: https://github.com/cheat/cheat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cheat/blobs/sha256:77143bff0b89d1b3cb6c881294a35500e9a6dc9dd735d7f38ad15542f91a49a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cheat/blobs/sha256:7fe124e0d74005a57908f8753bdd402510bcbe1215e15b30020793ea86287bc6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cheat/blobs/sha256:53c661bccbc4bf58a94f831b4d0c766254fe83eb1fd86b2030b47b33a4a81155
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cheat/blobs/sha256:b75f7b7e610b58eae3599f2db4570aa3e10a7ac54c71e4e203ff599b3583e006
+sha256:
+  darwin_arm64: 77143bff0b89d1b3cb6c881294a35500e9a6dc9dd735d7f38ad15542f91a49a9
+  darwin_amd64: 7fe124e0d74005a57908f8753bdd402510bcbe1215e15b30020793ea86287bc6
+  linux_amd64: 53c661bccbc4bf58a94f831b4d0c766254fe83eb1fd86b2030b47b33a4a81155
+  linux_arm64: b75f7b7e610b58eae3599f2db4570aa3e10a7ac54c71e4e203ff599b3583e006
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

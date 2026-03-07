@@ -1,0 +1,19 @@
+name: lacework-cli
+version: 2.10.0
+description: CLI for managing Lacework
+homepage: https://docs.lacework.com/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lacework-cli/blobs/sha256:638af4c6da8b2531c0dfc87408298fa224b1049d0f0995c8e24018ad51d1fba1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lacework-cli/blobs/sha256:4075e5791e4c938ce23592ed6631ea9eb02b573d1d2a2961d9010ff7784f40f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lacework-cli/blobs/sha256:e8d23930fb2378e73300f504bab1f344a79b4cb954b69813be6a38390e789ba6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lacework-cli/blobs/sha256:52f465e2ccfa430a8480307b9112ea6369b6525813498665f562d2a4fa2b9b3f
+sha256:
+  darwin_arm64: 638af4c6da8b2531c0dfc87408298fa224b1049d0f0995c8e24018ad51d1fba1
+  darwin_amd64: 4075e5791e4c938ce23592ed6631ea9eb02b573d1d2a2961d9010ff7784f40f1
+  linux_amd64: e8d23930fb2378e73300f504bab1f344a79b4cb954b69813be6a38390e789ba6
+  linux_arm64: 52f465e2ccfa430a8480307b9112ea6369b6525813498665f562d2a4fa2b9b3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: bkcrack
+version: 1.8.1
+description: "Crack legacy zip encryption with Biham and Kocher's known plaintext attack"
+homepage: https://github.com/kimci86/bkcrack
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bkcrack/blobs/sha256:f1e3072a7939eced9fa14731cd317886d42495018642b18fa1759efb759de3b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bkcrack/blobs/sha256:8123340e60ab3ec3f3876831311f1f5f915ac9e1e753cf45ac9a3a8947c89e62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bkcrack/blobs/sha256:8b5b5e60a8ab8173b6ac1c6058a39f8cb118e2fc4c1b7de1b9bd896394d1b109
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bkcrack/blobs/sha256:7f6437c1bc9e24a70cff2fb2e75e44314f3b4cf17f82880fc1c342ed99f4bf19
+sha256:
+  darwin_arm64: f1e3072a7939eced9fa14731cd317886d42495018642b18fa1759efb759de3b9
+  darwin_amd64: 8123340e60ab3ec3f3876831311f1f5f915ac9e1e753cf45ac9a3a8947c89e62
+  linux_amd64: 8b5b5e60a8ab8173b6ac1c6058a39f8cb118e2fc4c1b7de1b9bd896394d1b109
+  linux_arm64: 7f6437c1bc9e24a70cff2fb2e75e44314f3b4cf17f82880fc1c342ed99f4bf19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

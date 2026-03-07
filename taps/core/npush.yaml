@@ -1,0 +1,19 @@
+name: npush
+version: 0.7
+description: Logic game similar to Sokoban and Boulder Dash
+homepage: https://npush.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/npush/blobs/sha256:43a5b01bbdaac0c5112a4a7b61e737534968dada416f3ab6fe47b4ad907a1eff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/npush/blobs/sha256:351248c804fc342573641fe453f90b6e768d8bda8376eaeee18b3a7e169b6bcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/npush/blobs/sha256:e0f8e3339f262c42ed5d697817a274e292bdd647d5a6410f71d9a9752f044047
+  linux_arm64: https://ghcr.io/v2/homebrew/core/npush/blobs/sha256:a2c260b48759fbd27ca1ea3c6bbfe102de40fb4755cd3fc88f03e6a27e2aa236
+sha256:
+  darwin_arm64: 43a5b01bbdaac0c5112a4a7b61e737534968dada416f3ab6fe47b4ad907a1eff
+  darwin_amd64: 351248c804fc342573641fe453f90b6e768d8bda8376eaeee18b3a7e169b6bcf
+  linux_amd64: e0f8e3339f262c42ed5d697817a274e292bdd647d5a6410f71d9a9752f044047
+  linux_arm64: a2c260b48759fbd27ca1ea3c6bbfe102de40fb4755cd3fc88f03e6a27e2aa236
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

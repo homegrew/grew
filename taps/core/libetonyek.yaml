@@ -1,0 +1,21 @@
+name: libetonyek
+version: 0.1.13
+description: Interpret and import Apple Keynote presentations
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libetonyek
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libetonyek/blobs/sha256:15e4106e5a95482d49ca870517bb9ec974028d31b4e6ad71b82b7bfdbf637816
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libetonyek/blobs/sha256:af39f35143e4fcfc2e82eb18a96c5c02957fada39033d52324ff5edbb4944efe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libetonyek/blobs/sha256:b2983d0f4f6f8037ab0ec443afe5527759cb94342d60d26442b776f7c2c8e7a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libetonyek/blobs/sha256:43d455ef90f218ca763f9821d4798b9cd09c4e9d699436c4764719646e805cdf
+sha256:
+  darwin_arm64: 15e4106e5a95482d49ca870517bb9ec974028d31b4e6ad71b82b7bfdbf637816
+  darwin_amd64: af39f35143e4fcfc2e82eb18a96c5c02957fada39033d52324ff5edbb4944efe
+  linux_amd64: b2983d0f4f6f8037ab0ec443afe5527759cb94342d60d26442b776f7c2c8e7a1
+  linux_arm64: 43d455ef90f218ca763f9821d4798b9cd09c4e9d699436c4764719646e805cdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge

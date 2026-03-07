@@ -1,0 +1,19 @@
+name: helmify
+version: 0.4.19
+description: Create Helm chart from Kubernetes yaml
+homepage: https://github.com/arttor/helmify
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helmify/blobs/sha256:17e7489c80e3820f0dd456260f83b29abb95cc7684eb74dfc9c72892d918290a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helmify/blobs/sha256:9cd19644c74e50e066676ee9d00ae93d6a524a6e5e71acf0ac43b1f687721c56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helmify/blobs/sha256:3b9274e1af015e3bbacde8a4bb7bdceab4712ba9a9405834407c1308e29bd09a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helmify/blobs/sha256:a3835eb3ce418633949cc359652f8d645c2d0e7a910d3287627b82c88dcf0bce
+sha256:
+  darwin_arm64: 17e7489c80e3820f0dd456260f83b29abb95cc7684eb74dfc9c72892d918290a
+  darwin_amd64: 9cd19644c74e50e066676ee9d00ae93d6a524a6e5e71acf0ac43b1f687721c56
+  linux_amd64: 3b9274e1af015e3bbacde8a4bb7bdceab4712ba9a9405834407c1308e29bd09a
+  linux_arm64: a3835eb3ce418633949cc359652f8d645c2d0e7a910d3287627b82c88dcf0bce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

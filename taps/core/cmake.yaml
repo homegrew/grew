@@ -1,0 +1,19 @@
+name: cmake
+version: 4.2.3
+description: Cross-platform make
+homepage: https://www.cmake.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:ec220979dcce6f31e51f2c91ea1add28d60f0a9607a61641f279115f27216035
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:a8c446217cb2b06087c0764a2de9f40fd3bd9c57163fdbb22fdee738c7545e50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:9b94ff7d2b35b1b560c7752d7ff6b634bd2911aa15f925609d0f0814a1b418a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:139bf32b518db003c7a25f6f29e25e7371f3aa022605b5bb2e23a94074d9f425
+sha256:
+  darwin_arm64: ec220979dcce6f31e51f2c91ea1add28d60f0a9607a61641f279115f27216035
+  darwin_amd64: a8c446217cb2b06087c0764a2de9f40fd3bd9c57163fdbb22fdee738c7545e50
+  linux_amd64: 9b94ff7d2b35b1b560c7752d7ff6b634bd2911aa15f925609d0f0814a1b418a9
+  linux_arm64: 139bf32b518db003c7a25f6f29e25e7371f3aa022605b5bb2e23a94074d9f425
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

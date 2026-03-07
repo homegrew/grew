@@ -1,0 +1,19 @@
+name: ls-hpack
+version: 2.3.4
+description: HTTP/2 HPACK header compression library
+homepage: https://github.com/litespeedtech/ls-hpack
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ls-hpack/blobs/sha256:1f91663e7b38b1f45409a01931768ffdb3bc2c51718213bdfdaa71b2eb0a2358
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ls-hpack/blobs/sha256:311fc1dc37b213162568e624a2b80142023fbce581443f4245b0d2c83b388d2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ls-hpack/blobs/sha256:f6edeb50e88418f23113ed87ebfc7e39d834f718e2c379750869e60d2cb7bf7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ls-hpack/blobs/sha256:cb97b47e4d51ebc3e308a82d206d8d7e1763be91b2a351619b09093def373860
+sha256:
+  darwin_arm64: 1f91663e7b38b1f45409a01931768ffdb3bc2c51718213bdfdaa71b2eb0a2358
+  darwin_amd64: 311fc1dc37b213162568e624a2b80142023fbce581443f4245b0d2c83b388d2e
+  linux_amd64: f6edeb50e88418f23113ed87ebfc7e39d834f718e2c379750869e60d2cb7bf7f
+  linux_arm64: cb97b47e4d51ebc3e308a82d206d8d7e1763be91b2a351619b09093def373860
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

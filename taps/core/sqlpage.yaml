@@ -1,0 +1,21 @@
+name: sqlpage
+version: 0.42.0
+description: Web app builder using SQL queries to create dynamic webapps quickly
+homepage: https://sql-page.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlpage/blobs/sha256:81794c5a53d80246d8200391e85519dad26903b92a9bd102b729a4e753f55cbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlpage/blobs/sha256:20979861bb6ed73967141d3f6b102e6cf73cab80ab7cd7f03ada8f76e084049b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlpage/blobs/sha256:13ff127930824305e30105e8c1c3d892b91d7333a5561787b096cb3bb0d83d13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlpage/blobs/sha256:6587be5ea69b037caa94745a280e7215245999b179d64724e7e878925dcd1bfa
+sha256:
+  darwin_arm64: 81794c5a53d80246d8200391e85519dad26903b92a9bd102b729a4e753f55cbf
+  darwin_amd64: 20979861bb6ed73967141d3f6b102e6cf73cab80ab7cd7f03ada8f76e084049b
+  linux_amd64: 13ff127930824305e30105e8c1c3d892b91d7333a5561787b096cb3bb0d83d13
+  linux_arm64: 6587be5ea69b037caa94745a280e7215245999b179d64724e7e878925dcd1bfa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - unixodbc

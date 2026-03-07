@@ -1,0 +1,21 @@
+name: cargo-clone
+version: 1.2.4
+description: Cargo subcommand to fetch the source code of a Rust crate
+homepage: https://github.com/JanLikar/cargo-clone
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-clone/blobs/sha256:c4b544b37b9b657f7f9e9b5f50c8abea0644c9fd5df85cfb10fef27737b3c9df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-clone/blobs/sha256:ac4cdb2157e0900e10ae7654549ea3e94563bd2fad05e73306044418ba16ee98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-clone/blobs/sha256:43fe9543e5d0f96866f232b945c9524e4d516c41ef049f1aa39ffb6fe1ae8bfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-clone/blobs/sha256:4f91abbdb2155fc427a28a51d9fc630fcc3fadb4aa75f3f2ce28f56c802679a6
+sha256:
+  darwin_arm64: c4b544b37b9b657f7f9e9b5f50c8abea0644c9fd5df85cfb10fef27737b3c9df
+  darwin_amd64: ac4cdb2157e0900e10ae7654549ea3e94563bd2fad05e73306044418ba16ee98
+  linux_amd64: 43fe9543e5d0f96866f232b945c9524e4d516c41ef049f1aa39ffb6fe1ae8bfc
+  linux_arm64: 4f91abbdb2155fc427a28a51d9fc630fcc3fadb4aa75f3f2ce28f56c802679a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

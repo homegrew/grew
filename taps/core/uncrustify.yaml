@@ -1,0 +1,19 @@
+name: uncrustify
+version: 0.82.0
+description: Source code beautifier
+homepage: https://uncrustify.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uncrustify/blobs/sha256:d2147d198e4aa63bd7765b2bb793c62b99396db991cd1200136953042a4e9996
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uncrustify/blobs/sha256:9452de45814ca613f1fd5497e356ed7ebf151e27892e899dd2de997b409ef5d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uncrustify/blobs/sha256:b069a15ffe6e93dcf3d6a7e1a8dbe108e7599c494ae9d67ddc3d64c1add0e898
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uncrustify/blobs/sha256:f77747fb27d76a15d3a9eae89e5ebaf02cad3890f21a3bc7cd82865dcff2befc
+sha256:
+  darwin_arm64: d2147d198e4aa63bd7765b2bb793c62b99396db991cd1200136953042a4e9996
+  darwin_amd64: 9452de45814ca613f1fd5497e356ed7ebf151e27892e899dd2de997b409ef5d3
+  linux_amd64: b069a15ffe6e93dcf3d6a7e1a8dbe108e7599c494ae9d67ddc3d64c1add0e898
+  linux_arm64: f77747fb27d76a15d3a9eae89e5ebaf02cad3890f21a3bc7cd82865dcff2befc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

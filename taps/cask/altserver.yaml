@@ -1,0 +1,11 @@
+name: altserver
+version: 1.7.2
+description: iOS App Store alternative
+homepage: https://altstore.io/
+url:
+  darwin_arm64: https://cdn.altstore.io/file/altstore/altserver/1_7_2.zip
+sha256:
+  darwin_arm64: e089ee6c9288e9097e3570839421226a4c467ce29817bbc5c84eb13f3c24b076
+artifacts:
+  app:
+    - AltServer.app

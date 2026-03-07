@@ -1,0 +1,21 @@
+name: mikmod
+version: 3.2.9
+description: Portable tracked music player
+homepage: https://mikmod.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mikmod/blobs/sha256:a5da0692a2e6e0197f5c349ee900ff9850fc7222e4b15e3d9a08f76d86682c06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mikmod/blobs/sha256:5f51f1fc55de88f9083ab08d701523d68ca1675c0c27f8fab6dd1012afc1551c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mikmod/blobs/sha256:0ac9b85e2c8c107a3d9d59f8ba8a3e6b316de1b1b28b30f4f2883377d10917e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mikmod/blobs/sha256:f3c8a4dc7f13aa55e8e613cb91f440ecf23316a250e4e6a1773a4c409fb1b00b
+sha256:
+  darwin_arm64: a5da0692a2e6e0197f5c349ee900ff9850fc7222e4b15e3d9a08f76d86682c06
+  darwin_amd64: 5f51f1fc55de88f9083ab08d701523d68ca1675c0c27f8fab6dd1012afc1551c
+  linux_amd64: 0ac9b85e2c8c107a3d9d59f8ba8a3e6b316de1b1b28b30f4f2883377d10917e4
+  linux_arm64: f3c8a4dc7f13aa55e8e613cb91f440ecf23316a250e4e6a1773a4c409fb1b00b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmikmod

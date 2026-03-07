@@ -1,0 +1,11 @@
+name: miktex-console
+version: 22.1
+description: TeX distribution
+homepage: https://miktex.org/
+url:
+  darwin_arm64: https://miktex.org/download/ctan/systems/win32/miktex/setup/darwin-x86_64/miktex-22.1-darwin-x86_64.dmg
+sha256:
+  darwin_arm64: a5b531a60fc51c1f01c1af46bf859863c6974ef8d71213e476642acb788a4e4f
+artifacts:
+  app:
+    - MiKTeX Console.app

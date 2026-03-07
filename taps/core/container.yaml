@@ -1,0 +1,13 @@
+name: container
+version: 0.10.0
+description: Create and run Linux containers using lightweight virtual machines
+homepage: https://apple.github.io/container/documentation/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/container/blobs/sha256:1c25ce376e5947eb870cc7fc4e580a0f1fe6d09e5a8dbeb6ced163583694eafd
+sha256:
+  darwin_arm64: 1c25ce376e5947eb870cc7fc4e580a0f1fe6d09e5a8dbeb6ced163583694eafd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

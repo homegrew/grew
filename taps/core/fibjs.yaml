@@ -1,0 +1,19 @@
+name: fibjs
+version: 0.37.0
+description: JavaScript on Fiber
+homepage: https://fibjs.org/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fibjs/blobs/sha256:fd81ea326f8dd8bd3ed2c7fbcf7856d00b13d699d26f88d0baf34e07d9367207
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fibjs/blobs/sha256:db4327b9a6f16d42e8e568e635a84b4acc2726b3740a928221f1876707574a9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fibjs/blobs/sha256:623b81dd27d99e33d98b905cd33a756b9b1f70a1ec3d2399370f1e48ba108f0d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fibjs/blobs/sha256:3dfbb08919d6b3152be45d24e5267d0026db256b1936c08e49bb562ff9e76296
+sha256:
+  darwin_arm64: fd81ea326f8dd8bd3ed2c7fbcf7856d00b13d699d26f88d0baf34e07d9367207
+  darwin_amd64: db4327b9a6f16d42e8e568e635a84b4acc2726b3740a928221f1876707574a9e
+  linux_amd64: 623b81dd27d99e33d98b905cd33a756b9b1f70a1ec3d2399370f1e48ba108f0d
+  linux_arm64: 3dfbb08919d6b3152be45d24e5267d0026db256b1936c08e49bb562ff9e76296
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

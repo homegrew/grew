@@ -1,0 +1,19 @@
+name: atomicparsley
+version: 20240608.083822.1ed9031
+description: MPEG-4 command-line tool
+homepage: https://github.com/wez/atomicparsley
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atomicparsley/blobs/sha256:70e708c09ef763d61b8bba8195426c515a20408adbb3addb3c9e96316ad6f769
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atomicparsley/blobs/sha256:5c590c6fdb51209e2b36b6bf290d72215cf768c6816da58f483021af4c8df5c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atomicparsley/blobs/sha256:05df26f40020528cbc1df0b9338257fd3bb2b2085c125985015be4b276e59b01
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atomicparsley/blobs/sha256:598edb090c4b9222ca0ebb0f6514acf735f9311e8fc03f3afcb0eb8a92210a3d
+sha256:
+  darwin_arm64: 70e708c09ef763d61b8bba8195426c515a20408adbb3addb3c9e96316ad6f769
+  darwin_amd64: 5c590c6fdb51209e2b36b6bf290d72215cf768c6816da58f483021af4c8df5c0
+  linux_amd64: 05df26f40020528cbc1df0b9338257fd3bb2b2085c125985015be4b276e59b01
+  linux_arm64: 598edb090c4b9222ca0ebb0f6514acf735f9311e8fc03f3afcb0eb8a92210a3d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

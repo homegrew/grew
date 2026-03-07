@@ -1,0 +1,23 @@
+name: dlib
+version: 20.0
+description: C++ library for machine learning
+homepage: https://dlib.net/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dlib/blobs/sha256:f0e98ca135cecee556c669e44f3b6b7a536a6a1c27cb2dc76396665bf4139233
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dlib/blobs/sha256:959777d3009abe7fefed086c20bfa72dc5badd28cef86e35cf7ac1c910b0f550
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dlib/blobs/sha256:82c6dfb7fc2ebfdcfd6c1bf6b83445e9729621962cefa5ba608b810b54f9e014
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dlib/blobs/sha256:389aac4f5901a6c86112302d131c2df645bca1cb5001092bd946e8da2ac5d705
+sha256:
+  darwin_arm64: f0e98ca135cecee556c669e44f3b6b7a536a6a1c27cb2dc76396665bf4139233
+  darwin_amd64: 959777d3009abe7fefed086c20bfa72dc5badd28cef86e35cf7ac1c910b0f550
+  linux_amd64: 82c6dfb7fc2ebfdcfd6c1bf6b83445e9729621962cefa5ba608b810b54f9e014
+  linux_arm64: 389aac4f5901a6c86112302d131c2df645bca1cb5001092bd946e8da2ac5d705
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - openblas

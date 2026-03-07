@@ -1,0 +1,19 @@
+name: firefly
+version: 1.4.0
+description: Create and manage the Hyperledger FireFly stack for blockchain interaction
+homepage: https://hyperledger.github.io/firefly/latest/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/firefly/blobs/sha256:adbf91b1583f58b9cdf99e5b5f4702e7e382b68678d1a65038dac45a79d266bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/firefly/blobs/sha256:9e58a9911ab5d61f995508662d10c94c6f75f9d4dabc6297e8e830b76130fbb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/firefly/blobs/sha256:14926594845c1055febc3c85ac56b950804433b2cd42014731881fe414bcf6c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/firefly/blobs/sha256:8487d1cff3e216289b07a109fd41186c425d789eed7921e354c41a2d10bbbe60
+sha256:
+  darwin_arm64: adbf91b1583f58b9cdf99e5b5f4702e7e382b68678d1a65038dac45a79d266bf
+  darwin_amd64: 9e58a9911ab5d61f995508662d10c94c6f75f9d4dabc6297e8e830b76130fbb9
+  linux_amd64: 14926594845c1055febc3c85ac56b950804433b2cd42014731881fe414bcf6c6
+  linux_arm64: 8487d1cff3e216289b07a109fd41186c425d789eed7921e354c41a2d10bbbe60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

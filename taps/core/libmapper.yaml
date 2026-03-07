@@ -1,0 +1,21 @@
+name: libmapper
+version: 2.5.2
+description: Distributed system for media control mapping
+homepage: http://www.libmapper.org
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmapper/blobs/sha256:eebd88eb97dd64c5e05b8f19adbb3cb69a47fe99993f39007b3f812580e5f8e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmapper/blobs/sha256:b602930e4d2ffc1950c9b947f8bae65bc6f769ba5eb0d5bfa58403d4dcd2f38c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmapper/blobs/sha256:55c64edc6dadf0ad8f870a78960aa9b58c3d7f3a88f85249ce0d0f1da844d46d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmapper/blobs/sha256:f864aea23dafa21f4226ab0e2695fd5165e54af46892f164eff4fe5309f9af59
+sha256:
+  darwin_arm64: eebd88eb97dd64c5e05b8f19adbb3cb69a47fe99993f39007b3f812580e5f8e3
+  darwin_amd64: b602930e4d2ffc1950c9b947f8bae65bc6f769ba5eb0d5bfa58403d4dcd2f38c
+  linux_amd64: 55c64edc6dadf0ad8f870a78960aa9b58c3d7f3a88f85249ce0d0f1da844d46d
+  linux_arm64: f864aea23dafa21f4226ab0e2695fd5165e54af46892f164eff4fe5309f9af59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - liblo

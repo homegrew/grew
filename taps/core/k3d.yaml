@@ -1,0 +1,19 @@
+name: k3d
+version: 5.8.3
+description: "Little helper to run CNCF's k3s in Docker"
+homepage: https://k3d.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/k3d/blobs/sha256:061ed00413355c51552cd12f0ed027d4ceb710503b3632a6e2f47d657015801f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/k3d/blobs/sha256:626f581c808ed6b5d5560637a2d47a5214acfee40caf07ec54a7dc2c3695fcf0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/k3d/blobs/sha256:0ba066d4441eae8a538f73024c93cc4e27ddc224ad24240ea37983d617d37ae5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/k3d/blobs/sha256:c7f61f211d7beed0e3a590f86881ae37aff69a88bf5cf29c8a7df3718ea473ee
+sha256:
+  darwin_arm64: 061ed00413355c51552cd12f0ed027d4ceb710503b3632a6e2f47d657015801f
+  darwin_amd64: 626f581c808ed6b5d5560637a2d47a5214acfee40caf07ec54a7dc2c3695fcf0
+  linux_amd64: 0ba066d4441eae8a538f73024c93cc4e27ddc224ad24240ea37983d617d37ae5
+  linux_arm64: c7f61f211d7beed0e3a590f86881ae37aff69a88bf5cf29c8a7df3718ea473ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

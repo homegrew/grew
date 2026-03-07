@@ -1,0 +1,19 @@
+name: libtasn1
+version: 4.21.0
+description: ASN.1 structure parser library
+homepage: https://www.gnu.org/software/libtasn1/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtasn1/blobs/sha256:ae01713eec0bd922b903ed2bf514dc085ec3108636c4ead84614b23a2c33f267
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtasn1/blobs/sha256:71c5d144fdce79e4cfe7bbd5863da5171a13d892a26475c5ea183e7e3ef21d8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtasn1/blobs/sha256:c0394c5c9c0b278c37eb9f817a282054d64654f7b27eb86100bb5b307a0d72b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtasn1/blobs/sha256:c8b7973e5f6822f25876da6b60138eec386a3d3b9f0a694dff7b5a7073fcf82d
+sha256:
+  darwin_arm64: ae01713eec0bd922b903ed2bf514dc085ec3108636c4ead84614b23a2c33f267
+  darwin_amd64: 71c5d144fdce79e4cfe7bbd5863da5171a13d892a26475c5ea183e7e3ef21d8f
+  linux_amd64: c0394c5c9c0b278c37eb9f817a282054d64654f7b27eb86100bb5b307a0d72b5
+  linux_arm64: c8b7973e5f6822f25876da6b60138eec386a3d3b9f0a694dff7b5a7073fcf82d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

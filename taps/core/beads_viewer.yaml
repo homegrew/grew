@@ -1,0 +1,19 @@
+name: beads_viewer
+version: 0.14.4
+description: Terminal-based UI for the Beads issue tracker
+homepage: https://github.com/Dicklesworthstone/beads_viewer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beads_viewer/blobs/sha256:11a3085b386f57230aa47785fa70c996b77772613781330dce827a84495b840b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beads_viewer/blobs/sha256:9249e8ee982a8f9e8b46309ddf4820b07b6687da80acda48e41c4d6b2f9a2169
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beads_viewer/blobs/sha256:44523c6b0d6e1c5f15ba85bdfee29b1d1c6ca3da70dcf2712b55fd183b592263
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beads_viewer/blobs/sha256:1844c57e2ad7df1816a31391fd45221c001b0d8bbc7d3da44d9f851b56972812
+sha256:
+  darwin_arm64: 11a3085b386f57230aa47785fa70c996b77772613781330dce827a84495b840b
+  darwin_amd64: 9249e8ee982a8f9e8b46309ddf4820b07b6687da80acda48e41c4d6b2f9a2169
+  linux_amd64: 44523c6b0d6e1c5f15ba85bdfee29b1d1c6ca3da70dcf2712b55fd183b592263
+  linux_arm64: 1844c57e2ad7df1816a31391fd45221c001b0d8bbc7d3da44d9f851b56972812
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

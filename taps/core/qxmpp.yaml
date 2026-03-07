@@ -1,0 +1,21 @@
+name: qxmpp
+version: 1.14.3
+description: Cross-platform C++ XMPP client and server library
+homepage: https://invent.kde.org/libraries/qxmpp
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qxmpp/blobs/sha256:829287475fef2861a8de57d12eb5c5ba2dac5bf1393411ebbe7941a5b9893324
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qxmpp/blobs/sha256:a259dfae356d1425b61b6a9a5feda2e45a857a4f903c13276ebe741afb328c30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qxmpp/blobs/sha256:a02d91a8a28aa70ef456402074a34389801f62106c7b6c8354a3bdb54500da80
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qxmpp/blobs/sha256:64dcfe7f1633a2302fed2e16099501e08c50a1a7b5257c24ce179145dc5604b6
+sha256:
+  darwin_arm64: 829287475fef2861a8de57d12eb5c5ba2dac5bf1393411ebbe7941a5b9893324
+  darwin_amd64: a259dfae356d1425b61b6a9a5feda2e45a857a4f903c13276ebe741afb328c30
+  linux_amd64: a02d91a8a28aa70ef456402074a34389801f62106c7b6c8354a3bdb54500da80
+  linux_arm64: 64dcfe7f1633a2302fed2e16099501e08c50a1a7b5257c24ce179145dc5604b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

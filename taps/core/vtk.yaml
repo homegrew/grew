@@ -1,0 +1,45 @@
+name: vtk
+version: 9.5.2
+description: Toolkit for 3D computer graphics, image processing, and visualization
+homepage: https://www.vtk.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vtk/blobs/sha256:100fd9e37f999ded1ea0094a95f2ef9a7dc15251f5dca51e44107afed5831233
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vtk/blobs/sha256:462e3c9d703713bedca3e6152c113084eab8b4440a79245c2c459b46945bf389
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vtk/blobs/sha256:e3cf4fa567b7a0be93666a081cdb512489b7656c43a4d5b4a97ea601a4deab16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vtk/blobs/sha256:e432d600806ba0c6c594e791bfe2aaa664ebeb0a9caa516a989f4b37c6601cec
+sha256:
+  darwin_arm64: 100fd9e37f999ded1ea0094a95f2ef9a7dc15251f5dca51e44107afed5831233
+  darwin_amd64: 462e3c9d703713bedca3e6152c113084eab8b4440a79245c2c459b46945bf389
+  linux_amd64: e3cf4fa567b7a0be93666a081cdb512489b7656c43a4d5b4a97ea601a4deab16
+  linux_arm64: e432d600806ba0c6c594e791bfe2aaa664ebeb0a9caa516a989f4b37c6601cec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cgns
+  - double-conversion
+  - eigen
+  - fontconfig
+  - freetype
+  - hdf5
+  - jpeg-turbo
+  - jsoncpp
+  - libharu
+  - libogg
+  - libpng
+  - libtiff
+  - lz4
+  - netcdf
+  - nlohmann-json
+  - proj
+  - pugixml
+  - python@3.14
+  - qtbase
+  - qtdeclarative
+  - sqlite
+  - theora
+  - utf8cpp
+  - xz

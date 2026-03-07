@@ -1,0 +1,22 @@
+name: xclip
+version: 0.13
+description: Access X11 clipboards from the command-line
+homepage: https://github.com/astrand/xclip
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xclip/blobs/sha256:d3179fb90856af5401a1104cf9317c4f6da846e0bb54781d43b1b24f2518c8c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xclip/blobs/sha256:f0b19adc2c73932facc1b1ad253546c88466ad5e04e0dea7fbe37901d9d03a1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xclip/blobs/sha256:532e6b67cb0b23908b5c0d4df6157810fdb4ce8c7268e289df9cce2578230f21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xclip/blobs/sha256:5df75814f42bb4834946dc46d5a8c2f50366ec3f1d96251ebd0deedc9d320803
+sha256:
+  darwin_arm64: d3179fb90856af5401a1104cf9317c4f6da846e0bb54781d43b1b24f2518c8c7
+  darwin_amd64: f0b19adc2c73932facc1b1ad253546c88466ad5e04e0dea7fbe37901d9d03a1f
+  linux_amd64: 532e6b67cb0b23908b5c0d4df6157810fdb4ce8c7268e289df9cce2578230f21
+  linux_arm64: 5df75814f42bb4834946dc46d5a8c2f50366ec3f1d96251ebd0deedc9d320803
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxmu

@@ -1,0 +1,11 @@
+name: texshop
+version: 5.57
+description: LaTeX and TeX editor and previewer
+homepage: https://pages.uoregon.edu/koch/texshop/
+url:
+  darwin_arm64: https://pages.uoregon.edu/koch/texshop/texshop-64/texshop557.zip
+sha256:
+  darwin_arm64: 08aa26a5dfacfa67bacedbc73d57fe07b64dcfe49e9fab34a3be1dc5372d20d4
+artifacts:
+  app:
+    - TeXShop.app

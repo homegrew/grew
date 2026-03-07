@@ -1,0 +1,19 @@
+name: serve
+version: 0.6.0
+description: Static http server anywhere you need one
+homepage: https://github.com/syntaqx/serve
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serve/blobs/sha256:3b8e2d2b16567d27a72182b7c4238ecffc186c23f78478534d0594f1bc88da94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serve/blobs/sha256:d713b0211cbdcb91ff28e1a0cc481e7870a9956f51f63412730c060841e02c5c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serve/blobs/sha256:40325f69042fb626e7100fb49097752721fa1cc376bcf3cf2f53f5e49b215efc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serve/blobs/sha256:380da6ada7f3ea7498102ad7ffcc2345be1d340bd1434cc3529f7efb264db128
+sha256:
+  darwin_arm64: 3b8e2d2b16567d27a72182b7c4238ecffc186c23f78478534d0594f1bc88da94
+  darwin_amd64: d713b0211cbdcb91ff28e1a0cc481e7870a9956f51f63412730c060841e02c5c
+  linux_amd64: 40325f69042fb626e7100fb49097752721fa1cc376bcf3cf2f53f5e49b215efc
+  linux_arm64: 380da6ada7f3ea7498102ad7ffcc2345be1d340bd1434cc3529f7efb264db128
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: glyph
+version: 1.0.11
+description: Converts images/video to ASCII art
+homepage: https://github.com/seatedro/glyph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glyph/blobs/sha256:fcddc6c86d264cdd659ebbfedc657e38928226f4d5aa4bf287093e063c545c0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glyph/blobs/sha256:595e69055e97fcc3f70b3f6f4cfa5debf4bc5656c4848432a5a018b8f980c90a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glyph/blobs/sha256:ca9382a91b01f87a5d3cf815c5ad87345fb2ac18e4fd698d224f194ea420b9ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glyph/blobs/sha256:ee2ef8a524e652aa28de614334a435e07092b963451557b327a2921ac41239b1
+sha256:
+  darwin_arm64: fcddc6c86d264cdd659ebbfedc657e38928226f4d5aa4bf287093e063c545c0f
+  darwin_amd64: 595e69055e97fcc3f70b3f6f4cfa5debf4bc5656c4848432a5a018b8f980c90a
+  linux_amd64: ca9382a91b01f87a5d3cf815c5ad87345fb2ac18e4fd698d224f194ea420b9ee
+  linux_arm64: ee2ef8a524e652aa28de614334a435e07092b963451557b327a2921ac41239b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg

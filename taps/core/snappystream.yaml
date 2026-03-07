@@ -1,0 +1,21 @@
+name: snappystream
+version: 1.0.0
+description: C++ snappy stream realization (compatible with snappy)
+homepage: https://github.com/hoxnox/snappystream
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snappystream/blobs/sha256:1b9bfaec4d6e7207937aa78282ec7fd13860da55f88a518ad7c0804a4b6004fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snappystream/blobs/sha256:6e0352aaa68c6373355d22f3aa92fb056077439b26869bd317076176aea7bcab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snappystream/blobs/sha256:5689e64e2ccf991d92a2adff2eef8b2ac32490467ce64bc09e93cee407b60d8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snappystream/blobs/sha256:0c192dcba364b122bbf8428185f24a1ee4e47f7a0dbdac8b3b4cf0edd467823f
+sha256:
+  darwin_arm64: 1b9bfaec4d6e7207937aa78282ec7fd13860da55f88a518ad7c0804a4b6004fd
+  darwin_amd64: 6e0352aaa68c6373355d22f3aa92fb056077439b26869bd317076176aea7bcab
+  linux_amd64: 5689e64e2ccf991d92a2adff2eef8b2ac32490467ce64bc09e93cee407b60d8a
+  linux_arm64: 0c192dcba364b122bbf8428185f24a1ee4e47f7a0dbdac8b3b4cf0edd467823f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - snappy

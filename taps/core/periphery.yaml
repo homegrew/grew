@@ -1,0 +1,17 @@
+name: periphery
+version: 3.6.0
+description: Identify unused code in Swift projects
+homepage: https://github.com/peripheryapp/periphery
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/periphery/blobs/sha256:7206b948c99b5de7d582085a2b6b4033e66f0ce788e1a13dcaf2900415aa75a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/periphery/blobs/sha256:e009dab6e5079c82adb0cf6c2818b7a76dec6dc23b7c6331cfb70c65d4e42ef9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/periphery/blobs/sha256:f9f0dac9c9b5a2bc8eababa69481bc41b2df5459595f48c7984ef37a04a3978a
+sha256:
+  darwin_arm64: 7206b948c99b5de7d582085a2b6b4033e66f0ce788e1a13dcaf2900415aa75a8
+  linux_amd64: e009dab6e5079c82adb0cf6c2818b7a76dec6dc23b7c6331cfb70c65d4e42ef9
+  linux_arm64: f9f0dac9c9b5a2bc8eababa69481bc41b2df5459595f48c7984ef37a04a3978a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: popt
+version: 1.19
+description: Library like getopt(3) with a number of enhancements
+homepage: https://github.com/rpm-software-management/popt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/popt/blobs/sha256:365d143d0d38003c60c1d6fb6d399ab4361690a64467d46a8f27c2f50d2dcfb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/popt/blobs/sha256:0eab78dae2d0e5dab0d54f51c43fa8fbbfd777628078c4318622ae9416f6dbcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/popt/blobs/sha256:eaf6aef4cf756e5ad7d75b04d51efb181e673be05bbc40053123b7e8f975db76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/popt/blobs/sha256:5b137c17f2231710bf51430cb36d013b38bfa8ddef947adcf7a000d7ece9660c
+sha256:
+  darwin_arm64: 365d143d0d38003c60c1d6fb6d399ab4361690a64467d46a8f27c2f50d2dcfb6
+  darwin_amd64: 0eab78dae2d0e5dab0d54f51c43fa8fbbfd777628078c4318622ae9416f6dbcd
+  linux_amd64: eaf6aef4cf756e5ad7d75b04d51efb181e673be05bbc40053123b7e8f975db76
+  linux_arm64: 5b137c17f2231710bf51430cb36d013b38bfa8ddef947adcf7a000d7ece9660c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

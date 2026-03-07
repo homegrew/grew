@@ -1,0 +1,23 @@
+name: libvdpau
+version: 1.5
+description: Open source Video Decode and Presentation API library
+homepage: https://www.freedesktop.org/wiki/Software/VDPAU/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvdpau/blobs/sha256:f9726bd90703d99de544a8ad2b2f4e043b547a82af7887ed0d220d8f011612e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvdpau/blobs/sha256:4e529c0af6669f6df022900daaed25245415be288c7d27e57e5cb1f737d1e77b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvdpau/blobs/sha256:efe7bfed2aff2b6b4d259a9adc1601a17c8c567750a2dfa0ba354a7d9ba0ca42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvdpau/blobs/sha256:298a8659f47956680197cbcaa0c06efe10ac94b863c0e1c62bf680390315d024
+sha256:
+  darwin_arm64: f9726bd90703d99de544a8ad2b2f4e043b547a82af7887ed0d220d8f011612e4
+  darwin_amd64: 4e529c0af6669f6df022900daaed25245415be288c7d27e57e5cb1f737d1e77b
+  linux_amd64: efe7bfed2aff2b6b4d259a9adc1601a17c8c567750a2dfa0ba354a7d9ba0ca42
+  linux_arm64: 298a8659f47956680197cbcaa0c06efe10ac94b863c0e1c62bf680390315d024
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

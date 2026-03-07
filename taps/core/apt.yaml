@@ -1,0 +1,30 @@
+name: apt
+version: 3.1.16
+description: Advanced Package Tool
+homepage: https://wiki.debian.org/Apt
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apt/blobs/sha256:46c8307adabc6cf22e4c3c7347101d61a5699e817f5df78449033d42f3887426
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apt/blobs/sha256:1546f41f7c53e65dd6fc88c77abe102c234ee472bfa0373e6608a1b648689287
+sha256:
+  linux_amd64: 46c8307adabc6cf22e4c3c7347101d61a5699e817f5df78449033d42f3887426
+  linux_arm64: 1546f41f7c53e65dd6fc88c77abe102c234ee472bfa0373e6608a1b648689287
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - bzip2
+  - dpkg
+  - gcc
+  - lz4
+  - openssl@3
+  - perl
+  - sequoia-sqv
+  - systemd
+  - xxhash
+  - xz
+  - zlib-ng-compat
+  - zstd
+keg_only: true

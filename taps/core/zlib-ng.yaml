@@ -1,0 +1,19 @@
+name: zlib-ng
+version: 2.3.3
+description: Zlib replacement with optimizations for next generation systems
+homepage: https://github.com/zlib-ng/zlib-ng
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zlib-ng/blobs/sha256:a87dab0cc6c372a080df58274d8ad4d7d032b447f5feff33d6ce0edbda68cadd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zlib-ng/blobs/sha256:0f6fb50f01003b052ebf7edc658e3e6c2ecaea87458360b3624c04539fc8b04b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zlib-ng/blobs/sha256:c99108dad1da97a6929733bf7ed22741197c39e64bd247da00a274eddecb0b1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zlib-ng/blobs/sha256:dc45b55efd239d80b0ac1122de13d532efc10297cc2cbf8f7379f6f3cc341187
+sha256:
+  darwin_arm64: a87dab0cc6c372a080df58274d8ad4d7d032b447f5feff33d6ce0edbda68cadd
+  darwin_amd64: 0f6fb50f01003b052ebf7edc658e3e6c2ecaea87458360b3624c04539fc8b04b
+  linux_amd64: c99108dad1da97a6929733bf7ed22741197c39e64bd247da00a274eddecb0b1a
+  linux_arm64: dc45b55efd239d80b0ac1122de13d532efc10297cc2cbf8f7379f6f3cc341187
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

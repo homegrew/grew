@@ -1,0 +1,22 @@
+name: fancy-cat
+version: 0.5.0
+description: PDF reader for terminal emulators using the Kitty image protocol
+homepage: https://github.com/freref/fancy-cat
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fancy-cat/blobs/sha256:fcc2aba1bcfa939b6714837a17bb06db78a66a0c80f30369fd88b8df3bf49939
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fancy-cat/blobs/sha256:f283332082fdba66dd6c1faec52841e9cef4e12611f392c32c59caa49a35ed62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fancy-cat/blobs/sha256:16d2018532c3849119a0d66c7ba11df7ad69aef5e194de2d3d271e853706ce37
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fancy-cat/blobs/sha256:8a7827e7014c9e3aefd337503312cfaae8060adc43d1317a37c518fbc3a5a037
+sha256:
+  darwin_arm64: fcc2aba1bcfa939b6714837a17bb06db78a66a0c80f30369fd88b8df3bf49939
+  darwin_amd64: f283332082fdba66dd6c1faec52841e9cef4e12611f392c32c59caa49a35ed62
+  linux_amd64: 16d2018532c3849119a0d66c7ba11df7ad69aef5e194de2d3d271e853706ce37
+  linux_arm64: 8a7827e7014c9e3aefd337503312cfaae8060adc43d1317a37c518fbc3a5a037
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mujs
+  - mupdf

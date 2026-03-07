@@ -1,0 +1,19 @@
+name: kics
+version: 2.1.20
+description: Detect vulnerabilities, compliance issues, and misconfigurations
+homepage: https://kics.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kics/blobs/sha256:69b651845bef63ef3e63a5def6e8fc0ad5788408ed9efdc3dabe33c83d8b3efd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kics/blobs/sha256:74c888c48f65a012f9b792b6cd9a076f85e1fe9cef2bacf51ffc2be020e2da40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kics/blobs/sha256:d255abf15014b2d9a57a42c7f6cd66c33d3ffdfbe64d5079653b3408149af043
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kics/blobs/sha256:4e1f16b9d7c4d637ceac3bd28b3441997264a21276c7c40846bc11beb25a0d92
+sha256:
+  darwin_arm64: 69b651845bef63ef3e63a5def6e8fc0ad5788408ed9efdc3dabe33c83d8b3efd
+  darwin_amd64: 74c888c48f65a012f9b792b6cd9a076f85e1fe9cef2bacf51ffc2be020e2da40
+  linux_amd64: d255abf15014b2d9a57a42c7f6cd66c33d3ffdfbe64d5079653b3408149af043
+  linux_arm64: 4e1f16b9d7c4d637ceac3bd28b3441997264a21276c7c40846bc11beb25a0d92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

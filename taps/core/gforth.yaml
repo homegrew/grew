@@ -1,0 +1,21 @@
+name: gforth
+version: 0.7.3
+description: Implementation of the ANS Forth language
+homepage: https://www.gnu.org/software/gforth/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gforth/blobs/sha256:ede972e5e6570b4811d3967dd77c8780142c5bc97884a392c523b4b91b913148
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gforth/blobs/sha256:1ca371987c27190729facb4a43f3fa3e2562cc4efd2bf3759a28ddfa0de38c7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gforth/blobs/sha256:187183a4751b63734bccc9021f00f44c118623d4bf8c2bddc1c167c9194e6be3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gforth/blobs/sha256:ffbdc90074b784e4c3d1ce52dced0ce93cbed7c442e2f416e0ca9ee703005562
+sha256:
+  darwin_arm64: ede972e5e6570b4811d3967dd77c8780142c5bc97884a392c523b4b91b913148
+  darwin_amd64: 1ca371987c27190729facb4a43f3fa3e2562cc4efd2bf3759a28ddfa0de38c7f
+  linux_amd64: 187183a4751b63734bccc9021f00f44c118623d4bf8c2bddc1c167c9194e6be3
+  linux_arm64: ffbdc90074b784e4c3d1ce52dced0ce93cbed7c442e2f416e0ca9ee703005562
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool

@@ -1,0 +1,19 @@
+name: mdzk
+version: 0.5.2
+description: Plain text Zettelkasten based on mdBook
+homepage: https://mdzk.app/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdzk/blobs/sha256:2924144bf68886f563698209699573519a5ede4d78f3c02cef63639883ff53c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdzk/blobs/sha256:1930303360bdbce63f56aaedc0feab70b47d1eb3dbf5722e238e37710a79182c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdzk/blobs/sha256:95bc548f5fb2c84e0e3b62e895e3c6812e8df51b74eaf6bad4167ab1861f66d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdzk/blobs/sha256:5b4d38f1cf842f3887a3560a484fcfae60a36d9dc812b5feea88672ee5a4a0fb
+sha256:
+  darwin_arm64: 2924144bf68886f563698209699573519a5ede4d78f3c02cef63639883ff53c7
+  darwin_amd64: 1930303360bdbce63f56aaedc0feab70b47d1eb3dbf5722e238e37710a79182c
+  linux_amd64: 95bc548f5fb2c84e0e3b62e895e3c6812e8df51b74eaf6bad4167ab1861f66d5
+  linux_arm64: 5b4d38f1cf842f3887a3560a484fcfae60a36d9dc812b5feea88672ee5a4a0fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

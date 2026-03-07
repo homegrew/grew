@@ -1,0 +1,19 @@
+name: fabric-ai
+version: 1.4.432
+description: Open-source framework for augmenting humans using AI
+homepage: https://github.com/danielmiessler/fabric
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fabric-ai/blobs/sha256:4e8163b599bcd4f0c9277a8eedf687800232f5a772ca2e56e67187d8e54bba18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fabric-ai/blobs/sha256:e51db3ed1a747513b5592f56252341f98f03ab41522101f05011cefefa2eee87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fabric-ai/blobs/sha256:25d7019935f928cf6fed5abc40eeb67bfcc1e8cc6a1ab507427bb91e64c3e688
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fabric-ai/blobs/sha256:23ac06e755309a41ac7481265556fc6ffd06fbf896e761339140c799a629ca4c
+sha256:
+  darwin_arm64: 4e8163b599bcd4f0c9277a8eedf687800232f5a772ca2e56e67187d8e54bba18
+  darwin_amd64: e51db3ed1a747513b5592f56252341f98f03ab41522101f05011cefefa2eee87
+  linux_amd64: 25d7019935f928cf6fed5abc40eeb67bfcc1e8cc6a1ab507427bb91e64c3e688
+  linux_arm64: 23ac06e755309a41ac7481265556fc6ffd06fbf896e761339140c799a629ca4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

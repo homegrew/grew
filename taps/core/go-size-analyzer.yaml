@@ -1,0 +1,19 @@
+name: go-size-analyzer
+version: 1.11.0
+description: Analyzing the dependencies in compiled Golang binaries
+homepage: https://github.com/Zxilly/go-size-analyzer
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-size-analyzer/blobs/sha256:b5c2d5d339814572a029402912e0bb9c5e17253c48e3e77b0b5348701b0e7bf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-size-analyzer/blobs/sha256:266d8181313ced42fa6f2ce1f3d0ce5823652be93bc418a35f376076428973cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-size-analyzer/blobs/sha256:3ecea403e82b3400d66983bb754863911c8605dc5e66464de6cbaf1dc6369afc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-size-analyzer/blobs/sha256:164f75d53bc81be92a23f26bb4a70b0445302a8192b80405c2d063ef1a40b81a
+sha256:
+  darwin_arm64: b5c2d5d339814572a029402912e0bb9c5e17253c48e3e77b0b5348701b0e7bf9
+  darwin_amd64: 266d8181313ced42fa6f2ce1f3d0ce5823652be93bc418a35f376076428973cc
+  linux_amd64: 3ecea403e82b3400d66983bb754863911c8605dc5e66464de6cbaf1dc6369afc
+  linux_arm64: 164f75d53bc81be92a23f26bb4a70b0445302a8192b80405c2d063ef1a40b81a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

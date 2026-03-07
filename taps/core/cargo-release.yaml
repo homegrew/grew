@@ -1,0 +1,21 @@
+name: cargo-release
+version: 1.1.1
+description: "Cargo subcommand `release`: everything about releasing a rust crate"
+homepage: https://github.com/crate-ci/cargo-release
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-release/blobs/sha256:95170088deb94fe7a3aedefe7e1f2018d7d09c9168a148f6f4e00daf80aa7b0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-release/blobs/sha256:b8cd67e9e59557bea93f9d2d119e585f185c05481ba1debbf3a94a2f1c0cb376
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-release/blobs/sha256:8ca81471ef75b0f160b1277cb805cdfb31e3ae728176a90f0ec61d4cbca9651c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-release/blobs/sha256:99b52ccfe05e6faa4247fa7acf67a5ef30b7cd01b6838d83742931dabeb4bece
+sha256:
+  darwin_arm64: 95170088deb94fe7a3aedefe7e1f2018d7d09c9168a148f6f4e00daf80aa7b0f
+  darwin_amd64: b8cd67e9e59557bea93f9d2d119e585f185c05481ba1debbf3a94a2f1c0cb376
+  linux_amd64: 8ca81471ef75b0f160b1277cb805cdfb31e3ae728176a90f0ec61d4cbca9651c
+  linux_arm64: 99b52ccfe05e6faa4247fa7acf67a5ef30b7cd01b6838d83742931dabeb4bece
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

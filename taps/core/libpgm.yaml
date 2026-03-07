@@ -1,0 +1,19 @@
+name: libpgm
+version: 5.3.128
+description: Implements the PGM reliable multicast protocol
+homepage: https://github.com/steve-o/openpgm
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpgm/blobs/sha256:d78bfc9ac9873ac2b3756155e86e9df6fca639872048aed76446856e08635588
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpgm/blobs/sha256:a439be588514dae60781db58923be9b42dbd6e29c7ce2acfe44e81f13e291f8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpgm/blobs/sha256:e5ceaf537037fb5918336027ab1ec0ab5484ca2230a58d6ba2b72569a416e9ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpgm/blobs/sha256:9def3024f67a4c2b91300eaeb65829f0ffa47652c47118354f96b1f82fdfe149
+sha256:
+  darwin_arm64: d78bfc9ac9873ac2b3756155e86e9df6fca639872048aed76446856e08635588
+  darwin_amd64: a439be588514dae60781db58923be9b42dbd6e29c7ce2acfe44e81f13e291f8c
+  linux_amd64: e5ceaf537037fb5918336027ab1ec0ab5484ca2230a58d6ba2b72569a416e9ed
+  linux_arm64: 9def3024f67a4c2b91300eaeb65829f0ffa47652c47118354f96b1f82fdfe149
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

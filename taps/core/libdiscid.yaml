@@ -1,0 +1,19 @@
+name: libdiscid
+version: 0.6.5
+description: C library for creating MusicBrainz and freedb disc IDs
+homepage: https://musicbrainz.org/doc/libdiscid
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdiscid/blobs/sha256:4073b1cbed85a0c8cfb7cf9c79d797f6341935cd002692d3b415c9ebc1296364
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdiscid/blobs/sha256:61962aaee44d489688a5f9e4e2d795aac681ce68257f9fc77a82372aae6bb557
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdiscid/blobs/sha256:6b1ee7a44ee8456f4a91d70158132952b84730f3b8b0851b3a6ae8e382e34c8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdiscid/blobs/sha256:51d620c20901c02211bce728a9ae4eb94d978bd01178edc206dd38fd9ae80048
+sha256:
+  darwin_arm64: 4073b1cbed85a0c8cfb7cf9c79d797f6341935cd002692d3b415c9ebc1296364
+  darwin_amd64: 61962aaee44d489688a5f9e4e2d795aac681ce68257f9fc77a82372aae6bb557
+  linux_amd64: 6b1ee7a44ee8456f4a91d70158132952b84730f3b8b0851b3a6ae8e382e34c8a
+  linux_arm64: 51d620c20901c02211bce728a9ae4eb94d978bd01178edc206dd38fd9ae80048
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

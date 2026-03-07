@@ -1,0 +1,11 @@
+name: bananas
+version: 0.0.22
+description: Cross-platform screen sharing tool
+homepage: https://getbananas.net/
+url:
+  darwin_arm64: https://github.com/mistweaverco/bananas/releases/download/v0.0.22/bananas_universal.dmg
+sha256:
+  darwin_arm64: ba1a59997dfa31b1216a1648ee3039eb2733d56895d025ce50ffb74a4696a0b6
+artifacts:
+  app:
+    - bananas.app

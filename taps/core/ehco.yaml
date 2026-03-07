@@ -1,0 +1,19 @@
+name: ehco
+version: 1.1.5
+description: "Network relay tool and a typo :)"
+homepage: https://github.com/Ehco1996/ehco
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ehco/blobs/sha256:7b8caa88f618075e34f5038eafe1aaaa09b68f0d2dc3a08ee1d9d2edafbbad14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ehco/blobs/sha256:3c4346f2aa4c0db369932c13d0c1ca3988b0f2a28509b536febf2bc8bdd51509
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ehco/blobs/sha256:21e9e6ba85a46f6cc8f3bf833db44298bb489bd895091ef13c843f5f17d95d1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ehco/blobs/sha256:61c9a614d07b9a81f89941601b9ab8f4c978414b83c0ecef938d2e0c510cdea2
+sha256:
+  darwin_arm64: 7b8caa88f618075e34f5038eafe1aaaa09b68f0d2dc3a08ee1d9d2edafbbad14
+  darwin_amd64: 3c4346f2aa4c0db369932c13d0c1ca3988b0f2a28509b536febf2bc8bdd51509
+  linux_amd64: 21e9e6ba85a46f6cc8f3bf833db44298bb489bd895091ef13c843f5f17d95d1e
+  linux_arm64: 61c9a614d07b9a81f89941601b9ab8f4c978414b83c0ecef938d2e0c510cdea2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

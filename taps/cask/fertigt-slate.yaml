@@ -1,0 +1,11 @@
+name: fertigt-slate
+version: 1.0
+description: Window management application
+homepage: https://github.com/fertigt/slate_arm64
+url:
+  darwin_arm64: https://github.com/fertigt/slate_arm64/releases/download/1.0/Slate.zip
+sha256:
+  darwin_arm64: 30a6e20b4136569accab9f38d8659193726d984ef6235b035db59e678deec7bf
+artifacts:
+  app:
+    - Slate.app

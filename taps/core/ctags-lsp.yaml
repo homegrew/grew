@@ -1,0 +1,21 @@
+name: ctags-lsp
+version: 0.11.0
+description: LSP implementation using universal-ctags as backend
+homepage: https://github.com/netmute/ctags-lsp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctags-lsp/blobs/sha256:07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctags-lsp/blobs/sha256:2c1dcb54e6940f7844c2e6399bca9aa2f3463baaa40b30defc759e142e162d67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctags-lsp/blobs/sha256:18ec0a3be1c4384944d03ded5b109091d28e4ef2e2d8991d2453bc01cea7cc4d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctags-lsp/blobs/sha256:b861f10435d1970114773831e30d7c4e24aafb1181d018c66bc4e976579b7fcc
+sha256:
+  darwin_arm64: 07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d
+  darwin_amd64: 2c1dcb54e6940f7844c2e6399bca9aa2f3463baaa40b30defc759e142e162d67
+  linux_amd64: 18ec0a3be1c4384944d03ded5b109091d28e4ef2e2d8991d2453bc01cea7cc4d
+  linux_arm64: b861f10435d1970114773831e30d7c4e24aafb1181d018c66bc4e976579b7fcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - universal-ctags

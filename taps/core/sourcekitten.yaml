@@ -1,0 +1,19 @@
+name: sourcekitten
+version: 0.37.2
+description: Framework and command-line tool for interacting with SourceKit
+homepage: https://github.com/jpsim/SourceKitten
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sourcekitten/blobs/sha256:7a7b279f3603cae2b43cfc554cfe772cc6a1abda9e6c58bedf624e44981ff789
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sourcekitten/blobs/sha256:d96d22c0dd1561f4739a4ae689d0e6f17144901986525ae2aa047900db9cee26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sourcekitten/blobs/sha256:55c8b56cd5c2ca875f3d2cc4498fed128fae7b0ee0e5305ae02e390b2ed89814
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sourcekitten/blobs/sha256:67774c0efaa24dbbf3167ff1b2c44e5d08169e67aee37b85c7034528d55d68c0
+sha256:
+  darwin_arm64: 7a7b279f3603cae2b43cfc554cfe772cc6a1abda9e6c58bedf624e44981ff789
+  darwin_amd64: d96d22c0dd1561f4739a4ae689d0e6f17144901986525ae2aa047900db9cee26
+  linux_amd64: 55c8b56cd5c2ca875f3d2cc4498fed128fae7b0ee0e5305ae02e390b2ed89814
+  linux_arm64: 67774c0efaa24dbbf3167ff1b2c44e5d08169e67aee37b85c7034528d55d68c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

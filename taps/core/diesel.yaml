@@ -1,0 +1,22 @@
+name: diesel
+version: 2.3.6
+description: Command-line tool for Rust ORM Diesel
+homepage: https://diesel.rs
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diesel/blobs/sha256:37a1422a47206ba830b99bd09cccf6b7125b1f9685726235516ae4734be9e911
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diesel/blobs/sha256:5dc92c115496af0a341643c05110a9c8b9be0420f98df5041c38569467c9d19a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diesel/blobs/sha256:75ac078526a9aa18442b53138d18e84d596810fc52cac7cb6a4c1957e6d4a102
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diesel/blobs/sha256:7adcde0814692ab9560a8b9ccea883584bbe395685180694bb96974079a407b9
+sha256:
+  darwin_arm64: 37a1422a47206ba830b99bd09cccf6b7125b1f9685726235516ae4734be9e911
+  darwin_amd64: 5dc92c115496af0a341643c05110a9c8b9be0420f98df5041c38569467c9d19a
+  linux_amd64: 75ac078526a9aa18442b53138d18e84d596810fc52cac7cb6a4c1957e6d4a102
+  linux_arm64: 7adcde0814692ab9560a8b9ccea883584bbe395685180694bb96974079a407b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - mariadb-connector-c

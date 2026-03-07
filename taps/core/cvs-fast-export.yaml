@@ -1,0 +1,19 @@
+name: cvs-fast-export
+version: 2.0
+description: Export an RCS or CVS history as a fast-import stream
+homepage: http://www.catb.org/~esr/cvs-fast-export/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cvs-fast-export/blobs/sha256:8f402cec3473616edec6bee65fb940a45e06e76151bce1856927c3f37787c795
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cvs-fast-export/blobs/sha256:fe8f9e74e688482a9cf911a0b211a194c9e2498db827dedd4e714903f7235056
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cvs-fast-export/blobs/sha256:e1f89215bad4fdb70df12de12150ee211910ab6ccc931c09d74ce35f22d4043a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cvs-fast-export/blobs/sha256:c304514ded6cd90284d11f0d5c7f6a0823a3996096bafaddc3800ece3c0a0638
+sha256:
+  darwin_arm64: 8f402cec3473616edec6bee65fb940a45e06e76151bce1856927c3f37787c795
+  darwin_amd64: fe8f9e74e688482a9cf911a0b211a194c9e2498db827dedd4e714903f7235056
+  linux_amd64: e1f89215bad4fdb70df12de12150ee211910ab6ccc931c09d74ce35f22d4043a
+  linux_arm64: c304514ded6cd90284d11f0d5c7f6a0823a3996096bafaddc3800ece3c0a0638
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

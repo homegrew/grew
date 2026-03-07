@@ -1,0 +1,11 @@
+name: vcamapp
+version: 0.13.3
+description: Face-tracking virtual avatar app
+homepage: https://vcamapp.com/en
+url:
+  darwin_arm64: https://github.com/vcamapp/app/releases/download/0.13.3/VCam.0.13.3.dmg
+sha256:
+  darwin_arm64: 62afb27f3c7c7968c5f9069cba841cdbd9292e1020c433ebdc4a0109dd5b78c6
+artifacts:
+  app:
+    - VCam.app

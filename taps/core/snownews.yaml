@@ -1,0 +1,23 @@
+name: snownews
+version: 1.11
+description: Text mode RSS newsreader
+homepage: https://sourceforge.net/projects/snownews/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snownews/blobs/sha256:fc57fbf60e598146c28686c404f621a386c955ae63a8a5ed0d7376d73ce62076
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snownews/blobs/sha256:5cde70ddd3826d0074e625cb2178bb745ae627a5c4562d9e78b10bc8beb1333f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snownews/blobs/sha256:65c5beec4e63d9ff40dcb175d0b1afa3d8a994d0519d389bb2f090d03cd5afdc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snownews/blobs/sha256:f2329c5bd004312a4074b6320072d607045db64766e3393645222b4d92193924
+sha256:
+  darwin_arm64: fc57fbf60e598146c28686c404f621a386c955ae63a8a5ed0d7376d73ce62076
+  darwin_amd64: 5cde70ddd3826d0074e625cb2178bb745ae627a5c4562d9e78b10bc8beb1333f
+  linux_amd64: 65c5beec4e63d9ff40dcb175d0b1afa3d8a994d0519d389bb2f090d03cd5afdc
+  linux_arm64: f2329c5bd004312a4074b6320072d607045db64766e3393645222b4d92193924
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - openssl@3
+  - gettext

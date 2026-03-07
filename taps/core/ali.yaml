@@ -1,0 +1,19 @@
+name: ali
+version: 0.8.0
+description: Generate HTTP load and plot the results in real-time
+homepage: https://github.com/nakabonne/ali
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ali/blobs/sha256:624cc8b3f6325523929329a805679aa2673e4661be3a1fce71e01e0e44b6b50a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ali/blobs/sha256:c1da05b48801e6f5c3a531247c8324d4a64511163160cfc13fdf04d1563bff29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ali/blobs/sha256:7432b8c57f6c2b8db945d82dcc6904496eb17424e7de280cd01ef7339d731b72
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ali/blobs/sha256:863149c4dcf2dae9d28782408691036e9ff7751d35a1972269c2e23e699a173a
+sha256:
+  darwin_arm64: 624cc8b3f6325523929329a805679aa2673e4661be3a1fce71e01e0e44b6b50a
+  darwin_amd64: c1da05b48801e6f5c3a531247c8324d4a64511163160cfc13fdf04d1563bff29
+  linux_amd64: 7432b8c57f6c2b8db945d82dcc6904496eb17424e7de280cd01ef7339d731b72
+  linux_arm64: 863149c4dcf2dae9d28782408691036e9ff7751d35a1972269c2e23e699a173a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

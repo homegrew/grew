@@ -1,0 +1,21 @@
+name: slowhttptest
+version: 1.9.0
+description: Simulates application layer denial of service attacks
+homepage: https://github.com/shekyan/slowhttptest
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slowhttptest/blobs/sha256:a3f7cc9030661fa31e4cf6db7862dcd47a586303bd71df203b6be39c3fbebb19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slowhttptest/blobs/sha256:4ff751d6c6b99c9d2d6786468bfd53e524883d21b6bdb0a1add1ed8c89690176
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slowhttptest/blobs/sha256:b3c40357c9bd384b991dc20163d7a1575f2ab2df0f53dfde971a044fd2304e50
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slowhttptest/blobs/sha256:46166ade359384ffdf6af2bc9e5dba58cfa680ad8ee9e8bfe3c380e71c1ec853
+sha256:
+  darwin_arm64: a3f7cc9030661fa31e4cf6db7862dcd47a586303bd71df203b6be39c3fbebb19
+  darwin_amd64: 4ff751d6c6b99c9d2d6786468bfd53e524883d21b6bdb0a1add1ed8c89690176
+  linux_amd64: b3c40357c9bd384b991dc20163d7a1575f2ab2df0f53dfde971a044fd2304e50
+  linux_arm64: 46166ade359384ffdf6af2bc9e5dba58cfa680ad8ee9e8bfe3c380e71c1ec853
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

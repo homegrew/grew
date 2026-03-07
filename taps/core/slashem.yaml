@@ -1,0 +1,19 @@
+name: slashem
+version: 0.0.8E0F1
+description: Fork/variant of Nethack
+homepage: https://slashem.sourceforge.net/
+license: NGPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slashem/blobs/sha256:1f262c46f0f04c67c9996b01e8d89ea837d34c1086279ad1d480b63a11f74dd8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slashem/blobs/sha256:49cf816225af63b9cf625d938878571821849e7b1cd2ce28dd68ccaea9664e03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slashem/blobs/sha256:03e6ce8d29f4ebd5eba336525f8d314b1f26c032d935389c704698f5881396f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slashem/blobs/sha256:5e539a21570dc7e8141bdf68fcaf8dbce515fc6839e55e24a62a82b0362a8caa
+sha256:
+  darwin_arm64: 1f262c46f0f04c67c9996b01e8d89ea837d34c1086279ad1d480b63a11f74dd8
+  darwin_amd64: 49cf816225af63b9cf625d938878571821849e7b1cd2ce28dd68ccaea9664e03
+  linux_amd64: 03e6ce8d29f4ebd5eba336525f8d314b1f26c032d935389c704698f5881396f0
+  linux_arm64: 5e539a21570dc7e8141bdf68fcaf8dbce515fc6839e55e24a62a82b0362a8caa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

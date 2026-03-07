@@ -1,0 +1,22 @@
+name: little-cms2
+version: 2.18
+description: Color management engine supporting ICC profiles
+homepage: https://www.littlecms.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/little-cms2/blobs/sha256:ea51fe72839acbeb85a14cbc5f758fcfd6c10704bf301511b67b80d1eb437e25
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/little-cms2/blobs/sha256:b4c863e6eb564449490359a59c6fbfa8b72e305f6f81bb81c17eb24c21388a19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/little-cms2/blobs/sha256:f004716c38223986c27a7f6b545f169616d6ee060d3b652b5f936a28d9725ae6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/little-cms2/blobs/sha256:58e39623413e57b7ae9a3a34aad0aebce5564264f3af4b3388570860d04b54be
+sha256:
+  darwin_arm64: ea51fe72839acbeb85a14cbc5f758fcfd6c10704bf301511b67b80d1eb437e25
+  darwin_amd64: b4c863e6eb564449490359a59c6fbfa8b72e305f6f81bb81c17eb24c21388a19
+  linux_amd64: f004716c38223986c27a7f6b545f169616d6ee060d3b652b5f936a28d9725ae6
+  linux_arm64: 58e39623413e57b7ae9a3a34aad0aebce5564264f3af4b3388570860d04b54be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libtiff

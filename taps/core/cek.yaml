@@ -1,0 +1,19 @@
+name: cek
+version: 0.1.0
+description: Explore the (overlay) filesystem and layers of OCI container images
+homepage: https://github.com/bschaatsbergen/cek
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cek/blobs/sha256:ac9a9cebd2b774064d8d6f840f916d823455bb8f669b3516c6e1d2bbbf334772
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cek/blobs/sha256:88406c81115ce084e9b458c02f89be3faaee82cc7e681eb4f1911bf38de5261b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cek/blobs/sha256:6b0ed52afade67d78f5ab78d98b495622bc02f2ce45d8a442f9eb2b0200f4ef3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cek/blobs/sha256:7f2a79add55a2d02aa33c5ca31aedb992113efd49106307cd6e41b694ed741b4
+sha256:
+  darwin_arm64: ac9a9cebd2b774064d8d6f840f916d823455bb8f669b3516c6e1d2bbbf334772
+  darwin_amd64: 88406c81115ce084e9b458c02f89be3faaee82cc7e681eb4f1911bf38de5261b
+  linux_amd64: 6b0ed52afade67d78f5ab78d98b495622bc02f2ce45d8a442f9eb2b0200f4ef3
+  linux_arm64: 7f2a79add55a2d02aa33c5ca31aedb992113efd49106307cd6e41b694ed741b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

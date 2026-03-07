@@ -1,0 +1,21 @@
+name: mongo-cxx-driver
+version: 4.1.4
+description: C++ driver for MongoDB
+homepage: https://github.com/mongodb/mongo-cxx-driver
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongo-cxx-driver/blobs/sha256:f889faef629d572c7aaa3681d63e64c99069b1cbbaf48c931c4ae4723c4e621b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongo-cxx-driver/blobs/sha256:255735fbec7bfb69f57596333bbee4563b04551034ed3357d57021cc5fefb368
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongo-cxx-driver/blobs/sha256:c09e9f0f6f29162b617c36265e8ba95f970d997a0f9510e8e914d77652cfa9b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongo-cxx-driver/blobs/sha256:27362daa574fb6b2eceee044dc8854aca5881ed74503ed25ed9239b93056c02b
+sha256:
+  darwin_arm64: f889faef629d572c7aaa3681d63e64c99069b1cbbaf48c931c4ae4723c4e621b
+  darwin_amd64: 255735fbec7bfb69f57596333bbee4563b04551034ed3357d57021cc5fefb368
+  linux_amd64: c09e9f0f6f29162b617c36265e8ba95f970d997a0f9510e8e914d77652cfa9b0
+  linux_arm64: 27362daa574fb6b2eceee044dc8854aca5881ed74503ed25ed9239b93056c02b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mongo-c-driver

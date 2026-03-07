@@ -1,0 +1,35 @@
+name: czkawka
+version: 11.0.1
+description: Duplicate file utility
+homepage: https://github.com/qarmin/czkawka
+license: MIT AND CC-BY-4.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/czkawka/blobs/sha256:1b1137ad14a3250af05268e885371bb199becdfe7d32284446071073771e755e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/czkawka/blobs/sha256:2ecd2be335f5e988461b7808eae9d0834ab5b6c0c8a397fbac9c3f7b8a8c306f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/czkawka/blobs/sha256:f642d209d45b9316ca74edeb7f8da1b31ebfd0867471fa0d78381590fa604590
+  linux_arm64: https://ghcr.io/v2/homebrew/core/czkawka/blobs/sha256:95d0d648452d82c9faf8b2a72871dfa0d5ceb94118cc029f76ce3e548503390c
+sha256:
+  darwin_arm64: 1b1137ad14a3250af05268e885371bb199becdfe7d32284446071073771e755e
+  darwin_amd64: 2ecd2be335f5e988461b7808eae9d0834ab5b6c0c8a397fbac9c3f7b8a8c306f
+  linux_amd64: f642d209d45b9316ca74edeb7f8da1b31ebfd0867471fa0d78381590fa604590
+  linux_arm64: 95d0d648452d82c9faf8b2a72871dfa0d5ceb94118cc029f76ce3e548503390c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - dav1d
+  - ffmpeg
+  - gdk-pixbuf
+  - glib
+  - gtk4
+  - libheif
+  - librsvg
+  - pango
+  - pkgconf
+  - webp-pixbuf-loader
+  - gettext
+  - graphene
+  - harfbuzz

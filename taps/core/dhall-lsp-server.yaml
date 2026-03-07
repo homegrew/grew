@@ -1,0 +1,21 @@
+name: dhall-lsp-server
+version: 1.1.4
+description: Language Server Protocol (LSP) server for Dhall
+homepage: https://github.com/dhall-lang/dhall-haskell/tree/main/dhall-lsp-server
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhall-lsp-server/blobs/sha256:62e173a901ac5df5613428d1453d556686766e950e039ca8448531048421dc23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhall-lsp-server/blobs/sha256:50e77b999e1af1e2bb5b4cdc4a29f3e0061d69062e7a155eaa74171e5d6803e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhall-lsp-server/blobs/sha256:921a9aa115b3dcf194ed4046ed626bea502bf14c7220c9dffb6942b242e4e0be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhall-lsp-server/blobs/sha256:00df60a9a813b1e271e7ca3760bf200d9fb9eb0aa55e055b217588ad7c0deed6
+sha256:
+  darwin_arm64: 62e173a901ac5df5613428d1453d556686766e950e039ca8448531048421dc23
+  darwin_amd64: 50e77b999e1af1e2bb5b4cdc4a29f3e0061d69062e7a155eaa74171e5d6803e9
+  linux_amd64: 921a9aa115b3dcf194ed4046ed626bea502bf14c7220c9dffb6942b242e4e0be
+  linux_arm64: 00df60a9a813b1e271e7ca3760bf200d9fb9eb0aa55e055b217588ad7c0deed6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

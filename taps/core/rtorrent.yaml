@@ -1,0 +1,22 @@
+name: rtorrent
+version: 0.16.7
+description: Ncurses BitTorrent client based on libtorrent-rakshasa
+homepage: https://github.com/rakshasa/rtorrent
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtorrent/blobs/sha256:a82ceb74a141e9c6b97337d07bb578816ad88377244118056356341e7ffae839
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtorrent/blobs/sha256:6a1ebd897ff9673cfae05842be96e3c871ce60a01b8cc82d80319d82d0424eba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtorrent/blobs/sha256:078d674f051580a11c21b378ba8ea529e6582a5668793b34c0321ea15d8e0d1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtorrent/blobs/sha256:1b03b4dd85335631fab57474fdc758534d6aa701390266eb1470d1e50767079a
+sha256:
+  darwin_arm64: a82ceb74a141e9c6b97337d07bb578816ad88377244118056356341e7ffae839
+  darwin_amd64: 6a1ebd897ff9673cfae05842be96e3c871ce60a01b8cc82d80319d82d0424eba
+  linux_amd64: 078d674f051580a11c21b378ba8ea529e6582a5668793b34c0321ea15d8e0d1f
+  linux_arm64: 1b03b4dd85335631fab57474fdc758534d6aa701390266eb1470d1e50767079a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtorrent-rakshasa
+  - xmlrpc-c

@@ -1,0 +1,23 @@
+name: sceptre
+version: 4.6.0
+description: Build better AWS infrastructure
+homepage: https://docs.sceptre-project.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sceptre/blobs/sha256:87e3d977512683db98adf05910b0e3064034282f39c71fe079c158d0627c64e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sceptre/blobs/sha256:925e969949d54dde7485ae47703bec72d6a2f928d222c937dba380e1c28cc8ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sceptre/blobs/sha256:cb9132cc5eb20ed1fd5dba8d3047d9b976f995c61316e7413a09aa9b3b0b1f2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sceptre/blobs/sha256:893fda47ff7148d2ce8b00e64c5bb18ee0c74b82a06965ec6e2539af40af6261
+sha256:
+  darwin_arm64: 87e3d977512683db98adf05910b0e3064034282f39c71fe079c158d0627c64e3
+  darwin_amd64: 925e969949d54dde7485ae47703bec72d6a2f928d222c937dba380e1c28cc8ef
+  linux_amd64: cb9132cc5eb20ed1fd5dba8d3047d9b976f995c61316e7413a09aa9b3b0b1f2f
+  linux_arm64: 893fda47ff7148d2ce8b00e64c5bb18ee0c74b82a06965ec6e2539af40af6261
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

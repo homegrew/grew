@@ -1,0 +1,11 @@
+name: cpu-info
+version: 1.9.0
+description: Provides information about device hardware and software
+homepage: https://github.com/kamgurgul/cpu-info
+url:
+  darwin_arm64: https://github.com/kamgurgul/cpu-info/releases/download/jvm-1.9.0/CPU-Info-macos-arm64-1.9.0.dmg
+sha256:
+  darwin_arm64: c661d62e8fad138261aaf0a3e7663f38933abbe86cca9475d5f813f31e1addc5
+artifacts:
+  app:
+    - CPU-Info.app

@@ -1,0 +1,21 @@
+name: elvis
+version: 4.2.3
+description: Erlang Style Reviewer
+homepage: https://github.com/inaka/elvis
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elvis/blobs/sha256:551cc88ecfc33cdfecb2138c77ca8b4c0f14f9e712488bf95a8b9bf4e765506a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elvis/blobs/sha256:630aba5dccdcbf486b7235fca0761a2250b92f98cabe342b115f2ea34fc4e9f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elvis/blobs/sha256:659554212c607dc64c72386b0f87b7f5f53de83a2f4afb65a9f38b9ffbc4c8d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elvis/blobs/sha256:cad07c1479fcdfdf0ab30ccbda3c044ae5f486d538c54c096ebf72dbed653c96
+sha256:
+  darwin_arm64: 551cc88ecfc33cdfecb2138c77ca8b4c0f14f9e712488bf95a8b9bf4e765506a
+  darwin_amd64: 630aba5dccdcbf486b7235fca0761a2250b92f98cabe342b115f2ea34fc4e9f7
+  linux_amd64: 659554212c607dc64c72386b0f87b7f5f53de83a2f4afb65a9f38b9ffbc4c8d8
+  linux_arm64: cad07c1479fcdfdf0ab30ccbda3c044ae5f486d538c54c096ebf72dbed653c96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

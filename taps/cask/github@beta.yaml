@@ -1,0 +1,13 @@
+name: github@beta
+version: 3.5.6-beta1-10f3e4e1
+description: Desktop client for GitHub repositories
+homepage: https://desktop.github.com/
+url:
+  darwin_arm64: https://desktop.githubusercontent.com/releases/3.5.6-beta1-10f3e4e1/GitHubDesktop-arm64.zip
+sha256:
+  darwin_arm64: ce71c6c15652ea97a9d7811ed5d28c1ca9e7d7e34634d57138c59831a077b8cd
+artifacts:
+  app:
+    - GitHub Desktop.app
+  bin:
+    - github

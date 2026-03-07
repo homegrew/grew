@@ -1,0 +1,11 @@
+name: rstudio@daily
+version: 2026.04.0-daily-365
+description: Data science software focusing on R and Python
+homepage: https://dailies.rstudio.com/
+url:
+  darwin_arm64: https://rstudio-ide-build.s3.amazonaws.com/electron/macos/RStudio-2026.04.0-daily-365.dmg
+sha256:
+  darwin_arm64: 4172ebec17a606570e44e0cb7dfce30cdaf68f74aafb08ac2d5f0a30d9ec66fd
+artifacts:
+  app:
+    - RStudio.app

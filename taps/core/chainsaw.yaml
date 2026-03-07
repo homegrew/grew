@@ -1,0 +1,19 @@
+name: chainsaw
+version: 2.14.1
+description: Rapidly Search and Hunt through Windows Forensic Artefacts
+homepage: https://github.com/WithSecureLabs/chainsaw
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chainsaw/blobs/sha256:bc824dca00e609d28135a05f9d538f28e1337f01f11df6e662c7d432a0dfca98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chainsaw/blobs/sha256:c37d0e01b535a21c9e3833bc852fd64c6069d58135ad4fe2e4070bd9d8818431
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chainsaw/blobs/sha256:5f7afd7f9fc0daeee1997a6a8d51ce76ee2da2f3f4cbe787bf214b68043c5f70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chainsaw/blobs/sha256:1e9055460ec73c0672e909be75ddb756b55de58a6c4a3d1234e5fe441023509f
+sha256:
+  darwin_arm64: bc824dca00e609d28135a05f9d538f28e1337f01f11df6e662c7d432a0dfca98
+  darwin_amd64: c37d0e01b535a21c9e3833bc852fd64c6069d58135ad4fe2e4070bd9d8818431
+  linux_amd64: 5f7afd7f9fc0daeee1997a6a8d51ce76ee2da2f3f4cbe787bf214b68043c5f70
+  linux_arm64: 1e9055460ec73c0672e909be75ddb756b55de58a6c4a3d1234e5fe441023509f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: pmtiles
+version: 1.30.1
+description: Single-file executable tool for creating, reading and uploading PMTiles archives
+homepage: https://protomaps.com/docs/pmtiles
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pmtiles/blobs/sha256:9920aca1ebe7f9ac196ce1bc3a4262626881dc0d10e483617cbebefeaf230b73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pmtiles/blobs/sha256:ab331b8efd354a5148167b23fc8561db4cdb1bf6bf3fda183dc726a8b8328fbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pmtiles/blobs/sha256:a614d0b189f217858a9799eb6407ddf8feb82ca8b8566f9aae02efbea60e1bb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pmtiles/blobs/sha256:473b9ad9c577cf74267b068360b1f7ead50bfdc8ce542d2b098dac9e66db7af6
+sha256:
+  darwin_arm64: 9920aca1ebe7f9ac196ce1bc3a4262626881dc0d10e483617cbebefeaf230b73
+  darwin_amd64: ab331b8efd354a5148167b23fc8561db4cdb1bf6bf3fda183dc726a8b8328fbf
+  linux_amd64: a614d0b189f217858a9799eb6407ddf8feb82ca8b8566f9aae02efbea60e1bb8
+  linux_arm64: 473b9ad9c577cf74267b068360b1f7ead50bfdc8ce542d2b098dac9e66db7af6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: libharu
+version: 2.4.5
+description: Library for generating PDF files
+homepage: https://github.com/libharu/libharu
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libharu/blobs/sha256:2a5c693f01bbceadbc47a3debdb9bf41149de6e6222ad4f42741847bd62cf943
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libharu/blobs/sha256:3316ccdae1f8e6dfafd938a05bd81a89932e2b41888dbd34195cc547b95c75fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libharu/blobs/sha256:d421cad27dfa67545c699b9ebcba09b914f2bc9b309ec088b53db2c43bcc3a4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libharu/blobs/sha256:7ef3176620a5cd03469609ef74b71c4731200853dfd97acdc7ffb3e67edd55f6
+sha256:
+  darwin_arm64: 2a5c693f01bbceadbc47a3debdb9bf41149de6e6222ad4f42741847bd62cf943
+  darwin_amd64: 3316ccdae1f8e6dfafd938a05bd81a89932e2b41888dbd34195cc547b95c75fe
+  linux_amd64: d421cad27dfa67545c699b9ebcba09b914f2bc9b309ec088b53db2c43bcc3a4a
+  linux_arm64: 7ef3176620a5cd03469609ef74b71c4731200853dfd97acdc7ffb3e67edd55f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

@@ -1,0 +1,19 @@
+name: tektoncd-cli
+version: 0.44.0
+description: CLI for interacting with TektonCD
+homepage: https://github.com/tektoncd/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tektoncd-cli/blobs/sha256:74167dfe12ee79135997188ca00ae00d86229da6bbfb2878a465024f711623bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tektoncd-cli/blobs/sha256:29bd57515c92aa5ddcc296b2a48688852ee310ac00d8abd845f027e81e710c25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tektoncd-cli/blobs/sha256:908580e077cd7540135089e64e386a66b6315760be2f21165fb0a77544a91d8a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tektoncd-cli/blobs/sha256:ea164dcc215d96ddb041783a0fcb234951869f2ce05b2992aec9fbf8ffcb3ef1
+sha256:
+  darwin_arm64: 74167dfe12ee79135997188ca00ae00d86229da6bbfb2878a465024f711623bc
+  darwin_amd64: 29bd57515c92aa5ddcc296b2a48688852ee310ac00d8abd845f027e81e710c25
+  linux_amd64: 908580e077cd7540135089e64e386a66b6315760be2f21165fb0a77544a91d8a
+  linux_arm64: ea164dcc215d96ddb041783a0fcb234951869f2ce05b2992aec9fbf8ffcb3ef1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

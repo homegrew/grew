@@ -1,0 +1,19 @@
+name: fpc
+version: 3.2.2
+description: "Free Pascal: multi-architecture Pascal compiler"
+homepage: https://www.freepascal.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fpc/blobs/sha256:2a9bc7750dd16814a483d10f1dfd4827c6f89569ccc1b46a6b0b0d60f1c1b792
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fpc/blobs/sha256:c5fb604a561ff84c67c6a93f2be94adf6f74b7ddbeb9cdfc1def6929ed2a8e59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fpc/blobs/sha256:3491933cdf5782d3c4b9b1188757cb3846b5d823a6db75c8fb56f13b23bc6747
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fpc/blobs/sha256:949b7b3e1e1d5f5109fa157c197acffdd7ed79378bed86f91f42623417bf5139
+sha256:
+  darwin_arm64: 2a9bc7750dd16814a483d10f1dfd4827c6f89569ccc1b46a6b0b0d60f1c1b792
+  darwin_amd64: c5fb604a561ff84c67c6a93f2be94adf6f74b7ddbeb9cdfc1def6929ed2a8e59
+  linux_amd64: 3491933cdf5782d3c4b9b1188757cb3846b5d823a6db75c8fb56f13b23bc6747
+  linux_arm64: 949b7b3e1e1d5f5109fa157c197acffdd7ed79378bed86f91f42623417bf5139
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

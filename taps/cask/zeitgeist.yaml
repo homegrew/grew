@@ -1,0 +1,11 @@
+name: zeitgeist
+version: 2.3
+description: Keep an eye on your Vercel deployments
+homepage: https://zeitgeist.daneden.me/
+url:
+  darwin_arm64: https://github.com/daneden/zeitgeist/releases/download/v2.3/Zeitgeist.app.zip
+sha256:
+  darwin_arm64: 437794ff91f9c8810580d1f07965b4100c28ef5fb162195bf8e87b5db7fd8308
+artifacts:
+  app:
+    - Zeitgeist.app

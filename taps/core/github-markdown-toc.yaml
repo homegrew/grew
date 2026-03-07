@@ -1,0 +1,19 @@
+name: github-markdown-toc
+version: 2.0.0
+description: Easy TOC creation for GitHub README.md (in go)
+homepage: https://github.com/ekalinin/github-markdown-toc.go
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/github-markdown-toc/blobs/sha256:00e2426cf957abfa02e7dfab65314ef65f3473cb035f8a2a4e7ff6dfba845901
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/github-markdown-toc/blobs/sha256:d96f8173b9c0f691413a341afa625a9710ecb730f1cdff75eacddb191b8d341a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/github-markdown-toc/blobs/sha256:74e6a947ea6483267d1b3e213c6986632e267c6592bca1da70e64440f625999a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/github-markdown-toc/blobs/sha256:ba13de21ea7e27b1a1014b3bf13b3d2fd50feccd9aabeb96422e19fc413e35a5
+sha256:
+  darwin_arm64: 00e2426cf957abfa02e7dfab65314ef65f3473cb035f8a2a4e7ff6dfba845901
+  darwin_amd64: d96f8173b9c0f691413a341afa625a9710ecb730f1cdff75eacddb191b8d341a
+  linux_amd64: 74e6a947ea6483267d1b3e213c6986632e267c6592bca1da70e64440f625999a
+  linux_arm64: ba13de21ea7e27b1a1014b3bf13b3d2fd50feccd9aabeb96422e19fc413e35a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,30 @@
+name: gupnp-tools
+version: 0.12.2
+description: "Free replacements of Intel's UPnP tools"
+homepage: https://wiki.gnome.org/GUPnP/
+license: GPL-2.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gupnp-tools/blobs/sha256:2085bbc212516df9466cfb8c53c5bd9faf9864c8dc021ed238d6ea6b1510283c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gupnp-tools/blobs/sha256:17c6d68b82e895036376b40d0300f96edd9bae8134e8f6bd5b1350d77b0e1861
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gupnp-tools/blobs/sha256:0561372946dc1e5ca75fb568d5d6eff2157694641bd42380a8c1ae0d51aa1e57
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gupnp-tools/blobs/sha256:9abd9fc3ecf06cebe86951add9411a5d3c6df8bf82718774ee8ab194d8956954
+sha256:
+  darwin_arm64: 2085bbc212516df9466cfb8c53c5bd9faf9864c8dc021ed238d6ea6b1510283c
+  darwin_amd64: 17c6d68b82e895036376b40d0300f96edd9bae8134e8f6bd5b1350d77b0e1861
+  linux_amd64: 0561372946dc1e5ca75fb568d5d6eff2157694641bd42380a8c1ae0d51aa1e57
+  linux_arm64: 9abd9fc3ecf06cebe86951add9411a5d3c6df8bf82718774ee8ab194d8956954
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gssdp
+  - gtk+3
+  - gtksourceview4
+  - gupnp
+  - gupnp-av
+  - libsoup
+  - libxml2
+  - gettext

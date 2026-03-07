@@ -1,0 +1,19 @@
+name: shadowsocks-rust
+version: 1.24.0
+description: Rust port of Shadowsocks
+homepage: https://shadowsocks.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shadowsocks-rust/blobs/sha256:775bdee3a1fb92f6d3093376ee7eaec81da0cad45f6ac83f52f6c3fc766d5a67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shadowsocks-rust/blobs/sha256:2fd63ec3752d71a8fd1dac23adc25c604d7d4f4242437d24052d8d0ae5d69c6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shadowsocks-rust/blobs/sha256:f889505350c1a86cdc1f4d201c8055aabdfda0167558b95dc7060127d7567122
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shadowsocks-rust/blobs/sha256:b6a7e8772935001362f1a54be79bda2cb6d57ecef99a9ab912f5f76c9fc7363c
+sha256:
+  darwin_arm64: 775bdee3a1fb92f6d3093376ee7eaec81da0cad45f6ac83f52f6c3fc766d5a67
+  darwin_amd64: 2fd63ec3752d71a8fd1dac23adc25c604d7d4f4242437d24052d8d0ae5d69c6f
+  linux_amd64: f889505350c1a86cdc1f4d201c8055aabdfda0167558b95dc7060127d7567122
+  linux_arm64: b6a7e8772935001362f1a54be79bda2cb6d57ecef99a9ab912f5f76c9fc7363c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

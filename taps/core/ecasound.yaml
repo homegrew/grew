@@ -1,0 +1,23 @@
+name: ecasound
+version: 2.9.3
+description: Multitrack-capable audio recorder and effect processor
+homepage: https://nosignal.fi/ecasound/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ecasound/blobs/sha256:12e39a10c26842235843e303cf99bb10db7666a1fcd812d88b418ed2eae540c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ecasound/blobs/sha256:24eb9f25ca01a39404831b629ce7891bf14c5749bbc4697a1fa9ed2061f067de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ecasound/blobs/sha256:6c81d3065ae81f06d5c338aa6d892be6916c1215c5cb6c6cfd57f60d2249dd2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ecasound/blobs/sha256:ab701f376ed4da40ce109998841784880580ad6b2cb13c5f97cdcb50dffb10fd
+sha256:
+  darwin_arm64: 12e39a10c26842235843e303cf99bb10db7666a1fcd812d88b418ed2eae540c0
+  darwin_amd64: 24eb9f25ca01a39404831b629ce7891bf14c5749bbc4697a1fa9ed2061f067de
+  linux_amd64: 6c81d3065ae81f06d5c338aa6d892be6916c1215c5cb6c6cfd57f60d2249dd2e
+  linux_arm64: ab701f376ed4da40ce109998841784880580ad6b2cb13c5f97cdcb50dffb10fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jack
+  - libsamplerate
+  - libsndfile

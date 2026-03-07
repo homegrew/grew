@@ -1,0 +1,13 @@
+name: gitfiend
+version: 0.45.3
+description: Git client
+homepage: https://gitfiend.com/
+url:
+  darwin_arm64: https://github.com/GitFiend/Support/releases/download/v0.45.3/GitFiend-0.45.3-arm64.dmg
+sha256:
+  darwin_arm64: f23c033b28516c6160566439d3217bb8d350dcf2441e29ac629219c6b42a54c5
+artifacts:
+  app:
+    - GitFiend.app
+  bin:
+    - gitfiend

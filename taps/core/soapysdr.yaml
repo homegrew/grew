@@ -1,0 +1,21 @@
+name: soapysdr
+version: 0.8.1
+description: Vendor and platform neutral SDR support library
+homepage: https://github.com/pothosware/SoapySDR/wiki
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soapysdr/blobs/sha256:d10703185cc1b8b3312bdbc0621131238980f07481bab599dcc498a06e1c1106
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soapysdr/blobs/sha256:c2b21d678a8d0d0f785d8257a32c7d48a7992adef5b6a7c14e6cd4e34d79cf3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soapysdr/blobs/sha256:c37220d056fd15397e731350bf2078625e70b50baf9033db994aa2a18e5f9f62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soapysdr/blobs/sha256:b92128272614278c0799f954abebd5cb9404ded017babda7f8a5767ffb60e8de
+sha256:
+  darwin_arm64: d10703185cc1b8b3312bdbc0621131238980f07481bab599dcc498a06e1c1106
+  darwin_amd64: c2b21d678a8d0d0f785d8257a32c7d48a7992adef5b6a7c14e6cd4e34d79cf3b
+  linux_amd64: c37220d056fd15397e731350bf2078625e70b50baf9033db994aa2a18e5f9f62
+  linux_arm64: b92128272614278c0799f954abebd5cb9404ded017babda7f8a5767ffb60e8de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

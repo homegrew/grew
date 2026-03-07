@@ -1,0 +1,19 @@
+name: tengo
+version: 3.0.0
+description: Fast script language for Go
+homepage: https://tengolang.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tengo/blobs/sha256:c93892d0177b5d0520a654866c4822554a5a06a8599afdee5185166238e2443d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tengo/blobs/sha256:250e938de1c268bbaa0dcb010df63c3d6427476c2a317e5ee40e4f67dd2d2b85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tengo/blobs/sha256:d4c55cd3c296195d74538e9f8c922f6f3b1e12414733ffac200589d584193858
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tengo/blobs/sha256:98750059e6eab32be3c593d770fd330c7b5c9be19305cb795151ea4ec0597faf
+sha256:
+  darwin_arm64: c93892d0177b5d0520a654866c4822554a5a06a8599afdee5185166238e2443d
+  darwin_amd64: 250e938de1c268bbaa0dcb010df63c3d6427476c2a317e5ee40e4f67dd2d2b85
+  linux_amd64: d4c55cd3c296195d74538e9f8c922f6f3b1e12414733ffac200589d584193858
+  linux_arm64: 98750059e6eab32be3c593d770fd330c7b5c9be19305cb795151ea4ec0597faf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

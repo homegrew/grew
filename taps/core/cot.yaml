@@ -1,0 +1,19 @@
+name: cot
+version: 0.5.0
+description: Rust web framework for lazy developers
+homepage: https://cot.rs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cot/blobs/sha256:f49168ef7185f9913abec4529a3989942be8228f682d077d12ba56b2ae7cec1f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cot/blobs/sha256:b62e01680e2916a7a93190fa70fb4bff1daa1a47dfd79af54bfe17fcc9f6c1e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cot/blobs/sha256:3eccbd8666727dbb6f0cf095d53e3369f907fd616b0a78b8139be4b8e2052033
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cot/blobs/sha256:6908f2349a3ed8cfa0eb06fd2eb08d72441acd76fa6a05f7c0bd39beb1e469ca
+sha256:
+  darwin_arm64: f49168ef7185f9913abec4529a3989942be8228f682d077d12ba56b2ae7cec1f
+  darwin_amd64: b62e01680e2916a7a93190fa70fb4bff1daa1a47dfd79af54bfe17fcc9f6c1e5
+  linux_amd64: 3eccbd8666727dbb6f0cf095d53e3369f907fd616b0a78b8139be4b8e2052033
+  linux_arm64: 6908f2349a3ed8cfa0eb06fd2eb08d72441acd76fa6a05f7c0bd39beb1e469ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: aws-amplify
+version: 14.2.5
+description: Build full-stack web and mobile apps in hours. Easy to start, easy to scale
+homepage: https://aws.amazon.com/amplify/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-amplify/blobs/sha256:0c5219dfc85244742c742b03efc5478f0a38d6c9ad72782ce09d01fa34d9016e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-amplify/blobs/sha256:0c4d784581e5f642bcb0eeae52c7136f4d5dbcb2ccef689ade93ba0785f93c33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-amplify/blobs/sha256:4f2d481a8f32e6f3eb32c73ccc82007363de28ea39fa35c059c8b122b810aa96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-amplify/blobs/sha256:16e90e393dc527fae7998c590aa8aaf264b5c1066608d26db3f1748f88bcb6fa
+sha256:
+  darwin_arm64: 0c5219dfc85244742c742b03efc5478f0a38d6c9ad72782ce09d01fa34d9016e
+  darwin_amd64: 0c4d784581e5f642bcb0eeae52c7136f4d5dbcb2ccef689ade93ba0785f93c33
+  linux_amd64: 4f2d481a8f32e6f3eb32c73ccc82007363de28ea39fa35c059c8b122b810aa96
+  linux_arm64: 16e90e393dc527fae7998c590aa8aaf264b5c1066608d26db3f1748f88bcb6fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

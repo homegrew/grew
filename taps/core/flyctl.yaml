@@ -1,0 +1,19 @@
+name: flyctl
+version: 0.4.19
+description: Command-line tools for fly.io services
+homepage: https://fly.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flyctl/blobs/sha256:79720e3a44e6b3a6dc7969925f1f54687aebaa959d4c50abe9479153f0c73e8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flyctl/blobs/sha256:99220caf6fd1c131d75659de596629b267c7890a4993fbf0f259d52c078d6a08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flyctl/blobs/sha256:a134f3c97cb7a49ab2d54d07c7150a9b60bd9fccaed5cdd4ff48d6e979cbb805
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flyctl/blobs/sha256:449962219974106b59420d0ab513b4b815fb8f65456583e784ddb10b1ed216fa
+sha256:
+  darwin_arm64: 79720e3a44e6b3a6dc7969925f1f54687aebaa959d4c50abe9479153f0c73e8a
+  darwin_amd64: 99220caf6fd1c131d75659de596629b267c7890a4993fbf0f259d52c078d6a08
+  linux_amd64: a134f3c97cb7a49ab2d54d07c7150a9b60bd9fccaed5cdd4ff48d6e979cbb805
+  linux_arm64: 449962219974106b59420d0ab513b4b815fb8f65456583e784ddb10b1ed216fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

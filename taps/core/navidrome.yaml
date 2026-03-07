@@ -1,0 +1,22 @@
+name: navidrome
+version: 0.60.3
+description: Modern Music Server and Streamer compatible with Subsonic/Airsonic
+homepage: https://www.navidrome.org
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/navidrome/blobs/sha256:4377d4b038741e364d4a999203535693751245156c44faf2b2f38c834aab1ae1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/navidrome/blobs/sha256:99c826707517a5115d53ad5226f6999858bb1edf671e816896abb5d1823b6673
+  linux_amd64: https://ghcr.io/v2/homebrew/core/navidrome/blobs/sha256:be972c8527b6bbdb10f08ae3e71bca6037686258fd1693619258fdc6b3f4e765
+  linux_arm64: https://ghcr.io/v2/homebrew/core/navidrome/blobs/sha256:f53618093f2d2d82edf06d9a400e8c1851e708b207cfb727ba4635bb4c119f24
+sha256:
+  darwin_arm64: 4377d4b038741e364d4a999203535693751245156c44faf2b2f38c834aab1ae1
+  darwin_amd64: 99c826707517a5115d53ad5226f6999858bb1edf671e816896abb5d1823b6673
+  linux_amd64: be972c8527b6bbdb10f08ae3e71bca6037686258fd1693619258fdc6b3f4e765
+  linux_arm64: f53618093f2d2d82edf06d9a400e8c1851e708b207cfb727ba4635bb4c119f24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - taglib

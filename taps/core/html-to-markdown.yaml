@@ -1,0 +1,19 @@
+name: html-to-markdown
+version: 2.5.0
+description: Transforms HTML (even entire websites) into clean, readable Markdown
+homepage: https://html-to-markdown.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/html-to-markdown/blobs/sha256:e981d5e00545a518711ac932cd67108ea14efe6a9f66585b68f274a830b6dc99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/html-to-markdown/blobs/sha256:ee47b6c4ae135218396b7e4b38acfd2096158f853586bf6e5f829b82358648f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/html-to-markdown/blobs/sha256:3980c2ba3963118b9166de4bb4f1f23635c6d33060f145bb4d738f06d7aaa2f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/html-to-markdown/blobs/sha256:4544cefddf21f3e7bc6a4288bb2c74d9b247676e9327b898ff1292718c149d54
+sha256:
+  darwin_arm64: e981d5e00545a518711ac932cd67108ea14efe6a9f66585b68f274a830b6dc99
+  darwin_amd64: ee47b6c4ae135218396b7e4b38acfd2096158f853586bf6e5f829b82358648f8
+  linux_amd64: 3980c2ba3963118b9166de4bb4f1f23635c6d33060f145bb4d738f06d7aaa2f7
+  linux_arm64: 4544cefddf21f3e7bc6a4288bb2c74d9b247676e9327b898ff1292718c149d54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: stormy
+version: 0.3.3
+description: Minimal, customizable and neofetch-like weather CLI based on rainy
+homepage: https://github.com/ashish0kumar/stormy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stormy/blobs/sha256:67985bd5741387e48074e5ea65d239509ea4474a1a5d81c613772eac32d5df34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stormy/blobs/sha256:736f0c364525cc53e357beede4b8c7688664fd0f89044e8b05b9d248376ebdd3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stormy/blobs/sha256:42244149b73dcd15de4070a2e282295a93fa36766da806e1d3e7e138eede3800
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stormy/blobs/sha256:62c64a85488c29dd54fac3f317313479a551254db1771a0133dca1f007904323
+sha256:
+  darwin_arm64: 67985bd5741387e48074e5ea65d239509ea4474a1a5d81c613772eac32d5df34
+  darwin_amd64: 736f0c364525cc53e357beede4b8c7688664fd0f89044e8b05b9d248376ebdd3
+  linux_amd64: 42244149b73dcd15de4070a2e282295a93fa36766da806e1d3e7e138eede3800
+  linux_arm64: 62c64a85488c29dd54fac3f317313479a551254db1771a0133dca1f007904323
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

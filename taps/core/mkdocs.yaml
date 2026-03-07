@@ -1,0 +1,22 @@
+name: mkdocs
+version: 1.6.1
+description: Project documentation with Markdown
+homepage: https://www.mkdocs.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkdocs/blobs/sha256:01be89d0831a80d0923aae6b61e491c35c157d58799fc1322f08cbd49eddf4b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkdocs/blobs/sha256:73ad3704aa4cdf2ac6773e0ec17d31866eaac7d39734b2bf37f1d78f879c8bcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkdocs/blobs/sha256:2040d82febb29aed1488dc7dc1a8c5550287e8bb51f54546e26e322b46ea656e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkdocs/blobs/sha256:72100f5ccf0b634b67e10aa25f7bd35d1d51001b78c10ccb449aaadd642e6592
+sha256:
+  darwin_arm64: 01be89d0831a80d0923aae6b61e491c35c157d58799fc1322f08cbd49eddf4b7
+  darwin_amd64: 73ad3704aa4cdf2ac6773e0ec17d31866eaac7d39734b2bf37f1d78f879c8bcf
+  linux_amd64: 2040d82febb29aed1488dc7dc1a8c5550287e8bb51f54546e26e322b46ea656e
+  linux_arm64: 72100f5ccf0b634b67e10aa25f7bd35d1d51001b78c10ccb449aaadd642e6592
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

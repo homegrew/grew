@@ -1,0 +1,19 @@
+name: z80dasm
+version: 1.2.0
+description: Disassembler for the Zilog Z80 microprocessor and compatibles
+homepage: https://packages.debian.org/sid/z80dasm
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/z80dasm/blobs/sha256:04a71156a5cbb4a8ea20743f25864bb447004f6aabfda1ef23cafede9a5d36ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/z80dasm/blobs/sha256:79f08c8c5e2fd4fcb863fd7717ba083c5e59ef3e63b0009dd7fbd54a782cd93e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/z80dasm/blobs/sha256:3974fe69ab6b1bfddf25cdad7ff5e7c462b8df8c6605ef528a067aa5cffbb3ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/z80dasm/blobs/sha256:f804e92b96102101c261303a335651172b29e3ee2fd033b0524e2aec3ca1b27b
+sha256:
+  darwin_arm64: 04a71156a5cbb4a8ea20743f25864bb447004f6aabfda1ef23cafede9a5d36ae
+  darwin_amd64: 79f08c8c5e2fd4fcb863fd7717ba083c5e59ef3e63b0009dd7fbd54a782cd93e
+  linux_amd64: 3974fe69ab6b1bfddf25cdad7ff5e7c462b8df8c6605ef528a067aa5cffbb3ec
+  linux_arm64: f804e92b96102101c261303a335651172b29e3ee2fd033b0524e2aec3ca1b27b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

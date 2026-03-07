@@ -1,0 +1,19 @@
+name: open-mesh
+version: 11.0.0
+description: Generic data structure to represent and manipulate polygonal meshes
+homepage: https://www.graphics.rwth-aachen.de/software/openmesh/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-mesh/blobs/sha256:ae2697c40c059452bd27e81c7e43c0b3646ec6105b2f0e06cff61195402a0554
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-mesh/blobs/sha256:daad3b91c4ca6a713f80298891ca0287bba5118d9b2da41b209e626625b9cf86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-mesh/blobs/sha256:51111fc385d889eaee7e24daa21f468f830be446aa9fa27a6675220d65340862
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-mesh/blobs/sha256:04ad430f4a13a2bf8bf02e1a0a6f3cdaea50b910c7f25138be82d694784ea346
+sha256:
+  darwin_arm64: ae2697c40c059452bd27e81c7e43c0b3646ec6105b2f0e06cff61195402a0554
+  darwin_amd64: daad3b91c4ca6a713f80298891ca0287bba5118d9b2da41b209e626625b9cf86
+  linux_amd64: 51111fc385d889eaee7e24daa21f468f830be446aa9fa27a6675220d65340862
+  linux_arm64: 04ad430f4a13a2bf8bf02e1a0a6f3cdaea50b910c7f25138be82d694784ea346
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

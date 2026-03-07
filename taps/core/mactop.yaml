@@ -1,0 +1,13 @@
+name: mactop
+version: 2.0.9
+description: Apple Silicon Monitor Top written in Go Lang
+homepage: https://github.com/metaspartan/mactop
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mactop/blobs/sha256:6d2415afd9d49d78be2ada8f542868d7d797a05c8b208a6c4f186e4d2d64988e
+sha256:
+  darwin_arm64: 6d2415afd9d49d78be2ada8f542868d7d797a05c8b208a6c4f186e4d2d64988e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

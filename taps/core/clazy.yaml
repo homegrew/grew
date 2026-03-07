@@ -1,0 +1,22 @@
+name: clazy
+version: 1.17
+description: Qt oriented static code analyzer
+homepage: https://www.kdab.com/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clazy/blobs/sha256:5bcb2600e1302c815509fc3e454cca551fb47dfa51a28db508f24bd695c1de59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clazy/blobs/sha256:941b9d823264678dca2c87ec94dd8411d176e04e33fec83b14ddbad604f81f86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clazy/blobs/sha256:9a5b96d9b276dd91bab3efb833365892be64a8101888f528375b980178561f8e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clazy/blobs/sha256:696507d8a2bfe111ad00e871b55c77113c3527b27d529ef781a98915b5971bc3
+sha256:
+  darwin_arm64: 5bcb2600e1302c815509fc3e454cca551fb47dfa51a28db508f24bd695c1de59
+  darwin_amd64: 941b9d823264678dca2c87ec94dd8411d176e04e33fec83b14ddbad604f81f86
+  linux_amd64: 9a5b96d9b276dd91bab3efb833365892be64a8101888f528375b980178561f8e
+  linux_arm64: 696507d8a2bfe111ad00e871b55c77113c3527b27d529ef781a98915b5971bc3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm
+  - coreutils

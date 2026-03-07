@@ -1,0 +1,23 @@
+name: nvchecker
+version: 2.20
+description: New version checker for software releases
+homepage: https://github.com/lilydjwg/nvchecker
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nvchecker/blobs/sha256:61cd7ebffbb7ccbafa43fc83b0572034c42c70458d5987da07239afb81fabe5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nvchecker/blobs/sha256:4448e060cee80a57f751deccf38f6a685aa60209078f1189b7a556d21d23de87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nvchecker/blobs/sha256:d143cf969b33ba0638ebfffaa840e26f93c6d316b8a7b921497f5069a8e7372c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nvchecker/blobs/sha256:5d781ccc8e1d49e45ce8c63e19e08b28bc2ede7c573d96b4080af10c64ccdfc8
+sha256:
+  darwin_arm64: 61cd7ebffbb7ccbafa43fc83b0572034c42c70458d5987da07239afb81fabe5b
+  darwin_amd64: 4448e060cee80a57f751deccf38f6a685aa60209078f1189b7a556d21d23de87
+  linux_amd64: d143cf969b33ba0638ebfffaa840e26f93c6d316b8a7b921497f5069a8e7372c
+  linux_arm64: 5d781ccc8e1d49e45ce8c63e19e08b28bc2ede7c573d96b4080af10c64ccdfc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - openssl@3
+  - python@3.14

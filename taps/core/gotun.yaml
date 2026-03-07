@@ -1,0 +1,19 @@
+name: gotun
+version: 0.8.0
+description: Lightweight HTTP proxy over SSH
+homepage: https://github.com/Sesame2/gotun
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotun/blobs/sha256:1404cfcbbe2c3948baa3388361eeb2be34b590fbbdfd090849e38a10a1eeadc9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotun/blobs/sha256:ce42412109096343b27d56419cc3c9ba18e4012556f7f221cf727af8d00e1bce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotun/blobs/sha256:4781293eb4e7feed7cb77184d0896c1e84f7416b90f20a220d08942606527910
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotun/blobs/sha256:3b4aa3385559f0ac14ce53cd7e1630f1e444dfd469b6b77a8ae8d6b2b8135c1f
+sha256:
+  darwin_arm64: 1404cfcbbe2c3948baa3388361eeb2be34b590fbbdfd090849e38a10a1eeadc9
+  darwin_amd64: ce42412109096343b27d56419cc3c9ba18e4012556f7f221cf727af8d00e1bce
+  linux_amd64: 4781293eb4e7feed7cb77184d0896c1e84f7416b90f20a220d08942606527910
+  linux_arm64: 3b4aa3385559f0ac14ce53cd7e1630f1e444dfd469b6b77a8ae8d6b2b8135c1f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

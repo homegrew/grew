@@ -1,0 +1,19 @@
+name: rshijack
+version: 0.5.2
+description: TCP connection hijacker
+homepage: https://github.com/kpcyrd/rshijack
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rshijack/blobs/sha256:0ba456228f8c73b28433e29409a5949bb8e154794a30abf0058d4fb0db4febc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rshijack/blobs/sha256:cb638e32c2280602c4a9c2df3b7d44d2a13f18804cb2aebb841425c6b3e50f59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rshijack/blobs/sha256:f7ac803fc3ef23e503bb4604c2c1322cdac87945b8337b5d30a19ee4917f3a84
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rshijack/blobs/sha256:f0e4f5ac8ccd08299467e16abb5c3d6d198905ecd7c9ddaa58fc351aea744c4b
+sha256:
+  darwin_arm64: 0ba456228f8c73b28433e29409a5949bb8e154794a30abf0058d4fb0db4febc6
+  darwin_amd64: cb638e32c2280602c4a9c2df3b7d44d2a13f18804cb2aebb841425c6b3e50f59
+  linux_amd64: f7ac803fc3ef23e503bb4604c2c1322cdac87945b8337b5d30a19ee4917f3a84
+  linux_arm64: f0e4f5ac8ccd08299467e16abb5c3d6d198905ecd7c9ddaa58fc351aea744c4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

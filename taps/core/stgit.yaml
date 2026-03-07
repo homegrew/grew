@@ -1,0 +1,22 @@
+name: stgit
+version: 2.5.5
+description: Manage Git commits as a stack of patches
+homepage: https://stacked-git.github.io
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stgit/blobs/sha256:2245c222ebdc50df69174e08fca409001fa02cc99834cac0a475c1a3394c3f18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stgit/blobs/sha256:ab4711c2838f32cbe2a605b5475b67026db843aec069749f08e280716d68df26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stgit/blobs/sha256:429022ab9a5b49d42b49966aec2a1dfec8049e50abda14c6b790da3028cf4a7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stgit/blobs/sha256:292c59af8ad6eece0537482b16abaf7e65b8ba7c56cd251e2aa3bf98fde34619
+sha256:
+  darwin_arm64: 2245c222ebdc50df69174e08fca409001fa02cc99834cac0a475c1a3394c3f18
+  darwin_amd64: ab4711c2838f32cbe2a605b5475b67026db843aec069749f08e280716d68df26
+  linux_amd64: 429022ab9a5b49d42b49966aec2a1dfec8049e50abda14c6b790da3028cf4a7b
+  linux_arm64: 292c59af8ad6eece0537482b16abaf7e65b8ba7c56cd251e2aa3bf98fde34619
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - git
+  - libiconv

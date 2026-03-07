@@ -1,0 +1,19 @@
+name: swift-format
+version: 602.0.0
+description: Formatting technology for Swift source code
+homepage: https://github.com/swiftlang/swift-format
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swift-format/blobs/sha256:df0fdcc1a40fd5424122f4db14f70df46b02de3b9046943e4155b560e79ae0df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swift-format/blobs/sha256:cc7b5fa4b9a56bd360dcf766b2951851f8b62baafff325827a037e394ca9dd24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swift-format/blobs/sha256:1bd08266274e09c11c73d0f7d8c1b730ae6b6e86d9c25b1b839ea048cf71fb1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swift-format/blobs/sha256:ba98b0fe314e54fc94bb2b1fa298c1fcb7bc5cbd01128643ba343ddf808cd5e4
+sha256:
+  darwin_arm64: df0fdcc1a40fd5424122f4db14f70df46b02de3b9046943e4155b560e79ae0df
+  darwin_amd64: cc7b5fa4b9a56bd360dcf766b2951851f8b62baafff325827a037e394ca9dd24
+  linux_amd64: 1bd08266274e09c11c73d0f7d8c1b730ae6b6e86d9c25b1b839ea048cf71fb1b
+  linux_arm64: ba98b0fe314e54fc94bb2b1fa298c1fcb7bc5cbd01128643ba343ddf808cd5e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

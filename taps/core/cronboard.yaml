@@ -1,0 +1,23 @@
+name: cronboard
+version: 0.5.1
+description: Terminal-based dashboard for managing cron jobs locally and on servers
+homepage: https://github.com/antoniorodr/cronboard
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cronboard/blobs/sha256:3e5e6bfffd6f71684b2c14d1266473592e43b0a838a8adde8d38de6b56f2a48f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cronboard/blobs/sha256:c19728db04b2951ba06943ee70a58a1cc46e5936746a30071331d2ef755afcab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cronboard/blobs/sha256:975bc685c909e4da37016d68e5e50145592cc9f8c9c7f6861c099ae58adadd5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cronboard/blobs/sha256:989a75d6e17412df103c5a66dec43def4e3c891a0fb46baa9029b1ff9595954b
+sha256:
+  darwin_arm64: 3e5e6bfffd6f71684b2c14d1266473592e43b0a838a8adde8d38de6b56f2a48f
+  darwin_amd64: c19728db04b2951ba06943ee70a58a1cc46e5936746a30071331d2ef755afcab
+  linux_amd64: 975bc685c909e4da37016d68e5e50145592cc9f8c9c7f6861c099ae58adadd5d
+  linux_arm64: 989a75d6e17412df103c5a66dec43def4e3c891a0fb46baa9029b1ff9595954b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libsodium
+  - python@3.14

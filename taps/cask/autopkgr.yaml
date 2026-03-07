@@ -1,0 +1,11 @@
+name: autopkgr
+version: 1.6.1
+description: Install and configure AutoPkg
+homepage: https://www.lindegroup.com/autopkgr
+url:
+  darwin_arm64: https://github.com/lindegroup/autopkgr/releases/download/v1.6.1/AutoPkgr-1.6.1.dmg
+sha256:
+  darwin_arm64: 598aa227ef544d37b7f964c1352e6f2d955fc5a8127cc2a708e7bc02af2cc7f0
+artifacts:
+  app:
+    - AutoPkgr.app

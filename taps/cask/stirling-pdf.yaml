@@ -1,0 +1,11 @@
+name: stirling-pdf
+version: 2.7.0
+description: PDF utility
+homepage: https://stirlingpdf.com/
+url:
+  darwin_arm64: https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v2.7.0/Stirling-PDF-macos-aarch64.dmg
+sha256:
+  darwin_arm64: ca2f85d6615ac3e8eba47f5c4646a9a41bb2c3a71db48d8468a0d54e9329236a
+artifacts:
+  app:
+    - Stirling-PDF.app

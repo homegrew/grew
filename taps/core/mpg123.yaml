@@ -1,0 +1,19 @@
+name: mpg123
+version: 1.33.4
+description: MP3 player for Linux and UNIX
+homepage: https://www.mpg123.de/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpg123/blobs/sha256:694eb298dbd62abd5678947b165361749c4d2099195442d16ac55123f8cf0ceb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpg123/blobs/sha256:cbf64a7d8d9908619f5056dab2b4936300fbe2fce1e233df67a393ca9a5157ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpg123/blobs/sha256:2488c3e1d8c81c6483be8a601395c510ecfbf5b4f9768f8f897fa2bd7a154ad1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpg123/blobs/sha256:0114c9506564aa4f8d4d9cae293160d7ade33c3b4c252b9e6b8b3aa6569ad8c6
+sha256:
+  darwin_arm64: 694eb298dbd62abd5678947b165361749c4d2099195442d16ac55123f8cf0ceb
+  darwin_amd64: cbf64a7d8d9908619f5056dab2b4936300fbe2fce1e233df67a393ca9a5157ed
+  linux_amd64: 2488c3e1d8c81c6483be8a601395c510ecfbf5b4f9768f8f897fa2bd7a154ad1
+  linux_arm64: 0114c9506564aa4f8d4d9cae293160d7ade33c3b4c252b9e6b8b3aa6569ad8c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

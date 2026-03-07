@@ -1,0 +1,19 @@
+name: helm-docs
+version: 1.14.2
+description: Tool for automatically generating markdown documentation for helm charts
+homepage: https://github.com/norwoodj/helm-docs
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/helm-docs/blobs/sha256:6469d4abf186a72f762ed839038ccbcb5b0a9ae1ba3d2e184b448129dc29ca38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/helm-docs/blobs/sha256:75d1650efc32f8b5539301435719ddd40d32ca7e619e497f0baa5ba374ee6b7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/helm-docs/blobs/sha256:78df0661852c388c2245a14aeeaf3442206a33ac08b1b7b74f233c72ec5d0cc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/helm-docs/blobs/sha256:426ed8f120588091d3e45a7f22f4b4ffb3b43f3cdf4c71f5b5b64aead9ad40ae
+sha256:
+  darwin_arm64: 6469d4abf186a72f762ed839038ccbcb5b0a9ae1ba3d2e184b448129dc29ca38
+  darwin_amd64: 75d1650efc32f8b5539301435719ddd40d32ca7e619e497f0baa5ba374ee6b7f
+  linux_amd64: 78df0661852c388c2245a14aeeaf3442206a33ac08b1b7b74f233c72ec5d0cc5
+  linux_arm64: 426ed8f120588091d3e45a7f22f4b4ffb3b43f3cdf4c71f5b5b64aead9ad40ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

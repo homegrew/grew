@@ -1,0 +1,11 @@
+name: itch
+version: 26.9.0
+description: Game client for itch.io
+homepage: https://itch.io/app
+url:
+  darwin_arm64: https://github.com/itchio/itch/releases/download/v26.9.0/itch-v26.9.0-darwin-arm64.tar.gz
+sha256:
+  darwin_arm64: 8a18dd6f40229b416b7e5de3eb19c6a004515d8374eb01864e3e4466b4519f12
+artifacts:
+  app:
+    - itch.app

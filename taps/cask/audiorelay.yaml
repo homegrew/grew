@@ -1,0 +1,11 @@
+name: audiorelay
+version: 0.27.5
+description: Stream audio between your devices
+homepage: https://www.audiorelay.net/
+url:
+  darwin_arm64: https://dl.audiorelay.net/setups/macos/AudioRelay-0.27.5-aarch64.dmg
+sha256:
+  darwin_arm64: 858f25bf5d6a9057349e70bb0472919d687d42ed158f07f468682dd6066ce20d
+artifacts:
+  app:
+    - AudioRelay.app

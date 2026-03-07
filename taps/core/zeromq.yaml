@@ -1,0 +1,21 @@
+name: zeromq
+version: 4.3.5
+description: High-performance, asynchronous messaging library
+homepage: https://zeromq.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zeromq/blobs/sha256:76e3d40941eb6d5d2ea5f94c017fd3503b68aee2aefc017291ab38b729fbcf08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zeromq/blobs/sha256:d605668191163ba70b7298653eab755dc07cf378244f0795c432cff918069008
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zeromq/blobs/sha256:f98a86b96ff8acd27fe0d06f651f376a392a5aa25fd61e084cd26718e241df30
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zeromq/blobs/sha256:1839d81ada31e9622a60dbd0617c9d12709ad290d3b3d2c7d83690e6da756802
+sha256:
+  darwin_arm64: 76e3d40941eb6d5d2ea5f94c017fd3503b68aee2aefc017291ab38b729fbcf08
+  darwin_amd64: d605668191163ba70b7298653eab755dc07cf378244f0795c432cff918069008
+  linux_amd64: f98a86b96ff8acd27fe0d06f651f376a392a5aa25fd61e084cd26718e241df30
+  linux_arm64: 1839d81ada31e9622a60dbd0617c9d12709ad290d3b3d2c7d83690e6da756802
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

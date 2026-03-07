@@ -1,0 +1,11 @@
+name: ivpn
+version: 3.15.0
+description: VPN client
+homepage: https://www.ivpn.net/en/apps-macos
+url:
+  darwin_arm64: https://repo.ivpn.net/macos/bin/IVPN-3.15.0-arm64.dmg
+sha256:
+  darwin_arm64: 72647b650a295b764c0a076732121c7930944e68fa6ae9bc797b7e1c93cb5895
+artifacts:
+  app:
+    - IVPN.app

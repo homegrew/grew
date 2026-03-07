@@ -1,0 +1,19 @@
+name: libdill
+version: 2.14
+description: Structured concurrency in C
+homepage: https://github.com/sustrik/libdill
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdill/blobs/sha256:7a6b319ff538280ed829e03970bc0c70b273080bb71a26bc83ff62bf396dd608
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdill/blobs/sha256:c7b0d0f62b509ddf55dcd6f59eb31e5d6e301c4c6cd1e2abd5e139d3db8c7681
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdill/blobs/sha256:6a7a4c9cd3cfe580d823fe85732058bbce181f915f348e1d9629bd93e86880f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdill/blobs/sha256:78f6fb6cd777dc91a61a369bb50c7a6879c50b209391429c7f160a7dea9569f3
+sha256:
+  darwin_arm64: 7a6b319ff538280ed829e03970bc0c70b273080bb71a26bc83ff62bf396dd608
+  darwin_amd64: c7b0d0f62b509ddf55dcd6f59eb31e5d6e301c4c6cd1e2abd5e139d3db8c7681
+  linux_amd64: 6a7a4c9cd3cfe580d823fe85732058bbce181f915f348e1d9629bd93e86880f7
+  linux_arm64: 78f6fb6cd777dc91a61a369bb50c7a6879c50b209391429c7f160a7dea9569f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

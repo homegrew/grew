@@ -1,0 +1,21 @@
+name: leapp-cli
+version: 0.1.65
+description: Cloud credentials manager cli
+homepage: https://github.com/noovolari/leapp
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leapp-cli/blobs/sha256:a08d025eecfd8d28388c454b5e6c5265cdcd49996228d2f6ff08621ee1955ad5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leapp-cli/blobs/sha256:ee8f75982419c3a730061d07335b51a2911c3c22dc21a398c8d68f3bcfe8f0ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leapp-cli/blobs/sha256:d9b5a0a0f4dfdef5663463397ef4b2d68d917de753f7bc0ccafeda392a1356d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leapp-cli/blobs/sha256:a3b894178f3e5aacfefb391d2ad86beaee359c2ef6d5263338ec6e69eaaa9af6
+sha256:
+  darwin_arm64: a08d025eecfd8d28388c454b5e6c5265cdcd49996228d2f6ff08621ee1955ad5
+  darwin_amd64: ee8f75982419c3a730061d07335b51a2911c3c22dc21a398c8d68f3bcfe8f0ba
+  linux_amd64: d9b5a0a0f4dfdef5663463397ef4b2d68d917de753f7bc0ccafeda392a1356d7
+  linux_arm64: a3b894178f3e5aacfefb391d2ad86beaee359c2ef6d5263338ec6e69eaaa9af6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,19 @@
+name: gowsdl
+version: 0.5.0
+description: WSDL2Go code generation as well as its SOAP proxy
+homepage: https://github.com/hooklift/gowsdl
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gowsdl/blobs/sha256:edb60eca3fd4b0d9c9bd17ac76d1830d0acb28b4cdd5bf85330ef6d2c0b14572
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gowsdl/blobs/sha256:69a10be90d1bc0b93c2280ffd4a4db3613b21dc9d60b893f67b01d6364bb959b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gowsdl/blobs/sha256:0f90850655453570875a7087b0ac6a850d059a68afba01b62a5e30e6aa7cfecc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gowsdl/blobs/sha256:8579b7b07203ffa43d65de8bd48ba205dca277d0e6057c0eba5f0851a2484b3e
+sha256:
+  darwin_arm64: edb60eca3fd4b0d9c9bd17ac76d1830d0acb28b4cdd5bf85330ef6d2c0b14572
+  darwin_amd64: 69a10be90d1bc0b93c2280ffd4a4db3613b21dc9d60b893f67b01d6364bb959b
+  linux_amd64: 0f90850655453570875a7087b0ac6a850d059a68afba01b62a5e30e6aa7cfecc
+  linux_arm64: 8579b7b07203ffa43d65de8bd48ba205dca277d0e6057c0eba5f0851a2484b3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

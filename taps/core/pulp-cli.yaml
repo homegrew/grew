@@ -1,0 +1,23 @@
+name: pulp-cli
+version: 0.38.2
+description: Command-line interface for Pulp 3
+homepage: https://github.com/pulp/pulp-cli
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pulp-cli/blobs/sha256:751d958e6244ae4fa50d2e3ff721d29903b128772fea3f6102d027172386db47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pulp-cli/blobs/sha256:5df9366fc2695532bb9f912bf42777ea8828a04ed9f25439bba055506454e83e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pulp-cli/blobs/sha256:db14685e73d05cfdd4c3805ad59615a9fc049ce511c0ecfe73cbe4ec356af8cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pulp-cli/blobs/sha256:658e29539054ccbe145e179f89f67820e7bc52cf279d3f69ca42826249bf47fc
+sha256:
+  darwin_arm64: 751d958e6244ae4fa50d2e3ff721d29903b128772fea3f6102d027172386db47
+  darwin_amd64: 5df9366fc2695532bb9f912bf42777ea8828a04ed9f25439bba055506454e83e
+  linux_amd64: db14685e73d05cfdd4c3805ad59615a9fc049ce511c0ecfe73cbe4ec356af8cd
+  linux_arm64: 658e29539054ccbe145e179f89f67820e7bc52cf279d3f69ca42826249bf47fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

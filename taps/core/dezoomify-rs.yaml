@@ -1,0 +1,19 @@
+name: dezoomify-rs
+version: 2.15.0
+description: Tiled image downloader
+homepage: https://github.com/lovasoa/dezoomify-rs
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dezoomify-rs/blobs/sha256:8be8dcfeec19cf3e8255dfb6b70608f591cfffbdee959919d3d99504558657c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dezoomify-rs/blobs/sha256:62bdd4173ad1428c4a19515c4a8ae0728c919e2a7e641a08de9e1105ae72e155
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dezoomify-rs/blobs/sha256:a04d863259959bfb3021ba1e553e612e320fb515022081770dad861427ef3907
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dezoomify-rs/blobs/sha256:f1533e3d5a7eeef4debd69d4a5b54dc8b38b7dbb03055c93b02699b4651a5c33
+sha256:
+  darwin_arm64: 8be8dcfeec19cf3e8255dfb6b70608f591cfffbdee959919d3d99504558657c8
+  darwin_amd64: 62bdd4173ad1428c4a19515c4a8ae0728c919e2a7e641a08de9e1105ae72e155
+  linux_amd64: a04d863259959bfb3021ba1e553e612e320fb515022081770dad861427ef3907
+  linux_arm64: f1533e3d5a7eeef4debd69d4a5b54dc8b38b7dbb03055c93b02699b4651a5c33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

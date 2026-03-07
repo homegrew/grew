@@ -1,0 +1,25 @@
+name: rsgain
+version: 3.6
+description: ReplayGain 2.0 tagging utility
+homepage: https://github.com/complexlogic/rsgain
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsgain/blobs/sha256:ed5fac0db7cf76fcf45a96c7368f88f4a27b3e4ecbe46245b59d423fef69e9f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsgain/blobs/sha256:1822242ef3ea81df8679f2d74fd427a1b2bc26ffc44f77f11bab0f9aab9eb635
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsgain/blobs/sha256:a8dcff63acd3a4e02941fc4194f7008131d71e01364087e4f6f07979a8222624
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsgain/blobs/sha256:50093b0e7182001fba4ad902780316eaf9571320121a7d2a70af6934a5511786
+sha256:
+  darwin_arm64: ed5fac0db7cf76fcf45a96c7368f88f4a27b3e4ecbe46245b59d423fef69e9f2
+  darwin_amd64: 1822242ef3ea81df8679f2d74fd427a1b2bc26ffc44f77f11bab0f9aab9eb635
+  linux_amd64: a8dcff63acd3a4e02941fc4194f7008131d71e01364087e4f6f07979a8222624
+  linux_arm64: 50093b0e7182001fba4ad902780316eaf9571320121a7d2a70af6934a5511786
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - fmt
+  - inih
+  - libebur128
+  - taglib

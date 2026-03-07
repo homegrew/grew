@@ -1,0 +1,22 @@
+name: cahute
+version: 0.6
+description: Library and set of utilities to interact with Casio calculators
+homepage: https://cahuteproject.org/
+license: CECILL-2.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cahute/blobs/sha256:cb42203525d8516537043a35201cf297d36c0ad965da1ea890b13f75c25bb2b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cahute/blobs/sha256:56ce31df801211ccaf95a98f2d2dd9b8c79870d6aaa5784c039bd4a2b85936a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cahute/blobs/sha256:a58adf247829574b1deab7b035c71ec60e404e889241dc8e5910458508e09dec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cahute/blobs/sha256:82332e01cda2c06e1d9cc09981c57ab9c00edbf1eb62219ee4b0838ecb821c21
+sha256:
+  darwin_arm64: cb42203525d8516537043a35201cf297d36c0ad965da1ea890b13f75c25bb2b3
+  darwin_amd64: 56ce31df801211ccaf95a98f2d2dd9b8c79870d6aaa5784c039bd4a2b85936a7
+  linux_amd64: a58adf247829574b1deab7b035c71ec60e404e889241dc8e5910458508e09dec
+  linux_arm64: 82332e01cda2c06e1d9cc09981c57ab9c00edbf1eb62219ee4b0838ecb821c21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb
+  - sdl2

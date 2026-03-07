@@ -1,0 +1,19 @@
+name: pylyzer
+version: 0.0.82
+description: "Fast static code analyzer & language server for Python"
+homepage: https://github.com/mtshiba/pylyzer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pylyzer/blobs/sha256:f2679c879365d5385c2833d37469b4e68b23f033a88e1ee7fc894b65199eeed1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pylyzer/blobs/sha256:26b44bdeb0c056279e0d33784763085902559b0e886e956d6df31681105b594a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pylyzer/blobs/sha256:da07ee959c8519069c6846ded47178f8564265755851c1e65d794e03756182fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pylyzer/blobs/sha256:eaddb80359ab329ac866d56826ae40004d3b2c62d027a5637e275fde7bddc534
+sha256:
+  darwin_arm64: f2679c879365d5385c2833d37469b4e68b23f033a88e1ee7fc894b65199eeed1
+  darwin_amd64: 26b44bdeb0c056279e0d33784763085902559b0e886e956d6df31681105b594a
+  linux_amd64: da07ee959c8519069c6846ded47178f8564265755851c1e65d794e03756182fe
+  linux_arm64: eaddb80359ab329ac866d56826ae40004d3b2c62d027a5637e275fde7bddc534
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,20 @@
+name: pcsc-lite
+version: 2.4.1
+description: Middleware to access a smart card using SCard API
+homepage: https://pcsclite.apdu.fr/
+license: BSD-3-Clause AND GPL-3.0-or-later AND ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcsc-lite/blobs/sha256:bbcb4cec53c676bc0c0d909b48a4880d0245e248301b1c02bcf2ba2db08ab29c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcsc-lite/blobs/sha256:0f44502f904a7084905a92de0ec7cf8433ee98b1d8190928096659caae01dbba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcsc-lite/blobs/sha256:8646d8eae3480db54d39cd2fc59466b5f3f72c58691cf36f4b8afced83e41c1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcsc-lite/blobs/sha256:3c60cdfcf25e57250a4259695c38127608738afc3fd9c7979a4b0387fde8402f
+sha256:
+  darwin_arm64: bbcb4cec53c676bc0c0d909b48a4880d0245e248301b1c02bcf2ba2db08ab29c
+  darwin_amd64: 0f44502f904a7084905a92de0ec7cf8433ee98b1d8190928096659caae01dbba
+  linux_amd64: 8646d8eae3480db54d39cd2fc59466b5f3f72c58691cf36f4b8afced83e41c1a
+  linux_arm64: 3c60cdfcf25e57250a4259695c38127608738afc3fd9c7979a4b0387fde8402f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

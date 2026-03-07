@@ -1,0 +1,19 @@
+name: kubetail
+version: 0.12.1
+description: Logging tool for Kubernetes with a real-time web dashboard
+homepage: https://www.kubetail.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubetail/blobs/sha256:717dd6e239a45e68ece97265688fea1c44b6a07529280085747b0e0db2e2c115
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubetail/blobs/sha256:88201f21bb227b1cfbf8ae780a2e0e15c411951d14c63bca7cdc18fe636d7701
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubetail/blobs/sha256:749143efe2df6f2dab026faad224960e578be4bb56234b20f398d08330b333be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubetail/blobs/sha256:4f7eea257b39ad88a4b2566bf7bf32180aaf6ca5c514e01fbe62e45611abcea0
+sha256:
+  darwin_arm64: 717dd6e239a45e68ece97265688fea1c44b6a07529280085747b0e0db2e2c115
+  darwin_amd64: 88201f21bb227b1cfbf8ae780a2e0e15c411951d14c63bca7cdc18fe636d7701
+  linux_amd64: 749143efe2df6f2dab026faad224960e578be4bb56234b20f398d08330b333be
+  linux_arm64: 4f7eea257b39ad88a4b2566bf7bf32180aaf6ca5c514e01fbe62e45611abcea0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

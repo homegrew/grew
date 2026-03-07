@@ -1,0 +1,22 @@
+name: quazip
+version: 1.5
+description: "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
+homepage: https://github.com/stachenov/quazip/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quazip/blobs/sha256:ce8d0c6f5b6d725631a9023470fd138c99d9db401f03902f828f555140fee77b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quazip/blobs/sha256:1252f9215183b55908a1df0caf982f7dd7f209289d461a9eb3c5cd7e3146796f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quazip/blobs/sha256:834a87bcf3b62f24ea5446e5ab3400ac499042d56a1c0065a0eb3cfea929e9a4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quazip/blobs/sha256:7faf8e516ab4ecff091c0fe8bdc1d0d1ecdcf12ac06562fd7aa96626e58363b5
+sha256:
+  darwin_arm64: ce8d0c6f5b6d725631a9023470fd138c99d9db401f03902f828f555140fee77b
+  darwin_amd64: 1252f9215183b55908a1df0caf982f7dd7f209289d461a9eb3c5cd7e3146796f
+  linux_amd64: 834a87bcf3b62f24ea5446e5ab3400ac499042d56a1c0065a0eb3cfea929e9a4
+  linux_arm64: 7faf8e516ab4ecff091c0fe8bdc1d0d1ecdcf12ac06562fd7aa96626e58363b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt5compat
+  - qtbase

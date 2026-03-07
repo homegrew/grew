@@ -1,0 +1,24 @@
+name: edencommon
+version: 2026.03.02.00
+description: Shared library for Watchman and Eden projects
+homepage: https://github.com/facebookexperimental/edencommon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/edencommon/blobs/sha256:abd328dfd04b46269c8e404d8e9f6bd720705a489487a0f25c8eef41f56d9825
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/edencommon/blobs/sha256:83bd7d7e0459170538faa0541adb701ed8d5a57ce1e3d91073cd275f0fdbc8c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/edencommon/blobs/sha256:cf63051a85ada65134b878f448f782aa079f07eefabc10936347b4572973467b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/edencommon/blobs/sha256:83debbe350ce8cfd46306cfbdae093a3577376cad4bd2ea765ef2ac5aaaaa360
+sha256:
+  darwin_arm64: abd328dfd04b46269c8e404d8e9f6bd720705a489487a0f25c8eef41f56d9825
+  darwin_amd64: 83bd7d7e0459170538faa0541adb701ed8d5a57ce1e3d91073cd275f0fdbc8c5
+  linux_amd64: cf63051a85ada65134b878f448f782aa079f07eefabc10936347b4572973467b
+  linux_arm64: 83debbe350ce8cfd46306cfbdae093a3577376cad4bd2ea765ef2ac5aaaaa360
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - fb303
+  - fmt
+  - folly

@@ -1,0 +1,19 @@
+name: actions-batch
+version: 0.0.3
+description: Time-sharing supercomputer built on GitHub Actions
+homepage: https://github.com/alexellis/actions-batch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/actions-batch/blobs/sha256:59536a5a9f181ae349d14c6c2b55d6a8e022365f1ae425321e6ceccb43d9f4b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/actions-batch/blobs/sha256:9105a8d2904a59cb2be1808eb38576c2e9910fbb485b415cf89604f6bce65a43
+  linux_amd64: https://ghcr.io/v2/homebrew/core/actions-batch/blobs/sha256:a8dfaef2b9edcf0f025dafa223cecbdd96bfeebcc01feac706576d0fae729ef2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/actions-batch/blobs/sha256:4013124489ea2fb57e41de5bac37a514888b6d38adb121c6d6ebd3ec993520cd
+sha256:
+  darwin_arm64: 59536a5a9f181ae349d14c6c2b55d6a8e022365f1ae425321e6ceccb43d9f4b5
+  darwin_amd64: 9105a8d2904a59cb2be1808eb38576c2e9910fbb485b415cf89604f6bce65a43
+  linux_amd64: a8dfaef2b9edcf0f025dafa223cecbdd96bfeebcc01feac706576d0fae729ef2
+  linux_arm64: 4013124489ea2fb57e41de5bac37a514888b6d38adb121c6d6ebd3ec993520cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

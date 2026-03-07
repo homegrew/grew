@@ -1,0 +1,21 @@
+name: thrift
+version: 0.22.0
+description: Framework for scalable cross-language services development
+homepage: https://thrift.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/thrift/blobs/sha256:4bb047f3d74c5a11f20e5bd50a79ad89745ae9684b5f90529ee76928af6ade36
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/thrift/blobs/sha256:96a2cc6d24ea0a82e431f87befb21766da37630a685dcefb0274bf8c939f5c0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/thrift/blobs/sha256:9206127d5d2652d0803c870a06daf8ca6d24b4d12676b39bad2f767c18479453
+  linux_arm64: https://ghcr.io/v2/homebrew/core/thrift/blobs/sha256:33dca7c0cac36c3b2c72df78a56c732dfc9705750a12b504b6e98ce4d9341b7f
+sha256:
+  darwin_arm64: 4bb047f3d74c5a11f20e5bd50a79ad89745ae9684b5f90529ee76928af6ade36
+  darwin_amd64: 96a2cc6d24ea0a82e431f87befb21766da37630a685dcefb0274bf8c939f5c0a
+  linux_amd64: 9206127d5d2652d0803c870a06daf8ca6d24b4d12676b39bad2f767c18479453
+  linux_arm64: 33dca7c0cac36c3b2c72df78a56c732dfc9705750a12b504b6e98ce4d9341b7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

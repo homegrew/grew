@@ -1,0 +1,19 @@
+name: nak
+version: 0.18.7
+description: CLI for doing all things nostr
+homepage: https://github.com/fiatjaf/nak
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nak/blobs/sha256:0daf94fe8061373e82e5a724afd47547741fdee0725c4b386d31f310d820837b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nak/blobs/sha256:abc80600b2da683c27359268baf0944d1c8902d0c95e39f884e7ba7c033b8808
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nak/blobs/sha256:40a357854959f4528a58339fe778ded36f3037955f9152560a51cd8cb3e1aae8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nak/blobs/sha256:fc9528694283c5ff79f5be6f94afddca5074cca33301c4e0d1e4dab07bcf62df
+sha256:
+  darwin_arm64: 0daf94fe8061373e82e5a724afd47547741fdee0725c4b386d31f310d820837b
+  darwin_amd64: abc80600b2da683c27359268baf0944d1c8902d0c95e39f884e7ba7c033b8808
+  linux_amd64: 40a357854959f4528a58339fe778ded36f3037955f9152560a51cd8cb3e1aae8
+  linux_arm64: fc9528694283c5ff79f5be6f94afddca5074cca33301c4e0d1e4dab07bcf62df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

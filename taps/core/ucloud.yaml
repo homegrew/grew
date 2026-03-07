@@ -1,0 +1,19 @@
+name: ucloud
+version: 0.3.0
+description: Official tool for managing UCloud services
+homepage: https://www.ucloud.cn
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ucloud/blobs/sha256:5957d48f407072d115c3cad17b814e36e44083d12f88b7453db1b6ecc7589cdc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ucloud/blobs/sha256:aa91bbe59f176048fa024ca08093692f67fcd8c815ef0288d00a8e631254d272
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ucloud/blobs/sha256:8461b7142d140881f42abb9c283555dd751565fd50d33072c344ed3e6b02602f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ucloud/blobs/sha256:feb403aaf56c604a31e3f49b6c7d05807b0c9ce4924ca4cad5f9cf9d8d41607b
+sha256:
+  darwin_arm64: 5957d48f407072d115c3cad17b814e36e44083d12f88b7453db1b6ecc7589cdc
+  darwin_amd64: aa91bbe59f176048fa024ca08093692f67fcd8c815ef0288d00a8e631254d272
+  linux_amd64: 8461b7142d140881f42abb9c283555dd751565fd50d33072c344ed3e6b02602f
+  linux_arm64: feb403aaf56c604a31e3f49b6c7d05807b0c9ce4924ca4cad5f9cf9d8d41607b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

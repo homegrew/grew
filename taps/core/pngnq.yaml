@@ -1,0 +1,21 @@
+name: pngnq
+version: 1.1
+description: Tool for optimizing PNG images
+homepage: https://pngnq.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pngnq/blobs/sha256:2620068d9fc38a44ae6f531bf96c375f66ada13346305f21ca928ef23746c2c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pngnq/blobs/sha256:a705de8c00c50759ad33d85f92bf005882b37b681d97451290ec6b4677993c55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pngnq/blobs/sha256:c299814b5e7a395acdc6ee57591bbcbff32a0ff32a46041cbb6706832151bc78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pngnq/blobs/sha256:c249a8d67736f14b8d2e3353e9ab37df8c64a57f5f741e93964a5f4fb50e073f
+sha256:
+  darwin_arm64: 2620068d9fc38a44ae6f531bf96c375f66ada13346305f21ca928ef23746c2c7
+  darwin_amd64: a705de8c00c50759ad33d85f92bf005882b37b681d97451290ec6b4677993c55
+  linux_amd64: c299814b5e7a395acdc6ee57591bbcbff32a0ff32a46041cbb6706832151bc78
+  linux_arm64: c249a8d67736f14b8d2e3353e9ab37df8c64a57f5f741e93964a5f4fb50e073f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

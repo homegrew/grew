@@ -1,0 +1,11 @@
+name: gb-studio
+version: 4.2.2
+description: Drag and drop retro game creator
+homepage: https://www.gbstudio.dev/
+url:
+  darwin_arm64: https://github.com/chrismaltby/gb-studio/releases/download/v4.2.2/gb-studio-mac-apple-silicon.zip
+sha256:
+  darwin_arm64: 766316c9242bea910d8562802336a83927fd491a4755915d963771f0cd057530
+artifacts:
+  app:
+    - GB Studio.app

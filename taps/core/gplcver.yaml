@@ -1,0 +1,19 @@
+name: gplcver
+version: 2.12a
+description: Pragmatic C Software GPL Cver 2001
+homepage: https://gplcver.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gplcver/blobs/sha256:6f8b601689942c43e4f0d69e8abe71ae861b8ab7ab6e35d30e8786fa72ef0d73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gplcver/blobs/sha256:05879b5d5c370482b457431fb68951f77902c6d15fbdbe25a804b621b2478fde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gplcver/blobs/sha256:c7781b1d43d27d447386d9563e2c04d7b253b467773d077f29f2171723a66829
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gplcver/blobs/sha256:5bcdf3ad2379563874cbf97905caeab7f49177aba0d392917e17ad68fdbba0ea
+sha256:
+  darwin_arm64: 6f8b601689942c43e4f0d69e8abe71ae861b8ab7ab6e35d30e8786fa72ef0d73
+  darwin_amd64: 05879b5d5c370482b457431fb68951f77902c6d15fbdbe25a804b621b2478fde
+  linux_amd64: c7781b1d43d27d447386d9563e2c04d7b253b467773d077f29f2171723a66829
+  linux_arm64: 5bcdf3ad2379563874cbf97905caeab7f49177aba0d392917e17ad68fdbba0ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

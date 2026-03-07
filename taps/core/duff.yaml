@@ -1,0 +1,19 @@
+name: duff
+version: 0.5.2
+description: Quickly find duplicates in a set of files from the command-line
+homepage: https://github.com/elmindreda/duff
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duff/blobs/sha256:643c694ade386db6a76b2da2cabedb1068774a1d4bb9f6ab48b86703e0a58935
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duff/blobs/sha256:225d98a5044185879742e8aadb0212524bb675a7eb01e7f40e27290d63873738
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duff/blobs/sha256:d2e177f7c17a8dad92be2c7597844a572e4db8a8c4bba5db934843325c5edc90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duff/blobs/sha256:80433cfcf07a77634af2a91f787dfeff3d45744977bcd6dee1d90713e7de074f
+sha256:
+  darwin_arm64: 643c694ade386db6a76b2da2cabedb1068774a1d4bb9f6ab48b86703e0a58935
+  darwin_amd64: 225d98a5044185879742e8aadb0212524bb675a7eb01e7f40e27290d63873738
+  linux_amd64: d2e177f7c17a8dad92be2c7597844a572e4db8a8c4bba5db934843325c5edc90
+  linux_arm64: 80433cfcf07a77634af2a91f787dfeff3d45744977bcd6dee1d90713e7de074f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

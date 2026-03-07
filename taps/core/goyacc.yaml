@@ -1,0 +1,19 @@
+name: goyacc
+version: 1.0.3
+description: Parser Generator for Go
+homepage: https://pkg.go.dev/modernc.org/goyacc
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goyacc/blobs/sha256:c200a6f48e69a0a02aaa20cb0face2d581c44fdc868517beb5eed571074ebcc9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goyacc/blobs/sha256:a9b364cae415d90c5c3a38cbe6e214ad339933905cc27e330cc01c70bd136c70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goyacc/blobs/sha256:16bab84f275141c4258582ae879d9ca737c2ad94d0ca2d1997672b4523778be7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goyacc/blobs/sha256:6f917d02474549576bd9f407dd870649cbbd7dcd6a8696bccd33220593ada1ae
+sha256:
+  darwin_arm64: c200a6f48e69a0a02aaa20cb0face2d581c44fdc868517beb5eed571074ebcc9
+  darwin_amd64: a9b364cae415d90c5c3a38cbe6e214ad339933905cc27e330cc01c70bd136c70
+  linux_amd64: 16bab84f275141c4258582ae879d9ca737c2ad94d0ca2d1997672b4523778be7
+  linux_arm64: 6f917d02474549576bd9f407dd870649cbbd7dcd6a8696bccd33220593ada1ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

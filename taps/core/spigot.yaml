@@ -1,0 +1,19 @@
+name: spigot
+version: 20260114
+description: Command-line streaming exact real calculator
+homepage: https://www.chiark.greenend.org.uk/~sgtatham/spigot/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spigot/blobs/sha256:796c91a6f26abde3e8b1e7442dc494ac9565d9b713abd90364dc8f3b5f4d8201
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spigot/blobs/sha256:2d0a76572b40b8b54901a3f783d6cdda0192ecdde9c9509dbd65545525fe6c1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spigot/blobs/sha256:eb0e856d59ab1089a7681eb42de24233ab637699b51dc1471735fae61e579d22
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spigot/blobs/sha256:f5bfffdc5199f78db2f9300a5e2cec93fcb5e02e24d6a7e081603db12c28278b
+sha256:
+  darwin_arm64: 796c91a6f26abde3e8b1e7442dc494ac9565d9b713abd90364dc8f3b5f4d8201
+  darwin_amd64: 2d0a76572b40b8b54901a3f783d6cdda0192ecdde9c9509dbd65545525fe6c1a
+  linux_amd64: eb0e856d59ab1089a7681eb42de24233ab637699b51dc1471735fae61e579d22
+  linux_arm64: f5bfffdc5199f78db2f9300a5e2cec93fcb5e02e24d6a7e081603db12c28278b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

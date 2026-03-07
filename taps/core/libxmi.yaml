@@ -1,0 +1,19 @@
+name: libxmi
+version: 1.2
+description: C/C++ function library for rasterizing 2D vector graphics
+homepage: https://www.gnu.org/software/libxmi/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmi/blobs/sha256:97d08e23a85103e733e90fa33b96e59f5f141f6081e5d09f9c8135e0000d221a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmi/blobs/sha256:0326bd04964e9707c76d9f532e50e4871d78f519b721f7cc8f502ec7f64e3f6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmi/blobs/sha256:a82bdaa8f3c6d1d63dc572bf315c10418d39a0f1e12407dc187f793d8e6e9609
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmi/blobs/sha256:ede22f9abf05a18ec44e5009276815c87ce99bbd7c3a2699d58b8ab31ea8d4b0
+sha256:
+  darwin_arm64: 97d08e23a85103e733e90fa33b96e59f5f141f6081e5d09f9c8135e0000d221a
+  darwin_amd64: 0326bd04964e9707c76d9f532e50e4871d78f519b721f7cc8f502ec7f64e3f6f
+  linux_amd64: a82bdaa8f3c6d1d63dc572bf315c10418d39a0f1e12407dc187f793d8e6e9609
+  linux_arm64: ede22f9abf05a18ec44e5009276815c87ce99bbd7c3a2699d58b8ab31ea8d4b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

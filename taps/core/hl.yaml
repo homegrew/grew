@@ -1,0 +1,19 @@
+name: hl
+version: 0.36.0
+description: Fast and powerful log viewer and processor
+homepage: https://github.com/pamburus/hl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hl/blobs/sha256:368470b373ed3e94d1c0399da6e734d77fee38f3003889ec70067e22bf8dea18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hl/blobs/sha256:c24b898374873ac90daf92d03ea1a2d7cf3960f82a7350e1b307cc82d64a9186
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hl/blobs/sha256:7e5d6ca53dfa346c6a91721790589fd4b7b0c4b345f70eaefb6bb6288b3ad46e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hl/blobs/sha256:c3713e3f60bdacb31ed3fb0e78c3b26d7169fe5a82db9b72f075e8d039cdaa53
+sha256:
+  darwin_arm64: 368470b373ed3e94d1c0399da6e734d77fee38f3003889ec70067e22bf8dea18
+  darwin_amd64: c24b898374873ac90daf92d03ea1a2d7cf3960f82a7350e1b307cc82d64a9186
+  linux_amd64: 7e5d6ca53dfa346c6a91721790589fd4b7b0c4b345f70eaefb6bb6288b3ad46e
+  linux_arm64: c3713e3f60bdacb31ed3fb0e78c3b26d7169fe5a82db9b72f075e8d039cdaa53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: dvd+rw-tools
+version: 7.1
+description: DVD+-RW/R tools
+homepage: https://en.wikipedia.org/wiki/Dvd+rw-tools
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvdxrw-tools/blobs/sha256:8daeeb4d38982c4948e79c9ec20f0e600cbd0c6c55d56bb4f0b14c617e8600e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvdxrw-tools/blobs/sha256:ed0da0bd1a96d04a12f9c9f28cedfb9e10d1f1ed09e8e6dbad8d417dddef6e07
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvdxrw-tools/blobs/sha256:d491eb26d5db91ea03ea2403ae8866675d268a4d9962a4dc9cb4bdb0aedecb47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvdxrw-tools/blobs/sha256:7acc04dbb06fd517b729b4ae9b103c1be311d5065b4fac1b6e955704214dbcd0
+sha256:
+  darwin_arm64: 8daeeb4d38982c4948e79c9ec20f0e600cbd0c6c55d56bb4f0b14c617e8600e8
+  darwin_amd64: ed0da0bd1a96d04a12f9c9f28cedfb9e10d1f1ed09e8e6dbad8d417dddef6e07
+  linux_amd64: d491eb26d5db91ea03ea2403ae8866675d268a4d9962a4dc9cb4bdb0aedecb47
+  linux_arm64: 7acc04dbb06fd517b729b4ae9b103c1be311d5065b4fac1b6e955704214dbcd0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

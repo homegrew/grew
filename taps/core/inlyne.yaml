@@ -1,0 +1,19 @@
+name: inlyne
+version: 0.5.0
+description: GPU powered yet browserless tool to help you quickly view markdown files
+homepage: https://github.com/Inlyne-Project/inlyne
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inlyne/blobs/sha256:b032f9a33f0c8c3c9a1ca03cb6cf0453740b45756ffb0843eba0676f69b71426
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inlyne/blobs/sha256:420ff2e57ec6742be5eb6074b489dd8a04a5811a471ba3448ddfedf821447de8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inlyne/blobs/sha256:1c1df3c19155248403249b2d8f39a1633c058142eaa20c9023925a21d18d5c48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inlyne/blobs/sha256:b2a1671d0354386d01527ce7fceb5d00eebbe9ed629760c8a4aff044b38be002
+sha256:
+  darwin_arm64: b032f9a33f0c8c3c9a1ca03cb6cf0453740b45756ffb0843eba0676f69b71426
+  darwin_amd64: 420ff2e57ec6742be5eb6074b489dd8a04a5811a471ba3448ddfedf821447de8
+  linux_amd64: 1c1df3c19155248403249b2d8f39a1633c058142eaa20c9023925a21d18d5c48
+  linux_arm64: b2a1671d0354386d01527ce7fceb5d00eebbe9ed629760c8a4aff044b38be002
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

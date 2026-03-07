@@ -1,0 +1,19 @@
+name: lighthouse
+version: 8.1.1
+description: Rust Ethereum 2.0 Client
+homepage: https://lighthouse.sigmaprime.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lighthouse/blobs/sha256:6a31bd3cc9f5e1abab1a8467f94ad42dfe2d495b2b6ef8d86867dde96dfdc342
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lighthouse/blobs/sha256:f9b0a054869f13ba58e37120ab746830877fc03128c220a9585fc68e23ec5088
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lighthouse/blobs/sha256:8c012f624a368f14f1d9544b6c4e6f9f433d635cdd721093b2155349261989f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lighthouse/blobs/sha256:bd475b6b200ff2c20bd7a216c9f1fdee3dc130eb1e4cac580308182796291b4f
+sha256:
+  darwin_arm64: 6a31bd3cc9f5e1abab1a8467f94ad42dfe2d495b2b6ef8d86867dde96dfdc342
+  darwin_amd64: f9b0a054869f13ba58e37120ab746830877fc03128c220a9585fc68e23ec5088
+  linux_amd64: 8c012f624a368f14f1d9544b6c4e6f9f433d635cdd721093b2155349261989f8
+  linux_arm64: bd475b6b200ff2c20bd7a216c9f1fdee3dc130eb1e4cac580308182796291b4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: kallisto
+version: 0.52.0
+description: Quantify abundances of transcripts from RNA-Seq data
+homepage: https://pachterlab.github.io/kallisto/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kallisto/blobs/sha256:3b826ca4d994122b319591e6bca6a2bcdb6afa39b8d3e9e4adb3046dded637bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kallisto/blobs/sha256:62334c7e3f262ad2d3a20054515148f8ff4d64a91940ff503860811075bb5a59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kallisto/blobs/sha256:bb55e7980c60d8c5fdf341a7a79f3a21978f27c09d51056b20dc1866694a6c54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kallisto/blobs/sha256:708134380a902ba4dbf785cd2e456892fafc11f8e05ada86db37ff5dd14da632
+sha256:
+  darwin_arm64: 3b826ca4d994122b319591e6bca6a2bcdb6afa39b8d3e9e4adb3046dded637bc
+  darwin_amd64: 62334c7e3f262ad2d3a20054515148f8ff4d64a91940ff503860811075bb5a59
+  linux_amd64: bb55e7980c60d8c5fdf341a7a79f3a21978f27c09d51056b20dc1866694a6c54
+  linux_arm64: 708134380a902ba4dbf785cd2e456892fafc11f8e05ada86db37ff5dd14da632
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5

@@ -1,0 +1,19 @@
+name: wordle
+version: 2.0.0
+description: Play wordle in command-line
+homepage: https://git.hanabi.in/wordle-cli
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wordle/blobs/sha256:f6332474a053c58c236812202429c2b5685e581276b067efbccc785278ab5fdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wordle/blobs/sha256:53572b02a428d5a73c6a0f645f61a6f2a62c15406254c4d8d54c7409b8e1348f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wordle/blobs/sha256:30e3260ce269c6e96713e1b0d4f67b8111c7552293c3e37988b6bd59c0a8a6b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wordle/blobs/sha256:08089c943e688b6d6ba8ce8574b289cbc29e8b21d08654b294e495104b483535
+sha256:
+  darwin_arm64: f6332474a053c58c236812202429c2b5685e581276b067efbccc785278ab5fdd
+  darwin_amd64: 53572b02a428d5a73c6a0f645f61a6f2a62c15406254c4d8d54c7409b8e1348f
+  linux_amd64: 30e3260ce269c6e96713e1b0d4f67b8111c7552293c3e37988b6bd59c0a8a6b3
+  linux_arm64: 08089c943e688b6d6ba8ce8574b289cbc29e8b21d08654b294e495104b483535
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

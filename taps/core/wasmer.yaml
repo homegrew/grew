@@ -1,0 +1,19 @@
+name: wasmer
+version: 7.0.1
+description: Universal WebAssembly Runtime
+homepage: https://wasmer.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasmer/blobs/sha256:01ca5aa4e2349a5cef9b277ccbd3040b7b57dddbaee41788e2734a597af44ab6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasmer/blobs/sha256:af8c5da656d665fce998bfbb1fd59c4874270183a5592f45bcefa34c922a9207
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasmer/blobs/sha256:976886b95d606f2b1cd6eb45f35fad3b36a6039af6a2153dfd8d4125ea5cf8fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasmer/blobs/sha256:851013b1f02a3bd26e55eb35e84bb8b387504cabfb8dc858c45d4e854d15e787
+sha256:
+  darwin_arm64: 01ca5aa4e2349a5cef9b277ccbd3040b7b57dddbaee41788e2734a597af44ab6
+  darwin_amd64: af8c5da656d665fce998bfbb1fd59c4874270183a5592f45bcefa34c922a9207
+  linux_amd64: 976886b95d606f2b1cd6eb45f35fad3b36a6039af6a2153dfd8d4125ea5cf8fb
+  linux_arm64: 851013b1f02a3bd26e55eb35e84bb8b387504cabfb8dc858c45d4e854d15e787
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

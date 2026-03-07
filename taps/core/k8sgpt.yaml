@@ -1,0 +1,19 @@
+name: k8sgpt
+version: 0.4.30
+description: Scanning your k8s clusters, diagnosing, and triaging issues in simple English
+homepage: https://k8sgpt.ai/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/k8sgpt/blobs/sha256:2d6d9b30c7338fc3e10596b6d84f12837c4e228eee46147a036bb4a3e0c591a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/k8sgpt/blobs/sha256:4824973dacbdc4788e753a957f969e3e1c0c98d9429d06e87879390e069c3924
+  linux_amd64: https://ghcr.io/v2/homebrew/core/k8sgpt/blobs/sha256:8caadb9128e7dc6d45e12642e0e7ee4782e618c765672b6a521392952ae98379
+  linux_arm64: https://ghcr.io/v2/homebrew/core/k8sgpt/blobs/sha256:46e0a279d15a5e1011e1f1a51a12a23461d259d14cb53a0ce6b503ffaaa36e82
+sha256:
+  darwin_arm64: 2d6d9b30c7338fc3e10596b6d84f12837c4e228eee46147a036bb4a3e0c591a1
+  darwin_amd64: 4824973dacbdc4788e753a957f969e3e1c0c98d9429d06e87879390e069c3924
+  linux_amd64: 8caadb9128e7dc6d45e12642e0e7ee4782e618c765672b6a521392952ae98379
+  linux_arm64: 46e0a279d15a5e1011e1f1a51a12a23461d259d14cb53a0ce6b503ffaaa36e82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: synergy-core
+version: 1.20.0
+description: Synergy, the keyboard and mouse sharing tool
+homepage: https://symless.com/synergy
+license: GPL-2.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/synergy-core/blobs/sha256:40929bc35488d7eeed31e9ee9611fa20f00eccf91c0c26e6c49c6f291ff78682
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/synergy-core/blobs/sha256:1e9c736ae27ad553089cf782f0735b8b7863e5233995e9d66b79e9f940856f62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/synergy-core/blobs/sha256:035e1084d5c6172fabb5c6f473f2624fce9db11c0a672feedcfe14775dffb42e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/synergy-core/blobs/sha256:3db71fa49a5ccda86826efad51ed3e342a4e597cfaf0209e1eba94036e8a9e32
+sha256:
+  darwin_arm64: 40929bc35488d7eeed31e9ee9611fa20f00eccf91c0c26e6c49c6f291ff78682
+  darwin_amd64: 1e9c736ae27ad553089cf782f0735b8b7863e5233995e9d66b79e9f940856f62
+  linux_amd64: 035e1084d5c6172fabb5c6f473f2624fce9db11c0a672feedcfe14775dffb42e
+  linux_arm64: 3db71fa49a5ccda86826efad51ed3e342a4e597cfaf0209e1eba94036e8a9e32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - qtbase

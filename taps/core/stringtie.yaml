@@ -1,0 +1,21 @@
+name: stringtie
+version: 3.0.3
+description: Transcript assembly and quantification for RNA-Seq
+homepage: https://github.com/gpertea/stringtie
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stringtie/blobs/sha256:8a04a687393f0a23bcac7e9f8e0a45542ae2e95eaf5d9c91ff3ebda1122ad380
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stringtie/blobs/sha256:12b536ae977cdbcb08345151f66222a3b494aa99f43d2e6b4ef5482e393216d1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stringtie/blobs/sha256:26fa7ac3ea5c68176b84c083da76ab9865b61603af6c00ac5efdb9e8581e9540
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stringtie/blobs/sha256:38a474188009a577779e293f2286fc943c2dc9430b4a5e38b21f10cedf3d4ffa
+sha256:
+  darwin_arm64: 8a04a687393f0a23bcac7e9f8e0a45542ae2e95eaf5d9c91ff3ebda1122ad380
+  darwin_amd64: 12b536ae977cdbcb08345151f66222a3b494aa99f43d2e6b4ef5482e393216d1
+  linux_amd64: 26fa7ac3ea5c68176b84c083da76ab9865b61603af6c00ac5efdb9e8581e9540
+  linux_arm64: 38a474188009a577779e293f2286fc943c2dc9430b4a5e38b21f10cedf3d4ffa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - htslib

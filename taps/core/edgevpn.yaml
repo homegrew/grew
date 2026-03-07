@@ -1,0 +1,19 @@
+name: edgevpn
+version: 0.31.1
+description: Immutable, decentralized, statically built p2p VPN
+homepage: https://mudler.github.io/edgevpn
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/edgevpn/blobs/sha256:8603cf57fb08f8f246e29d5ab17b9d8e86aba3473f0782175702d1f7d1d55c05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/edgevpn/blobs/sha256:1b0442deb1c7aac7605ed17bc153ef8f29b8c719eebd3facf80fa6bfe418ee62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/edgevpn/blobs/sha256:d3b7a86b365657b4243ede4f7ad16df1cc42882c20cf6f89498b17d7cf114cb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/edgevpn/blobs/sha256:5d6e4d5a1a8727c34d12be5edf4e7cfb7189348f4047ba7ae8bee270f63274f1
+sha256:
+  darwin_arm64: 8603cf57fb08f8f246e29d5ab17b9d8e86aba3473f0782175702d1f7d1d55c05
+  darwin_amd64: 1b0442deb1c7aac7605ed17bc153ef8f29b8c719eebd3facf80fa6bfe418ee62
+  linux_amd64: d3b7a86b365657b4243ede4f7ad16df1cc42882c20cf6f89498b17d7cf114cb2
+  linux_arm64: 5d6e4d5a1a8727c34d12be5edf4e7cfb7189348f4047ba7ae8bee270f63274f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

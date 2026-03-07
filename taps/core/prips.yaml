@@ -1,0 +1,19 @@
+name: prips
+version: 1.3.1
+description: Print the IP addresses in a given range
+homepage: https://devel.ringlet.net/sysutils/prips/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prips/blobs/sha256:a1940f6def034b5898045e7ec3e509288f95c675aae968e80df0949c09f6f782
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prips/blobs/sha256:7a5d3dc1178925de340d309f61959b05f01389683bbcb81b470bd2d9ce637199
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prips/blobs/sha256:8735d366c15e87986895455bdba3e87ed3969495fed4c4e2de31a04bad90b072
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prips/blobs/sha256:a36e6ffe5f5a30a2a16aec993d5f033a85dc1326ec249faf2c72de072862ac1a
+sha256:
+  darwin_arm64: a1940f6def034b5898045e7ec3e509288f95c675aae968e80df0949c09f6f782
+  darwin_amd64: 7a5d3dc1178925de340d309f61959b05f01389683bbcb81b470bd2d9ce637199
+  linux_amd64: 8735d366c15e87986895455bdba3e87ed3969495fed4c4e2de31a04bad90b072
+  linux_arm64: a36e6ffe5f5a30a2a16aec993d5f033a85dc1326ec249faf2c72de072862ac1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

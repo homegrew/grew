@@ -1,0 +1,24 @@
+name: python@3.11
+version: 3.11.15
+description: Interpreted, interactive, object-oriented programming language
+homepage: https://www.python.org/
+license: Python-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:0ee134e8b0ea6ce288cf95ba88352725213455ade52d3cf2bcdae16c92a12b43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:9c0d8ed0bdb7350b49bece961378478f06e9575a899007073b234eef13583862
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:2fbccb255dc41a32d4b5ec6d87d63ef71c96d8690f89887ae16bb3b363c5c5c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:f33cef2ae9e599e00f688c401cd53146f9bedf689a1c7e4f189583f639aa634e
+sha256:
+  darwin_arm64: 0ee134e8b0ea6ce288cf95ba88352725213455ade52d3cf2bcdae16c92a12b43
+  darwin_amd64: 9c0d8ed0bdb7350b49bece961378478f06e9575a899007073b234eef13583862
+  linux_amd64: 2fbccb255dc41a32d4b5ec6d87d63ef71c96d8690f89887ae16bb3b363c5c5c0
+  linux_arm64: f33cef2ae9e599e00f688c401cd53146f9bedf689a1c7e4f189583f639aa634e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mpdecimal
+  - openssl@3
+  - sqlite
+  - xz

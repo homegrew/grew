@@ -1,0 +1,21 @@
+name: cpm
+version: 0.998003
+description: Fast CPAN module installer
+homepage: https://metacpan.org/pod/cpm
+license: Artistic-1.0-Perl OR GPL-1.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpm/blobs/sha256:39943392bb01834017a1cbf3b14b49753efee9370520b5e8c1b5009827b22c8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpm/blobs/sha256:e2943684a18400c6e4e7c55a667d3a7c5a555baa350832ba9c88de079ea935f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpm/blobs/sha256:9a7df99cd6d078553861bff91a306e163ee0ccd723b261414f80c0764d996d1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpm/blobs/sha256:02275f43215e7cc133f9d83dc6c4de46cced54494ce068aaf833b84677cf8ee0
+sha256:
+  darwin_arm64: 39943392bb01834017a1cbf3b14b49753efee9370520b5e8c1b5009827b22c8c
+  darwin_amd64: e2943684a18400c6e4e7c55a667d3a7c5a555baa350832ba9c88de079ea935f3
+  linux_amd64: 9a7df99cd6d078553861bff91a306e163ee0ccd723b261414f80c0764d996d1e
+  linux_arm64: 02275f43215e7cc133f9d83dc6c4de46cced54494ce068aaf833b84677cf8ee0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

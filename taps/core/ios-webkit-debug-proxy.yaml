@@ -1,0 +1,24 @@
+name: ios-webkit-debug-proxy
+version: 1.9.2
+description: DevTools proxy for iOS devices
+homepage: https://github.com/google/ios-webkit-debug-proxy
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ios-webkit-debug-proxy/blobs/sha256:c79d6aaae9beba337352d712a586104f7a3077e5d4ea9cbcd50c1603495b409f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ios-webkit-debug-proxy/blobs/sha256:7c8b1b853f68361cecff8b2381ef54476e0e739f9834d71dccf42e8732708c16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ios-webkit-debug-proxy/blobs/sha256:50df7f8e566369e2053f177d72b37e768ca3c047afcfc27965313b4aa13651d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ios-webkit-debug-proxy/blobs/sha256:c83e58d00a3cb9b705be17b8263be3d196fd60e7f59de50c1d6ff2a243bee8f2
+sha256:
+  darwin_arm64: c79d6aaae9beba337352d712a586104f7a3077e5d4ea9cbcd50c1603495b409f
+  darwin_amd64: 7c8b1b853f68361cecff8b2381ef54476e0e739f9834d71dccf42e8732708c16
+  linux_amd64: 50df7f8e566369e2053f177d72b37e768ca3c047afcfc27965313b4aa13651d2
+  linux_arm64: c83e58d00a3cb9b705be17b8263be3d196fd60e7f59de50c1d6ff2a243bee8f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libimobiledevice
+  - libplist
+  - libusbmuxd
+  - openssl@3

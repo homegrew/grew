@@ -1,0 +1,19 @@
+name: skillshare
+version: 0.16.13
+description: Sync skills across AI CLI tools
+homepage: https://skillshare.runkids.cc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skillshare/blobs/sha256:61854f6d331be33e22d273b1afe2a8af8f65bb99d27d6593731c7dd0650f78de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skillshare/blobs/sha256:32f6a15342b0d3af9835682dfa5678ff91df772d4a490f7a3d95b3e69d213e27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skillshare/blobs/sha256:b76c8d258808c9382952a204587dd5bd2b2727675f0e9656f943dba68c22e8a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skillshare/blobs/sha256:3d807641c9205b3e3747d24b8f361b315e3a1cc066ac61516abb07e6ae522dbd
+sha256:
+  darwin_arm64: 61854f6d331be33e22d273b1afe2a8af8f65bb99d27d6593731c7dd0650f78de
+  darwin_amd64: 32f6a15342b0d3af9835682dfa5678ff91df772d4a490f7a3d95b3e69d213e27
+  linux_amd64: b76c8d258808c9382952a204587dd5bd2b2727675f0e9656f943dba68c22e8a0
+  linux_arm64: 3d807641c9205b3e3747d24b8f361b315e3a1cc066ac61516abb07e6ae522dbd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

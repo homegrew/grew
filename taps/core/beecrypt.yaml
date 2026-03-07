@@ -1,0 +1,19 @@
+name: beecrypt
+version: 4.2.1
+description: C/C++ cryptography library
+homepage: https://beecrypt.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beecrypt/blobs/sha256:19bbdbe37b8f9c59abd5ed8ce3a6c5c0fa4ac50734b445bc9f6a8bb05666c890
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beecrypt/blobs/sha256:a06180b00af889242ee74e3588bc423f07d74c220a19c4e8eaff5dbf0deafd29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beecrypt/blobs/sha256:e5940b480e169cfe86dc568bd7a6a527c569797fc7a99155931b0d75798118c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beecrypt/blobs/sha256:63bbd01ef2d5b95098af62252230803004d064aea3a4ab23bc9dd37a3915b7af
+sha256:
+  darwin_arm64: 19bbdbe37b8f9c59abd5ed8ce3a6c5c0fa4ac50734b445bc9f6a8bb05666c890
+  darwin_amd64: a06180b00af889242ee74e3588bc423f07d74c220a19c4e8eaff5dbf0deafd29
+  linux_amd64: e5940b480e169cfe86dc568bd7a6a527c569797fc7a99155931b0d75798118c7
+  linux_arm64: 63bbd01ef2d5b95098af62252230803004d064aea3a4ab23bc9dd37a3915b7af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

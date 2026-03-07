@@ -1,0 +1,24 @@
+name: ebook2cw
+version: 0.8.5
+description: Converts ebooks to morse code
+homepage: https://fkurz.net/ham/ebook2cw.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ebook2cw/blobs/sha256:cd48218169f8f598c5bbba765d4f632fd51eb0472e2416856008b0dd79c1c83f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ebook2cw/blobs/sha256:b2e633fc299f13bcfb391665dc4d2693a5a7bbc9dbbb304c14772c22460bb5a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ebook2cw/blobs/sha256:269994f635db4fc4570e9d0684051e883bbfba824be06bd8bf420ed8189fdf2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ebook2cw/blobs/sha256:65bb32893afbbf13664b9cad4885392d89f3129483d274d46b0f690b492c2706
+sha256:
+  darwin_arm64: cd48218169f8f598c5bbba765d4f632fd51eb0472e2416856008b0dd79c1c83f
+  darwin_amd64: b2e633fc299f13bcfb391665dc4d2693a5a7bbc9dbbb304c14772c22460bb5a5
+  linux_amd64: 269994f635db4fc4570e9d0684051e883bbfba824be06bd8bf420ed8189fdf2b
+  linux_arm64: 65bb32893afbbf13664b9cad4885392d89f3129483d274d46b0f690b492c2706
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lame
+  - libogg
+  - libvorbis
+  - gettext

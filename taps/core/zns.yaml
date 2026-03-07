@@ -1,0 +1,19 @@
+name: zns
+version: 0.4.0
+description: CLI tool for querying DNS records with readable, colored output
+homepage: https://github.com/znscli/zns
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zns/blobs/sha256:7cc41244bcfbf7df964ebcb5ac7171abbeee3e9935107ed37e008cfc1ec1103b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zns/blobs/sha256:039f992e91d42aab450a339cd8ab8426f7f3873d423b06fac2a14a13ff9cd882
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zns/blobs/sha256:7497871ad502dca1485cce5d0e5654bd2e989080dd6914ba2efe880df81a707f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zns/blobs/sha256:8739ac54fb0abed262d78c9bbbe2dfed5af8bb48539439a6ffb9a400ef8a4713
+sha256:
+  darwin_arm64: 7cc41244bcfbf7df964ebcb5ac7171abbeee3e9935107ed37e008cfc1ec1103b
+  darwin_amd64: 039f992e91d42aab450a339cd8ab8426f7f3873d423b06fac2a14a13ff9cd882
+  linux_amd64: 7497871ad502dca1485cce5d0e5654bd2e989080dd6914ba2efe880df81a707f
+  linux_arm64: 8739ac54fb0abed262d78c9bbbe2dfed5af8bb48539439a6ffb9a400ef8a4713
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

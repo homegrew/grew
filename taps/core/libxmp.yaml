@@ -1,0 +1,19 @@
+name: libxmp
+version: 4.7.0
+description: C library for playback of module music (MOD, S3M, IT, etc)
+homepage: https://xmp.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmp/blobs/sha256:88d5d2388523d805708402d5fcadb0f3063e7bf11f2d5fe8ddd035710efb50ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmp/blobs/sha256:08ee2e1f97a46b501c5a8b7d379c91374f52c1e24f988ea02198cb43d5b952d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmp/blobs/sha256:0dcdfe5efc08578f47881a4143f474122ba91a603c001ef0fb3ddedc9dbdcb68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmp/blobs/sha256:8cd5f291ec22438e9858e6004785557d40091ca60ca69383c39478b687f995fa
+sha256:
+  darwin_arm64: 88d5d2388523d805708402d5fcadb0f3063e7bf11f2d5fe8ddd035710efb50ee
+  darwin_amd64: 08ee2e1f97a46b501c5a8b7d379c91374f52c1e24f988ea02198cb43d5b952d9
+  linux_amd64: 0dcdfe5efc08578f47881a4143f474122ba91a603c001ef0fb3ddedc9dbdcb68
+  linux_arm64: 8cd5f291ec22438e9858e6004785557d40091ca60ca69383c39478b687f995fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

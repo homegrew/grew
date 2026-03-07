@@ -1,0 +1,21 @@
+name: tevent
+version: 0.17.1
+description: Event system based on the talloc memory management library
+homepage: https://tevent.samba.org
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tevent/blobs/sha256:e7447eb820e3be9a34b7dece613895a67f10de300bb30d0e59322467591f3edf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tevent/blobs/sha256:e6a681b4cf04d84f7b6a8ef3f446f9d798238fa38034594194cd777e5f4ff623
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tevent/blobs/sha256:2030d92ac3d56d9387cbf24abb485f6699c557f39fce15d6f46b1ea7e03ad6c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tevent/blobs/sha256:8ff33cd50247ce9a038e70ad4b99e91e4fe5b71d2127297f0f313188b51733ad
+sha256:
+  darwin_arm64: e7447eb820e3be9a34b7dece613895a67f10de300bb30d0e59322467591f3edf
+  darwin_amd64: e6a681b4cf04d84f7b6a8ef3f446f9d798238fa38034594194cd777e5f4ff623
+  linux_amd64: 2030d92ac3d56d9387cbf24abb485f6699c557f39fce15d6f46b1ea7e03ad6c2
+  linux_arm64: 8ff33cd50247ce9a038e70ad4b99e91e4fe5b71d2127297f0f313188b51733ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - talloc

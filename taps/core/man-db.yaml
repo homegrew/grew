@@ -1,0 +1,22 @@
+name: man-db
+version: 2.13.1
+description: Unix documentation system
+homepage: https://man-db.gitlab.io/man-db/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/man-db/blobs/sha256:7dc229cef4b93ffab9ab1e0915128e0f82bfc97e07f5b2db18d0e97125b7ceb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/man-db/blobs/sha256:7ab7d61c5d34832f182a5d43814aedafc83ee39935515dea044914b5fe9e914b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/man-db/blobs/sha256:381c521219f42b0b19f06ccfef76cfd89ce762cac6d30ddccb696b9219748135
+  linux_arm64: https://ghcr.io/v2/homebrew/core/man-db/blobs/sha256:89bb5bab792be06d435eecaa9f485283fd4dcca1881992eec2d3b492fe238862
+sha256:
+  darwin_arm64: 7dc229cef4b93ffab9ab1e0915128e0f82bfc97e07f5b2db18d0e97125b7ceb7
+  darwin_amd64: 7ab7d61c5d34832f182a5d43814aedafc83ee39935515dea044914b5fe9e914b
+  linux_amd64: 381c521219f42b0b19f06ccfef76cfd89ce762cac6d30ddccb696b9219748135
+  linux_arm64: 89bb5bab792be06d435eecaa9f485283fd4dcca1881992eec2d3b492fe238862
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - groff
+  - libpipeline

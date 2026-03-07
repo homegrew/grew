@@ -1,0 +1,19 @@
+name: chibi-scheme
+version: 0.11
+description: Small footprint Scheme for use as a C Extension Language
+homepage: https://github.com/ashinn/chibi-scheme
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chibi-scheme/blobs/sha256:51f839c6bfe00f60d7929f8b55aa8ce3de8b3f0b34a82a886ec782f7850e746b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chibi-scheme/blobs/sha256:a406562fbc9f63a108759d19021614d67153b3d2821a4141e8a3d789e9d1b349
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chibi-scheme/blobs/sha256:395662059e73c41bc156117acff16a06d156e785d8ddd352788fd0b13df9540c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chibi-scheme/blobs/sha256:51315bc7f7e0820bae24c13d724c4a67d5240f7fa0ff60041aa9f8bf742f0760
+sha256:
+  darwin_arm64: 51f839c6bfe00f60d7929f8b55aa8ce3de8b3f0b34a82a886ec782f7850e746b
+  darwin_amd64: a406562fbc9f63a108759d19021614d67153b3d2821a4141e8a3d789e9d1b349
+  linux_amd64: 395662059e73c41bc156117acff16a06d156e785d8ddd352788fd0b13df9540c
+  linux_arm64: 51315bc7f7e0820bae24c13d724c4a67d5240f7fa0ff60041aa9f8bf742f0760
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

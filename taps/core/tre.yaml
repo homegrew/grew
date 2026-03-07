@@ -1,0 +1,19 @@
+name: tre
+version: 0.9.0
+description: Lightweight, POSIX-compliant regular expression (regex) library
+homepage: https://github.com/laurikari/tre
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tre/blobs/sha256:0046ebce7ba173f666176e93abbb6d2079677d02e584f097d97f923d0c0ff0a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tre/blobs/sha256:943904e06f61a77afa4d5ae7d50e6e8008bd32bd66f395ec43a2b58af06b840f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tre/blobs/sha256:29ffb52469a70317b5c0b010b3af90d3f3cc804fb28e856c7f112f9b8049a0ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tre/blobs/sha256:1d9d8bb6a5a094d7c9e9469f87bfb88cd0aefa9ac4c77b525b66d25b8e22373e
+sha256:
+  darwin_arm64: 0046ebce7ba173f666176e93abbb6d2079677d02e584f097d97f923d0c0ff0a3
+  darwin_amd64: 943904e06f61a77afa4d5ae7d50e6e8008bd32bd66f395ec43a2b58af06b840f
+  linux_amd64: 29ffb52469a70317b5c0b010b3af90d3f3cc804fb28e856c7f112f9b8049a0ef
+  linux_arm64: 1d9d8bb6a5a094d7c9e9469f87bfb88cd0aefa9ac4c77b525b66d25b8e22373e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

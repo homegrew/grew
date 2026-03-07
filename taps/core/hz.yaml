@@ -1,0 +1,19 @@
+name: hz
+version: 0.9.7
+description: Golang HTTP framework for microservices
+homepage: https://github.com/cloudwego/hertz
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hz/blobs/sha256:0fc04d3597cce896cb459afffeb61f3e3f36cca809b1415382722ec1458aabe5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hz/blobs/sha256:464319954276a791ad9366da2feb521563721204dc1ffe4c18e733b4a6acd4c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hz/blobs/sha256:9906a09535199349b1e5bae6c8b5ffd62b9f2a74437480d4783e705d4cc161a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hz/blobs/sha256:008152a484635e8ce1003b7167f3fe4e46a23364628a44ddd333767ef4c92ad3
+sha256:
+  darwin_arm64: 0fc04d3597cce896cb459afffeb61f3e3f36cca809b1415382722ec1458aabe5
+  darwin_amd64: 464319954276a791ad9366da2feb521563721204dc1ffe4c18e733b4a6acd4c0
+  linux_amd64: 9906a09535199349b1e5bae6c8b5ffd62b9f2a74437480d4783e705d4cc161a6
+  linux_arm64: 008152a484635e8ce1003b7167f3fe4e46a23364628a44ddd333767ef4c92ad3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

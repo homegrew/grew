@@ -1,0 +1,19 @@
+name: htmltest
+version: 0.17.0
+description: HTML validator written in Go
+homepage: https://github.com/wjdp/htmltest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htmltest/blobs/sha256:e5a2f3d0b7eb552f7dcc01be22aef4f16c8ee03c4acebdb07cfc2ce90edfae88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htmltest/blobs/sha256:3012d7148925ee8a9234c8b20951f300ecb97a7b7805f3b428edf1ac4b2ae128
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htmltest/blobs/sha256:86bac90087af2f141f80bfdc6e3c77220e26ec9097831d030b5f1c4264d7ddbc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htmltest/blobs/sha256:c328aad766bee209105e10d41c309e325d47b699eda97323293544c466ed9a17
+sha256:
+  darwin_arm64: e5a2f3d0b7eb552f7dcc01be22aef4f16c8ee03c4acebdb07cfc2ce90edfae88
+  darwin_amd64: 3012d7148925ee8a9234c8b20951f300ecb97a7b7805f3b428edf1ac4b2ae128
+  linux_amd64: 86bac90087af2f141f80bfdc6e3c77220e26ec9097831d030b5f1c4264d7ddbc
+  linux_arm64: c328aad766bee209105e10d41c309e325d47b699eda97323293544c466ed9a17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

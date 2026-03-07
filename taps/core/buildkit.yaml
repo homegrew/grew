@@ -1,0 +1,19 @@
+name: buildkit
+version: 0.28.0
+description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
+homepage: https://github.com/moby/buildkit
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buildkit/blobs/sha256:e3ca0f23931d989d241869ec59fd6590eda659c8626a02fa4c0fac1ee94c7c5e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buildkit/blobs/sha256:131202a351452d4e8e7dd4c3ea0384294bcbff874c405528c721be8cdc61b5e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buildkit/blobs/sha256:f5492ed18cf1c0481df4c77620b7ed6eeca7fc69de85ad3fe6ed64360d88f98c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buildkit/blobs/sha256:d040b515b5ab0bb86665aa0646cc8c4e4a16a2946218693c13f41c7283931f82
+sha256:
+  darwin_arm64: e3ca0f23931d989d241869ec59fd6590eda659c8626a02fa4c0fac1ee94c7c5e
+  darwin_amd64: 131202a351452d4e8e7dd4c3ea0384294bcbff874c405528c721be8cdc61b5e7
+  linux_amd64: f5492ed18cf1c0481df4c77620b7ed6eeca7fc69de85ad3fe6ed64360d88f98c
+  linux_arm64: d040b515b5ab0bb86665aa0646cc8c4e4a16a2946218693c13f41c7283931f82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

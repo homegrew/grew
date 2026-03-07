@@ -1,0 +1,19 @@
+name: jove
+version: 4.17.5.5
+description: Emacs-style editor with vi-like memory, CPU, and size requirements
+homepage: https://directory.fsf.org/wiki/Jove
+license: jove
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jove/blobs/sha256:ee1248e197df0c81afc0548004d8ae314d911b63470761a839421d4b3a4b4ba5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jove/blobs/sha256:e72bb81fde21a1e8681fcfbf6255894438e4169d7b2e7947f83be7ec99a28929
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jove/blobs/sha256:ae68e348cd028def90d76ae9065520fc1f9812874aa0d61fad3274acc09529fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jove/blobs/sha256:0682f731ffeeaf52b72dc4e5c43f8e22c098ad845d5021f59ed7f4c589d989a7
+sha256:
+  darwin_arm64: ee1248e197df0c81afc0548004d8ae314d911b63470761a839421d4b3a4b4ba5
+  darwin_amd64: e72bb81fde21a1e8681fcfbf6255894438e4169d7b2e7947f83be7ec99a28929
+  linux_amd64: ae68e348cd028def90d76ae9065520fc1f9812874aa0d61fad3274acc09529fc
+  linux_arm64: 0682f731ffeeaf52b72dc4e5c43f8e22c098ad845d5021f59ed7f4c589d989a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

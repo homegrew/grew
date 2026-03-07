@@ -1,0 +1,19 @@
+name: crc32c
+version: 1.1.2
+description: Implementation of CRC32C with CPU-specific acceleration
+homepage: https://github.com/google/crc32c
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crc32c/blobs/sha256:8e3aaa27057bb4e44a84d7fcdef9f8fea950c18d34017a3212f4f4ee9d0e6f03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crc32c/blobs/sha256:9e3b13f21f27370340084fa45100b87ce3aa6a9f6fb403789683695958a33217
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crc32c/blobs/sha256:6d1d82ebed58e6c35064358c5a04428b6bb053413be7b11b2c14e4cbcd156205
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crc32c/blobs/sha256:7cd8632d65ac971ce60b6023b00c4f0058db967cc33dcaba57bfd8a0fb336934
+sha256:
+  darwin_arm64: 8e3aaa27057bb4e44a84d7fcdef9f8fea950c18d34017a3212f4f4ee9d0e6f03
+  darwin_amd64: 9e3b13f21f27370340084fa45100b87ce3aa6a9f6fb403789683695958a33217
+  linux_amd64: 6d1d82ebed58e6c35064358c5a04428b6bb053413be7b11b2c14e4cbcd156205
+  linux_arm64: 7cd8632d65ac971ce60b6023b00c4f0058db967cc33dcaba57bfd8a0fb336934
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

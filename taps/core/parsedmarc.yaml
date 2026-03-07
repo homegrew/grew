@@ -1,0 +1,24 @@
+name: parsedmarc
+version: 9.1.2
+description: DMARC report analyzer and visualizer
+homepage: https://domainaware.github.io/parsedmarc/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parsedmarc/blobs/sha256:457fb4ec7d6f7440d411a6990c303719613642560f44239ad54e9896cc348e8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parsedmarc/blobs/sha256:8149db1a27aaa264ecd455fea889ca5ede965ad0f808e520292faad18600ea77
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parsedmarc/blobs/sha256:c84bab27dde52d3d2c24c22e40fd410ef6a0593e4c2eac4e7640621c40c18efb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parsedmarc/blobs/sha256:223d9696b8b6c3124605dbe590d1580bd05e31e71f8339a9073d2a9e5b7b6a56
+sha256:
+  darwin_arm64: 457fb4ec7d6f7440d411a6990c303719613642560f44239ad54e9896cc348e8c
+  darwin_amd64: 8149db1a27aaa264ecd455fea889ca5ede965ad0f808e520292faad18600ea77
+  linux_amd64: c84bab27dde52d3d2c24c22e40fd410ef6a0593e4c2eac4e7640621c40c18efb
+  linux_arm64: 223d9696b8b6c3124605dbe590d1580bd05e31e71f8339a9073d2a9e5b7b6a56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.13

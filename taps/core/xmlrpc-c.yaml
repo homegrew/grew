@@ -1,0 +1,21 @@
+name: xmlrpc-c
+version: 1.64.03
+description: Lightweight RPC library (based on XML and HTTP)
+homepage: https://xmlrpc-c.sourceforge.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmlrpc-c/blobs/sha256:9897b4b3c6605051e8e52bf360dd34ad7326c51d4463a9e57cbd5f619b8b0820
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmlrpc-c/blobs/sha256:7d5a0807b77515d4adf986e490375efdff341bab63730ba19f5bb36f9df5db65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmlrpc-c/blobs/sha256:3333ba125091b7c7852e8aad02a1f541aae8f6544eb5b41846101dca07764295
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmlrpc-c/blobs/sha256:2251b02f8dca16a8ce8b03e5a648288f91819d6f90b3a7bc33e30f247a535065
+sha256:
+  darwin_arm64: 9897b4b3c6605051e8e52bf360dd34ad7326c51d4463a9e57cbd5f619b8b0820
+  darwin_amd64: 7d5a0807b77515d4adf986e490375efdff341bab63730ba19f5bb36f9df5db65
+  linux_amd64: 3333ba125091b7c7852e8aad02a1f541aae8f6544eb5b41846101dca07764295
+  linux_arm64: 2251b02f8dca16a8ce8b03e5a648288f91819d6f90b3a7bc33e30f247a535065
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

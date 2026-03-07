@@ -1,0 +1,19 @@
+name: kubetui
+version: 1.12.1
+description: TUI tool for monitoring and exploration of Kubernetes resources
+homepage: https://github.com/sarub0b0/kubetui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubetui/blobs/sha256:3b9305fca8648e75f022caf8dbec07371fa22d71cd629c374db95b9b06bb5842
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubetui/blobs/sha256:eece04566a08188048e98504734454ca6702bdde056ddc686ea5326a15d60c4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubetui/blobs/sha256:79a460dcbe770cc5b81653be2f241b0a229075749c71e350281d197129ea7f95
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubetui/blobs/sha256:b9beca1a79a2f7870bc0ff2416270af1462da71e2dcbb4e381c7506fc8e05040
+sha256:
+  darwin_arm64: 3b9305fca8648e75f022caf8dbec07371fa22d71cd629c374db95b9b06bb5842
+  darwin_amd64: eece04566a08188048e98504734454ca6702bdde056ddc686ea5326a15d60c4a
+  linux_amd64: 79a460dcbe770cc5b81653be2f241b0a229075749c71e350281d197129ea7f95
+  linux_arm64: b9beca1a79a2f7870bc0ff2416270af1462da71e2dcbb4e381c7506fc8e05040
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

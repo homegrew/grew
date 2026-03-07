@@ -1,0 +1,11 @@
+name: crystalfetch
+version: 2.2.0
+description: UI for creating Windows installer ISO from UUPDump
+homepage: https://github.com/TuringSoftware/CrystalFetch
+url:
+  darwin_arm64: https://github.com/TuringSoftware/CrystalFetch/releases/download/v2.2.0/CrystalFetch.dmg
+sha256:
+  darwin_arm64: 6e428a419bc5deded21da0c9eafae4507fd5b2fb6e2c8cf8b59f97522f01deee
+artifacts:
+  app:
+    - CrystalFetch.app

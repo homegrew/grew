@@ -1,0 +1,18 @@
+name: libbpf
+version: 1.6.3
+description: Berkeley Packet Filter library
+homepage: https://github.com/libbpf/libbpf
+license: BSD-2-Clause
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libbpf/blobs/sha256:82f1148d37fd262f39b42d8a3edb7f152e2028c6fd39efad34117b8a10b2a3d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libbpf/blobs/sha256:c6434f21ee8213728fa2282fa9c7212576b6b930c04fb89080184693d597cca9
+sha256:
+  linux_amd64: 82f1148d37fd262f39b42d8a3edb7f152e2028c6fd39efad34117b8a10b2a3d0
+  linux_arm64: c6434f21ee8213728fa2282fa9c7212576b6b930c04fb89080184693d597cca9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elfutils
+  - zlib-ng-compat

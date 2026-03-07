@@ -1,0 +1,22 @@
+name: mp3splt
+version: 2.6.2
+description: Command-line interface to split MP3 and Ogg Vorbis files
+homepage: https://mp3splt.sourceforge.net/mp3splt_page/home.php
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3splt/blobs/sha256:867a665c9465e82d864910185387d4df79bced27f9121ccff36bd2f32524820e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3splt/blobs/sha256:ff82187f8d9e0609554d79b6a342ce374b9ea60e2e9d9c092571910cb9435ff6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3splt/blobs/sha256:5827fe65a9230261acc5309197b66205d2c72492d58ac2ed2b6a4d38632fea66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3splt/blobs/sha256:7c54aa0ebc5caa53ab0f8a09d55c9e9f7ff7226a688a31fb74aa38f4fe8c0e25
+sha256:
+  darwin_arm64: 867a665c9465e82d864910185387d4df79bced27f9121ccff36bd2f32524820e
+  darwin_amd64: ff82187f8d9e0609554d79b6a342ce374b9ea60e2e9d9c092571910cb9435ff6
+  linux_amd64: 5827fe65a9230261acc5309197b66205d2c72492d58ac2ed2b6a4d38632fea66
+  linux_arm64: 7c54aa0ebc5caa53ab0f8a09d55c9e9f7ff7226a688a31fb74aa38f4fe8c0e25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmp3splt
+  - gettext

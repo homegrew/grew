@@ -1,0 +1,22 @@
+name: libtomcrypt
+version: 1.18.2
+description: Comprehensive, modular and portable cryptographic toolkit
+homepage: https://www.libtom.net/
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtomcrypt/blobs/sha256:373529c12106df1c9d42ee7b18397378695aab805e3f615578c3c4658773cd23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtomcrypt/blobs/sha256:6b0591e8b409b44cc5cd7eeca0e4562b573b8e2eb4d07bcf5332a7085e107ab4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtomcrypt/blobs/sha256:27294aefd23c971546ba62354ee81327a45f84ae4bf5e953c0397def99dfce51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtomcrypt/blobs/sha256:7118ecc3f9a3986ee0fa6fd49e54d844092c5ead298e59dd6b9adb6a21b37653
+sha256:
+  darwin_arm64: 373529c12106df1c9d42ee7b18397378695aab805e3f615578c3c4658773cd23
+  darwin_amd64: 6b0591e8b409b44cc5cd7eeca0e4562b573b8e2eb4d07bcf5332a7085e107ab4
+  linux_amd64: 27294aefd23c971546ba62354ee81327a45f84ae4bf5e953c0397def99dfce51
+  linux_arm64: 7118ecc3f9a3986ee0fa6fd49e54d844092c5ead298e59dd6b9adb6a21b37653
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - libtommath

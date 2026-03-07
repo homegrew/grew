@@ -1,0 +1,13 @@
+name: hyper@canary
+version: 4.0.0-canary.5
+description: Terminal built on web technologies
+homepage: https://hyper.is/
+url:
+  darwin_arm64: https://github.com/vercel/hyper/releases/download/v4.0.0-canary.5/Hyper-4.0.0-canary.5-mac-arm64.zip
+sha256:
+  darwin_arm64: b23c51a1a2c6a0c1940965f959d30a6a185111954204132402aa29038d30ad98
+artifacts:
+  app:
+    - Hyper.app
+  bin:
+    - hyper

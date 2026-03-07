@@ -1,0 +1,23 @@
+name: libzdb
+version: 3.5.0
+description: Database connection pool library
+homepage: https://tildeslash.com/libzdb/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libzdb/blobs/sha256:e823552985e05bb6f5506fa3cead177bc8e2f388342567efb731e53f10f5c9e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libzdb/blobs/sha256:37fa3aac2e71b2319ffeac999a72baecf86194484e4a663beba0cdc6417cf25f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libzdb/blobs/sha256:e7f359cdb4916f44128b64c324d27915dec76d917d380509ab05ffc11e869ddb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libzdb/blobs/sha256:e309f3c47a01f6cfda5b621e4d358048f22201f973df4615163eacbd3422e47a
+sha256:
+  darwin_arm64: e823552985e05bb6f5506fa3cead177bc8e2f388342567efb731e53f10f5c9e7
+  darwin_amd64: 37fa3aac2e71b2319ffeac999a72baecf86194484e4a663beba0cdc6417cf25f
+  linux_amd64: e7f359cdb4916f44128b64c324d27915dec76d917d380509ab05ffc11e869ddb
+  linux_arm64: e309f3c47a01f6cfda5b621e4d358048f22201f973df4615163eacbd3422e47a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - mariadb-connector-c
+  - sqlite

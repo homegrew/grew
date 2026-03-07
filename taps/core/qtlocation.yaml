@@ -1,0 +1,23 @@
+name: qtlocation
+version: 6.10.2
+description: Provides C++ interfaces to retrieve location and navigational information
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtlocation/blobs/sha256:8495d6034db0d2b568779b0a8bfa73c9386425dcb9a46b14123e662f0e036a54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtlocation/blobs/sha256:ecaf0b90635659bb22c7d2459381e579b6ad3b97d1cffc1050483f50abbf605d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtlocation/blobs/sha256:feedcf761093383a84ef3b25ff0cad9eba3c036180dc653b5b241c5e1e16711d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtlocation/blobs/sha256:654baac9736673a8b0a256b84f1e10224e265857aefd76314cdefa144cb4c061
+sha256:
+  darwin_arm64: 8495d6034db0d2b568779b0a8bfa73c9386425dcb9a46b14123e662f0e036a54
+  darwin_amd64: ecaf0b90635659bb22c7d2459381e579b6ad3b97d1cffc1050483f50abbf605d
+  linux_amd64: feedcf761093383a84ef3b25ff0cad9eba3c036180dc653b5b241c5e1e16711d
+  linux_arm64: 654baac9736673a8b0a256b84f1e10224e265857aefd76314cdefa144cb4c061
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtpositioning

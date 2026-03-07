@@ -1,0 +1,19 @@
+name: cargo-make
+version: 0.37.24
+description: Rust task runner and build tool
+homepage: https://github.com/sagiegurari/cargo-make
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-make/blobs/sha256:c85317163c83d67bdc08f66186d287ab4ade17702716118c30dffc60300d2416
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-make/blobs/sha256:086c607cd949bf09f50993d4a486137350c6a69df15bcc8bffcde33228aa330c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-make/blobs/sha256:476ba3af76f954ed24d8cb84e7e57eab3a32b86d51d21f7e219be831264137f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-make/blobs/sha256:a38ee58a40f555beed4820c611cb375ae11ced7c35f294b799434407f2287075
+sha256:
+  darwin_arm64: c85317163c83d67bdc08f66186d287ab4ade17702716118c30dffc60300d2416
+  darwin_amd64: 086c607cd949bf09f50993d4a486137350c6a69df15bcc8bffcde33228aa330c
+  linux_amd64: 476ba3af76f954ed24d8cb84e7e57eab3a32b86d51d21f7e219be831264137f5
+  linux_arm64: a38ee58a40f555beed4820c611cb375ae11ced7c35f294b799434407f2287075
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

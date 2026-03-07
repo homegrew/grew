@@ -1,0 +1,19 @@
+name: serf
+version: 0.10.2
+description: Service orchestration and management tool
+homepage: https://github.com/hashicorp/serf
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serf/blobs/sha256:2901eb9d2de6b46caefd9bf736b479a4fdbde4f83856c4c57bc114411a332134
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serf/blobs/sha256:d6d6ae5c6519299a5066731b9a37a7503453400849633423839d85cdf80e7d98
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serf/blobs/sha256:bd73aa1d5303d52c424bb871db029524e8f64619c0aa0dfd1bccde4f9d023211
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serf/blobs/sha256:8a687881da8ed7915ff023c57afcbece681a54dd3c9a267df6d3c849db209de2
+sha256:
+  darwin_arm64: 2901eb9d2de6b46caefd9bf736b479a4fdbde4f83856c4c57bc114411a332134
+  darwin_amd64: d6d6ae5c6519299a5066731b9a37a7503453400849633423839d85cdf80e7d98
+  linux_amd64: bd73aa1d5303d52c424bb871db029524e8f64619c0aa0dfd1bccde4f9d023211
+  linux_arm64: 8a687881da8ed7915ff023c57afcbece681a54dd3c9a267df6d3c849db209de2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

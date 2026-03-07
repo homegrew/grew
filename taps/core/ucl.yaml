@@ -1,0 +1,19 @@
+name: ucl
+version: 1.03
+description: Data compression library with small memory footprint
+homepage: https://www.oberhumer.com/opensource/ucl/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ucl/blobs/sha256:be21a9408fd10aabdb648f2c5075a234cd1308fd2628f6fb205751883835532f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ucl/blobs/sha256:d7e4f8a3757883ff1541ef0e571a38c72d3a1e74017c83d6ed3639559164f17a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ucl/blobs/sha256:f1733761c7ce4452219f15055b4d72ca6e287c9c18691d9aa66c4aae0349d28c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ucl/blobs/sha256:b6a1eb60e36db3e3b262b7953d6523e61dc6cf519c06eb6487bdd2f7efda29bc
+sha256:
+  darwin_arm64: be21a9408fd10aabdb648f2c5075a234cd1308fd2628f6fb205751883835532f
+  darwin_amd64: d7e4f8a3757883ff1541ef0e571a38c72d3a1e74017c83d6ed3639559164f17a
+  linux_amd64: f1733761c7ce4452219f15055b4d72ca6e287c9c18691d9aa66c4aae0349d28c
+  linux_arm64: b6a1eb60e36db3e3b262b7953d6523e61dc6cf519c06eb6487bdd2f7efda29bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

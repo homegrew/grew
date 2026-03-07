@@ -1,0 +1,19 @@
+name: tracetest
+version: 1.7.1
+description: Build integration and end-to-end tests
+homepage: https://docs.tracetest.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tracetest/blobs/sha256:b58559ad7258bb4a1e2dc9903e0e242575e902f74f09c80113674c36d37de090
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tracetest/blobs/sha256:24ca141eae8774c3027fa5fcd9adaa53da4583f50f70ef202690a78614192ba9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tracetest/blobs/sha256:92d2ceaeb6301b5cf9376ac4f915427c575dab211370621627234070f7b5127a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tracetest/blobs/sha256:76ef355e9882480d77b0169167f8fa1987da394adfe293b3ebd19547883ee999
+sha256:
+  darwin_arm64: b58559ad7258bb4a1e2dc9903e0e242575e902f74f09c80113674c36d37de090
+  darwin_amd64: 24ca141eae8774c3027fa5fcd9adaa53da4583f50f70ef202690a78614192ba9
+  linux_amd64: 92d2ceaeb6301b5cf9376ac4f915427c575dab211370621627234070f7b5127a
+  linux_arm64: 76ef355e9882480d77b0169167f8fa1987da394adfe293b3ebd19547883ee999
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

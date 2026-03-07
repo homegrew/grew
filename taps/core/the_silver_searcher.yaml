@@ -1,0 +1,22 @@
+name: the_silver_searcher
+version: 2.2.0
+description: Code-search similar to ack
+homepage: https://geoff.greer.fm/ag/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/the_silver_searcher/blobs/sha256:9e15a76d577686e2f6157918b498668861690527fb40186768b91ed2a6e423e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/the_silver_searcher/blobs/sha256:1dd806566cbca47602b78add31578b9a9aa79b175d9a210a5d260e210e44529d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/the_silver_searcher/blobs/sha256:6905dec85c2cbb898f1d77a46524da036ac3935e5c192d2331dae88403604b9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/the_silver_searcher/blobs/sha256:c6bd4a0bc3759bf49f2fc549dc9143c8488632199d7c193cfe0e5bf4d67f62fe
+sha256:
+  darwin_arm64: 9e15a76d577686e2f6157918b498668861690527fb40186768b91ed2a6e423e5
+  darwin_amd64: 1dd806566cbca47602b78add31578b9a9aa79b175d9a210a5d260e210e44529d
+  linux_amd64: 6905dec85c2cbb898f1d77a46524da036ac3935e5c192d2331dae88403604b9e
+  linux_arm64: c6bd4a0bc3759bf49f2fc549dc9143c8488632199d7c193cfe0e5bf4d67f62fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2
+  - xz

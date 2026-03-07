@@ -1,0 +1,45 @@
+name: texlive
+version: 20260301
+description: Free software distribution for the TeX typesetting system
+homepage: https://www.tug.org/texlive/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texlive/blobs/sha256:107a9d90dadaa539a2b81965d616c213b85884e3ac11b664590cd7499d75aa3d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texlive/blobs/sha256:457d840d2e97cea5f8a11e46adc9ade67c3e197b54875889033638b143222508
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texlive/blobs/sha256:4ab2674e0c636ab1cd8c8428ebcac12509976bd881f83853d08310aaab23cf33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texlive/blobs/sha256:f04609a0e06b0385278649da3408e8229296ef12d481d32632f564b20d3f94cc
+sha256:
+  darwin_arm64: 107a9d90dadaa539a2b81965d616c213b85884e3ac11b664590cd7499d75aa3d
+  darwin_amd64: 457d840d2e97cea5f8a11e46adc9ade67c3e197b54875889033638b143222508
+  linux_amd64: 4ab2674e0c636ab1cd8c8428ebcac12509976bd881f83853d08310aaab23cf33
+  linux_arm64: f04609a0e06b0385278649da3408e8229296ef12d481d32632f564b20d3f94cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - clisp
+  - fontconfig
+  - freetype
+  - gd
+  - ghostscript
+  - gmp
+  - graphite2
+  - harfbuzz
+  - icu4c@78
+  - jpeg-turbo
+  - libpng
+  - libx11
+  - libxft
+  - lua
+  - luajit
+  - mpfr
+  - openjdk
+  - openssl@3
+  - perl
+  - pixman
+  - potrace
+  - pstoedit
+  - python@3.14
+  - tcl-tk

@@ -1,0 +1,21 @@
+name: jpeg-archive
+version: 2.2.0
+description: Utilities for archiving JPEGs for long term storage
+homepage: https://github.com/danielgtaylor/jpeg-archive
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jpeg-archive/blobs/sha256:183d8acbdeec71e01c7848052ebb5e40dc3598dc2c9f86eb663d17e4e055220b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jpeg-archive/blobs/sha256:18c2404353c92c320a6ce340d4e6b166fe6e9201472e91dae4a29826f59bb446
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jpeg-archive/blobs/sha256:d0f07451e909abe52341b47d86aa6fdd8e0693726911322c4633b758c811249d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jpeg-archive/blobs/sha256:554ec3d5691c16246a42afffb1dfd791e943117810331feacfdf1a87208127df
+sha256:
+  darwin_arm64: 183d8acbdeec71e01c7848052ebb5e40dc3598dc2c9f86eb663d17e4e055220b
+  darwin_amd64: 18c2404353c92c320a6ce340d4e6b166fe6e9201472e91dae4a29826f59bb446
+  linux_amd64: d0f07451e909abe52341b47d86aa6fdd8e0693726911322c4633b758c811249d
+  linux_arm64: 554ec3d5691c16246a42afffb1dfd791e943117810331feacfdf1a87208127df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mozjpeg

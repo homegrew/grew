@@ -1,0 +1,19 @@
+name: open-adventure
+version: 1.20
+description: Colossal Cave Adventure, the 1995 430-point version
+homepage: http://www.catb.org/~esr/open-adventure/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-adventure/blobs/sha256:a5cd8f69998d91913b55151dd6d546ad6ae558913b5691a446313bb7c479abd4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-adventure/blobs/sha256:703624eecbc0d021d1ea47e49738a074fb7f0f973d5b1b013c7532dd8da2ec75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-adventure/blobs/sha256:e0aa4f90ca96e69a747ffa5e90d2f8388248c077f0c5f9154322f8df690bf048
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-adventure/blobs/sha256:11986ede6b55b722c796c6e80f3eed1ac1fa3d4757b3dbc7a04a1df37f509e08
+sha256:
+  darwin_arm64: a5cd8f69998d91913b55151dd6d546ad6ae558913b5691a446313bb7c479abd4
+  darwin_amd64: 703624eecbc0d021d1ea47e49738a074fb7f0f973d5b1b013c7532dd8da2ec75
+  linux_amd64: e0aa4f90ca96e69a747ffa5e90d2f8388248c077f0c5f9154322f8df690bf048
+  linux_arm64: 11986ede6b55b722c796c6e80f3eed1ac1fa3d4757b3dbc7a04a1df37f509e08
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: camlp-streams
+version: 5.0.1
+description: Stream and Genlex libraries for use with Camlp4 and Camlp5
+homepage: https://github.com/ocaml/camlp-streams
+license: LGPL-2.1-only WITH OCaml-LGPL-linking-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/camlp-streams/blobs/sha256:e7fe4bfbf60135b74ed63cd5430c8aaa06afc4b6755562448b43061c33dc92bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/camlp-streams/blobs/sha256:9b129d7d4072cf67c52b0ae723390101a5790799788d34d9a169111c52220325
+  linux_amd64: https://ghcr.io/v2/homebrew/core/camlp-streams/blobs/sha256:0fb3cdc0726e6a68db04b269e89f5e3e6754bbbbf2ac102628f19edb9f8dda3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/camlp-streams/blobs/sha256:8c6078a8ea7c69644008875bd7f8a77025cd725f0ad98038136fe39c27536533
+sha256:
+  darwin_arm64: e7fe4bfbf60135b74ed63cd5430c8aaa06afc4b6755562448b43061c33dc92bb
+  darwin_amd64: 9b129d7d4072cf67c52b0ae723390101a5790799788d34d9a169111c52220325
+  linux_amd64: 0fb3cdc0726e6a68db04b269e89f5e3e6754bbbbf2ac102628f19edb9f8dda3a
+  linux_arm64: 8c6078a8ea7c69644008875bd7f8a77025cd725f0ad98038136fe39c27536533
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

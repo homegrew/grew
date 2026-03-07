@@ -1,0 +1,19 @@
+name: rasusa
+version: 3.0.0
+description: Randomly subsample sequencing reads or alignments
+homepage: https://doi.org/10.21105/joss.03941
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rasusa/blobs/sha256:43d7a5b912ba78df6c528d1a4582db135a99d25cfb0cfe4f36470fd8c9916c51
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rasusa/blobs/sha256:3c41daa566a8da29c719d8fbd65f6db74c376f8cc6c981b04ba8e966abe29d36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rasusa/blobs/sha256:ebcc028d9d1ef17e5f1990382d4cd87552d721cae68c157e5ba0a93c886cd006
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rasusa/blobs/sha256:465ea183b3438673b147db9006d7f303af75b3901c1e9342b2d5746f32711a35
+sha256:
+  darwin_arm64: 43d7a5b912ba78df6c528d1a4582db135a99d25cfb0cfe4f36470fd8c9916c51
+  darwin_amd64: 3c41daa566a8da29c719d8fbd65f6db74c376f8cc6c981b04ba8e966abe29d36
+  linux_amd64: ebcc028d9d1ef17e5f1990382d4cd87552d721cae68c157e5ba0a93c886cd006
+  linux_arm64: 465ea183b3438673b147db9006d7f303af75b3901c1e9342b2d5746f32711a35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

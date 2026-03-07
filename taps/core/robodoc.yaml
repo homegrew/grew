@@ -1,0 +1,19 @@
+name: robodoc
+version: 4.99.44
+description: Source code documentation tool
+homepage: https://rfsber.home.xs4all.nl/Robo/index.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/robodoc/blobs/sha256:66e865a5ed9bcff4857a56a4e3377c3f7d08150ebd477d3ea585c2607f3f159d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/robodoc/blobs/sha256:be14e9b85a7065d98b327d0b20d8515f7dcf05a6a1d6fed73a56443e669cbd8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/robodoc/blobs/sha256:960614e0d6ecfe4051cfe544814b4d4008222e2817a0d3146191a5ec7602d570
+  linux_arm64: https://ghcr.io/v2/homebrew/core/robodoc/blobs/sha256:6108c0143856a92b0385d2d5281e9117d3a8673e32726762dd87434fe2d66500
+sha256:
+  darwin_arm64: 66e865a5ed9bcff4857a56a4e3377c3f7d08150ebd477d3ea585c2607f3f159d
+  darwin_amd64: be14e9b85a7065d98b327d0b20d8515f7dcf05a6a1d6fed73a56443e669cbd8d
+  linux_amd64: 960614e0d6ecfe4051cfe544814b4d4008222e2817a0d3146191a5ec7602d570
+  linux_arm64: 6108c0143856a92b0385d2d5281e9117d3a8673e32726762dd87434fe2d66500
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

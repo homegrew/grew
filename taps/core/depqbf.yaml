@@ -1,0 +1,19 @@
+name: depqbf
+version: 6.03
+description: Solver for quantified boolean formulae (QBF)
+homepage: https://lonsing.github.io/depqbf/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/depqbf/blobs/sha256:5494cf1ffc209c33da83751528490bb7b8324e9cfde890d66231916ffa9c9eb9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/depqbf/blobs/sha256:2417e97e2936f086ff114fd6658d2c717a2a26a6541ef2ab2108a82200e324ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/depqbf/blobs/sha256:2e13e19078a40264180e470c713e834493e8189f3b45a263318f17d1b4830f73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/depqbf/blobs/sha256:27916b378549105a9812407772165660f12c3ac27be9af6995fd09f5bee27827
+sha256:
+  darwin_arm64: 5494cf1ffc209c33da83751528490bb7b8324e9cfde890d66231916ffa9c9eb9
+  darwin_amd64: 2417e97e2936f086ff114fd6658d2c717a2a26a6541ef2ab2108a82200e324ee
+  linux_amd64: 2e13e19078a40264180e470c713e834493e8189f3b45a263318f17d1b4830f73
+  linux_arm64: 27916b378549105a9812407772165660f12c3ac27be9af6995fd09f5bee27827
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: arping
+version: 2.28
+description: Utility to check whether MAC addresses are already taken on a LAN
+homepage: https://github.com/ThomasHabets/arping
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arping/blobs/sha256:dc8c29ee0f45d69f2d0a34ea300d46379d41cfa1f551c3dcf32a12cb4f299f4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arping/blobs/sha256:cebc2ab2ac9c7781eb24bfcc1148e9e553f400a8f6603e46cbdbfd4c175d6269
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arping/blobs/sha256:2a7775d5a971141ca866af205bcf2dee52af6dd736422afed98cbe5f5d1d75f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arping/blobs/sha256:649e47c98c1f5ac7b109423c48ac8e376214c4404d4022b1f03d9111054e25f3
+sha256:
+  darwin_arm64: dc8c29ee0f45d69f2d0a34ea300d46379d41cfa1f551c3dcf32a12cb4f299f4c
+  darwin_amd64: cebc2ab2ac9c7781eb24bfcc1148e9e553f400a8f6603e46cbdbfd4c175d6269
+  linux_amd64: 2a7775d5a971141ca866af205bcf2dee52af6dd736422afed98cbe5f5d1d75f5
+  linux_arm64: 649e47c98c1f5ac7b109423c48ac8e376214c4404d4022b1f03d9111054e25f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnet

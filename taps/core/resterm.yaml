@@ -1,0 +1,19 @@
+name: resterm
+version: 0.23.6
+description: Terminal client for .http/.rest files with HTTP, GraphQL, and gRPC support
+homepage: https://github.com/unkn0wn-root/resterm
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/resterm/blobs/sha256:5892093b6f6c5c589b9f2754336e051b65507e8cb6f1d930c518a086937d1916
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/resterm/blobs/sha256:804f00e597911bba8b332330d050a8b3ba2418b785a8122e31768202f8fc70cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/resterm/blobs/sha256:1dee1762efa496b6245025fa87f2f860aa5077e87fcde6f0989014f8c5bc606d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/resterm/blobs/sha256:6e838609b0f1392df55efef4f070b807cc2beef18653198e16fdec07e365f335
+sha256:
+  darwin_arm64: 5892093b6f6c5c589b9f2754336e051b65507e8cb6f1d930c518a086937d1916
+  darwin_amd64: 804f00e597911bba8b332330d050a8b3ba2418b785a8122e31768202f8fc70cb
+  linux_amd64: 1dee1762efa496b6245025fa87f2f860aa5077e87fcde6f0989014f8c5bc606d
+  linux_arm64: 6e838609b0f1392df55efef4f070b807cc2beef18653198e16fdec07e365f335
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: osmium-tool
+version: 1.19.0
+description: Libosmium-based command-line tool for processing OpenStreetMap data
+homepage: https://osmcode.org/osmium-tool/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osmium-tool/blobs/sha256:56aa31ece77621faa6d77d4ca2c477ccfc79c27cc1a7e7103b2a0eb94e0e5e94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osmium-tool/blobs/sha256:ec7db1d7bff5552e5915f0800b6704569e974c0319fd402324ef462e642c2ecb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osmium-tool/blobs/sha256:62e18c5d574d7ba904a6527b942f5ab00db567e93faf4105c56f8dd7802d4141
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osmium-tool/blobs/sha256:d3510e3c24b08f1e086981e75f4f77116fdb0ca621dcbc46169c1dd35d61b1d2
+sha256:
+  darwin_arm64: 56aa31ece77621faa6d77d4ca2c477ccfc79c27cc1a7e7103b2a0eb94e0e5e94
+  darwin_amd64: ec7db1d7bff5552e5915f0800b6704569e974c0319fd402324ef462e642c2ecb
+  linux_amd64: 62e18c5d574d7ba904a6527b942f5ab00db567e93faf4105c56f8dd7802d4141
+  linux_arm64: d3510e3c24b08f1e086981e75f4f77116fdb0ca621dcbc46169c1dd35d61b1d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - lz4

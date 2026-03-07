@@ -1,0 +1,18 @@
+name: libnetfilter_conntrack
+version: 1.1.1
+description: Library providing an API to the in-kernel connection tracking state table
+homepage: https://www.netfilter.org/projects/libnetfilter_conntrack/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnetfilter_conntrack/blobs/sha256:af64ee07b344180676533bdd4b495741cf69afd3fd483c166e8d672cc414692e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnetfilter_conntrack/blobs/sha256:0c7acb47bfd4c7e21ee0d3d6454b387d8b74d13bd6fbbaf375ad85b405d3d132
+sha256:
+  linux_amd64: af64ee07b344180676533bdd4b495741cf69afd3fd483c166e8d672cc414692e
+  linux_arm64: 0c7acb47bfd4c7e21ee0d3d6454b387d8b74d13bd6fbbaf375ad85b405d3d132
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmnl
+  - libnfnetlink

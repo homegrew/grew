@@ -1,0 +1,25 @@
+name: sigstore
+version: 4.2.0
+description: Codesigning tool for Python packages
+homepage: https://github.com/sigstore/sigstore-python
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sigstore/blobs/sha256:827967e1c44efe7a914193e308663707da616fa907f40f5f25f906bd9b6d31d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sigstore/blobs/sha256:d72a91f2c5a54c26aaf39d53e33a100ae198cf430a3a3c4f5c6b07ef055177c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sigstore/blobs/sha256:2b7fa62042946ab236d9522aaec368e01de97399ad0793137f71b73653206030
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sigstore/blobs/sha256:267f45697fc4184ab3184f99c2afdc718f58157609ad7ad6bacba2970f830b4a
+sha256:
+  darwin_arm64: 827967e1c44efe7a914193e308663707da616fa907f40f5f25f906bd9b6d31d8
+  darwin_amd64: d72a91f2c5a54c26aaf39d53e33a100ae198cf430a3a3c4f5c6b07ef055177c5
+  linux_amd64: 2b7fa62042946ab236d9522aaec368e01de97399ad0793137f71b73653206030
+  linux_arm64: 267f45697fc4184ab3184f99c2afdc718f58157609ad7ad6bacba2970f830b4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - openssl@3
+  - pydantic
+  - python@3.14

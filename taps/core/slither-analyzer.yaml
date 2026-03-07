@@ -1,0 +1,23 @@
+name: slither-analyzer
+version: 0.11.5
+description: Solidity static analysis framework written in Python 3
+homepage: https://github.com/crytic/slither
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slither-analyzer/blobs/sha256:f17aeaa976e408924e20bd3923538c90cc9a238b20aa2a1c0d00c1fbda19c7e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slither-analyzer/blobs/sha256:6b443adeeb07c785bbad7f228727ac857471547087d6ac01f9861807c2186a31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slither-analyzer/blobs/sha256:0e45d967f4569886b658a7ebce8dd44a1afea6eee9794b9a2338bba725a28945
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slither-analyzer/blobs/sha256:4ca48f6b8798e2f03ec3f80eb71af11e8139dad8dbb748788d625487371436a4
+sha256:
+  darwin_arm64: f17aeaa976e408924e20bd3923538c90cc9a238b20aa2a1c0d00c1fbda19c7e6
+  darwin_amd64: 6b443adeeb07c785bbad7f228727ac857471547087d6ac01f9861807c2186a31
+  linux_amd64: 0e45d967f4569886b658a7ebce8dd44a1afea6eee9794b9a2338bba725a28945
+  linux_arm64: 4ca48f6b8798e2f03ec3f80eb71af11e8139dad8dbb748788d625487371436a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - pydantic
+  - python@3.14

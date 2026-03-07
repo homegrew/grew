@@ -1,0 +1,19 @@
+name: obfs4proxy
+version: 0.0.14
+description: Pluggable transport proxy for Tor, implementing obfs4
+homepage: https://gitlab.com/yawning/obfs4
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/obfs4proxy/blobs/sha256:35257564f9b79df7a9cd7d25113bf9671291049494537c7293e26db0c8d6b630
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/obfs4proxy/blobs/sha256:f35042ff00cfbfade185e80912b9ef908e9dbbe40ab8cc5a65df53adbdc2fe01
+  linux_amd64: https://ghcr.io/v2/homebrew/core/obfs4proxy/blobs/sha256:ae4f95197e4ffd99a2a8e43f674eea3087cd43bbbe4a5ea38a396c32e3a97bb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/obfs4proxy/blobs/sha256:ba8d12c85895fb64bf36a1d73b1baa173ef54569575f6f2b37e8ec9a58db9fa8
+sha256:
+  darwin_arm64: 35257564f9b79df7a9cd7d25113bf9671291049494537c7293e26db0c8d6b630
+  darwin_amd64: f35042ff00cfbfade185e80912b9ef908e9dbbe40ab8cc5a65df53adbdc2fe01
+  linux_amd64: ae4f95197e4ffd99a2a8e43f674eea3087cd43bbbe4a5ea38a396c32e3a97bb1
+  linux_arm64: ba8d12c85895fb64bf36a1d73b1baa173ef54569575f6f2b37e8ec9a58db9fa8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

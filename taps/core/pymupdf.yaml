@@ -1,0 +1,22 @@
+name: pymupdf
+version: 1.27.1
+description: Python bindings for the PDF toolkit and renderer MuPDF
+homepage: https://pymupdf.readthedocs.io/en/latest/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pymupdf/blobs/sha256:acad5b7f5a4e3c1df83bca955a281aa395470c78c6e3e53091f97e96f3367c48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pymupdf/blobs/sha256:9e454a704d14a3d123cc123bbd756a1a608e89d3e074fcc9b1ea2e3c797a8365
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pymupdf/blobs/sha256:027cb3becedb7ad42e9a51842aa8dc8fda1c62abe0eb130dd997f7b23ecc882f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pymupdf/blobs/sha256:471d590a246127266aa862df82580ea51cff2cda8904c20afbf59c1c86d23827
+sha256:
+  darwin_arm64: acad5b7f5a4e3c1df83bca955a281aa395470c78c6e3e53091f97e96f3367c48
+  darwin_amd64: 9e454a704d14a3d123cc123bbd756a1a608e89d3e074fcc9b1ea2e3c797a8365
+  linux_amd64: 027cb3becedb7ad42e9a51842aa8dc8fda1c62abe0eb130dd997f7b23ecc882f
+  linux_arm64: 471d590a246127266aa862df82580ea51cff2cda8904c20afbf59c1c86d23827
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mupdf
+  - python@3.14

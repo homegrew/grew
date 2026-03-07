@@ -1,0 +1,15 @@
+name: sf-pwgen
+version: 1.5
+description: Generate passwords using SecurityFoundation framework
+homepage: https://github.com/anders/pwgen/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sf-pwgen/blobs/sha256:02488155f0876824620ee9745fb8bd4d6b89fae828bfc0926aebc7f422647a93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sf-pwgen/blobs/sha256:76ee29b2b3a28c90a818780c4eadc30c054aead4485a718283e93112bea42c61
+sha256:
+  darwin_arm64: 02488155f0876824620ee9745fb8bd4d6b89fae828bfc0926aebc7f422647a93
+  darwin_amd64: 76ee29b2b3a28c90a818780c4eadc30c054aead4485a718283e93112bea42c61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

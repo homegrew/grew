@@ -1,0 +1,21 @@
+name: iamy
+version: 2.4.0
+description: AWS IAM import and export tool
+homepage: https://github.com/99designs/iamy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iamy/blobs/sha256:fe6c68658f3713fa2b96c7d35c08e68b4bd245ac4854cd16174a576984a62cf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iamy/blobs/sha256:86d99df6409eccfe7fc1ade637a446fd5490fa29f485bdb1b783bce3c10a311a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iamy/blobs/sha256:dc26edb3bea1993f7650cce2cfd848318ba19cf3a155ae7838823b4f4c3c8041
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iamy/blobs/sha256:bc327310da54a5217129a8e967420742c3264e4cc9913829b777f06b412344f9
+sha256:
+  darwin_arm64: fe6c68658f3713fa2b96c7d35c08e68b4bd245ac4854cd16174a576984a62cf9
+  darwin_amd64: 86d99df6409eccfe7fc1ade637a446fd5490fa29f485bdb1b783bce3c10a311a
+  linux_amd64: dc26edb3bea1993f7650cce2cfd848318ba19cf3a155ae7838823b4f4c3c8041
+  linux_arm64: bc327310da54a5217129a8e967420742c3264e4cc9913829b777f06b412344f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - awscli

@@ -1,0 +1,25 @@
+name: gcalcli
+version: 4.5.1
+description: Easily access your Google Calendar(s) from a command-line
+homepage: https://github.com/insanum/gcalcli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gcalcli/blobs/sha256:eeb4377ebbf5c3c80ea009137bd412b6750cb23e372916ff874b5659bc4acd1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gcalcli/blobs/sha256:2fcc3eb24700f9b6ca786bf7b49b68d927ad63b46056b691f6354b544d1eb36f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcalcli/blobs/sha256:b5a3e74b86e2790c6349b2567b7bbfdc16f8739eed1cd6011dc5840c265a0678
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcalcli/blobs/sha256:2b8c0126529bc7af8856f0831bb24b3d73a97443196d202e204200b9172672c1
+sha256:
+  darwin_arm64: eeb4377ebbf5c3c80ea009137bd412b6750cb23e372916ff874b5659bc4acd1e
+  darwin_amd64: 2fcc3eb24700f9b6ca786bf7b49b68d927ad63b46056b691f6354b544d1eb36f
+  linux_amd64: b5a3e74b86e2790c6349b2567b7bbfdc16f8739eed1cd6011dc5840c265a0678
+  linux_arm64: 2b8c0126529bc7af8856f0831bb24b3d73a97443196d202e204200b9172672c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - pycparser
+  - pydantic
+  - python@3.14

@@ -1,0 +1,11 @@
+name: parallels@20
+version: 20.4.1-55996
+description: Desktop virtualization software
+homepage: https://www.parallels.com/products/desktop/
+url:
+  darwin_arm64: https://download.parallels.com/desktop/v20/20.4.1-55996/ParallelsDesktop-20.4.1-55996.dmg
+sha256:
+  darwin_arm64: 084c8ff1864f2f38d50008ce694ab0438225ce4f726c0b534d950665b491aca4
+artifacts:
+  app:
+    - Parallels Desktop.app

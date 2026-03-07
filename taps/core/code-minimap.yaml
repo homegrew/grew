@@ -1,0 +1,19 @@
+name: code-minimap
+version: 0.6.8
+description: High performance code minimap generator
+homepage: https://github.com/wfxr/code-minimap
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/code-minimap/blobs/sha256:97083f16317681dbf3befcdddd9ed9810fc25c2d9296f372b7b05387d3570342
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/code-minimap/blobs/sha256:83ddd0a6939195e5989578e2040ea16117c4dfbbb71be9112f7e0afac7496280
+  linux_amd64: https://ghcr.io/v2/homebrew/core/code-minimap/blobs/sha256:15fc2163649169a8c43ac0fafa401259eee14214593ec73cbf82911631d443eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/code-minimap/blobs/sha256:9eff4702e7834b9189408f5427607ec63a01517e9d977e81fe66b202fe039fa2
+sha256:
+  darwin_arm64: 97083f16317681dbf3befcdddd9ed9810fc25c2d9296f372b7b05387d3570342
+  darwin_amd64: 83ddd0a6939195e5989578e2040ea16117c4dfbbb71be9112f7e0afac7496280
+  linux_amd64: 15fc2163649169a8c43ac0fafa401259eee14214593ec73cbf82911631d443eb
+  linux_arm64: 9eff4702e7834b9189408f5427607ec63a01517e9d977e81fe66b202fe039fa2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

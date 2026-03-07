@@ -1,0 +1,19 @@
+name: sshguard
+version: 2.5.1
+description: Protect from brute force attacks against SSH
+homepage: https://www.sshguard.net/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sshguard/blobs/sha256:e9518ae9f10154dcc84c9f1348b436a49ebb0b59d07982c468d0edad7cc38cdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sshguard/blobs/sha256:8c22c01d6e11c18443e9d3a12b5e858f5468c8da4f0aba9f716b054267a631de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshguard/blobs/sha256:22338d5f5ba21e11cbccca5dc0e2bc860d39d5f7822c5e1e3e43835e722456a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshguard/blobs/sha256:28355a7f475cfaa5092312e781333f17718098181707052e90fc97f2dea8deff
+sha256:
+  darwin_arm64: e9518ae9f10154dcc84c9f1348b436a49ebb0b59d07982c468d0edad7cc38cdd
+  darwin_amd64: 8c22c01d6e11c18443e9d3a12b5e858f5468c8da4f0aba9f716b054267a631de
+  linux_amd64: 22338d5f5ba21e11cbccca5dc0e2bc860d39d5f7822c5e1e3e43835e722456a2
+  linux_arm64: 28355a7f475cfaa5092312e781333f17718098181707052e90fc97f2dea8deff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

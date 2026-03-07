@@ -1,0 +1,19 @@
+name: sqlc
+version: 1.30.0
+description: Generate type safe Go from SQL
+homepage: https://sqlc.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlc/blobs/sha256:65a2c9a85988703e6034ce9568f7dda5be00815420d70b5ab72ccd800402f50a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlc/blobs/sha256:ea73b26ee1d06ee62c4e67aa5fa3c4c5becd4cfadabd5c5eb025b4ce4c9a5d69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlc/blobs/sha256:04f0741a948e12432ca3c56088b59b49a391152e3802fc24a453642d1ca2bce5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlc/blobs/sha256:456430594367578fb997bc22625954b1c72095d81a99faa09029c914fa3661ea
+sha256:
+  darwin_arm64: 65a2c9a85988703e6034ce9568f7dda5be00815420d70b5ab72ccd800402f50a
+  darwin_amd64: ea73b26ee1d06ee62c4e67aa5fa3c4c5becd4cfadabd5c5eb025b4ce4c9a5d69
+  linux_amd64: 04f0741a948e12432ca3c56088b59b49a391152e3802fc24a453642d1ca2bce5
+  linux_arm64: 456430594367578fb997bc22625954b1c72095d81a99faa09029c914fa3661ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

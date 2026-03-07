@@ -1,0 +1,21 @@
+name: gtmess
+version: 0.97
+description: Console MSN messenger client
+homepage: https://gtmess.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtmess/blobs/sha256:032661770161ac72df852e094fc8e45548d91740ff5f462563941972e31d374f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtmess/blobs/sha256:fb98cc013a64f99d2d603c825d8a819f4e65d0605cfbb635eaaaabb13ae585df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtmess/blobs/sha256:ae09e63f26ccef723a73cf04f5dc36ba60ab1588b558d15b5e248132d7d88eea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtmess/blobs/sha256:9a4e59aeaeb6da7270ae2ccf566297007dd7710da2f13440089a7e6edbfdb163
+sha256:
+  darwin_arm64: 032661770161ac72df852e094fc8e45548d91740ff5f462563941972e31d374f
+  darwin_amd64: fb98cc013a64f99d2d603c825d8a819f4e65d0605cfbb635eaaaabb13ae585df
+  linux_amd64: ae09e63f26ccef723a73cf04f5dc36ba60ab1588b558d15b5e248132d7d88eea
+  linux_arm64: 9a4e59aeaeb6da7270ae2ccf566297007dd7710da2f13440089a7e6edbfdb163
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

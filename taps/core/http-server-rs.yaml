@@ -1,0 +1,19 @@
+name: http-server-rs
+version: 0.8.9
+description: Simple and configurable command-line HTTP server
+homepage: https://github.com/http-server-rs/http-server
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/http-server-rs/blobs/sha256:0a809086a7ca4186c1f20e8ae46b1f5aae4af25494c69a4c3bdaf5463d94fdda
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/http-server-rs/blobs/sha256:9fd1a8e7f2e528913edb6e48b07d03d61b7b39e63173b77e64696394a5f33318
+  linux_amd64: https://ghcr.io/v2/homebrew/core/http-server-rs/blobs/sha256:580cdfea1cd7aacdc67e69c5db6e16f057c8a459c8567b0eea601628c30352b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/http-server-rs/blobs/sha256:619764056faf97e193acababdbd3afc2f94c239dbfa695cefc953836445d653f
+sha256:
+  darwin_arm64: 0a809086a7ca4186c1f20e8ae46b1f5aae4af25494c69a4c3bdaf5463d94fdda
+  darwin_amd64: 9fd1a8e7f2e528913edb6e48b07d03d61b7b39e63173b77e64696394a5f33318
+  linux_amd64: 580cdfea1cd7aacdc67e69c5db6e16f057c8a459c8567b0eea601628c30352b7
+  linux_arm64: 619764056faf97e193acababdbd3afc2f94c239dbfa695cefc953836445d653f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

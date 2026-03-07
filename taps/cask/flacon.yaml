@@ -1,0 +1,11 @@
+name: flacon
+version: 12.0.0
+description: Open source audio file encoder
+homepage: https://flacon.github.io/
+url:
+  darwin_arm64: https://github.com/flacon/flacon/releases/download/v12.0.0/Flacon_12.0.0.dmg
+sha256:
+  darwin_arm64: 3fb524089b3fe3ae26559bba36d462d39d5cef9330f27487d083b95eb94323a5
+artifacts:
+  app:
+    - Flacon.app

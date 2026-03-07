@@ -1,0 +1,21 @@
+name: technitium-dns
+version: 14.3.0
+description: "Self host a DNS server for privacy & security"
+homepage: https://technitium.com/dns/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/technitium-dns/blobs/sha256:985294f14499dc8b8bf5e88b5864fd63c2f6d0faf4c84694bc80fc6933139788
+  linux_amd64: https://ghcr.io/v2/homebrew/core/technitium-dns/blobs/sha256:0b95454ad1fa1891156fec79b9c0ef3fe515e218df1823319591837524a69799
+  linux_arm64: https://ghcr.io/v2/homebrew/core/technitium-dns/blobs/sha256:c4716ff2acfe129a9ec49b55f6b8bcc025276a8c0ba548b32361aa27f932991f
+sha256:
+  darwin_arm64: 985294f14499dc8b8bf5e88b5864fd63c2f6d0faf4c84694bc80fc6933139788
+  linux_amd64: 0b95454ad1fa1891156fec79b9c0ef3fe515e218df1823319591837524a69799
+  linux_arm64: c4716ff2acfe129a9ec49b55f6b8bcc025276a8c0ba548b32361aa27f932991f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@9
+  - libmsquic
+  - technitium-library

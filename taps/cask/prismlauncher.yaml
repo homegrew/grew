@@ -1,0 +1,13 @@
+name: prismlauncher
+version: 10.0.5
+description: Minecraft launcher
+homepage: https://prismlauncher.org/
+url:
+  darwin_arm64: https://github.com/PrismLauncher/PrismLauncher/releases/download/10.0.5/PrismLauncher-macOS-10.0.5.zip
+sha256:
+  darwin_arm64: c43de98b9a16144b1f0d886ef8422113ff79db0a644fd71cee4f4b9df67cd566
+artifacts:
+  app:
+    - Prism Launcher.app
+  bin:
+    - prismlauncher

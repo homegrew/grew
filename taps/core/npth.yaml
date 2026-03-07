@@ -1,0 +1,19 @@
+name: npth
+version: 1.8
+description: New GNU portable threads library
+homepage: https://gnupg.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/npth/blobs/sha256:7dc8a83801469950381677b61404e103e5fd8fb22bc6b4e0f68db292d5801e3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/npth/blobs/sha256:6532f31787befd9082aa4902e75bf6a0ba26b4423029b7b9c1f1117ff0d0df7d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/npth/blobs/sha256:dfe2b3f4f5fb1b8e05b3ddbc5dddbf44d3b03b95ca9712ff4fc33cbd045368b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/npth/blobs/sha256:ae6de43d79405ea955e4f8ea018bd0660da87bb0a40c39a1f9b7759915316006
+sha256:
+  darwin_arm64: 7dc8a83801469950381677b61404e103e5fd8fb22bc6b4e0f68db292d5801e3a
+  darwin_amd64: 6532f31787befd9082aa4902e75bf6a0ba26b4423029b7b9c1f1117ff0d0df7d
+  linux_amd64: dfe2b3f4f5fb1b8e05b3ddbc5dddbf44d3b03b95ca9712ff4fc33cbd045368b4
+  linux_arm64: ae6de43d79405ea955e4f8ea018bd0660da87bb0a40c39a1f9b7759915316006
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

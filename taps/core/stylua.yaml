@@ -1,0 +1,19 @@
+name: stylua
+version: 2.3.1
+description: Opinionated Lua code formatter
+homepage: https://github.com/JohnnyMorganz/StyLua
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stylua/blobs/sha256:1597ee54ad9e607752a66e3bad99ab26839ce575468a406a3bfbfde7f6fa1056
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stylua/blobs/sha256:3d61c386eedb3ff943f9ea44800f929707d8f5d1b5115b2cdd839451cd3e668d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stylua/blobs/sha256:44015fc651e0c1bcc804f9b021c1d01b33c755fec4988c5c779bd03c4e51399a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stylua/blobs/sha256:8cf767901f53af735ec938638824b2790fda1644fba069ee92639203cb8498f4
+sha256:
+  darwin_arm64: 1597ee54ad9e607752a66e3bad99ab26839ce575468a406a3bfbfde7f6fa1056
+  darwin_amd64: 3d61c386eedb3ff943f9ea44800f929707d8f5d1b5115b2cdd839451cd3e668d
+  linux_amd64: 44015fc651e0c1bcc804f9b021c1d01b33c755fec4988c5c779bd03c4e51399a
+  linux_arm64: 8cf767901f53af735ec938638824b2790fda1644fba069ee92639203cb8498f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: mit-scheme
+version: 12.1
+description: MIT/GNU Scheme development tools and runtime library
+homepage: https://www.gnu.org/software/mit-scheme/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mit-scheme/blobs/sha256:6091fa88278d223d1f892c9f9383dbf81833e007c34f6eed625720d9e9c7457d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mit-scheme/blobs/sha256:a8ebb5f3d8e66fd9a2924b02bdd0e920e5484890865ea107fdbba9a737dc703c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mit-scheme/blobs/sha256:0e910ffb8aff109164099832f8d465f54e9e0c731a0580cb0c794970e3f6ce11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mit-scheme/blobs/sha256:3c78aa4816f440ce61da51a88b8bd412e9b46758b5c069484d6d125fb10c8796
+sha256:
+  darwin_arm64: 6091fa88278d223d1f892c9f9383dbf81833e007c34f6eed625720d9e9c7457d
+  darwin_amd64: a8ebb5f3d8e66fd9a2924b02bdd0e920e5484890865ea107fdbba9a737dc703c
+  linux_amd64: 0e910ffb8aff109164099832f8d465f54e9e0c731a0580cb0c794970e3f6ce11
+  linux_arm64: 3c78aa4816f440ce61da51a88b8bd412e9b46758b5c069484d6d125fb10c8796
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

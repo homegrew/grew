@@ -1,0 +1,19 @@
+name: x264
+version: r3222
+description: H.264/AVC encoder
+homepage: https://www.videolan.org/developers/x264.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x264/blobs/sha256:b631667b5ad55c6c3ae383484f658c5b4ba14da8a2fbb1d537975695852529ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x264/blobs/sha256:3a260293e96e74afe7c763841d42085092f66711b6cec8aa693a1458e26eae3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x264/blobs/sha256:4ec18379e16e4e5fd740518dd8964472392725b10dcde1e726f02a34bcba813e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x264/blobs/sha256:ebafe98d77b8826fcf5412762db4dfce34bb491e4bd658eedc25a1e49f18f040
+sha256:
+  darwin_arm64: b631667b5ad55c6c3ae383484f658c5b4ba14da8a2fbb1d537975695852529ca
+  darwin_amd64: 3a260293e96e74afe7c763841d42085092f66711b6cec8aa693a1458e26eae3a
+  linux_amd64: 4ec18379e16e4e5fd740518dd8964472392725b10dcde1e726f02a34bcba813e
+  linux_arm64: ebafe98d77b8826fcf5412762db4dfce34bb491e4bd658eedc25a1e49f18f040
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: picocom
+version: 3.1
+description: Minimal dumb-terminal emulation program
+homepage: https://github.com/npat-efault/picocom
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/picocom/blobs/sha256:01b35b20e38a3e06f20de103d7d5b371386fce19b8bab8d6869886c5eb09f329
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/picocom/blobs/sha256:3359c21097ce36c5ca591b893388abe1b326002e32fa282d9e9b11905936b370
+  linux_amd64: https://ghcr.io/v2/homebrew/core/picocom/blobs/sha256:c765edf56732a7dd0631c12068fd17ba7800c98ceb24f98fa65990e7fa13dadc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/picocom/blobs/sha256:98708de364229e523e74c4d15f335fe1bf758bd26c12f78fc145fc464ff3130b
+sha256:
+  darwin_arm64: 01b35b20e38a3e06f20de103d7d5b371386fce19b8bab8d6869886c5eb09f329
+  darwin_amd64: 3359c21097ce36c5ca591b893388abe1b326002e32fa282d9e9b11905936b370
+  linux_amd64: c765edf56732a7dd0631c12068fd17ba7800c98ceb24f98fa65990e7fa13dadc
+  linux_arm64: 98708de364229e523e74c4d15f335fe1bf758bd26c12f78fc145fc464ff3130b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

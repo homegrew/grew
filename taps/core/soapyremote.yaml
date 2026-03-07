@@ -1,0 +1,21 @@
+name: soapyremote
+version: 0.5.2
+description: Use any Soapy SDR remotely
+homepage: https://github.com/pothosware/SoapyRemote/wiki
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soapyremote/blobs/sha256:b245e94aaf094ec9511e1f0f47fcd40499db9d62d28d710e6c26d6753536e852
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soapyremote/blobs/sha256:2a9951c5c2f6b01200efc94ffd6f19dc8001b3051759c3a793a4e606c4f7c9d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soapyremote/blobs/sha256:afb465a0deb07570685ee8ce05b960f6b4159310db9403f49ef4d37d0eae0f09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soapyremote/blobs/sha256:83938e8783f67851865ee4aaad50da21c0e6d7b33ed3cd9db8da0b786185e5be
+sha256:
+  darwin_arm64: b245e94aaf094ec9511e1f0f47fcd40499db9d62d28d710e6c26d6753536e852
+  darwin_amd64: 2a9951c5c2f6b01200efc94ffd6f19dc8001b3051759c3a793a4e606c4f7c9d8
+  linux_amd64: afb465a0deb07570685ee8ce05b960f6b4159310db9403f49ef4d37d0eae0f09
+  linux_arm64: 83938e8783f67851865ee4aaad50da21c0e6d7b33ed3cd9db8da0b786185e5be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - soapysdr

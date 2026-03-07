@@ -1,0 +1,19 @@
+name: libudfread
+version: 1.2.0
+description: Universal Disk Format reader
+homepage: https://code.videolan.org/videolan/libudfread
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libudfread/blobs/sha256:c30a3d1c34e209bd79301f3626e0e617ed841979ae1e33b0acc066c9643f9dea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libudfread/blobs/sha256:f48224450840a89fd3c0941f0fdfcca6e25900174a2dc0529b5b741794ebdc1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libudfread/blobs/sha256:9d739ff8b7b3989919e494baae8ae502b249e61afe81587064d675ab7271744f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libudfread/blobs/sha256:977b8b3c0c96cbb74267ddd08cbef36a51ffa97475b350cd95712fcccd759f63
+sha256:
+  darwin_arm64: c30a3d1c34e209bd79301f3626e0e617ed841979ae1e33b0acc066c9643f9dea
+  darwin_amd64: f48224450840a89fd3c0941f0fdfcca6e25900174a2dc0529b5b741794ebdc1a
+  linux_amd64: 9d739ff8b7b3989919e494baae8ae502b249e61afe81587064d675ab7271744f
+  linux_arm64: 977b8b3c0c96cbb74267ddd08cbef36a51ffa97475b350cd95712fcccd759f63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

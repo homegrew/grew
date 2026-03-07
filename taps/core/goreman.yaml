@@ -1,0 +1,19 @@
+name: goreman
+version: 0.3.17
+description: Foreman clone written in Go
+homepage: https://github.com/mattn/goreman
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goreman/blobs/sha256:e2f63132febc2b572bcbd1b1df8437f07e93d2582fb68ce52ac59bea93e08a88
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goreman/blobs/sha256:5548a5e6da50cd4a4d254bc310377d5dc80bbc359becde8bc6942fa30283266d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goreman/blobs/sha256:b34336b61cfc0a914e88c4abf36f0332eb1c19b1135d620d4906d0656b7975ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goreman/blobs/sha256:f70d8ca6a25c671bd12c5ccb1bca21278fa0c9bf9f6929f21fe85ff8e4469341
+sha256:
+  darwin_arm64: e2f63132febc2b572bcbd1b1df8437f07e93d2582fb68ce52ac59bea93e08a88
+  darwin_amd64: 5548a5e6da50cd4a4d254bc310377d5dc80bbc359becde8bc6942fa30283266d
+  linux_amd64: b34336b61cfc0a914e88c4abf36f0332eb1c19b1135d620d4906d0656b7975ee
+  linux_arm64: f70d8ca6a25c671bd12c5ccb1bca21278fa0c9bf9f6929f21fe85ff8e4469341
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

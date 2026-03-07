@@ -1,0 +1,24 @@
+name: pivy
+version: 0.6.10
+description: Python bindings to coin3d
+homepage: https://github.com/coin3d/pivy
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pivy/blobs/sha256:7af9cc64f5c26f519c8c8116982c84a4dd77b217c5fc91e508aa3a056e066a49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pivy/blobs/sha256:50e39ab5c9e250a552c416b7b50128f5d5c3100acab15b8c5114a78a7b41ba39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pivy/blobs/sha256:b5867393be9c9375ba219639d2a73a5ceab1dccc72b048f9f879ffc3ae2391cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pivy/blobs/sha256:5f3dd2afff6c77e1501b70461fd6efd481fc601710faef30a7feb22bdca305c9
+sha256:
+  darwin_arm64: 7af9cc64f5c26f519c8c8116982c84a4dd77b217c5fc91e508aa3a056e066a49
+  darwin_amd64: 50e39ab5c9e250a552c416b7b50128f5d5c3100acab15b8c5114a78a7b41ba39
+  linux_amd64: b5867393be9c9375ba219639d2a73a5ceab1dccc72b048f9f879ffc3ae2391cb
+  linux_arm64: 5f3dd2afff6c77e1501b70461fd6efd481fc601710faef30a7feb22bdca305c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coin3d
+  - pyside
+  - python@3.14
+  - qtbase

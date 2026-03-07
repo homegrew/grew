@@ -1,0 +1,19 @@
+name: rats
+version: 2.4
+description: Rough auditing tool for security
+homepage: https://security.web.cern.ch/security/recommendations/en/codetools/rats.shtml
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rats/blobs/sha256:b310ca257b3697a46004e64f9c06bce6ae79bb75c86d832bc74c28cbd1f99a7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rats/blobs/sha256:56dea2a14cfbf6893fae49f0913ff57b0468f0a1b8a2bce90fe4aa9ef519b9ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rats/blobs/sha256:225ac8dd692f21f8f13e072dba7bc2904cb11e08273d9917bde0ef1f42133b03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rats/blobs/sha256:9b7cfe5e23808f04987f9f412cfa58d3b86a9223de5801ad9f47415f0c8c783f
+sha256:
+  darwin_arm64: b310ca257b3697a46004e64f9c06bce6ae79bb75c86d832bc74c28cbd1f99a7d
+  darwin_amd64: 56dea2a14cfbf6893fae49f0913ff57b0468f0a1b8a2bce90fe4aa9ef519b9ab
+  linux_amd64: 225ac8dd692f21f8f13e072dba7bc2904cb11e08273d9917bde0ef1f42133b03
+  linux_arm64: 9b7cfe5e23808f04987f9f412cfa58d3b86a9223de5801ad9f47415f0c8c783f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

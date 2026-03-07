@@ -1,0 +1,19 @@
+name: rogcat
+version: 0.5.0
+description: Adb logcat wrapper
+homepage: https://github.com/flxo/rogcat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rogcat/blobs/sha256:1dd3b52bb78be0697f011c4b822049cbb3458c442bfaede275a8f2bf601edf35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rogcat/blobs/sha256:e379f5d4de1e946270892f79a61530443c059f96e58aa4de9efbc012b909f511
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rogcat/blobs/sha256:0bbec1da8e32cf17191a67928887276c14b89863ca3cfa8654741166a19ee5da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rogcat/blobs/sha256:804c7881f8a8cde87ff51033907d9169c8c1b2769900ee1b7aa003dbcbfce62a
+sha256:
+  darwin_arm64: 1dd3b52bb78be0697f011c4b822049cbb3458c442bfaede275a8f2bf601edf35
+  darwin_amd64: e379f5d4de1e946270892f79a61530443c059f96e58aa4de9efbc012b909f511
+  linux_amd64: 0bbec1da8e32cf17191a67928887276c14b89863ca3cfa8654741166a19ee5da
+  linux_arm64: 804c7881f8a8cde87ff51033907d9169c8c1b2769900ee1b7aa003dbcbfce62a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: libgusb
+version: 0.4.9
+description: GObject wrappers for libusb1
+homepage: https://github.com/hughsie/libgusb
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgusb/blobs/sha256:b72850ea01c8cd29ea25f54a76a4bc4fc30f04fef9a8c2deb858a767f32aed60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgusb/blobs/sha256:f48eb8f462d0554baec1356735687801ab24af570a1de7d35d252147a0ebd67d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgusb/blobs/sha256:8acc7113d4d8e45b58c64078881669fed44358d7d3d03fc9fc6852a66d5dca78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgusb/blobs/sha256:de8939012f87fd944217bd85fdbdf9edacdb7505cfe6fac9cf2e6da70e41a257
+sha256:
+  darwin_arm64: b72850ea01c8cd29ea25f54a76a4bc4fc30f04fef9a8c2deb858a767f32aed60
+  darwin_amd64: f48eb8f462d0554baec1356735687801ab24af570a1de7d35d252147a0ebd67d
+  linux_amd64: 8acc7113d4d8e45b58c64078881669fed44358d7d3d03fc9fc6852a66d5dca78
+  linux_arm64: de8939012f87fd944217bd85fdbdf9edacdb7505cfe6fac9cf2e6da70e41a257
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - json-glib
+  - libusb
+  - python@3.14
+  - usb.ids

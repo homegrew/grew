@@ -1,0 +1,24 @@
+name: pass
+version: 1.7.4
+description: Password manager
+homepage: https://www.passwordstore.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pass/blobs/sha256:98bd9949756576685149b0bba825a0d4a12efc5f256d703236a09e24fb6ab2b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pass/blobs/sha256:1132f363a63efb874ebf98f406dcc6f9346496b10b0a3b3c2063b447c8035180
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pass/blobs/sha256:ee3104f2584abf3c35e811152282541832cc3e672d8b28024ee8d77d49cca172
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pass/blobs/sha256:22b1e65c5e116f21af96530d78f73e8b698debaec80c2b078d71c031895cc1fa
+sha256:
+  darwin_arm64: 98bd9949756576685149b0bba825a0d4a12efc5f256d703236a09e24fb6ab2b9
+  darwin_amd64: 1132f363a63efb874ebf98f406dcc6f9346496b10b0a3b3c2063b447c8035180
+  linux_amd64: ee3104f2584abf3c35e811152282541832cc3e672d8b28024ee8d77d49cca172
+  linux_arm64: 22b1e65c5e116f21af96530d78f73e8b698debaec80c2b078d71c031895cc1fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg
+  - qrencode
+  - tree
+  - gnu-getopt

@@ -1,0 +1,21 @@
+name: aws-checksums
+version: 0.2.10
+description: Cross-Platform HW accelerated CRC32c and CRC32 with fallback
+homepage: https://github.com/awslabs/aws-checksums
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-checksums/blobs/sha256:6d445735de28c8a10112acf0aef35604333dd1e116178049cb14fac250cc2a8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-checksums/blobs/sha256:a61857ac1b1680a507dc293eafaec707cb2d9f3b39f4aa8526cf802f22d53b28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-checksums/blobs/sha256:36f9b3e8cbcd098bf0ef110583df824360ad86e71dd9265904203872f59c763f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-checksums/blobs/sha256:c915444ca9fc28a35b3b45d8af248c85af9e23b55d0f40e3dead889bd7f500e5
+sha256:
+  darwin_arm64: 6d445735de28c8a10112acf0aef35604333dd1e116178049cb14fac250cc2a8e
+  darwin_amd64: a61857ac1b1680a507dc293eafaec707cb2d9f3b39f4aa8526cf802f22d53b28
+  linux_amd64: 36f9b3e8cbcd098bf0ef110583df824360ad86e71dd9265904203872f59c763f
+  linux_arm64: c915444ca9fc28a35b3b45d8af248c85af9e23b55d0f40e3dead889bd7f500e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-common

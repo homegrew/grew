@@ -1,0 +1,21 @@
+name: libmsquic
+version: 2.5.6
+description: Cross-platform, C implementation of the IETF QUIC protocol
+homepage: https://github.com/microsoft/msquic
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmsquic/blobs/sha256:8044efd74b4fca0eaa4d7648c94c44d0ebde1221629683b0f74c37f616bcdc17
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmsquic/blobs/sha256:c6bc79b3ac975ff46a18a80bf642d4323ed7cebb4b1bb8dc01eee79fd0af2179
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmsquic/blobs/sha256:2f939b9f98ee8510746ce2bddec5060e6d8671ee8c4b68e6303d33ac9369354c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmsquic/blobs/sha256:93bf37ef8dd364ca1039605ec16edf1a21b492644b384f339ce6a03ae8b41c49
+sha256:
+  darwin_arm64: 8044efd74b4fca0eaa4d7648c94c44d0ebde1221629683b0f74c37f616bcdc17
+  darwin_amd64: c6bc79b3ac975ff46a18a80bf642d4323ed7cebb4b1bb8dc01eee79fd0af2179
+  linux_amd64: 2f939b9f98ee8510746ce2bddec5060e6d8671ee8c4b68e6303d33ac9369354c
+  linux_arm64: 93bf37ef8dd364ca1039605ec16edf1a21b492644b384f339ce6a03ae8b41c49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

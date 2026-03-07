@@ -1,0 +1,19 @@
+name: adapterremoval
+version: 2.3.4
+description: Rapid adapter trimming, identification, and read merging
+homepage: https://github.com/MikkelSchubert/adapterremoval
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/adapterremoval/blobs/sha256:d55def0eb8e4d90874c3462c3c2088ee0addd14709835ce600cd277631c94a62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/adapterremoval/blobs/sha256:6d23629123200eacea62c12486cc564549941a3ad868e9a234122b83751afa57
+  linux_amd64: https://ghcr.io/v2/homebrew/core/adapterremoval/blobs/sha256:06fb66c36fde9bd21bd005089ff665eb257a5ed15751414fca394457b27c388c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/adapterremoval/blobs/sha256:811e8cb621752ab6dac595d0c716d6d77bfc26254c0a5eb814760c91f2abae94
+sha256:
+  darwin_arm64: d55def0eb8e4d90874c3462c3c2088ee0addd14709835ce600cd277631c94a62
+  darwin_amd64: 6d23629123200eacea62c12486cc564549941a3ad868e9a234122b83751afa57
+  linux_amd64: 06fb66c36fde9bd21bd005089ff665eb257a5ed15751414fca394457b27c388c
+  linux_arm64: 811e8cb621752ab6dac595d0c716d6d77bfc26254c0a5eb814760c91f2abae94
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

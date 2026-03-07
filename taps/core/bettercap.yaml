@@ -1,0 +1,21 @@
+name: bettercap
+version: 2.41.5
+description: Swiss army knife for network attacks and monitoring
+homepage: https://www.bettercap.org/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bettercap/blobs/sha256:15b798189de67d4dc426ab5c94cdccab4bf59182278b310a9aaadb7117eb6325
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bettercap/blobs/sha256:fe3eec9287d1c782de232d5b4058a78618a8bf441bc07798cf3ca00dd2aceb95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bettercap/blobs/sha256:9d77279baf4543717c4c2799faacdb567499b07167b4958237208650b032ea51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bettercap/blobs/sha256:e103cd293cf7d899effe2c623ceee4e44dfc83f0742a2ab18d9bc242fb61a4a6
+sha256:
+  darwin_arm64: 15b798189de67d4dc426ab5c94cdccab4bf59182278b310a9aaadb7117eb6325
+  darwin_amd64: fe3eec9287d1c782de232d5b4058a78618a8bf441bc07798cf3ca00dd2aceb95
+  linux_amd64: 9d77279baf4543717c4c2799faacdb567499b07167b4958237208650b032ea51
+  linux_arm64: e103cd293cf7d899effe2c623ceee4e44dfc83f0742a2ab18d9bc242fb61a4a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

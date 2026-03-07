@@ -1,0 +1,21 @@
+name: libquicktime
+version: 1.2.4
+description: Library for reading and writing quicktime files
+homepage: https://libquicktime.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libquicktime/blobs/sha256:5f0134430e06269fcef851532addb2e837cf60ef41c44ad3dd9155c1d5df6b50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libquicktime/blobs/sha256:70a9ec36aaed0263037bfd108e0da0c092432f6861d0ff17fb8730de135c3f70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libquicktime/blobs/sha256:9ec46f428d1f6724ff976a745df2d3e967f5e4158e5782d345501b0269392929
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libquicktime/blobs/sha256:370790e912c171ed805ef864de5823c80c849a8e2169547a6fb4eb3bb06990f4
+sha256:
+  darwin_arm64: 5f0134430e06269fcef851532addb2e837cf60ef41c44ad3dd9155c1d5df6b50
+  darwin_amd64: 70a9ec36aaed0263037bfd108e0da0c092432f6861d0ff17fb8730de135c3f70
+  linux_amd64: 9ec46f428d1f6724ff976a745df2d3e967f5e4158e5782d345501b0269392929
+  linux_arm64: 370790e912c171ed805ef864de5823c80c849a8e2169547a6fb4eb3bb06990f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

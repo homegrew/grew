@@ -1,0 +1,11 @@
+name: firezone
+version: 1.5.13
+description: Zero-trust access platform built on WireGuard
+homepage: https://www.firezone.dev/
+url:
+  darwin_arm64: https://github.com/firezone/firezone/releases/download/macos-client-1.5.13/firezone-macos-client-1.5.13.dmg
+sha256:
+  darwin_arm64: e37a9176b63444639d39d2a449844c4f8e7f79b7615c01b64504fe6938d00d4e
+artifacts:
+  app:
+    - Firezone.app

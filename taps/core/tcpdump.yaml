@@ -1,0 +1,22 @@
+name: tcpdump
+version: 4.99.6
+description: Command-line packet analyzer
+homepage: https://www.tcpdump.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcpdump/blobs/sha256:a666fc57f87e8f3947aaf879dc686caa9a007e1a774978a8c4aeb6aaa824418a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcpdump/blobs/sha256:bd53114b2966e8390780c8551d68796f44d0cc4223aca8c84205df81de2c3209
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcpdump/blobs/sha256:2acf63d0a7c95b63db681253f76b43d355e826265c33ccc55d8cd2b70cf6c631
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcpdump/blobs/sha256:ebbebd3ee52544f48fdec76b8efa5c62003ba1055f8247d0422eb097d7b6d704
+sha256:
+  darwin_arm64: a666fc57f87e8f3947aaf879dc686caa9a007e1a774978a8c4aeb6aaa824418a
+  darwin_amd64: bd53114b2966e8390780c8551d68796f44d0cc4223aca8c84205df81de2c3209
+  linux_amd64: 2acf63d0a7c95b63db681253f76b43d355e826265c33ccc55d8cd2b70cf6c631
+  linux_arm64: ebbebd3ee52544f48fdec76b8efa5c62003ba1055f8247d0422eb097d7b6d704
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpcap
+  - openssl@3

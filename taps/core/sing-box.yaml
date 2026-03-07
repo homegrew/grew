@@ -1,0 +1,19 @@
+name: sing-box
+version: 1.13.1
+description: Universal proxy platform
+homepage: https://sing-box.sagernet.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sing-box/blobs/sha256:2789166c37110e165d876a6a878565d2d2a7eaf9dd85b1714b2c9ae226b8fc17
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sing-box/blobs/sha256:696bd5e0e7c3ab7a80c3a67fb4145dc39c8120e8f25d75faf1e22c4944a39f25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sing-box/blobs/sha256:a7e962cb6b0e313cba97e25fb1d80cb407c8713aadefee8f767debe1f9c0acf7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sing-box/blobs/sha256:5fb274d5613d23efcc6392ff6ab1b58c16301cfe5840f1bd9c5e9bdce18e8cae
+sha256:
+  darwin_arm64: 2789166c37110e165d876a6a878565d2d2a7eaf9dd85b1714b2c9ae226b8fc17
+  darwin_amd64: 696bd5e0e7c3ab7a80c3a67fb4145dc39c8120e8f25d75faf1e22c4944a39f25
+  linux_amd64: a7e962cb6b0e313cba97e25fb1d80cb407c8713aadefee8f767debe1f9c0acf7
+  linux_arm64: 5fb274d5613d23efcc6392ff6ab1b58c16301cfe5840f1bd9c5e9bdce18e8cae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

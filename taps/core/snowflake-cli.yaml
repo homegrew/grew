@@ -1,0 +1,26 @@
+name: snowflake-cli
+version: 3.15.0
+description: CLI for snowflake
+homepage: https://docs.snowflake.com/developer-guide/snowflake-cli/index
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snowflake-cli/blobs/sha256:323dd5883b942a63d199a68c8d5bc9b1b90a4fab032b4815b282668f1f95c66c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snowflake-cli/blobs/sha256:6bca43915bfcdc644313b6e38ecd0d62e29c264d93ca062216869cf70e2bd0ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snowflake-cli/blobs/sha256:cc02d84246dc2847fd0d5082cbdc3459255acce65a43c5a02d62a9bbf9f69e73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snowflake-cli/blobs/sha256:a4e79658e391d215a02df80a9237d129c27b879ab30123402b46130d79d5e5b5
+sha256:
+  darwin_arm64: 323dd5883b942a63d199a68c8d5bc9b1b90a4fab032b4815b282668f1f95c66c
+  darwin_amd64: 6bca43915bfcdc644313b6e38ecd0d62e29c264d93ca062216869cf70e2bd0ca
+  linux_amd64: cc02d84246dc2847fd0d5082cbdc3459255acce65a43c5a02d62a9bbf9f69e73
+  linux_arm64: a4e79658e391d215a02df80a9237d129c27b879ab30123402b46130d79d5e5b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - protobuf
+  - pydantic
+  - python@3.13

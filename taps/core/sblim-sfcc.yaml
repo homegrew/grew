@@ -1,0 +1,21 @@
+name: sblim-sfcc
+version: 2.2.8
+description: Project to enhance the manageability of GNU/Linux system
+homepage: https://sourceforge.net/projects/sblim/
+license: EPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sblim-sfcc/blobs/sha256:91850d84d41509e73588a88dcc741a3ab9367c6e84c366689340cd9b66d00bf6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sblim-sfcc/blobs/sha256:03982c814ee052c41459385167fb7e112c021f01d73cf9e8b370e650ecc946a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sblim-sfcc/blobs/sha256:6c029309cfad2b173fe5b26e004b07b94fd295076a88244f3dbc2030c38a47e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sblim-sfcc/blobs/sha256:5fd23513981b7f2f47c9f8ce8b0d0fd352cb954045f49d060ffd6f581dc715ad
+sha256:
+  darwin_arm64: 91850d84d41509e73588a88dcc741a3ab9367c6e84c366689340cd9b66d00bf6
+  darwin_amd64: 03982c814ee052c41459385167fb7e112c021f01d73cf9e8b370e650ecc946a5
+  linux_amd64: 6c029309cfad2b173fe5b26e004b07b94fd295076a88244f3dbc2030c38a47e0
+  linux_arm64: 5fd23513981b7f2f47c9f8ce8b0d0fd352cb954045f49d060ffd6f581dc715ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

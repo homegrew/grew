@@ -1,0 +1,19 @@
+name: parallel-disk-usage
+version: 0.21.1
+description: Highly parallelized, blazing fast directory tree analyzer
+homepage: https://github.com/KSXGitHub/parallel-disk-usage
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parallel-disk-usage/blobs/sha256:087a9b44fb17f904a0e64a630d18731f378938a06c1d4e1db97c313ba2df0208
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parallel-disk-usage/blobs/sha256:9fa92ee454fc377cdd4e9b62c575a7662476f65c7cb931ef228b3881510e4950
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parallel-disk-usage/blobs/sha256:f7813849ca8a1207d5cea8be2fa5d8ec038ccab966a81efc39ec19c4a24cebdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parallel-disk-usage/blobs/sha256:678ffd25de3bec4c4ecc1a0b6cbed1abaf106f45e4c51f0bdb1f5a13ba01c7c6
+sha256:
+  darwin_arm64: 087a9b44fb17f904a0e64a630d18731f378938a06c1d4e1db97c313ba2df0208
+  darwin_amd64: 9fa92ee454fc377cdd4e9b62c575a7662476f65c7cb931ef228b3881510e4950
+  linux_amd64: f7813849ca8a1207d5cea8be2fa5d8ec038ccab966a81efc39ec19c4a24cebdd
+  linux_arm64: 678ffd25de3bec4c4ecc1a0b6cbed1abaf106f45e4c51f0bdb1f5a13ba01c7c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

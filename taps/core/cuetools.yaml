@@ -1,0 +1,19 @@
+name: cuetools
+version: 1.4.1
+description: Utilities for .cue and .toc files
+homepage: https://github.com/svend/cuetools
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cuetools/blobs/sha256:608a2dff1244ef93b65739924ea96977afc75052374eb4da5fbb261b48f29413
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cuetools/blobs/sha256:d081a481b29edd36ca8444f1f5a959f825b15326713f4f44445cc203c43726a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cuetools/blobs/sha256:45fd4566e2ce0650ad162fb32f3a12f30523efeded3f6d30612cdd8efca73ffc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cuetools/blobs/sha256:333e324eaa7d67aaacbc2eaad315abc19fdc6fe52dd20220cb7fef4f0b73859d
+sha256:
+  darwin_arm64: 608a2dff1244ef93b65739924ea96977afc75052374eb4da5fbb261b48f29413
+  darwin_amd64: d081a481b29edd36ca8444f1f5a959f825b15326713f4f44445cc203c43726a5
+  linux_amd64: 45fd4566e2ce0650ad162fb32f3a12f30523efeded3f6d30612cdd8efca73ffc
+  linux_arm64: 333e324eaa7d67aaacbc2eaad315abc19fdc6fe52dd20220cb7fef4f0b73859d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

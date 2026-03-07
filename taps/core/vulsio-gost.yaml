@@ -1,0 +1,19 @@
+name: vulsio-gost
+version: 0.7.2
+description: "Local CVE tracker & notification system"
+homepage: https://github.com/vulsio/gost
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulsio-gost/blobs/sha256:813d140b549cab244bf2fa4de218034cd5066968ab0f869d64a74f934f017eaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulsio-gost/blobs/sha256:e368bafbdbf01f8ca5e69331d3cf131626b5e69daa94fe43ec9944690dc067ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulsio-gost/blobs/sha256:a975a3784dd47bb8e2a5c71b9ad596c412231fb427ebf7496686ee1f8e309e4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulsio-gost/blobs/sha256:7be514f0ece49d3c709983bb2e04c5754f555f534e32307e56be378637c1fef6
+sha256:
+  darwin_arm64: 813d140b549cab244bf2fa4de218034cd5066968ab0f869d64a74f934f017eaa
+  darwin_amd64: e368bafbdbf01f8ca5e69331d3cf131626b5e69daa94fe43ec9944690dc067ca
+  linux_amd64: a975a3784dd47bb8e2a5c71b9ad596c412231fb427ebf7496686ee1f8e309e4b
+  linux_arm64: 7be514f0ece49d3c709983bb2e04c5754f555f534e32307e56be378637c1fef6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

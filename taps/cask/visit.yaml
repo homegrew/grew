@@ -1,0 +1,11 @@
+name: visit
+version: 3.4.2
+description: Visualisation and data analysis for mesh-based scientific data
+homepage: https://wci.llnl.gov/simulation/computer-codes/visit
+url:
+  darwin_arm64: https://github.com/visit-dav/visit/releases/download/v3.4.2/visit3_4_2.darwin23-arm64.dmg
+sha256:
+  darwin_arm64: 75b4d4bc4f8b4d9d8d0ef55e14d34e97442fbf2cf7e10b4726dd773f30b7e827
+artifacts:
+  app:
+    - VisIt.app

@@ -1,0 +1,19 @@
+name: bibclean
+version: 3.07
+description: BibTeX bibliography file pretty printer and syntax checker
+homepage: https://www.math.utah.edu/~beebe/software/bibclean/bibclean-03.html#HDR.3
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bibclean/blobs/sha256:879cc1d92309684de3e1d3aac3f3ceae0751b013e52bee638c67c18fd63dbf92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bibclean/blobs/sha256:4f6f06f2b94c6d0d8f113b494cefd204f2ae7f1d12e67ba5752dd5cb4b9da50f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bibclean/blobs/sha256:3e6f4a7531a9e96f3cdb75f01271287c7bb477566ccf80438895c730d35c995d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bibclean/blobs/sha256:d700d842f1381f0c09f7580584db46a2ccc558fd0fbf95b17fc45ea242061036
+sha256:
+  darwin_arm64: 879cc1d92309684de3e1d3aac3f3ceae0751b013e52bee638c67c18fd63dbf92
+  darwin_amd64: 4f6f06f2b94c6d0d8f113b494cefd204f2ae7f1d12e67ba5752dd5cb4b9da50f
+  linux_amd64: 3e6f4a7531a9e96f3cdb75f01271287c7bb477566ccf80438895c730d35c995d
+  linux_arm64: d700d842f1381f0c09f7580584db46a2ccc558fd0fbf95b17fc45ea242061036
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

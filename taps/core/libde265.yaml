@@ -1,0 +1,19 @@
+name: libde265
+version: 1.0.16
+description: Open h.265 video codec implementation
+homepage: https://github.com/strukturag/libde265
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libde265/blobs/sha256:7fc887ff6de361861449c51bd6cfb8a31ab93a91f1d4d76e41332f9e44627afe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libde265/blobs/sha256:dcee9a83c604fc27ccb54af849fe45124e12dbf66b63c53d5775aa0c1a49e34c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libde265/blobs/sha256:1bca710186d841ef99740adb1bdd747ae4b0bebb4ffcfa4bc4024199b26c0a5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libde265/blobs/sha256:650fa2c9ab2bd73545addb81842bb9442d929b25af4eef7fedfb34a4f93cfe87
+sha256:
+  darwin_arm64: 7fc887ff6de361861449c51bd6cfb8a31ab93a91f1d4d76e41332f9e44627afe
+  darwin_amd64: dcee9a83c604fc27ccb54af849fe45124e12dbf66b63c53d5775aa0c1a49e34c
+  linux_amd64: 1bca710186d841ef99740adb1bdd747ae4b0bebb4ffcfa4bc4024199b26c0a5d
+  linux_arm64: 650fa2c9ab2bd73545addb81842bb9442d929b25af4eef7fedfb34a4f93cfe87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: camlpdf
+version: 2.8.1
+description: OCaml library for reading, writing and modifying PDF files
+homepage: https://github.com/johnwhitington/camlpdf
+license: LGPL-2.1-only WITH OCaml-LGPL-linking-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/camlpdf/blobs/sha256:11905e6ecf963dd498f8375ed474be764b50922044fc210d660376d250c49f98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/camlpdf/blobs/sha256:a27ffe411ba9917e6805e1ee6f7f1a3df9258b1fa143cf48bd866d604d52a559
+  linux_amd64: https://ghcr.io/v2/homebrew/core/camlpdf/blobs/sha256:b238372051d39a3ccfbbbd3da90454e8977f2798df5f0f2315b827b97bdad6cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/camlpdf/blobs/sha256:8012e43591114b66a5a4e7457170dd2fc2d47b2b0957bce6e5ac730ef75677ac
+sha256:
+  darwin_arm64: 11905e6ecf963dd498f8375ed474be764b50922044fc210d660376d250c49f98
+  darwin_amd64: a27ffe411ba9917e6805e1ee6f7f1a3df9258b1fa143cf48bd866d604d52a559
+  linux_amd64: b238372051d39a3ccfbbbd3da90454e8977f2798df5f0f2315b827b97bdad6cb
+  linux_arm64: 8012e43591114b66a5a4e7457170dd2fc2d47b2b0957bce6e5ac730ef75677ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

@@ -1,0 +1,21 @@
+name: cbonsai
+version: 1.4.2
+description: Console Bonsai is a bonsai tree generator, written in C using ncurses
+homepage: https://gitlab.com/jallbrit/cbonsai
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbonsai/blobs/sha256:37e1bd7792b0722a35a28ac8e248d711f23ece8fc43fcfacfddcd8fa72db9f94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbonsai/blobs/sha256:2ec9072aa232ecf1242b783d7db8b61023532e28e1a11789dc9f49fdd185bc9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbonsai/blobs/sha256:3b8bee402d858d1ade576595f3e0727f3f65bfab1b9a500c7de7a08fe861c935
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbonsai/blobs/sha256:5607d8b16bcd0d2f736cef0014baeef29eeec6fed5ffa98bbf017728d0d62a92
+sha256:
+  darwin_arm64: 37e1bd7792b0722a35a28ac8e248d711f23ece8fc43fcfacfddcd8fa72db9f94
+  darwin_amd64: 2ec9072aa232ecf1242b783d7db8b61023532e28e1a11789dc9f49fdd185bc9d
+  linux_amd64: 3b8bee402d858d1ade576595f3e0727f3f65bfab1b9a500c7de7a08fe861c935
+  linux_arm64: 5607d8b16bcd0d2f736cef0014baeef29eeec6fed5ffa98bbf017728d0d62a92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

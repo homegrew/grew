@@ -1,0 +1,21 @@
+name: privoxy
+version: 4.1.0
+description: Advanced filtering web proxy
+homepage: https://www.privoxy.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/privoxy/blobs/sha256:c0ae969ac878ba8034f22bc56240e5994bd9a042116fc7e7d23fa788fe1e484e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/privoxy/blobs/sha256:65fe313f31698cef56c5537b4edc8b475ea94b23cbd46e8e598e02d2644a4dd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/privoxy/blobs/sha256:71ec0d7dd8b9eaa5d3729dfda746c25ae91eba7dfc3d28ef35861778b3dbf003
+  linux_arm64: https://ghcr.io/v2/homebrew/core/privoxy/blobs/sha256:38b56a0785bf29774bfe49fc96a7746b5b1434075aeef27f089fdd9ed47b2a95
+sha256:
+  darwin_arm64: c0ae969ac878ba8034f22bc56240e5994bd9a042116fc7e7d23fa788fe1e484e
+  darwin_amd64: 65fe313f31698cef56c5537b4edc8b475ea94b23cbd46e8e598e02d2644a4dd8
+  linux_amd64: 71ec0d7dd8b9eaa5d3729dfda746c25ae91eba7dfc3d28ef35861778b3dbf003
+  linux_arm64: 38b56a0785bf29774bfe49fc96a7746b5b1434075aeef27f089fdd9ed47b2a95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

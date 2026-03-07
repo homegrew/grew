@@ -1,0 +1,21 @@
+name: pkgx
+version: 2.9
+description: Standalone binary that can run anything
+homepage: https://pkgx.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pkgx/blobs/sha256:8e48e831283da3339e328ef009f3b4e33b0a994dda616ead317980c2b6d76aa2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pkgx/blobs/sha256:64c199765ee22131a1d71336bfe7d776f44142946f887aed79eadb0bd98fae04
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pkgx/blobs/sha256:a06df4b08554f1582412244a68e59624cca20a8cc3ed51479bb86a53674a9e09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pkgx/blobs/sha256:7b6fe397c70c9905b5177740f725e21c9900c016ebc29ab0e0e5f95e18bdbf0c
+sha256:
+  darwin_arm64: 8e48e831283da3339e328ef009f3b4e33b0a994dda616ead317980c2b6d76aa2
+  darwin_amd64: 64c199765ee22131a1d71336bfe7d776f44142946f887aed79eadb0bd98fae04
+  linux_amd64: a06df4b08554f1582412244a68e59624cca20a8cc3ed51479bb86a53674a9e09
+  linux_arm64: 7b6fe397c70c9905b5177740f725e21c9900c016ebc29ab0e0e5f95e18bdbf0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

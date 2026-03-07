@@ -1,0 +1,21 @@
+name: jython
+version: 2.7.4
+description: Python implementation written in Java (successor to JPython)
+homepage: https://www.jython.org/
+license: PSF-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jython/blobs/sha256:7c529b39cca604a3c60c7aaf3582f95f2c34dda67db1ff5ec50e6b276635f520
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jython/blobs/sha256:fd1fb28373af09ab635cf1ba9a4531bdfd0ca61f777c880844daa8d6df426673
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jython/blobs/sha256:ace9b3d90e73ef28c68731acdb4ace7ff14889380da8c07c0b3ddb425e8d43b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jython/blobs/sha256:64f495d1221b38c43ba23f2855c15d7953774602701abc80d843254b2e9646d6
+sha256:
+  darwin_arm64: 7c529b39cca604a3c60c7aaf3582f95f2c34dda67db1ff5ec50e6b276635f520
+  darwin_amd64: fd1fb28373af09ab635cf1ba9a4531bdfd0ca61f777c880844daa8d6df426673
+  linux_amd64: ace9b3d90e73ef28c68731acdb4ace7ff14889380da8c07c0b3ddb425e8d43b0
+  linux_arm64: 64f495d1221b38c43ba23f2855c15d7953774602701abc80d843254b2e9646d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

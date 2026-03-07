@@ -1,0 +1,19 @@
+name: hurl
+version: 7.1.0
+description: Run and Test HTTP Requests with plain text and curl
+homepage: https://hurl.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hurl/blobs/sha256:edd49915f44436cfadb09265f7a25bb416285ea1368b652e81e60cdd82084184
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hurl/blobs/sha256:66ed13f47fcc9f6edcdbfaadca45319b7fe411495491d5f3214cac72ccc78323
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hurl/blobs/sha256:dc7886a550cb1fdb5331418be37e06e04f0b038ca0bc083d5385ffa65b17983b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hurl/blobs/sha256:c3a50486dbdf525831cf6d4c3f28f9d9d29db10dd59d2a9362c1847e9dfc1f52
+sha256:
+  darwin_arm64: edd49915f44436cfadb09265f7a25bb416285ea1368b652e81e60cdd82084184
+  darwin_amd64: 66ed13f47fcc9f6edcdbfaadca45319b7fe411495491d5f3214cac72ccc78323
+  linux_amd64: dc7886a550cb1fdb5331418be37e06e04f0b038ca0bc083d5385ffa65b17983b
+  linux_arm64: c3a50486dbdf525831cf6d4c3f28f9d9d29db10dd59d2a9362c1847e9dfc1f52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

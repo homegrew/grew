@@ -1,0 +1,19 @@
+name: fuc
+version: 3.1.1
+description: Modern, performance focused unix commands
+homepage: https://github.com/supercilex/fuc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fuc/blobs/sha256:9eb97d285b25f3b351a962c0337c2c8d4068623a6fded827eb1a6881823bb859
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fuc/blobs/sha256:12eea25b2e7186591f94a4562d18de6d841bb3ae46f89a90b28d78532a762edd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fuc/blobs/sha256:8a0972d6b58867a0183cd447faacc117e7900f168f8150e7a10b73dadf8520e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fuc/blobs/sha256:c03bbd8be10360367f47b2297d333c0f1bbc2f1fd9f1f993d0af6d76523ebfdf
+sha256:
+  darwin_arm64: 9eb97d285b25f3b351a962c0337c2c8d4068623a6fded827eb1a6881823bb859
+  darwin_amd64: 12eea25b2e7186591f94a4562d18de6d841bb3ae46f89a90b28d78532a762edd
+  linux_amd64: 8a0972d6b58867a0183cd447faacc117e7900f168f8150e7a10b73dadf8520e7
+  linux_arm64: c03bbd8be10360367f47b2297d333c0f1bbc2f1fd9f1f993d0af6d76523ebfdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

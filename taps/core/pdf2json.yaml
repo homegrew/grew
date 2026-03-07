@@ -1,0 +1,19 @@
+name: pdf2json
+version: 0.71
+description: PDF to JSON and XML converter
+homepage: https://github.com/flexpaper/pdf2json
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdf2json/blobs/sha256:058498536ab559f677a0d83f45179b9958c5c2274378cea76f63fc8e613a1076
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdf2json/blobs/sha256:1be2124143b035485aaaeae155324606f06f6400971a67b20c0bd82051770e55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdf2json/blobs/sha256:ddf26e386ef0d0916e59bb3aea14ccbaf5e08e87fbc043692d7a445ff481f9d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdf2json/blobs/sha256:917e8246e56311c899f8031c17eee02347d143e023b7e7f26a18a924b983a916
+sha256:
+  darwin_arm64: 058498536ab559f677a0d83f45179b9958c5c2274378cea76f63fc8e613a1076
+  darwin_amd64: 1be2124143b035485aaaeae155324606f06f6400971a67b20c0bd82051770e55
+  linux_amd64: ddf26e386ef0d0916e59bb3aea14ccbaf5e08e87fbc043692d7a445ff481f9d7
+  linux_arm64: 917e8246e56311c899f8031c17eee02347d143e023b7e7f26a18a924b983a916
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

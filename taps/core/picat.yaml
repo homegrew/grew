@@ -1,0 +1,19 @@
+name: picat
+version: 3.9.7
+description: Simple, and yet powerful, logic-based multi-paradigm programming language
+homepage: https://picat-lang.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/picat/blobs/sha256:12c045c60f67d8c496dbea451667671e6af2c85775d493f545a973bf0eaa799c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/picat/blobs/sha256:f866b2692d7f6cbd7fbe050aabf56520d8fec0bbc546457d7820ee4e69f0c5fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/picat/blobs/sha256:2ef530130c8609c7e58c0b236b224f0e17ae7062948f3ff0e65a55b8045cb0cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/picat/blobs/sha256:730c61aeb6af897f47b0aa87e3d9811286409e25bce61f6b157164f25e4aa41e
+sha256:
+  darwin_arm64: 12c045c60f67d8c496dbea451667671e6af2c85775d493f545a973bf0eaa799c
+  darwin_amd64: f866b2692d7f6cbd7fbe050aabf56520d8fec0bbc546457d7820ee4e69f0c5fb
+  linux_amd64: 2ef530130c8609c7e58c0b236b224f0e17ae7062948f3ff0e65a55b8045cb0cb
+  linux_arm64: 730c61aeb6af897f47b0aa87e3d9811286409e25bce61f6b157164f25e4aa41e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

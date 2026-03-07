@@ -1,0 +1,19 @@
+name: cosign
+version: 3.0.5
+description: Container Signing
+homepage: https://github.com/sigstore/cosign
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cosign/blobs/sha256:7909fb08cd09e38f7db5067a47087b9d09dc565555b5892364f553dd3bc2c88c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cosign/blobs/sha256:3311cd7b07ed6b5b3fd0ed80200e8017946652360a1e231071b6365eeb1876aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cosign/blobs/sha256:a7a99a90da3bdc293d6b7bf14f0d889691f17c7527ef961a6bd011ea9320bc76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cosign/blobs/sha256:e2e490f63c35d60b34ed2c8b7670cc2fef0457b0dc65499358cbf1aa07e2c443
+sha256:
+  darwin_arm64: 7909fb08cd09e38f7db5067a47087b9d09dc565555b5892364f553dd3bc2c88c
+  darwin_amd64: 3311cd7b07ed6b5b3fd0ed80200e8017946652360a1e231071b6365eeb1876aa
+  linux_amd64: a7a99a90da3bdc293d6b7bf14f0d889691f17c7527ef961a6bd011ea9320bc76
+  linux_arm64: e2e490f63c35d60b34ed2c8b7670cc2fef0457b0dc65499358cbf1aa07e2c443
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

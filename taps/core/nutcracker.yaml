@@ -1,0 +1,21 @@
+name: nutcracker
+version: 0.5.0
+description: Proxy for memcached and redis
+homepage: https://github.com/twitter/twemproxy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nutcracker/blobs/sha256:abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nutcracker/blobs/sha256:bc0b16855feadbbf05d9eeb0373c73ed1ec2ad6ee2f98686e328f71f65510c60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nutcracker/blobs/sha256:6d6d4dcbb634abf13629537e4eaa0ee3a9fe87693492c3668c4effe4550a2cd8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nutcracker/blobs/sha256:9ac5ec0b8889f2bb83510eaacb9eb54b0247b236690469fb4511670d1aa73cd9
+sha256:
+  darwin_arm64: abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943
+  darwin_amd64: bc0b16855feadbbf05d9eeb0373c73ed1ec2ad6ee2f98686e328f71f65510c60
+  linux_amd64: 6d6d4dcbb634abf13629537e4eaa0ee3a9fe87693492c3668c4effe4550a2cd8
+  linux_arm64: 9ac5ec0b8889f2bb83510eaacb9eb54b0247b236690469fb4511670d1aa73cd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml

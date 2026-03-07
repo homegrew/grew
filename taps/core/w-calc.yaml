@@ -1,0 +1,22 @@
+name: w-calc
+version: 2.5
+description: Very capable calculator
+homepage: https://w-calc.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/w-calc/blobs/sha256:ea670dd67545b11daf3baa92b75881e4abdafa8456c69876ba800b24777e6d7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/w-calc/blobs/sha256:522929c224331663ad3fb955b1a0db32fc2e2faf3e292235d81662a09bc53c4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/w-calc/blobs/sha256:739d3b28f0cfb194a6965fd522a335859e9f5611faf0f6bafbd8577f5fb823de
+  linux_arm64: https://ghcr.io/v2/homebrew/core/w-calc/blobs/sha256:77cd92e140bbedd38f7dcfa8827d03b0d829fc97c6188314ce7d647ed969cbcf
+sha256:
+  darwin_arm64: ea670dd67545b11daf3baa92b75881e4abdafa8456c69876ba800b24777e6d7a
+  darwin_amd64: 522929c224331663ad3fb955b1a0db32fc2e2faf3e292235d81662a09bc53c4d
+  linux_amd64: 739d3b28f0cfb194a6965fd522a335859e9f5611faf0f6bafbd8577f5fb823de
+  linux_arm64: 77cd92e140bbedd38f7dcfa8827d03b0d829fc97c6188314ce7d647ed969cbcf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr

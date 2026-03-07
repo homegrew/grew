@@ -1,0 +1,29 @@
+name: gmsh
+version: 4.15.1
+description: 3D finite element grid generator with CAD engine
+homepage: https://gmsh.info/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gmsh/blobs/sha256:1cb373fde7e3f6f31454676fbabb9cb508720c7efb9267316fbfbe80faf54c1a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gmsh/blobs/sha256:2eb1629e09d260b2a9176d62a169649dc778392f35cf7045f643d26232186573
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gmsh/blobs/sha256:a27ddf2c2994932c0c879eb436ebf6e3036b10670ac3a7964ebb6ed3ce7966ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gmsh/blobs/sha256:86cbc296324aca959e4f5be71c292029f8dd05fcc96090dcaf69af41141ec33d
+sha256:
+  darwin_arm64: 1cb373fde7e3f6f31454676fbabb9cb508720c7efb9267316fbfbe80faf54c1a
+  darwin_amd64: 2eb1629e09d260b2a9176d62a169649dc778392f35cf7045f643d26232186573
+  linux_amd64: a27ddf2c2994932c0c879eb436ebf6e3036b10670ac3a7964ebb6ed3ce7966ef
+  linux_arm64: 86cbc296324aca959e4f5be71c292029f8dd05fcc96090dcaf69af41141ec33d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fltk
+  - gmp
+  - jpeg-turbo
+  - libpng
+  - metis
+  - opencascade
+  - freetype
+  - libomp

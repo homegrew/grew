@@ -1,0 +1,22 @@
+name: boost-python3
+version: 1.90.0
+description: C++ library for C++/Python3 interoperability
+homepage: https://www.boost.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boost-python3/blobs/sha256:77000c87c322c35f47f19ba70d2ee7e96454858afcd319e40a3779752bf358a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boost-python3/blobs/sha256:4a0b132affb3cd982ee303ca1935260a3bd2f9cba79b08e50cb3c3ece1d47a80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boost-python3/blobs/sha256:68d63c94b12444cb43b121226bd0e0c8d02e2a89f91ca18040601a2a83ea2292
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boost-python3/blobs/sha256:fc66b1167e63982f9b637a72b9f3aec2dfedd97796ee6cce51e8de491963f878
+sha256:
+  darwin_arm64: 77000c87c322c35f47f19ba70d2ee7e96454858afcd319e40a3779752bf358a5
+  darwin_amd64: 4a0b132affb3cd982ee303ca1935260a3bd2f9cba79b08e50cb3c3ece1d47a80
+  linux_amd64: 68d63c94b12444cb43b121226bd0e0c8d02e2a89f91ca18040601a2a83ea2292
+  linux_arm64: fc66b1167e63982f9b637a72b9f3aec2dfedd97796ee6cce51e8de491963f878
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - python@3.14

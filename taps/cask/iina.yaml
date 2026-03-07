@@ -1,0 +1,13 @@
+name: iina
+version: 1.4.1,160
+description: Free and open-source media player
+homepage: https://iina.io/
+url:
+  darwin_arm64: https://dl-portal.iina.io/IINA.v1.4.1.dmg
+sha256:
+  darwin_arm64: 177ad469ea129bed95a82ac59b5fb58d0a06c35342fca7a37dba214a8821f848
+artifacts:
+  app:
+    - IINA.app
+  bin:
+    - iina

@@ -1,0 +1,19 @@
+name: symlinks
+version: 1.4.3
+description: Symbolic link maintenance utility
+homepage: https://github.com/brandt/symlinks
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/symlinks/blobs/sha256:f8dc7f7f7a34aca2effa06e21560ea6828e1cb4cfba15d877010545735a9ce9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/symlinks/blobs/sha256:1826aa18c112a7209293d848271769bb1e055ba2ed30fa344f3f25cbba79a211
+  linux_amd64: https://ghcr.io/v2/homebrew/core/symlinks/blobs/sha256:ba93ffe41e5f1aa71ca91847cb66bbe80906efc78b8c1cf008ce312681aecb64
+  linux_arm64: https://ghcr.io/v2/homebrew/core/symlinks/blobs/sha256:9775f41fa313f392bd41d105655066f62d1e76865fd0979654248ec94237b802
+sha256:
+  darwin_arm64: f8dc7f7f7a34aca2effa06e21560ea6828e1cb4cfba15d877010545735a9ce9b
+  darwin_amd64: 1826aa18c112a7209293d848271769bb1e055ba2ed30fa344f3f25cbba79a211
+  linux_amd64: ba93ffe41e5f1aa71ca91847cb66bbe80906efc78b8c1cf008ce312681aecb64
+  linux_arm64: 9775f41fa313f392bd41d105655066f62d1e76865fd0979654248ec94237b802
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

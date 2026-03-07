@@ -1,0 +1,19 @@
+name: nsnake
+version: 3.0.1
+description: Classic snake game with textual interface
+homepage: https://github.com/alexdantas/nSnake
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nsnake/blobs/sha256:1ede653161111adadc9dc28604dc24adf4ffba2657224e300c613c230d46bfc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nsnake/blobs/sha256:1bce487c2e3125c1bbbb1dc95e6fd9b8ba3a2277eab080652a3ecffd3acab265
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nsnake/blobs/sha256:3bac278d384ea2b61e61c9baaf5b6bbbc388a520f5c39ca4978f8d2c60cdbede
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nsnake/blobs/sha256:a1660368200433643c2a044d0640a7ba9b485a6b8fd35093119b66b4c4a941f0
+sha256:
+  darwin_arm64: 1ede653161111adadc9dc28604dc24adf4ffba2657224e300c613c230d46bfc6
+  darwin_amd64: 1bce487c2e3125c1bbbb1dc95e6fd9b8ba3a2277eab080652a3ecffd3acab265
+  linux_amd64: 3bac278d384ea2b61e61c9baaf5b6bbbc388a520f5c39ca4978f8d2c60cdbede
+  linux_arm64: a1660368200433643c2a044d0640a7ba9b485a6b8fd35093119b66b4c4a941f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

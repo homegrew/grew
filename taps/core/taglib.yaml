@@ -1,0 +1,21 @@
+name: taglib
+version: 2.2.1
+description: Audio metadata library
+homepage: https://taglib.org/
+license: LGPL-2.1-only AND MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taglib/blobs/sha256:9315a7d9f236c78d35ac88daee8705298e425718f97ce3494bde03bdb8506426
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taglib/blobs/sha256:24e7ccdd3c1259ccb23f4e2095171d26867721811bb140a5c9f863377e09debb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taglib/blobs/sha256:4daf489c39964118ce9ce2d818ce33b672c31c56f656a8210865ce315bfb835c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taglib/blobs/sha256:f6178db89831024c5de4baef2d8a1164a4959b744596bf1540b670d6da623ad9
+sha256:
+  darwin_arm64: 9315a7d9f236c78d35ac88daee8705298e425718f97ce3494bde03bdb8506426
+  darwin_amd64: 24e7ccdd3c1259ccb23f4e2095171d26867721811bb140a5c9f863377e09debb
+  linux_amd64: 4daf489c39964118ce9ce2d818ce33b672c31c56f656a8210865ce315bfb835c
+  linux_arm64: f6178db89831024c5de4baef2d8a1164a4959b744596bf1540b670d6da623ad9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - utf8cpp

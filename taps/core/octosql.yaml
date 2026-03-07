@@ -1,0 +1,19 @@
+name: octosql
+version: 0.13.0
+description: SQL query tool to analyze data from different file formats and databases
+homepage: https://github.com/cube2222/octosql/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/octosql/blobs/sha256:4c72a70690339c26059914fd99ec9e7ebc9b35b828ee6c07cbdde7af8bc1f7e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/octosql/blobs/sha256:8aeea6a96ae461bec7631704def7cf422a25fcc2f433ac18e801e1ceac5d67a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/octosql/blobs/sha256:c0756a2f3337b46a79897beaf2b080ffd1888c648e87751fedd999c7002c5937
+  linux_arm64: https://ghcr.io/v2/homebrew/core/octosql/blobs/sha256:c9bcc6b096962d539dce6ae887259710127684f4246ecc5136f34fc4027dd263
+sha256:
+  darwin_arm64: 4c72a70690339c26059914fd99ec9e7ebc9b35b828ee6c07cbdde7af8bc1f7e5
+  darwin_amd64: 8aeea6a96ae461bec7631704def7cf422a25fcc2f433ac18e801e1ceac5d67a1
+  linux_amd64: c0756a2f3337b46a79897beaf2b080ffd1888c648e87751fedd999c7002c5937
+  linux_arm64: c9bcc6b096962d539dce6ae887259710127684f4246ecc5136f34fc4027dd263
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

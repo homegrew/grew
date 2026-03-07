@@ -1,0 +1,23 @@
+name: arxiv_latex_cleaner
+version: 1.0.8
+description: Clean LaTeX code to submit to arXiv
+homepage: https://github.com/google-research/arxiv-latex-cleaner
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arxiv_latex_cleaner/blobs/sha256:0aa4f023567c96cb224e27b23bd7d7f46af7560a47160d9d0347ec8aeab665d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arxiv_latex_cleaner/blobs/sha256:83da74885a44096ffe6ca4341ebe6e39d7622e6a283f8b12f0c7f4d95e34b113
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arxiv_latex_cleaner/blobs/sha256:540beff3135b2c24b7415f8750668aa3f9cd52e19f9bbd5b6148869351a35acc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arxiv_latex_cleaner/blobs/sha256:736e54216d418f80b50fc48130b57de5bc0654e2e009b6b5f82d979763de40c0
+sha256:
+  darwin_arm64: 0aa4f023567c96cb224e27b23bd7d7f46af7560a47160d9d0347ec8aeab665d7
+  darwin_amd64: 83da74885a44096ffe6ca4341ebe6e39d7622e6a283f8b12f0c7f4d95e34b113
+  linux_amd64: 540beff3135b2c24b7415f8750668aa3f9cd52e19f9bbd5b6148869351a35acc
+  linux_arm64: 736e54216d418f80b50fc48130b57de5bc0654e2e009b6b5f82d979763de40c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - pillow
+  - python@3.14

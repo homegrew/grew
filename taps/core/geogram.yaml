@@ -1,0 +1,21 @@
+name: geogram
+version: 1.9.8
+description: Programming library of geometric algorithms
+homepage: https://github.com/BrunoLevy/geogram/wiki
+license: BSD-3-Clause AND LicenseRef-Homebrew-public-domain AND LGPL-3.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geogram/blobs/sha256:fcbcffb58f843416edb93e723c69ad4f863ecf415afed56004f573aedc221e77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geogram/blobs/sha256:8172ee2fdd0d49444ca551c0872707f02b8ae6ab79fc33eae619a6d385ccd440
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geogram/blobs/sha256:ed8a1d410f9ecbb2ee5fc85576e947ab231b78026b08e909d9776d623635439f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geogram/blobs/sha256:af84f2817f95d088a2aa5a2ea55d6a3f0e0a969a37d32a04e4d6a931d45ff04c
+sha256:
+  darwin_arm64: fcbcffb58f843416edb93e723c69ad4f863ecf415afed56004f573aedc221e77
+  darwin_amd64: 8172ee2fdd0d49444ca551c0872707f02b8ae6ab79fc33eae619a6d385ccd440
+  linux_amd64: ed8a1d410f9ecbb2ee5fc85576e947ab231b78026b08e909d9776d623635439f
+  linux_arm64: af84f2817f95d088a2aa5a2ea55d6a3f0e0a969a37d32a04e4d6a931d45ff04c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glfw

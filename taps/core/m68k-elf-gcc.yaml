@@ -1,0 +1,26 @@
+name: m68k-elf-gcc
+version: 15.2.0
+description: GNU compiler collection m68k-elf
+homepage: https://gcc.gnu.org
+license: GPL-3.0-or-later WITH GCC-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/m68k-elf-gcc/blobs/sha256:8b29b6480ea952ca41137d137d330722f096c7fd15bc93e51bbd150344d31e56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/m68k-elf-gcc/blobs/sha256:5a5f49d2e038b914738c7c6ba145e6ca0a4123ba6a79b851014f0d3a47153424
+  linux_amd64: https://ghcr.io/v2/homebrew/core/m68k-elf-gcc/blobs/sha256:a9b1cf9ab4afae9f6c63b7730b0364c305d57f28599cd585523179a492565315
+  linux_arm64: https://ghcr.io/v2/homebrew/core/m68k-elf-gcc/blobs/sha256:92608229d9d171fdc6ab30fe4c8d137d427a460204c5938bfb33651d08b465da
+sha256:
+  darwin_arm64: 8b29b6480ea952ca41137d137d330722f096c7fd15bc93e51bbd150344d31e56
+  darwin_amd64: 5a5f49d2e038b914738c7c6ba145e6ca0a4123ba6a79b851014f0d3a47153424
+  linux_amd64: a9b1cf9ab4afae9f6c63b7730b0364c305d57f28599cd585523179a492565315
+  linux_arm64: 92608229d9d171fdc6ab30fe4c8d137d427a460204c5938bfb33651d08b465da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - isl
+  - libmpc
+  - m68k-elf-binutils
+  - mpfr
+  - zstd

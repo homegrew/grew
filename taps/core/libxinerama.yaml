@@ -1,0 +1,23 @@
+name: libxinerama
+version: 1.1.6
+description: "X.Org: API for Xinerama extension to X11 Protocol"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxinerama/blobs/sha256:1661f76115723be21049a852556fe270ce1f53693beab0931ffa88b40b757129
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxinerama/blobs/sha256:1a447fd892652cccfda6f323ebc191d8855532a381381e2c2b05358f1f0bbea4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxinerama/blobs/sha256:52991cf289d5e90078916a2e43d188e4f3fcbef3eaa83ba3a6a911715b17a1fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxinerama/blobs/sha256:68ea21d37025e719630cfd403bfdc5f43e5458c4f0305d71c510ba17ebf3d858
+sha256:
+  darwin_arm64: 1661f76115723be21049a852556fe270ce1f53693beab0931ffa88b40b757129
+  darwin_amd64: 1a447fd892652cccfda6f323ebc191d8855532a381381e2c2b05358f1f0bbea4
+  linux_amd64: 52991cf289d5e90078916a2e43d188e4f3fcbef3eaa83ba3a6a911715b17a1fa
+  linux_arm64: 68ea21d37025e719630cfd403bfdc5f43e5458c4f0305d71c510ba17ebf3d858
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

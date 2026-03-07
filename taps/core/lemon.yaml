@@ -1,0 +1,19 @@
+name: lemon
+version: 3.51.2
+description: LALR(1) parser generator like yacc or bison
+homepage: https://www.hwaci.com/sw/lemon/
+license: blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lemon/blobs/sha256:740ef01b148dfe74d6498302e2ebee6c885c5762d589a389cda16b80655459bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lemon/blobs/sha256:a5058c23cc1ef24fd9ad7441d21b0a9e88f6e54a5a40b291cec4362e6ef22a8e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lemon/blobs/sha256:3f43b6eba78b8632febb98d0265e64c36aa47659d5c5c7845c00bd3833867a3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lemon/blobs/sha256:6aaa0d428228fd63aabb3a1a07976159cb2f5a31b89b9bff059c655a3760b299
+sha256:
+  darwin_arm64: 740ef01b148dfe74d6498302e2ebee6c885c5762d589a389cda16b80655459bf
+  darwin_amd64: a5058c23cc1ef24fd9ad7441d21b0a9e88f6e54a5a40b291cec4362e6ef22a8e
+  linux_amd64: 3f43b6eba78b8632febb98d0265e64c36aa47659d5c5c7845c00bd3833867a3e
+  linux_arm64: 6aaa0d428228fd63aabb3a1a07976159cb2f5a31b89b9bff059c655a3760b299
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

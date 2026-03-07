@@ -1,0 +1,22 @@
+name: i2p
+version: 2.11.0
+description: Anonymous overlay network - a network within a network
+homepage: https://geti2p.net
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i2p/blobs/sha256:7c9a9c6aa80351fe0de5c9050a339035bff7b581513a9c67c8eb5c75f4550492
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i2p/blobs/sha256:9b9074c2cd04aff38fbaef5cd0d9bd5bde623bca4330cfd9dce2e1c764e8f86f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i2p/blobs/sha256:ab507b2b7ab764d2d0f88ddb587678e836b349d767d0375559b0ba9539be14b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i2p/blobs/sha256:070cc70dbe96d44ddebbdc58901f835390353cf36660b24dc1014065e3513274
+sha256:
+  darwin_arm64: 7c9a9c6aa80351fe0de5c9050a339035bff7b581513a9c67c8eb5c75f4550492
+  darwin_amd64: 9b9074c2cd04aff38fbaef5cd0d9bd5bde623bca4330cfd9dce2e1c764e8f86f
+  linux_amd64: ab507b2b7ab764d2d0f88ddb587678e836b349d767d0375559b0ba9539be14b3
+  linux_arm64: 070cc70dbe96d44ddebbdc58901f835390353cf36660b24dc1014065e3513274
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - java-service-wrapper
+  - openjdk

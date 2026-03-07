@@ -1,0 +1,19 @@
+name: bcpp
+version: 20250914
+description: C(++) beautifier
+homepage: https://invisible-island.net/bcpp/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bcpp/blobs/sha256:fa74cdc2fb3f1809b90239f1e60363605cb9d5fc76bded0ea406d6e6920e1bdb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bcpp/blobs/sha256:d6d74b99d7963c3f7403a8bd3991cbcccebf0fa2da16672ad912ef6857055a3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bcpp/blobs/sha256:7b501371fb124bd5814589d0e6f3dd850221ccb40e0e4b4d3fc41b72fcec32c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bcpp/blobs/sha256:5a1a406681f95c80d946ca3155ea3cea7397a119634746b2d873b7520aa1ba4b
+sha256:
+  darwin_arm64: fa74cdc2fb3f1809b90239f1e60363605cb9d5fc76bded0ea406d6e6920e1bdb
+  darwin_amd64: d6d74b99d7963c3f7403a8bd3991cbcccebf0fa2da16672ad912ef6857055a3c
+  linux_amd64: 7b501371fb124bd5814589d0e6f3dd850221ccb40e0e4b4d3fc41b72fcec32c6
+  linux_arm64: 5a1a406681f95c80d946ca3155ea3cea7397a119634746b2d873b7520aa1ba4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

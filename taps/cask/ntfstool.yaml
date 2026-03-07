@@ -1,0 +1,11 @@
+name: ntfstool
+version: 3.5.1
+description: Utility that provides NTFS read and write support
+homepage: https://github.com/ntfstool/ntfstool
+url:
+  darwin_arm64: https://github.com/ntfstool/ntfstool/releases/download/3.5.1/ntfstool3.5.1.zip
+sha256:
+  darwin_arm64: 3d910b02c9267d9d48aa031f9ea1d1c39af3171d9f012b1fa421e6af382a58ad
+artifacts:
+  app:
+    - Ntfstool.app

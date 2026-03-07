@@ -1,0 +1,19 @@
+name: terraform-mcp-server
+version: 0.4.0
+description: MCP server for Terraform
+homepage: https://github.com/hashicorp/terraform-mcp-server
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-mcp-server/blobs/sha256:31296b26237917cdce5afd4cbcf6fc544fcfbc391f93d8fa951d2f322b0311d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-mcp-server/blobs/sha256:91f11907dc109860f8ef2870e0ccdb42688365e6a43ffd40c4196804ad7811a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-mcp-server/blobs/sha256:f731b632aac2feb29b7e37701f77ffee26b40dbf84c4ebc9431ed4944ebdfd78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-mcp-server/blobs/sha256:1ea55608654c620009131361dfc7aa19a5f5469490a41bee9e1f0fae04c9d5db
+sha256:
+  darwin_arm64: 31296b26237917cdce5afd4cbcf6fc544fcfbc391f93d8fa951d2f322b0311d7
+  darwin_amd64: 91f11907dc109860f8ef2870e0ccdb42688365e6a43ffd40c4196804ad7811a6
+  linux_amd64: f731b632aac2feb29b7e37701f77ffee26b40dbf84c4ebc9431ed4944ebdfd78
+  linux_arm64: 1ea55608654c620009131361dfc7aa19a5f5469490a41bee9e1f0fae04c9d5db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: libcanberra
+version: 0.30
+description: Implementation of XDG Sound Theme and Name Specifications
+homepage: https://0pointer.de/lennart/projects/libcanberra/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcanberra/blobs/sha256:ec6a63b0eb4cea2f117b082fadb5acc4792206193e3a64f8a02dcfdd6abda217
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcanberra/blobs/sha256:a2822a52008b3d1fdac3f9f1486072a356b17b91149fa747846eea2c44839d3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcanberra/blobs/sha256:a8c25edecba69fd90fbd847fede6df5a01107e469422a2f937fff082a43d6073
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcanberra/blobs/sha256:74befcfd2bc08601e7ec7cff6548d6a6a8960a9d904340948fbe9513cfc1b620
+sha256:
+  darwin_arm64: ec6a63b0eb4cea2f117b082fadb5acc4792206193e3a64f8a02dcfdd6abda217
+  darwin_amd64: a2822a52008b3d1fdac3f9f1486072a356b17b91149fa747846eea2c44839d3e
+  linux_amd64: a8c25edecba69fd90fbd847fede6df5a01107e469422a2f937fff082a43d6073
+  linux_arm64: 74befcfd2bc08601e7ec7cff6548d6a6a8960a9d904340948fbe9513cfc1b620
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool
+  - libvorbis

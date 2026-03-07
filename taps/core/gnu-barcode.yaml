@@ -1,0 +1,19 @@
+name: gnu-barcode
+version: 0.99
+description: Convert text strings to printed bars
+homepage: https://www.gnu.org/software/barcode/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-barcode/blobs/sha256:57fbf7e1c8368b3405d771acfaff14d5f41d970681575c4e45484a8760a37a02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-barcode/blobs/sha256:bdc959e1f896a2d8d009bc700ded086d9675facce052e08e9146724e97fa0a69
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-barcode/blobs/sha256:9cea83cbded5ce1bf557f237984a5085ba5b5534980c64e0b7d97e6756ab01dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-barcode/blobs/sha256:9a87f687d36fddc89efcd6e0f668d483b6630617dd51179ed27a4e29f26176a0
+sha256:
+  darwin_arm64: 57fbf7e1c8368b3405d771acfaff14d5f41d970681575c4e45484a8760a37a02
+  darwin_amd64: bdc959e1f896a2d8d009bc700ded086d9675facce052e08e9146724e97fa0a69
+  linux_amd64: 9cea83cbded5ce1bf557f237984a5085ba5b5534980c64e0b7d97e6756ab01dd
+  linux_arm64: 9a87f687d36fddc89efcd6e0f668d483b6630617dd51179ed27a4e29f26176a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

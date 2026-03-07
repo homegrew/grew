@@ -1,0 +1,19 @@
+name: sk
+version: 3.6.2
+description: "Fuzzy Finder in rust!"
+homepage: https://github.com/skim-rs/skim
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sk/blobs/sha256:bf5d617c09d4fae6d6e57841d07edca55a72d4f68786d3922badcd66428e4b33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sk/blobs/sha256:55c7fd5d025f77963a8d87b3834fdf9b27023fa6abb0d49f2c0f9e4b541e90f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sk/blobs/sha256:2981c472d3ea9f08be443eb13ffbca5c1860c940a2442f957fccc5bb633903eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sk/blobs/sha256:c42a879a7d5f49db9baec72dec1eaa41e3a9bf2df6522644e946102e24a339b3
+sha256:
+  darwin_arm64: bf5d617c09d4fae6d6e57841d07edca55a72d4f68786d3922badcd66428e4b33
+  darwin_amd64: 55c7fd5d025f77963a8d87b3834fdf9b27023fa6abb0d49f2c0f9e4b541e90f6
+  linux_amd64: 2981c472d3ea9f08be443eb13ffbca5c1860c940a2442f957fccc5bb633903eb
+  linux_arm64: c42a879a7d5f49db9baec72dec1eaa41e3a9bf2df6522644e946102e24a339b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

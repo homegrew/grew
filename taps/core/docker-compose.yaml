@@ -1,0 +1,19 @@
+name: docker-compose
+version: 5.1.0
+description: Isolated development environments using Docker
+homepage: https://docs.docker.com/compose/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-compose/blobs/sha256:6864064046b61f4c5d435d841f7d9a91ac7f3f91551e346b4db1e199c5e023d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-compose/blobs/sha256:f3a71f6010b9488df25a4665e994459776adb9897e8b8c339bc0054b9e8c0680
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-compose/blobs/sha256:22f17f70af94a2d01755dccf3d7b1f01f038a105e71311fc0bb308364a4ac404
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-compose/blobs/sha256:c90960ff25d218712d94abd68ed270436b88bf527df5b97ceb092f7a31f3c5fd
+sha256:
+  darwin_arm64: 6864064046b61f4c5d435d841f7d9a91ac7f3f91551e346b4db1e199c5e023d0
+  darwin_amd64: f3a71f6010b9488df25a4665e994459776adb9897e8b8c339bc0054b9e8c0680
+  linux_amd64: 22f17f70af94a2d01755dccf3d7b1f01f038a105e71311fc0bb308364a4ac404
+  linux_arm64: c90960ff25d218712d94abd68ed270436b88bf527df5b97ceb092f7a31f3c5fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

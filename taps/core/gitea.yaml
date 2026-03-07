@@ -1,0 +1,19 @@
+name: gitea
+version: 1.25.4
+description: Painless self-hosted all-in-one software development service
+homepage: https://about.gitea.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitea/blobs/sha256:eaf09624f8a1717d181901dfcfe6684e157815270d645398a109eee2470f221c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitea/blobs/sha256:d074cadeec6acb06bd0a0920794bc0089fe4113ced998975d8a27846a0714a70
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitea/blobs/sha256:66962be9ec44dbd317637b8eb0ffc79276c721230372c3c17bc209860e740aa9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitea/blobs/sha256:c7d4f35526e149ef43447724df39701567354b7c62b4e8d8f57a086fe3e12e49
+sha256:
+  darwin_arm64: eaf09624f8a1717d181901dfcfe6684e157815270d645398a109eee2470f221c
+  darwin_amd64: d074cadeec6acb06bd0a0920794bc0089fe4113ced998975d8a27846a0714a70
+  linux_amd64: 66962be9ec44dbd317637b8eb0ffc79276c721230372c3c17bc209860e740aa9
+  linux_arm64: c7d4f35526e149ef43447724df39701567354b7c62b4e8d8f57a086fe3e12e49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

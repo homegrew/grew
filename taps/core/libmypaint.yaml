@@ -1,0 +1,22 @@
+name: libmypaint
+version: 1.6.1
+description: MyPaint brush engine library
+homepage: https://github.com/mypaint/libmypaint/wiki
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmypaint/blobs/sha256:11d123c05be7148acf8a9e8e99b84c4734252dd3085a03e4d9ed39616d5ece02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmypaint/blobs/sha256:e9f2d85eadf239650155f9c87128808ef1c519426626e96d5401cf4628e33833
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmypaint/blobs/sha256:6114302a8ff4e54cd64388fb0968dbb1fa4ab546bb9d2bbca786da787ec3bf62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmypaint/blobs/sha256:3682eee52437a073b7ae1400df5ae48e4779815035f785118eb22ea571873c1e
+sha256:
+  darwin_arm64: 11d123c05be7148acf8a9e8e99b84c4734252dd3085a03e4d9ed39616d5ece02
+  darwin_amd64: e9f2d85eadf239650155f9c87128808ef1c519426626e96d5401cf4628e33833
+  linux_amd64: 6114302a8ff4e54cd64388fb0968dbb1fa4ab546bb9d2bbca786da787ec3bf62
+  linux_arm64: 3682eee52437a073b7ae1400df5ae48e4779815035f785118eb22ea571873c1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - json-c
+  - gettext

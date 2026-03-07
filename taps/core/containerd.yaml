@@ -1,0 +1,19 @@
+name: containerd
+version: 2.2.1
+description: Open and reliable container runtime
+homepage: https://containerd.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/containerd/blobs/sha256:0850ba663dc8327abb6cce239020c9077e320787988288ae2c9abf3454e24a0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/containerd/blobs/sha256:473049b263fea41fe437092dff651952cebd7879710d1e456d7e203902744276
+  linux_amd64: https://ghcr.io/v2/homebrew/core/containerd/blobs/sha256:f32a955582337a52580ad5c28d605b0930ea7945004686e6a38b2a068b99e6ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/containerd/blobs/sha256:920271989e5c33cb7fceb0402414005fc06b00bb4d186c0ba7714496951791f1
+sha256:
+  darwin_arm64: 0850ba663dc8327abb6cce239020c9077e320787988288ae2c9abf3454e24a0d
+  darwin_amd64: 473049b263fea41fe437092dff651952cebd7879710d1e456d7e203902744276
+  linux_amd64: f32a955582337a52580ad5c28d605b0930ea7945004686e6a38b2a068b99e6ec
+  linux_arm64: 920271989e5c33cb7fceb0402414005fc06b00bb4d186c0ba7714496951791f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: tfk8s
+version: 0.1.10
+description: Kubernetes YAML manifests to Terraform HCL converter
+homepage: https://github.com/jrhouston/tfk8s
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfk8s/blobs/sha256:f9b07f68aa49e570daa4a68138d7f16893d524b2e2715df5de719be05da6a61e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfk8s/blobs/sha256:bb61ac75407dd370ff45e09ff5624cd1db54714968fa0ad5c4731c0f2e733500
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfk8s/blobs/sha256:8abd3395c96d3cd264129a5811d98b07e010187b3c7bad9239a77d738c390e7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfk8s/blobs/sha256:5c5aeeca332a3116ad97a6eec394df57815c497b3c1a2f312a4c95c872ce12e9
+sha256:
+  darwin_arm64: f9b07f68aa49e570daa4a68138d7f16893d524b2e2715df5de719be05da6a61e
+  darwin_amd64: bb61ac75407dd370ff45e09ff5624cd1db54714968fa0ad5c4731c0f2e733500
+  linux_amd64: 8abd3395c96d3cd264129a5811d98b07e010187b3c7bad9239a77d738c390e7c
+  linux_arm64: 5c5aeeca332a3116ad97a6eec394df57815c497b3c1a2f312a4c95c872ce12e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: gtkglext
+version: 1.2.0
+description: OpenGL extension to GTK+
+homepage: https://gitlab.gnome.org/Archive/gtkglext
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtkglext/blobs/sha256:764e97c887571389641f45ef171ca06af71ac4bc5fcaaff56e85c9d663cad92a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtkglext/blobs/sha256:ea372181dc03023ea581b14ca996646f6da8cdb54d81911f5b999281c70ecdd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtkglext/blobs/sha256:bea86597c739ebbf55d551970dee174085bfc3d0c4d70f06f0cce969979ef2af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtkglext/blobs/sha256:8111b6fa90b879f9572ff71ebec5ff279bc5b4532c19f52331286f39783c04ab
+sha256:
+  darwin_arm64: 764e97c887571389641f45ef171ca06af71ac4bc5fcaaff56e85c9d663cad92a
+  darwin_amd64: ea372181dc03023ea581b14ca996646f6da8cdb54d81911f5b999281c70ecdd7
+  linux_amd64: bea86597c739ebbf55d551970dee174085bfc3d0c4d70f06f0cce969979ef2af
+  linux_arm64: 8111b6fa90b879f9572ff71ebec5ff279bc5b4532c19f52331286f39783c04ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk+
+  - pango
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz

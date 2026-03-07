@@ -1,0 +1,21 @@
+name: cocoapods
+version: 1.16.2
+description: Dependency manager for Cocoa projects
+homepage: https://cocoapods.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cocoapods/blobs/sha256:7e99020093a04819ec6b1641074829779977180837668593d1cefd9f5a1ac83f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cocoapods/blobs/sha256:be1632548200a7d64a0b80b6e6d0640674d7f3462d3ad64a2e31ea2882e44542
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cocoapods/blobs/sha256:fc455c1453ff790433e652d66b708c13fd295c2ec666074c4fd422fb9dfff37e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cocoapods/blobs/sha256:2e9d5a71964e1279d0157beaff7ab780807aeb455d4b466e5f12a54c66acc3cb
+sha256:
+  darwin_arm64: 7e99020093a04819ec6b1641074829779977180837668593d1cefd9f5a1ac83f
+  darwin_amd64: be1632548200a7d64a0b80b6e6d0640674d7f3462d3ad64a2e31ea2882e44542
+  linux_amd64: fc455c1453ff790433e652d66b708c13fd295c2ec666074c4fd422fb9dfff37e
+  linux_arm64: 2e9d5a71964e1279d0157beaff7ab780807aeb455d4b466e5f12a54c66acc3cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

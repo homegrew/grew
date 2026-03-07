@@ -1,0 +1,19 @@
+name: lazygit
+version: 0.59.0
+description: Simple terminal UI for git commands
+homepage: https://github.com/jesseduffield/lazygit/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lazygit/blobs/sha256:2843225fba69f1a2eef078bd7e45f251d9d09768d812d6a2d38ae786e6eb7442
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lazygit/blobs/sha256:fc62102ce042affe16e1700cbdafe45c6344f932d8a45a63e5d7f4ded9c24696
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lazygit/blobs/sha256:c33ae2332b07f1547508f4e196542727d2c9e5c7d42bf41723c5390f0c6f9f73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lazygit/blobs/sha256:8acccd38a2aea178be53d30b86981c0ef3cce6875e8e617c860abcb44fd4c5f0
+sha256:
+  darwin_arm64: 2843225fba69f1a2eef078bd7e45f251d9d09768d812d6a2d38ae786e6eb7442
+  darwin_amd64: fc62102ce042affe16e1700cbdafe45c6344f932d8a45a63e5d7f4ded9c24696
+  linux_amd64: c33ae2332b07f1547508f4e196542727d2c9e5c7d42bf41723c5390f0c6f9f73
+  linux_arm64: 8acccd38a2aea178be53d30b86981c0ef3cce6875e8e617c860abcb44fd4c5f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

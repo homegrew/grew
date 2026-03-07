@@ -1,0 +1,21 @@
+name: flang
+version: 22.1.0
+description: LLVM Fortran Frontend
+homepage: https://flang.llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flang/blobs/sha256:4ec2c6f9135acd3461e17adc6d15bd309649cb32d8ed9e1a863b7fda9daf0ae2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flang/blobs/sha256:a42320867afd81644bfd901f1de6471cbc55d7dfc17eafc9cb80586a3c7485a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flang/blobs/sha256:61a01b8eb5924ffa7e5c68fbfa290b667fe3e91c5bd27ff2bd39d877007c3ed0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flang/blobs/sha256:48a3416cacd9086226940b19d33b435a07844cab5293eade75727f07e24da001
+sha256:
+  darwin_arm64: 4ec2c6f9135acd3461e17adc6d15bd309649cb32d8ed9e1a863b7fda9daf0ae2
+  darwin_amd64: a42320867afd81644bfd901f1de6471cbc55d7dfc17eafc9cb80586a3c7485a6
+  linux_amd64: 61a01b8eb5924ffa7e5c68fbfa290b667fe3e91c5bd27ff2bd39d877007c3ed0
+  linux_arm64: 48a3416cacd9086226940b19d33b435a07844cab5293eade75727f07e24da001
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

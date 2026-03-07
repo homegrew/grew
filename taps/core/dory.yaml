@@ -1,0 +1,21 @@
+name: dory
+version: 1.2.0
+description: Development proxy for docker
+homepage: https://github.com/freedomben/dory
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dory/blobs/sha256:9c554cd1ff4108aa4262eb12aa832ecd12632c0781352e211d67a3ba3c28b630
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dory/blobs/sha256:2ab9300321c48cb22e9fb417d9f80b08def6219a4fc0fd1ea834e7ca43e50aee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dory/blobs/sha256:af4be9da0d1d895883e8527052f05d6c6d2da3c4c24bf123c62bc8dc4a0973d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dory/blobs/sha256:8238cb7a9ec990b6460404d79e97d9de59914803d0b9c6498f786194acf9eb17
+sha256:
+  darwin_arm64: 9c554cd1ff4108aa4262eb12aa832ecd12632c0781352e211d67a3ba3c28b630
+  darwin_amd64: 2ab9300321c48cb22e9fb417d9f80b08def6219a4fc0fd1ea834e7ca43e50aee
+  linux_amd64: af4be9da0d1d895883e8527052f05d6c6d2da3c4c24bf123c62bc8dc4a0973d4
+  linux_arm64: 8238cb7a9ec990b6460404d79e97d9de59914803d0b9c6498f786194acf9eb17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

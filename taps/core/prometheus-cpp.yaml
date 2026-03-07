@@ -1,0 +1,19 @@
+name: prometheus-cpp
+version: 1.3.0
+description: Prometheus Client Library for Modern C++
+homepage: https://github.com/jupp0r/prometheus-cpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prometheus-cpp/blobs/sha256:3660e1736e0bfcfe5209102c6fec8f01868a26c83fee73ae7cac08b29b25bc98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prometheus-cpp/blobs/sha256:ab1d6c1ba08b580de3b4035564a859080e2b9d04b5a86e1be8ff5926c6bb4b22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prometheus-cpp/blobs/sha256:009eb8e6fad556d9d251da2e45bfc897c74518adbb3dbc9b4d6d7f64a9c8ea04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prometheus-cpp/blobs/sha256:e9a5057a04ba0e13c78670a7dd4a9ab09dbfa1d578b835b00a6a3c91fcda5d1d
+sha256:
+  darwin_arm64: 3660e1736e0bfcfe5209102c6fec8f01868a26c83fee73ae7cac08b29b25bc98
+  darwin_amd64: ab1d6c1ba08b580de3b4035564a859080e2b9d04b5a86e1be8ff5926c6bb4b22
+  linux_amd64: 009eb8e6fad556d9d251da2e45bfc897c74518adbb3dbc9b4d6d7f64a9c8ea04
+  linux_arm64: e9a5057a04ba0e13c78670a7dd4a9ab09dbfa1d578b835b00a6a3c91fcda5d1d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

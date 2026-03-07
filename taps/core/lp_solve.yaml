@@ -1,0 +1,19 @@
+name: lp_solve
+version: 5.5.2.14
+description: Mixed integer linear programming solver
+homepage: https://lp-solve.github.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lp_solve/blobs/sha256:9b381a714eaa25ce7d9a31b7150e6198580f8dec50e2959447303ba44513f86d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lp_solve/blobs/sha256:e90df62cda38675941ee970bf8d8b097dd6f7bd9db7cdb121d3e8043729f2267
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lp_solve/blobs/sha256:118aa8d10143b14d6bbb0479a21702c256a9d891d22e0d937430eaee09478b65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lp_solve/blobs/sha256:e3c72e665dc3028438b1c3edacd247a7697471283a38c239219fcecf59d9d7c6
+sha256:
+  darwin_arm64: 9b381a714eaa25ce7d9a31b7150e6198580f8dec50e2959447303ba44513f86d
+  darwin_amd64: e90df62cda38675941ee970bf8d8b097dd6f7bd9db7cdb121d3e8043729f2267
+  linux_amd64: 118aa8d10143b14d6bbb0479a21702c256a9d891d22e0d937430eaee09478b65
+  linux_arm64: e3c72e665dc3028438b1c3edacd247a7697471283a38c239219fcecf59d9d7c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

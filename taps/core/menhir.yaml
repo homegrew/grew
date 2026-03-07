@@ -1,0 +1,21 @@
+name: menhir
+version: 20260209
+description: LR(1) parser generator for the OCaml programming language
+homepage: http://cristal.inria.fr/~fpottier/menhir
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/menhir/blobs/sha256:1862c8df45f52dc404b17fe9273be393cd9a95915f2d286f27f9319fb0e3371a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/menhir/blobs/sha256:8c7615312513871d4cf19ea6a1a5148992432b1df6118a11258503ebe63cf8f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/menhir/blobs/sha256:6b30a760335b79a8b54de203a47de4e1e66d93bf96551cb00ec1ddc234fd25d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/menhir/blobs/sha256:9fc0ee0e90cd8e7e838c1264e6e75f5b65f037c70252f9cd406157a61f2d6db5
+sha256:
+  darwin_arm64: 1862c8df45f52dc404b17fe9273be393cd9a95915f2d286f27f9319fb0e3371a
+  darwin_amd64: 8c7615312513871d4cf19ea6a1a5148992432b1df6118a11258503ebe63cf8f4
+  linux_amd64: 6b30a760335b79a8b54de203a47de4e1e66d93bf96551cb00ec1ddc234fd25d3
+  linux_arm64: 9fc0ee0e90cd8e7e838c1264e6e75f5b65f037c70252f9cd406157a61f2d6db5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

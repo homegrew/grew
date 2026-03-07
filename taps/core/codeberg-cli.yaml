@@ -1,0 +1,21 @@
+name: codeberg-cli
+version: 0.5.5
+description: CLI for Codeberg
+homepage: https://codeberg.org/Aviac/codeberg-cli
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codeberg-cli/blobs/sha256:8bd5f830c3221b1ac74d72d87d2fc73e56600dc2136089223f4e1b254d12f49f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codeberg-cli/blobs/sha256:6d5995f7e35e1db9126b3777c035b0848915e4cb1b738d2e57230583dee34b58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codeberg-cli/blobs/sha256:12d605e557b17e8a81d430e8d5a8bae6aec6b6206b015506a4ed8adfc497a5d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codeberg-cli/blobs/sha256:c92e3099bddbb7a90d72b69e6d829d203202361e123072fc11838b77b48ecd72
+sha256:
+  darwin_arm64: 8bd5f830c3221b1ac74d72d87d2fc73e56600dc2136089223f4e1b254d12f49f
+  darwin_amd64: 6d5995f7e35e1db9126b3777c035b0848915e4cb1b738d2e57230583dee34b58
+  linux_amd64: 12d605e557b17e8a81d430e8d5a8bae6aec6b6206b015506a4ed8adfc497a5d2
+  linux_arm64: c92e3099bddbb7a90d72b69e6d829d203202361e123072fc11838b77b48ecd72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

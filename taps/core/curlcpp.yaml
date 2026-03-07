@@ -1,0 +1,19 @@
+name: curlcpp
+version: 3.1
+description: Object oriented C++ wrapper for CURL (libcurl)
+homepage: https://josephp91.github.io/curlcpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/curlcpp/blobs/sha256:fe8f2d32c516113abdc6caa797a8d42f11ca2aa9fbb618043ec76cbbab0749a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/curlcpp/blobs/sha256:38e40220123c5b9ffde970e0ba30d802b54caef5782019935677f597829ec37a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/curlcpp/blobs/sha256:c7b8f28ef1d8782146a24e1687c1044b5f10149c721b098bf4514f8186b9649d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/curlcpp/blobs/sha256:15859545f41a80de5e299a010837b61f5c9b6cd77f9433ab595061009f932737
+sha256:
+  darwin_arm64: fe8f2d32c516113abdc6caa797a8d42f11ca2aa9fbb618043ec76cbbab0749a1
+  darwin_amd64: 38e40220123c5b9ffde970e0ba30d802b54caef5782019935677f597829ec37a
+  linux_amd64: c7b8f28ef1d8782146a24e1687c1044b5f10149c721b098bf4514f8186b9649d
+  linux_arm64: 15859545f41a80de5e299a010837b61f5c9b6cd77f9433ab595061009f932737
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

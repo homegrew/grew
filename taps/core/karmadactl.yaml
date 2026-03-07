@@ -1,0 +1,19 @@
+name: karmadactl
+version: 1.17.0
+description: CLI for Karmada control plane
+homepage: https://karmada.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/karmadactl/blobs/sha256:8d14e02b7ff8fe51bbdacc881a811a3322c5c6f3fd2b4fe0230d42951ae43b5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/karmadactl/blobs/sha256:86d05e2fd22d06d9090c12c05364eefa7d9d5f582c5659a52cc113378536197d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/karmadactl/blobs/sha256:96d14665627931d37c7598613db2b5840746f23cef448d20602d3c598c35d791
+  linux_arm64: https://ghcr.io/v2/homebrew/core/karmadactl/blobs/sha256:5402f9b9851b85279f1a2848f54388ea0f83b4f6a2b18b1bb62db41d1475fbd6
+sha256:
+  darwin_arm64: 8d14e02b7ff8fe51bbdacc881a811a3322c5c6f3fd2b4fe0230d42951ae43b5f
+  darwin_amd64: 86d05e2fd22d06d9090c12c05364eefa7d9d5f582c5659a52cc113378536197d
+  linux_amd64: 96d14665627931d37c7598613db2b5840746f23cef448d20602d3c598c35d791
+  linux_arm64: 5402f9b9851b85279f1a2848f54388ea0f83b4f6a2b18b1bb62db41d1475fbd6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

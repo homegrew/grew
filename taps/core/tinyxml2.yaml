@@ -1,0 +1,19 @@
+name: tinyxml2
+version: 11.0.0
+description: Improved tinyxml (in memory efficiency and size)
+homepage: https://leethomason.github.io/tinyxml2/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinyxml2/blobs/sha256:13273ba8306a9e264423051435f0af43915ab99d865a537e39bf4fb517e06c24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinyxml2/blobs/sha256:7e9a788c39b407964a7c3fe4314597f9dcd79ccfb2e0285bed668400a683f656
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinyxml2/blobs/sha256:13c9eee32ef5d3a82e63177c56653c9514b179a4c07f42c4b1bccbae27e0670b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinyxml2/blobs/sha256:e7f5f7fc450393d4fc812c231db8b66464ee6f40be800b5e77bfb89ea819e6b6
+sha256:
+  darwin_arm64: 13273ba8306a9e264423051435f0af43915ab99d865a537e39bf4fb517e06c24
+  darwin_amd64: 7e9a788c39b407964a7c3fe4314597f9dcd79ccfb2e0285bed668400a683f656
+  linux_amd64: 13c9eee32ef5d3a82e63177c56653c9514b179a4c07f42c4b1bccbae27e0670b
+  linux_arm64: e7f5f7fc450393d4fc812c231db8b66464ee6f40be800b5e77bfb89ea819e6b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

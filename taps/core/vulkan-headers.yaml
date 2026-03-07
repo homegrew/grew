@@ -1,0 +1,19 @@
+name: vulkan-headers
+version: 1.4.341.0
+description: Vulkan Header files and API registry
+homepage: https://github.com/KhronosGroup/Vulkan-Headers
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-headers/blobs/sha256:b1c04ae00c5603d90d9dec39386d824bc75239abc3d3b58b1404bfe4ce891cdd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-headers/blobs/sha256:bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-headers/blobs/sha256:bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-headers/blobs/sha256:bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+sha256:
+  darwin_arm64: b1c04ae00c5603d90d9dec39386d824bc75239abc3d3b58b1404bfe4ce891cdd
+  darwin_amd64: bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+  linux_amd64: bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+  linux_arm64: bf673dbeb19b05465c269952cc2a46f6c17210209899c0252162f33bb3b4b633
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

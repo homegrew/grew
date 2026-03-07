@@ -1,0 +1,21 @@
+name: jsrepo
+version: 3.6.2
+description: Build and distribute your code
+homepage: https://jsrepo.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsrepo/blobs/sha256:71c797ccdd38d24c85c2122ec038d703e0a5b4187b123c45f326f0fe38b35ce7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsrepo/blobs/sha256:4254d177cbecf02a97158fd7ca328a00f6a07c35fe222776e9cdd60e0e5f1cd5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsrepo/blobs/sha256:d0ba3253ad100d1a8fdd868f1dc5bc0fd2543c5a62d99da9d849df4467d373fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsrepo/blobs/sha256:251f807282ea2af395b3086ff177f2962a98cb4bc7861b7c165a6d346d8cadfc
+sha256:
+  darwin_arm64: 71c797ccdd38d24c85c2122ec038d703e0a5b4187b123c45f326f0fe38b35ce7
+  darwin_amd64: 4254d177cbecf02a97158fd7ca328a00f6a07c35fe222776e9cdd60e0e5f1cd5
+  linux_amd64: d0ba3253ad100d1a8fdd868f1dc5bc0fd2543c5a62d99da9d849df4467d373fd
+  linux_arm64: 251f807282ea2af395b3086ff177f2962a98cb4bc7861b7c165a6d346d8cadfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

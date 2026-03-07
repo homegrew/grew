@@ -1,0 +1,19 @@
+name: diffutils
+version: 3.12
+description: File comparison utilities
+homepage: https://www.gnu.org/software/diffutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diffutils/blobs/sha256:380bbf30a86eed3cc85348f32fc17062840a11a7b2e5568c3efeac866c191640
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diffutils/blobs/sha256:710e012f9f4c1f2f4cbd489741e98ac26d3e48133bb5c1c2cad3d6e08d64a5d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diffutils/blobs/sha256:0d9d0320b98b399c0f3f1f0ec76b83192bbf74b393105b198c2322285ed08f12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diffutils/blobs/sha256:19f90006aba953a5396e794b938ae06a95f98ddcb56a505646ebe95ca0a56d07
+sha256:
+  darwin_arm64: 380bbf30a86eed3cc85348f32fc17062840a11a7b2e5568c3efeac866c191640
+  darwin_amd64: 710e012f9f4c1f2f4cbd489741e98ac26d3e48133bb5c1c2cad3d6e08d64a5d8
+  linux_amd64: 0d9d0320b98b399c0f3f1f0ec76b83192bbf74b393105b198c2322285ed08f12
+  linux_arm64: 19f90006aba953a5396e794b938ae06a95f98ddcb56a505646ebe95ca0a56d07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

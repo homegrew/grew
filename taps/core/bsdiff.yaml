@@ -1,0 +1,19 @@
+name: bsdiff
+version: 4.3
+description: Generate and apply patches to binary files
+homepage: https://www.daemonology.net/bsdiff/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bsdiff/blobs/sha256:c1b39ac523c9bb26c5b194c20451b28be15bf1a8a5b59bab50a517f7619c472d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bsdiff/blobs/sha256:ebe5b95b664031daacd3c13c259b36dacf96b014de8f391ba3c16049764758f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bsdiff/blobs/sha256:a48ec4c541d81798cb3ba5706f031a7e71a8da01154eef1df353a729d2614130
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bsdiff/blobs/sha256:bb201ab0bfbc684057c632420b2a69c2b568ccf547a7c121096806bd6c836d8f
+sha256:
+  darwin_arm64: c1b39ac523c9bb26c5b194c20451b28be15bf1a8a5b59bab50a517f7619c472d
+  darwin_amd64: ebe5b95b664031daacd3c13c259b36dacf96b014de8f391ba3c16049764758f0
+  linux_amd64: a48ec4c541d81798cb3ba5706f031a7e71a8da01154eef1df353a729d2614130
+  linux_arm64: bb201ab0bfbc684057c632420b2a69c2b568ccf547a7c121096806bd6c836d8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

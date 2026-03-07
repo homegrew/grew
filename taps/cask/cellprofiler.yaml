@@ -1,0 +1,11 @@
+name: cellprofiler
+version: 4.2.8
+description: Open-source application for biological image analysis
+homepage: https://cellprofiler.org/
+url:
+  darwin_arm64: https://github.com/CellProfiler/CellProfiler/releases/download/v4.2.8/CellProfiler-macOS-4.2.8.zip
+sha256:
+  darwin_arm64: bb9bf8e90cb0271453ec3e77d5f55e923a0d98485d99bde4a877130978efc52c
+artifacts:
+  app:
+    - CellProfiler.app

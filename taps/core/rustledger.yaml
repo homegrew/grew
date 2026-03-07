@@ -1,0 +1,19 @@
+name: rustledger
+version: 0.9.1
+description: Fast, pure Rust implementation of Beancount double-entry accounting
+homepage: https://rustledger.github.io
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustledger/blobs/sha256:6ade41757a17044cac747b4b57b681d7702b6942eb870c8c770d0ddb04981caf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustledger/blobs/sha256:7e7596d7e1357d7c961b2c543fc612f236d82d445fade73bcc95b89310dea32a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustledger/blobs/sha256:79047b0a2e8e838c31d55b78291a924c4216f48e382639a937cd7be611141722
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustledger/blobs/sha256:fddb6ed2b845240f23e109c0ac81be444f3914094b283bffbee53d6ba2d58a9f
+sha256:
+  darwin_arm64: 6ade41757a17044cac747b4b57b681d7702b6942eb870c8c770d0ddb04981caf
+  darwin_amd64: 7e7596d7e1357d7c961b2c543fc612f236d82d445fade73bcc95b89310dea32a
+  linux_amd64: 79047b0a2e8e838c31d55b78291a924c4216f48e382639a937cd7be611141722
+  linux_arm64: fddb6ed2b845240f23e109c0ac81be444f3914094b283bffbee53d6ba2d58a9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

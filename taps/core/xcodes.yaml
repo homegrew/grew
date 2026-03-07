@@ -1,0 +1,15 @@
+name: xcodes
+version: 1.6.2
+description: Best command-line tool to install and switch between multiple versions of Xcode
+homepage: https://github.com/XcodesOrg/xcodes
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcodes/blobs/sha256:dfc27a53e26ae6745593dbf7acb43f6165ddf918cfa1a2bac73666f974c7ba3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcodes/blobs/sha256:147e32b89cab5d9e267170902e4a858b00fd45f0cb8b2f2b43ae98a5c3e3a1ae
+sha256:
+  darwin_arm64: dfc27a53e26ae6745593dbf7acb43f6165ddf918cfa1a2bac73666f974c7ba3c
+  darwin_amd64: 147e32b89cab5d9e267170902e4a858b00fd45f0cb8b2f2b43ae98a5c3e3a1ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

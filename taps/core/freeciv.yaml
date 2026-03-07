@@ -1,0 +1,36 @@
+name: freeciv
+version: 3.2.3
+description: Free and Open Source empire-building strategy game
+homepage: https://freeciv.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freeciv/blobs/sha256:3cbe6eaa8f40c6e4644eb1bb7d5af97f3425fd1f3378ff7d133c6673780c6e18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freeciv/blobs/sha256:f34c1a025f36b55ac16f1790b6f9e282c299a61bf4fc1f19cad9d55f16a8852f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freeciv/blobs/sha256:9a114b68ec923737b713e617b4cc19c5ad25113ca27ccda5beb382dae48a1cae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freeciv/blobs/sha256:f926a11483072bd11599bfe1fead4d63a6a42955b217139f5d48e31b431ac468
+sha256:
+  darwin_arm64: 3cbe6eaa8f40c6e4644eb1bb7d5af97f3425fd1f3378ff7d133c6673780c6e18
+  darwin_amd64: f34c1a025f36b55ac16f1790b6f9e282c299a61bf4fc1f19cad9d55f16a8852f
+  linux_amd64: 9a114b68ec923737b713e617b4cc19c5ad25113ca27ccda5beb382dae48a1cae
+  linux_arm64: f926a11483072bd11599bfe1fead4d63a6a42955b217139f5d48e31b431ac468
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - at-spi2-core
+  - cairo
+  - freetype
+  - gdk-pixbuf
+  - gettext
+  - glib
+  - gtk+3
+  - harfbuzz
+  - icu4c@78
+  - pango
+  - readline
+  - sdl2
+  - sdl2_mixer
+  - sqlite
+  - zstd

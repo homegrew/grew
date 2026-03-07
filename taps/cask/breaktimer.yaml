@@ -1,0 +1,13 @@
+name: breaktimer
+version: 2.0.3
+description: Tool to manage periodic breaks
+homepage: https://breaktimer.app/
+url:
+  darwin_arm64: https://github.com/tom-james-watson/breaktimer-app/releases/download/v2.0.3/BreakTimer.dmg
+sha256:
+  darwin_arm64: 2b5d3d3a8b9b85c5f41b4eb4384a341ecf6d7d2c0b377619e051a97ceb9ebfdd
+artifacts:
+  app:
+    - BreakTimer.app
+  bin:
+    - breaktimer

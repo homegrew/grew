@@ -1,0 +1,19 @@
+name: dtm
+version: 1.19.0
+description: Cross-language distributed transaction manager
+homepage: https://en.dtm.pub/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dtm/blobs/sha256:9156f67d4bcb54b15e9ee5b1046c4fd71fed0f1e2770c326f158a519384b7bf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dtm/blobs/sha256:cb8953792e5ca9d7edd4f56547f3f333ff6bb34de276f60781edd57acedc1288
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dtm/blobs/sha256:a2def5327f55d8f789fa34bbe6ad73606bbe2807d42a59026f04130456fac0cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dtm/blobs/sha256:31c5da9b3ef4d90e2612b6b0141f4b105a4e641d595bde14df75647726498cd9
+sha256:
+  darwin_arm64: 9156f67d4bcb54b15e9ee5b1046c4fd71fed0f1e2770c326f158a519384b7bf7
+  darwin_amd64: cb8953792e5ca9d7edd4f56547f3f333ff6bb34de276f60781edd57acedc1288
+  linux_amd64: a2def5327f55d8f789fa34bbe6ad73606bbe2807d42a59026f04130456fac0cb
+  linux_arm64: 31c5da9b3ef4d90e2612b6b0141f4b105a4e641d595bde14df75647726498cd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

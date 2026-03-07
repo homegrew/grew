@@ -1,0 +1,22 @@
+name: openblas64
+version: 0.3.31
+description: Optimized BLAS library
+homepage: https://www.openblas.net/
+license: BSD-3-Clause AND BSD-2-Clause-Views AND BSD-3-Clause-Open-MPI AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openblas64/blobs/sha256:323037b68d15849767eb83b9ab4713699fdbea58ab23a7daca129d3587e85634
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openblas64/blobs/sha256:8e47cd44fadc91e0ca0798bfd7b978a9af9a4f62f3a0ad2becdcdebd795fce5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openblas64/blobs/sha256:09214737899815592e1ec220e5eb65e9804c44c2514513f59c1885971baf1c52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openblas64/blobs/sha256:8648f7bf778b0c078cdb5aaac6eebc037dfe3363f02d384dbded413bc234ac4a
+sha256:
+  darwin_arm64: 323037b68d15849767eb83b9ab4713699fdbea58ab23a7daca129d3587e85634
+  darwin_amd64: 8e47cd44fadc91e0ca0798bfd7b978a9af9a4f62f3a0ad2becdcdebd795fce5a
+  linux_amd64: 09214737899815592e1ec220e5eb65e9804c44c2514513f59c1885971baf1c52
+  linux_arm64: 8648f7bf778b0c078cdb5aaac6eebc037dfe3363f02d384dbded413bc234ac4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+keg_only: true

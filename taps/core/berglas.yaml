@@ -1,0 +1,19 @@
+name: berglas
+version: 2.0.10
+description: Tool for managing secrets on Google Cloud
+homepage: https://github.com/GoogleCloudPlatform/berglas
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/berglas/blobs/sha256:e5edffc0b04809e14dc257028bc2c1ab2b64d363a65df5d69b4255fff02a874e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/berglas/blobs/sha256:24162cc07a5f7e9a78ab089792d94bffe786d3d1ae56406e29fe48c986dec8f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/berglas/blobs/sha256:a52c8f50ae26f61411fe2dc136c298724ba99afc3c662a78628c383ea0dd56a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/berglas/blobs/sha256:77d9b4db64dbab7bd2ff8245e7ffd9226eb3063fd1ab32483f8ce4e70d617ee4
+sha256:
+  darwin_arm64: e5edffc0b04809e14dc257028bc2c1ab2b64d363a65df5d69b4255fff02a874e
+  darwin_amd64: 24162cc07a5f7e9a78ab089792d94bffe786d3d1ae56406e29fe48c986dec8f9
+  linux_amd64: a52c8f50ae26f61411fe2dc136c298724ba99afc3c662a78628c383ea0dd56a2
+  linux_arm64: 77d9b4db64dbab7bd2ff8245e7ffd9226eb3063fd1ab32483f8ce4e70d617ee4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

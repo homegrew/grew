@@ -1,0 +1,26 @@
+name: singular
+version: 4.4.1p5
+description: Computer algebra system for polynomial computations
+homepage: https://www.singular.uni-kl.de/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/singular/blobs/sha256:531f23bff6faf97c1138bf8cdab032b443ca29ff9da7fdb216edcf1725325c6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/singular/blobs/sha256:b42e668e2d9fec7d3b177b4301d6cb4f8fd656a45873860355d8c7dce58e72b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/singular/blobs/sha256:b5afffd6561c4d392f53700e22de548aa57d4e417891bb0bcee8a2e748cdf3a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/singular/blobs/sha256:5073d73746fabf41d5c4a54c4a905476e2092b8eb178245e9170f3575d779422
+sha256:
+  darwin_arm64: 531f23bff6faf97c1138bf8cdab032b443ca29ff9da7fdb216edcf1725325c6b
+  darwin_amd64: b42e668e2d9fec7d3b177b4301d6cb4f8fd656a45873860355d8c7dce58e72b4
+  linux_amd64: b5afffd6561c4d392f53700e22de548aa57d4e417891bb0bcee8a2e748cdf3a9
+  linux_arm64: 5073d73746fabf41d5c4a54c4a905476e2092b8eb178245e9170f3575d779422
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flint
+  - gmp
+  - mpfr
+  - ntl
+  - python@3.14
+  - readline

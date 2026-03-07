@@ -1,0 +1,23 @@
+name: streamlink
+version: 8.2.1
+description: CLI for extracting streams from various websites to a video player
+homepage: https://streamlink.github.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/streamlink/blobs/sha256:2db710ae92fec783dbdf26032e3146a187af6de754d385528318fe54198a1eea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/streamlink/blobs/sha256:d83f87e64f9cbdf9c6f172c2c41598dc9761ca278416ab804e907d9709cce7fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/streamlink/blobs/sha256:67634ab56b48b788bc9ca71da86d372ce4b87462d953f9d027c8d0903a5c522d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/streamlink/blobs/sha256:f97b39ffd0c8693fc700fa7b6c692d851b6484e7e9e7859a1e9bc95472e57c78
+sha256:
+  darwin_arm64: 2db710ae92fec783dbdf26032e3146a187af6de754d385528318fe54198a1eea
+  darwin_amd64: d83f87e64f9cbdf9c6f172c2c41598dc9761ca278416ab804e907d9709cce7fc
+  linux_amd64: 67634ab56b48b788bc9ca71da86d372ce4b87462d953f9d027c8d0903a5c522d
+  linux_arm64: f97b39ffd0c8693fc700fa7b6c692d851b6484e7e9e7859a1e9bc95472e57c78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libxml2
+  - python@3.14

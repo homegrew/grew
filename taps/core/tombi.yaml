@@ -1,0 +1,19 @@
+name: tombi
+version: 0.9.2
+description: TOML formatter, linter and language server
+homepage: https://github.com/tombi-toml/tombi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tombi/blobs/sha256:60777dad56ff159a552952d03ed346cf838abf11fe568fff3b977f0698b1334e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tombi/blobs/sha256:bdc0cc6f3b0888eef2afb9498e038ce22c9fab62739366298fcf5ef2c640acd3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tombi/blobs/sha256:00d602b3e869086604c4a638257198c8c2ee002cf1f5861bc46cadf3b169f6d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tombi/blobs/sha256:de3519242a66e4d0e5d77d54701af885adc443e4ba28a5c21be65232f20eea81
+sha256:
+  darwin_arm64: 60777dad56ff159a552952d03ed346cf838abf11fe568fff3b977f0698b1334e
+  darwin_amd64: bdc0cc6f3b0888eef2afb9498e038ce22c9fab62739366298fcf5ef2c640acd3
+  linux_amd64: 00d602b3e869086604c4a638257198c8c2ee002cf1f5861bc46cadf3b169f6d0
+  linux_arm64: de3519242a66e4d0e5d77d54701af885adc443e4ba28a5c21be65232f20eea81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

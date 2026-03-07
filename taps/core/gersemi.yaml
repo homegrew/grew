@@ -1,0 +1,22 @@
+name: gersemi
+version: 0.26.0
+description: Formatter to make your CMake code the real treasure
+homepage: https://github.com/BlankSpruce/gersemi
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gersemi/blobs/sha256:b88f81997fcaa33113302a555bbe0612d5da1d3d29809256f29a17d52f18d646
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gersemi/blobs/sha256:61af484b8e69ef59706167487e2372de164688b9dfd8b6de0b0ffbcec393dd48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gersemi/blobs/sha256:5acf1dc13c89822a49571c3b83d4bfdbb6c455db124de3e4ed9348cf11b78944
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gersemi/blobs/sha256:6a1326fba218b208705f43265d9f859e8b3416cbaeddd6c96310b8fcab57b4d9
+sha256:
+  darwin_arm64: b88f81997fcaa33113302a555bbe0612d5da1d3d29809256f29a17d52f18d646
+  darwin_amd64: 61af484b8e69ef59706167487e2372de164688b9dfd8b6de0b0ffbcec393dd48
+  linux_amd64: 5acf1dc13c89822a49571c3b83d4bfdbb6c455db124de3e4ed9348cf11b78944
+  linux_arm64: 6a1326fba218b208705f43265d9f859e8b3416cbaeddd6c96310b8fcab57b4d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

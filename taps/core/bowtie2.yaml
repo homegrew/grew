@@ -1,0 +1,19 @@
+name: bowtie2
+version: 2.5.5
+description: Fast and sensitive gapped read aligner
+homepage: https://bowtie-bio.sourceforge.net/bowtie2/index.shtml
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bowtie2/blobs/sha256:9a579b7a13533d8e7a1eb74bed904affcae752eaa0e89599e54cb6c475b1806c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bowtie2/blobs/sha256:6959f00c38e6a7158236ece9d7da060db011b8bf30ebe7398688696a4c9d8c2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bowtie2/blobs/sha256:f156398c3ed61a93d970f69a818de0d4c29ab851a81501fcc7ecad6a8d547565
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bowtie2/blobs/sha256:315aaa40fec3ebd1ff2082647b49922f359707dcef169ac25f6d5bf5bad7c1e4
+sha256:
+  darwin_arm64: 9a579b7a13533d8e7a1eb74bed904affcae752eaa0e89599e54cb6c475b1806c
+  darwin_amd64: 6959f00c38e6a7158236ece9d7da060db011b8bf30ebe7398688696a4c9d8c2c
+  linux_amd64: f156398c3ed61a93d970f69a818de0d4c29ab851a81501fcc7ecad6a8d547565
+  linux_arm64: 315aaa40fec3ebd1ff2082647b49922f359707dcef169ac25f6d5bf5bad7c1e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

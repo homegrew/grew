@@ -1,0 +1,19 @@
+name: libpaper
+version: 2.2.7
+description: Library for handling paper characteristics
+homepage: https://github.com/rrthomas/libpaper
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpaper/blobs/sha256:9237f117ff7639ec37411bc1186b1c857d83460a4c4309ec4cbdce0286c829ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpaper/blobs/sha256:32b59bfd2d5a0b5e036a90dc63ab5a2b8826d6f3ca863b2c92e999a7df4e53d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpaper/blobs/sha256:2e5c313c3f87f029c4dc2bd6e6c084ddfbed6ff40e322572b5e806e79a1efaa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpaper/blobs/sha256:ae03dd149881ec2ccb3790da8949ad2945b0cc96c02615c6764998ba1ed17342
+sha256:
+  darwin_arm64: 9237f117ff7639ec37411bc1186b1c857d83460a4c4309ec4cbdce0286c829ff
+  darwin_amd64: 32b59bfd2d5a0b5e036a90dc63ab5a2b8826d6f3ca863b2c92e999a7df4e53d9
+  linux_amd64: 2e5c313c3f87f029c4dc2bd6e6c084ddfbed6ff40e322572b5e806e79a1efaa1
+  linux_arm64: ae03dd149881ec2ccb3790da8949ad2945b0cc96c02615c6764998ba1ed17342
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

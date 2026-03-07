@@ -1,0 +1,15 @@
+name: pngpaste
+version: 0.2.3
+description: Paste PNG into files
+homepage: https://github.com/jcsalterego/pngpaste
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pngpaste/blobs/sha256:54f10ac12b67938941a167fd959d4bda563c37a23b4cf1407513e855f75fba78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pngpaste/blobs/sha256:c7dca23ac978315853e90df0fd9da592b219837a0493858a33db081246d98ead
+sha256:
+  darwin_arm64: 54f10ac12b67938941a167fd959d4bda563c37a23b4cf1407513e855f75fba78
+  darwin_amd64: c7dca23ac978315853e90df0fd9da592b219837a0493858a33db081246d98ead
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

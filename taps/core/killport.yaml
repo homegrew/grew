@@ -1,0 +1,19 @@
+name: killport
+version: 1.1.0
+description: Command-line tool to kill processes listening on a specific port
+homepage: https://github.com/jkfran/killport
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/killport/blobs/sha256:8df801d20f19d741790d393f1ee5632eb1a184378c144698a6177466b48fcf0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/killport/blobs/sha256:b2451687c821568ddb1c706eefa036ebb0551932a5d73ccbc10f88611d5250ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/killport/blobs/sha256:788d987c23de2c4d5ba55833462bc7cf60a5f6844e5682e827a242fa5837e3ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/killport/blobs/sha256:ab337ebd0cf408b03c3a765581986c92baf8fe0f230d8e90f3ee158c81997dc6
+sha256:
+  darwin_arm64: 8df801d20f19d741790d393f1ee5632eb1a184378c144698a6177466b48fcf0c
+  darwin_amd64: b2451687c821568ddb1c706eefa036ebb0551932a5d73ccbc10f88611d5250ce
+  linux_amd64: 788d987c23de2c4d5ba55833462bc7cf60a5f6844e5682e827a242fa5837e3ef
+  linux_arm64: ab337ebd0cf408b03c3a765581986c92baf8fe0f230d8e90f3ee158c81997dc6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

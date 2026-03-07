@@ -1,0 +1,19 @@
+name: kubernetes-mcp-server
+version: 0.0.58
+description: MCP server for Kubernetes
+homepage: https://github.com/containers/kubernetes-mcp-server
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubernetes-mcp-server/blobs/sha256:5876098354693e497008da87290c1e4d70ec063a11f7014f3850a84d4061d6dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubernetes-mcp-server/blobs/sha256:29a920cc2e0bf7c9c72804088c55a4a9efbd2a131286c63536c5096868630505
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubernetes-mcp-server/blobs/sha256:0c1e2dfe485cddc95bd4de0a7b4a28c316e1e3338c0f5d3636536edcf469a1e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubernetes-mcp-server/blobs/sha256:f5a54d4fa9442c0d397aec67ac5109662603a721a1b457d0968edff967f82afc
+sha256:
+  darwin_arm64: 5876098354693e497008da87290c1e4d70ec063a11f7014f3850a84d4061d6dc
+  darwin_amd64: 29a920cc2e0bf7c9c72804088c55a4a9efbd2a131286c63536c5096868630505
+  linux_amd64: 0c1e2dfe485cddc95bd4de0a7b4a28c316e1e3338c0f5d3636536edcf469a1e0
+  linux_arm64: f5a54d4fa9442c0d397aec67ac5109662603a721a1b457d0968edff967f82afc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

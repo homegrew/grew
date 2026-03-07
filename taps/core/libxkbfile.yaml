@@ -1,0 +1,21 @@
+name: libxkbfile
+version: 1.2.0
+description: "X.Org: XKB file handling routines"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxkbfile/blobs/sha256:d232816434655702f1c58d0d1039355d200d8285ebcc02b0680942b4747f4015
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxkbfile/blobs/sha256:d8ef47a92bf49fa2bc0e6e9716b8ffea0bb76d658492a6c9f4ec915780a2b8d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxkbfile/blobs/sha256:72f1360f77a0daced0f3259762db1cc220369f8d7913af25246d8ddee7ef9d8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxkbfile/blobs/sha256:f6b64ee60afd0f86b821e1d61d6d8dedfb1f36feca8c95fcfb2f93745c494b57
+sha256:
+  darwin_arm64: d232816434655702f1c58d0d1039355d200d8285ebcc02b0680942b4747f4015
+  darwin_amd64: d8ef47a92bf49fa2bc0e6e9716b8ffea0bb76d658492a6c9f4ec915780a2b8d6
+  linux_amd64: 72f1360f77a0daced0f3259762db1cc220369f8d7913af25246d8ddee7ef9d8d
+  linux_arm64: f6b64ee60afd0f86b821e1d61d6d8dedfb1f36feca8c95fcfb2f93745c494b57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11

@@ -1,0 +1,13 @@
+name: meld
+version: 3.22.3+105
+description: Visual diff and merge tool
+homepage: https://gitlab.com/dehesselle/meld_macos
+url:
+  darwin_arm64: https://gitlab.com/api/v4/projects/51547804/packages/generic/meld_macos/3.22.3+105/Meld-3.22.3+105_arm64.dmg
+sha256:
+  darwin_arm64: aea65bbe21842e9c2e72c547df996858abbe05b2610c583f5121215556009527
+artifacts:
+  app:
+    - Meld.app
+  bin:
+    - meld

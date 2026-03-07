@@ -1,0 +1,22 @@
+name: sacad
+version: 2.8.3
+description: Automatic cover art downloader
+homepage: https://github.com/desbma/sacad
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sacad/blobs/sha256:369bc088019b00956881096cd95dbc7fc1ceac4d40645707186a873f4cfb84d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sacad/blobs/sha256:91cc0cca20ebc40ae80c056b3b48450e9f4a0a52b64be144c4ccd868a4ef9cff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sacad/blobs/sha256:93f690e9844a77b36d46d100c6d329ba03b9ebc447d6f10c335f52bd3ef0bf29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sacad/blobs/sha256:5787ee410c86eace196d9fd6a337037f1b9a420e9f40de9acd136f3294e64596
+sha256:
+  darwin_arm64: 369bc088019b00956881096cd95dbc7fc1ceac4d40645707186a873f4cfb84d8
+  darwin_amd64: 91cc0cca20ebc40ae80c056b3b48450e9f4a0a52b64be144c4ccd868a4ef9cff
+  linux_amd64: 93f690e9844a77b36d46d100c6d329ba03b9ebc447d6f10c335f52bd3ef0bf29
+  linux_arm64: 5787ee410c86eace196d9fd6a337037f1b9a420e9f40de9acd136f3294e64596
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pillow
+  - python@3.14

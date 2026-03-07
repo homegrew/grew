@@ -1,0 +1,19 @@
+name: ctags
+version: 5.8
+description: Reimplementation of ctags(1)
+homepage: https://ctags.sourceforge.net/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctags/blobs/sha256:1b09e6e1c3e9649115863ee3cea2062958a73f832210c98061679f217f3ad98a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctags/blobs/sha256:a421a97ec72230b9a77ee06040aa5cae3170974a0fb5e130938df3bed16eb6e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctags/blobs/sha256:b8630326626ccee22ad669f9e7c459735a8dc72c765ae40ec218f31e015dc76a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctags/blobs/sha256:7300588a624817e1bc68e4fac3a1cb1dec65cfb7073c383910b6ace2d87ddea9
+sha256:
+  darwin_arm64: 1b09e6e1c3e9649115863ee3cea2062958a73f832210c98061679f217f3ad98a
+  darwin_amd64: a421a97ec72230b9a77ee06040aa5cae3170974a0fb5e130938df3bed16eb6e8
+  linux_amd64: b8630326626ccee22ad669f9e7c459735a8dc72c765ae40ec218f31e015dc76a
+  linux_arm64: 7300588a624817e1bc68e4fac3a1cb1dec65cfb7073c383910b6ace2d87ddea9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

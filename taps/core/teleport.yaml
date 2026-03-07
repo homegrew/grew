@@ -1,0 +1,22 @@
+name: teleport
+version: 18.7.2
+description: Modern SSH server for teams managing distributed infrastructure
+homepage: https://goteleport.com/
+license: AGPL-3.0-or-later AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/teleport/blobs/sha256:1ad043ee3ec284145e3dc1dd3518afb57c3cdc03caaaaa94d9d384599954be78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/teleport/blobs/sha256:58fc2847bd80280b649ec941274cc5f374b041f36ce81b403e74a8f9911e6948
+  linux_amd64: https://ghcr.io/v2/homebrew/core/teleport/blobs/sha256:86f3a52f196a8a5d3ab3c68f7f5100935e53b5cf15fbf6ce77b64ee905ba877d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/teleport/blobs/sha256:c874ba53a8ff32d46a27edaffa65e031b527b914a423f9a76eb6a46025da8b70
+sha256:
+  darwin_arm64: 1ad043ee3ec284145e3dc1dd3518afb57c3cdc03caaaaa94d9d384599954be78
+  darwin_amd64: 58fc2847bd80280b649ec941274cc5f374b041f36ce81b403e74a8f9911e6948
+  linux_amd64: 86f3a52f196a8a5d3ab3c68f7f5100935e53b5cf15fbf6ce77b64ee905ba877d
+  linux_arm64: c874ba53a8ff32d46a27edaffa65e031b527b914a423f9a76eb6a46025da8b70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfido2
+  - openssl@3

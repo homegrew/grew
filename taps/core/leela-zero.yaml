@@ -1,0 +1,21 @@
+name: leela-zero
+version: 0.17
+description: Neural Network Go engine with no human-provided knowledge
+homepage: https://zero.sjeng.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/leela-zero/blobs/sha256:8ccf615e92183ab7d8f06a8148e89ebe79c45e0f3e12ba4c845d15ec9492542d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/leela-zero/blobs/sha256:9b671b74931247c299cc35f74154b3e433aab14ce3beecbbbe61ef4bd2694435
+  linux_amd64: https://ghcr.io/v2/homebrew/core/leela-zero/blobs/sha256:30aeb411b41c6d336ee9a21bb7c34613d6a04135993b177ed398a8395e2161df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/leela-zero/blobs/sha256:8118f4939edb749336936eea44f839b8960cdeded29190c8fbbe9dbccf65824d
+sha256:
+  darwin_arm64: 8ccf615e92183ab7d8f06a8148e89ebe79c45e0f3e12ba4c845d15ec9492542d
+  darwin_amd64: 9b671b74931247c299cc35f74154b3e433aab14ce3beecbbbe61ef4bd2694435
+  linux_amd64: 30aeb411b41c6d336ee9a21bb7c34613d6a04135993b177ed398a8395e2161df
+  linux_arm64: 8118f4939edb749336936eea44f839b8960cdeded29190c8fbbe9dbccf65824d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

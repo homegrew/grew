@@ -1,0 +1,19 @@
+name: tealdeer
+version: 1.8.1
+description: Very fast implementation of tldr in Rust
+homepage: https://tealdeer-rs.github.io/tealdeer/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tealdeer/blobs/sha256:321141551f399aa5609cb97feb5f2c8fdfb4bebcaa1e8477f4989bfd396f581b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tealdeer/blobs/sha256:5230103bb0be717cd7c36e3f281ae9685c46c7d983a4afdc6f059e3afc3ea230
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tealdeer/blobs/sha256:06887fc14d9db667bcbd2bcf871fc4b7ab16d5f9755c1d1bb75afc52a90a3af9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tealdeer/blobs/sha256:5984da1671a69eb623c7f5e47d2d8ffb3c6e7f96aecb13eaa25f3ffef0873da6
+sha256:
+  darwin_arm64: 321141551f399aa5609cb97feb5f2c8fdfb4bebcaa1e8477f4989bfd396f581b
+  darwin_amd64: 5230103bb0be717cd7c36e3f281ae9685c46c7d983a4afdc6f059e3afc3ea230
+  linux_amd64: 06887fc14d9db667bcbd2bcf871fc4b7ab16d5f9755c1d1bb75afc52a90a3af9
+  linux_arm64: 5984da1671a69eb623c7f5e47d2d8ffb3c6e7f96aecb13eaa25f3ffef0873da6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

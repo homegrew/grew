@@ -1,0 +1,18 @@
+name: apptainer
+version: 1.4.5
+description: Application container and unprivileged sandbox platform for Linux
+homepage: https://apptainer.org/
+license: BSD-3-Clause
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apptainer/blobs/sha256:c0e1729e484d95e8c33083e9fa81046d60d4dc2ebae1c1ea195c4009158c7124
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apptainer/blobs/sha256:869d04ad3305e8a4f7129c6cd978ec4d48972b049c65edfbb56d3c6048714df6
+sha256:
+  linux_amd64: c0e1729e484d95e8c33083e9fa81046d60d4dc2ebae1c1ea195c4009158c7124
+  linux_arm64: 869d04ad3305e8a4f7129c6cd978ec4d48972b049c65edfbb56d3c6048714df6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libseccomp
+  - squashfs

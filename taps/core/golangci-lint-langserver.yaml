@@ -1,0 +1,19 @@
+name: golangci-lint-langserver
+version: 0.0.12
+description: Language server for `golangci-lint`
+homepage: https://github.com/nametake/golangci-lint-langserver
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/golangci-lint-langserver/blobs/sha256:09b9cd130cddc6d9dd601a0ed223ae6868ea4c9095247ea1f860b728a41d813d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/golangci-lint-langserver/blobs/sha256:aa20c1efcdd23c9e6c3a0d1ad8439374309d8c5826ddb59f59ed952205254afa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/golangci-lint-langserver/blobs/sha256:dc965eebeebd065ca1a21f765a294705fadf2f5ea77d22f883e03d81ec78be97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/golangci-lint-langserver/blobs/sha256:10bf1b26ff7728cebb5f35c6950e8ba4fa697222e416ec05c0bfffbae2ecd535
+sha256:
+  darwin_arm64: 09b9cd130cddc6d9dd601a0ed223ae6868ea4c9095247ea1f860b728a41d813d
+  darwin_amd64: aa20c1efcdd23c9e6c3a0d1ad8439374309d8c5826ddb59f59ed952205254afa
+  linux_amd64: dc965eebeebd065ca1a21f765a294705fadf2f5ea77d22f883e03d81ec78be97
+  linux_arm64: 10bf1b26ff7728cebb5f35c6950e8ba4fa697222e416ec05c0bfffbae2ecd535
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

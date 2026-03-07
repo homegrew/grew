@@ -1,0 +1,19 @@
+name: kanata-tray
+version: 0.8.0
+description: System tray for kanata keyboard remapper
+homepage: https://github.com/rszyma/kanata-tray
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kanata-tray/blobs/sha256:bb526f18706af690003f2ed01864946f9d571f6c4806b283686980a640482ba5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kanata-tray/blobs/sha256:ab65e1afa544494a2d88f75b534a1ee92b991a9dea378960811eaa2ed28f9c00
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kanata-tray/blobs/sha256:df26679273f6a01d075bdc7d46b725c1a439f3060a94d3ce4b80f77e69ac38ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kanata-tray/blobs/sha256:4b3f913d959bd3b930477eeab58ab7b60b98e760c17015cd9c02c74e709ef87c
+sha256:
+  darwin_arm64: bb526f18706af690003f2ed01864946f9d571f6c4806b283686980a640482ba5
+  darwin_amd64: ab65e1afa544494a2d88f75b534a1ee92b991a9dea378960811eaa2ed28f9c00
+  linux_amd64: df26679273f6a01d075bdc7d46b725c1a439f3060a94d3ce4b80f77e69ac38ac
+  linux_arm64: 4b3f913d959bd3b930477eeab58ab7b60b98e760c17015cd9c02c74e709ef87c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

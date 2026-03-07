@@ -1,0 +1,19 @@
+name: libident
+version: 0.32
+description: Ident protocol library
+homepage: https://www.remlab.net/libident/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libident/blobs/sha256:79ba04c7084f4d774e85a799733bf4e79676f6ef0d5fc7c9036db9fd2e2b97e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libident/blobs/sha256:bb6e01e06cece16e7ec873b2b4060585ea3248a930e5bdf018c65de9b6901c78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libident/blobs/sha256:f80a93f7750a66e987f21af7db62ba4f72c2c277036049915d3c8e6a8b044cf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libident/blobs/sha256:9696db63c01fd542845885f59973bf8b7628f34e7d654248f474e805ae91c182
+sha256:
+  darwin_arm64: 79ba04c7084f4d774e85a799733bf4e79676f6ef0d5fc7c9036db9fd2e2b97e5
+  darwin_amd64: bb6e01e06cece16e7ec873b2b4060585ea3248a930e5bdf018c65de9b6901c78
+  linux_amd64: f80a93f7750a66e987f21af7db62ba4f72c2c277036049915d3c8e6a8b044cf2
+  linux_arm64: 9696db63c01fd542845885f59973bf8b7628f34e7d654248f474e805ae91c182
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

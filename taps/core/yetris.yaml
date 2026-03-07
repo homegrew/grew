@@ -1,0 +1,19 @@
+name: yetris
+version: 2.3.0
+description: Customizable Tetris for the terminal
+homepage: https://github.com/alexdantas/yetris
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yetris/blobs/sha256:20e107c4ccac64993e5c8f794bc50299d759df2b0b9badab5d0a5ec2708cfc04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yetris/blobs/sha256:7ccd8bfcdeb653c72ebfb085887255edba5547412e29462eb72b9c395257e4a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yetris/blobs/sha256:b0d2652ce4673ff9e663dba05e742ff8d0eff4366216c49a051d94df041498a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yetris/blobs/sha256:2f5e4bda0d6d949df4cb5b4fa0bd5adb552ec9752e34cbf9f7c106342877f108
+sha256:
+  darwin_arm64: 20e107c4ccac64993e5c8f794bc50299d759df2b0b9badab5d0a5ec2708cfc04
+  darwin_amd64: 7ccd8bfcdeb653c72ebfb085887255edba5547412e29462eb72b9c395257e4a7
+  linux_amd64: b0d2652ce4673ff9e663dba05e742ff8d0eff4366216c49a051d94df041498a2
+  linux_arm64: 2f5e4bda0d6d949df4cb5b4fa0bd5adb552ec9752e34cbf9f7c106342877f108
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

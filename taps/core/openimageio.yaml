@@ -1,0 +1,38 @@
+name: openimageio
+version: 3.1.11.0
+description: Library for reading, processing and writing images
+homepage: https://openimageio.readthedocs.io/en/stable/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openimageio/blobs/sha256:1841d41e94680e93b40a7a4a604778148b82c21f3b2696013d73158bf61c6c9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openimageio/blobs/sha256:1113a4b5ae372e4fa72f38528db152e2f8633504c6e57022199def059b590fc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openimageio/blobs/sha256:48ef109ad6fb1b89f2d6745660208808833465c0ae0ef3920aeaa5f411ebf5ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openimageio/blobs/sha256:8865337317ec459f4299cf212aed77fc77c377aff06968a09009c9fad62fb1c3
+sha256:
+  darwin_arm64: 1841d41e94680e93b40a7a4a604778148b82c21f3b2696013d73158bf61c6c9f
+  darwin_amd64: 1113a4b5ae372e4fa72f38528db152e2f8633504c6e57022199def059b590fc1
+  linux_amd64: 48ef109ad6fb1b89f2d6745660208808833465c0ae0ef3920aeaa5f411ebf5ac
+  linux_arm64: 8865337317ec459f4299cf212aed77fc77c377aff06968a09009c9fad62fb1c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - fmt
+  - freetype
+  - giflib
+  - imath
+  - jpeg-turbo
+  - jpeg-xl
+  - libheif
+  - libpng
+  - libraw
+  - libtiff
+  - opencolorio
+  - openexr
+  - pugixml
+  - python@3.14
+  - tbb
+  - webp
+  - zlib-ng-compat

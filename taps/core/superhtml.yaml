@@ -1,0 +1,19 @@
+name: superhtml
+version: 0.6.2
+description: "HTML Language Server & Templating Language Library"
+homepage: https://github.com/kristoff-it/superhtml
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/superhtml/blobs/sha256:6ecdeda20aba3c932e654ce1a7ad91174f5084cc83633c5d9cd6f1390daee912
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/superhtml/blobs/sha256:f41742a7a7b61ce1e6bf019e897ae0b3f0076215353a8af4b7f53750533593f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/superhtml/blobs/sha256:8874ee426039b691bb1faffd504ba20c22be4501f249d0bf8f84f2f46c636f5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/superhtml/blobs/sha256:b468973d40b401cf79782c7b85cf42696046c5064797af71a24de169e5b33d58
+sha256:
+  darwin_arm64: 6ecdeda20aba3c932e654ce1a7ad91174f5084cc83633c5d9cd6f1390daee912
+  darwin_amd64: f41742a7a7b61ce1e6bf019e897ae0b3f0076215353a8af4b7f53750533593f6
+  linux_amd64: 8874ee426039b691bb1faffd504ba20c22be4501f249d0bf8f84f2f46c636f5f
+  linux_arm64: b468973d40b401cf79782c7b85cf42696046c5064797af71a24de169e5b33d58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

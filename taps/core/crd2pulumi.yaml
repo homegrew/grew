@@ -1,0 +1,19 @@
+name: crd2pulumi
+version: 1.6.1
+description: Generate typed CustomResources from a Kubernetes CustomResourceDefinition
+homepage: https://github.com/pulumi/crd2pulumi
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crd2pulumi/blobs/sha256:390736f4a83c23f407845ce7ce35757716472b769bee83dcde62f069ff00a46e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crd2pulumi/blobs/sha256:b3e9a575ef13202f6cc87a9c294e97a6ed7a0f83ef44c23d10434930a8718b0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crd2pulumi/blobs/sha256:e818166ab902b8bd93fde2953476d23b153ccbb38211a5de2590287116e49cc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crd2pulumi/blobs/sha256:0fa027064356ef61b917229eda5aad7f5de51d51057ca576f47fc2332d5e4530
+sha256:
+  darwin_arm64: 390736f4a83c23f407845ce7ce35757716472b769bee83dcde62f069ff00a46e
+  darwin_amd64: b3e9a575ef13202f6cc87a9c294e97a6ed7a0f83ef44c23d10434930a8718b0b
+  linux_amd64: e818166ab902b8bd93fde2953476d23b153ccbb38211a5de2590287116e49cc2
+  linux_arm64: 0fa027064356ef61b917229eda5aad7f5de51d51057ca576f47fc2332d5e4530
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

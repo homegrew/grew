@@ -1,0 +1,21 @@
+name: qtsvg
+version: 6.10.2
+description: Classes for displaying the contents of SVG files
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtsvg/blobs/sha256:060b6db495b7836126c5dc6d77b5c4aa95b174954a025c74e94cd734a254774d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtsvg/blobs/sha256:fb242965e51cd00afe125e371706e4820e098ff5b17e3e5d25d50f5a347ba4b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtsvg/blobs/sha256:ed801d52d49d9340b88c0e814d01a49be8fb8b23ac3715ad0100398751e7ea21
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtsvg/blobs/sha256:8b415293317474a509c79cd6be4890a4c6bc56d9e98a99dc4bf96d00ea9a20bc
+sha256:
+  darwin_arm64: 060b6db495b7836126c5dc6d77b5c4aa95b174954a025c74e94cd734a254774d
+  darwin_amd64: fb242965e51cd00afe125e371706e4820e098ff5b17e3e5d25d50f5a347ba4b0
+  linux_amd64: ed801d52d49d9340b88c0e814d01a49be8fb8b23ac3715ad0100398751e7ea21
+  linux_arm64: 8b415293317474a509c79cd6be4890a4c6bc56d9e98a99dc4bf96d00ea9a20bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

@@ -1,0 +1,19 @@
+name: libaec
+version: 1.1.6
+description: Adaptive Entropy Coding implementing Golomb-Rice algorithm
+homepage: https://gitlab.dkrz.de/k202009/libaec
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libaec/blobs/sha256:d190d6d012003126a1eafb3dc218bb33eef869ae7bb8cca7e8637ac6f2cd703c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libaec/blobs/sha256:f70bd70809d3884ac7992e8a145698ec6ab4987311a98b562a36bb56ddca9ba4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libaec/blobs/sha256:f37c5777a53b8c787c337a8d6c199e5bd269166f7ebf325ad5b6ddfa3d6a7a10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libaec/blobs/sha256:01b9577127b1597ba3be92bc0d7df3da1da4a040a79ffc0b0a56722385b11aba
+sha256:
+  darwin_arm64: d190d6d012003126a1eafb3dc218bb33eef869ae7bb8cca7e8637ac6f2cd703c
+  darwin_amd64: f70bd70809d3884ac7992e8a145698ec6ab4987311a98b562a36bb56ddca9ba4
+  linux_amd64: f37c5777a53b8c787c337a8d6c199e5bd269166f7ebf325ad5b6ddfa3d6a7a10
+  linux_arm64: 01b9577127b1597ba3be92bc0d7df3da1da4a040a79ffc0b0a56722385b11aba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

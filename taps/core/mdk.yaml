@@ -1,0 +1,33 @@
+name: mdk
+version: 1.3.1
+description: GNU MIX development kit
+homepage: https://www.gnu.org/software/mdk/mdk.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdk/blobs/sha256:7826d050643554b4fd5b996d6d435b817f5afc3d377838c17603134ee397387f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdk/blobs/sha256:be057e6d7aa944047f2e2f1708dddd6bffba1fa6c937264c0a5065e11b1c1bf0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdk/blobs/sha256:11178d7f888d4b955959d12ede795d08d2af47aca254caaa3a9769b39056cdab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdk/blobs/sha256:e6ec02348519a896a3cd23987ec812358ede91138da903dcfd6cad75a2cdb1ce
+sha256:
+  darwin_arm64: 7826d050643554b4fd5b996d6d435b817f5afc3d377838c17603134ee397387f
+  darwin_amd64: be057e6d7aa944047f2e2f1708dddd6bffba1fa6c937264c0a5065e11b1c1bf0
+  linux_amd64: 11178d7f888d4b955959d12ede795d08d2af47aca254caaa3a9769b39056cdab
+  linux_arm64: e6ec02348519a896a3cd23987ec812358ede91138da903dcfd6cad75a2cdb1ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - at-spi2-core
+  - bdw-gc
+  - cairo
+  - flex
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - guile
+  - harfbuzz
+  - pango
+  - readline
+  - gettext

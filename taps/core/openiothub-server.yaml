@@ -1,0 +1,19 @@
+name: openiothub-server
+version: 1.2.19
+description: Server for OpenIoTHub
+homepage: https://github.com/OpenIoTHub/server-go
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openiothub-server/blobs/sha256:1d080c109d24d79605f27eb16be2e80a2de83e10d5c958f17dccc58fcc3f51a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openiothub-server/blobs/sha256:93e69edf70c991060b61100822a072f4bec0236254800d82651eb05d812865be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openiothub-server/blobs/sha256:a792bc4b0b20944b8fa24491d177d2eaf963e17b694fc04451e5389730a09ef7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openiothub-server/blobs/sha256:c3b45f3dcf1ded648b174af3f3d7bcd5b98f272bb8d22e56d3539cfe13b9aca7
+sha256:
+  darwin_arm64: 1d080c109d24d79605f27eb16be2e80a2de83e10d5c958f17dccc58fcc3f51a6
+  darwin_amd64: 93e69edf70c991060b61100822a072f4bec0236254800d82651eb05d812865be
+  linux_amd64: a792bc4b0b20944b8fa24491d177d2eaf963e17b694fc04451e5389730a09ef7
+  linux_arm64: c3b45f3dcf1ded648b174af3f3d7bcd5b98f272bb8d22e56d3539cfe13b9aca7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

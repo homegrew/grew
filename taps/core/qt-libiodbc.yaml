@@ -1,0 +1,22 @@
+name: qt-libiodbc
+version: 6.10.2
+description: Qt SQL Database Driver
+homepage: https://www.qt.io/
+license: GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt-libiodbc/blobs/sha256:4c2670a49c24bff01617484eaef8563fd865b977c97b3ebf6115d910ae487a7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt-libiodbc/blobs/sha256:55d3749b79f0378dc7a147e4325185c2d1f68ff81550a3ab8e233d494b637944
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt-libiodbc/blobs/sha256:be60c7b7df3e957e837f924730009bda00abade5fef09ff70e5a39c109f7c293
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt-libiodbc/blobs/sha256:1b991715936d3d35c18e2822e3f79a47e5a79826f0c22b0bec689935b17bc007
+sha256:
+  darwin_arm64: 4c2670a49c24bff01617484eaef8563fd865b977c97b3ebf6115d910ae487a7d
+  darwin_amd64: 55d3749b79f0378dc7a147e4325185c2d1f68ff81550a3ab8e233d494b637944
+  linux_amd64: be60c7b7df3e957e837f924730009bda00abade5fef09ff70e5a39c109f7c293
+  linux_arm64: 1b991715936d3d35c18e2822e3f79a47e5a79826f0c22b0bec689935b17bc007
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libiodbc
+  - qtbase

@@ -1,0 +1,22 @@
+name: qtcharts
+version: 6.10.2
+description: UI Components for displaying visually pleasing charts
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtcharts/blobs/sha256:d1c0a71fe7f52028ab7d5b5eb7c2e367b5d69ef190f23c6f03c9184c2e645b1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtcharts/blobs/sha256:c19d84b69fc805fa4bfb461051540b0f279b2e6c80995cbbe8a442354804e761
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtcharts/blobs/sha256:c2fbc93b8877b452723f3f00473f2f12667bba413bf41bccc7834a41a5d1d7b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtcharts/blobs/sha256:a2784026b5fa043023b79e3b317e25090c105fce912abbc2e860314b227cd25d
+sha256:
+  darwin_arm64: d1c0a71fe7f52028ab7d5b5eb7c2e367b5d69ef190f23c6f03c9184c2e645b1c
+  darwin_amd64: c19d84b69fc805fa4bfb461051540b0f279b2e6c80995cbbe8a442354804e761
+  linux_amd64: c2fbc93b8877b452723f3f00473f2f12667bba413bf41bccc7834a41a5d1d7b4
+  linux_arm64: a2784026b5fa043023b79e3b317e25090c105fce912abbc2e860314b227cd25d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

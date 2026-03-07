@@ -1,0 +1,19 @@
+name: rnv
+version: 1.7.11
+description: Implementation of Relax NG Compact Syntax validator
+homepage: https://sourceforge.net/projects/rnv/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rnv/blobs/sha256:294d562f37f9fcbdfebca1f0ac3a304e5c749022dd1287a35b847b2223ad9a07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rnv/blobs/sha256:3ccd0c89d06e4b941388b087171a7fda820d4bab2243a173ff4854bf161eebb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rnv/blobs/sha256:3368e22e32650a6594df96320a449717d447a25d69a8485c907f1e0d10a1c49d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rnv/blobs/sha256:607237d06383c7a8da2bfa731d52f960d9a9a35ccd465dfee6fcddc485e42d92
+sha256:
+  darwin_arm64: 294d562f37f9fcbdfebca1f0ac3a304e5c749022dd1287a35b847b2223ad9a07
+  darwin_amd64: 3ccd0c89d06e4b941388b087171a7fda820d4bab2243a173ff4854bf161eebb8
+  linux_amd64: 3368e22e32650a6594df96320a449717d447a25d69a8485c907f1e0d10a1c49d
+  linux_arm64: 607237d06383c7a8da2bfa731d52f960d9a9a35ccd465dfee6fcddc485e42d92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

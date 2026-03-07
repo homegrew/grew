@@ -1,0 +1,11 @@
+name: keymanager
+version: 4.5.9
+description: Certificate manager
+homepage: https://keymanager.org/
+url:
+  darwin_arm64: https://keymanager.trustasia.com/release/KeyManager-4.5.9.dmg
+sha256:
+  darwin_arm64: a91b7fa1a4774d089f2918cacb95a94adbecf0c6f30aa1ba4211f58662139e54
+artifacts:
+  app:
+    - KeyManager.app

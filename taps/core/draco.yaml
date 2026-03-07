@@ -1,0 +1,19 @@
+name: draco
+version: 1.5.7
+description: 3D geometric mesh and point cloud compression library
+homepage: https://google.github.io/draco/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/draco/blobs/sha256:2af623d3d7f4f28c7b7c31aad72fbfad20d05cbaa503062854933036c7322ac0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/draco/blobs/sha256:7039e3c7e342942f71608d377ea316096701efba166a39c66ff601546bf32f2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/draco/blobs/sha256:08e5979a2f8db41ee122ecdddb83285038ca417aac3a9c5ef85e1d92656c8c45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/draco/blobs/sha256:c5629a81008066774b44c411651acc7f1d1159709dc75c4b64fcf6724bb4c5b5
+sha256:
+  darwin_arm64: 2af623d3d7f4f28c7b7c31aad72fbfad20d05cbaa503062854933036c7322ac0
+  darwin_amd64: 7039e3c7e342942f71608d377ea316096701efba166a39c66ff601546bf32f2b
+  linux_amd64: 08e5979a2f8db41ee122ecdddb83285038ca417aac3a9c5ef85e1d92656c8c45
+  linux_arm64: c5629a81008066774b44c411651acc7f1d1159709dc75c4b64fcf6724bb4c5b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

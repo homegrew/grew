@@ -1,0 +1,23 @@
+name: hdf5
+version: 2.1.0
+description: File format designed to store large amounts of data
+homepage: https://www.hdfgroup.org/solutions/hdf5/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hdf5/blobs/sha256:a89a509b94c8b2e887487385f4ffeeada668f32425cc2e1d1bb9dc7ff096d0b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hdf5/blobs/sha256:042a0a7a4ab8cb9243c6e46b9d9bd60808ece223d234faec6877240d9a291afa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hdf5/blobs/sha256:23345011ea93198b940537286a29111c51f4ba78788278a7af84651cebdfaec3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hdf5/blobs/sha256:102940d158d9e0849ff741ed3cb5a343a88f79c69d353be69939365cfba1e6ad
+sha256:
+  darwin_arm64: a89a509b94c8b2e887487385f4ffeeada668f32425cc2e1d1bb9dc7ff096d0b7
+  darwin_amd64: 042a0a7a4ab8cb9243c6e46b9d9bd60808ece223d234faec6877240d9a291afa
+  linux_amd64: 23345011ea93198b940537286a29111c51f4ba78788278a7af84651cebdfaec3
+  linux_arm64: 102940d158d9e0849ff741ed3cb5a343a88f79c69d353be69939365cfba1e6ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - libaec
+  - pkgconf

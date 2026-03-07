@@ -1,0 +1,19 @@
+name: rush-parallel
+version: 0.8.0
+description: Cross-platform command-line tool for executing jobs in parallel
+homepage: https://github.com/shenwei356/rush
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rush-parallel/blobs/sha256:3a95b45daad014523cc5d24557039ae9e76878624b9ca1db39d0397f1c22f588
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rush-parallel/blobs/sha256:6b194b7f20e7a5cf8e967490e9ee619611f4d2a56cf281c54bd6c3430e505e62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rush-parallel/blobs/sha256:7f6e1ab80fc6a811226669df1b36e299d92c3482c042f816f33286227d1642d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rush-parallel/blobs/sha256:307400fb0aaf2b833959f4dbff23ff0b4927da8d638bcc1bf7a8e6c329627561
+sha256:
+  darwin_arm64: 3a95b45daad014523cc5d24557039ae9e76878624b9ca1db39d0397f1c22f588
+  darwin_amd64: 6b194b7f20e7a5cf8e967490e9ee619611f4d2a56cf281c54bd6c3430e505e62
+  linux_amd64: 7f6e1ab80fc6a811226669df1b36e299d92c3482c042f816f33286227d1642d2
+  linux_arm64: 307400fb0aaf2b833959f4dbff23ff0b4927da8d638bcc1bf7a8e6c329627561
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

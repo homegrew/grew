@@ -1,0 +1,19 @@
+name: dsq
+version: 0.23.0
+description: CLI tool for running SQL queries against JSON, CSV, Excel, Parquet, and more
+homepage: https://github.com/multiprocessio/dsq
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dsq/blobs/sha256:fa7e3bd34ceaec3f64e14bebd8f9e69427d5641f06c0b68e2c6ee092e72658c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dsq/blobs/sha256:8b1b842984c0eab5b0fb999556be8789a058b0274a4033c988fe83b414e7b67a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dsq/blobs/sha256:328ba290cbe117afa004b3ac9c9ea32fad38b062150ba47de467ba409ebd0069
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dsq/blobs/sha256:b5627ad8b74b97db053faec48c4bfb41f483aad98a70265efcf0b3fcda3b4b5c
+sha256:
+  darwin_arm64: fa7e3bd34ceaec3f64e14bebd8f9e69427d5641f06c0b68e2c6ee092e72658c1
+  darwin_amd64: 8b1b842984c0eab5b0fb999556be8789a058b0274a4033c988fe83b414e7b67a
+  linux_amd64: 328ba290cbe117afa004b3ac9c9ea32fad38b062150ba47de467ba409ebd0069
+  linux_arm64: b5627ad8b74b97db053faec48c4bfb41f483aad98a70265efcf0b3fcda3b4b5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: k3sup
+version: 0.13.12
+description: Utility to create k3s clusters on any local or remote VM
+homepage: https://k3sup.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/k3sup/blobs/sha256:28a9ee3f378c4c3d7779394f1874f928c4cf5998e5872b6cedc81b368e632a6c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/k3sup/blobs/sha256:ccfabb4d5060daf24b3be3459208a056ea73a7e2dd05d6bfb4dbcf7c050e180d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/k3sup/blobs/sha256:f0a1700b591de02276fcb18db949915000da6612f72a954c127fc49a1344e5a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/k3sup/blobs/sha256:ca5bcf145ad386bf836f92cfdd57aeae600d146bf6b9de7b57d7be4a4d5b900a
+sha256:
+  darwin_arm64: 28a9ee3f378c4c3d7779394f1874f928c4cf5998e5872b6cedc81b368e632a6c
+  darwin_amd64: ccfabb4d5060daf24b3be3459208a056ea73a7e2dd05d6bfb4dbcf7c050e180d
+  linux_amd64: f0a1700b591de02276fcb18db949915000da6612f72a954c127fc49a1344e5a7
+  linux_arm64: ca5bcf145ad386bf836f92cfdd57aeae600d146bf6b9de7b57d7be4a4d5b900a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

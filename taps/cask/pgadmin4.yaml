@@ -1,0 +1,11 @@
+name: pgadmin4
+version: 9.13
+description: Administration and development platform for PostgreSQL
+homepage: https://www.pgadmin.org/
+url:
+  darwin_arm64: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.13/macos/pgadmin4-9.13-arm64.dmg
+sha256:
+  darwin_arm64: af014c3cb8207dd76880319c3d66cdf1396007917c457f804727514b9c1a8bdb
+artifacts:
+  app:
+    - pgAdmin 4.app

@@ -1,0 +1,11 @@
+name: ipaverse
+version: 1.0.0
+description: Tool for downloading and managing iOS apps from the App Store
+homepage: https://github.com/bahattinkoc/ipaverse
+url:
+  darwin_arm64: https://github.com/bahattinkoc/ipaverse/releases/download/v1.0.0/ipaverse.dmg
+sha256:
+  darwin_arm64: e3e28f60eb9bfc000977e6e5f0e1b455854daebd034770567eefae537e15d4f4
+artifacts:
+  app:
+    - ipaverse.app

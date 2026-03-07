@@ -1,0 +1,13 @@
+name: fork@dev
+version: 2.64.0
+description: Git client
+homepage: https://fork.dev/
+url:
+  darwin_arm64: https://cdn.fork.dev/mac/Fork-2.64.0.dmg
+sha256:
+  darwin_arm64: 67b11227f53f78f88a4e061487869b6780adc5a59553c4e91b5632e776b23328
+artifacts:
+  app:
+    - Fork.app
+  bin:
+    - fork

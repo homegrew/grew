@@ -1,0 +1,21 @@
+name: libmtp
+version: 1.1.23
+description: "Implementation of Microsoft's Media Transfer Protocol (MTP)"
+homepage: https://libmtp.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmtp/blobs/sha256:6bd6b1027d7491cce853f34578cfecad1645e95c5002619c51f28e261122b7ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmtp/blobs/sha256:8ee478d393d41ac7c4299fd2f8c0ba640307707a9c85910b326db3770b30439e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmtp/blobs/sha256:2f842da301974cc07cd11563aaace91d6259f244a507caa6b17ccd14951c1dc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmtp/blobs/sha256:7379c6c656432162f854e5e6fd415564bf9d9f8469fca427709405653b82be30
+sha256:
+  darwin_arm64: 6bd6b1027d7491cce853f34578cfecad1645e95c5002619c51f28e261122b7ba
+  darwin_amd64: 8ee478d393d41ac7c4299fd2f8c0ba640307707a9c85910b326db3770b30439e
+  linux_amd64: 2f842da301974cc07cd11563aaace91d6259f244a507caa6b17ccd14951c1dc7
+  linux_arm64: 7379c6c656432162f854e5e6fd415564bf9d9f8469fca427709405653b82be30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

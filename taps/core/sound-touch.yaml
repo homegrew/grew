@@ -1,0 +1,19 @@
+name: sound-touch
+version: 2.4.0
+description: Audio processing library
+homepage: https://www.surina.net/soundtouch/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sound-touch/blobs/sha256:023d3c93b87887210efbaea61e5fb4f8d1ad156ac99f69675605df0a053d1d62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sound-touch/blobs/sha256:15882d0b1444f3373fbe8440de6fa9b9d561de20a1c2cfad22c40894c3c182d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sound-touch/blobs/sha256:8ded546915e0db8508a66b0883f0385e89a5b5ae88f5c4607d27545c3a5c1697
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sound-touch/blobs/sha256:351f5272b57863806eae41298ba7658c74fc3974de8b8baf8677203701535b7f
+sha256:
+  darwin_arm64: 023d3c93b87887210efbaea61e5fb4f8d1ad156ac99f69675605df0a053d1d62
+  darwin_amd64: 15882d0b1444f3373fbe8440de6fa9b9d561de20a1c2cfad22c40894c3c182d4
+  linux_amd64: 8ded546915e0db8508a66b0883f0385e89a5b5ae88f5c4607d27545c3a5c1697
+  linux_arm64: 351f5272b57863806eae41298ba7658c74fc3974de8b8baf8677203701535b7f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

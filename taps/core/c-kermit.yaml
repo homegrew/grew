@@ -1,0 +1,19 @@
+name: c-kermit
+version: 9.0.302
+description: Scriptable network and serial communication for UNIX and VMS
+homepage: https://www.kermitproject.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c-kermit/blobs/sha256:f03cdb09826ffb13c05935041e5eace02ccaa28ceb1414476dd13ca58a8412bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c-kermit/blobs/sha256:0d37a2d0fcd584f8d5255dd975dd6bba66381b7a78e8c499626655efe9ccf32c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c-kermit/blobs/sha256:48c31890a6637bc31380b57ea68a0a7ae608ae969fd3ac4a80abc56735a9d20f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c-kermit/blobs/sha256:35510dc1aa49e7b5d34b546a293ad6ae2de3012aa79476a7faa8f87c53a262da
+sha256:
+  darwin_arm64: f03cdb09826ffb13c05935041e5eace02ccaa28ceb1414476dd13ca58a8412bb
+  darwin_amd64: 0d37a2d0fcd584f8d5255dd975dd6bba66381b7a78e8c499626655efe9ccf32c
+  linux_amd64: 48c31890a6637bc31380b57ea68a0a7ae608ae969fd3ac4a80abc56735a9d20f
+  linux_arm64: 35510dc1aa49e7b5d34b546a293ad6ae2de3012aa79476a7faa8f87c53a262da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

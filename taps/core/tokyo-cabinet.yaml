@@ -1,0 +1,19 @@
+name: tokyo-cabinet
+version: 1.4.48
+description: Lightweight database library
+homepage: https://dbmx.net/tokyocabinet/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tokyo-cabinet/blobs/sha256:4443340968f13e90acfd2e0491be08daf43624bb64554b72d8f36997013650de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tokyo-cabinet/blobs/sha256:b40efcef4f5fd2f20b089c0508f846118c2d201139cb83dfdfd66195b7268c7e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tokyo-cabinet/blobs/sha256:049e05440f7039b0f3bf2bde34a891a00cac26da036d7a8cf74fae2cde43d2c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tokyo-cabinet/blobs/sha256:a0345079ed1d67a3d20844ebefe5b7a2140fc302824523cf7a194f9ccf848cdb
+sha256:
+  darwin_arm64: 4443340968f13e90acfd2e0491be08daf43624bb64554b72d8f36997013650de
+  darwin_amd64: b40efcef4f5fd2f20b089c0508f846118c2d201139cb83dfdfd66195b7268c7e
+  linux_amd64: 049e05440f7039b0f3bf2bde34a891a00cac26da036d7a8cf74fae2cde43d2c8
+  linux_arm64: a0345079ed1d67a3d20844ebefe5b7a2140fc302824523cf7a194f9ccf848cdb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

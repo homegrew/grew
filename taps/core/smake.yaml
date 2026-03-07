@@ -1,0 +1,19 @@
+name: smake
+version: 2024-03-21
+description: Portable make program with automake features
+homepage: https://codeberg.org/schilytools/schilytools
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smake/blobs/sha256:935c37ae0dc9258ccd97c8cf55851d91dd4c0ac1399fd138f61edec5dabf4306
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smake/blobs/sha256:f46933438ba16e6944354e43afc1ed55572ded080b4267af8cb2e6fb7744107c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smake/blobs/sha256:6b51d8b0c121455fff0ae8f7b5329566f202885e5d4ca0a8720e9a42c489435f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smake/blobs/sha256:3f79e77a426444a0a251b6f839ea29f95a29552b912e660ccd21cf08c5a3a851
+sha256:
+  darwin_arm64: 935c37ae0dc9258ccd97c8cf55851d91dd4c0ac1399fd138f61edec5dabf4306
+  darwin_amd64: f46933438ba16e6944354e43afc1ed55572ded080b4267af8cb2e6fb7744107c
+  linux_amd64: 6b51d8b0c121455fff0ae8f7b5329566f202885e5d4ca0a8720e9a42c489435f
+  linux_arm64: 3f79e77a426444a0a251b6f839ea29f95a29552b912e660ccd21cf08c5a3a851
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

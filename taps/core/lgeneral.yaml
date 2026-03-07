@@ -1,0 +1,23 @@
+name: lgeneral
+version: 1.4.4
+description: Turn-based strategy engine heavily inspired by Panzer General
+homepage: https://lgames.sourceforge.io/LGeneral/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lgeneral/blobs/sha256:a65fba44b56f1ae92c209b5542e45371b8566fd465a8eb1c39913a4bdf334793
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lgeneral/blobs/sha256:1c8ea19f1051169fc4f4cc6cc8d8b64111fea88e7c149fce7de18178b1747670
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lgeneral/blobs/sha256:feadf3058a4c903237b6cf8d09b61f97ba5fb5656a6ff3819f96660dd0d4400b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lgeneral/blobs/sha256:b9b4ccb1fd4edcea2fcd56e5a167ec41a5f3ef8dd8ca175f46508493ae251d9f
+sha256:
+  darwin_arm64: a65fba44b56f1ae92c209b5542e45371b8566fd465a8eb1c39913a4bdf334793
+  darwin_amd64: 1c8ea19f1051169fc4f4cc6cc8d8b64111fea88e7c149fce7de18178b1747670
+  linux_amd64: feadf3058a4c903237b6cf8d09b61f97ba5fb5656a6ff3819f96660dd0d4400b
+  linux_arm64: b9b4ccb1fd4edcea2fcd56e5a167ec41a5f3ef8dd8ca175f46508493ae251d9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - sdl12-compat
+  - sdl2

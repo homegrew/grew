@@ -1,0 +1,15 @@
+name: mac-cleanup-go
+version: 1.4.1
+description: TUI macOS cleaner that scans caches/logs and lets you select what to delete
+homepage: https://github.com/2ykwang/mac-cleanup-go
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mac-cleanup-go/blobs/sha256:8eb4ec55cf962c57801889d908d663fddde000a2fdbc6e16cb5f8bc34e115214
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mac-cleanup-go/blobs/sha256:720e8d1797570eaa77d1939d2fbab4db149907bce253f2ea58a6a3e91bf085cf
+sha256:
+  darwin_arm64: 8eb4ec55cf962c57801889d908d663fddde000a2fdbc6e16cb5f8bc34e115214
+  darwin_amd64: 720e8d1797570eaa77d1939d2fbab4db149907bce253f2ea58a6a3e91bf085cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

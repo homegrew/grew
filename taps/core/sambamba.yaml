@@ -1,0 +1,21 @@
+name: sambamba
+version: 1.0.1
+description: Tools for working with SAM/BAM data
+homepage: https://lomereiter.github.io/sambamba/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sambamba/blobs/sha256:995c464037926a0520fba05804aa852d59632359ca69fc5790f01a408c6ca23e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sambamba/blobs/sha256:7fac5a9ba6145a7b151b1930b490705bfa420f7b2ca73d0a2eea06c93e815426
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sambamba/blobs/sha256:ca216432fad1f1c7c38d6805f8f819c81cf1f85522fcfb7046e89941ccd94d70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sambamba/blobs/sha256:b7d72d27c226414501cbc4c4d96dbc5df33e071e8aa3b343851ed77648d292be
+sha256:
+  darwin_arm64: 995c464037926a0520fba05804aa852d59632359ca69fc5790f01a408c6ca23e
+  darwin_amd64: 7fac5a9ba6145a7b151b1930b490705bfa420f7b2ca73d0a2eea06c93e815426
+  linux_amd64: ca216432fad1f1c7c38d6805f8f819c81cf1f85522fcfb7046e89941ccd94d70
+  linux_arm64: b7d72d27c226414501cbc4c4d96dbc5df33e071e8aa3b343851ed77648d292be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4

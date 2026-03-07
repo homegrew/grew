@@ -1,0 +1,15 @@
+name: choose-gui
+version: 1.5.0
+description: "Fuzzy matcher that uses std{in,out} and a native GUI"
+homepage: https://github.com/chipsenkbeil/choose
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/choose-gui/blobs/sha256:a304499bd015b6f52efa885ef54587d334935a0aac8317c71093d76047621cb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/choose-gui/blobs/sha256:226d6aa34398a30e22e4e675451d96f698a39e0e316381ca95b5579f904e2d16
+sha256:
+  darwin_arm64: a304499bd015b6f52efa885ef54587d334935a0aac8317c71093d76047621cb6
+  darwin_amd64: 226d6aa34398a30e22e4e675451d96f698a39e0e316381ca95b5579f904e2d16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

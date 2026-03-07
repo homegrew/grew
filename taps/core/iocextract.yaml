@@ -1,0 +1,22 @@
+name: iocextract
+version: 1.16.1
+description: Defanged indicator of compromise extractor
+homepage: https://inquest.readthedocs.io/projects/iocextract/en/latest/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iocextract/blobs/sha256:27199db6095174f2ea46eb9c8b4dcf9350e0942d04be5a7cbc6d6d90e11c4a9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iocextract/blobs/sha256:4f5f9afeb4eaad0594e16641c014d03234e8b3debcf98a0980d15436a2d470ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iocextract/blobs/sha256:d6ae84fa1aeee11f531a93b3ba14b51babb6bad0bb43bf3e17115c61447abfef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iocextract/blobs/sha256:8083f95ff0960405e34b51d951bd854a5d24145569bc15d5ffc06df8d4c96b58
+sha256:
+  darwin_arm64: 27199db6095174f2ea46eb9c8b4dcf9350e0942d04be5a7cbc6d6d90e11c4a9e
+  darwin_amd64: 4f5f9afeb4eaad0594e16641c014d03234e8b3debcf98a0980d15436a2d470ff
+  linux_amd64: d6ae84fa1aeee11f531a93b3ba14b51babb6bad0bb43bf3e17115c61447abfef
+  linux_arm64: 8083f95ff0960405e34b51d951bd854a5d24145569bc15d5ffc06df8d4c96b58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

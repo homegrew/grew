@@ -1,0 +1,17 @@
+name: libnsl
+version: 2.0.1
+description: Public client interface for NIS(YP) and NIS+
+homepage: https://github.com/thkukuk/libnsl
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnsl/blobs/sha256:fa7613b30e9bfe15166339d119c19115ec21f13cea259280182e0c083502ff40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnsl/blobs/sha256:b5f2c97b5782dfde6d350ebe54cacf87db18a1626afcf91998aaa8d6c5930890
+sha256:
+  linux_amd64: fa7613b30e9bfe15166339d119c19115ec21f13cea259280182e0c083502ff40
+  linux_arm64: b5f2c97b5782dfde6d350ebe54cacf87db18a1626afcf91998aaa8d6c5930890
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtirpc

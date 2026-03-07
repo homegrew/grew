@@ -1,0 +1,22 @@
+name: llvm@20
+version: 20.1.8
+description: Next-gen compiler infrastructure
+homepage: https://llvm.org/
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llvm/20/blobs/sha256:b95ac9e58b54a35797d89b3ac9ec2d56411b47d3942851567a6eb169e5dc9c09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llvm/20/blobs/sha256:62c1cbffed8c724ef4201147e6bc80830e25456f465b09ec904731256741be09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llvm/20/blobs/sha256:e163127510058e535bb522054238cdf928f676b7c83aa1c4a224726e2225a50c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llvm/20/blobs/sha256:73197c8ca4e845ec81c221c8f4138fd12b2b0b307e2b75448a75553cb85e1af1
+sha256:
+  darwin_arm64: b95ac9e58b54a35797d89b3ac9ec2d56411b47d3942851567a6eb169e5dc9c09
+  darwin_amd64: 62c1cbffed8c724ef4201147e6bc80830e25456f465b09ec904731256741be09
+  linux_amd64: e163127510058e535bb522054238cdf928f676b7c83aa1c4a224726e2225a50c
+  linux_arm64: 73197c8ca4e845ec81c221c8f4138fd12b2b0b307e2b75448a75553cb85e1af1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd
+keg_only: true

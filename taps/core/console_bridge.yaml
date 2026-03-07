@@ -1,0 +1,19 @@
+name: console_bridge
+version: 1.0.2
+description: Robot Operating System-independent package for logging
+homepage: https://wiki.ros.org/console_bridge/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/console_bridge/blobs/sha256:3a7225a144262d03cbc7d58b1eb2494c190060d9c1b4d3dbc36507c3911dbc37
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/console_bridge/blobs/sha256:507b02bd48a829824c07978c45c184fc16e8ac72a5221cc77bcc47b709d7d4a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/console_bridge/blobs/sha256:b2beccdecabf5d8427ee97904c16ff9f0aa2fc7bb508971ebbe10c5b1b9a2389
+  linux_arm64: https://ghcr.io/v2/homebrew/core/console_bridge/blobs/sha256:497a00b597bdcb80058eb55536dede9ba832ab45d3c70c4f1554be27e54cea0a
+sha256:
+  darwin_arm64: 3a7225a144262d03cbc7d58b1eb2494c190060d9c1b4d3dbc36507c3911dbc37
+  darwin_amd64: 507b02bd48a829824c07978c45c184fc16e8ac72a5221cc77bcc47b709d7d4a0
+  linux_amd64: b2beccdecabf5d8427ee97904c16ff9f0aa2fc7bb508971ebbe10c5b1b9a2389
+  linux_arm64: 497a00b597bdcb80058eb55536dede9ba832ab45d3c70c4f1554be27e54cea0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

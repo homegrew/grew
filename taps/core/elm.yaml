@@ -1,0 +1,21 @@
+name: elm
+version: 0.19.1
+description: Functional programming language for building browser-based GUIs
+homepage: https://elm-lang.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elm/blobs/sha256:ec3ce79abe4bb3959d399450deb363f9b5923d9095f4004c242fc9cc82360fbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elm/blobs/sha256:6c99fb8f3afbeaf136cda6f45534add032113307ec48aa15ca918b192b46eba4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elm/blobs/sha256:5aedc01216943882eec74e6a2e303e1ecae098cd7270deebe10b4748eecea59b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elm/blobs/sha256:cc5513922a45366dc5f46202bed2e6870cc319a9b666f49b31485b08efdfb26c
+sha256:
+  darwin_arm64: ec3ce79abe4bb3959d399450deb363f9b5923d9095f4004c242fc9cc82360fbc
+  darwin_amd64: 6c99fb8f3afbeaf136cda6f45534add032113307ec48aa15ca918b192b46eba4
+  linux_amd64: 5aedc01216943882eec74e6a2e303e1ecae098cd7270deebe10b4748eecea59b
+  linux_arm64: cc5513922a45366dc5f46202bed2e6870cc319a9b666f49b31485b08efdfb26c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

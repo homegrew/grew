@@ -1,0 +1,26 @@
+name: aws-c-s3
+version: 0.11.5
+description: C99 library implementation for communicating with the S3 service
+homepage: https://github.com/awslabs/aws-c-s3
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-s3/blobs/sha256:1c1b7003cccc39db9eec9802784837d31194e1f3f29b7f69f84b15df0f50f335
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-s3/blobs/sha256:0815079e10a92a01f70cf5b974db09522aac23362dd9fbfcb1cc2f3c1283c0e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-s3/blobs/sha256:c84713e792fc28442e2896a00a7e8b467e9cb0cbc46d35761fb3619a12c15f28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-s3/blobs/sha256:b0587ce07cecafb03e19c5e0dd444ec6c0c0e4b022a048fe05fb319b8920d914
+sha256:
+  darwin_arm64: 1c1b7003cccc39db9eec9802784837d31194e1f3f29b7f69f84b15df0f50f335
+  darwin_amd64: 0815079e10a92a01f70cf5b974db09522aac23362dd9fbfcb1cc2f3c1283c0e7
+  linux_amd64: c84713e792fc28442e2896a00a7e8b467e9cb0cbc46d35761fb3619a12c15f28
+  linux_arm64: b0587ce07cecafb03e19c5e0dd444ec6c0c0e4b022a048fe05fb319b8920d914
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-auth
+  - aws-c-cal
+  - aws-c-common
+  - aws-c-http
+  - aws-c-io
+  - aws-checksums

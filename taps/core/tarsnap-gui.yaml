@@ -1,0 +1,22 @@
+name: tarsnap-gui
+version: 1.0.2
+description: Cross-platform GUI for the Tarsnap command-line client
+homepage: https://www.tarsnap.com/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tarsnap-gui/blobs/sha256:bd02f77a05c961179c8cd9c080367dd5792305a26b840bfb4aa5584dedc267d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tarsnap-gui/blobs/sha256:0bcca07b474c99ee8db92f57a79d5fcff7efd952a5833fca445863a5d099d60b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tarsnap-gui/blobs/sha256:97b8a8c25cd8383218b698725c2a88cbdb55f161188de94df95406514573d34c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tarsnap-gui/blobs/sha256:bc5bf08c24dc5dc1a85d550744ff823086e32076300936f9462ca6b0857db88f
+sha256:
+  darwin_arm64: bd02f77a05c961179c8cd9c080367dd5792305a26b840bfb4aa5584dedc267d6
+  darwin_amd64: 0bcca07b474c99ee8db92f57a79d5fcff7efd952a5833fca445863a5d099d60b
+  linux_amd64: 97b8a8c25cd8383218b698725c2a88cbdb55f161188de94df95406514573d34c
+  linux_arm64: bc5bf08c24dc5dc1a85d550744ff823086e32076300936f9462ca6b0857db88f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt@5
+  - tarsnap

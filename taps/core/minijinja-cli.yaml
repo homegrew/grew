@@ -1,0 +1,19 @@
+name: minijinja-cli
+version: 2.17.1
+description: Render Jinja2 templates directly from the command-line to stdout
+homepage: https://docs.rs/minijinja/latest/minijinja/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minijinja-cli/blobs/sha256:c8d83d5a52c756a8321857672951ea6878eb06867c1681c549ddf863801d8fc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minijinja-cli/blobs/sha256:59961e269021576edeab0ac83dcac06244add5f71a88c637befed90e5942aee0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minijinja-cli/blobs/sha256:9304848f3a1526c0f5ff4efe73ef818edb01bd94c1e6cb7e3d314724557a3ac3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minijinja-cli/blobs/sha256:faddbabef2ee53c128ff4ae06ff08e47322d50b74f0e1f31a11d3f6fa91ff589
+sha256:
+  darwin_arm64: c8d83d5a52c756a8321857672951ea6878eb06867c1681c549ddf863801d8fc3
+  darwin_amd64: 59961e269021576edeab0ac83dcac06244add5f71a88c637befed90e5942aee0
+  linux_amd64: 9304848f3a1526c0f5ff4efe73ef818edb01bd94c1e6cb7e3d314724557a3ac3
+  linux_arm64: faddbabef2ee53c128ff4ae06ff08e47322d50b74f0e1f31a11d3f6fa91ff589
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

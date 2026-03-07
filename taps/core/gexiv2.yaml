@@ -1,0 +1,22 @@
+name: gexiv2
+version: 0.16.0
+description: GObject wrapper around the Exiv2 photo metadata library
+homepage: https://wiki.gnome.org/Projects/gexiv2
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gexiv2/blobs/sha256:24d603085d106cc7d08e199642d858d2b962ffa9e38c40ee4b23bf9953efeeee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gexiv2/blobs/sha256:0a21ff17505b6557231bad21b09a6aaf47e249aa18c1983018a3620fa73cb923
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gexiv2/blobs/sha256:d1a0c6ea1f0c31654fa2aa67ec016dc93ae6b19cab16866c72452400111102f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gexiv2/blobs/sha256:6f720afb3387da506741f5c2bd998feefc0b208b4c280e5181b0c2f2f768690f
+sha256:
+  darwin_arm64: 24d603085d106cc7d08e199642d858d2b962ffa9e38c40ee4b23bf9953efeeee
+  darwin_amd64: 0a21ff17505b6557231bad21b09a6aaf47e249aa18c1983018a3620fa73cb923
+  linux_amd64: d1a0c6ea1f0c31654fa2aa67ec016dc93ae6b19cab16866c72452400111102f1
+  linux_arm64: 6f720afb3387da506741f5c2bd998feefc0b208b4c280e5181b0c2f2f768690f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - exiv2
+  - glib

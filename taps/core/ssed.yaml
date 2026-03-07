@@ -1,0 +1,19 @@
+name: ssed
+version: 3.62
+description: Super sed stream editor
+homepage: https://packages.debian.org/sid/ssed
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssed/blobs/sha256:7f320800bb3b956cc9b1c04587ac2c93bf44dfea273107a9930a767bfa970f44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssed/blobs/sha256:fd6689f0fb272be1bf808fc7989f2c8d1223d684a76882e6f889f84f20642303
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssed/blobs/sha256:3c4df17253d6bc34e6b2d0df8fc7bc9034185a67701b9bf29bf4d5dafd3fe266
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssed/blobs/sha256:c8fc6e6bc3c579dfafeeaf205989db9d1048b345c30db3ef691593503ebcce17
+sha256:
+  darwin_arm64: 7f320800bb3b956cc9b1c04587ac2c93bf44dfea273107a9930a767bfa970f44
+  darwin_amd64: fd6689f0fb272be1bf808fc7989f2c8d1223d684a76882e6f889f84f20642303
+  linux_amd64: 3c4df17253d6bc34e6b2d0df8fc7bc9034185a67701b9bf29bf4d5dafd3fe266
+  linux_arm64: c8fc6e6bc3c579dfafeeaf205989db9d1048b345c30db3ef691593503ebcce17
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

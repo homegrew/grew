@@ -1,0 +1,19 @@
+name: hmmer
+version: 3.4
+description: Build profile HMMs and scan against sequence databases
+homepage: http://hmmer.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hmmer/blobs/sha256:1f42eea650a3ca55ba74920ce46d7e9cc019f203881097a0ee7978516c867f44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hmmer/blobs/sha256:dccdc668733d08a039d2ae9c5c40e4aef51c7b3bd8ed87398bc4159b7275cbef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hmmer/blobs/sha256:6de4e838a141d9cd836421806beeb8fea120434756ab1897a7dcd2d6e858e0ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hmmer/blobs/sha256:fdfea197f9b659764a9a641cd3bd27d10d27f53c116801332b2074d40fd3b9b7
+sha256:
+  darwin_arm64: 1f42eea650a3ca55ba74920ce46d7e9cc019f203881097a0ee7978516c867f44
+  darwin_amd64: dccdc668733d08a039d2ae9c5c40e4aef51c7b3bd8ed87398bc4159b7275cbef
+  linux_amd64: 6de4e838a141d9cd836421806beeb8fea120434756ab1897a7dcd2d6e858e0ae
+  linux_arm64: fdfea197f9b659764a9a641cd3bd27d10d27f53c116801332b2074d40fd3b9b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

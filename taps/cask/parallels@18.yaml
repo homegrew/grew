@@ -1,0 +1,11 @@
+name: parallels@18
+version: 18.3.4-53630
+description: Desktop virtualization software
+homepage: https://www.parallels.com/products/desktop/
+url:
+  darwin_arm64: https://download.parallels.com/desktop/v18/18.3.4-53630/ParallelsDesktop-18.3.4-53630.dmg
+sha256:
+  darwin_arm64: a53ff243c2d8030bcc0954aefa209e02db0a099a7294bcea4a5ced27c7b4c615
+artifacts:
+  app:
+    - Parallels Desktop.app

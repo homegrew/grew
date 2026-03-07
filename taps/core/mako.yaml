@@ -1,0 +1,21 @@
+name: mako
+version: 0.11.15
+description: Production-grade web bundler based on Rust
+homepage: https://makojs.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mako/blobs/sha256:63d5c1b3555f8c3b4ca57b1582f0ae84a201ef17082fde72075118f319afa7a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mako/blobs/sha256:d7b4e42daf4872f46d9fb6336e3abd8a12387573b1070b2ecf398a43bc93373b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mako/blobs/sha256:b1820c8d230657278544b24bd1b48d8363377a5a0fc3ca9b5d9252c273d7ad70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mako/blobs/sha256:f4fda26cdd0ca34b72f8c0586a6eeffbebb88b39395b1a406b28423de6331627
+sha256:
+  darwin_arm64: 63d5c1b3555f8c3b4ca57b1582f0ae84a201ef17082fde72075118f319afa7a2
+  darwin_amd64: d7b4e42daf4872f46d9fb6336e3abd8a12387573b1070b2ecf398a43bc93373b
+  linux_amd64: b1820c8d230657278544b24bd1b48d8363377a5a0fc3ca9b5d9252c273d7ad70
+  linux_arm64: f4fda26cdd0ca34b72f8c0586a6eeffbebb88b39395b1a406b28423de6331627
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,21 @@
+name: global-arrays
+version: 5.9.2
+description: Partitioned Global Address Space (PGAS) library for distributed arrays
+homepage: https://globalarrays.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/global-arrays/blobs/sha256:80442594d07072d82f44fd596e5c600e32cb3323ecd8d69030450222493306d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/global-arrays/blobs/sha256:569b318d34df76a58dc52e1c959ba0afd50d2a230d5bff9c20757f83bb5edb4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/global-arrays/blobs/sha256:cbe1747a4dcc6ba882ebd19aba91348f34d1b2e9809caedf8f8d896b9f099cf3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/global-arrays/blobs/sha256:7d1a103bdd3fbc420638d69af603c621e4369298bfe9242210782353b6eac3fe
+sha256:
+  darwin_arm64: 80442594d07072d82f44fd596e5c600e32cb3323ecd8d69030450222493306d5
+  darwin_amd64: 569b318d34df76a58dc52e1c959ba0afd50d2a230d5bff9c20757f83bb5edb4e
+  linux_amd64: cbe1747a4dcc6ba882ebd19aba91348f34d1b2e9809caedf8f8d896b9f099cf3
+  linux_arm64: 7d1a103bdd3fbc420638d69af603c621e4369298bfe9242210782353b6eac3fe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi

@@ -1,0 +1,19 @@
+name: udptunnel
+version: 1.1
+description: Tunnel UDP packets over a TCP connection
+homepage: http://www1.cs.columbia.edu/~lennox/udptunnel/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/udptunnel/blobs/sha256:955432103c2a78902e1560848604ef6aff9513feef9603f1f6ff10235136e8a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/udptunnel/blobs/sha256:f6d79761a7e95026828863a9ac3b4446603008c36610b651d2ad2b2a73e3110b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/udptunnel/blobs/sha256:af4f9f7bf957a343e94d7dfeb746dd2a6bcf80e9f6689fcb083d281494f75ac7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/udptunnel/blobs/sha256:eb84b77db4dc77640e9ed18c024af27dd1557dc6f4ec00acd374791a2f461664
+sha256:
+  darwin_arm64: 955432103c2a78902e1560848604ef6aff9513feef9603f1f6ff10235136e8a2
+  darwin_amd64: f6d79761a7e95026828863a9ac3b4446603008c36610b651d2ad2b2a73e3110b
+  linux_amd64: af4f9f7bf957a343e94d7dfeb746dd2a6bcf80e9f6689fcb083d281494f75ac7
+  linux_arm64: eb84b77db4dc77640e9ed18c024af27dd1557dc6f4ec00acd374791a2f461664
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

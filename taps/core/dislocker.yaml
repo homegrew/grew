@@ -1,0 +1,18 @@
+name: dislocker
+version: 0.7.3
+description: "FUSE driver to read/write Windows' BitLocker-ed volumes"
+homepage: https://github.com/Aorimn/dislocker
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dislocker/blobs/sha256:20635c3bd30ada8a1bb95f87460ce8fb7c1e7b42691c7cb56fbaa2e74d407f00
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dislocker/blobs/sha256:0c9f36fe94169843d624f2cff98960d9dcf91a70948061a7c192dc44273e5a8a
+sha256:
+  linux_amd64: 20635c3bd30ada8a1bb95f87460ce8fb7c1e7b42691c7cb56fbaa2e74d407f00
+  linux_arm64: 0c9f36fe94169843d624f2cff98960d9dcf91a70948061a7c192dc44273e5a8a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse
+  - mbedtls@3

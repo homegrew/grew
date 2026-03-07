@@ -1,0 +1,19 @@
+name: libxmp-lite
+version: 4.7.0
+description: Lite libxmp
+homepage: https://xmp.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmp-lite/blobs/sha256:201ea45ab0fd62dbebb197abfb1ff8489d75b62b98556eb55393e7ce46909938
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmp-lite/blobs/sha256:cce627af00de3a26e520f4e359465d34ba615e0c184c30637627bc25ab7a6a1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmp-lite/blobs/sha256:4e20f182fa8f91177086c114ceed9ee5fb0271ac8a0e1a5ea734e5f13a600893
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmp-lite/blobs/sha256:0dfa89164cbb60ee10d098a68f7677fd6d7b0f4e9c62827297d6e3250628d794
+sha256:
+  darwin_arm64: 201ea45ab0fd62dbebb197abfb1ff8489d75b62b98556eb55393e7ce46909938
+  darwin_amd64: cce627af00de3a26e520f4e359465d34ba615e0c184c30637627bc25ab7a6a1f
+  linux_amd64: 4e20f182fa8f91177086c114ceed9ee5fb0271ac8a0e1a5ea734e5f13a600893
+  linux_arm64: 0dfa89164cbb60ee10d098a68f7677fd6d7b0f4e9c62827297d6e3250628d794
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

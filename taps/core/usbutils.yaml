@@ -1,0 +1,21 @@
+name: usbutils
+version: 019
+description: List detailed info about USB devices
+homepage: http://www.linux-usb.org/
+license: GPL-2.0-only AND GPL-2.0-or-later AND (GPL-2.0-only OR GPL-3.0-only)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/usbutils/blobs/sha256:26e37532e86411091b25054bfc3967d825fd533557c8a59296867caab2fb9c95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/usbutils/blobs/sha256:235c82fe47c5faec50df91713b449941b4a89d8895b87c6b5950e78d2e099cb6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/usbutils/blobs/sha256:7d95c8f655bf97ceb6e232dbdbb27e9ce977dd6590311bff52077f652d0512b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/usbutils/blobs/sha256:9dd93abd2b124a8d0beb4c155fcd417ec99b837d38db7a7b4f8b82745761d51a
+sha256:
+  darwin_arm64: 26e37532e86411091b25054bfc3967d825fd533557c8a59296867caab2fb9c95
+  darwin_amd64: 235c82fe47c5faec50df91713b449941b4a89d8895b87c6b5950e78d2e099cb6
+  linux_amd64: 7d95c8f655bf97ceb6e232dbdbb27e9ce977dd6590311bff52077f652d0512b0
+  linux_arm64: 9dd93abd2b124a8d0beb4c155fcd417ec99b837d38db7a7b4f8b82745761d51a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

@@ -1,0 +1,11 @@
+name: medis
+version: 2.16.1
+description: Modern GUI for Redis
+homepage: https://getmedis.com/
+url:
+  darwin_arm64: https://api.getmedis.com/medis/medis-2.16.1.zip
+sha256:
+  darwin_arm64: f9cef8fb4637d9a0f5a101246a20830c081452f49dfc7006b992bb6b4c561943
+artifacts:
+  app:
+    - Medis.app

@@ -1,0 +1,19 @@
+name: docker-machine
+version: 0.16.2-gitlab.43
+description: Create Docker hosts locally and on cloud providers
+homepage: https://docs.gitlab.com/runner/executors/docker_machine.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-machine/blobs/sha256:e01f1d05eeb72197584e2638b48d81abda4bb56fc30c07f658570d44aa742ebd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-machine/blobs/sha256:4753520a680c9076a9166ce193cac7c5152fc910461d38123a24cdd65820433b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-machine/blobs/sha256:a334f3b5108572c0475954e497e40ed2a1fb26a75cab58422aa4079ed41749c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-machine/blobs/sha256:c2339a698a367390382aef26266a3877a7e7476cd7eabc82bd32b1388e29a8e1
+sha256:
+  darwin_arm64: e01f1d05eeb72197584e2638b48d81abda4bb56fc30c07f658570d44aa742ebd
+  darwin_amd64: 4753520a680c9076a9166ce193cac7c5152fc910461d38123a24cdd65820433b
+  linux_amd64: a334f3b5108572c0475954e497e40ed2a1fb26a75cab58422aa4079ed41749c3
+  linux_arm64: c2339a698a367390382aef26266a3877a7e7476cd7eabc82bd32b1388e29a8e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

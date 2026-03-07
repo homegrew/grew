@@ -1,0 +1,19 @@
+name: json2tsv
+version: 1.2
+description: JSON to TSV converter
+homepage: https://codemadness.org/json2tsv.html
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/json2tsv/blobs/sha256:97c3e846d50ea199b48d7e3b70894e2200c6d694cdbff69dfe41d82daccdf302
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/json2tsv/blobs/sha256:5732c14998d7ab8666e00b7b3e3696fb482ea87fe64d5d2aeed9675b468586d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/json2tsv/blobs/sha256:1e86703c3724095305d07a924a8a8b69a919959df6f0456cb85d1442023c989e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/json2tsv/blobs/sha256:744844b893e1c8a3c5e7d7986cfbac7815668b2fd78a57eeb5eac4f1a8c94207
+sha256:
+  darwin_arm64: 97c3e846d50ea199b48d7e3b70894e2200c6d694cdbff69dfe41d82daccdf302
+  darwin_amd64: 5732c14998d7ab8666e00b7b3e3696fb482ea87fe64d5d2aeed9675b468586d5
+  linux_amd64: 1e86703c3724095305d07a924a8a8b69a919959df6f0456cb85d1442023c989e
+  linux_arm64: 744844b893e1c8a3c5e7d7986cfbac7815668b2fd78a57eeb5eac4f1a8c94207
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

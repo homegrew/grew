@@ -1,0 +1,20 @@
+name: jpeg
+version: 10
+description: Image manipulation library
+homepage: https://www.ijg.org/
+license: IJG
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jpeg/blobs/sha256:9c9a77dbf6f8e31baaf5fcf343a8ce66d368a98239d70395f151a92931965757
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jpeg/blobs/sha256:ef3654b5d485d0e77cf5a7a06a9510b8f9c995e6df7566df10791ba25c61bf65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jpeg/blobs/sha256:32588e95a61f3c5d96dcf9b07c444dad100e0ef26df995d74c4cd93d5e119575
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jpeg/blobs/sha256:0e84e7c9f5ec284afd4366e2f9830ed49d2dfda0e60bd433b6eb367a08d67d12
+sha256:
+  darwin_arm64: 9c9a77dbf6f8e31baaf5fcf343a8ce66d368a98239d70395f151a92931965757
+  darwin_amd64: ef3654b5d485d0e77cf5a7a06a9510b8f9c995e6df7566df10791ba25c61bf65
+  linux_amd64: 32588e95a61f3c5d96dcf9b07c444dad100e0ef26df995d74c4cd93d5e119575
+  linux_arm64: 0e84e7c9f5ec284afd4366e2f9830ed49d2dfda0e60bd433b6eb367a08d67d12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

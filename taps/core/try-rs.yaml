@@ -1,0 +1,19 @@
+name: try-rs
+version: 1.6.2
+description: Temporary workspace manager for fast experimentation in the terminal
+homepage: https://try-rs.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/try-rs/blobs/sha256:50e678fa4f7fb2eab5282025cea10140515fc9682f09c2511c9df0197a7a6a75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/try-rs/blobs/sha256:9c8ee57f6f99321deda9a008c3486d6a2ce2e1d700d716fd55120472b87bfd86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/try-rs/blobs/sha256:d3a34867d11070bd499681f4ee5a55620a79d77d39575db48580eb08f9444c42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/try-rs/blobs/sha256:8150bf690e78372727fea4c8c1b3130c3582ef7e2c0a39fa0c238f2bc00982c2
+sha256:
+  darwin_arm64: 50e678fa4f7fb2eab5282025cea10140515fc9682f09c2511c9df0197a7a6a75
+  darwin_amd64: 9c8ee57f6f99321deda9a008c3486d6a2ce2e1d700d716fd55120472b87bfd86
+  linux_amd64: d3a34867d11070bd499681f4ee5a55620a79d77d39575db48580eb08f9444c42
+  linux_arm64: 8150bf690e78372727fea4c8c1b3130c3582ef7e2c0a39fa0c238f2bc00982c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

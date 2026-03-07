@@ -1,0 +1,22 @@
+name: qtscxml
+version: 6.10.2
+description: Provides functionality to create state machines from SCXML files
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtscxml/blobs/sha256:2b869d1f7717baa90b0d1a6331edd1f8cf5c87a871c54066e0246cb659d07191
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtscxml/blobs/sha256:b598c56b0de80af53de2a4f418613681e0b3a4919d0d8ba17b014da8df71b5ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtscxml/blobs/sha256:8d1e8bcfa1cc8d21a56e3b2684269b4d5907c59ec403f01269ffd48e576f077b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtscxml/blobs/sha256:5ff03b11dc64d6f0bb74d60bd87b7a62897619680df448caf22de1bd3418ba7a
+sha256:
+  darwin_arm64: 2b869d1f7717baa90b0d1a6331edd1f8cf5c87a871c54066e0246cb659d07191
+  darwin_amd64: b598c56b0de80af53de2a4f418613681e0b3a4919d0d8ba17b014da8df71b5ec
+  linux_amd64: 8d1e8bcfa1cc8d21a56e3b2684269b4d5907c59ec403f01269ffd48e576f077b
+  linux_arm64: 5ff03b11dc64d6f0bb74d60bd87b7a62897619680df448caf22de1bd3418ba7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

@@ -1,0 +1,21 @@
+name: quick-lint-js
+version: 3.2.0
+description: Find bugs in your JavaScript code
+homepage: https://quick-lint-js.com/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quick-lint-js/blobs/sha256:49d03124a83f370f4a9cf64dbb426d63733316f6e8360751f41f6eabd8df7ae7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quick-lint-js/blobs/sha256:40ad5c3c8e7d7684cd010f435d55a612565e9eac743d3345ef9f79b43e1892cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quick-lint-js/blobs/sha256:6171fc32f3961b428ea0799910225576b405a7cbb3f21a1c051f8890a675b0c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quick-lint-js/blobs/sha256:1bfb07780c00cef9046794798275f7e68cfb5ad9438ba98a9fb7bd33394a6881
+sha256:
+  darwin_arm64: 49d03124a83f370f4a9cf64dbb426d63733316f6e8360751f41f6eabd8df7ae7
+  darwin_amd64: 40ad5c3c8e7d7684cd010f435d55a612565e9eac743d3345ef9f79b43e1892cb
+  linux_amd64: 6171fc32f3961b428ea0799910225576b405a7cbb3f21a1c051f8890a675b0c7
+  linux_arm64: 1bfb07780c00cef9046794798275f7e68cfb5ad9438ba98a9fb7bd33394a6881
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - simdjson

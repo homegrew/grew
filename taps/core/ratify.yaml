@@ -1,0 +1,19 @@
+name: ratify
+version: 1.4.0
+description: Artifact Ratification Framework
+homepage: https://ratify.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ratify/blobs/sha256:bbfe26dfff4f2a07fced8068c4f310e4b55659471170ce553cc492722d2eb373
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ratify/blobs/sha256:c0b76073c6c99a14be4c1b896125d8240e046dcb8f02a4ec7cf37bad433f7402
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ratify/blobs/sha256:e7cdee30bc6f418af0a3bc8ca809718968ec940199d0c399f7088f0f80bdfd03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ratify/blobs/sha256:75e335cb5b00d9242f32d899d2ad01236a84e505f29416a4e8bb1c6e67d3dd53
+sha256:
+  darwin_arm64: bbfe26dfff4f2a07fced8068c4f310e4b55659471170ce553cc492722d2eb373
+  darwin_amd64: c0b76073c6c99a14be4c1b896125d8240e046dcb8f02a4ec7cf37bad433f7402
+  linux_amd64: e7cdee30bc6f418af0a3bc8ca809718968ec940199d0c399f7088f0f80bdfd03
+  linux_arm64: 75e335cb5b00d9242f32d899d2ad01236a84e505f29416a4e8bb1c6e67d3dd53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

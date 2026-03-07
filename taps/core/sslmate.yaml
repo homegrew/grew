@@ -1,0 +1,19 @@
+name: sslmate
+version: 1.10.0
+description: Buy SSL certs from the command-line
+homepage: https://sslmate.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sslmate/blobs/sha256:606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sslmate/blobs/sha256:606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sslmate/blobs/sha256:95bf782697993d0df50f7cb2ab865b07262ab8b1d0b8828cdfda97ef29e44be5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sslmate/blobs/sha256:ce71bcc850c75c1fbeb6f4cb3ae7bdba4ba0999fa29f7205db5e90dca9ad0a63
+sha256:
+  darwin_arm64: 606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf
+  darwin_amd64: 606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf
+  linux_amd64: 95bf782697993d0df50f7cb2ab865b07262ab8b1d0b8828cdfda97ef29e44be5
+  linux_arm64: ce71bcc850c75c1fbeb6f4cb3ae7bdba4ba0999fa29f7205db5e90dca9ad0a63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

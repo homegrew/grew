@@ -1,0 +1,22 @@
+name: beakerlib
+version: 1.33.2
+description: Shell-level integration testing library
+homepage: https://github.com/beakerlib/beakerlib
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beakerlib/blobs/sha256:4729c40211eb3f12feaad75e38c1ff947bfcb513005e8cf8e154d3e734f137bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beakerlib/blobs/sha256:6ecddac5a81ead7fcc40956ce114301d9dba6b383022aef8d877656dcc610e53
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beakerlib/blobs/sha256:1bb712c0defd08955d01485c42f990c072b076c631d8c5fa2a003973dd110c1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beakerlib/blobs/sha256:56de7cf183eb5bac857cd3826e4d55773dd4a58d5b697159f5568090fcd58546
+sha256:
+  darwin_arm64: 4729c40211eb3f12feaad75e38c1ff947bfcb513005e8cf8e154d3e734f137bc
+  darwin_amd64: 6ecddac5a81ead7fcc40956ce114301d9dba6b383022aef8d877656dcc610e53
+  linux_amd64: 1bb712c0defd08955d01485c42f990c072b076c631d8c5fa2a003973dd110c1b
+  linux_arm64: 56de7cf183eb5bac857cd3826e4d55773dd4a58d5b697159f5568090fcd58546
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils
+  - gnu-getopt

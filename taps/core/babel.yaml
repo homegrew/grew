@@ -1,0 +1,21 @@
+name: babel
+version: 7.28.6
+description: Compiler for writing next generation JavaScript
+homepage: https://babeljs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/babel/blobs/sha256:f6e563c3f414727bb3314b4c267eb1fb1915cde14ec306164ab198e965410a69
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/babel/blobs/sha256:b71fc98bf8e6eb16bcd8104124e39221f5c4362c0fc8d32670466fe848007443
+  linux_amd64: https://ghcr.io/v2/homebrew/core/babel/blobs/sha256:30a0e767aed7a9f954a1ffbf422bd9758a2dd81701acd31ba3257b2689aeebcc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/babel/blobs/sha256:30a0e767aed7a9f954a1ffbf422bd9758a2dd81701acd31ba3257b2689aeebcc
+sha256:
+  darwin_arm64: f6e563c3f414727bb3314b4c267eb1fb1915cde14ec306164ab198e965410a69
+  darwin_amd64: b71fc98bf8e6eb16bcd8104124e39221f5c4362c0fc8d32670466fe848007443
+  linux_amd64: 30a0e767aed7a9f954a1ffbf422bd9758a2dd81701acd31ba3257b2689aeebcc
+  linux_arm64: 30a0e767aed7a9f954a1ffbf422bd9758a2dd81701acd31ba3257b2689aeebcc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

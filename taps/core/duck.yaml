@@ -1,0 +1,21 @@
+name: duck
+version: 9.4.1.44384
+description: Command-line interface for Cyberduck (a multi-protocol file transfer tool)
+homepage: https://duck.sh/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duck/blobs/sha256:6c7beee978d94549eceb854c2353afae491885e1843ce3c4f21cec0508417e92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duck/blobs/sha256:91455b2daf90459c7045654df2038922b9f74a559cf25f06102346a68cdeeac3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duck/blobs/sha256:d555076a7fd4a2592f13e94e47c3e5d28ac7e99ae368a7af4a5bde52315b848f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duck/blobs/sha256:176967fccc1caf93661202497e940cfce47b1842192dc9f20a1502775bb7a826
+sha256:
+  darwin_arm64: 6c7beee978d94549eceb854c2353afae491885e1843ce3c4f21cec0508417e92
+  darwin_amd64: 91455b2daf90459c7045654df2038922b9f74a559cf25f06102346a68cdeeac3
+  linux_amd64: d555076a7fd4a2592f13e94e47c3e5d28ac7e99ae368a7af4a5bde52315b848f
+  linux_arm64: 176967fccc1caf93661202497e940cfce47b1842192dc9f20a1502775bb7a826
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

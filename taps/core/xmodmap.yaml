@@ -1,0 +1,21 @@
+name: xmodmap
+version: 1.0.11
+description: Modify keymaps and pointer button mappings in X
+homepage: https://gitlab.freedesktop.org/xorg/app/xmodmap
+license: MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmodmap/blobs/sha256:3729b90bb68b33194e9a4ce31e854ecb2070ba5e5af11953f7c289cca5f17868
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmodmap/blobs/sha256:0a6d9f46dfc724b3e19dd881676f5ef2911aa52c13c2ebf901e3edca3c862667
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmodmap/blobs/sha256:b8866422cea1dfecb73e767819e793be7d9f6acf91c1f21611809126c54985c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmodmap/blobs/sha256:b49840b06e245234d26698932373881179ff1763e348dfb3dfb22fd993f45371
+sha256:
+  darwin_arm64: 3729b90bb68b33194e9a4ce31e854ecb2070ba5e5af11953f7c289cca5f17868
+  darwin_amd64: 0a6d9f46dfc724b3e19dd881676f5ef2911aa52c13c2ebf901e3edca3c862667
+  linux_amd64: b8866422cea1dfecb73e767819e793be7d9f6acf91c1f21611809126c54985c4
+  linux_arm64: b49840b06e245234d26698932373881179ff1763e348dfb3dfb22fd993f45371
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11

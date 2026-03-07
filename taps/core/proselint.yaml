@@ -1,0 +1,22 @@
+name: proselint
+version: 0.16.0
+description: Linter for prose
+homepage: https://github.com/amperser/proselint
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proselint/blobs/sha256:70add61cf2da1bde43078ae2bbc702350bb795783ab4bc021a38ede477e51521
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proselint/blobs/sha256:5e7b5f1a467e8181896b1dfafa12250c01611b74476cd06374bca1ef1098f468
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proselint/blobs/sha256:d2c95d910b7eabf8d86dfb836a295c7d260a497da9ac3568362da22d553c6d52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proselint/blobs/sha256:4fe140e4c71afe17846fff6bd68be0bfbd1dcbce43c4517a0e5fc4c58690b856
+sha256:
+  darwin_arm64: 70add61cf2da1bde43078ae2bbc702350bb795783ab4bc021a38ede477e51521
+  darwin_amd64: 5e7b5f1a467e8181896b1dfafa12250c01611b74476cd06374bca1ef1098f468
+  linux_amd64: d2c95d910b7eabf8d86dfb836a295c7d260a497da9ac3568362da22d553c6d52
+  linux_arm64: 4fe140e4c71afe17846fff6bd68be0bfbd1dcbce43c4517a0e5fc4c58690b856
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - re2

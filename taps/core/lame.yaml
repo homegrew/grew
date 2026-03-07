@@ -1,0 +1,19 @@
+name: lame
+version: 3.100
+description: High quality MPEG Audio Layer III (MP3) encoder
+homepage: https://lame.sourceforge.io/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lame/blobs/sha256:59dc524bd852c6f9d5183deaf76cff3c0f8e546d96b707b4e00597f8526c8a99
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lame/blobs/sha256:931beb6c95eab8c908ed21a041cfd6e3295e63d91c076d5d376d65a7984b09ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lame/blobs/sha256:ee8318f10b1b986d57826f0f59800c43f62d58e8d52cf9c94b8924e28739e656
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lame/blobs/sha256:3e9bc793b37a72ce61d28dbbdb8dd160a0785e91b7d9ab6e964ba9e6a8a549d4
+sha256:
+  darwin_arm64: 59dc524bd852c6f9d5183deaf76cff3c0f8e546d96b707b4e00597f8526c8a99
+  darwin_amd64: 931beb6c95eab8c908ed21a041cfd6e3295e63d91c076d5d376d65a7984b09ae
+  linux_amd64: ee8318f10b1b986d57826f0f59800c43f62d58e8d52cf9c94b8924e28739e656
+  linux_arm64: 3e9bc793b37a72ce61d28dbbdb8dd160a0785e91b7d9ab6e964ba9e6a8a549d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

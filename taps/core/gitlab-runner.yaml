@@ -1,0 +1,19 @@
+name: gitlab-runner
+version: 18.9.0
+description: Official GitLab CI runner
+homepage: https://gitlab.com/gitlab-org/gitlab-runner
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitlab-runner/blobs/sha256:c7e8fb04c9267c7164c1ba5a1550125ec6914921803d283e53e29af1a547064d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitlab-runner/blobs/sha256:aebd15c694caa4bd3e8c584d324c6cff687ee43fab7867171008fd660d30a308
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitlab-runner/blobs/sha256:796d91afe57c597012ac295c39a5b1c5a000b5ea9f75c6bd06f0fb253da07512
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitlab-runner/blobs/sha256:859fc59292a53733a89f298ca9d0ac785740a5c4fdb1141380307063b02fe4de
+sha256:
+  darwin_arm64: c7e8fb04c9267c7164c1ba5a1550125ec6914921803d283e53e29af1a547064d
+  darwin_amd64: aebd15c694caa4bd3e8c584d324c6cff687ee43fab7867171008fd660d30a308
+  linux_amd64: 796d91afe57c597012ac295c39a5b1c5a000b5ea9f75c6bd06f0fb253da07512
+  linux_arm64: 859fc59292a53733a89f298ca9d0ac785740a5c4fdb1141380307063b02fe4de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

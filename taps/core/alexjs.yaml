@@ -1,0 +1,21 @@
+name: alexjs
+version: 11.0.1
+description: Catch insensitive, inconsiderate writing
+homepage: https://alexjs.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alexjs/blobs/sha256:f8e7666f1bbca1055363b542c7937cfcfdcf2ce1667f8e01a3013353a0b32ab8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alexjs/blobs/sha256:b8eedf8b9395fadd7cc1dd2011a9a31043acda33dd864bd214fa6457edb62a5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alexjs/blobs/sha256:02502faa257c0027e461b00a8f802c5bb60de704c3f75afbc09aa41b51763d71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alexjs/blobs/sha256:08e51dfcc87a621c5b02f9d4ce9e92b571bc9a7659d53f75d2f66ac55d9f84b8
+sha256:
+  darwin_arm64: f8e7666f1bbca1055363b542c7937cfcfdcf2ce1667f8e01a3013353a0b32ab8
+  darwin_amd64: b8eedf8b9395fadd7cc1dd2011a9a31043acda33dd864bd214fa6457edb62a5f
+  linux_amd64: 02502faa257c0027e461b00a8f802c5bb60de704c3f75afbc09aa41b51763d71
+  linux_arm64: 08e51dfcc87a621c5b02f9d4ce9e92b571bc9a7659d53f75d2f66ac55d9f84b8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

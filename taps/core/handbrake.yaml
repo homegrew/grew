@@ -1,0 +1,42 @@
+name: handbrake
+version: 1.10.2
+description: Open-source video transcoder available for Linux, Mac, and Windows
+homepage: https://handbrake.fr/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/handbrake/blobs/sha256:2d3a39c056cd56eb9f56ab63407bf886088f190919668cbed3caf5e66ca4c032
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/handbrake/blobs/sha256:fec30e2ef0b4f48f8ae12a825d4785d5e23a77ddadc4c77fc3d44aac8a93d3a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/handbrake/blobs/sha256:f07869bbe8ed2ae1c9cec894569b9d2f12486c7dff8130381a336d5771cbc733
+  linux_arm64: https://ghcr.io/v2/homebrew/core/handbrake/blobs/sha256:d2284bd27ae585db94fb1674367517e8ae42eb2297857b66613e92eb059254a3
+sha256:
+  darwin_arm64: 2d3a39c056cd56eb9f56ab63407bf886088f190919668cbed3caf5e66ca4c032
+  darwin_amd64: fec30e2ef0b4f48f8ae12a825d4785d5e23a77ddadc4c77fc3d44aac8a93d3a2
+  linux_amd64: f07869bbe8ed2ae1c9cec894569b9d2f12486c7dff8130381a336d5771cbc733
+  linux_arm64: d2284bd27ae585db94fb1674367517e8ae42eb2297857b66613e92eb059254a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dav1d
+  - freetype
+  - fribidi
+  - harfbuzz
+  - jansson
+  - jpeg-turbo
+  - lame
+  - libass
+  - libbluray
+  - libdvdnav
+  - libdvdread
+  - libogg
+  - libvorbis
+  - libvpx
+  - opus
+  - speex
+  - svt-av1
+  - theora
+  - x264
+  - xz
+  - zimg
+  - libx11

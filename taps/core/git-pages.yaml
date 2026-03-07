@@ -1,0 +1,19 @@
+name: git-pages
+version: 0.6.0
+description: Scalable static site server for Git forges
+homepage: https://codeberg.org/git-pages/git-pages
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-pages/blobs/sha256:e3fa9b6e27ac6353b944bdbf252eb04bfce1d4d95cafb3be98c5104fc43466cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-pages/blobs/sha256:f4aa1ad25b1ccab4ba697bcb3b70c9ba795d63187231628459d64977a3787540
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-pages/blobs/sha256:81e4a554f7e17296f30556bdf38e99907f408b217a3c09f846168f262db07bcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-pages/blobs/sha256:ff45517c3b628d217484ac304829cfe5733d9f6f59a20126a4732f427b872d43
+sha256:
+  darwin_arm64: e3fa9b6e27ac6353b944bdbf252eb04bfce1d4d95cafb3be98c5104fc43466cc
+  darwin_amd64: f4aa1ad25b1ccab4ba697bcb3b70c9ba795d63187231628459d64977a3787540
+  linux_amd64: 81e4a554f7e17296f30556bdf38e99907f408b217a3c09f846168f262db07bcf
+  linux_arm64: ff45517c3b628d217484ac304829cfe5733d9f6f59a20126a4732f427b872d43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

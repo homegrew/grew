@@ -1,0 +1,23 @@
+name: sdcv
+version: 0.5.5
+description: StarDict Console Version
+homepage: https://dushistov.github.io/sdcv/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdcv/blobs/sha256:d9e4a0a1b41d6d46b30202780982c90aff2d19cee7333b5f1e9d0da18cf68f52
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdcv/blobs/sha256:a6a1dde20c0f583b113044908921e95fc76a3ad14195e68e242e0aa2bb6ce255
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdcv/blobs/sha256:d01d6330eecd4858e0c73ea360a0f6870ce3004f7c97bce3284c64a9ae850d6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdcv/blobs/sha256:c48568253dc9cfbcdfe4f4aa520303a3d6cd51cffc2e4b88b8c2a39e2c94271f
+sha256:
+  darwin_arm64: d9e4a0a1b41d6d46b30202780982c90aff2d19cee7333b5f1e9d0da18cf68f52
+  darwin_amd64: a6a1dde20c0f583b113044908921e95fc76a3ad14195e68e242e0aa2bb6ce255
+  linux_amd64: d01d6330eecd4858e0c73ea360a0f6870ce3004f7c97bce3284c64a9ae850d6f
+  linux_arm64: c48568253dc9cfbcdfe4f4aa520303a3d6cd51cffc2e4b88b8c2a39e2c94271f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - readline
+  - gettext

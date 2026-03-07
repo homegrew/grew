@@ -1,0 +1,19 @@
+name: sgn
+version: 2.0.1
+description: Shikata ga nai (仕方がない) encoder ported into go with several improvements
+homepage: https://github.com/EgeBalci/sgn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sgn/blobs/sha256:d25705bb70e377ddb7415dcbff3d61567a70f21df885d80d8ffed77253ef555d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sgn/blobs/sha256:4cd2918b3875487f6e2d9927e2bad5d39b09c77a7406716ac98bbc8266a60a9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sgn/blobs/sha256:21bd9b282190025a691793764bf3212e1f26990ece0991fbb201d2ef03043ffc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sgn/blobs/sha256:16fb106569f1bd6fa3893f57fd84751c4f0d6df486bfefe4ede5388845b9eb06
+sha256:
+  darwin_arm64: d25705bb70e377ddb7415dcbff3d61567a70f21df885d80d8ffed77253ef555d
+  darwin_amd64: 4cd2918b3875487f6e2d9927e2bad5d39b09c77a7406716ac98bbc8266a60a9f
+  linux_amd64: 21bd9b282190025a691793764bf3212e1f26990ece0991fbb201d2ef03043ffc
+  linux_arm64: 16fb106569f1bd6fa3893f57fd84751c4f0d6df486bfefe4ede5388845b9eb06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

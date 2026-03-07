@@ -1,0 +1,24 @@
+name: valabind
+version: 1.8.0
+description: Vala bindings for radare, reverse engineering framework
+homepage: https://github.com/radare/valabind
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/valabind/blobs/sha256:745683d881871d85218f78aee42d4631ebc836810ac19aa2b63d6e56fe252b0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/valabind/blobs/sha256:f5be1780534f375152b19fde9500b1341a3506c9588adbb0590eaf72dea36dd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/valabind/blobs/sha256:a026ff063223ac9af89b8fd78aa1d610cc20771b3995dd9b39bc2f2e6ac04c19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/valabind/blobs/sha256:2f0a965e11e7dc99c638686a3099d5884b835eca8fdf5424e9062cfca6745a6b
+sha256:
+  darwin_arm64: 745683d881871d85218f78aee42d4631ebc836810ac19aa2b63d6e56fe252b0f
+  darwin_amd64: f5be1780534f375152b19fde9500b1341a3506c9588adbb0590eaf72dea36dd4
+  linux_amd64: a026ff063223ac9af89b8fd78aa1d610cc20771b3995dd9b39bc2f2e6ac04c19
+  linux_arm64: 2f0a965e11e7dc99c638686a3099d5884b835eca8fdf5424e9062cfca6745a6b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - swig
+  - vala
+  - gettext

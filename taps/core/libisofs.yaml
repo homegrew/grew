@@ -1,0 +1,21 @@
+name: libisofs
+version: 1.5.6.pl01
+description: Library to create an ISO-9660 filesystem with various extensions
+homepage: https://dev.lovelyhq.com/libburnia/libisofs
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libisofs/blobs/sha256:e1fbe54b14ab090312efb7e87b22e59e1914f20f70b11f2dae9ba31f7a36bc9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libisofs/blobs/sha256:cffe8b203438edfedda9d7a3490c05f8223a06189b8ab6dcc38aad72fb65020d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libisofs/blobs/sha256:3ba65052f0f50669ffaddaa72ef94e575909ddea93ee60ac745d743bf4c7a875
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libisofs/blobs/sha256:460614b2690b6a47bffd1fb5b61add40d6b6ace8df09a5b8f0d8edc94c6691d7
+sha256:
+  darwin_arm64: e1fbe54b14ab090312efb7e87b22e59e1914f20f70b11f2dae9ba31f7a36bc9b
+  darwin_amd64: cffe8b203438edfedda9d7a3490c05f8223a06189b8ab6dcc38aad72fb65020d
+  linux_amd64: 3ba65052f0f50669ffaddaa72ef94e575909ddea93ee60ac745d743bf4c7a875
+  linux_arm64: 460614b2690b6a47bffd1fb5b61add40d6b6ace8df09a5b8f0d8edc94c6691d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libzip

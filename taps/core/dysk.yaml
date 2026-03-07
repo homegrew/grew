@@ -1,0 +1,19 @@
+name: dysk
+version: 3.6.0
+description: Linux utility to get information on filesystems, like df but better
+homepage: https://dystroy.org/dysk/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dysk/blobs/sha256:22e9f515113fb818883c5023d022fdb56803f68566c994bebe084bb54d5752c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dysk/blobs/sha256:a67b8e9d077a9c901a4c01647437c4d98bbf0e7d76478c689832cb41777d63f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dysk/blobs/sha256:85e6ac0e35f6bf433039d96489fdb439b0eee416d72b1f74947b6fcd0c57ce64
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dysk/blobs/sha256:b39cb0b4f3622c660a99e1b1d0ee07932019a6c1f159cb04a06b0bd775d1be9f
+sha256:
+  darwin_arm64: 22e9f515113fb818883c5023d022fdb56803f68566c994bebe084bb54d5752c6
+  darwin_amd64: a67b8e9d077a9c901a4c01647437c4d98bbf0e7d76478c689832cb41777d63f1
+  linux_amd64: 85e6ac0e35f6bf433039d96489fdb439b0eee416d72b1f74947b6fcd0c57ce64
+  linux_arm64: b39cb0b4f3622c660a99e1b1d0ee07932019a6c1f159cb04a06b0bd775d1be9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

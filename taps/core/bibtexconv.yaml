@@ -1,0 +1,21 @@
+name: bibtexconv
+version: 2.1.1
+description: BibTeX file converter
+homepage: https://github.com/dreibh/bibtexconv
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bibtexconv/blobs/sha256:6d02f4e49ab2c8badb1a1b94eef388d2f150905a32f8630c7a5ae3448953d995
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bibtexconv/blobs/sha256:a78bd7f2fe47c74beef8c83681b9eb1d731982bf934febc9b8ac49471fde1934
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bibtexconv/blobs/sha256:44a41b83d68982f3d32f2824c35dd1bf8d9744b2f792b42a69614f50fc1c72ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bibtexconv/blobs/sha256:fe77b85b8c2e746cc0651ff90df7a907d2a4932b2701cff2fac31f8c6a273772
+sha256:
+  darwin_arm64: 6d02f4e49ab2c8badb1a1b94eef388d2f150905a32f8630c7a5ae3448953d995
+  darwin_amd64: a78bd7f2fe47c74beef8c83681b9eb1d731982bf934febc9b8ac49471fde1934
+  linux_amd64: 44a41b83d68982f3d32f2824c35dd1bf8d9744b2f792b42a69614f50fc1c72ca
+  linux_arm64: fe77b85b8c2e746cc0651ff90df7a907d2a4932b2701cff2fac31f8c6a273772
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

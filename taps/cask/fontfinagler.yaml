@@ -1,0 +1,13 @@
+name: fontfinagler
+version: 2.0.3
+description: Help troubleshoot misbehaving fonts
+homepage: https://markdouma.com/fontfinagler/
+url:
+  darwin_arm64: https://markdouma.com/fontfinagler/FontFinagler2.0.3.dmg
+sha256:
+  darwin_arm64: 40898491baaafcfc06df8a132ba3d161675d2df492c8a133bc807008469c106a
+artifacts:
+  app:
+    - Font Finagler.app
+  bin:
+    - finagler

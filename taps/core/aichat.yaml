@@ -1,0 +1,19 @@
+name: aichat
+version: 0.30.0
+description: "All-in-one AI-Powered CLI Chat & Copilot"
+homepage: https://github.com/sigoden/aichat
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aichat/blobs/sha256:cb51a984d400d6c62b6978a9d9c1e13c5d3837d9d2aef4f1d838a03d5b127f3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aichat/blobs/sha256:3a3a2bb10971377b15727ca4fc7c2ba8eb905ef9034cfda97d58fff594e2b34a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aichat/blobs/sha256:dab29ef575f4af6926cba9b71dca94143c3363021c402262a1f1ad5a66af5dad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aichat/blobs/sha256:2b3072ceed89d9206141fad174bdc04ca249f905917d2d6ddefd4fa00cc0d38e
+sha256:
+  darwin_arm64: cb51a984d400d6c62b6978a9d9c1e13c5d3837d9d2aef4f1d838a03d5b127f3c
+  darwin_amd64: 3a3a2bb10971377b15727ca4fc7c2ba8eb905ef9034cfda97d58fff594e2b34a
+  linux_amd64: dab29ef575f4af6926cba9b71dca94143c3363021c402262a1f1ad5a66af5dad
+  linux_arm64: 2b3072ceed89d9206141fad174bdc04ca249f905917d2d6ddefd4fa00cc0d38e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

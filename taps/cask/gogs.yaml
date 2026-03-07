@@ -1,0 +1,11 @@
+name: gogs
+version: 0.14.2
+description: Self-hosted Git service
+homepage: https://gogs.io/
+url:
+  darwin_arm64: https://github.com/gogs/gogs/releases/download/v0.14.2/gogs_v0.14.2_darwin_arm64.zip
+sha256:
+  darwin_arm64: 2996f72f5cca4cead31166fb7adc9673ef209827851bcb1dcf45039da1dc59e3
+artifacts:
+  bin:
+    - gogs

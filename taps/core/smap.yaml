@@ -1,0 +1,19 @@
+name: smap
+version: 0.1.12
+description: Drop-in replacement for Nmap powered by shodan.io
+homepage: https://github.com/s0md3v/Smap
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smap/blobs/sha256:fcac3c34ff7362e78d5674837d531780a9b3b0bd54b54b0172f5dd47ba523f9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smap/blobs/sha256:234f22ca3979ed3d55dcce4b355d23e428799b341d851699bae284cb5ab71aa8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smap/blobs/sha256:dce4831163ced243814deed0371518cf969ebb55aedd74bdba4933dd30aef60b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smap/blobs/sha256:f5e586b583ee24c689e583cc8cdc55f442f48e80e3a21d0a2fbc5ee09a2a0206
+sha256:
+  darwin_arm64: fcac3c34ff7362e78d5674837d531780a9b3b0bd54b54b0172f5dd47ba523f9a
+  darwin_amd64: 234f22ca3979ed3d55dcce4b355d23e428799b341d851699bae284cb5ab71aa8
+  linux_amd64: dce4831163ced243814deed0371518cf969ebb55aedd74bdba4933dd30aef60b
+  linux_arm64: f5e586b583ee24c689e583cc8cdc55f442f48e80e3a21d0a2fbc5ee09a2a0206
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

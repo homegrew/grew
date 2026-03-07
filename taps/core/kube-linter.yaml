@@ -1,0 +1,19 @@
+name: kube-linter
+version: 0.8.2
+description: Static analysis tool for Kubernetes YAML files and Helm charts
+homepage: https://github.com/stackrox/kube-linter
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kube-linter/blobs/sha256:37abe6a6a742262c59e2ae2e0165c073026931afd60578bdedef4d57819da275
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kube-linter/blobs/sha256:f0b5e53ce6fc39195bece11aa9fd5e75ad0e79fb611d2d8179138b4a401423ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kube-linter/blobs/sha256:525c4f25f865bd36f427aa7c19f02fcc24bdf56e20f9ac67c1a98be70bd4561f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kube-linter/blobs/sha256:b7e80d34785bf009faea778585fad307b80799716a1e58181a3265caa604b2e9
+sha256:
+  darwin_arm64: 37abe6a6a742262c59e2ae2e0165c073026931afd60578bdedef4d57819da275
+  darwin_amd64: f0b5e53ce6fc39195bece11aa9fd5e75ad0e79fb611d2d8179138b4a401423ef
+  linux_amd64: 525c4f25f865bd36f427aa7c19f02fcc24bdf56e20f9ac67c1a98be70bd4561f
+  linux_arm64: b7e80d34785bf009faea778585fad307b80799716a1e58181a3265caa604b2e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

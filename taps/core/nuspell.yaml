@@ -1,0 +1,21 @@
+name: nuspell
+version: 5.1.7
+description: Fast and safe spellchecking C++ library
+homepage: https://nuspell.github.io/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nuspell/blobs/sha256:6863e34c58596b85e558b7184ac455bf449ff65cd5b9ac2f3d3f4c509ca155a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nuspell/blobs/sha256:38a0d023c75e8bb42cf442000fcf1e652517dbac3ad292d744a0f405e77e30ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nuspell/blobs/sha256:4f038716f553adbecc58cf191544f5cca27c9bdcdc0e79f8c380e66a13f1a34e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nuspell/blobs/sha256:d32911d3302e34fc0d672550c67d524070c0313b29f2f8177154644eff4402c1
+sha256:
+  darwin_arm64: 6863e34c58596b85e558b7184ac455bf449ff65cd5b9ac2f3d3f4c509ca155a6
+  darwin_amd64: 38a0d023c75e8bb42cf442000fcf1e652517dbac3ad292d744a0f405e77e30ff
+  linux_amd64: 4f038716f553adbecc58cf191544f5cca27c9bdcdc0e79f8c380e66a13f1a34e
+  linux_arm64: d32911d3302e34fc0d672550c67d524070c0313b29f2f8177154644eff4402c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78

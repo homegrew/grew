@@ -1,0 +1,19 @@
+name: pbzip2
+version: 1.1.13
+description: Parallel bzip2
+homepage: http://compression.great-site.net/pbzip2/
+license: bzip2-1.0.6
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pbzip2/blobs/sha256:484b76c243682d69066e15002d253fdc6179837c811a98855c53def0e830a761
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pbzip2/blobs/sha256:935dbc363cc12919d81114e7fe614ee662dfd365c831ac587e0e8630aabb8809
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pbzip2/blobs/sha256:33c30ab657b712607e295bb648c8d7ce7c5590ec916aef948e2f38dc25c51551
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pbzip2/blobs/sha256:c63518fb5d60d394bcc30e58d8af968509e373d1b658fdcc0a42b48368fd4b1d
+sha256:
+  darwin_arm64: 484b76c243682d69066e15002d253fdc6179837c811a98855c53def0e830a761
+  darwin_amd64: 935dbc363cc12919d81114e7fe614ee662dfd365c831ac587e0e8630aabb8809
+  linux_amd64: 33c30ab657b712607e295bb648c8d7ce7c5590ec916aef948e2f38dc25c51551
+  linux_arm64: c63518fb5d60d394bcc30e58d8af968509e373d1b658fdcc0a42b48368fd4b1d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

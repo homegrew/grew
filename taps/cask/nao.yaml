@@ -1,0 +1,13 @@
+name: nao
+version: 0.16.5
+description: AI code editor for data
+homepage: https://getnao.io/
+url:
+  darwin_arm64: https://storage.googleapis.com/nao-releases/nao/darwin-arm64/0.16.5/nao.arm64.0.16.5.dmg
+sha256:
+  darwin_arm64: 778ebfdf9d0fc205e5b5d54c2d9cd066b5289773a9e666e0aff9a1ff1b82004b
+artifacts:
+  app:
+    - nao.app
+  bin:
+    - nao

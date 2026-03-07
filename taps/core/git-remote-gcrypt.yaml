@@ -1,0 +1,19 @@
+name: git-remote-gcrypt
+version: 1.5
+description: GPG-encrypted git remotes
+homepage: https://spwhitton.name/tech/code/git-remote-gcrypt/
+license: GPL-3.0-only OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-remote-gcrypt/blobs/sha256:4efe32b0ed3c56c7b8124db517898b05ac38ab6730e19c051ca05a5ec50c42ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-remote-gcrypt/blobs/sha256:511243a692e328688b88ba4091b5da01cb6511e0906aeb1fd2327142b703c38f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-remote-gcrypt/blobs/sha256:57c8b96cc637d89a829bde8952c93946deee5c641c6cf07f1bcc484a5e4d5ece
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-remote-gcrypt/blobs/sha256:aab3674f42bd12e3a700bbd7b15ba442e480341e0c84fd7987c78f186d34cd16
+sha256:
+  darwin_arm64: 4efe32b0ed3c56c7b8124db517898b05ac38ab6730e19c051ca05a5ec50c42ee
+  darwin_amd64: 511243a692e328688b88ba4091b5da01cb6511e0906aeb1fd2327142b703c38f
+  linux_amd64: 57c8b96cc637d89a829bde8952c93946deee5c641c6cf07f1bcc484a5e4d5ece
+  linux_arm64: aab3674f42bd12e3a700bbd7b15ba442e480341e0c84fd7987c78f186d34cd16
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

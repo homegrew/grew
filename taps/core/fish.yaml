@@ -1,0 +1,21 @@
+name: fish
+version: 4.5.0
+description: User-friendly command-line shell for UNIX-like operating systems
+homepage: https://fishshell.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fish/blobs/sha256:ca0dac85935f3c832187630e9b90abbad901f7477c7e7e7891e20eb026394479
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fish/blobs/sha256:b3a54aa70246afdd7ea22a0fa7b86b12532a331a070740a4afe29b403b6e8bb0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fish/blobs/sha256:d10a173e178a917d732ec1f952f012d5e73e1bf4e44de97c6630ea2a861125fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fish/blobs/sha256:8ac9b7c0a93b06f92e4cf8b000f4550384b2ab925481cbcefcdc975f218fd602
+sha256:
+  darwin_arm64: ca0dac85935f3c832187630e9b90abbad901f7477c7e7e7891e20eb026394479
+  darwin_amd64: b3a54aa70246afdd7ea22a0fa7b86b12532a331a070740a4afe29b403b6e8bb0
+  linux_amd64: d10a173e178a917d732ec1f952f012d5e73e1bf4e44de97c6630ea2a861125fd
+  linux_arm64: 8ac9b7c0a93b06f92e4cf8b000f4550384b2ab925481cbcefcdc975f218fd602
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

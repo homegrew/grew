@@ -1,0 +1,22 @@
+name: minipro
+version: 0.7.4
+description: Open controller for the MiniPRO TL866xx series of chip programmers
+homepage: https://gitlab.com/DavidGriffith/minipro/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minipro/blobs/sha256:0f1f6aceeab9c9545b8adcf8f16300f09b0b5355195e2a3a83bfadf18da57557
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minipro/blobs/sha256:9af071ccc5f99e1f20b3a970977161a3c09055a7dc57cf62213d407556264067
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minipro/blobs/sha256:47b9ae94014806770ad1b838d8a340f119c5101bfa1e125c2c32daf899edcf70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minipro/blobs/sha256:6f22ef830d29487e4f88afaf95a912b10686b7ae963a52df49259f3c485bf2a9
+sha256:
+  darwin_arm64: 0f1f6aceeab9c9545b8adcf8f16300f09b0b5355195e2a3a83bfadf18da57557
+  darwin_amd64: 9af071ccc5f99e1f20b3a970977161a3c09055a7dc57cf62213d407556264067
+  linux_amd64: 47b9ae94014806770ad1b838d8a340f119c5101bfa1e125c2c32daf899edcf70
+  linux_arm64: 6f22ef830d29487e4f88afaf95a912b10686b7ae963a52df49259f3c485bf2a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb
+  - srecord

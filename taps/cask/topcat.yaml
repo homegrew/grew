@@ -1,0 +1,14 @@
+name: topcat
+version: 4.10-5
+description: Interactive graphical viewer and editor for tabular data
+homepage: https://www.star.bristol.ac.uk/mbt/topcat/
+url:
+  darwin_arm64: https://www.star.bristol.ac.uk/mbt/releases/topcat/v4.10-5/topcat-all.dmg
+sha256:
+  darwin_arm64: b678b64cb2d8b0df0707d94ba1ddef9fd7fab734f55b940a82fc7167b8d52d1e
+artifacts:
+  app:
+    - TOPCAT.app
+  bin:
+    - topcat
+    - stilts

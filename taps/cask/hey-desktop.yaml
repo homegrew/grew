@@ -1,0 +1,11 @@
+name: hey-desktop
+version: 1.2.18
+description: Access the HEY email service
+homepage: https://hey.com/
+url:
+  darwin_arm64: https://hey.com/desktop/HEY-1.2.18-arm64-mac.zip
+sha256:
+  darwin_arm64: 36e747be2cd253cff7c3008ab7dee6bdb18b57df6e8b790945a06f1138daaf88
+artifacts:
+  app:
+    - HEY.app

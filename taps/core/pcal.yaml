@@ -1,0 +1,19 @@
+name: pcal
+version: 4.11.0
+description: Generate Postscript calendars without X
+homepage: https://pcal.sourceforge.net/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcal/blobs/sha256:f1e0e7b42a908bec8dcf41782a3e4b9397955a95a9c0781ef8e21fbf2ef8a327
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcal/blobs/sha256:ac1418d17450998bec7de62e86d71d0bc116cd4eb0ae45d5756d701ceecfa697
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcal/blobs/sha256:e4ca61c591e3d9f96352a2b83689f5dad406082f164eeb621602400aed315a9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcal/blobs/sha256:e8f41a9d2ac3d3944d6e0e64a4d502f9c317cfbd47ed8471c4b230b159a653d9
+sha256:
+  darwin_arm64: f1e0e7b42a908bec8dcf41782a3e4b9397955a95a9c0781ef8e21fbf2ef8a327
+  darwin_amd64: ac1418d17450998bec7de62e86d71d0bc116cd4eb0ae45d5756d701ceecfa697
+  linux_amd64: e4ca61c591e3d9f96352a2b83689f5dad406082f164eeb621602400aed315a9a
+  linux_arm64: e8f41a9d2ac3d3944d6e0e64a4d502f9c317cfbd47ed8471c4b230b159a653d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

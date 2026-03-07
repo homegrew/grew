@@ -1,0 +1,25 @@
+name: gcc@14
+version: 14.3.0
+description: GNU compiler collection
+homepage: https://gcc.gnu.org/
+license: GPL-3.0-or-later WITH GCC-exception-3.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gcc/14/blobs/sha256:aa76442b499cc647f5fe254808431f5d657120ee57bf3b0a9657755b6d38815c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gcc/14/blobs/sha256:77d3b260ac37e2746af49c25dd8053ac8a50a53d1232f7f7b48fb3cc491225a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gcc/14/blobs/sha256:bcd375682eaffe0ff9c8d374d76d9ea8a02623adbbc8a39ea8009e419fdd13bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gcc/14/blobs/sha256:3d972d44e201e63410a28c3056c335d5dbb7903edf58c0e6543edc009a9d12f0
+sha256:
+  darwin_arm64: aa76442b499cc647f5fe254808431f5d657120ee57bf3b0a9657755b6d38815c
+  darwin_amd64: 77d3b260ac37e2746af49c25dd8053ac8a50a53d1232f7f7b48fb3cc491225a0
+  linux_amd64: bcd375682eaffe0ff9c8d374d76d9ea8a02623adbbc8a39ea8009e419fdd13bc
+  linux_arm64: 3d972d44e201e63410a28c3056c335d5dbb7903edf58c0e6543edc009a9d12f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - isl
+  - libmpc
+  - mpfr
+  - zstd

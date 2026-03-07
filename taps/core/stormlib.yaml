@@ -1,0 +1,19 @@
+name: stormlib
+version: 9.31
+description: Library for handling Blizzard MPQ archives
+homepage: http://www.zezula.net/en/mpq/stormlib.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stormlib/blobs/sha256:96e129fd5dd134918fc64ce2a706deb1e7911e7a6ea98bc709e207b797388d75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stormlib/blobs/sha256:a2e153410331b03506c454ac4240ba49acd06da4e5149cf759f20a6a465d07ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stormlib/blobs/sha256:c22bb47d47efd4d54345ab1c348f4e9d9ab81149a3e59b129fd2e5703d3ace05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stormlib/blobs/sha256:77271d55a05e72595f18e3a611b7994b607e6c8fdb7e181a143f80298228d792
+sha256:
+  darwin_arm64: 96e129fd5dd134918fc64ce2a706deb1e7911e7a6ea98bc709e207b797388d75
+  darwin_amd64: a2e153410331b03506c454ac4240ba49acd06da4e5149cf759f20a6a465d07ca
+  linux_amd64: c22bb47d47efd4d54345ab1c348f4e9d9ab81149a3e59b129fd2e5703d3ace05
+  linux_arm64: 77271d55a05e72595f18e3a611b7994b607e6c8fdb7e181a143f80298228d792
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

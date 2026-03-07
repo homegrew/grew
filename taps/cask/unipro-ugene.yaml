@@ -1,0 +1,11 @@
+name: unipro-ugene
+version: 53.1
+description: Free open-source cross-platform bioinformatics software
+homepage: https://ugene.net/
+url:
+  darwin_arm64: https://github.com/ugeneunipro/ugene/releases/download/53.1/ugene-53.1-mac-x86-64.dmg
+sha256:
+  darwin_arm64: 460a194a25e351d477891de812bab820231655778d7572e6b9fe343946c79ef6
+artifacts:
+  app:
+    - Unipro UGENE.app

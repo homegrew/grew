@@ -1,0 +1,19 @@
+name: uutils-coreutils
+version: 0.6.0
+description: Cross-platform Rust rewrite of the GNU coreutils
+homepage: https://uutils.github.io/coreutils/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uutils-coreutils/blobs/sha256:924e04cc141bcc932b40bc227a08870284fd97e12ef878e708fbda7520fe1221
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uutils-coreutils/blobs/sha256:30a21dfd48fc8aa7829555b59770b67db8ff303d5218efad2054271a43010bd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uutils-coreutils/blobs/sha256:8a495f658272b20d8ded7e0152f10e68932de7b97103c310cc5b5327120884d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uutils-coreutils/blobs/sha256:f53fcc66d49a33f9241eea86eb0a99c17100e773c6d6a55fde64bbe27059cf60
+sha256:
+  darwin_arm64: 924e04cc141bcc932b40bc227a08870284fd97e12ef878e708fbda7520fe1221
+  darwin_amd64: 30a21dfd48fc8aa7829555b59770b67db8ff303d5218efad2054271a43010bd7
+  linux_amd64: 8a495f658272b20d8ded7e0152f10e68932de7b97103c310cc5b5327120884d5
+  linux_arm64: f53fcc66d49a33f9241eea86eb0a99c17100e773c6d6a55fde64bbe27059cf60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

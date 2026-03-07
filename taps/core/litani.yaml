@@ -1,0 +1,25 @@
+name: litani
+version: 1.29.0
+description: Metabuild system
+homepage: https://awslabs.github.io/aws-build-accumulator/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/litani/blobs/sha256:9759632a6582af9013d067c4461d07a5cd713405b2325593dcbbcd80dba1dee5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/litani/blobs/sha256:aa07f4bd06cfef36b6c1aeb00f0399dde3a5f2757905891ca77ba4ffaca0127e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/litani/blobs/sha256:0331320a1a3ab0d6b7564b35460c0b455824aaadc7f9d0f757c73aee894e71c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/litani/blobs/sha256:626ef7ddbb0b86a50f8f7f6e3f846afe918bb3820a26a4861e03186e1be97e0f
+sha256:
+  darwin_arm64: 9759632a6582af9013d067c4461d07a5cd713405b2325593dcbbcd80dba1dee5
+  darwin_amd64: aa07f4bd06cfef36b6c1aeb00f0399dde3a5f2757905891ca77ba4ffaca0127e
+  linux_amd64: 0331320a1a3ab0d6b7564b35460c0b455824aaadc7f9d0f757c73aee894e71c2
+  linux_arm64: 626ef7ddbb0b86a50f8f7f6e3f846afe918bb3820a26a4861e03186e1be97e0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnuplot
+  - graphviz
+  - libyaml
+  - ninja
+  - python@3.14

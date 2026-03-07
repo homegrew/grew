@@ -1,0 +1,19 @@
+name: cpr
+version: 1.14.2
+description: C++ Requests, a spiritual port of Python Requests
+homepage: https://docs.libcpr.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpr/blobs/sha256:a0f3e8ed113b1279c1128726e802fc8ae395195b2a0d3f730503234056b393fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpr/blobs/sha256:e2c8046007a51247012c7243e18324ee09571a5f88dfe62abfc8729c53cf6d9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpr/blobs/sha256:75cf39467eb0f010d6c26ccd5b09fe2a1da6b6a00b75bce3287c1004f2c98b63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpr/blobs/sha256:67ed191360edc4aefc104c06fc5149be59c234fbdf2ee636ae1f92f1a67d877f
+sha256:
+  darwin_arm64: a0f3e8ed113b1279c1128726e802fc8ae395195b2a0d3f730503234056b393fa
+  darwin_amd64: e2c8046007a51247012c7243e18324ee09571a5f88dfe62abfc8729c53cf6d9f
+  linux_amd64: 75cf39467eb0f010d6c26ccd5b09fe2a1da6b6a00b75bce3287c1004f2c98b63
+  linux_arm64: 67ed191360edc4aefc104c06fc5149be59c234fbdf2ee636ae1f92f1a67d877f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

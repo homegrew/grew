@@ -1,0 +1,29 @@
+name: ffmpeg
+version: 8.0.1
+description: Play, record, convert, and stream select audio and video codecs
+homepage: https://ffmpeg.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:d05cc234b10c73b7110258d44522152596e45d2c596f834d7628e9567e72b38f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:878964f8311386f07a719e10fb77533bd0e9cb6d816ca76c283f9a5c1b5b705f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:7db34826b4b98eb9f3bb1f5e758ee953f6ab36dc4bb97922fb3d1673b7af7bfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:f5a701c93d3cb1c8c7f7d0f28c4aa44252604214b01b44654d74ae44c6baf0bd
+sha256:
+  darwin_arm64: d05cc234b10c73b7110258d44522152596e45d2c596f834d7628e9567e72b38f
+  darwin_amd64: 878964f8311386f07a719e10fb77533bd0e9cb6d816ca76c283f9a5c1b5b705f
+  linux_amd64: 7db34826b4b98eb9f3bb1f5e758ee953f6ab36dc4bb97922fb3d1673b7af7bfc
+  linux_arm64: f5a701c93d3cb1c8c7f7d0f28c4aa44252604214b01b44654d74ae44c6baf0bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dav1d
+  - lame
+  - libvpx
+  - openssl@3
+  - opus
+  - sdl2
+  - svt-av1
+  - x264
+  - x265

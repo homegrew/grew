@@ -1,0 +1,28 @@
+name: postgresql@17
+version: 17.9
+description: Object-relational database system
+homepage: https://www.postgresql.org/
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/postgresql/17/blobs/sha256:133d15743a53e3e2e63b9b92499e7495b2a3a2089db998b6266d3f71a4b96fd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/postgresql/17/blobs/sha256:5563f966ddf437277579c14ba3fde9fa14ba9756fa33d812d9495b9ab1c78495
+  linux_amd64: https://ghcr.io/v2/homebrew/core/postgresql/17/blobs/sha256:ccc07468506c68ab9cbee6265b91822c8e3883f4a55cf1abf98ad592b11c10f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/postgresql/17/blobs/sha256:66f5720b83b9adb0b5b2c97eb8f65d353e50516fca7becf1164dbdef7bfb416f
+sha256:
+  darwin_arm64: 133d15743a53e3e2e63b9b92499e7495b2a3a2089db998b6266d3f71a4b96fd5
+  darwin_amd64: 5563f966ddf437277579c14ba3fde9fa14ba9756fa33d812d9495b9ab1c78495
+  linux_amd64: ccc07468506c68ab9cbee6265b91822c8e3883f4a55cf1abf98ad592b11c10f9
+  linux_arm64: 66f5720b83b9adb0b5b2c97eb8f65d353e50516fca7becf1164dbdef7bfb416f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - krb5
+  - lz4
+  - openssl@3
+  - readline
+  - zstd
+  - gettext
+keg_only: true

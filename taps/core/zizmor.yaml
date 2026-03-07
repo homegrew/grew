@@ -1,0 +1,19 @@
+name: zizmor
+version: 1.22.0
+description: Find security issues in GitHub Actions setups
+homepage: https://docs.zizmor.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zizmor/blobs/sha256:c930e762f785f6894942afa861ae78f5bce013d7871ee81db3fffdc91352b919
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zizmor/blobs/sha256:6809299b1091c38d712194090142800169ece15cafd3217e4bf4b85e9620ee93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zizmor/blobs/sha256:a8be98de4621ec2a6d01512cb5a8d9746d9d35d487b57c422175b3da747c7ba2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zizmor/blobs/sha256:ef58d1f6b94b32953bae74d241daede9d8820eebae1b6de0f9c945a1a1be5de7
+sha256:
+  darwin_arm64: c930e762f785f6894942afa861ae78f5bce013d7871ee81db3fffdc91352b919
+  darwin_amd64: 6809299b1091c38d712194090142800169ece15cafd3217e4bf4b85e9620ee93
+  linux_amd64: a8be98de4621ec2a6d01512cb5a8d9746d9d35d487b57c422175b3da747c7ba2
+  linux_arm64: ef58d1f6b94b32953bae74d241daede9d8820eebae1b6de0f9c945a1a1be5de7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

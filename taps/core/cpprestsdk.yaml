@@ -1,0 +1,22 @@
+name: cpprestsdk
+version: 2.10.19
+description: C++ libraries for cloud-based client-server communication
+homepage: https://github.com/microsoft/cpprestsdk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpprestsdk/blobs/sha256:b3490b01defba37b82b788cef763a32d394ac72a3036fb80f7c85b717cf3e9e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpprestsdk/blobs/sha256:d7304db7e5240b7cbacde6ae229c233ccb89bb77d5b7756d48ea662c8448a7d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpprestsdk/blobs/sha256:810d1b3b84f31d6a55dc8fa8f2b757a97dd4d2f2479a7a1d34da7b0069dce398
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpprestsdk/blobs/sha256:6241e1c9cccd4b2ecc7bdb739a3c90aaafb0823455b1348d093db9f6270ea500
+sha256:
+  darwin_arm64: b3490b01defba37b82b788cef763a32d394ac72a3036fb80f7c85b717cf3e9e4
+  darwin_amd64: d7304db7e5240b7cbacde6ae229c233ccb89bb77d5b7756d48ea662c8448a7d8
+  linux_amd64: 810d1b3b84f31d6a55dc8fa8f2b757a97dd4d2f2479a7a1d34da7b0069dce398
+  linux_arm64: 6241e1c9cccd4b2ecc7bdb739a3c90aaafb0823455b1348d093db9f6270ea500
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - openssl@3

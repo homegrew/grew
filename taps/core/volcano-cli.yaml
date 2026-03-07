@@ -1,0 +1,19 @@
+name: volcano-cli
+version: 1.14.1
+description: CLI for Volcano, Cloud Native Batch System
+homepage: https://volcano.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/volcano-cli/blobs/sha256:336637eef6c22f616b08ed55b6ebd8904341bf77212ad8d647e3cc2dbaa338eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/volcano-cli/blobs/sha256:529ed9f65d75e26e485a90d2b5fa9b058d5dba6526f492353c26e0997f0a5580
+  linux_amd64: https://ghcr.io/v2/homebrew/core/volcano-cli/blobs/sha256:dafcfddad99416a966369abb029fdcb7a49495e6e33234af7b8d323a924819c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/volcano-cli/blobs/sha256:1437406e1a56b9042633c68a87079f4da0c55a9a9d12643e8a019988147c4444
+sha256:
+  darwin_arm64: 336637eef6c22f616b08ed55b6ebd8904341bf77212ad8d647e3cc2dbaa338eb
+  darwin_amd64: 529ed9f65d75e26e485a90d2b5fa9b058d5dba6526f492353c26e0997f0a5580
+  linux_amd64: dafcfddad99416a966369abb029fdcb7a49495e6e33234af7b8d323a924819c2
+  linux_arm64: 1437406e1a56b9042633c68a87079f4da0c55a9a9d12643e8a019988147c4444
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

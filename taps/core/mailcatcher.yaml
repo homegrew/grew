@@ -1,0 +1,23 @@
+name: mailcatcher
+version: 0.10.0
+description: Catches mail and serves it through a dream
+homepage: https://mailcatcher.me
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mailcatcher/blobs/sha256:3403bf380a433529d8be12139efa13559b1e6d8edd8459291c38b9d1d3739540
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mailcatcher/blobs/sha256:5eea40aec4d9fc9eae8a4312eaf695b287af5ae86f207911b20d7bc9b68469c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mailcatcher/blobs/sha256:84be37438a4f72435ac7646b2abb4595163a560f015a833c5c8d5a35ce36f4a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mailcatcher/blobs/sha256:d4e5e7f3396a9ed8a27acba60216f835aec1d4db497c8ad1b66185cd395cd47d
+sha256:
+  darwin_arm64: 3403bf380a433529d8be12139efa13559b1e6d8edd8459291c38b9d1d3739540
+  darwin_amd64: 5eea40aec4d9fc9eae8a4312eaf695b287af5ae86f207911b20d7bc9b68469c6
+  linux_amd64: 84be37438a4f72435ac7646b2abb4595163a560f015a833c5c8d5a35ce36f4a3
+  linux_arm64: d4e5e7f3396a9ed8a27acba60216f835aec1d4db497c8ad1b66185cd395cd47d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - openssl@3
+  - ruby

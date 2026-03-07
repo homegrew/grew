@@ -1,0 +1,19 @@
+name: par
+version: 1.53.0
+description: Paragraph reflow for email
+homepage: http://www.nicemice.net/par/
+license: LicenseRef-Homebrew-cannot-represent OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/par/blobs/sha256:0978d3a9780b797f148de2ec8b9c904ddca7dc7ed60b51d3d98a902f82a25ec3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/par/blobs/sha256:b21d6b36ab41d6586f4db99966ed207b05be23453f63c513cb649700658650c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/par/blobs/sha256:236b24853fb3dab435d98266fd26a45f1d55653e8c032165b278e47c63c1789f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/par/blobs/sha256:01aa6981e7f7fed828872aa316d7598667d1393db76ddfcd6a89f49fcd0db75d
+sha256:
+  darwin_arm64: 0978d3a9780b797f148de2ec8b9c904ddca7dc7ed60b51d3d98a902f82a25ec3
+  darwin_amd64: b21d6b36ab41d6586f4db99966ed207b05be23453f63c513cb649700658650c5
+  linux_amd64: 236b24853fb3dab435d98266fd26a45f1d55653e8c032165b278e47c63c1789f
+  linux_arm64: 01aa6981e7f7fed828872aa316d7598667d1393db76ddfcd6a89f49fcd0db75d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

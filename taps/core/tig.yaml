@@ -1,0 +1,23 @@
+name: tig
+version: 2.6.0
+description: Text interface for Git repositories
+homepage: https://jonas.github.io/tig/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tig/blobs/sha256:5464963cbef880b886995cebc53ba6465f96a360a08ab04a0652b98a691d7de2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tig/blobs/sha256:0a3dd5d81806bac10f99984b1e84d5d89c857a706207ddee9ca82ea00c0eb15f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tig/blobs/sha256:dfe9453ea284cf1c2a94073e7da2f52b0d1f645a620b3401d4a39b3ba4bd697a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tig/blobs/sha256:4281d358afb993ded992ad26db2c21c1f08c1389b88bb2732e26e204c001439b
+sha256:
+  darwin_arm64: 5464963cbef880b886995cebc53ba6465f96a360a08ab04a0652b98a691d7de2
+  darwin_amd64: 0a3dd5d81806bac10f99984b1e84d5d89c857a706207ddee9ca82ea00c0eb15f
+  linux_amd64: dfe9453ea284cf1c2a94073e7da2f52b0d1f645a620b3401d4a39b3ba4bd697a
+  linux_arm64: 4281d358afb993ded992ad26db2c21c1f08c1389b88bb2732e26e204c001439b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses
+  - pcre2
+  - readline

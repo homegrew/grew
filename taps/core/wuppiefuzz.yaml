@@ -1,0 +1,21 @@
+name: wuppiefuzz
+version: 1.4.1
+description: Coverage-guided REST API fuzzer developed on top of LibAFL
+homepage: https://github.com/TNO-S3/WuppieFuzz
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wuppiefuzz/blobs/sha256:88b347a48043a9fabed637be5f76981c331d097e060ef44cf3070c84cf7e96d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wuppiefuzz/blobs/sha256:f2d6b8dbde82e1d2a46c2db9eec1d2ee004b27483db72287a0b18c6692246d52
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wuppiefuzz/blobs/sha256:6d75da71f6e2e2be6b0fac2cd7657442dfb755626dcbe7c5f329d46943435a07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wuppiefuzz/blobs/sha256:71fae217d613f5ef1948b7e531bca70a2229703cee391296e9676984a7ecc1e2
+sha256:
+  darwin_arm64: 88b347a48043a9fabed637be5f76981c331d097e060ef44cf3070c84cf7e96d7
+  darwin_amd64: f2d6b8dbde82e1d2a46c2db9eec1d2ee004b27483db72287a0b18c6692246d52
+  linux_amd64: 6d75da71f6e2e2be6b0fac2cd7657442dfb755626dcbe7c5f329d46943435a07
+  linux_arm64: 71fae217d613f5ef1948b7e531bca70a2229703cee391296e9676984a7ecc1e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - z3

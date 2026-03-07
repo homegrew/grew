@@ -1,0 +1,22 @@
+name: krane
+version: 3.9.1
+description: Kubernetes deploy tool with rollout verification
+homepage: https://github.com/Shopify/krane
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/krane/blobs/sha256:c6f7ce0880691e99783350621b81f818c2ab45895deda32fb071b718f7ae9c3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/krane/blobs/sha256:fcee877569b1606da620e2e189084e1aa1d902f56ca0b453d6838e2f625dd643
+  linux_amd64: https://ghcr.io/v2/homebrew/core/krane/blobs/sha256:56898f13d9e4ece67e8720802746036fab763dad1a8bf90de3cd59e0c905d0d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/krane/blobs/sha256:08545226cfed372f535b9aa70549de7ab57782bbc5793082005f357a04f5d768
+sha256:
+  darwin_arm64: c6f7ce0880691e99783350621b81f818c2ab45895deda32fb071b718f7ae9c3c
+  darwin_amd64: fcee877569b1606da620e2e189084e1aa1d902f56ca0b453d6838e2f625dd643
+  linux_amd64: 56898f13d9e4ece67e8720802746036fab763dad1a8bf90de3cd59e0c905d0d6
+  linux_arm64: 08545226cfed372f535b9aa70549de7ab57782bbc5793082005f357a04f5d768
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - kubernetes-cli
+  - ruby

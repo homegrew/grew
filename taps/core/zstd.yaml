@@ -1,0 +1,22 @@
+name: zstd
+version: 1.5.7
+description: Zstandard is a real-time compression algorithm
+homepage: https://facebook.github.io/zstd/
+license: (BSD-3-Clause OR GPL-2.0-only) AND BSD-2-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:628a4ef53428d0078e3d76d297171ce8d0294f5ec1de3f20305e08c4dd333565
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:90c345a174a631a157f7ea056fe41205fb77778e65d4bdc91097a3fb3a62faa6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:3d5ca8948526a2e3a487db0cd0acec9f4b415d5a4b08cffe27e2ea0c339c9dbe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:575617c1532fe90e212c052fb14fcd4fa295890e3bc9ac69dc52404a04a95855
+sha256:
+  darwin_arm64: 628a4ef53428d0078e3d76d297171ce8d0294f5ec1de3f20305e08c4dd333565
+  darwin_amd64: 90c345a174a631a157f7ea056fe41205fb77778e65d4bdc91097a3fb3a62faa6
+  linux_amd64: 3d5ca8948526a2e3a487db0cd0acec9f4b415d5a4b08cffe27e2ea0c339c9dbe
+  linux_arm64: 575617c1532fe90e212c052fb14fcd4fa295890e3bc9ac69dc52404a04a95855
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - xz

@@ -1,0 +1,19 @@
+name: gotpm
+version: 0.4.7
+description: CLI for using TPM 2.0
+homepage: https://github.com/google/go-tpm-tools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gotpm/blobs/sha256:e1fbf201152c1d92e0fee354a2736c1c9ecd1cf1f657d3b9df4f0c2bbf547424
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gotpm/blobs/sha256:37e6a3f7449e763691e10f7355279e2d3043923cce437f25ff5db98ea80af47d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gotpm/blobs/sha256:e0be077482b2c4d14b4a8f86a6b5a4235215b4a9d5b4f22659e94dc72e3a282e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gotpm/blobs/sha256:d097bb0ed3355e982eeee89dadcd9d3da64eb5ab14e0c44d6bc77749956f5eef
+sha256:
+  darwin_arm64: e1fbf201152c1d92e0fee354a2736c1c9ecd1cf1f657d3b9df4f0c2bbf547424
+  darwin_amd64: 37e6a3f7449e763691e10f7355279e2d3043923cce437f25ff5db98ea80af47d
+  linux_amd64: e0be077482b2c4d14b4a8f86a6b5a4235215b4a9d5b4f22659e94dc72e3a282e
+  linux_arm64: d097bb0ed3355e982eeee89dadcd9d3da64eb5ab14e0c44d6bc77749956f5eef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

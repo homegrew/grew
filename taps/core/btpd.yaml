@@ -1,0 +1,21 @@
+name: btpd
+version: 0.16
+description: BitTorrent Protocol Daemon
+homepage: https://github.com/btpd/btpd
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/btpd/blobs/sha256:9670afe44796531465fa7394a409a946f16512995eaa9405ad263fcb72bd469f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/btpd/blobs/sha256:77c89315bf5e63b47de72fbd3c17d3182d2d73c5bf2a341840bae4d7ea8b2bfe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/btpd/blobs/sha256:483442aed198f237fd3d92bde41c2b12db3e150e44bab84bd2fab6d96a25d8c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/btpd/blobs/sha256:d051486a6fae13f53a4478ae31ad45cf05bf067727ef83f5c77836ac5526b18d
+sha256:
+  darwin_arm64: 9670afe44796531465fa7394a409a946f16512995eaa9405ad263fcb72bd469f
+  darwin_amd64: 77c89315bf5e63b47de72fbd3c17d3182d2d73c5bf2a341840bae4d7ea8b2bfe
+  linux_amd64: 483442aed198f237fd3d92bde41c2b12db3e150e44bab84bd2fab6d96a25d8c5
+  linux_arm64: d051486a6fae13f53a4478ae31ad45cf05bf067727ef83f5c77836ac5526b18d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

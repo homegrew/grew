@@ -1,0 +1,21 @@
+name: signal-cli
+version: 0.14.0
+description: CLI and dbus interface for WhisperSystems/libsignal-service-java
+homepage: https://github.com/AsamK/signal-cli
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/signal-cli/blobs/sha256:39e28036bb03d792b0a3f891c2eab7d74e8632a8fdbae1c59e4793ccabaa18e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/signal-cli/blobs/sha256:9021362c064898007458cda647a9b4cced36317e0fc8763b43765b433e650390
+  linux_amd64: https://ghcr.io/v2/homebrew/core/signal-cli/blobs/sha256:bad8ffc1d4bf6af50552f5bbdc01e520961f55c8c8038465fb02236cda422184
+  linux_arm64: https://ghcr.io/v2/homebrew/core/signal-cli/blobs/sha256:d1d5baed4fb49796eda01801b3e58e7dffe787108d89872e815c848b5a2ad026
+sha256:
+  darwin_arm64: 39e28036bb03d792b0a3f891c2eab7d74e8632a8fdbae1c59e4793ccabaa18e4
+  darwin_amd64: 9021362c064898007458cda647a9b4cced36317e0fc8763b43765b433e650390
+  linux_amd64: bad8ffc1d4bf6af50552f5bbdc01e520961f55c8c8038465fb02236cda422184
+  linux_arm64: d1d5baed4fb49796eda01801b3e58e7dffe787108d89872e815c848b5a2ad026
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

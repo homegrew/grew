@@ -1,0 +1,21 @@
+name: pokerstove
+version: 1.1
+description: Poker evaluation and enumeration software
+homepage: https://github.com/andrewprock/pokerstove
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pokerstove/blobs/sha256:281850608e647a17bb2b36e1ec2bb048a939687cf6fead379293d7ae54f9d602
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pokerstove/blobs/sha256:ac9b605f3ae5dcd1fa51f1654ee40f884a19bf0158269513962c64c5ea912ee0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pokerstove/blobs/sha256:c5ff08553bb991b7c07f03059117deca775f910cf782c6cbc28642ff9d7cd1f5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pokerstove/blobs/sha256:ce7fe6adf71766c05a0cad8c86b3ded6903b8f5733387840dc0e6f37f905f350
+sha256:
+  darwin_arm64: 281850608e647a17bb2b36e1ec2bb048a939687cf6fead379293d7ae54f9d602
+  darwin_amd64: ac9b605f3ae5dcd1fa51f1654ee40f884a19bf0158269513962c64c5ea912ee0
+  linux_amd64: c5ff08553bb991b7c07f03059117deca775f910cf782c6cbc28642ff9d7cd1f5
+  linux_arm64: ce7fe6adf71766c05a0cad8c86b3ded6903b8f5733387840dc0e6f37f905f350
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

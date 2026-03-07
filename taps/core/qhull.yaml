@@ -1,0 +1,19 @@
+name: qhull
+version: 2020.2
+description: Computes convex hulls in n dimensions
+homepage: http://www.qhull.org/
+license: Qhull
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qhull/blobs/sha256:e63077686c1ef66ea9f65e7e10d842aa788bdf21b6011dd3c0b2ccd35195ddb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qhull/blobs/sha256:4bc43edb0bba14a92203f6e4a31649db8d15a0fae8d71f7977d1e8189f1a597e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qhull/blobs/sha256:1dc32a7258d2f678417041a1dbd2ea922369e67209062ada7b19caee4fd2c55c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qhull/blobs/sha256:674616b881abea9139c0f2db580b813eecdc401e46842f792b19f843cff5eb11
+sha256:
+  darwin_arm64: e63077686c1ef66ea9f65e7e10d842aa788bdf21b6011dd3c0b2ccd35195ddb7
+  darwin_amd64: 4bc43edb0bba14a92203f6e4a31649db8d15a0fae8d71f7977d1e8189f1a597e
+  linux_amd64: 1dc32a7258d2f678417041a1dbd2ea922369e67209062ada7b19caee4fd2c55c
+  linux_arm64: 674616b881abea9139c0f2db580b813eecdc401e46842f792b19f843cff5eb11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: uriparser
+version: 1.0.0
+description: URI parsing library (strictly RFC 3986 compliant)
+homepage: https://uriparser.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uriparser/blobs/sha256:e8123f9c6f86a2a50d9c4a1dc0372b1dbda58dca00ffc548120913bca82b1b12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uriparser/blobs/sha256:9ad33027ee5077ec86549cc4d89d722d17c7dbd65c8268b2562603d82d2ee044
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uriparser/blobs/sha256:e09dc6060f30596da4510db32708f25e2f356ce740a7dbeef480ebac5a79eddb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uriparser/blobs/sha256:40539ae75220b3e49800f31fb0dee16c90043170217c951f58921b511d6cf797
+sha256:
+  darwin_arm64: e8123f9c6f86a2a50d9c4a1dc0372b1dbda58dca00ffc548120913bca82b1b12
+  darwin_amd64: 9ad33027ee5077ec86549cc4d89d722d17c7dbd65c8268b2562603d82d2ee044
+  linux_amd64: e09dc6060f30596da4510db32708f25e2f356ce740a7dbeef480ebac5a79eddb
+  linux_arm64: 40539ae75220b3e49800f31fb0dee16c90043170217c951f58921b511d6cf797
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

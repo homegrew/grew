@@ -1,0 +1,19 @@
+name: influxdb-cli
+version: 2.7.5
+description: CLI for managing resources in InfluxDB v2
+homepage: https://influxdata.com/time-series-platform/influxdb/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/influxdb-cli/blobs/sha256:46886e6a377ff4bb11ef2e90ce50730c08901f0abb801e5a402183b0c79ab700
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/influxdb-cli/blobs/sha256:af4529363356a536ee7099771130580d6bde0dd377398b2a3997d82c55b2b330
+  linux_amd64: https://ghcr.io/v2/homebrew/core/influxdb-cli/blobs/sha256:db4024e85728111abfae88af4088b98d75c2f15bb873b12e9f546b4ce2110dde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/influxdb-cli/blobs/sha256:38fe1c516a17a8d874e17e510ec59594d3acb60636c431c0b9b7411bc1e68ffa
+sha256:
+  darwin_arm64: 46886e6a377ff4bb11ef2e90ce50730c08901f0abb801e5a402183b0c79ab700
+  darwin_amd64: af4529363356a536ee7099771130580d6bde0dd377398b2a3997d82c55b2b330
+  linux_amd64: db4024e85728111abfae88af4088b98d75c2f15bb873b12e9f546b4ce2110dde
+  linux_arm64: 38fe1c516a17a8d874e17e510ec59594d3acb60636c431c0b9b7411bc1e68ffa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

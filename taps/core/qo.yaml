@@ -1,0 +1,19 @@
+name: qo
+version: 0.3.1
+description: Interactive minimalist TUI to query JSON, CSV, and TSV using SQL
+homepage: https://github.com/kiki-ki/go-qo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qo/blobs/sha256:2b90c88a676c693d34eafbc29ac1b468e5d9a3cf27b56c59c1aafb70a950b68f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qo/blobs/sha256:ed7714400a647f7ed70b96fec9ad0eb0de64d4e38206da929284858c8d49b6a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qo/blobs/sha256:6b3890c9179dd06563f1ce8034fec73975cd4d50287db5d4897a7167f8d95ec9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qo/blobs/sha256:63693f55c44b5039f313948be4bc0583d8f8e114adfc481a8dbb108d1d18b623
+sha256:
+  darwin_arm64: 2b90c88a676c693d34eafbc29ac1b468e5d9a3cf27b56c59c1aafb70a950b68f
+  darwin_amd64: ed7714400a647f7ed70b96fec9ad0eb0de64d4e38206da929284858c8d49b6a1
+  linux_amd64: 6b3890c9179dd06563f1ce8034fec73975cd4d50287db5d4897a7167f8d95ec9
+  linux_arm64: 63693f55c44b5039f313948be4bc0583d8f8e114adfc481a8dbb108d1d18b623
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

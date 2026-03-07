@@ -1,0 +1,19 @@
+name: jackett
+version: 0.24.1307
+description: API Support for your favorite torrent trackers
+homepage: https://github.com/Jackett/Jackett
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jackett/blobs/sha256:dc4886668bff96769103539277adf09800c4638db37e04ccef649bf9f8058bf5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jackett/blobs/sha256:f7a7cf339fd2f5cf979d53035daca8d8035aeacfc00ecd1857a6c574f454b1e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jackett/blobs/sha256:6c882e3d5b1719e013083dae082d3ad07a441b3c1fc03e10fa60a2bb35a3c898
+sha256:
+  darwin_arm64: dc4886668bff96769103539277adf09800c4638db37e04ccef649bf9f8058bf5
+  linux_amd64: f7a7cf339fd2f5cf979d53035daca8d8035aeacfc00ecd1857a6c574f454b1e2
+  linux_arm64: 6c882e3d5b1719e013083dae082d3ad07a441b3c1fc03e10fa60a2bb35a3c898
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@9

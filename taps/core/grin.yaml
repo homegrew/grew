@@ -1,0 +1,19 @@
+name: grin
+version: 5.3.3_rebuild
+description: Minimal implementation of the Mimblewimble protocol
+homepage: https://grin.mw/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grin/blobs/sha256:336c371ec1eb63c7adba0085bc83a842cf0ce2364b671b4916f3fd66ef26d293
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grin/blobs/sha256:0e5a87e330211cc6c7fafe708a14d046deabeef84807b29412a891bdf92c2497
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grin/blobs/sha256:6f2a3640f0e5637c5f6f2896a87413f30a844775cdaf13753058b4a5da24d990
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grin/blobs/sha256:6a8528cf02c89cf10683aae05c0e03bf2f1da30151f9027230dba1466ccccb1e
+sha256:
+  darwin_arm64: 336c371ec1eb63c7adba0085bc83a842cf0ce2364b671b4916f3fd66ef26d293
+  darwin_amd64: 0e5a87e330211cc6c7fafe708a14d046deabeef84807b29412a891bdf92c2497
+  linux_amd64: 6f2a3640f0e5637c5f6f2896a87413f30a844775cdaf13753058b4a5da24d990
+  linux_arm64: 6a8528cf02c89cf10683aae05c0e03bf2f1da30151f9027230dba1466ccccb1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

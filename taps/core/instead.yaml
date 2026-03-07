@@ -1,0 +1,33 @@
+name: instead
+version: 3.5.2
+description: Interpreter of simple text adventures
+homepage: https://instead.hugeping.ru/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/instead/blobs/sha256:c2466f19712599960fdf617de00a5c87e31419ce1ab9e83a28fc67ea433a0956
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/instead/blobs/sha256:055fa879171dbd50e4234937229b42b16073c1bd4e85ea0be5287735f30eb4b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/instead/blobs/sha256:e188ffae06055d161cb807e5a814a2fe2a60604964436b2e4efd835d7e68b747
+  linux_arm64: https://ghcr.io/v2/homebrew/core/instead/blobs/sha256:37c0dbb0fad67fe9883639294c3b63c150900e8d7af0d36277c021f10af1c8b3
+sha256:
+  darwin_arm64: c2466f19712599960fdf617de00a5c87e31419ce1ab9e83a28fc67ea433a0956
+  darwin_amd64: 055fa879171dbd50e4234937229b42b16073c1bd4e85ea0be5287735f30eb4b3
+  linux_amd64: e188ffae06055d161cb807e5a814a2fe2a60604964436b2e4efd835d7e68b747
+  linux_arm64: 37c0dbb0fad67fe9883639294c3b63c150900e8d7af0d36277c021f10af1c8b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - luajit
+  - sdl2
+  - sdl2_image
+  - sdl2_mixer
+  - sdl2_ttf
+  - at-spi2-core
+  - cairo
+  - gettext
+  - harfbuzz
+  - pango

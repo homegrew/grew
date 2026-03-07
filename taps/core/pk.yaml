@@ -1,0 +1,19 @@
+name: pk
+version: 2.0.0
+description: Field extractor command-line utility
+homepage: https://github.com/johnmorrow/pk
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pk/blobs/sha256:3974a59cd7a66f2f4db021e85d5a4460b500cf91899c908f5bd2c2cbab17dfcd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pk/blobs/sha256:abe4a5865bcf420a0b4e403e888002e19a4006d07efa0f705b5c0fcd32498923
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pk/blobs/sha256:812a89c8aa390f9eaf7c788fac3ec8bdaacea1fceeb7169764502a4c287e2826
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pk/blobs/sha256:8ec4cfa3dadc8e05a3c103f9471a4486e56ca6146c66b5b91fc4553b63484d74
+sha256:
+  darwin_arm64: 3974a59cd7a66f2f4db021e85d5a4460b500cf91899c908f5bd2c2cbab17dfcd
+  darwin_amd64: abe4a5865bcf420a0b4e403e888002e19a4006d07efa0f705b5c0fcd32498923
+  linux_amd64: 812a89c8aa390f9eaf7c788fac3ec8bdaacea1fceeb7169764502a4c287e2826
+  linux_arm64: 8ec4cfa3dadc8e05a3c103f9471a4486e56ca6146c66b5b91fc4553b63484d74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

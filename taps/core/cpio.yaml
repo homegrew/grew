@@ -1,0 +1,20 @@
+name: cpio
+version: 2.15
+description: Copies files into or out of a cpio or tar archive
+homepage: https://www.gnu.org/software/cpio/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpio/blobs/sha256:a1aa072a11ce1402aaf38319e6fc087b9bf4fa029f2b76cc748b0d122f0cdce0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpio/blobs/sha256:e260092a61bec8fc1530706591dca1fc31b01588d87edc3d1f0114f0960039e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpio/blobs/sha256:33defec9f9f862c3db63da0e7ca4020a8fe6552fb51f3adfdf6d01837ce7fdda
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpio/blobs/sha256:dd5fa00e86db6b05086c040acbecdb7b0867c3eded3b4a49cf5033afbcba5bb2
+sha256:
+  darwin_arm64: a1aa072a11ce1402aaf38319e6fc087b9bf4fa029f2b76cc748b0d122f0cdce0
+  darwin_amd64: e260092a61bec8fc1530706591dca1fc31b01588d87edc3d1f0114f0960039e6
+  linux_amd64: 33defec9f9f862c3db63da0e7ca4020a8fe6552fb51f3adfdf6d01837ce7fdda
+  linux_arm64: dd5fa00e86db6b05086c040acbecdb7b0867c3eded3b4a49cf5033afbcba5bb2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

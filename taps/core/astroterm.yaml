@@ -1,0 +1,21 @@
+name: astroterm
+version: 1.0.10
+description: Planetarium for your terminal
+homepage: https://github.com/da-luce/astroterm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/astroterm/blobs/sha256:b96bb83bb335486ec6ca0fbae19a71c86d13c43a74aa249e9c06440825d42732
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/astroterm/blobs/sha256:39ba609a32145bcaa97c553cd1862019720b5020ded6c4ac26aed6183c5dfb34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/astroterm/blobs/sha256:f4dbe1cb9db8ebd6096aa44e5d5364583d111564b8fdec8ca8c4990cfb5775b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/astroterm/blobs/sha256:0980a46121da8061234713a8d5d233273eff08a1257477f609d89adf4e3fe038
+sha256:
+  darwin_arm64: b96bb83bb335486ec6ca0fbae19a71c86d13c43a74aa249e9c06440825d42732
+  darwin_amd64: 39ba609a32145bcaa97c553cd1862019720b5020ded6c4ac26aed6183c5dfb34
+  linux_amd64: f4dbe1cb9db8ebd6096aa44e5d5364583d111564b8fdec8ca8c4990cfb5775b0
+  linux_arm64: 0980a46121da8061234713a8d5d233273eff08a1257477f609d89adf4e3fe038
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argtable3

@@ -1,0 +1,19 @@
+name: neocmakelsp
+version: 0.10.1
+description: Another cmake lsp
+homepage: https://neocmakelsp.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/neocmakelsp/blobs/sha256:c544f2061827743f5a311fdd509fe9c081d38ffd8e6acbafa56e338401454083
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/neocmakelsp/blobs/sha256:7f1dddc53e6bfeec58d003ca8c445f88a36b9c930bd60c768543ef42970a6cb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/neocmakelsp/blobs/sha256:5b156d995bdf417593fd9327f812130d8a353de01993023229d814f8b2b3ccef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/neocmakelsp/blobs/sha256:0dba8a1267530a24c25649c9bc172fbf22bed10759b7ed9364e84bce71374fc1
+sha256:
+  darwin_arm64: c544f2061827743f5a311fdd509fe9c081d38ffd8e6acbafa56e338401454083
+  darwin_amd64: 7f1dddc53e6bfeec58d003ca8c445f88a36b9c930bd60c768543ef42970a6cb2
+  linux_amd64: 5b156d995bdf417593fd9327f812130d8a353de01993023229d814f8b2b3ccef
+  linux_arm64: 0dba8a1267530a24c25649c9bc172fbf22bed10759b7ed9364e84bce71374fc1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

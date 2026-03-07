@@ -1,0 +1,23 @@
+name: apachetop
+version: 0.23.2
+description: Top-like display of Apache log
+homepage: https://github.com/tessus/apachetop
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apachetop/blobs/sha256:b43b64c9b48fdef15d11d7dcb99d20bf65a31c05b36e7468c3e9e8bbd16f3f5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apachetop/blobs/sha256:6f1bb6b2163f1738b3ab80f3c4a41fb0c73f50a07cc45a8924b31b22ec355334
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apachetop/blobs/sha256:b12e4f730309bb91ee34bb2972ef2004a979c2a608abb93500b859973994abf8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apachetop/blobs/sha256:ee4946ec586338260b8540ae8954f40001f2cd482663f55a9e19f94572756f67
+sha256:
+  darwin_arm64: b43b64c9b48fdef15d11d7dcb99d20bf65a31c05b36e7468c3e9e8bbd16f3f5f
+  darwin_amd64: 6f1bb6b2163f1738b3ab80f3c4a41fb0c73f50a07cc45a8924b31b22ec355334
+  linux_amd64: b12e4f730309bb91ee34bb2972ef2004a979c2a608abb93500b859973994abf8
+  linux_arm64: ee4946ec586338260b8540ae8954f40001f2cd482663f55a9e19f94572756f67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adns
+  - ncurses
+  - pcre2

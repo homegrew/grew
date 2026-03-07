@@ -1,0 +1,21 @@
+name: nopoll
+version: 0.4.9.b462
+description: Open-source C WebSocket toolkit
+homepage: https://www.aspl.es/nopoll/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nopoll/blobs/sha256:c1be50a5fd9560140bf58dbe71539acf5a300b2623d150302fbf64b5eb811701
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nopoll/blobs/sha256:e975ca89eb4c551a44f51e0a18a32f284f37378a0c4b12241aa0453b2379d712
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nopoll/blobs/sha256:233ad48b7c725a46695aa3b60261610281ffd81cb010f58fd089b2bd0c4fbbd1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nopoll/blobs/sha256:b5d3b4783e75e686b85236223815cfce6d9afce02319002ecd56fae81c4146b1
+sha256:
+  darwin_arm64: c1be50a5fd9560140bf58dbe71539acf5a300b2623d150302fbf64b5eb811701
+  darwin_amd64: e975ca89eb4c551a44f51e0a18a32f284f37378a0c4b12241aa0453b2379d712
+  linux_amd64: 233ad48b7c725a46695aa3b60261610281ffd81cb010f58fd089b2bd0c4fbbd1
+  linux_arm64: b5d3b4783e75e686b85236223815cfce6d9afce02319002ecd56fae81c4146b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

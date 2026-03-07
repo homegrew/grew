@@ -1,0 +1,21 @@
+name: enzyme
+version: 0.0.249
+description: High-performance automatic differentiation of LLVM
+homepage: https://enzyme.mit.edu
+license: Apache-2.0 WITH LLVM-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enzyme/blobs/sha256:7c70941d1aa03eba0bd23b1023338b31f5fc41cbaee2d916be3273818c8b5b15
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enzyme/blobs/sha256:cd3253f2ae95f21edcf479592a33cfe4ab9577c1f86859de4da3240966306ad6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enzyme/blobs/sha256:c7227e6a02c56eb2a91d7779e82db1fef6f0847a64c744904c1087d01514dfa4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enzyme/blobs/sha256:7bee47e733bd4fe5a87335cdca295f0858b6bd1af4ba24e06c807b2fb07658c8
+sha256:
+  darwin_arm64: 7c70941d1aa03eba0bd23b1023338b31f5fc41cbaee2d916be3273818c8b5b15
+  darwin_amd64: cd3253f2ae95f21edcf479592a33cfe4ab9577c1f86859de4da3240966306ad6
+  linux_amd64: c7227e6a02c56eb2a91d7779e82db1fef6f0847a64c744904c1087d01514dfa4
+  linux_arm64: 7bee47e733bd4fe5a87335cdca295f0858b6bd1af4ba24e06c807b2fb07658c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

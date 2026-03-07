@@ -1,0 +1,19 @@
+name: rubyfmt
+version: 0.12.0
+description: Ruby autoformatter
+homepage: https://github.com/fables-tales/rubyfmt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rubyfmt/blobs/sha256:c1ae4924754e4f83c5911314dec2ec3ff4dd4c1cfdf5257223e86742e9c3f842
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rubyfmt/blobs/sha256:3c4a05cd5fc646ad2fdf873a63fff26b14b4b2299157065691e881445a5bc4e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rubyfmt/blobs/sha256:de56de3073592a683d1f8b29dd696eb723b8a818ee57fc2d237052fdd3133e4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rubyfmt/blobs/sha256:a2637212bf431afef2a0ae70cea03375fa53cb6602f39b7d88a9deb0f4c2dd7a
+sha256:
+  darwin_arm64: c1ae4924754e4f83c5911314dec2ec3ff4dd4c1cfdf5257223e86742e9c3f842
+  darwin_amd64: 3c4a05cd5fc646ad2fdf873a63fff26b14b4b2299157065691e881445a5bc4e3
+  linux_amd64: de56de3073592a683d1f8b29dd696eb723b8a818ee57fc2d237052fdd3133e4b
+  linux_arm64: a2637212bf431afef2a0ae70cea03375fa53cb6602f39b7d88a9deb0f4c2dd7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

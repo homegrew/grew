@@ -1,0 +1,22 @@
+name: autogen
+version: 5.18.16
+description: Automated text file generator
+homepage: https://autogen.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autogen/blobs/sha256:11f0bdd04ae3db9ab2d6f2e12d2554db59111391ded8f941cd2bf08f79475f8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autogen/blobs/sha256:7748ba11598da28c7e554768ed83c34a3fed3e5c2eea7ff9ac5811b652dd11b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autogen/blobs/sha256:d109eab1f0b3a0293f60e0da2360694b3027ac39b0015e3573c57d10125da77f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autogen/blobs/sha256:6778d7687bfc74353db0b0ae81d994322814df152f7ec42f576e5eb591fd2958
+sha256:
+  darwin_arm64: 11f0bdd04ae3db9ab2d6f2e12d2554db59111391ded8f941cd2bf08f79475f8a
+  darwin_amd64: 7748ba11598da28c7e554768ed83c34a3fed3e5c2eea7ff9ac5811b652dd11b0
+  linux_amd64: d109eab1f0b3a0293f60e0da2360694b3027ac39b0015e3573c57d10125da77f
+  linux_arm64: 6778d7687bfc74353db0b0ae81d994322814df152f7ec42f576e5eb591fd2958
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - guile
+  - bdw-gc

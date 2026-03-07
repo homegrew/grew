@@ -1,0 +1,19 @@
+name: dash-shell
+version: 0.5.13.1
+description: "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
+homepage: http://gondor.apana.org.au/~herbert/dash/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dash-shell/blobs/sha256:b9d493aa8aa6589e372227e67dbb93708fdcf992d9064e75009f3917ab7b3e0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dash-shell/blobs/sha256:4eaea3dee21db06c3b043fd6db4a100ccf760a06a0c96477b74c514a4b4167a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dash-shell/blobs/sha256:25031c85030fc02517ad9872f31804b6b4d03af43b4672c2a901c01dcc7cdc84
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dash-shell/blobs/sha256:f50cf54fb40c64c35822a9190e5336ae9c3b59d4923c18ebc82ea68cb4294a0d
+sha256:
+  darwin_arm64: b9d493aa8aa6589e372227e67dbb93708fdcf992d9064e75009f3917ab7b3e0d
+  darwin_amd64: 4eaea3dee21db06c3b043fd6db4a100ccf760a06a0c96477b74c514a4b4167a4
+  linux_amd64: 25031c85030fc02517ad9872f31804b6b4d03af43b4672c2a901c01dcc7cdc84
+  linux_arm64: f50cf54fb40c64c35822a9190e5336ae9c3b59d4923c18ebc82ea68cb4294a0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

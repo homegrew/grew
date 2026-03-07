@@ -1,0 +1,23 @@
+name: libxp
+version: 1.0.4
+description: X Print Client Library
+homepage: https://gitlab.freedesktop.org/xorg/lib/libxp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxp/blobs/sha256:71bc1ccd3aad45c90fb15295edeccc58116842c11e24958b05183feed04e6b1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxp/blobs/sha256:a4cd71b49eb7aa1feafda1216ac8302154df78b05f0321f91bcb61ef6aa47592
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxp/blobs/sha256:ff2541a82e9806bac37aedb6fcaa83846e4f4d8710d4ea632a09fe826746da99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxp/blobs/sha256:02bd6784a427333504ac05c8dc0d54e57219cce3d0efbdaed91b1029594b7045
+sha256:
+  darwin_arm64: 71bc1ccd3aad45c90fb15295edeccc58116842c11e24958b05183feed04e6b1c
+  darwin_amd64: a4cd71b49eb7aa1feafda1216ac8302154df78b05f0321f91bcb61ef6aa47592
+  linux_amd64: ff2541a82e9806bac37aedb6fcaa83846e4f4d8710d4ea632a09fe826746da99
+  linux_arm64: 02bd6784a427333504ac05c8dc0d54e57219cce3d0efbdaed91b1029594b7045
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxau
+  - libxext

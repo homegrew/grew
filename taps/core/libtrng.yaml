@@ -1,0 +1,19 @@
+name: libtrng
+version: 4.28
+description: "Tina's Random Number Generator Library"
+homepage: https://www.numbercrunch.de/trng/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtrng/blobs/sha256:87e5143df567277305eb5a70f6a54eacb567b1a8d5fc39064cea5f04cfbdd382
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtrng/blobs/sha256:0d0f9eac4e1aac1d3b082e32ca16e68c84ab0dddd7b5b78246091d565d3dda97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtrng/blobs/sha256:1943000edda2dc1941a79b7a11d1c3c74539c3f0eeb6ad9f53e5ea6f530c3e51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtrng/blobs/sha256:0bc2cf81d9f2e6c5117ec0d5bebf2e9653c307e969649534ebfbbc344d368bb8
+sha256:
+  darwin_arm64: 87e5143df567277305eb5a70f6a54eacb567b1a8d5fc39064cea5f04cfbdd382
+  darwin_amd64: 0d0f9eac4e1aac1d3b082e32ca16e68c84ab0dddd7b5b78246091d565d3dda97
+  linux_amd64: 1943000edda2dc1941a79b7a11d1c3c74539c3f0eeb6ad9f53e5ea6f530c3e51
+  linux_arm64: 0bc2cf81d9f2e6c5117ec0d5bebf2e9653c307e969649534ebfbbc344d368bb8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

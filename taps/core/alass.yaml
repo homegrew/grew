@@ -1,0 +1,19 @@
+name: alass
+version: 2.0.0
+description: Automatic Language-Agnostic Subtitle Synchronization
+homepage: https://github.com/kaegi/alass
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alass/blobs/sha256:de4af244ed90c2a2b9c309340cb5d47e926ce1f2012001524d1674dd4213b1fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alass/blobs/sha256:0a5668b9a440fb7cf6b8827824abcffd57d69473c2c55749a303e460dade07b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alass/blobs/sha256:499c4ee6c9cefa90b135dbfb668879f8a56fd5da4ab20dfd077ae1047b34f0f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alass/blobs/sha256:dc47c934ca68489561b3f325fb9627fe7cd98d2cbffb0bca6bb1d4bbb0c9e0b6
+sha256:
+  darwin_arm64: de4af244ed90c2a2b9c309340cb5d47e926ce1f2012001524d1674dd4213b1fc
+  darwin_amd64: 0a5668b9a440fb7cf6b8827824abcffd57d69473c2c55749a303e460dade07b3
+  linux_amd64: 499c4ee6c9cefa90b135dbfb668879f8a56fd5da4ab20dfd077ae1047b34f0f1
+  linux_arm64: dc47c934ca68489561b3f325fb9627fe7cd98d2cbffb0bca6bb1d4bbb0c9e0b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

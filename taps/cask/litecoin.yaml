@@ -1,0 +1,11 @@
+name: litecoin
+version: 0.21.4
+description: Cryptocurrency wallet
+homepage: https://litecoin.org/
+url:
+  darwin_arm64: https://download.litecoin.org/litecoin-0.21.4/osx/litecoin-0.21.4-osx.dmg
+sha256:
+  darwin_arm64: 1ae347f6e77c10f857d98a18b778ec4fc2449b7bb51c425bad726b02cb9ef876
+artifacts:
+  app:
+    - Litecoin-Qt.app

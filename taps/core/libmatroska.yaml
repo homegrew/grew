@@ -1,0 +1,21 @@
+name: libmatroska
+version: 1.7.1
+description: Extensible, open standard container format for audio/video
+homepage: https://www.matroska.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmatroska/blobs/sha256:bf1a6c41880272d8a17b3c0b66bcafa1f2e250ca16f1cef4230e58cdd8ff3b01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmatroska/blobs/sha256:4abfa8d4c378d3d1a635d47c7520590fa33366bc8d2f8d5feb00fbe960d1c5b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmatroska/blobs/sha256:61b54ecbcbef470960678043620106e649fb75f05ba3b26ef6d24aad0476a9fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmatroska/blobs/sha256:1f6f5188ac26a332bf87653ef4627f5ed1220ac05aeed89f616bc5f9e4898fbb
+sha256:
+  darwin_arm64: bf1a6c41880272d8a17b3c0b66bcafa1f2e250ca16f1cef4230e58cdd8ff3b01
+  darwin_amd64: 4abfa8d4c378d3d1a635d47c7520590fa33366bc8d2f8d5feb00fbe960d1c5b1
+  linux_amd64: 61b54ecbcbef470960678043620106e649fb75f05ba3b26ef6d24aad0476a9fe
+  linux_arm64: 1f6f5188ac26a332bf87653ef4627f5ed1220ac05aeed89f616bc5f9e4898fbb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libebml

@@ -1,0 +1,19 @@
+name: nextdns
+version: 1.47.1
+description: "CLI for NextDNS's DNS-over-HTTPS (DoH)"
+homepage: https://nextdns.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nextdns/blobs/sha256:42b9ae4eab445ad25eadd9f211bee8e3933e17cf25057ae73c9ce2fba4927a90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nextdns/blobs/sha256:334796163a459547e92494904446e807f6be8e914dd2326998f376fef0cbc5b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nextdns/blobs/sha256:f3d3979d0fef14e2c70d334dfe867f5ca6ec4bc10ddc6262ab5564cfdf65d781
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nextdns/blobs/sha256:049a091172de82955386167851938838c48ab61e57dc2b5ae89135a3e9b52589
+sha256:
+  darwin_arm64: 42b9ae4eab445ad25eadd9f211bee8e3933e17cf25057ae73c9ce2fba4927a90
+  darwin_amd64: 334796163a459547e92494904446e807f6be8e914dd2326998f376fef0cbc5b0
+  linux_amd64: f3d3979d0fef14e2c70d334dfe867f5ca6ec4bc10ddc6262ab5564cfdf65d781
+  linux_arm64: 049a091172de82955386167851938838c48ab61e57dc2b5ae89135a3e9b52589
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

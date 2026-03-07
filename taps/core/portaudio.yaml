@@ -1,0 +1,19 @@
+name: portaudio
+version: 19.7.0
+description: Cross-platform library for audio I/O
+homepage: https://www.portaudio.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/portaudio/blobs/sha256:7c24f222a11d112034b8a5e95f01feb4b610022c63bdc85d1ae2fe6abbd712e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/portaudio/blobs/sha256:7e89c242dfe4a49421d45416ac28e5b00c9b434664e81fcafb0a192a6f83076e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/portaudio/blobs/sha256:01048cd3e5c934f5fb7b7cd11430833c69022a621fcc2d868159e07bbef1e3e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/portaudio/blobs/sha256:abab20444fd53b2503b0f48172fe84c6503cd6219d00a83b63af96e60d395557
+sha256:
+  darwin_arm64: 7c24f222a11d112034b8a5e95f01feb4b610022c63bdc85d1ae2fe6abbd712e1
+  darwin_amd64: 7e89c242dfe4a49421d45416ac28e5b00c9b434664e81fcafb0a192a6f83076e
+  linux_amd64: 01048cd3e5c934f5fb7b7cd11430833c69022a621fcc2d868159e07bbef1e3e4
+  linux_arm64: abab20444fd53b2503b0f48172fe84c6503cd6219d00a83b63af96e60d395557
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

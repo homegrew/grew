@@ -1,0 +1,11 @@
+name: landrop
+version: 0.4.0
+description: Drop any files to any devices on your LAN
+homepage: https://landrop.app/
+url:
+  darwin_arm64: https://github.com/LANDrop/LANDrop/releases/download/v0.4.0/LANDrop-0.4.0-macos.dmg
+sha256:
+  darwin_arm64: 069f7ce4d43647a8e968de77ae1dd277e984d6ded6bf7cdac5caf979a7ac7123
+artifacts:
+  app:
+    - LANDrop.app

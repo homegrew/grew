@@ -1,0 +1,21 @@
+name: shellcheck
+version: 0.11.0
+description: Static analysis and lint tool, for (ba)sh scripts
+homepage: https://www.shellcheck.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shellcheck/blobs/sha256:a8c12e69512ed369ded8a58cfb81c8d42eea53d8ac51119fe3f83e050e6a6f4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shellcheck/blobs/sha256:3608bc5b421ad7cd939f3a8e3268a3c8f6369948ed555afb9d269134a0bfabe6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shellcheck/blobs/sha256:e84559495ee8f9719be30a9d8139a3016d2f448d31fc79ac4d135ab86a228404
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shellcheck/blobs/sha256:9b6289eca1e028a336e6090a7ab42efb47993c51194941c43fbe7d156f9f4270
+sha256:
+  darwin_arm64: a8c12e69512ed369ded8a58cfb81c8d42eea53d8ac51119fe3f83e050e6a6f4d
+  darwin_amd64: 3608bc5b421ad7cd939f3a8e3268a3c8f6369948ed555afb9d269134a0bfabe6
+  linux_amd64: e84559495ee8f9719be30a9d8139a3016d2f448d31fc79ac4d135ab86a228404
+  linux_arm64: 9b6289eca1e028a336e6090a7ab42efb47993c51194941c43fbe7d156f9f4270
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

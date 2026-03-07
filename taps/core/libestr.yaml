@@ -1,0 +1,19 @@
+name: libestr
+version: 0.1.11
+description: C library for string handling (and a bit more)
+homepage: https://libestr.adiscon.com/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libestr/blobs/sha256:25ff0e46e019f6de30b6d9a0980bd1eaaaa6a007f5c815f2e48607c6bab91714
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libestr/blobs/sha256:762b4c02935959cf91f8520f6d275cba1cd5f54432201b745e3674c9b29fc5c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libestr/blobs/sha256:6f131de3ed214869ab11a430e48f7e006d8b4ae1c181413f0d60aa9da85f4599
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libestr/blobs/sha256:9f88fde30fe9005f5eafd6a718b233317c838f741535b789ac39a1a027daf0b2
+sha256:
+  darwin_arm64: 25ff0e46e019f6de30b6d9a0980bd1eaaaa6a007f5c815f2e48607c6bab91714
+  darwin_amd64: 762b4c02935959cf91f8520f6d275cba1cd5f54432201b745e3674c9b29fc5c5
+  linux_amd64: 6f131de3ed214869ab11a430e48f7e006d8b4ae1c181413f0d60aa9da85f4599
+  linux_arm64: 9f88fde30fe9005f5eafd6a718b233317c838f741535b789ac39a1a027daf0b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

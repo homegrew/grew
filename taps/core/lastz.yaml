@@ -1,0 +1,19 @@
+name: lastz
+version: 1.04.52
+description: Pairwise aligner for DNA sequences
+homepage: https://lastz.github.io/lastz/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lastz/blobs/sha256:80f6fff47c343b4c7ace97eaae35488f03769f97fd9133f886c7bb34d95352e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lastz/blobs/sha256:cbf9f6ac6360306a7d16069ba875c3b7bbc8bf519eeeae744d1e3fd2a9b67ed9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lastz/blobs/sha256:b99c52372809d20f0228dc754d73c23fb5bf8bf0654025b472eba065b4341aec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lastz/blobs/sha256:def54adb8c80103f68796212aa25a879efef110fc751f811c821e1508793772a
+sha256:
+  darwin_arm64: 80f6fff47c343b4c7ace97eaae35488f03769f97fd9133f886c7bb34d95352e2
+  darwin_amd64: cbf9f6ac6360306a7d16069ba875c3b7bbc8bf519eeeae744d1e3fd2a9b67ed9
+  linux_amd64: b99c52372809d20f0228dc754d73c23fb5bf8bf0654025b472eba065b4341aec
+  linux_arm64: def54adb8c80103f68796212aa25a879efef110fc751f811c821e1508793772a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: aptakube
+version: 1.14.4
+description: Kubernetes desktop client
+homepage: https://aptakube.com/
+url:
+  darwin_arm64: https://releases.aptakube.com/Aptakube_1.14.4_universal.dmg
+sha256:
+  darwin_arm64: 0afadbba66bd337b4cce9bebfa3e51999135c0fb5f82d355b84e7b95066a2851
+artifacts:
+  app:
+    - Aptakube.app

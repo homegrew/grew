@@ -1,0 +1,19 @@
+name: vegeta
+version: 12.13.0
+description: HTTP load testing tool and library
+homepage: https://github.com/tsenart/vegeta
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vegeta/blobs/sha256:9e4af909ecd68850af6c7bb8718c06f9e4dc48fbf2a7021cec0ef576d97ed1d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vegeta/blobs/sha256:56a755a49808c3f74dd663f44a2351bcacfc4d3b136018a919306ab2220814f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vegeta/blobs/sha256:7cfe4f159486a5ad26348f9c70b190d33252d91ae315e2a98e486c60aae8602d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vegeta/blobs/sha256:10970097c0ed9c5510b90456da34ab992b56ae7a5ce92cd1bf253d872e25461e
+sha256:
+  darwin_arm64: 9e4af909ecd68850af6c7bb8718c06f9e4dc48fbf2a7021cec0ef576d97ed1d5
+  darwin_amd64: 56a755a49808c3f74dd663f44a2351bcacfc4d3b136018a919306ab2220814f3
+  linux_amd64: 7cfe4f159486a5ad26348f9c70b190d33252d91ae315e2a98e486c60aae8602d
+  linux_arm64: 10970097c0ed9c5510b90456da34ab992b56ae7a5ce92cd1bf253d872e25461e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

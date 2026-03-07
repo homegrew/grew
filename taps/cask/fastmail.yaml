@@ -1,0 +1,11 @@
+name: fastmail
+version: 1.1.0
+description: Email client
+homepage: https://www.fastmail.com/
+url:
+  darwin_arm64: https://dl.fastmailcdn.com/desktop/production/mac/arm64/Fastmail-1.1.0-arm64-mac.zip
+sha256:
+  darwin_arm64: 8195c61cb8e5d8a49417b3e3d2cf34821bba5fcd733d2fe088bba8204c96c0e4
+artifacts:
+  app:
+    - Fastmail.app

@@ -1,0 +1,19 @@
+name: pcalc
+version: 3.0
+description: Calculator for those working with multiple bases, sizes, and close to the bits
+homepage: https://github.com/alt-romes/programmer-calculator
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcalc/blobs/sha256:3ab7fd9f1bd17b8ae50aaf5c5e419e1ba13214e5362f09b235b834555001ab6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcalc/blobs/sha256:d42537f4273abcdc5edac493debde8238b833ec7110e6686692ce00128c85661
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcalc/blobs/sha256:3bfe8638f58d9b4a6b71c50f08d37b6bf10e773ff1d43946879269cf00df69d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcalc/blobs/sha256:8d33ee09634262b3a6328d6c1bea82836652fbae7b797f2d507026491d25fd47
+sha256:
+  darwin_arm64: 3ab7fd9f1bd17b8ae50aaf5c5e419e1ba13214e5362f09b235b834555001ab6e
+  darwin_amd64: d42537f4273abcdc5edac493debde8238b833ec7110e6686692ce00128c85661
+  linux_amd64: 3bfe8638f58d9b4a6b71c50f08d37b6bf10e773ff1d43946879269cf00df69d4
+  linux_arm64: 8d33ee09634262b3a6328d6c1bea82836652fbae7b797f2d507026491d25fd47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

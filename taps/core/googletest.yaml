@@ -1,0 +1,19 @@
+name: googletest
+version: 1.17.0
+description: Google Testing and Mocking Framework
+homepage: https://google.github.io/googletest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/googletest/blobs/sha256:a37e854f5861f02de03ad664562e70ba2b1bc87d4ea189ae67fff654124ee0b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/googletest/blobs/sha256:34d2c867c3210fc18dbe7929b51180d994f52353d3cb0a9127faa418ccc27b22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/googletest/blobs/sha256:71854dc8c3b2a13a96c490fa30b2076673023370d445cba2820095be3ef95ed4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/googletest/blobs/sha256:2e9d2bbc937219b6d7ce0e9c9be6c70e4a8c667eff5f02e6900200562d78bed1
+sha256:
+  darwin_arm64: a37e854f5861f02de03ad664562e70ba2b1bc87d4ea189ae67fff654124ee0b5
+  darwin_amd64: 34d2c867c3210fc18dbe7929b51180d994f52353d3cb0a9127faa418ccc27b22
+  linux_amd64: 71854dc8c3b2a13a96c490fa30b2076673023370d445cba2820095be3ef95ed4
+  linux_arm64: 2e9d2bbc937219b6d7ce0e9c9be6c70e4a8c667eff5f02e6900200562d78bed1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: chrony
+version: 4.8
+description: Versatile implementation of the Network Time Protocol (NTP)
+homepage: https://chrony-project.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chrony/blobs/sha256:e361230f241f273ef878f5f2bdc2899a414a7973dbd65854e44dfaaa70efc95e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chrony/blobs/sha256:0f77335cd443a3cf8415f1bd44a82b8c0493aee02037130f829bce8dae1c9604
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chrony/blobs/sha256:eb65a129ec2f9117babdb703ec57e86857110f0e8cf8e74c14fa22f9c51ffd20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chrony/blobs/sha256:c392cca54e58164bdfd794709eb64f0a3effb3f3f996dbc112e440459d8ffa45
+sha256:
+  darwin_arm64: e361230f241f273ef878f5f2bdc2899a414a7973dbd65854e44dfaaa70efc95e
+  darwin_amd64: 0f77335cd443a3cf8415f1bd44a82b8c0493aee02037130f829bce8dae1c9604
+  linux_amd64: eb65a129ec2f9117babdb703ec57e86857110f0e8cf8e74c14fa22f9c51ffd20
+  linux_arm64: c392cca54e58164bdfd794709eb64f0a3effb3f3f996dbc112e440459d8ffa45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnutls
+  - nettle

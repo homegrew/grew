@@ -1,0 +1,19 @@
+name: livekit
+version: 1.9.12
+description: Scalable, high-performance WebRTC server
+homepage: https://livekit.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/livekit/blobs/sha256:49d879ebb10e9862930d9921a62175b2cb69c8d180381be5075fa928499192eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/livekit/blobs/sha256:f15b122792b82fa84be03c77b6abac437fb94dad32e8c9b1058cf5c76251fd46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/livekit/blobs/sha256:3d6f6c3413e0ece7238ca60dccaa2ca8a7810431d530d770a98bf56c521bdea1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/livekit/blobs/sha256:e58d45e498aa464bb56517792022c2951c1ccb68456c7971abb153f5eda834e7
+sha256:
+  darwin_arm64: 49d879ebb10e9862930d9921a62175b2cb69c8d180381be5075fa928499192eb
+  darwin_amd64: f15b122792b82fa84be03c77b6abac437fb94dad32e8c9b1058cf5c76251fd46
+  linux_amd64: 3d6f6c3413e0ece7238ca60dccaa2ca8a7810431d530d770a98bf56c521bdea1
+  linux_arm64: e58d45e498aa464bb56517792022c2951c1ccb68456c7971abb153f5eda834e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

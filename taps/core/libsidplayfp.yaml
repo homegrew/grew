@@ -1,0 +1,21 @@
+name: libsidplayfp
+version: 2.16.1
+description: Library to play Commodore 64 music
+homepage: https://github.com/libsidplayfp/libsidplayfp
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsidplayfp/blobs/sha256:b4e8bd9e2d458c17ce895240352279188cb802ca03d28557f85f1e6045eb81cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsidplayfp/blobs/sha256:12268da95535d62e016d9e358206b19af1d20c74e51c7fa3eb6a1e0b13e6c176
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsidplayfp/blobs/sha256:85066022ede61620945cc9777e6983209c16053ff1e9f307a75234ddcea295ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsidplayfp/blobs/sha256:e8b710c5a3c78a41f8fcdccf57849459572733c58746aea2161be90737c178c7
+sha256:
+  darwin_arm64: b4e8bd9e2d458c17ce895240352279188cb802ca03d28557f85f1e6045eb81cb
+  darwin_amd64: 12268da95535d62e016d9e358206b19af1d20c74e51c7fa3eb6a1e0b13e6c176
+  linux_amd64: 85066022ede61620945cc9777e6983209c16053ff1e9f307a75234ddcea295ed
+  linux_arm64: e8b710c5a3c78a41f8fcdccf57849459572733c58746aea2161be90737c178c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt

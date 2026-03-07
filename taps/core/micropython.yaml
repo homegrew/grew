@@ -1,0 +1,19 @@
+name: micropython
+version: 1.27.0
+description: Python implementation for microcontrollers and constrained systems
+homepage: https://www.micropython.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/micropython/blobs/sha256:5392dcf56b201508f151c1a149296b693aa9f91fb48478365c967cf5351fc257
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/micropython/blobs/sha256:df392e2818faded81b4596d98073a2ace572493f081337b0c861021124b3f4b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/micropython/blobs/sha256:5be6aa91a71cb44c4e7a312e81452450428587cb04b4f0051ff163c5a6731758
+  linux_arm64: https://ghcr.io/v2/homebrew/core/micropython/blobs/sha256:501a9d4456b62405f9be50f9774e3213afc0b17d2164eaade991ea0c7329585b
+sha256:
+  darwin_arm64: 5392dcf56b201508f151c1a149296b693aa9f91fb48478365c967cf5351fc257
+  darwin_amd64: df392e2818faded81b4596d98073a2ace572493f081337b0c861021124b3f4b4
+  linux_amd64: 5be6aa91a71cb44c4e7a312e81452450428587cb04b4f0051ff163c5a6731758
+  linux_arm64: 501a9d4456b62405f9be50f9774e3213afc0b17d2164eaade991ea0c7329585b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

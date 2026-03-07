@@ -1,0 +1,21 @@
+name: zk
+version: 0.15.2
+description: Plain text note-taking assistant
+homepage: https://zk-org.github.io/zk/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zk/blobs/sha256:8dcfeea647d1c853a88db6aca94bd52bce46e25e0f7f02c8b06a1e56d0977137
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zk/blobs/sha256:c7ac813e8998a93474c1810e88ac21951fdc0287b46dda3683806ca2d61feb45
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zk/blobs/sha256:fa97855d2b7197753f4096ccb3a358b37503bebf031fca8d59e2df663f8fa1ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zk/blobs/sha256:a4e8d88d343e2003fb8fe1968a6221b5f8e30faaae00e3560841737b0bd09fb3
+sha256:
+  darwin_arm64: 8dcfeea647d1c853a88db6aca94bd52bce46e25e0f7f02c8b06a1e56d0977137
+  darwin_amd64: c7ac813e8998a93474c1810e88ac21951fdc0287b46dda3683806ca2d61feb45
+  linux_amd64: fa97855d2b7197753f4096ccb3a358b37503bebf031fca8d59e2df663f8fa1ae
+  linux_arm64: a4e8d88d343e2003fb8fe1968a6221b5f8e30faaae00e3560841737b0bd09fb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78

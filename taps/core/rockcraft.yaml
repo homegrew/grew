@@ -1,0 +1,28 @@
+name: rockcraft
+version: 1.17.1
+description: Tool to create OCI images using the language from Snapcraft and Charmcraft
+homepage: https://documentation.ubuntu.com/rockcraft/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rockcraft/blobs/sha256:209da74f49478a7fe6cc96653ac10f6dc4297ec088e159eb859614025befee98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rockcraft/blobs/sha256:0e96a80a206a858cef4fab9a11c28f3286e91a49c5f4d20bb27b516cd971d486
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rockcraft/blobs/sha256:4cc007e608ca23cf4a71eb61507550ae9cc90ff75f77c8e9ed5c40d45054686d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rockcraft/blobs/sha256:59a21cd15f8c3bacc20484d9dbf66af6e462b9300322479faadd97469815d1a6
+sha256:
+  darwin_arm64: 209da74f49478a7fe6cc96653ac10f6dc4297ec088e159eb859614025befee98
+  darwin_amd64: 0e96a80a206a858cef4fab9a11c28f3286e91a49c5f4d20bb27b516cd971d486
+  linux_amd64: 4cc007e608ca23cf4a71eb61507550ae9cc90ff75f77c8e9ed5c40d45054686d
+  linux_arm64: 59a21cd15f8c3bacc20484d9dbf66af6e462b9300322479faadd97469815d1a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - libyaml
+  - lxc
+  - pydantic
+  - pygit2
+  - python@3.14

@@ -1,0 +1,21 @@
+name: libssh2
+version: 1.11.1
+description: C library implementing the SSH2 protocol
+homepage: https://libssh2.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libssh2/blobs/sha256:b435df4f6ec7e67cff3f37ebac8cad358d3ca42711a818530530470cc65595fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libssh2/blobs/sha256:e78effa726d2b874656684a29acf0991dabc1a0c7833df43918883a90a06c5e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libssh2/blobs/sha256:69d8d069827f2d1b395fd2edf20d5df3dd88e8c45d9db330d293004d70a7413f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libssh2/blobs/sha256:c46480fecd2fe0291afd9957316d6485179b050624dcb6b21753eacab3b28c96
+sha256:
+  darwin_arm64: b435df4f6ec7e67cff3f37ebac8cad358d3ca42711a818530530470cc65595fc
+  darwin_amd64: e78effa726d2b874656684a29acf0991dabc1a0c7833df43918883a90a06c5e5
+  linux_amd64: 69d8d069827f2d1b395fd2edf20d5df3dd88e8c45d9db330d293004d70a7413f
+  linux_arm64: c46480fecd2fe0291afd9957316d6485179b050624dcb6b21753eacab3b28c96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

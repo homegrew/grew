@@ -1,0 +1,19 @@
+name: transifex-cli
+version: 1.6.17
+description: Transifex command-line client
+homepage: https://github.com/transifex/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/transifex-cli/blobs/sha256:6ed869c364c5d0c78fc99f6d243968d9106496cdfe6f2988d8b5896d84ef7844
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/transifex-cli/blobs/sha256:88495caac47931836b2734fa283c70c9e626928e457c713d2e32c49ba82d3765
+  linux_amd64: https://ghcr.io/v2/homebrew/core/transifex-cli/blobs/sha256:3c1f1bf58470b3681c9b6252c8062cd8200a832d701c81f65132f5b9548470eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/transifex-cli/blobs/sha256:5dedde2fcec03377ae340910d75567b9cc7605060b69ef4b7a64fd4dcd05b42a
+sha256:
+  darwin_arm64: 6ed869c364c5d0c78fc99f6d243968d9106496cdfe6f2988d8b5896d84ef7844
+  darwin_amd64: 88495caac47931836b2734fa283c70c9e626928e457c713d2e32c49ba82d3765
+  linux_amd64: 3c1f1bf58470b3681c9b6252c8062cd8200a832d701c81f65132f5b9548470eb
+  linux_arm64: 5dedde2fcec03377ae340910d75567b9cc7605060b69ef4b7a64fd4dcd05b42a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

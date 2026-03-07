@@ -1,0 +1,13 @@
+name: vlc
+version: 3.0.23
+description: Multimedia player
+homepage: https://www.videolan.org/vlc/
+url:
+  darwin_arm64: https://get.videolan.org/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg
+sha256:
+  darwin_arm64: fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+artifacts:
+  app:
+    - VLC.app
+  bin:
+    - vlc

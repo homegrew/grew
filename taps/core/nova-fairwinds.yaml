@@ -1,0 +1,19 @@
+name: nova-fairwinds
+version: 3.11.11
+description: Find outdated or deprecated Helm charts running in your cluster
+homepage: https://github.com/FairwindsOps/nova
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nova-fairwinds/blobs/sha256:88f5d41ada41956bef24e1159c07ea45616dc0b5ce610c81962f2129fc985237
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nova-fairwinds/blobs/sha256:1135c8692cada34603d8f9c6682ead80b44de167a6a62a605d262df6e2200e7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nova-fairwinds/blobs/sha256:1908a0616d6b9b8fe109d2e0b77f68d1e4b7a43533cde1996a4bbe4b974237b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nova-fairwinds/blobs/sha256:79c6a88677c10c86882fd451f3b1ed9723cd312e13ab7cfd8d414ac33b931117
+sha256:
+  darwin_arm64: 88f5d41ada41956bef24e1159c07ea45616dc0b5ce610c81962f2129fc985237
+  darwin_amd64: 1135c8692cada34603d8f9c6682ead80b44de167a6a62a605d262df6e2200e7a
+  linux_amd64: 1908a0616d6b9b8fe109d2e0b77f68d1e4b7a43533cde1996a4bbe4b974237b1
+  linux_arm64: 79c6a88677c10c86882fd451f3b1ed9723cd312e13ab7cfd8d414ac33b931117
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

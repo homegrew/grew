@@ -1,0 +1,19 @@
+name: dscanner
+version: 0.15.2
+description: Analyses e.g. the style and syntax of D code
+homepage: https://github.com/dlang-community/D-Scanner
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dscanner/blobs/sha256:d6d40386c0ff0fe33e4a8d3a5c5a1c19ee21718dd17327adc815d4d60b3e087b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dscanner/blobs/sha256:bada06186eb5dece5bd0e3f23a3b1d5746d0a179f66265d103ee61cee72179d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dscanner/blobs/sha256:1216ef19a42105de9617742024eca673eb221d711526bf6dd2204537a70afd34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dscanner/blobs/sha256:6ad79f5597ccd3323e4de2a6ecfa9bcdd8e6b6b05e48386154d167f6e37bb81f
+sha256:
+  darwin_arm64: d6d40386c0ff0fe33e4a8d3a5c5a1c19ee21718dd17327adc815d4d60b3e087b
+  darwin_amd64: bada06186eb5dece5bd0e3f23a3b1d5746d0a179f66265d103ee61cee72179d9
+  linux_amd64: 1216ef19a42105de9617742024eca673eb221d711526bf6dd2204537a70afd34
+  linux_arm64: 6ad79f5597ccd3323e4de2a6ecfa9bcdd8e6b6b05e48386154d167f6e37bb81f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

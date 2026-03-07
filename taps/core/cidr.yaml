@@ -1,0 +1,19 @@
+name: cidr
+version: 2.3.0
+description: CLI to perform various actions on CIDR ranges
+homepage: https://github.com/bschaatsbergen/cidr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cidr/blobs/sha256:dcbc8cd8981394e22863784293723d4f498d4e99e7bd887303f627fd8800bcd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cidr/blobs/sha256:69746c5df310b241ba471f7007baa62bd134d3b29e9ad6f84a0ae4b57a8a043b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cidr/blobs/sha256:88883882ac33253f400a15c6e38dccb0d502bef37985da5f0f3af8e0d3be53a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cidr/blobs/sha256:bbc02e2c488fce47f5d8c777a0bb2691fc83f671bd8f3fa38fef07042e99ac7a
+sha256:
+  darwin_arm64: dcbc8cd8981394e22863784293723d4f498d4e99e7bd887303f627fd8800bcd0
+  darwin_amd64: 69746c5df310b241ba471f7007baa62bd134d3b29e9ad6f84a0ae4b57a8a043b
+  linux_amd64: 88883882ac33253f400a15c6e38dccb0d502bef37985da5f0f3af8e0d3be53a5
+  linux_arm64: bbc02e2c488fce47f5d8c777a0bb2691fc83f671bd8f3fa38fef07042e99ac7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

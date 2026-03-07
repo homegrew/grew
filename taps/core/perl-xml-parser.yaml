@@ -1,0 +1,21 @@
+name: perl-xml-parser
+version: 2.47
+description: Perl module for parsing XML documents
+homepage: https://github.com/cpan-authors/XML-Parser
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/perl-xml-parser/blobs/sha256:fee3b040b53302d6739156e3fe6ec3d20d4a68976db97596fbc69ae67ca6f478
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/perl-xml-parser/blobs/sha256:437584b3bca0bcb6e71124509c92f2b68e9011d3f663105f0f251c697aa43871
+  linux_amd64: https://ghcr.io/v2/homebrew/core/perl-xml-parser/blobs/sha256:b9b950e9fe9030de2638c912c2325831376ec6be4a485eb72c76cf9e909f3253
+  linux_arm64: https://ghcr.io/v2/homebrew/core/perl-xml-parser/blobs/sha256:373a53aa2f3d1a8e0de097dc8766f7e5c30212fc2f48a1ac2829aa5de41e54b7
+sha256:
+  darwin_arm64: fee3b040b53302d6739156e3fe6ec3d20d4a68976db97596fbc69ae67ca6f478
+  darwin_amd64: 437584b3bca0bcb6e71124509c92f2b68e9011d3f663105f0f251c697aa43871
+  linux_amd64: b9b950e9fe9030de2638c912c2325831376ec6be4a485eb72c76cf9e909f3253
+  linux_arm64: 373a53aa2f3d1a8e0de097dc8766f7e5c30212fc2f48a1ac2829aa5de41e54b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - perl

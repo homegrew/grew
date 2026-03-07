@@ -1,0 +1,21 @@
+name: git-branchless
+version: 0.10.0
+description: High-velocity, monorepo-scale workflow for Git
+homepage: https://github.com/arxanas/git-branchless
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-branchless/blobs/sha256:f80d2b33570eb37e0d36b7e6d8008b867367c866a4811776040e494d7aafce7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-branchless/blobs/sha256:14d54ce7c0637768fa4acb4adaa7c834fb48bcb53dc99a6008a9ebd799745f35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-branchless/blobs/sha256:e33664c6b9a58a86309ab4a9ec2799597a606d2592c9977e550e1057169f66cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-branchless/blobs/sha256:11c168af51844af0bbc325a0d7f3d56952eb386084e2ded11c4b64354a656b86
+sha256:
+  darwin_arm64: f80d2b33570eb37e0d36b7e6d8008b867367c866a4811776040e494d7aafce7b
+  darwin_amd64: 14d54ce7c0637768fa4acb4adaa7c834fb48bcb53dc99a6008a9ebd799745f35
+  linux_amd64: e33664c6b9a58a86309ab4a9ec2799597a606d2592c9977e550e1057169f66cc
+  linux_arm64: 11c168af51844af0bbc325a0d7f3d56952eb386084e2ded11c4b64354a656b86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

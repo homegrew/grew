@@ -1,0 +1,19 @@
+name: perbase
+version: 1.4.0
+description: Fast and correct perbase BAM/CRAM analysis
+homepage: https://github.com/sstadick/perbase
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/perbase/blobs/sha256:db301d59e5776cf75acdcd7d68d003d8079214e14e0ff919f7762def827a6404
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/perbase/blobs/sha256:e4221dcf8ff76d7104dd2facef196f88ded3ca23240fd7a8ec674c1ca07f2b2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/perbase/blobs/sha256:ad1e22315efecbf08511298c1e24a6b48c489ad3a1ee7006ee287e2d23caffe5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/perbase/blobs/sha256:bed582fbd2dac3de2d846a82b1bb543b1a745f2c741709715e84ebbbab1e417b
+sha256:
+  darwin_arm64: db301d59e5776cf75acdcd7d68d003d8079214e14e0ff919f7762def827a6404
+  darwin_amd64: e4221dcf8ff76d7104dd2facef196f88ded3ca23240fd7a8ec674c1ca07f2b2a
+  linux_amd64: ad1e22315efecbf08511298c1e24a6b48c489ad3a1ee7006ee287e2d23caffe5
+  linux_arm64: bed582fbd2dac3de2d846a82b1bb543b1a745f2c741709715e84ebbbab1e417b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

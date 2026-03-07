@@ -1,0 +1,11 @@
+name: openaudible
+version: 4.7.4
+description: Audiobook manager for Audible users
+homepage: https://openaudible.org/
+url:
+  darwin_arm64: https://github.com/openaudible/openaudible/releases/download/v4.7.4/OpenAudible_4.7.4.dmg
+sha256:
+  darwin_arm64: adfd3fa198f3dff417e76d21d65a349fad4a62dceac67ddd5b95c9d47df829b0
+artifacts:
+  app:
+    - OpenAudible.app

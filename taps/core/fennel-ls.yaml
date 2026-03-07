@@ -1,0 +1,21 @@
+name: fennel-ls
+version: 0.2.3
+description: Language Server for Fennel
+homepage: https://git.sr.ht/~xerool/fennel-ls/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fennel-ls/blobs/sha256:914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fennel-ls/blobs/sha256:914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fennel-ls/blobs/sha256:6404a2fde8770bd42bf773d331a2745506137bfd5bcad021febe2f6078078a5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fennel-ls/blobs/sha256:914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+sha256:
+  darwin_arm64: 914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+  darwin_amd64: 914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+  linux_amd64: 6404a2fde8770bd42bf773d331a2745506137bfd5bcad021febe2f6078078a5f
+  linux_arm64: 914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua

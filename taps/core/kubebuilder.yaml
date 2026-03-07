@@ -1,0 +1,21 @@
+name: kubebuilder
+version: 4.13.0
+description: SDK for building Kubernetes APIs using CRDs
+homepage: https://github.com/kubernetes-sigs/kubebuilder
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubebuilder/blobs/sha256:2af3e1d229e6b126e0d484c7228858623cf9d96d47c58e0744c8a27ac2fbec26
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubebuilder/blobs/sha256:e87acc3e0a364ab877708213df459d672bd32e3795d311d16a77020d842aa07a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubebuilder/blobs/sha256:975de8d99da307fbc0d0c99961773a9c2ada953b2c5a6ff8e5c31c915e555996
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubebuilder/blobs/sha256:fe95c0c792d33ca88b9efa052dc83cda658edd987d20ea1598f57a27b1199945
+sha256:
+  darwin_arm64: 2af3e1d229e6b126e0d484c7228858623cf9d96d47c58e0744c8a27ac2fbec26
+  darwin_amd64: e87acc3e0a364ab877708213df459d672bd32e3795d311d16a77020d842aa07a
+  linux_amd64: 975de8d99da307fbc0d0c99961773a9c2ada953b2c5a6ff8e5c31c915e555996
+  linux_arm64: fe95c0c792d33ca88b9efa052dc83cda658edd987d20ea1598f57a27b1199945
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

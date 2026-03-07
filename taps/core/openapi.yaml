@@ -1,0 +1,19 @@
+name: openapi
+version: 1.19.4
+description: CLI tools for working with OpenAPI, Arazzo and Overlay specifications
+homepage: https://github.com/speakeasy-api/openapi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openapi/blobs/sha256:a0a092855edbd74af8ec94723509b47d09a022571c5e865e26a833de9271ef6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openapi/blobs/sha256:c246bc46dd4df25eef0ae2a13d996b599d4390beb4dec99fb133439aaa22acfd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openapi/blobs/sha256:80e897053e7feb638b5aff2c4385c041bbeef247128c831ba6d8258957d38f71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openapi/blobs/sha256:c285b167cb738bfd195d92cb541a311d625a58fdeaaa8d01eb7bf60cc231df83
+sha256:
+  darwin_arm64: a0a092855edbd74af8ec94723509b47d09a022571c5e865e26a833de9271ef6f
+  darwin_amd64: c246bc46dd4df25eef0ae2a13d996b599d4390beb4dec99fb133439aaa22acfd
+  linux_amd64: 80e897053e7feb638b5aff2c4385c041bbeef247128c831ba6d8258957d38f71
+  linux_arm64: c285b167cb738bfd195d92cb541a311d625a58fdeaaa8d01eb7bf60cc231df83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

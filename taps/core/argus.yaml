@@ -1,0 +1,19 @@
+name: argus
+version: 5.0.2
+description: Audit Record Generation and Utilization System server
+homepage: https://openargus.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argus/blobs/sha256:7c1a76bb7c5737f627ebfc27f321fc34cedc903ae21a33c0a9280529dce6917f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argus/blobs/sha256:9216f8cbb95b5f44214aca06da967e5eb97ebd42667c340504bfc04da72bd5cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argus/blobs/sha256:9988cefee9faa56b8626339270477793a75757df731e86169db368542a1360ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argus/blobs/sha256:d84ccbdbdb94cb8281f0e2b529b7389a961f31c86f3fc0fd678a9502460d096a
+sha256:
+  darwin_arm64: 7c1a76bb7c5737f627ebfc27f321fc34cedc903ae21a33c0a9280529dce6917f
+  darwin_amd64: 9216f8cbb95b5f44214aca06da967e5eb97ebd42667c340504bfc04da72bd5cb
+  linux_amd64: 9988cefee9faa56b8626339270477793a75757df731e86169db368542a1360ad
+  linux_arm64: d84ccbdbdb94cb8281f0e2b529b7389a961f31c86f3fc0fd678a9502460d096a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

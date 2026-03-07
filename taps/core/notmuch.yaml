@@ -1,0 +1,28 @@
+name: notmuch
+version: 0.40
+description: Thread-based email index, search, and tagging
+homepage: https://notmuchmail.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/notmuch/blobs/sha256:cafbd5ffd9eb60479b8edf50891ec9f2b08bdd21e146f5f04eda782480db75b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/notmuch/blobs/sha256:d9237123ce3a5e4f3ccac403836f39f800c15e4868d17ca1ad01ba8192e16146
+  linux_amd64: https://ghcr.io/v2/homebrew/core/notmuch/blobs/sha256:e1adead0a4a2502fd61aeace8890dee06054263d4c6fae6a783af826cb3cccb6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/notmuch/blobs/sha256:259509347674489fc0f424df7e95590b5ee9f6b878a8a8b22d74a6f239f3c18f
+sha256:
+  darwin_arm64: cafbd5ffd9eb60479b8edf50891ec9f2b08bdd21e146f5f04eda782480db75b8
+  darwin_amd64: d9237123ce3a5e4f3ccac403836f39f800c15e4868d17ca1ad01ba8192e16146
+  linux_amd64: e1adead0a4a2502fd61aeace8890dee06054263d4c6fae6a783af826cb3cccb6
+  linux_arm64: 259509347674489fc0f424df7e95590b5ee9f6b878a8a8b22d74a6f239f3c18f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cffi
+  - glib
+  - gmime
+  - python@3.14
+  - sfsexp
+  - talloc
+  - xapian
+  - gettext

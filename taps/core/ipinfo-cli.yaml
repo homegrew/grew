@@ -1,0 +1,19 @@
+name: ipinfo-cli
+version: 3.3.1
+description: Official CLI for the IPinfo IP Address API
+homepage: https://ipinfo.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipinfo-cli/blobs/sha256:629bce3608145a3bad1850c24b09617d223f4307e432b256cafb35a7f1d68bb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipinfo-cli/blobs/sha256:3909846e5be7d305fd8b3861957c719fee0a1490950f57bcb499ac6d5e4031da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipinfo-cli/blobs/sha256:6d357ca2a3418da8d4f16edeca092f2e10a9e30ccd71992f5aeaf5d320773c0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipinfo-cli/blobs/sha256:239dcc822e7759a8ae57a8df5bf91218e6ab59b5789e64b93bf5be59451e4be7
+sha256:
+  darwin_arm64: 629bce3608145a3bad1850c24b09617d223f4307e432b256cafb35a7f1d68bb1
+  darwin_amd64: 3909846e5be7d305fd8b3861957c719fee0a1490950f57bcb499ac6d5e4031da
+  linux_amd64: 6d357ca2a3418da8d4f16edeca092f2e10a9e30ccd71992f5aeaf5d320773c0c
+  linux_arm64: 239dcc822e7759a8ae57a8df5bf91218e6ab59b5789e64b93bf5be59451e4be7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

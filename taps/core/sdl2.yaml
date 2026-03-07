@@ -1,0 +1,19 @@
+name: sdl2
+version: 2.32.10
+description: Low-level access to audio, keyboard, mouse, joystick, and graphics
+homepage: https://www.libsdl.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl2/blobs/sha256:d023e694d63e6d5adc1acb6110fc57e31fcd1cbcec974f51f4993e108ddc4f80
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl2/blobs/sha256:df04d6460b7ab3baefc14201d886a0e27e694a5ba11b075c5725402d8b143c15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl2/blobs/sha256:e98bc16de311c00276a48d4424b86ddc32fa9f65438edfa0fe048cff9e15d2db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl2/blobs/sha256:e050a5f8c665edb6a5afef282d9508355095a579484e92ea5dc69b26c5acc16c
+sha256:
+  darwin_arm64: d023e694d63e6d5adc1acb6110fc57e31fcd1cbcec974f51f4993e108ddc4f80
+  darwin_amd64: df04d6460b7ab3baefc14201d886a0e27e694a5ba11b075c5725402d8b143c15
+  linux_amd64: e98bc16de311c00276a48d4424b86ddc32fa9f65438edfa0fe048cff9e15d2db
+  linux_arm64: e050a5f8c665edb6a5afef282d9508355095a579484e92ea5dc69b26c5acc16c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

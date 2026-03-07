@@ -1,0 +1,19 @@
+name: jbig2dec
+version: 0.20
+description: JBIG2 decoder and library (for monochrome documents)
+homepage: https://github.com/ArtifexSoftware/jbig2dec
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jbig2dec/blobs/sha256:08de3bbe75ccd99324756e5687677f3855f31ec9057f16ce068de9301072dfd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jbig2dec/blobs/sha256:8017bcda4a2d530aad05946e2196907a8fd52992aa3043001764adea0e2cf58b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jbig2dec/blobs/sha256:fb3732eb4744293f9354ab856ea2f9b350897fa5408ae9c07330ba454f3ec95c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jbig2dec/blobs/sha256:43fda0fa722603abe04fe456472b593fcbcfb933ebab2bedea48e2cc77e5cbfa
+sha256:
+  darwin_arm64: 08de3bbe75ccd99324756e5687677f3855f31ec9057f16ce068de9301072dfd0
+  darwin_amd64: 8017bcda4a2d530aad05946e2196907a8fd52992aa3043001764adea0e2cf58b
+  linux_amd64: fb3732eb4744293f9354ab856ea2f9b350897fa5408ae9c07330ba454f3ec95c
+  linux_arm64: 43fda0fa722603abe04fe456472b593fcbcfb933ebab2bedea48e2cc77e5cbfa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

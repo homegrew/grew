@@ -1,0 +1,31 @@
+name: shibboleth-sp
+version: 3.5.2
+description: Shibboleth 2 Service Provider daemon
+homepage: https://wiki.shibboleth.net/confluence/display/SHIB2
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shibboleth-sp/blobs/sha256:339c9579747a7ea9f59bcf07d27e54060929ab44549922d266e4e39f1a015f51
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shibboleth-sp/blobs/sha256:2f8d41cf20b047da3c6a5bc7c0cdf50eebc400d57781a4fb91b9bf2470df0c87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shibboleth-sp/blobs/sha256:b1ef8dbde97fc0158660d63a17852d64b24ff246bf4fb59bb880e6a4d35e1837
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shibboleth-sp/blobs/sha256:b7f78e39e8dfb3f8b065dfba2012cc49d103fe314fdd1d987bb891363a19eb8f
+sha256:
+  darwin_arm64: 339c9579747a7ea9f59bcf07d27e54060929ab44549922d266e4e39f1a015f51
+  darwin_amd64: 2f8d41cf20b047da3c6a5bc7c0cdf50eebc400d57781a4fb91b9bf2470df0c87
+  linux_amd64: b1ef8dbde97fc0158660d63a17852d64b24ff246bf4fb59bb880e6a4d35e1837
+  linux_arm64: b7f78e39e8dfb3f8b065dfba2012cc49d103fe314fdd1d987bb891363a19eb8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - boost
+  - httpd
+  - log4shib
+  - opensaml
+  - openssl@3
+  - unixodbc
+  - xerces-c
+  - xml-security-c
+  - xml-tooling-c

@@ -1,0 +1,19 @@
+name: pixd
+version: 1.0.0
+description: Visual binary data using a colour palette
+homepage: https://github.com/FireyFly/pixd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixd/blobs/sha256:00a4d99285c81b2948df43e3e25515596d12980af8f535419d1665ba77b5ef33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixd/blobs/sha256:4ac1c7187b65cde2b4061710214b5a004b2f05f1d692b69d042327b9d9b319eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixd/blobs/sha256:fa387cb2dd091d0b261fbe63ff989362f7f9269a0565f68ff1fe5acfceb16167
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixd/blobs/sha256:7f986efd6ff8664144233f39b4f3f2118b97b2387ee1373ad66e538c48a666d7
+sha256:
+  darwin_arm64: 00a4d99285c81b2948df43e3e25515596d12980af8f535419d1665ba77b5ef33
+  darwin_amd64: 4ac1c7187b65cde2b4061710214b5a004b2f05f1d692b69d042327b9d9b319eb
+  linux_amd64: fa387cb2dd091d0b261fbe63ff989362f7f9269a0565f68ff1fe5acfceb16167
+  linux_arm64: 7f986efd6ff8664144233f39b4f3f2118b97b2387ee1373ad66e538c48a666d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

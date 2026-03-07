@@ -1,0 +1,22 @@
+name: jruby
+version: 10.0.4.0
+description: Ruby implementation in pure Java
+homepage: https://www.jruby.org/
+license: EPL-2.0 OR GPL-2.0-only OR LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jruby/blobs/sha256:6bb65182d298172002cf8f395d0608edefa6222e827575e5849e1ad51dee865a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jruby/blobs/sha256:cd35107cc3ba2df332a350399a2c1ee6c591ca3f138efd22bc1679829ef83b48
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jruby/blobs/sha256:bd5d25230676021c5e8cf6d7ed6854122a9d132ec297b07974255d93ea71c083
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jruby/blobs/sha256:f0139a9da688e5abf02eeb8bad825e4d41649c8178aa6a15f960e5ec4383ec57
+sha256:
+  darwin_arm64: 6bb65182d298172002cf8f395d0608edefa6222e827575e5849e1ad51dee865a
+  darwin_amd64: cd35107cc3ba2df332a350399a2c1ee6c591ca3f138efd22bc1679829ef83b48
+  linux_amd64: bd5d25230676021c5e8cf6d7ed6854122a9d132ec297b07974255d93ea71c083
+  linux_arm64: f0139a9da688e5abf02eeb8bad825e4d41649c8178aa6a15f960e5ec4383ec57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfixposix
+  - openjdk

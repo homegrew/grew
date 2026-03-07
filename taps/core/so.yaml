@@ -1,0 +1,19 @@
+name: so
+version: 0.4.10
+description: Terminal interface for StackOverflow
+homepage: https://github.com/samtay/so
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/so/blobs/sha256:d106bc00111838ead6bb1875827882b2b38271384a2b5d486163f8ec355be0a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/so/blobs/sha256:ffb713476e09d5bc6930cc1b550efd65d9556103f6641e2f2ca8bd9a8d9c374f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/so/blobs/sha256:dff017b24e8061f4c5ea8b37e9f675d636449f6206735d130dcde4db047729b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/so/blobs/sha256:a1477dceb51ed2cb6ba94b4f5755376fdaebcfe22b7301273120dede98403ce7
+sha256:
+  darwin_arm64: d106bc00111838ead6bb1875827882b2b38271384a2b5d486163f8ec355be0a6
+  darwin_amd64: ffb713476e09d5bc6930cc1b550efd65d9556103f6641e2f2ca8bd9a8d9c374f
+  linux_amd64: dff017b24e8061f4c5ea8b37e9f675d636449f6206735d130dcde4db047729b5
+  linux_arm64: a1477dceb51ed2cb6ba94b4f5755376fdaebcfe22b7301273120dede98403ce7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

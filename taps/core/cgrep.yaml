@@ -1,0 +1,21 @@
+name: cgrep
+version: 9.1.0
+description: Context-aware grep for source code
+homepage: https://awgn.github.io/cgrep/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgrep/blobs/sha256:b42f9383d5a41f744a18add208aafc128c66e2c92350b23d09eaab77ea5db7fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgrep/blobs/sha256:8753927f7c4b5d1319579cf37128e000e5b126ef2ff37b407f52b59290650b8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgrep/blobs/sha256:0ca071d935a0beb72a598f0beef64be30482c475d5d373c025b0ca2bac3ec639
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgrep/blobs/sha256:e01e5f966e2a0f4a7bf75801e7de78663703e5b6c816553d6a038ea69f408718
+sha256:
+  darwin_arm64: b42f9383d5a41f744a18add208aafc128c66e2c92350b23d09eaab77ea5db7fb
+  darwin_amd64: 8753927f7c4b5d1319579cf37128e000e5b126ef2ff37b407f52b59290650b8f
+  linux_amd64: 0ca071d935a0beb72a598f0beef64be30482c475d5d373c025b0ca2bac3ec639
+  linux_arm64: e01e5f966e2a0f4a7bf75801e7de78663703e5b6c816553d6a038ea69f408718
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

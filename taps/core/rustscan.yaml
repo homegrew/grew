@@ -1,0 +1,21 @@
+name: rustscan
+version: 2.4.1
+description: Modern Day Portscanner
+homepage: https://github.com/bee-san/RustScan
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rustscan/blobs/sha256:920f4b2a297025ca7b330f4366ef530a2ce9b23de84e9a901de47e7cfd59969e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rustscan/blobs/sha256:86a8d2a183f5bec85dc8c40acb58fc9931bb4fcf9e63d3f7fc271d490e5a7f34
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rustscan/blobs/sha256:045f1455224bee1648c5024d83de72ca209ef19e4784adb2bd5d479bef875bf0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rustscan/blobs/sha256:6e51bf6ded5a5d7091c433bc5e6532ed8bc08a1792e7fbc3cf2f9cf7b23ede3e
+sha256:
+  darwin_arm64: 920f4b2a297025ca7b330f4366ef530a2ce9b23de84e9a901de47e7cfd59969e
+  darwin_amd64: 86a8d2a183f5bec85dc8c40acb58fc9931bb4fcf9e63d3f7fc271d490e5a7f34
+  linux_amd64: 045f1455224bee1648c5024d83de72ca209ef19e4784adb2bd5d479bef875bf0
+  linux_arm64: 6e51bf6ded5a5d7091c433bc5e6532ed8bc08a1792e7fbc3cf2f9cf7b23ede3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - nmap

@@ -1,0 +1,19 @@
+name: scalingo
+version: 1.43.3
+description: "CLI for working with Scalingo's PaaS"
+homepage: https://doc.scalingo.com/cli
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scalingo/blobs/sha256:0ede9e78d28988316269f81dc81b5a95fe075489ede838e4dd90fd8180baa7e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scalingo/blobs/sha256:87157b18caf471d78de28bb20cf21510a210ed604ae49e0b54761635bcd84a9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scalingo/blobs/sha256:a8b345871e08309192d7daa52b8f51a64ae4108f18f8862c4a812ecf03572747
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scalingo/blobs/sha256:2ad4511b9269f728ae7de96c000f57bb674a55c1e42266369d84e93cbb068af4
+sha256:
+  darwin_arm64: 0ede9e78d28988316269f81dc81b5a95fe075489ede838e4dd90fd8180baa7e5
+  darwin_amd64: 87157b18caf471d78de28bb20cf21510a210ed604ae49e0b54761635bcd84a9e
+  linux_amd64: a8b345871e08309192d7daa52b8f51a64ae4108f18f8862c4a812ecf03572747
+  linux_arm64: 2ad4511b9269f728ae7de96c000f57bb674a55c1e42266369d84e93cbb068af4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

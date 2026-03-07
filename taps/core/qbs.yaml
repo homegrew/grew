@@ -1,0 +1,22 @@
+name: qbs
+version: 3.1.2
+description: Build tool for developing projects across multiple platforms
+homepage: https://wiki.qt.io/Qbs
+license: (LGPL-3.0-only OR GPL-2.0-only) AND (LGPL-3.0-only OR (LGPL-2.1-only WITH Qt-LGPL-exception-1.1)) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qbs/blobs/sha256:4d1a72bd117603ce416b493189fbcd3e52b4192d781d57dc4034c95e2c8f6725
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qbs/blobs/sha256:c807a83befa12ef13afbc83bca67d643f95f3b374ec38b324f99fd0d31d6675e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qbs/blobs/sha256:f4b061b7637c7ed483ae5211520f5befefe973dbf7079d05ddc3542e7a3018f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qbs/blobs/sha256:b55f674fc0f3cc17d3b6972974d9a796857e2983e5128ab4d4e161add8774158
+sha256:
+  darwin_arm64: 4d1a72bd117603ce416b493189fbcd3e52b4192d781d57dc4034c95e2c8f6725
+  darwin_amd64: c807a83befa12ef13afbc83bca67d643f95f3b374ec38b324f99fd0d31d6675e
+  linux_amd64: f4b061b7637c7ed483ae5211520f5befefe973dbf7079d05ddc3542e7a3018f4
+  linux_arm64: b55f674fc0f3cc17d3b6972974d9a796857e2983e5128ab4d4e161add8774158
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt5compat
+  - qtbase

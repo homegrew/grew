@@ -1,0 +1,19 @@
+name: headson
+version: 0.16.1
+description: Head/tail for structured data
+homepage: https://docs.rs/headson/latest/headson/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/headson/blobs/sha256:854c8655b692c19690c6151da4208ac9250dd88b180e0d2054472e9dd1af4a0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/headson/blobs/sha256:6c8f68eba88fc692027f74798faaccdde4d47968564be5139d4219f661fcdc6c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/headson/blobs/sha256:ed7745c0a50256e9ab5f7d047308da959c7922116ba1785086244ebb4183dda1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/headson/blobs/sha256:f39390eec0049ead13d96c089221ca52a7f9d2f2dfaab2a10fd45c583ab09327
+sha256:
+  darwin_arm64: 854c8655b692c19690c6151da4208ac9250dd88b180e0d2054472e9dd1af4a0a
+  darwin_amd64: 6c8f68eba88fc692027f74798faaccdde4d47968564be5139d4219f661fcdc6c
+  linux_amd64: ed7745c0a50256e9ab5f7d047308da959c7922116ba1785086244ebb4183dda1
+  linux_arm64: f39390eec0049ead13d96c089221ca52a7f9d2f2dfaab2a10fd45c583ab09327
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

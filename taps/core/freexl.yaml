@@ -1,0 +1,21 @@
+name: freexl
+version: 2.0.0
+description: Library to extract data from Excel .xls files
+homepage: https://www.gaia-gis.it/fossil/freexl/index
+license: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freexl/blobs/sha256:c45940e1dd8bad980e3a6e16f2ee83636ea6b92ec106b352d27aa009abac96a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freexl/blobs/sha256:df6da8220ec7db83dd316ed8845036bb7ef3b89a89f76db6e258c457a390398b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freexl/blobs/sha256:6a23aa6cd549e49b7d3d3f5bf160d97d1125c26587074580b2926060003269e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freexl/blobs/sha256:26dd6ba610ed245687f64deae257c8aa2e21a9878a6430f442a0cbea4a894425
+sha256:
+  darwin_arm64: c45940e1dd8bad980e3a6e16f2ee83636ea6b92ec106b352d27aa009abac96a0
+  darwin_amd64: df6da8220ec7db83dd316ed8845036bb7ef3b89a89f76db6e258c457a390398b
+  linux_amd64: 6a23aa6cd549e49b7d3d3f5bf160d97d1125c26587074580b2926060003269e9
+  linux_arm64: 26dd6ba610ed245687f64deae257c8aa2e21a9878a6430f442a0cbea4a894425
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - minizip

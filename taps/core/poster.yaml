@@ -1,0 +1,19 @@
+name: poster
+version: 1.0.0
+description: Create large posters out of PostScript pages
+homepage: https://schrfr.github.io/poster/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poster/blobs/sha256:34f60256105b4965b85f65e6dafaba94f046ce0bc39dd94b9ccbdef4721b756a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poster/blobs/sha256:4bb82868022cae59a6c8e6a41374de558382d3cc09998172650de1ce46a5d928
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poster/blobs/sha256:623f96d36fc59df594dd8ed5e0073b1d2892e083176346e93821436664351909
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poster/blobs/sha256:23bc2f446f1525bd074e89f5165a233c8e0080d454d00bd4a4dbbab884334ea1
+sha256:
+  darwin_arm64: 34f60256105b4965b85f65e6dafaba94f046ce0bc39dd94b9ccbdef4721b756a
+  darwin_amd64: 4bb82868022cae59a6c8e6a41374de558382d3cc09998172650de1ce46a5d928
+  linux_amd64: 623f96d36fc59df594dd8ed5e0073b1d2892e083176346e93821436664351909
+  linux_arm64: 23bc2f446f1525bd074e89f5165a233c8e0080d454d00bd4a4dbbab884334ea1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

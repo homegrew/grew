@@ -1,0 +1,19 @@
+name: nats-server
+version: 2.12.4
+description: Lightweight cloud messaging system
+homepage: https://nats.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nats-server/blobs/sha256:4b6d9772cdf8518cbcd192eac2b0a4fcbd07f5824e2f18f19eb7a2e9b85daed0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nats-server/blobs/sha256:f2e3eb3bbf6d0f9e1c24e8391fdd3c7081b1d9aaa44a069702cdfd7e3b85c53f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nats-server/blobs/sha256:bb95af2e92fe838f6091302aaa65b677a1419926f3e89860e829311ec8321225
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nats-server/blobs/sha256:d6e121b2564e1de36c0dd3813d6a2a06de71dcd3a3aed68c6d6a3f11bfe6db96
+sha256:
+  darwin_arm64: 4b6d9772cdf8518cbcd192eac2b0a4fcbd07f5824e2f18f19eb7a2e9b85daed0
+  darwin_amd64: f2e3eb3bbf6d0f9e1c24e8391fdd3c7081b1d9aaa44a069702cdfd7e3b85c53f
+  linux_amd64: bb95af2e92fe838f6091302aaa65b677a1419926f3e89860e829311ec8321225
+  linux_arm64: d6e121b2564e1de36c0dd3813d6a2a06de71dcd3a3aed68c6d6a3f11bfe6db96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

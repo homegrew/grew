@@ -1,0 +1,21 @@
+name: dhall-toml
+version: 1.0.4
+description: Convert between Dhall and Toml
+homepage: https://github.com/dhall-lang/dhall-haskell/tree/main/dhall-toml
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhall-toml/blobs/sha256:3d83e52092e335ddba928d06ae826157f26f8179ab7db6b757b4c298bf1faf60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhall-toml/blobs/sha256:c67986762a7976ae8707fb802f8350871b8d3a182b81b04c4fc92222c7cc9f9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhall-toml/blobs/sha256:0bb108a5e80145086584ae1367ee0eebe475ddc8a89419415e2e1d7536c7624d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhall-toml/blobs/sha256:40e8c1b7e7f0470c7faf90f1d53ba7372a8b581547c1259d1d8363f852318aec
+sha256:
+  darwin_arm64: 3d83e52092e335ddba928d06ae826157f26f8179ab7db6b757b4c298bf1faf60
+  darwin_amd64: c67986762a7976ae8707fb802f8350871b8d3a182b81b04c4fc92222c7cc9f9a
+  linux_amd64: 0bb108a5e80145086584ae1367ee0eebe475ddc8a89419415e2e1d7536c7624d
+  linux_arm64: 40e8c1b7e7f0470c7faf90f1d53ba7372a8b581547c1259d1d8363f852318aec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

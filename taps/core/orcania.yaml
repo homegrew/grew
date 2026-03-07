@@ -1,0 +1,19 @@
+name: orcania
+version: 2.3.3
+description: Potluck with different functions for different purposes in C
+homepage: https://babelouest.github.io/orcania/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orcania/blobs/sha256:5fee2615d28af2472b03eb9499ad1eee7e17549a421d7212d973c8cf2a39a430
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orcania/blobs/sha256:51ec29d50f120f42afefc27f0787cb6696dbb769e7685f4d631feb129a3eae17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orcania/blobs/sha256:fd436eb031d76eb857b159813bee79f30712400f420072ef8b57476b3ff26851
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orcania/blobs/sha256:ddad2cd0a1bba267263af61519f18409bc73024cc7bac3eb2134bf6ce92c25f9
+sha256:
+  darwin_arm64: 5fee2615d28af2472b03eb9499ad1eee7e17549a421d7212d973c8cf2a39a430
+  darwin_amd64: 51ec29d50f120f42afefc27f0787cb6696dbb769e7685f4d631feb129a3eae17
+  linux_amd64: fd436eb031d76eb857b159813bee79f30712400f420072ef8b57476b3ff26851
+  linux_arm64: ddad2cd0a1bba267263af61519f18409bc73024cc7bac3eb2134bf6ce92c25f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: datadog-static-analyzer
+version: 0.7.7
+description: Static analysis tool for code quality and security
+homepage: https://docs.datadoghq.com/security/code_security/static_analysis/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/datadog-static-analyzer/blobs/sha256:16daf8e44fd5e05856faf2e0cfa7350934eae9b733ad00e417633fb892b6cd93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/datadog-static-analyzer/blobs/sha256:ab72baaec23c16728bbd5272552a33bb64f9a7e5e212ddd8f9b550e5de36c65c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/datadog-static-analyzer/blobs/sha256:b8759faef6f60112a2dd132b60e9cfbb2b7e411625d17ce0a7bb8c99a16777ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/datadog-static-analyzer/blobs/sha256:90ea32fd009a51dfe82cbccde3a424e34b018d12845322110f1ac0c597436b3a
+sha256:
+  darwin_arm64: 16daf8e44fd5e05856faf2e0cfa7350934eae9b733ad00e417633fb892b6cd93
+  darwin_amd64: ab72baaec23c16728bbd5272552a33bb64f9a7e5e212ddd8f9b550e5de36c65c
+  linux_amd64: b8759faef6f60112a2dd132b60e9cfbb2b7e411625d17ce0a7bb8c99a16777ad
+  linux_arm64: 90ea32fd009a51dfe82cbccde3a424e34b018d12845322110f1ac0c597436b3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

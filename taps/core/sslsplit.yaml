@@ -1,0 +1,24 @@
+name: sslsplit
+version: 0.5.5
+description: Man-in-the-middle attacks against SSL encrypted network connections
+homepage: https://www.roe.ch/SSLsplit
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sslsplit/blobs/sha256:53f72ff40afcabe474f6e713fb6dac04bd7c87fcb1bf6ec91638645b7b62237e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sslsplit/blobs/sha256:5ecbf858d101619382213826f91a12b0585d6fcf8aa5be655cbc1e2952565436
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sslsplit/blobs/sha256:5e62ef71e9d154f54fac451123377ad0c59d103b544386b4100ecb34da2ad2cc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sslsplit/blobs/sha256:69b100b3bc4a6279bbef5d49cbf4f44a2085ef1ec03a5872f85a7606f5e667d8
+sha256:
+  darwin_arm64: 53f72ff40afcabe474f6e713fb6dac04bd7c87fcb1bf6ec91638645b7b62237e
+  darwin_amd64: 5ecbf858d101619382213826f91a12b0585d6fcf8aa5be655cbc1e2952565436
+  linux_amd64: 5e62ef71e9d154f54fac451123377ad0c59d103b544386b4100ecb34da2ad2cc
+  linux_arm64: 69b100b3bc4a6279bbef5d49cbf4f44a2085ef1ec03a5872f85a7606f5e667d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libnet
+  - libpcap
+  - openssl@3

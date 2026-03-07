@@ -1,0 +1,22 @@
+name: you-get
+version: 0.4.1743
+description: Dumb downloader that scrapes the web
+homepage: https://you-get.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/you-get/blobs/sha256:353172e5d59bb80ba8649ae0df6a338afdd45be4337da36d1361bd83a525d0c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/you-get/blobs/sha256:b9d7f293864afb731ac05e2459b3999f30e686ec0038df1424a3157690f2a29d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/you-get/blobs/sha256:64940795ad6349d12f2b11f1f7657b10bc9471573f4858eb57f5dc9759392387
+  linux_arm64: https://ghcr.io/v2/homebrew/core/you-get/blobs/sha256:1ef649b713d146c3be808bdc771b6425b8f94fa242994add6b89a1cc9e562369
+sha256:
+  darwin_arm64: 353172e5d59bb80ba8649ae0df6a338afdd45be4337da36d1361bd83a525d0c6
+  darwin_amd64: b9d7f293864afb731ac05e2459b3999f30e686ec0038df1424a3157690f2a29d
+  linux_amd64: 64940795ad6349d12f2b11f1f7657b10bc9471573f4858eb57f5dc9759392387
+  linux_arm64: 1ef649b713d146c3be808bdc771b6425b8f94fa242994add6b89a1cc9e562369
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - rtmpdump

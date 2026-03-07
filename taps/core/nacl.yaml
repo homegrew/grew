@@ -1,0 +1,15 @@
+name: nacl
+version: 20110221
+description: Network communication, encryption, decryption, signatures library
+homepage: https://nacl.cr.yp.to/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nacl/blobs/sha256:2bc9b50523f178e04e9241b85554bf361f1c1e4fb70105be8b8897db0d8622ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nacl/blobs/sha256:01602518b18033cb7a49ca9716072b02a9115f469b15b85661459f948707fb5a
+sha256:
+  darwin_amd64: 2bc9b50523f178e04e9241b85554bf361f1c1e4fb70105be8b8897db0d8622ca
+  linux_amd64: 01602518b18033cb7a49ca9716072b02a9115f469b15b85661459f948707fb5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

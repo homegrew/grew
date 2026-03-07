@@ -1,0 +1,19 @@
+name: massren
+version: 1.5.7
+description: Easily rename multiple files using your text editor
+homepage: https://github.com/laurent22/massren
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/massren/blobs/sha256:cad349b22e28ef325892878894de36ea76f1c1235f0936ef7e3425c6dcf2933f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/massren/blobs/sha256:a6a209d62fb3ae2ecef7d695c580dba2ab2de99b4052db0bd59ead450e35f0d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/massren/blobs/sha256:4fb23682755ba48ba5f33e3ea6bacf7f24f2323531bb919ea7c037f0179a2977
+  linux_arm64: https://ghcr.io/v2/homebrew/core/massren/blobs/sha256:70619f09b98eaf12e8c356accbebe73802aa58cf440d70b5bd921fa867904b25
+sha256:
+  darwin_arm64: cad349b22e28ef325892878894de36ea76f1c1235f0936ef7e3425c6dcf2933f
+  darwin_amd64: a6a209d62fb3ae2ecef7d695c580dba2ab2de99b4052db0bd59ead450e35f0d6
+  linux_amd64: 4fb23682755ba48ba5f33e3ea6bacf7f24f2323531bb919ea7c037f0179a2977
+  linux_arm64: 70619f09b98eaf12e8c356accbebe73802aa58cf440d70b5bd921fa867904b25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

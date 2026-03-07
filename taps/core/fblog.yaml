@@ -1,0 +1,19 @@
+name: fblog
+version: 4.17.0
+description: Small command-line JSON log viewer
+homepage: https://github.com/brocode/fblog
+license: WTFPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fblog/blobs/sha256:4f9a98523e3dec196e33c224b59223184f9cfacf94e4a626ddaf526155b33ca3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fblog/blobs/sha256:2d0941dc6a14bd0f2b2641df59b40d2b548148c2f256cea10882c4ffc61b9872
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fblog/blobs/sha256:c3e7219b5976de157a8fd8fc235438177075c1d7ff4b1348930d1ab10a7abb74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fblog/blobs/sha256:cd7f946ce78bb8e3cba835ebd1029ec3b67595eaa811801fe31a3d0fb21db51f
+sha256:
+  darwin_arm64: 4f9a98523e3dec196e33c224b59223184f9cfacf94e4a626ddaf526155b33ca3
+  darwin_amd64: 2d0941dc6a14bd0f2b2641df59b40d2b548148c2f256cea10882c4ffc61b9872
+  linux_amd64: c3e7219b5976de157a8fd8fc235438177075c1d7ff4b1348930d1ab10a7abb74
+  linux_arm64: cd7f946ce78bb8e3cba835ebd1029ec3b67595eaa811801fe31a3d0fb21db51f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

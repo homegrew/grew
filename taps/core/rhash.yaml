@@ -1,0 +1,19 @@
+name: rhash
+version: 1.4.6
+description: Utility for computing and verifying hash sums of files
+homepage: https://sourceforge.net/projects/rhash/
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rhash/blobs/sha256:8381d2e7c93d8e50d3c1f6e70af34ee844a3bd07c6cf7a5882ed07cf073f5600
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rhash/blobs/sha256:d0ebe3819cd610352c788258e8b6e9d1e04941a598cc9e4e141b24e25caf6eab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rhash/blobs/sha256:924accaa51ffbf427905f37750a5aae05bb8fd7b22190653560b90d8e3388108
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rhash/blobs/sha256:de58dca8a85542060574b3263b18556bc90adcacfb41710083ebd342a33ff5ba
+sha256:
+  darwin_arm64: 8381d2e7c93d8e50d3c1f6e70af34ee844a3bd07c6cf7a5882ed07cf073f5600
+  darwin_amd64: d0ebe3819cd610352c788258e8b6e9d1e04941a598cc9e4e141b24e25caf6eab
+  linux_amd64: 924accaa51ffbf427905f37750a5aae05bb8fd7b22190653560b90d8e3388108
+  linux_arm64: de58dca8a85542060574b3263b18556bc90adcacfb41710083ebd342a33ff5ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

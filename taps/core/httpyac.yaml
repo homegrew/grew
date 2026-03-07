@@ -1,0 +1,21 @@
+name: httpyac
+version: 6.16.7
+description: Quickly and easily send REST, SOAP, GraphQL and gRPC requests
+homepage: https://httpyac.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/httpyac/blobs/sha256:c9385fc282fdff9c2b672ca82bad9ae9f9c6de9057de7f85afc4beaf599e1d3d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/httpyac/blobs/sha256:866418e856e92498dfcc3efd3f1418a5db7791e0addce76c733a9af8f74064a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/httpyac/blobs/sha256:6db1182a2c0a29553eefb6f3477fcfdbbf5a769a954520ac2ddd8bfe07355cc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/httpyac/blobs/sha256:6db1182a2c0a29553eefb6f3477fcfdbbf5a769a954520ac2ddd8bfe07355cc5
+sha256:
+  darwin_arm64: c9385fc282fdff9c2b672ca82bad9ae9f9c6de9057de7f85afc4beaf599e1d3d
+  darwin_amd64: 866418e856e92498dfcc3efd3f1418a5db7791e0addce76c733a9af8f74064a8
+  linux_amd64: 6db1182a2c0a29553eefb6f3477fcfdbbf5a769a954520ac2ddd8bfe07355cc5
+  linux_arm64: 6db1182a2c0a29553eefb6f3477fcfdbbf5a769a954520ac2ddd8bfe07355cc5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

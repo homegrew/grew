@@ -1,0 +1,22 @@
+name: blisp
+version: 0.0.5
+description: "ISP tool & library for Bouffalo Labs RISC-V Microcontrollers and SoCs"
+homepage: https://github.com/pine64/blisp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blisp/blobs/sha256:6b3ac4526e3d5b4976bfa347dbf8fb4c2050c1cafda73cecf53d13becec5ad3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blisp/blobs/sha256:c3cfa32d909c0388870fc62c0cb15694134762f6cbd1009b5883de7c1213408b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blisp/blobs/sha256:d705101f8ca10303654bd4ae6e59e34763debb3e66736699a1c7885ae0100804
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blisp/blobs/sha256:6b53d6fcac18f5378f08e26e822ca3bf6522eced20476180cb426ffb4ce94690
+sha256:
+  darwin_arm64: 6b3ac4526e3d5b4976bfa347dbf8fb4c2050c1cafda73cecf53d13becec5ad3b
+  darwin_amd64: c3cfa32d909c0388870fc62c0cb15694134762f6cbd1009b5883de7c1213408b
+  linux_amd64: d705101f8ca10303654bd4ae6e59e34763debb3e66736699a1c7885ae0100804
+  linux_arm64: 6b53d6fcac18f5378f08e26e822ca3bf6522eced20476180cb426ffb4ce94690
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argtable3
+  - libserialport

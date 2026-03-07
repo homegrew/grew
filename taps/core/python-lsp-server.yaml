@@ -1,0 +1,21 @@
+name: python-lsp-server
+version: 1.14.0
+description: Python Language Server for the Language Server Protocol
+homepage: https://github.com/python-lsp/python-lsp-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-lsp-server/blobs/sha256:5213350eaab550b1f401cf6da503956ee89382f2b77990f11ca74b857cd93f70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-lsp-server/blobs/sha256:2643ead4d855f5b3e72521d6b62a8533f41d4b54aa853931bb67e7e380b92d66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-lsp-server/blobs/sha256:2086ceabd14f2f66c21e213da25e91f5a875a019608b260a84f2c35807a6c2f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-lsp-server/blobs/sha256:ba967b3b0ecb553a9ebf283eebeb4ce1cf58fc892136887c5e14abcf544c2de9
+sha256:
+  darwin_arm64: 5213350eaab550b1f401cf6da503956ee89382f2b77990f11ca74b857cd93f70
+  darwin_amd64: 2643ead4d855f5b3e72521d6b62a8533f41d4b54aa853931bb67e7e380b92d66
+  linux_amd64: 2086ceabd14f2f66c21e213da25e91f5a875a019608b260a84f2c35807a6c2f6
+  linux_arm64: ba967b3b0ecb553a9ebf283eebeb4ce1cf58fc892136887c5e14abcf544c2de9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

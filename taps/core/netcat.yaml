@@ -1,0 +1,19 @@
+name: netcat
+version: 0.7.1
+description: Utility for managing network connections
+homepage: https://netcat.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netcat/blobs/sha256:c63948ab48476670f1d13d254c3d9ee3ce57fa9d06a5dbe47454ae9ec36f5977
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netcat/blobs/sha256:1a180dd7c55283e66ee1baf8dbbfd1f9d45d77b4cf6c39e102ed210e03a88b63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netcat/blobs/sha256:713b509412561ffe59ef45f828278384180ffc219547d9495409908ba421e259
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netcat/blobs/sha256:eb080e6267d9f70f673e5069f58180210cabe7241fd1d3789415d72be31d9ada
+sha256:
+  darwin_arm64: c63948ab48476670f1d13d254c3d9ee3ce57fa9d06a5dbe47454ae9ec36f5977
+  darwin_amd64: 1a180dd7c55283e66ee1baf8dbbfd1f9d45d77b4cf6c39e102ed210e03a88b63
+  linux_amd64: 713b509412561ffe59ef45f828278384180ffc219547d9495409908ba421e259
+  linux_arm64: eb080e6267d9f70f673e5069f58180210cabe7241fd1d3789415d72be31d9ada
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,15 @@
+name: killswitch
+version: 0.8.1
+description: VPN kill switch for macOS
+homepage: https://killswitch.network
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/killswitch/blobs/sha256:f7a1663a4d840a24e873605173d5b3b268f1e658f348e11fdc65e59da8db1feb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/killswitch/blobs/sha256:cdb2b9555122b312ebc31e7d79d9a5cd5d3afb98d3584d81f80327fc8bb62b29
+sha256:
+  darwin_arm64: f7a1663a4d840a24e873605173d5b3b268f1e658f348e11fdc65e59da8db1feb
+  darwin_amd64: cdb2b9555122b312ebc31e7d79d9a5cd5d3afb98d3584d81f80327fc8bb62b29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

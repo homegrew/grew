@@ -1,0 +1,19 @@
+name: imagejs
+version: 0.7.2
+description: Tool to hide JavaScript inside valid image files
+homepage: https://github.com/jklmnn/imagejs
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imagejs/blobs/sha256:8300352570ea600d8dc4c6d8de40b4aa30a182db569bd3a2bb213b3d4ae92193
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imagejs/blobs/sha256:56cdc1042a0b27737d8c42c9c9edd9f4d704c17330f28a27958013c1bffd6991
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imagejs/blobs/sha256:6bda97ebfc90e0131fce362fa01a10bce43ab5cc1ee0080d260483b2902e88d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imagejs/blobs/sha256:372fb4580d7b15c0016508a244d85e66c675fe74b152d9864a9cf5a249bc3aa4
+sha256:
+  darwin_arm64: 8300352570ea600d8dc4c6d8de40b4aa30a182db569bd3a2bb213b3d4ae92193
+  darwin_amd64: 56cdc1042a0b27737d8c42c9c9edd9f4d704c17330f28a27958013c1bffd6991
+  linux_amd64: 6bda97ebfc90e0131fce362fa01a10bce43ab5cc1ee0080d260483b2902e88d4
+  linux_arm64: 372fb4580d7b15c0016508a244d85e66c675fe74b152d9864a9cf5a249bc3aa4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

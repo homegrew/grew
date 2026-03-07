@@ -1,0 +1,19 @@
+name: cdebug
+version: 0.0.19
+description: Swiss army knife of container debugging
+homepage: https://github.com/iximiuz/cdebug
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdebug/blobs/sha256:3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdebug/blobs/sha256:eee4f9edd17c35e45fea36dcf2edf4d474735f7559c0672c9bc1d14dfd4899d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdebug/blobs/sha256:b639915beeb487a44676e86342557a21649566247b01c4d294b24cefdf9671a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdebug/blobs/sha256:532e056ac9f22ea053a51933090499cd8a7f44cf932b4afc64586a1b00187e4d
+sha256:
+  darwin_arm64: 3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55
+  darwin_amd64: eee4f9edd17c35e45fea36dcf2edf4d474735f7559c0672c9bc1d14dfd4899d9
+  linux_amd64: b639915beeb487a44676e86342557a21649566247b01c4d294b24cefdf9671a0
+  linux_arm64: 532e056ac9f22ea053a51933090499cd8a7f44cf932b4afc64586a1b00187e4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

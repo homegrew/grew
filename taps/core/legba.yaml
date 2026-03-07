@@ -1,0 +1,22 @@
+name: legba
+version: 1.2.0
+description: Multiprotocol credentials bruteforcer/password sprayer and enumerator
+homepage: https://github.com/evilsocket/legba
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/legba/blobs/sha256:4a5d7a59154b77080657cdd17b8c4cb989e34a060ad7f80d0c25f8fc6d6c3e68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/legba/blobs/sha256:746c3ebe76412e059eee1843143b06d30a700c60fd85dde0c3726ec3e623a1fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/legba/blobs/sha256:2908972ed980846dfb43acd200e11e8a438273776ff8d20a5fc51141f787b031
+  linux_arm64: https://ghcr.io/v2/homebrew/core/legba/blobs/sha256:ffe88a7ebad40b7381aa07238ffb91b74f4051653a8dba5e58f1a8650a1869db
+sha256:
+  darwin_arm64: 4a5d7a59154b77080657cdd17b8c4cb989e34a060ad7f80d0c25f8fc6d6c3e68
+  darwin_amd64: 746c3ebe76412e059eee1843143b06d30a700c60fd85dde0c3726ec3e623a1fa
+  linux_amd64: 2908972ed980846dfb43acd200e11e8a438273776ff8d20a5fc51141f787b031
+  linux_arm64: ffe88a7ebad40b7381aa07238ffb91b74f4051653a8dba5e58f1a8650a1869db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - samba

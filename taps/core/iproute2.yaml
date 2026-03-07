@@ -1,0 +1,22 @@
+name: iproute2
+version: 6.19.0
+description: Linux routing utilities
+homepage: https://wiki.linuxfoundation.org/networking/iproute2
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iproute2/blobs/sha256:c97cddeb3e7edd2004f1a68be3efcc7074803b1f297d94f7bcc0d507c8d53490
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iproute2/blobs/sha256:f05a40b62c863fddde80116e9ea6c094d79fb6e6812f2b2ca4c45edc555a0a2c
+sha256:
+  linux_amd64: c97cddeb3e7edd2004f1a68be3efcc7074803b1f297d94f7bcc0d507c8d53490
+  linux_arm64: f05a40b62c863fddde80116e9ea6c094d79fb6e6812f2b2ca4c45edc555a0a2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - elfutils
+  - libbpf
+  - libcap
+  - libmnl
+  - libtirpc

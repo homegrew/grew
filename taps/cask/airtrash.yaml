@@ -1,0 +1,11 @@
+name: airtrash
+version: 1.0.0
+description: "Clone of Apple's Airdrop - easy P2P file transfer"
+homepage: https://github.com/maciejczyzewski/airtrash/
+url:
+  darwin_arm64: https://github.com/maciejczyzewski/airtrash/releases/download/1.0.0/airtrash-1.0.0.dmg
+sha256:
+  darwin_arm64: 9ce83fef421654b4ca39550255dd09e0b2281da5fe3dbd9e8e23e58640912606
+artifacts:
+  app:
+    - Airtrash.app

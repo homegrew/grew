@@ -1,0 +1,21 @@
+name: git-trim
+version: 0.4.4
+description: Trim your git remote tracking branches that are merged or gone
+homepage: https://github.com/foriequal0/git-trim
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-trim/blobs/sha256:c1a667c8d8f57a5a98f74f25c31b4a42c3e1a590a828d3bf15fb12610fa6c502
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-trim/blobs/sha256:2f46851b510f9951089a9166b0252f9802b0e7274dc493c0a44e296014fd8cee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-trim/blobs/sha256:aeeea3f5e9d35984a91e402d8e8c315b1806ab1ebcd5c13832d1a10dbbcdeab1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-trim/blobs/sha256:eb6ad0313b09996c5057fa9d8c14c7ffada62ac91a635cc7eb7407eee01c9d44
+sha256:
+  darwin_arm64: c1a667c8d8f57a5a98f74f25c31b4a42c3e1a590a828d3bf15fb12610fa6c502
+  darwin_amd64: 2f46851b510f9951089a9166b0252f9802b0e7274dc493c0a44e296014fd8cee
+  linux_amd64: aeeea3f5e9d35984a91e402d8e8c315b1806ab1ebcd5c13832d1a10dbbcdeab1
+  linux_arm64: eb6ad0313b09996c5057fa9d8c14c7ffada62ac91a635cc7eb7407eee01c9d44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

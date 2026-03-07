@@ -1,0 +1,19 @@
+name: cargo-all-features
+version: 1.12.0
+description: Cargo subcommands to build and test all feature flag combinations
+homepage: https://github.com/frewsxcv/cargo-all-features
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-all-features/blobs/sha256:98ba4d31578fc103d09b7c255b621cd43665f9f335a2b7a35fef21649d0d6aa1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-all-features/blobs/sha256:339f870ac8cdc50e3b25b0f773c986fb77ff3dff8762ca9a3be747b18f9e0fc9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-all-features/blobs/sha256:f6ee7cf6deaeb736df34005dfca4fd3b85e725423e497356f54158f0bcba557c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-all-features/blobs/sha256:7715ac53d58b7b8730ac7af01596741ecbf145f24ce6ab4be8acbb74582365e9
+sha256:
+  darwin_arm64: 98ba4d31578fc103d09b7c255b621cd43665f9f335a2b7a35fef21649d0d6aa1
+  darwin_amd64: 339f870ac8cdc50e3b25b0f773c986fb77ff3dff8762ca9a3be747b18f9e0fc9
+  linux_amd64: f6ee7cf6deaeb736df34005dfca4fd3b85e725423e497356f54158f0bcba557c
+  linux_arm64: 7715ac53d58b7b8730ac7af01596741ecbf145f24ce6ab4be8acbb74582365e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

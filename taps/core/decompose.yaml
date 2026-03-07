@@ -1,0 +1,19 @@
+name: decompose
+version: 1.11.5
+description: Reverse-engineering tool for docker environments
+homepage: https://github.com/s0rg/decompose
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/decompose/blobs/sha256:e424bcddda5b1200be42ce59fcba05e78308a31d6d48ad6b9799672a9e3b6cc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/decompose/blobs/sha256:0ef475c1f47feea38981477e905c87127065416859e8db2b8445a00f062bb738
+  linux_amd64: https://ghcr.io/v2/homebrew/core/decompose/blobs/sha256:9a277b280703412ce4157ede52547d5095ed81a683567a4418756bfc82da3ad4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/decompose/blobs/sha256:9bf094ca260f9a4782ccc4cb19de95defff7c9706df99e8f9d4ae76efb8dcd4d
+sha256:
+  darwin_arm64: e424bcddda5b1200be42ce59fcba05e78308a31d6d48ad6b9799672a9e3b6cc2
+  darwin_amd64: 0ef475c1f47feea38981477e905c87127065416859e8db2b8445a00f062bb738
+  linux_amd64: 9a277b280703412ce4157ede52547d5095ed81a683567a4418756bfc82da3ad4
+  linux_arm64: 9bf094ca260f9a4782ccc4cb19de95defff7c9706df99e8f9d4ae76efb8dcd4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

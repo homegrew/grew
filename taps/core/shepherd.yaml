@@ -1,0 +1,22 @@
+name: shepherd
+version: 1.0.9
+description: Service manager that looks after the herd of system services
+homepage: https://www.gnu.org/software/shepherd/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shepherd/blobs/sha256:4d39dcb2ed1d07ec50f5f3dfd56a3d21b07e87893798c9ea6b0f023ba897fae0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shepherd/blobs/sha256:fe68652080e171671d839138d2666e60b007ddbfd0d4b880c8a2d21bfa9707bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shepherd/blobs/sha256:3c8fe68ecc151524604daf61c286fe549adba9c68e0c3aae7f7f869ad051ad6f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shepherd/blobs/sha256:7f39f4594b6683c1bacb579bff184a22f0b7ca0f0945231de1b36e4f09770ddd
+sha256:
+  darwin_arm64: 4d39dcb2ed1d07ec50f5f3dfd56a3d21b07e87893798c9ea6b0f023ba897fae0
+  darwin_amd64: fe68652080e171671d839138d2666e60b007ddbfd0d4b880c8a2d21bfa9707bc
+  linux_amd64: 3c8fe68ecc151524604daf61c286fe549adba9c68e0c3aae7f7f869ad051ad6f
+  linux_arm64: 7f39f4594b6683c1bacb579bff184a22f0b7ca0f0945231de1b36e4f09770ddd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - guile
+  - guile-fibers

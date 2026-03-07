@@ -1,0 +1,21 @@
+name: rna-star
+version: 2.7.11b
+description: RNA-seq aligner
+homepage: https://github.com/alexdobin/STAR
+license: MIT AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rna-star/blobs/sha256:3cc36219b20aabc038935df3d795f5ab8046d67f88ad40bf1e90b74f10746621
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rna-star/blobs/sha256:8d1554593695865e8b97479da30e9e85969a09e3bfed7b85cd76a5fc0f92267c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rna-star/blobs/sha256:892ea43a227bf609b9d4f82f2c25b5a7a2ced59672133d48fbee2dd29095705f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rna-star/blobs/sha256:2a0d46c0e0cef0f5dd6eae84587faad3262e7d47bee63308663ec248b8295d2f
+sha256:
+  darwin_arm64: 3cc36219b20aabc038935df3d795f5ab8046d67f88ad40bf1e90b74f10746621
+  darwin_amd64: 8d1554593695865e8b97479da30e9e85969a09e3bfed7b85cd76a5fc0f92267c
+  linux_amd64: 892ea43a227bf609b9d4f82f2c25b5a7a2ced59672133d48fbee2dd29095705f
+  linux_arm64: 2a0d46c0e0cef0f5dd6eae84587faad3262e7d47bee63308663ec248b8295d2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

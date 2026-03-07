@@ -1,0 +1,19 @@
+name: imath
+version: 3.2.2
+description: Library of 2D and 3D vector, matrix, and math operations
+homepage: https://imath.readthedocs.io/en/latest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imath/blobs/sha256:ce46ad834b2daf8d6e85f8f2ffa5ee5bb0ef241d8f55effedf54bba69e8a6437
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imath/blobs/sha256:72a4653f1f1b9e820fcb53cd85720264dd29d9de6346d97a600d8177799020af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imath/blobs/sha256:66774757b29808a5fde422b5ddb395c14419f9e8d10bab44897777734fd52d26
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imath/blobs/sha256:be13320613472344b92cb55712581bdd059a5137d4f3edd60781b5d99946de95
+sha256:
+  darwin_arm64: ce46ad834b2daf8d6e85f8f2ffa5ee5bb0ef241d8f55effedf54bba69e8a6437
+  darwin_amd64: 72a4653f1f1b9e820fcb53cd85720264dd29d9de6346d97a600d8177799020af
+  linux_amd64: 66774757b29808a5fde422b5ddb395c14419f9e8d10bab44897777734fd52d26
+  linux_arm64: be13320613472344b92cb55712581bdd059a5137d4f3edd60781b5d99946de95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

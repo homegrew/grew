@@ -1,0 +1,19 @@
+name: cppp
+version: 2.9
+description: Partial Preprocessor for C
+homepage: https://www.muppetlabs.com/~breadbox/software/cppp.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppp/blobs/sha256:29bae12103813789942c21786cc253702a2d5eae6baeff11561afc12bbafde7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppp/blobs/sha256:3061445285d21e97da5f8e8e67207ffc7443f5dd08e4fbeacd7dbe06ba8fbece
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppp/blobs/sha256:afb41f54440bb5ee1dc17adb0729f4577dbe156e2c63548becd5d0cc5abd2691
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppp/blobs/sha256:37b5825a280e3bdc38d0c6269d58195cc091002b0404427fd8c7c45f59a8542a
+sha256:
+  darwin_arm64: 29bae12103813789942c21786cc253702a2d5eae6baeff11561afc12bbafde7f
+  darwin_amd64: 3061445285d21e97da5f8e8e67207ffc7443f5dd08e4fbeacd7dbe06ba8fbece
+  linux_amd64: afb41f54440bb5ee1dc17adb0729f4577dbe156e2c63548becd5d0cc5abd2691
+  linux_arm64: 37b5825a280e3bdc38d0c6269d58195cc091002b0404427fd8c7c45f59a8542a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

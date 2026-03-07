@@ -1,0 +1,19 @@
+name: libccd
+version: 2.1
+description: Collision detection between two convex shapes
+homepage: https://github.com/danfis/libccd
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libccd/blobs/sha256:5706b5ddc123fae6306e45daf32a9485c8fa2186bb2966c5d4842c060db7f760
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libccd/blobs/sha256:5123a16281a3d428e8ad649027bc6749139b484c1dc6257a9a8e2883a29ee859
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libccd/blobs/sha256:6bee053612267522f0eb8c55c24a68dddb787126f46771fc8459d4d3460aa077
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libccd/blobs/sha256:01cc57b08faa7b8a20a6d84a3cbe0908b7c5490d2223eea64b0f57df8fc8aa8d
+sha256:
+  darwin_arm64: 5706b5ddc123fae6306e45daf32a9485c8fa2186bb2966c5d4842c060db7f760
+  darwin_amd64: 5123a16281a3d428e8ad649027bc6749139b484c1dc6257a9a8e2883a29ee859
+  linux_amd64: 6bee053612267522f0eb8c55c24a68dddb787126f46771fc8459d4d3460aa077
+  linux_arm64: 01cc57b08faa7b8a20a6d84a3cbe0908b7c5490d2223eea64b0f57df8fc8aa8d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,15 @@
+name: gcloud-cli
+version: 559.0.0
+description: Set of tools to manage resources and applications hosted on Google Cloud
+homepage: https://cloud.google.com/cli/
+url:
+  darwin_arm64: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-559.0.0-darwin-arm.tar.gz
+sha256:
+  darwin_arm64: 4ce6a1d03a2cd20f855d473c79d17cf2e2fcfafc7bee73e7328c64237fcf0323
+artifacts:
+  bin:
+    - gsutil
+    - bq
+    - docker-credential-gcloud
+    - gcloud
+    - git-credential-gcloud

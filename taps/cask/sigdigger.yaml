@@ -1,0 +1,11 @@
+name: sigdigger
+version: 0.3.0
+description: Qt-based digital signal analyzer
+homepage: https://batchdrake.github.io/SigDigger/
+url:
+  darwin_arm64: https://github.com/BatchDrake/SigDigger/releases/download/v0.3.0/SigDigger-0.3.0-x86_64.dmg
+sha256:
+  darwin_arm64: 18314d22fdc0d41061312b02d088f6cb903292c741d1e4f6aa3371c804406c98
+artifacts:
+  app:
+    - SigDigger.app

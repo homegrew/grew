@@ -1,0 +1,23 @@
+name: pspg
+version: 5.8.16
+description: Unix pager optimized for psql
+homepage: https://github.com/okbob/pspg
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pspg/blobs/sha256:8dd9ef474eaf5c99b2119f4a49fbdefd42fc8cfed43d87d37cf6913fdc3707e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pspg/blobs/sha256:ae834e0bd0ef320b448797dc3f5ef5c8106c08ba1834cbcc2eb5ec0af75a3a80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pspg/blobs/sha256:f18b85a40c801269b01cfcef69ccac84a09e910585e67a1040b48d4191904ca5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pspg/blobs/sha256:6afc64962efc19340ebc106abcf81994edfed6c1dd84d9e631e7c020222178ee
+sha256:
+  darwin_arm64: 8dd9ef474eaf5c99b2119f4a49fbdefd42fc8cfed43d87d37cf6913fdc3707e0
+  darwin_amd64: ae834e0bd0ef320b448797dc3f5ef5c8106c08ba1834cbcc2eb5ec0af75a3a80
+  linux_amd64: f18b85a40c801269b01cfcef69ccac84a09e910585e67a1040b48d4191904ca5
+  linux_arm64: 6afc64962efc19340ebc106abcf81994edfed6c1dd84d9e631e7c020222178ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - ncurses
+  - readline

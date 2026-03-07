@@ -1,0 +1,21 @@
+name: sipsak
+version: 0.9.8.1
+description: SIP Swiss army knife
+homepage: https://github.com/nils-ohlmeier/sipsak/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sipsak/blobs/sha256:37a5656c10f93d897736172dcbd077d323c3c6924f28cf88c8cfd70adbe4443f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sipsak/blobs/sha256:1e0913edfc8c9b359162ba1a77a93d657aca595f7f5f3afa5f55042028719570
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sipsak/blobs/sha256:73f5a4948c437e0d89e33ff28f04842ef4c954fcfd9ed432da36620c20b6ca24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sipsak/blobs/sha256:5613441ee9f747ab3c144eae245696f163b027884dd3fec4d7cf00b00a1168fc
+sha256:
+  darwin_arm64: 37a5656c10f93d897736172dcbd077d323c3c6924f28cf88c8cfd70adbe4443f
+  darwin_amd64: 1e0913edfc8c9b359162ba1a77a93d657aca595f7f5f3afa5f55042028719570
+  linux_amd64: 73f5a4948c437e0d89e33ff28f04842ef4c954fcfd9ed432da36620c20b6ca24
+  linux_arm64: 5613441ee9f747ab3c144eae245696f163b027884dd3fec4d7cf00b00a1168fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

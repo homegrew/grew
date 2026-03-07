@@ -1,0 +1,19 @@
+name: kbt
+version: 2.1.0
+description: Keyboard tester in terminal
+homepage: https://github.com/bloznelis/kbt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kbt/blobs/sha256:ba6a98a3b3b84992ec766d517d9d29e5ad5b01313389a126945418b9c7e01bec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kbt/blobs/sha256:ac9a8d2c6fbb46d83056267b83050a1384b66ceb48d7cfd784e80215e84baabc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kbt/blobs/sha256:811dc47da36e5d3914fc3c14fd0e2c4a3a797e1fadfc12191947c889d3fbd805
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kbt/blobs/sha256:d293593b2dc1f1b6eb0b9121dd9b465b8ed9f662c5018abf830089c5a9ea2301
+sha256:
+  darwin_arm64: ba6a98a3b3b84992ec766d517d9d29e5ad5b01313389a126945418b9c7e01bec
+  darwin_amd64: ac9a8d2c6fbb46d83056267b83050a1384b66ceb48d7cfd784e80215e84baabc
+  linux_amd64: 811dc47da36e5d3914fc3c14fd0e2c4a3a797e1fadfc12191947c889d3fbd805
+  linux_arm64: d293593b2dc1f1b6eb0b9121dd9b465b8ed9f662c5018abf830089c5a9ea2301
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

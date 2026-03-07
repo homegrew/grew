@@ -1,0 +1,19 @@
+name: chezscheme
+version: 10.3.0
+description: Implementation of the Chez Scheme language
+homepage: https://cisco.github.io/ChezScheme/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chezscheme/blobs/sha256:5fd70e9cfb444bc9a5ff5c872e7af6a625b8812455d08af0594550c890f5215d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chezscheme/blobs/sha256:f2e2ccd0bb129de10fe9129a4b0f1eb1b2fb01a4159f9c62678c49346fe3ef93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chezscheme/blobs/sha256:c507bb094a948903427b7a955d0f1ff52a74907b1ffaecff6af5a31686811600
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chezscheme/blobs/sha256:9b5ab9ca95255ace1bab78af45b899944ee8e3c9e3750965536541acc5c5ef9c
+sha256:
+  darwin_arm64: 5fd70e9cfb444bc9a5ff5c872e7af6a625b8812455d08af0594550c890f5215d
+  darwin_amd64: f2e2ccd0bb129de10fe9129a4b0f1eb1b2fb01a4159f9c62678c49346fe3ef93
+  linux_amd64: c507bb094a948903427b7a955d0f1ff52a74907b1ffaecff6af5a31686811600
+  linux_arm64: 9b5ab9ca95255ace1bab78af45b899944ee8e3c9e3750965536541acc5c5ef9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

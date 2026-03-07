@@ -1,0 +1,19 @@
+name: chaos-client
+version: 0.5.2
+description: Client to communicate with Chaos DB API
+homepage: https://chaos.projectdiscovery.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chaos-client/blobs/sha256:a285bcf99b8a399a6c8c64334ebd2b381373c7e3b0e0f25fe4cc6872b3e47ee1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chaos-client/blobs/sha256:beba47d0434fe37e817143e1f41e8025678220d0e428f4347fba7d11fe6951b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chaos-client/blobs/sha256:5d4734d00dfa7a505a34db36e3121a9b8562da89f79923164f65f742fb50fc55
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chaos-client/blobs/sha256:5d1ef6c9c127554af8fd43ab70371318ea225d9c9689f18dcb56e2e78b749562
+sha256:
+  darwin_arm64: a285bcf99b8a399a6c8c64334ebd2b381373c7e3b0e0f25fe4cc6872b3e47ee1
+  darwin_amd64: beba47d0434fe37e817143e1f41e8025678220d0e428f4347fba7d11fe6951b8
+  linux_amd64: 5d4734d00dfa7a505a34db36e3121a9b8562da89f79923164f65f742fb50fc55
+  linux_arm64: 5d1ef6c9c127554af8fd43ab70371318ea225d9c9689f18dcb56e2e78b749562
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

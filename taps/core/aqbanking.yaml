@@ -1,0 +1,29 @@
+name: aqbanking
+version: 6.9.1
+description: Generic online banking interface
+homepage: https://www.aquamaniac.de/rdm/projects/aqbanking
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aqbanking/blobs/sha256:4f05a3cddc798744d9174ad5ed28fb3f4bab78645d3cfa00a2420091aa3ff60b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aqbanking/blobs/sha256:b920e6ccecfec70bb2e63b3ab787c648e5ecda32948735710b97ff43a3ea453a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aqbanking/blobs/sha256:5b045c02d114e190ca69c13d0c878ac43c4cf6b27e629af9e259ac8bc554643d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aqbanking/blobs/sha256:787f1bdbca1850988b0e8c8541ede16e5ef95ab2bc03d885266fb82877df2c7c
+sha256:
+  darwin_arm64: 4f05a3cddc798744d9174ad5ed28fb3f4bab78645d3cfa00a2420091aa3ff60b
+  darwin_amd64: b920e6ccecfec70bb2e63b3ab787c648e5ecda32948735710b97ff43a3ea453a
+  linux_amd64: 5b045c02d114e190ca69c13d0c878ac43c4cf6b27e629af9e259ac8bc554643d
+  linux_arm64: 787f1bdbca1850988b0e8c8541ede16e5ef95ab2bc03d885266fb82877df2c7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - gwenhywfar
+  - ktoblzcheck
+  - libxml2
+  - libxmlsec1
+  - libxslt
+  - openssl@3
+  - pkgconf
+  - gettext

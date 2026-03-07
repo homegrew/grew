@@ -1,0 +1,25 @@
+name: eigenpy
+version: 3.12.0
+description: Python bindings of Eigen library with Numpy support
+homepage: https://github.com/stack-of-tasks/eigenpy
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eigenpy/blobs/sha256:dbf30d75e91d68fe9d424aeef98f1f0a2cf77369b3ee1402c9ea3e3f0be96cc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eigenpy/blobs/sha256:b7146ccacf5e01b1317fef259dbff644e622ef5b855b9f9012234fb755dec420
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eigenpy/blobs/sha256:c539fb28ab1b1a98001186451376435b43cd5b2f101b1d72ddc32cc2ecab08a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eigenpy/blobs/sha256:548952eaae7925a876664c039586a4f915cb05daadc958ea959ee9f1043fce58
+sha256:
+  darwin_arm64: dbf30d75e91d68fe9d424aeef98f1f0a2cf77369b3ee1402c9ea3e3f0be96cc7
+  darwin_amd64: b7146ccacf5e01b1317fef259dbff644e622ef5b855b9f9012234fb755dec420
+  linux_amd64: c539fb28ab1b1a98001186451376435b43cd5b2f101b1d72ddc32cc2ecab08a0
+  linux_arm64: 548952eaae7925a876664c039586a4f915cb05daadc958ea959ee9f1043fce58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost-python3
+  - eigen
+  - numpy
+  - python@3.14
+  - scipy

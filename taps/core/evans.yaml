@@ -1,0 +1,19 @@
+name: evans
+version: 0.10.11
+description: More expressive universal gRPC client
+homepage: https://github.com/ktr0731/evans
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/evans/blobs/sha256:4efc3133e03efac5aa569a21940849391c45005e017502b2bff9326b932cb2ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/evans/blobs/sha256:afb78ceadf7221eb37ffa03f0ad50c565085486ff3b51440bfeb9eee6e86b1d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/evans/blobs/sha256:d1551ab2a16f1e6c5f692fb21f44821ed7ddbdec7fd138fb7af9928ad3d4ec62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/evans/blobs/sha256:0af283bc3e831aca76fc904149e9c2ffba11db994d45b10062db15ae927801d2
+sha256:
+  darwin_arm64: 4efc3133e03efac5aa569a21940849391c45005e017502b2bff9326b932cb2ba
+  darwin_amd64: afb78ceadf7221eb37ffa03f0ad50c565085486ff3b51440bfeb9eee6e86b1d7
+  linux_amd64: d1551ab2a16f1e6c5f692fb21f44821ed7ddbdec7fd138fb7af9928ad3d4ec62
+  linux_arm64: 0af283bc3e831aca76fc904149e9c2ffba11db994d45b10062db15ae927801d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

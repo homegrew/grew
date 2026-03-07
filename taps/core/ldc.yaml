@@ -1,0 +1,21 @@
+name: ldc
+version: 1.42.0
+description: Portable D programming language compiler
+homepage: https://wiki.dlang.org/LDC
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldc/blobs/sha256:d991984a75a3d4e16e768ac1696cc01c65893a07f226b70160900ef280e5f2ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldc/blobs/sha256:e89dbaa17a1734c3de7d83c21c9e830db35a2a65316f19dec04f14258359d598
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldc/blobs/sha256:64399cdbbf80a94468e00ab0ea0377b835776da4513307b8e2b3d9f6afaa5a7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldc/blobs/sha256:fcd364ba774b8952ca6e37217a458079a381cf2f3e585eefb73c20afc59e808b
+sha256:
+  darwin_arm64: d991984a75a3d4e16e768ac1696cc01c65893a07f226b70160900ef280e5f2ae
+  darwin_amd64: e89dbaa17a1734c3de7d83c21c9e830db35a2a65316f19dec04f14258359d598
+  linux_amd64: 64399cdbbf80a94468e00ab0ea0377b835776da4513307b8e2b3d9f6afaa5a7d
+  linux_arm64: fcd364ba774b8952ca6e37217a458079a381cf2f3e585eefb73c20afc59e808b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@21

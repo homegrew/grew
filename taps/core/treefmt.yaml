@@ -1,0 +1,19 @@
+name: treefmt
+version: 2.4.1
+description: One CLI to format the code tree
+homepage: https://treefmt.com/latest/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/treefmt/blobs/sha256:ed5a10b18aa08bd20327b09cf7ebb6f52f0dabe0120a289848e8e9991c6a6945
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/treefmt/blobs/sha256:613c7e3a993c485cbe041fe608ff7dc766507689f7408060101806629a5df465
+  linux_amd64: https://ghcr.io/v2/homebrew/core/treefmt/blobs/sha256:1ea13aad1351bb0da64fefbc96d3dceb989fe621abd4a19fa5a23d9a1eb8b9ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/treefmt/blobs/sha256:f690ebba1fc834e088305ff8f6047e6e199bff76fb3ac10739ab7e67087d7f11
+sha256:
+  darwin_arm64: ed5a10b18aa08bd20327b09cf7ebb6f52f0dabe0120a289848e8e9991c6a6945
+  darwin_amd64: 613c7e3a993c485cbe041fe608ff7dc766507689f7408060101806629a5df465
+  linux_amd64: 1ea13aad1351bb0da64fefbc96d3dceb989fe621abd4a19fa5a23d9a1eb8b9ff
+  linux_arm64: f690ebba1fc834e088305ff8f6047e6e199bff76fb3ac10739ab7e67087d7f11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

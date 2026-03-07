@@ -1,0 +1,19 @@
+name: servus
+version: 1.5.2
+description: Library and Utilities for zeroconf networking
+homepage: https://github.com/HBPVIS/Servus
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/servus/blobs/sha256:ab13ed2c0b20bf5161935890b6ee47ecf74f0a05c68e9beba5bbc3c77727fd6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/servus/blobs/sha256:6390c856e889366263cbf852a8c256f35c6cda4f1bf493e010192486c3169682
+  linux_amd64: https://ghcr.io/v2/homebrew/core/servus/blobs/sha256:f36a572c2f9e4f6bb483e11b286ce99c37c4e45a3028a196478d6e9ccaedcb99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/servus/blobs/sha256:eeb97d385641030178dc69f111e80af9c20ed5900aa48083006426755c1fed67
+sha256:
+  darwin_arm64: ab13ed2c0b20bf5161935890b6ee47ecf74f0a05c68e9beba5bbc3c77727fd6b
+  darwin_amd64: 6390c856e889366263cbf852a8c256f35c6cda4f1bf493e010192486c3169682
+  linux_amd64: f36a572c2f9e4f6bb483e11b286ce99c37c4e45a3028a196478d6e9ccaedcb99
+  linux_arm64: eeb97d385641030178dc69f111e80af9c20ed5900aa48083006426755c1fed67
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

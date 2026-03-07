@@ -1,0 +1,19 @@
+name: make
+version: 4.4.1
+description: Utility for directing compilation
+homepage: https://www.gnu.org/software/make/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/make/blobs/sha256:c46713c2347b3af91fc3fb41f215f26341fec6df4687af080e55d921858f06d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/make/blobs/sha256:2263cf3aeb5e8c74e86594abd12047a7ffbf2894ce6269c8e9c44af7c150181f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/make/blobs/sha256:b9fc9f80dd7f93b1b5eb9545044d6f7b016a372e7b2beb03f3e1a045e701410f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/make/blobs/sha256:8f7572f0b8e63ba05ce8487f7742bcd815413cdb9803f59e0c276564af36daab
+sha256:
+  darwin_arm64: c46713c2347b3af91fc3fb41f215f26341fec6df4687af080e55d921858f06d5
+  darwin_amd64: 2263cf3aeb5e8c74e86594abd12047a7ffbf2894ce6269c8e9c44af7c150181f
+  linux_amd64: b9fc9f80dd7f93b1b5eb9545044d6f7b016a372e7b2beb03f3e1a045e701410f
+  linux_arm64: 8f7572f0b8e63ba05ce8487f7742bcd815413cdb9803f59e0c276564af36daab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

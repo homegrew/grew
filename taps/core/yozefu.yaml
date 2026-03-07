@@ -1,0 +1,21 @@
+name: yozefu
+version: 0.0.27
+description: TUI for exploring data in a Kafka cluster
+homepage: https://github.com/MAIF/yozefu
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yozefu/blobs/sha256:a317c77c9769cbee1149320685b0056773c98cd57325ace517e34843eba347be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yozefu/blobs/sha256:38b0797eb8efdb56c4426819dece7cd957b44fd485919c4e025bcd4ffb1bd600
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yozefu/blobs/sha256:8cb28269fcc394b5bfdaf5f4001de142c17270f313cfb1d25d522950330c4976
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yozefu/blobs/sha256:f1bb6ad82f251731823812036c21f373553a824ebc7af1e49caf6a026c5b48dd
+sha256:
+  darwin_arm64: a317c77c9769cbee1149320685b0056773c98cd57325ace517e34843eba347be
+  darwin_amd64: 38b0797eb8efdb56c4426819dece7cd957b44fd485919c4e025bcd4ffb1bd600
+  linux_amd64: 8cb28269fcc394b5bfdaf5f4001de142c17270f313cfb1d25d522950330c4976
+  linux_arm64: f1bb6ad82f251731823812036c21f373553a824ebc7af1e49caf6a026c5b48dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

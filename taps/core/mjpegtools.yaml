@@ -1,0 +1,21 @@
+name: mjpegtools
+version: 2.2.1
+description: Record and playback videos and perform simple edits
+homepage: https://mjpeg.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mjpegtools/blobs/sha256:3b9ddb01e9c28192d76d02795aeec7c686663dca28d67b7997901c12ba0a3368
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mjpegtools/blobs/sha256:1c8e6fee330874d11f0da2845385ce577e8d1727458960d7d43074e0dc12a66c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mjpegtools/blobs/sha256:7efdf0c986f0afd7094a355256ee6743f2ce7720d23f680005e53a8ae5213244
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mjpegtools/blobs/sha256:eb5ddfcb456ade203f5d6a0d7bd721dab23b7a6ddb365125b358183323b75078
+sha256:
+  darwin_arm64: 3b9ddb01e9c28192d76d02795aeec7c686663dca28d67b7997901c12ba0a3368
+  darwin_amd64: 1c8e6fee330874d11f0da2845385ce577e8d1727458960d7d43074e0dc12a66c
+  linux_amd64: 7efdf0c986f0afd7094a355256ee6743f2ce7720d23f680005e53a8ae5213244
+  linux_arm64: eb5ddfcb456ade203f5d6a0d7bd721dab23b7a6ddb365125b358183323b75078
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo

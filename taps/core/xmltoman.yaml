@@ -1,0 +1,19 @@
+name: xmltoman
+version: 0.4
+description: XML to manpage converter
+homepage: https://sourceforge.net/projects/xmltoman/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmltoman/blobs/sha256:1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmltoman/blobs/sha256:1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmltoman/blobs/sha256:df54ca9aec96466a2d111f21e4fee9fae3b96ade496f0801b2d0bf51ead733d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmltoman/blobs/sha256:820c90d12578e4a1bb4276c03e5acbd0a03d9f0b0317de2b4b1d0c731878a60e
+sha256:
+  darwin_arm64: 1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a
+  darwin_amd64: 1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a
+  linux_amd64: df54ca9aec96466a2d111f21e4fee9fae3b96ade496f0801b2d0bf51ead733d2
+  linux_arm64: 820c90d12578e4a1bb4276c03e5acbd0a03d9f0b0317de2b4b1d0c731878a60e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

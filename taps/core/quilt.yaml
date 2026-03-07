@@ -1,0 +1,24 @@
+name: quilt
+version: 0.69
+description: Work with series of patches
+homepage: https://savannah.nongnu.org/projects/quilt
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quilt/blobs/sha256:93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quilt/blobs/sha256:93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quilt/blobs/sha256:f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quilt/blobs/sha256:f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c
+sha256:
+  darwin_arm64: 93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2
+  darwin_amd64: 93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2
+  linux_amd64: f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c
+  linux_arm64: f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils
+  - gnu-sed
+  - diffutils
+  - gpatch

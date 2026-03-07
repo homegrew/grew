@@ -1,0 +1,21 @@
+name: xml-coreutils
+version: 0.8.1
+description: Powerful interactive system for text processing
+homepage: https://xml-coreutils.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xml-coreutils/blobs/sha256:22c2ae517628eda8490bcd905104f86b4007e93617ba053f985fcfe54af1aebc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xml-coreutils/blobs/sha256:156febc90b868053572dc3f5899c058603b05ec857253bfb1e20911fe753f3a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xml-coreutils/blobs/sha256:e62450955a07231a3334f3972e3ea93e622ca55c54ca3e0eae04db5df6d8fc69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xml-coreutils/blobs/sha256:2af316536161edd2476615f846b91b467e30f0bc5abcec74f0f71516b3c79202
+sha256:
+  darwin_arm64: 22c2ae517628eda8490bcd905104f86b4007e93617ba053f985fcfe54af1aebc
+  darwin_amd64: 156febc90b868053572dc3f5899c058603b05ec857253bfb1e20911fe753f3a7
+  linux_amd64: e62450955a07231a3334f3972e3ea93e622ca55c54ca3e0eae04db5df6d8fc69
+  linux_arm64: 2af316536161edd2476615f846b91b467e30f0bc5abcec74f0f71516b3c79202
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - s-lang

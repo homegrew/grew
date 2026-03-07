@@ -1,0 +1,21 @@
+name: xgboost
+version: 3.2.0
+description: Scalable, Portable and Distributed Gradient Boosting Library
+homepage: https://xgboost.ai/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xgboost/blobs/sha256:5a95ce8b876749dcc5ef5675674500ead83b3da69b64945455f20cc6765c8365
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xgboost/blobs/sha256:bae04c0461e2a5e996e67a9e0c2e2648b7e58fa8cf9e9a35065ef1c8daa2b6cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xgboost/blobs/sha256:bbd350d38e5d16cc7f46993d316bdee723c7a4e7b9a53dab9e2d0912e5678e4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xgboost/blobs/sha256:5969e0b1577357773b3cf5daca4a7237fa62dae7dc3ce95c54dcae44944dd8f0
+sha256:
+  darwin_arm64: 5a95ce8b876749dcc5ef5675674500ead83b3da69b64945455f20cc6765c8365
+  darwin_amd64: bae04c0461e2a5e996e67a9e0c2e2648b7e58fa8cf9e9a35065ef1c8daa2b6cb
+  linux_amd64: bbd350d38e5d16cc7f46993d316bdee723c7a4e7b9a53dab9e2d0912e5678e4f
+  linux_arm64: 5969e0b1577357773b3cf5daca4a7237fa62dae7dc3ce95c54dcae44944dd8f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

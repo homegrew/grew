@@ -1,0 +1,21 @@
+name: pixiewps
+version: 1.4.2
+description: Offline Wi-Fi Protected Setup brute-force utility
+homepage: https://github.com/wiire-a/pixiewps
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixiewps/blobs/sha256:39f6d24e45aca635aea5b72c94fae6fc63fd53cdf10b9f23b97e02d1a567e948
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixiewps/blobs/sha256:a3840cc6caeabe8b3b10ab4647635514caccac688edee6c6830a7f961ec0057b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixiewps/blobs/sha256:b5a93abb2c126230b4c9254243b6fc99b778fb0d4aa220d0296a02940a46865e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixiewps/blobs/sha256:ed23311b1d5fba1e327d4897c4373df6b992c8d4eeca4cb9e531d04b6ddde7ed
+sha256:
+  darwin_arm64: 39f6d24e45aca635aea5b72c94fae6fc63fd53cdf10b9f23b97e02d1a567e948
+  darwin_amd64: a3840cc6caeabe8b3b10ab4647635514caccac688edee6c6830a7f961ec0057b
+  linux_amd64: b5a93abb2c126230b4c9254243b6fc99b778fb0d4aa220d0296a02940a46865e
+  linux_arm64: ed23311b1d5fba1e327d4897c4373df6b992c8d4eeca4cb9e531d04b6ddde7ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

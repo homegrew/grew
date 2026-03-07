@@ -1,0 +1,21 @@
+name: arm-linux-gnueabihf-binutils
+version: 2.46.0
+description: FSF/GNU binutils for cross-compiling to arm-linux
+homepage: https://www.gnu.org/software/binutils/binutils.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arm-linux-gnueabihf-binutils/blobs/sha256:0cfc6f6aa9caa4d26566113476e9e6363a26728d4f23cfe7735f21f7ffb5383c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arm-linux-gnueabihf-binutils/blobs/sha256:bb8d99caaa6729636d012cf68a3819e7f8d86d0ba5d41be45e43481db9ba0a16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arm-linux-gnueabihf-binutils/blobs/sha256:8a1e75510838008f58ce0dccbd0090a52c15a0afaec2f6534f557294a4aeada5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arm-linux-gnueabihf-binutils/blobs/sha256:9c8d7f64dedef7ee36b69aaaf0c0ece9d4a19e0a48a04ded9811d751c9e665c0
+sha256:
+  darwin_arm64: 0cfc6f6aa9caa4d26566113476e9e6363a26728d4f23cfe7735f21f7ffb5383c
+  darwin_amd64: bb8d99caaa6729636d012cf68a3819e7f8d86d0ba5d41be45e43481db9ba0a16
+  linux_amd64: 8a1e75510838008f58ce0dccbd0090a52c15a0afaec2f6534f557294a4aeada5
+  linux_arm64: 9c8d7f64dedef7ee36b69aaaf0c0ece9d4a19e0a48a04ded9811d751c9e665c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

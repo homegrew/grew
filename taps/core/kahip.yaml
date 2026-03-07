@@ -1,0 +1,22 @@
+name: kahip
+version: 3.22
+description: Karlsruhe High Quality Partitioning
+homepage: https://algo2.iti.kit.edu/documents/kahip/index.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kahip/blobs/sha256:b8302704ed34978e1bd2633a245c6d7e500f9ce23e5b241d30ab9859de2702c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kahip/blobs/sha256:6db59fcd4c5784a947ff2d72ad7bad65cfeca35f6d22751e23400b3187c0ff6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kahip/blobs/sha256:c49e5ecc90d304d3ec5dd892cb988b2a645fe486c75c86551f23d71485044604
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kahip/blobs/sha256:1dcc6cbd9ab85a0bfaf7267af73d673f4e48f6da591310384e8fac252dc5b6ec
+sha256:
+  darwin_arm64: b8302704ed34978e1bd2633a245c6d7e500f9ce23e5b241d30ab9859de2702c4
+  darwin_amd64: 6db59fcd4c5784a947ff2d72ad7bad65cfeca35f6d22751e23400b3187c0ff6b
+  linux_amd64: c49e5ecc90d304d3ec5dd892cb988b2a645fe486c75c86551f23d71485044604
+  linux_arm64: 1dcc6cbd9ab85a0bfaf7267af73d673f4e48f6da591310384e8fac252dc5b6ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - libomp

@@ -1,0 +1,19 @@
+name: ktop
+version: 0.5.3
+description: Top-like tool for your Kubernetes clusters
+homepage: https://github.com/vladimirvivien/ktop
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ktop/blobs/sha256:a5cb8ea39afa823108619ccd20c35d86121c5a3e7cf02d368a9fb28cd1e4b21c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ktop/blobs/sha256:33107e3156c832d1306a9f10363ff6f88ebc9b75e7d8811cb80c35a596074f9f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ktop/blobs/sha256:7a601cb39d5c9b5625d6e444a73886ca58ad180d764a95ba4ad18a0dc739ba52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ktop/blobs/sha256:353cead1dca60cc99e4cfe75ca7121b7a889748b8333d28910e8abf0201bb4c1
+sha256:
+  darwin_arm64: a5cb8ea39afa823108619ccd20c35d86121c5a3e7cf02d368a9fb28cd1e4b21c
+  darwin_amd64: 33107e3156c832d1306a9f10363ff6f88ebc9b75e7d8811cb80c35a596074f9f
+  linux_amd64: 7a601cb39d5c9b5625d6e444a73886ca58ad180d764a95ba4ad18a0dc739ba52
+  linux_arm64: 353cead1dca60cc99e4cfe75ca7121b7a889748b8333d28910e8abf0201bb4c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

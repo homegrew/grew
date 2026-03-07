@@ -1,0 +1,21 @@
+name: s2n
+version: 1.7.1
+description: Implementation of the TLS/SSL protocols
+homepage: https://github.com/aws/s2n-tls
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s2n/blobs/sha256:eb2931d8813f61d7910e36de93a45109092d07bce38c966b59c1fe8dc12aa1d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s2n/blobs/sha256:469379a0a13f7c9ff00cff067174f75b3bf8d6d1e45bbef3541af2663c16a83f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s2n/blobs/sha256:e9f4224b84760fa8d741a60c6d54360913c4af544aaebcc229a9948cdbd6896b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s2n/blobs/sha256:7a088b753c78b31e5839e7fbf4fc567c27fb4d13c3891d60082656313a9b16a8
+sha256:
+  darwin_arm64: eb2931d8813f61d7910e36de93a45109092d07bce38c966b59c1fe8dc12aa1d0
+  darwin_amd64: 469379a0a13f7c9ff00cff067174f75b3bf8d6d1e45bbef3541af2663c16a83f
+  linux_amd64: e9f4224b84760fa8d741a60c6d54360913c4af544aaebcc229a9948cdbd6896b
+  linux_arm64: 7a088b753c78b31e5839e7fbf4fc567c27fb4d13c3891d60082656313a9b16a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

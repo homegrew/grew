@@ -1,0 +1,11 @@
+name: session
+version: 1.17.12
+description: Onion routing based messenger
+homepage: https://getsession.org/
+url:
+  darwin_arm64: https://github.com/session-foundation/session-desktop/releases/download/v1.17.12/session-desktop-mac-arm64-1.17.12.dmg
+sha256:
+  darwin_arm64: 013fdca44274b1db1f47ff254abd6c1263658786b0ff070360c2294b5f476a16
+artifacts:
+  app:
+    - Session.app

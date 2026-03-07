@@ -1,0 +1,19 @@
+name: terragrunt-atlantis-config
+version: 1.21.1
+description: Generate Atlantis config for Terragrunt projects
+homepage: https://github.com/transcend-io/terragrunt-atlantis-config
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terragrunt-atlantis-config/blobs/sha256:d9dec17aa158c10a82522b739705b0adf4ee38a3aa0b7ae1e557dba5bd403e73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terragrunt-atlantis-config/blobs/sha256:aebee1dd99ca225d24872c9deaaaa75e5d3929b5342290b377e0134eb10ab29e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terragrunt-atlantis-config/blobs/sha256:9792965a2e68d6c2310b8aca3ac9c56f9c20b46729ae79d9466bfc023fccd8b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terragrunt-atlantis-config/blobs/sha256:c10183ff34a7f6f80a81d9922b6464941d199e15c177f5bb5bb3c1dbc8e0fedb
+sha256:
+  darwin_arm64: d9dec17aa158c10a82522b739705b0adf4ee38a3aa0b7ae1e557dba5bd403e73
+  darwin_amd64: aebee1dd99ca225d24872c9deaaaa75e5d3929b5342290b377e0134eb10ab29e
+  linux_amd64: 9792965a2e68d6c2310b8aca3ac9c56f9c20b46729ae79d9466bfc023fccd8b2
+  linux_arm64: c10183ff34a7f6f80a81d9922b6464941d199e15c177f5bb5bb3c1dbc8e0fedb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: html-xml-utils
+version: 8.7
+description: Tools for manipulating HTML and XML files
+homepage: https://www.w3.org/Tools/HTML-XML-utils/
+license: W3C
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/html-xml-utils/blobs/sha256:805c56aa869cb7f89d9fc11cd1edb4913d9bf76e5c4911d0c59bc9ce77b47a74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/html-xml-utils/blobs/sha256:ef5904e06e9a4f2381485ae3ff342d68a6dced43269a9c9098bdfc19503ca08e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/html-xml-utils/blobs/sha256:f555fdca29f038169dc2499fc0e680e40c30b18b4224b43b3cc7ac5967bef21c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/html-xml-utils/blobs/sha256:63363ff100b473875d5af798b0085b7467363f147bc3d793807f1cb37a6b2192
+sha256:
+  darwin_arm64: 805c56aa869cb7f89d9fc11cd1edb4913d9bf76e5c4911d0c59bc9ce77b47a74
+  darwin_amd64: ef5904e06e9a4f2381485ae3ff342d68a6dced43269a9c9098bdfc19503ca08e
+  linux_amd64: f555fdca29f038169dc2499fc0e680e40c30b18b4224b43b3cc7ac5967bef21c
+  linux_arm64: 63363ff100b473875d5af798b0085b7467363f147bc3d793807f1cb37a6b2192
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

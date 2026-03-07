@@ -1,0 +1,23 @@
+name: rpki-client
+version: 9.7
+description: OpenBSD portable rpki-client
+homepage: https://www.rpki-client.org/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rpki-client/blobs/sha256:170f6d339af9d2f8626780f8857844a000002ac670e20c278f1772233404b283
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rpki-client/blobs/sha256:a90db0a3f3d587aafbec958d6ac70c1d2292feb3a29715e4e4efcaceeae5ad3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rpki-client/blobs/sha256:28b11db7413f349e91313a0297013efe736b5aac296f81b5d72601ce931d33f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rpki-client/blobs/sha256:1c2fcfd7c269ea1c72228411476f159e7425700d2616c87321bc8cb6ce8cfe61
+sha256:
+  darwin_arm64: 170f6d339af9d2f8626780f8857844a000002ac670e20c278f1772233404b283
+  darwin_amd64: a90db0a3f3d587aafbec958d6ac70c1d2292feb3a29715e4e4efcaceeae5ad3b
+  linux_amd64: 28b11db7413f349e91313a0297013efe736b5aac296f81b5d72601ce931d33f7
+  linux_arm64: 1c2fcfd7c269ea1c72228411476f159e7425700d2616c87321bc8cb6ce8cfe61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libretls
+  - openssl@3
+  - rsync

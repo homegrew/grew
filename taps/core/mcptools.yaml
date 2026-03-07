@@ -1,0 +1,19 @@
+name: mcptools
+version: 0.7.1
+description: CLI for interacting with MCP servers using both stdio and HTTP transport
+homepage: https://github.com/f/mcptools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcptools/blobs/sha256:41935d9845af05cbe0d5845d48d39ba22cd2acaa506a7ef3b8d0236bd6a506c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcptools/blobs/sha256:61800bc1654c7d0bd81dcd620ab5807135d2f67644e5adf5b2e12c6441c166d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcptools/blobs/sha256:39ffab019c9f9ada55db8b089ed043c3356f93544dc5a5d58667f22d22f9724a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcptools/blobs/sha256:01fe149647de823687588e4048620c3b8e1db66f3338df6f08fc837cca575a62
+sha256:
+  darwin_arm64: 41935d9845af05cbe0d5845d48d39ba22cd2acaa506a7ef3b8d0236bd6a506c1
+  darwin_amd64: 61800bc1654c7d0bd81dcd620ab5807135d2f67644e5adf5b2e12c6441c166d3
+  linux_amd64: 39ffab019c9f9ada55db8b089ed043c3356f93544dc5a5d58667f22d22f9724a
+  linux_arm64: 01fe149647de823687588e4048620c3b8e1db66f3338df6f08fc837cca575a62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

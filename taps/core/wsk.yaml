@@ -1,0 +1,19 @@
+name: wsk
+version: 1.2.0
+description: OpenWhisk Command-Line Interface (CLI)
+homepage: https://openwhisk.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wsk/blobs/sha256:b614420f313bdc3e60321943dec593d6baea0d75dff36d25a6152d283f5f5f5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wsk/blobs/sha256:ede908c9c08b0034f3fef47e62c35dd0ae12581a531f6abc67b03c7de92d348c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wsk/blobs/sha256:96a83da4a02e7c018ce5f87968d5d786ddecd6c6f1e1f44a38f5df7c1e12d574
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wsk/blobs/sha256:7d79b7999699bf03a08e0ba35efeb5bb712c78c2543ca88f8a61a539e337cee9
+sha256:
+  darwin_arm64: b614420f313bdc3e60321943dec593d6baea0d75dff36d25a6152d283f5f5f5b
+  darwin_amd64: ede908c9c08b0034f3fef47e62c35dd0ae12581a531f6abc67b03c7de92d348c
+  linux_amd64: 96a83da4a02e7c018ce5f87968d5d786ddecd6c6f1e1f44a38f5df7c1e12d574
+  linux_arm64: 7d79b7999699bf03a08e0ba35efeb5bb712c78c2543ca88f8a61a539e337cee9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: urweb
+version: 20200209
+description: Ur/Web programming language
+homepage: http://www.impredicative.com/ur/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urweb/blobs/sha256:8b031e47b232c74fa4994071892ef48350072c23d10fba176c57940b14f3df2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urweb/blobs/sha256:7c962c412b3828ad46562de8d648c24f18670905e246c6eecf56d43527a5ff09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urweb/blobs/sha256:93493a6d29c5fe0043e32c74b35ca935c29b2f9faac7e7cae7ea50c46801bc83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urweb/blobs/sha256:c872e4e66a9f806ea027dae1921c13fb265805085aaed54c6d709c5f444ac427
+sha256:
+  darwin_arm64: 8b031e47b232c74fa4994071892ef48350072c23d10fba176c57940b14f3df2e
+  darwin_amd64: 7c962c412b3828ad46562de8d648c24f18670905e246c6eecf56d43527a5ff09
+  linux_amd64: 93493a6d29c5fe0043e32c74b35ca935c29b2f9faac7e7cae7ea50c46801bc83
+  linux_arm64: c872e4e66a9f806ea027dae1921c13fb265805085aaed54c6d709c5f444ac427
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - icu4c@78
+  - openssl@3

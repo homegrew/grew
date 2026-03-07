@@ -1,0 +1,24 @@
+name: glib-networking
+version: 2.80.1
+description: Network related modules for glib
+homepage: https://gitlab.gnome.org/GNOME/glib-networking
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glib-networking/blobs/sha256:4529f9f2580208ce7fc05c8246fe2204e01dfcaa4a5449437297bce2bf2cbe55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glib-networking/blobs/sha256:42ed98bed547bbeae647d95e0b5f0da4a85e7416cb722efbc4a6e9f975c1bdf0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glib-networking/blobs/sha256:c20490896cab94dc36f83a54bb58ccefea822fb311c03de4a5624e34b09c68ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glib-networking/blobs/sha256:151f752cd064606506e02b137a07b5a40aadb3a1df99ac5849b65e0eb83f3063
+sha256:
+  darwin_arm64: 4529f9f2580208ce7fc05c8246fe2204e01dfcaa4a5449437297bce2bf2cbe55
+  darwin_amd64: 42ed98bed547bbeae647d95e0b5f0da4a85e7416cb722efbc4a6e9f975c1bdf0
+  linux_amd64: c20490896cab94dc36f83a54bb58ccefea822fb311c03de4a5624e34b09c68ed
+  linux_arm64: 151f752cd064606506e02b137a07b5a40aadb3a1df99ac5849b65e0eb83f3063
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - gsettings-desktop-schemas
+  - gettext

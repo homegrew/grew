@@ -1,0 +1,19 @@
+name: metis
+version: 5.1.0
+description: Programs that partition graphs and order matrices
+homepage: https://karypis.github.io/glaros/software/metis/overview.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/metis/blobs/sha256:dbb37a32bc124a76fd9496b0e95f49b1bb48b1dfe72dc398991569156193d07e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/metis/blobs/sha256:daaf2366f0870fd9cf13446d1dee1a8a9bfebb742748fee2911cfabe1e53407f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/metis/blobs/sha256:d8daac6acbeaad9583ff26d72a8ad440ac41efb8656973213902bdfe66cd61e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/metis/blobs/sha256:8703574aca9ad47530cd56fdb31ec1e24b16643390a0cda290e19271a9a47690
+sha256:
+  darwin_arm64: dbb37a32bc124a76fd9496b0e95f49b1bb48b1dfe72dc398991569156193d07e
+  darwin_amd64: daaf2366f0870fd9cf13446d1dee1a8a9bfebb742748fee2911cfabe1e53407f
+  linux_amd64: d8daac6acbeaad9583ff26d72a8ad440ac41efb8656973213902bdfe66cd61e6
+  linux_arm64: 8703574aca9ad47530cd56fdb31ec1e24b16643390a0cda290e19271a9a47690
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: mkcue
+version: 1
+description: Generate a CUE sheet from a CD
+homepage: https://packages.debian.org/sid/mkcue
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkcue/blobs/sha256:d749706af2c32c59bc8bc5faa3c64d98ea35cf5e2f758d2080201b6feda10930
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkcue/blobs/sha256:191f4ce6ac2ee39b7c4a503f3583ee94d2352a47fe8700c54701a8295e05e4d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkcue/blobs/sha256:1ffe89a918fbd678d1dd78349a5cc46d6496f2150215f698560b9e4453f13143
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkcue/blobs/sha256:d0bcd3ad24b610cb79b5b41498a9ec6428a42e921edc2ba21406c0804c176ff4
+sha256:
+  darwin_arm64: d749706af2c32c59bc8bc5faa3c64d98ea35cf5e2f758d2080201b6feda10930
+  darwin_amd64: 191f4ce6ac2ee39b7c4a503f3583ee94d2352a47fe8700c54701a8295e05e4d9
+  linux_amd64: 1ffe89a918fbd678d1dd78349a5cc46d6496f2150215f698560b9e4453f13143
+  linux_arm64: d0bcd3ad24b610cb79b5b41498a9ec6428a42e921edc2ba21406c0804c176ff4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

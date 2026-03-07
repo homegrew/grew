@@ -1,0 +1,24 @@
+name: makepkg
+version: 7.1.0
+description: Compile and build packages suitable for installation with pacman
+homepage: https://wiki.archlinux.org/index.php/makepkg
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/makepkg/blobs/sha256:437af5d09741dd52b5c010e56ad27ce2f44b9f04d6dad061d45086a5c99602d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/makepkg/blobs/sha256:0b4e76c60d7475c0a11de8bc5aab08be1c88fcc234f5191d0cc159c76b954e15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/makepkg/blobs/sha256:997a27e40a380fa9cdc29efabc88cdf021b18c51b81ffe4fcfa4889ba8fea785
+  linux_arm64: https://ghcr.io/v2/homebrew/core/makepkg/blobs/sha256:0efea1e4d153388446b13bcb72b22bbb54eea0edecba47e55884e3d452d4e716
+sha256:
+  darwin_arm64: 437af5d09741dd52b5c010e56ad27ce2f44b9f04d6dad061d45086a5c99602d8
+  darwin_amd64: 0b4e76c60d7475c0a11de8bc5aab08be1c88fcc234f5191d0cc159c76b954e15
+  linux_amd64: 997a27e40a380fa9cdc29efabc88cdf021b18c51b81ffe4fcfa4889ba8fea785
+  linux_arm64: 0efea1e4d153388446b13bcb72b22bbb54eea0edecba47e55884e3d452d4e716
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bash
+  - fakeroot
+  - libarchive
+  - openssl@3

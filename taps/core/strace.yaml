@@ -1,0 +1,15 @@
+name: strace
+version: 6.19
+description: Diagnostic, instructional, and debugging tool for the Linux kernel
+homepage: https://strace.io/
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/strace/blobs/sha256:fa3032d5b83560f504e2d961df94ccca05c77f9a2447f2cae0316a98b1d65f6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/strace/blobs/sha256:f62141e40b16421c2670fe54d40dca1144226058b247e341d66f82d40ed425e1
+sha256:
+  linux_amd64: fa3032d5b83560f504e2d961df94ccca05c77f9a2447f2cae0316a98b1d65f6d
+  linux_arm64: f62141e40b16421c2670fe54d40dca1144226058b247e341d66f82d40ed425e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: lando-cli
+version: 3.26.2
+description: Cli part of Lando
+homepage: https://docs.lando.dev/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lando-cli/blobs/sha256:1874c04bb99e224f34e6227389e226ec15c85a623c29dbc301343f13bce4107f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lando-cli/blobs/sha256:1874c04bb99e224f34e6227389e226ec15c85a623c29dbc301343f13bce4107f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lando-cli/blobs/sha256:048f67620bae8ac7f9d90a99cf9b74eb3915af1118f10b709bf1c69d47468b3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lando-cli/blobs/sha256:048f67620bae8ac7f9d90a99cf9b74eb3915af1118f10b709bf1c69d47468b3e
+sha256:
+  darwin_arm64: 1874c04bb99e224f34e6227389e226ec15c85a623c29dbc301343f13bce4107f
+  darwin_amd64: 1874c04bb99e224f34e6227389e226ec15c85a623c29dbc301343f13bce4107f
+  linux_amd64: 048f67620bae8ac7f9d90a99cf9b74eb3915af1118f10b709bf1c69d47468b3e
+  linux_arm64: 048f67620bae8ac7f9d90a99cf9b74eb3915af1118f10b709bf1c69d47468b3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

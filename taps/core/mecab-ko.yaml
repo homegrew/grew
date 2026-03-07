@@ -1,0 +1,19 @@
+name: mecab-ko
+version: 0.996-ko-0.9.2
+description: See mecab
+homepage: https://bitbucket.org/eunjeon/mecab-ko
+license: GPL-2.0-only OR LGPL-2.1-only OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mecab-ko/blobs/sha256:2b3b6779398b30383fba5b14388221f8291a5fe46401f1219b728934ba4d0a1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mecab-ko/blobs/sha256:304fec23771bee3167fa29acb1d818808f37e0a00751e3f8686c58392f6e407b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mecab-ko/blobs/sha256:15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mecab-ko/blobs/sha256:207ec6dd09f1e79dd4fc75135376ccfd0b998f0d9ccaf13d7832b2708b0c2a23
+sha256:
+  darwin_arm64: 2b3b6779398b30383fba5b14388221f8291a5fe46401f1219b728934ba4d0a1c
+  darwin_amd64: 304fec23771bee3167fa29acb1d818808f37e0a00751e3f8686c58392f6e407b
+  linux_amd64: 15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818
+  linux_arm64: 207ec6dd09f1e79dd4fc75135376ccfd0b998f0d9ccaf13d7832b2708b0c2a23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: tinycdb
+version: 0.81
+description: Create and read constant databases
+homepage: https://www.corpit.ru/mjt/tinycdb.html
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinycdb/blobs/sha256:bd03805a76b700768943e3216fba150262d5fb9f121f1e46e7474c761ce647da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinycdb/blobs/sha256:00517e16683f21a47b6f985fd00927be4fca3c501aa34e445008aad1f9bbf7ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinycdb/blobs/sha256:e936f20c0ba2216f0ead62448ee2793eb96181c32bb381b9f3207e34e3ce46b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinycdb/blobs/sha256:7b2c198f26388658e08919e7222f77af9d609383307ba7e87dd29dc781cb7bef
+sha256:
+  darwin_arm64: bd03805a76b700768943e3216fba150262d5fb9f121f1e46e7474c761ce647da
+  darwin_amd64: 00517e16683f21a47b6f985fd00927be4fca3c501aa34e445008aad1f9bbf7ea
+  linux_amd64: e936f20c0ba2216f0ead62448ee2793eb96181c32bb381b9f3207e34e3ce46b5
+  linux_arm64: 7b2c198f26388658e08919e7222f77af9d609383307ba7e87dd29dc781cb7bef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

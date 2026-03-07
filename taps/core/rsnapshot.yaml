@@ -1,0 +1,19 @@
+name: rsnapshot
+version: 1.5.1
+description: File system snapshot utility (based on rsync)
+homepage: https://www.rsnapshot.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsnapshot/blobs/sha256:e6404aabe4e16911cc94cc72f61b06e05cb1837c21ab04294d0916c109b068de
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsnapshot/blobs/sha256:e46b5d9473dd7afd78d62ce1113a3b7b165e3e15ee43ee2993b06bd1dd89956c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsnapshot/blobs/sha256:a02d7163670d6f9a5086e0c50c3ba6b5442639d961a630773a9f1d001a211cbc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsnapshot/blobs/sha256:1c3384d109f947065a499e2980c0d982a38a94bae93072bdd04540133ea774b4
+sha256:
+  darwin_arm64: e6404aabe4e16911cc94cc72f61b06e05cb1837c21ab04294d0916c109b068de
+  darwin_amd64: e46b5d9473dd7afd78d62ce1113a3b7b165e3e15ee43ee2993b06bd1dd89956c
+  linux_amd64: a02d7163670d6f9a5086e0c50c3ba6b5442639d961a630773a9f1d001a211cbc
+  linux_arm64: 1c3384d109f947065a499e2980c0d982a38a94bae93072bdd04540133ea774b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

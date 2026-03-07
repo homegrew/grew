@@ -1,0 +1,21 @@
+name: trino
+version: 476
+description: Distributed SQL query engine for big data
+homepage: https://trino.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trino/blobs/sha256:ec736f795ac95764efc7be9505aed6c0aec627582e36c5b8e72142b2bacba08d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trino/blobs/sha256:5c80298e351182358e20a726d986b05f0f814b5cefc63bd1fea48191d4e7d7a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trino/blobs/sha256:650f9396b6330b486eff57179aa12fb0db0c43051ee6dda4b48cb58fbe964ee1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trino/blobs/sha256:1ed73d00bd5967d64423e902cf1c4a95a98465f989f0b18e132449c1f596157c
+sha256:
+  darwin_arm64: ec736f795ac95764efc7be9505aed6c0aec627582e36c5b8e72142b2bacba08d
+  darwin_amd64: 5c80298e351182358e20a726d986b05f0f814b5cefc63bd1fea48191d4e7d7a4
+  linux_amd64: 650f9396b6330b486eff57179aa12fb0db0c43051ee6dda4b48cb58fbe964ee1
+  linux_arm64: 1ed73d00bd5967d64423e902cf1c4a95a98465f989f0b18e132449c1f596157c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

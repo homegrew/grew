@@ -1,0 +1,21 @@
+name: liquid-dsp
+version: 1.7.0
+description: Digital signal processing library for software-defined radios
+homepage: https://liquidsdr.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liquid-dsp/blobs/sha256:de67d0f577325b67c1130c3c0b851da268184c5b0d7110f61dcaa24166dc6a74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liquid-dsp/blobs/sha256:45c2eacbc105dc60a05650f8a26b1030d8d68f2e1ad5658b3aac69e55a935fac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liquid-dsp/blobs/sha256:677337e96a58a18d51ac014d4471b111a0b00ce735eea54cc1a788fac95cccd1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liquid-dsp/blobs/sha256:17cc4d0a408358eaa7c80819e7ac7ba89142626be83feeea495252b0b73a0653
+sha256:
+  darwin_arm64: de67d0f577325b67c1130c3c0b851da268184c5b0d7110f61dcaa24166dc6a74
+  darwin_amd64: 45c2eacbc105dc60a05650f8a26b1030d8d68f2e1ad5658b3aac69e55a935fac
+  linux_amd64: 677337e96a58a18d51ac014d4471b111a0b00ce735eea54cc1a788fac95cccd1
+  linux_arm64: 17cc4d0a408358eaa7c80819e7ac7ba89142626be83feeea495252b0b73a0653
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw

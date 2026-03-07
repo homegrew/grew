@@ -1,0 +1,19 @@
+name: sourcedocs
+version: 2.0.1
+description: Generate Markdown files from inline source code documentation
+homepage: https://github.com/SourceDocs/SourceDocs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sourcedocs/blobs/sha256:c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sourcedocs/blobs/sha256:55d0026d803e708bd167e4817a0f278f0bc0b393103711c0fdc1db59f2ce5063
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sourcedocs/blobs/sha256:2c97cd8daa81d7c7e546e71cdfdf17db555dee5260d434287266f20edb3a25a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sourcedocs/blobs/sha256:7698fc8b57805896688c2e9058fb25e4aa7f6189f4252e8d253a02662e98321b
+sha256:
+  darwin_arm64: c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef
+  darwin_amd64: 55d0026d803e708bd167e4817a0f278f0bc0b393103711c0fdc1db59f2ce5063
+  linux_amd64: 2c97cd8daa81d7c7e546e71cdfdf17db555dee5260d434287266f20edb3a25a6
+  linux_arm64: 7698fc8b57805896688c2e9058fb25e4aa7f6189f4252e8d253a02662e98321b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

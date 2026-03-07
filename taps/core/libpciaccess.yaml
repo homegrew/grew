@@ -1,0 +1,17 @@
+name: libpciaccess
+version: 0.18.1
+description: Generic PCI access library
+homepage: https://www.x.org/
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpciaccess/blobs/sha256:a553839647c06387234321eb625545c4b1b3f757a9db3621127fff968a187a28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpciaccess/blobs/sha256:8dbbb641d72ca3d52c3e888e98ce1b4ebca20f5eca28a171b5ddc00b7a52bbf9
+sha256:
+  linux_amd64: a553839647c06387234321eb625545c4b1b3f757a9db3621127fff968a187a28
+  linux_arm64: 8dbbb641d72ca3d52c3e888e98ce1b4ebca20f5eca28a171b5ddc00b7a52bbf9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zlib-ng-compat

@@ -1,0 +1,22 @@
+name: mk-configure
+version: 0.40.0
+description: Lightweight replacement for GNU autotools
+homepage: https://github.com/cheusov/mk-configure
+license: BSD-2-Clause AND BSD-3-Clause AND MIT AND MIT-CMU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mk-configure/blobs/sha256:0e4ed19f77dc079bbb5a81a8d7d68c938dae9b24249eee52100c4f0878fe551b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mk-configure/blobs/sha256:38eff0dd90436b640ff6ddc3cc0f2f208d5a1a5f0f609c873c8a093fe90cc2be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mk-configure/blobs/sha256:434d05bf1acf22ab6f0f9f3fda53b07228fdadac453d2c6fbf7ba38e5a32d637
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mk-configure/blobs/sha256:a75eda4ef70758b92fedce279ab4c2dbb0c83a2b050c45a419e9e12e005102c3
+sha256:
+  darwin_arm64: 0e4ed19f77dc079bbb5a81a8d7d68c938dae9b24249eee52100c4f0878fe551b
+  darwin_amd64: 38eff0dd90436b640ff6ddc3cc0f2f208d5a1a5f0f609c873c8a093fe90cc2be
+  linux_amd64: 434d05bf1acf22ab6f0f9f3fda53b07228fdadac453d2c6fbf7ba38e5a32d637
+  linux_arm64: a75eda4ef70758b92fedce279ab4c2dbb0c83a2b050c45a419e9e12e005102c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bmake
+  - makedepend

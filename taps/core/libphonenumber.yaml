@@ -1,0 +1,24 @@
+name: libphonenumber
+version: 9.0.25
+description: C++ Phone Number library by Google
+homepage: https://github.com/google/libphonenumber
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libphonenumber/blobs/sha256:d80a81a0dcca0bb47b340aaf7dbfa3fdebfb57394cf7578f0ee9d4f90d6b5bf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libphonenumber/blobs/sha256:e63b26770003dc983ea9fd74c7fa25e925bb2d8638744a8703d50db0ccdcaea6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libphonenumber/blobs/sha256:17857b302dee5c3baef5a9f85749934aa1c5c7975aa069bdf7dc74489641557f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libphonenumber/blobs/sha256:83a452bc9006b81db3af6b1e223daa313ef91db7f10d21aa8087d958aaa8c187
+sha256:
+  darwin_arm64: d80a81a0dcca0bb47b340aaf7dbfa3fdebfb57394cf7578f0ee9d4f90d6b5bf7
+  darwin_amd64: e63b26770003dc983ea9fd74c7fa25e925bb2d8638744a8703d50db0ccdcaea6
+  linux_amd64: 17857b302dee5c3baef5a9f85749934aa1c5c7975aa069bdf7dc74489641557f
+  linux_arm64: 83a452bc9006b81db3af6b1e223daa313ef91db7f10d21aa8087d958aaa8c187
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - boost
+  - icu4c@78
+  - protobuf

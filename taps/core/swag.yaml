@@ -1,0 +1,19 @@
+name: swag
+version: 1.16.6
+description: Automatically generate RESTful API documentation with Swagger 2.0 for Go
+homepage: https://github.com/swaggo/swag
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swag/blobs/sha256:d8cbf4841f7ebf8f91b1e4034211085e4671d8b9fd81ef7c0a4b774489bb6fbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swag/blobs/sha256:3755ba02cc30db9445167444bb92257957cc5c132d93ddec55d9ca1c46938c89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swag/blobs/sha256:138aa1dcd9425a4656fb0939957ca7ac30affcc0ce474062e25e7a8623cbd032
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swag/blobs/sha256:1872a5598bbfd4440343e2c2aa5fd930c3a00eb050cb2fb0afbed37d1aeb6418
+sha256:
+  darwin_arm64: d8cbf4841f7ebf8f91b1e4034211085e4671d8b9fd81ef7c0a4b774489bb6fbc
+  darwin_amd64: 3755ba02cc30db9445167444bb92257957cc5c132d93ddec55d9ca1c46938c89
+  linux_amd64: 138aa1dcd9425a4656fb0939957ca7ac30affcc0ce474062e25e7a8623cbd032
+  linux_arm64: 1872a5598bbfd4440343e2c2aa5fd930c3a00eb050cb2fb0afbed37d1aeb6418
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

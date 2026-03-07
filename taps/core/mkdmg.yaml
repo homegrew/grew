@@ -1,0 +1,17 @@
+name: mkdmg
+version: "0.2.0"
+description: "Build fancy DMGs"
+homepage: "https://github.com/alessio/mkdmg"
+license: "MIT"
+url:
+  darwin_arm64: "https://github.com/alessio/mkdmg/releases/download/v0.2.0/mkdmg_Darwin_arm64.tar.gz"
+  darwin_amd64: "https://github.com/alessio/mkdmg/releases/download/v0.2.0/mkdmg_Darwin_x86_64.tar.gz"
+sha256:
+  darwin_arm64: "757d729b94b7aaf5aa5a3827583f93ee3beb0af183dce2bf7b4577e0970a672c"
+  darwin_amd64: "a1fd927e73c7874ed467c174d918788efc7960fbd47618129605ca188186aabf"
+install:
+  type: archive
+  binary_name: mkdmg
+  strip_components: 0
+dependencies: []
+keg_only: false

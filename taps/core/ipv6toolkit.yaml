@@ -1,0 +1,19 @@
+name: ipv6toolkit
+version: 2.2
+description: Security assessment and troubleshooting tool for IPv6
+homepage: https://www.si6networks.com/research/tools/ipv6toolkit/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipv6toolkit/blobs/sha256:523ecc5b67dede61b817503e7a3be3522e02c7d1faaedbe36d860ff921cc53e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipv6toolkit/blobs/sha256:f855b1e8d34e9dc55ca1ca1ba2762d256e79800798fcce7aa111bb4c41889281
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipv6toolkit/blobs/sha256:4a3b44ff9e1b83966463d601d04f9c3f458b52535bf84659469dbab9c44dfaef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipv6toolkit/blobs/sha256:cfc7a43a31a1ee14958fa18004ef254e625680ee11e757b6af95ab2175cc4d5f
+sha256:
+  darwin_arm64: 523ecc5b67dede61b817503e7a3be3522e02c7d1faaedbe36d860ff921cc53e4
+  darwin_amd64: f855b1e8d34e9dc55ca1ca1ba2762d256e79800798fcce7aa111bb4c41889281
+  linux_amd64: 4a3b44ff9e1b83966463d601d04f9c3f458b52535bf84659469dbab9c44dfaef
+  linux_arm64: cfc7a43a31a1ee14958fa18004ef254e625680ee11e757b6af95ab2175cc4d5f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

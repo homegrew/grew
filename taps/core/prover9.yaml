@@ -1,0 +1,19 @@
+name: prover9
+version: 2009-11A
+description: Automated theorem prover for first-order and equational logic
+homepage: https://www.cs.unm.edu/~mccune/prover9/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prover9/blobs/sha256:f50efa708e0a002db67d676da0207bed5d12c71b5ca5c3da1db857e21864c294
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prover9/blobs/sha256:928f8946fa76129d2d394caeb5a0b75dd574ad485ba5fa39c408eb6c602a5c27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prover9/blobs/sha256:9f1cf6703e83cffd06e2025d6b5062dbf7e4dd7f3ca398618ac688e8ce165e1d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prover9/blobs/sha256:a61553c5a3e18b08afb168e0decbf7037fafca31b3b48430730096404520908c
+sha256:
+  darwin_arm64: f50efa708e0a002db67d676da0207bed5d12c71b5ca5c3da1db857e21864c294
+  darwin_amd64: 928f8946fa76129d2d394caeb5a0b75dd574ad485ba5fa39c408eb6c602a5c27
+  linux_amd64: 9f1cf6703e83cffd06e2025d6b5062dbf7e4dd7f3ca398618ac688e8ce165e1d
+  linux_arm64: a61553c5a3e18b08afb168e0decbf7037fafca31b3b48430730096404520908c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

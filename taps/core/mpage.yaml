@@ -1,0 +1,19 @@
+name: mpage
+version: 2.5.8
+description: Many to one page printing utility
+homepage: https://mesa.nl/pub/mpage/README
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpage/blobs/sha256:860aacd1390ce895e9dd5099c4811c708d2b3990e0fe41928cf56d5ac7af89c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpage/blobs/sha256:6ac0089f8a3aeb93e7670556f6a9191272c5c715cc53c3dedde1559a1f7533d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpage/blobs/sha256:6a4e4a8c70d9b83690c2e0c3bd94574f8e3e6a0cadcf12cc80ba197d79186c56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpage/blobs/sha256:066fff24a4048340ee0cc2028a3bfb93432af6fd546aecf61106c7f33a70032e
+sha256:
+  darwin_arm64: 860aacd1390ce895e9dd5099c4811c708d2b3990e0fe41928cf56d5ac7af89c8
+  darwin_amd64: 6ac0089f8a3aeb93e7670556f6a9191272c5c715cc53c3dedde1559a1f7533d8
+  linux_amd64: 6a4e4a8c70d9b83690c2e0c3bd94574f8e3e6a0cadcf12cc80ba197d79186c56
+  linux_arm64: 066fff24a4048340ee0cc2028a3bfb93432af6fd546aecf61106c7f33a70032e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

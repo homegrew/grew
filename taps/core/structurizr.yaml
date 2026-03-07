@@ -1,0 +1,21 @@
+name: structurizr
+version: 2026.03.06
+description: Software architecture models as code
+homepage: https://structurizr.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/structurizr/blobs/sha256:23b6747d7dcc0469f809c9cdcf28403fe30c92cd6bf59bc7de8a221188f4d5f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/structurizr/blobs/sha256:dfe13f558fbd106fe14e7ec7bfd3536edbda012387df1c2935161ee5d1c78925
+  linux_amd64: https://ghcr.io/v2/homebrew/core/structurizr/blobs/sha256:bcd73da1fcfdd759004803edd2f2f49617860e30508ed277548b7e7de1f6a8f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/structurizr/blobs/sha256:2d0bc4f4c9a693a31d2e381461324b65c5f3e874881e9d9a871748b1fab45693
+sha256:
+  darwin_arm64: 23b6747d7dcc0469f809c9cdcf28403fe30c92cd6bf59bc7de8a221188f4d5f3
+  darwin_amd64: dfe13f558fbd106fe14e7ec7bfd3536edbda012387df1c2935161ee5d1c78925
+  linux_amd64: bcd73da1fcfdd759004803edd2f2f49617860e30508ed277548b7e7de1f6a8f4
+  linux_arm64: 2d0bc4f4c9a693a31d2e381461324b65c5f3e874881e9d9a871748b1fab45693
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

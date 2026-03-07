@@ -1,0 +1,24 @@
+name: qtquickeffectmaker
+version: 6.10.2
+description: Tool to create custom Qt Quick shader effects
+homepage: https://www.qt.io/
+license: (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtquickeffectmaker/blobs/sha256:85bf5c0809f576eda9725ebe8e51b47589df1a7dfa104e634ad314095632177d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtquickeffectmaker/blobs/sha256:c3ac2d7ef191e4a9ab083ae13ec74ed3e1e77da8981f8c6f27598c5baa76af0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtquickeffectmaker/blobs/sha256:61761c5fd99ffe4848f792031d42c48d3332225824b6719f77e29d8dee2c10e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtquickeffectmaker/blobs/sha256:adecbfcf2e4ce8cfea6baa635c4181429f5cdb5214e2866b37319622741bb560
+sha256:
+  darwin_arm64: 85bf5c0809f576eda9725ebe8e51b47589df1a7dfa104e634ad314095632177d
+  darwin_amd64: c3ac2d7ef191e4a9ab083ae13ec74ed3e1e77da8981f8c6f27598c5baa76af0a
+  linux_amd64: 61761c5fd99ffe4848f792031d42c48d3332225824b6719f77e29d8dee2c10e6
+  linux_arm64: adecbfcf2e4ce8cfea6baa635c4181429f5cdb5214e2866b37319622741bb560
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtquick3d
+  - qtshadertools

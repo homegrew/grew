@@ -1,0 +1,19 @@
+name: atuin
+version: 18.12.1
+description: Improved shell history for zsh, bash, fish and nushell
+homepage: https://atuin.sh/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atuin/blobs/sha256:59dcbee9c296a929e826aa0f45b4e8a2c40e5d0e78058324655b904b9c5a0d2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atuin/blobs/sha256:14162bb60283a0e9bf4f26a6dabbdaa753f40f42086c2ee4f17785b2e8285668
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atuin/blobs/sha256:e0b80611a6d78c64e0b7c66ba87f411c9006bc1b071cbee8cd35a0bd692aa0ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atuin/blobs/sha256:96b720459ffc2532834e4951f3ba3d6d9ec45135b0e11a6cff0459921dd29a27
+sha256:
+  darwin_arm64: 59dcbee9c296a929e826aa0f45b4e8a2c40e5d0e78058324655b904b9c5a0d2f
+  darwin_amd64: 14162bb60283a0e9bf4f26a6dabbdaa753f40f42086c2ee4f17785b2e8285668
+  linux_amd64: e0b80611a6d78c64e0b7c66ba87f411c9006bc1b071cbee8cd35a0bd692aa0ed
+  linux_arm64: 96b720459ffc2532834e4951f3ba3d6d9ec45135b0e11a6cff0459921dd29a27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

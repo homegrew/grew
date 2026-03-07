@@ -1,0 +1,19 @@
+name: nethogs
+version: 0.8.8
+description: Net top tool grouping bandwidth per process
+homepage: https://raboof.github.io/nethogs/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nethogs/blobs/sha256:02b72507de60a98acc43d6f939146777d65ed8ab2316bc66fec08f07cf2fbc24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nethogs/blobs/sha256:94cf8d3019a7b344781b52bfc4d0dec42580382e143a8a308faac8cfe13780d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nethogs/blobs/sha256:11e366aab4953f52e2978a45b72cf4467d87218a71370e5ea83efe72e096f265
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nethogs/blobs/sha256:2646e3701644f65e25a1e8066ed374ac36fde0a8d86410e50da58cd7bcd3e46d
+sha256:
+  darwin_arm64: 02b72507de60a98acc43d6f939146777d65ed8ab2316bc66fec08f07cf2fbc24
+  darwin_amd64: 94cf8d3019a7b344781b52bfc4d0dec42580382e143a8a308faac8cfe13780d8
+  linux_amd64: 11e366aab4953f52e2978a45b72cf4467d87218a71370e5ea83efe72e096f265
+  linux_arm64: 2646e3701644f65e25a1e8066ed374ac36fde0a8d86410e50da58cd7bcd3e46d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

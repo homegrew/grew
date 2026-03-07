@@ -1,0 +1,11 @@
+name: agi
+version: 3.3.3
+description: Android GPU Inspector
+homepage: https://gpuinspector.dev/
+url:
+  darwin_arm64: https://github.com/google/agi/releases/download/v3.3.3/agi-3.3.3-macos.dmg
+sha256:
+  darwin_arm64: 7b045ba934274eeced3d1f9df3101f0c67a6ec62d99a7d1986e54bec4de9d2af
+artifacts:
+  app:
+    - AGI.app

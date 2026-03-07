@@ -1,0 +1,22 @@
+name: libxpm
+version: 3.5.18
+description: "X.Org: X Pixmap (XPM) image file format library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxpm/blobs/sha256:dfb4812d9570c75c744777378f7653ec3e0072cc64c1676652aba5a63ffb93be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxpm/blobs/sha256:7fd1c8870bcb2cd60c92ec28220a3815540cf2c36330fa457843e1f10ad55da4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxpm/blobs/sha256:448c52d170a337416e588bc7d6b36d267de2ad1de1efe939a6b11bc48aa8fedd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxpm/blobs/sha256:ba51d06c36169b8cc001fd6f284eb7a0787b1b59f621f68ff1913647ecb3a56f
+sha256:
+  darwin_arm64: dfb4812d9570c75c744777378f7653ec3e0072cc64c1676652aba5a63ffb93be
+  darwin_amd64: 7fd1c8870bcb2cd60c92ec28220a3815540cf2c36330fa457843e1f10ad55da4
+  linux_amd64: 448c52d170a337416e588bc7d6b36d267de2ad1de1efe939a6b11bc48aa8fedd
+  linux_arm64: ba51d06c36169b8cc001fd6f284eb7a0787b1b59f621f68ff1913647ecb3a56f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - libx11

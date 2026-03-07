@@ -1,0 +1,19 @@
+name: sad
+version: 0.4.32
+description: "CLI search and replace | Space Age seD"
+homepage: https://github.com/ms-jpq/sad
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sad/blobs/sha256:6a86363c4e34a7ef28f442c18631477562f6b2e53b528dca842d89a61f72aafb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sad/blobs/sha256:ac5f622402e313226339eb22f389fe826994ee8771b23cc28c2188ff81096f80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sad/blobs/sha256:5eb56b7ce0c1cd515a1e2492614a4cbe2b3ea8e3652f0a9ad2a2ed43d9eec43b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sad/blobs/sha256:db2a7e7543515e39ad52ebe32ebd9821e3eec5e0cd1a3b0096342682de0a1536
+sha256:
+  darwin_arm64: 6a86363c4e34a7ef28f442c18631477562f6b2e53b528dca842d89a61f72aafb
+  darwin_amd64: ac5f622402e313226339eb22f389fe826994ee8771b23cc28c2188ff81096f80
+  linux_amd64: 5eb56b7ce0c1cd515a1e2492614a4cbe2b3ea8e3652f0a9ad2a2ed43d9eec43b
+  linux_arm64: db2a7e7543515e39ad52ebe32ebd9821e3eec5e0cd1a3b0096342682de0a1536
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libatomic_ops
+version: 7.10.0
+description: Implementations for atomic memory update operations
+homepage: https://github.com/bdwgc/libatomic_ops/
+license: GPL-2.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libatomic_ops/blobs/sha256:2b3dae32f7ff10faaa84a3a5ee3486cf65496feb75519dcaa2cf2d171be73fd7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libatomic_ops/blobs/sha256:ab9bc50267eab633db6d61166db93be0e5bf365b09106e1aeaaf581c093f3c46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libatomic_ops/blobs/sha256:11be1a0fc988f891a83af51dcaa1712b17e4475acf92abf19f4f15a7ae92364e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libatomic_ops/blobs/sha256:241c6cae391092c83e9d29d593085476df8ace090d633578d7e387bbbe730765
+sha256:
+  darwin_arm64: 2b3dae32f7ff10faaa84a3a5ee3486cf65496feb75519dcaa2cf2d171be73fd7
+  darwin_amd64: ab9bc50267eab633db6d61166db93be0e5bf365b09106e1aeaaf581c093f3c46
+  linux_amd64: 11be1a0fc988f891a83af51dcaa1712b17e4475acf92abf19f4f15a7ae92364e
+  linux_arm64: 241c6cae391092c83e9d29d593085476df8ace090d633578d7e387bbbe730765
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

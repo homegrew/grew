@@ -1,0 +1,21 @@
+name: libtatsu
+version: 1.0.5
+description: "Library handling the communication with Apple's Tatsu Signing Server (TSS)"
+homepage: https://libimobiledevice.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtatsu/blobs/sha256:4733e91bdb7fdcd93e030fc7a36174bfb8bc4f4e489270a47a5d5d70d0d9376c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtatsu/blobs/sha256:3c64e4c3dec2b31b5d9a228073f08997d2efa813fe6ec431eba870112995fa08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtatsu/blobs/sha256:6e616827b2db64dfa913646990030b20db78dc3cddd6e56a801eb82658ae6b07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtatsu/blobs/sha256:be22c10c322aac3a41282d50b06cd6c8d3add347ba1f9978a3fc43da5418a753
+sha256:
+  darwin_arm64: 4733e91bdb7fdcd93e030fc7a36174bfb8bc4f4e489270a47a5d5d70d0d9376c
+  darwin_amd64: 3c64e4c3dec2b31b5d9a228073f08997d2efa813fe6ec431eba870112995fa08
+  linux_amd64: 6e616827b2db64dfa913646990030b20db78dc3cddd6e56a801eb82658ae6b07
+  linux_arm64: be22c10c322aac3a41282d50b06cd6c8d3add347ba1f9978a3fc43da5418a753
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libplist

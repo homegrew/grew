@@ -1,0 +1,21 @@
+name: modules
+version: 5.6.1
+description: "Dynamic modification of a user's environment via modulefiles"
+homepage: https://modules.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/modules/blobs/sha256:9ad57749f2e5147af68bd14cb793daf5a1248a5066fabf5849bcc61eb81310b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/modules/blobs/sha256:850380e3da9b8041f097dad78915d0e707bc22e926e6213a37923f6fb2203b87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/modules/blobs/sha256:a00c5618052a36dca03fef4a0e2ca0239b98615ea959b928621bef9da92fc2c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/modules/blobs/sha256:a28e814c89976354ce48751ef27b4c3dc36ca7418e53490f78a8df71b49fd69a
+sha256:
+  darwin_arm64: 9ad57749f2e5147af68bd14cb793daf5a1248a5066fabf5849bcc61eb81310b3
+  darwin_amd64: 850380e3da9b8041f097dad78915d0e707bc22e926e6213a37923f6fb2203b87
+  linux_amd64: a00c5618052a36dca03fef4a0e2ca0239b98615ea959b928621bef9da92fc2c0
+  linux_arm64: a28e814c89976354ce48751ef27b4c3dc36ca7418e53490f78a8df71b49fd69a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tcl-tk

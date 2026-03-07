@@ -1,0 +1,19 @@
+name: minimap2
+version: 2.30
+description: Versatile pairwise aligner for genomic and spliced nucleotide sequences
+homepage: https://lh3.github.io/minimap2
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minimap2/blobs/sha256:bab9ae8b3c6ebe68b4cc6ec84c04cefd0a9ed544d474d0b97b3edde63613c029
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minimap2/blobs/sha256:d9697c3492313510140bb1d4290f854db37f419988e0e141d8c98cd8152e24e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minimap2/blobs/sha256:84a23620b041f878b15b147f1eee02ab87b73c26ff1afd8b40bef05503aa141a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minimap2/blobs/sha256:b66bf9449ae3f6d95f0fd33af2b2df9c1f556a59e6b1eb53754d5d39bbc3aa80
+sha256:
+  darwin_arm64: bab9ae8b3c6ebe68b4cc6ec84c04cefd0a9ed544d474d0b97b3edde63613c029
+  darwin_amd64: d9697c3492313510140bb1d4290f854db37f419988e0e141d8c98cd8152e24e4
+  linux_amd64: 84a23620b041f878b15b147f1eee02ab87b73c26ff1afd8b40bef05503aa141a
+  linux_arm64: b66bf9449ae3f6d95f0fd33af2b2df9c1f556a59e6b1eb53754d5d39bbc3aa80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

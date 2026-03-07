@@ -1,0 +1,22 @@
+name: ponysay
+version: 3.0.3
+description: Cowsay but with ponies
+homepage: https://github.com/erkin/ponysay/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ponysay/blobs/sha256:436a1f52adab32d7d21c3ebe39dee39f8d2bec2cdcfe0c650973b47961aa3852
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ponysay/blobs/sha256:a4ed42c1e433ff890d69b8efd820ec6f95171904c8ec0af96da7c72701bf2369
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ponysay/blobs/sha256:eb8cc2a4ab043dbb08c57344164315a5653bbcb1f9dd36103d9e697eb010f2c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ponysay/blobs/sha256:6b029e23e21fd4ac75a4cd6d69a10b766cbff2199b342db7ccca88b33aacf26e
+sha256:
+  darwin_arm64: 436a1f52adab32d7d21c3ebe39dee39f8d2bec2cdcfe0c650973b47961aa3852
+  darwin_amd64: a4ed42c1e433ff890d69b8efd820ec6f95171904c8ec0af96da7c72701bf2369
+  linux_amd64: eb8cc2a4ab043dbb08c57344164315a5653bbcb1f9dd36103d9e697eb010f2c1
+  linux_arm64: 6b029e23e21fd4ac75a4cd6d69a10b766cbff2199b342db7ccca88b33aacf26e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils
+  - python@3.14

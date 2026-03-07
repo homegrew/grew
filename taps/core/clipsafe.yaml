@@ -1,0 +1,19 @@
+name: clipsafe
+version: 1.1
+description: Command-line interface to Password Safe
+homepage: https://waxandwane.org/clipsafe.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clipsafe/blobs/sha256:a1e669adb584521510edd954b4e9220d7a597fce06352bc30d992f2dad0b30e4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clipsafe/blobs/sha256:2659e4263f3bf6a6278a5f0c368a06586097e5b6d86938ef3f999470078007a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clipsafe/blobs/sha256:fd77e7b9fc202db5b34f402485377bffafc3356c771094ba3bc67f02f38d7df9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clipsafe/blobs/sha256:e9e0c9380c893077b1850cd538ab48c5160a114ef7bcb9bc60196b0981b8736d
+sha256:
+  darwin_arm64: a1e669adb584521510edd954b4e9220d7a597fce06352bc30d992f2dad0b30e4
+  darwin_amd64: 2659e4263f3bf6a6278a5f0c368a06586097e5b6d86938ef3f999470078007a4
+  linux_amd64: fd77e7b9fc202db5b34f402485377bffafc3356c771094ba3bc67f02f38d7df9
+  linux_arm64: e9e0c9380c893077b1850cd538ab48c5160a114ef7bcb9bc60196b0981b8736d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: rust
+version: 1.93.1
+description: Safe, concurrent, practical language
+homepage: https://www.rust-lang.org/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rust/blobs/sha256:6cc0c90642591826abb1c90fc90ef9c4f0ef4af9011478362a360fa8cb711de9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rust/blobs/sha256:0e1175aa104716ee4bf06481c72205db3c7a3c32954cdf3e70d3991c93473b2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rust/blobs/sha256:9fc9c113b90b648c072467484182307d8a94ec7545d61935c256fc88c92c343e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rust/blobs/sha256:37223e74a88b5c23ebc0a2202777506a325881feac112e36d457657090c646d6
+sha256:
+  darwin_arm64: 6cc0c90642591826abb1c90fc90ef9c4f0ef4af9011478362a360fa8cb711de9
+  darwin_amd64: 0e1175aa104716ee4bf06481c72205db3c7a3c32954cdf3e70d3991c93473b2c
+  linux_amd64: 9fc9c113b90b648c072467484182307d8a94ec7545d61935c256fc88c92c343e
+  linux_arm64: 37223e74a88b5c23ebc0a2202777506a325881feac112e36d457657090c646d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - llvm@21
+  - openssl@3
+  - pkgconf
+  - zstd

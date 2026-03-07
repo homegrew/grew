@@ -1,0 +1,24 @@
+name: qt5compat
+version: 6.10.2
+description: Qt 5 Core APIs that were removed in Qt 6
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt5compat/blobs/sha256:e7b0ce02089935bb161e5ae4e0684a6256ec5ecd578899c146fff6ae5c04dcd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt5compat/blobs/sha256:ecb2129bcc031e77abcdae42b76255b17e91fb3d603dd9b227bf4f2eeefc41ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt5compat/blobs/sha256:9263f048dd7e2516f295544764814d8f416e2e0151fe64231b98192d04ea0f6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt5compat/blobs/sha256:7707904d06558de433cfd2e80166c45745a79df009b2482a7b4c5a9749f2675b
+sha256:
+  darwin_arm64: e7b0ce02089935bb161e5ae4e0684a6256ec5ecd578899c146fff6ae5c04dcd1
+  darwin_amd64: ecb2129bcc031e77abcdae42b76255b17e91fb3d603dd9b227bf4f2eeefc41ac
+  linux_amd64: 9263f048dd7e2516f295544764814d8f416e2e0151fe64231b98192d04ea0f6d
+  linux_arm64: 7707904d06558de433cfd2e80166c45745a79df009b2482a7b4c5a9749f2675b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - qtbase
+  - qtdeclarative
+  - qtshadertools

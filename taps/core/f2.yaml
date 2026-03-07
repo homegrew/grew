@@ -1,0 +1,19 @@
+name: f2
+version: 2.2.2
+description: Command-line batch renaming tool
+homepage: https://github.com/ayoisaiah/f2
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/f2/blobs/sha256:60199512555005b0c455a318294ce2461fca14fe73055d6a3d79c557f3e33a55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/f2/blobs/sha256:91a8f2cbed065c6ad0e976f8c9a672cd7cd831a65b268423f6eb8348502703af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/f2/blobs/sha256:eb89b5ee0b534374db45f86c91b162cdb2d524a4522ac92e5157343b79e0d3ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/f2/blobs/sha256:68b82c40b03fc395853ffaacbe371320c9a7b23c240111c4c78199a1580f0a95
+sha256:
+  darwin_arm64: 60199512555005b0c455a318294ce2461fca14fe73055d6a3d79c557f3e33a55
+  darwin_amd64: 91a8f2cbed065c6ad0e976f8c9a672cd7cd831a65b268423f6eb8348502703af
+  linux_amd64: eb89b5ee0b534374db45f86c91b162cdb2d524a4522ac92e5157343b79e0d3ea
+  linux_arm64: 68b82c40b03fc395853ffaacbe371320c9a7b23c240111c4c78199a1580f0a95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

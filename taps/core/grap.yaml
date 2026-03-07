@@ -1,0 +1,19 @@
+name: grap
+version: 1.49
+description: Language for typesetting graphs
+homepage: https://www.lunabase.org/~faber/Vault/software/grap/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grap/blobs/sha256:2fcedf83a80e2a8f119cc9618c9b7ea778da28290c424e35ad9bac0c772f0d72
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grap/blobs/sha256:de789bd8018007ae3c23bc17ecc0adf2e5f9d72f6ccf2898fb8e86ec6066cdce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grap/blobs/sha256:523b5f43f7e49ca1ac6c35bb1ced2a1c1fdca3852a80568494a4de497696ab67
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grap/blobs/sha256:10db4a042d10701644180a0dcf58c55a60a8ca6003af590fa134bd67607ccacc
+sha256:
+  darwin_arm64: 2fcedf83a80e2a8f119cc9618c9b7ea778da28290c424e35ad9bac0c772f0d72
+  darwin_amd64: de789bd8018007ae3c23bc17ecc0adf2e5f9d72f6ccf2898fb8e86ec6066cdce
+  linux_amd64: 523b5f43f7e49ca1ac6c35bb1ced2a1c1fdca3852a80568494a4de497696ab67
+  linux_arm64: 10db4a042d10701644180a0dcf58c55a60a8ca6003af590fa134bd67607ccacc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

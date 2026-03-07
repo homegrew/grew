@@ -1,0 +1,19 @@
+name: texi2mdoc
+version: 0.1.2
+description: Convert Texinfo data to mdoc input
+homepage: https://mandoc.bsd.lv/texi2mdoc/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texi2mdoc/blobs/sha256:5b041762001de978d115ff087c59982e554f06f6b83a92d1d35988d4e73ff7db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texi2mdoc/blobs/sha256:a991a1ed6f69eeaec46e684c2d66c257d04ae6da8664aea9d0db3c8c24f1f97b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texi2mdoc/blobs/sha256:f155dfc278556137351b12849d598130decfbf64e824f99de7dda813a731051f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texi2mdoc/blobs/sha256:59a3fc35cc4cf7c00742287367c32d3aeb3945b95d10ec83581276efb86e3fe2
+sha256:
+  darwin_arm64: 5b041762001de978d115ff087c59982e554f06f6b83a92d1d35988d4e73ff7db
+  darwin_amd64: a991a1ed6f69eeaec46e684c2d66c257d04ae6da8664aea9d0db3c8c24f1f97b
+  linux_amd64: f155dfc278556137351b12849d598130decfbf64e824f99de7dda813a731051f
+  linux_arm64: 59a3fc35cc4cf7c00742287367c32d3aeb3945b95d10ec83581276efb86e3fe2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

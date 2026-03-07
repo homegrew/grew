@@ -1,0 +1,23 @@
+name: codecov-cli
+version: 11.2.6
+description: "Codecov's command-line interface"
+homepage: https://cli.codecov.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codecov-cli/blobs/sha256:ff68612624b256edcce4620bd2abc969f32c49d6943412ef536d0dbd7d2544b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codecov-cli/blobs/sha256:6620b3869eddee239e14b4a419f518acc61a10ad15cf3d3618892e3bf69ebf74
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codecov-cli/blobs/sha256:65cb7ef07968850b7c26c1f5e689aca2da5741dcc93e18997305c4c853148425
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codecov-cli/blobs/sha256:e61efd7c3e31ad16cb0e8d887615fec9f18593d1e963e1e742f7b35566b019fa
+sha256:
+  darwin_arm64: ff68612624b256edcce4620bd2abc969f32c49d6943412ef536d0dbd7d2544b5
+  darwin_amd64: 6620b3869eddee239e14b4a419f518acc61a10ad15cf3d3618892e3bf69ebf74
+  linux_amd64: 65cb7ef07968850b7c26c1f5e689aca2da5741dcc93e18997305c4c853148425
+  linux_arm64: e61efd7c3e31ad16cb0e8d887615fec9f18593d1e963e1e742f7b35566b019fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

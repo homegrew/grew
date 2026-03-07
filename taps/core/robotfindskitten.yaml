@@ -1,0 +1,19 @@
+name: robotfindskitten
+version: 2.8284271.702
+description: Zen Simulation of robot finding kitten
+homepage: http://robotfindskitten.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/robotfindskitten/blobs/sha256:f70167f4ada3ff8ec73fe948560bc08e582be51e57806612ed9d269ce0a1ed7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/robotfindskitten/blobs/sha256:9b2f45fa85903a46134701d4131609ea2db758843d3f36f93f476cd8713ea003
+  linux_amd64: https://ghcr.io/v2/homebrew/core/robotfindskitten/blobs/sha256:7d44526e0b657e25b0bec3f36112f6bc9196f8a9a0b74ae2dec9e7b86801abe4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/robotfindskitten/blobs/sha256:0d65f446d480696e567673ca1261f700413841a6196dac6bef7535f95727b167
+sha256:
+  darwin_arm64: f70167f4ada3ff8ec73fe948560bc08e582be51e57806612ed9d269ce0a1ed7e
+  darwin_amd64: 9b2f45fa85903a46134701d4131609ea2db758843d3f36f93f476cd8713ea003
+  linux_amd64: 7d44526e0b657e25b0bec3f36112f6bc9196f8a9a0b74ae2dec9e7b86801abe4
+  linux_arm64: 0d65f446d480696e567673ca1261f700413841a6196dac6bef7535f95727b167
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

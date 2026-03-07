@@ -1,0 +1,19 @@
+name: ott
+version: 0.34
+description: Tool for writing definitions of programming languages and calculi
+homepage: https://www.cl.cam.ac.uk/~pes20/ott/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ott/blobs/sha256:f26fa61413c7091e27399e1d844a24ac94b69f00805eb6b3f6d9fcd416d90839
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ott/blobs/sha256:8271dd4f6d13603b7353203cbbe021f2fb6359356a6fed14747d9c6761eaa477
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ott/blobs/sha256:73f293a7ca9b84a8c105e9e5106176695c3207f4e92b98890ba72652dbec2e81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ott/blobs/sha256:cdcc901f3f3198e2fdedd4d897ba24e554f88a208efdbbe47b87eaaa06041931
+sha256:
+  darwin_arm64: f26fa61413c7091e27399e1d844a24ac94b69f00805eb6b3f6d9fcd416d90839
+  darwin_amd64: 8271dd4f6d13603b7353203cbbe021f2fb6359356a6fed14747d9c6761eaa477
+  linux_amd64: 73f293a7ca9b84a8c105e9e5106176695c3207f4e92b98890ba72652dbec2e81
+  linux_arm64: cdcc901f3f3198e2fdedd4d897ba24e554f88a208efdbbe47b87eaaa06041931
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

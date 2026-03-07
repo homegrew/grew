@@ -1,0 +1,21 @@
+name: cppinsights
+version: 20.1
+description: See your source code with the eyes of a compiler
+homepage: https://cppinsights.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppinsights/blobs/sha256:d5c9c97206cb629ff2c8cf50b1887e49ef2e0e8609e26be97303e9b207059c4b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppinsights/blobs/sha256:d76e33b7686ef11f0b351c0a4ef632f5463d7fc38757558ed76a12b39d45b355
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppinsights/blobs/sha256:532cca65ef3d681fd80b71e4c0d7140bea31c37916d727357ceb0fdbe23a46cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppinsights/blobs/sha256:e66e5256dd17aa4f719f90514fdf2f6be53b55c591e9f1355e64389a72005e03
+sha256:
+  darwin_arm64: d5c9c97206cb629ff2c8cf50b1887e49ef2e0e8609e26be97303e9b207059c4b
+  darwin_amd64: d76e33b7686ef11f0b351c0a4ef632f5463d7fc38757558ed76a12b39d45b355
+  linux_amd64: 532cca65ef3d681fd80b71e4c0d7140bea31c37916d727357ceb0fdbe23a46cf
+  linux_arm64: e66e5256dd17aa4f719f90514fdf2f6be53b55c591e9f1355e64389a72005e03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm@20

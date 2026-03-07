@@ -1,0 +1,19 @@
+name: mprocs
+version: 0.8.3
+description: Run multiple commands in parallel
+homepage: https://github.com/pvolok/mprocs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mprocs/blobs/sha256:8807d84fc02137877db54f8d343cb3c409e7b12a51776ac1e68e96cb819c85f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mprocs/blobs/sha256:98b807d712c243c55b14747ec52c44cd9a9c5f1c988eff37a5c0e926fe4158f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mprocs/blobs/sha256:461942199bc0f9799faed2ae5583a14d7e44e277efa8739032fbe882149730e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mprocs/blobs/sha256:6a14fe395a18c6debf96d1ba97fa8c8fbd38261ffba26486bdb48b6fcf4ccbc8
+sha256:
+  darwin_arm64: 8807d84fc02137877db54f8d343cb3c409e7b12a51776ac1e68e96cb819c85f2
+  darwin_amd64: 98b807d712c243c55b14747ec52c44cd9a9c5f1c988eff37a5c0e926fe4158f9
+  linux_amd64: 461942199bc0f9799faed2ae5583a14d7e44e277efa8739032fbe882149730e2
+  linux_arm64: 6a14fe395a18c6debf96d1ba97fa8c8fbd38261ffba26486bdb48b6fcf4ccbc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

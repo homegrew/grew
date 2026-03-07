@@ -1,0 +1,11 @@
+name: stability-matrix
+version: 2.15.6
+description: Package manager and inference UI for Stable Diffusion
+homepage: https://github.com/LykosAI/StabilityMatrix
+url:
+  darwin_arm64: https://github.com/LykosAI/StabilityMatrix/releases/download/v2.15.6/StabilityMatrix-macos-arm64.dmg
+sha256:
+  darwin_arm64: b30ea7d7a7c62b30a3df02a2c7abcf900870e86b61cbbd6b7df2065e78fd7da4
+artifacts:
+  app:
+    - Stability Matrix.app

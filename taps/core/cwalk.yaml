@@ -1,0 +1,19 @@
+name: cwalk
+version: 1.2.9
+description: Cross-platform path library for C/C++
+homepage: https://likle.github.io/cwalk/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cwalk/blobs/sha256:c6a86a42f343e1569e219befcd09e4e44eba308b2bb6afda312e0f0a14268492
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cwalk/blobs/sha256:fcfad95bf683b8a14600cfbb41fde45ad5417af61a5517b760595b3057549698
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cwalk/blobs/sha256:24d89dff54dc58a1f6f5a78a5a31d071d074138134ea765d7e185b6bb28ddea8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cwalk/blobs/sha256:cf8786364f7e8624b19576af4ce93bfd412d184bdb2ea22acb3b82df7f935e31
+sha256:
+  darwin_arm64: c6a86a42f343e1569e219befcd09e4e44eba308b2bb6afda312e0f0a14268492
+  darwin_amd64: fcfad95bf683b8a14600cfbb41fde45ad5417af61a5517b760595b3057549698
+  linux_amd64: 24d89dff54dc58a1f6f5a78a5a31d071d074138134ea765d7e185b6bb28ddea8
+  linux_arm64: cf8786364f7e8624b19576af4ce93bfd412d184bdb2ea22acb3b82df7f935e31
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,32 @@
+name: autotrace
+version: 0.31.10
+description: Convert bitmap to vector graphics
+homepage: https://autotrace.sourceforge.net/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autotrace/blobs/sha256:8f46e9bf0a5498be353f53dcfb86707921065ab3b96935e90e270aa98202520c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autotrace/blobs/sha256:309ada11b08e9bb6477127ba861acf1ea44e2a9c4e4ef366a614d418d7c8ef55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autotrace/blobs/sha256:4aab08802d48a33cc4d89c858fbc7ecc61dddb7a8d1e6ec250cf8b2dda4b9f8f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autotrace/blobs/sha256:2b49716451cbac5e13837244a3413197cc69e0d5358e519697d104e667f5ac4a
+sha256:
+  darwin_arm64: 8f46e9bf0a5498be353f53dcfb86707921065ab3b96935e90e270aa98202520c
+  darwin_amd64: 309ada11b08e9bb6477127ba861acf1ea44e2a9c4e4ef366a614d418d7c8ef55
+  linux_amd64: 4aab08802d48a33cc4d89c858fbc7ecc61dddb7a8d1e6ec250cf8b2dda4b9f8f
+  linux_arm64: 2b49716451cbac5e13837244a3413197cc69e0d5358e519697d104e667f5ac4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - imagemagick
+  - libpng
+  - libtiff
+  - pstoedit
+  - fontconfig
+  - freetype
+  - gettext
+  - liblqr
+  - libomp
+  - libtool
+  - little-cms2

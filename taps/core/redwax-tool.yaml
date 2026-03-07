@@ -1,0 +1,29 @@
+name: redwax-tool
+version: 1.0.0
+description: Universal certificate conversion tool
+homepage: https://redwax.eu/rt/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redwax-tool/blobs/sha256:df4ddf01024dfde7043791c8c816cee438fbd91d6ce6bd4c952e32932f139466
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redwax-tool/blobs/sha256:aeace3d70b6856d3b41435e67e8841db8932ecc98f77dcef6171a8d414abe356
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redwax-tool/blobs/sha256:10ad5632233a8a26fa7561d2cc0d7059c2cfee757c20d8b934b761ce242fde9d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redwax-tool/blobs/sha256:68957ca0352be57c3439fbd84d584a080729c17472e5193e8fd836c261d5a65e
+sha256:
+  darwin_arm64: df4ddf01024dfde7043791c8c816cee438fbd91d6ce6bd4c952e32932f139466
+  darwin_amd64: aeace3d70b6856d3b41435e67e8841db8932ecc98f77dcef6171a8d414abe356
+  linux_amd64: 10ad5632233a8a26fa7561d2cc0d7059c2cfee757c20d8b934b761ce242fde9d
+  linux_arm64: 68957ca0352be57c3439fbd84d584a080729c17472e5193e8fd836c261d5a65e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - ldns
+  - libical
+  - nspr
+  - nss
+  - openssl@3
+  - p11-kit
+  - unbound

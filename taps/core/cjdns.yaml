@@ -1,0 +1,21 @@
+name: cjdns
+version: 22.3
+description: Advanced mesh routing system with cryptographic addressing
+homepage: https://github.com/cjdelisle/cjdns/
+license: GPL-3.0-or-later AND GPL-2.0-or-later AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cjdns/blobs/sha256:3e80901cd150c0a4985cc8ec0c94b1241716a80d4765f87d4298bcef556a3a0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cjdns/blobs/sha256:faca4c08e507600ff631b2f06387de220a74cf3b74ce53759e4ba86171509a87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cjdns/blobs/sha256:c843f89da788dd4cf98f419584f680e76ee0b81b1b819fd474569c9389e43360
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cjdns/blobs/sha256:859d70d081723d20c26072e75c5040c23848e7555ec84ae1df094a150522167a
+sha256:
+  darwin_arm64: 3e80901cd150c0a4985cc8ec0c94b1241716a80d4765f87d4298bcef556a3a0c
+  darwin_amd64: faca4c08e507600ff631b2f06387de220a74cf3b74ce53759e4ba86171509a87
+  linux_amd64: c843f89da788dd4cf98f419584f680e76ee0b81b1b819fd474569c9389e43360
+  linux_arm64: 859d70d081723d20c26072e75c5040c23848e7555ec84ae1df094a150522167a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

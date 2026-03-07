@@ -1,0 +1,19 @@
+name: oh-my-posh
+version: 29.7.1
+description: Prompt theme engine for any shell
+homepage: https://ohmyposh.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oh-my-posh/blobs/sha256:fb9286e66b3e46f6c4132b0caea50eaa99e008c2a75bde7a16a3b2e7235260a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oh-my-posh/blobs/sha256:3a8ab1f07f332107f04d0c7098a012485c0338e5e362b759874c2d9db07e5e0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oh-my-posh/blobs/sha256:3e6559ef1ffa268b1be0c625688ec718e5f128f4e76914a761931adecd864d59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oh-my-posh/blobs/sha256:191c0ec7892353e7ef5fcd617e92c4bfb5dfc0b2aad161f4c51497e57557697a
+sha256:
+  darwin_arm64: fb9286e66b3e46f6c4132b0caea50eaa99e008c2a75bde7a16a3b2e7235260a7
+  darwin_amd64: 3a8ab1f07f332107f04d0c7098a012485c0338e5e362b759874c2d9db07e5e0e
+  linux_amd64: 3e6559ef1ffa268b1be0c625688ec718e5f128f4e76914a761931adecd864d59
+  linux_arm64: 191c0ec7892353e7ef5fcd617e92c4bfb5dfc0b2aad161f4c51497e57557697a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

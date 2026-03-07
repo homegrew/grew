@@ -1,0 +1,19 @@
+name: mcp-publisher
+version: 1.5.0
+description: Publisher CLI tool for the Official Model Context Protocol (MCP) Registry
+homepage: https://github.com/modelcontextprotocol/registry
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcp-publisher/blobs/sha256:8f6d99766ecf12631eb011991bed61a0165de5b651585c8af856abac1af6894c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcp-publisher/blobs/sha256:ab330bd4eff38b17aa8dbd34e4c9afd21c3da8b153d958f7270ee573594554bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcp-publisher/blobs/sha256:310969522eabe473aaedea39874b0a56d85f907fa4f947cdf933b59f0bf12fa8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcp-publisher/blobs/sha256:65972049b5b82e4fce0cff7e48c6d9c81469405a498a38fb8b7666b73e6234df
+sha256:
+  darwin_arm64: 8f6d99766ecf12631eb011991bed61a0165de5b651585c8af856abac1af6894c
+  darwin_amd64: ab330bd4eff38b17aa8dbd34e4c9afd21c3da8b153d958f7270ee573594554bd
+  linux_amd64: 310969522eabe473aaedea39874b0a56d85f907fa4f947cdf933b59f0bf12fa8
+  linux_arm64: 65972049b5b82e4fce0cff7e48c6d9c81469405a498a38fb8b7666b73e6234df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

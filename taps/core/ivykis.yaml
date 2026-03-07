@@ -1,0 +1,19 @@
+name: ivykis
+version: 0.43.2
+description: Async I/O-assisting library
+homepage: https://sourceforge.net/projects/libivykis/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ivykis/blobs/sha256:39b186ef9cd3390cc76db833ff0ff45a534810fdfc76858eff1b53f945613277
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ivykis/blobs/sha256:c70c4ccd6872f0be9b0d0ab49218fca35d43077d6a82be5b541aa4b5573af1f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ivykis/blobs/sha256:63cc7d328a6c1816803b8a4a90377dfe86dfe0ce21d895bc1968e27c46ed083f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ivykis/blobs/sha256:3b90fe4d18f18d4f598f91f1bc0dca09552f78dc2076f7908574ab19972c3bf8
+sha256:
+  darwin_arm64: 39b186ef9cd3390cc76db833ff0ff45a534810fdfc76858eff1b53f945613277
+  darwin_amd64: c70c4ccd6872f0be9b0d0ab49218fca35d43077d6a82be5b541aa4b5573af1f2
+  linux_amd64: 63cc7d328a6c1816803b8a4a90377dfe86dfe0ce21d895bc1968e27c46ed083f
+  linux_arm64: 3b90fe4d18f18d4f598f91f1bc0dca09552f78dc2076f7908574ab19972c3bf8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

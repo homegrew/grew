@@ -1,0 +1,19 @@
+name: cargo-features-manager
+version: 0.11.1
+description: TUI like cli tool to manage the features of your rust-project dependencies
+homepage: https://github.com/ToBinio/cargo-features-manager
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-features-manager/blobs/sha256:94ce47b67a56b1faa492c358ac28983b61ddbadb4ad0d6dd43271ff2a47c2c66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-features-manager/blobs/sha256:6b329a740b87964ff97724159cc0ba7c3a3fea0decdfd493bedf7f02a7c9c64c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-features-manager/blobs/sha256:40e2a29fa648d6c5c128e572134933dee66a4353709ff799757b81bf875b2a07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-features-manager/blobs/sha256:d8b51411bdcdd331629eda6404f0e3d0befce1402940636168e5bddeccf0fc03
+sha256:
+  darwin_arm64: 94ce47b67a56b1faa492c358ac28983b61ddbadb4ad0d6dd43271ff2a47c2c66
+  darwin_amd64: 6b329a740b87964ff97724159cc0ba7c3a3fea0decdfd493bedf7f02a7c9c64c
+  linux_amd64: 40e2a29fa648d6c5c128e572134933dee66a4353709ff799757b81bf875b2a07
+  linux_arm64: d8b51411bdcdd331629eda6404f0e3d0befce1402940636168e5bddeccf0fc03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

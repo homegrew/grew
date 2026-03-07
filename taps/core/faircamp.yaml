@@ -1,0 +1,26 @@
+name: faircamp
+version: 1.7.0
+description: Static site generator for audio producers
+homepage: https://codeberg.org/simonrepp/faircamp
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/faircamp/blobs/sha256:4194ed50aea3d486e72f7a64b53b467c73dacc876ed2dc93d3ab7d9dbfd4995c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/faircamp/blobs/sha256:3e37398d846b3710c540b6f177943b3486993265282b0342012fc105d633eeea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/faircamp/blobs/sha256:c1ddaedfd2a098f6f8875c644d3ece063665cb50c73c8e511c8295a359e79915
+  linux_arm64: https://ghcr.io/v2/homebrew/core/faircamp/blobs/sha256:90b5aaff9681e96c735a215837d73bf8c9f73b0916ae7af46ad0037229655743
+sha256:
+  darwin_arm64: 4194ed50aea3d486e72f7a64b53b467c73dacc876ed2dc93d3ab7d9dbfd4995c
+  darwin_amd64: 3e37398d846b3710c540b6f177943b3486993265282b0342012fc105d633eeea
+  linux_amd64: c1ddaedfd2a098f6f8875c644d3ece063665cb50c73c8e511c8295a359e79915
+  linux_arm64: 90b5aaff9681e96c735a215837d73bf8c9f73b0916ae7af46ad0037229655743
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - glib
+  - opus
+  - vips
+  - xz
+  - gettext

@@ -1,0 +1,19 @@
+name: cmocka
+version: 2.0.2
+description: Unit testing framework for C
+homepage: https://cmocka.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmocka/blobs/sha256:1526e9b10b209071770801428c41d08bf7f8601f23dce9b93ee03260dd419529
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmocka/blobs/sha256:44075b56a67f29c890e88e9711337a48a4212b598998641c985f1d2a8e42e0be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmocka/blobs/sha256:3509a180a3d4d2dba82c53c2ff8465c07196ddede5298f316cd8a9540f70037d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmocka/blobs/sha256:b436e2a03af8a0666e671ab970a16da1c40981de1bfeeb27dbb344cf39ba533c
+sha256:
+  darwin_arm64: 1526e9b10b209071770801428c41d08bf7f8601f23dce9b93ee03260dd419529
+  darwin_amd64: 44075b56a67f29c890e88e9711337a48a4212b598998641c985f1d2a8e42e0be
+  linux_amd64: 3509a180a3d4d2dba82c53c2ff8465c07196ddede5298f316cd8a9540f70037d
+  linux_arm64: b436e2a03af8a0666e671ab970a16da1c40981de1bfeeb27dbb344cf39ba533c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

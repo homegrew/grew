@@ -1,0 +1,24 @@
+name: cloudformation-cli
+version: 0.2.39
+description: CloudFormation Provider Development Toolkit
+homepage: https://github.com/aws-cloudformation/cloudformation-cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudformation-cli/blobs/sha256:5fa285cfc30cee8baac2d5c2f52188575e726fba0ed20e8a99292a86372ce057
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cloudformation-cli/blobs/sha256:592da08f736abacce8ff072bb5cb3594c4bbc7b7f3c93cd8e6b2543533a35b65
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudformation-cli/blobs/sha256:90005a44e0b290258b1b0a4c40f22cb1c7c1b10e49707055e66c15e85218a67b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudformation-cli/blobs/sha256:68d9296f9ac767afd92e989177fca980bf9406a09d0409fe9e0432b6801c6fe2
+sha256:
+  darwin_arm64: 5fa285cfc30cee8baac2d5c2f52188575e726fba0ed20e8a99292a86372ce057
+  darwin_amd64: 592da08f736abacce8ff072bb5cb3594c4bbc7b7f3c93cd8e6b2543533a35b65
+  linux_amd64: 90005a44e0b290258b1b0a4c40f22cb1c7c1b10e49707055e66c15e85218a67b
+  linux_arm64: 68d9296f9ac767afd92e989177fca980bf9406a09d0409fe9e0432b6801c6fe2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.13

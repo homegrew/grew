@@ -1,0 +1,19 @@
+name: serie
+version: 0.6.1
+description: Rich git commit graph in your terminal
+homepage: https://github.com/lusingander/serie
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serie/blobs/sha256:ba3fc304e393da51df730d190dd24f2820ac66b127dbcccd4a58a7afccdfb31c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serie/blobs/sha256:74753a8f6a4b99319c82c0239eebd8c40507010bcc8a92606768805df359162c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serie/blobs/sha256:5fa1a7fae4c4f1c3fd5d9a4e911a34a9b76a07d686ed8a79deef3f9d809cb4d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serie/blobs/sha256:6c735e7b70688cbc7628916a28ca5cc27becc3db1ad25a7cbc511ed75cfe19c5
+sha256:
+  darwin_arm64: ba3fc304e393da51df730d190dd24f2820ac66b127dbcccd4a58a7afccdfb31c
+  darwin_amd64: 74753a8f6a4b99319c82c0239eebd8c40507010bcc8a92606768805df359162c
+  linux_amd64: 5fa1a7fae4c4f1c3fd5d9a4e911a34a9b76a07d686ed8a79deef3f9d809cb4d0
+  linux_arm64: 6c735e7b70688cbc7628916a28ca5cc27becc3db1ad25a7cbc511ed75cfe19c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

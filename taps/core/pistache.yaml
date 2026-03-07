@@ -1,0 +1,24 @@
+name: pistache
+version: 0.4.26
+description: Modern, fast, elegant HTTP + REST C++17 framework with pleasant API
+homepage: https://github.com/pistacheio/pistache
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pistache/blobs/sha256:8c6aceaa9caabb3aa5f359e4b774e682a1a04b8e6d8d2c3387ca2b568490761e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pistache/blobs/sha256:0251e36381a86a7e82f7ea5f905ad9abc20d68ec387876935276e63e91dde120
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pistache/blobs/sha256:a18870e8bca2a60e1fe41d00a47dd157273ae689145163b6730982ad0b550f43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pistache/blobs/sha256:ab8a26e48f468b791843eb18d69460c70e51e2a0a0cba9e91a649db54bf5e21f
+sha256:
+  darwin_arm64: 8c6aceaa9caabb3aa5f359e4b774e682a1a04b8e6d8d2c3387ca2b568490761e
+  darwin_amd64: 0251e36381a86a7e82f7ea5f905ad9abc20d68ec387876935276e63e91dde120
+  linux_amd64: a18870e8bca2a60e1fe41d00a47dd157273ae689145163b6730982ad0b550f43
+  linux_arm64: ab8a26e48f468b791843eb18d69460c70e51e2a0a0cba9e91a649db54bf5e21f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - libevent
+  - openssl@3
+  - zstd

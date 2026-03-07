@@ -1,0 +1,21 @@
+name: calc
+version: 2.16.1.2
+description: Arbitrary precision calculator
+homepage: http://www.isthe.com/chongo/tech/comp/calc/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/calc/blobs/sha256:f481b5265878ae4d158320b74275baaa57265b3c9e04a546935792f95624ddb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/calc/blobs/sha256:6aa4af49e85b6e11394ead0c9ca3574638809b12c2db96f2886e6379a9b21133
+  linux_amd64: https://ghcr.io/v2/homebrew/core/calc/blobs/sha256:d38bf2e1f599b1d351d013276e37ec6d87f8dc999d8b2effaaabe5145fb72392
+  linux_arm64: https://ghcr.io/v2/homebrew/core/calc/blobs/sha256:720d3c2070a317cad9a01e76427644bf9c318b5749444967df4688494b71269c
+sha256:
+  darwin_arm64: f481b5265878ae4d158320b74275baaa57265b3c9e04a546935792f95624ddb8
+  darwin_amd64: 6aa4af49e85b6e11394ead0c9ca3574638809b12c2db96f2886e6379a9b21133
+  linux_amd64: d38bf2e1f599b1d351d013276e37ec6d87f8dc999d8b2effaaabe5145fb72392
+  linux_arm64: 720d3c2070a317cad9a01e76427644bf9c318b5749444967df4688494b71269c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

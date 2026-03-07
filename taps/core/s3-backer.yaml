@@ -1,0 +1,22 @@
+name: s3-backer
+version: 2.1.6
+description: FUSE-based single file backing store via Amazon S3
+homepage: https://github.com/archiecobbs/s3backer
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s3-backer/blobs/sha256:1387d7e202fc1f4dce4b895dae49a9073f9020155ed87f65d5f7fb907117ab15
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s3-backer/blobs/sha256:0f3a5bfb9e813f0a54c775a8f7b0b533a17d9d193646e78f27e999f366d63f31
+sha256:
+  linux_amd64: 1387d7e202fc1f4dce4b895dae49a9073f9020155ed87f65d5f7fb907117ab15
+  linux_arm64: 0f3a5bfb9e813f0a54c775a8f7b0b533a17d9d193646e78f27e999f366d63f31
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - expat
+  - libfuse
+  - openssl@3
+  - zlib-ng-compat
+  - zstd

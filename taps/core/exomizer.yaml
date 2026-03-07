@@ -1,0 +1,19 @@
+name: exomizer
+version: 3.1.2
+description: File compressor optimized for decompression in 8-bit environments
+homepage: https://bitbucket.org/magli143/exomizer/wiki/Home
+license: Zlib AND (GPL-3.0-or-later WITH Bison-exception-2.2)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exomizer/blobs/sha256:56448e95a835779566679e80a082ca12284cf6412a299194e363f7f06bb0440d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exomizer/blobs/sha256:9cdb28fa2ff68d518ed22b2399155c532059e2145753ff10cd9a9f201fb46632
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exomizer/blobs/sha256:c0fae099202b6a7ca59dd64e37fc4ffbe8f4612b2b4dd9e266053a7810c9bdac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exomizer/blobs/sha256:b1ab5a0efdf18a785bba4bc1ee6216b141a664d0515b261e93abb0af6943891c
+sha256:
+  darwin_arm64: 56448e95a835779566679e80a082ca12284cf6412a299194e363f7f06bb0440d
+  darwin_amd64: 9cdb28fa2ff68d518ed22b2399155c532059e2145753ff10cd9a9f201fb46632
+  linux_amd64: c0fae099202b6a7ca59dd64e37fc4ffbe8f4612b2b4dd9e266053a7810c9bdac
+  linux_arm64: b1ab5a0efdf18a785bba4bc1ee6216b141a664d0515b261e93abb0af6943891c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

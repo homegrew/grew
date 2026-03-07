@@ -1,0 +1,19 @@
+name: llhttp
+version: 9.3.1
+description: Port of http_parser to llparse
+homepage: https://llhttp.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/llhttp/blobs/sha256:35c5eb5a905ba0729cf2af32593498a8c62f289941e141c46836335b8e428a20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/llhttp/blobs/sha256:7a68099f251edee5ec013af565622c06569b7d46f66175edc04768230b71a7cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/llhttp/blobs/sha256:9758338dfa51d0eb47445d9a279a7e0525c3fd3a8aa4f2e4c9b2ffd48224023a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/llhttp/blobs/sha256:c0ff9594e5ab4ef4bb38860f7a42ab5c27a1a774791ab08ceaed4268e8c0a4bc
+sha256:
+  darwin_arm64: 35c5eb5a905ba0729cf2af32593498a8c62f289941e141c46836335b8e428a20
+  darwin_amd64: 7a68099f251edee5ec013af565622c06569b7d46f66175edc04768230b71a7cc
+  linux_amd64: 9758338dfa51d0eb47445d9a279a7e0525c3fd3a8aa4f2e4c9b2ffd48224023a
+  linux_arm64: c0ff9594e5ab4ef4bb38860f7a42ab5c27a1a774791ab08ceaed4268e8c0a4bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

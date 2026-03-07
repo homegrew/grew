@@ -1,0 +1,24 @@
+name: libayatana-indicator
+version: 0.9.4
+description: Ayatana Indicators Shared Library
+homepage: https://github.com/AyatanaIndicators/libayatana-indicator
+license: GPL-3.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libayatana-indicator/blobs/sha256:38823b368d0eb88a0cbaff12fe3d6dae2e78ac39092214bad70a290d44ccb7c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libayatana-indicator/blobs/sha256:da9fc97cc1bb2c19f987eeef759158febcc99007450d7643c712d6e4612600ac
+sha256:
+  linux_amd64: 38823b368d0eb88a0cbaff12fe3d6dae2e78ac39092214bad70a290d44ccb7c1
+  linux_arm64: da9fc97cc1bb2c19f987eeef759158febcc99007450d7643c712d6e4612600ac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - ayatana-ido
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - harfbuzz
+  - pango

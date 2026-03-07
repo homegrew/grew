@@ -1,0 +1,19 @@
+name: xz
+version: 5.8.2
+description: General-purpose data compression with high compression ratio
+homepage: https://tukaani.org/xz/
+license: 0BSD AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:770e7bbcac1c6422435e63cdc48fc68f40942060913ee2d8d24d4a0eadbeb593
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:79be5da804bdae92c823d7056287c417af1089e52efa6ae443a7cd7c92165b09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:86a4e124a1ec2f7435b6bd44f3e980fc6e90fec9e3a93b229f9432d73e664b65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:7707181e84ba592d8e3930722ecb55e7978e32c70ea7b640d5c8e7578572c4ee
+sha256:
+  darwin_arm64: 770e7bbcac1c6422435e63cdc48fc68f40942060913ee2d8d24d4a0eadbeb593
+  darwin_amd64: 79be5da804bdae92c823d7056287c417af1089e52efa6ae443a7cd7c92165b09
+  linux_amd64: 86a4e124a1ec2f7435b6bd44f3e980fc6e90fec9e3a93b229f9432d73e664b65
+  linux_arm64: 7707181e84ba592d8e3930722ecb55e7978e32c70ea7b640d5c8e7578572c4ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

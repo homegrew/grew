@@ -1,0 +1,19 @@
+name: vscli
+version: 1.3.0
+description: CLI/TUI that launches VSCode projects, with a focus on dev containers
+homepage: https://github.com/michidk/vscli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vscli/blobs/sha256:ad8559f49092dd0c2fe1cfddf33097f92cabebb86dec9757a9a9d0766adcf7f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vscli/blobs/sha256:367ff1a937fc6b20de3ac0f80feb8626e352bdb543ec0ac8958bd9e58a10d2c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vscli/blobs/sha256:f8e75d6e48da77d6493750ce4d02c5de079d684e62908f7d3db2219477a8c250
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vscli/blobs/sha256:bc5eee1bdaa04dd44a7e813abc87e406ec2186f9f638399efeb9fc34b9c08ca3
+sha256:
+  darwin_arm64: ad8559f49092dd0c2fe1cfddf33097f92cabebb86dec9757a9a9d0766adcf7f6
+  darwin_amd64: 367ff1a937fc6b20de3ac0f80feb8626e352bdb543ec0ac8958bd9e58a10d2c3
+  linux_amd64: f8e75d6e48da77d6493750ce4d02c5de079d684e62908f7d3db2219477a8c250
+  linux_arm64: bc5eee1bdaa04dd44a7e813abc87e406ec2186f9f638399efeb9fc34b9c08ca3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

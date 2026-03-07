@@ -1,0 +1,13 @@
+name: utm@beta
+version: 5.0.2
+description: Virtual machines UI using QEMU
+homepage: https://mac.getutm.app/
+url:
+  darwin_arm64: https://github.com/utmapp/UTM/releases/download/v5.0.2/UTM.dmg
+sha256:
+  darwin_arm64: e4f61e6a7a317fe85d855715a2845264ead3751e56cda808af8dc8e0156ed1b9
+artifacts:
+  app:
+    - UTM.app
+  bin:
+    - utmctl

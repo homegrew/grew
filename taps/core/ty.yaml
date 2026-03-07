@@ -1,0 +1,19 @@
+name: ty
+version: 0.0.21
+description: Extremely fast Python type checker, written in Rust
+homepage: https://docs.astral.sh/ty/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ty/blobs/sha256:9d19df8b8c4ea2b9ac514bed30ed8fb119eb30361bf120e3108f03b3bc8255b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ty/blobs/sha256:792b805b59c912a5b740f02f274f646811354cad14d28a859065fbf7ecd91701
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ty/blobs/sha256:5544c8a1aa3f331eab681e3e520b4c4f0e42e1ed0549704c67044dd9adcb787b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ty/blobs/sha256:f54ee19669a0314444a794afa90b1c738588256e347c41812877db203105da51
+sha256:
+  darwin_arm64: 9d19df8b8c4ea2b9ac514bed30ed8fb119eb30361bf120e3108f03b3bc8255b2
+  darwin_amd64: 792b805b59c912a5b740f02f274f646811354cad14d28a859065fbf7ecd91701
+  linux_amd64: 5544c8a1aa3f331eab681e3e520b4c4f0e42e1ed0549704c67044dd9adcb787b
+  linux_arm64: f54ee19669a0314444a794afa90b1c738588256e347c41812877db203105da51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

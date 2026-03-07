@@ -1,0 +1,19 @@
+name: tbls
+version: 1.92.3
+description: CI-Friendly tool to document a database
+homepage: https://github.com/k1LoW/tbls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tbls/blobs/sha256:f13568f9c69b3a609d51a5cffe60b59ad3b8a7b38bb791c2facf8ef46f317771
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tbls/blobs/sha256:35f713ecb4d443007888c6c58fbbbb5cf9ef2a003ca548e982750865ea87952d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tbls/blobs/sha256:023533e647973983b49854c6a167b645722495117fa4cd64e59b06ad83f62fb2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tbls/blobs/sha256:eecd9b4ddc242dd66ab341a82329bc378ae8e6b66916744c519813cb4a489fd2
+sha256:
+  darwin_arm64: f13568f9c69b3a609d51a5cffe60b59ad3b8a7b38bb791c2facf8ef46f317771
+  darwin_amd64: 35f713ecb4d443007888c6c58fbbbb5cf9ef2a003ca548e982750865ea87952d
+  linux_amd64: 023533e647973983b49854c6a167b645722495117fa4cd64e59b06ad83f62fb2
+  linux_arm64: eecd9b4ddc242dd66ab341a82329bc378ae8e6b66916744c519813cb4a489fd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

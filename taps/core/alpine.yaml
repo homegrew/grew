@@ -1,0 +1,21 @@
+name: alpine
+version: 2.26
+description: News and email agent
+homepage: https://alpineapp.email
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alpine/blobs/sha256:62301d0e5eb9290a24fb3ab3d9117f9dccc45160fbdee0ee7a176e9d02a21f2e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alpine/blobs/sha256:a7e085c449b40a91ecba38010375fd7f4ad9446c0a2cd490ed2dbf3da2b06f67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alpine/blobs/sha256:3a326ae9048a1ea6fe4403478254a7bb403c1a565486b96d7224138f1b2e3072
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alpine/blobs/sha256:26792044eea71951e4a6236711a8f29cb7e52e68ee289cac3c809815bbd484be
+sha256:
+  darwin_arm64: 62301d0e5eb9290a24fb3ab3d9117f9dccc45160fbdee0ee7a176e9d02a21f2e
+  darwin_amd64: a7e085c449b40a91ecba38010375fd7f4ad9446c0a2cd490ed2dbf3da2b06f67
+  linux_amd64: 3a326ae9048a1ea6fe4403478254a7bb403c1a565486b96d7224138f1b2e3072
+  linux_arm64: 26792044eea71951e4a6236711a8f29cb7e52e68ee289cac3c809815bbd484be
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,11 @@
+name: tortoisehg
+version: 7.0.1
+description: Tools for the Mercurial distributed revision control system
+homepage: https://tortoisehg.bitbucket.io/
+url:
+  darwin_arm64: https://www.mercurial-scm.org/release/tortoisehg/macos/TortoiseHg-7.0.1-mac-x64-qt5.dmg
+sha256:
+  darwin_arm64: 3d182c25ae5873d4f3886839e0768eb4dc84588f3a0f89bc5d61890b5e7a01b1
+artifacts:
+  app:
+    - TortoiseHg.app

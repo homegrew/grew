@@ -1,0 +1,21 @@
+name: wally
+version: 0.3.2
+description: Modern package manager for Roblox projects inspired by Cargo
+homepage: https://github.com/UpliftGames/wally
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wally/blobs/sha256:8c9d6350d3eefbe0f7ffdd8ae0e3848ecf54079dfffb4bb0dc820d41c802c2af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wally/blobs/sha256:985950f162544863811b7bb0757f8dc945036d81d5c3ac4eb8592e10ea04d62f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wally/blobs/sha256:6280085aae3f14cacdac8fd689cd77781132ce85b22afa0acae875c0e82811a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wally/blobs/sha256:e8ec8105b54551fc7277e01e3cbe506921aa0ec643c16722e58adf5fcf546668
+sha256:
+  darwin_arm64: 8c9d6350d3eefbe0f7ffdd8ae0e3848ecf54079dfffb4bb0dc820d41c802c2af
+  darwin_amd64: 985950f162544863811b7bb0757f8dc945036d81d5c3ac4eb8592e10ea04d62f
+  linux_amd64: 6280085aae3f14cacdac8fd689cd77781132ce85b22afa0acae875c0e82811a3
+  linux_arm64: e8ec8105b54551fc7277e01e3cbe506921aa0ec643c16722e58adf5fcf546668
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

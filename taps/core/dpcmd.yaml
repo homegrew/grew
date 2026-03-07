@@ -1,0 +1,21 @@
+name: dpcmd
+version: 1.14.21
+description: Linux software for DediProg SF100/SF600
+homepage: https://github.com/DediProgSW/SF100Linux
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dpcmd/blobs/sha256:4f5102a2acb2ba277359e059eb1bfc1c18b9608625c56b67b8a37c3bcc0208d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dpcmd/blobs/sha256:dc2fb2e33afad5b3aefec987d0f8e39de09fea5f8b2ea4face4e043c0f3e624d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dpcmd/blobs/sha256:dd4bb5c62758c86baf6c6a8211260e41c9311d3660d46d7f94f4b89bf2dd7b41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dpcmd/blobs/sha256:3808a79c440d4d319da04ad1623e85901363c5cfe7a07d5a48c245547e4aa2a7
+sha256:
+  darwin_arm64: 4f5102a2acb2ba277359e059eb1bfc1c18b9608625c56b67b8a37c3bcc0208d7
+  darwin_amd64: dc2fb2e33afad5b3aefec987d0f8e39de09fea5f8b2ea4face4e043c0f3e624d
+  linux_amd64: dd4bb5c62758c86baf6c6a8211260e41c9311d3660d46d7f94f4b89bf2dd7b41
+  linux_arm64: 3808a79c440d4d319da04ad1623e85901363c5cfe7a07d5a48c245547e4aa2a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

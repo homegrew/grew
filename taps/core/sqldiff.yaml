@@ -1,0 +1,19 @@
+name: sqldiff
+version: 3.51.2
+description: Displays the differences between SQLite databases
+homepage: https://www.sqlite.org/sqldiff.html
+license: blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqldiff/blobs/sha256:a403f5df2b55ede4c68c2f2875cf7bc4d891137cd2bad744cf34994758d23314
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqldiff/blobs/sha256:e2e142266571dd13804f99e61ce25a17f8403b8710b168b340f76b8c436e7bec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqldiff/blobs/sha256:c032c509444e725199c9199a703ea20f864dfab2e7cbdb16d1c070a21f21bcdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqldiff/blobs/sha256:40f9cbd0c8e7282d31e9e1b8a60753f0f46b700a55529ec7c0959931c84ad646
+sha256:
+  darwin_arm64: a403f5df2b55ede4c68c2f2875cf7bc4d891137cd2bad744cf34994758d23314
+  darwin_amd64: e2e142266571dd13804f99e61ce25a17f8403b8710b168b340f76b8c436e7bec
+  linux_amd64: c032c509444e725199c9199a703ea20f864dfab2e7cbdb16d1c070a21f21bcdd
+  linux_arm64: 40f9cbd0c8e7282d31e9e1b8a60753f0f46b700a55529ec7c0959931c84ad646
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

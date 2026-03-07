@@ -1,0 +1,21 @@
+name: ovsx
+version: 0.10.9
+description: Command-line interface for Eclipse Open VSX
+homepage: https://www.npmjs.com/package/ovsx
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ovsx/blobs/sha256:1a0c048b505c0172033daebe91ee545f2445faa3e01b9f327a9f904898cc43b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ovsx/blobs/sha256:82bc0d06d59ce7f296b1876fdb59a327ebb3d8de97807171989e37c7886368d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ovsx/blobs/sha256:f9487e993a5fe4edb8b5a9fbcc97306171167b682e13828c72abb4f53ce01b2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ovsx/blobs/sha256:27e4c65e095db9d22d61935bb77487b19682f5ca771067a203589187a463a952
+sha256:
+  darwin_arm64: 1a0c048b505c0172033daebe91ee545f2445faa3e01b9f327a9f904898cc43b8
+  darwin_amd64: 82bc0d06d59ce7f296b1876fdb59a327ebb3d8de97807171989e37c7886368d4
+  linux_amd64: f9487e993a5fe4edb8b5a9fbcc97306171167b682e13828c72abb4f53ce01b2f
+  linux_arm64: 27e4c65e095db9d22d61935bb77487b19682f5ca771067a203589187a463a952
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

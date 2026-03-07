@@ -1,0 +1,19 @@
+name: pachi
+version: 12.84
+description: Software for the Board Game of Go/Weiqi/Baduk
+homepage: https://pachi.or.cz/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pachi/blobs/sha256:3fc9dffa9c09610c0e425d534cfbffbf06ab07ad152c54772d36f7961ce6be33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pachi/blobs/sha256:08420848a56934b074a7044ceb0acc38c49c169a0d784b4b5bdf0af3431ba73c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pachi/blobs/sha256:eb13f42af4891d563b870f8840182c9b6f99f76dfd7afcfeaf9c1cbf8bff4790
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pachi/blobs/sha256:4b29e4d8ee8bf2f28f3aefbcd40f7c3042c14cb9398df6781006ada3e2e7ed51
+sha256:
+  darwin_arm64: 3fc9dffa9c09610c0e425d534cfbffbf06ab07ad152c54772d36f7961ce6be33
+  darwin_amd64: 08420848a56934b074a7044ceb0acc38c49c169a0d784b4b5bdf0af3431ba73c
+  linux_amd64: eb13f42af4891d563b870f8840182c9b6f99f76dfd7afcfeaf9c1cbf8bff4790
+  linux_arm64: 4b29e4d8ee8bf2f28f3aefbcd40f7c3042c14cb9398df6781006ada3e2e7ed51
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

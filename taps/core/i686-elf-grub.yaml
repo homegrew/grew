@@ -1,0 +1,22 @@
+name: i686-elf-grub
+version: 2.12
+description: GNU GRUB bootloader for i686-elf
+homepage: https://savannah.gnu.org/projects/grub
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-grub/blobs/sha256:e22e948d3c138afe51718fa03e908d0dafcc149ae3a027f76627e1482523523d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-grub/blobs/sha256:5e341e336a81fda461e2bbf400b025ed927874225fcb1357495cc357a25a73d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-grub/blobs/sha256:00052bc3758ba64638f3f1a34c2de0186a917fcd50d6ed4907b4db7786429573
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-grub/blobs/sha256:5533d33e3960b1f4a494ff0a0028c1057ffcc3f750ba5f38c41cce6aa74f6c31
+sha256:
+  darwin_arm64: e22e948d3c138afe51718fa03e908d0dafcc149ae3a027f76627e1482523523d
+  darwin_amd64: 5e341e336a81fda461e2bbf400b025ed927874225fcb1357495cc357a25a73d5
+  linux_amd64: 00052bc3758ba64638f3f1a34c2de0186a917fcd50d6ed4907b4db7786429573
+  linux_arm64: 5533d33e3960b1f4a494ff0a0028c1057ffcc3f750ba5f38c41cce6aa74f6c31
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz
+  - gettext

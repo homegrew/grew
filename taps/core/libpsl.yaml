@@ -1,0 +1,22 @@
+name: libpsl
+version: 0.21.5
+description: C library for the Public Suffix List
+homepage: https://rockdaboot.github.io/libpsl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpsl/blobs/sha256:f604c524a1fec0cdec0ff57613bdf371771e520eff91ef51783606e3d61f7922
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpsl/blobs/sha256:3aa78d021942e4012a59e090a6313445b30026b3b6b227e4e72e889454dd5de8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpsl/blobs/sha256:8dc10f9acd16c27df7a1ac79ccbd4b16dae4582ab2715266bac49c59fb08923a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpsl/blobs/sha256:2f0ed93187bf7b2611dcc0952220847f0967943bf136b6e839ed28b9e8e2cd23
+sha256:
+  darwin_arm64: f604c524a1fec0cdec0ff57613bdf371771e520eff91ef51783606e3d61f7922
+  darwin_amd64: 3aa78d021942e4012a59e090a6313445b30026b3b6b227e4e72e889454dd5de8
+  linux_amd64: 8dc10f9acd16c27df7a1ac79ccbd4b16dae4582ab2715266bac49c59fb08923a
+  linux_arm64: 2f0ed93187bf7b2611dcc0952220847f0967943bf136b6e839ed28b9e8e2cd23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2
+  - libunistring

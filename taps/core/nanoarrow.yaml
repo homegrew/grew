@@ -1,0 +1,19 @@
+name: nanoarrow
+version: 0.8.0
+description: "Helpers for Arrow C Data & Arrow C Stream interfaces"
+homepage: https://arrow.apache.org/nanoarrow
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nanoarrow/blobs/sha256:3be15a1432ef534229e44b2fedc889dfb66a9926e6321dc0734533c4ec023305
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nanoarrow/blobs/sha256:76d6d0478a00c229569fc038bd5d14e849878ef01c5d33e616b9239367f6453d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nanoarrow/blobs/sha256:e76f0d672cc78711442eb6426aa42305a5964e62e88f79cbd4f4bd88cc7d38af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nanoarrow/blobs/sha256:529e8d6aa3e287726a199029bd9906f16a6d17520ea758594338b2dfff1ee328
+sha256:
+  darwin_arm64: 3be15a1432ef534229e44b2fedc889dfb66a9926e6321dc0734533c4ec023305
+  darwin_amd64: 76d6d0478a00c229569fc038bd5d14e849878ef01c5d33e616b9239367f6453d
+  linux_amd64: e76f0d672cc78711442eb6426aa42305a5964e62e88f79cbd4f4bd88cc7d38af
+  linux_arm64: 529e8d6aa3e287726a199029bd9906f16a6d17520ea758594338b2dfff1ee328
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: libidn2
+version: 2.3.8
+description: International domain name library (IDNA2008, Punycode and TR46)
+homepage: https://www.gnu.org/software/libidn/#libidn2
+license: (GPL-2.0-or-later OR LGPL-3.0-or-later) AND (Unicode-TOU AND Unicode-DFS-2016) AND GPL-3.0-or-later AND LGPL-2.1-or-later AND FSFAP-no-warranty-disclaimer
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:f8f1b459f15a4ac11d2dce786a9140509782227b7d499cbdf3a1279dd325d90b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:ef2c85790a55f54f58fceb849e1ee46f2b06ebe516c83043e68c979e47934e6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:9e8c065bb543ee967667db82c00185419a108555ecbd965b2e6cebe202472e7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:25d5d1e8d6893f66f15c0f94f88be9618d47e5cd65d6391d938478d3cf75c7b0
+sha256:
+  darwin_arm64: f8f1b459f15a4ac11d2dce786a9140509782227b7d499cbdf3a1279dd325d90b
+  darwin_amd64: ef2c85790a55f54f58fceb849e1ee46f2b06ebe516c83043e68c979e47934e6f
+  linux_amd64: 9e8c065bb543ee967667db82c00185419a108555ecbd965b2e6cebe202472e7f
+  linux_arm64: 25d5d1e8d6893f66f15c0f94f88be9618d47e5cd65d6391d938478d3cf75c7b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libunistring
+  - gettext

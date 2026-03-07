@@ -1,0 +1,19 @@
+name: iodine
+version: 0.8.0
+description: Tunnel IPv4 traffic through a DNS server
+homepage: https://code.kryo.se/iodine
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iodine/blobs/sha256:a8e87d64fdc26c599c69d781412172b9393917733d1994e3687f4c435d32fa0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iodine/blobs/sha256:ab1dad85f08ae67fef8adfff742b87f8771351448a2dc30cf0ea3c8f28ab1350
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iodine/blobs/sha256:ba56bb7d3d06fd6fd4fa2ca908c17dec0b5724a49247c105c456b57c6b4111f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iodine/blobs/sha256:98b07d712bd33ca41e4f06ddd68e3976371e7cc79fd5a4ad26614bcc0cfb4bc6
+sha256:
+  darwin_arm64: a8e87d64fdc26c599c69d781412172b9393917733d1994e3687f4c435d32fa0c
+  darwin_amd64: ab1dad85f08ae67fef8adfff742b87f8771351448a2dc30cf0ea3c8f28ab1350
+  linux_amd64: ba56bb7d3d06fd6fd4fa2ca908c17dec0b5724a49247c105c456b57c6b4111f8
+  linux_arm64: 98b07d712bd33ca41e4f06ddd68e3976371e7cc79fd5a4ad26614bcc0cfb4bc6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

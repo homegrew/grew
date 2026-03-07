@@ -1,0 +1,17 @@
+name: iputils
+version: 20250605
+description: Set of small useful utilities for Linux networking
+homepage: https://github.com/iputils/iputils
+license: GPL-2.0-or-later AND BSD-3-Clause
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iputils/blobs/sha256:70b1f0b987ee90225aecb3dec9012bdc1a8e25cb5f6b0530af39dae2c46970bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iputils/blobs/sha256:37484fe1294ed3aa7acb9e302b59eff14e200c35659d8e1efdfdfb1fad80ecae
+sha256:
+  linux_amd64: 70b1f0b987ee90225aecb3dec9012bdc1a8e25cb5f6b0530af39dae2c46970bc
+  linux_arm64: 37484fe1294ed3aa7acb9e302b59eff14e200c35659d8e1efdfdfb1fad80ecae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxslt

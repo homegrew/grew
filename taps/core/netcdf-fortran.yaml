@@ -1,0 +1,22 @@
+name: netcdf-fortran
+version: 4.6.2
+description: Fortran libraries and utilities for NetCDF
+homepage: https://www.unidata.ucar.edu/software/netcdf/
+license: NetCDF
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netcdf-fortran/blobs/sha256:7201bd78c6bdf89900c295717ec925c1a29e98d86c568efe09fab3cab906ad96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netcdf-fortran/blobs/sha256:e6fd6c9ef98bd9a1598007909f3ce4b2d0d7fc0c36157146924197ab722d7426
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netcdf-fortran/blobs/sha256:c43bc1f9b6084692f9dec942860261facb88aa2fff0d5c9989843d8297e6dbdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netcdf-fortran/blobs/sha256:6e64fc9a9d7cdeecd02e16f6d5ecf60e6244f99ce9cdda0e49f17e4028c9f8cd
+sha256:
+  darwin_arm64: 7201bd78c6bdf89900c295717ec925c1a29e98d86c568efe09fab3cab906ad96
+  darwin_amd64: e6fd6c9ef98bd9a1598007909f3ce4b2d0d7fc0c36157146924197ab722d7426
+  linux_amd64: c43bc1f9b6084692f9dec942860261facb88aa2fff0d5c9989843d8297e6dbdd
+  linux_arm64: 6e64fc9a9d7cdeecd02e16f6d5ecf60e6244f99ce9cdda0e49f17e4028c9f8cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - netcdf

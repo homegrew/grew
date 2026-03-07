@@ -1,0 +1,24 @@
+name: qalculate-qt
+version: 5.9.0
+description: Multi-purpose desktop calculator
+homepage: https://qalculate.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qalculate-qt/blobs/sha256:68951fa9b696f107a1bb8cb603031ae7e1ea90accd7d04ac0d50952ace5078ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qalculate-qt/blobs/sha256:c0aca1b086f02bdf72478865882b1ec7ac1f00f2554d31c386d41c6cf926a797
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qalculate-qt/blobs/sha256:bc30f8723c18ee04a1556e209a0cfeebc7262c0342654c791d610cc7ea0d68db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qalculate-qt/blobs/sha256:b3ff58539bbe16e17dc7eacfbed3eb44f73b333a15776d1eda92485004471a77
+sha256:
+  darwin_arm64: 68951fa9b696f107a1bb8cb603031ae7e1ea90accd7d04ac0d50952ace5078ba
+  darwin_amd64: c0aca1b086f02bdf72478865882b1ec7ac1f00f2554d31c386d41c6cf926a797
+  linux_amd64: bc30f8723c18ee04a1556e209a0cfeebc7262c0342654c791d610cc7ea0d68db
+  linux_arm64: b3ff58539bbe16e17dc7eacfbed3eb44f73b333a15776d1eda92485004471a77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libqalculate
+  - qtbase
+  - gmp
+  - mpfr

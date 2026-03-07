@@ -1,0 +1,21 @@
+name: alda
+version: 2.4.1
+description: Music programming language for musicians
+homepage: https://alda.io
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alda/blobs/sha256:75c0b47d258e6e7913f766db0c22819679c4b5fe565d8b2e75817071a954a4c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alda/blobs/sha256:6282e20ee062a9a29f7171d78509ae39db4f2c6a9b795b9cfcd5e75513880f56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alda/blobs/sha256:e9971beaa735a115cda3d3b9ec2feff88025370c0712636d7ce0b7003e0e6a31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alda/blobs/sha256:43c9caa77b36a35e9a877d567e8b3137170bf1141aa959f174ff8d6ba20c5553
+sha256:
+  darwin_arm64: 75c0b47d258e6e7913f766db0c22819679c4b5fe565d8b2e75817071a954a4c9
+  darwin_amd64: 6282e20ee062a9a29f7171d78509ae39db4f2c6a9b795b9cfcd5e75513880f56
+  linux_amd64: e9971beaa735a115cda3d3b9ec2feff88025370c0712636d7ce0b7003e0e6a31
+  linux_arm64: 43c9caa77b36a35e9a877d567e8b3137170bf1141aa959f174ff8d6ba20c5553
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

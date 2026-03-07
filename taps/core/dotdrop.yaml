@@ -1,0 +1,23 @@
+name: dotdrop
+version: 1.15.0
+description: Save your dotfiles once, deploy them everywhere
+homepage: https://github.com/deadc0de6/dotdrop
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotdrop/blobs/sha256:7d919b35517a87294b333d3724b7220faa43cebfa9e818709866eae9e8f4c6c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotdrop/blobs/sha256:1cfc427630c16fdd8751a5587255a23d01458f7c2c1b92d0da76a82538077c75
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotdrop/blobs/sha256:9fb159a10f45dd7b27bcb421bc9d9b91e3f8d37ac9b5b982df8c2acd05864617
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotdrop/blobs/sha256:181bbc4727f74de35553ef27d3722d6af8f144ab76f5eb66f32686e9a625f609
+sha256:
+  darwin_arm64: 7d919b35517a87294b333d3724b7220faa43cebfa9e818709866eae9e8f4c6c5
+  darwin_amd64: 1cfc427630c16fdd8751a5587255a23d01458f7c2c1b92d0da76a82538077c75
+  linux_amd64: 9fb159a10f45dd7b27bcb421bc9d9b91e3f8d37ac9b5b982df8c2acd05864617
+  linux_arm64: 181bbc4727f74de35553ef27d3722d6af8f144ab76f5eb66f32686e9a625f609
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libmagic
+  - python@3.14

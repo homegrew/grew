@@ -1,0 +1,25 @@
+name: badkeys
+version: 0.0.17
+description: Tool to find common vulnerabilities in cryptographic public keys
+homepage: https://badkeys.info
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/badkeys/blobs/sha256:ff514f83c3e336777e658ed4113ae33d55003a5ea623aa3ace810e94fa9d00fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/badkeys/blobs/sha256:c4d385ff9e584c3289891e8eb78f4b35158995da701895458ff8e9fab6d4b0d4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/badkeys/blobs/sha256:449c92c21e80fed4714358834e26b652047fdd9865bf75c53e8f494328f0afac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/badkeys/blobs/sha256:342bf80dcfc695ac6fe4ee708ebad245ed26211cd4bbba4345b262d20ecc8680
+sha256:
+  darwin_arm64: ff514f83c3e336777e658ed4113ae33d55003a5ea623aa3ace810e94fa9d00fe
+  darwin_amd64: c4d385ff9e584c3289891e8eb78f4b35158995da701895458ff8e9fab6d4b0d4
+  linux_amd64: 449c92c21e80fed4714358834e26b652047fdd9865bf75c53e8f494328f0afac
+  linux_arm64: 342bf80dcfc695ac6fe4ee708ebad245ed26211cd4bbba4345b262d20ecc8680
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - gmp
+  - libmpc
+  - mpfr
+  - python@3.14

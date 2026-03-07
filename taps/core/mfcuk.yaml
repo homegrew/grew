@@ -1,0 +1,22 @@
+name: mfcuk
+version: 0.3.8
+description: MiFare Classic Universal toolKit
+homepage: https://github.com/nfc-tools/mfcuk
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mfcuk/blobs/sha256:d64c65224a51793f1dd148741d3750dfed188a452c99793321837ee4e6ff98e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mfcuk/blobs/sha256:f9b5beef9f7da2eebc104e24cd3fa5021a0cd0b5a592931f7ca8e7e90ededffb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mfcuk/blobs/sha256:ce46cb3bb5f400139ff5e306dbdd76d4e1c0fe62acd3b9bc5711e3cc734ee835
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mfcuk/blobs/sha256:360682a51ff5e48899affc75b1fa66db90faf99ebdde7059cc0dce49f319bf03
+sha256:
+  darwin_arm64: d64c65224a51793f1dd148741d3750dfed188a452c99793321837ee4e6ff98e0
+  darwin_amd64: f9b5beef9f7da2eebc104e24cd3fa5021a0cd0b5a592931f7ca8e7e90ededffb
+  linux_amd64: ce46cb3bb5f400139ff5e306dbdd76d4e1c0fe62acd3b9bc5711e3cc734ee835
+  linux_arm64: 360682a51ff5e48899affc75b1fa66db90faf99ebdde7059cc0dce49f319bf03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnfc
+  - libusb

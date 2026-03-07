@@ -1,0 +1,19 @@
+name: shmux
+version: 1.0.3
+description: Execute the same command on many hosts in parallel
+homepage: https://github.com/shmux/shmux
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shmux/blobs/sha256:41cc598c5c1b6b397128af5342ad323ee355c48d782af7f574d0f9f73a5caf14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shmux/blobs/sha256:902fe0e6668abbd51c33c4c6cd85a0933b5e94650b319ea57d9b0581440a8d95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shmux/blobs/sha256:c1e347248987cfaeb250cff852feeab54fe709da0f69d9c560170f46c05feaf4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shmux/blobs/sha256:31b4fe74dd2467977c7653c9b58e27fed41ff1238daf825c193678986797521e
+sha256:
+  darwin_arm64: 41cc598c5c1b6b397128af5342ad323ee355c48d782af7f574d0f9f73a5caf14
+  darwin_amd64: 902fe0e6668abbd51c33c4c6cd85a0933b5e94650b319ea57d9b0581440a8d95
+  linux_amd64: c1e347248987cfaeb250cff852feeab54fe709da0f69d9c560170f46c05feaf4
+  linux_arm64: 31b4fe74dd2467977c7653c9b58e27fed41ff1238daf825c193678986797521e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

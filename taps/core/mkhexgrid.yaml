@@ -1,0 +1,21 @@
+name: mkhexgrid
+version: 0.1.1
+description: Fully-configurable hex grid generator
+homepage: https://www.nomic.net/~uckelman/mkhexgrid/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkhexgrid/blobs/sha256:7e545dda93b7418fc133c0c9f5d28a9a72fa1f390601b23cd1d69cb2d67dcee2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkhexgrid/blobs/sha256:3f54c9d59ded252490c2a81aae8ddb0c90539b707dd0f81a27212bc49446fdb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkhexgrid/blobs/sha256:a52fcf963685daee9a1f8ab938b009639886dfb1f2a71cdf93969ff4a5d6bfc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkhexgrid/blobs/sha256:77c7cc16e457e6287b0103e3ed7d2468aa87c6c49886ecac6b00651fad089bcb
+sha256:
+  darwin_arm64: 7e545dda93b7418fc133c0c9f5d28a9a72fa1f390601b23cd1d69cb2d67dcee2
+  darwin_amd64: 3f54c9d59ded252490c2a81aae8ddb0c90539b707dd0f81a27212bc49446fdb4
+  linux_amd64: a52fcf963685daee9a1f8ab938b009639886dfb1f2a71cdf93969ff4a5d6bfc3
+  linux_arm64: 77c7cc16e457e6287b0103e3ed7d2468aa87c6c49886ecac6b00651fad089bcb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd

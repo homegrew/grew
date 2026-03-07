@@ -1,0 +1,17 @@
+name: libdrm
+version: 2.4.131
+description: Library for accessing the direct rendering manager
+homepage: https://dri.freedesktop.org
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdrm/blobs/sha256:e6e163f4d2c2ee0b301eb97d5c4e3f80c5c1b57d2ee1d0c101d2acd8627b5f34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdrm/blobs/sha256:ce4692f32807a92ce51344eca2f4a6458ff21efebe59aeb8234feadf034b0606
+sha256:
+  linux_amd64: e6e163f4d2c2ee0b301eb97d5c4e3f80c5c1b57d2ee1d0c101d2acd8627b5f34
+  linux_arm64: ce4692f32807a92ce51344eca2f4a6458ff21efebe59aeb8234feadf034b0606
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpciaccess

@@ -1,0 +1,22 @@
+name: python-yq
+version: 3.4.3
+description: Command-line YAML and XML processor that wraps jq
+homepage: https://kislyuk.github.io/yq/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/python-yq/blobs/sha256:78582756df6d73b461cb5d48153aa07693ba9966df4b870d2947c35ba65d96f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/python-yq/blobs/sha256:0f215ad7173ff1309208dd0526c061d50f5b6b7838853b704fb1c9923473bdf4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/python-yq/blobs/sha256:ece36385f46a4d31df2fd58129088085b20ca6a964dfb8b8b02b6ec90361e14c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/python-yq/blobs/sha256:524ae6c009837ecb5d6c6dab1d93038040d93dce3864c6de2fa477eb0f285806
+sha256:
+  darwin_arm64: 78582756df6d73b461cb5d48153aa07693ba9966df4b870d2947c35ba65d96f3
+  darwin_amd64: 0f215ad7173ff1309208dd0526c061d50f5b6b7838853b704fb1c9923473bdf4
+  linux_amd64: ece36385f46a4d31df2fd58129088085b20ca6a964dfb8b8b02b6ec90361e14c
+  linux_arm64: 524ae6c009837ecb5d6c6dab1d93038040d93dce3864c6de2fa477eb0f285806
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

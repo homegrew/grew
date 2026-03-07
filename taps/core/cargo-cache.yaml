@@ -1,0 +1,19 @@
+name: cargo-cache
+version: 0.8.3
+description: Display information on the cargo cache, plus optional cache pruning
+homepage: https://github.com/matthiaskrgr/cargo-cache
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-cache/blobs/sha256:8ae58970c1cad67cab7d1c1ed0b354989d34eccfcdaaead753754d12eca1aa2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-cache/blobs/sha256:32cc1e6a496f5a5668f098b86af3d456412a7c8066a739aa62e9cb1c80c9d47f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-cache/blobs/sha256:66ba80fe970d805ce31c1df5a8847af3d515d0bc81df6d142c5d287e7b923549
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-cache/blobs/sha256:64d31e9da185cca1ee9d2ce9f27bf9a0339d00abb25f3e7fb0bbc7b79a4b0eae
+sha256:
+  darwin_arm64: 8ae58970c1cad67cab7d1c1ed0b354989d34eccfcdaaead753754d12eca1aa2b
+  darwin_amd64: 32cc1e6a496f5a5668f098b86af3d456412a7c8066a739aa62e9cb1c80c9d47f
+  linux_amd64: 66ba80fe970d805ce31c1df5a8847af3d515d0bc81df6d142c5d287e7b923549
+  linux_arm64: 64d31e9da185cca1ee9d2ce9f27bf9a0339d00abb25f3e7fb0bbc7b79a4b0eae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

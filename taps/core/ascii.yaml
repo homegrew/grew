@@ -1,0 +1,19 @@
+name: ascii
+version: 3.32
+description: List ASCII idiomatic names and octal/decimal code-point forms
+homepage: http://www.catb.org/~esr/ascii/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ascii/blobs/sha256:dab01b3541b12d1b64df0115702613b61b57189b5deb21b464bd9316dad77fc1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ascii/blobs/sha256:74644cff9063f9317600ef45e8d3d0ff457f944a40f0f6f7481540744a5d19a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ascii/blobs/sha256:b0889952e24a573950f01ab2c9f8c5e292c726f56f9380850f6e47831bf4da20
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ascii/blobs/sha256:a4d5665d1967f1b236d23700ffd48d89c8386da50a83511631adc3450734daab
+sha256:
+  darwin_arm64: dab01b3541b12d1b64df0115702613b61b57189b5deb21b464bd9316dad77fc1
+  darwin_amd64: 74644cff9063f9317600ef45e8d3d0ff457f944a40f0f6f7481540744a5d19a4
+  linux_amd64: b0889952e24a573950f01ab2c9f8c5e292c726f56f9380850f6e47831bf4da20
+  linux_arm64: a4d5665d1967f1b236d23700ffd48d89c8386da50a83511631adc3450734daab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

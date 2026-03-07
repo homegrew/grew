@@ -1,0 +1,19 @@
+name: posh
+version: 0.14.3
+description: Policy-compliant ordinary shell
+homepage: https://salsa.debian.org/clint/posh
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/posh/blobs/sha256:180e38dcaededb7bf2f1ed55b02adcb756136ddca91ac11e8bbeba57a525afaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/posh/blobs/sha256:9f665cf7536a4dd8f70f99b8d39af44c06980cc8e7e01905c7acc9f342a47f6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/posh/blobs/sha256:359384c23a46977a8891636407294023a59917d078758f4deed7db1fae57a1ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/posh/blobs/sha256:752c708a0cbe2e63ac77e1261e5a9c3773a4cd331de54b9b9f90282a90cb3940
+sha256:
+  darwin_arm64: 180e38dcaededb7bf2f1ed55b02adcb756136ddca91ac11e8bbeba57a525afaa
+  darwin_amd64: 9f665cf7536a4dd8f70f99b8d39af44c06980cc8e7e01905c7acc9f342a47f6b
+  linux_amd64: 359384c23a46977a8891636407294023a59917d078758f4deed7db1fae57a1ba
+  linux_arm64: 752c708a0cbe2e63ac77e1261e5a9c3773a4cd331de54b9b9f90282a90cb3940
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

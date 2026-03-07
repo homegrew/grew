@@ -1,0 +1,11 @@
+name: gyroflow
+version: 1.6.3
+description: Video stabilization using gyroscope data
+homepage: https://gyroflow.xyz/
+url:
+  darwin_arm64: https://github.com/gyroflow/gyroflow/releases/download/v1.6.3/Gyroflow-mac-universal.dmg
+sha256:
+  darwin_arm64: fbe26793c639f1410d8995debad188721587108cb6a74224e879f79e4bb8a1c0
+artifacts:
+  app:
+    - Gyroflow.app

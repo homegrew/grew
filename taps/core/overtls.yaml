@@ -1,0 +1,19 @@
+name: overtls
+version: 0.3.7
+description: Simple proxy tunnel for bypassing the GFW
+homepage: https://github.com/ShadowsocksR-Live/overtls
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/overtls/blobs/sha256:d47a088a1927db94fa165f249f77b6b2cdbe2315044911c5d0f92ce9954586be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/overtls/blobs/sha256:566b3e119c4fedfe02f1e4df77f0fa50526e0c89d08cdd8ef6200f091021f7f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/overtls/blobs/sha256:60674e013d27dad2fbf9dd616413dd75fbc3c83de0bc8caa0e2ee713a9641381
+  linux_arm64: https://ghcr.io/v2/homebrew/core/overtls/blobs/sha256:f1769bbc2efb4b636fc3afd84ce3468c95bc891d834438ef5a4224cad19326eb
+sha256:
+  darwin_arm64: d47a088a1927db94fa165f249f77b6b2cdbe2315044911c5d0f92ce9954586be
+  darwin_amd64: 566b3e119c4fedfe02f1e4df77f0fa50526e0c89d08cdd8ef6200f091021f7f7
+  linux_amd64: 60674e013d27dad2fbf9dd616413dd75fbc3c83de0bc8caa0e2ee713a9641381
+  linux_arm64: f1769bbc2efb4b636fc3afd84ce3468c95bc891d834438ef5a4224cad19326eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

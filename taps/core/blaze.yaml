@@ -1,0 +1,21 @@
+name: blaze
+version: 3.8.2
+description: High-performance C++ math library for dense and sparse arithmetic
+homepage: https://bitbucket.org/blaze-lib/blaze
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blaze/blobs/sha256:1f564399ba9c93c4246e3cf3679b5b49661edb3ad9077afab40f94c220e6d49c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blaze/blobs/sha256:7db24bba973ce27f8e880f789e40d69fa6fa72397b82c2684c4571ad10d79d10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blaze/blobs/sha256:d0ca0507adf1a1c979a0446130bff037163e335a12cd8d0517cd83b1209ce206
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blaze/blobs/sha256:bd2428d2baba5bb1a0ee1ff74c7dc1c106d3f809306d9d0de5b271e84797b4a4
+sha256:
+  darwin_arm64: 1f564399ba9c93c4246e3cf3679b5b49661edb3ad9077afab40f94c220e6d49c
+  darwin_amd64: 7db24bba973ce27f8e880f789e40d69fa6fa72397b82c2684c4571ad10d79d10
+  linux_amd64: d0ca0507adf1a1c979a0446130bff037163e335a12cd8d0517cd83b1209ce206
+  linux_arm64: bd2428d2baba5bb1a0ee1ff74c7dc1c106d3f809306d9d0de5b271e84797b4a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas

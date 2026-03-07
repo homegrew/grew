@@ -1,0 +1,24 @@
+name: cgl
+version: 0.60.9
+description: Cut Generation Library
+homepage: https://github.com/coin-or/Cgl
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgl/blobs/sha256:7c48862206356a3de287f28c00be2ab401847f28ae124e7c55daed083d4a95a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgl/blobs/sha256:1fda61fd0c019c89b0fe7bcd9accd0bcb9bd197ecbd076b6992d976c1386d97c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgl/blobs/sha256:59464aa62dd9a8016b3b46d99246b734bc9eaee228eaca8aac5c757e709158ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgl/blobs/sha256:2fe70eaaab988117b3ef31682155ac14f031617fb0b0c2693655ccbfbdfab509
+sha256:
+  darwin_arm64: 7c48862206356a3de287f28c00be2ab401847f28ae124e7c55daed083d4a95a0
+  darwin_amd64: 1fda61fd0c019c89b0fe7bcd9accd0bcb9bd197ecbd076b6992d976c1386d97c
+  linux_amd64: 59464aa62dd9a8016b3b46d99246b734bc9eaee228eaca8aac5c757e709158ad
+  linux_arm64: 2fe70eaaab988117b3ef31682155ac14f031617fb0b0c2693655ccbfbdfab509
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - clp
+  - coinutils
+  - osi
+  - openblas

@@ -1,0 +1,19 @@
+name: minica
+version: 1.1.0
+description: Small, simple certificate authority
+homepage: https://github.com/jsha/minica
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minica/blobs/sha256:c9feab61490a6975219259e16f34d0d1f283775bf3554b77f56f3796958162a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minica/blobs/sha256:e65d5ccc5f4703009f8b2d0a460dc883711c71a4814c06921c2ea98dfd797f8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minica/blobs/sha256:ea318ca6a9231fd445ec38d2905f6b5de30ce697dcedeb9d8ae5127f9634500f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minica/blobs/sha256:7bb26e4da3fb0a4744f488416535864c2ef4b8ce4622f95cf591b76a18e2e03b
+sha256:
+  darwin_arm64: c9feab61490a6975219259e16f34d0d1f283775bf3554b77f56f3796958162a7
+  darwin_amd64: e65d5ccc5f4703009f8b2d0a460dc883711c71a4814c06921c2ea98dfd797f8a
+  linux_amd64: ea318ca6a9231fd445ec38d2905f6b5de30ce697dcedeb9d8ae5127f9634500f
+  linux_arm64: 7bb26e4da3fb0a4744f488416535864c2ef4b8ce4622f95cf591b76a18e2e03b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

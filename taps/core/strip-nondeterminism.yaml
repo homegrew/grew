@@ -1,0 +1,19 @@
+name: strip-nondeterminism
+version: 1.15.0
+description: Tool for stripping bits of non-deterministic information from files
+homepage: https://salsa.debian.org/reproducible-builds/strip-nondeterminism
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/strip-nondeterminism/blobs/sha256:c74b1e7b349d3122995ac522942d868a2eb8d4d18914a36df9a2f2a4599e986f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/strip-nondeterminism/blobs/sha256:8f010fb1fe507739c9e008422a72e7d03b9574da8f3dbf40d361bab0808c028b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/strip-nondeterminism/blobs/sha256:e32a0e8ea3c0201f2e8cc448b4b7acfc759b22f14c5315466da11c6db73e2eb3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/strip-nondeterminism/blobs/sha256:5ff6a548bec5370e987393aa9edf3fb3a10a41409050327af3d70ae3189375a2
+sha256:
+  darwin_arm64: c74b1e7b349d3122995ac522942d868a2eb8d4d18914a36df9a2f2a4599e986f
+  darwin_amd64: 8f010fb1fe507739c9e008422a72e7d03b9574da8f3dbf40d361bab0808c028b
+  linux_amd64: e32a0e8ea3c0201f2e8cc448b4b7acfc759b22f14c5315466da11c6db73e2eb3
+  linux_arm64: 5ff6a548bec5370e987393aa9edf3fb3a10a41409050327af3d70ae3189375a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

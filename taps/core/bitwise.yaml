@@ -1,0 +1,21 @@
+name: bitwise
+version: 0.50
+description: Terminal based bit manipulator in ncurses
+homepage: https://github.com/mellowcandle/bitwise
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bitwise/blobs/sha256:9f6712da2de2e93861c008540f524f5b60be33054db0acb064d82a26322c361d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bitwise/blobs/sha256:66b9022c3207ba8c0b9b9b3a530dfd1403d9fc3ed4c5e991ee01d7d3aafb3635
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bitwise/blobs/sha256:843a3614b4b1ce32529429588fbc60289bfdf91086658666c850be7f88c1baca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bitwise/blobs/sha256:576e3966940ee9afff289f542a29073600a1b131c234e6ef49c0b59eb2cde5c1
+sha256:
+  darwin_arm64: 9f6712da2de2e93861c008540f524f5b60be33054db0acb064d82a26322c361d
+  darwin_amd64: 66b9022c3207ba8c0b9b9b3a530dfd1403d9fc3ed4c5e991ee01d7d3aafb3635
+  linux_amd64: 843a3614b4b1ce32529429588fbc60289bfdf91086658666c850be7f88c1baca
+  linux_arm64: 576e3966940ee9afff289f542a29073600a1b131c234e6ef49c0b59eb2cde5c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

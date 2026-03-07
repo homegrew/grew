@@ -1,0 +1,11 @@
+name: yandex-music
+version: 5.90.0
+description: Tune in to Yandex Music and get personal recommendations
+homepage: https://music.yandex.ru/
+url:
+  darwin_arm64: https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_universal_5.90.0.dmg
+sha256:
+  darwin_arm64: e67296d5a66cc3a4cfb103117c20e9b14b37d92e53177cd38f7e1cf64063eaf6
+artifacts:
+  app:
+    - Яндекс Музыка.app

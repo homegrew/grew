@@ -1,0 +1,23 @@
+name: allureofthestars
+version: 0.11.0.0
+description: Near-future Sci-Fi roguelike and tactical squad combat game
+homepage: https://allureofthestars.com/
+license: AGPL-3.0-or-later AND GPL-2.0-or-later AND OFL-1.1 AND MIT AND Bitstream-Vera
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/allureofthestars/blobs/sha256:786bcd9f1837c4e3c9c5f4663251c4b10ea6e60cfb31adb8b0532e6e575edbf8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/allureofthestars/blobs/sha256:44c9d439e03e805411e9ae5226bb09de0ea12a1d5995d2bafa8ecc172318b355
+  linux_amd64: https://ghcr.io/v2/homebrew/core/allureofthestars/blobs/sha256:e3fc6ce4dca4b6c6a4274bc6c5249228f50616098ca990b9b0d055c2cb725852
+  linux_arm64: https://ghcr.io/v2/homebrew/core/allureofthestars/blobs/sha256:962870edbfbb1f10a5dcf07ffd5e92cbdcf23e60435e780962c923979619e785
+sha256:
+  darwin_arm64: 786bcd9f1837c4e3c9c5f4663251c4b10ea6e60cfb31adb8b0532e6e575edbf8
+  darwin_amd64: 44c9d439e03e805411e9ae5226bb09de0ea12a1d5995d2bafa8ecc172318b355
+  linux_amd64: e3fc6ce4dca4b6c6a4274bc6c5249228f50616098ca990b9b0d055c2cb725852
+  linux_arm64: 962870edbfbb1f10a5dcf07ffd5e92cbdcf23e60435e780962c923979619e785
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - sdl2
+  - sdl2_ttf

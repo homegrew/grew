@@ -1,0 +1,24 @@
+name: bzt
+version: 1.16.49
+description: BlazeMeter Taurus
+homepage: https://gettaurus.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bzt/blobs/sha256:7ad1b12359501161d3bd2a28112d3942f483bea42462e9b4f3da61ef29f99e85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bzt/blobs/sha256:ade5075d6d808cd94c9798297f79be18be82f21237406a591328b1b0d44ea9db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bzt/blobs/sha256:5d94381e3756ed90282d763eb25671e1ca5560a3a7357f399d30d488e5ef2e93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bzt/blobs/sha256:b7a281decd80852429aa87588c4dbd4ee01c77c1becc43896cc00e1e284af063
+sha256:
+  darwin_arm64: 7ad1b12359501161d3bd2a28112d3942f483bea42462e9b4f3da61ef29f99e85
+  darwin_amd64: ade5075d6d808cd94c9798297f79be18be82f21237406a591328b1b0d44ea9db
+  linux_amd64: 5d94381e3756ed90282d763eb25671e1ca5560a3a7357f399d30d488e5ef2e93
+  linux_arm64: b7a281decd80852429aa87588c4dbd4ee01c77c1becc43896cc00e1e284af063
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - numpy
+  - python@3.14

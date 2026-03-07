@@ -1,0 +1,21 @@
+name: gtop
+version: 1.1.5
+description: System monitoring dashboard for terminal
+homepage: https://github.com/aksakalli/gtop
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtop/blobs/sha256:aeecdb4bbb42c07c1a990d31f2cc69bc6dd861897ce5e6f29cc69b6c4a5ea3ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtop/blobs/sha256:c553e5fc33023ca5721afcfa8a427ee24728fe83c4b3b959f7c2f297d9d7765b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gtop/blobs/sha256:51f39616a98ddb6a0f1bf391b3c2155e1b0ba0c192ddb8c735dfb6ae5a24fed7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gtop/blobs/sha256:dbd2e93ffe00474fa327abc717c860e3d4254e09449c83cc01b1e860f3d6ea2a
+sha256:
+  darwin_arm64: aeecdb4bbb42c07c1a990d31f2cc69bc6dd861897ce5e6f29cc69b6c4a5ea3ad
+  darwin_amd64: c553e5fc33023ca5721afcfa8a427ee24728fe83c4b3b959f7c2f297d9d7765b
+  linux_amd64: 51f39616a98ddb6a0f1bf391b3c2155e1b0ba0c192ddb8c735dfb6ae5a24fed7
+  linux_arm64: dbd2e93ffe00474fa327abc717c860e3d4254e09449c83cc01b1e860f3d6ea2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

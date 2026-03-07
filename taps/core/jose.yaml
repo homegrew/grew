@@ -1,0 +1,22 @@
+name: jose
+version: 14
+description: C-language implementation of Javascript Object Signing and Encryption
+homepage: https://github.com/latchset/jose
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jose/blobs/sha256:67229f3071c21858f07f5a5f43072531c49e2397d161f8bf505f25ce0c9f2184
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jose/blobs/sha256:e381e6924862e4d6184176e9945f51465c25fbb5ec580e0e7d29cfbfab1087df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jose/blobs/sha256:7cc9ebb45c81fced9dbfece96ad5007a334bff37817cdd93605dcecfe9d67c0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jose/blobs/sha256:859ce789ed3684e96d57e5bf3c3146b63e5ae70fce3fc7d798a3f0af2e084286
+sha256:
+  darwin_arm64: 67229f3071c21858f07f5a5f43072531c49e2397d161f8bf505f25ce0c9f2184
+  darwin_amd64: e381e6924862e4d6184176e9945f51465c25fbb5ec580e0e7d29cfbfab1087df
+  linux_amd64: 7cc9ebb45c81fced9dbfece96ad5007a334bff37817cdd93605dcecfe9d67c0f
+  linux_arm64: 859ce789ed3684e96d57e5bf3c3146b63e5ae70fce3fc7d798a3f0af2e084286
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jansson
+  - openssl@3

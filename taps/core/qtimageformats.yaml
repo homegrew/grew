@@ -1,0 +1,26 @@
+name: qtimageformats
+version: 6.10.2
+description: "Plugins for additional image formats: TIFF, MNG, TGA, WBMP"
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtimageformats/blobs/sha256:a729f9f5f99df3dfd76cb76f1801765a90860a90dddb34481302dea23bb3d80e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtimageformats/blobs/sha256:3ff74a6f3f8e679e1a9c74f3fbfac48f31ea3787a5394cdd57931a83be56cdb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtimageformats/blobs/sha256:b59afe6136898b905d57aa0404697e9046a8d8d6fae03cbe6b6f3b3712eb2e9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtimageformats/blobs/sha256:273786f628e638d04527b2060a8fad067bcd0ec253c02a49f6904daa2be9b4a7
+sha256:
+  darwin_arm64: a729f9f5f99df3dfd76cb76f1801765a90860a90dddb34481302dea23bb3d80e
+  darwin_amd64: 3ff74a6f3f8e679e1a9c74f3fbfac48f31ea3787a5394cdd57931a83be56cdb9
+  linux_amd64: b59afe6136898b905d57aa0404697e9046a8d8d6fae03cbe6b6f3b3712eb2e9e
+  linux_arm64: 273786f628e638d04527b2060a8fad067bcd0ec253c02a49f6904daa2be9b4a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jasper
+  - jpeg-turbo
+  - libmng
+  - libtiff
+  - qtbase
+  - webp

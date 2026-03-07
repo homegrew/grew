@@ -1,0 +1,21 @@
+name: vibe-log-cli
+version: 0.8.6
+description: CLI tool for analyzing Claude Code sessions
+homepage: https://vibe-log.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vibe-log-cli/blobs/sha256:d22f63eb82b6305b4d01783da6fa58576439543426959b744cf2077614932bfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vibe-log-cli/blobs/sha256:b7db1b7538ada62ba0abfea8d470d8d47129932cbe4bc5032eeb6260f56dec31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vibe-log-cli/blobs/sha256:86e4ba2de3d30630e789250d8d5198ccf39169d31a0e1035ed43ff90968e1fb5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vibe-log-cli/blobs/sha256:ceadc326f52c5c68e37836061530141d9a839909a263eb727b3d2ace3ab50727
+sha256:
+  darwin_arm64: d22f63eb82b6305b4d01783da6fa58576439543426959b744cf2077614932bfd
+  darwin_amd64: b7db1b7538ada62ba0abfea8d470d8d47129932cbe4bc5032eeb6260f56dec31
+  linux_amd64: 86e4ba2de3d30630e789250d8d5198ccf39169d31a0e1035ed43ff90968e1fb5
+  linux_arm64: ceadc326f52c5c68e37836061530141d9a839909a263eb727b3d2ace3ab50727
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

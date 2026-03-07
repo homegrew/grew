@@ -1,0 +1,19 @@
+name: ghz
+version: 0.121.0
+description: Simple gRPC benchmarking and load testing tool
+homepage: https://ghz.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghz/blobs/sha256:bb0c6428ac5a6800e2ce447b2a6f316421953e830d6c64286db3952c28819653
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghz/blobs/sha256:522c533de7d3e311a24acdeea0cec1d81aaa51c839903747d05e49ce7072d188
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghz/blobs/sha256:652cc343f99d8d12144f0395b9fda62d7c103591d36ae3453594dcc3a7de564c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghz/blobs/sha256:9cdd2ae3ae95484b3c966df716b68600f4e539980496749871cb57f5196dc71b
+sha256:
+  darwin_arm64: bb0c6428ac5a6800e2ce447b2a6f316421953e830d6c64286db3952c28819653
+  darwin_amd64: 522c533de7d3e311a24acdeea0cec1d81aaa51c839903747d05e49ce7072d188
+  linux_amd64: 652cc343f99d8d12144f0395b9fda62d7c103591d36ae3453594dcc3a7de564c
+  linux_arm64: 9cdd2ae3ae95484b3c966df716b68600f4e539980496749871cb57f5196dc71b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

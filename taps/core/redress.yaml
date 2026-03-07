@@ -1,0 +1,19 @@
+name: redress
+version: 1.2.58
+description: Tool for analyzing stripped Go binaries compiled with the Go compiler
+homepage: https://github.com/goretk/redress
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redress/blobs/sha256:617cc308b56695ebfa74635932bcf1fbbd6d798d53826b4d0de1949ad560faf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redress/blobs/sha256:fe2e21d39a3084d429e2a5711c47129fe635eecf31b4af0e27a7e18a541c2c91
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redress/blobs/sha256:1e3099353c25c016ff3f2a42788d99f5453f8ec1e51ba626198fdef262150c46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redress/blobs/sha256:a79b889f3bec8b6ce5152cbd0e2c403a5d6742b196c37a7f4c97097ae19ed9c7
+sha256:
+  darwin_arm64: 617cc308b56695ebfa74635932bcf1fbbd6d798d53826b4d0de1949ad560faf9
+  darwin_amd64: fe2e21d39a3084d429e2a5711c47129fe635eecf31b4af0e27a7e18a541c2c91
+  linux_amd64: 1e3099353c25c016ff3f2a42788d99f5453f8ec1e51ba626198fdef262150c46
+  linux_arm64: a79b889f3bec8b6ce5152cbd0e2c403a5d6742b196c37a7f4c97097ae19ed9c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

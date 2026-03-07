@@ -1,0 +1,21 @@
+name: javacc
+version: 7.0.13
+description: Parser generator for use with Java applications
+homepage: https://javacc.github.io/javacc/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/javacc/blobs/sha256:2736d09dc1c90d1e95a14c99d8e1682120930718d32d8bede69b16e279a7508f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/javacc/blobs/sha256:b84312451176ab1a2df3d822798ca872ad17e94463cfa36711a5e2cfc4ff906b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/javacc/blobs/sha256:8cfcf0b2f8d787fe06ac54aea4134722f7a4222f17b5402238a37177a0d73cc8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/javacc/blobs/sha256:546e4c009d4fda3ed41b4a229d77059fb613c9558e158a037ddf47f7d6488c49
+sha256:
+  darwin_arm64: 2736d09dc1c90d1e95a14c99d8e1682120930718d32d8bede69b16e279a7508f
+  darwin_amd64: b84312451176ab1a2df3d822798ca872ad17e94463cfa36711a5e2cfc4ff906b
+  linux_amd64: 8cfcf0b2f8d787fe06ac54aea4134722f7a4222f17b5402238a37177a0d73cc8
+  linux_arm64: 546e4c009d4fda3ed41b4a229d77059fb613c9558e158a037ddf47f7d6488c49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

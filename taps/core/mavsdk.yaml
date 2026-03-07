@@ -1,0 +1,30 @@
+name: mavsdk
+version: 3.15.0
+description: API and library for MAVLink compatible systems written in C++17
+homepage: https://mavsdk.mavlink.io/main/en/index.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mavsdk/blobs/sha256:691841d9f5458ea6f55391900c415ce93ef3c12ddd7a91ec0037c14606cf092d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mavsdk/blobs/sha256:d7fb36534da42fef8aa5d13e03942001dee79a2d8a264c130296083bc1f9329c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mavsdk/blobs/sha256:f19afe67e7206db1e4a5c232e0537f85dae9ae020a93e3b3ef59bc7cd0ff889f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mavsdk/blobs/sha256:38ea072769de13d9563472f2cdab865c3a182daf5165c8e5782429a94c5c1a3c
+sha256:
+  darwin_arm64: 691841d9f5458ea6f55391900c415ce93ef3c12ddd7a91ec0037c14606cf092d
+  darwin_amd64: d7fb36534da42fef8aa5d13e03942001dee79a2d8a264c130296083bc1f9329c
+  linux_amd64: f19afe67e7206db1e4a5c232e0537f85dae9ae020a93e3b3ef59bc7cd0ff889f
+  linux_arm64: 38ea072769de13d9563472f2cdab865c3a182daf5165c8e5782429a94c5c1a3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - c-ares
+  - curl
+  - grpc
+  - jsoncpp
+  - openssl@3
+  - protobuf@33
+  - re2
+  - tinyxml2
+  - xz

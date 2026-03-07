@@ -1,0 +1,19 @@
+name: wstunnel
+version: 10.5.2
+description: Tunnel all your traffic over Websocket or HTTP2
+homepage: https://github.com/erebe/wstunnel
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wstunnel/blobs/sha256:141b72c98cbb479eeedd22c041b3979c3449d2c28aba23b1b9ed48415baf675d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wstunnel/blobs/sha256:47c244b84ee2e21bcefd6c72911e22f5cddf252b5e4497e476b4d4e46c4e991e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wstunnel/blobs/sha256:cd6e9e2983fcc97b4edf37eaf5acba77c186e2483a939eab576a09dce30958c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wstunnel/blobs/sha256:b4f1edb8d8b7d5a9bbefe2a289cd6f3065c3eaa2c882a3e8ec2d66ede2ea025f
+sha256:
+  darwin_arm64: 141b72c98cbb479eeedd22c041b3979c3449d2c28aba23b1b9ed48415baf675d
+  darwin_amd64: 47c244b84ee2e21bcefd6c72911e22f5cddf252b5e4497e476b4d4e46c4e991e
+  linux_amd64: cd6e9e2983fcc97b4edf37eaf5acba77c186e2483a939eab576a09dce30958c7
+  linux_arm64: b4f1edb8d8b7d5a9bbefe2a289cd6f3065c3eaa2c882a3e8ec2d66ede2ea025f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

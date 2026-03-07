@@ -1,0 +1,31 @@
+name: libgr
+version: 0.73.24
+description: "GR framework: a graphics library for visualisation applications"
+homepage: https://gr-framework.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgr/blobs/sha256:6b92d7f808bdc4f7391e3753a6be77b0e50eb962360379671abec40de1917c60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgr/blobs/sha256:1158e51122c0fd6784f580caf840455a3ee249ce5c3335fb5445c97eb1f3344c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgr/blobs/sha256:059ed00ec068a771c925441c64dd1a266f11b4a57f9e9b18e87a4335454c217b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgr/blobs/sha256:a1922f441a7f6c2097859b9ff876c8e8c2147d0be8ea0c86606090a5bb67a0aa
+sha256:
+  darwin_arm64: 6b92d7f808bdc4f7391e3753a6be77b0e50eb962360379671abec40de1917c60
+  darwin_amd64: 1158e51122c0fd6784f580caf840455a3ee249ce5c3335fb5445c97eb1f3344c
+  linux_amd64: 059ed00ec068a771c925441c64dd1a266f11b4a57f9e9b18e87a4335454c217b
+  linux_arm64: a1922f441a7f6c2097859b9ff876c8e8c2147d0be8ea0c86606090a5bb67a0aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - ffmpeg
+  - freetype
+  - glfw
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - pixman
+  - qhull
+  - qtbase
+  - zeromq

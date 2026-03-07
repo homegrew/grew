@@ -1,0 +1,19 @@
+name: git-codereview
+version: 1.18.0
+description: Tool for working with Gerrit code reviews
+homepage: https://pkg.go.dev/golang.org/x/review/git-codereview
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-codereview/blobs/sha256:2dd9424c0845bb1e6d7148e1ef9f5093732f8d10066274628a316a574f7804e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-codereview/blobs/sha256:aa5c1e5f8a8772561f20baf22174752682ae4e7d99a75662befc9cc5a2a4c49f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-codereview/blobs/sha256:b572e6d5e16005552a5a38bc396366c966924735fb787f926e9b98aa781ae255
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-codereview/blobs/sha256:a6742f5e0278cdc8af29082d0a8692dae6b635c3f9771e206f31638672febcf0
+sha256:
+  darwin_arm64: 2dd9424c0845bb1e6d7148e1ef9f5093732f8d10066274628a316a574f7804e3
+  darwin_amd64: aa5c1e5f8a8772561f20baf22174752682ae4e7d99a75662befc9cc5a2a4c49f
+  linux_amd64: b572e6d5e16005552a5a38bc396366c966924735fb787f926e9b98aa781ae255
+  linux_arm64: a6742f5e0278cdc8af29082d0a8692dae6b635c3f9771e206f31638672febcf0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

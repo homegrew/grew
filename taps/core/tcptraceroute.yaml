@@ -1,0 +1,21 @@
+name: tcptraceroute
+version: 1.5beta7
+description: Traceroute implementation using TCP packets
+homepage: https://github.com/mct/tcptraceroute
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tcptraceroute/blobs/sha256:3487da59a7faa8fc676d540fd1b5f310b62b845250e1916db5dfbb192a37b76f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tcptraceroute/blobs/sha256:8ed1d063b115127d0461606a589ddef863e39073dfbb9187a27470b7a7af8ac4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tcptraceroute/blobs/sha256:97750459321657901904cd492047c4d011d7e7b705d01ce37d82fe5622dec168
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tcptraceroute/blobs/sha256:93f9bdf4d9051c31897edf8d96ea5b78e55ec2d1b8abb4b5f05f06ada2d7256a
+sha256:
+  darwin_arm64: 3487da59a7faa8fc676d540fd1b5f310b62b845250e1916db5dfbb192a37b76f
+  darwin_amd64: 8ed1d063b115127d0461606a589ddef863e39073dfbb9187a27470b7a7af8ac4
+  linux_amd64: 97750459321657901904cd492047c4d011d7e7b705d01ce37d82fe5622dec168
+  linux_arm64: 93f9bdf4d9051c31897edf8d96ea5b78e55ec2d1b8abb4b5f05f06ada2d7256a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnet

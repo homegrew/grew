@@ -1,0 +1,19 @@
+name: rnr
+version: 0.5.1
+description: Command-line tool to batch rename files and directories
+homepage: https://github.com/ismaelgv/rnr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rnr/blobs/sha256:ead696a12421df3d41baad88405def5ace489769f59ca597146b27bf5a3b9f07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rnr/blobs/sha256:3dc55b0e9239aada148995c0ddb203e1fa8d1e2688e621893bb6b3cd67216dcd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rnr/blobs/sha256:bbfe77cc0171480691cfda7170ece2125a3ea477f766e9aa7a0dd82d69745390
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rnr/blobs/sha256:9908bcc18e433a4ac843f67803728012f0b7aee2ea270c8551122fe63ce73074
+sha256:
+  darwin_arm64: ead696a12421df3d41baad88405def5ace489769f59ca597146b27bf5a3b9f07
+  darwin_amd64: 3dc55b0e9239aada148995c0ddb203e1fa8d1e2688e621893bb6b3cd67216dcd
+  linux_amd64: bbfe77cc0171480691cfda7170ece2125a3ea477f766e9aa7a0dd82d69745390
+  linux_arm64: 9908bcc18e433a4ac843f67803728012f0b7aee2ea270c8551122fe63ce73074
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

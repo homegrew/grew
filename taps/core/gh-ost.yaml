@@ -1,0 +1,19 @@
+name: gh-ost
+version: 1.1.7
+description: Triggerless online schema migration solution for MySQL
+homepage: https://github.com/github/gh-ost
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gh-ost/blobs/sha256:d90c1d631ea76ba5bd0f0467a9f8a1800c6ad4fb236eb5d8629e3dfa6055d442
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gh-ost/blobs/sha256:f35b4b9a03a586347804e2f0f2a7ff0be06f7cd778a59f12a27fb9fa427dc310
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gh-ost/blobs/sha256:41970bc38d03a5ff49d2a3d3ef93764e04af4cd9a522560ddd9fc42dd4889dbf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gh-ost/blobs/sha256:07ac0b81e16244b2f3891e43bf601b57e9c587e22a3d6b1ae9ba8c95704d0b46
+sha256:
+  darwin_arm64: d90c1d631ea76ba5bd0f0467a9f8a1800c6ad4fb236eb5d8629e3dfa6055d442
+  darwin_amd64: f35b4b9a03a586347804e2f0f2a7ff0be06f7cd778a59f12a27fb9fa427dc310
+  linux_amd64: 41970bc38d03a5ff49d2a3d3ef93764e04af4cd9a522560ddd9fc42dd4889dbf
+  linux_arm64: 07ac0b81e16244b2f3891e43bf601b57e9c587e22a3d6b1ae9ba8c95704d0b46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

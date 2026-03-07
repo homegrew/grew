@@ -1,0 +1,19 @@
+name: manifest-tool
+version: 2.2.1
+description: Command-line tool to create and query container image manifest list/indexes
+homepage: https://github.com/estesp/manifest-tool/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/manifest-tool/blobs/sha256:6d86a129900236772b789cc46793fd5ac69076c8c26d6705eb9487d406df73ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/manifest-tool/blobs/sha256:96cfe0869400dc028832b0d3e8b9cc90b8061ae4a852614dbd43f3d9a4ee354e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/manifest-tool/blobs/sha256:ac682859f43c8871a1a178907a2c969dec9d7270add5bbed005fc46754c26b96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/manifest-tool/blobs/sha256:5d836460da1d037f59c0853b1e2689c693ea159427ba29ee099b5738e23c7c0d
+sha256:
+  darwin_arm64: 6d86a129900236772b789cc46793fd5ac69076c8c26d6705eb9487d406df73ac
+  darwin_amd64: 96cfe0869400dc028832b0d3e8b9cc90b8061ae4a852614dbd43f3d9a4ee354e
+  linux_amd64: ac682859f43c8871a1a178907a2c969dec9d7270add5bbed005fc46754c26b96
+  linux_arm64: 5d836460da1d037f59c0853b1e2689c693ea159427ba29ee099b5738e23c7c0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

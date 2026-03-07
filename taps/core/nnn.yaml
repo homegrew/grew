@@ -1,0 +1,23 @@
+name: nnn
+version: 5.2
+description: Tiny, lightning fast, feature-packed file manager
+homepage: https://github.com/jarun/nnn
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nnn/blobs/sha256:9661f5ce4e96704568084671343c92755a1de8b542137f0c56e6deb0a6e41387
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nnn/blobs/sha256:24e92f0826f362840d1424012ebf78bd855d46fb827fb253c80e8313c7db137f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nnn/blobs/sha256:2fc7fd26418ce4ac9a9406ef3fd745cdbdb333828c6e0e0fbbfad0dde5b59d10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nnn/blobs/sha256:10959b02a38dd226bfdf72ee603fab91d6906694584f6d16e25d4ca4450d8a41
+sha256:
+  darwin_arm64: 9661f5ce4e96704568084671343c92755a1de8b542137f0c56e6deb0a6e41387
+  darwin_amd64: 24e92f0826f362840d1424012ebf78bd855d46fb827fb253c80e8313c7db137f
+  linux_amd64: 2fc7fd26418ce4ac9a9406ef3fd745cdbdb333828c6e0e0fbbfad0dde5b59d10
+  linux_arm64: 10959b02a38dd226bfdf72ee603fab91d6906694584f6d16e25d4ca4450d8a41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnu-sed
+  - ncurses
+  - readline

@@ -1,0 +1,21 @@
+name: check_postgres
+version: 2.26.0
+description: Monitor Postgres databases
+homepage: https://bucardo.org/wiki/Check_postgres
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/check_postgres/blobs/sha256:20317c9b4534bb9bb63f3318637c8d3b65162a78c7201f9f24d3e5f62efe178e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/check_postgres/blobs/sha256:599f04f4bd0fe98038e513c562f2ca8a0cb5fbaee326b2a78ac3e1c38fcaa7e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/check_postgres/blobs/sha256:15350f09487ed7fd501105b3abd217be8287cfdb4075b71673e179b1ba24cacc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/check_postgres/blobs/sha256:8f1875eadbc232cfbc4e6a861d84981b2535167f18cdce21c64c5bdb6cda6550
+sha256:
+  darwin_arm64: 20317c9b4534bb9bb63f3318637c8d3b65162a78c7201f9f24d3e5f62efe178e
+  darwin_amd64: 599f04f4bd0fe98038e513c562f2ca8a0cb5fbaee326b2a78ac3e1c38fcaa7e3
+  linux_amd64: 15350f09487ed7fd501105b3abd217be8287cfdb4075b71673e179b1ba24cacc
+  linux_arm64: 8f1875eadbc232cfbc4e6a861d84981b2535167f18cdce21c64c5bdb6cda6550
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq

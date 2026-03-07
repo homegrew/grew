@@ -1,0 +1,21 @@
+name: dfu-util
+version: 0.11
+description: USB programmer
+homepage: https://dfu-util.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dfu-util/blobs/sha256:53e343420fcab5133dd295cf75d8a74b5933fabfbb53c90c3ef798735b5f9445
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dfu-util/blobs/sha256:ec1b2eb46336cab4cac68f413d2e0dd9b1af2fd63182598ca40f4dd61595efb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dfu-util/blobs/sha256:13c26d1ebc67dd60446845d51e3ff92bcded0ae223852dc104e897c8c3423f71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dfu-util/blobs/sha256:228012ba20956504016ab24f43cec35ce3a6ca2d5da694072ef1f64b33b8203f
+sha256:
+  darwin_arm64: 53e343420fcab5133dd295cf75d8a74b5933fabfbb53c90c3ef798735b5f9445
+  darwin_amd64: ec1b2eb46336cab4cac68f413d2e0dd9b1af2fd63182598ca40f4dd61595efb9
+  linux_amd64: 13c26d1ebc67dd60446845d51e3ff92bcded0ae223852dc104e897c8c3423f71
+  linux_arm64: 228012ba20956504016ab24f43cec35ce3a6ca2d5da694072ef1f64b33b8203f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

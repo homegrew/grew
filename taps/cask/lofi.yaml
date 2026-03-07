@@ -1,0 +1,11 @@
+name: lofi
+version: 2.0.2
+description: Spotify player with WebGL visualisations
+homepage: https://www.lofi.rocks/
+url:
+  darwin_arm64: https://github.com/dvx/lofi/releases/download/v2.0.2/lofi.dmg
+sha256:
+  darwin_arm64: a954c06e72c0076c20186f86161287147f815153cb22311fe2e3e39bfbc676fe
+artifacts:
+  app:
+    - lofi.app

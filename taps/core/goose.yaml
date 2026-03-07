@@ -1,0 +1,19 @@
+name: goose
+version: 3.27.0
+description: "Go Language's command-line interface for database migrations"
+homepage: https://pressly.github.io/goose/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goose/blobs/sha256:09e1efb554269c8265ffbbad3437720de3db171504362ae3336ab22ef2336e2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goose/blobs/sha256:ae635028df61e39a05e73d56e069bce779b43e9ff0d155100025c452c7bbe109
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goose/blobs/sha256:b3ff9f656a18cd24255a8a13be71670da8ac78c71ca174c228dc432cac271574
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goose/blobs/sha256:5889c91f2942f52db67e8959a146100a90b2fb95be2f466001589783bf5892b0
+sha256:
+  darwin_arm64: 09e1efb554269c8265ffbbad3437720de3db171504362ae3336ab22ef2336e2f
+  darwin_amd64: ae635028df61e39a05e73d56e069bce779b43e9ff0d155100025c452c7bbe109
+  linux_amd64: b3ff9f656a18cd24255a8a13be71670da8ac78c71ca174c228dc432cac271574
+  linux_arm64: 5889c91f2942f52db67e8959a146100a90b2fb95be2f466001589783bf5892b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

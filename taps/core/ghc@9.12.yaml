@@ -1,0 +1,22 @@
+name: ghc@9.12
+version: 9.12.3
+description: Glorious Glasgow Haskell Compilation System
+homepage: https://haskell.org/ghc/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghc/9.12/blobs/sha256:974efd21c2d102bef032deda1fd84797de3d1a4fc31c830909a3b14f0a818efc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghc/9.12/blobs/sha256:fb9b19af6f902adc6f232dbbade63cac05e4e22f7c0295b5dc530e3b66b137df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghc/9.12/blobs/sha256:e56eddd2078e065ec3580bdbacbdc49cae97a1813c3a69b25792a7ef8b54db30
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghc/9.12/blobs/sha256:faceab6474296726233b4365eeef8c9b035fae6516b16a681eb6973cc07a9275
+sha256:
+  darwin_arm64: 974efd21c2d102bef032deda1fd84797de3d1a4fc31c830909a3b14f0a818efc
+  darwin_amd64: fb9b19af6f902adc6f232dbbade63cac05e4e22f7c0295b5dc530e3b66b137df
+  linux_amd64: e56eddd2078e065ec3580bdbacbdc49cae97a1813c3a69b25792a7ef8b54db30
+  linux_arm64: faceab6474296726233b4365eeef8c9b035fae6516b16a681eb6973cc07a9275
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+keg_only: true

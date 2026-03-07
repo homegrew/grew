@@ -1,0 +1,19 @@
+name: snitch
+version: 0.2.2
+description: Prettier way to inspect network connections
+homepage: https://github.com/karol-broda/snitch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/snitch/blobs/sha256:a89f1ef41e5f83a56f4fa0b118fd514993fa22dac5b031cb4e6f087e05680e7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/snitch/blobs/sha256:8c09b4b77d447461362347c6befc8ebbfa2677c7e271f67dd26dda41a672ef6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/snitch/blobs/sha256:e46445e8ff57282389e49e331dcf5fbff204ce1c32bd1f18b88f457a3dea3298
+  linux_arm64: https://ghcr.io/v2/homebrew/core/snitch/blobs/sha256:bf2940c863c05cbd97ee356d149049cbecc40357fcb49431e18f68a36663f52c
+sha256:
+  darwin_arm64: a89f1ef41e5f83a56f4fa0b118fd514993fa22dac5b031cb4e6f087e05680e7c
+  darwin_amd64: 8c09b4b77d447461362347c6befc8ebbfa2677c7e271f67dd26dda41a672ef6d
+  linux_amd64: e46445e8ff57282389e49e331dcf5fbff204ce1c32bd1f18b88f457a3dea3298
+  linux_arm64: bf2940c863c05cbd97ee356d149049cbecc40357fcb49431e18f68a36663f52c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: git-bug
+version: 0.10.1
+description: Distributed, offline-first bug tracker embedded in git, with bridges
+homepage: https://github.com/git-bug/git-bug
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-bug/blobs/sha256:cec89cbb8556d9825da3d5211cfd8e8091387081f365c52cf505e98f5e7ca70d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-bug/blobs/sha256:d5bb614c77aca72bf32c5d2809befa82500f59fc5b603366d261cd83ac7f5762
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-bug/blobs/sha256:c614beca0af4af926599abdd8959820da8cb6621c7c4451ffaaef8cc00a9c268
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-bug/blobs/sha256:0b84957c63e145ff5a12b5dac9cea8023ca7e7870f04f4ba92581a3811b11bd9
+sha256:
+  darwin_arm64: cec89cbb8556d9825da3d5211cfd8e8091387081f365c52cf505e98f5e7ca70d
+  darwin_amd64: d5bb614c77aca72bf32c5d2809befa82500f59fc5b603366d261cd83ac7f5762
+  linux_amd64: c614beca0af4af926599abdd8959820da8cb6621c7c4451ffaaef8cc00a9c268
+  linux_arm64: 0b84957c63e145ff5a12b5dac9cea8023ca7e7870f04f4ba92581a3811b11bd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

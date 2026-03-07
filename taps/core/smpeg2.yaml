@@ -1,0 +1,21 @@
+name: smpeg2
+version: 2.0.0
+description: SDL MPEG Player Library
+homepage: https://icculus.org/smpeg/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smpeg2/blobs/sha256:f577393854025f6e32304032a00a3f29a27af3e71a52502025315f86b44ae9fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smpeg2/blobs/sha256:8bd2271e2cea9d9f2ea56130e77612a9dcdc248f881d6cc548e9f09cfc640413
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smpeg2/blobs/sha256:57ef23a33dcadc1871ad7e12fe7dfddaa7e6773704691af46616b03f8c9f83b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smpeg2/blobs/sha256:21fa4f02887307bf5eb069733e06cb3931cad92ffefd27a8d2ebd49d6b9afb23
+sha256:
+  darwin_arm64: f577393854025f6e32304032a00a3f29a27af3e71a52502025315f86b44ae9fb
+  darwin_amd64: 8bd2271e2cea9d9f2ea56130e77612a9dcdc248f881d6cc548e9f09cfc640413
+  linux_amd64: 57ef23a33dcadc1871ad7e12fe7dfddaa7e6773704691af46616b03f8c9f83b7
+  linux_arm64: 21fa4f02887307bf5eb069733e06cb3931cad92ffefd27a8d2ebd49d6b9afb23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

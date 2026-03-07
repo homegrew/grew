@@ -1,0 +1,32 @@
+name: ettercap
+version: 0.8.4
+description: Multipurpose sniffer/interceptor/logger for switched LAN
+homepage: https://ettercap.github.io/ettercap/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ettercap/blobs/sha256:b0f697c28c4d4dc88b6f717abaf9bf9856b9fa26c2aa511b970dcfcc6ea1105d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ettercap/blobs/sha256:3dd8609d57b114735a7db0708b350a5587f4435c4b4b11d1ca20871c5837decf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ettercap/blobs/sha256:98f5d49640400d62f0813d27d2d72c2a68473c28bd621004fd24b5ce13f9fc0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ettercap/blobs/sha256:73a5e485dae3ee5339481f54ae56ccbb69bacc5d41ecbfc8053071be373d9b9a
+sha256:
+  darwin_arm64: b0f697c28c4d4dc88b6f717abaf9bf9856b9fa26c2aa511b970dcfcc6ea1105d
+  darwin_amd64: 3dd8609d57b114735a7db0708b350a5587f4435c4b4b11d1ca20871c5837decf
+  linux_amd64: 98f5d49640400d62f0813d27d2d72c2a68473c28bd621004fd24b5ce13f9fc0a
+  linux_arm64: 73a5e485dae3ee5339481f54ae56ccbb69bacc5d41ecbfc8053071be373d9b9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - libmaxminddb
+  - libnet
+  - ncurses
+  - openssl@3
+  - pcre2
+  - at-spi2-core
+  - cairo
+  - freetype
+  - pango

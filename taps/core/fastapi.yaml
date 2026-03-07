@@ -1,0 +1,24 @@
+name: fastapi
+version: 0.135.1
+description: CLI for FastAPI framework
+homepage: https://fastapi.tiangolo.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastapi/blobs/sha256:a5886f1b7f6ee4d126033b45dc4cea46b82c44d52a4ffacd0507837e1ef4d08e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastapi/blobs/sha256:b5ba3fc0f50e55fa2bfaffe38f22f41da8c2ab9eaf88cfc14df152f7305a0129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastapi/blobs/sha256:38ee549aaba5ecf8046b5327dcb6ef7ef6ae15b120d2d44e907be65deb4cfcf8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastapi/blobs/sha256:c5fbfa6a75f0c38e7e369c8dc69513af563ccef55546649a4ce78a8896dcda99
+sha256:
+  darwin_arm64: a5886f1b7f6ee4d126033b45dc4cea46b82c44d52a4ffacd0507837e1ef4d08e
+  darwin_amd64: b5ba3fc0f50e55fa2bfaffe38f22f41da8c2ab9eaf88cfc14df152f7305a0129
+  linux_amd64: 38ee549aaba5ecf8046b5327dcb6ef7ef6ae15b120d2d44e907be65deb4cfcf8
+  linux_arm64: c5fbfa6a75f0c38e7e369c8dc69513af563ccef55546649a4ce78a8896dcda99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14

@@ -1,0 +1,19 @@
+name: enkits
+version: 1.11
+description: C and C++ Task Scheduler for creating parallel programs
+homepage: https://github.com/dougbinks/enkiTS
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/enkits/blobs/sha256:994e77e132e38c13f2fc03c20f2e8d27b0cdce0ce9e46becec51ae93d079a05a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/enkits/blobs/sha256:765fb561819c9b12582211bfb9bd38ec16b6dbb4fde192c21a72a605c9bfd7ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/enkits/blobs/sha256:fb5764d88d00d8df8970a0253f177b70a4d11535dfcf87a8f98a984cc81d0b1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/enkits/blobs/sha256:3f9abb94fc7c75d3f78c398a59dd19b5a5ed3552d296ccafb7f9e00d04784435
+sha256:
+  darwin_arm64: 994e77e132e38c13f2fc03c20f2e8d27b0cdce0ce9e46becec51ae93d079a05a
+  darwin_amd64: 765fb561819c9b12582211bfb9bd38ec16b6dbb4fde192c21a72a605c9bfd7ce
+  linux_amd64: fb5764d88d00d8df8970a0253f177b70a4d11535dfcf87a8f98a984cc81d0b1a
+  linux_arm64: 3f9abb94fc7c75d3f78c398a59dd19b5a5ed3552d296ccafb7f9e00d04784435
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

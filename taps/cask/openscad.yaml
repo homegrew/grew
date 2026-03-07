@@ -1,0 +1,13 @@
+name: openscad
+version: 2021.01
+description: Programmable solid 3D CAD modeller
+homepage: https://www.openscad.org/
+url:
+  darwin_arm64: https://files.openscad.org/OpenSCAD-2021.01.dmg
+sha256:
+  darwin_arm64: 4e4568e19992636ba497c04bc2238399c92314fcb7bf75dc3632aa623ca3635e
+artifacts:
+  app:
+    - OpenSCAD-2021.01.app
+  bin:
+    - openscad

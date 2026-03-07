@@ -1,0 +1,19 @@
+name: pdfrip
+version: 2.0.1
+description: Multi-threaded PDF password cracking utility
+homepage: https://github.com/mufeedvh/pdfrip
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfrip/blobs/sha256:1036db7676a0822b721390e43e797e7e846dbd3b4f0c35acc3fb71fee338f938
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfrip/blobs/sha256:b27b773f78bba7b8d64b60cc5c8b8cdef12d45574be2d4881223bace41d64acd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfrip/blobs/sha256:de8fc88b6d291c32c7e3b0ed9fdda602f2a237e8478921f07b56bf550dbcbbde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfrip/blobs/sha256:d0db2c8b883091a68cdda3fe1f4da41213bd041fbe8b93862b86e744baa60c75
+sha256:
+  darwin_arm64: 1036db7676a0822b721390e43e797e7e846dbd3b4f0c35acc3fb71fee338f938
+  darwin_amd64: b27b773f78bba7b8d64b60cc5c8b8cdef12d45574be2d4881223bace41d64acd
+  linux_amd64: de8fc88b6d291c32c7e3b0ed9fdda602f2a237e8478921f07b56bf550dbcbbde
+  linux_arm64: d0db2c8b883091a68cdda3fe1f4da41213bd041fbe8b93862b86e744baa60c75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

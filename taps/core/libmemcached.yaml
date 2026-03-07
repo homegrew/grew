@@ -1,0 +1,19 @@
+name: libmemcached
+version: 1.0.18
+description: C and C++ client library to the memcached server
+homepage: https://libmemcached.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmemcached/blobs/sha256:60a5db19afb5f8ea31dd1917cdf6e962cd54efe7fd012ab0e0c6c44497a6e2ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmemcached/blobs/sha256:feedeadf282983ee5a86dff88537f2ba2f470d53d664efbc6a9c6bd393177037
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmemcached/blobs/sha256:b551d4cc72d953e3018369057901f77a88b1b633661f5acfedcf6bba37385a8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmemcached/blobs/sha256:b9e04c066fb48f43434519b8da53433b1659b0c8942cae5115b80393694fc197
+sha256:
+  darwin_arm64: 60a5db19afb5f8ea31dd1917cdf6e962cd54efe7fd012ab0e0c6c44497a6e2ad
+  darwin_amd64: feedeadf282983ee5a86dff88537f2ba2f470d53d664efbc6a9c6bd393177037
+  linux_amd64: b551d4cc72d953e3018369057901f77a88b1b633661f5acfedcf6bba37385a8b
+  linux_arm64: b9e04c066fb48f43434519b8da53433b1659b0c8942cae5115b80393694fc197
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

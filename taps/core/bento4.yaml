@@ -1,0 +1,21 @@
+name: bento4
+version: 1.6.0-641
+description: Full-featured MP4 format and MPEG DASH library and tools
+homepage: https://www.bento4.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bento4/blobs/sha256:5367dba6956a756d81d778166578f003e29d2509b16e84a8fb0118b8bc387560
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bento4/blobs/sha256:8c362b9bfd9caf4a3dfad70c80adb0d5166489c87021c17ee5ffc34ade8a34a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bento4/blobs/sha256:79f1631cc68c122870fefb5815f100643587326f7663bfc1ff0b91657c5dc11e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bento4/blobs/sha256:e3cedc1416a3b31db7e328d170bbfd699b6d315ac1930aafbeb67bf283e0533b
+sha256:
+  darwin_arm64: 5367dba6956a756d81d778166578f003e29d2509b16e84a8fb0118b8bc387560
+  darwin_amd64: 8c362b9bfd9caf4a3dfad70c80adb0d5166489c87021c17ee5ffc34ade8a34a9
+  linux_amd64: 79f1631cc68c122870fefb5815f100643587326f7663bfc1ff0b91657c5dc11e
+  linux_arm64: e3cedc1416a3b31db7e328d170bbfd699b6d315ac1930aafbeb67bf283e0533b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

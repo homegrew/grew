@@ -1,0 +1,19 @@
+name: libev
+version: 4.33
+description: Asynchronous event library
+homepage: https://software.schmorp.de/pkg/libev.html
+license: BSD-2-Clause OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libev/blobs/sha256:6f3bcc66907452a0f795ad6532d69deacdb1059379ca5a94da3a3e286342f94c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libev/blobs/sha256:5de04c4e03a70639639d5e4ced919aafdef07f9ea98cbde320b2e9dd81f9d5ce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libev/blobs/sha256:a22fcf5d3733f1cd5814c5ae2c5a46c7c408195d408d3666b42696a0127f8bb5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libev/blobs/sha256:4fb42593fde919e166fd48c27050b5be92f2d2fe7b2e97e19738f8bd9428734d
+sha256:
+  darwin_arm64: 6f3bcc66907452a0f795ad6532d69deacdb1059379ca5a94da3a3e286342f94c
+  darwin_amd64: 5de04c4e03a70639639d5e4ced919aafdef07f9ea98cbde320b2e9dd81f9d5ce
+  linux_amd64: a22fcf5d3733f1cd5814c5ae2c5a46c7c408195d408d3666b42696a0127f8bb5
+  linux_arm64: 4fb42593fde919e166fd48c27050b5be92f2d2fe7b2e97e19738f8bd9428734d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

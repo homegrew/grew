@@ -1,0 +1,22 @@
+name: mvtools
+version: 24
+description: Filters for motion estimation and compensation
+homepage: https://github.com/dubhater/vapoursynth-mvtools
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mvtools/blobs/sha256:3c0e17fdf774da0b5e0d8ae822a9401523ded7288cd98bcab79c5bb074867d95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mvtools/blobs/sha256:a6e2de4fb621cceec1a74362de32d27f2353ef18152d6401c170cf7f718470a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mvtools/blobs/sha256:b1e2a5e84ec6842466bca0a44a572a45c491e7fd3c30ea5e4125f02d664f04fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mvtools/blobs/sha256:ae5a71a3625699b8ea9751865c61a537dba02dd5cd729bbac006761054112746
+sha256:
+  darwin_arm64: 3c0e17fdf774da0b5e0d8ae822a9401523ded7288cd98bcab79c5bb074867d95
+  darwin_amd64: a6e2de4fb621cceec1a74362de32d27f2353ef18152d6401c170cf7f718470a0
+  linux_amd64: b1e2a5e84ec6842466bca0a44a572a45c491e7fd3c30ea5e4125f02d664f04fa
+  linux_arm64: ae5a71a3625699b8ea9751865c61a537dba02dd5cd729bbac006761054112746
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - vapoursynth

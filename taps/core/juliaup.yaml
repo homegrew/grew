@@ -1,0 +1,19 @@
+name: juliaup
+version: 1.19.9
+description: Julia installer and version multiplexer
+homepage: https://github.com/JuliaLang/juliaup
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/juliaup/blobs/sha256:bccaf9578242f8b9af469454c64ac919afaf4d54338f5396920f1efa083612f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/juliaup/blobs/sha256:b0525c01dcd355424d63783ec14985a7d9611c742d3b63c29ea1af9026b16c60
+  linux_amd64: https://ghcr.io/v2/homebrew/core/juliaup/blobs/sha256:a03668e9e5c6a3c85802ffeda076a5d584358a277ae0745a2691109eed9f1a14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/juliaup/blobs/sha256:b288d339d8d27d8effe6b28777e2c22f784fd304c280864be1553c547343f01f
+sha256:
+  darwin_arm64: bccaf9578242f8b9af469454c64ac919afaf4d54338f5396920f1efa083612f7
+  darwin_amd64: b0525c01dcd355424d63783ec14985a7d9611c742d3b63c29ea1af9026b16c60
+  linux_amd64: a03668e9e5c6a3c85802ffeda076a5d584358a277ae0745a2691109eed9f1a14
+  linux_arm64: b288d339d8d27d8effe6b28777e2c22f784fd304c280864be1553c547343f01f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: stoken
+version: 0.93
+description: Tokencode generator compatible with RSA SecurID 128-bit (AES)
+homepage: https://github.com/stoken-dev/stoken
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stoken/blobs/sha256:120ccd4eea9a910df80ea95e8041919027ef03d74fa87f982e25da2dea11bd72
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stoken/blobs/sha256:1655d0e1253f345ab475d8038d627266a714d2a055a9d0f84d636ed9f867cefc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stoken/blobs/sha256:99879a1ca2556a68d5c70e0e48d1ba6fcb05dae8eeed6b5899b09a3fc192595c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stoken/blobs/sha256:48fb52e148c6e57cc6ff3423f04f7ced5302bf5c64c3eee2144272e2675288bf
+sha256:
+  darwin_arm64: 120ccd4eea9a910df80ea95e8041919027ef03d74fa87f982e25da2dea11bd72
+  darwin_amd64: 1655d0e1253f345ab475d8038d627266a714d2a055a9d0f84d636ed9f867cefc
+  linux_amd64: 99879a1ca2556a68d5c70e0e48d1ba6fcb05dae8eeed6b5899b09a3fc192595c
+  linux_arm64: 48fb52e148c6e57cc6ff3423f04f7ced5302bf5c64c3eee2144272e2675288bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - nettle

@@ -1,0 +1,19 @@
+name: notify
+version: 1.0.7
+description: Stream the output of any CLI and publish it to a variety of supported platforms
+homepage: https://docs.projectdiscovery.io/tools/notify/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/notify/blobs/sha256:22e0f75572048c8a133022ffcebec399529075ad0c8e7d0d1bd62b93802014b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/notify/blobs/sha256:1da6aac2df79d0f709092d1b2a9449ad3dfee1fe6fb4b2073635b321540b7895
+  linux_amd64: https://ghcr.io/v2/homebrew/core/notify/blobs/sha256:b193c3bb416604ece04efc3382efb032885718e2740d26e98d6a6094d6e1eb2b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/notify/blobs/sha256:eabe485332921912a90cb52151029c5ca2cba52494fdb289d9bcd689870fa94d
+sha256:
+  darwin_arm64: 22e0f75572048c8a133022ffcebec399529075ad0c8e7d0d1bd62b93802014b0
+  darwin_amd64: 1da6aac2df79d0f709092d1b2a9449ad3dfee1fe6fb4b2073635b321540b7895
+  linux_amd64: b193c3bb416604ece04efc3382efb032885718e2740d26e98d6a6094d6e1eb2b
+  linux_arm64: eabe485332921912a90cb52151029c5ca2cba52494fdb289d9bcd689870fa94d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

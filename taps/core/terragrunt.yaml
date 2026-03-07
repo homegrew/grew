@@ -1,0 +1,19 @@
+name: terragrunt
+version: 0.99.4
+description: Thin wrapper for Terraform e.g. for locking state
+homepage: https://terragrunt.gruntwork.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terragrunt/blobs/sha256:7d751e3ce51140ca8aacf198be7b8de7d93f73b45fd66048720e0a9e34666667
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terragrunt/blobs/sha256:932ee3d86107a8489d207921fa003ab6af91dee83e3a13aa7a8edc797a3c0609
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terragrunt/blobs/sha256:d5c53eb1d17d8702767069534f0107adbc636e577357fb69ec11c9e28cf7fe90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terragrunt/blobs/sha256:f6ade8497b96b042bac494d3c67380f8a9679d134da60ab477ef0e393b3880ec
+sha256:
+  darwin_arm64: 7d751e3ce51140ca8aacf198be7b8de7d93f73b45fd66048720e0a9e34666667
+  darwin_amd64: 932ee3d86107a8489d207921fa003ab6af91dee83e3a13aa7a8edc797a3c0609
+  linux_amd64: d5c53eb1d17d8702767069534f0107adbc636e577357fb69ec11c9e28cf7fe90
+  linux_arm64: f6ade8497b96b042bac494d3c67380f8a9679d134da60ab477ef0e393b3880ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

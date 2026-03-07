@@ -1,0 +1,22 @@
+name: mmseqs2
+version: 18-8cc5c
+description: Software suite for very fast sequence search and clustering
+homepage: https://mmseqs.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmseqs2/blobs/sha256:db5b603365d96e19fb686f87657965c7920368c9972ba4df890e015db5a62242
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmseqs2/blobs/sha256:32b6bd0d7785c60cd96c2012eafe53ef3bae20d12487d4bb57f1b906f0a95be1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mmseqs2/blobs/sha256:b1078e3ad9bea79349ebb08e136c4581cc4edd7e095961ae8f4b6ad412d35cd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mmseqs2/blobs/sha256:093b602dad229d6adfc9860a347118d837c0c21e2a7489f7ae49cefe5432ae9f
+sha256:
+  darwin_arm64: db5b603365d96e19fb686f87657965c7920368c9972ba4df890e015db5a62242
+  darwin_amd64: 32b6bd0d7785c60cd96c2012eafe53ef3bae20d12487d4bb57f1b906f0a95be1
+  linux_amd64: b1078e3ad9bea79349ebb08e136c4581cc4edd7e095961ae8f4b6ad412d35cd5
+  linux_arm64: 093b602dad229d6adfc9860a347118d837c0c21e2a7489f7ae49cefe5432ae9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - wget
+  - libomp

@@ -1,0 +1,22 @@
+name: libotr
+version: 4.1.1
+description: Off-The-Record (OTR) messaging library
+homepage: https://otr.cypherpunks.ca/
+license: LGPL-2.1-only AND GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libotr/blobs/sha256:3b60c300a23960e3d70ba6fb0df3326ab6dd1236aecff5417bc55984b9510942
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libotr/blobs/sha256:26f532517cf1188608a29f8cc51392f3ec82da8708e1ce83cc5b1ef388806506
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libotr/blobs/sha256:9a88f909cde9e876f1f3a9ffe30d2ba483715ba3fc03c188f78bc07758a18491
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libotr/blobs/sha256:62ee96a56e10ffa701daa578015edfd49d6a20b89d1fbbef3530795ccfde6899
+sha256:
+  darwin_arm64: 3b60c300a23960e3d70ba6fb0df3326ab6dd1236aecff5417bc55984b9510942
+  darwin_amd64: 26f532517cf1188608a29f8cc51392f3ec82da8708e1ce83cc5b1ef388806506
+  linux_amd64: 9a88f909cde9e876f1f3a9ffe30d2ba483715ba3fc03c188f78bc07758a18491
+  linux_arm64: 62ee96a56e10ffa701daa578015edfd49d6a20b89d1fbbef3530795ccfde6899
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libgpg-error

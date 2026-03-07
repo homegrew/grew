@@ -1,0 +1,19 @@
+name: bas55
+version: 2.0
+description: Minimal BASIC programming language interpreter as defined by ECMA-55
+homepage: https://jorgicor.niobe.org/bas55/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bas55/blobs/sha256:4ee22532aeb40b552f0bcdad959ea9790db7a1256a562d032ea17ec3abf5774c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bas55/blobs/sha256:e91df7c926416cb91911dc4132e80f8bb22c3789e64475b222591718919dfea8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bas55/blobs/sha256:687aa791b5bece0576dbe003bc84a50fd8aa65a4ec639b0ee8a16fa8b6702f39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bas55/blobs/sha256:38457e7ed5857d21ccdc44361a8befba24764b9e345f8cbc5aacc46bf7bd2629
+sha256:
+  darwin_arm64: 4ee22532aeb40b552f0bcdad959ea9790db7a1256a562d032ea17ec3abf5774c
+  darwin_amd64: e91df7c926416cb91911dc4132e80f8bb22c3789e64475b222591718919dfea8
+  linux_amd64: 687aa791b5bece0576dbe003bc84a50fd8aa65a4ec639b0ee8a16fa8b6702f39
+  linux_arm64: 38457e7ed5857d21ccdc44361a8befba24764b9e345f8cbc5aacc46bf7bd2629
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

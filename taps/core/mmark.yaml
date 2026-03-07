@@ -1,0 +1,19 @@
+name: mmark
+version: 2.2.47
+description: Powerful markdown processor in Go geared towards the IETF
+homepage: https://mmark.miek.nl/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmark/blobs/sha256:8ff8877d9dd40b4ed6501373636d635595b1f5007ad7070c8329b0b5eb064184
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmark/blobs/sha256:9b039d7b657a3e6bcb00d81465cdcbde5e7471ec7950456a36ae82165f04298a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mmark/blobs/sha256:06cd28834b3543f829eaa8952a1930debba626ee0664757a8ca2fd53d08975a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mmark/blobs/sha256:0615d43d7a64562f8a668ba7c9c5b1299ab88876752a180a27be6626e7b22519
+sha256:
+  darwin_arm64: 8ff8877d9dd40b4ed6501373636d635595b1f5007ad7070c8329b0b5eb064184
+  darwin_amd64: 9b039d7b657a3e6bcb00d81465cdcbde5e7471ec7950456a36ae82165f04298a
+  linux_amd64: 06cd28834b3543f829eaa8952a1930debba626ee0664757a8ca2fd53d08975a3
+  linux_arm64: 0615d43d7a64562f8a668ba7c9c5b1299ab88876752a180a27be6626e7b22519
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

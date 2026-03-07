@@ -1,0 +1,21 @@
+name: fftw
+version: 3.3.10
+description: C routines to compute the Discrete Fourier Transform
+homepage: https://fftw.org
+license: GPL-2.0-or-later AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fftw/blobs/sha256:5cd394c2c385450a83f767935d5d6678aa5a8fb1eb6c687b26477370a881cb5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fftw/blobs/sha256:01d05e976e388312e41888856168f914c0c0e0fd4fd628cdc4159dbb25a614db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fftw/blobs/sha256:062535068e14404ec86b816c0c1987d9d90213d05c27cfaaa9767c22c7c8b636
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fftw/blobs/sha256:0518314dfcdfbc7926812980da07121706708ffda83cf0f600df909945d4a4f5
+sha256:
+  darwin_arm64: 5cd394c2c385450a83f767935d5d6678aa5a8fb1eb6c687b26477370a881cb5f
+  darwin_amd64: 01d05e976e388312e41888856168f914c0c0e0fd4fd628cdc4159dbb25a614db
+  linux_amd64: 062535068e14404ec86b816c0c1987d9d90213d05c27cfaaa9767c22c7c8b636
+  linux_arm64: 0518314dfcdfbc7926812980da07121706708ffda83cf0f600df909945d4a4f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

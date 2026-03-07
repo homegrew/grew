@@ -1,0 +1,25 @@
+name: sysaidmin
+version: 0.2.5
+description: GPT-powered sysadmin
+homepage: https://github.com/skorokithakis/sysaidmin
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sysaidmin/blobs/sha256:b473cf94edf2f3447295295fe718d9661febdca314f1c9cb7b734c39ebcf830d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sysaidmin/blobs/sha256:fd35e6b8ef66e2e8666a546ad9611ba24cbdccd58001cbf6b205eba8352351a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sysaidmin/blobs/sha256:ac6245873b4c6f28e8954e8f8697e2877d038f8f5117dcd33e503c26ff3caa1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sysaidmin/blobs/sha256:ca51feb9a3826390659f05823e5a426f6f780d612603ea83332ca06f8f909b6e
+sha256:
+  darwin_arm64: b473cf94edf2f3447295295fe718d9661febdca314f1c9cb7b734c39ebcf830d
+  darwin_amd64: fd35e6b8ef66e2e8666a546ad9611ba24cbdccd58001cbf6b205eba8352351a2
+  linux_amd64: ac6245873b4c6f28e8954e8f8697e2877d038f8f5117dcd33e503c26ff3caa1a
+  linux_arm64: ca51feb9a3826390659f05823e5a426f6f780d612603ea83332ca06f8f909b6e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - pydantic
+  - python@3.14
+  - rpds-py

@@ -1,0 +1,22 @@
+name: help2man
+version: 1.49.3
+description: Automatically generate simple man pages
+homepage: https://www.gnu.org/software/help2man/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/help2man/blobs/sha256:d2e8018036792d9b999b50c7230443eececc319f3e51b780f6f10f2228c4641e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/help2man/blobs/sha256:dd72eaf7288b91985248e14172f3f6e3e466a0f0491e6d5fb9ab16f5d1f0f3f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/help2man/blobs/sha256:23f914c836ce3eb3984f9c9688dc48ce7f0024d45454c9114400420b70090091
+  linux_arm64: https://ghcr.io/v2/homebrew/core/help2man/blobs/sha256:bcb5c874f13e9a6731574491c5b8dcad637a9117d13272dad0db52164b0c9c0a
+sha256:
+  darwin_arm64: d2e8018036792d9b999b50c7230443eececc319f3e51b780f6f10f2228c4641e
+  darwin_amd64: dd72eaf7288b91985248e14172f3f6e3e466a0f0491e6d5fb9ab16f5d1f0f3f2
+  linux_amd64: 23f914c836ce3eb3984f9c9688dc48ce7f0024d45454c9114400420b70090091
+  linux_arm64: bcb5c874f13e9a6731574491c5b8dcad637a9117d13272dad0db52164b0c9c0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - perl

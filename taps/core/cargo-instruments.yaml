@@ -1,0 +1,17 @@
+name: cargo-instruments
+version: 0.4.14
+description: Easily generate Instruments traces for your rust crate
+homepage: https://github.com/cmyr/cargo-instruments
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-instruments/blobs/sha256:3f5934a6f114ac82acb63d98a76a0d5c43eb062fbc734b5cb42ce4f292393d65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-instruments/blobs/sha256:e665f6e1cbfc9ba602965a903d0737293c3142a1b116c6de4b8db6717c4cc274
+sha256:
+  darwin_arm64: 3f5934a6f114ac82acb63d98a76a0d5c43eb062fbc734b5cb42ce4f292393d65
+  darwin_amd64: e665f6e1cbfc9ba602965a903d0737293c3142a1b116c6de4b8db6717c4cc274
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

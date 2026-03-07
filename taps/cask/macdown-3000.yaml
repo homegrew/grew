@@ -1,0 +1,13 @@
+name: macdown-3000
+version: 3000.0.4
+description: Markdown editor with live preview and syntax highlighting
+homepage: https://macdown.app/
+url:
+  darwin_arm64: https://github.com/schuyler/macdown3000/releases/download/v3000.0.4/MacDown-3000.0.4.dmg
+sha256:
+  darwin_arm64: 438c9f577ca09065f66bc3011f556ae2589b6f71aa395ea32f920c7fd470ffd5
+artifacts:
+  app:
+    - MacDown 3000.app
+  bin:
+    - macdown

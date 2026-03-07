@@ -1,0 +1,19 @@
+name: diary
+version: 0.16
+description: Text-based journaling program
+homepage: https://diary.p0c.ch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diary/blobs/sha256:2cf6dc0be5b3beea462918ef2b58d2c94ecec01aba46b260a85772abbef73b94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diary/blobs/sha256:d51e5e2b94e5b9dc1785e7aa078d3b172efec352cdec902868d9b6b4a98a9449
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diary/blobs/sha256:b704142ff01e044dcdec4d07de67dc87a5a19493359cddeea44652d4de1ce193
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diary/blobs/sha256:88308136c0405f059f6e90173f4b8ff9416a752585917d144eb4818f2243b4bb
+sha256:
+  darwin_arm64: 2cf6dc0be5b3beea462918ef2b58d2c94ecec01aba46b260a85772abbef73b94
+  darwin_amd64: d51e5e2b94e5b9dc1785e7aa078d3b172efec352cdec902868d9b6b4a98a9449
+  linux_amd64: b704142ff01e044dcdec4d07de67dc87a5a19493359cddeea44652d4de1ce193
+  linux_arm64: 88308136c0405f059f6e90173f4b8ff9416a752585917d144eb4818f2243b4bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

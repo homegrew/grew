@@ -1,0 +1,19 @@
+name: age-plugin-yubikey
+version: 0.5.0
+description: Plugin for encrypting files with age and PIV tokens such as YubiKeys
+homepage: https://github.com/str4d/age-plugin-yubikey
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/age-plugin-yubikey/blobs/sha256:6801ea0c59df5851fb1340474d8e2f910ca64ce254cac752b5a02c1a21fbc723
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/age-plugin-yubikey/blobs/sha256:2473cd4b99557da25b8e2899b5cccc8238a0cb9704be98fb274438e06593cf09
+  linux_amd64: https://ghcr.io/v2/homebrew/core/age-plugin-yubikey/blobs/sha256:82643b04b611338208b3bed82b767ade73d25bf088ee7bac22d678f4ce0b7651
+  linux_arm64: https://ghcr.io/v2/homebrew/core/age-plugin-yubikey/blobs/sha256:db8aff3d27ae723dde79b70043a3a2dce5ade95446c7d3ece767cf56a29679ba
+sha256:
+  darwin_arm64: 6801ea0c59df5851fb1340474d8e2f910ca64ce254cac752b5a02c1a21fbc723
+  darwin_amd64: 2473cd4b99557da25b8e2899b5cccc8238a0cb9704be98fb274438e06593cf09
+  linux_amd64: 82643b04b611338208b3bed82b767ade73d25bf088ee7bac22d678f4ce0b7651
+  linux_arm64: db8aff3d27ae723dde79b70043a3a2dce5ade95446c7d3ece767cf56a29679ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

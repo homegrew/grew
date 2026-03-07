@@ -1,0 +1,21 @@
+name: http_load
+version: 20160309
+description: Test throughput of a web server by running parallel fetches
+homepage: https://www.acme.com/software/http_load/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/http_load/blobs/sha256:5b5b959ce2f9aae731f7234d123194dfc5694d31b1dcd505b98546a0bbec14f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/http_load/blobs/sha256:27129e350fa06c4e302145c55a83a0b41f4ab96ebf371de001151d537929ccb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/http_load/blobs/sha256:5172c491fea4e76a68983d8fe6563a97e2ed2bef73b6bb0c95f5290282343116
+  linux_arm64: https://ghcr.io/v2/homebrew/core/http_load/blobs/sha256:21d002bd2aa7f0c6f9bb57c13777d961e01a3e149769017c6ed91cb4a1ea0f1c
+sha256:
+  darwin_arm64: 5b5b959ce2f9aae731f7234d123194dfc5694d31b1dcd505b98546a0bbec14f7
+  darwin_amd64: 27129e350fa06c4e302145c55a83a0b41f4ab96ebf371de001151d537929ccb8
+  linux_amd64: 5172c491fea4e76a68983d8fe6563a97e2ed2bef73b6bb0c95f5290282343116
+  linux_arm64: 21d002bd2aa7f0c6f9bb57c13777d961e01a3e149769017c6ed91cb4a1ea0f1c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

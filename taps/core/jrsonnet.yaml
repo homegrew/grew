@@ -1,0 +1,19 @@
+name: jrsonnet
+version: 0.4.2
+description: Rust implementation of Jsonnet language
+homepage: https://github.com/CertainLach/jrsonnet
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jrsonnet/blobs/sha256:026bf62a8f25bba0ebb74716c7167c4564c69967bf4860a64e81332ca668c187
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jrsonnet/blobs/sha256:b149496a8055b9dffca8be4eb576f62af266ac219c7010603924fca8ddd06f79
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jrsonnet/blobs/sha256:3a04748fc43150da3210809034f82864313d7706869ec78265462a22cf2a4812
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jrsonnet/blobs/sha256:a2c0b31f422bd414ea9a03f66e47131e10513157ce995499770e364a6b944692
+sha256:
+  darwin_arm64: 026bf62a8f25bba0ebb74716c7167c4564c69967bf4860a64e81332ca668c187
+  darwin_amd64: b149496a8055b9dffca8be4eb576f62af266ac219c7010603924fca8ddd06f79
+  linux_amd64: 3a04748fc43150da3210809034f82864313d7706869ec78265462a22cf2a4812
+  linux_arm64: a2c0b31f422bd414ea9a03f66e47131e10513157ce995499770e364a6b944692
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

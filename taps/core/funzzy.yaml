@@ -1,0 +1,19 @@
+name: funzzy
+version: 1.5.0
+description: Lightweight file watcher
+homepage: https://github.com/cristianoliveira/funzzy
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/funzzy/blobs/sha256:caa2f8d37826f07fe6bbe6e6c2b63632f8a47a15a6c5618bc2af0b30c1b691a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/funzzy/blobs/sha256:44fd7535e861bd71c7b718a3fcd1da9635a673293afd66efea8ed0801429ab9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/funzzy/blobs/sha256:3cea877d0499d698f84ab37af2e7e92643fc8a61cca0ae29af045efaf45e0810
+  linux_arm64: https://ghcr.io/v2/homebrew/core/funzzy/blobs/sha256:4227fc7942e32ad7abf6330e78b82942adfa7bf2fa7a802a37d72e50200f9767
+sha256:
+  darwin_arm64: caa2f8d37826f07fe6bbe6e6c2b63632f8a47a15a6c5618bc2af0b30c1b691a8
+  darwin_amd64: 44fd7535e861bd71c7b718a3fcd1da9635a673293afd66efea8ed0801429ab9e
+  linux_amd64: 3cea877d0499d698f84ab37af2e7e92643fc8a61cca0ae29af045efaf45e0810
+  linux_arm64: 4227fc7942e32ad7abf6330e78b82942adfa7bf2fa7a802a37d72e50200f9767
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

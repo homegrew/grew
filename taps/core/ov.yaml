@@ -1,0 +1,19 @@
+name: ov
+version: 0.51.1
+description: Feature-rich terminal-based text viewer
+homepage: https://noborus.github.io/ov/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ov/blobs/sha256:430c33fb58bcd28bdfaed3f0792547949b66037d0e3ccfb7910be765c48aeb04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ov/blobs/sha256:acd705415344b94a3350b86defebabc832066ee385eec8753e12d60fba3d86f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ov/blobs/sha256:8be500c3309ff5f9dde08f2279ffdcaa97ceae14bcfb207e2c965b1f6b584bfb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ov/blobs/sha256:424dad4fd89ce7f62c0dbbe9f86bfdca02f7d5427aa6e66296f777ca07a5e748
+sha256:
+  darwin_arm64: 430c33fb58bcd28bdfaed3f0792547949b66037d0e3ccfb7910be765c48aeb04
+  darwin_amd64: acd705415344b94a3350b86defebabc832066ee385eec8753e12d60fba3d86f3
+  linux_amd64: 8be500c3309ff5f9dde08f2279ffdcaa97ceae14bcfb207e2c965b1f6b584bfb
+  linux_arm64: 424dad4fd89ce7f62c0dbbe9f86bfdca02f7d5427aa6e66296f777ca07a5e748
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,36 @@
+name: gsmartcontrol
+version: 2.0.2
+description: Graphical user interface for smartctl
+homepage: https://gsmartcontrol.shaduri.dev/
+license: GPL-2.0-only OR GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gsmartcontrol/blobs/sha256:cfaf1237a9a274431f67a88627cb0a794662c85d083d2e7dd46083422ca821c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gsmartcontrol/blobs/sha256:3c772fa791354268934693ea60962ffbe839ca07219b9a69925e7bd862d0ff61
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gsmartcontrol/blobs/sha256:6cd4fa97e19fee44f12fe02e4d7edf882c098c80d83472d036d61f8e730c7b81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gsmartcontrol/blobs/sha256:5213f0cf402797e0e3d08a4ed283272fa701bf0ff1a876b468eedf4489464086
+sha256:
+  darwin_arm64: cfaf1237a9a274431f67a88627cb0a794662c85d083d2e7dd46083422ca821c4
+  darwin_amd64: 3c772fa791354268934693ea60962ffbe839ca07219b9a69925e7bd862d0ff61
+  linux_amd64: 6cd4fa97e19fee44f12fe02e4d7edf882c098c80d83472d036d61f8e730c7b81
+  linux_arm64: 5213f0cf402797e0e3d08a4ed283272fa701bf0ff1a876b468eedf4489464086
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atkmm@2.28
+  - cairo
+  - cairomm@1.14
+  - glib
+  - glibmm@2.66
+  - gtk+3
+  - gtkmm3
+  - libsigc++@2
+  - pangomm@2.46
+  - smartmontools
+  - at-spi2-core
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango
+  - pcre2

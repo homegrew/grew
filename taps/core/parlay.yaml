@@ -1,0 +1,19 @@
+name: parlay
+version: 0.11.0
+description: Enrich SBOMs with data from third party services
+homepage: https://github.com/snyk/parlay
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parlay/blobs/sha256:9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parlay/blobs/sha256:7f42c1f875078675c7cd60c6e70ae9db99b84cf798938d7f01dce436c9737c41
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parlay/blobs/sha256:33be478a04fc6420f2f23d785293c5a4cf96e4489310750fe11454f2de95b63a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parlay/blobs/sha256:849416c24d196e8956172d41d25e1fc874190f374004e60289eae74b1dcf4345
+sha256:
+  darwin_arm64: 9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896
+  darwin_amd64: 7f42c1f875078675c7cd60c6e70ae9db99b84cf798938d7f01dce436c9737c41
+  linux_amd64: 33be478a04fc6420f2f23d785293c5a4cf96e4489310750fe11454f2de95b63a
+  linux_arm64: 849416c24d196e8956172d41d25e1fc874190f374004e60289eae74b1dcf4345
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

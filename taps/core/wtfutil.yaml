@@ -1,0 +1,19 @@
+name: wtfutil
+version: 0.49.0
+description: Personal information dashboard for your terminal
+homepage: https://wtfutil.com
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wtfutil/blobs/sha256:ca9bf8c4528b24eedebc8e4b68ad7c994402aed6cf1842a521291cb593ac6271
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wtfutil/blobs/sha256:56e56d9b2fa53cc7a35aa88e672d73df067d747a8f2f6768d6df12e09ce8163d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wtfutil/blobs/sha256:a5bbdeb0fbfabcdf2c5ef3166ac84815c8a76c25eee564a03cc76a2c8595cf86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wtfutil/blobs/sha256:2bf1fb03df8f5a0967a579047d5b0cf04ec1984658f9f2bf0570224f7dca046f
+sha256:
+  darwin_arm64: ca9bf8c4528b24eedebc8e4b68ad7c994402aed6cf1842a521291cb593ac6271
+  darwin_amd64: 56e56d9b2fa53cc7a35aa88e672d73df067d747a8f2f6768d6df12e09ce8163d
+  linux_amd64: a5bbdeb0fbfabcdf2c5ef3166ac84815c8a76c25eee564a03cc76a2c8595cf86
+  linux_arm64: 2bf1fb03df8f5a0967a579047d5b0cf04ec1984658f9f2bf0570224f7dca046f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

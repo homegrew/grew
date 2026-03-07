@@ -1,0 +1,21 @@
+name: fastk
+version: 1.2
+description: K-mer counter for high-fidelity shotgun datasets
+homepage: https://github.com/thegenemyers/FASTK
+license: BSD-3-Clause AND (MIT AND BSD-3-Clause) AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastk/blobs/sha256:3c5879f5bfe08955fd1efa5c04ce712c5fa2d3c614f987b840c936c78fcc56ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastk/blobs/sha256:2a83f988b220e7f71054b4f0e97c20d6378ffdeb5fb9317969f2b244b0b399e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastk/blobs/sha256:2ef7d92d57021d41d511f385ca9e66110625cb091d7f882ab3dd367762c285ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastk/blobs/sha256:c5d202af3430f6567bd429b27996dbe06a70270c5762c80dfc770e043e4615dc
+sha256:
+  darwin_arm64: 3c5879f5bfe08955fd1efa5c04ce712c5fa2d3c614f987b840c936c78fcc56ac
+  darwin_amd64: 2a83f988b220e7f71054b4f0e97c20d6378ffdeb5fb9317969f2b244b0b399e1
+  linux_amd64: 2ef7d92d57021d41d511f385ca9e66110625cb091d7f882ab3dd367762c285ee
+  linux_arm64: c5d202af3430f6567bd429b27996dbe06a70270c5762c80dfc770e043e4615dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

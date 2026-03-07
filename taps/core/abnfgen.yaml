@@ -1,0 +1,19 @@
+name: abnfgen
+version: 0.21
+description: Quickly generate random documents that match an ABFN grammar
+homepage: https://www.quut.com/abnfgen/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abnfgen/blobs/sha256:eab87d7376a80c7f80ea531c0d416ffd17c8382339891c38158763e67cab67e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abnfgen/blobs/sha256:cdae00cf074d6a865aa7ec7854d6e3fde32756f8398aff1312b3bdc176cc6393
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abnfgen/blobs/sha256:76f35d17e3a1bad80de9ef0c2fb654882619b43a70f00cc23293b7d63c3fc513
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abnfgen/blobs/sha256:3d3524e2008a5cb3a6c5248cdddc948d023a0e1781246862c0035d7a3cbf6bbe
+sha256:
+  darwin_arm64: eab87d7376a80c7f80ea531c0d416ffd17c8382339891c38158763e67cab67e3
+  darwin_amd64: cdae00cf074d6a865aa7ec7854d6e3fde32756f8398aff1312b3bdc176cc6393
+  linux_amd64: 76f35d17e3a1bad80de9ef0c2fb654882619b43a70f00cc23293b7d63c3fc513
+  linux_arm64: 3d3524e2008a5cb3a6c5248cdddc948d023a0e1781246862c0035d7a3cbf6bbe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

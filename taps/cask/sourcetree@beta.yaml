@@ -1,0 +1,13 @@
+name: sourcetree@beta
+version: 4.2.17b27,310
+description: Graphical client for Git version control
+homepage: https://www.sourcetreeapp.com/
+url:
+  darwin_arm64: https://product-downloads.atlassian.com/software/sourcetree/beta/Sourcetree_4.2.17b27_310.zip
+sha256:
+  darwin_arm64: 0968b4ed5936fb825e46465a623afbc9fa8aecfaf0e253497ed1c629c53b8549
+artifacts:
+  app:
+    - Sourcetree-Beta.app
+  bin:
+    - stree-beta

@@ -1,0 +1,17 @@
+name: emacs-app
+version: 30.2-1
+description: Text editor
+homepage: https://emacsformacosx.com/
+url:
+  darwin_arm64: https://emacsformacosx.com/emacs-builds/Emacs-30.2-1-universal.dmg
+sha256:
+  darwin_arm64: 72b31176903a68a7b82093a94fedd51eda7ecbb3c54eae21a9160cedc88fab1f
+artifacts:
+  app:
+    - Emacs.app
+  bin:
+    - emacs
+    - ctags
+    - ebrowse
+    - emacsclient
+    - etags

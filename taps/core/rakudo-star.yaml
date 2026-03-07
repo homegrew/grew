@@ -1,0 +1,26 @@
+name: rakudo-star
+version: 2026.02
+description: Rakudo compiler and commonly used packages
+homepage: https://rakudo.org/
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rakudo-star/blobs/sha256:2e46a1265473c05a7404b5ca549c46878420f1607d1e1f84582a69fceee29397
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rakudo-star/blobs/sha256:7131c5a98f04711a417c847a709642c3b347e0d6ca620c3aba298b1aa7dcc8ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rakudo-star/blobs/sha256:1ab408457fc6d274a6034668df1f4377af2420958cca65659d52ed0c44c94d71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rakudo-star/blobs/sha256:122dee9e81735f79627c148cd85e4cdf12d734351908f198431508a38c6fe418
+sha256:
+  darwin_arm64: 2e46a1265473c05a7404b5ca549c46878420f1607d1e1f84582a69fceee29397
+  darwin_amd64: 7131c5a98f04711a417c847a709642c3b347e0d6ca620c3aba298b1aa7dcc8ba
+  linux_amd64: 1ab408457fc6d274a6034668df1f4377af2420958cca65659d52ed0c44c94d71
+  linux_arm64: 122dee9e81735f79627c148cd85e4cdf12d734351908f198431508a38c6fe418
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtommath
+  - mimalloc
+  - openssl@3
+  - readline
+  - zstd
+  - libuv

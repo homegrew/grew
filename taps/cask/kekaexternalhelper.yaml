@@ -1,0 +1,11 @@
+name: kekaexternalhelper
+version: 1.2.0,1.4.4
+description: Helper application for the Keka file archiver
+homepage: https://github.com/aonez/Keka/wiki/Default-application
+url:
+  darwin_arm64: https://github.com/aonez/Keka/releases/download/v1.4.4/KekaExternalHelper-v1.2.0.zip
+sha256:
+  darwin_arm64: 6857bb22694b6f6c01a13c40953b0a04b1704acf90da414a7476be63961d9827
+artifacts:
+  app:
+    - KekaExternalHelper.app

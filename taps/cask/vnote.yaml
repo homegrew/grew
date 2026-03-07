@@ -1,0 +1,11 @@
+name: vnote
+version: 3.20.1
+description: Note-taking platform
+homepage: https://vnotex.github.io/vnote/
+url:
+  darwin_arm64: https://github.com/vnotex/vnote/releases/download/v3.20.1/VNote-3.20.1-mac-universal.zip
+sha256:
+  darwin_arm64: f72d19f4c9a4b8c1f145949665e0dde47ad31883abbb0c8139ed7791a34846e2
+artifacts:
+  app:
+    - VNote.app

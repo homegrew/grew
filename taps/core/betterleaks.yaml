@@ -1,0 +1,19 @@
+name: betterleaks
+version: 1.1.0
+description: Secrets scanner built for configurability and speed
+homepage: https://github.com/betterleaks/betterleaks
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/betterleaks/blobs/sha256:262f03847d487830a55df9bc3d6c34a0bfdff79ba69c6985d6fe5488d1fb6cbb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/betterleaks/blobs/sha256:90233cdc741b779dcc6fced08544c6a9ca062b759857e3ffd3f8bcaa5bd4a33f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/betterleaks/blobs/sha256:41f23243a3391c935d453f87748bb87ccb9e30fa623982cfd7d018b6ea51fd72
+  linux_arm64: https://ghcr.io/v2/homebrew/core/betterleaks/blobs/sha256:440a5057db09dbed6254c27bcfb0cb78277eee3d9c232161b9d180481f72ef85
+sha256:
+  darwin_arm64: 262f03847d487830a55df9bc3d6c34a0bfdff79ba69c6985d6fe5488d1fb6cbb
+  darwin_amd64: 90233cdc741b779dcc6fced08544c6a9ca062b759857e3ffd3f8bcaa5bd4a33f
+  linux_amd64: 41f23243a3391c935d453f87748bb87ccb9e30fa623982cfd7d018b6ea51fd72
+  linux_arm64: 440a5057db09dbed6254c27bcfb0cb78277eee3d9c232161b9d180481f72ef85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

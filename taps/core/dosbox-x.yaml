@@ -1,0 +1,27 @@
+name: dosbox-x
+version: 2026.01.02
+description: DOSBox with accurate emulation and wide testing
+homepage: https://dosbox-x.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dosbox-x/blobs/sha256:46a81649179f13aeb4dbe640364bdfe030a938cc3525ea6c9a98b1f8acaad069
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dosbox-x/blobs/sha256:975161e502be78f6a728b5eddbf51b40223ed0e3bdcaad650f187cfbd32194c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dosbox-x/blobs/sha256:b5b373764af3cd9384c20e4db2a91de894c21044b47751c8795f7f629540a789
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dosbox-x/blobs/sha256:4e42f23a5aa402cd7a2c12d5838a87f308115d247c86f24ae592c61f7a5f24b2
+sha256:
+  darwin_arm64: 46a81649179f13aeb4dbe640364bdfe030a938cc3525ea6c9a98b1f8acaad069
+  darwin_amd64: 975161e502be78f6a728b5eddbf51b40223ed0e3bdcaad650f187cfbd32194c9
+  linux_amd64: b5b373764af3cd9384c20e4db2a91de894c21044b47751c8795f7f629540a789
+  linux_arm64: 4e42f23a5aa402cd7a2c12d5838a87f308115d247c86f24ae592c61f7a5f24b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fluid-synth
+  - freetype
+  - libpng
+  - libslirp
+  - sdl2
+  - gettext
+  - glib

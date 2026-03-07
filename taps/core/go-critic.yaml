@@ -1,0 +1,21 @@
+name: go-critic
+version: 0.14.3
+description: Opinionated Go source code linter
+homepage: https://go-critic.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-critic/blobs/sha256:36f3b8b5a46c5c69662d86c2ce02536aa8cd0852096f1292f732626b4a147e70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-critic/blobs/sha256:a362645959022e39c2b229e6159b79dc5b30f218d8fbe58fa53d69ecf3117d76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-critic/blobs/sha256:69d045cfbb182d91c41e6f11210579be1013377ad00ffb63aea243be86c1dc61
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-critic/blobs/sha256:f0dd5e70661ab061df20bde3752473eddbc9f45e5f33a1cfcbe6e50d9d688d61
+sha256:
+  darwin_arm64: 36f3b8b5a46c5c69662d86c2ce02536aa8cd0852096f1292f732626b4a147e70
+  darwin_amd64: a362645959022e39c2b229e6159b79dc5b30f218d8fbe58fa53d69ecf3117d76
+  linux_amd64: 69d045cfbb182d91c41e6f11210579be1013377ad00ffb63aea243be86c1dc61
+  linux_arm64: f0dd5e70661ab061df20bde3752473eddbc9f45e5f33a1cfcbe6e50d9d688d61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

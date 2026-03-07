@@ -1,0 +1,21 @@
+name: hyperestraier
+version: 1.4.13
+description: Full-text search system for communities
+homepage: https://dbmx.net/hyperestraier/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hyperestraier/blobs/sha256:fddfdaa28011b5308a0195b816212d061a3b707dce5275ff26bb47ab09e22841
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hyperestraier/blobs/sha256:c981ea80d0221e330581cbe313a598f79776c62e8cd4100a274f3dcb2b435feb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hyperestraier/blobs/sha256:67da1265df5336838e42f563b8b90041d83d848739bf7972950de444cef78650
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hyperestraier/blobs/sha256:82e4346da884ac2a0ef08c094839ff64c4f689a2d036dc4be0db5f7d86af69ff
+sha256:
+  darwin_arm64: fddfdaa28011b5308a0195b816212d061a3b707dce5275ff26bb47ab09e22841
+  darwin_amd64: c981ea80d0221e330581cbe313a598f79776c62e8cd4100a274f3dcb2b435feb
+  linux_amd64: 67da1265df5336838e42f563b8b90041d83d848739bf7972950de444cef78650
+  linux_arm64: 82e4346da884ac2a0ef08c094839ff64c4f689a2d036dc4be0db5f7d86af69ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qdbm

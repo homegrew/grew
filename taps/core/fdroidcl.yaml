@@ -1,0 +1,19 @@
+name: fdroidcl
+version: 0.8.1
+description: F-Droid desktop client
+homepage: https://github.com/Hoverth/fdroidcl
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fdroidcl/blobs/sha256:eff5d8a8992263ef5309e08d50b18767ec8ce4e4900916161a0b94de35e271d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fdroidcl/blobs/sha256:8bfd91ccb97abe616d4fd3d32ccb498cf79a1787b9700860609de72b4f93c4a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fdroidcl/blobs/sha256:77a94907960dcab6c2bcdc0b7e5b6364eb6e221cb52bf3aabb7fbdcc1a5bc93d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fdroidcl/blobs/sha256:7265c44fd957cfe968910913ded8f02f82565194b41b7ebf8d683784ab1b0261
+sha256:
+  darwin_arm64: eff5d8a8992263ef5309e08d50b18767ec8ce4e4900916161a0b94de35e271d8
+  darwin_amd64: 8bfd91ccb97abe616d4fd3d32ccb498cf79a1787b9700860609de72b4f93c4a5
+  linux_amd64: 77a94907960dcab6c2bcdc0b7e5b6364eb6e221cb52bf3aabb7fbdcc1a5bc93d
+  linux_arm64: 7265c44fd957cfe968910913ded8f02f82565194b41b7ebf8d683784ab1b0261
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

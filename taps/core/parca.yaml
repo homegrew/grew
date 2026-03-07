@@ -1,0 +1,19 @@
+name: parca
+version: 0.26.0
+description: Continuous profiling for analysis of CPU and memory usage
+homepage: https://www.parca.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/parca/blobs/sha256:013e81c3488c7873674587696da1a96c74117bfe6054482af72b017fbac58e4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/parca/blobs/sha256:2ebf3ad65142faa07cdc2ea21a035b0bacbc497488406514ae1f278db0ef427b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/parca/blobs/sha256:744789f3b103028f71511b288dd5dc00c2811c4a17d61977a590ae3a9ece8f23
+  linux_arm64: https://ghcr.io/v2/homebrew/core/parca/blobs/sha256:24d5715a616b84334d157f371dbbd80503c321afda66e33a9bf3f6a6a96588b7
+sha256:
+  darwin_arm64: 013e81c3488c7873674587696da1a96c74117bfe6054482af72b017fbac58e4d
+  darwin_amd64: 2ebf3ad65142faa07cdc2ea21a035b0bacbc497488406514ae1f278db0ef427b
+  linux_amd64: 744789f3b103028f71511b288dd5dc00c2811c4a17d61977a590ae3a9ece8f23
+  linux_arm64: 24d5715a616b84334d157f371dbbd80503c321afda66e33a9bf3f6a6a96588b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

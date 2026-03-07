@@ -1,0 +1,19 @@
+name: atomic_queue
+version: 1.7.1
+description: C++14 lock-free queues
+homepage: https://github.com/max0x7ba/atomic_queue
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atomic_queue/blobs/sha256:b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atomic_queue/blobs/sha256:b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atomic_queue/blobs/sha256:1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atomic_queue/blobs/sha256:1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b
+sha256:
+  darwin_arm64: b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861
+  darwin_amd64: b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861
+  linux_amd64: 1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b
+  linux_arm64: 1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

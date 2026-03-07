@@ -1,0 +1,22 @@
+name: envio
+version: 0.7.0
+description: Modern And Secure CLI Tool For Managing Environment Variables
+homepage: https://github.com/envio-cli/envio
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/envio/blobs/sha256:b18308e8847f096e91c31c563e0e4ca6b0a87a260ac6f3ef680ea8ab477dd9dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/envio/blobs/sha256:19125731457442ee02d534d4cabb9f7a31cafcd7aa75fbebd87af772396b052a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/envio/blobs/sha256:0ff6c6cebba244c79d927a9203ff657318d0af4290f95941888deb1dec58fc34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/envio/blobs/sha256:669a6d3805a14be62a553178f9cf31571a7db0717bbd90e5d5668046ff32e35b
+sha256:
+  darwin_arm64: b18308e8847f096e91c31c563e0e4ca6b0a87a260ac6f3ef680ea8ab477dd9dc
+  darwin_amd64: 19125731457442ee02d534d4cabb9f7a31cafcd7aa75fbebd87af772396b052a
+  linux_amd64: 0ff6c6cebba244c79d927a9203ff657318d0af4290f95941888deb1dec58fc34
+  linux_arm64: 669a6d3805a14be62a553178f9cf31571a7db0717bbd90e5d5668046ff32e35b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme
+  - libgpg-error

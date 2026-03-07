@@ -1,0 +1,22 @@
+name: qpdf
+version: 12.3.2
+description: Tools for and transforming and inspecting PDF files
+homepage: https://github.com/qpdf/qpdf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qpdf/blobs/sha256:e1c5478e15efb7eccf35f0e1464ea0384d4afcd8c6d8347de2dd1ef3cdbd48da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qpdf/blobs/sha256:ae97ea43f6d048aeb39bb4ef894305a6c5181bfc1436e415073add0c0ac93b3f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qpdf/blobs/sha256:257890275f350e66b25c6cdd5769713d038c41890d4710c644cffc1eb5cc6d66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qpdf/blobs/sha256:017679e381a1b0179fead06203c3fceb0123d239c5443840a2e62e6327d3f38a
+sha256:
+  darwin_arm64: e1c5478e15efb7eccf35f0e1464ea0384d4afcd8c6d8347de2dd1ef3cdbd48da
+  darwin_amd64: ae97ea43f6d048aeb39bb4ef894305a6c5181bfc1436e415073add0c0ac93b3f
+  linux_amd64: 257890275f350e66b25c6cdd5769713d038c41890d4710c644cffc1eb5cc6d66
+  linux_arm64: 017679e381a1b0179fead06203c3fceb0123d239c5443840a2e62e6327d3f38a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - openssl@3

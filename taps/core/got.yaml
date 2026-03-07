@@ -1,0 +1,24 @@
+name: got
+version: 0.123
+description: Version control system
+homepage: https://gameoftrees.org/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/got/blobs/sha256:42153eec1c0cdd6a97f3fcfa9844379169310d69662f573e3bc3620391ac1f79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/got/blobs/sha256:0e1653964d8b02c503ddda3faa78fa9a0751533497cab54528618526f01babb0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/got/blobs/sha256:8d5f523e7be43f222443c7e5ca66aa51434480c8329f1665db9bde32db061b78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/got/blobs/sha256:b7be5020527e8afca69dfd0de84519588af0f3004dea3aa6d79fa9271ff61d61
+sha256:
+  darwin_arm64: 42153eec1c0cdd6a97f3fcfa9844379169310d69662f573e3bc3620391ac1f79
+  darwin_amd64: 0e1653964d8b02c503ddda3faa78fa9a0751533497cab54528618526f01babb0
+  linux_amd64: 8d5f523e7be43f222443c7e5ca66aa51434480c8329f1665db9bde32db061b78
+  linux_arm64: b7be5020527e8afca69dfd0de84519588af0f3004dea3aa6d79fa9271ff61d61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - libretls
+  - ncurses
+  - openssl@3

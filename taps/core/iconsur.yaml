@@ -1,0 +1,18 @@
+name: iconsur
+version: 1.7.0
+description: macOS Big Sur Adaptive Icon Generator
+homepage: https://github.com/rikumi/iconsur
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iconsur/blobs/sha256:3ed36e4e583cfc13793ba7b84a20be55acd4c399f16d736fccd5db0f6fba3346
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iconsur/blobs/sha256:395551a9edc345cfcaf5741a75d6d5b117f7a4e34691c542ae880ed7d2511359
+sha256:
+  darwin_arm64: 3ed36e4e583cfc13793ba7b84a20be55acd4c399f16d736fccd5db0f6fba3346
+  darwin_amd64: 395551a9edc345cfcaf5741a75d6d5b117f7a4e34691c542ae880ed7d2511359
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - python@3.14

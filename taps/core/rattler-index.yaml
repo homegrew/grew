@@ -1,0 +1,19 @@
+name: rattler-index
+version: 0.27.16
+description: Index conda channels using rattler
+homepage: https://github.com/conda/rattler
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rattler-index/blobs/sha256:4edd893e982cd1c3e7dc6e15733fd73ed481c0780aaf404a0de04dd06b870bd6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rattler-index/blobs/sha256:c0bcee96a8e1c5a4e9a04289a484c3628045d1e32aa1de8328921689bb82e5ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rattler-index/blobs/sha256:eaa67a09428c31470246794d8eb7b945c4fd8726f13bd1581bc70ea538a54761
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rattler-index/blobs/sha256:c49a522af7847bf01707fdd90969f1d59a3435f35ee365caf7b984b597f3501a
+sha256:
+  darwin_arm64: 4edd893e982cd1c3e7dc6e15733fd73ed481c0780aaf404a0de04dd06b870bd6
+  darwin_amd64: c0bcee96a8e1c5a4e9a04289a484c3628045d1e32aa1de8328921689bb82e5ad
+  linux_amd64: eaa67a09428c31470246794d8eb7b945c4fd8726f13bd1581bc70ea538a54761
+  linux_arm64: c49a522af7847bf01707fdd90969f1d59a3435f35ee365caf7b984b597f3501a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

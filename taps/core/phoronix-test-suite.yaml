@@ -1,0 +1,21 @@
+name: phoronix-test-suite
+version: 10.8.4
+description: Open-source automated testing/benchmarking software
+homepage: https://www.phoronix-test-suite.com/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/phoronix-test-suite/blobs/sha256:71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/phoronix-test-suite/blobs/sha256:130079ac169569c6e2c45a6a31d25ce285606cbfc4ed03ccd7b2e2488d8a162d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/phoronix-test-suite/blobs/sha256:71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/phoronix-test-suite/blobs/sha256:71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+sha256:
+  darwin_arm64: 71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+  darwin_amd64: 130079ac169569c6e2c45a6a31d25ce285606cbfc4ed03ccd7b2e2488d8a162d
+  linux_amd64: 71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+  linux_arm64: 71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - php

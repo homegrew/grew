@@ -1,0 +1,22 @@
+name: freeipmi
+version: 1.6.16
+description: In-band and out-of-band IPMI (v1.5/2.0) software
+homepage: https://www.gnu.org/software/freeipmi/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freeipmi/blobs/sha256:088038494ab5a3519fb61478cb8e5e70c82e267c4f05a718b2e7e59f93866dd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freeipmi/blobs/sha256:bbab50242b9e092985c723e7e60f103a3237ea2124ac00df9b160a4f05d47e97
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freeipmi/blobs/sha256:f1b6706610f1b25cb10de66ab9963fdbe13d51e7bc2f7668fef2167649a2716a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freeipmi/blobs/sha256:17c67de9391aa8f42c54e1e99e14005940227b37a3ef466c98f81729db6b6827
+sha256:
+  darwin_arm64: 088038494ab5a3519fb61478cb8e5e70c82e267c4f05a718b2e7e59f93866dd1
+  darwin_amd64: bbab50242b9e092985c723e7e60f103a3237ea2124ac00df9b160a4f05d47e97
+  linux_amd64: f1b6706610f1b25cb10de66ab9963fdbe13d51e7bc2f7668fef2167649a2716a
+  linux_arm64: 17c67de9391aa8f42c54e1e99e14005940227b37a3ef466c98f81729db6b6827
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - argp-standalone

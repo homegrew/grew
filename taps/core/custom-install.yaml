@@ -1,0 +1,22 @@
+name: custom-install
+version: 2.1
+description: Install CIA files directly to Nintendo 3DS SD card
+homepage: https://github.com/ihaveamac/custom-install
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/custom-install/blobs/sha256:61a022ea5b0f415929d32b8cb527f0772b065da9084df4feb3ea606bee39db83
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/custom-install/blobs/sha256:74ce576ef08e7769e5f95e2062b928ecdc07b87550426eeb50645738d091105b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/custom-install/blobs/sha256:a37d6e1c136e15b4627953afc2c8baa93736bb7f170df4a6ba56255e9b9f8eeb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/custom-install/blobs/sha256:0877be59f541572b6a19f107bbbbf8490cff0ce865e54715cbe22c782ddc1e1d
+sha256:
+  darwin_arm64: 61a022ea5b0f415929d32b8cb527f0772b065da9084df4feb3ea606bee39db83
+  darwin_amd64: 74ce576ef08e7769e5f95e2062b928ecdc07b87550426eeb50645738d091105b
+  linux_amd64: a37d6e1c136e15b4627953afc2c8baa93736bb7f170df4a6ba56255e9b9f8eeb
+  linux_arm64: 0877be59f541572b6a19f107bbbbf8490cff0ce865e54715cbe22c782ddc1e1d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - save3ds_fuse

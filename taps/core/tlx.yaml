@@ -1,0 +1,19 @@
+name: tlx
+version: 0.6.1
+description: Collection of Sophisticated C++ Data Structures, Algorithms and Helpers
+homepage: https://tlx.github.io
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tlx/blobs/sha256:24a8426be33e4421b2f636ba05b6784352bd1a559e5b2dde90ecae8420e0f591
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tlx/blobs/sha256:66a4109ede842a3ea53e81b6938ec834860b439d43254ddad12ed173ec479e9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tlx/blobs/sha256:e67f35bf407415cf0ab4f5afba211439f82b8da3495a6a52b0301c3a76f099b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tlx/blobs/sha256:8740b303922f5a8190cddac66aeb6262a7c0dfa633cd98add555d0e4e1cdc6e5
+sha256:
+  darwin_arm64: 24a8426be33e4421b2f636ba05b6784352bd1a559e5b2dde90ecae8420e0f591
+  darwin_amd64: 66a4109ede842a3ea53e81b6938ec834860b439d43254ddad12ed173ec479e9e
+  linux_amd64: e67f35bf407415cf0ab4f5afba211439f82b8da3495a6a52b0301c3a76f099b8
+  linux_arm64: 8740b303922f5a8190cddac66aeb6262a7c0dfa633cd98add555d0e4e1cdc6e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

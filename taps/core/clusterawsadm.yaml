@@ -1,0 +1,19 @@
+name: clusterawsadm
+version: 2.10.2
+description: Home for bootstrapping, AMI, EKS, and other helpers in Cluster API Provider AWS
+homepage: https://cluster-api-aws.sigs.k8s.io/clusterawsadm/clusterawsadm.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clusterawsadm/blobs/sha256:f92c24e53d1661fd010e6199291e737c8e1fa72183e8ab95b3722eb5eb291236
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clusterawsadm/blobs/sha256:8251e5026c5f72d32f0f75014b82d28e91535990ec7c57d00842ac7de6643624
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clusterawsadm/blobs/sha256:3bcab380e8e32a64350f9e7c1a55e95da25a42a4a59e6da9708807a080550655
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clusterawsadm/blobs/sha256:5a941298e0db7c32bdca8d4a713465acc2b07ecbe40ae3ea276bb9f9555f2321
+sha256:
+  darwin_arm64: f92c24e53d1661fd010e6199291e737c8e1fa72183e8ab95b3722eb5eb291236
+  darwin_amd64: 8251e5026c5f72d32f0f75014b82d28e91535990ec7c57d00842ac7de6643624
+  linux_amd64: 3bcab380e8e32a64350f9e7c1a55e95da25a42a4a59e6da9708807a080550655
+  linux_arm64: 5a941298e0db7c32bdca8d4a713465acc2b07ecbe40ae3ea276bb9f9555f2321
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

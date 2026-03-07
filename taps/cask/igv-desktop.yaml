@@ -1,0 +1,11 @@
+name: igv-desktop
+version: 2.19.7
+description: Visual exploration of genomic data
+homepage: https://igv.org/doc/desktop/
+url:
+  darwin_arm64: https://data.broadinstitute.org/igv/projects/downloads/2.19/IGV_MacApp_2.19.7.zip
+sha256:
+  darwin_arm64: 4e03824984c846e681fe7eb5a18b77a5ca51a839788f65981365e543c267c1fa
+artifacts:
+  app:
+    - IGV_2.19.7.app

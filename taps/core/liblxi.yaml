@@ -1,0 +1,19 @@
+name: liblxi
+version: 1.22
+description: Simple C API for communicating with LXI compatible instruments
+homepage: https://github.com/lxi-tools/liblxi
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liblxi/blobs/sha256:90b99e8ef648703285fa24caf9d05f63402da9cc0d9c64860ca2559ed3c0fa7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liblxi/blobs/sha256:d16e24e3272e1036851c6ec820e9a328dadb3c79dbf35e8fc81e4fc97660344e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liblxi/blobs/sha256:3a3ea1867af1936c3d441d4799fd7b448701e984679be728dffdee1cd24f8728
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liblxi/blobs/sha256:7c962e15081bbdd29b93a4714f8a3f3b27225fbf209ffa3d39415d6fd5c63911
+sha256:
+  darwin_arm64: 90b99e8ef648703285fa24caf9d05f63402da9cc0d9c64860ca2559ed3c0fa7b
+  darwin_amd64: d16e24e3272e1036851c6ec820e9a328dadb3c79dbf35e8fc81e4fc97660344e
+  linux_amd64: 3a3ea1867af1936c3d441d4799fd7b448701e984679be728dffdee1cd24f8728
+  linux_arm64: 7c962e15081bbdd29b93a4714f8a3f3b27225fbf209ffa3d39415d6fd5c63911
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

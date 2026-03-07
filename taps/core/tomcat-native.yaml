@@ -1,0 +1,23 @@
+name: tomcat-native
+version: 2.0.13
+description: Lets Tomcat use some native resources for performance
+homepage: https://tomcat.apache.org/native-doc/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tomcat-native/blobs/sha256:9e94fa4a46572efb06b80bde5ab94b15ac2742d49442206f79ced7c01bed7c78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tomcat-native/blobs/sha256:cebc2767d039638e0f7b1f8ec3bd28b024b0f07450466ed936b6b1a3a7568df8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tomcat-native/blobs/sha256:32c42a7aa7a685db886a626e2d9c1337d5f9690131d289315a87e38d8be87ab1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tomcat-native/blobs/sha256:81bd3868334e8814123286ef7b73159b727a83216a8f88a0f2b374a5c91aa227
+sha256:
+  darwin_arm64: 9e94fa4a46572efb06b80bde5ab94b15ac2742d49442206f79ced7c01bed7c78
+  darwin_amd64: cebc2767d039638e0f7b1f8ec3bd28b024b0f07450466ed936b6b1a3a7568df8
+  linux_amd64: 32c42a7aa7a685db886a626e2d9c1337d5f9690131d289315a87e38d8be87ab1
+  linux_arm64: 81bd3868334e8814123286ef7b73159b727a83216a8f88a0f2b374a5c91aa227
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - openjdk
+  - openssl@3

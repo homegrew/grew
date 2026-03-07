@@ -1,0 +1,19 @@
+name: tmpwatch
+version: 2.11
+description: Find and remove files not accessed in a specified time
+homepage: https://pagure.io/tmpwatch
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tmpwatch/blobs/sha256:60ee1cc81b639e95ae3d7dd8ec82c30aca2f4ee7ad84a94bfec4e2ebcb1e184c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tmpwatch/blobs/sha256:03de8ab41e8bff1c92f3ed5e2fdd5b2aa6225fa0f0289934a83df4bf1af939f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tmpwatch/blobs/sha256:2741db5b51e3d5cce2e16a2e200a5ac071d8ddb76255a3a4ae5b1752ec9cb33b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tmpwatch/blobs/sha256:caa859a2ada543faf06353b9023dd1ffb11c3d9afbcfce55079ea2a8a0a480ec
+sha256:
+  darwin_arm64: 60ee1cc81b639e95ae3d7dd8ec82c30aca2f4ee7ad84a94bfec4e2ebcb1e184c
+  darwin_amd64: 03de8ab41e8bff1c92f3ed5e2fdd5b2aa6225fa0f0289934a83df4bf1af939f5
+  linux_amd64: 2741db5b51e3d5cce2e16a2e200a5ac071d8ddb76255a3a4ae5b1752ec9cb33b
+  linux_arm64: caa859a2ada543faf06353b9023dd1ffb11c3d9afbcfce55079ea2a8a0a480ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

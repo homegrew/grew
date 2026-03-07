@@ -1,0 +1,24 @@
+name: gtk-mac-integration
+version: 3.0.2
+description: Integrates GTK macOS applications with the Mac desktop
+homepage: https://www.gtk.org/docs/installations/macos
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gtk-mac-integration/blobs/sha256:ee2a0dd43946f07ac42ef0acad00a96aa5075890029f32272a139d5d1fa07f0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gtk-mac-integration/blobs/sha256:ce981b3727a5b425b31d44a918d2a44bb49c159214b0e13bd5968c1c653438d1
+sha256:
+  darwin_arm64: ee2a0dd43946f07ac42ef0acad00a96aa5075890029f32272a139d5d1fa07f0e
+  darwin_amd64: ce981b3727a5b425b31d44a918d2a44bb49c159214b0e13bd5968c1c653438d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - glib
+  - gtk+3
+  - harfbuzz
+  - pango

@@ -1,0 +1,11 @@
+name: brickstore
+version: 2026.3.2
+description: BrickLink offline management tool
+homepage: https://www.brickstore.dev/
+url:
+  darwin_arm64: https://github.com/rgriebl/brickstore/releases/download/v2026.3.2/macOS-BrickStore-2026.3.2.dmg
+sha256:
+  darwin_arm64: 4b8c6b5b2689c60f8264774b55fd1ebd5f61d8741a7841b69c4ae63734ecc21a
+artifacts:
+  app:
+    - BrickStore.app

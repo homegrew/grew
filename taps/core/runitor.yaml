@@ -1,0 +1,19 @@
+name: runitor
+version: 1.4.1
+description: Command runner with healthchecks.io integration
+homepage: https://github.com/bdd/runitor
+license: 0BSD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/runitor/blobs/sha256:16b11e9362646966797e2658e3cb248bf62a4fb18993bd77cb221ceca82a7770
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/runitor/blobs/sha256:0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/runitor/blobs/sha256:385c34c59826cd643af53842d7517eab4a8315aa21705a7e7ce58cba0782eaf1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/runitor/blobs/sha256:07e21132d3392dee21baf84f985077d200e6c68004a44f342a94ec9c15bff883
+sha256:
+  darwin_arm64: 16b11e9362646966797e2658e3cb248bf62a4fb18993bd77cb221ceca82a7770
+  darwin_amd64: 0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89
+  linux_amd64: 385c34c59826cd643af53842d7517eab4a8315aa21705a7e7ce58cba0782eaf1
+  linux_arm64: 07e21132d3392dee21baf84f985077d200e6c68004a44f342a94ec9c15bff883
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

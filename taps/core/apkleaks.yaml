@@ -1,0 +1,22 @@
+name: apkleaks
+version: 2.6.3
+description: "Scanning APK file for URIs, endpoints & secrets"
+homepage: https://github.com/dwisiswant0/apkleaks
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apkleaks/blobs/sha256:30f23d279478263f6ea0e37eee13fead1e2e1cce3bf150987305380f77b40940
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apkleaks/blobs/sha256:d1f50e61fc6fbe4267e9c6f3f3f425ff822892a64feb1af5f0e2cbff1e5d1fdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apkleaks/blobs/sha256:af72799417a097e97f6994a393077722ff2f6e0a11dec8716e397b251aa31f94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apkleaks/blobs/sha256:4f3014e026d33801dec32e80823fce26797317dd999f16ff6a46a1db2ba495fc
+sha256:
+  darwin_arm64: 30f23d279478263f6ea0e37eee13fead1e2e1cce3bf150987305380f77b40940
+  darwin_amd64: d1f50e61fc6fbe4267e9c6f3f3f425ff822892a64feb1af5f0e2cbff1e5d1fdb
+  linux_amd64: af72799417a097e97f6994a393077722ff2f6e0a11dec8716e397b251aa31f94
+  linux_arm64: 4f3014e026d33801dec32e80823fce26797317dd999f16ff6a46a1db2ba495fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jadx
+  - python@3.14

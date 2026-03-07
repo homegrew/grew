@@ -1,0 +1,25 @@
+name: analog
+version: 6.0.18
+description: Logfile analyzer
+homepage: https://www.c-amie.co.uk/software/analog/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/analog/blobs/sha256:f22cbd76f12ee0e8c0d4b1796634aca86f5e3201c1803314de1e3c454b5e8c16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/analog/blobs/sha256:6225d15ba873ae228f09bfb64ef1a1e4bdaecd6e3dd7d7825a2cc9b470ac4985
+  linux_amd64: https://ghcr.io/v2/homebrew/core/analog/blobs/sha256:d0a8c9b27401c61853b013a89a2be2810d9b8dda0b1967270959d0838376b0e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/analog/blobs/sha256:d0050e27757f0c7a60c9a44c28fc8b57b91b0e00a1cbd4abf5e458c1deda9974
+sha256:
+  darwin_arm64: f22cbd76f12ee0e8c0d4b1796634aca86f5e3201c1803314de1e3c454b5e8c16
+  darwin_amd64: 6225d15ba873ae228f09bfb64ef1a1e4bdaecd6e3dd7d7825a2cc9b470ac4985
+  linux_amd64: d0a8c9b27401c61853b013a89a2be2810d9b8dda0b1967270959d0838376b0e5
+  linux_arm64: d0050e27757f0c7a60c9a44c28fc8b57b91b0e00a1cbd4abf5e458c1deda9974
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd
+  - jpeg-turbo
+  - libpng
+  - minizip
+  - pcre2

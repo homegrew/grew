@@ -1,0 +1,21 @@
+name: webfs
+version: 1.21
+description: HTTP server for purely static content
+homepage: https://linux.bytesex.org/misc/webfs.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/webfs/blobs/sha256:f24eb50960a9e004fa3c769dcf977fc0582134669c439405884ceaad2b7ec18f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/webfs/blobs/sha256:13ecbf81676a75692f1c5a4375a7510a42e0445c6f1bed71a750fda9bd286fb6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/webfs/blobs/sha256:3656131d83b5affd389f147cc542fa0c5717aa0cd7aec1b03e05603f3a4ac06e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/webfs/blobs/sha256:b797c9b3bda23e449f53975e905232df8010c9301d3117101167f82701a00d75
+sha256:
+  darwin_arm64: f24eb50960a9e004fa3c769dcf977fc0582134669c439405884ceaad2b7ec18f
+  darwin_amd64: 13ecbf81676a75692f1c5a4375a7510a42e0445c6f1bed71a750fda9bd286fb6
+  linux_amd64: 3656131d83b5affd389f147cc542fa0c5717aa0cd7aec1b03e05603f3a4ac06e
+  linux_arm64: b797c9b3bda23e449f53975e905232df8010c9301d3117101167f82701a00d75
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

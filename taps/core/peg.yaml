@@ -1,0 +1,19 @@
+name: peg
+version: 0.1.19
+description: Program to perform pattern matching on text
+homepage: https://www.piumarta.com/software/peg/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/peg/blobs/sha256:69199b8b5ca9791da1895d31d558d1205468f97741268abb2bb7944320cf050b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/peg/blobs/sha256:dde90ca660bdf7d086e1552195a2f6523550c77ce846a1ce6b72381046594861
+  linux_amd64: https://ghcr.io/v2/homebrew/core/peg/blobs/sha256:344b71933baafa8d0d1e9c685b67f73726f5f6372953346ae8460edab2acc015
+  linux_arm64: https://ghcr.io/v2/homebrew/core/peg/blobs/sha256:d4cf66155b03b7df188f33b1df5bf9b7f529a3544416292795414a6fb613b741
+sha256:
+  darwin_arm64: 69199b8b5ca9791da1895d31d558d1205468f97741268abb2bb7944320cf050b
+  darwin_amd64: dde90ca660bdf7d086e1552195a2f6523550c77ce846a1ce6b72381046594861
+  linux_amd64: 344b71933baafa8d0d1e9c685b67f73726f5f6372953346ae8460edab2acc015
+  linux_arm64: d4cf66155b03b7df188f33b1df5bf9b7f529a3544416292795414a6fb613b741
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

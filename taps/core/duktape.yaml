@@ -1,0 +1,19 @@
+name: duktape
+version: 2.7.0
+description: Embeddable Javascript engine with compact footprint
+homepage: https://duktape.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duktape/blobs/sha256:5fe1dd30da74b054c84215502091d01461ee22644b32f278cb883bf8e65d71f7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duktape/blobs/sha256:dbf3ef6af3565f4a08abdcc243ac18214ae37000b3cb3d4704b807b32cc8040d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duktape/blobs/sha256:158b015f9c3b091605deed158af5f37c816c48d00b1163402282459298fd921e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duktape/blobs/sha256:6bf806c110978a59312df80334012c02e8a285b364effe90c1aea33370549d83
+sha256:
+  darwin_arm64: 5fe1dd30da74b054c84215502091d01461ee22644b32f278cb883bf8e65d71f7
+  darwin_amd64: dbf3ef6af3565f4a08abdcc243ac18214ae37000b3cb3d4704b807b32cc8040d
+  linux_amd64: 158b015f9c3b091605deed158af5f37c816c48d00b1163402282459298fd921e
+  linux_arm64: 6bf806c110978a59312df80334012c02e8a285b364effe90c1aea33370549d83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

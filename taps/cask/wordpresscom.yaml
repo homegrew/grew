@@ -1,0 +1,11 @@
+name: wordpresscom
+version: 8.0.4
+description: WordPress client
+homepage: https://apps.wordpress.com/desktop/
+url:
+  darwin_arm64: https://github.com/Automattic/wp-desktop/releases/download/v8.0.4/wordpress.com-macOS-dmg-8.0.4-arm64.dmg
+sha256:
+  darwin_arm64: 4fea40eba336ad397a0c55f511a7942c6314970d9daa57fedb609ff487887a21
+artifacts:
+  app:
+    - WordPress.com.app

@@ -1,0 +1,19 @@
+name: privatebin-cli
+version: 2.2.1
+description: CLI for creating and managing PrivateBin pastes
+homepage: https://github.com/gearnode/privatebin
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/privatebin-cli/blobs/sha256:0ed201fc5f15f7c2e698da7958cc3f7850717447d25112de21f178879efd44d8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/privatebin-cli/blobs/sha256:f2e4fa411d88cce37a30da74d468d452692a4837d83655cffc4738bf1b324fb9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/privatebin-cli/blobs/sha256:8a98fa2e7050c0484bceb3b221fabfa802f83c5f0a68eebfc5ef0f3485e5d2d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/privatebin-cli/blobs/sha256:9dc9373dd412bfa83d39f08fbccd6ab55b0c58f4952d3b8b049c10e8cb2f2448
+sha256:
+  darwin_arm64: 0ed201fc5f15f7c2e698da7958cc3f7850717447d25112de21f178879efd44d8
+  darwin_amd64: f2e4fa411d88cce37a30da74d468d452692a4837d83655cffc4738bf1b324fb9
+  linux_amd64: 8a98fa2e7050c0484bceb3b221fabfa802f83c5f0a68eebfc5ef0f3485e5d2d8
+  linux_arm64: 9dc9373dd412bfa83d39f08fbccd6ab55b0c58f4952d3b8b049c10e8cb2f2448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

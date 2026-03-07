@@ -1,0 +1,19 @@
+name: byacc
+version: 20260126
+description: (Arguably) the best yacc variant
+homepage: https://invisible-island.net/byacc/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/byacc/blobs/sha256:7b744045116e9ce0829c9c99ed2df820a8b35a56e92be4e8f714446e3bd5301d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/byacc/blobs/sha256:d9e73885e9af6a04b10c8c0690bb278798114afa308e16edf73f4cc4a6df2070
+  linux_amd64: https://ghcr.io/v2/homebrew/core/byacc/blobs/sha256:135f6821d7a1c90f3d5ca46dec5d53baa5ed57435c83ec545480c7e0d318d1f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/byacc/blobs/sha256:a1fdddc149a80df3d04ce5b80603a8845621e68bcac3dd6282c864944660f9af
+sha256:
+  darwin_arm64: 7b744045116e9ce0829c9c99ed2df820a8b35a56e92be4e8f714446e3bd5301d
+  darwin_amd64: d9e73885e9af6a04b10c8c0690bb278798114afa308e16edf73f4cc4a6df2070
+  linux_amd64: 135f6821d7a1c90f3d5ca46dec5d53baa5ed57435c83ec545480c7e0d318d1f0
+  linux_arm64: a1fdddc149a80df3d04ce5b80603a8845621e68bcac3dd6282c864944660f9af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

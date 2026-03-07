@@ -1,0 +1,21 @@
+name: pg_top
+version: 3.7.0
+description: Monitor PostgreSQL processes
+homepage: https://pg_top.gitlab.io
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pg_top/blobs/sha256:9adc494d9d026662d8e072527c22e736fe60bf0153eecdc5d3d4b6271abfc8a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pg_top/blobs/sha256:59ad81e7e985e9b841a4667a901e94cadac8923be21654c5918326a230424910
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pg_top/blobs/sha256:65fe3861c5e90a4c9403f4b551892cd8ac85fbbea1cc23f551ee0eda3c9de01d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pg_top/blobs/sha256:fbf1018624db8c4c76d72d83d18a7d079ae6d1fba0d7c65aea8078f9e1c31519
+sha256:
+  darwin_arm64: 9adc494d9d026662d8e072527c22e736fe60bf0153eecdc5d3d4b6271abfc8a9
+  darwin_amd64: 59ad81e7e985e9b841a4667a901e94cadac8923be21654c5918326a230424910
+  linux_amd64: 65fe3861c5e90a4c9403f4b551892cd8ac85fbbea1cc23f551ee0eda3c9de01d
+  linux_arm64: fbf1018624db8c4c76d72d83d18a7d079ae6d1fba0d7c65aea8078f9e1c31519
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq

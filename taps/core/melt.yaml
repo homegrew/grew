@@ -1,0 +1,19 @@
+name: melt
+version: 0.6.2
+description: Backup and restore Ed25519 SSH keys with seed words
+homepage: https://github.com/charmbracelet/melt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/melt/blobs/sha256:6064c885c390d6c1b80356c097549fc1eea43ab0a1d12d50e2fb6cc3c1369321
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/melt/blobs/sha256:859066b5a763b3515215482fdb28cabdca370c42ace805013046f56d6233c583
+  linux_amd64: https://ghcr.io/v2/homebrew/core/melt/blobs/sha256:7f036b14fd312ab891ca6ba924692520ccf73c4430e0c0d4dd95128858b11923
+  linux_arm64: https://ghcr.io/v2/homebrew/core/melt/blobs/sha256:473a37ff07856f5f587fc22a267edb9e268aaa100cc60980bcbe1317d85454aa
+sha256:
+  darwin_arm64: 6064c885c390d6c1b80356c097549fc1eea43ab0a1d12d50e2fb6cc3c1369321
+  darwin_amd64: 859066b5a763b3515215482fdb28cabdca370c42ace805013046f56d6233c583
+  linux_amd64: 7f036b14fd312ab891ca6ba924692520ccf73c4430e0c0d4dd95128858b11923
+  linux_arm64: 473a37ff07856f5f587fc22a267edb9e268aaa100cc60980bcbe1317d85454aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

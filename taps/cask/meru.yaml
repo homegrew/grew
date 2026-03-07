@@ -1,0 +1,11 @@
+name: meru
+version: 3.32.1
+description: Gmail desktop app
+homepage: https://meru.so/
+url:
+  darwin_arm64: https://github.com/zoidsh/meru/releases/download/v3.32.1/Meru-3.32.1-arm64.dmg
+sha256:
+  darwin_arm64: f566bb75d067dee603f6c4441ea2ac21612916b8bd409c7f352fbc2eb03231d9
+artifacts:
+  app:
+    - Meru.app

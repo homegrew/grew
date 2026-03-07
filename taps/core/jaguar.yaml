@@ -1,0 +1,19 @@
+name: jaguar
+version: 1.61.0
+description: Live reloading for your ESP32
+homepage: https://toitlang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jaguar/blobs/sha256:190d9f73659be0e3e0a1288743b3f502f4d4b06dcef4e408008994248ebe3ab0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jaguar/blobs/sha256:60737b1dd555b4c5296543437b062053cd246897b361bcf8221c8fd5d1832bda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jaguar/blobs/sha256:83257defc6586e7eddf2a3c993add2294646a14ffc0d57c8258618a969e2b5ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jaguar/blobs/sha256:7c898b70060c0d56290da7ed067df9907fe5a624e963ef58bac381f0b35900b3
+sha256:
+  darwin_arm64: 190d9f73659be0e3e0a1288743b3f502f4d4b06dcef4e408008994248ebe3ab0
+  darwin_amd64: 60737b1dd555b4c5296543437b062053cd246897b361bcf8221c8fd5d1832bda
+  linux_amd64: 83257defc6586e7eddf2a3c993add2294646a14ffc0d57c8258618a969e2b5ab
+  linux_arm64: 7c898b70060c0d56290da7ed067df9907fe5a624e963ef58bac381f0b35900b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

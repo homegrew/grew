@@ -1,0 +1,19 @@
+name: roxctl
+version: 4.10.0
+description: CLI for Stackrox
+homepage: https://www.stackrox.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/roxctl/blobs/sha256:b5af6316a5661f1ee34dca21c17d961806eed69cccdc1a1766dd959a074d74fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/roxctl/blobs/sha256:7368b968824bb43eca4442b21572dfd99c41d93e865268706491e43b594230f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/roxctl/blobs/sha256:7c47d13b2545c582c0aeb61f7198988cab7544902d587eb3ef5dbcc246db0fdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/roxctl/blobs/sha256:4fde6de66deddc6a9e41ace3608989452ea8b27291d1ef273afd0f38c7950442
+sha256:
+  darwin_arm64: b5af6316a5661f1ee34dca21c17d961806eed69cccdc1a1766dd959a074d74fa
+  darwin_amd64: 7368b968824bb43eca4442b21572dfd99c41d93e865268706491e43b594230f9
+  linux_amd64: 7c47d13b2545c582c0aeb61f7198988cab7544902d587eb3ef5dbcc246db0fdf
+  linux_arm64: 4fde6de66deddc6a9e41ace3608989452ea8b27291d1ef273afd0f38c7950442
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

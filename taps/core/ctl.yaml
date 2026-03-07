@@ -1,0 +1,24 @@
+name: ctl
+version: 1.5.4
+description: Programming language for digital color management
+homepage: https://github.com/ampas/CTL
+license: AMPAS
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctl/blobs/sha256:dfa050e2d9a41d8d9b2bde93e1286f9a172ed202cc0d9f61fe81a33244f6af03
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctl/blobs/sha256:2b54cfdfaa8dbbe90bce3b74e6544d991d41144878ca942d3b5b75f44dbe5e89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctl/blobs/sha256:abe0b96ef6367426b3ce5b52182f714f5f496c5d18c5a91b42e3882924d5780a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctl/blobs/sha256:82d4fc648be73e03f07fb79130a9eeda876df66e24a80d3050d49f4cdbaa4c3d
+sha256:
+  darwin_arm64: dfa050e2d9a41d8d9b2bde93e1286f9a172ed202cc0d9f61fe81a33244f6af03
+  darwin_amd64: 2b54cfdfaa8dbbe90bce3b74e6544d991d41144878ca942d3b5b75f44dbe5e89
+  linux_amd64: abe0b96ef6367426b3ce5b52182f714f5f496c5d18c5a91b42e3882924d5780a
+  linux_arm64: 82d4fc648be73e03f07fb79130a9eeda876df66e24a80d3050d49f4cdbaa4c3d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aces_container
+  - imath
+  - libtiff
+  - openexr

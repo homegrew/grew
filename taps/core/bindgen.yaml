@@ -1,0 +1,19 @@
+name: bindgen
+version: 0.72.1
+description: Automatically generates Rust FFI bindings to C (and some C++) libraries
+homepage: https://rust-lang.github.io/rust-bindgen/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bindgen/blobs/sha256:5e365fd73111ab1f7631e50ef51f4123d07e83c1f841ca7eff0422f884808a40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bindgen/blobs/sha256:6c7bb66b409bc5c4e9eb5f72cca1731fff75f37f7d1384ca8898d8db8cae48eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bindgen/blobs/sha256:a12ce571a9dcdf6ba8212d717096305d37d845c80551c3d26a0679efc76e2824
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bindgen/blobs/sha256:5b6fe44a6d1ee205e403de6abdfb06a0956ff3747a4201100e5c031beaa86599
+sha256:
+  darwin_arm64: 5e365fd73111ab1f7631e50ef51f4123d07e83c1f841ca7eff0422f884808a40
+  darwin_amd64: 6c7bb66b409bc5c4e9eb5f72cca1731fff75f37f7d1384ca8898d8db8cae48eb
+  linux_amd64: a12ce571a9dcdf6ba8212d717096305d37d845c80551c3d26a0679efc76e2824
+  linux_arm64: 5b6fe44a6d1ee205e403de6abdfb06a0956ff3747a4201100e5c031beaa86599
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

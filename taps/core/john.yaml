@@ -1,0 +1,19 @@
+name: john
+version: 1.9.0
+description: Featureful UNIX password cracker
+homepage: https://www.openwall.com/john/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/john/blobs/sha256:de355d8210ec0ecde0806a9934c6f14600943b18ae9e98b67571e7b1f7f215f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/john/blobs/sha256:5bcb36b0fe61d6b2b432944ce913e6f04230ea487b857d931555cba2ab6d37f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/john/blobs/sha256:5eed6eadc7ebee51813a7909faf2d436c7c66291f20e0ef1880936faa8b03269
+  linux_arm64: https://ghcr.io/v2/homebrew/core/john/blobs/sha256:24e50afd7e32fae180e8cc88443bb9fbf2328f39e427e7f3999cba7a8cd8d085
+sha256:
+  darwin_arm64: de355d8210ec0ecde0806a9934c6f14600943b18ae9e98b67571e7b1f7f215f1
+  darwin_amd64: 5bcb36b0fe61d6b2b432944ce913e6f04230ea487b857d931555cba2ab6d37f1
+  linux_amd64: 5eed6eadc7ebee51813a7909faf2d436c7c66291f20e0ef1880936faa8b03269
+  linux_arm64: 24e50afd7e32fae180e8cc88443bb9fbf2328f39e427e7f3999cba7a8cd8d085
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

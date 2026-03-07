@@ -1,0 +1,19 @@
+name: lzip
+version: 1.25
+description: LZMA-based compression program similar to gzip or bzip2
+homepage: https://www.nongnu.org/lzip/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzip/blobs/sha256:8bbf8b41250a6b85edf045a0febfa5d398f7518fc96f26f6db92470b66e121a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzip/blobs/sha256:afdaee704d571bfe3255ac40e79725254e68dd1f24ec212b01e97fb8d24ab917
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzip/blobs/sha256:308786bcb638bd26b84aeef239c9fbbd03c221922bcd2cc595fdc9fd2a3e758f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzip/blobs/sha256:0621b36f1732ed0d6c39a932dc5c9d5f137299c45e2c866e8f5630ccc7fbc7ec
+sha256:
+  darwin_arm64: 8bbf8b41250a6b85edf045a0febfa5d398f7518fc96f26f6db92470b66e121a9
+  darwin_amd64: afdaee704d571bfe3255ac40e79725254e68dd1f24ec212b01e97fb8d24ab917
+  linux_amd64: 308786bcb638bd26b84aeef239c9fbbd03c221922bcd2cc595fdc9fd2a3e758f
+  linux_arm64: 0621b36f1732ed0d6c39a932dc5c9d5f137299c45e2c866e8f5630ccc7fbc7ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

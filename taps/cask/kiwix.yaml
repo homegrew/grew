@@ -1,0 +1,11 @@
+name: kiwix
+version: 3.13.0
+description: App providing offline access to Wikipedia and many other web sites
+homepage: https://www.kiwix.org/
+url:
+  darwin_arm64: https://download.kiwix.org/release/kiwix-macos/kiwix-macos_3.13.0.dmg
+sha256:
+  darwin_arm64: 7fd527e6e7e2c300e231eb1dc3676d9c758b33866d18c9c570632e477688bc7b
+artifacts:
+  app:
+    - Kiwix.app

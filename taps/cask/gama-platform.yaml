@@ -1,0 +1,11 @@
+name: gama-platform
+version: 2025.06.4
+description: IDE for building spatially explicit agent-based simulations
+homepage: https://gama-platform.org/
+url:
+  darwin_arm64: https://github.com/gama-platform/gama/releases/download/2025.06.4/GAMA_2025.06.4_MacOS_M1.dmg
+sha256:
+  darwin_arm64: 2778f3434d26b4035737026cd4077e81c18aae3773119480e907f9fd714d66f7
+artifacts:
+  app:
+    - Gama.app

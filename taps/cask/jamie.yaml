@@ -1,0 +1,11 @@
+name: jamie
+version: 4.5.0
+description: AI-powered meeting notes
+homepage: https://meetjamie.ai/
+url:
+  darwin_arm64: https://github.com/louismorgner/jamie-release/releases/download/v4.5.0/jamie-4.5.0-mac.zip
+sha256:
+  darwin_arm64: 39014fabc16ff77b08c4e333ce3ff9f911dc7b2ea0f3da3cfbf480d978ecd946
+artifacts:
+  app:
+    - jamie.app

@@ -1,0 +1,19 @@
+name: sqlboiler
+version: 4.19.7
+description: Generate a Go ORM tailored to your database schema
+homepage: https://github.com/volatiletech/sqlboiler
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlboiler/blobs/sha256:9da5bc117d6334b1e04bd17a1a5fcee72fb506aa0d7fd821b2ba79a3b579f9bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlboiler/blobs/sha256:d1c5f8a9bb11ea5a4deff6ca86985d488647dd03978382912ba8bbf340fe69c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlboiler/blobs/sha256:02355a4d2f91c2068f54cd28f5bf09e80b164c558bf943bf1111feca994a0eb7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlboiler/blobs/sha256:e7d17c535299cdad709093d4dad12bde1b6b1a84b85f4517bfb927b97c6e6115
+sha256:
+  darwin_arm64: 9da5bc117d6334b1e04bd17a1a5fcee72fb506aa0d7fd821b2ba79a3b579f9bc
+  darwin_amd64: d1c5f8a9bb11ea5a4deff6ca86985d488647dd03978382912ba8bbf340fe69c4
+  linux_amd64: 02355a4d2f91c2068f54cd28f5bf09e80b164c558bf943bf1111feca994a0eb7
+  linux_arm64: e7d17c535299cdad709093d4dad12bde1b6b1a84b85f4517bfb927b97c6e6115
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

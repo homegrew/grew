@@ -1,0 +1,19 @@
+name: d2
+version: 0.7.1
+description: Modern diagram scripting language that turns text to diagrams
+homepage: https://d2lang.com/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/d2/blobs/sha256:61a38ce31638ad307378e0031fce216fbf8e5082132ac4866ab5ca81e7337010
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/d2/blobs/sha256:cfca943125fe7319b8bd9a09256b9e62a6185d378b2394c307273a488567616e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/d2/blobs/sha256:74e100511019db1329966018c384c0be60853e9e2bb5de50e8d4b092da92552a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/d2/blobs/sha256:06d2bb3e6e93b2734ef66111772aefb0120938dabfb2697dad37e119e09f0157
+sha256:
+  darwin_arm64: 61a38ce31638ad307378e0031fce216fbf8e5082132ac4866ab5ca81e7337010
+  darwin_amd64: cfca943125fe7319b8bd9a09256b9e62a6185d378b2394c307273a488567616e
+  linux_amd64: 74e100511019db1329966018c384c0be60853e9e2bb5de50e8d4b092da92552a
+  linux_arm64: 06d2bb3e6e93b2734ef66111772aefb0120938dabfb2697dad37e119e09f0157
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

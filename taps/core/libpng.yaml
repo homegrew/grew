@@ -1,0 +1,19 @@
+name: libpng
+version: 1.6.55
+description: Library for manipulating PNG images
+homepage: https://www.libpng.org/pub/png/libpng.html
+license: libpng-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:18e55305589da2de3f27d7162aa331bcaf020e3f50d1310fe14d4539d3d90281
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:878c3075639e125f47cd730b7af85e4b1087dee15b08d9a9cbdaff6abf9ab8dc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:41f6eb3ea4da5e7996f09d3eb6ba9b02db91752f4b70c31abaee9a8bad1b7aa1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:65fe1a45dab0ee25b54582b37968a5c5fb5e065ff22ad9debf05b948ca0525c6
+sha256:
+  darwin_arm64: 18e55305589da2de3f27d7162aa331bcaf020e3f50d1310fe14d4539d3d90281
+  darwin_amd64: 878c3075639e125f47cd730b7af85e4b1087dee15b08d9a9cbdaff6abf9ab8dc
+  linux_amd64: 41f6eb3ea4da5e7996f09d3eb6ba9b02db91752f4b70c31abaee9a8bad1b7aa1
+  linux_arm64: 65fe1a45dab0ee25b54582b37968a5c5fb5e065ff22ad9debf05b948ca0525c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

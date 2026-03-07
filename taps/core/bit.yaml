@@ -1,0 +1,22 @@
+name: bit
+version: 14.8.8
+description: Distributed Code Component Manager
+homepage: https://bit.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bit/blobs/sha256:82201904fa2ec0416232bc8e3fa85b60945f07b58dbfa69566c800c96947fb7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bit/blobs/sha256:a5b469dc4bfc6937d12296c2c768b9dc3a210c8a9e1fe796213823b7ecd68c19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bit/blobs/sha256:7d998d44c9e7d076515e9363153c1aeaa4c8ddee77f9554152f6af2fab077764
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bit/blobs/sha256:e0b88da3686ca8ece21a232981d3d40196d0f4b1f8c9aabb55d2f4be142e33e7
+sha256:
+  darwin_arm64: 82201904fa2ec0416232bc8e3fa85b60945f07b58dbfa69566c800c96947fb7f
+  darwin_amd64: a5b469dc4bfc6937d12296c2c768b9dc3a210c8a9e1fe796213823b7ecd68c19
+  linux_amd64: 7d998d44c9e7d076515e9363153c1aeaa4c8ddee77f9554152f6af2fab077764
+  linux_arm64: e0b88da3686ca8ece21a232981d3d40196d0f4b1f8c9aabb55d2f4be142e33e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - terminal-notifier

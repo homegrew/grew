@@ -1,0 +1,24 @@
+name: argyll-cms
+version: 3.5.0
+description: ICC compatible color management system
+homepage: https://www.argyllcms.com/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argyll-cms/blobs/sha256:ad024d41761298dfa2f61e8f233fb7601562ad3171586b572bd6592e9ef59641
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argyll-cms/blobs/sha256:34f854d137000aa8be85754b576214963f1f1afa01336495854ab8b300e78c1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argyll-cms/blobs/sha256:c38a332aa8e7a21574b3144a645676b01201718e1bd9df1266b7063df6f034cb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argyll-cms/blobs/sha256:2125b4c16e24180474d11d494a7883c492c0e5473acd7c7838ce2b17e7f8508d
+sha256:
+  darwin_arm64: ad024d41761298dfa2f61e8f233fb7601562ad3171586b572bd6592e9ef59641
+  darwin_amd64: 34f854d137000aa8be85754b576214963f1f1afa01336495854ab8b300e78c1f
+  linux_amd64: c38a332aa8e7a21574b3144a645676b01201718e1bd9df1266b7063df6f034cb
+  linux_arm64: 2125b4c16e24180474d11d494a7883c492c0e5473acd7c7838ce2b17e7f8508d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openssl@3

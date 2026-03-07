@@ -1,0 +1,19 @@
+name: oauth2_proxy
+version: 7.14.3
+description: Reverse proxy for authenticating users via OAuth 2 providers
+homepage: https://oauth2-proxy.github.io/oauth2-proxy/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oauth2_proxy/blobs/sha256:be32323ca7079a7a03e82c27567cc8a5fa00e1d6a4c4d821c6d871b4976e6a06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oauth2_proxy/blobs/sha256:fa5ba48973d0210aaf91db6ffaa97a19578b66f93cc876345015972a3bc78f12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oauth2_proxy/blobs/sha256:fcddfc3939dd47819f46075fb27b6d045946c047c9c276973213acaf428ced28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oauth2_proxy/blobs/sha256:ebafc585d3e185a5141b4f07e0307913dcf1c1ccc289042ad04e6a8eace3bf71
+sha256:
+  darwin_arm64: be32323ca7079a7a03e82c27567cc8a5fa00e1d6a4c4d821c6d871b4976e6a06
+  darwin_amd64: fa5ba48973d0210aaf91db6ffaa97a19578b66f93cc876345015972a3bc78f12
+  linux_amd64: fcddfc3939dd47819f46075fb27b6d045946c047c9c276973213acaf428ced28
+  linux_arm64: ebafc585d3e185a5141b4f07e0307913dcf1c1ccc289042ad04e6a8eace3bf71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

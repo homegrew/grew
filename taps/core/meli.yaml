@@ -1,0 +1,21 @@
+name: meli
+version: 0.8.13
+description: Terminal e-mail client and e-mail client library
+homepage: https://meli-email.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/meli/blobs/sha256:5784a603ab62624ab0f093ccc3f407c5390841ea780dedd72e3cbbcb87943259
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/meli/blobs/sha256:a1c21bf8bfe2800cd52c7f3d23dc76871b99635578defaed3db7f43064f88d4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/meli/blobs/sha256:df9bb9511f829b1e9773a7d20f8998945daad30be756da93ebc6ae0306f0b6da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/meli/blobs/sha256:c6aab574892fb5e9ef1b2654b840e94c364f4981086e5c7ba84ed4b477438700
+sha256:
+  darwin_arm64: 5784a603ab62624ab0f093ccc3f407c5390841ea780dedd72e3cbbcb87943259
+  darwin_amd64: a1c21bf8bfe2800cd52c7f3d23dc76871b99635578defaed3db7f43064f88d4c
+  linux_amd64: df9bb9511f829b1e9773a7d20f8998945daad30be756da93ebc6ae0306f0b6da
+  linux_arm64: c6aab574892fb5e9ef1b2654b840e94c364f4981086e5c7ba84ed4b477438700
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

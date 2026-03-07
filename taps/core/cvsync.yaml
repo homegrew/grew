@@ -1,0 +1,21 @@
+name: cvsync
+version: 0.24.19
+description: Portable CVS repository synchronization utility
+homepage: https://www.cvsync.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cvsync/blobs/sha256:462780681001bc3d967095fe7299ea1a80d5c61a97445fa71906b9c313a3d524
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cvsync/blobs/sha256:4cd58fd98a0d40e093b9d4bd274713a13abdf3b4937c022d8d1d03fa763bc316
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cvsync/blobs/sha256:681d877926aaa76806b946e22c4d254a6b4e82bd22aca241113cf05d1271a5c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cvsync/blobs/sha256:e57f12788449006737f2a77356c2bd3a4c65e6301e78b8cbe50512087f9f03ee
+sha256:
+  darwin_arm64: 462780681001bc3d967095fe7299ea1a80d5c61a97445fa71906b9c313a3d524
+  darwin_amd64: 4cd58fd98a0d40e093b9d4bd274713a13abdf3b4937c022d8d1d03fa763bc316
+  linux_amd64: 681d877926aaa76806b946e22c4d254a6b4e82bd22aca241113cf05d1271a5c1
+  linux_arm64: e57f12788449006737f2a77356c2bd3a4c65e6301e78b8cbe50512087f9f03ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

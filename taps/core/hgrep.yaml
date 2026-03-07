@@ -1,0 +1,19 @@
+name: hgrep
+version: 0.3.9
+description: Grep with human-friendly search results
+homepage: https://github.com/rhysd/hgrep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hgrep/blobs/sha256:088a0d7f835018567e208e121a2b412cc78aef8d2c4fd503a782a9d7a711ddc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hgrep/blobs/sha256:1e72adf5c47c3815553b9b0313cfdbfc0b4607ec4f989de915acac28c1834c89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hgrep/blobs/sha256:9c7cdca84a0d997620598c28f648b9306c0a651b63b29d0323d4af5525ef16e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hgrep/blobs/sha256:06e7984aa5cad71a77c73ac753bd82cb5904b23fcfdbda7cb464430488e9af78
+sha256:
+  darwin_arm64: 088a0d7f835018567e208e121a2b412cc78aef8d2c4fd503a782a9d7a711ddc2
+  darwin_amd64: 1e72adf5c47c3815553b9b0313cfdbfc0b4607ec4f989de915acac28c1834c89
+  linux_amd64: 9c7cdca84a0d997620598c28f648b9306c0a651b63b29d0323d4af5525ef16e3
+  linux_arm64: 06e7984aa5cad71a77c73ac753bd82cb5904b23fcfdbda7cb464430488e9af78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

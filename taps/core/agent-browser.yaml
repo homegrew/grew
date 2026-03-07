@@ -1,0 +1,21 @@
+name: agent-browser
+version: 0.16.3
+description: Browser automation CLI for AI agents
+homepage: https://agent-browser.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/agent-browser/blobs/sha256:5a30f4a614a6762b74876e56dc39a8ea3b043ba38b60f495ff2e2441f589300f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/agent-browser/blobs/sha256:1156d5f34ad5755653d8e4881564ecb90f96e1b50b305a200c1ca2c07281be88
+  linux_amd64: https://ghcr.io/v2/homebrew/core/agent-browser/blobs/sha256:2d6825f6e49c62afc926271071c5da45a5866fa0086b2ff2a475f6745a07973f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/agent-browser/blobs/sha256:6f0ae5a6c43202df65e898d3f433b459b8c6919b0c6449330e7646b65120e9f1
+sha256:
+  darwin_arm64: 5a30f4a614a6762b74876e56dc39a8ea3b043ba38b60f495ff2e2441f589300f
+  darwin_amd64: 1156d5f34ad5755653d8e4881564ecb90f96e1b50b305a200c1ca2c07281be88
+  linux_amd64: 2d6825f6e49c62afc926271071c5da45a5866fa0086b2ff2a475f6745a07973f
+  linux_arm64: 6f0ae5a6c43202df65e898d3f433b459b8c6919b0c6449330e7646b65120e9f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

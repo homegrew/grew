@@ -1,0 +1,19 @@
+name: lemmeknow
+version: 0.8.0
+description: "Fastest way to identify anything!"
+homepage: https://github.com/swanandx/lemmeknow
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lemmeknow/blobs/sha256:a1900f21cb64bbf030411775ef8c6691d12282888e50703bf8a9e91e0e4bf28f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lemmeknow/blobs/sha256:4e9560ef44e088f3b7ff0edebeb7963da55f0858be3365ee9313982c512dab8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lemmeknow/blobs/sha256:c8d597d9d5a7512e3c5ccb9bca3efc519f1e9d1445cbac41ea4a9faea38caf7e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lemmeknow/blobs/sha256:0b3e0ddcfc0903619d6b4ae27306d8c047df8fb325882eda53c2e70674140c9a
+sha256:
+  darwin_arm64: a1900f21cb64bbf030411775ef8c6691d12282888e50703bf8a9e91e0e4bf28f
+  darwin_amd64: 4e9560ef44e088f3b7ff0edebeb7963da55f0858be3365ee9313982c512dab8d
+  linux_amd64: c8d597d9d5a7512e3c5ccb9bca3efc519f1e9d1445cbac41ea4a9faea38caf7e
+  linux_arm64: 0b3e0ddcfc0903619d6b4ae27306d8c047df8fb325882eda53c2e70674140c9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

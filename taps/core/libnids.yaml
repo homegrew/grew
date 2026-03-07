@@ -1,0 +1,23 @@
+name: libnids
+version: 1.24
+description: Implements E-component of network intrusion detection system
+homepage: https://libnids.sourceforge.net/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnids/blobs/sha256:8bf836ad1e90f2beb88013eb3ee3f3b04b20886ad3d83f55f289db886d723c8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnids/blobs/sha256:72f08c9f851a4d6da704af5d7b96dad3860fc88697481db5005a0adde6f1ab44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnids/blobs/sha256:53191548aacc1a482ec1bec888da8809da4c17b7b88e631b7c725acce36456e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnids/blobs/sha256:ce70446aaf3217c926bd5ec5df544ce4749a5a91553b3fcb2d111d6a5597727e
+sha256:
+  darwin_arm64: 8bf836ad1e90f2beb88013eb3ee3f3b04b20886ad3d83f55f289db886d723c8a
+  darwin_amd64: 72f08c9f851a4d6da704af5d7b96dad3860fc88697481db5005a0adde6f1ab44
+  linux_amd64: 53191548aacc1a482ec1bec888da8809da4c17b7b88e631b7c725acce36456e9
+  linux_arm64: ce70446aaf3217c926bd5ec5df544ce4749a5a91553b3fcb2d111d6a5597727e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libnet
+  - gettext

@@ -1,0 +1,27 @@
+name: weaviate-cli
+version: 3.3.0
+description: Command-line interface for managing and interacting with Weaviate
+homepage: https://pypi.org/project/weaviate-cli/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/weaviate-cli/blobs/sha256:0bdd4d1b902695107f2bf14f36fd32c67e24d646d97f6c59c99c9b1fc6419fec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/weaviate-cli/blobs/sha256:db8608afc3836f5f08a32664b714cf9c41b8b84a8de32ecc8c3d6d37eff3899c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/weaviate-cli/blobs/sha256:e11a3a9b9a7cc0118e82d0d5f5a5c1b9e1059558e7d7c39b2954f7db9efa3326
+  linux_arm64: https://ghcr.io/v2/homebrew/core/weaviate-cli/blobs/sha256:a0f01efa77917cd4a5208ab5175355908bda16b47faeb6fbb289a5279cc7f298
+sha256:
+  darwin_arm64: 0bdd4d1b902695107f2bf14f36fd32c67e24d646d97f6c59c99c9b1fc6419fec
+  darwin_amd64: db8608afc3836f5f08a32664b714cf9c41b8b84a8de32ecc8c3d6d37eff3899c
+  linux_amd64: e11a3a9b9a7cc0118e82d0d5f5a5c1b9e1059558e7d7c39b2954f7db9efa3326
+  linux_arm64: a0f01efa77917cd4a5208ab5175355908bda16b47faeb6fbb289a5279cc7f298
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - numpy
+  - openssl@3
+  - pillow
+  - pydantic
+  - python@3.14

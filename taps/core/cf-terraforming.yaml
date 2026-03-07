@@ -1,0 +1,19 @@
+name: cf-terraforming
+version: 0.24.0
+description: CLI to facilitate terraforming your existing Cloudflare resources
+homepage: https://github.com/cloudflare/cf-terraforming
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cf-terraforming/blobs/sha256:fde49d190699b9a034aae7045bd769339d84631861b7ec973062b21a0b823952
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cf-terraforming/blobs/sha256:ca59f4d787cb32a5043f2e5d076b6364f9d7dcba4a0152d241ec9235856076b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cf-terraforming/blobs/sha256:5c51ffb1f4b7c228610578d43a63aa0c4cfc69b4f4be83bb255e1ff2065dd303
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cf-terraforming/blobs/sha256:43948d3b9f21b2f498f2f4b7b9fd68f8641d15a5e7352aeaefe9b65790217809
+sha256:
+  darwin_arm64: fde49d190699b9a034aae7045bd769339d84631861b7ec973062b21a0b823952
+  darwin_amd64: ca59f4d787cb32a5043f2e5d076b6364f9d7dcba4a0152d241ec9235856076b4
+  linux_amd64: 5c51ffb1f4b7c228610578d43a63aa0c4cfc69b4f4be83bb255e1ff2065dd303
+  linux_arm64: 43948d3b9f21b2f498f2f4b7b9fd68f8641d15a5e7352aeaefe9b65790217809
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

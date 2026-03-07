@@ -1,0 +1,11 @@
+name: rotki
+version: 1.42.0
+description: Portfolio tracking and accounting tool
+homepage: https://rotki.com/
+url:
+  darwin_arm64: https://github.com/rotki/rotki/releases/download/v1.42.0/rotki-darwin_arm64-v1.42.0.dmg
+sha256:
+  darwin_arm64: 8558a9ee61cb3c5ae6105e77e391395a8e12c280cdcb9928b5b96166135e2179
+artifacts:
+  app:
+    - rotki.app

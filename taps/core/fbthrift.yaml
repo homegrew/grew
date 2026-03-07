@@ -1,0 +1,29 @@
+name: fbthrift
+version: 2026.03.02.00
+description: "Facebook's branch of Apache Thrift, including a new C++ server"
+homepage: https://github.com/facebook/fbthrift
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fbthrift/blobs/sha256:d437a24fa480e1e0e89bf172e9c434e93fcb77361a5a77d589729919e04b678b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fbthrift/blobs/sha256:8ebf32162778438f4115c6602dfb2e4d641a479ae5be4834144ce78884d0d0d9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fbthrift/blobs/sha256:6d805f28d18b4ce66a2c1617ed232a8b712ee3601c255b558d58f7fee9ce9015
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fbthrift/blobs/sha256:8bc97ee4462d8fe026f69b25cf86e5b85e6c9341d7c46952ada3ae7cf5097e61
+sha256:
+  darwin_arm64: d437a24fa480e1e0e89bf172e9c434e93fcb77361a5a77d589729919e04b678b
+  darwin_amd64: 8ebf32162778438f4115c6602dfb2e4d641a479ae5be4834144ce78884d0d0d9
+  linux_amd64: 6d805f28d18b4ce66a2c1617ed232a8b712ee3601c255b558d58f7fee9ce9015
+  linux_arm64: 8bc97ee4462d8fe026f69b25cf86e5b85e6c9341d7c46952ada3ae7cf5097e61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - double-conversion
+  - fizz
+  - fmt
+  - folly
+  - gflags
+  - glog
+  - openssl@3
+  - wangle
+  - xxhash

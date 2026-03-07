@@ -1,0 +1,22 @@
+name: bpytop
+version: 1.0.68
+description: Linux/OSX/FreeBSD resource monitor
+homepage: https://github.com/aristocratos/bpytop
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bpytop/blobs/sha256:b19bca99c4b0dadd6f0acaab677713cb36e69066d938e40975bb6ec5e1e5e0a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bpytop/blobs/sha256:f47e3022d6b8328e32736b7193ac9d3c6678567697ad808252db830ce3b634db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bpytop/blobs/sha256:f8429d3cbe14ef4215355724446eb5720130c89d596441d7184166f3b4c1f8dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bpytop/blobs/sha256:7c67cef4be215e9374aebee5f4541a7f87b4d3a87dde27c738ce4f9d349ad90c
+sha256:
+  darwin_arm64: b19bca99c4b0dadd6f0acaab677713cb36e69066d938e40975bb6ec5e1e5e0a5
+  darwin_amd64: f47e3022d6b8328e32736b7193ac9d3c6678567697ad808252db830ce3b634db
+  linux_amd64: f8429d3cbe14ef4215355724446eb5720130c89d596441d7184166f3b4c1f8dd
+  linux_arm64: 7c67cef4be215e9374aebee5f4541a7f87b4d3a87dde27c738ce4f9d349ad90c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - osx-cpu-temp

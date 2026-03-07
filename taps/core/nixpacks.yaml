@@ -1,0 +1,19 @@
+name: nixpacks
+version: 1.41.0
+description: App source + Nix packages + Docker = Image
+homepage: https://nixpacks.com/docs/getting-started
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nixpacks/blobs/sha256:54ac1ff6d83c0d456e3f7b977af8d1ede2dee7a3509e807765826d978a7987df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nixpacks/blobs/sha256:b2f3c717c5e5ef2dc52ce3ceff5d2abae82af15b698e4019b44ecd2df2bf30f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nixpacks/blobs/sha256:6d188beda0f3fa721362700532a835e20d4a6add171d0f13cd7504f4ae15e169
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nixpacks/blobs/sha256:6af3e3a9ce1fe96a070d37ff99500f447691da7a72e1dc4ad2b3a04b8b0d4dae
+sha256:
+  darwin_arm64: 54ac1ff6d83c0d456e3f7b977af8d1ede2dee7a3509e807765826d978a7987df
+  darwin_amd64: b2f3c717c5e5ef2dc52ce3ceff5d2abae82af15b698e4019b44ecd2df2bf30f6
+  linux_amd64: 6d188beda0f3fa721362700532a835e20d4a6add171d0f13cd7504f4ae15e169
+  linux_arm64: 6af3e3a9ce1fe96a070d37ff99500f447691da7a72e1dc4ad2b3a04b8b0d4dae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

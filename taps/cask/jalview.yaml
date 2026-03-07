@@ -1,0 +1,13 @@
+name: jalview
+version: 2.11.5.1
+description: Multiple sequence alignment editor, visualiser, analysis and figure generator
+homepage: https://www.jalview.org/
+url:
+  darwin_arm64: https://www.jalview.org/downloads/installers/release/Jalview-2_11_5_1-macos-aarch64-java_8.dmg
+sha256:
+  darwin_arm64: 341a3b2e52cfc0512df6767892a9c1dc8a458dccab1256f3686b3ad9288a7f47
+artifacts:
+  app:
+    - Jalview.app
+  bin:
+    - jalview

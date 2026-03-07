@@ -1,0 +1,19 @@
+name: libpg_query
+version: 17-6.2.2
+description: C library for accessing the PostgreSQL parser outside of the server environment
+homepage: https://github.com/pganalyze/libpg_query
+license: BSD-3-Clause AND PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpg_query/blobs/sha256:e9bdc5200f8cc312f042c1344a0095630089c3dd7b8eabc2d838f04bf0dc42ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpg_query/blobs/sha256:3e6a4c87bebc0c023c2fb67271d5818c3106d34722b168f6a76ed907926c3217
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpg_query/blobs/sha256:ccab7e14472565d73b8d728fa9cb202d20516f673727920dc2ad56c513e35a71
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpg_query/blobs/sha256:30578cfe44c07ca93be284e150ca765e9f5a09e3a22fd5b51a3d4111c8ee357a
+sha256:
+  darwin_arm64: e9bdc5200f8cc312f042c1344a0095630089c3dd7b8eabc2d838f04bf0dc42ef
+  darwin_amd64: 3e6a4c87bebc0c023c2fb67271d5818c3106d34722b168f6a76ed907926c3217
+  linux_amd64: ccab7e14472565d73b8d728fa9cb202d20516f673727920dc2ad56c513e35a71
+  linux_arm64: 30578cfe44c07ca93be284e150ca765e9f5a09e3a22fd5b51a3d4111c8ee357a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

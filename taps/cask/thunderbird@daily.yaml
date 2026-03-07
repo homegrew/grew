@@ -1,0 +1,11 @@
+name: thunderbird@daily
+version: 150.0a1,2026-03-06-06-53-50
+description: Customizable email client
+homepage: https://www.thunderbird.net/en-US/download/daily/
+url:
+  darwin_arm64: https://ftp.mozilla.org/pub/thunderbird/nightly/2026/03/2026-03-06-06-53-50-comm-central/thunderbird-150.0a1.en-US.mac.dmg
+sha256:
+  darwin_arm64: 1ef26a6b11e232bd7aac8a85d08df9bd24df24270671e1f576c0d459447fc952
+artifacts:
+  app:
+    - Thunderbird Daily.app

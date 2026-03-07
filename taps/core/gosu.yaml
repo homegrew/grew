@@ -1,0 +1,21 @@
+name: gosu
+version: 1.18.7
+description: Pragmatic language for the JVM
+homepage: https://gosu-lang.github.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gosu/blobs/sha256:4a9fbc740652f079d012dc919d88e82144a1cd3eea461b4568dbbe91aa5b4aa0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gosu/blobs/sha256:917a9ae63584e4762ee76fdf7fb35c1ed0ce0342a39a96f6ed32617093f868d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gosu/blobs/sha256:277eb63cbd485e59653c4d04a8acda5b734add1ea2a3792692226fd09f425d35
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gosu/blobs/sha256:e8ff5d1b2c5b5df671572bb9addf121151ccebbf2562f1a622c016c4b12595a1
+sha256:
+  darwin_arm64: 4a9fbc740652f079d012dc919d88e82144a1cd3eea461b4568dbbe91aa5b4aa0
+  darwin_amd64: 917a9ae63584e4762ee76fdf7fb35c1ed0ce0342a39a96f6ed32617093f868d5
+  linux_amd64: 277eb63cbd485e59653c4d04a8acda5b734add1ea2a3792692226fd09f425d35
+  linux_arm64: e8ff5d1b2c5b5df671572bb9addf121151ccebbf2562f1a622c016c4b12595a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@11

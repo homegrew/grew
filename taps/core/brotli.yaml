@@ -1,0 +1,19 @@
+name: brotli
+version: 1.2.0
+description: Generic-purpose lossless compression algorithm by Google
+homepage: https://github.com/google/brotli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brotli/blobs/sha256:71ffd30ccd74a9f28cfb210c21fcdc1aa5fec79e23ad2264b6dbceb73437601f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brotli/blobs/sha256:c9d272f3ac33b730d548da14ca323e8b4e0185273a6c85b0f12a4bbcd9f684af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brotli/blobs/sha256:d97618daaa84b66bc783888297f1765eb6f60e6a78e9b7c2ba0406889c159c05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brotli/blobs/sha256:485e0a6a74702cbe57819b32177bfb81e0195a71f52a16bab84b03529a672cf3
+sha256:
+  darwin_arm64: 71ffd30ccd74a9f28cfb210c21fcdc1aa5fec79e23ad2264b6dbceb73437601f
+  darwin_amd64: c9d272f3ac33b730d548da14ca323e8b4e0185273a6c85b0f12a4bbcd9f684af
+  linux_amd64: d97618daaa84b66bc783888297f1765eb6f60e6a78e9b7c2ba0406889c159c05
+  linux_arm64: 485e0a6a74702cbe57819b32177bfb81e0195a71f52a16bab84b03529a672cf3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

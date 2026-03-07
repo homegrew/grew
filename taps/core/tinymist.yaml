@@ -1,0 +1,19 @@
+name: tinymist
+version: 0.14.10
+description: Services for Typst
+homepage: https://myriad-dreamin.github.io/tinymist/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tinymist/blobs/sha256:141107cd600ec9084c0f23aa6d17237f46befa0ea399f9c45ac0950948771480
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tinymist/blobs/sha256:7bed8575ead5a60d5fffbf620bdff2d7e685cb2d7818aebbdd9160a5775b0fe4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tinymist/blobs/sha256:e56aeaab347eb1a83fcee80aa29f9007f12214d72fc3f733e5835b01e3c2bf1e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tinymist/blobs/sha256:eb341def15d08ce05ba41de06e10355b1416203347dbb8392e458ad6fd3e6cb5
+sha256:
+  darwin_arm64: 141107cd600ec9084c0f23aa6d17237f46befa0ea399f9c45ac0950948771480
+  darwin_amd64: 7bed8575ead5a60d5fffbf620bdff2d7e685cb2d7818aebbdd9160a5775b0fe4
+  linux_amd64: e56aeaab347eb1a83fcee80aa29f9007f12214d72fc3f733e5835b01e3c2bf1e
+  linux_arm64: eb341def15d08ce05ba41de06e10355b1416203347dbb8392e458ad6fd3e6cb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

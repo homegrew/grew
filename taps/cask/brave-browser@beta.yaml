@@ -1,0 +1,11 @@
+name: brave-browser@beta
+version: 1.88.117.0
+description: Web browser focusing on privacy
+homepage: https://brave.com/download-beta/
+url:
+  darwin_arm64: https://updates-cdn.bravesoftware.com/sparkle/Brave-Browser/beta-arm64/188.117/Brave-Browser-Beta-arm64.dmg
+sha256:
+  darwin_arm64: 2cfbc74820fa5e697e038d01cfc7d6c2e46926114cb5b8105ed64ef1dc525cf5
+artifacts:
+  app:
+    - Brave Browser Beta.app

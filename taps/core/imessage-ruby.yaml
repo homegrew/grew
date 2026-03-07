@@ -1,0 +1,19 @@
+name: imessage-ruby
+version: 0.4.0
+description: Command-line tool to send iMessage
+homepage: https://github.com/linjunpop/imessage
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imessage-ruby/blobs/sha256:e0ddafd03ceedaf46157074627f10b5bc2ae1095803c7da7ff4259f8972c2c7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imessage-ruby/blobs/sha256:9b325f6945c083382956ed3f81d453e17151a0a09f4eff7d5f84c7208d1a1cd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imessage-ruby/blobs/sha256:584a4e42785d258568915c287d02ea037c685bd577812c66844350425fea5df3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imessage-ruby/blobs/sha256:98197a6b45c3c46674268c2033a0648ce4afe2c89904a56f959d1c37a2f2a902
+sha256:
+  darwin_arm64: e0ddafd03ceedaf46157074627f10b5bc2ae1095803c7da7ff4259f8972c2c7f
+  darwin_amd64: 9b325f6945c083382956ed3f81d453e17151a0a09f4eff7d5f84c7208d1a1cd7
+  linux_amd64: 584a4e42785d258568915c287d02ea037c685bd577812c66844350425fea5df3
+  linux_arm64: 98197a6b45c3c46674268c2033a0648ce4afe2c89904a56f959d1c37a2f2a902
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: uni2ascii
+version: 4.20
+description: Bi-directional conversion between UTF-8 and various ASCII flavors
+homepage: https://billposer.org/Software/uni2ascii.html
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uni2ascii/blobs/sha256:31181b902fd25b915422c12eb90c0ecfe2a642d52568d9fb0324f3813e8af7a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uni2ascii/blobs/sha256:1290b690baabd758c09160b9c252713672e53765064840e03c6c0369e28c555b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uni2ascii/blobs/sha256:dc233e02cdbc8f3cb9dfe84c213d8b6eb3650f2102d85050ea412b93c5bf94eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uni2ascii/blobs/sha256:97973de94ff7fcd95e4828d4059d537763a6b3fb6fa3c56b2160be5c105b40d0
+sha256:
+  darwin_arm64: 31181b902fd25b915422c12eb90c0ecfe2a642d52568d9fb0324f3813e8af7a5
+  darwin_amd64: 1290b690baabd758c09160b9c252713672e53765064840e03c6c0369e28c555b
+  linux_amd64: dc233e02cdbc8f3cb9dfe84c213d8b6eb3650f2102d85050ea412b93c5bf94eb
+  linux_arm64: 97973de94ff7fcd95e4828d4059d537763a6b3fb6fa3c56b2160be5c105b40d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

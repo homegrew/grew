@@ -1,0 +1,25 @@
+name: libshout
+version: 2.4.6
+description: Data and connectivity library for the Icecast server
+homepage: https://icecast.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libshout/blobs/sha256:76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libshout/blobs/sha256:94d290dfdf67616fbf858902a09552c31ea53b9c130105735398208cb91df08f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libshout/blobs/sha256:ec4015cc70b9e3b8c9d17596e744743589c3f8c0a1be06c1116054e6855a4619
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libshout/blobs/sha256:ac4ae07ae448d7c8ba89fb704caf46dabde6b99994aaca7f4240f99e213b9787
+sha256:
+  darwin_arm64: 76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767
+  darwin_amd64: 94d290dfdf67616fbf858902a09552c31ea53b9c130105735398208cb91df08f
+  linux_amd64: ec4015cc70b9e3b8c9d17596e744743589c3f8c0a1be06c1116054e6855a4619
+  linux_arm64: ac4ae07ae448d7c8ba89fb704caf46dabde6b99994aaca7f4240f99e213b9787
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - libvorbis
+  - openssl@3
+  - speex
+  - theora

@@ -1,0 +1,19 @@
+name: naabu
+version: 2.4.0
+description: Fast port scanner
+homepage: https://docs.projectdiscovery.io/tools/naabu/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/naabu/blobs/sha256:3ead8a0cda239faf84417c8a8284e4891381afc5d3ae5db47ff4f054f086eb7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/naabu/blobs/sha256:60e421f0e68a5c0c6ae4d96f3db544bbd89d582080fb28d86057a49a7ed1cb42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/naabu/blobs/sha256:21085cf0ea66e302d1765d6a18aa7fd90f6de466b0e6c438101a5a898739ebe1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/naabu/blobs/sha256:fc7d864b5a806fc962231e3411031711cf524595d073709d1182e912177b0a2e
+sha256:
+  darwin_arm64: 3ead8a0cda239faf84417c8a8284e4891381afc5d3ae5db47ff4f054f086eb7f
+  darwin_amd64: 60e421f0e68a5c0c6ae4d96f3db544bbd89d582080fb28d86057a49a7ed1cb42
+  linux_amd64: 21085cf0ea66e302d1765d6a18aa7fd90f6de466b0e6c438101a5a898739ebe1
+  linux_arm64: fc7d864b5a806fc962231e3411031711cf524595d073709d1182e912177b0a2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

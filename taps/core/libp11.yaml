@@ -1,0 +1,22 @@
+name: libp11
+version: 0.4.18
+description: "PKCS#11 wrapper library in C"
+homepage: https://github.com/OpenSC/libp11/wiki
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libp11/blobs/sha256:a94d83844bc1f18b84f86706ebf2c352aca06d25600caf40607abf84a6143754
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libp11/blobs/sha256:74bc484a52d1b9385a0c63d0adc420f34376286b34a5652c53dc6454ec9f2205
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libp11/blobs/sha256:31470d470591cdffac76a296ace50dbc0df4a6cbf5210afd2dc40b0e4a0e5f19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libp11/blobs/sha256:230793e71d2b7f3b024ed4ebd9644848c5718fde2002ce92b89635ac5cc1a318
+sha256:
+  darwin_arm64: a94d83844bc1f18b84f86706ebf2c352aca06d25600caf40607abf84a6143754
+  darwin_amd64: 74bc484a52d1b9385a0c63d0adc420f34376286b34a5652c53dc6454ec9f2205
+  linux_amd64: 31470d470591cdffac76a296ace50dbc0df4a6cbf5210afd2dc40b0e4a0e5f19
+  linux_arm64: 230793e71d2b7f3b024ed4ebd9644848c5718fde2002ce92b89635ac5cc1a318
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool
+  - openssl@3

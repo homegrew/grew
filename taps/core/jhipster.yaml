@@ -1,0 +1,22 @@
+name: jhipster
+version: 8.11.0
+description: Generate, develop and deploy Spring Boot + Angular/React applications
+homepage: https://www.jhipster.tech/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jhipster/blobs/sha256:545fb346129da0709093da8121604b7b33695cc72da5aea9cfc348dc99010699
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jhipster/blobs/sha256:0398b0c32194ef0283ab8f10c82b6b21b78bd83973eb792f34db42788c91ee51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jhipster/blobs/sha256:1836ddf0f3d7cafecc18aed020773448e2a88c86c6ff2f2d195d0b2fa9800cb6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jhipster/blobs/sha256:d98b6871e0ae6b7f5b09e464e22f1eafc67ff56805370961800c9a20ebb56a49
+sha256:
+  darwin_arm64: 545fb346129da0709093da8121604b7b33695cc72da5aea9cfc348dc99010699
+  darwin_amd64: 0398b0c32194ef0283ab8f10c82b6b21b78bd83973eb792f34db42788c91ee51
+  linux_amd64: 1836ddf0f3d7cafecc18aed020773448e2a88c86c6ff2f2d195d0b2fa9800cb6
+  linux_arm64: d98b6871e0ae6b7f5b09e464e22f1eafc67ff56805370961800c9a20ebb56a49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - openjdk

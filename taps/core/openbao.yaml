@@ -1,0 +1,19 @@
+name: openbao
+version: 2.5.1
+description: Provides a software solution to manage, store, and distribute sensitive data
+homepage: https://openbao.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openbao/blobs/sha256:c66110fc1d55c746b8db1272480d475eeac366492f395142b1eecd8da16e5788
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openbao/blobs/sha256:f15cb0f80cc9b71ef4e39831636dfd99079243fcb7a2f46b079526bf6e61c6ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openbao/blobs/sha256:50d9baa37cec585e22ce775990a3dc2f2533d7bed313d472cbc642da498c3414
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openbao/blobs/sha256:f06130fcec49aa617f57c82f4b4f285ada70d7b78d888e55d652bb9162803d66
+sha256:
+  darwin_arm64: c66110fc1d55c746b8db1272480d475eeac366492f395142b1eecd8da16e5788
+  darwin_amd64: f15cb0f80cc9b71ef4e39831636dfd99079243fcb7a2f46b079526bf6e61c6ec
+  linux_amd64: 50d9baa37cec585e22ce775990a3dc2f2533d7bed313d472cbc642da498c3414
+  linux_arm64: f06130fcec49aa617f57c82f4b4f285ada70d7b78d888e55d652bb9162803d66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

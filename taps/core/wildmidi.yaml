@@ -1,0 +1,19 @@
+name: wildmidi
+version: 0.4.6
+description: Simple software midi player
+homepage: https://github.com/Mindwerks/wildmidi
+license: GPL-3.0-only AND LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wildmidi/blobs/sha256:fec3c0e1391b9ddce5df2c213ace4a11edf804189f70699e4f333fcd1e642abb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wildmidi/blobs/sha256:42a524ea0a68475608e63e99e3d2c975f17c5d79d680fadafd17b371acba84ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wildmidi/blobs/sha256:440af3c41c5ff0b321a6508dc0e531e2518cd78bad6b8ba5467ff65c25d5eb73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wildmidi/blobs/sha256:c0e66dee3078f0f1c1fa2c727d2af4194da035eb0fb80e9b8be240fd8665a30a
+sha256:
+  darwin_arm64: fec3c0e1391b9ddce5df2c213ace4a11edf804189f70699e4f333fcd1e642abb
+  darwin_amd64: 42a524ea0a68475608e63e99e3d2c975f17c5d79d680fadafd17b371acba84ed
+  linux_amd64: 440af3c41c5ff0b321a6508dc0e531e2518cd78bad6b8ba5467ff65c25d5eb73
+  linux_arm64: c0e66dee3078f0f1c1fa2c727d2af4194da035eb0fb80e9b8be240fd8665a30a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

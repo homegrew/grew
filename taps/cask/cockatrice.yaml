@@ -1,0 +1,13 @@
+name: cockatrice
+version: 2.10.3,2026-02-22,Omenpath,2.10.3
+description: Virtual tabletop for multiplayer card games
+homepage: https://cockatrice.github.io/
+url:
+  darwin_arm64: https://github.com/Cockatrice/Cockatrice/releases/download/2026-02-22-Release-2.10.3/Cockatrice-Omenpath-2.10.3-macOS15.dmg
+sha256:
+  darwin_arm64: 5ebebf79bf50315f5f7e0dfc015a0775f9fd269fe4b26ffb4ab4f0ec7ebd1cfd
+artifacts:
+  app:
+    - cockatrice.app
+    - oracle.app
+    - servatrice.app

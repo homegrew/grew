@@ -1,0 +1,21 @@
+name: libcoap
+version: 4.3.5a
+description: Lightweight application-protocol for resource-constrained devices
+homepage: https://github.com/obgm/libcoap
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcoap/blobs/sha256:87537dd8d3d18b25f365590bba0f0bbd2213564550648cb9216d715c5c3cc7bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcoap/blobs/sha256:ab6cfab4f8c71b7d660afff59fb24b4dcb53fbee213bbe9d671e15ad9fe705b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcoap/blobs/sha256:6a4270feb490a55243e8e47674212ab7492e0a8287df66ec88e07c368e2675dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcoap/blobs/sha256:455b960a284815a66eb7097a40641a8ebb2cffce774dc28235f18b2db44de5b3
+sha256:
+  darwin_arm64: 87537dd8d3d18b25f365590bba0f0bbd2213564550648cb9216d715c5c3cc7bf
+  darwin_amd64: ab6cfab4f8c71b7d660afff59fb24b4dcb53fbee213bbe9d671e15ad9fe705b1
+  linux_amd64: 6a4270feb490a55243e8e47674212ab7492e0a8287df66ec88e07c368e2675dd
+  linux_arm64: 455b960a284815a66eb7097a40641a8ebb2cffce774dc28235f18b2db44de5b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

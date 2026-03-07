@@ -1,0 +1,21 @@
+name: git-interactive-rebase-tool
+version: 2.4.1
+description: Native sequence editor for Git interactive rebase
+homepage: https://gitrebasetool.mitmaro.ca/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-interactive-rebase-tool/blobs/sha256:6deb4776ef5eb24799282fc8b4489e643c97c8d56303287763626f350ed79cd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-interactive-rebase-tool/blobs/sha256:39e883fcac9342280b03218a663e61ce29ca8854e036c270a2e7dc1702d84d74
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-interactive-rebase-tool/blobs/sha256:60f1a23c2048c4581dfd226e3bc7bbeb83f0a54d33cff7e1c0d3847fc2e2b729
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-interactive-rebase-tool/blobs/sha256:dc6bb58f3af6b57b89d172f05cc6c16c8c3f21d295a3912a6068013906b82afd
+sha256:
+  darwin_arm64: 6deb4776ef5eb24799282fc8b4489e643c97c8d56303287763626f350ed79cd1
+  darwin_amd64: 39e883fcac9342280b03218a663e61ce29ca8854e036c270a2e7dc1702d84d74
+  linux_amd64: 60f1a23c2048c4581dfd226e3bc7bbeb83f0a54d33cff7e1c0d3847fc2e2b729
+  linux_arm64: dc6bb58f3af6b57b89d172f05cc6c16c8c3f21d295a3912a6068013906b82afd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

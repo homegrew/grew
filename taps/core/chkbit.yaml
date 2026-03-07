@@ -1,0 +1,19 @@
+name: chkbit
+version: 6.6.0
+description: Check your files for data corruption
+homepage: https://github.com/laktak/chkbit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chkbit/blobs/sha256:6315ef336fb679f12d36330f33eaf3478dce829eab2ad3739c84ee4731971b42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chkbit/blobs/sha256:dc7cdbc05d965096539880f0795d61ef44a828abdd9a88ffd77085f7fa683f6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chkbit/blobs/sha256:dc67cdc999e593f8d39d30e24a0763f947145498f2a09a6d1804e524e04d5d4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chkbit/blobs/sha256:9357e560586810ff168c204dc10a71b239248f61722057d03f079778ec332f64
+sha256:
+  darwin_arm64: 6315ef336fb679f12d36330f33eaf3478dce829eab2ad3739c84ee4731971b42
+  darwin_amd64: dc7cdbc05d965096539880f0795d61ef44a828abdd9a88ffd77085f7fa683f6a
+  linux_amd64: dc67cdc999e593f8d39d30e24a0763f947145498f2a09a6d1804e524e04d5d4e
+  linux_arm64: 9357e560586810ff168c204dc10a71b239248f61722057d03f079778ec332f64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

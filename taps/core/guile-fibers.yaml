@@ -1,0 +1,23 @@
+name: guile-fibers
+version: 1.4.2
+description: Concurrent ML-like concurrency for Guile
+homepage: https://codeberg.org/guile/fibers
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/guile-fibers/blobs/sha256:1bee6c686302cf6e3a14b3b95d69abd6ecf3eba1c6e874cd7e45b6ac1750382d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/guile-fibers/blobs/sha256:dd0553292a041b1bde78aaa47e1b349fc0641905599ccc76ba062d1af581dce2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/guile-fibers/blobs/sha256:92cbd38c301b82939872a754a7e44d0b03ed7873b0731f131ec8c3ab634a7cd4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/guile-fibers/blobs/sha256:84965397128aa9d36b064f36a293e5fbed0990ea647a9f9a1ff8339bbbc3eaa5
+sha256:
+  darwin_arm64: 1bee6c686302cf6e3a14b3b95d69abd6ecf3eba1c6e874cd7e45b6ac1750382d
+  darwin_amd64: dd0553292a041b1bde78aaa47e1b349fc0641905599ccc76ba062d1af581dce2
+  linux_amd64: 92cbd38c301b82939872a754a7e44d0b03ed7873b0731f131ec8c3ab634a7cd4
+  linux_arm64: 84965397128aa9d36b064f36a293e5fbed0990ea647a9f9a1ff8339bbbc3eaa5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - guile
+  - libevent
+  - bdw-gc

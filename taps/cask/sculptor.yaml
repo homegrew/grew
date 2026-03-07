@@ -1,0 +1,11 @@
+name: sculptor
+version: 0.7.0
+description: GUI for Claude Code
+homepage: https://imbue.com/sculptor/
+url:
+  darwin_arm64: https://imbue-sculptor-releases.s3.us-west-2.amazonaws.com/sculptor/zip/darwin/arm64/Sculptor-darwin-arm64-0.7.0.zip
+sha256:
+  darwin_arm64: 083cd0fd55940824e8d73b8679a11c93d03724a653ecbb929524860473d12e25
+artifacts:
+  app:
+    - Sculptor.app

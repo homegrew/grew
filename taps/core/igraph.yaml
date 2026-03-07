@@ -1,0 +1,24 @@
+name: igraph
+version: 1.0.1
+description: Network analysis package
+homepage: https://igraph.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/igraph/blobs/sha256:b3805393001183d91ec1b827c3e8b0f7f1d891f3d212e06f96c04acba8f77e6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/igraph/blobs/sha256:d8edfe86b7564c1c2967631625918a878d905ddd69957ff7c4887ab6b2f9d0d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/igraph/blobs/sha256:fd9b468b1f12e84c1b9c6a3b424ec783ebf87b363c46b30ddb076e967e8d6ffa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/igraph/blobs/sha256:0ceb3ff22b939cc3a1c9e56fd1ce861bb29ae0cf250f12a155078e44b34dfc23
+sha256:
+  darwin_arm64: b3805393001183d91ec1b827c3e8b0f7f1d891f3d212e06f96c04acba8f77e6f
+  darwin_amd64: d8edfe86b7564c1c2967631625918a878d905ddd69957ff7c4887ab6b2f9d0d8
+  linux_amd64: fd9b468b1f12e84c1b9c6a3b424ec783ebf87b363c46b30ddb076e967e8d6ffa
+  linux_arm64: 0ceb3ff22b939cc3a1c9e56fd1ce861bb29ae0cf250f12a155078e44b34dfc23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - arpack
+  - glpk
+  - gmp
+  - openblas

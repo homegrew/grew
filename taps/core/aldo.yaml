@@ -1,0 +1,21 @@
+name: aldo
+version: 0.7.7
+description: Morse code learning tool released under GPL
+homepage: https://www.nongnu.org/aldo/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aldo/blobs/sha256:c79608f02c4c17db23e84db17545e895475a4a38e46419b37d7b518a40363e73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aldo/blobs/sha256:ce5f647836b60f1d2b19e47b7dd445e4a3005c478746c36fe4ec08e1a03a79a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aldo/blobs/sha256:660548eb8c93e2c78a50b925143a9b24400ee578790b62e7acde1d1aed360a98
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aldo/blobs/sha256:41aaf9303c8e8cac32a159590dc0e3f1c905d591cebf215a0e699c893feced08
+sha256:
+  darwin_arm64: c79608f02c4c17db23e84db17545e895475a4a38e46419b37d7b518a40363e73
+  darwin_amd64: ce5f647836b60f1d2b19e47b7dd445e4a3005c478746c36fe4ec08e1a03a79a4
+  linux_amd64: 660548eb8c93e2c78a50b925143a9b24400ee578790b62e7acde1d1aed360a98
+  linux_arm64: 41aaf9303c8e8cac32a159590dc0e3f1c905d591cebf215a0e699c893feced08
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libao

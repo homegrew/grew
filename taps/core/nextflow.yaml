@@ -1,0 +1,21 @@
+name: nextflow
+version: 25.10.4
+description: Reproducible scientific workflows
+homepage: https://nextflow.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nextflow/blobs/sha256:75b8e98abd71d583a5c5a6677b7f1e7f731efd0c71b3938ac8d7452d9a1dfdf5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nextflow/blobs/sha256:8fdebff6bf949ae913d3b51f8a208937dba5ef8445e3a03357b66ec0a4db711d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nextflow/blobs/sha256:5f7cef0e969ca6e44917cd79ae967f397018614abdfae03bc07e39ce3f0f38bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nextflow/blobs/sha256:90ca508948b6aa7d3c28090baa59f89e0365301a4238342312cd4f666279972e
+sha256:
+  darwin_arm64: 75b8e98abd71d583a5c5a6677b7f1e7f731efd0c71b3938ac8d7452d9a1dfdf5
+  darwin_amd64: 8fdebff6bf949ae913d3b51f8a208937dba5ef8445e3a03357b66ec0a4db711d
+  linux_amd64: 5f7cef0e969ca6e44917cd79ae967f397018614abdfae03bc07e39ce3f0f38bc
+  linux_arm64: 90ca508948b6aa7d3c28090baa59f89e0365301a4238342312cd4f666279972e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

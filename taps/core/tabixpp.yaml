@@ -1,0 +1,22 @@
+name: tabixpp
+version: 1.1.2
+description: C++ wrapper to tabix indexer
+homepage: https://github.com/vcflib/tabixpp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tabixpp/blobs/sha256:c2c481a5e9c22baa108639438a9a73d383498d0740bc6737da4bbcb2c5baa50a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tabixpp/blobs/sha256:be2a81baac1d393b70c57ab6cb6570bfebe4b97bd02cd1c33e9adc9886d52497
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tabixpp/blobs/sha256:5eaf60a5353155dc333bc1ac5610b861275871aedb169b47d385fa0ee552caeb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tabixpp/blobs/sha256:ea93a7029e5a870cf2182aa6f313683f8ea8b13bbb0e91e19818c374680784ca
+sha256:
+  darwin_arm64: c2c481a5e9c22baa108639438a9a73d383498d0740bc6737da4bbcb2c5baa50a
+  darwin_amd64: be2a81baac1d393b70c57ab6cb6570bfebe4b97bd02cd1c33e9adc9886d52497
+  linux_amd64: 5eaf60a5353155dc333bc1ac5610b861275871aedb169b47d385fa0ee552caeb
+  linux_arm64: ea93a7029e5a870cf2182aa6f313683f8ea8b13bbb0e91e19818c374680784ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - htslib
+  - xz

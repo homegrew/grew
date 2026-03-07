@@ -1,0 +1,26 @@
+name: torchvision
+version: 0.25.0
+description: Datasets, transforms, and models for computer vision
+homepage: https://pytorch.org/vision/stable/index.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/torchvision/blobs/sha256:539634362d5cc968e3f9a820c1c0dd8c2e9b7d9ac5ad81e2592cddf4426ed23a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/torchvision/blobs/sha256:82ccb650c5e1c4da6eb8a03e701b5907aa94c0fcd88e6eccdfa5246a0358d1a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/torchvision/blobs/sha256:23c3bc0afba26b0e02eb1dea014694aa5b45ea2d2d159f151f99984cd9534bc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/torchvision/blobs/sha256:96244faf35c835f31285e3856371b904ea0a5cbde635f5c480928447f178417e
+sha256:
+  darwin_arm64: 539634362d5cc968e3f9a820c1c0dd8c2e9b7d9ac5ad81e2592cddf4426ed23a
+  darwin_amd64: 82ccb650c5e1c4da6eb8a03e701b5907aa94c0fcd88e6eccdfa5246a0358d1a2
+  linux_amd64: 23c3bc0afba26b0e02eb1dea014694aa5b45ea2d2d159f151f99984cd9534bc5
+  linux_arm64: 96244faf35c835f31285e3856371b904ea0a5cbde635f5c480928447f178417e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - numpy
+  - pillow
+  - pytorch
+  - webp

@@ -1,0 +1,11 @@
+name: meteorologist
+version: 4.1.2
+description: Adjustable weather viewing application
+homepage: https://heat-meteo.sourceforge.io/
+url:
+  darwin_arm64: https://downloads.sourceforge.net/heat-meteo/Meteorologist-4.1.2.dmg
+sha256:
+  darwin_arm64: aa04ed3e641759461c87c22971e7470d8276e969910e8d5b053a5bcc750c972b
+artifacts:
+  app:
+    - Meteorologist.app

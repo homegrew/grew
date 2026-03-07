@@ -1,0 +1,21 @@
+name: expect
+version: 5.45.4
+description: Program that can automate interactive applications
+homepage: https://core.tcl-lang.org/expect/index
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/expect/blobs/sha256:02453adc4b8102ccdea2eddf5bb2a282ad6a62ad373121bf6ee6d9273e3d6d4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/expect/blobs/sha256:8e07086c078379a4c6cdbde7b14b70376228b8a15798fc32059c9336287ce18b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/expect/blobs/sha256:500bbf556dea3b9536753959c9a2a7c6c8b8d79ac929ce3008529812b62f6209
+  linux_arm64: https://ghcr.io/v2/homebrew/core/expect/blobs/sha256:d58c5bfe8071a22c8d2a868ea97b122feca090b9641d58f5f80dd4f7de7385ba
+sha256:
+  darwin_arm64: 02453adc4b8102ccdea2eddf5bb2a282ad6a62ad373121bf6ee6d9273e3d6d4c
+  darwin_amd64: 8e07086c078379a4c6cdbde7b14b70376228b8a15798fc32059c9336287ce18b
+  linux_amd64: 500bbf556dea3b9536753959c9a2a7c6c8b8d79ac929ce3008529812b62f6209
+  linux_arm64: d58c5bfe8071a22c8d2a868ea97b122feca090b9641d58f5f80dd4f7de7385ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tcl-tk@8

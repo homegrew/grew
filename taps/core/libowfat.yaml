@@ -1,0 +1,19 @@
+name: libowfat
+version: 0.34
+description: Reimplements libdjb
+homepage: http://www.fefe.de/libowfat/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libowfat/blobs/sha256:bc30d254df3bcd360e4f3171d2afc99997cadfec8fd46a90f2c56991677ee87b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libowfat/blobs/sha256:a0c8d5df1d6c01a6d36098ad87a856d8a223df535e5829ada59ecde849e54bd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libowfat/blobs/sha256:9033e9d8c499e2a37af9a3b0110206e494306bbc855e7e9d16d3cd3adf291801
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libowfat/blobs/sha256:17c1d34c4f362a68196eef92ec8d8621a4af98d94e5120a637cca1c987f20bd7
+sha256:
+  darwin_arm64: bc30d254df3bcd360e4f3171d2afc99997cadfec8fd46a90f2c56991677ee87b
+  darwin_amd64: a0c8d5df1d6c01a6d36098ad87a856d8a223df535e5829ada59ecde849e54bd4
+  linux_amd64: 9033e9d8c499e2a37af9a3b0110206e494306bbc855e7e9d16d3cd3adf291801
+  linux_arm64: 17c1d34c4f362a68196eef92ec8d8621a4af98d94e5120a637cca1c987f20bd7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

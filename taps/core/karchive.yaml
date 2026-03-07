@@ -1,0 +1,24 @@
+name: karchive
+version: 6.23.0
+description: Reading, creating, and manipulating file archives
+homepage: https://api.kde.org/karchive-index.html
+license: BSD-2-Clause AND LGPL-2.0-only AND LGPL-2.0-or-later AND (LGPL-2.0-only OR LGPL-3.0-only)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/karchive/blobs/sha256:99bb49bc54ce4769200095ab3993975bceba26059b9f1426b5f4e45fb7a5bbc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/karchive/blobs/sha256:dde1551a70490ba3703b655efbe410d34125adbfbf243a3cb22b555af2de2cb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/karchive/blobs/sha256:3acef557ea9741b0467fb428779ef5d3c63c33964b44e6a47b5315bd525a2243
+  linux_arm64: https://ghcr.io/v2/homebrew/core/karchive/blobs/sha256:fa8ffc6b1123bf688ff5a17bfeccca5faaee4ffca32641251a69fc02289c7533
+sha256:
+  darwin_arm64: 99bb49bc54ce4769200095ab3993975bceba26059b9f1426b5f4e45fb7a5bbc6
+  darwin_amd64: dde1551a70490ba3703b655efbe410d34125adbfbf243a3cb22b555af2de2cb4
+  linux_amd64: 3acef557ea9741b0467fb428779ef5d3c63c33964b44e6a47b5315bd525a2243
+  linux_arm64: fa8ffc6b1123bf688ff5a17bfeccca5faaee4ffca32641251a69fc02289c7533
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - qtbase
+  - xz
+  - zstd

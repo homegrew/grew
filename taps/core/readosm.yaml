@@ -1,0 +1,19 @@
+name: readosm
+version: 1.1.0a
+description: Extract valid data from an Open Street Map input file
+homepage: https://www.gaia-gis.it/fossil/readosm/index
+license: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/readosm/blobs/sha256:b9cdc6c5c9194b216fe2df7e303cbd7831365325890ab9567933091b14849b29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/readosm/blobs/sha256:1626ec8c44d88617a959525944a159132195750b514c4f92b3121b48bb0b8a20
+  linux_amd64: https://ghcr.io/v2/homebrew/core/readosm/blobs/sha256:9f0db0c6070acbea09714988ab99e87fc6dd8610b8d07e7011a9b599608958b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/readosm/blobs/sha256:7257fd4fffdead318a4e24add70b3058aa1c3433391b621f2d6ccfbb35ed0745
+sha256:
+  darwin_arm64: b9cdc6c5c9194b216fe2df7e303cbd7831365325890ab9567933091b14849b29
+  darwin_amd64: 1626ec8c44d88617a959525944a159132195750b514c4f92b3121b48bb0b8a20
+  linux_amd64: 9f0db0c6070acbea09714988ab99e87fc6dd8610b8d07e7011a9b599608958b5
+  linux_arm64: 7257fd4fffdead318a4e24add70b3058aa1c3433391b621f2d6ccfbb35ed0745
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

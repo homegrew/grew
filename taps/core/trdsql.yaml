@@ -1,0 +1,19 @@
+name: trdsql
+version: 1.1.0
+description: CLI tool that can execute SQL queries on CSV, LTSV, JSON, YAML and TBLN
+homepage: https://github.com/noborus/trdsql
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trdsql/blobs/sha256:b9ddcc05dd7ac0be0fe6e20e1881ee61ee15db929558e968a914c8a1c032bbe1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trdsql/blobs/sha256:1dc4cae00a081d54f378ff91ab8b3b80c538063efec0633b11ce0e24c4dc64e4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trdsql/blobs/sha256:bcfdc24169094af5142de81d1f342512c639c262bc8f10566e5ee5230ae6a2ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trdsql/blobs/sha256:0f84e77253c3cb7ad195e7e3dae37b9981e018aa6bc18be292566f433efa7c07
+sha256:
+  darwin_arm64: b9ddcc05dd7ac0be0fe6e20e1881ee61ee15db929558e968a914c8a1c032bbe1
+  darwin_amd64: 1dc4cae00a081d54f378ff91ab8b3b80c538063efec0633b11ce0e24c4dc64e4
+  linux_amd64: bcfdc24169094af5142de81d1f342512c639c262bc8f10566e5ee5230ae6a2ac
+  linux_arm64: 0f84e77253c3cb7ad195e7e3dae37b9981e018aa6bc18be292566f433efa7c07
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

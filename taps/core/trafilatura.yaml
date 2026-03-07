@@ -1,0 +1,22 @@
+name: trafilatura
+version: 2.0.0
+description: Discovery, extraction and processing for Web text
+homepage: https://trafilatura.readthedocs.io/en/latest/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trafilatura/blobs/sha256:99430cb7aab7e772030d6225732f7257ffd7db0aed8233203fb6d6ef11661e12
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trafilatura/blobs/sha256:3233de705f5feb0868ce78527a576b731c93953bcae4e48a18a7b709aebd9996
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trafilatura/blobs/sha256:00e29501ff02dc3d7375bdfebdfa3140df6e82fb1e46e8d0a153e68005151f94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trafilatura/blobs/sha256:b8ceed2d9305b6a9849122c62679caacf78916fc3374e078627df87950f84b43
+sha256:
+  darwin_arm64: 99430cb7aab7e772030d6225732f7257ffd7db0aed8233203fb6d6ef11661e12
+  darwin_amd64: 3233de705f5feb0868ce78527a576b731c93953bcae4e48a18a7b709aebd9996
+  linux_amd64: 00e29501ff02dc3d7375bdfebdfa3140df6e82fb1e46e8d0a153e68005151f94
+  linux_arm64: b8ceed2d9305b6a9849122c62679caacf78916fc3374e078627df87950f84b43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

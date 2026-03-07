@@ -1,0 +1,19 @@
+name: trurl
+version: 0.16.1
+description: Command-line tool for URL parsing and manipulation
+homepage: https://curl.se/trurl/
+license: curl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trurl/blobs/sha256:b85273354bcc4088546ae4bef82d933579d8c81fd9f77c0403e2a4402c63a476
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trurl/blobs/sha256:f7e5d221285006395dcc352f22faa4f34600b73cc012d3686bce0584c74f703e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trurl/blobs/sha256:3cdfb216b12de94af1ec6da70bf70ff6260f5638c8efb552c503082ba86ec230
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trurl/blobs/sha256:9d50283a36a33f49b589c407d7c5dde5081b4f2aab28f4a499804914d0d247c6
+sha256:
+  darwin_arm64: b85273354bcc4088546ae4bef82d933579d8c81fd9f77c0403e2a4402c63a476
+  darwin_amd64: f7e5d221285006395dcc352f22faa4f34600b73cc012d3686bce0584c74f703e
+  linux_amd64: 3cdfb216b12de94af1ec6da70bf70ff6260f5638c8efb552c503082ba86ec230
+  linux_arm64: 9d50283a36a33f49b589c407d7c5dde5081b4f2aab28f4a499804914d0d247c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

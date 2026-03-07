@@ -1,0 +1,25 @@
+name: pianod
+version: 420
+description: Pandora client with multiple control interfaces
+homepage: https://deviousfish.com/pianod/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pianod/blobs/sha256:96b6f94cbac97ca8cc30bcd74c8a258f3462e233d36a0719212f0b9306d2a7ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pianod/blobs/sha256:d9624ad29a3278961d986127e7ea31f5c922245ffe94ac3bd8d830889d40a5d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pianod/blobs/sha256:4a6695250063db235d71d0881b644a52a650e378ec3d26ae6c75bab60e664279
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pianod/blobs/sha256:c889fe50b5079a029381e2a9f988979319dae868b83cce4ecfa1ab970f8a344c
+sha256:
+  darwin_arm64: 96b6f94cbac97ca8cc30bcd74c8a258f3462e233d36a0719212f0b9306d2a7ed
+  darwin_amd64: d9624ad29a3278961d986127e7ea31f5c922245ffe94ac3bd8d830889d40a5d7
+  linux_amd64: 4a6695250063db235d71d0881b644a52a650e378ec3d26ae6c75bab60e664279
+  linux_arm64: c889fe50b5079a029381e2a9f988979319dae868b83cce4ecfa1ab970f8a344c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - gstreamer
+  - taglib
+  - gettext

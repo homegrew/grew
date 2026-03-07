@@ -1,0 +1,19 @@
+name: slackdump
+version: 4.1.0
+description: Export Slack data without admin privileges
+homepage: https://github.com/rusq/slackdump
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slackdump/blobs/sha256:8e26cf46da059107e217e43386f9ec089c99c7aeb7fba9067a920ab439ab3b82
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slackdump/blobs/sha256:be70fe0d967971e9d8c3b61db3073ab184a570eae507f018bb436a6fd53e6277
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slackdump/blobs/sha256:3c7b162047da5cd4adaa9dbf4f27f94277eac6a64c72c8eeb6632f165901338d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slackdump/blobs/sha256:fe960a4f55504032ecf5bfdb49d85ff0a1ff05d1507d639b23a8e1107633160c
+sha256:
+  darwin_arm64: 8e26cf46da059107e217e43386f9ec089c99c7aeb7fba9067a920ab439ab3b82
+  darwin_amd64: be70fe0d967971e9d8c3b61db3073ab184a570eae507f018bb436a6fd53e6277
+  linux_amd64: 3c7b162047da5cd4adaa9dbf4f27f94277eac6a64c72c8eeb6632f165901338d
+  linux_arm64: fe960a4f55504032ecf5bfdb49d85ff0a1ff05d1507d639b23a8e1107633160c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

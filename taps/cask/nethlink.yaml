@@ -1,0 +1,11 @@
+name: nethlink
+version: 1.4.2
+description: Link NethServer systems and provide remote access tools
+homepage: https://github.com/NethServer/nethlink
+url:
+  darwin_arm64: https://github.com/NethServer/nethlink/releases/download/v1.4.2/nethlink-1.4.2-arm64.dmg
+sha256:
+  darwin_arm64: a8e85c8a9a916ac6eb9ef99c9b9c9a1ccf4dcab2818856b28ab04be4809c819e
+artifacts:
+  app:
+    - NethLink.app

@@ -1,0 +1,19 @@
+name: dotenv-linter
+version: 4.0.0
+description: Lightning-fast linter for .env files written in Rust
+homepage: https://dotenv-linter.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dotenv-linter/blobs/sha256:23826a36202a165deaa312c7b0029d0c02eef0d21b49c56d20f2deb23cf38de0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dotenv-linter/blobs/sha256:4f47ec451241a91ccdccb741cd61576f403962637841fcd8b49b8f292ce9e301
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dotenv-linter/blobs/sha256:cd0da61986447dbdadec3a8634cf19d5eb12d1ce4bb1c61acf53f67c0187b126
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dotenv-linter/blobs/sha256:a630789bddee63f8c975359e0b77394b6cca50e95abc9ccc3d4988984bdf9030
+sha256:
+  darwin_arm64: 23826a36202a165deaa312c7b0029d0c02eef0d21b49c56d20f2deb23cf38de0
+  darwin_amd64: 4f47ec451241a91ccdccb741cd61576f403962637841fcd8b49b8f292ce9e301
+  linux_amd64: cd0da61986447dbdadec3a8634cf19d5eb12d1ce4bb1c61acf53f67c0187b126
+  linux_arm64: a630789bddee63f8c975359e0b77394b6cca50e95abc9ccc3d4988984bdf9030
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

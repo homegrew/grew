@@ -1,0 +1,21 @@
+name: cpi
+version: 2.2.2
+description: Tiny c++ interpreter
+homepage: https://treefrogframework.github.io/cpi/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cpi/blobs/sha256:ebc8bcf9165cc4f7d1fde637a79c4b871072c74b93358687311e97cd7e126cfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cpi/blobs/sha256:80aa4416afead86fe0621e8c53874dbfd951ff6fc40e8a7641c26cd1a382ab31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cpi/blobs/sha256:be937b51660f2d5f2664a132c73b928706be340356100c74b7ebb507c7ec436b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cpi/blobs/sha256:5748c1ce40a957f82c6e288901004c36c8b4aec5d8580828c561fd153e6388ca
+sha256:
+  darwin_arm64: ebc8bcf9165cc4f7d1fde637a79c4b871072c74b93358687311e97cd7e126cfd
+  darwin_amd64: 80aa4416afead86fe0621e8c53874dbfd951ff6fc40e8a7641c26cd1a382ab31
+  linux_amd64: be937b51660f2d5f2664a132c73b928706be340356100c74b7ebb507c7ec436b
+  linux_arm64: 5748c1ce40a957f82c6e288901004c36c8b4aec5d8580828c561fd153e6388ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase

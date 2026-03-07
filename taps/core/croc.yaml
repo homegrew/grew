@@ -1,0 +1,19 @@
+name: croc
+version: 10.3.1
+description: Securely send things from one computer to another
+homepage: https://github.com/schollz/croc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/croc/blobs/sha256:70b294293f8edad21247f82fd62bf51d8b7cf10ea7f14769fec40b00e067f8d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/croc/blobs/sha256:bcbf9ff98f79ec2fc5bf45c800b613c30c76a71e9c11ecaf5ec44662f87d7647
+  linux_amd64: https://ghcr.io/v2/homebrew/core/croc/blobs/sha256:96b673c773107e3a8fb3fe7542140293ea1c219437e29994dfc80907a693e634
+  linux_arm64: https://ghcr.io/v2/homebrew/core/croc/blobs/sha256:a1b845ba0cafb27adc4769b6865c94500a25e06afda93cb67643736d6a141571
+sha256:
+  darwin_arm64: 70b294293f8edad21247f82fd62bf51d8b7cf10ea7f14769fec40b00e067f8d9
+  darwin_amd64: bcbf9ff98f79ec2fc5bf45c800b613c30c76a71e9c11ecaf5ec44662f87d7647
+  linux_amd64: 96b673c773107e3a8fb3fe7542140293ea1c219437e29994dfc80907a693e634
+  linux_arm64: a1b845ba0cafb27adc4769b6865c94500a25e06afda93cb67643736d6a141571
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

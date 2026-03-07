@@ -1,0 +1,19 @@
+name: spiffe-helper
+version: 0.11.0
+description: Tool that can be used to retrieve and manage SVIDs on behalf of a workload
+homepage: https://github.com/spiffe/spiffe-helper
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spiffe-helper/blobs/sha256:c489a48d0b8d1593f7badfe5b735b7038ec85fdc573027626ade3c005ee04306
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spiffe-helper/blobs/sha256:fa6bf56087d81d01a312e2c855fba496e9e3f99d8c526655f6092d783aace956
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spiffe-helper/blobs/sha256:3f2053bc574698df586253d646f5a5324e556b366b01d04f34c238c1aae6ac73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spiffe-helper/blobs/sha256:cac2dbc3746b6296cb35a00d1ea90a96fe1ca593f52d72cde19b74b66c35c286
+sha256:
+  darwin_arm64: c489a48d0b8d1593f7badfe5b735b7038ec85fdc573027626ade3c005ee04306
+  darwin_amd64: fa6bf56087d81d01a312e2c855fba496e9e3f99d8c526655f6092d783aace956
+  linux_amd64: 3f2053bc574698df586253d646f5a5324e556b366b01d04f34c238c1aae6ac73
+  linux_arm64: cac2dbc3746b6296cb35a00d1ea90a96fe1ca593f52d72cde19b74b66c35c286
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,20 @@
+name: ratarmount
+version: 1.2.1
+description: Mount and efficiently access archives as filesystems
+homepage: https://github.com/mxmlnkn/ratarmount
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ratarmount/blobs/sha256:8d851e5ecf64f85e7f9276eea051188bfdd5f2c2c0a9c5d64d321e2ec3c220ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ratarmount/blobs/sha256:37835f84bd96e07705c66a0b97fc4c77a6a3bd519b3b29bcb2ebcced1e7a1167
+sha256:
+  linux_amd64: 8d851e5ecf64f85e7f9276eea051188bfdd5f2c2c0a9c5d64d321e2ec3c220ee
+  linux_arm64: 37835f84bd96e07705c66a0b97fc4c77a6a3bd519b3b29bcb2ebcced1e7a1167
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse
+  - python@3.14
+  - zlib-ng-compat
+  - zstd

@@ -1,0 +1,21 @@
+name: bupstash
+version: 0.12.0
+description: Easy and efficient encrypted backups
+homepage: https://bupstash.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bupstash/blobs/sha256:11880e340498d539dc45fc413508f1bda1985c1f1d1e9b9ae818287ffe028141
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bupstash/blobs/sha256:5e4323b39fdc2751adfb15eeb1fb6224f7f5631fbb44995dfaaf9b8bd5bca6e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bupstash/blobs/sha256:b61eb9cbb571a97f1064e6b0e0766e2fc19e1b7691ab8cc988ea4db67f8d5182
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bupstash/blobs/sha256:6f00098d6b1cd79ddf82999ef4371f46ecd2935ccf0c6c23be33f2d4aab36933
+sha256:
+  darwin_arm64: 11880e340498d539dc45fc413508f1bda1985c1f1d1e9b9ae818287ffe028141
+  darwin_amd64: 5e4323b39fdc2751adfb15eeb1fb6224f7f5631fbb44995dfaaf9b8bd5bca6e3
+  linux_amd64: b61eb9cbb571a97f1064e6b0e0766e2fc19e1b7691ab8cc988ea4db67f8d5182
+  linux_arm64: 6f00098d6b1cd79ddf82999ef4371f46ecd2935ccf0c6c23be33f2d4aab36933
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium

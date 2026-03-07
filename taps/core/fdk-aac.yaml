@@ -1,0 +1,19 @@
+name: fdk-aac
+version: 2.0.3
+description: Standalone library of the Fraunhofer FDK AAC code from Android
+homepage: https://sourceforge.net/projects/opencore-amr/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fdk-aac/blobs/sha256:3219079b606e1be7284a0b184c6ccb57676190d199261a0bb67556d28da94c2d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fdk-aac/blobs/sha256:b0c350cb884700c516fbc0ab88a8f600500972f97a6e0031bc1947ef36904c33
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fdk-aac/blobs/sha256:90a5fa30abf8a37117855a3a6ac400d35c4f23f9de475ea870ee282c5e5feac2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fdk-aac/blobs/sha256:0e22fdcb7f0c9863a317d4a9be3b2baa2e484b2b1885f761872074a58f7040b7
+sha256:
+  darwin_arm64: 3219079b606e1be7284a0b184c6ccb57676190d199261a0bb67556d28da94c2d
+  darwin_amd64: b0c350cb884700c516fbc0ab88a8f600500972f97a6e0031bc1947ef36904c33
+  linux_amd64: 90a5fa30abf8a37117855a3a6ac400d35c4f23f9de475ea870ee282c5e5feac2
+  linux_arm64: 0e22fdcb7f0c9863a317d4a9be3b2baa2e484b2b1885f761872074a58f7040b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

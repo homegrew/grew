@@ -1,0 +1,11 @@
+name: clock-signal
+version: 2026-02-23
+description: Latency-hating emulator of 8- and 16-bit platforms
+homepage: https://github.com/TomHarte/CLK
+url:
+  darwin_arm64: https://github.com/TomHarte/CLK/releases/download/2026-02-23/Clock.Signal.MacOS.2026-02-23.zip
+sha256:
+  darwin_arm64: 3cb285ee65f45a179d4ef667dda1ac010aacbad6336f2b50f8a71f4352f52401
+artifacts:
+  app:
+    - Clock Signal.app

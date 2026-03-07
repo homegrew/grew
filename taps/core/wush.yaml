@@ -1,0 +1,19 @@
+name: wush
+version: 0.4.1
+description: Transfer files between computers via WireGuard
+homepage: https://github.com/coder/wush
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wush/blobs/sha256:5bcff816d0e78213a49c749a5053ad752b2d3c5bec1d8f3ac838352251c167d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wush/blobs/sha256:4ed8074f45bf38496a93c58f184b791b36e47363fda9c79d10cbd9bd8f36235b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wush/blobs/sha256:ef23622648237ddf0eb3829977a5137e06d4741d953754bb55029d2855ad96bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wush/blobs/sha256:260356e6d21223007286d84011a0ec629ae7b18b9be356cc1f67a4175183467e
+sha256:
+  darwin_arm64: 5bcff816d0e78213a49c749a5053ad752b2d3c5bec1d8f3ac838352251c167d0
+  darwin_amd64: 4ed8074f45bf38496a93c58f184b791b36e47363fda9c79d10cbd9bd8f36235b
+  linux_amd64: ef23622648237ddf0eb3829977a5137e06d4741d953754bb55029d2855ad96bf
+  linux_arm64: 260356e6d21223007286d84011a0ec629ae7b18b9be356cc1f67a4175183467e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

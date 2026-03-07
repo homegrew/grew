@@ -1,0 +1,19 @@
+name: prometheus
+version: 3.10.0
+description: Service monitoring system and time series database
+homepage: https://prometheus.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prometheus/blobs/sha256:91d8f111f6611cba09c3b048ac2a33ef15994440ed768e82915e76bdcdd3b03f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prometheus/blobs/sha256:89fbbf68f6df5e3c58bcaf926c924c0c376c5678725bb29e960a0501a912c193
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prometheus/blobs/sha256:cbdbc118eaa3ccad36888eebcfc4d6aa0011a2386a3c9a9637d77aa1f00a45ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prometheus/blobs/sha256:f29b8a559ad9677481cad28bb2be10a9b38a832ec00072039b4e0a7f28aed60c
+sha256:
+  darwin_arm64: 91d8f111f6611cba09c3b048ac2a33ef15994440ed768e82915e76bdcdd3b03f
+  darwin_amd64: 89fbbf68f6df5e3c58bcaf926c924c0c376c5678725bb29e960a0501a912c193
+  linux_amd64: cbdbc118eaa3ccad36888eebcfc4d6aa0011a2386a3c9a9637d77aa1f00a45ed
+  linux_arm64: f29b8a559ad9677481cad28bb2be10a9b38a832ec00072039b4e0a7f28aed60c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

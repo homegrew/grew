@@ -1,0 +1,24 @@
+name: lensfun
+version: 0.3.4
+description: Remove defects from digital images
+homepage: https://lensfun.github.io/
+license: LGPL-3.0-only AND GPL-3.0-only AND CC-BY-3.0 AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lensfun/blobs/sha256:c04d1179c9ddb6a6c56495d942509d502478de5654631709c5d1cba41fb1d1df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lensfun/blobs/sha256:3cc01d582abd35c7071dc57e600d076c9e7db789793dde489e751f383279140d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lensfun/blobs/sha256:85581789aef7eea988ee657559321b555bce95b962a6298156fd6d1ac2453cf1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lensfun/blobs/sha256:8431034a807c782f9b8da3ce8b3c0d482e61ae4557d596cac35b31ddbf2f9c0d
+sha256:
+  darwin_arm64: c04d1179c9ddb6a6c56495d942509d502478de5654631709c5d1cba41fb1d1df
+  darwin_amd64: 3cc01d582abd35c7071dc57e600d076c9e7db789793dde489e751f383279140d
+  linux_amd64: 85581789aef7eea988ee657559321b555bce95b962a6298156fd6d1ac2453cf1
+  linux_arm64: 8431034a807c782f9b8da3ce8b3c0d482e61ae4557d596cac35b31ddbf2f9c0d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libpng
+  - python@3.14
+  - gettext

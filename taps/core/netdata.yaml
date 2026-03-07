@@ -1,0 +1,31 @@
+name: netdata
+version: 2.9.0
+description: "Diagnose infrastructure problems with metrics, visualizations & alarms"
+homepage: https://www.netdata.cloud/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netdata/blobs/sha256:978c6a73ecb2b6ac4ff0594c0d0e0859ff870ecdbfe7970aa4a7036baa3b61a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netdata/blobs/sha256:313f6db9351b8d9e9d516f5983a79221fea38edeabb3f02cb7babc0d7d26fad4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netdata/blobs/sha256:7e18d543534c3e435a85a47a802c7b83e33577f48825d6cec97c977cb75a38c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netdata/blobs/sha256:c90b9d2be5dbb6db03eaedbd26c8bac2bc1f27e0dd170a7645b8bd3a7b9344a9
+sha256:
+  darwin_arm64: 978c6a73ecb2b6ac4ff0594c0d0e0859ff870ecdbfe7970aa4a7036baa3b61a5
+  darwin_amd64: 313f6db9351b8d9e9d516f5983a79221fea38edeabb3f02cb7babc0d7d26fad4
+  linux_amd64: 7e18d543534c3e435a85a47a802c7b83e33577f48825d6cec97c977cb75a38c3
+  linux_arm64: c90b9d2be5dbb6db03eaedbd26c8bac2bc1f27e0dd170a7645b8bd3a7b9344a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - dlib
+  - json-c
+  - libuv
+  - libyaml
+  - lz4
+  - openssl@3
+  - pcre2
+  - protobuf
+  - snappy
+  - zstd

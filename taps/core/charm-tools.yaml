@@ -1,0 +1,25 @@
+name: charm-tools
+version: 3.0.8
+description: Tools for authoring and maintaining juju charms
+homepage: https://github.com/juju/charm-tools
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/charm-tools/blobs/sha256:3dc6913f00baa4c58c448a68d0402986c12324f4126a97e94e78f9f43f01b883
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/charm-tools/blobs/sha256:b98167ace80517443e7a0cd3b5983ce5b9cf8cfcb88140942c6141e4da59e08c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/charm-tools/blobs/sha256:fd79c05158fd3c656755b37bc91932d4a0eeb0b1eee3752582cb954d7220e45e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/charm-tools/blobs/sha256:88932246a5bf9a46c581981411bee4145fd747ee9b4490f0b11d2dcd1e559922
+sha256:
+  darwin_arm64: 3dc6913f00baa4c58c448a68d0402986c12324f4126a97e94e78f9f43f01b883
+  darwin_amd64: b98167ace80517443e7a0cd3b5983ce5b9cf8cfcb88140942c6141e4da59e08c
+  linux_amd64: fd79c05158fd3c656755b37bc91932d4a0eeb0b1eee3752582cb954d7220e45e
+  linux_arm64: 88932246a5bf9a46c581981411bee4145fd747ee9b4490f0b11d2dcd1e559922
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - charm
+  - cryptography
+  - libyaml
+  - python@3.14

@@ -1,0 +1,19 @@
+name: odpi
+version: 5.6.4
+description: Oracle Database Programming Interface for Drivers and Applications
+homepage: https://oracle.github.io/odpi/
+license: Apache-2.0 OR UPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odpi/blobs/sha256:8a6676b58158a1c7d3748565cc3db376b66aea0172f0a1507843a13f4c4a376c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odpi/blobs/sha256:cbe010ec61585e5b0559f9694001c7f2953d9c5267232ce746fdecc33b858383
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odpi/blobs/sha256:d442d47435cba91054e84e264668f7a55be6a2c3c07618da5671d649fb7a6fc8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odpi/blobs/sha256:69f242660d2cea8f4ada128a8a7204dfb7595d354cf07a1ba8fa33c46c6e52dd
+sha256:
+  darwin_arm64: 8a6676b58158a1c7d3748565cc3db376b66aea0172f0a1507843a13f4c4a376c
+  darwin_amd64: cbe010ec61585e5b0559f9694001c7f2953d9c5267232ce746fdecc33b858383
+  linux_amd64: d442d47435cba91054e84e264668f7a55be6a2c3c07618da5671d649fb7a6fc8
+  linux_arm64: 69f242660d2cea8f4ada128a8a7204dfb7595d354cf07a1ba8fa33c46c6e52dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

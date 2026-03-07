@@ -1,0 +1,21 @@
+name: zsdx
+version: 1.12.3
+description: Zelda Mystery of Solarus DX
+homepage: https://www.solarus-games.org/games/the-legend-of-zelda-mystery-of-solarus-dx
+license: CC-BY-SA-4.0 AND GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zsdx/blobs/sha256:20ad65e6c82c443373bc1532dd4f69576d433cc5135c00d90978950e6c6a225c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zsdx/blobs/sha256:3a6df19f8e50b836f9e8a7523d50f0b3f8809251494fb15e0cdd1b8246eb7b5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zsdx/blobs/sha256:e0c835e5e48efab248d3f5347d04a9ced81d0869c4fd4afa0176e2331b2c8374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zsdx/blobs/sha256:b1bba51d6059e4d5922550be0ad0f6b3ef4f1f4161421ef2c41483b6fe4cfc49
+sha256:
+  darwin_arm64: 20ad65e6c82c443373bc1532dd4f69576d433cc5135c00d90978950e6c6a225c
+  darwin_amd64: 3a6df19f8e50b836f9e8a7523d50f0b3f8809251494fb15e0cdd1b8246eb7b5f
+  linux_amd64: e0c835e5e48efab248d3f5347d04a9ced81d0869c4fd4afa0176e2331b2c8374
+  linux_arm64: b1bba51d6059e4d5922550be0ad0f6b3ef4f1f4161421ef2c41483b6fe4cfc49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - solarus

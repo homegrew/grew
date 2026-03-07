@@ -1,0 +1,19 @@
+name: x265
+version: 4.1
+description: H.265/HEVC encoder
+homepage: https://bitbucket.org/multicoreware/x265_git
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/x265/blobs/sha256:cb6b299c4a9e8f90422a1fe2b531ded532133f94ba45590abe73c5a27231072a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/x265/blobs/sha256:303948272d75e643cbe4465e5ac39fee0b2f1f38c8b56763b62e6652fa257c1a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/x265/blobs/sha256:5b24399f347c1ad1f1981a711ce9a60cd2f87da01e998f5dcd1d04e62e7fd121
+  linux_arm64: https://ghcr.io/v2/homebrew/core/x265/blobs/sha256:84411e12f00238bb69bb1e383c6b6959c4cd3a7e417075ab81d7101eebf145de
+sha256:
+  darwin_arm64: cb6b299c4a9e8f90422a1fe2b531ded532133f94ba45590abe73c5a27231072a
+  darwin_amd64: 303948272d75e643cbe4465e5ac39fee0b2f1f38c8b56763b62e6652fa257c1a
+  linux_amd64: 5b24399f347c1ad1f1981a711ce9a60cd2f87da01e998f5dcd1d04e62e7fd121
+  linux_arm64: 84411e12f00238bb69bb1e383c6b6959c4cd3a7e417075ab81d7101eebf145de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

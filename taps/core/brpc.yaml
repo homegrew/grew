@@ -1,0 +1,25 @@
+name: brpc
+version: 1.16.0
+description: Better RPC framework
+homepage: https://brpc.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brpc/blobs/sha256:938c07ac932b5f32be2d95cb031ccdc6fb46c4e9be8314e3da673963866a7416
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brpc/blobs/sha256:8d694fdf5ff72dd9f4e964f697331fd1f6c5b55cc36dfc62952d7be6ace4e4b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brpc/blobs/sha256:ac476089bf5b946e877158494c93c45cc3c73b68d3c3bdcac9cc7faebfd9643b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brpc/blobs/sha256:a0a5fe537237d544e5304b878f9c8c834d24a41c89d7d9f3ba7174f073401957
+sha256:
+  darwin_arm64: 938c07ac932b5f32be2d95cb031ccdc6fb46c4e9be8314e3da673963866a7416
+  darwin_amd64: 8d694fdf5ff72dd9f4e964f697331fd1f6c5b55cc36dfc62952d7be6ace4e4b2
+  linux_amd64: ac476089bf5b946e877158494c93c45cc3c73b68d3c3bdcac9cc7faebfd9643b
+  linux_arm64: a0a5fe537237d544e5304b878f9c8c834d24a41c89d7d9f3ba7174f073401957
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - gflags
+  - leveldb
+  - openssl@3
+  - protobuf@33

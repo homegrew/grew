@@ -1,0 +1,22 @@
+name: sqlsmith
+version: 1.4
+description: Random SQL query generator
+homepage: https://github.com/anse1/sqlsmith
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlsmith/blobs/sha256:d2eeed7e3a0447e19564eeca544e3fc0fc2331c5165f53b3145b865a76855745
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlsmith/blobs/sha256:15bf710fd3748acb8aedb46336e91ee7646a2ba566f920ad71d6bcc36887228c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlsmith/blobs/sha256:0097bee5057fa4d814dfa431ff700cfc87253c243bf1b806f6515b08c05b3b1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlsmith/blobs/sha256:8d6801038b4cff8cec72c060386fd5fba691188e4dfbe784de0085237dbfc9b9
+sha256:
+  darwin_arm64: d2eeed7e3a0447e19564eeca544e3fc0fc2331c5165f53b3145b865a76855745
+  darwin_amd64: 15bf710fd3748acb8aedb46336e91ee7646a2ba566f920ad71d6bcc36887228c
+  linux_amd64: 0097bee5057fa4d814dfa431ff700cfc87253c243bf1b806f6515b08c05b3b1b
+  linux_arm64: 8d6801038b4cff8cec72c060386fd5fba691188e4dfbe784de0085237dbfc9b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - libpqxx

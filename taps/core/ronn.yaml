@@ -1,0 +1,19 @@
+name: ronn
+version: 0.7.3
+description: Builds manuals - the opposite of roff
+homepage: https://rtomayko.github.io/ronn/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ronn/blobs/sha256:56ccd5c1249492486887b691294cc5e521a62e9231ed4f0db5a1306db44ec24d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ronn/blobs/sha256:a7545d2ab894ffc07599930c70aeebec826619b150d37f91a6e1f7dec4f4772a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ronn/blobs/sha256:d3a40cabe57b7456d236125ccb6ecd55d0a9a89bf0eb34bf5ad4933aaa9c6cbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ronn/blobs/sha256:1c9d3d1240e95a231b3136f13d93a5c628599ef75e4560363970e0cdf8223b85
+sha256:
+  darwin_arm64: 56ccd5c1249492486887b691294cc5e521a62e9231ed4f0db5a1306db44ec24d
+  darwin_amd64: a7545d2ab894ffc07599930c70aeebec826619b150d37f91a6e1f7dec4f4772a
+  linux_amd64: d3a40cabe57b7456d236125ccb6ecd55d0a9a89bf0eb34bf5ad4933aaa9c6cbd
+  linux_arm64: 1c9d3d1240e95a231b3136f13d93a5c628599ef75e4560363970e0cdf8223b85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

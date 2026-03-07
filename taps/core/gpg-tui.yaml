@@ -1,0 +1,24 @@
+name: gpg-tui
+version: 0.11.1
+description: "Manage your GnuPG keys with ease!"
+homepage: https://github.com/orhun/gpg-tui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpg-tui/blobs/sha256:abbd155171e756035475b2d056af6a211670e7771f0c5b4aa602c74c479ecc73
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpg-tui/blobs/sha256:da34e2326c5339717bda310f989e70d696858a31852ff892101e56d6d9781144
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpg-tui/blobs/sha256:c846cd2826dff13817d7dac553ebc7adbd9d992f852ee9c2c4b3540fc8f017eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpg-tui/blobs/sha256:b12d1cddc16374cfbb0be45749aace3e1c1e6f623b300e593b99b97d827fbbf3
+sha256:
+  darwin_arm64: abbd155171e756035475b2d056af6a211670e7771f0c5b4aa602c74c479ecc73
+  darwin_amd64: da34e2326c5339717bda310f989e70d696858a31852ff892101e56d6d9781144
+  linux_amd64: c846cd2826dff13817d7dac553ebc7adbd9d992f852ee9c2c4b3540fc8f017eb
+  linux_arm64: b12d1cddc16374cfbb0be45749aace3e1c1e6f623b300e593b99b97d827fbbf3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg
+  - gpgme
+  - libgpg-error
+  - libxcb

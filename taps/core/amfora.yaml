@@ -1,0 +1,19 @@
+name: amfora
+version: 1.11.0
+description: Fancy terminal browser for the Gemini protocol
+homepage: https://github.com/makew0rld/amfora
+license: GPL-3.0-only AND (GPL-3.0-only OR MIT)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/amfora/blobs/sha256:00e4da529415b5a5b02c68c987828c996e1b044e8de4bdd3bd91aff35d472396
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/amfora/blobs/sha256:f50a1331ec6c174d16aabe9908dbe16ca7b840bf44c7e76b384de67b5e5f2f67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/amfora/blobs/sha256:4ccab595f65a7e440660a2981719199eef7e5cc82025a89f0cfa2936892fa57b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/amfora/blobs/sha256:6d9218f579fb7be31312ea53a6d59a7f6f63ea4a01216c64ab68b49c2899b34f
+sha256:
+  darwin_arm64: 00e4da529415b5a5b02c68c987828c996e1b044e8de4bdd3bd91aff35d472396
+  darwin_amd64: f50a1331ec6c174d16aabe9908dbe16ca7b840bf44c7e76b384de67b5e5f2f67
+  linux_amd64: 4ccab595f65a7e440660a2981719199eef7e5cc82025a89f0cfa2936892fa57b
+  linux_arm64: 6d9218f579fb7be31312ea53a6d59a7f6f63ea4a01216c64ab68b49c2899b34f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: scrcpy
+version: 3.3.4
+description: Display and control your Android device
+homepage: https://github.com/Genymobile/scrcpy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scrcpy/blobs/sha256:9443d43f86e690c1cd6babffbd0b0e7f507e34e7c1ca919a8ad0c1b5ceae8e52
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scrcpy/blobs/sha256:163a29c09b6c139e7ed5641d348e80ff589e944a244f3ed266753df881c2b2fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scrcpy/blobs/sha256:a1128139c2508f754e0f94133e1630c54366fd3019f5966e3876baca11f887eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scrcpy/blobs/sha256:5631757dff00cc6b78cc96495e123a971cb1b414b7465db3cc4cca8016acea5d
+sha256:
+  darwin_arm64: 9443d43f86e690c1cd6babffbd0b0e7f507e34e7c1ca919a8ad0c1b5ceae8e52
+  darwin_amd64: 163a29c09b6c139e7ed5641d348e80ff589e944a244f3ed266753df881c2b2fa
+  linux_amd64: a1128139c2508f754e0f94133e1630c54366fd3019f5966e3876baca11f887eb
+  linux_arm64: 5631757dff00cc6b78cc96495e123a971cb1b414b7465db3cc4cca8016acea5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - libusb
+  - sdl2

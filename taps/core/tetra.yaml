@@ -1,0 +1,19 @@
+name: tetra
+version: 1.6.0
+description: Tetragon CLI to observe, manage and troubleshoot Tetragon instances
+homepage: https://tetragon.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tetra/blobs/sha256:0111161e8793db09cd938510cca6dada677985f41a7ba2b6aa9c8f55b7daf7c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tetra/blobs/sha256:b1c926f99a77c8cd14552ccf57788c3453753101cf8ad1b3d853b8dcf44f2b85
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tetra/blobs/sha256:78633dd890f3b3552edb26ae9822200ac52febaf56a5c23c02423eca6577c895
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tetra/blobs/sha256:5e2938872c80920878fb745c56ae96bed320150c878aca248f1e0ce5f47ff2af
+sha256:
+  darwin_arm64: 0111161e8793db09cd938510cca6dada677985f41a7ba2b6aa9c8f55b7daf7c1
+  darwin_amd64: b1c926f99a77c8cd14552ccf57788c3453753101cf8ad1b3d853b8dcf44f2b85
+  linux_amd64: 78633dd890f3b3552edb26ae9822200ac52febaf56a5c23c02423eca6577c895
+  linux_arm64: 5e2938872c80920878fb745c56ae96bed320150c878aca248f1e0ce5f47ff2af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

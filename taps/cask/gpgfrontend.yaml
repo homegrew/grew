@@ -1,0 +1,11 @@
+name: gpgfrontend
+version: 2.1.10
+description: OpenPGP/GnuPG crypto, sign and key management tool
+homepage: https://gpgfrontend.bktus.com/
+url:
+  darwin_arm64: https://github.com/saturneric/GpgFrontend/releases/download/v2.1.10/GpgFrontend-2.1.10-macos-15.dmg
+sha256:
+  darwin_arm64: 28b05ae0b5e013e3de3d47006a1557d52557d09234313c586c3e4b2dd9ffa0a1
+artifacts:
+  app:
+    - GpgFrontend.app

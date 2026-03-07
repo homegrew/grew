@@ -1,0 +1,19 @@
+name: urlfinder
+version: 2023.9.9
+description: Extracting URLs and subdomains from JS files on a website
+homepage: https://github.com/pingc0y/URLFinder
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urlfinder/blobs/sha256:26b43818b3c94162949546ae14e4f0cf43ca8868a7e16558ce9c7620867a93be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urlfinder/blobs/sha256:6450a88906097f54b892397bbb2a421a1367836be2cf82ce1afdff1f372b6b57
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urlfinder/blobs/sha256:955e2684479dcbbd05369e082499a91b856dd0f2f096d25d7c59a64d6f5ae58e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urlfinder/blobs/sha256:51861ca3a9390db470a4f09fda72c026b1fe78b98bdeac07d62a71264eb9919b
+sha256:
+  darwin_arm64: 26b43818b3c94162949546ae14e4f0cf43ca8868a7e16558ce9c7620867a93be
+  darwin_amd64: 6450a88906097f54b892397bbb2a421a1367836be2cf82ce1afdff1f372b6b57
+  linux_amd64: 955e2684479dcbbd05369e082499a91b856dd0f2f096d25d7c59a64d6f5ae58e
+  linux_arm64: 51861ca3a9390db470a4f09fda72c026b1fe78b98bdeac07d62a71264eb9919b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

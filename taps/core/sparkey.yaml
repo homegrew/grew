@@ -1,0 +1,21 @@
+name: sparkey
+version: 1.0.0
+description: Constant key-value store, best for frequent read/infrequent write uses
+homepage: https://github.com/spotify/sparkey/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sparkey/blobs/sha256:ff757da573f4fb8d73347565dec379edfd8b4310f03a563c98996b262c6a1226
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sparkey/blobs/sha256:8971cd97310bdd3351b32d80958eec379b95d8a3c18e31310a7453993ef5400d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sparkey/blobs/sha256:9b9dcde71d3afafa413ad52116f880796bd49f1a715159a794275fb4bd366de1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sparkey/blobs/sha256:a745bf0f972c860c306af016c89015bc1d39e1b5a90a1b553ff9fe65ca48e93b
+sha256:
+  darwin_arm64: ff757da573f4fb8d73347565dec379edfd8b4310f03a563c98996b262c6a1226
+  darwin_amd64: 8971cd97310bdd3351b32d80958eec379b95d8a3c18e31310a7453993ef5400d
+  linux_amd64: 9b9dcde71d3afafa413ad52116f880796bd49f1a715159a794275fb4bd366de1
+  linux_arm64: a745bf0f972c860c306af016c89015bc1d39e1b5a90a1b553ff9fe65ca48e93b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - snappy

@@ -1,0 +1,21 @@
+name: saldl
+version: 41
+description: CLI downloader optimized for speed and early preview
+homepage: https://saldl.github.io/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/saldl/blobs/sha256:a941046f8ba35fc1e8eeb99f31488c55dfd0774d9d9b08143069995c3650ccbc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/saldl/blobs/sha256:6bc5294d547489d4eda5ddaa1f51153c2b3b36be366a5f4609c6a76f1f5d5428
+  linux_amd64: https://ghcr.io/v2/homebrew/core/saldl/blobs/sha256:9fac01178e92d8772a63590e63904d14a95375b3aab7bf108c1f71fb3abe671b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/saldl/blobs/sha256:68a6ee008808e8ba34de2e6367ba7a70f675abd592f2bd59e9ae04224185e15f
+sha256:
+  darwin_arm64: a941046f8ba35fc1e8eeb99f31488c55dfd0774d9d9b08143069995c3650ccbc
+  darwin_amd64: 6bc5294d547489d4eda5ddaa1f51153c2b3b36be366a5f4609c6a76f1f5d5428
+  linux_amd64: 9fac01178e92d8772a63590e63904d14a95375b3aab7bf108c1f71fb3abe671b
+  linux_arm64: 68a6ee008808e8ba34de2e6367ba7a70f675abd592f2bd59e9ae04224185e15f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent

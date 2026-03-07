@@ -1,0 +1,22 @@
+name: faiss
+version: 1.14.1
+description: Efficient similarity search and clustering of dense vectors
+homepage: https://github.com/facebookresearch/faiss
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/faiss/blobs/sha256:f9f8ae843b91c46fba4ae7ac8f5e863721099aa7db6c84ef9ac5840f69e43a7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/faiss/blobs/sha256:dc01d70a4338c134bf51277cc3e23e3e721224fe36c8b67e7b4b6f6294edcc0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/faiss/blobs/sha256:a789aa1e023671b4c02894871f5a4c63f7886e8586cdabf60b4f0f792751ec75
+  linux_arm64: https://ghcr.io/v2/homebrew/core/faiss/blobs/sha256:ca531cb4ccab1ce090f96146d862af48057f1110a827230bb0e71d1c7241b2eb
+sha256:
+  darwin_arm64: f9f8ae843b91c46fba4ae7ac8f5e863721099aa7db6c84ef9ac5840f69e43a7c
+  darwin_amd64: dc01d70a4338c134bf51277cc3e23e3e721224fe36c8b67e7b4b6f6294edcc0c
+  linux_amd64: a789aa1e023671b4c02894871f5a4c63f7886e8586cdabf60b4f0f792751ec75
+  linux_arm64: ca531cb4ccab1ce090f96146d862af48057f1110a827230bb0e71d1c7241b2eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas
+  - libomp

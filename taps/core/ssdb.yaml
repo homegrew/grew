@@ -1,0 +1,19 @@
+name: ssdb
+version: 1.9.9
+description: "NoSQL database supporting many data structures: Redis alternative"
+homepage: https://ssdb.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssdb/blobs/sha256:3fe78871af08371b8d2f7fecbea63b1ff415f7071febdbd4a5ec06d7b08c2c47
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssdb/blobs/sha256:6864bae902aaf95a7a55aa31e79c79a2491de19f6084e1005b02492a89b17109
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssdb/blobs/sha256:9db77a02bd8c3ed9569919f579d4e3a3d434bfba9f4679aafbc3c2de87993478
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssdb/blobs/sha256:3b979956e4a3d08fa70ad494d69fc7883116d7f08ddcddea15a058f7836891d1
+sha256:
+  darwin_arm64: 3fe78871af08371b8d2f7fecbea63b1ff415f7071febdbd4a5ec06d7b08c2c47
+  darwin_amd64: 6864bae902aaf95a7a55aa31e79c79a2491de19f6084e1005b02492a89b17109
+  linux_amd64: 9db77a02bd8c3ed9569919f579d4e3a3d434bfba9f4679aafbc3c2de87993478
+  linux_arm64: 3b979956e4a3d08fa70ad494d69fc7883116d7f08ddcddea15a058f7836891d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

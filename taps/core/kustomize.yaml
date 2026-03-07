@@ -1,0 +1,19 @@
+name: kustomize
+version: 5.8.1
+description: Template-free customization of Kubernetes YAML manifests
+homepage: https://github.com/kubernetes-sigs/kustomize
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kustomize/blobs/sha256:2ccbddce9b9a74b5117932a76fe8a196c58d81deadfa90e160c1e8fcbc076d16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kustomize/blobs/sha256:2f0e0ebfaa6965bedfbc6d7cc46165f045ce5ccec5c420b70091766aee4bf4fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kustomize/blobs/sha256:99e8592d6db38d12c0b2af3daccfb446ecec021b98e7cc99728988bc4d904beb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kustomize/blobs/sha256:53e8e30f0150ab2641f5ff89d4cf42222b234887fb684bb998273034145c8bdb
+sha256:
+  darwin_arm64: 2ccbddce9b9a74b5117932a76fe8a196c58d81deadfa90e160c1e8fcbc076d16
+  darwin_amd64: 2f0e0ebfaa6965bedfbc6d7cc46165f045ce5ccec5c420b70091766aee4bf4fd
+  linux_amd64: 99e8592d6db38d12c0b2af3daccfb446ecec021b98e7cc99728988bc4d904beb
+  linux_arm64: 53e8e30f0150ab2641f5ff89d4cf42222b234887fb684bb998273034145c8bdb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

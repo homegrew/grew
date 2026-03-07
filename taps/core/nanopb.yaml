@@ -1,0 +1,20 @@
+name: nanopb
+version: 0.4.9.1
+description: C library for encoding and decoding Protocol Buffer messages
+homepage: https://jpa.kapsi.fi/nanopb/docs/index.html
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nanopb/blobs/sha256:51fdb8214773b1431f5f54eb3bb94d583140a2af0aa5d13ba4a7d9a95a175ffe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nanopb/blobs/sha256:24be4b707a3495e707546c5fefb63394c666a8562241c77dcce69942937b2648
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nanopb/blobs/sha256:9e9954ea9fa95369fd9f1685dff2f75e0a14b8c65a1d7f0519dcbd3651a08f19
+sha256:
+  darwin_arm64: 51fdb8214773b1431f5f54eb3bb94d583140a2af0aa5d13ba4a7d9a95a175ffe
+  darwin_amd64: 24be4b707a3495e707546c5fefb63394c666a8562241c77dcce69942937b2648
+  linux_arm64: 9e9954ea9fa95369fd9f1685dff2f75e0a14b8c65a1d7f0519dcbd3651a08f19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - protobuf
+  - python@3.14

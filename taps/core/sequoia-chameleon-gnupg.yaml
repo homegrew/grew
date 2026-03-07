@@ -1,0 +1,23 @@
+name: sequoia-chameleon-gnupg
+version: 0.13.1
+description: Reimplementatilon of gpg and gpgv using Sequoia
+homepage: https://sequoia-pgp.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sequoia-chameleon-gnupg/blobs/sha256:28f73d4c9fe42708b00a6cc31b1944d40ef9ab28f19f555262580ffd02c7af8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sequoia-chameleon-gnupg/blobs/sha256:0c04398a6a5a0ec0b24d8c9e17c8d32b60cd6506c3e123478372765d2c110e6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sequoia-chameleon-gnupg/blobs/sha256:3319626d5c818b6482bf2ba1c9cfd267447639975483dde222f430a33ba1dc82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sequoia-chameleon-gnupg/blobs/sha256:e3f4855b69df13a6c051453ae00e4434063777d1f26e9d07cf1ef21d2f5e06c8
+sha256:
+  darwin_arm64: 28f73d4c9fe42708b00a6cc31b1944d40ef9ab28f19f555262580ffd02c7af8c
+  darwin_amd64: 0c04398a6a5a0ec0b24d8c9e17c8d32b60cd6506c3e123478372765d2c110e6e
+  linux_amd64: 3319626d5c818b6482bf2ba1c9cfd267447639975483dde222f430a33ba1dc82
+  linux_arm64: e3f4855b69df13a6c051453ae00e4434063777d1f26e9d07cf1ef21d2f5e06c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - nettle
+  - openssl@3

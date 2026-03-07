@@ -1,0 +1,21 @@
+name: deadfinder
+version: 1.10.0
+description: Finds broken links
+homepage: https://rubygems.org/gems/deadfinder
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/deadfinder/blobs/sha256:550ef54a29d20b3e71cd5a2b9d557919152369dac8a4d2dc962fe8a044d0898e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/deadfinder/blobs/sha256:1ee62850abad8485e5327ec0579d30f24fb884e773eef673dab7b36c01564f30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/deadfinder/blobs/sha256:d68f0537ef47c062571f77b1a5b6e7ca55b0d318ca5ad7d3f303c51fc608a5af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/deadfinder/blobs/sha256:1c3a23a3d8a2e3b19b636939a182bd3da1a01d065674637d8589cbda09cc2cfe
+sha256:
+  darwin_arm64: 550ef54a29d20b3e71cd5a2b9d557919152369dac8a4d2dc962fe8a044d0898e
+  darwin_amd64: 1ee62850abad8485e5327ec0579d30f24fb884e773eef673dab7b36c01564f30
+  linux_amd64: d68f0537ef47c062571f77b1a5b6e7ca55b0d318ca5ad7d3f303c51fc608a5af
+  linux_arm64: 1c3a23a3d8a2e3b19b636939a182bd3da1a01d065674637d8589cbda09cc2cfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

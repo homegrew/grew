@@ -1,0 +1,19 @@
+name: portmidi
+version: 2.0.8
+description: Cross-platform library for real-time MIDI I/O
+homepage: https://github.com/PortMidi/portmidi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/portmidi/blobs/sha256:02be979b495e1a9e201b22e8e136c97a5c81930e169c1aa38b83b46dd82f73e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/portmidi/blobs/sha256:8e95eab876a35c3d629c88ff159d05f0242083990586562a03f54bc9056f1be6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/portmidi/blobs/sha256:a66e2c410e774644f259314a481921b6ea633cc5fe7c610e2e703ce9b0ca572e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/portmidi/blobs/sha256:598ca599a4d47c9f106818c1593e52e26d7a512478d6fcee80dd26c6693d91c2
+sha256:
+  darwin_arm64: 02be979b495e1a9e201b22e8e136c97a5c81930e169c1aa38b83b46dd82f73e2
+  darwin_amd64: 8e95eab876a35c3d629c88ff159d05f0242083990586562a03f54bc9056f1be6
+  linux_amd64: a66e2c410e774644f259314a481921b6ea633cc5fe7c610e2e703ce9b0ca572e
+  linux_arm64: 598ca599a4d47c9f106818c1593e52e26d7a512478d6fcee80dd26c6693d91c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

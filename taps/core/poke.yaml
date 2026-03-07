@@ -1,0 +1,23 @@
+name: poke
+version: 4.3
+description: Extensible editor for structured binary data
+homepage: https://jemarch.net/poke
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poke/blobs/sha256:821eefd5e063b58af3ef23658e016cbed9d7869c9dce45f832d8da03b4db559a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poke/blobs/sha256:109401dd79744517c3d41bb73108fc778e3dd8dbc8b31032cfc70dbc06b5c12d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poke/blobs/sha256:016bf647c3fad54272c7efde148cb755cd9015e3b3c7d394937f36a201667773
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poke/blobs/sha256:e9f8c5b017fbc20596b897784e4bbea573085a3bb243d39d5a901ada5f63189c
+sha256:
+  darwin_arm64: 821eefd5e063b58af3ef23658e016cbed9d7869c9dce45f832d8da03b4db559a
+  darwin_amd64: 109401dd79744517c3d41bb73108fc778e3dd8dbc8b31032cfc70dbc06b5c12d
+  linux_amd64: 016bf647c3fad54272c7efde148cb755cd9015e3b3c7d394937f36a201667773
+  linux_arm64: e9f8c5b017fbc20596b897784e4bbea573085a3bb243d39d5a901ada5f63189c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - gettext
+  - readline

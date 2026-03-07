@@ -1,0 +1,19 @@
+name: acpica
+version: 20251212
+description: OS-independent implementation of the ACPI specification
+homepage: https://github.com/acpica/acpica
+license: Intel-ACPI OR GPL-2.0-only OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/acpica/blobs/sha256:c85f3de1cd6566556c244b0dca84c06cc7c29b53ec1eef0be2202037c5aac87e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/acpica/blobs/sha256:1778c83883cb32166a2386afbbfe234f62449fb7ff71f9e239975211b63e7c2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/acpica/blobs/sha256:b700c0658a887d7643a4d56ec457f121c4f22579e07c0956c2b8e557601dfc31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/acpica/blobs/sha256:edd8b386141067242c82079e32793613adefb98ce73a7fe47c6a538c972a730b
+sha256:
+  darwin_arm64: c85f3de1cd6566556c244b0dca84c06cc7c29b53ec1eef0be2202037c5aac87e
+  darwin_amd64: 1778c83883cb32166a2386afbbfe234f62449fb7ff71f9e239975211b63e7c2d
+  linux_amd64: b700c0658a887d7643a4d56ec457f121c4f22579e07c0956c2b8e557601dfc31
+  linux_arm64: edd8b386141067242c82079e32793613adefb98ce73a7fe47c6a538c972a730b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

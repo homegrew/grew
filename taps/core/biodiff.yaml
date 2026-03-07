@@ -1,0 +1,19 @@
+name: biodiff
+version: 1.2.1
+description: Hex diff viewer using alignment algorithms from biology
+homepage: https://github.com/8051Enthusiast/biodiff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/biodiff/blobs/sha256:c939875ccb2ba0bdca25c0893e40a984bb8a0911f6b1e11a3fafcad5e3b3962e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/biodiff/blobs/sha256:5072d40346a831e078adcd0cf7b0706f24963216a4e29487d734409b214ddecc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/biodiff/blobs/sha256:457e5aac74347eb07659a465a925c7720dbfbaf017b7563151bfe5acac10ad99
+  linux_arm64: https://ghcr.io/v2/homebrew/core/biodiff/blobs/sha256:8217e0944fd572a40bfb517c730e6927c8aea6750f7afe8d71d18eba1bc0ee71
+sha256:
+  darwin_arm64: c939875ccb2ba0bdca25c0893e40a984bb8a0911f6b1e11a3fafcad5e3b3962e
+  darwin_amd64: 5072d40346a831e078adcd0cf7b0706f24963216a4e29487d734409b214ddecc
+  linux_amd64: 457e5aac74347eb07659a465a925c7720dbfbaf017b7563151bfe5acac10ad99
+  linux_arm64: 8217e0944fd572a40bfb517c730e6927c8aea6750f7afe8d71d18eba1bc0ee71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

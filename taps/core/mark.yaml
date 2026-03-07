@@ -1,0 +1,19 @@
+name: mark
+version: 15.3.0
+description: Sync your markdown files with Confluence pages
+homepage: https://github.com/kovetskiy/mark
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mark/blobs/sha256:71c98a2e63139e0f793c6dc515a4ad96cccca6ce37c4b430483428ef523d316f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mark/blobs/sha256:02e4478907c0fdc19c8253d56923ad2f07c26380a62e196a3b82d81e79a454e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mark/blobs/sha256:aa226f6ed1ce070f1d6f30f6e061695c81b02778bcdea3f65b7bb17770de64b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mark/blobs/sha256:d81d5f9a47fe725d0547585bdbebefecaf1ebb11afdae3d500569ededb3100cc
+sha256:
+  darwin_arm64: 71c98a2e63139e0f793c6dc515a4ad96cccca6ce37c4b430483428ef523d316f
+  darwin_amd64: 02e4478907c0fdc19c8253d56923ad2f07c26380a62e196a3b82d81e79a454e0
+  linux_amd64: aa226f6ed1ce070f1d6f30f6e061695c81b02778bcdea3f65b7bb17770de64b6
+  linux_arm64: d81d5f9a47fe725d0547585bdbebefecaf1ebb11afdae3d500569ededb3100cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

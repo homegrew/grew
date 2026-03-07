@@ -1,0 +1,19 @@
+name: quickjs
+version: 2025-09-13-2
+description: Small and embeddable JavaScript engine
+homepage: https://bellard.org/quickjs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/quickjs/blobs/sha256:0c4a5557adceba07641b2d0df1a7dc4a80a95cb8d95cb8e89a75deabd2cac755
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/quickjs/blobs/sha256:a2ce1cdd3b921b02c123850b83ff78d4d983fc487c04bfdf93352d415bf6f253
+  linux_amd64: https://ghcr.io/v2/homebrew/core/quickjs/blobs/sha256:547f293bb0c5b1de7fe993352bc26192627f16a36128d64bb9b9dbd9b2afca2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/quickjs/blobs/sha256:4a3b2817c7f28db585ece2b4e317fe6ce0079a6c716dd2ef9e612a80d7106089
+sha256:
+  darwin_arm64: 0c4a5557adceba07641b2d0df1a7dc4a80a95cb8d95cb8e89a75deabd2cac755
+  darwin_amd64: a2ce1cdd3b921b02c123850b83ff78d4d983fc487c04bfdf93352d415bf6f253
+  linux_amd64: 547f293bb0c5b1de7fe993352bc26192627f16a36128d64bb9b9dbd9b2afca2e
+  linux_arm64: 4a3b2817c7f28db585ece2b4e317fe6ce0079a6c716dd2ef9e612a80d7106089
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

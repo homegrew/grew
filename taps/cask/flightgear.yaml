@@ -1,0 +1,11 @@
+name: flightgear
+version: 2024.1.4
+description: Flight simulator
+homepage: https://www.flightgear.org/
+url:
+  darwin_arm64: https://mirrors.ibiblio.org/flightgear/ftp/release-2024.1/flightgear-2024.1.4-macos-universal.dmg
+sha256:
+  darwin_arm64: e01179874fd90241dacd6c17ac13c07b523c4f85640443ecf264a2a598d69daa
+artifacts:
+  app:
+    - FlightGear.app

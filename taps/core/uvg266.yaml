@@ -1,0 +1,19 @@
+name: uvg266
+version: 0.8.1
+description: Open-source VVC/H.266 encoder
+homepage: https://github.com/ultravideo/uvg266
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uvg266/blobs/sha256:ad4d6f123370fbb4a893ef57358872d7772beabd0e2fa29f9229f8e0db022bcb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uvg266/blobs/sha256:1ff7b317c2ef872de0f794eb448e26cf4b1569352b2dac1e041357756d94b3da
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uvg266/blobs/sha256:b2b2fc85f72c8d371bd32609a2723478c4c5f7575e3337827b5991c5b91f498d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uvg266/blobs/sha256:b789955cf0ac4e360740908d922e1bb1f0bfab904ac642635947e71542ae1724
+sha256:
+  darwin_arm64: ad4d6f123370fbb4a893ef57358872d7772beabd0e2fa29f9229f8e0db022bcb
+  darwin_amd64: 1ff7b317c2ef872de0f794eb448e26cf4b1569352b2dac1e041357756d94b3da
+  linux_amd64: b2b2fc85f72c8d371bd32609a2723478c4c5f7575e3337827b5991c5b91f498d
+  linux_arm64: b789955cf0ac4e360740908d922e1bb1f0bfab904ac642635947e71542ae1724
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

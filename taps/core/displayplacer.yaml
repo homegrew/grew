@@ -1,0 +1,15 @@
+name: displayplacer
+version: 1.4.0
+description: Utility to configure multi-display resolutions and arrangements
+homepage: https://github.com/jakehilborn/displayplacer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/displayplacer/blobs/sha256:3130d189e26a7f30517372527c5b28c5c565ef87550944d865cf2bb4f6043cc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/displayplacer/blobs/sha256:ae106ea0057e4eb35944a9d9c0f9b29c4b693022b09a15a67a809aa36aca5c30
+sha256:
+  darwin_arm64: 3130d189e26a7f30517372527c5b28c5c565ef87550944d865cf2bb4f6043cc2
+  darwin_amd64: ae106ea0057e4eb35944a9d9c0f9b29c4b693022b09a15a67a809aa36aca5c30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

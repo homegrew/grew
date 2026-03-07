@@ -1,0 +1,19 @@
+name: pydantic
+version: 2.12.5
+description: Data validation using Python type hints
+homepage: https://github.com/pydantic/pydantic
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pydantic/blobs/sha256:f82763979e85555515c17cace1a3e82142da86aafbe470a913cff495da4082e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pydantic/blobs/sha256:6ca77c977ee829d61282d6fd0d894e9a23d0ff3654d4825f92e6ab672fc34e39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pydantic/blobs/sha256:a6ec6ef0299e0e75a011da81902dc8e1da5b3798d010d56e51710537ecd248a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pydantic/blobs/sha256:b252c084afdb03e9871ca69e7969ad5a5120e49ac916414d5ebd0fc63f02c54d
+sha256:
+  darwin_arm64: f82763979e85555515c17cace1a3e82142da86aafbe470a913cff495da4082e5
+  darwin_amd64: 6ca77c977ee829d61282d6fd0d894e9a23d0ff3654d4825f92e6ab672fc34e39
+  linux_amd64: a6ec6ef0299e0e75a011da81902dc8e1da5b3798d010d56e51710537ecd248a8
+  linux_arm64: b252c084afdb03e9871ca69e7969ad5a5120e49ac916414d5ebd0fc63f02c54d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

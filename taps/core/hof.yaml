@@ -1,0 +1,19 @@
+name: hof
+version: 0.6.10
+description: "Flexible data modeling & code generation system"
+homepage: https://hofstadter.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hof/blobs/sha256:9646fbe9aedd3339cc3502d4dd1217c6bd8f2a207e17f2d4aee664b7e60ae281
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hof/blobs/sha256:054e65b74ca1aebf0351cf1bcf145b7738aec5470c506c62d4b649d91bbc346b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hof/blobs/sha256:4397be59f7e752c110cedf109d7cb9b8442105589f54e82e3e436c0561769fcc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hof/blobs/sha256:d0a4500b2b97316de21efb51fa8f5e7173576f91d80d3a04d2949398145deb12
+sha256:
+  darwin_arm64: 9646fbe9aedd3339cc3502d4dd1217c6bd8f2a207e17f2d4aee664b7e60ae281
+  darwin_amd64: 054e65b74ca1aebf0351cf1bcf145b7738aec5470c506c62d4b649d91bbc346b
+  linux_amd64: 4397be59f7e752c110cedf109d7cb9b8442105589f54e82e3e436c0561769fcc
+  linux_arm64: d0a4500b2b97316de21efb51fa8f5e7173576f91d80d3a04d2949398145deb12
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

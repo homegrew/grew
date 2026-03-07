@@ -1,0 +1,19 @@
+name: tfmcp
+version: 0.1.9
+description: Terraform Model Context Protocol (MCP) Tool
+homepage: https://github.com/nwiizo/tfmcp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfmcp/blobs/sha256:e4d054365458568e0890ed4485317fb01d1b0f63d159c89cf69e90e22db523bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfmcp/blobs/sha256:b109a5fab2069d3c6d6a089893d98af6d91cb470ef2a3d9e0c572c166561887d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfmcp/blobs/sha256:0b3c9b3fd78744bb4040c4682bcde59a914a26ed55e10f3b5fd0670541c8c8ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfmcp/blobs/sha256:7058b7da00775b347b19ad369260aad5cb87dd02f5d83f9355a3c677c0f09246
+sha256:
+  darwin_arm64: e4d054365458568e0890ed4485317fb01d1b0f63d159c89cf69e90e22db523bb
+  darwin_amd64: b109a5fab2069d3c6d6a089893d98af6d91cb470ef2a3d9e0c572c166561887d
+  linux_amd64: 0b3c9b3fd78744bb4040c4682bcde59a914a26ed55e10f3b5fd0670541c8c8ed
+  linux_arm64: 7058b7da00775b347b19ad369260aad5cb87dd02f5d83f9355a3c677c0f09246
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,13 @@
+name: stolendata-mpv
+version: 0.40.0
+description: Media player based on MPlayer and mplayer2
+homepage: https://mpv.io/
+url:
+  darwin_arm64: https://laboratory.stolendata.net/~djinn/mpv_osx/mpv-arm64-0.40.0.tar.gz
+sha256:
+  darwin_arm64: 3170fb709defebaba33e9755297d70dc3562220541de54fc3d494a8309ef1260
+artifacts:
+  app:
+    - mpv-arm64-0.40.0/mpv.app
+  bin:
+    - mpv

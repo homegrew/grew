@@ -1,0 +1,11 @@
+name: openttd
+version: 15.2
+description: Open-source transport simulation game
+homepage: https://www.openttd.org/
+url:
+  darwin_arm64: https://cdn.openttd.org/openttd-releases/15.2/openttd-15.2-macos-universal.zip
+sha256:
+  darwin_arm64: 9d660dad404dc022c8d9f022f48f10a2fa9472dc18d2484867de9ca10cbb5015
+artifacts:
+  app:
+    - OpenTTD.app

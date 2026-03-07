@@ -1,0 +1,19 @@
+name: scriptisto
+version: 2.2.0
+description: "Language-agnostic \"shebang interpreter\" to write scripts in compiled languages"
+homepage: https://github.com/igor-petruk/scriptisto
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scriptisto/blobs/sha256:d2bf35c77bc8003d0139ced824741d362edf5d789af0ae162228fcd95c33b478
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scriptisto/blobs/sha256:4c586e045919918edbd2db012047eb30954a21c7f7c1758e0d1c1aeb90aca9a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scriptisto/blobs/sha256:aeb6d0436c7092c1056e3e1baca883a891a3dfb700517d28b6f07e4665151f3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scriptisto/blobs/sha256:6fa6858d7267ea5b8447b5a841dea92c4a3951fdc62d5e347ccff232b1893e41
+sha256:
+  darwin_arm64: d2bf35c77bc8003d0139ced824741d362edf5d789af0ae162228fcd95c33b478
+  darwin_amd64: 4c586e045919918edbd2db012047eb30954a21c7f7c1758e0d1c1aeb90aca9a2
+  linux_amd64: aeb6d0436c7092c1056e3e1baca883a891a3dfb700517d28b6f07e4665151f3a
+  linux_arm64: 6fa6858d7267ea5b8447b5a841dea92c4a3951fdc62d5e347ccff232b1893e41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

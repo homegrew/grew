@@ -1,0 +1,19 @@
+name: fcrackzip
+version: 1.0
+description: Zip password cracker
+homepage: https://oldhome.schmorp.de/marc/fcrackzip.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fcrackzip/blobs/sha256:7c9ec0de20570467b787bfe40641aad62b1c0426f8d8441491d169f255daeac2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fcrackzip/blobs/sha256:4b3a83a7678897109e42f39b45cbb151d1f31451d317f89d9c8118be09142aed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fcrackzip/blobs/sha256:fc5280f9da3eb29640b3201d9f461a44eb473749110de00e7f36d0632033af66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fcrackzip/blobs/sha256:28f8759404a4879fb9309a4ebc52f204bc646668050819b0e89cb4808f189a80
+sha256:
+  darwin_arm64: 7c9ec0de20570467b787bfe40641aad62b1c0426f8d8441491d169f255daeac2
+  darwin_amd64: 4b3a83a7678897109e42f39b45cbb151d1f31451d317f89d9c8118be09142aed
+  linux_amd64: fc5280f9da3eb29640b3201d9f461a44eb473749110de00e7f36d0632033af66
+  linux_arm64: 28f8759404a4879fb9309a4ebc52f204bc646668050819b0e89cb4808f189a80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

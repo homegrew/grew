@@ -1,0 +1,24 @@
+name: exiv2
+version: 0.28.8
+description: EXIF and IPTC metadata manipulation library and tools
+homepage: https://exiv2.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exiv2/blobs/sha256:cb8893ed6691191316d9a49d154225d21de757100cba6ee4a4c7085ff42b4265
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exiv2/blobs/sha256:f14d137e2dd33f271cfa714f180451f32eb6a7d3f9391b71ae8a374e96e538af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exiv2/blobs/sha256:dce70243b7ae3edfb4b097810add3ec263dbec8254bcb1210445728f4af4edd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exiv2/blobs/sha256:189b9457b0482eff75f5896e5494649796d576b6b723707360acd328b17b8ea6
+sha256:
+  darwin_arm64: cb8893ed6691191316d9a49d154225d21de757100cba6ee4a4c7085ff42b4265
+  darwin_amd64: f14d137e2dd33f271cfa714f180451f32eb6a7d3f9391b71ae8a374e96e538af
+  linux_amd64: dce70243b7ae3edfb4b097810add3ec263dbec8254bcb1210445728f4af4edd2
+  linux_arm64: 189b9457b0482eff75f5896e5494649796d576b6b723707360acd328b17b8ea6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - inih
+  - libssh
+  - gettext

@@ -1,0 +1,22 @@
+name: usbredir
+version: 0.15.0
+description: USB traffic redirection library
+homepage: https://www.spice-space.org
+license: GPL-2.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/usbredir/blobs/sha256:abc432af08f1f179d62c85fc6f683e597fab22d36e41d3f63e30013391892157
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/usbredir/blobs/sha256:b30c9161cd179a576749dcf9a00ef50030fbdfe7fb6c93a05338dfc9b5bcf736
+  linux_amd64: https://ghcr.io/v2/homebrew/core/usbredir/blobs/sha256:a2e5043bd22e186e35537b39c64aa4c6360535a1cde629212b6c0ccf2c9a99b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/usbredir/blobs/sha256:cba9904ac1855514dd4ebefd97d38975e6ab19b5ad919a3e7be447a794b2f408
+sha256:
+  darwin_arm64: abc432af08f1f179d62c85fc6f683e597fab22d36e41d3f63e30013391892157
+  darwin_amd64: b30c9161cd179a576749dcf9a00ef50030fbdfe7fb6c93a05338dfc9b5bcf736
+  linux_amd64: a2e5043bd22e186e35537b39c64aa4c6360535a1cde629212b6c0ccf2c9a99b8
+  linux_arm64: cba9904ac1855514dd4ebefd97d38975e6ab19b5ad919a3e7be447a794b2f408
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libusb

@@ -1,0 +1,25 @@
+name: libayatana-appindicator
+version: 0.5.94
+description: Ayatana Application Indicators Shared Library
+homepage: https://github.com/AyatanaIndicators/libayatana-appindicator
+license: GPL-3.0-or-later OR LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libayatana-appindicator/blobs/sha256:589e5c203dbcf5befc48f6e13e0e2e723312ceb2f59b65c7490b6f2e80587dab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libayatana-appindicator/blobs/sha256:253407ddf4628cd2a8c9343aa35df588d239bff65dff68779078e8ad93851ac9
+sha256:
+  linux_amd64: 589e5c203dbcf5befc48f6e13e0e2e723312ceb2f59b65c7490b6f2e80587dab
+  linux_arm64: 253407ddf4628cd2a8c9343aa35df588d239bff65dff68779078e8ad93851ac9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ayatana-ido
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - harfbuzz
+  - libayatana-indicator
+  - libdbusmenu
+  - pango

@@ -1,0 +1,22 @@
+name: xkbcomp
+version: 1.5.0
+description: XKB keyboard description compiler
+homepage: https://www.x.org
+license: HPND AND MIT-open-group
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xkbcomp/blobs/sha256:94c2d20aea0e61fc141e27bbe54fbf3ccf925c96fd9feea8f7bd6635a320cee3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xkbcomp/blobs/sha256:279212c9fcc8a124cd34fe55a8dc18242bd31e94f3baf634f9c066906433f632
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xkbcomp/blobs/sha256:aa59cc3f15db3ac79bf395bea5937f57957e611da69a05bad79214a19560440a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xkbcomp/blobs/sha256:f81ffd52c4f1e2c651340725196bbb20d7ee9546b5de721273207f64591d5a06
+sha256:
+  darwin_arm64: 94c2d20aea0e61fc141e27bbe54fbf3ccf925c96fd9feea8f7bd6635a320cee3
+  darwin_amd64: 279212c9fcc8a124cd34fe55a8dc18242bd31e94f3baf634f9c066906433f632
+  linux_amd64: aa59cc3f15db3ac79bf395bea5937f57957e611da69a05bad79214a19560440a
+  linux_arm64: f81ffd52c4f1e2c651340725196bbb20d7ee9546b5de721273207f64591d5a06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxkbfile

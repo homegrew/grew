@@ -1,0 +1,19 @@
+name: fuzzy-find
+version: 0.6.0
+description: Fuzzy filename finder matching across directories as well as files
+homepage: https://github.com/silentbicycle/ff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fuzzy-find/blobs/sha256:6c68a4273ab53b216ddb7f7ade942b7e700bbfa900c5a7b97a6404577d4aec7f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fuzzy-find/blobs/sha256:284fbb54d2cdda8d0bd8ebb33217a1422f177cfdc99bee81e6086ee9c5a971a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fuzzy-find/blobs/sha256:593e66d2856edda48ca5deeede9473fcd2d0443436238659239a3ddbda483514
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fuzzy-find/blobs/sha256:f6fe925b5df6e70425cb5d7239bd48847ac2f4209f0c27bb0dacac578844fc26
+sha256:
+  darwin_arm64: 6c68a4273ab53b216ddb7f7ade942b7e700bbfa900c5a7b97a6404577d4aec7f
+  darwin_amd64: 284fbb54d2cdda8d0bd8ebb33217a1422f177cfdc99bee81e6086ee9c5a971a6
+  linux_amd64: 593e66d2856edda48ca5deeede9473fcd2d0443436238659239a3ddbda483514
+  linux_arm64: f6fe925b5df6e70425cb5d7239bd48847ac2f4209f0c27bb0dacac578844fc26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

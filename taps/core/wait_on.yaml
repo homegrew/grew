@@ -1,0 +1,15 @@
+name: wait_on
+version: 1.1
+description: Provides shell scripts with access to kqueue(3)
+homepage: https://www.freshports.org/sysutils/wait_on/
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wait_on/blobs/sha256:e548523ed71f1fd1796069ae4182d5ae191eb7a76fc4ad83e39353c648b85e23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wait_on/blobs/sha256:272cd3ee9f3a5c193057d419fe9b4b5d787e6c0de452c1c20bdca85a56ba05b1
+sha256:
+  darwin_arm64: e548523ed71f1fd1796069ae4182d5ae191eb7a76fc4ad83e39353c648b85e23
+  darwin_amd64: 272cd3ee9f3a5c193057d419fe9b4b5d787e6c0de452c1c20bdca85a56ba05b1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

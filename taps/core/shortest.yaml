@@ -1,0 +1,21 @@
+name: shortest
+version: 0.4.9
+description: AI-powered natural language end-to-end testing framework
+homepage: https://github.com/antiwork/shortest
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shortest/blobs/sha256:cb3317b16f32964930b0dc0800926f935f8b4b8e43587b6c307218000ff8bdb0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shortest/blobs/sha256:6b1d99746d550614d0d529edf8a185e30f5af518e1c1013d1f89e50dce1a2ccf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shortest/blobs/sha256:dab31d829a0e0de264d83636e041d73e5c8e01c9f7e6081921a26905509a75f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shortest/blobs/sha256:91ca37e8ada7364de9a79f531762d0ef3abbfca5117c5de66efa702816c18bde
+sha256:
+  darwin_arm64: cb3317b16f32964930b0dc0800926f935f8b4b8e43587b6c307218000ff8bdb0
+  darwin_amd64: 6b1d99746d550614d0d529edf8a185e30f5af518e1c1013d1f89e50dce1a2ccf
+  linux_amd64: dab31d829a0e0de264d83636e041d73e5c8e01c9f7e6081921a26905509a75f0
+  linux_arm64: 91ca37e8ada7364de9a79f531762d0ef3abbfca5117c5de66efa702816c18bde
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

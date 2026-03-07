@@ -1,0 +1,19 @@
+name: aklomp-base64
+version: 0.5.2
+description: Fast Base64 stream encoder/decoder in C99, with SIMD acceleration
+homepage: https://github.com/aklomp/base64
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aklomp-base64/blobs/sha256:3daaafdc28fb46f6aa2f966dbc3215aac870cde7c32490c314ac22f284b0f065
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aklomp-base64/blobs/sha256:315b527699ff71266db22bdd47d39a9de2f6043d17694f05554f316ac8f97fc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aklomp-base64/blobs/sha256:72f952c1e3ad8fd261cf9e76a8583f57855615a775044bce93b29c4f23cad175
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aklomp-base64/blobs/sha256:520b2d0968addeb42a64a90107bbd20d06a271dc305f0341638c4c3f61eae998
+sha256:
+  darwin_arm64: 3daaafdc28fb46f6aa2f966dbc3215aac870cde7c32490c314ac22f284b0f065
+  darwin_amd64: 315b527699ff71266db22bdd47d39a9de2f6043d17694f05554f316ac8f97fc3
+  linux_amd64: 72f952c1e3ad8fd261cf9e76a8583f57855615a775044bce93b29c4f23cad175
+  linux_arm64: 520b2d0968addeb42a64a90107bbd20d06a271dc305f0341638c4c3f61eae998
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

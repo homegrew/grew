@@ -1,0 +1,23 @@
+name: vapoursynth-sub
+version: 5
+description: VapourSynth filters - Subtitling filter
+homepage: https://www.vapoursynth.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth-sub/blobs/sha256:66be173efb94e72979fb21fd34617d7dbfe31fc1a59a91fd327264303753c0d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth-sub/blobs/sha256:c4fa3e6025b1835664760fa97c5971cf31179cddae818de5d18e03655e04bcfc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vapoursynth-sub/blobs/sha256:20aa5b0a19e74a404e14a24328ff7de1e07101682c44063d57677d50d7b3007e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vapoursynth-sub/blobs/sha256:2bbe3501f1c999b11558063e691155ead7aaa80b6e68ee9f69e0ec992b3835e4
+sha256:
+  darwin_arm64: 66be173efb94e72979fb21fd34617d7dbfe31fc1a59a91fd327264303753c0d7
+  darwin_amd64: c4fa3e6025b1835664760fa97c5971cf31179cddae818de5d18e03655e04bcfc
+  linux_amd64: 20aa5b0a19e74a404e14a24328ff7de1e07101682c44063d57677d50d7b3007e
+  linux_arm64: 2bbe3501f1c999b11558063e691155ead7aaa80b6e68ee9f69e0ec992b3835e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - libass
+  - vapoursynth

@@ -1,0 +1,21 @@
+name: keyring
+version: 25.7.0
+description: Easy way to access the system keyring service from python
+homepage: https://github.com/jaraco/keyring
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keyring/blobs/sha256:05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keyring/blobs/sha256:4bbee0818e804547f13f8da8679f56ed5152477400d22d1a54075338a83a95cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keyring/blobs/sha256:d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keyring/blobs/sha256:d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9
+sha256:
+  darwin_arm64: 05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f
+  darwin_amd64: 4bbee0818e804547f13f8da8679f56ed5152477400d22d1a54075338a83a95cc
+  linux_amd64: d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9
+  linux_arm64: d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

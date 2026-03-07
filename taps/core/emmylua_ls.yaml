@@ -1,0 +1,19 @@
+name: emmylua_ls
+version: 0.21.0
+description: Lua Language Server
+homepage: https://github.com/EmmyLuaLs/emmylua-analyzer-rust
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/emmylua_ls/blobs/sha256:2087623c113e2654a3a78257003956614af035e0872fab04f4e6e4d7dd34bdb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/emmylua_ls/blobs/sha256:b18590f8033820a364e89c44eb99559dc65d936d7db3e41483dcf4841d1819cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/emmylua_ls/blobs/sha256:305409833d1e66665f871e0f6e1bba327a0a5238b410bcedb60de4c2075ec785
+  linux_arm64: https://ghcr.io/v2/homebrew/core/emmylua_ls/blobs/sha256:d64c4c7c689c4878b7daf7f516a4b369d3aa1d03500b33df1c234d636799695e
+sha256:
+  darwin_arm64: 2087623c113e2654a3a78257003956614af035e0872fab04f4e6e4d7dd34bdb8
+  darwin_amd64: b18590f8033820a364e89c44eb99559dc65d936d7db3e41483dcf4841d1819cf
+  linux_amd64: 305409833d1e66665f871e0f6e1bba327a0a5238b410bcedb60de4c2075ec785
+  linux_arm64: d64c4c7c689c4878b7daf7f516a4b369d3aa1d03500b33df1c234d636799695e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

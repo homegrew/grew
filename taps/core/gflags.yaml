@@ -1,0 +1,19 @@
+name: gflags
+version: 2.3.0
+description: Library for processing command-line flags
+homepage: https://gflags.github.io/gflags/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gflags/blobs/sha256:8dd2b968003c63083b15c69ecc4902a28fd36c7409c1e88ede63d5faa4e2e2b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gflags/blobs/sha256:8a01f5f757402fdfc436ff278fd1988984ce910a7cc44d7f9d2901e843dfad2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gflags/blobs/sha256:e27d9f2de0ead506066335e1b0c3df598cd1a7a2c1eed7c961763204563f70b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gflags/blobs/sha256:5c1356150c965da7ffd93842cfaf9d061e1db82fcc289814b5f100272bc42895
+sha256:
+  darwin_arm64: 8dd2b968003c63083b15c69ecc4902a28fd36c7409c1e88ede63d5faa4e2e2b9
+  darwin_amd64: 8a01f5f757402fdfc436ff278fd1988984ce910a7cc44d7f9d2901e843dfad2a
+  linux_amd64: e27d9f2de0ead506066335e1b0c3df598cd1a7a2c1eed7c961763204563f70b0
+  linux_arm64: 5c1356150c965da7ffd93842cfaf9d061e1db82fcc289814b5f100272bc42895
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

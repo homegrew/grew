@@ -1,0 +1,24 @@
+name: libxi
+version: 1.8.2
+description: "X.Org: Library for the X Input Extension"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxi/blobs/sha256:02cb7bb24d30cd4ec0c6a4911e5a01d0c7d174753752671a31669048585f0c69
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxi/blobs/sha256:912b8268b30dae048b52740eefbacda1b9767dc2db9469a2d34c395e0752c2b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxi/blobs/sha256:6839d93e4dc8d53688515849ec4ec2d830946d6d26f6cfcca6402390bc0f1867
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxi/blobs/sha256:b2b86357aea40aebb92de04c90134a812a6f0f4ead1b0188f4f60b1d1d3846b5
+sha256:
+  darwin_arm64: 02cb7bb24d30cd4ec0c6a4911e5a01d0c7d174753752671a31669048585f0c69
+  darwin_amd64: 912b8268b30dae048b52740eefbacda1b9767dc2db9469a2d34c395e0752c2b0
+  linux_amd64: 6839d93e4dc8d53688515849ec4ec2d830946d6d26f6cfcca6402390bc0f1867
+  linux_arm64: b2b86357aea40aebb92de04c90134a812a6f0f4ead1b0188f4f60b1d1d3846b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - libxfixes
+  - xorgproto

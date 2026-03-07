@@ -1,0 +1,19 @@
+name: hck
+version: 0.11.5
+description: Sharp cut(1) clone
+homepage: https://github.com/sstadick/hck
+license: MIT OR Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hck/blobs/sha256:d4df79cddcbf021932b7300c9a6cc6cdebc9b9d85a551353456d4f8c8c07538d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hck/blobs/sha256:f6a147eff8f1e3e69aeeaa681afd81dd69e19bd865e0b675b21fc680fb752c80
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hck/blobs/sha256:0b46f9971e8d64866900c0b57f67903455d7c0dbeebb4a5fa59e093118b150ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hck/blobs/sha256:0b6a6b21c1ecb5cf9da85863fbf8e23e05275e1a6883552199fb697f12f99e05
+sha256:
+  darwin_arm64: d4df79cddcbf021932b7300c9a6cc6cdebc9b9d85a551353456d4f8c8c07538d
+  darwin_amd64: f6a147eff8f1e3e69aeeaa681afd81dd69e19bd865e0b675b21fc680fb752c80
+  linux_amd64: 0b46f9971e8d64866900c0b57f67903455d7c0dbeebb4a5fa59e093118b150ff
+  linux_arm64: 0b6a6b21c1ecb5cf9da85863fbf8e23e05275e1a6883552199fb697f12f99e05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

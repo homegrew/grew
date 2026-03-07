@@ -1,0 +1,19 @@
+name: awsweeper
+version: 0.12.0
+description: CLI tool for cleaning your AWS account
+homepage: https://github.com/jckuester/awsweeper/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/awsweeper/blobs/sha256:57cca26932b44660312b377bca14d2f3fdde698d215c127f4be5740304cb61ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/awsweeper/blobs/sha256:483afd6a7be152d00165c0608892c710ac465e1437fb8fd555e260b06693dc99
+  linux_amd64: https://ghcr.io/v2/homebrew/core/awsweeper/blobs/sha256:81776b638e309f839a362f70ba7d0621c2ca9e80f6472f334c5472049cbc3374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/awsweeper/blobs/sha256:6509b1bdbe77f14394f17818f3956b0bde26493eb49f1ad0088f4873cec209d9
+sha256:
+  darwin_arm64: 57cca26932b44660312b377bca14d2f3fdde698d215c127f4be5740304cb61ca
+  darwin_amd64: 483afd6a7be152d00165c0608892c710ac465e1437fb8fd555e260b06693dc99
+  linux_amd64: 81776b638e309f839a362f70ba7d0621c2ca9e80f6472f334c5472049cbc3374
+  linux_arm64: 6509b1bdbe77f14394f17818f3956b0bde26493eb49f1ad0088f4873cec209d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

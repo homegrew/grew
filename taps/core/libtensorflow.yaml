@@ -1,0 +1,19 @@
+name: libtensorflow
+version: 2.20.0
+description: "C interface for Google's OS library for Machine Intelligence"
+homepage: https://www.tensorflow.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtensorflow/blobs/sha256:8a15daed2bb63f7178d5ae590a2f6790b24a8339c47f95fcb6e47e1a5837866d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtensorflow/blobs/sha256:f6a05fbd2c75dcda4be2adf38a1da8a20cce45a7f87bb48c57ddb7101391db50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtensorflow/blobs/sha256:be3f850fea6e58fce4a67eaa74ff884239e8180433eda0ef228eadf696f86739
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtensorflow/blobs/sha256:8307fca51801bf44da97554ca97a0e574ea5838d7e91bc05f45c5f2ed6b88c4e
+sha256:
+  darwin_arm64: 8a15daed2bb63f7178d5ae590a2f6790b24a8339c47f95fcb6e47e1a5837866d
+  darwin_amd64: f6a05fbd2c75dcda4be2adf38a1da8a20cce45a7f87bb48c57ddb7101391db50
+  linux_amd64: be3f850fea6e58fce4a67eaa74ff884239e8180433eda0ef228eadf696f86739
+  linux_arm64: 8307fca51801bf44da97554ca97a0e574ea5838d7e91bc05f45c5f2ed6b88c4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,15 @@
+name: tag
+version: 0.10
+description: Manipulate and query tags on macOS files
+homepage: https://github.com/jdberry/tag/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tag/blobs/sha256:dd8bc8fffd2b86efc0a22070b48426c82f98979625bf991332a633a83070cc85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tag/blobs/sha256:bd6e785addd1fe6d8ec7c6fe81b17550a0fab220c6bb54a1ae358990dcd1d549
+sha256:
+  darwin_arm64: dd8bc8fffd2b86efc0a22070b48426c82f98979625bf991332a633a83070cc85
+  darwin_amd64: bd6e785addd1fe6d8ec7c6fe81b17550a0fab220c6bb54a1ae358990dcd1d549
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

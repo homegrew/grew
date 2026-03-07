@@ -1,0 +1,21 @@
+name: cfr-decompiler
+version: 0.152
+description: Yet Another Java Decompiler
+homepage: https://www.benf.org/other/cfr/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cfr-decompiler/blobs/sha256:b9f2ede10e95cb821c217666b2d683599416db1dfc2322f6f906e3206f35495d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cfr-decompiler/blobs/sha256:0a450d930591e8c9da2fa0c5ea0f3bae35e5aacb44473713a5594998e0ecfa19
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cfr-decompiler/blobs/sha256:b236e8effb84d1da66a9eec9c6b4d857d3471da8de57543ac7d029adb09b9eed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cfr-decompiler/blobs/sha256:03afb187594d2a088f3a6a111f7a34645860e0d51fb55afd82d6faa3404304ee
+sha256:
+  darwin_arm64: b9f2ede10e95cb821c217666b2d683599416db1dfc2322f6f906e3206f35495d
+  darwin_amd64: 0a450d930591e8c9da2fa0c5ea0f3bae35e5aacb44473713a5594998e0ecfa19
+  linux_amd64: b236e8effb84d1da66a9eec9c6b4d857d3471da8de57543ac7d029adb09b9eed
+  linux_arm64: 03afb187594d2a088f3a6a111f7a34645860e0d51fb55afd82d6faa3404304ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@11

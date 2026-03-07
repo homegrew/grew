@@ -1,0 +1,21 @@
+name: git-cinnabar
+version: 0.7.3
+description: Git remote helper to interact with mercurial repositories
+homepage: https://github.com/glandium/git-cinnabar
+license: MPL-2.0 AND GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-cinnabar/blobs/sha256:47b06591734734c4dbe34b9172cb62e65fb79b1349ec81b058eeba46e9d2e917
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-cinnabar/blobs/sha256:71939c24c0359e4776f84468c34677094e7cf15a973cb126b3bc5fe57fa5d65b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-cinnabar/blobs/sha256:c274e3418ef3507c849e77dcf5ffdaf74bdec0c79f28b385550b5896f04151a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-cinnabar/blobs/sha256:bf3538e386b2274c833fb1f902ffb2ad1c58c3fb4319d7f7ae8a6870e4a7775d
+sha256:
+  darwin_arm64: 47b06591734734c4dbe34b9172cb62e65fb79b1349ec81b058eeba46e9d2e917
+  darwin_amd64: 71939c24c0359e4776f84468c34677094e7cf15a973cb126b3bc5fe57fa5d65b
+  linux_amd64: c274e3418ef3507c849e77dcf5ffdaf74bdec0c79f28b385550b5896f04151a3
+  linux_arm64: bf3538e386b2274c833fb1f902ffb2ad1c58c3fb4319d7f7ae8a6870e4a7775d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mercurial

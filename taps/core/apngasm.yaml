@@ -1,0 +1,24 @@
+name: apngasm
+version: 3.1.10
+description: Next generation of apngasm, the APNG assembler
+homepage: https://github.com/apngasm/apngasm
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apngasm/blobs/sha256:f648a9450c38c86f0a2790b194a3f44534dbf8eb4cdca060ed4ba011aaf106dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apngasm/blobs/sha256:d0cab8f5fe072f029bde277f83e27f77ff135e261eb37f7af74d9cd3dc531b9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apngasm/blobs/sha256:7fd1796b7defa25851257aa4245f02d0b3e31f23c9bf88440c1a3ee910e1ef66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apngasm/blobs/sha256:7020b0940d9cf23dbd77afd912001b9d759d4b26722fecc4e1d482d54a8df890
+sha256:
+  darwin_arm64: f648a9450c38c86f0a2790b194a3f44534dbf8eb4cdca060ed4ba011aaf106dd
+  darwin_amd64: d0cab8f5fe072f029bde277f83e27f77ff135e261eb37f7af74d9cd3dc531b9c
+  linux_amd64: 7fd1796b7defa25851257aa4245f02d0b3e31f23c9bf88440c1a3ee910e1ef66
+  linux_arm64: 7020b0940d9cf23dbd77afd912001b9d759d4b26722fecc4e1d482d54a8df890
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - icu4c@78
+  - libpng
+  - lzlib

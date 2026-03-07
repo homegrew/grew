@@ -1,0 +1,19 @@
+name: git-lfs
+version: 3.7.1
+description: Git extension for versioning large files
+homepage: https://git-lfs.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-lfs/blobs/sha256:edf7cb5683caadeca2318d455130e4e67ddae8647594760aad039f77c7712df1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-lfs/blobs/sha256:97e7aefe5058a1a4d7687c391c18baf20a2d6d387d038597de4d33002348c6eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-lfs/blobs/sha256:93d215d3757e8e3249e22af329ade9d031312820e2e8565638d6c9f1337f4dd9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-lfs/blobs/sha256:b0c10c6238b6b826c078809c7846b44d44ebed18212d61928dfca369e62c74db
+sha256:
+  darwin_arm64: edf7cb5683caadeca2318d455130e4e67ddae8647594760aad039f77c7712df1
+  darwin_amd64: 97e7aefe5058a1a4d7687c391c18baf20a2d6d387d038597de4d33002348c6eb
+  linux_amd64: 93d215d3757e8e3249e22af329ade9d031312820e2e8565638d6c9f1337f4dd9
+  linux_arm64: b0c10c6238b6b826c078809c7846b44d44ebed18212d61928dfca369e62c74db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

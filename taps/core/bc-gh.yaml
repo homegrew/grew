@@ -1,0 +1,20 @@
+name: bc-gh
+version: 7.0.3
+description: Implementation of Unix dc and POSIX bc with GNU and BSD extensions
+homepage: https://github.com/gavinhoward/bc
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bc-gh/blobs/sha256:fa3bec57b187a0ccac9514b08d6782f93b7090917598f37c1f6bfa1ba21bcb9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bc-gh/blobs/sha256:523f2085ce15b58bd77afc8324da625747be012b5706135c567d51a45ce906fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bc-gh/blobs/sha256:99d223ee8690ef3a798c6c342faa78b304230ea30cb4957ce7e06b89fc213866
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bc-gh/blobs/sha256:c3c909b75dd473d2d9f9e7a266a485c23867721b4e1c08b41c68225ceccb5ac2
+sha256:
+  darwin_arm64: fa3bec57b187a0ccac9514b08d6782f93b7090917598f37c1f6bfa1ba21bcb9f
+  darwin_amd64: 523f2085ce15b58bd77afc8324da625747be012b5706135c567d51a45ce906fb
+  linux_amd64: 99d223ee8690ef3a798c6c342faa78b304230ea30cb4957ce7e06b89fc213866
+  linux_arm64: c3c909b75dd473d2d9f9e7a266a485c23867721b4e1c08b41c68225ceccb5ac2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

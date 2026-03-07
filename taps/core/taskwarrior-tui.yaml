@@ -1,0 +1,21 @@
+name: taskwarrior-tui
+version: 0.26.5
+description: Terminal user interface for taskwarrior
+homepage: https://kdheepak.com/taskwarrior-tui/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/taskwarrior-tui/blobs/sha256:7c6f8b874e37ead71dffb8014f21b1a64b7cc63bb34751e8609f29548d902e87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/taskwarrior-tui/blobs/sha256:7a1c8b0848787f3a0d5504d6669cc96d92525068185df20c990e9f845fa2e9d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/taskwarrior-tui/blobs/sha256:b20fe0076fb6c6cbd76af7d9d836a0cb2ec736a3d30d57d9790d0407fdc742a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/taskwarrior-tui/blobs/sha256:d272aad52c1837a9b4b9c337699e6de3ec9b9844f1fdc7d5c3527ebe76c658cc
+sha256:
+  darwin_arm64: 7c6f8b874e37ead71dffb8014f21b1a64b7cc63bb34751e8609f29548d902e87
+  darwin_amd64: 7a1c8b0848787f3a0d5504d6669cc96d92525068185df20c990e9f845fa2e9d7
+  linux_amd64: b20fe0076fb6c6cbd76af7d9d836a0cb2ec736a3d30d57d9790d0407fdc742a2
+  linux_arm64: d272aad52c1837a9b4b9c337699e6de3ec9b9844f1fdc7d5c3527ebe76c658cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - task

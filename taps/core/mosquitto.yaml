@@ -1,0 +1,23 @@
+name: mosquitto
+version: 2.1.2
+description: Message broker implementing the MQTT protocol
+homepage: https://mosquitto.org/
+license: EPL-1.0 OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mosquitto/blobs/sha256:dd40843dd4c3abf5f5d2ad89f221fc02439a354857e808d7f9b243f8f39f4671
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mosquitto/blobs/sha256:ae293e339a16b9f4fe4088a560fc7eda47078030948be656c913d2a19e3270f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mosquitto/blobs/sha256:160ad334e165168957eb3adf047fa8fe6e040157920f9c457afbcd44d3b73e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mosquitto/blobs/sha256:cfac26df2cee898d81613a7dc486b15d5e00a95470a628b7482b76ffa0a8bec9
+sha256:
+  darwin_arm64: dd40843dd4c3abf5f5d2ad89f221fc02439a354857e808d7f9b243f8f39f4671
+  darwin_amd64: ae293e339a16b9f4fe4088a560fc7eda47078030948be656c913d2a19e3270f0
+  linux_amd64: 160ad334e165168957eb3adf047fa8fe6e040157920f9c457afbcd44d3b73e82
+  linux_arm64: cfac26df2cee898d81613a7dc486b15d5e00a95470a628b7482b76ffa0a8bec9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cjson
+  - libwebsockets
+  - openssl@3

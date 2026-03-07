@@ -1,0 +1,19 @@
+name: logcli
+version: 3.6.7
+description: Run LogQL queries against a Loki server
+homepage: https://grafana.com/loki
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/logcli/blobs/sha256:9bd55d022a090bd58fe4522a65025e7becc986b57d8f4df5835ff09f6f6aae3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/logcli/blobs/sha256:1f33071b0ff265521b67d4d8cbf6a413dc7c8b44b0c21ebb4999824fb3768805
+  linux_amd64: https://ghcr.io/v2/homebrew/core/logcli/blobs/sha256:1ef92884ce4e528c4616bacccdaf13ca7c2bcb861abf5c0d485f4f83bd6e154a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/logcli/blobs/sha256:ff802e65f6ad1d08895b5ad0a644dfc4bbfd07bd259e7921c70ad922d5c34740
+sha256:
+  darwin_arm64: 9bd55d022a090bd58fe4522a65025e7becc986b57d8f4df5835ff09f6f6aae3a
+  darwin_amd64: 1f33071b0ff265521b67d4d8cbf6a413dc7c8b44b0c21ebb4999824fb3768805
+  linux_amd64: 1ef92884ce4e528c4616bacccdaf13ca7c2bcb861abf5c0d485f4f83bd6e154a
+  linux_arm64: ff802e65f6ad1d08895b5ad0a644dfc4bbfd07bd259e7921c70ad922d5c34740
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

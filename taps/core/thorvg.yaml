@@ -1,0 +1,21 @@
+name: thorvg
+version: 1.0.1
+description: Lightweight portable library used for drawing vector-based scenes and animations
+homepage: https://www.thorvg.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/thorvg/blobs/sha256:e2d6bbaef2d44857ee10e04b8cdef4181378f16495bf934431017fe33616caf7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/thorvg/blobs/sha256:f3120164f30377e309a1649e623091393eddea76a05f8078b13f44280ff63a14
+  linux_amd64: https://ghcr.io/v2/homebrew/core/thorvg/blobs/sha256:9034ea438c681c3317640249c36bb9bb37e8cf7841f337771f638550fa32baa4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/thorvg/blobs/sha256:e7da32b612dba76ae26837527dc1ef78552a61b713a4e8314970ca62d34b5a4c
+sha256:
+  darwin_arm64: e2d6bbaef2d44857ee10e04b8cdef4181378f16495bf934431017fe33616caf7
+  darwin_amd64: f3120164f30377e309a1649e623091393eddea76a05f8078b13f44280ff63a14
+  linux_amd64: 9034ea438c681c3317640249c36bb9bb37e8cf7841f337771f638550fa32baa4
+  linux_arm64: e7da32b612dba76ae26837527dc1ef78552a61b713a4e8314970ca62d34b5a4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

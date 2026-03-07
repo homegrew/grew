@@ -1,0 +1,19 @@
+name: consul-backinator
+version: 1.6.6
+description: Consul backup and restoration application
+homepage: https://github.com/myENA/consul-backinator
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/consul-backinator/blobs/sha256:ab0ec7b817355e3a6546b2b0d77026eb3c0bb22c99e7d5c582d8fb9d98b982df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/consul-backinator/blobs/sha256:1b12b3e564f5f6de0d630fa46e944d7a24baf806a4ad5051a2812a68cd7fc4ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/consul-backinator/blobs/sha256:b5b914861d80658228a91c3946d85609b07a780a9747e0302ebd4be3a5d1ea94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/consul-backinator/blobs/sha256:5f6e773350096ff9841f971fd31552892b987271c04a1a887b39f953cd0d972f
+sha256:
+  darwin_arm64: ab0ec7b817355e3a6546b2b0d77026eb3c0bb22c99e7d5c582d8fb9d98b982df
+  darwin_amd64: 1b12b3e564f5f6de0d630fa46e944d7a24baf806a4ad5051a2812a68cd7fc4ef
+  linux_amd64: b5b914861d80658228a91c3946d85609b07a780a9747e0302ebd4be3a5d1ea94
+  linux_arm64: 5f6e773350096ff9841f971fd31552892b987271c04a1a887b39f953cd0d972f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

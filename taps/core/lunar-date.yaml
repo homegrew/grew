@@ -1,0 +1,22 @@
+name: lunar-date
+version: 3.2.0
+description: Chinese lunar date library
+homepage: https://github.com/yetist/lunar-date
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lunar-date/blobs/sha256:005e5459270f8efeecc47feb44febaba493feb7ec70e22b612cf83e76205bac7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lunar-date/blobs/sha256:a9e331ff9b9f2798d5ac4d7ff2d6677a5b340c68f0283e262dffe5ade0cd5a87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lunar-date/blobs/sha256:c1af9894bed16824ff54efccdf76e700c335e3ae1a6f949d9dce419ad7fb9028
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lunar-date/blobs/sha256:4d9617dc518794123f349cf741c246d0d531429bf1e89c21cc25e568a3463462
+sha256:
+  darwin_arm64: 005e5459270f8efeecc47feb44febaba493feb7ec70e22b612cf83e76205bac7
+  darwin_amd64: a9e331ff9b9f2798d5ac4d7ff2d6677a5b340c68f0283e262dffe5ade0cd5a87
+  linux_amd64: c1af9894bed16824ff54efccdf76e700c335e3ae1a6f949d9dce419ad7fb9028
+  linux_arm64: 4d9617dc518794123f349cf741c246d0d531429bf1e89c21cc25e568a3463462
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

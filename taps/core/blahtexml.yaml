@@ -1,0 +1,21 @@
+name: blahtexml
+version: 1.0
+description: Converts equations into Math ML
+homepage: https://github.com/gvanas/blahtexml
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blahtexml/blobs/sha256:ff3728fa3b6cd2729e13bf73a0f4bf9bd7be61b9296f3ec524a9898a4722a256
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blahtexml/blobs/sha256:98a072e29a975511bf7ccd60a9f701b15c6fe1d14a9756dfd36db003fc79d3b6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blahtexml/blobs/sha256:3931e63cdf1ec35393bc437441f1edc43413ba92760a1497de59a59fcc70e5bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blahtexml/blobs/sha256:647ed1ee2095b2c6c37fdbdcda7e448ed8df07f34779a03e79dd0763f5acca8b
+sha256:
+  darwin_arm64: ff3728fa3b6cd2729e13bf73a0f4bf9bd7be61b9296f3ec524a9898a4722a256
+  darwin_amd64: 98a072e29a975511bf7ccd60a9f701b15c6fe1d14a9756dfd36db003fc79d3b6
+  linux_amd64: 3931e63cdf1ec35393bc437441f1edc43413ba92760a1497de59a59fcc70e5bf
+  linux_arm64: 647ed1ee2095b2c6c37fdbdcda7e448ed8df07f34779a03e79dd0763f5acca8b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xerces-c

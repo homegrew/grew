@@ -1,0 +1,21 @@
+name: sassc
+version: 3.6.2
+description: Wrapper around libsass that helps to create command-line apps
+homepage: https://github.com/sass/sassc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sassc/blobs/sha256:331445fe56f4536be8c84306ed15216102d9653ad84c90b3ea2dd93d54cfb4e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sassc/blobs/sha256:4e667e662081a4741edb5ce0ae92cb909143ca3d3ef817925babe73af3821039
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sassc/blobs/sha256:4575b459543c822d40a074f73591b1865790aa8977e7dc12148c10c858d55203
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sassc/blobs/sha256:074f6ea2972c1b7d50f9e3bbbfde7d8ca06d1c2e96474115bc33aca3b64a4cda
+sha256:
+  darwin_arm64: 331445fe56f4536be8c84306ed15216102d9653ad84c90b3ea2dd93d54cfb4e8
+  darwin_amd64: 4e667e662081a4741edb5ce0ae92cb909143ca3d3ef817925babe73af3821039
+  linux_amd64: 4575b459543c822d40a074f73591b1865790aa8977e7dc12148c10c858d55203
+  linux_arm64: 074f6ea2972c1b7d50f9e3bbbfde7d8ca06d1c2e96474115bc33aca3b64a4cda
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsass

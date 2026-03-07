@@ -1,0 +1,19 @@
+name: yj
+version: 5.1.0
+description: CLI to convert between YAML, TOML, JSON and HCL
+homepage: https://github.com/sclevine/yj
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yj/blobs/sha256:c01fa70288a168e3dbe1226d319751eca7fe9a8246c51259f3b4f76ae067a5bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yj/blobs/sha256:885d25edb0f227eb7eaf5093a187fd46f98a082b131a27e9953c6e1f19cbef81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yj/blobs/sha256:ca06f08696b263564c3f22ad114cca8863eb06f805a83c6b5fbf4134854a0413
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yj/blobs/sha256:61d9ed575a78bd459f308817a76f8078a6d1e5742609e8ea8d7d2d921309c6fc
+sha256:
+  darwin_arm64: c01fa70288a168e3dbe1226d319751eca7fe9a8246c51259f3b4f76ae067a5bc
+  darwin_amd64: 885d25edb0f227eb7eaf5093a187fd46f98a082b131a27e9953c6e1f19cbef81
+  linux_amd64: ca06f08696b263564c3f22ad114cca8863eb06f805a83c6b5fbf4134854a0413
+  linux_arm64: 61d9ed575a78bd459f308817a76f8078a6d1e5742609e8ea8d7d2d921309c6fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

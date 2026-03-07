@@ -1,0 +1,29 @@
+name: eiffelstudio
+version: 25.02.98732
+description: Development environment for the Eiffel language
+homepage: https://www.eiffel.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eiffelstudio/blobs/sha256:f14da97c4684f2384c2d68dab556ea970b6191e8995634a31707e5a14bfb85a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eiffelstudio/blobs/sha256:2b4450d781483aab1345f9453246ab778c820c208d910523c9918da5588aa0b7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eiffelstudio/blobs/sha256:00230c658b6733ffde14178ef47d9919dbaf4694ebae211d938423068282aefb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eiffelstudio/blobs/sha256:90856df61aa3521fa22d999c3298cbe52f144c705927fee102798a3e2af7f3f2
+sha256:
+  darwin_arm64: f14da97c4684f2384c2d68dab556ea970b6191e8995634a31707e5a14bfb85a1
+  darwin_amd64: 2b4450d781483aab1345f9453246ab778c820c208d910523c9918da5588aa0b7
+  linux_amd64: 00230c658b6733ffde14178ef47d9919dbaf4694ebae211d938423068282aefb
+  linux_arm64: 90856df61aa3521fa22d999c3298cbe52f144c705927fee102798a3e2af7f3f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+3
+  - libx11
+  - pango
+  - at-spi2-core
+  - gettext
+  - harfbuzz

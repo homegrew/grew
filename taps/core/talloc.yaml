@@ -1,0 +1,19 @@
+name: talloc
+version: 2.4.4
+description: Hierarchical, reference-counted memory pool with destructors
+homepage: https://talloc.samba.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/talloc/blobs/sha256:43e94268855378635002149f973c14b5da328ac90a27c1c64556123b8b8866d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/talloc/blobs/sha256:e593faad8218064edc4531ecdd7774dfbf1dfdbe612ca538f8058e32d0babd20
+  linux_amd64: https://ghcr.io/v2/homebrew/core/talloc/blobs/sha256:91876f82f97fedcb67b3529e3927390b3056047b3cf0d43cb2741fa289ce399d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/talloc/blobs/sha256:9f880a4f3119f311fd97e29e14805a8afd85f25a9ad1698fb5818f5202495b05
+sha256:
+  darwin_arm64: 43e94268855378635002149f973c14b5da328ac90a27c1c64556123b8b8866d4
+  darwin_amd64: e593faad8218064edc4531ecdd7774dfbf1dfdbe612ca538f8058e32d0babd20
+  linux_amd64: 91876f82f97fedcb67b3529e3927390b3056047b3cf0d43cb2741fa289ce399d
+  linux_arm64: 9f880a4f3119f311fd97e29e14805a8afd85f25a9ad1698fb5818f5202495b05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

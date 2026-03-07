@@ -1,0 +1,21 @@
+name: subnetcalc
+version: 2.6.5
+description: IPv4/IPv6 subnet calculator
+homepage: https://www.nntb.no/~dreibh/subnetcalc/index.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/subnetcalc/blobs/sha256:d7923eaa0a2d183a02618bfb1cfac211e9dac6040597d28a3f4d4c8af3fba80d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/subnetcalc/blobs/sha256:60e77cc0cd0d150a3169f0706466f62a5af2af28d3394ad582ddb44307bcf723
+  linux_amd64: https://ghcr.io/v2/homebrew/core/subnetcalc/blobs/sha256:8051458c3e893d302194e119a105cefbefc848ede22667da8dd39d97cfefeb02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/subnetcalc/blobs/sha256:944e9791235a7515960ec89f50c2fdd837506fea80ea544a24b4cc7a1c47c51d
+sha256:
+  darwin_arm64: d7923eaa0a2d183a02618bfb1cfac211e9dac6040597d28a3f4d4c8af3fba80d
+  darwin_amd64: 60e77cc0cd0d150a3169f0706466f62a5af2af28d3394ad582ddb44307bcf723
+  linux_amd64: 8051458c3e893d302194e119a105cefbefc848ede22667da8dd39d97cfefeb02
+  linux_arm64: 944e9791235a7515960ec89f50c2fdd837506fea80ea544a24b4cc7a1c47c51d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

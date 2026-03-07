@@ -1,0 +1,19 @@
+name: h2spec
+version: 2.6.0
+description: Conformance testing tool for HTTP/2 implementation
+homepage: https://github.com/summerwind/h2spec
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/h2spec/blobs/sha256:2b7fe0e0aa9921896c8bf719e6e505bac52613cba9289ff99f1c1b5b9810ce0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/h2spec/blobs/sha256:4b4ac641cb3543d796da56ede9ab23924cddac7d16b73d1b75072b90ee498651
+  linux_amd64: https://ghcr.io/v2/homebrew/core/h2spec/blobs/sha256:d72f6c447db109aa6a6bceb41aed5fcc445ce1008633b8e236e457d686915990
+  linux_arm64: https://ghcr.io/v2/homebrew/core/h2spec/blobs/sha256:e0136fe36d0a1694d8b744638b909606cbba86bbd6b176b1a0aaddd1e1da1efd
+sha256:
+  darwin_arm64: 2b7fe0e0aa9921896c8bf719e6e505bac52613cba9289ff99f1c1b5b9810ce0f
+  darwin_amd64: 4b4ac641cb3543d796da56ede9ab23924cddac7d16b73d1b75072b90ee498651
+  linux_amd64: d72f6c447db109aa6a6bceb41aed5fcc445ce1008633b8e236e457d686915990
+  linux_arm64: e0136fe36d0a1694d8b744638b909606cbba86bbd6b176b1a0aaddd1e1da1efd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

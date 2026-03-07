@@ -1,0 +1,23 @@
+name: erlang-language-platform
+version: 2026-02-27
+description: LSP server and CLI for the Erlang programming language
+homepage: https://whatsapp.github.io/erlang-language-platform/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erlang-language-platform/blobs/sha256:e5a498d14918e123192b9ab0f2da6a88b23118bd0f04889742fb6afcb7f843e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erlang-language-platform/blobs/sha256:d9984214c9bd155fad1fb9b28664819abfdfd18dfe64863c6571d0cd0ba92600
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erlang-language-platform/blobs/sha256:bb4947af38046be0fdd8a8424f68448c1ed0f42f8ffd5609622b5ce3be67495b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erlang-language-platform/blobs/sha256:26e2191aaf4cfac4d1bf79c62c1181b5c70f81bfaf37abec5bccfa9277ef4d41
+sha256:
+  darwin_arm64: e5a498d14918e123192b9ab0f2da6a88b23118bd0f04889742fb6afcb7f843e9
+  darwin_amd64: d9984214c9bd155fad1fb9b28664819abfdfd18dfe64863c6571d0cd0ba92600
+  linux_amd64: bb4947af38046be0fdd8a8424f68448c1ed0f42f8ffd5609622b5ce3be67495b
+  linux_arm64: 26e2191aaf4cfac4d1bf79c62c1181b5c70f81bfaf37abec5bccfa9277ef4d41
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang
+  - openjdk
+  - rebar3

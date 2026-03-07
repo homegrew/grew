@@ -1,0 +1,21 @@
+name: dvdbackup
+version: 0.4.2
+description: "Rip DVD's from the command-line"
+homepage: https://dvdbackup.sourceforge.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvdbackup/blobs/sha256:208d77cbe6a64a85548098e3fddf37053ad567406e1745b238fa40ca3a33915f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvdbackup/blobs/sha256:57aff8713d26d9f9a88607b2e199e061cfb510cf9134293926321e36dbcd17d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvdbackup/blobs/sha256:c88b2286a17892633aef4e5fae8065e813ac1bf0bf14a63e0be2566bca388d4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvdbackup/blobs/sha256:5af918de56b0b8c777cb521bb6b1a086fab9c7a84a75896d4e985933a92ed32d
+sha256:
+  darwin_arm64: 208d77cbe6a64a85548098e3fddf37053ad567406e1745b238fa40ca3a33915f
+  darwin_amd64: 57aff8713d26d9f9a88607b2e199e061cfb510cf9134293926321e36dbcd17d6
+  linux_amd64: c88b2286a17892633aef4e5fae8065e813ac1bf0bf14a63e0be2566bca388d4b
+  linux_arm64: 5af918de56b0b8c777cb521bb6b1a086fab9c7a84a75896d4e985933a92ed32d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdvdread

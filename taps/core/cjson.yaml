@@ -1,0 +1,19 @@
+name: cjson
+version: 1.7.19
+description: Ultralightweight JSON parser in ANSI C
+homepage: https://github.com/DaveGamble/cJSON
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cjson/blobs/sha256:3949c4efc1e2bb3de33dff83f7bb3322465f4e459b05b9c8ecafb50f9589453a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cjson/blobs/sha256:38330ec91289eb1a460d5f0db4bdf61dd897d919fd1bd217eb2fd0fdf7c11fe3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cjson/blobs/sha256:26f2f08e3a78ef1026622802b4147d2ba47c6ae9df9114d68343c55d6fd63183
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cjson/blobs/sha256:3110d0581424dd08bfe03086bc2325c6c0a6610486e4f18f3453bd36d9fb36c5
+sha256:
+  darwin_arm64: 3949c4efc1e2bb3de33dff83f7bb3322465f4e459b05b9c8ecafb50f9589453a
+  darwin_amd64: 38330ec91289eb1a460d5f0db4bdf61dd897d919fd1bd217eb2fd0fdf7c11fe3
+  linux_amd64: 26f2f08e3a78ef1026622802b4147d2ba47c6ae9df9114d68343c55d6fd63183
+  linux_arm64: 3110d0581424dd08bfe03086bc2325c6c0a6610486e4f18f3453bd36d9fb36c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

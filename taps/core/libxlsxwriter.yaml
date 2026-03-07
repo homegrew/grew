@@ -1,0 +1,19 @@
+name: libxlsxwriter
+version: 1.2.4
+description: C library for creating Excel XLSX files
+homepage: https://libxlsxwriter.github.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxlsxwriter/blobs/sha256:c5270d39abf4b98ae78add1ceb9251066b8fcb804cdc3f379ade7689e37521a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxlsxwriter/blobs/sha256:d925e1ecb73f059f5ad8d53ed6f2e9f90b4ad32d9c34042b6500fea6368c4e49
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxlsxwriter/blobs/sha256:0178462a88fe85971f75fee9a92b90939594ee9c839e0dfab6e2b4e7c02edf7a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxlsxwriter/blobs/sha256:af3be196f27cb7c63a3755ff38f1f20a51cdf88b02d83503381c38eecbde32e7
+sha256:
+  darwin_arm64: c5270d39abf4b98ae78add1ceb9251066b8fcb804cdc3f379ade7689e37521a8
+  darwin_amd64: d925e1ecb73f059f5ad8d53ed6f2e9f90b4ad32d9c34042b6500fea6368c4e49
+  linux_amd64: 0178462a88fe85971f75fee9a92b90939594ee9c839e0dfab6e2b4e7c02edf7a
+  linux_arm64: af3be196f27cb7c63a3755ff38f1f20a51cdf88b02d83503381c38eecbde32e7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

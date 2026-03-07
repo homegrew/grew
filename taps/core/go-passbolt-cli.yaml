@@ -1,0 +1,19 @@
+name: go-passbolt-cli
+version: 0.4.1
+description: CLI for passbolt
+homepage: https://www.passbolt.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-passbolt-cli/blobs/sha256:15ab371bff165852c0bab0b33d2b77a82946a13f7f6ff04b87d6bf008c95314b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-passbolt-cli/blobs/sha256:f8011cb4a4f370593fc8255feecc4c8a043113ed521bc465c3e1ce5ecf9e7ca0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-passbolt-cli/blobs/sha256:88796c820c4cb4f3621bba8d1fa39bcab9db3a3382470a5457ad6cd9534df16f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-passbolt-cli/blobs/sha256:938987882e5f1e1bd9c79983718ac7873f2eb4c6c4534a5daa7863ca52b0854f
+sha256:
+  darwin_arm64: 15ab371bff165852c0bab0b33d2b77a82946a13f7f6ff04b87d6bf008c95314b
+  darwin_amd64: f8011cb4a4f370593fc8255feecc4c8a043113ed521bc465c3e1ce5ecf9e7ca0
+  linux_amd64: 88796c820c4cb4f3621bba8d1fa39bcab9db3a3382470a5457ad6cd9534df16f
+  linux_arm64: 938987882e5f1e1bd9c79983718ac7873f2eb4c6c4534a5daa7863ca52b0854f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

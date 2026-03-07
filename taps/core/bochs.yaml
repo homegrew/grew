@@ -1,0 +1,22 @@
+name: bochs
+version: 3.0
+description: Open source IA-32 (x86) PC emulator written in C++
+homepage: https://bochs.sourceforge.io/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bochs/blobs/sha256:b358cdb2e679f040071c7da9ccf6cad7d82f144d47adb65fc2bafc2fb1ed01c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bochs/blobs/sha256:308e5183b90eca43959de4064497c3d76e279c9b7849a7c8a68578fe8e0ec838
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bochs/blobs/sha256:ad4f70d9e3cb7e9139e9542f351869f3e2175903c7bead372d988bb31ea784aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bochs/blobs/sha256:c90bc3f05f5534d123939bc79e2afa947fc469e9841a2f6339ac8a5ce613ce4c
+sha256:
+  darwin_arm64: b358cdb2e679f040071c7da9ccf6cad7d82f144d47adb65fc2bafc2fb1ed01c5
+  darwin_amd64: 308e5183b90eca43959de4064497c3d76e279c9b7849a7c8a68578fe8e0ec838
+  linux_amd64: ad4f70d9e3cb7e9139e9542f351869f3e2175903c7bead372d988bb31ea784aa
+  linux_arm64: c90bc3f05f5534d123939bc79e2afa947fc469e9841a2f6339ac8a5ce613ce4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool
+  - sdl2

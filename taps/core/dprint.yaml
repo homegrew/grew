@@ -1,0 +1,21 @@
+name: dprint
+version: 0.52.0
+description: Pluggable and configurable code formatting platform written in Rust
+homepage: https://dprint.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dprint/blobs/sha256:d480758d3519718f6ab458662e13b41ffd398effe04c9b6b635304dd1059d1a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dprint/blobs/sha256:487c876a9eba003690b3db3a42b3f15685baab5fb2945e9583b74114d5b16dd6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dprint/blobs/sha256:b07b24892015e26880785af2e9675366dcf353ea3fd29762ed5732ccc614154e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dprint/blobs/sha256:3a1b674a8e871636fd2238ab993ef71c5bb99870487dd0df6aeec0fcbb09c26e
+sha256:
+  darwin_arm64: d480758d3519718f6ab458662e13b41ffd398effe04c9b6b635304dd1059d1a4
+  darwin_amd64: 487c876a9eba003690b3db3a42b3f15685baab5fb2945e9583b74114d5b16dd6
+  linux_amd64: b07b24892015e26880785af2e9675366dcf353ea3fd29762ed5732ccc614154e
+  linux_arm64: 3a1b674a8e871636fd2238ab993ef71c5bb99870487dd0df6aeec0fcbb09c26e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

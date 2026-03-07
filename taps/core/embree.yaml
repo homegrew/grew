@@ -1,0 +1,21 @@
+name: embree
+version: 4.4.0
+description: High-performance ray tracing kernels
+homepage: https://www.embree.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/embree/blobs/sha256:477cda992cef4fe35ae37f58b67e7f89e209f7250cb2b89f5902ded3b0008af0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/embree/blobs/sha256:a4ba2a8ec5a66658c2bceded9220f7f9bfc9463d1f91975c83e5b755e460253e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/embree/blobs/sha256:6b45c3faa9543e9a30ee49a55e65acf115ff544b04f837f273afc39341c64566
+  linux_arm64: https://ghcr.io/v2/homebrew/core/embree/blobs/sha256:5e942582ec7b5bb15689e9d283d9715d58bb38036f41a9d640177bde320934e1
+sha256:
+  darwin_arm64: 477cda992cef4fe35ae37f58b67e7f89e209f7250cb2b89f5902ded3b0008af0
+  darwin_amd64: a4ba2a8ec5a66658c2bceded9220f7f9bfc9463d1f91975c83e5b755e460253e
+  linux_amd64: 6b45c3faa9543e9a30ee49a55e65acf115ff544b04f837f273afc39341c64566
+  linux_arm64: 5e942582ec7b5bb15689e9d283d9715d58bb38036f41a9d640177bde320934e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tbb

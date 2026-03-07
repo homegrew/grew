@@ -1,0 +1,24 @@
+name: loudmouth
+version: 1.5.4
+description: Lightweight C library for the Jabber protocol
+homepage: https://mcabber.com
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/loudmouth/blobs/sha256:6b102ebfa05ec64bba31c02b27a116e39020b136df40c25ddb1509d5fed1bef6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/loudmouth/blobs/sha256:923446f9175c19b756f93a709597f676dc328b754899fecabf0ae7a4835dc02e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/loudmouth/blobs/sha256:6052693231034f7a87a85eb4e56755786089171b9ce5ad1e0babe0a891af55d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/loudmouth/blobs/sha256:c68d8c7b9f5a4437ceb7697484a3609635d8b93fd24a37e1e7a5b973b8c2c9dd
+sha256:
+  darwin_arm64: 6b102ebfa05ec64bba31c02b27a116e39020b136df40c25ddb1509d5fed1bef6
+  darwin_amd64: 923446f9175c19b756f93a709597f676dc328b754899fecabf0ae7a4835dc02e
+  linux_amd64: 6052693231034f7a87a85eb4e56755786089171b9ce5ad1e0babe0a891af55d9
+  linux_arm64: c68d8c7b9f5a4437ceb7697484a3609635d8b93fd24a37e1e7a5b973b8c2c9dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib
+  - gnutls
+  - libidn

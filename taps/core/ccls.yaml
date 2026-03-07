@@ -1,0 +1,21 @@
+name: ccls
+version: 0.20250815.1
+description: C/C++/ObjC language server
+homepage: https://github.com/MaskRay/ccls
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccls/blobs/sha256:828f8f022c4d2d28a12e5f21e58ba81c43e6800e243ca23168a255dcebab8725
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccls/blobs/sha256:e3674eb35881af0ba202937b1bea6949533982fd150492b0efaa7e4ada1db537
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccls/blobs/sha256:7d436bec5d893d5b61d6c43fe7e64d716475a20961e56a35b3d4c4db467e91a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccls/blobs/sha256:1a7cc23edfbe66b0582a9a2c802c79cf08fad134a1160e30d5be6e4b70c64a4f
+sha256:
+  darwin_arm64: 828f8f022c4d2d28a12e5f21e58ba81c43e6800e243ca23168a255dcebab8725
+  darwin_amd64: e3674eb35881af0ba202937b1bea6949533982fd150492b0efaa7e4ada1db537
+  linux_amd64: 7d436bec5d893d5b61d6c43fe7e64d716475a20961e56a35b3d4c4db467e91a0
+  linux_arm64: 1a7cc23edfbe66b0582a9a2c802c79cf08fad134a1160e30d5be6e4b70c64a4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

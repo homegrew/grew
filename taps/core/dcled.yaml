@@ -1,0 +1,21 @@
+name: dcled
+version: 2.2
+description: Linux driver for dream cheeky USB message board
+homepage: https://www.jeffrika.com/~malakai/dcled/index.html
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcled/blobs/sha256:5369329587a6c3ec28976ebbd89fc4f8361b2472e38ee6518ebdf95dc04cddd1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcled/blobs/sha256:6f565465c16d2a490c1f0beb0c6dd483c156102cde2a8bf3b58a41bd84bb194e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcled/blobs/sha256:c0c7a6b33e48eb8e369235f0bd1e84d10c161a41eaec0ab93854bec94df8aee0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcled/blobs/sha256:6e3b1302c4e78c0539f141a055e2df647c9c4ed4e8f4010c808e7e42163fe741
+sha256:
+  darwin_arm64: 5369329587a6c3ec28976ebbd89fc4f8361b2472e38ee6518ebdf95dc04cddd1
+  darwin_amd64: 6f565465c16d2a490c1f0beb0c6dd483c156102cde2a8bf3b58a41bd84bb194e
+  linux_amd64: c0c7a6b33e48eb8e369235f0bd1e84d10c161a41eaec0ab93854bec94df8aee0
+  linux_arm64: 6e3b1302c4e78c0539f141a055e2df647c9c4ed4e8f4010c808e7e42163fe741
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

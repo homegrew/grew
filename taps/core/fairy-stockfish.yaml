@@ -1,0 +1,19 @@
+name: fairy-stockfish
+version: 14
+description: Strong open source chess variant engine
+homepage: https://fairy-stockfish.github.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fairy-stockfish/blobs/sha256:4ee205839b2f569fc11c0b2d09502a866be0cda2195f04a73cbc9329f2642ac9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fairy-stockfish/blobs/sha256:ba82fe79eb4b379870174e79a83b61136a519b94419a471bcb6b20754d015d86
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fairy-stockfish/blobs/sha256:aba797d91cba8f0b56caf85f3d55e4c2fdf4a83bb1be0c11255fa580c320ed53
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fairy-stockfish/blobs/sha256:04a1cdcecf55712d376a05918b2ec1423f3ac0f56eae9b6c8fcfe3a8687f3312
+sha256:
+  darwin_arm64: 4ee205839b2f569fc11c0b2d09502a866be0cda2195f04a73cbc9329f2642ac9
+  darwin_amd64: ba82fe79eb4b379870174e79a83b61136a519b94419a471bcb6b20754d015d86
+  linux_amd64: aba797d91cba8f0b56caf85f3d55e4c2fdf4a83bb1be0c11255fa580c320ed53
+  linux_arm64: 04a1cdcecf55712d376a05918b2ec1423f3ac0f56eae9b6c8fcfe3a8687f3312
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: organize-tool
+version: 3.3.0
+description: File management automation tool
+homepage: https://github.com/tfeldmann/organize
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/organize-tool/blobs/sha256:383ee565ecc3c645f914dc9f499316b03fe1d2569102138de0028c39415e5a53
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/organize-tool/blobs/sha256:6eda0ab7df7cd94393a2bb97c7044a4176963b8d24e35bdf6c6c1dd69d23825a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/organize-tool/blobs/sha256:4925b1d0d3dc26871a474d90c00ffac3034dbdf39525f83d05d1de5ccd72e062
+  linux_arm64: https://ghcr.io/v2/homebrew/core/organize-tool/blobs/sha256:5e152ff516d766bee554f13f60ecd6a9d265e9226f5577c6d2add6e197b0f754
+sha256:
+  darwin_arm64: 383ee565ecc3c645f914dc9f499316b03fe1d2569102138de0028c39415e5a53
+  darwin_amd64: 6eda0ab7df7cd94393a2bb97c7044a4176963b8d24e35bdf6c6c1dd69d23825a
+  linux_amd64: 4925b1d0d3dc26871a474d90c00ffac3034dbdf39525f83d05d1de5ccd72e062
+  linux_arm64: 5e152ff516d766bee554f13f60ecd6a9d265e9226f5577c6d2add6e197b0f754
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - freetype
+  - libyaml
+  - openjpeg
+  - pydantic
+  - python@3.14

@@ -1,0 +1,19 @@
+name: slackcat
+version: 1.7.3
+description: Command-line utility for posting snippets to Slack
+homepage: https://github.com/bcicen/slackcat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/slackcat/blobs/sha256:eaeb71583cd7fbfa42657beffce55a819085a9a4e371e890404403e2e579b8e6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/slackcat/blobs/sha256:99108f7bcd890e678f082795c4ae5ba4435b945f2fe8341b3160b3ae97133308
+  linux_amd64: https://ghcr.io/v2/homebrew/core/slackcat/blobs/sha256:96518aa5c2d2ddc1c62a1ee163748bc0909be294eebc290156a6ca1908d6216a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/slackcat/blobs/sha256:5dbd0c522ab28f8a9f4abcd681ab28a43a1a46e4db8e8f03c3a00d9f25ca2f3d
+sha256:
+  darwin_arm64: eaeb71583cd7fbfa42657beffce55a819085a9a4e371e890404403e2e579b8e6
+  darwin_amd64: 99108f7bcd890e678f082795c4ae5ba4435b945f2fe8341b3160b3ae97133308
+  linux_amd64: 96518aa5c2d2ddc1c62a1ee163748bc0909be294eebc290156a6ca1908d6216a
+  linux_arm64: 5dbd0c522ab28f8a9f4abcd681ab28a43a1a46e4db8e8f03c3a00d9f25ca2f3d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

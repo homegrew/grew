@@ -1,0 +1,21 @@
+name: makefile2graph
+version: 2021.11.06
+description: Create a graph of dependencies from GNU-Make
+homepage: https://github.com/lindenb/makefile2graph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/makefile2graph/blobs/sha256:237d7eac6030f575df723974c27672758a5c6613222b58eca8f607894cda5426
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/makefile2graph/blobs/sha256:48a8a10a83e44b435b6d27db946fdae90dc9c1a8d92e62814b6bd5bb4bb1ecbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/makefile2graph/blobs/sha256:073d9b3b0eb9ff852a6f3f12aba6e3e2547d84e0d1257382b423a176df567299
+  linux_arm64: https://ghcr.io/v2/homebrew/core/makefile2graph/blobs/sha256:27d4553201201baa4731be6cf4dab2ffbce9f74a524bc1b6783300db9dd1a309
+sha256:
+  darwin_arm64: 237d7eac6030f575df723974c27672758a5c6613222b58eca8f607894cda5426
+  darwin_amd64: 48a8a10a83e44b435b6d27db946fdae90dc9c1a8d92e62814b6bd5bb4bb1ecbd
+  linux_amd64: 073d9b3b0eb9ff852a6f3f12aba6e3e2547d84e0d1257382b423a176df567299
+  linux_arm64: 27d4553201201baa4731be6cf4dab2ffbce9f74a524bc1b6783300db9dd1a309
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - graphviz

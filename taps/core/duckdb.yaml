@@ -1,0 +1,19 @@
+name: duckdb
+version: 1.4.4
+description: Embeddable SQL OLAP Database Management System
+homepage: https://www.duckdb.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:abf9ba5df7e10eee5d3441f7f4b33702d871eaa0e63d19593209c2435f8177a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:2535bb449d5fcfa2a6550310c1b083ec51df51d307ee09dcb3d57e6e01ef27ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:4780e4250f5b7e23b6441ae983f1092fe734c0a9b3b8a8bef6e348970a971670
+  linux_arm64: https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:33371e48153e2bab2dd601f24992193a5d98ae4748d2a207dba3e3b6b5573552
+sha256:
+  darwin_arm64: abf9ba5df7e10eee5d3441f7f4b33702d871eaa0e63d19593209c2435f8177a8
+  darwin_amd64: 2535bb449d5fcfa2a6550310c1b083ec51df51d307ee09dcb3d57e6e01ef27ea
+  linux_amd64: 4780e4250f5b7e23b6441ae983f1092fe734c0a9b3b8a8bef6e348970a971670
+  linux_arm64: 33371e48153e2bab2dd601f24992193a5d98ae4748d2a207dba3e3b6b5573552
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

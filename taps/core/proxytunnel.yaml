@@ -1,0 +1,21 @@
+name: proxytunnel
+version: 1.12.3
+description: Create TCP tunnels through HTTPS proxies
+homepage: https://github.com/proxytunnel/proxytunnel
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxytunnel/blobs/sha256:b6003b5468d9eb16d028cfac02ad7700bb173650fbcb7b4c1be87cf3267a636f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxytunnel/blobs/sha256:20b05437c58f9ac5e129dbfd9da88d6c57338deb994ad88af6ee2a558a430304
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxytunnel/blobs/sha256:68f0a86ab22a1406b3215b1f48abd7bb1cd686a2eab4cd707f989a9bee830a4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxytunnel/blobs/sha256:1054f31d72acfeb8d3e4b925620f5d8140349158552c6288db753af40097b72c
+sha256:
+  darwin_arm64: b6003b5468d9eb16d028cfac02ad7700bb173650fbcb7b4c1be87cf3267a636f
+  darwin_amd64: 20b05437c58f9ac5e129dbfd9da88d6c57338deb994ad88af6ee2a558a430304
+  linux_amd64: 68f0a86ab22a1406b3215b1f48abd7bb1cd686a2eab4cd707f989a9bee830a4c
+  linux_arm64: 1054f31d72acfeb8d3e4b925620f5d8140349158552c6288db753af40097b72c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

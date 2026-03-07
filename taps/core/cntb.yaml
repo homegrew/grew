@@ -1,0 +1,19 @@
+name: cntb
+version: 1.5.5
+description: Contabo Command-Line Interface (CLI)
+homepage: https://github.com/contabo/cntb
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cntb/blobs/sha256:4ab5dfa20bc572faa11be29a57a5e472dc1a0f29210026f8558ae8ff1ec98826
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cntb/blobs/sha256:f001fb06386d6ac1e9aa152be2aac1fbc40cd0b7fe9094f8d5537284021087a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cntb/blobs/sha256:7b727f7c5bb9baf5aa06f27f07940d1bae368edbdeb7174df834de6ff48fc953
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cntb/blobs/sha256:e3a05bb063c99325120981ba2e1bf55daba26fc46d9e58b9996ca55144b5fff5
+sha256:
+  darwin_arm64: 4ab5dfa20bc572faa11be29a57a5e472dc1a0f29210026f8558ae8ff1ec98826
+  darwin_amd64: f001fb06386d6ac1e9aa152be2aac1fbc40cd0b7fe9094f8d5537284021087a6
+  linux_amd64: 7b727f7c5bb9baf5aa06f27f07940d1bae368edbdeb7174df834de6ff48fc953
+  linux_arm64: e3a05bb063c99325120981ba2e1bf55daba26fc46d9e58b9996ca55144b5fff5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

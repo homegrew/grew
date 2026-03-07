@@ -1,0 +1,19 @@
+name: kona
+version: 20211225
+description: Open-source implementation of the K programming language
+homepage: https://github.com/kevinlawler/kona
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kona/blobs/sha256:ffed758f35647079748b660475d1ae5aaa0b0b1804fa2506bad4ee473314f805
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kona/blobs/sha256:eb1310b9df64a4a40b537f6e473c757109cc29cb2647771af3246afff8bab55b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kona/blobs/sha256:2e0418f26e5be870a8be5747b920ae20db61707f110c3e63c992ab397b8b87dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kona/blobs/sha256:d6b3318bcb3e9c9129958230cc0884fdf263255e07f96d1a62acdb872c0d28d5
+sha256:
+  darwin_arm64: ffed758f35647079748b660475d1ae5aaa0b0b1804fa2506bad4ee473314f805
+  darwin_amd64: eb1310b9df64a4a40b537f6e473c757109cc29cb2647771af3246afff8bab55b
+  linux_amd64: 2e0418f26e5be870a8be5747b920ae20db61707f110c3e63c992ab397b8b87dc
+  linux_arm64: d6b3318bcb3e9c9129958230cc0884fdf263255e07f96d1a62acdb872c0d28d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

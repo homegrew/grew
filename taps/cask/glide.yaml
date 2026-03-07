@@ -1,0 +1,13 @@
+name: glide
+version: 0.2.11
+description: Tiling window manager with tree layouts
+homepage: https://glidewm.org/
+url:
+  darwin_arm64: https://github.com/glide-wm/glide/releases/download/v0.2.11/Glide_0.2.11_aarch64.dmg
+sha256:
+  darwin_arm64: 6b3662486edbd944e141c32046a301f106331b1151513da3de954825b01aff90
+artifacts:
+  app:
+    - Glide.app
+  bin:
+    - glide

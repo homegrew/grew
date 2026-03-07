@@ -1,0 +1,19 @@
+name: wgo
+version: 0.6.3
+description: Watch arbitrary files and respond with arbitrary commands
+homepage: https://github.com/bokwoon95/wgo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wgo/blobs/sha256:0b796a177da5e0edfb6463b91e635865d8e7e29e0a000c7a6944b427efc477b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wgo/blobs/sha256:d2cba4519ff3e0524c27920dbc754716dde340978c0fe330dce28571ede4b59a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wgo/blobs/sha256:ca95a3cb1558a401f94f82b6aeb52371cbc953d9ea9f7e399cae38f4d55b3ec2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wgo/blobs/sha256:6794033542974fd890e4f107e905212cd57394f6568739b1971917d1b2534c4b
+sha256:
+  darwin_arm64: 0b796a177da5e0edfb6463b91e635865d8e7e29e0a000c7a6944b427efc477b2
+  darwin_amd64: d2cba4519ff3e0524c27920dbc754716dde340978c0fe330dce28571ede4b59a
+  linux_amd64: ca95a3cb1558a401f94f82b6aeb52371cbc953d9ea9f7e399cae38f4d55b3ec2
+  linux_arm64: 6794033542974fd890e4f107e905212cd57394f6568739b1971917d1b2534c4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

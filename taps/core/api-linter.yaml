@@ -1,0 +1,19 @@
+name: api-linter
+version: 2.3.0
+description: Linter for APIs defined in protocol buffers
+homepage: https://linter.aip.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/api-linter/blobs/sha256:c537dac8b8934b8e18ee894e3b0633abadf0154bb86f15da5735d31ff58bd989
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/api-linter/blobs/sha256:ef6034e71dee39a9983ff9b1443fea899bd8aff71285218394ffa146afa9703e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/api-linter/blobs/sha256:4d11740f5b77952fe67eedfd319735f75d7dab3b5c454b03a568944415f358a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/api-linter/blobs/sha256:0339ad8ccee909b8e9809a38e46687bf2cb57ef1f14390e3d2df29adfca776ed
+sha256:
+  darwin_arm64: c537dac8b8934b8e18ee894e3b0633abadf0154bb86f15da5735d31ff58bd989
+  darwin_amd64: ef6034e71dee39a9983ff9b1443fea899bd8aff71285218394ffa146afa9703e
+  linux_amd64: 4d11740f5b77952fe67eedfd319735f75d7dab3b5c454b03a568944415f358a8
+  linux_arm64: 0339ad8ccee909b8e9809a38e46687bf2cb57ef1f14390e3d2df29adfca776ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,28 @@
+name: woof-doom
+version: 15.3.0
+description: "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
+homepage: https://github.com/fabiangreffrath/woof
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/woof-doom/blobs/sha256:5fe5942382f6b24dfd928f023279f36ea7fc8686a92affbfe9dac93d4df6ea50
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/woof-doom/blobs/sha256:ce1a252768cd9d70a653330c55b3fc53b8a8c922d15fd7184d36561e2403a48a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/woof-doom/blobs/sha256:6f25b3b170b7b2b6bd627f551ea0dd4fe229898bf039a72508a441fd1ecf4ca6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/woof-doom/blobs/sha256:f97536230d32c3733dbee65719503d45d620112ab004de741542f1c125e193f1
+sha256:
+  darwin_arm64: 5fe5942382f6b24dfd928f023279f36ea7fc8686a92affbfe9dac93d4df6ea50
+  darwin_amd64: ce1a252768cd9d70a653330c55b3fc53b8a8c922d15fd7184d36561e2403a48a
+  linux_amd64: 6f25b3b170b7b2b6bd627f551ea0dd4fe229898bf039a72508a441fd1ecf4ca6
+  linux_arm64: f97536230d32c3733dbee65719503d45d620112ab004de741542f1c125e193f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2
+  - sdl2_net
+  - fluid-synth
+  - libebur128
+  - libsndfile
+  - libxmp
+  - openal-soft
+  - yyjson

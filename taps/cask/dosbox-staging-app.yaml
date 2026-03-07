@@ -1,0 +1,11 @@
+name: dosbox-staging-app
+version: 0.82.2
+description: DOS game emulator
+homepage: https://github.com/dosbox-staging/dosbox-staging/
+url:
+  darwin_arm64: https://github.com/dosbox-staging/dosbox-staging/releases/download/v0.82.2/dosbox-staging-macOS-v0.82.2.dmg
+sha256:
+  darwin_arm64: 3b83bb63a7314212b207ae19b82ffd15bac6ddc3a2e96d65a425343b4e9bd4a2
+artifacts:
+  app:
+    - DOSBox Staging.app

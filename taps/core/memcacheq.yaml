@@ -1,0 +1,22 @@
+name: memcacheq
+version: 0.2.1
+description: Queue service for memcache
+homepage: https://github.com/stvchu/memcacheq
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/memcacheq/blobs/sha256:657efc2a568e13bb0f9d2197f5cb084e56c1c55aa99cc62d45e51d199ffb0a93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/memcacheq/blobs/sha256:4a3c9a2360a592502413719b07c297802b3d2e7b210e4409c066fb03423d4eb0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/memcacheq/blobs/sha256:57b2c80f352cc9e1d88b5f1e643e1c2e67436e1259a0353bac11ffca103e7af9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/memcacheq/blobs/sha256:e8f80a059505a53588ed5a7abe98135a23cb30535b444bd4bf0b28e504ae6453
+sha256:
+  darwin_arm64: 657efc2a568e13bb0f9d2197f5cb084e56c1c55aa99cc62d45e51d199ffb0a93
+  darwin_amd64: 4a3c9a2360a592502413719b07c297802b3d2e7b210e4409c066fb03423d4eb0
+  linux_amd64: 57b2c80f352cc9e1d88b5f1e643e1c2e67436e1259a0353bac11ffca103e7af9
+  linux_arm64: e8f80a059505a53588ed5a7abe98135a23cb30535b444bd4bf0b28e504ae6453
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - libevent

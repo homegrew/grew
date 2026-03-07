@@ -1,0 +1,19 @@
+name: unisonlang
+version: 1.1.1
+description: Friendly programming language from the future
+homepage: https://unison-lang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unisonlang/blobs/sha256:13c48be759782c4825e0ed69637220c00e0f17442893abecb96ba5833647d60a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unisonlang/blobs/sha256:c843ceeb47a15ad4c5a2c9682bd98acda719006b8593399e27f2b79e32c4b9e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unisonlang/blobs/sha256:cdf175afcc0ecb46a8155e72b10affe231ce7b6d986d35907b26f2736fe072f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unisonlang/blobs/sha256:1071525f32dc9eedbb6ee6169d94cc2cc09d5326895b3d8847f0d1d4f413b9eb
+sha256:
+  darwin_arm64: 13c48be759782c4825e0ed69637220c00e0f17442893abecb96ba5833647d60a
+  darwin_amd64: c843ceeb47a15ad4c5a2c9682bd98acda719006b8593399e27f2b79e32c4b9e9
+  linux_amd64: cdf175afcc0ecb46a8155e72b10affe231ce7b6d986d35907b26f2736fe072f9
+  linux_arm64: 1071525f32dc9eedbb6ee6169d94cc2cc09d5326895b3d8847f0d1d4f413b9eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

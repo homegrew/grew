@@ -1,0 +1,24 @@
+name: azure-cli
+version: 2.84.0
+description: Microsoft Azure CLI 2.0
+homepage: https://docs.microsoft.com/cli/azure/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/azure-cli/blobs/sha256:21aff0f8e885d3cf3ac1368770575a6a6f8a978f9dcca051377fee3b4638a8f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/azure-cli/blobs/sha256:f9cf9588427d90d02041ddcbc56ec2b5fc76c7d2aa96de979300fdc60fdde0c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/azure-cli/blobs/sha256:946520461537410d447c512e75a6c79c3e8681d5e2c8ab6d7f80dee32572e348
+  linux_arm64: https://ghcr.io/v2/homebrew/core/azure-cli/blobs/sha256:e74ee2fc345383b8635c7fc478fc7a782536d1dba547559bc9f27b14b6e82429
+sha256:
+  darwin_arm64: 21aff0f8e885d3cf3ac1368770575a6a6f8a978f9dcca051377fee3b4638a8f0
+  darwin_amd64: f9cf9588427d90d02041ddcbc56ec2b5fc76c7d2aa96de979300fdc60fdde0c5
+  linux_amd64: 946520461537410d447c512e75a6c79c3e8681d5e2c8ab6d7f80dee32572e348
+  linux_arm64: e74ee2fc345383b8635c7fc478fc7a782536d1dba547559bc9f27b14b6e82429
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium
+  - libyaml
+  - openssl@3
+  - python@3.13

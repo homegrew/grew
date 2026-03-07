@@ -1,0 +1,19 @@
+name: sentencepiece
+version: 0.2.1
+description: Unsupervised text tokenizer and detokenizer
+homepage: https://github.com/google/sentencepiece
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sentencepiece/blobs/sha256:6f944bb3a143e212d042b1e0236b6482499e34009b9b5b5db5c3cd8d9975b7df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sentencepiece/blobs/sha256:def07b0ac6928c502047e5acc59adbc31380324b1b4df2d5bce7a4b4e7e8fde1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sentencepiece/blobs/sha256:ebe9a9c2450f19edf2ac38a7d732a7c6143d9f186e5977d2b9affca6b354e84b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sentencepiece/blobs/sha256:238a7f7677d07561253da9728aa1d72c2b9f922f6fd6e2d8d0756e396f754d25
+sha256:
+  darwin_arm64: 6f944bb3a143e212d042b1e0236b6482499e34009b9b5b5db5c3cd8d9975b7df
+  darwin_amd64: def07b0ac6928c502047e5acc59adbc31380324b1b4df2d5bce7a4b4e7e8fde1
+  linux_amd64: ebe9a9c2450f19edf2ac38a7d732a7c6143d9f186e5977d2b9affca6b354e84b
+  linux_arm64: 238a7f7677d07561253da9728aa1d72c2b9f922f6fd6e2d8d0756e396f754d25
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

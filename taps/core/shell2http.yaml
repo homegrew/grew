@@ -1,0 +1,19 @@
+name: shell2http
+version: 1.17.0
+description: Executing shell commands via HTTP server
+homepage: https://github.com/msoap/shell2http
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shell2http/blobs/sha256:b7d891d7aad7d3bb6410d9445a870e44ecc7c72e4cb0c121ce4151342b5f9431
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shell2http/blobs/sha256:22c0f297ed31f96042fbd408d4fc53deb7e4a257fc9e00d5c24892419e10eb0f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shell2http/blobs/sha256:2924860684928b8e326d3298c72c447dbae5f7a7ab259e71bcf45e7906568ef4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shell2http/blobs/sha256:32a34cd43f452b6b9f97694d7de6374f86e0cc729e1eeaabbd503677a05a4065
+sha256:
+  darwin_arm64: b7d891d7aad7d3bb6410d9445a870e44ecc7c72e4cb0c121ce4151342b5f9431
+  darwin_amd64: 22c0f297ed31f96042fbd408d4fc53deb7e4a257fc9e00d5c24892419e10eb0f
+  linux_amd64: 2924860684928b8e326d3298c72c447dbae5f7a7ab259e71bcf45e7906568ef4
+  linux_arm64: 32a34cd43f452b6b9f97694d7de6374f86e0cc729e1eeaabbd503677a05a4065
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

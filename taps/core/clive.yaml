@@ -1,0 +1,21 @@
+name: clive
+version: 0.12.16
+description: Automates terminal operations
+homepage: https://github.com/koki-develop/clive
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clive/blobs/sha256:0a9327759ff50f04774163452e0a60dff60b69f527e6469d41160ff1b035febe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clive/blobs/sha256:13dfb211db8851a2a42ac0f4821157125b4883fab14b108b74cc0bf791dfef73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clive/blobs/sha256:4a747c9d5ef60f51f3cc127f41f0bd83efb2785835d0e35c59ecb437c3bf36ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clive/blobs/sha256:f659f4937a4a0c6ac175d18849e424e6507f23ae7ea5eb5edebf2ea372adee44
+sha256:
+  darwin_arm64: 0a9327759ff50f04774163452e0a60dff60b69f527e6469d41160ff1b035febe
+  darwin_amd64: 13dfb211db8851a2a42ac0f4821157125b4883fab14b108b74cc0bf791dfef73
+  linux_amd64: 4a747c9d5ef60f51f3cc127f41f0bd83efb2785835d0e35c59ecb437c3bf36ba
+  linux_arm64: f659f4937a4a0c6ac175d18849e424e6507f23ae7ea5eb5edebf2ea372adee44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ttyd

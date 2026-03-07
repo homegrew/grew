@@ -1,0 +1,19 @@
+name: spacer
+version: 0.5.0
+description: Small command-line utility for adding spacers to command output
+homepage: https://github.com/samwho/spacer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spacer/blobs/sha256:c9ad1d7ef330ecff134c5087b76e6b5855a09e09dd39948a3de6c89f9db7bdc4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spacer/blobs/sha256:c33bc9a0c463d9864f5aad7319f9f751a817376cb492f8d2887377be1a512dbc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spacer/blobs/sha256:ea85a47a83223e6907e372483ba50eca0b34643c9f8fec558fe2f605692f2e9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spacer/blobs/sha256:772ffb42357d2155e5e8fbbb3aee2c49e117f5b20c896a0ef2e7f3629e8ce176
+sha256:
+  darwin_arm64: c9ad1d7ef330ecff134c5087b76e6b5855a09e09dd39948a3de6c89f9db7bdc4
+  darwin_amd64: c33bc9a0c463d9864f5aad7319f9f751a817376cb492f8d2887377be1a512dbc
+  linux_amd64: ea85a47a83223e6907e372483ba50eca0b34643c9f8fec558fe2f605692f2e9c
+  linux_arm64: 772ffb42357d2155e5e8fbbb3aee2c49e117f5b20c896a0ef2e7f3629e8ce176
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

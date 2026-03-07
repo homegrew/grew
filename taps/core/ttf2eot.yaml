@@ -1,0 +1,19 @@
+name: ttf2eot
+version: 0.0.3
+description: Convert TTF files to EOT
+homepage: https://github.com/wget/ttf2eot
+license: LGPL-2.0-or-later OR BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttf2eot/blobs/sha256:d16324780cc0664cc3e5372cc1c6959062258a6480c23e4ca1791c0e0013f864
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttf2eot/blobs/sha256:aa65afa0cca03bd779972063ad68340335fc8411e9af7ce3f18c684a4f0059eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttf2eot/blobs/sha256:20e9bce41da4284c7cb5a07cc7fa05f911457de66e3ddadf4b0cc1334773100d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttf2eot/blobs/sha256:ac667f059eb2d3394c7869f8475a60d36840d7d94992557178974b10166b80bc
+sha256:
+  darwin_arm64: d16324780cc0664cc3e5372cc1c6959062258a6480c23e4ca1791c0e0013f864
+  darwin_amd64: aa65afa0cca03bd779972063ad68340335fc8411e9af7ce3f18c684a4f0059eb
+  linux_amd64: 20e9bce41da4284c7cb5a07cc7fa05f911457de66e3ddadf4b0cc1334773100d
+  linux_arm64: ac667f059eb2d3394c7869f8475a60d36840d7d94992557178974b10166b80bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

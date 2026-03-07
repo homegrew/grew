@@ -1,0 +1,21 @@
+name: skopeo
+version: 1.22.0
+description: Work with remote images registries
+homepage: https://github.com/containers/skopeo
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skopeo/blobs/sha256:5136d3090106d2efd6fc03474a8f1a28b3287ff36deaa101b59cd09d5ac34c96
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skopeo/blobs/sha256:86eb06061eb0750ae8af3f2ba654011d8b41b86d446b3b66cbe2723010ea93fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skopeo/blobs/sha256:1135babea45c4ae3d16a954d5e11872714d5d11e921dfa45259518551ac163fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skopeo/blobs/sha256:3dcf123b78224f46ec524d78855c90cf0cba7e35a54ba63f5bb10eb91c773f8e
+sha256:
+  darwin_arm64: 5136d3090106d2efd6fc03474a8f1a28b3287ff36deaa101b59cd09d5ac34c96
+  darwin_amd64: 86eb06061eb0750ae8af3f2ba654011d8b41b86d446b3b66cbe2723010ea93fe
+  linux_amd64: 1135babea45c4ae3d16a954d5e11872714d5d11e921dfa45259518551ac163fb
+  linux_arm64: 3dcf123b78224f46ec524d78855c90cf0cba7e35a54ba63f5bb10eb91c773f8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

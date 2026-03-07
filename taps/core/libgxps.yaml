@@ -1,0 +1,30 @@
+name: libgxps
+version: 0.3.2
+description: GObject based library for handling and rendering XPS documents
+homepage: https://wiki.gnome.org/Projects/libgxps
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgxps/blobs/sha256:edf7249cfe2f25f697df299831a0cfbd6d4fcf3803b1fcd3cfd7a9767e13e69a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgxps/blobs/sha256:df638d411daf2a227a103852f5f1c3c66d13b54b84b88b75e5e3ed9b42832c2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgxps/blobs/sha256:ce46fdac05876dd811e370285bed2d68c3d88e474a6f6adaf00cba6c102a8b16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgxps/blobs/sha256:385727136943caa3327fca656c0a12f8cb4296c9c50fb785725137922fc4ce23
+sha256:
+  darwin_arm64: edf7249cfe2f25f697df299831a0cfbd6d4fcf3803b1fcd3cfd7a9767e13e69a
+  darwin_amd64: df638d411daf2a227a103852f5f1c3c66d13b54b84b88b75e5e3ed9b42832c2e
+  linux_amd64: ce46fdac05876dd811e370285bed2d68c3d88e474a6f6adaf00cba6c102a8b16
+  linux_arm64: 385727136943caa3327fca656c0a12f8cb4296c9c50fb785725137922fc4ce23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - freetype
+  - glib
+  - jpeg-turbo
+  - libarchive
+  - libpng
+  - libtiff
+  - little-cms2
+  - gettext
+keg_only: true

@@ -1,0 +1,21 @@
+name: lerna
+version: 9.0.5
+description: Tool for managing JavaScript projects with multiple packages
+homepage: https://lerna.js.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lerna/blobs/sha256:0f744c2994e89783070ad404175ca54099de35628d43c0b80a1ff045c2e3195d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lerna/blobs/sha256:a6d4ff8026e6bd9c6ee17babacb726ede1dc863591482671768ce911896c46c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lerna/blobs/sha256:d611192872006cab783c87918881d224d29aa065d0d82b6dba753e8fccf08981
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lerna/blobs/sha256:ebe4e23e2c813e9f54a2c595be0d001fa2c4b996655ebf824b3cc6ac90fcd906
+sha256:
+  darwin_arm64: 0f744c2994e89783070ad404175ca54099de35628d43c0b80a1ff045c2e3195d
+  darwin_amd64: a6d4ff8026e6bd9c6ee17babacb726ede1dc863591482671768ce911896c46c8
+  linux_amd64: d611192872006cab783c87918881d224d29aa065d0d82b6dba753e8fccf08981
+  linux_arm64: ebe4e23e2c813e9f54a2c595be0d001fa2c4b996655ebf824b3cc6ac90fcd906
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,19 @@
+name: blake3
+version: 1.8.3
+description: C implementation of the BLAKE3 cryptographic hash function
+homepage: https://github.com/BLAKE3-team/BLAKE3
+license: CC0-1.0 OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blake3/blobs/sha256:d03ff32973f9c9bd2d13bf2e6f9f3dd8a202aeb15adece0f3c68aabb4fb192ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blake3/blobs/sha256:3eb62e0891d816fa1fc1c499887a5af2faee41462a9e26986c7fb69933332531
+  linux_amd64: https://ghcr.io/v2/homebrew/core/blake3/blobs/sha256:b93a8cb77d2f071fcf5d2dfea6b6191d291ebf38af76e5bc8c4eac4a8cf185e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/blake3/blobs/sha256:31e0a06ff7300cfceeaaa677739bced2f2deb9ff860aaedfb14e0ca423288e50
+sha256:
+  darwin_arm64: d03ff32973f9c9bd2d13bf2e6f9f3dd8a202aeb15adece0f3c68aabb4fb192ac
+  darwin_amd64: 3eb62e0891d816fa1fc1c499887a5af2faee41462a9e26986c7fb69933332531
+  linux_amd64: b93a8cb77d2f071fcf5d2dfea6b6191d291ebf38af76e5bc8c4eac4a8cf185e4
+  linux_arm64: 31e0a06ff7300cfceeaaa677739bced2f2deb9ff860aaedfb14e0ca423288e50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

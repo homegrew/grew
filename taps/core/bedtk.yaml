@@ -1,0 +1,19 @@
+name: bedtk
+version: 1.2
+description: Simple toolset for BED files
+homepage: https://github.com/lh3/bedtk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bedtk/blobs/sha256:cd6687dd9bad59b278142fd479824d407c6a905c24626b97f1539ad7eeb5caa9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bedtk/blobs/sha256:149a91b7c3a8bff8b66d0cf23407ea2c1b9acb261cadb85e73ab887b7426d6e6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bedtk/blobs/sha256:96e41ae22f6efd0be9dd6f7b8facec49bcef5f9f563dc73420ca7631904850a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bedtk/blobs/sha256:634e3fce5cdedd155c531a2d98e327bc7312d9553236fbefa771eb05499c8d48
+sha256:
+  darwin_arm64: cd6687dd9bad59b278142fd479824d407c6a905c24626b97f1539ad7eeb5caa9
+  darwin_amd64: 149a91b7c3a8bff8b66d0cf23407ea2c1b9acb261cadb85e73ab887b7426d6e6
+  linux_amd64: 96e41ae22f6efd0be9dd6f7b8facec49bcef5f9f563dc73420ca7631904850a2
+  linux_arm64: 634e3fce5cdedd155c531a2d98e327bc7312d9553236fbefa771eb05499c8d48
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

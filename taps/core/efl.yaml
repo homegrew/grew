@@ -1,0 +1,48 @@
+name: efl
+version: 1.28.1
+description: Enlightenment Foundation Libraries
+homepage: https://www.enlightenment.org
+license: GPL-2.0-only AND LGPL-2.1-only AND BSD-2-Clause AND FTL AND zlib-acknowledgement
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/efl/blobs/sha256:0aedecfbc82dd64256f03aab33fa8ae335417d303f1ae5232312c7db3d83f807
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/efl/blobs/sha256:68674b9cc25d8d8553903bda991c6a27d96ee0c64cff9495385a7c43e6d4351a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/efl/blobs/sha256:9bbb7e3a1d35545a60a72cbe6f5c67ae49ae7e1bde124659822926cebb92284c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/efl/blobs/sha256:5c03f04940d543eab7aa8229188ba8854693ad479b969da545c8fcb2f0ee305e
+sha256:
+  darwin_arm64: 0aedecfbc82dd64256f03aab33fa8ae335417d303f1ae5232312c7db3d83f807
+  darwin_amd64: 68674b9cc25d8d8553903bda991c6a27d96ee0c64cff9495385a7c43e6d4351a
+  linux_amd64: 9bbb7e3a1d35545a60a72cbe6f5c67ae49ae7e1bde124659822926cebb92284c
+  linux_arm64: 5c03f04940d543eab7aa8229188ba8854693ad479b969da545c8fcb2f0ee305e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bullet
+  - cairo
+  - dbus
+  - fontconfig
+  - freetype
+  - fribidi
+  - gettext
+  - giflib
+  - glib
+  - gstreamer
+  - harfbuzz
+  - jpeg-turbo
+  - libpng
+  - libraw
+  - librsvg
+  - libsndfile
+  - libspectre
+  - libtiff
+  - luajit
+  - lz4
+  - openjpeg
+  - openssl@3
+  - poppler
+  - pulseaudio
+  - shared-mime-info
+  - webp
+  - gdk-pixbuf
+  - little-cms2

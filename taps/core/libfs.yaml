@@ -1,0 +1,21 @@
+name: libfs
+version: 1.0.10
+description: "X.Org: X Font Service client library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfs/blobs/sha256:94998e85015760c70264600b4e416ba64da6b45c335abf732a5e4152868d06d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfs/blobs/sha256:1ea2f6712729fd699ea40714c86ef74c3126404df219122c38ea18b1ce03a6e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfs/blobs/sha256:c17d8ae2548594b5aae02734f0c2804858754e00f2e1b2dcc38d5bc86086aa5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfs/blobs/sha256:a0bc3bc73b7eeffd71ca62f12e9ff99684362f82ade1606e7646da3926013e4d
+sha256:
+  darwin_arm64: 94998e85015760c70264600b4e416ba64da6b45c335abf732a5e4152868d06d6
+  darwin_amd64: 1ea2f6712729fd699ea40714c86ef74c3126404df219122c38ea18b1ce03a6e0
+  linux_amd64: c17d8ae2548594b5aae02734f0c2804858754e00f2e1b2dcc38d5bc86086aa5e
+  linux_arm64: a0bc3bc73b7eeffd71ca62f12e9ff99684362f82ade1606e7646da3926013e4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xorgproto

@@ -1,0 +1,22 @@
+name: sqlite-analyzer
+version: 3.51.2
+description: Analyze how space is allocated inside an SQLite file
+homepage: https://www.sqlite.org/
+license: blessing
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlite-analyzer/blobs/sha256:c1961bd266c144285f35703f3e5fcb678f5cb30eaf51345d859e50e36bfde998
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlite-analyzer/blobs/sha256:9a3b47f0a8ff07ba35e32a1a5bd947be494fe024a9826293505672ac87519106
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlite-analyzer/blobs/sha256:d6d83419b804f025043ccabc72c8587fcd592e881cb793b16a753191bdbd33f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlite-analyzer/blobs/sha256:2a312dea1a853e0e6a7a64abfc338194c4c73073c646e59939dfe42c32adca76
+sha256:
+  darwin_arm64: c1961bd266c144285f35703f3e5fcb678f5cb30eaf51345d859e50e36bfde998
+  darwin_amd64: 9a3b47f0a8ff07ba35e32a1a5bd947be494fe024a9826293505672ac87519106
+  linux_amd64: d6d83419b804f025043ccabc72c8587fcd592e881cb793b16a753191bdbd33f1
+  linux_arm64: 2a312dea1a853e0e6a7a64abfc338194c4c73073c646e59939dfe42c32adca76
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tcl-tk
+  - libtommath

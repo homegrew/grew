@@ -1,0 +1,19 @@
+name: pelikan
+version: 0.1.2
+description: Production-ready cache services
+homepage: https://twitter.github.io/pelikan
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pelikan/blobs/sha256:64704f442e8c9c1bd917a94f37d152513fe8c4691ae6aecf24599bac242975cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pelikan/blobs/sha256:02443d1d5646a37dbb03e300e8121f75510312b2980e6b3a44e4839f8243424c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pelikan/blobs/sha256:313be126d5718e0053ce871bbc09446325c24d3bce02117d940dcb45a922c99a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pelikan/blobs/sha256:f6fd25c2f404b5f43c23612cd1c87f1d5f87828da5110c903af3b3c58a66c7b4
+sha256:
+  darwin_arm64: 64704f442e8c9c1bd917a94f37d152513fe8c4691ae6aecf24599bac242975cb
+  darwin_amd64: 02443d1d5646a37dbb03e300e8121f75510312b2980e6b3a44e4839f8243424c
+  linux_amd64: 313be126d5718e0053ce871bbc09446325c24d3bce02117d940dcb45a922c99a
+  linux_arm64: f6fd25c2f404b5f43c23612cd1c87f1d5f87828da5110c903af3b3c58a66c7b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

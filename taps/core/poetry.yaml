@@ -1,0 +1,24 @@
+name: poetry
+version: 2.3.2
+description: Python package management tool
+homepage: https://python-poetry.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poetry/blobs/sha256:a74fff675e1c2f8990c985d51b613e14ae7e972b92d727769c277f770eae95a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poetry/blobs/sha256:a1a354897875ef37aaed7380a326fe5bf2c53601b7de943d4a6b7f084e67729e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poetry/blobs/sha256:91e7d8de96095ab20b881208c677cfc07ce2fc4247afafe1f4ec1000619d7fb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poetry/blobs/sha256:a9fc7b704acbcd4685a702079c495dfcc7fd9c64a14939094e8ed57bdbb9c1fd
+sha256:
+  darwin_arm64: a74fff675e1c2f8990c985d51b613e14ae7e972b92d727769c277f770eae95a0
+  darwin_amd64: a1a354897875ef37aaed7380a326fe5bf2c53601b7de943d4a6b7f084e67729e
+  linux_amd64: 91e7d8de96095ab20b881208c677cfc07ce2fc4247afafe1f4ec1000619d7fb8
+  linux_arm64: a9fc7b704acbcd4685a702079c495dfcc7fd9c64a14939094e8ed57bdbb9c1fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - python@3.14
+  - zstd

@@ -1,0 +1,21 @@
+name: json-fortran
+version: 9.2.1
+description: Fortran 2008 JSON API
+homepage: https://github.com/jacobwilliams/json-fortran
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/json-fortran/blobs/sha256:929c1b206838de37e6c22f75c00d7919e4c22d0e20ba5189cedee3dd822a43c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/json-fortran/blobs/sha256:13964a7249baa6b829a56f49d1762d2a3dec098523a148d7d37492675ee43ca7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/json-fortran/blobs/sha256:5edc1d769751635aafdb8ddb00be926afc981c53c7e180edced749091cc4ecca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/json-fortran/blobs/sha256:31c6327981a6384db8fa92429cf52f5b0975bf1bed2957d12af9f4a3205fbc6c
+sha256:
+  darwin_arm64: 929c1b206838de37e6c22f75c00d7919e4c22d0e20ba5189cedee3dd822a43c8
+  darwin_amd64: 13964a7249baa6b829a56f49d1762d2a3dec098523a148d7d37492675ee43ca7
+  linux_amd64: 5edc1d769751635aafdb8ddb00be926afc981c53c7e180edced749091cc4ecca
+  linux_arm64: 31c6327981a6384db8fa92429cf52f5b0975bf1bed2957d12af9f4a3205fbc6c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

@@ -1,0 +1,19 @@
+name: rqlite
+version: 9.4.1
+description: Lightweight, distributed relational database built on SQLite
+homepage: https://www.rqlite.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rqlite/blobs/sha256:7634a091de60128276353713cb748df301d5374be3bd81fcee89b8077fd7e975
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rqlite/blobs/sha256:81b52055cf40b458b8e84e611a4d45d8fc8d90eb110ba9038573f5cebc412656
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rqlite/blobs/sha256:f3b7054962df4e08ef741001fd5836d9f8711add61d467e373841d020536b3d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rqlite/blobs/sha256:53a095de7125b1b0a2536afed0f487462faeaf6eea19051b820b7a362d7dbeaf
+sha256:
+  darwin_arm64: 7634a091de60128276353713cb748df301d5374be3bd81fcee89b8077fd7e975
+  darwin_amd64: 81b52055cf40b458b8e84e611a4d45d8fc8d90eb110ba9038573f5cebc412656
+  linux_amd64: f3b7054962df4e08ef741001fd5836d9f8711add61d467e373841d020536b3d7
+  linux_arm64: 53a095de7125b1b0a2536afed0f487462faeaf6eea19051b820b7a362d7dbeaf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

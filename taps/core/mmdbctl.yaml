@@ -1,0 +1,19 @@
+name: mmdbctl
+version: 1.4.8
+description: MMDB file management CLI supporting various operations on MMDB database files
+homepage: https://github.com/ipinfo/mmdbctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmdbctl/blobs/sha256:bb1d20f3c8c716938b346034fb20381b864ed7d6ac63ae6fc156b9eb38ad7fc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmdbctl/blobs/sha256:980000b0e67d53d0a6b6aedf2d665ee25a24400ea07ca4b5e0544dcd9dff81f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mmdbctl/blobs/sha256:3af00b80cd2a68401e3df838b6d40bfbcdcf58b59f9f2c04eccb9144b61e17fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mmdbctl/blobs/sha256:01fec8071fa10233cc0465a6ce62a6f0870719502e89b517cf178073ca643016
+sha256:
+  darwin_arm64: bb1d20f3c8c716938b346034fb20381b864ed7d6ac63ae6fc156b9eb38ad7fc6
+  darwin_amd64: 980000b0e67d53d0a6b6aedf2d665ee25a24400ea07ca4b5e0544dcd9dff81f7
+  linux_amd64: 3af00b80cd2a68401e3df838b6d40bfbcdcf58b59f9f2c04eccb9144b61e17fd
+  linux_arm64: 01fec8071fa10233cc0465a6ce62a6f0870719502e89b517cf178073ca643016
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

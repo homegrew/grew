@@ -1,0 +1,23 @@
+name: libxmlb
+version: 0.3.25
+description: Library for querying compressed XML metadata
+homepage: https://github.com/hughsie/libxmlb
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmlb/blobs/sha256:1c3fc7fbdec80b45203671ac8dfe9e8b767675d45e21fd96ff792d43497ee2af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmlb/blobs/sha256:620e5d76fa5b6ebdd0896e467275cad34770c3bc8d0d3cfdcc52545daf18c956
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmlb/blobs/sha256:a47ada3e931a43b22247c160d0f4ea5dd6b8dfc3c0517c458949edc50b126363
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmlb/blobs/sha256:f50c8cbc1c8334b0815819532be5edcebff9b3fbc2ae4ead656b7ca4f46bacfe
+sha256:
+  darwin_arm64: 1c3fc7fbdec80b45203671ac8dfe9e8b767675d45e21fd96ff792d43497ee2af
+  darwin_amd64: 620e5d76fa5b6ebdd0896e467275cad34770c3bc8d0d3cfdcc52545daf18c956
+  linux_amd64: a47ada3e931a43b22247c160d0f4ea5dd6b8dfc3c0517c458949edc50b126363
+  linux_arm64: f50c8cbc1c8334b0815819532be5edcebff9b3fbc2ae4ead656b7ca4f46bacfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - xz
+  - zstd

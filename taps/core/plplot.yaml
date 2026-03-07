@@ -1,0 +1,27 @@
+name: plplot
+version: 5.15.0
+description: Cross-platform software package for creating scientific plots
+homepage: https://plplot.sourceforge.net/
+license: LGPL-2.0-or-later AND BSD-3-Clause AND HPND AND LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plplot/blobs/sha256:8299e82b21073d81694f33383bc0dd37931cfc8f468be9107b8c7b8fcd1cf501
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plplot/blobs/sha256:fe49328f9a4c77b4ef5890371504401147804bb4254525186f1f85a651a740e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plplot/blobs/sha256:91ae9fc5f0d6d1ba8d8bb494bee3304655c35a7c8fa224baad1b9427a3ca3848
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plplot/blobs/sha256:3d07131a9d21a41cc2e5ffcb258312724f3c474220e5d9a0baa8abdfea2c6013
+sha256:
+  darwin_arm64: 8299e82b21073d81694f33383bc0dd37931cfc8f468be9107b8c7b8fcd1cf501
+  darwin_amd64: fe49328f9a4c77b4ef5890371504401147804bb4254525186f1f85a651a740e0
+  linux_amd64: 91ae9fc5f0d6d1ba8d8bb494bee3304655c35a7c8fa224baad1b9427a3ca3848
+  linux_arm64: 3d07131a9d21a41cc2e5ffcb258312724f3c474220e5d9a0baa8abdfea2c6013
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - freetype
+  - gcc
+  - glib
+  - pango
+  - gettext
+  - harfbuzz

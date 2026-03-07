@@ -1,0 +1,19 @@
+name: timelimit
+version: 1.9.2
+description: "Limit a process's absolute execution time"
+homepage: https://devel.ringlet.net/sysutils/timelimit/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/timelimit/blobs/sha256:3460c48c7197860f37a145659bcfa8fbf9d6f9ace62a7b2ff3f1399e9cb2ed7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/timelimit/blobs/sha256:7008f4b446397f0276deec49f23559dd47a3e7963a3d7d74c9fdb7c30fb93a22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/timelimit/blobs/sha256:b7a67387373b1409dd8e80893ccef41f0cf75d02c7256c35c19691bed52b5d8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/timelimit/blobs/sha256:b973aea9d795c610701d9dfb673839abc3f26d25784bf9d3b374f078dca4375f
+sha256:
+  darwin_arm64: 3460c48c7197860f37a145659bcfa8fbf9d6f9ace62a7b2ff3f1399e9cb2ed7d
+  darwin_amd64: 7008f4b446397f0276deec49f23559dd47a3e7963a3d7d74c9fdb7c30fb93a22
+  linux_amd64: b7a67387373b1409dd8e80893ccef41f0cf75d02c7256c35c19691bed52b5d8d
+  linux_arm64: b973aea9d795c610701d9dfb673839abc3f26d25784bf9d3b374f078dca4375f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

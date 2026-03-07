@@ -1,0 +1,19 @@
+name: mimalloc
+version: 3.2.8
+description: Compact general purpose allocator
+homepage: https://github.com/microsoft/mimalloc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mimalloc/blobs/sha256:bc6f9b1db6effe64908a85e46ecfb03341acf1352ba7a3c83308bf1af3e50ffb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mimalloc/blobs/sha256:4b586ead845fadaff26fea75596f2115cd2f4f9184184c82487e4bff9d4bfeb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mimalloc/blobs/sha256:0554e2b09e732858ef460e41a80216e3fc2937711aa244a543e6735991a11557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mimalloc/blobs/sha256:84ccd64fddcd740fd1d8e19b4dc36af100b80cd8210d8ba0bd667605c749029e
+sha256:
+  darwin_arm64: bc6f9b1db6effe64908a85e46ecfb03341acf1352ba7a3c83308bf1af3e50ffb
+  darwin_amd64: 4b586ead845fadaff26fea75596f2115cd2f4f9184184c82487e4bff9d4bfeb5
+  linux_amd64: 0554e2b09e732858ef460e41a80216e3fc2937711aa244a543e6735991a11557
+  linux_arm64: 84ccd64fddcd740fd1d8e19b4dc36af100b80cd8210d8ba0bd667605c749029e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

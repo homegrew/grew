@@ -1,0 +1,21 @@
+name: libksba
+version: 1.6.8
+description: X.509 and CMS library
+homepage: https://www.gnupg.org/related_software/libksba/
+license: LGPL-3.0-or-later OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libksba/blobs/sha256:e215941d6b5de0e4f42f1befd1dca741d8892c2d4bbf0b111279d4c407867cc9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libksba/blobs/sha256:82ecf77c9ae90005a5ac695f034b352dcdb75ec0b846dafb17c4746c81ae8d5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libksba/blobs/sha256:31eb43893e7dff26f077fc9670f8b6180af7d84aefaf1e1d6883c238eb5e91e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libksba/blobs/sha256:470de20803e3d667949abd7e9f6d80057cb3859d88faf040c7009b2e0c416941
+sha256:
+  darwin_arm64: e215941d6b5de0e4f42f1befd1dca741d8892c2d4bbf0b111279d4c407867cc9
+  darwin_amd64: 82ecf77c9ae90005a5ac695f034b352dcdb75ec0b846dafb17c4746c81ae8d5a
+  linux_amd64: 31eb43893e7dff26f077fc9670f8b6180af7d84aefaf1e1d6883c238eb5e91e0
+  linux_arm64: 470de20803e3d667949abd7e9f6d80057cb3859d88faf040c7009b2e0c416941
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgpg-error

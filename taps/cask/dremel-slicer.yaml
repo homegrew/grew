@@ -1,0 +1,11 @@
+name: dremel-slicer
+version: 1.2.3
+description: Securely slice your CAD files
+homepage: https://3pitech.com/pages/desktop-slicer-software
+url:
+  darwin_arm64: https://dremel3d.blob.core.windows.net/dremel3dslicer/1.2.3/Dremel3DSlicer-1.2.3-mac.zip
+sha256:
+  darwin_arm64: d2d78f1f7d45af36e446ff0ea7f0b5f99b442aca72d354522945d38a90ab5d51
+artifacts:
+  app:
+    - Dremel3DSlicer-1.2.3-mac/Dremel DigiLab 3D Slicer.app

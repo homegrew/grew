@@ -1,0 +1,11 @@
+name: ontime
+version: 4.5.0
+description: Time keeping for live events
+homepage: https://getontime.no/
+url:
+  darwin_arm64: https://github.com/cpvalente/ontime/releases/download/v4.5.0/ontime-macOS-arm64.dmg
+sha256:
+  darwin_arm64: 263db3f140fd262aa5bc27eccc08c0fe6fc3a956010c027a7d97d456ba2dd3dd
+artifacts:
+  app:
+    - ontime.app

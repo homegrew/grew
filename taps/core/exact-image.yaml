@@ -1,0 +1,21 @@
+name: exact-image
+version: 1.2.1
+description: Image processing library
+homepage: https://exactcode.com/opensource/exactimage/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exact-image/blobs/sha256:3408ea3e3e84443be2c9f8c30c93f1968a623030872acda7cc6b8a3523e4b99b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exact-image/blobs/sha256:161474f6a91e5c07983fda9445d7d2e35ca02c1eb027fee8ebbcf34ffeabd749
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exact-image/blobs/sha256:9694f083c00dc18913396ea49410cd410b598035718cdd1512c883cfeace46e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exact-image/blobs/sha256:b2b45b0d415e3306f409c1668bc6a00d76270fb66e92d28f9cbafc5e2bd704b9
+sha256:
+  darwin_arm64: 3408ea3e3e84443be2c9f8c30c93f1968a623030872acda7cc6b8a3523e4b99b
+  darwin_amd64: 161474f6a91e5c07983fda9445d7d2e35ca02c1eb027fee8ebbcf34ffeabd749
+  linux_amd64: 9694f083c00dc18913396ea49410cd410b598035718cdd1512c883cfeace46e7
+  linux_arm64: b2b45b0d415e3306f409c1668bc6a00d76270fb66e92d28f9cbafc5e2bd704b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libagg

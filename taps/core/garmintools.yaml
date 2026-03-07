@@ -1,0 +1,21 @@
+name: garmintools
+version: 0.10
+description: Interface to the Garmin Forerunner GPS units
+homepage: https://code.google.com/archive/p/garmintools/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/garmintools/blobs/sha256:47a336083bb5161af82770d5c472d2ce4f358914bce8e2263458e5a757d45433
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/garmintools/blobs/sha256:90cfaa48740de68b7c593c3c94760bcfc5ab109e03b98cebdd56726868188789
+  linux_amd64: https://ghcr.io/v2/homebrew/core/garmintools/blobs/sha256:230b31dd83d9514c35abdb2477e4f1e4941eb1c94bf394814acd46676ced1318
+  linux_arm64: https://ghcr.io/v2/homebrew/core/garmintools/blobs/sha256:651d681008bab2dbe3a05031813af4ed84eca0b086c98dc3ccbdff327b4944dd
+sha256:
+  darwin_arm64: 47a336083bb5161af82770d5c472d2ce4f358914bce8e2263458e5a757d45433
+  darwin_amd64: 90cfaa48740de68b7c593c3c94760bcfc5ab109e03b98cebdd56726868188789
+  linux_amd64: 230b31dd83d9514c35abdb2477e4f1e4941eb1c94bf394814acd46676ced1318
+  linux_arm64: 651d681008bab2dbe3a05031813af4ed84eca0b086c98dc3ccbdff327b4944dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb-compat

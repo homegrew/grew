@@ -1,0 +1,19 @@
+name: lcov
+version: 2.4
+description: "Graphical front-end for GCC's coverage testing tool (gcov)"
+homepage: https://github.com/linux-test-project/lcov
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lcov/blobs/sha256:31751d5ba63f010f5ba85d996f2a487d8f66210650a95c2bd125af69cb949fc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lcov/blobs/sha256:bdcbbe5a978af3066860282aa095d8a2b983f965cb9a86600d29080ffdd18ea3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lcov/blobs/sha256:07128bf10fbe19a6fd27aab9739d6a5e55eccfaaa4c2d2c842961944fc70750f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lcov/blobs/sha256:d79b0f67be549e9cc3bcff583fc5502c4384f5b3bb071035049cbb328ad20e23
+sha256:
+  darwin_arm64: 31751d5ba63f010f5ba85d996f2a487d8f66210650a95c2bd125af69cb949fc3
+  darwin_amd64: bdcbbe5a978af3066860282aa095d8a2b983f965cb9a86600d29080ffdd18ea3
+  linux_amd64: 07128bf10fbe19a6fd27aab9739d6a5e55eccfaaa4c2d2c842961944fc70750f
+  linux_arm64: d79b0f67be549e9cc3bcff583fc5502c4384f5b3bb071035049cbb328ad20e23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

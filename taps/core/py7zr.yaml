@@ -1,0 +1,21 @@
+name: py7zr
+version: 1.1.0
+description: 7-zip in Python
+homepage: https://github.com/miurahr/py7zr
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/py7zr/blobs/sha256:76e176ae724439be2fdb57ead788790e95cbe3e3c5dc7a26d0495e34edba428c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/py7zr/blobs/sha256:2d71e877e3032ef07e045441ce1d78b0381359b28b1ad8b6381fd5cdac2119b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/py7zr/blobs/sha256:4376a9a488122f15d14d4a669f117de6f0243c2df459db443ab6bd52c3fa5ba9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/py7zr/blobs/sha256:c64c8806a211bebcec79846abb38efb00c6bddda059bcd2a4bef8d96356308a2
+sha256:
+  darwin_arm64: 76e176ae724439be2fdb57ead788790e95cbe3e3c5dc7a26d0495e34edba428c
+  darwin_amd64: 2d71e877e3032ef07e045441ce1d78b0381359b28b1ad8b6381fd5cdac2119b5
+  linux_amd64: 4376a9a488122f15d14d4a669f117de6f0243c2df459db443ab6bd52c3fa5ba9
+  linux_arm64: c64c8806a211bebcec79846abb38efb00c6bddda059bcd2a4bef8d96356308a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

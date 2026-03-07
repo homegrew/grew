@@ -1,0 +1,23 @@
+name: dcraw
+version: 9.28.0
+description: Digital camera RAW photo decoding software
+homepage: https://dechifro.org/dcraw/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcraw/blobs/sha256:06e4e4b56c7abf6a3401a398f2b0caca6851a348dc87215c53ccb1eef0b38e18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcraw/blobs/sha256:9021dfd0fd80939f8cf06808522ac0bc3a4ab8daece0489c782ac798946a5e6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcraw/blobs/sha256:e450712cc23c8501e21e7ff438480b0debcb27703a6ba4dcea9e6b00a2ec6fac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcraw/blobs/sha256:2783cb8eca424cae5dece8fd11a9aa41c533d14861791aaf66cd60391e75619a
+sha256:
+  darwin_arm64: 06e4e4b56c7abf6a3401a398f2b0caca6851a348dc87215c53ccb1eef0b38e18
+  darwin_amd64: 9021dfd0fd80939f8cf06808522ac0bc3a4ab8daece0489c782ac798946a5e6a
+  linux_amd64: e450712cc23c8501e21e7ff438480b0debcb27703a6ba4dcea9e6b00a2ec6fac
+  linux_arm64: 2783cb8eca424cae5dece8fd11a9aa41c533d14861791aaf66cd60391e75619a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jasper
+  - jpeg-turbo
+  - little-cms2

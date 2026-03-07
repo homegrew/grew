@@ -1,0 +1,19 @@
+name: liborigin
+version: 3.0.3
+description: Library for reading OriginLab OPJ project files
+homepage: https://sourceforge.net/projects/liborigin/
+license: GPL-2.0-or-later AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liborigin/blobs/sha256:1caef54440a249705a29d9e068bd94c35355c410670286ed1f17d146ef8ae113
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liborigin/blobs/sha256:66b7d4f00528e398d6dac79c6f4bb4b851d0c6a6da36d9ad2a592a8fcb5566db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liborigin/blobs/sha256:4b2bd55d4b555d79b2b215f8d543f9fb5b7c948d066fd8b5bcc42b869b932341
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liborigin/blobs/sha256:ae477544a5737a1f8000896b2ad21d3806bad8b46150615074220eacd9ceb182
+sha256:
+  darwin_arm64: 1caef54440a249705a29d9e068bd94c35355c410670286ed1f17d146ef8ae113
+  darwin_amd64: 66b7d4f00528e398d6dac79c6f4bb4b851d0c6a6da36d9ad2a592a8fcb5566db
+  linux_amd64: 4b2bd55d4b555d79b2b215f8d543f9fb5b7c948d066fd8b5bcc42b869b932341
+  linux_arm64: ae477544a5737a1f8000896b2ad21d3806bad8b46150615074220eacd9ceb182
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

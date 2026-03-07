@@ -1,0 +1,22 @@
+name: dwarf
+version: 0.4.0
+description: Object file manipulation tool
+homepage: https://github.com/elboza/dwarf-ng/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dwarf/blobs/sha256:54cf031b663cb175ebbdb2d6a9015afe24864ea2e46b531a67b6097e648ab636
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dwarf/blobs/sha256:262e43f2bad21b879f0a778064aefc3c5aa5ba9a04d74169a8681399a0028a9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dwarf/blobs/sha256:15de6388ac637850379a4b2cf37e2089b97b96cf0df0ed536f3c7b7b19a9c641
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dwarf/blobs/sha256:bb1f87a3d1dc58e5d5d651e9645a08653db6835b0503ec8f780a0dbbd7a87443
+sha256:
+  darwin_arm64: 54cf031b663cb175ebbdb2d6a9015afe24864ea2e46b531a67b6097e648ab636
+  darwin_amd64: 262e43f2bad21b879f0a778064aefc3c5aa5ba9a04d74169a8681399a0028a9d
+  linux_amd64: 15de6388ac637850379a4b2cf37e2089b97b96cf0df0ed536f3c7b7b19a9c641
+  linux_arm64: bb1f87a3d1dc58e5d5d651e9645a08653db6835b0503ec8f780a0dbbd7a87443
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flex
+  - readline

@@ -1,0 +1,19 @@
+name: lci
+version: 1.1
+description: Interpreter for the lambda calculus
+homepage: https://www.chatzi.org/lci/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lci/blobs/sha256:8489fde41d750512814a3aa95a72fe1df512d724e9d543b7c05a0f515a0b8007
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lci/blobs/sha256:e32fad6844ab4a93730432d96c263980089464b7f382bf485903b79352d3538b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lci/blobs/sha256:19652d5516ba04ec5519854bdfb56b38156890fa066d6ced1a8d6d228e60c509
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lci/blobs/sha256:2d8de81c217d9624bbbdb63f6375d685cd43d08ddcc299fe2ff9a8143ea345d8
+sha256:
+  darwin_arm64: 8489fde41d750512814a3aa95a72fe1df512d724e9d543b7c05a0f515a0b8007
+  darwin_amd64: e32fad6844ab4a93730432d96c263980089464b7f382bf485903b79352d3538b
+  linux_amd64: 19652d5516ba04ec5519854bdfb56b38156890fa066d6ced1a8d6d228e60c509
+  linux_arm64: 2d8de81c217d9624bbbdb63f6375d685cd43d08ddcc299fe2ff9a8143ea345d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

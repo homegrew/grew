@@ -1,0 +1,22 @@
+name: pgslice
+version: 0.7.2
+description: Postgres partitioning as easy as pie
+homepage: https://github.com/ankane/pgslice
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgslice/blobs/sha256:11819b8c5a090be57c1d7122e5fc3462159fb7190e1ca5610f7e7eb637f7bebe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgslice/blobs/sha256:9fb2970a1336b2488378de8c6e291a5c63d7468b7c4635895ba96d89e8a6e6be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgslice/blobs/sha256:8416b778ccc3f5aa00631ddfc2f76957efd54b39fc22273edadf9c461a9892c5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgslice/blobs/sha256:78b9262b02cb4a3124062fa362d07bbadfb86110c4c00a7b081a20d43a2f070d
+sha256:
+  darwin_arm64: 11819b8c5a090be57c1d7122e5fc3462159fb7190e1ca5610f7e7eb637f7bebe
+  darwin_amd64: 9fb2970a1336b2488378de8c6e291a5c63d7468b7c4635895ba96d89e8a6e6be
+  linux_amd64: 8416b778ccc3f5aa00631ddfc2f76957efd54b39fc22273edadf9c461a9892c5
+  linux_arm64: 78b9262b02cb4a3124062fa362d07bbadfb86110c4c00a7b081a20d43a2f070d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - ruby

@@ -1,0 +1,11 @@
+name: fontgoggles
+version: 1.9.2
+description: Font viewer for various font formats
+homepage: https://fontgoggles.org/
+url:
+  darwin_arm64: https://github.com/justvanrossum/fontgoggles/releases/download/v1.9.2/FontGoggles.dmg
+sha256:
+  darwin_arm64: b6e8866b9dd8140e5b4a66ef43acc5bce0a4dc16c56b29c67260d5a79666eac2
+artifacts:
+  app:
+    - FontGoggles.app

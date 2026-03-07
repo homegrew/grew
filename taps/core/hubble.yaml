@@ -1,0 +1,19 @@
+name: hubble
+version: 1.18.6
+description: "Network, Service & Security Observability for Kubernetes using eBPF"
+homepage: https://github.com/cilium/hubble
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hubble/blobs/sha256:15a05af2fe3d35be2b25f0f91e4ba9bf42ebdb63b6a2a21233269fca2b967409
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hubble/blobs/sha256:6586ffb82d4f9260d412b9394b6e5b45ceed6b3b2670167b8f7a1bc3c08964a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hubble/blobs/sha256:125080b4d2f4d6fabf25922579fbbae209e19eea9d396434e1590fe34f096762
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hubble/blobs/sha256:0318082aaab8c9828fe07748bbf35cc112654635f9d38b358799a97cef2acf9f
+sha256:
+  darwin_arm64: 15a05af2fe3d35be2b25f0f91e4ba9bf42ebdb63b6a2a21233269fca2b967409
+  darwin_amd64: 6586ffb82d4f9260d412b9394b6e5b45ceed6b3b2670167b8f7a1bc3c08964a5
+  linux_amd64: 125080b4d2f4d6fabf25922579fbbae209e19eea9d396434e1590fe34f096762
+  linux_arm64: 0318082aaab8c9828fe07748bbf35cc112654635f9d38b358799a97cef2acf9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

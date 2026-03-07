@@ -1,0 +1,15 @@
+name: fcitx-remote-for-osx
+version: 0.4.0
+description: Handle input method in command-line
+homepage: https://github.com/xcodebuild/fcitx-remote-for-osx
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fcitx-remote-for-osx/blobs/sha256:ec25385e4a84e52059462f9cfaa20504a4a422f211ec11437c9e3550cffc6fcd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fcitx-remote-for-osx/blobs/sha256:be5d0e593f22a65f01d698aa72f1a559f4c070019590997274cfe6f79fadee98
+sha256:
+  darwin_arm64: ec25385e4a84e52059462f9cfaa20504a4a422f211ec11437c9e3550cffc6fcd
+  darwin_amd64: be5d0e593f22a65f01d698aa72f1a559f4c070019590997274cfe6f79fadee98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

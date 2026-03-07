@@ -1,0 +1,22 @@
+name: isync
+version: 1.5.1
+description: Synchronize a maildir with an IMAP server
+homepage: https://isync.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/isync/blobs/sha256:112d7d4dd67530267fd137c2a4dc088128cfb86645df9baacdf347657f638779
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/isync/blobs/sha256:a0ced90c4006994b8a962ff402b1580aa27f821193aaec168562f08eee713c13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/isync/blobs/sha256:328a896bb3825d07bf63b0650f0031fc1a0ff7c44a785952cf3c29f88f53a881
+  linux_arm64: https://ghcr.io/v2/homebrew/core/isync/blobs/sha256:bb02c3cdc9fdae85acc97a271031a4fc62b23241926f3cd905f2d201a21f1e0c
+sha256:
+  darwin_arm64: 112d7d4dd67530267fd137c2a4dc088128cfb86645df9baacdf347657f638779
+  darwin_amd64: a0ced90c4006994b8a962ff402b1580aa27f821193aaec168562f08eee713c13
+  linux_amd64: 328a896bb3825d07bf63b0650f0031fc1a0ff7c44a785952cf3c29f88f53a881
+  linux_arm64: bb02c3cdc9fdae85acc97a271031a4fc62b23241926f3cd905f2d201a21f1e0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - openssl@3

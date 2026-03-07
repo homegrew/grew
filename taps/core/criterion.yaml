@@ -1,0 +1,23 @@
+name: criterion
+version: 2.4.3
+description: Cross-platform C and C++ unit testing framework for the 21st century
+homepage: https://github.com/Snaipe/Criterion
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/criterion/blobs/sha256:a9672d4007899f8d5441fafd3738863c93829abce3bc43031981c82b5c11f17c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/criterion/blobs/sha256:262cc7f448b90131c51d7bf5bbc82d49707551f73fbfa53d7a0d917e077c80f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/criterion/blobs/sha256:6c9a32199fe0c88d3bfd6b9f4d40f17e573147152190cebb00fb72e58f287c16
+  linux_arm64: https://ghcr.io/v2/homebrew/core/criterion/blobs/sha256:554c2d54bc12923dfe181c740f6a82af803485926fded8afa8daf3508239a341
+sha256:
+  darwin_arm64: a9672d4007899f8d5441fafd3738863c93829abce3bc43031981c82b5c11f17c
+  darwin_amd64: 262cc7f448b90131c51d7bf5bbc82d49707551f73fbfa53d7a0d917e077c80f3
+  linux_amd64: 6c9a32199fe0c88d3bfd6b9f4d40f17e573147152190cebb00fb72e58f287c16
+  linux_arm64: 554c2d54bc12923dfe181c740f6a82af803485926fded8afa8daf3508239a341
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - nanomsg
+  - nanopb

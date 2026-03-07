@@ -1,0 +1,19 @@
+name: sftpgo
+version: 2.7.0
+description: Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support
+homepage: https://sftpgo.com/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sftpgo/blobs/sha256:a2c5a58f6786fa00d6088cf3aa6d4a18633f86b7c1af5111a7c720ea6982f741
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sftpgo/blobs/sha256:2ad06c7ac8a561cc2a7db80ba4bc7854519e5dd29d06ca48b77e1dd288b9e1ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sftpgo/blobs/sha256:58b43409163f36ca08dfda3966147fb3b9adc9b0c2e5ca9e11bffb651a7f02ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sftpgo/blobs/sha256:a2055c3947c346d8dfa56a4908da3abfdb635b12883c0ebb7439c1fa9b09a215
+sha256:
+  darwin_arm64: a2c5a58f6786fa00d6088cf3aa6d4a18633f86b7c1af5111a7c720ea6982f741
+  darwin_amd64: 2ad06c7ac8a561cc2a7db80ba4bc7854519e5dd29d06ca48b77e1dd288b9e1ff
+  linux_amd64: 58b43409163f36ca08dfda3966147fb3b9adc9b0c2e5ca9e11bffb651a7f02ae
+  linux_arm64: a2055c3947c346d8dfa56a4908da3abfdb635b12883c0ebb7439c1fa9b09a215
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

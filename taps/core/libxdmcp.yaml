@@ -1,0 +1,21 @@
+name: libxdmcp
+version: 1.1.5
+description: "X.Org: X Display Manager Control Protocol library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxdmcp/blobs/sha256:34ca0da1c319eeea93ce31badfb5c29c8876cea644754279e93f6cf032ab5cb1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxdmcp/blobs/sha256:b43d28c50f25ee0775a1bd4269e236d00e352ac060522bfc9186b35165095c56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxdmcp/blobs/sha256:d8b9dc2969e85e26c6d426d8865244e1416d73f7f408c9f5404a2a614a62e7d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxdmcp/blobs/sha256:a19ed1302e0632f8f6e8276824bb189a4384d007707bfa891d64925af4e6d4f1
+sha256:
+  darwin_arm64: 34ca0da1c319eeea93ce31badfb5c29c8876cea644754279e93f6cf032ab5cb1
+  darwin_amd64: b43d28c50f25ee0775a1bd4269e236d00e352ac060522bfc9186b35165095c56
+  linux_amd64: d8b9dc2969e85e26c6d426d8865244e1416d73f7f408c9f5404a2a614a62e7d4
+  linux_arm64: a19ed1302e0632f8f6e8276824bb189a4384d007707bfa891d64925af4e6d4f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xorgproto

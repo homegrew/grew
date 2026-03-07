@@ -1,0 +1,19 @@
+name: microplane
+version: 0.0.37
+description: CLI tool to make git changes across many repos
+homepage: https://github.com/Clever/microplane
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/microplane/blobs/sha256:6e76d1c6bcd09c9b3bc0d5e70cc0b03a14c26ec0a7514d12c1f39b721c5a6729
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/microplane/blobs/sha256:53e6a5c9e2b0df68456b189f4529acb4045d18e5b22415d8ca7f598d53d4c456
+  linux_amd64: https://ghcr.io/v2/homebrew/core/microplane/blobs/sha256:9f139ba0db65eb05e492aa1b33d11e10808f335dc36058e042db411ba514d7ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/microplane/blobs/sha256:62d36f665bd9186d9a9f79b9f4f1112256d0dfb3ec0b7c9fcc6fbd27def5c1c0
+sha256:
+  darwin_arm64: 6e76d1c6bcd09c9b3bc0d5e70cc0b03a14c26ec0a7514d12c1f39b721c5a6729
+  darwin_amd64: 53e6a5c9e2b0df68456b189f4529acb4045d18e5b22415d8ca7f598d53d4c456
+  linux_amd64: 9f139ba0db65eb05e492aa1b33d11e10808f335dc36058e042db411ba514d7ad
+  linux_arm64: 62d36f665bd9186d9a9f79b9f4f1112256d0dfb3ec0b7c9fcc6fbd27def5c1c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: box2d
+version: 3.1.1
+description: 2D physics engine for games
+homepage: https://box2d.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/box2d/blobs/sha256:e95ece003153c1a1124100c94a3c761e7b2e704551dc088d8062c97c94456cc0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/box2d/blobs/sha256:37aa98eb7c538baac562620e3aed1187e0d23c713d73c8ec4c2def5c340d049b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/box2d/blobs/sha256:36086574d8eb78f65b8c94dc4ae1b94e9df18356c2636bf91b3a3bbffcc4805b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/box2d/blobs/sha256:4c7471357570866b88743c8207c45e190e9478ecd7a0c44fbaf0bb603015df95
+sha256:
+  darwin_arm64: e95ece003153c1a1124100c94a3c761e7b2e704551dc088d8062c97c94456cc0
+  darwin_amd64: 37aa98eb7c538baac562620e3aed1187e0d23c713d73c8ec4c2def5c340d049b
+  linux_amd64: 36086574d8eb78f65b8c94dc4ae1b94e9df18356c2636bf91b3a3bbffcc4805b
+  linux_arm64: 4c7471357570866b88743c8207c45e190e9478ecd7a0c44fbaf0bb603015df95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

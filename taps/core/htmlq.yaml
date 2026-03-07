@@ -1,0 +1,19 @@
+name: htmlq
+version: 0.4.0
+description: Uses CSS selectors to extract bits content from HTML files
+homepage: https://github.com/mgdm/htmlq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htmlq/blobs/sha256:10400c86049f0533ce50d31348a73cfbed969c2143c5080c674b962378b6d81e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htmlq/blobs/sha256:751848732c51050f5fe2e00e8ddbe287b4dd399e34f44f2dece25672c795b25c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htmlq/blobs/sha256:b93418d06723d65a8da8cb3c34819f24f825a057efc7788bf45f0db3484abf13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htmlq/blobs/sha256:feb04cd2b99368ec5b5ad4119906d9766235c8d88ab842f26ec35126c9c535a5
+sha256:
+  darwin_arm64: 10400c86049f0533ce50d31348a73cfbed969c2143c5080c674b962378b6d81e
+  darwin_amd64: 751848732c51050f5fe2e00e8ddbe287b4dd399e34f44f2dece25672c795b25c
+  linux_amd64: b93418d06723d65a8da8cb3c34819f24f825a057efc7788bf45f0db3484abf13
+  linux_arm64: feb04cd2b99368ec5b5ad4119906d9766235c8d88ab842f26ec35126c9c535a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

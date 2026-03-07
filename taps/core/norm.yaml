@@ -1,0 +1,19 @@
+name: norm
+version: 1.5.9
+description: NACK-Oriented Reliable Multicast
+homepage: https://www.nrl.navy.mil/itd/ncs/products/norm
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/norm/blobs/sha256:a8b6f0061522bcf29d931c09c1b59ccaa2d80ae14567f7c5dd26daab0c4931bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/norm/blobs/sha256:380a1a18e78e03b446d64a1dcf2d22c86bdf53fa0709a70fec0bd63c30d5f4a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/norm/blobs/sha256:0749ed0f0382f434ebec2f77953464af8d80db63e8a36760013a32dffea3c501
+  linux_arm64: https://ghcr.io/v2/homebrew/core/norm/blobs/sha256:cc5db1902343405319417d14dd804b7c2662dbe6c6d488f643dd8ae45561a418
+sha256:
+  darwin_arm64: a8b6f0061522bcf29d931c09c1b59ccaa2d80ae14567f7c5dd26daab0c4931bf
+  darwin_amd64: 380a1a18e78e03b446d64a1dcf2d22c86bdf53fa0709a70fec0bd63c30d5f4a2
+  linux_amd64: 0749ed0f0382f434ebec2f77953464af8d80db63e8a36760013a32dffea3c501
+  linux_arm64: cc5db1902343405319417d14dd804b7c2662dbe6c6d488f643dd8ae45561a418
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

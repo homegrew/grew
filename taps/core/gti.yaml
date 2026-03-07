@@ -1,0 +1,19 @@
+name: gti
+version: 1.9.1
+description: ASCII-art displaying typo-corrector for commands
+homepage: https://r-wos.org/hacks/gti
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gti/blobs/sha256:92eaaa595256c1a44b2c7b239d5569a9f023dfde904a9ba74ce9a0da44395a9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gti/blobs/sha256:11055e312584cca72aa358c1cc27ea9bc4d76bdb5f5f030ce3633cf6fc994f17
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gti/blobs/sha256:ca34ee86c2f431b36b38d90251d42b6e68b52cb506d8f5197c4cfc1f807fe718
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gti/blobs/sha256:86c9c281f743ac0808f749dfff7744cc6c4aa72ed6cc450fc0ad324dc3e0f815
+sha256:
+  darwin_arm64: 92eaaa595256c1a44b2c7b239d5569a9f023dfde904a9ba74ce9a0da44395a9f
+  darwin_amd64: 11055e312584cca72aa358c1cc27ea9bc4d76bdb5f5f030ce3633cf6fc994f17
+  linux_amd64: ca34ee86c2f431b36b38d90251d42b6e68b52cb506d8f5197c4cfc1f807fe718
+  linux_arm64: 86c9c281f743ac0808f749dfff7744cc6c4aa72ed6cc450fc0ad324dc3e0f815
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

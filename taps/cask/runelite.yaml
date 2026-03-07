@@ -1,0 +1,11 @@
+name: runelite
+version: 2.7.7
+description: Client for Old School RuneScape
+homepage: https://runelite.net/
+url:
+  darwin_arm64: https://github.com/runelite/launcher/releases/download/2.7.7/RuneLite-aarch64.dmg
+sha256:
+  darwin_arm64: b8afe68ced65189de59a261f455991e75d7a4fe971d8dc3abeb4df6ff14d82b7
+artifacts:
+  app:
+    - RuneLite.app

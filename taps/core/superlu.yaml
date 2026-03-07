@@ -1,0 +1,21 @@
+name: superlu
+version: 7.0.1
+description: Solve large, sparse nonsymmetric systems of equations
+homepage: https://portal.nersc.gov/project/sparse/superlu/
+license: BSD-3-Clause-LBNL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/superlu/blobs/sha256:effe04f1a11b47d86cbe720ee1bcfae0e73b8b8967a84e02b0faa6628d8b1ea0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/superlu/blobs/sha256:fd42d302b82283fa235c95b33ea817827597de779bbac6662ba05132626e3230
+  linux_amd64: https://ghcr.io/v2/homebrew/core/superlu/blobs/sha256:e7416ff44fcf9b76c0646b8273e1c689621aff0016d1673e9fe25329111305c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/superlu/blobs/sha256:1a23f58a2c959e8cb6a430e11d5055c947344e5881e18b4e88baa73121d81139
+sha256:
+  darwin_arm64: effe04f1a11b47d86cbe720ee1bcfae0e73b8b8967a84e02b0faa6628d8b1ea0
+  darwin_amd64: fd42d302b82283fa235c95b33ea817827597de779bbac6662ba05132626e3230
+  linux_amd64: e7416ff44fcf9b76c0646b8273e1c689621aff0016d1673e9fe25329111305c1
+  linux_arm64: 1a23f58a2c959e8cb6a430e11d5055c947344e5881e18b4e88baa73121d81139
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas

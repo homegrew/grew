@@ -1,0 +1,19 @@
+name: chmlib
+version: 0.40
+description: Library for dealing with Microsoft ITSS/CHM files
+homepage: https://www.jedrea.com/chmlib/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chmlib/blobs/sha256:023b19e53523d58babcd983aba314c758781ecfdcde1b76881d4b7f99503b7dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chmlib/blobs/sha256:a2d5310e0320a5d7bcf868c63302811c1148351cbd52c53f5d8a526542244525
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chmlib/blobs/sha256:61a085287bba377e847d027575fd848cbadc0f6b5bd8f2efc008cc54d8f32d32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chmlib/blobs/sha256:dc0799919a7cc91ec7505ec8e8a7290baa38342a10e4e4ca9017f417ffda95c1
+sha256:
+  darwin_arm64: 023b19e53523d58babcd983aba314c758781ecfdcde1b76881d4b7f99503b7dc
+  darwin_amd64: a2d5310e0320a5d7bcf868c63302811c1148351cbd52c53f5d8a526542244525
+  linux_amd64: 61a085287bba377e847d027575fd848cbadc0f6b5bd8f2efc008cc54d8f32d32
+  linux_arm64: dc0799919a7cc91ec7505ec8e8a7290baa38342a10e4e4ca9017f417ffda95c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

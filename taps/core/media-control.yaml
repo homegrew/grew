@@ -1,0 +1,15 @@
+name: media-control
+version: 0.7.2
+description: Control and observe media playback from the command-line
+homepage: https://github.com/ungive/media-control
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/media-control/blobs/sha256:5d30162759b982c646ca3223f2edd5891e28dc73debfe336e0ae8307c81eec05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/media-control/blobs/sha256:302a37ed8cd23fd9e78546f31247b25cf87460c49ce8e87d9966be4966e835c9
+sha256:
+  darwin_arm64: 5d30162759b982c646ca3223f2edd5891e28dc73debfe336e0ae8307c81eec05
+  darwin_amd64: 302a37ed8cd23fd9e78546f31247b25cf87460c49ce8e87d9966be4966e835c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

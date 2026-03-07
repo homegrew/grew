@@ -1,0 +1,22 @@
+name: mpich
+version: 5.0.0
+description: Implementation of the MPI Message Passing Interface standard
+homepage: https://www.mpich.org/
+license: mpich2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mpich/blobs/sha256:cddd7243c9fc14d85739eb391df96403eacd14858dedd6c26860c40f541d21d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mpich/blobs/sha256:53d20db6489f7d0926a3a2de398fe7aa0ee3c8fd001626cd05a6b5a4212b8b5e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mpich/blobs/sha256:efd3020248992ffe6f2c3f1104022f140d516628990ebf4ac4bc0207273da3e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mpich/blobs/sha256:22ecf35c9bbbdf4349cbd7fe58ce4a960795f3a0cace045294e63d4371a87130
+sha256:
+  darwin_arm64: cddd7243c9fc14d85739eb391df96403eacd14858dedd6c26860c40f541d21d4
+  darwin_amd64: 53d20db6489f7d0926a3a2de398fe7aa0ee3c8fd001626cd05a6b5a4212b8b5e
+  linux_amd64: efd3020248992ffe6f2c3f1104022f140d516628990ebf4ac4bc0207273da3e6
+  linux_arm64: 22ecf35c9bbbdf4349cbd7fe58ce4a960795f3a0cace045294e63d4371a87130
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - hwloc

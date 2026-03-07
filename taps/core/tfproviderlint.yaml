@@ -1,0 +1,19 @@
+name: tfproviderlint
+version: 0.31.0
+description: Terraform Provider Lint Tool
+homepage: https://github.com/bflad/tfproviderlint
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfproviderlint/blobs/sha256:6f4bf27d9b61e145f042c164ed14a9a3a01ce9b9caaafabd14dd91764b6f7014
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfproviderlint/blobs/sha256:a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfproviderlint/blobs/sha256:45dcc2992373e36bd948f80f3a4e9db317c4d209ee2e449c476fbd1e4490854c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfproviderlint/blobs/sha256:a31f564bfe6ecb8bb9ac76043141bf54674b05d51ef4c0df2cfa964fdf25742c
+sha256:
+  darwin_arm64: 6f4bf27d9b61e145f042c164ed14a9a3a01ce9b9caaafabd14dd91764b6f7014
+  darwin_amd64: a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36
+  linux_amd64: 45dcc2992373e36bd948f80f3a4e9db317c4d209ee2e449c476fbd1e4490854c
+  linux_arm64: a31f564bfe6ecb8bb9ac76043141bf54674b05d51ef4c0df2cfa964fdf25742c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

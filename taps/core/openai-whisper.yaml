@@ -1,0 +1,25 @@
+name: openai-whisper
+version: 20250625
+description: General-purpose speech recognition model
+homepage: https://github.com/openai/whisper
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openai-whisper/blobs/sha256:227556d6e6dfa4ca40db7aa725c017e4ce967671ff85f42b9477ce46e7f8e1df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openai-whisper/blobs/sha256:8608f50fb6ba8c16cebfc86c26faf41f777172d9cd80b380ef8b7d236c657b2c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openai-whisper/blobs/sha256:f2914c7ea1da587e7adcc447593b7c3ea55e22f7b41214cb5dc6587b41f85321
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openai-whisper/blobs/sha256:ec3439c4ebfa0277efa7511e26d5dd748b61a3c37613044429beeb00bb0e7fca
+sha256:
+  darwin_arm64: 227556d6e6dfa4ca40db7aa725c017e4ce967671ff85f42b9477ce46e7f8e1df
+  darwin_amd64: 8608f50fb6ba8c16cebfc86c26faf41f777172d9cd80b380ef8b7d236c657b2c
+  linux_amd64: f2914c7ea1da587e7adcc447593b7c3ea55e22f7b41214cb5dc6587b41f85321
+  linux_arm64: ec3439c4ebfa0277efa7511e26d5dd748b61a3c37613044429beeb00bb0e7fca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - ffmpeg
+  - llvm@20
+  - python@3.14
+  - pytorch

@@ -1,0 +1,21 @@
+name: credo
+version: 1.7.17
+description: Static code analysis tool for the Elixir
+homepage: https://github.com/rrrene/credo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/credo/blobs/sha256:246a210fd1132ca7cd40cfb33271aff91f83bdc057a2c8d9d6e63bba35a49d2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/credo/blobs/sha256:7b26902ec516a19c7cad61a3b784eed7259bf2b703f27280db0ddb7ab78d3f1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/credo/blobs/sha256:1a9dad2d7c8405ecc6d79b0dc25926072abfc095e649e9f7c9627ec080638910
+  linux_arm64: https://ghcr.io/v2/homebrew/core/credo/blobs/sha256:17d4a16b32494feed28318310d9198a34b80a6bf50ffa87a02cf9dc6fba3c90b
+sha256:
+  darwin_arm64: 246a210fd1132ca7cd40cfb33271aff91f83bdc057a2c8d9d6e63bba35a49d2a
+  darwin_amd64: 7b26902ec516a19c7cad61a3b784eed7259bf2b703f27280db0ddb7ab78d3f1d
+  linux_amd64: 1a9dad2d7c8405ecc6d79b0dc25926072abfc095e649e9f7c9627ec080638910
+  linux_arm64: 17d4a16b32494feed28318310d9198a34b80a6bf50ffa87a02cf9dc6fba3c90b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elixir

@@ -1,0 +1,19 @@
+name: cdpr
+version: 2.4
+description: Cisco Discovery Protocol Reporter
+homepage: https://www.monkeymental.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdpr/blobs/sha256:82a48884ef52f0eac1769644d8efa9ee572031be613669d16b3b23c1e09f1393
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdpr/blobs/sha256:cc072ad444adf7814675187844074684fcf33b12dc87e7044d6151864adbb40b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdpr/blobs/sha256:6a2162fee06fc9c03e01a2a6787a18f1d8a0c241a0c315d76878b09ea787c7b6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdpr/blobs/sha256:ea696f5689ebc5dd7ca3dfc9621e40da5ceb24b4016607c713a7f05d5de2a130
+sha256:
+  darwin_arm64: 82a48884ef52f0eac1769644d8efa9ee572031be613669d16b3b23c1e09f1393
+  darwin_amd64: cc072ad444adf7814675187844074684fcf33b12dc87e7044d6151864adbb40b
+  linux_amd64: 6a2162fee06fc9c03e01a2a6787a18f1d8a0c241a0c315d76878b09ea787c7b6
+  linux_arm64: ea696f5689ebc5dd7ca3dfc9621e40da5ceb24b4016607c713a7f05d5de2a130
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

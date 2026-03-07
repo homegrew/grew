@@ -1,0 +1,21 @@
+name: gsettings-desktop-schemas
+version: 49.1
+description: GSettings schemas for desktop components
+homepage: https://download.gnome.org/sources/gsettings-desktop-schemas/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gsettings-desktop-schemas/blobs/sha256:e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gsettings-desktop-schemas/blobs/sha256:e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gsettings-desktop-schemas/blobs/sha256:58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gsettings-desktop-schemas/blobs/sha256:58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b
+sha256:
+  darwin_arm64: e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39
+  darwin_amd64: e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39
+  linux_amd64: 58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b
+  linux_arm64: 58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

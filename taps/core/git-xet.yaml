@@ -1,0 +1,22 @@
+name: git-xet
+version: 0.2.1
+description: Git LFS plugin that uploads and downloads using the Xet protocol
+homepage: https://github.com/huggingface/xet-core
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-xet/blobs/sha256:fa293bcf41e4dd054600a3c5d313dbd8926ea20649995ebd19841880f93c3d87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-xet/blobs/sha256:ad5184c34799464346c53ddbaae67eae1a6bbe434e0258dc459408505681d9f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-xet/blobs/sha256:a2695818b043d4c2bd65b81b958cab2ef31af417d3270724fad2a736d873e523
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-xet/blobs/sha256:ec75d7c4ae3420eb6f6a7bd0a247d1b40b626492f65ad512afbda27d87b71e44
+sha256:
+  darwin_arm64: fa293bcf41e4dd054600a3c5d313dbd8926ea20649995ebd19841880f93c3d87
+  darwin_amd64: ad5184c34799464346c53ddbaae67eae1a6bbe434e0258dc459408505681d9f9
+  linux_amd64: a2695818b043d4c2bd65b81b958cab2ef31af417d3270724fad2a736d873e523
+  linux_arm64: ec75d7c4ae3420eb6f6a7bd0a247d1b40b626492f65ad512afbda27d87b71e44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - git-lfs
+  - openssl@3

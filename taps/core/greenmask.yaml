@@ -1,0 +1,19 @@
+name: greenmask
+version: 0.2.16
+description: PostgreSQL dump and obfuscation tool
+homepage: https://www.greenmask.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/greenmask/blobs/sha256:9de54eb221e7365acebf3c36e2418f8a77b2a271313edddeb8659fa9ade39b7b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/greenmask/blobs/sha256:2ae06d47899e6715671b666aac8d2c492785051d7eaf8474832e2b969c287369
+  linux_amd64: https://ghcr.io/v2/homebrew/core/greenmask/blobs/sha256:31ca8501447b8187e578105f3ab608217b46dc5acadb416295be64eecbea56e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/greenmask/blobs/sha256:f886926b62ddace9bc9febfa81578ee27ed1d05eb5402ee181d613673c18a1aa
+sha256:
+  darwin_arm64: 9de54eb221e7365acebf3c36e2418f8a77b2a271313edddeb8659fa9ade39b7b
+  darwin_amd64: 2ae06d47899e6715671b666aac8d2c492785051d7eaf8474832e2b969c287369
+  linux_amd64: 31ca8501447b8187e578105f3ab608217b46dc5acadb416295be64eecbea56e9
+  linux_arm64: f886926b62ddace9bc9febfa81578ee27ed1d05eb5402ee181d613673c18a1aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

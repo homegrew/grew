@@ -1,0 +1,22 @@
+name: mac-cleanup-py
+version: 3.3.0
+description: Python cleanup script for macOS
+homepage: https://github.com/mac-cleanup/mac-cleanup-py
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mac-cleanup-py/blobs/sha256:eec63de40a6249ab2595124edfe094dc03a4211226caabb93898c72cea9966c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mac-cleanup-py/blobs/sha256:64e1e73ebd95814394446ea78b4b681ee72460070ae38a65c5da165aea81dc26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mac-cleanup-py/blobs/sha256:02577be91ae473eea3b27986d2d81e2cb9c3e85838e1d7c1c4512d1e6c1000fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mac-cleanup-py/blobs/sha256:0b3cd0f446f075510ab4dd9e12333840ebfc085bd22e3b24a439fab163df4f4f
+sha256:
+  darwin_arm64: eec63de40a6249ab2595124edfe094dc03a4211226caabb93898c72cea9966c1
+  darwin_amd64: 64e1e73ebd95814394446ea78b4b681ee72460070ae38a65c5da165aea81dc26
+  linux_amd64: 02577be91ae473eea3b27986d2d81e2cb9c3e85838e1d7c1c4512d1e6c1000fd
+  linux_arm64: 0b3cd0f446f075510ab4dd9e12333840ebfc085bd22e3b24a439fab163df4f4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cffi
+  - python@3.14

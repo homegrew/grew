@@ -1,0 +1,19 @@
+name: nuttcp
+version: 8.2.2
+description: Network performance measurement tool
+homepage: https://www.nuttcp.net/nuttcp/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nuttcp/blobs/sha256:d600108d6b3d7e8b8b91dfa5a7a9b842e7c6b36553c6e6eea10b4c0172e1dc00
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nuttcp/blobs/sha256:5cfa8c2cc2f19adca00c59e5f2a2ff0aadf5f5a3b35626c928437b83acdcc22a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nuttcp/blobs/sha256:9a45bf649ab4f28ef78699c00d3b71afa3655f26cafaeb01fb7f99fc9f133471
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nuttcp/blobs/sha256:dcfba3237982e60f9c4605ff141b05308e4bad588891b72cf48df390df84fba2
+sha256:
+  darwin_arm64: d600108d6b3d7e8b8b91dfa5a7a9b842e7c6b36553c6e6eea10b4c0172e1dc00
+  darwin_amd64: 5cfa8c2cc2f19adca00c59e5f2a2ff0aadf5f5a3b35626c928437b83acdcc22a
+  linux_amd64: 9a45bf649ab4f28ef78699c00d3b71afa3655f26cafaeb01fb7f99fc9f133471
+  linux_arm64: dcfba3237982e60f9c4605ff141b05308e4bad588891b72cf48df390df84fba2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

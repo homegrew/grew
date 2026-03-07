@@ -1,0 +1,19 @@
+name: zbctl
+version: 8.6.0
+description: Zeebe CLI client
+homepage: https://docs.camunda.io/docs/apis-tools/community-clients/cli-client/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zbctl/blobs/sha256:2c50d697a9616e92dd206e8cd4b017bdd5ff84f2fbf80ce1fd211038d28f8275
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zbctl/blobs/sha256:b4abef43622eccd366d814af4390ecc1f9f8d76290b093d5a1a9f499e9c69dc3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zbctl/blobs/sha256:8cf35096a17baca1d4c05d682b73f2c6974c2740b37610220054b35fad034d3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zbctl/blobs/sha256:66d06b626726ebff2314359c8de8d86ba882340de931cae4a3af33cb65a6ca96
+sha256:
+  darwin_arm64: 2c50d697a9616e92dd206e8cd4b017bdd5ff84f2fbf80ce1fd211038d28f8275
+  darwin_amd64: b4abef43622eccd366d814af4390ecc1f9f8d76290b093d5a1a9f499e9c69dc3
+  linux_amd64: 8cf35096a17baca1d4c05d682b73f2c6974c2740b37610220054b35fad034d3a
+  linux_arm64: 66d06b626726ebff2314359c8de8d86ba882340de931cae4a3af33cb65a6ca96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

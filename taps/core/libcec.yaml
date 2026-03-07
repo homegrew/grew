@@ -1,0 +1,19 @@
+name: libcec
+version: 7.1.1
+description: Control devices with TV remote control and HDMI cabling
+homepage: https://libcec.pulse-eight.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcec/blobs/sha256:7a2f85ce7242058e838d66f633131d1fdd3d19dd7fddf1a84f6678db006999e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcec/blobs/sha256:0b819287c07576627c5029b3c57d295ef60fd8e8d8f25d6876b8362c7a03c2db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcec/blobs/sha256:a1e8795e972cddb728bd93304f2a97ded54988e0a5a253d13a6a2a683d0e2c2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcec/blobs/sha256:680f4262c03b5a10e88bee7ba827762f84e38d943d68a8d0ca61485738f97128
+sha256:
+  darwin_arm64: 7a2f85ce7242058e838d66f633131d1fdd3d19dd7fddf1a84f6678db006999e1
+  darwin_amd64: 0b819287c07576627c5029b3c57d295ef60fd8e8d8f25d6876b8362c7a03c2db
+  linux_amd64: a1e8795e972cddb728bd93304f2a97ded54988e0a5a253d13a6a2a683d0e2c2f
+  linux_arm64: 680f4262c03b5a10e88bee7ba827762f84e38d943d68a8d0ca61485738f97128
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

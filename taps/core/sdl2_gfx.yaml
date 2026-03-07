@@ -1,0 +1,21 @@
+name: sdl2_gfx
+version: 1.0.4
+description: SDL2 graphics drawing primitives and other support functions
+homepage: https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl2_gfx/blobs/sha256:e47f4d00e05f9f9f5329cf59d7b850c6825def067848db1bf34d2aa06727972e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl2_gfx/blobs/sha256:3678d4052241eb8785cca53190d302d8ccb69d05a4f12f28eb1d09af05070de6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl2_gfx/blobs/sha256:9a779702029d05cd1923b70eff455385362d0069fcf31e0e0c1211279893ae5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl2_gfx/blobs/sha256:4774eb2e827ddefb293a54c297cd292530b2aad4ffffafae52385fed9eda3497
+sha256:
+  darwin_arm64: e47f4d00e05f9f9f5329cf59d7b850c6825def067848db1bf34d2aa06727972e
+  darwin_amd64: 3678d4052241eb8785cca53190d302d8ccb69d05a4f12f28eb1d09af05070de6
+  linux_amd64: 9a779702029d05cd1923b70eff455385362d0069fcf31e0e0c1211279893ae5a
+  linux_arm64: 4774eb2e827ddefb293a54c297cd292530b2aad4ffffafae52385fed9eda3497
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

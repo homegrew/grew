@@ -1,0 +1,22 @@
+name: yamale
+version: 6.1.0
+description: Schema and validator for YAML
+homepage: https://github.com/23andMe/Yamale
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yamale/blobs/sha256:d49d4d42166eb67fa258a430f4613fa9a1a74ab48a5839900a2b0459f8401635
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yamale/blobs/sha256:50e2564584208d180dc83c80200f3bac4813f1d4e9c80124de6beb9667155a4b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yamale/blobs/sha256:09591168c37d57139676c401f7eff3b9d80bfec138919f1ccb5c76b0f18ce0be
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yamale/blobs/sha256:eb5b04b9d77edb9bb5f85dc39742c4dbb4cb616957b97bc6c6b59ec5b95ff26a
+sha256:
+  darwin_arm64: d49d4d42166eb67fa258a430f4613fa9a1a74ab48a5839900a2b0459f8401635
+  darwin_amd64: 50e2564584208d180dc83c80200f3bac4813f1d4e9c80124de6beb9667155a4b
+  linux_amd64: 09591168c37d57139676c401f7eff3b9d80bfec138919f1ccb5c76b0f18ce0be
+  linux_arm64: eb5b04b9d77edb9bb5f85dc39742c4dbb4cb616957b97bc6c6b59ec5b95ff26a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

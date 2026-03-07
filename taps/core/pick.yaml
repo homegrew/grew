@@ -1,0 +1,19 @@
+name: pick
+version: 4.0.0
+description: Utility to choose one option from a set of choices
+homepage: https://github.com/mptre/pick
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pick/blobs/sha256:562b847ced07b32f1858a7c45887be26552e663c013f447e0f18b747790ff24b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pick/blobs/sha256:bd88176ee4fec77b374b9f9ba8d948409232bc2c88d0ae4f140409ee0e79c92a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pick/blobs/sha256:e5c80628af5eda75fa3d34827529f3f482c0dc058c1016f5a6033deca9d22566
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pick/blobs/sha256:a8633db6fbcdff4972f69dc32b3a304f117f00a1bae82122488c8294df775c02
+sha256:
+  darwin_arm64: 562b847ced07b32f1858a7c45887be26552e663c013f447e0f18b747790ff24b
+  darwin_amd64: bd88176ee4fec77b374b9f9ba8d948409232bc2c88d0ae4f140409ee0e79c92a
+  linux_amd64: e5c80628af5eda75fa3d34827529f3f482c0dc058c1016f5a6033deca9d22566
+  linux_arm64: a8633db6fbcdff4972f69dc32b3a304f117f00a1bae82122488c8294df775c02
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

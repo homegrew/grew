@@ -1,0 +1,21 @@
+name: htop
+version: 3.4.1
+description: Improved top (interactive process viewer)
+homepage: https://htop.dev/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htop/blobs/sha256:4b3a332a172d556f13fdd2ef8c5b993776785e64f40ac5618072c22ec4b18077
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htop/blobs/sha256:66f129d4a7275937877eb128b208a53879d8a7c518903522ff0a7318f84d9867
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htop/blobs/sha256:33b22b0ce29e0e73a86575daeaf0a01c6bb913f95d0b54172bba9021ec514fa7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htop/blobs/sha256:4f1eb1a8b344bda3f1f805743419260c0187ea3a05fdce7bb23708b085261a4f
+sha256:
+  darwin_arm64: 4b3a332a172d556f13fdd2ef8c5b993776785e64f40ac5618072c22ec4b18077
+  darwin_amd64: 66f129d4a7275937877eb128b208a53879d8a7c518903522ff0a7318f84d9867
+  linux_amd64: 33b22b0ce29e0e73a86575daeaf0a01c6bb913f95d0b54172bba9021ec514fa7
+  linux_arm64: 4f1eb1a8b344bda3f1f805743419260c0187ea3a05fdce7bb23708b085261a4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

@@ -1,0 +1,19 @@
+name: pyscn
+version: 1.12.0
+description: Intelligent Python Code Quality Analyzer
+homepage: https://github.com/ludo-technologies/pyscn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyscn/blobs/sha256:4c8b4a0203190a4cec93fec18f731fb7cbfdc2607a2204ea9090bee8c17facd9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyscn/blobs/sha256:3c38b6a8c372ac3d190fc345ad9777981eb3fe2d98c63f57e1ca93103a3401b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyscn/blobs/sha256:8597a1ac619d39a0bd81998e7cbf24655534f44145bb7907e4e831cc682bba81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyscn/blobs/sha256:7873315665245aaee0c3a9efb8da8ffea84e9697d01536105d3325a0cd690f20
+sha256:
+  darwin_arm64: 4c8b4a0203190a4cec93fec18f731fb7cbfdc2607a2204ea9090bee8c17facd9
+  darwin_amd64: 3c38b6a8c372ac3d190fc345ad9777981eb3fe2d98c63f57e1ca93103a3401b9
+  linux_amd64: 8597a1ac619d39a0bd81998e7cbf24655534f44145bb7907e4e831cc682bba81
+  linux_arm64: 7873315665245aaee0c3a9efb8da8ffea84e9697d01536105d3325a0cd690f20
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

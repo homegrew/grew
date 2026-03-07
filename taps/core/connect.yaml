@@ -1,0 +1,19 @@
+name: connect
+version: 1.106
+description: Provides SOCKS and HTTPS proxy support to SSH
+homepage: https://github.com/gotoh/ssh-connect
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/connect/blobs/sha256:7963a8e035492268bdaa843a6d79a88728f98abca2115bd50194384b5ae4cb0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/connect/blobs/sha256:ea352ab877ca1ad7156dcb9b3f90fba25d02cb286c8254dc25dfb4b1baa25d0f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/connect/blobs/sha256:157c7c54b61c285ee545c97a5c74e975cc44741c6cc845c82d0ae186cbc04a3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/connect/blobs/sha256:cd13498f3a1e78e2269d207290950942aebc3216e9de777e32609756870de7a4
+sha256:
+  darwin_arm64: 7963a8e035492268bdaa843a6d79a88728f98abca2115bd50194384b5ae4cb0a
+  darwin_amd64: ea352ab877ca1ad7156dcb9b3f90fba25d02cb286c8254dc25dfb4b1baa25d0f
+  linux_amd64: 157c7c54b61c285ee545c97a5c74e975cc44741c6cc845c82d0ae186cbc04a3a
+  linux_arm64: cd13498f3a1e78e2269d207290950942aebc3216e9de777e32609756870de7a4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

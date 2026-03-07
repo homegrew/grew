@@ -1,0 +1,22 @@
+name: xcb-util-image
+version: 0.4.1
+description: "XCB port of Xlib's XImage and XShmImage"
+homepage: https://xcb.freedesktop.org
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-image/blobs/sha256:6f1af8fedcf855ff37794ed6fb607be0a4d560afee79e3fa5ba79ec6bd877d29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-image/blobs/sha256:9fb54a1443ff6bd3b08f8a2b2b9724924d60c25ec65383e4949e47ed98456f68
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcb-util-image/blobs/sha256:edac92f05202f6a66955b860ff1a3cf65e851568f6ad6ffce0237af6833c5087
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcb-util-image/blobs/sha256:3a97fcf25d84f03c1114e588464768ef38160faf0beadbbd816c92a25a914bb5
+sha256:
+  darwin_arm64: 6f1af8fedcf855ff37794ed6fb607be0a4d560afee79e3fa5ba79ec6bd877d29
+  darwin_amd64: 9fb54a1443ff6bd3b08f8a2b2b9724924d60c25ec65383e4949e47ed98456f68
+  linux_amd64: edac92f05202f6a66955b860ff1a3cf65e851568f6ad6ffce0237af6833c5087
+  linux_arm64: 3a97fcf25d84f03c1114e588464768ef38160faf0beadbbd816c92a25a914bb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb
+  - xcb-util

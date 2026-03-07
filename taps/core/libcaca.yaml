@@ -1,0 +1,21 @@
+name: libcaca
+version: 0.99b20
+description: Convert pixel information into colored ASCII art
+homepage: http://caca.zoy.org/wiki/libcaca
+license: WTFPL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcaca/blobs/sha256:d84c3e4996866fd306f6ee465d2b26248af532f726187327b08fbc2c1fbae48d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcaca/blobs/sha256:40a0eb8832b801282057e1260110740d38a911f9011ee1d88ab7575a4d6eab7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcaca/blobs/sha256:7dab49e0d6bf0ed46dcc831c783da0124e5329f7e0e69f7d8cf847f9b825ebe2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcaca/blobs/sha256:c591f85155b4b4bc5efa7b98f5e43a638c2a6b9b5a771d26fe56ce31adb7285d
+sha256:
+  darwin_arm64: d84c3e4996866fd306f6ee465d2b26248af532f726187327b08fbc2c1fbae48d
+  darwin_amd64: 40a0eb8832b801282057e1260110740d38a911f9011ee1d88ab7575a4d6eab7f
+  linux_amd64: 7dab49e0d6bf0ed46dcc831c783da0124e5329f7e0e69f7d8cf847f9b825ebe2
+  linux_arm64: c591f85155b4b4bc5efa7b98f5e43a638c2a6b9b5a771d26fe56ce31adb7285d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imlib2

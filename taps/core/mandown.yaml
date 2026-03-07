@@ -1,0 +1,22 @@
+name: mandown
+version: 1.0.5.2
+description: Man-page inspired Markdown viewer
+homepage: https://github.com/Titor8115/mandown
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mandown/blobs/sha256:e0a71f4348614a71714f3bae661966e3bae6c30d234f5b887fbf32953c39efc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mandown/blobs/sha256:7f71e396b11bb72dcb1cd7f5e604d5af2c6a2a24b0db14e21280cb54229fb544
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mandown/blobs/sha256:1381bf6e475ce5933e9c36111695f9df2e17073c65e934d518c89cd54c4c74cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mandown/blobs/sha256:2e62004a89ba8f886aa8b7b2cd31336ed9d40ff699257a9ce3655f6fb7c18556
+sha256:
+  darwin_arm64: e0a71f4348614a71714f3bae661966e3bae6c30d234f5b887fbf32953c39efc6
+  darwin_amd64: 7f71e396b11bb72dcb1cd7f5e604d5af2c6a2a24b0db14e21280cb54229fb544
+  linux_amd64: 1381bf6e475ce5933e9c36111695f9df2e17073c65e934d518c89cd54c4c74cd
+  linux_arm64: 2e62004a89ba8f886aa8b7b2cd31336ed9d40ff699257a9ce3655f6fb7c18556
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libconfig
+  - ncurses

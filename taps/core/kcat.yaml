@@ -1,0 +1,24 @@
+name: kcat
+version: 1.7.0
+description: Generic command-line non-JVM Apache Kafka producer and consumer
+homepage: https://github.com/edenhill/kcat
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kcat/blobs/sha256:25860a3013a5c54e65ed107ead46eb16dd845230fa7606070c12201c616a5a75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kcat/blobs/sha256:dcf579278d9f03b5c59ddb73bfd6348ba8385710bbe01b45ee90bad76d22c215
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kcat/blobs/sha256:2b2ab512dfbe8d359b5002d16066c2a6c2d5dca9f30e0f9e3caf2d49a9270c7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kcat/blobs/sha256:6237b718df72d64eef1d024d565d718ed52c0120996ee8ea165c60796e6e9ca7
+sha256:
+  darwin_arm64: 25860a3013a5c54e65ed107ead46eb16dd845230fa7606070c12201c616a5a75
+  darwin_amd64: dcf579278d9f03b5c59ddb73bfd6348ba8385710bbe01b45ee90bad76d22c215
+  linux_amd64: 2b2ab512dfbe8d359b5002d16066c2a6c2d5dca9f30e0f9e3caf2d49a9270c7c
+  linux_arm64: 6237b718df72d64eef1d024d565d718ed52c0120996ee8ea165c60796e6e9ca7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - avro-c
+  - librdkafka
+  - libserdes
+  - yajl

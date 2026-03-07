@@ -1,0 +1,11 @@
+name: brave-browser
+version: 1.87.192.0
+description: Web browser focusing on privacy
+homepage: https://brave.com/
+url:
+  darwin_arm64: https://updates-cdn.bravesoftware.com/sparkle/Brave-Browser/stable-arm64/187.192/Brave-Browser-arm64.dmg
+sha256:
+  darwin_arm64: 10b48a6c9cd8765dde30232475bb3f50084da0a28dc044aa3930fb3f13f00760
+artifacts:
+  app:
+    - Brave Browser.app

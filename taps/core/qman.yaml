@@ -1,0 +1,22 @@
+name: qman
+version: 1.5.1
+description: Modern man page viewer
+homepage: https://github.com/plp13/qman
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qman/blobs/sha256:e07746ea2c127a2ce52d95614a7ef968ee4a6866b4c22ff72129e63b93920cbd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qman/blobs/sha256:5d8f23437a7b249837f535f648c341a1e7a66aa33a78986c2d0cf79056b25569
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qman/blobs/sha256:035e634ee3b22a3e192c0279af1cc41c4b33b6e2a43d96712a01e27a382c0943
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qman/blobs/sha256:7edfe4210247f8336d79e9bac0da7d0e45c8acfdc87299affa0d6f631c292a5c
+sha256:
+  darwin_arm64: e07746ea2c127a2ce52d95614a7ef968ee4a6866b4c22ff72129e63b93920cbd
+  darwin_amd64: 5d8f23437a7b249837f535f648c341a1e7a66aa33a78986c2d0cf79056b25569
+  linux_amd64: 035e634ee3b22a3e192c0279af1cc41c4b33b6e2a43d96712a01e27a382c0943
+  linux_arm64: 7edfe4210247f8336d79e9bac0da7d0e45c8acfdc87299affa0d6f631c292a5c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - groff
+  - ncurses

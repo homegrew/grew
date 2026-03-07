@@ -1,0 +1,19 @@
+name: pixie
+version: 0.8.8
+description: Observability tool for Kubernetes applications
+homepage: https://px.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pixie/blobs/sha256:83b266db822d9793caf6cf5a03e8317e02739f0d5f9406ca81beaec183f0146e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pixie/blobs/sha256:fd4ac012e19ff02c9ab8717d1a2fdc49b1da39ad8a37075d3d3bc848b353b0d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pixie/blobs/sha256:f803b6103598540b99c6ad6f663c4240bba259e6da0ee27f7453e3cde980f80d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pixie/blobs/sha256:c86ec5008b0fbbeab19146112fb8b9474b41c09ec3de504c30727bf119b9b1cd
+sha256:
+  darwin_arm64: 83b266db822d9793caf6cf5a03e8317e02739f0d5f9406ca81beaec183f0146e
+  darwin_amd64: fd4ac012e19ff02c9ab8717d1a2fdc49b1da39ad8a37075d3d3bc848b353b0d5
+  linux_amd64: f803b6103598540b99c6ad6f663c4240bba259e6da0ee27f7453e3cde980f80d
+  linux_arm64: c86ec5008b0fbbeab19146112fb8b9474b41c09ec3de504c30727bf119b9b1cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

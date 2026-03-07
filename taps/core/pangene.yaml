@@ -1,0 +1,19 @@
+name: pangene
+version: 1.1
+description: Construct pangenome gene graphs
+homepage: https://github.com/lh3/pangene
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pangene/blobs/sha256:2e9554d2a1b331e934b0406114f7715310f2ed7098974c296aeadb30a0c9bcfd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pangene/blobs/sha256:e905200f81de11386382c91f4e9dfea33dd602db225fa38176334fc270544649
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pangene/blobs/sha256:760dad96c7446a19bd22cc485545e821b9a0f671c0b57803a4e15f2eedf36e5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pangene/blobs/sha256:2a5cb10124741f78bd51cf03b6f95c05c4b49d014ddfe1176a2ae8f39a2fcd13
+sha256:
+  darwin_arm64: 2e9554d2a1b331e934b0406114f7715310f2ed7098974c296aeadb30a0c9bcfd
+  darwin_amd64: e905200f81de11386382c91f4e9dfea33dd602db225fa38176334fc270544649
+  linux_amd64: 760dad96c7446a19bd22cc485545e821b9a0f671c0b57803a4e15f2eedf36e5a
+  linux_arm64: 2a5cb10124741f78bd51cf03b6f95c05c4b49d014ddfe1176a2ae8f39a2fcd13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

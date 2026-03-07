@@ -1,0 +1,19 @@
+name: buf
+version: 1.66.0
+description: New way of working with Protocol Buffers
+homepage: https://github.com/bufbuild/buf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buf/blobs/sha256:d0920066a1d4a6c1e8a0decd394bf4c397a8e72b9d020fbb422faf7fe1a3c500
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buf/blobs/sha256:4a64f672475aa6ecded31c64f51539dd4c0f935f9eb8ea006afc627a1297a7ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buf/blobs/sha256:d8dfb20e9067737fe0f7b09ec5c8a0c498778732440e8117901c28dfe28146ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buf/blobs/sha256:e5fdfa4f4e4cd165935df8b093541c8329478239716cd565db73fa623d6a26c0
+sha256:
+  darwin_arm64: d0920066a1d4a6c1e8a0decd394bf4c397a8e72b9d020fbb422faf7fe1a3c500
+  darwin_amd64: 4a64f672475aa6ecded31c64f51539dd4c0f935f9eb8ea006afc627a1297a7ba
+  linux_amd64: d8dfb20e9067737fe0f7b09ec5c8a0c498778732440e8117901c28dfe28146ea
+  linux_arm64: e5fdfa4f4e4cd165935df8b093541c8329478239716cd565db73fa623d6a26c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

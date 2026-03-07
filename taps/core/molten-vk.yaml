@@ -1,0 +1,15 @@
+name: molten-vk
+version: 1.4.1
+description: Implementation of the Vulkan graphics and compute API on top of Metal
+homepage: https://github.com/KhronosGroup/MoltenVK
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/molten-vk/blobs/sha256:c0b1bda916255edc08d5a884eec4826e2649a890283b03e6f62e4aa9984cc9b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/molten-vk/blobs/sha256:9bb2d88ee0ed7cd035f982a59a2e9c5878237c9f4df88117172ccdbc5127f6d9
+sha256:
+  darwin_arm64: c0b1bda916255edc08d5a884eec4826e2649a890283b03e6f62e4aa9984cc9b8
+  darwin_amd64: 9bb2d88ee0ed7cd035f982a59a2e9c5878237c9f4df88117172ccdbc5127f6d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

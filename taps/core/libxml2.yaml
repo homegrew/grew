@@ -1,0 +1,22 @@
+name: libxml2
+version: 2.15.2
+description: GNOME XML library
+homepage: http://xmlsoft.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxml2/blobs/sha256:21b0d9f78c4c85fc6e8ba934d2dcbd840f80777ec6e4b3272409db51ed67b0a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxml2/blobs/sha256:62a71bec0d44fc1e749bd6057daf421c841ab0b3ab2579ddda62558a3bc2a4a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxml2/blobs/sha256:17b63e416112ab39a3cd942961dcd1deebf771a7709eac0b10285356e70ee500
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxml2/blobs/sha256:b7d519b032ee340ad605d0ce1f72d6dbfe1402f6f68ac70bcb4d539e73352110
+sha256:
+  darwin_arm64: 21b0d9f78c4c85fc6e8ba934d2dcbd840f80777ec6e4b3272409db51ed67b0a6
+  darwin_amd64: 62a71bec0d44fc1e749bd6057daf421c841ab0b3ab2579ddda62558a3bc2a4a4
+  linux_amd64: 17b63e416112ab39a3cd942961dcd1deebf771a7709eac0b10285356e70ee500
+  linux_arm64: b7d519b032ee340ad605d0ce1f72d6dbfe1402f6f68ac70bcb4d539e73352110
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline
+keg_only: true

@@ -1,0 +1,22 @@
+name: spek
+version: 0.8.5
+description: Acoustic spectrum analyser
+homepage: https://www.spek.cc
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spek/blobs/sha256:35bf9a140676a8e6205c91c540decde724994782b3159cfae796d354e976e20f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spek/blobs/sha256:b68f5b7d147ba25ff5e4026ab742c8e943f7b03df35cc79531ddced4fb01eeed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spek/blobs/sha256:96c2ca54ed0606804bca9e037600403fb578443640dcd447d6141cb6f5ece99c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spek/blobs/sha256:a810d0852931abf03233d899d3c3f96378dc103ed9383e9a1069de52cbdd1a42
+sha256:
+  darwin_arm64: 35bf9a140676a8e6205c91c540decde724994782b3159cfae796d354e976e20f
+  darwin_amd64: b68f5b7d147ba25ff5e4026ab742c8e943f7b03df35cc79531ddced4fb01eeed
+  linux_amd64: 96c2ca54ed0606804bca9e037600403fb578443640dcd447d6141cb6f5ece99c
+  linux_arm64: a810d0852931abf03233d899d3c3f96378dc103ed9383e9a1069de52cbdd1a42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - wxwidgets

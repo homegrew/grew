@@ -1,0 +1,32 @@
+name: moc
+version: 2.5.2
+description: Terminal-based music player
+homepage: https://moc.daper.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/moc/blobs/sha256:bac52905e18eff309f2c6ba4077a3008f1ca2f449055406f511767d881b3545a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/moc/blobs/sha256:4c15f75d82b37a05b79efddabd6e670076d94570d4e25a0e72a17cf72ed82d1c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/moc/blobs/sha256:a62b0dee94dd77f8368039d0e86b76282df94055c16cca501dcdd8ae719251f6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/moc/blobs/sha256:9a554bdfd055b86a978fff7d54467fcf43261c4e88c149a5f3e81bb736447074
+sha256:
+  darwin_arm64: bac52905e18eff309f2c6ba4077a3008f1ca2f449055406f511767d881b3545a
+  darwin_amd64: 4c15f75d82b37a05b79efddabd6e670076d94570d4e25a0e72a17cf72ed82d1c
+  linux_amd64: a62b0dee94dd77f8368039d0e86b76282df94055c16cca501dcdd8ae719251f6
+  linux_arm64: 9a554bdfd055b86a978fff7d54467fcf43261c4e88c149a5f3e81bb736447074
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - ffmpeg@4
+  - flac
+  - jack
+  - libmodplug
+  - libogg
+  - libsamplerate
+  - libsndfile
+  - libtool
+  - libvorbis
+  - ncurses
+  - speex

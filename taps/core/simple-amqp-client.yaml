@@ -1,0 +1,22 @@
+name: simple-amqp-client
+version: 2.5.1
+description: C++ interface to rabbitmq-c
+homepage: https://github.com/alanxz/SimpleAmqpClient
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simple-amqp-client/blobs/sha256:d412b6de7b7131e3940c3cb6c6de590851da8475fc52214d7e5a7bc4e23630b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simple-amqp-client/blobs/sha256:9b14b52e4aba5528038d4afcfafaa8dbc45244efdaf2e6615664db56d510d6c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simple-amqp-client/blobs/sha256:816871d1c73e83de194d29a0c89f41e62b8beb6e873c7a30736b878e93ee6273
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simple-amqp-client/blobs/sha256:9361f043d1ae8d104f0e27504b7fbaf262501bcdcdc189b0dde6d7dcfd278f06
+sha256:
+  darwin_arm64: d412b6de7b7131e3940c3cb6c6de590851da8475fc52214d7e5a7bc4e23630b7
+  darwin_amd64: 9b14b52e4aba5528038d4afcfafaa8dbc45244efdaf2e6615664db56d510d6c0
+  linux_amd64: 816871d1c73e83de194d29a0c89f41e62b8beb6e873c7a30736b878e93ee6273
+  linux_arm64: 9361f043d1ae8d104f0e27504b7fbaf262501bcdcdc189b0dde6d7dcfd278f06
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - rabbitmq-c

@@ -1,0 +1,19 @@
+name: libcmph
+version: 2.0.2
+description: C minimal perfect hashing library
+homepage: https://cmph.sourceforge.net/
+license: LGPL-2.1-only OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcmph/blobs/sha256:795cbd543a01cc09b16b32cd349b2c41ecf49511ec8dd413c9c992e044a7d1a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcmph/blobs/sha256:05fc67c97082d41ca49ab0819e8c385fff73d953877ab6cd0d6b8fcd0a8c6467
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcmph/blobs/sha256:6b4a556fa47365d3ebf9312acddf3fc64921094161bd6d6e1bcda3df92be70cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcmph/blobs/sha256:09b7ae4a3fe814126fff575f57ba2cfac5599eb86cded4d810ae777d2e4c229e
+sha256:
+  darwin_arm64: 795cbd543a01cc09b16b32cd349b2c41ecf49511ec8dd413c9c992e044a7d1a0
+  darwin_amd64: 05fc67c97082d41ca49ab0819e8c385fff73d953877ab6cd0d6b8fcd0a8c6467
+  linux_amd64: 6b4a556fa47365d3ebf9312acddf3fc64921094161bd6d6e1bcda3df92be70cd
+  linux_arm64: 09b7ae4a3fe814126fff575f57ba2cfac5599eb86cded4d810ae777d2e4c229e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

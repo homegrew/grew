@@ -1,0 +1,19 @@
+name: git-xargs
+version: 0.1.16
+description: CLI for making updates across multiple Github repositories with a single command
+homepage: https://github.com/gruntwork-io/git-xargs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-xargs/blobs/sha256:792b290c1a85159a481d5ea219c3b3e5356d82a7431353fa0ce52918b316e971
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-xargs/blobs/sha256:7e638bfc967c4b2216e20dcaf486033b03a54be584b0bcff1751cbb5f5530344
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-xargs/blobs/sha256:3c79ef94b3c3a848f5e1265ed5a155b153d18f9a746b04f490899521f995d06c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-xargs/blobs/sha256:dce9d2b03709399f636e6163278acd6f178e9556ce207810e904bb4001e2f7b9
+sha256:
+  darwin_arm64: 792b290c1a85159a481d5ea219c3b3e5356d82a7431353fa0ce52918b316e971
+  darwin_amd64: 7e638bfc967c4b2216e20dcaf486033b03a54be584b0bcff1751cbb5f5530344
+  linux_amd64: 3c79ef94b3c3a848f5e1265ed5a155b153d18f9a746b04f490899521f995d06c
+  linux_arm64: dce9d2b03709399f636e6163278acd6f178e9556ce207810e904bb4001e2f7b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

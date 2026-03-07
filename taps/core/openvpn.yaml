@@ -1,0 +1,24 @@
+name: openvpn
+version: 2.7.0
+description: SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+homepage: https://openvpn.net/community/
+license: GPL-2.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openvpn/blobs/sha256:9556ad7724a36ce5c2d015d226ead32d78051f85b795f662d15b0b879a55ab59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openvpn/blobs/sha256:5c8a4352ed57a16917c30709681fd558c77e94760cea767179de28efc532bda5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openvpn/blobs/sha256:51ca6876b41a2f3e01b3ba9fc56ad5f464d6e9a611f26bc10fe80198cd04ee4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openvpn/blobs/sha256:36b3317cb6d4e11e871fc70c00de6439534c00348da2eca17c81a9b48d8a0e3d
+sha256:
+  darwin_arm64: 9556ad7724a36ce5c2d015d226ead32d78051f85b795f662d15b0b879a55ab59
+  darwin_amd64: 5c8a4352ed57a16917c30709681fd558c77e94760cea767179de28efc532bda5
+  linux_amd64: 51ca6876b41a2f3e01b3ba9fc56ad5f464d6e9a611f26bc10fe80198cd04ee4a
+  linux_arm64: 36b3317cb6d4e11e871fc70c00de6439534c00348da2eca17c81a9b48d8a0e3d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - lzo
+  - openssl@3
+  - pkcs11-helper

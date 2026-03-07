@@ -1,0 +1,19 @@
+name: flow
+version: 0.304.0
+description: Static type checker for JavaScript
+homepage: https://flow.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flow/blobs/sha256:78502391fdada01bfdbea591acf2331ee108eb5a86b6c0b78631a76bbd4a532d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flow/blobs/sha256:43ce1fd3e7cecc44a886220074cb978876f6c089a5805f5ca987537dae2740ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flow/blobs/sha256:0356ac3608f7755b19e7e212a36981fa498628ccf71ad44d0fb77971fbb7f3b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flow/blobs/sha256:1d2b20382df02256897e2678836d79edf7268f58c840752a93d4c2a8c076bb0f
+sha256:
+  darwin_arm64: 78502391fdada01bfdbea591acf2331ee108eb5a86b6c0b78631a76bbd4a532d
+  darwin_amd64: 43ce1fd3e7cecc44a886220074cb978876f6c089a5805f5ca987537dae2740ef
+  linux_amd64: 0356ac3608f7755b19e7e212a36981fa498628ccf71ad44d0fb77971fbb7f3b1
+  linux_arm64: 1d2b20382df02256897e2678836d79edf7268f58c840752a93d4c2a8c076bb0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: lxc
+version: 6.7
+description: CLI client for interacting with LXD
+homepage: https://ubuntu.com/lxd
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lxc/blobs/sha256:59a635679e4b44072152ac8e10a7224d2e8053f6bd4c1c77b18122498879b75b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lxc/blobs/sha256:fe34c778afab192d6096b98d23f9b7ab5985ecb9cfa78f82fc7824d482329dfc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lxc/blobs/sha256:5dafcbd6d0128b629e5dbd7acb4c4bc070793b22ef276010b16c8e2a9dd6a421
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lxc/blobs/sha256:77a7f06b8e67039c50210013571089b078b78ef1cd2f70024356574a9e525980
+sha256:
+  darwin_arm64: 59a635679e4b44072152ac8e10a7224d2e8053f6bd4c1c77b18122498879b75b
+  darwin_amd64: fe34c778afab192d6096b98d23f9b7ab5985ecb9cfa78f82fc7824d482329dfc
+  linux_amd64: 5dafcbd6d0128b629e5dbd7acb4c4bc070793b22ef276010b16c8e2a9dd6a421
+  linux_arm64: 77a7f06b8e67039c50210013571089b078b78ef1cd2f70024356574a9e525980
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

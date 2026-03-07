@@ -1,0 +1,21 @@
+name: actionlint
+version: 1.7.11
+description: Static checker for GitHub Actions workflow files
+homepage: https://rhysd.github.io/actionlint/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/actionlint/blobs/sha256:3bb18b268cf8645a0318e4a929b9e0b53ce1aa0f429250cfdec77f91a4cd6c19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/actionlint/blobs/sha256:5becd1a472ca94807b4382fdfef5d8836edd8838d80e158b41d665a9daae922d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/actionlint/blobs/sha256:09a417b6ad3a2fc5583a4384c4817056f0fc9089a94a595aaa4fe3c9415e3184
+  linux_arm64: https://ghcr.io/v2/homebrew/core/actionlint/blobs/sha256:bc80a0e853ad651193f92c180a95a9f4d3f93fe0eba422c261dc908ecedd4a52
+sha256:
+  darwin_arm64: 3bb18b268cf8645a0318e4a929b9e0b53ce1aa0f429250cfdec77f91a4cd6c19
+  darwin_amd64: 5becd1a472ca94807b4382fdfef5d8836edd8838d80e158b41d665a9daae922d
+  linux_amd64: 09a417b6ad3a2fc5583a4384c4817056f0fc9089a94a595aaa4fe3c9415e3184
+  linux_arm64: bc80a0e853ad651193f92c180a95a9f4d3f93fe0eba422c261dc908ecedd4a52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - shellcheck

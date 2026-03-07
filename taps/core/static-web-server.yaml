@@ -1,0 +1,19 @@
+name: static-web-server
+version: 2.41.0
+description: High-performance and asynchronous web server for static files-serving
+homepage: https://static-web-server.net
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/static-web-server/blobs/sha256:8d4d67aea46db6829cf47730004dade62447ee46e8fc0673cdbe30825461f876
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/static-web-server/blobs/sha256:c1a179956fc23a67e2a1c16b772644c1d279716acad5b24292dd8e9ec62d7680
+  linux_amd64: https://ghcr.io/v2/homebrew/core/static-web-server/blobs/sha256:65517c28615900509d391988532e0e24c2adca1391aa75a6ca3b8aa942945628
+  linux_arm64: https://ghcr.io/v2/homebrew/core/static-web-server/blobs/sha256:227047fa66a75193349f4d64a6fd6cc0039d3fc9124bbe1bdb78b90d7f897c58
+sha256:
+  darwin_arm64: 8d4d67aea46db6829cf47730004dade62447ee46e8fc0673cdbe30825461f876
+  darwin_amd64: c1a179956fc23a67e2a1c16b772644c1d279716acad5b24292dd8e9ec62d7680
+  linux_amd64: 65517c28615900509d391988532e0e24c2adca1391aa75a6ca3b8aa942945628
+  linux_arm64: 227047fa66a75193349f4d64a6fd6cc0039d3fc9124bbe1bdb78b90d7f897c58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

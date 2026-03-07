@@ -1,0 +1,26 @@
+name: guile
+version: 3.0.11
+description: GNU Ubiquitous Intelligent Language for Extensions
+homepage: https://www.gnu.org/software/guile/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/guile/blobs/sha256:badcd01f64dd30d067e31fa2658b3d12760c13b897616200c6e6154e946b3515
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/guile/blobs/sha256:253c9d486cccc6e6a9447c484625f7498329cbf16a7c0f28c7beafdd66a24b5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/guile/blobs/sha256:be5c49d28eb86b89484e9a5dc33dc4097d9af484b67bde26aae77bf5841771b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/guile/blobs/sha256:e9277ab2de50eec2a837d1d0d51456bff3a47737e787e7966df1220ba2b24b74
+sha256:
+  darwin_arm64: badcd01f64dd30d067e31fa2658b3d12760c13b897616200c6e6154e946b3515
+  darwin_amd64: 253c9d486cccc6e6a9447c484625f7498329cbf16a7c0f28c7beafdd66a24b5a
+  linux_amd64: be5c49d28eb86b89484e9a5dc33dc4097d9af484b67bde26aae77bf5841771b9
+  linux_arm64: e9277ab2de50eec2a837d1d0d51456bff3a47737e787e7966df1220ba2b24b74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - gmp
+  - libtool
+  - libunistring
+  - pkgconf
+  - readline

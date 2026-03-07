@@ -1,0 +1,23 @@
+name: netcdf
+version: 4.10.0
+description: Libraries and data formats for array-oriented scientific data
+homepage: https://www.unidata.ucar.edu/software/netcdf/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/netcdf/blobs/sha256:c9ddcf980457c6068593640c746b5ed0e7d9b252b251172f6417f8ec2053ea66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/netcdf/blobs/sha256:cdb43a113fbd0ffeb4451c3152c8c1c07fcbabbc90cc8575edf4681ebf0093b2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/netcdf/blobs/sha256:33334198a494db895097576ac2a797497979a47617ae8cd19c13abe2d8052c41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/netcdf/blobs/sha256:451da8be1f36b126818e0f0ddb8bde360fd49c7b2af26ed7b920915d4e4caab8
+sha256:
+  darwin_arm64: c9ddcf980457c6068593640c746b5ed0e7d9b252b251172f6417f8ec2053ea66
+  darwin_amd64: cdb43a113fbd0ffeb4451c3152c8c1c07fcbabbc90cc8575edf4681ebf0093b2
+  linux_amd64: 33334198a494db895097576ac2a797497979a47617ae8cd19c13abe2d8052c41
+  linux_arm64: 451da8be1f36b126818e0f0ddb8bde360fd49c7b2af26ed7b920915d4e4caab8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5
+  - libaec
+  - zstd

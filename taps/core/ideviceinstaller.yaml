@@ -1,0 +1,23 @@
+name: ideviceinstaller
+version: 1.2.0
+description: Tool for managing apps on iOS devices
+homepage: https://libimobiledevice.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ideviceinstaller/blobs/sha256:40252ee42c978cd9772f4722a842d6df4c740bdc75016bc12a43d048177cbd9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ideviceinstaller/blobs/sha256:b499a23005d13e350b43f4e72fe58c2ce52656d998c8dc5f8477a7ab28a4d05d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ideviceinstaller/blobs/sha256:2f9ad95e575560317e3e1dd048d120baab443565b20338c41f070bced2b4d25f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ideviceinstaller/blobs/sha256:fb0bf7d7b34adb781f9228da0f456d54624f8c8bf3a7689931a391d6735fe69d
+sha256:
+  darwin_arm64: 40252ee42c978cd9772f4722a842d6df4c740bdc75016bc12a43d048177cbd9e
+  darwin_amd64: b499a23005d13e350b43f4e72fe58c2ce52656d998c8dc5f8477a7ab28a4d05d
+  linux_amd64: 2f9ad95e575560317e3e1dd048d120baab443565b20338c41f070bced2b4d25f
+  linux_arm64: fb0bf7d7b34adb781f9228da0f456d54624f8c8bf3a7689931a391d6735fe69d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libimobiledevice
+  - libplist
+  - libzip

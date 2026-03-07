@@ -1,0 +1,15 @@
+name: lunchy-go
+version: 0.2.1
+description: Friendly wrapper for launchctl
+homepage: https://github.com/sosedoff/lunchy-go
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lunchy-go/blobs/sha256:9073ddcd234f04940378a64e36b1657daf2f1519ad98e61691c7066b2fb881ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lunchy-go/blobs/sha256:1ba8cd414b18ac0bb9855f2df7b3a910e6bf312176cc6eec0ca099c134593e61
+sha256:
+  darwin_arm64: 9073ddcd234f04940378a64e36b1657daf2f1519ad98e61691c7066b2fb881ba
+  darwin_amd64: 1ba8cd414b18ac0bb9855f2df7b3a910e6bf312176cc6eec0ca099c134593e61
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

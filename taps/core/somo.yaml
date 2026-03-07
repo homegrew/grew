@@ -1,0 +1,19 @@
+name: somo
+version: 1.3.1
+description: Human-friendly alternative to netstat for socket and port monitoring
+homepage: https://github.com/theopfr/somo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/somo/blobs/sha256:e79ca29c9937d4153f7c35da4dd8a5981fdf191cccfb3150a99daf99ca8de5af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/somo/blobs/sha256:0d3c573b6cb5dab40236133464a7cf48859612b1d8423a15672806175ea52028
+  linux_amd64: https://ghcr.io/v2/homebrew/core/somo/blobs/sha256:412f433f84e0c26abd8a2a2af8bec2107b30439aee4b411f2e7b7b2d6ee7acbe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/somo/blobs/sha256:556d85393b26d3f4b07d11a63fdd1c4138de58ef4d3e5788111abb4c5b7627fd
+sha256:
+  darwin_arm64: e79ca29c9937d4153f7c35da4dd8a5981fdf191cccfb3150a99daf99ca8de5af
+  darwin_amd64: 0d3c573b6cb5dab40236133464a7cf48859612b1d8423a15672806175ea52028
+  linux_amd64: 412f433f84e0c26abd8a2a2af8bec2107b30439aee4b411f2e7b7b2d6ee7acbe
+  linux_arm64: 556d85393b26d3f4b07d11a63fdd1c4138de58ef4d3e5788111abb4c5b7627fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

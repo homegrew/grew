@@ -1,0 +1,11 @@
+name: goxel
+version: 0.15.1
+description: Open Source Voxel Editor
+homepage: https://goxel.xyz/
+url:
+  darwin_arm64: https://github.com/guillaumechereau/goxel/releases/download/v0.15.1/goxel-0.15.1-mac.zip
+sha256:
+  darwin_arm64: 5a9213166e77bbb80f839499943af37524f5866f37d1948bcaddf9a3fec8f27a
+artifacts:
+  app:
+    - Goxel.app

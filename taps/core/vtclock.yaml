@@ -1,0 +1,19 @@
+name: vtclock
+version: 0.99.1
+description: Text-mode fullscreen digital clock
+homepage: https://github.com/dse/vtclock
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vtclock/blobs/sha256:9bc71b0b4a7fc2c216cb72ddf9111be288923ddbe3ce612fba3b5900714d8edc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vtclock/blobs/sha256:33c363d3176a4db688176faf1e83d3fe8492fa2efb62361b9c1efef3104aab29
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vtclock/blobs/sha256:8aaffb5793d37cea515c7e1c1d428225dcd58cb898d088f1113fadb76b9fd0e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vtclock/blobs/sha256:393f3bbb5eaeb24e1893ea7e71738dc0095d68b28cbbbab6a71cb8ec18aa1492
+sha256:
+  darwin_arm64: 9bc71b0b4a7fc2c216cb72ddf9111be288923ddbe3ce612fba3b5900714d8edc
+  darwin_amd64: 33c363d3176a4db688176faf1e83d3fe8492fa2efb62361b9c1efef3104aab29
+  linux_amd64: 8aaffb5793d37cea515c7e1c1d428225dcd58cb898d088f1113fadb76b9fd0e7
+  linux_arm64: 393f3bbb5eaeb24e1893ea7e71738dc0095d68b28cbbbab6a71cb8ec18aa1492
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

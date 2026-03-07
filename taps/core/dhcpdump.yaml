@@ -1,0 +1,19 @@
+name: dhcpdump
+version: 1.10
+description: Monitor DHCP traffic for debugging purposes
+homepage: https://github.com/bbonev/dhcpdump
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dhcpdump/blobs/sha256:39614d4823ce76fbc86945ccc49f928fafe40feb69db968be35e344277e56238
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dhcpdump/blobs/sha256:64a003cda0caa278f470e4372026370677e51d0fbd7fe480007b63057704e0b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dhcpdump/blobs/sha256:088e0cfb92a8985ce563e6ec7c95df6eb39c3f7b1a18acd45464ec136a161cbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dhcpdump/blobs/sha256:db8fb7e6d259eafa1889dab5548fa25fa4daf47518d4e3eb9eefe7dce61d93b5
+sha256:
+  darwin_arm64: 39614d4823ce76fbc86945ccc49f928fafe40feb69db968be35e344277e56238
+  darwin_amd64: 64a003cda0caa278f470e4372026370677e51d0fbd7fe480007b63057704e0b0
+  linux_amd64: 088e0cfb92a8985ce563e6ec7c95df6eb39c3f7b1a18acd45464ec136a161cbd
+  linux_arm64: db8fb7e6d259eafa1889dab5548fa25fa4daf47518d4e3eb9eefe7dce61d93b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

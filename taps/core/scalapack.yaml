@@ -1,0 +1,23 @@
+name: scalapack
+version: 2.2.2
+description: High-performance linear algebra for distributed memory machines
+homepage: https://netlib.org/scalapack/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scalapack/blobs/sha256:95c2d6bfcad2cde73d0fab3e497efca73490469397f2c4e7961e7e2a34c76168
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scalapack/blobs/sha256:08ed075c53763c8c8bab09b40dcf7e20eb4931e4191d67d295587f7caacacbb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scalapack/blobs/sha256:0ce59c95648217335fa463f14c0e3d2f87581f66ad82bdc5c0c60bda88b00048
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scalapack/blobs/sha256:72cefa05bf73039be8175869dd4d87edfd0fdd5b1c88d83e11b8e03fb77affdf
+sha256:
+  darwin_arm64: 95c2d6bfcad2cde73d0fab3e497efca73490469397f2c4e7961e7e2a34c76168
+  darwin_amd64: 08ed075c53763c8c8bab09b40dcf7e20eb4931e4191d67d295587f7caacacbb5
+  linux_amd64: 0ce59c95648217335fa463f14c0e3d2f87581f66ad82bdc5c0c60bda88b00048
+  linux_arm64: 72cefa05bf73039be8175869dd4d87edfd0fdd5b1c88d83e11b8e03fb77affdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - open-mpi
+  - openblas

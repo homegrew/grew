@@ -1,0 +1,11 @@
+name: sysdig-inspect
+version: 0.12.0
+description: Interface for container troubleshooting and security investigation
+homepage: https://github.com/draios/sysdig-inspect
+url:
+  darwin_arm64: https://github.com/draios/sysdig-inspect/releases/download/0.12.0/sysdig-inspect-mac-x86_64.zip
+sha256:
+  darwin_arm64: 392ab84b409b3522addf1197917d196003dcb821f014e57f57daa74a0424ed92
+artifacts:
+  app:
+    - Sysdig Inspect-darwin-x64/Sysdig Inspect.app

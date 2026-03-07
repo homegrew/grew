@@ -1,0 +1,13 @@
+name: godot
+version: 4.6.1
+description: Game development engine
+homepage: https://godotengine.org/
+url:
+  darwin_arm64: https://github.com/godotengine/godot/releases/download/4.6.1-stable/Godot_v4.6.1-stable_macos.universal.zip
+sha256:
+  darwin_arm64: f43613ad72ab1cc9ef14383545f4de344844451a5c9c5f4ea4a923f1f34f91e4
+artifacts:
+  app:
+    - Godot.app
+  bin:
+    - godot

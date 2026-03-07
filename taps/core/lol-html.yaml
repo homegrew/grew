@@ -1,0 +1,19 @@
+name: lol-html
+version: 2.7.2
+description: Low output latency streaming HTML parser/rewriter with CSS selector-based API
+homepage: https://github.com/cloudflare/lol-html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lol-html/blobs/sha256:8c8998aa0386eb740c4e78baa5e8f2897137cb03b9c836c8cee04c7092722f77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lol-html/blobs/sha256:c1a17e26e328ee914e0a1fd1004235e27fd66179aabb37fc28237bb2d00c8307
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lol-html/blobs/sha256:d2bca0871c05e0228422f5f886548faf169674aee4a392444f1dd0ddbe062b2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lol-html/blobs/sha256:fc19bf38e02aa2228dd361f1f4ac78c42a4e34ef20b3a51667984c85d0ea3e9c
+sha256:
+  darwin_arm64: 8c8998aa0386eb740c4e78baa5e8f2897137cb03b9c836c8cee04c7092722f77
+  darwin_amd64: c1a17e26e328ee914e0a1fd1004235e27fd66179aabb37fc28237bb2d00c8307
+  linux_amd64: d2bca0871c05e0228422f5f886548faf169674aee4a392444f1dd0ddbe062b2f
+  linux_arm64: fc19bf38e02aa2228dd361f1f4ac78c42a4e34ef20b3a51667984c85d0ea3e9c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

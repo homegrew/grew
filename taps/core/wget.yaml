@@ -1,0 +1,24 @@
+name: wget
+version: 1.25.0
+description: Internet file retriever
+homepage: https://www.gnu.org/software/wget/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:91995d4d44951e981c36879505e8e294d15e46bbd3ef3965caf94d55424e165b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:09603bb2a51e4bdc94a9f4f3e66442ef6e401a2a2d244213066c58cceb686f95
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:6c291dba1e71dcfada741192dbf78790c60488d927fa15c82f4bd0901edfa014
+sha256:
+  darwin_arm64: 03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734
+  darwin_amd64: 91995d4d44951e981c36879505e8e294d15e46bbd3ef3965caf94d55424e165b
+  linux_amd64: 09603bb2a51e4bdc94a9f4f3e66442ef6e401a2a2d244213066c58cceb686f95
+  linux_arm64: 6c291dba1e71dcfada741192dbf78790c60488d927fa15c82f4bd0901edfa014
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2
+  - openssl@3
+  - gettext
+  - libunistring

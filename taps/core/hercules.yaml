@@ -1,0 +1,19 @@
+name: hercules
+version: 4.9.1
+description: System/370, ESA/390 and z/Architecture Emulator
+homepage: https://sdl-hercules-390.github.io/html/
+license: QPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hercules/blobs/sha256:c39ccead16433acc00edfe54721fc9354225596901556828b5771ba04dfb0826
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hercules/blobs/sha256:50c7c08f9bb643baed46c414771177597cdb56bffccc4c1f9530a0f04bd17092
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hercules/blobs/sha256:4d13a5a101f408a41ea50a649a38cf8bf768050dc563f6006a26e3fa971cd8ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hercules/blobs/sha256:7a503644a4ecf23cbf89b23b5fdecd14bff658578b4c86c8dfa302e7752cccdc
+sha256:
+  darwin_arm64: c39ccead16433acc00edfe54721fc9354225596901556828b5771ba04dfb0826
+  darwin_amd64: 50c7c08f9bb643baed46c414771177597cdb56bffccc4c1f9530a0f04bd17092
+  linux_amd64: 4d13a5a101f408a41ea50a649a38cf8bf768050dc563f6006a26e3fa971cd8ee
+  linux_arm64: 7a503644a4ecf23cbf89b23b5fdecd14bff658578b4c86c8dfa302e7752cccdc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

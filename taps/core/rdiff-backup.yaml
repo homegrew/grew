@@ -1,0 +1,23 @@
+name: rdiff-backup
+version: 2.2.6
+description: Reverse differential backup tool, over a network or locally
+homepage: https://rdiff-backup.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rdiff-backup/blobs/sha256:ebea57ecc6915c0b154d732cc9694f360c77815e98d8b81948e6e52b3bb881b9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rdiff-backup/blobs/sha256:9136e68895a67828a273cd4930fcbc2dbf8dbf4598c5ba938d4c2825d1f25c2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rdiff-backup/blobs/sha256:384758ed7f5ab60a60993d6c73f2a835a878c00cd6066ede4e054334aafc7731
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rdiff-backup/blobs/sha256:baba91a650c1813d89435bfe1bcc41463e9fa64ff81d79592c70a7219147216b
+sha256:
+  darwin_arm64: ebea57ecc6915c0b154d732cc9694f360c77815e98d8b81948e6e52b3bb881b9
+  darwin_amd64: 9136e68895a67828a273cd4930fcbc2dbf8dbf4598c5ba938d4c2825d1f25c2f
+  linux_amd64: 384758ed7f5ab60a60993d6c73f2a835a878c00cd6066ede4e054334aafc7731
+  linux_arm64: baba91a650c1813d89435bfe1bcc41463e9fa64ff81d79592c70a7219147216b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librsync
+  - libyaml
+  - python@3.14

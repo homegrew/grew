@@ -1,0 +1,21 @@
+name: ask-cli
+version: 2.30.7
+description: CLI tool for Alexa Skill Kit
+homepage: https://github.com/alexa/ask-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ask-cli/blobs/sha256:6ec89ac010d0a2464553452e947e5ce7944a71a658e470a756118e9d3565282e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ask-cli/blobs/sha256:50dcfa2070028a255e11a25a05a264a9fc5daa156cb9517914fd3a560e116ace
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ask-cli/blobs/sha256:a076d74bb089649513e80702d85a273a67c3f453ad1ef4ca962f55f175d83c81
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ask-cli/blobs/sha256:5075ee29be0cae332a709af27e7ac67c1040dba2bdd1e9b99af77ab595155ba1
+sha256:
+  darwin_arm64: 6ec89ac010d0a2464553452e947e5ce7944a71a658e470a756118e9d3565282e
+  darwin_amd64: 50dcfa2070028a255e11a25a05a264a9fc5daa156cb9517914fd3a560e116ace
+  linux_amd64: a076d74bb089649513e80702d85a273a67c3f453ad1ef4ca962f55f175d83c81
+  linux_arm64: 5075ee29be0cae332a709af27e7ac67c1040dba2bdd1e9b99af77ab595155ba1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

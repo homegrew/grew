@@ -1,0 +1,24 @@
+name: ncmpc
+version: 0.52
+description: Curses Music Player Daemon (MPD) client
+homepage: https://www.musicpd.org/clients/ncmpc/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ncmpc/blobs/sha256:79925b06f7a4619e7e1e062db3ce4cac42646b6e3152de52554cad995969cbe1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ncmpc/blobs/sha256:57f3acdb57163d256a7470b702b6630cf79585c84822cfc6b1d10784c18a8fcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ncmpc/blobs/sha256:8244e48ef47afc6f03c012409429e6fd1c2c8631a53a197d31b0df9ac88a7628
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ncmpc/blobs/sha256:40bc8c01c1dfcd01f160e9ee0286225a681ebcf2962a47d820137d54a5bc50c8
+sha256:
+  darwin_arm64: 79925b06f7a4619e7e1e062db3ce4cac42646b6e3152de52554cad995969cbe1
+  darwin_amd64: 57f3acdb57163d256a7470b702b6630cf79585c84822cfc6b1d10784c18a8fcc
+  linux_amd64: 8244e48ef47afc6f03c012409429e6fd1c2c8631a53a197d31b0df9ac88a7628
+  linux_arm64: 40bc8c01c1dfcd01f160e9ee0286225a681ebcf2962a47d820137d54a5bc50c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - libmpdclient
+  - pcre2
+  - gettext

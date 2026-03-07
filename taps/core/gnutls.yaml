@@ -1,0 +1,29 @@
+name: gnutls
+version: 3.8.12
+description: GNU Transport Layer Security (TLS) Library
+homepage: https://gnutls.org/
+license: LGPL-2.1-or-later AND GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnutls/blobs/sha256:df6bfd97301eefdd39186a84e2089cd6b2ac62655a5bcf005e23c1b1e6631628
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnutls/blobs/sha256:6dd581133c9f496152ed69d45129f53408035392101cd9c44d64649d0fba8bfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnutls/blobs/sha256:d99e673012799fbe5648e8f511230233f9280a6aaba82bb5e3fa4b257bc4d9e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnutls/blobs/sha256:ee21922877570b314f7457e9030fd915ca55ea6c0c343c8ccfce82b1f4914c5e
+sha256:
+  darwin_arm64: df6bfd97301eefdd39186a84e2089cd6b2ac62655a5bcf005e23c1b1e6631628
+  darwin_amd64: 6dd581133c9f496152ed69d45129f53408035392101cd9c44d64649d0fba8bfb
+  linux_amd64: d99e673012799fbe5648e8f511230233f9280a6aaba82bb5e3fa4b257bc4d9e0
+  linux_arm64: ee21922877570b314f7457e9030fd915ca55ea6c0c343c8ccfce82b1f4914c5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+  - gmp
+  - libidn2
+  - libtasn1
+  - libunistring
+  - nettle
+  - p11-kit
+  - unbound
+  - gettext

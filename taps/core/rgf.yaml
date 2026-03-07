@@ -1,0 +1,19 @@
+name: rgf
+version: 3.12.0
+description: Regularized Greedy Forest library
+homepage: https://github.com/RGF-team/rgf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rgf/blobs/sha256:3cd71826a688d71fb47d733cc05bd43da4f3febe58031901476a7053a5e9e2fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rgf/blobs/sha256:9a9d0ca96ef4ad9c7acc3099ed638d6a88839a8fdc67751adfd38486f4eaafaf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rgf/blobs/sha256:4cd5ac79b7dd6fb913e3ca16bdb1ca96e596f3aecd293a6059d70b1ea7d5abdd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rgf/blobs/sha256:6f11ae925171c29d72b392dde35ae3b131801a15c744d29c0abb82026b5cb2f0
+sha256:
+  darwin_arm64: 3cd71826a688d71fb47d733cc05bd43da4f3febe58031901476a7053a5e9e2fd
+  darwin_amd64: 9a9d0ca96ef4ad9c7acc3099ed638d6a88839a8fdc67751adfd38486f4eaafaf
+  linux_amd64: 4cd5ac79b7dd6fb913e3ca16bdb1ca96e596f3aecd293a6059d70b1ea7d5abdd
+  linux_arm64: 6f11ae925171c29d72b392dde35ae3b131801a15c744d29c0abb82026b5cb2f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

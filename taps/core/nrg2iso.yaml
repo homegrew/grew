@@ -1,0 +1,19 @@
+name: nrg2iso
+version: 0.4.1
+description: Extract ISO9660 data from Nero nrg files
+homepage: http://gregory.kokanosky.free.fr/v4/linux/nrg2iso.en.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nrg2iso/blobs/sha256:5e3e40609655a903bf15b7b74cca8dd7e74be5e79b1d363cc838672d60d6b4b4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nrg2iso/blobs/sha256:d9a8a236b5cec92e5fe801e39c8a8d35e1578887690d21fb81947a731c403b88
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nrg2iso/blobs/sha256:740b102a8a4df8a8523a8b7812e3eed07f9ce6e0e1c8557867360fe4c1a18136
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nrg2iso/blobs/sha256:516d3243088cdfed8f020ec6aa7a5684b18006c9bbf34d70bc52ac2a8fbbb025
+sha256:
+  darwin_arm64: 5e3e40609655a903bf15b7b74cca8dd7e74be5e79b1d363cc838672d60d6b4b4
+  darwin_amd64: d9a8a236b5cec92e5fe801e39c8a8d35e1578887690d21fb81947a731c403b88
+  linux_amd64: 740b102a8a4df8a8523a8b7812e3eed07f9ce6e0e1c8557867360fe4c1a18136
+  linux_arm64: 516d3243088cdfed8f020ec6aa7a5684b18006c9bbf34d70bc52ac2a8fbbb025
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

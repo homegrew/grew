@@ -1,0 +1,22 @@
+name: avro-cpp
+version: 1.12.1
+description: Data serialization system
+homepage: https://avro.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/avro-cpp/blobs/sha256:f35e56a672cf8d1a65f78f197f60ac5d150b048fddb580ca74e9fd503c784b8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/avro-cpp/blobs/sha256:80606fa222e24a27963e33edd318f261dadf5f286e51ac70479b3d9bbc1befa8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avro-cpp/blobs/sha256:b6f9ddd021abcff92b6023d26799fb130a245a254f61f058da1d11980c0aac97
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avro-cpp/blobs/sha256:080d12251a43917ee3c4a1dacdefa49004b5a751f7086ceb587cd668b6eba7a7
+sha256:
+  darwin_arm64: f35e56a672cf8d1a65f78f197f60ac5d150b048fddb580ca74e9fd503c784b8b
+  darwin_amd64: 80606fa222e24a27963e33edd318f261dadf5f286e51ac70479b3d9bbc1befa8
+  linux_amd64: b6f9ddd021abcff92b6023d26799fb130a245a254f61f058da1d11980c0aac97
+  linux_arm64: 080d12251a43917ee3c4a1dacdefa49004b5a751f7086ceb587cd668b6eba7a7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - zstd

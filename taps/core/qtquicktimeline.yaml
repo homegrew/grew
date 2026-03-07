@@ -1,0 +1,22 @@
+name: qtquicktimeline
+version: 6.10.2
+description: Enables keyframe-based animations and parameterization
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtquicktimeline/blobs/sha256:4e40930972c0553f87aefc2d91be2d1c96c029cb96f094569197cb41fcb36066
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtquicktimeline/blobs/sha256:71dcfdde1ce922b39bb1f0c4940d06bc53f0827bd5cb8c43d7b092336ed51f9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtquicktimeline/blobs/sha256:36ad9e57ccf09a13f8da9d6a2ee786a7d91fc62523447951b9c5065fc617b1ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtquicktimeline/blobs/sha256:2c2913c3baa203bc706ecd73b4d2eddc05d578a40ae423333dd475e6c261fbca
+sha256:
+  darwin_arm64: 4e40930972c0553f87aefc2d91be2d1c96c029cb96f094569197cb41fcb36066
+  darwin_amd64: 71dcfdde1ce922b39bb1f0c4940d06bc53f0827bd5cb8c43d7b092336ed51f9b
+  linux_amd64: 36ad9e57ccf09a13f8da9d6a2ee786a7d91fc62523447951b9c5065fc617b1ba
+  linux_arm64: 2c2913c3baa203bc706ecd73b4d2eddc05d578a40ae423333dd475e6c261fbca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative

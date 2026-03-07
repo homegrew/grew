@@ -1,0 +1,19 @@
+name: icarus-verilog
+version: 13.0
+description: Verilog simulation and synthesis tool
+homepage: https://steveicarus.github.io/iverilog/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icarus-verilog/blobs/sha256:9171910a21536b9bcb60e0de5b11f3d2ebc31f211cae962ad6e520ecfdba1175
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icarus-verilog/blobs/sha256:2eb03352145134b01eec88e2426a5bb066952c60f13c5d8b90067c6674ab56fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icarus-verilog/blobs/sha256:4aa2049753c29d8acb09a61dbcc98029dd0155111b39a8605aefbc024bd974a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icarus-verilog/blobs/sha256:04bdad86ad33286674ae98446235a96c1719df5bbf1fe4e85015da8031d4011b
+sha256:
+  darwin_arm64: 9171910a21536b9bcb60e0de5b11f3d2ebc31f211cae962ad6e520ecfdba1175
+  darwin_amd64: 2eb03352145134b01eec88e2426a5bb066952c60f13c5d8b90067c6674ab56fe
+  linux_amd64: 4aa2049753c29d8acb09a61dbcc98029dd0155111b39a8605aefbc024bd974a1
+  linux_arm64: 04bdad86ad33286674ae98446235a96c1719df5bbf1fe4e85015da8031d4011b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: flint-checker
+version: 0.1.0
+description: Check your project for common sources of contributor friction
+homepage: https://github.com/pengwynn/flint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flint-checker/blobs/sha256:dcbc6af7ead098630fa98be1dddcad97432d65ccfbed01d7fb98120cadab7257
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flint-checker/blobs/sha256:fff4cb08e2ebcef9f5bbb73a4ae8afdcf01b0349841d59864399c4c627ca64bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flint-checker/blobs/sha256:01e5b0c9b671bceb2c20ffac4f21f6bda8004d761746260ad82d6c16b13258ea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flint-checker/blobs/sha256:70ef7665f0a159f49400f121b6cedcf3b76f639dc517a422a0332d839fc1a8fd
+sha256:
+  darwin_arm64: dcbc6af7ead098630fa98be1dddcad97432d65ccfbed01d7fb98120cadab7257
+  darwin_amd64: fff4cb08e2ebcef9f5bbb73a4ae8afdcf01b0349841d59864399c4c627ca64bb
+  linux_amd64: 01e5b0c9b671bceb2c20ffac4f21f6bda8004d761746260ad82d6c16b13258ea
+  linux_arm64: 70ef7665f0a159f49400f121b6cedcf3b76f639dc517a422a0332d839fc1a8fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

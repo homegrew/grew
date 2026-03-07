@@ -1,0 +1,19 @@
+name: aws-nuke
+version: 3.64.0
+description: Nuke a whole AWS account and delete all its resources
+homepage: https://github.com/ekristen/aws-nuke
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-nuke/blobs/sha256:235dee769ae5050b94b6f649b068875a832cfb9a68c6e55704ddbcda779f68b8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-nuke/blobs/sha256:993d9805bd79e3093e03e662ef9701aa2653c4efe3cfda96f9bde8fc66319dd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-nuke/blobs/sha256:f2e7df2f20fbd07c7b270f3674915cf1c57531aeee1bce2e9caf425a192c9943
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-nuke/blobs/sha256:4490f5cfc3370f3cc04ae17028165a3a88fba56cf3606d6ca9d723f114199c21
+sha256:
+  darwin_arm64: 235dee769ae5050b94b6f649b068875a832cfb9a68c6e55704ddbcda779f68b8
+  darwin_amd64: 993d9805bd79e3093e03e662ef9701aa2653c4efe3cfda96f9bde8fc66319dd7
+  linux_amd64: f2e7df2f20fbd07c7b270f3674915cf1c57531aeee1bce2e9caf425a192c9943
+  linux_arm64: 4490f5cfc3370f3cc04ae17028165a3a88fba56cf3606d6ca9d723f114199c21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ddate
+version: 0.2.2
+description: Converts boring normal dates to fun Discordian Date
+homepage: https://github.com/bo0ts/ddate
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ddate/blobs/sha256:faa847a8ef33784d6e5337a6357a890437b7965ce6e8353940535165af5e050e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ddate/blobs/sha256:9daa4cc00d03cc5d16024c68429face569f89d68be9206173980833855e44857
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ddate/blobs/sha256:75baa9706ec0453896edf597bc5a9c52c012ea9188555654f698794f578d9f62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ddate/blobs/sha256:85848eab10e14e64a60ffd85a3c5bbd2e72fc3d554ad28fcff82db7f9a44a686
+sha256:
+  darwin_arm64: faa847a8ef33784d6e5337a6357a890437b7965ce6e8353940535165af5e050e
+  darwin_amd64: 9daa4cc00d03cc5d16024c68429face569f89d68be9206173980833855e44857
+  linux_amd64: 75baa9706ec0453896edf597bc5a9c52c012ea9188555654f698794f578d9f62
+  linux_arm64: 85848eab10e14e64a60ffd85a3c5bbd2e72fc3d554ad28fcff82db7f9a44a686
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

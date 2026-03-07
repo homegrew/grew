@@ -1,0 +1,23 @@
+name: stellar-core
+version: 25.1.1
+description: Backbone of the Stellar (XLM) network
+homepage: https://www.stellar.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stellar-core/blobs/sha256:89ffe935421dfc64ba97d3a94e026710f52eb0144971bbe610793c6491be606e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stellar-core/blobs/sha256:57fe1a30b1ff56e3303ddb2503169bda15bf3efc3e32f686308d660ddf5dcaa8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stellar-core/blobs/sha256:5ab56ce4af2b663c6380b30c9c909c6062c872003c7ee4b91d6d55be4e27e72c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stellar-core/blobs/sha256:41ab94aef9b3489f8b5f03baf6e26e09e0fa2ce1f453d5ea4886e20e0eacf4f6
+sha256:
+  darwin_arm64: 89ffe935421dfc64ba97d3a94e026710f52eb0144971bbe610793c6491be606e
+  darwin_amd64: 57fe1a30b1ff56e3303ddb2503169bda15bf3efc3e32f686308d660ddf5dcaa8
+  linux_amd64: 5ab56ce4af2b663c6380b30c9c909c6062c872003c7ee4b91d6d55be4e27e72c
+  linux_arm64: 41ab94aef9b3489f8b5f03baf6e26e09e0fa2ce1f453d5ea4886e20e0eacf4f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - libpqxx
+  - libsodium

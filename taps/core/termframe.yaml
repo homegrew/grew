@@ -1,0 +1,19 @@
+name: termframe
+version: 0.8.2
+description: Terminal output SVG screenshot tool
+homepage: https://github.com/pamburus/termframe
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termframe/blobs/sha256:76309dc3d7d6bbb15f4fa4986564b0714f206c69d3fe8f35c6ae9de332e62da4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termframe/blobs/sha256:046dbca969dd0d61a82c350a2f63ead170903e022363f95c2cbb4e060c1ed31a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termframe/blobs/sha256:f174bc5f25f04552874aed43b491167dfb70831394853b4d5a9a72e33481e437
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termframe/blobs/sha256:391d4d491c9a12f92c0b210148f9982c7da9eeea55420a14b8107cc2c1c5973b
+sha256:
+  darwin_arm64: 76309dc3d7d6bbb15f4fa4986564b0714f206c69d3fe8f35c6ae9de332e62da4
+  darwin_amd64: 046dbca969dd0d61a82c350a2f63ead170903e022363f95c2cbb4e060c1ed31a
+  linux_amd64: f174bc5f25f04552874aed43b491167dfb70831394853b4d5a9a72e33481e437
+  linux_arm64: 391d4d491c9a12f92c0b210148f9982c7da9eeea55420a14b8107cc2c1c5973b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

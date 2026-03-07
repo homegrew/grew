@@ -1,0 +1,19 @@
+name: texlab
+version: 5.25.1
+description: Implementation of the Language Server Protocol for LaTeX
+homepage: https://github.com/latex-lsp/texlab/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texlab/blobs/sha256:9376f7602a35d01e37ed4b77f3f24d3e7a43ca4d0acd2e9a1ef767b8679a68ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texlab/blobs/sha256:44a52722139efe8a385787d1c68fe16bcc619bbd1cf7e0096060f441509255bd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texlab/blobs/sha256:77a7631e84cc28f6adbf5d55a2797904621be5b7b4f173383f33ae2bff3dce24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texlab/blobs/sha256:81ba303fcda29afc73b3cd919511f64a5633a24bbc31130c6e814ea1632f2f26
+sha256:
+  darwin_arm64: 9376f7602a35d01e37ed4b77f3f24d3e7a43ca4d0acd2e9a1ef767b8679a68ab
+  darwin_amd64: 44a52722139efe8a385787d1c68fe16bcc619bbd1cf7e0096060f441509255bd
+  linux_amd64: 77a7631e84cc28f6adbf5d55a2797904621be5b7b4f173383f33ae2bff3dce24
+  linux_arm64: 81ba303fcda29afc73b3cd919511f64a5633a24bbc31130c6e814ea1632f2f26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

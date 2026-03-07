@@ -1,0 +1,27 @@
+name: clip
+version: 0.7
+description: Create high-quality charts from the command-line
+homepage: https://github.com/asmuth/clip
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clip/blobs/sha256:db658e6fcb0e356d9c460e6a9d68a284b7cfc259410427072fe0a3e980a79c3b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clip/blobs/sha256:abf0e00a25e56c1791a9c02c00ce5aa0daacb4fb905e67710b6542d165a56e3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clip/blobs/sha256:11bab1e5129fadb9ee981a3fce1a5d5398e5ca11b7dee3a10dc325b8db8b80bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clip/blobs/sha256:b8681f1d1300b0344c10090065c88c6bd20a3131963d9253084bc9178428c25f
+sha256:
+  darwin_arm64: db658e6fcb0e356d9c460e6a9d68a284b7cfc259410427072fe0a3e980a79c3b
+  darwin_amd64: abf0e00a25e56c1791a9c02c00ce5aa0daacb4fb905e67710b6542d165a56e3d
+  linux_amd64: 11bab1e5129fadb9ee981a3fce1a5d5398e5ca11b7dee3a10dc325b8db8b80bf
+  linux_arm64: b8681f1d1300b0344c10090065c88c6bd20a3131963d9253084bc9178428c25f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fmt
+  - fontconfig
+  - freetype
+  - fribidi
+  - harfbuzz
+  - libpng

@@ -1,0 +1,19 @@
+name: mihomo
+version: 1.19.20
+description: Another rule-based tunnel in Go, formerly known as ClashMeta
+homepage: https://wiki.metacubex.one
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mihomo/blobs/sha256:e25af9c9fdc2edccb826375f2d1aa95bf68a8c16ddc4563efc8db259e33d4cd2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mihomo/blobs/sha256:95dea3c0d28c2e0ce0bca93408bcb79c9c5f01290935a8f38ade81756e4eef56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mihomo/blobs/sha256:bde40a6e53ee45e8606a9cdfe08ba6e9b11f6548d117dc45f0b54637e6887281
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mihomo/blobs/sha256:3c81ae77cb933fee49102ac2133ebaade990ef597a716853c16739cf91cbc81c
+sha256:
+  darwin_arm64: e25af9c9fdc2edccb826375f2d1aa95bf68a8c16ddc4563efc8db259e33d4cd2
+  darwin_amd64: 95dea3c0d28c2e0ce0bca93408bcb79c9c5f01290935a8f38ade81756e4eef56
+  linux_amd64: bde40a6e53ee45e8606a9cdfe08ba6e9b11f6548d117dc45f0b54637e6887281
+  linux_arm64: 3c81ae77cb933fee49102ac2133ebaade990ef597a716853c16739cf91cbc81c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: cargo-update
+version: 18.1.1
+description: Cargo subcommand for checking and applying updates to installed executables
+homepage: https://github.com/nabijaczleweli/cargo-update
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-update/blobs/sha256:5569dfa80bbe593fe7d57ec8606318172b7ff37069763b790be9f8185e62d126
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-update/blobs/sha256:0d055d98a8329702942537f5fd0b9a0682e00f3b775b753f20bded9f24303f63
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-update/blobs/sha256:a7caf715ab9ce6a3bf47e55aeca020b658aa5c29ecea0d2b32b9851d194d8c36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-update/blobs/sha256:7226bf6277cd6bb74da2cb0bf3051314e89e223bdebe1b8e38d3a34a50ac4a70
+sha256:
+  darwin_arm64: 5569dfa80bbe593fe7d57ec8606318172b7ff37069763b790be9f8185e62d126
+  darwin_amd64: 0d055d98a8329702942537f5fd0b9a0682e00f3b775b753f20bded9f24303f63
+  linux_amd64: a7caf715ab9ce6a3bf47e55aeca020b658aa5c29ecea0d2b32b9851d194d8c36
+  linux_arm64: 7226bf6277cd6bb74da2cb0bf3051314e89e223bdebe1b8e38d3a34a50ac4a70
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2
+  - libssh2
+  - openssl@3

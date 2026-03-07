@@ -1,0 +1,19 @@
+name: libsodium
+version: 1.0.21
+description: NaCl networking and cryptography library
+homepage: https://libsodium.org/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsodium/blobs/sha256:f67601f25a55e3845e1792c60a7bfab15dd3541fbb03e116b147e252fb153c9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsodium/blobs/sha256:437e033a04914c6ce7c3f642410bc924e5c2edfeab136dbd77e0a4d455387bd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsodium/blobs/sha256:082cbc3178f73ab138d65735f2b4e8c2d47df2b411f398669482d51c7001d369
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsodium/blobs/sha256:ef2ff41f468c1eb03d919ee31a903a242e762b1a9bb22f52e34438a907d6bbd4
+sha256:
+  darwin_arm64: f67601f25a55e3845e1792c60a7bfab15dd3541fbb03e116b147e252fb153c9a
+  darwin_amd64: 437e033a04914c6ce7c3f642410bc924e5c2edfeab136dbd77e0a4d455387bd4
+  linux_amd64: 082cbc3178f73ab138d65735f2b4e8c2d47df2b411f398669482d51c7001d369
+  linux_arm64: ef2ff41f468c1eb03d919ee31a903a242e762b1a9bb22f52e34438a907d6bbd4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

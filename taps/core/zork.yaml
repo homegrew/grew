@@ -1,0 +1,19 @@
+name: zork
+version: 1.0.3
+description: Dungeon modified from FORTRAN to C
+homepage: https://github.com/devshane/zork
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zork/blobs/sha256:fdce85049ae42b1a9be9102f46045e7940a47b15e9a5994f08b954721f0ac242
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zork/blobs/sha256:1baa8e6b8652a3e2097f4cf7bdd682aefc2257539ba3e2c128b67ead17a2dbe1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zork/blobs/sha256:b6205ffff9a5874f180fd92c609e23cbf079799d9c43523b9f05befde770f712
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zork/blobs/sha256:a8c82f78501656b0426865983a27c1c722b5ef39ad4606cd15ee9239a312db82
+sha256:
+  darwin_arm64: fdce85049ae42b1a9be9102f46045e7940a47b15e9a5994f08b954721f0ac242
+  darwin_amd64: 1baa8e6b8652a3e2097f4cf7bdd682aefc2257539ba3e2c128b67ead17a2dbe1
+  linux_amd64: b6205ffff9a5874f180fd92c609e23cbf079799d9c43523b9f05befde770f712
+  linux_arm64: a8c82f78501656b0426865983a27c1c722b5ef39ad4606cd15ee9239a312db82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

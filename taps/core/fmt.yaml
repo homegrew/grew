@@ -1,0 +1,19 @@
+name: fmt
+version: 12.1.0
+description: Open-source formatting library for C++
+homepage: https://fmt.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fmt/blobs/sha256:008ec3a1b84d5db3334383279f6aaf1da457a1173efb14e9bd1d41beb7f6d6da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fmt/blobs/sha256:dedd10167d4ad5aa173d40ed13a19e1648db680fb0569114caffe822bad14554
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fmt/blobs/sha256:c7c4de1f40ac72b6f014ee7690e9a005b6689d270d6ace076719de7484c7d85b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fmt/blobs/sha256:84463daea1c23f94ae58abbf951987bea488c0161be4d9cbc785594d88f02d63
+sha256:
+  darwin_arm64: 008ec3a1b84d5db3334383279f6aaf1da457a1173efb14e9bd1d41beb7f6d6da
+  darwin_amd64: dedd10167d4ad5aa173d40ed13a19e1648db680fb0569114caffe822bad14554
+  linux_amd64: c7c4de1f40ac72b6f014ee7690e9a005b6689d270d6ace076719de7484c7d85b
+  linux_arm64: 84463daea1c23f94ae58abbf951987bea488c0161be4d9cbc785594d88f02d63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sylph
+version: 0.9.0
+description: Ultrafast taxonomic profiling and genome querying for metagenomic samples
+homepage: https://github.com/bluenote-1577/sylph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sylph/blobs/sha256:65a5db917f22490e7ccfe1c708fbea9ef4e12d58e9e204f1be4cba864dfa5a9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sylph/blobs/sha256:6558b4a6efc0fffea34185b1efd5930b6465b0020467815e923f436d5813b9cb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sylph/blobs/sha256:2d5ab406da26adf6e3b73144a1bdce61fba7aeb84082691510fdb3254782d0d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sylph/blobs/sha256:49a547053071374c6de1152c674611eaacf7ba5ca3b51eba8e0e286d20d207a1
+sha256:
+  darwin_arm64: 65a5db917f22490e7ccfe1c708fbea9ef4e12d58e9e204f1be4cba864dfa5a9d
+  darwin_amd64: 6558b4a6efc0fffea34185b1efd5930b6465b0020467815e923f436d5813b9cb
+  linux_amd64: 2d5ab406da26adf6e3b73144a1bdce61fba7aeb84082691510fdb3254782d0d2
+  linux_arm64: 49a547053071374c6de1152c674611eaacf7ba5ca3b51eba8e0e286d20d207a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

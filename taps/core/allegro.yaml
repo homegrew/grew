@@ -1,0 +1,32 @@
+name: allegro
+version: 5.2.11.3
+description: C/C++ multimedia library for cross-platform game development
+homepage: https://liballeg.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/allegro/blobs/sha256:e3e3538d2dd7ac9ab3c79343acec0f77a2746a50a6435371dfc35a75715aba9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/allegro/blobs/sha256:1e0c9fe820bf392ee0707eff299fe523ebbd6e21d1327714f5c3ac36a53f3df7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/allegro/blobs/sha256:5ae31e6b786d07b263625a5c9d6ac16e77749a438492d9a8cf69a00e9be4b5ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/allegro/blobs/sha256:70dbfd0353c0655b5a6bfe5520fabe067e17e423a209465b435cc067b1eec6bc
+sha256:
+  darwin_arm64: e3e3538d2dd7ac9ab3c79343acec0f77a2746a50a6435371dfc35a75715aba9b
+  darwin_amd64: 1e0c9fe820bf392ee0707eff299fe523ebbd6e21d1327714f5c3ac36a53f3df7
+  linux_amd64: 5ae31e6b786d07b263625a5c9d6ac16e77749a438492d9a8cf69a00e9be4b5ac
+  linux_arm64: 70dbfd0353c0655b5a6bfe5520fabe067e17e423a209465b435cc067b1eec6bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - freetype
+  - jpeg-turbo
+  - libogg
+  - libopenmpt
+  - libpng
+  - libvorbis
+  - opusfile
+  - physfs
+  - theora
+  - webp
+  - opus

@@ -1,0 +1,15 @@
+name: mtoc
+version: 1030.6.3
+description: Mach-O to PE/COFF binary converter
+homepage: https://opensource.apple.com/
+license: APSL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mtoc/blobs/sha256:45bb1943f18afdc68144a47a8b41eb49b6c33ee7e1c2abf849c7cf4430956401
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mtoc/blobs/sha256:cd38d1b84694e03fe9c4abf20746fb42bcd7a38023a681c3e6a1e98a23c10d44
+sha256:
+  darwin_arm64: 45bb1943f18afdc68144a47a8b41eb49b6c33ee7e1c2abf849c7cf4430956401
+  darwin_amd64: cd38d1b84694e03fe9c4abf20746fb42bcd7a38023a681c3e6a1e98a23c10d44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

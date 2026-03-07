@@ -1,0 +1,23 @@
+name: redstore
+version: 0.5.4
+description: Lightweight RDF triplestore powered by Redland
+homepage: https://www.aelius.com/njh/redstore/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redstore/blobs/sha256:b4f7cfae26c26edf74952a959d8e56b8058ee755bd4384a18089257af330623a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redstore/blobs/sha256:12fca2f939d2fe399dcff87f87ac6a2d0dc4448d4d2d2577faa5182681dd0e4d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redstore/blobs/sha256:f459a58381dd6067d033bb20eb4101af9136f5260796bd2daee07cf6365c3bde
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redstore/blobs/sha256:67a498c2f25e82a164b7d5191d8824ca398c2ad7f774eb6971de1855a7712122
+sha256:
+  darwin_arm64: b4f7cfae26c26edf74952a959d8e56b8058ee755bd4384a18089257af330623a
+  darwin_amd64: 12fca2f939d2fe399dcff87f87ac6a2d0dc4448d4d2d2577faa5182681dd0e4d
+  linux_amd64: f459a58381dd6067d033bb20eb4101af9136f5260796bd2daee07cf6365c3bde
+  linux_arm64: 67a498c2f25e82a164b7d5191d8824ca398c2ad7f774eb6971de1855a7712122
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - raptor
+  - rasqal
+  - redland

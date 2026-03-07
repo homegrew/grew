@@ -1,0 +1,35 @@
+name: timg
+version: 1.6.3
+description: Terminal image and video viewer
+homepage: https://timg.sh/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/timg/blobs/sha256:29d6beebc4277ef79f9d14c083fa370a7b929b03a769d676ac9b2bb87964ed68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/timg/blobs/sha256:2bdef3af0e1ae32d4e893d6f8d5984bb1568b9f36e3d91276dbf87d40d7abe3e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/timg/blobs/sha256:83740c7f5cc8839d160a8c269e5c4a483e50c0869213a73dd82abecd0ab389bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/timg/blobs/sha256:318dbf7ec1b15f1e72f684b4d8b749ad81e777e3149d5f86a27956f46c79205f
+sha256:
+  darwin_arm64: 29d6beebc4277ef79f9d14c083fa370a7b929b03a769d676ac9b2bb87964ed68
+  darwin_amd64: 2bdef3af0e1ae32d4e893d6f8d5984bb1568b9f36e3d91276dbf87d40d7abe3e
+  linux_amd64: 83740c7f5cc8839d160a8c269e5c4a483e50c0869213a73dd82abecd0ab389bc
+  linux_arm64: 318dbf7ec1b15f1e72f684b4d8b749ad81e777e3149d5f86a27956f46c79205f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - ffmpeg
+  - glib
+  - graphicsmagick
+  - jpeg-turbo
+  - libdeflate
+  - libexif
+  - libpng
+  - librsvg
+  - libsixel
+  - openslide
+  - poppler
+  - webp
+  - gdk-pixbuf
+  - gettext

@@ -1,0 +1,19 @@
+name: hspell
+version: 1.4
+description: Free Hebrew linguistic project
+homepage: https://hspell.sourceforge.net/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hspell/blobs/sha256:c2f0ea64af6987d36f42b5f53aa51e781ff98cee49ea71b3f19d4137a8c4191b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hspell/blobs/sha256:d99dbc4d7a19a85cfcd36c2aa7623fe5e01b2172ee8251be627927b067167ea9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hspell/blobs/sha256:52c6c0928b22dd5d7e72e08a48ae96ba44615336e24fe4ec677057a2d07fef36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hspell/blobs/sha256:9e22e4326c832b9a1e407c6f72a57a6a359395cff667db921c0d7080ef411cc0
+sha256:
+  darwin_arm64: c2f0ea64af6987d36f42b5f53aa51e781ff98cee49ea71b3f19d4137a8c4191b
+  darwin_amd64: d99dbc4d7a19a85cfcd36c2aa7623fe5e01b2172ee8251be627927b067167ea9
+  linux_amd64: 52c6c0928b22dd5d7e72e08a48ae96ba44615336e24fe4ec677057a2d07fef36
+  linux_arm64: 9e22e4326c832b9a1e407c6f72a57a6a359395cff667db921c0d7080ef411cc0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

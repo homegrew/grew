@@ -1,0 +1,21 @@
+name: daemonlogger
+version: 1.2.1
+description: Network packet logger and soft tap daemon
+homepage: https://sourceforge.net/projects/daemonlogger/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/daemonlogger/blobs/sha256:0ced73ca63e8d048dbc4692cbadf68f13d834fb8e5bf642be31d4573d58d17bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/daemonlogger/blobs/sha256:7a5a4ce158ed37a04fb7fb7bd1fae312eb4e212eb795f78a63826b8ff40e38e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/daemonlogger/blobs/sha256:462b6ecbf94169210be2591de29de97b69a701cc810485fb956bf7892e1b57fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/daemonlogger/blobs/sha256:f113a27d6f67fb9de34fd6b13d6736aa466df7d0d6d9eb91c21446937500b596
+sha256:
+  darwin_arm64: 0ced73ca63e8d048dbc4692cbadf68f13d834fb8e5bf642be31d4573d58d17bb
+  darwin_amd64: 7a5a4ce158ed37a04fb7fb7bd1fae312eb4e212eb795f78a63826b8ff40e38e7
+  linux_amd64: 462b6ecbf94169210be2591de29de97b69a701cc810485fb956bf7892e1b57fa
+  linux_arm64: f113a27d6f67fb9de34fd6b13d6736aa466df7d0d6d9eb91c21446937500b596
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libdnet

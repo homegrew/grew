@@ -1,0 +1,19 @@
+name: kconf
+version: 2.0.0
+description: CLI for managing multiple kubeconfigs
+homepage: https://github.com/particledecay/kconf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kconf/blobs/sha256:716e365025812d14fe17774fc209d18cc8f37aeae47916525f4a1547797e12a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kconf/blobs/sha256:848797af83206e5beba36e0796a0627a87ebf8821753cfaf11d2f4a916fa8aec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kconf/blobs/sha256:847f19228e51932af6b6ca5b484c82fc5e5b0baf62d54189333cf5f45e2fa6fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kconf/blobs/sha256:3f003fc02c549d3c6963af7c0a455bdb796147ddba2d66aa0bf5c2be3458082f
+sha256:
+  darwin_arm64: 716e365025812d14fe17774fc209d18cc8f37aeae47916525f4a1547797e12a0
+  darwin_amd64: 848797af83206e5beba36e0796a0627a87ebf8821753cfaf11d2f4a916fa8aec
+  linux_amd64: 847f19228e51932af6b6ca5b484c82fc5e5b0baf62d54189333cf5f45e2fa6fd
+  linux_arm64: 3f003fc02c549d3c6963af7c0a455bdb796147ddba2d66aa0bf5c2be3458082f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

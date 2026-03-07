@@ -1,0 +1,19 @@
+name: libnatpmp
+version: 20230423
+description: NAT port mapping protocol library
+homepage: https://miniupnp.tuxfamily.org/libnatpmp.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnatpmp/blobs/sha256:abc3665366422cecdf87ae0ec5fc1242771bc30ffd0119466efee183805ff49e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnatpmp/blobs/sha256:e79bae12df6cbd0880010d1ece79b94c7f8a0d17173bc2307b5a12bcf6007cd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnatpmp/blobs/sha256:5c61e68ce733b200615ecb9dbabe36a9336cf7d6404a4d869573a365acaebc08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnatpmp/blobs/sha256:e0a46bd1dc2998015ddd30fea697d2a633f689af5be97b2b5a8f491eae9558a2
+sha256:
+  darwin_arm64: abc3665366422cecdf87ae0ec5fc1242771bc30ffd0119466efee183805ff49e
+  darwin_amd64: e79bae12df6cbd0880010d1ece79b94c7f8a0d17173bc2307b5a12bcf6007cd4
+  linux_amd64: 5c61e68ce733b200615ecb9dbabe36a9336cf7d6404a4d869573a365acaebc08
+  linux_arm64: e0a46bd1dc2998015ddd30fea697d2a633f689af5be97b2b5a8f491eae9558a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

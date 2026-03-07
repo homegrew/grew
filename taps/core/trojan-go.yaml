@@ -1,0 +1,19 @@
+name: trojan-go
+version: 0.10.6
+description: Trojan proxy in Go
+homepage: https://p4gefau1t.github.io/trojan-go/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/trojan-go/blobs/sha256:e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/trojan-go/blobs/sha256:aef59484731100b7a80263353a251ad5c33281f0f3ce0fe4c3c427f42aaa3867
+  linux_amd64: https://ghcr.io/v2/homebrew/core/trojan-go/blobs/sha256:5d15ceba20c4d223f29bcb8daa59d4e045a089cfdd49c10a9a98dd770565d6fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/trojan-go/blobs/sha256:3546d218a396d0ce42976b0593c71f4cd48f0edd81b0e2ba1dde4d3cd15e4004
+sha256:
+  darwin_arm64: e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2
+  darwin_amd64: aef59484731100b7a80263353a251ad5c33281f0f3ce0fe4c3c427f42aaa3867
+  linux_amd64: 5d15ceba20c4d223f29bcb8daa59d4e045a089cfdd49c10a9a98dd770565d6fc
+  linux_arm64: 3546d218a396d0ce42976b0593c71f4cd48f0edd81b0e2ba1dde4d3cd15e4004
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: eprover
+version: 3.2
+description: Theorem prover for full first-order logic with equality
+homepage: https://eprover.org/
+license: GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eprover/blobs/sha256:c01a004aee61d877eecbb457c34217d181e560455e5c70faaaaaecb3d753d59c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eprover/blobs/sha256:4211bca5c7075d8a387d3a3f112270bde241a9f7e9621cdf631224d67b21a55f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eprover/blobs/sha256:9938d476044c8d9a8733cd3e0417f42aecdb488ce719f3c2eabf32d151dbd6ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eprover/blobs/sha256:d8787c5f0cb13c1ca7093aab86bcb2e80e03b321faeacddd0ed325c2f1ab7a55
+sha256:
+  darwin_arm64: c01a004aee61d877eecbb457c34217d181e560455e5c70faaaaaecb3d753d59c
+  darwin_amd64: 4211bca5c7075d8a387d3a3f112270bde241a9f7e9621cdf631224d67b21a55f
+  linux_amd64: 9938d476044c8d9a8733cd3e0417f42aecdb488ce719f3c2eabf32d151dbd6ba
+  linux_arm64: d8787c5f0cb13c1ca7093aab86bcb2e80e03b321faeacddd0ed325c2f1ab7a55
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

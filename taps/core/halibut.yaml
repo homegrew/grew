@@ -1,0 +1,19 @@
+name: halibut
+version: 1.3
+description: Yet another free document preparation system
+homepage: https://www.chiark.greenend.org.uk/~sgtatham/halibut/
+license: MIT AND APAFML
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/halibut/blobs/sha256:f11db8dba2812df50997b9282d74a8b2d8c7a3e24ebc7aa51169d1f958e51506
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/halibut/blobs/sha256:2a9f53eba275766163826e616ffed4fb4ce2436aac73c3b3b710cca63ccbb382
+  linux_amd64: https://ghcr.io/v2/homebrew/core/halibut/blobs/sha256:8b074c7854ab9c65b56a04c63512c77e8bae8958a2beb2f0eff3b791264fc354
+  linux_arm64: https://ghcr.io/v2/homebrew/core/halibut/blobs/sha256:5db7dd744d114aef3647f5ff961716ad0996cdc3f9efa96c9810047181483c4a
+sha256:
+  darwin_arm64: f11db8dba2812df50997b9282d74a8b2d8c7a3e24ebc7aa51169d1f958e51506
+  darwin_amd64: 2a9f53eba275766163826e616ffed4fb4ce2436aac73c3b3b710cca63ccbb382
+  linux_amd64: 8b074c7854ab9c65b56a04c63512c77e8bae8958a2beb2f0eff3b791264fc354
+  linux_arm64: 5db7dd744d114aef3647f5ff961716ad0996cdc3f9efa96c9810047181483c4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

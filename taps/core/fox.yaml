@@ -1,0 +1,35 @@
+name: fox
+version: 1.6.59
+description: Toolkit for developing Graphical User Interfaces easily
+homepage: http://fox-toolkit.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fox/blobs/sha256:91240fb02b90a3c3efdaa73e6deca2662ec50404014dd405762adcaf17db7ec9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fox/blobs/sha256:1d251b692e7f74a95c853d492dd1a54714372ee61c4ee8bd94fc5b23feb49d5a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fox/blobs/sha256:4f7c54833495b786ec99c5cd9b5e40794471d9caf3e531173c63b2d4fc2f28bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fox/blobs/sha256:d411539e13366056c6597b528c53bec28e3fdaecfef3fbdb4e410c2f2a500ba6
+sha256:
+  darwin_arm64: 91240fb02b90a3c3efdaa73e6deca2662ec50404014dd405762adcaf17db7ec9
+  darwin_amd64: 1d251b692e7f74a95c853d492dd1a54714372ee61c4ee8bd94fc5b23feb49d5a
+  linux_amd64: 4f7c54833495b786ec99c5cd9b5e40794471d9caf3e531173c63b2d4fc2f28bc
+  linux_arm64: d411539e13366056c6597b528c53bec28e3fdaecfef3fbdb4e410c2f2a500ba6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - libx11
+  - libxcursor
+  - libxext
+  - libxft
+  - libxrandr
+  - mesa
+  - mesa-glu
+  - libxfixes
+  - libxi
+  - libxrender

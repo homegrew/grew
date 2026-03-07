@@ -1,0 +1,19 @@
+name: liqoctl
+version: 1.1.1
+description: Is a CLI tool to install and manage Liqo-enabled clusters
+homepage: https://liqo.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liqoctl/blobs/sha256:bd6323cef002ef81f1bab8a91be5c1e93a4a2b0543704ddcb871e2e893d6e816
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liqoctl/blobs/sha256:281b0c4d3da112c042ccbe19329b9f6cb9482b647d2accf488a63d43f444e4ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liqoctl/blobs/sha256:3029b45cf8aa44700afceb96f4000285042d7de89a4cf65886abec30e85da198
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liqoctl/blobs/sha256:8c112b86d8c4baed51c84d5399c449db657c036fd4b277193ee9a14378bbf522
+sha256:
+  darwin_arm64: bd6323cef002ef81f1bab8a91be5c1e93a4a2b0543704ddcb871e2e893d6e816
+  darwin_amd64: 281b0c4d3da112c042ccbe19329b9f6cb9482b647d2accf488a63d43f444e4ec
+  linux_amd64: 3029b45cf8aa44700afceb96f4000285042d7de89a4cf65886abec30e85da198
+  linux_arm64: 8c112b86d8c4baed51c84d5399c449db657c036fd4b277193ee9a14378bbf522
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

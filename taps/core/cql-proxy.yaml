@@ -1,0 +1,19 @@
+name: cql-proxy
+version: 0.2.0
+description: DataStax cql-proxy enables Cassandra apps to use Astra DB without code changes
+homepage: https://github.com/datastax/cql-proxy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cql-proxy/blobs/sha256:03f84d5e2eb848b641075a1e2b2298a8a7755cc06a4cad38abcb57d9d64dbe6d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cql-proxy/blobs/sha256:3dbc0fb6ba197d0580cad3327f8d6f10a4a3425fc9aa93a96043e45932a969a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cql-proxy/blobs/sha256:f5329be03e21ee3e5a58454aca78a6a08034b955efce86e2e2d14caff0e101b3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cql-proxy/blobs/sha256:c66d460a5288fdc86c5316e917e2041da66e9a240cd7496706dfff88ac9d4f57
+sha256:
+  darwin_arm64: 03f84d5e2eb848b641075a1e2b2298a8a7755cc06a4cad38abcb57d9d64dbe6d
+  darwin_amd64: 3dbc0fb6ba197d0580cad3327f8d6f10a4a3425fc9aa93a96043e45932a969a7
+  linux_amd64: f5329be03e21ee3e5a58454aca78a6a08034b955efce86e2e2d14caff0e101b3
+  linux_arm64: c66d460a5288fdc86c5316e917e2041da66e9a240cd7496706dfff88ac9d4f57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

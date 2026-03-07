@@ -1,0 +1,33 @@
+name: aravis
+version: 0.8.35
+description: Vision library for genicam based cameras
+homepage: https://github.com/AravisProject/aravis
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aravis/blobs/sha256:492161d546798277f669e70c6f78ac95077a13c894763f8c065659ef74d13084
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aravis/blobs/sha256:a7186ae6439613f44eda3f24a922aec342fd2698a54106b1e83ebee24452e7c1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aravis/blobs/sha256:514c289ee6432c01ea54e3577ac3ea47849389e1ea848549cc99b29037619e9f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aravis/blobs/sha256:940d5509ecceedb89321147d1ead8f983fc2da277f9942dde3ba1e4e262781e3
+sha256:
+  darwin_arm64: 492161d546798277f669e70c6f78ac95077a13c894763f8c065659ef74d13084
+  darwin_amd64: a7186ae6439613f44eda3f24a922aec342fd2698a54106b1e83ebee24452e7c1
+  linux_amd64: 514c289ee6432c01ea54e3577ac3ea47849389e1ea848549cc99b29037619e9f
+  linux_arm64: 940d5509ecceedb89321147d1ead8f983fc2da277f9942dde3ba1e4e262781e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - glib
+  - gstreamer
+  - gtk+3
+  - intltool
+  - libnotify
+  - libusb
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - harfbuzz
+  - pango

@@ -1,0 +1,22 @@
+name: gocr
+version: 0.52
+description: Optical Character Recognition (OCR), converts images back to text
+homepage: https://wasd.urz.uni-magdeburg.de/jschulen/ocr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gocr/blobs/sha256:22d93d120980d188dbee305cbec8c1d22aab0a9def0580ff3ecaeaa44fe488e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gocr/blobs/sha256:8d1a2d42e8c6063d35390c128c34ee66420912b9a78c37dbf5c015cff1ac1d58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gocr/blobs/sha256:614341527ffeeb9e65ea13c95c230569bd68316f11b6e4c3d5bbc4c46757faa8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gocr/blobs/sha256:4012b5d2e3c64d8bffa02852c25348f57cee8475aa726d7e14384e248a08e349
+sha256:
+  darwin_arm64: 22d93d120980d188dbee305cbec8c1d22aab0a9def0580ff3ecaeaa44fe488e7
+  darwin_amd64: 8d1a2d42e8c6063d35390c128c34ee66420912b9a78c37dbf5c015cff1ac1d58
+  linux_amd64: 614341527ffeeb9e65ea13c95c230569bd68316f11b6e4c3d5bbc4c46757faa8
+  linux_arm64: 4012b5d2e3c64d8bffa02852c25348f57cee8475aa726d7e14384e248a08e349
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - netpbm

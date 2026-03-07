@@ -1,0 +1,19 @@
+name: patchutils
+version: 0.4.5
+description: Small collection of programs that operate on patch files
+homepage: https://cyberelk.net/tim/software/patchutils/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/patchutils/blobs/sha256:f73c0a54e3ea11391794dac98bbe16d0d0a476205940e2b7545065c7efe2f2c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/patchutils/blobs/sha256:3b137f453b90ca585d0041a05422cf0eb30899304d0eb27aae6c297148a38a40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/patchutils/blobs/sha256:e53f763da7310b7c7a1c223e3ff7118fbb67d0fd7c45e90e058d8ae56d90898f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/patchutils/blobs/sha256:0e8ab3deffa04e3b0a40cb52338ab71c5434e0e5697ef45c2fdcfb5f12bf6d54
+sha256:
+  darwin_arm64: f73c0a54e3ea11391794dac98bbe16d0d0a476205940e2b7545065c7efe2f2c9
+  darwin_amd64: 3b137f453b90ca585d0041a05422cf0eb30899304d0eb27aae6c297148a38a40
+  linux_amd64: e53f763da7310b7c7a1c223e3ff7118fbb67d0fd7c45e90e058d8ae56d90898f
+  linux_arm64: 0e8ab3deffa04e3b0a40cb52338ab71c5434e0e5697ef45c2fdcfb5f12bf6d54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

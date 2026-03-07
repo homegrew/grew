@@ -1,0 +1,21 @@
+name: opencc
+version: 1.2.0
+description: Simplified-traditional Chinese conversion tool
+homepage: https://github.com/BYVoid/OpenCC
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencc/blobs/sha256:f4f32d831b4c4efcce4985889f1b97c2d72cf0fa70072a1510c364abbf4d41a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencc/blobs/sha256:c9dfebbc8c0a1ade2338055f3304f1099c7ac6c6ab8eaf99b26bef6af61a299d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencc/blobs/sha256:d8e0a358a41f411513b78d9d4a4ec5fc978d4c832474f4824e10d58a9fab187a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencc/blobs/sha256:a3c0b445c400a2d6f520b0747058b770cfc798a8095f8331b501ad325dfb2b81
+sha256:
+  darwin_arm64: f4f32d831b4c4efcce4985889f1b97c2d72cf0fa70072a1510c364abbf4d41a8
+  darwin_amd64: c9dfebbc8c0a1ade2338055f3304f1099c7ac6c6ab8eaf99b26bef6af61a299d
+  linux_amd64: d8e0a358a41f411513b78d9d4a4ec5fc978d4c832474f4824e10d58a9fab187a
+  linux_arm64: a3c0b445c400a2d6f520b0747058b770cfc798a8095f8331b501ad325dfb2b81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - marisa

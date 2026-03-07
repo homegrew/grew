@@ -1,0 +1,21 @@
+name: graphqlite
+version: 0.3.7
+description: SQLite graph database extension
+homepage: https://colliery-io.github.io/graphqlite/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/graphqlite/blobs/sha256:8b2b78218a659a2b0db423af482ea92d88ab63800520cc6f96905c4b7df7e743
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/graphqlite/blobs/sha256:b3a31211b943ebd2673fb210a2c3f756ba415a2ffc4799f2424231f7a014fa8e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/graphqlite/blobs/sha256:40cf3bf62294266578c2929f53edffefc7afa2629622b6aed3f73b9c5f2c79eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/graphqlite/blobs/sha256:c79607d753bfc4748f9b2ced9b0345e38332a0ecdbdadfcbbce8988aa4c4b0d4
+sha256:
+  darwin_arm64: 8b2b78218a659a2b0db423af482ea92d88ab63800520cc6f96905c4b7df7e743
+  darwin_amd64: b3a31211b943ebd2673fb210a2c3f756ba415a2ffc4799f2424231f7a014fa8e
+  linux_amd64: 40cf3bf62294266578c2929f53edffefc7afa2629622b6aed3f73b9c5f2c79eb
+  linux_arm64: c79607d753bfc4748f9b2ced9b0345e38332a0ecdbdadfcbbce8988aa4c4b0d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sqlite

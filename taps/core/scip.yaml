@@ -1,0 +1,29 @@
+name: scip
+version: 10.0.1
+description: Solver for mixed integer programming and mixed integer nonlinear programming
+homepage: https://scipopt.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scip/blobs/sha256:d6763c8b4026e7a7b76d8202ab3170da7f192cd9bc35d1a1ae5e143c38ad8d7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scip/blobs/sha256:c06ded6eb98947e0c9bc59e0ffd2b7842ae77c6769b922768e877118b6425f8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scip/blobs/sha256:f4d463b473ce46312fa9cbc28dca49bbdb08b4bace0deb40e4bf6fd00e03bce6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scip/blobs/sha256:59c7867bfe4349b2f42887e8a4e472ac934b5e987314efbf72793b66b3b616d7
+sha256:
+  darwin_arm64: d6763c8b4026e7a7b76d8202ab3170da7f192cd9bc35d1a1ae5e143c38ad8d7e
+  darwin_amd64: c06ded6eb98947e0c9bc59e0ffd2b7842ae77c6769b922768e877118b6425f8a
+  linux_amd64: f4d463b473ce46312fa9cbc28dca49bbdb08b4bace0deb40e4bf6fd00e03bce6
+  linux_arm64: 59c7867bfe4349b2f42887e8a4e472ac934b5e987314efbf72793b66b3b616d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cppad
+  - gcc
+  - gmp
+  - ipopt
+  - mpfr
+  - openblas
+  - readline
+  - tbb
+  - boost

@@ -1,0 +1,19 @@
+name: uncover
+version: 1.2.0
+description: Tool to discover exposed hosts on the internet using multiple search engines
+homepage: https://github.com/projectdiscovery/uncover
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uncover/blobs/sha256:ea9ea0ffed86c7e1f3bd9a2215f31a999e1b616c54e78da163b0dba5f8a765a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uncover/blobs/sha256:fbbda4fa9e7915c6d328108ae8b4aef5425edac92fa70fd625e462451216c65d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uncover/blobs/sha256:096d2093ff8fd12661e40f4ed15b79330762f1864dcd170e2a0d1cf319ee0cbd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uncover/blobs/sha256:75a201de1cc4cd972b6c514697b6af509e05d814754c1aedaea3a79a4a983cec
+sha256:
+  darwin_arm64: ea9ea0ffed86c7e1f3bd9a2215f31a999e1b616c54e78da163b0dba5f8a765a0
+  darwin_amd64: fbbda4fa9e7915c6d328108ae8b4aef5425edac92fa70fd625e462451216c65d
+  linux_amd64: 096d2093ff8fd12661e40f4ed15b79330762f1864dcd170e2a0d1cf319ee0cbd
+  linux_arm64: 75a201de1cc4cd972b6c514697b6af509e05d814754c1aedaea3a79a4a983cec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

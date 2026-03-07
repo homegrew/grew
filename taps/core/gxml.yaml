@@ -1,0 +1,24 @@
+name: gxml
+version: 0.20.4
+description: GObject-based XML DOM API
+homepage: https://wiki.gnome.org/GXml
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gxml/blobs/sha256:a3da5e42590fe64560597a9dd87d4ef7b99a7fab333a8ce2b1b307709892eab6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gxml/blobs/sha256:f26bdae2e98a12878bf0266f81ead6d0d35049aac22f6d7e998dec91f4cbe1ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gxml/blobs/sha256:34f65c1d4ae3dedf814cf963ac7bcc5619bd80285d22f151a679cc1eb24e6e4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gxml/blobs/sha256:a005ed52b097ee095f4ec60799afa0428ddc924a84715522d5787e5430f50448
+sha256:
+  darwin_arm64: a3da5e42590fe64560597a9dd87d4ef7b99a7fab333a8ce2b1b307709892eab6
+  darwin_amd64: f26bdae2e98a12878bf0266f81ead6d0d35049aac22f6d7e998dec91f4cbe1ab
+  linux_amd64: 34f65c1d4ae3dedf814cf963ac7bcc5619bd80285d22f151a679cc1eb24e6e4b
+  linux_arm64: a005ed52b097ee095f4ec60799afa0428ddc924a84715522d5787e5430f50448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libgee
+  - libxml2
+  - gettext

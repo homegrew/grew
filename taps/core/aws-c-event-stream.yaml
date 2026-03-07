@@ -1,0 +1,23 @@
+name: aws-c-event-stream
+version: 0.6.0
+description: C99 implementation of the vnd.amazon.eventstream content-type
+homepage: https://github.com/awslabs/aws-c-event-stream
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-event-stream/blobs/sha256:4e659dca20d8ae4ad62b48dde9587aa9e12cd1ee4697e1c1ba6c36427469c494
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-event-stream/blobs/sha256:709efc974e0e8f43c0bfb4076270efb8c539af34274b9873ac02e109a0deeded
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-event-stream/blobs/sha256:cad4c14c80cfc6a7b81023046cb045e3b21c4b57f2dfa11ebe288497f3966cb8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-event-stream/blobs/sha256:4a403f59ce287c8b190334bc5ae7e793f6c98d4705c626f6c67d77d51aaff475
+sha256:
+  darwin_arm64: 4e659dca20d8ae4ad62b48dde9587aa9e12cd1ee4697e1c1ba6c36427469c494
+  darwin_amd64: 709efc974e0e8f43c0bfb4076270efb8c539af34274b9873ac02e109a0deeded
+  linux_amd64: cad4c14c80cfc6a7b81023046cb045e3b21c4b57f2dfa11ebe288497f3966cb8
+  linux_arm64: 4a403f59ce287c8b190334bc5ae7e793f6c98d4705c626f6c67d77d51aaff475
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-common
+  - aws-c-io
+  - aws-checksums

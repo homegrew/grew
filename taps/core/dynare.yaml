@@ -1,0 +1,28 @@
+name: dynare
+version: 6.5
+description: Platform for economic models, particularly DSGE and OLG models
+homepage: https://www.dynare.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dynare/blobs/sha256:c6d06691f1df3fad95b82da06060f6b8cd0540a5a55fb595e4958078448426ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dynare/blobs/sha256:2636ef080cdd01465419438d0c0431c5911af60bc4e66966c44cf3a162f78b9d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dynare/blobs/sha256:1331b5200bc99899977aa326bd212e05502a0000a7f527a01adbca11df5ebcc9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dynare/blobs/sha256:29de507e86be91223ed947e504ab5e801911e8a7472d13db4376bdd5806142d8
+sha256:
+  darwin_arm64: c6d06691f1df3fad95b82da06060f6b8cd0540a5a55fb595e4958078448426ea
+  darwin_amd64: 2636ef080cdd01465419438d0c0431c5911af60bc4e66966c44cf3a162f78b9d
+  linux_amd64: 1331b5200bc99899977aa326bd212e05502a0000a7f527a01adbca11df5ebcc9
+  linux_arm64: 29de507e86be91223ed947e504ab5e801911e8a7472d13db4376bdd5806142d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - gsl
+  - libmatio
+  - octave
+  - openblas
+  - slicot
+  - suite-sparse
+  - libomp

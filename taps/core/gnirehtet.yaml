@@ -1,0 +1,19 @@
+name: gnirehtet
+version: 2.5.1
+description: Reverse tethering tool for Android
+homepage: https://github.com/Genymobile/gnirehtet
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnirehtet/blobs/sha256:3f10f0ff297c3164e291d2c42c572d826515052a4f764688ee9d4a93ce8c8d85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnirehtet/blobs/sha256:7dd2936239d05ae4090b31fdd5f5d926af12a0f7122cd5fb983bf7a993a94fdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnirehtet/blobs/sha256:4c3ffedc36f982c44315b5970a26ccd45fe13db36d3daf8c16510157f87d565d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnirehtet/blobs/sha256:4f8b6b690e847b806898b5f6b35340362d176eae643ec7df69bc1f11c94fa3b2
+sha256:
+  darwin_arm64: 3f10f0ff297c3164e291d2c42c572d826515052a4f764688ee9d4a93ce8c8d85
+  darwin_amd64: 7dd2936239d05ae4090b31fdd5f5d926af12a0f7122cd5fb983bf7a993a94fdb
+  linux_amd64: 4c3ffedc36f982c44315b5970a26ccd45fe13db36d3daf8c16510157f87d565d
+  linux_arm64: 4f8b6b690e847b806898b5f6b35340362d176eae643ec7df69bc1f11c94fa3b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: utf8proc
+version: 2.11.3
+description: Clean C library for processing UTF-8 Unicode data
+homepage: https://juliastrings.github.io/utf8proc/
+license: MIT AND Unicode-DFS-2015
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/utf8proc/blobs/sha256:f3b03f1fb1f7da91b28d6b7edb0a8ff056378b689e5c904877dfb6d1cb9da5fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/utf8proc/blobs/sha256:ca594194ca639a162e078a88fd0da6d22d0ec8c588f12e3b32545455851aff6e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/utf8proc/blobs/sha256:c44de6245cc5167aa4ec1b8c56d2d2e60378e421db4768a9842283a7602d2561
+  linux_arm64: https://ghcr.io/v2/homebrew/core/utf8proc/blobs/sha256:33be13d215561053302eb151cae47d9e3656af6b3869b6a6ca0f044dcf9050e2
+sha256:
+  darwin_arm64: f3b03f1fb1f7da91b28d6b7edb0a8ff056378b689e5c904877dfb6d1cb9da5fc
+  darwin_amd64: ca594194ca639a162e078a88fd0da6d22d0ec8c588f12e3b32545455851aff6e
+  linux_amd64: c44de6245cc5167aa4ec1b8c56d2d2e60378e421db4768a9842283a7602d2561
+  linux_arm64: 33be13d215561053302eb151cae47d9e3656af6b3869b6a6ca0f044dcf9050e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

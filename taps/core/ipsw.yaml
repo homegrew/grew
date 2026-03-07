@@ -1,0 +1,19 @@
+name: ipsw
+version: 3.1.660
+description: "Research tool for iOS & macOS devices"
+homepage: https://blacktop.github.io/ipsw
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipsw/blobs/sha256:a55152e0cccd5eefdcd8d8a622fc7fd15ee4b330e0999f7b3e49c055b0776796
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipsw/blobs/sha256:17129a6acac2489586469af252bdf94d3d37203562c0ca0ea83b5157c10670f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipsw/blobs/sha256:418e4166e2fbe9e3ccc10f21dcc04a8bd6de62bfcdf26378c6597e9b5aa730ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipsw/blobs/sha256:d2c2d4801758bec800d4396d5cf699353214d388783391d59cbef57ce883778f
+sha256:
+  darwin_arm64: a55152e0cccd5eefdcd8d8a622fc7fd15ee4b330e0999f7b3e49c055b0776796
+  darwin_amd64: 17129a6acac2489586469af252bdf94d3d37203562c0ca0ea83b5157c10670f7
+  linux_amd64: 418e4166e2fbe9e3ccc10f21dcc04a8bd6de62bfcdf26378c6597e9b5aa730ee
+  linux_arm64: d2c2d4801758bec800d4396d5cf699353214d388783391d59cbef57ce883778f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

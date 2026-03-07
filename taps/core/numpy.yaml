@@ -1,0 +1,21 @@
+name: numpy
+version: 2.4.2
+description: Package for scientific computing with Python
+homepage: https://www.numpy.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/numpy/blobs/sha256:76cf75c83480e6c311b83bc8886de9156e7333d6c7112bc3849af844cd7bcab1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/numpy/blobs/sha256:fc6e7e35f19bed542c3b2cc78b89f5871af9cf8dd85853cfa22193a354a2ce32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/numpy/blobs/sha256:dcd0f7306c84ac0a357914a40bbcd7f6bcebbdc56a31544eb0e0176b3bfc7ec4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/numpy/blobs/sha256:aa62c62178dba4b46e6f4260a8b3029f09a57142ef22d2f3b7287e636d7f9f9a
+sha256:
+  darwin_arm64: 76cf75c83480e6c311b83bc8886de9156e7333d6c7112bc3849af844cd7bcab1
+  darwin_amd64: fc6e7e35f19bed542c3b2cc78b89f5871af9cf8dd85853cfa22193a354a2ce32
+  linux_amd64: dcd0f7306c84ac0a357914a40bbcd7f6bcebbdc56a31544eb0e0176b3bfc7ec4
+  linux_arm64: aa62c62178dba4b46e6f4260a8b3029f09a57142ef22d2f3b7287e636d7f9f9a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openblas

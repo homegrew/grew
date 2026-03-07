@@ -1,0 +1,19 @@
+name: nelm
+version: 1.19.1
+description: Kubernetes deployment tool that manages and deploys Helm Charts
+homepage: https://github.com/werf/nelm
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nelm/blobs/sha256:4cc978fbfba8b6867b55810a8d862320ad1141202a57d5cd82205b4ef8247e3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nelm/blobs/sha256:2c0fb47f5dd12e13e5d0c71c1f3967b5571031bf7701f0b8f0088e11c4b7283e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nelm/blobs/sha256:efbdcc9ad7cde530387ef9d50bde9f19c16d45c524028290e6fdd428cd643afa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nelm/blobs/sha256:5db256bdf16c20fa5f596bd453ba2444a61609a4785a2b28636c9860e0d24766
+sha256:
+  darwin_arm64: 4cc978fbfba8b6867b55810a8d862320ad1141202a57d5cd82205b4ef8247e3a
+  darwin_amd64: 2c0fb47f5dd12e13e5d0c71c1f3967b5571031bf7701f0b8f0088e11c4b7283e
+  linux_amd64: efbdcc9ad7cde530387ef9d50bde9f19c16d45c524028290e6fdd428cd643afa
+  linux_arm64: 5db256bdf16c20fa5f596bd453ba2444a61609a4785a2b28636c9860e0d24766
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

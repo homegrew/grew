@@ -1,0 +1,21 @@
+name: forgejo-cli
+version: 0.4.0
+description: CLI tool for interacting with Forgejo
+homepage: https://codeberg.org/forgejo-contrib/forgejo-cli
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forgejo-cli/blobs/sha256:8b5b53ff8d02650413d9d7f0a1f559f067ab4a945589db3a4b730b8bc2aa2be7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forgejo-cli/blobs/sha256:09b267b22ce29b5b25bd82109ddf1a3fde47cadfd99f569e7c21708ea1b94eaa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forgejo-cli/blobs/sha256:9b9f6aba4821577e529e68eb61a9460021edeb5fa54d7dfaf6f37ab42815fd6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forgejo-cli/blobs/sha256:da4205613b733fa87b70043da4974af792b759809c28a25b45a9e58cc1272859
+sha256:
+  darwin_arm64: 8b5b53ff8d02650413d9d7f0a1f559f067ab4a945589db3a4b730b8bc2aa2be7
+  darwin_amd64: 09b267b22ce29b5b25bd82109ddf1a3fde47cadfd99f569e7c21708ea1b94eaa
+  linux_amd64: 9b9f6aba4821577e529e68eb61a9460021edeb5fa54d7dfaf6f37ab42815fd6e
+  linux_arm64: da4205613b733fa87b70043da4974af792b759809c28a25b45a9e58cc1272859
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

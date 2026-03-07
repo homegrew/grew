@@ -1,0 +1,48 @@
+name: vips
+version: 8.18.0
+description: Image processing library
+homepage: https://github.com/libvips/libvips
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vips/blobs/sha256:689d37ea624080ec415c9c84a98a9f372367a3bba5bace54825df4cb63742a3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vips/blobs/sha256:c7a91bd09a35e5cd6ffee7870923cc78fbca06315e58951009b5d508dbece754
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vips/blobs/sha256:29bb7ce9cf3af9949a67116db831534d7d5b9d12d0d190fb9ceae03da8d9c5a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vips/blobs/sha256:fe9c9c0f423ae78c7b6eb21a3b6421d6a897f47dc6b8afe874e1cf2330d83875
+sha256:
+  darwin_arm64: 689d37ea624080ec415c9c84a98a9f372367a3bba5bace54825df4cb63742a3a
+  darwin_amd64: c7a91bd09a35e5cd6ffee7870923cc78fbca06315e58951009b5d508dbece754
+  linux_amd64: 29bb7ce9cf3af9949a67116db831534d7d5b9d12d0d190fb9ceae03da8d9c5a5
+  linux_arm64: fe9c9c0f423ae78c7b6eb21a3b6421d6a897f47dc6b8afe874e1cf2330d83875
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - cfitsio
+  - cgif
+  - fftw
+  - fontconfig
+  - gettext
+  - glib
+  - highway
+  - imagemagick
+  - jpeg-xl
+  - libarchive
+  - libexif
+  - libheif
+  - libimagequant
+  - libmatio
+  - libpng
+  - libraw
+  - librsvg
+  - libtiff
+  - libultrahdr
+  - little-cms2
+  - mozjpeg
+  - openexr
+  - openjpeg
+  - openslide
+  - pango
+  - poppler
+  - webp

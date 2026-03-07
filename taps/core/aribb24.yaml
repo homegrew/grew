@@ -1,0 +1,21 @@
+name: aribb24
+version: 1.0.4
+description: Library for ARIB STD-B24, decoding JIS 8 bit characters and parsing MPEG-TS
+homepage: https://code.videolan.org/jeeb/aribb24
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aribb24/blobs/sha256:68aed54c8d78b72dcc8306e91e004c2afcf193563be22adca2774fa094121ee5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aribb24/blobs/sha256:1b3810c428e97ddad8cbefff6c59bfa6b6ac5e00903c73cc72a985a23b87dbce
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aribb24/blobs/sha256:5a53b1584bef9b5d6aead4cc62266c67a9e642ea7234479516f4c083d0316f34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aribb24/blobs/sha256:c7b8880e65830477c4e7a14bad00f040eb8db469aab352003869dd1845cc1779
+sha256:
+  darwin_arm64: 68aed54c8d78b72dcc8306e91e004c2afcf193563be22adca2774fa094121ee5
+  darwin_amd64: 1b3810c428e97ddad8cbefff6c59bfa6b6ac5e00903c73cc72a985a23b87dbce
+  linux_amd64: 5a53b1584bef9b5d6aead4cc62266c67a9e642ea7234479516f4c083d0316f34
+  linux_arm64: c7b8880e65830477c4e7a14bad00f040eb8db469aab352003869dd1845cc1779
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

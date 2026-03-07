@@ -1,0 +1,21 @@
+name: code-server
+version: 4.109.5
+description: Access VS Code through the browser
+homepage: https://github.com/coder/code-server
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/code-server/blobs/sha256:3bdd7a0c27f22a50d13e8ef2911b748eb186c7c213a36d93cd1b98ac0a999fed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/code-server/blobs/sha256:4defd4e102a8b0bcc79a752208d64cc49e45f72248e41a28b8d0630c1f56e8ae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/code-server/blobs/sha256:00d4c8697eb151c49d3c42b2329dd04fbc98a1aacd6af5d83077af7d7ca2ca45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/code-server/blobs/sha256:cfe399b38a832ead36dbf9ce2d49b74a67dedbce1dd38443604278ca0bd0bc4f
+sha256:
+  darwin_arm64: 3bdd7a0c27f22a50d13e8ef2911b748eb186c7c213a36d93cd1b98ac0a999fed
+  darwin_amd64: 4defd4e102a8b0bcc79a752208d64cc49e45f72248e41a28b8d0630c1f56e8ae
+  linux_amd64: 00d4c8697eb151c49d3c42b2329dd04fbc98a1aacd6af5d83077af7d7ca2ca45
+  linux_arm64: cfe399b38a832ead36dbf9ce2d49b74a67dedbce1dd38443604278ca0bd0bc4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node@22

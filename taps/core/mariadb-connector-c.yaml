@@ -1,0 +1,23 @@
+name: mariadb-connector-c
+version: 3.4.8
+description: MariaDB database connector for C applications
+homepage: https://mariadb.org/download/?tab=connector&prod=connector-c
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mariadb-connector-c/blobs/sha256:01d614467287c61b78cb78e9234d1c445dbd79beb4b9c12bf99ed0beb1a01535
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mariadb-connector-c/blobs/sha256:79501ef30e2ab77c3894897428269d33b80a9cb1c7a9ee4df3a119ecc508473a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mariadb-connector-c/blobs/sha256:9a2b2d89b014881733d2ee25d06a4ce7f0c17bcdb159059036ed068784a6d415
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mariadb-connector-c/blobs/sha256:b3242cc136211ae92f6559f959e94ff963fa6822900784c0f98c7893e30cf01d
+sha256:
+  darwin_arm64: 01d614467287c61b78cb78e9234d1c445dbd79beb4b9c12bf99ed0beb1a01535
+  darwin_amd64: 79501ef30e2ab77c3894897428269d33b80a9cb1c7a9ee4df3a119ecc508473a
+  linux_amd64: 9a2b2d89b014881733d2ee25d06a4ce7f0c17bcdb159059036ed068784a6d415
+  linux_arm64: b3242cc136211ae92f6559f959e94ff963fa6822900784c0f98c7893e30cf01d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - zstd
+keg_only: true

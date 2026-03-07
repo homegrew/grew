@@ -1,0 +1,21 @@
+name: kim-api
+version: 2.4.2
+description: Knowledgebase of Interatomic Models (KIM) API
+homepage: https://openkim.org
+license: CDDL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kim-api/blobs/sha256:f0d402382a7e3acc25fadf264e845cfd38ce6d90f3655c378131733b12b423ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kim-api/blobs/sha256:7c2d3a557941e0592e68277f76e7313d3c29587622e5c073fed418c68de78f01
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kim-api/blobs/sha256:89ab47d448baf6377f979a0c78ba00c1b5b85faa8d14a3a74026ba40df4edfea
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kim-api/blobs/sha256:be9b43027b8e9b74b00523c55967e4473cdf1d8eb0502d30e591b804d76a0512
+sha256:
+  darwin_arm64: f0d402382a7e3acc25fadf264e845cfd38ce6d90f3655c378131733b12b423ca
+  darwin_amd64: 7c2d3a557941e0592e68277f76e7313d3c29587622e5c073fed418c68de78f01
+  linux_amd64: 89ab47d448baf6377f979a0c78ba00c1b5b85faa8d14a3a74026ba40df4edfea
+  linux_arm64: be9b43027b8e9b74b00523c55967e4473cdf1d8eb0502d30e591b804d76a0512
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

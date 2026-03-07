@@ -1,0 +1,21 @@
+name: playwright-cli
+version: 0.1.1
+description: "CLI for Playwright: record/generate code, inspect selectors, take screenshots"
+homepage: https://playwright.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/playwright-cli/blobs/sha256:98424477ed3412f638fff0ad9d016183ad1dd298e5fc67924b0b6ef6ec765c55
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/playwright-cli/blobs/sha256:4f38242613fe7187bed5aa571e9aff3dfe605236b26382fca12a90085d1b7dee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/playwright-cli/blobs/sha256:30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86
+  linux_arm64: https://ghcr.io/v2/homebrew/core/playwright-cli/blobs/sha256:30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86
+sha256:
+  darwin_arm64: 98424477ed3412f638fff0ad9d016183ad1dd298e5fc67924b0b6ef6ec765c55
+  darwin_amd64: 4f38242613fe7187bed5aa571e9aff3dfe605236b26382fca12a90085d1b7dee
+  linux_amd64: 30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86
+  linux_arm64: 30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

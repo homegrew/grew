@@ -1,0 +1,22 @@
+name: tach
+version: 0.33.4
+description: Tool to enforce dependencies using modular architecture
+homepage: https://docs.gauge.sh/getting-started/introduction
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tach/blobs/sha256:366ab9ee9c9abd2f9760541f181b12065575e232042ea757d667ad2c61ca6755
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tach/blobs/sha256:673bce6e11e461b8dfa6c5057c7ac60c77ada012b32842f77a1748a688e81de1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tach/blobs/sha256:f1e93e5fbee314949b17e90b0a71d376269c75f79ad431253bff4a5f303d346d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tach/blobs/sha256:1d1ecc3969c7b2885afbd5248c112958c6a1879c034ffb2d9867aea15c5dd6e6
+sha256:
+  darwin_arm64: 366ab9ee9c9abd2f9760541f181b12065575e232042ea757d667ad2c61ca6755
+  darwin_amd64: 673bce6e11e461b8dfa6c5057c7ac60c77ada012b32842f77a1748a688e81de1
+  linux_amd64: f1e93e5fbee314949b17e90b0a71d376269c75f79ad431253bff4a5f303d346d
+  linux_arm64: 1d1ecc3969c7b2885afbd5248c112958c6a1879c034ffb2d9867aea15c5dd6e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

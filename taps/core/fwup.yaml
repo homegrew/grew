@@ -1,0 +1,22 @@
+name: fwup
+version: 1.15.0
+description: Configurable embedded Linux firmware update creator and runner
+homepage: https://github.com/fwup-home/fwup
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fwup/blobs/sha256:ff02e00ef76a7ef5587fd451ffd2ad55b5ea1e829b0ea5de74efa126833a03da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fwup/blobs/sha256:5e02e0d5a1d719a6dd3ad1d3b393b6920e5a1d77947e6fd166e785f6db656639
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fwup/blobs/sha256:a351a9a471afcaacaf1a9b911a5aca2b9b3d24cd854cb6800ed232694cd6a6c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fwup/blobs/sha256:76f0c332bb56b3bb4421e73cb13a481213f8f062cf0ad11549bf453a0b05c7c0
+sha256:
+  darwin_arm64: ff02e00ef76a7ef5587fd451ffd2ad55b5ea1e829b0ea5de74efa126833a03da
+  darwin_amd64: 5e02e0d5a1d719a6dd3ad1d3b393b6920e5a1d77947e6fd166e785f6db656639
+  linux_amd64: a351a9a471afcaacaf1a9b911a5aca2b9b3d24cd854cb6800ed232694cd6a6c0
+  linux_arm64: 76f0c332bb56b3bb4421e73cb13a481213f8f062cf0ad11549bf453a0b05c7c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - confuse
+  - libarchive

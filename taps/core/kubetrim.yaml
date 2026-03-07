@@ -1,0 +1,19 @@
+name: kubetrim
+version: 0.0.2
+description: Trim your KUBECONFIG automatically
+homepage: https://github.com/alexellis/kubetrim
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubetrim/blobs/sha256:a0e95614b8dcd84e2adfcca2d7798ba72c0aa45654e3acc19dbbb4f064164ae0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubetrim/blobs/sha256:33acd64292aff0e9ccb905d1442ae48275ef8ea314e8d2999340fbbb65f66553
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubetrim/blobs/sha256:3e68c9d12f445dfeacb5b7da067f20d7965ae7278b65717eee33d151d45cffdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubetrim/blobs/sha256:3c156a2f72625bbd022c028f32d93bda8b61eeb91c50b43924e93ab683a264dd
+sha256:
+  darwin_arm64: a0e95614b8dcd84e2adfcca2d7798ba72c0aa45654e3acc19dbbb4f064164ae0
+  darwin_amd64: 33acd64292aff0e9ccb905d1442ae48275ef8ea314e8d2999340fbbb65f66553
+  linux_amd64: 3e68c9d12f445dfeacb5b7da067f20d7965ae7278b65717eee33d151d45cffdb
+  linux_arm64: 3c156a2f72625bbd022c028f32d93bda8b61eeb91c50b43924e93ab683a264dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

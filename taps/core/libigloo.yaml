@@ -1,0 +1,21 @@
+name: libigloo
+version: 0.9.5
+description: Generic C framework used and developed by the Icecast project
+homepage: https://icecast.org/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libigloo/blobs/sha256:3d5f68bae027b04b01c5d655f97a468422f9c1c32fe8c82f5402665bad2d0623
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libigloo/blobs/sha256:418a6e5391b2d4e9f0b11e551225bd87919213d7214cef0d9bb26bc057f99773
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libigloo/blobs/sha256:dea224d854e686dcba2b8acb544ed8da6af9a5210cbcbbd8bd75df3c00d83856
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libigloo/blobs/sha256:958f770928e91a64c9110fd6ac6542aedd9077b4fe113f813b32ed787545cbd9
+sha256:
+  darwin_arm64: 3d5f68bae027b04b01c5d655f97a468422f9c1c32fe8c82f5402665bad2d0623
+  darwin_amd64: 418a6e5391b2d4e9f0b11e551225bd87919213d7214cef0d9bb26bc057f99773
+  linux_amd64: dea224d854e686dcba2b8acb544ed8da6af9a5210cbcbbd8bd75df3c00d83856
+  linux_arm64: 958f770928e91a64c9110fd6ac6542aedd9077b4fe113f813b32ed787545cbd9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - rhash

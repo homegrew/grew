@@ -1,0 +1,19 @@
+name: libkeccak
+version: 1.4.3
+description: Keccak-family hashing library
+homepage: https://codeberg.org/maandree/libkeccak
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libkeccak/blobs/sha256:76d0b52421d09d7390ee5c1ecfab8a2cf5e4e6fc172e36ed2d75c0457d4db33a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libkeccak/blobs/sha256:f9cc552ba41aeab13af7891a9c41ae1beaf268ce8024db38820b8665240e7954
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libkeccak/blobs/sha256:7efd8af258f42baf7e3b243eb9463ebeeb97272330737cc4b40324b7a967a114
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libkeccak/blobs/sha256:32b32420cd4b89364da22635402652e1ba6d1b74fcc68dab229915e76e1f9597
+sha256:
+  darwin_arm64: 76d0b52421d09d7390ee5c1ecfab8a2cf5e4e6fc172e36ed2d75c0457d4db33a
+  darwin_amd64: f9cc552ba41aeab13af7891a9c41ae1beaf268ce8024db38820b8665240e7954
+  linux_amd64: 7efd8af258f42baf7e3b243eb9463ebeeb97272330737cc4b40324b7a967a114
+  linux_arm64: 32b32420cd4b89364da22635402652e1ba6d1b74fcc68dab229915e76e1f9597
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

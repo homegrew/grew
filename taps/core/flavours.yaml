@@ -1,0 +1,19 @@
+name: flavours
+version: 0.7.1
+description: Easy to use base16 scheme manager that integrates with any workflow
+homepage: https://github.com/Misterio77/flavours
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flavours/blobs/sha256:efc1a63ebb981bccfce1b2653c2725489034a078dc51c99efe90daece4fcf77f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flavours/blobs/sha256:f2fff8e91c6cbd2a3706403adc08c867a386323f48503d40781ee42b72116ee7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flavours/blobs/sha256:35fe79bebc20bfc9453e7b313a5ffa5fc5040de4b7c896e98dcba4011425ade4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flavours/blobs/sha256:c5cf394608a4a2d38ad428f8b5510a64d370aae95411629cb9758378ad744fae
+sha256:
+  darwin_arm64: efc1a63ebb981bccfce1b2653c2725489034a078dc51c99efe90daece4fcf77f
+  darwin_amd64: f2fff8e91c6cbd2a3706403adc08c867a386323f48503d40781ee42b72116ee7
+  linux_amd64: 35fe79bebc20bfc9453e7b313a5ffa5fc5040de4b7c896e98dcba4011425ade4
+  linux_arm64: c5cf394608a4a2d38ad428f8b5510a64d370aae95411629cb9758378ad744fae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

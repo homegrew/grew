@@ -1,0 +1,19 @@
+name: libntlm
+version: 1.8
+description: "Implements Microsoft's NTLM authentication"
+homepage: https://gitlab.com/gsasl/libntlm/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libntlm/blobs/sha256:881bfa38e82c41ce3dde641b5b8127ca0e5d906cf4c7e5f6787a3ce3b465d9e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libntlm/blobs/sha256:a7d7f2c53526d724adea9d98fbef0219052797daef5ef6d0e3f12ebe38a105e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libntlm/blobs/sha256:0ebc4d50ef8a904ec1c686c8e869a83d727c55fd490990fb5481d6a34b970ce1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libntlm/blobs/sha256:aef30b36aec73ef9fd25107d285a8400151815df28e9c361ccfce157d8e7bedc
+sha256:
+  darwin_arm64: 881bfa38e82c41ce3dde641b5b8127ca0e5d906cf4c7e5f6787a3ce3b465d9e1
+  darwin_amd64: a7d7f2c53526d724adea9d98fbef0219052797daef5ef6d0e3f12ebe38a105e7
+  linux_amd64: 0ebc4d50ef8a904ec1c686c8e869a83d727c55fd490990fb5481d6a34b970ce1
+  linux_arm64: aef30b36aec73ef9fd25107d285a8400151815df28e9c361ccfce157d8e7bedc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

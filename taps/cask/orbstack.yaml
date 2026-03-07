@@ -1,0 +1,14 @@
+name: orbstack
+version: 2.0.5,19905
+description: Replacement for Docker Desktop
+homepage: https://orbstack.dev/
+url:
+  darwin_arm64: https://cdn-updates.orbstack.dev/arm64/OrbStack_v2.0.5_19905_arm64.dmg
+sha256:
+  darwin_arm64: 601889551cdfdc7feee148b7fdb0480fa0ba5c0db0be8f1c047fc840886a7571
+artifacts:
+  app:
+    - OrbStack.app
+  bin:
+    - orbctl
+    - orb

@@ -1,0 +1,22 @@
+name: glibmm
+version: 2.86.0
+description: C++ interface to glib
+homepage: https://gtkmm.gnome.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glibmm/blobs/sha256:5f5d4eae7ddd8d562762a6b4b56889481248b30dd9a59d9118d94d2206ccb54f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glibmm/blobs/sha256:b0e489bde8ce810195dcf79c4df085a3bf58fcfe34980314ac5ce47231bc3d02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glibmm/blobs/sha256:3e9231a310a6d60283b1ac9deb53f38ebd065f7ddca58ad284c5b662cf4da23e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glibmm/blobs/sha256:a705b9778941457209f0b31bf52095d9db3bc98e1defcdb04eecc23ba5036758
+sha256:
+  darwin_arm64: 5f5d4eae7ddd8d562762a6b4b56889481248b30dd9a59d9118d94d2206ccb54f
+  darwin_amd64: b0e489bde8ce810195dcf79c4df085a3bf58fcfe34980314ac5ce47231bc3d02
+  linux_amd64: 3e9231a310a6d60283b1ac9deb53f38ebd065f7ddca58ad284c5b662cf4da23e
+  linux_arm64: a705b9778941457209f0b31bf52095d9db3bc98e1defcdb04eecc23ba5036758
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libsigc++

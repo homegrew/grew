@@ -1,0 +1,11 @@
+name: positron
+version: 2026.03.0-212
+description: Data science IDE
+homepage: https://positron.posit.co/
+url:
+  darwin_arm64: https://cdn.posit.co/positron/releases/mac/arm64/Positron-darwin-2026.03.0-212-arm64.zip
+sha256:
+  darwin_arm64: 0eef3a5a6406edeb8044974e06405e851e777357566e26e5386dd689ad761aab
+artifacts:
+  app:
+    - Positron.app

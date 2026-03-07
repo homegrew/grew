@@ -1,0 +1,11 @@
+name: approf
+version: 14.1.3
+description: Native app for pprof
+homepage: https://github.com/moderato-app/approf
+url:
+  darwin_arm64: https://github.com/moderato-app/approf/releases/download/v14.1.3/approf-14.1.3.app.zip
+sha256:
+  darwin_arm64: cc6317df3877668b94d88643ae57b974e30c713ff2593e4f8d7755c9f58f28c2
+artifacts:
+  app:
+    - approf.app

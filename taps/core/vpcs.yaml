@@ -1,0 +1,19 @@
+name: vpcs
+version: 0.8.3
+description: Virtual PC simulator for testing IP routing
+homepage: https://vpcs.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vpcs/blobs/sha256:3b63b4dc350e0e33be9b151a3fe2a47385d4474fdc109087d8d04110dfd13aff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vpcs/blobs/sha256:27946758ffa7ab9b03d92439362bfdaf9b622ca71adf1aa36724afb774cf4da7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vpcs/blobs/sha256:d2a55d28182cfe00e2761fc39f7014cebf227cf98a019bca9cca6045de5529b2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vpcs/blobs/sha256:558242139637e0815cdbfdaed4321ac10c971d349557432f72228f21798d0537
+sha256:
+  darwin_arm64: 3b63b4dc350e0e33be9b151a3fe2a47385d4474fdc109087d8d04110dfd13aff
+  darwin_amd64: 27946758ffa7ab9b03d92439362bfdaf9b622ca71adf1aa36724afb774cf4da7
+  linux_amd64: d2a55d28182cfe00e2761fc39f7014cebf227cf98a019bca9cca6045de5529b2
+  linux_arm64: 558242139637e0815cdbfdaed4321ac10c971d349557432f72228f21798d0537
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

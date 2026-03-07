@@ -1,0 +1,19 @@
+name: zlint
+version: 3.6.8
+description: X.509 Certificate Linter focused on Web PKI standards and requirements
+homepage: https://zmap.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zlint/blobs/sha256:8b781117436a005df46e97e231b46343698cb213b713e39fa8ff43c30420fed2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zlint/blobs/sha256:962ca2709da99e3ba3bd1ff33e7ebc0e2b10480777dd6ace31e84d8557f2b41a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zlint/blobs/sha256:4c31014388fd3bfbb30ecfc594d06912c04b41ae88b68249715d3c4aabd7523a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zlint/blobs/sha256:09c132f7afb529f7a67e67826d078fb2320a6d72d53ba60691c4f4defc09106e
+sha256:
+  darwin_arm64: 8b781117436a005df46e97e231b46343698cb213b713e39fa8ff43c30420fed2
+  darwin_amd64: 962ca2709da99e3ba3bd1ff33e7ebc0e2b10480777dd6ace31e84d8557f2b41a
+  linux_amd64: 4c31014388fd3bfbb30ecfc594d06912c04b41ae88b68249715d3c4aabd7523a
+  linux_arm64: 09c132f7afb529f7a67e67826d078fb2320a6d72d53ba60691c4f4defc09106e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: autobench
+version: 2.1.2
+description: Automatic webserver benchmark tool
+homepage: http://www.xenoclast.org/autobench/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autobench/blobs/sha256:3647ac7b205e7a115aae29fc33d72dc21ab5465b98081711240899fdbde2c096
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autobench/blobs/sha256:162967bfd95f422dc7189ad99fd61b4f002f2f966e6ad01346aae4fd302dd4c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autobench/blobs/sha256:f33306a0edae89cab46f98344c30feeab7a3d9d03e1d6c21e578720c8cac794f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autobench/blobs/sha256:480b1dd43d675961961fe91a4d1f6fd39ba7a4187127d51fa177a694856f0b7e
+sha256:
+  darwin_arm64: 3647ac7b205e7a115aae29fc33d72dc21ab5465b98081711240899fdbde2c096
+  darwin_amd64: 162967bfd95f422dc7189ad99fd61b4f002f2f966e6ad01346aae4fd302dd4c0
+  linux_amd64: f33306a0edae89cab46f98344c30feeab7a3d9d03e1d6c21e578720c8cac794f
+  linux_arm64: 480b1dd43d675961961fe91a4d1f6fd39ba7a4187127d51fa177a694856f0b7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - httperf

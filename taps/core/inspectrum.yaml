@@ -1,0 +1,23 @@
+name: inspectrum
+version: 0.4.0
+description: Offline radio signal analyser
+homepage: https://github.com/miek/inspectrum
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inspectrum/blobs/sha256:5c21e4520df7498e5a4e54bfad5930e87379dc94f359daa059399a58a7c52546
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inspectrum/blobs/sha256:40f559efcf1c01153547a4621f5af92e555b8261aa328ed97ad0b66e34db568e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inspectrum/blobs/sha256:bdf31450cc84970bce45314f564dd15eced52aea0d8e3278569301dfb283abc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inspectrum/blobs/sha256:529fdfe5ad6cef116d9d402b7b366b4158b83c490e1d6eb1083bcd7306e74c39
+sha256:
+  darwin_arm64: 5c21e4520df7498e5a4e54bfad5930e87379dc94f359daa059399a58a7c52546
+  darwin_amd64: 40f559efcf1c01153547a4621f5af92e555b8261aa328ed97ad0b66e34db568e
+  linux_amd64: bdf31450cc84970bce45314f564dd15eced52aea0d8e3278569301dfb283abc7
+  linux_arm64: 529fdfe5ad6cef116d9d402b7b366b4158b83c490e1d6eb1083bcd7306e74c39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - liquid-dsp
+  - qtbase

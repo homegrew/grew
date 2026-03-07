@@ -1,0 +1,19 @@
+name: topgrade
+version: 17.0.0
+description: Upgrade all the things
+homepage: https://github.com/topgrade-rs/topgrade
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/topgrade/blobs/sha256:9156d812ed413a267f5fbc9f4e6cc51a29d68f24d5c5487dfc5bb0b8c4b2e1b2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/topgrade/blobs/sha256:48ed3ef6ec12a7e13dcbde1973cb75a9f5e015d009da354c3bdb8613a9631b82
+  linux_amd64: https://ghcr.io/v2/homebrew/core/topgrade/blobs/sha256:a7eb9e7b5633da82fcfabb4b290c9b861f13dbb387e9d5f5e8d987d8e3b9e7fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/topgrade/blobs/sha256:ab8ad2664217cee74b9bedcd7cf63cd422dd47ab3c0ca3b97e3e4ec60f6420de
+sha256:
+  darwin_arm64: 9156d812ed413a267f5fbc9f4e6cc51a29d68f24d5c5487dfc5bb0b8c4b2e1b2
+  darwin_amd64: 48ed3ef6ec12a7e13dcbde1973cb75a9f5e015d009da354c3bdb8613a9631b82
+  linux_amd64: a7eb9e7b5633da82fcfabb4b290c9b861f13dbb387e9d5f5e8d987d8e3b9e7fb
+  linux_arm64: ab8ad2664217cee74b9bedcd7cf63cd422dd47ab3c0ca3b97e3e4ec60f6420de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

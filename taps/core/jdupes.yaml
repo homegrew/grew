@@ -1,0 +1,21 @@
+name: jdupes
+version: 1.31.1
+description: "Duplicate file finder and an enhanced fork of 'fdupes'"
+homepage: https://codeberg.org/jbruchon/jdupes
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jdupes/blobs/sha256:ec259561869b02c328d62bfe624a1edfb0952222fcb3f9c02013c545cfc299cc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jdupes/blobs/sha256:7d143118f5d529d58b96dbdf7cdaf969214fc51ee38b216824019fb73cc6f0c8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jdupes/blobs/sha256:fe8d8dbf09f5b79df229d4cc2d12cb2895a4eea6351d395c20d50129cbf40e31
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jdupes/blobs/sha256:96d668e71e1be10f6039352d2e613d9a55f9eb193df013cb56bfb58194d99490
+sha256:
+  darwin_arm64: ec259561869b02c328d62bfe624a1edfb0952222fcb3f9c02013c545cfc299cc
+  darwin_amd64: 7d143118f5d529d58b96dbdf7cdaf969214fc51ee38b216824019fb73cc6f0c8
+  linux_amd64: fe8d8dbf09f5b79df229d4cc2d12cb2895a4eea6351d395c20d50129cbf40e31
+  linux_arm64: 96d668e71e1be10f6039352d2e613d9a55f9eb193df013cb56bfb58194d99490
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libjodycode

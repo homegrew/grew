@@ -1,0 +1,19 @@
+name: witr
+version: 0.3.0
+description: "Why is this running?"
+homepage: https://github.com/pranshuparmar/witr
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/witr/blobs/sha256:0c7f34d3243aa23a756901cf3f4ffc831d586e19f30e1f43908c6a3d1e591907
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/witr/blobs/sha256:31051b50229f4a47c603f5dd29a9fe43b389ab93df3a0a7cb0d7b5fbb9ddc206
+  linux_amd64: https://ghcr.io/v2/homebrew/core/witr/blobs/sha256:bc65750ef8b21a137a65c098cf33fa15a8c5290829d78a711accdb38636ce68c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/witr/blobs/sha256:96449d0c78d48ff58e5749643ddc933be3bfba70ae21e583b44c0a54747c368d
+sha256:
+  darwin_arm64: 0c7f34d3243aa23a756901cf3f4ffc831d586e19f30e1f43908c6a3d1e591907
+  darwin_amd64: 31051b50229f4a47c603f5dd29a9fe43b389ab93df3a0a7cb0d7b5fbb9ddc206
+  linux_amd64: bc65750ef8b21a137a65c098cf33fa15a8c5290829d78a711accdb38636ce68c
+  linux_arm64: 96449d0c78d48ff58e5749643ddc933be3bfba70ae21e583b44c0a54747c368d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

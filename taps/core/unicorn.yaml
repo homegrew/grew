@@ -1,0 +1,19 @@
+name: unicorn
+version: 2.1.4
+description: Lightweight multi-architecture CPU emulation framework
+homepage: https://www.unicorn-engine.org/
+license: GPL-2.0-only AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unicorn/blobs/sha256:e317a3a90c3c1209bd849383f6b3a4b12c4bce696e1265c86ed4f4982581d274
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unicorn/blobs/sha256:b5fa6de6bd6cc5724e389317ad7e9aeddab31d79fa80c27570b728476e9d47c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unicorn/blobs/sha256:0d95c484b1fb36c5a31dc3c5e2d6d20881de4ec035f20263e190f2bd33005d96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unicorn/blobs/sha256:c31c5817a5dee6699a2e9e0f520bd2e5084b6c94a230ddf602ad8c076cac1599
+sha256:
+  darwin_arm64: e317a3a90c3c1209bd849383f6b3a4b12c4bce696e1265c86ed4f4982581d274
+  darwin_amd64: b5fa6de6bd6cc5724e389317ad7e9aeddab31d79fa80c27570b728476e9d47c5
+  linux_amd64: 0d95c484b1fb36c5a31dc3c5e2d6d20881de4ec035f20263e190f2bd33005d96
+  linux_arm64: c31c5817a5dee6699a2e9e0f520bd2e5084b6c94a230ddf602ad8c076cac1599
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

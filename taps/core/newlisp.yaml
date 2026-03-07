@@ -1,0 +1,21 @@
+name: newlisp
+version: 10.7.5
+description: Lisp-like, general-purpose scripting language
+homepage: https://www.newlisp.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/newlisp/blobs/sha256:cd0b1afe583ffbacd299097ba50acf21f8343d26301612afad78ce5ce18f56a6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/newlisp/blobs/sha256:c93f69c7ac6f198414614637a6096a33fe9141eff9c163f5fb3db50f297fd441
+  linux_amd64: https://ghcr.io/v2/homebrew/core/newlisp/blobs/sha256:27f5be3e4e9319afe264a0394127ddbfdaf6d4f8da25b790af9b25d559c23c13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/newlisp/blobs/sha256:edfae18568fbac79130190be9410e674c4955be13f666e19b5dd5a1782633ea8
+sha256:
+  darwin_arm64: cd0b1afe583ffbacd299097ba50acf21f8343d26301612afad78ce5ce18f56a6
+  darwin_amd64: c93f69c7ac6f198414614637a6096a33fe9141eff9c163f5fb3db50f297fd441
+  linux_amd64: 27f5be3e4e9319afe264a0394127ddbfdaf6d4f8da25b790af9b25d559c23c13
+  linux_arm64: edfae18568fbac79130190be9410e674c4955be13f666e19b5dd5a1782633ea8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

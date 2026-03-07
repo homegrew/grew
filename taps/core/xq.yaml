@@ -1,0 +1,19 @@
+name: xq
+version: 1.4.0
+description: Command-line XML and HTML beautifier and content extractor
+homepage: https://github.com/sibprogrammer/xq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xq/blobs/sha256:44d099153ec4a4be002387d1ad5c3217abe3ef79505690586c958114e6ff19b3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xq/blobs/sha256:9837eca65155b5e8d9ac7343865a0aaaf6c4c9da667827b9e2b5a667b00e6c59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xq/blobs/sha256:0a4c75879494e05edd80fd217c005edd65f1580856e9b613ca8f1118a0337f3f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xq/blobs/sha256:d0d82a46bd720fb0b7d0c963261efc56cdf3588ebb77525324dba58ce8253be1
+sha256:
+  darwin_arm64: 44d099153ec4a4be002387d1ad5c3217abe3ef79505690586c958114e6ff19b3
+  darwin_amd64: 9837eca65155b5e8d9ac7343865a0aaaf6c4c9da667827b9e2b5a667b00e6c59
+  linux_amd64: 0a4c75879494e05edd80fd217c005edd65f1580856e9b613ca8f1118a0337f3f
+  linux_arm64: d0d82a46bd720fb0b7d0c963261efc56cdf3588ebb77525324dba58ce8253be1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

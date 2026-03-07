@@ -1,0 +1,26 @@
+name: simple-tiles
+version: 0.6.2
+description: Image generation library for spatial data
+homepage: https://github.com/propublica/simple-tiles
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simple-tiles/blobs/sha256:c6422d3ddffa35605443bdf18158914654450f0ad0362673c6b136e1a116af4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simple-tiles/blobs/sha256:a43ad30dc8509a71c44e09a8ed58416cd5f1c6b1f29e661223187564438eccd2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simple-tiles/blobs/sha256:8cac3424f59872d80f8dcaadc2ab0522f3cfafd7c12a6698c573d71767b66077
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simple-tiles/blobs/sha256:1149b833c6586359e97f93673888bf3dbd68f070d74a819cd028c44ad054d1fa
+sha256:
+  darwin_arm64: c6422d3ddffa35605443bdf18158914654450f0ad0362673c6b136e1a116af4d
+  darwin_amd64: a43ad30dc8509a71c44e09a8ed58416cd5f1c6b1f29e661223187564438eccd2
+  linux_amd64: 8cac3424f59872d80f8dcaadc2ab0522f3cfafd7c12a6698c573d71767b66077
+  linux_arm64: 1149b833c6586359e97f93673888bf3dbd68f070d74a819cd028c44ad054d1fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdal
+  - glib
+  - pango
+  - gettext
+  - harfbuzz

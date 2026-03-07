@@ -1,0 +1,23 @@
+name: lastpass-cli
+version: 1.6.1
+description: LastPass command-line interface tool
+homepage: https://github.com/lastpass/lastpass-cli
+license: GPL-2.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lastpass-cli/blobs/sha256:e547490a82141e4d65e5a86beb319e69e0969a00613ea77562d4d1db33c878a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lastpass-cli/blobs/sha256:0008f85381696f35fd6260696c2b622e588cd6f43e13512156963c3c69b51e6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lastpass-cli/blobs/sha256:82b5d5939c16538205466a3ebf07fd6c9d349825a190699ab9f5954859899dd3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lastpass-cli/blobs/sha256:935451a0d264d9bb0a412f7769ad0c72c2d595ab553e17cfe9d081f1b48f8d0f
+sha256:
+  darwin_arm64: e547490a82141e4d65e5a86beb319e69e0969a00613ea77562d4d1db33c878a0
+  darwin_amd64: 0008f85381696f35fd6260696c2b622e588cd6f43e13512156963c3c69b51e6a
+  linux_amd64: 82b5d5939c16538205466a3ebf07fd6c9d349825a190699ab9f5954859899dd3
+  linux_arm64: 935451a0d264d9bb0a412f7769ad0c72c2d595ab553e17cfe9d081f1b48f8d0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - openssl@3
+  - pinentry

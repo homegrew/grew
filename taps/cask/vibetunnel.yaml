@@ -1,0 +1,13 @@
+name: vibetunnel
+version: 1.0.0-beta.15
+description: Turn any browser into your terminal
+homepage: https://vibetunnel.sh/
+url:
+  darwin_arm64: https://github.com/amantus-ai/vibetunnel/releases/download/v1.0.0-beta.15/VibeTunnel-1.0.0-beta.15.dmg
+sha256:
+  darwin_arm64: 4676ad1d03fbc19fb13f5904ace365c1ccffa4718cc01a1b896b5014ee323a3e
+artifacts:
+  app:
+    - VibeTunnel.app
+  bin:
+    - vt

@@ -1,0 +1,30 @@
+name: zbar
+version: 0.23.93
+description: Suite of barcodes-reading tools
+homepage: https://github.com/mchehab/zbar
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zbar/blobs/sha256:cc7a5ed357e5cbfed0707cbaf736d9519473252cffa52dff1a449640be47a9af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zbar/blobs/sha256:63ecefc21c58f41dcc73346b81fd1defabf3f2db855ec4a18fd0b63ec0cd5326
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zbar/blobs/sha256:ecb7269a350f91339a4c6c05d014e27f38311431e54e948fa575aacb2056f03e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zbar/blobs/sha256:53a60318800d01d8d5571cd82ada66c60dc14a7c739c5f4810358dbbbcbcd649
+sha256:
+  darwin_arm64: cc7a5ed357e5cbfed0707cbaf736d9519473252cffa52dff1a449640be47a9af
+  darwin_amd64: 63ecefc21c58f41dcc73346b81fd1defabf3f2db855ec4a18fd0b63ec0cd5326
+  linux_amd64: ecb7269a350f91339a4c6c05d014e27f38311431e54e948fa575aacb2056f03e
+  linux_arm64: 53a60318800d01d8d5571cd82ada66c60dc14a7c739c5f4810358dbbbcbcd649
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - imagemagick
+  - jpeg-turbo
+  - fontconfig
+  - freetype
+  - gettext
+  - glib
+  - liblqr
+  - libomp
+  - libtool
+  - little-cms2

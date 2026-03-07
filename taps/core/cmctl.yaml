@@ -1,0 +1,19 @@
+name: cmctl
+version: 2.4.1
+description: Command-line tool to manage cert-manager
+homepage: https://cert-manager.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmctl/blobs/sha256:291b511a8c5fa486f5cf94358527770d4f0307563b221425a64c0a9a2c06a63d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmctl/blobs/sha256:f61491c8f73e2de22532677e52eb0987cf27a3a2b95ba5298c2a2984d29a8fc6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmctl/blobs/sha256:2648686a59c1ddaebd2b738b36e4ded146c5ff7e1393ec3f84c20b8acdb4f379
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmctl/blobs/sha256:dd0970ba25aa60ad39e6546b58f92e7a90e15def9ac788c700f6fa19eb074a87
+sha256:
+  darwin_arm64: 291b511a8c5fa486f5cf94358527770d4f0307563b221425a64c0a9a2c06a63d
+  darwin_amd64: f61491c8f73e2de22532677e52eb0987cf27a3a2b95ba5298c2a2984d29a8fc6
+  linux_amd64: 2648686a59c1ddaebd2b738b36e4ded146c5ff7e1393ec3f84c20b8acdb4f379
+  linux_arm64: dd0970ba25aa60ad39e6546b58f92e7a90e15def9ac788c700f6fa19eb074a87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

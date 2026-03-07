@@ -1,0 +1,22 @@
+name: mender-cli
+version: 2.0.0
+description: General-purpose CLI tool for the Mender backend
+homepage: https://mender.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mender-cli/blobs/sha256:8f0671cfe824e3f01e2057b81f12836e55f9b0b8fbf055636189d197bcd3af41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mender-cli/blobs/sha256:984ab3bb03029a0d1c71f7da55fdf46866e3aa2dbfacdab2bbf1f87f0311530b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mender-cli/blobs/sha256:0b31de68de7647a35266abf1034897a691f8e097e7f36a47c3f3f6fcf02626f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mender-cli/blobs/sha256:ce65a9c8f2dec521cc44bd235bd32794f842f6952b17fbce95443b3d7859fca8
+sha256:
+  darwin_arm64: 8f0671cfe824e3f01e2057b81f12836e55f9b0b8fbf055636189d197bcd3af41
+  darwin_amd64: 984ab3bb03029a0d1c71f7da55fdf46866e3aa2dbfacdab2bbf1f87f0311530b
+  linux_amd64: 0b31de68de7647a35266abf1034897a691f8e097e7f36a47c3f3f6fcf02626f9
+  linux_arm64: ce65a9c8f2dec521cc44bd235bd32794f842f6952b17fbce95443b3d7859fca8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - xz

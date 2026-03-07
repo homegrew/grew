@@ -1,0 +1,19 @@
+name: tippecanoe
+version: 2.79.0
+description: Build vector tilesets from collections of GeoJSON features
+homepage: https://github.com/felt/tippecanoe
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tippecanoe/blobs/sha256:789f0c1726dbfe2e753ee90977c212738d1435b6217c4d20df7e2e1a6fb09732
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tippecanoe/blobs/sha256:198449b1baacb651f09b763511340e2279ffb817896a52701245d81345eb1abd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tippecanoe/blobs/sha256:facc57688a1d929bef5456e1b2c5298c7ae089ed4e12fe37d46051b818c2d228
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tippecanoe/blobs/sha256:7bad962c9d0003b05ed245187d525cec015d6e2dcae507f20af3be646394bbfd
+sha256:
+  darwin_arm64: 789f0c1726dbfe2e753ee90977c212738d1435b6217c4d20df7e2e1a6fb09732
+  darwin_amd64: 198449b1baacb651f09b763511340e2279ffb817896a52701245d81345eb1abd
+  linux_amd64: facc57688a1d929bef5456e1b2c5298c7ae089ed4e12fe37d46051b818c2d228
+  linux_arm64: 7bad962c9d0003b05ed245187d525cec015d6e2dcae507f20af3be646394bbfd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

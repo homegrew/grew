@@ -1,0 +1,11 @@
+name: dyad
+version: 0.38.0
+description: AI-powered app builder
+homepage: https://dyad.sh/
+url:
+  darwin_arm64: https://github.com/dyad-sh/dyad/releases/download/v0.38.0/dyad-darwin-arm64-0.38.0.zip
+sha256:
+  darwin_arm64: 27402bb23ef965c1ada1fac31c2cbe3a6380435ae6a2445b35d65a3f2344b10b
+artifacts:
+  app:
+    - dyad.app

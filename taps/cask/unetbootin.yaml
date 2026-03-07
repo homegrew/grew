@@ -1,0 +1,11 @@
+name: unetbootin
+version: 702
+description: Tool to install Linux/BSD distributions to a partition or USB drive
+homepage: https://unetbootin.github.io/
+url:
+  darwin_arm64: https://github.com/unetbootin/unetbootin/releases/download/702/unetbootin-mac-702.dmg
+sha256:
+  darwin_arm64: 204f867e9b2604a5ba8818b7d7f4be83d08fa0c3eb0c22e51c39fc5526bd1aed
+artifacts:
+  app:
+    - unetbootin.app

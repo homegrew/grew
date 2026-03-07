@@ -1,0 +1,19 @@
+name: rav1e
+version: 0.8.1
+description: Fastest and safest AV1 video encoder
+homepage: https://github.com/xiph/rav1e
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rav1e/blobs/sha256:66ef57034787b9e1328abec79bb85ca9fd65c5f4a2bb800be9b5a58ecab849a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rav1e/blobs/sha256:9257e1d8cfbeceb7c20c8605281fb69781e6897b7e226a7b93d60c0ea57ad508
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rav1e/blobs/sha256:a1ba1d0927e415f2b24fda342ac7f3ef25f99a060e6c68bd929d147da8ea6a92
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rav1e/blobs/sha256:3876806872747aa7ef41b4091ea601992793169ab3c6eb74fd4b1af05c4b46ae
+sha256:
+  darwin_arm64: 66ef57034787b9e1328abec79bb85ca9fd65c5f4a2bb800be9b5a58ecab849a5
+  darwin_amd64: 9257e1d8cfbeceb7c20c8605281fb69781e6897b7e226a7b93d60c0ea57ad508
+  linux_amd64: a1ba1d0927e415f2b24fda342ac7f3ef25f99a060e6c68bd929d147da8ea6a92
+  linux_arm64: 3876806872747aa7ef41b4091ea601992793169ab3c6eb74fd4b1af05c4b46ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

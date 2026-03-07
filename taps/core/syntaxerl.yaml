@@ -1,0 +1,21 @@
+name: syntaxerl
+version: 0.15.0
+description: Syntax checker for Erlang code and config files
+homepage: https://github.com/ten0s/syntaxerl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/syntaxerl/blobs/sha256:2b89005e55db2bd8c5e4f17cb921180b4795622abf46dfc4b1dd11997ceac389
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/syntaxerl/blobs/sha256:655d5e3edb476b65f80b386a9ac7814b7b43442975915a6b8fffc17fba925b95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/syntaxerl/blobs/sha256:4e47e3fbad8b97527b59bf69db9d9d765e04352e6a408827bd995091f6400f65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/syntaxerl/blobs/sha256:a3792b0b05a830c36ed6a28b97f976ce2398806da5ac62f430eadc23bfd5423a
+sha256:
+  darwin_arm64: 2b89005e55db2bd8c5e4f17cb921180b4795622abf46dfc4b1dd11997ceac389
+  darwin_amd64: 655d5e3edb476b65f80b386a9ac7814b7b43442975915a6b8fffc17fba925b95
+  linux_amd64: 4e47e3fbad8b97527b59bf69db9d9d765e04352e6a408827bd995091f6400f65
+  linux_arm64: a3792b0b05a830c36ed6a28b97f976ce2398806da5ac62f430eadc23bfd5423a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang

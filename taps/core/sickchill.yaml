@@ -1,0 +1,23 @@
+name: sickchill
+version: 2024.3.1
+description: Automatic Video Library Manager for TV Shows
+homepage: https://sickchill.github.io
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sickchill/blobs/sha256:aba5fc00fd7b2a75439afa6f35e1890d028e2b6386dbc018171fae68154cdda6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sickchill/blobs/sha256:a775d8f7948a2142c4c0092cd716bb462775ff6d52c4cc41fffd5ec0d2238653
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sickchill/blobs/sha256:955834d16fdce9c874c563f30adc8afd9b961f175a0b7b5d205673f56a2baadc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sickchill/blobs/sha256:517c859568c153b891bd68e7cb50a27ad7c96cad4ebe82a95aac1f9fa1dfeeba
+sha256:
+  darwin_arm64: aba5fc00fd7b2a75439afa6f35e1890d028e2b6386dbc018171fae68154cdda6
+  darwin_amd64: a775d8f7948a2142c4c0092cd716bb462775ff6d52c4cc41fffd5ec0d2238653
+  linux_amd64: 955834d16fdce9c874c563f30adc8afd9b961f175a0b7b5d205673f56a2baadc
+  linux_arm64: 517c859568c153b891bd68e7cb50a27ad7c96cad4ebe82a95aac1f9fa1dfeeba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - python@3.14

@@ -1,0 +1,19 @@
+name: libmarpa
+version: 11.0.13
+description: Marpa parse engine C library -- STABLE
+homepage: https://jeffreykegler.github.io/Marpa-web-site/libmarpa.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmarpa/blobs/sha256:5258cd212c7322f4c3641a3467e9d11e66dbb381d62b9a6861893e059af5d9a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmarpa/blobs/sha256:3c91fed9728744bd505e5413ee5207eebef9afd50a0e9e1b194c931280901e24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmarpa/blobs/sha256:b080d6a68a430f6436b88d04cfd25831f3f984c0131b571646adea928092bce8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmarpa/blobs/sha256:ad8b523a175cad16e909acbef2ca89e68f1ea457c50e9994c9978f2b94958a7d
+sha256:
+  darwin_arm64: 5258cd212c7322f4c3641a3467e9d11e66dbb381d62b9a6861893e059af5d9a7
+  darwin_amd64: 3c91fed9728744bd505e5413ee5207eebef9afd50a0e9e1b194c931280901e24
+  linux_amd64: b080d6a68a430f6436b88d04cfd25831f3f984c0131b571646adea928092bce8
+  linux_arm64: ad8b523a175cad16e909acbef2ca89e68f1ea457c50e9994c9978f2b94958a7d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

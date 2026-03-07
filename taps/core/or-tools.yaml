@@ -1,0 +1,34 @@
+name: or-tools
+version: 9.15
+description: "Google's Operations Research tools"
+homepage: https://developers.google.com/optimization/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/or-tools/blobs/sha256:14a7ffcbb31522d4e4b5454c2c5d0df6d1997208c3592b65e24effb22b2ec98d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/or-tools/blobs/sha256:a9b02c2d6a8958ae845f173e524b9e504a8c5ba358327f2aee4c212b29a0c752
+  linux_amd64: https://ghcr.io/v2/homebrew/core/or-tools/blobs/sha256:a1763af2995f409e45719df618fed4727756c3f1368c3316ca6cebd986109606
+  linux_arm64: https://ghcr.io/v2/homebrew/core/or-tools/blobs/sha256:8ee1f6f8ada97575fe3c92d07119af001e4f155a4ef763ed3bee62caf95042e8
+sha256:
+  darwin_arm64: 14a7ffcbb31522d4e4b5454c2c5d0df6d1997208c3592b65e24effb22b2ec98d
+  darwin_amd64: a9b02c2d6a8958ae845f173e524b9e504a8c5ba358327f2aee4c212b29a0c752
+  linux_amd64: a1763af2995f409e45719df618fed4727756c3f1368c3316ca6cebd986109606
+  linux_arm64: 8ee1f6f8ada97575fe3c92d07119af001e4f155a4ef763ed3bee62caf95042e8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - cbc
+  - clp
+  - coinutils
+  - eigen
+  - highs
+  - protobuf
+  - re2
+  - scip
+  - cgl
+  - gmp
+  - mpfr
+  - openblas
+  - osi

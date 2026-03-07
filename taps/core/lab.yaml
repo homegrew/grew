@@ -1,0 +1,19 @@
+name: lab
+version: 0.25.1
+description: Git wrapper for GitLab
+homepage: https://zaquestion.github.io/lab
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lab/blobs/sha256:e797c832335a5532813bc21bb9b373cec8551469955c9dea5826787f0053ed87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lab/blobs/sha256:b06e95e8b55727781750196473f8664c9bf4389d92291a2c7093495875bd7bc0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lab/blobs/sha256:da46a19b9c616c7d034b36032f9032cfd66a09b225678f6d9b71ed6e5a515aa6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lab/blobs/sha256:0a9bd0118530f93d8ad3aac66be05e8498fa0bf281a828292556cfdca35664f2
+sha256:
+  darwin_arm64: e797c832335a5532813bc21bb9b373cec8551469955c9dea5826787f0053ed87
+  darwin_amd64: b06e95e8b55727781750196473f8664c9bf4389d92291a2c7093495875bd7bc0
+  linux_amd64: da46a19b9c616c7d034b36032f9032cfd66a09b225678f6d9b71ed6e5a515aa6
+  linux_arm64: 0a9bd0118530f93d8ad3aac66be05e8498fa0bf281a828292556cfdca35664f2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

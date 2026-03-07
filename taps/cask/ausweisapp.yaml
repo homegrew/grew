@@ -1,0 +1,11 @@
+name: ausweisapp
+version: 2.4.1
+description: Official eID-Client of the Federal Government of Germany
+homepage: https://www.ausweisapp.bund.de/
+url:
+  darwin_arm64: https://github.com/Governikus/AusweisApp/releases/download/2.4.1/AusweisApp-2.4.1.dmg
+sha256:
+  darwin_arm64: b46ff465cb49e673e690397a92370f55ba77a49eefed888e0cd960e14f7b3670
+artifacts:
+  app:
+    - AusweisApp.app

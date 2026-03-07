@@ -1,0 +1,19 @@
+name: loc
+version: 0.4.1
+description: Count lines of code quickly
+homepage: https://github.com/cgag/loc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/loc/blobs/sha256:6ade85599116f563a1624e494b7b3040cdcba3167058a0611e2c9b1172d27be3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/loc/blobs/sha256:aa590454053f91c0e4db2a257fb082ee4ce32498dd38fc3a3f50c20c480bc424
+  linux_amd64: https://ghcr.io/v2/homebrew/core/loc/blobs/sha256:f463ece47552bb4e58ffe4c4ff6e62dae3b57fb3b9a1e3fad3ea728b07bc660f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/loc/blobs/sha256:d254ba1cf64886376923d5ec23edbd92a70a3bc1d6ec5c9fad3c8f08be255a91
+sha256:
+  darwin_arm64: 6ade85599116f563a1624e494b7b3040cdcba3167058a0611e2c9b1172d27be3
+  darwin_amd64: aa590454053f91c0e4db2a257fb082ee4ce32498dd38fc3a3f50c20c480bc424
+  linux_amd64: f463ece47552bb4e58ffe4c4ff6e62dae3b57fb3b9a1e3fad3ea728b07bc660f
+  linux_arm64: d254ba1cf64886376923d5ec23edbd92a70a3bc1d6ec5c9fad3c8f08be255a91
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

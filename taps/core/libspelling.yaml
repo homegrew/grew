@@ -1,0 +1,31 @@
+name: libspelling
+version: 0.4.10
+description: Spellcheck library for GTK 4
+homepage: https://gitlab.gnome.org/GNOME/libspelling
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libspelling/blobs/sha256:11153634aad81e3844d252f6d844a3959243360ff7a825594109d096512f6f97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libspelling/blobs/sha256:b2f39ab29923d2773c74bc2065abf8cfbb517a7c5eb4f52057e21f141f194882
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libspelling/blobs/sha256:547925f26bc3a232e3774dd75c229b3b155691982c3db5a3e9082dc88791ed74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libspelling/blobs/sha256:6f9877ad8aa58cce8bfeb6c6cd4c7e7d0753afefcf3d428bd2a8d019f9c5180e
+sha256:
+  darwin_arm64: 11153634aad81e3844d252f6d844a3959243360ff7a825594109d096512f6f97
+  darwin_amd64: b2f39ab29923d2773c74bc2065abf8cfbb517a7c5eb4f52057e21f141f194882
+  linux_amd64: 547925f26bc3a232e3774dd75c229b3b155691982c3db5a3e9082dc88791ed74
+  linux_arm64: 6f9877ad8aa58cce8bfeb6c6cd4c7e7d0753afefcf3d428bd2a8d019f9c5180e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - enchant
+  - glib
+  - gtk4
+  - gtksourceview5
+  - icu4c@78
+  - pango
+  - cairo
+  - gdk-pixbuf
+  - gettext
+  - graphene
+  - harfbuzz

@@ -1,0 +1,23 @@
+name: sysbench
+version: 1.0.20
+description: System performance benchmark tool
+homepage: https://github.com/akopytov/sysbench
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sysbench/blobs/sha256:aa75335616225f72f89bf9b8f75175f5eafaa320ec768c1a7fddcb0fc1fd8bff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sysbench/blobs/sha256:6dc4d175800e0e93778a1d90ef77640a6678f6724f0aa3760aed0fb101c80ba3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sysbench/blobs/sha256:6b1d4498974cb5820ef3e1d532ae7ba041a7d201583c363d98674771caeacc7f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sysbench/blobs/sha256:3a803836fb5e79e81b0b9dbd6d5104773e0b888f7e45986e03e586b2c6e4eb79
+sha256:
+  darwin_arm64: aa75335616225f72f89bf9b8f75175f5eafaa320ec768c1a7fddcb0fc1fd8bff
+  darwin_amd64: 6dc4d175800e0e93778a1d90ef77640a6678f6724f0aa3760aed0fb101c80ba3
+  linux_amd64: 6b1d4498974cb5820ef3e1d532ae7ba041a7d201583c363d98674771caeacc7f
+  linux_arm64: 3a803836fb5e79e81b0b9dbd6d5104773e0b888f7e45986e03e586b2c6e4eb79
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - luajit
+  - mariadb-connector-c

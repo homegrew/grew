@@ -1,0 +1,22 @@
+name: open-simh
+version: 3.12-3
+description: Multi-system computer simulator
+homepage: https://opensimh.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-simh/blobs/sha256:14ca95542e0080680f5a68363b5a3cf88faebd66d2a85e0820048e4019a5b38c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-simh/blobs/sha256:647307fe3b6a161e7764656a93f21c70888d85cb9ad4cbb262aba4913f839247
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-simh/blobs/sha256:de06ffb145c4dc46c4b3535be6a5b99ac8ddec04cd7cd914ca1f8b0ccf595104
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-simh/blobs/sha256:304120ac24e399c353405da304d1fcd76751342f2cfbf262f5d1f558bec6b96c
+sha256:
+  darwin_arm64: 14ca95542e0080680f5a68363b5a3cf88faebd66d2a85e0820048e4019a5b38c
+  darwin_amd64: 647307fe3b6a161e7764656a93f21c70888d85cb9ad4cbb262aba4913f839247
+  linux_amd64: de06ffb145c4dc46c4b3535be6a5b99ac8ddec04cd7cd914ca1f8b0ccf595104
+  linux_arm64: 304120ac24e399c353405da304d1fcd76751342f2cfbf262f5d1f558bec6b96c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - vde

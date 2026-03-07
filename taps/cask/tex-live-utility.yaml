@@ -1,0 +1,11 @@
+name: tex-live-utility
+version: 1.55
+description: Graphical user interface for TeX Live Manager
+homepage: https://github.com/amaxwell/tlutility
+url:
+  darwin_arm64: https://github.com/amaxwell/tlutility/releases/download/1.55/TeX.Live.Utility.app-1.55.zip
+sha256:
+  darwin_arm64: c344a0f43f03d644e36d282f2b08e0d5009c984fea7d69295277d2457b8c8099
+artifacts:
+  app:
+    - TeX Live Utility.app

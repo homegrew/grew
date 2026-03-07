@@ -1,0 +1,22 @@
+name: c3c
+version: 0.7.10
+description: Compiler for the C3 language
+homepage: https://github.com/c3lang/c3c
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c3c/blobs/sha256:4caa65b939edc037622f75659a1326dec13691ea5b02778d63e090bd2ca8cb74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c3c/blobs/sha256:584b6aea037f54d68e1f26ce9c160de885be59243c36fcd897943522970cbea0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c3c/blobs/sha256:75f29f3cffb1f98e1e0b8cb9c4009a3dbb7c99b6e8f240e46513f287db8c43b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c3c/blobs/sha256:081ae9dda67d0ff6a585974ecbdb27d76f28466684a891275253c92acb6ba3f4
+sha256:
+  darwin_arm64: 4caa65b939edc037622f75659a1326dec13691ea5b02778d63e090bd2ca8cb74
+  darwin_amd64: 584b6aea037f54d68e1f26ce9c160de885be59243c36fcd897943522970cbea0
+  linux_amd64: 75f29f3cffb1f98e1e0b8cb9c4009a3dbb7c99b6e8f240e46513f287db8c43b5
+  linux_arm64: 081ae9dda67d0ff6a585974ecbdb27d76f28466684a891275253c92acb6ba3f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lld@21
+  - llvm@21

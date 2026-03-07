@@ -1,0 +1,19 @@
+name: butane
+version: 0.27.0
+description: Translates human-readable Butane Configs into machine-readable Ignition Configs
+homepage: https://github.com/coreos/butane
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/butane/blobs/sha256:ea83811b0f1da01a869bbd7bf21371def281c6071e8f14c5153880e1028f9c3f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/butane/blobs/sha256:42fc6fed9cec25ba4f5ceed98e19a80ca25d3c9f78d9cf4504185f9f696213ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/butane/blobs/sha256:439452d0ced524b633b6ef611e8496639af192edd26b793f1fe61771c1b68f2c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/butane/blobs/sha256:ba7bc463566f368b77da3f77674883b1755ab9b516d69c799a44cf33facdea50
+sha256:
+  darwin_arm64: ea83811b0f1da01a869bbd7bf21371def281c6071e8f14c5153880e1028f9c3f
+  darwin_amd64: 42fc6fed9cec25ba4f5ceed98e19a80ca25d3c9f78d9cf4504185f9f696213ff
+  linux_amd64: 439452d0ced524b633b6ef611e8496639af192edd26b793f1fe61771c1b68f2c
+  linux_arm64: ba7bc463566f368b77da3f77674883b1755ab9b516d69c799a44cf33facdea50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

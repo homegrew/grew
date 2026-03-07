@@ -1,0 +1,19 @@
+name: clinfo
+version: 3.0.25.02.14
+description: Print information about OpenCL platforms and devices
+homepage: https://github.com/Oblomov/clinfo
+license: CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clinfo/blobs/sha256:4f9f30aecde66c0eb0938f035b92db105242a3fe45ece3bc6c9c7d4b97f663d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clinfo/blobs/sha256:b844184911efd1eea8fc994b07e2e02c1ffbbc63c3fcb771ebd1ea588d02e337
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clinfo/blobs/sha256:90e95ee551467da22ea1a32580ad4e42ff3ea26a1cdb66e3a63dd9b53e01f5f1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clinfo/blobs/sha256:cbdeca056b99bf6960da8a6ab7c8533da3aba2efbf6afea09d5fa7be08bbba5a
+sha256:
+  darwin_arm64: 4f9f30aecde66c0eb0938f035b92db105242a3fe45ece3bc6c9c7d4b97f663d6
+  darwin_amd64: b844184911efd1eea8fc994b07e2e02c1ffbbc63c3fcb771ebd1ea588d02e337
+  linux_amd64: 90e95ee551467da22ea1a32580ad4e42ff3ea26a1cdb66e3a63dd9b53e01f5f1
+  linux_arm64: cbdeca056b99bf6960da8a6ab7c8533da3aba2efbf6afea09d5fa7be08bbba5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

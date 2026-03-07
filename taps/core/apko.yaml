@@ -1,0 +1,19 @@
+name: apko
+version: 1.1.12
+description: Build OCI images from APK packages directly without Dockerfile
+homepage: https://github.com/chainguard-dev/apko
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/apko/blobs/sha256:ed344dd131850f3a4b70fb0149c61ecb0b821c03414b06629dc1b55d6cd70b4a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/apko/blobs/sha256:488ce1cef2b58ba64dea7c78a414cb0ef7f411ae7142fb20b6554e4796ea5e27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/apko/blobs/sha256:9690fef8f024950cc1a2d5f8ca10a9201f9a313dac2f5975f61bbf4508fdab35
+  linux_arm64: https://ghcr.io/v2/homebrew/core/apko/blobs/sha256:05aa2bcacc88787da44a4dd651db07e37e561985eaa579858e62b3f19097e8b7
+sha256:
+  darwin_arm64: ed344dd131850f3a4b70fb0149c61ecb0b821c03414b06629dc1b55d6cd70b4a
+  darwin_amd64: 488ce1cef2b58ba64dea7c78a414cb0ef7f411ae7142fb20b6554e4796ea5e27
+  linux_amd64: 9690fef8f024950cc1a2d5f8ca10a9201f9a313dac2f5975f61bbf4508fdab35
+  linux_arm64: 05aa2bcacc88787da44a4dd651db07e37e561985eaa579858e62b3f19097e8b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

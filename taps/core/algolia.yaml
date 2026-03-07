@@ -1,0 +1,19 @@
+name: algolia
+version: 1.7.3
+description: CLI for Algolia
+homepage: https://www.algolia.com/doc/tools/cli/get-started
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/algolia/blobs/sha256:d439e1b8197aeed05f0de159ffa6da7a2c91258d913f90b2efb51b67d5b4a268
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/algolia/blobs/sha256:24ba94710e6028986e7998742b364b50c3cfb99904a87333ba18e9b44e349011
+  linux_amd64: https://ghcr.io/v2/homebrew/core/algolia/blobs/sha256:32857d141d03fd94834d567663721f6153914d4ddfaa1092649547c212da469a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/algolia/blobs/sha256:4e7688426be8837870d8ea7ae07f26cb4d1486bfa24d7a9f47d7a81bab7f61a5
+sha256:
+  darwin_arm64: d439e1b8197aeed05f0de159ffa6da7a2c91258d913f90b2efb51b67d5b4a268
+  darwin_amd64: 24ba94710e6028986e7998742b364b50c3cfb99904a87333ba18e9b44e349011
+  linux_amd64: 32857d141d03fd94834d567663721f6153914d4ddfaa1092649547c212da469a
+  linux_arm64: 4e7688426be8837870d8ea7ae07f26cb4d1486bfa24d7a9f47d7a81bab7f61a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

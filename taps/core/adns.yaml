@@ -1,0 +1,19 @@
+name: adns
+version: 1.6.1
+description: C/C++ resolver library and DNS resolver utilities
+homepage: https://www.chiark.greenend.org.uk/~ian/adns/
+license: GPL-3.0-or-later AND LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/adns/blobs/sha256:13b27a569da82d1c3dccfbd733715ca0e4b850462ee7cd74561b3753945848be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/adns/blobs/sha256:fefe889ad072b0186eb26a445a13bff68e1f1e0914fce32273be408449c6518e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/adns/blobs/sha256:4ac86275f06493e6589ea7f3c6306281891074deb2d4b3318652ee5e3d66d594
+  linux_arm64: https://ghcr.io/v2/homebrew/core/adns/blobs/sha256:61536298beb99ff2010ca729c20656b74b9ce355d246bb5df0e2b187b01501ee
+sha256:
+  darwin_arm64: 13b27a569da82d1c3dccfbd733715ca0e4b850462ee7cd74561b3753945848be
+  darwin_amd64: fefe889ad072b0186eb26a445a13bff68e1f1e0914fce32273be408449c6518e
+  linux_amd64: 4ac86275f06493e6589ea7f3c6306281891074deb2d4b3318652ee5e3d66d594
+  linux_arm64: 61536298beb99ff2010ca729c20656b74b9ce355d246bb5df0e2b187b01501ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: proxsuite
+version: 0.7.2
+description: Advanced Proximal Optimization Toolbox
+homepage: https://github.com/Simple-Robotics/proxsuite
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxsuite/blobs/sha256:2912fb63e15581feb0bb390fd5ed3e525c46bcb7b6781d12bd813dfe6282ce59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxsuite/blobs/sha256:3ff24000da0064252d189835999b4775042709339922ac3891c75c7201a91a08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxsuite/blobs/sha256:bd84dda9a674cf2ff721ce5cd3a2b62d03977601306072a905adec2559de78e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxsuite/blobs/sha256:696c5bd08330dba311f390d3aa3be29016d4d74ebc7d714bf2aee89c31580537
+sha256:
+  darwin_arm64: 2912fb63e15581feb0bb390fd5ed3e525c46bcb7b6781d12bd813dfe6282ce59
+  darwin_amd64: 3ff24000da0064252d189835999b4775042709339922ac3891c75c7201a91a08
+  linux_amd64: bd84dda9a674cf2ff721ce5cd3a2b62d03977601306072a905adec2559de78e2
+  linux_arm64: 696c5bd08330dba311f390d3aa3be29016d4d74ebc7d714bf2aee89c31580537
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen
+  - numpy
+  - python@3.14
+  - scipy
+  - simde

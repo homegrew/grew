@@ -1,0 +1,23 @@
+name: libfreefare
+version: 0.4.0
+description: API for MIFARE card manipulations
+homepage: https://github.com/nfc-tools/libfreefare
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfreefare/blobs/sha256:9db2e4002368c2b87fb707952d9272b740078176b456920a5d5181019617b2dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfreefare/blobs/sha256:cf47d28d3d12d295a911f266dcc2f1b124d333200214b835e41ae8d19f22c28a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfreefare/blobs/sha256:d3837eb7894980557e16a097e05bc2fa8d42429177f30359166820cca640cc52
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfreefare/blobs/sha256:7d7bc10990f7f8f1e0a2d2ff7888f98176bfcc2ef4f19aee6c9465a46947dfb9
+sha256:
+  darwin_arm64: 9db2e4002368c2b87fb707952d9272b740078176b456920a5d5181019617b2dd
+  darwin_amd64: cf47d28d3d12d295a911f266dcc2f1b124d333200214b835e41ae8d19f22c28a
+  linux_amd64: d3837eb7894980557e16a097e05bc2fa8d42429177f30359166820cca640cc52
+  linux_arm64: 7d7bc10990f7f8f1e0a2d2ff7888f98176bfcc2ef4f19aee6c9465a46947dfb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnfc
+  - openssl@3
+  - libusb-compat

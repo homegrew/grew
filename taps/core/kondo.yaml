@@ -1,0 +1,19 @@
+name: kondo
+version: 0.9
+description: Save disk space by cleaning non-essential files from software projects
+homepage: https://github.com/tbillington/kondo
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kondo/blobs/sha256:527d27a29a5f7b9bb39be35e8054c34c0c4f617a1502feea1afa4943cd815bd2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kondo/blobs/sha256:0b154e3bbf7f2da0097a366443e41797203d706a05fb5db257ddab1481d8fccf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kondo/blobs/sha256:2d282eae511caf3bc620fbe9bd92abcf629febe09ba711fca0e0e63e8169eb9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kondo/blobs/sha256:4521a5aaaa9683347a699c7a85bb89d42e448431d45b99645a9f0116fe19c40e
+sha256:
+  darwin_arm64: 527d27a29a5f7b9bb39be35e8054c34c0c4f617a1502feea1afa4943cd815bd2
+  darwin_amd64: 0b154e3bbf7f2da0097a366443e41797203d706a05fb5db257ddab1481d8fccf
+  linux_amd64: 2d282eae511caf3bc620fbe9bd92abcf629febe09ba711fca0e0e63e8169eb9e
+  linux_arm64: 4521a5aaaa9683347a699c7a85bb89d42e448431d45b99645a9f0116fe19c40e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

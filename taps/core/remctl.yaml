@@ -1,0 +1,22 @@
+name: remctl
+version: 3.18
+description: Client/server application for remote execution of tasks
+homepage: https://www.eyrie.org/~eagle/software/remctl/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/remctl/blobs/sha256:65ed94e43fc5b48a50c38a417453622fda2f57d2845db6555cda4b1366f7da8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/remctl/blobs/sha256:af23ebd8bd1f313d7c7457158f8bf1f16caecede018e8bbfda8581b079646fe0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/remctl/blobs/sha256:def6439b11bef8a6ee81d387991e0995b9fe76928e9dbd69bd65ea09b6931d1b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/remctl/blobs/sha256:325fd3e1bfce192eb6ea17639265b1f619ef95db046fbbf87efa92e8b1e0baa6
+sha256:
+  darwin_arm64: 65ed94e43fc5b48a50c38a417453622fda2f57d2845db6555cda4b1366f7da8e
+  darwin_amd64: af23ebd8bd1f313d7c7457158f8bf1f16caecede018e8bbfda8581b079646fe0
+  linux_amd64: def6439b11bef8a6ee81d387991e0995b9fe76928e9dbd69bd65ea09b6931d1b
+  linux_arm64: 325fd3e1bfce192eb6ea17639265b1f619ef95db046fbbf87efa92e8b1e0baa6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - pcre2

@@ -1,0 +1,21 @@
+name: movgrab
+version: 3.1.2
+description: Downloader for youtube, dailymotion, and other video websites
+homepage: https://github.com/ColumPaget/Movgrab
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/movgrab/blobs/sha256:906cf4a9106e0dbdc98f73e43412b095779cb620a8ea9b4a770b3d6c0fe71cc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/movgrab/blobs/sha256:9877cdc87f7efe12b097c0301614934ea999895fc2b4238564bc48730b92dc46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/movgrab/blobs/sha256:3bd514f0b8349b7a15da7d9c28d64a2a8eaba6f16bdd36beb1aaa449f9b68088
+  linux_arm64: https://ghcr.io/v2/homebrew/core/movgrab/blobs/sha256:5e8f4bcd11c7f2a24c9f0f4b6e8c07046643b01a516b8e11b07f3a54d653545b
+sha256:
+  darwin_arm64: 906cf4a9106e0dbdc98f73e43412b095779cb620a8ea9b4a770b3d6c0fe71cc3
+  darwin_amd64: 9877cdc87f7efe12b097c0301614934ea999895fc2b4238564bc48730b92dc46
+  linux_amd64: 3bd514f0b8349b7a15da7d9c28d64a2a8eaba6f16bdd36beb1aaa449f9b68088
+  linux_arm64: 5e8f4bcd11c7f2a24c9f0f4b6e8c07046643b01a516b8e11b07f3a54d653545b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libressl

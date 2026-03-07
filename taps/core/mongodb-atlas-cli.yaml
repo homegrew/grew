@@ -1,0 +1,21 @@
+name: mongodb-atlas-cli
+version: 1.53.1
+description: Atlas CLI enables you to manage your MongoDB Atlas
+homepage: https://www.mongodb.com/docs/atlas/cli/stable/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongodb-atlas-cli/blobs/sha256:1f93b1b4cddd5e03dc19a6a3acca071dd942f68bd3b41a8ab97e007f8987cdd2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongodb-atlas-cli/blobs/sha256:fd78e507fe43f7520dc996cdcbc96f6a888ba6d5675273aef991fc9ddca3fd44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongodb-atlas-cli/blobs/sha256:2d2b278d0a81151aa2affd154cac9a46780b6a514162631e06fcd8a08e1cc20e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongodb-atlas-cli/blobs/sha256:84397c0ddcfae80c85a2ad130d7ab3284fa8f51d0ab457a1fc3849262aaad7a1
+sha256:
+  darwin_arm64: 1f93b1b4cddd5e03dc19a6a3acca071dd942f68bd3b41a8ab97e007f8987cdd2
+  darwin_amd64: fd78e507fe43f7520dc996cdcbc96f6a888ba6d5675273aef991fc9ddca3fd44
+  linux_amd64: 2d2b278d0a81151aa2affd154cac9a46780b6a514162631e06fcd8a08e1cc20e
+  linux_arm64: 84397c0ddcfae80c85a2ad130d7ab3284fa8f51d0ab457a1fc3849262aaad7a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - mongosh

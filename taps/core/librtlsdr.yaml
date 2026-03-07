@@ -1,0 +1,21 @@
+name: librtlsdr
+version: 2.0.2
+description: Use Realtek DVB-T dongles as a cheap SDR
+homepage: https://osmocom.org/projects/rtl-sdr/wiki
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librtlsdr/blobs/sha256:7cca49b3b28f7d9e6899474228a7dc2a58735a87699d1c8283fe0a76d83dbd8b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librtlsdr/blobs/sha256:d4060f4b17661ba3b0687dca15ec474989a997c7f45fe4d7e351b62168a04468
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librtlsdr/blobs/sha256:a862647f13e22312396e83c4122e7bd985fdff0982910734ad7e9334809917ba
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librtlsdr/blobs/sha256:859c88b6c98327a37922f7e1ffea16ad431121bb814c7c50fb5898df7aeefb0a
+sha256:
+  darwin_arm64: 7cca49b3b28f7d9e6899474228a7dc2a58735a87699d1c8283fe0a76d83dbd8b
+  darwin_amd64: d4060f4b17661ba3b0687dca15ec474989a997c7f45fe4d7e351b62168a04468
+  linux_amd64: a862647f13e22312396e83c4122e7bd985fdff0982910734ad7e9334809917ba
+  linux_arm64: 859c88b6c98327a37922f7e1ffea16ad431121bb814c7c50fb5898df7aeefb0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

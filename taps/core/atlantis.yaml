@@ -1,0 +1,19 @@
+name: atlantis
+version: 0.40.0
+description: Terraform Pull Request Automation tool
+homepage: https://www.runatlantis.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/atlantis/blobs/sha256:f229c1f97447dbdaae6512ab07a084c82ecd86285f5aa2106cf8d1649bf0a6c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/atlantis/blobs/sha256:746bca9edf042bd509611b44e26cc35c193e42ecc52e8ae0de872cb185ae5e37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atlantis/blobs/sha256:a409858aa9c51b8b237fa5a97ced7aeabe89b4c72b0a82f07a2a4ff910ee138b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atlantis/blobs/sha256:a8e005e16ebebd41f7b8184d4da05b2ee8d692c6a63d439f078de799dd6722d5
+sha256:
+  darwin_arm64: f229c1f97447dbdaae6512ab07a084c82ecd86285f5aa2106cf8d1649bf0a6c7
+  darwin_amd64: 746bca9edf042bd509611b44e26cc35c193e42ecc52e8ae0de872cb185ae5e37
+  linux_amd64: a409858aa9c51b8b237fa5a97ced7aeabe89b4c72b0a82f07a2a4ff910ee138b
+  linux_arm64: a8e005e16ebebd41f7b8184d4da05b2ee8d692c6a63d439f078de799dd6722d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

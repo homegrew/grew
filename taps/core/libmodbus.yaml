@@ -1,0 +1,19 @@
+name: libmodbus
+version: 3.1.12
+description: Portable modbus library
+homepage: https://libmodbus.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmodbus/blobs/sha256:a19a1e7794e92ff2457f53854efe9f25af59eb226c3e9894434f0bba430af5c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmodbus/blobs/sha256:f95283005a391bc212c9492d0177d7a9532c09c05e9d7c8d17056ab61d456593
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmodbus/blobs/sha256:ca28017a4ab526343a25a5f36a5f441fc7512ff6daf7089a7a0e611a6813c095
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmodbus/blobs/sha256:c8bbf29d0d6b2a53ddc10fae268b78d191aafce3788209174754fd037e100bc4
+sha256:
+  darwin_arm64: a19a1e7794e92ff2457f53854efe9f25af59eb226c3e9894434f0bba430af5c5
+  darwin_amd64: f95283005a391bc212c9492d0177d7a9532c09c05e9d7c8d17056ab61d456593
+  linux_amd64: ca28017a4ab526343a25a5f36a5f441fc7512ff6daf7089a7a0e611a6813c095
+  linux_arm64: c8bbf29d0d6b2a53ddc10fae268b78d191aafce3788209174754fd037e100bc4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

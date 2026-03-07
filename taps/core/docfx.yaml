@@ -1,0 +1,21 @@
+name: docfx
+version: 2.78.5
+description: Tools for building and publishing API documentation for .NET projects
+homepage: https://dotnet.github.io/docfx/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docfx/blobs/sha256:523bb3a1bb69486ba96ed04a14cf5275a03eaee24666548664367c6ec751008b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docfx/blobs/sha256:74dd5ee74560f786debd8cbda5021834c5b2199b9890f385325de614f6be39be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docfx/blobs/sha256:f703a20bc12c55ae2083dadc0364892ee5aa0bec6b34c53aa2758fa48cd0d762
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docfx/blobs/sha256:ef38f65f11a369979e4a188ba5677a49831eac7d2c5160f65b80bd324d8ea38c
+sha256:
+  darwin_arm64: 523bb3a1bb69486ba96ed04a14cf5275a03eaee24666548664367c6ec751008b
+  darwin_amd64: 74dd5ee74560f786debd8cbda5021834c5b2199b9890f385325de614f6be39be
+  linux_amd64: f703a20bc12c55ae2083dadc0364892ee5aa0bec6b34c53aa2758fa48cd0d762
+  linux_arm64: ef38f65f11a369979e4a188ba5677a49831eac7d2c5160f65b80bd324d8ea38c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet

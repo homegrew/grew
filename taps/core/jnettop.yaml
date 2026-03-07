@@ -1,0 +1,22 @@
+name: jnettop
+version: 0.13.0
+description: View hosts/ports taking up the most network traffic
+homepage: https://sourceforge.net/projects/jnettop/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jnettop/blobs/sha256:94be630d1e700e5da48e52eb85019003f81295f9afd49c846296943881962a17
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jnettop/blobs/sha256:9cd2a14ec9e61fff8a91107b290aa603066f3f613cd3a95c9c7311eb3355e307
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jnettop/blobs/sha256:2e3617c2641b35e01517e783554157ece0999367fccf494fc9824618277464eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jnettop/blobs/sha256:a06d489b070670f237da6659aa5c1803bd5ec72b8b07540b00b14d392879402c
+sha256:
+  darwin_arm64: 94be630d1e700e5da48e52eb85019003f81295f9afd49c846296943881962a17
+  darwin_amd64: 9cd2a14ec9e61fff8a91107b290aa603066f3f613cd3a95c9c7311eb3355e307
+  linux_amd64: 2e3617c2641b35e01517e783554157ece0999367fccf494fc9824618277464eb
+  linux_arm64: a06d489b070670f237da6659aa5c1803bd5ec72b8b07540b00b14d392879402c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

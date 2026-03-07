@@ -1,0 +1,22 @@
+name: monitoring-plugins
+version: 2.4.0
+description: Plugins for nagios compatible monitoring systems
+homepage: https://www.monitoring-plugins.org
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/monitoring-plugins/blobs/sha256:e611a641792258e275bfcf3d98669753a3740e5815ccfb6c7e0ef1cc104a13f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/monitoring-plugins/blobs/sha256:8e139e077e10f664e33c4dafa4bc404d6bf47bcf1e82bfa5c1a8daa481a85af3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/monitoring-plugins/blobs/sha256:27b58371aa6e210a9510c9fd0b64ed2f0923425b336eeda2b5c9eb0fd08509ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/monitoring-plugins/blobs/sha256:2caa7d52925b286737f83a15a800de15edbbc4d280756b9ab268cd4e810b42ba
+sha256:
+  darwin_arm64: e611a641792258e275bfcf3d98669753a3740e5815ccfb6c7e0ef1cc104a13f4
+  darwin_amd64: 8e139e077e10f664e33c4dafa4bc404d6bf47bcf1e82bfa5c1a8daa481a85af3
+  linux_amd64: 27b58371aa6e210a9510c9fd0b64ed2f0923425b336eeda2b5c9eb0fd08509ac
+  linux_arm64: 2caa7d52925b286737f83a15a800de15edbbc4d280756b9ab268cd4e810b42ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - gettext

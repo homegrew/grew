@@ -1,0 +1,24 @@
+name: pieces-cli
+version: 1.20.1
+description: Command-line tool for Pieces.app
+homepage: https://docs.pieces.app/products/cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pieces-cli/blobs/sha256:b70318e8c8a199ddd4ed989c7947540b0b90c9d5326401791c232d94a79b2f56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pieces-cli/blobs/sha256:9003177045243222d34c961ea2bbdc9089f1b495298a5b35d51af9d641ea3290
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pieces-cli/blobs/sha256:d5acde6b8aed5533689c68e06ec57c44db25b775ec6821067a19511dd3ed5193
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pieces-cli/blobs/sha256:b0bf0affb3285df6bac1b1e22fb287b4968b62785adf65f2f81e097e5b49844b
+sha256:
+  darwin_arm64: b70318e8c8a199ddd4ed989c7947540b0b90c9d5326401791c232d94a79b2f56
+  darwin_amd64: 9003177045243222d34c961ea2bbdc9089f1b495298a5b35d51af9d641ea3290
+  linux_amd64: d5acde6b8aed5533689c68e06ec57c44db25b775ec6821067a19511dd3ed5193
+  linux_arm64: b0bf0affb3285df6bac1b1e22fb287b4968b62785adf65f2f81e097e5b49844b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

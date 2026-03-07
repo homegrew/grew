@@ -1,0 +1,19 @@
+name: click
+version: 0.6.3
+description: Command-line interactive controller for Kubernetes
+homepage: https://github.com/databricks/click
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/click/blobs/sha256:96815f530661c69c118a128df96453746171c7f504e63d55d9ddf03baf1c6dbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/click/blobs/sha256:14315013a9e3ecd0882de00d7d5d25588e0d3ed6d098d23f61a1714e93effa39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/click/blobs/sha256:4b30c2c15da3c503a541a5f751928abf68496261df9374a23c6d5dce58b9d2b8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/click/blobs/sha256:4b49f975c698d3f29c6055c055b11661315b87e270fe773604fe24902cee603d
+sha256:
+  darwin_arm64: 96815f530661c69c118a128df96453746171c7f504e63d55d9ddf03baf1c6dbf
+  darwin_amd64: 14315013a9e3ecd0882de00d7d5d25588e0d3ed6d098d23f61a1714e93effa39
+  linux_amd64: 4b30c2c15da3c503a541a5f751928abf68496261df9374a23c6d5dce58b9d2b8
+  linux_arm64: 4b49f975c698d3f29c6055c055b11661315b87e270fe773604fe24902cee603d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: crf++
+version: 0.58
+description: Conditional random fields for segmenting/labeling sequential data
+homepage: https://taku910.github.io/crfpp/
+license: LGPL-2.1-only OR BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crfxx/blobs/sha256:6dc7eda56c3ad4d066a9f4a244ec02d9bdb4b1fe482abfd632fdace270c68936
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crfxx/blobs/sha256:9745ec5432d1ed8f4f5dc546e35fdfc82d4f5e723eb4065f298a2e46478d9911
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crfxx/blobs/sha256:3cc105b0deaa5661ba6cde2ac18b289ef676aacfad93f569e659d1ce6035127f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crfxx/blobs/sha256:e1b5ccbfaf09a9ce9fbb265f798cb224a2237dc4728b7348a304a0fe3d412602
+sha256:
+  darwin_arm64: 6dc7eda56c3ad4d066a9f4a244ec02d9bdb4b1fe482abfd632fdace270c68936
+  darwin_amd64: 9745ec5432d1ed8f4f5dc546e35fdfc82d4f5e723eb4065f298a2e46478d9911
+  linux_amd64: 3cc105b0deaa5661ba6cde2ac18b289ef676aacfad93f569e659d1ce6035127f
+  linux_arm64: e1b5ccbfaf09a9ce9fbb265f798cb224a2237dc4728b7348a304a0fe3d412602
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: jumanpp
+version: 1.02
+description: Japanese Morphological Analyzer based on RNNLM
+homepage: https://nlp.ist.i.kyoto-u.ac.jp/EN/index.php?JUMAN%2B%2B
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jumanpp/blobs/sha256:22a0785a78be8dea8fb69e016c0ca887fc2f1e236734594bb350ba86a44f0d71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jumanpp/blobs/sha256:05fca93313e1b88047e24f57fcd565e2e03e0f1c21944bbeba431f118c6dbc78
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jumanpp/blobs/sha256:a646201910dc5c938adcd64559fc0ce85dd8f13017ddadb1b65965f4cc2f4afe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jumanpp/blobs/sha256:01ef3b82e6f1036bda9466e2ab2cf2b314eca2fc59640006870d0499960cff38
+sha256:
+  darwin_arm64: 22a0785a78be8dea8fb69e016c0ca887fc2f1e236734594bb350ba86a44f0d71
+  darwin_amd64: 05fca93313e1b88047e24f57fcd565e2e03e0f1c21944bbeba431f118c6dbc78
+  linux_amd64: a646201910dc5c938adcd64559fc0ce85dd8f13017ddadb1b65965f4cc2f4afe
+  linux_arm64: 01ef3b82e6f1036bda9466e2ab2cf2b314eca2fc59640006870d0499960cff38
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gperftools

@@ -1,0 +1,22 @@
+name: krb5
+version: 1.22.2
+description: Network authentication protocol
+homepage: https://web.mit.edu/kerberos/
+license: BSD-2-Clause AND BSD-2-Clause-first-lines AND BSD-3-Clause AND BSD-4-Clause AND Brian-Gladman-2-Clause AND CMU-Mach-nodoc AND FSFULLRWD AND HPND AND HPND-export2-US AND HPND-export-US AND HPND-export-US-acknowledgement AND HPND-export-US-modify AND ISC AND MIT AND MIT-CMU AND OLDAP-2.8 AND OpenVision AND (BSD-2-Clause OR GPL-2.0-or-later)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/krb5/blobs/sha256:2968bf9d040cd58eb2933ddf03cd004d1f9abe8b19bd7f028ea8666ad47714ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/krb5/blobs/sha256:a4ab63ede148b1230e05c3002024e37d402ad3a18c98976d71a83920a879c462
+  linux_amd64: https://ghcr.io/v2/homebrew/core/krb5/blobs/sha256:5c06477705002279f07de13c147866235a99abe1495ae4deb1eed805ec542245
+  linux_arm64: https://ghcr.io/v2/homebrew/core/krb5/blobs/sha256:1e75b209585cd4b2155eb8eebadaf3c4df5948981fecfaa5633a60e5918a78d7
+sha256:
+  darwin_arm64: 2968bf9d040cd58eb2933ddf03cd004d1f9abe8b19bd7f028ea8666ad47714ab
+  darwin_amd64: a4ab63ede148b1230e05c3002024e37d402ad3a18c98976d71a83920a879c462
+  linux_amd64: 5c06477705002279f07de13c147866235a99abe1495ae4deb1eed805ec542245
+  linux_arm64: 1e75b209585cd4b2155eb8eebadaf3c4df5948981fecfaa5633a60e5918a78d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

@@ -1,0 +1,19 @@
+name: switch-lan-play
+version: 0.2.3
+description: Make you and your friends play games like in a LAN
+homepage: https://github.com/spacemeowx2/switch-lan-play
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/switch-lan-play/blobs/sha256:bc7be8d18040e7c518cd4f4eb42e99c53b4b8601b9f291d2ea766d3c8dade613
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/switch-lan-play/blobs/sha256:4a07c9571a9c914a4b32b9133cd9e167cf59b5828dde79458762aec6560685e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/switch-lan-play/blobs/sha256:b0575f08e99046febb1ff6e1c00f02ab5b1bfa3e4b944828d0c858339748989b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/switch-lan-play/blobs/sha256:9aac4915530555c0f133b120d4e4535e3248462f8067934b1ac4c554d89ee49d
+sha256:
+  darwin_arm64: bc7be8d18040e7c518cd4f4eb42e99c53b4b8601b9f291d2ea766d3c8dade613
+  darwin_amd64: 4a07c9571a9c914a4b32b9133cd9e167cf59b5828dde79458762aec6560685e8
+  linux_amd64: b0575f08e99046febb1ff6e1c00f02ab5b1bfa3e4b944828d0c858339748989b
+  linux_arm64: 9aac4915530555c0f133b120d4e4535e3248462f8067934b1ac4c554d89ee49d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

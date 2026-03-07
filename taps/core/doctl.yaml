@@ -1,0 +1,19 @@
+name: doctl
+version: 1.151.0
+description: Command-line tool for DigitalOcean
+homepage: https://github.com/digitalocean/doctl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doctl/blobs/sha256:4d01ab322f4a061552a7b40ac82bb3eaea2ef2c97fef19c344665a87a19c751b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doctl/blobs/sha256:d38e75c2b33a81c3cf009500e86c136f01969102a4a872cf169c4393348abf3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doctl/blobs/sha256:6dd3bad21083cb5c9ffebe1393b1608d7440a9f3fb9da3310c9b4aae4ceeb08c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doctl/blobs/sha256:2358753e69ee805ca580872227d05ac455ea4d9dc83ea68667c49be9ef3dd4da
+sha256:
+  darwin_arm64: 4d01ab322f4a061552a7b40ac82bb3eaea2ef2c97fef19c344665a87a19c751b
+  darwin_amd64: d38e75c2b33a81c3cf009500e86c136f01969102a4a872cf169c4393348abf3b
+  linux_amd64: 6dd3bad21083cb5c9ffebe1393b1608d7440a9f3fb9da3310c9b4aae4ceeb08c
+  linux_arm64: 2358753e69ee805ca580872227d05ac455ea4d9dc83ea68667c49be9ef3dd4da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

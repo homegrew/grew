@@ -1,0 +1,26 @@
+name: subversion
+version: 1.14.5
+description: Version control system designed to be a better CVS
+homepage: https://subversion.apache.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/subversion/blobs/sha256:ce4f041d63dc7d7d82169f6078adf8644689694185ec1cf97449aa675f28f8a8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/subversion/blobs/sha256:311df2025d05d11e0404c8945b086fc954074e9ca11e1cf936528c12abad69ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/subversion/blobs/sha256:c6c2674be10507ef292f4cb4385f184d74171f414efd95c1c99727e8bf100d66
+  linux_arm64: https://ghcr.io/v2/homebrew/core/subversion/blobs/sha256:9e2b9ba8f2a5ba0efaa5db767baefa2d228ab2192f7a88b3fb13e82e82038648
+sha256:
+  darwin_arm64: ce4f041d63dc7d7d82169f6078adf8644689694185ec1cf97449aa675f28f8a8
+  darwin_amd64: 311df2025d05d11e0404c8945b086fc954074e9ca11e1cf936528c12abad69ed
+  linux_amd64: c6c2674be10507ef292f4cb4385f184d74171f414efd95c1c99727e8bf100d66
+  linux_arm64: 9e2b9ba8f2a5ba0efaa5db767baefa2d228ab2192f7a88b3fb13e82e82038648
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-serf
+  - apr
+  - apr-util
+  - lz4
+  - utf8proc
+  - gettext

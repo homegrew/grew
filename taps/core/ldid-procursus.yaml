@@ -1,0 +1,22 @@
+name: ldid-procursus
+version: 2.1.5-procursus7
+description: Put real or fake signatures in a Mach-O binary
+homepage: https://github.com/ProcursusTeam/ldid
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldid-procursus/blobs/sha256:55c501cd347ca47bb11659cb01050f8a48423c205737c2108f3bc46a19b27afc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldid-procursus/blobs/sha256:d588f650e0f38f7837ee7d4cda733442b0ef723e5d7664a5cd6d9b8e808d6cb4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldid-procursus/blobs/sha256:8277afbe297f7153901815514ad120e29b9ca67b891287c4ee133868d43b84f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldid-procursus/blobs/sha256:3a581a508009e4854e8790a0f246baaac0ec570945e331fc6aac65ab4a1a9a81
+sha256:
+  darwin_arm64: 55c501cd347ca47bb11659cb01050f8a48423c205737c2108f3bc46a19b27afc
+  darwin_amd64: d588f650e0f38f7837ee7d4cda733442b0ef723e5d7664a5cd6d9b8e808d6cb4
+  linux_amd64: 8277afbe297f7153901815514ad120e29b9ca67b891287c4ee133868d43b84f7
+  linux_arm64: 3a581a508009e4854e8790a0f246baaac0ec570945e331fc6aac65ab4a1a9a81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libplist
+  - openssl@3

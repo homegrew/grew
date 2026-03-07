@@ -1,0 +1,19 @@
+name: boa
+version: 0.21
+description: Embeddable and experimental Javascript engine written in Rust
+homepage: https://github.com/boa-dev/boa
+license: MIT OR Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/boa/blobs/sha256:c487656c5ebb79333fa4f8a81afe8066f62059212dd0606c61fcefac52e9c064
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/boa/blobs/sha256:ecff53c4ecf56567e1593a80abca460b61015f8a4fc93ebd26edfb6015d00584
+  linux_amd64: https://ghcr.io/v2/homebrew/core/boa/blobs/sha256:43062e155e024fee561efaf8951a02533d3f338acd229df0a4fa9b23f9c9b82d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/boa/blobs/sha256:733119d87455c4f1738bef0a532fe7869a9107548da834420c0b198a5fa08ad9
+sha256:
+  darwin_arm64: c487656c5ebb79333fa4f8a81afe8066f62059212dd0606c61fcefac52e9c064
+  darwin_amd64: ecff53c4ecf56567e1593a80abca460b61015f8a4fc93ebd26edfb6015d00584
+  linux_amd64: 43062e155e024fee561efaf8951a02533d3f338acd229df0a4fa9b23f9c9b82d
+  linux_arm64: 733119d87455c4f1738bef0a532fe7869a9107548da834420c0b198a5fa08ad9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

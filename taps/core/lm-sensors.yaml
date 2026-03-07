@@ -1,0 +1,15 @@
+name: lm-sensors
+version: 3.6.2
+description: Tools for monitoring the temperatures, voltages, and fans
+homepage: https://github.com/hramrach/lm-sensors
+license: GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lm-sensors/blobs/sha256:24aa125e2b8fe32e1600b64c0c5d8a32a575db9ef4dea9e17d31c6a02a48087f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lm-sensors/blobs/sha256:05d1a0969a84d7ed3f9b95effe63bc9378452f2a1a1e367b8c8ef1efde275af9
+sha256:
+  linux_amd64: 24aa125e2b8fe32e1600b64c0c5d8a32a575db9ef4dea9e17d31c6a02a48087f
+  linux_arm64: 05d1a0969a84d7ed3f9b95effe63bc9378452f2a1a1e367b8c8ef1efde275af9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

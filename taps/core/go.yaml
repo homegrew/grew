@@ -1,0 +1,19 @@
+name: go
+version: 1.26.1
+description: Open source programming language to build simple/reliable/efficient software
+homepage: https://go.dev/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go/blobs/sha256:51bc2bd9276ba9dd9bc9a233ff1516d8a0314a4cfcdc01debde37872fc74068f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go/blobs/sha256:ced00f225dc0073a0e44bfdefb16a7d75e320fff048ba64eb2278961955211ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go/blobs/sha256:a27b69f3a45bea076938eecd6eb749b30056f9cba23c4ac3910e9ffc5ac9c6e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go/blobs/sha256:cd171acd22130bbf5331e2900cc70aea437fdef0f56ca68628dfb7a3c6a6c9f1
+sha256:
+  darwin_arm64: 51bc2bd9276ba9dd9bc9a233ff1516d8a0314a4cfcdc01debde37872fc74068f
+  darwin_amd64: ced00f225dc0073a0e44bfdefb16a7d75e320fff048ba64eb2278961955211ea
+  linux_amd64: a27b69f3a45bea076938eecd6eb749b30056f9cba23c4ac3910e9ffc5ac9c6e6
+  linux_arm64: cd171acd22130bbf5331e2900cc70aea437fdef0f56ca68628dfb7a3c6a6c9f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

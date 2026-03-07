@@ -1,0 +1,19 @@
+name: victoriametrics
+version: 1.137.0
+description: Cost-effective and scalable monitoring solution and time series database
+homepage: https://victoriametrics.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/victoriametrics/blobs/sha256:a30c010ea1330feb011770cec4ffe37b55d80ec77f28197423774d7ae49bf3cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/victoriametrics/blobs/sha256:5e94f7912d0fe772ef4169bd8e6ddb590fb8d8ccc5c09c2adbe45b599b5c94ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/victoriametrics/blobs/sha256:3beec68412f1cbb4f5fdf9b190a624bf66b9a58b8580ab1b1005af7d4fbd0fbb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/victoriametrics/blobs/sha256:6c781c9d2da15874cf03daa0986d9ff4ddfcdba3a62e551fb1ad184089340a96
+sha256:
+  darwin_arm64: a30c010ea1330feb011770cec4ffe37b55d80ec77f28197423774d7ae49bf3cf
+  darwin_amd64: 5e94f7912d0fe772ef4169bd8e6ddb590fb8d8ccc5c09c2adbe45b599b5c94ba
+  linux_amd64: 3beec68412f1cbb4f5fdf9b190a624bf66b9a58b8580ab1b1005af7d4fbd0fbb
+  linux_arm64: 6c781c9d2da15874cf03daa0986d9ff4ddfcdba3a62e551fb1ad184089340a96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

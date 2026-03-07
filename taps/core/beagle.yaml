@@ -1,0 +1,19 @@
+name: beagle
+version: 4.0.1
+description: Evaluate the likelihood of sequence evolution on trees
+homepage: https://github.com/beagle-dev/beagle-lib
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beagle/blobs/sha256:bc8e56cab2d1da3a82d01ba8a9e1b3976213a155667eec3e8a3ece160c0344fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beagle/blobs/sha256:1a82a444e21aaf6ed87d13d100fe09bf5dada1f97794a349cb66e429d35ed7dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beagle/blobs/sha256:fc0660f81935172863061b141e4576bedc36db62b6b0c0b7f5bececc5ed40689
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beagle/blobs/sha256:a23bc6a7ade9eaeda9911a39a644a45f081f215b080de725a322dabf2b803063
+sha256:
+  darwin_arm64: bc8e56cab2d1da3a82d01ba8a9e1b3976213a155667eec3e8a3ece160c0344fc
+  darwin_amd64: 1a82a444e21aaf6ed87d13d100fe09bf5dada1f97794a349cb66e429d35ed7dd
+  linux_amd64: fc0660f81935172863061b141e4576bedc36db62b6b0c0b7f5bececc5ed40689
+  linux_arm64: a23bc6a7ade9eaeda9911a39a644a45f081f215b080de725a322dabf2b803063
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

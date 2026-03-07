@@ -1,0 +1,23 @@
+name: libxvmc
+version: 1.0.15
+description: "X.Org: X-Video Motion Compensation API"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxvmc/blobs/sha256:267771872f4f7a19028eb02f3feb518481be7959de54eae92e41bd755537c039
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxvmc/blobs/sha256:f0b4c4ae0c87bb7d3aa4b1056d494077677b405a08fc4084762f8e21fc76a929
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxvmc/blobs/sha256:49257f4df10257414f75749016d97d2f2fa7e9a7c124265c041458c9c567b10a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxvmc/blobs/sha256:03ffa01a63ab72806a91a7008895493bcde262573772680d87797b54a2a28907
+sha256:
+  darwin_arm64: 267771872f4f7a19028eb02f3feb518481be7959de54eae92e41bd755537c039
+  darwin_amd64: f0b4c4ae0c87bb7d3aa4b1056d494077677b405a08fc4084762f8e21fc76a929
+  linux_amd64: 49257f4df10257414f75749016d97d2f2fa7e9a7c124265c041458c9c567b10a
+  linux_arm64: 03ffa01a63ab72806a91a7008895493bcde262573772680d87797b54a2a28907
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - libxv

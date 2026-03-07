@@ -1,0 +1,13 @@
+name: godot@3
+version: 3.6.2
+description: Game development engine
+homepage: https://godotengine.org/
+url:
+  darwin_arm64: https://github.com/godotengine/godot/releases/download/3.6.2-stable/Godot_v3.6.2-stable_osx.universal.zip
+sha256:
+  darwin_arm64: 1430f3fae6240795a0bc8c52043f0ed712ecf5867d0fddc9e3a2abcd37bea8db
+artifacts:
+  app:
+    - Godot.app
+  bin:
+    - godot

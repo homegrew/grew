@@ -1,0 +1,19 @@
+name: libcerf
+version: 3.3
+description: Numeric library for complex error functions
+homepage: https://jugit.fz-juelich.de/mlz/libcerf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcerf/blobs/sha256:c3a49c2f598757609120ae99569565f67e2a1b817cd7a2a8648cbfcf79fb022c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcerf/blobs/sha256:0954bcc977146151fed6268836c9ebb1ca199aa09d500d769546da54131c2c2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcerf/blobs/sha256:08a45c344ce19f291d6cb74c5c89eb461caa4f56c71f5d00637a8dde5945e0f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcerf/blobs/sha256:f32ea4a843889204e68320fac5815758680c994ad607abeb735f7e2f44c944bb
+sha256:
+  darwin_arm64: c3a49c2f598757609120ae99569565f67e2a1b817cd7a2a8648cbfcf79fb022c
+  darwin_amd64: 0954bcc977146151fed6268836c9ebb1ca199aa09d500d769546da54131c2c2f
+  linux_amd64: 08a45c344ce19f291d6cb74c5c89eb461caa4f56c71f5d00637a8dde5945e0f4
+  linux_arm64: f32ea4a843889204e68320fac5815758680c994ad607abeb735f7e2f44c944bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: glulxe
+version: 0.6.1
+description: Portable VM like the Z-machine
+homepage: https://www.eblong.com/zarf/glulx/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glulxe/blobs/sha256:e50d971e530488c405300c86b204007beb91ded9fb87dc8936cfee6374075d24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glulxe/blobs/sha256:84c5aab0650e51fbc4fafcce2f61b6cb680b2e037ab3426ef4f1d3a4cf662f9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glulxe/blobs/sha256:8af6c5daa098d3cd5b2878393f4b76efd773bf0d1be30ab2a8ed4fdfb84d38a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glulxe/blobs/sha256:8b77e80438457c50ca178ada89470fa378d266b3e18d2508e3a7a33268b01347
+sha256:
+  darwin_arm64: e50d971e530488c405300c86b204007beb91ded9fb87dc8936cfee6374075d24
+  darwin_amd64: 84c5aab0650e51fbc4fafcce2f61b6cb680b2e037ab3426ef4f1d3a4cf662f9e
+  linux_amd64: 8af6c5daa098d3cd5b2878393f4b76efd773bf0d1be30ab2a8ed4fdfb84d38a7
+  linux_arm64: 8b77e80438457c50ca178ada89470fa378d266b3e18d2508e3a7a33268b01347
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

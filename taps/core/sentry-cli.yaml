@@ -1,0 +1,21 @@
+name: sentry-cli
+version: 3.3.0
+description: Command-line utility to interact with Sentry
+homepage: https://docs.sentry.io/cli/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sentry-cli/blobs/sha256:e186fb0a411e0a6996c6e71cba2d68e4df361309242a04e99a20be8a42fadbdc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sentry-cli/blobs/sha256:c1e34359aa51e4522e26768a29e891598b18ed0f7f4c75ecb6d1cbf85d3d297f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sentry-cli/blobs/sha256:f3ce60b832dc798c5b8b51f12c60d5d6d62e8ab89f248410e0b9c499f1f99c02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sentry-cli/blobs/sha256:43d7c29d45a72cd3c3fa592643011564ca06a9dbce8eaf3ea5f0464ed4cd0f6a
+sha256:
+  darwin_arm64: e186fb0a411e0a6996c6e71cba2d68e4df361309242a04e99a20be8a42fadbdc
+  darwin_amd64: c1e34359aa51e4522e26768a29e891598b18ed0f7f4c75ecb6d1cbf85d3d297f
+  linux_amd64: f3ce60b832dc798c5b8b51f12c60d5d6d62e8ab89f248410e0b9c499f1f99c02
+  linux_arm64: 43d7c29d45a72cd3c3fa592643011564ca06a9dbce8eaf3ea5f0464ed4cd0f6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

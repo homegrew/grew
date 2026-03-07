@@ -1,0 +1,19 @@
+name: wavpack
+version: 5.9.0
+description: Hybrid lossless audio compression
+homepage: https://www.wavpack.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wavpack/blobs/sha256:5371e8c937d28291ca590221a137a8f1f049538a6352f89373831c2ad1f06485
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wavpack/blobs/sha256:69543fc68256b5bff54d6fb7353dabd5ba424af3cf88f3c3422f8cd7ca9468fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wavpack/blobs/sha256:912012e083e4a78f3ccb633cf0f5bad73826068a588d27e500be4ce907838b4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wavpack/blobs/sha256:87a54977cdf0fe059aacf5944a758978d5f055d3bbbd777f6e972a3392744413
+sha256:
+  darwin_arm64: 5371e8c937d28291ca590221a137a8f1f049538a6352f89373831c2ad1f06485
+  darwin_amd64: 69543fc68256b5bff54d6fb7353dabd5ba424af3cf88f3c3422f8cd7ca9468fd
+  linux_amd64: 912012e083e4a78f3ccb633cf0f5bad73826068a588d27e500be4ce907838b4a
+  linux_arm64: 87a54977cdf0fe059aacf5944a758978d5f055d3bbbd777f6e972a3392744413
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

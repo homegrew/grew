@@ -1,0 +1,19 @@
+name: debianutils
+version: 5.23.2
+description: Miscellaneous utilities specific to Debian
+homepage: https://tracker.debian.org/pkg/debianutils
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/debianutils/blobs/sha256:329887b6a8522b5f303b0787af83a7b26ae386d7feb87c069c4ce2387a9ab785
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/debianutils/blobs/sha256:08d55d96cb4eae2950159943ba4f0e010adfeb01c8541a2d14edce96a4bcb945
+  linux_amd64: https://ghcr.io/v2/homebrew/core/debianutils/blobs/sha256:3425081c6784a3a440bad62d02f8d0111decbf747bcf7df94676bd4b74e36e76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/debianutils/blobs/sha256:8f255a4df75b8734c998aa1ba8215d945bc542ad7c119854f48cefbaa6ab8909
+sha256:
+  darwin_arm64: 329887b6a8522b5f303b0787af83a7b26ae386d7feb87c069c4ce2387a9ab785
+  darwin_amd64: 08d55d96cb4eae2950159943ba4f0e010adfeb01c8541a2d14edce96a4bcb945
+  linux_amd64: 3425081c6784a3a440bad62d02f8d0111decbf747bcf7df94676bd4b74e36e76
+  linux_arm64: 8f255a4df75b8734c998aa1ba8215d945bc542ad7c119854f48cefbaa6ab8909
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

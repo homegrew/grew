@@ -1,0 +1,19 @@
+name: mlc
+version: 1.2.0
+description: Check for broken links in markup files
+homepage: https://github.com/becheran/mlc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mlc/blobs/sha256:53f3cbfaf325342b02159254ef76d9662dd1e43ca0306c077d48383e426bbd49
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mlc/blobs/sha256:735ecd15c43aaef25d4bbf33937057d868011c586652e4525b5ec2d2425fe277
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mlc/blobs/sha256:28cd68a8dc923a784360d646cf81244900f0ec03bfd4885063fe395765cc3620
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mlc/blobs/sha256:ec8e9ee4cb303a6f3bb5cd58000e817f6147e40b892920b0e326e2cf11e2f5ee
+sha256:
+  darwin_arm64: 53f3cbfaf325342b02159254ef76d9662dd1e43ca0306c077d48383e426bbd49
+  darwin_amd64: 735ecd15c43aaef25d4bbf33937057d868011c586652e4525b5ec2d2425fe277
+  linux_amd64: 28cd68a8dc923a784360d646cf81244900f0ec03bfd4885063fe395765cc3620
+  linux_arm64: ec8e9ee4cb303a6f3bb5cd58000e817f6147e40b892920b0e326e2cf11e2f5ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

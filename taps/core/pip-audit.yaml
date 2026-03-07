@@ -1,0 +1,22 @@
+name: pip-audit
+version: 2.10.0
+description: Audits Python environments and dependency trees for known vulnerabilities
+homepage: https://pypi.org/project/pip-audit/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pip-audit/blobs/sha256:be9b2d8741933980214749e442b792842cade2fb8e47dee1f9751cdb7e5c4161
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pip-audit/blobs/sha256:b367263105835478f099d21ae16e174e3b57c79d409b812ddb1b226c1eb99b23
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pip-audit/blobs/sha256:89e4ef618daf152a7d9261bc6a5d56f3d48399551bf90cd601c21b0950b1cbcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pip-audit/blobs/sha256:9c02effca889fb8c6b96ec191f8830d7db2058db119231b635dc8f7c0a999958
+sha256:
+  darwin_arm64: be9b2d8741933980214749e442b792842cade2fb8e47dee1f9751cdb7e5c4161
+  darwin_amd64: b367263105835478f099d21ae16e174e3b57c79d409b812ddb1b226c1eb99b23
+  linux_amd64: 89e4ef618daf152a7d9261bc6a5d56f3d48399551bf90cd601c21b0950b1cbcf
+  linux_arm64: 9c02effca889fb8c6b96ec191f8830d7db2058db119231b635dc8f7c0a999958
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

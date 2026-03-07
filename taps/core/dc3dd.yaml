@@ -1,0 +1,21 @@
+name: dc3dd
+version: 7.3.1
+description: Patched GNU dd that is intended for forensic acquisition of data
+homepage: https://sourceforge.net/projects/dc3dd/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dc3dd/blobs/sha256:1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dc3dd/blobs/sha256:45804b97f88239ae78085257aee9c32a397e183d8f83035cd84d0a8fb4d2aa66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dc3dd/blobs/sha256:bdaae1ff1efcea3319dbf1e84f68c1d51a1b12e8a8eae4c13f2e2069084051c7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dc3dd/blobs/sha256:f56498b96fad1eb7f15ad686bf19360f92844322299627e0e20c57c3a5d5c219
+sha256:
+  darwin_arm64: 1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d
+  darwin_amd64: 45804b97f88239ae78085257aee9c32a397e183d8f83035cd84d0a8fb4d2aa66
+  linux_amd64: bdaae1ff1efcea3319dbf1e84f68c1d51a1b12e8a8eae4c13f2e2069084051c7
+  linux_arm64: f56498b96fad1eb7f15ad686bf19360f92844322299627e0e20c57c3a5d5c219
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

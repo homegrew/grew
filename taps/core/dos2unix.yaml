@@ -1,0 +1,19 @@
+name: dos2unix
+version: 7.5.4
+description: Convert text between DOS, UNIX, and Mac formats
+homepage: https://waterlan.home.xs4all.nl/dos2unix.html
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dos2unix/blobs/sha256:6f48b3846b387e212bd4ca051eb32739aa476305389b3b1cd27a0d38c131ec7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dos2unix/blobs/sha256:3d0e070195b9a64348d2587fd10abd2849542cd044dbb4e330e4f228c30edad6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dos2unix/blobs/sha256:2f4e6a8f91f8d4bad774b9fbcbf65a849528b17bdacfa8d8d1ba56f29b6d293d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dos2unix/blobs/sha256:5fa8742ac06a538e56623d3fa36f024516359497d658e9c3463436568780871b
+sha256:
+  darwin_arm64: 6f48b3846b387e212bd4ca051eb32739aa476305389b3b1cd27a0d38c131ec7c
+  darwin_amd64: 3d0e070195b9a64348d2587fd10abd2849542cd044dbb4e330e4f228c30edad6
+  linux_amd64: 2f4e6a8f91f8d4bad774b9fbcbf65a849528b17bdacfa8d8d1ba56f29b6d293d
+  linux_arm64: 5fa8742ac06a538e56623d3fa36f024516359497d658e9c3463436568780871b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: doublecpp
+version: 0.6.3
+description: Double dispatch in C++
+homepage: https://doublecpp.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doublecpp/blobs/sha256:d1c9462ef87c13b4a5c4affd18d0bc2ebf1f532bcde2a9eb44cf45ca2959f6ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doublecpp/blobs/sha256:2c3b3d36cc40443820dc18160b8497ed83290a4f162265c148fd95185e83bc11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doublecpp/blobs/sha256:989076ce2ebaba5ca834b159332a0e4b4bf15dd51d5dc2617594d367bffee9f2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doublecpp/blobs/sha256:59e9b672d857ae8953d8555b9687be1508f38f1c9702eaa27a67caba2d60b08c
+sha256:
+  darwin_arm64: d1c9462ef87c13b4a5c4affd18d0bc2ebf1f532bcde2a9eb44cf45ca2959f6ec
+  darwin_amd64: 2c3b3d36cc40443820dc18160b8497ed83290a4f162265c148fd95185e83bc11
+  linux_amd64: 989076ce2ebaba5ca834b159332a0e4b4bf15dd51d5dc2617594d367bffee9f2
+  linux_arm64: 59e9b672d857ae8953d8555b9687be1508f38f1c9702eaa27a67caba2d60b08c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: icemon
+version: 3.3
+description: Icecream GUI Monitor
+homepage: https://kfunk.org/tag/icemon/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icemon/blobs/sha256:d5e4c9d47ec2de4753b84249d420914f615537a8716a8572766bf2f55d537842
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icemon/blobs/sha256:a6a7e36c351382149cc4bc6f38d02003b62de21a0dbda312c4416314a1f61dfb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icemon/blobs/sha256:f77bec647e7e05d5261669d24196f3cc83f86425df31ca9558593461b45a3bdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icemon/blobs/sha256:c5df5590435ac125e895909b3e5c476db1900ff8706f1ab5a89917c5edf1f5b0
+sha256:
+  darwin_arm64: d5e4c9d47ec2de4753b84249d420914f615537a8716a8572766bf2f55d537842
+  darwin_amd64: a6a7e36c351382149cc4bc6f38d02003b62de21a0dbda312c4416314a1f61dfb
+  linux_amd64: f77bec647e7e05d5261669d24196f3cc83f86425df31ca9558593461b45a3bdf
+  linux_arm64: c5df5590435ac125e895909b3e5c476db1900ff8706f1ab5a89917c5edf1f5b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icecream
+  - lzo
+  - qtbase
+  - zstd
+  - libarchive

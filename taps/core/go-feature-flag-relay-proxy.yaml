@@ -1,0 +1,19 @@
+name: go-feature-flag-relay-proxy
+version: 1.51.2
+description: Stand alone server to run GO Feature Flag
+homepage: https://gofeatureflag.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/go-feature-flag-relay-proxy/blobs/sha256:03c9ca43b166d415ca504ddb0273a4bad14d4f2dc813580272f3636a42396180
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/go-feature-flag-relay-proxy/blobs/sha256:d04e3da63bbb10b1259091eac34566a5a84f143ff808e975a855f58bef74f8b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/go-feature-flag-relay-proxy/blobs/sha256:6787e8b3cff9053f291cc49430e1be029a2171b6e10f67278474a74352068303
+  linux_arm64: https://ghcr.io/v2/homebrew/core/go-feature-flag-relay-proxy/blobs/sha256:fbec252660c1e1a2c382768416ac5f46849eb31f8a382f4ff9d3f62fb8bfd2fd
+sha256:
+  darwin_arm64: 03c9ca43b166d415ca504ddb0273a4bad14d4f2dc813580272f3636a42396180
+  darwin_amd64: d04e3da63bbb10b1259091eac34566a5a84f143ff808e975a855f58bef74f8b4
+  linux_amd64: 6787e8b3cff9053f291cc49430e1be029a2171b6e10f67278474a74352068303
+  linux_arm64: fbec252660c1e1a2c382768416ac5f46849eb31f8a382f4ff9d3f62fb8bfd2fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

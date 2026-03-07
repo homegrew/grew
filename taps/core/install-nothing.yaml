@@ -1,0 +1,19 @@
+name: install-nothing
+version: 0.5.0
+description: "Simulates installing things but doesn't actually install anything"
+homepage: https://github.com/buyukakyuz/install-nothing
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/install-nothing/blobs/sha256:87f77b50975349223e18f63a0d1de03cbaef86db5711dbef0d1c166708ae9226
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/install-nothing/blobs/sha256:e17602aa9e85136ddf3758f10012d34ba13e39baab9241d0e826f8e224a97acf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/install-nothing/blobs/sha256:93db2ef7a614641d659738c9b2b7c15978bc00695e8aa46b08351e6c8dfbc458
+  linux_arm64: https://ghcr.io/v2/homebrew/core/install-nothing/blobs/sha256:d24c153d233b51da3858f8cdd14faa7fd71bb1bc9cf8258f0f985905f51f9eac
+sha256:
+  darwin_arm64: 87f77b50975349223e18f63a0d1de03cbaef86db5711dbef0d1c166708ae9226
+  darwin_amd64: e17602aa9e85136ddf3758f10012d34ba13e39baab9241d0e826f8e224a97acf
+  linux_amd64: 93db2ef7a614641d659738c9b2b7c15978bc00695e8aa46b08351e6c8dfbc458
+  linux_arm64: d24c153d233b51da3858f8cdd14faa7fd71bb1bc9cf8258f0f985905f51f9eac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

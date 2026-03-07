@@ -1,0 +1,19 @@
+name: docker-language-server
+version: 0.20.1
+description: Language server for Dockerfiles, Compose files, and Bake files
+homepage: https://www.docker.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docker-language-server/blobs/sha256:f35fa22edae4c8555d7604dcce4846ad24cd2a6400938fd9ff396042fc9ab748
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docker-language-server/blobs/sha256:d7a008395ecac3b130dc18c332b53acddcfc6ef0375cebe9e9ff8170c0f61f0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docker-language-server/blobs/sha256:72b4ae8d0d220708c044e47d66d819d99cef0b2ed82743827643320fb9ac400b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docker-language-server/blobs/sha256:7f2eac8a43c55f2a94541d50cca86e38b469e8715faf61e5747f37470b6e1fca
+sha256:
+  darwin_arm64: f35fa22edae4c8555d7604dcce4846ad24cd2a6400938fd9ff396042fc9ab748
+  darwin_amd64: d7a008395ecac3b130dc18c332b53acddcfc6ef0375cebe9e9ff8170c0f61f0a
+  linux_amd64: 72b4ae8d0d220708c044e47d66d819d99cef0b2ed82743827643320fb9ac400b
+  linux_arm64: 7f2eac8a43c55f2a94541d50cca86e38b469e8715faf61e5747f37470b6e1fca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

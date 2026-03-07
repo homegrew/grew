@@ -1,0 +1,21 @@
+name: libtins
+version: 4.5
+description: C++ network packet sniffing and crafting library
+homepage: https://libtins.github.io/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtins/blobs/sha256:af8f272b96dd2249c5bdac6af064a6faa89417b4f8f176745b4017bf98bb9a67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtins/blobs/sha256:6910d2c7380fbd8fcf2f0b4da28409f934c29dcfe7593ccd213c2eaa3fd4b6dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtins/blobs/sha256:bf78cf582a5f1411a8103f91a2c787422a790c2a821dffe949d7c97bd888888e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtins/blobs/sha256:c011d72ea5ddb35f6896b7f6862513adcedd91f632664802ec59bdc1352c62e5
+sha256:
+  darwin_arm64: af8f272b96dd2249c5bdac6af064a6faa89417b4f8f176745b4017bf98bb9a67
+  darwin_amd64: 6910d2c7380fbd8fcf2f0b4da28409f934c29dcfe7593ccd213c2eaa3fd4b6dd
+  linux_amd64: bf78cf582a5f1411a8103f91a2c787422a790c2a821dffe949d7c97bd888888e
+  linux_arm64: c011d72ea5ddb35f6896b7f6862513adcedd91f632664802ec59bdc1352c62e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

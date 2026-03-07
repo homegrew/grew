@@ -1,0 +1,22 @@
+name: somagic-tools
+version: 1.1
+description: Tools to extract firmware from EasyCAP
+homepage: https://code.google.com/archive/p/easycap-somagic-linux/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/somagic-tools/blobs/sha256:6efbacaa2b232898e3149d4392e6a6575cc34835b34cbf268bf73ddce6aef79f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/somagic-tools/blobs/sha256:ffe90e516c24b562929fc989c09a2e29b8836ef3d3f1aa3687b9142876507900
+  linux_amd64: https://ghcr.io/v2/homebrew/core/somagic-tools/blobs/sha256:b6a63036040014c766c494998f69b3be27f0ff5dccee6deba1a0f8ac7c6a05e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/somagic-tools/blobs/sha256:aa90bfa3a829c6d5073ffd2f7552173c4b33174aec52a32a75702a7bb55e61d0
+sha256:
+  darwin_arm64: 6efbacaa2b232898e3149d4392e6a6575cc34835b34cbf268bf73ddce6aef79f
+  darwin_amd64: ffe90e516c24b562929fc989c09a2e29b8836ef3d3f1aa3687b9142876507900
+  linux_amd64: b6a63036040014c766c494998f69b3be27f0ff5dccee6deba1a0f8ac7c6a05e3
+  linux_arm64: aa90bfa3a829c6d5073ffd2f7552173c4b33174aec52a32a75702a7bb55e61d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libusb

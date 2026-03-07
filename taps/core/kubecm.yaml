@@ -1,0 +1,19 @@
+name: kubecm
+version: 0.35.0
+description: KubeConfig Manager
+homepage: https://kubecm.cloud
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubecm/blobs/sha256:6b729e907828789c2bb1ad56253d70addcb7f28f53a54fb2544cb134f3f817e7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubecm/blobs/sha256:1d1b5454651dc451ff005c9760e0e008525cd6cb90c9cf6e0ce110b7bc22230a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubecm/blobs/sha256:2ac85b589ba9f22383212e1659bdf6ff99da1ee8e82a48ecf9fd88e4515fb11c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubecm/blobs/sha256:d1b82b37f811d4c662e52541415f46f904c4fe2432e4bccc8d6a53723f7adf00
+sha256:
+  darwin_arm64: 6b729e907828789c2bb1ad56253d70addcb7f28f53a54fb2544cb134f3f817e7
+  darwin_amd64: 1d1b5454651dc451ff005c9760e0e008525cd6cb90c9cf6e0ce110b7bc22230a
+  linux_amd64: 2ac85b589ba9f22383212e1659bdf6ff99da1ee8e82a48ecf9fd88e4515fb11c
+  linux_arm64: d1b82b37f811d4c662e52541415f46f904c4fe2432e4bccc8d6a53723f7adf00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libsoxr
+version: 0.1.3
+description: High quality, one-dimensional sample-rate conversion library
+homepage: https://sourceforge.net/projects/soxr/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsoxr/blobs/sha256:6fd815529e1078139d7965e7bb7e92b4fa5680e74ca671357aaf4c0e1ea1dc95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsoxr/blobs/sha256:00d2a5318828b9120aaa460510b5d23edee43f1e5db04cf74ba12a3908642d3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsoxr/blobs/sha256:1753c0562a6494e1437dc79db88d4672bb4b2e2a2b9134ac85952b555baf8559
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsoxr/blobs/sha256:41860cff8cb688bff751be3d79c39e2dff0c0be2e2196b700386aca27b65769b
+sha256:
+  darwin_arm64: 6fd815529e1078139d7965e7bb7e92b4fa5680e74ca671357aaf4c0e1ea1dc95
+  darwin_amd64: 00d2a5318828b9120aaa460510b5d23edee43f1e5db04cf74ba12a3908642d3c
+  linux_amd64: 1753c0562a6494e1437dc79db88d4672bb4b2e2a2b9134ac85952b555baf8559
+  linux_arm64: 41860cff8cb688bff751be3d79c39e2dff0c0be2e2196b700386aca27b65769b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

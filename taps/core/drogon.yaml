@@ -1,0 +1,24 @@
+name: drogon
+version: 1.9.12
+description: Modern C++ web application framework
+homepage: https://drogon.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/drogon/blobs/sha256:e54d554cd89483fea3b1033aa7a8c0142b8dd0a7f6e96fe99851c0250f9a103c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/drogon/blobs/sha256:a2dddfaf010e2f0040161dc6e7d6365f269fc7ef16f6b2b30cb28c972c2343ef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/drogon/blobs/sha256:4608264dbac7b1e42f24b1d12c16cf9f67a8d62a6165bae4534acebf4941e274
+  linux_arm64: https://ghcr.io/v2/homebrew/core/drogon/blobs/sha256:19365063e0137d2933f96c033ed5b064b14784e84ac5d65c7b2eff84c84fa3e2
+sha256:
+  darwin_arm64: e54d554cd89483fea3b1033aa7a8c0142b8dd0a7f6e96fe99851c0250f9a103c
+  darwin_amd64: a2dddfaf010e2f0040161dc6e7d6365f269fc7ef16f6b2b30cb28c972c2343ef
+  linux_amd64: 4608264dbac7b1e42f24b1d12c16cf9f67a8d62a6165bae4534acebf4941e274
+  linux_arm64: 19365063e0137d2933f96c033ed5b064b14784e84ac5d65c7b2eff84c84fa3e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - c-ares
+  - jsoncpp
+  - openssl@3

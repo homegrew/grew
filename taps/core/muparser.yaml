@@ -1,0 +1,21 @@
+name: muparser
+version: 2.3.5
+description: C++ math expression parser library
+homepage: https://github.com/beltoforion/muparser
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/muparser/blobs/sha256:23a51e97ef3d4ff02c8d8d6fb5dd53b142e89899927a9204eb4dd0018d21afe5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/muparser/blobs/sha256:62577464227b08a4c38a09c93f7438e21c55cd3438fdf67f227ee6bc5c2a51ee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/muparser/blobs/sha256:9e7935fbf6a0c3698082df30fb1b5e7140e45c9b98d16377810efd80585691d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/muparser/blobs/sha256:d9b39ed5b616e3f67f8429a33ed9c42b3f404c74881c4718e4f12444153611ca
+sha256:
+  darwin_arm64: 23a51e97ef3d4ff02c8d8d6fb5dd53b142e89899927a9204eb4dd0018d21afe5
+  darwin_amd64: 62577464227b08a4c38a09c93f7438e21c55cd3438fdf67f227ee6bc5c2a51ee
+  linux_amd64: 9e7935fbf6a0c3698082df30fb1b5e7140e45c9b98d16377810efd80585691d5
+  linux_arm64: d9b39ed5b616e3f67f8429a33ed9c42b3f404c74881c4718e4f12444153611ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

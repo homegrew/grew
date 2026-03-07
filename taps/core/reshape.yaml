@@ -1,0 +1,19 @@
+name: reshape
+version: 0.9.1
+description: Easy-to-use, zero-downtime schema migration tool for Postgres
+homepage: https://github.com/fabianlindfors/reshape
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/reshape/blobs/sha256:dcb33e42f5519c7e852b82439f0009fe2519d222dd1d555c8c52b5916b99213f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/reshape/blobs/sha256:9096aaa64c7c4670901e34e9b863b5c6bf0689712ff5e2686b73e9ecd73412b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/reshape/blobs/sha256:4584424c5d8504185de183e7f64bb6996fe7b7b0fe02a6e49186677137642a77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/reshape/blobs/sha256:17fca3f129fa2a54f00958d997824938d743231e88ef40242b40cbead2b0e55f
+sha256:
+  darwin_arm64: dcb33e42f5519c7e852b82439f0009fe2519d222dd1d555c8c52b5916b99213f
+  darwin_amd64: 9096aaa64c7c4670901e34e9b863b5c6bf0689712ff5e2686b73e9ecd73412b4
+  linux_amd64: 4584424c5d8504185de183e7f64bb6996fe7b7b0fe02a6e49186677137642a77
+  linux_arm64: 17fca3f129fa2a54f00958d997824938d743231e88ef40242b40cbead2b0e55f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

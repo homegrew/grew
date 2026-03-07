@@ -1,0 +1,19 @@
+name: traefik
+version: 3.6.10
+description: Modern reverse proxy
+homepage: https://traefik.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/traefik/blobs/sha256:279c1fa036193a6abcd05f5e1230cc75e2621f5ef32f941c516c28f9f02dac2d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/traefik/blobs/sha256:2c0fd1b7ee0c47f9ab4cce119404aef21f9bfcc58decb93eb37cfa6213571176
+  linux_amd64: https://ghcr.io/v2/homebrew/core/traefik/blobs/sha256:d8aec18a14188a99c00fb1a0dba0442e40fa3b2aa0bf22ae198b087b8ff615e5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/traefik/blobs/sha256:d6ef5cc2660ba2fa0a6dffa0094b59dc2f405612d546d9f421000c2bdeba9be3
+sha256:
+  darwin_arm64: 279c1fa036193a6abcd05f5e1230cc75e2621f5ef32f941c516c28f9f02dac2d
+  darwin_amd64: 2c0fd1b7ee0c47f9ab4cce119404aef21f9bfcc58decb93eb37cfa6213571176
+  linux_amd64: d8aec18a14188a99c00fb1a0dba0442e40fa3b2aa0bf22ae198b087b8ff615e5
+  linux_arm64: d6ef5cc2660ba2fa0a6dffa0094b59dc2f405612d546d9f421000c2bdeba9be3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

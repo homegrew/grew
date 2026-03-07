@@ -1,0 +1,25 @@
+name: uuu
+version: 1.5.233
+description: Universal Update Utility, mfgtools 3.0. NXP I.MX Chip image deploy tools
+homepage: https://github.com/nxp-imx/mfgtools
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uuu/blobs/sha256:781cf15e04977227c875bee8a775a9a467e7637f5b5b66ed5348ca21ffd77d4c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uuu/blobs/sha256:22b6cffa3305490a93fdff5c2cb6b181245507da7d1fc4ce1fcdf8927b18d42a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uuu/blobs/sha256:bcddad7081ccf91f1d525ab5ec6602033c15e7f0e673f82fb45c076fae8af1ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uuu/blobs/sha256:727d2f61c7d555622887421a49e839ec1186aa19f82a62c3d6d6b710252e6862
+sha256:
+  darwin_arm64: 781cf15e04977227c875bee8a775a9a467e7637f5b5b66ed5348ca21ffd77d4c
+  darwin_amd64: 22b6cffa3305490a93fdff5c2cb6b181245507da7d1fc4ce1fcdf8927b18d42a
+  linux_amd64: bcddad7081ccf91f1d525ab5ec6602033c15e7f0e673f82fb45c076fae8af1ca
+  linux_arm64: 727d2f61c7d555622887421a49e839ec1186aa19f82a62c3d6d6b710252e6862
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb
+  - libzip
+  - openssl@3
+  - tinyxml2
+  - zstd

@@ -1,0 +1,17 @@
+name: ibex
+version: 2.9.1
+description: C++ library for constraint processing over real numbers
+homepage: https://ibex-team.github.io/ibex-lib/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ibex/blobs/sha256:747a401be0719a9769ff455db67125bdb0d964b6652d92a14b5472f1dbe4464e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ibex/blobs/sha256:67ee5538f5514def4be02292b9907a2cf5085c87fcdcc6ba4394de3cb3339809
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ibex/blobs/sha256:07caba7293ca4475838b8a5b89e0d5acda1d5bfcce10ee17ee06f8b7027272d0
+sha256:
+  darwin_arm64: 747a401be0719a9769ff455db67125bdb0d964b6652d92a14b5472f1dbe4464e
+  darwin_amd64: 67ee5538f5514def4be02292b9907a2cf5085c87fcdcc6ba4394de3cb3339809
+  linux_amd64: 07caba7293ca4475838b8a5b89e0d5acda1d5bfcce10ee17ee06f8b7027272d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

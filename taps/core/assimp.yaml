@@ -1,0 +1,19 @@
+name: assimp
+version: 6.0.4
+description: Portable library for importing many well-known 3D model formats
+homepage: https://www.assimp.org/
+license: BSD-3-Clause AND CC-PDDC AND MIT AND BSL-1.0 AND Unlicense AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/assimp/blobs/sha256:0930951bcd9774b987699ee7add5fda6ac3b00e2673acce808c184aa7b61760a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/assimp/blobs/sha256:def0ed8dc8400652de3695f530a6ac4c21c986cd0b111814d839f28ac7664f1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/assimp/blobs/sha256:3524d1c82108896fb32b8ef1fc81cf252b4c59c0669dbf3c394c0a90c846dc34
+  linux_arm64: https://ghcr.io/v2/homebrew/core/assimp/blobs/sha256:5c098bc898a711aff23c8c697e0689a1856f661d74b81c94f9ba50be348d0d81
+sha256:
+  darwin_arm64: 0930951bcd9774b987699ee7add5fda6ac3b00e2673acce808c184aa7b61760a
+  darwin_amd64: def0ed8dc8400652de3695f530a6ac4c21c986cd0b111814d839f28ac7664f1f
+  linux_amd64: 3524d1c82108896fb32b8ef1fc81cf252b4c59c0669dbf3c394c0a90c846dc34
+  linux_arm64: 5c098bc898a711aff23c8c697e0689a1856f661d74b81c94f9ba50be348d0d81
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

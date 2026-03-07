@@ -1,0 +1,19 @@
+name: gnu-prolog
+version: 1.5.0
+description: Prolog compiler with constraint solving
+homepage: http://www.gprolog.org/
+license: LGPL-3.0-or-later OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-prolog/blobs/sha256:47608f61774ab4abb61279ebad504f55aec87807f65c9399f63aeec15fae16d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-prolog/blobs/sha256:558af85d62bad07b91aeb3e7f05d8395c47e9f65d1e9aa6576a741d2ae30e992
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-prolog/blobs/sha256:fdf61462c5418578e9d629fa743b527b462e6f767fbb64af23db63115a8d39c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-prolog/blobs/sha256:5e968562dea6ec8f17d9d0b8f9ab48fc65179477d8e4a762371226c097c4341c
+sha256:
+  darwin_arm64: 47608f61774ab4abb61279ebad504f55aec87807f65c9399f63aeec15fae16d9
+  darwin_amd64: 558af85d62bad07b91aeb3e7f05d8395c47e9f65d1e9aa6576a741d2ae30e992
+  linux_amd64: fdf61462c5418578e9d629fa743b527b462e6f767fbb64af23db63115a8d39c4
+  linux_arm64: 5e968562dea6ec8f17d9d0b8f9ab48fc65179477d8e4a762371226c097c4341c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

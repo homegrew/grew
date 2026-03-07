@@ -1,0 +1,22 @@
+name: protobuf@33
+version: 33.5
+description: "Protocol buffers (Google's data interchange format)"
+homepage: https://protobuf.dev/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/protobuf/33/blobs/sha256:253be052458f64ff0e668bf07337288fc2de74423b82aa3f3213ec93664917d7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/protobuf/33/blobs/sha256:eff25cf0e790a8f7ff30cecef656a3879b86c17e51df9825dca5ebde31ed03d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/protobuf/33/blobs/sha256:a8d3efbaf407a35e6155876b71a89bdb4078864f6c3f6fbbc13a1d9993d70293
+  linux_arm64: https://ghcr.io/v2/homebrew/core/protobuf/33/blobs/sha256:8d947603561a14be3f947f16fd726cf143dbc2d410d6fdf308af6c1fdec67d0e
+sha256:
+  darwin_arm64: 253be052458f64ff0e668bf07337288fc2de74423b82aa3f3213ec93664917d7
+  darwin_amd64: eff25cf0e790a8f7ff30cecef656a3879b86c17e51df9825dca5ebde31ed03d2
+  linux_amd64: a8d3efbaf407a35e6155876b71a89bdb4078864f6c3f6fbbc13a1d9993d70293
+  linux_arm64: 8d947603561a14be3f947f16fd726cf143dbc2d410d6fdf308af6c1fdec67d0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+keg_only: true

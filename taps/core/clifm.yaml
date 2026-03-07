@@ -1,0 +1,23 @@
+name: clifm
+version: 1.27.1
+description: Command-line Interface File Manager
+homepage: https://github.com/leo-arch/clifm
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clifm/blobs/sha256:57b22f3e5ccc6a47ff0ae609316cb70e099ea9536cdc845b7f64435e926b9dba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clifm/blobs/sha256:dab5a2b5bbfe40da5398a239c0577d82feea49ddf7b2a31b7d593c80b5e9ad6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clifm/blobs/sha256:938a9debf2f00b7b72fb9f59e83b6c923278c89746352046367dfc9deee6be68
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clifm/blobs/sha256:887bb3fe8a1292820efcd91ee00bc09fb4d130b54be2d3040d5b3210627e3523
+sha256:
+  darwin_arm64: 57b22f3e5ccc6a47ff0ae609316cb70e099ea9536cdc845b7f64435e926b9dba
+  darwin_amd64: dab5a2b5bbfe40da5398a239c0577d82feea49ddf7b2a31b7d593c80b5e9ad6f
+  linux_amd64: 938a9debf2f00b7b72fb9f59e83b6c923278c89746352046367dfc9deee6be68
+  linux_arm64: 887bb3fe8a1292820efcd91ee00bc09fb4d130b54be2d3040d5b3210627e3523
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - readline
+  - gettext

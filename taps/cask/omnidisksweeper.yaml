@@ -1,0 +1,11 @@
+name: omnidisksweeper
+version: 1.16
+description: Finds large, unwanted files and deletes them
+homepage: https://www.omnigroup.com/more/
+url:
+  darwin_arm64: https://downloads.omnigroup.com/software/macOS/11/OmniDiskSweeper-1.16.dmg
+sha256:
+  darwin_arm64: cea5153769290a17c11c58696ac9e32423e4128cec6565ef9a9b5f2c73b0df5c
+artifacts:
+  app:
+    - OmniDiskSweeper.app

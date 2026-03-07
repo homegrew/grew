@@ -1,0 +1,19 @@
+name: ast-grep
+version: 0.41.0
+description: Code searching, linting, rewriting
+homepage: https://github.com/ast-grep/ast-grep
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ast-grep/blobs/sha256:4d1a0e8ccb265e479e570ad3b96fd13884d8e8b638c6e61134f7c0726980b4f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ast-grep/blobs/sha256:2af13dbc8453ae79a1df9bae687fa291b4fcfe3402c5aa6595fbde5fa355037c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ast-grep/blobs/sha256:45951eb841f5d001a818517f99abba64027cac1d863a12a403167d3a0b354c73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ast-grep/blobs/sha256:8403b053fabd8a7f1e7f5289340eb79258b34301181c46e8b480ba81f99a3acc
+sha256:
+  darwin_arm64: 4d1a0e8ccb265e479e570ad3b96fd13884d8e8b638c6e61134f7c0726980b4f5
+  darwin_amd64: 2af13dbc8453ae79a1df9bae687fa291b4fcfe3402c5aa6595fbde5fa355037c
+  linux_amd64: 45951eb841f5d001a818517f99abba64027cac1d863a12a403167d3a0b354c73
+  linux_arm64: 8403b053fabd8a7f1e7f5289340eb79258b34301181c46e8b480ba81f99a3acc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

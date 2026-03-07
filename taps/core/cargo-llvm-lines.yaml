@@ -1,0 +1,19 @@
+name: cargo-llvm-lines
+version: 0.4.45
+description: Count lines of LLVM IR per generic function
+homepage: https://github.com/dtolnay/cargo-llvm-lines
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-llvm-lines/blobs/sha256:1f96bc5657cec596d1c8345a7b33c2b8eb0dcb5e80e677b8c1bcc55ee7153f05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-llvm-lines/blobs/sha256:6710eaf6730d103df0bbddd44ff1b71b80dd1c69590798d5a325d71f97cafa1b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-llvm-lines/blobs/sha256:b83bd2492130d970f7488f4c2ae35852e026a01a79f1668d52704a7977f4dc01
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-llvm-lines/blobs/sha256:93bbb22430a1d3b4dd16d55a5ce5759a370b973cc8272aa528ae80881acedf89
+sha256:
+  darwin_arm64: 1f96bc5657cec596d1c8345a7b33c2b8eb0dcb5e80e677b8c1bcc55ee7153f05
+  darwin_amd64: 6710eaf6730d103df0bbddd44ff1b71b80dd1c69590798d5a325d71f97cafa1b
+  linux_amd64: b83bd2492130d970f7488f4c2ae35852e026a01a79f1668d52704a7977f4dc01
+  linux_arm64: 93bbb22430a1d3b4dd16d55a5ce5759a370b973cc8272aa528ae80881acedf89
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

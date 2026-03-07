@@ -1,0 +1,22 @@
+name: file-formula
+version: 5.47
+description: Utility to determine file types
+homepage: https://darwinsys.com/file/
+license: BSD-2-Clause-Darwin
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/file-formula/blobs/sha256:8206bf8c3019a0241b7edefd65ac74ebdc2c1f4ac0aa778a3d09e130b22484b6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/file-formula/blobs/sha256:3d0694bb8026df521f1cd758ed06fd1d42c433ca86d2cf0280fd83e0aa207085
+  linux_amd64: https://ghcr.io/v2/homebrew/core/file-formula/blobs/sha256:da75088d7e5b350e6a0a84db487e30aeaa9605ac0541ad5923e0f257213b0f33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/file-formula/blobs/sha256:e645a47df06173285da28cd793697c479b32ff69f34e6e264da7f9f6f111081a
+sha256:
+  darwin_arm64: 8206bf8c3019a0241b7edefd65ac74ebdc2c1f4ac0aa778a3d09e130b22484b6
+  darwin_amd64: 3d0694bb8026df521f1cd758ed06fd1d42c433ca86d2cf0280fd83e0aa207085
+  linux_amd64: da75088d7e5b350e6a0a84db487e30aeaa9605ac0541ad5923e0f257213b0f33
+  linux_arm64: e645a47df06173285da28cd793697c479b32ff69f34e6e264da7f9f6f111081a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+keg_only: true

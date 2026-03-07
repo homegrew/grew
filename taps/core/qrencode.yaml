@@ -1,0 +1,21 @@
+name: qrencode
+version: 4.1.1
+description: QR Code generation
+homepage: https://fukuchi.org/works/qrencode/index.html.en
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qrencode/blobs/sha256:43022662b77fc3e4181eb5b0d8e671f6208c9217c307073c2e76d4e5c98ea9f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qrencode/blobs/sha256:b9af340917ff148b24e48c24e5313423e16df56a99a7a612d0b23af59e2394b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qrencode/blobs/sha256:181bcd364cef78e8be564a42859f3b431febc429fc3db940d5c06bb572493999
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qrencode/blobs/sha256:1a598b96cd3fa15c9c028d7c6d86f884ece57ac86feca9939e862b17a14143bf
+sha256:
+  darwin_arm64: 43022662b77fc3e4181eb5b0d8e671f6208c9217c307073c2e76d4e5c98ea9f9
+  darwin_amd64: b9af340917ff148b24e48c24e5313423e16df56a99a7a612d0b23af59e2394b9
+  linux_amd64: 181bcd364cef78e8be564a42859f3b431febc429fc3db940d5c06bb572493999
+  linux_arm64: 1a598b96cd3fa15c9c028d7c6d86f884ece57ac86feca9939e862b17a14143bf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

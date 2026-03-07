@@ -1,0 +1,19 @@
+name: brename
+version: 2.14.0
+description: Cross-platform command-line tool for safe batch renaming via regular expressions
+homepage: https://github.com/shenwei356/brename
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brename/blobs/sha256:de768e5762a8564a275a8bc3f06407d3b17e8eb22cfb7619baa517815aefa460
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brename/blobs/sha256:b8b913eb74ec7ad4a0173416d14bbf3b0778e4cfcfbab96074d23f3dc3eb599e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brename/blobs/sha256:8a2f5be698351339e8d38e1f6c0349a527c16bba384f8af516b732d4dc0330af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brename/blobs/sha256:170e7aab9d87ab1c8f1d8dfc8fdf21e50317f6de279a87e41fe0c1f3da895b49
+sha256:
+  darwin_arm64: de768e5762a8564a275a8bc3f06407d3b17e8eb22cfb7619baa517815aefa460
+  darwin_amd64: b8b913eb74ec7ad4a0173416d14bbf3b0778e4cfcfbab96074d23f3dc3eb599e
+  linux_amd64: 8a2f5be698351339e8d38e1f6c0349a527c16bba384f8af516b732d4dc0330af
+  linux_arm64: 170e7aab9d87ab1c8f1d8dfc8fdf21e50317f6de279a87e41fe0c1f3da895b49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: objconv
+version: 2025-10-30
+description: Object file converter
+homepage: https://www.agner.org/optimize/#objconv
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/objconv/blobs/sha256:5273156ed17314c65abfd7ca9a76776fada0abb44c07fc94a6b0702976085600
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/objconv/blobs/sha256:f13137ee96946b13e9f5dca16bcf2b6bb51db34970908d6cdca9541cef9f2dc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/objconv/blobs/sha256:33faeb686f6b82f43adaf81920fac9fbae62239c531a6676c857f64050303046
+  linux_arm64: https://ghcr.io/v2/homebrew/core/objconv/blobs/sha256:8754722ecaa55b9e9c7361bc7ee2927a11d5c2825a81f75b034201bc7b8fc87f
+sha256:
+  darwin_arm64: 5273156ed17314c65abfd7ca9a76776fada0abb44c07fc94a6b0702976085600
+  darwin_amd64: f13137ee96946b13e9f5dca16bcf2b6bb51db34970908d6cdca9541cef9f2dc5
+  linux_amd64: 33faeb686f6b82f43adaf81920fac9fbae62239c531a6676c857f64050303046
+  linux_arm64: 8754722ecaa55b9e9c7361bc7ee2927a11d5c2825a81f75b034201bc7b8fc87f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

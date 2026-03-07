@@ -1,0 +1,19 @@
+name: skalibs
+version: 2.14.5.1
+description: "Skarnet's library collection"
+homepage: https://skarnet.org/software/skalibs/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skalibs/blobs/sha256:4eb73f6bdf652ecf3af6de5e1a5787859ee1a1a1302ad206d0002dc2025d7c0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skalibs/blobs/sha256:fc799c27290009fde32c04b2200aa26ec3af29ad7783291234b9add2ef4a0aad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skalibs/blobs/sha256:3769660ce34bb62ccc6f47a0f1c8ff60d5b11e2ed038c04bef62d593c4bb5488
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skalibs/blobs/sha256:951ca76a43921290ecc07b50d4a876313b2a675ff57082d352147e20892b40f0
+sha256:
+  darwin_arm64: 4eb73f6bdf652ecf3af6de5e1a5787859ee1a1a1302ad206d0002dc2025d7c0f
+  darwin_amd64: fc799c27290009fde32c04b2200aa26ec3af29ad7783291234b9add2ef4a0aad
+  linux_amd64: 3769660ce34bb62ccc6f47a0f1c8ff60d5b11e2ed038c04bef62d593c4bb5488
+  linux_arm64: 951ca76a43921290ecc07b50d4a876313b2a675ff57082d352147e20892b40f0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

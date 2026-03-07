@@ -1,0 +1,19 @@
+name: tty-solitaire
+version: 1.4.1
+description: Ncurses-based klondike solitaire game
+homepage: https://github.com/mpereira/tty-solitaire
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tty-solitaire/blobs/sha256:68978167fdbd89196ad631d75fa0e2011379fcb816213f845b158f773a71815a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tty-solitaire/blobs/sha256:67af4c12cfc86dcaefbf8b1dd68018c3259203ee5cd5bebb593a9d8f3097581f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tty-solitaire/blobs/sha256:5612b22fbc7581b67e322b40374fd20d8ede4be785b1b38265e1ad3d94643b08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tty-solitaire/blobs/sha256:6ce96af387a123810255fa0934cf9ce9dbc6fe576befef5da6c378bb1d20b5e4
+sha256:
+  darwin_arm64: 68978167fdbd89196ad631d75fa0e2011379fcb816213f845b158f773a71815a
+  darwin_amd64: 67af4c12cfc86dcaefbf8b1dd68018c3259203ee5cd5bebb593a9d8f3097581f
+  linux_amd64: 5612b22fbc7581b67e322b40374fd20d8ede4be785b1b38265e1ad3d94643b08
+  linux_arm64: 6ce96af387a123810255fa0934cf9ce9dbc6fe576befef5da6c378bb1d20b5e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

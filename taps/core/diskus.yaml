@@ -1,0 +1,19 @@
+name: diskus
+version: 0.9.0
+description: "Minimal, fast alternative to 'du -sh'"
+homepage: https://github.com/sharkdp/diskus
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/diskus/blobs/sha256:f407f4c6b4be9baf0de69a585e02509c03e1f62530300fd8e1a22da11f3fc623
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/diskus/blobs/sha256:ea18a5c0ccbd21a8dd0032f07b85236e27c96a040952a0dd75bb869c2a023eb5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/diskus/blobs/sha256:826a59a9dbbe4d4c24e3627df7a82b654321768c0b9faa0bba5ca480ad010dfa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/diskus/blobs/sha256:23a66710ff84cb7d778d7941fb80f24433644fb143474f3fc6eb8cb0bcbfcbe7
+sha256:
+  darwin_arm64: f407f4c6b4be9baf0de69a585e02509c03e1f62530300fd8e1a22da11f3fc623
+  darwin_amd64: ea18a5c0ccbd21a8dd0032f07b85236e27c96a040952a0dd75bb869c2a023eb5
+  linux_amd64: 826a59a9dbbe4d4c24e3627df7a82b654321768c0b9faa0bba5ca480ad010dfa
+  linux_arm64: 23a66710ff84cb7d778d7941fb80f24433644fb143474f3fc6eb8cb0bcbfcbe7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

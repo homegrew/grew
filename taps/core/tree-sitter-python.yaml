@@ -1,0 +1,19 @@
+name: tree-sitter-python
+version: 0.25.0
+description: Python grammar for tree-sitter
+homepage: https://github.com/tree-sitter/tree-sitter-python
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-python/blobs/sha256:3a60a36c4e9b2ed51a22ff5d9bbfb3e2a5f53494c21aad0770fef53c43adad02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-python/blobs/sha256:c3572f7a1ecb1de67730874338dfa824f473a901e44bef2ab8939889c8bb897b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tree-sitter-python/blobs/sha256:14d4bbe53d84b5ff5d56ba415dfcde122cfcac34dc2670527e46b73d6623672d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tree-sitter-python/blobs/sha256:0761d91e13e6dd90d04ec5762a50e96473cf6d0ee001a13c39e04cc012a42cfe
+sha256:
+  darwin_arm64: 3a60a36c4e9b2ed51a22ff5d9bbfb3e2a5f53494c21aad0770fef53c43adad02
+  darwin_amd64: c3572f7a1ecb1de67730874338dfa824f473a901e44bef2ab8939889c8bb897b
+  linux_amd64: 14d4bbe53d84b5ff5d56ba415dfcde122cfcac34dc2670527e46b73d6623672d
+  linux_arm64: 0761d91e13e6dd90d04ec5762a50e96473cf6d0ee001a13c39e04cc012a42cfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

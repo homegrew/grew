@@ -1,0 +1,22 @@
+name: chronograf
+version: 1.10.9
+description: Open source monitoring and visualization UI for the TICK stack
+homepage: https://docs.influxdata.com/chronograf/latest/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chronograf/blobs/sha256:91cd22b2b6b8793e72f37916d451fe1fd7c89cab46bce1de95c6d27045fe84f8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chronograf/blobs/sha256:b205bc5e83253166087d3895ba61466bbb6d0a30a96be3a041907bf03b0a8fcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chronograf/blobs/sha256:3e5b01f1a9c61c9acbae2b41a803c5e7cd7c471cab324ae399fcbaf3c895741d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chronograf/blobs/sha256:154313920e25dc36c56c26aa567af0753f3092949f7d6b4a497e671808deea56
+sha256:
+  darwin_arm64: 91cd22b2b6b8793e72f37916d451fe1fd7c89cab46bce1de95c6d27045fe84f8
+  darwin_amd64: b205bc5e83253166087d3895ba61466bbb6d0a30a96be3a041907bf03b0a8fcf
+  linux_amd64: 3e5b01f1a9c61c9acbae2b41a803c5e7cd7c471cab324ae399fcbaf3c895741d
+  linux_arm64: 154313920e25dc36c56c26aa567af0753f3092949f7d6b4a497e671808deea56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - influxdb
+  - kapacitor

@@ -1,0 +1,19 @@
+name: ttyplot
+version: 1.7.1
+description: Realtime plotting utility for terminal with data input from stdin
+homepage: https://github.com/tenox7/ttyplot
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttyplot/blobs/sha256:816129fa92f1f7570a96c8ef72b50739cdf8b61aa1e82757b39ef9c7167743b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttyplot/blobs/sha256:a15fda21cf564d3fc84ec3930879758b07d6d462c08c086fab150957d56593e8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttyplot/blobs/sha256:9b1a52187d8e41064b9d3e9d6a6c452fdb03e989591ee0d05a2d4829280579e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttyplot/blobs/sha256:9477520982405b4c6dcc165fefbf076da0774c10cf32e0423b4be6f88cb45742
+sha256:
+  darwin_arm64: 816129fa92f1f7570a96c8ef72b50739cdf8b61aa1e82757b39ef9c7167743b0
+  darwin_amd64: a15fda21cf564d3fc84ec3930879758b07d6d462c08c086fab150957d56593e8
+  linux_amd64: 9b1a52187d8e41064b9d3e9d6a6c452fdb03e989591ee0d05a2d4829280579e3
+  linux_arm64: 9477520982405b4c6dcc165fefbf076da0774c10cf32e0423b4be6f88cb45742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

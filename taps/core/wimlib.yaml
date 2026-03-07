@@ -1,0 +1,19 @@
+name: wimlib
+version: 1.14.5
+description: Library to create, extract, and modify Windows Imaging files
+homepage: https://wimlib.net/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wimlib/blobs/sha256:951bf9ddae69ebd6442a44d1f1e39679a2c5655c4fcd32510eb6643db62dc3ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wimlib/blobs/sha256:705581a3fc296d50a26abc3fd4a998e4e09e146366e636c9486ead31855d1372
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wimlib/blobs/sha256:be666177d8950f104c6bd2e72d7c19a89477e24e5c1873b66539bce538a0415d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wimlib/blobs/sha256:a6c19ffd2caac844bbee911908b820cd7345455b089e0aa20438ed4aee1f0319
+sha256:
+  darwin_arm64: 951bf9ddae69ebd6442a44d1f1e39679a2c5655c4fcd32510eb6643db62dc3ea
+  darwin_amd64: 705581a3fc296d50a26abc3fd4a998e4e09e146366e636c9486ead31855d1372
+  linux_amd64: be666177d8950f104c6bd2e72d7c19a89477e24e5c1873b66539bce538a0415d
+  linux_arm64: a6c19ffd2caac844bbee911908b820cd7345455b089e0aa20438ed4aee1f0319
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

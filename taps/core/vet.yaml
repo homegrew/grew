@@ -1,0 +1,21 @@
+name: vet
+version: 1.14.0
+description: Policy driven vetting of open source dependencies
+homepage: https://safedep.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vet/blobs/sha256:daa628aab903fbfba1875cb00f6e4c9d0916b5d61015966bcfe9a95a72c847a7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vet/blobs/sha256:0e56c2c284a2d30508c0d08de686abbf3a3aaf716420596740ab22658f11c1a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vet/blobs/sha256:373239f66adf4d044d06d971297512339c2a586a4e3377980e0b31639f109ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vet/blobs/sha256:ef7a0b155245fb3666c25d1e087cf621ce9b0c79b5145e5faecc63d39ba80f66
+sha256:
+  darwin_arm64: daa628aab903fbfba1875cb00f6e4c9d0916b5d61015966bcfe9a95a72c847a7
+  darwin_amd64: 0e56c2c284a2d30508c0d08de686abbf3a3aaf716420596740ab22658f11c1a6
+  linux_amd64: 373239f66adf4d044d06d971297512339c2a586a4e3377980e0b31639f109ecd
+  linux_arm64: ef7a0b155245fb3666c25d1e087cf621ce9b0c79b5145e5faecc63d39ba80f66
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

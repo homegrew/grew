@@ -1,0 +1,19 @@
+name: skaffold
+version: 2.17.3
+description: Easy and Repeatable Kubernetes Development
+homepage: https://skaffold.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/skaffold/blobs/sha256:d0b00d5daf5c2c772877aec094fa15727db67dc928778fe232145366e9ff1033
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/skaffold/blobs/sha256:addf12aeeb3682a39b438d52c77b80219ce43faff6b9983ee53e3802d41b6727
+  linux_amd64: https://ghcr.io/v2/homebrew/core/skaffold/blobs/sha256:3bff4c161f25bbd5405335a0451cf9b447c194a4f1b0a8a15fa2c72b331f7f40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/skaffold/blobs/sha256:5d6d9d2eaa7e653d0a11233354724d755e049831d6e264111d96e78f5d54281f
+sha256:
+  darwin_arm64: d0b00d5daf5c2c772877aec094fa15727db67dc928778fe232145366e9ff1033
+  darwin_amd64: addf12aeeb3682a39b438d52c77b80219ce43faff6b9983ee53e3802d41b6727
+  linux_amd64: 3bff4c161f25bbd5405335a0451cf9b447c194a4f1b0a8a15fa2c72b331f7f40
+  linux_arm64: 5d6d9d2eaa7e653d0a11233354724d755e049831d6e264111d96e78f5d54281f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

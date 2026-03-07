@@ -1,0 +1,19 @@
+name: binaryen
+version: 126
+description: Compiler infrastructure and toolchain library for WebAssembly
+homepage: https://webassembly.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/binaryen/blobs/sha256:fc4ff4de16353ba9465745e79017a175990507c971ef2e1d0b612f65788d4272
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/binaryen/blobs/sha256:616a029680d03297d63dc881d91b122bdb962ead7af799ce9e7094b03c989114
+  linux_amd64: https://ghcr.io/v2/homebrew/core/binaryen/blobs/sha256:cc2c112e22a4f86ed776536fe3c83e68e184500ec465168141e19e0fe8cfad9c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/binaryen/blobs/sha256:766830896c9a5145349bc66f2a7e39ba9b91a58bf9cbd11b968089dcbc492e05
+sha256:
+  darwin_arm64: fc4ff4de16353ba9465745e79017a175990507c971ef2e1d0b612f65788d4272
+  darwin_amd64: 616a029680d03297d63dc881d91b122bdb962ead7af799ce9e7094b03c989114
+  linux_amd64: cc2c112e22a4f86ed776536fe3c83e68e184500ec465168141e19e0fe8cfad9c
+  linux_arm64: 766830896c9a5145349bc66f2a7e39ba9b91a58bf9cbd11b968089dcbc492e05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

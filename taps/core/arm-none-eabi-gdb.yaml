@@ -1,0 +1,27 @@
+name: arm-none-eabi-gdb
+version: 17.1
+description: GNU debugger for arm-none-eabi cross development
+homepage: https://www.gnu.org/software/gdb/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-gdb/blobs/sha256:493c701535ef53e4243eb5e516f6d94f667c277f0a60b7d8e0eb5d8b8ba6a42f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-gdb/blobs/sha256:124d8057149346ddba697efa276f442896837c7c08d16b7b9d986e3b97df8604
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-gdb/blobs/sha256:44b87f3e81c6bac17d73b8f5b85bfb99fdd5f00d69a812f9375860ce63101ae7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arm-none-eabi-gdb/blobs/sha256:a17d354b457fa74827f9a1819247edff1d5169f91ff92019d864c8fe177615f5
+sha256:
+  darwin_arm64: 493c701535ef53e4243eb5e516f6d94f667c277f0a60b7d8e0eb5d8b8ba6a42f
+  darwin_amd64: 124d8057149346ddba697efa276f442896837c7c08d16b7b9d986e3b97df8604
+  linux_amd64: 44b87f3e81c6bac17d73b8f5b85bfb99fdd5f00d69a812f9375860ce63101ae7
+  linux_arm64: a17d354b457fa74827f9a1819247edff1d5169f91ff92019d864c8fe177615f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - ncurses
+  - python@3.14
+  - readline
+  - xz
+  - zstd

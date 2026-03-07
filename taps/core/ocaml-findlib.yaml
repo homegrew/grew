@@ -1,0 +1,21 @@
+name: ocaml-findlib
+version: 1.9.8
+description: OCaml library manager
+homepage: http://projects.camlcity.org/projects/findlib.html
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocaml-findlib/blobs/sha256:6f6f7669b4187e082f14cb9c9f617bec4490a32d719caecad5b7f4d01dff2d91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocaml-findlib/blobs/sha256:4addf3b776fbe1b639f4c3f7412a04ba799125dbdc567b79879310401481bd54
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocaml-findlib/blobs/sha256:26996e1d983d47ca18e8fef158d9254b94a2ea7e0399386f518e9935aaf032c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocaml-findlib/blobs/sha256:06f20185aef240f8b740a0347c04e4ba2f912c912b8c36b3464cc54fafaa1f56
+sha256:
+  darwin_arm64: 6f6f7669b4187e082f14cb9c9f617bec4490a32d719caecad5b7f4d01dff2d91
+  darwin_amd64: 4addf3b776fbe1b639f4c3f7412a04ba799125dbdc567b79879310401481bd54
+  linux_amd64: 26996e1d983d47ca18e8fef158d9254b94a2ea7e0399386f518e9935aaf032c4
+  linux_arm64: 06f20185aef240f8b740a0347c04e4ba2f912c912b8c36b3464cc54fafaa1f56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ocaml

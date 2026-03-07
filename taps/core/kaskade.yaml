@@ -1,0 +1,25 @@
+name: kaskade
+version: 4.0.7
+description: TUI for Kafka
+homepage: https://github.com/sauljabin/kaskade
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kaskade/blobs/sha256:4a0b4f69740303178b241fab280528e7b6786d37f41c809fdcef7c8030733b77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kaskade/blobs/sha256:9bd31a6a848e676de53ecafcf232cbf81bdc8be2570c30f8749e99b3fa5d5f6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kaskade/blobs/sha256:1085ed04cb87886a080537d5fc62959ff77346f8b80729acc5b891ec08b14557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kaskade/blobs/sha256:b110ebc3de34b8ad8437b240f767577af38b6dc903ae3ccbd98181688926c5a5
+sha256:
+  darwin_arm64: 4a0b4f69740303178b241fab280528e7b6786d37f41c809fdcef7c8030733b77
+  darwin_amd64: 9bd31a6a848e676de53ecafcf232cbf81bdc8be2570c30f8749e99b3fa5d5f6b
+  linux_amd64: 1085ed04cb87886a080537d5fc62959ff77346f8b80729acc5b891ec08b14557
+  linux_arm64: b110ebc3de34b8ad8437b240f767577af38b6dc903ae3ccbd98181688926c5a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - librdkafka
+  - python@3.14
+  - rpds-py

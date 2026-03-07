@@ -1,0 +1,21 @@
+name: languagetool
+version: 6.7
+description: Style and grammar checker
+homepage: https://www.languagetool.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/languagetool/blobs/sha256:6fea33d351a9f879bc18b3482acc005a9745bea3e1e011fca5851d37fd6f83f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/languagetool/blobs/sha256:f9dcf2480437854ab2576be8f4e19ac728f5c8e048751308b01284e226e83b96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/languagetool/blobs/sha256:d40b8680fd7e046f54ef4b2e79fb60cc0d7a228cb15ab2301f70016b6bc8a557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/languagetool/blobs/sha256:2375c3a5d2bd25954bc23b0baf74d6007f69e6ed397181d104e4327a331501c2
+sha256:
+  darwin_arm64: 6fea33d351a9f879bc18b3482acc005a9745bea3e1e011fca5851d37fd6f83f2
+  darwin_amd64: f9dcf2480437854ab2576be8f4e19ac728f5c8e048751308b01284e226e83b96
+  linux_amd64: d40b8680fd7e046f54ef4b2e79fb60cc0d7a228cb15ab2301f70016b6bc8a557
+  linux_arm64: 2375c3a5d2bd25954bc23b0baf74d6007f69e6ed397181d104e4327a331501c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@17

@@ -1,0 +1,21 @@
+name: f3
+version: 9.0
+description: Test various flash cards
+homepage: https://fight-flash-fraud.readthedocs.io/en/latest/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/f3/blobs/sha256:e9541531abfbf7e8c79f740bc06a5a2107695b2d1fa19f33f6e922b9be036df9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/f3/blobs/sha256:d65dce42f18c8a59d8781b2fa2c8cb9670634c15106024389b8b0ca5f198935d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/f3/blobs/sha256:fcc0ea6c324939671b57a2f951d616372e6f0b4897d9fb0043128b18225ba36e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/f3/blobs/sha256:ab11a198e8d6ebee4516030645f9a453842d7a9fa8340f53f4b04f27b447f57d
+sha256:
+  darwin_arm64: e9541531abfbf7e8c79f740bc06a5a2107695b2d1fa19f33f6e922b9be036df9
+  darwin_amd64: d65dce42f18c8a59d8781b2fa2c8cb9670634c15106024389b8b0ca5f198935d
+  linux_amd64: fcc0ea6c324939671b57a2f951d616372e6f0b4897d9fb0043128b18225ba36e
+  linux_arm64: ab11a198e8d6ebee4516030645f9a453842d7a9fa8340f53f4b04f27b447f57d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argp-standalone

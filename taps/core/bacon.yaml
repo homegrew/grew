@@ -1,0 +1,19 @@
+name: bacon
+version: 3.22.0
+description: Background rust code check
+homepage: https://dystroy.org/bacon/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bacon/blobs/sha256:268bb427d8ee661df203675928dd285c967dcf7623633448541f58a6cad0330f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bacon/blobs/sha256:973e04ecfc46ba54111f004a747aa542e7a88df8b49936783fdfb5f4b1ba6cbf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bacon/blobs/sha256:bd39e0e50e4f24d54f199891b05ea7cd88fc85a514fe39aaf75bec399d86591a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bacon/blobs/sha256:44d24d9a034321fc5f2c08d303c278eae8785dfacead8c19a6f654e68b94d805
+sha256:
+  darwin_arm64: 268bb427d8ee661df203675928dd285c967dcf7623633448541f58a6cad0330f
+  darwin_amd64: 973e04ecfc46ba54111f004a747aa542e7a88df8b49936783fdfb5f4b1ba6cbf
+  linux_amd64: bd39e0e50e4f24d54f199891b05ea7cd88fc85a514fe39aaf75bec399d86591a
+  linux_arm64: 44d24d9a034321fc5f2c08d303c278eae8785dfacead8c19a6f654e68b94d805
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

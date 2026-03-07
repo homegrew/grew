@@ -1,0 +1,19 @@
+name: vfox
+version: 1.0.6
+description: "Version manager with support for Java, Node.js, Flutter, .NET & more"
+homepage: https://vfox.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vfox/blobs/sha256:0c43c80b348584b57b9954b278f74459a2169a7b36fa992e2fc63c64033c6fc6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vfox/blobs/sha256:34932b5b21cc994b79e51e3649b743dbe4575f39e177012bd5648a26a3b6d914
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vfox/blobs/sha256:f7e1e3889e688f5962d3363f804f22cff2d829132a2c78b30aee9673944a4fe3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vfox/blobs/sha256:fbf4b8c817d90adeac7c55dcb4ba058b71a6549b84e26273221d895e0b56677d
+sha256:
+  darwin_arm64: 0c43c80b348584b57b9954b278f74459a2169a7b36fa992e2fc63c64033c6fc6
+  darwin_amd64: 34932b5b21cc994b79e51e3649b743dbe4575f39e177012bd5648a26a3b6d914
+  linux_amd64: f7e1e3889e688f5962d3363f804f22cff2d829132a2c78b30aee9673944a4fe3
+  linux_arm64: fbf4b8c817d90adeac7c55dcb4ba058b71a6549b84e26273221d895e0b56677d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

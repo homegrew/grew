@@ -1,0 +1,11 @@
+name: firefox@nightly
+version: 150.0a1,2026-03-06-21-58-30
+description: Web browser
+homepage: https://www.mozilla.org/firefox/channel/desktop/#nightly
+url:
+  darwin_arm64: https://ftp.mozilla.org/pub/firefox/nightly/2026/03/2026-03-06-21-58-30-mozilla-central/firefox-150.0a1.en-US.mac.dmg
+sha256:
+  darwin_arm64: 71a59f91caa7a47e81c80e8e977eabc1c6f34c7f5191aa46cf67e7ac5aee9028
+artifacts:
+  app:
+    - Firefox Nightly.app

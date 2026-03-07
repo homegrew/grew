@@ -1,0 +1,19 @@
+name: goctl
+version: 1.10.0
+description: Generates server-side and client-side code for web and RPC services
+homepage: https://go-zero.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goctl/blobs/sha256:6d0a54388204a1a1898057013472bbb98e9a7711efb59b065eae04e46e89fcb3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goctl/blobs/sha256:2a7fee4a17cca516c4bfb99b8fa49b39409cc8dd7432981609437a6d2325d817
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goctl/blobs/sha256:dbb64661962c91187198992f41a2da12a6e5d2f10986d3a0a40c8686a8e4ff2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goctl/blobs/sha256:e16aded581e1b30880288323b382fafa62ae33393cb293ea8c8db5fac0d3c4ed
+sha256:
+  darwin_arm64: 6d0a54388204a1a1898057013472bbb98e9a7711efb59b065eae04e46e89fcb3
+  darwin_amd64: 2a7fee4a17cca516c4bfb99b8fa49b39409cc8dd7432981609437a6d2325d817
+  linux_amd64: dbb64661962c91187198992f41a2da12a6e5d2f10986d3a0a40c8686a8e4ff2d
+  linux_arm64: e16aded581e1b30880288323b382fafa62ae33393cb293ea8c8db5fac0d3c4ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

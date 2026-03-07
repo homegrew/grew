@@ -1,0 +1,22 @@
+name: renameutils
+version: 0.12.0
+description: Tools for file renaming
+homepage: https://www.nongnu.org/renameutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/renameutils/blobs/sha256:0fdd550dfb8a3ec4c7b30c22a6be8bf88104207328b51b7a3806b9f254e4eb85
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/renameutils/blobs/sha256:48bec726e452ee15d1d8e15ee14afb00ad95bf023fb94f38726fff6a1a7302fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/renameutils/blobs/sha256:1a7ddae9fa3352ec89e73c91eaabedc5e941e3e752fdf5afda5b5098fb65cd7c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/renameutils/blobs/sha256:7e705d1e479f9c7c96ffe78fb84bb17f90897b130bb5e9b18699381fbd3de9f4
+sha256:
+  darwin_arm64: 0fdd550dfb8a3ec4c7b30c22a6be8bf88104207328b51b7a3806b9f254e4eb85
+  darwin_amd64: 48bec726e452ee15d1d8e15ee14afb00ad95bf023fb94f38726fff6a1a7302fa
+  linux_amd64: 1a7ddae9fa3352ec89e73c91eaabedc5e941e3e752fdf5afda5b5098fb65cd7c
+  linux_arm64: 7e705d1e479f9c7c96ffe78fb84bb17f90897b130bb5e9b18699381fbd3de9f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - coreutils
+  - readline

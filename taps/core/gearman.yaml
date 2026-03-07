@@ -1,0 +1,23 @@
+name: gearman
+version: 1.1.22
+description: Application framework to farm out work to other machines or processes
+homepage: https://gearman.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gearman/blobs/sha256:5d3c72680496377b84301a11829ce50486c4303b36e6fced1fded664a3e9e884
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gearman/blobs/sha256:34281099e7a338e50184e5297726d0fde308c108f8324cd4c8a807c2079b8525
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gearman/blobs/sha256:3248cb1b494fc13da4014574ae3be3a88f592862de39ef275ed6a7824a996baf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gearman/blobs/sha256:c334d173303374e69d753ac458fbb7499c3bf5b7730bf9a98c9b77f061569531
+sha256:
+  darwin_arm64: 5d3c72680496377b84301a11829ce50486c4303b36e6fced1fded664a3e9e884
+  darwin_amd64: 34281099e7a338e50184e5297726d0fde308c108f8324cd4c8a807c2079b8525
+  linux_amd64: 3248cb1b494fc13da4014574ae3be3a88f592862de39ef275ed6a7824a996baf
+  linux_arm64: c334d173303374e69d753ac458fbb7499c3bf5b7730bf9a98c9b77f061569531
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - libevent
+  - libmemcached

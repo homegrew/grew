@@ -1,0 +1,21 @@
+name: pv
+version: 1.10.3
+description: "Monitor data's progress through a pipe"
+homepage: https://www.ivarch.com/programs/pv.shtml
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pv/blobs/sha256:bb03d9c234fc09170c8a9cefb75bf84d499af7d261830bada070bee81bb95a54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pv/blobs/sha256:863e1f15648fb366d443dc91df94633544eaa6f173542581d32810b88f7e851d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pv/blobs/sha256:2d70e723baa06cd3984b2d78e4a7aff427a18177169a3c0a14b4aba66c4aa12d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pv/blobs/sha256:ff3fb9597f711de3dac9eb5d26b496b5d1461a8992366e65ba1f7a28b3d889ee
+sha256:
+  darwin_arm64: bb03d9c234fc09170c8a9cefb75bf84d499af7d261830bada070bee81bb95a54
+  darwin_amd64: 863e1f15648fb366d443dc91df94633544eaa6f173542581d32810b88f7e851d
+  linux_amd64: 2d70e723baa06cd3984b2d78e4a7aff427a18177169a3c0a14b4aba66c4aa12d
+  linux_arm64: ff3fb9597f711de3dac9eb5d26b496b5d1461a8992366e65ba1f7a28b3d889ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

@@ -1,0 +1,19 @@
+name: zoxide
+version: 0.9.9
+description: Shell extension to navigate your filesystem faster
+homepage: https://github.com/ajeetdsouza/zoxide
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zoxide/blobs/sha256:a82505577d2966650cc8627de4017a136a93b47878292bd655f0e88599220f66
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zoxide/blobs/sha256:6f35975692aa8c38f9ae6b3868122ed8710cb35b3c470844b32cf246cbd80944
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zoxide/blobs/sha256:7aa96060fdfce45c0347eccb89f3d9b5cdaf97d43fc71c0f376867d8a26d942e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zoxide/blobs/sha256:aa8fb13ba0cd9a26df2de6472b1d6eb944eee0fcde663b0cffd69dc171a9c2ca
+sha256:
+  darwin_arm64: a82505577d2966650cc8627de4017a136a93b47878292bd655f0e88599220f66
+  darwin_amd64: 6f35975692aa8c38f9ae6b3868122ed8710cb35b3c470844b32cf246cbd80944
+  linux_amd64: 7aa96060fdfce45c0347eccb89f3d9b5cdaf97d43fc71c0f376867d8a26d942e
+  linux_arm64: aa8fb13ba0cd9a26df2de6472b1d6eb944eee0fcde663b0cffd69dc171a9c2ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

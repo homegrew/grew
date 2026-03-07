@@ -1,0 +1,22 @@
+name: net-snmp
+version: 5.9.5.2
+description: Implements SNMP v1, v2c, and v3, using IPv4 and IPv6
+homepage: http://www.net-snmp.org/
+license: MIT-CMU AND MIT AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/net-snmp/blobs/sha256:aa3127d38dc1d35626fe7bd3e53e66bd88adea6ed7aca814ba55adbe47b7fabb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/net-snmp/blobs/sha256:0ef82db8c6d4236ce288931fcc5529632f3b9fdd6bc10eb7a77f1fe54d0e3cca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/net-snmp/blobs/sha256:1105287f2a864a6c66b750dae9ba98d7a6fae7a30a1a729a6c3d47cb88ac6d54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/net-snmp/blobs/sha256:0ff9a48126694d8c8eac3e6a7d01bd013cb22db2e88b8cc91135fe3f0eec1c26
+sha256:
+  darwin_arm64: aa3127d38dc1d35626fe7bd3e53e66bd88adea6ed7aca814ba55adbe47b7fabb
+  darwin_amd64: 0ef82db8c6d4236ce288931fcc5529632f3b9fdd6bc10eb7a77f1fe54d0e3cca
+  linux_amd64: 1105287f2a864a6c66b750dae9ba98d7a6fae7a30a1a729a6c3d47cb88ac6d54
+  linux_arm64: 0ff9a48126694d8c8eac3e6a7d01bd013cb22db2e88b8cc91135fe3f0eec1c26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+keg_only: true

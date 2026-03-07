@@ -1,0 +1,24 @@
+name: libxpresent
+version: 1.0.2
+description: Xlib-based library for the X Present Extension
+homepage: https://gitlab.freedesktop.org/xorg/lib/libxpresent
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxpresent/blobs/sha256:e80e27e85c020a9a1391bb318b8a3e4b03fcce7be8dd604a2eb85c6ee1e56d01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxpresent/blobs/sha256:0e2b2206c01d044ac97976f685773bc44aa68322afe982f71564d48172c0c052
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxpresent/blobs/sha256:9410dc0e6850979043f5454de952ba1c1360cd4e7f1a011b8faf4b3475553ad9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxpresent/blobs/sha256:539cbabee52ea3998d89e147b884d3b4c6743b3c14f18e15a145958e3d8eddef
+sha256:
+  darwin_arm64: e80e27e85c020a9a1391bb318b8a3e4b03fcce7be8dd604a2eb85c6ee1e56d01
+  darwin_amd64: 0e2b2206c01d044ac97976f685773bc44aa68322afe982f71564d48172c0c052
+  linux_amd64: 9410dc0e6850979043f5454de952ba1c1360cd4e7f1a011b8faf4b3475553ad9
+  linux_arm64: 539cbabee52ea3998d89e147b884d3b4c6743b3c14f18e15a145958e3d8eddef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - libxfixes
+  - libxrandr

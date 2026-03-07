@@ -1,0 +1,19 @@
+name: csvq
+version: 1.18.1
+description: SQL-like query language for csv
+homepage: https://mithrandie.github.io/csvq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/csvq/blobs/sha256:3981b6e29e04cdf062302717b93fc6bbde7c240d24b23fe0c4fb853ea53fc8df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/csvq/blobs/sha256:2214b4419d5a50f23ba7dc51eeb3ddcb250d2422d970793733955bd1e14b064e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/csvq/blobs/sha256:d32956ca38f3f9d768739765fc3f7f3449e0c8f67d45dc2d55981e93fcc8edeb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/csvq/blobs/sha256:f98ed8f73aef226ce5e326da496a85afbe069f613ff64273e2e1417630610d56
+sha256:
+  darwin_arm64: 3981b6e29e04cdf062302717b93fc6bbde7c240d24b23fe0c4fb853ea53fc8df
+  darwin_amd64: 2214b4419d5a50f23ba7dc51eeb3ddcb250d2422d970793733955bd1e14b064e
+  linux_amd64: d32956ca38f3f9d768739765fc3f7f3449e0c8f67d45dc2d55981e93fcc8edeb
+  linux_arm64: f98ed8f73aef226ce5e326da496a85afbe069f613ff64273e2e1417630610d56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: hexgui
+version: 0.9.4
+description: GUI for playing Hex over Hex Text Protocol
+homepage: https://sourceforge.net/p/benzene/hexgui/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexgui/blobs/sha256:e0fa3feb12e15a8975ea760a3f4794e202ebf5a1c3268135aecd5e8f7174f518
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexgui/blobs/sha256:6b472541128e32ff7814d513e2bf85dc681dfc6c5266c8fa9822bbe2dc0c5f72
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexgui/blobs/sha256:7f3482e21058facf382c8920f29980679e4b168d2a5380ca9f995bb8e6383f4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexgui/blobs/sha256:a23602aeb64e79dc0f28b3c7bf13a05144d2501d38804c5d000e0c7d8081acee
+sha256:
+  darwin_arm64: e0fa3feb12e15a8975ea760a3f4794e202ebf5a1c3268135aecd5e8f7174f518
+  darwin_amd64: 6b472541128e32ff7814d513e2bf85dc681dfc6c5266c8fa9822bbe2dc0c5f72
+  linux_amd64: 7f3482e21058facf382c8920f29980679e4b168d2a5380ca9f995bb8e6383f4b
+  linux_arm64: a23602aeb64e79dc0f28b3c7bf13a05144d2501d38804c5d000e0c7d8081acee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

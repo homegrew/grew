@@ -1,0 +1,11 @@
+name: gdlauncher
+version: 1.1.30
+description: Custom Minecraft Launcher
+homepage: https://gdevs.io/
+url:
+  darwin_arm64: https://github.com/gorilla-devs/GDLauncher/releases/download/v1.1.30/GDLauncher-mac-setup.dmg
+sha256:
+  darwin_arm64: d98a89f76047cef4ca7bdd99fe464f09fbe95c3ae916123ae4179dd8368514b9
+artifacts:
+  app:
+    - GDLauncher.app

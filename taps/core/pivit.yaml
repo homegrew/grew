@@ -1,0 +1,19 @@
+name: pivit
+version: 0.9.3
+description: Sign and verify data using hardware (Yubikey) backed x509 certificates (PIV)
+homepage: https://github.com/cashapp/pivit
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pivit/blobs/sha256:c7f5d747e5dfa387783b29019ed02f78ef8622d71abcb851ecf519e010a2bea0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pivit/blobs/sha256:acc9b73454be913f494d087148ca8d72837da35ebf8b49d6a54d689de5eb6492
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pivit/blobs/sha256:64fab27f7aeb2ca8f09732a8e48eb090591a0840cf51106953e9774717230f17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pivit/blobs/sha256:77ed67ed542f89456ab252694a290eaf2e9da1f8833300f048ad31a82258584d
+sha256:
+  darwin_arm64: c7f5d747e5dfa387783b29019ed02f78ef8622d71abcb851ecf519e010a2bea0
+  darwin_amd64: acc9b73454be913f494d087148ca8d72837da35ebf8b49d6a54d689de5eb6492
+  linux_amd64: 64fab27f7aeb2ca8f09732a8e48eb090591a0840cf51106953e9774717230f17
+  linux_arm64: 77ed67ed542f89456ab252694a290eaf2e9da1f8833300f048ad31a82258584d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: dillo
+version: 3.2.0
+description: Fast and small graphical web browser
+homepage: https://dillo-browser.github.io/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dillo/blobs/sha256:133ccf2cba4d0bd952f33b732c18d55cf734e4cc52cdfe1eec378e77c9a4db24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dillo/blobs/sha256:8e4b78d3b2f1909881dfcf2fbee7924222a055cf6b863d6d77a6346a127cbf50
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dillo/blobs/sha256:633afe5f018db26138ac0d62cd5d0d55b11fefa78a68bedfc1992718e3ede88b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dillo/blobs/sha256:affc8edd131cb4d01285085bb413c678ee6ebc0dbf55aebbee6f1abdab7dbae5
+sha256:
+  darwin_arm64: 133ccf2cba4d0bd952f33b732c18d55cf734e4cc52cdfe1eec378e77c9a4db24
+  darwin_amd64: 8e4b78d3b2f1909881dfcf2fbee7924222a055cf6b863d6d77a6346a127cbf50
+  linux_amd64: 633afe5f018db26138ac0d62cd5d0d55b11fefa78a68bedfc1992718e3ede88b
+  linux_arm64: affc8edd131cb4d01285085bb413c678ee6ebc0dbf55aebbee6f1abdab7dbae5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fltk@1.3
+  - jpeg-turbo
+  - libpng
+  - openssl@3

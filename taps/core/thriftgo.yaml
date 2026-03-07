@@ -1,0 +1,19 @@
+name: thriftgo
+version: 0.4.3
+description: Implementation of thrift compiler in go language with plugin mechanism
+homepage: https://github.com/cloudwego/thriftgo
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/thriftgo/blobs/sha256:5cb46a98965f84e1857d0ae5395d532e3cbdef428e03e39a60ba40bf75fb48ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/thriftgo/blobs/sha256:132fa03cdcc0762f6df66d48116df589207f914fcdeb207e27ec8ae8852f0ab9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/thriftgo/blobs/sha256:8c769a0df181ec44dff7f01ce065f5f32370671d478626344fc615bb337bc099
+  linux_arm64: https://ghcr.io/v2/homebrew/core/thriftgo/blobs/sha256:cf9b14ced5844d920c396b4545bb0f41a9a065ced28314d3fc1f26b988a79df3
+sha256:
+  darwin_arm64: 5cb46a98965f84e1857d0ae5395d532e3cbdef428e03e39a60ba40bf75fb48ba
+  darwin_amd64: 132fa03cdcc0762f6df66d48116df589207f914fcdeb207e27ec8ae8852f0ab9
+  linux_amd64: 8c769a0df181ec44dff7f01ce065f5f32370671d478626344fc615bb337bc099
+  linux_arm64: cf9b14ced5844d920c396b4545bb0f41a9a065ced28314d3fc1f26b988a79df3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

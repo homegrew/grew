@@ -1,0 +1,21 @@
+name: hapless
+version: 0.15.1
+description: Run and manage background processes
+homepage: https://bmwant.link/hapless-easily-run-and-manage-background-processes/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hapless/blobs/sha256:10bca31787230dbc7dea0b9c712227213933bfc8e787517336e05af2b20482ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hapless/blobs/sha256:c24bf0290bdf13f87894126b8affc18cbbcf7557b24afbb8ed771381ec5729e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hapless/blobs/sha256:38580e0b77980e077abdfb6d5ae9b15423add9d65cb59630a62c41fb86e4495c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hapless/blobs/sha256:bd5b41eadd8958beb78247a97440cc9f047868f068a1b24ed291264804a2e941
+sha256:
+  darwin_arm64: 10bca31787230dbc7dea0b9c712227213933bfc8e787517336e05af2b20482ab
+  darwin_amd64: c24bf0290bdf13f87894126b8affc18cbbcf7557b24afbb8ed771381ec5729e0
+  linux_amd64: 38580e0b77980e077abdfb6d5ae9b15423add9d65cb59630a62c41fb86e4495c
+  linux_arm64: bd5b41eadd8958beb78247a97440cc9f047868f068a1b24ed291264804a2e941
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

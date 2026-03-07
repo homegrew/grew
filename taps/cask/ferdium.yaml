@@ -1,0 +1,11 @@
+name: ferdium
+version: 7.1.1
+description: Multi-platform multi-messaging app
+homepage: https://ferdium.org/
+url:
+  darwin_arm64: https://github.com/ferdium/ferdium-app/releases/download/v7.1.1/Ferdium-mac-7.1.1-arm64.dmg
+sha256:
+  darwin_arm64: 8981f3baa90a31a9807fc9aac435f802f34a99aa821b0740ad54ce3b8977870e
+artifacts:
+  app:
+    - Ferdium.app

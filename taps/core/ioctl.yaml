@@ -1,0 +1,19 @@
+name: ioctl
+version: 2.3.5
+description: Command-line interface for interacting with the IoTeX blockchain
+homepage: https://docs.iotex.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ioctl/blobs/sha256:a264e5379297178a1d2000d7d89e25a39cf16100335bc3fd34cc7302a983520b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ioctl/blobs/sha256:b6249bdd680a7f8be143a4529e8b51599762c7fbc703ea68cbf20cada6e561a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ioctl/blobs/sha256:2fbb2e51c484a3b1a37ea1ec917598e5f34c498c3b3f456c5b473cb939b5dc8c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ioctl/blobs/sha256:32b31b3d9caebf01fb5abcac05bd913bb356b2b217b87184d6976e3b41767e1d
+sha256:
+  darwin_arm64: a264e5379297178a1d2000d7d89e25a39cf16100335bc3fd34cc7302a983520b
+  darwin_amd64: b6249bdd680a7f8be143a4529e8b51599762c7fbc703ea68cbf20cada6e561a7
+  linux_amd64: 2fbb2e51c484a3b1a37ea1ec917598e5f34c498c3b3f456c5b473cb939b5dc8c
+  linux_arm64: 32b31b3d9caebf01fb5abcac05bd913bb356b2b217b87184d6976e3b41767e1d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

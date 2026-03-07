@@ -1,0 +1,21 @@
+name: wordgrinder
+version: 0.8
+description: Unicode-aware word processor that runs in a terminal
+homepage: https://cowlark.com/wordgrinder
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wordgrinder/blobs/sha256:3246a1cccfec9059f9801b89d70312543e99eb7d9c7804af04f6bf4b97221eff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wordgrinder/blobs/sha256:851c8e31fdb6606c135df322bf0e9672dda0b85656130e7ebbc119dc41b4fa47
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wordgrinder/blobs/sha256:caeb624a4ef708bddb96c3e0bc646994e6b285c7df7f4382cce2a38a1a8f8579
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wordgrinder/blobs/sha256:7868fa15eaf6fdedda40d72a29e627f67a06b065af8ea40462dbdb72cf74b522
+sha256:
+  darwin_arm64: 3246a1cccfec9059f9801b89d70312543e99eb7d9c7804af04f6bf4b97221eff
+  darwin_amd64: 851c8e31fdb6606c135df322bf0e9672dda0b85656130e7ebbc119dc41b4fa47
+  linux_amd64: caeb624a4ef708bddb96c3e0bc646994e6b285c7df7f4382cce2a38a1a8f8579
+  linux_arm64: 7868fa15eaf6fdedda40d72a29e627f67a06b065af8ea40462dbdb72cf74b522
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ncurses

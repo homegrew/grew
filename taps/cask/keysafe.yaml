@@ -1,0 +1,11 @@
+name: keysafe
+version: 1.9.2
+description: Read and decrypt Apple Keychain files
+homepage: https://miln.eu/keysafe
+url:
+  darwin_arm64: https://miln.eu/keysafe/miln-keysafe-v1.9.2-darwin-universal.zip
+sha256:
+  darwin_arm64: 4679f62b10fd67aade65c54e8c4091a1f037491b21eee2f0e868be2ebef9bb3e
+artifacts:
+  bin:
+    - keysafe

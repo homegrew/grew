@@ -1,0 +1,22 @@
+name: erofs-utils
+version: 1.9.1
+description: Utilities for Enhanced Read-Only File System
+homepage: https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erofs-utils/blobs/sha256:fcd98111d3eaf796ebb28e1714fca383c2b750c75aa7a692991d2b1abaeec321
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erofs-utils/blobs/sha256:781c2d8a935ba8e8c7b8a5f2721d3a1cfbe695927c1afe67da0392d462f19229
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erofs-utils/blobs/sha256:7635fad4505da693bfa9b47be3669fb7bffcbd70425e04c099b48dfb868d5d2c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erofs-utils/blobs/sha256:ec5a0c1d3922c42c26d84c5b3f2cfe8ceaa0e18db0256da169fa8722a1fce6d7
+sha256:
+  darwin_arm64: fcd98111d3eaf796ebb28e1714fca383c2b750c75aa7a692991d2b1abaeec321
+  darwin_amd64: 781c2d8a935ba8e8c7b8a5f2721d3a1cfbe695927c1afe67da0392d462f19229
+  linux_amd64: 7635fad4505da693bfa9b47be3669fb7bffcbd70425e04c099b48dfb868d5d2c
+  linux_arm64: ec5a0c1d3922c42c26d84c5b3f2cfe8ceaa0e18db0256da169fa8722a1fce6d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lz4
+  - xz

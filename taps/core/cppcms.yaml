@@ -1,0 +1,21 @@
+name: cppcms
+version: 2.0.1
+description: Free High Performance Web Development Framework
+homepage: http://cppcms.com/wikipp/en/page/main
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cppcms/blobs/sha256:78fd3c8d81ce0b0feb720b7da8db1ebfdf00670dd7d4c133bfe22a2cfa2049a1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cppcms/blobs/sha256:509c45a58217091401a6afc4ab929fe65f6ece4e2db7268f0252842016cf1998
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cppcms/blobs/sha256:086440ca1c958fb8a70d99ab91e81b56809e836f831b6959a0d24eac7a92d66b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cppcms/blobs/sha256:c93be15dcdb0cbf3ae83438c373f8fb407545a6622de1827d5fa4da934eac5b9
+sha256:
+  darwin_arm64: 78fd3c8d81ce0b0feb720b7da8db1ebfdf00670dd7d4c133bfe22a2cfa2049a1
+  darwin_amd64: 509c45a58217091401a6afc4ab929fe65f6ece4e2db7268f0252842016cf1998
+  linux_amd64: 086440ca1c958fb8a70d99ab91e81b56809e836f831b6959a0d24eac7a92d66b
+  linux_arm64: c93be15dcdb0cbf3ae83438c373f8fb407545a6622de1827d5fa4da934eac5b9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

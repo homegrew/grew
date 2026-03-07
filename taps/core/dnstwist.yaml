@@ -1,0 +1,24 @@
+name: dnstwist
+version: 20250130
+description: Test domains for typo squatting, phishing and corporate espionage
+homepage: https://github.com/elceef/dnstwist
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnstwist/blobs/sha256:f592fbabbf5a143792e91077044d5a5c81b0eecbfdb8cba4283168e7e37fb3ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnstwist/blobs/sha256:dcac34394e12c42bdc3167d67d160c412f768aeebdb306a4c77ef26e6d4e1912
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnstwist/blobs/sha256:4ecbbcc82af739c6ae941618a10746fb20cf2f89e36dc9f2468b6f02b99df76c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnstwist/blobs/sha256:f6c59c3156bba162d453e31bad4969843e14fa4825810c9b1c35917fb2f1f604
+sha256:
+  darwin_arm64: f592fbabbf5a143792e91077044d5a5c81b0eecbfdb8cba4283168e7e37fb3ae
+  darwin_amd64: dcac34394e12c42bdc3167d67d160c412f768aeebdb306a4c77ef26e6d4e1912
+  linux_amd64: 4ecbbcc82af739c6ae941618a10746fb20cf2f89e36dc9f2468b6f02b99df76c
+  linux_arm64: f6c59c3156bba162d453e31bad4969843e14fa4825810c9b1c35917fb2f1f604
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libmaxminddb
+  - python@3.14
+  - ssdeep

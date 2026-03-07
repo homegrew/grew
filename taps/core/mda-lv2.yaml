@@ -1,0 +1,21 @@
+name: mda-lv2
+version: 1.2.10
+description: LV2 port of the MDA plugins
+homepage: https://drobilla.net/software/mda-lv2.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mda-lv2/blobs/sha256:87a2bd9d397365ef18ac869774f67b94835d998465e5b78d4b8ec69a47a1aaa9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mda-lv2/blobs/sha256:c46a62ff1bb9377ab6a6f3f919472792e9a4b133502dcfe6f5212f7258b34ad4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mda-lv2/blobs/sha256:688227bd6b707a8fba9ae71751c92d1267b1a6c1a3298ffc4bf57d4d04fe596f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mda-lv2/blobs/sha256:dc0748c3fc037fec4e7620fcc70b40b9eb1da6e4c93ffbf617fe71555bd4110e
+sha256:
+  darwin_arm64: 87a2bd9d397365ef18ac869774f67b94835d998465e5b78d4b8ec69a47a1aaa9
+  darwin_amd64: c46a62ff1bb9377ab6a6f3f919472792e9a4b133502dcfe6f5212f7258b34ad4
+  linux_amd64: 688227bd6b707a8fba9ae71751c92d1267b1a6c1a3298ffc4bf57d4d04fe596f
+  linux_arm64: dc0748c3fc037fec4e7620fcc70b40b9eb1da6e4c93ffbf617fe71555bd4110e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lv2

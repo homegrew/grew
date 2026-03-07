@@ -1,0 +1,22 @@
+name: flint
+version: 3.4.0
+description: C library for number theory
+homepage: https://flintlib.org/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flint/blobs/sha256:7ed744e782c8f2ec39097e89f333493247ed0edb5d4e19c0cb729003a9131791
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flint/blobs/sha256:28805b3eee716445aa9513690841e961f74273c6e5ea33cd2ba23ff3e4002c8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flint/blobs/sha256:0fb876906fcaadbec62baf8734f08cf0dcda573f7573ce5a303811c889ac1138
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flint/blobs/sha256:5fa53f2cab0d3a03af52033f31095b06f10cca788ba19119b6788477ae7a9ac5
+sha256:
+  darwin_arm64: 7ed744e782c8f2ec39097e89f333493247ed0edb5d4e19c0cb729003a9131791
+  darwin_amd64: 28805b3eee716445aa9513690841e961f74273c6e5ea33cd2ba23ff3e4002c8b
+  linux_amd64: 0fb876906fcaadbec62baf8734f08cf0dcda573f7573ce5a303811c889ac1138
+  linux_arm64: 5fa53f2cab0d3a03af52033f31095b06f10cca788ba19119b6788477ae7a9ac5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr

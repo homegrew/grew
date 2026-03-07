@@ -1,0 +1,24 @@
+name: scoutsuite
+version: 5.14.0
+description: Open source multi-cloud security-auditing tool
+homepage: https://github.com/nccgroup/ScoutSuite
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scoutsuite/blobs/sha256:6c978a1862c02ae74391c73a700e2f265c364bdb207c01ba5a32b0930dbb001a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scoutsuite/blobs/sha256:0d29cf05a6e0baa800d6b9b1eccdef1007a65791d8b47777d54bebfd2b2d5b6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scoutsuite/blobs/sha256:76f3002e5075a6b35f11341855d18558ae7aeaa89c9528cc1ebc1557fc224fe1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scoutsuite/blobs/sha256:e2c40a022a77e92feb324d29dcc320797bd22fcc6d47e36a6c289a2025302897
+sha256:
+  darwin_arm64: 6c978a1862c02ae74391c73a700e2f265c364bdb207c01ba5a32b0930dbb001a
+  darwin_amd64: 0d29cf05a6e0baa800d6b9b1eccdef1007a65791d8b47777d54bebfd2b2d5b6f
+  linux_amd64: 76f3002e5075a6b35f11341855d18558ae7aeaa89c9528cc1ebc1557fc224fe1
+  linux_arm64: e2c40a022a77e92feb324d29dcc320797bd22fcc6d47e36a6c289a2025302897
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - python@3.14

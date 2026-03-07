@@ -1,0 +1,26 @@
+name: minizinc
+version: 2.9.5
+description: Medium-level constraint modeling language
+homepage: https://www.minizinc.org/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minizinc/blobs/sha256:b20d88d4fbe436a6438e796a9d0ee37e9b2aab540693516df2d9f29c7966b266
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minizinc/blobs/sha256:9d7b55fe7b667e34a595393ad4b1382158f64c20b564b6fa0179ac9de7c07587
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minizinc/blobs/sha256:a33e2a3115c58200db5d825ad5cb3e931614671d8ee82fca01543cade180ccce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minizinc/blobs/sha256:a4e9507690829a4045d363b26d681760fbcc8f92c0e848a87ae31dcd0a3021dc
+sha256:
+  darwin_arm64: b20d88d4fbe436a6438e796a9d0ee37e9b2aab540693516df2d9f29c7966b266
+  darwin_amd64: 9d7b55fe7b667e34a595393ad4b1382158f64c20b564b6fa0179ac9de7c07587
+  linux_amd64: a33e2a3115c58200db5d825ad5cb3e931614671d8ee82fca01543cade180ccce
+  linux_arm64: a4e9507690829a4045d363b26d681760fbcc8f92c0e848a87ae31dcd0a3021dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cbc
+  - cgl
+  - clp
+  - coinutils
+  - gecode
+  - osi

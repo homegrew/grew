@@ -1,0 +1,31 @@
+name: postgis
+version: 3.6.2
+description: Adds support for geographic objects to PostgreSQL
+homepage: https://postgis.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/postgis/blobs/sha256:d1530f71ddfd1229308739475a02d5d569a853efdccd6f4f3848d9d5cf30d824
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/postgis/blobs/sha256:2ab361e0b2270c2088946c0cf1daa03a60ac1639634c33823f117eff3b19d27f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/postgis/blobs/sha256:36288526e76b3bd6ec4daee709c2f845f2a26e32f54ca4d7979de166990ef449
+  linux_arm64: https://ghcr.io/v2/homebrew/core/postgis/blobs/sha256:0ccd63a1425bd72261233bc8523220965631897fe2402cdd8dedbebd0c339a2e
+sha256:
+  darwin_arm64: d1530f71ddfd1229308739475a02d5d569a853efdccd6f4f3848d9d5cf30d824
+  darwin_amd64: 2ab361e0b2270c2088946c0cf1daa03a60ac1639634c33823f117eff3b19d27f
+  linux_amd64: 36288526e76b3bd6ec4daee709c2f845f2a26e32f54ca4d7979de166990ef449
+  linux_arm64: 0ccd63a1425bd72261233bc8523220965631897fe2402cdd8dedbebd0c339a2e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdal
+  - geos
+  - icu4c@78
+  - json-c
+  - libpq
+  - libxml2
+  - pcre2
+  - proj
+  - protobuf-c
+  - sfcgal
+  - gettext

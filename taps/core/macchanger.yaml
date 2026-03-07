@@ -1,0 +1,15 @@
+name: macchanger
+version: 0.2.1
+description: Change your mac address, for macOS
+homepage: https://github.com/shilch/macchanger
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macchanger/blobs/sha256:6be915a49e29f68f13dfdbc86259fe3edc1a5ae0c06c938aa59560689dd8a2fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macchanger/blobs/sha256:d84103330c6ed15cdc830bd581cf0fe62bd6876abac6364aa1fc430c874b13aa
+sha256:
+  darwin_arm64: 6be915a49e29f68f13dfdbc86259fe3edc1a5ae0c06c938aa59560689dd8a2fe
+  darwin_amd64: d84103330c6ed15cdc830bd581cf0fe62bd6876abac6364aa1fc430c874b13aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

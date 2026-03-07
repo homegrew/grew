@@ -1,0 +1,19 @@
+name: nload
+version: 0.7.4
+description: Realtime console network usage monitor
+homepage: https://www.roland-riegel.de/nload/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nload/blobs/sha256:990a89bc4a31bb98e18e9db1d84839d01db9d6cd9de1e4b951ca8b20886c7a98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nload/blobs/sha256:c3914fbe454faf676b8af160dd9eb7f81935db7b89ec6e8a15d3b9e9bb482899
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nload/blobs/sha256:4b1d3e77437ea1f37ab063237a2b71318370b23248b8be6d6d10d07f786bed89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nload/blobs/sha256:a2366f0c72199e2ae1729e247e5c6fc0bfdb5c02cae34cc4f6859832fd0649ae
+sha256:
+  darwin_arm64: 990a89bc4a31bb98e18e9db1d84839d01db9d6cd9de1e4b951ca8b20886c7a98
+  darwin_amd64: c3914fbe454faf676b8af160dd9eb7f81935db7b89ec6e8a15d3b9e9bb482899
+  linux_amd64: 4b1d3e77437ea1f37ab063237a2b71318370b23248b8be6d6d10d07f786bed89
+  linux_arm64: a2366f0c72199e2ae1729e247e5c6fc0bfdb5c02cae34cc4f6859832fd0649ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

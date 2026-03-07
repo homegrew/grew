@@ -1,0 +1,19 @@
+name: squealer
+version: 1.2.12
+description: Scans Git repositories or filesystems for secrets in commit histories
+homepage: https://github.com/owenrumney/squealer
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/squealer/blobs/sha256:7f50def689d5a53e1e68649f2e333ef8b396185264496f78551251e44f38d230
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/squealer/blobs/sha256:e70ddc65dd49956dbe67cb51bf20294b8e11103831036f7777affd6788a0d375
+  linux_amd64: https://ghcr.io/v2/homebrew/core/squealer/blobs/sha256:1d5915c6dda915ee730544e936a0a1c7874f2d7638e8e5b3b521da899d13fb90
+  linux_arm64: https://ghcr.io/v2/homebrew/core/squealer/blobs/sha256:aa2f6dfb3492dc035ada3240f826d1541344d4daf7af553834bfc6e0a846c9a2
+sha256:
+  darwin_arm64: 7f50def689d5a53e1e68649f2e333ef8b396185264496f78551251e44f38d230
+  darwin_amd64: e70ddc65dd49956dbe67cb51bf20294b8e11103831036f7777affd6788a0d375
+  linux_amd64: 1d5915c6dda915ee730544e936a0a1c7874f2d7638e8e5b3b521da899d13fb90
+  linux_arm64: aa2f6dfb3492dc035ada3240f826d1541344d4daf7af553834bfc6e0a846c9a2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: mongocli
+version: 2.0.7
+description: MongoDB CLI enables you to manage your MongoDB in the Cloud
+homepage: https://www.mongodb.com/docs/mongocli/current/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongocli/blobs/sha256:c1f35ee0b5565c50098d5153c9ab3fdaeae8e5980b9c3c247218c232e130e507
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongocli/blobs/sha256:1ec225fe62b327fc3ba91969ebbf1b5a84b568070e5152b2f657b5cc2f39c192
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongocli/blobs/sha256:dea1584b44fa20fd97342d27690b9e0361fb0b05d9be4f85f864b9502465b592
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongocli/blobs/sha256:4c34d8f7f035603070b116f1bbc8067ea3a389a0ef8a57662774dd1c0cb98780
+sha256:
+  darwin_arm64: c1f35ee0b5565c50098d5153c9ab3fdaeae8e5980b9c3c247218c232e130e507
+  darwin_amd64: 1ec225fe62b327fc3ba91969ebbf1b5a84b568070e5152b2f657b5cc2f39c192
+  linux_amd64: dea1584b44fa20fd97342d27690b9e0361fb0b05d9be4f85f864b9502465b592
+  linux_arm64: 4c34d8f7f035603070b116f1bbc8067ea3a389a0ef8a57662774dd1c0cb98780
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

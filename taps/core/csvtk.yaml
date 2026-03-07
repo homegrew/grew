@@ -1,0 +1,19 @@
+name: csvtk
+version: 0.36.0
+description: Cross-platform, efficient and practical CSV/TSV toolkit in Golang
+homepage: https://bioinf.shenwei.me/csvtk
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/csvtk/blobs/sha256:ad7140284f50c7162411d3da82294310ba3b71ebdff1ae51f0bc83d226926ecb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/csvtk/blobs/sha256:bc8ea12b20cc1343ad55624d92e6ae46b7cf7b22ffff7a9de0f182921d7fbf4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/csvtk/blobs/sha256:8f5d28484a4235003436d010c24dc7237f8b6fd60e5e5dc900c9f63906b57537
+  linux_arm64: https://ghcr.io/v2/homebrew/core/csvtk/blobs/sha256:e1622f170405baee419688471af0c614adcf93568eafd01c8b6cff8023996d4f
+sha256:
+  darwin_arm64: ad7140284f50c7162411d3da82294310ba3b71ebdff1ae51f0bc83d226926ecb
+  darwin_amd64: bc8ea12b20cc1343ad55624d92e6ae46b7cf7b22ffff7a9de0f182921d7fbf4a
+  linux_amd64: 8f5d28484a4235003436d010c24dc7237f8b6fd60e5e5dc900c9f63906b57537
+  linux_arm64: e1622f170405baee419688471af0c614adcf93568eafd01c8b6cff8023996d4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

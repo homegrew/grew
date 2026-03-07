@@ -1,0 +1,13 @@
+name: cherry-studio
+version: 1.7.24
+description: Desktop client that supports multiple LLM providers
+homepage: https://cherry-ai.com/
+url:
+  darwin_arm64: https://releases.cherry-ai.com/Cherry-Studio-1.7.24-arm64.zip
+sha256:
+  darwin_arm64: af1388ac42d2bcf1801ce22900e93572c88da89c302955a7fcacf4205dd3fd9d
+artifacts:
+  app:
+    - Cherry Studio.app
+  bin:
+    - cherry-studio

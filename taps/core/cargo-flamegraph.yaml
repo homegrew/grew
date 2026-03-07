@@ -1,0 +1,19 @@
+name: cargo-flamegraph
+version: 0.6.11
+description: Easy flamegraphs for Rust projects and everything else
+homepage: https://github.com/flamegraph-rs/flamegraph
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-flamegraph/blobs/sha256:ae0959bdde7eee2a73cca05edb1a9417522ec8dd7c58f406625fdf6ef5cde5c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-flamegraph/blobs/sha256:e4ac8faf0ea320f484b299bdb2919efc9f6c779134174d32333bd335d0223857
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-flamegraph/blobs/sha256:6c1cdce6946ebe6b39185c46e4442eb98bd4e3621074137304a6610796898494
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-flamegraph/blobs/sha256:3efffd53380a13ba48f38fe4ba6ac87e38c941bebed189af5d641dfc9dbbb742
+sha256:
+  darwin_arm64: ae0959bdde7eee2a73cca05edb1a9417522ec8dd7c58f406625fdf6ef5cde5c3
+  darwin_amd64: e4ac8faf0ea320f484b299bdb2919efc9f6c779134174d32333bd335d0223857
+  linux_amd64: 6c1cdce6946ebe6b39185c46e4442eb98bd4e3621074137304a6610796898494
+  linux_arm64: 3efffd53380a13ba48f38fe4ba6ac87e38c941bebed189af5d641dfc9dbbb742
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

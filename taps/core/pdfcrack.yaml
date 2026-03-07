@@ -1,0 +1,19 @@
+name: pdfcrack
+version: 0.21
+description: PDF files password cracker
+homepage: https://pdfcrack.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfcrack/blobs/sha256:69a134ef06d1ed838be0243f923f5cd403b32a4ca83adc619bda46f6d58ef91b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfcrack/blobs/sha256:2e2cd7962fcc95cac7272e42ce86b9698655398a4d370c09f1a883fe7ecd1bae
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfcrack/blobs/sha256:57887b2e4d09083f00622af759046fecde428a6dbcdc736a30f0f8eec18a6e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfcrack/blobs/sha256:faf7fb52544eb4f38866ba36569cfa621c92fd887c150a11cf05d4a5daede1ff
+sha256:
+  darwin_arm64: 69a134ef06d1ed838be0243f923f5cd403b32a4ca83adc619bda46f6d58ef91b
+  darwin_amd64: 2e2cd7962fcc95cac7272e42ce86b9698655398a4d370c09f1a883fe7ecd1bae
+  linux_amd64: 57887b2e4d09083f00622af759046fecde428a6dbcdc736a30f0f8eec18a6e82
+  linux_arm64: faf7fb52544eb4f38866ba36569cfa621c92fd887c150a11cf05d4a5daede1ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

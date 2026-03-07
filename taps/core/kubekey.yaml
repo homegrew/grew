@@ -1,0 +1,21 @@
+name: kubekey
+version: 4.0.3
+description: Installer for Kubernetes and / or KubeSphere, and related cloud-native add-ons
+homepage: https://kubesphere.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubekey/blobs/sha256:70e7ccca03b7e117d1f5ef89b40483bffc6f9882682ee0351e3277b131a90fb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubekey/blobs/sha256:d3c0b5a907c9c562a9950487ad2d1e4d12944af310aa1a7ed500e97efa3c9e18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubekey/blobs/sha256:4c3c11a92a99856a4adeddf811f6309cb77bc4f30b5a3dc32fb47508d482e7f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubekey/blobs/sha256:8263b2f8d799fca7b87fa4e0bab9a6dac2bc347b4d82a1522e5e366b5f6aaa3e
+sha256:
+  darwin_arm64: 70e7ccca03b7e117d1f5ef89b40483bffc6f9882682ee0351e3277b131a90fb2
+  darwin_amd64: d3c0b5a907c9c562a9950487ad2d1e4d12944af310aa1a7ed500e97efa3c9e18
+  linux_amd64: 4c3c11a92a99856a4adeddf811f6309cb77bc4f30b5a3dc32fb47508d482e7f9
+  linux_arm64: 8263b2f8d799fca7b87fa4e0bab9a6dac2bc347b4d82a1522e5e366b5f6aaa3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme

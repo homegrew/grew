@@ -1,0 +1,19 @@
+name: dutree
+version: 0.2.18
+description: Tool to analyze file system usage written in Rust
+homepage: https://github.com/nachoparker/dutree
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dutree/blobs/sha256:7142809bdc97574f3eb01d7b910a6cb7ac6d177da3781c91516961ced6ac46f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dutree/blobs/sha256:15d202fddeafd1e3fdbebfea5f690a3b8f045b54514e6652b9f11e988c412305
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dutree/blobs/sha256:6ea01a9b842b4fe3709ad4a95e8e1ef9d8ac9118eab5bff07df7970f844c6417
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dutree/blobs/sha256:79d48c21002b537d1ab15cf2d22327221135301388802741e015ec14bb84a8c7
+sha256:
+  darwin_arm64: 7142809bdc97574f3eb01d7b910a6cb7ac6d177da3781c91516961ced6ac46f2
+  darwin_amd64: 15d202fddeafd1e3fdbebfea5f690a3b8f045b54514e6652b9f11e988c412305
+  linux_amd64: 6ea01a9b842b4fe3709ad4a95e8e1ef9d8ac9118eab5bff07df7970f844c6417
+  linux_arm64: 79d48c21002b537d1ab15cf2d22327221135301388802741e015ec14bb84a8c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

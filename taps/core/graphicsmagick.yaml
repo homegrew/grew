@@ -1,0 +1,31 @@
+name: graphicsmagick
+version: 1.3.46
+description: Image processing tools collection
+homepage: https://graphicsmagick.sourceforge.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/graphicsmagick/blobs/sha256:6b65ffb0b494077277b0c9b654d1e2185cd88ed612a3ceac6f3c6ad5fc677cd2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/graphicsmagick/blobs/sha256:2c1d774a217f0dcd8951cff4e1e93f397a1e6f8040cd4c37ce4134443c68c5c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/graphicsmagick/blobs/sha256:8053553100e6ffbefe17bbf8cf563937ed988da6723ca8522d80bd261a096b63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/graphicsmagick/blobs/sha256:c2769339084f247efba341dc9580863597526503ab5fc7ad96445e2531a54554
+sha256:
+  darwin_arm64: 6b65ffb0b494077277b0c9b654d1e2185cd88ed612a3ceac6f3c6ad5fc677cd2
+  darwin_amd64: 2c1d774a217f0dcd8951cff4e1e93f397a1e6f8040cd4c37ce4134443c68c5c6
+  linux_amd64: 8053553100e6ffbefe17bbf8cf563937ed988da6723ca8522d80bd261a096b63
+  linux_arm64: c2769339084f247efba341dc9580863597526503ab5fc7ad96445e2531a54554
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - jasper
+  - jpeg-turbo
+  - jpeg-xl
+  - libheif
+  - libpng
+  - libtiff
+  - libtool
+  - little-cms2
+  - webp
+  - zstd

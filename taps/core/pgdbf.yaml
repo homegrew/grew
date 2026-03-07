@@ -1,0 +1,19 @@
+name: pgdbf
+version: 0.6.2
+description: Converter of XBase/FoxPro tables to PostgreSQL
+homepage: https://github.com/kstrauser/pgdbf
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgdbf/blobs/sha256:be260fe3bed2656f7950f0715feee61893dc672cd737a1752896310c70b44b0b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgdbf/blobs/sha256:f559d2b12a26f57eb903013af9eee09b149a447ef49249007e1973a9932c8255
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgdbf/blobs/sha256:7f2e231fc1b78b7837dfe257a04e2495128237e5800609675573dd2734185ea5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgdbf/blobs/sha256:6ae4511e609fa6ac9a2b0566969f0e511756b9e6b6c55f17655333aa7ddd01a0
+sha256:
+  darwin_arm64: be260fe3bed2656f7950f0715feee61893dc672cd737a1752896310c70b44b0b
+  darwin_amd64: f559d2b12a26f57eb903013af9eee09b149a447ef49249007e1973a9932c8255
+  linux_amd64: 7f2e231fc1b78b7837dfe257a04e2495128237e5800609675573dd2734185ea5
+  linux_arm64: 6ae4511e609fa6ac9a2b0566969f0e511756b9e6b6c55f17655333aa7ddd01a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: action-validator
+version: 0.8.0
+description: Tool to validate GitHub Action and Workflow YAML files
+homepage: https://github.com/mpalmer/action-validator
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/action-validator/blobs/sha256:2fca02f94098fb5318e9cf6a729e498a08788e7d165895f5dddfa321781d606a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/action-validator/blobs/sha256:728921173c7f6ec599d088e865b7db2e85de594dacf69961310b44462d54fc25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/action-validator/blobs/sha256:94e49dda6b381d74167f63da53903bf8a3e7b243d456eeb6d305b91b1ec43d10
+  linux_arm64: https://ghcr.io/v2/homebrew/core/action-validator/blobs/sha256:0541c834ef9cd4fc192f3babc34741dde6e5c0d428dc4266238a1072e13760de
+sha256:
+  darwin_arm64: 2fca02f94098fb5318e9cf6a729e498a08788e7d165895f5dddfa321781d606a
+  darwin_amd64: 728921173c7f6ec599d088e865b7db2e85de594dacf69961310b44462d54fc25
+  linux_amd64: 94e49dda6b381d74167f63da53903bf8a3e7b243d456eeb6d305b91b1ec43d10
+  linux_arm64: 0541c834ef9cd4fc192f3babc34741dde6e5c0d428dc4266238a1072e13760de
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

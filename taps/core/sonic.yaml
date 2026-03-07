@@ -1,0 +1,19 @@
+name: sonic
+version: 1.4.9
+description: "Fast, lightweight & schema-less search backend"
+homepage: https://github.com/valeriansaliou/sonic
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sonic/blobs/sha256:d426d6e74b06d8dd5b8fa28861740bb68d4f4141a1b950b1cf91817d6cfefcb2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sonic/blobs/sha256:dd0f9672179042b93dc1df50bdb4833f92a0fefe1085c37794748385fea62410
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sonic/blobs/sha256:686d7ff993a9ee79e10de1fbf250c0a9eeb67048efaaff042bbc8b579e497524
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sonic/blobs/sha256:7579cfbac1bc541ac4333adbb22a10395bb2fe2f6b687751ad4dc5e39bd109e5
+sha256:
+  darwin_arm64: d426d6e74b06d8dd5b8fa28861740bb68d4f4141a1b950b1cf91817d6cfefcb2
+  darwin_amd64: dd0f9672179042b93dc1df50bdb4833f92a0fefe1085c37794748385fea62410
+  linux_amd64: 686d7ff993a9ee79e10de1fbf250c0a9eeb67048efaaff042bbc8b579e497524
+  linux_arm64: 7579cfbac1bc541ac4333adbb22a10395bb2fe2f6b687751ad4dc5e39bd109e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

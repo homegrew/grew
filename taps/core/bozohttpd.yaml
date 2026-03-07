@@ -1,0 +1,21 @@
+name: bozohttpd
+version: 20240126
+description: Small and secure http version 1.1 server
+homepage: https://pkgsrc.se/www/bozohttpd
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bozohttpd/blobs/sha256:f071d5d2e28bc3a4ccef5b81d780fbd3995a5cca9d508356ffa860ede9737bf6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bozohttpd/blobs/sha256:58b534558d746a783487067bcb393d6908c9961f1e8e82e2c8ff0e2790e5c7aa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bozohttpd/blobs/sha256:c8f662a5761fcd610221da12ac4476496fe39bb5254c0192a05e6170b495c988
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bozohttpd/blobs/sha256:5ddfe6c1eedfc12b72ce6175e8bb8621d3c5b2cd946d5f35de76cf555c1dcd5e
+sha256:
+  darwin_arm64: f071d5d2e28bc3a4ccef5b81d780fbd3995a5cca9d508356ffa860ede9737bf6
+  darwin_amd64: 58b534558d746a783487067bcb393d6908c9961f1e8e82e2c8ff0e2790e5c7aa
+  linux_amd64: c8f662a5761fcd610221da12ac4476496fe39bb5254c0192a05e6170b495c988
+  linux_arm64: 5ddfe6c1eedfc12b72ce6175e8bb8621d3c5b2cd946d5f35de76cf555c1dcd5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

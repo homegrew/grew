@@ -1,0 +1,21 @@
+name: plotutils
+version: 2.6
+description: C/C++ function library for exporting 2-D vector graphics
+homepage: https://www.gnu.org/software/plotutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/plotutils/blobs/sha256:d0c2f1bd4307fc85da7079c7e215075d8440c8bb92c44e47d7b449d76afb6055
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/plotutils/blobs/sha256:cf4be8e3f730ac440f962c7b586b5265933121ed6d94c4dc675e9a355b8909ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/plotutils/blobs/sha256:74b0edefd4bc7eb703cf1579159b7d746502c77538f58b981405c1cf9ba6d042
+  linux_arm64: https://ghcr.io/v2/homebrew/core/plotutils/blobs/sha256:7f042f52c72e85c663689b220172d739a64e95948fc2c3b6175696c513fca1cc
+sha256:
+  darwin_arm64: d0c2f1bd4307fc85da7079c7e215075d8440c8bb92c44e47d7b449d76afb6055
+  darwin_amd64: cf4be8e3f730ac440f962c7b586b5265933121ed6d94c4dc675e9a355b8909ba
+  linux_amd64: 74b0edefd4bc7eb703cf1579159b7d746502c77538f58b981405c1cf9ba6d042
+  linux_arm64: 7f042f52c72e85c663689b220172d739a64e95948fc2c3b6175696c513fca1cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

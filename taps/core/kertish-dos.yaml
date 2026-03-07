@@ -1,0 +1,19 @@
+name: kertish-dos
+version: 22.2.0147-532592
+description: Kertish Object Storage and Cluster Administration CLI
+homepage: https://github.com/freakmaxi/kertish-dos
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kertish-dos/blobs/sha256:bce3b8645b27f84f8c8452740dfd4494c747fbee848d8d667148fd1e0cc19db8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kertish-dos/blobs/sha256:58bf87f97fb1e1399d1a09a0de3d9db3ba783c821343ef8de762ba835417b6fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kertish-dos/blobs/sha256:bbca4d722bae4b3f940401a080bdf08f664411b93c161dba75f06686c52e2c94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kertish-dos/blobs/sha256:35615629ee3146399af7190ed267eacbad3123c2b0515a91c35b518d41c9dea7
+sha256:
+  darwin_arm64: bce3b8645b27f84f8c8452740dfd4494c747fbee848d8d667148fd1e0cc19db8
+  darwin_amd64: 58bf87f97fb1e1399d1a09a0de3d9db3ba783c821343ef8de762ba835417b6fe
+  linux_amd64: bbca4d722bae4b3f940401a080bdf08f664411b93c161dba75f06686c52e2c94
+  linux_arm64: 35615629ee3146399af7190ed267eacbad3123c2b0515a91c35b518d41c9dea7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

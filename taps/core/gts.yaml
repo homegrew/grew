@@ -1,0 +1,23 @@
+name: gts
+version: 0.7.6
+description: GNU triangulated surface library
+homepage: https://gts.sourceforge.net/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gts/blobs/sha256:1a940ea785d016728373922b4b02ed3d40f3abf4da34cc29c671446eada28d59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gts/blobs/sha256:63d06518c5c1da686ecf76d612b7717bc021d8c19a6470a21ec1f69020fe1dac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gts/blobs/sha256:4c6bb3e3859bee6f8b113a08d7d158a19ef46ec307073fac12c90c4a0113f69e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gts/blobs/sha256:b822bc2eb7de37c9497056021cca4397053d11bfafc980820766bcdced8daff5
+sha256:
+  darwin_arm64: 1a940ea785d016728373922b4b02ed3d40f3abf4da34cc29c671446eada28d59
+  darwin_amd64: 63d06518c5c1da686ecf76d612b7717bc021d8c19a6470a21ec1f69020fe1dac
+  linux_amd64: 4c6bb3e3859bee6f8b113a08d7d158a19ef46ec307073fac12c90c4a0113f69e
+  linux_arm64: b822bc2eb7de37c9497056021cca4397053d11bfafc980820766bcdced8daff5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - netpbm
+  - gettext

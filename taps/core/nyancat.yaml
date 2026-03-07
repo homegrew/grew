@@ -1,0 +1,19 @@
+name: nyancat
+version: 1.5.2
+description: Renders an animated, color, ANSI-text loop of the Poptart Cat
+homepage: https://nyancat.dakko.us/
+license: NCSA
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nyancat/blobs/sha256:4063d47ab6f498ff5b7dc2baef313c16f68e20bf302f219c43ef7f6ef24c611d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nyancat/blobs/sha256:c667cbec3790985e18b2d88173f7d3bb1d277661e074a161d8972502fedfd757
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nyancat/blobs/sha256:69b8c44133a399fddd0b6b6db41d2dcd9ba2420a5c5b53e62409d14cfacadc85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nyancat/blobs/sha256:f8ec43d463c0a65e4c50c3e3d2675fb3f89fba1503fc036b1b717eecda6a1511
+sha256:
+  darwin_arm64: 4063d47ab6f498ff5b7dc2baef313c16f68e20bf302f219c43ef7f6ef24c611d
+  darwin_amd64: c667cbec3790985e18b2d88173f7d3bb1d277661e074a161d8972502fedfd757
+  linux_amd64: 69b8c44133a399fddd0b6b6db41d2dcd9ba2420a5c5b53e62409d14cfacadc85
+  linux_arm64: f8ec43d463c0a65e4c50c3e3d2675fb3f89fba1503fc036b1b717eecda6a1511
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

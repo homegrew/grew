@@ -1,0 +1,21 @@
+name: swift-protobuf
+version: 1.35.1
+description: Plugin and runtime library for using protobuf with Swift
+homepage: https://github.com/apple/swift-protobuf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swift-protobuf/blobs/sha256:9d904435c14a74f3bae452aae88b4568d83c9692c5bbac560b4a510e677baada
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swift-protobuf/blobs/sha256:6cedaae1c605e90efdd73ce02497a2a7595bebb5e4adf00d11f3c829312bc806
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swift-protobuf/blobs/sha256:a1360af0c771988b4660edbbc9ffbef30859b8c6d59e294ebf482d9977b6a33f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swift-protobuf/blobs/sha256:3f59f8627a3eded13fe811529888de947e7a42ec6e9d44de0f9aff7a3579b5a0
+sha256:
+  darwin_arm64: 9d904435c14a74f3bae452aae88b4568d83c9692c5bbac560b4a510e677baada
+  darwin_amd64: 6cedaae1c605e90efdd73ce02497a2a7595bebb5e4adf00d11f3c829312bc806
+  linux_amd64: a1360af0c771988b4660edbbc9ffbef30859b8c6d59e294ebf482d9977b6a33f
+  linux_arm64: 3f59f8627a3eded13fe811529888de947e7a42ec6e9d44de0f9aff7a3579b5a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - protobuf

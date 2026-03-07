@@ -1,0 +1,19 @@
+name: opal
+version: 1.8.2
+description: Ruby to JavaScript transpiler
+homepage: https://opalrb.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opal/blobs/sha256:ef42487ed8cae694f8d10dc826cfcd68c99f316f408382284b5ec4f176111d09
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opal/blobs/sha256:0221fb61f196b9cf8d920dab63202bbd88a1cca1c39faeddc90eeb98809a7825
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opal/blobs/sha256:f250a308dd4b1ecfc9bab719bad3a47b2db363af2ca9642a3a81c1b6d9df815d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opal/blobs/sha256:5d5d252a73da8ef3044f0378d88d5dfb4d18a500fda114392cc3f6481fff46a3
+sha256:
+  darwin_arm64: ef42487ed8cae694f8d10dc826cfcd68c99f316f408382284b5ec4f176111d09
+  darwin_amd64: 0221fb61f196b9cf8d920dab63202bbd88a1cca1c39faeddc90eeb98809a7825
+  linux_amd64: f250a308dd4b1ecfc9bab719bad3a47b2db363af2ca9642a3a81c1b6d9df815d
+  linux_arm64: 5d5d252a73da8ef3044f0378d88d5dfb4d18a500fda114392cc3f6481fff46a3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

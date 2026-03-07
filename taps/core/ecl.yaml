@@ -1,0 +1,22 @@
+name: ecl
+version: 24.5.10
+description: Embeddable Common Lisp
+homepage: https://ecl.common-lisp.dev
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ecl/blobs/sha256:792a14c129f90bf2d9394da6c7af284e69548a20f0928b9623b36d3aa7261545
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ecl/blobs/sha256:2a29cff3a5684dc0171d182ca98308ffd5f16336500b03e3352c40f699bd999e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ecl/blobs/sha256:fcc4ecc3ffdf65a6d96712a835d80711d804f643139208fe49ea029296a0a1dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ecl/blobs/sha256:5693dbc0e01cdaf463ca0ab804fb0454b9739d7c53b64fb421f2c4422e41fec2
+sha256:
+  darwin_arm64: 792a14c129f90bf2d9394da6c7af284e69548a20f0928b9623b36d3aa7261545
+  darwin_amd64: 2a29cff3a5684dc0171d182ca98308ffd5f16336500b03e3352c40f699bd999e
+  linux_amd64: fcc4ecc3ffdf65a6d96712a835d80711d804f643139208fe49ea029296a0a1dc
+  linux_arm64: 5693dbc0e01cdaf463ca0ab804fb0454b9739d7c53b64fb421f2c4422e41fec2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - gmp

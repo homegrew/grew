@@ -1,0 +1,19 @@
+name: mcp-grafana
+version: 0.11.2
+description: MCP server for Grafana
+homepage: https://github.com/grafana/mcp-grafana
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mcp-grafana/blobs/sha256:18f5749f52fc90ff9ff8f81269423a7225d9a7ac57968cb69919d063ad2a036a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mcp-grafana/blobs/sha256:994a29115af065d6390dad54b482f7ca5408d2f387186bcb802d5085e02bf9ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mcp-grafana/blobs/sha256:1e5ccf42e7ca96d45f7d85d268bb037cbcb347fa993cc63c509960abb99768fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mcp-grafana/blobs/sha256:7c8a8c147169191ec72504eb32123bfd68651d301d549066a8dd2b9aa9636c6f
+sha256:
+  darwin_arm64: 18f5749f52fc90ff9ff8f81269423a7225d9a7ac57968cb69919d063ad2a036a
+  darwin_amd64: 994a29115af065d6390dad54b482f7ca5408d2f387186bcb802d5085e02bf9ab
+  linux_amd64: 1e5ccf42e7ca96d45f7d85d268bb037cbcb347fa993cc63c509960abb99768fc
+  linux_arm64: 7c8a8c147169191ec72504eb32123bfd68651d301d549066a8dd2b9aa9636c6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

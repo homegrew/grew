@@ -1,0 +1,23 @@
+name: dbus-glib
+version: 0.114
+description: GLib bindings for the D-Bus message bus system
+homepage: https://wiki.freedesktop.org/www/Software/DBusBindings/
+license: GPL-2.0-or-later AND (AFL-2.1 OR GPL-2.0-or-later)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dbus-glib/blobs/sha256:401e43f50e9b03988ef5f057f5c4bfc097e593ae90403e9a5536a004bcefb7be
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dbus-glib/blobs/sha256:4c988a24f589781b5bb28327a21c4747b63f791f322373697a5ce5638b618cc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dbus-glib/blobs/sha256:dc8cacd16db1b5c793b1d76dc356a774f6bdac23866e441276e9d28faaf2125a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dbus-glib/blobs/sha256:8249f4716373f900407265373ce487766766565b614a81875194881fc6a01117
+sha256:
+  darwin_arm64: 401e43f50e9b03988ef5f057f5c4bfc097e593ae90403e9a5536a004bcefb7be
+  darwin_amd64: 4c988a24f589781b5bb28327a21c4747b63f791f322373697a5ce5638b618cc2
+  linux_amd64: dc8cacd16db1b5c793b1d76dc356a774f6bdac23866e441276e9d28faaf2125a
+  linux_arm64: 8249f4716373f900407265373ce487766766565b614a81875194881fc6a01117
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dbus
+  - glib
+  - gettext

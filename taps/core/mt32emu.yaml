@@ -1,0 +1,22 @@
+name: mt32emu
+version: 2.7.3
+description: Multi-platform software synthesiser
+homepage: https://github.com/munt/munt
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mt32emu/blobs/sha256:51037c0eac2abd5e9470bc021f98ce2eb2034acfd16e381594277e90dd016232
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mt32emu/blobs/sha256:a7eed09a0ac9a1337a3421d58ca4bf30ca432c853f460a796044318d03081e37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mt32emu/blobs/sha256:a80a2c15efd86451b5cc26db94cae93e7b64157c07449df9c70cb94741db78b5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mt32emu/blobs/sha256:ee5e81dac94185b8566d62f8246d8ac39165ae880f6f8bf96b148b7631cdf11f
+sha256:
+  darwin_arm64: 51037c0eac2abd5e9470bc021f98ce2eb2034acfd16e381594277e90dd016232
+  darwin_amd64: a7eed09a0ac9a1337a3421d58ca4bf30ca432c853f460a796044318d03081e37
+  linux_amd64: a80a2c15efd86451b5cc26db94cae93e7b64157c07449df9c70cb94741db78b5
+  linux_arm64: ee5e81dac94185b8566d62f8246d8ac39165ae880f6f8bf96b148b7631cdf11f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsamplerate
+  - libsoxr

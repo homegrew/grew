@@ -1,0 +1,22 @@
+name: qtdeclarative
+version: 6.10.2
+description: QML, Qt Quick and several related modules
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND BSD-2-Clause AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtdeclarative/blobs/sha256:40c4fa0ae02ea69c6bddfc2ed6e184638c59843e6ccc23d89ca5fb0d020db793
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtdeclarative/blobs/sha256:826cdedf5cf1d7180bec128312b7a1ab708228cbff94b21d4a5f204561373d93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtdeclarative/blobs/sha256:412bad1588deeefae1fb0ba898d387cc3155b3656791e5285930e95be0a47c42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtdeclarative/blobs/sha256:3cb7ddd01b559c5b2fd499c20ee01b2c62f7041934d9a36317dbba4373b5236f
+sha256:
+  darwin_arm64: 40c4fa0ae02ea69c6bddfc2ed6e184638c59843e6ccc23d89ca5fb0d020db793
+  darwin_amd64: 826cdedf5cf1d7180bec128312b7a1ab708228cbff94b21d4a5f204561373d93
+  linux_amd64: 412bad1588deeefae1fb0ba898d387cc3155b3656791e5285930e95be0a47c42
+  linux_arm64: 3cb7ddd01b559c5b2fd499c20ee01b2c62f7041934d9a36317dbba4373b5236f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtsvg

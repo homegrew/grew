@@ -1,0 +1,19 @@
+name: addlicense
+version: 1.2.0
+description: Scan directories recursively to ensure source files have license headers
+homepage: https://github.com/google/addlicense
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/addlicense/blobs/sha256:d805d6f3d40e1004189f3ac86a50250f2a2c7eef920127565c59f646f703ed30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/addlicense/blobs/sha256:feee4e9cf952c2d3bc600e044b275c059450a897543c033c7bae0961020175fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/addlicense/blobs/sha256:e8c37cd4c9c5b2dcb5fc8091b30900e71216d0d7fd4fe6d562d10b2d1a38fd46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/addlicense/blobs/sha256:146bce5af0963bcfad9a958fcb92b082c1ae4c95971f09a43f7dffecbc83ca0f
+sha256:
+  darwin_arm64: d805d6f3d40e1004189f3ac86a50250f2a2c7eef920127565c59f646f703ed30
+  darwin_amd64: feee4e9cf952c2d3bc600e044b275c059450a897543c033c7bae0961020175fb
+  linux_amd64: e8c37cd4c9c5b2dcb5fc8091b30900e71216d0d7fd4fe6d562d10b2d1a38fd46
+  linux_arm64: 146bce5af0963bcfad9a958fcb92b082c1ae4c95971f09a43f7dffecbc83ca0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

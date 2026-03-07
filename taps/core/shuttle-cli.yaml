@@ -1,0 +1,19 @@
+name: shuttle-cli
+version: 0.24.3
+description: CLI for handling shared build and deploy tools between many projects
+homepage: https://github.com/lunarway/shuttle
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shuttle-cli/blobs/sha256:f5e8bb4b72731ce957e8642a4dc363c0119c12298a191e3f774d130e0d947db0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shuttle-cli/blobs/sha256:5aed20ea25a270dd87249277003e75da31e91988fb461b95596b727bb35df25c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shuttle-cli/blobs/sha256:be0bb28ca0505b75b4c6606f528eac6a2b6fdbb1e40e1ed3fb788793114daaff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shuttle-cli/blobs/sha256:b0b8712fd91bde4dc653e8e37e4cb0030b864707178c2ec10b358fea9b14a0ef
+sha256:
+  darwin_arm64: f5e8bb4b72731ce957e8642a4dc363c0119c12298a191e3f774d130e0d947db0
+  darwin_amd64: 5aed20ea25a270dd87249277003e75da31e91988fb461b95596b727bb35df25c
+  linux_amd64: be0bb28ca0505b75b4c6606f528eac6a2b6fdbb1e40e1ed3fb788793114daaff
+  linux_arm64: b0b8712fd91bde4dc653e8e37e4cb0030b864707178c2ec10b358fea9b14a0ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

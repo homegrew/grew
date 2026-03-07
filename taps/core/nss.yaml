@@ -1,0 +1,21 @@
+name: nss
+version: 3.121
+description: Libraries for security-enabled client and server applications
+homepage: https://firefox-source-docs.mozilla.org/security/nss/index.html
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nss/blobs/sha256:b0f0cfd94a201102f46c88231dc047be34ee130ea3b2ab5af5b0fc2fe3ce93a9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nss/blobs/sha256:7624d64d2379f66b9223c1696bc9a9109d1f9b90da8cfc5c5ce806aa98f5bf31
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nss/blobs/sha256:2fc409346cbdf838610024d6a355d46bd851ded0bbd786923106129d9200b08b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nss/blobs/sha256:69895bb7fdabc338e5d53f76f94f5f6b6b8367c7a9c6d1943f111fbfde071f71
+sha256:
+  darwin_arm64: b0f0cfd94a201102f46c88231dc047be34ee130ea3b2ab5af5b0fc2fe3ce93a9
+  darwin_amd64: 7624d64d2379f66b9223c1696bc9a9109d1f9b90da8cfc5c5ce806aa98f5bf31
+  linux_amd64: 2fc409346cbdf838610024d6a355d46bd851ded0bbd786923106129d9200b08b
+  linux_arm64: 69895bb7fdabc338e5d53f76f94f5f6b6b8367c7a9c6d1943f111fbfde071f71
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - nspr

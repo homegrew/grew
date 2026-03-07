@@ -1,0 +1,19 @@
+name: dnsmap
+version: 0.36
+description: Passive DNS network mapper (a.k.a. subdomains bruteforcer)
+homepage: https://github.com/resurrecting-open-source-projects/dnsmap
+license: GPL-2.0-or-later AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnsmap/blobs/sha256:4134bcbd1d8db51421b99a06ed1e19a6325672e0c70a67f7ab9754335e801558
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnsmap/blobs/sha256:b4aa02b4564189933d169045d37519cfa61dd374b593052819e189ab5ac8fa24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnsmap/blobs/sha256:165264ad85acecb8f79932782e3e0a1eba9110462ac627379ddc3d07ef4190b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnsmap/blobs/sha256:9751b94b353d2c3a0fc7270f4989d1d93f75709ebdc2c3377e8c8cedc5c5f880
+sha256:
+  darwin_arm64: 4134bcbd1d8db51421b99a06ed1e19a6325672e0c70a67f7ab9754335e801558
+  darwin_amd64: b4aa02b4564189933d169045d37519cfa61dd374b593052819e189ab5ac8fa24
+  linux_amd64: 165264ad85acecb8f79932782e3e0a1eba9110462ac627379ddc3d07ef4190b4
+  linux_arm64: 9751b94b353d2c3a0fc7270f4989d1d93f75709ebdc2c3377e8c8cedc5c5f880
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

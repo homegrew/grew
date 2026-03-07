@@ -1,0 +1,19 @@
+name: swift-sh
+version: 2.5.0
+description: Scripting with easy zero-conf dependency imports
+homepage: https://github.com/mxcl/swift-sh
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swift-sh/blobs/sha256:a0a9ff13a99469ab189deb4388cfaa4f2519367b8aee3e9016f4f31a10515f43
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swift-sh/blobs/sha256:bcdbf8f07f26f137a6e67ff2a8e0b28b3a682d7ef72715d098ade8653a28ffff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swift-sh/blobs/sha256:71745bc8b439b6b0f689f0f00a2973060c1962e7591f8bc65ccd82b61de8fd76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swift-sh/blobs/sha256:a267119c862d631a803769db55835b27d91a6a143bf1c9182e44922734bba16f
+sha256:
+  darwin_arm64: a0a9ff13a99469ab189deb4388cfaa4f2519367b8aee3e9016f4f31a10515f43
+  darwin_amd64: bcdbf8f07f26f137a6e67ff2a8e0b28b3a682d7ef72715d098ade8653a28ffff
+  linux_amd64: 71745bc8b439b6b0f689f0f00a2973060c1962e7591f8bc65ccd82b61de8fd76
+  linux_arm64: a267119c862d631a803769db55835b27d91a6a143bf1c9182e44922734bba16f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

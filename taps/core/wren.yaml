@@ -1,0 +1,19 @@
+name: wren
+version: 0.4.0
+description: Small, fast, class-based concurrent scripting language
+homepage: https://wren.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wren/blobs/sha256:8c4291a4d7ced18176f129c62108b7a2f0286501d05b23ba5f3edcc3016f69c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wren/blobs/sha256:126f8d26f864a6efb1bcddf49d492c5c9246bf3aff05b7cd58b8479e1eba83d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wren/blobs/sha256:e9129580dd56d4ad4ad66ac59e1d43533b54816936fc18d0216a445d576598e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wren/blobs/sha256:33182bdc7645b09e96f4fdc1b7bc949b9b521e15bd6a3b78569966ba0ad132c4
+sha256:
+  darwin_arm64: 8c4291a4d7ced18176f129c62108b7a2f0286501d05b23ba5f3edcc3016f69c9
+  darwin_amd64: 126f8d26f864a6efb1bcddf49d492c5c9246bf3aff05b7cd58b8479e1eba83d8
+  linux_amd64: e9129580dd56d4ad4ad66ac59e1d43533b54816936fc18d0216a445d576598e0
+  linux_arm64: 33182bdc7645b09e96f4fdc1b7bc949b9b521e15bd6a3b78569966ba0ad132c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

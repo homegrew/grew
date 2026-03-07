@@ -1,0 +1,19 @@
+name: erg
+version: 0.6.53
+description: Statically typed language that can deeply improve the Python ecosystem
+homepage: https://github.com/erg-lang/erg
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/erg/blobs/sha256:e023ac2edc96a64a6018908035a57dae257571215a9c07638c51163412f17fb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/erg/blobs/sha256:516605c356e210661c1ffa58b8820e302786a7abc3b3c54e320e428f80ef6661
+  linux_amd64: https://ghcr.io/v2/homebrew/core/erg/blobs/sha256:788d1c686b0a1dbc909294bc26e6057dc95aaed023fc3058b9674c31a9cdd8bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/erg/blobs/sha256:ebb138f3a99d1ca2d0ee80bbf068198cd920bdd75854f92436fed724fcf79df5
+sha256:
+  darwin_arm64: e023ac2edc96a64a6018908035a57dae257571215a9c07638c51163412f17fb6
+  darwin_amd64: 516605c356e210661c1ffa58b8820e302786a7abc3b3c54e320e428f80ef6661
+  linux_amd64: 788d1c686b0a1dbc909294bc26e6057dc95aaed023fc3058b9674c31a9cdd8bb
+  linux_arm64: ebb138f3a99d1ca2d0ee80bbf068198cd920bdd75854f92436fed724fcf79df5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

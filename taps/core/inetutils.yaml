@@ -1,0 +1,21 @@
+name: inetutils
+version: 2.7
+description: GNU utilities for networking
+homepage: https://www.gnu.org/software/inetutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/inetutils/blobs/sha256:679c93f5939a40a29d8405d0494cf42900d039adde87f2c6c80cb0ac78bea4d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/inetutils/blobs/sha256:bb1efe4e985bba255854ed3cb1b3b1a5e94a2be65b390a6f384746e1be4f3009
+  linux_amd64: https://ghcr.io/v2/homebrew/core/inetutils/blobs/sha256:252b3d566a72404df73d6a4c5e4094a4bf84ed98a594ae6fb5c5174ea8ad85ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/inetutils/blobs/sha256:2f583154f1494f33345fe3d74baba8805fb95be9cb152ffe1f7b3b4a4fa84d45
+sha256:
+  darwin_arm64: 679c93f5939a40a29d8405d0494cf42900d039adde87f2c6c80cb0ac78bea4d5
+  darwin_amd64: bb1efe4e985bba255854ed3cb1b3b1a5e94a2be65b390a6f384746e1be4f3009
+  linux_amd64: 252b3d566a72404df73d6a4c5e4094a4bf84ed98a594ae6fb5c5174ea8ad85ae
+  linux_arm64: 2f583154f1494f33345fe3d74baba8805fb95be9cb152ffe1f7b3b4a4fa84d45
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2

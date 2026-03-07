@@ -1,0 +1,27 @@
+name: vipsdisp
+version: 4.1.3
+description: Viewer for large images
+homepage: https://github.com/jcupitt/vipsdisp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vipsdisp/blobs/sha256:f1d8149ab410b4e98de0609ccc20638687c7301e9ac2d9db74e289ccc89ea455
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vipsdisp/blobs/sha256:b9e7e86fa6fba8bb99701646e492e315ef20dd6eb850780477509c30025ba64b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vipsdisp/blobs/sha256:6135a5be7f7cadf2294843c1a7bbe96a5539366696eac56e37533458e438ffd6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vipsdisp/blobs/sha256:22ed1327cab00506ea09028e5e3b818e23aecb95cca43df09cde10b408af4d82
+sha256:
+  darwin_arm64: f1d8149ab410b4e98de0609ccc20638687c7301e9ac2d9db74e289ccc89ea455
+  darwin_amd64: b9e7e86fa6fba8bb99701646e492e315ef20dd6eb850780477509c30025ba64b
+  linux_amd64: 6135a5be7f7cadf2294843c1a7bbe96a5539366696eac56e37533458e438ffd6
+  linux_arm64: 22ed1327cab00506ea09028e5e3b818e23aecb95cca43df09cde10b408af4d82
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - graphene
+  - gtk4
+  - hicolor-icon-theme
+  - vips

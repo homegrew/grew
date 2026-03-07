@@ -1,0 +1,15 @@
+name: macosvpn
+version: 2.0.0
+description: Create Mac OS VPNs programmatically
+homepage: https://github.com/halo/macosvpn
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macosvpn/blobs/sha256:b5eb27f50fea31e5fba9f320ee8a43ce8a1a393507a9a892864712fd37f73f5e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macosvpn/blobs/sha256:c921fa16adaf91069156266afc6930ebc2dbd580e3653b099336e0154e7a2e3f
+sha256:
+  darwin_arm64: b5eb27f50fea31e5fba9f320ee8a43ce8a1a393507a9a892864712fd37f73f5e
+  darwin_amd64: c921fa16adaf91069156266afc6930ebc2dbd580e3653b099336e0154e7a2e3f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

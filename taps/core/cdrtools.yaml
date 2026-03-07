@@ -1,0 +1,19 @@
+name: cdrtools
+version: 3.02a09
+description: CD/DVD/Blu-ray premastering and recording software
+homepage: https://cdrtools.sourceforge.net/private/cdrecord.html
+license: CDDL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdrtools/blobs/sha256:f288c36da4a1fb214eea796214193de02c0193d7e1237829114fe5b978e5e0f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdrtools/blobs/sha256:f406e331c0d3bb1622f48e71a6d0b68994f10123758f23c86492ba552fc22035
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdrtools/blobs/sha256:4933b72c86f84c6378d621ecc1e5ac26621ef8b5b8e890b0841d389edc64db12
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdrtools/blobs/sha256:a4ccf338b3311fd3f83255a94da5bc352d00e458deb031f311c26a7b1b48206d
+sha256:
+  darwin_arm64: f288c36da4a1fb214eea796214193de02c0193d7e1237829114fe5b978e5e0f4
+  darwin_amd64: f406e331c0d3bb1622f48e71a6d0b68994f10123758f23c86492ba552fc22035
+  linux_amd64: 4933b72c86f84c6378d621ecc1e5ac26621ef8b5b8e890b0841d389edc64db12
+  linux_arm64: a4ccf338b3311fd3f83255a94da5bc352d00e458deb031f311c26a7b1b48206d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

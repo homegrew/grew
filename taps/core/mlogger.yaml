@@ -1,0 +1,19 @@
+name: mlogger
+version: 1.2.0
+description: Log to syslog from the command-line
+homepage: https://github.com/nbrownus/mlogger
+license: BSD-4-Clause-UC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mlogger/blobs/sha256:cc6b446dfb01998bc78128701dfbe10445b0b9433c0f089ada2a04061567e45e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mlogger/blobs/sha256:42d5f8ef829d658a56aefeeb745d09a0629a2dc65fef77782230cb769a76a25f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mlogger/blobs/sha256:893dd3f909fe05978eef82de9222ba24cb05e208d73d63f5ef591098df8ceb56
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mlogger/blobs/sha256:4a8e20b3e717630d8811f612f1808671a08b0e231048d2c014e4b3bc1e4bd424
+sha256:
+  darwin_arm64: cc6b446dfb01998bc78128701dfbe10445b0b9433c0f089ada2a04061567e45e
+  darwin_amd64: 42d5f8ef829d658a56aefeeb745d09a0629a2dc65fef77782230cb769a76a25f
+  linux_amd64: 893dd3f909fe05978eef82de9222ba24cb05e208d73d63f5ef591098df8ceb56
+  linux_arm64: 4a8e20b3e717630d8811f612f1808671a08b0e231048d2c014e4b3bc1e4bd424
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

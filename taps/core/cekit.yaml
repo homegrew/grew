@@ -1,0 +1,22 @@
+name: cekit
+version: 4.16.0
+description: Container Evolution Kit
+homepage: https://cekit.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cekit/blobs/sha256:87c37dcbed05db79ec5b50b9276dcf59b919651359aaa4f6dc32d288752eaafe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cekit/blobs/sha256:edb62835bb61b5103635737185c0b0d05f03c6dbcc46d8eea531c9be08bf7e3a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cekit/blobs/sha256:298b831ac276a17cc40a389484be26ea952a061d83cf7aeb78ce3c97cdc0fe39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cekit/blobs/sha256:c51f4773091b2ebd1eaf8150882fbf92e26354ce249d35d056418b57c4b0a1c7
+sha256:
+  darwin_arm64: 87c37dcbed05db79ec5b50b9276dcf59b919651359aaa4f6dc32d288752eaafe
+  darwin_amd64: edb62835bb61b5103635737185c0b0d05f03c6dbcc46d8eea531c9be08bf7e3a
+  linux_amd64: 298b831ac276a17cc40a389484be26ea952a061d83cf7aeb78ce3c97cdc0fe39
+  linux_arm64: c51f4773091b2ebd1eaf8150882fbf92e26354ce249d35d056418b57c4b0a1c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,22 @@
+name: gsasl
+version: 2.2.2
+description: SASL library command-line interface
+homepage: https://www.gnu.org/software/gsasl/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gsasl/blobs/sha256:1dd75fa56b2505c6edd733f8848a46dd624dba73d43df132deddc1a05c167d30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gsasl/blobs/sha256:f8b9c8e586b6e83810512a0feb031b2b1a16f181c3c06b3a223ba7463dca256d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gsasl/blobs/sha256:e617b7fd6c52d487cdd7e33f6ade76b2fa98499605192cd1420c06fa5b3218ae
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gsasl/blobs/sha256:653c99b1e92e213c8f3d2a479bc24fa7db0b6d7a13e00110470f02b331412f92
+sha256:
+  darwin_arm64: 1dd75fa56b2505c6edd733f8848a46dd624dba73d43df132deddc1a05c167d30
+  darwin_amd64: f8b9c8e586b6e83810512a0feb031b2b1a16f181c3c06b3a223ba7463dca256d
+  linux_amd64: e617b7fd6c52d487cdd7e33f6ade76b2fa98499605192cd1420c06fa5b3218ae
+  linux_arm64: 653c99b1e92e213c8f3d2a479bc24fa7db0b6d7a13e00110470f02b331412f92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - gettext

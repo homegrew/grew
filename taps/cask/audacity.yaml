@@ -1,0 +1,11 @@
+name: audacity
+version: 3.7.7
+description: Multi-track audio editor and recorder
+homepage: https://www.audacityteam.org/
+url:
+  darwin_arm64: https://github.com/audacity/audacity/releases/download/Audacity-3.7.7/audacity-macOS-3.7.7-arm64.dmg
+sha256:
+  darwin_arm64: 8b3c43a06eef2977bd81fd14f349d93c6295f1760a93fc5bd4dba86c0ec104eb
+artifacts:
+  app:
+    - Audacity.app

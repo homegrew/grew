@@ -1,0 +1,22 @@
+name: xxh
+version: 0.8.14
+description: Bring your favorite shell wherever you go through the ssh
+homepage: https://github.com/xxh/xxh
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xxh/blobs/sha256:07ed49c087bd4b82099ff25d213a71627a53d0c86bce7f95938a0072cf1e05ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xxh/blobs/sha256:8a1313dff05fbd4a04345cc3c5782d2142eb07ad9ba0dfa21761d58363ac76c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xxh/blobs/sha256:4fe168ea7da7ddf85fba4193337c1c4e60d52f0005fdc48c3510de8c35cef67b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xxh/blobs/sha256:f69ba9f8e23d52efd349c6d51cdfcd2dec59c8828b76589ba2a2a94765b58301
+sha256:
+  darwin_arm64: 07ed49c087bd4b82099ff25d213a71627a53d0c86bce7f95938a0072cf1e05ac
+  darwin_amd64: 8a1313dff05fbd4a04345cc3c5782d2142eb07ad9ba0dfa21761d58363ac76c7
+  linux_amd64: 4fe168ea7da7ddf85fba4193337c1c4e60d52f0005fdc48c3510de8c35cef67b
+  linux_arm64: f69ba9f8e23d52efd349c6d51cdfcd2dec59c8828b76589ba2a2a94765b58301
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

@@ -1,0 +1,21 @@
+name: libmusicbrainz
+version: 5.1.0
+description: MusicBrainz Client Library
+homepage: https://musicbrainz.org/doc/libmusicbrainz
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmusicbrainz/blobs/sha256:bedefe5a0086b73a7ccfa342df5af7238cdd9851d541d19b6069549098f507d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmusicbrainz/blobs/sha256:b424ac7a62a339cf9c1c1e63f60624fd5294329ae6ca3bd259f30bf53893cafc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmusicbrainz/blobs/sha256:7d3ffdc6b8d4cd953ca8635cf70224441987b26484725fd1339da7ef3fb2c678
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmusicbrainz/blobs/sha256:f01561b97020929208e94416f0b01b62e5524d577429ea2a6ef1279ed81cd8a9
+sha256:
+  darwin_arm64: bedefe5a0086b73a7ccfa342df5af7238cdd9851d541d19b6069549098f507d2
+  darwin_amd64: b424ac7a62a339cf9c1c1e63f60624fd5294329ae6ca3bd259f30bf53893cafc
+  linux_amd64: 7d3ffdc6b8d4cd953ca8635cf70224441987b26484725fd1339da7ef3fb2c678
+  linux_arm64: f01561b97020929208e94416f0b01b62e5524d577429ea2a6ef1279ed81cd8a9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - neon

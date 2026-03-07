@@ -1,0 +1,23 @@
+name: uhd
+version: 4.9.0.1
+description: Hardware driver for all USRP devices
+homepage: https://files.ettus.com/manual/
+license: GPL-3.0-or-later AND LGPL-3.0-or-later AND MIT AND BSD-3-Clause AND Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uhd/blobs/sha256:261b880284b0af7ee4fedeb3134ecd8650705ef53640091f057cf154be874d74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uhd/blobs/sha256:2111c2fd0c29de1e19977e5908c3be0bf4d6127e1168a3dca696e194fdba38c2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uhd/blobs/sha256:43c13c228c82b67efe6e41031441f501faef05b9efcb7c9fc47baee7b43abc4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uhd/blobs/sha256:13a26ca46463c3c1e3656d25964804717fad9d64ab447f4df47dc36686acb58d
+sha256:
+  darwin_arm64: 261b880284b0af7ee4fedeb3134ecd8650705ef53640091f057cf154be874d74
+  darwin_amd64: 2111c2fd0c29de1e19977e5908c3be0bf4d6127e1168a3dca696e194fdba38c2
+  linux_amd64: 43c13c228c82b67efe6e41031441f501faef05b9efcb7c9fc47baee7b43abc4a
+  linux_arm64: 13a26ca46463c3c1e3656d25964804717fad9d64ab447f4df47dc36686acb58d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - libusb
+  - python@3.14

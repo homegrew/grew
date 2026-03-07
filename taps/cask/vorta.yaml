@@ -1,0 +1,11 @@
+name: vorta
+version: 0.11.3
+description: Desktop Backup Client for Borg
+homepage: https://github.com/borgbase/vorta
+url:
+  darwin_arm64: https://github.com/borgbase/vorta/releases/download/v0.11.3/Vorta-v0.11.3-arm.dmg
+sha256:
+  darwin_arm64: 03f234d030e7ec1ae9bf4af808f71c081325c495a498909ba706ba69d0c10ad3
+artifacts:
+  app:
+    - Vorta.app

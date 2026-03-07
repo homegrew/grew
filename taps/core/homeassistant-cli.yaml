@@ -1,0 +1,22 @@
+name: homeassistant-cli
+version: 0.9.6
+description: Command-line utility for Home Assistant
+homepage: https://github.com/home-assistant-ecosystem/home-assistant-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/homeassistant-cli/blobs/sha256:ee1964daf747ab81e0697b4900671b78f355e5346b3ffdca70c135d6255d6532
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/homeassistant-cli/blobs/sha256:98a3737d6432471708219e84f7c274607044446f6f17a4378a281de2525c57eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/homeassistant-cli/blobs/sha256:eb5281ad1cdf4672add9a14fd7ae33aac1fa2be9bd8ad266fb709583fa5f09e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/homeassistant-cli/blobs/sha256:a8768d4e6f0bab19fad3be49972d3a70e65be65407c0001ad75b92695bbb1e83
+sha256:
+  darwin_arm64: ee1964daf747ab81e0697b4900671b78f355e5346b3ffdca70c135d6255d6532
+  darwin_amd64: 98a3737d6432471708219e84f7c274607044446f6f17a4378a281de2525c57eb
+  linux_amd64: eb5281ad1cdf4672add9a14fd7ae33aac1fa2be9bd8ad266fb709583fa5f09e6
+  linux_arm64: a8768d4e6f0bab19fad3be49972d3a70e65be65407c0001ad75b92695bbb1e83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

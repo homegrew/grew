@@ -1,0 +1,19 @@
+name: rtptools
+version: 1.22
+description: Set of tools for processing RTP data
+homepage: https://github.com/irtlab/rtptools
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtptools/blobs/sha256:8b354b4bf3ba46bfdf295e0822a5e71faec5fc5c086e03471475c5270d8ce268
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtptools/blobs/sha256:691da9365bc23c711cefb7628f72e910113437022a5d8c820058b0912fdbc2df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtptools/blobs/sha256:4e72d5483db8933643fcdf7793ac236d09f2f28bf2fa8f9db169fe59d90728e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtptools/blobs/sha256:fbc5b735cb15f7d17b43615778d6306ed204c56abbf58bccaffe1df79b08f637
+sha256:
+  darwin_arm64: 8b354b4bf3ba46bfdf295e0822a5e71faec5fc5c086e03471475c5270d8ce268
+  darwin_amd64: 691da9365bc23c711cefb7628f72e910113437022a5d8c820058b0912fdbc2df
+  linux_amd64: 4e72d5483db8933643fcdf7793ac236d09f2f28bf2fa8f9db169fe59d90728e3
+  linux_arm64: fbc5b735cb15f7d17b43615778d6306ed204c56abbf58bccaffe1df79b08f637
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

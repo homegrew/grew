@@ -1,0 +1,19 @@
+name: cargo-chef
+version: 0.1.77
+description: Cargo subcommand to speed up Rust Docker builds using Docker layer caching
+homepage: https://github.com/LukeMathWalker/cargo-chef
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-chef/blobs/sha256:f400486921d7811a7f7ed596f4c33f2e51a797db2b52b903c15211c486758929
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-chef/blobs/sha256:3574138c5cac8113bc4dead416e3b9f471a8740e441c1123628351bf811ccb84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-chef/blobs/sha256:d593128abef69e447abb4ab5f901af850539f9a585fb5709d1631dc24ae1d8d5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-chef/blobs/sha256:0c21df49229ce0e38ca968e3cca0b6bb2349d8950f04780921b98ae34d03efb0
+sha256:
+  darwin_arm64: f400486921d7811a7f7ed596f4c33f2e51a797db2b52b903c15211c486758929
+  darwin_amd64: 3574138c5cac8113bc4dead416e3b9f471a8740e441c1123628351bf811ccb84
+  linux_amd64: d593128abef69e447abb4ab5f901af850539f9a585fb5709d1631dc24ae1d8d5
+  linux_arm64: 0c21df49229ce0e38ca968e3cca0b6bb2349d8950f04780921b98ae34d03efb0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

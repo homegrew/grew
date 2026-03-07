@@ -1,0 +1,21 @@
+name: libnfc
+version: 1.8.0
+description: Low level NFC SDK and Programmers API
+homepage: https://github.com/nfc-tools/libnfc
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnfc/blobs/sha256:433f60511a9266fb1693203fbf2c91222603118e9057fb8cac76eb897edffa61
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnfc/blobs/sha256:f47d6668b25a9c0acb0eea36a27c0e340ebdb15859de78193e50e0adc38005e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnfc/blobs/sha256:db84cf74f8217a9cb32aa5c804cf20c9b74464ce21ea2a87805b0c8de5abdfe6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnfc/blobs/sha256:65c10bb5ef9996f755126c6642fd8933c9fa2fbff028d1700dc75b2cd0458b47
+sha256:
+  darwin_arm64: 433f60511a9266fb1693203fbf2c91222603118e9057fb8cac76eb897edffa61
+  darwin_amd64: f47d6668b25a9c0acb0eea36a27c0e340ebdb15859de78193e50e0adc38005e0
+  linux_amd64: db84cf74f8217a9cb32aa5c804cf20c9b74464ce21ea2a87805b0c8de5abdfe6
+  linux_arm64: 65c10bb5ef9996f755126c6642fd8933c9fa2fbff028d1700dc75b2cd0458b47
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb-compat

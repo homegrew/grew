@@ -1,0 +1,19 @@
+name: xmq
+version: 4.0.1
+description: Tool and language to work with xml/html/json
+homepage: https://libxmq.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmq/blobs/sha256:57f9b83e2aa79916d184a0f9c84e0469780d18cb865fdc2ba709fcef285f9ad6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmq/blobs/sha256:d9bf5cfe88c080b54e304e799120032c0bfb3d82d5b00ddf572ac92bd47ad668
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmq/blobs/sha256:29c501e5543ca76505576efb2b02b4fbaae32b5005ac9626abb975b1bdb318fb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmq/blobs/sha256:f08017742793183450ae57864a7a3f9300be2694207f1055a9a3dcd25e347436
+sha256:
+  darwin_arm64: 57f9b83e2aa79916d184a0f9c84e0469780d18cb865fdc2ba709fcef285f9ad6
+  darwin_amd64: d9bf5cfe88c080b54e304e799120032c0bfb3d82d5b00ddf572ac92bd47ad668
+  linux_amd64: 29c501e5543ca76505576efb2b02b4fbaae32b5005ac9626abb975b1bdb318fb
+  linux_arm64: f08017742793183450ae57864a7a3f9300be2694207f1055a9a3dcd25e347436
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

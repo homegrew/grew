@@ -1,0 +1,11 @@
+name: fiji
+version: 20260305-0817
+description: Open-source image processing package
+homepage: https://fiji.sc/
+url:
+  darwin_arm64: https://downloads.imagej.net/fiji/archive/latest/20260305-0817/fiji-latest-macos-arm64-jdk.zip
+sha256:
+  darwin_arm64: dc94976dc9994a7f2b04a4df400c63faa3aaf03ed7c973033e17595fac3a0dc5
+artifacts:
+  app:
+    - Fiji/Fiji.app

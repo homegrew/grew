@@ -1,0 +1,19 @@
+name: nbimg
+version: 1.2.1
+description: Smartphone boot splash screen converter for Android and winCE
+homepage: https://github.com/poliva/nbimg
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nbimg/blobs/sha256:dd7fbd304d9f838074d2fac94129b5fb2e88622619c76011e57f12c50c560923
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nbimg/blobs/sha256:c58a9a03c8ae224ccac719f8f3e3345eea9848592fcb802751e6eae2176e0e12
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nbimg/blobs/sha256:d4c91a552e56c4f2e78422c8a4721d7ffbb54bb0bdb326e983f9989c5c9500ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nbimg/blobs/sha256:c337e9b4f70cc61fda6ad272b9760f456e3a32c36d7d9842e2c3bc44b06134eb
+sha256:
+  darwin_arm64: dd7fbd304d9f838074d2fac94129b5fb2e88622619c76011e57f12c50c560923
+  darwin_amd64: c58a9a03c8ae224ccac719f8f3e3345eea9848592fcb802751e6eae2176e0e12
+  linux_amd64: d4c91a552e56c4f2e78422c8a4721d7ffbb54bb0bdb326e983f9989c5c9500ce
+  linux_arm64: c337e9b4f70cc61fda6ad272b9760f456e3a32c36d7d9842e2c3bc44b06134eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: dash-dash
+version: 23.1.0
+description: Dash - Reinventing Cryptocurrency
+homepage: https://www.dash.org/
+url:
+  darwin_arm64: https://github.com/dashpay/dash/releases/download/v23.1.0/dashcore-23.1.0-arm64-apple-darwin.zip
+sha256:
+  darwin_arm64: dd8751ac2f5b7c92ffd19ac9446ab4b250ef3008ce96e3586ed827256173daef
+artifacts:
+  app:
+    - Dash-Qt.app

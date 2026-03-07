@@ -1,0 +1,22 @@
+name: git-svn
+version: 2.53.0
+description: Bidirectional operation between a Subversion repository and Git
+homepage: https://git-scm.com
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-svn/blobs/sha256:65169649154dcc5dc2ee43ee32b6073d307f63a014309416bb096cc811a12081
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-svn/blobs/sha256:65169649154dcc5dc2ee43ee32b6073d307f63a014309416bb096cc811a12081
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-svn/blobs/sha256:d4591b4de99d5d4ee0ad984800a5eed4fce477ba5c92cb1a0e379ee5ac38a763
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-svn/blobs/sha256:b908775e95be7e4108cf1637f241b3d5d6063155e825d5434780ef938ecca075
+sha256:
+  darwin_arm64: 65169649154dcc5dc2ee43ee32b6073d307f63a014309416bb096cc811a12081
+  darwin_amd64: 65169649154dcc5dc2ee43ee32b6073d307f63a014309416bb096cc811a12081
+  linux_amd64: d4591b4de99d5d4ee0ad984800a5eed4fce477ba5c92cb1a0e379ee5ac38a763
+  linux_arm64: b908775e95be7e4108cf1637f241b3d5d6063155e825d5434780ef938ecca075
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - git
+  - subversion

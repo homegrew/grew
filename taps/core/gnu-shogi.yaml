@@ -1,0 +1,19 @@
+name: gnu-shogi
+version: 1.4.2
+description: Japanese Chess
+homepage: https://www.gnu.org/software/gnushogi/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-shogi/blobs/sha256:e07a2b34459c996910fb2cd8ad3302d978081ab6878330612895115f4b4dd2c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-shogi/blobs/sha256:3de4c1a91390acada222f333b503c0fb14d8cbadcefcb468e3fef30adb9a9288
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-shogi/blobs/sha256:7700579666c89c383d66c691c0deb1531fe3af8b886b1b74ed875803862c5223
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-shogi/blobs/sha256:9f7b9bcfdffd2c110a5ad05cc370f4fcf322b655152482ed62e35426d61513d0
+sha256:
+  darwin_arm64: e07a2b34459c996910fb2cd8ad3302d978081ab6878330612895115f4b4dd2c2
+  darwin_amd64: 3de4c1a91390acada222f333b503c0fb14d8cbadcefcb468e3fef30adb9a9288
+  linux_amd64: 7700579666c89c383d66c691c0deb1531fe3af8b886b1b74ed875803862c5223
+  linux_arm64: 9f7b9bcfdffd2c110a5ad05cc370f4fcf322b655152482ed62e35426d61513d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: fastlane
+version: 2.232.2
+description: Easiest way to build and release mobile apps
+homepage: https://fastlane.tools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fastlane/blobs/sha256:0de8ce5d786a77df41ce6446bed9f1226a84cc36691378bf2376bf0a37ad6494
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fastlane/blobs/sha256:6611b4e05b8df78affbe958b639d35e17ecd0bf817bda17fda50cf531734283b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fastlane/blobs/sha256:dfadcf36bf451a264aff3bdf18c591a45c08e92f68071bb9580926373e5bbd96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fastlane/blobs/sha256:0b9b1d1cba8060463cad6509fc4922565393ba13aed689a59cc2bbed034716dc
+sha256:
+  darwin_arm64: 0de8ce5d786a77df41ce6446bed9f1226a84cc36691378bf2376bf0a37ad6494
+  darwin_amd64: 6611b4e05b8df78affbe958b639d35e17ecd0bf817bda17fda50cf531734283b
+  linux_amd64: dfadcf36bf451a264aff3bdf18c591a45c08e92f68071bb9580926373e5bbd96
+  linux_arm64: 0b9b1d1cba8060463cad6509fc4922565393ba13aed689a59cc2bbed034716dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby
+  - terminal-notifier

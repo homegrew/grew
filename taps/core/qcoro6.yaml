@@ -1,0 +1,23 @@
+name: qcoro6
+version: 0.13.0
+description: C++ Coroutines for Qt
+homepage: https://qcoro.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qcoro6/blobs/sha256:e9ed424fd8ae02a63a497b56cc2572a003ce650d53431b0860581c77c223322b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qcoro6/blobs/sha256:54f735fe156db62ac5b1d8520bda73007e41c87987f872be613f29422339e7a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qcoro6/blobs/sha256:ce84877e4962f78f2beead7ca678a0fe4a5f0a0e0ab99de5328c9099a8445585
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qcoro6/blobs/sha256:8ff965a3235d3c787027d3efb251f8c0ec492ecaa24f8533321ef1c5851dc727
+sha256:
+  darwin_arm64: e9ed424fd8ae02a63a497b56cc2572a003ce650d53431b0860581c77c223322b
+  darwin_amd64: 54f735fe156db62ac5b1d8520bda73007e41c87987f872be613f29422339e7a5
+  linux_amd64: ce84877e4962f78f2beead7ca678a0fe4a5f0a0e0ab99de5328c9099a8445585
+  linux_arm64: 8ff965a3235d3c787027d3efb251f8c0ec492ecaa24f8533321ef1c5851dc727
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtwebsockets

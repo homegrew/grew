@@ -1,0 +1,19 @@
+name: mediamtx
+version: 1.16.3
+description: Zero-dependency real-time media server and media proxy
+homepage: https://github.com/bluenviron/mediamtx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mediamtx/blobs/sha256:897c4f98adc30d6576ab4fbf8bcd48c7dc7a898d5d1446168e2dc3a440b39bde
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mediamtx/blobs/sha256:70c41112b9d2286511adea4ac3e454ae2851b4c7a0c3835729cedaa645bcb164
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mediamtx/blobs/sha256:5635c4845c744dd358db74a3c887a383d964fa6afcf527bae30908b813292554
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mediamtx/blobs/sha256:e25198b3e36066be210ae7c9aac29d81320bf55baff0b38dc20b4b9f00043397
+sha256:
+  darwin_arm64: 897c4f98adc30d6576ab4fbf8bcd48c7dc7a898d5d1446168e2dc3a440b39bde
+  darwin_amd64: 70c41112b9d2286511adea4ac3e454ae2851b4c7a0c3835729cedaa645bcb164
+  linux_amd64: 5635c4845c744dd358db74a3c887a383d964fa6afcf527bae30908b813292554
+  linux_arm64: e25198b3e36066be210ae7c9aac29d81320bf55baff0b38dc20b4b9f00043397
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

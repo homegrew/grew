@@ -1,0 +1,19 @@
+name: libsquish
+version: 1.15
+description: Library for compressing images with the DXT standard
+homepage: https://sourceforge.net/projects/libsquish/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsquish/blobs/sha256:c15bdf4ca7dde73653792c819df794092170e884ca1e7aeb006810955c3db6eb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsquish/blobs/sha256:016119dad4873f71b06982f17b09b4cc7cf4f6f9ed142ca97cbcee98cd55ca2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsquish/blobs/sha256:d6e24859a5f1a100ae9c5bb157ca24ae3740d8ef2f3dc22cde3d138bd99e534c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsquish/blobs/sha256:63bb6480b01645c86ebb55dec9a855fe1f4510b3c9dbb4ca88a73b1dd767c9dc
+sha256:
+  darwin_arm64: c15bdf4ca7dde73653792c819df794092170e884ca1e7aeb006810955c3db6eb
+  darwin_amd64: 016119dad4873f71b06982f17b09b4cc7cf4f6f9ed142ca97cbcee98cd55ca2a
+  linux_amd64: d6e24859a5f1a100ae9c5bb157ca24ae3740d8ef2f3dc22cde3d138bd99e534c
+  linux_arm64: 63bb6480b01645c86ebb55dec9a855fe1f4510b3c9dbb4ca88a73b1dd767c9dc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

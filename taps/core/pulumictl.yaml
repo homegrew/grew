@@ -1,0 +1,19 @@
+name: pulumictl
+version: 0.0.50
+description: Swiss army knife for Pulumi development
+homepage: https://github.com/pulumi/pulumictl
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pulumictl/blobs/sha256:f16c5f57ad6bc4f89f15f468b9330118ab430700aba5d8277fb1c39afbd700ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pulumictl/blobs/sha256:c7775fe4816a00fe38c48a7f90cfb3a96c620175dbb79b9e982384858144e848
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pulumictl/blobs/sha256:a1424eb7c55b6b704f81424e95bb63a3042fe458cc9cb9cfbd78442932bd545f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pulumictl/blobs/sha256:cc8ec7a5704c20da306196d68524fb2a13956b225b43dcab8c947da99acf22ec
+sha256:
+  darwin_arm64: f16c5f57ad6bc4f89f15f468b9330118ab430700aba5d8277fb1c39afbd700ef
+  darwin_amd64: c7775fe4816a00fe38c48a7f90cfb3a96c620175dbb79b9e982384858144e848
+  linux_amd64: a1424eb7c55b6b704f81424e95bb63a3042fe458cc9cb9cfbd78442932bd545f
+  linux_arm64: cc8ec7a5704c20da306196d68524fb2a13956b225b43dcab8c947da99acf22ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

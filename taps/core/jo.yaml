@@ -1,0 +1,19 @@
+name: jo
+version: 1.9
+description: JSON output from a shell
+homepage: https://github.com/jpmens/jo
+license: GPL-2.0-or-later AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jo/blobs/sha256:c4aab533e9fa8e5cdca40d4275cae1c956d9de52e30bfa02ac30092562a7f40d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jo/blobs/sha256:9698e023bb10fc36d11eab06ef66d5abf087b0cb247c13ac363fd97afa2cdf6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jo/blobs/sha256:dd4209b90b9732f0602cdbbaf598f1cc61676dcdb2fc7e0ee7c094a290555fad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jo/blobs/sha256:e4aca359801025e506796ecf3bd3aa58077b599244f6d210e1562c5354420eb5
+sha256:
+  darwin_arm64: c4aab533e9fa8e5cdca40d4275cae1c956d9de52e30bfa02ac30092562a7f40d
+  darwin_amd64: 9698e023bb10fc36d11eab06ef66d5abf087b0cb247c13ac363fd97afa2cdf6f
+  linux_amd64: dd4209b90b9732f0602cdbbaf598f1cc61676dcdb2fc7e0ee7c094a290555fad
+  linux_arm64: e4aca359801025e506796ecf3bd3aa58077b599244f6d210e1562c5354420eb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

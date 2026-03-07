@@ -1,0 +1,21 @@
+name: jsvc
+version: 1.5.1
+description: Wrapper to launch Java applications as daemons
+homepage: https://commons.apache.org/daemon/jsvc.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsvc/blobs/sha256:f249e20ad4469f4ead87053e4b77bf2dd32a0712bb0e6f0b8885a4a8c89ad522
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsvc/blobs/sha256:25f297011a334d4f40bd35135383f3063b2c4fc8fb73083e3a36c88c3d77ab1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsvc/blobs/sha256:f72edc6d6177e9f50e67fdb4b3a5ba38fd324137c5c904a5a95f4f14ec3ca232
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsvc/blobs/sha256:a4086828985d6a77620eebdfc4008bfdac0d9eb6224e128f6db5a3f7eac252d1
+sha256:
+  darwin_arm64: f249e20ad4469f4ead87053e4b77bf2dd32a0712bb0e6f0b8885a4a8c89ad522
+  darwin_amd64: 25f297011a334d4f40bd35135383f3063b2c4fc8fb73083e3a36c88c3d77ab1e
+  linux_amd64: f72edc6d6177e9f50e67fdb4b3a5ba38fd324137c5c904a5a95f4f14ec3ca232
+  linux_arm64: a4086828985d6a77620eebdfc4008bfdac0d9eb6224e128f6db5a3f7eac252d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk@21

@@ -1,0 +1,19 @@
+name: libngspice
+version: 45.2
+description: Spice circuit simulator as shared library
+homepage: https://ngspice.sourceforge.io/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libngspice/blobs/sha256:2a4dcbf59d1e5085966adc793687cec6f25336620cd8e52cbced2fc54d5db9d2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libngspice/blobs/sha256:a3e8c9a2ea5325ff2fb4ef589cce8626f9acfde4a7ed4a74d8d837a80206c3ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libngspice/blobs/sha256:5b79dc67a685bb6834bee08caf8b1c68d9a06ab95802ef9df0592b48291f1fe6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libngspice/blobs/sha256:c665af568cd43268f8a6172f1182854442e2dbb2abc6a82488c8da9905e2c1c6
+sha256:
+  darwin_arm64: 2a4dcbf59d1e5085966adc793687cec6f25336620cd8e52cbced2fc54d5db9d2
+  darwin_amd64: a3e8c9a2ea5325ff2fb4ef589cce8626f9acfde4a7ed4a74d8d837a80206c3ab
+  linux_amd64: 5b79dc67a685bb6834bee08caf8b1c68d9a06ab95802ef9df0592b48291f1fe6
+  linux_arm64: c665af568cd43268f8a6172f1182854442e2dbb2abc6a82488c8da9905e2c1c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

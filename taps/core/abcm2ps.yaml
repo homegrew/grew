@@ -1,0 +1,19 @@
+name: abcm2ps
+version: 8.14.18
+description: ABC music notation software
+homepage: http://moinejf.free.fr
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/abcm2ps/blobs/sha256:ad72e488f58816b605a868a4b62886e7da304c35c0147cc5d56d0903a8d950fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/abcm2ps/blobs/sha256:616ecb66446b00f4eb9f0141663041a192f3c99c802f794a5b73751926d358c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/abcm2ps/blobs/sha256:cf383769496265b65b8cbf4f4f574f9db53f43b5946f246b6d6c2500dfc0fa78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/abcm2ps/blobs/sha256:2c295fe0316d1f77957df93a0f99c70ba2da1a1176f51b9e1901be03947d1063
+sha256:
+  darwin_arm64: ad72e488f58816b605a868a4b62886e7da304c35c0147cc5d56d0903a8d950fd
+  darwin_amd64: 616ecb66446b00f4eb9f0141663041a192f3c99c802f794a5b73751926d358c4
+  linux_amd64: cf383769496265b65b8cbf4f4f574f9db53f43b5946f246b6d6c2500dfc0fa78
+  linux_arm64: 2c295fe0316d1f77957df93a0f99c70ba2da1a1176f51b9e1901be03947d1063
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

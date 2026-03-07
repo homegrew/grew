@@ -1,0 +1,11 @@
+name: opensoundmeter
+version: 1.5.2
+description: Sound measurement application for tuning audio systems in real-time
+homepage: https://opensoundmeter.com/
+url:
+  darwin_arm64: https://github.com/psmokotnin/osm/releases/download/v1.5.2/OpenSoundMeter_arm.dmg
+sha256:
+  darwin_arm64: ce076c369c45175d9841c69dbb1aebfebf4c85568c2dcf37f3d6ad7f804a2a9c
+artifacts:
+  app:
+    - OpenSoundMeter.app

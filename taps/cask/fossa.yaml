@@ -1,0 +1,11 @@
+name: fossa
+version: 3.16.0
+description: Zero-configuration polyglot dependency analysis tool
+homepage: https://fossa.com/
+url:
+  darwin_arm64: https://github.com/fossas/fossa-cli/releases/download/v3.16.0/fossa_3.16.0_darwin_arm64.zip
+sha256:
+  darwin_arm64: 158074e178dadb92821d49d2143e5d8783334d420144ca685968200cecdf0056
+artifacts:
+  bin:
+    - fossa

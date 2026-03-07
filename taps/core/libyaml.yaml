@@ -1,0 +1,19 @@
+name: libyaml
+version: 0.2.5
+description: YAML Parser
+homepage: https://github.com/yaml/libyaml
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:5cd5a1875da18599e25283465b2fb8735eb8717ee7158ef17f8f4260205404f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:4d6e02ce3a82b60033bc7e55bef841dcfef0c05c051176d96accb50744136c6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:354677a745b6c62109e792ddbd0cbdaf9e6a471d84fdbde3a7d9bae36d832da8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:c725eb08fc7ab6aad7f744a30b230f9b9efa33f8d694849a2d4aadfabb203df3
+sha256:
+  darwin_arm64: 5cd5a1875da18599e25283465b2fb8735eb8717ee7158ef17f8f4260205404f2
+  darwin_amd64: 4d6e02ce3a82b60033bc7e55bef841dcfef0c05c051176d96accb50744136c6d
+  linux_amd64: 354677a745b6c62109e792ddbd0cbdaf9e6a471d84fdbde3a7d9bae36d832da8
+  linux_arm64: c725eb08fc7ab6aad7f744a30b230f9b9efa33f8d694849a2d4aadfabb203df3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

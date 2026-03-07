@@ -1,0 +1,21 @@
+name: sdl12-compat
+version: 1.2.74
+description: SDL 1.2 compatibility layer that uses SDL 2.0 behind the scenes
+homepage: https://github.com/libsdl-org/sdl12-compat
+license: Zlib AND MIT-0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sdl12-compat/blobs/sha256:80d8a2cd42d8764cbbee16712c04a51065c11a72a1978b57dd19f00f89b4a7c9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sdl12-compat/blobs/sha256:2aee87fd030a3169d43e4f39ab7976b2571e2f125ebe386c3be83846ffe87443
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sdl12-compat/blobs/sha256:59672f32f8fdad034dd1ff77b8dfcaaf80d2ec67c3442bae351a28741fb561f3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sdl12-compat/blobs/sha256:1734c5572ab95675715067ea7c53fae385edc3ac3f0e8d14dbdff5d7a6d46a77
+sha256:
+  darwin_arm64: 80d8a2cd42d8764cbbee16712c04a51065c11a72a1978b57dd19f00f89b4a7c9
+  darwin_amd64: 2aee87fd030a3169d43e4f39ab7976b2571e2f125ebe386c3be83846ffe87443
+  linux_amd64: 59672f32f8fdad034dd1ff77b8dfcaaf80d2ec67c3442bae351a28741fb561f3
+  linux_arm64: 1734c5572ab95675715067ea7c53fae385edc3ac3f0e8d14dbdff5d7a6d46a77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2

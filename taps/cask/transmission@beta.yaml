@@ -1,0 +1,11 @@
+name: transmission@beta
+version: 4.1.1
+description: Open-source BitTorrent client
+homepage: https://transmissionbt.com/
+url:
+  darwin_arm64: https://github.com/transmission/transmission/releases/download/4.1.1/Transmission-4.1.1.dmg
+sha256:
+  darwin_arm64: 744429da72cb2c57964f20b78b83d75f4ecbd3c68ce79aefda08a6e8d83c7930
+artifacts:
+  app:
+    - Transmission.app

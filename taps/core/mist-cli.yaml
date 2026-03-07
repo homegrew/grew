@@ -1,0 +1,15 @@
+name: mist-cli
+version: 2.2
+description: Mac command-line tool that automatically downloads macOS Firmwares / Installers
+homepage: https://github.com/ninxsoft/mist-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mist-cli/blobs/sha256:a8e66ca77d81b43934d93bb3e970ba85c0c7020536d19aca2048e57405262c1b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mist-cli/blobs/sha256:c4657c924d66b94a23d3bb38fbe10e860ea40683dabfcbda2a98177a6f8ce7fc
+sha256:
+  darwin_arm64: a8e66ca77d81b43934d93bb3e970ba85c0c7020536d19aca2048e57405262c1b
+  darwin_amd64: c4657c924d66b94a23d3bb38fbe10e860ea40683dabfcbda2a98177a6f8ce7fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

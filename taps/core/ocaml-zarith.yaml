@@ -1,0 +1,22 @@
+name: ocaml-zarith
+version: 1.14
+description: OCaml library for arbitrary-precision arithmetic
+homepage: https://github.com/ocaml/Zarith
+license: LGPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ocaml-zarith/blobs/sha256:f59725b44ef1aa8656404d833c812f2ff3d2a2bc539ef998fe5aa2baeb079f1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ocaml-zarith/blobs/sha256:69a2fafdd5ad8ecdd81ba9e812289b760feeffd275df0aa5b2bfd346272ad87c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ocaml-zarith/blobs/sha256:dee59068932c13b018ec393239f0d5c9691924998a76ea2d031da8eff1fb482e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ocaml-zarith/blobs/sha256:0fbd3299e51a580a8b64f03f0bf132f426a3d49d07c7cb03e4f3b2e7220520db
+sha256:
+  darwin_arm64: f59725b44ef1aa8656404d833c812f2ff3d2a2bc539ef998fe5aa2baeb079f1c
+  darwin_amd64: 69a2fafdd5ad8ecdd81ba9e812289b760feeffd275df0aa5b2bfd346272ad87c
+  linux_amd64: dee59068932c13b018ec393239f0d5c9691924998a76ea2d031da8eff1fb482e
+  linux_arm64: 0fbd3299e51a580a8b64f03f0bf132f426a3d49d07c7cb03e4f3b2e7220520db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - ocaml

@@ -1,0 +1,19 @@
+name: pacvim
+version: 1.1.1
+description: Learn vim commands via a game
+homepage: https://github.com/jmoon018/PacVim
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pacvim/blobs/sha256:fd3523c1dca67b23666aa921d77fba212524a4bdaaf78250661d5f08ebd6e8e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pacvim/blobs/sha256:fef138624548ac61482427a75804152c868f184336d4af73d84be30b36f66c4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pacvim/blobs/sha256:3abc4ac74d298cd3feb45f1a48f7b5f34d099805ae541f1c4bd57ff8e7a485a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pacvim/blobs/sha256:b3e0cb7a0e81b078f2513a8b9c8affd74be3c509e16cc112bed36a8dabe199cd
+sha256:
+  darwin_arm64: fd3523c1dca67b23666aa921d77fba212524a4bdaaf78250661d5f08ebd6e8e2
+  darwin_amd64: fef138624548ac61482427a75804152c868f184336d4af73d84be30b36f66c4c
+  linux_amd64: 3abc4ac74d298cd3feb45f1a48f7b5f34d099805ae541f1c4bd57ff8e7a485a8
+  linux_arm64: b3e0cb7a0e81b078f2513a8b9c8affd74be3c509e16cc112bed36a8dabe199cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

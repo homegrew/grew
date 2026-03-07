@@ -1,0 +1,19 @@
+name: hdrhistogram_c
+version: 0.11.9
+description: C port of the HdrHistogram
+homepage: https://github.com/HdrHistogram/HdrHistogram_c
+license: CC0-1.0 OR BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hdrhistogram_c/blobs/sha256:d6176ee0c8f1da767cf07c9bc3f1481de19d9e500cafaa1896065ab2e5961cf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hdrhistogram_c/blobs/sha256:890f9ac2df4f21715c3e14a8e3cc370004e8959268ef36246494ed4043be85b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hdrhistogram_c/blobs/sha256:10d7ecdf95eb22af3ba8e15175e25cf00a88ec7357171f96dfb9cf3d529528c4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hdrhistogram_c/blobs/sha256:e5af92ae3629352a0e39691af319f65ca20108cf56acb807661408a63f57ef29
+sha256:
+  darwin_arm64: d6176ee0c8f1da767cf07c9bc3f1481de19d9e500cafaa1896065ab2e5961cf9
+  darwin_amd64: 890f9ac2df4f21715c3e14a8e3cc370004e8959268ef36246494ed4043be85b8
+  linux_amd64: 10d7ecdf95eb22af3ba8e15175e25cf00a88ec7357171f96dfb9cf3d529528c4
+  linux_arm64: e5af92ae3629352a0e39691af319f65ca20108cf56acb807661408a63f57ef29
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

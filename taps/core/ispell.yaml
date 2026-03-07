@@ -1,0 +1,19 @@
+name: ispell
+version: 3.4.06
+description: International Ispell
+homepage: https://www.cs.hmc.edu/~geoff/ispell.html
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ispell/blobs/sha256:46a439e8c57a40cc6102c1884e11c9e261286787efcd5b72fd3df42487216d17
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ispell/blobs/sha256:b694e02bc0e7ed4f22e3cb6acbc65e102ce247f7e51b56c5993f0d9e257a923f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ispell/blobs/sha256:869cb27e3534e6aa9503dd0598a7115207ddf665f8183fd14f99dd931f61fe6c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ispell/blobs/sha256:9b9d077e2087198423033e13a10e3b918d078dd7e5bd39a798ebeb92899d5249
+sha256:
+  darwin_arm64: 46a439e8c57a40cc6102c1884e11c9e261286787efcd5b72fd3df42487216d17
+  darwin_amd64: b694e02bc0e7ed4f22e3cb6acbc65e102ce247f7e51b56c5993f0d9e257a923f
+  linux_amd64: 869cb27e3534e6aa9503dd0598a7115207ddf665f8183fd14f99dd931f61fe6c
+  linux_arm64: 9b9d077e2087198423033e13a10e3b918d078dd7e5bd39a798ebeb92899d5249
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: simple-web-server
+version: 1.2.17
+description: Create local web servers
+homepage: https://simplewebserver.org/
+url:
+  darwin_arm64: https://github.com/terreng/simple-web-server/releases/download/v1.2.17/Simple-Web-Server-macOS-1.2.17-arm64.dmg
+sha256:
+  darwin_arm64: 66f8252715f9942238c6fe850ea02abbc7f741efb2bc4e9f25e7c8ee09590eac
+artifacts:
+  app:
+    - Simple Web Server.app

@@ -1,0 +1,20 @@
+name: onedrive-cli
+version: 2.5.10
+description: Folder synchronization with OneDrive
+homepage: https://github.com/abraunegg/onedrive
+license: GPL-3.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/onedrive-cli/blobs/sha256:a90b93658bb9878d92bdddd2ced2ca4dbc99396379129308a149a7d5a458fb40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/onedrive-cli/blobs/sha256:92182bc0cb84b68979e587d13c54a2fe7255ac3d08ffe14a12cc950c6a35c98b
+sha256:
+  linux_amd64: a90b93658bb9878d92bdddd2ced2ca4dbc99396379129308a149a7d5a458fb40
+  linux_arm64: 92182bc0cb84b68979e587d13c54a2fe7255ac3d08ffe14a12cc950c6a35c98b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - curl
+  - dbus
+  - sqlite
+  - systemd

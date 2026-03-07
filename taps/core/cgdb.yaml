@@ -1,0 +1,21 @@
+name: cgdb
+version: 0.8.0
+description: Curses-based interface to the GNU Debugger
+homepage: https://cgdb.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgdb/blobs/sha256:960dae291afe8d9e0ce627ee8c4d0fd2a521fdc7f0b731f4c7c5d7830a60ae2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgdb/blobs/sha256:c4c164c45ecb6b54b8bc50593eec22c19f33671ebaa9a228895eb8806d5dc052
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgdb/blobs/sha256:cb3a12c3700e55375cffe843a4bdf8e4fe2541219dc1da35304f7dbece2f5809
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgdb/blobs/sha256:6a3ab90cdc4efe81a78b89511057f673b90bb5585cfd707fb9565b2c4cd6627d
+sha256:
+  darwin_arm64: 960dae291afe8d9e0ce627ee8c4d0fd2a521fdc7f0b731f4c7c5d7830a60ae2f
+  darwin_amd64: c4c164c45ecb6b54b8bc50593eec22c19f33671ebaa9a228895eb8806d5dc052
+  linux_amd64: cb3a12c3700e55375cffe843a4bdf8e4fe2541219dc1da35304f7dbece2f5809
+  linux_arm64: 6a3ab90cdc4efe81a78b89511057f673b90bb5585cfd707fb9565b2c4cd6627d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

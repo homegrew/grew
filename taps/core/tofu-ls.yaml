@@ -1,0 +1,19 @@
+name: tofu-ls
+version: 0.3.1
+description: OpenTofu Language Server
+homepage: https://github.com/opentofu/tofu-ls
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tofu-ls/blobs/sha256:357ccd1bb00fc2383d210df836db6d91cb0b3d98aebd3c098d391e08709ef5fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tofu-ls/blobs/sha256:a0702775a12d5a8c420780b1dafe0d31f7a16455e1058f6f539c9b4900b690d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tofu-ls/blobs/sha256:cab98ccfc37701a33465bddc81bf83bac23eb4b6247f4f8a91bdf3c52d7ccb74
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tofu-ls/blobs/sha256:096bfcc33d92da2690fb3985e855c1ee1d4d6ff45e3f1f44ad40296cd592427f
+sha256:
+  darwin_arm64: 357ccd1bb00fc2383d210df836db6d91cb0b3d98aebd3c098d391e08709ef5fb
+  darwin_amd64: a0702775a12d5a8c420780b1dafe0d31f7a16455e1058f6f539c9b4900b690d0
+  linux_amd64: cab98ccfc37701a33465bddc81bf83bac23eb4b6247f4f8a91bdf3c52d7ccb74
+  linux_arm64: 096bfcc33d92da2690fb3985e855c1ee1d4d6ff45e3f1f44ad40296cd592427f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: libtorrent-rakshasa
+version: 0.16.7
+description: BitTorrent library with a focus on high performance
+homepage: https://github.com/rakshasa/libtorrent
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtorrent-rakshasa/blobs/sha256:389d700ee0cbd9994b41794a63f8895cffd3c68889a1589d8914e620b56db526
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtorrent-rakshasa/blobs/sha256:e69ddf97106d81f85926aa3ce2c570d8d27b149baec0ff29a54b7b580f92f14c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtorrent-rakshasa/blobs/sha256:fd9b33ac40ba506dfc3e1a3d9dae667fc9a74e8718a4388f4c6e47528bf07942
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtorrent-rakshasa/blobs/sha256:f68dbe1d18c450f714b6cfa27b2afb7ada922c0a7a8ea495b804799ba4b8e423
+sha256:
+  darwin_arm64: 389d700ee0cbd9994b41794a63f8895cffd3c68889a1589d8914e620b56db526
+  darwin_amd64: e69ddf97106d81f85926aa3ce2c570d8d27b149baec0ff29a54b7b580f92f14c
+  linux_amd64: fd9b33ac40ba506dfc3e1a3d9dae667fc9a74e8718a4388f4c6e47528bf07942
+  linux_arm64: f68dbe1d18c450f714b6cfa27b2afb7ada922c0a7a8ea495b804799ba4b8e423
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,24 @@
+name: libpq@16
+version: 16.13
+description: Postgres C API library
+homepage: https://www.postgresql.org/docs/16/libpq.html
+license: PostgreSQL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpq/16/blobs/sha256:5cc46c4542ca515a886a7a510611f10026ca3a3a91071c8220a6adb0e24c1080
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpq/16/blobs/sha256:9df34f501f38042a1549accc95a17888dfc4ed2bd764fee90384d3491ebcde20
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpq/16/blobs/sha256:bb0e0b7fbff7b5bf283c350b1023afeb1f3f0700c67bbfe77003be6833753ed4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpq/16/blobs/sha256:be173df5566c4bc70daae6af37c60b58f11783dc0ce66c35547af15b6512145b
+sha256:
+  darwin_arm64: 5cc46c4542ca515a886a7a510611f10026ca3a3a91071c8220a6adb0e24c1080
+  darwin_amd64: 9df34f501f38042a1549accc95a17888dfc4ed2bd764fee90384d3491ebcde20
+  linux_amd64: bb0e0b7fbff7b5bf283c350b1023afeb1f3f0700c67bbfe77003be6833753ed4
+  linux_arm64: be173df5566c4bc70daae6af37c60b58f11783dc0ce66c35547af15b6512145b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - krb5
+  - openssl@3
+keg_only: true

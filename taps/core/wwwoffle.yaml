@@ -1,0 +1,19 @@
+name: wwwoffle
+version: 2.9j
+description: Better browsing for computers with intermittent connections
+homepage: https://www.gedanken.org.uk/software/wwwoffle/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wwwoffle/blobs/sha256:c4271aaf534eb22540919ee96421505f563d10d36ce5739e601c4dc081ce4aad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wwwoffle/blobs/sha256:e8803975add1a42df0e2f76a9383f0adf59b989b65f8160bb583d9cd0005a84e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wwwoffle/blobs/sha256:f8da30132b4acc20d48d72205eff5fefb3cc1f3ecaaf5aa5a1efa4e1aadd8ea5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wwwoffle/blobs/sha256:17aebaafaf5c692ab2df961a1a62296ffe446b6931be7594c4ab9a2eedfabeac
+sha256:
+  darwin_arm64: c4271aaf534eb22540919ee96421505f563d10d36ce5739e601c4dc081ce4aad
+  darwin_amd64: e8803975add1a42df0e2f76a9383f0adf59b989b65f8160bb583d9cd0005a84e
+  linux_amd64: f8da30132b4acc20d48d72205eff5fefb3cc1f3ecaaf5aa5a1efa4e1aadd8ea5
+  linux_arm64: 17aebaafaf5c692ab2df961a1a62296ffe446b6931be7594c4ab9a2eedfabeac
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

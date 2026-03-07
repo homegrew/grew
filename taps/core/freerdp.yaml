@@ -1,0 +1,37 @@
+name: freerdp
+version: 3.23.0
+description: X11 implementation of the Remote Desktop Protocol (RDP)
+homepage: https://www.freerdp.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freerdp/blobs/sha256:4cc25189df83f7796d4919be02caa91fb15123c2e040129398ad372e1d2b3430
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freerdp/blobs/sha256:aa3422e297a25cd500565f8cb243643498c4052da673c430a7833a76eb43426c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freerdp/blobs/sha256:9727fcc120c0b7ff86a51313bfdacc1ae717559740cd64cea2c1360ab7ef1c46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freerdp/blobs/sha256:a39178d5307ed3028be8d2f8715369739dd4226f28d8f5d7305aba3d7ad99b83
+sha256:
+  darwin_arm64: 4cc25189df83f7796d4919be02caa91fb15123c2e040129398ad372e1d2b3430
+  darwin_amd64: aa3422e297a25cd500565f8cb243643498c4052da673c430a7833a76eb43426c
+  linux_amd64: 9727fcc120c0b7ff86a51313bfdacc1ae717559740cd64cea2c1360ab7ef1c46
+  linux_arm64: a39178d5307ed3028be8d2f8715369739dd4226f28d8f5d7305aba3d7ad99b83
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cjson
+  - ffmpeg
+  - jpeg-turbo
+  - libusb
+  - libx11
+  - libxcursor
+  - libxext
+  - libxfixes
+  - libxi
+  - libxinerama
+  - libxrandr
+  - libxrender
+  - libxv
+  - openssl@3
+  - pkcs11-helper
+  - sdl3
+  - sdl3_ttf

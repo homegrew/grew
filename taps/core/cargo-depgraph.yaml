@@ -1,0 +1,19 @@
+name: cargo-depgraph
+version: 1.6.0
+description: Creates dependency graphs for cargo projects
+homepage: https://sr.ht/~jplatte/cargo-depgraph/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-depgraph/blobs/sha256:cd2394a3c3307df33e7845282787041cc43c4a0d3ba648c8a8f440c1b4e90ba0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-depgraph/blobs/sha256:b1f53651402919895849ba1d0a98940b941a1b35acbb75c1f8371ebdff55e8c7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-depgraph/blobs/sha256:df3185c78ab12934b6ebf2d15a4bbf0eb110774fbae01d4e10a2133ac8ba0039
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-depgraph/blobs/sha256:9b47a142d6c74f5cc74ae9e6614cb91d9b31d6a00f3167407293af2d386efff5
+sha256:
+  darwin_arm64: cd2394a3c3307df33e7845282787041cc43c4a0d3ba648c8a8f440c1b4e90ba0
+  darwin_amd64: b1f53651402919895849ba1d0a98940b941a1b35acbb75c1f8371ebdff55e8c7
+  linux_amd64: df3185c78ab12934b6ebf2d15a4bbf0eb110774fbae01d4e10a2133ac8ba0039
+  linux_arm64: 9b47a142d6c74f5cc74ae9e6614cb91d9b31d6a00f3167407293af2d386efff5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

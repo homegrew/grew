@@ -1,0 +1,15 @@
+name: locateme
+version: 0.2.1
+description: "Find your location using Apple's geolocation services"
+homepage: https://iharder.sourceforge.net/current/macosx/locateme/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/locateme/blobs/sha256:105cc7bd0d5ced058850ebdd18e3b57d0969f9ef9f185665e28e785194e5cf6f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/locateme/blobs/sha256:d7b44e5cf6385428d8523b2429a53fd2a607be98d663dd5420bb96576320abf2
+sha256:
+  darwin_arm64: 105cc7bd0d5ced058850ebdd18e3b57d0969f9ef9f185665e28e785194e5cf6f
+  darwin_amd64: d7b44e5cf6385428d8523b2429a53fd2a607be98d663dd5420bb96576320abf2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

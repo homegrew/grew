@@ -1,0 +1,24 @@
+name: bilix
+version: 0.18.9
+description: Lightning-fast asynchronous download tool for bilibili and more
+homepage: https://github.com/HFrost0/bilix
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bilix/blobs/sha256:a88a454870f4e9a0ee8b9c87c1c86e51b77f7c0978b13faef120388e828a6f40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bilix/blobs/sha256:6e02b5764be6304e676946d8259381e2023841ae2571ed2ecc53020cca097127
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bilix/blobs/sha256:ad12235e100fb38e58462805eced5eff94f54654b2a2e17691218df90a7b3c5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bilix/blobs/sha256:8ca5853c469eaec998c51e72a5fbe7fd774d9818402d11740e6d38734625175e
+sha256:
+  darwin_arm64: a88a454870f4e9a0ee8b9c87c1c86e51b77f7c0978b13faef120388e828a6f40
+  darwin_amd64: 6e02b5764be6304e676946d8259381e2023841ae2571ed2ecc53020cca097127
+  linux_amd64: ad12235e100fb38e58462805eced5eff94f54654b2a2e17691218df90a7b3c5f
+  linux_arm64: 8ca5853c469eaec998c51e72a5fbe7fd774d9818402d11740e6d38734625175e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - lz4
+  - pydantic
+  - python@3.14

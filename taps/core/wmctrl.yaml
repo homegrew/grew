@@ -1,0 +1,26 @@
+name: wmctrl
+version: 1.07
+description: UNIX/Linux command-line tool to interact with an EWMH/NetWM
+homepage: https://packages.debian.org/sid/wmctrl
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wmctrl/blobs/sha256:39edb4ef55820d995ac4b636c4215cee31e25c958f59f1d843cc85ee38e690e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wmctrl/blobs/sha256:2deab4d4326107696a376b85a27c9417b59727513f99b9b5b336f72fb2ac2dcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wmctrl/blobs/sha256:f35104a632334a639f0c7d233baea5a9177a2d43fe78cd563870c97b394d78bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wmctrl/blobs/sha256:c2f47127d88a26b2522b3948371f2152de9e0ca35bb7a4a33d4feb2a2424ea6e
+sha256:
+  darwin_arm64: 39edb4ef55820d995ac4b636c4215cee31e25c958f59f1d843cc85ee38e690e8
+  darwin_amd64: 2deab4d4326107696a376b85a27c9417b59727513f99b9b5b336f72fb2ac2dcf
+  linux_amd64: f35104a632334a639f0c7d233baea5a9177a2d43fe78cd563870c97b394d78bc
+  linux_arm64: c2f47127d88a26b2522b3948371f2152de9e0ca35bb7a4a33d4feb2a2424ea6e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libice
+  - libsm
+  - libx11
+  - libxmu
+  - gettext

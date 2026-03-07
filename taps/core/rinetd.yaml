@@ -1,0 +1,19 @@
+name: rinetd
+version: 0.73
+description: Internet TCP redirection server
+homepage: https://github.com/samhocevar/rinetd
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rinetd/blobs/sha256:ac09912351ca2587bbea4572cbc2d5101d93b14a1ccf925cff8cfa83aedf5128
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rinetd/blobs/sha256:e6c5ecca7be62f96837669443c191fdfebeb2872f936750814eda3bda0082a51
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rinetd/blobs/sha256:b261f72637835eb98ed1773e236c664160528346a77e65fabef294766809def5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rinetd/blobs/sha256:385446c42d6820a00d85ca5793a341ebeb20e32390bba72876ea6156056142ba
+sha256:
+  darwin_arm64: ac09912351ca2587bbea4572cbc2d5101d93b14a1ccf925cff8cfa83aedf5128
+  darwin_amd64: e6c5ecca7be62f96837669443c191fdfebeb2872f936750814eda3bda0082a51
+  linux_amd64: b261f72637835eb98ed1773e236c664160528346a77e65fabef294766809def5
+  linux_arm64: 385446c42d6820a00d85ca5793a341ebeb20e32390bba72876ea6156056142ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

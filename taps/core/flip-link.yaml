@@ -1,0 +1,19 @@
+name: flip-link
+version: 0.1.12
+description: Adds zero-cost stack overflow protection to your embedded programs
+homepage: https://github.com/knurling-rs/flip-link
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flip-link/blobs/sha256:ea90aef07c426e04b66ea2397ce1e2e22dabc52774f2d50d8015ec46978cfdb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flip-link/blobs/sha256:c4a0f0f6b8b85fd41b9bd566485650607d9a4e283300235917549e7194f187f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flip-link/blobs/sha256:52890212a0445ce719f608eab616fa430de53469eb3134c0ff4906eab2f5566c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flip-link/blobs/sha256:94c40029460a66e8e343f1a073361a7bfe46b598d820000797dc6040c45f53ba
+sha256:
+  darwin_arm64: ea90aef07c426e04b66ea2397ce1e2e22dabc52774f2d50d8015ec46978cfdb8
+  darwin_amd64: c4a0f0f6b8b85fd41b9bd566485650607d9a4e283300235917549e7194f187f9
+  linux_amd64: 52890212a0445ce719f608eab616fa430de53469eb3134c0ff4906eab2f5566c
+  linux_arm64: 94c40029460a66e8e343f1a073361a7bfe46b598d820000797dc6040c45f53ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

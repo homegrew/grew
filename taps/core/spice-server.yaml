@@ -1,0 +1,29 @@
+name: spice-server
+version: 0.16.0
+description: Implements the server side of the SPICE protocol
+homepage: https://www.spice-space.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/spice-server/blobs/sha256:07095428a0e9637309224c9dc6302a91caa37e2b22f8a678bf5c2a21d250b7ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/spice-server/blobs/sha256:222e8fd73393fb53e9b48f137d4d68abc5be1c7d99dfdeb54f430ac31af2c2a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/spice-server/blobs/sha256:e5a261c1f9a99a02795a3530791493d4992ca792c5f9ba30204149b47a0701df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/spice-server/blobs/sha256:896f8baf333c39adb63fc0e59a7169a09e2b667d992d1d0ae305cdfa1703ecb3
+sha256:
+  darwin_arm64: 07095428a0e9637309224c9dc6302a91caa37e2b22f8a678bf5c2a21d250b7ee
+  darwin_amd64: 222e8fd73393fb53e9b48f137d4d68abc5be1c7d99dfdeb54f430ac31af2c2a2
+  linux_amd64: e5a261c1f9a99a02795a3530791493d4992ca792c5f9ba30204149b47a0701df
+  linux_arm64: 896f8baf333c39adb63fc0e59a7169a09e2b667d992d1d0ae305cdfa1703ecb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gstreamer
+  - jpeg-turbo
+  - lz4
+  - openssl@3
+  - opus
+  - orc
+  - pixman
+  - gettext

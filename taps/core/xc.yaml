@@ -1,0 +1,19 @@
+name: xc
+version: 0.9.0
+description: Markdown defined task runner
+homepage: https://xcfile.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xc/blobs/sha256:6f689507921d13ac9c5c3b31858a07034fdde3c9b2745cff3965bba02b8de3b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xc/blobs/sha256:e56d4eef3826dcd65197d0b5f38eb49632d374163b59af75695050645018d1f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xc/blobs/sha256:965b9b02792fdfae0f1072431a50dea31e8df09bde42521c3b2eadb9432b5c09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xc/blobs/sha256:61c8010926e5f1fa66da4eb63c21dafe8e5f92febd5de72d3d542f309a25c3c3
+sha256:
+  darwin_arm64: 6f689507921d13ac9c5c3b31858a07034fdde3c9b2745cff3965bba02b8de3b7
+  darwin_amd64: e56d4eef3826dcd65197d0b5f38eb49632d374163b59af75695050645018d1f4
+  linux_amd64: 965b9b02792fdfae0f1072431a50dea31e8df09bde42521c3b2eadb9432b5c09
+  linux_arm64: 61c8010926e5f1fa66da4eb63c21dafe8e5f92febd5de72d3d542f309a25c3c3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

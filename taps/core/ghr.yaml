@@ -1,0 +1,19 @@
+name: ghr
+version: 0.18.0
+description: Upload multiple artifacts to GitHub Release in parallel
+homepage: https://github.com/tcnksm/ghr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghr/blobs/sha256:2f4f4fc3b527be585c72a31a66f22ea8354f9f90e8d663055f2ad22ccaf5869a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghr/blobs/sha256:3e861c7fb1499758baf3d0a5cde1b2e7c406b26481242eb85ad10c837514ad57
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghr/blobs/sha256:6c552e786a40e5ebdbb6e8a459b2154e9ada5db8c7d803f8ce5b05181344eab7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghr/blobs/sha256:c81cc7471402c35c0fa7d35d9c14788b3e76f89d9889b02c02a0c60a66084670
+sha256:
+  darwin_arm64: 2f4f4fc3b527be585c72a31a66f22ea8354f9f90e8d663055f2ad22ccaf5869a
+  darwin_amd64: 3e861c7fb1499758baf3d0a5cde1b2e7c406b26481242eb85ad10c837514ad57
+  linux_amd64: 6c552e786a40e5ebdbb6e8a459b2154e9ada5db8c7d803f8ce5b05181344eab7
+  linux_arm64: c81cc7471402c35c0fa7d35d9c14788b3e76f89d9889b02c02a0c60a66084670
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

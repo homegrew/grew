@@ -1,0 +1,11 @@
+name: streamlink-twitch-gui
+version: 2.5.3
+description: Multi platform Twitch.tv browser for Streamlink
+homepage: https://github.com/streamlink/streamlink-twitch-gui/
+url:
+  darwin_arm64: https://github.com/streamlink/streamlink-twitch-gui/releases/download/v2.5.3/streamlink-twitch-gui-v2.5.3-macOS.tar.gz
+sha256:
+  darwin_arm64: 164179e26ef07cc821e718a9a965ed58815de22be080d0fe32e90356a9b850fe
+artifacts:
+  app:
+    - Streamlink Twitch GUI.app

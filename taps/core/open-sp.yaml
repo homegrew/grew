@@ -1,0 +1,21 @@
+name: open-sp
+version: 1.5.2
+description: SGML parser
+homepage: https://openjade.sourceforge.net/
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/open-sp/blobs/sha256:8686abb8d8b1f3054a19a2d57d9c2bc72820d9a5e7b61dcaea2188f103a50026
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/open-sp/blobs/sha256:c08e40944818db7868c5d8338c3abe08e16dcac1b9f4b34edb054048a9dd4aa3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/open-sp/blobs/sha256:11f6bb56e019bea8f5fb9e2d38e62102230278ddc8fce115755a1cf6a6cbda54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/open-sp/blobs/sha256:597213ee29de34da7d34d395ea5f6c8fb4681c5512934e3837f17e0d8628f012
+sha256:
+  darwin_arm64: 8686abb8d8b1f3054a19a2d57d9c2bc72820d9a5e7b61dcaea2188f103a50026
+  darwin_amd64: c08e40944818db7868c5d8338c3abe08e16dcac1b9f4b34edb054048a9dd4aa3
+  linux_amd64: 11f6bb56e019bea8f5fb9e2d38e62102230278ddc8fce115755a1cf6a6cbda54
+  linux_arm64: 597213ee29de34da7d34d395ea5f6c8fb4681c5512934e3837f17e0d8628f012
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

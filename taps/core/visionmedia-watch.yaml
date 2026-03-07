@@ -1,0 +1,19 @@
+name: visionmedia-watch
+version: 0.4.0
+description: Periodically executes the given command
+homepage: https://github.com/tj/watch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/visionmedia-watch/blobs/sha256:f003e974ce7bc63ad04454caad6daadc1d0c9afbb6d186fa11775791393fef0a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/visionmedia-watch/blobs/sha256:b2212f0f464174908add9014aea15a3a8ce6cdac892479b72cedcb812d28fe76
+  linux_amd64: https://ghcr.io/v2/homebrew/core/visionmedia-watch/blobs/sha256:1dcfe8e94d71a7fd667ce896127b665675c2a4d18f04c8c3d317efe50e5ae68f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/visionmedia-watch/blobs/sha256:49af167e4231314e0b015c7fbc606983a7149546798d147d9f439f912230edec
+sha256:
+  darwin_arm64: f003e974ce7bc63ad04454caad6daadc1d0c9afbb6d186fa11775791393fef0a
+  darwin_amd64: b2212f0f464174908add9014aea15a3a8ce6cdac892479b72cedcb812d28fe76
+  linux_amd64: 1dcfe8e94d71a7fd667ce896127b665675c2a4d18f04c8c3d317efe50e5ae68f
+  linux_arm64: 49af167e4231314e0b015c7fbc606983a7149546798d147d9f439f912230edec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

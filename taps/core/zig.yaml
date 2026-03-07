@@ -1,0 +1,23 @@
+name: zig
+version: 0.15.2
+description: Programming language designed for robustness, optimality, and clarity
+homepage: https://ziglang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zig/blobs/sha256:dd70b8ff8c60139a550cf147c62385db650f0a78f6a0886d64e5d3a23300fedf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zig/blobs/sha256:a6214bdefd13c3f08072d2104480c977925ecb4160b3528b097761d8a2f0fe10
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zig/blobs/sha256:87d7f340a2db08d1274e7d7915252db7880705426fc0b592147cde1f0009935e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zig/blobs/sha256:cd03697749a4dbeec55258d7fd5170b2dd73ca29b1510a001a021d5469287197
+sha256:
+  darwin_arm64: dd70b8ff8c60139a550cf147c62385db650f0a78f6a0886d64e5d3a23300fedf
+  darwin_amd64: a6214bdefd13c3f08072d2104480c977925ecb4160b3528b097761d8a2f0fe10
+  linux_amd64: 87d7f340a2db08d1274e7d7915252db7880705426fc0b592147cde1f0009935e
+  linux_arm64: cd03697749a4dbeec55258d7fd5170b2dd73ca29b1510a001a021d5469287197
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lld@20
+  - llvm@20
+  - zstd

@@ -1,0 +1,21 @@
+name: unixodbc
+version: 2.3.14
+description: ODBC 3 connectivity for UNIX
+homepage: https://www.unixodbc.org/
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unixodbc/blobs/sha256:16b4c2a9d565749bae947c75a100ec4628e57c427af5b542593f67474077b3cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unixodbc/blobs/sha256:6fc56b53e2abd5b38ed655c2c32caae95753e6b6f5a9fe0a10c4b760a3974d2e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unixodbc/blobs/sha256:3f04884aa241e341fea833df1fcb51ec7b181e5a75ff4a7b86ca87dc4c7a24dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unixodbc/blobs/sha256:8e6e9979f6e88ae812222d215688d5b044e25f3182a70e3fbeec3ca07dd9f3d9
+sha256:
+  darwin_arm64: 16b4c2a9d565749bae947c75a100ec4628e57c427af5b542593f67474077b3cb
+  darwin_amd64: 6fc56b53e2abd5b38ed655c2c32caae95753e6b6f5a9fe0a10c4b760a3974d2e
+  linux_amd64: 3f04884aa241e341fea833df1fcb51ec7b181e5a75ff4a7b86ca87dc4c7a24dd
+  linux_arm64: 8e6e9979f6e88ae812222d215688d5b044e25f3182a70e3fbeec3ca07dd9f3d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtool

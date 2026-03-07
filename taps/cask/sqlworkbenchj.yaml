@@ -1,0 +1,11 @@
+name: sqlworkbenchj
+version: 132
+description: DBMS-independent SQL query tool
+homepage: https://www.sql-workbench.eu/
+url:
+  darwin_arm64: https://www.sql-workbench.eu/Workbench-Build132-Mac-with-optional-libs.tgz
+sha256:
+  darwin_arm64: 917cdad945bc2f634df0e95ef192c6e6238542618970b82129a993871344a326
+artifacts:
+  app:
+    - SQLWorkbenchJ.app

@@ -1,0 +1,21 @@
+name: sprocket
+version: 0.21.1
+description: Bioinformatics workflow engine built on the Workflow Description Language (WDL)
+homepage: https://sprocket.bio
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sprocket/blobs/sha256:cc05b7859da33e6ed068be803480085b6334279b8ed9eb9972c25a35932b2972
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sprocket/blobs/sha256:befe3493c616e91c7c54a3d946dad1ec3f5ebc5842c1362943fed6b1222693a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sprocket/blobs/sha256:4871f18839c5588d3931555870e2f41ee80f3495bcfde98e7eadcf5ed03b006c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sprocket/blobs/sha256:e13387d2fc9ae0c08c14f09647f4ace87c9e0a039ee2e76df3af8bf7d9dfeb37
+sha256:
+  darwin_arm64: cc05b7859da33e6ed068be803480085b6334279b8ed9eb9972c25a35932b2972
+  darwin_amd64: befe3493c616e91c7c54a3d946dad1ec3f5ebc5842c1362943fed6b1222693a7
+  linux_amd64: 4871f18839c5588d3931555870e2f41ee80f3495bcfde98e7eadcf5ed03b006c
+  linux_arm64: e13387d2fc9ae0c08c14f09647f4ace87c9e0a039ee2e76df3af8bf7d9dfeb37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

@@ -1,0 +1,19 @@
+name: git-sizer
+version: 1.5.0
+description: Compute various size metrics for a Git repository
+homepage: https://github.com/github/git-sizer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-sizer/blobs/sha256:2506ed03a733d925f2d0602928a17c905515ac73df711cdd25efc01fc58ccb34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-sizer/blobs/sha256:a57a2c9483b5b93d414a5bc8d5532832c5d165e5d9349b12d9d6c6ccae052d71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-sizer/blobs/sha256:1a866d2f5cacd29a14bee3055f3290500091674fb38703ca75eb4c34917cb8ce
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-sizer/blobs/sha256:7eef3f85c59f90b48349b3cb3c9322929babd1605228c2f59ed37c4e86b2faef
+sha256:
+  darwin_arm64: 2506ed03a733d925f2d0602928a17c905515ac73df711cdd25efc01fc58ccb34
+  darwin_amd64: a57a2c9483b5b93d414a5bc8d5532832c5d165e5d9349b12d9d6c6ccae052d71
+  linux_amd64: 1a866d2f5cacd29a14bee3055f3290500091674fb38703ca75eb4c34917cb8ce
+  linux_arm64: 7eef3f85c59f90b48349b3cb3c9322929babd1605228c2f59ed37c4e86b2faef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

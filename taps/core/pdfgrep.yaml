@@ -1,0 +1,24 @@
+name: pdfgrep
+version: 2.2.0
+description: Search PDFs for strings matching a regular expression
+homepage: https://pdfgrep.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfgrep/blobs/sha256:43c65c4fdb2f725fda1346cb7a8164d5877f570b8a91625b7dfd1ac09123f4e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfgrep/blobs/sha256:30ee8819e93cff1c67e4f5ecbad366e00fa94cc834c3999e533967f9b649c29c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfgrep/blobs/sha256:a9b1777fcc905b1f41a679135059d92c0b5c1ef2ac560f409b5e69910014c99c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfgrep/blobs/sha256:0e0238a85a206f54c6fe141721bcf345e02a6274dc95cafe2cc4690eac7b3a2c
+sha256:
+  darwin_arm64: 43c65c4fdb2f725fda1346cb7a8164d5877f570b8a91625b7dfd1ac09123f4e2
+  darwin_amd64: 30ee8819e93cff1c67e4f5ecbad366e00fa94cc834c3999e533967f9b649c29c
+  linux_amd64: a9b1777fcc905b1f41a679135059d92c0b5c1ef2ac560f409b5e69910014c99c
+  linux_arm64: 0e0238a85a206f54c6fe141721bcf345e02a6274dc95cafe2cc4690eac7b3a2c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - pcre2
+  - poppler
+  - libgpg-error

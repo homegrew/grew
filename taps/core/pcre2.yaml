@@ -1,0 +1,19 @@
+name: pcre2
+version: 10.47
+description: Perl compatible regular expressions library with a new API
+homepage: https://www.pcre.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:948b00bdaf75a842341f08a949ca3d414ae5333df2c305a7e371be31a2c30963
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:7503247c5411d7a67b2d29ef5a7464a14f114c0953a541bb61bf668454fae667
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:70d6e7a6d4257227d3b6c8e3b0bbcb244852eff6fc7a30fba6b6474316a4ea1d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:1fb733022376752008209b8cd9235456eb11aab159114c562c2e845f9f4a34b0
+sha256:
+  darwin_arm64: 948b00bdaf75a842341f08a949ca3d414ae5333df2c305a7e371be31a2c30963
+  darwin_amd64: 7503247c5411d7a67b2d29ef5a7464a14f114c0953a541bb61bf668454fae667
+  linux_amd64: 70d6e7a6d4257227d3b6c8e3b0bbcb244852eff6fc7a30fba6b6474316a4ea1d
+  linux_arm64: 1fb733022376752008209b8cd9235456eb11aab159114c562c2e845f9f4a34b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

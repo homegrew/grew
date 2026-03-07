@@ -1,0 +1,19 @@
+name: smartmontools
+version: 7.5
+description: SMART hard drive monitoring
+homepage: https://www.smartmontools.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smartmontools/blobs/sha256:1059107fe65fbaa54f25cba7f2d9160cba2ca90cb0b9ba3d3635f78639c46a29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smartmontools/blobs/sha256:bcff6e0f0d53730dd07c8847cb83bf28a5164b63d31e88a54ef9d70351548688
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smartmontools/blobs/sha256:61712e27dc30e3b492fe259a6dbf69f637018f8348abd5dd1be752526abdd811
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smartmontools/blobs/sha256:242eb99f15e071df38712e5b55a3b4b7bac49def0e6f08263bfcecb9b3257a99
+sha256:
+  darwin_arm64: 1059107fe65fbaa54f25cba7f2d9160cba2ca90cb0b9ba3d3635f78639c46a29
+  darwin_amd64: bcff6e0f0d53730dd07c8847cb83bf28a5164b63d31e88a54ef9d70351548688
+  linux_amd64: 61712e27dc30e3b492fe259a6dbf69f637018f8348abd5dd1be752526abdd811
+  linux_arm64: 242eb99f15e071df38712e5b55a3b4b7bac49def0e6f08263bfcecb9b3257a99
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

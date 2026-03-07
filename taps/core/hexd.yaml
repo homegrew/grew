@@ -1,0 +1,19 @@
+name: hexd
+version: 1.1.0
+description: Colourful, human-friendly hexdump tool
+homepage: https://github.com/FireyFly/hexd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexd/blobs/sha256:78fb673214aece803927239e51d3b92a134d2dc71bc13bfec30a41cf49f8ef2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexd/blobs/sha256:45a53e8aad1758074bbffb8e618a19c25645547d883d5f4ccf62cd2ac312658e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexd/blobs/sha256:b62eca23b33b5257e4fb33ec61b9301700d7c732c2efe2037952fdc3b9e8cf8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexd/blobs/sha256:0a4f51eef0ca22a531e73b1b6bc75ae06ed9e987fee0d94a612121651577e22a
+sha256:
+  darwin_arm64: 78fb673214aece803927239e51d3b92a134d2dc71bc13bfec30a41cf49f8ef2c
+  darwin_amd64: 45a53e8aad1758074bbffb8e618a19c25645547d883d5f4ccf62cd2ac312658e
+  linux_amd64: b62eca23b33b5257e4fb33ec61b9301700d7c732c2efe2037952fdc3b9e8cf8d
+  linux_arm64: 0a4f51eef0ca22a531e73b1b6bc75ae06ed9e987fee0d94a612121651577e22a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

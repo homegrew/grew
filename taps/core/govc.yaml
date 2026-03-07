@@ -1,0 +1,19 @@
+name: govc
+version: 0.53.0
+description: Command-line tool for VMware vSphere
+homepage: https://github.com/vmware/govmomi/tree/main/govc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/govc/blobs/sha256:d66534f8466e833310a4fa11b97225d562b96cd479e6ede30c15d36ae901f39f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/govc/blobs/sha256:9981b1263678ff02425890ff57fff7a32464987622dcc2046deb11923397bfcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/govc/blobs/sha256:a7d69eba645d67176308137ef01dccb55fdcee7d3acb96c72b0602400caf1820
+  linux_arm64: https://ghcr.io/v2/homebrew/core/govc/blobs/sha256:95040e435b9285c2472b5d4cef02b03ea6902fabb732c33d626b1fb83b9b4e79
+sha256:
+  darwin_arm64: d66534f8466e833310a4fa11b97225d562b96cd479e6ede30c15d36ae901f39f
+  darwin_amd64: 9981b1263678ff02425890ff57fff7a32464987622dcc2046deb11923397bfcc
+  linux_amd64: a7d69eba645d67176308137ef01dccb55fdcee7d3acb96c72b0602400caf1820
+  linux_arm64: 95040e435b9285c2472b5d4cef02b03ea6902fabb732c33d626b1fb83b9b4e79
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: glm
+version: 1.0.3
+description: C++ mathematics library for graphics software
+homepage: https://glm.g-truc.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glm/blobs/sha256:8249c4e8338f0d834f967436fd7dbd239ba6dec2117716983a3fe54a5d091ef5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glm/blobs/sha256:86c4b9d9788fe78f27caf754e87ae66e85c420e728eca547afb8512eaa66c906
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glm/blobs/sha256:a3a08b5ba3b2bbd1afce59a27bb1957dc4e5f96e1f573771998b2efaab6b7adf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glm/blobs/sha256:bb411dab3df676bd1e7150c3ca6c76048cef96dec5fab02499701fd4ca5a7006
+sha256:
+  darwin_arm64: 8249c4e8338f0d834f967436fd7dbd239ba6dec2117716983a3fe54a5d091ef5
+  darwin_amd64: 86c4b9d9788fe78f27caf754e87ae66e85c420e728eca547afb8512eaa66c906
+  linux_amd64: a3a08b5ba3b2bbd1afce59a27bb1957dc4e5f96e1f573771998b2efaab6b7adf
+  linux_arm64: bb411dab3df676bd1e7150c3ca6c76048cef96dec5fab02499701fd4ca5a7006
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

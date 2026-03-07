@@ -1,0 +1,19 @@
+name: flagd
+version: 0.14.1
+description: Feature flag daemon with a Unix philosophy
+homepage: https://github.com/open-feature/flagd
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/flagd/blobs/sha256:e6a7bc2160b629b166096a3902410ee0c3c1913c2c45f3dca5db8a0aac8e6876
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/flagd/blobs/sha256:cbe51a9c2e5ba3620b9e6bfaa26068215f1f4fbfc6d7496b3fd7d2e343633c1e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/flagd/blobs/sha256:0098039d5544027c2d6204bc5b2fffa23b765af94feb808535b493356a02bf3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/flagd/blobs/sha256:fa5e8eed3722743bc10da727cec774093ede51114cb05dc1be7fbb4119af0f60
+sha256:
+  darwin_arm64: e6a7bc2160b629b166096a3902410ee0c3c1913c2c45f3dca5db8a0aac8e6876
+  darwin_amd64: cbe51a9c2e5ba3620b9e6bfaa26068215f1f4fbfc6d7496b3fd7d2e343633c1e
+  linux_amd64: 0098039d5544027c2d6204bc5b2fffa23b765af94feb808535b493356a02bf3c
+  linux_arm64: fa5e8eed3722743bc10da727cec774093ede51114cb05dc1be7fbb4119af0f60
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

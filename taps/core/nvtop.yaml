@@ -1,0 +1,19 @@
+name: nvtop
+version: 3.3.2
+description: Interactive GPU process monitor
+homepage: https://github.com/Syllo/nvtop
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nvtop/blobs/sha256:76ee86ee0c3aff96e54fceceea9fc3ad3df75cb8f31cb9f352f0215abdd33062
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nvtop/blobs/sha256:2d5113cf560561639cae932298e460da47e07a4ec205be56e8412f83af141262
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nvtop/blobs/sha256:d59233a29922c798943bb0c5706aa7be60ae2237c513b7e926055e9e913062b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nvtop/blobs/sha256:736cd6ffc7e5651becb35246dcecca14ed7a6feca1c52ea3fca4a2c15d31207b
+sha256:
+  darwin_arm64: 76ee86ee0c3aff96e54fceceea9fc3ad3df75cb8f31cb9f352f0215abdd33062
+  darwin_amd64: 2d5113cf560561639cae932298e460da47e07a4ec205be56e8412f83af141262
+  linux_amd64: d59233a29922c798943bb0c5706aa7be60ae2237c513b7e926055e9e913062b1
+  linux_arm64: 736cd6ffc7e5651becb35246dcecca14ed7a6feca1c52ea3fca4a2c15d31207b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

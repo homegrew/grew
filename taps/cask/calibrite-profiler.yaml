@@ -1,0 +1,11 @@
+name: calibrite-profiler
+version: 3.0.4
+description: Display calibration software for Calibrite, ColorChecker and X-Rite devices
+homepage: https://calibrite.com/calibrite-profiler/
+url:
+  darwin_arm64: https://github.com/LUMESCA/calibrite-profiler-releases/releases/download/v3.0.4/calibrite-PROFILER-3.0.4.dmg
+sha256:
+  darwin_arm64: 4b919de389b7ea597095f665edfefb91103c7b624b7d2e41fb4808e431ac9f75
+artifacts:
+  app:
+    - calibrite PROFILER.app

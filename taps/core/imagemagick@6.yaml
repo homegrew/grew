@@ -1,0 +1,31 @@
+name: imagemagick@6
+version: 6.9.13-40
+description: Tools and libraries to manipulate images in many formats
+homepage: https://legacy.imagemagick.org/
+license: ImageMagick
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imagemagick/6/blobs/sha256:8dae7ef74bf109e26bbcb8c8be7256f3442279d5d908d72fbfe27d37f2e0a09f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imagemagick/6/blobs/sha256:014ac58cc0a2c09e4542d09ccdad27e906c5499ea1248ae198f130ca759a10a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imagemagick/6/blobs/sha256:9ec374f4019acda6ab8fdee4e3e63c4a774f59ba79c77c23072220276e081892
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imagemagick/6/blobs/sha256:a2184e7a6b401c3da334791b338f1c3d7393e9abc83b1783ad2ca2c89f1014ad
+sha256:
+  darwin_arm64: 8dae7ef74bf109e26bbcb8c8be7256f3442279d5d908d72fbfe27d37f2e0a09f
+  darwin_amd64: 014ac58cc0a2c09e4542d09ccdad27e906c5499ea1248ae198f130ca759a10a2
+  linux_amd64: 9ec374f4019acda6ab8fdee4e3e63c4a774f59ba79c77c23072220276e081892
+  linux_arm64: a2184e7a6b401c3da334791b338f1c3d7393e9abc83b1783ad2ca2c89f1014ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - libtool
+  - little-cms2
+  - openjpeg
+  - webp
+  - xz
+keg_only: true

@@ -1,0 +1,13 @@
+name: goland
+version: 2025.3.3,253.31033.129
+description: Go (golang) IDE
+homepage: https://www.jetbrains.com/go/
+url:
+  darwin_arm64: https://download.jetbrains.com/go/goland-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: bfdf242676b1c80be8e5a3609a0538b51d81491d1eb59831c4ff5a6c9eaf05be
+artifacts:
+  app:
+    - GoLand.app
+  bin:
+    - goland

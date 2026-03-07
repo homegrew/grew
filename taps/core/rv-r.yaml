@@ -1,0 +1,19 @@
+name: rv-r
+version: 0.19.0
+description: Declarative R package manager
+homepage: https://a2-ai.github.io/rv-docs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rv-r/blobs/sha256:d3341d2e33785090a0f8160f59b7890232dff56377d0467901589d04dcaf1b3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rv-r/blobs/sha256:3b4e3ea73a37fc06b42b912a2715024e1e892a4cd7ae08ed6de051b54a2509a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rv-r/blobs/sha256:0313365b4550e3be68c79c79370ef2740f030bc177f8da46782064584864f2f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rv-r/blobs/sha256:e13a8d0b95eaec08c3d1fe1cf5ad709a1cd4242ecb4741cafbb2551e2a52150c
+sha256:
+  darwin_arm64: d3341d2e33785090a0f8160f59b7890232dff56377d0467901589d04dcaf1b3c
+  darwin_amd64: 3b4e3ea73a37fc06b42b912a2715024e1e892a4cd7ae08ed6de051b54a2509a0
+  linux_amd64: 0313365b4550e3be68c79c79370ef2740f030bc177f8da46782064584864f2f4
+  linux_arm64: e13a8d0b95eaec08c3d1fe1cf5ad709a1cd4242ecb4741cafbb2551e2a52150c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

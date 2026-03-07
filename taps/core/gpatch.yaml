@@ -1,0 +1,19 @@
+name: gpatch
+version: 2.8
+description: Apply a diff file to an original
+homepage: https://savannah.gnu.org/projects/patch/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpatch/blobs/sha256:c79a8b5d256e2208b32446babb95be637d48bf1fa571bca1773c9c73414ca3ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpatch/blobs/sha256:5c46ba36e9b3e9fee27bd96ea873caa2a5938119a0e1dbd241fe408eca239a1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpatch/blobs/sha256:62f0d5010f2d0a3e11af30cc8b7b5982b1da2c7badc027f01d4fb33f2e6cc2bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpatch/blobs/sha256:390fa81b06e4db0aca8c86068b653c3dc27494508c4febd61ee647fb2deb4ce2
+sha256:
+  darwin_arm64: c79a8b5d256e2208b32446babb95be637d48bf1fa571bca1773c9c73414ca3ff
+  darwin_amd64: 5c46ba36e9b3e9fee27bd96ea873caa2a5938119a0e1dbd241fe408eca239a1f
+  linux_amd64: 62f0d5010f2d0a3e11af30cc8b7b5982b1da2c7badc027f01d4fb33f2e6cc2bb
+  linux_arm64: 390fa81b06e4db0aca8c86068b653c3dc27494508c4febd61ee647fb2deb4ce2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

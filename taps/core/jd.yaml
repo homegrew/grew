@@ -1,0 +1,19 @@
+name: jd
+version: 2.5.0
+description: JSON diff and patch
+homepage: https://github.com/josephburnett/jd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jd/blobs/sha256:dc0402bdb1aeb99940b6d32eae2eaf516722725b69a002f39122c248c01b037b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jd/blobs/sha256:be1e7d510c4494671a669db0aa1e49229067565f3ffefa22a46d343a67845223
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jd/blobs/sha256:a1e711c1e129381b62820ac48347eb8e55d19049ce76c6d8062b21cb1e973a42
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jd/blobs/sha256:5c95f3a9f3c3781181a3686b9108f02befd26448297b877b2a58f9567e772fe2
+sha256:
+  darwin_arm64: dc0402bdb1aeb99940b6d32eae2eaf516722725b69a002f39122c248c01b037b
+  darwin_amd64: be1e7d510c4494671a669db0aa1e49229067565f3ffefa22a46d343a67845223
+  linux_amd64: a1e711c1e129381b62820ac48347eb8e55d19049ce76c6d8062b21cb1e973a42
+  linux_arm64: 5c95f3a9f3c3781181a3686b9108f02befd26448297b877b2a58f9567e772fe2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: argocd-vault-plugin
+version: 1.18.1
+description: Argo CD plugin to retrieve secrets from Secret Management tools
+homepage: https://argocd-vault-plugin.readthedocs.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argocd-vault-plugin/blobs/sha256:c5d4dd6c1a4f16a3c0fd46c1721e996d152df50986c46a1fa43698f6e31ac095
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argocd-vault-plugin/blobs/sha256:1fc47e2adeb0af27bb1ad84156319b7196a8fabd70ea2712e4c673d55e85f867
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argocd-vault-plugin/blobs/sha256:4cd74305d5e1cac49e5621a88abbfcdd897c07e81ebe27ddc30eeeba1cf40260
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argocd-vault-plugin/blobs/sha256:69abd86b96dfd35560cff8ca258da75d78e26fbeb2f2a7139e03cf4749f53c2f
+sha256:
+  darwin_arm64: c5d4dd6c1a4f16a3c0fd46c1721e996d152df50986c46a1fa43698f6e31ac095
+  darwin_amd64: 1fc47e2adeb0af27bb1ad84156319b7196a8fabd70ea2712e4c673d55e85f867
+  linux_amd64: 4cd74305d5e1cac49e5621a88abbfcdd897c07e81ebe27ddc30eeeba1cf40260
+  linux_arm64: 69abd86b96dfd35560cff8ca258da75d78e26fbeb2f2a7139e03cf4749f53c2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

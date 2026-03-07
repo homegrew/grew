@@ -1,0 +1,15 @@
+name: chrpath
+version: 0.18
+description: Tool to edit the rpath in ELF binaries
+homepage: https://tracker.debian.org/pkg/chrpath
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chrpath/blobs/sha256:a820a2841f592b3045eb6e0dc4bdbb6a86789402dea2d97367ec0a58f7d3706f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chrpath/blobs/sha256:1bef0961b466971c9b4d4fc0ae4ddd059c17f465c8cac8c87e3ea03f3d04d357
+sha256:
+  linux_amd64: a820a2841f592b3045eb6e0dc4bdbb6a86789402dea2d97367ec0a58f7d3706f
+  linux_arm64: 1bef0961b466971c9b4d4fc0ae4ddd059c17f465c8cac8c87e3ea03f3d04d357
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

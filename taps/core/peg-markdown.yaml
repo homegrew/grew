@@ -1,0 +1,22 @@
+name: peg-markdown
+version: 0.4.14
+description: Markdown implementation based on a PEG grammar
+homepage: https://github.com/jgm/peg-markdown
+license: GPL-2.0-or-later OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/peg-markdown/blobs/sha256:ec72ce7ad492b44c05950b2ac9421ed3e410f1eec51e2c64b6215edced456df7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/peg-markdown/blobs/sha256:caead381de3c5b6a910a4316968f88da93d6dda290efb0c8b77595a54082e724
+  linux_amd64: https://ghcr.io/v2/homebrew/core/peg-markdown/blobs/sha256:d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/peg-markdown/blobs/sha256:2a9e3a5818daa858757ddbac902c2d0795bfa0bb6b02ce96a6fc35469b6c96ee
+sha256:
+  darwin_arm64: ec72ce7ad492b44c05950b2ac9421ed3e410f1eec51e2c64b6215edced456df7
+  darwin_amd64: caead381de3c5b6a910a4316968f88da93d6dda290efb0c8b77595a54082e724
+  linux_amd64: d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc
+  linux_arm64: 2a9e3a5818daa858757ddbac902c2d0795bfa0bb6b02ce96a6fc35469b6c96ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gettext

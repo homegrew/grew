@@ -1,0 +1,27 @@
+name: libspatialite
+version: 5.1.0
+description: Adds spatial SQL capabilities to SQLite
+homepage: https://www.gaia-gis.it/fossil/libspatialite/index
+license: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libspatialite/blobs/sha256:ec3bff2150de386d746181a90e8a9a706a5cd0abba9fff83b982f31cec916a93
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libspatialite/blobs/sha256:ea4844a4718e87cf6dab3f3216fd17f2b227c0f848a91fac80f35ce01c311a64
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libspatialite/blobs/sha256:9080a06cdd748903d3da061c4b50adf0435bf41fd316daf4e86ba145ac9fe47a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libspatialite/blobs/sha256:03d04b1c9c2e9383f2149bbd1fbc9c6374cdabd8b72887f0d02e17819e06ffdf
+sha256:
+  darwin_arm64: ec3bff2150de386d746181a90e8a9a706a5cd0abba9fff83b982f31cec916a93
+  darwin_amd64: ea4844a4718e87cf6dab3f3216fd17f2b227c0f848a91fac80f35ce01c311a64
+  linux_amd64: 9080a06cdd748903d3da061c4b50adf0435bf41fd316daf4e86ba145ac9fe47a
+  linux_arm64: 03d04b1c9c2e9383f2149bbd1fbc9c6374cdabd8b72887f0d02e17819e06ffdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freexl
+  - geos
+  - librttopo
+  - libxml2
+  - minizip
+  - proj
+  - sqlite

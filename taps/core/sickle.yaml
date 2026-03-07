@@ -1,0 +1,19 @@
+name: sickle
+version: 1.33
+description: Windowed adaptive trimming for FASTQ files using quality
+homepage: https://github.com/najoshi/sickle
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sickle/blobs/sha256:d4472a3191002f70094fb8bc4356ed355a05d141439be1354b33693c8bdfafcf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sickle/blobs/sha256:68038c77f837ba7f1beab356675cae487b9d85cf31c2b9ed949daa07a46708f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sickle/blobs/sha256:43b822b5c393959eb2946ba1c0647f004e4197ab6e0cfe5235ec70aa9365a7bd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sickle/blobs/sha256:0a94828e78e520c5217f5fda4dfc8ac427367e3fc306baad03aa34e03f7f223a
+sha256:
+  darwin_arm64: d4472a3191002f70094fb8bc4356ed355a05d141439be1354b33693c8bdfafcf
+  darwin_amd64: 68038c77f837ba7f1beab356675cae487b9d85cf31c2b9ed949daa07a46708f1
+  linux_amd64: 43b822b5c393959eb2946ba1c0647f004e4197ab6e0cfe5235ec70aa9365a7bd
+  linux_arm64: 0a94828e78e520c5217f5fda4dfc8ac427367e3fc306baad03aa34e03f7f223a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

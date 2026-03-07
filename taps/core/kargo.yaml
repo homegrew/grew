@@ -1,0 +1,19 @@
+name: kargo
+version: 1.9.5
+description: Multi-Stage GitOps Continuous Promotion
+homepage: https://kargo.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kargo/blobs/sha256:634e2ee428f118a68fa134e02c494f55b6e5b3379beb718aefaf281191536803
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kargo/blobs/sha256:ec82caa5f4bc007ed2ff2b828c67926ca179c87c95e341565c2866cb60b94f11
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kargo/blobs/sha256:3ee37705bab0a9953c522315743530957746faf4cfaa74adf0455214230becd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kargo/blobs/sha256:4702b02897ec13b941972494829be61454324b5af8a521fe6b0344d9f70c2bea
+sha256:
+  darwin_arm64: 634e2ee428f118a68fa134e02c494f55b6e5b3379beb718aefaf281191536803
+  darwin_amd64: ec82caa5f4bc007ed2ff2b828c67926ca179c87c95e341565c2866cb60b94f11
+  linux_amd64: 3ee37705bab0a9953c522315743530957746faf4cfaa74adf0455214230becd2
+  linux_arm64: 4702b02897ec13b941972494829be61454324b5af8a521fe6b0344d9f70c2bea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: rip2
+version: 0.9.6
+description: Safe and ergonomic alternative to rm
+homepage: https://github.com/MilesCranmer/rip2
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rip2/blobs/sha256:7a0e49f9192ce8230a4ed85ed3db21c92aa67a83528eed0cc7f84bf60972c6aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rip2/blobs/sha256:4604458cdf5d35b317fc845448ff700c39151f070f7503794a38969f54bc41b4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rip2/blobs/sha256:6a582694b6bcd21a59f5393e5d56b648b3c553d5be2e1b31b49106a099d970a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rip2/blobs/sha256:8ab9740bddaace23b393153f08988f7afccd60b67c3f81c5319b88acc55b4d24
+sha256:
+  darwin_arm64: 7a0e49f9192ce8230a4ed85ed3db21c92aa67a83528eed0cc7f84bf60972c6aa
+  darwin_amd64: 4604458cdf5d35b317fc845448ff700c39151f070f7503794a38969f54bc41b4
+  linux_amd64: 6a582694b6bcd21a59f5393e5d56b648b3c553d5be2e1b31b49106a099d970a2
+  linux_arm64: 8ab9740bddaace23b393153f08988f7afccd60b67c3f81c5319b88acc55b4d24
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

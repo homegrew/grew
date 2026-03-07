@@ -1,0 +1,23 @@
+name: ledit
+version: 2-07
+description: Line editor for interactive commands
+homepage: https://pauillac.inria.fr/~ddr/ledit/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ledit/blobs/sha256:0fe88c4c03d6f9d38e2b230ecf971637752d04a927d710cfc8e62e8f9b0dd899
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ledit/blobs/sha256:6443e3f4a7374c9fbb06bc37c792739d9abdc6762ad7607eac74c8ea28f3c158
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ledit/blobs/sha256:ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ledit/blobs/sha256:ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c
+sha256:
+  darwin_arm64: 0fe88c4c03d6f9d38e2b230ecf971637752d04a927d710cfc8e62e8f9b0dd899
+  darwin_amd64: 6443e3f4a7374c9fbb06bc37c792739d9abdc6762ad7607eac74c8ea28f3c158
+  linux_amd64: ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c
+  linux_arm64: ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - camlp-streams
+  - camlp5
+  - ocaml

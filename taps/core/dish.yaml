@@ -1,0 +1,19 @@
+name: dish
+version: 1.12.0
+description: Lightweight monitoring service that efficiently checks socket connections
+homepage: https://github.com/thevxn/dish
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dish/blobs/sha256:02c49400cdaa68fd9d904442a95e3e8cc14b12d1ff63c7e990be9d1b3f22a06a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dish/blobs/sha256:9bb4679a8537a8fe7f7c305273573950a648e2378ada306bdc9d5e0b86297948
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dish/blobs/sha256:edbcb986db8daaacaad96da7f82e9bdfd1efac3a7d50a4df42fbeaa9cc385042
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dish/blobs/sha256:5af1f11ccfbc8b4ec42a4537d8e40426b366bd04eaa40c470aaedd0910158466
+sha256:
+  darwin_arm64: 02c49400cdaa68fd9d904442a95e3e8cc14b12d1ff63c7e990be9d1b3f22a06a
+  darwin_amd64: 9bb4679a8537a8fe7f7c305273573950a648e2378ada306bdc9d5e0b86297948
+  linux_amd64: edbcb986db8daaacaad96da7f82e9bdfd1efac3a7d50a4df42fbeaa9cc385042
+  linux_arm64: 5af1f11ccfbc8b4ec42a4537d8e40426b366bd04eaa40c470aaedd0910158466
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: libx11
+version: 1.8.13
+description: "X.Org: Core X11 protocol client library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libx11/blobs/sha256:cddc8c50c6140f0f64724e4f7c508fe7d26676b24cf7ae2b2527bf884a07a5ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libx11/blobs/sha256:32a48ce69d27f65034e12ecdf7053708dc88f6edc6c8c6c3b10ff471fbd056c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libx11/blobs/sha256:d7b4f02a9f494cfe80106d3ec885233e06c1c34bbfdfff06a6548869d6844ab6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libx11/blobs/sha256:affc9d4a098b828773661c5dfecb32f3e32c2f07701ce11e6495c64f189f2aa3
+sha256:
+  darwin_arm64: cddc8c50c6140f0f64724e4f7c508fe7d26676b24cf7ae2b2527bf884a07a5ea
+  darwin_amd64: 32a48ce69d27f65034e12ecdf7053708dc88f6edc6c8c6c3b10ff471fbd056c5
+  linux_amd64: d7b4f02a9f494cfe80106d3ec885233e06c1c34bbfdfff06a6548869d6844ab6
+  linux_arm64: affc9d4a098b828773661c5dfecb32f3e32c2f07701ce11e6495c64f189f2aa3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxcb
+  - xorgproto

@@ -1,0 +1,22 @@
+name: exif
+version: 0.6.22
+description: Read, write, modify, and display EXIF data on the command-line
+homepage: https://libexif.github.io/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exif/blobs/sha256:bfb1b7b9782dd4c888442a3dc2d6872894e1acfde781fc8b819e631fd1f4ed23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exif/blobs/sha256:3c655100531630bc28a4c7b09b37f4791395cae06446a34700343a22cd3824c5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exif/blobs/sha256:a41aa53dd457e0318526a6ec043f18ff97a8a23a9009e0a556c271d0eae14d09
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exif/blobs/sha256:df114ade71a7d16168b5416d7b649c109477e4815f73933d814cdcd3b884f76d
+sha256:
+  darwin_arm64: bfb1b7b9782dd4c888442a3dc2d6872894e1acfde781fc8b819e631fd1f4ed23
+  darwin_amd64: 3c655100531630bc28a4c7b09b37f4791395cae06446a34700343a22cd3824c5
+  linux_amd64: a41aa53dd457e0318526a6ec043f18ff97a8a23a9009e0a556c271d0eae14d09
+  linux_arm64: df114ade71a7d16168b5416d7b649c109477e4815f73933d814cdcd3b884f76d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libexif
+  - popt

@@ -1,0 +1,21 @@
+name: libtermkey
+version: 0.22
+description: Library for processing keyboard entry from the terminal
+homepage: https://www.leonerd.org.uk/code/libtermkey/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libtermkey/blobs/sha256:3f3b0155836ea23f051a5b94c6129d6ed1927f9daea716e1f72634470c7557b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libtermkey/blobs/sha256:507c7f87470c6d1b1135738fef8cc8776d28feb2fe00d40083a316d139bbbcb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libtermkey/blobs/sha256:359504c1b88e079ed34f73484c6196c5e5a2f6ca402088cbb7a537177cc22f93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libtermkey/blobs/sha256:34ca685938466b3866c5a986b40dfb762c19fbd0a050f1c5c61b4884f7446a28
+sha256:
+  darwin_arm64: 3f3b0155836ea23f051a5b94c6129d6ed1927f9daea716e1f72634470c7557b7
+  darwin_amd64: 507c7f87470c6d1b1135738fef8cc8776d28feb2fe00d40083a316d139bbbcb1
+  linux_amd64: 359504c1b88e079ed34f73484c6196c5e5a2f6ca402088cbb7a537177cc22f93
+  linux_arm64: 34ca685938466b3866c5a986b40dfb762c19fbd0a050f1c5c61b4884f7446a28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - unibilium

@@ -1,0 +1,19 @@
+name: tere
+version: 1.6.0
+description: Terminal file explorer
+homepage: https://github.com/mgunyho/tere
+license: EUPL-1.2
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tere/blobs/sha256:787e582804b995bb8b5d87d670ca4043d3647a94c11afa8e332f15656935c7ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tere/blobs/sha256:65ae7c433f4610971aa049108551e70bd6b89adb5dbd0966699ed4ae7ae23aab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tere/blobs/sha256:9665ab7e423ec09d10dd3e85bec42d8a1e222ef3bfcfb7b229fcdafa5210d69c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tere/blobs/sha256:175b2dacf2c4dad2c0a6f871d0225970305f240fed95724145cae5c244c59787
+sha256:
+  darwin_arm64: 787e582804b995bb8b5d87d670ca4043d3647a94c11afa8e332f15656935c7ce
+  darwin_amd64: 65ae7c433f4610971aa049108551e70bd6b89adb5dbd0966699ed4ae7ae23aab
+  linux_amd64: 9665ab7e423ec09d10dd3e85bec42d8a1e222ef3bfcfb7b229fcdafa5210d69c
+  linux_arm64: 175b2dacf2c4dad2c0a6f871d0225970305f240fed95724145cae5c244c59787
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

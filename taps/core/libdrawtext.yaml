@@ -1,0 +1,21 @@
+name: libdrawtext
+version: 0.6
+description: Library for anti-aliased text rendering in OpenGL
+homepage: http://nuclear.mutantstargoat.com/sw/libdrawtext/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdrawtext/blobs/sha256:3f2bec9d760cbb23d7bc7aae47bcb72ecfc60abc4ea023a320836c5b9859b9a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdrawtext/blobs/sha256:4262d5949883ebe79316117398c332490f435c4da74a8ccaf195a6d0479ce4f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdrawtext/blobs/sha256:1a5d0e7c72c57d294d27e5f80dfd4371c7b3d37be3645f77103b7233025d366e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdrawtext/blobs/sha256:e4c5a798ccb89fb7d2872b427347e85d6d7239bd2c3a46563dab045fa7c63b10
+sha256:
+  darwin_arm64: 3f2bec9d760cbb23d7bc7aae47bcb72ecfc60abc4ea023a320836c5b9859b9a2
+  darwin_amd64: 4262d5949883ebe79316117398c332490f435c4da74a8ccaf195a6d0479ce4f8
+  linux_amd64: 1a5d0e7c72c57d294d27e5f80dfd4371c7b3d37be3645f77103b7233025d366e
+  linux_arm64: e4c5a798ccb89fb7d2872b427347e85d6d7239bd2c3a46563dab045fa7c63b10
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype

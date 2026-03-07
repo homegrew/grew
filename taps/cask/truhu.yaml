@@ -1,0 +1,11 @@
+name: truhu
+version: 345
+description: Display calibration utility
+homepage: https://truhu.app/
+url:
+  darwin_arm64: https://truhu-mobile-builds.s3.amazonaws.com/TruHu+Desktop+345.dmg
+sha256:
+  darwin_arm64: c53d36e489774cedb1771470ee72be05aba113b2e05d0bcdaa35b44dad1d7f87
+artifacts:
+  app:
+    - TruHu Mac Desktop.app

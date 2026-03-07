@@ -1,0 +1,19 @@
+name: newrelic-infra-agent
+version: 1.72.7
+description: New Relic infrastructure agent
+homepage: https://github.com/newrelic/infrastructure-agent
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/newrelic-infra-agent/blobs/sha256:a08f206fc576c1ed8b88b82902b6f99c7d92765ac56f01d0f64f6d8597a5a8f3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/newrelic-infra-agent/blobs/sha256:14bbe292474609a4ff82a82b17de5c1bf609227f4cadc25612bfec8925607fbe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/newrelic-infra-agent/blobs/sha256:f054116b254c8301342a006d7b5065a63fa70a560c12abcd28639bd1975fbe0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/newrelic-infra-agent/blobs/sha256:a47c56e2f9e1268f5a309677f545381973c35c2f31f8da213bde62d82931d990
+sha256:
+  darwin_arm64: a08f206fc576c1ed8b88b82902b6f99c7d92765ac56f01d0f64f6d8597a5a8f3
+  darwin_amd64: 14bbe292474609a4ff82a82b17de5c1bf609227f4cadc25612bfec8925607fbe
+  linux_amd64: f054116b254c8301342a006d7b5065a63fa70a560c12abcd28639bd1975fbe0a
+  linux_arm64: a47c56e2f9e1268f5a309677f545381973c35c2f31f8da213bde62d82931d990
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: rattler-build
+version: 0.58.4
+description: Universal conda package builder
+homepage: https://rattler.build
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rattler-build/blobs/sha256:ec96f21febc718f7b9d16f6fb2a9c385237335d06c9f1467e3c626143bed6b44
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rattler-build/blobs/sha256:edfe3cce2db8be57cb06a450cc3236c19939c25a4d510a9184a9800d0e7c1582
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rattler-build/blobs/sha256:26b0f16f1b875ab95df55db0c9d638b5e363efcaab670123fd9b79890baa366b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rattler-build/blobs/sha256:4033fa766121cf62f3646f8d50b569b67f253e4104c0606ab2912b4ef9c323b2
+sha256:
+  darwin_arm64: ec96f21febc718f7b9d16f6fb2a9c385237335d06c9f1467e3c626143bed6b44
+  darwin_amd64: edfe3cce2db8be57cb06a450cc3236c19939c25a4d510a9184a9800d0e7c1582
+  linux_amd64: 26b0f16f1b875ab95df55db0c9d638b5e363efcaab670123fd9b79890baa366b
+  linux_arm64: 4033fa766121cf62f3646f8d50b569b67f253e4104c0606ab2912b4ef9c323b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - xz

@@ -1,0 +1,19 @@
+name: caesiumclt
+version: 1.2.0
+description: Fast and efficient lossy and/or lossless image compression tool
+homepage: https://github.com/Lymphatus/caesium-clt
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/caesiumclt/blobs/sha256:e0146d6fcbb12421872cf004763e15e87b0adf8f25b4e302aa78d392bc1c2bf2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/caesiumclt/blobs/sha256:10ac566c4e4d3b2fb9ae4e1902e9d6705728c8566ebf4946e9f3441f2cfcae28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/caesiumclt/blobs/sha256:7b717a0b9a29c07a97b92993c1467ab2cd7c2b8e89e24e7c147267357f5db153
+  linux_arm64: https://ghcr.io/v2/homebrew/core/caesiumclt/blobs/sha256:79f69f43b789be82bf645bd962ad588ebfd2ac287f4fc56c42192f09e1c0bee7
+sha256:
+  darwin_arm64: e0146d6fcbb12421872cf004763e15e87b0adf8f25b4e302aa78d392bc1c2bf2
+  darwin_amd64: 10ac566c4e4d3b2fb9ae4e1902e9d6705728c8566ebf4946e9f3441f2cfcae28
+  linux_amd64: 7b717a0b9a29c07a97b92993c1467ab2cd7c2b8e89e24e7c147267357f5db153
+  linux_arm64: 79f69f43b789be82bf645bd962ad588ebfd2ac287f4fc56c42192f09e1c0bee7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

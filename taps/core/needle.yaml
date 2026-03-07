@@ -1,0 +1,15 @@
+name: needle
+version: 0.25.1
+description: Compile-time safe Swift dependency injection framework with real code
+homepage: https://github.com/uber/needle
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/needle/blobs/sha256:2cef1302f96a215e8126af9e3ed2c714f7763bbe73b64eb47c68954869cdf350
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/needle/blobs/sha256:2297f9b535ac16dc443f30f5894772c85c70ec3bb4502b4520d3d93c4ad3ed09
+sha256:
+  darwin_arm64: 2cef1302f96a215e8126af9e3ed2c714f7763bbe73b64eb47c68954869cdf350
+  darwin_amd64: 2297f9b535ac16dc443f30f5894772c85c70ec3bb4502b4520d3d93c4ad3ed09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

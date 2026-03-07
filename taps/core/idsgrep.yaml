@@ -1,0 +1,19 @@
+name: idsgrep
+version: 0.6
+description: Grep for Extended Ideographic Description Sequences
+homepage: https://tsukurimashou.org/idsgrep.php.en
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/idsgrep/blobs/sha256:599f0677a847ef317bb1cf0a80501b84531bf0a3083f6cf31052bb5f70bab0fc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/idsgrep/blobs/sha256:d3d1fc3dee5ac6f139f457881bfc85f865ed0ed5dd94fa856396085c9bebcac7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/idsgrep/blobs/sha256:4ba4398d84c8f0d78e838d5b39182bd0eab662606d8a77e895fc663e5558307d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/idsgrep/blobs/sha256:656ffb858db27d6e80c9df19854d995ee1d45c0aaca683b2048125ad8021dc80
+sha256:
+  darwin_arm64: 599f0677a847ef317bb1cf0a80501b84531bf0a3083f6cf31052bb5f70bab0fc
+  darwin_amd64: d3d1fc3dee5ac6f139f457881bfc85f865ed0ed5dd94fa856396085c9bebcac7
+  linux_amd64: 4ba4398d84c8f0d78e838d5b39182bd0eab662606d8a77e895fc663e5558307d
+  linux_arm64: 656ffb858db27d6e80c9df19854d995ee1d45c0aaca683b2048125ad8021dc80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

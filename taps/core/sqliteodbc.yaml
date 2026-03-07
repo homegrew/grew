@@ -1,0 +1,22 @@
+name: sqliteodbc
+version: 0.99991
+description: ODBC driver for SQLite
+homepage: https://ch-werner.hier-im-netz.de/sqliteodbc/
+license: TCL
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqliteodbc/blobs/sha256:ef7576d687d514cf3e6691537bee8e66eaca106ef598ad5cf07c4e20d520aecb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqliteodbc/blobs/sha256:1a219550850f7e7aba34e7695ffd1768141bb8ee469a0ab81f19c66292c33fec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqliteodbc/blobs/sha256:9c3e2942b9b3d486a777ca95d5303fc556ae08435e60a2fa0f099a21d3db473b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqliteodbc/blobs/sha256:3f2c84110c49b8b78f0c9cba7c38a4164f42e6d7ec370b8ac7deb83e70d978ce
+sha256:
+  darwin_arm64: ef7576d687d514cf3e6691537bee8e66eaca106ef598ad5cf07c4e20d520aecb
+  darwin_amd64: 1a219550850f7e7aba34e7695ffd1768141bb8ee469a0ab81f19c66292c33fec
+  linux_amd64: 9c3e2942b9b3d486a777ca95d5303fc556ae08435e60a2fa0f099a21d3db473b
+  linux_arm64: 3f2c84110c49b8b78f0c9cba7c38a4164f42e6d7ec370b8ac7deb83e70d978ce
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sqlite
+  - unixodbc

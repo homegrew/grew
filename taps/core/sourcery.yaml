@@ -1,0 +1,19 @@
+name: sourcery
+version: 2.3.0
+description: Meta-programming for Swift, stop writing boilerplate code
+homepage: https://github.com/krzysztofzablocki/Sourcery
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sourcery/blobs/sha256:d8338cca5f963c8d7d45267a13aca1f01ef594783da95a96d96ca0dd84ecdb8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sourcery/blobs/sha256:786e56e3881666c1ea880ead6b070fd6cf4b300634c3dbdf2a1f43e7e16bdbc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sourcery/blobs/sha256:017c7fc58e6665e6cd19bf0fc37af3dd77c2bc93d991d329b69814ff6b4f20f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sourcery/blobs/sha256:db8d5bc1475a737448111a97790c2a4ed72b0144048fd5b5c28ed6b533fa5616
+sha256:
+  darwin_arm64: d8338cca5f963c8d7d45267a13aca1f01ef594783da95a96d96ca0dd84ecdb8a
+  darwin_amd64: 786e56e3881666c1ea880ead6b070fd6cf4b300634c3dbdf2a1f43e7e16bdbc2
+  linux_amd64: 017c7fc58e6665e6cd19bf0fc37af3dd77c2bc93d991d329b69814ff6b4f20f9
+  linux_arm64: db8d5bc1475a737448111a97790c2a4ed72b0144048fd5b5c28ed6b533fa5616
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

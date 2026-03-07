@@ -1,0 +1,19 @@
+name: save3ds_fuse
+version: 1.4.0
+description: Extract/Import/FUSE for 3DS save/extdata/database
+homepage: https://github.com/wwylele/save3ds
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/save3ds_fuse/blobs/sha256:e7066052c1d3ab588faf21f2dea3dfb908f4837fa7f361ad0c5af12ea2566fe0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/save3ds_fuse/blobs/sha256:d5877b7d8b6bf492e485d88513f330e032f64904e5259e1c31918d708da9de22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/save3ds_fuse/blobs/sha256:4e9272100fe4d01b7fd078b9aec2e8ccdec2fe009f6b9f8959fbe69570c38650
+  linux_arm64: https://ghcr.io/v2/homebrew/core/save3ds_fuse/blobs/sha256:e1a18296ce539d04b8806a1743abf9c31713246a76bd987cf51a8e9b9b2c197e
+sha256:
+  darwin_arm64: e7066052c1d3ab588faf21f2dea3dfb908f4837fa7f361ad0c5af12ea2566fe0
+  darwin_amd64: d5877b7d8b6bf492e485d88513f330e032f64904e5259e1c31918d708da9de22
+  linux_amd64: 4e9272100fe4d01b7fd078b9aec2e8ccdec2fe009f6b9f8959fbe69570c38650
+  linux_arm64: e1a18296ce539d04b8806a1743abf9c31713246a76bd987cf51a8e9b9b2c197e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

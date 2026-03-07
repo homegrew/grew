@@ -1,0 +1,32 @@
+name: gnumeric
+version: 1.12.60
+description: GNOME Spreadsheet Application
+homepage: https://projects.gnome.org/gnumeric/
+license: GPL-3.0-only OR GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnumeric/blobs/sha256:02e980a333f1147f76517adf6aef59f34d85d8e0ad5139e4d00bc726cc7bc27f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnumeric/blobs/sha256:fbe5478953b752c3777bb6f782f69fe0d7905b7eae318aa6c97ec156ed3033b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnumeric/blobs/sha256:758c3360118c9db83b015d1ff4713664ba68c50b48abcb122c906f5c80ad5fc5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnumeric/blobs/sha256:8bbb3ef361de7939d9e205eee5d13e361e529ee88cf0b1ce36eaa472fa420b6f
+sha256:
+  darwin_arm64: 02e980a333f1147f76517adf6aef59f34d85d8e0ad5139e4d00bc726cc7bc27f
+  darwin_amd64: fbe5478953b752c3777bb6f782f69fe0d7905b7eae318aa6c97ec156ed3033b5
+  linux_amd64: 758c3360118c9db83b015d1ff4713664ba68c50b48abcb122c906f5c80ad5fc5
+  linux_arm64: 8bbb3ef361de7939d9e205eee5d13e361e529ee88cf0b1ce36eaa472fa420b6f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - at-spi2-core
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - goffice
+  - gtk+3
+  - libgsf
+  - libxml2
+  - pango
+  - gettext
+  - harfbuzz

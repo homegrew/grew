@@ -1,0 +1,19 @@
+name: cozyhr
+version: 1.6.1
+description: Cozy wrapper around Helm and Flux CD for local development
+homepage: https://github.com/cozystack/cozyhr
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cozyhr/blobs/sha256:f180b5440e264f7eebc9f4ad530179750a23969d1969d8439df058e3a17286ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cozyhr/blobs/sha256:c3ad84c9933d79b0969ad05012156142d7b5ec3f98827e6ae2942e12c928e832
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cozyhr/blobs/sha256:6e2e74e04771023eaacbedb25dca9413598f5e951f8f4320a68fafb3bfc46f17
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cozyhr/blobs/sha256:066f2212f1d69e9ac77f4bda588416fce80863944b7f238499569135fa464f90
+sha256:
+  darwin_arm64: f180b5440e264f7eebc9f4ad530179750a23969d1969d8439df058e3a17286ec
+  darwin_amd64: c3ad84c9933d79b0969ad05012156142d7b5ec3f98827e6ae2942e12c928e832
+  linux_amd64: 6e2e74e04771023eaacbedb25dca9413598f5e951f8f4320a68fafb3bfc46f17
+  linux_arm64: 066f2212f1d69e9ac77f4bda588416fce80863944b7f238499569135fa464f90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

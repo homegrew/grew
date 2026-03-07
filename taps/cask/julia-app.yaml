@@ -1,0 +1,13 @@
+name: julia-app
+version: 1.12.5
+description: Programming language for technical computing
+homepage: https://julialang.org/
+url:
+  darwin_arm64: https://julialang-s3.julialang.org/bin/mac/aarch64/1.12/julia-1.12.5-macaarch64.dmg
+sha256:
+  darwin_arm64: 356deef6cca2a882cb7ae15ecdfbac5ae32d835c12d0f8e17d45aaf4d30e21b1
+artifacts:
+  app:
+    - Julia-1.12.app
+  bin:
+    - julia

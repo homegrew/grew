@@ -1,0 +1,19 @@
+name: autobrr
+version: 1.73.0
+description: Modern, easy to use download automation for torrents and usenet
+homepage: https://autobrr.com/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autobrr/blobs/sha256:3056b42293ff38de78b7e4f233580375cb03bd8b0771f38ea0ce8b7c5f9835ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autobrr/blobs/sha256:e9b92694b88502b18b2a64b44f8af9c99cf2854192af3f409fd016a53fc5cc6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autobrr/blobs/sha256:485719ad2c83b6909f288c86d9f79ef4e5fbb224fa7fd9cd47fdcb4ca7069a39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autobrr/blobs/sha256:275c66c3f5fa1bbdf77cfe7976a22d0d9091b155bf14e9467d8ace40067d5175
+sha256:
+  darwin_arm64: 3056b42293ff38de78b7e4f233580375cb03bd8b0771f38ea0ce8b7c5f9835ba
+  darwin_amd64: e9b92694b88502b18b2a64b44f8af9c99cf2854192af3f409fd016a53fc5cc6a
+  linux_amd64: 485719ad2c83b6909f288c86d9f79ef4e5fbb224fa7fd9cd47fdcb4ca7069a39
+  linux_arm64: 275c66c3f5fa1bbdf77cfe7976a22d0d9091b155bf14e9467d8ace40067d5175
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

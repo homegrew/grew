@@ -1,0 +1,27 @@
+name: aarch64-elf-gdb
+version: 17.1
+description: GNU debugger for aarch64-elf cross development
+homepage: https://www.gnu.org/software/gdb/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aarch64-elf-gdb/blobs/sha256:bdcf835bdcd3bbb5c88485b7d83b0fc63ec8786ee0a5004d9c30c61c02bdbb54
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aarch64-elf-gdb/blobs/sha256:a115255d2121aa6085029bd300ea07d0346fc14ad744b7705826fdd4ef251712
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aarch64-elf-gdb/blobs/sha256:5200015b8cae1913318e034e2ab58934454d1393fcd90da73201fe4fd960fda0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aarch64-elf-gdb/blobs/sha256:6df608c98860b524069d769d511e65db5fd69e9f23bdc9a9a57c1cb3ed949ff7
+sha256:
+  darwin_arm64: bdcf835bdcd3bbb5c88485b7d83b0fc63ec8786ee0a5004d9c30c61c02bdbb54
+  darwin_amd64: a115255d2121aa6085029bd300ea07d0346fc14ad744b7705826fdd4ef251712
+  linux_amd64: 5200015b8cae1913318e034e2ab58934454d1393fcd90da73201fe4fd960fda0
+  linux_arm64: 6df608c98860b524069d769d511e65db5fd69e9f23bdc9a9a57c1cb3ed949ff7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - mpfr
+  - ncurses
+  - python@3.14
+  - readline
+  - xz
+  - zstd

@@ -1,0 +1,11 @@
+name: bluewallet
+version: 7.2.6
+description: Bitcoin wallet and Lightning wallet
+homepage: https://bluewallet.io/
+url:
+  darwin_arm64: https://github.com/BlueWallet/BlueWallet/releases/download/v7.2.6/BlueWallet.7.2.6.dmg
+sha256:
+  darwin_arm64: 38299c0800d1bf19656638ccf64266fa1d2e614f2845918fe544c0c1b3935328
+artifacts:
+  app:
+    - BlueWallet.app

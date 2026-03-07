@@ -1,0 +1,21 @@
+name: uutils-findutils
+version: 0.8.0
+description: Cross-platform Rust rewrite of the GNU findutils
+homepage: https://uutils.github.io/findutils/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uutils-findutils/blobs/sha256:6eb3e88da89772a813c0147b7c3a0f62832b7661ff428c6c2fdbf52a03d63593
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uutils-findutils/blobs/sha256:4504ecdf9e500e9bc9c56ebacd087bd056fab8d0e039e7cdc6021e9d3ac82afb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uutils-findutils/blobs/sha256:2edddc168292e0f75bde8380d1e6ff5f11c053f9aeb9d25752ce327410083bd2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uutils-findutils/blobs/sha256:1a3d9faebb6fa34813ab9f17a87f2a10e68a5f08267791487d70e1a09376da5e
+sha256:
+  darwin_arm64: 6eb3e88da89772a813c0147b7c3a0f62832b7661ff428c6c2fdbf52a03d63593
+  darwin_amd64: 4504ecdf9e500e9bc9c56ebacd087bd056fab8d0e039e7cdc6021e9d3ac82afb
+  linux_amd64: 2edddc168292e0f75bde8380d1e6ff5f11c053f9aeb9d25752ce327410083bd2
+  linux_arm64: 1a3d9faebb6fa34813ab9f17a87f2a10e68a5f08267791487d70e1a09376da5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

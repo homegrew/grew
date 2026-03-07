@@ -1,0 +1,24 @@
+name: mender-artifact
+version: 4.3.0
+description: CLI tool for managing Mender artifact files
+homepage: https://mender.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mender-artifact/blobs/sha256:3567bec3746023c8ed817443f890cfc10861ae5e458d975bc23911fe16435953
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mender-artifact/blobs/sha256:12ef6ce4e6ed7c6bf0d80ed67fa0b9333d7f0559b0cd1f14c37b45769c59800a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mender-artifact/blobs/sha256:323bfc97ecbe583bb71a076ec11e339f6c2c4d8fb519556be51ba2a5a606d85f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mender-artifact/blobs/sha256:dbcd872397e2ea799bb7f84692fb3ec49970fdac6c89af548d101c0eb49e21ba
+sha256:
+  darwin_arm64: 3567bec3746023c8ed817443f890cfc10861ae5e458d975bc23911fe16435953
+  darwin_amd64: 12ef6ce4e6ed7c6bf0d80ed67fa0b9333d7f0559b0cd1f14c37b45769c59800a
+  linux_amd64: 323bfc97ecbe583bb71a076ec11e339f6c2c4d8fb519556be51ba2a5a606d85f
+  linux_arm64: dbcd872397e2ea799bb7f84692fb3ec49970fdac6c89af548d101c0eb49e21ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dosfstools
+  - e2fsprogs
+  - mtools
+  - openssl@3

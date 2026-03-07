@@ -1,0 +1,21 @@
+name: texi2html
+version: 5.0
+description: Convert TeXinfo files to HTML
+homepage: https://www.nongnu.org/texi2html/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/texi2html/blobs/sha256:0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/texi2html/blobs/sha256:20ac4a12f76ccf5fe1ab324264c9b72f1b3d9cfedf981b7e743b636045e32f45
+  linux_amd64: https://ghcr.io/v2/homebrew/core/texi2html/blobs/sha256:ec47e69ea0775ca07947f7be4d5111ab308b2b472042b517e0bf0ea19b115d05
+  linux_arm64: https://ghcr.io/v2/homebrew/core/texi2html/blobs/sha256:e07d313b8d6ff0b95101597fffdd363fe7a935154ed310c4ec4d47214339f6e0
+sha256:
+  darwin_arm64: 0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71
+  darwin_amd64: 20ac4a12f76ccf5fe1ab324264c9b72f1b3d9cfedf981b7e743b636045e32f45
+  linux_amd64: ec47e69ea0775ca07947f7be4d5111ab308b2b472042b517e0bf0ea19b115d05
+  linux_arm64: e07d313b8d6ff0b95101597fffdd363fe7a935154ed310c4ec4d47214339f6e0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

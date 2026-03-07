@@ -1,0 +1,11 @@
+name: gnucash
+version: 5.14-1
+description: Double-entry accounting program
+homepage: https://www.gnucash.org/
+url:
+  darwin_arm64: https://github.com/Gnucash/gnucash/releases/download/5.14/Gnucash-Arm-5.14-1.dmg
+sha256:
+  darwin_arm64: 0e424f0a82486852ff14373483c849c6918b49738b7be2fe64c88c7e95080a89
+artifacts:
+  app:
+    - Gnucash.app

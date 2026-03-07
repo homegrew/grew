@@ -1,0 +1,19 @@
+name: screenfetch
+version: 3.9.9
+description: Generate ASCII art with terminal, shell, and OS info
+homepage: https://github.com/KittyKatt/screenFetch
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/screenfetch/blobs/sha256:c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/screenfetch/blobs/sha256:b68576c5aa125ad2165db21d10aab8d618bf1b39f984d7aba6f9b5ea49024e42
+  linux_amd64: https://ghcr.io/v2/homebrew/core/screenfetch/blobs/sha256:a427038281e7efce1130d08f039d557bf1338d3f12a4ab3d316454496bde26b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/screenfetch/blobs/sha256:a427038281e7efce1130d08f039d557bf1338d3f12a4ab3d316454496bde26b4
+sha256:
+  darwin_arm64: c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14
+  darwin_amd64: b68576c5aa125ad2165db21d10aab8d618bf1b39f984d7aba6f9b5ea49024e42
+  linux_amd64: a427038281e7efce1130d08f039d557bf1338d3f12a4ab3d316454496bde26b4
+  linux_arm64: a427038281e7efce1130d08f039d557bf1338d3f12a4ab3d316454496bde26b4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

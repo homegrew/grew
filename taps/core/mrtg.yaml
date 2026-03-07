@@ -1,0 +1,22 @@
+name: mrtg
+version: 2.17.10
+description: Multi router traffic grapher
+homepage: https://oss.oetiker.ch/mrtg/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mrtg/blobs/sha256:16df1972b9200a5138dbedde9f1dcf140b35c32adc3116c72b51d95f4f8e02d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mrtg/blobs/sha256:39958b96f98a88625a4031bdbec297b63246f5c926d9c780e67495dd762dafcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mrtg/blobs/sha256:25d13a8441a4958962e6812e1811c529021505443bf4fb5cde24214f8cc1332a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mrtg/blobs/sha256:0b695928011e9618ef06a39999a9e9a856840101e56019cfc53b1c78a99ba39e
+sha256:
+  darwin_arm64: 16df1972b9200a5138dbedde9f1dcf140b35c32adc3116c72b51d95f4f8e02d5
+  darwin_amd64: 39958b96f98a88625a4031bdbec297b63246f5c926d9c780e67495dd762dafcc
+  linux_amd64: 25d13a8441a4958962e6812e1811c529021505443bf4fb5cde24214f8cc1332a
+  linux_arm64: 0b695928011e9618ef06a39999a9e9a856840101e56019cfc53b1c78a99ba39e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd
+  - libpng

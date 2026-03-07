@@ -1,0 +1,19 @@
+name: binsider
+version: 0.3.2
+description: Analyzes ELF binaries
+homepage: https://binsider.dev/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/binsider/blobs/sha256:fb174c262fef03b7bdb8764bdba5aa421b00f888843296e1c6950e2e96d43c14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/binsider/blobs/sha256:8dd432e82e9de9c566f17eff18f24cd896ee33110a420dc4625d24594f0e389c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/binsider/blobs/sha256:eb237cba89a8c27b6b02cc27839349b37b393c420bcd2f6f1d88589e00751f25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/binsider/blobs/sha256:6d554a2e39ef7d49cbca53cac30b77d156f91eb0e67ffea8c8469464b4fefc05
+sha256:
+  darwin_arm64: fb174c262fef03b7bdb8764bdba5aa421b00f888843296e1c6950e2e96d43c14
+  darwin_amd64: 8dd432e82e9de9c566f17eff18f24cd896ee33110a420dc4625d24594f0e389c
+  linux_amd64: eb237cba89a8c27b6b02cc27839349b37b393c420bcd2f6f1d88589e00751f25
+  linux_arm64: 6d554a2e39ef7d49cbca53cac30b77d156f91eb0e67ffea8c8469464b4fefc05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

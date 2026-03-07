@@ -1,0 +1,19 @@
+name: jr
+version: 0.4.0
+description: CLI program that helps you to create quality random data for your applications
+homepage: https://jrnd.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jr/blobs/sha256:399634610161df53cbbeceed8121518a1e3ed856aed4058b4d9877563f639fb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jr/blobs/sha256:cb7ea019fcb7b112f592b88beba76fe7af0a1d35a5858e93bd78a695bef0003c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jr/blobs/sha256:18666a02f967744d1b8e9e83d626c3f463c88c3a2ec95eb7cfc7ea8df03b45fc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jr/blobs/sha256:4a420499d2089911bdba702881348ff01703ca4f0069b771f8304e071cbe9de7
+sha256:
+  darwin_arm64: 399634610161df53cbbeceed8121518a1e3ed856aed4058b4d9877563f639fb8
+  darwin_amd64: cb7ea019fcb7b112f592b88beba76fe7af0a1d35a5858e93bd78a695bef0003c
+  linux_amd64: 18666a02f967744d1b8e9e83d626c3f463c88c3a2ec95eb7cfc7ea8df03b45fc
+  linux_arm64: 4a420499d2089911bdba702881348ff01703ca4f0069b771f8304e071cbe9de7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

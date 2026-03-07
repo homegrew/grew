@@ -1,0 +1,22 @@
+name: pngquant
+version: 3.0.3
+description: PNG image optimizing utility
+homepage: https://pngquant.org/
+license: GPL-3.0-or-later AND HPND AND BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pngquant/blobs/sha256:7bb45863272a81baeda8398132e02862643af78f1bc992eedc4c382efa1b8ecf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pngquant/blobs/sha256:6810c2738ecc54130198b31380b8fdd8629aab89a497e7bc456ac72417d90936
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pngquant/blobs/sha256:088abd195e0063a9ff6f8b3e041f50c9cc08807c475ac573349cf47607519e51
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pngquant/blobs/sha256:14ee8acb1241bb83143c700d424872923c8c5b158a1c4f797db43472c658263b
+sha256:
+  darwin_arm64: 7bb45863272a81baeda8398132e02862643af78f1bc992eedc4c382efa1b8ecf
+  darwin_amd64: 6810c2738ecc54130198b31380b8fdd8629aab89a497e7bc456ac72417d90936
+  linux_amd64: 088abd195e0063a9ff6f8b3e041f50c9cc08807c475ac573349cf47607519e51
+  linux_arm64: 14ee8acb1241bb83143c700d424872923c8c5b158a1c4f797db43472c658263b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng
+  - little-cms2

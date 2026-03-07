@@ -1,0 +1,11 @@
+name: pocket-casts
+version: 2.2.0
+description: Podcast platform
+homepage: https://play.pocketcasts.com/
+url:
+  darwin_arm64: https://cdn.a8c-ci.services/pocket-casts-desktop/pocket-casts-desktop-darwin-universal-v2.2.0.dmg
+sha256:
+  darwin_arm64: b20c1007d3380309b6bed614f53097f882de60f2972344c91dc5721be89e1410
+artifacts:
+  app:
+    - Pocket Casts.app

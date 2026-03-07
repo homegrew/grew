@@ -1,0 +1,11 @@
+name: mini-vmac
+version: 36.04
+description: Allows modern computers to run software made for early Apple computers
+homepage: https://www.gryphel.com/c/minivmac/
+url:
+  darwin_arm64: https://www.gryphel.com/d/minivmac/minivmac-36.04/minivmac-36.04-mc64.bin.tgz
+sha256:
+  darwin_arm64: e8564a9827fe6a616489e29ee89f4bae85d4ecde76ea982e4a86af56b0108662
+artifacts:
+  app:
+    - Mini vMac.app

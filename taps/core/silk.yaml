@@ -1,0 +1,25 @@
+name: silk
+version: 3.24.0
+description: Collection of traffic analysis tools
+homepage: https://tools.netsa.cert.org/silk/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/silk/blobs/sha256:62c5e375b47fcb9a747c75df78726a7af448ed64351b7fe05a9366edf12a5417
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/silk/blobs/sha256:08fea9effd361b4ccedb1326cfcaf89dbf0d749be5a7da9eb13c6f5c5ff7e635
+  linux_amd64: https://ghcr.io/v2/homebrew/core/silk/blobs/sha256:aa66713652c68c56a72f918a90839498f9f04a197fe8ad9384c207bb73552601
+  linux_arm64: https://ghcr.io/v2/homebrew/core/silk/blobs/sha256:79817e939510b3a190a5bbe060f485db4a8a3407ffe9c6dd697ad3810af601d3
+sha256:
+  darwin_arm64: 62c5e375b47fcb9a747c75df78726a7af448ed64351b7fe05a9366edf12a5417
+  darwin_amd64: 08fea9effd361b4ccedb1326cfcaf89dbf0d749be5a7da9eb13c6f5c5ff7e635
+  linux_amd64: aa66713652c68c56a72f918a90839498f9f04a197fe8ad9384c207bb73552601
+  linux_arm64: 79817e939510b3a190a5bbe060f485db4a8a3407ffe9c6dd697ad3810af601d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libfixbuf
+  - yaf
+  - gettext
+  - openssl@3

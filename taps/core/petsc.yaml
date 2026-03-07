@@ -1,0 +1,29 @@
+name: petsc
+version: 3.24.5
+description: Portable, Extensible Toolkit for Scientific Computation (real)
+homepage: https://petsc.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/petsc/blobs/sha256:cb63eda49bd5a639d9b121a83685f681503ecd2f9a8f0a6332fd0ec7c008b99f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/petsc/blobs/sha256:668cc752e91bac885c76bb9d851557e5f5c39dcae7641e2f0c9b07266271e948
+  linux_amd64: https://ghcr.io/v2/homebrew/core/petsc/blobs/sha256:278d9359f4233ea04ca4a47b1bcd5d8c75f877cb478b3f784b3104cca8b5ff79
+  linux_arm64: https://ghcr.io/v2/homebrew/core/petsc/blobs/sha256:9a62a02aeeb083562b80166510788fdc355c846b013cbcf31c055b390d5efe4a
+sha256:
+  darwin_arm64: cb63eda49bd5a639d9b121a83685f681503ecd2f9a8f0a6332fd0ec7c008b99f
+  darwin_amd64: 668cc752e91bac885c76bb9d851557e5f5c39dcae7641e2f0c9b07266271e948
+  linux_amd64: 278d9359f4233ea04ca4a47b1bcd5d8c75f877cb478b3f784b3104cca8b5ff79
+  linux_arm64: 9a62a02aeeb083562b80166510788fdc355c846b013cbcf31c055b390d5efe4a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - gcc
+  - hdf5-mpi
+  - hwloc
+  - metis
+  - open-mpi
+  - openblas
+  - scalapack
+  - suite-sparse

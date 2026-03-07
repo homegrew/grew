@@ -1,0 +1,22 @@
+name: ns-3
+version: 3.47
+description: Discrete-event network simulator
+homepage: https://www.nsnam.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ns-3/blobs/sha256:78d73bf412c0a8d13a3b40ef963537c435cefd92963a187afc303f25a6462956
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ns-3/blobs/sha256:d53671ffe89ae8a854ca123aac06f9c74835f85ec30d29ec1d912025c96cdfef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ns-3/blobs/sha256:3305e0770bc93d496281f9df99984a867ad67f8acfdc58838e07296ee9f007da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ns-3/blobs/sha256:c79288402f2b79215f9fcb1110615735925fb5f5f3cf5a4adecd42de7d123581
+sha256:
+  darwin_arm64: 78d73bf412c0a8d13a3b40ef963537c435cefd92963a187afc303f25a6462956
+  darwin_amd64: d53671ffe89ae8a854ca123aac06f9c74835f85ec30d29ec1d912025c96cdfef
+  linux_amd64: 3305e0770bc93d496281f9df99984a867ad67f8acfdc58838e07296ee9f007da
+  linux_arm64: c79288402f2b79215f9fcb1110615735925fb5f5f3cf5a4adecd42de7d123581
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gsl
+  - open-mpi

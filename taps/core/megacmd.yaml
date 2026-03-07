@@ -1,0 +1,19 @@
+name: megacmd
+version: 0.016
+description: Command-line client for mega.co.nz storage service
+homepage: https://github.com/t3rm1n4l/megacmd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/megacmd/blobs/sha256:9a2e36bb3c2d380512873dbca8ecac3e42bea9d1007addbce0ca66c3d8114772
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/megacmd/blobs/sha256:b6e1979a101f7e8acb1ace5f72c154c891e0222c4fabbbbb3fdded786c382809
+  linux_amd64: https://ghcr.io/v2/homebrew/core/megacmd/blobs/sha256:9158470703a89b5a963775d8a0470dd3a9e934e8815c1ec171f9574d77fb3c32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/megacmd/blobs/sha256:c84183bc0acc08859d967262e425b7277773716ae9d4a72cec4a52cdda32c5df
+sha256:
+  darwin_arm64: 9a2e36bb3c2d380512873dbca8ecac3e42bea9d1007addbce0ca66c3d8114772
+  darwin_amd64: b6e1979a101f7e8acb1ace5f72c154c891e0222c4fabbbbb3fdded786c382809
+  linux_amd64: 9158470703a89b5a963775d8a0470dd3a9e934e8815c1ec171f9574d77fb3c32
+  linux_arm64: c84183bc0acc08859d967262e425b7277773716ae9d4a72cec4a52cdda32c5df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

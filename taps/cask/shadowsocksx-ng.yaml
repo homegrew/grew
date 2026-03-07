@@ -1,0 +1,11 @@
+name: shadowsocksx-ng
+version: 1.10.3
+description: Tunneling proxy
+homepage: https://github.com/shadowsocks/ShadowsocksX-NG/
+url:
+  darwin_arm64: https://github.com/shadowsocks/ShadowsocksX-NG/releases/download/v1.10.3/ShadowsocksX-NG.dmg
+sha256:
+  darwin_arm64: a0bc48af636c796471b1156eae0b6ca7340fe51deffec384c409dac785f04c60
+artifacts:
+  app:
+    - ShadowsocksX-NG.app

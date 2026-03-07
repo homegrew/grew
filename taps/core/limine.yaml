@@ -1,0 +1,19 @@
+name: limine
+version: 10.8.3
+description: Modern, advanced, portable, multiprotocol bootloader and boot manager
+homepage: https://codeberg.org/Limine/Limine
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/limine/blobs/sha256:2a02c939c7e87b6cf5387900c0febcc4b89412e9415afc2c9c5d75f33e920268
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/limine/blobs/sha256:e5969fc9dfe1f72baa5c48a67f886f4cbe7d2eabe38354b827c3536b28887a0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/limine/blobs/sha256:6091d52c5a0d4a574d1725f5d5aa76b1bdc97ed8f55a1daad0591954318f93f8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/limine/blobs/sha256:6cecf5739576dcef982d5f84f5f7b4b0d0d581385a4c05677458bd8d9d018c5b
+sha256:
+  darwin_arm64: 2a02c939c7e87b6cf5387900c0febcc4b89412e9415afc2c9c5d75f33e920268
+  darwin_amd64: e5969fc9dfe1f72baa5c48a67f886f4cbe7d2eabe38354b827c3536b28887a0b
+  linux_amd64: 6091d52c5a0d4a574d1725f5d5aa76b1bdc97ed8f55a1daad0591954318f93f8
+  linux_arm64: 6cecf5739576dcef982d5f84f5f7b4b0d0d581385a4c05677458bd8d9d018c5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

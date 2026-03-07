@@ -1,0 +1,19 @@
+name: clzip
+version: 1.15
+description: C language version of lzip
+homepage: https://www.nongnu.org/lzip/clzip.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clzip/blobs/sha256:7bd7da69d8efd7a71e3ac572bcd83ce05f1f4ef26a19a171c30490f3ebc7d917
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clzip/blobs/sha256:6a87893c127e69f726be285c873af960f1ac01f252b91e64ab6d3c2fa8b01240
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clzip/blobs/sha256:9efa76a36107aacb246f72c688c5154bf86b4898ea6e8e3a9c97dc7d93ac157a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clzip/blobs/sha256:418e07ff6dd8397ddc3ccbea8cffc1a28b6d99f9905c4044b950c95695d208b5
+sha256:
+  darwin_arm64: 7bd7da69d8efd7a71e3ac572bcd83ce05f1f4ef26a19a171c30490f3ebc7d917
+  darwin_amd64: 6a87893c127e69f726be285c873af960f1ac01f252b91e64ab6d3c2fa8b01240
+  linux_amd64: 9efa76a36107aacb246f72c688c5154bf86b4898ea6e8e3a9c97dc7d93ac157a
+  linux_arm64: 418e07ff6dd8397ddc3ccbea8cffc1a28b6d99f9905c4044b950c95695d208b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

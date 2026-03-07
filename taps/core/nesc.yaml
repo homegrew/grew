@@ -1,0 +1,21 @@
+name: nesc
+version: 1.4.0
+description: Programming language for deeply networked systems
+homepage: https://github.com/tinyos/nesc
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nesc/blobs/sha256:8ef4438f308a2fd9e143b70da8b9b53a0ca033c4d5a57182af79a2ad81e4fee3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nesc/blobs/sha256:1d0fdeb5a037662cb3ecafb289e2960ae2497930050654c71e64a3434250d970
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nesc/blobs/sha256:09def7e758ed0e91c1557f6ee6994815db45bb14c9f3f3bcba5848f6e1fa2bf3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nesc/blobs/sha256:a1bfde913670c487ed3a9f22f68189d9255b8ba6557f9100243ccdcb5182f83b
+sha256:
+  darwin_arm64: 8ef4438f308a2fd9e143b70da8b9b53a0ca033c4d5a57182af79a2ad81e4fee3
+  darwin_amd64: 1d0fdeb5a037662cb3ecafb289e2960ae2497930050654c71e64a3434250d970
+  linux_amd64: 09def7e758ed0e91c1557f6ee6994815db45bb14c9f3f3bcba5848f6e1fa2bf3
+  linux_arm64: a1bfde913670c487ed3a9f22f68189d9255b8ba6557f9100243ccdcb5182f83b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - emacs

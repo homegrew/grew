@@ -1,0 +1,19 @@
+name: dvm
+version: 1.0.3
+description: Docker Version Manager
+homepage: https://github.com/howtowhale/dvm
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvm/blobs/sha256:56c21e2d208ab2c2c030678a272eca714942866e214155e012863c06f103f4bd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvm/blobs/sha256:2b579fe462f7232f1e6dd1f44553941b670b6cd82c8a35e23d573df48d5e057c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvm/blobs/sha256:675af6c08670c77e16010b4b2a3de3828ffc22dcaa832c5db013b4209cd0617a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvm/blobs/sha256:cf480158f41f547119ac4e6ed7e1c4cc169d8604bbc0da1f80eacca874a08838
+sha256:
+  darwin_arm64: 56c21e2d208ab2c2c030678a272eca714942866e214155e012863c06f103f4bd
+  darwin_amd64: 2b579fe462f7232f1e6dd1f44553941b670b6cd82c8a35e23d573df48d5e057c
+  linux_amd64: 675af6c08670c77e16010b4b2a3de3828ffc22dcaa832c5db013b4209cd0617a
+  linux_arm64: cf480158f41f547119ac4e6ed7e1c4cc169d8604bbc0da1f80eacca874a08838
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

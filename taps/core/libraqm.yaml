@@ -1,0 +1,23 @@
+name: libraqm
+version: 0.10.4
+description: Library for complex text layout
+homepage: https://github.com/HOST-Oman/libraqm
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libraqm/blobs/sha256:80573133b47b2923ed7e407a873c31f71c88acd9c84553a289757a908bcaf386
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libraqm/blobs/sha256:85ebe16cdd41a156dac23c0d97faf8efb6456ca34cb016ba1c94110f21c1e317
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libraqm/blobs/sha256:5163492384bc5eb6606b7d7cc490962fe0da9cfcf24f0557408d5bdfe4f84675
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libraqm/blobs/sha256:b39145fa67adc360e8bbb66372ca603600a7c4a206d528f552554742f74d0a8f
+sha256:
+  darwin_arm64: 80573133b47b2923ed7e407a873c31f71c88acd9c84553a289757a908bcaf386
+  darwin_amd64: 85ebe16cdd41a156dac23c0d97faf8efb6456ca34cb016ba1c94110f21c1e317
+  linux_amd64: 5163492384bc5eb6606b7d7cc490962fe0da9cfcf24f0557408d5bdfe4f84675
+  linux_arm64: b39145fa67adc360e8bbb66372ca603600a7c4a206d528f552554742f74d0a8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - fribidi
+  - harfbuzz

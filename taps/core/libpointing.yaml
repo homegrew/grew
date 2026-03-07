@@ -1,0 +1,19 @@
+name: libpointing
+version: 1.0.8
+description: Provides direct access to HID pointing devices
+homepage: https://github.com/INRIA/libpointing
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpointing/blobs/sha256:77cf45ea25e9ccec41d9be73e28da4d1c2568d9ab42000ba543e1d904853f6ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpointing/blobs/sha256:ca321e413ebc04effeb4c54ee765a9954eccfed31df4111413480826429ca5d2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpointing/blobs/sha256:0bb26145aac1e2fa3a1a552c8120a5f2f6fbd0fb7b9836dfccdbbaaeec7e161c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpointing/blobs/sha256:ffb598217e1da31c8150b384ff7a88d6afdb3c5980edf11f7422033ca5bb2972
+sha256:
+  darwin_arm64: 77cf45ea25e9ccec41d9be73e28da4d1c2568d9ab42000ba543e1d904853f6ed
+  darwin_amd64: ca321e413ebc04effeb4c54ee765a9954eccfed31df4111413480826429ca5d2
+  linux_amd64: 0bb26145aac1e2fa3a1a552c8120a5f2f6fbd0fb7b9836dfccdbbaaeec7e161c
+  linux_arm64: ffb598217e1da31c8150b384ff7a88d6afdb3c5980edf11f7422033ca5bb2972
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

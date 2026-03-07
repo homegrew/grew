@@ -1,0 +1,19 @@
+name: xbee-comm
+version: 1.5
+description: XBee communication libraries and utilities
+homepage: https://github.com/guyzmo/xbee-comm
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xbee-comm/blobs/sha256:49a7355172da267afee94bb366bcb090a0473aab8784b0b26b24b21f6b0b9c48
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xbee-comm/blobs/sha256:f38c951e887ac6f38bafdd455fe95607aba4add5ffbfe2c0b722d5060408272e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xbee-comm/blobs/sha256:cf23d16b599dc5427dd3552004d307bacd82b77b89ac2bd0a018bf1f986fc720
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xbee-comm/blobs/sha256:fc58db4ba36c437b60007679bc67881898167c5f2fb490fd1c71c9707b1338c2
+sha256:
+  darwin_arm64: 49a7355172da267afee94bb366bcb090a0473aab8784b0b26b24b21f6b0b9c48
+  darwin_amd64: f38c951e887ac6f38bafdd455fe95607aba4add5ffbfe2c0b722d5060408272e
+  linux_amd64: cf23d16b599dc5427dd3552004d307bacd82b77b89ac2bd0a018bf1f986fc720
+  linux_arm64: fc58db4ba36c437b60007679bc67881898167c5f2fb490fd1c71c9707b1338c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: cgns
+version: 4.5.1
+description: CFD General Notation System
+homepage: https://cgns.github.io/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgns/blobs/sha256:274b220aacb028fec11a4f272d7b24461431a7b7b00b19b4446a3cb097044b6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgns/blobs/sha256:b5608db10d3e167bbecb376532a8ce96d1a5e5d3dcff72f0dab2a74ac1b1e01f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgns/blobs/sha256:a5447f14d57dcd51381c2db73025529bb7eab9ac74c210b5ee6e45bf9a44f18a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgns/blobs/sha256:9d6f73711962658578e623e3eb4351027eee086086aebec4e2232875d12f04af
+sha256:
+  darwin_arm64: 274b220aacb028fec11a4f272d7b24461431a7b7b00b19b4446a3cb097044b6a
+  darwin_amd64: b5608db10d3e167bbecb376532a8ce96d1a5e5d3dcff72f0dab2a74ac1b1e01f
+  linux_amd64: a5447f14d57dcd51381c2db73025529bb7eab9ac74c210b5ee6e45bf9a44f18a
+  linux_arm64: 9d6f73711962658578e623e3eb4351027eee086086aebec4e2232875d12f04af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - hdf5

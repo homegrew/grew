@@ -1,0 +1,25 @@
+name: geocode-glib
+version: 3.26.4
+description: GNOME library for gecoding and reverse geocoding
+homepage: https://gitlab.gnome.org/GNOME/geocode-glib
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/geocode-glib/blobs/sha256:cb308eeeb5e4c4dd85bee423f170436edced9bbb7501419fa1f7634813bd120d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/geocode-glib/blobs/sha256:ca22f0812483024d53032d21ee28d515a78a9fc86ab0fd2fab0c7c75cf810795
+  linux_amd64: https://ghcr.io/v2/homebrew/core/geocode-glib/blobs/sha256:705672b2c649c9dad5061d9d010d6faa106f67a278e90eab7c6b6a7a8f66e9ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/geocode-glib/blobs/sha256:e1d35bca6f2c7072afbee67dc0d23ebcc57df3a103fba2e54c4a0cbcee6ff49e
+sha256:
+  darwin_arm64: cb308eeeb5e4c4dd85bee423f170436edced9bbb7501419fa1f7634813bd120d
+  darwin_amd64: ca22f0812483024d53032d21ee28d515a78a9fc86ab0fd2fab0c7c75cf810795
+  linux_amd64: 705672b2c649c9dad5061d9d010d6faa106f67a278e90eab7c6b6a7a8f66e9ca
+  linux_arm64: e1d35bca6f2c7072afbee67dc0d23ebcc57df3a103fba2e54c4a0cbcee6ff49e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gtk+3
+  - json-glib
+  - libsoup
+  - gettext

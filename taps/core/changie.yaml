@@ -1,0 +1,19 @@
+name: changie
+version: 1.24.0
+description: Automated changelog tool for preparing releases
+homepage: https://changie.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/changie/blobs/sha256:0800de5460f352f9d50f4a134635a3296ba90c037e791ee1dd9f4189a9628c5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/changie/blobs/sha256:84bbf15521ced65293af267efc8dde889080afa6cd249609c72b87432830cc8f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/changie/blobs/sha256:75bfa2a6555d4958893187e1fa8029cfbca1a324a3046e535ac6de0ebe9daa02
+  linux_arm64: https://ghcr.io/v2/homebrew/core/changie/blobs/sha256:384bad1522349469ae127db07d8c0732d1d0c8f8ec9edd6ccdb3fb624fc4e393
+sha256:
+  darwin_arm64: 0800de5460f352f9d50f4a134635a3296ba90c037e791ee1dd9f4189a9628c5f
+  darwin_amd64: 84bbf15521ced65293af267efc8dde889080afa6cd249609c72b87432830cc8f
+  linux_amd64: 75bfa2a6555d4958893187e1fa8029cfbca1a324a3046e535ac6de0ebe9daa02
+  linux_arm64: 384bad1522349469ae127db07d8c0732d1d0c8f8ec9edd6ccdb3fb624fc4e393
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

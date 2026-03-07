@@ -1,0 +1,25 @@
+name: esphome
+version: 2026.2.4
+description: Make creating custom firmwares for ESP32/ESP8266 super easy
+homepage: https://github.com/esphome/esphome
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/esphome/blobs/sha256:0803e61d1ead0e898d7b434b29c8ebb265bdd4a1d32d666d095f5c2feddefa60
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/esphome/blobs/sha256:f592ffdcb9eaccc62441b986fe1a19b4e4e7d7b95739174d172dbdbbae609aef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/esphome/blobs/sha256:cbde1580d7580c9bc86574f9007eb31a3d66ca7f151b4778bd630aec9b68f267
+  linux_arm64: https://ghcr.io/v2/homebrew/core/esphome/blobs/sha256:6b0feb60f3daf5a159a7da42329e74ea67d66be346d953e9262723e0e7e4d3d7
+sha256:
+  darwin_arm64: 0803e61d1ead0e898d7b434b29c8ebb265bdd4a1d32d666d095f5c2feddefa60
+  darwin_amd64: f592ffdcb9eaccc62441b986fe1a19b4e4e7d7b95739174d172dbdbbae609aef
+  linux_amd64: cbde1580d7580c9bc86574f9007eb31a3d66ca7f151b4778bd630aec9b68f267
+  linux_arm64: 6b0feb60f3daf5a159a7da42329e74ea67d66be346d953e9262723e0e7e4d3d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libyaml
+  - pillow
+  - python@3.14

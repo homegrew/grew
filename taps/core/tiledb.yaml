@@ -1,0 +1,26 @@
+name: tiledb
+version: 2.30.0
+description: Universal storage engine
+homepage: https://tiledb.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tiledb/blobs/sha256:54fd33027f3080b795d9bb20f7fa69bf04f569812d86fbfe87cf1ccb27c9d59f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tiledb/blobs/sha256:cbcbbdbfadddc8ad1db6f24856e3c7db00da6916da39e5db2860ce2a020ac501
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tiledb/blobs/sha256:9dd9ab013c19d5bfdb2dab16580134e17fe4b80a378fc8e87fa2358cf7fab2d4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tiledb/blobs/sha256:42d8601468572ca286e43ebf0aba0ef95ed81448731819881ea538c04b25e975
+sha256:
+  darwin_arm64: 54fd33027f3080b795d9bb20f7fa69bf04f569812d86fbfe87cf1ccb27c9d59f
+  darwin_amd64: cbcbbdbfadddc8ad1db6f24856e3c7db00da6916da39e5db2860ce2a020ac501
+  linux_amd64: 9dd9ab013c19d5bfdb2dab16580134e17fe4b80a378fc8e87fa2358cf7fab2d4
+  linux_arm64: 42d8601468572ca286e43ebf0aba0ef95ed81448731819881ea538c04b25e975
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fmt
+  - lz4
+  - openssl@3
+  - spdlog
+  - webp
+  - zstd

@@ -1,0 +1,19 @@
+name: gitoxide
+version: 0.51.0
+description: "Idiomatic, lean, fast & safe pure Rust implementation of Git"
+homepage: https://github.com/GitoxideLabs/gitoxide
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitoxide/blobs/sha256:15c127485e5f8955d33827e2121befb81ead4101744b44ff2c13b9ef8efe30da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitoxide/blobs/sha256:666d8a86eec3ca298010b45126bbd13cf63b6e494edd8f252fbf155775b337de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitoxide/blobs/sha256:548ccfdaaecd13e50ced33fe924531519535947f8eb58122086a6d53752226b1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitoxide/blobs/sha256:5df20fd3cab9d910947b35a143d55c3977cdeb7f5122051f53a3c1e1db52a98e
+sha256:
+  darwin_arm64: 15c127485e5f8955d33827e2121befb81ead4101744b44ff2c13b9ef8efe30da
+  darwin_amd64: 666d8a86eec3ca298010b45126bbd13cf63b6e494edd8f252fbf155775b337de
+  linux_amd64: 548ccfdaaecd13e50ced33fe924531519535947f8eb58122086a6d53752226b1
+  linux_arm64: 5df20fd3cab9d910947b35a143d55c3977cdeb7f5122051f53a3c1e1db52a98e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: libart
+version: 2.3.21
+description: Library for high-performance 2D graphics
+homepage: https://github.com/armon/libart
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libart/blobs/sha256:5ef5d23e77d46adf971b467cdba6493e2ffb2dc153042ebc994723c8f0fd0317
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libart/blobs/sha256:084ad1df397fb243b05af1b4d7a6c8856f2d6687c2cf60bdc31dbc9a3c3cf63c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libart/blobs/sha256:1b28ae4a3601b0bace6e40c19e616e2e321f17231a378241dae4aa9db9764d75
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libart/blobs/sha256:cd57523ef3d776e1c33ceb83f155ed36426f1f109847b004052cd748f8c20146
+sha256:
+  darwin_arm64: 5ef5d23e77d46adf971b467cdba6493e2ffb2dc153042ebc994723c8f0fd0317
+  darwin_amd64: 084ad1df397fb243b05af1b4d7a6c8856f2d6687c2cf60bdc31dbc9a3c3cf63c
+  linux_amd64: 1b28ae4a3601b0bace6e40c19e616e2e321f17231a378241dae4aa9db9764d75
+  linux_arm64: cd57523ef3d776e1c33ceb83f155ed36426f1f109847b004052cd748f8c20146
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

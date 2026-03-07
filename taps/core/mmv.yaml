@@ -1,0 +1,21 @@
+name: mmv
+version: 2.10
+description: Move, copy, append, and link multiple files
+homepage: https://github.com/rrthomas/mmv
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mmv/blobs/sha256:b9393ab6a8fa37ce23cc3ad7b991a01d6d3a81bb84a3cf5f4ae6e8aee4d4ee67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mmv/blobs/sha256:7124ecddb8f17257dd6014e7b24b450237f01626dda1cf5e7523e67004f61418
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mmv/blobs/sha256:eb72ba0164ea3fb58177cc5a9ee2470c1614913a78e86ed91fa3026e36f861c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mmv/blobs/sha256:0dcde0c3b0f9468bb0768250c4ceb47a63bc8ff2b9ffefc27a01cf01a947bbb3
+sha256:
+  darwin_arm64: b9393ab6a8fa37ce23cc3ad7b991a01d6d3a81bb84a3cf5f4ae6e8aee4d4ee67
+  darwin_amd64: 7124ecddb8f17257dd6014e7b24b450237f01626dda1cf5e7523e67004f61418
+  linux_amd64: eb72ba0164ea3fb58177cc5a9ee2470c1614913a78e86ed91fa3026e36f861c3
+  linux_arm64: 0dcde0c3b0f9468bb0768250c4ceb47a63bc8ff2b9ffefc27a01cf01a947bbb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc

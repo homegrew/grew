@@ -1,0 +1,21 @@
+name: par2
+version: 1.1.1
+description: "Parchive: Parity Archive Volume Set for data recovery"
+homepage: https://github.com/Parchive/par2cmdline
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/par2/blobs/sha256:a449305e4be7adb1b596244fad50ae6a07fc3658e42add5aae92d0b81a6baa9f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/par2/blobs/sha256:359f789647be0891efa3967ed182ce475990278ab1c63fe3e50bb1b56f33924e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/par2/blobs/sha256:cecb502688d0f159c4780146b95e2836966519944acf903f33007b92c19bbb48
+  linux_arm64: https://ghcr.io/v2/homebrew/core/par2/blobs/sha256:e9c8a87271b664df8703eddb89092cb9c8adc9759b34e7328ad3d090b90d1340
+sha256:
+  darwin_arm64: a449305e4be7adb1b596244fad50ae6a07fc3658e42add5aae92d0b81a6baa9f
+  darwin_amd64: 359f789647be0891efa3967ed182ce475990278ab1c63fe3e50bb1b56f33924e
+  linux_amd64: cecb502688d0f159c4780146b95e2836966519944acf903f33007b92c19bbb48
+  linux_arm64: e9c8a87271b664df8703eddb89092cb9c8adc9759b34e7328ad3d090b90d1340
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libomp

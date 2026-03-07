@@ -1,0 +1,19 @@
+name: timoni
+version: 0.26.0
+description: Package manager for Kubernetes, powered by CUE and inspired by Helm
+homepage: https://timoni.sh/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/timoni/blobs/sha256:985eb65543c6d66660b51aa07720366d96b41552b1784b87f5f2fd40d06f76da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/timoni/blobs/sha256:881a71472b9b239c67395e56b63a4280d959ac6da38000b0175077be4027546c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/timoni/blobs/sha256:e987529e9b46b86f2094188368fd02daac82fb00728bdabb94e665c44b15e898
+  linux_arm64: https://ghcr.io/v2/homebrew/core/timoni/blobs/sha256:937ed7f4c671083e30e6e68a3ee3ed5915aa79a1e1830a7029375396d5c57f23
+sha256:
+  darwin_arm64: 985eb65543c6d66660b51aa07720366d96b41552b1784b87f5f2fd40d06f76da
+  darwin_amd64: 881a71472b9b239c67395e56b63a4280d959ac6da38000b0175077be4027546c
+  linux_amd64: e987529e9b46b86f2094188368fd02daac82fb00728bdabb94e665c44b15e898
+  linux_arm64: 937ed7f4c671083e30e6e68a3ee3ed5915aa79a1e1830a7029375396d5c57f23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

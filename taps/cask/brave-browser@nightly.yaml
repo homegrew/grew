@@ -1,0 +1,11 @@
+name: brave-browser@nightly
+version: 1.89.100.0
+description: Web browser focusing on privacy
+homepage: https://brave.com/download-nightly/
+url:
+  darwin_arm64: https://updates-cdn.bravesoftware.com/sparkle/Brave-Browser/nightly-arm64/189.100/Brave-Browser-Nightly-arm64.dmg
+sha256:
+  darwin_arm64: 4b97a13f5adce7f5802d46d4285582f799fd43c7ef98732fb51757f6b74e35e7
+artifacts:
+  app:
+    - Brave Browser Nightly.app

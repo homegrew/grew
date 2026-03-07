@@ -1,0 +1,22 @@
+name: libfreehand
+version: 0.1.2
+description: Interpret and import Aldus/Macromedia/Adobe FreeHand documents
+homepage: https://wiki.documentfoundation.org/DLP/Libraries/libfreehand
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfreehand/blobs/sha256:b70e47c7931caefe4bc6b042a589ace7ab5030effc050d9497cb18402aea3283
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfreehand/blobs/sha256:fa66877154b2d6ce16f342ac50f6426a075700f13a6373f439df66803d7c00a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfreehand/blobs/sha256:d35269b7696910c40ca4ef8d69418ed4eb8983d5c0e0079a0e36ead6cfd5407f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfreehand/blobs/sha256:952ae31e98ef2f960942b8a53c8655b391992bc4f1427e3068f64286308c5c49
+sha256:
+  darwin_arm64: b70e47c7931caefe4bc6b042a589ace7ab5030effc050d9497cb18402aea3283
+  darwin_amd64: fa66877154b2d6ce16f342ac50f6426a075700f13a6373f439df66803d7c00a9
+  linux_amd64: d35269b7696910c40ca4ef8d69418ed4eb8983d5c0e0079a0e36ead6cfd5407f
+  linux_arm64: 952ae31e98ef2f960942b8a53c8655b391992bc4f1427e3068f64286308c5c49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - librevenge
+  - little-cms2

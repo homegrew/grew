@@ -1,0 +1,11 @@
+name: pppc-utility
+version: 1.5.0
+description: Create configuration profiles containing a PPPC payload
+homepage: https://github.com/jamf/PPPC-Utility
+url:
+  darwin_arm64: https://github.com/jamf/PPPC-Utility/releases/download/1.5.0/PPPC-Utility.zip
+sha256:
+  darwin_arm64: 208f066e176197424cbbf8dd0803e9407c800de621c322feb566d20b9f3be32c
+artifacts:
+  app:
+    - PPPC Utility.app

@@ -1,0 +1,17 @@
+name: vtable-dumper
+version: 1.2
+description: List contents of virtual tables in a shared library
+homepage: https://github.com/lvc/vtable-dumper
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vtable-dumper/blobs/sha256:3b5ec9a7807288402bd3bcffb73137bdbd02c303f2d9aa085d4c93e0f7b45727
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vtable-dumper/blobs/sha256:e6eb8224c4c4acb7c276d913a9e83c650c8c12e574e164846430253b4e53a17f
+sha256:
+  linux_amd64: 3b5ec9a7807288402bd3bcffb73137bdbd02c303f2d9aa085d4c93e0f7b45727
+  linux_arm64: e6eb8224c4c4acb7c276d913a9e83c650c8c12e574e164846430253b4e53a17f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elfutils

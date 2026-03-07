@@ -1,0 +1,13 @@
+name: commandpost
+version: 2.0.5
+description: Workflow enhancements for Final Cut Pro
+homepage: https://commandpost.io/
+url:
+  darwin_arm64: https://github.com/CommandPost/CommandPost/releases/download/2.0.5/CommandPost_2.0.5.dmg
+sha256:
+  darwin_arm64: b1878c94a8075cdd4809ec52ce7e27d57b12a44b26ad8767400852e2c173fb0f
+artifacts:
+  app:
+    - CommandPost.app
+  bin:
+    - cmdpost

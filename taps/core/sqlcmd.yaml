@@ -1,0 +1,19 @@
+name: sqlcmd
+version: 1.9.0
+description: Microsoft SQL Server command-line interface
+homepage: https://github.com/microsoft/go-sqlcmd
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlcmd/blobs/sha256:43a84a9f451d31c2c4805a1c021534e4f006dce1317cd565116017783e95b5e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlcmd/blobs/sha256:c418ae417ad44216ba17e50996f4669504b19d32b6614aa81b8d88e5de805957
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlcmd/blobs/sha256:ab4e14f44b07eed6933a266495d2ee2d0b688b32480b7dec04d5e907fb7f50dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlcmd/blobs/sha256:6c1fba7c92b62261a59c6dc8125b916c01c657cd1092f1473f46019949e6d683
+sha256:
+  darwin_arm64: 43a84a9f451d31c2c4805a1c021534e4f006dce1317cd565116017783e95b5e1
+  darwin_amd64: c418ae417ad44216ba17e50996f4669504b19d32b6614aa81b8d88e5de805957
+  linux_amd64: ab4e14f44b07eed6933a266495d2ee2d0b688b32480b7dec04d5e907fb7f50dd
+  linux_arm64: 6c1fba7c92b62261a59c6dc8125b916c01c657cd1092f1473f46019949e6d683
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

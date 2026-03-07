@@ -1,0 +1,21 @@
+name: avahi
+version: 0.8
+description: Service Discovery for Linux using mDNS/DNS-SD
+homepage: https://avahi.org
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avahi/blobs/sha256:c2a968c40c0683c2a1cb9e45bbe693434581f0b209e0215f9c610b17069001e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avahi/blobs/sha256:4167489c0fe787b170d0646faab665700577fcc05ab10e3a0a556112df77d6fc
+sha256:
+  linux_amd64: c2a968c40c0683c2a1cb9e45bbe693434581f0b209e0215f9c610b17069001e8
+  linux_arm64: 4167489c0fe787b170d0646faab665700577fcc05ab10e3a0a556112df77d6fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dbus
+  - expat
+  - gdbm
+  - glib
+  - libdaemon

@@ -1,0 +1,19 @@
+name: frpc
+version: 0.67.0
+description: Client app of fast reverse proxy to expose a local server to the internet
+homepage: https://github.com/fatedier/frp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/frpc/blobs/sha256:7c72c0a6ccadeeefdd80d8af3b66d59bd7d3dfaeb59be326c388cac52991030f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/frpc/blobs/sha256:0fdc17eb89afa9728aee5943088f3201af2914c95e1c552c96c13b3a66181f66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/frpc/blobs/sha256:b5b2e8d766c7a6bd39067c345a462dc75339e7f3fb020e90d709637936e780f4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/frpc/blobs/sha256:4f0857fc63eef4ecaaaa9614c3819e526d79ab27652d932ddcf97be375b7f87a
+sha256:
+  darwin_arm64: 7c72c0a6ccadeeefdd80d8af3b66d59bd7d3dfaeb59be326c388cac52991030f
+  darwin_amd64: 0fdc17eb89afa9728aee5943088f3201af2914c95e1c552c96c13b3a66181f66
+  linux_amd64: b5b2e8d766c7a6bd39067c345a462dc75339e7f3fb020e90d709637936e780f4
+  linux_arm64: 4f0857fc63eef4ecaaaa9614c3819e526d79ab27652d932ddcf97be375b7f87a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

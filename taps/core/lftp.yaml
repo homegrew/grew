@@ -1,0 +1,24 @@
+name: lftp
+version: 4.9.3
+description: Sophisticated file transfer program
+homepage: https://lftp.yar.ru/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lftp/blobs/sha256:d18f0124b629090aea7a35fc4a860e63e55c25cf21534acf8293d91ce52112a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lftp/blobs/sha256:e71c6bca446546bbf15228bbbce5f49294f1180fa36bfdb42afc9309dbbe09fe
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lftp/blobs/sha256:6ed8ee10b71dbbaa5dfa5d7451840592d30598730a325d749360d7f1e6472f83
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lftp/blobs/sha256:14c4eeb37d1458cb5a2ee7e1bbab6485c598e93ab126155ff773c3da5ab9f05e
+sha256:
+  darwin_arm64: d18f0124b629090aea7a35fc4a860e63e55c25cf21534acf8293d91ce52112a4
+  darwin_amd64: e71c6bca446546bbf15228bbbce5f49294f1180fa36bfdb42afc9309dbbe09fe
+  linux_amd64: 6ed8ee10b71dbbaa5dfa5d7451840592d30598730a325d749360d7f1e6472f83
+  linux_arm64: 14c4eeb37d1458cb5a2ee7e1bbab6485c598e93ab126155ff773c3da5ab9f05e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2
+  - openssl@3
+  - readline
+  - gettext

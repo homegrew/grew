@@ -1,0 +1,21 @@
+name: gnu-complexity
+version: 1.13
+description: Measures complexity of C source
+homepage: https://www.gnu.org/software/complexity/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-complexity/blobs/sha256:edf8e7fe3a3c8d707ff63dbd5d5ef0226653cd76bf7c6d5faf077f09f1fb2b31
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-complexity/blobs/sha256:0b3ec86fc33aa631f44dd91525ff27e9b2c992e43acbf0ef1a1e71b4a78763be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-complexity/blobs/sha256:623e40ffaa4b67fb049c25a3cb3a781366fa19b316207b5f50d68ecccbb839dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-complexity/blobs/sha256:412f37fba031fc1b45d13fb61d9a025af47633ffc64852bd2f450d08be3dadde
+sha256:
+  darwin_arm64: edf8e7fe3a3c8d707ff63dbd5d5ef0226653cd76bf7c6d5faf077f09f1fb2b31
+  darwin_amd64: 0b3ec86fc33aa631f44dd91525ff27e9b2c992e43acbf0ef1a1e71b4a78763be
+  linux_amd64: 623e40ffaa4b67fb049c25a3cb3a781366fa19b316207b5f50d68ecccbb839dd
+  linux_arm64: 412f37fba031fc1b45d13fb61d9a025af47633ffc64852bd2f450d08be3dadde
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - autogen

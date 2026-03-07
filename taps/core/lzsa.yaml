@@ -1,0 +1,19 @@
+name: lzsa
+version: 1.4.1
+description: Lossless packer that is optimized for fast decompression on 8-bit micros
+homepage: https://github.com/emmanuel-marty/lzsa
+license: Zlib AND CC0-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzsa/blobs/sha256:3c4f00c8b228bba2a577616661e13d5d710dea4afd8f5149fe9382b8040b09c3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzsa/blobs/sha256:ae1a437c4e5e54ef88a9a59d6391633cc09c7b3c7320ceef4230b450364a9da6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzsa/blobs/sha256:372be0215ebb1371b04707ea21375a3c7acb2d2e34430455999a4c1f77eac999
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzsa/blobs/sha256:b8daa023a0a2939b6829b4bca1b471bfbf4897109f7900d538f1571d3d6f0538
+sha256:
+  darwin_arm64: 3c4f00c8b228bba2a577616661e13d5d710dea4afd8f5149fe9382b8040b09c3
+  darwin_amd64: ae1a437c4e5e54ef88a9a59d6391633cc09c7b3c7320ceef4230b450364a9da6
+  linux_amd64: 372be0215ebb1371b04707ea21375a3c7acb2d2e34430455999a4c1f77eac999
+  linux_arm64: b8daa023a0a2939b6829b4bca1b471bfbf4897109f7900d538f1571d3d6f0538
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

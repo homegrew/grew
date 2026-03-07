@@ -1,0 +1,19 @@
+name: openapi-tui
+version: 0.10.2
+description: TUI to list, browse and run APIs defined with openapi spec
+homepage: https://github.com/zaghaghi/openapi-tui
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openapi-tui/blobs/sha256:729ecb681e443c4997743c99d139df413b01406076440c6911ce1514c678257d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openapi-tui/blobs/sha256:d97601e0e2591e9f91575a45b4aafd1df30bb1a8e70c45c33a0bba5dfc991c66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openapi-tui/blobs/sha256:c1dcf51adfd672b44a54ee82e3e9ba21a8f0021252e50ac40eba70a7ce4e8d5c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openapi-tui/blobs/sha256:ef65bdde2ae8c1e3d8ff7732650b2e7191e3521976ceec10438a1e5151f7601c
+sha256:
+  darwin_arm64: 729ecb681e443c4997743c99d139df413b01406076440c6911ce1514c678257d
+  darwin_amd64: d97601e0e2591e9f91575a45b4aafd1df30bb1a8e70c45c33a0bba5dfc991c66
+  linux_amd64: c1dcf51adfd672b44a54ee82e3e9ba21a8f0021252e50ac40eba70a7ce4e8d5c
+  linux_arm64: ef65bdde2ae8c1e3d8ff7732650b2e7191e3521976ceec10438a1e5151f7601c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

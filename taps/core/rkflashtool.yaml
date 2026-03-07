@@ -1,0 +1,21 @@
+name: rkflashtool
+version: 6.1
+description: Tools for flashing Rockchip devices
+homepage: https://sourceforge.net/projects/rkflashtool/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rkflashtool/blobs/sha256:f28fa9f142735da8b1dd19222e6ac5c696072e792a8e71fe9aeab969148fb5fd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rkflashtool/blobs/sha256:08198a36dd0408c2bc10a4ddeb5913a3282e2eed1f3ca0e10019a3765652926a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rkflashtool/blobs/sha256:c38a8b6e2f2f2b8dd7b437c07916c5624076f472392a2899fbb3c397c07bb4a3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rkflashtool/blobs/sha256:740d373e5d0bb55ce6cda1a391bda5cc95f75f61537f91f5de2b24b7d09cc722
+sha256:
+  darwin_arm64: f28fa9f142735da8b1dd19222e6ac5c696072e792a8e71fe9aeab969148fb5fd
+  darwin_amd64: 08198a36dd0408c2bc10a4ddeb5913a3282e2eed1f3ca0e10019a3765652926a
+  linux_amd64: c38a8b6e2f2f2b8dd7b437c07916c5624076f472392a2899fbb3c397c07bb4a3
+  linux_arm64: 740d373e5d0bb55ce6cda1a391bda5cc95f75f61537f91f5de2b24b7d09cc722
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

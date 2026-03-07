@@ -1,0 +1,19 @@
+name: immortal
+version: 0.24.6
+description: "OS agnostic (*nix) cross-platform supervisor"
+homepage: https://immortal.run/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/immortal/blobs/sha256:10a6fa0a1ead4e1fc693259409819e54a02dc44966e2cd730132a51758c9bf3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/immortal/blobs/sha256:f4e75b4f8c75d8aae9cc0fae052916f1424b36ac6183942d974077191b6079f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/immortal/blobs/sha256:75184bcc104152d9b8c6d418f09dcde65d93863645794c19a2482278354dd281
+  linux_arm64: https://ghcr.io/v2/homebrew/core/immortal/blobs/sha256:a914374c56ca92616514cd687e47b3d0204266abf5166b5eb229a171b1a53b65
+sha256:
+  darwin_arm64: 10a6fa0a1ead4e1fc693259409819e54a02dc44966e2cd730132a51758c9bf3a
+  darwin_amd64: f4e75b4f8c75d8aae9cc0fae052916f1424b36ac6183942d974077191b6079f6
+  linux_amd64: 75184bcc104152d9b8c6d418f09dcde65d93863645794c19a2482278354dd281
+  linux_arm64: a914374c56ca92616514cd687e47b3d0204266abf5166b5eb229a171b1a53b65
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

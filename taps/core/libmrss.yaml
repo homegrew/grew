@@ -1,0 +1,21 @@
+name: libmrss
+version: 0.19.4
+description: C library for RSS files or streams
+homepage: https://github.com/bakulf/libmrss
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmrss/blobs/sha256:ff549d15087ee2c00bcf2645bb8626106f785b8a351590211b3e95e9e10b5907
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmrss/blobs/sha256:a3aeb6af0ab68d39a8e9dfb4d3b22501c4e84077d7ebf65cf8403f65db270f26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmrss/blobs/sha256:60d84960b66d364c0d2e8221bade1462f73eef410a6107e00a736235e1f2ec5b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmrss/blobs/sha256:3ae2132725abace2b6a09d82e011f722daf45abe1ec5bcda7fdc4f602a3ae099
+sha256:
+  darwin_arm64: ff549d15087ee2c00bcf2645bb8626106f785b8a351590211b3e95e9e10b5907
+  darwin_amd64: a3aeb6af0ab68d39a8e9dfb4d3b22501c4e84077d7ebf65cf8403f65db270f26
+  linux_amd64: 60d84960b66d364c0d2e8221bade1462f73eef410a6107e00a736235e1f2ec5b
+  linux_arm64: 3ae2132725abace2b6a09d82e011f722daf45abe1ec5bcda7fdc4f602a3ae099
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libnxml

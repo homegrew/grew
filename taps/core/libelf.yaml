@@ -1,0 +1,15 @@
+name: libelf
+version: 0.8.13
+description: ELF object file access library
+homepage: https://fossies.org/linux/misc/old/libelf-0.8.13.tar.gz/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libelf/blobs/sha256:03f9c0c79cd12a3a0ab46052037033ef676960079c27be5aca7072abe80cc4a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libelf/blobs/sha256:d40b4bca1b19eace612dc6fd980cd55a94e6a476434ade2db012ef854778bfb7
+sha256:
+  darwin_arm64: 03f9c0c79cd12a3a0ab46052037033ef676960079c27be5aca7072abe80cc4a2
+  darwin_amd64: d40b4bca1b19eace612dc6fd980cd55a94e6a476434ade2db012ef854778bfb7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

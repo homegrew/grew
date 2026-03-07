@@ -1,0 +1,24 @@
+name: mrboom
+version: 5.5
+description: Eight player Bomberman clone
+homepage: http://mrboom.mumblecore.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mrboom/blobs/sha256:0f75bf0a9e0a7ab7d6a6cdf4b4cc8cbcb4e1a10999900f82819dae07e211cd40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mrboom/blobs/sha256:0e9ade944b362e11025baa34ca19d545f8ba6f92668044288fc9b67d6ba0c35b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mrboom/blobs/sha256:c5d458cb0a2f0ed01cca78bf15db00aa8e4f5750538456bd2024e640da79dc4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mrboom/blobs/sha256:4e01474f0bc6aae305f5ca6bc0f0ed6de99fd70112540185d9d7baec1de89916
+sha256:
+  darwin_arm64: 0f75bf0a9e0a7ab7d6a6cdf4b4cc8cbcb4e1a10999900f82819dae07e211cd40
+  darwin_amd64: 0e9ade944b362e11025baa34ca19d545f8ba6f92668044288fc9b67d6ba0c35b
+  linux_amd64: c5d458cb0a2f0ed01cca78bf15db00aa8e4f5750538456bd2024e640da79dc4e
+  linux_arm64: 4e01474f0bc6aae305f5ca6bc0f0ed6de99fd70112540185d9d7baec1de89916
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmodplug
+  - minizip
+  - sdl2
+  - sdl2_mixer

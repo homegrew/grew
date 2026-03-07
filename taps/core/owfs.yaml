@@ -1,0 +1,22 @@
+name: owfs
+version: 3.2p4
+description: Monitor and control physical environment using Dallas/Maxim 1-wire system
+homepage: https://owfs.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/owfs/blobs/sha256:cfce021f58090c3ca7128b8cd83544f67ee1305486f639e0659f799381b2c0ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/owfs/blobs/sha256:6ac085fdb22ab9cf973aa439322c83ec6ec01073fe70d2af0e3d9ff42f784c8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/owfs/blobs/sha256:dc7081d7fe26ec46288fa5bb16f5404e9697f1c567dde4ded5e181f0b54bbb6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/owfs/blobs/sha256:f84aad3b6008729382761e7b772b106b7db195baa4515f99b87810cad4652101
+sha256:
+  darwin_arm64: cfce021f58090c3ca7128b8cd83544f67ee1305486f639e0659f799381b2c0ea
+  darwin_amd64: 6ac085fdb22ab9cf973aa439322c83ec6ec01073fe70d2af0e3d9ff42f784c8b
+  linux_amd64: dc7081d7fe26ec46288fa5bb16f5404e9697f1c567dde4ded5e181f0b54bbb6b
+  linux_arm64: f84aad3b6008729382761e7b772b106b7db195baa4515f99b87810cad4652101
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libftdi
+  - libusb

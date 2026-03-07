@@ -1,0 +1,21 @@
+name: libdicom
+version: 1.2.0
+description: DICOM WSI read library
+homepage: https://github.com/ImagingDataCommons/libdicom
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdicom/blobs/sha256:edf1ef90081de45407247c6f2c62dfa5f25ec6e449c77fd817587e4e7947bdd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdicom/blobs/sha256:070a0a036117b34c98f56cd86327d70572bbb0131df4b2b0c31d3c32d585009e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdicom/blobs/sha256:a12c2177e7519f1cd98ed1d88e227eeabdee7236532fa270b1a780b16a068020
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdicom/blobs/sha256:c2123321b416caf06cb685ed6307a53ada4d8eace6429595d99a1249caf171f7
+sha256:
+  darwin_arm64: edf1ef90081de45407247c6f2c62dfa5f25ec6e449c77fd817587e4e7947bdd5
+  darwin_amd64: 070a0a036117b34c98f56cd86327d70572bbb0131df4b2b0c31d3c32d585009e
+  linux_amd64: a12c2177e7519f1cd98ed1d88e227eeabdee7236532fa270b1a780b16a068020
+  linux_arm64: c2123321b416caf06cb685ed6307a53ada4d8eace6429595d99a1249caf171f7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - uthash

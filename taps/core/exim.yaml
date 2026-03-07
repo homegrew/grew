@@ -1,0 +1,23 @@
+name: exim
+version: 4.99.1
+description: Complete replacement for sendmail
+homepage: https://exim.org
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exim/blobs/sha256:f30b5fb4ddfe468ff0fce759bf838f4a76aec6fd314e3ca9786888b58f536641
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exim/blobs/sha256:65e07005ecf7768db165df514066c69fa528bb1cfdd337b0aa66c5013ee946e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exim/blobs/sha256:bd001246d091daf1f2016aa7168dda7afb9e626496b8286c6b6cb422d9fb9094
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exim/blobs/sha256:153c3b6bd5c6a987b040b2146627c7cbde3ed124d14c9c070ed0e973ec081b6a
+sha256:
+  darwin_arm64: f30b5fb4ddfe468ff0fce759bf838f4a76aec6fd314e3ca9786888b58f536641
+  darwin_amd64: 65e07005ecf7768db165df514066c69fa528bb1cfdd337b0aa66c5013ee946e1
+  linux_amd64: bd001246d091daf1f2016aa7168dda7afb9e626496b8286c6b6cb422d9fb9094
+  linux_arm64: 153c3b6bd5c6a987b040b2146627c7cbde3ed124d14c9c070ed0e973ec081b6a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - berkeley-db@5
+  - openssl@3
+  - pcre2

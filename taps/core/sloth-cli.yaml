@@ -1,0 +1,19 @@
+name: sloth-cli
+version: 0.15.0
+description: Prometheus SLO generator
+homepage: https://sloth.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sloth-cli/blobs/sha256:d48912e0ff06aaecac777e863ae79a8f5e3a4927cb39f0b68df832645da76abe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sloth-cli/blobs/sha256:8011382bc46786eba1e82918d9bae201f759d64e94ffbacedcc8fd2c635cab03
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sloth-cli/blobs/sha256:d06d3529fc05ca63b8c4c15fa8d7eeb1c48bb9787df738f0f9251fdc1529b380
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sloth-cli/blobs/sha256:e2a7b92a6d7fce7d77419ea056044ff1faaaa14ca24ce574657fb8df9b30d677
+sha256:
+  darwin_arm64: d48912e0ff06aaecac777e863ae79a8f5e3a4927cb39f0b68df832645da76abe
+  darwin_amd64: 8011382bc46786eba1e82918d9bae201f759d64e94ffbacedcc8fd2c635cab03
+  linux_amd64: d06d3529fc05ca63b8c4c15fa8d7eeb1c48bb9787df738f0f9251fdc1529b380
+  linux_arm64: e2a7b92a6d7fce7d77419ea056044ff1faaaa14ca24ce574657fb8df9b30d677
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

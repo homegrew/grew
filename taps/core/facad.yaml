@@ -1,0 +1,19 @@
+name: facad
+version: 2.20.16
+description: Modern, colorful directory listing tool for the command-line
+homepage: https://github.com/yellow-footed-honeyguide/facad
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/facad/blobs/sha256:b2d62171e0a66f415fbdace7168e5f04f1e262074b3c5b340ea145e139d321df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/facad/blobs/sha256:d6f315744dfd974eb77df2e2e5d8d79648dde77f21e70f39d26849661fe709bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/facad/blobs/sha256:708616d9bd5c34b25e5f86c55088bb99efbe5ab13220215b82fd151f3eccf14f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/facad/blobs/sha256:6dcb9d87a0c649731817a61e9bd637595f44f3a2026fe88dc3bc0e4d286907ed
+sha256:
+  darwin_arm64: b2d62171e0a66f415fbdace7168e5f04f1e262074b3c5b340ea145e139d321df
+  darwin_amd64: d6f315744dfd974eb77df2e2e5d8d79648dde77f21e70f39d26849661fe709bb
+  linux_amd64: 708616d9bd5c34b25e5f86c55088bb99efbe5ab13220215b82fd151f3eccf14f
+  linux_arm64: 6dcb9d87a0c649731817a61e9bd637595f44f3a2026fe88dc3bc0e4d286907ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

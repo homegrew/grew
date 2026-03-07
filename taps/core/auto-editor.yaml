@@ -1,0 +1,28 @@
+name: auto-editor
+version: 29.8.1
+description: "Effort free video editing!"
+homepage: https://auto-editor.com
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/auto-editor/blobs/sha256:032aabbf6e27fd086013ac6c0d0b42adf4490a70ea1e203f3165e13611710925
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/auto-editor/blobs/sha256:5bbe46232fc51431524dad28e90d100a27b17b68a5c065658f91c9ebbd19f7ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/auto-editor/blobs/sha256:aa37e5a16cedad636279a1af680f28ac0b753da85d1e088e09fcc1553f09531e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/auto-editor/blobs/sha256:99862bbf08c9f533c3ebf494d22535fa03f6ab33b89a0140c2edc6c1c47415ed
+sha256:
+  darwin_arm64: 032aabbf6e27fd086013ac6c0d0b42adf4490a70ea1e203f3165e13611710925
+  darwin_amd64: 5bbe46232fc51431524dad28e90d100a27b17b68a5c065658f91c9ebbd19f7ed
+  linux_amd64: aa37e5a16cedad636279a1af680f28ac0b753da85d1e088e09fcc1553f09531e
+  linux_arm64: 99862bbf08c9f533c3ebf494d22535fa03f6ab33b89a0140c2edc6c1c47415ed
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dav1d
+  - ffmpeg
+  - lame
+  - libvpx
+  - opus
+  - svt-av1
+  - x264
+  - x265

@@ -1,0 +1,19 @@
+name: akamai
+version: 2.0.3
+description: "CLI toolkit for working with Akamai's APIs"
+homepage: https://github.com/akamai/cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/akamai/blobs/sha256:fb554e08aa91f7aaec34966c012e58c9a16efe682e51f9259b6665fcfc190b98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/akamai/blobs/sha256:e065c36ef1531fd4b8e4ec09796bb3df95df2e3224999d0509f447a1c38a42ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/akamai/blobs/sha256:4bc4621795165f0218f2381b9df0059f168c94fced7327396e4ae73102b70a2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/akamai/blobs/sha256:3369b35aa27f90554855999fcf74a54f33004bfdf148983396c912624081cce7
+sha256:
+  darwin_arm64: fb554e08aa91f7aaec34966c012e58c9a16efe682e51f9259b6665fcfc190b98
+  darwin_amd64: e065c36ef1531fd4b8e4ec09796bb3df95df2e3224999d0509f447a1c38a42ea
+  linux_amd64: 4bc4621795165f0218f2381b9df0059f168c94fced7327396e4ae73102b70a2d
+  linux_arm64: 3369b35aa27f90554855999fcf74a54f33004bfdf148983396c912624081cce7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

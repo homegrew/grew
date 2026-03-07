@@ -1,0 +1,19 @@
+name: bigquery-emulator
+version: 0.6.6
+description: Emulate a GCP BigQuery server on your local machine
+homepage: https://github.com/goccy/bigquery-emulator
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bigquery-emulator/blobs/sha256:cfc703c5f709c8b31f299f4c9781b46f2099e3908984a156ad6ff7b832ad08c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bigquery-emulator/blobs/sha256:6d392929f5f202cb8cf49912926a283b424941c442071106c0a4bc57d5b7a953
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bigquery-emulator/blobs/sha256:b53e2bd32bf44be1c5ad737c1f4058d855faf4b82530aeebdecf5e9e690bdab2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bigquery-emulator/blobs/sha256:b1bb8c6a9605dd3ee04d8e944963aedc8cec753ace951e0bb9d243d4c7271aa9
+sha256:
+  darwin_arm64: cfc703c5f709c8b31f299f4c9781b46f2099e3908984a156ad6ff7b832ad08c8
+  darwin_amd64: 6d392929f5f202cb8cf49912926a283b424941c442071106c0a4bc57d5b7a953
+  linux_amd64: b53e2bd32bf44be1c5ad737c1f4058d855faf4b82530aeebdecf5e9e690bdab2
+  linux_arm64: b1bb8c6a9605dd3ee04d8e944963aedc8cec753ace951e0bb9d243d4c7271aa9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

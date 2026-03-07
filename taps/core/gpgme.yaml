@@ -1,0 +1,23 @@
+name: gpgme
+version: 2.0.1
+description: Library access to GnuPG
+homepage: https://www.gnupg.org/related_software/gpgme/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpgme/blobs/sha256:f43aa96d4271d497b8e3c03a48d2e7ae78d9106ea26e1bbb983ee923fa4bb11a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpgme/blobs/sha256:1e07b763ef12b4f6a76a87b705f52e83d9ae62fe85f762170e2e401d999d436a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpgme/blobs/sha256:9297331ca5752b0a415a3e90aa0af51a7f3185426daf39a55b92250bd6555f0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpgme/blobs/sha256:94ed67d29ae8433b0b9b8478fdf7323ddd33b5f24c3b56af352774625592cba4
+sha256:
+  darwin_arm64: f43aa96d4271d497b8e3c03a48d2e7ae78d9106ea26e1bbb983ee923fa4bb11a
+  darwin_amd64: 1e07b763ef12b4f6a76a87b705f52e83d9ae62fe85f762170e2e401d999d436a
+  linux_amd64: 9297331ca5752b0a415a3e90aa0af51a7f3185426daf39a55b92250bd6555f0e
+  linux_arm64: 94ed67d29ae8433b0b9b8478fdf7323ddd33b5f24c3b56af352774625592cba4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gnupg
+  - libassuan
+  - libgpg-error

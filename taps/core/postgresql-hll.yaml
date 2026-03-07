@@ -1,0 +1,19 @@
+name: postgresql-hll
+version: 2.19
+description: PostgreSQL extension adding HyperLogLog data structures as a native data type
+homepage: https://github.com/citusdata/postgresql-hll
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/postgresql-hll/blobs/sha256:17db595caa269ee31d2b540fa9e441019ffac25b4062690824f5f726dcaa992d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/postgresql-hll/blobs/sha256:214e7844d487ea202d54ebf8ae65677d980b8e371b26d29f067eb5f069a2a6d6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/postgresql-hll/blobs/sha256:a5e546957897b0dcb512910e16d9a5667e10f2bb1bc8d672eae77a21d49ee289
+  linux_arm64: https://ghcr.io/v2/homebrew/core/postgresql-hll/blobs/sha256:c34d132dd0e9543d3c14e707bf16fc28c36a41c51f81ff9bf8f8f0b6f9ce51c9
+sha256:
+  darwin_arm64: 17db595caa269ee31d2b540fa9e441019ffac25b4062690824f5f726dcaa992d
+  darwin_amd64: 214e7844d487ea202d54ebf8ae65677d980b8e371b26d29f067eb5f069a2a6d6
+  linux_amd64: a5e546957897b0dcb512910e16d9a5667e10f2bb1bc8d672eae77a21d49ee289
+  linux_arm64: c34d132dd0e9543d3c14e707bf16fc28c36a41c51f81ff9bf8f8f0b6f9ce51c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

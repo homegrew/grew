@@ -1,0 +1,19 @@
+name: bookokrat
+version: 0.3.6
+description: Terminal EPUB Book Reader
+homepage: https://bugzmanov.github.io/bookokrat/index.html
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bookokrat/blobs/sha256:836187576a7e929ee749c5b0512779a20dc0c34dace0487fb21d1589f497a3ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bookokrat/blobs/sha256:c57b4bfb914483835c58bd3c0e3362fe9224df56c81b8cbf27021763b07541d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bookokrat/blobs/sha256:bd5abdf8d2438b9db3b6486440e3267c33ad2e1d3c60482ed2d40d04126cc0d9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bookokrat/blobs/sha256:33abaae88339a594708d8cc99295d856ed4aa21386778ea20f29860579fbdf8e
+sha256:
+  darwin_arm64: 836187576a7e929ee749c5b0512779a20dc0c34dace0487fb21d1589f497a3ee
+  darwin_amd64: c57b4bfb914483835c58bd3c0e3362fe9224df56c81b8cbf27021763b07541d3
+  linux_amd64: bd5abdf8d2438b9db3b6486440e3267c33ad2e1d3c60482ed2d40d04126cc0d9
+  linux_arm64: 33abaae88339a594708d8cc99295d856ed4aa21386778ea20f29860579fbdf8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

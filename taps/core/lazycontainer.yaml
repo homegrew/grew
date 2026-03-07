@@ -1,0 +1,13 @@
+name: lazycontainer
+version: 0.0.1
+description: Terminal UI for Apple Containers
+homepage: https://github.com/andreybleme/lazycontainer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lazycontainer/blobs/sha256:8104055ed3ee692a36571f79db76e927b9ae43e7fec301c9c8d859ced6687d90
+sha256:
+  darwin_arm64: 8104055ed3ee692a36571f79db76e927b9ae43e7fec301c9c8d859ced6687d90
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

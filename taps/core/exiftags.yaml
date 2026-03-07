@@ -1,0 +1,19 @@
+name: exiftags
+version: 1.01
+description: Utility to read EXIF tags from a digital camera JPEG file
+homepage: https://johnst.org/sw/exiftags/
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/exiftags/blobs/sha256:b4c31682830f7f18a47fcaa2c2c61d28e1e36cca0ab480d41ffffde7731f7b06
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/exiftags/blobs/sha256:ab4c192e4d932cac9aba2b50781e4c8a44678398e4e99b507dd458fafd472b95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/exiftags/blobs/sha256:9bb2331fd48ad529d9fe2c1cda8f11370d2982afbcebe6403ed18333d6a86416
+  linux_arm64: https://ghcr.io/v2/homebrew/core/exiftags/blobs/sha256:548670490adcadbf70e7efc3e1fa7193a908abc34e75593bd0bcb52294120f44
+sha256:
+  darwin_arm64: b4c31682830f7f18a47fcaa2c2c61d28e1e36cca0ab480d41ffffde7731f7b06
+  darwin_amd64: ab4c192e4d932cac9aba2b50781e4c8a44678398e4e99b507dd458fafd472b95
+  linux_amd64: 9bb2331fd48ad529d9fe2c1cda8f11370d2982afbcebe6403ed18333d6a86416
+  linux_arm64: 548670490adcadbf70e7efc3e1fa7193a908abc34e75593bd0bcb52294120f44
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

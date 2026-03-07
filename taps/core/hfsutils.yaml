@@ -1,0 +1,19 @@
+name: hfsutils
+version: 3.2.6
+description: Tools for reading and writing Macintosh volumes
+homepage: https://www.mars.org/home/rob/proj/hfs/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hfsutils/blobs/sha256:3d8d4be93e186cb4e5f1aee2e128bbe94f68341e463b3fa86ea5cf15c30d0603
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hfsutils/blobs/sha256:f0e5cc460ae549e009fa87ccb3da5d0c369cf36f702219d126b395c144f07bb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hfsutils/blobs/sha256:ec4614155fc7221a5410f47eac547e8c6c906bfa9965acfc03433fee57a997c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hfsutils/blobs/sha256:884c03ae82783f8f238c85d784850ca15dfbf5a92c8d0948412551e850051111
+sha256:
+  darwin_arm64: 3d8d4be93e186cb4e5f1aee2e128bbe94f68341e463b3fa86ea5cf15c30d0603
+  darwin_amd64: f0e5cc460ae549e009fa87ccb3da5d0c369cf36f702219d126b395c144f07bb8
+  linux_amd64: ec4614155fc7221a5410f47eac547e8c6c906bfa9965acfc03433fee57a997c9
+  linux_arm64: 884c03ae82783f8f238c85d784850ca15dfbf5a92c8d0948412551e850051111
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

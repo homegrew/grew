@@ -1,0 +1,21 @@
+name: otf2bdf
+version: 3.1_p1
+description: OpenType to BDF font converter
+homepage: https://github.com/jirutka/otf2bdf
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/otf2bdf/blobs/sha256:5a8a13d81081f27e6115aa7096839a6db582bc96ac1aacfea9fb19607214d629
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/otf2bdf/blobs/sha256:aa6b56b8934b71fca2d22699b41a11d6375f85afdd4325d9edf6529301796a21
+  linux_amd64: https://ghcr.io/v2/homebrew/core/otf2bdf/blobs/sha256:ed108fc68b1333987e18c32c6ea67add776ce92b913b80e6c1a1af3af7be847b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/otf2bdf/blobs/sha256:d0978c8ced64cd766bbbb7bfe4fbbfd1855f3f872d17628d15c5221409b01ce8
+sha256:
+  darwin_arm64: 5a8a13d81081f27e6115aa7096839a6db582bc96ac1aacfea9fb19607214d629
+  darwin_amd64: aa6b56b8934b71fca2d22699b41a11d6375f85afdd4325d9edf6529301796a21
+  linux_amd64: ed108fc68b1333987e18c32c6ea67add776ce92b913b80e6c1a1af3af7be847b
+  linux_arm64: d0978c8ced64cd766bbbb7bfe4fbbfd1855f3f872d17628d15c5221409b01ce8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype

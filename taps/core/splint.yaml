@@ -1,0 +1,19 @@
+name: splint
+version: 3.1.2
+description: Secure Programming Lint
+homepage: https://github.com/splintchecker/splint
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/splint/blobs/sha256:3d26b806b15af6dde29829bdca6d9c0cc44ac7ef96d5522dee1cbd3f24a9924e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/splint/blobs/sha256:a0123a9c0adb426819b56a79a095066f4aa2fa13c6bf501c212eb58e3cbe08b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/splint/blobs/sha256:fded0340d91cfcbd99ddf5a89b505fd59895e980d86366654196192d6358a97c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/splint/blobs/sha256:6003db1cf73e332befaff1d85a5a3c547a094594e014b775cfe55914158dff58
+sha256:
+  darwin_arm64: 3d26b806b15af6dde29829bdca6d9c0cc44ac7ef96d5522dee1cbd3f24a9924e
+  darwin_amd64: a0123a9c0adb426819b56a79a095066f4aa2fa13c6bf501c212eb58e3cbe08b8
+  linux_amd64: fded0340d91cfcbd99ddf5a89b505fd59895e980d86366654196192d6358a97c
+  linux_arm64: 6003db1cf73e332befaff1d85a5a3c547a094594e014b775cfe55914158dff58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

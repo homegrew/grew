@@ -1,0 +1,19 @@
+name: unac
+version: 1.8.0
+description: C library and command that removes accents from a string
+homepage: https://savannah.nongnu.org/projects/unac
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unac/blobs/sha256:5e3436d86661dae0bcfda2b5064f3978fb4d5a2573ce656dc146c762e42161e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unac/blobs/sha256:98f6c4c1cdaef704abb8111989b7ab0bc8cf215164a6c8f175c1e6ef5b3ccda4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unac/blobs/sha256:ee6f3909a8a3f44657dc39813bee9cd551475eb835973cb34be6cbd23fe7eb0f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unac/blobs/sha256:7bcb9bedf0de026241c6f1de1bcffe69c67c1cfdfd5c8e590ffb7a5d09ce8c40
+sha256:
+  darwin_arm64: 5e3436d86661dae0bcfda2b5064f3978fb4d5a2573ce656dc146c762e42161e8
+  darwin_amd64: 98f6c4c1cdaef704abb8111989b7ab0bc8cf215164a6c8f175c1e6ef5b3ccda4
+  linux_amd64: ee6f3909a8a3f44657dc39813bee9cd551475eb835973cb34be6cbd23fe7eb0f
+  linux_arm64: 7bcb9bedf0de026241c6f1de1bcffe69c67c1cfdfd5c8e590ffb7a5d09ce8c40
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

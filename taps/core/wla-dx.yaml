@@ -1,0 +1,19 @@
+name: wla-dx
+version: 10.6
+description: Yet another crossassembler package
+homepage: https://github.com/vhelin/wla-dx
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wla-dx/blobs/sha256:11d1d2d3fdc767d15e21dd37a176fe35438cf438c8ff05e9344e69da674acac2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wla-dx/blobs/sha256:9ff72ea731a055cf23c426ab45fe5e33169ba1a4979c74ac90a9edd84a04730b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wla-dx/blobs/sha256:3e5860c11c5bbbdb62949e01df2af3d006f8315f5d30a2d4f4c25740a57ef883
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wla-dx/blobs/sha256:08c9e8db294a9c53c600dc9ed33dad82e58783710f679c3961dafe5c7f04d41b
+sha256:
+  darwin_arm64: 11d1d2d3fdc767d15e21dd37a176fe35438cf438c8ff05e9344e69da674acac2
+  darwin_amd64: 9ff72ea731a055cf23c426ab45fe5e33169ba1a4979c74ac90a9edd84a04730b
+  linux_amd64: 3e5860c11c5bbbdb62949e01df2af3d006f8315f5d30a2d4f4c25740a57ef883
+  linux_arm64: 08c9e8db294a9c53c600dc9ed33dad82e58783710f679c3961dafe5c7f04d41b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

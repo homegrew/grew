@@ -1,0 +1,19 @@
+name: tile38
+version: 1.37.0
+description: In-memory geolocation data store, spatial index, and realtime geofence
+homepage: https://tile38.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tile38/blobs/sha256:cdfe9e42cb4b5cdee808dfca100d20e9f04cf737d63aab45a2e9dc349647a73d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tile38/blobs/sha256:9ce1a1638aa31d0f28e1e031937ac48f6e7588cd6542cb3bea43bf8ffbc18d79
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tile38/blobs/sha256:a9af0c425459875d1402d52e8c4b3ba93d69c1b733c1554791e9640ca6b012d3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tile38/blobs/sha256:d4a22c1843a3dbca44783a1443386bc513efef0632ff31e2f2368c888c678aea
+sha256:
+  darwin_arm64: cdfe9e42cb4b5cdee808dfca100d20e9f04cf737d63aab45a2e9dc349647a73d
+  darwin_amd64: 9ce1a1638aa31d0f28e1e031937ac48f6e7588cd6542cb3bea43bf8ffbc18d79
+  linux_amd64: a9af0c425459875d1402d52e8c4b3ba93d69c1b733c1554791e9640ca6b012d3
+  linux_arm64: d4a22c1843a3dbca44783a1443386bc513efef0632ff31e2f2368c888c678aea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

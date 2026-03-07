@@ -1,0 +1,19 @@
+name: gzrt
+version: 0.8
+description: Gzip recovery toolkit
+homepage: https://www.urbanophile.com/arenn/coding/gzrt/gzrt.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gzrt/blobs/sha256:670cc86444773ca0a6a1b37c47b02eedb11a330d9ee4a002be567f4721dce63b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gzrt/blobs/sha256:640d5955f8d200207a1a10bcbaff18a3029a2f55e8dd664584d90c987b5e17a0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gzrt/blobs/sha256:d2ed5bc35e21d41cb7add82444259b36d1e0b86068dddef561c44e78fbeecfa5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gzrt/blobs/sha256:55b0cb361639c0127289a8843f8cea433e5e1cddb46522944d1c99d7b34d6f35
+sha256:
+  darwin_arm64: 670cc86444773ca0a6a1b37c47b02eedb11a330d9ee4a002be567f4721dce63b
+  darwin_amd64: 640d5955f8d200207a1a10bcbaff18a3029a2f55e8dd664584d90c987b5e17a0
+  linux_amd64: d2ed5bc35e21d41cb7add82444259b36d1e0b86068dddef561c44e78fbeecfa5
+  linux_arm64: 55b0cb361639c0127289a8843f8cea433e5e1cddb46522944d1c99d7b34d6f35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

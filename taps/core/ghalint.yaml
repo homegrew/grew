@@ -1,0 +1,19 @@
+name: ghalint
+version: 1.5.5
+description: GitHub Actions linter
+homepage: https://github.com/suzuki-shunsuke/ghalint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghalint/blobs/sha256:d76a40b66cef3c662e3640e21831608994afd975421cdcade724f9c2a91cfdf0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghalint/blobs/sha256:59af90a6c1a219d9c22e362f1c4247e6c86d467bc1fca2f1b0e6863bc40d8b87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghalint/blobs/sha256:b4279ba059a6609ea05324b5a7c05a8e7aab91f5b2a87a9c8b1f29aaf934b337
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghalint/blobs/sha256:dc504c542ae7a9a1760a766f97dec113404448ac12f60bb816fe01063928db19
+sha256:
+  darwin_arm64: d76a40b66cef3c662e3640e21831608994afd975421cdcade724f9c2a91cfdf0
+  darwin_amd64: 59af90a6c1a219d9c22e362f1c4247e6c86d467bc1fca2f1b0e6863bc40d8b87
+  linux_amd64: b4279ba059a6609ea05324b5a7c05a8e7aab91f5b2a87a9c8b1f29aaf934b337
+  linux_arm64: dc504c542ae7a9a1760a766f97dec113404448ac12f60bb816fe01063928db19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

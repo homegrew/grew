@@ -1,0 +1,19 @@
+name: stu
+version: 0.7.6
+description: TUI explorer application for Amazon S3 (AWS S3)
+homepage: https://github.com/lusingander/stu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stu/blobs/sha256:d065022392c7e2d23fb3077bb0f333dd6c3e8ab26bb9c752d8feb491e0ea8581
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stu/blobs/sha256:d3b3ec43700cd54dd558f539fe1ccd73bc73bb5d567c12f56367bbc442137a3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stu/blobs/sha256:6ec9ab241de817515a51fe4f92d51b0c36fd92c1f3b67e1db08970a45973c9c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stu/blobs/sha256:77e3cce2235ded9200c581494f98c6e339c9bf3ebf04e8ac3a3b948786d9a714
+sha256:
+  darwin_arm64: d065022392c7e2d23fb3077bb0f333dd6c3e8ab26bb9c752d8feb491e0ea8581
+  darwin_amd64: d3b3ec43700cd54dd558f539fe1ccd73bc73bb5d567c12f56367bbc442137a3c
+  linux_amd64: 6ec9ab241de817515a51fe4f92d51b0c36fd92c1f3b67e1db08970a45973c9c3
+  linux_arm64: 77e3cce2235ded9200c581494f98c6e339c9bf3ebf04e8ac3a3b948786d9a714
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

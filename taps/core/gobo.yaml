@@ -1,0 +1,19 @@
+name: gobo
+version: 26.01
+description: Free and portable Eiffel tools and libraries
+homepage: https://www.gobosoft.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gobo/blobs/sha256:44681e7a3236f134c0bb8219467a3200e16ee4a1199bf6ff74fccbaa2f5765a2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gobo/blobs/sha256:fd758ad5dee96d4a0b2f2e0e5cef27959ef5305a514cba46bf6b85a5de042448
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gobo/blobs/sha256:a10cc331f3235ea05493937fd07690e5666e6d0751f12083b1a423e75783ae9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gobo/blobs/sha256:5494f05faa8de949ebc54c0bbaf120183a8fe15139788c04d40c4062e2e74169
+sha256:
+  darwin_arm64: 44681e7a3236f134c0bb8219467a3200e16ee4a1199bf6ff74fccbaa2f5765a2
+  darwin_amd64: fd758ad5dee96d4a0b2f2e0e5cef27959ef5305a514cba46bf6b85a5de042448
+  linux_amd64: a10cc331f3235ea05493937fd07690e5666e6d0751f12083b1a423e75783ae9e
+  linux_arm64: 5494f05faa8de949ebc54c0bbaf120183a8fe15139788c04d40c4062e2e74169
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

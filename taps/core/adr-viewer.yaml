@@ -1,0 +1,21 @@
+name: adr-viewer
+version: 1.4.0
+description: Generate easy-to-read web pages for your Architecture Decision Records
+homepage: https://github.com/mrwilson/adr-viewer
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/adr-viewer/blobs/sha256:a3f6b7a95651b6fb125de9bf527bacacfaaedb388d7b04f70d4403b8035e2c8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/adr-viewer/blobs/sha256:7b31b8e4db34d9255f45a69b7a1bafeb8c847766cd13fb7a855c0aa23fa8c88b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/adr-viewer/blobs/sha256:c3043b26cd6a9c4f8dcf48da0045d79860b6697742b108eb49ef7695e3a1f94d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/adr-viewer/blobs/sha256:831b524d372bbe7f6a292e141f1d87b0516e1f3f067cf24309066926ec397fdd
+sha256:
+  darwin_arm64: a3f6b7a95651b6fb125de9bf527bacacfaaedb388d7b04f70d4403b8035e2c8f
+  darwin_amd64: 7b31b8e4db34d9255f45a69b7a1bafeb8c847766cd13fb7a855c0aa23fa8c88b
+  linux_amd64: c3043b26cd6a9c4f8dcf48da0045d79860b6697742b108eb49ef7695e3a1f94d
+  linux_arm64: 831b524d372bbe7f6a292e141f1d87b0516e1f3f067cf24309066926ec397fdd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

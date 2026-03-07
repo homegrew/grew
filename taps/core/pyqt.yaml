@@ -1,0 +1,42 @@
+name: pyqt
+version: 6.10.2
+description: Python bindings for v6 of Qt
+homepage: https://www.riverbankcomputing.com/software/pyqt/intro
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyqt/blobs/sha256:1da5eaaf94662961f84964b14d4bad63a997d1ee9a33bf1ca52cda6a97c83e2a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyqt/blobs/sha256:6fa5127fa04872e243f90c50a3a8524c5bb8b4bc28b190558139f337dc1df1a1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyqt/blobs/sha256:92efa396ff59ce6c73a2759b7693fef39941c012b0cf0b9146348c0a6d4f182b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyqt/blobs/sha256:b2b2dbe475515323dfd19fdcc55ba4b05b5d8c7b5492960df04dd47d73ed902b
+sha256:
+  darwin_arm64: 1da5eaaf94662961f84964b14d4bad63a997d1ee9a33bf1ca52cda6a97c83e2a
+  darwin_amd64: 6fa5127fa04872e243f90c50a3a8524c5bb8b4bc28b190558139f337dc1df1a1
+  linux_amd64: 92efa396ff59ce6c73a2759b7693fef39941c012b0cf0b9146348c0a6d4f182b
+  linux_arm64: b2b2dbe475515323dfd19fdcc55ba4b05b5d8c7b5492960df04dd47d73ed902b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - qt3d
+  - qtbase
+  - qtcharts
+  - qtconnectivity
+  - qtdatavis3d
+  - qtdeclarative
+  - qtmultimedia
+  - qtnetworkauth
+  - qtpositioning
+  - qtquick3d
+  - qtremoteobjects
+  - qtscxml
+  - qtsensors
+  - qtserialport
+  - qtspeech
+  - qtsvg
+  - qttools
+  - qtwebchannel
+  - qtwebsockets
+  - qtshadertools
+  - qtwebengine

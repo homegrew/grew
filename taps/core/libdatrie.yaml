@@ -1,0 +1,19 @@
+name: libdatrie
+version: 0.2.14
+description: Double-Array Trie Library
+homepage: https://github.com/tlwg/libdatrie
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdatrie/blobs/sha256:77f8ac3d31bc58f8e000a6b065fa1eeff3c0f832e1d4e3c5fa67b464307c4e87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdatrie/blobs/sha256:d534412d18b23018afb960d969edcfd5f09d51ccf7107b99aff0091503ebc579
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdatrie/blobs/sha256:2296c37b6f7f5499b944e6e0d553e3ceac5a3666046ed133d495748045a4835f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdatrie/blobs/sha256:1aa88b7f1e58078eb57f8cac2920603e61e79f52c9679805a1bf4afee238e2db
+sha256:
+  darwin_arm64: 77f8ac3d31bc58f8e000a6b065fa1eeff3c0f832e1d4e3c5fa67b464307c4e87
+  darwin_amd64: d534412d18b23018afb960d969edcfd5f09d51ccf7107b99aff0091503ebc579
+  linux_amd64: 2296c37b6f7f5499b944e6e0d553e3ceac5a3666046ed133d495748045a4835f
+  linux_arm64: 1aa88b7f1e58078eb57f8cac2920603e61e79f52c9679805a1bf4afee238e2db
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

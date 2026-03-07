@@ -1,0 +1,19 @@
+name: hoverfly
+version: 1.12.5
+description: API simulations for development and testing
+homepage: https://hoverfly.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hoverfly/blobs/sha256:2ac4f1f69e3134ba6286b2e9e30af55077e68da6cc13b4ef039e19ddad21746d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hoverfly/blobs/sha256:293b9c9e83b8c1694a213506898fbf6d79fdc3ec5c3366ac19878439fcd3d510
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hoverfly/blobs/sha256:2e4fd4b01e17dd9abc64c84c1178194ff0ef249c5a2bc3e490158373bb782fad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hoverfly/blobs/sha256:7a3b1565db4eb1046ac395ed5fd11b040075cc0ab358589ba8d942cadd780a53
+sha256:
+  darwin_arm64: 2ac4f1f69e3134ba6286b2e9e30af55077e68da6cc13b4ef039e19ddad21746d
+  darwin_amd64: 293b9c9e83b8c1694a213506898fbf6d79fdc3ec5c3366ac19878439fcd3d510
+  linux_amd64: 2e4fd4b01e17dd9abc64c84c1178194ff0ef249c5a2bc3e490158373bb782fad
+  linux_arm64: 7a3b1565db4eb1046ac395ed5fd11b040075cc0ab358589ba8d942cadd780a53
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

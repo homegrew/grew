@@ -1,0 +1,23 @@
+name: ffmpegthumbnailer
+version: 2.3.0
+description: Create thumbnails for your video files
+homepage: https://github.com/dirkvdb/ffmpegthumbnailer
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpegthumbnailer/blobs/sha256:08e319540e8ddc4a09246ef099e1103dc4e8dccb95752448704cabc96d10a886
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpegthumbnailer/blobs/sha256:f1fb9f35f2f829e86f25324b42c4a609433429cc64dfe43d2fcee4ebb099d78e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpegthumbnailer/blobs/sha256:2326808fbabc3ae36f25299da82e352d7bae86b629b72de6ca22c4fcbf03d15a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpegthumbnailer/blobs/sha256:71eccfa399cddb86492a70bb48cb2c85b7263fa39d640d01a77976a0b8ca8529
+sha256:
+  darwin_arm64: 08e319540e8ddc4a09246ef099e1103dc4e8dccb95752448704cabc96d10a886
+  darwin_amd64: f1fb9f35f2f829e86f25324b42c4a609433429cc64dfe43d2fcee4ebb099d78e
+  linux_amd64: 2326808fbabc3ae36f25299da82e352d7bae86b629b72de6ca22c4fcbf03d15a
+  linux_arm64: 71eccfa399cddb86492a70bb48cb2c85b7263fa39d640d01a77976a0b8ca8529
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - jpeg-turbo
+  - libpng

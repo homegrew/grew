@@ -1,0 +1,11 @@
+name: thunderbird
+version: 148.0
+description: Customizable email client
+homepage: https://www.thunderbird.net/en-US/
+url:
+  darwin_arm64: https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/148.0/mac/en-US/Thunderbird%20148.0.dmg
+sha256:
+  darwin_arm64: 57b23b7ec529f64f337d8b81b72d51c8a2bf4bd81e9abe2a10289f2c44cb2fcb
+artifacts:
+  app:
+    - Thunderbird.app

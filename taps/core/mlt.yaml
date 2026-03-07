@@ -1,0 +1,42 @@
+name: mlt
+version: 7.36.1
+description: Author, manage, and run multitrack audio/video compositions
+homepage: https://www.mltframework.org/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mlt/blobs/sha256:81cd06d782ba666f6a319ccd94bf54a61e7278433f721fea45a8aa07f36d386e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mlt/blobs/sha256:e5c7487a7d1dc5c58cebdabacdcfa41c3818692aa89453ddc0f09bbcef9cb467
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mlt/blobs/sha256:752b678fe0290dcef506287baae7f4882c674c10f70bf7cd6a5bf96233792ba4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mlt/blobs/sha256:95761fd2e2174018ba5b50ae8b295d6147317a8a28ffd3155f6f5c84bb2b7de1
+sha256:
+  darwin_arm64: 81cd06d782ba666f6a319ccd94bf54a61e7278433f721fea45a8aa07f36d386e
+  darwin_amd64: e5c7487a7d1dc5c58cebdabacdcfa41c3818692aa89453ddc0f09bbcef9cb467
+  linux_amd64: 752b678fe0290dcef506287baae7f4882c674c10f70bf7cd6a5bf96233792ba4
+  linux_arm64: 95761fd2e2174018ba5b50ae8b295d6147317a8a28ffd3155f6f5c84bb2b7de1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - fftw
+  - fontconfig
+  - frei0r
+  - gdk-pixbuf
+  - glib
+  - libdv
+  - libexif
+  - libsamplerate
+  - libvidstab
+  - libvorbis
+  - opencv
+  - pango
+  - qt5compat
+  - qtbase
+  - qtsvg
+  - rubberband
+  - sdl2
+  - sox
+  - freetype
+  - gettext
+  - harfbuzz

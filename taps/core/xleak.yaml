@@ -1,0 +1,19 @@
+name: xleak
+version: 0.2.5
+description: Terminal Excel viewer with an interactive TUI
+homepage: https://github.com/bgreenwell/xleak
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xleak/blobs/sha256:3bc979de348ff1ec6be5242e9a8463e54e424a97ed7edcfa4c0f94e843708e64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xleak/blobs/sha256:d38c9643c3ec5123ee32e4c7df475882fa9dcdfe70e338571229065f4445cd73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xleak/blobs/sha256:18ec2991f6222a7a083d933ead2ba84537da49c1827fbe5498a871a103cade11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xleak/blobs/sha256:508d6a9bf70e935b1b7d6a12fe94a9a240c0529cb00c39673a154725deef1aa9
+sha256:
+  darwin_arm64: 3bc979de348ff1ec6be5242e9a8463e54e424a97ed7edcfa4c0f94e843708e64
+  darwin_amd64: d38c9643c3ec5123ee32e4c7df475882fa9dcdfe70e338571229065f4445cd73
+  linux_amd64: 18ec2991f6222a7a083d933ead2ba84537da49c1827fbe5498a871a103cade11
+  linux_arm64: 508d6a9bf70e935b1b7d6a12fe94a9a240c0529cb00c39673a154725deef1aa9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: stm32flash
+version: 0.7
+description: Open source flash program for STM32 using the ST serial bootloader
+homepage: https://sourceforge.net/projects/stm32flash/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stm32flash/blobs/sha256:f8e474cef1409121473bd9d5faaee88d9a164949b2b6f3bba17dff7a20875383
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stm32flash/blobs/sha256:953034cea97ccfa773a277c96d39f008ab73849a7d709feb453b6fc990955407
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stm32flash/blobs/sha256:b63e10544099db4a148fefe54fe036746f96ab2e1d637e73702ae458cb442f93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stm32flash/blobs/sha256:2c3d8911cbf5af6047635b5c494c369f587fe8b8a904a88e3b8fd9e0a2e897d0
+sha256:
+  darwin_arm64: f8e474cef1409121473bd9d5faaee88d9a164949b2b6f3bba17dff7a20875383
+  darwin_amd64: 953034cea97ccfa773a277c96d39f008ab73849a7d709feb453b6fc990955407
+  linux_amd64: b63e10544099db4a148fefe54fe036746f96ab2e1d637e73702ae458cb442f93
+  linux_arm64: 2c3d8911cbf5af6047635b5c494c369f587fe8b8a904a88e3b8fd9e0a2e897d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cc65
+version: 2.19
+description: 6502 C compiler
+homepage: https://cc65.github.io/cc65/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cc65/blobs/sha256:f920a8752f63358eadceb552629837af0fe7e35461c0d98c0430ede6cda0a4c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cc65/blobs/sha256:f253df296eb1aeb17bc02fef52e836d45b77b3364337abf68d53d26cbda218a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cc65/blobs/sha256:a07773f9ba0bcbe345f8e3c27495b9f149ff0a4df6245748cb8152a75b13880f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cc65/blobs/sha256:668380deeb544b5843f43f62f70d7d8acf4e25063764429c77a5ebc276a49ce0
+sha256:
+  darwin_arm64: f920a8752f63358eadceb552629837af0fe7e35461c0d98c0430ede6cda0a4c5
+  darwin_amd64: f253df296eb1aeb17bc02fef52e836d45b77b3364337abf68d53d26cbda218a5
+  linux_amd64: a07773f9ba0bcbe345f8e3c27495b9f149ff0a4df6245748cb8152a75b13880f
+  linux_arm64: 668380deeb544b5843f43f62f70d7d8acf4e25063764429c77a5ebc276a49ce0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

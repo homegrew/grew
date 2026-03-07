@@ -1,0 +1,36 @@
+name: pidgin
+version: 2.14.14
+description: Multi-protocol chat client
+homepage: https://pidgin.im/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pidgin/blobs/sha256:ae1289bca94151de51149aab865e414377fcd3ce385b1b771c7aec98b87c0387
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pidgin/blobs/sha256:72919ceb55d3dbaa92f938e4a2850681a5265933fe27a306859d7f05eecee374
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pidgin/blobs/sha256:fc8acd8bda4c38df7f4bc5b55e15087196689cb5c40ef000bbbd1eb105bfbe69
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pidgin/blobs/sha256:90da19fee3264f2d6a568d87449405fa785219fa39085be9b0e1189d803bf5a0
+sha256:
+  darwin_arm64: ae1289bca94151de51149aab865e414377fcd3ce385b1b771c7aec98b87c0387
+  darwin_amd64: 72919ceb55d3dbaa92f938e4a2850681a5265933fe27a306859d7f05eecee374
+  linux_amd64: fc8acd8bda4c38df7f4bc5b55e15087196689cb5c40ef000bbbd1eb105bfbe69
+  linux_arm64: 90da19fee3264f2d6a568d87449405fa785219fa39085be9b0e1189d803bf5a0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - at-spi2-core
+  - gnutls
+  - gtk+
+  - libgcrypt
+  - libgnt
+  - libotr
+  - ncurses
+  - tcl-tk@8
+  - harfbuzz
+  - libgpg-error
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - libidn
+  - pango
+  - gettext

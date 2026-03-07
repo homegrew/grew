@@ -1,0 +1,24 @@
+name: serialosc
+version: 1.4.7
+description: Opensound control server for monome devices
+homepage: https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serialosc/blobs/sha256:9f99630d252d5bf043ab3cd20bbfe7f523f8a5947c24116884805d3f7ce4966e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serialosc/blobs/sha256:6adb9865250752540188fad3bbd293935f7f82d431530bcdfeec4b372f27ed7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serialosc/blobs/sha256:be67991d5ec342af372b09090ecdc048e178960b31795f438eac84f3090b3c54
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serialosc/blobs/sha256:a9bfe2f52193d07890dc1b74904c9b32dd9fb616d9e56deb031768dafedea448
+sha256:
+  darwin_arm64: 9f99630d252d5bf043ab3cd20bbfe7f523f8a5947c24116884805d3f7ce4966e
+  darwin_amd64: 6adb9865250752540188fad3bbd293935f7f82d431530bcdfeec4b372f27ed7a
+  linux_amd64: be67991d5ec342af372b09090ecdc048e178960b31795f438eac84f3090b3c54
+  linux_arm64: a9bfe2f52193d07890dc1b74904c9b32dd9fb616d9e56deb031768dafedea448
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - confuse
+  - liblo
+  - libmonome
+  - libuv

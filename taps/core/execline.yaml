@@ -1,0 +1,21 @@
+name: execline
+version: 2.9.8.1
+description: Interpreter-less scripting language
+homepage: https://skarnet.org/software/execline/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/execline/blobs/sha256:1821cb1a1f4cb4563107a96a6e4226fbb19f71e2b4f4958ba3072e2320d3cde8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/execline/blobs/sha256:02723eef03476c8dcd5448899b4717e06d9c4c3b94e2d39b4421dc730e27da4e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/execline/blobs/sha256:7ecaef5ce93cc303329fc01de0290f3b4bd4c7c3b2ef7510eefa5d60b1869ca1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/execline/blobs/sha256:49daa9344067f4534f19592352185b0b5a573f2e8420929d65238294770723ef
+sha256:
+  darwin_arm64: 1821cb1a1f4cb4563107a96a6e4226fbb19f71e2b4f4958ba3072e2320d3cde8
+  darwin_amd64: 02723eef03476c8dcd5448899b4717e06d9c4c3b94e2d39b4421dc730e27da4e
+  linux_amd64: 7ecaef5ce93cc303329fc01de0290f3b4bd4c7c3b2ef7510eefa5d60b1869ca1
+  linux_arm64: 49daa9344067f4534f19592352185b0b5a573f2e8420929d65238294770723ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - skalibs

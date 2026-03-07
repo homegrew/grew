@@ -1,0 +1,19 @@
+name: tfmigrate
+version: 0.4.4
+description: Terraform/OpenTofu state migration tool for GitOps
+homepage: https://github.com/minamijoyo/tfmigrate
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfmigrate/blobs/sha256:603e3f3a30094b8b86c98fcb425b286607956fe6b5f040f1cf1158bd18cddb1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfmigrate/blobs/sha256:993820c499d14f9eeab7d504c9d966b2bf45e1f70142cb8c4db1641785b401fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfmigrate/blobs/sha256:4ae0031a822efc9bee92b239c6f0df4a352931aa7f41ac7fc4980138ba04f673
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfmigrate/blobs/sha256:3a3f8800cded05ff20287578059f556f3993e2566ae83b7710decdf0ab9e1e19
+sha256:
+  darwin_arm64: 603e3f3a30094b8b86c98fcb425b286607956fe6b5f040f1cf1158bd18cddb1e
+  darwin_amd64: 993820c499d14f9eeab7d504c9d966b2bf45e1f70142cb8c4db1641785b401fd
+  linux_amd64: 4ae0031a822efc9bee92b239c6f0df4a352931aa7f41ac7fc4980138ba04f673
+  linux_arm64: 3a3f8800cded05ff20287578059f556f3993e2566ae83b7710decdf0ab9e1e19
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

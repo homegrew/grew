@@ -1,0 +1,24 @@
+name: ompl
+version: 1.7.0
+description: Open Motion Planning Library consists of many motion planning algorithms
+homepage: https://ompl.kavrakilab.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ompl/blobs/sha256:9db8d1a17411555b340f9bce884fe93aa94a38e8bd009ae6b15e0fcc74407030
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ompl/blobs/sha256:183762369e5bc2543905d58a0158bebc8cd6c5b56f912345db7d46d72989d3ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ompl/blobs/sha256:2e4f7207a2f37310c638a8c09624177d5a9cf154e6379b677acca62426976a1c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ompl/blobs/sha256:3b7975058b695b73d56c8dabfd35031ba8979d0ffc72e77c76e5ddd0aacb1630
+sha256:
+  darwin_arm64: 9db8d1a17411555b340f9bce884fe93aa94a38e8bd009ae6b15e0fcc74407030
+  darwin_amd64: 183762369e5bc2543905d58a0158bebc8cd6c5b56f912345db7d46d72989d3ca
+  linux_amd64: 2e4f7207a2f37310c638a8c09624177d5a9cf154e6379b677acca62426976a1c
+  linux_arm64: 3b7975058b695b73d56c8dabfd35031ba8979d0ffc72e77c76e5ddd0aacb1630
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - eigen
+  - flann
+  - ode

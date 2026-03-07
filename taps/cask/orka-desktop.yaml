@@ -1,0 +1,11 @@
+name: orka-desktop
+version: 3.1.0
+description: Run macOS virtual machines locally and build images for use with Orka
+homepage: https://github.com/macstadium/orka-desktop
+url:
+  darwin_arm64: https://github.com/macstadium/orka-desktop/releases/download/3.1.0/OrkaDesktop-3.1.0.dmg
+sha256:
+  darwin_arm64: 9c3389511bc9fae3572a79c08f6a8dfaeb21f4b5ed79f7a0b428554659d44c51
+artifacts:
+  app:
+    - Orka Desktop.app

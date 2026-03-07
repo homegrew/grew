@@ -1,0 +1,19 @@
+name: hcl2json
+version: 0.6.8
+description: Convert HCL2 to JSON
+homepage: https://github.com/tmccombs/hcl2json
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hcl2json/blobs/sha256:3fb9aee9614b75c4702666a6d70f9addf8e6157859fa89697758623d878ce80c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hcl2json/blobs/sha256:d3ae77ad35dfda19dc3237e0f9f7cf0b4f52719794ecc6c961087d2a4a42d531
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hcl2json/blobs/sha256:7db7e8c0d7315497cb12df272d66fc602b8208274ba76211c3fd15384a96e496
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hcl2json/blobs/sha256:d3ee3ceb3ec84cfe5a4e04f823f0fbed61ed156ade2148ef96271d636ca3a935
+sha256:
+  darwin_arm64: 3fb9aee9614b75c4702666a6d70f9addf8e6157859fa89697758623d878ce80c
+  darwin_amd64: d3ae77ad35dfda19dc3237e0f9f7cf0b4f52719794ecc6c961087d2a4a42d531
+  linux_amd64: 7db7e8c0d7315497cb12df272d66fc602b8208274ba76211c3fd15384a96e496
+  linux_arm64: d3ee3ceb3ec84cfe5a4e04f823f0fbed61ed156ade2148ef96271d636ca3a935
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

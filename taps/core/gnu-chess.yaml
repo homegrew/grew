@@ -1,0 +1,21 @@
+name: gnu-chess
+version: 6.3.0
+description: Chess-playing program
+homepage: https://www.gnu.org/software/chess/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-chess/blobs/sha256:df22ed67f466752c4e166eff301bb7632a3ea16af817b41a00078d2a1ea0cc78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-chess/blobs/sha256:d803b6892e888d463f2af6004ebc4b40a2735d5d24b90710cf41030d40f46e9a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-chess/blobs/sha256:514caae489b6d6093b791d055c0dbd571863413c1927ebd0c82a4aebfd7c7553
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-chess/blobs/sha256:5b309d410c55a15466f49fdc14dd4284589554f2494ab582fd26eb76fc5d1162
+sha256:
+  darwin_arm64: df22ed67f466752c4e166eff301bb7632a3ea16af817b41a00078d2a1ea0cc78
+  darwin_amd64: d803b6892e888d463f2af6004ebc4b40a2735d5d24b90710cf41030d40f46e9a
+  linux_amd64: 514caae489b6d6093b791d055c0dbd571863413c1927ebd0c82a4aebfd7c7553
+  linux_arm64: 5b309d410c55a15466f49fdc14dd4284589554f2494ab582fd26eb76fc5d1162
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

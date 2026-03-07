@@ -1,0 +1,19 @@
+name: typos-cli
+version: 1.44.0
+description: Source code spell checker
+homepage: https://github.com/crate-ci/typos
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typos-cli/blobs/sha256:7b332c562e8b6ccb65a15e61707d8afe74d1329cfeff2cbc148f3320d626339d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typos-cli/blobs/sha256:856f4f8cde97dc92d21a2c3f43b8cec86047173d5886a5285c5de9702c741417
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typos-cli/blobs/sha256:1f912d6bd2965183f19ebbbccd40c87bc25f2097586cbe6c6f697301bf869e89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typos-cli/blobs/sha256:c1011959fe0ebc9d5603d5c4d0e60a61b030deae36b42ce0b87e53b63a3160a8
+sha256:
+  darwin_arm64: 7b332c562e8b6ccb65a15e61707d8afe74d1329cfeff2cbc148f3320d626339d
+  darwin_amd64: 856f4f8cde97dc92d21a2c3f43b8cec86047173d5886a5285c5de9702c741417
+  linux_amd64: 1f912d6bd2965183f19ebbbccd40c87bc25f2097586cbe6c6f697301bf869e89
+  linux_arm64: c1011959fe0ebc9d5603d5c4d0e60a61b030deae36b42ce0b87e53b63a3160a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

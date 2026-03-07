@@ -1,0 +1,19 @@
+name: kepubify
+version: 4.0.4
+description: Convert ebooks from epub to kepub
+homepage: https://pgaskin.net/kepubify/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kepubify/blobs/sha256:da1335fcadc06a8d78cb713f1884ce2d37ea70f0d06240f79c5f50c6b08acf32
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kepubify/blobs/sha256:3b3c3a7973aae7ff8579ed1e0cef31cf891d8d7e36defc7b1956bc01a21928f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kepubify/blobs/sha256:e247e97968a140a0ce04a70e3b750e1c6d7e8f50b402fb712cefd20837cfc27a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kepubify/blobs/sha256:406aad8a55b14e3e28226b53d993daa92587a0ad936b0501371f6dd4f4f08330
+sha256:
+  darwin_arm64: da1335fcadc06a8d78cb713f1884ce2d37ea70f0d06240f79c5f50c6b08acf32
+  darwin_amd64: 3b3c3a7973aae7ff8579ed1e0cef31cf891d8d7e36defc7b1956bc01a21928f1
+  linux_amd64: e247e97968a140a0ce04a70e3b750e1c6d7e8f50b402fb712cefd20837cfc27a
+  linux_arm64: 406aad8a55b14e3e28226b53d993daa92587a0ad936b0501371f6dd4f4f08330
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

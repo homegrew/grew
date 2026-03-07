@@ -1,0 +1,21 @@
+name: bbtools
+version: 39.79
+description: "Brian Bushnell's tools for manipulating reads"
+homepage: https://bbmap.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bbtools/blobs/sha256:de869aaac82c95c89a350191b16b170bfb39212a2ae0648ce517207e3fb3d998
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bbtools/blobs/sha256:fc2a00bf10ce8c98babf3ad81a2b6386ccec191e87db4361d88c653cdb13fcd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bbtools/blobs/sha256:5d0cd94c76d6fdb381aa90bbbbb052f8cd91495536d3e6c902575ccebac47783
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bbtools/blobs/sha256:31604b6ff0f0e4b8aef4ee68ef06606f7cd6e7e1b67258ffebe64c4710d61578
+sha256:
+  darwin_arm64: de869aaac82c95c89a350191b16b170bfb39212a2ae0648ce517207e3fb3d998
+  darwin_amd64: fc2a00bf10ce8c98babf3ad81a2b6386ccec191e87db4361d88c653cdb13fcd8
+  linux_amd64: 5d0cd94c76d6fdb381aa90bbbbb052f8cd91495536d3e6c902575ccebac47783
+  linux_arm64: 31604b6ff0f0e4b8aef4ee68ef06606f7cd6e7e1b67258ffebe64c4710d61578
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

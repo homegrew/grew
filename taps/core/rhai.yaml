@@ -1,0 +1,19 @@
+name: rhai
+version: 1.24.0
+description: Embedded scripting language for Rust
+homepage: https://rhai.rs/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rhai/blobs/sha256:7dafbfd966e8004e89388a1d6ee629ba86b63564708d91f911ef3209a9fe8ef3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rhai/blobs/sha256:81ab902eafe2ba7b81e2e368871934e9a4d0ef3c1265ca6ce39a1c43773d119a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rhai/blobs/sha256:20670022f9efad3e1004c54b5211335268a2465c53bed7fd00d31fdc39ab1312
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rhai/blobs/sha256:191e5a097a4cc235ee8d93ebf036b2d3acf70b6f01ffc5ee54def082d4be8bec
+sha256:
+  darwin_arm64: 7dafbfd966e8004e89388a1d6ee629ba86b63564708d91f911ef3209a9fe8ef3
+  darwin_amd64: 81ab902eafe2ba7b81e2e368871934e9a4d0ef3c1265ca6ce39a1c43773d119a
+  linux_amd64: 20670022f9efad3e1004c54b5211335268a2465c53bed7fd00d31fdc39ab1312
+  linux_arm64: 191e5a097a4cc235ee8d93ebf036b2d3acf70b6f01ffc5ee54def082d4be8bec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

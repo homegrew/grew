@@ -1,0 +1,22 @@
+name: ctpv
+version: 1.1
+description: Image previews for lf file manager
+homepage: https://github.com/NikitaIvanovV/ctpv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctpv/blobs/sha256:891ba106991bf7d6a64f1216540cb3332c5eed558e8b7c30733d1d47b766d5dc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctpv/blobs/sha256:0b11166fde3dd51d0ca4419bbf8457858f139e1eeb23cdba43749b3742b71c7f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctpv/blobs/sha256:e8c9583347b626f784679ab68dccf83766e98d58b0fb1357a4852271f92a1161
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctpv/blobs/sha256:cc5045108cb40264a0d6870ca7c21f4d32be00b365d47af2d659523a46406f84
+sha256:
+  darwin_arm64: 891ba106991bf7d6a64f1216540cb3332c5eed558e8b7c30733d1d47b766d5dc
+  darwin_amd64: 0b11166fde3dd51d0ca4419bbf8457858f139e1eeb23cdba43749b3742b71c7f
+  linux_amd64: e8c9583347b626f784679ab68dccf83766e98d58b0fb1357a4852271f92a1161
+  linux_arm64: cc5045108cb40264a0d6870ca7c21f4d32be00b365d47af2d659523a46406f84
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libmagic
+  - openssl@3

@@ -1,0 +1,28 @@
+name: mutt
+version: 2.3.0
+description: Mongrel of mail user agents (part elm, pine, mush, mh, etc.)
+homepage: http://www.mutt.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mutt/blobs/sha256:f5aa59e57c93ebe4dbf834ea06623182f72c0192e2161be9398acfacd63d971c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mutt/blobs/sha256:6998d2b147a5c30ea2ecfd5e7e11da8e83f1a48ad0c6f85047438a5bd1a78b95
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mutt/blobs/sha256:e08eb40aa35b734d0e8f9a43ad02bda74b703bcf236e4e4e53800f5a90f5ce58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mutt/blobs/sha256:0b09516917e4253a40d189133cca26904fb17c9552c2e7716abb8a0d9a6c7514
+sha256:
+  darwin_arm64: f5aa59e57c93ebe4dbf834ea06623182f72c0192e2161be9398acfacd63d971c
+  darwin_amd64: 6998d2b147a5c30ea2ecfd5e7e11da8e83f1a48ad0c6f85047438a5bd1a78b95
+  linux_amd64: e08eb40aa35b734d0e8f9a43ad02bda74b703bcf236e4e4e53800f5a90f5ce58
+  linux_arm64: 0b09516917e4253a40d189133cca26904fb17c9552c2e7716abb8a0d9a6c7514
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme
+  - libgpg-error
+  - libidn2
+  - ncurses
+  - openssl@3
+  - tokyo-cabinet
+  - gettext
+  - libunistring

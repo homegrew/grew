@@ -1,0 +1,15 @@
+name: awsdac
+version: 0.22.4
+description: CLI tool for drawing AWS architecture
+homepage: https://github.com/awslabs/diagram-as-code
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/awsdac/blobs/sha256:4609266e567991f0a6336fbf63eb20a6a87e4ad47890dcc177fa7a0a4a999de0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/awsdac/blobs/sha256:7be1fe4983eb49c41c02bedd796e255a4012c6371814b5ce1cfa9522416f2fea
+sha256:
+  darwin_arm64: 4609266e567991f0a6336fbf63eb20a6a87e4ad47890dcc177fa7a0a4a999de0
+  darwin_amd64: 7be1fe4983eb49c41c02bedd796e255a4012c6371814b5ce1cfa9522416f2fea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: babelfish
+version: 1.2.1
+description: Translate bash scripts to fish
+homepage: https://github.com/bouk/babelfish
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/babelfish/blobs/sha256:67fa97472345f1e6a97179815c7c741904c41b6d0c349e9cb94076e2dce9cf02
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/babelfish/blobs/sha256:edaf31144744c63fd91293ddaf4c5f5cdc96217c3c5df59065d95d04839ecbde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/babelfish/blobs/sha256:828cb037747b3780fc6b91d03e1377c3220ec7ea7a86f87e9db928e89bbffcc6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/babelfish/blobs/sha256:169834375c342c0ebcc87f43e78190c2c16bfd1b610da40fc3d6b27dc80dca87
+sha256:
+  darwin_arm64: 67fa97472345f1e6a97179815c7c741904c41b6d0c349e9cb94076e2dce9cf02
+  darwin_amd64: edaf31144744c63fd91293ddaf4c5f5cdc96217c3c5df59065d95d04839ecbde
+  linux_amd64: 828cb037747b3780fc6b91d03e1377c3220ec7ea7a86f87e9db928e89bbffcc6
+  linux_arm64: 169834375c342c0ebcc87f43e78190c2c16bfd1b610da40fc3d6b27dc80dca87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

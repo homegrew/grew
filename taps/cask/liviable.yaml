@@ -1,0 +1,11 @@
+name: liviable
+version: 1b5,2024.01
+description: Create and run Linux virtual machines on Apple silicon Macs
+homepage: https://eclecticlight.co/virtualisation-on-apple-silicon/
+url:
+  darwin_arm64: https://eclecticlight.co/wp-content/uploads/2024/01/liviable1b5.zip
+sha256:
+  darwin_arm64: 4a61b692c5d07ca06985edee3bc8e4f1bf82aa385aa3290d3418b01be3b63453
+artifacts:
+  app:
+    - liviable1b5/Liviable.app

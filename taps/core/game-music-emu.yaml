@@ -1,0 +1,19 @@
+name: game-music-emu
+version: 0.6.4
+description: Videogame music file emulator collection
+homepage: https://github.com/libgme/game-music-emu
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/game-music-emu/blobs/sha256:8cad7f27befc7e783d32d9d69167f02612e161f6821af168960442067e93c3f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/game-music-emu/blobs/sha256:8c403e2dbd363c1b5b72a24ebf8e7f994608a6657468b22ef7d3dc738935c214
+  linux_amd64: https://ghcr.io/v2/homebrew/core/game-music-emu/blobs/sha256:ffc28bb91c6ca56f35eed5acc08c84808d8f54864952268c15b514e43f3c5960
+  linux_arm64: https://ghcr.io/v2/homebrew/core/game-music-emu/blobs/sha256:81c70c227ec71617513c94601116e8c1a40ccda60ac92c7785366814669042f9
+sha256:
+  darwin_arm64: 8cad7f27befc7e783d32d9d69167f02612e161f6821af168960442067e93c3f6
+  darwin_amd64: 8c403e2dbd363c1b5b72a24ebf8e7f994608a6657468b22ef7d3dc738935c214
+  linux_amd64: ffc28bb91c6ca56f35eed5acc08c84808d8f54864952268c15b514e43f3c5960
+  linux_arm64: 81c70c227ec71617513c94601116e8c1a40ccda60ac92c7785366814669042f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

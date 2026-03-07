@@ -1,0 +1,27 @@
+name: pymol
+version: 3.1.0
+description: Molecular visualization system
+homepage: https://pymol.org/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pymol/blobs/sha256:7842155d1653dcac15aea4606bbd63c1f1e40794cb271a0e9e1412b385b02928
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pymol/blobs/sha256:827640cce279378c55a571e3b4916d9d6e36e1a43b26f58685e7a0d84acf5578
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pymol/blobs/sha256:91cf52343f5f7311c10c9915bd272328316184f67f9c4b49dfd224e21dfbe52e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pymol/blobs/sha256:18009e85941180f2741714ce7304f9af59561f5d5c08a9e0a14a8a3e1fbe26f3
+sha256:
+  darwin_arm64: 7842155d1653dcac15aea4606bbd63c1f1e40794cb271a0e9e1412b385b02928
+  darwin_amd64: 827640cce279378c55a571e3b4916d9d6e36e1a43b26f58685e7a0d84acf5578
+  linux_amd64: 91cf52343f5f7311c10c9915bd272328316184f67f9c4b49dfd224e21dfbe52e
+  linux_arm64: 18009e85941180f2741714ce7304f9af59561f5d5c08a9e0a14a8a3e1fbe26f3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - glew
+  - libpng
+  - netcdf
+  - numpy
+  - pyqt
+  - python@3.14

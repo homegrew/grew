@@ -1,0 +1,24 @@
+name: qtgraphs
+version: 6.10.2
+description: Provides functionality for 2D and 3D graphs
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtgraphs/blobs/sha256:37bff1366be3ccc926450e6cd8fea4ad9f8228ae8defcb4b0509a1ec97ef5d2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtgraphs/blobs/sha256:35b440995dbd5a999fda2ae650b7f092ceaf325d6bf9b8e67736e465afb50a8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtgraphs/blobs/sha256:4a319728401c293c0efc8425b88c08b3ea5c1b5b8e29128fdb7f332f1a45c195
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtgraphs/blobs/sha256:532d2fd7b91c139e83bbefb29904ebc2d1863971a967ead62d282808f17cd832
+sha256:
+  darwin_arm64: 37bff1366be3ccc926450e6cd8fea4ad9f8228ae8defcb4b0509a1ec97ef5d2c
+  darwin_amd64: 35b440995dbd5a999fda2ae650b7f092ceaf325d6bf9b8e67736e465afb50a8d
+  linux_amd64: 4a319728401c293c0efc8425b88c08b3ea5c1b5b8e29128fdb7f332f1a45c195
+  linux_arm64: 532d2fd7b91c139e83bbefb29904ebc2d1863971a967ead62d282808f17cd832
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtquick3d
+  - qtshadertools

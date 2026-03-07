@@ -1,0 +1,27 @@
+name: crystal-icr
+version: 0.9.0
+description: Interactive console for Crystal programming language
+homepage: https://github.com/crystal-community/icr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crystal-icr/blobs/sha256:47b87d51941304b32356638c1fc18d7f790abc8f11d78c31cc36e3330cafaf3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crystal-icr/blobs/sha256:0059fb894cac54596771eea17d0841284093f8b4875f6a2ae26b8f83a646e0fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crystal-icr/blobs/sha256:915770d019bb1f2d74bfd0481e6d1233bb51ab8eae2115aa070a47558edaf5e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crystal-icr/blobs/sha256:26f4637129c847fbf3a153ff0975bf4f1c38b2ca19504d53cf093349ed480b37
+sha256:
+  darwin_arm64: 47b87d51941304b32356638c1fc18d7f790abc8f11d78c31cc36e3330cafaf3a
+  darwin_amd64: 0059fb894cac54596771eea17d0841284093f8b4875f6a2ae26b8f83a646e0fa
+  linux_amd64: 915770d019bb1f2d74bfd0481e6d1233bb51ab8eae2115aa070a47558edaf5e3
+  linux_arm64: 26f4637129c847fbf3a153ff0975bf4f1c38b2ca19504d53cf093349ed480b37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - crystal
+  - libevent
+  - libyaml
+  - openssl@3
+  - pcre2
+  - readline

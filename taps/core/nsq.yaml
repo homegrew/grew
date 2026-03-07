@@ -1,0 +1,19 @@
+name: nsq
+version: 1.3.0
+description: Realtime distributed messaging platform
+homepage: https://nsq.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nsq/blobs/sha256:5a22f058697307ea3179db86098d939c2a0bab28729af92fc2237fa9ec46b843
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nsq/blobs/sha256:353cac603cccbd9e62920f680f8328b17cc02baa391a3665b03345bc90edb1e5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nsq/blobs/sha256:a5066cbc44a03c78e4604cd45f34ba5eefadc51e876f61a7af5814ccc095096d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nsq/blobs/sha256:c88ffbec2368aae0d432ebb3cb2b7dbe08b654bbc0d86f842a0034b9afa9a74e
+sha256:
+  darwin_arm64: 5a22f058697307ea3179db86098d939c2a0bab28729af92fc2237fa9ec46b843
+  darwin_amd64: 353cac603cccbd9e62920f680f8328b17cc02baa391a3665b03345bc90edb1e5
+  linux_amd64: a5066cbc44a03c78e4604cd45f34ba5eefadc51e876f61a7af5814ccc095096d
+  linux_arm64: c88ffbec2368aae0d432ebb3cb2b7dbe08b654bbc0d86f842a0034b9afa9a74e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

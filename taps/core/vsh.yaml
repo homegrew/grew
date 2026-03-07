@@ -1,0 +1,19 @@
+name: vsh
+version: 0.14.0
+description: HashiCorp Vault interactive shell
+homepage: https://github.com/fishi0x01/vsh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vsh/blobs/sha256:4b7a734a15409fb61ec222ec5716e9f6969e02fb46b517fe61dda4e1df48f656
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vsh/blobs/sha256:d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vsh/blobs/sha256:efcf0ec78b552d792483b5f77b6e6bd69bdb1dc02ab8221d2acf8a4662ed933b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vsh/blobs/sha256:1840008cbb5e34dc3de6f5ad429ee45dc1ad00ba537d3999a65de0f623e3fe88
+sha256:
+  darwin_arm64: 4b7a734a15409fb61ec222ec5716e9f6969e02fb46b517fe61dda4e1df48f656
+  darwin_amd64: d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c
+  linux_amd64: efcf0ec78b552d792483b5f77b6e6bd69bdb1dc02ab8221d2acf8a4662ed933b
+  linux_arm64: 1840008cbb5e34dc3de6f5ad429ee45dc1ad00ba537d3999a65de0f623e3fe88
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

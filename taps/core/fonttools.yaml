@@ -1,0 +1,21 @@
+name: fonttools
+version: 4.61.1
+description: Library for manipulating fonts
+homepage: https://github.com/fonttools/fonttools
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fonttools/blobs/sha256:20e723d578566cf4d36f9eaddf49958471377be6a644f749e7f0fc1efb0a9e7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fonttools/blobs/sha256:505a495c7c5ae6e16fc376ca496c7bebf11fa09732debfbb04b8dbe1ec40ba73
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fonttools/blobs/sha256:558be6c40d4a9fa264949c4908394af2cf2c4940397f3f3401765727ca43ff43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fonttools/blobs/sha256:abed655df3af8ced33196b2428197f213cc7e068b6068e7fca93b540f3e1ac97
+sha256:
+  darwin_arm64: 20e723d578566cf4d36f9eaddf49958471377be6a644f749e7f0fc1efb0a9e7c
+  darwin_amd64: 505a495c7c5ae6e16fc376ca496c7bebf11fa09732debfbb04b8dbe1ec40ba73
+  linux_amd64: 558be6c40d4a9fa264949c4908394af2cf2c4940397f3f3401765727ca43ff43
+  linux_arm64: abed655df3af8ced33196b2428197f213cc7e068b6068e7fca93b540f3e1ac97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

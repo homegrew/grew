@@ -1,0 +1,19 @@
+name: ludusavi
+version: 0.30.0
+description: Backup tool for PC game saves
+homepage: https://github.com/mtkennerly/ludusavi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ludusavi/blobs/sha256:c0b377fc4de6c6d5f16869df5d9140f17e3be45dbd874f7fce533ff78110b397
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ludusavi/blobs/sha256:f5f68fc35bb6a9804164fa8fa415ab1346b00cbc56cc95034f8bede219d19f3f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ludusavi/blobs/sha256:aa58d518c71e8ed09384962aadad26697ce4f866ceea47971941cf446ab9223d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ludusavi/blobs/sha256:281c910e1a042d4e0650c6c197186eab3c15655502fd3b1e3a8fe262c2f209d2
+sha256:
+  darwin_arm64: c0b377fc4de6c6d5f16869df5d9140f17e3be45dbd874f7fce533ff78110b397
+  darwin_amd64: f5f68fc35bb6a9804164fa8fa415ab1346b00cbc56cc95034f8bede219d19f3f
+  linux_amd64: aa58d518c71e8ed09384962aadad26697ce4f866ceea47971941cf446ab9223d
+  linux_arm64: 281c910e1a042d4e0650c6c197186eab3c15655502fd3b1e3a8fe262c2f209d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: dockviz
+version: 0.6.4
+description: Visualizing docker data
+homepage: https://github.com/justone/dockviz
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dockviz/blobs/sha256:9c805f7312b7c483e83d459b1e6a724d3e2e4940c416444dfd8ee7a79a5ea049
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dockviz/blobs/sha256:20d50dc20e32af765e4164d2038618ea107a83e92962339d4bc3febd703687d8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dockviz/blobs/sha256:d00d55a57d1f8162f08e60ec07d7ac34e5ddc04e6865b09babf4072f4b52c513
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dockviz/blobs/sha256:b4ef5dc4b07e8a8cea9572fa24d13234d5fa45f1f07f72b8296fbf857d1544eb
+sha256:
+  darwin_arm64: 9c805f7312b7c483e83d459b1e6a724d3e2e4940c416444dfd8ee7a79a5ea049
+  darwin_amd64: 20d50dc20e32af765e4164d2038618ea107a83e92962339d4bc3febd703687d8
+  linux_amd64: d00d55a57d1f8162f08e60ec07d7ac34e5ddc04e6865b09babf4072f4b52c513
+  linux_arm64: b4ef5dc4b07e8a8cea9572fa24d13234d5fa45f1f07f72b8296fbf857d1544eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

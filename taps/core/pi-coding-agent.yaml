@@ -1,0 +1,21 @@
+name: pi-coding-agent
+version: 0.56.3
+description: AI agent toolkit
+homepage: https://pi.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pi-coding-agent/blobs/sha256:f110ec3e6f6cb8ebc726afe64145e45adfc1253996897014468859355bedf874
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pi-coding-agent/blobs/sha256:4d2736ce7d32f6d640da2dac167576f20c056bfab2c5b83fb3f883e251a9b83c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pi-coding-agent/blobs/sha256:a80387771d3e703bedf3cfcccaedaefa78735ea686217cfc0f4f0c50cc082873
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pi-coding-agent/blobs/sha256:f7199f2872632771a9b94cd3b8a74b96b7ef6536fcbc0038e89ac3c347226736
+sha256:
+  darwin_arm64: f110ec3e6f6cb8ebc726afe64145e45adfc1253996897014468859355bedf874
+  darwin_amd64: 4d2736ce7d32f6d640da2dac167576f20c056bfab2c5b83fb3f883e251a9b83c
+  linux_amd64: a80387771d3e703bedf3cfcccaedaefa78735ea686217cfc0f4f0c50cc082873
+  linux_arm64: f7199f2872632771a9b94cd3b8a74b96b7ef6536fcbc0038e89ac3c347226736
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

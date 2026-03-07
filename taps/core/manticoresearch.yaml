@@ -1,0 +1,30 @@
+name: manticoresearch
+version: 17.5.1
+description: Open source text search engine
+homepage: https://manticoresearch.com
+license: GPL-3.0-or-later AND GPL-2.0-only AND (GPL-2.0-only WITH x11vnc-openssl-exception) AND (Unlicense OR MIT)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/manticoresearch/blobs/sha256:ef6a6a8bfa36818270100343d06d55a2d9db44ff8883d78a30cf3c7c2b6fc84b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/manticoresearch/blobs/sha256:4573e6b6870e7be7b4d933c410b367a07128daa3214d031406911256d93c2913
+  linux_amd64: https://ghcr.io/v2/homebrew/core/manticoresearch/blobs/sha256:03afd532f2eef63826c39610758adbc58d54fdb84a41e67dde9281c5dded074c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/manticoresearch/blobs/sha256:7b2362842b8f3e894f6ff5b7ed998297dda9eea5e9ffc1723129713c09bac50f
+sha256:
+  darwin_arm64: ef6a6a8bfa36818270100343d06d55a2d9db44ff8883d78a30cf3c7c2b6fc84b
+  darwin_amd64: 4573e6b6870e7be7b4d933c410b367a07128daa3214d031406911256d93c2913
+  linux_amd64: 03afd532f2eef63826c39610758adbc58d54fdb84a41e67dde9281c5dded074c
+  linux_arm64: 7b2362842b8f3e894f6ff5b7ed998297dda9eea5e9ffc1723129713c09bac50f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cctz
+  - icu4c@78
+  - libpq
+  - mariadb-connector-c
+  - openssl@3
+  - re2
+  - unixodbc
+  - xxhash
+  - zstd

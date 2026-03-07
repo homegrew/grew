@@ -1,0 +1,19 @@
+name: supabase
+version: 2.75.0
+description: Open source Firebase alternative
+homepage: https://supabase.com/docs/reference/cli/about
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/supabase/blobs/sha256:db5e821104e60b045078c15e9a44d13203c11cd8d3a3c0b131bc75f048f9f201
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/supabase/blobs/sha256:2258e552069e0316a07d0025d1742677f26cfbee3a4166b1dc379cffce949bb7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/supabase/blobs/sha256:2db5332d02a31d584ca7c94475b089953535827d7e67d40a42f0938fd90860b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/supabase/blobs/sha256:425632b554d90abcb04264663ff50aaafe37e5aa79192b901cb4eb666a46443c
+sha256:
+  darwin_arm64: db5e821104e60b045078c15e9a44d13203c11cd8d3a3c0b131bc75f048f9f201
+  darwin_amd64: 2258e552069e0316a07d0025d1742677f26cfbee3a4166b1dc379cffce949bb7
+  linux_amd64: 2db5332d02a31d584ca7c94475b089953535827d7e67d40a42f0938fd90860b7
+  linux_arm64: 425632b554d90abcb04264663ff50aaafe37e5aa79192b901cb4eb666a46443c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

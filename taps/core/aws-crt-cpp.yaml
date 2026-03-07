@@ -1,0 +1,30 @@
+name: aws-crt-cpp
+version: 0.37.4
+description: "C++ wrapper around the aws-c-* libraries"
+homepage: https://github.com/awslabs/aws-crt-cpp
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-crt-cpp/blobs/sha256:a5ec3c7015a0fdbeed7aa66bdfce1871dac09456fcf27000e0f45612ee39a929
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-crt-cpp/blobs/sha256:fd426c688d715d5273a7bce93c02ddd7b3e845e7af7feabfb864b6ea376775e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-crt-cpp/blobs/sha256:70496ffa35c4aa52fe9b7c088c93e2d41f40df810d9c5f9c2d778e61d5b32316
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-crt-cpp/blobs/sha256:e5a1f1d27195c348e662a1e182772a053bb7bb6a4b69a1470acbfaf1c37f6b42
+sha256:
+  darwin_arm64: a5ec3c7015a0fdbeed7aa66bdfce1871dac09456fcf27000e0f45612ee39a929
+  darwin_amd64: fd426c688d715d5273a7bce93c02ddd7b3e845e7af7feabfb864b6ea376775e0
+  linux_amd64: 70496ffa35c4aa52fe9b7c088c93e2d41f40df810d9c5f9c2d778e61d5b32316
+  linux_arm64: e5a1f1d27195c348e662a1e182772a053bb7bb6a4b69a1470acbfaf1c37f6b42
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-auth
+  - aws-c-cal
+  - aws-c-common
+  - aws-c-event-stream
+  - aws-c-http
+  - aws-c-io
+  - aws-c-mqtt
+  - aws-c-s3
+  - aws-c-sdkutils
+  - aws-checksums

@@ -1,0 +1,19 @@
+name: binocle
+version: 0.3.2
+description: Graphical tool to visualize binary data
+homepage: https://github.com/sharkdp/binocle
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/binocle/blobs/sha256:0424cbc18de1317d37bd6716b7923f617c800b2bf4afaca3284cdd37dab4e795
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/binocle/blobs/sha256:d55ffda75e2ed88f3230d2769438cc207fdb099a96abb635d9748415fa275396
+  linux_amd64: https://ghcr.io/v2/homebrew/core/binocle/blobs/sha256:5b316af1ebdf59111913cbb1bbe8836075316c7ebff977ebe12467815dfcf1ac
+  linux_arm64: https://ghcr.io/v2/homebrew/core/binocle/blobs/sha256:2a19bfb4cba506bee5c78b864bb52473611d58d1356e51371573c2235180c839
+sha256:
+  darwin_arm64: 0424cbc18de1317d37bd6716b7923f617c800b2bf4afaca3284cdd37dab4e795
+  darwin_amd64: d55ffda75e2ed88f3230d2769438cc207fdb099a96abb635d9748415fa275396
+  linux_amd64: 5b316af1ebdf59111913cbb1bbe8836075316c7ebff977ebe12467815dfcf1ac
+  linux_arm64: 2a19bfb4cba506bee5c78b864bb52473611d58d1356e51371573c2235180c839
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: cabal-install
+version: 3.16.1.0
+description: Command-line interface for Cabal and Hackage
+homepage: https://www.haskell.org/cabal/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cabal-install/blobs/sha256:7b5a61167c4730638dd45f0b665ff76c4534b0b6a8d62bc8b5d29627b0150e8d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cabal-install/blobs/sha256:f3785b4fb636a5f0ff0fc3a58d47171716e6e2977996b69a0be37ef20f3c484c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cabal-install/blobs/sha256:7fe0e54f097314c3eeb7a457097b51ff077237c0f7c66dffaac41b876af6ab14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cabal-install/blobs/sha256:daa322f3e8bd2937ca8676931992686254023eee825c2262866c893cf0c6a992
+sha256:
+  darwin_arm64: 7b5a61167c4730638dd45f0b665ff76c4534b0b6a8d62bc8b5d29627b0150e8d
+  darwin_amd64: f3785b4fb636a5f0ff0fc3a58d47171716e6e2977996b69a0be37ef20f3c484c
+  linux_amd64: 7fe0e54f097314c3eeb7a457097b51ff077237c0f7c66dffaac41b876af6ab14
+  linux_arm64: daa322f3e8bd2937ca8676931992686254023eee825c2262866c893cf0c6a992
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

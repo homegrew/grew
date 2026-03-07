@@ -1,0 +1,19 @@
+name: wasm-component-ld
+version: 0.5.21
+description: Linker for creating WebAssembly components
+homepage: https://wasi.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wasm-component-ld/blobs/sha256:9abe52eaff447dc06faf8ddd2d86e2b411bbf38618fdd9310159043986818f13
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wasm-component-ld/blobs/sha256:6c0ddf010879b1adb0bfed53e7bca5211e508810e947f914cfc09b9c9c9cfa16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wasm-component-ld/blobs/sha256:cff12b4bb0d0c3bfa8c603b92b373936b0fc10d51e7645285aaed539a080bdd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wasm-component-ld/blobs/sha256:2f5341a8ae6a07dcb0ed72a43c8668b101be1bae02192a5700b8146db465e414
+sha256:
+  darwin_arm64: 9abe52eaff447dc06faf8ddd2d86e2b411bbf38618fdd9310159043986818f13
+  darwin_amd64: 6c0ddf010879b1adb0bfed53e7bca5211e508810e947f914cfc09b9c9c9cfa16
+  linux_amd64: cff12b4bb0d0c3bfa8c603b92b373936b0fc10d51e7645285aaed539a080bdd0
+  linux_arm64: 2f5341a8ae6a07dcb0ed72a43c8668b101be1bae02192a5700b8146db465e414
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

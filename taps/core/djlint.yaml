@@ -1,0 +1,22 @@
+name: djlint
+version: 1.36.4
+description: "Lint & Format HTML Templates"
+homepage: https://djlint.com
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/djlint/blobs/sha256:e6fbe8ed33b18abe793b3823d3e3083f5dda9ae9f3a9810b56ea0cc7eb1a1f23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/djlint/blobs/sha256:8170ce4af546527c8648c0bb50f2c97445ae013039291719983c6c1d2af76dd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/djlint/blobs/sha256:f98b311ebc255c06faadad504a390f7618a4b817305c7d1a8275281bfe84a833
+  linux_arm64: https://ghcr.io/v2/homebrew/core/djlint/blobs/sha256:a09e6acccfa498e1cdd6fc1738930cccca64e73ab1f69e0e93d438f40ef872e2
+sha256:
+  darwin_arm64: e6fbe8ed33b18abe793b3823d3e3083f5dda9ae9f3a9810b56ea0cc7eb1a1f23
+  darwin_amd64: 8170ce4af546527c8648c0bb50f2c97445ae013039291719983c6c1d2af76dd8
+  linux_amd64: f98b311ebc255c06faadad504a390f7618a4b817305c7d1a8275281bfe84a833
+  linux_arm64: a09e6acccfa498e1cdd6fc1738930cccca64e73ab1f69e0e93d438f40ef872e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

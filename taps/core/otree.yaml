@@ -1,0 +1,19 @@
+name: otree
+version: 0.6.5
+description: Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget
+homepage: https://github.com/fioncat/otree
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/otree/blobs/sha256:fc284b6852155633602e05b83af7abe3beca93ca3cd0c2fb0e6b381bd5d71800
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/otree/blobs/sha256:1c17f845069734c7c8b2425df273a621b4edb3f9a15d3a740ca92c386b355659
+  linux_amd64: https://ghcr.io/v2/homebrew/core/otree/blobs/sha256:f35e12e01dea0134aa2d1abf921e96ebad8a1cdb5a6de267362d1e3f85116651
+  linux_arm64: https://ghcr.io/v2/homebrew/core/otree/blobs/sha256:fea68fc6e840268433b89bd037722198e60bd2e61d26b84cfcc1205596cfeccd
+sha256:
+  darwin_arm64: fc284b6852155633602e05b83af7abe3beca93ca3cd0c2fb0e6b381bd5d71800
+  darwin_amd64: 1c17f845069734c7c8b2425df273a621b4edb3f9a15d3a740ca92c386b355659
+  linux_amd64: f35e12e01dea0134aa2d1abf921e96ebad8a1cdb5a6de267362d1e3f85116651
+  linux_arm64: fea68fc6e840268433b89bd037722198e60bd2e61d26b84cfcc1205596cfeccd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

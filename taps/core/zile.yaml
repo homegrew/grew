@@ -1,0 +1,24 @@
+name: zile
+version: 2.6.4
+description: Text editor development kit
+homepage: https://www.gnu.org/software/zile/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zile/blobs/sha256:efce10489a93b24ac8a9312e993a57b981b38fc3decfc9f36e37ca7cfa49cff5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zile/blobs/sha256:e2026f3432e32618c9627439100db48f8a36654cf90dbf22c2baa25edc2bb1f5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zile/blobs/sha256:b580ca192a5f2714cb7cb91ac4d101794c4ae98b1c799c87f73c9970be2bcb93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zile/blobs/sha256:da6586cbaebf99b3e2656fcd87abaf64f021bf14c9f9f9208acbc8819bc0ec26
+sha256:
+  darwin_arm64: efce10489a93b24ac8a9312e993a57b981b38fc3decfc9f36e37ca7cfa49cff5
+  darwin_amd64: e2026f3432e32618c9627439100db48f8a36654cf90dbf22c2baa25edc2bb1f5
+  linux_amd64: b580ca192a5f2714cb7cb91ac4d101794c4ae98b1c799c87f73c9970be2bcb93
+  linux_arm64: da6586cbaebf99b3e2656fcd87abaf64f021bf14c9f9f9208acbc8819bc0ec26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - bdw-gc
+  - glib
+  - libgee
+  - gettext

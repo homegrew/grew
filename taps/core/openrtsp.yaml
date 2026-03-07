@@ -1,0 +1,21 @@
+name: openrtsp
+version: 2026.02.26
+description: Command-line RTSP client
+homepage: http://www.live555.com/openRTSP
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openrtsp/blobs/sha256:5a919d20f383a7ea9e80143e7b93f22393f6c6a1aec0da2cbc17b90acc8cf52f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openrtsp/blobs/sha256:03dcfe82ad6d040065f9bb7178db9a4f4687d0e035fa16543705597d9cf5c9fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openrtsp/blobs/sha256:7d9e9390defb1d3c52013f9f9581b392d791be378127a658d99dc3a41f1f3957
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openrtsp/blobs/sha256:ddeb949ddc0351b3ad08b98e3543c4f0643cd7ee54cf21f9d02eb991ebdeab7a
+sha256:
+  darwin_arm64: 5a919d20f383a7ea9e80143e7b93f22393f6c6a1aec0da2cbc17b90acc8cf52f
+  darwin_amd64: 03dcfe82ad6d040065f9bb7178db9a4f4687d0e035fa16543705597d9cf5c9fd
+  linux_amd64: 7d9e9390defb1d3c52013f9f9581b392d791be378127a658d99dc3a41f1f3957
+  linux_arm64: ddeb949ddc0351b3ad08b98e3543c4f0643cd7ee54cf21f9d02eb991ebdeab7a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

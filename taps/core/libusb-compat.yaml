@@ -1,0 +1,21 @@
+name: libusb-compat
+version: 0.1.8
+description: Library for USB device access
+homepage: https://libusb.info/
+license: LGPL-2.1-or-later AND (LGPL-2.1-or-later OR BSD-3-Clause)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libusb-compat/blobs/sha256:63dfe2cf30c69c8f654177fbd754d013e0b5d86636cf731f5e22fbf3071d228e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libusb-compat/blobs/sha256:4ee27e4e0b9a716fd2b15db94b1595901276078780d377432e2fde4e9d78c324
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libusb-compat/blobs/sha256:0201a3ccb74c1a239274bf0d0ed68541e738d09f4ae46dd93501334bce39c24c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libusb-compat/blobs/sha256:878121af3e546d38c3574dd0d43f284044fdfab4c6930cd14e615bce37801d4f
+sha256:
+  darwin_arm64: 63dfe2cf30c69c8f654177fbd754d013e0b5d86636cf731f5e22fbf3071d228e
+  darwin_amd64: 4ee27e4e0b9a716fd2b15db94b1595901276078780d377432e2fde4e9d78c324
+  linux_amd64: 0201a3ccb74c1a239274bf0d0ed68541e738d09f4ae46dd93501334bce39c24c
+  linux_arm64: 878121af3e546d38c3574dd0d43f284044fdfab4c6930cd14e615bce37801d4f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

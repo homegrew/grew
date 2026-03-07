@@ -1,0 +1,24 @@
+name: dnsperf
+version: 2.15.0
+description: Measure DNS performance by simulating network conditions
+homepage: https://www.dns-oarc.net/tools/dnsperf
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dnsperf/blobs/sha256:bbd032ada85a45e63eb0d63f7aaeccb80d8e2316c421787af76067f4806bb1c8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dnsperf/blobs/sha256:cca71266489cb7a05daed9ce26259b8f6f642173520416806c47dfcd3e108ddd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dnsperf/blobs/sha256:dd1c17be41d2662d51d9e6b3c40db9275f28f1186d23f422ce873c3dd2ee4b6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dnsperf/blobs/sha256:e87613432cc0c7bda9c6b274df354036adbc40472292d0b16996b03748d12de9
+sha256:
+  darwin_arm64: bbd032ada85a45e63eb0d63f7aaeccb80d8e2316c421787af76067f4806bb1c8
+  darwin_amd64: cca71266489cb7a05daed9ce26259b8f6f642173520416806c47dfcd3e108ddd
+  linux_amd64: dd1c17be41d2662d51d9e6b3c40db9275f28f1186d23f422ce873c3dd2ee4b6a
+  linux_arm64: e87613432cc0c7bda9c6b274df354036adbc40472292d0b16996b03748d12de9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - concurrencykit
+  - ldns
+  - libnghttp2
+  - openssl@3

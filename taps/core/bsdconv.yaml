@@ -1,0 +1,19 @@
+name: bsdconv
+version: 11.6
+description: Charset/encoding converter library
+homepage: https://github.com/buganini/bsdconv
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bsdconv/blobs/sha256:4975475d7d550693334c6abef8a0c8c1ee3f87552e3310f333f6a7e3b1548240
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bsdconv/blobs/sha256:6577f7dfca8ee141a9817219d6305b3f983ffeb11e2da5a3ab49d1834286356a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bsdconv/blobs/sha256:a77ffb5b4b404f82c6dcaa52eb3f63e23931e93782a3b179e873f47628673213
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bsdconv/blobs/sha256:2be08396cd20f1a195b1f1322e48fb636b76ab7d484c28790578286dcbaf011d
+sha256:
+  darwin_arm64: 4975475d7d550693334c6abef8a0c8c1ee3f87552e3310f333f6a7e3b1548240
+  darwin_amd64: 6577f7dfca8ee141a9817219d6305b3f983ffeb11e2da5a3ab49d1834286356a
+  linux_amd64: a77ffb5b4b404f82c6dcaa52eb3f63e23931e93782a3b179e873f47628673213
+  linux_arm64: 2be08396cd20f1a195b1f1322e48fb636b76ab7d484c28790578286dcbaf011d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

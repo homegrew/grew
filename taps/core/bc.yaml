@@ -1,0 +1,20 @@
+name: bc
+version: 1.08.2
+description: Arbitrary precision numeric processing language
+homepage: https://www.gnu.org/software/bc/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bc/blobs/sha256:0651089dd302a018f373870702769aee045e37420816f31f54d63d61ed92eaa0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bc/blobs/sha256:eee028e2110a7e11ed6e7031617377654d2e3260a8b753d9965d165488b39afb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bc/blobs/sha256:e08ff27c11d109f803062119b73e680335a27a2229b7c1283c123559aa073f49
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bc/blobs/sha256:aaa02a5b2ea9e4fa53a6266398cf51f3deabc3d0ce6a655b9abedcacc300d786
+sha256:
+  darwin_arm64: 0651089dd302a018f373870702769aee045e37420816f31f54d63d61ed92eaa0
+  darwin_amd64: eee028e2110a7e11ed6e7031617377654d2e3260a8b753d9965d165488b39afb
+  linux_amd64: e08ff27c11d109f803062119b73e680335a27a2229b7c1283c123559aa073f49
+  linux_arm64: aaa02a5b2ea9e4fa53a6266398cf51f3deabc3d0ce6a655b9abedcacc300d786
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

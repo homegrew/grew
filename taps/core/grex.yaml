@@ -1,0 +1,19 @@
+name: grex
+version: 1.4.6
+description: Command-line tool for generating regular expressions
+homepage: https://github.com/pemistahl/grex
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/grex/blobs/sha256:030f136816a772a582ac3db3b5ec654f2cfc6b5e8c22578f5e9d18c2b01ae4cb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/grex/blobs/sha256:3e3e2f535113940e271df53d0d7057ea92f226085e7466e86093a4d2c6597f2a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/grex/blobs/sha256:661eb34ec8341b463464dcbc6e4a55b971b6cb7a1c2a6c46e123f4e643cb1cfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/grex/blobs/sha256:816de4349a92fd6750e0b3e788a52299cc06419755664689cf9d9ffd68b2bd93
+sha256:
+  darwin_arm64: 030f136816a772a582ac3db3b5ec654f2cfc6b5e8c22578f5e9d18c2b01ae4cb
+  darwin_amd64: 3e3e2f535113940e271df53d0d7057ea92f226085e7466e86093a4d2c6597f2a
+  linux_amd64: 661eb34ec8341b463464dcbc6e4a55b971b6cb7a1c2a6c46e123f4e643cb1cfc
+  linux_arm64: 816de4349a92fd6750e0b3e788a52299cc06419755664689cf9d9ffd68b2bd93
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: gleam
+version: 1.14.0
+description: Statically typed language for the Erlang VM
+homepage: https://gleam.run
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gleam/blobs/sha256:5a69b18a37c19179921487b4e5f6de15102980b44160495da9e91acc99cc0b3a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gleam/blobs/sha256:40854206db13f3d2d4c3dbe7602c862f44fb31d3cb18f31052ca6680034f0dcc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gleam/blobs/sha256:34675b09b1f3122f0d5f9f987e01975be8b2bd2b7445cb47371a097c7fe2c458
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gleam/blobs/sha256:9d3d30ee233db6fcb9e2b33e8053ca5957e47d3d282cea6e82470310a6dbe471
+sha256:
+  darwin_arm64: 5a69b18a37c19179921487b4e5f6de15102980b44160495da9e91acc99cc0b3a
+  darwin_amd64: 40854206db13f3d2d4c3dbe7602c862f44fb31d3cb18f31052ca6680034f0dcc
+  linux_amd64: 34675b09b1f3122f0d5f9f987e01975be8b2bd2b7445cb47371a097c7fe2c458
+  linux_arm64: 9d3d30ee233db6fcb9e2b33e8053ca5957e47d3d282cea6e82470310a6dbe471
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - erlang
+  - rebar3

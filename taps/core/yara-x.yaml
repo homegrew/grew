@@ -1,0 +1,19 @@
+name: yara-x
+version: 1.14.0
+description: Tool to do pattern matching for malware research
+homepage: https://virustotal.github.io/yara-x/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yara-x/blobs/sha256:8145c5b9cbed98db967f7d18e65f495b9c030742fe451bbb53bccbb410bf6d84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yara-x/blobs/sha256:698c75d0501f35acabe38a1c6b3fbc5b9e6b5bb56ce89e3ce02095b51cd0b8fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yara-x/blobs/sha256:21ff7923a43131545a3a952e5df9573cbf52745cf1ffd28ab95146c91a7b32c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yara-x/blobs/sha256:fe293cb27b379f9304e469a6b422e4f156bca377d429d208d4871aab9fc91854
+sha256:
+  darwin_arm64: 8145c5b9cbed98db967f7d18e65f495b9c030742fe451bbb53bccbb410bf6d84
+  darwin_amd64: 698c75d0501f35acabe38a1c6b3fbc5b9e6b5bb56ce89e3ce02095b51cd0b8fd
+  linux_amd64: 21ff7923a43131545a3a952e5df9573cbf52745cf1ffd28ab95146c91a7b32c9
+  linux_arm64: fe293cb27b379f9304e469a6b422e4f156bca377d429d208d4871aab9fc91854
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

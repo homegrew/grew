@@ -1,0 +1,19 @@
+name: kubo
+version: 0.40.1
+description: Peer-to-peer hypermedia protocol
+homepage: https://docs.ipfs.tech/how-to/command-line-quick-start/
+license: MIT AND (MIT OR Apache-2.0)
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubo/blobs/sha256:fe00345823a6c255642b65123f7b0ffc8cf0a989f8c013915da7dc7c8b2efdd5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubo/blobs/sha256:38af8cd0ed7cff415c0dceda1ec96a7281457d8065b8acc7673005b1f534e0bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubo/blobs/sha256:6b6cf942cee0b91ebdd2722b03ea2818b90dd38b411f95620bd816552a3c2347
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubo/blobs/sha256:2865ccd92e5989e7e8c0e5347bcac42770b299c06067ebc7fc16c6e29568c404
+sha256:
+  darwin_arm64: fe00345823a6c255642b65123f7b0ffc8cf0a989f8c013915da7dc7c8b2efdd5
+  darwin_amd64: 38af8cd0ed7cff415c0dceda1ec96a7281457d8065b8acc7673005b1f534e0bf
+  linux_amd64: 6b6cf942cee0b91ebdd2722b03ea2818b90dd38b411f95620bd816552a3c2347
+  linux_arm64: 2865ccd92e5989e7e8c0e5347bcac42770b299c06067ebc7fc16c6e29568c404
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

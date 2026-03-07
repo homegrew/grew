@@ -1,0 +1,22 @@
+name: ctail
+version: 0.1.0
+description: Tool for operating tail across large clusters of machines
+homepage: https://github.com/pquerna/ctail
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ctail/blobs/sha256:90852c66651a883f061c0c6d2b2c1281e6b8e1cad687fd14e94a056f4fb62554
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ctail/blobs/sha256:9b6bcfa6fb51cc9b44d58409377b3042acd54ad8eef8d60e69639699eb3e9ba9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ctail/blobs/sha256:583c009e46c529593648a48442ba5544aa1ac7ebb3cf1309c2e1eb08ed9f9439
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ctail/blobs/sha256:f4eddd733efe18c74eadb393d0ab41d51a5b4972857c6022a39c955595e2ab2f
+sha256:
+  darwin_arm64: 90852c66651a883f061c0c6d2b2c1281e6b8e1cad687fd14e94a056f4fb62554
+  darwin_amd64: 9b6bcfa6fb51cc9b44d58409377b3042acd54ad8eef8d60e69639699eb3e9ba9
+  linux_amd64: 583c009e46c529593648a48442ba5544aa1ac7ebb3cf1309c2e1eb08ed9f9439
+  linux_arm64: f4eddd733efe18c74eadb393d0ab41d51a5b4972857c6022a39c955595e2ab2f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util

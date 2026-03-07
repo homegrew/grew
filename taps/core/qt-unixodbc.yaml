@@ -1,0 +1,22 @@
+name: qt-unixodbc
+version: 6.10.2
+description: Qt SQL Database Driver
+homepage: https://www.qt.io/
+license: GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt-unixodbc/blobs/sha256:ac8a150a62c5dfaaacd307d07ae014d305077e7a6506d327e0cdeae25330800e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt-unixodbc/blobs/sha256:9e3b90c32ae3191f6730cfe2e6d817ce343dae3c52499525e36f1ae3df5280f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt-unixodbc/blobs/sha256:14e52caefa38756e68bcca7785edce868a4afc722393fdc7f83353e04b65d863
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt-unixodbc/blobs/sha256:d27d08154500664fb89d298bf29f6b084025f75c81a7345f4524923b7599bfb7
+sha256:
+  darwin_arm64: ac8a150a62c5dfaaacd307d07ae014d305077e7a6506d327e0cdeae25330800e
+  darwin_amd64: 9e3b90c32ae3191f6730cfe2e6d817ce343dae3c52499525e36f1ae3df5280f9
+  linux_amd64: 14e52caefa38756e68bcca7785edce868a4afc722393fdc7f83353e04b65d863
+  linux_arm64: d27d08154500664fb89d298bf29f6b084025f75c81a7345f4524923b7599bfb7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - unixodbc

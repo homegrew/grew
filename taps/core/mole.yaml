@@ -1,0 +1,15 @@
+name: mole
+version: 1.29.0
+description: Deep clean and optimize your Mac
+homepage: https://github.com/tw93/Mole
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mole/blobs/sha256:faa30f711b63b31730ac5b5de301e4b202d782f91589eaa9d55dbc5543f7ace8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mole/blobs/sha256:36d701ea075ad81819c48b00da160b8879ce6591daeac8260b232f4ef1874433
+sha256:
+  darwin_arm64: faa30f711b63b31730ac5b5de301e4b202d782f91589eaa9d55dbc5543f7ace8
+  darwin_amd64: 36d701ea075ad81819c48b00da160b8879ce6591daeac8260b232f4ef1874433
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: wails
+version: 2.11.0
+description: Create beautiful applications using Go
+homepage: https://wails.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wails/blobs/sha256:d8ceeaba87cb335e3b3c8c555001bb253c327747a99f6a17d1ef1e0e8ce28142
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wails/blobs/sha256:b0dd839322e7011cb16696a82d861492ce9628c74f538ff6a37735126030f7f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wails/blobs/sha256:aac802637550ce63eccab812d74fac2eb534a298357391dbe739c12887bd4da7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wails/blobs/sha256:60be7b63e0872b04ebec623f9db82f5ac391c66742cceeb1024d242287ff4d33
+sha256:
+  darwin_arm64: d8ceeaba87cb335e3b3c8c555001bb253c327747a99f6a17d1ef1e0e8ce28142
+  darwin_amd64: b0dd839322e7011cb16696a82d861492ce9628c74f538ff6a37735126030f7f7
+  linux_amd64: aac802637550ce63eccab812d74fac2eb534a298357391dbe739c12887bd4da7
+  linux_arm64: 60be7b63e0872b04ebec623f9db82f5ac391c66742cceeb1024d242287ff4d33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - go

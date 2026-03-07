@@ -1,0 +1,19 @@
+name: ls-lint
+version: 2.3.1
+description: Extremely fast file and directory name linter
+homepage: https://ls-lint.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ls-lint/blobs/sha256:06365825df0600e2300aa56c33ab9f3631554110210f5bf4f38e6b28543de96a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ls-lint/blobs/sha256:4621cde237fbfb8c5dbcab5049a667d6f096e805672641c3951e7ab560e6036f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ls-lint/blobs/sha256:166d12ed28cae04a36a99d4cb75b71092e0aa7e6d7bd109a17556379381412e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ls-lint/blobs/sha256:7e03ffa79c655f478d360cb192f0290677f4372b5e323f712a13687c87582aea
+sha256:
+  darwin_arm64: 06365825df0600e2300aa56c33ab9f3631554110210f5bf4f38e6b28543de96a
+  darwin_amd64: 4621cde237fbfb8c5dbcab5049a667d6f096e805672641c3951e7ab560e6036f
+  linux_amd64: 166d12ed28cae04a36a99d4cb75b71092e0aa7e6d7bd109a17556379381412e4
+  linux_arm64: 7e03ffa79c655f478d360cb192f0290677f4372b5e323f712a13687c87582aea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

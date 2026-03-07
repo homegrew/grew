@@ -1,0 +1,19 @@
+name: sigi
+version: 3.7.1
+description: Organizing tool for terminal lovers that hate organizing
+homepage: https://sigi-cli.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sigi/blobs/sha256:6919573610314e15c997ee39d2bad28f9af840473162d61c58efd5839f7c297d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sigi/blobs/sha256:b2d5f45cc3906d4191ce72b5e374846e0c5c57da3b8b61388d1b2b161691d7eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sigi/blobs/sha256:9956ee5542d2289d376febb6d44e752e588ddcae44a71d4d89cd2da14983f259
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sigi/blobs/sha256:72e91818ac3c30e6f28617217c3b5eb3752fc013a7c94d42fa36686d07366846
+sha256:
+  darwin_arm64: 6919573610314e15c997ee39d2bad28f9af840473162d61c58efd5839f7c297d
+  darwin_amd64: b2d5f45cc3906d4191ce72b5e374846e0c5c57da3b8b61388d1b2b161691d7eb
+  linux_amd64: 9956ee5542d2289d376febb6d44e752e588ddcae44a71d4d89cd2da14983f259
+  linux_arm64: 72e91818ac3c30e6f28617217c3b5eb3752fc013a7c94d42fa36686d07366846
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

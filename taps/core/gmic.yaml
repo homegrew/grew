@@ -1,0 +1,28 @@
+name: gmic
+version: 3.7.2
+description: Full-Featured Open-Source Framework for Image Processing
+homepage: https://gmic.eu/
+license: CECILL-2.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gmic/blobs/sha256:c30b0b63460ad1da13b3c6ae8e4477f0075cf51b6d9de656b95e8805726f4efc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gmic/blobs/sha256:8fc44fd5c57416f7269e4702feff5eb3a4adae59ac4806820f414cfbaa1cb81d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gmic/blobs/sha256:61cf6c9360f007f1533bd549de2507055d33740412dc81750b37d1f15dfb44df
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gmic/blobs/sha256:c03dc51983cd04a49d8b23c31b050841b1f5c0c3662e8479e99fe08142f90de6
+sha256:
+  darwin_arm64: c30b0b63460ad1da13b3c6ae8e4477f0075cf51b6d9de656b95e8805726f4efc
+  darwin_amd64: 8fc44fd5c57416f7269e4702feff5eb3a4adae59ac4806820f414cfbaa1cb81d
+  linux_amd64: 61cf6c9360f007f1533bd549de2507055d33740412dc81750b37d1f15dfb44df
+  linux_arm64: c03dc51983cd04a49d8b23c31b050841b1f5c0c3662e8479e99fe08142f90de6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cimg
+  - fftw
+  - imath
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openexr
+  - libomp

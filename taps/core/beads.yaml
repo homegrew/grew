@@ -1,0 +1,22 @@
+name: beads
+version: 0.59.0
+description: Memory upgrade for your coding agent
+homepage: https://github.com/steveyegge/beads
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/beads/blobs/sha256:35e7ad0f9b168d3f6b8aa923c7cd58edef121476d4185859041ad99ab6822a2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/beads/blobs/sha256:703e2c5d7658f34302a73bcadbce119b5eea25be2468e2c0fe9a1946ada0cc87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/beads/blobs/sha256:d3c7d86f9bef3b8efce86106286ebe676f2724fdf7a581a9279caa8688470a4c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/beads/blobs/sha256:ec8d7851dcc1a810eb539ffcb5801a4ba4a4ee951fcda0508f57e51a16d636ca
+sha256:
+  darwin_arm64: 35e7ad0f9b168d3f6b8aa923c7cd58edef121476d4185859041ad99ab6822a2f
+  darwin_amd64: 703e2c5d7658f34302a73bcadbce119b5eea25be2468e2c0fe9a1946ada0cc87
+  linux_amd64: d3c7d86f9bef3b8efce86106286ebe676f2724fdf7a581a9279caa8688470a4c
+  linux_arm64: ec8d7851dcc1a810eb539ffcb5801a4ba4a4ee951fcda0508f57e51a16d636ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dolt
+  - icu4c@78

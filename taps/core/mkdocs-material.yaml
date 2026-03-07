@@ -1,0 +1,23 @@
+name: mkdocs-material
+version: 9.7.4
+description: Material Design theme for MkDocs
+homepage: https://squidfunk.github.io/mkdocs-material/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkdocs-material/blobs/sha256:2bdd174307dc1ba054af73100e86a195b413ff3b801504fda61ea102c85db332
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkdocs-material/blobs/sha256:735fe45acd67437c8073104138d40bac1a8efe7cc7568371fe7fe10546e4d9fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkdocs-material/blobs/sha256:c09fcd8f07994330f45f780064c3fbdc714a3818ccfdea79d4e43e9916ee5f6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkdocs-material/blobs/sha256:fa7c3d43ac785a532c988fbe3f00d20b7ee5e8a512fb339edd1d3324ec6a6959
+sha256:
+  darwin_arm64: 2bdd174307dc1ba054af73100e86a195b413ff3b801504fda61ea102c85db332
+  darwin_amd64: 735fe45acd67437c8073104138d40bac1a8efe7cc7568371fe7fe10546e4d9fb
+  linux_amd64: c09fcd8f07994330f45f780064c3fbdc714a3818ccfdea79d4e43e9916ee5f6d
+  linux_arm64: fa7c3d43ac785a532c988fbe3f00d20b7ee5e8a512fb339edd1d3324ec6a6959
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

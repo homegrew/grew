@@ -1,0 +1,19 @@
+name: yoke
+version: 0.20.5
+description: Helm-inspired infrastructure-as-code package deployer
+homepage: https://yokecd.github.io/docs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yoke/blobs/sha256:7ccb2215ffda72e66a63972a83b947177bf0dc71cc1ab2a2cb7f39b6fb8c976e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yoke/blobs/sha256:f4cca7a02830ddee1a896caf0093d23f983d35e2f86c39936948423a3ffa8da5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yoke/blobs/sha256:e244ef898138565417a0e80634d5b4e66618551c349740ee0357d86a9ff3062f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yoke/blobs/sha256:b640f1c5a5fb9a5f3f428410362604afab2e5aaf59a530e30b421fbbaf50fa39
+sha256:
+  darwin_arm64: 7ccb2215ffda72e66a63972a83b947177bf0dc71cc1ab2a2cb7f39b6fb8c976e
+  darwin_amd64: f4cca7a02830ddee1a896caf0093d23f983d35e2f86c39936948423a3ffa8da5
+  linux_amd64: e244ef898138565417a0e80634d5b4e66618551c349740ee0357d86a9ff3062f
+  linux_arm64: b640f1c5a5fb9a5f3f428410362604afab2e5aaf59a530e30b421fbbaf50fa39
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

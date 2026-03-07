@@ -1,0 +1,19 @@
+name: mkclean
+version: 0.9.0
+description: Optimizes Matroska and WebM files
+homepage: https://www.matroska.org/downloads/mkclean.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mkclean/blobs/sha256:bdff12bc960c01d63267c10c8b50d82711924792a21d0e92db9a96a951801c21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mkclean/blobs/sha256:3115df87b40715857fe4c36e533b64064b5c6be389da5781cb056aa85452ec3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mkclean/blobs/sha256:784dfd7ae978f145af4b1a57535c915014f82f60f9a1876fd9e5edc69a947066
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mkclean/blobs/sha256:76406007335cf3bd4fde0daa9516bc34a2ace73fcd132ebdabb43513496b9f35
+sha256:
+  darwin_arm64: bdff12bc960c01d63267c10c8b50d82711924792a21d0e92db9a96a951801c21
+  darwin_amd64: 3115df87b40715857fe4c36e533b64064b5c6be389da5781cb056aa85452ec3c
+  linux_amd64: 784dfd7ae978f145af4b1a57535c915014f82f60f9a1876fd9e5edc69a947066
+  linux_arm64: 76406007335cf3bd4fde0daa9516bc34a2ace73fcd132ebdabb43513496b9f35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

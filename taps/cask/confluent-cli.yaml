@@ -1,0 +1,11 @@
+name: confluent-cli
+version: 4.53.0
+description: Enables developers to manage Confluent Cloud or Confluent Platform
+homepage: https://docs.confluent.io/confluent-cli/current/overview.html
+url:
+  darwin_arm64: https://s3-us-west-2.amazonaws.com/confluent.cloud/confluent-cli/archives/4.53.0/confluent_4.53.0_darwin_arm64.tar.gz
+sha256:
+  darwin_arm64: 6a56d421b41cab7b534b5750e07a8714b5589aa61095be8fbe2561ed9b1990ca
+artifacts:
+  bin:
+    - confluent

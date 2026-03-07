@@ -1,0 +1,15 @@
+name: setweblocthumb
+version: 1.0.0
+description: Assigns custom icons to webloc files
+homepage: https://hasseg.org/setWeblocThumb/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/setweblocthumb/blobs/sha256:88745a2bd0a9404e73e38596e27004f33a562aa98a58d47772c70892eb22b026
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/setweblocthumb/blobs/sha256:248f41330bafe2862826339ebce3630bb0873f8c69a64fa57d865801fabafab5
+sha256:
+  darwin_arm64: 88745a2bd0a9404e73e38596e27004f33a562aa98a58d47772c70892eb22b026
+  darwin_amd64: 248f41330bafe2862826339ebce3630bb0873f8c69a64fa57d865801fabafab5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

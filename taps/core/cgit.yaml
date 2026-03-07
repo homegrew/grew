@@ -1,0 +1,21 @@
+name: cgit
+version: 1.2.3
+description: Hyperfast web frontend for Git repositories written in C
+homepage: https://git.zx2c4.com/cgit/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cgit/blobs/sha256:be548ed68df6c0f5be5a264f52cd1a5625e34b562ff27086b95b222339179b18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cgit/blobs/sha256:26d6321985ace42f306ee4bb887332e3cdf405dc59b47d1b0309e5620e1b2821
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cgit/blobs/sha256:45eee7a055629b3121032d6df36ba9ec244bb0143411f63ea2b7cd2fc6966325
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cgit/blobs/sha256:23411d564170f93eb3dfd7023c2927ea145ec740c5f1a5e02ea2c32f06676f4c
+sha256:
+  darwin_arm64: be548ed68df6c0f5be5a264f52cd1a5625e34b562ff27086b95b222339179b18
+  darwin_amd64: 26d6321985ace42f306ee4bb887332e3cdf405dc59b47d1b0309e5620e1b2821
+  linux_amd64: 45eee7a055629b3121032d6df36ba9ec244bb0143411f63ea2b7cd2fc6966325
+  linux_arm64: 23411d564170f93eb3dfd7023c2927ea145ec740c5f1a5e02ea2c32f06676f4c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

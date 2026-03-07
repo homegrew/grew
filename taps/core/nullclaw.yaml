@@ -1,0 +1,19 @@
+name: nullclaw
+version: 2026.3.7
+description: Tiny autonomous AI assistant infrastructure written in Zig
+homepage: https://nullclaw.github.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nullclaw/blobs/sha256:fc3e10fbb29a8fcccfb985149771fea0fc19d13e7b963e2a3146036cde3421ec
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nullclaw/blobs/sha256:5b3fb347405c36a762d6a834652990de380fbe7dccf8777a00c68e3fcbfda393
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nullclaw/blobs/sha256:2083f7e0bf8892ebe4ddd6da3754fc9bc649e3d89c4ac26ccd359c70a4e36585
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nullclaw/blobs/sha256:6b7e87a50a212c08538d1a05cf6cfcb15c394feaa37c04facfa0135595c3550d
+sha256:
+  darwin_arm64: fc3e10fbb29a8fcccfb985149771fea0fc19d13e7b963e2a3146036cde3421ec
+  darwin_amd64: 5b3fb347405c36a762d6a834652990de380fbe7dccf8777a00c68e3fcbfda393
+  linux_amd64: 2083f7e0bf8892ebe4ddd6da3754fc9bc649e3d89c4ac26ccd359c70a4e36585
+  linux_arm64: 6b7e87a50a212c08538d1a05cf6cfcb15c394feaa37c04facfa0135595c3550d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

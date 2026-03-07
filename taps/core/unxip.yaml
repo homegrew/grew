@@ -1,0 +1,19 @@
+name: unxip
+version: 3.3
+description: Fast Xcode unarchiver
+homepage: https://github.com/saagarjha/unxip
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unxip/blobs/sha256:3b6c919fc617737fbffc245d013c8e7512c6d7db1c33df373b2afa79d82db96b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unxip/blobs/sha256:21d28010c3c9aac3ce826ff7a0f3ecb87d258786848b0b879e982b850388b707
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unxip/blobs/sha256:f980d6217df53dc0c7e7c976a4a8bca29e7c38028876ce17184917df790253f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unxip/blobs/sha256:cc43a268cc4b16019d4f8b2379117f91e34f3ebab4eb25d516fc94a290baeec7
+sha256:
+  darwin_arm64: 3b6c919fc617737fbffc245d013c8e7512c6d7db1c33df373b2afa79d82db96b
+  darwin_amd64: 21d28010c3c9aac3ce826ff7a0f3ecb87d258786848b0b879e982b850388b707
+  linux_amd64: f980d6217df53dc0c7e7c976a4a8bca29e7c38028876ce17184917df790253f9
+  linux_arm64: cc43a268cc4b16019d4f8b2379117f91e34f3ebab4eb25d516fc94a290baeec7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

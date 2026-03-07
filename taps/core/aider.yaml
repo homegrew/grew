@@ -1,0 +1,27 @@
+name: aider
+version: 0.86.2
+description: AI pair programming in your terminal
+homepage: https://aider.chat/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aider/blobs/sha256:7a247897eb06b35bdc2cc6f3a225a9c32f8c1448e9654192c0d30f2c6b56c00b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aider/blobs/sha256:9c30c34a1fb1918b5e0c03ee818c9b3e9740fdd1ed4a2c53f4147507a9b6cca2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aider/blobs/sha256:ccaf4e2995bd7295ff7c10d27a929e240f0edbeb2d3376a1ced69047a4359a7e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aider/blobs/sha256:63b7eb2133d906cf3360f1afde95ab784323f92049f879f494ceaf94f0b7955c
+sha256:
+  darwin_arm64: 7a247897eb06b35bdc2cc6f3a225a9c32f8c1448e9654192c0d30f2c6b56c00b
+  darwin_amd64: 9c30c34a1fb1918b5e0c03ee818c9b3e9740fdd1ed4a2c53f4147507a9b6cca2
+  linux_amd64: ccaf4e2995bd7295ff7c10d27a929e240f0edbeb2d3376a1ced69047a4359a7e
+  linux_arm64: 63b7eb2133d906cf3360f1afde95ab784323f92049f879f494ceaf94f0b7955c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - freetype
+  - gcc
+  - jpeg-turbo
+  - libyaml
+  - openblas
+  - python@3.12

@@ -1,0 +1,22 @@
+name: langgraph-cli
+version: 0.4.14
+description: Command-line interface for deploying apps to the LangGraph platform
+homepage: https://www.github.com/langchain-ai/langgraph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/langgraph-cli/blobs/sha256:7362bd763f52e05a01ef2e33776aa8cba6b1a7dba2be927a82f5f35a9f294c9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/langgraph-cli/blobs/sha256:f29cbe9360c32170a3de1aeb5c625df8a2e5f5e554e5e542ee97eabee2c70715
+  linux_amd64: https://ghcr.io/v2/homebrew/core/langgraph-cli/blobs/sha256:d60f510d16a0c5e94dbc892cc8b449765a49164cf35618268189a9af76e55017
+  linux_arm64: https://ghcr.io/v2/homebrew/core/langgraph-cli/blobs/sha256:8b7eda3e9f04fce06708571881833348ed2f8214a24656ccc1a0d9c4d66577a1
+sha256:
+  darwin_arm64: 7362bd763f52e05a01ef2e33776aa8cba6b1a7dba2be927a82f5f35a9f294c9a
+  darwin_amd64: f29cbe9360c32170a3de1aeb5c625df8a2e5f5e554e5e542ee97eabee2c70715
+  linux_amd64: d60f510d16a0c5e94dbc892cc8b449765a49164cf35618268189a9af76e55017
+  linux_arm64: 8b7eda3e9f04fce06708571881833348ed2f8214a24656ccc1a0d9c4d66577a1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

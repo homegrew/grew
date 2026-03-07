@@ -1,0 +1,21 @@
+name: dps8m
+version: 3.1.0
+description: Simulator of the 36-bit GE/Honeywell/Bull 600/6000-series mainframe computers
+homepage: https://dps8m.gitlab.io/
+license: ICU
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dps8m/blobs/sha256:5d60fd88809f95e134a996e6f9d03f9b8b5f4d82d2da4ea0ea6861e44883a5f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dps8m/blobs/sha256:0690eb787b730de5eea8250c1e1b649f8662e531650be0fe7b37e83eb6e68c4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dps8m/blobs/sha256:dffb4ef88aa0f51558f805fc3ad1bb8cba22c48155a6d816fa194552df2cfd49
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dps8m/blobs/sha256:a36ea1366280f8b91a7d40a189eeda1dcfafcbf4911e36ed5e4157f35dbe5e08
+sha256:
+  darwin_arm64: 5d60fd88809f95e134a996e6f9d03f9b8b5f4d82d2da4ea0ea6861e44883a5f4
+  darwin_amd64: 0690eb787b730de5eea8250c1e1b649f8662e531650be0fe7b37e83eb6e68c4c
+  linux_amd64: dffb4ef88aa0f51558f805fc3ad1bb8cba22c48155a6d816fa194552df2cfd49
+  linux_arm64: a36ea1366280f8b91a7d40a189eeda1dcfafcbf4911e36ed5e4157f35dbe5e08
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libuv

@@ -1,0 +1,21 @@
+name: ike-scan
+version: 1.9.5
+description: Discover and fingerprint IKE hosts
+homepage: https://github.com/royhills/ike-scan
+license: GPL-3.0-or-later WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ike-scan/blobs/sha256:c6ffd9dfa6a9f7ad65866b0a815dc92d00ebd6a1385949fbb0654494ea15efd4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ike-scan/blobs/sha256:6626bcdb27b825c736d4ea41c785e8f0368276575e0bb789effe317b27031868
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ike-scan/blobs/sha256:2b7b0f9ab06373c381c2133befa3d9524bcdb27c6ccd0f44acdc52d5497cee24
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ike-scan/blobs/sha256:f64aff3a995ef7e1742735b56834e1558567f4bc6605fd1740cc1a3c23445462
+sha256:
+  darwin_arm64: c6ffd9dfa6a9f7ad65866b0a815dc92d00ebd6a1385949fbb0654494ea15efd4
+  darwin_amd64: 6626bcdb27b825c736d4ea41c785e8f0368276575e0bb789effe317b27031868
+  linux_amd64: 2b7b0f9ab06373c381c2133befa3d9524bcdb27c6ccd0f44acdc52d5497cee24
+  linux_arm64: f64aff3a995ef7e1742735b56834e1558567f4bc6605fd1740cc1a3c23445462
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

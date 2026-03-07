@@ -1,0 +1,22 @@
+name: seal
+version: 4.1.2
+description: Easy-to-use homomorphic encryption library
+homepage: https://github.com/microsoft/SEAL
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/seal/blobs/sha256:c2b43ab3584c6568ba43786b9ab734c78c86a569efff42025a07b34584d880bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/seal/blobs/sha256:755f905a1b01a50e5e6e7743f4cee17ebec09936f15cc069b804b72baaf031b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/seal/blobs/sha256:039ccc740daf1ddc76cef431eac86b73bcf385a78699eb7e247ef1bea16e4178
+  linux_arm64: https://ghcr.io/v2/homebrew/core/seal/blobs/sha256:c7d87708dcfef3a3c12c3d2341defb5bee81ee1a4d5eb9a51a76990bb9ac784c
+sha256:
+  darwin_arm64: c2b43ab3584c6568ba43786b9ab734c78c86a569efff42025a07b34584d880bc
+  darwin_amd64: 755f905a1b01a50e5e6e7743f4cee17ebec09936f15cc069b804b72baaf031b8
+  linux_amd64: 039ccc740daf1ddc76cef431eac86b73bcf385a78699eb7e247ef1bea16e4178
+  linux_arm64: c7d87708dcfef3a3c12c3d2341defb5bee81ee1a4d5eb9a51a76990bb9ac784c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cpp-gsl
+  - zstd

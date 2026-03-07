@@ -1,0 +1,17 @@
+name: fuse-overlayfs
+version: 1.16
+description: FUSE implementation for overlayfs
+homepage: https://github.com/containers/fuse-overlayfs
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fuse-overlayfs/blobs/sha256:b6506681f06a7d624118e4570f465e79cccf1ee7374b3a2d7e088adf46e72252
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fuse-overlayfs/blobs/sha256:7649727cba94e4394ec42a29c8dbb1c9bad932f1125b0ad27f8e3b65e014d5fc
+sha256:
+  linux_amd64: b6506681f06a7d624118e4570f465e79cccf1ee7374b3a2d7e088adf46e72252
+  linux_arm64: 7649727cba94e4394ec42a29c8dbb1c9bad932f1125b0ad27f8e3b65e014d5fc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse

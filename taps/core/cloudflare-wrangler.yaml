@@ -1,0 +1,19 @@
+name: cloudflare-wrangler
+version: 4.71.0
+description: CLI tool for Cloudflare Workers
+homepage: https://github.com/cloudflare/workers-sdk
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-wrangler/blobs/sha256:c3500db82ad8ce6d276d30e54a42bd05bcd9d9db7e8b84fb9ec2fb4bda9d5f62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cloudflare-wrangler/blobs/sha256:061cdc97b4c5edab836a59023554b5a8382975abf7be2792f78032fd6f9205c0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cloudflare-wrangler/blobs/sha256:3414aa8c4df02979c601cfade19cf6f7b8a961738d75aa1f699f53b2f6bde171
+sha256:
+  darwin_arm64: c3500db82ad8ce6d276d30e54a42bd05bcd9d9db7e8b84fb9ec2fb4bda9d5f62
+  linux_amd64: 061cdc97b4c5edab836a59023554b5a8382975abf7be2792f78032fd6f9205c0
+  linux_arm64: 3414aa8c4df02979c601cfade19cf6f7b8a961738d75aa1f699f53b2f6bde171
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

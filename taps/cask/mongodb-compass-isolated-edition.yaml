@@ -1,0 +1,11 @@
+name: mongodb-compass-isolated-edition
+version: 1.49.2
+description: Interactive tool for analyzing MongoDB data
+homepage: https://www.mongodb.com/products/compass
+url:
+  darwin_arm64: https://downloads.mongodb.com/compass/mongodb-compass-isolated-1.49.2-darwin-arm64.dmg
+sha256:
+  darwin_arm64: 8fb6917b6ae2e45a37662395bc945abd40e21d5d079bab2481d26df5a4aa57f1
+artifacts:
+  app:
+    - MongoDB Compass Isolated Edition.app

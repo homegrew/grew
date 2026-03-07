@@ -1,0 +1,19 @@
+name: pnpm
+version: 10.30.3
+description: Fast, disk space efficient package manager
+homepage: https://pnpm.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pnpm/blobs/sha256:051c49cff9760cb72b7c60fd800a43602029b699acd7f5e43a1417d95260be08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pnpm/blobs/sha256:994e1ed4771d7d679d7504dd6b117b9b11793efcf9ef83ed31e4284a63368fa6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pnpm/blobs/sha256:cdf2bba4380370cd77db1f7eed07d18c5def381f8f913cd17fa4847efd2a40c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pnpm/blobs/sha256:cdf2bba4380370cd77db1f7eed07d18c5def381f8f913cd17fa4847efd2a40c9
+sha256:
+  darwin_arm64: 051c49cff9760cb72b7c60fd800a43602029b699acd7f5e43a1417d95260be08
+  darwin_amd64: 994e1ed4771d7d679d7504dd6b117b9b11793efcf9ef83ed31e4284a63368fa6
+  linux_amd64: cdf2bba4380370cd77db1f7eed07d18c5def381f8f913cd17fa4847efd2a40c9
+  linux_arm64: cdf2bba4380370cd77db1f7eed07d18c5def381f8f913cd17fa4847efd2a40c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

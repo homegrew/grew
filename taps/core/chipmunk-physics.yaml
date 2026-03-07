@@ -1,0 +1,19 @@
+name: chipmunk-physics
+version: 7.0.3
+description: 2D rigid body physics library written in C
+homepage: https://github.com/slembcke/Chipmunk2D
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chipmunk-physics/blobs/sha256:812f69a9a0065f99dd7c215c6de16629def031aff0bdb8e315e91113c9f45a7e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chipmunk-physics/blobs/sha256:9afdb0a88e02dda8861e5f0e5d19b48f560ffcf85472c686e30106f9821744f6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chipmunk-physics/blobs/sha256:483b9cbddc9ae341718ffa758968de5bd458be486b2c43e871997eb95db9dd73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chipmunk-physics/blobs/sha256:9a8d97795143af72a151cef0bd9456aa1dd6d3c64ca9150e23f291ea934b525f
+sha256:
+  darwin_arm64: 812f69a9a0065f99dd7c215c6de16629def031aff0bdb8e315e91113c9f45a7e
+  darwin_amd64: 9afdb0a88e02dda8861e5f0e5d19b48f560ffcf85472c686e30106f9821744f6
+  linux_amd64: 483b9cbddc9ae341718ffa758968de5bd458be486b2c43e871997eb95db9dd73
+  linux_arm64: 9a8d97795143af72a151cef0bd9456aa1dd6d3c64ca9150e23f291ea934b525f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

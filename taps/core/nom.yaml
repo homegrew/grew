@@ -1,0 +1,19 @@
+name: nom
+version: 3.2.5
+description: RSS reader for the terminal
+homepage: https://github.com/guyfedwards/nom
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nom/blobs/sha256:b9441b757550dadf45e97e6be12608e0caee7c9f2ba32456329369d88e9491dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nom/blobs/sha256:b19fdd05a834b74dee81f0103ba6fce376fc2e88d20f28527d36fb1a8e24f4f8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nom/blobs/sha256:0265f8176c39d0be22c4309143da9b93a7695674a50c194fe49fb09087255a5c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nom/blobs/sha256:cb77836c2ed82709e2d52a1055443fe314e0aaaa3fa3a5937181c910c319709c
+sha256:
+  darwin_arm64: b9441b757550dadf45e97e6be12608e0caee7c9f2ba32456329369d88e9491dd
+  darwin_amd64: b19fdd05a834b74dee81f0103ba6fce376fc2e88d20f28527d36fb1a8e24f4f8
+  linux_amd64: 0265f8176c39d0be22c4309143da9b93a7695674a50c194fe49fb09087255a5c
+  linux_arm64: cb77836c2ed82709e2d52a1055443fe314e0aaaa3fa3a5937181c910c319709c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

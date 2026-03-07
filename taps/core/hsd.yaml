@@ -1,0 +1,22 @@
+name: hsd
+version: 8.0.0
+description: "Handshake Daemon & Full Node"
+homepage: https://handshake.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hsd/blobs/sha256:4842c436a2fefe7cd84e55e6db8764303cb94a462e3b7ca199e214b03beace46
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hsd/blobs/sha256:4a0c34993fdc4c414a615f886f70804b6ff558301f4aff909b89a9b92e9c3387
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hsd/blobs/sha256:9f95e25d794cf25887927e9311a3d7558f175520361028c5296d2ee4be0cabdf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hsd/blobs/sha256:44d682a12a7ae54d07cfd6ff865d923548b8febb035ef8d202302376ce9ba1c5
+sha256:
+  darwin_arm64: 4842c436a2fefe7cd84e55e6db8764303cb94a462e3b7ca199e214b03beace46
+  darwin_amd64: 4a0c34993fdc4c414a615f886f70804b6ff558301f4aff909b89a9b92e9c3387
+  linux_amd64: 9f95e25d794cf25887927e9311a3d7558f175520361028c5296d2ee4be0cabdf
+  linux_arm64: 44d682a12a7ae54d07cfd6ff865d923548b8febb035ef8d202302376ce9ba1c5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node
+  - unbound

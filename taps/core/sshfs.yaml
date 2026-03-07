@@ -1,0 +1,18 @@
+name: sshfs
+version: 3.7.5
+description: File system client based on SSH File Transfer Protocol
+homepage: https://github.com/libfuse/sshfs
+license: LGPL-2.1-only OR GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshfs/blobs/sha256:1589c3db81b505fb0f853475346572d40bf1d35951578df1da2813dddd84d47b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshfs/blobs/sha256:6237fd00c727ad8fe85a3e6c0e6986b07cba640c35cb40db58cc76817313f8a5
+sha256:
+  linux_amd64: 1589c3db81b505fb0f853475346572d40bf1d35951578df1da2813dddd84d47b
+  linux_arm64: 6237fd00c727ad8fe85a3e6c0e6986b07cba640c35cb40db58cc76817313f8a5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - libfuse

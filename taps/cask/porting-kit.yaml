@@ -1,0 +1,11 @@
+name: porting-kit
+version: 6.7.0
+description: Install games and apps compiled for Microsoft Windows
+homepage: https://portingkit.com/
+url:
+  darwin_arm64: https://github.com/vitor251093/porting-kit-releases/releases/download/v6.7.0/Porting.Kit-6.7.0-arm64.dmg
+sha256:
+  darwin_arm64: 7e33b70e326c7e5a99c531b65b678b605c44aaa107f51688777ad5dd9e5fbf5a
+artifacts:
+  app:
+    - Porting Kit.app

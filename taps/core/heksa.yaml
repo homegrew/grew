@@ -1,0 +1,19 @@
+name: heksa
+version: 1.14.0
+description: CLI hex dumper with colors
+homepage: https://github.com/raspi/heksa
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/heksa/blobs/sha256:1268c82b2fd88b4dd497010c2d7b897ea66d2a66d68e74987f64a3f5e2d21ddb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/heksa/blobs/sha256:c646a1b7289f4b96e1172ff6bec29fac49fe66a414f93886182f1d67399d37a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/heksa/blobs/sha256:a0c2fa3a47b5d6a492a5bd6b3c881b19714c459adaf3103d1313e9cf9213386a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/heksa/blobs/sha256:81ddc9393c38b0f1fdd8543e44b74bf011c31e1bd71b68ca414b436aeaebbc0b
+sha256:
+  darwin_arm64: 1268c82b2fd88b4dd497010c2d7b897ea66d2a66d68e74987f64a3f5e2d21ddb
+  darwin_amd64: c646a1b7289f4b96e1172ff6bec29fac49fe66a414f93886182f1d67399d37a8
+  linux_amd64: a0c2fa3a47b5d6a492a5bd6b3c881b19714c459adaf3103d1313e9cf9213386a
+  linux_arm64: 81ddc9393c38b0f1fdd8543e44b74bf011c31e1bd71b68ca414b436aeaebbc0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

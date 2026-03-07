@@ -1,0 +1,11 @@
+name: proton-pass
+version: 1.34.2
+description: Desktop client for Proton Pass
+homepage: https://proton.me/pass
+url:
+  darwin_arm64: https://proton.me/download/PassDesktop/darwin/universal/ProtonPass_1.34.2.dmg
+sha256:
+  darwin_arm64: a28d3621838a644b2bd3ee338a648592eb531ae4badd9bcc6537944daa59ad5c
+artifacts:
+  app:
+    - Proton Pass.app

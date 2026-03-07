@@ -1,0 +1,19 @@
+name: aescrypt
+version: 0.7
+description: Program for encryption/decryption
+homepage: https://aescrypt.sourceforge.net/
+license: BSD-4-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aescrypt/blobs/sha256:9b39aab473142edc7f8e5eaea2122edcd3bebcea70810914d8d9735a4d82fd0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aescrypt/blobs/sha256:156d8f92b0e60679fe57ab359c054ce6bc0345f519a69fa7184af5f6cd2ebdc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aescrypt/blobs/sha256:2a2705c4423a86919b9309235a468b5cc1ac66200501bd255cefe0d26d1f07c6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aescrypt/blobs/sha256:249795b1e998522e6adeaab21b99f1cd97afcabcdc5069196604a036f68c97dd
+sha256:
+  darwin_arm64: 9b39aab473142edc7f8e5eaea2122edcd3bebcea70810914d8d9735a4d82fd0f
+  darwin_amd64: 156d8f92b0e60679fe57ab359c054ce6bc0345f519a69fa7184af5f6cd2ebdc5
+  linux_amd64: 2a2705c4423a86919b9309235a468b5cc1ac66200501bd255cefe0d26d1f07c6
+  linux_arm64: 249795b1e998522e6adeaab21b99f1cd97afcabcdc5069196604a036f68c97dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

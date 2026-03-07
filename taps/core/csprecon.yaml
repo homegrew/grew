@@ -1,0 +1,19 @@
+name: csprecon
+version: 0.4.3
+description: Discover new target domains using Content Security Policy
+homepage: https://github.com/edoardottt/csprecon
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/csprecon/blobs/sha256:3f621fc56cd9c69ff6203214c6936e73109a4c86ac723d964739879ee7c014e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/csprecon/blobs/sha256:c57841b2a41ce3cd03545bfd6ab3b1ffdd5fb887c6eb1e6b1a0ef68598d9db35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/csprecon/blobs/sha256:be01fa962035939cc3a2f94335fc4f227fe06080725cb025a85c6234c2b2bef1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/csprecon/blobs/sha256:78623ece065d4f95d47da3454d2434bce1033e32043227a8335c14c5c79dcf68
+sha256:
+  darwin_arm64: 3f621fc56cd9c69ff6203214c6936e73109a4c86ac723d964739879ee7c014e3
+  darwin_amd64: c57841b2a41ce3cd03545bfd6ab3b1ffdd5fb887c6eb1e6b1a0ef68598d9db35
+  linux_amd64: be01fa962035939cc3a2f94335fc4f227fe06080725cb025a85c6234c2b2bef1
+  linux_arm64: 78623ece065d4f95d47da3454d2434bce1033e32043227a8335c14c5c79dcf68
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

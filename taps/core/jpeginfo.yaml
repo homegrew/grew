@@ -1,0 +1,21 @@
+name: jpeginfo
+version: 1.7.1
+description: Prints information and tests integrity of JPEG/JFIF files
+homepage: https://www.kokkonen.net/tjko/projects.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jpeginfo/blobs/sha256:64d7d1095c95f1ea0e1c0a44b8921e4bfb3696dd47e842c4d403ba4ce8fda097
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jpeginfo/blobs/sha256:16807913afe7a5d80b2d64e9f4bdba35ce5a7b8165f14253c3cd176fa977e982
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jpeginfo/blobs/sha256:7634d933e1769a53a9efe1e9ac4398512efda30266ec24db06bace7f36f95a3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jpeginfo/blobs/sha256:671ef654c483d5e351547a8d551a48ba36a66e726fe7ffbeffdc19ac6504142f
+sha256:
+  darwin_arm64: 64d7d1095c95f1ea0e1c0a44b8921e4bfb3696dd47e842c4d403ba4ce8fda097
+  darwin_amd64: 16807913afe7a5d80b2d64e9f4bdba35ce5a7b8165f14253c3cd176fa977e982
+  linux_amd64: 7634d933e1769a53a9efe1e9ac4398512efda30266ec24db06bace7f36f95a3c
+  linux_arm64: 671ef654c483d5e351547a8d551a48ba36a66e726fe7ffbeffdc19ac6504142f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo

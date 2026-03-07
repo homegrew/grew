@@ -1,0 +1,11 @@
+name: opencode-desktop
+version: 1.2.20
+description: AI coding agent desktop client
+homepage: https://opencode.ai/
+url:
+  darwin_arm64: https://github.com/sst/opencode/releases/download/v1.2.20/opencode-desktop-darwin-aarch64.dmg
+sha256:
+  darwin_arm64: 4ebba0c70011a0549e2a6b29ddbf5afadbb71c36d0d92784c233a025f7c58107
+artifacts:
+  app:
+    - OpenCode.app

@@ -1,0 +1,19 @@
+name: kyverno
+version: 1.17.1
+description: Kubernetes Native Policy Management
+homepage: https://kyverno.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kyverno/blobs/sha256:1e9304423f6c9de6798782616e08a732d9983bee5b6fcb2d4194dabeb5e847c2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kyverno/blobs/sha256:1223c1458893e9d7dafa136a75423d2e3544de85c331c5e9a08f0c1c98807b62
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kyverno/blobs/sha256:0e5e4c51e3e383278b6ec0b73af56d8feba0ddcc3a88d7ec8ff8ad2c11ac277d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kyverno/blobs/sha256:2f44084feb208336733d1971941c13f0565cf101c81f8b201ef1d3408e46757e
+sha256:
+  darwin_arm64: 1e9304423f6c9de6798782616e08a732d9983bee5b6fcb2d4194dabeb5e847c2
+  darwin_amd64: 1223c1458893e9d7dafa136a75423d2e3544de85c331c5e9a08f0c1c98807b62
+  linux_amd64: 0e5e4c51e3e383278b6ec0b73af56d8feba0ddcc3a88d7ec8ff8ad2c11ac277d
+  linux_arm64: 2f44084feb208336733d1971941c13f0565cf101c81f8b201ef1d3408e46757e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

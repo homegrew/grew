@@ -1,0 +1,22 @@
+name: s-nail
+version: 14.9.25
+description: Fork of Heirloom mailx
+homepage: https://www.sdaoden.eu/code.html
+license: BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND ISC AND HPND-sell-variant AND RSA-MD
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/s-nail/blobs/sha256:694010922da95400d2613164c134a3820f1db8aec0f23267915c490110e5cc6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/s-nail/blobs/sha256:1233acc467105675251c16c62d77185f9fa1adcc39ac8020498ed34865b6669d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/s-nail/blobs/sha256:803cfa3485cc7bb7f528290ad09612233cb79e68ecb66f75477ac6d015d24636
+  linux_arm64: https://ghcr.io/v2/homebrew/core/s-nail/blobs/sha256:9ee474cf7423192b3351e52cf64a77c20caa55465c3b7720e0cd66c37ada9705
+sha256:
+  darwin_arm64: 694010922da95400d2613164c134a3820f1db8aec0f23267915c490110e5cc6b
+  darwin_amd64: 1233acc467105675251c16c62d77185f9fa1adcc39ac8020498ed34865b6669d
+  linux_amd64: 803cfa3485cc7bb7f528290ad09612233cb79e68ecb66f75477ac6d015d24636
+  linux_arm64: 9ee474cf7423192b3351e52cf64a77c20caa55465c3b7720e0cd66c37ada9705
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libidn2
+  - openssl@3

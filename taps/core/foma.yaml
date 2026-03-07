@@ -1,0 +1,19 @@
+name: foma
+version: 0.10.0
+description: Finite-state compiler and C library
+homepage: https://github.com/mhulden/foma
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/foma/blobs/sha256:585a4ed242e82fa06b31fffea4747c3dcfb370d15b774ee2c099e89352494185
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/foma/blobs/sha256:20e9102b4df0a214b23c3eb5cd1d8b5e8d485b46c77e6e6913086889ac98f0c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/foma/blobs/sha256:3d226105516d5b70e4981e53bb1fac0d8d7d61ba4fbae352c76c2f2223263f1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/foma/blobs/sha256:2fda34fa0f539af95305f663109e71bc25f679d9fa0712298c6b2785bdf94293
+sha256:
+  darwin_arm64: 585a4ed242e82fa06b31fffea4747c3dcfb370d15b774ee2c099e89352494185
+  darwin_amd64: 20e9102b4df0a214b23c3eb5cd1d8b5e8d485b46c77e6e6913086889ac98f0c4
+  linux_amd64: 3d226105516d5b70e4981e53bb1fac0d8d7d61ba4fbae352c76c2f2223263f1f
+  linux_arm64: 2fda34fa0f539af95305f663109e71bc25f679d9fa0712298c6b2785bdf94293
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

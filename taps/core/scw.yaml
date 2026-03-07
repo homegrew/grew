@@ -1,0 +1,19 @@
+name: scw
+version: 2.52.0
+description: Command-line Interface for Scaleway
+homepage: https://www.scaleway.com/en/cli/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scw/blobs/sha256:7f89ad589d2beeecc7160693c7e267fe1bf3b97f36c5b3b0c657f14b3406cd9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scw/blobs/sha256:becc951cf84ac0db8a58cd80a63f70c501baf697930ec350bed16e9656808057
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scw/blobs/sha256:ce7a8c387d3a90d7f0ac3182571dd25511fcdafe3b220e92b84194e2313f97d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scw/blobs/sha256:0c287a041229de084d5839413d3816cf71ee7b402f57f05594a15e11a6fc0fa3
+sha256:
+  darwin_arm64: 7f89ad589d2beeecc7160693c7e267fe1bf3b97f36c5b3b0c657f14b3406cd9d
+  darwin_amd64: becc951cf84ac0db8a58cd80a63f70c501baf697930ec350bed16e9656808057
+  linux_amd64: ce7a8c387d3a90d7f0ac3182571dd25511fcdafe3b220e92b84194e2313f97d6
+  linux_arm64: 0c287a041229de084d5839413d3816cf71ee7b402f57f05594a15e11a6fc0fa3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

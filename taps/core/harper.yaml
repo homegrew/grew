@@ -1,0 +1,19 @@
+name: harper
+version: 1.9.0
+description: Grammar Checker for Developers
+homepage: https://github.com/Automattic/harper
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/harper/blobs/sha256:0ea04affdb15630f13596822e20b0e14572069982d98e87f29a53dc20d6e1929
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/harper/blobs/sha256:e1c27da867e77d27fc13fa88eca19b910bf401f485520b08ec5628e49b1b7e0b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/harper/blobs/sha256:73f977aab58b66dd20657aa0f363f5082f5b1c5c7b25ddf7f9a97cc9a8562e9e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/harper/blobs/sha256:7c086205a416f2d3352a0759778f49d06b9b7848c18749e77ef472ea08758f05
+sha256:
+  darwin_arm64: 0ea04affdb15630f13596822e20b0e14572069982d98e87f29a53dc20d6e1929
+  darwin_amd64: e1c27da867e77d27fc13fa88eca19b910bf401f485520b08ec5628e49b1b7e0b
+  linux_amd64: 73f977aab58b66dd20657aa0f363f5082f5b1c5c7b25ddf7f9a97cc9a8562e9e
+  linux_arm64: 7c086205a416f2d3352a0759778f49d06b9b7848c18749e77ef472ea08758f05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

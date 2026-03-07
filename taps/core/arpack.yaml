@@ -1,0 +1,24 @@
+name: arpack
+version: 3.9.1
+description: Routines to solve large scale eigenvalue problems
+homepage: https://github.com/opencollab/arpack-ng
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/arpack/blobs/sha256:49cef98cf7475c671e5826e23a50d8c093a34685d6a98ed55614916f2196408b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/arpack/blobs/sha256:f2b3e99ace1d79b1b69b986f2bbe88b43ccef0c2662b2158b70586b3c4a40e90
+  linux_amd64: https://ghcr.io/v2/homebrew/core/arpack/blobs/sha256:37cccca9e03aeb558521d7f5e3022e24c99ba52aaecddfb99fd38ce08287c5bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/arpack/blobs/sha256:08a91a56289af355e7139466cff2c2d882e4361bddc76d4b509bee94524154cd
+sha256:
+  darwin_arm64: 49cef98cf7475c671e5826e23a50d8c093a34685d6a98ed55614916f2196408b
+  darwin_amd64: f2b3e99ace1d79b1b69b986f2bbe88b43ccef0c2662b2158b70586b3c4a40e90
+  linux_amd64: 37cccca9e03aeb558521d7f5e3022e24c99ba52aaecddfb99fd38ce08287c5bf
+  linux_arm64: 08a91a56289af355e7139466cff2c2d882e4361bddc76d4b509bee94524154cd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen
+  - gcc
+  - open-mpi
+  - openblas

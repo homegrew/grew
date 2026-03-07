@@ -1,0 +1,28 @@
+name: dvc
+version: 3.66.1
+description: Git for data science projects
+homepage: https://dvc.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dvc/blobs/sha256:e3fc6e47cb7da5475a358742a7c53a33b21526fcd2759c05ea9c7fd3b65b2f5c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dvc/blobs/sha256:09a96be77127a01ddfa022db5cf245720345acb645ca9a391c2c4e63b30bd00f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dvc/blobs/sha256:1f6d8dfe14d400a693dfabf882b145e37ea0ccc80d3cc8185e7034653644b89e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dvc/blobs/sha256:db909212d5f52d98262bd0b89c2bd88c9ef0f1bbe3551bf9ef35870dd8a7fd94
+sha256:
+  darwin_arm64: e3fc6e47cb7da5475a358742a7c53a33b21526fcd2759c05ea9c7fd3b65b2f5c
+  darwin_amd64: 09a96be77127a01ddfa022db5cf245720345acb645ca9a391c2c4e63b30bd00f
+  linux_amd64: 1f6d8dfe14d400a693dfabf882b145e37ea0ccc80d3cc8185e7034653644b89e
+  linux_arm64: db909212d5f52d98262bd0b89c2bd88c9ef0f1bbe3551bf9ef35870dd8a7fd94
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apache-arrow
+  - certifi
+  - cryptography
+  - libyaml
+  - numpy
+  - pydantic
+  - pygit2
+  - python@3.14

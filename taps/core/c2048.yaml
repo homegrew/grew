@@ -1,0 +1,19 @@
+name: c2048
+version: 1.0.3
+description: Console version of 2048
+homepage: https://github.com/mevdschee/2048.c
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/c2048/blobs/sha256:0563e808fedace771b34dc5be651e242898101d1ba16e5af2d93fc9776dc9d45
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/c2048/blobs/sha256:0c43e42fd31143a4e0f008a2620e092b0a431b0fe0c68c5adc72acc975859cb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/c2048/blobs/sha256:dabedc2a620cb0966fcf79c27b6135366a02fc7f37f3413c7cb65df0eec15644
+  linux_arm64: https://ghcr.io/v2/homebrew/core/c2048/blobs/sha256:483edc63ab9cf31614e368777afccc1934660e5e0b72b801e23fd869ae8133ae
+sha256:
+  darwin_arm64: 0563e808fedace771b34dc5be651e242898101d1ba16e5af2d93fc9776dc9d45
+  darwin_amd64: 0c43e42fd31143a4e0f008a2620e092b0a431b0fe0c68c5adc72acc975859cb1
+  linux_amd64: dabedc2a620cb0966fcf79c27b6135366a02fc7f37f3413c7cb65df0eec15644
+  linux_arm64: 483edc63ab9cf31614e368777afccc1934660e5e0b72b801e23fd869ae8133ae
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

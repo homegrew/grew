@@ -1,0 +1,19 @@
+name: videoalchemy
+version: 1.0.0
+description: Toolkit expanding video processing capabilities
+homepage: https://viddotech.github.io/videoalchemy/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/videoalchemy/blobs/sha256:0d1920eb31c8a15e3e2960eb5d79d232609f85085091dfcde6db588a7e82527c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/videoalchemy/blobs/sha256:163886e323873afd56a3bf782b3e8177733ad4088779760bf710838be2188455
+  linux_amd64: https://ghcr.io/v2/homebrew/core/videoalchemy/blobs/sha256:72788fdb6f409d88c925d344d5aac48b217477cb419c3b9ebc249b517bfa412c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/videoalchemy/blobs/sha256:ae565a7c2365bbd921dc8a7664ef1eef570865c272d002664bfcbbebfd1b6f9f
+sha256:
+  darwin_arm64: 0d1920eb31c8a15e3e2960eb5d79d232609f85085091dfcde6db588a7e82527c
+  darwin_amd64: 163886e323873afd56a3bf782b3e8177733ad4088779760bf710838be2188455
+  linux_amd64: 72788fdb6f409d88c925d344d5aac48b217477cb419c3b9ebc249b517bfa412c
+  linux_arm64: ae565a7c2365bbd921dc8a7664ef1eef570865c272d002664bfcbbebfd1b6f9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

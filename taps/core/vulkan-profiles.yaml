@@ -1,0 +1,25 @@
+name: vulkan-profiles
+version: 1.4.341.0
+description: Tools for Vulkan profiles
+homepage: https://github.com/KhronosGroup/Vulkan-Profiles
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-profiles/blobs/sha256:7a173ab675e9c90c1fa4af74722308057623e65b1c893fb4cb64ed5d52255679
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-profiles/blobs/sha256:e3f752b08717a737bdb2e0f3ec4caeb36aed2492cb43e13f76164b9b48d9f129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-profiles/blobs/sha256:5cc02fe269e747f23e656e4cfd0ddaac01cb50bebdfed100625d920b5d48715b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-profiles/blobs/sha256:9ef0052707a6505a93de581f8ddeeb263c5ae9d4514a9ab759f03811eb8cade2
+sha256:
+  darwin_arm64: 7a173ab675e9c90c1fa4af74722308057623e65b1c893fb4cb64ed5d52255679
+  darwin_amd64: e3f752b08717a737bdb2e0f3ec4caeb36aed2492cb43e13f76164b9b48d9f129
+  linux_amd64: 5cc02fe269e747f23e656e4cfd0ddaac01cb50bebdfed100625d920b5d48715b
+  linux_arm64: 9ef0052707a6505a93de581f8ddeeb263c5ae9d4514a9ab759f03811eb8cade2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jsoncpp
+  - valijson
+  - vulkan-headers
+  - vulkan-loader
+  - vulkan-utility-libraries

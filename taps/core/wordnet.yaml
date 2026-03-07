@@ -1,0 +1,21 @@
+name: wordnet
+version: 3.1
+description: Lexical database for the English language
+homepage: https://wordnet.princeton.edu/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wordnet/blobs/sha256:c76614f1a228d94b2470a7b931ae833377ae13d1214cff36d6a93b5fb7da4ae5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wordnet/blobs/sha256:3997310820375bfe93b6cf3512aa70993d47a2a67e54df6140ccbaf736486ada
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wordnet/blobs/sha256:b5090e0ee1251e6d13e6c77024a0d1f18e0b6d563a4ced176d3c2cd1fffb52b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wordnet/blobs/sha256:3a67f8e72a2b2c2b3119386adefe9ccf353c45bb05598aef4970be2bbe64da1d
+sha256:
+  darwin_arm64: c76614f1a228d94b2470a7b931ae833377ae13d1214cff36d6a93b5fb7da4ae5
+  darwin_amd64: 3997310820375bfe93b6cf3512aa70993d47a2a67e54df6140ccbaf736486ada
+  linux_amd64: b5090e0ee1251e6d13e6c77024a0d1f18e0b6d563a4ced176d3c2cd1fffb52b7
+  linux_arm64: 3a67f8e72a2b2c2b3119386adefe9ccf353c45bb05598aef4970be2bbe64da1d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - tcl-tk@8

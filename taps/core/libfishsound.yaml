@@ -1,0 +1,21 @@
+name: libfishsound
+version: 1.0.1
+description: Decode and encode audio data using the Xiph.org codecs
+homepage: https://xiph.org/fishsound/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfishsound/blobs/sha256:99677e9c5c6e576666daa65e86023c2c2172c338e9ea3a137b199b719cb21022
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfishsound/blobs/sha256:dc4573276c3c89484244b1ab2b121ab7d954d6e360c1a0e170dcaceb6d829e24
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfishsound/blobs/sha256:cfaa33c5d408f6f60308bc962a9815b0456de64c8f559c797589ab3f4118f4c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfishsound/blobs/sha256:b5706aa37fd98136ce0e3a9f3d3293d5483bb92e6f768163ffaef10267155d95
+sha256:
+  darwin_arm64: 99677e9c5c6e576666daa65e86023c2c2172c338e9ea3a137b199b719cb21022
+  darwin_amd64: dc4573276c3c89484244b1ab2b121ab7d954d6e360c1a0e170dcaceb6d829e24
+  linux_amd64: cfaa33c5d408f6f60308bc962a9815b0456de64c8f559c797589ab3f4118f4c3
+  linux_arm64: b5706aa37fd98136ce0e3a9f3d3293d5483bb92e6f768163ffaef10267155d95
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libvorbis

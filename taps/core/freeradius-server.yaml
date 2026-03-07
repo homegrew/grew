@@ -1,0 +1,27 @@
+name: freeradius-server
+version: 3.2.8
+description: High-performance and highly configurable RADIUS server
+homepage: https://freeradius.org/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/freeradius-server/blobs/sha256:d3f0e7b7ab81d4933f413d642e00cd0792699e31fc0c2d623a3b3107c0bf887d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/freeradius-server/blobs/sha256:a5c62d00dbebc8f37c318af0389da842d670dd09c470c3a2d0c7c86a1d5acdf8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/freeradius-server/blobs/sha256:e316f4497fe6c34a4a7ead7cc8b538e89de27041f9e4df8b784e1b794cf5b347
+  linux_arm64: https://ghcr.io/v2/homebrew/core/freeradius-server/blobs/sha256:d163e136724def827bb368e19d417465fa264d7171db9d6ac4d6381d9a410dc1
+sha256:
+  darwin_arm64: d3f0e7b7ab81d4933f413d642e00cd0792699e31fc0c2d623a3b3107c0bf887d
+  darwin_amd64: a5c62d00dbebc8f37c318af0389da842d670dd09c470c3a2d0c7c86a1d5acdf8
+  linux_amd64: e316f4497fe6c34a4a7ead7cc8b538e89de27041f9e4df8b784e1b794cf5b347
+  linux_arm64: d163e136724def827bb368e19d417465fa264d7171db9d6ac4d6381d9a410dc1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - collectd
+  - json-c
+  - openssl@3
+  - python@3.14
+  - talloc
+  - readline
+  - sqlite

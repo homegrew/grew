@@ -1,0 +1,22 @@
+name: pam-u2f
+version: 1.4.0
+description: Provides an easy way to use U2F-compliant authenticators with PAM
+homepage: https://developers.yubico.com/pam-u2f/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pam-u2f/blobs/sha256:9844179a60b558f985873acb95a1b19b5fe2f3f130d5a06a4e833259c010ecc2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pam-u2f/blobs/sha256:59e4b1a99b4c51f5b56de184d414bd006811d83a2d032a535407e8af00fd87a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pam-u2f/blobs/sha256:a99993171f6fd57e574bf1abff0848e80aae095be2ea85e0ec766ccb5496b419
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pam-u2f/blobs/sha256:f1f8f8bb7c149900e9e59fe25f24cb11ae669651a08188a801cce00cd30cd347
+sha256:
+  darwin_arm64: 9844179a60b558f985873acb95a1b19b5fe2f3f130d5a06a4e833259c010ecc2
+  darwin_amd64: 59e4b1a99b4c51f5b56de184d414bd006811d83a2d032a535407e8af00fd87a4
+  linux_amd64: a99993171f6fd57e574bf1abff0848e80aae095be2ea85e0ec766ccb5496b419
+  linux_arm64: f1f8f8bb7c149900e9e59fe25f24cb11ae669651a08188a801cce00cd30cd347
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfido2
+  - openssl@3

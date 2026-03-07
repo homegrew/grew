@@ -1,0 +1,24 @@
+name: chatblade
+version: 0.7.0
+description: CLI Swiss Army Knife for ChatGPT
+homepage: https://github.com/npiv/chatblade
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chatblade/blobs/sha256:aabf88f1e8ada3d1f2ce9316b600a364072d3a4a2c2e3e4d1ec814696ddf0feb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chatblade/blobs/sha256:f3030f526695ff736f4d9e9acd63beffaebfeb44ed89aea80e2ac9a132366727
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chatblade/blobs/sha256:a9678a2554a65d30fe8d6ac65f800ba731ecb7e1a8c6ab101a6454c77b3f3427
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chatblade/blobs/sha256:aada9437f47038a7c81e443b42c6738ca8210fed752ead4681a4d86232cbc384
+sha256:
+  darwin_arm64: aabf88f1e8ada3d1f2ce9316b600a364072d3a4a2c2e3e4d1ec814696ddf0feb
+  darwin_amd64: f3030f526695ff736f4d9e9acd63beffaebfeb44ed89aea80e2ac9a132366727
+  linux_amd64: a9678a2554a65d30fe8d6ac65f800ba731ecb7e1a8c6ab101a6454c77b3f3427
+  linux_arm64: aada9437f47038a7c81e443b42c6738ca8210fed752ead4681a4d86232cbc384
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.13

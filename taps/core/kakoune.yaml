@@ -1,0 +1,19 @@
+name: kakoune
+version: 2025.06.03
+description: Selection-based modal text editor
+homepage: https://github.com/mawww/kakoune
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kakoune/blobs/sha256:03936d0c26ebf7cf2b8dcd6bdbfc7e5c91161451613ff9ed6e65a006d56456fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kakoune/blobs/sha256:76186fe32293e045547ecc46c5be8ed2c99756a4d6ea9f50f2a0a1028a42641a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kakoune/blobs/sha256:cd10c0b50a1c649bc8512af7615575e9a233277c3ed7780d51dc5daf76820060
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kakoune/blobs/sha256:3b47987edb2a32934aac363d1082478f7fde6cf25c17aad67d25f1c6c77e392a
+sha256:
+  darwin_arm64: 03936d0c26ebf7cf2b8dcd6bdbfc7e5c91161451613ff9ed6e65a006d56456fe
+  darwin_amd64: 76186fe32293e045547ecc46c5be8ed2c99756a4d6ea9f50f2a0a1028a42641a
+  linux_amd64: cd10c0b50a1c649bc8512af7615575e9a233277c3ed7780d51dc5daf76820060
+  linux_arm64: 3b47987edb2a32934aac363d1082478f7fde6cf25c17aad67d25f1c6c77e392a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

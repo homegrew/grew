@@ -1,0 +1,21 @@
+name: libmpeg2
+version: 0.5.1
+description: Library to decode mpeg-2 and mpeg-1 video streams
+homepage: https://libmpeg2.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmpeg2/blobs/sha256:774f58a1e39f846fdcb40c1b05446f9867836cc95e66fe25d2d829f8e98c88a4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmpeg2/blobs/sha256:ed0fe49e971640418eb765c153ab7c846dc6e93911140534b0a0a0f7e026b4cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmpeg2/blobs/sha256:04a7bbf5129d11b695a6a57eff6091f6519e3b4554dc77f84bca351a4f17acaa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmpeg2/blobs/sha256:2fabce057d7c15bb18b7320230edb8a748206664185c4c0a00e174615ec0094f
+sha256:
+  darwin_arm64: 774f58a1e39f846fdcb40c1b05446f9867836cc95e66fe25d2d829f8e98c88a4
+  darwin_amd64: ed0fe49e971640418eb765c153ab7c846dc6e93911140534b0a0a0f7e026b4cd
+  linux_amd64: 04a7bbf5129d11b695a6a57eff6091f6519e3b4554dc77f84bca351a4f17acaa
+  linux_arm64: 2fabce057d7c15bb18b7320230edb8a748206664185c4c0a00e174615ec0094f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl12-compat

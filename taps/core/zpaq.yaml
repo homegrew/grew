@@ -1,0 +1,19 @@
+name: zpaq
+version: 7.15
+description: Incremental, journaling command-line archiver
+homepage: https://mattmahoney.net/dc/zpaq.html
+license: Unlicense AND MIT AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zpaq/blobs/sha256:806e95bf2357903bc8a6a1766850a6030386cef25a672a274315c252dc2b998f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zpaq/blobs/sha256:b4b5c39591e177215ccd6c9ab1c7a406fe87c6861504c64356c65106108db082
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zpaq/blobs/sha256:fcee2715716cfdbac67ff81332d2cfc39eeae7ff286ff645c3740375b848e8ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zpaq/blobs/sha256:aa97e3fc826ff8e04382c77af813c2b23dcd5f57a5d336a59043ea7c2ddaaf13
+sha256:
+  darwin_arm64: 806e95bf2357903bc8a6a1766850a6030386cef25a672a274315c252dc2b998f
+  darwin_amd64: b4b5c39591e177215ccd6c9ab1c7a406fe87c6861504c64356c65106108db082
+  linux_amd64: fcee2715716cfdbac67ff81332d2cfc39eeae7ff286ff645c3740375b848e8ec
+  linux_arm64: aa97e3fc826ff8e04382c77af813c2b23dcd5f57a5d336a59043ea7c2ddaaf13
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

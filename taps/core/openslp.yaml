@@ -1,0 +1,19 @@
+name: openslp
+version: 2.0.0
+description: Implementation of Service Location Protocol
+homepage: http://www.openslp.org
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openslp/blobs/sha256:03318a808866a33ea675a2520d6d889c9aa74f6817b9a30bed9bbc0cf4a6938d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openslp/blobs/sha256:9f8b91c18c4a8e0738618531ad35f6068daa27cb6069362510622592113aada5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openslp/blobs/sha256:aa1988503f1e9688dfd80e0331392ab29a053e62197b60653e933ee1bc681efb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openslp/blobs/sha256:7f3de41c36959025ce20d867cfa90c065fba46d872b055d0b7c2a2e6a631b44d
+sha256:
+  darwin_arm64: 03318a808866a33ea675a2520d6d889c9aa74f6817b9a30bed9bbc0cf4a6938d
+  darwin_amd64: 9f8b91c18c4a8e0738618531ad35f6068daa27cb6069362510622592113aada5
+  linux_amd64: aa1988503f1e9688dfd80e0331392ab29a053e62197b60653e933ee1bc681efb
+  linux_arm64: 7f3de41c36959025ce20d867cfa90c065fba46d872b055d0b7c2a2e6a631b44d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

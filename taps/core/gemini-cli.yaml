@@ -1,0 +1,21 @@
+name: gemini-cli
+version: 0.32.1
+description: Interact with Google Gemini AI models from the command-line
+homepage: https://github.com/google-gemini/gemini-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gemini-cli/blobs/sha256:e9ad9e903ece1dc4ec3c6e0cc7418a45c897a1fc3304c17a8dd4b167142c3ec6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gemini-cli/blobs/sha256:788ed62fd8c284e411fe6f84f517c0a8bbf325f4ac8822bb9169330ab17672b1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gemini-cli/blobs/sha256:f942e94cae9d2e6d89380124f3ad2b0902d2c8a623ca1f7c239653e7669c86fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gemini-cli/blobs/sha256:a9009d0c786d1ca7839c23138f5daf90ae85b9b829007f15a03bd16a17ff7b01
+sha256:
+  darwin_arm64: e9ad9e903ece1dc4ec3c6e0cc7418a45c897a1fc3304c17a8dd4b167142c3ec6
+  darwin_amd64: 788ed62fd8c284e411fe6f84f517c0a8bbf325f4ac8822bb9169330ab17672b1
+  linux_amd64: f942e94cae9d2e6d89380124f3ad2b0902d2c8a623ca1f7c239653e7669c86fe
+  linux_arm64: a9009d0c786d1ca7839c23138f5daf90ae85b9b829007f15a03bd16a17ff7b01
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

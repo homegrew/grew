@@ -1,0 +1,22 @@
+name: hbase
+version: 2.6.4
+description: "Hadoop database: a distributed, scalable, big data store"
+homepage: https://hbase.apache.org
+license: Apache-2.0 AND GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hbase/blobs/sha256:65045300f54b57ee162251465c51580d32ff03d31f02ac60554919672f770d14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hbase/blobs/sha256:dac9cc595749907be623745468ac7a3d541e458ff8320d66d7435c2d5d97976a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hbase/blobs/sha256:414d6d6b72366b325683087855608f4d31fb3005a1e4ed42e149785022bd6382
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hbase/blobs/sha256:901723f520445cfcd248a70bb9ed5e2936e6130320cf85253c1c730f6f84b668
+sha256:
+  darwin_arm64: 65045300f54b57ee162251465c51580d32ff03d31f02ac60554919672f770d14
+  darwin_amd64: dac9cc595749907be623745468ac7a3d541e458ff8320d66d7435c2d5d97976a
+  linux_amd64: 414d6d6b72366b325683087855608f4d31fb3005a1e4ed42e149785022bd6382
+  linux_arm64: 901723f520445cfcd248a70bb9ed5e2936e6130320cf85253c1c730f6f84b668
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lzo
+  - openjdk@11

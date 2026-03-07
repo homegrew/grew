@@ -1,0 +1,19 @@
+name: lwtools
+version: 4.24
+description: Cross-development tools for Motorola 6809 and Hitachi 6309
+homepage: https://www.lwtools.ca/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lwtools/blobs/sha256:3f904db8779abd74708ebadd543361ae5f9ffee9a764cfe8ce3ff0e5db32d1f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lwtools/blobs/sha256:13ff219d341591d4612e649fff1f87e4978d91ca440f096d7189a9382abacfc2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lwtools/blobs/sha256:209fcd523569b4579aca0fffe15766ec01190f2e7e0426af08107ccf7971e166
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lwtools/blobs/sha256:d8140c9ed5b53b94b1abe2a57951fc16e57d01a962a554c9b3e69fbf4c4cc882
+sha256:
+  darwin_arm64: 3f904db8779abd74708ebadd543361ae5f9ffee9a764cfe8ce3ff0e5db32d1f2
+  darwin_amd64: 13ff219d341591d4612e649fff1f87e4978d91ca440f096d7189a9382abacfc2
+  linux_amd64: 209fcd523569b4579aca0fffe15766ec01190f2e7e0426af08107ccf7971e166
+  linux_arm64: d8140c9ed5b53b94b1abe2a57951fc16e57d01a962a554c9b3e69fbf4c4cc882
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

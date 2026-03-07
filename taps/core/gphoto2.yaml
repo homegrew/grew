@@ -1,0 +1,26 @@
+name: gphoto2
+version: 2.5.32
+description: Command-line interface to libgphoto2
+homepage: http://www.gphoto.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gphoto2/blobs/sha256:4964d268b7a6e5fe54ace7bf390f1986757b9c1d1f3444e324e8f6f6e026f919
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gphoto2/blobs/sha256:69b5f9a17b27bf5ec53c0dcd61c2c8aea8bffe3017afb6e510f634d2c12e60d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gphoto2/blobs/sha256:6e7c517d9fca1d5befe7bbfa1012f495da43e64df141249bdae00884ce5a5475
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gphoto2/blobs/sha256:c74def980e8a6375630735e1069673b09ee7c2366455c6a1b6b25abe7be1a168
+sha256:
+  darwin_arm64: 4964d268b7a6e5fe54ace7bf390f1986757b9c1d1f3444e324e8f6f6e026f919
+  darwin_amd64: 69b5f9a17b27bf5ec53c0dcd61c2c8aea8bffe3017afb6e510f634d2c12e60d3
+  linux_amd64: 6e7c517d9fca1d5befe7bbfa1012f495da43e64df141249bdae00884ce5a5475
+  linux_arm64: c74def980e8a6375630735e1069673b09ee7c2366455c6a1b6b25abe7be1a168
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libexif
+  - libgphoto2
+  - popt
+  - readline
+  - gettext

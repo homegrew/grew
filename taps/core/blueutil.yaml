@@ -1,0 +1,15 @@
+name: blueutil
+version: 2.13.0
+description: Get/set bluetooth power and discoverable state
+homepage: https://github.com/toy/blueutil
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/blueutil/blobs/sha256:c31d3a14d7db9bebfd0bc6db63cc175189c6bb715891a6f5b0bd4618f06f06b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/blueutil/blobs/sha256:2cff703f1c4f5826686dc1c948187a94b9130f9f367ec53fb765a193c953b602
+sha256:
+  darwin_arm64: c31d3a14d7db9bebfd0bc6db63cc175189c6bb715891a6f5b0bd4618f06f06b7
+  darwin_amd64: 2cff703f1c4f5826686dc1c948187a94b9130f9f367ec53fb765a193c953b602
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

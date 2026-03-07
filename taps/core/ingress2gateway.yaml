@@ -1,0 +1,19 @@
+name: ingress2gateway
+version: 0.5.0
+description: Convert Kubernetes Ingress resources to Kubernetes Gateway API resources
+homepage: https://github.com/kubernetes-sigs/ingress2gateway
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ingress2gateway/blobs/sha256:19f1d9a3652f55e3469d0a6b6fdcc5a59e62fdb0591797e6c541e347535fd6ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ingress2gateway/blobs/sha256:fda5b0dea1e86df82a07f08cc65f37e5ce8089b92e608272406a3b0551c21f6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ingress2gateway/blobs/sha256:837f74795b0f866473130c6aae03f2b829ea23b17fcc5d51eef45394912db239
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ingress2gateway/blobs/sha256:31a12392fde4047e27597340d74968a952054c0a0316b82e165cd04e80ea049a
+sha256:
+  darwin_arm64: 19f1d9a3652f55e3469d0a6b6fdcc5a59e62fdb0591797e6c541e347535fd6ad
+  darwin_amd64: fda5b0dea1e86df82a07f08cc65f37e5ce8089b92e608272406a3b0551c21f6f
+  linux_amd64: 837f74795b0f866473130c6aae03f2b829ea23b17fcc5d51eef45394912db239
+  linux_arm64: 31a12392fde4047e27597340d74968a952054c0a0316b82e165cd04e80ea049a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

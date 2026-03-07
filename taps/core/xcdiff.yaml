@@ -1,0 +1,15 @@
+name: xcdiff
+version: 0.14.0
+description: Tool to diff xcodeproj files
+homepage: https://github.com/bloomberg/xcdiff
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcdiff/blobs/sha256:45974f7dfe74e248ed515fdb45601a02b49dfc321fd1efe77d7776bc2e8116b7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcdiff/blobs/sha256:26fb6391a35202291acd4f0efa394b943934863bda1f1fdb948c570b3fd017ab
+sha256:
+  darwin_arm64: 45974f7dfe74e248ed515fdb45601a02b49dfc321fd1efe77d7776bc2e8116b7
+  darwin_amd64: 26fb6391a35202291acd4f0efa394b943934863bda1f1fdb948c570b3fd017ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

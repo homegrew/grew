@@ -1,0 +1,42 @@
+name: librasterlite2
+version: 1.1.0-beta1
+description: Library to store and retrieve huge raster coverages
+homepage: https://www.gaia-gis.it/fossil/librasterlite2/index
+license: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librasterlite2/blobs/sha256:aedae0439b69ea9c2e069dd3d4cb868db71deb9e953806354bd57ea476f4698c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librasterlite2/blobs/sha256:431c45dd52bc4491321fdd17e420cfcab8c70e0854873aee1104f2296177a792
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librasterlite2/blobs/sha256:aaacb56f12774ee2064e0993afad66d2bce90846b22d834bfd91ecff2b61bd6a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librasterlite2/blobs/sha256:778b21f4a0da7c8f5bce15877479198bb03cb37c81b9682af06907773178bce8
+sha256:
+  darwin_arm64: aedae0439b69ea9c2e069dd3d4cb868db71deb9e953806354bd57ea476f4698c
+  darwin_amd64: 431c45dd52bc4491321fdd17e420cfcab8c70e0854873aee1104f2296177a792
+  linux_amd64: aaacb56f12774ee2064e0993afad66d2bce90846b22d834bfd91ecff2b61bd6a
+  linux_arm64: 778b21f4a0da7c8f5bce15877479198bb03cb37c81b9682af06907773178bce8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - freetype
+  - freexl
+  - geos
+  - giflib
+  - jpeg-turbo
+  - libgeotiff
+  - libpng
+  - librttopo
+  - libspatialite
+  - libtiff
+  - libxml2
+  - lz4
+  - minizip
+  - openjpeg
+  - pixman
+  - proj
+  - sqlite
+  - webp
+  - xz
+  - zstd

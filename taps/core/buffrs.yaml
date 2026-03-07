@@ -1,0 +1,19 @@
+name: buffrs
+version: 0.12.2
+description: Modern protobuf package management
+homepage: https://github.com/helsing-ai/buffrs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/buffrs/blobs/sha256:4db6820defc461043f1373a50165f5eaba8210aef848836664002239620ca283
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/buffrs/blobs/sha256:55dc45ead5d123644d6c069e8a7fc4cf5432edcf6aa819af8eee455691e17a28
+  linux_amd64: https://ghcr.io/v2/homebrew/core/buffrs/blobs/sha256:9004d123f0bcf9188e670f8e723da3a981451605af415aa6779d4ae449141728
+  linux_arm64: https://ghcr.io/v2/homebrew/core/buffrs/blobs/sha256:94331fda981f08d60b941ea0dfa324ea9bcee66dcb7d026db1ab3de8662f5341
+sha256:
+  darwin_arm64: 4db6820defc461043f1373a50165f5eaba8210aef848836664002239620ca283
+  darwin_amd64: 55dc45ead5d123644d6c069e8a7fc4cf5432edcf6aa819af8eee455691e17a28
+  linux_amd64: 9004d123f0bcf9188e670f8e723da3a981451605af415aa6779d4ae449141728
+  linux_arm64: 94331fda981f08d60b941ea0dfa324ea9bcee66dcb7d026db1ab3de8662f5341
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

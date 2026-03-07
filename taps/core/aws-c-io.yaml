@@ -1,0 +1,22 @@
+name: aws-c-io
+version: 0.26.1
+description: Event driven framework for implementing application protocols
+homepage: https://github.com/awslabs/aws-c-io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-c-io/blobs/sha256:cc12f673bff8e14b9028ba9dd5d63f3569e18504b73b011bdcd5c1360fd9e632
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-c-io/blobs/sha256:798efa5bf8d2e5665091cc786d9be22517645b1c7e3962e5d2a84d2010fd012a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-c-io/blobs/sha256:34e2da3546cdf4ee4a322be2077de0a1606765109e8c765c2b1ef1d7495024c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-c-io/blobs/sha256:8e379afae8bbe78246c0731c24fa683d2d72d5ee29c1e44c8fa8b6be087c0b77
+sha256:
+  darwin_arm64: cc12f673bff8e14b9028ba9dd5d63f3569e18504b73b011bdcd5c1360fd9e632
+  darwin_amd64: 798efa5bf8d2e5665091cc786d9be22517645b1c7e3962e5d2a84d2010fd012a
+  linux_amd64: 34e2da3546cdf4ee4a322be2077de0a1606765109e8c765c2b1ef1d7495024c8
+  linux_arm64: 8e379afae8bbe78246c0731c24fa683d2d72d5ee29c1e44c8fa8b6be087c0b77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aws-c-cal
+  - aws-c-common

@@ -1,0 +1,11 @@
+name: dolphin
+version: 2512
+description: Emulator to play GameCube and Wii games
+homepage: https://dolphin-emu.org/
+url:
+  darwin_arm64: https://dl.dolphin-emu.org/releases/2512/dolphin-2512-universal.dmg
+sha256:
+  darwin_arm64: a1e08343369c12a8497b7b0c3717083d719312683469711f251686ce41b5f75e
+artifacts:
+  app:
+    - Dolphin.app

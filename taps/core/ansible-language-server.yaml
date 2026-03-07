@@ -1,0 +1,21 @@
+name: ansible-language-server
+version: 1.2.3
+description: Language Server for Ansible Files
+homepage: https://github.com/ansible/vscode-ansible
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansible-language-server/blobs/sha256:55e9dfc3173ac49bd6499e5186f4483a79f448141bf3933a5248a6a3169b76c5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansible-language-server/blobs/sha256:b926dc5d1e4e44a5718cf6d462c3902d8001208d4e3f28f94ed71adbfc44748a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansible-language-server/blobs/sha256:8f51eb058ef24cd16f4f06e1a62b37aa801fa305a9be5ab816553250c07a9a07
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansible-language-server/blobs/sha256:69f366a23f834e990444cec8ccb7f0b7a17aa539cf8d54ba78523ba2dc13e400
+sha256:
+  darwin_arm64: 55e9dfc3173ac49bd6499e5186f4483a79f448141bf3933a5248a6a3169b76c5
+  darwin_amd64: b926dc5d1e4e44a5718cf6d462c3902d8001208d4e3f28f94ed71adbfc44748a
+  linux_amd64: 8f51eb058ef24cd16f4f06e1a62b37aa801fa305a9be5ab816553250c07a9a07
+  linux_arm64: 69f366a23f834e990444cec8ccb7f0b7a17aa539cf8d54ba78523ba2dc13e400
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

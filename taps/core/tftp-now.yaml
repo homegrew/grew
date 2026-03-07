@@ -1,0 +1,19 @@
+name: tftp-now
+version: 1.2.0
+description: Single-binary TFTP server and client that you can use right now
+homepage: https://github.com/puhitaku/tftp-now
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tftp-now/blobs/sha256:7ce9f2e42db06397ce68aece55bf85848ea8a08f253aafd0c0c2429435dc75e5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tftp-now/blobs/sha256:947f3f23f70ba7d0d6d60b0c3202c3d5c2126c210fdd55e352d1b7ce04b09aa9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tftp-now/blobs/sha256:ec7f9c6bb08da996dd10a5cbb1a098eff0b0d1e7d3987083fd3e6e8a77ceefd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tftp-now/blobs/sha256:c2a31bc87475ead93fbc73ea37eb25898209a46d51a1caf345698154b5420b7e
+sha256:
+  darwin_arm64: 7ce9f2e42db06397ce68aece55bf85848ea8a08f253aafd0c0c2429435dc75e5
+  darwin_amd64: 947f3f23f70ba7d0d6d60b0c3202c3d5c2126c210fdd55e352d1b7ce04b09aa9
+  linux_amd64: ec7f9c6bb08da996dd10a5cbb1a098eff0b0d1e7d3987083fd3e6e8a77ceefd0
+  linux_arm64: c2a31bc87475ead93fbc73ea37eb25898209a46d51a1caf345698154b5420b7e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

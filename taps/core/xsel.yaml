@@ -1,0 +1,21 @@
+name: xsel
+version: 1.2.1
+description: Command-line program for getting and setting the contents of the X selection
+homepage: https://www.vergenet.net/~conrad/software/xsel/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xsel/blobs/sha256:4b77e0f9695c3024acfae203e697084bd2dc38dedfa687df634a44edff53b570
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xsel/blobs/sha256:30b8b58e19c546b6719381fc5e24dbef2e8cc57d0e07c504b35e6f84b7e2879f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xsel/blobs/sha256:508a55a542e6d8fbc46e3d5b0356bab11270e898353dada474a76f6ea1369891
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xsel/blobs/sha256:13f84b482a58030b9f25ce9dc75bf06a10328963ea7a95eab43484e859ed4a1b
+sha256:
+  darwin_arm64: 4b77e0f9695c3024acfae203e697084bd2dc38dedfa687df634a44edff53b570
+  darwin_amd64: 30b8b58e19c546b6719381fc5e24dbef2e8cc57d0e07c504b35e6f84b7e2879f
+  linux_amd64: 508a55a542e6d8fbc46e3d5b0356bab11270e898353dada474a76f6ea1369891
+  linux_arm64: 13f84b482a58030b9f25ce9dc75bf06a10328963ea7a95eab43484e859ed4a1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11

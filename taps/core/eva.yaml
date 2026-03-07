@@ -1,0 +1,19 @@
+name: eva
+version: 0.3.1
+description: Calculator REPL, similar to bc(1)
+homepage: https://github.com/oppiliappan/eva/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eva/blobs/sha256:0e042caaa2bc756aa092a2a29655f08516836c8f945654bd2fe1c1876a6fa8e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eva/blobs/sha256:e75f9951f13b9b27818f838b59c870c2eea5ce55a827926c6da79b2942ac84a5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eva/blobs/sha256:b35ce00d707f0e3f494d1e4708ae37653472874166b3b7d8dec6bd7972085459
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eva/blobs/sha256:936591ea0016a4154b9f48a7b341639982e6c57b5f53562abc4f9c09366ff8d8
+sha256:
+  darwin_arm64: 0e042caaa2bc756aa092a2a29655f08516836c8f945654bd2fe1c1876a6fa8e2
+  darwin_amd64: e75f9951f13b9b27818f838b59c870c2eea5ce55a827926c6da79b2942ac84a5
+  linux_amd64: b35ce00d707f0e3f494d1e4708ae37653472874166b3b7d8dec6bd7972085459
+  linux_arm64: 936591ea0016a4154b9f48a7b341639982e6c57b5f53562abc4f9c09366ff8d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

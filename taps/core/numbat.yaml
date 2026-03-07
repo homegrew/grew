@@ -1,0 +1,19 @@
+name: numbat
+version: 1.23.0
+description: Statically typed programming language for scientific computations
+homepage: https://numbat.dev/
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/numbat/blobs/sha256:42efb059afe4151561edd4ca071bdebec12e1ad54ebff646cc9b3019fbcbfe57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/numbat/blobs/sha256:436601d4daa6f8d8bac24dda906ef04a621cfaaca1eced925b410d340988c976
+  linux_amd64: https://ghcr.io/v2/homebrew/core/numbat/blobs/sha256:1cf98475c54b7074d9b5b964e1640d3477bf4db053768680be189901ba78ee94
+  linux_arm64: https://ghcr.io/v2/homebrew/core/numbat/blobs/sha256:04be8a287921f3add7d40f7ab38bc97f22b0966dce8d6915f2e5934222ac36f9
+sha256:
+  darwin_arm64: 42efb059afe4151561edd4ca071bdebec12e1ad54ebff646cc9b3019fbcbfe57
+  darwin_amd64: 436601d4daa6f8d8bac24dda906ef04a621cfaaca1eced925b410d340988c976
+  linux_amd64: 1cf98475c54b7074d9b5b964e1640d3477bf4db053768680be189901ba78ee94
+  linux_arm64: 04be8a287921f3add7d40f7ab38bc97f22b0966dce8d6915f2e5934222ac36f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: gh
+version: 2.87.3
+description: GitHub command-line tool
+homepage: https://cli.github.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:f465a7d428d901fa3ab096e63cd1478807f7fff1ffa616e1a54c46ec594f4abd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:46a96667e23656328f7289b0e8548bfbd5a934226a953575d37beddcb7c60026
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:586b9d38ed7e7077f2cccf16cdff5864973ee211edf65c03a1815262c63900c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:0a4b0c9171b46c98392144a49ae8142e9199f20f5875d1751bd0fef6a3a8d4fd
+sha256:
+  darwin_arm64: f465a7d428d901fa3ab096e63cd1478807f7fff1ffa616e1a54c46ec594f4abd
+  darwin_amd64: 46a96667e23656328f7289b0e8548bfbd5a934226a953575d37beddcb7c60026
+  linux_amd64: 586b9d38ed7e7077f2cccf16cdff5864973ee211edf65c03a1815262c63900c8
+  linux_arm64: 0a4b0c9171b46c98392144a49ae8142e9199f20f5875d1751bd0fef6a3a8d4fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

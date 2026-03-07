@@ -1,0 +1,19 @@
+name: cagent
+version: 1.29.0
+description: Agent Builder and Runtime by Docker Engineering
+homepage: https://github.com/docker/cagent
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cagent/blobs/sha256:38424309950ff3482a3de1d6db74625daad9ee85bfcc17619fa2d1cbfb8ad676
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cagent/blobs/sha256:07c0e8b0e9267e9d0bd476a63148ff0bf3bfe2c32a1c4fc0c6f96e486e320f05
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cagent/blobs/sha256:18708e76a7436f2891d55441b042ad60c5ebf9dba3e72eba1718d740be796596
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cagent/blobs/sha256:7ed0d56e178988e993e7f5c3ba31e4bce0cbb48ee1f011d3d6fbf3ce36e18037
+sha256:
+  darwin_arm64: 38424309950ff3482a3de1d6db74625daad9ee85bfcc17619fa2d1cbfb8ad676
+  darwin_amd64: 07c0e8b0e9267e9d0bd476a63148ff0bf3bfe2c32a1c4fc0c6f96e486e320f05
+  linux_amd64: 18708e76a7436f2891d55441b042ad60c5ebf9dba3e72eba1718d740be796596
+  linux_arm64: 7ed0d56e178988e993e7f5c3ba31e4bce0cbb48ee1f011d3d6fbf3ce36e18037
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,11 @@
+name: macsyzones
+version: 2.2
+description: Window management utility
+homepage: https://macsyzones.com/
+url:
+  darwin_arm64: https://github.com/rohanrhu/MacsyZones/releases/download/v2.2/MacsyZones.zip
+sha256:
+  darwin_arm64: 2103823fe6b5185074e7a3abdd0cb49ecfca6fdea4916b6e98cea3f3a055e9ca
+artifacts:
+  app:
+    - MacsyZones.app

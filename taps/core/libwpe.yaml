@@ -1,0 +1,18 @@
+name: libwpe
+version: 1.16.3
+description: General-purpose library for WPE WebKit
+homepage: https://wpewebkit.org/
+license: BSD-2-Clause
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libwpe/blobs/sha256:e9adaa0604d9498c7fe4401bc9d8c482f4840155f5d107e04e8014c2249289ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libwpe/blobs/sha256:509848541dbc05034cdce7e67cb1d06105ee409094296f46a98d286def80ffbb
+sha256:
+  linux_amd64: e9adaa0604d9498c7fe4401bc9d8c482f4840155f5d107e04e8014c2249289ab
+  linux_arm64: 509848541dbc05034cdce7e67cb1d06105ee409094296f46a98d286def80ffbb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libxkbcommon
+  - mesa

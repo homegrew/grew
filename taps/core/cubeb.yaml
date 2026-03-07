@@ -1,0 +1,19 @@
+name: cubeb
+version: 0.2
+description: Cross-platform audio library
+homepage: https://github.com/mozilla/cubeb
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cubeb/blobs/sha256:527ff86b71c3491f320043c8143e5c52542fc498577a31dbede4c285bb3ed639
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cubeb/blobs/sha256:f209a91dc7b5b2bfbc35abce746a13a921301638b8dfa819845ca21387c4b17b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cubeb/blobs/sha256:9d67a504265f1431f6a44b2d28d235ce3f565e4872bed9e2e26ef6d7ee9b6e41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cubeb/blobs/sha256:77b3bb04b39d06f00b3e2fc82d5cb29b4d4d370655fda6e9d1654841b429024f
+sha256:
+  darwin_arm64: 527ff86b71c3491f320043c8143e5c52542fc498577a31dbede4c285bb3ed639
+  darwin_amd64: f209a91dc7b5b2bfbc35abce746a13a921301638b8dfa819845ca21387c4b17b
+  linux_amd64: 9d67a504265f1431f6a44b2d28d235ce3f565e4872bed9e2e26ef6d7ee9b6e41
+  linux_arm64: 77b3bb04b39d06f00b3e2fc82d5cb29b4d4d370655fda6e9d1654841b429024f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

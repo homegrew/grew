@@ -1,0 +1,21 @@
+name: codanna
+version: 0.9.14
+description: Code intelligence system with semantic search
+homepage: https://github.com/bartolli/codanna
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codanna/blobs/sha256:095aa93118a1523b51121933b5b606abfcae2a6a7b01436abda5963376c5ce77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codanna/blobs/sha256:2c807bab155fd312d9352580670307ba82ac8ad42ec12b74e4a6c233d2b2e524
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codanna/blobs/sha256:f64c0fc585d2fb2b22fbd7fc58a721c51fa8c2110f2938e01a30ac5d0672a4af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codanna/blobs/sha256:27a78210965a49967967530e1c05c3812531becc813cd1362a5ee01ed90ef525
+sha256:
+  darwin_arm64: 095aa93118a1523b51121933b5b606abfcae2a6a7b01436abda5963376c5ce77
+  darwin_amd64: 2c807bab155fd312d9352580670307ba82ac8ad42ec12b74e4a6c233d2b2e524
+  linux_amd64: f64c0fc585d2fb2b22fbd7fc58a721c51fa8c2110f2938e01a30ac5d0672a4af
+  linux_arm64: 27a78210965a49967967530e1c05c3812531becc813cd1362a5ee01ed90ef525
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

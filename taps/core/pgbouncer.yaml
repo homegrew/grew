@@ -1,0 +1,22 @@
+name: pgbouncer
+version: 1.25.1
+description: Lightweight connection pooler for PostgreSQL
+homepage: https://www.pgbouncer.org/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgbouncer/blobs/sha256:f5a3fc3c60b6965b84c3726d7a2ba38abc650ccbe07a57c96de83d9b6fd330d1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgbouncer/blobs/sha256:ca92fc4e84e84654b20e3696eedf19fc5ef394cae7ce74ffe111a43317eb90e7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgbouncer/blobs/sha256:8f8526ad5bf46f76b9b8821dd240a512452a1502020dee3ad3d0c1a7c5f99e11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgbouncer/blobs/sha256:5a4786998a1c81f0a7f5080626e4133800cc8f013431e9c3e350040c15db6f87
+sha256:
+  darwin_arm64: f5a3fc3c60b6965b84c3726d7a2ba38abc650ccbe07a57c96de83d9b6fd330d1
+  darwin_amd64: ca92fc4e84e84654b20e3696eedf19fc5ef394cae7ce74ffe111a43317eb90e7
+  linux_amd64: 8f8526ad5bf46f76b9b8821dd240a512452a1502020dee3ad3d0c1a7c5f99e11
+  linux_arm64: 5a4786998a1c81f0a7f5080626e4133800cc8f013431e9c3e350040c15db6f87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - openssl@3

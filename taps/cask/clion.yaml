@@ -1,0 +1,13 @@
+name: clion
+version: 2025.3.3,253.31033.134
+description: C and C++ IDE
+homepage: https://www.jetbrains.com/clion/
+url:
+  darwin_arm64: https://download.jetbrains.com/cpp/CLion-2025.3.3-aarch64.dmg
+sha256:
+  darwin_arm64: 13cd1a1c713b25979ea61d5660ba1c601bbf0aa82579e152e6a71bceeb1e491a
+artifacts:
+  app:
+    - CLion.app
+  bin:
+    - clion

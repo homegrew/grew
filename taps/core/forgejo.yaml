@@ -1,0 +1,19 @@
+name: forgejo
+version: 14.0.2
+description: Self-hosted lightweight software forge
+homepage: https://forgejo.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/forgejo/blobs/sha256:44c47345ef6f7726bd6a3fd5bbb20bff6d71073d0c7f51e9ce6b17a51bfce371
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/forgejo/blobs/sha256:df7d9c8a567e6fb709191fdfd2cffaaec55c5b735cdac5e760aed761372ec2a9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/forgejo/blobs/sha256:9581e7de1727dcad367ccad4e66c6b5a3655c3f23f0f62e643a4361c0342de44
+  linux_arm64: https://ghcr.io/v2/homebrew/core/forgejo/blobs/sha256:5f120653aead7feda5eb423de222f8164a010c2d444f46e4742a80e9da1f1c1a
+sha256:
+  darwin_arm64: 44c47345ef6f7726bd6a3fd5bbb20bff6d71073d0c7f51e9ce6b17a51bfce371
+  darwin_amd64: df7d9c8a567e6fb709191fdfd2cffaaec55c5b735cdac5e760aed761372ec2a9
+  linux_amd64: 9581e7de1727dcad367ccad4e66c6b5a3655c3f23f0f62e643a4361c0342de44
+  linux_arm64: 5f120653aead7feda5eb423de222f8164a010c2d444f46e4742a80e9da1f1c1a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

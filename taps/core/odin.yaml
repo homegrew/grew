@@ -1,0 +1,24 @@
+name: odin
+version: 2026-03
+description: Programming language with focus on simplicity, performance and modern systems
+homepage: https://odin-lang.org/
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odin/blobs/sha256:2432901ed4cb2745f97a7618322b1b33fb516def8d3bf0a8046d8477818256fe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odin/blobs/sha256:73fb5688190b00eab33c36b2af4daf09b1aed50df69c9d39880ea2be5f35f71b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odin/blobs/sha256:fe81ac4b5a9e97890e3a95cd386ddd120a46fe9ea3ecf1c382c3c8614c901d27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odin/blobs/sha256:001bc271f15ba3987d90372f298598e02d13e911a6cca1fd9ce7cf11fe1f151f
+sha256:
+  darwin_arm64: 2432901ed4cb2745f97a7618322b1b33fb516def8d3bf0a8046d8477818256fe
+  darwin_amd64: 73fb5688190b00eab33c36b2af4daf09b1aed50df69c9d39880ea2be5f35f71b
+  linux_amd64: fe81ac4b5a9e97890e3a95cd386ddd120a46fe9ea3ecf1c382c3c8614c901d27
+  linux_arm64: 001bc271f15ba3987d90372f298598e02d13e911a6cca1fd9ce7cf11fe1f151f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glfw
+  - lld@21
+  - llvm@21
+  - raylib

@@ -1,0 +1,21 @@
+name: fpm
+version: 0.13.0
+description: Package manager and build system for Fortran
+homepage: https://fpm.fortran-lang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fpm/blobs/sha256:d0c8a9c7bd941113f3a9c1ef903ecbbaad3fbda64a5630b8154a25f5f26016cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fpm/blobs/sha256:366015d4ab1c22e54af50f331493f6080b6bba360ce1249c1afece58b5dc89ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fpm/blobs/sha256:f029da9b65ee287ff32fda194c4fee087cfe3b1e4f09cc04b0aa7044c6fb14b4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fpm/blobs/sha256:893905a199b85d91ec31f1f26c85d969aa65ae984d89aeb0c44662c7ae1205f6
+sha256:
+  darwin_arm64: d0c8a9c7bd941113f3a9c1ef903ecbbaad3fbda64a5630b8154a25f5f26016cf
+  darwin_amd64: 366015d4ab1c22e54af50f331493f6080b6bba360ce1249c1afece58b5dc89ed
+  linux_amd64: f029da9b65ee287ff32fda194c4fee087cfe3b1e4f09cc04b0aa7044c6fb14b4
+  linux_arm64: 893905a199b85d91ec31f1f26c85d969aa65ae984d89aeb0c44662c7ae1205f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

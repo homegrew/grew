@@ -1,0 +1,22 @@
+name: lbdb
+version: 0.57
+description: "Little brother's database for the mutt mail reader"
+homepage: https://www.spinnaker.de/lbdb/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lbdb/blobs/sha256:b2120f8513be26847edc720538c984096ce0db0e578e72861da8bfe24e901193
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lbdb/blobs/sha256:95f58929f611fb23c2760e602fa24bd697ee4143806cf288997d15af850645fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lbdb/blobs/sha256:141c0b2ca83409c152474550675f2e8da9ff5989855141abcba1a782c1fd0d7e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lbdb/blobs/sha256:a6e4f84e4507fc2466f448de00796e0b094fdebd9e1293186d44ce99427b680c
+sha256:
+  darwin_arm64: b2120f8513be26847edc720538c984096ce0db0e578e72861da8bfe24e901193
+  darwin_amd64: 95f58929f611fb23c2760e602fa24bd697ee4143806cf288997d15af850645fa
+  linux_amd64: 141c0b2ca83409c152474550675f2e8da9ff5989855141abcba1a782c1fd0d7e
+  linux_arm64: a6e4f84e4507fc2466f448de00796e0b094fdebd9e1293186d44ce99427b680c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abook
+  - khard

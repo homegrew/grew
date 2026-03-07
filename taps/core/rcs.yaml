@@ -1,0 +1,19 @@
+name: rcs
+version: 5.10.1
+description: GNU revision control system
+homepage: https://www.gnu.org/software/rcs/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rcs/blobs/sha256:300e27fe13d2279ed6fa2fd5d06fdf4369311b86818229df6285086e8a46cb52
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rcs/blobs/sha256:0bf006b8c2137100fd45092c3465ff9a3938e5f864a3c4e8186ca70d922f1d6a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rcs/blobs/sha256:5bd4d79803732fe588d5cacf620d6e9216002d5d93acf6f0798a225174e2db28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rcs/blobs/sha256:ef51614aa19bd0fb8b3cd13203c4281f15ded280b2072023dbb7d2e003f6ef4e
+sha256:
+  darwin_arm64: 300e27fe13d2279ed6fa2fd5d06fdf4369311b86818229df6285086e8a46cb52
+  darwin_amd64: 0bf006b8c2137100fd45092c3465ff9a3938e5f864a3c4e8186ca70d922f1d6a
+  linux_amd64: 5bd4d79803732fe588d5cacf620d6e9216002d5d93acf6f0798a225174e2db28
+  linux_arm64: ef51614aa19bd0fb8b3cd13203c4281f15ded280b2072023dbb7d2e003f6ef4e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

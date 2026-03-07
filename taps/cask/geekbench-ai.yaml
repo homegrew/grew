@@ -1,0 +1,11 @@
+name: geekbench-ai
+version: 1.7.0
+description: Cross-platform AI benchmark to evaluate AI workload performance
+homepage: https://www.geekbench.com/ai/
+url:
+  darwin_arm64: https://cdn.geekbench.com/GeekbenchAI-1.7.0-Mac.zip
+sha256:
+  darwin_arm64: 04248377f5a6a9a268f8b84b9834f30b756943a352976e1414c6be1df932dc19
+artifacts:
+  app:
+    - Geekbench AI.app

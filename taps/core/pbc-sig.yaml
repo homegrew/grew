@@ -1,0 +1,22 @@
+name: pbc-sig
+version: 0.0.8
+description: Signatures library
+homepage: https://crypto.stanford.edu/pbc/sig/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pbc-sig/blobs/sha256:8440397e7b7310071d6ea7b5d9696d3f714e6b5cc0a49e87b9f2d8eb76d3959e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pbc-sig/blobs/sha256:0ee9c968c5718f7742607473b2284e92acaf032cf78bc4195d8fd48299d2c89f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pbc-sig/blobs/sha256:0c1de36643e895261969f7c184fabb031cc2eae412846409a778b21290670d45
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pbc-sig/blobs/sha256:aa052f077db5ddb6e5a54e6b3fa56e350ca6877f208b0636cd703e63de2307d3
+sha256:
+  darwin_arm64: 8440397e7b7310071d6ea7b5d9696d3f714e6b5cc0a49e87b9f2d8eb76d3959e
+  darwin_amd64: 0ee9c968c5718f7742607473b2284e92acaf032cf78bc4195d8fd48299d2c89f
+  linux_amd64: 0c1de36643e895261969f7c184fabb031cc2eae412846409a778b21290670d45
+  linux_arm64: aa052f077db5ddb6e5a54e6b3fa56e350ca6877f208b0636cd703e63de2307d3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - pbc

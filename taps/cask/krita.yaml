@@ -1,0 +1,11 @@
+name: krita
+version: 5.2.16
+description: Free and open-source painting and sketching program
+homepage: https://krita.org/
+url:
+  darwin_arm64: https://download.kde.org/stable/krita/5.2.16/krita-5.2.16-signed.dmg
+sha256:
+  darwin_arm64: f79c4ba538e5cff0b0ab59c559cf3613bb555d0857a384d6f63e8c305367cae0
+artifacts:
+  app:
+    - krita.app

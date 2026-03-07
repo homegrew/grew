@@ -1,0 +1,19 @@
+name: comtrya
+version: 0.9.2
+description: Configuration and dotfile management tool
+homepage: https://comtrya.dev
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/comtrya/blobs/sha256:d47418f399155160faedb236b13d882ae55200aa9cc211e4f5ad4c77013aec29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/comtrya/blobs/sha256:2beda410c50174b01333927b00eece60fc67fb8d88af2306497f6771b7327155
+  linux_amd64: https://ghcr.io/v2/homebrew/core/comtrya/blobs/sha256:7e52d28d153e028d22f1e74375a63f0bd43281bd6370f65cbe0d35305e79c4c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/comtrya/blobs/sha256:feefd9e00ca885fbb8b67fa3ad298ff77d90beb29f458780ed4f2e50e7882795
+sha256:
+  darwin_arm64: d47418f399155160faedb236b13d882ae55200aa9cc211e4f5ad4c77013aec29
+  darwin_amd64: 2beda410c50174b01333927b00eece60fc67fb8d88af2306497f6771b7327155
+  linux_amd64: 7e52d28d153e028d22f1e74375a63f0bd43281bd6370f65cbe0d35305e79c4c2
+  linux_arm64: feefd9e00ca885fbb8b67fa3ad298ff77d90beb29f458780ed4f2e50e7882795
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

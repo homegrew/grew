@@ -1,0 +1,21 @@
+name: xidel
+version: 0.9.8
+description: XPath/XQuery 3.0, JSONiq interpreter to extract data from HTML/XML/JSON
+homepage: https://www.videlibri.de/xidel.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xidel/blobs/sha256:ab0881d178eb07b3b22246dea5ded4a0c5380084001b85a602aa38cbadd6e8b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xidel/blobs/sha256:94a17492216d780afa50e763dd25057985439cbbbf28363fe1b9a1444becbdd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xidel/blobs/sha256:9a486375fd54f408102f37ffc3071fa806d318b56cdb03d6d0eeecc9f45f0b32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xidel/blobs/sha256:da15ea47a8f2f01ecd1bbfdbbf0d29f44e8fe68093c78df36b1dab3ba08adc98
+sha256:
+  darwin_arm64: ab0881d178eb07b3b22246dea5ded4a0c5380084001b85a602aa38cbadd6e8b5
+  darwin_amd64: 94a17492216d780afa50e763dd25057985439cbbbf28363fe1b9a1444becbdd7
+  linux_amd64: 9a486375fd54f408102f37ffc3071fa806d318b56cdb03d6d0eeecc9f45f0b32
+  linux_arm64: da15ea47a8f2f01ecd1bbfdbbf0d29f44e8fe68093c78df36b1dab3ba08adc98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

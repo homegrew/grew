@@ -1,0 +1,15 @@
+name: libmnl
+version: 1.0.5
+description: Minimalistic user-space library oriented to Netlink developers
+homepage: https://www.netfilter.org/projects/libmnl
+license: LGPL-2.1-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmnl/blobs/sha256:7dc8eaa75b820802be23b7ba7a95e3fe7b4788b0ec8f2d1f1f8180dea1a7daa4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmnl/blobs/sha256:a2f88b9fc807bcdbc77da6579b9937d9c993a637187f1b98c85b82ef6d2f5c98
+sha256:
+  linux_amd64: 7dc8eaa75b820802be23b7ba7a95e3fe7b4788b0ec8f2d1f1f8180dea1a7daa4
+  linux_arm64: a2f88b9fc807bcdbc77da6579b9937d9c993a637187f1b98c85b82ef6d2f5c98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

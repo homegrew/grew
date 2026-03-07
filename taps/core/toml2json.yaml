@@ -1,0 +1,19 @@
+name: toml2json
+version: 1.4.0
+description: Convert TOML to JSON
+homepage: https://github.com/woodruffw/toml2json
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toml2json/blobs/sha256:e7b2b0427521ab532a532e7c79660a039ab61e4d25d40b110accec10b997e4d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toml2json/blobs/sha256:b9ccb30451c3fee454908111290d7b20c7213ec146e1c7152e5e975a40f78b96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toml2json/blobs/sha256:786b289aec4e5444f47921cdece21b0688c8915c99fd985b70b72e2cbe123323
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toml2json/blobs/sha256:6b4499857996bd712c846e7850c8ad38ffc013b633ab9e160c191bcd0f1383e6
+sha256:
+  darwin_arm64: e7b2b0427521ab532a532e7c79660a039ab61e4d25d40b110accec10b997e4d3
+  darwin_amd64: b9ccb30451c3fee454908111290d7b20c7213ec146e1c7152e5e975a40f78b96
+  linux_amd64: 786b289aec4e5444f47921cdece21b0688c8915c99fd985b70b72e2cbe123323
+  linux_arm64: 6b4499857996bd712c846e7850c8ad38ffc013b633ab9e160c191bcd0f1383e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

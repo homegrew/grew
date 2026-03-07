@@ -1,0 +1,17 @@
+name: afuse
+version: 0.5.0
+description: Automounting file system implemented in userspace with FUSE
+homepage: https://github.com/pcarrier/afuse/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/afuse/blobs/sha256:2d36270c3d62319e03cf6f11756308f5a1f1daef36cebb7ef19376a795002014
+  linux_arm64: https://ghcr.io/v2/homebrew/core/afuse/blobs/sha256:22032cf3dd5fe4a2aa623d7bc1f542eebd796f749a63e62907bf1006b2f42d26
+sha256:
+  linux_amd64: 2d36270c3d62319e03cf6f11756308f5a1f1daef36cebb7ef19376a795002014
+  linux_arm64: 22032cf3dd5fe4a2aa623d7bc1f542eebd796f749a63e62907bf1006b2f42d26
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libfuse@2

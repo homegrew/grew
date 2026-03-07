@@ -1,0 +1,19 @@
+name: vedic
+version: 2.0.6
+description: Simple Sanskrit programming language
+homepage: https://vedic-lang.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vedic/blobs/sha256:56502244e08e30a3a86559996431cd27db1959096e6b465c56c793c2495ebd23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vedic/blobs/sha256:a852103a96ff00273820b27230d0f482cf1690978c2f6587b1f7f778a343c4f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vedic/blobs/sha256:2334b13281923d5c4f0964b6ce0ea51e8770866304de94b76e6de92d200566e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vedic/blobs/sha256:1ea67bafadca41308429cc2ffa531885f65a4ce2eb6dc373148f87a8c00356e1
+sha256:
+  darwin_arm64: 56502244e08e30a3a86559996431cd27db1959096e6b465c56c793c2495ebd23
+  darwin_amd64: a852103a96ff00273820b27230d0f482cf1690978c2f6587b1f7f778a343c4f4
+  linux_amd64: 2334b13281923d5c4f0964b6ce0ea51e8770866304de94b76e6de92d200566e9
+  linux_arm64: 1ea67bafadca41308429cc2ffa531885f65a4ce2eb6dc373148f87a8c00356e1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

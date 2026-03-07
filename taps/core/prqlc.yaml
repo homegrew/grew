@@ -1,0 +1,19 @@
+name: prqlc
+version: 0.13.10
+description: Simple, powerful, pipelined SQL replacement
+homepage: https://prql-lang.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/prqlc/blobs/sha256:dcb91072733b283682b4c9d3dca802ecec5ad33935f54092184d2c496e3ba3c1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/prqlc/blobs/sha256:17c8d48e115b06614e4e417a4d2b8635f08fde0544ad663703c7faeeb881a7db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/prqlc/blobs/sha256:2cf210eb5b1b31dcad620de55f4247bd6b149a5c79b84507b88d55eb9cb0371c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/prqlc/blobs/sha256:25e37b1562abe783c7c255f61eed8530f74f0d75fb8a5710110ccd3f6494eaba
+sha256:
+  darwin_arm64: dcb91072733b283682b4c9d3dca802ecec5ad33935f54092184d2c496e3ba3c1
+  darwin_amd64: 17c8d48e115b06614e4e417a4d2b8635f08fde0544ad663703c7faeeb881a7db
+  linux_amd64: 2cf210eb5b1b31dcad620de55f4247bd6b149a5c79b84507b88d55eb9cb0371c
+  linux_arm64: 25e37b1562abe783c7c255f61eed8530f74f0d75fb8a5710110ccd3f6494eaba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: libxscrnsaver
+version: 1.2.5
+description: "X.Org: X11 Screen Saver extension client library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxscrnsaver/blobs/sha256:6097790285805d792860cbcf0bb663c76b58d51a57d505346b179e52e2f7ce7c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxscrnsaver/blobs/sha256:c28763bc9642f615b6aa7864a720dc4b1c6a66875cd23d984c7df896dd515837
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxscrnsaver/blobs/sha256:592204a7c4aa929e51c550213e52af404a62e1e83075d48daa93e8efb9a88e36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxscrnsaver/blobs/sha256:0c1321270199c8288dc9a1b946e542fe379cc1ca0ee5132d956b7ce6a7c33d0a
+sha256:
+  darwin_arm64: 6097790285805d792860cbcf0bb663c76b58d51a57d505346b179e52e2f7ce7c
+  darwin_amd64: c28763bc9642f615b6aa7864a720dc4b1c6a66875cd23d984c7df896dd515837
+  linux_amd64: 592204a7c4aa929e51c550213e52af404a62e1e83075d48daa93e8efb9a88e36
+  linux_arm64: 0c1321270199c8288dc9a1b946e542fe379cc1ca0ee5132d956b7ce6a7c33d0a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxext
+  - xorgproto

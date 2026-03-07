@@ -1,0 +1,11 @@
+name: simplex
+version: 6.4.8
+description: Messenger for SimpleX protocol
+homepage: https://simplex.chat/
+url:
+  darwin_arm64: https://github.com/simplex-chat/simplex-chat/releases/download/v6.4.8/simplex-desktop-macos-aarch64.dmg
+sha256:
+  darwin_arm64: d2e9b5756bb969513df918321a022a39e396dd5cbda8a288848eb73033e83822
+artifacts:
+  app:
+    - SimpleX.app

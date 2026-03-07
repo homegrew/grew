@@ -1,0 +1,11 @@
+name: synologyassistant
+version: 7.0.6,50085
+description: "Tool to manage Synology NAS's across a LAN"
+homepage: https://www.synology.com/
+url:
+  darwin_arm64: https://global.download.synology.com/download/Utility/Assistant/7.0.6-50085/Mac/synology-assistant-7.0.6-50085.dmg
+sha256:
+  darwin_arm64: b2bf2d6f1cb711cb136d6aba7927cd4c4efd9ab312a8556017c63702f1f856ad
+artifacts:
+  app:
+    - SynologyAssistant.app

@@ -1,0 +1,24 @@
+name: robot-framework
+version: 7.4.2
+description: Open source test framework for acceptance testing
+homepage: https://robotframework.org/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/robot-framework/blobs/sha256:12ce6dba6cc7c87a211ea936d2b3835f1d3322271ca0690d5667f6b8b88daa40
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/robot-framework/blobs/sha256:4be22444f24e37e8ca3c0c91846f9b4e609b7881b6b34858ebe3d2d873cd9b55
+  linux_amd64: https://ghcr.io/v2/homebrew/core/robot-framework/blobs/sha256:5d5dcb9a2dc9a5141aacd54ac1bfd8462cf38d9a2f72fa90a6ed33d9a4523bdb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/robot-framework/blobs/sha256:ca856fa051c0c60c8ef1343ed4b8967dc7153ae65161f6e093dd71e7fafd1da9
+sha256:
+  darwin_arm64: 12ce6dba6cc7c87a211ea936d2b3835f1d3322271ca0690d5667f6b8b88daa40
+  darwin_amd64: 4be22444f24e37e8ca3c0c91846f9b4e609b7881b6b34858ebe3d2d873cd9b55
+  linux_amd64: 5d5dcb9a2dc9a5141aacd54ac1bfd8462cf38d9a2f72fa90a6ed33d9a4523bdb
+  linux_arm64: ca856fa051c0c60c8ef1343ed4b8967dc7153ae65161f6e093dd71e7fafd1da9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - python@3.14

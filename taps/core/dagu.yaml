@@ -1,0 +1,19 @@
+name: dagu
+version: 2.1.3
+description: Lightweight and powerful workflow engine
+homepage: https://dagu.sh
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dagu/blobs/sha256:b084e3ddf55fbf5457b6327ac47c4df7908a34a43154a221a919a6a1e9ad3ba8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dagu/blobs/sha256:883edc18bd809f376dd3145cb337040b12977e83af3b2fdd7d2653e44d0056a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dagu/blobs/sha256:8439e8ada85d8921e967382ff6875785ff1cfc98841ec49ad16c224b21775e0a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dagu/blobs/sha256:58cdd781313d833b8273d4774b16652cfe0dee9ef6c09926497d02d65f37ebb3
+sha256:
+  darwin_arm64: b084e3ddf55fbf5457b6327ac47c4df7908a34a43154a221a919a6a1e9ad3ba8
+  darwin_amd64: 883edc18bd809f376dd3145cb337040b12977e83af3b2fdd7d2653e44d0056a2
+  linux_amd64: 8439e8ada85d8921e967382ff6875785ff1cfc98841ec49ad16c224b21775e0a
+  linux_arm64: 58cdd781313d833b8273d4774b16652cfe0dee9ef6c09926497d02d65f37ebb3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

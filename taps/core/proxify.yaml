@@ -1,0 +1,19 @@
+name: proxify
+version: 0.0.16
+description: Portable proxy for capturing, manipulating, and replaying HTTP/HTTPS traffic
+homepage: https://github.com/projectdiscovery/proxify
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proxify/blobs/sha256:0115217c88f10cfbdc76745ef04ae0d7f1d663cbd081d57b1fb1a4da7819fe68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proxify/blobs/sha256:d0b34a5b8faca1288c434e2181c24ad5770f8cbcc02cedb05f37fbe04442257c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/proxify/blobs/sha256:c6ae504f9d04fce697580389190a075d1707b2d658e6867cb12c5dc2e4c9d86e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/proxify/blobs/sha256:47ba9d44e07adf3fc672bcb94daf2e9d058ca432862206a9e115972af567c7ad
+sha256:
+  darwin_arm64: 0115217c88f10cfbdc76745ef04ae0d7f1d663cbd081d57b1fb1a4da7819fe68
+  darwin_amd64: d0b34a5b8faca1288c434e2181c24ad5770f8cbcc02cedb05f37fbe04442257c
+  linux_amd64: c6ae504f9d04fce697580389190a075d1707b2d658e6867cb12c5dc2e4c9d86e
+  linux_arm64: 47ba9d44e07adf3fc672bcb94daf2e9d058ca432862206a9e115972af567c7ad
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

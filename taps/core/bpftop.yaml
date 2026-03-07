@@ -1,0 +1,18 @@
+name: bpftop
+version: 0.7.1
+description: Dynamic real-time view of running eBPF programs
+homepage: https://github.com/Netflix/bpftop
+license: Apache-2.0
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bpftop/blobs/sha256:d7197ac182f69f14e56db0186dd7bf8d19a30d6778325c5fb9cc7d220e180d36
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bpftop/blobs/sha256:043595da3ab81238e91e928482e5dd660039b4e4dadfefbcc2a8f44a9f38291c
+sha256:
+  linux_amd64: d7197ac182f69f14e56db0186dd7bf8d19a30d6778325c5fb9cc7d220e180d36
+  linux_arm64: 043595da3ab81238e91e928482e5dd660039b4e4dadfefbcc2a8f44a9f38291c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - elfutils
+  - zlib-ng-compat

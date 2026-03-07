@@ -1,0 +1,19 @@
+name: cilium-cli
+version: 0.19.2
+description: "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
+homepage: https://cilium.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cilium-cli/blobs/sha256:54eba32d3d61fd60049204b95b7ff9af619c662b509a9c93b5678d499fb95bb6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cilium-cli/blobs/sha256:d6a2820b9d2f7624108d07036300e28994101eac65c5362cd21855d4a9c41ddc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cilium-cli/blobs/sha256:f690811ae700c1272ef28a56c8ccd973b7b163106ebd7ea1ae087b397432ae2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cilium-cli/blobs/sha256:4d1b32d342ea69ccfe10e83e9269a939eb38a1bd2ec6b850e08f0f2ec66fc1fb
+sha256:
+  darwin_arm64: 54eba32d3d61fd60049204b95b7ff9af619c662b509a9c93b5678d499fb95bb6
+  darwin_amd64: d6a2820b9d2f7624108d07036300e28994101eac65c5362cd21855d4a9c41ddc
+  linux_amd64: f690811ae700c1272ef28a56c8ccd973b7b163106ebd7ea1ae087b397432ae2d
+  linux_arm64: 4d1b32d342ea69ccfe10e83e9269a939eb38a1bd2ec6b850e08f0f2ec66fc1fb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

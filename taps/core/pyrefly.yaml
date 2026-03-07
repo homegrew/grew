@@ -1,0 +1,19 @@
+name: pyrefly
+version: 0.55.0
+description: Fast type checker and IDE for Python
+homepage: https://pyrefly.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pyrefly/blobs/sha256:cbd5d4c8438bfdc885115e9c70dc72fbdd75fcb34390c0fe803177c65e55b9fb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pyrefly/blobs/sha256:02550cb02f6e87e7c0cf4fae2a23d6ad5223967d553b48a6bbfec90749c0e9a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pyrefly/blobs/sha256:f40bc54511cfedce6b9dc9fa10dbcd22823080f60e70066d1dd547152b879df6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pyrefly/blobs/sha256:ea8fd7a09182af25d6294d192c3c31a2efe2a6d4da3ee2890ea6a0d15cde857a
+sha256:
+  darwin_arm64: cbd5d4c8438bfdc885115e9c70dc72fbdd75fcb34390c0fe803177c65e55b9fb
+  darwin_amd64: 02550cb02f6e87e7c0cf4fae2a23d6ad5223967d553b48a6bbfec90749c0e9a7
+  linux_amd64: f40bc54511cfedce6b9dc9fa10dbcd22823080f60e70066d1dd547152b879df6
+  linux_arm64: ea8fd7a09182af25d6294d192c3c31a2efe2a6d4da3ee2890ea6a0d15cde857a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

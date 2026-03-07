@@ -1,0 +1,37 @@
+name: vice
+version: 3.10
+description: Versatile Commodore Emulator
+homepage: https://sourceforge.net/projects/vice-emu/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vice/blobs/sha256:6418080055eb645bc56525d0d902c9df649addb24ff8cef9756c149e6cfdbb29
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vice/blobs/sha256:58fd2917eb22933c25ee8584e29972b2f6cf7b79f1a8acf050db0a570f6875f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vice/blobs/sha256:76eb6cfb7a1b879a8c6ee4fa2fdcfd72312d646b574262d8a48a1742fbb5c8b0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vice/blobs/sha256:1e99deba75899f6d0dfe9e4f0a85f3a8b1fecb983f6a4048c0c47f4aea7d82e3
+sha256:
+  darwin_arm64: 6418080055eb645bc56525d0d902c9df649addb24ff8cef9756c149e6cfdbb29
+  darwin_amd64: 58fd2917eb22933c25ee8584e29972b2f6cf7b79f1a8acf050db0a570f6875f3
+  linux_amd64: 76eb6cfb7a1b879a8c6ee4fa2fdcfd72312d646b574262d8a48a1742fbb5c8b0
+  linux_arm64: 1e99deba75899f6d0dfe9e4f0a85f3a8b1fecb983f6a4048c0c47f4aea7d82e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - at-spi2-core
+  - cairo
+  - flac
+  - gdk-pixbuf
+  - giflib
+  - glew
+  - glib
+  - gtk+3
+  - lame
+  - libogg
+  - libpng
+  - librsvg
+  - libvorbis
+  - pango
+  - gettext
+  - harfbuzz

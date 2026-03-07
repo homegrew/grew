@@ -1,0 +1,11 @@
+name: impactor
+version: 2.1.1
+description: Sideloading application for iOS/tvOS
+homepage: https://github.com/khcrysalis/Impactor/
+url:
+  darwin_arm64: https://github.com/khcrysalis/Impactor/releases/download/v2.1.1/Impactor-macos-universal.dmg
+sha256:
+  darwin_arm64: 99fc87c65a7b2a0b12cf90b8ddfeac83a4d2d86e7c5fc9791d3d441194feffdd
+artifacts:
+  app:
+    - Impactor.app

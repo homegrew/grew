@@ -1,0 +1,28 @@
+name: charmcraft
+version: 4.1.0
+description: Tool to build charms and publish them on Charmhub
+homepage: https://charmhub.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/charmcraft/blobs/sha256:d9ae45c8b2356f12e5a2b8415b865dbd1f9efe97c5b62442bcff03d28732ff4d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/charmcraft/blobs/sha256:3dd35ed9cb87f49192867538b58b7fac6b6c682ea22f136dfdae556dc9e89bb2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/charmcraft/blobs/sha256:6e855130fbc6a3e8b83bed0414de38c16e40ede334f2933f08804ce1f9774cb7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/charmcraft/blobs/sha256:1297ad5a4c42ad31332c508bcf39f1ce15abee53a98f02a19cf95dca0a4da222
+sha256:
+  darwin_arm64: d9ae45c8b2356f12e5a2b8415b865dbd1f9efe97c5b62442bcff03d28732ff4d
+  darwin_amd64: 3dd35ed9cb87f49192867538b58b7fac6b6c682ea22f136dfdae556dc9e89bb2
+  linux_amd64: 6e855130fbc6a3e8b83bed0414de38c16e40ede334f2933f08804ce1f9774cb7
+  linux_arm64: 1297ad5a4c42ad31332c508bcf39f1ce15abee53a98f02a19cf95dca0a4da222
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - libyaml
+  - pydantic
+  - pygit2
+  - python@3.13
+  - rpds-py

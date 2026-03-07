@@ -1,0 +1,21 @@
+name: sispmctl
+version: 4.12
+description: Control Gembird SIS-PM programmable power outlet strips
+homepage: https://sispmctl.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sispmctl/blobs/sha256:de0d97fb734c7e84c8cf6035079379103a41120cf72687594db4726f6185ea9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sispmctl/blobs/sha256:5654736aa9565141c0001e8899824850dd817b5e229714282e9cdd5911ac273d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sispmctl/blobs/sha256:db43f15862bbace1e2af6f17b257da7d3522011d82f00fa581d78fea1faa47db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sispmctl/blobs/sha256:e4c1c91aa8aa9aca6a6faac24a61b615251a38dbc5c081381fea98797e80c41c
+sha256:
+  darwin_arm64: de0d97fb734c7e84c8cf6035079379103a41120cf72687594db4726f6185ea9a
+  darwin_amd64: 5654736aa9565141c0001e8899824850dd817b5e229714282e9cdd5911ac273d
+  linux_amd64: db43f15862bbace1e2af6f17b257da7d3522011d82f00fa581d78fea1faa47db
+  linux_arm64: e4c1c91aa8aa9aca6a6faac24a61b615251a38dbc5c081381fea98797e80c41c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb-compat

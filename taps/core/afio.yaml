@@ -1,0 +1,19 @@
+name: afio
+version: 2.5.2
+description: Creates cpio-format archives
+homepage: https://github.com/kholtman/afio
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/afio/blobs/sha256:f5c6e7fd1928e44f9b105d46afbe6615590f0021e16ca4332c71122e913f06dd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/afio/blobs/sha256:450bd133db30e618eb5f538bf3f4c740c08f74abf26037356bd629148f20edde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/afio/blobs/sha256:93dee32378176bea139dadf874fed07b411076443fee3a7ff33c84eadfc7760d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/afio/blobs/sha256:8a697f6c0f0e1fd2b2fca0db9d4eacb4e12dbb0f82212fbe00947bca01c3eea6
+sha256:
+  darwin_arm64: f5c6e7fd1928e44f9b105d46afbe6615590f0021e16ca4332c71122e913f06dd
+  darwin_amd64: 450bd133db30e618eb5f538bf3f4c740c08f74abf26037356bd629148f20edde
+  linux_amd64: 93dee32378176bea139dadf874fed07b411076443fee3a7ff33c84eadfc7760d
+  linux_arm64: 8a697f6c0f0e1fd2b2fca0db9d4eacb4e12dbb0f82212fbe00947bca01c3eea6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

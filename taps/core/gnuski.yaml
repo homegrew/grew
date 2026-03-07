@@ -1,0 +1,19 @@
+name: gnuski
+version: 0.3
+description: Open source clone of Skifree
+homepage: https://gnuski.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnuski/blobs/sha256:f2302fda0228835c20f3158b0f0a8500c85d70d7fe58d698133da7ea792be282
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnuski/blobs/sha256:d9b89435f33712b5ed56358a193772deec06207b0c8808c2357ef913da5fad8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnuski/blobs/sha256:19ecc1577888f0186d9880b9048a0fa9e4bdf931d3f2710adf807419f7a64310
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnuski/blobs/sha256:29dd19f42af62052c1b1e543beac12ef5a3f04a6266dbddc0ca6ae5432835ef8
+sha256:
+  darwin_arm64: f2302fda0228835c20f3158b0f0a8500c85d70d7fe58d698133da7ea792be282
+  darwin_amd64: d9b89435f33712b5ed56358a193772deec06207b0c8808c2357ef913da5fad8d
+  linux_amd64: 19ecc1577888f0186d9880b9048a0fa9e4bdf931d3f2710adf807419f7a64310
+  linux_arm64: 29dd19f42af62052c1b1e543beac12ef5a3f04a6266dbddc0ca6ae5432835ef8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

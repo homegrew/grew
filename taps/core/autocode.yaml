@@ -1,0 +1,21 @@
+name: autocode
+version: 1.3.1
+description: Code automation for every language, library and framework
+homepage: https://autocode.readme.io/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/autocode/blobs/sha256:abf59dcf5fe4c66882ff2e33b395fd733f43b831e983592b530160dd3bb94c1e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/autocode/blobs/sha256:3dacf760cebe889c2c0bb16cf51ecd74c0ec96b51476282ae16ec96c1ef66953
+  linux_amd64: https://ghcr.io/v2/homebrew/core/autocode/blobs/sha256:186b5262fed77462a1b2407dbd2106ebf80f9e1c48fd56bf57549f6716156f96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/autocode/blobs/sha256:f1e4d0a241cbecda677088d390da59e754c90f1236a101c6b36e5d3df6d3fc77
+sha256:
+  darwin_arm64: abf59dcf5fe4c66882ff2e33b395fd733f43b831e983592b530160dd3bb94c1e
+  darwin_amd64: 3dacf760cebe889c2c0bb16cf51ecd74c0ec96b51476282ae16ec96c1ef66953
+  linux_amd64: 186b5262fed77462a1b2407dbd2106ebf80f9e1c48fd56bf57549f6716156f96
+  linux_arm64: f1e4d0a241cbecda677088d390da59e754c90f1236a101c6b36e5d3df6d3fc77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

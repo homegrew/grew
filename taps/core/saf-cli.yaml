@@ -1,0 +1,21 @@
+name: saf-cli
+version: 1.5.3
+description: CLI for the MITRE Security Automation Framework (SAF)
+homepage: https://saf-cli.mitre.org
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/saf-cli/blobs/sha256:bb6a66dcd99c42f7a4b41b8ba29b0f238a8739fb97f274a928bab10f4e2b6330
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/saf-cli/blobs/sha256:df259efaedd70c8aad2f4688005ff323796cc8ed83040e1d6e0a83bb261231a8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/saf-cli/blobs/sha256:ea21b9afc86a4951ec50b42930ae9aa472fecd2a899f1fb33e00a9255f962916
+  linux_arm64: https://ghcr.io/v2/homebrew/core/saf-cli/blobs/sha256:ea21b9afc86a4951ec50b42930ae9aa472fecd2a899f1fb33e00a9255f962916
+sha256:
+  darwin_arm64: bb6a66dcd99c42f7a4b41b8ba29b0f238a8739fb97f274a928bab10f4e2b6330
+  darwin_amd64: df259efaedd70c8aad2f4688005ff323796cc8ed83040e1d6e0a83bb261231a8
+  linux_amd64: ea21b9afc86a4951ec50b42930ae9aa472fecd2a899f1fb33e00a9255f962916
+  linux_arm64: ea21b9afc86a4951ec50b42930ae9aa472fecd2a899f1fb33e00a9255f962916
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

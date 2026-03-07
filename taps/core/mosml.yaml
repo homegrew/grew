@@ -1,0 +1,21 @@
+name: mosml
+version: 2.10.1
+description: Moscow ML
+homepage: https://mosml.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mosml/blobs/sha256:23b30d52a14bb794091e01411eb3ee9e69ad9fadfccb587f2a83cd0578536abb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mosml/blobs/sha256:4a3c5631a1b2156bfc5b890dfcbcca3c131f0f823834b9d6e50b8ce83d3d0e2b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mosml/blobs/sha256:42bf79793655431b313d4c547e7c9b6867b2f1695035005a15b8da6c0b25c416
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mosml/blobs/sha256:77e5df31a7aee4060619180f6d795ff2f1e1ce1e11983e5e22a5322a41362034
+sha256:
+  darwin_arm64: 23b30d52a14bb794091e01411eb3ee9e69ad9fadfccb587f2a83cd0578536abb
+  darwin_amd64: 4a3c5631a1b2156bfc5b890dfcbcca3c131f0f823834b9d6e50b8ce83d3d0e2b
+  linux_amd64: 42bf79793655431b313d4c547e7c9b6867b2f1695035005a15b8da6c0b25c416
+  linux_arm64: 77e5df31a7aee4060619180f6d795ff2f1e1ce1e11983e5e22a5322a41362034
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

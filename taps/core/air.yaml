@@ -1,0 +1,19 @@
+name: air
+version: 0.8.2
+description: Fast and opinionated formatter for R code
+homepage: https://github.com/posit-dev/air
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/air/blobs/sha256:1c031d79433c9bbe3ae1a5d99288f93cad4173f8ed6a0d81b176a4ac80b12f18
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/air/blobs/sha256:4aa3063dbc8583c6f1eb6df33a5f04e1693e06d09f2ef6e1901c93208944aae8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/air/blobs/sha256:de19ca752ba456db18de08e6d850b775734a10724ad93bd45d6e590638b697a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/air/blobs/sha256:c4339d1a841d0220bbff05edf68f3bfb93ff56cac92e4eba43152153ff54cb6d
+sha256:
+  darwin_arm64: 1c031d79433c9bbe3ae1a5d99288f93cad4173f8ed6a0d81b176a4ac80b12f18
+  darwin_amd64: 4aa3063dbc8583c6f1eb6df33a5f04e1693e06d09f2ef6e1901c93208944aae8
+  linux_amd64: de19ca752ba456db18de08e6d850b775734a10724ad93bd45d6e590638b697a1
+  linux_arm64: c4339d1a841d0220bbff05edf68f3bfb93ff56cac92e4eba43152153ff54cb6d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: lune
+version: 0.10.4
+description: Standalone Luau script runtime
+homepage: https://lune-org.github.io/docs
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lune/blobs/sha256:ecf1f37ac7dd78b1aabff316ac9b558ca85f692f4c5a6e2a7f814df1c0b0c9ca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lune/blobs/sha256:d76f0677aa4a5a49c75b865635043345ce784a943d58ff8e6765c5f4290a0106
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lune/blobs/sha256:2fe2d764d9a8461e9708528ae0f2899f68558a83eafb149211df8a78af61a0b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lune/blobs/sha256:0ca4209df72a72a008f0f3d0adb7e36afd3633d2cd19f02d3cf26a6d29412b7b
+sha256:
+  darwin_arm64: ecf1f37ac7dd78b1aabff316ac9b558ca85f692f4c5a6e2a7f814df1c0b0c9ca
+  darwin_amd64: d76f0677aa4a5a49c75b865635043345ce784a943d58ff8e6765c5f4290a0106
+  linux_amd64: 2fe2d764d9a8461e9708528ae0f2899f68558a83eafb149211df8a78af61a0b7
+  linux_arm64: 0ca4209df72a72a008f0f3d0adb7e36afd3633d2cd19f02d3cf26a6d29412b7b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

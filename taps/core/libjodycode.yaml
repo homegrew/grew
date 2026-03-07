@@ -1,0 +1,19 @@
+name: libjodycode
+version: 4.1.2
+description: Shared code used by several utilities written by Jody Bruchon
+homepage: https://codeberg.org/jbruchon/libjodycode
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libjodycode/blobs/sha256:cbf0084259a113c633054d13f127c2aadb4bb670a1016f020b92c21d9aa17ff2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libjodycode/blobs/sha256:982e433a5603a6b091b884171edab27a4df399a641c55db26f98bf393593f6cc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libjodycode/blobs/sha256:3f0585287d1de468c0e1f3ae89d22e78827f76c527baaed13424629c3d2e5ad0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libjodycode/blobs/sha256:b56b85c6feda4344b3b5609ff88f7391f48b9264dbbfbd3ad6ecc55038393060
+sha256:
+  darwin_arm64: cbf0084259a113c633054d13f127c2aadb4bb670a1016f020b92c21d9aa17ff2
+  darwin_amd64: 982e433a5603a6b091b884171edab27a4df399a641c55db26f98bf393593f6cc
+  linux_amd64: 3f0585287d1de468c0e1f3ae89d22e78827f76c527baaed13424629c3d2e5ad0
+  linux_arm64: b56b85c6feda4344b3b5609ff88f7391f48b9264dbbfbd3ad6ecc55038393060
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

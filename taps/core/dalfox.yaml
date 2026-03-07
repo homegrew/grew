@@ -1,0 +1,19 @@
+name: dalfox
+version: 2.12.0
+description: XSS scanner and utility focused on automation
+homepage: https://dalfox.hahwul.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dalfox/blobs/sha256:b9c0218ff805fd1927381e6368303cb0c7c094b6f24ffc35bcde5d7f91af597b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dalfox/blobs/sha256:b15343c0af3360b9928245305c51b58d9551c3064bcb3d9404d50cb44e06f3bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dalfox/blobs/sha256:5b9e95b6d2bf7f3512476fd112cef2ce22aa39b1c7e10249f0187f960e6140c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dalfox/blobs/sha256:c6a002ddfa96025c7693b1607b3d591d874651c89517eace68f1c7e9cae273a6
+sha256:
+  darwin_arm64: b9c0218ff805fd1927381e6368303cb0c7c094b6f24ffc35bcde5d7f91af597b
+  darwin_amd64: b15343c0af3360b9928245305c51b58d9551c3064bcb3d9404d50cb44e06f3bf
+  linux_amd64: 5b9e95b6d2bf7f3512476fd112cef2ce22aa39b1c7e10249f0187f960e6140c8
+  linux_arm64: c6a002ddfa96025c7693b1607b3d591d874651c89517eace68f1c7e9cae273a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

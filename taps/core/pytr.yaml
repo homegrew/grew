@@ -1,0 +1,22 @@
+name: pytr
+version: 0.4.6
+description: Use TradeRepublic in terminal and mass download all documents
+homepage: https://github.com/pytr-org/pytr
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pytr/blobs/sha256:3c7b4d2c397f423bc28e2be98795fa2ab587ebcd20720a4f06a45be94dc27524
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pytr/blobs/sha256:175931d734198f181f35ab6a3017664af84b306910cdb4328f60d8bd93bb37bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pytr/blobs/sha256:bce354acff62a70a06a4948ab2f443fefdfb8e9903948efab36a4cb79504da0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pytr/blobs/sha256:e48a5ae37a9299725b68b918361ca6c7bd52450bc85f3dea9539f335808d2904
+sha256:
+  darwin_arm64: 3c7b4d2c397f423bc28e2be98795fa2ab587ebcd20720a4f06a45be94dc27524
+  darwin_amd64: 175931d734198f181f35ab6a3017664af84b306910cdb4328f60d8bd93bb37bc
+  linux_amd64: bce354acff62a70a06a4948ab2f443fefdfb8e9903948efab36a4cb79504da0b
+  linux_arm64: e48a5ae37a9299725b68b918361ca6c7bd52450bc85f3dea9539f335808d2904
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

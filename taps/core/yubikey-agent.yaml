@@ -1,0 +1,19 @@
+name: yubikey-agent
+version: 0.1.6
+description: Seamless ssh-agent for YubiKeys and other PIV tokens
+homepage: https://github.com/FiloSottile/yubikey-agent
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yubikey-agent/blobs/sha256:13a582964b590f21b2fdd7c29ae6f76c2d598fc9a9e50e3f7e0086f6bb50fda1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yubikey-agent/blobs/sha256:554a94f134c4d2440a678a7a99d3cab10fa1956d1f07d9f3165572d907c6a6ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yubikey-agent/blobs/sha256:950ac75f5a78e63b0f9797db9f239f80269c785ad5bef591d470521bd7eddc28
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yubikey-agent/blobs/sha256:5151c4f4e1453cc1caca9fe4dd45361a6ffd88a0e5eb6005c248d5d8f1ae97a8
+sha256:
+  darwin_arm64: 13a582964b590f21b2fdd7c29ae6f76c2d598fc9a9e50e3f7e0086f6bb50fda1
+  darwin_amd64: 554a94f134c4d2440a678a7a99d3cab10fa1956d1f07d9f3165572d907c6a6ea
+  linux_amd64: 950ac75f5a78e63b0f9797db9f239f80269c785ad5bef591d470521bd7eddc28
+  linux_arm64: 5151c4f4e1453cc1caca9fe4dd45361a6ffd88a0e5eb6005c248d5d8f1ae97a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

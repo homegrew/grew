@@ -1,0 +1,26 @@
+name: vim
+version: 9.2.0100
+description: "Vi 'workalike' with many additional features"
+homepage: https://www.vim.org/
+license: Vim
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vim/blobs/sha256:c6549b3ee92c0e1501d1bdaaec0fe1f3b81b7ad9a08f8af2bfd4e60a98e130ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vim/blobs/sha256:f7465509d2b837dc611c507e8ed5d550c4101c4f413b6b8d0acfa4b25fd9a6ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vim/blobs/sha256:dae43f6d823e90481aacf24a1bccc1ce7a5016813d85daae120a85f31077cbb1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vim/blobs/sha256:f96f2aa54d3620a49e192353b0d90ab35a96b192a906c48f477ab46b06cfc1f9
+sha256:
+  darwin_arm64: c6549b3ee92c0e1501d1bdaaec0fe1f3b81b7ad9a08f8af2bfd4e60a98e130ab
+  darwin_amd64: f7465509d2b837dc611c507e8ed5d550c4101c4f413b6b8d0acfa4b25fd9a6ec
+  linux_amd64: dae43f6d823e90481aacf24a1bccc1ce7a5016813d85daae120a85f31077cbb1
+  linux_arm64: f96f2aa54d3620a49e192353b0d90ab35a96b192a906c48f477ab46b06cfc1f9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libsodium
+  - lua
+  - ncurses
+  - python@3.14
+  - ruby
+  - gettext

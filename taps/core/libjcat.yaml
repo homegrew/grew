@@ -1,0 +1,25 @@
+name: libjcat
+version: 0.2.5
+description: Library for reading Jcat files
+homepage: https://github.com/hughsie/libjcat
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libjcat/blobs/sha256:0baedc0d4357dc676085ec9449b47d4c7bc06c814c18fe11f21f4572e553b8bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libjcat/blobs/sha256:70104120fd7cb51fe52f6ed5adca2e7be13054365e3e50f9a477e9bdaa3a6131
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libjcat/blobs/sha256:43b49473aa79a0759f80a68e8f7a16385a9ea8d0af6a52ef49fbb108f3aac975
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libjcat/blobs/sha256:590462d8ddf82053ddf556eb2e543148da9451602a2c390d95d32b635040cbb5
+sha256:
+  darwin_arm64: 0baedc0d4357dc676085ec9449b47d4c7bc06c814c18fe11f21f4572e553b8bc
+  darwin_amd64: 70104120fd7cb51fe52f6ed5adca2e7be13054365e3e50f9a477e9bdaa3a6131
+  linux_amd64: 43b49473aa79a0759f80a68e8f7a16385a9ea8d0af6a52ef49fbb108f3aac975
+  linux_arm64: 590462d8ddf82053ddf556eb2e543148da9451602a2c390d95d32b635040cbb5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - gnutls
+  - json-glib
+  - nettle
+  - gettext

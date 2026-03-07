@@ -1,0 +1,21 @@
+name: shared-mime-info
+version: 2.4
+description: Database of common MIME types
+homepage: https://wiki.freedesktop.org/www/Software/shared-mime-info
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shared-mime-info/blobs/sha256:fa674742c5c404fb7265f93a797e483c3ddec4a405180c467d73ffa3a4c2ad86
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shared-mime-info/blobs/sha256:b5060956f4a630be979756cd6a331c223d6537951ee60d925f5e756ad15a1cdb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shared-mime-info/blobs/sha256:fa1730cfb12535854fbbefeadec508fc4d066b8284b17ed3e89be9405ab8ddc2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shared-mime-info/blobs/sha256:a1d39e8208f92717cee852ccc2f2fede36477a6e35bad0c95d2473989c789262
+sha256:
+  darwin_arm64: fa674742c5c404fb7265f93a797e483c3ddec4a405180c467d73ffa3a4c2ad86
+  darwin_amd64: b5060956f4a630be979756cd6a331c223d6537951ee60d925f5e756ad15a1cdb
+  linux_amd64: fa1730cfb12535854fbbefeadec508fc4d066b8284b17ed3e89be9405ab8ddc2
+  linux_arm64: a1d39e8208f92717cee852ccc2f2fede36477a6e35bad0c95d2473989c789262
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

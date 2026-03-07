@@ -1,0 +1,23 @@
+name: locust
+version: 2.43.3
+description: Scalable user load testing tool written in Python
+homepage: https://locust.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/locust/blobs/sha256:ce7dbb22d73f67cafd95d355663dfedd816072e33fe8c1b512000a3b9e6146c4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/locust/blobs/sha256:47b519f06fdae811aab033290efc025305bbdf7fb0fff1c4420bdde791a2d1af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/locust/blobs/sha256:abb8ffc0ff6d4aae302076cd09367e5d1cb91dcb9edbfa5b185f65685fe6773f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/locust/blobs/sha256:957fb45cd22c7c92217e3fa7e5df2b96b1a9ca1f962827b75b61d05aa98f1000
+sha256:
+  darwin_arm64: ce7dbb22d73f67cafd95d355663dfedd816072e33fe8c1b512000a3b9e6146c4
+  darwin_amd64: 47b519f06fdae811aab033290efc025305bbdf7fb0fff1c4420bdde791a2d1af
+  linux_amd64: abb8ffc0ff6d4aae302076cd09367e5d1cb91dcb9edbfa5b185f65685fe6773f
+  linux_arm64: 957fb45cd22c7c92217e3fa7e5df2b96b1a9ca1f962827b75b61d05aa98f1000
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14
+  - zeromq

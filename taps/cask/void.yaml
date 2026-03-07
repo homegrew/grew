@@ -1,0 +1,13 @@
+name: void
+version: 1.99.30044
+description: AI code editor
+homepage: https://voideditor.com/
+url:
+  darwin_arm64: https://github.com/voideditor/binaries/releases/download/1.99.30044/Void.arm64.1.99.30044.dmg
+sha256:
+  darwin_arm64: fa066d553093c1c9b92e7cae0754c14cfa6e1cbdb958139a5b02569dd1d9e877
+artifacts:
+  app:
+    - Void.app
+  bin:
+    - void

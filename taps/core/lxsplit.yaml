@@ -1,0 +1,19 @@
+name: lxsplit
+version: 0.2.4
+description: Tool for splitting or joining files
+homepage: https://lxsplit.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lxsplit/blobs/sha256:e8aad7fc027ed1c5b9e42964483b596d5c1cfd98853f5d1cfb64a8f3155b98e3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lxsplit/blobs/sha256:9a4e4db3c7ba11af86422226f11e4d373e6c8e2a1b24831bcaca5910b1026f26
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lxsplit/blobs/sha256:5be1da254e8200601318c6258e63e4052dea5d43446d10872f8aab55e83abd4b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lxsplit/blobs/sha256:25abf3d459e971588c1d58365ca4afdb710abd0a26a1dcdbb8470205e2d5bf9e
+sha256:
+  darwin_arm64: e8aad7fc027ed1c5b9e42964483b596d5c1cfd98853f5d1cfb64a8f3155b98e3
+  darwin_amd64: 9a4e4db3c7ba11af86422226f11e4d373e6c8e2a1b24831bcaca5910b1026f26
+  linux_amd64: 5be1da254e8200601318c6258e63e4052dea5d43446d10872f8aab55e83abd4b
+  linux_arm64: 25abf3d459e971588c1d58365ca4afdb710abd0a26a1dcdbb8470205e2d5bf9e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

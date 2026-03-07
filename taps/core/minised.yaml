@@ -1,0 +1,19 @@
+name: minised
+version: 1.16
+description: Smaller, cheaper, faster SED implementation
+homepage: https://exactcode.com/opensource/minised/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minised/blobs/sha256:5793a31a1201a62923112332d5197945ba6dc946d207b333f5f32ed0eeb2d045
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minised/blobs/sha256:8944c486d6e2de3aba6033f7e2748cb86c659f0209ebb5a2d80d846ecac48bcf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minised/blobs/sha256:1c46de1901db191b4cff269feb8d236fdc53ae72a83609699e4ed1a2afc6f789
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minised/blobs/sha256:ab2195d826ed450db77cd8e44601dc47bbb4027d0e9777b7ab075b6b9d1513c0
+sha256:
+  darwin_arm64: 5793a31a1201a62923112332d5197945ba6dc946d207b333f5f32ed0eeb2d045
+  darwin_amd64: 8944c486d6e2de3aba6033f7e2748cb86c659f0209ebb5a2d80d846ecac48bcf
+  linux_amd64: 1c46de1901db191b4cff269feb8d236fdc53ae72a83609699e4ed1a2afc6f789
+  linux_arm64: ab2195d826ed450db77cd8e44601dc47bbb4027d0e9777b7ab075b6b9d1513c0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

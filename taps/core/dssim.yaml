@@ -1,0 +1,19 @@
+name: dssim
+version: 3.4.0
+description: RGBA Structural Similarity Rust implementation
+homepage: https://github.com/kornelski/dssim
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dssim/blobs/sha256:a9eba62a55c801ee782f082e8837e24d7cc7d5753adcb866a7c5bdafde8d96ae
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dssim/blobs/sha256:a3585108c4c20d7e0af5c07ebb6f3455e4ef29638077a712ddff4cf8f7017e39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dssim/blobs/sha256:9cf26940ab54503cb8be6c091610aa90b2e12cd46b05c9a5b8a7a15298ecb190
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dssim/blobs/sha256:a729aa84f38425e25c9e5640c1c18d2980f132d9a52becfede48f9c3003b2359
+sha256:
+  darwin_arm64: a9eba62a55c801ee782f082e8837e24d7cc7d5753adcb866a7c5bdafde8d96ae
+  darwin_amd64: a3585108c4c20d7e0af5c07ebb6f3455e4ef29638077a712ddff4cf8f7017e39
+  linux_amd64: 9cf26940ab54503cb8be6c091610aa90b2e12cd46b05c9a5b8a7a15298ecb190
+  linux_arm64: a729aa84f38425e25c9e5640c1c18d2980f132d9a52becfede48f9c3003b2359
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

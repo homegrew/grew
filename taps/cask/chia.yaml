@@ -1,0 +1,11 @@
+name: chia
+version: 2.6.0
+description: GUI Python implementation for the Chia blockchain
+homepage: https://www.chia.net/
+url:
+  darwin_arm64: https://github.com/Chia-Network/chia-blockchain/releases/download/2.6.0/Chia-2.6.0-arm64.dmg
+sha256:
+  darwin_arm64: a55b4b56ec53ec23b44bbff22486503b8e31d750a72bbd7049ea98e23870c90d
+artifacts:
+  app:
+    - Chia.app

@@ -1,0 +1,23 @@
+name: qtpositioning
+version: 6.10.2
+description: Provides access to position, satellite info and area monitoring classes
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause AND BSL-1.0 AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtpositioning/blobs/sha256:f313e3d9ba56268d927c1a09fe4690636226cc35bb38bfb3d39f83abb2013aac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtpositioning/blobs/sha256:d36c33e270d92488f0fef6fd684f245bb8520d4f7abd9103403009f5cf4822eb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtpositioning/blobs/sha256:c53f32391269ba8aa8ae44abc5d8ba0e1cd30938acd2e411b39c70187edc5285
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtpositioning/blobs/sha256:7437906399dcb64dfcc87c37f0ae02cbb5af84239810b12e98da14284ceaf030
+sha256:
+  darwin_arm64: f313e3d9ba56268d927c1a09fe4690636226cc35bb38bfb3d39f83abb2013aac
+  darwin_amd64: d36c33e270d92488f0fef6fd684f245bb8520d4f7abd9103403009f5cf4822eb
+  linux_amd64: c53f32391269ba8aa8ae44abc5d8ba0e1cd30938acd2e411b39c70187edc5285
+  linux_arm64: 7437906399dcb64dfcc87c37f0ae02cbb5af84239810b12e98da14284ceaf030
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qtbase
+  - qtdeclarative
+  - qtserialport

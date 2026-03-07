@@ -1,0 +1,22 @@
+name: aqtinstall
+version: 3.3.0
+description: Another unofficial Qt installer
+homepage: https://github.com/miurahr/aqtinstall
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aqtinstall/blobs/sha256:72ea2a7cc474aa9f230a2d0dd443c4724eab1e1d368ca9ac13d87872af47670c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aqtinstall/blobs/sha256:4dfc9f111eee0f13a14c203d2ba5f1117a867228332e93ec57d9c7081cc606db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aqtinstall/blobs/sha256:a71594666ae2e3e252a9d21b6811842252a071fd92d5fe59cfe4fbd9eda4067c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aqtinstall/blobs/sha256:2385771954909c0a7188a3279e61d203785ea8eb5f46b29b988f2fac9d779875
+sha256:
+  darwin_arm64: 72ea2a7cc474aa9f230a2d0dd443c4724eab1e1d368ca9ac13d87872af47670c
+  darwin_amd64: 4dfc9f111eee0f13a14c203d2ba5f1117a867228332e93ec57d9c7081cc606db
+  linux_amd64: a71594666ae2e3e252a9d21b6811842252a071fd92d5fe59cfe4fbd9eda4067c
+  linux_arm64: 2385771954909c0a7188a3279e61d203785ea8eb5f46b29b988f2fac9d779875
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

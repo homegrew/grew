@@ -1,0 +1,25 @@
+name: macvim-app
+version: 182,9.1.1887
+description: Text editor
+homepage: https://github.com/macvim-dev/macvim
+url:
+  darwin_arm64: https://github.com/macvim-dev/macvim/releases/download/release-182/MacVim.dmg
+sha256:
+  darwin_arm64: b24294ef8327b9abe703c9d28fcbfc76b413923b90185af259a656ea36308950
+artifacts:
+  app:
+    - MacVim.app
+  bin:
+    - gview
+    - gvim
+    - gvimdiff
+    - gvimex
+    - mview
+    - mvim
+    - mvimex
+    - view
+    - vim
+    - vimdiff
+    - vimex
+    - vi
+    - mvimdiff

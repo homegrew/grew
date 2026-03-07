@@ -1,0 +1,21 @@
+name: sbcl
+version: 2.6.1
+description: Steel Bank Common Lisp system
+homepage: https://www.sbcl.org/
+license: LicenseRef-Homebrew-public-domain AND MIT AND Xerox AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sbcl/blobs/sha256:8f90df0b31107a2100e80116b835a2bd0656d340cb57a39e06a07864837a8dbb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sbcl/blobs/sha256:8512b478b3055b9363ca8e17e668ef9ffe7d7de0f99e57100278fd09ac9c786f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sbcl/blobs/sha256:1d5354c04cb3801624254c5e1c8f823fffd5a35be63c71d84ac18c65a198cdfa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sbcl/blobs/sha256:ea4174664ca491e2a326230d8498f180d80b3b827804f757b262c9def9291f9f
+sha256:
+  darwin_arm64: 8f90df0b31107a2100e80116b835a2bd0656d340cb57a39e06a07864837a8dbb
+  darwin_amd64: 8512b478b3055b9363ca8e17e668ef9ffe7d7de0f99e57100278fd09ac9c786f
+  linux_amd64: 1d5354c04cb3801624254c5e1c8f823fffd5a35be63c71d84ac18c65a198cdfa
+  linux_arm64: ea4174664ca491e2a326230d8498f180d80b3b827804f757b262c9def9291f9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

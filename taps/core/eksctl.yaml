@@ -1,0 +1,19 @@
+name: eksctl
+version: 0.224.0
+description: Simple command-line tool for creating clusters on Amazon EKS
+homepage: https://eksctl.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eksctl/blobs/sha256:19f8dc7852474c7950bc89a79f5bd224e6668b67bd14fe0ca4fb1e58d74f7185
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eksctl/blobs/sha256:d67e95959317155d4231552b24248f52b8e356ac3c2f6f7954189993da9421bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eksctl/blobs/sha256:29af9e966e8c9c15f565959046cf6fae76693c1b5ec32ead90519283da5bc21a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eksctl/blobs/sha256:86aa7426ab91b699b0016b0ad2a85805a18ad83f50d447096fca717eb71038d0
+sha256:
+  darwin_arm64: 19f8dc7852474c7950bc89a79f5bd224e6668b67bd14fe0ca4fb1e58d74f7185
+  darwin_amd64: d67e95959317155d4231552b24248f52b8e356ac3c2f6f7954189993da9421bc
+  linux_amd64: 29af9e966e8c9c15f565959046cf6fae76693c1b5ec32ead90519283da5bc21a
+  linux_arm64: 86aa7426ab91b699b0016b0ad2a85805a18ad83f50d447096fca717eb71038d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

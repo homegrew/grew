@@ -1,0 +1,19 @@
+name: juju
+version: 3.6.8
+description: DevOps management tool
+homepage: https://juju.is/
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/juju/blobs/sha256:b98c9f297f29e76112887dfd4eb4d978f409d89ca46dbcd4b7e1802bb92f098f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/juju/blobs/sha256:d6409d90d7b3278931e81518243f72d669fcf30f0a2f41f555e0473e841da5bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/juju/blobs/sha256:0eae5af767a79d6aff0d4b76caafe13f87ea95375df93403d96ea611fc42a805
+  linux_arm64: https://ghcr.io/v2/homebrew/core/juju/blobs/sha256:efcfb8010c34b2f3ab61b39a9ad193f3dc1f560a7da11ada08694c8b942d920a
+sha256:
+  darwin_arm64: b98c9f297f29e76112887dfd4eb4d978f409d89ca46dbcd4b7e1802bb92f098f
+  darwin_amd64: d6409d90d7b3278931e81518243f72d669fcf30f0a2f41f555e0473e841da5bc
+  linux_amd64: 0eae5af767a79d6aff0d4b76caafe13f87ea95375df93403d96ea611fc42a805
+  linux_arm64: efcfb8010c34b2f3ab61b39a9ad193f3dc1f560a7da11ada08694c8b942d920a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

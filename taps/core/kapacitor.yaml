@@ -1,0 +1,19 @@
+name: kapacitor
+version: 1.8.3
+description: Open source time series data processor
+homepage: https://github.com/influxdata/kapacitor
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kapacitor/blobs/sha256:78663fa5db0a7831a790fa4bac2928bb4fc9a991676d269750a0593e8b1f6e0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kapacitor/blobs/sha256:ba2d6c21c3080fbd556f79218688d778b8373f9d45e1e8c661965e0245f48a8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kapacitor/blobs/sha256:19886a6f62a983acd7e7b0749028868728f6db9564a038a806ef308541529060
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kapacitor/blobs/sha256:33016c69d62881ccafeebc74b23aac6c0fcfc38700ba973547e46ed602d82569
+sha256:
+  darwin_arm64: 78663fa5db0a7831a790fa4bac2928bb4fc9a991676d269750a0593e8b1f6e0d
+  darwin_amd64: ba2d6c21c3080fbd556f79218688d778b8373f9d45e1e8c661965e0245f48a8c
+  linux_amd64: 19886a6f62a983acd7e7b0749028868728f6db9564a038a806ef308541529060
+  linux_arm64: 33016c69d62881ccafeebc74b23aac6c0fcfc38700ba973547e46ed602d82569
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

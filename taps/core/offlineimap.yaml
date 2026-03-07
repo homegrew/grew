@@ -1,0 +1,22 @@
+name: offlineimap
+version: 8.0.1
+description: Synchronizes emails between two repositories
+homepage: https://github.com/OfflineIMAP/offlineimap3
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/offlineimap/blobs/sha256:89057fbe4e4bd0da45e4b7b015e62e9d5f5b4944251b3f9b1d91370ae0e8644e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/offlineimap/blobs/sha256:9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/offlineimap/blobs/sha256:9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/offlineimap/blobs/sha256:9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+sha256:
+  darwin_arm64: 89057fbe4e4bd0da45e4b7b015e62e9d5f5b4944251b3f9b1d91370ae0e8644e
+  darwin_amd64: 9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+  linux_amd64: 9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+  linux_arm64: 9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

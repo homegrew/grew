@@ -1,0 +1,19 @@
+name: shellz
+version: 1.6.0
+description: Small utility to track and control custom shellz
+homepage: https://github.com/evilsocket/shellz
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shellz/blobs/sha256:253878a341fdac25066ac6e51bbd4dc9c265a4fbaa51b796750582de0f9910a5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shellz/blobs/sha256:a54f8666f33b198599a417db0c241cd7176c4a95661fca1a643899863b3897b3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shellz/blobs/sha256:562f9886f5574cec74ea7419dfb9e7ffc88cddf253da7971744781c115f0a0f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shellz/blobs/sha256:ce95685184ad214c28f877aaa8bed43b66616a3441f4c8afbefe3365067d7e57
+sha256:
+  darwin_arm64: 253878a341fdac25066ac6e51bbd4dc9c265a4fbaa51b796750582de0f9910a5
+  darwin_amd64: a54f8666f33b198599a417db0c241cd7176c4a95661fca1a643899863b3897b3
+  linux_amd64: 562f9886f5574cec74ea7419dfb9e7ffc88cddf253da7971744781c115f0a0f7
+  linux_arm64: ce95685184ad214c28f877aaa8bed43b66616a3441f4c8afbefe3365067d7e57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

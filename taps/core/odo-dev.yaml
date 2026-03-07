@@ -1,0 +1,19 @@
+name: odo-dev
+version: 3.16.1
+description: Developer-focused CLI for Kubernetes and OpenShift
+homepage: https://odo.dev
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/odo-dev/blobs/sha256:a3ffbddd7bb9552e07d227bfcf52579bb41b809ca2edb7f5072e6c2a64a80d11
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/odo-dev/blobs/sha256:70206faecd21320ed843d7dcd0b21db2f94961b2a38c32828d6061bf993c2c4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/odo-dev/blobs/sha256:b9480c0fa8376a3f2b839965f2d7095fd712dd306a975032479e45419f482679
+  linux_arm64: https://ghcr.io/v2/homebrew/core/odo-dev/blobs/sha256:a0ad1eacca24048e6260470cc6d1addc370681d26cb2b82137c84e02f932e226
+sha256:
+  darwin_arm64: a3ffbddd7bb9552e07d227bfcf52579bb41b809ca2edb7f5072e6c2a64a80d11
+  darwin_amd64: 70206faecd21320ed843d7dcd0b21db2f94961b2a38c32828d6061bf993c2c4c
+  linux_amd64: b9480c0fa8376a3f2b839965f2d7095fd712dd306a975032479e45419f482679
+  linux_arm64: a0ad1eacca24048e6260470cc6d1addc370681d26cb2b82137c84e02f932e226
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

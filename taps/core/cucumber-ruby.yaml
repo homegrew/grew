@@ -1,0 +1,21 @@
+name: cucumber-ruby
+version: 10.2.0
+description: Cucumber for Ruby
+homepage: https://cucumber.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cucumber-ruby/blobs/sha256:1cf2ccf4fe38a1c09c019d1ebfb7955ce1ea5e330400328680c2975ce1ac4ff1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cucumber-ruby/blobs/sha256:1c23a1fcfe5abd9db2f022bccba150a00e87a522e9fcfcff9fd961098aa34da1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cucumber-ruby/blobs/sha256:96fd0490409f57b755577457a05084e1bd32be304a2d1b61d8af82d9663e208a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cucumber-ruby/blobs/sha256:68d3a954bfb692028094fb34b0bb1bb44b569bf6d70415d60099ac10d6697d85
+sha256:
+  darwin_arm64: 1cf2ccf4fe38a1c09c019d1ebfb7955ce1ea5e330400328680c2975ce1ac4ff1
+  darwin_amd64: 1c23a1fcfe5abd9db2f022bccba150a00e87a522e9fcfcff9fd961098aa34da1
+  linux_amd64: 96fd0490409f57b755577457a05084e1bd32be304a2d1b61d8af82d9663e208a
+  linux_arm64: 68d3a954bfb692028094fb34b0bb1bb44b569bf6d70415d60099ac10d6697d85
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ruby

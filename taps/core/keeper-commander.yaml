@@ -1,0 +1,31 @@
+name: keeper-commander
+version: 17.2.9
+description: Command-line and SDK interface to Keeper Password Manager
+homepage: https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/keeper-commander/blobs/sha256:34e543b257afd8f1b46275796802ded9f35297e316103b682471bfc776607529
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/keeper-commander/blobs/sha256:1fde4b587680b571e88fb502c94dbd079c7dd3cf1f68b75353382a09084807fa
+  linux_amd64: https://ghcr.io/v2/homebrew/core/keeper-commander/blobs/sha256:a040d0ba3fc663c677ad4f1d86487f2b0aa72b4b506a4f564be57e9ccd1f79d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/keeper-commander/blobs/sha256:5acaa44a2cb9a5a08179af97ce6f4180d2d84af7d5e8e1c6cd56378aa160afdf
+sha256:
+  darwin_arm64: 34e543b257afd8f1b46275796802ded9f35297e316103b682471bfc776607529
+  darwin_amd64: 1fde4b587680b571e88fb502c94dbd079c7dd3cf1f68b75353382a09084807fa
+  linux_amd64: a040d0ba3fc663c677ad4f1d86487f2b0aa72b4b506a4f564be57e9ccd1f79d1
+  linux_arm64: 5acaa44a2cb9a5a08179af97ce6f4180d2d84af7d5e8e1c6cd56378aa160afdf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - ffmpeg
+  - libvpx
+  - libyaml
+  - opus
+  - pillow
+  - pydantic
+  - python@3.14
+  - srtp
+  - openssl@3

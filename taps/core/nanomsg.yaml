@@ -1,0 +1,19 @@
+name: nanomsg
+version: 1.2.2
+description: Socket library in C
+homepage: https://nanomsg.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nanomsg/blobs/sha256:236e9d3c6a8a96e0cab956bd5dfd22e598a0cde9648d9ca850e385aef13c876f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nanomsg/blobs/sha256:e3ee4bae6bf7df70c071c32fd0d12470406e146af552ee4de7f7701016a6609a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nanomsg/blobs/sha256:13450a2b72db7c3d7f91b65d2f8153d73caedecb378921d6cf9e386afea4d322
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nanomsg/blobs/sha256:b03db650de3044ee4d0ed1bce200947e1018f34f76d4d06b9362ccae87134fee
+sha256:
+  darwin_arm64: 236e9d3c6a8a96e0cab956bd5dfd22e598a0cde9648d9ca850e385aef13c876f
+  darwin_amd64: e3ee4bae6bf7df70c071c32fd0d12470406e146af552ee4de7f7701016a6609a
+  linux_amd64: 13450a2b72db7c3d7f91b65d2f8153d73caedecb378921d6cf9e386afea4d322
+  linux_arm64: b03db650de3044ee4d0ed1bce200947e1018f34f76d4d06b9362ccae87134fee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

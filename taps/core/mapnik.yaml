@@ -1,0 +1,37 @@
+name: mapnik
+version: 4.2.1
+description: Toolkit for developing mapping applications
+homepage: https://mapnik.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mapnik/blobs/sha256:a0e77dbc25136b76fb979d6f90517a6f1730a98cfb8112c5555f23cf0f6ab6f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mapnik/blobs/sha256:7f64219e2fe9eace29ee064c77a79e1cb95498dff4b3460c8939a2e45e32917b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mapnik/blobs/sha256:3402fc10a7358b9a916a7821325c6bc07a294e963741c7b8c3b987917124cc27
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mapnik/blobs/sha256:9eaaed630c9f7c5cc37148a6bade7cbed83beabdbff25d8e447aacef965a40c2
+sha256:
+  darwin_arm64: a0e77dbc25136b76fb979d6f90517a6f1730a98cfb8112c5555f23cf0f6ab6f5
+  darwin_amd64: 7f64219e2fe9eace29ee064c77a79e1cb95498dff4b3460c8939a2e45e32917b
+  linux_amd64: 3402fc10a7358b9a916a7821325c6bc07a294e963741c7b8c3b987917124cc27
+  linux_arm64: 9eaaed630c9f7c5cc37148a6bade7cbed83beabdbff25d8e447aacef965a40c2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - cairo
+  - freetype
+  - gdal
+  - harfbuzz
+  - icu4c@78
+  - jpeg-turbo
+  - libavif
+  - libpng
+  - libpq
+  - libtiff
+  - libxml2
+  - openssl@3
+  - proj
+  - protozero
+  - sqlite
+  - webp

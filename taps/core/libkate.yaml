@@ -1,0 +1,22 @@
+name: libkate
+version: 0.4.3
+description: Overlay codec for multiplexed audio/video in Ogg
+homepage: https://wiki.xiph.org/index.php/OggKate
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libkate/blobs/sha256:a920e83dd38ef5cd401c635c08f65dfe0cd6c4b5b79e5edfb4761a76ca729028
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libkate/blobs/sha256:3ab7c7cda82f7bbfb515d3b9deaadc1dd09069a9a7f47ada41311dd7fc963eff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libkate/blobs/sha256:e8e41a5b6906b6cae6d0bd82030cecfd66f1115f39b1669b99baf5501e424452
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libkate/blobs/sha256:af8b104ad8cc5105c019c6c809e4b2897f56458a134f61ede9b1617d043ce547
+sha256:
+  darwin_arm64: a920e83dd38ef5cd401c635c08f65dfe0cd6c4b5b79e5edfb4761a76ca729028
+  darwin_amd64: 3ab7c7cda82f7bbfb515d3b9deaadc1dd09069a9a7f47ada41311dd7fc963eff
+  linux_amd64: e8e41a5b6906b6cae6d0bd82030cecfd66f1115f39b1669b99baf5501e424452
+  linux_arm64: af8b104ad8cc5105c019c6c809e4b2897f56458a134f61ede9b1617d043ce547
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libogg
+  - libpng

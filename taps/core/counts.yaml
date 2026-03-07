@@ -1,0 +1,19 @@
+name: counts
+version: 1.0.6
+description: Tool for ad hoc profiling
+homepage: https://github.com/nnethercote/counts
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/counts/blobs/sha256:24d9ace69ae8a6c2bdb85fcb5c1c42b53f73209bb2a9958cd02e2b1aaff40fe4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/counts/blobs/sha256:c5408f15252264a19fabff4a2370e9b222c2c1519f94016d807eacf44831ec13
+  linux_amd64: https://ghcr.io/v2/homebrew/core/counts/blobs/sha256:2d38003ebf1f3fd5c46e7ce4e87190f617d81a20ac8bc9ff91f8cdb4eddb9374
+  linux_arm64: https://ghcr.io/v2/homebrew/core/counts/blobs/sha256:43508d50d22d1ced7b27695086b8c16a38b217a48aeb999d80e60ad2835d544e
+sha256:
+  darwin_arm64: 24d9ace69ae8a6c2bdb85fcb5c1c42b53f73209bb2a9958cd02e2b1aaff40fe4
+  darwin_amd64: c5408f15252264a19fabff4a2370e9b222c2c1519f94016d807eacf44831ec13
+  linux_amd64: 2d38003ebf1f3fd5c46e7ce4e87190f617d81a20ac8bc9ff91f8cdb4eddb9374
+  linux_arm64: 43508d50d22d1ced7b27695086b8c16a38b217a48aeb999d80e60ad2835d544e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

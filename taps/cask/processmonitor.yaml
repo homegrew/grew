@@ -1,0 +1,13 @@
+name: processmonitor
+version: 1.5.0
+description: Monitor process activity
+homepage: https://objective-see.org/products/utilities.html#ProcessMonitor
+url:
+  darwin_arm64: https://bitbucket.org/objective-see/deploy/downloads/ProcessMonitor_1.5.0.zip
+sha256:
+  darwin_arm64: 6c5721def426de77bff61d672d076314d89fb6bad28969f3b15b9f8c87cbd591
+artifacts:
+  app:
+    - ProcessMonitor.app
+  bin:
+    - processmonitor

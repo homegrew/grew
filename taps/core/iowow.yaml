@@ -1,0 +1,19 @@
+name: iowow
+version: 1.4.18
+description: C utility library and persistent key/value storage engine
+homepage: https://github.com/Softmotions/iowow
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iowow/blobs/sha256:b21a214c32770aca0640784c45fdf33489db118e3051c66d8bfa2c9958386a8e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iowow/blobs/sha256:bfdd0df35ade257dfc24898f77d0134176f5d3c13a12338c4d0e705451bb269d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iowow/blobs/sha256:4c50abbc4cf8ac933da6dc4be5dab2ca27db4e653fa7eb7189f00378561c3d7e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iowow/blobs/sha256:4b3ddbc7bd008a380416bef79e794b4ab3e1085309c6b5f22b2fed244dceca09
+sha256:
+  darwin_arm64: b21a214c32770aca0640784c45fdf33489db118e3051c66d8bfa2c9958386a8e
+  darwin_amd64: bfdd0df35ade257dfc24898f77d0134176f5d3c13a12338c4d0e705451bb269d
+  linux_amd64: 4c50abbc4cf8ac933da6dc4be5dab2ca27db4e653fa7eb7189f00378561c3d7e
+  linux_arm64: 4b3ddbc7bd008a380416bef79e794b4ab3e1085309c6b5f22b2fed244dceca09
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

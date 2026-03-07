@@ -1,0 +1,19 @@
+name: z80asm
+version: 1.8
+description: Assembler for the Zilog Z80 microprcessor and compatibles
+homepage: https://www.nongnu.org/z80asm/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/z80asm/blobs/sha256:196ce6ca6e3dc40b4cc7a96be32fd22c7addc3d411eb227bb8a67407f749810f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/z80asm/blobs/sha256:e85b48f45856da17f20fdecd98d28067bc6734788615ed640aa55c17fcc53627
+  linux_amd64: https://ghcr.io/v2/homebrew/core/z80asm/blobs/sha256:17f78a08a62f5d5c322080e89ad6fb0d2887c5479b481e816c5253a5898df62d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/z80asm/blobs/sha256:eee5efb31003cfb93f245c5135ab4d22e8172474051397733327a942908240e5
+sha256:
+  darwin_arm64: 196ce6ca6e3dc40b4cc7a96be32fd22c7addc3d411eb227bb8a67407f749810f
+  darwin_amd64: e85b48f45856da17f20fdecd98d28067bc6734788615ed640aa55c17fcc53627
+  linux_amd64: 17f78a08a62f5d5c322080e89ad6fb0d2887c5479b481e816c5253a5898df62d
+  linux_arm64: eee5efb31003cfb93f245c5135ab4d22e8172474051397733327a942908240e5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

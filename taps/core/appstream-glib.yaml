@@ -1,0 +1,25 @@
+name: appstream-glib
+version: 0.8.3
+description: Helper library for reading and writing AppStream metadata
+homepage: https://github.com/hughsie/appstream-glib
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/appstream-glib/blobs/sha256:2587f394775fa2f8b69be4db40c9bbe66d5b4d961803ac90e8f7b0e67c171259
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/appstream-glib/blobs/sha256:9ee04a0e10295134da81fe789ff2acac90c3d64ffb2d33a5e6700a4bdd5f6a6c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/appstream-glib/blobs/sha256:e3817d099c3f3d7bcdb0aec2920ff5b92e76454398d4efda5acb72c6d2ac4a1f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/appstream-glib/blobs/sha256:a8eb70a5bc4dcbbe274a1ad1ce81f8aa99738e8db59996f6e6c10c6c3294eb0f
+sha256:
+  darwin_arm64: 2587f394775fa2f8b69be4db40c9bbe66d5b4d961803ac90e8f7b0e67c171259
+  darwin_amd64: 9ee04a0e10295134da81fe789ff2acac90c3d64ffb2d33a5e6700a4bdd5f6a6c
+  linux_amd64: e3817d099c3f3d7bcdb0aec2920ff5b92e76454398d4efda5acb72c6d2ac4a1f
+  linux_arm64: a8eb70a5bc4dcbbe274a1ad1ce81f8aa99738e8db59996f6e6c10c6c3294eb0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - json-glib
+  - libarchive
+  - gettext

@@ -1,0 +1,22 @@
+name: gnustep-base
+version: 1.31.1
+description: Library of general-purpose, non-graphical Objective C objects
+homepage: https://github.com/gnustep/libs-base
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnustep-base/blobs/sha256:0693816f992adcfc685d2ee8464599a92a51bfb60a8fc428b7a41f77b6657266
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnustep-base/blobs/sha256:35f3f0a775c9e8f138a46ede7e827b2017dc00f4ff60338da1e2eb433d942a58
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnustep-base/blobs/sha256:c3d1ac8a92a0cfe7ad301988d5018efa6e8f71f2a906723304dab14ba0448a33
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnustep-base/blobs/sha256:0ca2baa3e217b0325cb5a5d8544abda7eda57237c21b50cecf04719c68773a33
+sha256:
+  darwin_arm64: 0693816f992adcfc685d2ee8464599a92a51bfb60a8fc428b7a41f77b6657266
+  darwin_amd64: 35f3f0a775c9e8f138a46ede7e827b2017dc00f4ff60338da1e2eb433d942a58
+  linux_amd64: c3d1ac8a92a0cfe7ad301988d5018efa6e8f71f2a906723304dab14ba0448a33
+  linux_arm64: 0ca2baa3e217b0325cb5a5d8544abda7eda57237c21b50cecf04719c68773a33
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - gnutls

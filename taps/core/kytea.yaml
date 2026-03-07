@@ -1,0 +1,19 @@
+name: kytea
+version: 0.4.7
+description: Toolkit for analyzing text, especially Japanese and Chinese
+homepage: https://www.phontron.com/kytea/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kytea/blobs/sha256:5ad912b4301454e3c29c5dd0f9b4c9b592d140d0ecc24cb12261408a7dc5ea56
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kytea/blobs/sha256:e6493b3a4ba931b1ae013e07f3bb2fd642ee195eaaa31ba30a0511b3ba3e24cd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kytea/blobs/sha256:91e9f57d0c837e62f789d7189349120d1925eca4fa05479072f89b4f617c2ffd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kytea/blobs/sha256:17f10a2914f947e7ddb494eaae7e76d3d6e36887db809a894f9d824776a47aa3
+sha256:
+  darwin_arm64: 5ad912b4301454e3c29c5dd0f9b4c9b592d140d0ecc24cb12261408a7dc5ea56
+  darwin_amd64: e6493b3a4ba931b1ae013e07f3bb2fd642ee195eaaa31ba30a0511b3ba3e24cd
+  linux_amd64: 91e9f57d0c837e62f789d7189349120d1925eca4fa05479072f89b4f617c2ffd
+  linux_arm64: 17f10a2914f947e7ddb494eaae7e76d3d6e36887db809a894f9d824776a47aa3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

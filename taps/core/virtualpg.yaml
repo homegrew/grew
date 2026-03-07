@@ -1,0 +1,22 @@
+name: virtualpg
+version: 2.0.1
+description: Loadable dynamic extension for SQLite and SpatiaLite
+homepage: https://www.gaia-gis.it/fossil/virtualpg/index
+license: MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/virtualpg/blobs/sha256:96423b815a0781a3635f54f02bac58f5b6f97ad735184005b812b7bbe2bda8c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/virtualpg/blobs/sha256:19e10266fbc74189b0acd7ed6e8d9026008ccf7f7731ef66cbe093caf2e79ec8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/virtualpg/blobs/sha256:6a3eea533c6345f3ba72760bb196a0c673414e87b02763a4cb48f260acdce535
+  linux_arm64: https://ghcr.io/v2/homebrew/core/virtualpg/blobs/sha256:e8800783153dea8ff0de92a169b8a9810aa69e0682ca0fd567c983d8925e42c1
+sha256:
+  darwin_arm64: 96423b815a0781a3635f54f02bac58f5b6f97ad735184005b812b7bbe2bda8c6
+  darwin_amd64: 19e10266fbc74189b0acd7ed6e8d9026008ccf7f7731ef66cbe093caf2e79ec8
+  linux_amd64: 6a3eea533c6345f3ba72760bb196a0c673414e87b02763a4cb48f260acdce535
+  linux_arm64: e8800783153dea8ff0de92a169b8a9810aa69e0682ca0fd567c983d8925e42c1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - sqlite

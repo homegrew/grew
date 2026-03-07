@@ -1,0 +1,19 @@
+name: ttf2pt1
+version: 3.4.4
+description: True Type Font to Postscript Type 1 converter
+homepage: https://ttf2pt1.sourceforge.net/
+license: LicenseRef-Homebrew-cannot-represent
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttf2pt1/blobs/sha256:0d173b72ff99b8f7d512c1017fa40e52a1b6f7e5432338f5846ce62511cb219e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttf2pt1/blobs/sha256:ae066b9ac0a6bc08cbfc13d07433918ea6119e6c41f5f15b0dc07170650b2fff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttf2pt1/blobs/sha256:aa39b65205b22d6c02893d9b5c503d0309edeb8884e0e9336c9d725dc049a666
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttf2pt1/blobs/sha256:e4c6c32597ec38d178f8c2fd2bd7fc0e38b8b916a15250b73bbcd42fa07eb734
+sha256:
+  darwin_arm64: 0d173b72ff99b8f7d512c1017fa40e52a1b6f7e5432338f5846ce62511cb219e
+  darwin_amd64: ae066b9ac0a6bc08cbfc13d07433918ea6119e6c41f5f15b0dc07170650b2fff
+  linux_amd64: aa39b65205b22d6c02893d9b5c503d0309edeb8884e0e9336c9d725dc049a666
+  linux_arm64: e4c6c32597ec38d178f8c2fd2bd7fc0e38b8b916a15250b73bbcd42fa07eb734
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

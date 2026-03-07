@@ -1,0 +1,21 @@
+name: fcgiwrap
+version: 1.1.0
+description: CGI support for Nginx
+homepage: https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fcgiwrap/blobs/sha256:6732ddaccbb813164f5b5a0f8b09901f15681e82de377939f5a173b046902bc7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fcgiwrap/blobs/sha256:dd474ef1ba6c0fcfe6af59a9ef4f99314f7a7811c5553c8cefe9b25d75c81026
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fcgiwrap/blobs/sha256:59c76ede41a8876d1c9f2a737e79e314851b757a647d50cebea91247c185afc1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fcgiwrap/blobs/sha256:71efd18bedccd162ba1df3ac939325de41e748e0dcad7a2fe2af6a0e8b6c4408
+sha256:
+  darwin_arm64: 6732ddaccbb813164f5b5a0f8b09901f15681e82de377939f5a173b046902bc7
+  darwin_amd64: dd474ef1ba6c0fcfe6af59a9ef4f99314f7a7811c5553c8cefe9b25d75c81026
+  linux_amd64: 59c76ede41a8876d1c9f2a737e79e314851b757a647d50cebea91247c185afc1
+  linux_arm64: 71efd18bedccd162ba1df3ac939325de41e748e0dcad7a2fe2af6a0e8b6c4408
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fcgi

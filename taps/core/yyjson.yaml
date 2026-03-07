@@ -1,0 +1,19 @@
+name: yyjson
+version: 0.12.0
+description: High performance JSON library written in ANSI C
+homepage: https://github.com/ibireme/yyjson
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yyjson/blobs/sha256:bc385fef24ac80239af24728461f03f80ce8107954a4e11149db0c5fbb64acf9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yyjson/blobs/sha256:474db0266ef4054ad4cfe009ecc297a36085383f27b64099f7f98f3eca54b1be
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yyjson/blobs/sha256:72d054b4ff70582269754e969cd1a5cf5b670eac46f1bee785855643a8ec7f8d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yyjson/blobs/sha256:4b4971f272e8ca83e029e7d4ce912261c2e236fea1978732029c770b4454d8fd
+sha256:
+  darwin_arm64: bc385fef24ac80239af24728461f03f80ce8107954a4e11149db0c5fbb64acf9
+  darwin_amd64: 474db0266ef4054ad4cfe009ecc297a36085383f27b64099f7f98f3eca54b1be
+  linux_amd64: 72d054b4ff70582269754e969cd1a5cf5b670eac46f1bee785855643a8ec7f8d
+  linux_arm64: 4b4971f272e8ca83e029e7d4ce912261c2e236fea1978732029c770b4454d8fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

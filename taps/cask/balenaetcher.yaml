@@ -1,0 +1,11 @@
+name: balenaetcher
+version: 2.1.4
+description: "Tool to flash OS images to SD cards & USB drives"
+homepage: https://balena.io/etcher
+url:
+  darwin_arm64: https://github.com/balena-io/etcher/releases/download/v2.1.4/balenaEtcher-2.1.4-arm64.dmg
+sha256:
+  darwin_arm64: 6196813482f3fe8c329002a46610c7623a7ab8d0e48cdeca21d9dc05eb668dc9
+artifacts:
+  app:
+    - balenaEtcher.app

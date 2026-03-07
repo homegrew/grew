@@ -1,0 +1,19 @@
+name: redu
+version: 0.2.15
+description: Ncdu for your restic repository
+homepage: https://github.com/drdo/redu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redu/blobs/sha256:b9341847b9b17a439df4166ef6b2ef3745eccc25dfa5be72f813aabb4e80c995
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redu/blobs/sha256:70fb244d3d565cbfbeddafa76a6ec75a4a69ae03521ae7270dc9f7f99a92cef7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redu/blobs/sha256:eef1d2d80d9e01dcb597fcbf653afe6da0be7033bc2151ea145ab903bc1bd4dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redu/blobs/sha256:c7eba457b049fa735e4900146fba93076def47a1cd5ccd7c05dc0b99d1bdc2df
+sha256:
+  darwin_arm64: b9341847b9b17a439df4166ef6b2ef3745eccc25dfa5be72f813aabb4e80c995
+  darwin_amd64: 70fb244d3d565cbfbeddafa76a6ec75a4a69ae03521ae7270dc9f7f99a92cef7
+  linux_amd64: eef1d2d80d9e01dcb597fcbf653afe6da0be7033bc2151ea145ab903bc1bd4dd
+  linux_arm64: c7eba457b049fa735e4900146fba93076def47a1cd5ccd7c05dc0b99d1bdc2df
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

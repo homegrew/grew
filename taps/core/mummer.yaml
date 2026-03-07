@@ -1,0 +1,21 @@
+name: mummer
+version: 4.0.1
+description: Genome alignment tool
+homepage: https://github.com/mummer4/mummer
+license: Artistic-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mummer/blobs/sha256:ea0c12fffc202ecffba587be17af6930099814e91deed4a211e8a61b0bba6813
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mummer/blobs/sha256:b3d22a6054a15ec85880b9f3880f1404d6d49a945d6a98fd62ba2e47dd33d2ab
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mummer/blobs/sha256:d131ccce92a6642ca9ede2ddf4097dd88a48b96748a9a64724fdc9e509b049bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mummer/blobs/sha256:a813872082d1721022174b82f6d53e954779f204cb15a706dc9698b1b8b41324
+sha256:
+  darwin_arm64: ea0c12fffc202ecffba587be17af6930099814e91deed4a211e8a61b0bba6813
+  darwin_amd64: b3d22a6054a15ec85880b9f3880f1404d6d49a945d6a98fd62ba2e47dd33d2ab
+  linux_amd64: d131ccce92a6642ca9ede2ddf4097dd88a48b96748a9a64724fdc9e509b049bc
+  linux_arm64: a813872082d1721022174b82f6d53e954779f204cb15a706dc9698b1b8b41324
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc

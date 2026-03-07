@@ -1,0 +1,27 @@
+name: opendht
+version: 3.7.1
+description: C++17 Distributed Hash Table implementation
+homepage: https://github.com/savoirfairelinux/opendht
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opendht/blobs/sha256:0fc3ce493601f30db6e3a6a15c7b56cbfa0d90f911e4c0b3d4d33cd80a1b5323
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opendht/blobs/sha256:bac677e8a34fd7f609412a32724e7ea59c985845c9d4b1931f5ece1e2e771ff2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opendht/blobs/sha256:3b65244d50d8ff23e65173fd246c0e93006543f19b888c16245924b87a126aeb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opendht/blobs/sha256:29bbab9a704134cafded477704180ef11f4f983f8f56974b97a50d2c8481e510
+sha256:
+  darwin_arm64: 0fc3ce493601f30db6e3a6a15c7b56cbfa0d90f911e4c0b3d4d33cd80a1b5323
+  darwin_amd64: bac677e8a34fd7f609412a32724e7ea59c985845c9d4b1931f5ece1e2e771ff2
+  linux_amd64: 3b65244d50d8ff23e65173fd246c0e93006543f19b888c16245924b87a126aeb
+  linux_arm64: 29bbab9a704134cafded477704180ef11f4f983f8f56974b97a50d2c8481e510
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - argon2
+  - asio
+  - fmt
+  - gnutls
+  - msgpack-cxx
+  - nettle
+  - readline

@@ -1,0 +1,19 @@
+name: mask
+version: 0.11.7
+description: CLI task runner defined by a simple markdown file
+homepage: https://github.com/jacobdeichert/mask/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mask/blobs/sha256:5f78c495b941f512448b2416170f4707e9b9d61129cc1d0f518a82215ee7e321
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mask/blobs/sha256:602083bfc8d94aaf1f9e7221eb71b4279672202811a76ddf0bb5815c5939b67b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mask/blobs/sha256:3ee2a5051988e4dec2a04dd15339fbadacf6c9de28af6b0cafc351b5b919b9e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mask/blobs/sha256:bf7955ac509d319009bbd593438c1d30bd8fb09eacd5bfe69950204df0090955
+sha256:
+  darwin_arm64: 5f78c495b941f512448b2416170f4707e9b9d61129cc1d0f518a82215ee7e321
+  darwin_amd64: 602083bfc8d94aaf1f9e7221eb71b4279672202811a76ddf0bb5815c5939b67b
+  linux_amd64: 3ee2a5051988e4dec2a04dd15339fbadacf6c9de28af6b0cafc351b5b919b9e7
+  linux_arm64: bf7955ac509d319009bbd593438c1d30bd8fb09eacd5bfe69950204df0090955
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

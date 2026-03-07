@@ -1,0 +1,22 @@
+name: hackrf
+version: 2026.01.3
+description: Low cost software radio platform
+homepage: https://github.com/greatscottgadgets/hackrf
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hackrf/blobs/sha256:d76b5c4bfbd77bee1f5e1f48481773c5128ffccb9188bd218801e6f9b3d6d30c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hackrf/blobs/sha256:4b65b90b39360e44ae20f9f143c1f0fe9bc6e74b27dde87c4b4b756695c4737a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hackrf/blobs/sha256:8a9e96a3ec6c4042cabd4823c6b40d1bf1d37ad7e69573eb67733188188f55ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hackrf/blobs/sha256:713262f12d04f9c9e42392c6082c74f6599c29de3a1e91a548fdf6fcccdc6e92
+sha256:
+  darwin_arm64: d76b5c4bfbd77bee1f5e1f48481773c5128ffccb9188bd218801e6f9b3d6d30c
+  darwin_amd64: 4b65b90b39360e44ae20f9f143c1f0fe9bc6e74b27dde87c4b4b756695c4737a
+  linux_amd64: 8a9e96a3ec6c4042cabd4823c6b40d1bf1d37ad7e69573eb67733188188f55ed
+  linux_arm64: 713262f12d04f9c9e42392c6082c74f6599c29de3a1e91a548fdf6fcccdc6e92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - libusb

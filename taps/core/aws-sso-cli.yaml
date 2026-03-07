@@ -1,0 +1,19 @@
+name: aws-sso-cli
+version: 2.1.0
+description: Securely manage AWS API credentials using AWS SSO
+homepage: https://synfinatic.github.io/aws-sso-cli/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-sso-cli/blobs/sha256:696f1f95adeeea6032919881b25322e15f1782ac4627dbf48fdbb1c6ceced066
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-sso-cli/blobs/sha256:b8ee1a878f45ea44b7497241f9848086be764b3ded02c646242ec3f97cb26715
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-sso-cli/blobs/sha256:2ce79a5ef4f6bd3dc0a9dfb830f38c2d196d132d329eed15c9a4600a8d0f6ae6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-sso-cli/blobs/sha256:0b0806fc89befe663292fb806278efc9bbf5382562b8dfc71f411c86332fcad5
+sha256:
+  darwin_arm64: 696f1f95adeeea6032919881b25322e15f1782ac4627dbf48fdbb1c6ceced066
+  darwin_amd64: b8ee1a878f45ea44b7497241f9848086be764b3ded02c646242ec3f97cb26715
+  linux_amd64: 2ce79a5ef4f6bd3dc0a9dfb830f38c2d196d132d329eed15c9a4600a8d0f6ae6
+  linux_arm64: 0b0806fc89befe663292fb806278efc9bbf5382562b8dfc71f411c86332fcad5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

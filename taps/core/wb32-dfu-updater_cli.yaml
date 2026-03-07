@@ -1,0 +1,21 @@
+name: wb32-dfu-updater_cli
+version: 1.0.0
+description: USB programmer for downloading and uploading firmware to/from USB devices
+homepage: https://github.com/WestberryTech/wb32-dfu-updater
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wb32-dfu-updater_cli/blobs/sha256:934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wb32-dfu-updater_cli/blobs/sha256:7b286ba7e7d2bd622870689fc34fe6e0903624ebb811ddbeb49139a1203d3513
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wb32-dfu-updater_cli/blobs/sha256:8bd5b556320a3df8117e4215c78b24686e0d4751b80d3ebb4ed280950bf6d2e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wb32-dfu-updater_cli/blobs/sha256:a2d90c6c2b6c8c7ad35af63a0fd3ad9706eaa9eacb58263b431b859ad5ad03d7
+sha256:
+  darwin_arm64: 934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65
+  darwin_amd64: 7b286ba7e7d2bd622870689fc34fe6e0903624ebb811ddbeb49139a1203d3513
+  linux_amd64: 8bd5b556320a3df8117e4215c78b24686e0d4751b80d3ebb4ed280950bf6d2e8
+  linux_arm64: a2d90c6c2b6c8c7ad35af63a0fd3ad9706eaa9eacb58263b431b859ad5ad03d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libusb

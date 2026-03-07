@@ -1,0 +1,24 @@
+name: libsvg-cairo
+version: 0.1.6
+description: SVG rendering library using Cairo
+homepage: https://cairographics.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsvg-cairo/blobs/sha256:081812b09f3aa7da3467f583323424b3cec95d2f371b0745f6e3569857c31d5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsvg-cairo/blobs/sha256:6721901eb3166398f4ce418cb4afc1ad2e34b82a531b5e36ba5619633e13ba25
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsvg-cairo/blobs/sha256:e7459ca5ab6d29337f341de7af38ce53bbc007974bfd57e5be4d9b4ad66ba69a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsvg-cairo/blobs/sha256:ed1d458eca9ab9055f4f373151ea86682a2f6cb8d8bfed507afc8d3f0dc7f8f1
+sha256:
+  darwin_arm64: 081812b09f3aa7da3467f583323424b3cec95d2f371b0745f6e3569857c31d5d
+  darwin_amd64: 6721901eb3166398f4ce418cb4afc1ad2e34b82a531b5e36ba5619633e13ba25
+  linux_amd64: e7459ca5ab6d29337f341de7af38ce53bbc007974bfd57e5be4d9b4ad66ba69a
+  linux_arm64: ed1d458eca9ab9055f4f373151ea86682a2f6cb8d8bfed507afc8d3f0dc7f8f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - jpeg-turbo
+  - libpng
+  - libsvg

@@ -1,0 +1,21 @@
+name: nushell
+version: 0.111.0
+description: Modern shell for the GitHub era
+homepage: https://www.nushell.sh
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nushell/blobs/sha256:8d292370338f3c820c2ac8040d01856afcf803be19f0a391c7f01a8f2bb77ee1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nushell/blobs/sha256:bc9781a2e9fe83a337b0b27a103025a7e73413c3924a1b6d5128477ff6fbb97c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nushell/blobs/sha256:2b26ee65afef9c522035f69c6d6b5044c39a1be16700e1ebbaedec47d1ca8f2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nushell/blobs/sha256:201d9c8dc8fafb3a72d5ae5517858e27461dd26695928d019a666d0594aa47d6
+sha256:
+  darwin_arm64: 8d292370338f3c820c2ac8040d01856afcf803be19f0a391c7f01a8f2bb77ee1
+  darwin_amd64: bc9781a2e9fe83a337b0b27a103025a7e73413c3924a1b6d5128477ff6fbb97c
+  linux_amd64: 2b26ee65afef9c522035f69c6d6b5044c39a1be16700e1ebbaedec47d1ca8f2a
+  linux_arm64: 201d9c8dc8fafb3a72d5ae5517858e27461dd26695928d019a666d0594aa47d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

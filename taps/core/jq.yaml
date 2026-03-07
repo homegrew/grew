@@ -1,0 +1,21 @@
+name: jq
+version: 1.8.1
+description: Lightweight and flexible command-line JSON processor
+homepage: https://jqlang.github.io/jq/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jq/blobs/sha256:90b0fe4ad51959380f16fe8d84c5be8ab525478c32f1f7034c72d99de2442c9b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jq/blobs/sha256:a1a5f487f1840d9a18abdecdf1c6c5a5385917725c6ba88f7f819ac5f4cfa801
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jq/blobs/sha256:82883e1f3b674759d0e3d0c37e6805c0f91e3886f3e40c7ebc57f1e0174dfbe7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jq/blobs/sha256:274b391020473ad15697b0eaf0dc7e44a57312e7eaa7642e1bc8426ca9c0a54d
+sha256:
+  darwin_arm64: 90b0fe4ad51959380f16fe8d84c5be8ab525478c32f1f7034c72d99de2442c9b
+  darwin_amd64: a1a5f487f1840d9a18abdecdf1c6c5a5385917725c6ba88f7f819ac5f4cfa801
+  linux_amd64: 82883e1f3b674759d0e3d0c37e6805c0f91e3886f3e40c7ebc57f1e0174dfbe7
+  linux_arm64: 274b391020473ad15697b0eaf0dc7e44a57312e7eaa7642e1bc8426ca9c0a54d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

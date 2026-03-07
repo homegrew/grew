@@ -1,0 +1,21 @@
+name: libgpg-error
+version: 1.59
+description: Common error values for all GnuPG components
+homepage: https://www.gnupg.org/related_software/libgpg-error/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgpg-error/blobs/sha256:755e4e1aee069c7352e12e1d343fee26efbc805f4592941300de2ea3b9c0baa7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgpg-error/blobs/sha256:4ea60f17b51fbd0ced9664250070a4676a2b87e6f9390197106cd1c299958420
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgpg-error/blobs/sha256:8944d7d755ec39de4a4a052971cf5f8246189f0e3e3c6e2a172ab274925a89ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgpg-error/blobs/sha256:1c941ca9f52a119095cf7b07fa119798c05d1712c28c797527b958ec3daae0fa
+sha256:
+  darwin_arm64: 755e4e1aee069c7352e12e1d343fee26efbc805f4592941300de2ea3b9c0baa7
+  darwin_amd64: 4ea60f17b51fbd0ced9664250070a4676a2b87e6f9390197106cd1c299958420
+  linux_amd64: 8944d7d755ec39de4a4a052971cf5f8246189f0e3e3c6e2a172ab274925a89ec
+  linux_arm64: 1c941ca9f52a119095cf7b07fa119798c05d1712c28c797527b958ec3daae0fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext

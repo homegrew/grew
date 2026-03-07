@@ -1,0 +1,23 @@
+name: soplex
+version: 8.0.1
+description: Optimization package for solving linear programming problems (LPs)
+homepage: https://soplex.zib.de/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soplex/blobs/sha256:6b30073cd1aae2cc5e7d43401b8a9a21fd21d62ddf7efe2a73e2fc31bacd45f5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soplex/blobs/sha256:29c87b1dc260aa6aafa317f50f8e0fabe17036800915bd9b764d5e314c20db2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soplex/blobs/sha256:3ceac79de714dafb666899c3a8338f924ce59b5cb9feead41bc1bbc2044513f0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soplex/blobs/sha256:22b7daaeb89051d2162e6ec33169ba933c121cae9f4cf37ee2cc938688ec5f96
+sha256:
+  darwin_arm64: 6b30073cd1aae2cc5e7d43401b8a9a21fd21d62ddf7efe2a73e2fc31bacd45f5
+  darwin_amd64: 29c87b1dc260aa6aafa317f50f8e0fabe17036800915bd9b764d5e314c20db2d
+  linux_amd64: 3ceac79de714dafb666899c3a8338f924ce59b5cb9feead41bc1bbc2044513f0
+  linux_arm64: 22b7daaeb89051d2162e6ec33169ba933c121cae9f4cf37ee2cc938688ec5f96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - gmp
+  - mpfr

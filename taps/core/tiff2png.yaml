@@ -1,0 +1,23 @@
+name: tiff2png
+version: 0.92
+description: TIFF to PNG converter
+homepage: http://www.libpng.org/pub/png/apps/tiff2png.html
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tiff2png/blobs/sha256:cc94154a902618ac2619cec04577a4dc5532ed13adff9506fffd4180521d5b78
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tiff2png/blobs/sha256:062634cd7eafd6689cce9dad0335fa49edee9523df3ad90bf0b1f27c9637ec18
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tiff2png/blobs/sha256:26cc20cd78f76377d345f2c3517b66f069319067eeeb83d72ce0b6f74a122282
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tiff2png/blobs/sha256:421b0c9de1f281a0bc9656c60e53dfafa075bc9e398c5d20e6063d8f7eaf823a
+sha256:
+  darwin_arm64: cc94154a902618ac2619cec04577a4dc5532ed13adff9506fffd4180521d5b78
+  darwin_amd64: 062634cd7eafd6689cce9dad0335fa49edee9523df3ad90bf0b1f27c9637ec18
+  linux_amd64: 26cc20cd78f76377d345f2c3517b66f069319067eeeb83d72ce0b6f74a122282
+  linux_arm64: 421b0c9de1f281a0bc9656c60e53dfafa075bc9e398c5d20e6063d8f7eaf823a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff

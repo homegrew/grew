@@ -1,0 +1,21 @@
+name: nylon
+version: 1.21
+description: Proxy server
+homepage: https://github.com/smeinecke/nylon
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nylon/blobs/sha256:fc061e1bd83501bfd964f4d38d83a650157e2c4933843c8b0423fa70c6f97732
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nylon/blobs/sha256:0ac4d83ebb4e63c5419e36794e292b7175553465919023ddc7225a04c8fbcc0e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nylon/blobs/sha256:20d711c147849e3de3f352052357765c5d55f82c005bde767c2ff3b95774c0d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nylon/blobs/sha256:230eb92e635d14a73da14fb444d5ebf116484e95ec8c0b8d3d80e893afa0b56d
+sha256:
+  darwin_arm64: fc061e1bd83501bfd964f4d38d83a650157e2c4933843c8b0423fa70c6f97732
+  darwin_amd64: 0ac4d83ebb4e63c5419e36794e292b7175553465919023ddc7225a04c8fbcc0e
+  linux_amd64: 20d711c147849e3de3f352052357765c5d55f82c005bde767c2ff3b95774c0d0
+  linux_arm64: 230eb92e635d14a73da14fb444d5ebf116484e95ec8c0b8d3d80e893afa0b56d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent

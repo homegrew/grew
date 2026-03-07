@@ -1,0 +1,19 @@
+name: bom
+version: 0.7.1
+description: Utility to generate SPDX-compliant Bill of Materials manifests
+homepage: https://kubernetes-sigs.github.io/bom/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bom/blobs/sha256:7b48f971e9f1eb27f2597c5b769d5c5b04c98b4a58e96d2a3518d4a70217a929
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bom/blobs/sha256:24e9021594ab6c2789cbbd4bcdb40d8c5572091da769a155a89e83b577d3e79d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bom/blobs/sha256:afd114ea53280a22f13d028a6c33e61e34193b24b54ac2ecf8e9c66db5e07b2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bom/blobs/sha256:d745d7af5e11523d0717206e9f42265663b3c6b39e5eaa51e366474897d6e140
+sha256:
+  darwin_arm64: 7b48f971e9f1eb27f2597c5b769d5c5b04c98b4a58e96d2a3518d4a70217a929
+  darwin_amd64: 24e9021594ab6c2789cbbd4bcdb40d8c5572091da769a155a89e83b577d3e79d
+  linux_amd64: afd114ea53280a22f13d028a6c33e61e34193b24b54ac2ecf8e9c66db5e07b2f
+  linux_arm64: d745d7af5e11523d0717206e9f42265663b3c6b39e5eaa51e366474897d6e140
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

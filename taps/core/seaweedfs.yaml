@@ -1,0 +1,19 @@
+name: seaweedfs
+version: 4.15
+description: Fast distributed storage system
+homepage: https://github.com/seaweedfs/seaweedfs
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/seaweedfs/blobs/sha256:1c6146831464e1ce5ee466169fa8bc9921a0e44da89dd43e80d0da39b29825e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/seaweedfs/blobs/sha256:33763774845f3f019d68ad326537266a76de3b759ee16131550a2d7ec2629ba2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/seaweedfs/blobs/sha256:7d275c17e293154f0761c149894047e206a9e08f2a7edf95ac82d393ec17b8d2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/seaweedfs/blobs/sha256:10797ee312f03b656aeff3e4aafbb973899d8a8bf3abc2ef6da24b22fae2ecf9
+sha256:
+  darwin_arm64: 1c6146831464e1ce5ee466169fa8bc9921a0e44da89dd43e80d0da39b29825e2
+  darwin_amd64: 33763774845f3f019d68ad326537266a76de3b759ee16131550a2d7ec2629ba2
+  linux_amd64: 7d275c17e293154f0761c149894047e206a9e08f2a7edf95ac82d393ec17b8d2
+  linux_arm64: 10797ee312f03b656aeff3e4aafbb973899d8a8bf3abc2ef6da24b22fae2ecf9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

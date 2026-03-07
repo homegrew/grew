@@ -1,0 +1,19 @@
+name: icon
+version: 9.5.25a
+description: General-purpose programming language
+homepage: https://www2.cs.arizona.edu/icon/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/icon/blobs/sha256:6389f8ee12843eb77bb7616c24e3a139ff00668a41c5d1bd0dade1a3f89cefd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/icon/blobs/sha256:9d4c55825605494439b932ea0b15ca777d20a2ba1f17d93cafbfee848ce97e08
+  linux_amd64: https://ghcr.io/v2/homebrew/core/icon/blobs/sha256:9f8c26a910871b5eaaf6ccbd110aff1fd188817edb466695df7c46275db0f5c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/icon/blobs/sha256:0e24c26298a3ec9764f6c38b55eb08220ee71ac8029130393908ea539659d6bb
+sha256:
+  darwin_arm64: 6389f8ee12843eb77bb7616c24e3a139ff00668a41c5d1bd0dade1a3f89cefd0
+  darwin_amd64: 9d4c55825605494439b932ea0b15ca777d20a2ba1f17d93cafbfee848ce97e08
+  linux_amd64: 9f8c26a910871b5eaaf6ccbd110aff1fd188817edb466695df7c46275db0f5c3
+  linux_arm64: 0e24c26298a3ec9764f6c38b55eb08220ee71ac8029130393908ea539659d6bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

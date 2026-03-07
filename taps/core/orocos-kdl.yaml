@@ -1,0 +1,21 @@
+name: orocos-kdl
+version: 1.5.3
+description: Orocos Kinematics and Dynamics C++ library
+homepage: https://orocos.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/orocos-kdl/blobs/sha256:f426120fbf55e9662b30801031021f06f97de8dceb6fa2b191767868e858f411
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/orocos-kdl/blobs/sha256:b3452bee349dfa41da18a7c9f3df3343561702441e13befe4f879bc4359c679e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/orocos-kdl/blobs/sha256:0b9fe98f805b5c9c3944a6288a5a3abdc262ee58755d259fbeb11f04571e30dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/orocos-kdl/blobs/sha256:e0d188d3d5f65a19ecdd37d5a39d194177d341b70f755d7b8fb1459a59723fcd
+sha256:
+  darwin_arm64: f426120fbf55e9662b30801031021f06f97de8dceb6fa2b191767868e858f411
+  darwin_amd64: b3452bee349dfa41da18a7c9f3df3343561702441e13befe4f879bc4359c679e
+  linux_amd64: 0b9fe98f805b5c9c3944a6288a5a3abdc262ee58755d259fbeb11f04571e30dc
+  linux_arm64: e0d188d3d5f65a19ecdd37d5a39d194177d341b70f755d7b8fb1459a59723fcd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - eigen

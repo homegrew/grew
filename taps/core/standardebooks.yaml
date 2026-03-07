@@ -1,0 +1,27 @@
+name: standardebooks
+version: 3.0.1
+description: Tools for producing ebook files
+homepage: https://github.com/standardebooks/tools
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/standardebooks/blobs/sha256:e582f322a44e500750ce9a0ea7737d21f9563936a4f32761e94ca531efc277f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/standardebooks/blobs/sha256:9c07743e30c8e7f11c7310adaaf430e2d7f8dc65076e33b05e5bdd75603f17c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/standardebooks/blobs/sha256:25e9dfb212cf538daf7ded74e8153e5770eabcd5dccfa22923aeda5b63c8cd58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/standardebooks/blobs/sha256:4a907c6d7058a98dad7060d075303ffb0f75e42ce94e952246c394ac570b244c
+sha256:
+  darwin_arm64: e582f322a44e500750ce9a0ea7737d21f9563936a4f32761e94ca531efc277f6
+  darwin_amd64: 9c07743e30c8e7f11c7310adaaf430e2d7f8dc65076e33b05e5bdd75603f17c4
+  linux_amd64: 25e9dfb212cf538daf7ded74e8153e5770eabcd5dccfa22923aeda5b63c8cd58
+  linux_arm64: 4a907c6d7058a98dad7060d075303ffb0f75e42ce94e952246c394ac570b244c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cffi
+  - openjdk
+  - pillow
+  - py3cairo
+  - pycparser
+  - python@3.14

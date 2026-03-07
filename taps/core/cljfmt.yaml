@@ -1,0 +1,21 @@
+name: cljfmt
+version: 0.16.1
+description: Formatting Clojure code
+homepage: https://github.com/weavejester/cljfmt
+license: EPL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cljfmt/blobs/sha256:d68c03bf847700604730bb14f17218999e75cb547ec31c5f74d98b9ced8b0e01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cljfmt/blobs/sha256:5e037cc03c871ce1be5abbf3b386c2a780621eaa4db2dea3320ae05b2af049c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cljfmt/blobs/sha256:fd854302d3f14a5c4d7e1bf6d6749c25cb9e1515599a3bd17542e86a4e7a003a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cljfmt/blobs/sha256:f8483863455fc642606419a1638f7f4c019510aaa7ca4e1a84b210fc8c707673
+sha256:
+  darwin_arm64: d68c03bf847700604730bb14f17218999e75cb547ec31c5f74d98b9ced8b0e01
+  darwin_amd64: 5e037cc03c871ce1be5abbf3b386c2a780621eaa4db2dea3320ae05b2af049c3
+  linux_amd64: fd854302d3f14a5c4d7e1bf6d6749c25cb9e1515599a3bd17542e86a4e7a003a
+  linux_arm64: f8483863455fc642606419a1638f7f4c019510aaa7ca4e1a84b210fc8c707673
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

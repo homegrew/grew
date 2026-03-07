@@ -1,0 +1,19 @@
+name: jaq
+version: 2.3.0
+description: JQ clone focussed on correctness, speed, and simplicity
+homepage: https://github.com/01mf02/jaq
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jaq/blobs/sha256:4fe530857538d1935dda5d031197c37ce565bca559f5a026bcf796d1349f11b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jaq/blobs/sha256:4588e666fb9a9743daec059325fcdbbc0be6646c4682f1923b84b7ce95b77f9c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jaq/blobs/sha256:563f44eed6ac531021e83c87c879b046086be350f622615c30b1c9814c471dff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jaq/blobs/sha256:93442db0bdf314b8f7b5a490f024c52da3cc12806ad3da07d0bba1e704c1a121
+sha256:
+  darwin_arm64: 4fe530857538d1935dda5d031197c37ce565bca559f5a026bcf796d1349f11b0
+  darwin_amd64: 4588e666fb9a9743daec059325fcdbbc0be6646c4682f1923b84b7ce95b77f9c
+  linux_amd64: 563f44eed6ac531021e83c87c879b046086be350f622615c30b1c9814c471dff
+  linux_arm64: 93442db0bdf314b8f7b5a490f024c52da3cc12806ad3da07d0bba1e704c1a121
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: ldid
+version: 2.1.5
+description: Lets you manipulate the signature block in a Mach-O binary
+homepage: https://cydia.saurik.com/info/ldid/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ldid/blobs/sha256:4c28297c1094cde3ae7fe7061400807d8936b9d0fb9fc317a354ce7cd856bf33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ldid/blobs/sha256:b60a204f73db3794d0cba7d85ec6318bb29050e69cd705a4e9ac540ef395cac1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ldid/blobs/sha256:b8a69a0616a8dda110f61623b22635142b61d1cf611e60f17a70b336a1df20e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ldid/blobs/sha256:c406cbaf506a024df5d668b9fba39c5a776a28ad3601b34a89c445894fa7b646
+sha256:
+  darwin_arm64: 4c28297c1094cde3ae7fe7061400807d8936b9d0fb9fc317a354ce7cd856bf33
+  darwin_amd64: b60a204f73db3794d0cba7d85ec6318bb29050e69cd705a4e9ac540ef395cac1
+  linux_amd64: b8a69a0616a8dda110f61623b22635142b61d1cf611e60f17a70b336a1df20e6
+  linux_arm64: c406cbaf506a024df5d668b9fba39c5a776a28ad3601b34a89c445894fa7b646
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libplist
+  - openssl@3

@@ -1,0 +1,25 @@
+name: qtvirtualkeyboard
+version: 6.10.2
+description: Provides an input framework and reference keyboard frontend
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND Apache-2.0 AND BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtvirtualkeyboard/blobs/sha256:1a7e5167b0864b4f73b22bb6230f36821cfb706c03d7711d5ad3b434481cb432
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtvirtualkeyboard/blobs/sha256:9c513779a92a3bf71472c271523279a3b0205821c3168e3e50e04e9e5da7b09d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtvirtualkeyboard/blobs/sha256:341a55605760887b021f35204b33a7b3fcc2edcd1c742131db602bdaa5dc526b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtvirtualkeyboard/blobs/sha256:314575dfccf4459fc27e0283508bbe4f5e580280fa90d3c33f9e35797c479cf3
+sha256:
+  darwin_arm64: 1a7e5167b0864b4f73b22bb6230f36821cfb706c03d7711d5ad3b434481cb432
+  darwin_amd64: 9c513779a92a3bf71472c271523279a3b0205821c3168e3e50e04e9e5da7b09d
+  linux_amd64: 341a55605760887b021f35204b33a7b3fcc2edcd1c742131db602bdaa5dc526b
+  linux_arm64: 314575dfccf4459fc27e0283508bbe4f5e580280fa90d3c33f9e35797c479cf3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hunspell
+  - qtbase
+  - qtdeclarative
+  - qtmultimedia
+  - qtsvg

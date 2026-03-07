@@ -1,0 +1,21 @@
+name: libmatio
+version: 1.5.30
+description: C library for reading and writing MATLAB MAT files
+homepage: https://matio.sourceforge.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libmatio/blobs/sha256:9ca72d65bf5da29bddfbe606984e69151d6e26744783b2893a34e9318e7ae22c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libmatio/blobs/sha256:83734b9696e4075b6bb93b5759a39f61195f01fa915879912d2622489813d2af
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libmatio/blobs/sha256:75875bd017f8e01b60e5bf97fc8140440e0dcaa018c4e2d7809f20b31cfd3071
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libmatio/blobs/sha256:96ccac4352f0a05a8b17132ffd0ea5f0d6fa9fc26f0f7512c0e3b85616eaf8d1
+sha256:
+  darwin_arm64: 9ca72d65bf5da29bddfbe606984e69151d6e26744783b2893a34e9318e7ae22c
+  darwin_amd64: 83734b9696e4075b6bb93b5759a39f61195f01fa915879912d2622489813d2af
+  linux_amd64: 75875bd017f8e01b60e5bf97fc8140440e0dcaa018c4e2d7809f20b31cfd3071
+  linux_arm64: 96ccac4352f0a05a8b17132ffd0ea5f0d6fa9fc26f0f7512c0e3b85616eaf8d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hdf5

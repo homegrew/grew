@@ -1,0 +1,19 @@
+name: aspell
+version: 0.60.8.2
+description: Spell checker with better logic than ispell
+homepage: http://aspell.net/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aspell/blobs/sha256:1039dbbb1d5abd5d4f78a211fdcaa5657456a153b2282bda45ebffe6c0ab1b70
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aspell/blobs/sha256:d67764dd08b363fcb93aaf020abb592a42f7c21756f657d041107e5f2c103ad5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aspell/blobs/sha256:e45cb5f81053dc9584b97659e14aa7c5e4698aa807fa9739b97008a1a62d8792
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aspell/blobs/sha256:d1fa3353d7b6b6bd701d26c1bf3aeaf08c5651d1627d8752b5c875c16d4722d6
+sha256:
+  darwin_arm64: 1039dbbb1d5abd5d4f78a211fdcaa5657456a153b2282bda45ebffe6c0ab1b70
+  darwin_amd64: d67764dd08b363fcb93aaf020abb592a42f7c21756f657d041107e5f2c103ad5
+  linux_amd64: e45cb5f81053dc9584b97659e14aa7c5e4698aa807fa9739b97008a1a62d8792
+  linux_arm64: d1fa3353d7b6b6bd701d26c1bf3aeaf08c5651d1627d8752b5c875c16d4722d6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

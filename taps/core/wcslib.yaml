@@ -1,0 +1,21 @@
+name: wcslib
+version: 8.5
+description: Library and utilities for the FITS World Coordinate System
+homepage: https://www.atnf.csiro.au/computing/software/wcs/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wcslib/blobs/sha256:7b176690e05aff3882cecc3e5c6ef64d800c2cb5ce5ebf8629c5b7908f8cca5f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wcslib/blobs/sha256:0a5a6f824d5bb42d811358b69df421eb1a50a45140241318103753ff2efb5cfc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wcslib/blobs/sha256:10cd6cb0fdd6857a41558bbb526d12d0666ac11c6e07262c41ce350d46393318
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wcslib/blobs/sha256:e754f29a4470f5a89690a2147596d89df0bccaf0e3e4910567cf7f29123d96b0
+sha256:
+  darwin_arm64: 7b176690e05aff3882cecc3e5c6ef64d800c2cb5ce5ebf8629c5b7908f8cca5f
+  darwin_amd64: 0a5a6f824d5bb42d811358b69df421eb1a50a45140241318103753ff2efb5cfc
+  linux_amd64: 10cd6cb0fdd6857a41558bbb526d12d0666ac11c6e07262c41ce350d46393318
+  linux_arm64: e754f29a4470f5a89690a2147596d89df0bccaf0e3e4910567cf7f29123d96b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio

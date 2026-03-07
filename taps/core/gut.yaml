@@ -1,0 +1,19 @@
+name: gut
+version: 0.3.2
+description: Beginner friendly porcelain for git
+homepage: https://gut-cli.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gut/blobs/sha256:ee60c94f64823edc247db7d64fac9c6f35c7f7c4c2e894e67a52f15148c0a0ea
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gut/blobs/sha256:82951d3153c048316f7a5180df7160847b93cd7ca8491638b27ca5e3e7319c30
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gut/blobs/sha256:b9734fda07357cf7c57786fdb400b2be1363615dee08196472ffb0c1bcbcc3ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gut/blobs/sha256:55cadce09bb5c14fdf9e23ed605df31d4ec14d56503227f3fe098ff748a2d1f4
+sha256:
+  darwin_arm64: ee60c94f64823edc247db7d64fac9c6f35c7f7c4c2e894e67a52f15148c0a0ea
+  darwin_amd64: 82951d3153c048316f7a5180df7160847b93cd7ca8491638b27ca5e3e7319c30
+  linux_amd64: b9734fda07357cf7c57786fdb400b2be1363615dee08196472ffb0c1bcbcc3ee
+  linux_arm64: 55cadce09bb5c14fdf9e23ed605df31d4ec14d56503227f3fe098ff748a2d1f4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

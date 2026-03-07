@@ -1,0 +1,19 @@
+name: rsql
+version: 0.19.3
+description: CLI for relational databases and common data file formats
+homepage: https://github.com/theseus-rs/rsql
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rsql/blobs/sha256:a439617bc4d7b2d9ad8cd1e7b4f77bbad1d3d40049b8f0f048b172087f12289f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rsql/blobs/sha256:9a1f0469221de743364b2be13b241dde7b91fb3c795feeec8367e5032b52710b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rsql/blobs/sha256:0cac0bccdc5b023c6d1ae310b3fe3190acaf40fa704a84b7660a81aa5aaef995
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rsql/blobs/sha256:0cfdf02e32c0a6fd49011ddcd752ea8a6ebc9ab5b61a6e820981afbec92162ef
+sha256:
+  darwin_arm64: a439617bc4d7b2d9ad8cd1e7b4f77bbad1d3d40049b8f0f048b172087f12289f
+  darwin_amd64: 9a1f0469221de743364b2be13b241dde7b91fb3c795feeec8367e5032b52710b
+  linux_amd64: 0cac0bccdc5b023c6d1ae310b3fe3190acaf40fa704a84b7660a81aa5aaef995
+  linux_arm64: 0cfdf02e32c0a6fd49011ddcd752ea8a6ebc9ab5b61a6e820981afbec92162ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: distill-cli
+version: 0.2.0
+description: Use AWS Transcribe and Bedrock to create summaries of your audio recordings
+homepage: https://www.allthingsdistributed.com/2024/06/introducing-distill-cli.html
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/distill-cli/blobs/sha256:05931eb86c8a7c5af00e0119729144e1ec1b71ce608aadce8bda08b9c7d332da
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/distill-cli/blobs/sha256:22935921422088574b9f67baa4ab10db9ad4f79ac8adbdd0604faaa2af0594e9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/distill-cli/blobs/sha256:22ebb083671dbe450f27a1d29caa892eb1b12e1e54a11271677984e3622fecfc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/distill-cli/blobs/sha256:76f573c4b8a3ffe36a963ceeb1c977ed85c6131c05a87e00e9c2edbac956d768
+sha256:
+  darwin_arm64: 05931eb86c8a7c5af00e0119729144e1ec1b71ce608aadce8bda08b9c7d332da
+  darwin_amd64: 22935921422088574b9f67baa4ab10db9ad4f79ac8adbdd0604faaa2af0594e9
+  linux_amd64: 22ebb083671dbe450f27a1d29caa892eb1b12e1e54a11271677984e3622fecfc
+  linux_arm64: 76f573c4b8a3ffe36a963ceeb1c977ed85c6131c05a87e00e9c2edbac956d768
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

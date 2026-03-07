@@ -1,0 +1,19 @@
+name: libresample
+version: 0.1.3
+description: Audio resampling C library
+homepage: https://ccrma.stanford.edu/~jos/resample/Available_Software.html
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libresample/blobs/sha256:068cbb861da9420760739f884f5d0da524f8d6dd8fbb3496771038f11beb3e2f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libresample/blobs/sha256:5c053b159be9058f2f7cd56aff77573414b579b175d2bf2b6421360d568bd789
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libresample/blobs/sha256:9c42f2a35518f75cc11ee79cdfd8985def6d079a7afd8b2b02f74ac82a165122
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libresample/blobs/sha256:07dabf0e5ac418d11d1cb1e20326ac69e20a199c620e6768c4411a7db878a2e6
+sha256:
+  darwin_arm64: 068cbb861da9420760739f884f5d0da524f8d6dd8fbb3496771038f11beb3e2f
+  darwin_amd64: 5c053b159be9058f2f7cd56aff77573414b579b175d2bf2b6421360d568bd789
+  linux_amd64: 9c42f2a35518f75cc11ee79cdfd8985def6d079a7afd8b2b02f74ac82a165122
+  linux_arm64: 07dabf0e5ac418d11d1cb1e20326ac69e20a199c620e6768c4411a7db878a2e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

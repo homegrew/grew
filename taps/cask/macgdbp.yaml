@@ -1,0 +1,11 @@
+name: macgdbp
+version: 2.1.2
+description: Live, interactive debugging of your running PHP applications
+homepage: https://www.bluestatic.org/software/macgdbp/
+url:
+  darwin_arm64: https://www.bluestatic.org/downloads/macgdbp/macgdbp-2.1.2.zip
+sha256:
+  darwin_arm64: 2951d17fadbdb50df79f50a386265d0cdcd8fb5526348712a86e2a801d4064cc
+artifacts:
+  app:
+    - MacGDBp.app

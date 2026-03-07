@@ -1,0 +1,21 @@
+name: codevis
+version: 0.8.4
+description: Turns your code into one large image
+homepage: https://github.com/sloganking/codevis
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codevis/blobs/sha256:b343098901a405f0c2b847cb154a759404fb0959aad0ce0acae6041394190b79
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codevis/blobs/sha256:fb7c8b97b77b706314852bd71838810c67e783903409ce94edf69b00ad1a36a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codevis/blobs/sha256:de3939e0b77b99e6d62c786955215be6273d5cedae6ccc7e63c3b9a775f7c2cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codevis/blobs/sha256:85a8bfe022daaca844396a7daae091b2e374f5d83b7d15149d6a47bd414f3269
+sha256:
+  darwin_arm64: b343098901a405f0c2b847cb154a759404fb0959aad0ce0acae6041394190b79
+  darwin_amd64: fb7c8b97b77b706314852bd71838810c67e783903409ce94edf69b00ad1a36a4
+  linux_amd64: de3939e0b77b99e6d62c786955215be6273d5cedae6ccc7e63c3b9a775f7c2cd
+  linux_arm64: 85a8bfe022daaca844396a7daae091b2e374f5d83b7d15149d6a47bd414f3269
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - oniguruma

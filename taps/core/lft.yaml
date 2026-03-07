@@ -1,0 +1,19 @@
+name: lft
+version: 3.93
+description: Layer Four Traceroute (LFT), an advanced traceroute tool
+homepage: https://pwhois.org/lft/
+license: VOSTROM
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lft/blobs/sha256:7d61632f71eccd5cf1aed7004ac9554e28e71d875af82c0a8428ca90a0264e71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lft/blobs/sha256:b5716adbf89ee9d65ac6f35ae16bf6005e72c6fdd58ef8f4902ee58448ebb5c3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lft/blobs/sha256:ae83d99648c69a603c70695e15f6610d716a64597479edcfbca17c7233c4d8c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lft/blobs/sha256:286743a2447c36a183b14cc7547a7b782b517a428022cbe3c97e8903c0328252
+sha256:
+  darwin_arm64: 7d61632f71eccd5cf1aed7004ac9554e28e71d875af82c0a8428ca90a0264e71
+  darwin_amd64: b5716adbf89ee9d65ac6f35ae16bf6005e72c6fdd58ef8f4902ee58448ebb5c3
+  linux_amd64: ae83d99648c69a603c70695e15f6610d716a64597479edcfbca17c7233c4d8c3
+  linux_arm64: 286743a2447c36a183b14cc7547a7b782b517a428022cbe3c97e8903c0328252
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

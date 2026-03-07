@@ -1,0 +1,23 @@
+name: animdl
+version: 1.7.27
+description: Anime downloader and streamer
+homepage: https://github.com/justfoolingaround/animdl
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/animdl/blobs/sha256:9a663d581aaa831267a9d020758c8e5962d4dece43a67489a4525d68fcfade28
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/animdl/blobs/sha256:0c05e962bd34c1c60da5d29f7ffdc5f527ee3c2c9531b4dacf61379afc5d59ba
+  linux_amd64: https://ghcr.io/v2/homebrew/core/animdl/blobs/sha256:139de394e6a5375b2e3276ea77f3a0f58cff05e17bb60903307b5e451d9493cf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/animdl/blobs/sha256:bdd4e7d41e4ed34284d9229e198f95eb05c2e445c7d3f528a10abeb1bec371b0
+sha256:
+  darwin_arm64: 9a663d581aaa831267a9d020758c8e5962d4dece43a67489a4525d68fcfade28
+  darwin_amd64: 0c05e962bd34c1c60da5d29f7ffdc5f527ee3c2c9531b4dacf61379afc5d59ba
+  linux_amd64: 139de394e6a5375b2e3276ea77f3a0f58cff05e17bb60903307b5e451d9493cf
+  linux_arm64: bdd4e7d41e4ed34284d9229e198f95eb05c2e445c7d3f528a10abeb1bec371b0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

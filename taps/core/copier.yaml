@@ -1,0 +1,23 @@
+name: copier
+version: 9.13.0
+description: Utility for rendering projects templates
+homepage: https://copier.readthedocs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/copier/blobs/sha256:e01c90a1c8cb763177516919f029c4e1eec90880c51ca8ce88dddf73b43e3b7d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/copier/blobs/sha256:ee703752714d7270617227ba7c10622225af275bfdaa73aa3e61f9183c3e02ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/copier/blobs/sha256:bc6e9c33603369d965e2990372c3e94dc5a2a81a3e8f5b14625f08b654929959
+  linux_arm64: https://ghcr.io/v2/homebrew/core/copier/blobs/sha256:db968217926d755e6e02946d45a78fbc5ca69c2b40afac95df51e64cc39709c6
+sha256:
+  darwin_arm64: e01c90a1c8cb763177516919f029c4e1eec90880c51ca8ce88dddf73b43e3b7d
+  darwin_amd64: ee703752714d7270617227ba7c10622225af275bfdaa73aa3e61f9183c3e02ca
+  linux_amd64: bc6e9c33603369d965e2990372c3e94dc5a2a81a3e8f5b14625f08b654929959
+  linux_arm64: db968217926d755e6e02946d45a78fbc5ca69c2b40afac95df51e64cc39709c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - pydantic
+  - python@3.14

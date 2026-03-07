@@ -1,0 +1,21 @@
+name: weighttp
+version: 0.5
+description: Webserver benchmarking tool that supports multithreading
+homepage: https://redmine.lighttpd.net/projects/weighttp/wiki
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/weighttp/blobs/sha256:5a9431eb7d71f87319baec3ba54e3d6e9bcb971d0356ed14928fb382593c1a9d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/weighttp/blobs/sha256:29aa4d4033b8d42c0d19775341bb677ed2ad36a76c63560b5f30f6c14a92a6e2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/weighttp/blobs/sha256:07a8f6aaec0a3cd34539dc74acb30d4ca3d392b70e1ca89342545ee7830aa343
+  linux_arm64: https://ghcr.io/v2/homebrew/core/weighttp/blobs/sha256:9a163f9c93a97ef7facda6ceb7e353d18d4467bba6649c7ec5ea99659f53559c
+sha256:
+  darwin_arm64: 5a9431eb7d71f87319baec3ba54e3d6e9bcb971d0356ed14928fb382593c1a9d
+  darwin_amd64: 29aa4d4033b8d42c0d19775341bb677ed2ad36a76c63560b5f30f6c14a92a6e2
+  linux_amd64: 07a8f6aaec0a3cd34539dc74acb30d4ca3d392b70e1ca89342545ee7830aa343
+  linux_arm64: 9a163f9c93a97ef7facda6ceb7e353d18d4467bba6649c7ec5ea99659f53559c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libev

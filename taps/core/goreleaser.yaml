@@ -1,0 +1,19 @@
+name: goreleaser
+version: 2.14.1
+description: Deliver Go binaries as fast and easily as possible
+homepage: https://goreleaser.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/goreleaser/blobs/sha256:b9f72483dc12a5f305f0bf4aef3a34613762f83c87fdf79d463940e36c9397d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/goreleaser/blobs/sha256:e21fd88aca75a16d32287283048ad359d920f930e8ec1338b7ff2ffd1238db9e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/goreleaser/blobs/sha256:2e3082a242e371b2f402a77bb289749d560c4d849a2189b875050afd60b0a22b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/goreleaser/blobs/sha256:bc1012d18b184c743aa0b84085fe6cd808380fe47b18bc63f9ae7953d5c76486
+sha256:
+  darwin_arm64: b9f72483dc12a5f305f0bf4aef3a34613762f83c87fdf79d463940e36c9397d0
+  darwin_amd64: e21fd88aca75a16d32287283048ad359d920f930e8ec1338b7ff2ffd1238db9e
+  linux_amd64: 2e3082a242e371b2f402a77bb289749d560c4d849a2189b875050afd60b0a22b
+  linux_arm64: bc1012d18b184c743aa0b84085fe6cd808380fe47b18bc63f9ae7953d5c76486
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: mapcrafter
+version: 2.4
+description: Minecraft map renderer
+homepage: https://github.com/mapcrafter/mapcrafter
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mapcrafter/blobs/sha256:44a442066454eea4959b0e1f8f25e2c1623760b204daa6a7a8e544a371012148
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mapcrafter/blobs/sha256:90993b42b43e2ae3468bf0f7958cce1eb30f6fc6af25c7703f2a2b1d8736aeb8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mapcrafter/blobs/sha256:7e038bf639acca928a12529990bbe8f6fe8eca1b96f98cea7728645f1ae7c222
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mapcrafter/blobs/sha256:3e1ce922fd20957bb2b790df53252375b32746b79f92eae4fb173500e3bd144b
+sha256:
+  darwin_arm64: 44a442066454eea4959b0e1f8f25e2c1623760b204daa6a7a8e544a371012148
+  darwin_amd64: 90993b42b43e2ae3468bf0f7958cce1eb30f6fc6af25c7703f2a2b1d8736aeb8
+  linux_amd64: 7e038bf639acca928a12529990bbe8f6fe8eca1b96f98cea7728645f1ae7c222
+  linux_arm64: 3e1ce922fd20957bb2b790df53252375b32746b79f92eae4fb173500e3bd144b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost
+  - jpeg-turbo
+  - libpng

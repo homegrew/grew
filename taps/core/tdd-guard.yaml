@@ -1,0 +1,21 @@
+name: tdd-guard
+version: 1.1.0
+description: Automated TDD enforcement for Claude Code
+homepage: https://github.com/nizos/tdd-guard
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tdd-guard/blobs/sha256:3fb3feb1c6e6a4b7f4b36982a45445b69e2845212e85c4318c49e1b53ceaebb7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tdd-guard/blobs/sha256:ea1930bf4be0a3f3d86f01f8be7ad0c5b231d510c30220c50f25d174cb21fdaf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tdd-guard/blobs/sha256:bca2b4d222c93da8b4a5dddc4e7218e51b39e9b420fcec6be899cd157d63d9e1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tdd-guard/blobs/sha256:0db9e7258bed48c9637a0eef9fdc5e08924d0cf30acca05fada8a46fffdfa690
+sha256:
+  darwin_arm64: 3fb3feb1c6e6a4b7f4b36982a45445b69e2845212e85c4318c49e1b53ceaebb7
+  darwin_amd64: ea1930bf4be0a3f3d86f01f8be7ad0c5b231d510c30220c50f25d174cb21fdaf
+  linux_amd64: bca2b4d222c93da8b4a5dddc4e7218e51b39e9b420fcec6be899cd157d63d9e1
+  linux_arm64: 0db9e7258bed48c9637a0eef9fdc5e08924d0cf30acca05fada8a46fffdfa690
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

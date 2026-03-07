@@ -1,0 +1,21 @@
+name: sqlite3-to-mysql
+version: 2.5.5
+description: Transfer data from SQLite to MySQL
+homepage: https://github.com/techouse/sqlite3-to-mysql
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sqlite3-to-mysql/blobs/sha256:e7ad06ba9100a13a97b061f981ad180864da3dc7a3b9293fd5f9aa876a3bdb7a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sqlite3-to-mysql/blobs/sha256:9cd5462f97e0d4014d712e4975de4a7e9f6e48180a5ad2efecacbdfd28d8c218
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sqlite3-to-mysql/blobs/sha256:be072b0d8a1e7e989693b13e4fdb3e7bf6be6e1f91a6f43e89c88fbfaff75ff3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sqlite3-to-mysql/blobs/sha256:0599cd54ac8844467bbf7fedfa5726c02fa11cdca8fd24fb3342bb91e17bf930
+sha256:
+  darwin_arm64: e7ad06ba9100a13a97b061f981ad180864da3dc7a3b9293fd5f9aa876a3bdb7a
+  darwin_amd64: 9cd5462f97e0d4014d712e4975de4a7e9f6e48180a5ad2efecacbdfd28d8c218
+  linux_amd64: be072b0d8a1e7e989693b13e4fdb3e7bf6be6e1f91a6f43e89c88fbfaff75ff3
+  linux_arm64: 0599cd54ac8844467bbf7fedfa5726c02fa11cdca8fd24fb3342bb91e17bf930
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

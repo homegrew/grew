@@ -1,0 +1,11 @@
+name: helo
+version: 1.7.0
+description: Email tester and debugger
+homepage: https://usehelo.com/
+url:
+  darwin_arm64: https://helo.fra1.digitaloceanspaces.com/helo/HELO-1.7.0-arm64.dmg
+sha256:
+  darwin_arm64: f06465971d21e38c5a96c5d4f1689440a2673bf00bc38e963fd182af2bc0fe83
+artifacts:
+  app:
+    - HELO.app

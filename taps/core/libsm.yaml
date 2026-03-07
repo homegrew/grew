@@ -1,0 +1,21 @@
+name: libsm
+version: 1.2.6
+description: "X.Org: X Session Management Library"
+homepage: https://www.x.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libsm/blobs/sha256:9ddab9c6da4ddc8c83f79079c63d16f220701ad058c8c8a07b077ceaed3eb7d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libsm/blobs/sha256:4b4f15ad71a83a96941c9162bd1fedbaa2889c14558bee37198e8e6c30acb743
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libsm/blobs/sha256:4f1cb49ab246f356b91a633720a6043f3817b654f2933ed72445b2ab2c20a91e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libsm/blobs/sha256:94ce571df236e9e1d56c3dce8055e0d5c4755eddad55646c263c95505ac07ad2
+sha256:
+  darwin_arm64: 9ddab9c6da4ddc8c83f79079c63d16f220701ad058c8c8a07b077ceaed3eb7d3
+  darwin_amd64: 4b4f15ad71a83a96941c9162bd1fedbaa2889c14558bee37198e8e6c30acb743
+  linux_amd64: 4f1cb49ab246f356b91a633720a6043f3817b654f2933ed72445b2ab2c20a91e
+  linux_arm64: 94ce571df236e9e1d56c3dce8055e0d5c4755eddad55646c263c95505ac07ad2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libice

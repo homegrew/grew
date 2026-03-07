@@ -1,0 +1,19 @@
+name: bento
+version: 1.15.0
+description: Fancy stream processing made operationally mundane
+homepage: https://warpstreamlabs.github.io/bento/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bento/blobs/sha256:be171c78149593a9257c18a5d8f1d24a2a9927982eec1691a31aabb1e08d8e6b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bento/blobs/sha256:e25a2614fc802e03d7d303cef2369c00ccc19f7e5e0acb5398399c408cc70f39
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bento/blobs/sha256:1cbde4d718d5951aad9d35b0cc9946f03029e4e9317142e7602bfc0de9d3b714
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bento/blobs/sha256:a9fccb5f9a29c21966bc717aad2ed89ade57ff77b6879abed3620530dea74b0e
+sha256:
+  darwin_arm64: be171c78149593a9257c18a5d8f1d24a2a9927982eec1691a31aabb1e08d8e6b
+  darwin_amd64: e25a2614fc802e03d7d303cef2369c00ccc19f7e5e0acb5398399c408cc70f39
+  linux_amd64: 1cbde4d718d5951aad9d35b0cc9946f03029e4e9317142e7602bfc0de9d3b714
+  linux_arm64: a9fccb5f9a29c21966bc717aad2ed89ade57ff77b6879abed3620530dea74b0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

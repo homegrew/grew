@@ -1,0 +1,22 @@
+name: manifold
+version: 3.4.0
+description: Geometry library for topological robustness
+homepage: https://github.com/elalish/manifold
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/manifold/blobs/sha256:ff5b52cf774a2b72df13344d7def1b31bfaab648e03bbb72b89bbee195672f10
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/manifold/blobs/sha256:6c32634e31bb38a8762f582ba9ff248d40b9a2bb8b35203f0570fadf1477f9b8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/manifold/blobs/sha256:0b60c665359a57701df2f9333280caed43643557245792962dfd77da577c0b19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/manifold/blobs/sha256:b095363687ac275a354fa73047d606384b136873ba81136764ec99fab9dc1a62
+sha256:
+  darwin_arm64: ff5b52cf774a2b72df13344d7def1b31bfaab648e03bbb72b89bbee195672f10
+  darwin_amd64: 6c32634e31bb38a8762f582ba9ff248d40b9a2bb8b35203f0570fadf1477f9b8
+  linux_amd64: 0b60c665359a57701df2f9333280caed43643557245792962dfd77da577c0b19
+  linux_arm64: b095363687ac275a354fa73047d606384b136873ba81136764ec99fab9dc1a62
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - clipper2
+  - tbb

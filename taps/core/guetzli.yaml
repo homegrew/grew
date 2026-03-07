@@ -1,0 +1,21 @@
+name: guetzli
+version: 1.0.1
+description: Perceptual JPEG encoder
+homepage: https://github.com/google/guetzli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/guetzli/blobs/sha256:848e59c5a4a60bce70dc21cfc9501bbe56f15d7d76475b7043e21cb2740f4f41
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/guetzli/blobs/sha256:93a976e44bcdb34e084bc689d4cc7ab8bb8eb1b60f7f53e6b7c379599237b552
+  linux_amd64: https://ghcr.io/v2/homebrew/core/guetzli/blobs/sha256:f75d76355fa17bf7709842f7e1dab879c5cae613908bfd7196f6cc553238644f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/guetzli/blobs/sha256:4d4369003d405489dc3558a67898b111a977d010f343a64153eb1dfd10ff1546
+sha256:
+  darwin_arm64: 848e59c5a4a60bce70dc21cfc9501bbe56f15d7d76475b7043e21cb2740f4f41
+  darwin_amd64: 93a976e44bcdb34e084bc689d4cc7ab8bb8eb1b60f7f53e6b7c379599237b552
+  linux_amd64: f75d76355fa17bf7709842f7e1dab879c5cae613908bfd7196f6cc553238644f
+  linux_arm64: 4d4369003d405489dc3558a67898b111a977d010f343a64153eb1dfd10ff1546
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpng

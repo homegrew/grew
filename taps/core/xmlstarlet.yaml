@@ -1,0 +1,19 @@
+name: xmlstarlet
+version: 1.6.1
+description: XML command-line utilities
+homepage: https://xmlstar.sourceforge.net/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmlstarlet/blobs/sha256:a8da4979558af0c5679c2cadfac4c5a0a9f851eccd6a3ef74e0475b1dae7edfb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmlstarlet/blobs/sha256:80f27cfee431b938bb3e4fadd7fc1a8dbe740ce1b00a053e6bee64441f7e5e23
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmlstarlet/blobs/sha256:e5a94dccc66555dee58f477b358e98d91f5b9afff2c4385471ab19fb57c42e32
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmlstarlet/blobs/sha256:04a42fc41c21c9c4fb1483128c6a6be0ffe23ac31f181904aeb68cd12fe4dc8f
+sha256:
+  darwin_arm64: a8da4979558af0c5679c2cadfac4c5a0a9f851eccd6a3ef74e0475b1dae7edfb
+  darwin_amd64: 80f27cfee431b938bb3e4fadd7fc1a8dbe740ce1b00a053e6bee64441f7e5e23
+  linux_amd64: e5a94dccc66555dee58f477b358e98d91f5b9afff2c4385471ab19fb57c42e32
+  linux_arm64: 04a42fc41c21c9c4fb1483128c6a6be0ffe23ac31f181904aeb68cd12fe4dc8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

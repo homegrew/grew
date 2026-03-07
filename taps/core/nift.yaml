@@ -1,0 +1,21 @@
+name: nift
+version: 3.0.3
+description: Cross-platform open source framework for managing and generating websites
+homepage: https://nift.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nift/blobs/sha256:cffde6265d86b958248a1f0acbb45874f3319a9fed29b5bac84afc5bd1f9799e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nift/blobs/sha256:be9f28e1d59a40c8f7eb2ef64706389a7e3983ecc884072c925fd4ea5f058d4a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nift/blobs/sha256:a4ceda3cb7527a85aac01357fa0e8fe3a1adb2d8dc4be618b7e93cacd97e6754
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nift/blobs/sha256:0fe98d910ca3b4ddaf7ba53a135e62cc0fb506aeae507482b0fc85af9f78eaf4
+sha256:
+  darwin_arm64: cffde6265d86b958248a1f0acbb45874f3319a9fed29b5bac84afc5bd1f9799e
+  darwin_amd64: be9f28e1d59a40c8f7eb2ef64706389a7e3983ecc884072c925fd4ea5f058d4a
+  linux_amd64: a4ceda3cb7527a85aac01357fa0e8fe3a1adb2d8dc4be618b7e93cacd97e6754
+  linux_arm64: 0fe98d910ca3b4ddaf7ba53a135e62cc0fb506aeae507482b0fc85af9f78eaf4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - luajit

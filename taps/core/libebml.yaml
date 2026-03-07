@@ -1,0 +1,19 @@
+name: libebml
+version: 1.4.5
+description: Sort of a sbinary version of XML
+homepage: https://www.matroska.org/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libebml/blobs/sha256:b0156cbf1955e582256e75bdc14616f47df280ae9aecdf8b0b8fa5f9b5124aaa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libebml/blobs/sha256:1239efbef88129a1f69b8e160177912d565f10ac0ff311db0a82861755c24cc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libebml/blobs/sha256:c102b368af523e56e6ebfca14a0e5ff544849992f06d90a0c7768aa8026d4378
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libebml/blobs/sha256:a84f082ce4f338d50887d393e1b44965bb42daf3df9690f981d3e67de6298c0e
+sha256:
+  darwin_arm64: b0156cbf1955e582256e75bdc14616f47df280ae9aecdf8b0b8fa5f9b5124aaa
+  darwin_amd64: 1239efbef88129a1f69b8e160177912d565f10ac0ff311db0a82861755c24cc1
+  linux_amd64: c102b368af523e56e6ebfca14a0e5ff544849992f06d90a0c7768aa8026d4378
+  linux_arm64: a84f082ce4f338d50887d393e1b44965bb42daf3df9690f981d3e67de6298c0e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: unar
+version: 1.10.8
+description: Command-line unarchiving tools supporting multiple formats
+homepage: https://theunarchiver.com/command-line
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unar/blobs/sha256:0ef068932336d86ad68784341497223c5d17d6e56ed564a698d6686031ff97fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unar/blobs/sha256:0d686d8ad4563aab687d8a48578ccafde6bec7681939c280357ef02f14829f5d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unar/blobs/sha256:128ef931a133a2dba46f9bfacfe00d28830ec81adcea315d026159321fd1a79d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unar/blobs/sha256:85565efda882c47c9abf8d29ad7da951ab88459bf5cabb179a21fecaeb46158c
+sha256:
+  darwin_arm64: 0ef068932336d86ad68784341497223c5d17d6e56ed564a698d6686031ff97fa
+  darwin_amd64: 0d686d8ad4563aab687d8a48578ccafde6bec7681939c280357ef02f14829f5d
+  linux_amd64: 128ef931a133a2dba46f9bfacfe00d28830ec81adcea315d026159321fd1a79d
+  linux_arm64: 85565efda882c47c9abf8d29ad7da951ab88459bf5cabb179a21fecaeb46158c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

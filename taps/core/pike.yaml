@@ -1,0 +1,26 @@
+name: pike
+version: 8.0.1956
+description: Dynamic programming language
+homepage: https://pike.lysator.liu.se/
+license: GPL-2.0-only OR LGPL-2.1-only OR MPL-1.1
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pike/blobs/sha256:fcdd576e2d1f6a9e6e5950e606961b3e2a3342470498789089e279a5d3674be4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pike/blobs/sha256:a85dee58bfc10160afc4d814cc7665837c404861a2f8ba64df76923835868e16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pike/blobs/sha256:d4c545ecc893e81fbde64c012b73d405749254ff6a5f9feab5ac608cce09390b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pike/blobs/sha256:9ca8feac2ad91ed44254a1acba6316c24459cc5f0f750727d33e814cd2ee07ab
+sha256:
+  darwin_arm64: fcdd576e2d1f6a9e6e5950e606961b3e2a3342470498789089e279a5d3674be4
+  darwin_amd64: a85dee58bfc10160afc4d814cc7665837c404861a2f8ba64df76923835868e16
+  linux_amd64: d4c545ecc893e81fbde64c012b73d405749254ff6a5f9feab5ac608cce09390b
+  linux_arm64: 9ca8feac2ad91ed44254a1acba6316c24459cc5f0f750727d33e814cd2ee07ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp
+  - jpeg-turbo
+  - libtiff
+  - nettle
+  - webp
+  - gettext

@@ -1,0 +1,21 @@
+name: ircii
+version: 20260115
+description: IRC and ICB client
+homepage: http://www.eterna23.net/ircii/
+license: BSD-3-Clause AND BSD-2-Clause AND GPL-2.0-or-later AND MIT AND LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ircii/blobs/sha256:f27001eb7472423ac807513f3620dfc50a7abe587b60cae376fcfe1f73bf9d62
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ircii/blobs/sha256:d7faa252ac267d329da31e1016bfc06f5774e6e628c89b7e9e5050bd3132ba5b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ircii/blobs/sha256:541eedf1463ed4337afcb37c39f32be57642e9a7cc99777283431be2bdcf0ab3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ircii/blobs/sha256:634fd789ba9b7e1c538c0e0c3458f9fa8272ca812047976d10c5b56739a1b8d1
+sha256:
+  darwin_arm64: f27001eb7472423ac807513f3620dfc50a7abe587b60cae376fcfe1f73bf9d62
+  darwin_amd64: d7faa252ac267d329da31e1016bfc06f5774e6e628c89b7e9e5050bd3132ba5b
+  linux_amd64: 541eedf1463ed4337afcb37c39f32be57642e9a7cc99777283431be2bdcf0ab3
+  linux_arm64: 634fd789ba9b7e1c538c0e0c3458f9fa8272ca812047976d10c5b56739a1b8d1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

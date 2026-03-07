@@ -1,0 +1,21 @@
+name: glpk
+version: 5.0
+description: Library for Linear and Mixed-Integer Programming
+homepage: https://www.gnu.org/software/glpk/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glpk/blobs/sha256:c60115e0b7c9c13a5e6fc91ceab0aab253c1bd161dae6151e56713a6de6589d5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glpk/blobs/sha256:d3fe2aab018a56aa1d811493e6526063eea45572f995e354d4fd7a120e40c4dd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glpk/blobs/sha256:b2917fa8ab16e56c8f786514f5334598dcc81a939aa7c6c13be41c21d4e1b283
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glpk/blobs/sha256:140cfbb13c5618591618a2c3426be507ca93fedcb9447ed784903a7e518fb2e3
+sha256:
+  darwin_arm64: c60115e0b7c9c13a5e6fc91ceab0aab253c1bd161dae6151e56713a6de6589d5
+  darwin_amd64: d3fe2aab018a56aa1d811493e6526063eea45572f995e354d4fd7a120e40c4dd
+  linux_amd64: b2917fa8ab16e56c8f786514f5334598dcc81a939aa7c6c13be41c21d4e1b283
+  linux_arm64: 140cfbb13c5618591618a2c3426be507ca93fedcb9447ed784903a7e518fb2e3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

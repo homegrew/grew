@@ -1,0 +1,24 @@
+name: safety
+version: 3.7.0
+description: Checks Python dependencies for known vulnerabilities and suggests remediations
+homepage: https://safetycli.com/product/safety-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/safety/blobs/sha256:12385b660fb7ae2d60b1767562b04bfc912065021817378f225dd3625a507610
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/safety/blobs/sha256:c472388ad9e1dd021566a39f24e9aaaa9d635c359b50988d40c5ec10f6201f7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/safety/blobs/sha256:acb0b1e28882667c602f08dc0d7e4ad64d9fbdc29ebb8fa61ac4840d9edda306
+  linux_arm64: https://ghcr.io/v2/homebrew/core/safety/blobs/sha256:2852f413d98f1a26ab0a7dc08fc37c706f4c93b9870f3adeb018dcd39953f82b
+sha256:
+  darwin_arm64: 12385b660fb7ae2d60b1767562b04bfc912065021817378f225dd3625a507610
+  darwin_amd64: c472388ad9e1dd021566a39f24e9aaaa9d635c359b50988d40c5ec10f6201f7a
+  linux_amd64: acb0b1e28882667c602f08dc0d7e4ad64d9fbdc29ebb8fa61ac4840d9edda306
+  linux_arm64: 2852f413d98f1a26ab0a7dc08fc37c706f4c93b9870f3adeb018dcd39953f82b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - pydantic
+  - python@3.14

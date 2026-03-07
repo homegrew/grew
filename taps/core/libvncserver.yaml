@@ -1,0 +1,24 @@
+name: libvncserver
+version: 0.9.15
+description: VNC server and client libraries
+homepage: https://libvnc.github.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvncserver/blobs/sha256:ce1472b68ae1ac5412007a81f99ddec58cec02d3d13b4e9cceb1fe90202ab912
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvncserver/blobs/sha256:b7e7461e4689b9265688597301f7a15ac6b49f77a6a97ae8a5748c8ea6fffcfc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvncserver/blobs/sha256:1e4f2fb7d81aa49887b2c26579ca48af09812947fedca499f70d832e269cd516
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvncserver/blobs/sha256:8cb88d51bf4a691357fe3020a78e367687b6329db0394eff5de2af46c439fed6
+sha256:
+  darwin_arm64: ce1472b68ae1ac5412007a81f99ddec58cec02d3d13b4e9cceb1fe90202ab912
+  darwin_amd64: b7e7461e4689b9265688597301f7a15ac6b49f77a6a97ae8a5748c8ea6fffcfc
+  linux_amd64: 1e4f2fb7d81aa49887b2c26579ca48af09812947fedca499f70d832e269cd516
+  linux_arm64: 8cb88d51bf4a691357fe3020a78e367687b6329db0394eff5de2af46c439fed6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libgcrypt
+  - libpng
+  - openssl@3

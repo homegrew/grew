@@ -1,0 +1,15 @@
+name: sysstat
+version: 12.7.9
+description: Performance monitoring tools for Linux
+homepage: https://sysstat.github.io/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sysstat/blobs/sha256:78ff08b5505015157b91169a5363cbbdaa455c7c1dcafedb1c79e58305b25dc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sysstat/blobs/sha256:3043eefebf552d698f327d67e02fd1c5e712dc098dca13504977101a02965d58
+sha256:
+  linux_amd64: 78ff08b5505015157b91169a5363cbbdaa455c7c1dcafedb1c79e58305b25dc3
+  linux_arm64: 3043eefebf552d698f327d67e02fd1c5e712dc098dca13504977101a02965d58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

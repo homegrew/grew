@@ -1,0 +1,21 @@
+name: squid
+version: 7.4
+description: Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher
+homepage: https://www.squid-cache.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/squid/blobs/sha256:a650f7e6982042426fcc1a6519bc6835a6bb502d4e18da34bc6d1b1848dfa30f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/squid/blobs/sha256:48c1e8705626c1e3807eeb5c39fc828ae1b980f09a16d0e64fac0794e558d947
+  linux_amd64: https://ghcr.io/v2/homebrew/core/squid/blobs/sha256:d26bd799d2333db7484554e6a8aa4a85bf5acb62742c5a11c853ad2392add57e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/squid/blobs/sha256:929b8b48dc4c43466cecb30c2bc86fd67aced3b96a6e383153aeb959d84e6493
+sha256:
+  darwin_arm64: a650f7e6982042426fcc1a6519bc6835a6bb502d4e18da34bc6d1b1848dfa30f
+  darwin_amd64: 48c1e8705626c1e3807eeb5c39fc828ae1b980f09a16d0e64fac0794e558d947
+  linux_amd64: d26bd799d2333db7484554e6a8aa4a85bf5acb62742c5a11c853ad2392add57e
+  linux_arm64: 929b8b48dc4c43466cecb30c2bc86fd67aced3b96a6e383153aeb959d84e6493
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

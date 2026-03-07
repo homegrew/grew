@@ -1,0 +1,19 @@
+name: yeet
+version: 0.10.1
+description: Packaging tool that lets you declare build instructions in JavaScript
+homepage: https://github.com/TecharoHQ/yeet
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yeet/blobs/sha256:0608d7cdfadff69e42406d3c3742c6e236f9b0d135b00b4f6269918e5b0132df
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yeet/blobs/sha256:86e3e83025853545d61541d86967be540b517c843085d64e0710ce031550dcda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yeet/blobs/sha256:e181fbc4ccfc8bd4078c732a0083ed3cd9a2d7b978109349b2dceda9f5e25d4f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yeet/blobs/sha256:c7f089624eedad9076836ccebd32d112b4f395fa1e6cea88ddcd3e61b64a8a37
+sha256:
+  darwin_arm64: 0608d7cdfadff69e42406d3c3742c6e236f9b0d135b00b4f6269918e5b0132df
+  darwin_amd64: 86e3e83025853545d61541d86967be540b517c843085d64e0710ce031550dcda
+  linux_amd64: e181fbc4ccfc8bd4078c732a0083ed3cd9a2d7b978109349b2dceda9f5e25d4f
+  linux_arm64: c7f089624eedad9076836ccebd32d112b4f395fa1e6cea88ddcd3e61b64a8a37
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

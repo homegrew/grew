@@ -1,0 +1,22 @@
+name: gitversion
+version: 6.6.0
+description: Easy semantic versioning for projects using Git
+homepage: https://gitversion.net/docs/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitversion/blobs/sha256:fe59b7e11dd63f56dcc65321daede76adb71cd05c0d707922e83efaaf394e637
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitversion/blobs/sha256:1ce35e6402de57622f9fd367e765fa60280edb182e728006fce4f6d34683c075
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitversion/blobs/sha256:72f5ac7d942bea01562ebf0eb2ff9393a0ed9f117376331ed6a266b32882a0da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitversion/blobs/sha256:518958dd8f395c8a07b043cc7f3e6d88d3bccda42a3c6ba0ace0dfbe09773e77
+sha256:
+  darwin_arm64: fe59b7e11dd63f56dcc65321daede76adb71cd05c0d707922e83efaaf394e637
+  darwin_amd64: 1ce35e6402de57622f9fd367e765fa60280edb182e728006fce4f6d34683c075
+  linux_amd64: 72f5ac7d942bea01562ebf0eb2ff9393a0ed9f117376331ed6a266b32882a0da
+  linux_arm64: 518958dd8f395c8a07b043cc7f3e6d88d3bccda42a3c6ba0ace0dfbe09773e77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet
+  - openssl@3

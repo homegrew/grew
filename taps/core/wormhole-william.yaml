@@ -1,0 +1,19 @@
+name: wormhole-william
+version: 1.0.8
+description: End-to-end encrypted file transfer
+homepage: https://github.com/psanford/wormhole-william
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wormhole-william/blobs/sha256:34739b2a39653c214c26da30f0d05f88ac8dc70b21f2d35d9d9381fea1bb3f14
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wormhole-william/blobs/sha256:1c3d2757a23dca9a5f86854b325569056e4627163474d405a6b4a3d68b2ac843
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wormhole-william/blobs/sha256:329792c9ade8805ae88177f9c1f47f4fc25d8781df4601a90c3cc17c7957b704
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wormhole-william/blobs/sha256:a9fc6e936553af437919b8695ddd3e071e38756dea706aea3dc736e1328aac56
+sha256:
+  darwin_arm64: 34739b2a39653c214c26da30f0d05f88ac8dc70b21f2d35d9d9381fea1bb3f14
+  darwin_amd64: 1c3d2757a23dca9a5f86854b325569056e4627163474d405a6b4a3d68b2ac843
+  linux_amd64: 329792c9ade8805ae88177f9c1f47f4fc25d8781df4601a90c3cc17c7957b704
+  linux_arm64: a9fc6e936553af437919b8695ddd3e071e38756dea706aea3dc736e1328aac56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,25 @@
+name: stubby
+version: 0.4.3
+description: DNS privacy enabled stub resolver service based on getdns
+homepage: https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stubby/blobs/sha256:cf21effb238d2df0de643661b21cd67328a8cb440f7858b2fcee1ed7e7b851bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stubby/blobs/sha256:3064b04c529f9ce23df5d0df80ac8aba0bbdbfaecd5dc61384de7dc38e0addac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stubby/blobs/sha256:9be25773bc7f384a70943d6edf294174a59d901c17f497e3dc91c855cb00733e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stubby/blobs/sha256:74cff1a598c66d7b8bbe09bba4ac23617ae0d89d58d0c1179b8eb8fe1c5bc965
+sha256:
+  darwin_arm64: cf21effb238d2df0de643661b21cd67328a8cb440f7858b2fcee1ed7e7b851bf
+  darwin_amd64: 3064b04c529f9ce23df5d0df80ac8aba0bbdbfaecd5dc61384de7dc38e0addac
+  linux_amd64: 9be25773bc7f384a70943d6edf294174a59d901c17f497e3dc91c855cb00733e
+  linux_arm64: 74cff1a598c66d7b8bbe09bba4ac23617ae0d89d58d0c1179b8eb8fe1c5bc965
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - getdns
+  - libyaml
+  - libidn2
+  - openssl@3
+  - unbound

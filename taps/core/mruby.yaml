@@ -1,0 +1,19 @@
+name: mruby
+version: 3.4.0
+description: Lightweight implementation of the Ruby language
+homepage: https://mruby.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mruby/blobs/sha256:b02685c5cee6b7c01b11864e751fcfdc66112bdecd861e978b3aefc0e888270f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mruby/blobs/sha256:0e7d861057336fa23be40003127441e00bfb534586bc8e7baca92366d92746a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mruby/blobs/sha256:87a0bfa8d4eeb79c615799174ba0be1e3fcd87deabc6d92267d1e708b951759a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mruby/blobs/sha256:bf4078077027b1b33897a8305b00e1f2e766b005d856054b0a92b5842677f75b
+sha256:
+  darwin_arm64: b02685c5cee6b7c01b11864e751fcfdc66112bdecd861e978b3aefc0e888270f
+  darwin_amd64: 0e7d861057336fa23be40003127441e00bfb534586bc8e7baca92366d92746a2
+  linux_amd64: 87a0bfa8d4eeb79c615799174ba0be1e3fcd87deabc6d92267d1e708b951759a
+  linux_arm64: bf4078077027b1b33897a8305b00e1f2e766b005d856054b0a92b5842677f75b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

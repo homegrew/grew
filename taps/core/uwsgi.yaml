@@ -1,0 +1,25 @@
+name: uwsgi
+version: 2.0.31
+description: Full stack for building hosting services
+homepage: https://uwsgi-docs.readthedocs.io/en/latest/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/uwsgi/blobs/sha256:127cb65efdc4c3f17cadd41df9671470e3e46fb53cadd74f187a2731d70a5a24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/uwsgi/blobs/sha256:e4b665aac3350632869764e7893dc37b097cffc8ecc859c591c6638b0ab34382
+  linux_amd64: https://ghcr.io/v2/homebrew/core/uwsgi/blobs/sha256:5668da0a96c26781423fe1d489f1a52c3afbaa76aebf156d092e3b5f37e11c78
+  linux_arm64: https://ghcr.io/v2/homebrew/core/uwsgi/blobs/sha256:7ec886511a95fdc64f92b33c9374a134a690b03f11681ac6f6761649eefa3127
+sha256:
+  darwin_arm64: 127cb65efdc4c3f17cadd41df9671470e3e46fb53cadd74f187a2731d70a5a24
+  darwin_amd64: e4b665aac3350632869764e7893dc37b097cffc8ecc859c591c6638b0ab34382
+  linux_amd64: 5668da0a96c26781423fe1d489f1a52c3afbaa76aebf156d092e3b5f37e11c78
+  linux_arm64: 7ec886511a95fdc64f92b33c9374a134a690b03f11681ac6f6761649eefa3127
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pcre2
+  - python@3.14
+  - sqlite
+  - yajl

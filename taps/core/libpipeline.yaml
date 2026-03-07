@@ -1,0 +1,19 @@
+name: libpipeline
+version: 1.5.8
+description: C library for manipulating pipelines of subprocesses
+homepage: https://libpipeline.gitlab.io/libpipeline/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpipeline/blobs/sha256:3123efab5271d992b2d9aaf9a40465e7ff0dad00904eaa590bae9fbf6f4b4ddf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpipeline/blobs/sha256:e0354d5f278901871e1fc4ba62668680a1c80fe90bd9f3345206e5e5ea798b71
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpipeline/blobs/sha256:d9767e66d73f174a20b3ea560643f30e3bb3e2b5764c0fc5de4196247e13feee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpipeline/blobs/sha256:d40093ecab1d13a45f12170a96c80d878d3b273ca0f0f0e9d9d684f4ced5299a
+sha256:
+  darwin_arm64: 3123efab5271d992b2d9aaf9a40465e7ff0dad00904eaa590bae9fbf6f4b4ddf
+  darwin_amd64: e0354d5f278901871e1fc4ba62668680a1c80fe90bd9f3345206e5e5ea798b71
+  linux_amd64: d9767e66d73f174a20b3ea560643f30e3bb3e2b5764c0fc5de4196247e13feee
+  linux_arm64: d40093ecab1d13a45f12170a96c80d878d3b273ca0f0f0e9d9d684f4ced5299a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

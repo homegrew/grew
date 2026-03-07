@@ -1,0 +1,21 @@
+name: emacs-clang-complete-async
+version: 0.5
+description: Emacs plugin using libclang to complete C/C++ code
+homepage: https://github.com/Golevka/emacs-clang-complete-async
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/emacs-clang-complete-async/blobs/sha256:a296b59b9a23aea107b92e8144b2e95886767871d898d0a9afbf04bec6ae0ccf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/emacs-clang-complete-async/blobs/sha256:3299b2a68a95a2a786377e2b58acd18731ed8c4bae838d829b935a5f712c8f4f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/emacs-clang-complete-async/blobs/sha256:40581606a267a0ae64dc7f85c994f7d6eb80a2c50c1ffd9dfa92a2d985ce80d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/emacs-clang-complete-async/blobs/sha256:510f4f45af90d8130fcb70645b6a308605cbfcea0bd6895f81d595b074776b8c
+sha256:
+  darwin_arm64: a296b59b9a23aea107b92e8144b2e95886767871d898d0a9afbf04bec6ae0ccf
+  darwin_amd64: 3299b2a68a95a2a786377e2b58acd18731ed8c4bae838d829b935a5f712c8f4f
+  linux_amd64: 40581606a267a0ae64dc7f85c994f7d6eb80a2c50c1ffd9dfa92a2d985ce80d1
+  linux_arm64: 510f4f45af90d8130fcb70645b6a308605cbfcea0bd6895f81d595b074776b8c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - llvm

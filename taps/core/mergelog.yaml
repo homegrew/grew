@@ -1,0 +1,19 @@
+name: mergelog
+version: 4.5
+description: Merges httpd logs from web servers behind round-robin DNS
+homepage: https://mergelog.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mergelog/blobs/sha256:5ce8e33c95e90e9caa5bffd174dc681de874f7e20aee45d2c28888586dcd6ee0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mergelog/blobs/sha256:27a98e08f04b9753c6bfc68b8d68e356fe40b9673e26084a77f936ccb5ff7696
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mergelog/blobs/sha256:2121f7d6441648a072e935d24746e40c5c9a43e8e29f18e1c40abe103cda25a2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mergelog/blobs/sha256:1a54a9a0a5fdc8927c2768cacd262c8184b9ec4e818d2f0b1deaf712d296235e
+sha256:
+  darwin_arm64: 5ce8e33c95e90e9caa5bffd174dc681de874f7e20aee45d2c28888586dcd6ee0
+  darwin_amd64: 27a98e08f04b9753c6bfc68b8d68e356fe40b9673e26084a77f936ccb5ff7696
+  linux_amd64: 2121f7d6441648a072e935d24746e40c5c9a43e8e29f18e1c40abe103cda25a2
+  linux_arm64: 1a54a9a0a5fdc8927c2768cacd262c8184b9ec4e818d2f0b1deaf712d296235e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

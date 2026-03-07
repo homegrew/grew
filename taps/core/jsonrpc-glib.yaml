@@ -1,0 +1,23 @@
+name: jsonrpc-glib
+version: 3.44.2
+description: GNOME library to communicate with JSON-RPC based peers
+homepage: https://gitlab.gnome.org/GNOME/jsonrpc-glib
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jsonrpc-glib/blobs/sha256:4cf100ab4d9f7d4bae7d7c1d2d0b3aba3e3cc6eb5dfa424e3556fe59ecf59a76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jsonrpc-glib/blobs/sha256:5cb416c215c9ef0cbfa8016c2b3efb37e700665c66ef542d1c5ad20e6bd2aa0a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jsonrpc-glib/blobs/sha256:2e416c81917d0ef9bd855800e61975500b2ace8ca7d224067359a138180d6eb6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jsonrpc-glib/blobs/sha256:51c4cad81b4331c702366726a8473ca4eab2d8e67d6efb0c06802df66f59f4ef
+sha256:
+  darwin_arm64: 4cf100ab4d9f7d4bae7d7c1d2d0b3aba3e3cc6eb5dfa424e3556fe59ecf59a76
+  darwin_amd64: 5cb416c215c9ef0cbfa8016c2b3efb37e700665c66ef542d1c5ad20e6bd2aa0a
+  linux_amd64: 2e416c81917d0ef9bd855800e61975500b2ace8ca7d224067359a138180d6eb6
+  linux_arm64: 51c4cad81b4331c702366726a8473ca4eab2d8e67d6efb0c06802df66f59f4ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - json-glib
+  - gettext

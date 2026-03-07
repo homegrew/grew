@@ -1,0 +1,23 @@
+name: startup-notification
+version: 0.12
+description: Reference implementation of startup notification protocol
+homepage: https://www.freedesktop.org/wiki/Software/startup-notification/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/startup-notification/blobs/sha256:5b1edc25aff59c8a62cd1a6c9ffa21e63d6a0fd21fe6fdd108ae17d6207b357e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/startup-notification/blobs/sha256:adcbdcb253f346f127783d48c27ad9a2de9b080df6f9177daaf08bfc6ef8ab32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/startup-notification/blobs/sha256:45873a4a273a11b66436459b7130de94bcb32470a3a4376ef74b2803e2494462
+  linux_arm64: https://ghcr.io/v2/homebrew/core/startup-notification/blobs/sha256:7bf37bfbd3313320fd91577f056930b461e927b689eaeba4080ad67311d0f0ee
+sha256:
+  darwin_arm64: 5b1edc25aff59c8a62cd1a6c9ffa21e63d6a0fd21fe6fdd108ae17d6207b357e
+  darwin_amd64: adcbdcb253f346f127783d48c27ad9a2de9b080df6f9177daaf08bfc6ef8ab32
+  linux_amd64: 45873a4a273a11b66436459b7130de94bcb32470a3a4376ef74b2803e2494462
+  linux_arm64: 7bf37bfbd3313320fd91577f056930b461e927b689eaeba4080ad67311d0f0ee
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libx11
+  - libxcb
+  - xcb-util

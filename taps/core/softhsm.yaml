@@ -1,0 +1,21 @@
+name: softhsm
+version: 2.7.0
+description: "Cryptographic store accessible through a PKCS#11 interface"
+homepage: https://www.softhsm.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/softhsm/blobs/sha256:0cdbf21ef15f1c4cc7098755e89b03acb4fb0b45e9890dc38d5ad67f7069429b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/softhsm/blobs/sha256:3ad3252a2e79d9cfcdcf9b43874a19fa666900f5f6dc2fd314f3d986cd395279
+  linux_amd64: https://ghcr.io/v2/homebrew/core/softhsm/blobs/sha256:0a919b81ca6e41a6110d02eb537ae41754ad9d4af09167a4fcb71c52bc788ccc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/softhsm/blobs/sha256:17a0a35b3e2e99a8ad74b559de10634b4f5385f1c881fd581b5c6bb4b1cf1196
+sha256:
+  darwin_arm64: 0cdbf21ef15f1c4cc7098755e89b03acb4fb0b45e9890dc38d5ad67f7069429b
+  darwin_amd64: 3ad3252a2e79d9cfcdcf9b43874a19fa666900f5f6dc2fd314f3d986cd395279
+  linux_amd64: 0a919b81ca6e41a6110d02eb537ae41754ad9d4af09167a4fcb71c52bc788ccc
+  linux_arm64: 17a0a35b3e2e99a8ad74b559de10634b4f5385f1c881fd581b5c6bb4b1cf1196
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

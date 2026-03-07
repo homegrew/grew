@@ -1,0 +1,19 @@
+name: qp
+version: 1.0.1
+description: Command-line (ND)JSON querying
+homepage: https://github.com/f5io/qp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qp/blobs/sha256:f2ce20d5b9492b790930a30e31d9cc0676ff4620e89ab8ce1175fd918915f52f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qp/blobs/sha256:ac7cee390c258e581ae419daf0e08a6d3f6dcf261cc1e7ec5eac5a8fd399c720
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qp/blobs/sha256:c9a688fd124da927fb627c02b2a043c34d48727785a5be844dd1853a65ba8814
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qp/blobs/sha256:71a9566be7b0f409f5d73dd7f8c175f5b131732bd86e64bd3fd1fe54d5c631c6
+sha256:
+  darwin_arm64: f2ce20d5b9492b790930a30e31d9cc0676ff4620e89ab8ce1175fd918915f52f
+  darwin_amd64: ac7cee390c258e581ae419daf0e08a6d3f6dcf261cc1e7ec5eac5a8fd399c720
+  linux_amd64: c9a688fd124da927fb627c02b2a043c34d48727785a5be844dd1853a65ba8814
+  linux_arm64: 71a9566be7b0f409f5d73dd7f8c175f5b131732bd86e64bd3fd1fe54d5c631c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

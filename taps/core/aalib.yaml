@@ -1,0 +1,19 @@
+name: aalib
+version: 1.4rc5
+description: Portable ASCII art graphics library
+homepage: https://aa-project.sourceforge.net/aalib/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aalib/blobs/sha256:a4aec0f6a61caa07dcdfd47a8579ba4f506b1047cc0b822fe0321e123e638764
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aalib/blobs/sha256:9bee33852c86c2dea5017369281ec0e4d56249d4bc7d2803f1c2794c8773b92d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aalib/blobs/sha256:6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aalib/blobs/sha256:6205456db777cfa9097a0285ef6fdc29876b21df831295a0c9f2837ce236fdda
+sha256:
+  darwin_arm64: a4aec0f6a61caa07dcdfd47a8579ba4f506b1047cc0b822fe0321e123e638764
+  darwin_amd64: 9bee33852c86c2dea5017369281ec0e4d56249d4bc7d2803f1c2794c8773b92d
+  linux_amd64: 6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd
+  linux_arm64: 6205456db777cfa9097a0285ef6fdc29876b21df831295a0c9f2837ce236fdda
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

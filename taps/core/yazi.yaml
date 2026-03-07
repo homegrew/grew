@@ -1,0 +1,19 @@
+name: yazi
+version: 26.1.22
+description: Blazing fast terminal file manager written in Rust, based on async I/O
+homepage: https://github.com/sxyazi/yazi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yazi/blobs/sha256:d7e4ea45ad895897d8dbc4374f466a78a45bb4a7f467d71a645c3e54ec07f90e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yazi/blobs/sha256:b5daa085c0f82527a4f85dc665ba6bce8995a34ea1a6c956f8f168d9161771ac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yazi/blobs/sha256:c1916a132cbb38f43ae3b346df0dda81e2bf2b3a14928122f2088f55d14a0a7e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yazi/blobs/sha256:47032423c94301f997014f3c0a21388a8c87eecc3fee608e35e359566ea4e6fa
+sha256:
+  darwin_arm64: d7e4ea45ad895897d8dbc4374f466a78a45bb4a7f467d71a645c3e54ec07f90e
+  darwin_amd64: b5daa085c0f82527a4f85dc665ba6bce8995a34ea1a6c956f8f168d9161771ac
+  linux_amd64: c1916a132cbb38f43ae3b346df0dda81e2bf2b3a14928122f2088f55d14a0a7e
+  linux_arm64: 47032423c94301f997014f3c0a21388a8c87eecc3fee608e35e359566ea4e6fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

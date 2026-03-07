@@ -1,0 +1,11 @@
+name: qt-creator@dev
+version: 19.0.0-rc1
+description: IDE for application development
+homepage: https://www1.qt.io/developers/
+url:
+  darwin_arm64: https://download.qt.io/development_releases/qtcreator/19.0/19.0.0-rc1/qt-creator-opensource-mac-universal-19.0.0-rc1.dmg
+sha256:
+  darwin_arm64: abfeb4101a1f1915710abca6b6e48ed2fc1cedfba3354c9d7004a7e5b06e5c59
+artifacts:
+  app:
+    - Qt Creator.app

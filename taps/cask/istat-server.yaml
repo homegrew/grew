@@ -1,0 +1,11 @@
+name: istat-server
+version: 3.03
+description: Transmits computer or server’s vital statistics
+homepage: https://bjango.com/istatserver/
+url:
+  darwin_arm64: https://files.bjango.com/istatserver3/istatserver3.03.zip
+sha256:
+  darwin_arm64: 0d6df9abe88aa7b29f53abb63413ede2853823cf6fd75b75818ef0190a07e8c7
+artifacts:
+  app:
+    - iStat Server.app

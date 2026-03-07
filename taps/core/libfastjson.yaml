@@ -1,0 +1,19 @@
+name: libfastjson
+version: 1.2304.0
+description: Fast json library for C
+homepage: https://github.com/rsyslog/libfastjson
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfastjson/blobs/sha256:dbb23a3103fbad3b4ae1a7b4a25630af8b2ce307ddabdf7b158eb8f1cc7e0ecc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfastjson/blobs/sha256:d96f3473d8f41f3f2ebbe16c6749d7843b512ad125189015f901d4f2a0dc0fbd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfastjson/blobs/sha256:266edab578eec8f218daa890d0a7e17460a241a61b0a50bbd5ca31d2f4a03c5d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfastjson/blobs/sha256:d299d0516956ab148eeb6852c910e20e3e70c8629e039a7d8cfe861257659fbc
+sha256:
+  darwin_arm64: dbb23a3103fbad3b4ae1a7b4a25630af8b2ce307ddabdf7b158eb8f1cc7e0ecc
+  darwin_amd64: d96f3473d8f41f3f2ebbe16c6749d7843b512ad125189015f901d4f2a0dc0fbd
+  linux_amd64: 266edab578eec8f218daa890d0a7e17460a241a61b0a50bbd5ca31d2f4a03c5d
+  linux_arm64: d299d0516956ab148eeb6852c910e20e3e70c8629e039a7d8cfe861257659fbc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

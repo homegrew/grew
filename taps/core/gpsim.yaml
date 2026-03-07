@@ -1,0 +1,24 @@
+name: gpsim
+version: 0.32.1
+description: "Simulator for Microchip's PIC microcontrollers"
+homepage: https://gpsim.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpsim/blobs/sha256:eaff4cd77c4e03aff25bc78d8a4a817ddd1772bb4f11f6af22f55bea64b1e1f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpsim/blobs/sha256:e04f087424cabf6638050b7a4a477184ab1814a8d08116f6fe4bd997fb98e174
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpsim/blobs/sha256:062b82cfd0c548f5935b7f09f455d56a0fcc9693f044c553dc161233d89add2a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpsim/blobs/sha256:5d4298f5d3c0594f96b60229ffaa2c6fb118749928a7bf04f985bea81a6d5c78
+sha256:
+  darwin_arm64: eaff4cd77c4e03aff25bc78d8a4a817ddd1772bb4f11f6af22f55bea64b1e1f2
+  darwin_amd64: e04f087424cabf6638050b7a4a477184ab1814a8d08116f6fe4bd997fb98e174
+  linux_amd64: 062b82cfd0c548f5935b7f09f455d56a0fcc9693f044c553dc161233d89add2a
+  linux_arm64: 5d4298f5d3c0594f96b60229ffaa2c6fb118749928a7bf04f985bea81a6d5c78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - popt
+  - readline
+  - gettext

@@ -1,0 +1,24 @@
+name: dbcsr
+version: 2.9.1
+description: Distributed Block Compressed Sparse Row matrix library
+homepage: https://cp2k.github.io/dbcsr/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dbcsr/blobs/sha256:2baae452ccf21e43a44b6ce2ad134398d68472651d9d27a4b8e95b4a56a9e269
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dbcsr/blobs/sha256:c7b10954c91ef37a3baba264687e88b5ccf0256244ec0ec5ffc701ee3305818e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dbcsr/blobs/sha256:79dbffe498816deaada338e25d783eb51ff6338e2b6df63e1a3c48cc21fce0a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dbcsr/blobs/sha256:c69b78b719f7d8332acf627f943b7befbbdf7645b11bee16b5bc7939c677f7ea
+sha256:
+  darwin_arm64: 2baae452ccf21e43a44b6ce2ad134398d68472651d9d27a4b8e95b4a56a9e269
+  darwin_amd64: c7b10954c91ef37a3baba264687e88b5ccf0256244ec0ec5ffc701ee3305818e
+  linux_amd64: 79dbffe498816deaada338e25d783eb51ff6338e2b6df63e1a3c48cc21fce0a0
+  linux_arm64: c69b78b719f7d8332acf627f943b7befbbdf7645b11bee16b5bc7939c677f7ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - open-mpi
+  - openblas
+  - libomp

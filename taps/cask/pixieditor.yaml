@@ -1,0 +1,11 @@
+name: pixieditor
+version: 2.0.1.19
+description: Open Source Universal 2D Graphics Editor
+homepage: https://pixieditor.net/
+url:
+  darwin_arm64: https://github.com/PixiEditor/PixiEditor/releases/download/2.0.1.19/PixiEditor-2.0.1.19-universal-macos.dmg
+sha256:
+  darwin_arm64: 3ff0362a057877036df537768176f5628598faa285a3512b412ad30059be9c9f
+artifacts:
+  app:
+    - PixiEditor.app

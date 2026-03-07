@@ -1,0 +1,19 @@
+name: jenkins-cli
+version: 0.0.47
+description: CLI for jenkins
+homepage: https://github.com/jenkins-zh/jenkins-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jenkins-cli/blobs/sha256:ff9e6197d69c4a7985cafc84070c77acac3fdff42bb3df03ffe95de4af87856e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jenkins-cli/blobs/sha256:b9304a3673e5d1d11a8252881aaf88adf34e3c98cbe4016270266cba44ca6201
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jenkins-cli/blobs/sha256:30d8ef1de256e33c0e720c27b012510e9ce092cf4431a41437ac472318f5af08
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jenkins-cli/blobs/sha256:1fc2d7c33e7fa4505e9964d32fb6be2e2078dced05297e9caed10dc16c95da30
+sha256:
+  darwin_arm64: ff9e6197d69c4a7985cafc84070c77acac3fdff42bb3df03ffe95de4af87856e
+  darwin_amd64: b9304a3673e5d1d11a8252881aaf88adf34e3c98cbe4016270266cba44ca6201
+  linux_amd64: 30d8ef1de256e33c0e720c27b012510e9ce092cf4431a41437ac472318f5af08
+  linux_arm64: 1fc2d7c33e7fa4505e9964d32fb6be2e2078dced05297e9caed10dc16c95da30
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

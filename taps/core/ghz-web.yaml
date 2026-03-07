@@ -1,0 +1,19 @@
+name: ghz-web
+version: 0.121.0
+description: Web interface for ghz
+homepage: https://ghz.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghz-web/blobs/sha256:68707a457b2cca1410b4e9543396b8ff3fe23d1361de95cea0fe78f6b3ed3021
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghz-web/blobs/sha256:d806371d45c367541083b4a468fb71751dd19c4983e27d738f45a81d095c4d93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghz-web/blobs/sha256:c17961aad429eae9fd0ccb439d3ac704df70e8fd6c1adf8fbcf96f516a57d7ca
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghz-web/blobs/sha256:a45d2d2e7fd08237e97f1c531acce46fe6fef742254184e23fcfa246530c250e
+sha256:
+  darwin_arm64: 68707a457b2cca1410b4e9543396b8ff3fe23d1361de95cea0fe78f6b3ed3021
+  darwin_amd64: d806371d45c367541083b4a468fb71751dd19c4983e27d738f45a81d095c4d93
+  linux_amd64: c17961aad429eae9fd0ccb439d3ac704df70e8fd6c1adf8fbcf96f516a57d7ca
+  linux_arm64: a45d2d2e7fd08237e97f1c531acce46fe6fef742254184e23fcfa246530c250e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

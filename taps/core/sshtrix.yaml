@@ -1,0 +1,21 @@
+name: sshtrix
+version: 0.0.3
+description: SSH login cracker
+homepage: https://nullsecurity.net/tools/cracker.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sshtrix/blobs/sha256:2bbdb14a7d6048a400de9bdc3a39ca12d50c462cc524158305ad93fc9bcd2192
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sshtrix/blobs/sha256:6dab7f1e1122938f363c4f707acdd06bbc030e15ebd6c46fbaebd5beb1ae52c6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sshtrix/blobs/sha256:4dfdb5cd8d621a41c636565b8e775d48e418feaf2f5a07dc773902d41cd13dd5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sshtrix/blobs/sha256:c4f3ba3dfdc9ed9b9b5d0453cb4110923890b27d038fa9c906f992a9d2bb8c5b
+sha256:
+  darwin_arm64: 2bbdb14a7d6048a400de9bdc3a39ca12d50c462cc524158305ad93fc9bcd2192
+  darwin_amd64: 6dab7f1e1122938f363c4f707acdd06bbc030e15ebd6c46fbaebd5beb1ae52c6
+  linux_amd64: 4dfdb5cd8d621a41c636565b8e775d48e418feaf2f5a07dc773902d41cd13dd5
+  linux_arm64: c4f3ba3dfdc9ed9b9b5d0453cb4110923890b27d038fa9c906f992a9d2bb8c5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libssh

@@ -1,0 +1,29 @@
+name: petsc-complex
+version: 3.24.5
+description: Portable, Extensible Toolkit for Scientific Computation (complex)
+homepage: https://petsc.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/petsc-complex/blobs/sha256:c36d73ba5a983ea1a138d51933b4731407a7d8f6ade20bf1b9b0bacec438fbdf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/petsc-complex/blobs/sha256:2a6ce51d414b7dd36b3b6060da699c84969a618eb59053a88084b98906248a59
+  linux_amd64: https://ghcr.io/v2/homebrew/core/petsc-complex/blobs/sha256:5a33117d1de88c5fa61de0a42754dd6827f0c5b121db829998abf34a084b79c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/petsc-complex/blobs/sha256:d361133dd7e791c1670ec573edbd519906f8a6d506f5f6a7100d9ffe42832b8e
+sha256:
+  darwin_arm64: c36d73ba5a983ea1a138d51933b4731407a7d8f6ade20bf1b9b0bacec438fbdf
+  darwin_amd64: 2a6ce51d414b7dd36b3b6060da699c84969a618eb59053a88084b98906248a59
+  linux_amd64: 5a33117d1de88c5fa61de0a42754dd6827f0c5b121db829998abf34a084b79c8
+  linux_arm64: d361133dd7e791c1670ec573edbd519906f8a6d506f5f6a7100d9ffe42832b8e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fftw
+  - gcc
+  - hdf5-mpi
+  - hwloc
+  - metis
+  - open-mpi
+  - openblas
+  - scalapack
+  - suite-sparse

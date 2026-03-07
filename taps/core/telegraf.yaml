@@ -1,0 +1,19 @@
+name: telegraf
+version: 1.37.3
+description: "Plugin-driven server agent for collecting & reporting metrics"
+homepage: https://www.influxdata.com/time-series-platform/telegraf/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/telegraf/blobs/sha256:d959ed80014584d3756f3d79807eb0cda4e3a3e5503e6539975957de1bafba92
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/telegraf/blobs/sha256:396a289207efac4bb062a404adb341720af8424734674ef40477fc09fa055327
+  linux_amd64: https://ghcr.io/v2/homebrew/core/telegraf/blobs/sha256:55e1d1e12a8a9ba898635fe82629d9cb46e143519a219ef4d1c1f4a9a856cda9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/telegraf/blobs/sha256:5bf2d994ee426c96c341d57c800b40bbe432dd4e2316f1609f3283a2f1aa7a28
+sha256:
+  darwin_arm64: d959ed80014584d3756f3d79807eb0cda4e3a3e5503e6539975957de1bafba92
+  darwin_amd64: 396a289207efac4bb062a404adb341720af8424734674ef40477fc09fa055327
+  linux_amd64: 55e1d1e12a8a9ba898635fe82629d9cb46e143519a219ef4d1c1f4a9a856cda9
+  linux_arm64: 5bf2d994ee426c96c341d57c800b40bbe432dd4e2316f1609f3283a2f1aa7a28
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

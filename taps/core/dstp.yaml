@@ -1,0 +1,19 @@
+name: dstp
+version: 0.4.23
+description: Run common networking tests against your site
+homepage: https://github.com/ycd/dstp
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dstp/blobs/sha256:d846454cb98d9ca168c8a2975a2d551a00b444afa2a3a0599d4bc956e24c9b35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dstp/blobs/sha256:cb67648c382f56115631967b9d5c7fc76c9209299e524ea22f7d32c48e44f34c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dstp/blobs/sha256:7bbbb70466510b3a9d41a5a6479b9a667d7d55deaf87e739a0957201995ded19
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dstp/blobs/sha256:f66f81e0d40aacd8eee14bbc3d74ce73cbebe5da3f36958e5c2d1f90d1d23a97
+sha256:
+  darwin_arm64: d846454cb98d9ca168c8a2975a2d551a00b444afa2a3a0599d4bc956e24c9b35
+  darwin_amd64: cb67648c382f56115631967b9d5c7fc76c9209299e524ea22f7d32c48e44f34c
+  linux_amd64: 7bbbb70466510b3a9d41a5a6479b9a667d7d55deaf87e739a0957201995ded19
+  linux_arm64: f66f81e0d40aacd8eee14bbc3d74ce73cbebe5da3f36958e5c2d1f90d1d23a97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

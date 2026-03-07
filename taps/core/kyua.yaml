@@ -1,0 +1,23 @@
+name: kyua
+version: 0.14.1
+description: Testing framework for infrastructure software
+homepage: https://github.com/freebsd/kyua
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kyua/blobs/sha256:df0a26d9a6b340e9503b8fb2f5bd49a1612fafb68a16f2046f0157a3945ba394
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kyua/blobs/sha256:9b8c73b9b4cdf1a3c8c7706e81f598df30944a4b67a28492920a82b14456c92c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kyua/blobs/sha256:3a8e53115d5afe1d92d1d9db3c3468cc4755c38b869b24530e5d92fae670d5e2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kyua/blobs/sha256:e239437e15b41ff4af492f36a66ff06e7630112d0bb7828a89685cb3c1948273
+sha256:
+  darwin_arm64: df0a26d9a6b340e9503b8fb2f5bd49a1612fafb68a16f2046f0157a3945ba394
+  darwin_amd64: 9b8c73b9b4cdf1a3c8c7706e81f598df30944a4b67a28492920a82b14456c92c
+  linux_amd64: 3a8e53115d5afe1d92d1d9db3c3468cc4755c38b869b24530e5d92fae670d5e2
+  linux_arm64: e239437e15b41ff4af492f36a66ff06e7630112d0bb7828a89685cb3c1948273
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - atf
+  - lua
+  - lutok

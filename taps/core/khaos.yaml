@@ -1,0 +1,25 @@
+name: khaos
+version: 0.7.1
+description: Kafka traffic simulator for observability and chaos engineering
+homepage: https://github.com/aleksandarskrbic/khaos
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/khaos/blobs/sha256:d100d4b759b70a7077fbd5503a3330d4f75daea455bc5efacd142c232d0d26b0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/khaos/blobs/sha256:92ea4005eaa23d98ab9c04327ec90aa8f42758574f2fda0fec9f6b8e04e5f1ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/khaos/blobs/sha256:c95e9bb487ffb2aff3684d7e553d24d7a83a09e86ee48d0420bf04febb478db8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/khaos/blobs/sha256:863274b31f823b05f0fced994f96754584eacf28bb752ae844753fb1e5caecb9
+sha256:
+  darwin_arm64: d100d4b759b70a7077fbd5503a3330d4f75daea455bc5efacd142c232d0d26b0
+  darwin_amd64: 92ea4005eaa23d98ab9c04327ec90aa8f42758574f2fda0fec9f6b8e04e5f1ad
+  linux_amd64: c95e9bb487ffb2aff3684d7e553d24d7a83a09e86ee48d0420bf04febb478db8
+  linux_arm64: 863274b31f823b05f0fced994f96754584eacf28bb752ae844753fb1e5caecb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - librdkafka
+  - libyaml
+  - python@3.14

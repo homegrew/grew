@@ -1,0 +1,19 @@
+name: terraformer
+version: 0.8.30
+description: CLI tool to generate terraform files from existing infrastructure
+homepage: https://github.com/GoogleCloudPlatform/terraformer
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraformer/blobs/sha256:77df38f3f9fb70c3e797b0383a7806f4b4eb48e6d3966a228b2ae28094f47b75
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraformer/blobs/sha256:b2af0e4b871f67d1c732e7cae619a59624f22e3ba6f5adb8afa45d2a6e187dee
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraformer/blobs/sha256:cdfe4cd7d86eb95d6c0a08849778d3c0813ccbf2ac6b7dc2face163688ad01e4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraformer/blobs/sha256:aa13f910e96e23576a6b03ba649e12a684bdfc1222246ea0c5acb4723b37eede
+sha256:
+  darwin_arm64: 77df38f3f9fb70c3e797b0383a7806f4b4eb48e6d3966a228b2ae28094f47b75
+  darwin_amd64: b2af0e4b871f67d1c732e7cae619a59624f22e3ba6f5adb8afa45d2a6e187dee
+  linux_amd64: cdfe4cd7d86eb95d6c0a08849778d3c0813ccbf2ac6b7dc2face163688ad01e4
+  linux_arm64: aa13f910e96e23576a6b03ba649e12a684bdfc1222246ea0c5acb4723b37eede
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,22 @@
+name: kitchen-sync
+version: 2.21
+description: "Fast efficiently sync database without dumping & reloading"
+homepage: https://github.com/willbryant/kitchen_sync
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kitchen-sync/blobs/sha256:1541f10205f1f95dc6c3e77553abf9292dd90889a1ade99bd3e9ec7242c5be21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kitchen-sync/blobs/sha256:d5c53943f1d960045b1fbd64124d2004531f9c046b3ed7cae5246b4d813c0cc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kitchen-sync/blobs/sha256:7884a6d66df364341ac6ee59613ed1a1198f8171fbb22a53f2849194cf4ac728
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kitchen-sync/blobs/sha256:afb7f3f8129476eec9257b88dda07e647af4209af5784b9b3758a37e95786f54
+sha256:
+  darwin_arm64: 1541f10205f1f95dc6c3e77553abf9292dd90889a1ade99bd3e9ec7242c5be21
+  darwin_amd64: d5c53943f1d960045b1fbd64124d2004531f9c046b3ed7cae5246b4d813c0cc5
+  linux_amd64: 7884a6d66df364341ac6ee59613ed1a1198f8171fbb22a53f2849194cf4ac728
+  linux_arm64: afb7f3f8129476eec9257b88dda07e647af4209af5784b9b3758a37e95786f54
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - mariadb-connector-c

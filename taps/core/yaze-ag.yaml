@@ -1,0 +1,19 @@
+name: yaze-ag
+version: 2.51.3
+description: Yet Another Z80 Emulator (by AG)
+homepage: https://agl.yaze-ag.de/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yaze-ag/blobs/sha256:6e9592d8cca859c7bf9b18bb4adb4a00a24a9476091bb813739b4234897a6edd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yaze-ag/blobs/sha256:88b88954163db83c780d9c7ffcde401ed9b4e5d14a492fb61565c17ea7ba3a32
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yaze-ag/blobs/sha256:7a3cfeda8e67249ed33bdc5c6d37c037895967530f1f416cb8dbe908cfb922fe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yaze-ag/blobs/sha256:fe1573637f8de598f6aa135717d263ddbb580d7a5ab5e8295e7bef85ce5b8109
+sha256:
+  darwin_arm64: 6e9592d8cca859c7bf9b18bb4adb4a00a24a9476091bb813739b4234897a6edd
+  darwin_amd64: 88b88954163db83c780d9c7ffcde401ed9b4e5d14a492fb61565c17ea7ba3a32
+  linux_amd64: 7a3cfeda8e67249ed33bdc5c6d37c037895967530f1f416cb8dbe908cfb922fe
+  linux_arm64: fe1573637f8de598f6aa135717d263ddbb580d7a5ab5e8295e7bef85ce5b8109
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

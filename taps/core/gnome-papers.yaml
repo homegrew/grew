@@ -1,0 +1,32 @@
+name: gnome-papers
+version: 49.5
+description: Document viewer for PDF and other document formats aimed at the GNOME desktop
+homepage: https://apps.gnome.org/Papers/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnome-papers/blobs/sha256:2eb3284a4d2c13a97317c4d4ded92a9dc370dea65399b3b724be8bc3918ff495
+sha256:
+  darwin_arm64: 2eb3284a4d2c13a97317c4d4ded92a9dc370dea65399b3b724be8bc3918ff495
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - djvulibre
+  - exempi
+  - gdk-pixbuf
+  - glib
+  - graphene
+  - gtk4
+  - gtksourceview5
+  - hicolor-icon-theme
+  - libadwaita
+  - libarchive
+  - libspelling
+  - libtiff
+  - pango
+  - poppler
+  - gettext
+  - harfbuzz

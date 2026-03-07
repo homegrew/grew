@@ -1,0 +1,19 @@
+name: gif2png
+version: 3.0.3
+description: Convert GIFs to PNGs
+homepage: http://www.catb.org/~esr/gif2png/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gif2png/blobs/sha256:9ffa76192c9c581c3fd4aa8d8f56da708f1799dc9122379b34d1ad9240d937ba
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gif2png/blobs/sha256:04f52349c694e66c677fead8de900d73b1085f7e39bf93dc6fe3cb6740ae43ff
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gif2png/blobs/sha256:edb1fd446d42cc045ece44370a4e99d62f18862a66a6e95d4ff2718cdeeffb5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gif2png/blobs/sha256:931ff3541cbae346953c4469ba2f229f1f1e3b2e08d9cf7b3499b94675472de5
+sha256:
+  darwin_arm64: 9ffa76192c9c581c3fd4aa8d8f56da708f1799dc9122379b34d1ad9240d937ba
+  darwin_amd64: 04f52349c694e66c677fead8de900d73b1085f7e39bf93dc6fe3cb6740ae43ff
+  linux_amd64: edb1fd446d42cc045ece44370a4e99d62f18862a66a6e95d4ff2718cdeeffb5e
+  linux_arm64: 931ff3541cbae346953c4469ba2f229f1f1e3b2e08d9cf7b3499b94675472de5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

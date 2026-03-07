@@ -1,0 +1,19 @@
+name: dsocks
+version: 1.8
+description: "SOCKS client wrapper for *BSD/macOS"
+homepage: https://monkey.org/~dugsong/dsocks/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dsocks/blobs/sha256:601324838005b2686e67ea99328ad71a5f59250b8c329bbc9a0861d1bbfe0dbe
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dsocks/blobs/sha256:74cb6a7094f9ab35ddce847203400b4093dc7a0251ce2c0a519f106eaa1a500c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dsocks/blobs/sha256:f2e5fda6bf8552306949f8571bd51a080870219a6f43f73464a1e92326e6e7ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dsocks/blobs/sha256:142addcc7f101ad923269f0b046f358c50e856423d0ba9adeab86f1f657af6e9
+sha256:
+  darwin_arm64: 601324838005b2686e67ea99328ad71a5f59250b8c329bbc9a0861d1bbfe0dbe
+  darwin_amd64: 74cb6a7094f9ab35ddce847203400b4093dc7a0251ce2c0a519f106eaa1a500c
+  linux_amd64: f2e5fda6bf8552306949f8571bd51a080870219a6f43f73464a1e92326e6e7ff
+  linux_arm64: 142addcc7f101ad923269f0b046f358c50e856423d0ba9adeab86f1f657af6e9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

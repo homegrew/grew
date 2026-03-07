@@ -1,0 +1,15 @@
+name: epoll-shim
+version: 0.0.20240608
+description: Small epoll implementation using kqueue
+homepage: https://github.com/jiixyj/epoll-shim
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/epoll-shim/blobs/sha256:c7a688d329d70d090603693a115882bbaa044defdc738f4efc52b1b7b451484b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/epoll-shim/blobs/sha256:ea3647d10920d14080e1267606b40e7dacb2390818f84076e84eb817a1a78d1b
+sha256:
+  darwin_arm64: c7a688d329d70d090603693a115882bbaa044defdc738f4efc52b1b7b451484b
+  darwin_amd64: ea3647d10920d14080e1267606b40e7dacb2390818f84076e84eb817a1a78d1b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

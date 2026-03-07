@@ -1,0 +1,19 @@
+name: mp3val
+version: 0.1.8
+description: Program for MPEG audio stream validation
+homepage: https://mp3val.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3val/blobs/sha256:b7165855c5d406a93a818986f684dcecde388a8e65cf0b5922e9f0b4a1fafccc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3val/blobs/sha256:15fc504bc8eac0681a75c0dee18eb114313d8393b11bc3ab412d68240fa51cc1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3val/blobs/sha256:b36cb11d26af2abdb0e0d811bb91f24d9b7e78bfdd8cd65f0aa2283c08725feb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3val/blobs/sha256:83bae7eb1335d4f48f940a32c11d5e4e62fe48a4485a2d727456c6def98af8cc
+sha256:
+  darwin_arm64: b7165855c5d406a93a818986f684dcecde388a8e65cf0b5922e9f0b4a1fafccc
+  darwin_amd64: 15fc504bc8eac0681a75c0dee18eb114313d8393b11bc3ab412d68240fa51cc1
+  linux_amd64: b36cb11d26af2abdb0e0d811bb91f24d9b7e78bfdd8cd65f0aa2283c08725feb
+  linux_arm64: 83bae7eb1335d4f48f940a32c11d5e4e62fe48a4485a2d727456c6def98af8cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

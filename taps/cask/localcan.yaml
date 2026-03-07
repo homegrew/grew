@@ -1,0 +1,11 @@
+name: localcan
+version: 2.7.0
+description: Develop apps with Public URLs and .local domains
+homepage: https://www.localcan.com/
+url:
+  darwin_arm64: https://assets.localcan.com/download/LocalCan-2.7.0-arm64.dmg
+sha256:
+  darwin_arm64: 3e558ded16d08852ba7630a1038174cc4de1ac533111a70e3014a0885d44a088
+artifacts:
+  app:
+    - LocalCan.app

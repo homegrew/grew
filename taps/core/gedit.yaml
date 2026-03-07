@@ -1,0 +1,36 @@
+name: gedit
+version: 49.0
+description: GNOME text editor
+homepage: https://gedit-technology.github.io/apps/gedit/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gedit/blobs/sha256:f16f039fa3d91301dbdffbb90fe7a7e516298ca030f1d599ab9869bea105987a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gedit/blobs/sha256:cc0e19ab35a92f1160e2d307422f9a78720cc851f0c1c74bc7e0a075a5702c02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gedit/blobs/sha256:77b6f806c5a7cfba5bdff000085f51c165fe6bfa64bece69054703030de7e7e6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gedit/blobs/sha256:a7180250047f87965dcdac66475a5818f8ce37f8eafa3d82ecbbf924ed10fa11
+sha256:
+  darwin_arm64: f16f039fa3d91301dbdffbb90fe7a7e516298ca030f1d599ab9869bea105987a
+  darwin_amd64: cc0e19ab35a92f1160e2d307422f9a78720cc851f0c1c74bc7e0a075a5702c02
+  linux_amd64: 77b6f806c5a7cfba5bdff000085f51c165fe6bfa64bece69054703030de7e7e6
+  linux_arm64: a7180250047f87965dcdac66475a5818f8ce37f8eafa3d82ecbbf924ed10fa11
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adwaita-icon-theme
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gobject-introspection
+  - gsettings-desktop-schemas
+  - gspell
+  - gtk+3
+  - libgedit-amtk
+  - libgedit-gfls
+  - libgedit-gtksourceview
+  - libgedit-tepl
+  - libpeas@1
+  - pango
+  - gettext
+  - gtk-mac-integration

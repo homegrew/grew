@@ -1,0 +1,21 @@
+name: mono
+version: 6.14.1
+description: Cross platform, open source .NET development framework
+homepage: https://www.mono-project.com/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mono/blobs/sha256:2859f9fc32324373e145969a201a90621c1443001d454d8b0c48ce349356f725
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mono/blobs/sha256:42ea1aab95e1cdb360e600e2ef1d0b868a91fa8aba7d0d1e6d437d7388b39d3d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mono/blobs/sha256:a2671d691010f3649f86ef822be69121d1bcb7071f1c04b1959d4b05a4ad7a96
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mono/blobs/sha256:bf35bf67b10fa9755014d6efb0bbe5b882309675846ffce33bf2c9fc824e7453
+sha256:
+  darwin_arm64: 2859f9fc32324373e145969a201a90621c1443001d454d8b0c48ce349356f725
+  darwin_amd64: 42ea1aab95e1cdb360e600e2ef1d0b868a91fa8aba7d0d1e6d437d7388b39d3d
+  linux_amd64: a2671d691010f3649f86ef822be69121d1bcb7071f1c04b1959d4b05a4ad7a96
+  linux_arm64: bf35bf67b10fa9755014d6efb0bbe5b882309675846ffce33bf2c9fc824e7453
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

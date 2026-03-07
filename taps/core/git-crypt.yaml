@@ -1,0 +1,21 @@
+name: git-crypt
+version: 0.8.0
+description: Enable transparent encryption/decryption of files in a git repo
+homepage: https://www.agwa.name/projects/git-crypt/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-crypt/blobs/sha256:406d6b431081540da5ffac631e736ad29046ad5a10d3f9765b03d53129846188
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-crypt/blobs/sha256:3f12d10fad264b7c738ff5c9afb4fdbda6d9178a2ba601507179fc57a446450a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-crypt/blobs/sha256:3d076be65893a0c7a8125a6456cae3757557d660b3d3c5eabb42c1be6693f554
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-crypt/blobs/sha256:6e63acf43e312923852fef13c2ac54950fbb7c2dedbca177e7440b611cbc1b03
+sha256:
+  darwin_arm64: 406d6b431081540da5ffac631e736ad29046ad5a10d3f9765b03d53129846188
+  darwin_amd64: 3f12d10fad264b7c738ff5c9afb4fdbda6d9178a2ba601507179fc57a446450a
+  linux_amd64: 3d076be65893a0c7a8125a6456cae3757557d660b3d3c5eabb42c1be6693f554
+  linux_arm64: 6e63acf43e312923852fef13c2ac54950fbb7c2dedbca177e7440b611cbc1b03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

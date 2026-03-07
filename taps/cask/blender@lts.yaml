@@ -1,0 +1,13 @@
+name: blender@lts
+version: 4.5.7
+description: 3D creation suite
+homepage: https://www.blender.org/
+url:
+  darwin_arm64: https://download.blender.org/release/Blender4.5/blender-4.5.7-macos-arm64.dmg
+sha256:
+  darwin_arm64: e19e353486ebe79fd61b7b1424971c44abd8dfd20dd6dd43753e78c3e3f30704
+artifacts:
+  app:
+    - Blender.app
+  bin:
+    - blender

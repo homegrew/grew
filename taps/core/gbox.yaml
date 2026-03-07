@@ -1,0 +1,22 @@
+name: gbox
+version: 0.1.20
+description: Provides environments for AI Agents to operate computer and mobile devices
+homepage: https://gbox.ai
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gbox/blobs/sha256:a08dd5ac639444c85e52605514c46e4ba05d189d3baf1c6ad7c0e56a0c1c79db
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gbox/blobs/sha256:16c94addd81ea9d57b8526fb2377cc551010688a5c5f2c7f54689f0f50b1d1ed
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gbox/blobs/sha256:41d9e6dc8921c4e5f0a76f31e52ce0da2cc9ecb3562f48a72f3fea7425902f0c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gbox/blobs/sha256:568a87354cd176bf21d3373530c91ce2d7f3b5ca13eae1f5434f2e6e0065ff9f
+sha256:
+  darwin_arm64: a08dd5ac639444c85e52605514c46e4ba05d189d3baf1c6ad7c0e56a0c1c79db
+  darwin_amd64: 16c94addd81ea9d57b8526fb2377cc551010688a5c5f2c7f54689f0f50b1d1ed
+  linux_amd64: 41d9e6dc8921c4e5f0a76f31e52ce0da2cc9ecb3562f48a72f3fea7425902f0c
+  linux_arm64: 568a87354cd176bf21d3373530c91ce2d7f3b5ca13eae1f5434f2e6e0065ff9f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - frpc
+  - yq

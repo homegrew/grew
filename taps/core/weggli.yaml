@@ -1,0 +1,19 @@
+name: weggli
+version: 0.2.4
+description: Fast and robust semantic search tool for C and C++ codebases
+homepage: https://github.com/weggli-rs/weggli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/weggli/blobs/sha256:3fc8c3f005f10421cca236fb2992ff2d7a8fa9470be9fd5e30d51d667a95971f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/weggli/blobs/sha256:1977c0e4e4ba9d419f965e47555703b4fa371eafc5e19e7ba4fe1b300345d434
+  linux_amd64: https://ghcr.io/v2/homebrew/core/weggli/blobs/sha256:070a5c12e89cdbd218bb7a07903f58718bbd83abeb6dfeb58f6b8d7cdd1077ff
+  linux_arm64: https://ghcr.io/v2/homebrew/core/weggli/blobs/sha256:22d412eca6bf9763cd1ceb157f093c5c36b8edd18744eb4fa3f9d34df36d44bb
+sha256:
+  darwin_arm64: 3fc8c3f005f10421cca236fb2992ff2d7a8fa9470be9fd5e30d51d667a95971f
+  darwin_amd64: 1977c0e4e4ba9d419f965e47555703b4fa371eafc5e19e7ba4fe1b300345d434
+  linux_amd64: 070a5c12e89cdbd218bb7a07903f58718bbd83abeb6dfeb58f6b8d7cdd1077ff
+  linux_arm64: 22d412eca6bf9763cd1ceb157f093c5c36b8edd18744eb4fa3f9d34df36d44bb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

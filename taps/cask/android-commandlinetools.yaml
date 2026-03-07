@@ -1,0 +1,16 @@
+name: android-commandlinetools
+version: 14742923
+description: Command-line tools for building and debugging Android apps
+homepage: https://developer.android.com/studio
+url:
+  darwin_arm64: https://dl.google.com/android/repository/commandlinetools-mac-14742923_latest.zip
+sha256:
+  darwin_arm64: ed304c5ede3718541e4f978e4ae870a4d853db74af6c16d920588d48523b9dee
+artifacts:
+  bin:
+    - avdmanager
+    - lint
+    - retrace
+    - screenshot2
+    - sdkmanager
+    - apkanalyzer

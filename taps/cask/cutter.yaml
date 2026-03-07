@@ -1,0 +1,13 @@
+name: cutter
+version: 2.4.1
+description: Reverse engineering platform powered by Rizin
+homepage: https://cutter.re/
+url:
+  darwin_arm64: https://github.com/rizinorg/cutter/releases/download/v2.4.1/Cutter-v2.4.1-macOS-arm64.dmg
+sha256:
+  darwin_arm64: 172d364bb4d3bdbd7cedc12f32721003b3630536a96d1e6c382d9a453f483ea9
+artifacts:
+  app:
+    - Cutter.app
+  bin:
+    - cutter

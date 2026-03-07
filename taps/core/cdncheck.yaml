@@ -1,0 +1,19 @@
+name: cdncheck
+version: 1.2.25
+description: Utility to detect various technology for a given IP address
+homepage: https://projectdiscovery.io
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdncheck/blobs/sha256:c5b80e25d36cb07aa0b28b29ad796c64cc1cf539bba187b479ffcedcf1052941
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdncheck/blobs/sha256:eb1fad2e724bafbdd3d35fdfdfcd7fb9999964e137fada240f88025c316c5fe4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdncheck/blobs/sha256:e865c8281710ff3c061985684ff01a83fe308e47aadc99e7538b8b3c8b82d412
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdncheck/blobs/sha256:7aa83592cf6d2730efd97ccb08617b03e05a8c750965c8269dcd4577efca1006
+sha256:
+  darwin_arm64: c5b80e25d36cb07aa0b28b29ad796c64cc1cf539bba187b479ffcedcf1052941
+  darwin_amd64: eb1fad2e724bafbdd3d35fdfdfcd7fb9999964e137fada240f88025c316c5fe4
+  linux_amd64: e865c8281710ff3c061985684ff01a83fe308e47aadc99e7538b8b3c8b82d412
+  linux_arm64: 7aa83592cf6d2730efd97ccb08617b03e05a8c750965c8269dcd4577efca1006
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

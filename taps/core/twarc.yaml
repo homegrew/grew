@@ -1,0 +1,23 @@
+name: twarc
+version: 2.14.1
+description: Command-line tool and Python library for archiving Twitter JSON
+homepage: https://github.com/DocNow/twarc
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/twarc/blobs/sha256:db9e6c81fdf10b57b1088a8ab38e39df62e6c7e7a4ff59ac7c99a831b6e3a436
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/twarc/blobs/sha256:b175e12ab700e554a919fb5ed97b10cf97d3d039db90ef7bbb97f2ac741b8224
+  linux_amd64: https://ghcr.io/v2/homebrew/core/twarc/blobs/sha256:d553debe051e9d6d6797a7d89ccd0b943234542d4fd576b6722250cc533a7432
+  linux_arm64: https://ghcr.io/v2/homebrew/core/twarc/blobs/sha256:97ac9dcf94d545374e82cceeab9a681b5aa9381986ed82ce55dd0f90aa5a8075
+sha256:
+  darwin_arm64: db9e6c81fdf10b57b1088a8ab38e39df62e6c7e7a4ff59ac7c99a831b6e3a436
+  darwin_amd64: b175e12ab700e554a919fb5ed97b10cf97d3d039db90ef7bbb97f2ac741b8224
+  linux_amd64: d553debe051e9d6d6797a7d89ccd0b943234542d4fd576b6722250cc533a7432
+  linux_arm64: 97ac9dcf94d545374e82cceeab9a681b5aa9381986ed82ce55dd0f90aa5a8075
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - numpy
+  - python@3.14

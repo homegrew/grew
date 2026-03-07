@@ -1,0 +1,21 @@
+name: ghcup
+version: 0.1.50.2
+description: Installer for the general purpose language Haskell
+homepage: https://www.haskell.org/ghcup/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ghcup/blobs/sha256:811917322d97837106d12170b91163432ae7c85aa638d1d96f029f9dec0cbb0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ghcup/blobs/sha256:198abd421c4cc7e9aaa9274920e01306f42d98946ac6c87266a810048eb542db
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ghcup/blobs/sha256:8cf4e303d7c63d8dc7094cb14558d753ca914f5b71515b26dae21a4c20004df3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ghcup/blobs/sha256:515f3d49492075a8d3d9c54442061f468485701be58045c3e2f19da055e10a43
+sha256:
+  darwin_arm64: 811917322d97837106d12170b91163432ae7c85aa638d1d96f029f9dec0cbb0e
+  darwin_amd64: 198abd421c4cc7e9aaa9274920e01306f42d98946ac6c87266a810048eb542db
+  linux_amd64: 8cf4e303d7c63d8dc7094cb14558d753ca914f5b71515b26dae21a4c20004df3
+  linux_arm64: 515f3d49492075a8d3d9c54442061f468485701be58045c3e2f19da055e10a43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

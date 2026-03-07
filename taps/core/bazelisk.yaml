@@ -1,0 +1,19 @@
+name: bazelisk
+version: 1.28.1
+description: User-friendly launcher for Bazel
+homepage: https://github.com/bazelbuild/bazelisk/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bazelisk/blobs/sha256:67df07d7ee863610c15c12a82897f330b43172c2fbee7f6e0efeecea11588ae6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bazelisk/blobs/sha256:6b1aef90e89503450a044f99642aaa4864b50995b2da1fc2bfd5e9c4ca3095fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bazelisk/blobs/sha256:6fdf2ac011fbf9ac9ae5bc6818cc725d7e73d9d75cfaf1bde872f380a5c100fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bazelisk/blobs/sha256:8a4c8ef0ed3cc6db983294b50d77b42d20980b77f98733519a502960c488f894
+sha256:
+  darwin_arm64: 67df07d7ee863610c15c12a82897f330b43172c2fbee7f6e0efeecea11588ae6
+  darwin_amd64: 6b1aef90e89503450a044f99642aaa4864b50995b2da1fc2bfd5e9c4ca3095fb
+  linux_amd64: 6fdf2ac011fbf9ac9ae5bc6818cc725d7e73d9d75cfaf1bde872f380a5c100fd
+  linux_arm64: 8a4c8ef0ed3cc6db983294b50d77b42d20980b77f98733519a502960c488f894
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

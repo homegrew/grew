@@ -1,0 +1,21 @@
+name: ccfits
+version: 2.7
+description: Object oriented interface to the cfitsio library
+homepage: https://heasarc.gsfc.nasa.gov/docs/software/fitsio/CCfits/
+license: CFITSIO
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ccfits/blobs/sha256:e095d123708d4f5c4c57b26c82155a75405f6e19f29c955ac7b52f4121d2df1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ccfits/blobs/sha256:a7d684bbb48a13f09a4b8e6d70228d2d06cfcfb975a52070e4e9adcc250f3a88
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ccfits/blobs/sha256:4fe8e6f44ecc655e7951eab676f718f070e76e4d00bbfca35c8e42478ae1b0a6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ccfits/blobs/sha256:555829bdb3662a54aca6af2aaf711c1c1ca388066e279f6bf725b2013bd23954
+sha256:
+  darwin_arm64: e095d123708d4f5c4c57b26c82155a75405f6e19f29c955ac7b52f4121d2df1d
+  darwin_amd64: a7d684bbb48a13f09a4b8e6d70228d2d06cfcfb975a52070e4e9adcc250f3a88
+  linux_amd64: 4fe8e6f44ecc655e7951eab676f718f070e76e4d00bbfca35c8e42478ae1b0a6
+  linux_arm64: 555829bdb3662a54aca6af2aaf711c1c1ca388066e279f6bf725b2013bd23954
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio

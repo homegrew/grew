@@ -1,0 +1,13 @@
+name: swift-section
+version: 0.7.1
+description: CLI tool for parsing mach-o files to obtain Swift information
+homepage: https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swift-section/blobs/sha256:20fc2d5e6d150d779c61b2881361c1fe95b7303e0819a5d6232418ea17a1b907
+sha256:
+  darwin_arm64: 20fc2d5e6d150d779c61b2881361c1fe95b7303e0819a5d6232418ea17a1b907
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: vttest
+version: 20251205
+description: Test compatibility of VT100-compatible terminals
+homepage: https://invisible-island.net/vttest/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vttest/blobs/sha256:2205eb531e5a84cafac03fddba51d325d33e289e12a93443dfd2325049946e76
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vttest/blobs/sha256:c99f02549908d444b2b127da4c7d243906af3c839c12d780f459502731dcb1a7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vttest/blobs/sha256:9608f0fae9a0f0d1abb464b8064ebb23c68223eae73adf82ec0d5e2f20d26c3b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vttest/blobs/sha256:a278f00ace7fe21bcb7a23cc775b0212b6b73bf0dc6e70a544a944fb76f53fc8
+sha256:
+  darwin_arm64: 2205eb531e5a84cafac03fddba51d325d33e289e12a93443dfd2325049946e76
+  darwin_amd64: c99f02549908d444b2b127da4c7d243906af3c839c12d780f459502731dcb1a7
+  linux_amd64: 9608f0fae9a0f0d1abb464b8064ebb23c68223eae73adf82ec0d5e2f20d26c3b
+  linux_arm64: a278f00ace7fe21bcb7a23cc775b0212b6b73bf0dc6e70a544a944fb76f53fc8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

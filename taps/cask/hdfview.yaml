@@ -1,0 +1,11 @@
+name: hdfview
+version: 3.4.1
+description: Tool for browsing and editing HDF files
+homepage: https://www.hdfgroup.org/download-hdfview/
+url:
+  darwin_arm64: https://github.com/HDFGroup/hdfview/releases/download/v3.4.1/HDFView-3.4.1App-Darwin-arm64.tar.gz
+sha256:
+  darwin_arm64: a1669bb6cbd32f65cfd3f0c1839a094cd29bcec1ad3697cfb95d704dfaefd603
+artifacts:
+  app:
+    - HDFView.app

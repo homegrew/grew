@@ -1,0 +1,11 @@
+name: aegisub
+version: 3.4.2
+description: Create and modify subtitles
+homepage: https://aegisub.org/
+url:
+  darwin_arm64: https://github.com/TypesettingTools/Aegisub/releases/download/v3.4.2/Aegisub-3.4.2.dmg
+sha256:
+  darwin_arm64: cbbfd3276e0414b540f6b1bc12a69abd6b8a96b0a452de3b08c290d553754ad3
+artifacts:
+  app:
+    - Aegisub.app

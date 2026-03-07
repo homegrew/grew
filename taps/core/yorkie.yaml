@@ -1,0 +1,19 @@
+name: yorkie
+version: 0.7.0
+description: Document store for collaborative applications
+homepage: https://yorkie.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yorkie/blobs/sha256:089ff2a182434608f18469ce8451e3d55665b43eb10618a77737c5a606074324
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yorkie/blobs/sha256:3206e8200ea2f97411b9085f50d62242d39f443382f1e1048cd0040405d8c8d7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yorkie/blobs/sha256:b5bf2b4768b525b6d698b563f6879443766ef044b638451c44fe873d4241ddc0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yorkie/blobs/sha256:f64bea8a07416ce92e6e763dfada9ef74e0b28f1c7393a0306e8639bf26d8bef
+sha256:
+  darwin_arm64: 089ff2a182434608f18469ce8451e3d55665b43eb10618a77737c5a606074324
+  darwin_amd64: 3206e8200ea2f97411b9085f50d62242d39f443382f1e1048cd0040405d8c8d7
+  linux_amd64: b5bf2b4768b525b6d698b563f6879443766ef044b638451c44fe873d4241ddc0
+  linux_arm64: f64bea8a07416ce92e6e763dfada9ef74e0b28f1c7393a0306e8639bf26d8bef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

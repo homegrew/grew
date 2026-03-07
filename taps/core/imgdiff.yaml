@@ -1,0 +1,19 @@
+name: imgdiff
+version: 1.0.2
+description: Pixel-by-pixel image difference tool
+homepage: https://github.com/n7olkachev/imgdiff
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/imgdiff/blobs/sha256:245066f106ba02042598e6735c482b506b45f82be5e583ee83f39c2afe5afcc8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/imgdiff/blobs/sha256:a4235fcb7927d3b4fb8fd45c808109b078b0ec61de7e468512a8b21f1e74925a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/imgdiff/blobs/sha256:ba0cd4c33ae5e8d1bc7a2cf32152c75c02b24e4477a3c674857b1547b43baec2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/imgdiff/blobs/sha256:38a86c696c71faaa5eab6ccd4f11989c31d5e571f4be2bbc3cf16459d85bd9c6
+sha256:
+  darwin_arm64: 245066f106ba02042598e6735c482b506b45f82be5e583ee83f39c2afe5afcc8
+  darwin_amd64: a4235fcb7927d3b4fb8fd45c808109b078b0ec61de7e468512a8b21f1e74925a
+  linux_amd64: ba0cd4c33ae5e8d1bc7a2cf32152c75c02b24e4477a3c674857b1547b43baec2
+  linux_arm64: 38a86c696c71faaa5eab6ccd4f11989c31d5e571f4be2bbc3cf16459d85bd9c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

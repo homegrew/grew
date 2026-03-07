@@ -1,0 +1,19 @@
+name: cargo-binstall
+version: 1.17.6
+description: Binary installation for rust projects
+homepage: https://github.com/cargo-bins/cargo-binstall
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-binstall/blobs/sha256:48a36095000447c577d086967233136926b56cb5f56919d0eb8d099a12d44911
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-binstall/blobs/sha256:6b3993643526c80f422b6f07bc87b1d566001fd344b3346df2ca5b43fdce6640
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-binstall/blobs/sha256:3a13edf701408352838941cefd9dccb98e3614201dee98fd236bc2895be22d76
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-binstall/blobs/sha256:d30ba5b5f4524267601a911fe6b438f3a8e5388284c58fe2f254349caebeca5a
+sha256:
+  darwin_arm64: 48a36095000447c577d086967233136926b56cb5f56919d0eb8d099a12d44911
+  darwin_amd64: 6b3993643526c80f422b6f07bc87b1d566001fd344b3346df2ca5b43fdce6640
+  linux_amd64: 3a13edf701408352838941cefd9dccb98e3614201dee98fd236bc2895be22d76
+  linux_arm64: d30ba5b5f4524267601a911fe6b438f3a8e5388284c58fe2f254349caebeca5a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

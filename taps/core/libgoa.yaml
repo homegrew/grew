@@ -1,0 +1,21 @@
+name: libgoa
+version: 3.56.4
+description: Single sign-on framework for GNOME - client library
+homepage: https://gitlab.gnome.org/GNOME/gnome-online-accounts
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libgoa/blobs/sha256:addc57cedd35797879db24d8024a3194e8c8f3e4f6173d6a11ece932488c8b2c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libgoa/blobs/sha256:056362c230c00ebc96bf6ac2b5f048c7e49d848d04be993c8a7e7a444e630ebc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libgoa/blobs/sha256:fe1e644e333ac8ea11902374a4c6f7e69187e554ecc5b5e4d8d2a6a5a6fddbb5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libgoa/blobs/sha256:ec5612797c062c63b0f9d30c44943a01aa6962540727b246a3ea3559c884f7b2
+sha256:
+  darwin_arm64: addc57cedd35797879db24d8024a3194e8c8f3e4f6173d6a11ece932488c8b2c
+  darwin_amd64: 056362c230c00ebc96bf6ac2b5f048c7e49d848d04be993c8a7e7a444e630ebc
+  linux_amd64: fe1e644e333ac8ea11902374a4c6f7e69187e554ecc5b5e4d8d2a6a5a6fddbb5
+  linux_arm64: ec5612797c062c63b0f9d30c44943a01aa6962540727b246a3ea3559c884f7b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib

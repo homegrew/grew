@@ -1,0 +1,19 @@
+name: openfa
+version: 20231011.0.3
+description: Set of algorithms that implement standard models used in fundamental astronomy
+homepage: https://gitlab.obspm.fr/imcce_openfa/openfa
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openfa/blobs/sha256:e09325d56359bc60015dde514da142c8dafa405b278ad12b37d61aa9b9a50097
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openfa/blobs/sha256:bfb27bf06051d8696fc549715df202bca591628a127b317184f81cca64082cd9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openfa/blobs/sha256:eab4f9ca29a3d57234580cdc61c2fbe34c4493702db0517f3f3f0a6938bb6f03
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openfa/blobs/sha256:40d42069bba5856f56b9f3ac7eaeab0e0137012139bb3281d2659314d3de59bd
+sha256:
+  darwin_arm64: e09325d56359bc60015dde514da142c8dafa405b278ad12b37d61aa9b9a50097
+  darwin_amd64: bfb27bf06051d8696fc549715df202bca591628a127b317184f81cca64082cd9
+  linux_amd64: eab4f9ca29a3d57234580cdc61c2fbe34c4493702db0517f3f3f0a6938bb6f03
+  linux_arm64: 40d42069bba5856f56b9f3ac7eaeab0e0137012139bb3281d2659314d3de59bd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

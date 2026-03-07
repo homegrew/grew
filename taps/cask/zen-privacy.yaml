@@ -1,0 +1,11 @@
+name: zen-privacy
+version: 0.19.1
+description: Ad-blocker and privacy guard
+homepage: https://zenprivacy.net/
+url:
+  darwin_arm64: https://github.com/ZenPrivacy/zen-desktop/releases/download/v0.19.1/Zen_darwin_arm64_noselfupdate.tar.gz
+sha256:
+  darwin_arm64: dce90406344db77b8433dd7989291e22d18fc261bb215ccd88c172fc2e40b3f3
+artifacts:
+  app:
+    - Zen.app

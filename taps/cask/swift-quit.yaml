@@ -1,0 +1,11 @@
+name: swift-quit
+version: 1.5
+description: Enable Windows-like program quitting when all windows are closed
+homepage: https://github.com/onebadidea/swiftquit
+url:
+  darwin_arm64: https://github.com/onebadidea/swiftquit/releases/download/v1.5/Swift.Quit.zip
+sha256:
+  darwin_arm64: a4e467cb13a14dcff3ca4047179ba3b16119f458cd6ae2467810f3f5b9c74efb
+artifacts:
+  app:
+    - Swift Quit.app

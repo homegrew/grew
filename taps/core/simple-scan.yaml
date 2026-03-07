@@ -1,0 +1,29 @@
+name: simple-scan
+version: 49.1
+description: GNOME document scanning application
+homepage: https://gitlab.gnome.org/GNOME/simple-scan
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/simple-scan/blobs/sha256:e4ff2b33c03720942a9e4c85ad6a67aab642a4c0cf4e2610b9d2bdf61ef666a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/simple-scan/blobs/sha256:86788fde5e41cbb727c779c41e7b00c6203d131dfa0860aeda940bd2169465b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/simple-scan/blobs/sha256:e852c24277cf7a2e93d7730ce61de3faf5a0c3488ba26886bf32c71e3d742148
+  linux_arm64: https://ghcr.io/v2/homebrew/core/simple-scan/blobs/sha256:6df30f86f56028f2e0060011a0271f51d224e88226c0bc4c679c907a1cc14ad7
+sha256:
+  darwin_arm64: e4ff2b33c03720942a9e4c85ad6a67aab642a4c0cf4e2610b9d2bdf61ef666a3
+  darwin_amd64: 86788fde5e41cbb727c779c41e7b00c6203d131dfa0860aeda940bd2169465b0
+  linux_amd64: e852c24277cf7a2e93d7730ce61de3faf5a0c3488ba26886bf32c71e3d742148
+  linux_arm64: 6df30f86f56028f2e0060011a0271f51d224e88226c0bc4c679c907a1cc14ad7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk4
+  - libadwaita
+  - libgusb
+  - sane-backends
+  - webp
+  - gettext

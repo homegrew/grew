@@ -1,0 +1,22 @@
+name: otf2
+version: 3.1.1
+description: Open Trace Format 2 file handling library
+homepage: https://www.vi-hps.org/projects/score-p/overview/overview.html
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/otf2/blobs/sha256:0699ada7968a7a8bac23d0a2e120d325e36f8a0aeb5637b91fb71acacfdc05ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/otf2/blobs/sha256:a1d4ee581094663d2042211869b0ad1009d7213a3df6b51d7152d2a855a4aeef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/otf2/blobs/sha256:966abf2c53bb4dd7f566b972e2b1c7defb27e37bdd0b5771b6acec6fc8752fe4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/otf2/blobs/sha256:a92b2db2f4624d69504d3cc37d88e25553ccd507e2b2b4abc1e248e1147a2523
+sha256:
+  darwin_arm64: 0699ada7968a7a8bac23d0a2e120d325e36f8a0aeb5637b91fb71acacfdc05ff
+  darwin_amd64: a1d4ee581094663d2042211869b0ad1009d7213a3df6b51d7152d2a855a4aeef
+  linux_amd64: 966abf2c53bb4dd7f566b972e2b1c7defb27e37bdd0b5771b6acec6fc8752fe4
+  linux_arm64: a92b2db2f4624d69504d3cc37d88e25553ccd507e2b2b4abc1e248e1147a2523
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - open-mpi
+  - python@3.14

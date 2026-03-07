@@ -1,0 +1,11 @@
+name: kubernetic
+version: 4.4.0
+description: Kubernetes desktop client
+homepage: https://kubernetic.com/
+url:
+  darwin_arm64: https://kubernetic.s3.amazonaws.com/Kubernetic-4.4.0.dmg
+sha256:
+  darwin_arm64: 176f3210c3b53b882dee831af622010cf1ba74b54d4d71cdfe4ab4bc4eef17ed
+artifacts:
+  app:
+    - Kubernetic.app

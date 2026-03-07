@@ -1,0 +1,19 @@
+name: rhit
+version: 2.0.4
+description: Nginx log explorer
+homepage: https://dystroy.org/rhit/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rhit/blobs/sha256:41640d4eab9609fcca1400aafb160e29a169b2ed9e998bc18f8f744ce8628b5b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rhit/blobs/sha256:a89ddcc212da6c1480439637b6eb132f71dbe2632de9088f89d5a5eae0aaebe0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rhit/blobs/sha256:51e27b0d43afd1bcde586fa8f4ab06a171764b98c385d6d8d7ec05eae03ef239
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rhit/blobs/sha256:6799083eb9f48ce147a17a0c759b9c823405a6844f2dc9200c87bd59f88e63c9
+sha256:
+  darwin_arm64: 41640d4eab9609fcca1400aafb160e29a169b2ed9e998bc18f8f744ce8628b5b
+  darwin_amd64: a89ddcc212da6c1480439637b6eb132f71dbe2632de9088f89d5a5eae0aaebe0
+  linux_amd64: 51e27b0d43afd1bcde586fa8f4ab06a171764b98c385d6d8d7ec05eae03ef239
+  linux_arm64: 6799083eb9f48ce147a17a0c759b9c823405a6844f2dc9200c87bd59f88e63c9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

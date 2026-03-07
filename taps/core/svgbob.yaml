@@ -1,0 +1,19 @@
+name: svgbob
+version: 0.7.6
+description: Convert your ascii diagram scribbles into happy little SVG
+homepage: https://ivanceras.github.io/svgbob-editor/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/svgbob/blobs/sha256:92d6dc8ffcafc044e0a67ad27ac513ced37300effd1056a7d077058cc7cc61d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/svgbob/blobs/sha256:e6870e719346a6f048b08186f6832c6fa96e532f2198e42bc45d2c6039785492
+  linux_amd64: https://ghcr.io/v2/homebrew/core/svgbob/blobs/sha256:39ef6cc1b6c2841686f831901ce97230633658fe2f76b16958af86e49f6d7e82
+  linux_arm64: https://ghcr.io/v2/homebrew/core/svgbob/blobs/sha256:ca0200d4df7df55439d0ec87ab584b580ffa86caa3604ce55776ac17488d059a
+sha256:
+  darwin_arm64: 92d6dc8ffcafc044e0a67ad27ac513ced37300effd1056a7d077058cc7cc61d0
+  darwin_amd64: e6870e719346a6f048b08186f6832c6fa96e532f2198e42bc45d2c6039785492
+  linux_amd64: 39ef6cc1b6c2841686f831901ce97230633658fe2f76b16958af86e49f6d7e82
+  linux_arm64: ca0200d4df7df55439d0ec87ab584b580ffa86caa3604ce55776ac17488d059a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

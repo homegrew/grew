@@ -1,0 +1,19 @@
+name: typtea
+version: 0.1.6
+description: Minimal terminal-based typing speed tester
+homepage: https://github.com/ashish0kumar/typtea
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typtea/blobs/sha256:34762664901bd215ea8d9bfc390daa6ccfbedd6c3d511abab0867de8a27e1aa5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typtea/blobs/sha256:b7993fc19824a6841a296131340db8f5d9d40e0b92b599ea095e1586db409dde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typtea/blobs/sha256:1d9099d3a169a377f90f6b9c703d1f8403f60d12bc77500c79d5157350ab6a14
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typtea/blobs/sha256:07ea14d623844b30f7e212f3eb32717c6cb9d72fbf1da52deb37c71134f613ff
+sha256:
+  darwin_arm64: 34762664901bd215ea8d9bfc390daa6ccfbedd6c3d511abab0867de8a27e1aa5
+  darwin_amd64: b7993fc19824a6841a296131340db8f5d9d40e0b92b599ea095e1586db409dde
+  linux_amd64: 1d9099d3a169a377f90f6b9c703d1f8403f60d12bc77500c79d5157350ab6a14
+  linux_arm64: 07ea14d623844b30f7e212f3eb32717c6cb9d72fbf1da52deb37c71134f613ff
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

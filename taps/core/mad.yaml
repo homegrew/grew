@@ -1,0 +1,19 @@
+name: mad
+version: 0.16.4
+description: MPEG audio decoder
+homepage: https://codeberg.org/tenacityteam/libmad
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mad/blobs/sha256:c2f1263d0123e856bc3b10b59ec49ce8533a75f8bf46c9829a19a482134a8b33
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mad/blobs/sha256:4e6025e114bad469457fd64a2710501afcdb3309c1d5c663cfccc90a9f7c37fb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mad/blobs/sha256:a05120955044b8c9a997b7084b5a08f5d913e5a48f7575ea72d4ff07cd620fab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mad/blobs/sha256:6f504b4d003538ab8007b64bba565fee86f8610a7107bf682c6e72ebaea4f30f
+sha256:
+  darwin_arm64: c2f1263d0123e856bc3b10b59ec49ce8533a75f8bf46c9829a19a482134a8b33
+  darwin_amd64: 4e6025e114bad469457fd64a2710501afcdb3309c1d5c663cfccc90a9f7c37fb
+  linux_amd64: a05120955044b8c9a997b7084b5a08f5d913e5a48f7575ea72d4ff07cd620fab
+  linux_arm64: 6f504b4d003538ab8007b64bba565fee86f8610a7107bf682c6e72ebaea4f30f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ipget
+version: 0.13.0
+description: Retrieve files over IPFS and save them locally
+homepage: https://github.com/ipfs/ipget/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipget/blobs/sha256:ae191e404fb22d27e536be300bb1846eff193e07cd5f6ba708db4de72e6745ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipget/blobs/sha256:d2d37965fd49661e14955b9eed121b61d07c6b0b1b1154469162ad9f6c840885
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipget/blobs/sha256:15c1dd49bebdce8b9ab5fdbedd3cd48f9a831c42549fe9781c6de8284409d0fd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipget/blobs/sha256:7a4531272cf503af7428a4b151489011936d2c3b1b1f9d569a8005af26e0ae5e
+sha256:
+  darwin_arm64: ae191e404fb22d27e536be300bb1846eff193e07cd5f6ba708db4de72e6745ce
+  darwin_amd64: d2d37965fd49661e14955b9eed121b61d07c6b0b1b1154469162ad9f6c840885
+  linux_amd64: 15c1dd49bebdce8b9ab5fdbedd3cd48f9a831c42549fe9781c6de8284409d0fd
+  linux_arm64: 7a4531272cf503af7428a4b151489011936d2c3b1b1f9d569a8005af26e0ae5e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: algernon
+version: 1.17.5
+description: Pure Go web server with Lua, Markdown, HTTP/2 and template support
+homepage: https://github.com/xyproto/algernon
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/algernon/blobs/sha256:cd3d6332fb7db0a31e44041b94e26e3460f48a0d6c2e20046d69aa7b04fc6451
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/algernon/blobs/sha256:de64c1a719b13cf8b3f2dbc463943f02317f1d7d9688ea4ef075344eb35daed2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/algernon/blobs/sha256:3c40a6a85665817beafa31562044e36431d3a241e7070becbb9e280f08b6a9ec
+  linux_arm64: https://ghcr.io/v2/homebrew/core/algernon/blobs/sha256:45f4add8f549a5f172bd83bc32b5935d59529b09922146da090416349c16fdb9
+sha256:
+  darwin_arm64: cd3d6332fb7db0a31e44041b94e26e3460f48a0d6c2e20046d69aa7b04fc6451
+  darwin_amd64: de64c1a719b13cf8b3f2dbc463943f02317f1d7d9688ea4ef075344eb35daed2
+  linux_amd64: 3c40a6a85665817beafa31562044e36431d3a241e7070becbb9e280f08b6a9ec
+  linux_arm64: 45f4add8f549a5f172bd83bc32b5935d59529b09922146da090416349c16fdb9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

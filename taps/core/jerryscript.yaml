@@ -1,0 +1,19 @@
+name: jerryscript
+version: 3.0.0
+description: Ultra-lightweight JavaScript engine for the Internet of Things
+homepage: https://jerryscript.net
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jerryscript/blobs/sha256:04e3aa7517ef94bc29b49da6892f29a2034a1433091bec5da32b16cca77a2f0d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jerryscript/blobs/sha256:28aa15489cdb4c63a3ca8dcabeb18bbf0937d16d7e627a19a3376936e2f1adbb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jerryscript/blobs/sha256:700fa052538ab63fbaa0c9f8fda9ec3491777d6a65c4698e7ad488297bbbadcf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jerryscript/blobs/sha256:0e969a7aa188293a61c458794e5673f6bc1012c48badcaeddfccb379bcc84e80
+sha256:
+  darwin_arm64: 04e3aa7517ef94bc29b49da6892f29a2034a1433091bec5da32b16cca77a2f0d
+  darwin_amd64: 28aa15489cdb4c63a3ca8dcabeb18bbf0937d16d7e627a19a3376936e2f1adbb
+  linux_amd64: 700fa052538ab63fbaa0c9f8fda9ec3491777d6a65c4698e7ad488297bbbadcf
+  linux_arm64: 0e969a7aa188293a61c458794e5673f6bc1012c48badcaeddfccb379bcc84e80
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

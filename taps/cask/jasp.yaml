@@ -1,0 +1,11 @@
+name: jasp
+version: 0.96.0.0
+description: Statistical analysis application
+homepage: https://jasp-stats.org/
+url:
+  darwin_arm64: https://github.com/jasp-stats/jasp-desktop/releases/download/v0.96.0/JASP-0.96.0.0-macOS-arm64.dmg
+sha256:
+  darwin_arm64: 00e60bf3be6d86f410b4f5c1b606132b23185f0234e94d36753393ea06ba5c3b
+artifacts:
+  app:
+    - JASP.app

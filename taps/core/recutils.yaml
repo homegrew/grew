@@ -1,0 +1,19 @@
+name: recutils
+version: 1.9
+description: Tools to work with human-editable, plain text data files
+homepage: https://www.gnu.org/software/recutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/recutils/blobs/sha256:1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/recutils/blobs/sha256:06f73515dcef0f167c03853cfaf8e08966cb677ce575b03484f63c69adb182e0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/recutils/blobs/sha256:09224d89dd80efca59a618cb2b966ad1a2a1847d992bc27c014fe997db0148af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/recutils/blobs/sha256:57f094907d4b5a4075731cb05a68fb1dd726dc245c914cc695bab138c1362596
+sha256:
+  darwin_arm64: 1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a
+  darwin_amd64: 06f73515dcef0f167c03853cfaf8e08966cb677ce575b03484f63c69adb182e0
+  linux_amd64: 09224d89dd80efca59a618cb2b966ad1a2a1847d992bc27c014fe997db0148af
+  linux_arm64: 57f094907d4b5a4075731cb05a68fb1dd726dc245c914cc695bab138c1362596
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

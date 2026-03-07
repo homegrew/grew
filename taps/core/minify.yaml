@@ -1,0 +1,19 @@
+name: minify
+version: 2.24.10
+description: Minifier for HTML, CSS, JS, JSON, SVG, and XML
+homepage: https://go.tacodewolff.nl/minify
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minify/blobs/sha256:15d61275122c74223a94326de78441da43683dde3597744c8b454dd116339d4e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minify/blobs/sha256:f09979f7db441b124a34cc87f35faf461a3911cc8d09b8f970c68b02a4ad7f96
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minify/blobs/sha256:5d16aade6e627675d81fe352e2161bd904ff578510731542bebc75d3b24a3b39
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minify/blobs/sha256:90e1129a88e52935ff66f98bb5d105ec0a8738af81cc548f7b981538f785799b
+sha256:
+  darwin_arm64: 15d61275122c74223a94326de78441da43683dde3597744c8b454dd116339d4e
+  darwin_amd64: f09979f7db441b124a34cc87f35faf461a3911cc8d09b8f970c68b02a4ad7f96
+  linux_amd64: 5d16aade6e627675d81fe352e2161bd904ff578510731542bebc75d3b24a3b39
+  linux_arm64: 90e1129a88e52935ff66f98bb5d105ec0a8738af81cc548f7b981538f785799b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

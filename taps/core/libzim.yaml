@@ -1,0 +1,24 @@
+name: libzim
+version: 9.5.0
+description: Reference implementation of the ZIM specification
+homepage: https://github.com/openzim/libzim
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libzim/blobs/sha256:48cd61ca906e796a5f052b7b785a246990586710911f35a8e8aa972b5ffd3577
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libzim/blobs/sha256:15469b111c56d8875e9c52032b604b7c388ab6d020af76c8c9b42ce4bc4da64b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libzim/blobs/sha256:823f50ac913f732fb96348bcd043fb5047b95b823cf02c5e3f7109c08be438c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libzim/blobs/sha256:5656b7a4989035f58dad78310331da9e5daa4118f2350dce1af647d236659689
+sha256:
+  darwin_arm64: 48cd61ca906e796a5f052b7b785a246990586710911f35a8e8aa972b5ffd3577
+  darwin_amd64: 15469b111c56d8875e9c52032b604b7c388ab6d020af76c8c9b42ce4bc4da64b
+  linux_amd64: 823f50ac913f732fb96348bcd043fb5047b95b823cf02c5e3f7109c08be438c2
+  linux_arm64: 5656b7a4989035f58dad78310331da9e5daa4118f2350dce1af647d236659689
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - icu4c@78
+  - xapian
+  - xz
+  - zstd

@@ -1,0 +1,19 @@
+name: mdbook
+version: 0.5.2
+description: Create modern online books from Markdown files
+homepage: https://rust-lang.github.io/mdBook/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mdbook/blobs/sha256:c42c5e7429786e9ea47ba92d839976dc048ac60472acd7072e56d771a9148c08
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mdbook/blobs/sha256:6893cd40c1e35586fcd686187617e9d978f21ff15d36a5378efdd9e9eae75bca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mdbook/blobs/sha256:f8adbd5b00a9fa2a25e6f3e9a4239fb7cf271dbde94b2e70e2a1e2281084b8ee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mdbook/blobs/sha256:ba01df90430f3f44090cbff536d57808dd3f98d7fbd835947fe9a18c03142b5d
+sha256:
+  darwin_arm64: c42c5e7429786e9ea47ba92d839976dc048ac60472acd7072e56d771a9148c08
+  darwin_amd64: 6893cd40c1e35586fcd686187617e9d978f21ff15d36a5378efdd9e9eae75bca
+  linux_amd64: f8adbd5b00a9fa2a25e6f3e9a4239fb7cf271dbde94b2e70e2a1e2281084b8ee
+  linux_arm64: ba01df90430f3f44090cbff536d57808dd3f98d7fbd835947fe9a18c03142b5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

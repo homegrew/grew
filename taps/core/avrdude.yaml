@@ -1,0 +1,24 @@
+name: avrdude
+version: 8.1
+description: Atmel AVR MCU programmer
+homepage: https://www.nongnu.org/avrdude/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/avrdude/blobs/sha256:3a29b8596cded5c9243cf835257352942d4bd1a1466be0423377d3a405940da6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/avrdude/blobs/sha256:ace8f271d4765b29bc8717d5ea758fd097e5baf31570b88b84c8d4c35e4984ca
+  linux_amd64: https://ghcr.io/v2/homebrew/core/avrdude/blobs/sha256:84b6fbe6bd4f0a34e03c159910960f5c3d6f2e82c58ed6bad2c1eb42ae38e342
+  linux_arm64: https://ghcr.io/v2/homebrew/core/avrdude/blobs/sha256:8ccf60c11997fbf0ceaebd78f29516467186ca20a85cf720c815d8e3fd8d7972
+sha256:
+  darwin_arm64: 3a29b8596cded5c9243cf835257352942d4bd1a1466be0423377d3a405940da6
+  darwin_amd64: ace8f271d4765b29bc8717d5ea758fd097e5baf31570b88b84c8d4c35e4984ca
+  linux_amd64: 84b6fbe6bd4f0a34e03c159910960f5c3d6f2e82c58ed6bad2c1eb42ae38e342
+  linux_arm64: 8ccf60c11997fbf0ceaebd78f29516467186ca20a85cf720c815d8e3fd8d7972
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hidapi
+  - libftdi
+  - libusb
+  - libusb-compat

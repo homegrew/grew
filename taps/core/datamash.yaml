@@ -1,0 +1,19 @@
+name: datamash
+version: 1.9
+description: "Tool to perform numerical, textual & statistical operations"
+homepage: https://www.gnu.org/software/datamash/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/datamash/blobs/sha256:024c8e8b9117739fa27275f1dcf4a683282b2e255041fd532097da1c49abe802
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/datamash/blobs/sha256:9d5449a221d1ace4e0fff4dd2667c6252607d2485354cd5c6e51fbfe36edeaa4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/datamash/blobs/sha256:ed1618d4b6571bddde83d2d6a00f5f730a0448355e75e1ecc9d44cf00759b509
+  linux_arm64: https://ghcr.io/v2/homebrew/core/datamash/blobs/sha256:0637020b7f156bd493ce38b8f948ef5f200511d7aeba5496f8f7ec598d29d756
+sha256:
+  darwin_arm64: 024c8e8b9117739fa27275f1dcf4a683282b2e255041fd532097da1c49abe802
+  darwin_amd64: 9d5449a221d1ace4e0fff4dd2667c6252607d2485354cd5c6e51fbfe36edeaa4
+  linux_amd64: ed1618d4b6571bddde83d2d6a00f5f730a0448355e75e1ecc9d44cf00759b509
+  linux_arm64: 0637020b7f156bd493ce38b8f948ef5f200511d7aeba5496f8f7ec598d29d756
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

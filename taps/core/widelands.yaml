@@ -1,0 +1,30 @@
+name: widelands
+version: 1.3.1
+description: Free real-time strategy game like Settlers II
+homepage: https://www.widelands.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/widelands/blobs/sha256:e61c9fed2f752bd87cfae05918936c9c14f34cf1c23d2ebe42d7d858cb57a70a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/widelands/blobs/sha256:36eb4c3ee035cebae44213d5c6a76a57b13714c47b70f6aaea44f46badf00295
+  linux_amd64: https://ghcr.io/v2/homebrew/core/widelands/blobs/sha256:eced0f3c4f891673c94286a75b9cf31fdcacc2a370db7045b9983f48ba960bc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/widelands/blobs/sha256:5d0a8eb18082b2e40898313d7c83f94e06e33c9587037a10ff74130e476847d5
+sha256:
+  darwin_arm64: e61c9fed2f752bd87cfae05918936c9c14f34cf1c23d2ebe42d7d858cb57a70a
+  darwin_amd64: 36eb4c3ee035cebae44213d5c6a76a57b13714c47b70f6aaea44f46badf00295
+  linux_amd64: eced0f3c4f891673c94286a75b9cf31fdcacc2a370db7045b9983f48ba960bc7
+  linux_arm64: 5d0a8eb18082b2e40898313d7c83f94e06e33c9587037a10ff74130e476847d5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glew
+  - icu4c@78
+  - libpng
+  - lua
+  - minizip
+  - sdl2
+  - sdl2_image
+  - sdl2_mixer
+  - sdl2_ttf
+  - gettext

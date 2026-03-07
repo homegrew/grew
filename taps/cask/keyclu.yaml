@@ -1,0 +1,11 @@
+name: keyclu
+version: 0.31
+description: Find shortcuts for any installed application
+homepage: https://sergii.tatarenkov.name/keyclu/support/
+url:
+  darwin_arm64: https://github.com/Anze/KeyCluCask/releases/download/v0.31/KeyClu.zip
+sha256:
+  darwin_arm64: 20b6aff3048a64037d51085c8a82704ec51cfaff9760e6d05e9d722d38d5fbd0
+artifacts:
+  app:
+    - KeyClu.app

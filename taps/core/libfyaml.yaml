@@ -1,0 +1,19 @@
+name: libfyaml
+version: 0.9.5
+description: Fully feature complete YAML parser and emitter
+homepage: https://github.com/pantoniou/libfyaml
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libfyaml/blobs/sha256:9a1c6453aa2a153ddc79bbe5b429b988e5d0a31bd18a50172da467beba2941a3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libfyaml/blobs/sha256:58758c10fc12005bc8d05dbaa4200c3ae6b254c8b84e620636086c28e211d83d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libfyaml/blobs/sha256:7b5e3496da4781e79869fe19ca50a7c33c3be9a42c3fb40011cb142cf5882086
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libfyaml/blobs/sha256:a4e66a8d3e1c4c92ccdab1b6b0272e64d4f81d4369e3f778aa087c29360f03e4
+sha256:
+  darwin_arm64: 9a1c6453aa2a153ddc79bbe5b429b988e5d0a31bd18a50172da467beba2941a3
+  darwin_amd64: 58758c10fc12005bc8d05dbaa4200c3ae6b254c8b84e620636086c28e211d83d
+  linux_amd64: 7b5e3496da4781e79869fe19ca50a7c33c3be9a42c3fb40011cb142cf5882086
+  linux_arm64: a4e66a8d3e1c4c92ccdab1b6b0272e64d4f81d4369e3f778aa087c29360f03e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

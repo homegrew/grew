@@ -1,0 +1,19 @@
+name: gluon
+version: 0.18.2
+description: Static, type inferred and embeddable language written in Rust
+homepage: https://gluon-lang.org
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gluon/blobs/sha256:b1212c4a5fa52f91c7e9628c7785059ba3773b1922c140f7e4b6803dfeaa2df2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gluon/blobs/sha256:27627946ae35b4b9e35631903c1cbcb9bcd857375f2d035e3dfa400ab9f77ee9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gluon/blobs/sha256:ba2ee59f07103937ec724410329016ff048f6da389b45b78fca28a63f11c18d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gluon/blobs/sha256:4c82fdd95ab9c907ca146f9cc9f5f8c34d026389368d81bc5943fee7d6b28a5b
+sha256:
+  darwin_arm64: b1212c4a5fa52f91c7e9628c7785059ba3773b1922c140f7e4b6803dfeaa2df2
+  darwin_amd64: 27627946ae35b4b9e35631903c1cbcb9bcd857375f2d035e3dfa400ab9f77ee9
+  linux_amd64: ba2ee59f07103937ec724410329016ff048f6da389b45b78fca28a63f11c18d1
+  linux_arm64: 4c82fdd95ab9c907ca146f9cc9f5f8c34d026389368d81bc5943fee7d6b28a5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

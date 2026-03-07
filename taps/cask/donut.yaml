@@ -1,0 +1,11 @@
+name: donut
+version: 0.16.0
+description: Anti-detect web browser
+homepage: https://donutbrowser.com/
+url:
+  darwin_arm64: https://github.com/zhom/donutbrowser/releases/download/v0.16.0/Donut_0.16.0_aarch64.dmg
+sha256:
+  darwin_arm64: be2e59285dc3f93640f71e07ef5df1f0b43c4a5463b94628bff0eb369744e798
+artifacts:
+  app:
+    - Donut.app

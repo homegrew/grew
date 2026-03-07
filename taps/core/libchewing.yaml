@@ -1,0 +1,19 @@
+name: libchewing
+version: 0.11.0
+description: Intelligent phonetic input method library
+homepage: https://chewing.im/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libchewing/blobs/sha256:ed3ecdbd9b626a1416b759d92545511acd3134f1d70ccbc0e8881a11868ad2d3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libchewing/blobs/sha256:e9662123cbf849b97198608b564ea106cc8cf52c30daec61f47a7fa5d23ce76e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libchewing/blobs/sha256:c8961ede2ccf15b8dc15692704a4679367b9ce2f34af505019d1f03ce59d3fc7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libchewing/blobs/sha256:94021f295b0bc602de4c7735af212f7ab5dea609b786dfd2a3de88aa068c746f
+sha256:
+  darwin_arm64: ed3ecdbd9b626a1416b759d92545511acd3134f1d70ccbc0e8881a11868ad2d3
+  darwin_amd64: e9662123cbf849b97198608b564ea106cc8cf52c30daec61f47a7fa5d23ce76e
+  linux_amd64: c8961ede2ccf15b8dc15692704a4679367b9ce2f34af505019d1f03ce59d3fc7
+  linux_arm64: 94021f295b0bc602de4c7735af212f7ab5dea609b786dfd2a3de88aa068c746f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

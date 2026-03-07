@@ -1,0 +1,11 @@
+name: stellarium
+version: 25.4
+description: Tool to render realistic skies in real time on the screen
+homepage: https://stellarium.org/
+url:
+  darwin_arm64: https://github.com/Stellarium/stellarium/releases/download/v25.4/Stellarium-25.4-qt6-macOS.zip
+sha256:
+  darwin_arm64: 9f611d8620ebe05eb6402fa200f1ba718c9f55176807b8717b5294cf011849b7
+artifacts:
+  app:
+    - Stellarium.app

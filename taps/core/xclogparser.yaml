@@ -1,0 +1,19 @@
+name: xclogparser
+version: 0.2.46
+description: Tool to parse the SLF serialization format used by Xcode
+homepage: https://github.com/MobileNativeFoundation/XCLogParser
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xclogparser/blobs/sha256:734a5ac0e214131613b07abcb191a548dc316cb34585fdb20eab065199c36465
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xclogparser/blobs/sha256:f531b6cdafaaba425294f6c56590985f4c4f76991b6e27b34edba305a0373a2f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xclogparser/blobs/sha256:42b174ce16315eb5c3da7dcd6da844ebd6371dae0fe5116a7d85236b7827e453
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xclogparser/blobs/sha256:843981be8f1fb64098336f8847ddfaaad831d4996264e936c88f34ab8de9a3fd
+sha256:
+  darwin_arm64: 734a5ac0e214131613b07abcb191a548dc316cb34585fdb20eab065199c36465
+  darwin_amd64: f531b6cdafaaba425294f6c56590985f4c4f76991b6e27b34edba305a0373a2f
+  linux_amd64: 42b174ce16315eb5c3da7dcd6da844ebd6371dae0fe5116a7d85236b7827e453
+  linux_arm64: 843981be8f1fb64098336f8847ddfaaad831d4996264e936c88f34ab8de9a3fd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

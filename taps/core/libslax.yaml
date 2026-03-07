@@ -1,0 +1,17 @@
+name: libslax
+version: 3.1.6
+description: Implementation of the SLAX language (an XSLT alternative)
+homepage: https://github.com/Juniper/libslax/wiki
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libslax/blobs/sha256:12f2c058552c9216221ff77a798f59590788193cca59a0755f152f94396cef16
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libslax/blobs/sha256:af1f73ee5a96a72a62f8fba2f0dfe5ef02e1fd17ac6d8d8176a0265c73a3ba0c
+sha256:
+  darwin_arm64: 12f2c058552c9216221ff77a798f59590788193cca59a0755f152f94396cef16
+  darwin_amd64: af1f73ee5a96a72a62f8fba2f0dfe5ef02e1fd17ac6d8d8176a0265c73a3ba0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

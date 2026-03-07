@@ -1,0 +1,27 @@
+name: openjdk@11
+version: 11.0.30
+description: Development kit for the Java programming language
+homepage: https://openjdk.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openjdk/11/blobs/sha256:cc39878610883e6bd2b7fd4bbec7d97a4561ba8d196df32424629391cf5e32c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openjdk/11/blobs/sha256:3dccdd9e3052c5a9ddde091407d24a4fe2f7cfc41028ace08ea6d2890fbdd909
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openjdk/11/blobs/sha256:cc2c7f36d3022e4c8eb698d2afa82215ffa2f8ab58bea63c8fc2a04e84522115
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openjdk/11/blobs/sha256:57585af6588c21f64a4102d776bf19fb1c44efdabb855eac3297c484a45b32b7
+sha256:
+  darwin_arm64: cc39878610883e6bd2b7fd4bbec7d97a4561ba8d196df32424629391cf5e32c0
+  darwin_amd64: 3dccdd9e3052c5a9ddde091407d24a4fe2f7cfc41028ace08ea6d2890fbdd909
+  linux_amd64: cc2c7f36d3022e4c8eb698d2afa82215ffa2f8ab58bea63c8fc2a04e84522115
+  linux_arm64: 57585af6588c21f64a4102d776bf19fb1c44efdabb855eac3297c484a45b32b7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - giflib
+  - harfbuzz
+  - jpeg-turbo
+  - libpng
+  - little-cms2
+keg_only: true

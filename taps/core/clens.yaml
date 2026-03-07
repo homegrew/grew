@@ -1,0 +1,19 @@
+name: clens
+version: 0.7.0
+description: Library to help port code from OpenBSD to other operating systems
+homepage: https://github.com/conformal/clens
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clens/blobs/sha256:ae9f115b19edd75f00e434a0cbc10025f607c99482ca901323005abf3a9fc93a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clens/blobs/sha256:da3d996540074d18fd0b1b9929b3c8d49604639ad47a44d398f8d3da1eb63546
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clens/blobs/sha256:4b5d5f5cba941676c726e09e2b14c9069dfebf9db9d6cb2b75fc321a2481aedf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clens/blobs/sha256:30170cc04b93089a889764fdb8ffffe69b24b762fcfdf51dc2419e6ff51f5d27
+sha256:
+  darwin_arm64: ae9f115b19edd75f00e434a0cbc10025f607c99482ca901323005abf3a9fc93a
+  darwin_amd64: da3d996540074d18fd0b1b9929b3c8d49604639ad47a44d398f8d3da1eb63546
+  linux_amd64: 4b5d5f5cba941676c726e09e2b14c9069dfebf9db9d6cb2b75fc321a2481aedf
+  linux_arm64: 30170cc04b93089a889764fdb8ffffe69b24b762fcfdf51dc2419e6ff51f5d27
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

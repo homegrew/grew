@@ -1,0 +1,15 @@
+name: afsctool
+version: 1.7.3
+description: Utility for manipulating APFS and ZFS compressed files
+homepage: https://brkirch.wordpress.com/afsctool/
+license: GPL-3.0-only AND BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/afsctool/blobs/sha256:551e9f8910b53ce228f1f710e100c54266cbed7ffa3a087ecec516c71bba5dbb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/afsctool/blobs/sha256:74f60adb27bfbec7b4add84a60f73ae3d7c804632dd99a39b61c270bf8125e92
+sha256:
+  darwin_arm64: 551e9f8910b53ce228f1f710e100c54266cbed7ffa3a087ecec516c71bba5dbb
+  darwin_amd64: 74f60adb27bfbec7b4add84a60f73ae3d7c804632dd99a39b61c270bf8125e92
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: pgrx
+version: 0.17.0
+description: Build Postgres Extensions with Rust
+homepage: https://github.com/pgcentralfoundation/pgrx
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pgrx/blobs/sha256:fe6a73461c94fe83d005e63c608a68bd1a79586d62fe99633c2c0e65b6707e87
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pgrx/blobs/sha256:69cdb8579569022ec60b9b0453cdee895106809ac6d320b437a033bec218b415
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pgrx/blobs/sha256:c4ef449012c3bd8b7667efaa7eaf878b0df688f2f737d074ae3a12cf867e02da
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pgrx/blobs/sha256:60a9afaa9cf9eb17424c2ff0ea79d664c4857dc0955fa251990b8834cde9d912
+sha256:
+  darwin_arm64: fe6a73461c94fe83d005e63c608a68bd1a79586d62fe99633c2c0e65b6707e87
+  darwin_amd64: 69cdb8579569022ec60b9b0453cdee895106809ac6d320b437a033bec218b415
+  linux_amd64: c4ef449012c3bd8b7667efaa7eaf878b0df688f2f737d074ae3a12cf867e02da
+  linux_arm64: 60a9afaa9cf9eb17424c2ff0ea79d664c4857dc0955fa251990b8834cde9d912
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

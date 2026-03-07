@@ -1,0 +1,19 @@
+name: temporal
+version: 1.6.1
+description: Command-line interface for running and interacting with Temporal Server and UI
+homepage: https://temporal.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/temporal/blobs/sha256:f0964f6afb165d09f13d7995465d6213a659aec0fb1b83d21ce58c3bf42a0698
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/temporal/blobs/sha256:ded10dd64ba06d5dc19f8c9d8fb7a239efe01fa54d4ec17d8f4b5509687ccfe1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/temporal/blobs/sha256:d805cf9b2ff1cc3b77685a0ace49d4e0040308268561722c566599a267f491d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/temporal/blobs/sha256:35e650243e7a962595bb4a5cbcb3a03435fdff3c10042316036b8f5af518a530
+sha256:
+  darwin_arm64: f0964f6afb165d09f13d7995465d6213a659aec0fb1b83d21ce58c3bf42a0698
+  darwin_amd64: ded10dd64ba06d5dc19f8c9d8fb7a239efe01fa54d4ec17d8f4b5509687ccfe1
+  linux_amd64: d805cf9b2ff1cc3b77685a0ace49d4e0040308268561722c566599a267f491d8
+  linux_arm64: 35e650243e7a962595bb4a5cbcb3a03435fdff3c10042316036b8f5af518a530
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

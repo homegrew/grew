@@ -1,0 +1,15 @@
+name: valgrind
+version: 3.26.0
+description: Dynamic analysis tools (memory, debug, profiling)
+homepage: https://www.valgrind.org/
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/valgrind/blobs/sha256:df7ce68951218b8d2646a402d30b9733626bb67b80255fd207f4903060528498
+  linux_arm64: https://ghcr.io/v2/homebrew/core/valgrind/blobs/sha256:57fc318a97c43d1bdae43943c9de23c26c5f804983fe29f4d1853802ce4f6646
+sha256:
+  linux_amd64: df7ce68951218b8d2646a402d30b9733626bb67b80255fd207f4903060528498
+  linux_arm64: 57fc318a97c43d1bdae43943c9de23c26c5f804983fe29f4d1853802ce4f6646
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

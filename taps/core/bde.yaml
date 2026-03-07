@@ -1,0 +1,21 @@
+name: bde
+version: 4.36.0.0
+description: "Basic Development Environment: foundational C++ libraries used at Bloomberg"
+homepage: https://github.com/bloomberg/bde
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bde/blobs/sha256:ca9c771cf655b9eb228a5697d58033f1ffbdb1a6ba9700792182658dd18fdcd0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bde/blobs/sha256:8a3f3680c9e40707e2d09bd2b4f2766874ef6720570c9220d31efd05c980135f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bde/blobs/sha256:929c4e3fea86df27636afa9c09fa872f897322ba3c673abb31ae7f77e807c400
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bde/blobs/sha256:307ddc4826c42486b6c7784d3b623e0ed5d55abded02d243aee14c43ffa631e2
+sha256:
+  darwin_arm64: ca9c771cf655b9eb228a5697d58033f1ffbdb1a6ba9700792182658dd18fdcd0
+  darwin_amd64: 8a3f3680c9e40707e2d09bd2b4f2766874ef6720570c9220d31efd05c980135f
+  linux_amd64: 929c4e3fea86df27636afa9c09fa872f897322ba3c673abb31ae7f77e807c400
+  linux_arm64: 307ddc4826c42486b6c7784d3b623e0ed5d55abded02d243aee14c43ffa631e2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - pcre2

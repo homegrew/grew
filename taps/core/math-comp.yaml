@@ -1,0 +1,23 @@
+name: math-comp
+version: 2.5.0
+description: Mathematical Components for the Coq proof assistant
+homepage: https://math-comp.github.io/math-comp/
+license: CECILL-B
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/math-comp/blobs/sha256:b5ee5a738a5a24c99e4bfec3fc485c8830c1f9b978c1205bb4ad751bb0955fca
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/math-comp/blobs/sha256:02b0d0a53501f6b367d257c12a57ee3b3d2afbbb014f233f5a4a1b6928ac2371
+  linux_amd64: https://ghcr.io/v2/homebrew/core/math-comp/blobs/sha256:991be39002d9e7884e25b2aafdf1d814bf25c8912abad59b5793a7b57a4432c9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/math-comp/blobs/sha256:0cd91382f3fe398c94fa725099c2a24fa8ca2b71f76edc3c65c14b4070cf7dcb
+sha256:
+  darwin_arm64: b5ee5a738a5a24c99e4bfec3fc485c8830c1f9b978c1205bb4ad751bb0955fca
+  darwin_amd64: 02b0d0a53501f6b367d257c12a57ee3b3d2afbbb014f233f5a4a1b6928ac2371
+  linux_amd64: 991be39002d9e7884e25b2aafdf1d814bf25c8912abad59b5793a7b57a4432c9
+  linux_arm64: 0cd91382f3fe398c94fa725099c2a24fa8ca2b71f76edc3c65c14b4070cf7dcb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hierarchy-builder
+  - rocq
+  - rocq-elpi

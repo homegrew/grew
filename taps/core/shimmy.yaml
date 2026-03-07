@@ -1,0 +1,19 @@
+name: shimmy
+version: 1.9.0
+description: Small local inference server with OpenAI-compatible GGUF endpoints
+homepage: https://github.com/Michael-A-Kuykendall/shimmy
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shimmy/blobs/sha256:d85b61e80d9813435cf33fa36e3eea5ff340ade69716ae62ec5bb0b6504ca4a0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shimmy/blobs/sha256:280c53fde0c1db2f4402a2d366b9e82e36debf79a4737b3f4c181c74b7b12ac8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shimmy/blobs/sha256:d9a2c596f5a1309fa9aea970c9cbdd1a95d1232b1c486c60a299b693bd933e29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shimmy/blobs/sha256:125faf23f0288a2fe2d6fd046ad38041e82f70ee5f4d05cacac1ea97821134cb
+sha256:
+  darwin_arm64: d85b61e80d9813435cf33fa36e3eea5ff340ade69716ae62ec5bb0b6504ca4a0
+  darwin_amd64: 280c53fde0c1db2f4402a2d366b9e82e36debf79a4737b3f4c181c74b7b12ac8
+  linux_amd64: d9a2c596f5a1309fa9aea970c9cbdd1a95d1232b1c486c60a299b693bd933e29
+  linux_arm64: 125faf23f0288a2fe2d6fd046ad38041e82f70ee5f4d05cacac1ea97821134cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: jxrlib
+version: 1.2_git20170615-f752187
+description: Tools for JPEG-XR image encoding/decoding
+homepage: https://tracker.debian.org/pkg/jxrlib
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jxrlib/blobs/sha256:c4b636123bafc19b44451cfc90eecbf7ab7488527508c40a102594517d60c889
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jxrlib/blobs/sha256:212c5e081a76c9e8e669e025a09bc57a2ca86454eb18dc902809af560a0530fc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jxrlib/blobs/sha256:a8b4edc2fe9b2af8b4ac16fc72f1ac97c7c2bd61186250e2edb55c2cd632527d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jxrlib/blobs/sha256:0db591f53b1290c104b0f916fc03d356174efe49822436a3548a0aadb4110b43
+sha256:
+  darwin_arm64: c4b636123bafc19b44451cfc90eecbf7ab7488527508c40a102594517d60c889
+  darwin_amd64: 212c5e081a76c9e8e669e025a09bc57a2ca86454eb18dc902809af560a0530fc
+  linux_amd64: a8b4edc2fe9b2af8b4ac16fc72f1ac97c7c2bd61186250e2edb55c2cd632527d
+  linux_arm64: 0db591f53b1290c104b0f916fc03d356174efe49822436a3548a0aadb4110b43
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

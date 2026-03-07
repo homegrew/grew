@@ -1,0 +1,19 @@
+name: ex-vi
+version: 050325
+description: UTF8-friendly version of traditional vi
+homepage: https://ex-vi.sourceforge.net/
+license: BSD-4-Clause AND BSD-4-Clause-UC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ex-vi/blobs/sha256:c058c623956ae2057e5bb4a820c91b5f0bf3febf4f128f0f7a6e65a2d5699646
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ex-vi/blobs/sha256:56c46aa6633306d709c283a85b38cc61ce2ff3d12f31bffe52e6e3aecdf968a6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ex-vi/blobs/sha256:6db96a6326a1359f5a5c08b05f918256ad6b9b04fd0f2a36d1ea22ec41372788
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ex-vi/blobs/sha256:f8d06fd838ebda25c906af23482f4c72f903656d79b86b5c59c1156032b3e989
+sha256:
+  darwin_arm64: c058c623956ae2057e5bb4a820c91b5f0bf3febf4f128f0f7a6e65a2d5699646
+  darwin_amd64: 56c46aa6633306d709c283a85b38cc61ce2ff3d12f31bffe52e6e3aecdf968a6
+  linux_amd64: 6db96a6326a1359f5a5c08b05f918256ad6b9b04fd0f2a36d1ea22ec41372788
+  linux_arm64: f8d06fd838ebda25c906af23482f4c72f903656d79b86b5c59c1156032b3e989
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

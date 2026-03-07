@@ -1,0 +1,19 @@
+name: gitbatch
+version: 0.6.1
+description: Manage your git repositories in one place
+homepage: https://github.com/isacikgoz/gitbatch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gitbatch/blobs/sha256:4f0dfe4d2f87530d4b6efa9896233606294804a6ec6ae6acd783e7a0fb81bc0f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gitbatch/blobs/sha256:7b84d60a26974b8f1f6e1d31fe360f09d6a04d01a6f6d2425291d5a027f83fe1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gitbatch/blobs/sha256:6d447c8dc2e642b6a281df3956224ece3f45cd0f074391b8dfa9f916cf5e7dcb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gitbatch/blobs/sha256:cece7a9bb8193efdc4aee9d9f44f49b979b88a93b2a120bc247125d90f3276ea
+sha256:
+  darwin_arm64: 4f0dfe4d2f87530d4b6efa9896233606294804a6ec6ae6acd783e7a0fb81bc0f
+  darwin_amd64: 7b84d60a26974b8f1f6e1d31fe360f09d6a04d01a6f6d2425291d5a027f83fe1
+  linux_amd64: 6d447c8dc2e642b6a281df3956224ece3f45cd0f074391b8dfa9f916cf5e7dcb
+  linux_arm64: cece7a9bb8193efdc4aee9d9f44f49b979b88a93b2a120bc247125d90f3276ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,26 @@
+name: crispy-doom
+version: 7.1
+description: Limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+homepage: https://github.com/fabiangreffrath/crispy-doom
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crispy-doom/blobs/sha256:cd4cfaa085f5e29518b82d35f277a6ee28b4829692a835858c40bc8a73ac6d8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crispy-doom/blobs/sha256:1b6a55ca5f724065f392001873196c777625872d33572ccf5c6ea8bf2663639b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crispy-doom/blobs/sha256:a961d18f9165cc0e96cc09db90784312fec9e482afe2d091c3ed1051ad33b09e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crispy-doom/blobs/sha256:ff2d4ad766f28347b84cf6917c3f64d5dabf225efb324c6ec741ec48d4abf718
+sha256:
+  darwin_arm64: cd4cfaa085f5e29518b82d35f277a6ee28b4829692a835858c40bc8a73ac6d8a
+  darwin_amd64: 1b6a55ca5f724065f392001873196c777625872d33572ccf5c6ea8bf2663639b
+  linux_amd64: a961d18f9165cc0e96cc09db90784312fec9e482afe2d091c3ed1051ad33b09e
+  linux_arm64: ff2d4ad766f28347b84cf6917c3f64d5dabf225efb324c6ec741ec48d4abf718
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fluid-synth
+  - libpng
+  - libsamplerate
+  - sdl2
+  - sdl2_mixer
+  - sdl2_net

@@ -1,0 +1,19 @@
+name: libswiftnav
+version: 2.4.2
+description: C library implementing GNSS related functions and algorithms
+homepage: https://github.com/swift-nav/libswiftnav
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libswiftnav/blobs/sha256:33463f96c4b94f36447f45dcd3fb5c039e374a1ccbf8e3ca7b5f8cddf2627d68
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libswiftnav/blobs/sha256:2d1816993437aea825dad690affb239660bed9a4e61b04536bc7cf6758c5a5e1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libswiftnav/blobs/sha256:8c1648b6c5feaa7485011c42987bf2d6b7fbd2795130b83528d8a8960ef8f748
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libswiftnav/blobs/sha256:7767ebdfd1dd030cc3ddb4bce85f6d113bb5b7c122e859950c264fc800054221
+sha256:
+  darwin_arm64: 33463f96c4b94f36447f45dcd3fb5c039e374a1ccbf8e3ca7b5f8cddf2627d68
+  darwin_amd64: 2d1816993437aea825dad690affb239660bed9a4e61b04536bc7cf6758c5a5e1
+  linux_amd64: 8c1648b6c5feaa7485011c42987bf2d6b7fbd2795130b83528d8a8960ef8f748
+  linux_arm64: 7767ebdfd1dd030cc3ddb4bce85f6d113bb5b7c122e859950c264fc800054221
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

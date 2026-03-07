@@ -1,0 +1,21 @@
+name: cargo-spellcheck
+version: 0.15.5
+description: Checks rust documentation for spelling and grammar mistakes
+homepage: https://github.com/drahnr/cargo-spellcheck
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-spellcheck/blobs/sha256:326e88bcdb1597ccb4a04b1da254081c5af47c65f3fdb0c506e35adf3dc56e24
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-spellcheck/blobs/sha256:5ef273e407c69f213ca9637e6e04b5c89d55715d27bbe71c361e541caeea8b2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-spellcheck/blobs/sha256:666cde4c0816a27802d38b2700ab4d815811645737b82d3769a2b13b2ac9f9d6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-spellcheck/blobs/sha256:428cf7e2f5215ad664810553cc83adfc474beceb7a03d08ae671f8ab7a88fe52
+sha256:
+  darwin_arm64: 326e88bcdb1597ccb4a04b1da254081c5af47c65f3fdb0c506e35adf3dc56e24
+  darwin_amd64: 5ef273e407c69f213ca9637e6e04b5c89d55715d27bbe71c361e541caeea8b2d
+  linux_amd64: 666cde4c0816a27802d38b2700ab4d815811645737b82d3769a2b13b2ac9f9d6
+  linux_arm64: 428cf7e2f5215ad664810553cc83adfc474beceb7a03d08ae671f8ab7a88fe52
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hunspell

@@ -1,0 +1,19 @@
+name: meilisearch
+version: 1.37.0
+description: Ultra relevant, instant and typo-tolerant full-text search API
+homepage: https://docs.meilisearch.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/meilisearch/blobs/sha256:e84f289d3633e499ed679254d10b8431a5fd33b71226f68d280cf8377495420a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/meilisearch/blobs/sha256:65868f37ac51b9ccb1ef48f3741f80bb2c3abedf0f7c91d7511bf46b84093bef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/meilisearch/blobs/sha256:b054e469f096ccb8eea93173dca4b71e027c3c1b379be50c9284b582bd85a9d7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/meilisearch/blobs/sha256:7fa1116c8e231bdd90511553bdb3a35042df8a0e37e3b2ebcc8a7055b0d6cadb
+sha256:
+  darwin_arm64: e84f289d3633e499ed679254d10b8431a5fd33b71226f68d280cf8377495420a
+  darwin_amd64: 65868f37ac51b9ccb1ef48f3741f80bb2c3abedf0f7c91d7511bf46b84093bef
+  linux_amd64: b054e469f096ccb8eea93173dca4b71e027c3c1b379be50c9284b582bd85a9d7
+  linux_arm64: 7fa1116c8e231bdd90511553bdb3a35042df8a0e37e3b2ebcc8a7055b0d6cadb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

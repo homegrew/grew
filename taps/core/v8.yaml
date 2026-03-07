@@ -1,0 +1,15 @@
+name: v8
+version: 14.6.202.11
+description: "Google's JavaScript engine"
+homepage: https://v8.dev/docs
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/v8/blobs/sha256:a9e5e2451fb147b78733a95b9770c11ac11e1d1960ac6fdbb530924b66b85752
+  linux_arm64: https://ghcr.io/v2/homebrew/core/v8/blobs/sha256:4740f4fe26a86072aecf816c1bc6a1b87e863d6bd22e799255d7a12b502d3910
+sha256:
+  darwin_arm64: a9e5e2451fb147b78733a95b9770c11ac11e1d1960ac6fdbb530924b66b85752
+  linux_arm64: 4740f4fe26a86072aecf816c1bc6a1b87e863d6bd22e799255d7a12b502d3910
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

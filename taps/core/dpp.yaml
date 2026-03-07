@@ -1,0 +1,19 @@
+name: dpp
+version: 0.6.0
+description: Directly include C headers in D source code
+homepage: https://github.com/atilaneves/dpp
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dpp/blobs/sha256:86cb5490c0ddbbe4e7a242cafd4e776a243873dd649ec1e077b23e91e6cab1bb
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dpp/blobs/sha256:aebc8ca08df57de8624e9fb1a324872bb5883b207bb2a650a59125efc54e823b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dpp/blobs/sha256:2831967224ea98d7b494448db999203aead8f24183bb33319315f5af8d271185
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dpp/blobs/sha256:5115fc9b696c79b4acaa885bf0476915c91993d8a0ecfe393fd85cbd2b5af56d
+sha256:
+  darwin_arm64: 86cb5490c0ddbbe4e7a242cafd4e776a243873dd649ec1e077b23e91e6cab1bb
+  darwin_amd64: aebc8ca08df57de8624e9fb1a324872bb5883b207bb2a650a59125efc54e823b
+  linux_amd64: 2831967224ea98d7b494448db999203aead8f24183bb33319315f5af8d271185
+  linux_arm64: 5115fc9b696c79b4acaa885bf0476915c91993d8a0ecfe393fd85cbd2b5af56d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

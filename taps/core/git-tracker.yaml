@@ -1,0 +1,19 @@
+name: git-tracker
+version: 2.0.0
+description: Integrate Pivotal Tracker into your Git workflow
+homepage: https://github.com/stevenharman/git_tracker
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-tracker/blobs/sha256:ad44db1639c5fd8aca9a1722f8d3e2dec30b2c0b83d8ea3991f846943347ec38
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-tracker/blobs/sha256:04a52cb307fbbf99950c64d3c6716473ff8fa8ad45fe06a33af04777bd4b7047
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-tracker/blobs/sha256:eaaca7ee99419aa06d95fdbb70c28f435b4f2e596c28124bf80b105c89ffbe9b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-tracker/blobs/sha256:2308338d6721682146bf5d0d960f8606a0061c7e42cf2f1132d33da8ff01201b
+sha256:
+  darwin_arm64: ad44db1639c5fd8aca9a1722f8d3e2dec30b2c0b83d8ea3991f846943347ec38
+  darwin_amd64: 04a52cb307fbbf99950c64d3c6716473ff8fa8ad45fe06a33af04777bd4b7047
+  linux_amd64: eaaca7ee99419aa06d95fdbb70c28f435b4f2e596c28124bf80b105c89ffbe9b
+  linux_arm64: 2308338d6721682146bf5d0d960f8606a0061c7e42cf2f1132d33da8ff01201b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

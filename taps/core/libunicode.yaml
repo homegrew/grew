@@ -1,0 +1,19 @@
+name: libunicode
+version: 0.8.0
+description: Modern C++20 Unicode library
+homepage: https://github.com/contour-terminal/libunicode
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libunicode/blobs/sha256:4846522bed2a20e0e55fc78d44bddfda8d20cc548e1ae52e11e2c515ab25497e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libunicode/blobs/sha256:f425c312c6fc2946ae0cc20ee4bc69279c891c3f0c81036891ddc8ffe640bb8d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libunicode/blobs/sha256:875b32c339c1e465c6f2a1a1830b6d6e68b7a2a932638276c527088a395fb3dc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libunicode/blobs/sha256:a5e2f93a5968bc3f0386cc34b9ab84188d71dcd9e6418bcee9c82f3ee5439ab1
+sha256:
+  darwin_arm64: 4846522bed2a20e0e55fc78d44bddfda8d20cc548e1ae52e11e2c515ab25497e
+  darwin_amd64: f425c312c6fc2946ae0cc20ee4bc69279c891c3f0c81036891ddc8ffe640bb8d
+  linux_amd64: 875b32c339c1e465c6f2a1a1830b6d6e68b7a2a932638276c527088a395fb3dc
+  linux_arm64: a5e2f93a5968bc3f0386cc34b9ab84188d71dcd9e6418bcee9c82f3ee5439ab1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

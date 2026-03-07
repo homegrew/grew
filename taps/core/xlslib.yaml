@@ -1,0 +1,19 @@
+name: xlslib
+version: 2.5.0
+description: C++/C library to construct Excel .xls files in code
+homepage: https://sourceforge.net/projects/xlslib/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xlslib/blobs/sha256:0aceee9730d6524acd094d61efcf3b89387d79c7e10dc3bbbac4cf52ccb133ac
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xlslib/blobs/sha256:86148ddd46d4a6c9a4170b0d97c7abb6726e5210ccead20325350c434f3a4d4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xlslib/blobs/sha256:5be639eb5da6af885ea1d8c549b8cf4a40aba417b550ea64b29caf6f9600bc4a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xlslib/blobs/sha256:40d32ca11dd587663402feb5883cddb2db289ec21b807ed6d462658fe1650cf7
+sha256:
+  darwin_arm64: 0aceee9730d6524acd094d61efcf3b89387d79c7e10dc3bbbac4cf52ccb133ac
+  darwin_amd64: 86148ddd46d4a6c9a4170b0d97c7abb6726e5210ccead20325350c434f3a4d4c
+  linux_amd64: 5be639eb5da6af885ea1d8c549b8cf4a40aba417b550ea64b29caf6f9600bc4a
+  linux_arm64: 40d32ca11dd587663402feb5883cddb2db289ec21b807ed6d462658fe1650cf7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

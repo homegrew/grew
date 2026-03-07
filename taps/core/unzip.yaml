@@ -1,0 +1,20 @@
+name: unzip
+version: 6.0
+description: Extraction utility for .zip compressed archives
+homepage: https://infozip.sourceforge.net/UnZip.html
+license: Info-ZIP
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/unzip/blobs/sha256:be1cb055cbcf3e1420ea25a48ab6da010c2e70efff5ffe7e4e91dac7231c4ae2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/unzip/blobs/sha256:ecb59929e280df14e71d9f163de7aa1613f005fb4d44dd40fc1a811ea5d61132
+  linux_amd64: https://ghcr.io/v2/homebrew/core/unzip/blobs/sha256:0e3fe87c9f438d2012de977edf649608574a8c3265797fb693923bdca9227a7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/unzip/blobs/sha256:8c82849237d428857a01410f203b89819f02e7ab28651400d6ebefe46f3feca4
+sha256:
+  darwin_arm64: be1cb055cbcf3e1420ea25a48ab6da010c2e70efff5ffe7e4e91dac7231c4ae2
+  darwin_amd64: ecb59929e280df14e71d9f163de7aa1613f005fb4d44dd40fc1a811ea5d61132
+  linux_amd64: 0e3fe87c9f438d2012de977edf649608574a8c3265797fb693923bdca9227a7d
+  linux_arm64: 8c82849237d428857a01410f203b89819f02e7ab28651400d6ebefe46f3feca4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

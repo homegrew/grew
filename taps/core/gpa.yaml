@@ -1,0 +1,31 @@
+name: gpa
+version: 0.11.1
+description: Graphical user interface for the GnuPG
+homepage: https://www.gnupg.org/related_software/gpa/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gpa/blobs/sha256:3a82b91a089610dccf3f303827932bc3392cd4024d0ff62efec8392f5930aeab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gpa/blobs/sha256:47b09b31877384921bc68ed46e530ab9ac5bab39be5ede50f74094033bd0ecb1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gpa/blobs/sha256:d92aa141bfd3900387f1862202f6f7e7bc8d958001b5db3c68251033a572140a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gpa/blobs/sha256:2c38b595e2e3aa802f989d8b45feb610d783c0009433f8bdc28855fd3ed4765f
+sha256:
+  darwin_arm64: 3a82b91a089610dccf3f303827932bc3392cd4024d0ff62efec8392f5930aeab
+  darwin_amd64: 47b09b31877384921bc68ed46e530ab9ac5bab39be5ede50f74094033bd0ecb1
+  linux_amd64: d92aa141bfd3900387f1862202f6f7e7bc8d958001b5db3c68251033a572140a
+  linux_arm64: 2c38b595e2e3aa802f989d8b45feb610d783c0009433f8bdc28855fd3ed4765f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gdk-pixbuf
+  - glib
+  - gpgme
+  - gtk+3
+  - libassuan
+  - libgpg-error
+  - at-spi2-core
+  - cairo
+  - gettext
+  - harfbuzz
+  - pango

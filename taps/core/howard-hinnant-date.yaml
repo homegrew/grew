@@ -1,0 +1,19 @@
+name: howard-hinnant-date
+version: 3.0.4
+description: "C++ library for date and time operations based on <chrono>"
+homepage: https://github.com/HowardHinnant/date
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/howard-hinnant-date/blobs/sha256:a6e3a0832d810528b3b0199ad47d10e1f026e0de3559a66312f3343da396a26e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/howard-hinnant-date/blobs/sha256:87f1f12799f3987a0f5fbb8d192124596a5e367a403160d39e24cfc2775be2e3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/howard-hinnant-date/blobs/sha256:f8fa6eff9c09d59e6e764b436f1354ef2821be373f44adb97ac158d6562b69fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/howard-hinnant-date/blobs/sha256:cfdca01d3aa4278c4c1a99428cdc1de38a7c3f15a172a2e157facc5e9b4b9930
+sha256:
+  darwin_arm64: a6e3a0832d810528b3b0199ad47d10e1f026e0de3559a66312f3343da396a26e
+  darwin_amd64: 87f1f12799f3987a0f5fbb8d192124596a5e367a403160d39e24cfc2775be2e3
+  linux_amd64: f8fa6eff9c09d59e6e764b436f1354ef2821be373f44adb97ac158d6562b69fa
+  linux_arm64: cfdca01d3aa4278c4c1a99428cdc1de38a7c3f15a172a2e157facc5e9b4b9930
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

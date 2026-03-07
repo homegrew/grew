@@ -1,0 +1,19 @@
+name: man2html
+version: 3.0.1
+description: Convert nroff man pages to HTML
+homepage: https://savannah.nongnu.org/projects/man2html/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/man2html/blobs/sha256:fb9e2bbd0ee79ffbfe8d88b22affee3ec6622df5d7275340dfb157b38dd8b15a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/man2html/blobs/sha256:76a872bb8d19a508618c542676ca19cd871fa58f8f89308cd1d3cb5aef351798
+  linux_amd64: https://ghcr.io/v2/homebrew/core/man2html/blobs/sha256:481efdcde976cadff40796f063650a6926dff892b7e3753ee9cf65e669d8aab1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/man2html/blobs/sha256:168ef1ce0acff7648651cea049462261dc8111cd2207e80d42feeb090f927a68
+sha256:
+  darwin_arm64: fb9e2bbd0ee79ffbfe8d88b22affee3ec6622df5d7275340dfb157b38dd8b15a
+  darwin_amd64: 76a872bb8d19a508618c542676ca19cd871fa58f8f89308cd1d3cb5aef351798
+  linux_amd64: 481efdcde976cadff40796f063650a6926dff892b7e3753ee9cf65e669d8aab1
+  linux_arm64: 168ef1ce0acff7648651cea049462261dc8111cd2207e80d42feeb090f927a68
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

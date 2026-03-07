@@ -1,0 +1,13 @@
+name: intellij-idea@eap
+version: 2026.1,261.22158.46
+description: IntelliJ IDEA Early Access Program
+homepage: https://www.jetbrains.com/idea/nextversion
+url:
+  darwin_arm64: https://download.jetbrains.com/idea/ideaIU-261.22158.46-aarch64.dmg
+sha256:
+  darwin_arm64: f6b74b538706e9ea8f6a27b11b5944a962dda3ef36f53e09b8a4596f6580cbc2
+artifacts:
+  app:
+    - IntelliJ IDEA.app
+  bin:
+    - idea

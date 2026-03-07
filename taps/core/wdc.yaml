@@ -1,0 +1,22 @@
+name: wdc
+version: 1.1.5
+description: WebDAV Client provides easy and convenient to work with WebDAV-servers
+homepage: https://cloudpolis.github.io/webdav-client-cpp
+license: curl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wdc/blobs/sha256:6b30e7b5d8ab33c0831c6a217a4f1ec5b28745ba8f068a8fb81e714b6ca75287
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wdc/blobs/sha256:a5a1823e37f7aced3a355008f7b85768d1c37600c2da80cf385d2efdf5c2543d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wdc/blobs/sha256:68eb8337eee2c79f2892966a4311e56a5af9c24e32c07795f7dd8c5089474c8b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wdc/blobs/sha256:6027f317ac27ca1e4769b2c7337215d1e81354d627d55ade164b359b1092f524
+sha256:
+  darwin_arm64: 6b30e7b5d8ab33c0831c6a217a4f1ec5b28745ba8f068a8fb81e714b6ca75287
+  darwin_amd64: a5a1823e37f7aced3a355008f7b85768d1c37600c2da80cf385d2efdf5c2543d
+  linux_amd64: 68eb8337eee2c79f2892966a4311e56a5af9c24e32c07795f7dd8c5089474c8b
+  linux_arm64: 6027f317ac27ca1e4769b2c7337215d1e81354d627d55ade164b359b1092f524
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - pugixml

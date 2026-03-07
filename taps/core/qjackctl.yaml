@@ -1,0 +1,23 @@
+name: qjackctl
+version: 1.0.5
+description: Simple Qt application to control the JACK sound server daemon
+homepage: https://qjackctl.sourceforge.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qjackctl/blobs/sha256:920a75fe7293a69246900ad32076b30664108d832355a537f03ad4b9dffc74c0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qjackctl/blobs/sha256:1b68ec180377ed8a00935ef037e7ff50a70738f03f5a5c46ccb4e4bbf8bf1fe5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qjackctl/blobs/sha256:06145fdf9dc0b34aaa2aac747efe52df93590b72f9916ee15fcf14b7c75797e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qjackctl/blobs/sha256:dca44237f1bae122b317740ec831d3d68e132415b53cfd10c62db236117315f6
+sha256:
+  darwin_arm64: 920a75fe7293a69246900ad32076b30664108d832355a537f03ad4b9dffc74c0
+  darwin_amd64: 1b68ec180377ed8a00935ef037e7ff50a70738f03f5a5c46ccb4e4bbf8bf1fe5
+  linux_amd64: 06145fdf9dc0b34aaa2aac747efe52df93590b72f9916ee15fcf14b7c75797e8
+  linux_arm64: dca44237f1bae122b317740ec831d3d68e132415b53cfd10c62db236117315f6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jack
+  - qtbase
+  - qtsvg

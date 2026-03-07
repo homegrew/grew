@@ -1,0 +1,23 @@
+name: botan
+version: 3.10.0
+description: Cryptographic algorithms and formats library in C++
+homepage: https://botan.randombit.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/botan/blobs/sha256:32f2c66243cdfd507fbd1b28768e647716f6f77decb9b1922af09263eb8f2889
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/botan/blobs/sha256:1d76b19d3422e05b369d9c2def10133f445cbe9e2a7c8f748865f8e62f7febc5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/botan/blobs/sha256:21e6d3e5fe931d7a421faca93ce4b5688380121b103c682f6335e46dbfab554c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/botan/blobs/sha256:3ba7b0588137b5f257fb83732be8f06d977c85223c23da074ef8c3a997783fb8
+sha256:
+  darwin_arm64: 32f2c66243cdfd507fbd1b28768e647716f6f77decb9b1922af09263eb8f2889
+  darwin_amd64: 1d76b19d3422e05b369d9c2def10133f445cbe9e2a7c8f748865f8e62f7febc5
+  linux_amd64: 21e6d3e5fe931d7a421faca93ce4b5688380121b103c682f6335e46dbfab554c
+  linux_arm64: 3ba7b0588137b5f257fb83732be8f06d977c85223c23da074ef8c3a997783fb8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ca-certificates
+  - python@3.14
+  - sqlite

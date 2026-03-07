@@ -1,0 +1,19 @@
+name: radamsa
+version: 0.7
+description: "Test case generator for robustness testing (a.k.a. a \"fuzzer\")"
+homepage: https://gitlab.com/akihe/radamsa
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/radamsa/blobs/sha256:c6fba460536c28334781bb3c1d5471794de9e6ab3ccd64bf9a9ee67dbfcaae8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/radamsa/blobs/sha256:2535c22f7a6faf37a7b7ffb7eab908de0a0d265e4f887718a65ef7b7d9d015f0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/radamsa/blobs/sha256:c32fe0dcf5a76ce7251b8caebf2ecdd09427990a52c88adfd993efeae138fe41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/radamsa/blobs/sha256:d9e5bd4345a4a6858c4dc6ecabbadb8d920bcc8941241e1300fc11ec9931b335
+sha256:
+  darwin_arm64: c6fba460536c28334781bb3c1d5471794de9e6ab3ccd64bf9a9ee67dbfcaae8f
+  darwin_amd64: 2535c22f7a6faf37a7b7ffb7eab908de0a0d265e4f887718a65ef7b7d9d015f0
+  linux_amd64: c32fe0dcf5a76ce7251b8caebf2ecdd09427990a52c88adfd993efeae138fe41
+  linux_arm64: d9e5bd4345a4a6858c4dc6ecabbadb8d920bcc8941241e1300fc11ec9931b335
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

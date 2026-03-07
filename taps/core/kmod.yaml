@@ -1,0 +1,20 @@
+name: kmod
+version: 34.2
+description: Linux kernel module handling
+homepage: https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git
+license: LGPL-2.1-or-later AND GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kmod/blobs/sha256:bf100adc797109c78f5a9811d224673e36f7670f90677cbf4d6ce1b5fbe49d3e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kmod/blobs/sha256:61677724c3f5a7390c6fb6b7ea9bb8a63d579be87223b4d1bc4a958c5a2413dd
+sha256:
+  linux_amd64: bf100adc797109c78f5a9811d224673e36f7670f90677cbf4d6ce1b5fbe49d3e
+  linux_arm64: 61677724c3f5a7390c6fb6b7ea9bb8a63d579be87223b4d1bc4a958c5a2413dd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - xz
+  - zlib-ng-compat
+  - zstd

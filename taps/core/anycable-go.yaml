@@ -1,0 +1,19 @@
+name: anycable-go
+version: 1.6.10
+description: WebSocket server with action cable protocol
+homepage: https://github.com/anycable/anycable
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/anycable-go/blobs/sha256:4e8d1dbceea271aa09a54613e655b4ef00d6ade3e63c6454a353f8891814c333
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/anycable-go/blobs/sha256:d966016d3e4fc8d66ff08b83ad582ab4029d2846de23217a55950e1a9d782931
+  linux_amd64: https://ghcr.io/v2/homebrew/core/anycable-go/blobs/sha256:3bba97fac22281c7352404a3b6bff28c56deab5e70174ad4c5c98fc0877d053a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/anycable-go/blobs/sha256:40226e093f9e14eca00b4edf821514a0abd8783117901d81898ebf1216cee7eb
+sha256:
+  darwin_arm64: 4e8d1dbceea271aa09a54613e655b4ef00d6ade3e63c6454a353f8891814c333
+  darwin_amd64: d966016d3e4fc8d66ff08b83ad582ab4029d2846de23217a55950e1a9d782931
+  linux_amd64: 3bba97fac22281c7352404a3b6bff28c56deab5e70174ad4c5c98fc0877d053a
+  linux_arm64: 40226e093f9e14eca00b4edf821514a0abd8783117901d81898ebf1216cee7eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

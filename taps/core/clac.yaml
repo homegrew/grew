@@ -1,0 +1,19 @@
+name: clac
+version: 0.3.4
+description: Command-line, stack-based calculator with postfix notation
+homepage: https://github.com/soveran/clac
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/clac/blobs/sha256:5d6980c6518c868fc7755967f1fb4c9e1801f01552cc273d88ef196c190f09bc
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/clac/blobs/sha256:99f0efd095f5a0ae1da2ed0251a1753cce042069a49a299c29b17c8edfc5c558
+  linux_amd64: https://ghcr.io/v2/homebrew/core/clac/blobs/sha256:388b23eacd1cd72f8101ce8f2858d9ad232de844cdcf7f3a9948f98e5d56cea2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/clac/blobs/sha256:72f2128ed4ab7836c72efdb33e23fc6376a383e9f0bdc057490c2f7cf9b67339
+sha256:
+  darwin_arm64: 5d6980c6518c868fc7755967f1fb4c9e1801f01552cc273d88ef196c190f09bc
+  darwin_amd64: 99f0efd095f5a0ae1da2ed0251a1753cce042069a49a299c29b17c8edfc5c558
+  linux_amd64: 388b23eacd1cd72f8101ce8f2858d9ad232de844cdcf7f3a9948f98e5d56cea2
+  linux_arm64: 72f2128ed4ab7836c72efdb33e23fc6376a383e9f0bdc057490c2f7cf9b67339
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

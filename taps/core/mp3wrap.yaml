@@ -1,0 +1,19 @@
+name: mp3wrap
+version: 0.5
+description: Wrap two or more mp3 files in a single large file
+homepage: https://mp3wrap.sourceforge.net/
+license: LGPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mp3wrap/blobs/sha256:28af69383fd4f657495f0aedda9e53ac66cccce24bda0a280ebf5a79939cce6e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mp3wrap/blobs/sha256:73592a53432ef216313142884f12af2b40c2a62b86d4ed1539b3824d7c66f675
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mp3wrap/blobs/sha256:e666ba56f6a93702e3a37b4dd6f8d908b6a16246ba9ad5467518c970f4ac30ab
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mp3wrap/blobs/sha256:962b508b014f584bcb0ea88a84e150e6c0ebdb80573252a7ffca2c6bc25bb567
+sha256:
+  darwin_arm64: 28af69383fd4f657495f0aedda9e53ac66cccce24bda0a280ebf5a79939cce6e
+  darwin_amd64: 73592a53432ef216313142884f12af2b40c2a62b86d4ed1539b3824d7c66f675
+  linux_amd64: e666ba56f6a93702e3a37b4dd6f8d908b6a16246ba9ad5467518c970f4ac30ab
+  linux_arm64: 962b508b014f584bcb0ea88a84e150e6c0ebdb80573252a7ffca2c6bc25bb567
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

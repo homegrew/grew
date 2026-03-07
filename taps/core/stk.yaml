@@ -1,0 +1,19 @@
+name: stk
+version: 5.0.1
+description: Sound Synthesis Toolkit
+homepage: https://ccrma.stanford.edu/software/stk/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stk/blobs/sha256:33c29e2a776f2b13912844ce37fd744fc1b4f0866f134b2a3ec62bd7d5333fc3
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stk/blobs/sha256:68cf2df4d1e9ba32def2c769a1a82933b4b4a93c609b42531a2fcb4874cbd577
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stk/blobs/sha256:64cfa5d539dc990021c45a9848fc8d34252138791ffb7f3a1bba0dd13d76489c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stk/blobs/sha256:d940bdd5baa984fa5773f4e3a88fbadc294cbbad08cb13cd802fcfae2c93fba4
+sha256:
+  darwin_arm64: 33c29e2a776f2b13912844ce37fd744fc1b4f0866f134b2a3ec62bd7d5333fc3
+  darwin_amd64: 68cf2df4d1e9ba32def2c769a1a82933b4b4a93c609b42531a2fcb4874cbd577
+  linux_amd64: 64cfa5d539dc990021c45a9848fc8d34252138791ffb7f3a1bba0dd13d76489c
+  linux_arm64: d940bdd5baa984fa5773f4e3a88fbadc294cbbad08cb13cd802fcfae2c93fba4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

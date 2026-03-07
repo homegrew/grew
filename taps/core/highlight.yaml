@@ -1,0 +1,21 @@
+name: highlight
+version: 4.19
+description: Convert source code to formatted text with syntax highlighting
+homepage: http://andre-simon.de/doku/highlight/en/highlight.php
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/highlight/blobs/sha256:09dad42718a031b6011aba60b8bbda5be24c7dcc4223fd7a7bb829cea0cd8958
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/highlight/blobs/sha256:bad596ecf324c720b426eac935f1ae9658bd05a445bbf6589630169841466673
+  linux_amd64: https://ghcr.io/v2/homebrew/core/highlight/blobs/sha256:4355a199df0f0bf391283a5917a1fe505ace3cfbcf72649862d6dd0432b5c063
+  linux_arm64: https://ghcr.io/v2/homebrew/core/highlight/blobs/sha256:0264064075facd93f54f6c58932e47a31462282923b8fd3c6735a9306464fbc2
+sha256:
+  darwin_arm64: 09dad42718a031b6011aba60b8bbda5be24c7dcc4223fd7a7bb829cea0cd8958
+  darwin_amd64: bad596ecf324c720b426eac935f1ae9658bd05a445bbf6589630169841466673
+  linux_amd64: 4355a199df0f0bf391283a5917a1fe505ace3cfbcf72649862d6dd0432b5c063
+  linux_arm64: 0264064075facd93f54f6c58932e47a31462282923b8fd3c6735a9306464fbc2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua

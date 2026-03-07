@@ -1,0 +1,19 @@
+name: anyzig
+version: 2025.10.15
+description: Universal zig executable that runs any version of zig
+homepage: https://github.com/marler8997/anyzig
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/anyzig/blobs/sha256:b742bd26786d46db9dfe46088fc423d3ea4020eb1bdab90fe871b1c157682822
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/anyzig/blobs/sha256:0205666a6552cd3e57c8c65e4f842939d6cfae318506bc7fa482e9069e185802
+  linux_amd64: https://ghcr.io/v2/homebrew/core/anyzig/blobs/sha256:b96df77ca3f2ffd21ff157661045237683a954504516c300c8965232329446c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/anyzig/blobs/sha256:259c4a5bcec54b7948dcc82ce6cc003575e63b5fa35049ac389ebe258c8b756e
+sha256:
+  darwin_arm64: b742bd26786d46db9dfe46088fc423d3ea4020eb1bdab90fe871b1c157682822
+  darwin_amd64: 0205666a6552cd3e57c8c65e4f842939d6cfae318506bc7fa482e9069e185802
+  linux_amd64: b96df77ca3f2ffd21ff157661045237683a954504516c300c8965232329446c3
+  linux_arm64: 259c4a5bcec54b7948dcc82ce6cc003575e63b5fa35049ac389ebe258c8b756e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

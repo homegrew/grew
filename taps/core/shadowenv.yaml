@@ -1,0 +1,19 @@
+name: shadowenv
+version: 3.4.0
+description: Reversible directory-local environment variable manipulations
+homepage: https://shopify.github.io/shadowenv/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/shadowenv/blobs/sha256:1ce2a7c3bad03bb0798f59c7782b7fa6fe6c38f5d991dfb9d907f773a69c961a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/shadowenv/blobs/sha256:19445eb6965c036e799b4e1a0e399cd91068ea9a3a85855f7c35ab219f4a3f15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/shadowenv/blobs/sha256:ec2f689ad3587af4989c921782c112a7f222816d4b6e258c4f72232c0479b54a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/shadowenv/blobs/sha256:52b23d1a232c2a1cf69554ea10cb6081430df4d13b7e28b64dd99ba0d306cb49
+sha256:
+  darwin_arm64: 1ce2a7c3bad03bb0798f59c7782b7fa6fe6c38f5d991dfb9d907f773a69c961a
+  darwin_amd64: 19445eb6965c036e799b4e1a0e399cd91068ea9a3a85855f7c35ab219f4a3f15
+  linux_amd64: ec2f689ad3587af4989c921782c112a7f222816d4b6e258c4f72232c0479b54a
+  linux_arm64: 52b23d1a232c2a1cf69554ea10cb6081430df4d13b7e28b64dd99ba0d306cb49
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

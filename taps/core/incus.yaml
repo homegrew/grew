@@ -1,0 +1,19 @@
+name: incus
+version: 6.22
+description: CLI client for interacting with Incus
+homepage: https://linuxcontainers.org/incus
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/incus/blobs/sha256:67260a6d2ace2bacb40ead592d93fc3ed86a1ed30808f3f40760e71c01df1f1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/incus/blobs/sha256:921cbcfa7c75d7699c199b2dec498adfecc8cd0ff86e2b6377374cedf765319b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/incus/blobs/sha256:5fb03f7ad9e279e6d81b3aec25013f8085111b25bfce411159e9896dfd9306ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/incus/blobs/sha256:832c7e18b74a4d7908d121fef1887e45e661d53cee5f310705de187f8077eb20
+sha256:
+  darwin_arm64: 67260a6d2ace2bacb40ead592d93fc3ed86a1ed30808f3f40760e71c01df1f1d
+  darwin_amd64: 921cbcfa7c75d7699c199b2dec498adfecc8cd0ff86e2b6377374cedf765319b
+  linux_amd64: 5fb03f7ad9e279e6d81b3aec25013f8085111b25bfce411159e9896dfd9306ed
+  linux_arm64: 832c7e18b74a4d7908d121fef1887e45e661d53cee5f310705de187f8077eb20
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: gomodifytags
+version: 1.17.0
+description: Go tool to modify struct field tags
+homepage: https://github.com/fatih/gomodifytags
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gomodifytags/blobs/sha256:2bb3e43ab010627c5f030b08b5dda260dac10c5035303c9188eccaf2e0ab0e04
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gomodifytags/blobs/sha256:c45d10a4c19d9898dadbd7b98b07ebcd7f9cf1bcd14641db6d3d665226c4f163
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gomodifytags/blobs/sha256:0150f69a9b1e40bc73e41616c4b7cc0d4e515e8eba31756302899a5dd64203cd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gomodifytags/blobs/sha256:59d33031dcc82467c4a778fb04b3cbae0f2ba73fccce73b0585fdff0fdb6fbaa
+sha256:
+  darwin_arm64: 2bb3e43ab010627c5f030b08b5dda260dac10c5035303c9188eccaf2e0ab0e04
+  darwin_amd64: c45d10a4c19d9898dadbd7b98b07ebcd7f9cf1bcd14641db6d3d665226c4f163
+  linux_amd64: 0150f69a9b1e40bc73e41616c4b7cc0d4e515e8eba31756302899a5dd64203cd
+  linux_arm64: 59d33031dcc82467c4a778fb04b3cbae0f2ba73fccce73b0585fdff0fdb6fbaa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

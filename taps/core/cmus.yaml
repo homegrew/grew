@@ -1,0 +1,29 @@
+name: cmus
+version: 2.12.0
+description: Music player with an ncurses based interface
+homepage: https://cmus.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmus/blobs/sha256:51b42ebc31527eea5562974b745eb1c961436282882ffed5a183e043a997987d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmus/blobs/sha256:09934b3459b7b8d617aa3f46f6a7012d245d92d85d70a3c46fd22f80d8dff083
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmus/blobs/sha256:47bdd3c67a317fd239b8af7b6e0a177e16ba1047c729e30af4dfb4b6598ed878
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmus/blobs/sha256:5ac1322da5e1d6ab4dd872e5a50dfc938628f9d6e57d2454c8e6435c4eb004cf
+sha256:
+  darwin_arm64: 51b42ebc31527eea5562974b745eb1c961436282882ffed5a183e043a997987d
+  darwin_amd64: 09934b3459b7b8d617aa3f46f6a7012d245d92d85d70a3c46fd22f80d8dff083
+  linux_amd64: 47bdd3c67a317fd239b8af7b6e0a177e16ba1047c729e30af4dfb4b6598ed878
+  linux_arm64: 5ac1322da5e1d6ab4dd872e5a50dfc938628f9d6e57d2454c8e6435c4eb004cf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - faad2
+  - ffmpeg
+  - flac
+  - libao
+  - libvorbis
+  - mad
+  - mp4v2
+  - ncurses
+  - opusfile

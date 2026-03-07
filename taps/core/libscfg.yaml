@@ -1,0 +1,19 @@
+name: libscfg
+version: 0.2.0
+description: C library for scfg
+homepage: https://codeberg.org/emersion/libscfg
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libscfg/blobs/sha256:e2fe577dbd81fcd64b6ac33853c187e28069ff167363f8be5d6ac3507b3cb1f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libscfg/blobs/sha256:34604bad443610829eb83ba2d145c931f279ec1f12dda0665e5a5496c4164656
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libscfg/blobs/sha256:3f8785fc852815aac74b2ee236e1ee4ea058deae1d83546cebfe98b665dc4533
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libscfg/blobs/sha256:741d76d2418edf9de7c2b1b1b343982ed7132d16ea88417d8629e746841fe8c4
+sha256:
+  darwin_arm64: e2fe577dbd81fcd64b6ac33853c187e28069ff167363f8be5d6ac3507b3cb1f6
+  darwin_amd64: 34604bad443610829eb83ba2d145c931f279ec1f12dda0665e5a5496c4164656
+  linux_amd64: 3f8785fc852815aac74b2ee236e1ee4ea058deae1d83546cebfe98b665dc4533
+  linux_arm64: 741d76d2418edf9de7c2b1b1b343982ed7132d16ea88417d8629e746841fe8c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

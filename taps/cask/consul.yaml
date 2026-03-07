@@ -1,0 +1,11 @@
+name: consul
+version: 1.22.5
+description: Tool for service discovery, monitoring and configuration
+homepage: https://www.consul.io/
+url:
+  darwin_arm64: https://releases.hashicorp.com/consul/1.22.5/consul_1.22.5_darwin_arm64.zip
+sha256:
+  darwin_arm64: a728b166849ce51d107c22073c89217d27510dd9adad3326454273ac80ac2aef
+artifacts:
+  bin:
+    - consul

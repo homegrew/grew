@@ -1,0 +1,19 @@
+name: cmix
+version: 21
+description: Data compression program with high compression ratio
+homepage: https://www.byronknoll.com/cmix.html
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cmix/blobs/sha256:379aab1a270951b5ba407f3e8bcc4f63acb751dca478600943ba06137f87d510
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cmix/blobs/sha256:020968e1af5885da7049c369f4afd706a31c77d780fbf74e8daaf00ab3132058
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cmix/blobs/sha256:b9cf2a6c621b035fe17a770bc368b684240e193bc294f92e9d415bd88f1618d1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cmix/blobs/sha256:4dd768510439ff99e1e5c47dbe7f9559005bbd26999d706276daba9b18073c9d
+sha256:
+  darwin_arm64: 379aab1a270951b5ba407f3e8bcc4f63acb751dca478600943ba06137f87d510
+  darwin_amd64: 020968e1af5885da7049c369f4afd706a31c77d780fbf74e8daaf00ab3132058
+  linux_amd64: b9cf2a6c621b035fe17a770bc368b684240e193bc294f92e9d415bd88f1618d1
+  linux_arm64: 4dd768510439ff99e1e5c47dbe7f9559005bbd26999d706276daba9b18073c9d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

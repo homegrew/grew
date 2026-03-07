@@ -1,0 +1,19 @@
+name: swiftly
+version: 1.1.1
+description: Swift toolchain installer and manager
+homepage: https://github.com/swiftlang/swiftly
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/swiftly/blobs/sha256:89e049e161c26f772a1332535973303a4024d86a2eb842137a7997ea3c2095cf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/swiftly/blobs/sha256:dfd63ab0138bc4f1152353d42c22560ff82b5d08507548561d704826da7c3486
+  linux_amd64: https://ghcr.io/v2/homebrew/core/swiftly/blobs/sha256:76f93a51750f1105f4c0c7dbcad5b33b754becbc02f0ca6a00b90c131a5509c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/swiftly/blobs/sha256:213996c337e36dd8a46bb649963f6eea48b34b06f18ebaa06a7757f710f6b09d
+sha256:
+  darwin_arm64: 89e049e161c26f772a1332535973303a4024d86a2eb842137a7997ea3c2095cf
+  darwin_amd64: dfd63ab0138bc4f1152353d42c22560ff82b5d08507548561d704826da7c3486
+  linux_amd64: 76f93a51750f1105f4c0c7dbcad5b33b754becbc02f0ca6a00b90c131a5509c8
+  linux_arm64: 213996c337e36dd8a46bb649963f6eea48b34b06f18ebaa06a7757f710f6b09d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

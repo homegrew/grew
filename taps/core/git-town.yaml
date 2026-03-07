@@ -1,0 +1,19 @@
+name: git-town
+version: 22.6.0
+description: High-level command-line interface for Git
+homepage: https://www.git-town.com/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-town/blobs/sha256:bcaefed7b506218e1da7dacb00fb5a6ccea0222da8b847ba34d6bf5dc6aea283
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-town/blobs/sha256:a3d603f69fbe90d0e4192b956c31db985f3eb700fb2becf55da6cbc1cc03ff22
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-town/blobs/sha256:66f7e69d6bc608c3f40dd26051d4c807715401b9aa7fd952e15774082e65b5a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-town/blobs/sha256:e3b7ea70ca0d5435759263a0635a703e521a4bada86339e00f35a02a33dec5c7
+sha256:
+  darwin_arm64: bcaefed7b506218e1da7dacb00fb5a6ccea0222da8b847ba34d6bf5dc6aea283
+  darwin_amd64: a3d603f69fbe90d0e4192b956c31db985f3eb700fb2becf55da6cbc1cc03ff22
+  linux_amd64: 66f7e69d6bc608c3f40dd26051d4c807715401b9aa7fd952e15774082e65b5a7
+  linux_arm64: e3b7ea70ca0d5435759263a0635a703e521a4bada86339e00f35a02a33dec5c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: scnlib
+version: 4.0.1
+description: Scanf for modern C++
+homepage: https://www.scnlib.dev/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/scnlib/blobs/sha256:92037af6bae9aaf495afce7b464fa50a116720c847f0790d6fa51f619faf7131
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/scnlib/blobs/sha256:466d7641baa693ed0a7d395a7b9742049f4fa62f978f8614c28806b7116a5a4c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/scnlib/blobs/sha256:99e865cc3d9de153eb4a1cfd708d22dfd60ebcb584369f782e01646d0abce372
+  linux_arm64: https://ghcr.io/v2/homebrew/core/scnlib/blobs/sha256:3f8713c8d5b0ccc2d5403b82f3db637b62161d0c17381d7d09aaf3311751da65
+sha256:
+  darwin_arm64: 92037af6bae9aaf495afce7b464fa50a116720c847f0790d6fa51f619faf7131
+  darwin_amd64: 466d7641baa693ed0a7d395a7b9742049f4fa62f978f8614c28806b7116a5a4c
+  linux_amd64: 99e865cc3d9de153eb4a1cfd708d22dfd60ebcb584369f782e01646d0abce372
+  linux_arm64: 3f8713c8d5b0ccc2d5403b82f3db637b62161d0c17381d7d09aaf3311751da65
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - simdutf

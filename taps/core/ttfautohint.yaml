@@ -1,0 +1,23 @@
+name: ttfautohint
+version: 1.8.4
+description: Auto-hinter for TrueType fonts
+homepage: https://www.freetype.org/ttfautohint/
+license: FTL OR GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ttfautohint/blobs/sha256:9efb3056dde7f1557a920fe397c958c996c0f34d2a03d8913255845f9661f2e2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ttfautohint/blobs/sha256:84a63397be31f725cffd64eed4b7e40e776e94f6ef1fe8dea84a4adc172592f7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ttfautohint/blobs/sha256:68214f0cc124de6b895152c8b780ea5aae067ce0ac571074a472d1723260c94b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ttfautohint/blobs/sha256:6e396a76f14968d0778b51a5093552d6e63e643ebc0b5d7f5b06719d8c8932f5
+sha256:
+  darwin_arm64: 9efb3056dde7f1557a920fe397c958c996c0f34d2a03d8913255845f9661f2e2
+  darwin_amd64: 84a63397be31f725cffd64eed4b7e40e776e94f6ef1fe8dea84a4adc172592f7
+  linux_amd64: 68214f0cc124de6b895152c8b780ea5aae067ce0ac571074a472d1723260c94b
+  linux_arm64: 6e396a76f14968d0778b51a5093552d6e63e643ebc0b5d7f5b06719d8c8932f5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - harfbuzz
+  - libpng

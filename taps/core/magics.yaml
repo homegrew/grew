@@ -1,0 +1,29 @@
+name: magics
+version: 4.16.0
+description: "ECMWF's meteorological plotting software"
+homepage: https://confluence.ecmwf.int/display/MAGP/Magics
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/magics/blobs/sha256:d97dd29284c76815166bc14455cb3cb8e632c0e0baa506715dce9a648cb1dd9e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/magics/blobs/sha256:903a82a21a78ad2fbf7189fefd109e9363a7b6689ec55f6460814964b7d4f399
+  linux_amd64: https://ghcr.io/v2/homebrew/core/magics/blobs/sha256:e8ee8092b3c51fd47df8d62ed2929caca696eaca01e9c4696ef41ab26ac9d271
+  linux_arm64: https://ghcr.io/v2/homebrew/core/magics/blobs/sha256:eccc585bf2056c1bf6483375a1519520fde37c534ebd1678082ecec54ae7eaa2
+sha256:
+  darwin_arm64: d97dd29284c76815166bc14455cb3cb8e632c0e0baa506715dce9a648cb1dd9e
+  darwin_amd64: 903a82a21a78ad2fbf7189fefd109e9363a7b6689ec55f6460814964b7d4f399
+  linux_amd64: e8ee8092b3c51fd47df8d62ed2929caca696eaca01e9c4696ef41ab26ac9d271
+  linux_arm64: eccc585bf2056c1bf6483375a1519520fde37c534ebd1678082ecec54ae7eaa2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - eccodes
+  - glib
+  - netcdf
+  - pango
+  - proj
+  - qtbase
+  - gettext
+  - harfbuzz

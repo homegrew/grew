@@ -1,0 +1,21 @@
+name: openclaw-cli
+version: 2026.3.2
+description: Your own personal AI assistant
+homepage: https://openclaw.ai/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/openclaw-cli/blobs/sha256:a08c1a15f6de287a35db391d4934ccce0375a9d2a4f2d6a41bacd7e514533e8f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/openclaw-cli/blobs/sha256:a2806fdb44e91c67e1bdffff3baf2c7915851f679c95311caf477ab007277297
+  linux_amd64: https://ghcr.io/v2/homebrew/core/openclaw-cli/blobs/sha256:76bf92d26f6aba79e65d8cba27ea8547e8fd49f745d2f41a18b4f1922b04773a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/openclaw-cli/blobs/sha256:e68d4735bb51bc52628d42ec857c717cb4036e998d812b7bcc089a398ee52dfa
+sha256:
+  darwin_arm64: a08c1a15f6de287a35db391d4934ccce0375a9d2a4f2d6a41bacd7e514533e8f
+  darwin_amd64: a2806fdb44e91c67e1bdffff3baf2c7915851f679c95311caf477ab007277297
+  linux_amd64: 76bf92d26f6aba79e65d8cba27ea8547e8fd49f745d2f41a18b4f1922b04773a
+  linux_arm64: e68d4735bb51bc52628d42ec857c717cb4036e998d812b7bcc089a398ee52dfa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

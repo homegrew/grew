@@ -1,0 +1,21 @@
+name: libreoffice
+version: 26.2.1
+description: Free cross-platform office suite, fresh version
+homepage: https://www.libreoffice.org/
+url:
+  darwin_arm64: https://download.documentfoundation.org/libreoffice/stable/26.2.1/mac/aarch64/LibreOffice_26.2.1_MacOS_aarch64.dmg
+sha256:
+  darwin_arm64: 6814d25db1d64ffe0f617d5b5ab626ddbd2f017b14b937b81d5d43d1551ea384
+artifacts:
+  app:
+    - LibreOffice.app
+  bin:
+    - regview
+    - senddoc
+    - uno
+    - unoinfo
+    - uri-encode
+    - xpdfimport
+    - soffice
+    - unopkg
+    - gengal

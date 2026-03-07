@@ -1,0 +1,19 @@
+name: aws-vault
+version: 7.9.9
+description: Securely store and access AWS credentials in development environments
+homepage: https://github.com/ByteNess/aws-vault
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-vault/blobs/sha256:c4e27e82534b63782f68ceaa6fa023fb4ba73aed9ae8d481592ebf795db26245
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-vault/blobs/sha256:e506e867c7fb85e2fb127b453f3b717357bbe6627bc14e8ee73783686282d7c4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-vault/blobs/sha256:4fb1ef024d27d0f54cf000decd545c979cd989432cdcf08718128751880e014f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-vault/blobs/sha256:190a459264cdd2acbc43f007a99dbaba0238688e6afc159f87338a20246d79d4
+sha256:
+  darwin_arm64: c4e27e82534b63782f68ceaa6fa023fb4ba73aed9ae8d481592ebf795db26245
+  darwin_amd64: e506e867c7fb85e2fb127b453f3b717357bbe6627bc14e8ee73783686282d7c4
+  linux_amd64: 4fb1ef024d27d0f54cf000decd545c979cd989432cdcf08718128751880e014f
+  linux_arm64: 190a459264cdd2acbc43f007a99dbaba0238688e6afc159f87338a20246d79d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

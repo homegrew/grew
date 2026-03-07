@@ -1,0 +1,19 @@
+name: brush
+version: 0.3.0
+description: Bourne RUsty SHell (command interpreter)
+homepage: https://github.com/reubeno/brush
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brush/blobs/sha256:4d62172c2f07ead104359fb3485595bec113dabc2b05e9dded3c2fb0ab80df9a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brush/blobs/sha256:1734ad8babbaaca852bdc04f3abb8f1bc79fac949d57a2e1d695ba16542d712c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brush/blobs/sha256:5ab23f77499e85c5fbe70aaeffcb521bda4f053c5be4f21cc653e5c182291909
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brush/blobs/sha256:33cc6f3f71341f1e34d73019448cb5d91f2563abbfcdc1b057df46f7ce82cedd
+sha256:
+  darwin_arm64: 4d62172c2f07ead104359fb3485595bec113dabc2b05e9dded3c2fb0ab80df9a
+  darwin_amd64: 1734ad8babbaaca852bdc04f3abb8f1bc79fac949d57a2e1d695ba16542d712c
+  linux_amd64: 5ab23f77499e85c5fbe70aaeffcb521bda4f053c5be4f21cc653e5c182291909
+  linux_arm64: 33cc6f3f71341f1e34d73019448cb5d91f2563abbfcdc1b057df46f7ce82cedd
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

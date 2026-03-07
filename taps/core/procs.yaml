@@ -1,0 +1,19 @@
+name: procs
+version: 0.14.11
+description: Modern replacement for ps written in Rust
+homepage: https://github.com/dalance/procs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/procs/blobs/sha256:0fc0d22bae08da3b7bdd12a282b34ac7c1746de8121f932477b2ece2780b6604
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/procs/blobs/sha256:c8edf9481f5bf456502a77fe6cc2a90d31158f8f5248ec3934753ff53a4c5fdc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/procs/blobs/sha256:eac2601653fec00065e2f9b26f7020b172691d7be597ec6d9cbaf98be87a7642
+  linux_arm64: https://ghcr.io/v2/homebrew/core/procs/blobs/sha256:ef31fd9dc0ec5863476b50ab1d45a81972373638de7149466dd40f51d10944cb
+sha256:
+  darwin_arm64: 0fc0d22bae08da3b7bdd12a282b34ac7c1746de8121f932477b2ece2780b6604
+  darwin_amd64: c8edf9481f5bf456502a77fe6cc2a90d31158f8f5248ec3934753ff53a4c5fdc
+  linux_amd64: eac2601653fec00065e2f9b26f7020b172691d7be597ec6d9cbaf98be87a7642
+  linux_arm64: ef31fd9dc0ec5863476b50ab1d45a81972373638de7149466dd40f51d10944cb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

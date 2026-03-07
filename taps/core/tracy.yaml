@@ -1,0 +1,28 @@
+name: tracy
+version: 0.13.1
+description: Real-time, nanosecond resolution frame profiler
+homepage: https://github.com/wolfpld/tracy
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tracy/blobs/sha256:b6ca03823befeec20af1c9f3ee4117560d64d94b371d59c1617a8e00ebfb8353
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tracy/blobs/sha256:350b91756e80530a10096160624ba921bd13426660e51839759b360509a891f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tracy/blobs/sha256:e7cdff0be4cca4002493400ca693c0638ea51957a556555a32f4df5bbb25b3bc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tracy/blobs/sha256:d829d6d75d94b266bd79a25887ba6a2eb910d378bb836fc938e2324b32f5ac3a
+sha256:
+  darwin_arm64: b6ca03823befeec20af1c9f3ee4117560d64d94b371d59c1617a8e00ebfb8353
+  darwin_amd64: 350b91756e80530a10096160624ba921bd13426660e51839759b360509a891f3
+  linux_amd64: e7cdff0be4cca4002493400ca693c0638ea51957a556555a32f4df5bbb25b3bc
+  linux_arm64: d829d6d75d94b266bd79a25887ba6a2eb910d378bb836fc938e2324b32f5ac3a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aklomp-base64
+  - freetype
+  - md4c
+  - nativefiledialog-extended
+  - pugixml
+  - tidy-html5
+  - zstd
+  - glfw

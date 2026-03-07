@@ -1,0 +1,29 @@
+name: librsvg
+version: 2.62.0
+description: Library to render SVG files using Cairo
+homepage: https://wiki.gnome.org/Projects/LibRsvg
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/librsvg/blobs/sha256:a101a33e6b20a55d07dfb522bff6d3fe3b0f4bd4c9e9df75a4e5b79b5f6d2121
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/librsvg/blobs/sha256:ceeeecbcc8cd4390bdd7b5238e9699460142893b88bc7ee78ef1422c36557883
+  linux_amd64: https://ghcr.io/v2/homebrew/core/librsvg/blobs/sha256:b0cdf6260ebb943168e0ed7f4897c6f4dcb0b3e28483ab483184db06fb538e70
+  linux_arm64: https://ghcr.io/v2/homebrew/core/librsvg/blobs/sha256:58fc9c93f1fe9983205ef4afe0fd1f2ff343ad4ca950783de4b55d214d94cce4
+sha256:
+  darwin_arm64: a101a33e6b20a55d07dfb522bff6d3fe3b0f4bd4c9e9df75a4e5b79b5f6d2121
+  darwin_amd64: ceeeecbcc8cd4390bdd7b5238e9699460142893b88bc7ee78ef1422c36557883
+  linux_amd64: b0cdf6260ebb943168e0ed7f4897c6f4dcb0b3e28483ab483184db06fb538e70
+  linux_arm64: 58fc9c93f1fe9983205ef4afe0fd1f2ff343ad4ca950783de4b55d214d94cce4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - gdk-pixbuf
+  - glib
+  - harfbuzz
+  - pango
+  - freetype
+  - gettext
+  - libpng

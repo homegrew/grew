@@ -1,0 +1,19 @@
+name: heartbeat
+version: 9.3.1
+description: Lightweight Shipper for Uptime Monitoring
+homepage: https://www.elastic.co/beats/heartbeat
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/heartbeat/blobs/sha256:4e86e21b163765b56aee9ab19b39b168bd5f7da32010923e4b7c5837810aa2f2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/heartbeat/blobs/sha256:641ddd893947359a0c6c45557ea7ea1febc0208af7c2d631b823b3f49d1ad0f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/heartbeat/blobs/sha256:b1fa4dda1c1337334eb0f52b52be44aa586691815ec5df552bad41db50b2af30
+  linux_arm64: https://ghcr.io/v2/homebrew/core/heartbeat/blobs/sha256:c827307fd842af8c58ac8e214acd4dc25d4afae8081ef9a528050e0eaeda2b77
+sha256:
+  darwin_arm64: 4e86e21b163765b56aee9ab19b39b168bd5f7da32010923e4b7c5837810aa2f2
+  darwin_amd64: 641ddd893947359a0c6c45557ea7ea1febc0208af7c2d631b823b3f49d1ad0f2
+  linux_amd64: b1fa4dda1c1337334eb0f52b52be44aa586691815ec5df552bad41db50b2af30
+  linux_arm64: c827307fd842af8c58ac8e214acd4dc25d4afae8081ef9a528050e0eaeda2b77
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

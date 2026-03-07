@@ -1,0 +1,24 @@
+name: djview4
+version: 4.12.3
+description: Viewer for the DjVu image format
+homepage: https://djvu.sourceforge.net/djview4.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/djview4/blobs/sha256:97d3a20862eef89b5dff5f2792ee3f5b08adcbb5c4edfc50d350030a9c326c67
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/djview4/blobs/sha256:08d73ed6f8eab15a7ca0be2af8c9c5dd5464daef04ee28edea7167c9a84ba86a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/djview4/blobs/sha256:aeb2ec0e8ceecffd35a1dde7d7b4a48a64dd762bab3225c711b8bc8cc3de3376
+  linux_arm64: https://ghcr.io/v2/homebrew/core/djview4/blobs/sha256:734c12e6abeba64b1a42dd2b7933be542c0b76c02cb9cdbb4dcbf7734f8a34af
+sha256:
+  darwin_arm64: 97d3a20862eef89b5dff5f2792ee3f5b08adcbb5c4edfc50d350030a9c326c67
+  darwin_amd64: 08d73ed6f8eab15a7ca0be2af8c9c5dd5464daef04ee28edea7167c9a84ba86a
+  linux_amd64: aeb2ec0e8ceecffd35a1dde7d7b4a48a64dd762bab3225c711b8bc8cc3de3376
+  linux_arm64: 734c12e6abeba64b1a42dd2b7933be542c0b76c02cb9cdbb4dcbf7734f8a34af
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - djvulibre
+  - libtiff
+  - qt5compat
+  - qtbase

@@ -1,0 +1,19 @@
+name: cifer
+version: 1.2.0
+description: Work on automating classical cipher cracking in C
+homepage: https://code.google.com/p/cifer/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cifer/blobs/sha256:0ddcaf5c7910b356424491a71c0b42587701427aba17e0fdc02a9c088c148590
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cifer/blobs/sha256:bf13c997d4f8277ffb99f4e05669a4dc91eaafa1ab520df56c36a1fcfcf8d39f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cifer/blobs/sha256:58a55640d9031cea1c50d8ad9db0128993f4e5895ccf7a9069f762c34682e165
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cifer/blobs/sha256:1788d000c6819db964bdee6be927657035fd8e7b716987a200b8b569a3153cf1
+sha256:
+  darwin_arm64: 0ddcaf5c7910b356424491a71c0b42587701427aba17e0fdc02a9c088c148590
+  darwin_amd64: bf13c997d4f8277ffb99f4e05669a4dc91eaafa1ab520df56c36a1fcfcf8d39f
+  linux_amd64: 58a55640d9031cea1c50d8ad9db0128993f4e5895ccf7a9069f762c34682e165
+  linux_arm64: 1788d000c6819db964bdee6be927657035fd8e7b716987a200b8b569a3153cf1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

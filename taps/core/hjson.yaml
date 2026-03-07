@@ -1,0 +1,19 @@
+name: hjson
+version: 4.6.0
+description: Convert JSON to HJSON and vice versa
+homepage: https://hjson.github.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hjson/blobs/sha256:cc9750fd1bca7e7cc3eaa64f7601818a33d663e2b65d7245b62fec5056ee6f6a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hjson/blobs/sha256:acd2ba791152d363026d562d6f35165950fc5fe18e85ed9187a55b6f2ffe10a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hjson/blobs/sha256:7ebe393b4febcf6fa2248cd911e5d547028e5b9c75877058d03a159dd0cebc2d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hjson/blobs/sha256:efafdf6aee5a9a12591cddb5087bd48434f36e93a13be831d70cd98e3a5ba260
+sha256:
+  darwin_arm64: cc9750fd1bca7e7cc3eaa64f7601818a33d663e2b65d7245b62fec5056ee6f6a
+  darwin_amd64: acd2ba791152d363026d562d6f35165950fc5fe18e85ed9187a55b6f2ffe10a4
+  linux_amd64: 7ebe393b4febcf6fa2248cd911e5d547028e5b9c75877058d03a159dd0cebc2d
+  linux_arm64: efafdf6aee5a9a12591cddb5087bd48434f36e93a13be831d70cd98e3a5ba260
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

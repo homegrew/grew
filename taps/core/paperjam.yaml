@@ -1,0 +1,22 @@
+name: paperjam
+version: 1.2.2
+description: Program for transforming PDF files
+homepage: https://mj.ucw.cz/sw/paperjam/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/paperjam/blobs/sha256:09f4e84aa79cc854def0e6175e28b4309108b31a1ba33e98546ae43f347d9412
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/paperjam/blobs/sha256:91fa2261cd3db2b3224ec207ec99541cac0ea6aea77bb544362f288e731f8135
+  linux_amd64: https://ghcr.io/v2/homebrew/core/paperjam/blobs/sha256:69fa71726997dffe37df6cad5c7ca2a9c0663bacb2ef40575b5e6751c79c72bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/paperjam/blobs/sha256:f7c6806d04b52f70dfae2d5e3f7b4c1041ab6d18a0753cc3907eb20a487fbb9b
+sha256:
+  darwin_arm64: 09f4e84aa79cc854def0e6175e28b4309108b31a1ba33e98546ae43f347d9412
+  darwin_amd64: 91fa2261cd3db2b3224ec207ec99541cac0ea6aea77bb544362f288e731f8135
+  linux_amd64: 69fa71726997dffe37df6cad5c7ca2a9c0663bacb2ef40575b5e6751c79c72bb
+  linux_arm64: f7c6806d04b52f70dfae2d5e3f7b4c1041ab6d18a0753cc3907eb20a487fbb9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpaper
+  - qpdf

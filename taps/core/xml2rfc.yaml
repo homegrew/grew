@@ -1,0 +1,23 @@
+name: xml2rfc
+version: 3.32.0
+description: Tool to convert XML RFC7749 to the original ASCII or the new HTML look-and-feel
+homepage: https://xml2rfc.tools.ietf.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xml2rfc/blobs/sha256:c37d653ea236d71294b7a190f825c52c2d48ab679c3b780cdb122882eab2fa05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xml2rfc/blobs/sha256:e3cd62690e7fb7688ff2a5957acf6d8e8a7c7b87e50db001e19290646770e5d0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xml2rfc/blobs/sha256:fea41f2283366cbf77526f3c1c6a3d73ba0857843f5d7dc2b41a1414263aa514
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xml2rfc/blobs/sha256:b3f60bf394e9d03f12429d7b4c4a92aa5ce34b72c2333e04568169846c68a18e
+sha256:
+  darwin_arm64: c37d653ea236d71294b7a190f825c52c2d48ab679c3b780cdb122882eab2fa05
+  darwin_amd64: e3cd62690e7fb7688ff2a5957acf6d8e8a7c7b87e50db001e19290646770e5d0
+  linux_amd64: fea41f2283366cbf77526f3c1c6a3d73ba0857843f5d7dc2b41a1414263aa514
+  linux_arm64: b3f60bf394e9d03f12429d7b4c4a92aa5ce34b72c2333e04568169846c68a18e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

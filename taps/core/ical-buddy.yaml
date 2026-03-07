@@ -1,0 +1,15 @@
+name: ical-buddy
+version: 1.10.1
+description: Get events and tasks from the macOS calendar database
+homepage: https://hasseg.org/icalBuddy/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ical-buddy/blobs/sha256:681a0fc1f19e99c61a954df34f2a9b834afa0984587fe43fe3bfc0cc71ca0355
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ical-buddy/blobs/sha256:643b31efdb5c6e5bc8338e397cc26ee9fdaebdde74e1f7835493c5065496993a
+sha256:
+  darwin_arm64: 681a0fc1f19e99c61a954df34f2a9b834afa0984587fe43fe3bfc0cc71ca0355
+  darwin_amd64: 643b31efdb5c6e5bc8338e397cc26ee9fdaebdde74e1f7835493c5065496993a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

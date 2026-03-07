@@ -1,0 +1,23 @@
+name: sofia-sip
+version: 1.13.17
+description: SIP User-Agent library
+homepage: https://sofia-sip.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sofia-sip/blobs/sha256:6ba4ea78c36c9ed77a42af041593b55c640166be67807d990e92790da85d2873
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sofia-sip/blobs/sha256:168570524047f906e3cd945efaf21653f272d5928070dcfd842c126fecc50f6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sofia-sip/blobs/sha256:11f9c56b4460dc17cb0cc252281b2aa6814c1a37f2de26ef51f045c974428a25
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sofia-sip/blobs/sha256:3f6c88d7708adaab7ed601daed19702899de571b252a8e0a7a5946523a1555c8
+sha256:
+  darwin_arm64: 6ba4ea78c36c9ed77a42af041593b55c640166be67807d990e92790da85d2873
+  darwin_amd64: 168570524047f906e3cd945efaf21653f272d5928070dcfd842c126fecc50f6f
+  linux_amd64: 11f9c56b4460dc17cb0cc252281b2aa6814c1a37f2de26ef51f045c974428a25
+  linux_arm64: 3f6c88d7708adaab7ed601daed19702899de571b252a8e0a7a5946523a1555c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - openssl@3
+  - gettext

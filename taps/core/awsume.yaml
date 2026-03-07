@@ -1,0 +1,22 @@
+name: awsume
+version: 4.5.5
+description: Utility for easily assuming AWS IAM roles from the command-line
+homepage: https://awsu.me
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/awsume/blobs/sha256:976bf1db3acba0316e4b91cb969a43f91ee6d97d59fd4b80e2678dde6a3f1b94
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/awsume/blobs/sha256:b3e6d65c0cb235b6c26ca9e18db41cd8d327868540d9afa69f33ac7482a3de27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/awsume/blobs/sha256:9f8fdaa0cab57c9d58823ac01c345c4e2d4703c7ebafb0abed215c3202d8b09b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/awsume/blobs/sha256:5764c35d4ca67bebd15db99ad96b47f0258913edf35fb27deff7b7bf8aac2c72
+sha256:
+  darwin_arm64: 976bf1db3acba0316e4b91cb969a43f91ee6d97d59fd4b80e2678dde6a3f1b94
+  darwin_amd64: b3e6d65c0cb235b6c26ca9e18db41cd8d327868540d9afa69f33ac7482a3de27
+  linux_amd64: 9f8fdaa0cab57c9d58823ac01c345c4e2d4703c7ebafb0abed215c3202d8b09b
+  linux_arm64: 5764c35d4ca67bebd15db99ad96b47f0258913edf35fb27deff7b7bf8aac2c72
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

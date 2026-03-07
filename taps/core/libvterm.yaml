@@ -1,0 +1,19 @@
+name: libvterm
+version: 0.3.3
+description: C99 library which implements a VT220 or xterm terminal emulator
+homepage: https://www.leonerd.org.uk/code/libvterm/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvterm/blobs/sha256:8fdcd31d15a6c4f58e1dbd5818a18f17518766defb4548b5ad869e72adb23a20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvterm/blobs/sha256:bf0735a8ec7f8ce6d048b97f1851fa06c0a604a53ccc181fb793ce03e2714483
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvterm/blobs/sha256:63095180ed9b97bd7e357062fd1f0ecfc2a29ac51834a0264e6bfc08d631c614
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvterm/blobs/sha256:94c3227d6602ce3f725fd56915dd0276ce5cd8e214114e7a9993172e30a6db32
+sha256:
+  darwin_arm64: 8fdcd31d15a6c4f58e1dbd5818a18f17518766defb4548b5ad869e72adb23a20
+  darwin_amd64: bf0735a8ec7f8ce6d048b97f1851fa06c0a604a53ccc181fb793ce03e2714483
+  linux_amd64: 63095180ed9b97bd7e357062fd1f0ecfc2a29ac51834a0264e6bfc08d631c614
+  linux_arm64: 94c3227d6602ce3f725fd56915dd0276ce5cd8e214114e7a9993172e30a6db32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

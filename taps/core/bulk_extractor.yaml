@@ -1,0 +1,19 @@
+name: bulk_extractor
+version: 2.1.1
+description: Stream-based forensics tool
+homepage: https://github.com/simsong/bulk_extractor/wiki
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bulk_extractor/blobs/sha256:fce16972463075eb40a46aff2cec48868513aeeb181a67fbdf41ead522d06d0e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bulk_extractor/blobs/sha256:cd2032241f7acb78ae73beb4254a1c9a55ad60b88568b52e260859ae01eacc41
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bulk_extractor/blobs/sha256:19a7347706e0ec70fd5db04d47420c392ff30a7f9da887cb8f66c56c86ba7c6b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bulk_extractor/blobs/sha256:63def3013392e1b55add767f77b6722108804e57ccf91090ea82f3cff28292aa
+sha256:
+  darwin_arm64: fce16972463075eb40a46aff2cec48868513aeeb181a67fbdf41ead522d06d0e
+  darwin_amd64: cd2032241f7acb78ae73beb4254a1c9a55ad60b88568b52e260859ae01eacc41
+  linux_amd64: 19a7347706e0ec70fd5db04d47420c392ff30a7f9da887cb8f66c56c86ba7c6b
+  linux_arm64: 63def3013392e1b55add767f77b6722108804e57ccf91090ea82f3cff28292aa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

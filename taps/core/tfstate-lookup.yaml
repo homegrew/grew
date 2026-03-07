@@ -1,0 +1,19 @@
+name: tfstate-lookup
+version: 1.10.0
+description: Lookup resource attributes in tfstate
+homepage: https://github.com/fujiwara/tfstate-lookup
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tfstate-lookup/blobs/sha256:d4fb5fb7c040d736a31656a2d8a5f162f33cd9f6542f8c6cd7e6260a5e1aae13
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tfstate-lookup/blobs/sha256:267e981c0d5a8d3ab4b301990ce9801f789ad1a947b8f9bc8a7c33c152770c84
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tfstate-lookup/blobs/sha256:ebf5e59bb9fdcf0c8ff70e90c47a41ebb03ac4ce529606bca4e1ab3c89bd99a9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tfstate-lookup/blobs/sha256:86baf5b74e30280b00b8c97d71a72eac337584fc94a2a2ba20ca9c03c31094b2
+sha256:
+  darwin_arm64: d4fb5fb7c040d736a31656a2d8a5f162f33cd9f6542f8c6cd7e6260a5e1aae13
+  darwin_amd64: 267e981c0d5a8d3ab4b301990ce9801f789ad1a947b8f9bc8a7c33c152770c84
+  linux_amd64: ebf5e59bb9fdcf0c8ff70e90c47a41ebb03ac4ce529606bca4e1ab3c89bd99a9
+  linux_arm64: 86baf5b74e30280b00b8c97d71a72eac337584fc94a2a2ba20ca9c03c31094b2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

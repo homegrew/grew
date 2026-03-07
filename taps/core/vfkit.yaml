@@ -1,0 +1,15 @@
+name: vfkit
+version: 0.6.3
+description: "Command-line hypervisor using Apple's Virtualization Framework"
+homepage: https://github.com/crc-org/vfkit
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vfkit/blobs/sha256:3953a8b58decd41c83de7686212202184e575c3d45bfad7002a7033549612bab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vfkit/blobs/sha256:ee7116feaeeb5feea19c876d8a5f157bf646af00f8dc2d1033965ff5a8c50bfc
+sha256:
+  darwin_arm64: 3953a8b58decd41c83de7686212202184e575c3d45bfad7002a7033549612bab
+  darwin_amd64: ee7116feaeeb5feea19c876d8a5f157bf646af00f8dc2d1033965ff5a8c50bfc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

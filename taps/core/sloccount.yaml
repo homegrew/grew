@@ -1,0 +1,19 @@
+name: sloccount
+version: 2.26
+description: Count lines of code in many languages
+homepage: https://dwheeler.com/sloccount/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sloccount/blobs/sha256:b637cc4c664a6f49d295336432a25513999484bb63893a9cc027c34cc7905935
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sloccount/blobs/sha256:9ce138f5619361b9854cf3b87afd74a2197905bd32f83f72a397f00b33f96363
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sloccount/blobs/sha256:c4d3a2cf9fd5c3dcdc5de48fab3ee4c799f825c2f727c4e090964f398e3084a8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sloccount/blobs/sha256:67092a284463dddf38fd1df78c07816f179261af83cdfae8efa3144c41f9225a
+sha256:
+  darwin_arm64: b637cc4c664a6f49d295336432a25513999484bb63893a9cc027c34cc7905935
+  darwin_amd64: 9ce138f5619361b9854cf3b87afd74a2197905bd32f83f72a397f00b33f96363
+  linux_amd64: c4d3a2cf9fd5c3dcdc5de48fab3ee4c799f825c2f727c4e090964f398e3084a8
+  linux_arm64: 67092a284463dddf38fd1df78c07816f179261af83cdfae8efa3144c41f9225a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

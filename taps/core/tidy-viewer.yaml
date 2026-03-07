@@ -1,0 +1,19 @@
+name: tidy-viewer
+version: 1.8.93
+description: CLI csv pretty printer
+homepage: https://github.com/alexhallam/tv
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tidy-viewer/blobs/sha256:7673c3682c0550e667dbf4a64e46262bfa5952a8f6d2cda5de6016f2abce527e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tidy-viewer/blobs/sha256:7063ec566328d464dbf16495cb34b804cae5bd69a3022fe707e68f8a3b3a94c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tidy-viewer/blobs/sha256:fe2877bb0b8093eb42716de3339a76afe78a6f2f83bc98540e6f8aecbda4af73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tidy-viewer/blobs/sha256:e3e4c1abf58e2202e189964db71b04df20fc4f42b1d9c4ba26499057328165da
+sha256:
+  darwin_arm64: 7673c3682c0550e667dbf4a64e46262bfa5952a8f6d2cda5de6016f2abce527e
+  darwin_amd64: 7063ec566328d464dbf16495cb34b804cae5bd69a3022fe707e68f8a3b3a94c0
+  linux_amd64: fe2877bb0b8093eb42716de3339a76afe78a6f2f83bc98540e6f8aecbda4af73
+  linux_arm64: e3e4c1abf58e2202e189964db71b04df20fc4f42b1d9c4ba26499057328165da
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: docuum
+version: 0.26.0
+description: Perform least recently used (LRU) eviction of Docker images
+homepage: https://github.com/stepchowfun/docuum
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/docuum/blobs/sha256:568562d2b9cd779e7981fe36481e819e1e05786c2980ef05a763e4d5f04f243c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/docuum/blobs/sha256:cf6587be257dadd0609ddd8008ae60584e4ce5b498f1779e368852b58d93ad1d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/docuum/blobs/sha256:6d6b91feea27e7444f96ac85140390578063689ebe58cc0d06a87fed57e70a3a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/docuum/blobs/sha256:2fcd7391f6dc9184ebfcebf6e7e42089f72f3e01ccec03dafe33d9d9e96c6e78
+sha256:
+  darwin_arm64: 568562d2b9cd779e7981fe36481e819e1e05786c2980ef05a763e4d5f04f243c
+  darwin_amd64: cf6587be257dadd0609ddd8008ae60584e4ce5b498f1779e368852b58d93ad1d
+  linux_amd64: 6d6b91feea27e7444f96ac85140390578063689ebe58cc0d06a87fed57e70a3a
+  linux_arm64: 2fcd7391f6dc9184ebfcebf6e7e42089f72f3e01ccec03dafe33d9d9e96c6e78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

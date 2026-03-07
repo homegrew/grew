@@ -1,0 +1,19 @@
+name: hidapi
+version: 0.15.0
+description: Library for communicating with USB and Bluetooth HID devices
+homepage: https://github.com/libusb/hidapi
+license: GPL-3.0-only OR BSD-3-Clause OR HIDAPI
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hidapi/blobs/sha256:0839953f6566e9d44dcde4714cf3bb8fe8455eb8cf978bb5fb0fbfc595f5f16b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hidapi/blobs/sha256:a8e65cb302c9ddc9c44a2bcb2348ffb26be23e8d946261775acecc5a38b9ce7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hidapi/blobs/sha256:c532bf111617b2ccaf54649208d01aea0eaf4b53ba6b3270dee5455b4c9679bb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hidapi/blobs/sha256:a42600180cd8daace07f984a2463a5d017b3548a911e0f659c8d036aa5e08e74
+sha256:
+  darwin_arm64: 0839953f6566e9d44dcde4714cf3bb8fe8455eb8cf978bb5fb0fbfc595f5f16b
+  darwin_amd64: a8e65cb302c9ddc9c44a2bcb2348ffb26be23e8d946261775acecc5a38b9ce7a
+  linux_amd64: c532bf111617b2ccaf54649208d01aea0eaf4b53ba6b3270dee5455b4c9679bb
+  linux_arm64: a42600180cd8daace07f984a2463a5d017b3548a911e0f659c8d036aa5e08e74
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

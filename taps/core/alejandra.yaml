@@ -1,0 +1,19 @@
+name: alejandra
+version: 4.0.0
+description: Command-line tool for formatting Nix Code
+homepage: https://kamadorueda.com/alejandra/
+license: Unlicense
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/alejandra/blobs/sha256:ee21f9015c2853fb4ccd0b5e8b8674c7d1c27ef9c17ff73771ca33f035a4eddd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/alejandra/blobs/sha256:82324a20fbc443a94c675997c412c0394d9dc511f7bb72e9b36e1861deeee324
+  linux_amd64: https://ghcr.io/v2/homebrew/core/alejandra/blobs/sha256:34b9aa4a4f9d81bec8bd22b0f2199000be9469a732f3c140f5fabd7a4e766c04
+  linux_arm64: https://ghcr.io/v2/homebrew/core/alejandra/blobs/sha256:cc7e20816b52cb47ab33221af91747fdf9e537a7b4bc252ed3aab37602cd4e65
+sha256:
+  darwin_arm64: ee21f9015c2853fb4ccd0b5e8b8674c7d1c27ef9c17ff73771ca33f035a4eddd
+  darwin_amd64: 82324a20fbc443a94c675997c412c0394d9dc511f7bb72e9b36e1861deeee324
+  linux_amd64: 34b9aa4a4f9d81bec8bd22b0f2199000be9469a732f3c140f5fabd7a4e766c04
+  linux_arm64: cc7e20816b52cb47ab33221af91747fdf9e537a7b4bc252ed3aab37602cd4e65
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

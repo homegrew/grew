@@ -1,0 +1,11 @@
+name: dictionaries
+version: 2.8
+description: Translate words without ever opening a dictionary
+homepage: https://dictionaries.io/
+url:
+  darwin_arm64: https://download.dictionaries.io/mac/Dictionaries-2.8.zip
+sha256:
+  darwin_arm64: cc344884909a66faa69cb280dc4df28f7a0d322e283d77dc54cd840b2077bdc9
+artifacts:
+  app:
+    - Dictionaries.app

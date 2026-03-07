@@ -1,0 +1,26 @@
+name: copyparty
+version: 1.20.10
+description: Portable file server
+homepage: https://github.com/9001/copyparty
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/copyparty/blobs/sha256:9f64fccbd7b72288aa74a1513f659f94dc501b867131dd5630b950757b138b20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/copyparty/blobs/sha256:fa4c5c66297270acd26c3ecd9a4c917f6978e61c769c7dc0eee8c287d38f7cd4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/copyparty/blobs/sha256:8bae7e12f69ad27378ec1297eac7231f74607be640ec7cf68ff96dbdad4ff999
+  linux_arm64: https://ghcr.io/v2/homebrew/core/copyparty/blobs/sha256:bd421f58dc2b8102fad0a8c0a90aeb716084a2a9c7320d8a30f22f83c7496954
+sha256:
+  darwin_arm64: 9f64fccbd7b72288aa74a1513f659f94dc501b867131dd5630b950757b138b20
+  darwin_amd64: fa4c5c66297270acd26c3ecd9a4c917f6978e61c769c7dc0eee8c287d38f7cd4
+  linux_amd64: 8bae7e12f69ad27378ec1297eac7231f74607be640ec7cf68ff96dbdad4ff999
+  linux_arm64: bd421f58dc2b8102fad0a8c0a90aeb716084a2a9c7320d8a30f22f83c7496954
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cryptography
+  - libsodium
+  - pillow
+  - python@3.14
+  - zeromq
+  - gettext

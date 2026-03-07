@@ -1,0 +1,19 @@
+name: glew
+version: 2.3.1
+description: OpenGL Extension Wrangler Library
+homepage: https://glew.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/glew/blobs/sha256:1ec85f5ae1b523fe8b30ccd462b1f7988693f0f7b87660b12d08ecf575a1cf01
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/glew/blobs/sha256:a6ae467e7998dfc0f8b237f01118194c9aed50bc5f769cc2c10d116d14accdde
+  linux_amd64: https://ghcr.io/v2/homebrew/core/glew/blobs/sha256:e8f24c5184a070eb8500a8def5fa6b5bf4bb8b531fc305f0aa4cd71cc3fb5af6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/glew/blobs/sha256:72762b76d9023594c8e7c35404458a7ab43b169116d73545d46b892a83314552
+sha256:
+  darwin_arm64: 1ec85f5ae1b523fe8b30ccd462b1f7988693f0f7b87660b12d08ecf575a1cf01
+  darwin_amd64: a6ae467e7998dfc0f8b237f01118194c9aed50bc5f769cc2c10d116d14accdde
+  linux_amd64: e8f24c5184a070eb8500a8def5fa6b5bf4bb8b531fc305f0aa4cd71cc3fb5af6
+  linux_arm64: 72762b76d9023594c8e7c35404458a7ab43b169116d73545d46b892a83314552
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

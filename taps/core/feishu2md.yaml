@@ -1,0 +1,19 @@
+name: feishu2md
+version: 2.4.5
+description: Convert feishu/larksuite documents to markdown
+homepage: https://github.com/Wsine/feishu2md
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/feishu2md/blobs/sha256:b8a048647d96c65e3452e1a264864e97e3da5ce5349065d54ad04e9ec3e7d38b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/feishu2md/blobs/sha256:3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/feishu2md/blobs/sha256:0251b8e957eb435d263ad80c9ea9b0e879959c9bb234bbb9169bbfc4937ef065
+  linux_arm64: https://ghcr.io/v2/homebrew/core/feishu2md/blobs/sha256:696c81363f606835062736840a812fa15156df117727e71b3e449af64f53c373
+sha256:
+  darwin_arm64: b8a048647d96c65e3452e1a264864e97e3da5ce5349065d54ad04e9ec3e7d38b
+  darwin_amd64: 3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7
+  linux_amd64: 0251b8e957eb435d263ad80c9ea9b0e879959c9bb234bbb9169bbfc4937ef065
+  linux_arm64: 696c81363f606835062736840a812fa15156df117727e71b3e449af64f53c373
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: stripe-cli
+version: 1.37.2
+description: Command-line tool for Stripe
+homepage: https://docs.stripe.com/stripe-cli
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stripe-cli/blobs/sha256:b061a5f2006a2f02dd7167ee688f3f491ef9af22c56ca599b3833d2cc2160337
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stripe-cli/blobs/sha256:cfbbbe29818b733d8597181c13cd875563755accbdd10152db28ad39f0ba3f14
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stripe-cli/blobs/sha256:ea2259ee92c791fa4e82b66ad0d05e1486697e350fb570827ef50bd934410b62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stripe-cli/blobs/sha256:15fa6037a00b0c38be9d586e7fe640a93a0c71afe7c8ad8e312f8afce517c939
+sha256:
+  darwin_arm64: b061a5f2006a2f02dd7167ee688f3f491ef9af22c56ca599b3833d2cc2160337
+  darwin_amd64: cfbbbe29818b733d8597181c13cd875563755accbdd10152db28ad39f0ba3f14
+  linux_amd64: ea2259ee92c791fa4e82b66ad0d05e1486697e350fb570827ef50bd934410b62
+  linux_arm64: 15fa6037a00b0c38be9d586e7fe640a93a0c71afe7c8ad8e312f8afce517c939
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,24 @@
+name: recon-ng
+version: 5.1.2
+description: Web Reconnaissance Framework
+homepage: https://github.com/lanmaster53/recon-ng
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/recon-ng/blobs/sha256:5d0d878d5f6edba6536e509b5bec44ec2e5fd85ec6e0a3785439f98b1f454b90
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/recon-ng/blobs/sha256:5a578602afee724341f20d120c2d114d4313245c7c3d51ee809b0af1b4ab8ed2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/recon-ng/blobs/sha256:ebaadd6d0d0f37a068d6c22c938ec40d55433344cc20cef7aaddd5454e3a2f4e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/recon-ng/blobs/sha256:c9df889447d25ba8cf1935285f191656ba419b82cdccdf321aa1e745878d14eb
+sha256:
+  darwin_arm64: 5d0d878d5f6edba6536e509b5bec44ec2e5fd85ec6e0a3785439f98b1f454b90
+  darwin_amd64: 5a578602afee724341f20d120c2d114d4313245c7c3d51ee809b0af1b4ab8ed2
+  linux_amd64: ebaadd6d0d0f37a068d6c22c938ec40d55433344cc20cef7aaddd5454e3a2f4e
+  linux_arm64: c9df889447d25ba8cf1935285f191656ba419b82cdccdf321aa1e745878d14eb
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14
+  - rpds-py

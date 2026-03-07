@@ -1,0 +1,21 @@
+name: luacheck
+version: 1.2.0
+description: Tool for linting and static analysis of Lua code
+homepage: https://luacheck.readthedocs.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/luacheck/blobs/sha256:8e93fc65e7bb98c16badb77b3522aed6a606f0f125b7f2099c0c584560e14404
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/luacheck/blobs/sha256:b76cf3029832d0264fd142ac4abaf34db5138f7e06ac3f43f00a16a0f6c78967
+  linux_amd64: https://ghcr.io/v2/homebrew/core/luacheck/blobs/sha256:66b3ca9857d49e8b51863bc47d95e58b6ed801e46880375c539160e0bfb2af2f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/luacheck/blobs/sha256:62ef7a9c5ca645b8a28717296653c402520acb73ef9fbd3af40d84dbb7bc2d63
+sha256:
+  darwin_arm64: 8e93fc65e7bb98c16badb77b3522aed6a606f0f125b7f2099c0c584560e14404
+  darwin_amd64: b76cf3029832d0264fd142ac4abaf34db5138f7e06ac3f43f00a16a0f6c78967
+  linux_amd64: 66b3ca9857d49e8b51863bc47d95e58b6ed801e46880375c539160e0bfb2af2f
+  linux_arm64: 62ef7a9c5ca645b8a28717296653c402520acb73ef9fbd3af40d84dbb7bc2d63
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lua@5.4

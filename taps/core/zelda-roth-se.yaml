@@ -1,0 +1,21 @@
+name: zelda-roth-se
+version: 1.2.1
+description: Zelda Return of the Hylian SE
+homepage: https://www.solarus-games.org/games/the-legend-of-zelda-return-of-the-hylian-se/
+license: GPL-3.0-only AND CC-BY-SA-4.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/zelda-roth-se/blobs/sha256:3bf751b6f5b6313d54d4c4356a07dbad2134d30574d18706a761272ad4fef7c7
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/zelda-roth-se/blobs/sha256:b2f38f89648a88d61b5b087e1902175fb208f94764ea1cbd2783ed732d1332c9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/zelda-roth-se/blobs/sha256:f752b830f0e4e894b560e50ee2418fb889c938ddcdfc85fe9011a528647173e8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/zelda-roth-se/blobs/sha256:77a60187f3e237fcdb9b1bfa6346d90cb2db5a4a07a3a74488432c94c84389c6
+sha256:
+  darwin_arm64: 3bf751b6f5b6313d54d4c4356a07dbad2134d30574d18706a761272ad4fef7c7
+  darwin_amd64: b2f38f89648a88d61b5b087e1902175fb208f94764ea1cbd2783ed732d1332c9
+  linux_amd64: f752b830f0e4e894b560e50ee2418fb889c938ddcdfc85fe9011a528647173e8
+  linux_arm64: 77a60187f3e237fcdb9b1bfa6346d90cb2db5a4a07a3a74488432c94c84389c6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - solarus

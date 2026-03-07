@@ -1,0 +1,21 @@
+name: git-remote-hg
+version: 0.7
+description: Transparent bidirectional bridge between Git and Mercurial
+homepage: https://github.com/felipec/git-remote-hg
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-remote-hg/blobs/sha256:e25f21baac92f208c898e41e22201baf8568f79ad70d6d2320af31cf0194b9af
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-remote-hg/blobs/sha256:12e63c394983b8eb31be8e55382710769c7343b15284b1a7f671bdb37aa3fd6f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-remote-hg/blobs/sha256:7f57147cd5c04043ec2371325990ddbcf69d50db783690f30b46de98781e457b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-remote-hg/blobs/sha256:2be20af1682f3f2478dc19aec707a0008dd60d8b7947744f9d4ac103c6264d73
+sha256:
+  darwin_arm64: e25f21baac92f208c898e41e22201baf8568f79ad70d6d2320af31cf0194b9af
+  darwin_amd64: 12e63c394983b8eb31be8e55382710769c7343b15284b1a7f671bdb37aa3fd6f
+  linux_amd64: 7f57147cd5c04043ec2371325990ddbcf69d50db783690f30b46de98781e457b
+  linux_arm64: 2be20af1682f3f2478dc19aec707a0008dd60d8b7947744f9d4ac103c6264d73
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

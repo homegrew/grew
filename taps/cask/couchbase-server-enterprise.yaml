@@ -1,0 +1,11 @@
+name: couchbase-server-enterprise
+version: 8.0.0
+description: Distributed NoSQL cloud database
+homepage: https://www.couchbase.com/
+url:
+  darwin_arm64: https://packages.couchbase.com/releases/8.0.0/couchbase-server-enterprise_8.0.0-macos_arm64.dmg
+sha256:
+  darwin_arm64: a79613f10fc085899ff8ea31dccb85866098bd6ae812baca498582c641366ced
+artifacts:
+  app:
+    - Couchbase Server.app

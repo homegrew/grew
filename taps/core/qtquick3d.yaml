@@ -1,0 +1,25 @@
+name: qtquick3d
+version: 6.10.2
+description: Provides a high-level API for creating 3D content or UIs based on Qt Quick
+homepage: https://www.qt.io/
+license: GPL-3.0-only AND (GPL-3.0-only WITH Qt-GPL-exception-1.0) AND Apache-2.0 AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qtquick3d/blobs/sha256:d863a2d7d5d373157aa904fe02bfb3077913c2e1176f2f5cb3d5786e5628042b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qtquick3d/blobs/sha256:0af25cc2cd2bac945cde48583d4cd6ffb596c0da0ccd9c134cccf5852ac73fa5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qtquick3d/blobs/sha256:c70705e25dff7508d25e29dc509b68a09da48f261cd75cbe553df6075725fe5e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qtquick3d/blobs/sha256:06ed7e0d6115952e2efaa9a4a03e8703abfc952b615fb09a07a2a2a3a62ae3b3
+sha256:
+  darwin_arm64: d863a2d7d5d373157aa904fe02bfb3077913c2e1176f2f5cb3d5786e5628042b
+  darwin_amd64: 0af25cc2cd2bac945cde48583d4cd6ffb596c0da0ccd9c134cccf5852ac73fa5
+  linux_amd64: c70705e25dff7508d25e29dc509b68a09da48f261cd75cbe553df6075725fe5e
+  linux_arm64: 06ed7e0d6115952e2efaa9a4a03e8703abfc952b615fb09a07a2a2a3a62ae3b3
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - assimp
+  - qtbase
+  - qtdeclarative
+  - qtquicktimeline
+  - qtshadertools

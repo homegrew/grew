@@ -1,0 +1,11 @@
+name: chipmunk
+version: 3.19.4
+description: Log analysis tool
+homepage: https://github.com/esrlabs/chipmunk/
+url:
+  darwin_arm64: https://github.com/esrlabs/chipmunk/releases/download/3.19.4/chipmunk@3.19.4-darwin-arm64-portable.tgz
+sha256:
+  darwin_arm64: c87d4708097e1e44f71fb523622c56457672ca5c05b058d7f26f3384351ae88e
+artifacts:
+  app:
+    - chipmunk.app

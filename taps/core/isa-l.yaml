@@ -1,0 +1,19 @@
+name: isa-l
+version: 2.32.0
+description: Intelligent Storage Acceleration Library
+homepage: https://github.com/intel/isa-l
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/isa-l/blobs/sha256:5c9267dff7be4ba1ab091dbda0b4b03357c137065c7cddce74d805db366cdd30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/isa-l/blobs/sha256:290936d5a39f56f7fa037847e8f54eff05714e914851ee58ebe741a507d699b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/isa-l/blobs/sha256:d0818c2fe4f428cd02da5375231cf7e7cdd859fc47eb834ec8e4f0e51243e402
+  linux_arm64: https://ghcr.io/v2/homebrew/core/isa-l/blobs/sha256:af4547348a1e1f584e886ac9c916f4591d864c41a5ae6e6954b59fe8cbd0fea1
+sha256:
+  darwin_arm64: 5c9267dff7be4ba1ab091dbda0b4b03357c137065c7cddce74d805db366cdd30
+  darwin_amd64: 290936d5a39f56f7fa037847e8f54eff05714e914851ee58ebe741a507d699b5
+  linux_amd64: d0818c2fe4f428cd02da5375231cf7e7cdd859fc47eb834ec8e4f0e51243e402
+  linux_arm64: af4547348a1e1f584e886ac9c916f4591d864c41a5ae6e6954b59fe8cbd0fea1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

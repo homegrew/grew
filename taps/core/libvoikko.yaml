@@ -1,0 +1,21 @@
+name: libvoikko
+version: 4.3.3
+description: Linguistic software and Finnish dictionary
+homepage: https://voikko.puimula.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libvoikko/blobs/sha256:5e7950f8b97300217f3ff6e9d8fa7a39f778f91fbb094e6a1106c155012ffe35
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libvoikko/blobs/sha256:1e6b95aadf093c5f52b77ffcf352fbfd64b462038b416354cda56f4b96403e94
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libvoikko/blobs/sha256:3e8b94f4739855622459da189323479bcb0fa44a715c6fdf7decf46a67e49553
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libvoikko/blobs/sha256:4dcadd2f02546ee0864e8381f043f7f6369447b9239a8337d71d6728f731cd5d
+sha256:
+  darwin_arm64: 5e7950f8b97300217f3ff6e9d8fa7a39f778f91fbb094e6a1106c155012ffe35
+  darwin_amd64: 1e6b95aadf093c5f52b77ffcf352fbfd64b462038b416354cda56f4b96403e94
+  linux_amd64: 3e8b94f4739855622459da189323479bcb0fa44a715c6fdf7decf46a67e49553
+  linux_arm64: 4dcadd2f02546ee0864e8381f043f7f6369447b9239a8337d71d6728f731cd5d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - hfstospell

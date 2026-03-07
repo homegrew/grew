@@ -1,0 +1,19 @@
+name: atop
+version: 2.12.1
+description: Advanced system and process monitor for Linux using process events
+homepage: https://www.atoptool.nl
+license: GPL-2.0-or-later
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/atop/blobs/sha256:a72f4e6fa04f2f46b615bc5385f881ea3fc093b4f3ec9705da8fb3e187c2514d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/atop/blobs/sha256:7eeb10893379965126504f749bae728e46029889b60a9b1344a2bdabd5411e96
+sha256:
+  linux_amd64: a72f4e6fa04f2f46b615bc5385f881ea3fc093b4f3ec9705da8fb3e187c2514d
+  linux_arm64: 7eeb10893379965126504f749bae728e46029889b60a9b1344a2bdabd5411e96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glib
+  - ncurses
+  - zlib-ng-compat

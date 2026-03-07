@@ -1,0 +1,21 @@
+name: hledger
+version: 1.51.2
+description: Easy plain text accounting with command-line, terminal and web UIs
+homepage: https://hledger.org/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hledger/blobs/sha256:e9e4a48a878f750c0c07ccc78dd0a69f45c487fc2cced59f2d994eaef667ed95
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hledger/blobs/sha256:6d0291a8eb31bc0cbad40e07ad635058537cb68ea08d68645013dcb0bf411c44
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hledger/blobs/sha256:c83d020d0f12549ba2caa4a6f076b201acf3cc6c4ae046fde1f68661d0433d29
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hledger/blobs/sha256:45868c81b64a86a9ff5145f1c65a80c17c1c4bf2f2f27cad99589dac947e6f0b
+sha256:
+  darwin_arm64: e9e4a48a878f750c0c07ccc78dd0a69f45c487fc2cced59f2d994eaef667ed95
+  darwin_amd64: 6d0291a8eb31bc0cbad40e07ad635058537cb68ea08d68645013dcb0bf411c44
+  linux_amd64: c83d020d0f12549ba2caa4a6f076b201acf3cc6c4ae046fde1f68661d0433d29
+  linux_arm64: 45868c81b64a86a9ff5145f1c65a80c17c1c4bf2f2f27cad99589dac947e6f0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

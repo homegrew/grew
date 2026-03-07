@@ -1,0 +1,19 @@
+name: crossplane
+version: 2.2.0
+description: Build control planes without needing to write code
+homepage: https://github.com/crossplane/crossplane
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/crossplane/blobs/sha256:18e81f1842d84d0c0e21ec536aed04b04e5abbbc20f2c3624641d55c37c5bc05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/crossplane/blobs/sha256:9247214b1aa8565d2e5705bf636b4b69e9e88b8ede46ab122321bce8f91174f3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/crossplane/blobs/sha256:d926dda317d6c98ceddc525e97ae34fd0299ac501ecaabbdf1ac27efd2efcfad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/crossplane/blobs/sha256:d94e7c908f93bbe5dd524d86ce2e160314f5f0911fd44fc9ddbb8bb5afdd7c3e
+sha256:
+  darwin_arm64: 18e81f1842d84d0c0e21ec536aed04b04e5abbbc20f2c3624641d55c37c5bc05
+  darwin_amd64: 9247214b1aa8565d2e5705bf636b4b69e9e88b8ede46ab122321bce8f91174f3
+  linux_amd64: d926dda317d6c98ceddc525e97ae34fd0299ac501ecaabbdf1ac27efd2efcfad
+  linux_arm64: d94e7c908f93bbe5dd524d86ce2e160314f5f0911fd44fc9ddbb8bb5afdd7c3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: iat
+version: 0.1.7
+description: Converts many CD-ROM image formats to ISO9660
+homepage: https://sourceforge.net/projects/iat.berlios/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/iat/blobs/sha256:4b7a2e6c46ce91c6a4eed38ff68cf506e7d37520266d57c222edb4ec5947b233
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/iat/blobs/sha256:bdb26eec9b7caef99572119093011954c596d32273d663bad57e98e869cdbc05
+  linux_amd64: https://ghcr.io/v2/homebrew/core/iat/blobs/sha256:5f6c91342941bb21b0ac060ac56c8453578655e499ef758ab2c7366ce2052d47
+  linux_arm64: https://ghcr.io/v2/homebrew/core/iat/blobs/sha256:eedb0ed17c84f3336f603a629de7b551aac5f37d77cb79236aa3caaff3901562
+sha256:
+  darwin_arm64: 4b7a2e6c46ce91c6a4eed38ff68cf506e7d37520266d57c222edb4ec5947b233
+  darwin_amd64: bdb26eec9b7caef99572119093011954c596d32273d663bad57e98e869cdbc05
+  linux_amd64: 5f6c91342941bb21b0ac060ac56c8453578655e499ef758ab2c7366ce2052d47
+  linux_arm64: eedb0ed17c84f3336f603a629de7b551aac5f37d77cb79236aa3caaff3901562
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

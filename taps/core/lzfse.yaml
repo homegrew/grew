@@ -1,0 +1,19 @@
+name: lzfse
+version: 1.0
+description: Apple LZFSE compression library and command-line tool
+homepage: https://github.com/lzfse/lzfse
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzfse/blobs/sha256:712821a6da6f0a4e597c597b3df2c804135d1f870ad4ffc9eb4e9b039aeac71c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzfse/blobs/sha256:8a0c25ee34291e5de716920b58d6b25846edbea682b3434ffecc406d667a3ce3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzfse/blobs/sha256:13f5733f570ee2f8d436c66beed32cbece59522b57653fba497c9dda82bd0aed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzfse/blobs/sha256:5ed34f88c34b8be3427102200be747817b78462cc251f02bd29b5cc3df6180d0
+sha256:
+  darwin_arm64: 712821a6da6f0a4e597c597b3df2c804135d1f870ad4ffc9eb4e9b039aeac71c
+  darwin_amd64: 8a0c25ee34291e5de716920b58d6b25846edbea682b3434ffecc406d667a3ce3
+  linux_amd64: 13f5733f570ee2f8d436c66beed32cbece59522b57653fba497c9dda82bd0aed
+  linux_arm64: 5ed34f88c34b8be3427102200be747817b78462cc251f02bd29b5cc3df6180d0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

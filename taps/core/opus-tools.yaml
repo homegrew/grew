@@ -1,0 +1,25 @@
+name: opus-tools
+version: 0.2
+description: Utilities to encode, inspect, and decode .opus files
+homepage: https://www.opus-codec.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opus-tools/blobs/sha256:ec7af6774ddcc95aca50060460f3fd6fd3dcc97b78ee2c64e9230b2d7e0e958f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opus-tools/blobs/sha256:be32020f65c0ac4614a81c6aee8adb3d5a2918625c7e33bafa80c7162d561784
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opus-tools/blobs/sha256:dde385e2c30d9478123ea358ab5b4786c7337cbb2728202eab4806926f02bf7d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opus-tools/blobs/sha256:ceba1cc3046ad55c60b3883c3d9cd1272c9f308c2bb9edb011d7ec070a6feebf
+sha256:
+  darwin_arm64: ec7af6774ddcc95aca50060460f3fd6fd3dcc97b78ee2c64e9230b2d7e0e958f
+  darwin_amd64: be32020f65c0ac4614a81c6aee8adb3d5a2918625c7e33bafa80c7162d561784
+  linux_amd64: dde385e2c30d9478123ea358ab5b4786c7337cbb2728202eab4806926f02bf7d
+  linux_arm64: ceba1cc3046ad55c60b3883c3d9cd1272c9f308c2bb9edb011d7ec070a6feebf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - flac
+  - libogg
+  - libopusenc
+  - opus
+  - opusfile

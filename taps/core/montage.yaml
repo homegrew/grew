@@ -1,0 +1,23 @@
+name: montage
+version: 6.0
+description: Toolkit for assembling FITS images into custom mosaics
+homepage: http://montage.ipac.caltech.edu
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/montage/blobs/sha256:58eb821dc6f0b9c1a85b8e5664f11465d87e00d719943644bdf303d25c7de909
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/montage/blobs/sha256:566ab3bb6bd1d8ff09fe02089a9e78540900e70a8780b777ffc60f3bbcb9db5f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/montage/blobs/sha256:896bd4dc1695ea76be99acadcf5216ceafbbc70636738bdf349e8b14b6aea7d0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/montage/blobs/sha256:f658ee7ea45df4f4fa1e9732f2bec751263cdee25cca0da5414a35faef16f543
+sha256:
+  darwin_arm64: 58eb821dc6f0b9c1a85b8e5664f11465d87e00d719943644bdf303d25c7de909
+  darwin_amd64: 566ab3bb6bd1d8ff09fe02089a9e78540900e70a8780b777ffc60f3bbcb9db5f
+  linux_amd64: 896bd4dc1695ea76be99acadcf5216ceafbbc70636738bdf349e8b14b6aea7d0
+  linux_arm64: f658ee7ea45df4f4fa1e9732f2bec751263cdee25cca0da5414a35faef16f543
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cfitsio
+  - freetype
+  - jpeg-turbo

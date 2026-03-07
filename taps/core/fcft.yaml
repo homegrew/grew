@@ -1,0 +1,21 @@
+name: fcft
+version: 3.3.3
+description: Simple library for font loading and glyph rasterization
+homepage: https://codeberg.org/dnkl/fcft
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fcft/blobs/sha256:367f60b769275608d9e532ffcec0a4cdb212035d113bafab4fff2d31558a3f0e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fcft/blobs/sha256:8ef71deb92a2a8cb91442305deb292eb073827c2e542743bea13e1ae6d449470
+sha256:
+  linux_amd64: 367f60b769275608d9e532ffcec0a4cdb212035d113bafab4fff2d31558a3f0e
+  linux_arm64: 8ef71deb92a2a8cb91442305deb292eb073827c2e542743bea13e1ae6d449470
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - harfbuzz
+  - pixman
+  - utf8proc

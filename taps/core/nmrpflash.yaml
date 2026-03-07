@@ -1,0 +1,19 @@
+name: nmrpflash
+version: 0.9.27
+description: Netgear Unbrick Utility
+homepage: https://github.com/jclehner/nmrpflash
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nmrpflash/blobs/sha256:ccb3537298818c0381f10a7de1081423b84912b24aa1df5e363abade3a6f41b5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nmrpflash/blobs/sha256:f5c4571e22c359f94d2eba33ac0629bc279a50b4bf0b410d34f125d0b36c64a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nmrpflash/blobs/sha256:a3546dc33507645b0d36167b06fde16ca804139fc7fa3d90a62a542e7cc3a893
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nmrpflash/blobs/sha256:b203614d3b7b379c5aac9ce88f264e2a384adfaca166d02889964a7490d09100
+sha256:
+  darwin_arm64: ccb3537298818c0381f10a7de1081423b84912b24aa1df5e363abade3a6f41b5
+  darwin_amd64: f5c4571e22c359f94d2eba33ac0629bc279a50b4bf0b410d34f125d0b36c64a4
+  linux_amd64: a3546dc33507645b0d36167b06fde16ca804139fc7fa3d90a62a542e7cc3a893
+  linux_arm64: b203614d3b7b379c5aac9ce88f264e2a384adfaca166d02889964a7490d09100
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

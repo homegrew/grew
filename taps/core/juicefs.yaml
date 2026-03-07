@@ -1,0 +1,19 @@
+name: juicefs
+version: 1.3.1
+description: Cloud-based, distributed POSIX file system built on top of Redis and S3
+homepage: https://juicefs.com
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/juicefs/blobs/sha256:f5cd25c0034180ab9338373a5e278dfc5400fac7257cabf06b288899c602d960
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/juicefs/blobs/sha256:3196e0bf833ae3ddfebc56def67968b4a0fa0f8b0f84b09d84d703ba168961df
+  linux_amd64: https://ghcr.io/v2/homebrew/core/juicefs/blobs/sha256:f7b195c808d249265774b78dac00fa69cbd6fcac11e6ce4d40ab9d0c9e26d4e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/juicefs/blobs/sha256:0ae9b27e1c37cbb2d71cb49d30735728f6ef2a2d4cd3effc6a348d5eeb7ee7fa
+sha256:
+  darwin_arm64: f5cd25c0034180ab9338373a5e278dfc5400fac7257cabf06b288899c602d960
+  darwin_amd64: 3196e0bf833ae3ddfebc56def67968b4a0fa0f8b0f84b09d84d703ba168961df
+  linux_amd64: f7b195c808d249265774b78dac00fa69cbd6fcac11e6ce4d40ab9d0c9e26d4e0
+  linux_arm64: 0ae9b27e1c37cbb2d71cb49d30735728f6ef2a2d4cd3effc6a348d5eeb7ee7fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

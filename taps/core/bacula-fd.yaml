@@ -1,0 +1,22 @@
+name: bacula-fd
+version: 15.0.3
+description: Network backup solution
+homepage: https://www.bacula.org/
+license: AGPL-3.0-only WITH openvpn-openssl-exception
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bacula-fd/blobs/sha256:d8e6479890fe58003ea82668949e353c887a5142551e12fa482ab94291a41567
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bacula-fd/blobs/sha256:25564b366864ae82e37c6c6daebf04d060c416c47bd62981cfa984bacbe58dc8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bacula-fd/blobs/sha256:3f29b7a47f97ba906ad99a6ca74735719764540697d700495e4545bbf66c1038
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bacula-fd/blobs/sha256:00e58d0749aa2b73b7c7f41074e77f62c072cd02c47a0d9e0bcf781775bc415f
+sha256:
+  darwin_arm64: d8e6479890fe58003ea82668949e353c887a5142551e12fa482ab94291a41567
+  darwin_amd64: 25564b366864ae82e37c6c6daebf04d060c416c47bd62981cfa984bacbe58dc8
+  linux_amd64: 3f29b7a47f97ba906ad99a6ca74735719764540697d700495e4545bbf66c1038
+  linux_arm64: 00e58d0749aa2b73b7c7f41074e77f62c072cd02c47a0d9e0bcf781775bc415f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3
+  - readline

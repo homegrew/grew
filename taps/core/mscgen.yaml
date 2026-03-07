@@ -1,0 +1,22 @@
+name: mscgen
+version: 0.20
+description: Parses Message Sequence Chart descriptions and produces images
+homepage: https://www.mcternan.me.uk/mscgen/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mscgen/blobs/sha256:d9abf0e71de052136e3396ebb6bdfed805d918edb13f252eb052ab35e1704b89
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mscgen/blobs/sha256:f7d48ef03be95a70f00a7c5432e2a232b0b0236e00db68b9b9727bddfbd153f4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mscgen/blobs/sha256:5957b2f4840517592807494271eb28d63b5c245ac014d34be596fb0355129031
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mscgen/blobs/sha256:b39667ceae160bffbf727a7ffcb6624325234c9ed3b3691e324c99f29f6e9f0c
+sha256:
+  darwin_arm64: d9abf0e71de052136e3396ebb6bdfed805d918edb13f252eb052ab35e1704b89
+  darwin_amd64: f7d48ef03be95a70f00a7c5432e2a232b0b0236e00db68b9b9727bddfbd153f4
+  linux_amd64: 5957b2f4840517592807494271eb28d63b5c245ac014d34be596fb0355129031
+  linux_arm64: b39667ceae160bffbf727a7ffcb6624325234c9ed3b3691e324c99f29f6e9f0c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - freetype
+  - gd

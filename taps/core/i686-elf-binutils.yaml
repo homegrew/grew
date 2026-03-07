@@ -1,0 +1,21 @@
+name: i686-elf-binutils
+version: 2.46.0
+description: GNU Binutils for i686-elf cross development
+homepage: https://www.gnu.org/software/binutils/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-binutils/blobs/sha256:87db49adee329e93df84eca55a4ff3f6fadf3a89e3ed3c18121d306165fdf148
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-binutils/blobs/sha256:2a590a39a38f43d4e102d994d0c0b8597e0760ec5efeb1f04b4a93e0c97e2994
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i686-elf-binutils/blobs/sha256:c9c3b79f8a3cf007aef14725df7f8c2ba8544bd251b3fd7f3d3ec1e289545b2e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i686-elf-binutils/blobs/sha256:d9faaa4252d154dd14f32457aded90c2ccf5138be6049eb64d4421eff08fc5b6
+sha256:
+  darwin_arm64: 87db49adee329e93df84eca55a4ff3f6fadf3a89e3ed3c18121d306165fdf148
+  darwin_amd64: 2a590a39a38f43d4e102d994d0c0b8597e0760ec5efeb1f04b4a93e0c97e2994
+  linux_amd64: c9c3b79f8a3cf007aef14725df7f8c2ba8544bd251b3fd7f3d3ec1e289545b2e
+  linux_arm64: d9faaa4252d154dd14f32457aded90c2ccf5138be6049eb64d4421eff08fc5b6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

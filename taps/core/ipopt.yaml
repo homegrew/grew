@@ -1,0 +1,23 @@
+name: ipopt
+version: 3.14.19
+description: Interior point optimizer
+homepage: https://coin-or.github.io/Ipopt/
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ipopt/blobs/sha256:94e96fc9b70faed386353442a5dbd7eb65cbca7d2eedb0d114d81781c3346702
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ipopt/blobs/sha256:df6a8e87d831c760a26ea98ca037c2c6d4bb37d7520ce62e68e2aa1aa53b616e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ipopt/blobs/sha256:546246a14d77bcd0401489732f9d8a43ce62b74aaede0bc88ac502f79d3c6f3c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ipopt/blobs/sha256:51378444ce9b3c3dc91f94b3744f8a287a41ad62f0c12b51e728d94a1eaf2c00
+sha256:
+  darwin_arm64: 94e96fc9b70faed386353442a5dbd7eb65cbca7d2eedb0d114d81781c3346702
+  darwin_amd64: df6a8e87d831c760a26ea98ca037c2c6d4bb37d7520ce62e68e2aa1aa53b616e
+  linux_amd64: 546246a14d77bcd0401489732f9d8a43ce62b74aaede0bc88ac502f79d3c6f3c
+  linux_arm64: 51378444ce9b3c3dc91f94b3744f8a287a41ad62f0c12b51e728d94a1eaf2c00
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ampl-asl
+  - gcc
+  - openblas

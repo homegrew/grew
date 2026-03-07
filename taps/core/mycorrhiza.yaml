@@ -1,0 +1,19 @@
+name: mycorrhiza
+version: 1.15.1
+description: Lightweight wiki engine with hierarchy support
+homepage: https://mycorrhiza.wiki
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mycorrhiza/blobs/sha256:81f838895cc43b1735f72f67623c6ed551d6f522213b45ae2cb7da7031bd2bbf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mycorrhiza/blobs/sha256:50902c67ef7688b2af218cb42a5e219d8b6ad1dbe73adb8eb5d4f9d7ce7ca1f2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mycorrhiza/blobs/sha256:e7ac1d896d58f658da09c6590400fe8fe65a4ee61083bbe724a9a4705d0a6745
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mycorrhiza/blobs/sha256:195738a48e2c1462af8eb894c93c2691e7f4a186b86f0c1e6aaeb5da110a1782
+sha256:
+  darwin_arm64: 81f838895cc43b1735f72f67623c6ed551d6f522213b45ae2cb7da7031bd2bbf
+  darwin_amd64: 50902c67ef7688b2af218cb42a5e219d8b6ad1dbe73adb8eb5d4f9d7ce7ca1f2
+  linux_amd64: e7ac1d896d58f658da09c6590400fe8fe65a4ee61083bbe724a9a4705d0a6745
+  linux_arm64: 195738a48e2c1462af8eb894c93c2691e7f4a186b86f0c1e6aaeb5da110a1782
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

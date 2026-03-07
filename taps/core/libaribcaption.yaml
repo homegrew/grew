@@ -1,0 +1,19 @@
+name: libaribcaption
+version: 1.1.1
+description: Portable ARIB STD-B24 Caption Decoder/Renderer
+homepage: https://github.com/xqq/libaribcaption
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libaribcaption/blobs/sha256:9eb1e545807e31a3efb83df1e8af4c443a2443ad726ee59b3132e6a05b7d6159
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libaribcaption/blobs/sha256:9789d6fea6f6dfd1443d067eec9591d3e67b0f68b724e2db60b0aae6ff77f605
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libaribcaption/blobs/sha256:b6f81f903e8e95519c2f783bc8749cf9513e684545230d518f445b8e407b8764
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libaribcaption/blobs/sha256:84244a732beff5af9dd11ecc22abe0c05a665a091bbc98727f2b07a608439945
+sha256:
+  darwin_arm64: 9eb1e545807e31a3efb83df1e8af4c443a2443ad726ee59b3132e6a05b7d6159
+  darwin_amd64: 9789d6fea6f6dfd1443d067eec9591d3e67b0f68b724e2db60b0aae6ff77f605
+  linux_amd64: b6f81f903e8e95519c2f783bc8749cf9513e684545230d518f445b8e407b8764
+  linux_arm64: 84244a732beff5af9dd11ecc22abe0c05a665a091bbc98727f2b07a608439945
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

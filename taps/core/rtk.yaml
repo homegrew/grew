@@ -1,0 +1,19 @@
+name: rtk
+version: 0.27.2
+description: CLI proxy to minimize LLM token consumption
+homepage: https://www.rtk-ai.app/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtk/blobs/sha256:235613fecda89a08d9e3474d2ea8b78d2c78f875fc8f011cb1a5a2900700bd42
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtk/blobs/sha256:8a46e6f0b975a4f0feac2de73aad2e593e510e147c4a09b819dd2d0129c7bab5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtk/blobs/sha256:60627a500329fec5c7fee96fd2de0c80e0a12d8a7a7ecff9dfe3379e391578e9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtk/blobs/sha256:25586c709ba5919d7c1959e019dd839144ea8842db7d8841fcf45b2c5693b0d9
+sha256:
+  darwin_arm64: 235613fecda89a08d9e3474d2ea8b78d2c78f875fc8f011cb1a5a2900700bd42
+  darwin_amd64: 8a46e6f0b975a4f0feac2de73aad2e593e510e147c4a09b819dd2d0129c7bab5
+  linux_amd64: 60627a500329fec5c7fee96fd2de0c80e0a12d8a7a7ecff9dfe3379e391578e9
+  linux_arm64: 25586c709ba5919d7c1959e019dd839144ea8842db7d8841fcf45b2c5693b0d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

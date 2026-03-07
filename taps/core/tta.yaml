@@ -1,0 +1,17 @@
+name: tta
+version: 2.2
+description: Lossless audio codec
+homepage: https://sourceforge.net/projects/tta/
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tta/blobs/sha256:f8a462551e8fec801357526eed49a963aaa646f1c9ff3cd657ec1787ac8ff9f4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tta/blobs/sha256:3a895bbe06844788d796ebe9a22d2656a7c09e6e66c0c492e6da6538e5824124
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tta/blobs/sha256:30808b3d8bf5450eb396ecbf102837b9943355ea54cb6b27c052b6e2fd902adc
+sha256:
+  darwin_arm64: f8a462551e8fec801357526eed49a963aaa646f1c9ff3cd657ec1787ac8ff9f4
+  darwin_amd64: 3a895bbe06844788d796ebe9a22d2656a7c09e6e66c0c492e6da6538e5824124
+  linux_amd64: 30808b3d8bf5450eb396ecbf102837b9943355ea54cb6b27c052b6e2fd902adc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

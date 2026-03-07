@@ -1,0 +1,19 @@
+name: htpdate
+version: 2.0.1
+description: Synchronize time with remote web servers
+homepage: https://www.vervest.org/htp/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/htpdate/blobs/sha256:252973c63d0ffe671e5fd12a3d36e93d425d826a5f2cdc2ecb1fe61c8e93fa58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/htpdate/blobs/sha256:62e3483ab73cc15f974dd59dbf279c2731260735e3480c65cea451747c1bcca2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/htpdate/blobs/sha256:c005ab298294a4e5ffa2c0d9cad5f0b30e08f60bcb4e61e0e808e32e91d2af1a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/htpdate/blobs/sha256:2a05e01faebc3b5662fcbd7063fc46c90832b32f345b36c639293b0b8f28dde1
+sha256:
+  darwin_arm64: 252973c63d0ffe671e5fd12a3d36e93d425d826a5f2cdc2ecb1fe61c8e93fa58
+  darwin_amd64: 62e3483ab73cc15f974dd59dbf279c2731260735e3480c65cea451747c1bcca2
+  linux_amd64: c005ab298294a4e5ffa2c0d9cad5f0b30e08f60bcb4e61e0e808e32e91d2af1a
+  linux_arm64: 2a05e01faebc3b5662fcbd7063fc46c90832b32f345b36c639293b0b8f28dde1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

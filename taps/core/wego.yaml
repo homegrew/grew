@@ -1,0 +1,19 @@
+name: wego
+version: 2.3
+description: Weather app for the terminal
+homepage: https://github.com/schachmat/wego
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wego/blobs/sha256:2c85e758198c227e569544729dfc874fab8662528cd969a9634deeff13b24438
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wego/blobs/sha256:b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wego/blobs/sha256:5028e25c825625552b1788d3ce16572f52eeff6837c983279b1f5c10b44ff74e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wego/blobs/sha256:de837fb971e18f6b3763b0be2178b476699c76697e83b83156d857208650bf97
+sha256:
+  darwin_arm64: 2c85e758198c227e569544729dfc874fab8662528cd969a9634deeff13b24438
+  darwin_amd64: b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3
+  linux_amd64: 5028e25c825625552b1788d3ce16572f52eeff6837c983279b1f5c10b44ff74e
+  linux_arm64: de837fb971e18f6b3763b0be2178b476699c76697e83b83156d857208650bf97
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

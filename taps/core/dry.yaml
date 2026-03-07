@@ -1,0 +1,19 @@
+name: dry
+version: 0.12.1
+description: Terminal application to manage Docker and Docker Swarm
+homepage: https://moncho.github.io/dry/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dry/blobs/sha256:d9e54dcd0b3f732bf29cc3499f4be6d21e1c6f25d01b78852945eb6cff355965
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dry/blobs/sha256:5346f0731d3baa4110e54010fb80399500cb512bd9fd4945559bd04b42319ea2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dry/blobs/sha256:ca3b2a9b9b7589770258064a3769f7a5df2e05bd37cf581a068a50db1ffbac63
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dry/blobs/sha256:2339bd2ad48b74725e9e3f04b2028d04384c0f35b61960646df115d5083fb6ba
+sha256:
+  darwin_arm64: d9e54dcd0b3f732bf29cc3499f4be6d21e1c6f25d01b78852945eb6cff355965
+  darwin_amd64: 5346f0731d3baa4110e54010fb80399500cb512bd9fd4945559bd04b42319ea2
+  linux_amd64: ca3b2a9b9b7589770258064a3769f7a5df2e05bd37cf581a068a50db1ffbac63
+  linux_arm64: 2339bd2ad48b74725e9e3f04b2028d04384c0f35b61960646df115d5083fb6ba
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

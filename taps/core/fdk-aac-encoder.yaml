@@ -1,0 +1,21 @@
+name: fdk-aac-encoder
+version: 1.0.6
+description: Command-line encoder frontend for libfdk-aac
+homepage: https://github.com/nu774/fdkaac
+license: Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fdk-aac-encoder/blobs/sha256:e89af6a6d4d3cbfc2a5e312ca4a0f5d5eb74205fa9d328e2b8e1f197680c9779
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fdk-aac-encoder/blobs/sha256:99f243a63d88d1350bc798ca8f90ed703485462aa7a99b92588aafecd2867874
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fdk-aac-encoder/blobs/sha256:5d3bcffd33552747f8c107a46e42f3cff7b500647fd2f268d688bee77ef711aa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fdk-aac-encoder/blobs/sha256:4b941b4a0be48f5ec58726a7f25547007f8085683a8b060ad24552532bd0880e
+sha256:
+  darwin_arm64: e89af6a6d4d3cbfc2a5e312ca4a0f5d5eb74205fa9d328e2b8e1f197680c9779
+  darwin_amd64: 99f243a63d88d1350bc798ca8f90ed703485462aa7a99b92588aafecd2867874
+  linux_amd64: 5d3bcffd33552747f8c107a46e42f3cff7b500647fd2f268d688bee77ef711aa
+  linux_arm64: 4b941b4a0be48f5ec58726a7f25547007f8085683a8b060ad24552532bd0880e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fdk-aac

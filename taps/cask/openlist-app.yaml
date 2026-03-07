@@ -1,0 +1,11 @@
+name: openlist-app
+version: 0.9.0
+description: Desktop application for OpenList
+homepage: https://github.com/OpenListTeam/OpenList-Desktop
+url:
+  darwin_arm64: https://github.com/OpenListTeam/OpenList-Desktop/releases/download/v0.9.0/OpenList-Desktop_0.9.0_aarch64.dmg
+sha256:
+  darwin_arm64: 7e113bb1bb689bfdc2b9529c1921152d8a6272aebf44f4002aa02695e842846a
+artifacts:
+  app:
+    - OpenList-Desktop.app

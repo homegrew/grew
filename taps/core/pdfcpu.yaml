@@ -1,0 +1,19 @@
+name: pdfcpu
+version: 0.11.1
+description: PDF processor written in Go
+homepage: https://pdfcpu.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pdfcpu/blobs/sha256:3460ddd5ac0731fcbe8360bd4073dda88b3ad1584c95e04a4f10d6ad7f3ea384
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pdfcpu/blobs/sha256:ec2cfb6966da2ba98a5d6d2a005f2583b7a7f01eee11d99de45da87247eaf383
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pdfcpu/blobs/sha256:245a80d951be6fc212e1898d3f5bee33c771b1683d25d5a5b7fdfa49015f917b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pdfcpu/blobs/sha256:82c913aea72e972eeac04f67b2c8da26e13406287c2bf3663f6c3d61d1fcff56
+sha256:
+  darwin_arm64: 3460ddd5ac0731fcbe8360bd4073dda88b3ad1584c95e04a4f10d6ad7f3ea384
+  darwin_amd64: ec2cfb6966da2ba98a5d6d2a005f2583b7a7f01eee11d99de45da87247eaf383
+  linux_amd64: 245a80d951be6fc212e1898d3f5bee33c771b1683d25d5a5b7fdfa49015f917b
+  linux_arm64: 82c913aea72e972eeac04f67b2c8da26e13406287c2bf3663f6c3d61d1fcff56
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

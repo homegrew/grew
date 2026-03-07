@@ -1,0 +1,22 @@
+name: armadillo
+version: 15.2.3
+description: C++ linear algebra library
+homepage: https://arma.sourceforge.net/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/armadillo/blobs/sha256:82824c58423b415581cf335b4952215f439d3e7296afefa520103a2954ec7488
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/armadillo/blobs/sha256:064c667e95a2b5fbbc2ba4a1e744d0cc856eb9908ffe10b6455d116331ed3c3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/armadillo/blobs/sha256:b925790e5c7cf547e0d20c4d2787771ad6f0b8a1d6b783485ebf999819a54853
+  linux_arm64: https://ghcr.io/v2/homebrew/core/armadillo/blobs/sha256:d64e165127c465c0ed55b6161e8f854a00e5a6468d36d8e379047a3d181a9d46
+sha256:
+  darwin_arm64: 82824c58423b415581cf335b4952215f439d3e7296afefa520103a2954ec7488
+  darwin_amd64: 064c667e95a2b5fbbc2ba4a1e744d0cc856eb9908ffe10b6455d116331ed3c3b
+  linux_amd64: b925790e5c7cf547e0d20c4d2787771ad6f0b8a1d6b783485ebf999819a54853
+  linux_arm64: d64e165127c465c0ed55b6161e8f854a00e5a6468d36d8e379047a3d181a9d46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - arpack
+  - openblas

@@ -1,0 +1,19 @@
+name: libdbi
+version: 0.9.0
+description: Database-independent abstraction layer in C, similar to DBI/DBD in Perl
+homepage: https://libdbi.sourceforge.net/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libdbi/blobs/sha256:2a44b6636fdd1a1ec49d06a47fa0b3b82fb5de1db98f124ed6e3b6c5dc5ed7f0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libdbi/blobs/sha256:cdf90b9046bd5a55387817114d6623f0e1f7273381891b8aede70ae02e7c1f66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libdbi/blobs/sha256:ac0e87e837a96a2147f0f95157ecbf6df333145cbbbfec466a9c18d794ffe8c1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libdbi/blobs/sha256:161533543dcd589103b5e76e2bfb222e287dfe9b62816d2213d64858cf8da873
+sha256:
+  darwin_arm64: 2a44b6636fdd1a1ec49d06a47fa0b3b82fb5de1db98f124ed6e3b6c5dc5ed7f0
+  darwin_amd64: cdf90b9046bd5a55387817114d6623f0e1f7273381891b8aede70ae02e7c1f66
+  linux_amd64: ac0e87e837a96a2147f0f95157ecbf6df333145cbbbfec466a9c18d794ffe8c1
+  linux_arm64: 161533543dcd589103b5e76e2bfb222e287dfe9b62816d2213d64858cf8da873
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

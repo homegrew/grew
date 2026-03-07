@@ -1,0 +1,22 @@
+name: osm-pbf
+version: 1.6.1
+description: Tools related to PBF (an alternative to XML format)
+homepage: https://wiki.openstreetmap.org/wiki/PBF_Format
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osm-pbf/blobs/sha256:8c094a9155bd427aebe8c0596c39bfa8bb1baa6e37a6e67d6c464dd3a9406c2b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osm-pbf/blobs/sha256:edb5cffe179d086f72390651d8f4305e641cbbb35fa9f5795c78d45563765b27
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osm-pbf/blobs/sha256:062a82e9c406aa3914c81a5882dcc35bebc4cf6f5c9ad7d9ba4c1cfe84b8e495
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osm-pbf/blobs/sha256:c766d1cb11831c25860831ffd305326cf8945fdae82e65e916c6dd2c2bda2b87
+sha256:
+  darwin_arm64: 8c094a9155bd427aebe8c0596c39bfa8bb1baa6e37a6e67d6c464dd3a9406c2b
+  darwin_amd64: edb5cffe179d086f72390651d8f4305e641cbbb35fa9f5795c78d45563765b27
+  linux_amd64: 062a82e9c406aa3914c81a5882dcc35bebc4cf6f5c9ad7d9ba4c1cfe84b8e495
+  linux_arm64: c766d1cb11831c25860831ffd305326cf8945fdae82e65e916c6dd2c2bda2b87
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - protobuf

@@ -1,0 +1,19 @@
+name: precious
+version: 0.10.2
+description: One code quality tool to rule them all
+homepage: https://github.com/houseabsolute/precious
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/precious/blobs/sha256:e353b6b071a2685bb336b928f349f4972fe1ae6e191fd29de0222e3d2974e87d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/precious/blobs/sha256:3a2aa357c9f34be8cbad09f3f63c4eb558fe15a051e9eb113484cbfcf869ac40
+  linux_amd64: https://ghcr.io/v2/homebrew/core/precious/blobs/sha256:d3bc673c7e646c2bc0950e6d3e02ae8603e2b0c8f92d529a048a66d0a4761222
+  linux_arm64: https://ghcr.io/v2/homebrew/core/precious/blobs/sha256:61f748963bb1c21c9a8051fedc3838fa6928356ced612b6a9c3c285d2c4ecb1e
+sha256:
+  darwin_arm64: e353b6b071a2685bb336b928f349f4972fe1ae6e191fd29de0222e3d2974e87d
+  darwin_amd64: 3a2aa357c9f34be8cbad09f3f63c4eb558fe15a051e9eb113484cbfcf869ac40
+  linux_amd64: d3bc673c7e646c2bc0950e6d3e02ae8603e2b0c8f92d529a048a66d0a4761222
+  linux_arm64: 61f748963bb1c21c9a8051fedc3838fa6928356ced612b6a9c3c285d2c4ecb1e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

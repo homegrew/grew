@@ -1,0 +1,19 @@
+name: i2util
+version: 5.2.4
+description: Internet2 utility tools
+homepage: https://github.com/perfsonar/i2util
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/i2util/blobs/sha256:135a65518f90e04d0de2d93bcdc9b7b5f6af6d164ea7197b9a134a4eaa32dd71
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/i2util/blobs/sha256:fced07b9b2bbe56dbed13925ae0678d6136f7b21085aa3c0fa1b6fe581f884a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/i2util/blobs/sha256:ad8a6e1703fd59f08d3aeb9269740f5a80f61a58218f32959608bc9d31b7f765
+  linux_arm64: https://ghcr.io/v2/homebrew/core/i2util/blobs/sha256:7a257fe712d830069dc6d84914e0680170891131a989f668e117ec7963715095
+sha256:
+  darwin_arm64: 135a65518f90e04d0de2d93bcdc9b7b5f6af6d164ea7197b9a134a4eaa32dd71
+  darwin_amd64: fced07b9b2bbe56dbed13925ae0678d6136f7b21085aa3c0fa1b6fe581f884a4
+  linux_amd64: ad8a6e1703fd59f08d3aeb9269740f5a80f61a58218f32959608bc9d31b7f765
+  linux_arm64: 7a257fe712d830069dc6d84914e0680170891131a989f668e117ec7963715095
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: typstyle
+version: 0.14.4
+description: Beautiful and reliable typst code formatter
+homepage: https://typstyle-rs.github.io/typstyle/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/typstyle/blobs/sha256:082b4d350153ed64671a3dd28859555a574f7ff7b7e78659fe8302ec1c3bdf23
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/typstyle/blobs/sha256:4c914e37ff44cac9601989fecd91575233b1d1b9ffbeda73bd139c2bece66f21
+  linux_amd64: https://ghcr.io/v2/homebrew/core/typstyle/blobs/sha256:5e325b9666cecd8c1cf1d0bd926303c3a01c65a8fa2a6f24b781732c3009f6c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/typstyle/blobs/sha256:12bdfb71ee6032207cb594f56cdb74ee8d0c189f3fa8075b1730f4a68110b7fa
+sha256:
+  darwin_arm64: 082b4d350153ed64671a3dd28859555a574f7ff7b7e78659fe8302ec1c3bdf23
+  darwin_amd64: 4c914e37ff44cac9601989fecd91575233b1d1b9ffbeda73bd139c2bece66f21
+  linux_amd64: 5e325b9666cecd8c1cf1d0bd926303c3a01c65a8fa2a6f24b781732c3009f6c2
+  linux_arm64: 12bdfb71ee6032207cb594f56cdb74ee8d0c189f3fa8075b1730f4a68110b7fa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

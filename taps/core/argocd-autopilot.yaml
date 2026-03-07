@@ -1,0 +1,19 @@
+name: argocd-autopilot
+version: 0.4.20
+description: Opinionated way of installing Argo CD and managing GitOps repositories
+homepage: https://argoproj.io
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argocd-autopilot/blobs/sha256:a14fad86f97d6d1434c5ed7e74b2ed3488354f777782ff105dc80765c409f45c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argocd-autopilot/blobs/sha256:4c24727bb33f1b6b561a40e09f2d6f04adb3184a259622063033bf37c54eb271
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argocd-autopilot/blobs/sha256:0d92042a9cbae654c5abe3821ca44e8bb65405f27872c12055e2e7f40cc466ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argocd-autopilot/blobs/sha256:43d271b59cee87bd956374bdecc77a94dfeaf834889193be442c5b5473ebc484
+sha256:
+  darwin_arm64: a14fad86f97d6d1434c5ed7e74b2ed3488354f777782ff105dc80765c409f45c
+  darwin_amd64: 4c24727bb33f1b6b561a40e09f2d6f04adb3184a259622063033bf37c54eb271
+  linux_amd64: 0d92042a9cbae654c5abe3821ca44e8bb65405f27872c12055e2e7f40cc466ad
+  linux_arm64: 43d271b59cee87bd956374bdecc77a94dfeaf834889193be442c5b5473ebc484
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

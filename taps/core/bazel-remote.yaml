@@ -1,0 +1,19 @@
+name: bazel-remote
+version: 2.6.1
+description: Remote cache for Bazel
+homepage: https://github.com/buchgr/bazel-remote/
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bazel-remote/blobs/sha256:2938e4a481635cdd39a709bea02ae00526d5a787f650e8f48580f7dd54d6680d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bazel-remote/blobs/sha256:5146c3be66190b6c9261402cd452e5b76599a4c585d279eb287ae762035ccdf1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bazel-remote/blobs/sha256:f0fcc2d87fe990f1c6cc2385e2f10a08a9e16580282782ea0fcde57725284680
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bazel-remote/blobs/sha256:6130ae2d7c9df9b569c8ec35f5348ddb9386723a4c203872ce3f2ee3fdb4d0e4
+sha256:
+  darwin_arm64: 2938e4a481635cdd39a709bea02ae00526d5a787f650e8f48580f7dd54d6680d
+  darwin_amd64: 5146c3be66190b6c9261402cd452e5b76599a4c585d279eb287ae762035ccdf1
+  linux_amd64: f0fcc2d87fe990f1c6cc2385e2f10a08a9e16580282782ea0fcde57725284680
+  linux_arm64: 6130ae2d7c9df9b569c8ec35f5348ddb9386723a4c203872ce3f2ee3fdb4d0e4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

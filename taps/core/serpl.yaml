@@ -1,0 +1,21 @@
+name: serpl
+version: 0.3.4
+description: Simple terminal UI for search and replace
+homepage: https://github.com/yassinebridi/serpl
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/serpl/blobs/sha256:17d66f0a6070402ad1ca996de2076bcaff6ef5f4c474bfab7fcc0952de0978d9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/serpl/blobs/sha256:90dd2fc2f33f9ba2d8122097e8b9f891f084f9038a4a2e5e26bf65fbb1c62335
+  linux_amd64: https://ghcr.io/v2/homebrew/core/serpl/blobs/sha256:823f676ecea17d9ff2f20448c5a42963fcdc7378e89a6eff3a250e161d17ddd0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/serpl/blobs/sha256:bfc0a698cbce4d7894689a991e6f8e72645cf22ffb5e03a10444b721cd8b20ef
+sha256:
+  darwin_arm64: 17d66f0a6070402ad1ca996de2076bcaff6ef5f4c474bfab7fcc0952de0978d9
+  darwin_amd64: 90dd2fc2f33f9ba2d8122097e8b9f891f084f9038a4a2e5e26bf65fbb1c62335
+  linux_amd64: 823f676ecea17d9ff2f20448c5a42963fcdc7378e89a6eff3a250e161d17ddd0
+  linux_arm64: bfc0a698cbce4d7894689a991e6f8e72645cf22ffb5e03a10444b721cd8b20ef
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ripgrep

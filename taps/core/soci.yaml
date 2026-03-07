@@ -1,0 +1,21 @@
+name: soci
+version: 4.1.2
+description: Database access library for C++
+homepage: https://soci.sourceforge.net/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/soci/blobs/sha256:d31676b530369e902ca7ef093254b8651d457d608d5fc3f043af44f399cfac1d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/soci/blobs/sha256:b470aff1683dacca56bd59826456c815feba82c68876f937dfe5a36b4c63a10e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/soci/blobs/sha256:bd1e51bb043843736d53493af5b7c84f5937a9a2bcd79b19336a69aecddb3061
+  linux_arm64: https://ghcr.io/v2/homebrew/core/soci/blobs/sha256:7bdaa9f509b7eda5c845454d1a64cd0620f400fa0bceab65273433da986a6551
+sha256:
+  darwin_arm64: d31676b530369e902ca7ef093254b8651d457d608d5fc3f043af44f399cfac1d
+  darwin_amd64: b470aff1683dacca56bd59826456c815feba82c68876f937dfe5a36b4c63a10e
+  linux_amd64: bd1e51bb043843736d53493af5b7c84f5937a9a2bcd79b19336a69aecddb3061
+  linux_arm64: 7bdaa9f509b7eda5c845454d1a64cd0620f400fa0bceab65273433da986a6551
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sqlite

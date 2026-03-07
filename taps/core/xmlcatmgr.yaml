@@ -1,0 +1,19 @@
+name: xmlcatmgr
+version: 2.2
+description: Manipulate SGML and XML catalogs
+homepage: https://xmlcatmgr.sourceforge.net/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xmlcatmgr/blobs/sha256:0fa2f9f885678ab72041ddd5e883d176ffccad39304fcf62c1eacedcdad5c972
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xmlcatmgr/blobs/sha256:4e7b47b8b9d4fa78f3337c1da5a2e10ccbb3cac8237bc0f9444335d4f740bc6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xmlcatmgr/blobs/sha256:52185546f22943c4a693619db91532acbac6e555e8d747156515af72542c0c43
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xmlcatmgr/blobs/sha256:9194b26f616899f7d7edc8db1534c8e5f91fc46231d6e2aa0be1ea9374ff71d9
+sha256:
+  darwin_arm64: 0fa2f9f885678ab72041ddd5e883d176ffccad39304fcf62c1eacedcdad5c972
+  darwin_amd64: 4e7b47b8b9d4fa78f3337c1da5a2e10ccbb3cac8237bc0f9444335d4f740bc6d
+  linux_amd64: 52185546f22943c4a693619db91532acbac6e555e8d747156515af72542c0c43
+  linux_arm64: 9194b26f616899f7d7edc8db1534c8e5f91fc46231d6e2aa0be1ea9374ff71d9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

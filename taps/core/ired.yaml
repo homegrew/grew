@@ -1,0 +1,19 @@
+name: ired
+version: 0.6
+description: Minimalistic hexadecimal editor designed to be used in scripts
+homepage: https://github.com/radare/ired
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ired/blobs/sha256:d022a67015d76e3fadf60c52e8af70afeb0d0a05c9ea7e0e856798623db17870
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ired/blobs/sha256:def04b2a2b062bf95cd2900bb549bed22fdea5075dee1c99e974a5b0d660bdac
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ired/blobs/sha256:f3ddb4735af8b485b31fb3c9b2b8cc87c0aadfd1c3a2ae43df84bee8d5f16701
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ired/blobs/sha256:611fb6eb2d5001ab972a13ec8dffcd4c80cb10f2429989d394c4f13c7f827695
+sha256:
+  darwin_arm64: d022a67015d76e3fadf60c52e8af70afeb0d0a05c9ea7e0e856798623db17870
+  darwin_amd64: def04b2a2b062bf95cd2900bb549bed22fdea5075dee1c99e974a5b0d660bdac
+  linux_amd64: f3ddb4735af8b485b31fb3c9b2b8cc87c0aadfd1c3a2ae43df84bee8d5f16701
+  linux_arm64: 611fb6eb2d5001ab972a13ec8dffcd4c80cb10f2429989d394c4f13c7f827695
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

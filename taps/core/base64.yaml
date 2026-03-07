@@ -1,0 +1,19 @@
+name: base64
+version: 1.5
+description: Encode and decode base64 files
+homepage: https://www.fourmilab.ch/webtools/base64/
+license: LicenseRef-Homebrew-public-domain
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/base64/blobs/sha256:fbf459526bc50316ed55f1e5ea972f22658ba26aa8e0b4b5db5b984bc0fbceb8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/base64/blobs/sha256:4a15a0d6f82a026a34550257e7dda5bfc81a7d12414d7d28bcfec4df9882f7bb
+  linux_amd64: https://ghcr.io/v2/homebrew/core/base64/blobs/sha256:9f8f96bcf972f99b8ca838f542a44c9b1f7bf8da7e66eb3333d941093ecbc199
+  linux_arm64: https://ghcr.io/v2/homebrew/core/base64/blobs/sha256:37aa1f30a578bdc6344258b905cf1e714d2dbc6323cbace378c07760d18e9817
+sha256:
+  darwin_arm64: fbf459526bc50316ed55f1e5ea972f22658ba26aa8e0b4b5db5b984bc0fbceb8
+  darwin_amd64: 4a15a0d6f82a026a34550257e7dda5bfc81a7d12414d7d28bcfec4df9882f7bb
+  linux_amd64: 9f8f96bcf972f99b8ca838f542a44c9b1f7bf8da7e66eb3333d941093ecbc199
+  linux_arm64: 37aa1f30a578bdc6344258b905cf1e714d2dbc6323cbace378c07760d18e9817
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

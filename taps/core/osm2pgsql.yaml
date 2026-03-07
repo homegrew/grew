@@ -1,0 +1,23 @@
+name: osm2pgsql
+version: 2.2.0
+description: OpenStreetMap data to PostgreSQL converter
+homepage: https://osm2pgsql.org
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/osm2pgsql/blobs/sha256:a5f9ab6a4a201781ae815d913f773583684dca4538e0aff2d992ca8e9b5a177a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/osm2pgsql/blobs/sha256:77ff1260704e17ec3aa45de6bcc3947b3dddf0c31693b266305201ca7f148545
+  linux_amd64: https://ghcr.io/v2/homebrew/core/osm2pgsql/blobs/sha256:719e9ab7dbc8d76cc317006f9492c619bcd79a40b24b76056e04a9d6f9264b11
+  linux_arm64: https://ghcr.io/v2/homebrew/core/osm2pgsql/blobs/sha256:c554b99264e3a52791e14c304dae74e0c37f9d87082752e79169b00b6c1ef231
+sha256:
+  darwin_arm64: a5f9ab6a4a201781ae815d913f773583684dca4538e0aff2d992ca8e9b5a177a
+  darwin_amd64: 77ff1260704e17ec3aa45de6bcc3947b3dddf0c31693b266305201ca7f148545
+  linux_amd64: 719e9ab7dbc8d76cc317006f9492c619bcd79a40b24b76056e04a9d6f9264b11
+  linux_arm64: c554b99264e3a52791e14c304dae74e0c37f9d87082752e79169b00b6c1ef231
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libpq
+  - luajit
+  - proj

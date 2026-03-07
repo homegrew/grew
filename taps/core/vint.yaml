@@ -1,0 +1,22 @@
+name: vint
+version: 0.3.21
+description: Vim script Language Lint
+homepage: https://github.com/Vimjas/vint
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vint/blobs/sha256:253fc8481dee8ad20013ec07a09d1de0857b361f4ea4b9109e1d042720be995a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vint/blobs/sha256:0f54ebab62e360237f7dbb53db433dbf7270a94a57f63f6fbca5b7ce4dc06618
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vint/blobs/sha256:a203916188f247d771f950c352eb7d70c5483651a612e2366ff9804da26b00c2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vint/blobs/sha256:627fcee4eb35a20a7af92b2e52e4dd278ce997a1107406cfc45fb07aefa4bc21
+sha256:
+  darwin_arm64: 253fc8481dee8ad20013ec07a09d1de0857b361f4ea4b9109e1d042720be995a
+  darwin_amd64: 0f54ebab62e360237f7dbb53db433dbf7270a94a57f63f6fbca5b7ce4dc06618
+  linux_amd64: a203916188f247d771f950c352eb7d70c5483651a612e2366ff9804da26b00c2
+  linux_arm64: 627fcee4eb35a20a7af92b2e52e4dd278ce997a1107406cfc45fb07aefa4bc21
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libyaml
+  - python@3.14

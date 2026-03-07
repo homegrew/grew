@@ -1,0 +1,23 @@
+name: libexosip
+version: 5.3.0
+description: Toolkit for eXosip2
+homepage: https://savannah.nongnu.org/projects/exosip
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libexosip/blobs/sha256:65ae132c14b0b6e7928dacd91669bf489bf089b1cdcee75612ab52a2c6dc5363
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libexosip/blobs/sha256:63dc5332096f15cfab981171841ea55a5462cfdfe779bd750c5c5f470169ff7a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libexosip/blobs/sha256:07fe4531bd26a4c6fabb8833e55dc9b955c3f995c5c024177b9a9e3800785782
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libexosip/blobs/sha256:f2248230c56cae9643494c59e8b62ed822cabc1dc5fc1013b98efbf608bad015
+sha256:
+  darwin_arm64: 65ae132c14b0b6e7928dacd91669bf489bf089b1cdcee75612ab52a2c6dc5363
+  darwin_amd64: 63dc5332096f15cfab981171841ea55a5462cfdfe779bd750c5c5f470169ff7a
+  linux_amd64: 07fe4531bd26a4c6fabb8833e55dc9b955c3f995c5c024177b9a9e3800785782
+  linux_arm64: f2248230c56cae9643494c59e8b62ed822cabc1dc5fc1013b98efbf608bad015
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - c-ares
+  - libosip
+  - openssl@3

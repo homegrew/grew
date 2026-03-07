@@ -1,0 +1,19 @@
+name: fence
+version: 0.1.32
+description: Lightweight sandbox for commands with network and filesystem restrictions
+homepage: https://github.com/Use-Tusk/fence
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fence/blobs/sha256:063fe6b440c5d41134f712e16d22f9de9373abdce9b07110ca2c3279284f939b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fence/blobs/sha256:f01b9050988922af969ca9986fe83b21815859ed75fdec53ce90eada0ecf0f87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fence/blobs/sha256:446bcf3507725651c930d414cf0e572fdfb3c19667a8b9b916ff4356097d7b85
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fence/blobs/sha256:6d53471171cdab0784328a7dfc3606e9a6b7d5ff0ed36de70c915b87bb1f108d
+sha256:
+  darwin_arm64: 063fe6b440c5d41134f712e16d22f9de9373abdce9b07110ca2c3279284f939b
+  darwin_amd64: f01b9050988922af969ca9986fe83b21815859ed75fdec53ce90eada0ecf0f87
+  linux_amd64: 446bcf3507725651c930d414cf0e572fdfb3c19667a8b9b916ff4356097d7b85
+  linux_arm64: 6d53471171cdab0784328a7dfc3606e9a6b7d5ff0ed36de70c915b87bb1f108d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

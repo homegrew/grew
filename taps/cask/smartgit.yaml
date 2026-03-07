@@ -1,0 +1,13 @@
+name: smartgit
+version: 25.1.110
+description: Git client
+homepage: https://www.smartgit.dev/
+url:
+  darwin_arm64: https://download.smartgit.dev/smartgit/smartgit-25_1_110-macos-arm64.dmg
+sha256:
+  darwin_arm64: ef09dced456c44b6692b258a377142475b814c768a6ff234007d32a10f48053c
+artifacts:
+  app:
+    - SmartGit.app
+  bin:
+    - SmartGit

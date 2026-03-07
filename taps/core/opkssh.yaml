@@ -1,0 +1,19 @@
+name: opkssh
+version: 0.13.0
+description: Enables SSH to be used with OpenID Connect
+homepage: https://eprint.iacr.org/2023/296
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opkssh/blobs/sha256:a43e1383a77a301720e1ec28afc701d701c64ee4bd2fcf59fcf5a3b6c8d665aa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opkssh/blobs/sha256:4f3f2fd6232596799d4da2f93ac34faf9afb04cd75adb0140d83aa5cf10dbce6
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opkssh/blobs/sha256:2bfc92e40fcdf687c0a7bb28b654900c81a598c6e263014c34b785cc69d92475
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opkssh/blobs/sha256:c372830f1d4187c754ef016e740f767829f5aef3d2597f68939d790980d24219
+sha256:
+  darwin_arm64: a43e1383a77a301720e1ec28afc701d701c64ee4bd2fcf59fcf5a3b6c8d665aa
+  darwin_amd64: 4f3f2fd6232596799d4da2f93ac34faf9afb04cd75adb0140d83aa5cf10dbce6
+  linux_amd64: 2bfc92e40fcdf687c0a7bb28b654900c81a598c6e263014c34b785cc69d92475
+  linux_arm64: c372830f1d4187c754ef016e740f767829f5aef3d2597f68939d790980d24219
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

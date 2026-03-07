@@ -1,0 +1,21 @@
+name: dockerfilegraph
+version: 0.19.3
+description: Visualize your multi-stage Dockerfiles
+homepage: https://github.com/patrickhoefler/dockerfilegraph
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dockerfilegraph/blobs/sha256:057ea586a131defd8c65ba4a8251202b6e50fd233e7fcfa5a15fc5b257380f05
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dockerfilegraph/blobs/sha256:c9c34bba87614ba4202ff02f4d01e074a629da57330f79cb817f0b8ad33746ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dockerfilegraph/blobs/sha256:d45976fbf38aa7b319badbf236c1e25ec4a0f3a7d7f3fede98b50b95857de536
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dockerfilegraph/blobs/sha256:4e9e922b63402bdd985ec2ee41cadc554ce59d240e050c995d3cf9c7c12fe123
+sha256:
+  darwin_arm64: 057ea586a131defd8c65ba4a8251202b6e50fd233e7fcfa5a15fc5b257380f05
+  darwin_amd64: c9c34bba87614ba4202ff02f4d01e074a629da57330f79cb817f0b8ad33746ec
+  linux_amd64: d45976fbf38aa7b319badbf236c1e25ec4a0f3a7d7f3fede98b50b95857de536
+  linux_arm64: 4e9e922b63402bdd985ec2ee41cadc554ce59d240e050c995d3cf9c7c12fe123
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - graphviz

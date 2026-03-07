@@ -1,0 +1,19 @@
+name: benthos
+version: 4.67.0
+description: Stream processor for mundane tasks written in Go
+homepage: https://github.com/redpanda-data/benthos
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/benthos/blobs/sha256:a51daabb999f9beced4394672e8f7e36d8ad500e84850692dd2c244ab761db81
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/benthos/blobs/sha256:6bc7aacb78bb3163c1829210d264066804c61d6d31d6fa18dfb852b26731ae37
+  linux_amd64: https://ghcr.io/v2/homebrew/core/benthos/blobs/sha256:b41802d0353f50fdd5f223c39111d5b951f2235ed3d47105ec631e93ad6a9b59
+  linux_arm64: https://ghcr.io/v2/homebrew/core/benthos/blobs/sha256:04f0cc06fc5f8f44995d0a586ce32098b9ab340dc075905580bc767fd99ced23
+sha256:
+  darwin_arm64: a51daabb999f9beced4394672e8f7e36d8ad500e84850692dd2c244ab761db81
+  darwin_amd64: 6bc7aacb78bb3163c1829210d264066804c61d6d31d6fa18dfb852b26731ae37
+  linux_amd64: b41802d0353f50fdd5f223c39111d5b951f2235ed3d47105ec631e93ad6a9b59
+  linux_arm64: 04f0cc06fc5f8f44995d0a586ce32098b9ab340dc075905580bc767fd99ced23
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

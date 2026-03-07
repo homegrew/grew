@@ -1,0 +1,19 @@
+name: git-appraise
+version: 0.7
+description: Distributed code review system for Git repos
+homepage: https://github.com/google/git-appraise
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/git-appraise/blobs/sha256:d005b8ba84092cf355c62cca07583b63626cc49ac5ea5833c06d80c8a1c023e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/git-appraise/blobs/sha256:09591073fcb424c242c2e14c0aa4c9f5e47173b70b61041a56dc83869d92aa15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/git-appraise/blobs/sha256:1c1748a7102d5350cf74a90a05706b2a8d6fc6fcc90cce7e823856c183ad4e46
+  linux_arm64: https://ghcr.io/v2/homebrew/core/git-appraise/blobs/sha256:bb8623ee674ac49073c4ed1cbb2fae7d8903f6d9f7285b61e3688edcee74bda1
+sha256:
+  darwin_arm64: d005b8ba84092cf355c62cca07583b63626cc49ac5ea5833c06d80c8a1c023e8
+  darwin_amd64: 09591073fcb424c242c2e14c0aa4c9f5e47173b70b61041a56dc83869d92aa15
+  linux_amd64: 1c1748a7102d5350cf74a90a05706b2a8d6fc6fcc90cce7e823856c183ad4e46
+  linux_arm64: bb8623ee674ac49073c4ed1cbb2fae7d8903f6d9f7285b61e3688edcee74bda1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

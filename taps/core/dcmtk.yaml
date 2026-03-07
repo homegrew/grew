@@ -1,0 +1,24 @@
+name: dcmtk
+version: 3.7.0
+description: OFFIS DICOM toolkit command-line utilities
+homepage: https://dicom.offis.de/dcmtk.php.en
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dcmtk/blobs/sha256:18fdc9d620a8913c66d703dd279c659cfcdf0a0b599d364e545f4513d6578980
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dcmtk/blobs/sha256:4646deaa5d70c8d92620faad87006086369be8fe614eb71c30e39b5604557b46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dcmtk/blobs/sha256:773d92006e42ea21daecb8138174f768d13050ac78cf32b2ba27f7895f396557
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dcmtk/blobs/sha256:254bb8fa063e79ddcf1800481b89d9dc6c6ee02298981a365cbda4bd144dce32
+sha256:
+  darwin_arm64: 18fdc9d620a8913c66d703dd279c659cfcdf0a0b599d364e545f4513d6578980
+  darwin_amd64: 4646deaa5d70c8d92620faad87006086369be8fe614eb71c30e39b5604557b46
+  linux_amd64: 773d92006e42ea21daecb8138174f768d13050ac78cf32b2ba27f7895f396557
+  linux_arm64: 254bb8fa063e79ddcf1800481b89d9dc6c6ee02298981a365cbda4bd144dce32
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - openssl@3

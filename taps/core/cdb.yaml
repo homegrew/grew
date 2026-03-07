@@ -1,0 +1,19 @@
+name: cdb
+version: 20251021
+description: Create and read constant databases
+homepage: https://cdb.cr.yp.to/
+license: LicenseRef-Homebrew-public-domain OR CC0-1.0 OR 0BSD OR MIT-0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdb/blobs/sha256:e3a5fc9ffe9771eda7b963529031a5e4b057107986e82f4eb308598dc5b1b2f6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdb/blobs/sha256:33d05226d9ea8c84329023b2eea1e254002ae9420b26fd18eca3a9bf06d97c6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdb/blobs/sha256:867db4ee654eb1fac410de5933f2ea5b98d18efd6c3e2d293fb15f3886633a01
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdb/blobs/sha256:64b825a879f207b859eec04f96b8ad373848526285e9ef3279ba044b79bf969d
+sha256:
+  darwin_arm64: e3a5fc9ffe9771eda7b963529031a5e4b057107986e82f4eb308598dc5b1b2f6
+  darwin_amd64: 33d05226d9ea8c84329023b2eea1e254002ae9420b26fd18eca3a9bf06d97c6d
+  linux_amd64: 867db4ee654eb1fac410de5933f2ea5b98d18efd6c3e2d293fb15f3886633a01
+  linux_arm64: 64b825a879f207b859eec04f96b8ad373848526285e9ef3279ba044b79bf969d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

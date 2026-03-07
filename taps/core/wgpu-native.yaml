@@ -1,0 +1,19 @@
+name: wgpu-native
+version: 27.0.4.0
+description: Native WebGPU implementation based on wgpu-core
+homepage: https://github.com/gfx-rs/wgpu-native
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/wgpu-native/blobs/sha256:5d9096aa62a2380a8701a99199129341f38709c4f5e024eff9300947490716ee
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/wgpu-native/blobs/sha256:00bb5a82177c270587d840fed5f9dcffd31d1280251874bb1b57dce3af47dbc8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/wgpu-native/blobs/sha256:6859115c5a86f4d7e2e4298de573f68b340d22e68edc2e1b9128b1c85d671092
+  linux_arm64: https://ghcr.io/v2/homebrew/core/wgpu-native/blobs/sha256:ae9f023013f655e09b7de422b427efda141a69a2d7e3f86c38215858b505eab6
+sha256:
+  darwin_arm64: 5d9096aa62a2380a8701a99199129341f38709c4f5e024eff9300947490716ee
+  darwin_amd64: 00bb5a82177c270587d840fed5f9dcffd31d1280251874bb1b57dce3af47dbc8
+  linux_amd64: 6859115c5a86f4d7e2e4298de573f68b340d22e68edc2e1b9128b1c85d671092
+  linux_arm64: ae9f023013f655e09b7de422b427efda141a69a2d7e3f86c38215858b505eab6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

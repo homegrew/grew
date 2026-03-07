@@ -1,0 +1,11 @@
+name: signal
+version: 8.1.0
+description: Instant messaging application focusing on security
+homepage: https://signal.org/
+url:
+  darwin_arm64: https://updates.signal.org/desktop/signal-desktop-mac-arm64-8.1.0.zip
+sha256:
+  darwin_arm64: b614f8a6bc94e1daa2b4b77a1c7f1807a59e1fe06b30f797ef3e0f8f26dd076e
+artifacts:
+  app:
+    - Signal.app

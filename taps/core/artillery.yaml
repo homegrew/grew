@@ -1,0 +1,21 @@
+name: artillery
+version: 2.0.30
+description: "Cloud-native performance & reliability testing for developers and SREs"
+homepage: https://www.artillery.io/
+license: MPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/artillery/blobs/sha256:2d67e55ae0cb1e756ccea64cb6fe41106a035ffe4985aa4e90d4557c173c5f8c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/artillery/blobs/sha256:e5aa683624d6b88cdab5c28a35928f7011322da1df19166f2e0873691fd551fd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/artillery/blobs/sha256:efdda745ed5a0a430718bb00c347306879676ce516afea92e010bf0b9ad440db
+  linux_arm64: https://ghcr.io/v2/homebrew/core/artillery/blobs/sha256:e48d519aae715fc76c92c164c24bc13919822974993be9e71d1c27b82ed50cc7
+sha256:
+  darwin_arm64: 2d67e55ae0cb1e756ccea64cb6fe41106a035ffe4985aa4e90d4557c173c5f8c
+  darwin_amd64: e5aa683624d6b88cdab5c28a35928f7011322da1df19166f2e0873691fd551fd
+  linux_amd64: efdda745ed5a0a430718bb00c347306879676ce516afea92e010bf0b9ad440db
+  linux_arm64: e48d519aae715fc76c92c164c24bc13919822974993be9e71d1c27b82ed50cc7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

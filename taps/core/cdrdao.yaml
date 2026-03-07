@@ -1,0 +1,24 @@
+name: cdrdao
+version: 1.2.6
+description: Record CDs in Disk-At-Once mode
+homepage: https://cdrdao.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdrdao/blobs/sha256:a87345e6d975df2e81170e4f82906ba52a913ae907fbff6c3b58b5d5660de8ed
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdrdao/blobs/sha256:51485a32c8e726d3096c8892994a04aedfb113e5ec239ea50a9ab0f85dd3cee4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdrdao/blobs/sha256:2d5e0060a7c9e0e0efdce4393ecc9b608bd897685cb554855db8dc85f4ac8992
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdrdao/blobs/sha256:5f432a9e6e1268b9fbd139f73a7abac83a722e231b5b63a3403758c8d4c63524
+sha256:
+  darwin_arm64: a87345e6d975df2e81170e4f82906ba52a913ae907fbff6c3b58b5d5660de8ed
+  darwin_amd64: 51485a32c8e726d3096c8892994a04aedfb113e5ec239ea50a9ab0f85dd3cee4
+  linux_amd64: 2d5e0060a7c9e0e0efdce4393ecc9b608bd897685cb554855db8dc85f4ac8992
+  linux_arm64: 5f432a9e6e1268b9fbd139f73a7abac83a722e231b5b63a3403758c8d4c63524
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lame
+  - libao
+  - libvorbis
+  - mad

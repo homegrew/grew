@@ -1,0 +1,22 @@
+name: brogue
+version: 1.15.1
+description: Roguelike game
+homepage: https://sites.google.com/site/broguegame/
+license: AGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brogue/blobs/sha256:2858206ccd294ed6b8c3ac136a96c5f5af9815835fba94b10f2378dbff0ce44f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brogue/blobs/sha256:42ecd5fdcc6935a1fe4baad309b35a45d777ab9b59d134a47980c934f5800494
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brogue/blobs/sha256:55d19558ca6df95ac0ec02fa3c43160c4e20926948dfa9bfe0b1827c7ca53957
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brogue/blobs/sha256:996c52eb84ffc7f2e92894ab0a12f9946cc0ff78ace6aec0b0a5926329f4c3a8
+sha256:
+  darwin_arm64: 2858206ccd294ed6b8c3ac136a96c5f5af9815835fba94b10f2378dbff0ce44f
+  darwin_amd64: 42ecd5fdcc6935a1fe4baad309b35a45d777ab9b59d134a47980c934f5800494
+  linux_amd64: 55d19558ca6df95ac0ec02fa3c43160c4e20926948dfa9bfe0b1827c7ca53957
+  linux_arm64: 996c52eb84ffc7f2e92894ab0a12f9946cc0ff78ace6aec0b0a5926329f4c3a8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl2
+  - sdl2_image

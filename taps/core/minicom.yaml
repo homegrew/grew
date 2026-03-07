@@ -1,0 +1,19 @@
+name: minicom
+version: 2.10
+description: Menu-driven communications program
+homepage: https://packages.debian.org/sid/minicom
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/minicom/blobs/sha256:33a6f5dbbe7ca27534ae675480528a30c197ceee9bfe12a6662b88d20b923c11
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/minicom/blobs/sha256:ae861c3e3530b8dd98ddd8256aa243a3205a6dac85e04f9351f5fc157d3948bf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/minicom/blobs/sha256:5de5bb5448b6444e3ddcdcbb615bd96fb138df6d216c565e661e101ebd507208
+  linux_arm64: https://ghcr.io/v2/homebrew/core/minicom/blobs/sha256:4b8d28ea107b2c8577fa25a16f3607f4b85bcc230d67657b2c4e90db42466159
+sha256:
+  darwin_arm64: 33a6f5dbbe7ca27534ae675480528a30c197ceee9bfe12a6662b88d20b923c11
+  darwin_amd64: ae861c3e3530b8dd98ddd8256aa243a3205a6dac85e04f9351f5fc157d3948bf
+  linux_amd64: 5de5bb5448b6444e3ddcdcbb615bd96fb138df6d216c565e661e101ebd507208
+  linux_arm64: 4b8d28ea107b2c8577fa25a16f3607f4b85bcc230d67657b2c4e90db42466159
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

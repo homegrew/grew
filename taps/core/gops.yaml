@@ -1,0 +1,19 @@
+name: gops
+version: 0.3.29
+description: Tool to list and diagnose Go processes currently running on your system
+homepage: https://github.com/google/gops
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gops/blobs/sha256:e0e45f2bd77fd4ab3a9c61d15957d454e78cc264800278668f527c9cd7599c98
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gops/blobs/sha256:d28c6659127578062c4f285e6c66fe7f423863921aaacd6db2aabf922077b70c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gops/blobs/sha256:69d835582184a7bf3c020e0212e211a70ae57d8dff0d6c540cd69efd2351cc40
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gops/blobs/sha256:80580c60908ddfe547803f078eb5fc9d68f899401f3c3bf8fed5a564ea08cc64
+sha256:
+  darwin_arm64: e0e45f2bd77fd4ab3a9c61d15957d454e78cc264800278668f527c9cd7599c98
+  darwin_amd64: d28c6659127578062c4f285e6c66fe7f423863921aaacd6db2aabf922077b70c
+  linux_amd64: 69d835582184a7bf3c020e0212e211a70ae57d8dff0d6c540cd69efd2351cc40
+  linux_arm64: 80580c60908ddfe547803f078eb5fc9d68f899401f3c3bf8fed5a564ea08cc64
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

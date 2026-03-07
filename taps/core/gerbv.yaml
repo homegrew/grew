@@ -1,0 +1,28 @@
+name: gerbv
+version: 2.11.1
+description: Gerber (RS-274X) viewer
+homepage: https://gerbv.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gerbv/blobs/sha256:4dc6433925aeac44a2a626ba71738c2e34758a19f4f50cad7a194e61f8052fa4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gerbv/blobs/sha256:7520ca2ae7c43b1c466c3d150403cffd43815ad79c0ccfcca1d611ba8cbffdef
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gerbv/blobs/sha256:1552e7fc822f0fb03a3768d7aa095d70c7b1bd9ebee8dfa4d6efa79b8e2155a7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gerbv/blobs/sha256:31c9be5a7194ec14a38eb81f4eb60ac0d8e7cef0bca37852a286d0a3c261790f
+sha256:
+  darwin_arm64: 4dc6433925aeac44a2a626ba71738c2e34758a19f4f50cad7a194e61f8052fa4
+  darwin_amd64: 7520ca2ae7c43b1c466c3d150403cffd43815ad79c0ccfcca1d611ba8cbffdef
+  linux_amd64: 1552e7fc822f0fb03a3768d7aa095d70c7b1bd9ebee8dfa4d6efa79b8e2155a7
+  linux_arm64: 31c9be5a7194ec14a38eb81f4eb60ac0d8e7cef0bca37852a286d0a3c261790f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gtk+
+  - at-spi2-core
+  - gettext
+  - harfbuzz
+  - pango

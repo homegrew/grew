@@ -1,0 +1,22 @@
+name: doxymacs
+version: 1.8.0
+description: Elisp package for using doxygen under Emacs
+homepage: https://doxymacs.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/doxymacs/blobs/sha256:fe13bd89660f57f1c74c95e0b0ae7def510c8a80d6a9ec1bb05799153d546496
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/doxymacs/blobs/sha256:fe9b383131419cf3949ee0f039b501a8d518e6ab92368123d537800d85bc7333
+  linux_amd64: https://ghcr.io/v2/homebrew/core/doxymacs/blobs/sha256:87d7b48342fe0049e9c50a632c74a0d4fb8abca3928e2875871e69487cd8d387
+  linux_arm64: https://ghcr.io/v2/homebrew/core/doxymacs/blobs/sha256:35833ff40dab157ebfaed94448b822bbc044a87ab1e57d09aba41d13c200c1b5
+sha256:
+  darwin_arm64: fe13bd89660f57f1c74c95e0b0ae7def510c8a80d6a9ec1bb05799153d546496
+  darwin_amd64: fe9b383131419cf3949ee0f039b501a8d518e6ab92368123d537800d85bc7333
+  linux_amd64: 87d7b48342fe0049e9c50a632c74a0d4fb8abca3928e2875871e69487cd8d387
+  linux_arm64: 35833ff40dab157ebfaed94448b822bbc044a87ab1e57d09aba41d13c200c1b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - doxygen
+  - emacs

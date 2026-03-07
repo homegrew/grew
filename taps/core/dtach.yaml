@@ -1,0 +1,19 @@
+name: dtach
+version: 0.9
+description: Emulates the detach feature of screen
+homepage: https://dtach.sourceforge.net/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dtach/blobs/sha256:a3296ea100c480737f279e984c3e0cf25d0d5844aac527c09cf9cc1ff3bb4ada
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dtach/blobs/sha256:c780cda9b47c04079b652c9de889c797125979197880a5551b5ac0127a165b16
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dtach/blobs/sha256:d7e64d6a2ccdcb1bf8c9de85f9542d228b2f12ca97807045c24d42d3fb2cf047
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dtach/blobs/sha256:20f84e730ed5ca882c83d0fbc52a6a75d4c42a5b31c35505d17b58a8d8b2675c
+sha256:
+  darwin_arm64: a3296ea100c480737f279e984c3e0cf25d0d5844aac527c09cf9cc1ff3bb4ada
+  darwin_amd64: c780cda9b47c04079b652c9de889c797125979197880a5551b5ac0127a165b16
+  linux_amd64: d7e64d6a2ccdcb1bf8c9de85f9542d228b2f12ca97807045c24d42d3fb2cf047
+  linux_arm64: 20f84e730ed5ca882c83d0fbc52a6a75d4c42a5b31c35505d17b58a8d8b2675c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

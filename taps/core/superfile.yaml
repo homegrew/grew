@@ -1,0 +1,19 @@
+name: superfile
+version: 1.5.0
+description: Modern and pretty fancy file manager for the terminal
+homepage: https://superfile.netlify.app/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/superfile/blobs/sha256:9cfacf24f1198669f8e0ff074c06449b8f96fa6480bd4e42adea6c0f77d8e232
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/superfile/blobs/sha256:b49784c62f7b740bc1f0b485c901329dd683cc0aa57e312602559d876949ec2d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/superfile/blobs/sha256:6f7279a9e28eb740bb19b7b2343dfda02d04f01da0c45bf987ad85906df5bafe
+  linux_arm64: https://ghcr.io/v2/homebrew/core/superfile/blobs/sha256:396adb5fd8b68a8ff359ca9b7921d8b49d3c396305125eca73eb5a1e21fd19ca
+sha256:
+  darwin_arm64: 9cfacf24f1198669f8e0ff074c06449b8f96fa6480bd4e42adea6c0f77d8e232
+  darwin_amd64: b49784c62f7b740bc1f0b485c901329dd683cc0aa57e312602559d876949ec2d
+  linux_amd64: 6f7279a9e28eb740bb19b7b2343dfda02d04f01da0c45bf987ad85906df5bafe
+  linux_arm64: 396adb5fd8b68a8ff359ca9b7921d8b49d3c396305125eca73eb5a1e21fd19ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

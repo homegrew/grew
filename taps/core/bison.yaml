@@ -1,0 +1,20 @@
+name: bison
+version: 3.8.2
+description: Parser generator
+homepage: https://www.gnu.org/software/bison/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bison/blobs/sha256:d47d87f1bead6f00956ea21f147d46ded1c5c2ac0c53193a1ed7b46105492228
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bison/blobs/sha256:cadf52c2fd93ef340f01a36a8468b8725f5218ee6c62773b3838b8c01c862c9b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bison/blobs/sha256:d708c29c7e44f28a4fa77d353ff7adfbe673b31cef6f24c3c384a03ba01b3608
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bison/blobs/sha256:e35b0e9bf9ae5177b25e524b25b792690f6024dabb91428d5db0986e033c2f15
+sha256:
+  darwin_arm64: d47d87f1bead6f00956ea21f147d46ded1c5c2ac0c53193a1ed7b46105492228
+  darwin_amd64: cadf52c2fd93ef340f01a36a8468b8725f5218ee6c62773b3838b8c01c862c9b
+  linux_amd64: d708c29c7e44f28a4fa77d353ff7adfbe673b31cef6f24c3c384a03ba01b3608
+  linux_arm64: e35b0e9bf9ae5177b25e524b25b792690f6024dabb91428d5db0986e033c2f15
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

@@ -1,0 +1,19 @@
+name: libnsgif
+version: 1.0.0
+description: Decoding library for the GIF image file format
+homepage: https://www.netsurf-browser.org/projects/libnsgif/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libnsgif/blobs/sha256:24a59de1bad99d2d805e0054f54b09fdadd75c69f50aa3d105d34aaeee184d21
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libnsgif/blobs/sha256:7cd6863f98da0e27df13a0a97e80a346077c055408386a7a38dbe60ed67a6ec7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libnsgif/blobs/sha256:7daa143db902d9ecc5a9133f4a82a430c6c4bd14bd5de120f879c82a39b1fb91
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libnsgif/blobs/sha256:e7dc3ff5a7922684bd75589aa24b77305fe31093ad5b14fdfb3f626f9631035e
+sha256:
+  darwin_arm64: 24a59de1bad99d2d805e0054f54b09fdadd75c69f50aa3d105d34aaeee184d21
+  darwin_amd64: 7cd6863f98da0e27df13a0a97e80a346077c055408386a7a38dbe60ed67a6ec7
+  linux_amd64: 7daa143db902d9ecc5a9133f4a82a430c6c4bd14bd5de120f879c82a39b1fb91
+  linux_arm64: e7dc3ff5a7922684bd75589aa24b77305fe31093ad5b14fdfb3f626f9631035e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

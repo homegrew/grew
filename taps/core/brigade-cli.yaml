@@ -1,0 +1,19 @@
+name: brigade-cli
+version: 2.6.0
+description: Brigade command-line interface
+homepage: https://brigade.sh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/brigade-cli/blobs/sha256:93938d159d0b3a5255a4bba8897a6e964ca40463210957612ab294e7deebcf27
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/brigade-cli/blobs/sha256:7376dace115e55e67a571e2a249765e957b7f1f44fbe8832f01c6f64bef8981a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/brigade-cli/blobs/sha256:17449306b36ee93b21a273f1e7435610e11b903f49ebf5566dceac471fd0fe89
+  linux_arm64: https://ghcr.io/v2/homebrew/core/brigade-cli/blobs/sha256:e99412f76441b9a81e06bcb4a343498e2910d1b67a24995acbfafa840fc2289d
+sha256:
+  darwin_arm64: 93938d159d0b3a5255a4bba8897a6e964ca40463210957612ab294e7deebcf27
+  darwin_amd64: 7376dace115e55e67a571e2a249765e957b7f1f44fbe8832f01c6f64bef8981a
+  linux_amd64: 17449306b36ee93b21a273f1e7435610e11b903f49ebf5566dceac471fd0fe89
+  linux_arm64: e99412f76441b9a81e06bcb4a343498e2910d1b67a24995acbfafa840fc2289d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

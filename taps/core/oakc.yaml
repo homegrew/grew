@@ -1,0 +1,19 @@
+name: oakc
+version: 0.6.1
+description: Portable programming language with a compact intermediate representation
+homepage: https://github.com/adam-mcdaniel/oakc
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/oakc/blobs/sha256:60abd2db575988443d770ae177888cff9366de42bbe23c1da3fede13903385c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/oakc/blobs/sha256:7a1feacc47d0b0117e8d5cde8685f72fc1ac7052d044a94f70583fc7152039d3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/oakc/blobs/sha256:4ef60b48d23e35832e2d6b65a2c503ff72f88c6d5ced38a5dad9642b2147d642
+  linux_arm64: https://ghcr.io/v2/homebrew/core/oakc/blobs/sha256:eaa3710811313c7fa1f91eb0e19c56d530b5eaf226649fcacb1348639bf130b5
+sha256:
+  darwin_arm64: 60abd2db575988443d770ae177888cff9366de42bbe23c1da3fede13903385c6
+  darwin_amd64: 7a1feacc47d0b0117e8d5cde8685f72fc1ac7052d044a94f70583fc7152039d3
+  linux_amd64: 4ef60b48d23e35832e2d6b65a2c503ff72f88c6d5ced38a5dad9642b2147d642
+  linux_arm64: eaa3710811313c7fa1f91eb0e19c56d530b5eaf226649fcacb1348639bf130b5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

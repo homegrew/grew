@@ -1,0 +1,19 @@
+name: descope
+version: 0.8.13
+description: Command-line utility for performing common tasks on Descope projects
+homepage: https://www.descope.com
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/descope/blobs/sha256:6aad2b0f78e9b6c0b7f6289535925ffb673418ea50e0c9fb636242408cc54984
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/descope/blobs/sha256:ca173393ec20b0b276608e1ff9cb3ba8b3d21f849dfab57407ab452126d50ca3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/descope/blobs/sha256:dbcc83e5fe21decbc2bdf875a3fab9b20743219499d1c979eabcef15cf30c1bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/descope/blobs/sha256:0c7ab386ce6d9073abc2e20e11aa729a1bcb7a0f083ac5bb11821d5f40a9683c
+sha256:
+  darwin_arm64: 6aad2b0f78e9b6c0b7f6289535925ffb673418ea50e0c9fb636242408cc54984
+  darwin_amd64: ca173393ec20b0b276608e1ff9cb3ba8b3d21f849dfab57407ab452126d50ca3
+  linux_amd64: dbcc83e5fe21decbc2bdf875a3fab9b20743219499d1c979eabcef15cf30c1bf
+  linux_arm64: 0c7ab386ce6d9073abc2e20e11aa729a1bcb7a0f083ac5bb11821d5f40a9683c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

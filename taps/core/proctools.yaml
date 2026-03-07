@@ -1,0 +1,15 @@
+name: proctools
+version: 0.4pre1
+description: OpenBSD and Darwin versions of pgrep, pkill, and pfind
+homepage: https://proctools.sourceforge.net/
+license: BSD-3-Clause AND BSD-4-Clause-UC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/proctools/blobs/sha256:a04c37c6e995cbce8ff70386029b5b3a00c61cbd1e9c7399cbb177670035df8d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/proctools/blobs/sha256:05aed8b98b5faf6ac1e0026998e7ab30de66318c9165bd4efb78ff35eecb7473
+sha256:
+  darwin_arm64: a04c37c6e995cbce8ff70386029b5b3a00c61cbd1e9c7399cbb177670035df8d
+  darwin_amd64: 05aed8b98b5faf6ac1e0026998e7ab30de66318c9165bd4efb78ff35eecb7473
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: cbfmt
+version: 0.2.0
+description: Format codeblocks inside markdown and org documents
+homepage: https://github.com/lukas-reineke/cbfmt
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cbfmt/blobs/sha256:8a548edda1fc0d3a727eee4b0a49e3a88d38ec88b2ac5c9108d5ccc449223954
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cbfmt/blobs/sha256:f40cb83e59d37c6826a8f99871de12db752fcc8f9830bc4857347ed733cd0b02
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cbfmt/blobs/sha256:bef8994fb32668715f46c8efcd584938cb5cdce740e65f98f9047698ee4e284f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cbfmt/blobs/sha256:e8b95c554dbf6e4179ba91f4eb93afc13949376af400131b280f0a792ba8bd03
+sha256:
+  darwin_arm64: 8a548edda1fc0d3a727eee4b0a49e3a88d38ec88b2ac5c9108d5ccc449223954
+  darwin_amd64: f40cb83e59d37c6826a8f99871de12db752fcc8f9830bc4857347ed733cd0b02
+  linux_amd64: bef8994fb32668715f46c8efcd584938cb5cdce740e65f98f9047698ee4e284f
+  linux_arm64: e8b95c554dbf6e4179ba91f4eb93afc13949376af400131b280f0a792ba8bd03
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

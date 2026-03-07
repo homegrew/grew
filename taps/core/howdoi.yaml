@@ -1,0 +1,24 @@
+name: howdoi
+version: 2.0.20
+description: Instant coding answers via the command-line
+homepage: https://github.com/gleitz/howdoi
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/howdoi/blobs/sha256:c2fc2a8f3eb6316da64b83b877527b5d37e6ab3fdec6db33880e11cef96a6f65
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/howdoi/blobs/sha256:13d89a993ea3ce204cceac71e8776147feb8e251e67f61009007ac63e15e9453
+  linux_amd64: https://ghcr.io/v2/homebrew/core/howdoi/blobs/sha256:a4e0d3b1b980ead84216f5a282e142de7401a351632926304cf32e12b324ce93
+  linux_arm64: https://ghcr.io/v2/homebrew/core/howdoi/blobs/sha256:19beadcf503cb30a4cdbc420e1b80d0c5a3e0be3af0b2a0d0744b1a448c2dc0b
+sha256:
+  darwin_arm64: c2fc2a8f3eb6316da64b83b877527b5d37e6ab3fdec6db33880e11cef96a6f65
+  darwin_amd64: 13d89a993ea3ce204cceac71e8776147feb8e251e67f61009007ac63e15e9453
+  linux_amd64: a4e0d3b1b980ead84216f5a282e142de7401a351632926304cf32e12b324ce93
+  linux_arm64: 19beadcf503cb30a4cdbc420e1b80d0c5a3e0be3af0b2a0d0744b1a448c2dc0b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - cryptography
+  - libsodium
+  - python@3.14

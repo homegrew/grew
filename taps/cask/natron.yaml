@@ -1,0 +1,11 @@
+name: natron
+version: 2.5.0
+description: Open-source node-graph based video compositing software
+homepage: https://NatronGitHub.github.io/
+url:
+  darwin_arm64: https://github.com/NatronGitHub/Natron/releases/download/v2.5.0/Natron-2.5.0-macOS12-x86_64.dmg
+sha256:
+  darwin_arm64: aa31fb6963344c281b53ca6e93823885e09f7d115ed5cc311abb833de4647537
+artifacts:
+  app:
+    - Natron.app

@@ -1,0 +1,19 @@
+name: pfetch-rs
+version: 2.11.1
+description: Pretty system information tool written in Rust
+homepage: https://github.com/Gobidev/pfetch-rs
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pfetch-rs/blobs/sha256:8b8869eb94d2f2eacf898bd934be26ccacad111b41828cd4910d01975329ca59
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pfetch-rs/blobs/sha256:270e81997e47b2d7307ce0e8ee95a4f553e0277019ac1a361abdd9ab1336833a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pfetch-rs/blobs/sha256:502209e4ed7e51463bee5bfb8f746c6913a9f01cef928da2a4f7df9aed7797fa
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pfetch-rs/blobs/sha256:8f575a553467d25369d3416cb58de53e812b91ffc3f7c3c851dff3190e6ee297
+sha256:
+  darwin_arm64: 8b8869eb94d2f2eacf898bd934be26ccacad111b41828cd4910d01975329ca59
+  darwin_amd64: 270e81997e47b2d7307ce0e8ee95a4f553e0277019ac1a361abdd9ab1336833a
+  linux_amd64: 502209e4ed7e51463bee5bfb8f746c6913a9f01cef928da2a4f7df9aed7797fa
+  linux_arm64: 8f575a553467d25369d3416cb58de53e812b91ffc3f7c3c851dff3190e6ee297
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

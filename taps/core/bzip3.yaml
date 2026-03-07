@@ -1,0 +1,19 @@
+name: bzip3
+version: 1.5.3
+description: Better and stronger spiritual successor to BZip2
+homepage: https://github.com/kspalaiologos/bzip3
+license: LGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bzip3/blobs/sha256:81921e9c4facfdfe8650998141d3a5f3269003d0bad236ec57f90707ea3a73e8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bzip3/blobs/sha256:046095415fe0bd81f8234e3a9bcd5904b405c5e125b8d492f7d77c5d29a9381e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bzip3/blobs/sha256:234e3a3449f0710e43724ff50fae9e819ed354869954bd989f005951a7ac386a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bzip3/blobs/sha256:205609d980a9f5e65292fcceb69322379ccb3a7c58cf32d26669e5fb2c43cd04
+sha256:
+  darwin_arm64: 81921e9c4facfdfe8650998141d3a5f3269003d0bad236ec57f90707ea3a73e8
+  darwin_amd64: 046095415fe0bd81f8234e3a9bcd5904b405c5e125b8d492f7d77c5d29a9381e
+  linux_amd64: 234e3a3449f0710e43724ff50fae9e819ed354869954bd989f005951a7ac386a
+  linux_arm64: 205609d980a9f5e65292fcceb69322379ccb3a7c58cf32d26669e5fb2c43cd04
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

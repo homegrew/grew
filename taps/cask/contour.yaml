@@ -1,0 +1,14 @@
+name: contour
+version: 0.6.1.7494
+description: Terminal emulator
+homepage: https://github.com/contour-terminal/contour/
+url:
+  darwin_arm64: https://github.com/contour-terminal/contour/releases/download/v0.6.1.7494/contour-0.6.1.7494-macOS-arm.dmg
+sha256:
+  darwin_arm64: 71c91a97a1adb1969750a4842295ab4fd9d91f25cc84161fa89670472261793b
+artifacts:
+  app:
+    - contour.app
+  bin:
+    - contour
+    - ~/.terminfo/63/contour

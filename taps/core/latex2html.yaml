@@ -1,0 +1,22 @@
+name: latex2html
+version: 2026
+description: LaTeX-to-HTML translator
+homepage: https://www.latex2html.org
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/latex2html/blobs/sha256:c4eab1a95e9acbb8c752f81b1edcf03f4f0f0cb287c8c865fb565f68e722075c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/latex2html/blobs/sha256:9b75fab8d6cc429e7d328bc62b6a677f259fe89cddbd74382b609932d99546ec
+  linux_amd64: https://ghcr.io/v2/homebrew/core/latex2html/blobs/sha256:4707cdb1549e57bd8b2f89dd533e9d76fcc99ae6461a251ee574703d32533bc3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/latex2html/blobs/sha256:fb5fda4ff20cacc7e15cabac8d97e860679d03a9b4c3c07196249500bfae1514
+sha256:
+  darwin_arm64: c4eab1a95e9acbb8c752f81b1edcf03f4f0f0cb287c8c865fb565f68e722075c
+  darwin_amd64: 9b75fab8d6cc429e7d328bc62b6a677f259fe89cddbd74382b609932d99546ec
+  linux_amd64: 4707cdb1549e57bd8b2f89dd533e9d76fcc99ae6461a251ee574703d32533bc3
+  linux_arm64: fb5fda4ff20cacc7e15cabac8d97e860679d03a9b4c3c07196249500bfae1514
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ghostscript
+  - netpbm

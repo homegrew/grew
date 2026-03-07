@@ -1,0 +1,21 @@
+name: mermaid-cli
+version: 11.12.0
+description: CLI for Mermaid library
+homepage: https://github.com/mermaid-js/mermaid-cli
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mermaid-cli/blobs/sha256:7585648a49d157ad32707c73aa4dff41b4d06a38261d8df4909c5a09c282c581
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mermaid-cli/blobs/sha256:b2fb3aa586d4644029bf858d189adf7ff879c8383b396a6ac2cc7fd8cb9ab9c0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mermaid-cli/blobs/sha256:32ef5ace7620a06092136d9900497f2fe55a15693d28a3b50bb2ce62af7b68af
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mermaid-cli/blobs/sha256:f139c590db72914dd6bb29ccbc38caeba011433dbbd0048b91c601f1f449d7bc
+sha256:
+  darwin_arm64: 7585648a49d157ad32707c73aa4dff41b4d06a38261d8df4909c5a09c282c581
+  darwin_amd64: b2fb3aa586d4644029bf858d189adf7ff879c8383b396a6ac2cc7fd8cb9ab9c0
+  linux_amd64: 32ef5ace7620a06092136d9900497f2fe55a15693d28a3b50bb2ce62af7b68af
+  linux_arm64: f139c590db72914dd6bb29ccbc38caeba011433dbbd0048b91c601f1f449d7bc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

@@ -1,0 +1,28 @@
+name: curl
+version: 8.18.0
+description: Get a file from an HTTP, HTTPS or FTP server
+homepage: https://curl.se
+license: curl
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:48707c8f48875dba2094a3d8ebec5b0440382a0fec2c032ce8f5f7e3090c2963
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:a0027833d5cc65535ad7441b716ef0a84373fd4a6e0d2cb7276b610a1a884b8a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:2fda5084a92a23173877cb7c4bbae01bcf9e8e9eb951b1612b8d2a0798f9c591
+  linux_arm64: https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:605e87afaf7f589f227c9eab7574c3e7913d5a6eb8dea954230023fb1baceb5b
+sha256:
+  darwin_arm64: 48707c8f48875dba2094a3d8ebec5b0440382a0fec2c032ce8f5f7e3090c2963
+  darwin_amd64: a0027833d5cc65535ad7441b716ef0a84373fd4a6e0d2cb7276b610a1a884b8a
+  linux_amd64: 2fda5084a92a23173877cb7c4bbae01bcf9e8e9eb951b1612b8d2a0798f9c591
+  linux_arm64: 605e87afaf7f589f227c9eab7574c3e7913d5a6eb8dea954230023fb1baceb5b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - libnghttp2
+  - libnghttp3
+  - libngtcp2
+  - libssh2
+  - openssl@3
+  - zstd
+keg_only: true

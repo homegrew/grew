@@ -1,0 +1,19 @@
+name: libxml++@5
+version: 5.6.0
+description: C++ wrapper for libxml
+homepage: https://libxmlplusplus.github.io/libxmlplusplus/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libxmlxx/5/blobs/sha256:d8f7af5b6ae22cf7f4ebc0cdcc6ff4c8da8948fed395c9ec78f70c945af17ef1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libxmlxx/5/blobs/sha256:fda6da5a238721629336dc6136b3dd332a3ba9a1573ec3277709a03099b4a61e
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libxmlxx/5/blobs/sha256:555db96f572fb18e781cb8875bb73f3c595f2a36159dfd19350822d82e4a718a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libxmlxx/5/blobs/sha256:b29e9a86607c16f976f10ed9c6674875e9c0261d465a4920191b68df1fb88da1
+sha256:
+  darwin_arm64: d8f7af5b6ae22cf7f4ebc0cdcc6ff4c8da8948fed395c9ec78f70c945af17ef1
+  darwin_amd64: fda6da5a238721629336dc6136b3dd332a3ba9a1573ec3277709a03099b4a61e
+  linux_amd64: 555db96f572fb18e781cb8875bb73f3c595f2a36159dfd19350822d82e4a718a
+  linux_arm64: b29e9a86607c16f976f10ed9c6674875e9c0261d465a4920191b68df1fb88da1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

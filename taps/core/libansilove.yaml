@@ -1,0 +1,21 @@
+name: libansilove
+version: 1.4.2
+description: Library for converting ANSI, ASCII, and other formats to PNG
+homepage: https://www.ansilove.org
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libansilove/blobs/sha256:fc81ba49030d1ff262da56b77367d10a98ef1f677415349a0c81c80c052b2750
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libansilove/blobs/sha256:6e9222974a1c639e44e28db4d3c0e128a95dd0cf4fd7f85254ab649062ead51b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libansilove/blobs/sha256:464592e648d31ec4ade3ee710dde95d5059bec8c3fe47bb9881a05cf3b87d449
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libansilove/blobs/sha256:175358f696c2f5286e866f812b7890f15e30555fe5c12bd7eadeb4a8e050db35
+sha256:
+  darwin_arm64: fc81ba49030d1ff262da56b77367d10a98ef1f677415349a0c81c80c052b2750
+  darwin_amd64: 6e9222974a1c639e44e28db4d3c0e128a95dd0cf4fd7f85254ab649062ead51b
+  linux_amd64: 464592e648d31ec4ade3ee710dde95d5059bec8c3fe47bb9881a05cf3b87d449
+  linux_arm64: 175358f696c2f5286e866f812b7890f15e30555fe5c12bd7eadeb4a8e050db35
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gd

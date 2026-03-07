@@ -1,0 +1,11 @@
+name: ultimaker-cura
+version: 5.12.0
+description: 3D printer and slicing GUI
+homepage: https://ultimaker.com/software/ultimaker-cura
+url:
+  darwin_arm64: https://github.com/Ultimaker/Cura/releases/download/5.12.0/UltiMaker-Cura-5.12.0-macos-ARM64.dmg
+sha256:
+  darwin_arm64: db2c58e47e6c20f2731feb73406ee62d5763c01c22f16109728ff02b66d0108e
+artifacts:
+  app:
+    - UltiMaker Cura.app

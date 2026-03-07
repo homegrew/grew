@@ -1,0 +1,11 @@
+name: keepingyouawake
+version: 1.6.8
+description: Tool to prevent the system from going into sleep mode
+homepage: https://keepingyouawake.app/
+url:
+  darwin_arm64: https://github.com/newmarcel/KeepingYouAwake/releases/download/1.6.8/KeepingYouAwake-1.6.8.zip
+sha256:
+  darwin_arm64: 8001a149b4490c008fdac19898bce9902d516c4aa6412a7eb0f9a37443b15c6b
+artifacts:
+  app:
+    - KeepingYouAwake.app

@@ -1,0 +1,19 @@
+name: dumbpipe
+version: 0.34.0
+description: Unix pipes between devices
+homepage: https://dumbpipe.dev
+license: MIT OR Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dumbpipe/blobs/sha256:29ef54d4a9703603180e98e0090d1586a04e75e3b6099353d9da547072843ac5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dumbpipe/blobs/sha256:e6ebc423c9924372dc5d2e3f872e78870580782071246e2eb7a689e4a7dc15ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dumbpipe/blobs/sha256:0549e78b9a59a4311c16fdca9159d6aff5aa3046cdb541fa1178d49af8a77958
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dumbpipe/blobs/sha256:59e9cfb5ed8d37f7c29777de417e0669ea45832612a3aadb454608de9ed477ca
+sha256:
+  darwin_arm64: 29ef54d4a9703603180e98e0090d1586a04e75e3b6099353d9da547072843ac5
+  darwin_amd64: e6ebc423c9924372dc5d2e3f872e78870580782071246e2eb7a689e4a7dc15ea
+  linux_amd64: 0549e78b9a59a4311c16fdca9159d6aff5aa3046cdb541fa1178d49af8a77958
+  linux_arm64: 59e9cfb5ed8d37f7c29777de417e0669ea45832612a3aadb454608de9ed477ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

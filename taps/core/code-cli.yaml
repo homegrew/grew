@@ -1,0 +1,21 @@
+name: code-cli
+version: 1.110.1
+description: Command-line interface built-in Visual Studio Code
+homepage: https://github.com/microsoft/vscode
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/code-cli/blobs/sha256:d97b2063bb03c151f05c5d8853cf9f810f8f95465cb2a7154e395975d3cf102f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/code-cli/blobs/sha256:f85ac748af58ad039780649023539268f2b9b2c9564d6abbcf4a79041ef82e66
+  linux_amd64: https://ghcr.io/v2/homebrew/core/code-cli/blobs/sha256:e0cfa522fe1a6a9949f65f71e4eb7aeabeb1600bc482a95ad0cc52fc2fe02ee7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/code-cli/blobs/sha256:b077ad1be071a0c5af42981f1f836dd97ca2051161d7a01996c0b8fa9005919a
+sha256:
+  darwin_arm64: d97b2063bb03c151f05c5d8853cf9f810f8f95465cb2a7154e395975d3cf102f
+  darwin_amd64: f85ac748af58ad039780649023539268f2b9b2c9564d6abbcf4a79041ef82e66
+  linux_amd64: e0cfa522fe1a6a9949f65f71e4eb7aeabeb1600bc482a95ad0cc52fc2fe02ee7
+  linux_arm64: b077ad1be071a0c5af42981f1f836dd97ca2051161d7a01996c0b8fa9005919a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

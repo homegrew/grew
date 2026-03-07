@@ -1,0 +1,21 @@
+name: tuntox
+version: 0.0.10.1
+description: Tunnel TCP connections over the Tox protocol
+homepage: https://gdr.name/tuntox/
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/tuntox/blobs/sha256:bff9afd8a3a6496881f6ad2d4920d3caf40cc4310b6240c989a1cc009e37ea5d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/tuntox/blobs/sha256:4d32b28b2190221c4868f6066b1a4c7c7922f98365d6e78e702f1f74cd65963b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/tuntox/blobs/sha256:b3cac8ddc89ca91fed03ad0907d5ad9ac15c02309a97949b6449d93a7d5449c8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/tuntox/blobs/sha256:3c2155cd3b704f8ff29fb52307f2283e88866d35558970169017fafed93ac096
+sha256:
+  darwin_arm64: bff9afd8a3a6496881f6ad2d4920d3caf40cc4310b6240c989a1cc009e37ea5d
+  darwin_amd64: 4d32b28b2190221c4868f6066b1a4c7c7922f98365d6e78e702f1f74cd65963b
+  linux_amd64: b3cac8ddc89ca91fed03ad0907d5ad9ac15c02309a97949b6449d93a7d5449c8
+  linux_arm64: 3c2155cd3b704f8ff29fb52307f2283e88866d35558970169017fafed93ac096
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - toxcore

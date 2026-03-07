@@ -1,0 +1,21 @@
+name: pinboard-notes-backup
+version: 1.0.7.1
+description: "Efficiently back up the notes you've saved to Pinboard"
+homepage: https://github.com/bdesham/pinboard-notes-backup
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pinboard-notes-backup/blobs/sha256:61ab93300efacf6806b22a12a68d41abb160245fbd468320985c72541e74c08a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pinboard-notes-backup/blobs/sha256:87d95a1410a2d5f7332b9a86b4b822ef00bec53b26b571be9573308304b44238
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pinboard-notes-backup/blobs/sha256:d6f27b387f833bca955fe44a98f07222cf8f31539067e5f6b538ad131df13c5a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pinboard-notes-backup/blobs/sha256:52b12aa0e866edb547e43aa8b3203a811cdab29f55b3860047a07f4f53bf9ba9
+sha256:
+  darwin_arm64: 61ab93300efacf6806b22a12a68d41abb160245fbd468320985c72541e74c08a
+  darwin_amd64: 87d95a1410a2d5f7332b9a86b4b822ef00bec53b26b571be9573308304b44238
+  linux_amd64: d6f27b387f833bca955fe44a98f07222cf8f31539067e5f6b538ad131df13c5a
+  linux_arm64: 52b12aa0e866edb547e43aa8b3203a811cdab29f55b3860047a07f4f53bf9ba9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

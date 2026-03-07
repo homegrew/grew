@@ -1,0 +1,24 @@
+name: opencascade
+version: 7.9.3
+description: 3D modeling and numerical simulation software for CAD/CAM/CAE
+homepage: https://dev.opencascade.org/
+license: LGPL-2.1-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/opencascade/blobs/sha256:ee074a5e0dac9f36e41231af3741dddc93501417b014443eadf212f680e9e91c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/opencascade/blobs/sha256:a47410e2c2a5aa1460c8953001969edff4204bb16244d4c5551d9c2f167c748d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/opencascade/blobs/sha256:e0cc020558ef5d2441e2d157fe7c98d039f876a815a17835f0b5fd14f610f24c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/opencascade/blobs/sha256:b3a3c89ab9ca41058d5afe03c5327501a2a0835b78b7bcf13348d4b7478ce836
+sha256:
+  darwin_arm64: ee074a5e0dac9f36e41231af3741dddc93501417b014443eadf212f680e9e91c
+  darwin_amd64: a47410e2c2a5aa1460c8953001969edff4204bb16244d4c5551d9c2f167c748d
+  linux_amd64: e0cc020558ef5d2441e2d157fe7c98d039f876a815a17835f0b5fd14f610f24c
+  linux_arm64: b3a3c89ab9ca41058d5afe03c5327501a2a0835b78b7bcf13348d4b7478ce836
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - fontconfig
+  - freetype
+  - tbb
+  - tcl-tk@8

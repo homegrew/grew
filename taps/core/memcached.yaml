@@ -1,0 +1,22 @@
+name: memcached
+version: 1.6.41
+description: High performance, distributed memory object caching system
+homepage: https://memcached.org/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/memcached/blobs/sha256:73994b98ba41eaeee0e79d4b5ffab8b9fb68856d5e9136148f1aee6b68cc151b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/memcached/blobs/sha256:9014d9f2c632c4095b22a05b6476416bef77993e8ccf7f79bc81560d5e2bb21f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/memcached/blobs/sha256:1e3fd0efd8dd876cbfb403902908c66b28af041d665b6acbf41f5cfd9ee7ecf2
+  linux_arm64: https://ghcr.io/v2/homebrew/core/memcached/blobs/sha256:59ef13bbcea7a66128350ddecb643619f3d1c9e616fc43d82634f5d341048410
+sha256:
+  darwin_arm64: 73994b98ba41eaeee0e79d4b5ffab8b9fb68856d5e9136148f1aee6b68cc151b
+  darwin_amd64: 9014d9f2c632c4095b22a05b6476416bef77993e8ccf7f79bc81560d5e2bb21f
+  linux_amd64: 1e3fd0efd8dd876cbfb403902908c66b28af041d665b6acbf41f5cfd9ee7ecf2
+  linux_arm64: 59ef13bbcea7a66128350ddecb643619f3d1c9e616fc43d82634f5d341048410
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libevent
+  - openssl@3

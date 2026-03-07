@@ -1,0 +1,19 @@
+name: argon2
+version: 20190702
+description: Password hashing library and CLI utility
+homepage: https://github.com/P-H-C/phc-winner-argon2
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/argon2/blobs/sha256:afaa0b7c4c305b6b8ccef5abb4863d30fc1dfc537cc2bdc43e1c558df25723c6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/argon2/blobs/sha256:00b61d421980e47df314b7b4ca74d3ed12ebf2eab0f35cb1013d0e397700c6bc
+  linux_amd64: https://ghcr.io/v2/homebrew/core/argon2/blobs/sha256:58b4014f120e135a991f1023f210366ef3e9175a37a05a3fffb06a9fe3c23ff4
+  linux_arm64: https://ghcr.io/v2/homebrew/core/argon2/blobs/sha256:1149cb3482d46eb06f07d77b2d3e3ff3f71599f573bf32553c4407f0b470c45c
+sha256:
+  darwin_arm64: afaa0b7c4c305b6b8ccef5abb4863d30fc1dfc537cc2bdc43e1c558df25723c6
+  darwin_amd64: 00b61d421980e47df314b7b4ca74d3ed12ebf2eab0f35cb1013d0e397700c6bc
+  linux_amd64: 58b4014f120e135a991f1023f210366ef3e9175a37a05a3fffb06a9fe3c23ff4
+  linux_arm64: 1149cb3482d46eb06f07d77b2d3e3ff3f71599f573bf32553c4407f0b470c45c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

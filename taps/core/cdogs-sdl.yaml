@@ -1,0 +1,24 @@
+name: cdogs-sdl
+version: 2.4.0
+description: Classic overhead run-and-gun game
+homepage: https://cxong.github.io/cdogs-sdl/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cdogs-sdl/blobs/sha256:43cb95679ae4236f5f3b24a07e0419de27a93688cb610e5bfde88781e50fbc8a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cdogs-sdl/blobs/sha256:938c7c419cf215c4d118f079840b60d30877f25852a8d4893e6436d4cb7d4617
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cdogs-sdl/blobs/sha256:ef5c5f617815355ce474291696af44a88e8243c0b15a099ff0a97155ba43f68e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cdogs-sdl/blobs/sha256:d09d6dc4b6acda8cbef949250bf964568de9685dea0a0576296e286d20168f98
+sha256:
+  darwin_arm64: 43cb95679ae4236f5f3b24a07e0419de27a93688cb610e5bfde88781e50fbc8a
+  darwin_amd64: 938c7c419cf215c4d118f079840b60d30877f25852a8d4893e6436d4cb7d4617
+  linux_amd64: ef5c5f617815355ce474291696af44a88e8243c0b15a099ff0a97155ba43f68e
+  linux_arm64: d09d6dc4b6acda8cbef949250bf964568de9685dea0a0576296e286d20168f98
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14
+  - sdl2
+  - sdl2_image
+  - sdl2_mixer

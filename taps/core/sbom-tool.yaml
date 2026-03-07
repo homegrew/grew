@@ -1,0 +1,19 @@
+name: sbom-tool
+version: 4.1.5
+description: Scalable and enterprise ready tool to create SBOMs for any variety of artifacts
+homepage: https://github.com/microsoft/sbom-tool
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sbom-tool/blobs/sha256:06b6f4918958ec0e7e70ccbb235644379bd18ff47afe57caf7d8c1c8cbedef67
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sbom-tool/blobs/sha256:3ee862f5f6b5c288e44ae1be6f39976b76e7a52a3c5c1cbcae09a076822d4ff5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sbom-tool/blobs/sha256:c6613476c7a9046af605b796661736ce125b23ac0a01cf400920d99d095d9796
+sha256:
+  darwin_arm64: 06b6f4918958ec0e7e70ccbb235644379bd18ff47afe57caf7d8c1c8cbedef67
+  linux_amd64: 3ee862f5f6b5c288e44ae1be6f39976b76e7a52a3c5c1cbcae09a076822d4ff5
+  linux_arm64: c6613476c7a9046af605b796661736ce125b23ac0a01cf400920d99d095d9796
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - dotnet@8

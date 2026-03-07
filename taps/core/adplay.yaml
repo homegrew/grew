@@ -1,0 +1,23 @@
+name: adplay
+version: 1.9
+description: Command-line player for OPL2 music
+homepage: https://adplug.github.io
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/adplay/blobs/sha256:09db45033118afa94298a58b3514d0265fb3f11c90341760e20899663ccc4fd8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/adplay/blobs/sha256:62f0e81f88d53e2f0882ff204ef39ac34398c59111d90b1a86e1c4903710ef0c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/adplay/blobs/sha256:5802a081b95a8a5610e8c27fe5100048e4eb89ca17ffef6fcf07fadda24e671c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/adplay/blobs/sha256:beeaca960d641fa18e2386ef83ab7ab2df2b030aa683e6eb724eecb3251d09c8
+sha256:
+  darwin_arm64: 09db45033118afa94298a58b3514d0265fb3f11c90341760e20899663ccc4fd8
+  darwin_amd64: 62f0e81f88d53e2f0882ff204ef39ac34398c59111d90b1a86e1c4903710ef0c
+  linux_amd64: 5802a081b95a8a5610e8c27fe5100048e4eb89ca17ffef6fcf07fadda24e671c
+  linux_arm64: beeaca960d641fa18e2386ef83ab7ab2df2b030aa683e6eb724eecb3251d09c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - adplug
+  - libbinio
+  - sdl2

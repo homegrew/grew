@@ -1,0 +1,19 @@
+name: kubelogin
+version: 1.36.0
+description: OpenID Connect authentication plugin for kubectl
+homepage: https://github.com/int128/kubelogin
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/kubelogin/blobs/sha256:3721c8faab701240d8ab99a4e2578b11bf8ba6e47457879c380eeb12859c3fd9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/kubelogin/blobs/sha256:32862e1f14279b7db00ff5923b1212c3d9f37000c2e45ff172f755a22630f0ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/kubelogin/blobs/sha256:96cdeec7876e21ae7cbbbee7f3f2ed51c8878917aa481c41f6e748ee4e75ec6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/kubelogin/blobs/sha256:eacd220d36bff26405593d3459d130bf7fbb002efcf8c3a2358e3b33daff7ca4
+sha256:
+  darwin_arm64: 3721c8faab701240d8ab99a4e2578b11bf8ba6e47457879c380eeb12859c3fd9
+  darwin_amd64: 32862e1f14279b7db00ff5923b1212c3d9f37000c2e45ff172f755a22630f0ea
+  linux_amd64: 96cdeec7876e21ae7cbbbee7f3f2ed51c8878917aa481c41f6e748ee4e75ec6e
+  linux_arm64: eacd220d36bff26405593d3459d130bf7fbb002efcf8c3a2358e3b33daff7ca4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

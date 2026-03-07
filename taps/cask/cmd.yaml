@@ -1,0 +1,11 @@
+name: cmd
+version: 0.2.3
+description: AI assistant for development in Xcode
+homepage: https://getcmd.dev/
+url:
+  darwin_arm64: https://github.com/getcmd-dev/cmd/releases/download/v0.2.3/cmd.dmg
+sha256:
+  darwin_arm64: 4353828e77a46e39c44041aebfb65474e41eb18c7237ac16e9fc21841959877a
+artifacts:
+  app:
+    - cmd.app

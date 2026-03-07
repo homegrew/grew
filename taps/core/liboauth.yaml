@@ -1,0 +1,21 @@
+name: liboauth
+version: 1.0.3
+description: C library for the OAuth Core RFC 5849 standard
+homepage: https://sourceforge.net/projects/liboauth/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/liboauth/blobs/sha256:a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/liboauth/blobs/sha256:82369227bbe96d217b653ca80bdb771a97fe5b4d2e04d581dea6a61396acc97a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/liboauth/blobs/sha256:0177a7a4378d03aa25b46b4bc37bc12b777438fa177ef15b0dd16406cfad40ef
+  linux_arm64: https://ghcr.io/v2/homebrew/core/liboauth/blobs/sha256:d590a572f38268fe5b4a9ec90877b436030fe6ef35564681bd8af45f15a66186
+sha256:
+  darwin_arm64: a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84
+  darwin_amd64: 82369227bbe96d217b653ca80bdb771a97fe5b4d2e04d581dea6a61396acc97a
+  linux_amd64: 0177a7a4378d03aa25b46b4bc37bc12b777438fa177ef15b0dd16406cfad40ef
+  linux_arm64: d590a572f38268fe5b4a9ec90877b436030fe6ef35564681bd8af45f15a66186
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

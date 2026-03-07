@@ -1,0 +1,22 @@
+name: solc-select
+version: 1.2.0
+description: Manage multiple Solidity compiler versions
+homepage: https://github.com/crytic/solc-select
+license: AGPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/solc-select/blobs/sha256:fad784f517f25560079fab570297d97420e85c31be47b21446f5c6bf3623494f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/solc-select/blobs/sha256:e37a09d2e64296b744e12be0feae56ab5f2fa1a2009a93d5855ffa83bef3eb6b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/solc-select/blobs/sha256:d93f3a1db63e47bf89cf93bad487060ef2ad929b34d687e16e1cd322c8d01502
+  linux_arm64: https://ghcr.io/v2/homebrew/core/solc-select/blobs/sha256:3d4c92940ff09255409d65c0f4655474d3cbec26e84e1ec0a730f25a122e495d
+sha256:
+  darwin_arm64: fad784f517f25560079fab570297d97420e85c31be47b21446f5c6bf3623494f
+  darwin_amd64: e37a09d2e64296b744e12be0feae56ab5f2fa1a2009a93d5855ffa83bef3eb6b
+  linux_amd64: d93f3a1db63e47bf89cf93bad487060ef2ad929b34d687e16e1cd322c8d01502
+  linux_arm64: 3d4c92940ff09255409d65c0f4655474d3cbec26e84e1ec0a730f25a122e495d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - python@3.14

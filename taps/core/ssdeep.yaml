@@ -1,0 +1,19 @@
+name: ssdeep
+version: 2.14.1
+description: Recursive piecewise hashing tool
+homepage: https://ssdeep-project.github.io/ssdeep/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ssdeep/blobs/sha256:e9bde3f8a96c900db97df6ad5bbfdc7c3b846229b78882cb6413fd58f0dc00e9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ssdeep/blobs/sha256:0b284332d1db2589577a0714f875ff8149146ada15d3cb443190977024145e46
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ssdeep/blobs/sha256:d62ce2005fd901e4a363b3f6592dee0388e9114d323a058499d16e8dba9c4d38
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ssdeep/blobs/sha256:0efcfc1a319de30ee921f93ee4296d34d801a59381b47169accce5630181b93d
+sha256:
+  darwin_arm64: e9bde3f8a96c900db97df6ad5bbfdc7c3b846229b78882cb6413fd58f0dc00e9
+  darwin_amd64: 0b284332d1db2589577a0714f875ff8149146ada15d3cb443190977024145e46
+  linux_amd64: d62ce2005fd901e4a363b3f6592dee0388e9114d323a058499d16e8dba9c4d38
+  linux_arm64: 0efcfc1a319de30ee921f93ee4296d34d801a59381b47169accce5630181b93d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: befunge93
+version: 2.25
+description: Esoteric programming language
+homepage: https://catseye.tc/article/Languages.md#befunge-93
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/befunge93/blobs/sha256:e7cb6bafad0910e0180d079e0915876d138ad0ab1a7d5bdb7051d41ad1c5a9e1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/befunge93/blobs/sha256:5486169859b1d8ed1522380e54f750cbc619ce7b06cfcbf91cd84a473f0adf3c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/befunge93/blobs/sha256:4f71eb1910501903b8af94c21352759032696046be49995beb95caead85a8398
+  linux_arm64: https://ghcr.io/v2/homebrew/core/befunge93/blobs/sha256:81943fb8dff560b6d4a8641bd26eea7433127d01044710a3c46fce634cc8ce4d
+sha256:
+  darwin_arm64: e7cb6bafad0910e0180d079e0915876d138ad0ab1a7d5bdb7051d41ad1c5a9e1
+  darwin_amd64: 5486169859b1d8ed1522380e54f750cbc619ce7b06cfcbf91cd84a473f0adf3c
+  linux_amd64: 4f71eb1910501903b8af94c21352759032696046be49995beb95caead85a8398
+  linux_arm64: 81943fb8dff560b6d4a8641bd26eea7433127d01044710a3c46fce634cc8ce4d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

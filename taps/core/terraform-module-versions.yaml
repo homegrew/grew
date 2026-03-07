@@ -1,0 +1,19 @@
+name: terraform-module-versions
+version: 3.3.13
+description: CLI that checks Terraform code for module updates
+homepage: https://github.com/keilerkonzept/terraform-module-versions
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/terraform-module-versions/blobs/sha256:570693949b4aeecf98436163b51c05af549c7100d35fbb07254fd8c9cb085d19
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/terraform-module-versions/blobs/sha256:e1f9c1efef4d6bd1de99676ca38f0d48df39201303c7cb5ef5171f013f51b9f1
+  linux_amd64: https://ghcr.io/v2/homebrew/core/terraform-module-versions/blobs/sha256:58972338b2b52cdd49510d81a228a18eeaa615d4ceec36cd35707dad896b0966
+  linux_arm64: https://ghcr.io/v2/homebrew/core/terraform-module-versions/blobs/sha256:f97491547c6d3a1ce689aab8fcb4f8e4a0eb8bfccf4da2b0bce094806bda0ce7
+sha256:
+  darwin_arm64: 570693949b4aeecf98436163b51c05af549c7100d35fbb07254fd8c9cb085d19
+  darwin_amd64: e1f9c1efef4d6bd1de99676ca38f0d48df39201303c7cb5ef5171f013f51b9f1
+  linux_amd64: 58972338b2b52cdd49510d81a228a18eeaa615d4ceec36cd35707dad896b0966
+  linux_arm64: f97491547c6d3a1ce689aab8fcb4f8e4a0eb8bfccf4da2b0bce094806bda0ce7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

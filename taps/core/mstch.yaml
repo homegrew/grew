@@ -1,0 +1,21 @@
+name: mstch
+version: 1.0.2
+description: "Complete implementation of {{mustache}} templates using modern C++"
+homepage: https://github.com/no1msd/mstch
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mstch/blobs/sha256:de05bbbd99f8eb688ae2cd08287796eddbd6774bed8f27945cc818e8a1aee27a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mstch/blobs/sha256:10610321f7b5fa161cf8f8f7eb9e85cd1844c4a7b5ec282d25f9d42e8d973ded
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mstch/blobs/sha256:cc3206f041325c9dc4217c73cad3064ecbd58e679f7cde926fbed9d244102686
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mstch/blobs/sha256:66db171aa49e6b433591665ec4a04fd996c56e94f3329e550af33f6e7d700a4b
+sha256:
+  darwin_arm64: de05bbbd99f8eb688ae2cd08287796eddbd6774bed8f27945cc818e8a1aee27a
+  darwin_amd64: 10610321f7b5fa161cf8f8f7eb9e85cd1844c4a7b5ec282d25f9d42e8d973ded
+  linux_amd64: cc3206f041325c9dc4217c73cad3064ecbd58e679f7cde926fbed9d244102686
+  linux_arm64: 66db171aa49e6b433591665ec4a04fd996c56e94f3329e550af33f6e7d700a4b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - boost

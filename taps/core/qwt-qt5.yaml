@@ -1,0 +1,22 @@
+name: qwt-qt5
+version: 6.3.0
+description: Qt Widgets for Technical Applications
+homepage: https://qwt.sourceforge.io/
+license: LGPL-2.1-only WITH Qwt-exception-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qwt-qt5/blobs/sha256:50d8256a3eed2810739b8e3ef00d8290ec2b70c526578063864b73540e09b897
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qwt-qt5/blobs/sha256:f99f4ba3c3aec0a92ee319b16bf8478258eecb4fedb0c635a9bbfdb605110adf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qwt-qt5/blobs/sha256:9a367f75f804b12fd9f2bd9706a47a0f67cd9862035448063e81d9e8ae1c620e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qwt-qt5/blobs/sha256:7499edc1cd2721d47889cdd38e30ebefdeb7137090e25eebd1f310a5f6a91cfa
+sha256:
+  darwin_arm64: 50d8256a3eed2810739b8e3ef00d8290ec2b70c526578063864b73540e09b897
+  darwin_amd64: f99f4ba3c3aec0a92ee319b16bf8478258eecb4fedb0c635a9bbfdb605110adf
+  linux_amd64: 9a367f75f804b12fd9f2bd9706a47a0f67cd9862035448063e81d9e8ae1c620e
+  linux_arm64: 7499edc1cd2721d47889cdd38e30ebefdeb7137090e25eebd1f310a5f6a91cfa
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - qt@5
+keg_only: true

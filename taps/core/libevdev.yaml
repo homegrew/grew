@@ -1,0 +1,15 @@
+name: libevdev
+version: 1.13.6
+description: Wrapper library for evdev devices
+homepage: https://www.freedesktop.org/wiki/Software/libevdev/
+license: MIT
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libevdev/blobs/sha256:70e3e3f2f3524ac16d9380aefe34e1f47d33a06a76a9f460d1bcfcd83df245f7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libevdev/blobs/sha256:b1e035ed8ce1a581d5d9c317f04a158fc22a80ca48b8686971935424a3302311
+sha256:
+  linux_amd64: 70e3e3f2f3524ac16d9380aefe34e1f47d33a06a76a9f460d1bcfcd83df245f7
+  linux_arm64: b1e035ed8ce1a581d5d9c317f04a158fc22a80ca48b8686971935424a3302311
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

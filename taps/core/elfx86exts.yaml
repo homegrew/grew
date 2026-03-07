@@ -1,0 +1,21 @@
+name: elfx86exts
+version: 0.6.2
+description: Decodes x86 binaries (ELF and Mach-O) and prints out ISA extensions in use
+homepage: https://github.com/pkgw/elfx86exts
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/elfx86exts/blobs/sha256:26364ee7fa3dc23dedbb5ec80e551b0cc406919876a757bf2285e7df6b5f51d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/elfx86exts/blobs/sha256:73d0f2b0c4c4ecc122dac0995af34846a1b140a8c604a417f8cbab2a77363a38
+  linux_amd64: https://ghcr.io/v2/homebrew/core/elfx86exts/blobs/sha256:2f2bd41878fda292054b7c900726aa690f55791e7d541aea2c9cb2cf85b8a0e0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/elfx86exts/blobs/sha256:1b90574812e7f452dde24120169e1b1616ccfa5120ec206ed336c942e8619bcf
+sha256:
+  darwin_arm64: 26364ee7fa3dc23dedbb5ec80e551b0cc406919876a757bf2285e7df6b5f51d6
+  darwin_amd64: 73d0f2b0c4c4ecc122dac0995af34846a1b140a8c604a417f8cbab2a77363a38
+  linux_amd64: 2f2bd41878fda292054b7c900726aa690f55791e7d541aea2c9cb2cf85b8a0e0
+  linux_arm64: 1b90574812e7f452dde24120169e1b1616ccfa5120ec206ed336c942e8619bcf
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - capstone

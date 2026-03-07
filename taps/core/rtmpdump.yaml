@@ -1,0 +1,21 @@
+name: rtmpdump
+version: 2.6
+description: Tool for downloading RTMP streaming media
+homepage: https://rtmpdump.mplayerhq.hu/
+license: GPL-2.0-or-later AND LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/rtmpdump/blobs/sha256:488ebaf2932cd02770654ecaf903c115a2f21606d1e7eb37b87054c08f63486e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/rtmpdump/blobs/sha256:89c063d3d0b8bb6d8a63c5cc47a3ace403dee9c99bd3d10e3c1e8efd58ee3bb3
+  linux_amd64: https://ghcr.io/v2/homebrew/core/rtmpdump/blobs/sha256:f5d37b5e7d3831124a9beea1f7fde55e593ffd12357007671ddb402642a4e009
+  linux_arm64: https://ghcr.io/v2/homebrew/core/rtmpdump/blobs/sha256:18c6bc27daf24689a704d66342892097754843e402d591e5957086d5427a61ec
+sha256:
+  darwin_arm64: 488ebaf2932cd02770654ecaf903c115a2f21606d1e7eb37b87054c08f63486e
+  darwin_amd64: 89c063d3d0b8bb6d8a63c5cc47a3ace403dee9c99bd3d10e3c1e8efd58ee3bb3
+  linux_amd64: f5d37b5e7d3831124a9beea1f7fde55e593ffd12357007671ddb402642a4e009
+  linux_arm64: 18c6bc27daf24689a704d66342892097754843e402d591e5957086d5427a61ec
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

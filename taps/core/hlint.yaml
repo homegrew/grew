@@ -1,0 +1,21 @@
+name: hlint
+version: 3.10
+description: Haskell source code suggestions
+homepage: https://github.com/ndmitchell/hlint
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hlint/blobs/sha256:80a07ff5c8c5bdce01b738119532b94fc47e3334e5d9e355a22c27e1653a4c77
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hlint/blobs/sha256:1fabac4ad28935c5b1f84a5e2ca98e3e5d10ad97bd3ef4ec43df68e13be4236a
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hlint/blobs/sha256:2217e05a4e5a0fc44c950f63111bcbd4bd48d2148fa95ec8820a7f50f9a5ea6e
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hlint/blobs/sha256:e138950b30faf4adfc02f70d7a9e61c34ff51bd102ea11aa63da02d8706d4955
+sha256:
+  darwin_arm64: 80a07ff5c8c5bdce01b738119532b94fc47e3334e5d9e355a22c27e1653a4c77
+  darwin_amd64: 1fabac4ad28935c5b1f84a5e2ca98e3e5d10ad97bd3ef4ec43df68e13be4236a
+  linux_amd64: 2217e05a4e5a0fc44c950f63111bcbd4bd48d2148fa95ec8820a7f50f9a5ea6e
+  linux_arm64: e138950b30faf4adfc02f70d7a9e61c34ff51bd102ea11aa63da02d8706d4955
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gmp

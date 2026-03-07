@@ -1,0 +1,19 @@
+name: hebcal
+version: 5.9.7
+description: Perpetual Jewish calendar for the command-line
+homepage: https://github.com/hebcal/hebcal
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hebcal/blobs/sha256:2b44e40e5c70966d5234f87e385f234450edd1b37d22630efcf102f9a9e276ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hebcal/blobs/sha256:6b98502b5e1edee2febd08909376b3467d6736f63c410c2984742c9327b58904
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hebcal/blobs/sha256:efbcddcd63bb5abf9b9b3830d4052d65ea4385b2b268d0b1ca80a1c33dfc23a1
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hebcal/blobs/sha256:0ed79cbab817868d2ce77b37601a910f129f1fafd672d66159e4c36897eb9d2a
+sha256:
+  darwin_arm64: 2b44e40e5c70966d5234f87e385f234450edd1b37d22630efcf102f9a9e276ab
+  darwin_amd64: 6b98502b5e1edee2febd08909376b3467d6736f63c410c2984742c9327b58904
+  linux_amd64: efbcddcd63bb5abf9b9b3830d4052d65ea4385b2b268d0b1ca80a1c33dfc23a1
+  linux_arm64: 0ed79cbab817868d2ce77b37601a910f129f1fafd672d66159e4c36897eb9d2a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

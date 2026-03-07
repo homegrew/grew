@@ -1,0 +1,11 @@
+name: llamabarn
+version: 0.25.0
+description: Menu bar app for running local LLMs
+homepage: https://github.com/ggml-org/LlamaBarn
+url:
+  darwin_arm64: https://github.com/ggml-org/LlamaBarn/releases/download/0.25.0/LlamaBarn.dmg
+sha256:
+  darwin_arm64: 835e623fdaea103ea4707d3fc3736574f6f52f61748ce796f6a07c48334c11e3
+artifacts:
+  app:
+    - LlamaBarn.app

@@ -1,0 +1,19 @@
+name: smu
+version: 1.5
+description: Simple markup with markdown-like syntax
+homepage: https://github.com/Gottox/smu
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smu/blobs/sha256:ae16b75d47384735db2d4c2814049a0eee4b654e58a834b38bf6434c2a0baa91
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smu/blobs/sha256:aaf8b5e63303e44a1f52e79349a985cc02c9df26c4141015bdd29de2062a5fd8
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smu/blobs/sha256:cc53db21e266cc248c242aeb60a653aa21a2f4fbbbd864baec3374e20aaba1e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smu/blobs/sha256:d7b6ba57e030a1e95c092e8270d8945c5f1d4fadb1f09747416f528edeb29209
+sha256:
+  darwin_arm64: ae16b75d47384735db2d4c2814049a0eee4b654e58a834b38bf6434c2a0baa91
+  darwin_amd64: aaf8b5e63303e44a1f52e79349a985cc02c9df26c4141015bdd29de2062a5fd8
+  linux_amd64: cc53db21e266cc248c242aeb60a653aa21a2f4fbbbd864baec3374e20aaba1e7
+  linux_arm64: d7b6ba57e030a1e95c092e8270d8945c5f1d4fadb1f09747416f528edeb29209
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

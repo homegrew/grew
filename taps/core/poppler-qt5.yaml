@@ -1,0 +1,37 @@
+name: poppler-qt5
+version: 26.03.0
+description: PDF rendering library (based on the xpdf-3.0 code base)
+homepage: https://poppler.freedesktop.org/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/poppler-qt5/blobs/sha256:763eaf1dbd340ef62fc374ff9ec12aa9695c8a6a801eab584e9a260e7c65de3c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/poppler-qt5/blobs/sha256:9be541c3231381041a36f23b87edd5316ba30a9675b7c13644582b22b042dabd
+  linux_amd64: https://ghcr.io/v2/homebrew/core/poppler-qt5/blobs/sha256:70fbfb521796f554931b7784af8729bf6e6f03c4ca4c6b49d7b6838f3f6cef62
+  linux_arm64: https://ghcr.io/v2/homebrew/core/poppler-qt5/blobs/sha256:533a27d0ebd24368f3d14f2ce54128d1f924bf638b2fb48c0215c113d625e948
+sha256:
+  darwin_arm64: 763eaf1dbd340ef62fc374ff9ec12aa9695c8a6a801eab584e9a260e7c65de3c
+  darwin_amd64: 9be541c3231381041a36f23b87edd5316ba30a9675b7c13644582b22b042dabd
+  linux_amd64: 70fbfb521796f554931b7784af8729bf6e6f03c4ca4c6b49d7b6838f3f6cef62
+  linux_arm64: 533a27d0ebd24368f3d14f2ce54128d1f924bf638b2fb48c0215c113d625e948
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - fontconfig
+  - freetype
+  - glib
+  - gpgmepp
+  - jpeg-turbo
+  - libpng
+  - libtiff
+  - little-cms2
+  - nspr
+  - nss
+  - openjpeg
+  - qt@5
+  - gettext
+  - gpgme
+  - libassuan
+keg_only: true

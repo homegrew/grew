@@ -1,0 +1,27 @@
+name: twm
+version: 1.0.13.1
+description: Tab Window Manager for X Window System
+homepage: https://gitlab.freedesktop.org/xorg/app/twm
+license: X11
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/twm/blobs/sha256:10c97cb0c9229ad2c77532f6c83736b5e31eb33dc08fe84cd2bd8f7545c56c64
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/twm/blobs/sha256:e1caa71427548f73cec6e7e4c43249b4293979ba2f90731c1add941f86c7b4f9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/twm/blobs/sha256:6993e42ad8cfc6af686eeadf5e0c970b4d23de655c5485562b14f34997c1caee
+  linux_arm64: https://ghcr.io/v2/homebrew/core/twm/blobs/sha256:4371c26596b82bc06d424f527663fd20cee9d63b301b712c38d0fd95d5ea1ab7
+sha256:
+  darwin_arm64: 10c97cb0c9229ad2c77532f6c83736b5e31eb33dc08fe84cd2bd8f7545c56c64
+  darwin_amd64: e1caa71427548f73cec6e7e4c43249b4293979ba2f90731c1add941f86c7b4f9
+  linux_amd64: 6993e42ad8cfc6af686eeadf5e0c970b4d23de655c5485562b14f34997c1caee
+  linux_arm64: 4371c26596b82bc06d424f527663fd20cee9d63b301b712c38d0fd95d5ea1ab7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libice
+  - libsm
+  - libx11
+  - libxext
+  - libxmu
+  - libxrandr
+  - libxt

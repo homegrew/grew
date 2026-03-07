@@ -1,0 +1,19 @@
+name: bulletty
+version: 0.2.2
+description: Pretty feed reader (ATOM/RSS) that stores articles in Markdown files
+homepage: https://bulletty.croci.dev/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bulletty/blobs/sha256:fb415a2b4039680c6eace43e6af4763fefb71b437d9bce4d0bad199b39d087f9
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bulletty/blobs/sha256:f2546aad4f98d0099aee5da1ae230d38f75dcd89ed5624283bf4cedd86ef9cda
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bulletty/blobs/sha256:b338b398b9111ad128704e0f5945fd9e7bac34b89e325ea0b902c26cf01402a5
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bulletty/blobs/sha256:687efab8b3c8b790dc9a8633ec163e8b6ab0dd9352f54b878a5ac461b2677b50
+sha256:
+  darwin_arm64: fb415a2b4039680c6eace43e6af4763fefb71b437d9bce4d0bad199b39d087f9
+  darwin_amd64: f2546aad4f98d0099aee5da1ae230d38f75dcd89ed5624283bf4cedd86ef9cda
+  linux_amd64: b338b398b9111ad128704e0f5945fd9e7bac34b89e325ea0b902c26cf01402a5
+  linux_arm64: 687efab8b3c8b790dc9a8633ec163e8b6ab0dd9352f54b878a5ac461b2677b50
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

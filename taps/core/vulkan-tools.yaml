@@ -1,0 +1,24 @@
+name: vulkan-tools
+version: 1.4.341.0
+description: Vulkan utilities and tools
+homepage: https://github.com/KhronosGroup/Vulkan-Tools
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/vulkan-tools/blobs/sha256:fe466af64eb0df78741dd5589227b82965852cdb0facdcc6678249b230ae53bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/vulkan-tools/blobs/sha256:351bae3eac14ac1ce4a2e287eab054667447e4f63184491a9a08e490e5876c87
+  linux_amd64: https://ghcr.io/v2/homebrew/core/vulkan-tools/blobs/sha256:42cb62a3d420ec2e1eee6c3cba7a8ae54c26a0c6d68871fe7cc580ba96e594e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/vulkan-tools/blobs/sha256:ee0b9073a9d84d9f838d4c11a074ed078fa1b9183ed21387028156b04cb6842a
+sha256:
+  darwin_arm64: fe466af64eb0df78741dd5589227b82965852cdb0facdcc6678249b230ae53bf
+  darwin_amd64: 351bae3eac14ac1ce4a2e287eab054667447e4f63184491a9a08e490e5876c87
+  linux_amd64: 42cb62a3d420ec2e1eee6c3cba7a8ae54c26a0c6d68871fe7cc580ba96e594e7
+  linux_arm64: ee0b9073a9d84d9f838d4c11a074ed078fa1b9183ed21387028156b04cb6842a
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - glslang
+  - vulkan-headers
+  - vulkan-loader
+  - molten-vk

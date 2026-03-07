@@ -1,0 +1,19 @@
+name: gnu-tar
+version: 1.35
+description: GNU version of the tar archiving utility
+homepage: https://www.gnu.org/software/tar/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-tar/blobs/sha256:4e3782b9393e2e53a1cccd9c1047c2fc43b81c34746b10755050d5d162b21269
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-tar/blobs/sha256:a9a0d278cd686a626b45cbfd43aa8f34adbf8347c1f58c3849e9dc7f78016b4b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-tar/blobs/sha256:c990300939509bf4ad6eb70e19d5bf47d8812295bf591de75e84ca163942ced6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-tar/blobs/sha256:3d978a1e268ac4c54b0f56a2204abdf025a624352d47fb860e10b102088de8c7
+sha256:
+  darwin_arm64: 4e3782b9393e2e53a1cccd9c1047c2fc43b81c34746b10755050d5d162b21269
+  darwin_amd64: a9a0d278cd686a626b45cbfd43aa8f34adbf8347c1f58c3849e9dc7f78016b4b
+  linux_amd64: c990300939509bf4ad6eb70e19d5bf47d8812295bf591de75e84ca163942ced6
+  linux_arm64: 3d978a1e268ac4c54b0f56a2204abdf025a624352d47fb860e10b102088de8c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

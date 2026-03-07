@@ -1,0 +1,19 @@
+name: fabio
+version: 1.6.11
+description: Zero-conf load balancing HTTP(S) router
+homepage: https://github.com/fabiolb/fabio
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fabio/blobs/sha256:c1784e73f50e1b576f78e661507a2c189a0a57c51c3f5b5464794a69ca8430d0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fabio/blobs/sha256:fba3a9cd68eafd9f4aed2201b045f44a7cda56c1220cb3066921db905555eb8b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fabio/blobs/sha256:83579a87c6f1a8facf7c525c4199236df0207ad70f3d23b25d5d3e098afca960
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fabio/blobs/sha256:2fdc9386023faba3ca5b7e8ddbcf13dbbec47ea95dac5c55b942289e94ab0471
+sha256:
+  darwin_arm64: c1784e73f50e1b576f78e661507a2c189a0a57c51c3f5b5464794a69ca8430d0
+  darwin_amd64: fba3a9cd68eafd9f4aed2201b045f44a7cda56c1220cb3066921db905555eb8b
+  linux_amd64: 83579a87c6f1a8facf7c525c4199236df0207ad70f3d23b25d5d3e098afca960
+  linux_arm64: 2fdc9386023faba3ca5b7e8ddbcf13dbbec47ea95dac5c55b942289e94ab0471
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

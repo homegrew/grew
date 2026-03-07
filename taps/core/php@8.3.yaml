@@ -1,0 +1,43 @@
+name: php@8.3
+version: 8.3.30
+description: General-purpose scripting language
+homepage: https://www.php.net/
+license: PHP-3.01 AND Zend-2.0 AND BSL-1.0 AND MIT AND Apache-1.0 AND bcrypt-Solar-Designer AND BSD-2-Clause-Darwin AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause-UC AND ISC AND LGPL-2.1-only AND LGPL-2.1-or-later AND OLDAP-2.8 AND TCL AND Zlib
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/php/8.3/blobs/sha256:428cc87a873d0d72f715bab9737db2abb2bb14a1984120d7222391b9673c96fa
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/php/8.3/blobs/sha256:dfb3dfd6cf4d89c6294c4bb62394671e501e82890a360f86ebf70424faf4d101
+  linux_amd64: https://ghcr.io/v2/homebrew/core/php/8.3/blobs/sha256:d78900332282c2a54ba363fa794e9edf3b4686de39115a9126157389b4dd76b9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/php/8.3/blobs/sha256:cd2cc686e494e44ab3b001e64c601d64df344107e4d7a64125569a22d16278c8
+sha256:
+  darwin_arm64: 428cc87a873d0d72f715bab9737db2abb2bb14a1984120d7222391b9673c96fa
+  darwin_amd64: dfb3dfd6cf4d89c6294c4bb62394671e501e82890a360f86ebf70424faf4d101
+  linux_amd64: d78900332282c2a54ba363fa794e9edf3b4686de39115a9126157389b4dd76b9
+  linux_arm64: cd2cc686e494e44ab3b001e64c601d64df344107e4d7a64125569a22d16278c8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - apr
+  - apr-util
+  - argon2
+  - aspell
+  - autoconf
+  - curl
+  - freetds
+  - gd
+  - gmp
+  - icu4c@78
+  - krb5
+  - libpq
+  - libsodium
+  - libzip
+  - oniguruma
+  - openldap
+  - openssl@3
+  - pcre2
+  - sqlite
+  - tidy-html5
+  - unixodbc
+  - gettext
+keg_only: true

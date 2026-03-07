@@ -1,0 +1,15 @@
+name: macos-term-size
+version: 1.0.0
+description: Get the terminal window size on macOS
+homepage: https://github.com/sindresorhus/macos-terminal-size
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/macos-term-size/blobs/sha256:046cbcf0ab73b2a5f6e22b25bf54bbcf305f9a7e8b0af9cb6d60ff773da962ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/macos-term-size/blobs/sha256:8f840f609d469c4cda3dc2c100b962116b86a1308543ea69372c72b1d8437d05
+sha256:
+  darwin_arm64: 046cbcf0ab73b2a5f6e22b25bf54bbcf305f9a7e8b0af9cb6d60ff773da962ff
+  darwin_amd64: 8f840f609d469c4cda3dc2c100b962116b86a1308543ea69372c72b1d8437d05
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

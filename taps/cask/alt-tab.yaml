@@ -1,0 +1,11 @@
+name: alt-tab
+version: 10.4.0
+description: Enable Windows-like alt-tab
+homepage: https://alt-tab-macos.netlify.app/
+url:
+  darwin_arm64: https://github.com/lwouis/alt-tab-macos/releases/download/v10.4.0/AltTab-10.4.0.zip
+sha256:
+  darwin_arm64: 09b7908b9d046c63fe1a85cb37f33c88b27ae5123a6b05e30e83f3101f0f6f7f
+artifacts:
+  app:
+    - AltTab.app

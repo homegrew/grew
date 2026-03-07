@@ -1,0 +1,19 @@
+name: libcsv
+version: 3.0.3
+description: CSV library in ANSI C89
+homepage: https://sourceforge.net/projects/libcsv/
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libcsv/blobs/sha256:7e68ec2e60c356c84b0e330ad076afc58f0eb71eecd953ab4075821d835eb84d
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libcsv/blobs/sha256:1f49d10bf54d93ac9b3ea032385ed32d9e148adb401bd004b8698cc4fe715529
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libcsv/blobs/sha256:a66bd666958e3125f08377688cf86c94cd38e077bedea9a70cb17c721794211f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libcsv/blobs/sha256:a313d8dd11bc697e7f0f45e36572a38c6a86c827b0309a564849c443ea573a78
+sha256:
+  darwin_arm64: 7e68ec2e60c356c84b0e330ad076afc58f0eb71eecd953ab4075821d835eb84d
+  darwin_amd64: 1f49d10bf54d93ac9b3ea032385ed32d9e148adb401bd004b8698cc4fe715529
+  linux_amd64: a66bd666958e3125f08377688cf86c94cd38e077bedea9a70cb17c721794211f
+  linux_arm64: a313d8dd11bc697e7f0f45e36572a38c6a86c827b0309a564849c443ea573a78
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

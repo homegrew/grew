@@ -1,0 +1,19 @@
+name: fake-gcs-server
+version: 1.54.0
+description: Emulator for Google Cloud Storage API
+homepage: https://github.com/fsouza/fake-gcs-server
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fake-gcs-server/blobs/sha256:9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fake-gcs-server/blobs/sha256:49ecdca1f224a4495343611ad17cec9be45d7ec037f799ec78dcf950c259248f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fake-gcs-server/blobs/sha256:7338498911cb9cb566c7d367ef8e2bb710be7a549e936e1c0ab273eaadc08a65
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fake-gcs-server/blobs/sha256:e79602e94a2c884818627eace2e9a4adb0a1ba944240f8892547764859762ce9
+sha256:
+  darwin_arm64: 9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4
+  darwin_amd64: 49ecdca1f224a4495343611ad17cec9be45d7ec037f799ec78dcf950c259248f
+  linux_amd64: 7338498911cb9cb566c7d367ef8e2bb710be7a549e936e1c0ab273eaadc08a65
+  linux_arm64: e79602e94a2c884818627eace2e9a4adb0a1ba944240f8892547764859762ce9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

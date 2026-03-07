@@ -1,0 +1,19 @@
+name: jemalloc
+version: 5.3.0
+description: Implementation of malloc emphasizing fragmentation avoidance
+homepage: https://jemalloc.net/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/jemalloc/blobs/sha256:e4143a4cc719df4053a6f3c77a92afc0c24444d305fe8a5f1be4fafa6771403f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/jemalloc/blobs/sha256:aad0662c3aa09d15cdff15575506efa347c8ea2d83fbd7b62d18df87c6825175
+  linux_amd64: https://ghcr.io/v2/homebrew/core/jemalloc/blobs/sha256:463bbcc1146e18ce0221638a152c6ee3f4820dc27b48b8cc1a39350778fca22d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/jemalloc/blobs/sha256:397758abcc63244fc47ab9183027c9817c37d1d84620cb836049440de3a83147
+sha256:
+  darwin_arm64: e4143a4cc719df4053a6f3c77a92afc0c24444d305fe8a5f1be4fafa6771403f
+  darwin_amd64: aad0662c3aa09d15cdff15575506efa347c8ea2d83fbd7b62d18df87c6825175
+  linux_amd64: 463bbcc1146e18ce0221638a152c6ee3f4820dc27b48b8cc1a39350778fca22d
+  linux_arm64: 397758abcc63244fc47ab9183027c9817c37d1d84620cb836049440de3a83147
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

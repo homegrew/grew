@@ -1,0 +1,11 @@
+name: ivideonserver
+version: 3.14.0
+description: Watch surveillance videos in your browser via your Ivideon account
+homepage: https://www.ivideon.com/
+url:
+  darwin_arm64: https://updates.iv-cdn.com/bundles/ivideon_server/3.14.0/IvideonServer_3.14.0_macosx-x86-64.dmg
+sha256:
+  darwin_arm64: 2728954313606436037da60d8f15510e7f50cebab87e4de667adde50b5d85396
+artifacts:
+  app:
+    - IvideonServer.app

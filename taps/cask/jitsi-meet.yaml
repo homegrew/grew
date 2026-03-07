@@ -1,0 +1,11 @@
+name: jitsi-meet
+version: 2026.1.1
+description: Secure video conferencing app
+homepage: https://github.com/jitsi/jitsi-meet-electron/
+url:
+  darwin_arm64: https://github.com/jitsi/jitsi-meet-electron/releases/download/v2026.1.1/jitsi-meet.dmg
+sha256:
+  darwin_arm64: d47b5bf1b0ec0eca56ab31976165139619b630a549f6d049a9fd26389114676c
+artifacts:
+  app:
+    - Jitsi Meet.app

@@ -1,0 +1,19 @@
+name: xcsift
+version: 1.1.4
+description: Swift tool to parse xcodebuild output for coding agents
+homepage: https://github.com/ldomaradzki/xcsift
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/xcsift/blobs/sha256:34194ac982d3311bc02e7ffd6844e75317550d8fc36530d617b920851b76f00a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/xcsift/blobs/sha256:251deed623338b81ca6078f3636b2d911acf44abb0e213eaeee8b155410b26a4
+  linux_amd64: https://ghcr.io/v2/homebrew/core/xcsift/blobs/sha256:961b046b80215d4591f8d32b7b9273749187d509c5a045a1dc594ee136162430
+  linux_arm64: https://ghcr.io/v2/homebrew/core/xcsift/blobs/sha256:6c34fb9db04fb43f1f9d32a5416565c29409026c1e625edfcbc460f975d8e371
+sha256:
+  darwin_arm64: 34194ac982d3311bc02e7ffd6844e75317550d8fc36530d617b920851b76f00a
+  darwin_amd64: 251deed623338b81ca6078f3636b2d911acf44abb0e213eaeee8b155410b26a4
+  linux_amd64: 961b046b80215d4591f8d32b7b9273749187d509c5a045a1dc594ee136162430
+  linux_arm64: 6c34fb9db04fb43f1f9d32a5416565c29409026c1e625edfcbc460f975d8e371
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

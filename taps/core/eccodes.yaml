@@ -1,0 +1,25 @@
+name: eccodes
+version: 2.46.0
+description: Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats
+homepage: https://confluence.ecmwf.int/display/ECC
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/eccodes/blobs/sha256:37b9d6e6e49c04b21a0be3e1351414898a434511a7e52337a12b57cb26fdda57
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/eccodes/blobs/sha256:e53bc7381039ff4240438f192a72b5d9adee0e606b9b167abede7a6e32c48d36
+  linux_amd64: https://ghcr.io/v2/homebrew/core/eccodes/blobs/sha256:673fbba3fcb90f40306f9db14bf7a0a7a59de6fe9694f5727af38e45cd743826
+  linux_arm64: https://ghcr.io/v2/homebrew/core/eccodes/blobs/sha256:4c8d68302ad80e7a3bf0aafef17954b33bf0be52fff0470ad61834a3d354b9c7
+sha256:
+  darwin_arm64: 37b9d6e6e49c04b21a0be3e1351414898a434511a7e52337a12b57cb26fdda57
+  darwin_amd64: e53bc7381039ff4240438f192a72b5d9adee0e606b9b167abede7a6e32c48d36
+  linux_amd64: 673fbba3fcb90f40306f9db14bf7a0a7a59de6fe9694f5727af38e45cd743826
+  linux_arm64: 4c8d68302ad80e7a3bf0aafef17954b33bf0be52fff0470ad61834a3d354b9c7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gcc
+  - libaec
+  - libpng
+  - netcdf
+  - openjpeg

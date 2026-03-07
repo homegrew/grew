@@ -1,0 +1,24 @@
+name: toxcore
+version: 0.2.22
+description: C library implementing the Tox peer to peer network protocol
+homepage: https://tox.chat/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/toxcore/blobs/sha256:cbbb31e412bfd8ce19e4bed4468c763c4a30553df87af6daaca7890b60863fc8
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/toxcore/blobs/sha256:02d2a7718ed5dc375c0b69c5a4406ab3bb48465f3f1e447dfa821af05d72c044
+  linux_amd64: https://ghcr.io/v2/homebrew/core/toxcore/blobs/sha256:ffb493b9bb0c9aeea6a33d9450f6497d4e27c9d4e06b3b2621a033269c09e78c
+  linux_arm64: https://ghcr.io/v2/homebrew/core/toxcore/blobs/sha256:310a1c7117ef774e06419060a7e836f80927052bbf1022831dccaf264ace5e9b
+sha256:
+  darwin_arm64: cbbb31e412bfd8ce19e4bed4468c763c4a30553df87af6daaca7890b60863fc8
+  darwin_amd64: 02d2a7718ed5dc375c0b69c5a4406ab3bb48465f3f1e447dfa821af05d72c044
+  linux_amd64: ffb493b9bb0c9aeea6a33d9450f6497d4e27c9d4e06b3b2621a033269c09e78c
+  linux_arm64: 310a1c7117ef774e06419060a7e836f80927052bbf1022831dccaf264ace5e9b
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libconfig
+  - libsodium
+  - libvpx
+  - opus

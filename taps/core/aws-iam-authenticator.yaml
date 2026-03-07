@@ -1,0 +1,19 @@
+name: aws-iam-authenticator
+version: 0.7.11
+description: Use AWS IAM credentials to authenticate to Kubernetes
+homepage: https://github.com/kubernetes-sigs/aws-iam-authenticator
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aws-iam-authenticator/blobs/sha256:373c5d52edc30e3c858f0d3d8b701253271b48419cd7dc4f77144a9a3454ff34
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aws-iam-authenticator/blobs/sha256:49d4a8578a6ec185a5eade55c3802895afd35641119798453a1f6b3a919310ea
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aws-iam-authenticator/blobs/sha256:d19f848d8583504479ac10ed877e7774c872a1b692ac4b598807b953b6dc2e41
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aws-iam-authenticator/blobs/sha256:0369060657b37e3f9575c1e55e63aace69fd45c7245aa8493c42ba6b400aade5
+sha256:
+  darwin_arm64: 373c5d52edc30e3c858f0d3d8b701253271b48419cd7dc4f77144a9a3454ff34
+  darwin_amd64: 49d4a8578a6ec185a5eade55c3802895afd35641119798453a1f6b3a919310ea
+  linux_amd64: d19f848d8583504479ac10ed877e7774c872a1b692ac4b598807b953b6dc2e41
+  linux_arm64: 0369060657b37e3f9575c1e55e63aace69fd45c7245aa8493c42ba6b400aade5
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

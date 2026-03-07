@@ -1,0 +1,19 @@
+name: gnu-time
+version: 1.9
+description: GNU implementation of time utility
+homepage: https://www.gnu.org/software/time/
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gnu-time/blobs/sha256:feac0744561e6ed40145815079575f4066bb3f8c363d1c9fc2302fde2f93b7bf
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gnu-time/blobs/sha256:99cb9faea67317bef1bd531f810c91b4f77817d127942ba3902dcc8b6605c437
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gnu-time/blobs/sha256:c9c5ae5e7ac2f00cf8655ce4b6095e4706bcc36300d36a1c7121ab03d010ea5f
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gnu-time/blobs/sha256:79c0f6005a2a310f26244eca58d2fb373618921a745704cf868b4ca6190545e6
+sha256:
+  darwin_arm64: feac0744561e6ed40145815079575f4066bb3f8c363d1c9fc2302fde2f93b7bf
+  darwin_amd64: 99cb9faea67317bef1bd531f810c91b4f77817d127942ba3902dcc8b6605c437
+  linux_amd64: c9c5ae5e7ac2f00cf8655ce4b6095e4706bcc36300d36a1c7121ab03d010ea5f
+  linux_arm64: 79c0f6005a2a310f26244eca58d2fb373618921a745704cf868b4ca6190545e6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

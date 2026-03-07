@@ -1,0 +1,19 @@
+name: dtools
+version: 2.112.0
+description: D programming language tools
+homepage: https://dlang.org/
+license: BSL-1.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/dtools/blobs/sha256:566757d9c7fabf5dcc81d5139589bf8e601370424fb8f8170ff8ea542c9f0f74
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/dtools/blobs/sha256:3e83e31e492dded0024a77bef1fa4916b5c4ba5b91ca12934dda63c18bc5ee35
+  linux_amd64: https://ghcr.io/v2/homebrew/core/dtools/blobs/sha256:fd470b2b653bfabec84bc5a4798f90260ec2c875c0466ec608cf63c6162209c3
+  linux_arm64: https://ghcr.io/v2/homebrew/core/dtools/blobs/sha256:b6ab7ef6c758eb003bfcec11dcdadc10c69d6d833b90dc103d1ccb7493caa953
+sha256:
+  darwin_arm64: 566757d9c7fabf5dcc81d5139589bf8e601370424fb8f8170ff8ea542c9f0f74
+  darwin_amd64: 3e83e31e492dded0024a77bef1fa4916b5c4ba5b91ca12934dda63c18bc5ee35
+  linux_amd64: fd470b2b653bfabec84bc5a4798f90260ec2c875c0466ec608cf63c6162209c3
+  linux_arm64: b6ab7ef6c758eb003bfcec11dcdadc10c69d6d833b90dc103d1ccb7493caa953
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

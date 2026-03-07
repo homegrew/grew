@@ -1,0 +1,19 @@
+name: ansifilter
+version: 2.22
+description: Strip or convert ANSI codes into HTML, (La)Tex, RTF, or BBCode
+homepage: http://andre-simon.de/doku/ansifilter/en/ansifilter.php
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ansifilter/blobs/sha256:b5d1fc53ad6b542fc718d161242c44adc151f7e555cdd5f511304cb6a8191e20
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ansifilter/blobs/sha256:103edd1a82bbeab8af847a4cedbc2bb8210983041ba4bd9d37ab66df777fac7b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ansifilter/blobs/sha256:1d5c6389358d8037984ef69e04c20707e8f0b55436e814db0f4b76ebb4e2f638
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ansifilter/blobs/sha256:9acd580fc2162cf91e862aa5a38dd9927cded50ad1c4736380725ab833bdae68
+sha256:
+  darwin_arm64: b5d1fc53ad6b542fc718d161242c44adc151f7e555cdd5f511304cb6a8191e20
+  darwin_amd64: 103edd1a82bbeab8af847a4cedbc2bb8210983041ba4bd9d37ab66df777fac7b
+  linux_amd64: 1d5c6389358d8037984ef69e04c20707e8f0b55436e814db0f4b76ebb4e2f638
+  linux_arm64: 9acd580fc2162cf91e862aa5a38dd9927cded50ad1c4736380725ab833bdae68
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

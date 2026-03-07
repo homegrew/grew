@@ -1,0 +1,19 @@
+name: gama
+version: 1.2.1
+description: Manage your GitHub Actions from Terminal with great UI
+homepage: https://github.com/termkit/gama
+license: GPL-3.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/gama/blobs/sha256:733b2137013ca3a99db81a60d928e604309223613e98bdccd86e6c9368a7724f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/gama/blobs/sha256:0c8a11688f5d7cc46cfb8bdcfab4ec50a22bd17447ca4d274942270e2c671ed5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/gama/blobs/sha256:104456f00e51024a56c6e94f32e471b1288925f7cbe4a568fe73f360379566dd
+  linux_arm64: https://ghcr.io/v2/homebrew/core/gama/blobs/sha256:14ca6d3872fc83bcc8846dee1548dbfbb630df0d474f651a82f97e6798dcd537
+sha256:
+  darwin_arm64: 733b2137013ca3a99db81a60d928e604309223613e98bdccd86e6c9368a7724f
+  darwin_amd64: 0c8a11688f5d7cc46cfb8bdcfab4ec50a22bd17447ca4d274942270e2c671ed5
+  linux_amd64: 104456f00e51024a56c6e94f32e471b1288925f7cbe4a568fe73f360379566dd
+  linux_arm64: 14ca6d3872fc83bcc8846dee1548dbfbb630df0d474f651a82f97e6798dcd537
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: sfsexp
+version: 1.4.1
+description: Small Fast S-Expression Library
+homepage: https://github.com/mjsottile/sfsexp
+license: LGPL-2.1-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sfsexp/blobs/sha256:309d53aff505ea3cca51ada4c8820ec0aae2f41666c750131f7d4c6ec60f80d4
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sfsexp/blobs/sha256:4e312aea24c7d1274a99753d578e75cfdf1a35054082e2f2524977cbdf770969
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sfsexp/blobs/sha256:38e4511f902951c709a20aab4f8c56209c45c86ddf83efe86185242a0f6adadf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sfsexp/blobs/sha256:1ff705f2b247288b7ae07ea297499af24c7d7b599359c0a4eb7f3996017e2bc1
+sha256:
+  darwin_arm64: 309d53aff505ea3cca51ada4c8820ec0aae2f41666c750131f7d4c6ec60f80d4
+  darwin_amd64: 4e312aea24c7d1274a99753d578e75cfdf1a35054082e2f2524977cbdf770969
+  linux_amd64: 38e4511f902951c709a20aab4f8c56209c45c86ddf83efe86185242a0f6adadf
+  linux_arm64: 1ff705f2b247288b7ae07ea297499af24c7d7b599359c0a4eb7f3996017e2bc1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

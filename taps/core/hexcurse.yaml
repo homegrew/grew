@@ -1,0 +1,19 @@
+name: hexcurse
+version: 1.60.0
+description: Ncurses-based console hex editor
+homepage: https://github.com/LonnyGomes/hexcurse
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hexcurse/blobs/sha256:f10104a9d6d5f9afff713da5da01cec5ff1d3adcc51a5184e00bbdeaf7606d1f
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hexcurse/blobs/sha256:8bccca2082f0cb7ea860c031adb448b3c4c7d1009558f77a3aa1dda10850d348
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hexcurse/blobs/sha256:5a77e765183c6f25ab2334662999e980f9c3ee127394682d3723262e0e80b64a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hexcurse/blobs/sha256:dfdd735912fd3c69d3e62a7b71b0e4e453b762e5ad5bc7c6788f19c83e4abb59
+sha256:
+  darwin_arm64: f10104a9d6d5f9afff713da5da01cec5ff1d3adcc51a5184e00bbdeaf7606d1f
+  darwin_amd64: 8bccca2082f0cb7ea860c031adb448b3c4c7d1009558f77a3aa1dda10850d348
+  linux_amd64: 5a77e765183c6f25ab2334662999e980f9c3ee127394682d3723262e0e80b64a
+  linux_arm64: dfdd735912fd3c69d3e62a7b71b0e4e453b762e5ad5bc7c6788f19c83e4abb59
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

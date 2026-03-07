@@ -1,0 +1,19 @@
+name: envv
+version: 1.7
+description: Shell-independent handling of environment variables
+homepage: https://github.com/jakewendt/envv
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/envv/blobs/sha256:bdca25cfb60091dd430d3c09400d5d1498f03cb5a761c60750371643a2bb5ef2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/envv/blobs/sha256:35236b4deea1db94e696c3c4457ea500a027b315df28092d6a4269c9cfdb8065
+  linux_amd64: https://ghcr.io/v2/homebrew/core/envv/blobs/sha256:9cb0c8481042567e17ff04b7d5dd3cc46fccbc0e321203770791588fc51d11b7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/envv/blobs/sha256:1a4f95cc571b62d3b42a9e96261ad3c1a79a0c22c9b2f09e1773f59748ca3e86
+sha256:
+  darwin_arm64: bdca25cfb60091dd430d3c09400d5d1498f03cb5a761c60750371643a2bb5ef2
+  darwin_amd64: 35236b4deea1db94e696c3c4457ea500a027b315df28092d6a4269c9cfdb8065
+  linux_amd64: 9cb0c8481042567e17ff04b7d5dd3cc46fccbc0e321203770791588fc51d11b7
+  linux_arm64: 1a4f95cc571b62d3b42a9e96261ad3c1a79a0c22c9b2f09e1773f59748ca3e86
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

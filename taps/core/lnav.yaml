@@ -1,0 +1,24 @@
+name: lnav
+version: 0.13.2
+description: Curses-based tool for viewing and analyzing log files
+homepage: https://lnav.org/
+license: BSD-2-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lnav/blobs/sha256:46095011327647eac507bcbae0974cee22f854fe5976150754d49080e81fd55a
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lnav/blobs/sha256:9e7a4ea4ea60a0722141ed6ef952d2566da7487af2ff806c2373925b08700d3b
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lnav/blobs/sha256:ae07d7f453c2bc9cd51abf4b11558c30216c2faaf0409c9f33700d0439b79db6
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lnav/blobs/sha256:ed8fd3d41e2fbcb04e08ab3ce11237f9e03de50c96df1450ab85f7cffb111f7c
+sha256:
+  darwin_arm64: 46095011327647eac507bcbae0974cee22f854fe5976150754d49080e81fd55a
+  darwin_amd64: 9e7a4ea4ea60a0722141ed6ef952d2566da7487af2ff806c2373925b08700d3b
+  linux_amd64: ae07d7f453c2bc9cd51abf4b11558c30216c2faaf0409c9f33700d0439b79db6
+  linux_arm64: ed8fd3d41e2fbcb04e08ab3ce11237f9e03de50c96df1450ab85f7cffb111f7c
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libarchive
+  - libunistring
+  - pcre2
+  - sqlite

@@ -1,0 +1,13 @@
+name: espanso
+version: 2.3.0
+description: Cross-platform Text Expander written in Rust
+homepage: https://espanso.org/
+url:
+  darwin_arm64: https://github.com/espanso/espanso/releases/download/v2.3.0/Espanso-Mac-Universal.zip
+sha256:
+  darwin_arm64: e785543bc37e9860434e2e00ccc18a5df7409ab9b20d1f41bfc4801b5e543eae
+artifacts:
+  app:
+    - Espanso.app
+  bin:
+    - espanso

@@ -1,0 +1,21 @@
+name: mongosh
+version: 2.7.0
+description: MongoDB Shell to connect, configure, query, and work with your MongoDB database
+homepage: https://github.com/mongodb-js/mongosh
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mongosh/blobs/sha256:d6cbad1f6298aeee7c2d3e21752aee729f8c0c6a59e7e53e2dd6cf705d8e9ef6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mongosh/blobs/sha256:538b979ccdedb3a15eabca441d21664083d0425317719b733a434dd514f76b1f
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mongosh/blobs/sha256:431b12e2c1f05ee7c7e35bf890a7e56c607cc5881323f0579972e1702987fc58
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mongosh/blobs/sha256:431b12e2c1f05ee7c7e35bf890a7e56c607cc5881323f0579972e1702987fc58
+sha256:
+  darwin_arm64: d6cbad1f6298aeee7c2d3e21752aee729f8c0c6a59e7e53e2dd6cf705d8e9ef6
+  darwin_amd64: 538b979ccdedb3a15eabca441d21664083d0425317719b733a434dd514f76b1f
+  linux_amd64: 431b12e2c1f05ee7c7e35bf890a7e56c607cc5881323f0579972e1702987fc58
+  linux_arm64: 431b12e2c1f05ee7c7e35bf890a7e56c607cc5881323f0579972e1702987fc58
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - node

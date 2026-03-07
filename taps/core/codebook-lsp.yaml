@@ -1,0 +1,19 @@
+name: codebook-lsp
+version: 0.3.31
+description: Code-aware spell checker language server
+homepage: https://github.com/blopker/codebook
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/codebook-lsp/blobs/sha256:df03a1bb1ace0b606dcff7cad53289d1e82a35bf01d3f55b3aacf301e46d62ef
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/codebook-lsp/blobs/sha256:7671891e6cd7017679a14fe06adf29ff1aa7a30ff3cbb6a41b2b372b41b9d129
+  linux_amd64: https://ghcr.io/v2/homebrew/core/codebook-lsp/blobs/sha256:9db2cad6ae8c384e89eb7fbd28d17116a5d160133edf6b21a28b9c88bf44d86a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/codebook-lsp/blobs/sha256:ff1202110b6b276f7ce51f4ba61892a832ef264c10bb3e8b87af38ff476b67d7
+sha256:
+  darwin_arm64: df03a1bb1ace0b606dcff7cad53289d1e82a35bf01d3f55b3aacf301e46d62ef
+  darwin_amd64: 7671891e6cd7017679a14fe06adf29ff1aa7a30ff3cbb6a41b2b372b41b9d129
+  linux_amd64: 9db2cad6ae8c384e89eb7fbd28d17116a5d160133edf6b21a28b9c88bf44d86a
+  linux_arm64: ff1202110b6b276f7ce51f4ba61892a832ef264c10bb3e8b87af38ff476b67d7
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

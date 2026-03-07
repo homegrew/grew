@@ -1,0 +1,13 @@
+name: keka
+version: 1.6.0
+description: File archiver
+homepage: https://www.keka.io/
+url:
+  darwin_arm64: https://github.com/aonez/Keka/releases/download/v1.6.0/Keka-1.6.0.dmg
+sha256:
+  darwin_arm64: 6acf206a0065a4a9fd304c8e07faf7885ac771351991a409ac2ce09b26c4d35d
+artifacts:
+  app:
+    - Keka.app
+  bin:
+    - keka

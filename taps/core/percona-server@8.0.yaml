@@ -1,0 +1,31 @@
+name: percona-server@8.0
+version: 8.0.45-36
+description: Drop-in MySQL replacement
+homepage: https://www.percona.com
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/percona-server/8.0/blobs/sha256:8d1085dec7cc7631c4929ac837fec2ec57f590e75ccf2d3fe066e2024e1d225e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/percona-server/8.0/blobs/sha256:3065b5003bdd8f1d46ff506c7e761c22ed177ed59838abb197469ff05bcbae81
+  linux_amd64: https://ghcr.io/v2/homebrew/core/percona-server/8.0/blobs/sha256:724bdd9892cc431aa64868659b10c83a2c6773e71fb01da78ec23017d99c9d13
+  linux_arm64: https://ghcr.io/v2/homebrew/core/percona-server/8.0/blobs/sha256:04cca0bfc655282db7cc633c2cc5eb0a0d5e49aa6a67fd10fd4e8393cb88fbd2
+sha256:
+  darwin_arm64: 8d1085dec7cc7631c4929ac837fec2ec57f590e75ccf2d3fe066e2024e1d225e
+  darwin_amd64: 3065b5003bdd8f1d46ff506c7e761c22ed177ed59838abb197469ff05bcbae81
+  linux_amd64: 724bdd9892cc431aa64868659b10c83a2c6773e71fb01da78ec23017d99c9d13
+  linux_arm64: 04cca0bfc655282db7cc633c2cc5eb0a0d5e49aa6a67fd10fd4e8393cb88fbd2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - abseil
+  - icu4c@78
+  - libevent
+  - libfido2
+  - lz4
+  - openldap
+  - openssl@3
+  - protobuf
+  - zlib-ng-compat
+  - zstd
+keg_only: true

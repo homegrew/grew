@@ -1,0 +1,21 @@
+name: pce
+version: 0.2.2
+description: PC emulator
+homepage: http://www.hampa.ch/pce/
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/pce/blobs/sha256:e75f725e3f355fec9e470c79180eb547575cee5c223e58ec67c2d4affa16bc30
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/pce/blobs/sha256:d12b682138c89026b7cdc5b6fdeab59642b2fcc1cc23c3fbd31c6d3b5d6e30b5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/pce/blobs/sha256:10292a0e1101299ae6d09ea8a36478b444148da246a25fb132d2a126b082925d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/pce/blobs/sha256:f04b8a55a22eed4d80da0bd08e216c4a0c1adc6c5281199fba17e59f17337257
+sha256:
+  darwin_arm64: e75f725e3f355fec9e470c79180eb547575cee5c223e58ec67c2d4affa16bc30
+  darwin_amd64: d12b682138c89026b7cdc5b6fdeab59642b2fcc1cc23c3fbd31c6d3b5d6e30b5
+  linux_amd64: 10292a0e1101299ae6d09ea8a36478b444148da246a25fb132d2a126b082925d
+  linux_arm64: f04b8a55a22eed4d80da0bd08e216c4a0c1adc6c5281199fba17e59f17337257
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - sdl12-compat

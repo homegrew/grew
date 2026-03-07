@@ -1,0 +1,19 @@
+name: async_simple
+version: 1.4
+description: Simple, light-weight and easy-to-use asynchronous components
+homepage: https://github.com/alibaba/async_simple
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/async_simple/blobs/sha256:ea3f1e248db7c9bbaf801186303a6c6e633476b1fb0c0e6553642c46abc191ad
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/async_simple/blobs/sha256:96069ca4876ed9bc04149fe02cc2445f3434a1dd84ae4360e4e420950a6d8e8c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/async_simple/blobs/sha256:20cb19de4276e5664a529b84494d3109488ca7970bee8912d502066bb899d188
+  linux_arm64: https://ghcr.io/v2/homebrew/core/async_simple/blobs/sha256:3207af424eb85ff7a9d5c617b4c713262433024595a09d01e4d213328ae92bda
+sha256:
+  darwin_arm64: ea3f1e248db7c9bbaf801186303a6c6e633476b1fb0c0e6553642c46abc191ad
+  darwin_amd64: 96069ca4876ed9bc04149fe02cc2445f3434a1dd84ae4360e4e420950a6d8e8c
+  linux_amd64: 20cb19de4276e5664a529b84494d3109488ca7970bee8912d502066bb899d188
+  linux_arm64: 3207af424eb85ff7a9d5c617b4c713262433024595a09d01e4d213328ae92bda
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

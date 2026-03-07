@@ -1,0 +1,67 @@
+name: ffmpeg-full
+version: 8.0.1
+description: Play, record, convert, and stream many audio and video codecs
+homepage: https://ffmpeg.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg-full/blobs/sha256:a0977419eb5d471e48fcfedd9c0ce26ea6679369680faac47e588e58a35634f1
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg-full/blobs/sha256:c37c3969795218f20381366d60b1b0f7de647f3609ebc593b2c52c195c17430c
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ffmpeg-full/blobs/sha256:5802b976baabafeda60e5a3801d3a1acb2f3f94eab0b99082d977a7e46c5663d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ffmpeg-full/blobs/sha256:9e042fbe34bbff163693254a5b18da834e511629160faafd4a2986f2eddb0dfe
+sha256:
+  darwin_arm64: a0977419eb5d471e48fcfedd9c0ce26ea6679369680faac47e588e58a35634f1
+  darwin_amd64: c37c3969795218f20381366d60b1b0f7de647f3609ebc593b2c52c195c17430c
+  linux_amd64: 5802b976baabafeda60e5a3801d3a1acb2f3f94eab0b99082d977a7e46c5663d
+  linux_arm64: 9e042fbe34bbff163693254a5b18da834e511629160faafd4a2986f2eddb0dfe
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - aom
+  - aribb24
+  - dav1d
+  - fontconfig
+  - freetype
+  - frei0r
+  - gnutls
+  - harfbuzz
+  - jpeg-xl
+  - lame
+  - libass
+  - libbluray
+  - libplacebo
+  - librist
+  - libsoxr
+  - libssh
+  - libvidstab
+  - libvmaf
+  - libvorbis
+  - libvpx
+  - libx11
+  - libxcb
+  - llama.cpp
+  - opencore-amr
+  - openjpeg
+  - opus
+  - rav1e
+  - rubberband
+  - sdl2
+  - snappy
+  - speex
+  - srt
+  - svt-av1
+  - tesseract
+  - theora
+  - webp
+  - whisper-cpp
+  - x264
+  - x265
+  - xvid
+  - xz
+  - zeromq
+  - zimg
+  - libarchive
+  - libogg
+  - libsamplerate
+keg_only: true

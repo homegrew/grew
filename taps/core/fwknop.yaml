@@ -1,0 +1,23 @@
+name: fwknop
+version: 2.6.11
+description: Single Packet Authorization and Port Knocking
+homepage: https://www.cipherdyne.org/fwknop/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fwknop/blobs/sha256:7963f9f9f757720644a3df1cfaeb3307b43dfc3148ece268a48fca4ca47bf83b
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fwknop/blobs/sha256:dadbd89d12097cafb572e66e31295745cb7420ff940fd985932946a23859fb6d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fwknop/blobs/sha256:dc5ed49f5029429d1e0db9e575844e6517dd3339924d55c986df9a48485bfd95
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fwknop/blobs/sha256:403b551d5a2cf7b34feae53ac83a788de7af8d7d32982262d1bba500529ac6cc
+sha256:
+  darwin_arm64: 7963f9f9f757720644a3df1cfaeb3307b43dfc3148ece268a48fca4ca47bf83b
+  darwin_amd64: dadbd89d12097cafb572e66e31295745cb7420ff940fd985932946a23859fb6d
+  linux_amd64: dc5ed49f5029429d1e0db9e575844e6517dd3339924d55c986df9a48485bfd95
+  linux_arm64: 403b551d5a2cf7b34feae53ac83a788de7af8d7d32982262d1bba500529ac6cc
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gpgme
+  - libassuan
+  - libgpg-error

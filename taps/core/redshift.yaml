@@ -1,0 +1,22 @@
+name: redshift
+version: 1.12
+description: Adjust color temperature of your screen according to your surroundings
+homepage: https://github.com/jonls/redshift
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/redshift/blobs/sha256:b3f728c06b42f585bdf50685e7613ee66f639d43f85030942edf712b6ad928ab
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/redshift/blobs/sha256:ecccd726383b2a9fda6f1ce365744e74bd8d1e76b2031fd0f58caeb9daecee15
+  linux_amd64: https://ghcr.io/v2/homebrew/core/redshift/blobs/sha256:12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a
+  linux_arm64: https://ghcr.io/v2/homebrew/core/redshift/blobs/sha256:c21e3b0726216ea136e4f022da78243fd5572e69f9a3fc7507c07831d95551d4
+sha256:
+  darwin_arm64: b3f728c06b42f585bdf50685e7613ee66f639d43f85030942edf712b6ad928ab
+  darwin_amd64: ecccd726383b2a9fda6f1ce365744e74bd8d1e76b2031fd0f58caeb9daecee15
+  linux_amd64: 12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a
+  linux_arm64: c21e3b0726216ea136e4f022da78243fd5572e69f9a3fc7507c07831d95551d4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - gettext
+  - glib

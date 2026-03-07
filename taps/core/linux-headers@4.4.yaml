@@ -1,0 +1,16 @@
+name: linux-headers@4.4
+version: 4.4.302
+description: Header files of the Linux kernel
+homepage: https://kernel.org/
+license: GPL-2.0-only
+url:
+  linux_amd64: https://ghcr.io/v2/homebrew/core/linux-headers/4.4/blobs/sha256:2b2ca7202c544d6a14778915175fc811e370cd7a5249c6d0216c83d78cc421ed
+  linux_arm64: https://ghcr.io/v2/homebrew/core/linux-headers/4.4/blobs/sha256:b809f68c023e71c860af7b6fa6f57f6e3e55130fc69b20fc42f8c4c9685b7b3e
+sha256:
+  linux_amd64: 2b2ca7202c544d6a14778915175fc811e370cd7a5249c6d0216c83d78cc421ed
+  linux_arm64: b809f68c023e71c860af7b6fa6f57f6e3e55130fc69b20fc42f8c4c9685b7b3e
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+keg_only: true

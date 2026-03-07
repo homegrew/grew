@@ -1,0 +1,11 @@
+name: k8studio
+version: 3.1.4
+description: Kubernetes GUI
+homepage: https://k8studio.io/
+url:
+  darwin_arm64: https://github.com/k8Studio/k8Studio/releases/download/v3.1.4/K8Studio-3.1.4-arm64.dmg
+sha256:
+  darwin_arm64: 45356d4096d7b625137f8ab621aa04de8432464e23d04ce7fa04fb5ff66b86b8
+artifacts:
+  app:
+    - K8Studio.app

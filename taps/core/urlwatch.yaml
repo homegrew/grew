@@ -1,0 +1,23 @@
+name: urlwatch
+version: 2.29
+description: Get notified when a webpage changes
+homepage: https://thp.io/2008/urlwatch/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/urlwatch/blobs/sha256:da1dfa601ce4dd511146452f65ca384670ac5efbbfc45aba8be8565da5993db2
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/urlwatch/blobs/sha256:41685b256f308a7adf68334a28eff6da32d02d4a228ba76e9572bf81054767cf
+  linux_amd64: https://ghcr.io/v2/homebrew/core/urlwatch/blobs/sha256:78f57748f6a4cd8ec212f0626c54feb2b97b6dd8295f8706255428bbd7b033bf
+  linux_arm64: https://ghcr.io/v2/homebrew/core/urlwatch/blobs/sha256:a3a93b1adfa0052e3b2e9414a7475553adf2d8ea5d565605f50415c55f4c1de1
+sha256:
+  darwin_arm64: da1dfa601ce4dd511146452f65ca384670ac5efbbfc45aba8be8565da5993db2
+  darwin_amd64: 41685b256f308a7adf68334a28eff6da32d02d4a228ba76e9572bf81054767cf
+  linux_amd64: 78f57748f6a4cd8ec212f0626c54feb2b97b6dd8295f8706255428bbd7b033bf
+  linux_arm64: a3a93b1adfa0052e3b2e9414a7475553adf2d8ea5d565605f50415c55f4c1de1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - certifi
+  - libyaml
+  - python@3.14

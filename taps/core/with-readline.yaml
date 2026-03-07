@@ -1,0 +1,21 @@
+name: with-readline
+version: 0.1.1
+description: Allow GNU Readline to be used with arbitrary programs
+homepage: https://www.greenend.org.uk/rjk/sw/withreadline.html
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/with-readline/blobs/sha256:ea58369604289993c9794f0da96a40acea67e31660a6cd5f2b1ee0c86c5cde07
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/with-readline/blobs/sha256:04cd5b6bff3d1ae6daddbd45dfdc42864b84a2061191573561b35bf001dd57b0
+  linux_amd64: https://ghcr.io/v2/homebrew/core/with-readline/blobs/sha256:fa9469fdae3e63ea2e6bba4850d405878c6a782b703f978ee04e28a49285e39b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/with-readline/blobs/sha256:13a2d06bb7d6b22f037485e8e59d402cd10c20ade9be3919a1ca8d98511ce796
+sha256:
+  darwin_arm64: ea58369604289993c9794f0da96a40acea67e31660a6cd5f2b1ee0c86c5cde07
+  darwin_amd64: 04cd5b6bff3d1ae6daddbd45dfdc42864b84a2061191573561b35bf001dd57b0
+  linux_amd64: fa9469fdae3e63ea2e6bba4850d405878c6a782b703f978ee04e28a49285e39b
+  linux_arm64: 13a2d06bb7d6b22f037485e8e59d402cd10c20ade9be3919a1ca8d98511ce796
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - readline

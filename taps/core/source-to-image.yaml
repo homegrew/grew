@@ -1,0 +1,19 @@
+name: source-to-image
+version: 1.5.1
+description: Tool for building source and injecting into docker images
+homepage: https://github.com/openshift/source-to-image
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/source-to-image/blobs/sha256:7735582f91687e77f5e48c13fa4c8a53ce5fccb4432e68799ed548c869801ef5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/source-to-image/blobs/sha256:140175f74190d78aa15506c88c60e4b0edf3f0a610631331cf5c89be2c07d499
+  linux_amd64: https://ghcr.io/v2/homebrew/core/source-to-image/blobs/sha256:274fd87a87e799afb59ec2e03b3ac12bf555f491bf0395ff1921c353d87375ad
+  linux_arm64: https://ghcr.io/v2/homebrew/core/source-to-image/blobs/sha256:b56f0ebfe195a88d684881f6240c4c2a2ea906a9e62c9b4b8ac667831b2f11ea
+sha256:
+  darwin_arm64: 7735582f91687e77f5e48c13fa4c8a53ce5fccb4432e68799ed548c869801ef5
+  darwin_amd64: 140175f74190d78aa15506c88c60e4b0edf3f0a610631331cf5c89be2c07d499
+  linux_amd64: 274fd87a87e799afb59ec2e03b3ac12bf555f491bf0395ff1921c353d87375ad
+  linux_arm64: b56f0ebfe195a88d684881f6240c4c2a2ea906a9e62c9b4b8ac667831b2f11ea
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,21 @@
+name: mypy
+version: 1.19.1
+description: Experimental optional static type checker for Python
+homepage: https://www.mypy-lang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/mypy/blobs/sha256:3875d2fb32d436f8f678fdfa05314b505ac15d271e421b81672b35ee1c528a0c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/mypy/blobs/sha256:c4a02386b625de7c50c1a97d6f2ddbf6d8b150768c589d82e9d8ef5a049af854
+  linux_amd64: https://ghcr.io/v2/homebrew/core/mypy/blobs/sha256:97b121d058c43255715d92b58044ea0e6bd0d6cfe77d79417067387fc5032656
+  linux_arm64: https://ghcr.io/v2/homebrew/core/mypy/blobs/sha256:2b2d4c49ec804c1c1dafe2a905ec331944b7a770dc1dce26175dc8ed33e8a412
+sha256:
+  darwin_arm64: 3875d2fb32d436f8f678fdfa05314b505ac15d271e421b81672b35ee1c528a0c
+  darwin_amd64: c4a02386b625de7c50c1a97d6f2ddbf6d8b150768c589d82e9d8ef5a049af854
+  linux_amd64: 97b121d058c43255715d92b58044ea0e6bd0d6cfe77d79417067387fc5032656
+  linux_arm64: 2b2d4c49ec804c1c1dafe2a905ec331944b7a770dc1dce26175dc8ed33e8a412
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - python@3.14

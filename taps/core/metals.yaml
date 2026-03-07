@@ -1,0 +1,21 @@
+name: metals
+version: 1.6.6
+description: Scala language server
+homepage: https://github.com/scalameta/metals
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/metals/blobs/sha256:74ba892101b9d717d10d0d4f7c70652582ef8997988da312fcfdc902a77ecb97
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/metals/blobs/sha256:955538892db8dd8199423bc4e2ccdc74235c40f6ed68c11f27e4e49994440710
+  linux_amd64: https://ghcr.io/v2/homebrew/core/metals/blobs/sha256:1d7d685f20a9532d2fb4e77edf78abd01a95edddadbecf01ce701e3dada6f921
+  linux_arm64: https://ghcr.io/v2/homebrew/core/metals/blobs/sha256:112eec103a55e747171e7b355a34635ec30467cda950a61605c443e9c029c6d2
+sha256:
+  darwin_arm64: 74ba892101b9d717d10d0d4f7c70652582ef8997988da312fcfdc902a77ecb97
+  darwin_amd64: 955538892db8dd8199423bc4e2ccdc74235c40f6ed68c11f27e4e49994440710
+  linux_amd64: 1d7d685f20a9532d2fb4e77edf78abd01a95edddadbecf01ce701e3dada6f921
+  linux_arm64: 112eec103a55e747171e7b355a34635ec30467cda950a61605c443e9c029c6d2
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openjdk

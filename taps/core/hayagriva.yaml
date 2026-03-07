@@ -1,0 +1,19 @@
+name: hayagriva
+version: 0.9.1
+description: Bibliography management tool
+homepage: https://github.com/typst/hayagriva
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/hayagriva/blobs/sha256:a475268a6565eacaa5769082f9b5ee72c3e97db28904e84814a293a995d181d6
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/hayagriva/blobs/sha256:4bf289411bddd3cf2b85a82c9ac7d04bb83b991bebe90a3c7c5d52c1525a10b9
+  linux_amd64: https://ghcr.io/v2/homebrew/core/hayagriva/blobs/sha256:0c70d107b3baec8eaa3eafb8e7dfb42895fd9fec00db985f9dbcd64efeffdf30
+  linux_arm64: https://ghcr.io/v2/homebrew/core/hayagriva/blobs/sha256:e2a1167e276da83099461cf680c40f6997754a0c21b8f2ebf11fe8c2bd80f59f
+sha256:
+  darwin_arm64: a475268a6565eacaa5769082f9b5ee72c3e97db28904e84814a293a995d181d6
+  darwin_amd64: 4bf289411bddd3cf2b85a82c9ac7d04bb83b991bebe90a3c7c5d52c1525a10b9
+  linux_amd64: 0c70d107b3baec8eaa3eafb8e7dfb42895fd9fec00db985f9dbcd64efeffdf30
+  linux_arm64: e2a1167e276da83099461cf680c40f6997754a0c21b8f2ebf11fe8c2bd80f59f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: ampl-asl
+version: 1.0.1
+description: AMPL Solver Library
+homepage: https://ampl.com/
+license: BSD-3-Clause
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/ampl-asl/blobs/sha256:3e93cfc9570652c4c096b01942081b983ebafff86da8edbaf143992fe5c97338
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/ampl-asl/blobs/sha256:63dc38641db70dd681e96b4845458fbe9aed065dd896dca0ef8daba1c98f3724
+  linux_amd64: https://ghcr.io/v2/homebrew/core/ampl-asl/blobs/sha256:6ed2974a2535806181150237068f2125ab75f64fc06644cd972b66278cfb8dda
+  linux_arm64: https://ghcr.io/v2/homebrew/core/ampl-asl/blobs/sha256:3b5fcd3e7c6634a5718574b024cec7f43f90085ce233e9d7038c62a5915b351d
+sha256:
+  darwin_arm64: 3e93cfc9570652c4c096b01942081b983ebafff86da8edbaf143992fe5c97338
+  darwin_amd64: 63dc38641db70dd681e96b4845458fbe9aed065dd896dca0ef8daba1c98f3724
+  linux_amd64: 6ed2974a2535806181150237068f2125ab75f64fc06644cd972b66278cfb8dda
+  linux_arm64: 3b5fcd3e7c6634a5718574b024cec7f43f90085ce233e9d7038c62a5915b351d
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,23 @@
+name: aide
+version: 0.19.3
+description: File and directory integrity checker
+homepage: https://aide.github.io/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/aide/blobs/sha256:e84fe8e7cdbd88400214740e38b924ff7bdfe449b2ef2de235d4e9751e3e9225
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/aide/blobs/sha256:4ea8bb4acbd0926da91bdd8ee2ed6f6adea517aa51a3abce5f62e248425f2a89
+  linux_amd64: https://ghcr.io/v2/homebrew/core/aide/blobs/sha256:cd4e10567325568eadfb6dcde6da800b5a682212bddc7a878554fccbdb251582
+  linux_arm64: https://ghcr.io/v2/homebrew/core/aide/blobs/sha256:b2f434138bea735edc207d22050845a60d34b494161a7d2f339bad6c11acba8f
+sha256:
+  darwin_arm64: e84fe8e7cdbd88400214740e38b924ff7bdfe449b2ef2de235d4e9751e3e9225
+  darwin_amd64: 4ea8bb4acbd0926da91bdd8ee2ed6f6adea517aa51a3abce5f62e248425f2a89
+  linux_amd64: cd4e10567325568eadfb6dcde6da800b5a682212bddc7a878554fccbdb251582
+  linux_arm64: b2f434138bea735edc207d22050845a60d34b494161a7d2f339bad6c11acba8f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgcrypt
+  - libgpg-error
+  - pcre2

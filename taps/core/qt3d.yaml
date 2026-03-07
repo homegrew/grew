@@ -1,0 +1,24 @@
+name: qt3d
+version: 6.10.2
+description: Provides functionality for near-realtime simulation systems
+homepage: https://www.qt.io/
+license: (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND BSD-3-Clause AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/qt3d/blobs/sha256:6ed55cc583ad47ec6a34162e2632049397c37a93999c39c0a7bb9a7d39b592ce
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/qt3d/blobs/sha256:222294c5720fc2a1c1fd449b95509609c542647577d3570e28ae85620e6fa340
+  linux_amd64: https://ghcr.io/v2/homebrew/core/qt3d/blobs/sha256:64982a5854fb6e9dac7e6ac0d7e0226ace8bf59eabb0b916a8265eb445e5ff77
+  linux_arm64: https://ghcr.io/v2/homebrew/core/qt3d/blobs/sha256:3e73650d8f9cc4dafb2628c058443058a053e63016c411ccec8b70cfa16dd2f1
+sha256:
+  darwin_arm64: 6ed55cc583ad47ec6a34162e2632049397c37a93999c39c0a7bb9a7d39b592ce
+  darwin_amd64: 222294c5720fc2a1c1fd449b95509609c542647577d3570e28ae85620e6fa340
+  linux_amd64: 64982a5854fb6e9dac7e6ac0d7e0226ace8bf59eabb0b916a8265eb445e5ff77
+  linux_arm64: 3e73650d8f9cc4dafb2628c058443058a053e63016c411ccec8b70cfa16dd2f1
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - assimp
+  - qtbase
+  - qtdeclarative
+  - qtshadertools

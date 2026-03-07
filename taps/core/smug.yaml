@@ -1,0 +1,19 @@
+name: smug
+version: 0.3.17
+description: Automate your tmux workflow
+homepage: https://github.com/ivaaaan/smug
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/smug/blobs/sha256:e5d28d8625885758a49473fa57d55727f3e28e19f399665fd23d861408bd88ff
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/smug/blobs/sha256:dd25986b3087e0709b4ce46ed8173b78cc3e64c82a95744fcf5e5f8d3d7227d5
+  linux_amd64: https://ghcr.io/v2/homebrew/core/smug/blobs/sha256:0513b7c205b7126c09ceb741ad7f723820655c25c4fb57a6173a3429ded2d9a0
+  linux_arm64: https://ghcr.io/v2/homebrew/core/smug/blobs/sha256:0ad223a17e1d55f9d4110162ac9c92d72f7a02dd17190100a7db61cc57a5736f
+sha256:
+  darwin_arm64: e5d28d8625885758a49473fa57d55727f3e28e19f399665fd23d861408bd88ff
+  darwin_amd64: dd25986b3087e0709b4ce46ed8173b78cc3e64c82a95744fcf5e5f8d3d7227d5
+  linux_amd64: 0513b7c205b7126c09ceb741ad7f723820655c25c4fb57a6173a3429ded2d9a0
+  linux_arm64: 0ad223a17e1d55f9d4110162ac9c92d72f7a02dd17190100a7db61cc57a5736f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

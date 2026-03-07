@@ -1,0 +1,21 @@
+name: cafeobj
+version: 1.6.2
+description: New generation algebraic specification and programming language
+homepage: https://cafeobj.org/
+license: BSD-2-Clause AND LicenseRef-Homebrew-public-domain AND MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cafeobj/blobs/sha256:dce62a3729ca96afc0a108ddd59600066e98b82282fd448f3af759660d112537
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cafeobj/blobs/sha256:04d7d82a328ad96e7dcf8fa3d9afabb1f84b0d386c1beed9eef271737ab9ac56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cafeobj/blobs/sha256:fefc0da02032b0c3f03aee866a9e6db0fbc3b9bcee757a71f5a682703e12ff0b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cafeobj/blobs/sha256:7f9e673420ee0cba67dc62168fc40be7d88e685929420bd0bc80ea7eba80fdc9
+sha256:
+  darwin_arm64: dce62a3729ca96afc0a108ddd59600066e98b82282fd448f3af759660d112537
+  darwin_amd64: 04d7d82a328ad96e7dcf8fa3d9afabb1f84b0d386c1beed9eef271737ab9ac56
+  linux_amd64: fefc0da02032b0c3f03aee866a9e6db0fbc3b9bcee757a71f5a682703e12ff0b
+  linux_arm64: 7f9e673420ee0cba67dc62168fc40be7d88e685929420bd0bc80ea7eba80fdc9
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - zstd

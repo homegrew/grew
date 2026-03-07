@@ -1,0 +1,19 @@
+name: sword
+version: 1.9.0
+description: Cross-platform tools to write Bible software
+homepage: https://www.crosswire.org/sword/index.jsp
+license: GPL-2.0-only
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/sword/blobs/sha256:152cbcfdc848a2a2b963b31b8dfb29c11c93178dbb234aa5e7d6469ec802e12e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/sword/blobs/sha256:44fb9a8b06c4b81a975091db3a26ca102674f05e1e8c832ae9466269ac66c988
+  linux_amd64: https://ghcr.io/v2/homebrew/core/sword/blobs/sha256:fd4cfbf6785e0639306e71e8caaa0c7b9c04f97d4aee32bd855ab06eca13aa7b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/sword/blobs/sha256:4ff7bdd89ef62a9863acd1657e7bec7876682719e38b6586b5433a01a1b39ba0
+sha256:
+  darwin_arm64: 152cbcfdc848a2a2b963b31b8dfb29c11c93178dbb234aa5e7d6469ec802e12e
+  darwin_amd64: 44fb9a8b06c4b81a975091db3a26ca102674f05e1e8c832ae9466269ac66c988
+  linux_amd64: fd4cfbf6785e0639306e71e8caaa0c7b9c04f97d4aee32bd855ab06eca13aa7b
+  linux_arm64: 4ff7bdd89ef62a9863acd1657e7bec7876682719e38b6586b5433a01a1b39ba0
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

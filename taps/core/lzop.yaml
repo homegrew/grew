@@ -1,0 +1,21 @@
+name: lzop
+version: 1.04
+description: File compressor
+homepage: https://www.lzop.org/
+license: GPL-2.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/lzop/blobs/sha256:20091ae058723e28c6d638439220471a1c3862add310adb16aa7cde1e3ad4f1c
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/lzop/blobs/sha256:8b4755580fbfe632a03e98de0944036593c62852c4b9dc60756037594776608d
+  linux_amd64: https://ghcr.io/v2/homebrew/core/lzop/blobs/sha256:15ba7328bdcb1e9789b03851966efb4cd6ccc3feb35cfbc37a364be6fc4c77e7
+  linux_arm64: https://ghcr.io/v2/homebrew/core/lzop/blobs/sha256:fe1868793eded05a6b15a8015c7859cbd527f183d319469b2dc25981d667e6ca
+sha256:
+  darwin_arm64: 20091ae058723e28c6d638439220471a1c3862add310adb16aa7cde1e3ad4f1c
+  darwin_amd64: 8b4755580fbfe632a03e98de0944036593c62852c4b9dc60756037594776608d
+  linux_amd64: 15ba7328bdcb1e9789b03851966efb4cd6ccc3feb35cfbc37a364be6fc4c77e7
+  linux_arm64: fe1868793eded05a6b15a8015c7859cbd527f183d319469b2dc25981d667e6ca
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - lzo

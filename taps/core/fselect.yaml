@@ -1,0 +1,21 @@
+name: fselect
+version: 0.9.3
+description: Find files with SQL-like queries
+homepage: https://github.com/jhspetersson/fselect
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/fselect/blobs/sha256:6012072ed385ad316f39de794afb461d421aaaa617d98d2d08e2c08a885ba799
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/fselect/blobs/sha256:fa3b635fad316dea45f716fd0617d71ccc804f8efcc9ddfd242ad93d378d0e53
+  linux_amd64: https://ghcr.io/v2/homebrew/core/fselect/blobs/sha256:d81f0ad844aa4d91a6400507bf974c7e034f73fb97fc2571a288c29a27173b6d
+  linux_arm64: https://ghcr.io/v2/homebrew/core/fselect/blobs/sha256:0869a3bacc37714a896575c476c16697017b81320b388987bc4e96c779a784d8
+sha256:
+  darwin_arm64: 6012072ed385ad316f39de794afb461d421aaaa617d98d2d08e2c08a885ba799
+  darwin_amd64: fa3b635fad316dea45f716fd0617d71ccc804f8efcc9ddfd242ad93d378d0e53
+  linux_amd64: d81f0ad844aa4d91a6400507bf974c7e034f73fb97fc2571a288c29a27173b6d
+  linux_arm64: 0869a3bacc37714a896575c476c16697017b81320b388987bc4e96c779a784d8
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libgit2

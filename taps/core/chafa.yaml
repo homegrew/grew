@@ -1,0 +1,31 @@
+name: chafa
+version: 1.18.1
+description: Versatile and fast Unicode/ASCII/ANSI graphics renderer
+homepage: https://hpjansson.org/chafa/
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/chafa/blobs/sha256:8481084fe39e9971a49c4e1aa094c161230de635d53afb45e07e25a21b654cb5
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/chafa/blobs/sha256:c4cc89aed4c4637d304044c4f44bc8a761f348dedad467a955d22b98bf6628a2
+  linux_amd64: https://ghcr.io/v2/homebrew/core/chafa/blobs/sha256:356f1d9486e4e1a759490d85492e7eda81262ac3e36299bc1d8724c98ac98b73
+  linux_arm64: https://ghcr.io/v2/homebrew/core/chafa/blobs/sha256:04eeb0c26b507b7b9c6b71c46f1aa92f03ee255cf52a78eef07926c64b867b57
+sha256:
+  darwin_arm64: 8481084fe39e9971a49c4e1aa094c161230de635d53afb45e07e25a21b654cb5
+  darwin_amd64: c4cc89aed4c4637d304044c4f44bc8a761f348dedad467a955d22b98bf6628a2
+  linux_amd64: 356f1d9486e4e1a759490d85492e7eda81262ac3e36299bc1d8724c98ac98b73
+  linux_arm64: 04eeb0c26b507b7b9c6b71c46f1aa92f03ee255cf52a78eef07926c64b867b57
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - cairo
+  - freetype
+  - glib
+  - jpeg-turbo
+  - jpeg-xl
+  - libavif
+  - librsvg
+  - libtiff
+  - webp
+  - gdk-pixbuf
+  - gettext

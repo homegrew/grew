@@ -1,0 +1,26 @@
+name: posting
+version: 2.9.2
+description: Modern API client that lives in your terminal
+homepage: https://github.com/darrenburns/posting
+license: Apache-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/posting/blobs/sha256:949881575f16d1a15bfa6079750a3043db64dab31e2c935e6753825e3ffec787
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/posting/blobs/sha256:79515d6d59d23f33519075a143da4fce5ddab922e61ce67a6e5c4191f0e8d9ad
+  linux_amd64: https://ghcr.io/v2/homebrew/core/posting/blobs/sha256:9dfeef51d2ccebdeb7d89a1432178f8cfec47418df589d46312adb170edf89d8
+  linux_arm64: https://ghcr.io/v2/homebrew/core/posting/blobs/sha256:72e8702ae3427b66255ccbca7c64628fd09a1c5cb4a721f56bbd981f2859c5c4
+sha256:
+  darwin_arm64: 949881575f16d1a15bfa6079750a3043db64dab31e2c935e6753825e3ffec787
+  darwin_amd64: 79515d6d59d23f33519075a143da4fce5ddab922e61ce67a6e5c4191f0e8d9ad
+  linux_amd64: 9dfeef51d2ccebdeb7d89a1432178f8cfec47418df589d46312adb170edf89d8
+  linux_arm64: 72e8702ae3427b66255ccbca7c64628fd09a1c5cb4a721f56bbd981f2859c5c4
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - brotli
+  - certifi
+  - libyaml
+  - pydantic
+  - python@3.14
+  - tree-sitter

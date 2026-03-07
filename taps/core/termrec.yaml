@@ -1,0 +1,21 @@
+name: termrec
+version: 0.19
+description: Record videos of terminal output
+homepage: https://angband.pl/termrec.html
+license: LGPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/termrec/blobs/sha256:83130b80ca5853bcb36c51451cf600c22c5fa8138cd525723cd8e9b960ff9791
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/termrec/blobs/sha256:6b37974b1c45960c3572d2a030dc45a1c3d10e4e8165e158167a5949625e1f72
+  linux_amd64: https://ghcr.io/v2/homebrew/core/termrec/blobs/sha256:fd26bd9def49e75e6030be96b864fa6cb0ddca5660f06b858d9176edecf6883b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/termrec/blobs/sha256:adc70be44639d06db0b15cbd211ded8e4e84826389152de96dc9e089a9d78a0f
+sha256:
+  darwin_arm64: 83130b80ca5853bcb36c51451cf600c22c5fa8138cd525723cd8e9b960ff9791
+  darwin_amd64: 6b37974b1c45960c3572d2a030dc45a1c3d10e4e8165e158167a5949625e1f72
+  linux_amd64: fd26bd9def49e75e6030be96b864fa6cb0ddca5660f06b858d9176edecf6883b
+  linux_arm64: adc70be44639d06db0b15cbd211ded8e4e84826389152de96dc9e089a9d78a0f
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - xz

@@ -1,0 +1,21 @@
+name: libpaho-mqtt
+version: 1.3.16
+description: Eclipse Paho C client library for MQTT
+homepage: https://eclipse-paho.github.io/paho.mqtt.c/MQTTClient/html/
+license: EPL-2.0
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/libpaho-mqtt/blobs/sha256:16433282b65e480ba201c3d7be20a04f9a467df60ca0dd8656759edbb3be7b58
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/libpaho-mqtt/blobs/sha256:93be86edbcb744aca1ba39596adf2a4f0e461dfb8be17f273d8e342306278770
+  linux_amd64: https://ghcr.io/v2/homebrew/core/libpaho-mqtt/blobs/sha256:0f742ea550c8656fa6e967dd1a444acce319272b57e42649f54781508b3fa398
+  linux_arm64: https://ghcr.io/v2/homebrew/core/libpaho-mqtt/blobs/sha256:edfda6f2d2cbc26452874c4f12234ca9e188f7be4e8c4052447463b5e5ea7a96
+sha256:
+  darwin_arm64: 16433282b65e480ba201c3d7be20a04f9a467df60ca0dd8656759edbb3be7b58
+  darwin_amd64: 93be86edbcb744aca1ba39596adf2a4f0e461dfb8be17f273d8e342306278770
+  linux_amd64: 0f742ea550c8656fa6e967dd1a444acce319272b57e42649f54781508b3fa398
+  linux_arm64: edfda6f2d2cbc26452874c4f12234ca9e188f7be4e8c4052447463b5e5ea7a96
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - openssl@3

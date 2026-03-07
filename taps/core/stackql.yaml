@@ -1,0 +1,19 @@
+name: stackql
+version: 0.9.339
+description: SQL interface for arbitrary resources with full CRUD support
+homepage: https://stackql.io/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/stackql/blobs/sha256:ad3d5d4e2be60590d1a5c2fbaf01772d437e35d423021f9acd9b7ac574ece899
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/stackql/blobs/sha256:f0dc33dda333c84d8b267b022b4c3c3bb0473fd381fb25337d3618d632582e56
+  linux_amd64: https://ghcr.io/v2/homebrew/core/stackql/blobs/sha256:bd2b0015ec92c6f444cd070d30c1415b84e1f2ab6d12e0c3982aa37969ae30eb
+  linux_arm64: https://ghcr.io/v2/homebrew/core/stackql/blobs/sha256:75dd3bd12e669bda2f10a9374d38d41dc2064271ea01b3d3cbc357f869938f46
+sha256:
+  darwin_arm64: ad3d5d4e2be60590d1a5c2fbaf01772d437e35d423021f9acd9b7ac574ece899
+  darwin_amd64: f0dc33dda333c84d8b267b022b4c3c3bb0473fd381fb25337d3618d632582e56
+  linux_amd64: bd2b0015ec92c6f444cd070d30c1415b84e1f2ab6d12e0c3982aa37969ae30eb
+  linux_arm64: 75dd3bd12e669bda2f10a9374d38d41dc2064271ea01b3d3cbc357f869938f46
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

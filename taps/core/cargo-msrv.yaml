@@ -1,0 +1,19 @@
+name: cargo-msrv
+version: 0.19.2
+description: Find the minimum supported Rust version (MSRV) for your project
+homepage: https://foresterre.github.io/cargo-msrv
+license: Apache-2.0 OR MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/cargo-msrv/blobs/sha256:f189ee5f9b655754234e7812eaa143e44bd98592397b9554bb8479e0b4e90ccd
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/cargo-msrv/blobs/sha256:13e2dc40edc1d775eeca96af7af28ecfd753d50e61e3e054acc7d1ad74a0bbd7
+  linux_amd64: https://ghcr.io/v2/homebrew/core/cargo-msrv/blobs/sha256:6e415f199164c50d0fde49c29bca746785fa77a68578723dba57aeb4be478417
+  linux_arm64: https://ghcr.io/v2/homebrew/core/cargo-msrv/blobs/sha256:906f3a07a6fa42a61c9916c85887238da5634db462f9e72364820bb7f47149ab
+sha256:
+  darwin_arm64: f189ee5f9b655754234e7812eaa143e44bd98592397b9554bb8479e0b4e90ccd
+  darwin_amd64: 13e2dc40edc1d775eeca96af7af28ecfd753d50e61e3e054acc7d1ad74a0bbd7
+  linux_amd64: 6e415f199164c50d0fde49c29bca746785fa77a68578723dba57aeb4be478417
+  linux_arm64: 906f3a07a6fa42a61c9916c85887238da5634db462f9e72364820bb7f47149ab
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

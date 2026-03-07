@@ -1,0 +1,25 @@
+name: bazarr
+version: 1.5.6
+description: Companion to Sonarr and Radarr for managing and downloading subtitles
+homepage: https://www.bazarr.media
+license: GPL-3.0-or-later
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/bazarr/blobs/sha256:32517782716a2fd4aba922414143b82d62b1d42fd858f8df13fbb2ac7ba7e86e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/bazarr/blobs/sha256:2d6ab6523eb2ea23d569cadd82f4320d6a2ba242a42db2745d5000b5474bd559
+  linux_amd64: https://ghcr.io/v2/homebrew/core/bazarr/blobs/sha256:b59866e003aadf13af65ea4a6f656ff22e1fb04589e211f26950e9180ffd7331
+  linux_arm64: https://ghcr.io/v2/homebrew/core/bazarr/blobs/sha256:108a8887b729fa30be916d4c6d32520b80b31802a2a1e9c0660455947f975885
+sha256:
+  darwin_arm64: 32517782716a2fd4aba922414143b82d62b1d42fd858f8df13fbb2ac7ba7e86e
+  darwin_amd64: 2d6ab6523eb2ea23d569cadd82f4320d6a2ba242a42db2745d5000b5474bd559
+  linux_amd64: b59866e003aadf13af65ea4a6f656ff22e1fb04589e211f26950e9180ffd7331
+  linux_arm64: 108a8887b729fa30be916d4c6d32520b80b31802a2a1e9c0660455947f975885
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - ffmpeg
+  - numpy
+  - pillow
+  - python@3.14
+  - unar

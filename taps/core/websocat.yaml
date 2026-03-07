@@ -1,0 +1,19 @@
+name: websocat
+version: 1.14.1
+description: Command-line client for WebSockets
+homepage: https://github.com/vi/websocat
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/websocat/blobs/sha256:6f1d55c1251a7ba4f35cfba173b03597528e12299a05997e4b7b53fce1f554e0
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/websocat/blobs/sha256:8aa7862d2353ab1b8c3d3200d486419cf2f9b87f379e2872d3ea48acc3fead93
+  linux_amd64: https://ghcr.io/v2/homebrew/core/websocat/blobs/sha256:33fe3fb016eec0925dfcd6cf0e8882abfa834bd247463d89ace9db6ef4d137f9
+  linux_arm64: https://ghcr.io/v2/homebrew/core/websocat/blobs/sha256:38cb45e49cfd724483a5b95f86e3de3fc65d1238c9607269b53136867931a5a6
+sha256:
+  darwin_arm64: 6f1d55c1251a7ba4f35cfba173b03597528e12299a05997e4b7b53fce1f554e0
+  darwin_amd64: 8aa7862d2353ab1b8c3d3200d486419cf2f9b87f379e2872d3ea48acc3fead93
+  linux_amd64: 33fe3fb016eec0925dfcd6cf0e8882abfa834bd247463d89ace9db6ef4d137f9
+  linux_arm64: 38cb45e49cfd724483a5b95f86e3de3fc65d1238c9607269b53136867931a5a6
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

@@ -1,0 +1,19 @@
+name: nim
+version: 2.2.8
+description: Statically typed compiled systems programming language
+homepage: https://nim-lang.org/
+license: MIT
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/nim/blobs/sha256:ed1e5ea4489b098183c94449ca5425fc0fa93a3cec7720c4c08d3be93a9ec21e
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/nim/blobs/sha256:e2077dc8d5b25cabe267e09ea90e30de33f8fd7c8bbae0318463a2c90f3e72de
+  linux_amd64: https://ghcr.io/v2/homebrew/core/nim/blobs/sha256:691f0d65552531875e738502c32e31247a1b7ddd224341dc3ba2fa70d26ad84b
+  linux_arm64: https://ghcr.io/v2/homebrew/core/nim/blobs/sha256:9a893ead409772de2d741e2e0d6ef86943bf02b574605091ed1da10ed5e42924
+sha256:
+  darwin_arm64: ed1e5ea4489b098183c94449ca5425fc0fa93a3cec7720c4c08d3be93a9ec21e
+  darwin_amd64: e2077dc8d5b25cabe267e09ea90e30de33f8fd7c8bbae0318463a2c90f3e72de
+  linux_amd64: 691f0d65552531875e738502c32e31247a1b7ddd224341dc3ba2fa70d26ad84b
+  linux_arm64: 9a893ead409772de2d741e2e0d6ef86943bf02b574605091ed1da10ed5e42924
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2

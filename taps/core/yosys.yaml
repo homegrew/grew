@@ -1,0 +1,23 @@
+name: yosys
+version: 0.63
+description: Framework for Verilog RTL synthesis
+homepage: https://yosyshq.net/yosys/
+license: ISC
+url:
+  darwin_arm64: https://ghcr.io/v2/homebrew/core/yosys/blobs/sha256:664bf46c55500f3859312de86f119d494caf53be145d03df312a63a0bdc95166
+  darwin_amd64: https://ghcr.io/v2/homebrew/core/yosys/blobs/sha256:547ca79f85722c89d42236ac39660401fd36e5db5361952a9b268fdbbb1ab677
+  linux_amd64: https://ghcr.io/v2/homebrew/core/yosys/blobs/sha256:88bd589f2515390139f8bbda0bb0840532d92aa6f700b0cb132e610e10e58ffc
+  linux_arm64: https://ghcr.io/v2/homebrew/core/yosys/blobs/sha256:c41e811729ea911431712e51a62b8fcd78a1a922f6f680575d77ad5947665784
+sha256:
+  darwin_arm64: 664bf46c55500f3859312de86f119d494caf53be145d03df312a63a0bdc95166
+  darwin_amd64: 547ca79f85722c89d42236ac39660401fd36e5db5361952a9b268fdbbb1ab677
+  linux_amd64: 88bd589f2515390139f8bbda0bb0840532d92aa6f700b0cb132e610e10e58ffc
+  linux_arm64: c41e811729ea911431712e51a62b8fcd78a1a922f6f680575d77ad5947665784
+install:
+  type: archive
+  format: tar.gz
+  strip_components: 2
+dependencies:
+  - libtommath
+  - readline
+  - tcl-tk
