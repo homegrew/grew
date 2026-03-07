@@ -13,6 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
 
@@ -59,7 +60,8 @@ func allChecks() []doctorCheck {
 		{"check_formula_sha256", "Check all formula SHA256 hashes are valid hex", checkFormulaSHA256},
 		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
 		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
-		// --- Structural checks ---
+		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
+		// --- Structural / health checks ---
 		{"check_directories", "Check required directories exist", checkDirectories},
 		{"check_path", "Check grew bin/ is in PATH", checkPath},
 		{"check_core_tap", "Check core tap has formulas", checkCoreTap},
@@ -285,6 +287,35 @@ func checkCellarPermissions(ctx *doctorCtx) {
 			if bp&0002 != 0 {
 				ctx.warn("binary %s/%s/bin/%s is world-writable (%o)", pkg.Name, pkg.Version, e.Name(), bp)
 			}
+		}
+	}
+}
+
+func checkSnapshotIntegrity(ctx *doctorCtx) {
+	for _, pkg := range ctx.packages {
+		kegPath := ctx.cel.KegPath(pkg.Name, pkg.Version)
+		if !snapshot.Exists(kegPath) {
+			continue
+		}
+		result, err := snapshot.Verify(kegPath)
+		if err != nil {
+			ctx.warn("%s %s: snapshot verification error: %v", pkg.Name, pkg.Version, err)
+			continue
+		}
+		if result.OK {
+			continue
+		}
+		for _, f := range result.Missing {
+			ctx.warn("%s %s: missing file: %s", pkg.Name, pkg.Version, f)
+		}
+		for _, f := range result.Modified {
+			ctx.warn("%s %s: modified: %s", pkg.Name, pkg.Version, f)
+		}
+		for _, f := range result.Added {
+			ctx.warn("%s %s: unexpected file: %s", pkg.Name, pkg.Version, f)
+		}
+		for _, e := range result.Errors {
+			ctx.warn("%s %s: %s", pkg.Name, pkg.Version, e)
 		}
 	}
 }

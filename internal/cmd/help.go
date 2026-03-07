@@ -220,6 +220,7 @@ Security checks:
   check_formula_sha256          Invalid or malformed SHA256 hashes
   check_symlink_targets         Symlinks escaping the grew prefix
   check_cellar_permissions      World-writable installed kegs/binaries
+  check_snapshot_integrity      Verify packages against install manifests
 
 Structural checks:
   check_directories             Required directories exist
