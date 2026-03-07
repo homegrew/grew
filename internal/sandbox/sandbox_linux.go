@@ -8,15 +8,36 @@ import (
 )
 
 func platformCommand(cfg BuildConfig, name string, args ...string) *exec.Cmd {
-	if p, err := exec.LookPath("bwrap"); err == nil {
+	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
 		return bwrapCommand(p, cfg, name, args...)
 	}
-	if p, err := exec.LookPath("unshare"); err == nil {
+	if p, err := exec.LookPath("unshare"); err == nil && unshareAvailable(p) {
 		return unshareCommand(p, cfg, name, args...)
 	}
 	cmd := exec.Command(name, args...)
 	cmd.Env = cleanEnv(cfg)
 	return cmd
+}
+
+// bwrapAvailable probes whether bwrap can actually create the namespaces
+// we need. On many systems (containers, restrictive kernels) unprivileged
+// namespace creation is blocked even though bwrap is installed.
+func bwrapAvailable(bwrapPath string) bool {
+	cmd := exec.Command(bwrapPath,
+		"--ro-bind", "/", "/",
+		"--unshare-net",
+		"--unshare-pid",
+		"--proc", "/proc",
+		"--dev", "/dev",
+		"true",
+	)
+	return cmd.Run() == nil
+}
+
+// unshareAvailable probes whether unshare(1) can create a network namespace.
+func unshareAvailable(unsharePath string) bool {
+	cmd := exec.Command(unsharePath, "--net", "true")
+	return cmd.Run() == nil
 }
 
 // bwrapCommand uses bubblewrap for full namespace-based isolation:
