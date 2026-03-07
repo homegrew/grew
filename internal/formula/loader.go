@@ -19,18 +19,28 @@ func (l *Loader) debugf(format string, args ...any) {
 }
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
+	name = strings.TrimSuffix(name, ".yaml")
 	taps, err := os.ReadDir(l.TapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
+	
+	var lastErr error
 	for _, tap := range taps {
 		if !tap.IsDir() {
 			continue
 		}
-		f, err := l.loadFromFile(filepath.Join(l.TapDir, tap.Name(), name+".yaml"))
+		path := filepath.Join(l.TapDir, tap.Name(), name+".yaml")
+		f, err := l.loadFromFile(path)
 		if err == nil {
 			return f, nil
 		}
+		if !os.IsNotExist(err) {
+			lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+		}
+	}
+	if lastErr != nil {
+		return nil, fmt.Errorf("formula not found: %q (%v)", name, lastErr)
 	}
 	return nil, fmt.Errorf("formula not found: %q", name)
 }

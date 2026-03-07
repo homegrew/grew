@@ -121,6 +121,7 @@ func (l *Loader) debugf(format string, args ...any) {
 }
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
+	name = strings.TrimSuffix(name, ".yaml")
 	// Look in "cask" subdirectory of taps
 	caskDir := filepath.Join(l.TapDir, "cask")
 	path := filepath.Join(caskDir, name+".yaml")

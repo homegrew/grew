@@ -6,8 +6,8 @@ import (
 	"regexp"
 )
 
-var SafeNameRe = regexp.MustCompile(`^[a-z0-9][a-z0-9@._-]*$`)
-var SafeVersionRe = regexp.MustCompile(`^[a-zA-Z0-9][a-zA-Z0-9._-]*$`)
+var SafeNameRe = regexp.MustCompile(`^[a-z0-9][a-z0-9@._\-\+]*$`)
+var SafeVersionRe = regexp.MustCompile(`^[a-zA-Z0-9][a-zA-Z0-9._\-\+\~:]*$`)
 
 func IsValidName(name string) bool {
 	return SafeNameRe.MatchString(name)
