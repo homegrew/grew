@@ -421,17 +421,26 @@ Examples:
   grew verify jq
   grew verify --json`,
 
-	"sign": `Usage: grew sign <formula> <private-key-hex>
+	"sign": `Usage: grew sign <formula> <private-key-or-path>
 
 Sign the SHA256 hashes in a formula with an Ed25519 private key. Prints
 YAML-formatted signature fields that can be pasted into the formula file.
 
-The private key is the hex-encoded 32-byte seed. Generate a key pair with
-any Ed25519 tool; the public key should be added to etc/trusted-keys on
-machines that verify signatures.
+The key argument can be:
+  - A hex-encoded Ed25519 seed (64 hex characters)
+  - A path to an OpenSSH private key file (ssh-keygen -t ed25519)
+
+Generate a key pair with ssh-keygen:
+  ssh-keygen -t ed25519 -f grew-signing-key -N ""
+
+Add the public key to etc/trusted-keys on machines that verify signatures.
+The trusted-keys file accepts both formats:
+  - ssh-ed25519 AAAA... comment    (paste the .pub file line directly)
+  - <64 hex chars>                 (raw hex-encoded public key)
 
 Examples:
-  grew sign jq 0123456789abcdef...  (64 hex chars)`,
+  grew sign jq ~/.ssh/grew-signing-key
+  grew sign jq 0123456789abcdef...`,
 
 	"help": `Usage: grew help [command]
 

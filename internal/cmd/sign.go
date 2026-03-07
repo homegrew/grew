@@ -11,13 +11,16 @@ import (
 
 func runSign(args []string) error {
 	if len(args) != 2 {
-		return fmt.Errorf("usage: grew sign <formula> <private-key-hex>")
+		return fmt.Errorf("usage: grew sign <formula> <private-key-or-path>\n\n" +
+			"The key can be:\n" +
+			"  - A hex-encoded Ed25519 seed (64 hex characters)\n" +
+			"  - A path to an OpenSSH private key file (ssh-keygen -t ed25519)")
 	}
 
 	name := args[0]
-	privHex := args[1]
+	keyArg := args[1]
 
-	privKey, err := signing.DecodePrivateKey(privHex)
+	privKey, err := signing.DecodePrivateKey(keyArg)
 	if err != nil {
 		return fmt.Errorf("invalid private key: %w", err)
 	}

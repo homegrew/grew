@@ -37,9 +37,22 @@ func LoadTrustedKeys(grewRoot string) ([]ed25519.PublicKey, error) {
 		if line == "" || strings.HasPrefix(line, "#") {
 			continue
 		}
-		pub, err := DecodePublicKey(line)
-		if err != nil {
-			return nil, fmt.Errorf("trusted-keys line %d: %w", lineNo, err)
+
+		// Try SSH public key format first ("ssh-ed25519 AAAA... comment").
+		var pub ed25519.PublicKey
+		if strings.HasPrefix(line, "ssh-ed25519 ") {
+			var sshErr error
+			pub, sshErr = ParseSSHPublicKey(line)
+			if sshErr != nil {
+				return nil, fmt.Errorf("trusted-keys line %d: %w", lineNo, sshErr)
+			}
+		} else {
+			// Fall back to hex-encoded raw key.
+			var hexErr error
+			pub, hexErr = DecodePublicKey(line)
+			if hexErr != nil {
+				return nil, fmt.Errorf("trusted-keys line %d: %w", lineNo, hexErr)
+			}
 		}
 		keys = append(keys, pub)
 	}
