@@ -35,6 +35,11 @@ func (m *Manager) EnsureCloned() error {
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("clone taps repo: %w", err)
 	}
+
+	// Verify commit signature if configured.
+	if err := CheckAfterUpdate(m.TapsDir, TapVerifyMode()); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -65,6 +70,8 @@ func (m *Manager) InitCask() error {
 }
 
 // Update pulls the latest tap definitions from the remote repository.
+// If HOMEGREW_TAP_VERIFY is set to "warn" or "strict", the HEAD commit
+// signature is verified after a git-based update.
 func (m *Manager) Update() (int, error) {
 	if os.Getenv("HOMEGREW_NO_INSTALL_FROM_API") == "" {
 		if err := m.UpdateAPI(); err != nil {
@@ -87,6 +94,11 @@ func (m *Manager) Update() (int, error) {
 		reset.Stderr = os.Stderr
 		if err := reset.Run(); err != nil {
 			return 0, fmt.Errorf("update taps: %w", err)
+		}
+
+		// Verify commit signature if configured.
+		if err := CheckAfterUpdate(m.TapsDir, TapVerifyMode()); err != nil {
+			return 0, err
 		}
 	}
 

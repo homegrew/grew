@@ -372,6 +372,33 @@ Examples:
   grew services run postgresql
   grew services info postgresql`,
 
+	"lock": `Usage: grew lock [generate|check|show]
+
+Manage the formula lockfile. The lockfile records the exact state of all
+installed formulas (versions, checksums, dependencies) so environments
+are reproducible. It is stored at <grew_root>/grew.lock as JSON.
+
+The lockfile is NOT auto-generated on install. It is an explicit opt-in
+(like npm shrinkwrap or cargo generate-lockfile).
+
+Subcommands:
+  generate    Generate a lockfile from the current installed state (default)
+  check       Compare the lockfile against installed packages and report
+              discrepancies. Exits non-zero if any are found.
+  show        Pretty-print the current lockfile
+
+Discrepancy kinds reported by check:
+  missing            In lockfile but not installed
+  extra              Installed but not in lockfile
+  version_mismatch   Installed version differs from locked version
+  hash_mismatch      Keg integrity hash differs from locked hash
+
+Examples:
+  grew lock
+  grew lock generate
+  grew lock check
+  grew lock show`,
+
 	"verify": `Usage: grew verify [--json] [formula ...]
 
 Verify the integrity of installed packages by comparing the filesystem
@@ -393,6 +420,18 @@ Examples:
   grew verify
   grew verify jq
   grew verify --json`,
+
+	"sign": `Usage: grew sign <formula> <private-key-hex>
+
+Sign the SHA256 hashes in a formula with an Ed25519 private key. Prints
+YAML-formatted signature fields that can be pasted into the formula file.
+
+The private key is the hex-encoded 32-byte seed. Generate a key pair with
+any Ed25519 tool; the public key should be added to etc/trusted-keys on
+machines that verify signatures.
+
+Examples:
+  grew sign jq 0123456789abcdef...  (64 hex chars)`,
 
 	"help": `Usage: grew help [command]
 

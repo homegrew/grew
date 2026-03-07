@@ -97,6 +97,8 @@ func Run(args []string) error {
 		"services":     runServices,
 		"setup":        runSetup,
 		"verify":       runVerify,
+		"lock":         runLock,
+		"sign":         runSign,
 		"help":         runHelp,
 	}
 
@@ -162,6 +164,8 @@ Commands:
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
   verify [formula]     Verify installed package integrity
+  lock [subcommand]    Manage the formula lockfile (generate, check, show)
+  sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
   help [command]       Show help for a command
 `)
 }

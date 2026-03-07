@@ -32,6 +32,43 @@ func Command(cfg BuildConfig, name string, args ...string) *exec.Cmd {
 	return platformCommand(cfg, name, args...)
 }
 
+// PostInstallConfig describes the restricted sandbox for post-install scripts.
+// Unlike BuildConfig, post-install scripts get:
+//   - Network access denied
+//   - Write access ONLY to a temporary directory (not the keg itself)
+//   - Read access to the keg and system paths
+//   - Minimal environment (no compiler vars)
+type PostInstallConfig struct {
+	KegDir string // keg path (read-only)
+	TmpDir string // writable scratch space for the script
+}
+
+// PostInstallCommand wraps a post-install step in platform-specific sandboxing.
+// This is stricter than Command: the keg is read-only and only a temp dir
+// is writable. Network access is denied.
+func PostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	return platformPostInstallCommand(cfg, name, args...)
+}
+
+// postInstallEnv returns a minimal environment for post-install scripts.
+// Only PATH, HOME, LANG, and TMPDIR are passed through. No compiler
+// variables, no secrets.
+func postInstallEnv(cfg PostInstallConfig) []string {
+	allow := map[string]bool{
+		"PATH": true, "HOME": true,
+		"LANG": true, "LC_ALL": true,
+	}
+	var env []string
+	for _, kv := range os.Environ() {
+		key, _, _ := strings.Cut(kv, "=")
+		if allow[key] {
+			env = append(env, kv)
+		}
+	}
+	env = append(env, "TMPDIR="+cfg.TmpDir)
+	return env
+}
+
 // cleanEnv returns a minimal environment suitable for building.
 // It strips all variables except essential build/compiler ones,
 // preventing accidental leakage of secrets or tokens.

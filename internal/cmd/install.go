@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/sandbox"
+	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
@@ -181,6 +182,11 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 	}
 	fmt.Printf("==> SHA256 verified\n")
 
+	if err := verifySignature(f.Name, sha, f.GetSignature(), paths.Root); err != nil {
+		os.Remove(localFile)
+		return err
+	}
+
 	stageDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-stage")
 	os.RemoveAll(stageDir)
 
@@ -271,6 +277,11 @@ func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cella
 		return fmt.Errorf("verify source %s: %w", f.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
+
+	if err := verifySignature(f.Name, srcSHA, f.GetSourceSignature(), paths.Root); err != nil {
+		os.Remove(localFile)
+		return err
+	}
 
 	// Extract source to a build directory.
 	buildDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-build")
@@ -385,6 +396,30 @@ func urlExt(rawURL string) string {
 	return filepath.Ext(base)
 }
 
+// verifySignature checks a formula's signature against trusted keys.
+// If no trusted keys file exists, verification is silently skipped.
+// If trusted keys exist but no signature is present, a warning is printed.
+// If both exist and verification fails, an error is returned.
+func verifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
+	trustedKeys, err := signing.LoadTrustedKeys(grewRoot)
+	if err != nil {
+		return fmt.Errorf("load trusted keys: %w", err)
+	}
+	if len(trustedKeys) == 0 {
+		// No trusted keys configured — skip signature verification.
+		return nil
+	}
+	if signatureB64 == "" {
+		fmt.Printf("==> Warning: %s has no signature (trusted keys are configured)\n", name)
+		return nil
+	}
+	if !signing.VerifyAny(trustedKeys, sha256Hex, signatureB64) {
+		return fmt.Errorf("signature verification failed for %s: not signed by any trusted key", name)
+	}
+	fmt.Printf("==> Signature verified\n")
+	return nil
+}
+
 func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
 	if f.PostInstall == "" {
 		return nil
@@ -393,12 +428,21 @@ func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) er
 		fmt.Printf("==> Skipping post-install step for %s\n", f.Name)
 		return nil
 	}
-	fmt.Printf("==> Running post-install for %s (sandboxed)\n", f.Name)
-	sbCfg := sandbox.BuildConfig{
-		BuildDir: kegPath,
-		KegDir:   kegPath,
+	fmt.Printf("==> Running post-install for %s (sandboxed, keg read-only)\n", f.Name)
+
+	// Create a dedicated temp directory for the post-install script.
+	// This is the ONLY writable location — the keg itself is read-only.
+	piTmp, err := os.MkdirTemp("", fmt.Sprintf("grew-postinstall-%s-*", f.Name))
+	if err != nil {
+		return fmt.Errorf("create post-install tmpdir: %w", err)
 	}
-	cmd := sandbox.Command(sbCfg, "sh", "-c", f.PostInstall)
+	defer os.RemoveAll(piTmp)
+
+	piCfg := sandbox.PostInstallConfig{
+		KegDir: kegPath,
+		TmpDir: piTmp,
+	}
+	cmd := sandbox.PostInstallCommand(piCfg, "sh", "-c", f.PostInstall)
 	cmd.Dir = kegPath
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

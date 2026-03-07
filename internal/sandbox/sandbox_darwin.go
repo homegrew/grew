@@ -6,6 +6,39 @@ import (
 	"strings"
 )
 
+func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	profile := postInstallSeatbeltProfile(cfg)
+	sandboxArgs := []string{"-p", profile, name}
+	sandboxArgs = append(sandboxArgs, args...)
+	cmd := exec.Command("sandbox-exec", sandboxArgs...)
+	cmd.Env = postInstallEnv(cfg)
+	return cmd
+}
+
+// postInstallSeatbeltProfile generates a stricter Seatbelt profile for
+// post-install scripts:
+//   - Denies all network access
+//   - Allows file reads everywhere (system libs, keg contents)
+//   - Restricts file writes to: tmp dir, /dev only
+//   - The keg directory is NOT writable (post-install shouldn't modify installed files)
+func postInstallSeatbeltProfile(cfg PostInstallConfig) string {
+	var b strings.Builder
+	b.WriteString("(version 1)\n")
+	b.WriteString("(deny default)\n")
+	b.WriteString("(allow process*)\n")
+	b.WriteString("(allow signal)\n")
+	b.WriteString("(allow sysctl*)\n")
+	b.WriteString("(allow mach*)\n")
+	b.WriteString("(allow ipc*)\n")
+	b.WriteString("(deny network*)\n")
+	b.WriteString("(allow file-read*)\n")
+	// Only tmp dir and /dev are writable — keg is read-only.
+	fmt.Fprintf(&b, "(allow file-write* (subpath %q))\n", cfg.TmpDir)
+	b.WriteString("(allow file-write* (subpath \"/dev\"))\n")
+	b.WriteString("(allow file-write* (subpath \"/private/var/folders\"))\n")
+	return b.String()
+}
+
 func platformCommand(cfg BuildConfig, name string, args ...string) *exec.Cmd {
 	profile := seatbeltProfile(cfg)
 

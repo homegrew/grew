@@ -7,6 +7,58 @@ import (
 	"strings"
 )
 
+func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
+		return bwrapPostInstallCommand(p, cfg, name, args...)
+	}
+	if p, err := exec.LookPath("unshare"); err == nil && unshareAvailable(p) {
+		return unsharePostInstallCommand(p, cfg, name, args...)
+	}
+	cmd := exec.Command(name, args...)
+	cmd.Env = postInstallEnv(cfg)
+	return cmd
+}
+
+func bwrapPostInstallCommand(bwrapPath string, cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	a := []string{
+		"--unshare-net",
+		"--unshare-pid",
+		"--ro-bind", "/", "/",
+		"--tmpfs", "/tmp",
+		"--proc", "/proc",
+		"--dev", "/dev",
+		// Keg is already read-only via the ro-bind of /.
+		// Only the tmp dir is writable.
+		"--bind", cfg.TmpDir, cfg.TmpDir,
+	}
+	a = append(a, name)
+	a = append(a, args...)
+	cmd := exec.Command(bwrapPath, a...)
+	cmd.Env = postInstallEnv(cfg)
+	return cmd
+}
+
+func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	var script strings.Builder
+	script.WriteString("set -e; ")
+	script.WriteString("mount --make-rprivate /; ")
+	script.WriteString("mount -o remount,ro,bind /; ")
+	// Only tmp dir is writable.
+	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.TmpDir, cfg.TmpDir)
+	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.TmpDir)
+	script.WriteString("mount -t tmpfs tmpfs /tmp; ")
+	fmt.Fprintf(&script, "exec %q", name)
+	for _, a := range args {
+		fmt.Fprintf(&script, " %q", a)
+	}
+	cmd := exec.Command(unsharePath,
+		"--net", "--mount", "--pid", "--fork", "--mount-proc",
+		"/bin/sh", "-c", script.String(),
+	)
+	cmd.Env = postInstallEnv(cfg)
+	return cmd
+}
+
 func platformCommand(cfg BuildConfig, name string, args ...string) *exec.Cmd {
 	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
 		return bwrapCommand(p, cfg, name, args...)

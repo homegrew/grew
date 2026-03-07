@@ -11,13 +11,15 @@ import (
 )
 
 type SourceSpec struct {
-	URL    string `yaml:"url"`
-	SHA256 string `yaml:"sha256"`
+	URL       string `yaml:"url"`
+	SHA256    string `yaml:"sha256"`
+	Signature string `yaml:"signature"`
 }
 
 type BottleSpec struct {
-	URL    string `yaml:"url"`
-	SHA256 string `yaml:"sha256"`
+	URL       string `yaml:"url"`
+	SHA256    string `yaml:"sha256"`
+	Signature string `yaml:"signature"`
 }
 
 type BuildSpec struct {
@@ -33,6 +35,7 @@ type Formula struct {
 	License      string            `yaml:"license"`
 	URL          map[string]string `yaml:"url"`
 	SHA256       map[string]string `yaml:"sha256"`
+	Signature    map[string]string `yaml:"signature"`
 	SourceURL    string            `yaml:"source_url"`
 	SourceSHA256 string            `yaml:"source_sha256"`
 	Install      InstallSpec       `yaml:"install"`
@@ -145,6 +148,24 @@ func (f *Formula) GetSHA256() (string, error) {
 		return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
 	}
 	return s, nil
+}
+
+// GetSignature returns the bottle signature for the current platform, or ""
+// if none is set. New-format bottles store it on BottleSpec; legacy formulas
+// use the top-level Signature map.
+func (f *Formula) GetSignature() string {
+	key := PlatformKey()
+	if len(f.Bottle) > 0 {
+		if b, ok := f.Bottle[key]; ok {
+			return b.Signature
+		}
+	}
+	return f.Signature[key]
+}
+
+// GetSourceSignature returns the source signature, or "" if none is set.
+func (f *Formula) GetSourceSignature() string {
+	return f.Source.Signature
 }
 
 func (f *Formula) Validate() error {
