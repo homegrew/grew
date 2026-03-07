@@ -133,7 +133,7 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 | `HOMEGREW_PREFIX` | `~/.homegrew` | The kingdom |
 | `HOMEGREW_APPDIR` | `~/Applications` | Where casks live |
 | `HOMEGREW_TAP_VERIFY` | `off` | Tap commit signature policy (`off`, `warn`, `strict`) |
-| `HOMEGREW_NO_INSTALL_FROM_API` | *(unset)* | Force git clone instead of API tarball for taps |
+
 
 Everything else flows from the prefix:
 

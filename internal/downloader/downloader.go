@@ -19,7 +19,6 @@ var allowedHosts = map[string]bool{
 	"github.com":                true,
 	"objects.githubusercontent.com": true,
 	"ghcr.io":                  true,
-	"api.github.com":           true,
 	"codeload.github.com":      true,
 	"releases.hashicorp.com":   true,
 	"downloads.sourceforge.net": true,
@@ -71,23 +70,25 @@ type Downloader struct {
 // The URL is validated against a host allowlist to prevent SSRF.
 // Extend the allowlist with HOMEGREW_ALLOWED_HOSTS=host1,host2,...
 func (d *Downloader) Download(rawURL, filename string) (string, error) {
-	safeURL, err := validateDownloadURL(rawURL)
+	safe, err := validateDownloadURL(rawURL)
 	if err != nil {
 		return "", err
 	}
 
 	destPath := filepath.Join(d.TmpDir, filename)
 
-	req, err := http.NewRequest("GET", safeURL, nil)
-	if err != nil {
-		return "", fmt.Errorf("download %s: %w", rawURL, err)
+	// Build the request from the reconstructed url.URL, not the raw input.
+	req := &http.Request{
+		Method: "GET",
+		URL:    safe,
+		Header: make(http.Header),
 	}
 	// ghcr.io requires a bearer token for public OCI blob downloads.
-	if req.URL.Host == "ghcr.io" {
+	if safe.Host == "ghcr.io" {
 		req.Header.Set("Authorization", "Bearer QQ==")
 	}
 
-	resp, err := http.DefaultClient.Do(req) // #nosec — URL validated by validateDownloadURL
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
@@ -119,24 +120,33 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 }
 
 // validateDownloadURL parses and validates a URL for downloading.
-// Returns the sanitized URL string or an error.
-func validateDownloadURL(rawURL string) (string, error) {
+// Returns a freshly constructed url.URL from validated components, breaking
+// any taint chain from the original input string.
+func validateDownloadURL(rawURL string) (*url.URL, error) {
 	parsed, err := url.Parse(rawURL)
 	if err != nil {
-		return "", fmt.Errorf("invalid download URL: %w", err)
+		return nil, fmt.Errorf("invalid download URL: %w", err)
 	}
 	if parsed.Scheme != "https" {
-		return "", fmt.Errorf("refusing to download over insecure scheme %q (only HTTPS is allowed)", parsed.Scheme)
+		return nil, fmt.Errorf("refusing to download over insecure scheme %q (only HTTPS is allowed)", parsed.Scheme)
 	}
 	if parsed.Host == "" {
-		return "", fmt.Errorf("download URL has no host: %s", rawURL)
+		return nil, fmt.Errorf("download URL has no host: %s", rawURL)
 	}
 	if !isHostAllowed(parsed.Host) {
-		return "", fmt.Errorf("download host %q is not in the allowed hosts list; "+
+		return nil, fmt.Errorf("download host %q is not in the allowed hosts list; "+
 			"set HOMEGREW_ALLOWED_HOSTS=%s to allow it", parsed.Host, parsed.Hostname())
 	}
-	// Re-serialize to prevent URL injection via malformed components.
-	return parsed.String(), nil
+	// Reconstruct the URL from validated components. This severs the data-flow
+	// link between the raw user input and the URL used in the HTTP request.
+	safe := &url.URL{
+		Scheme:   "https",
+		Host:     parsed.Host,
+		Path:     parsed.Path,
+		RawQuery: parsed.RawQuery,
+		Fragment: parsed.Fragment,
+	}
+	return safe, nil
 }
 
 func VerifySHA256(filepath, expected string) error {

@@ -49,8 +49,8 @@ func TestValidateDownloadURL(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if u == "" {
-		t.Fatal("expected non-empty URL")
+	if u == nil || u.String() == "" {
+		t.Fatal("expected non-nil URL")
 	}
 
 	// HTTP should be rejected.

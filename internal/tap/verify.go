@@ -47,7 +47,7 @@ func TapVerifyMode() VerifyMode {
 // the failure.
 //
 // Prerequisites:
-//   - The tap must be a git clone (not API-fetched tarballs).
+//   - The tap must be a git clone.
 //   - The signing key must be in the user's GPG/SSH allowed signers.
 func VerifyHeadSignature(repoDir string) error {
 	gitDir := filepath.Join(repoDir, ".git")
