@@ -182,7 +182,7 @@ func generateYAML(f *hbFormula, urlMap, sha256Map map[string]string) string {
 }
 
 func main() {
-	outDir := "taps/core"
+	outDir := "core"
 	if len(os.Args) > 1 {
 		outDir = os.Args[1]
 	}

@@ -177,7 +177,7 @@ func generateYAML(c *hbCask, urlMap, sha256Map map[string]string, arts parsedArt
 }
 
 func main() {
-	outDir := "taps/cask"
+	outDir := "cask"
 	if len(os.Args) > 1 {
 		outDir = os.Args[1]
 	}
