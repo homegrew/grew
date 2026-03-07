@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 )
@@ -14,26 +15,40 @@ type Downloader struct {
 	TmpDir string
 }
 
-func (d *Downloader) Download(url, filename string) (string, error) {
+func (d *Downloader) Download(rawURL, filename string) (string, error) {
+	// Validate the URL before making any network request.
+	// This is defense-in-depth: formula/cask parsing already enforces HTTPS,
+	// but the downloader is the last line of defense against request forgery.
+	parsed, err := url.Parse(rawURL)
+	if err != nil {
+		return "", fmt.Errorf("invalid download URL: %w", err)
+	}
+	if parsed.Scheme != "https" {
+		return "", fmt.Errorf("refusing to download over insecure scheme %q (only HTTPS is allowed)", parsed.Scheme)
+	}
+	if parsed.Host == "" {
+		return "", fmt.Errorf("download URL has no host: %s", rawURL)
+	}
+
 	destPath := filepath.Join(d.TmpDir, filename)
 
-	req, err := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", parsed.String(), nil)
 	if err != nil {
-		return "", fmt.Errorf("download %s: %w", url, err)
+		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
 	// ghcr.io requires a bearer token for public OCI blob downloads.
-	if req.URL != nil && req.URL.Host == "ghcr.io" {
+	if req.URL.Host == "ghcr.io" {
 		req.Header.Set("Authorization", "Bearer QQ==")
 	}
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		return "", fmt.Errorf("download %s: %w", url, err)
+		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("download %s: HTTP %d %s", url, resp.StatusCode, resp.Status)
+		return "", fmt.Errorf("download %s: HTTP %d %s", rawURL, resp.StatusCode, resp.Status)
 	}
 
 	out, err := os.Create(destPath)
@@ -50,7 +65,7 @@ func (d *Downloader) Download(url, filename string) (string, error) {
 	})
 	if err != nil {
 		os.Remove(destPath)
-		return "", fmt.Errorf("download %s: %w", url, err)
+		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
 
 	fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
