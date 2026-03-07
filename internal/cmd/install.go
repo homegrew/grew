@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/sandbox"
+	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
 
@@ -203,6 +204,23 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
 		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
+	}
+
+	// Capture and save integrity snapshot.
+	meta := snapshot.InstallMeta{
+		Platform:       formula.PlatformKey(),
+		DownloadURL:    dlURL,
+		DownloadSHA256: sha,
+		Dependencies:   f.Dependencies,
+	}
+	manifest, snapErr := snapshot.Capture(f.Name, f.Version, kegPath, meta)
+	if snapErr != nil {
+		Logf("    Warning: could not capture snapshot: %v\n", snapErr)
+	} else {
+		if err := snapshot.Save(manifest, kegPath); err != nil {
+			Logf("    Warning: could not save snapshot: %v\n", err)
+		}
+		Logf("    Snapshot saved: %s/%s\n", kegPath, snapshot.ManifestFile)
 	}
 
 	os.RemoveAll(stageDir)

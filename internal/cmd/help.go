@@ -335,6 +335,28 @@ Examples:
   grew services run postgresql
   grew services info postgresql`,
 
+	"verify": `Usage: grew verify [--json] [formula ...]
+
+Verify the integrity of installed packages by comparing the filesystem
+against the snapshot manifest recorded at install time.
+
+With no arguments, verifies all installed packages.
+
+Flags:
+  --json    Output results as JSON for machine consumption
+
+Each package is checked for:
+  - Missing files (deleted after install)
+  - Modified files (content changed since install)
+  - Added files (unexpected files appeared in the keg)
+
+Exit code 0 if all packages pass, 1 if any discrepancies found.
+
+Examples:
+  grew verify
+  grew verify jq
+  grew verify --json`,
+
 	"help": `Usage: grew help [command]
 
 Show help for grew or a specific command.

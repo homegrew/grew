@@ -95,6 +95,7 @@ func Run(args []string) error {
 		"shellenv":     runShellenv,
 		"services":     runServices,
 		"setup":        runSetup,
+		"verify":       runVerify,
 		"help":         runHelp,
 	}
 
@@ -158,6 +159,7 @@ Commands:
   doctor               Check for common problems
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
+  verify [formula]     Verify installed package integrity
   help [command]       Show help for a command
 `)
 }
