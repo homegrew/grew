@@ -43,7 +43,42 @@ func TestVerifySHA256_Mismatch(t *testing.T) {
 // validator is the single source of truth for URL policy.
 // See internal/formula/formula.go TestParse_HTTPURLRejected and TestGetURL_RejectsHTTP.
 
+func TestValidateDownloadURL(t *testing.T) {
+	// Valid HTTPS URL to an allowed host.
+	u, err := validateDownloadURL("https://github.com/homegrew/grew/releases/download/v1.0/grew.tar.gz")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if u == "" {
+		t.Fatal("expected non-empty URL")
+	}
+
+	// HTTP should be rejected.
+	if _, err := validateDownloadURL("http://github.com/test"); err == nil {
+		t.Fatal("expected error for HTTP URL")
+	}
+
+	// Unknown host should be rejected.
+	if _, err := validateDownloadURL("https://evil.example.com/malware"); err == nil {
+		t.Fatal("expected error for unknown host")
+	}
+
+	// Subdomain of allowed host should work.
+	if _, err := validateDownloadURL("https://pkg.github.com/test"); err != nil {
+		t.Fatalf("subdomain of allowed host should be allowed: %v", err)
+	}
+
+	// Empty host should be rejected.
+	if _, err := validateDownloadURL("https:///no-host"); err == nil {
+		t.Fatal("expected error for empty host")
+	}
+}
+
 func TestDownload_TLS(t *testing.T) {
+	// Allow the test server's loopback address for download tests.
+	allowedHosts["127.0.0.1"] = true
+	defer delete(allowedHosts, "127.0.0.1")
+
 	content := []byte("test binary content")
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Length", "19")
@@ -73,6 +108,9 @@ func TestDownload_TLS(t *testing.T) {
 }
 
 func TestDownload_HTTPError(t *testing.T) {
+	allowedHosts["127.0.0.1"] = true
+	defer delete(allowedHosts, "127.0.0.1")
+
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
 	}))
