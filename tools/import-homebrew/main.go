@@ -15,16 +15,37 @@ const apiURL = "https://formulae.brew.sh/api/formula.json"
 
 // Homebrew JSON API structures (only fields we need).
 type hbFormula struct {
-	Name         string     `json:"name"`
-	Desc         string     `json:"desc"`
-	Homepage     string     `json:"homepage"`
-	License      string     `json:"license"`
-	Versions     hbVersions `json:"versions"`
-	Bottle       hbBottle   `json:"bottle"`
-	Dependencies []string   `json:"dependencies"`
-	KegOnly      bool       `json:"keg_only"`
-	Deprecated   bool       `json:"deprecated"`
-	Disabled     bool       `json:"disabled"`
+	Name              string     `json:"name"`
+	Desc              string     `json:"desc"`
+	Homepage          string     `json:"homepage"`
+	License           string     `json:"license"`
+	Versions          hbVersions `json:"versions"`
+	Urls              hbUrls     `json:"urls"`
+	Bottle            hbBottle   `json:"bottle"`
+	Dependencies      []string   `json:"dependencies"`
+	BuildDependencies []string   `json:"build_dependencies"`
+	Variations        hbVariations `json:"variations"`
+	KegOnly           bool       `json:"keg_only"`
+	Deprecated        bool       `json:"deprecated"`
+	Disabled          bool       `json:"disabled"`
+}
+
+type hbVariations struct {
+	LinuxAMD64 hbVariation `json:"x86_64_linux"`
+	LinuxARM64 hbVariation `json:"arm64_linux"`
+}
+
+type hbVariation struct {
+	Dependencies []string `json:"dependencies"`
+}
+
+type hbUrls struct {
+	Stable hbUrlStable `json:"stable"`
+}
+
+type hbUrlStable struct {
+	URL      string `json:"url"`
+	Checksum string `json:"checksum"`
 }
 
 type hbVersions struct {
@@ -99,18 +120,19 @@ func generateYAML(f *hbFormula, urlMap, sha256Map map[string]string) string {
 		fmt.Fprintf(&b, "license: %s\n", yamlEscape(f.License))
 	}
 
-	b.WriteString("url:\n")
+	b.WriteString("bottle:\n")
 	for _, pm := range platforms {
 		if u, ok := urlMap[pm.grewKey]; ok {
-			fmt.Fprintf(&b, "  %s: %s\n", pm.grewKey, u)
+			fmt.Fprintf(&b, "  %s:\n", pm.grewKey)
+			fmt.Fprintf(&b, "    url: %s\n", u)
+			fmt.Fprintf(&b, "    sha256: %s\n", sha256Map[pm.grewKey])
 		}
 	}
 
-	b.WriteString("sha256:\n")
-	for _, pm := range platforms {
-		if s, ok := sha256Map[pm.grewKey]; ok {
-			fmt.Fprintf(&b, "  %s: %s\n", pm.grewKey, s)
-		}
+	if f.Urls.Stable.URL != "" {
+		b.WriteString("source:\n")
+		fmt.Fprintf(&b, "  url: %s\n", f.Urls.Stable.URL)
+		fmt.Fprintf(&b, "  sha256: %s\n", f.Urls.Stable.Checksum)
 	}
 
 	b.WriteString("install:\n")
@@ -121,6 +143,33 @@ func generateYAML(f *hbFormula, urlMap, sha256Map map[string]string) string {
 	if len(f.Dependencies) > 0 {
 		b.WriteString("dependencies:\n")
 		for _, dep := range f.Dependencies {
+			fmt.Fprintf(&b, "  - %s\n", dep)
+		}
+	}
+
+	if len(f.BuildDependencies) > 0 {
+		b.WriteString("build_dependencies:\n")
+		for _, dep := range f.BuildDependencies {
+			fmt.Fprintf(&b, "  - %s\n", dep)
+		}
+	}
+
+	// Simple Linux dependencies merging
+	linuxDeps := map[string]bool{}
+	for _, dep := range f.Variations.LinuxAMD64.Dependencies {
+		linuxDeps[dep] = true
+	}
+	for _, dep := range f.Variations.LinuxARM64.Dependencies {
+		linuxDeps[dep] = true
+	}
+	if len(linuxDeps) > 0 {
+		b.WriteString("linux_dependencies:\n")
+		var sorted []string
+		for dep := range linuxDeps {
+			sorted = append(sorted, dep)
+		}
+		sort.Strings(sorted)
+		for _, dep := range sorted {
 			fmt.Fprintf(&b, "  - %s\n", dep)
 		}
 	}
