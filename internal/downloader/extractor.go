@@ -84,6 +84,8 @@ func extractArchive(archivePath, destDir string, stripComponents int) error {
 	switch {
 	case strings.HasSuffix(lower, ".tar.gz") || strings.HasSuffix(lower, ".tgz"):
 		return extractTarGz(archivePath, destDir, stripComponents)
+	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz") || strings.HasSuffix(lower, ".tar.bz2"):
+		return extractTarXzSystem(archivePath, destDir, stripComponents)
 	case strings.HasSuffix(lower, ".zip"):
 		return extractZip(archivePath, destDir, stripComponents)
 	case strings.HasSuffix(lower, ".dmg"):
@@ -326,4 +328,19 @@ func stripPath(name string, strip int) string {
 		return ""
 	}
 	return parts[strip]
+}
+
+// extractTarXzSystem uses the system 'tar' command to extract .tar.xz and .tar.bz2 files.
+func extractTarXzSystem(archivePath, destDir string, stripComponents int) error {
+	args := []string{"-xf", archivePath, "-C", destDir}
+	if stripComponents > 0 {
+		args = append(args, fmt.Sprintf("--strip-components=%d", stripComponents))
+	}
+	cmd := exec.Command("tar", args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("tar -xf failed: %w", err)
+	}
+	return nil
 }

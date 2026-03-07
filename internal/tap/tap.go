@@ -55,7 +55,7 @@ func (m *Manager) Update() (int, error) {
 	}
 
 	fmt.Printf("==> Updating taps...\n")
-	fetch := exec.Command("git", "-C", m.TapsDir, "fetch", "--depth", "1", "origin", "main")
+	fetch := exec.Command("git", "-C", m.TapsDir, "fetch", "--depth", "1", "origin", "+refs/heads/main:refs/remotes/origin/main")
 	fetch.Stdout = os.Stdout
 	fetch.Stderr = os.Stderr
 	if err := fetch.Run(); err != nil {

@@ -40,6 +40,9 @@ func (r *Resolver) Resolve(name string) ([]*formula.Formula, error) {
 
 		f, err := r.Loader.LoadByName(current)
 		if err != nil {
+			if current == name {
+				return nil, err
+			}
 			return nil, fmt.Errorf("dependency %q required by %q not found: %w", current, name, err)
 		}
 		formulas[current] = f
