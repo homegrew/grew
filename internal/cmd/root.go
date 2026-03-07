@@ -2,14 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"io/fs"
 	"time"
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/version"
 )
-
-var embeddedTaps fs.FS
 
 // Verbose controls whether extra detail is printed.
 var Verbose bool
@@ -45,9 +42,7 @@ func TimeOp(label string) func() {
 	}
 }
 
-func Run(args []string, taps fs.FS) error {
-	embeddedTaps = taps
-
+func Run(args []string) error {
 	// Strip global flags before dispatching.
 	var filtered []string
 	for _, a := range args {

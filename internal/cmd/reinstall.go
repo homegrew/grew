@@ -21,7 +21,7 @@ func runReinstall(args []string) error {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps, EmbeddedFS: embeddedTaps}
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil {
 		return fmt.Errorf("init core tap: %w", err)
 	}

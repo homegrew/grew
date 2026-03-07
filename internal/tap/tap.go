@@ -2,110 +2,79 @@ package tap
 
 import (
 	"fmt"
-	"io/fs"
 	"os"
+	"os/exec"
 	"path/filepath"
 )
 
+const defaultRepoURL = "https://github.com/homegrew/homegrew-taps.git"
+
 type Manager struct {
-	TapsDir    string
-	EmbeddedFS fs.FS
+	TapsDir string
 }
 
+// EnsureCloned clones the taps repo if it hasn't been cloned yet.
+func (m *Manager) EnsureCloned() error {
+	gitDir := filepath.Join(m.TapsDir, ".git")
+	if _, err := os.Stat(gitDir); err == nil {
+		return nil // already cloned
+	}
+
+	// If TapsDir exists but isn't a git repo (e.g. leftover from embedded era),
+	// remove it so the clone can succeed.
+	if entries, err := os.ReadDir(m.TapsDir); err == nil && len(entries) > 0 {
+		if err := os.RemoveAll(m.TapsDir); err != nil {
+			return fmt.Errorf("clear stale taps dir: %w", err)
+		}
+	}
+
+	fmt.Printf("==> Cloning taps from %s\n", defaultRepoURL)
+	cmd := exec.Command("git", "clone", "--depth", "1", defaultRepoURL, m.TapsDir)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("clone taps repo: %w", err)
+	}
+	return nil
+}
+
+// InitCore ensures the core tap is available on disk.
 func (m *Manager) InitCore() error {
-	coreTapDir := filepath.Join(m.TapsDir, "core")
-	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
-		return fmt.Errorf("create core tap dir: %w", err)
-	}
-	return fs.WalkDir(m.EmbeddedFS, "taps/core", func(path string, d fs.DirEntry, err error) error {
-		if err != nil || d.IsDir() {
-			return err
-		}
-		data, err := fs.ReadFile(m.EmbeddedFS, path)
-		if err != nil {
-			return fmt.Errorf("read embedded %s: %w", path, err)
-		}
-		destFile := filepath.Join(coreTapDir, d.Name())
-		if _, statErr := os.Stat(destFile); statErr == nil {
-			return nil // already exists
-		}
-		return atomicWrite(destFile, data, 0644)
-	})
+	return m.EnsureCloned()
 }
 
+// InitCask ensures the cask tap is available on disk.
 func (m *Manager) InitCask() error {
-	caskTapDir := filepath.Join(m.TapsDir, "cask")
-	if err := os.MkdirAll(caskTapDir, 0755); err != nil {
-		return fmt.Errorf("create cask tap dir: %w", err)
-	}
-	return fs.WalkDir(m.EmbeddedFS, "taps/cask", func(path string, d fs.DirEntry, err error) error {
-		if err != nil || d.IsDir() {
-			return err
-		}
-		data, err := fs.ReadFile(m.EmbeddedFS, path)
-		if err != nil {
-			return fmt.Errorf("read embedded %s: %w", path, err)
-		}
-		destFile := filepath.Join(caskTapDir, d.Name())
-		if _, statErr := os.Stat(destFile); statErr == nil {
-			return nil
-		}
-		return atomicWrite(destFile, data, 0644)
-	})
+	return m.EnsureCloned()
 }
 
+// Update pulls the latest tap definitions from the remote repository.
 func (m *Manager) Update() (int, error) {
+	if err := m.EnsureCloned(); err != nil {
+		return 0, err
+	}
+
+	fmt.Printf("==> Updating taps...\n")
+	cmd := exec.Command("git", "-C", m.TapsDir, "pull", "--ff-only", "--depth", "1")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return 0, fmt.Errorf("update taps: %w", err)
+	}
+
+	// Count formulas available after update.
 	count := 0
 	for _, sub := range []string{"core", "cask"} {
-		tapDir := filepath.Join(m.TapsDir, sub)
-		if err := os.MkdirAll(tapDir, 0755); err != nil {
-			return count, fmt.Errorf("create %s tap dir: %w", sub, err)
-		}
-		err := fs.WalkDir(m.EmbeddedFS, "taps/"+sub, func(path string, d fs.DirEntry, err error) error {
-			if err != nil || d.IsDir() {
-				return err
-			}
-			data, err := fs.ReadFile(m.EmbeddedFS, path)
-			if err != nil {
-				return fmt.Errorf("read embedded %s: %w", path, err)
-			}
-			destFile := filepath.Join(tapDir, d.Name())
-			if err := atomicWrite(destFile, data, 0644); err != nil {
-				return fmt.Errorf("write %s: %w", destFile, err)
-			}
-			count++
-			return nil
-		})
+		dir := filepath.Join(m.TapsDir, sub)
+		entries, err := os.ReadDir(dir)
 		if err != nil {
-			return count, err
+			continue
+		}
+		for _, e := range entries {
+			if !e.IsDir() {
+				count++
+			}
 		}
 	}
 	return count, nil
-}
-
-// atomicWrite writes data to a temp file in the same directory, then renames
-// it to the target path. This prevents partial writes from corrupting files.
-func atomicWrite(path string, data []byte, perm os.FileMode) error {
-	dir := filepath.Dir(path)
-	tmp, err := os.CreateTemp(dir, ".grew-tmp-*")
-	if err != nil {
-		return err
-	}
-	tmpPath := tmp.Name()
-
-	if _, err := tmp.Write(data); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Chmod(perm); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Close(); err != nil {
-		os.Remove(tmpPath)
-		return err
-	}
-	return os.Rename(tmpPath, path)
 }

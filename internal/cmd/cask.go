@@ -25,7 +25,7 @@ func newCaskLoader(tapDir string) *cask.Loader {
 }
 
 func initCaskTap(paths config.Paths) error {
-	tapMgr := &tap.Manager{TapsDir: paths.Taps, EmbeddedFS: embeddedTaps}
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	return tapMgr.InitCask()
 }
 

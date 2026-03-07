@@ -120,7 +120,7 @@ func runDoctor(args []string) error {
 
 	paths := config.Default()
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps, EmbeddedFS: embeddedTaps}
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil && !quiet {
 		fmt.Fprintf(os.Stderr, "Warning: failed to init core tap: %v\n", err)
 	}

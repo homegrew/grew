@@ -13,7 +13,7 @@ func runUpdate(args []string) error {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps, EmbeddedFS: embeddedTaps}
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	count, err := tapMgr.Update()
 	if err != nil {
 		return fmt.Errorf("update core tap: %w", err)

@@ -115,8 +115,11 @@ Examples:
 
 	"update": `Usage: grew update
 
-Update formula definitions by re-syncing the core tap from the
-embedded formulas shipped with the grew binary.`,
+Fetch the newest version of grew and all formulae from GitHub
+using git(1). Equivalent to: git -C <taps-dir> pull
+
+The taps repository is cloned from:
+  https://github.com/homegrew/homegrew-taps`,
 
 	"upgrade": `Usage: grew upgrade [formula ...]
 
