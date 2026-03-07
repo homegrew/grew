@@ -113,6 +113,21 @@ Flags:
 Examples:
   grew unlink jq`,
 
+	"reset-update": `Usage: grew reset-update
+
+Delete all tap definitions and re-fetch them from scratch. Use this when
+'grew update' fails or tap data is corrupted.
+
+What it does:
+  1. Removes the entire Taps directory
+  2. Re-creates the directory structure
+  3. Fetches fresh tap definitions (via API or git clone)
+
+Installed packages in the Cellar are NOT affected.
+
+Examples:
+  grew reset-update`,
+
 	"update": `Usage: grew update
 
 Fetch the newest version of grew and all formulae from GitHub

@@ -80,7 +80,8 @@ func Run(args []string) error {
 		"search":    runSearch,
 		"link":      runLink,
 		"unlink":    runUnlink,
-		"update":    runUpdate,
+		"update":       runUpdate,
+		"reset-update": runResetUpdate,
 		"upgrade":   runUpgrade,
 		"outdated":  runOutdated,
 		"reinstall": runReinstall,
@@ -144,6 +145,7 @@ Commands:
   link <formula>       Create symlinks for a formula
   unlink <formula>     Remove symlinks for a formula
   update               Update formula definitions
+  reset-update         Wipe and re-fetch all tap definitions
   reinstall <formula>  Reinstall a formula from scratch
   upgrade [formula]    Upgrade outdated packages (or a specific one)
   outdated             List packages with newer versions available
