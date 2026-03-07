@@ -39,10 +39,18 @@ func (ctx *doctorCtx) warn(format string, args ...any) {
 	fmt.Printf("Warning: "+format+"\n", args...)
 }
 
+// extraChecks holds platform-specific checks registered via init().
+var extraChecks []doctorCheck
+
+// registerExtraChecks appends checks from platform-specific files.
+func registerExtraChecks(checks []doctorCheck) {
+	extraChecks = append(extraChecks, checks...)
+}
+
 // allChecks returns the ordered list of doctor checks.
 // Security-critical checks come first.
 func allChecks() []doctorCheck {
-	return []doctorCheck{
+	base := []doctorCheck{
 		// --- Security checks ---
 		{"check_directory_permissions", "Check grew directories are not world-writable", checkDirectoryPermissions},
 		{"check_formula_https", "Check all formula URLs use HTTPS", checkFormulaHTTPS},
@@ -60,6 +68,7 @@ func allChecks() []doctorCheck {
 		{"check_multiple_versions", "Check for multiple installed versions", checkMultipleVersions},
 		{"check_stale_tmp", "Check for stale files in tmp/", checkStaleTmp},
 	}
+	return append(base, extraChecks...)
 }
 
 func runDoctor(args []string) error {

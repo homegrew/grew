@@ -102,6 +102,7 @@ func caskInstall(name string) error {
 			os.Remove(localFile)
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
+		applyCaskQuarantine(dest)
 		fmt.Printf("==> Installed %s to %s\n", appName, dest)
 	}
 
