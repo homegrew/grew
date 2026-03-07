@@ -20,6 +20,8 @@ import (
 func runInstall(args []string) error {
 	isCask := false
 	buildFromSource := false
+	onlyDeps := false
+	ignoreDeps := false
 	var remaining []string
 	for _, a := range args {
 		switch a {
@@ -27,21 +29,35 @@ func runInstall(args []string) error {
 			isCask = true
 		case "-s", "--build-from-source":
 			buildFromSource = true
+		case "--only-dependencies":
+			onlyDeps = true
+		case "--ignore-dependencies":
+			ignoreDeps = true
 		default:
 			remaining = append(remaining, a)
 		}
+	}
+
+	if onlyDeps && ignoreDeps {
+		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
 	}
 
 	if len(remaining) != 1 {
 		if isCask {
 			return fmt.Errorf("usage: grew install --cask <cask>")
 		}
-		return fmt.Errorf("usage: grew install [-s] <formula>")
+		return fmt.Errorf("usage: grew install [-s] [--only-dependencies|--ignore-dependencies] <formula>")
 	}
 
 	if isCask {
 		if buildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
+		}
+		if onlyDeps {
+			return fmt.Errorf("--only-dependencies is not supported for casks")
+		}
+		if ignoreDeps {
+			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
 		return caskInstall(remaining[0])
 	}
@@ -59,18 +75,27 @@ func runInstall(args []string) error {
 	}
 
 	loader := newLoader(paths.Taps)
-	resolver := &depgraph.Resolver{Loader: loader}
-
-	Debugf("resolving dependencies for %s\n", name)
-	installOrder, err := resolver.Resolve(name)
-	if err != nil {
-		return err
-	}
-	Debugf("resolved %d formula(s)\n", len(installOrder))
-
 	cel := &cellar.Cellar{Path: paths.Cellar}
 	lnk := &linker.Linker{Paths: paths}
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
+
+	var installOrder []*formula.Formula
+	if ignoreDeps {
+		f, err := loader.LoadByName(name)
+		if err != nil {
+			return fmt.Errorf("formula not found: %s", name)
+		}
+		installOrder = []*formula.Formula{f}
+	} else {
+		resolver := &depgraph.Resolver{Loader: loader}
+		Debugf("resolving dependencies for %s\n", name)
+		var err error
+		installOrder, err = resolver.Resolve(name)
+		if err != nil {
+			return err
+		}
+		Debugf("resolved %d formula(s)\n", len(installOrder))
+	}
 
 	if Verbose && len(installOrder) > 1 {
 		names := make([]string, len(installOrder))
@@ -81,6 +106,10 @@ func runInstall(args []string) error {
 	}
 
 	for _, f := range installOrder {
+		if onlyDeps && f.Name == name {
+			continue
+		}
+
 		if cel.IsInstalled(f.Name) {
 			fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
 			continue

@@ -3,7 +3,7 @@ package cmd
 import "fmt"
 
 var commandHelp = map[string]string{
-	"install": `Usage: grew install [--cask] [-s] <formula>
+	"install": `Usage: grew install [--cask] [-s] [--only-dependencies] [--ignore-dependencies] <formula>
 
 Install a formula and its dependencies. Downloads the package, verifies
 its SHA256 checksum, extracts it to the Cellar, and creates symlinks.
@@ -16,12 +16,16 @@ Flags:
                         pre-built bottle. Downloads the source tarball and
                         runs ./configure && make && make install. Dependencies
                         are still installed from bottles.
+  --only-dependencies   Install the dependencies but not the formula itself.
+  --ignore-dependencies Skip installing dependencies; install only the formula.
 
 If the formula/cask is already installed, the command is a no-op.
 
 Examples:
   grew install jq
   grew install -s ldns
+  grew install --only-dependencies ldns
+  grew install --ignore-dependencies jq
   grew install --cask firefox
   grew install --cask visual-studio-code`,
 
