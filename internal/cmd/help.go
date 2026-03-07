@@ -185,6 +185,42 @@ Examples:
   grew alias show i
   grew alias edit`,
 
+	"audit": `Usage: grew audit [--strict] [--cask] [--online] [formula ...]
+
+Audit formula or cask definitions for common problems and style issues.
+With no arguments, audits all formulas in the core tap.
+
+Checks performed:
+  - Missing metadata (description, homepage, license)
+  - Homepage uses HTTPS and is a valid URL
+  - Name follows conventions (lowercase, valid characters)
+  - Version uses valid characters
+  - All download URLs use HTTPS and are parseable
+  - All SHA256 hashes are valid 64-character hex strings
+  - Dependencies exist in the tap and have valid names
+  - No circular dependencies
+  - No self-dependencies
+  - Install type is valid (binary or archive)
+  - Binary installs have binary_name set
+  - Cask artifacts are correctly defined
+
+Flags:
+  --strict    Treat warnings as errors (exit non-zero on warnings)
+  --cask      Audit cask definitions instead of formulas
+  --online    Include checks that require installed packages
+              (verifies snapshot integrity for installed formulas)
+
+Exit code 0 if audit passes, 1 if errors are found (or warnings
+with --strict).
+
+Examples:
+  grew audit
+  grew audit jq
+  grew audit --strict
+  grew audit --cask
+  grew audit --cask firefox
+  grew audit --online jq`,
+
 	"deps": `Usage: grew deps [--tree] [--all | --installed] <formula ...>
 
 Show dependencies for one or more formulas. By default shows all

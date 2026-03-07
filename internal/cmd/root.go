@@ -89,6 +89,7 @@ func Run(args []string) error {
 		"cleanup":      runCleanup,
 		"deps":         runDeps,
 		"alias":        runAlias,
+		"audit":        runAudit,
 		"doctor":       runDoctor,
 		"dr":           runDoctor,
 		"config":       runConfig,
@@ -153,6 +154,7 @@ Commands:
   outdated             List packages with newer versions available
   cleanup [-n]         Remove old versions and temp files (-n for dry run)
   deps [flags] <formula>  Show dependencies for a formula
+  audit [formula]      Audit formula/cask definitions for problems
   alias [subcommand]   Manage command aliases
   services [sub]       Manage background services (start, stop, list, ...)
   setup                One-time setup of the grew prefix
