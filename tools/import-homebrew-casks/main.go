@@ -14,16 +14,22 @@ import (
 const apiURL = "https://formulae.brew.sh/api/cask.json"
 
 type hbCask struct {
-	Token      string            `json:"token"`
-	Name       []string          `json:"name"`
-	Desc       string            `json:"desc"`
-	Homepage   string            `json:"homepage"`
-	URL        string            `json:"url"`
-	SHA256     string            `json:"sha256"`
-	Version    string            `json:"version"`
-	Artifacts  []json.RawMessage `json:"artifacts"`
-	Deprecated bool              `json:"deprecated"`
-	Disabled   bool              `json:"disabled"`
+	Token      string                     `json:"token"`
+	Name       []string                   `json:"name"`
+	Desc       string                     `json:"desc"`
+	Homepage   string                     `json:"homepage"`
+	URL        string                     `json:"url"`
+	SHA256     string                     `json:"sha256"`
+	Version    string                     `json:"version"`
+	Artifacts  []json.RawMessage          `json:"artifacts"`
+	Variations map[string]hbCaskVariation `json:"variations"`
+	Deprecated bool                       `json:"deprecated"`
+	Disabled   bool                       `json:"disabled"`
+}
+
+type hbCaskVariation struct {
+	URL    string `json:"url"`
+	SHA256 string `json:"sha256"`
 }
 
 type parsedArtifacts struct {
@@ -109,20 +115,49 @@ func urlExt(u string) string {
 	return ""
 }
 
-func generateYAML(c *hbCask, arts parsedArtifacts) string {
+var darwinARM64Prefs = []string{
+	"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur",
+}
+var darwinAMD64Prefs = []string{
+	"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave",
+}
+
+type platformMapping struct {
+	grewKey string
+	prefs   []string
+}
+
+var macPlatforms = []platformMapping{
+	{"darwin_arm64", darwinARM64Prefs},
+	{"darwin_amd64", darwinAMD64Prefs},
+}
+
+func generateYAML(c *hbCask, urlMap, sha256Map map[string]string, arts parsedArtifacts) string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "name: %s\n", c.Token)
 	fmt.Fprintf(&b, "version: %s\n", yamlEscape(c.Version))
 	fmt.Fprintf(&b, "description: %s\n", yamlEscape(c.Desc))
 	fmt.Fprintf(&b, "homepage: %s\n", c.Homepage)
 
-	// Cask URLs are typically universal or arm64-specific.
-	// Map to darwin_arm64; for universal binaries this works on both.
 	b.WriteString("url:\n")
-	fmt.Fprintf(&b, "  darwin_arm64: %s\n", c.URL)
+	for _, pm := range macPlatforms {
+		if u, ok := urlMap[pm.grewKey]; ok {
+			fmt.Fprintf(&b, "  %s: %s\n", pm.grewKey, u)
+		}
+	}
 
 	b.WriteString("sha256:\n")
-	fmt.Fprintf(&b, "  darwin_arm64: %s\n", c.SHA256)
+	for _, pm := range macPlatforms {
+		if s, ok := sha256Map[pm.grewKey]; ok {
+			fmt.Fprintf(&b, "  %s: %s\n", pm.grewKey, s)
+		}
+	}
+
+	if c.URL != "" {
+		b.WriteString("source:\n")
+		fmt.Fprintf(&b, "  url: %s\n", c.URL)
+		fmt.Fprintf(&b, "  sha256: %s\n", c.SHA256)
+	}
 
 	b.WriteString("artifacts:\n")
 	if len(arts.App) > 0 {
@@ -222,6 +257,26 @@ func main() {
 			continue
 		}
 
+		urlMap := map[string]string{}
+		sha256Map := map[string]string{}
+
+		// Base URL for both architectures by default
+		urlMap["darwin_arm64"] = c.URL
+		urlMap["darwin_amd64"] = c.URL
+		sha256Map["darwin_arm64"] = c.SHA256
+		sha256Map["darwin_amd64"] = c.SHA256
+
+		// Overwrite with variations if found
+		for _, pm := range macPlatforms {
+			for _, pref := range pm.prefs {
+				if v, ok := c.Variations[pref]; ok {
+					urlMap[pm.grewKey] = v.URL
+					sha256Map[pm.grewKey] = v.SHA256
+					break // Use the most preferred (latest) OS version
+				}
+			}
+		}
+
 		arts := parseArtifacts(c.Artifacts)
 		if len(arts.App) == 0 && len(arts.Bin) == 0 {
 			skipped++
@@ -229,7 +284,7 @@ func main() {
 			continue
 		}
 
-		yaml := generateYAML(c, arts)
+		yaml := generateYAML(c, urlMap, sha256Map, arts)
 		outPath := filepath.Join(outDir, c.Token+".yaml")
 		if err := os.WriteFile(outPath, []byte(yaml), 0644); err != nil {
 			fmt.Fprintf(os.Stderr, "warning: write %s: %v\n", outPath, err)

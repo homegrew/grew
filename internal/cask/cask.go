@@ -14,6 +14,11 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+type SourceSpec struct {
+	URL    string `yaml:"url"`
+	SHA256 string `yaml:"sha256"`
+}
+
 // Cask represents a macOS application package definition.
 type Cask struct {
 	Name        string            `yaml:"name"`
@@ -24,6 +29,7 @@ type Cask struct {
 	URL         map[string]string `yaml:"url"`
 	SHA256      map[string]string `yaml:"sha256"`
 	Artifacts   Artifacts         `yaml:"artifacts"`
+	Source      SourceSpec        `yaml:"source"`
 }
 
 // Artifacts describes what to install from the downloaded archive.
