@@ -70,11 +70,7 @@ func setupDryRun(prefix string, isRoot bool) error {
 		fmt.Printf("[dry-run] Prefix: %s\n", prefix)
 	}
 
-	home, _ := os.UserHomeDir()
-	appDir := os.Getenv("HOMEGREW_APPDIR")
-	if appDir == "" {
-		appDir = filepath.Join(home, "Applications")
-	}
+	appDir := defaultAppDir()
 	paths := config.FromRoot(prefix, appDir)
 
 	fmt.Println()
@@ -152,7 +148,7 @@ func setupSystem(prefix string) error {
 	return finishSetup(prefix)
 }
 
-// setupUser installs grew to ~/.grew (no root needed).
+// setupUser installs grew to ~/.homegrew (no root needed).
 func setupUser(prefix string) error {
 	fmt.Printf("==> Setting up grew at %s (user prefix)\n", prefix)
 	fmt.Println()
@@ -164,11 +160,7 @@ func setupUser(prefix string) error {
 }
 
 func finishSetup(prefix string) error {
-	home, _ := os.UserHomeDir()
-	appDir := os.Getenv("HOMEGREW_APPDIR")
-	if appDir == "" {
-		appDir = filepath.Join(home, "Applications")
-	}
+	appDir := defaultAppDir()
 
 	paths := config.FromRoot(prefix, appDir)
 	fmt.Println("==> Creating directory structure...")
@@ -207,6 +199,23 @@ func copyFile(src, dst string) error {
 		return err
 	}
 	return os.WriteFile(dst, data, 0755)
+}
+
+// defaultAppDir returns the appropriate Applications directory.
+// Under sudo (system install), casks go to /Applications.
+// Otherwise, they go to ~/Applications.
+func defaultAppDir() string {
+	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
+		return v
+	}
+	if os.Geteuid() == 0 {
+		return "/Applications"
+	}
+	home, err := os.UserHomeDir()
+	if err != nil {
+		home = "."
+	}
+	return filepath.Join(home, "Applications")
 }
 
 func primaryGroup(u *user.User) string {

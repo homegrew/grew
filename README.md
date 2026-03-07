@@ -48,7 +48,7 @@ grew needs a home — a directory tree for the Cellar, symlinks, taps, and confi
 ./grew setup
 
 # System install (recommended — isolates builds from $HOME)
-sudo ./grew setup   # macOS ARM → /opt/grew, Intel/Linux → /usr/local/grew
+sudo ./grew setup   # macOS ARM → /opt/homegrew, Intel/Linux → /usr/local/homegrew
 ```
 
 The system prefix is more secure: sandboxed source builds can't reach `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles.
@@ -130,7 +130,7 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 
 | Variable | Default | What it is |
 |---|---|---|
-| `HOMEGREW_PREFIX` | `~/.grew` | The kingdom |
+| `HOMEGREW_PREFIX` | `~/.homegrew` | The kingdom |
 | `HOMEGREW_APPDIR` | `~/Applications` | Where casks live |
 | `HOMEGREW_TAP_VERIFY` | `off` | Tap commit signature policy (`off`, `warn`, `strict`) |
 | `HOMEGREW_NO_INSTALL_FROM_API` | *(unset)* | Force git clone instead of API tarball for taps |
@@ -138,7 +138,7 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 Everything else flows from the prefix:
 
 ```
-~/.grew/
+~/.homegrew/
 ├── Cellar/        ← installed packages (each keg has a .MANIFEST.json)
 ├── Taps/          ← formula definitions (git-cloned or API-fetched)
 ├── bin/           ← symlinked binaries

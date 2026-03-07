@@ -168,7 +168,7 @@ func (l *Loader) loadFromFile(path string) (*Cask, error) {
 
 // Caskroom manages installed cask metadata.
 type Caskroom struct {
-	Path string // ~/.grew/Caskroom
+	Path string // ~/.homegrew/Caskroom
 }
 
 func (cr *Caskroom) IsInstalled(name string) bool {

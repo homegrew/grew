@@ -34,7 +34,7 @@ func DefaultPrefix() string {
 		return env
 	}
 
-	// Infer from binary location: /opt/grew/bin/grew → /opt/grew
+	// Infer from binary location: /opt/homegrew/bin/grew → /opt/homegrew
 	if exe, err := os.Executable(); err == nil {
 		exe, err = filepath.EvalSymlinks(exe)
 		if err == nil {
@@ -54,30 +54,30 @@ func DefaultPrefix() string {
 	if err != nil {
 		home = "."
 	}
-	return filepath.Join(home, ".grew")
+	return filepath.Join(home, ".homegrew")
 }
 
 // SystemPrefix returns the recommended system-level prefix for the current
 // platform. Used by `grew setup` when running with sudo.
 //
-//   - macOS ARM64 (Apple Silicon): /opt/grew
-//   - macOS AMD64 (Intel):         /usr/local/grew
-//   - Linux:                        /usr/local/grew
+//   - macOS ARM64 (Apple Silicon): /opt/homegrew
+//   - macOS AMD64 (Intel):         /usr/local/homegrew
+//   - Linux:                        /usr/local/homegrew
 func SystemPrefix() string {
 	if runtime.GOOS == "darwin" && runtime.GOARCH == "arm64" {
-		return "/opt/grew"
+		return "/opt/homegrew"
 	}
-	return "/usr/local/grew"
+	return "/usr/local/homegrew"
 }
 
-// UserPrefix returns the user-local prefix (~/.grew).
+// UserPrefix returns the user-local prefix (~/.homegrew).
 // Used by `grew setup` when running without sudo.
 func UserPrefix() string {
 	home, err := os.UserHomeDir()
 	if err != nil {
 		home = "."
 	}
-	return filepath.Join(home, ".grew")
+	return filepath.Join(home, ".homegrew")
 }
 
 func Default() Paths {

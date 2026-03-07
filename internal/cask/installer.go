@@ -13,7 +13,7 @@ import (
 // Installer handles placing cask artifacts into their destinations.
 type Installer struct {
 	AppDir string // ~/Applications
-	BinDir string // ~/.grew/bin
+	BinDir string // ~/.homegrew/bin
 }
 
 // InstallApp copies a .app bundle from the staging directory to AppDir.

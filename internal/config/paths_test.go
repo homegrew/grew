@@ -17,15 +17,15 @@ func TestDefaultPrefix_EnvOverride(t *testing.T) {
 
 func TestDefaultPrefix_FallbackToHome(t *testing.T) {
 	// Without env var and without the binary living in a grew prefix,
-	// DefaultPrefix should fall back to ~/.grew.
+	// DefaultPrefix should fall back to ~/.homegrew.
 	t.Setenv("HOMEGREW_PREFIX", "")
 	p := DefaultPrefix()
 	home, _ := os.UserHomeDir()
 
-	// It should either be ~/.grew or a system prefix (if binary happens to
+	// It should either be ~/.homegrew or a system prefix (if binary happens to
 	// be installed there in the test environment).
-	if !strings.HasSuffix(p, ".grew") && p != SystemPrefix() {
-		t.Errorf("DefaultPrefix() = %q, expected ~/.grew or %s", p, SystemPrefix())
+	if !strings.HasSuffix(p, ".homegrew") && p != SystemPrefix() {
+		t.Errorf("DefaultPrefix() = %q, expected ~/.homegrew or %s", p, SystemPrefix())
 	}
 	_ = home // avoid unused
 }
@@ -58,11 +58,11 @@ func TestInit_CreatesDirectories(t *testing.T) {
 }
 
 func TestFromRoot(t *testing.T) {
-	paths := FromRoot("/opt/grew", "/Users/test/Applications")
-	if paths.Root != "/opt/grew" {
+	paths := FromRoot("/opt/homegrew", "/Users/test/Applications")
+	if paths.Root != "/opt/homegrew" {
 		t.Errorf("Root = %q", paths.Root)
 	}
-	if paths.Bin != "/opt/grew/bin" {
+	if paths.Bin != "/opt/homegrew/bin" {
 		t.Errorf("Bin = %q", paths.Bin)
 	}
 	if paths.AppDir != "/Users/test/Applications" {
@@ -73,14 +73,14 @@ func TestFromRoot(t *testing.T) {
 func TestSystemPrefix(t *testing.T) {
 	p := SystemPrefix()
 	if !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
-		t.Errorf("SystemPrefix() = %q, want /opt/grew or /usr/local/grew", p)
+		t.Errorf("SystemPrefix() = %q, want /opt/homegrew or /usr/local/homegrew", p)
 	}
 }
 
 func TestUserPrefix(t *testing.T) {
 	p := UserPrefix()
-	if !strings.HasSuffix(p, ".grew") {
-		t.Errorf("UserPrefix() = %q, should end with .grew", p)
+	if !strings.HasSuffix(p, ".homegrew") {
+		t.Errorf("UserPrefix() = %q, should end with .homegrew", p)
 	}
 }
 

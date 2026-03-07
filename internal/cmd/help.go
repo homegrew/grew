@@ -312,13 +312,13 @@ Examples:
 Set up the grew directory structure. Behavior depends on whether you
 run it with or without sudo:
 
-  grew setup        → installs to ~/.grew (user-local, no root needed)
+  grew setup        → installs to ~/.homegrew (user-local, no root needed)
   sudo grew setup   → installs to the system prefix (better isolation)
 
 System prefix locations:
-  macOS (Apple Silicon): /opt/grew
-  macOS (Intel):         /usr/local/grew
-  Linux:                 /usr/local/grew
+  macOS (Apple Silicon): /opt/homegrew
+  macOS (Intel):         /usr/local/homegrew
+  Linux:                 /usr/local/homegrew
 
 With sudo, the command:
   1. Creates the system prefix directory
@@ -327,8 +327,8 @@ With sudo, the command:
   4. Copies the grew binary into <prefix>/bin/
 
 Without sudo, the command:
-  1. Creates ~/.grew and the internal directory structure
-  2. Copies the grew binary into ~/.grew/bin/
+  1. Creates ~/.homegrew and the internal directory structure
+  2. Copies the grew binary into ~/.homegrew/bin/
 
 Path inference: grew infers its prefix from the binary location. If
 the binary is at <prefix>/bin/grew, all paths are derived from <prefix>
