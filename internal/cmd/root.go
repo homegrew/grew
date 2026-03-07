@@ -91,6 +91,7 @@ func Run(args []string) error {
 		"dr":        runDoctor,
 		"config":    runConfig,
 		"shellenv":  runShellenv,
+		"services":  runServices,
 		"help":      runHelp,
 	}
 
@@ -148,6 +149,7 @@ Commands:
   cleanup [-n]         Remove old versions and temp files (-n for dry run)
   deps [flags] <formula>  Show dependencies for a formula
   alias [subcommand]   Manage command aliases
+  services [sub]       Manage background services (start, stop, list, ...)
   doctor               Check for common problems
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup

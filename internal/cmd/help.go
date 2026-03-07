@@ -255,6 +255,35 @@ Examples:
   grew shellenv
   grew shellenv fish`,
 
+	"services": `Usage: grew services <subcommand> [arguments]
+
+Manage background services for installed formulas. Services are
+registered with the platform init system (launchd on macOS,
+systemd --user on Linux) so they persist across reboots.
+
+Subcommands:
+  list, ls              List all managed services and their status
+  start <formula>       Write a service definition and start it
+  stop <formula>        Stop the service and remove its definition
+  restart <formula>     Stop then start the service
+  run <formula>         Run the service command in the foreground
+  info <formula>        Show service configuration and status
+
+The service definition comes from the formula's "service" field.
+The run command supports {prefix}, {opt}, and {cellar} placeholders
+that are expanded to the grew directory paths.
+
+On macOS, services are managed via launchctl (~/Library/LaunchAgents).
+On Linux, services are managed via systemd --user (~/.config/systemd/user).
+
+Examples:
+  grew services list
+  grew services start postgresql
+  grew services stop redis
+  grew services restart postgresql
+  grew services run postgresql
+  grew services info postgresql`,
+
 	"help": `Usage: grew help [command]
 
 Show help for grew or a specific command.
