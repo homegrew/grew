@@ -29,13 +29,47 @@
 
 ## 🚀 Getting Started
 
-**Prerequisites:** Go 1.26+, `git`, `curl`, and a dream.
+**Prerequisites:** Go 1.26+, `git`, and a dream.
+
+### Build from source
 
 ```bash
 git clone https://github.com/homegrew/grew.git
 cd grew
-go build -o grew .
-./grew help
+make build          # or: go generate ./internal/... && go build -o grew
+```
+
+### Set up the prefix
+
+grew needs a home — a directory tree for the Cellar, symlinks, taps, and config. The `setup` command creates it and copies the binary into place:
+
+```bash
+# User-local install (no root needed) — installs to ~/.grew
+./grew setup
+
+# System install (recommended — isolates builds from $HOME)
+sudo ./grew setup   # macOS ARM → /opt/grew, Intel/Linux → /usr/local/grew
+```
+
+The system prefix is more secure: sandboxed source builds can't reach `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles.
+
+### Wire up your shell
+
+Add this to your shell profile so grew-installed binaries are on your PATH:
+
+```bash
+# bash (~/.bashrc) or zsh (~/.zshrc)
+eval "$(grew shellenv)"
+
+# fish (~/.config/fish/config.fish)
+grew shellenv fish | source
+```
+
+### Install something
+
+```bash
+grew install jq
+grew install --cask firefox
 ```
 
 That's it. No dark rituals. No 47-step setup guide.
@@ -73,6 +107,7 @@ That's it. No dark rituals. No 47-step setup guide.
 | `update` | Refresh tap definitions |
 | `upgrade` | Get the new hotness |
 | `outdated` | The hall of shame |
+| `reinstall` | Uninstall + install from scratch |
 | `cleanup` | Marie Kondo your Cellar |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
@@ -80,6 +115,8 @@ That's it. No dark rituals. No 47-step setup guide.
 | `audit` | Lint formula/cask definitions for quality and security |
 | `lock` | Generate, check, or show a reproducible lockfile |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
+| `services` | Manage background services (start, stop, restart, list) |
+| `setup` | One-time prefix setup (user-local or system-wide with sudo) |
 | `doctor` | It's not a bug, it's a misconfiguration |
 | `config` | What grew thinks it knows |
 | `shellenv` | Wire up your shell |
@@ -108,16 +145,6 @@ Everything else flows from the prefix:
 ├── etc/           ← trusted-keys (Ed25519 public keys, one per line)
 ├── tmp/           ← ephemeral stuff
 └── grew.lock      ← lockfile (opt-in, created by `grew lock`)
-```
-
-**Shell setup** (pick your flavour):
-
-```bash
-# bash / zsh
-eval "$(./grew shellenv)"
-
-# fish
-./grew shellenv fish | source
 ```
 
 ---
