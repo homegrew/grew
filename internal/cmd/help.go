@@ -18,6 +18,8 @@ Flags:
                         are still installed from bottles.
   --only-dependencies   Install the dependencies but not the formula itself.
   --ignore-dependencies Skip installing dependencies; install only the formula.
+  --skip-post-install   Do not run the post-install script.
+  --skip-link           Install to the Cellar but do not create symlinks.
 
 If the formula/cask is already installed, the command is a no-op.
 

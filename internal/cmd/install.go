@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/url"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -367,8 +366,12 @@ func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) er
 		fmt.Printf("==> Skipping post-install step for %s\n", f.Name)
 		return nil
 	}
-	fmt.Printf("==> Running post-install for %s\n", f.Name)
-	cmd := exec.Command("sh", "-c", f.PostInstall)
+	fmt.Printf("==> Running post-install for %s (sandboxed)\n", f.Name)
+	sbCfg := sandbox.BuildConfig{
+		BuildDir: kegPath,
+		KegDir:   kegPath,
+	}
+	cmd := sandbox.Command(sbCfg, "sh", "-c", f.PostInstall)
 	cmd.Dir = kegPath
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
