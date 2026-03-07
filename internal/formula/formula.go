@@ -21,6 +21,7 @@ type Formula struct {
 	SourceURL    string            `yaml:"source_url"`
 	SourceSHA256 string            `yaml:"source_sha256"`
 	Install      InstallSpec       `yaml:"install"`
+	PostInstall  string            `yaml:"post_install"`
 	Dependencies []string          `yaml:"dependencies"`
 	KegOnly      bool              `yaml:"keg_only"`
 }

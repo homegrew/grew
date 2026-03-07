@@ -43,7 +43,7 @@ func cleanEnv(cfg BuildConfig) []string {
 		"LDFLAGS": true, "PKG_CONFIG_PATH": true,
 		"LANG": true, "LC_ALL": true,
 		"SDKROOT": true, "MACOSX_DEPLOYMENT_TARGET": true,
-		"DEVELOPER_DIR": true,
+		"DEVELOPER_DIR":     true,
 		"SOURCE_DATE_EPOCH": true,
 	}
 

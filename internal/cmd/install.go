@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -22,6 +23,8 @@ func runInstall(args []string) error {
 	buildFromSource := false
 	onlyDeps := false
 	ignoreDeps := false
+	skipPostInstall := false
+	skipLink := false
 	var remaining []string
 	for _, a := range args {
 		switch a {
@@ -33,6 +36,10 @@ func runInstall(args []string) error {
 			onlyDeps = true
 		case "--ignore-dependencies":
 			ignoreDeps = true
+		case "--skip-post-install":
+			skipPostInstall = true
+		case "--skip-link":
+			skipLink = true
 		default:
 			remaining = append(remaining, a)
 		}
@@ -116,11 +123,11 @@ func runInstall(args []string) error {
 		}
 
 		if buildFromSource && f.Name == name {
-			if err := installFormulaFromSource(f, paths, cel, lnk, dl); err != nil {
+			if err := installFormulaFromSource(f, paths, cel, lnk, dl, skipPostInstall, skipLink); err != nil {
 				return err
 			}
 		} else {
-			if err := installFormula(f, paths, cel, lnk, dl); err != nil {
+			if err := installFormula(f, paths, cel, lnk, dl, skipPostInstall, skipLink); err != nil {
 				return err
 			}
 		}
@@ -131,7 +138,7 @@ func runInstall(args []string) error {
 
 // installFormula downloads, verifies, extracts, and links a single formula.
 // Shared by install and upgrade commands.
-func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader) error {
+func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader, skipPostInstall bool, skipLink bool) error {
 	defer TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	Debugf("platform: %s, install type: %s, keg_only: %v\n", formula.PlatformKey(), f.Install.Type, f.KegOnly)
 	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
@@ -183,16 +190,24 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 	}
 	Logf("    Installed to cellar: %s\n", kegPath)
 
-	if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
-		return fmt.Errorf("link %s: %w", f.Name, err)
+	if !skipLink {
+		if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
+			return fmt.Errorf("link %s: %w", f.Name, err)
+		}
+		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
 	}
-	Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
 
 	os.RemoveAll(stageDir)
 	os.Remove(localFile)
 
+	if err := runPostInstall(f, kegPath, skipPostInstall); err != nil {
+		return err
+	}
+
 	if f.KegOnly {
 		fmt.Printf("==> %s %s installed (keg-only, not linked)\n", f.Name, f.Version)
+	} else if skipLink {
+		fmt.Printf("==> %s %s installed (linking skipped)\n", f.Name, f.Version)
 	} else {
 		fmt.Printf("==> %s %s installed and linked\n", f.Name, f.Version)
 	}
@@ -201,7 +216,7 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 
 // installFormulaFromSource downloads the source tarball and builds from source
 // inside a sandboxed environment (no network, restricted filesystem access).
-func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader) error {
+func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader, skipPostInstall bool, skipLink bool) error {
 	defer TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
 
@@ -308,15 +323,23 @@ func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cella
 		return fmt.Errorf("make install %s: %w", f.Name, err)
 	}
 
-	if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
-		return fmt.Errorf("link %s: %w", f.Name, err)
+	if !skipLink {
+		if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
+			return fmt.Errorf("link %s: %w", f.Name, err)
+		}
+		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
 	}
-	Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
 
 	cleanup()
 
+	if err := runPostInstall(f, kegPath, skipPostInstall); err != nil {
+		return err
+	}
+
 	if f.KegOnly {
 		fmt.Printf("==> %s %s built from source and installed (keg-only, not linked)\n", f.Name, f.Version)
+	} else if skipLink {
+		fmt.Printf("==> %s %s built from source and installed (linking skipped)\n", f.Name, f.Version)
 	} else {
 		fmt.Printf("==> %s %s built from source and installed\n", f.Name, f.Version)
 	}
@@ -334,4 +357,23 @@ func urlExt(rawURL string) string {
 		return base[idx:]
 	}
 	return filepath.Ext(base)
+}
+
+func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
+	if f.PostInstall == "" {
+		return nil
+	}
+	if skipPostInstall {
+		fmt.Printf("==> Skipping post-install step for %s\n", f.Name)
+		return nil
+	}
+	fmt.Printf("==> Running post-install for %s\n", f.Name)
+	cmd := exec.Command("sh", "-c", f.PostInstall)
+	cmd.Dir = kegPath
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("post-install failed: %w", err)
+	}
+	return nil
 }

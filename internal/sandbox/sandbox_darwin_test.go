@@ -20,9 +20,9 @@ func TestSeatbeltProfile(t *testing.T) {
 		"(deny default)":     "deny by default",
 		"(deny network*)":    "deny network",
 		"(allow file-read*)": "allow all file reads",
-		`(allow file-write* (subpath "/tmp/grew-build"))`: "allow writes to build dir",
-		`(allow file-write* (subpath "/tmp/grew-keg"))`:   "allow writes to keg dir",
-		`(allow file-write* (subpath "/dev"))`:             "allow writes to /dev",
+		`(allow file-write* (subpath "/tmp/grew-build"))`:      "allow writes to build dir",
+		`(allow file-write* (subpath "/tmp/grew-keg"))`:        "allow writes to keg dir",
+		`(allow file-write* (subpath "/dev"))`:                 "allow writes to /dev",
 		`(allow file-write* (subpath "/private/var/folders"))`: "allow writes to compiler cache",
 	}
 	for needle, desc := range checks {

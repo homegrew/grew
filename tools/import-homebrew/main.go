@@ -15,16 +15,16 @@ const apiURL = "https://formulae.brew.sh/api/formula.json"
 
 // Homebrew JSON API structures (only fields we need).
 type hbFormula struct {
-	Name         string       `json:"name"`
-	Desc         string       `json:"desc"`
-	Homepage     string       `json:"homepage"`
-	License      string       `json:"license"`
-	Versions     hbVersions   `json:"versions"`
-	Bottle       hbBottle     `json:"bottle"`
-	Dependencies []string     `json:"dependencies"`
-	KegOnly      bool         `json:"keg_only"`
-	Deprecated   bool         `json:"deprecated"`
-	Disabled     bool         `json:"disabled"`
+	Name         string     `json:"name"`
+	Desc         string     `json:"desc"`
+	Homepage     string     `json:"homepage"`
+	License      string     `json:"license"`
+	Versions     hbVersions `json:"versions"`
+	Bottle       hbBottle   `json:"bottle"`
+	Dependencies []string   `json:"dependencies"`
+	KegOnly      bool       `json:"keg_only"`
+	Deprecated   bool       `json:"deprecated"`
+	Disabled     bool       `json:"disabled"`
 }
 
 type hbVersions struct {

@@ -52,7 +52,7 @@ func runReinstall(args []string) error {
 	Logf("    Removed old cellar entry\n")
 
 	// Fresh install
-	if err := installFormula(f, paths, cel, lnk, dl); err != nil {
+	if err := installFormula(f, paths, cel, lnk, dl, false, false); err != nil {
 		return err
 	}
 

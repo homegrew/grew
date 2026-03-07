@@ -14,16 +14,16 @@ import (
 const apiURL = "https://formulae.brew.sh/api/cask.json"
 
 type hbCask struct {
-	Token     string            `json:"token"`
-	Name      []string          `json:"name"`
-	Desc      string            `json:"desc"`
-	Homepage  string            `json:"homepage"`
-	URL       string            `json:"url"`
-	SHA256    string            `json:"sha256"`
-	Version   string            `json:"version"`
-	Artifacts []json.RawMessage `json:"artifacts"`
-	Deprecated  bool            `json:"deprecated"`
-	Disabled    bool            `json:"disabled"`
+	Token      string            `json:"token"`
+	Name       []string          `json:"name"`
+	Desc       string            `json:"desc"`
+	Homepage   string            `json:"homepage"`
+	URL        string            `json:"url"`
+	SHA256     string            `json:"sha256"`
+	Version    string            `json:"version"`
+	Artifacts  []json.RawMessage `json:"artifacts"`
+	Deprecated bool              `json:"deprecated"`
+	Disabled   bool              `json:"disabled"`
 }
 
 type parsedArtifacts struct {

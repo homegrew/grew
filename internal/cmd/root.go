@@ -139,7 +139,7 @@ Flags:
       --version        Print version and exit
 
 Commands:
-  install [-s] <formula>  Install a formula (use --cask for apps, -s for sandboxed source build)
+  install [-s] [--skip-post-install] [--skip-link] <formula>  Install a formula (use --cask for apps, -s for sandboxed source build)
   uninstall <formula>  Uninstall a formula or cask (--cask)
   list                 List installed formulas or casks (--cask)
   info <formula>       Show formula or cask info (--cask)
