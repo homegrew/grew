@@ -43,7 +43,8 @@ func TimeOp(label string) func() {
 }
 
 func Run(args []string) error {
-	// Strip global flags before dispatching.
+	// Global flags are parsed manually before dispatch because they
+	// can appear anywhere (e.g. "grew -v install jq").
 	var filtered []string
 	for _, a := range args {
 		switch a {
@@ -72,29 +73,29 @@ func Run(args []string) error {
 	}
 
 	commands := map[string]func([]string) error{
-		"install":   runInstall,
-		"uninstall": runUninstall,
-		"remove":    runUninstall,
-		"list":      runList,
-		"info":      runInfo,
-		"search":    runSearch,
-		"link":      runLink,
-		"unlink":    runUnlink,
+		"install":      runInstall,
+		"uninstall":    runUninstall,
+		"remove":       runUninstall,
+		"list":         runList,
+		"info":         runInfo,
+		"search":       runSearch,
+		"link":         runLink,
+		"unlink":       runUnlink,
 		"update":       runUpdate,
 		"reset-update": runResetUpdate,
-		"upgrade":   runUpgrade,
-		"outdated":  runOutdated,
-		"reinstall": runReinstall,
-		"cleanup":   runCleanup,
-		"deps":      runDeps,
-		"alias":     runAlias,
-		"doctor":    runDoctor,
-		"dr":        runDoctor,
-		"config":    runConfig,
-		"shellenv":  runShellenv,
-		"services":  runServices,
-		"setup":     runSetup,
-		"help":      runHelp,
+		"upgrade":      runUpgrade,
+		"outdated":     runOutdated,
+		"reinstall":    runReinstall,
+		"cleanup":      runCleanup,
+		"deps":         runDeps,
+		"alias":        runAlias,
+		"doctor":       runDoctor,
+		"dr":           runDoctor,
+		"config":       runConfig,
+		"shellenv":     runShellenv,
+		"services":     runServices,
+		"setup":        runSetup,
+		"help":         runHelp,
 	}
 
 	handler, ok := commands[args[0]]
@@ -153,7 +154,7 @@ Commands:
   deps [flags] <formula>  Show dependencies for a formula
   alias [subcommand]   Manage command aliases
   services [sub]       Manage background services (start, stop, list, ...)
-  setup                One-time setup of the system prefix (requires sudo)
+  setup                One-time setup of the grew prefix
   doctor               Check for common problems
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup

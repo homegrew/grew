@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 
 	"github.com/homegrew/grew/internal/cellar"
@@ -9,25 +10,21 @@ import (
 )
 
 func runUninstall(args []string) error {
-	isCask := false
-	var remaining []string
-	for _, a := range args {
-		if a == "--cask" {
-			isCask = true
-		} else {
-			remaining = append(remaining, a)
-		}
+	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
+	isCask := fs.Bool("cask", false, "Uninstall a cask")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if len(remaining) != 1 {
+	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew uninstall [--cask] <formula>")
 	}
 
-	if isCask {
-		return caskUninstall(remaining[0])
+	if *isCask {
+		return caskUninstall(fs.Arg(0))
 	}
 
-	name := remaining[0]
+	name := fs.Arg(0)
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
 

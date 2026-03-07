@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -73,33 +74,22 @@ func allChecks() []doctorCheck {
 }
 
 func runDoctor(args []string) error {
-	listChecks := false
-	auditDebug := false
-	quiet := false
-	runAll := false
-	var selectedChecks []string
-
-	for _, a := range args {
-		switch a {
-		case "--list-checks":
-			listChecks = true
-		case "-D", "--audit-debug":
-			auditDebug = true
-		case "-q", "--quiet":
-			quiet = true
-		case "--all", "-a":
-			runAll = true
-		default:
-			if strings.HasPrefix(a, "-") {
-				return fmt.Errorf("unknown flag: %s\nRun 'grew help doctor' for usage", a)
-			}
-			selectedChecks = append(selectedChecks, a)
-		}
+	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
+	listChecks := fs.Bool("list-checks", false, "List all available check names")
+	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")
+	fs.BoolVar(auditDebug, "D", false, "Show timing per check")
+	quiet := fs.Bool("quiet", false, "Only print warnings")
+	fs.BoolVar(quiet, "q", false, "Only print warnings")
+	runAll := fs.Bool("all", false, "Run all checks")
+	fs.BoolVar(runAll, "a", false, "Run all checks")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
+	selectedChecks := fs.Args()
 	checks := allChecks()
 
-	if listChecks {
+	if *listChecks {
 		for _, c := range checks {
 			fmt.Printf("%-35s %s\n", c.Name, c.Desc)
 		}
@@ -107,7 +97,7 @@ func runDoctor(args []string) error {
 	}
 
 	// --all overrides any individually selected checks.
-	if runAll {
+	if *runAll {
 		selectedChecks = nil
 	}
 
@@ -131,7 +121,7 @@ func runDoctor(args []string) error {
 	paths := config.Default()
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil && !quiet {
+	if err := tapMgr.InitCore(); err != nil && !*quiet {
 		fmt.Fprintf(os.Stderr, "Warning: failed to init core tap: %v\n", err)
 	}
 
@@ -149,15 +139,15 @@ func runDoctor(args []string) error {
 		loader:   loader,
 		formulas: formulas,
 		packages: packages,
-		quiet:    quiet,
+		quiet:    *quiet,
 	}
 
-	if !quiet {
+	if !*quiet {
 		fmt.Println("Checking grew installation...")
 	}
 
 	for _, c := range checks {
-		if auditDebug {
+		if *auditDebug {
 			start := time.Now()
 			c.Run(ctx)
 			fmt.Printf("[audit] %-35s %s (%d warning(s))\n", c.Name, time.Since(start), ctx.warnings)
@@ -167,13 +157,13 @@ func runDoctor(args []string) error {
 	}
 
 	if ctx.warnings == 0 {
-		if !quiet {
+		if !*quiet {
 			fmt.Println("Your system is ready to brew.")
 		}
 		return nil
 	}
 
-	if !quiet {
+	if !*quiet {
 		fmt.Printf("\n%d warning(s) found.\n", ctx.warnings)
 	}
 	// Return error so exit code is non-zero when warnings exist.

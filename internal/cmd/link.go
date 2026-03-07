@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 
 	"github.com/homegrew/grew/internal/cellar"
@@ -10,30 +11,19 @@ import (
 )
 
 func runLink(args []string) error {
-	overwrite := false
-	dryRun := false
-	force := false
-	var name string
-
-	for _, a := range args {
-		switch a {
-		case "--overwrite":
-			overwrite = true
-		case "-n", "--dry-run":
-			dryRun = true
-		case "--force":
-			force = true
-		default:
-			if name != "" {
-				return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>")
-			}
-			name = a
-		}
+	fs := flag.NewFlagSet("link", flag.ContinueOnError)
+	overwrite := fs.Bool("overwrite", false, "Overwrite existing files")
+	dryRun := fs.Bool("dry-run", false, "Show what would be linked")
+	fs.BoolVar(dryRun, "n", false, "Show what would be linked")
+	force := fs.Bool("force", false, "Link keg-only formula into bin/, lib/, include/")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if name == "" {
+	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>")
 	}
+	name := fs.Arg(0)
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
@@ -59,7 +49,7 @@ func runLink(args []string) error {
 		kegOnly = f.KegOnly
 	}
 
-	if kegOnly && !force {
+	if kegOnly && !*force {
 		fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
 	}
 
@@ -67,43 +57,36 @@ func runLink(args []string) error {
 	Logf("    Keg: %s\n", cel.KegPath(name, ver))
 	opts := linker.LinkOpts{
 		KegOnly:   kegOnly,
-		Overwrite: overwrite,
-		DryRun:    dryRun,
-		Force:     force,
+		Overwrite: *overwrite,
+		DryRun:    *dryRun,
+		Force:     *force,
 	}
 	if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
 		return err
 	}
 	Logf("    opt/%s -> %s\n", name, cel.KegPath(name, ver))
-	if !kegOnly || force {
+	if !kegOnly || *force {
 		Logf("    Symlinked bin/, lib/, include/ contents\n")
 	}
 
-	if !dryRun {
+	if !*dryRun {
 		fmt.Printf("==> %s %s linked\n", name, ver)
 	}
 	return nil
 }
 
 func runUnlink(args []string) error {
-	dryRun := false
-	var name string
-
-	for _, a := range args {
-		switch a {
-		case "-n", "--dry-run":
-			dryRun = true
-		default:
-			if name != "" {
-				return fmt.Errorf("usage: grew unlink [--dry-run] <formula>")
-			}
-			name = a
-		}
+	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
+	dryRun := fs.Bool("dry-run", false, "Show what would be unlinked")
+	fs.BoolVar(dryRun, "n", false, "Show what would be unlinked")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if name == "" {
+	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>")
 	}
+	name := fs.Arg(0)
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
@@ -113,11 +96,11 @@ func runUnlink(args []string) error {
 	}
 
 	lnk := &linker.Linker{Paths: paths}
-	if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: dryRun}); err != nil {
+	if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: *dryRun}); err != nil {
 		return err
 	}
 
-	if dryRun {
+	if *dryRun {
 		Logf("    (dry run, no changes made)\n")
 	} else {
 		Logf("    Removed symlinks from bin/, lib/, include/, opt/\n")

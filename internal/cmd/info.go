@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"strings"
 
@@ -11,25 +12,21 @@ import (
 )
 
 func runInfo(args []string) error {
-	isCask := false
-	var remaining []string
-	for _, a := range args {
-		if a == "--cask" {
-			isCask = true
-		} else {
-			remaining = append(remaining, a)
-		}
+	fs := flag.NewFlagSet("info", flag.ContinueOnError)
+	isCask := fs.Bool("cask", false, "Show cask info")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if len(remaining) != 1 {
+	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew info [--cask] <formula>")
 	}
 
-	if isCask {
-		return caskInfo(remaining[0])
+	if *isCask {
+		return caskInfo(fs.Arg(0))
 	}
 
-	name := remaining[0]
+	name := fs.Arg(0)
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return err

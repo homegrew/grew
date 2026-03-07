@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -10,15 +11,14 @@ import (
 )
 
 func runCleanup(args []string) error {
-	dryRun := false
-	var targets []string
-	for _, a := range args {
-		if a == "-n" || a == "--dry-run" {
-			dryRun = true
-		} else {
-			targets = append(targets, a)
-		}
+	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
+	dryRun := fs.Bool("dry-run", false, "Show what would be removed")
+	fs.BoolVar(dryRun, "n", false, "Show what would be removed")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
+
+	targets := fs.Args()
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
@@ -56,7 +56,7 @@ func runCleanup(args []string) error {
 			kegPath := cel.KegPath(pkg.Name, ver)
 			size, _ := dirSize(kegPath)
 			totalBytes += size
-			if dryRun {
+			if *dryRun {
 				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, formatSize(size))
 			} else {
 				Debugf("removing old keg %s/%s\n", pkg.Name, ver)
@@ -76,7 +76,7 @@ func runCleanup(args []string) error {
 			path := filepath.Join(paths.Tmp, e.Name())
 			size, _ := entrySize(path, e)
 			totalBytes += size
-			if dryRun {
+			if *dryRun {
 				fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
 			} else {
 				Debugf("removing temp file %s\n", e.Name())
@@ -91,7 +91,7 @@ func runCleanup(args []string) error {
 
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
-	} else if dryRun {
+	} else if *dryRun {
 		fmt.Printf("==> Would free %s\n", formatSize(totalBytes))
 	} else {
 		fmt.Printf("==> Freed %s\n", formatSize(totalBytes))

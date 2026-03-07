@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"net/url"
 	"os"
@@ -18,54 +19,39 @@ import (
 )
 
 func runInstall(args []string) error {
-	isCask := false
-	buildFromSource := false
-	onlyDeps := false
-	ignoreDeps := false
-	skipPostInstall := false
-	skipLink := false
-	requireSHA := false
-	var remaining []string
-	for _, a := range args {
-		switch a {
-		case "--cask":
-			isCask = true
-		case "-s", "--build-from-source":
-			buildFromSource = true
-		case "--only-dependencies":
-			onlyDeps = true
-		case "--ignore-dependencies":
-			ignoreDeps = true
-		case "--skip-post-install":
-			skipPostInstall = true
-		case "--skip-link":
-			skipLink = true
-		case "--require-sha":
-			requireSHA = true
-		default:
-			remaining = append(remaining, a)
-		}
+	fs := flag.NewFlagSet("install", flag.ContinueOnError)
+	isCask := fs.Bool("cask", false, "Install a macOS application cask")
+	buildFromSource := fs.Bool("s", false, "Build from source")
+	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
+	onlyDeps := fs.Bool("only-dependencies", false, "Install dependencies only")
+	ignoreDeps := fs.Bool("ignore-dependencies", false, "Skip dependency installation")
+	skipPostInstall := fs.Bool("skip-post-install", false, "Skip post-install steps")
+	skipLink := fs.Bool("skip-link", false, "Do not create symlinks")
+	requireSHA := fs.Bool("require-sha", false, "Refuse if SHA256 is missing")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if onlyDeps && ignoreDeps {
+	if *onlyDeps && *ignoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
 	}
 
+	remaining := fs.Args()
 	if len(remaining) != 1 {
-		if isCask {
+		if *isCask {
 			return fmt.Errorf("usage: grew install --cask <cask>")
 		}
 		return fmt.Errorf("usage: grew install [-s] [--only-dependencies|--ignore-dependencies] <formula>")
 	}
 
-	if isCask {
-		if buildFromSource {
+	if *isCask {
+		if *buildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
 		}
-		if onlyDeps {
+		if *onlyDeps {
 			return fmt.Errorf("--only-dependencies is not supported for casks")
 		}
-		if ignoreDeps {
+		if *ignoreDeps {
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
 		return caskInstall(remaining[0])
@@ -89,7 +75,7 @@ func runInstall(args []string) error {
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 
 	var installOrder []*formula.Formula
-	if ignoreDeps {
+	if *ignoreDeps {
 		f, err := loader.LoadByName(name)
 		if err != nil {
 			return fmt.Errorf("formula not found: %s", name)
@@ -114,15 +100,15 @@ func runInstall(args []string) error {
 		Logf("==> Install order: %s\n", fmt.Sprintf("%v", names))
 	}
 
-	if requireSHA {
+	if *requireSHA {
 		for _, f := range installOrder {
-			if onlyDeps && f.Name == name {
+			if *onlyDeps && f.Name == name {
 				continue
 			}
 			if cel.IsInstalled(f.Name) {
 				continue
 			}
-			if buildFromSource && f.Name == name {
+			if *buildFromSource && f.Name == name {
 				if _, err := f.GetSourceSHA256(); err != nil {
 					return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
 				}
@@ -135,7 +121,7 @@ func runInstall(args []string) error {
 	}
 
 	for _, f := range installOrder {
-		if onlyDeps && f.Name == name {
+		if *onlyDeps && f.Name == name {
 			continue
 		}
 
@@ -144,12 +130,12 @@ func runInstall(args []string) error {
 			continue
 		}
 
-		if buildFromSource && f.Name == name {
-			if err := installFormulaFromSource(f, paths, cel, lnk, dl, skipPostInstall, skipLink); err != nil {
+		if *buildFromSource && f.Name == name {
+			if err := installFormulaFromSource(f, paths, cel, lnk, dl, *skipPostInstall, *skipLink); err != nil {
 				return err
 			}
 		} else {
-			if err := installFormula(f, paths, cel, lnk, dl, skipPostInstall, skipLink); err != nil {
+			if err := installFormula(f, paths, cel, lnk, dl, *skipPostInstall, *skipLink); err != nil {
 				return err
 			}
 		}

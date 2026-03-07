@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 
 	"github.com/homegrew/grew/internal/cellar"
@@ -8,14 +9,13 @@ import (
 )
 
 func runList(args []string) error {
-	isCask := false
-	for _, a := range args {
-		if a == "--cask" {
-			isCask = true
-		}
+	fs := flag.NewFlagSet("list", flag.ContinueOnError)
+	isCask := fs.Bool("cask", false, "List installed casks")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if isCask {
+	if *isCask {
 		return caskList()
 	}
 

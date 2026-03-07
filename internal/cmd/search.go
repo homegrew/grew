@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"strings"
 
@@ -10,20 +11,16 @@ import (
 )
 
 func runSearch(args []string) error {
-	isCask := false
-	var remaining []string
-	for _, a := range args {
-		if a == "--cask" {
-			isCask = true
-		} else {
-			remaining = append(remaining, a)
-		}
+	fs := flag.NewFlagSet("search", flag.ContinueOnError)
+	isCask := fs.Bool("cask", false, "Search casks")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
-	if len(remaining) != 1 {
+	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew search [--cask] <query>")
 	}
-	query := strings.ToLower(remaining[0])
+	query := strings.ToLower(fs.Arg(0))
 
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
@@ -35,7 +32,7 @@ func runSearch(args []string) error {
 		return fmt.Errorf("init core tap: %w", err)
 	}
 
-	if isCask {
+	if *isCask {
 		return caskSearch(query)
 	}
 

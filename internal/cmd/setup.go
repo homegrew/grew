@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"os/exec"
@@ -11,14 +12,11 @@ import (
 )
 
 func runSetup(args []string) error {
-	force := false
-	for _, a := range args {
-		switch a {
-		case "--force", "-f":
-			force = true
-		default:
-			return fmt.Errorf("unknown flag: %s\nRun 'grew help setup' for usage", a)
-		}
+	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
+	force := fs.Bool("force", false, "Re-run setup even if already set up")
+	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
 
 	isRoot := os.Geteuid() == 0
@@ -30,7 +28,7 @@ func runSetup(args []string) error {
 	}
 
 	// Check if already set up.
-	if !force && config.IsDir(filepath.Join(prefix, "Cellar")) {
+	if !*force && config.IsDir(filepath.Join(prefix, "Cellar")) {
 		fmt.Printf("grew is already set up at %s\n", prefix)
 		fmt.Println("Run 'grew setup --force' to re-run setup.")
 		return nil

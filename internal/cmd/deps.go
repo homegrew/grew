@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"fmt"
 	"sort"
 	"strings"
@@ -12,23 +13,15 @@ import (
 )
 
 func runDeps(args []string) error {
-	tree := false
-	all := false
-	installed := false
-	var targets []string
-
-	for _, a := range args {
-		switch a {
-		case "--tree":
-			tree = true
-		case "--all":
-			all = true
-		case "--installed":
-			installed = true
-		default:
-			targets = append(targets, a)
-		}
+	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
+	tree := fs.Bool("tree", false, "Show dependencies as a tree")
+	all := fs.Bool("all", false, "Show dependencies for all formulas")
+	installed := fs.Bool("installed", false, "Show dependencies for installed formulas")
+	if err := fs.Parse(args); err != nil {
+		return err
 	}
+
+	targets := fs.Args()
 
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
@@ -41,7 +34,7 @@ func runDeps(args []string) error {
 	}
 	loader := newLoader(paths.Taps)
 
-	if all {
+	if *all {
 		formulas, err := loader.LoadAll()
 		if err != nil {
 			return err
@@ -50,7 +43,7 @@ func runDeps(args []string) error {
 			targets = append(targets, f.Name)
 		}
 		sort.Strings(targets)
-	} else if installed {
+	} else if *installed {
 		cel := &cellar.Cellar{Path: paths.Cellar}
 		pkgs, err := cel.List()
 		if err != nil {
@@ -71,7 +64,7 @@ func runDeps(args []string) error {
 			return fmt.Errorf("formula not found: %s", name)
 		}
 
-		if tree {
+		if *tree {
 			if len(targets) > 1 {
 				fmt.Println(f.Name)
 			}
@@ -98,7 +91,7 @@ func runDeps(args []string) error {
 			}
 		}
 
-		if tree && i < len(targets)-1 {
+		if *tree && i < len(targets)-1 {
 			fmt.Println()
 		}
 	}
