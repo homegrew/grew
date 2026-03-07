@@ -307,7 +307,7 @@ Examples:
   grew shellenv
   grew shellenv fish`,
 
-	"setup": `Usage: grew setup [--force]
+	"setup": `Usage: grew setup [--force] [--dry-run]
 
 Set up the grew directory structure. Behavior depends on whether you
 run it with or without sudo:
@@ -338,10 +338,17 @@ Security: a system prefix isolates builds from $HOME, preventing
 sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
 
 Flags:
-  -f, --force   Re-run setup even if already set up
+  -f, --force     Re-run setup even if already set up
+  -s, --dry-run   Show what would be done without making changes
 
 After setup, add to your shell profile:
-  eval "$(grew shellenv)"`,
+  eval "$(grew shellenv)"
+
+Examples:
+  grew setup
+  grew setup --dry-run
+  sudo grew setup
+  sudo grew setup -s`,
 
 	"services": `Usage: grew services <subcommand> [arguments]
 

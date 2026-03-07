@@ -15,6 +15,8 @@ func runSetup(args []string) error {
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
+	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
+	fs.BoolVar(dryRun, "s", false, "Show what would be done without making changes")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -28,16 +30,90 @@ func runSetup(args []string) error {
 	}
 
 	// Check if already set up.
-	if !*force && config.IsDir(filepath.Join(prefix, "Cellar")) {
+	if !*force && !*dryRun && config.IsDir(filepath.Join(prefix, "Cellar")) {
 		fmt.Printf("grew is already set up at %s\n", prefix)
 		fmt.Println("Run 'grew setup --force' to re-run setup.")
 		return nil
+	}
+
+	if *dryRun {
+		return setupDryRun(prefix, isRoot)
 	}
 
 	if isRoot {
 		return setupSystem(prefix)
 	}
 	return setupUser(prefix)
+}
+
+// setupDryRun prints what setup would do without making any changes.
+func setupDryRun(prefix string, isRoot bool) error {
+	fmt.Println("[dry-run] No changes will be made.")
+	fmt.Println()
+
+	if isRoot {
+		realUser := os.Getenv("SUDO_USER")
+		if realUser == "" {
+			realUser = "(unknown)"
+		}
+		fmt.Printf("[dry-run] Mode: system prefix (running as root)\n")
+		fmt.Printf("[dry-run] Prefix: %s\n", prefix)
+		fmt.Printf("[dry-run] mkdir -p %s\n", prefix)
+		u, err := user.Lookup(realUser)
+		if err == nil {
+			fmt.Printf("[dry-run] chown -R %s:%s %s\n", u.Username, primaryGroup(u), prefix)
+		} else {
+			fmt.Printf("[dry-run] chown -R %s %s\n", realUser, prefix)
+		}
+	} else {
+		fmt.Printf("[dry-run] Mode: user prefix (no root)\n")
+		fmt.Printf("[dry-run] Prefix: %s\n", prefix)
+	}
+
+	home, _ := os.UserHomeDir()
+	appDir := os.Getenv("HOMEGREW_APPDIR")
+	if appDir == "" {
+		appDir = filepath.Join(home, "Applications")
+	}
+	paths := config.FromRoot(prefix, appDir)
+
+	fmt.Println()
+	fmt.Println("[dry-run] Directories to create:")
+	for _, dir := range []struct{ name, path string }{
+		{"Root", paths.Root},
+		{"Cellar", paths.Cellar},
+		{"opt", paths.Opt},
+		{"bin", paths.Bin},
+		{"lib", paths.Lib},
+		{"include", paths.Include},
+		{"Taps", paths.Taps},
+		{"CoreTap", paths.CoreTap},
+		{"CaskTap", paths.CaskTap},
+		{"Caskroom", paths.Caskroom},
+		{"AppDir", paths.AppDir},
+		{"tmp", paths.Tmp},
+	} {
+		status := "create"
+		if config.IsDir(dir.path) {
+			status = "exists"
+		}
+		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.name, dir.path, status)
+	}
+
+	exe, err := os.Executable()
+	if err == nil {
+		exe, _ = filepath.EvalSymlinks(exe)
+		destBin := filepath.Join(prefix, "bin", "grew")
+		if exe != destBin {
+			fmt.Printf("\n[dry-run] Copy binary: %s -> %s\n", exe, destBin)
+		}
+	}
+
+	fmt.Println()
+	fmt.Println("[dry-run] After setup, add to your shell profile:")
+	fmt.Printf("[dry-run]   eval \"$(%s/bin/grew shellenv)\"\n", prefix)
+
+	return nil
 }
 
 // setupSystem installs grew to the system prefix (requires root).
