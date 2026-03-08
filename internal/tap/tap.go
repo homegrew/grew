@@ -14,16 +14,23 @@ type Manager struct {
 	TapsDir string
 }
 
-// cleanDir validates and cleans a directory path to prevent traversal.
+// cleanDir validates and cleans a directory path to prevent traversal
+// and argument injection. The result is always an absolute path.
 func cleanDir(dir string) (string, error) {
-	cleaned := filepath.Clean(dir)
-	if strings.Contains(cleaned, "..") {
-		return "", fmt.Errorf("path contains traversal: %q", dir)
-	}
-	if cleaned == "" || cleaned == "." {
+	if dir == "" {
 		return "", fmt.Errorf("empty path")
 	}
-	return cleaned, nil
+	abs, err := filepath.Abs(dir)
+	if err != nil {
+		return "", fmt.Errorf("resolve path: %w", err)
+	}
+	if strings.Contains(abs, "..") {
+		return "", fmt.Errorf("path contains traversal: %q", dir)
+	}
+	if strings.HasPrefix(filepath.Base(abs), "-") {
+		return "", fmt.Errorf("path component starts with dash: %q", dir)
+	}
+	return abs, nil
 }
 
 // EnsureCloned clones the taps repo if it hasn't been cloned yet.
