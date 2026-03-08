@@ -1,4 +1,4 @@
-package getgrew
+package main
 
 import (
 	"archive/tar"
