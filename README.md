@@ -35,8 +35,7 @@
 
 ```bash
 go install github.com/homegrew/grew/tools/getgrew
-getgrew
-sudo ./grew setup
+getgrew && sudo grew setup
 ```
 
 ### Build from source

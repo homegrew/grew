@@ -1,7 +1,8 @@
 // Command getgrew downloads the latest grew binary release from GitHub,
 // verifies its SHA256 checksum against the release's checksums.txt, and
-// places the binary in the current directory (or a directory specified
-// with -d). All downloads are HTTPS-only; redirects to HTTP are rejected.
+// places the binary next to the getgrew executable. If that directory is
+// not writable, it falls back to the current working directory.
+// All downloads are HTTPS-only; redirects to HTTP are rejected.
 //
 // Install:
 //
@@ -9,8 +10,7 @@
 //
 // Usage:
 //
-//	getgrew              # download latest grew to ./grew
-//	getgrew -d /tmp      # download to a specific directory
+//	getgrew              # download grew next to getgrew (or cwd as fallback)
 //	getgrew -v           # verbose output (shows expected SHA256)
 //	getgrew -debug       # debug output (implies -v; shows HTTP requests, redirects, temp paths)
 //
@@ -25,6 +25,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -58,7 +59,6 @@ func debugf(format string, args ...any) {
 }
 
 func main() {
-	destDir := flag.String("d", ".", "Directory to place the grew binary in")
 	flag.BoolVar(&verbose, "v", false, "Verbose output")
 	flag.BoolVar(&debug, "debug", false, "Debug output (implies verbose)")
 	flag.Parse()
@@ -67,10 +67,38 @@ func main() {
 		verbose = true
 	}
 
-	if err := run(*destDir); err != nil {
+	cwd, err := resolveDestDir()
+	if err != nil {
+		log.Fatalf("failed to resolve destination directory: %v", err)
+	}
+
+	if err1 := run(cwd); err1 != nil {
 		fmt.Fprintf(os.Stderr, "getgrew: %s\n", err)
 		os.Exit(1)
 	}
+}
+
+// resolveDestDir determines where to place the grew binary.
+// Priority: directory of getgrew executable > cwd.
+func resolveDestDir() (string, error) {
+	// Try the directory containing the getgrew executable.
+	if exe, err := os.Executable(); err == nil {
+		exeDir := filepath.Dir(exe)
+		// Verify we can write to it by creating a temp file.
+		if f, err := os.CreateTemp(exeDir, ".grew-probe-*"); err == nil {
+			f.Close()
+			os.Remove(f.Name())
+			debugf("using executable directory: %s\n", exeDir)
+			return exeDir, nil
+		}
+		debugf("executable directory %s is not writable, falling back to cwd\n", exeDir)
+	}
+
+	cwd, err1 := os.Getwd()
+	if err1 != nil {
+		return "", err1
+	}
+	return cwd, nil
 }
 
 func run(destDir string) error {
