@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/fsutil"
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // Installer handles placing cask artifacts into their destinations.

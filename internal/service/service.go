@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // Status represents the state of a service.

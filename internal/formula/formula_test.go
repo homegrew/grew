@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // validSHA is a valid 64-char hex SHA256 for tests.

@@ -13,7 +13,7 @@ import (
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // maxExtractSize limits individual file extraction to 512 MB.

@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 type Linker struct {

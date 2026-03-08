@@ -11,27 +11,27 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // allowedHosts is the set of hosts that grew is permitted to download from.
 // This prevents formula-supplied URLs from triggering requests to arbitrary
 // internal services (SSRF). Extend via HOMEGREW_ALLOWED_HOSTS (comma-separated).
 var allowedHosts = map[string]bool{
-	"github.com":                true,
+	"github.com":                    true,
 	"objects.githubusercontent.com": true,
-	"ghcr.io":                  true,
-	"codeload.github.com":      true,
-	"releases.hashicorp.com":   true,
-	"downloads.sourceforge.net": true,
-	"storage.googleapis.com":   true,
-	"dl.google.com":            true,
-	"ftp.gnu.org":              true,
-	"curl.se":                  true,
-	"www.openssl.org":          true,
-	"download.savannah.gnu.org": true,
-	"archive.mozilla.org":      true,
-	"formulae.brew.sh":         true,
+	"ghcr.io":                       true,
+	"codeload.github.com":           true,
+	"releases.hashicorp.com":        true,
+	"downloads.sourceforge.net":     true,
+	"storage.googleapis.com":        true,
+	"dl.google.com":                 true,
+	"ftp.gnu.org":                   true,
+	"curl.se":                       true,
+	"www.openssl.org":               true,
+	"download.savannah.gnu.org":     true,
+	"archive.mozilla.org":           true,
+	"formulae.brew.sh":              true,
 }
 
 func init() {

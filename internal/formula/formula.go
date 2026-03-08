@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 	"gopkg.in/yaml.v3"
 )
 

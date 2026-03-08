@@ -13,7 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
-	"github.com/homegrew/grew/internal/validation"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // auditResult collects warnings and errors for a single formula or cask.
