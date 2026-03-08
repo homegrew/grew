@@ -5,10 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runInfo(args []string) error {
@@ -27,37 +24,31 @@ func runInfo(args []string) error {
 	}
 
 	name := fs.Arg(0)
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+
+	ctx, err := newReadContext()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	f, err := loader.LoadByName(name)
+	f, err := ctx.Loader.LoadByName(name)
 	if err != nil {
 		return fmt.Errorf("formula not found: %s", name)
 	}
 
-	cel := &cellar.Cellar{Path: paths.Cellar}
-	lnk := &linker.Linker{Paths: paths}
+	lnk := &linker.Linker{Paths: ctx.Paths}
 
 	fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
 	fmt.Printf("Homepage: %s\n", f.Homepage)
 	fmt.Printf("License:  %s\n", f.License)
 
-	if cel.IsInstalled(f.Name) {
-		ver, _ := cel.InstalledVersion(f.Name)
+	if ctx.Cellar.IsInstalled(f.Name) {
+		ver, _ := ctx.Cellar.InstalledVersion(f.Name)
 		linked := "not linked"
 		if lnk.IsLinked(f.Name) {
 			linked = "linked"
 		}
 		fmt.Printf("Installed: %s (%s)\n", ver, linked)
-		Logf("Cellar:    %s\n", cel.KegPath(f.Name, ver))
+		Logf("Cellar:    %s\n", ctx.Cellar.KegPath(f.Name, ver))
 	} else {
 		fmt.Println("Installed: no")
 	}

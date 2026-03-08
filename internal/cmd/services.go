@@ -128,16 +128,7 @@ func servicesList(_ []string) error {
 }
 
 func servicesStart(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew services start <formula>")
-	}
-
-	ctx, err := newServicesCtx()
-	if err != nil {
-		return err
-	}
-
-	f, err := loadServiceFormula(ctx, args[0])
+	ctx, f, err := requireServiceFormula("start", args)
 	if err != nil {
 		return err
 	}
@@ -151,16 +142,11 @@ func servicesStart(args []string) error {
 }
 
 func servicesStop(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew services stop <formula>")
-	}
-
-	ctx, err := newServicesCtx()
+	ctx, name, err := requireServiceCtx("stop", args)
 	if err != nil {
 		return err
 	}
 
-	name := args[0]
 	if !ctx.mgr.IsManaged(name) {
 		return fmt.Errorf("service %q is not running", name)
 	}
@@ -174,16 +160,7 @@ func servicesStop(args []string) error {
 }
 
 func servicesRestart(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew services restart <formula>")
-	}
-
-	ctx, err := newServicesCtx()
-	if err != nil {
-		return err
-	}
-
-	f, err := loadServiceFormula(ctx, args[0])
+	ctx, f, err := requireServiceFormula("restart", args)
 	if err != nil {
 		return err
 	}
@@ -197,16 +174,7 @@ func servicesRestart(args []string) error {
 }
 
 func servicesRun(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew services run <formula>")
-	}
-
-	ctx, err := newServicesCtx()
-	if err != nil {
-		return err
-	}
-
-	f, err := loadServiceFormula(ctx, args[0])
+	ctx, f, err := requireServiceFormula("run", args)
 	if err != nil {
 		return err
 	}
@@ -254,16 +222,11 @@ func servicesRun(args []string) error {
 }
 
 func servicesInfo(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew services info <formula>")
-	}
-
-	ctx, err := newServicesCtx()
+	ctx, name, err := requireServiceCtx("info", args)
 	if err != nil {
 		return err
 	}
 
-	name := args[0]
 	f, err := ctx.loader.LoadByName(name)
 	if err != nil {
 		return fmt.Errorf("formula not found: %s", name)
@@ -307,6 +270,34 @@ func servicesInfo(args []string) error {
 	}
 
 	return nil
+}
+
+// requireServiceFormula validates args, creates the services context, and loads the formula.
+func requireServiceFormula(sub string, args []string) (*servicesCtx, *formula.Formula, error) {
+	if len(args) != 1 {
+		return nil, nil, fmt.Errorf("usage: grew services %s <formula>", sub)
+	}
+	ctx, err := newServicesCtx()
+	if err != nil {
+		return nil, nil, err
+	}
+	f, err := loadServiceFormula(ctx, args[0])
+	if err != nil {
+		return nil, nil, err
+	}
+	return ctx, f, nil
+}
+
+// requireServiceCtx validates args and creates the services context.
+func requireServiceCtx(sub string, args []string) (*servicesCtx, string, error) {
+	if len(args) != 1 {
+		return nil, "", fmt.Errorf("usage: grew services %s <formula>", sub)
+	}
+	ctx, err := newServicesCtx()
+	if err != nil {
+		return nil, "", err
+	}
+	return ctx, args[0], nil
 }
 
 // loadServiceFormula loads and validates a formula for service use.

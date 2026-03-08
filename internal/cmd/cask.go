@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -284,17 +283,8 @@ func findCaskBinary(appDir string, apps []string, binName string) string {
 }
 
 func caskURLExt(rawURL string) string {
-	u, err := url.Parse(rawURL)
-	if err != nil {
-		return ""
+	if ext := urlExt(rawURL); ext != "" {
+		return ext
 	}
-	base := filepath.Base(u.Path)
-	if idx := strings.Index(base, ".tar."); idx != -1 {
-		return base[idx:]
-	}
-	ext := filepath.Ext(base)
-	if ext == "" {
-		return ".zip" // default for casks
-	}
-	return ext
+	return ".zip" // default for casks
 }

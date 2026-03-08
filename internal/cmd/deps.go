@@ -6,10 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runDeps(args []string) error {
@@ -23,19 +20,13 @@ func runDeps(args []string) error {
 
 	targets := fs.Args()
 
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newReadContext()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-	loader := newLoader(paths.Taps)
-
 	if *all {
-		formulas, err := loader.LoadAll()
+		formulas, err := ctx.Loader.LoadAll()
 		if err != nil {
 			return err
 		}
@@ -44,8 +35,7 @@ func runDeps(args []string) error {
 		}
 		sort.Strings(targets)
 	} else if *installed {
-		cel := &cellar.Cellar{Path: paths.Cellar}
-		pkgs, err := cel.List()
+		pkgs, err := ctx.Cellar.List()
 		if err != nil {
 			return err
 		}
@@ -59,7 +49,7 @@ func runDeps(args []string) error {
 	}
 
 	for i, name := range targets {
-		f, err := loader.LoadByName(name)
+		f, err := ctx.Loader.LoadByName(name)
 		if err != nil {
 			return fmt.Errorf("formula not found: %s", name)
 		}
@@ -68,10 +58,10 @@ func runDeps(args []string) error {
 			if len(targets) > 1 {
 				fmt.Println(f.Name)
 			}
-			printTree(loader, f.Dependencies, "", make(map[string]bool))
+			printTree(ctx.Loader, f.Dependencies, "", make(map[string]bool))
 		} else {
 			allDeps := make(map[string]bool)
-			if err := collectDeps(loader, f.Dependencies, allDeps); err != nil {
+			if err := collectDeps(ctx.Loader, f.Dependencies, allDeps); err != nil {
 				return err
 			}
 			sorted := make([]string, 0, len(allDeps))

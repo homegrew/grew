@@ -4,10 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 type outdatedPkg struct {
@@ -94,20 +91,12 @@ func runUpgrade(args []string) error {
 }
 
 func runOutdated(args []string) error {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newReadContext()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	installed, err := cel.List()
+	installed, err := ctx.Cellar.List()
 	if err != nil {
 		return err
 	}
@@ -118,7 +107,7 @@ func runOutdated(args []string) error {
 
 	found := false
 	for _, pkg := range installed {
-		f, err := loader.LoadByName(pkg.Name)
+		f, err := ctx.Loader.LoadByName(pkg.Name)
 		if err != nil {
 			Debugf("skipping %s: not in any tap (%v)\n", pkg.Name, err)
 			continue

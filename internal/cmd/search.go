@@ -4,10 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"strings"
-
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runSearch(args []string) error {
@@ -22,35 +18,27 @@ func runSearch(args []string) error {
 	}
 	query := strings.ToLower(fs.Arg(0))
 
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
-		return err
-	}
-
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
 	if *isCask {
 		return caskSearch(query)
 	}
 
-	// Search formulas
-	loader := newLoader(paths.Taps)
-	all, err := loader.LoadAll()
+	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	cel := &cellar.Cellar{Path: paths.Cellar}
+	all, err := ctx.Loader.LoadAll()
+	if err != nil {
+		return err
+	}
+
 	found := false
 
 	for _, f := range all {
 		if strings.Contains(strings.ToLower(f.Name), query) ||
 			strings.Contains(strings.ToLower(f.Description), query) {
 			marker := " "
-			if cel.IsInstalled(f.Name) {
+			if ctx.Cellar.IsInstalled(f.Name) {
 				marker = "*"
 			}
 			fmt.Printf("%s %-20s %s\n", marker, f.Name, f.Description)

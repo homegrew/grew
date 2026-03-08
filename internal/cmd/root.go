@@ -124,6 +124,32 @@ func Run(args []string) error {
 	return handler(args[1:])
 }
 
+// readContext bundles objects needed by read-only commands (info, search, outdated, deps).
+type readContext struct {
+	Paths  config.Paths
+	Loader *formula.Loader
+	Cellar *cellar.Cellar
+}
+
+// newReadContext initialises paths and the core tap for read-only commands.
+func newReadContext() (*readContext, error) {
+	paths := config.Default()
+	if err := paths.Init(); err != nil {
+		return nil, err
+	}
+
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
+	if err := tapMgr.InitCore(); err != nil {
+		return nil, fmt.Errorf("init core tap: %w", err)
+	}
+
+	return &readContext{
+		Paths:  paths,
+		Loader: newLoader(paths.Taps),
+		Cellar: &cellar.Cellar{Path: paths.Cellar},
+	}, nil
+}
+
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
 	Paths  config.Paths

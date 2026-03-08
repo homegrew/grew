@@ -172,6 +172,33 @@ func runDoctor(args []string) error {
 	return fmt.Errorf("%d problem(s) detected", ctx.warnings)
 }
 
+// symlinkInfo holds a resolved symlink found in a directory.
+type symlinkInfo struct {
+	path   string // full path of the symlink
+	target string // resolved absolute target
+}
+
+// walkSymlinks iterates symlinks in the given directories, calling fn for each.
+func walkSymlinks(dirs []string, fn func(info symlinkInfo)) {
+	for _, dir := range dirs {
+		entries, err := os.ReadDir(dir)
+		if err != nil {
+			continue
+		}
+		for _, e := range entries {
+			fullPath := filepath.Join(dir, e.Name())
+			target, err := os.Readlink(fullPath)
+			if err != nil {
+				continue
+			}
+			if !filepath.IsAbs(target) {
+				target = filepath.Join(dir, target)
+			}
+			fn(symlinkInfo{path: fullPath, target: target})
+		}
+	}
+}
+
 // --- Security checks ---
 
 func checkPrefixIsolation(ctx *doctorCtx) {
@@ -237,29 +264,15 @@ func checkSymlinkTargets(ctx *doctorCtx) {
 	if err != nil {
 		return
 	}
-	for _, dir := range []string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include, ctx.paths.Opt} {
-		entries, err := os.ReadDir(dir)
+	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include, ctx.paths.Opt}, func(si symlinkInfo) {
+		resolved, err := filepath.Abs(si.target)
 		if err != nil {
-			continue
+			return
 		}
-		for _, e := range entries {
-			fullPath := filepath.Join(dir, e.Name())
-			target, err := os.Readlink(fullPath)
-			if err != nil {
-				continue
-			}
-			if !filepath.IsAbs(target) {
-				target = filepath.Join(dir, target)
-			}
-			resolved, err := filepath.Abs(target)
-			if err != nil {
-				continue
-			}
-			if !strings.HasPrefix(resolved, absPrefix+string(filepath.Separator)) {
-				ctx.warn("symlink escapes grew prefix: %s -> %s (resolves to %s)", fullPath, target, resolved)
-			}
+		if !strings.HasPrefix(resolved, absPrefix+string(filepath.Separator)) {
+			ctx.warn("symlink escapes grew prefix: %s -> %s (resolves to %s)", si.path, si.target, resolved)
 		}
-	}
+	})
 }
 
 func checkCellarPermissions(ctx *doctorCtx) {
@@ -370,45 +383,19 @@ func checkCoreTap(ctx *doctorCtx) {
 }
 
 func checkBrokenSymlinks(ctx *doctorCtx) {
-	for _, dir := range []string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include} {
-		entries, err := os.ReadDir(dir)
-		if err != nil {
-			continue
+	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include}, func(si symlinkInfo) {
+		if _, err := os.Stat(si.target); os.IsNotExist(err) {
+			ctx.warn("broken symlink: %s -> %s", si.path, si.target)
 		}
-		for _, e := range entries {
-			fullPath := filepath.Join(dir, e.Name())
-			target, err := os.Readlink(fullPath)
-			if err != nil {
-				continue
-			}
-			if !filepath.IsAbs(target) {
-				target = filepath.Join(dir, target)
-			}
-			if _, err := os.Stat(target); os.IsNotExist(err) {
-				ctx.warn("broken symlink: %s -> %s", fullPath, target)
-			}
-		}
-	}
+	})
 }
 
 func checkBrokenOptSymlinks(ctx *doctorCtx) {
-	entries, err := os.ReadDir(ctx.paths.Opt)
-	if err != nil {
-		return
-	}
-	for _, e := range entries {
-		fullPath := filepath.Join(ctx.paths.Opt, e.Name())
-		target, err := os.Readlink(fullPath)
-		if err != nil {
-			continue
+	walkSymlinks([]string{ctx.paths.Opt}, func(si symlinkInfo) {
+		if _, err := os.Stat(si.target); os.IsNotExist(err) {
+			ctx.warn("broken opt symlink: %s -> %s", si.path, si.target)
 		}
-		if !filepath.IsAbs(target) {
-			target = filepath.Join(ctx.paths.Opt, target)
-		}
-		if _, err := os.Stat(target); os.IsNotExist(err) {
-			ctx.warn("broken opt symlink: %s -> %s", fullPath, target)
-		}
-	}
+	})
 }
 
 func checkUnlinkedKegs(ctx *doctorCtx) {
@@ -425,34 +412,20 @@ func checkUnlinkedKegs(ctx *doctorCtx) {
 }
 
 func checkOrphanedSymlinks(ctx *doctorCtx) {
-	for _, dir := range []string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include} {
-		entries, err := os.ReadDir(dir)
+	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include}, func(si symlinkInfo) {
+		target := filepath.Clean(si.target)
+		if !strings.Contains(target, "Cellar") {
+			return
+		}
+		rel, err := filepath.Rel(ctx.paths.Cellar, target)
 		if err != nil {
-			continue
+			return
 		}
-		for _, e := range entries {
-			fullPath := filepath.Join(dir, e.Name())
-			target, err := os.Readlink(fullPath)
-			if err != nil {
-				continue
-			}
-			if !filepath.IsAbs(target) {
-				target = filepath.Join(dir, target)
-			}
-			target = filepath.Clean(target)
-			if !strings.Contains(target, "Cellar") {
-				continue
-			}
-			rel, err := filepath.Rel(ctx.paths.Cellar, target)
-			if err != nil {
-				continue
-			}
-			name := strings.SplitN(rel, string(filepath.Separator), 2)[0]
-			if !ctx.cel.IsInstalled(name) {
-				ctx.warn("orphaned symlink: %s (formula %q not installed)", fullPath, name)
-			}
+		name := strings.SplitN(rel, string(filepath.Separator), 2)[0]
+		if !ctx.cel.IsInstalled(name) {
+			ctx.warn("orphaned symlink: %s (formula %q not installed)", si.path, name)
 		}
-	}
+	})
 }
 
 func checkMultipleVersions(ctx *doctorCtx) {
