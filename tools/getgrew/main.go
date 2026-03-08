@@ -1,16 +1,18 @@
-// Command installer downloads the latest grew binary release from GitHub,
-// verifies its SHA256 checksum, and places it in the current directory.
+// Command getgrew downloads the latest grew binary release from GitHub,
+// verifies its SHA256 checksum against the release's checksums.txt, and
+// places the binary in the current directory (or a directory specified
+// with -d). All downloads are HTTPS-only; redirects to HTTP are rejected.
 //
-// Install the installer:
+// Install:
 //
-//	go install github.com/homegrew/grew/cmd/installer@latest
+//	go install github.com/homegrew/grew/tools/getgrew@latest
 //
 // Usage:
 //
-//	installer              # download latest grew to ./grew
-//	installer -d /tmp      # download to a specific directory
-//	installer -v           # verbose output
-//	installer -debug       # debug output (implies verbose)
+//	getgrew              # download latest grew to ./grew
+//	getgrew -d /tmp      # download to a specific directory
+//	getgrew -v           # verbose output (shows expected SHA256)
+//	getgrew -debug       # debug output (implies -v; shows HTTP requests, redirects, temp paths)
 //
 // Then run ./grew setup to complete the installation.
 package main
@@ -66,7 +68,7 @@ func main() {
 	}
 
 	if err := run(*destDir); err != nil {
-		fmt.Fprintf(os.Stderr, "installer: %s\n", err)
+		fmt.Fprintf(os.Stderr, "getgrew: %s\n", err)
 		os.Exit(1)
 	}
 }
@@ -290,7 +292,7 @@ func downloadToTemp(url string) (string, error) {
 		return "", fmt.Errorf("HTTP %s for %s", resp.Status, url)
 	}
 
-	f, err := os.CreateTemp("", "grew-installer-*")
+	f, err := os.CreateTemp("", "grew-getgrew-*")
 	if err != nil {
 		return "", err
 	}
@@ -384,7 +386,7 @@ func httpGetWithAccept(rawURL, accept string) (*http.Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("User-Agent", "grew-installer/1.0")
+	req.Header.Set("User-Agent", "grew-getgrew/1.0")
 	req.Header.Set("Accept", accept)
 
 	if token := os.Getenv("GITHUB_TOKEN"); token != "" {
