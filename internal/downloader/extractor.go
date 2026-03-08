@@ -216,7 +216,13 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 				// If the target cannot be safely resolved, skip this entry.
 				continue
 			}
-			if !withinDir(destDir, realTarget) {
+			// Resolve destDir through symlinks too so both paths use the
+			// same root (e.g. /var -> /private/var on macOS).
+			realDestDir, err := filepath.EvalSymlinks(destDir)
+			if err != nil {
+				continue
+			}
+			if !withinDir(realDestDir, realTarget) {
 				continue
 			}
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
