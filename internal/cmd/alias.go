@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"sort"
+	"strings"
 
 	"github.com/homegrew/grew/internal/config"
 )
@@ -151,13 +153,22 @@ func aliasEdit() error {
 		fmt.Printf("Alias file: %s\n", path)
 		return fmt.Errorf("no EDITOR or VISUAL set; edit %s manually", path)
 	}
-	fmt.Printf("Opening %s with %s...\n", path, editor)
-	proc, err := os.StartProcess(editor, []string{editor, path}, &os.ProcAttr{
-		Files: []*os.File{os.Stdin, os.Stdout, os.Stderr},
-	})
-	if err != nil {
-		return fmt.Errorf("open editor: %w", err)
+
+	// Validate the editor value: reject shell metacharacters and empty components.
+	if strings.ContainsAny(editor, "|;&$`\\'\"\n\t") {
+		return fmt.Errorf("EDITOR contains invalid characters: %q", editor)
 	}
-	_, err = proc.Wait()
-	return err
+
+	// Resolve the editor binary via PATH to ensure it exists.
+	editorPath, err := exec.LookPath(editor)
+	if err != nil {
+		return fmt.Errorf("editor %q not found in PATH: %w", editor, err)
+	}
+
+	fmt.Printf("Opening %s with %s...\n", path, editor)
+	cmd := exec.Command(editorPath, path)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
 }

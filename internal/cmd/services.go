@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"path/filepath"
 	"strings"
 	"syscall"
 	"text/tabwriter"
@@ -215,15 +216,28 @@ func servicesRun(args []string) error {
 		return fmt.Errorf("formula %q service has no run command", f.Name)
 	}
 
+	// Validate the resolved command binary exists and is not a flag.
+	if strings.HasPrefix(cmdArgs[0], "-") {
+		return fmt.Errorf("service command starts with dash: %q", cmdArgs[0])
+	}
+	cmdPath, err := exec.LookPath(cmdArgs[0])
+	if err != nil {
+		return fmt.Errorf("service command %q not found: %w", cmdArgs[0], err)
+	}
+
 	fmt.Printf("==> Running %s in foreground (%s)\n", f.Name, strings.Join(cmdArgs, " "))
 	fmt.Printf("==> Press Ctrl-C to stop\n")
 
-	cmd := exec.Command(cmdArgs[0], cmdArgs[1:]...)
+	cmd := exec.Command(cmdPath, cmdArgs[1:]...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Stdin = os.Stdin
 	if f.Service.WorkingDir != "" {
-		cmd.Dir = f.Service.WorkingDir
+		wd := filepath.Clean(f.Service.WorkingDir)
+		if strings.Contains(wd, "..") {
+			return fmt.Errorf("service working directory contains traversal: %q", f.Service.WorkingDir)
+		}
+		cmd.Dir = wd
 	}
 
 	// Forward signals so the child process gets a clean shutdown.

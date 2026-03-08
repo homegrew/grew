@@ -86,7 +86,7 @@ func VerifyTagSignature(repoDir, tag string) error {
 		return fmt.Errorf("invalid tag name: %q", tag)
 	}
 
-	cmd := exec.Command("git", "-C", repoDir, "verify-tag", tag)
+	cmd := exec.Command("git", "-C", repoDir, "verify-tag", "--", tag)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("tag signature verification failed for %s: %s", tag, strings.TrimSpace(string(output)))

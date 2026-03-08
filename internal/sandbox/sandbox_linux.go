@@ -7,6 +7,16 @@ import (
 	"strings"
 )
 
+// shellSafe checks that a string is safe to interpolate into a shell script
+// via %q. Go's %q does not escape $ or backticks, which allow shell expansion
+// inside double-quoted strings. Reject any value containing these characters.
+func shellSafe(s string) error {
+	if strings.ContainsAny(s, "$`\x00\n") {
+		return fmt.Errorf("value contains shell-unsafe characters: %q", s)
+	}
+	return nil
+}
+
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
 	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
 		return bwrapPostInstallCommand(p, cfg, name, args...)
@@ -39,6 +49,16 @@ func bwrapPostInstallCommand(bwrapPath string, cfg PostInstallConfig, name strin
 }
 
 func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	// Validate all values interpolated into the shell script.
+	for _, s := range append([]string{cfg.TmpDir, name}, args...) {
+		if err := shellSafe(s); err != nil {
+			// Fall back to direct execution without unshare sandboxing.
+			cmd := exec.Command(name, args...)
+			cmd.Env = postInstallEnv(cfg)
+			return cmd
+		}
+	}
+
 	var script strings.Builder
 	script.WriteString("set -e; ")
 	script.WriteString("mount --make-rprivate /; ")
@@ -172,6 +192,15 @@ func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...st
 //  2. Run a shell that remounts / read-only, then bind-mounts the
 //     build and keg dirs as writable before exec-ing the real command.
 func unshareArgs(cfg BuildConfig, name string, args ...string) []string {
+	// Validate all values interpolated into the shell script.
+	for _, s := range append([]string{cfg.BuildDir, cfg.KegDir, name}, args...) {
+		if err := shellSafe(s); err != nil {
+			// If values are unsafe for shell interpolation, fall back to
+			// direct exec without the mount namespace setup.
+			return []string{name}
+		}
+	}
+
 	// Build the shell script that sets up the mount namespace.
 	// After unshare creates the namespaces, this script:
 	//   a) Makes all existing mounts private (no propagation to host)
