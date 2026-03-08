@@ -128,6 +128,9 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	name = strings.TrimSuffix(name, ".yaml")
+	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+		return nil, fmt.Errorf("invalid cask name: %q", name)
+	}
 	// Look in "cask" subdirectory of taps
 	caskDir := filepath.Join(l.TapDir, "cask")
 	path := filepath.Join(caskDir, name+".yaml")
@@ -146,6 +149,9 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 	var casks []*Cask
 	for _, e := range entries {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+			continue
+		}
+		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		c, err := l.loadFromFile(filepath.Join(caskDir, e.Name()))
@@ -232,6 +238,9 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 	var casks []InstalledCask
 	for _, e := range entries {
 		if !e.IsDir() {
+			continue
+		}
+		if !validation.IsValidName(e.Name()) {
 			continue
 		}
 		ver, err := cr.InstalledVersion(e.Name())

@@ -5,6 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 type Loader struct {
@@ -20,6 +22,9 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
+	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+		return nil, fmt.Errorf("invalid formula name: %q", name)
+	}
 	taps, err := os.ReadDir(l.TapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
@@ -28,6 +33,9 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 	var lastErr error
 	for _, tap := range taps {
 		if !tap.IsDir() {
+			continue
+		}
+		if err := validation.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
 		path := filepath.Join(l.TapDir, tap.Name(), name+".yaml")
@@ -55,6 +63,9 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		if !tap.IsDir() {
 			continue
 		}
+		if err := validation.SafePathComponent(tap.Name()); err != nil {
+			continue
+		}
 		tapFormulas, err := l.LoadFromTap(filepath.Join(l.TapDir, tap.Name()))
 		if err != nil {
 			l.debugf("failed to load tap %s: %v\n", tap.Name(), err)
@@ -73,6 +84,9 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 	var formulas []*Formula
 	for _, e := range entries {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+			continue
+		}
+		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		f, err := l.loadFromFile(filepath.Join(tapPath, e.Name()))

@@ -104,6 +104,9 @@ func findApp(stageDir, appName string) (string, error) {
 		if !e.IsDir() {
 			continue
 		}
+		if err := validation.SafePathComponent(e.Name()); err != nil {
+			continue
+		}
 		nested := filepath.Join(stageDir, e.Name(), appName)
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
 			return nested, nil
