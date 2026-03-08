@@ -88,13 +88,15 @@ func (m *Manager) Update() (int, error) {
 	}
 
 	fmt.Printf("==> Updating taps...\n")
-	fetch := exec.Command("git", "-C", m.TapsDir, "fetch", "--depth", "1", "--", "origin", "+refs/heads/main:refs/remotes/origin/main")
+	fetch := exec.Command("git", "fetch", "--depth", "1", "--", "origin", "+refs/heads/main:refs/remotes/origin/main")
+	fetch.Dir = m.TapsDir
 	fetch.Stdout = os.Stdout
 	fetch.Stderr = os.Stderr
 	if err := fetch.Run(); err != nil {
 		return 0, fmt.Errorf("update taps: %w", err)
 	}
-	reset := exec.Command("git", "-C", m.TapsDir, "reset", "--hard", "--", "origin/main")
+	reset := exec.Command("git", "reset", "--hard", "--", "origin/main")
+	reset.Dir = m.TapsDir
 	reset.Stdout = os.Stdout
 	reset.Stderr = os.Stderr
 	if err := reset.Run(); err != nil {

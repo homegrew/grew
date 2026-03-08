@@ -60,7 +60,8 @@ func VerifyHeadSignature(repoDir string) error {
 		return fmt.Errorf("not a git repository: %s", repoDir)
 	}
 
-	cmd := exec.Command("git", "-C", repoDir, "verify-commit", "HEAD")
+	cmd := exec.Command("git", "verify-commit", "HEAD")
+	cmd.Dir = repoDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("commit signature verification failed: %s", strings.TrimSpace(string(output)))
@@ -86,7 +87,8 @@ func VerifyTagSignature(repoDir, tag string) error {
 		return fmt.Errorf("invalid tag name: %q", tag)
 	}
 
-	cmd := exec.Command("git", "-C", repoDir, "verify-tag", "--", tag)
+	cmd := exec.Command("git", "verify-tag", "--", tag)
+	cmd.Dir = repoDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("tag signature verification failed for %s: %s", tag, strings.TrimSpace(string(output)))

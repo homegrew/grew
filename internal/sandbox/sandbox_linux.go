@@ -7,14 +7,28 @@ import (
 	"strings"
 )
 
-// shellSafe checks that a string is safe to interpolate into a shell script
-// via %q. Go's %q does not escape $ or backticks, which allow shell expansion
-// inside double-quoted strings. Reject any value containing these characters.
-func shellSafe(s string) error {
-	if strings.ContainsAny(s, "$`\x00\n") {
-		return fmt.Errorf("value contains shell-unsafe characters: %q", s)
+// writeUnshareScript writes a shell setup script to a temp file and returns
+// its path. Using a file instead of sh -c prevents shell injection via
+// interpolated paths. The caller passes a callback that writes the script
+// content into the provided builder.
+func writeUnshareScript(tmpDir string, build func(*strings.Builder)) (string, error) {
+	var script strings.Builder
+	build(&script)
+
+	f, err := os.CreateTemp(tmpDir, "grew-sandbox-*.sh")
+	if err != nil {
+		return "", err
 	}
-	return nil
+	if _, err := f.WriteString(script.String()); err != nil {
+		f.Close()
+		os.Remove(f.Name())
+		return "", err
+	}
+	if err := f.Close(); err != nil {
+		os.Remove(f.Name())
+		return "", err
+	}
+	return f.Name(), nil
 }
 
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
@@ -49,31 +63,32 @@ func bwrapPostInstallCommand(bwrapPath string, cfg PostInstallConfig, name strin
 }
 
 func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
-	// Validate all values interpolated into the shell script.
-	for _, s := range append([]string{cfg.TmpDir, name}, args...) {
-		if err := shellSafe(s); err != nil {
-			// Fall back to direct execution without unshare sandboxing.
-			cmd := exec.Command(name, args...)
-			cmd.Env = postInstallEnv(cfg)
-			return cmd
+	// Write the setup script to a temp file so that dynamic paths are never
+	// passed via sh -c, avoiding shell injection risks entirely.
+	scriptFile, err := writeUnshareScript(cfg.TmpDir, func(script *strings.Builder) {
+		script.WriteString("set -e\n")
+		script.WriteString("mount --make-rprivate /\n")
+		script.WriteString("mount -o remount,ro,bind /\n")
+		// Only tmp dir is writable.
+		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.TmpDir, cfg.TmpDir)
+		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.TmpDir)
+		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
+		fmt.Fprintf(script, "exec %q", name)
+		for _, a := range args {
+			fmt.Fprintf(script, " %q", a)
 		}
+		script.WriteString("\n")
+	})
+	if err != nil {
+		// Fall back to direct execution without unshare sandboxing.
+		cmd := exec.Command(name, args...)
+		cmd.Env = postInstallEnv(cfg)
+		return cmd
 	}
 
-	var script strings.Builder
-	script.WriteString("set -e; ")
-	script.WriteString("mount --make-rprivate /; ")
-	script.WriteString("mount -o remount,ro,bind /; ")
-	// Only tmp dir is writable.
-	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.TmpDir, cfg.TmpDir)
-	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.TmpDir)
-	script.WriteString("mount -t tmpfs tmpfs /tmp; ")
-	fmt.Fprintf(&script, "exec %q", name)
-	for _, a := range args {
-		fmt.Fprintf(&script, " %q", a)
-	}
 	cmd := exec.Command(unsharePath,
 		"--net", "--mount", "--pid", "--fork", "--mount-proc",
-		"/bin/sh", "-c", script.String(),
+		"/bin/sh", scriptFile,
 	)
 	cmd.Env = postInstallEnv(cfg)
 	return cmd
@@ -181,47 +196,58 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 //   - Mount namespace    (--mount): private mount table
 //   - PID namespace      (--pid --fork --mount-proc): isolated process tree
 func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...string) *exec.Cmd {
-	a := unshareArgs(cfg, name, args...)
-	cmd := exec.Command(unsharePath, a...)
+	// Write the setup script to a temp file so that dynamic paths are never
+	// passed via sh -c, avoiding shell injection risks entirely.
+	tmpDir := os.TempDir()
+	scriptFile, err := writeUnshareScript(tmpDir, func(script *strings.Builder) {
+		script.WriteString("set -e\n")
+		// Prevent mount propagation to the host.
+		script.WriteString("mount --make-rprivate /\n")
+		// Remount root read-only.
+		script.WriteString("mount -o remount,ro,bind /\n")
+		// Writable bind-mount for the build dir.
+		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.BuildDir, cfg.BuildDir)
+		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.BuildDir)
+		// Writable bind-mount for the keg dir.
+		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.KegDir, cfg.KegDir)
+		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.KegDir)
+		// Fresh tmpfs for /tmp.
+		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
+		// Exec the build command.
+		fmt.Fprintf(script, "exec %q", name)
+		for _, a := range args {
+			fmt.Fprintf(script, " %q", a)
+		}
+		script.WriteString("\n")
+	})
+	if err != nil {
+		// Fall back to direct execution without unshare sandboxing.
+		cmd := exec.Command(name, args...)
+		cmd.Env = cleanEnv(cfg)
+		return cmd
+	}
+
+	cmd := exec.Command(unsharePath,
+		"--net", "--mount", "--pid", "--fork", "--mount-proc",
+		"/bin/sh", scriptFile,
+	)
 	cmd.Env = cleanEnv(cfg)
 	return cmd
 }
 
-// unshareArgs builds the argument list for unshare(1). The approach:
-//  1. Create network + mount + PID namespaces
-//  2. Run a shell that remounts / read-only, then bind-mounts the
-//     build and keg dirs as writable before exec-ing the real command.
+// unshareArgs builds the argument list for unshare(1). Exported-via-name so
+// tests can validate the generated arguments without running on Linux.
 func unshareArgs(cfg BuildConfig, name string, args ...string) []string {
-	// Validate all values interpolated into the shell script.
-	for _, s := range append([]string{cfg.BuildDir, cfg.KegDir, name}, args...) {
-		if err := shellSafe(s); err != nil {
-			// If values are unsafe for shell interpolation, fall back to
-			// direct exec without the mount namespace setup.
-			return []string{name}
-		}
-	}
-
 	// Build the shell script that sets up the mount namespace.
-	// After unshare creates the namespaces, this script:
-	//   a) Makes all existing mounts private (no propagation to host)
-	//   b) Remounts / as read-only recursively
-	//   c) Bind-mounts build/keg dirs as writable
-	//   d) Execs the actual build command
 	var script strings.Builder
 	script.WriteString("set -e; ")
-	// Prevent mount propagation to the host.
 	script.WriteString("mount --make-rprivate /; ")
-	// Remount root read-only.
 	script.WriteString("mount -o remount,ro,bind /; ")
-	// Writable bind-mount for the build dir.
 	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.BuildDir, cfg.BuildDir)
 	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.BuildDir)
-	// Writable bind-mount for the keg dir.
 	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.KegDir, cfg.KegDir)
 	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.KegDir)
-	// Fresh tmpfs for /tmp.
 	script.WriteString("mount -t tmpfs tmpfs /tmp; ")
-	// Exec the build command.
 	fmt.Fprintf(&script, "exec %q", name)
 	for _, a := range args {
 		fmt.Fprintf(&script, " %q", a)
