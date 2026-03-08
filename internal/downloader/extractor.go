@@ -207,9 +207,16 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 			if filepath.IsAbs(header.Linkname) {
 				continue
 			}
-			// Validate the resolved symlink target stays within destDir.
-			resolvedLink := filepath.Join(filepath.Dir(target), header.Linkname)
-			if !withinDir(destDir, resolvedLink) {
+			// Validate the resolved symlink target stays within destDir,
+			// resolving any existing symlinks along the path to prevent
+			// escaping the extraction root via symlink chains.
+			candidate := filepath.Join(filepath.Dir(target), header.Linkname)
+			realTarget, err := filepath.EvalSymlinks(candidate)
+			if err != nil {
+				// If the target cannot be safely resolved, skip this entry.
+				continue
+			}
+			if !withinDir(destDir, realTarget) {
 				continue
 			}
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
