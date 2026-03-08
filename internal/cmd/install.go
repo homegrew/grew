@@ -26,6 +26,8 @@ func runInstall(args []string) error {
 	skipPostInstall := fs.Bool("skip-post-install", false, "Skip post-install steps")
 	skipLink := fs.Bool("skip-link", false, "Do not create symlinks")
 	requireSHA := fs.Bool("require-sha", false, "Refuse if SHA256 is missing")
+	dryRun := fs.Bool("n", false, "Dry run: show what would be installed without doing it")
+	fs.BoolVar(dryRun, "dry-run", false, "Dry run: show what would be installed without doing it")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -108,6 +110,10 @@ func runInstall(args []string) error {
 		}
 	}
 
+	if *dryRun {
+		return simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource)
+	}
+
 	for _, f := range installOrder {
 		if *onlyDeps && f.Name == name {
 			continue
@@ -125,6 +131,68 @@ func runInstall(args []string) error {
 		} else {
 			if err := installFormula(f, ctx, *skipPostInstall, *skipLink); err != nil {
 				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+// simulateInstall prints what would happen without making any changes.
+func simulateInstall(installOrder []*formula.Formula, target string, ctx *installContext, onlyDeps bool, buildFromSource bool) error {
+	fmt.Printf("==> Dry run: the following actions would be performed\n\n")
+
+	for _, f := range installOrder {
+		if onlyDeps && f.Name == target {
+			continue
+		}
+
+		if ctx.Cellar.IsInstalled(f.Name) {
+			fmt.Printf("  skip      %s %s (already installed)\n", f.Name, f.Version)
+			continue
+		}
+
+		method := "bottle"
+		if buildFromSource && f.Name == target {
+			method = "source"
+		}
+
+		dlURL := ""
+		sha := ""
+		if method == "source" {
+			dlURL, _ = f.GetSourceURL()
+			sha, _ = f.GetSourceSHA256()
+		} else {
+			dlURL, _ = f.GetURL()
+			sha, _ = f.GetSHA256()
+		}
+
+		action := "install"
+		if f.Name != target {
+			action = "dep"
+		}
+
+		fmt.Printf("  %-9s %s %s (%s)\n", action, f.Name, f.Version, method)
+
+		if Verbose {
+			if dlURL != "" {
+				fmt.Printf("            url:    %s\n", dlURL)
+			}
+			if sha != "" {
+				fmt.Printf("            sha256: %s\n", sha)
+			}
+			kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
+			fmt.Printf("            keg:    %s\n", kegPath)
+			if f.KegOnly {
+				fmt.Printf("            link:   keg-only (not linked)\n")
+			} else {
+				fmt.Printf("            link:   opt/%s -> %s\n", f.Name, kegPath)
+			}
+			if len(f.Dependencies) > 0 {
+				fmt.Printf("            deps:   %s\n", strings.Join(f.Dependencies, ", "))
+			}
+			if f.PostInstall != "" {
+				fmt.Printf("            post:   yes\n")
 			}
 		}
 	}
