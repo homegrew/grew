@@ -397,12 +397,12 @@ func extractDMG(dmgPath, destDir string) error {
 	defer os.RemoveAll(mountPoint)
 
 	// Mount the DMG read-only.
-	cmd := exec.Command("hdiutil", "attach", "-nobrowse", "-noverify", "-readonly", "-mountpoint", mountPoint, "--", dmgPath)
+	cmd := exec.Command("hdiutil", "attach", "-nobrowse", "-noverify", "-readonly", "-mountpoint", mountPoint, dmgPath)
 	cmd.Stderr = io.Discard
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("mount DMG: %w", err)
 	}
-	defer exec.Command("hdiutil", "detach", mountPoint, "-quiet").Run()
+	defer exec.Command("hdiutil", "detach", "-quiet", mountPoint).Run()
 
 	// Copy all top-level entries from the mounted volume to destDir.
 	entries, err := os.ReadDir(mountPoint)

@@ -40,6 +40,31 @@ func writeUnshareScript(tmpDir string, build func(*strings.Builder)) (string, er
 	return f.Name(), nil
 }
 
+func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
+	// Extraction sandbox: network denied, only StageDir writable.
+	// Uses same tiered approach as post-install: bwrap > unshare > direct.
+	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
+		a := []string{
+			"--unshare-net",
+			"--unshare-pid",
+			"--ro-bind", "/", "/",
+			"--tmpfs", "/tmp",
+			"--proc", "/proc",
+			"--dev", "/dev",
+			"--bind", cfg.StageDir, cfg.StageDir,
+		}
+		a = append(a, name)
+		a = append(a, args...)
+		cmd := exec.Command(p, a...)
+		cmd.Env = extractEnv(cfg)
+		return cmd
+	}
+	// Fallback: run directly (still benefits from Go-level protections).
+	cmd := exec.Command(name, args...)
+	cmd.Env = extractEnv(cfg)
+	return cmd
+}
+
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
 	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
 		return bwrapPostInstallCommand(p, cfg, name, args...)

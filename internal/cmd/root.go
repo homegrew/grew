@@ -106,6 +106,7 @@ func Run(args []string) error {
 		"sign":         runSign,
 		"pin":          runPin,
 		"unpin":        runUnpin,
+		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}
 

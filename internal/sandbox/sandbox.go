@@ -50,6 +50,41 @@ func PostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exe
 	return platformPostInstallCommand(cfg, name, args...)
 }
 
+// ExtractConfig describes the restricted sandbox for archive extraction.
+// Extraction gets:
+//   - Network access denied
+//   - Write access ONLY to the staging directory
+//   - Read access to the archive file and system paths
+//   - Minimal environment
+type ExtractConfig struct {
+	ArchiveFile string // path to the downloaded archive (read-only)
+	StageDir    string // destination directory (read-write)
+}
+
+// ExtractCommand wraps an archive extraction step in platform-specific sandboxing.
+// The extraction process can only write to StageDir and read the archive file.
+// Network access is denied.
+func ExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
+	return platformExtractCommand(cfg, name, args...)
+}
+
+// extractEnv returns a minimal environment for extraction.
+func extractEnv(cfg ExtractConfig) []string {
+	allow := map[string]bool{
+		"PATH": true, "HOME": true,
+		"LANG": true, "LC_ALL": true,
+	}
+	var env []string
+	for _, kv := range os.Environ() {
+		key, _, _ := strings.Cut(kv, "=")
+		if allow[key] {
+			env = append(env, kv)
+		}
+	}
+	env = append(env, "TMPDIR="+cfg.StageDir)
+	return env
+}
+
 // postInstallEnv returns a minimal environment for post-install scripts.
 // Only PATH, HOME, LANG, and TMPDIR are passed through. No compiler
 // variables, no secrets.

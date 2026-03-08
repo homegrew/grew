@@ -39,6 +39,36 @@ func postInstallSeatbeltProfile(cfg PostInstallConfig) string {
 	return b.String()
 }
 
+func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
+	profile := extractSeatbeltProfile(cfg)
+	sandboxArgs := []string{"-p", profile, name}
+	sandboxArgs = append(sandboxArgs, args...)
+	cmd := exec.Command("sandbox-exec", sandboxArgs...)
+	cmd.Env = extractEnv(cfg)
+	return cmd
+}
+
+// extractSeatbeltProfile generates a Seatbelt profile for archive extraction:
+//   - Denies all network access
+//   - Allows file reads everywhere (archive file, system libs)
+//   - Restricts file writes to: staging directory and /dev only
+func extractSeatbeltProfile(cfg ExtractConfig) string {
+	var b strings.Builder
+	b.WriteString("(version 1)\n")
+	b.WriteString("(deny default)\n")
+	b.WriteString("(allow process*)\n")
+	b.WriteString("(allow signal)\n")
+	b.WriteString("(allow sysctl*)\n")
+	b.WriteString("(allow mach*)\n")
+	b.WriteString("(allow ipc*)\n")
+	b.WriteString("(deny network*)\n")
+	b.WriteString("(allow file-read*)\n")
+	fmt.Fprintf(&b, "(allow file-write* (subpath %q))\n", cfg.StageDir)
+	b.WriteString("(allow file-write* (subpath \"/dev\"))\n")
+	b.WriteString("(allow file-write* (subpath \"/private/var/folders\"))\n")
+	return b.String()
+}
+
 func platformCommand(cfg BuildConfig, name string, args ...string) *exec.Cmd {
 	profile := seatbeltProfile(cfg)
 

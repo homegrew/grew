@@ -28,7 +28,7 @@ func initCaskTap(paths config.Paths) error {
 	return tapMgr.InitCask()
 }
 
-func caskInstall(name string) error {
+func caskInstall(name string, noQuarantine bool) error {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return err
@@ -101,7 +101,18 @@ func caskInstall(name string) error {
 			os.Remove(localFile)
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
-		applyCaskQuarantine(dest)
+		if noQuarantine {
+			Logf("    Quarantine skipped (--no-quarantine)\n")
+		} else {
+			if err := applyCaskQuarantine(dest); err != nil {
+				// Roll back: remove the app we just installed.
+				os.RemoveAll(dest)
+				os.RemoveAll(stageDir)
+				os.Remove(localFile)
+				return err
+			}
+			Logf("    Quarantine attribute set\n")
+		}
 		fmt.Printf("==> Installed %s to %s\n", appName, dest)
 	}
 

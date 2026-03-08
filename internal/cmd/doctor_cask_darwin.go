@@ -110,11 +110,16 @@ func checkCaskQuarantine(ctx *doctorCtx) {
 
 // applyCaskQuarantine sets the quarantine extended attribute on a .app path.
 // Called during cask install to ensure macOS performs malware scanning.
-func applyCaskQuarantine(appPath string) {
+// Returns an error if the attribute cannot be set — callers should refuse
+// to install unless --no-quarantine is explicitly passed.
+func applyCaskQuarantine(appPath string) error {
 	qVal := fmt.Sprintf("0081;%d;grew;", quarantineEpoch())
 	if err := exec.Command("xattr", "-w", "com.apple.quarantine", qVal, "--", appPath).Run(); err != nil {
-		Logf("    Note: could not set quarantine attribute on %s: %v\n", filepath.Base(appPath), err)
+		return fmt.Errorf("set quarantine on %s: %w\n"+
+			"  Without quarantine, macOS will not scan this app for malware.\n"+
+			"  Use --no-quarantine to install anyway (not recommended).", filepath.Base(appPath), err)
 	}
+	return nil
 }
 
 func quarantineEpoch() int64 {

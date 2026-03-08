@@ -166,7 +166,7 @@ func aliasEdit() error {
 	}
 
 	fmt.Printf("Opening %s with %s...\n", path, editor)
-	cmd := exec.Command(editorPath, path)
+	cmd := exec.Command(editorPath, "--", path)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

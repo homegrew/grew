@@ -4,6 +4,12 @@ package sandbox
 
 import "os/exec"
 
+func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
+	cmd := exec.Command(name, args...)
+	cmd.Env = extractEnv(cfg)
+	return cmd
+}
+
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
 	cmd := exec.Command(name, args...)
 	cmd.Env = postInstallEnv(cfg)

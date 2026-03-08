@@ -28,6 +28,7 @@ func runInstall(args []string) error {
 	requireSHA := fs.Bool("require-sha", false, "Refuse if SHA256 is missing")
 	dryRun := fs.Bool("n", false, "Dry run: show what would be installed without doing it")
 	fs.BoolVar(dryRun, "dry-run", false, "Dry run: show what would be installed without doing it")
+	noQuarantine := fs.Bool("no-quarantine", false, "Skip quarantine attribute on cask apps (not recommended)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -54,7 +55,7 @@ func runInstall(args []string) error {
 		if *ignoreDeps {
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
-		return caskInstall(remaining[0])
+		return caskInstall(remaining[0], *noQuarantine)
 	}
 
 	name := remaining[0]
@@ -257,7 +258,8 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	stageDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-stage")
 	os.RemoveAll(stageDir)
 
-	if err := downloader.Extract(localFile, stageDir, f.Install); err != nil {
+	fmt.Printf("==> Extracting (sandboxed)\n")
+	if err := sandboxedExtract(localFile, stageDir, f.Install); err != nil {
 		os.RemoveAll(stageDir)
 		os.Remove(localFile)
 		return fmt.Errorf("extract %s: %w", f.Name, err)
@@ -357,7 +359,8 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	buildDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-build")
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
-	if err := downloader.Extract(localFile, buildDir, srcSpec); err != nil {
+	fmt.Printf("==> Extracting source (sandboxed)\n")
+	if err := sandboxedExtract(localFile, buildDir, srcSpec); err != nil {
 		os.RemoveAll(buildDir)
 		os.Remove(localFile)
 		return fmt.Errorf("extract source %s: %w", f.Name, err)

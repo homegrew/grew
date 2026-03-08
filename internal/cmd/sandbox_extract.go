@@ -1,0 +1,52 @@
+package cmd
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/sandbox"
+)
+
+// sandboxedExtract runs archive extraction inside a sandboxed subprocess.
+// The grew binary re-execs itself with the hidden "_extract" command,
+// wrapped in a platform-specific sandbox that restricts writes to stageDir
+// and denies network access. If the sandbox is unavailable, falls back to
+// direct in-process extraction.
+func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) error {
+	exe, err := os.Executable()
+	if err != nil {
+		// Can't locate ourselves — fall back to direct extraction.
+		Debugf("cannot locate executable for sandboxed extract, falling back: %v\n", err)
+		return downloader.Extract(archivePath, stageDir, spec)
+	}
+
+	cfg := sandbox.ExtractConfig{
+		ArchiveFile: archivePath,
+		StageDir:    stageDir,
+	}
+
+	args := extractArgs{
+		ArchivePath: archivePath,
+		DestDir:     stageDir,
+		Spec:        spec,
+	}
+	payload, err := json.Marshal(args)
+	if err != nil {
+		return fmt.Errorf("marshal extract args: %w", err)
+	}
+
+	cmd := sandbox.ExtractCommand(cfg, exe, "_extract")
+	cmd.Stdin = bytes.NewReader(payload)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	Debugf("sandboxed extract: %s _extract (sandbox: %s)\n", exe, stageDir)
+
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("sandboxed extraction failed: %w", err)
+	}
+	return nil
+}
