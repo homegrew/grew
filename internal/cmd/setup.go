@@ -96,12 +96,26 @@ func setupDryRun(prefix string, isRoot bool) error {
 		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.name, dir.path, status)
 	}
 
-	exe, err := os.Executable()
-	if err == nil {
-		exe, _ = filepath.EvalSymlinks(exe)
-		destBin := filepath.Join(prefix, "bin", "grew")
-		if exe != destBin {
-			fmt.Printf("\n[dry-run] Copy binary: %s -> %s\n", exe, destBin)
+	repoDir := filepath.Join(prefix, "Grew")
+	destBin := filepath.Join(prefix, "bin", "grew")
+	_, hasGit := exec.LookPath("git")
+	_, hasGo := exec.LookPath("go")
+
+	fmt.Println()
+	if hasGit == nil && hasGo == nil {
+		fmt.Printf("[dry-run] Clone grew repo: %s -> %s\n", grewRepoURL, repoDir)
+		fmt.Printf("[dry-run] Build from source: go build -o %s\n", destBin)
+	} else {
+		exe, err := os.Executable()
+		if err == nil {
+			exe, _ = filepath.EvalSymlinks(exe)
+			fmt.Printf("[dry-run] Fallback: copy binary %s -> %s\n", exe, destBin)
+		}
+		if hasGit != nil {
+			fmt.Println("[dry-run]   (git not found — cannot clone)")
+		}
+		if hasGo != nil {
+			fmt.Println("[dry-run]   (go not found — cannot build from source)")
 		}
 	}
 
@@ -159,6 +173,8 @@ func setupUser(prefix string) error {
 	return finishSetup(prefix)
 }
 
+const grewRepoURL = "https://github.com/homegrew/grew.git"
+
 func finishSetup(prefix string) error {
 	appDir := defaultAppDir()
 
@@ -168,17 +184,25 @@ func finishSetup(prefix string) error {
 		return fmt.Errorf("init directories: %w", err)
 	}
 
-	// Copy the current binary into <prefix>/bin/grew so path inference works.
-	exe, err := os.Executable()
-	if err == nil {
+	destBin := filepath.Join(prefix, "bin", "grew")
+
+	// Try to install grew from source via git clone + go build.
+	// Falls back to copying the running binary if git or go are unavailable.
+	repoDir := filepath.Join(prefix, "Grew")
+	if err := installFromGit(repoDir, destBin); err != nil {
+		Logf("    Note: could not install from source: %v\n", err)
+		fmt.Println("==> Falling back to copying current binary")
+
+		exe, exeErr := os.Executable()
+		if exeErr != nil {
+			return fmt.Errorf("cannot locate current executable: %w", exeErr)
+		}
 		exe, _ = filepath.EvalSymlinks(exe)
-		destBin := filepath.Join(prefix, "bin", "grew")
 		if exe != destBin {
 			if err := copyFile(exe, destBin); err != nil {
-				Logf("    Note: could not copy binary to %s: %v\n", destBin, err)
-			} else {
-				fmt.Printf("==> Installed grew binary to %s\n", destBin)
+				return fmt.Errorf("copy binary to %s: %w", destBin, err)
 			}
+			fmt.Printf("==> Installed grew binary to %s\n", destBin)
 		}
 	}
 
@@ -190,6 +214,62 @@ func finishSetup(prefix string) error {
 	fmt.Printf("  eval \"$(%s/bin/grew shellenv)\"\n", prefix)
 	fmt.Println()
 
+	return nil
+}
+
+// installFromGit clones the grew repository and builds the binary from source.
+// If the repo already exists, it pulls the latest changes instead.
+func installFromGit(repoDir, destBin string) error {
+	gitPath, err := exec.LookPath("git")
+	if err != nil {
+		return fmt.Errorf("git not found in PATH")
+	}
+	goPath, err := exec.LookPath("go")
+	if err != nil {
+		return fmt.Errorf("go not found in PATH")
+	}
+
+	gitDir := filepath.Join(repoDir, ".git")
+	if _, err := os.Stat(gitDir); err == nil {
+		// Repo exists — pull latest.
+		fmt.Println("==> Updating grew source...")
+		pull := exec.Command(gitPath, "pull", "--ff-only")
+		pull.Dir = repoDir
+		pull.Stdout = os.Stdout
+		pull.Stderr = os.Stderr
+		if err := pull.Run(); err != nil {
+			return fmt.Errorf("git pull: %w", err)
+		}
+	} else {
+		// Clone fresh.
+		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
+		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, repoDir)
+		clone.Stdout = os.Stdout
+		clone.Stderr = os.Stderr
+		if err := clone.Run(); err != nil {
+			return fmt.Errorf("git clone: %w", err)
+		}
+	}
+
+	// Generate version and build.
+	fmt.Println("==> Building grew from source...")
+	generate := exec.Command(goPath, "generate", "./internal/...")
+	generate.Dir = repoDir
+	generate.Stdout = os.Stdout
+	generate.Stderr = os.Stderr
+	if err := generate.Run(); err != nil {
+		Logf("    Warning: go generate failed: %v\n", err)
+	}
+
+	build := exec.Command(goPath, "build", "-o", destBin, ".")
+	build.Dir = repoDir
+	build.Stdout = os.Stdout
+	build.Stderr = os.Stderr
+	if err := build.Run(); err != nil {
+		return fmt.Errorf("go build: %w", err)
+	}
+
+	fmt.Printf("==> Built and installed grew to %s\n", destBin)
 	return nil
 }
 

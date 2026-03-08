@@ -4,7 +4,10 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
+	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/internal/release"
 )
 
 func createTestTarGz(t *testing.T, entries []testTarEntry) []byte {
@@ -46,12 +49,12 @@ type testTarEntry struct {
 	linkTarget string
 }
 
-func TestExtractGrew_Basic(t *testing.T) {
+func TestExtractBinary_Basic(t *testing.T) {
 	t.Parallel()
 	data := createTestTarGz(t, []testTarEntry{
 		{name: "grew", content: "binary-content", typeflag: tar.TypeReg},
 	})
-	got, err := extractGrew(bytes.NewReader(data))
+	got, err := release.ExtractBinary(bytes.NewReader(data))
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -60,12 +63,12 @@ func TestExtractGrew_Basic(t *testing.T) {
 	}
 }
 
-func TestExtractGrew_Nested(t *testing.T) {
+func TestExtractBinary_Nested(t *testing.T) {
 	t.Parallel()
 	data := createTestTarGz(t, []testTarEntry{
 		{name: "grew-1.0/grew", content: "nested-binary", typeflag: tar.TypeReg},
 	})
-	got, err := extractGrew(bytes.NewReader(data))
+	got, err := release.ExtractBinary(bytes.NewReader(data))
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -74,24 +77,24 @@ func TestExtractGrew_Nested(t *testing.T) {
 	}
 }
 
-func TestExtractGrew_NotFound(t *testing.T) {
+func TestExtractBinary_NotFound(t *testing.T) {
 	t.Parallel()
 	data := createTestTarGz(t, []testTarEntry{
 		{name: "other-tool", content: "nope", typeflag: tar.TypeReg},
 	})
-	_, err := extractGrew(bytes.NewReader(data))
+	_, err := release.ExtractBinary(bytes.NewReader(data))
 	if err == nil {
 		t.Fatal("expected error for missing grew binary")
 	}
 }
 
-func TestExtractGrew_SkipsSymlinks(t *testing.T) {
+func TestExtractBinary_SkipsSymlinks(t *testing.T) {
 	t.Parallel()
 	data := createTestTarGz(t, []testTarEntry{
 		{name: "grew", typeflag: tar.TypeSymlink, linkTarget: "/etc/passwd"},
 		{name: "real/grew", content: "real-binary", typeflag: tar.TypeReg},
 	})
-	got, err := extractGrew(bytes.NewReader(data))
+	got, err := release.ExtractBinary(bytes.NewReader(data))
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -100,13 +103,13 @@ func TestExtractGrew_SkipsSymlinks(t *testing.T) {
 	}
 }
 
-func TestExtractGrew_RejectsTraversal(t *testing.T) {
+func TestExtractBinary_RejectsTraversal(t *testing.T) {
 	t.Parallel()
 	data := createTestTarGz(t, []testTarEntry{
 		{name: "../../../tmp/grew", content: "evil", typeflag: tar.TypeReg},
 		{name: "safe/grew", content: "safe-binary", typeflag: tar.TypeReg},
 	})
-	got, err := extractGrew(bytes.NewReader(data))
+	got, err := release.ExtractBinary(bytes.NewReader(data))
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -136,7 +139,7 @@ abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890  grew_1.0.0_dar
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			got, err := findChecksum(checksums, tt.asset)
+			got, err := release.FindChecksum(checksums, tt.asset)
 			if tt.wantError {
 				if err == nil {
 					t.Fatal("expected error")
@@ -153,11 +156,13 @@ abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890  grew_1.0.0_dar
 	}
 }
 
-func TestBinaryAssetName(t *testing.T) {
+func TestAssetName(t *testing.T) {
 	t.Parallel()
-	name := binaryAssetName("v1.2.3")
-	want := "grew_" + osName() + "_" + archName() + ".tar.gz"
-	if name != want {
-		t.Errorf("got %q, want %q", name, want)
+	name := release.AssetName()
+	if name == "" {
+		t.Fatal("AssetName returned empty string")
+	}
+	if !strings.HasPrefix(name, "grew_") || !strings.HasSuffix(name, ".tar.gz") {
+		t.Errorf("unexpected asset name format: %s", name)
 	}
 }

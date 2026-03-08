@@ -94,7 +94,18 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		req.Header.Set("Authorization", "Bearer QQ==")
 	}
 
-	resp, err := http.DefaultClient.Do(req)
+	client := *http.DefaultClient
+	client.CheckRedirect = func(r *http.Request, via []*http.Request) error {
+		if r.URL.Scheme != "https" {
+			return fmt.Errorf("refusing redirect to non-HTTPS URL: %s", r.URL)
+		}
+		if len(via) >= 10 {
+			return fmt.Errorf("too many redirects")
+		}
+		return nil
+	}
+
+	resp, err := client.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
@@ -155,19 +166,27 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	return safe, nil
 }
 
-func VerifySHA256(filepath, expected string) error {
-	f, err := os.Open(filepath)
+// ComputeSHA256 returns the hex-encoded SHA256 hash of a file.
+func ComputeSHA256(path string) (string, error) {
+	f, err := os.Open(path)
 	if err != nil {
-		return fmt.Errorf("open for verification: %w", err)
+		return "", fmt.Errorf("open for hashing: %w", err)
 	}
 	defer f.Close()
 
 	h := sha256.New()
 	if _, err := io.Copy(h, f); err != nil {
-		return fmt.Errorf("compute SHA256: %w", err)
+		return "", fmt.Errorf("compute SHA256: %w", err)
 	}
+	return hex.EncodeToString(h.Sum(nil)), nil
+}
 
-	actual := hex.EncodeToString(h.Sum(nil))
+// VerifySHA256 checks that a file's SHA256 matches the expected hex string.
+func VerifySHA256(path, expected string) error {
+	actual, err := ComputeSHA256(path)
+	if err != nil {
+		return err
+	}
 	if actual != expected {
 		return fmt.Errorf("SHA256 mismatch: expected %.16s..., got %.16s...", expected, actual)
 	}

@@ -8,6 +8,13 @@ import (
 )
 
 func runUpdate(args []string) error {
+	// Step 1: Update grew itself via git pull + go build.
+	if err := runSelfUpdate(nil); err != nil {
+		// Non-fatal: warn and continue with tap update.
+		fmt.Printf("==> Warning: self-update failed: %v\n", err)
+	}
+
+	// Step 2: Update tap definitions.
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return err
