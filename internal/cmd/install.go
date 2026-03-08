@@ -8,16 +8,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runInstall(args []string) error {
@@ -61,30 +57,20 @@ func runInstall(args []string) error {
 
 	name := remaining[0]
 
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newInstallContext()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-	lnk := &linker.Linker{Paths: paths}
-	dl := &downloader.Downloader{TmpDir: paths.Tmp}
-
 	var installOrder []*formula.Formula
 	if *ignoreDeps {
-		f, err := loader.LoadByName(name)
+		f, err := ctx.Loader.LoadByName(name)
 		if err != nil {
 			return fmt.Errorf("formula not found: %s", name)
 		}
 		installOrder = []*formula.Formula{f}
 	} else {
-		resolver := &depgraph.Resolver{Loader: loader}
+		resolver := &depgraph.Resolver{Loader: ctx.Loader}
 		Debugf("resolving dependencies for %s\n", name)
 		var err error
 		installOrder, err = resolver.Resolve(name)
@@ -107,7 +93,7 @@ func runInstall(args []string) error {
 			if *onlyDeps && f.Name == name {
 				continue
 			}
-			if cel.IsInstalled(f.Name) {
+			if ctx.Cellar.IsInstalled(f.Name) {
 				continue
 			}
 			if *buildFromSource && f.Name == name {
@@ -127,17 +113,17 @@ func runInstall(args []string) error {
 			continue
 		}
 
-		if cel.IsInstalled(f.Name) {
+		if ctx.Cellar.IsInstalled(f.Name) {
 			fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
 			continue
 		}
 
 		if *buildFromSource && f.Name == name {
-			if err := installFormulaFromSource(f, paths, cel, lnk, dl, *skipPostInstall, *skipLink); err != nil {
+			if err := installFormulaFromSource(f, ctx, *skipPostInstall, *skipLink); err != nil {
 				return err
 			}
 		} else {
-			if err := installFormula(f, paths, cel, lnk, dl, *skipPostInstall, *skipLink); err != nil {
+			if err := installFormula(f, ctx, *skipPostInstall, *skipLink); err != nil {
 				return err
 			}
 		}
@@ -148,7 +134,8 @@ func runInstall(args []string) error {
 
 // installFormula downloads, verifies, extracts, and links a single formula.
 // Shared by install and upgrade commands.
-func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader, skipPostInstall bool, skipLink bool) error {
+func installFormula(f *formula.Formula, ctx *installContext, skipPostInstall bool, skipLink bool) error {
+	paths := ctx.Paths
 	defer TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	Debugf("platform: %s, install type: %s, keg_only: %v\n", formula.PlatformKey(), f.Install.Type, f.KegOnly)
 	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
@@ -170,7 +157,7 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 		ext = "." + f.Install.Format
 	}
 	filename := f.Name + "-" + f.Version + ext
-	localFile, err := dl.Download(dlURL, filename)
+	localFile, err := ctx.DL.Download(dlURL, filename)
 	if err != nil {
 		return fmt.Errorf("download %s: %w", f.Name, err)
 	}
@@ -197,8 +184,8 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 	}
 	Logf("    Extracted to staging: %s\n", stageDir)
 
-	kegPath := cel.KegPath(f.Name, f.Version)
-	if err := cel.Install(f.Name, f.Version, stageDir); err != nil {
+	kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
+	if err := ctx.Cellar.Install(f.Name, f.Version, stageDir); err != nil {
 		os.RemoveAll(stageDir)
 		os.Remove(localFile)
 		return fmt.Errorf("cellar install %s: %w", f.Name, err)
@@ -206,7 +193,7 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 	Logf("    Installed to cellar: %s\n", kegPath)
 
 	if !skipLink {
-		if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
+		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
 		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
@@ -248,7 +235,8 @@ func installFormula(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, 
 
 // installFormulaFromSource downloads the source tarball and builds from source
 // inside a sandboxed environment (no network, restricted filesystem access).
-func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cellar.Cellar, lnk *linker.Linker, dl *downloader.Downloader, skipPostInstall bool, skipLink bool) error {
+func installFormulaFromSource(f *formula.Formula, ctx *installContext, skipPostInstall bool, skipLink bool) error {
+	paths := ctx.Paths
 	defer TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
 
@@ -266,7 +254,7 @@ func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cella
 
 	ext := urlExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
-	localFile, err := dl.Download(srcURL, filename)
+	localFile, err := ctx.DL.Download(srcURL, filename)
 	if err != nil {
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
@@ -295,7 +283,7 @@ func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cella
 	Logf("    Extracted source to: %s\n", buildDir)
 
 	// Prepare keg directory.
-	kegPath := cel.KegPath(f.Name, f.Version)
+	kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
 	if err := os.MkdirAll(kegPath, 0755); err != nil {
 		os.RemoveAll(buildDir)
 		os.Remove(localFile)
@@ -361,7 +349,7 @@ func installFormulaFromSource(f *formula.Formula, paths config.Paths, cel *cella
 	}
 
 	if !skipLink {
-		if err := lnk.Link(f.Name, f.Version, f.KegOnly); err != nil {
+		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
 		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)

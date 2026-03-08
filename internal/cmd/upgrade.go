@@ -6,9 +6,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/tap"
 )
 
@@ -18,34 +16,24 @@ type outdatedPkg struct {
 }
 
 func runUpgrade(args []string) error {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newInstallContext()
+	if err != nil {
 		return err
 	}
-
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-	lnk := &linker.Linker{Paths: paths}
-	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 
 	var targets []outdatedPkg
 
 	if len(args) > 0 {
 		// Upgrade specific formulas
 		for _, name := range args {
-			if !cel.IsInstalled(name) {
+			if !ctx.Cellar.IsInstalled(name) {
 				return fmt.Errorf("formula %q is not installed", name)
 			}
-			f, err := loader.LoadByName(name)
+			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
 				return fmt.Errorf("formula not found: %s", name)
 			}
-			curVer, _ := cel.InstalledVersion(name)
+			curVer, _ := ctx.Cellar.InstalledVersion(name)
 			if curVer == f.Version {
 				fmt.Printf("==> %s %s already up-to-date\n", name, curVer)
 				continue
@@ -54,7 +42,7 @@ func runUpgrade(args []string) error {
 		}
 	} else {
 		// Upgrade all outdated packages
-		installed, err := cel.List()
+		installed, err := ctx.Cellar.List()
 		if err != nil {
 			return err
 		}
@@ -63,7 +51,7 @@ func runUpgrade(args []string) error {
 			return nil
 		}
 		for _, pkg := range installed {
-			f, err := loader.LoadByName(pkg.Name)
+			f, err := ctx.Loader.LoadByName(pkg.Name)
 			if err != nil {
 				Debugf("skipping %s: no longer in any tap (%v)\n", pkg.Name, err)
 				continue
@@ -83,16 +71,16 @@ func runUpgrade(args []string) error {
 		fmt.Printf("==> Upgrading %s %s -> %s\n", t.formula.Name, t.installedVersion, t.formula.Version)
 
 		// Unlink old version
-		lnk.Unlink(t.formula.Name)
+		ctx.Linker.Unlink(t.formula.Name)
 		Logf("    Unlinked old version %s\n", t.installedVersion)
 
 		// Install new version (old keg stays until we confirm success)
-		if err := installFormula(t.formula, paths, cel, lnk, dl, false, false); err != nil {
+		if err := installFormula(t.formula, ctx, false, false); err != nil {
 			return err
 		}
 
 		// Remove old version keg if different from new
-		oldKeg := cel.KegPath(t.formula.Name, t.installedVersion)
+		oldKeg := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
 		if t.installedVersion != t.formula.Version {
 			if err := removeDir(oldKeg); err != nil {
 				Logf("    Warning: could not remove old keg %s: %v\n", oldKeg, err)

@@ -4,7 +4,12 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 )
 
@@ -117,6 +122,36 @@ func Run(args []string) error {
 		return fmt.Errorf("unknown command: %s\nRun 'grew' for usage", args[0])
 	}
 	return handler(args[1:])
+}
+
+// installContext bundles the common objects used by install, reinstall, and upgrade.
+type installContext struct {
+	Paths  config.Paths
+	Loader *formula.Loader
+	Cellar *cellar.Cellar
+	Linker *linker.Linker
+	DL     *downloader.Downloader
+}
+
+// newInstallContext initialises paths, the core tap, and returns the shared context.
+func newInstallContext() (*installContext, error) {
+	paths := config.Default()
+	if err := paths.Init(); err != nil {
+		return nil, err
+	}
+
+	tapMgr := &tap.Manager{TapsDir: paths.Taps}
+	if err := tapMgr.InitCore(); err != nil {
+		return nil, fmt.Errorf("init core tap: %w", err)
+	}
+
+	return &installContext{
+		Paths:  paths,
+		Loader: newLoader(paths.Taps),
+		Cellar: &cellar.Cellar{Path: paths.Cellar},
+		Linker: &linker.Linker{Paths: paths},
+		DL:     &downloader.Downloader{TmpDir: paths.Tmp},
+	}, nil
 }
 
 // newLoader creates a formula.Loader with debug logging wired in.

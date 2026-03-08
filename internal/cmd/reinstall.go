@@ -2,12 +2,6 @@ package cmd
 
 import (
 	"fmt"
-
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/downloader"
-	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runReinstall(args []string) error {
@@ -16,26 +10,16 @@ func runReinstall(args []string) error {
 	}
 	name := args[0]
 
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newInstallContext()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-	lnk := &linker.Linker{Paths: paths}
-	dl := &downloader.Downloader{TmpDir: paths.Tmp}
-
-	if !cel.IsInstalled(name) {
+	if !ctx.Cellar.IsInstalled(name) {
 		return fmt.Errorf("formula %q is not installed (use 'grew install' instead)", name)
 	}
 
-	f, err := loader.LoadByName(name)
+	f, err := ctx.Loader.LoadByName(name)
 	if err != nil {
 		return fmt.Errorf("formula not found: %s", name)
 	}
@@ -43,16 +27,16 @@ func runReinstall(args []string) error {
 	fmt.Printf("==> Reinstalling %s %s\n", f.Name, f.Version)
 
 	// Unlink and remove existing installation
-	lnk.Unlink(name)
+	ctx.Linker.Unlink(name)
 	Logf("    Unlinked %s\n", name)
 
-	if err := cel.Uninstall(name); err != nil {
+	if err := ctx.Cellar.Uninstall(name); err != nil {
 		return fmt.Errorf("remove old installation: %w", err)
 	}
 	Logf("    Removed old cellar entry\n")
 
 	// Fresh install
-	if err := installFormula(f, paths, cel, lnk, dl, false, false); err != nil {
+	if err := installFormula(f, ctx, false, false); err != nil {
 		return err
 	}
 

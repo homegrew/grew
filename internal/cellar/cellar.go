@@ -64,6 +64,9 @@ func (c *Cellar) IsInstalled(name string) bool {
 		return false
 	}
 	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return false
+	}
 	info, err := os.Stat(kegDir)
 	return err == nil && info.IsDir()
 }
@@ -73,6 +76,9 @@ func (c *Cellar) InstalledVersion(name string) (string, error) {
 		return "", fmt.Errorf("invalid formula name: %q", name)
 	}
 	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return "", err
+	}
 	entries, err := os.ReadDir(kegDir)
 	if err != nil {
 		return "", fmt.Errorf("formula %q is not installed", name)
@@ -91,6 +97,9 @@ func (c *Cellar) InstalledVersions(name string) ([]string, error) {
 		return nil, fmt.Errorf("invalid formula name: %q", name)
 	}
 	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return nil, err
+	}
 	entries, err := os.ReadDir(kegDir)
 	if err != nil {
 		return nil, fmt.Errorf("formula %q is not installed", name)
@@ -111,7 +120,11 @@ func (c *Cellar) KegPath(name, version string) string {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return ""
 	}
-	return filepath.Join(c.Path, name, version)
+	p := filepath.Join(c.Path, name, version)
+	if err := c.ensureWithinCellar(p); err != nil {
+		return ""
+	}
+	return p
 }
 
 func (c *Cellar) List() ([]InstalledPackage, error) {
