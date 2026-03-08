@@ -105,28 +105,42 @@ func ExtractArchive(archivePath, destDir string, stripComponents int) error {
 // sanitizeEntryName cleans an archive entry name and rejects traversal attempts.
 // Returns the cleaned name or empty string if the entry should be skipped.
 func sanitizeEntryName(name string) string {
-	// Normalize to forward slashes, then clean.
-	name = filepath.FromSlash(filepath.ToSlash(name))
-	name = filepath.Clean(name)
-
-	// Reject absolute paths.
-	if filepath.IsAbs(name) {
+	if name == "" {
 		return ""
 	}
 
-	// Reject any remaining ".." components after cleaning.
-	for _, part := range strings.Split(filepath.ToSlash(name), "/") {
+	// Normalize to forward slashes for consistent processing.
+	slashed := filepath.ToSlash(name)
+
+	// Quickly reject any explicit parent-directory components before cleaning.
+	for _, part := range strings.Split(slashed, "/") {
 		if part == ".." {
 			return ""
 		}
 	}
 
-	// Reject "." (the directory itself).
-	if name == "." {
+	// Clean the path to collapse things like "a/../b" and ".".
+	clean := filepath.Clean(slashed)
+
+	// Reject paths that clean to "." (current directory) or empty.
+	if clean == "" || clean == "." {
 		return ""
 	}
 
-	return name
+	// Reject absolute or root-like paths. We check both IsAbs and a
+	// leading slash to be defensive across platforms.
+	if filepath.IsAbs(clean) || strings.HasPrefix(clean, "/") || strings.HasPrefix(clean, `\`) {
+		return ""
+	}
+
+	// Reject any remaining ".." components after cleaning.
+	for _, part := range strings.Split(clean, "/") {
+		if part == ".." {
+			return ""
+		}
+	}
+
+	return clean
 }
 
 // safeJoinArchivePath joins a destination directory with a sanitized archive
@@ -143,7 +157,7 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	return target, true
 }
 
-// withinDir checks that target is inside destDir using absolute paths.
+// withinDir checks that target is inside destDir using absolute, cleaned paths.
 // This prevents path traversal attacks (e.g. "../../etc/passwd").
 func withinDir(destDir, target string) bool {
 	absDir, err := filepath.Abs(destDir)
@@ -154,7 +168,14 @@ func withinDir(destDir, target string) bool {
 	if err != nil {
 		return false
 	}
-	return strings.HasPrefix(absTarget, absDir+string(filepath.Separator)) || absTarget == absDir
+
+	absDir = filepath.Clean(absDir)
+	absTarget = filepath.Clean(absTarget)
+
+	// Ensure absDir has a trailing separator when doing the prefix check
+	// so that siblings with a common prefix are not matched.
+	dirWithSep := absDir + string(filepath.Separator)
+	return absTarget == absDir || strings.HasPrefix(absTarget, dirWithSep)
 }
 
 func extractTarGz(archivePath, destDir string, stripComponents int) error {
