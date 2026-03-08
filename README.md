@@ -22,7 +22,9 @@
 - 📌 **Lockfile** — pin exact versions, hashes, and dependency trees for reproducible environments
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
-- 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, and stale kegs
+- 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
+- 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape), XML-safe plist generation, systemd specifier escaping
+- 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
 - 🐚 **Alias + shellenv helpers** so your workflows stay snappy
 
 ---
@@ -168,16 +170,17 @@ grew/
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── linker/       ← deterministic symlink management
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
-│   ├── downloader/   ← HTTP download + SHA256 + archive extraction
+│   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
 │   ├── tap/          ← tap repo management + commit verification
-│   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux)
+│   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux, shell-safe quoting)
 │   ├── signing/      ← Ed25519 bottle signing + trust store
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
 │   ├── lockfile/     ← reproducible environment pinning
-│   ├── service/      ← background service management (launchd/systemd)
+│   ├── service/      ← background service management (launchd/systemd, properly escaped)
 │   ├── config/       ← prefix + path resolution
-│   ├── validation/   ← name/version/SHA256 validation
 │   └── version/      ← embedded version from git tags
+├── pkg/
+│   └── validation/   ← name/version/SHA256/path validation (shared across packages)
 └── tools/            ← import scripts (Homebrew formula/cask conversion)
 ```
 
@@ -197,6 +200,10 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Lockfile** | Full dependency tree with hashes | None |
 | **Integrity check** | `grew verify` + `grew doctor` snapshot check | None |
 | **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
+| **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers | Partial |
+| **Shell injection prevention** | POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape) for sandbox scripts; systemd `ExecStart` and launchd plist values properly escaped | N/A |
+| **Zip Slip protection** | Symlink indirection attacks blocked during tar/zip extraction | Partial |
+| **Command argument hardening** | `--` end-of-options separator on all external commands (`git`, `systemctl`, `launchctl`, `hdiutil`, `tar`, etc.) | Not consistently applied |
 
 **Gradual rollout:** signature verification doesn't block installs until you add keys to `etc/trusted-keys`. Tap verification is opt-in via `HOMEGREW_TAP_VERIFY`. This lets you adopt security features incrementally.
 
