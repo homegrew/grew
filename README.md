@@ -31,9 +31,17 @@
 
 ## 🚀 Getting Started
 
-**Prerequisites:** Go 1.26+, `git`, and a dream.
+### Get Grew
+
+```bash
+go install github.com/homegrew/grew/tools/getgrew
+getgrew
+sudo ./grew setup
+```
 
 ### Build from source
+
+**Prerequisites:** Go 1.26+, `git`, and a dream.
 
 ```bash
 git clone https://github.com/homegrew/grew.git
