@@ -145,6 +145,8 @@ func sanitizeEntryName(name string) string {
 
 // safeJoinArchivePath joins a destination directory with a sanitized archive
 // entry name. Returns the joined path only if it resolves within destDir.
+// It performs both a textual check (against path traversal via "..") and a
+// filesystem check (against symlink indirection created during extraction).
 func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	clean := sanitizeEntryName(entryName)
 	if clean == "" {
@@ -154,6 +156,27 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	if !withinDir(destDir, target) {
 		return "", false
 	}
+
+	// Guard against Zip Slip via symlink indirection: a previous archive
+	// entry may have created a symlink within destDir that points outside
+	// it. Resolve the parent directory through the real filesystem and
+	// verify the resolved target is still within destDir.
+	parentDir := filepath.Dir(target)
+	realParent, err := filepath.EvalSymlinks(parentDir)
+	if err == nil {
+		// Parent exists on disk — verify the resolved path stays inside.
+		realTarget := filepath.Join(realParent, filepath.Base(target))
+		realDest, err2 := filepath.EvalSymlinks(destDir)
+		if err2 != nil {
+			realDest = destDir
+		}
+		if !withinDir(realDest, realTarget) {
+			return "", false
+		}
+	}
+	// If parent doesn't exist yet (err != nil), the textual check is
+	// sufficient — there are no symlinks to follow.
+
 	return target, true
 }
 

@@ -120,6 +120,33 @@ func TestExtractTarGz(t *testing.T) {
 		}
 	})
 
+	t.Run("symlink indirection zip slip blocked", func(t *testing.T) {
+		t.Parallel()
+		tmpDir := t.TempDir()
+		archivePath := filepath.Join(tmpDir, "evil.tar.gz")
+		destDir := filepath.Join(tmpDir, "dest")
+		outsideDir := filepath.Join(tmpDir, "outside")
+		os.MkdirAll(outsideDir, 0755)
+
+		// Craft an archive where a symlink points to an external directory,
+		// then a file entry tries to write through the symlink.
+		// Entry order matters: symlink first, then the file via the symlink.
+		createTarGzWithSymlinks(t, archivePath, []tarEntry{
+			{name: "evil/payload.txt", content: "malicious", mode: 0644},
+		}, []symlinkEntry{
+			{name: "evil", target: outsideDir},
+		})
+
+		if err := extractTarGz(archivePath, destDir, 0); err != nil {
+			t.Fatalf("extractTarGz: %v", err)
+		}
+
+		// The payload should NOT have been written outside destDir.
+		if _, err := os.Stat(filepath.Join(outsideDir, "payload.txt")); !os.IsNotExist(err) {
+			t.Error("symlink indirection should have been blocked: file written outside destDir")
+		}
+	})
+
 	t.Run("directory entries", func(t *testing.T) {
 		t.Parallel()
 		tmpDir := t.TempDir()
