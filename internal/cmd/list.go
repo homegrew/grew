@@ -28,6 +28,7 @@ func runList(args []string) error {
 	fullName := fs.Bool("full-name", false, "Show full keg path as name (tap/formula)")
 	builtSrc := fs.Bool("built-from-source", false, "Only show formulas built from source")  //nolint:revive
 	pouredBottle := fs.Bool("poured-from-bottle", false, "Only show formulas poured from bottle")
+	pinned := fs.Bool("pinned", false, "Only show pinned formulas")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -61,6 +62,20 @@ func runList(args []string) error {
 		packages = filterByManifest(packages, cel, *onRequest, *asDep, *builtSrc, *pouredBottle)
 		if len(packages) == 0 {
 			fmt.Println("No matching formulas.")
+			return nil
+		}
+	}
+
+	if *pinned {
+		var pinnedPkgs []cellar.InstalledPackage
+		for _, p := range packages {
+			if cel.IsPinned(p.Name) {
+				pinnedPkgs = append(pinnedPkgs, p)
+			}
+		}
+		packages = pinnedPkgs
+		if len(packages) == 0 {
+			fmt.Println("No pinned formulas.")
 			return nil
 		}
 	}

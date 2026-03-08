@@ -165,6 +165,47 @@ func (c *Cellar) List() ([]InstalledPackage, error) {
 	return packages, nil
 }
 
+// Pin marks a formula as pinned, preventing it from being upgraded.
+func (c *Cellar) Pin(name string) error {
+	if !validation.IsValidName(name) {
+		return fmt.Errorf("invalid formula name: %q", name)
+	}
+	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return err
+	}
+	if _, err := os.Stat(kegDir); os.IsNotExist(err) {
+		return fmt.Errorf("formula %q is not installed", name)
+	}
+	return os.WriteFile(filepath.Join(kegDir, "PINNED"), nil, 0644)
+}
+
+// Unpin removes the pin from a formula, allowing it to be upgraded.
+func (c *Cellar) Unpin(name string) error {
+	if !validation.IsValidName(name) {
+		return fmt.Errorf("invalid formula name: %q", name)
+	}
+	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return err
+	}
+	pinFile := filepath.Join(kegDir, "PINNED")
+	if err := os.Remove(pinFile); err != nil && !os.IsNotExist(err) {
+		return err
+	}
+	return nil
+}
+
+// IsPinned returns true if a formula is pinned.
+func (c *Cellar) IsPinned(name string) bool {
+	if !validation.IsValidName(name) {
+		return false
+	}
+	pinFile := filepath.Join(c.Path, name, "PINNED")
+	_, err := os.Stat(pinFile)
+	return err == nil
+}
+
 // ensureWithinCellar verifies that a resolved path stays within the cellar
 // directory. This prevents path traversal via crafted names or symlinks.
 func (c *Cellar) ensureWithinCellar(target string) error {

@@ -26,6 +26,10 @@ func runUpgrade(args []string) error {
 			if !ctx.Cellar.IsInstalled(name) {
 				return fmt.Errorf("formula %q is not installed", name)
 			}
+			if ctx.Cellar.IsPinned(name) {
+				fmt.Printf("==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
+				continue
+			}
 			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
 				return fmt.Errorf("formula not found: %s", name)
@@ -48,6 +52,10 @@ func runUpgrade(args []string) error {
 			return nil
 		}
 		for _, pkg := range installed {
+			if ctx.Cellar.IsPinned(pkg.Name) {
+				Debugf("skipping %s: pinned\n", pkg.Name)
+				continue
+			}
 			f, err := ctx.Loader.LoadByName(pkg.Name)
 			if err != nil {
 				Debugf("skipping %s: no longer in any tap (%v)\n", pkg.Name, err)
@@ -113,7 +121,11 @@ func runOutdated(args []string) error {
 			continue
 		}
 		if pkg.Version != f.Version {
-			fmt.Printf("%-20s %s -> %s\n", pkg.Name, pkg.Version, f.Version)
+			pinMarker := ""
+			if ctx.Cellar.IsPinned(pkg.Name) {
+				pinMarker = " [pinned]"
+			}
+			fmt.Printf("%-20s %s -> %s%s\n", pkg.Name, pkg.Version, f.Version, pinMarker)
 			found = true
 		}
 	}

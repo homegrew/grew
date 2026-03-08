@@ -104,6 +104,8 @@ func Run(args []string) error {
 		"verify":       runVerify,
 		"lock":         runLock,
 		"sign":         runSign,
+		"pin":          runPin,
+		"unpin":        runUnpin,
 		"help":         runHelp,
 	}
 
@@ -227,6 +229,8 @@ Commands:
   verify [formula]     Verify installed package integrity
   lock [subcommand]    Manage the formula lockfile (generate, check, show)
   sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
+  pin <formula>        Pin a formula to prevent upgrades
+  unpin <formula>      Unpin a formula to allow upgrades
   help [command]       Show help for a command
 `)
 }
