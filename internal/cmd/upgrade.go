@@ -72,7 +72,7 @@ func runUpgrade(args []string) error {
 		Logf("    Unlinked old version %s\n", t.installedVersion)
 
 		// Install new version (old keg stays until we confirm success)
-		if err := installFormula(t.formula, ctx, false, false); err != nil {
+		if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
 			return err
 		}
 

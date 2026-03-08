@@ -81,8 +81,10 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 		DownloadURL:    meta.DownloadURL,
 		DownloadSHA256: meta.DownloadSHA256,
 		KegSHA256:      aggregateHash(files),
-		Files:          files,
-		Dependencies:   meta.Dependencies,
+		Files:              files,
+		Dependencies:       meta.Dependencies,
+		InstalledOnRequest: meta.InstalledOnRequest,
+		BuiltFromSource:    meta.BuiltFromSource,
 	}
 	return m, nil
 }

@@ -64,10 +64,11 @@ func runReinstall(args []string) error {
 	}
 
 	// Fresh install.
+	opts := installOpts{installedOnRequest: true}
 	if *buildFromSource {
-		return installFormulaFromSource(f, ctx, false, false)
+		return installFormulaFromSource(f, ctx, opts)
 	}
-	return installFormula(f, ctx, false, false)
+	return installFormula(f, ctx, opts)
 }
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.

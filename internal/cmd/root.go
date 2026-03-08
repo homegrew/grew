@@ -205,7 +205,7 @@ Flags:
 Commands:
   install [-s] [-n] [--skip-post-install] [--skip-link] <formula>  Install a formula (use --cask for apps, -s for source build, -n for dry run)
   uninstall <formula>  Uninstall a formula or cask (--cask)
-  list                 List installed formulas or casks (--cask)
+  list [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   info <formula>       Show formula or cask info (--cask)
   search <query>       Search formulas or casks (--cask)
   link <formula>       Create symlinks for a formula

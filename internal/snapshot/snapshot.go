@@ -36,6 +36,12 @@ type Manifest struct {
 
 	// Formula dependency names at install time.
 	Dependencies []string `json:"dependencies,omitempty"`
+
+	// Install reason: "request" if installed directly, "dependency" if pulled in.
+	InstalledOnRequest bool `json:"installed_on_request,omitempty"`
+
+	// Build method: true if built from source, false if poured from a bottle.
+	BuiltFromSource bool `json:"built_from_source,omitempty"`
 }
 
 // FileEntry records one file or symlink inside the keg.
@@ -55,10 +61,12 @@ type LinkEntry struct {
 
 // InstallMeta carries provenance data from the install command into Capture.
 type InstallMeta struct {
-	Platform       string
-	DownloadURL    string
-	DownloadSHA256 string
-	Dependencies   []string
+	Platform           string
+	DownloadURL        string
+	DownloadSHA256     string
+	Dependencies       []string
+	InstalledOnRequest bool
+	BuiltFromSource    bool
 }
 
 // cleanKegPath validates and cleans a keg path to prevent traversal attacks.
