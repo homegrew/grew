@@ -212,7 +212,7 @@ Commands:
   unlink <formula>     Remove symlinks for a formula
   update               Update formula definitions
   reset-update         Wipe and re-fetch all tap definitions
-  reinstall <formula>  Reinstall a formula from scratch
+  reinstall [-f] [--zap] [-s] <formula>  Reinstall a formula (-f force, --zap deep clean, -s from source)
   upgrade [formula]    Upgrade outdated packages (or a specific one)
   outdated             List packages with newer versions available
   cleanup [-n]         Remove old versions and temp files (-n for dry run)
