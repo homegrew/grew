@@ -1,0 +1,174 @@
+package cmd
+
+import (
+	"crypto/sha512"
+	"encoding/hex"
+	"os"
+	"path/filepath"
+	"runtime"
+	"testing"
+)
+
+// writeScript creates an executable shell script at path with the given content.
+func writeScript(t *testing.T, path, content string) {
+	t.Helper()
+	if runtime.GOOS == "windows" {
+		t.Skip("shell scripts not supported on windows")
+	}
+	if err := os.WriteFile(path, []byte("#!/bin/sh\n"+content), 0755); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestVerifyBinaryIntegrity_Success(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `echo "grew 1.2.3"`)
+
+	if err := verifyBinaryIntegrity(bin, "1.2.3"); err != nil {
+		t.Fatalf("expected success, got: %v", err)
+	}
+}
+
+func TestVerifyBinaryIntegrity_SuccessNoExpectedVersion(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `echo "grew 0.0.1-dev"`)
+
+	// Empty expectedVersion = git build, just check it runs.
+	if err := verifyBinaryIntegrity(bin, ""); err != nil {
+		t.Fatalf("expected success, got: %v", err)
+	}
+}
+
+func TestVerifyBinaryIntegrity_VersionMismatch(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `echo "grew 0.0.1"`)
+
+	err := verifyBinaryIntegrity(bin, "2.0.0")
+	if err == nil {
+		t.Fatal("expected version mismatch error")
+	}
+	if got := err.Error(); !contains(got, "version mismatch") {
+		t.Errorf("expected 'version mismatch' in error, got: %s", got)
+	}
+}
+
+func TestVerifyBinaryIntegrity_BinaryNotFound(t *testing.T) {
+	t.Parallel()
+	err := verifyBinaryIntegrity("/nonexistent/grew", "1.0.0")
+	if err == nil {
+		t.Fatal("expected error for missing binary")
+	}
+}
+
+func TestVerifyBinaryIntegrity_BinaryFails(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `exit 1`)
+
+	err := verifyBinaryIntegrity(bin, "1.0.0")
+	if err == nil {
+		t.Fatal("expected error for failing binary")
+	}
+	if got := err.Error(); !contains(got, "failed to execute") {
+		t.Errorf("expected 'failed to execute' in error, got: %s", got)
+	}
+}
+
+func TestVerifyBinaryIntegrity_EmptyOutput(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `true`) // produces no output
+
+	err := verifyBinaryIntegrity(bin, "")
+	if err == nil {
+		t.Fatal("expected error for empty output")
+	}
+	if got := err.Error(); !contains(got, "no version output") {
+		t.Errorf("expected 'no version output' in error, got: %s", got)
+	}
+}
+
+func TestVerifyBinaryIntegrity_VPrefixHandled(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	writeScript(t, bin, `echo "grew v3.0.0"`)
+
+	// Expected version without "v" prefix should still match.
+	if err := verifyBinaryIntegrity(bin, "3.0.0"); err != nil {
+		t.Fatalf("expected success with v-prefix, got: %v", err)
+	}
+}
+
+func TestVerifyBinaryIntegrity_SingleWordVersion(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	bin := filepath.Join(dir, "grew")
+	// Binary outputs just the version, no "grew " prefix.
+	writeScript(t, bin, `echo "4.0.0"`)
+
+	if err := verifyBinaryIntegrity(bin, "4.0.0"); err != nil {
+		t.Fatalf("expected success with single-word version, got: %v", err)
+	}
+}
+
+func TestFileSHA512(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	path := filepath.Join(dir, "test")
+	content := []byte("hello world\n")
+	os.WriteFile(path, content, 0644)
+
+	got, err := fileSHA512(path)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	h := sha512.Sum512(content)
+	want := hex.EncodeToString(h[:])
+	if got != want {
+		t.Errorf("got %s, want %s", got, want)
+	}
+}
+
+func TestFileSHA512_NotExist(t *testing.T) {
+	t.Parallel()
+	_, err := fileSHA512("/nonexistent/file")
+	if err == nil {
+		t.Fatal("expected error for missing file")
+	}
+}
+
+func TestFileSHA512_Deterministic(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	path := filepath.Join(dir, "bin")
+	os.WriteFile(path, []byte("same content"), 0644)
+
+	h1, _ := fileSHA512(path)
+	h2, _ := fileSHA512(path)
+	if h1 != h2 {
+		t.Errorf("same file produced different hashes:\n  %s\n  %s", h1, h2)
+	}
+}
+
+func contains(s, substr string) bool {
+	return len(s) >= len(substr) && searchString(s, substr)
+}
+
+func searchString(s, substr string) bool {
+	for i := 0; i <= len(s)-len(substr); i++ {
+		if s[i:i+len(substr)] == substr {
+			return true
+		}
+	}
+	return false
+}

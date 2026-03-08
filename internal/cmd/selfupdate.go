@@ -1,12 +1,17 @@
 package cmd
 
 import (
+	"crypto/sha512"
+	"encoding/hex"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 
 	"github.com/homegrew/grew/internal/release"
+	"github.com/homegrew/grew/internal/sandbox"
 )
 
 func runSelfUpdate(_ []string) error {
@@ -31,6 +36,9 @@ func runSelfUpdate(_ []string) error {
 			Logf("    Warning: source update failed: %v\n", err)
 			fmt.Println("==> Falling back to latest release download...")
 		} else {
+			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
+				fmt.Printf("==> Warning: %v\n", err)
+			}
 			return nil
 		}
 	} else {
@@ -101,6 +109,99 @@ func selfUpdateFromRelease(exePath string) error {
 		return fmt.Errorf("replace binary: %w", err)
 	}
 
+	expectedVersion := strings.TrimPrefix(rel.TagName, "v")
+	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {
+		fmt.Printf("==> Warning: %v\n", err)
+	}
+
 	fmt.Printf("==> Updated to %s\n", rel.TagName)
 	return nil
+}
+
+// verifyBinaryIntegrity re-execs the newly installed binary with --version
+// and checks that it runs successfully and reports the expected version.
+// If expectedVersion is empty, only checks that the binary executes.
+func verifyBinaryIntegrity(binPath, expectedVersion string) error {
+	Debugf("verifying binary integrity: %s (expect %q)\n", binPath, expectedVersion)
+
+	// Hash the binary before execution so we can detect self-modification.
+	hashBefore, err := fileSHA512(binPath)
+	if err != nil {
+		return fmt.Errorf("hash binary before execution: %w", err)
+	}
+	Debugf("SHA-512 before exec: %s\n", hashBefore)
+
+	// Run the new binary inside a sandbox: no network, no writes (except a
+	// throwaway temp dir). A compromised binary cannot exfiltrate data or
+	// modify the system during this probe.
+	tmpDir, err := os.MkdirTemp("", "grew-verify-*")
+	if err != nil {
+		return fmt.Errorf("create verify tmpdir: %w", err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	cfg := sandbox.PostInstallConfig{
+		KegDir: binPath, // read-only; only needs to read itself
+		TmpDir: tmpDir,
+	}
+	cmd := sandbox.PostInstallCommand(cfg, binPath, "--version")
+	out, err := cmd.Output()
+	if err != nil {
+		return fmt.Errorf("new binary failed to execute: %w", err)
+	}
+
+	// Verify the binary was not modified during execution.
+	hashAfter, err := fileSHA512(binPath)
+	if err != nil {
+		return fmt.Errorf("hash binary after execution: %w", err)
+	}
+	if hashBefore != hashAfter {
+		return fmt.Errorf("binary was modified during execution (self-modifying binary detected)\n"+
+			"  before: %s\n  after:  %s", hashBefore, hashAfter)
+	}
+	Debugf("SHA-512 unchanged after exec\n")
+
+	reportedVersion := strings.TrimSpace(string(out))
+	Debugf("new binary reports: %s\n", reportedVersion)
+
+	if expectedVersion == "" {
+		// Git build: just verify it runs and reports something.
+		if reportedVersion == "" {
+			return fmt.Errorf("new binary produced no version output")
+		}
+		fmt.Printf("==> Verified: new binary reports %s\n", reportedVersion)
+		return nil
+	}
+
+	// Release build: verify the version matches exactly.
+	// Output format is "grew <version>" — extract the version part.
+	parts := strings.Fields(reportedVersion)
+	var actual string
+	if len(parts) >= 2 {
+		actual = strings.TrimPrefix(parts[1], "v")
+	} else {
+		actual = strings.TrimPrefix(reportedVersion, "v")
+	}
+
+	if actual != expectedVersion {
+		return fmt.Errorf("version mismatch after update: expected %s, binary reports %q",
+			expectedVersion, reportedVersion)
+	}
+
+	fmt.Printf("==> Verified: new binary reports %s\n", reportedVersion)
+	return nil
+}
+
+// fileSHA512 computes the hex-encoded SHA-512 hash of a file.
+func fileSHA512(path string) (string, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
+	h := sha512.New()
+	if _, err := io.Copy(h, f); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(h.Sum(nil)), nil
 }
