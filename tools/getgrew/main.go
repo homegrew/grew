@@ -15,7 +15,7 @@
 //	getgrew -debug       # debug output (implies -v; shows HTTP requests, redirects, temp paths)
 //
 // Then run ./grew setup to complete the installation.
-package main
+package getgrew
 
 import (
 	"bufio"
