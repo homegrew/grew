@@ -397,7 +397,7 @@ func extractDMG(dmgPath, destDir string) error {
 	defer os.RemoveAll(mountPoint)
 
 	// Mount the DMG read-only.
-	cmd := exec.Command("hdiutil", "attach", "-nobrowse", "-noverify", "-readonly", "-mountpoint", mountPoint, dmgPath)
+	cmd := exec.Command("hdiutil", "attach", "-nobrowse", "-noverify", "-readonly", "-mountpoint", mountPoint, "--", dmgPath)
 	cmd.Stderr = io.Discard
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("mount DMG: %w", err)
@@ -447,7 +447,7 @@ func stripPath(name string, strip int) string {
 
 // extractTarXzSystem uses the system 'tar' command to extract .tar.xz and .tar.bz2 files.
 func extractTarXzSystem(archivePath, destDir string, stripComponents int) error {
-	args := []string{"-xf", archivePath, "-C", destDir}
+	args := []string{"-xf", archivePath, "-C", destDir, "--"}
 	if stripComponents > 0 {
 		args = append(args, fmt.Sprintf("--strip-components=%d", stripComponents))
 	}

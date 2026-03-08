@@ -42,6 +42,9 @@ func installedCaskApps(ctx *doctorCtx) []string {
 			continue
 		}
 		for _, appName := range c.Artifacts.App {
+			if filepath.Base(appName) != appName {
+				continue // reject path traversal in artifact names
+			}
 			appPath := filepath.Join(paths.AppDir, appName)
 			if _, err := os.Stat(appPath); err == nil {
 				apps = append(apps, appPath)
@@ -54,7 +57,7 @@ func installedCaskApps(ctx *doctorCtx) []string {
 func checkCaskSandbox(ctx *doctorCtx) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
-		out, err := exec.Command("codesign", "-d", "--entitlements", "-", appPath).CombinedOutput()
+		out, err := exec.Command("codesign", "-d", "--entitlements", "-", "--", appPath).CombinedOutput()
 		if err != nil {
 			// Not signed at all — covered by notarization check.
 			continue
@@ -68,7 +71,7 @@ func checkCaskSandbox(ctx *doctorCtx) {
 func checkCaskNotarization(ctx *doctorCtx) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
-		out, err := exec.Command("spctl", "--assess", "--type", "execute", "--verbose", appPath).CombinedOutput()
+		out, err := exec.Command("spctl", "--assess", "--type", "execute", "--verbose", "--", appPath).CombinedOutput()
 		if err != nil {
 			combined := string(out)
 			if strings.Contains(combined, "rejected") {
@@ -85,7 +88,7 @@ func checkCaskNotarization(ctx *doctorCtx) {
 func checkCaskQuarantine(ctx *doctorCtx) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
-		out, err := exec.Command("xattr", "-p", "com.apple.quarantine", appPath).CombinedOutput()
+		out, err := exec.Command("xattr", "-p", "com.apple.quarantine", "--", appPath).CombinedOutput()
 		if err != nil || len(strings.TrimSpace(string(out))) == 0 {
 			ctx.warn("cask app %s is missing the quarantine attribute; macOS malware checks may have been bypassed",
 				filepath.Base(appPath))
@@ -109,7 +112,7 @@ func checkCaskQuarantine(ctx *doctorCtx) {
 // Called during cask install to ensure macOS performs malware scanning.
 func applyCaskQuarantine(appPath string) {
 	qVal := fmt.Sprintf("0081;%d;grew;", quarantineEpoch())
-	if err := exec.Command("xattr", "-w", "com.apple.quarantine", qVal, appPath).Run(); err != nil {
+	if err := exec.Command("xattr", "-w", "com.apple.quarantine", qVal, "--", appPath).Run(); err != nil {
 		Logf("    Note: could not set quarantine attribute on %s: %v\n", filepath.Base(appPath), err)
 	}
 }

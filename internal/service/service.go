@@ -94,6 +94,9 @@ func (m *Manager) List() ([]Info, error) {
 
 // Start installs and starts the service for the given formula.
 func (m *Manager) Start(f *formula.Formula) error {
+	if !validation.IsValidName(f.Name) {
+		return fmt.Errorf("invalid formula name: %q", f.Name)
+	}
 	if f.Service == nil {
 		return fmt.Errorf("formula %q does not define a service", f.Name)
 	}
@@ -126,6 +129,9 @@ func (m *Manager) Stop(name string) error {
 
 // Restart stops then starts the service.
 func (m *Manager) Restart(f *formula.Formula) error {
+	if !validation.IsValidName(f.Name) {
+		return fmt.Errorf("invalid formula name: %q", f.Name)
+	}
 	filePath := filepath.Join(m.ServiceDir, serviceFileName(f.Name))
 	if _, err := os.Stat(filePath); err == nil {
 		// Best-effort stop; ignore errors if not currently loaded.

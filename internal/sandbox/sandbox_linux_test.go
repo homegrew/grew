@@ -109,18 +109,18 @@ func TestUnshareArgs(t *testing.T) {
 	}
 
 	// Script must bind-mount build dir writable.
-	if !strings.Contains(script, `mount --bind "/home/user/build" "/home/user/build"`) {
+	if !strings.Contains(script, "mount --bind /home/user/build /home/user/build") {
 		t.Error("script must bind-mount build dir")
 	}
-	if !strings.Contains(script, `mount -o remount,rw,bind "/home/user/build"`) {
+	if !strings.Contains(script, "mount -o remount,rw,bind /home/user/build") {
 		t.Error("script must remount build dir read-write")
 	}
 
 	// Script must bind-mount keg dir writable.
-	if !strings.Contains(script, `mount --bind "/home/user/.grew/Cellar/foo/1.0"`) {
+	if !strings.Contains(script, "mount --bind /home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must bind-mount keg dir")
 	}
-	if !strings.Contains(script, `remount,rw,bind "/home/user/.grew/Cellar/foo/1.0"`) {
+	if !strings.Contains(script, "remount,rw,bind /home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must remount keg dir read-write")
 	}
 
@@ -130,10 +130,10 @@ func TestUnshareArgs(t *testing.T) {
 	}
 
 	// Script must exec the command.
-	if !strings.Contains(script, `exec "./configure"`) {
+	if !strings.Contains(script, "exec ./configure") {
 		t.Error("script must exec the build command")
 	}
-	if !strings.Contains(script, `"--prefix=/home/user/.grew/Cellar/foo/1.0"`) {
+	if !strings.Contains(script, "--prefix=/home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must pass command arguments")
 	}
 }

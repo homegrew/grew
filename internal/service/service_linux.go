@@ -9,6 +9,8 @@ import (
 	"strings"
 	"text/template"
 
+	"al.essio.dev/pkg/shellescape"
+
 	"github.com/homegrew/grew/internal/formula"
 )
 
@@ -69,6 +71,20 @@ type unitData struct {
 	ErrorLogPath string
 }
 
+// systemdQuoteCommand builds a properly quoted ExecStart value for a systemd
+// unit file. Each argument is shell-quoted (handling spaces, special chars)
+// and percent signs are doubled since systemd interprets % as a specifier.
+func systemdQuoteCommand(cmd []string) string {
+	quoted := make([]string, len(cmd))
+	for i, arg := range cmd {
+		q := shellescape.Quote(arg)
+		// Systemd interprets % as specifier prefix; escape as %%.
+		q = strings.ReplaceAll(q, "%", "%%")
+		quoted[i] = q
+	}
+	return strings.Join(quoted, " ")
+}
+
 func (m *Manager) writeServiceFile(f *formula.Formula, path string) error {
 	cmd := m.resolveServiceCommand(f)
 	if len(cmd) == 0 {
@@ -87,7 +103,7 @@ func (m *Manager) writeServiceFile(f *formula.Formula, path string) error {
 
 	data := unitData{
 		Name:         f.Name,
-		ExecStart:    strings.Join(cmd, " "),
+		ExecStart:    systemdQuoteCommand(cmd),
 		WorkingDir:   f.Service.WorkingDir,
 		Type:         svcType,
 		Restart:      restart,
@@ -114,7 +130,7 @@ func (m *Manager) loadService(name, filePath string) error {
 	if out, err := exec.Command("systemctl", "--user", "daemon-reload").CombinedOutput(); err != nil {
 		return fmt.Errorf("systemctl daemon-reload: %s (%w)", out, err)
 	}
-	cmd := exec.Command("systemctl", "--user", "enable", "--now", unitName)
+	cmd := exec.Command("systemctl", "--user", "enable", "--now", "--", unitName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -125,7 +141,7 @@ func (m *Manager) loadService(name, filePath string) error {
 
 func (m *Manager) unloadService(name, filePath string) error {
 	unitName := ServiceLabel(name) + ".service"
-	cmd := exec.Command("systemctl", "--user", "disable", "--now", unitName)
+	cmd := exec.Command("systemctl", "--user", "disable", "--now", "--", unitName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -136,8 +152,8 @@ func (m *Manager) unloadService(name, filePath string) error {
 
 func (m *Manager) serviceStatus(name string) (Status, int) {
 	unitName := ServiceLabel(name) + ".service"
-	out, err := exec.Command("systemctl", "--user", "show", unitName,
-		"--property=ActiveState,MainPID").CombinedOutput()
+	out, err := exec.Command("systemctl", "--user", "show",
+		"--property=ActiveState,MainPID", "--", unitName).CombinedOutput()
 	if err != nil {
 		return StatusUnknown, 0
 	}

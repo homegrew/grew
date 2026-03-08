@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+	"html"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -36,21 +37,25 @@ func DefaultManager(cellarPath, optPath string, loader *formula.Loader) (*Manage
 	}, nil
 }
 
-var plistTmpl = template.Must(template.New("plist").Parse(`<?xml version="1.0" encoding="UTF-8"?>
+var plistFuncs = template.FuncMap{
+	"xmlesc": html.EscapeString,
+}
+
+var plistTmpl = template.Must(template.New("plist").Funcs(plistFuncs).Parse(`<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>{{.Label}}</string>
+	<string>{{.Label | xmlesc}}</string>
 	<key>ProgramArguments</key>
 	<array>
 {{- range .Command}}
-		<string>{{.}}</string>
+		<string>{{. | xmlesc}}</string>
 {{- end}}
 	</array>
 {{- if .WorkingDir}}
 	<key>WorkingDirectory</key>
-	<string>{{.WorkingDir}}</string>
+	<string>{{.WorkingDir | xmlesc}}</string>
 {{- end}}
 {{- if .KeepAlive}}
 	<key>KeepAlive</key>
@@ -60,11 +65,11 @@ var plistTmpl = template.Must(template.New("plist").Parse(`<?xml version="1.0" e
 	<true/>
 {{- if .LogPath}}
 	<key>StandardOutPath</key>
-	<string>{{.LogPath}}</string>
+	<string>{{.LogPath | xmlesc}}</string>
 {{- end}}
 {{- if .ErrorLogPath}}
 	<key>StandardErrorPath</key>
-	<string>{{.ErrorLogPath}}</string>
+	<string>{{.ErrorLogPath | xmlesc}}</string>
 {{- end}}
 </dict>
 </plist>
@@ -108,7 +113,7 @@ func (m *Manager) writeServiceFile(f *formula.Formula, path string) error {
 }
 
 func (m *Manager) loadService(name, filePath string) error {
-	cmd := exec.Command("launchctl", "load", "-w", filePath)
+	cmd := exec.Command("launchctl", "load", "-w", "--", filePath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -118,7 +123,7 @@ func (m *Manager) loadService(name, filePath string) error {
 }
 
 func (m *Manager) unloadService(name, filePath string) error {
-	cmd := exec.Command("launchctl", "unload", "-w", filePath)
+	cmd := exec.Command("launchctl", "unload", "-w", "--", filePath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {

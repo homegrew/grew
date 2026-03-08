@@ -5,7 +5,16 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+
+	"al.essio.dev/pkg/shellescape"
 )
+
+// shq sanitizes and shell-quotes a string for safe interpolation into shell scripts.
+// It strips non-printable characters (including null bytes) then applies POSIX
+// single-quote escaping via shellescape.Quote.
+func shq(s string) string {
+	return shellescape.Quote(shellescape.StripUnsafe(s))
+}
 
 // writeUnshareScript writes a shell setup script to a temp file and returns
 // its path. Using a file instead of sh -c prevents shell injection via
@@ -70,12 +79,12 @@ func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name s
 		script.WriteString("mount --make-rprivate /\n")
 		script.WriteString("mount -o remount,ro,bind /\n")
 		// Only tmp dir is writable.
-		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.TmpDir, cfg.TmpDir)
-		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.TmpDir)
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.TmpDir), shq(cfg.TmpDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.TmpDir))
 		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
-		fmt.Fprintf(script, "exec %q", name)
+		fmt.Fprintf(script, "exec %s", shq(name))
 		for _, a := range args {
-			fmt.Fprintf(script, " %q", a)
+			fmt.Fprintf(script, " %s", shq(a))
 		}
 		script.WriteString("\n")
 	})
@@ -206,17 +215,17 @@ func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...st
 		// Remount root read-only.
 		script.WriteString("mount -o remount,ro,bind /\n")
 		// Writable bind-mount for the build dir.
-		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.BuildDir, cfg.BuildDir)
-		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.BuildDir)
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.BuildDir), shq(cfg.BuildDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.BuildDir))
 		// Writable bind-mount for the keg dir.
-		fmt.Fprintf(script, "mount --bind %q %q\n", cfg.KegDir, cfg.KegDir)
-		fmt.Fprintf(script, "mount -o remount,rw,bind %q\n", cfg.KegDir)
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.KegDir), shq(cfg.KegDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.KegDir))
 		// Fresh tmpfs for /tmp.
 		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
 		// Exec the build command.
-		fmt.Fprintf(script, "exec %q", name)
+		fmt.Fprintf(script, "exec %s", shq(name))
 		for _, a := range args {
-			fmt.Fprintf(script, " %q", a)
+			fmt.Fprintf(script, " %s", shq(a))
 		}
 		script.WriteString("\n")
 	})
@@ -243,14 +252,14 @@ func unshareArgs(cfg BuildConfig, name string, args ...string) []string {
 	script.WriteString("set -e; ")
 	script.WriteString("mount --make-rprivate /; ")
 	script.WriteString("mount -o remount,ro,bind /; ")
-	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.BuildDir, cfg.BuildDir)
-	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.BuildDir)
-	fmt.Fprintf(&script, "mount --bind %q %q; ", cfg.KegDir, cfg.KegDir)
-	fmt.Fprintf(&script, "mount -o remount,rw,bind %q; ", cfg.KegDir)
+	fmt.Fprintf(&script, "mount --bind %s %s; ", shq(cfg.BuildDir), shq(cfg.BuildDir))
+	fmt.Fprintf(&script, "mount -o remount,rw,bind %s; ", shq(cfg.BuildDir))
+	fmt.Fprintf(&script, "mount --bind %s %s; ", shq(cfg.KegDir), shq(cfg.KegDir))
+	fmt.Fprintf(&script, "mount -o remount,rw,bind %s; ", shq(cfg.KegDir))
 	script.WriteString("mount -t tmpfs tmpfs /tmp; ")
-	fmt.Fprintf(&script, "exec %q", name)
+	fmt.Fprintf(&script, "exec %s", shq(name))
 	for _, a := range args {
-		fmt.Fprintf(&script, " %q", a)
+		fmt.Fprintf(&script, " %s", shq(a))
 	}
 
 	return []string{
