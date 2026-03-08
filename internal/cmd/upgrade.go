@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/formula"
 )
 
@@ -82,6 +83,11 @@ func runUpgrade(args []string) error {
 		// Install new version (old keg stays until we confirm success)
 		if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
 			return err
+		}
+
+		if ctx.AuditLog != nil {
+			ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
+				fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
 		}
 
 		// Remove old version keg if different from new

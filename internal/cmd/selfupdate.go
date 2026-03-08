@@ -10,6 +10,8 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
 )
@@ -39,6 +41,7 @@ func runSelfUpdate(_ []string) error {
 			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
 				fmt.Printf("==> Warning: %v\n", err)
 			}
+			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
 			return nil
 		}
 	} else {
@@ -113,6 +116,8 @@ func selfUpdateFromRelease(exePath string) error {
 	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {
 		fmt.Printf("==> Warning: %v\n", err)
 	}
+
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, actualHash, "release")
 
 	fmt.Printf("==> Updated to %s\n", rel.TagName)
 	return nil

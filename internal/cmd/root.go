@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
@@ -155,11 +156,12 @@ func newReadContext() (*readContext, error) {
 
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
-	Paths  config.Paths
-	Loader *formula.Loader
-	Cellar *cellar.Cellar
-	Linker *linker.Linker
-	DL     *downloader.Downloader
+	Paths    config.Paths
+	Loader   *formula.Loader
+	Cellar   *cellar.Cellar
+	Linker   *linker.Linker
+	DL       *downloader.Downloader
+	AuditLog *auditlog.Logger
 }
 
 // newInstallContext initialises paths, the core tap, and returns the shared context.
@@ -175,11 +177,12 @@ func newInstallContext() (*installContext, error) {
 	}
 
 	return &installContext{
-		Paths:  paths,
-		Loader: newLoader(paths.Taps),
-		Cellar: &cellar.Cellar{Path: paths.Cellar},
-		Linker: &linker.Linker{Paths: paths},
-		DL:     &downloader.Downloader{TmpDir: paths.Tmp},
+		Paths:    paths,
+		Loader:   newLoader(paths.Taps),
+		Cellar:   &cellar.Cellar{Path: paths.Cellar},
+		Linker:   &linker.Linker{Paths: paths},
+		DL:       &downloader.Downloader{TmpDir: paths.Tmp},
+		AuditLog: auditlog.New(paths.Log),
 	}, nil
 }
 

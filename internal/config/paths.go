@@ -20,6 +20,7 @@ type Paths struct {
 	Caskroom string
 	AppDir   string
 	Tmp      string
+	Log      string
 }
 
 // DefaultPrefix determines the grew prefix using these rules (in order):
@@ -109,6 +110,7 @@ func FromRoot(root, appDir string) Paths {
 		Caskroom: filepath.Join(root, "Caskroom"),
 		AppDir:   appDir,
 		Tmp:      filepath.Join(root, "tmp"),
+		Log:      filepath.Join(root, "var", "log"),
 	}
 }
 
@@ -116,7 +118,7 @@ func (p Paths) Init() error {
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Tmp,
+		p.Caskroom, p.AppDir, p.Tmp, p.Log,
 	}
 	for _, d := range dirs {
 		if err := os.MkdirAll(d, 0755); err != nil {

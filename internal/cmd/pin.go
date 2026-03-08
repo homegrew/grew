@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 )
@@ -28,6 +29,7 @@ func runPin(args []string) error {
 	if err := cel.Pin(name); err != nil {
 		return err
 	}
+	auditlog.New(paths.Log).Log(auditlog.ActionPin, name, "", "", "")
 	fmt.Printf("Pinned %s (will not be upgraded).\n", name)
 	return nil
 }
@@ -53,6 +55,7 @@ func runUnpin(args []string) error {
 	if err := cel.Unpin(name); err != nil {
 		return err
 	}
+	auditlog.New(paths.Log).Log(auditlog.ActionUnpin, name, "", "", "")
 	fmt.Printf("Unpinned %s.\n", name)
 	return nil
 }

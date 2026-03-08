@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
@@ -307,6 +308,10 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		return err
 	}
 
+	if ctx.AuditLog != nil {
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, sha, "bottle")
+	}
+
 	if f.KegOnly {
 		fmt.Printf("==> %s %s installed (keg-only, not linked)\n", f.Name, f.Version)
 	} else if opts.skipLink {
@@ -444,6 +449,10 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 
 	if err := runPostInstall(f, kegPath, opts.skipPostInstall); err != nil {
 		return err
+	}
+
+	if ctx.AuditLog != nil {
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, srcSHA, "source")
 	}
 
 	if f.KegOnly {

@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/linker"
@@ -45,6 +46,8 @@ func runUninstall(args []string) error {
 	if err := cel.Uninstall(name); err != nil {
 		return err
 	}
+
+	auditlog.New(paths.Log).Log(auditlog.ActionUninstall, name, ver, "", "")
 
 	fmt.Printf("==> %s uninstalled\n", name)
 	return nil
