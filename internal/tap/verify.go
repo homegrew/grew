@@ -50,6 +50,7 @@ func TapVerifyMode() VerifyMode {
 //   - The tap must be a git clone.
 //   - The signing key must be in the user's GPG/SSH allowed signers.
 func VerifyHeadSignature(repoDir string) error {
+	repoDir = filepath.Clean(repoDir)
 	gitDir := filepath.Join(repoDir, ".git")
 	if _, err := os.Stat(gitDir); err != nil {
 		return fmt.Errorf("not a git repository: %s", repoDir)
@@ -66,9 +67,15 @@ func VerifyHeadSignature(repoDir string) error {
 // VerifyTagSignature checks whether the given tag in the git repository
 // at repoDir has a valid GPG/SSH signature.
 func VerifyTagSignature(repoDir, tag string) error {
+	repoDir = filepath.Clean(repoDir)
 	gitDir := filepath.Join(repoDir, ".git")
 	if _, err := os.Stat(gitDir); err != nil {
 		return fmt.Errorf("not a git repository: %s", repoDir)
+	}
+
+	// Validate tag to prevent command injection via git arguments.
+	if strings.ContainsAny(tag, "/\\.\x00 \t\n") || strings.HasPrefix(tag, "-") {
+		return fmt.Errorf("invalid tag name: %q", tag)
 	}
 
 	cmd := exec.Command("git", "-C", repoDir, "verify-tag", tag)

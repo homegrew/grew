@@ -10,6 +10,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/internal/validation"
 )
 
 // allowedHosts is the set of hosts that grew is permitted to download from.
@@ -75,6 +77,10 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", err
 	}
 
+	// Validate filename to prevent path traversal (e.g. "../../etc/passwd").
+	if err := validation.SafePathComponent(filename); err != nil {
+		return "", fmt.Errorf("invalid download filename: %w", err)
+	}
 	destPath := filepath.Join(d.TmpDir, filename)
 
 	// Build the request from the reconstructed url.URL, not the raw input.

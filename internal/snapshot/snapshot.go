@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -60,8 +61,25 @@ type InstallMeta struct {
 	Dependencies   []string
 }
 
+// cleanKegPath validates and cleans a keg path to prevent traversal attacks.
+func cleanKegPath(kegPath string) (string, error) {
+	cleaned := filepath.Clean(kegPath)
+	if strings.Contains(cleaned, "..") {
+		return "", fmt.Errorf("keg path contains traversal: %q", kegPath)
+	}
+	if cleaned == "" || cleaned == "." {
+		return "", fmt.Errorf("empty keg path")
+	}
+	return cleaned, nil
+}
+
 // Save atomically writes the manifest to kegPath/.MANIFEST.json.
 func Save(m *Manifest, kegPath string) error {
+	kegPath, err := cleanKegPath(kegPath)
+	if err != nil {
+		return err
+	}
+
 	data, err := json.MarshalIndent(m, "", "  ")
 	if err != nil {
 		return fmt.Errorf("marshal manifest: %w", err)
@@ -96,6 +114,10 @@ func Save(m *Manifest, kegPath string) error {
 
 // Load reads and parses the manifest from kegPath/.MANIFEST.json.
 func Load(kegPath string) (*Manifest, error) {
+	kegPath, err := cleanKegPath(kegPath)
+	if err != nil {
+		return nil, err
+	}
 	data, err := os.ReadFile(filepath.Join(kegPath, ManifestFile))
 	if err != nil {
 		return nil, fmt.Errorf("read manifest: %w", err)
@@ -109,7 +131,11 @@ func Load(kegPath string) (*Manifest, error) {
 
 // Exists returns true if a manifest exists for the given keg.
 func Exists(kegPath string) bool {
-	_, err := os.Stat(filepath.Join(kegPath, ManifestFile))
+	kegPath, err := cleanKegPath(kegPath)
+	if err != nil {
+		return false
+	}
+	_, err = os.Stat(filepath.Join(kegPath, ManifestFile))
 	return err == nil
 }
 

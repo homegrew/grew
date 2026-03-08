@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/validation"
 )
 
 // Status represents the state of a service.
@@ -110,6 +111,9 @@ func (m *Manager) Start(f *formula.Formula) error {
 
 // Stop stops and unloads the service for the given formula.
 func (m *Manager) Stop(name string) error {
+	if !validation.IsValidName(name) {
+		return fmt.Errorf("invalid service name: %q", name)
+	}
 	filePath := filepath.Join(m.ServiceDir, serviceFileName(name))
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return fmt.Errorf("no service file found for %q", name)
@@ -133,6 +137,9 @@ func (m *Manager) Restart(f *formula.Formula) error {
 
 // IsManaged returns true if a service file exists for this formula.
 func (m *Manager) IsManaged(name string) bool {
+	if !validation.IsValidName(name) {
+		return false
+	}
 	filePath := filepath.Join(m.ServiceDir, serviceFileName(name))
 	_, err := os.Stat(filePath)
 	return err == nil

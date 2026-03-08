@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 const defaultRepoURL = "https://github.com/homegrew/homegrew-taps.git"
@@ -13,8 +14,26 @@ type Manager struct {
 	TapsDir string
 }
 
+// cleanDir validates and cleans a directory path to prevent traversal.
+func cleanDir(dir string) (string, error) {
+	cleaned := filepath.Clean(dir)
+	if strings.Contains(cleaned, "..") {
+		return "", fmt.Errorf("path contains traversal: %q", dir)
+	}
+	if cleaned == "" || cleaned == "." {
+		return "", fmt.Errorf("empty path")
+	}
+	return cleaned, nil
+}
+
 // EnsureCloned clones the taps repo if it hasn't been cloned yet.
 func (m *Manager) EnsureCloned() error {
+	tapsDir, err := cleanDir(m.TapsDir)
+	if err != nil {
+		return fmt.Errorf("invalid taps dir: %w", err)
+	}
+	m.TapsDir = tapsDir
+
 	gitDir := filepath.Join(m.TapsDir, ".git")
 	if _, err := os.Stat(gitDir); err == nil {
 		return nil // already cloned

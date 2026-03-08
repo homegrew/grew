@@ -18,6 +18,8 @@ const TrustedKeysFile = "etc/trusted-keys"
 // Blank lines and lines starting with '#' are skipped. Returns (nil, nil) if
 // the file does not exist.
 func LoadTrustedKeys(grewRoot string) ([]ed25519.PublicKey, error) {
+	// Clean the root path to prevent directory traversal.
+	grewRoot = filepath.Clean(grewRoot)
 	path := filepath.Join(grewRoot, TrustedKeysFile)
 	f, err := os.Open(path)
 	if err != nil {
