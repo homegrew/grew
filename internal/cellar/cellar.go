@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/validation"
@@ -25,6 +26,12 @@ func (c *Cellar) Install(name, version, stagingDir string) error {
 		return fmt.Errorf("invalid name or version")
 	}
 	kegPath := filepath.Join(c.Path, name, version)
+
+	// Verify the constructed keg path resolves within the cellar.
+	if err := c.ensureWithinCellar(kegPath); err != nil {
+		return err
+	}
+
 	if err := os.MkdirAll(filepath.Dir(kegPath), 0755); err != nil {
 		return fmt.Errorf("create cellar dir: %w", err)
 	}
@@ -43,6 +50,9 @@ func (c *Cellar) Uninstall(name string) error {
 		return fmt.Errorf("invalid formula name: %q", name)
 	}
 	kegDir := filepath.Join(c.Path, name)
+	if err := c.ensureWithinCellar(kegDir); err != nil {
+		return err
+	}
 	if _, err := os.Stat(kegDir); os.IsNotExist(err) {
 		return fmt.Errorf("formula %q is not installed", name)
 	}
@@ -95,10 +105,12 @@ func (c *Cellar) InstalledVersions(name string) ([]string, error) {
 	return versions, nil
 }
 
+// KegPath returns the path to a keg directory. The name and version are
+// validated to prevent path traversal. Returns an empty string if invalid.
 func (c *Cellar) KegPath(name, version string) string {
-	// Not validating here since it's just path construction,
-	// but maybe good to return error? No, it's a string return.
-	// Assume caller validates or it's safe.
+	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
+		return ""
+	}
 	return filepath.Join(c.Path, name, version)
 }
 
@@ -116,8 +128,16 @@ func (c *Cellar) List() ([]InstalledPackage, error) {
 		if !e.IsDir() {
 			continue
 		}
+		// Validate the directory name to prevent path traversal if the
+		// cellar contains unexpected entries.
+		if !validation.IsValidName(e.Name()) {
+			continue
+		}
 		ver, err := c.InstalledVersion(e.Name())
 		if err != nil {
+			continue
+		}
+		if !validation.IsValidVersion(ver) {
 			continue
 		}
 		packages = append(packages, InstalledPackage{
@@ -130,4 +150,21 @@ func (c *Cellar) List() ([]InstalledPackage, error) {
 		return packages[i].Name < packages[j].Name
 	})
 	return packages, nil
+}
+
+// ensureWithinCellar verifies that a resolved path stays within the cellar
+// directory. This prevents path traversal via crafted names or symlinks.
+func (c *Cellar) ensureWithinCellar(target string) error {
+	absTarget, err := filepath.Abs(target)
+	if err != nil {
+		return fmt.Errorf("resolve path: %w", err)
+	}
+	absCellar, err := filepath.Abs(c.Path)
+	if err != nil {
+		return fmt.Errorf("resolve cellar: %w", err)
+	}
+	if absTarget != absCellar && !strings.HasPrefix(absTarget, absCellar+string(filepath.Separator)) {
+		return fmt.Errorf("path %q escapes cellar %q", target, c.Path)
+	}
+	return nil
 }

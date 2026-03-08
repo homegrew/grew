@@ -13,6 +13,7 @@ import (
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/internal/validation"
 )
 
 // maxExtractSize limits individual file extraction to 512 MB.
@@ -32,6 +33,9 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 		}
 		// If binary_name is set and the binary is at root (not in bin/), move it into bin/
 		if spec.BinaryName != "" {
+			if err := validation.SafePathComponent(spec.BinaryName); err != nil {
+				return fmt.Errorf("invalid binary_name: %w", err)
+			}
 			rootBin := filepath.Join(destDir, spec.BinaryName)
 			binDir := filepath.Join(destDir, "bin")
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
@@ -54,6 +58,9 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 func installBinary(srcPath, destDir, binaryName string) error {
 	if binaryName == "" {
 		binaryName = filepath.Base(srcPath)
+	}
+	if err := validation.SafePathComponent(binaryName); err != nil {
+		return fmt.Errorf("invalid binary name: %w", err)
 	}
 	binDir := filepath.Join(destDir, "bin")
 	if err := os.MkdirAll(binDir, 0755); err != nil {
@@ -93,6 +100,47 @@ func ExtractArchive(archivePath, destDir string, stripComponents int) error {
 	default:
 		return fmt.Errorf("unsupported archive format: %s", filepath.Base(archivePath))
 	}
+}
+
+// sanitizeEntryName cleans an archive entry name and rejects traversal attempts.
+// Returns the cleaned name or empty string if the entry should be skipped.
+func sanitizeEntryName(name string) string {
+	// Normalize to forward slashes, then clean.
+	name = filepath.FromSlash(filepath.ToSlash(name))
+	name = filepath.Clean(name)
+
+	// Reject absolute paths.
+	if filepath.IsAbs(name) {
+		return ""
+	}
+
+	// Reject any remaining ".." components after cleaning.
+	for _, part := range strings.Split(filepath.ToSlash(name), "/") {
+		if part == ".." {
+			return ""
+		}
+	}
+
+	// Reject "." (the directory itself).
+	if name == "." {
+		return ""
+	}
+
+	return name
+}
+
+// safeJoinArchivePath joins a destination directory with a sanitized archive
+// entry name. Returns the joined path only if it resolves within destDir.
+func safeJoinArchivePath(destDir, entryName string) (string, bool) {
+	clean := sanitizeEntryName(entryName)
+	if clean == "" {
+		return "", false
+	}
+	target := filepath.Join(destDir, clean)
+	if !withinDir(destDir, target) {
+		return "", false
+	}
+	return target, true
 }
 
 // withinDir checks that target is inside destDir using absolute paths.
@@ -137,8 +185,8 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		target := filepath.Join(destDir, name)
-		if !withinDir(destDir, target) {
+		target, ok := safeJoinArchivePath(destDir, name)
+		if !ok {
 			continue
 		}
 
@@ -155,9 +203,13 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 				return err
 			}
 		case tar.TypeSymlink:
-			// Validate symlink target doesn't escape
-			linkTarget := filepath.Join(filepath.Dir(target), header.Linkname)
-			if !withinDir(destDir, linkTarget) {
+			// Reject absolute symlink targets — they can point anywhere.
+			if filepath.IsAbs(header.Linkname) {
+				continue
+			}
+			// Validate the resolved symlink target stays within destDir.
+			resolvedLink := filepath.Join(filepath.Dir(target), header.Linkname)
+			if !withinDir(destDir, resolvedLink) {
 				continue
 			}
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
@@ -210,8 +262,8 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		target := filepath.Join(destDir, name)
-		if !withinDir(destDir, target) {
+		target, ok := safeJoinArchivePath(destDir, name)
+		if !ok {
 			continue
 		}
 
@@ -240,23 +292,25 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			}
 			linkTarget := buf.String()
 
+			// Reject absolute symlink targets — they can point anywhere.
+			if filepath.IsAbs(linkTarget) {
+				continue
+			}
+
 			// Validate symlink target doesn't escape. Resolve any existing
 			// symlinks in the parent directory and the candidate target
 			// path before checking that it remains within the extraction root.
 			parentDir := filepath.Dir(target)
 			realParentDir, err := filepath.EvalSymlinks(parentDir)
 			if err != nil {
-				// Cannot safely determine real parent; skip this entry.
 				continue
 			}
 			candidateTarget := filepath.Join(realParentDir, linkTarget)
 			realLinkTarget, err := filepath.EvalSymlinks(candidateTarget)
 			if err != nil {
-				// Target cannot be resolved safely; skip this entry.
 				continue
 			}
 			if !withinDir(realDestDir, realLinkTarget) {
-				// Resolved target escapes the extraction root; skip this entry.
 				continue
 			}
 
@@ -299,6 +353,10 @@ func extractDMG(dmgPath, destDir string) error {
 		return fmt.Errorf("read mounted DMG: %w", err)
 	}
 	for _, e := range entries {
+		// Validate entry names from the mounted DMG to prevent traversal.
+		if err := validation.SafePathComponent(e.Name()); err != nil {
+			continue
+		}
 		src := filepath.Join(mountPoint, e.Name())
 		dst := filepath.Join(destDir, e.Name())
 		if e.IsDir() {
