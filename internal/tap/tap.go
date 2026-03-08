@@ -95,7 +95,7 @@ func (m *Manager) Update() (int, error) {
 	if err := fetch.Run(); err != nil {
 		return 0, fmt.Errorf("update taps: %w", err)
 	}
-	reset := exec.Command("git", "reset", "--hard", "--", "origin/main")
+	reset := exec.Command("git", "reset", "--hard", "origin/main")
 	reset.Dir = m.TapsDir
 	reset.Stdout = os.Stdout
 	reset.Stderr = os.Stderr
