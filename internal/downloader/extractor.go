@@ -153,6 +153,29 @@ func sanitizeEntryName(name string) string {
 	return clean
 }
 
+// sanitizeSymlinkTarget validates and cleans a symlink target read from an
+// archive entry. Returns the cleaned target or empty string if the target
+// should be rejected. This ensures uncontrolled archive data is sanitized
+// before it reaches any path expression or filesystem operation.
+func sanitizeSymlinkTarget(target string) string {
+	// Reject null bytes which cause discrepancies between Go path
+	// functions (which process the full string) and OS syscalls
+	// (which truncate at null).
+	if strings.ContainsRune(target, 0) {
+		return ""
+	}
+	// Reject absolute paths — they can point anywhere on the filesystem.
+	if filepath.IsAbs(target) || strings.HasPrefix(target, "/") || strings.HasPrefix(target, `\`) {
+		return ""
+	}
+	// Normalize the path to resolve redundant separators and "." components.
+	clean := filepath.Clean(target)
+	if clean == "" || clean == "." {
+		return ""
+	}
+	return clean
+}
+
 // safeJoinArchivePath joins a destination directory with a sanitized archive
 // entry name. Returns the joined path only if it resolves within destDir.
 // It performs three layers of defense:
@@ -262,14 +285,14 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return err
 			}
 		case tar.TypeSymlink:
-			// Reject absolute symlink targets — they can point anywhere.
-			if filepath.IsAbs(header.Linkname) {
+			linkname := sanitizeSymlinkTarget(header.Linkname)
+			if linkname == "" {
 				continue
 			}
 			// Validate the resolved symlink target stays within destDir,
 			// resolving any existing symlinks along the path to prevent
 			// escaping the extraction root via symlink chains.
-			candidate := filepath.Join(filepath.Dir(target), header.Linkname)
+			candidate := filepath.Join(filepath.Dir(target), linkname)
 			realTarget, err := filepath.EvalSymlinks(candidate)
 			if err != nil {
 				// If the target cannot be safely resolved, skip this entry.
@@ -288,7 +311,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return err
 			}
 			os.Remove(target)
-			if err := os.Symlink(header.Linkname, target); err != nil {
+			if err := os.Symlink(linkname, target); err != nil {
 				return err
 			}
 		}
@@ -378,10 +401,8 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			if err != nil {
 				return err
 			}
-			linkTarget := buf.String()
-
-			// Reject absolute symlink targets — they can point anywhere.
-			if filepath.IsAbs(linkTarget) {
+			linkTarget := sanitizeSymlinkTarget(buf.String())
+			if linkTarget == "" {
 				continue
 			}
 

@@ -70,7 +70,7 @@ func (c *Cellar) InstalledVersion(name string) (string, error) {
 		return "", fmt.Errorf("formula %q is not installed", name)
 	}
 	for _, e := range entries {
-		if e.IsDir() {
+		if e.IsDir() && validation.IsValidVersion(e.Name()) {
 			return e.Name(), nil
 		}
 	}
@@ -89,7 +89,7 @@ func (c *Cellar) InstalledVersions(name string) ([]string, error) {
 	}
 	var versions []string
 	for _, e := range entries {
-		if e.IsDir() {
+		if e.IsDir() && validation.IsValidVersion(e.Name()) {
 			versions = append(versions, e.Name())
 		}
 	}
@@ -98,14 +98,23 @@ func (c *Cellar) InstalledVersions(name string) ([]string, error) {
 }
 
 // KegPath returns the path to a keg directory. The name and version are
-// validated to prevent path traversal.
+// validated and the result is verified to stay within the cellar.
 func (c *Cellar) KegPath(name, version string) (string, error) {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return "", fmt.Errorf("invalid name or version")
 	}
 	p := filepath.Join(c.Path, name, version)
-	if err := c.ensureWithinCellar(p); err != nil {
-		return "", err
+	absP, err := filepath.Abs(p)
+	if err != nil {
+		return "", fmt.Errorf("resolve path: %w", err)
+	}
+	absCellar, err := filepath.Abs(c.Path)
+	if err != nil {
+		return "", fmt.Errorf("resolve cellar: %w", err)
+	}
+	rel, err := filepath.Rel(absCellar, absP)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("path %q escapes cellar %q", p, c.Path)
 	}
 	return p, nil
 }
@@ -116,8 +125,17 @@ func (c *Cellar) kegDir(name string) (string, error) {
 		return "", fmt.Errorf("invalid formula name: %q", name)
 	}
 	d := filepath.Join(c.Path, name)
-	if err := c.ensureWithinCellar(d); err != nil {
-		return "", err
+	absD, err := filepath.Abs(d)
+	if err != nil {
+		return "", fmt.Errorf("resolve path: %w", err)
+	}
+	absCellar, err := filepath.Abs(c.Path)
+	if err != nil {
+		return "", fmt.Errorf("resolve cellar: %w", err)
+	}
+	rel, err := filepath.Rel(absCellar, absD)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("path %q escapes cellar %q", d, c.Path)
 	}
 	return d, nil
 }
@@ -196,19 +214,3 @@ func (c *Cellar) IsPinned(name string) bool {
 	return err == nil
 }
 
-// ensureWithinCellar verifies that a resolved path stays within the cellar
-// directory. This prevents path traversal via crafted names or symlinks.
-func (c *Cellar) ensureWithinCellar(target string) error {
-	absTarget, err := filepath.Abs(target)
-	if err != nil {
-		return fmt.Errorf("resolve path: %w", err)
-	}
-	absCellar, err := filepath.Abs(c.Path)
-	if err != nil {
-		return fmt.Errorf("resolve cellar: %w", err)
-	}
-	if absTarget != absCellar && !strings.HasPrefix(absTarget, absCellar+string(filepath.Separator)) {
-		return fmt.Errorf("path %q escapes cellar %q", target, c.Path)
-	}
-	return nil
-}
