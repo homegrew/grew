@@ -48,7 +48,8 @@ func runInfo(args []string) error {
 			linked = "linked"
 		}
 		fmt.Printf("Installed: %s (%s)\n", ver, linked)
-		Logf("Cellar:    %s\n", ctx.Cellar.KegPath(f.Name, ver))
+		cellarPath, _ := ctx.Cellar.KegPath(f.Name, ver)
+		Logf("Cellar:    %s\n", cellarPath)
 	} else {
 		fmt.Println("Installed: no")
 	}

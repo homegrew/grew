@@ -306,7 +306,10 @@ func checkCellarPermissions(ctx *doctorCtx) {
 
 func checkSnapshotIntegrity(ctx *doctorCtx) {
 	for _, pkg := range ctx.packages {
-		kegPath := ctx.cel.KegPath(pkg.Name, pkg.Version)
+		kegPath, err := ctx.cel.KegPath(pkg.Name, pkg.Version)
+		if err != nil {
+			continue
+		}
 		if !snapshot.Exists(kegPath) {
 			continue
 		}

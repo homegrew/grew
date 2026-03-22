@@ -121,7 +121,10 @@ func runList(args []string) error {
 func filterByManifest(packages []cellar.InstalledPackage, cel *cellar.Cellar, onRequest, asDep, builtSrc, pouredBottle bool) []cellar.InstalledPackage {
 	var result []cellar.InstalledPackage
 	for _, p := range packages {
-		kegPath := cel.KegPath(p.Name, p.Version)
+		kegPath, err := cel.KegPath(p.Name, p.Version)
+		if err != nil {
+			continue
+		}
 		m, err := snapshot.Load(kegPath)
 		if err != nil {
 			// No manifest — can't determine install reason. Skip for these filters.
@@ -171,7 +174,10 @@ func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, 
 			}
 		} else if long {
 			for _, v := range vers {
-				keg := cel.KegPath(p.Name, v)
+				keg, err := cel.KegPath(p.Name, v)
+				if err != nil {
+					continue
+				}
 				fmt.Printf("%-20s %-12s %s\n", name, v, keg)
 			}
 		} else {

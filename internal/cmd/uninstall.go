@@ -36,7 +36,8 @@ func runUninstall(args []string) error {
 	lnk := &linker.Linker{Paths: paths}
 
 	ver, _ := cel.InstalledVersion(name)
-	Logf("    Cellar path: %s\n", cel.KegPath(name, ver))
+	kegPath, _ := cel.KegPath(name, ver)
+	Logf("    Cellar path: %s\n", kegPath)
 
 	fmt.Printf("==> Unlinking %s...\n", name)
 	lnk.Unlink(name)

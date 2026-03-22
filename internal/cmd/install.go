@@ -188,7 +188,7 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 			if sha != "" {
 				fmt.Printf("            sha256: %s\n", sha)
 			}
-			kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
+			kegPath, _ := ctx.Cellar.KegPath(f.Name, f.Version)
 			fmt.Printf("            keg:    %s\n", kegPath)
 			if f.KegOnly {
 				fmt.Printf("            link:   keg-only (not linked)\n")
@@ -267,7 +267,12 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	Logf("    Extracted to staging: %s\n", stageDir)
 
-	kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
+	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
+	if err != nil {
+		os.RemoveAll(stageDir)
+		os.Remove(localFile)
+		return fmt.Errorf("keg path %s: %w", f.Name, err)
+	}
 	if err := ctx.Cellar.Install(f.Name, f.Version, stageDir); err != nil {
 		os.RemoveAll(stageDir)
 		os.Remove(localFile)
@@ -373,7 +378,12 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	Logf("    Extracted source to: %s\n", buildDir)
 
 	// Prepare keg directory.
-	kegPath := ctx.Cellar.KegPath(f.Name, f.Version)
+	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
+	if err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("keg path %s: %w", f.Name, err)
+	}
 	if err := os.MkdirAll(kegPath, 0755); err != nil {
 		os.RemoveAll(buildDir)
 		os.Remove(localFile)

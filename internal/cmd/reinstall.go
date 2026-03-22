@@ -49,7 +49,7 @@ func runReinstall(args []string) error {
 		// Remove all installed versions of this formula.
 		versions, _ := ctx.Cellar.InstalledVersions(name)
 		for _, ver := range versions {
-			kegPath := ctx.Cellar.KegPath(name, ver)
+			kegPath, _ := ctx.Cellar.KegPath(name, ver)
 			Logf("    Removing %s %s\n", name, ver)
 			os.RemoveAll(kegPath)
 		}

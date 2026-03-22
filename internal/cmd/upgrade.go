@@ -91,7 +91,7 @@ func runUpgrade(args []string) error {
 		}
 
 		// Remove old version keg if different from new
-		oldKeg := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
+		oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
 		if t.installedVersion != t.formula.Version {
 			if err := removeDir(oldKeg); err != nil {
 				Logf("    Warning: could not remove old keg %s: %v\n", oldKeg, err)

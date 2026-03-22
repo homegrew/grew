@@ -163,8 +163,8 @@ func Generate(grewRoot string, cellarPath string) (*LockFile, error) {
 			Platform: platform,
 		}
 
-		kegPath := cel.KegPath(pkg.Name, pkg.Version)
-		if snapshot.Exists(kegPath) {
+		kegPath, err := cel.KegPath(pkg.Name, pkg.Version)
+		if err == nil && snapshot.Exists(kegPath) {
 			m, err := snapshot.Load(kegPath)
 			if err == nil {
 				entry.SHA256 = m.DownloadSHA256
@@ -228,8 +228,8 @@ func Check(lf *LockFile, cellarPath string) ([]Discrepancy, error) {
 
 		// Check keg hash if both sides have one.
 		if entry.KegSHA256 != "" {
-			kegPath := cel.KegPath(name, pkg.Version)
-			if snapshot.Exists(kegPath) {
+			kegPath, err := cel.KegPath(name, pkg.Version)
+			if err == nil && snapshot.Exists(kegPath) {
 				m, err := snapshot.Load(kegPath)
 				if err == nil && m.KegSHA256 != entry.KegSHA256 {
 					discrepancies = append(discrepancies, Discrepancy{

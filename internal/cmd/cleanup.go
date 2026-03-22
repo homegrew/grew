@@ -53,7 +53,10 @@ func runCleanup(args []string) error {
 		}
 		// Keep the latest (last after sort), remove the rest.
 		for _, ver := range versions[:len(versions)-1] {
-			kegPath := cel.KegPath(pkg.Name, ver)
+			kegPath, err := cel.KegPath(pkg.Name, ver)
+			if err != nil {
+				continue
+			}
 			size, _ := dirSize(kegPath)
 			totalBytes += size
 			if *dryRun {

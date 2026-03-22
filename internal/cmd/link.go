@@ -54,7 +54,8 @@ func runLink(args []string) error {
 	}
 
 	lnk := &linker.Linker{Paths: paths}
-	Logf("    Keg: %s\n", cel.KegPath(name, ver))
+	kegPath, _ := cel.KegPath(name, ver)
+	Logf("    Keg: %s\n", kegPath)
 	opts := linker.LinkOpts{
 		KegOnly:   kegOnly,
 		Overwrite: *overwrite,
@@ -64,7 +65,7 @@ func runLink(args []string) error {
 	if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
 		return err
 	}
-	Logf("    opt/%s -> %s\n", name, cel.KegPath(name, ver))
+	Logf("    opt/%s -> %s\n", name, kegPath)
 	if !kegOnly || *force {
 		Logf("    Symlinked bin/, lib/, include/ contents\n")
 	}

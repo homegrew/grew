@@ -54,7 +54,11 @@ func runVerify(args []string) error {
 			fmt.Fprintf(os.Stderr, "Warning: %s: %v\n", name, err)
 			continue
 		}
-		kegPath := cel.KegPath(name, ver)
+		kegPath, err := cel.KegPath(name, ver)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Warning: %s: %v\n", name, err)
+			continue
+		}
 
 		if !snapshot.Exists(kegPath) {
 			msg := fmt.Sprintf("%s %s: no manifest (installed before snapshotting was enabled)", name, ver)

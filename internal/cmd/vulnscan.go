@@ -374,8 +374,8 @@ func scanPackage(
 ) []vulnFinding {
 	var findings []vulnFinding
 
-	kegPath := cel.KegPath(pkg.Name, pkg.Version)
-	if kegPath == "" {
+	kegPath, err := cel.KegPath(pkg.Name, pkg.Version)
+	if err != nil {
 		return findings
 	}
 
