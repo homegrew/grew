@@ -38,12 +38,12 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 			if err := validation.SafePathComponent(spec.BinaryName); err != nil {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
-			rootBin := filepath.Join(destDir, spec.BinaryName)
+			rootBin := filepath.Clean(filepath.Join(destDir, spec.BinaryName))
 			if !withinDir(destDir, rootBin) {
 				return fmt.Errorf("binary_name escapes destination directory")
 			}
-			binDir := filepath.Join(destDir, "bin")
-			binDest := filepath.Join(binDir, spec.BinaryName)
+			binDir := filepath.Clean(filepath.Join(destDir, "bin"))
+			binDest := filepath.Clean(filepath.Join(binDir, spec.BinaryName))
 			if !withinDir(destDir, binDest) {
 				return fmt.Errorf("binary destination escapes destination directory")
 			}
@@ -73,11 +73,11 @@ func installBinary(srcPath, destDir, binaryName string) error {
 	if err := validation.SafePathComponent(binaryName); err != nil {
 		return fmt.Errorf("invalid binary name: %w", err)
 	}
-	binDir := filepath.Join(destDir, "bin")
+	binDir := filepath.Clean(filepath.Join(destDir, "bin"))
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		return err
 	}
-	destPath := filepath.Join(binDir, binaryName)
+	destPath := filepath.Clean(filepath.Join(binDir, binaryName))
 	if !withinDir(destDir, destPath) {
 		return fmt.Errorf("binary path escapes destination directory")
 	}
@@ -195,7 +195,7 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	if clean == "" {
 		return "", false
 	}
-	target := filepath.Join(destDir, clean)
+	target := filepath.Clean(filepath.Join(destDir, clean))
 
 	// Standard Zip Slip check: the relative path from destDir to target
 	// must not start with ".." after filepath.Abs resolves both sides.
@@ -472,8 +472,8 @@ func extractDMG(dmgPath, destDir string) error {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		src := filepath.Join(mountPoint, e.Name())
-		dst := filepath.Join(destDir, e.Name())
+		src := filepath.Clean(filepath.Join(mountPoint, e.Name()))
+		dst := filepath.Clean(filepath.Join(destDir, e.Name()))
 
 		// Verify constructed paths resolve within expected directories.
 		if !withinDir(mountPoint, src) || !withinDir(destDir, dst) {

@@ -132,13 +132,15 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
 	// Look in "cask" subdirectory of taps
-	caskDir := filepath.Join(l.TapDir, "cask")
-	path := filepath.Join(caskDir, name+".yaml")
+	tapDir := filepath.Clean(l.TapDir)
+	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
+	path := filepath.Clean(filepath.Join(caskDir, name+".yaml"))
 	return l.loadFromFile(path)
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	caskDir := filepath.Join(l.TapDir, "cask")
+	tapDir := filepath.Clean(l.TapDir)
+	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
 	entries, err := os.ReadDir(caskDir)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -154,7 +156,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		c, err := l.loadFromFile(filepath.Join(caskDir, e.Name()))
+		c, err := l.loadFromFile(filepath.Clean(filepath.Join(caskDir, e.Name())))
 		if err != nil {
 			l.debugf("failed to parse cask %s: %v\n", e.Name(), err)
 			continue
@@ -165,7 +167,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 }
 
 func (l *Loader) loadFromFile(path string) (*Cask, error) {
-	data, err := os.ReadFile(path)
+	data, err := os.ReadFile(filepath.Clean(path))
 	if err != nil {
 		return nil, err
 	}
@@ -181,7 +183,7 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	info, err := os.Stat(filepath.Join(cr.Path, name))
+	info, err := os.Stat(filepath.Clean(filepath.Join(cr.Path, name)))
 	return err == nil && info.IsDir()
 }
 
@@ -189,12 +191,12 @@ func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid cask name: %q", name)
 	}
-	entries, err := os.ReadDir(filepath.Join(cr.Path, name))
+	entries, err := os.ReadDir(filepath.Clean(filepath.Join(cr.Path, name)))
 	if err != nil {
 		return "", fmt.Errorf("cask %q is not installed", name)
 	}
 	for _, e := range entries {
-		if e.IsDir() {
+		if e.IsDir() && validation.IsValidVersion(e.Name()) {
 			return e.Name(), nil
 		}
 	}
@@ -206,7 +208,7 @@ func (cr *Caskroom) Record(name, version string) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid name or version")
 	}
-	dir := filepath.Join(cr.Path, name, version)
+	dir := filepath.Clean(filepath.Join(cr.Path, name, version))
 	return os.MkdirAll(dir, 0755)
 }
 
@@ -215,7 +217,7 @@ func (cr *Caskroom) Remove(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid cask name: %q", name)
 	}
-	dir := filepath.Join(cr.Path, name)
+	dir := filepath.Clean(filepath.Join(cr.Path, name))
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		return fmt.Errorf("cask %q is not installed", name)
 	}
@@ -228,7 +230,7 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	entries, err := os.ReadDir(cr.Path)
+	entries, err := os.ReadDir(filepath.Clean(cr.Path))
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
