@@ -20,6 +20,8 @@ import (
 const maxExtractSize = 512 << 20
 
 func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
+	archivePath = filepath.Clean(archivePath)
+	destDir = filepath.Clean(destDir)
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		return fmt.Errorf("create dest dir: %w", err)
 	}
@@ -63,6 +65,8 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 }
 
 func installBinary(srcPath, destDir, binaryName string) error {
+	srcPath = filepath.Clean(srcPath)
+	destDir = filepath.Clean(destDir)
 	if binaryName == "" {
 		binaryName = filepath.Base(srcPath)
 	}
@@ -97,6 +101,8 @@ func installBinary(srcPath, destDir, binaryName string) error {
 }
 
 func ExtractArchive(archivePath, destDir string, stripComponents int) error {
+	archivePath = filepath.Clean(archivePath)
+	destDir = filepath.Clean(destDir)
 	lower := strings.ToLower(archivePath)
 	switch {
 	case strings.HasSuffix(lower, ".tar.gz") || strings.HasSuffix(lower, ".tgz"):

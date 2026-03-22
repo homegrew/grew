@@ -81,8 +81,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err := validation.SafePathComponent(filename); err != nil {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
-	destPath := filepath.Join(d.TmpDir, filename)
-	if !withinDir(d.TmpDir, destPath) {
+	tmpDir := filepath.Clean(d.TmpDir)
+	destPath := filepath.Clean(filepath.Join(tmpDir, filename))
+	if !withinDir(tmpDir, destPath) {
 		return "", fmt.Errorf("download path escapes temp directory")
 	}
 
@@ -171,7 +172,7 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 
 // ComputeSHA256 returns the hex-encoded SHA256 hash of a file.
 func ComputeSHA256(path string) (string, error) {
-	f, err := os.Open(path)
+	f, err := os.Open(filepath.Clean(path))
 	if err != nil {
 		return "", fmt.Errorf("open for hashing: %w", err)
 	}
