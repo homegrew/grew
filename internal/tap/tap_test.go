@@ -118,12 +118,15 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 	gitCommit(t, dir, "add formulas")
 
 	// Create a bare remote so fetch/reset works.
-	remote := t.TempDir()
-	runGit(t, "", "clone", "--bare", dir, remote)
+	// Use dir as the working directory for git commands — never leave
+	// cmd.Dir unset, because the default (package source dir) can be
+	// removed by cleanup or parallel tests, causing flaky failures.
+	remote := filepath.Join(t.TempDir(), "remote.git")
+	runGit(t, dir, "clone", "--bare", dir, remote)
 
 	// Re-clone from the bare remote so the repo has an origin.
-	cloned := t.TempDir()
-	runGit(t, "", "clone", remote, cloned)
+	cloned := filepath.Join(t.TempDir(), "cloned")
+	runGit(t, dir, "clone", remote, cloned)
 
 	// Copy formula files into the clone (they're already there from clone).
 	mgr := &Manager{TapsDir: cloned}

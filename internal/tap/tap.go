@@ -15,7 +15,7 @@ type Manager struct {
 }
 
 // cleanDir validates and cleans a directory path to prevent argument
-// injection. The result is always a Clean'd absolute path.
+// injection. The result is always an absolute, Clean'd path.
 func cleanDir(dir string) (string, error) {
 	if dir == "" {
 		return "", fmt.Errorf("empty path")
@@ -24,21 +24,28 @@ func cleanDir(dir string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve path: %w", err)
 	}
-	// filepath.Abs resolves ".." components, so the result is already
-	// traversal-free. Guard against leading dashes that could be
-	// interpreted as flags by subprocesses.
-	abs = filepath.Clean(abs)
-	if strings.HasPrefix(filepath.Base(abs), "-") {
+	clean := filepath.Clean(abs)
+	if strings.HasPrefix(filepath.Base(clean), "-") {
 		return "", fmt.Errorf("path component starts with dash: %q", dir)
 	}
-	return abs, nil
+	return clean, nil
 }
 
 // EnsureCloned clones the taps repo if it hasn't been cloned yet.
 func (m *Manager) EnsureCloned() error {
-	tapsDir, err := cleanDir(m.TapsDir)
+	if m.TapsDir == "" {
+		return fmt.Errorf("invalid taps dir: empty path")
+	}
+	// filepath.Abs + filepath.Clean inline so static-analysis tools see the
+	// SAST-recognised sanitisers in the same scope as the tainted m.TapsDir
+	// source and every filesystem / exec sink below.
+	absDir, err := filepath.Abs(m.TapsDir)
 	if err != nil {
 		return fmt.Errorf("invalid taps dir: %w", err)
+	}
+	tapsDir := filepath.Clean(absDir)
+	if strings.HasPrefix(filepath.Base(tapsDir), "-") {
+		return fmt.Errorf("taps path starts with dash: %q", m.TapsDir)
 	}
 	m.TapsDir = tapsDir
 
@@ -88,11 +95,16 @@ func (m *Manager) Update() (int, error) {
 		return 0, err
 	}
 
-	// Use a local validated copy of the taps directory for all path
-	// operations so the sanitization is visible at each use site.
-	tapsDir, err := cleanDir(m.TapsDir)
+	// filepath.Abs + filepath.Clean inline so static-analysis tools see the
+	// SAST-recognised sanitisers in the same scope as the tainted m.TapsDir
+	// source and every filesystem / exec sink below.
+	absDir, err := filepath.Abs(m.TapsDir)
 	if err != nil {
 		return 0, fmt.Errorf("invalid taps dir: %w", err)
+	}
+	tapsDir := filepath.Clean(absDir)
+	if strings.HasPrefix(filepath.Base(tapsDir), "-") {
+		return 0, fmt.Errorf("taps path starts with dash: %q", m.TapsDir)
 	}
 
 	fmt.Printf("==> Updating taps...\n")
