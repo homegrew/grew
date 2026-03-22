@@ -92,7 +92,7 @@ func ExtractArchive(archivePath, destDir string, stripComponents int) error {
 	case strings.HasSuffix(lower, ".tar.gz") || strings.HasSuffix(lower, ".tgz"):
 		return extractTarGz(archivePath, destDir, stripComponents)
 	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz") || strings.HasSuffix(lower, ".tar.bz2"):
-		return extractTarXzSystem(archivePath, destDir, stripComponents)
+		return extractTarXzBz2(archivePath, destDir, stripComponents)
 	case strings.HasSuffix(lower, ".zip"):
 		return extractZip(archivePath, destDir, stripComponents)
 	case strings.HasSuffix(lower, ".dmg"):
@@ -201,20 +201,9 @@ func withinDir(destDir, target string) bool {
 	return absTarget == absDir || strings.HasPrefix(absTarget, dirWithSep)
 }
 
-func extractTarGz(archivePath, destDir string, stripComponents int) error {
-	f, err := os.Open(archivePath)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	gz, err := gzip.NewReader(f)
-	if err != nil {
-		return fmt.Errorf("open gzip: %w", err)
-	}
-	defer gz.Close()
-
-	tr := tar.NewReader(gz)
+// extractTar safely extracts entries from a tar stream with path traversal
+// and symlink escape protection.
+func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 	for {
 		header, err := tr.Next()
 		if err == io.EOF {
@@ -279,6 +268,22 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 		}
 	}
 	return nil
+}
+
+func extractTarGz(archivePath, destDir string, stripComponents int) error {
+	f, err := os.Open(archivePath)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	gz, err := gzip.NewReader(f)
+	if err != nil {
+		return fmt.Errorf("open gzip: %w", err)
+	}
+	defer gz.Close()
+
+	return extractTar(tar.NewReader(gz), destDir, stripComponents)
 }
 
 // extractFile writes a single file from a reader with size limits.
@@ -416,20 +421,31 @@ func extractDMG(dmgPath, destDir string) error {
 		}
 		src := filepath.Join(mountPoint, e.Name())
 		dst := filepath.Join(destDir, e.Name())
-		if e.IsDir() {
+
+		// Verify constructed paths resolve within expected directories.
+		if !withinDir(mountPoint, src) || !withinDir(destDir, dst) {
+			continue
+		}
+
+		// Use Lstat to verify actual file type — os.ReadDir may not
+		// accurately report symlinks on all filesystems, and os.ReadFile
+		// follows symlinks which could read files outside the mount.
+		fi, err := os.Lstat(src)
+		if err != nil {
+			continue
+		}
+
+		switch {
+		case fi.IsDir():
 			if err := fsutil.CopyTree(src, dst); err != nil {
 				return fmt.Errorf("copy %s from DMG: %w", e.Name(), err)
 			}
-		} else if e.Type().IsRegular() {
-			data, err := os.ReadFile(src)
-			if err != nil {
-				return fmt.Errorf("read %s from DMG: %w", e.Name(), err)
-			}
-			info, _ := e.Info()
-			if err := os.WriteFile(dst, data, info.Mode()); err != nil {
-				return fmt.Errorf("write %s: %w", e.Name(), err)
+		case fi.Mode().IsRegular():
+			if err := fsutil.CopyFile(src, dst, fsutil.SanitizeMode(fi.Mode(), false)); err != nil {
+				return fmt.Errorf("copy %s from DMG: %w", e.Name(), err)
 			}
 		}
+		// Symlinks and other special files are silently skipped.
 	}
 	return nil
 }
@@ -445,17 +461,34 @@ func stripPath(name string, strip int) string {
 	return parts[strip]
 }
 
-// extractTarXzSystem uses the system 'tar' command to extract .tar.xz and .tar.bz2 files.
-func extractTarXzSystem(archivePath, destDir string, stripComponents int) error {
-	args := []string{"-xf", archivePath, "-C", destDir, "--"}
-	if stripComponents > 0 {
-		args = append(args, fmt.Sprintf("--strip-components=%d", stripComponents))
+// extractTarXzBz2 decompresses .tar.xz and .tar.bz2 archives using a system
+// decompressor (xz or bzip2) and pipes the tar stream through the safe
+// extractTar function, which validates all paths and symlinks.
+func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
+	lower := strings.ToLower(archivePath)
+	var decompressCmd string
+	switch {
+	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz"):
+		decompressCmd = "xz"
+	case strings.HasSuffix(lower, ".tar.bz2"):
+		decompressCmd = "bzip2"
+	default:
+		return fmt.Errorf("unsupported archive format: %s", filepath.Base(archivePath))
 	}
-	cmd := exec.Command("tar", args...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("tar -xf failed: %w", err)
+
+	cmd := exec.Command(decompressCmd, "-d", "-c", "--", archivePath)
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		return err
 	}
-	return nil
+	if err := cmd.Start(); err != nil {
+		return fmt.Errorf("decompress %s: %w", decompressCmd, err)
+	}
+
+	extractErr := extractTar(tar.NewReader(stdout), destDir, stripComponents)
+
+	if err := cmd.Wait(); err != nil && extractErr == nil {
+		return fmt.Errorf("%s decompression failed: %w", decompressCmd, err)
+	}
+	return extractErr
 }
