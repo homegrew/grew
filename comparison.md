@@ -1,0 +1,66 @@
+# `grew install` vs `brew install` — Comparison
+
+## What's closely matched
+
+| Feature | brew | grew | Match |
+|---|---|---|---|
+| **Cellar/keg layout** | `Cellar/<name>/<version>/` | Same | Identical |
+| **Opt symlinks** | `opt/<name> → Cellar/…` | Same | Identical |
+| **Prefix linking** | bin/, lib/, include/ into prefix | Same | Identical |
+| **Shared dir expansion** | Expand symlink-to-dir into per-file symlinks | `unsymDir()` does same | Identical |
+| **Keg-only formulas** | Install but don't link into prefix | Same via `f.KegOnly` | Identical |
+| **Dependency resolution** | Topological sort (deps first) | Kahn's algorithm in `depgraph/` | Identical concept |
+| **Bottle install** | Download prebuilt → verify → extract → link | Same flow exactly | Very close |
+| **Source build** | `./configure && make && make install` in sandbox | Same 3-step in `installFormulaFromSource` | Similar |
+| **SHA256 verification** | Verify after download | `VerifySHA256()` after download | Identical |
+| **Post-install scripts** | Run after linking | Same, sandboxed | Close |
+| **`--skip-link` / `--skip-post-install`** | Supported | Supported | Identical |
+| **`--only-dependencies` / `--ignore-dependencies`** | Supported | Supported | Identical |
+| **`--build-from-source` / `-s`** | Supported | Supported | Identical |
+| **`--dry-run` / `-n`** | Supported | `simulateInstall()` | Identical |
+| **Pin support** | PINNED marker file | Same | Identical |
+| **Cask install** | Separate `--cask` path | Same routing via `caskInstall()` | Same pattern |
+
+## Where grew goes further than brew
+
+| Feature | Notes |
+|---|---|
+| **Ed25519 bottle signing** | Brew relies on GitHub HTTPS trust; grew has a local trust store + per-formula signatures |
+| **Install manifests** | `.MANIFEST.json` with per-file SHA256, provenance, aggregate hash — brew has `INSTALL_RECEIPT.json` but it's less comprehensive |
+| **Sandboxed extraction** | Grew sandboxes the archive extraction step too, not just builds |
+| **Post-install sandbox** | Keg is **read-only** during post-install — brew doesn't enforce this |
+| **SSRF host allowlist** | Hardcoded + `HOMEGREW_ALLOWED_HOSTS` — brew doesn't restrict download hosts |
+| **Zip Slip + symlink escape protection** | Multi-layer: textual check + `EvalSymlinks` + `withinDir()` — brew relies on system tar |
+| **File mode sanitization** | Strips setuid/setgid/sticky/world-write bits on extraction |
+| **Audit logging** | Records every install action with hash and method |
+| **`--require-sha`** | Refuse install if SHA256 is missing — brew doesn't have this flag |
+
+## Where brew is more capable
+
+| Feature | Notes |
+|---|---|
+| **Ruby DSL formulas** | Brew formulas are full Ruby classes with `def install` blocks — arbitrary build logic. Grew's source builds are hardcoded to `./configure && make && make install` |
+| **Patches** | Brew supports inline/remote patches via `patch do ... end`. Grew has no patching system |
+| **Build environment** | Brew sets up `superenv`/`stdenv` with compiler wrappers, rpath fixups, `-isysroot` injection. Grew passes through a clean env but no compiler wrapping |
+| **Multiple formula installs** | `brew install foo bar baz` installs many at once. Grew only accepts one formula |
+| **Pour bottle relocation** | Brew relocates hardcoded paths in bottles (text/binary patching). Grew doesn't relocate — bottles must be prefix-independent |
+| **Options/variants** | Brew had `--with-*` / `--without-*` options (deprecated but existed). Grew has none |
+| **Caveats** | Brew prints formula-specific post-install messages. Grew doesn't have a caveats field |
+| **Tab/receipt metadata** | Brew writes `INSTALL_RECEIPT.json` with build options, compiler info, runtime deps, etc. |
+| **Automatic cleanup** | Brew auto-removes old versions after upgrade. Grew requires explicit `grew cleanup` |
+| **Analytics** | Brew reports install analytics (opt-out). Grew has no analytics |
+| **Tap auto-install** | `brew install user/tap/formula` auto-taps. Grew requires pre-configured taps |
+| **HEAD installs** | `brew install --HEAD` builds from repo HEAD. Grew doesn't support this |
+| **Build dependencies** | Brew distinguishes `depends_on` vs `build.depends_on`. Grew has flat `dependencies[]` |
+| **Bottle auto-selection** | Brew's bottle logic handles OS version matching, fallback bottles, and cellar relocation types. Grew uses simple `os_arch` platform keys |
+
+## Verdict
+
+**~70-75% feature parity** with `brew install` for the core happy path. The fundamental architecture (cellar, kegs, linking, dependency resolution, bottle vs source) is a faithful recreation. Grew actually exceeds brew on security (signing, sandboxing, manifests).
+
+The main gaps are:
+
+1. **Build flexibility** — the hardcoded `configure/make/make install` vs brew's arbitrary Ruby DSL is the biggest functional gap
+2. **Single formula at a time** — trivial to fix
+3. **No bottle relocation** — limits portability across prefixes
+4. **No build vs runtime dep distinction** — matters for complex dependency trees
