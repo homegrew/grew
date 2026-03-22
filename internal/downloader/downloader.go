@@ -82,6 +82,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
 	destPath := filepath.Join(d.TmpDir, filename)
+	if !withinDir(d.TmpDir, destPath) {
+		return "", fmt.Errorf("download path escapes temp directory")
+	}
 
 	// Build the request from the reconstructed url.URL, not the raw input.
 	req := &http.Request{

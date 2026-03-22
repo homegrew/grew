@@ -37,13 +37,20 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
 			rootBin := filepath.Join(destDir, spec.BinaryName)
+			if !withinDir(destDir, rootBin) {
+				return fmt.Errorf("binary_name escapes destination directory")
+			}
 			binDir := filepath.Join(destDir, "bin")
+			binDest := filepath.Join(binDir, spec.BinaryName)
+			if !withinDir(destDir, binDest) {
+				return fmt.Errorf("binary destination escapes destination directory")
+			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
 				if _, err := os.Stat(binDir); os.IsNotExist(err) {
 					if err := os.MkdirAll(binDir, 0755); err != nil {
 						return fmt.Errorf("create bin dir: %w", err)
 					}
-					if err := os.Rename(rootBin, filepath.Join(binDir, spec.BinaryName)); err != nil {
+					if err := os.Rename(rootBin, binDest); err != nil {
 						return fmt.Errorf("move binary to bin/: %w", err)
 					}
 				}
@@ -67,6 +74,9 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return err
 	}
 	destPath := filepath.Join(binDir, binaryName)
+	if !withinDir(destDir, destPath) {
+		return fmt.Errorf("binary path escapes destination directory")
+	}
 
 	src, err := os.Open(srcPath)
 	if err != nil {
@@ -145,15 +155,31 @@ func sanitizeEntryName(name string) string {
 
 // safeJoinArchivePath joins a destination directory with a sanitized archive
 // entry name. Returns the joined path only if it resolves within destDir.
-// It performs both a textual check (against path traversal via "..") and a
-// filesystem check (against symlink indirection created during extraction).
+// It performs three layers of defense:
+//  1. Name sanitization — rejects "..", absolute paths, and other traversal patterns.
+//  2. Relative-path check — filepath.Rel must produce a clean relative path
+//     without leading ".." components (the standard Zip Slip guard).
+//  3. Filesystem check — resolves symlinks in the parent directory to block
+//     symlink indirection attacks (Zip Slip variant).
 func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	clean := sanitizeEntryName(entryName)
 	if clean == "" {
 		return "", false
 	}
 	target := filepath.Join(destDir, clean)
-	if !withinDir(destDir, target) {
+
+	// Standard Zip Slip check: the relative path from destDir to target
+	// must not start with ".." after filepath.Abs resolves both sides.
+	absDestDir, err := filepath.Abs(destDir)
+	if err != nil {
+		return "", false
+	}
+	absTarget, err := filepath.Abs(target)
+	if err != nil {
+		return "", false
+	}
+	rel, err := filepath.Rel(absDestDir, absTarget)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", false
 	}
 
