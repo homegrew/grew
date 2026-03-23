@@ -415,8 +415,8 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 		return err
 	}
 	// Copy at most maxExtractSize+1 bytes so we can detect if the limit is exceeded.
-	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
-	n, err := io.Copy(out, lr)
+	limitedReader := &io.LimitedReader{R: r, N: maxExtractSize + 1}
+	n, err := io.Copy(out, limitedReader)
 	if err != nil {
 		out.Close()
 		return err
