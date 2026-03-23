@@ -25,6 +25,9 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if filepath.Base(appName) != appName {
 		return "", fmt.Errorf("invalid app name: %q", appName)
 	}
+	if err := validation.SafePathComponent(appName); err != nil {
+		return "", fmt.Errorf("invalid app name: %q", appName)
+	}
 
 	srcApp, err := findApp(stageDir, appName)
 	if err != nil {
