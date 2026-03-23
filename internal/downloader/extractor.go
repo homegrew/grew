@@ -465,8 +465,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 				continue
 			}
 			candidateTarget := filepath.Join(realParentDir, linkTarget)
-			realLinkTarget, err := filepath.EvalSymlinks(candidateTarget)
-			if err != nil {
+			realLinkTarget := candidateTarget
+			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+				realLinkTarget = resolved
+			} else if !os.IsNotExist(err) {
+				// For errors other than non-existent targets, skip creating the symlink.
 				continue
 			}
 			if !withinDir(realDestDir, realLinkTarget) {
