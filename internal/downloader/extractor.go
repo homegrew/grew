@@ -355,14 +355,30 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				continue
 			}
 			// Validate that the symlink target, when interpreted relative to
-			// the extraction directory, stays within destDir. Use path
-			// cleaning instead of EvalSymlinks so the target does not need
-			// to exist on the filesystem yet.
-			resolved := filepath.Clean(filepath.Join(filepath.Dir(target), linkname))
-			if !withinDir(destDir, resolved) {
+			// the (possibly symlinked) parent directory, stays within destDir.
+			// Resolve the parent directory to avoid following previously
+			// extracted symlinks outside of destDir.
+			parentDir := filepath.Dir(target)
+			// As an extra safety check, ensure the parent directory itself
+			// is within destDir before creating it.
+			if !withinDir(destDir, parentDir) {
 				continue
 			}
-			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+			resolvedParent, err := filepath.EvalSymlinks(parentDir)
+			if err != nil {
+				// If the parent does not yet exist or cannot be resolved,
+				// fall back to the intended parent path.
+				resolvedParent = parentDir
+			}
+			resolved := filepath.Clean(filepath.Join(resolvedParent, linkname))
+			realDest, err2 := filepath.EvalSymlinks(destDir)
+			if err2 != nil {
+				realDest = destDir
+			}
+			if !withinDir(realDest, resolved) {
+				continue
+			}
+			if err := os.MkdirAll(parentDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
 			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
@@ -459,11 +475,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		if err != nil {
 			return err
 		}
+		defer rc.Close()
 
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
 			_, err := io.Copy(buf, rc)
-			rc.Close()
 			if err != nil {
 				return err
 			}
@@ -589,6 +605,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	absArchivePath, err := filepath.Abs(archivePath)
 	if err != nil {
 		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
+	}
+
+	if err := validation.SafePathComponent(absArchivePath); err != nil {
+		return fmt.Errorf("unsafe archive path %q: %w", absArchivePath, err)
 	}
 
 	lower := strings.ToLower(absArchivePath)
