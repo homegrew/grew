@@ -31,31 +31,41 @@ type Paths struct {
 //     knows where it is without any configuration.
 //  3. Fallback to ~/.grew
 func DefaultPrefix() string {
-	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
-		return env
-	}
+	var prefix string
 
-	// Infer from binary location: /opt/homegrew/bin/grew → /opt/homegrew
-	if exe, err := os.Executable(); err == nil {
-		exe, err = filepath.EvalSymlinks(exe)
-		if err == nil {
-			dir := filepath.Dir(exe)                    // <prefix>/bin
-			if filepath.Base(dir) == "bin" {
-				candidate := filepath.Dir(dir)          // <prefix>
-				// Sanity check: the candidate should have a Cellar or Taps dir.
-				if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
-					return candidate
+	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
+		prefix = env
+	} else {
+		// Infer from binary location: /opt/homegrew/bin/grew → /opt/homegrew
+		if exe, err := os.Executable(); err == nil {
+			exe, err = filepath.EvalSymlinks(exe)
+			if err == nil {
+				dir := filepath.Dir(exe) // <prefix>/bin
+				if filepath.Base(dir) == "bin" {
+					candidate := filepath.Dir(dir) // <prefix>
+					// Sanity check: the candidate should have a Cellar or Taps dir.
+					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
+						prefix = candidate
+					}
 				}
 			}
 		}
 	}
 
-	// Fallback to user-local.
-	home, err := os.UserHomeDir()
-	if err != nil {
-		home = "."
+	if prefix == "" {
+		// Fallback to user-local.
+		home, err := os.UserHomeDir()
+		if err != nil {
+			home = "."
+		}
+		prefix = filepath.Join(home, ".homegrew")
 	}
-	return filepath.Join(home, ".homegrew")
+
+	// Normalize the prefix to an absolute, cleaned path to avoid surprises downstream.
+	if abs, err := filepath.Abs(prefix); err == nil {
+		return filepath.Clean(abs)
+	}
+	return filepath.Clean(prefix)
 }
 
 // SystemPrefix returns the recommended system-level prefix for the current
@@ -97,6 +107,13 @@ func Default() Paths {
 
 // FromRoot builds a Paths struct from an explicit root and appDir.
 func FromRoot(root, appDir string) Paths {
+	// Normalize root so that all derived paths (Cellar, Caskroom, etc.) are
+	// absolute and cleaned, regardless of how root was provided.
+	if abs, err := filepath.Abs(root); err == nil {
+		root = abs
+	}
+	root = filepath.Clean(root)
+
 	return Paths{
 		Root:     root,
 		Cellar:   filepath.Join(root, "Cellar"),
