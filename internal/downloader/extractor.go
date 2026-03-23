@@ -272,8 +272,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	if err == nil {
 		// Parent exists on disk — verify the resolved path stays inside.
 		realTarget := filepath.Join(realParent, filepath.Base(target))
-		realDest, err2 := filepath.EvalSymlinks(destDir)
-		if err2 != nil {
+		realDest, evalDestErr := filepath.EvalSymlinks(destDir)
+		if evalDestErr != nil {
 			realDest = destDir
 		}
 		if !withinDir(realDest, realTarget) {
