@@ -161,8 +161,22 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 			return fmt.Errorf("resolve destination root: %w", err)
 		}
 		absRoot = filepath.Clean(absRoot)
+
+		// First, perform a cheap lexical containment check.
 		if !isWithinRoot(absRoot, absDst) {
 			return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
+		}
+
+		// Then, resolve symlinks in the destination directory and ensure the real
+		// path is still contained within the resolved root. This prevents a case
+		// like <root>/sub/file where "sub" is a symlink pointing outside <root>.
+		dstDir := filepath.Dir(absDst)
+		resolvedDstDir, err := filepath.EvalSymlinks(dstDir)
+		if err != nil {
+			return fmt.Errorf("resolve destination directory: %w", err)
+		}
+		if !isWithinRoot(absRoot, resolvedDstDir) {
+			return fmt.Errorf("refusing to copy file outside destination root via symlink: %s", absDst)
 		}
 	}
 
