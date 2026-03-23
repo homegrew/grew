@@ -139,6 +139,16 @@ func CopyTree(src, dst string) error {
 // that the destination lies within a specified root directory. If root is
 // empty, a root is derived from the destination's parent directory.
 func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
+	// Normalize source to an absolute, cleaned path to prevent path traversal.
+	if src == "" {
+		return fmt.Errorf("source path cannot be empty")
+	}
+	absSrc, err := filepath.Abs(src)
+	if err != nil {
+		return fmt.Errorf("resolve source: %w", err)
+	}
+	absSrc = filepath.Clean(absSrc)
+
 	// Normalize destination to an absolute, cleaned path before use.
 	if dst == "" {
 		return fmt.Errorf("destination path cannot be empty")
@@ -191,7 +201,7 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 		}
 	}
 
-	in, err := os.Open(src)
+	in, err := os.Open(absSrc)
 	if err != nil {
 		return err
 	}
