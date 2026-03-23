@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 )
 
@@ -44,7 +45,13 @@ func CopyTree(src, dst string) error {
 				linkAbs = filepath.Join(filepath.Dir(target), link)
 			}
 			linkAbs = filepath.Clean(linkAbs)
-			if !strings.HasPrefix(linkAbs, absDst+string(filepath.Separator)) && linkAbs != absDst {
+			normalizedRoot := absDst
+			normalizedCandidate := linkAbs
+			if runtime.GOOS == "windows" {
+				normalizedRoot = strings.ToLower(normalizedRoot)
+				normalizedCandidate = strings.ToLower(normalizedCandidate)
+			}
+			if !strings.HasPrefix(normalizedCandidate, normalizedRoot+string(filepath.Separator)) && normalizedCandidate != normalizedRoot {
 				// Skip symlinks that escape — don't fail, just skip silently.
 				return nil
 			}
@@ -52,7 +59,25 @@ func CopyTree(src, dst string) error {
 		}
 
 		if info.IsDir() {
-			return os.MkdirAll(target, SanitizeMode(info.Mode(), true))
+			dirMode := SanitizeMode(info.Mode(), true)
+			if err := os.MkdirAll(target, dirMode); err != nil {
+				// If the path already exists, ensure it's a directory and update permissions.
+				if os.IsExist(err) {
+					st, statErr := os.Stat(target)
+					if statErr != nil {
+						return statErr
+					}
+					if !st.IsDir() {
+						return err
+					}
+					if chmodErr := os.Chmod(target, dirMode); chmodErr != nil {
+						return chmodErr
+					}
+					return nil
+				}
+				return err
+			}
+			return nil
 		}
 
 		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
@@ -79,7 +104,7 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 	}()
 
 	if _, err := io.Copy(out, in); err != nil {
-		return err
+		cerr = err
 	}
 	return cerr
 }

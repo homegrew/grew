@@ -445,9 +445,9 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	n, err := io.Copy(out, lr)
 	if err != nil {
 		if cerr := out.Close(); cerr != nil {
-			return fmt.Errorf("copy data: %v; additionally, closing output file %q failed: %w", err, path, cerr)
+			return fmt.Errorf("copy data to %q: %v; additionally, closing output file %q failed: %w", path, err, path, cerr)
 		}
-		return err
+		return fmt.Errorf("copy data to %q: %w", path, err)
 	}
 	if n > maxExtractSize {
 		// File exceeded the allowed size; remove partial output and return an error.
@@ -524,9 +524,9 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			_, err := io.Copy(buf, io.LimitReader(rc, maxSymlinkTargetSize))
 			if err != nil {
 				if cerr := rc.Close(); cerr != nil {
-					return fmt.Errorf("copy symlink target: %w; close reader: %v", err, cerr)
+					return fmt.Errorf("copy symlink target for %q: %w; close reader: %v", f.Name, err, cerr)
 				}
-				return err
+				return fmt.Errorf("copy symlink target for %q: %w", f.Name, err)
 			}
 			linkTarget := sanitizeSymlinkTarget(buf.String())
 			if linkTarget == "" {
@@ -562,11 +562,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 
 			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
 				rc.Close()
-				return err
+				return fmt.Errorf("remove %q before creating symlink: %w", target, err)
 			}
 			if err := os.Symlink(linkTarget, target); err != nil {
 				rc.Close()
-				return err
+				return fmt.Errorf("create symlink %q -> %q: %w", target, linkTarget, err)
 			}
 			rc.Close()
 			continue
