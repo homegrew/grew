@@ -524,7 +524,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			_, err := io.Copy(buf, io.LimitReader(rc, maxSymlinkTargetSize))
 			if err != nil {
 				if cerr := rc.Close(); cerr != nil {
-					return fmt.Errorf("copy symlink target: %v; close reader: %w", err, cerr)
+					return fmt.Errorf("copy symlink target: %w; close reader: %v", err, cerr)
 				}
 				return err
 			}
