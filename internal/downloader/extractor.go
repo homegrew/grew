@@ -483,7 +483,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 
 		rc, err := f.Open()
 		if err != nil {
-			return err
+			return fmt.Errorf("open zip entry %q: %w", f.Name, err)
 		}
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
