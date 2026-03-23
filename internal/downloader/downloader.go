@@ -172,7 +172,12 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 
 // ComputeSHA256 returns the hex-encoded SHA256 hash of a file.
 func ComputeSHA256(path string) (string, error) {
-	f, err := os.Open(filepath.Clean(path))
+	clean := filepath.Clean(path)
+	if clean == "." || clean == "" {
+		return "", fmt.Errorf("invalid path for hashing")
+	}
+
+	f, err := os.Open(clean)
 	if err != nil {
 		return "", fmt.Errorf("open for hashing: %w", err)
 	}
