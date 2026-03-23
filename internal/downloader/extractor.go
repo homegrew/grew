@@ -113,7 +113,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("bin directory escapes destination directory")
 	}
 	if err := os.MkdirAll(binDir, 0755); err != nil {
-		return err
+		return fmt.Errorf("create bin dir: %w", err)
 	}
 	destPath := filepath.Clean(filepath.Join(binDir, binaryName))
 	if !withinDir(destDir, destPath) {
