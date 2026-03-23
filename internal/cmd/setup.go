@@ -286,7 +286,11 @@ func copyFile(src, dst string) error {
 // Otherwise, they go to ~/Applications.
 func defaultAppDir() string {
 	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
-		return v
+		if abs, err := filepath.Abs(v); err == nil {
+			return filepath.Clean(abs)
+		}
+		// If the override cannot be resolved to an absolute path,
+		// ignore it and fall back to the default locations below.
 	}
 	if os.Geteuid() == 0 {
 		return "/Applications"
@@ -295,7 +299,11 @@ func defaultAppDir() string {
 	if err != nil {
 		home = "."
 	}
-	return filepath.Join(home, "Applications")
+	appDir := filepath.Join(home, "Applications")
+	if abs, err := filepath.Abs(appDir); err == nil {
+		return filepath.Clean(abs)
+	}
+	return appDir
 }
 
 func primaryGroup(u *user.User) string {
