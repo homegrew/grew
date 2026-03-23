@@ -36,17 +36,23 @@ func (m *Manager) EnsureCloned() error {
 	if m.TapsDir == "" {
 		return fmt.Errorf("invalid taps dir: empty path")
 	}
-	// filepath.Abs + filepath.Clean inline so static-analysis tools see the
-	// SAST-recognised sanitisers in the same scope as the tainted m.TapsDir
-	// source and every filesystem / exec sink below.
-	absDir, err := filepath.Abs(m.TapsDir)
+
+	// Validate and normalize the taps directory.
+	tapsDir, err := cleanDir(m.TapsDir)
 	if err != nil {
 		return fmt.Errorf("invalid taps dir: %w", err)
 	}
-	tapsDir := filepath.Clean(absDir)
-	if strings.HasPrefix(filepath.Base(tapsDir), "-") {
-		return fmt.Errorf("taps path starts with dash: %q", m.TapsDir)
+
+	// Ensure the taps directory is of the form <prefix>/Taps so we do not
+	// operate on arbitrary or root-level directories.
+	if filepath.Base(tapsDir) != "Taps" {
+		return fmt.Errorf("invalid taps dir: expected path ending with %q, got %q", "Taps", tapsDir)
 	}
+	prefix := filepath.Dir(tapsDir)
+	if prefix == "" || prefix == "." || prefix == string(os.PathSeparator) {
+		return fmt.Errorf("invalid taps dir prefix: %q", prefix)
+	}
+
 	m.TapsDir = tapsDir
 
 	gitDir := filepath.Join(tapsDir, ".git")
