@@ -130,7 +130,8 @@ func Default() Paths {
 		if abs, err := filepath.Abs(appDir); err == nil {
 			appDir = filepath.Clean(abs)
 		} else {
-			// If the override cannot be resolved to an absolute path, ignore it.
+			// If the override cannot be resolved to an absolute path, warn and ignore it.
+			fmt.Fprintf(os.Stderr, "config: ignoring invalid HOMEGREW_APPDIR %q: %v\n", appDir, err)
 			appDir = ""
 		}
 	}

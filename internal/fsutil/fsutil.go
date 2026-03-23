@@ -96,7 +96,7 @@ func CopyTree(src, dst string) error {
 				resolvedDest = resolvedSource
 			} else {
 				// Cannot sensibly map a non-absolute path outside the source root; skip it.
-				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (target %q resolves outside source tree %q)\n", path, resolvedSource, absSrc)
+				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (target %q, resolved to %q, escapes source tree %q)\n", path, link, resolvedSource, absSrc)
 				return nil
 			}
 			resolvedDest = filepath.Clean(resolvedDest)
@@ -141,7 +141,7 @@ func CopyTree(src, dst string) error {
 func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 	// Normalize destination to an absolute, cleaned path before use.
 	if dst == "" {
-		return fmt.Errorf("empty destination path")
+		return fmt.Errorf("destination path cannot be empty")
 	}
 	absDst, err := filepath.Abs(dst)
 	if err != nil {
@@ -167,16 +167,27 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 			return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
 		}
 
-		// Then, resolve symlinks in the destination directory and ensure the real
-		// path is still contained within the resolved root. This prevents a case
-		// like <root>/sub/file where "sub" is a symlink pointing outside <root>.
+		// Then, resolve symlinks in both the destination directory and the root to
+		// ensure the real path is still contained. This prevents a case like
+		// <root>/sub/file where "sub" is a symlink pointing outside <root>.
+		// Both sides are resolved for consistent comparison; on platforms like macOS
+		// the temp directory path itself is a symlink (e.g. /var → /private/var) and
+		// comparing a resolved dstDir against an unresolved root would produce false positives.
 		dstDir := filepath.Dir(absDst)
-		resolvedDstDir, err := filepath.EvalSymlinks(dstDir)
-		if err != nil {
-			return fmt.Errorf("resolve destination directory: %w", err)
+		resolvedDstDir, dstDirErr := filepath.EvalSymlinks(dstDir)
+		if dstDirErr != nil && !os.IsNotExist(dstDirErr) {
+			return fmt.Errorf("resolve destination directory: %w", dstDirErr)
 		}
-		if !isWithinRoot(absRoot, resolvedDstDir) {
-			return fmt.Errorf("refusing to copy file outside destination root via symlink: %s", absDst)
+		// When dstDir does not yet exist (new file creation), skip the symlink-resolved
+		// check and rely on the lexical containment check above.
+		if dstDirErr == nil {
+			resolvedRoot, rootErr := filepath.EvalSymlinks(absRoot)
+			if rootErr != nil && !os.IsNotExist(rootErr) {
+				return fmt.Errorf("resolve destination root symlinks: %w", rootErr)
+			}
+			if rootErr == nil && !isWithinRoot(resolvedRoot, resolvedDstDir) {
+				return fmt.Errorf("refusing to copy file outside destination root via symlink: %s", absDst)
+			}
 		}
 	}
 
@@ -215,10 +226,10 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 }
 
 // CopyFile copies a single file from src to dst.
-// It is a convenience wrapper around CopyFileWithinRoot using the
-// destination's parent directory as the containment root.
+// It is a convenience wrapper around CopyFileWithinRoot that skips the
+// symlink-containment check (no cross-tree root enforcement).
 func CopyFile(src, dst string, mode os.FileMode) error {
-	return CopyFileWithinRoot(src, dst, filepath.Dir(dst), mode)
+	return CopyFileWithinRoot(src, dst, "", mode)
 }
 
 // SanitizeMode applies a umask to archive-extracted file modes,
