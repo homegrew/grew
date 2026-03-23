@@ -125,15 +125,12 @@ func Default() Paths {
 	}
 	appDir := os.Getenv("HOMEGREW_APPDIR")
 	if appDir != "" {
-		// Only accept absolute, well-formed application directories from the environment.
-		if filepath.IsAbs(appDir) {
-			if abs, err := filepath.Abs(appDir); err == nil {
-				appDir = filepath.Clean(abs)
-			} else {
-				appDir = filepath.Clean(appDir)
-			}
+		// Both relative and absolute paths are accepted; relative paths are resolved
+		// to an absolute, cleaned path. If the value cannot be resolved, it is ignored.
+		if abs, err := filepath.Abs(appDir); err == nil {
+			appDir = filepath.Clean(abs)
 		} else {
-			// Ignore non-absolute values and fall back to the default under the user's home.
+			// If the override cannot be resolved to an absolute path, ignore it.
 			appDir = ""
 		}
 	}
