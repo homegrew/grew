@@ -26,7 +26,7 @@ type Paths struct {
 
 // DefaultPrefix determines the grew prefix using these rules (in order):
 //
-//  1. HOMEGREW_PREFIX env var (explicit override, if valid)
+//  1. HOMEGREW_PREFIX env var (explicit override, if valid and safe)
 //  2. Inferred from the binary's own location: if the executable lives at
 //     <prefix>/bin/grew, the prefix is <prefix>. This means grew always
 //     knows where it is without any configuration.
@@ -35,10 +35,37 @@ func DefaultPrefix() string {
 	var prefix string
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
-		// Only accept absolute, well‑formed prefixes from the environment.
+		// Only accept absolute, well‑formed prefixes from the environment,
+		// and only if they are under an expected base directory. This prevents
+		// pointing grew at arbitrary locations such as "/" while still
+		// allowing explicitly configured, but reasonable, prefixes.
 		if filepath.IsAbs(env) {
 			if abs, err := filepath.Abs(env); err == nil {
-				prefix = filepath.Clean(abs)
+				candidate := filepath.Clean(abs)
+
+				system := filepath.Clean(SystemPrefix())
+				user := filepath.Clean(UserPrefix())
+
+				isUnder := func(base, target string) bool {
+					rel, err := filepath.Rel(base, target)
+					if err != nil {
+						return false
+					}
+					if rel == "." {
+						return true
+					}
+					if rel == ".." {
+						return false
+					}
+					if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+						return false
+					}
+					return true
+				}
+
+				if isUnder(system, candidate) || isUnder(user, candidate) {
+					prefix = candidate
+				}
 			}
 		}
 	}
