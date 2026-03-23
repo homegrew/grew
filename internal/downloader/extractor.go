@@ -591,6 +591,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
 	}
 
+	if err := validation.SafePathComponent(absArchivePath); err != nil {
+		return fmt.Errorf("unsafe archive path %q: %w", absArchivePath, err)
+	}
+
 	lower := strings.ToLower(absArchivePath)
 	var decompressCmd string
 	switch {
