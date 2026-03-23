@@ -500,8 +500,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			candidateTarget := filepath.Join(realParentDir, linkTarget)
 			realLinkTarget := candidateTarget
 			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+				// Successfully resolved the candidate target; use the resolved path.
 				realLinkTarget = resolved
-			} else if !os.IsNotExist(err) {
+			} else if os.IsNotExist(err) {
+				// Target does not exist; keep realLinkTarget as candidateTarget.
+			} else {
 				// For errors other than non-existent targets, skip creating the symlink.
 				rc.Close()
 				continue
