@@ -219,8 +219,11 @@ func sanitizeSymlinkTarget(target string) string {
 		return ""
 	}
 	// Disallow any attempt to traverse upwards outside the extraction tree.
-	// This covers patterns like "..", "../foo", "foo/../bar", etc.
-	if clean == ".." || strings.HasPrefix(clean, ".."+string(os.PathSeparator)) || strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) {
+	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
+	if clean == ".." ||
+		strings.HasPrefix(clean, ".."+string(os.PathSeparator)) ||
+		strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) ||
+		strings.HasSuffix(clean, string(os.PathSeparator)+"..") {
 		return ""
 	}
 	return clean
