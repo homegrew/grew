@@ -200,18 +200,39 @@ func (inst *Installer) UnlinkBin(name string) error {
 
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, appName string) (string, error) {
-	// Check top level first
-		// Prefer a direct subdirectory match first, then look for a nested appName.
-		if e.Name() == appName {
-			directSub := filepath.Join(stageDir, e.Name())
-			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
-				return directSub, nil
-			}
-		}
-	direct := filepath.Join(stageDir, appName)
-	if info, err := os.Stat(direct); err == nil && info.IsDir() {
-		return direct, nil
+	// Normalize stageDir to an absolute, cleaned path and treat it as the
+	// base. All discovered apps must remain within this directory tree.
+	base := filepath.Clean(stageDir)
+	if bAbs, err := filepath.Abs(base); err == nil {
+		base = filepath.Clean(bAbs)
 	}
+	baseWithSep := base
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+
+	// Helper to ensure a candidate path stays within the normalized base.
+	isWithinBase := func(p string) (string, bool) {
+		abs, err := filepath.Abs(p)
+		if err != nil {
+			return "", false
+		}
+		abs = filepath.Clean(abs)
+		if abs != base && !strings.HasPrefix(abs, baseWithSep) {
+			return "", false
+		}
+		return abs, true
+	}
+
+	// Check top level first: stageDir/appName
+	direct := filepath.Join(base, appName)
+	if cand, ok := isWithinBase(direct); ok {
+		if info, err := os.Stat(cand); err == nil && info.IsDir() {
+			return cand, nil
+		}
+	}
+
+	entries, err := os.ReadDir(base)
 	if err != nil {
 		return "", err
 	}
@@ -224,14 +245,18 @@ func findApp(stageDir, appName string) (string, error) {
 		}
 		// Prefer a direct subdirectory match first, then look for a nested appName.
 		if e.Name() == appName {
-			directSub := filepath.Join(stageDir, e.Name())
-			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
-				return directSub, nil
+			directSub := filepath.Join(base, e.Name())
+			if cand, ok := isWithinBase(directSub); ok {
+				if info, err := os.Stat(cand); err == nil && info.IsDir() {
+					return cand, nil
+				}
 			}
 		}
-		nested := filepath.Join(stageDir, e.Name(), appName)
-		if info, err := os.Stat(nested); err == nil && info.IsDir() {
-			return nested, nil
+		nested := filepath.Join(base, e.Name(), appName)
+		if cand, ok := isWithinBase(nested); ok {
+			if info, err := os.Stat(cand); err == nil && info.IsDir() {
+				return cand, nil
+			}
 		}
 	}
 
