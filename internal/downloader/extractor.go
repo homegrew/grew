@@ -475,16 +475,17 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		if err != nil {
 			return err
 		}
-
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
 			_, err := io.Copy(buf, rc)
 			if err != nil {
 				rc.Close()
+				rc.Close()
 				return err
 			}
 			linkTarget := sanitizeSymlinkTarget(buf.String())
 			if linkTarget == "" {
+				rc.Close()
 				rc.Close()
 				continue
 			}
@@ -494,6 +495,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			// path before checking that it remains within the extraction root.
 			parentDir := filepath.Dir(target)
 			realParentDir, err := filepath.EvalSymlinks(parentDir)
+				rc.Close()
 			if err != nil {
 				rc.Close()
 				continue
@@ -502,18 +504,23 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			realLinkTarget := candidateTarget
 			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
 				realLinkTarget = resolved
+				rc.Close()
 			} else if !os.IsNotExist(err) {
 				// For errors other than non-existent targets, skip creating the symlink.
+				rc.Close()
 				rc.Close()
 				continue
 			}
 			if !withinDir(realDestDir, realLinkTarget) {
 				rc.Close()
+				rc.Close()
 				continue
 			}
 
+				rc.Close()
 			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
 				rc.Close()
+			rc.Close()
 				return err
 			}
 			if err := os.Symlink(linkTarget, target); err != nil {
