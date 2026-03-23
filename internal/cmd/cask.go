@@ -50,6 +50,14 @@ func caskInstall(name string, noQuarantine bool) error {
 		return nil
 	}
 
+	// Validate cask-derived identifiers before using them in any filesystem paths.
+	if err := validation.SafePathComponent(c.Name); err != nil {
+		return fmt.Errorf("invalid cask name: %w", err)
+	}
+	if err := validation.SafePathComponent(c.Version); err != nil {
+		return fmt.Errorf("invalid cask version: %w", err)
+	}
+
 	defer TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
 	Debugf("platform: %s\n", formula.PlatformKey())
 	fmt.Printf("==> Installing cask %s %s\n", c.Name, c.Version)
@@ -68,6 +76,10 @@ func caskInstall(name string, noQuarantine bool) error {
 
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
+	// Ensure the constructed filename is a single safe path component.
+	if err := validation.SafePathComponent(filename); err != nil {
+		return fmt.Errorf("invalid download filename: %w", err)
+	}
 	localFile, err := dl.Download(dlURL, filename)
 	if err != nil {
 		return fmt.Errorf("download %s: %w", c.Name, err)
