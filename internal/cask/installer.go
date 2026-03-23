@@ -101,6 +101,22 @@ func (inst *Installer) LinkBin(name, target string) error {
 	}
 	binDirAbs = filepath.Clean(binDirAbs)
 
+	// Ensure the bin directory exists and is a real directory (not a symlink).
+	if info, err := os.Stat(binDirAbs); err != nil {
+		if os.IsNotExist(err) {
+			return fmt.Errorf("bin directory does not exist: %q", binDirAbs)
+		}
+		return fmt.Errorf("stat bin directory %q: %w", binDirAbs, err)
+	} else {
+		if !info.IsDir() {
+			return fmt.Errorf("bin path is not a directory: %q", binDirAbs)
+		}
+		// Refuse to operate if BinDir itself is a symlink to avoid surprising locations.
+		if info.Mode()&os.ModeSymlink != 0 {
+			return fmt.Errorf("bin directory must not be a symlink: %q", binDirAbs)
+		}
+	}
+
 	link := filepath.Join(binDirAbs, name)
 
 	// Safety check: ensure the link path is within the bin directory.
