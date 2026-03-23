@@ -323,6 +323,14 @@ func findApp(stageDir, safeBaseDir, appName string) (string, error) {
 	// Check top level first: stageDir/appName
 	direct := filepath.Join(base, appName)
 	if cand, ok := isWithinBase(direct); ok {
+		// Final safety check: ensure the candidate remains within the expected base.
+		candAbs, err := filepath.Abs(cand)
+		if err == nil {
+			candAbs = filepath.Clean(candAbs)
+			if candAbs != base && !strings.HasPrefix(candAbs, baseWithSep) {
+				return "", fmt.Errorf("resolved app path %q escapes staging directory %q", candAbs, base)
+			}
+		}
 		if info, err := os.Stat(cand); err == nil && info.IsDir() {
 			return cand, nil
 		}
@@ -343,6 +351,14 @@ func findApp(stageDir, safeBaseDir, appName string) (string, error) {
 		if e.Name() == appName {
 			directSub := filepath.Join(base, e.Name())
 			if cand, ok := isWithinBase(directSub); ok {
+				// Final safety check: ensure the candidate remains within the expected base.
+				candAbs, err := filepath.Abs(cand)
+				if err == nil {
+					candAbs = filepath.Clean(candAbs)
+					if candAbs != base && !strings.HasPrefix(candAbs, baseWithSep) {
+						return "", fmt.Errorf("resolved app path %q escapes staging directory %q", candAbs, base)
+					}
+				}
 				if info, err := os.Stat(cand); err == nil && info.IsDir() {
 					return cand, nil
 				}
@@ -350,6 +366,14 @@ func findApp(stageDir, safeBaseDir, appName string) (string, error) {
 		}
 		nested := filepath.Join(base, e.Name(), appName)
 		if cand, ok := isWithinBase(nested); ok {
+			// Final safety check: ensure the candidate remains within the expected base.
+			candAbs, err := filepath.Abs(cand)
+			if err == nil {
+				candAbs = filepath.Clean(candAbs)
+				if candAbs != base && !strings.HasPrefix(candAbs, baseWithSep) {
+					return "", fmt.Errorf("resolved app path %q escapes staging directory %q", candAbs, base)
+				}
+			}
 			if info, err := os.Stat(cand); err == nil && info.IsDir() {
 				return cand, nil
 			}
