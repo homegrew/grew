@@ -255,6 +255,13 @@ func (inst *Installer) UnlinkBin(name string) error {
 
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, safeBaseDir, appName string) (string, error) {
+	// Basic sanity check: the staging directory name itself should be a safe
+	// single path component (when considered by its base name). This defends
+	// against accidental inclusion of separators or traversal sequences.
+	if err := validation.SafePathComponent(filepath.Base(stageDir)); err != nil {
+		return "", fmt.Errorf("invalid staging directory %q: %w", stageDir, err)
+	}
+
 	// First, ensure the staging directory itself is within the expected safe base
 	// directory (typically the tmp directory already validated by the caller).
 	safeBase := filepath.Clean(safeBaseDir)
@@ -266,10 +273,11 @@ func findApp(stageDir, safeBaseDir, appName string) (string, error) {
 		safeBaseWithSep += string(os.PathSeparator)
 	}
 
-	stage := filepath.Clean(stageDir)
-	if sAbs, err := filepath.Abs(stage); err == nil {
-		stage = filepath.Clean(sAbs)
+	stageAbs, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory: %w", err)
 	}
+	stage := filepath.Clean(stageAbs)
 	if stage != safeBase && !strings.HasPrefix(stage, safeBaseWithSep) {
 		return "", fmt.Errorf("staging directory %q escapes safe base directory %q", stage, safeBase)
 	}
