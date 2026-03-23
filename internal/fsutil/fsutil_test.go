@@ -12,7 +12,9 @@ func TestCopyFile(t *testing.T) {
 	src := filepath.Join(dir, "src.txt")
 	dst := filepath.Join(dir, "dst.txt")
 
-	os.WriteFile(src, []byte("hello"), 0644)
+	if err := os.WriteFile(src, []byte("hello"), 0644); err != nil {
+		t.Fatalf("write src: %v", err)
+	}
 
 	if err := CopyFile(src, dst, 0755); err != nil {
 		t.Fatalf("CopyFile: %v", err)
@@ -26,7 +28,10 @@ func TestCopyFile(t *testing.T) {
 		t.Errorf("got %q, want %q", data, "hello")
 	}
 
-	info, _ := os.Stat(dst)
+	info, err := os.Stat(dst)
+	if err != nil {
+		t.Fatalf("stat dst: %v", err)
+	}
 	if info.Mode().Perm()&0100 == 0 {
 		t.Error("expected executable permission on dst")
 	}
@@ -99,9 +104,15 @@ func TestCopyTree(t *testing.T) {
 	dst := filepath.Join(t.TempDir(), "dest")
 
 	// Build a source tree.
-	os.MkdirAll(filepath.Join(src, "bin"), 0755)
-	os.WriteFile(filepath.Join(src, "bin", "tool"), []byte("binary"), 0755)
-	os.WriteFile(filepath.Join(src, "README"), []byte("readme"), 0644)
+	if err := os.MkdirAll(filepath.Join(src, "bin"), 0755); err != nil {
+		t.Fatalf("mkdir src/bin: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(src, "bin", "tool"), []byte("binary"), 0755); err != nil {
+		t.Fatalf("write src/bin/tool: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(src, "README"), []byte("readme"), 0644); err != nil {
+		t.Fatalf("write src/README: %v", err)
+	}
 
 	if err := CopyTree(src, dst); err != nil {
 		t.Fatalf("CopyTree: %v", err)
@@ -130,8 +141,12 @@ func TestCopyTree_PreservesSymlinks(t *testing.T) {
 	src := t.TempDir()
 	dst := filepath.Join(t.TempDir(), "dest")
 
-	os.WriteFile(filepath.Join(src, "real.txt"), []byte("data"), 0644)
-	os.Symlink("real.txt", filepath.Join(src, "link.txt"))
+	if err := os.WriteFile(filepath.Join(src, "real.txt"), []byte("data"), 0644); err != nil {
+		t.Fatalf("write real.txt: %v", err)
+	}
+	if err := os.Symlink("real.txt", filepath.Join(src, "link.txt")); err != nil {
+		t.Fatalf("symlink link.txt: %v", err)
+	}
 
 	if err := CopyTree(src, dst); err != nil {
 		t.Fatalf("CopyTree: %v", err)
@@ -151,8 +166,12 @@ func TestCopyTree_SkipsEscapingSymlinks(t *testing.T) {
 	src := t.TempDir()
 	dst := filepath.Join(t.TempDir(), "dest")
 
-	os.WriteFile(filepath.Join(src, "safe.txt"), []byte("ok"), 0644)
-	os.Symlink("/etc/passwd", filepath.Join(src, "escape"))
+	if err := os.WriteFile(filepath.Join(src, "safe.txt"), []byte("ok"), 0644); err != nil {
+		t.Fatalf("os.WriteFile: %v", err)
+	}
+	if err := os.Symlink("/etc/passwd", filepath.Join(src, "escape")); err != nil {
+		t.Fatalf("os.Symlink: %v", err)
+	}
 
 	if err := CopyTree(src, dst); err != nil {
 		t.Fatalf("CopyTree: %v", err)
