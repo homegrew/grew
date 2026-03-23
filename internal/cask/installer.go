@@ -104,11 +104,7 @@ func (inst *Installer) LinkBin(name, target string) error {
 	link := filepath.Join(binDirAbs, name)
 
 	// Safety check: ensure the link path is within the bin directory.
-	linkAbs, err := filepath.Abs(link)
-	if err != nil {
-		return fmt.Errorf("resolve link path: %w", err)
-	}
-	linkAbs = filepath.Clean(linkAbs)
+	linkAbs := filepath.Clean(link)
 
 	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
 	binDirWithSep := binDirAbs
@@ -171,11 +167,7 @@ func (inst *Installer) UnlinkBin(name string) error {
 	}
 	binAbs = filepath.Clean(binAbs)
 
-	linkAbs, err := filepath.Abs(linkPath)
-	if err != nil {
-		return fmt.Errorf("resolve link path: %w", err)
-	}
-	linkAbs = filepath.Clean(linkAbs)
+	linkAbs := filepath.Clean(linkPath)
 
 	binWithSep := binAbs
 	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
