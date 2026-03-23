@@ -101,7 +101,28 @@ func caskInstall(name string, noQuarantine bool) error {
 		os.Remove(localFile)
 		return fmt.Errorf("invalid cask version for staging directory: %w", err)
 	}
-	stageDir := filepath.Join(paths.Tmp, c.Name+"-"+c.Version+"-cask-stage")
+	// Build a staging directory inside the configured temporary directory,
+	// and ensure it does not escape that base.
+	tmpBase := paths.Tmp
+	if tAbs, err := filepath.Abs(tmpBase); err == nil {
+		tmpBase = filepath.Clean(tAbs)
+	} else {
+		tmpBase = filepath.Clean(tmpBase)
+	}
+	stageDir := filepath.Join(tmpBase, c.Name+"-"+c.Version+"-cask-stage")
+	if sAbs, err := filepath.Abs(stageDir); err == nil {
+		stageDir = filepath.Clean(sAbs)
+	} else {
+		stageDir = filepath.Clean(stageDir)
+	}
+	baseWithSep := tmpBase
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if stageDir != tmpBase && !strings.HasPrefix(stageDir, baseWithSep) {
+		os.Remove(localFile)
+		return fmt.Errorf("staging directory %q escapes tmp directory %q", stageDir, tmpBase)
+	}
 	os.RemoveAll(stageDir)
 
 	spec := formula.InstallSpec{Type: "archive", StripComponents: 0}
