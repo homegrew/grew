@@ -113,7 +113,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("bin directory escapes destination directory")
 	}
 	if err := os.MkdirAll(binDir, 0755); err != nil {
-		return err
+		return fmt.Errorf("create bin dir: %w", err)
 	}
 	destPath := filepath.Clean(filepath.Join(binDir, binaryName))
 	if !withinDir(destDir, destPath) {
@@ -325,11 +325,11 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 		switch header.Typeflag {
 		case tar.TypeDir:
 			if err := os.MkdirAll(target, fsutil.SanitizeMode(os.FileMode(header.Mode), true)); err != nil {
-				return err
+				return fmt.Errorf("create directory %s: %w", target, err)
 			}
 		case tar.TypeReg:
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
-				return err
+				return fmt.Errorf("create parent directory for %s: %w", target, err)
 			}
 			if err := extractFile(tr, target, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
@@ -348,11 +348,11 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				continue
 			}
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
-				return err
+				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
 			os.Remove(target)
 			if err := os.Symlink(linkname, target); err != nil {
-				return err
+				return fmt.Errorf("create symlink %s -> %s: %w", target, linkname, err)
 			}
 		}
 	}
