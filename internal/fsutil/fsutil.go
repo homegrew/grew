@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+// Default permission modes used when an extracted entry has no explicit mode.
+const (
+	defaultDirMode  os.FileMode = 0o755
+	defaultFileMode os.FileMode = 0o644
+)
+
 // isWithinRoot reports whether candidate is within the directory tree rooted at root.
 // It mirrors the symlink escape validation logic used elsewhere to ensure consistency.
 func isWithinRoot(root, candidate string) bool {
@@ -38,11 +44,6 @@ func CopyTree(src, dst string) error {
 		return fmt.Errorf("resolve src: %w", err)
 	}
 	absSrc = filepath.Clean(absSrc)
-
-	const (
-		isDirectory = true
-		isFile      = false
-	)
 
 	return filepath.Walk(absSrc, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -74,12 +75,12 @@ func CopyTree(src, dst string) error {
 				return err
 			}
 			// Validate the symlink won't escape the destination tree.
-			linkAbs := link
-			if !filepath.IsAbs(linkAbs) {
-				linkAbs = filepath.Join(filepath.Dir(target), link)
+			resolvedLink := link
+			if !filepath.IsAbs(resolvedLink) {
+				resolvedLink = filepath.Join(filepath.Dir(target), link)
 			}
-			linkAbs = filepath.Clean(linkAbs)
-			if !isWithinRoot(absDst, linkAbs) {
+			resolvedLink = filepath.Clean(resolvedLink)
+			if !isWithinRoot(absDst, resolvedLink) {
 				// Skip symlinks that escape — don't fail, just skip silently.
 				return nil
 			}
@@ -87,7 +88,7 @@ func CopyTree(src, dst string) error {
 		}
 
 		if info.IsDir() {
-			dirMode := SanitizeMode(info.Mode(), isDirectory)
+			dirMode := SanitizeMode(info.Mode(), true)
 			if err := os.MkdirAll(target, dirMode); err != nil {
 				// If the path already exists, ensure it's a directory and update permissions.
 				if os.IsExist(err) {
@@ -108,7 +109,7 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFile(path, target, SanitizeMode(info.Mode(), isFile))
+		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
 	})
 }
 
@@ -144,12 +145,12 @@ func SanitizeMode(mode os.FileMode, isDir bool) os.FileMode {
 	mode &^= 0002 // strip world-write
 	if isDir {
 		if mode == 0 {
-			return 0755
+			return defaultDirMode
 		}
 		return mode | 0700
 	}
 	if mode == 0 {
-		return 0644
+		return defaultFileMode
 	}
 	return mode
 }

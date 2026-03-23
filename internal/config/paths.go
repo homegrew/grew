@@ -24,7 +24,7 @@ type Paths struct {
 	Log      string
 }
 
-// DefaultPrefix determines the grew prefix using these rules (in order):
+// DefaultPrefix determines the homegrew prefix using these rules (in order):
 //
 //  1. HOMEGREW_PREFIX env var (explicit override, if valid)
 //  2. Inferred from the binary's own location: if the executable lives at
