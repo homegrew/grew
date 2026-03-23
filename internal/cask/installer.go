@@ -81,7 +81,9 @@ func (inst *Installer) LinkBin(name, target string) error {
 		return fmt.Errorf("invalid binary name: %q", name)
 	}
 	link := filepath.Join(inst.BinDir, name)
-	os.Remove(link)
+	if err := os.Remove(link); err != nil && !os.IsNotExist(err) {
+		return fmt.Errorf("failed to remove existing link %q: %w", link, err)
+	}
 	return os.Symlink(target, link)
 }
 
