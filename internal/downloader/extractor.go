@@ -3,6 +3,7 @@ package downloader
 import (
 	"archive/tar"
 	"archive/zip"
+	"bytes"
 	"compress/gzip"
 	"fmt"
 	"io"
@@ -429,7 +430,9 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 	return extractTar(tar.NewReader(gz), destDir, stripComponents)
 }
 
-// extractFile writes a single file from a reader with size limits.
+// extractFile writes a single file from a reader enforcing a maximum size.
+// Files larger than maxExtractSize bytes cause an error, and any partially
+// written output file is removed.
 func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	out, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
 	if err != nil {
@@ -581,11 +584,20 @@ func extractDMG(dmgPath, destDir string) error {
 
 	// Mount the DMG read-only.
 	cmd := exec.Command("hdiutil", "attach", "-nobrowse", "-noverify", "-readonly", "-mountpoint", mountPoint, dmgPath)
-	cmd.Stderr = io.Discard
+	var stderrBuf bytes.Buffer
+	cmd.Stderr = &stderrBuf
 	if err := cmd.Run(); err != nil {
+		stderrStr := strings.TrimSpace(stderrBuf.String())
+		if stderrStr != "" {
+			return fmt.Errorf("mount DMG: %w (hdiutil stderr: %s)", err, stderrStr)
+		}
 		return fmt.Errorf("mount DMG: %w", err)
 	}
-	defer exec.Command("hdiutil", "detach", "-quiet", mountPoint).Run()
+	defer func() {
+		if err := exec.Command("hdiutil", "detach", "-quiet", mountPoint).Run(); err != nil {
+			fmt.Fprintf(os.Stderr, "warning: failed to detach DMG at %s: %v\n", mountPoint, err)
+		}
+	}()
 
 	// Copy all top-level entries from the mounted volume to destDir.
 	entries, err := os.ReadDir(mountPoint)
@@ -657,7 +669,14 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 		return fmt.Errorf("unsafe archive filename %q (from %q): %w", baseName, absArchivePath, err)
 	}
 
-	lower := strings.ToLower(absArchivePath)
+	// Ensure we use a normalized absolute path when invoking external tools.
+	safeArchivePath, err := filepath.Abs(absArchivePath)
+	if err != nil {
+		return fmt.Errorf("failed to resolve absolute path for archive %q: %w", absArchivePath, err)
+	}
+	safeArchivePath = filepath.Clean(safeArchivePath)
+
+	lower := strings.ToLower(safeArchivePath)
 	var decompressCmd string
 	switch {
 	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz"):
@@ -665,14 +684,14 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	case strings.HasSuffix(lower, ".tar.bz2"):
 		decompressCmd = "bzip2"
 	default:
-		return fmt.Errorf("unsupported archive format: %s", filepath.Base(absArchivePath))
+		return fmt.Errorf("unsupported archive format: %s", filepath.Base(safeArchivePath))
 	}
 
 	if _, err := exec.LookPath(decompressCmd); err != nil {
 		return fmt.Errorf("required decompression tool %q not found in PATH: %w", decompressCmd, err)
 	}
 
-	cmd := exec.Command(decompressCmd, "-d", "-c", "--", absArchivePath)
+	cmd := exec.Command(decompressCmd, "-d", "-c", "--", safeArchivePath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return err
