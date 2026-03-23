@@ -359,6 +359,11 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			// Resolve the parent directory to avoid following previously
 			// extracted symlinks outside of destDir.
 			parentDir := filepath.Dir(target)
+			// As an extra safety check, ensure the parent directory itself
+			// is within destDir before creating it.
+			if !withinDir(destDir, parentDir) {
+				continue
+			}
 			resolvedParent, err := filepath.EvalSymlinks(parentDir)
 			if err != nil {
 				// If the parent does not yet exist or cannot be resolved,
