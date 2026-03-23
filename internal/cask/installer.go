@@ -48,8 +48,8 @@ func (inst *Installer) InstallApp(stageDir, safeBaseDir, appName string) (string
 		return "", fmt.Errorf("resolve relative path from staging directory: %w", err)
 	}
 	rel = filepath.Clean(rel)
-	if rel == "." || rel == string(filepath.Separator) {
-		// realSrc is exactly the staging directory, which we allow.
+	if rel == "." || rel == "" {
+		return "", fmt.Errorf("app %s resolves to staging directory itself: %s", appName, realSrc)
 	} else if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
@@ -141,11 +141,7 @@ func (inst *Installer) LinkBin(name, target string) error {
 	link := filepath.Join(binDirAbs, name)
 
 	// Safety check: ensure the link path is within the bin directory.
-	linkAbs, err := filepath.Abs(link)
-	if err != nil {
-		return fmt.Errorf("resolve link path: %w", err)
-	}
-	linkAbs = filepath.Clean(linkAbs)
+	linkAbs := filepath.Clean(link)
 
 	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
 	binDirWithSep := binDirAbs
@@ -225,11 +221,7 @@ func (inst *Installer) UnlinkBin(name string) error {
 	}
 	binAbs = filepath.Clean(binAbs)
 
-	linkAbs, err := filepath.Abs(linkPath)
-	if err != nil {
-		return fmt.Errorf("resolve link path: %w", err)
-	}
-	linkAbs = filepath.Clean(linkAbs)
+	linkAbs := filepath.Clean(linkPath)
 
 	binWithSep := binAbs
 	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
