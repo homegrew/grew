@@ -72,24 +72,28 @@ func runCleanup(args []string) error {
 		}
 	}
 
-	// Clean tmp directory
-	tmpEntries, err := os.ReadDir(paths.Tmp)
-	if err == nil {
-		for _, e := range tmpEntries {
-			path := filepath.Join(paths.Tmp, e.Name())
-			size, _ := entrySize(path, e)
-			totalBytes += size
-			if *dryRun {
-				fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
-			} else {
-				Debugf("removing temp file %s\n", e.Name())
-				if err := os.RemoveAll(path); err != nil {
-					fmt.Fprintf(os.Stderr, "Warning: could not remove %s: %v\n", path, err)
+	// Clean tmp directory, but only if it is safely located under the grew root.
+	if paths.IsUnderRoot(paths.Tmp) {
+		tmpEntries, err := os.ReadDir(paths.Tmp)
+		if err == nil {
+			for _, e := range tmpEntries {
+				path := filepath.Join(paths.Tmp, e.Name())
+				size, _ := entrySize(path, e)
+				totalBytes += size
+				if *dryRun {
+					fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
 				} else {
-					fmt.Printf("Removing: %s (%s)\n", path, formatSize(size))
+					Debugf("removing temp file %s\n", e.Name())
+					if err := os.RemoveAll(path); err != nil {
+						fmt.Fprintf(os.Stderr, "Warning: could not remove %s: %v\n", path, err)
+					} else {
+						fmt.Printf("Removing: %s (%s)\n", path, formatSize(size))
+					}
 				}
 			}
 		}
+	} else {
+		Debugf("skipping cleanup of tmp directory outside grew root: %s\n", paths.Tmp)
 	}
 
 	if totalBytes == 0 {
