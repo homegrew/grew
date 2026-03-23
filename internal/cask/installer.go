@@ -43,7 +43,14 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
 	}
-	if !strings.HasPrefix(realSrc, absStage+string(filepath.Separator)) && realSrc != absStage {
+	rel, err := filepath.Rel(absStage, realSrc)
+	if err != nil {
+		return "", fmt.Errorf("resolve relative path from staging directory: %w", err)
+	}
+	rel = filepath.Clean(rel)
+	if rel == "." || rel == string(filepath.Separator) {
+		// realSrc is exactly the staging directory, which we allow.
+	} else if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
 
@@ -115,7 +122,22 @@ func (inst *Installer) LinkBin(name, target string) error {
 	if err := os.Remove(linkAbs); err != nil && !os.IsNotExist(err) {
 		return fmt.Errorf("failed to remove existing link %q: %w", linkAbs, err)
 	}
-	return os.Symlink(target, linkAbs)
+
+	// Validate and sanitize the target path for the symlink.
+	if target == "" {
+		return fmt.Errorf("invalid symlink target: empty")
+	}
+	cleanTarget := filepath.Clean(target)
+	// For relative targets, disallow path traversal via ".." components.
+	if !filepath.IsAbs(cleanTarget) {
+		for _, part := range strings.Split(cleanTarget, string(os.PathSeparator)) {
+			if part == ".." {
+				return fmt.Errorf("invalid symlink target contains path traversal: %q", target)
+			}
+		}
+	}
+
+	return os.Symlink(cleanTarget, linkAbs)
 }
 
 // UnlinkBin removes a symlink from BinDir.
