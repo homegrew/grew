@@ -339,22 +339,12 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if linkname == "" {
 				continue
 			}
-			// Validate the resolved symlink target stays within destDir,
-			// resolving any existing symlinks along the path to prevent
-			// escaping the extraction root via symlink chains.
-			candidate := filepath.Join(filepath.Dir(target), linkname)
-			realTarget, err := filepath.EvalSymlinks(candidate)
-			if err != nil {
-				// If the target cannot be safely resolved, skip this entry.
-				continue
-			}
-			// Resolve destDir through symlinks too so both paths use the
-			// same root (e.g. /var -> /private/var on macOS).
-			realDestDir, err := filepath.EvalSymlinks(destDir)
-			if err != nil {
-				continue
-			}
-			if !withinDir(realDestDir, realTarget) {
+			// Validate that the symlink target, when interpreted relative to
+			// the extraction directory, stays within destDir. Use path
+			// cleaning instead of EvalSymlinks so the target does not need
+			// to exist on the filesystem yet.
+			resolved := filepath.Clean(filepath.Join(filepath.Dir(target), linkname))
+			if !withinDir(destDir, resolved) {
 				continue
 			}
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
@@ -465,8 +455,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 				continue
 			}
 			candidateTarget := filepath.Join(realParentDir, linkTarget)
-			realLinkTarget, err := filepath.EvalSymlinks(candidateTarget)
-			if err != nil {
+			realLinkTarget := candidateTarget
+			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+				realLinkTarget = resolved
+			} else if !os.IsNotExist(err) {
+				// For errors other than non-existent targets, skip creating the symlink.
 				continue
 			}
 			if !withinDir(realDestDir, realLinkTarget) {
