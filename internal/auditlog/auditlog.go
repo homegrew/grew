@@ -12,6 +12,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/homegrew/grew/internal/config"
 )
 
 const logFileName = "grew.log"
@@ -51,7 +53,19 @@ type Logger struct {
 }
 
 // New creates a Logger that writes to <logDir>/grew.log.
+// If logDir is empty, it uses the default configured log directory.
 func New(logDir string) *Logger {
+	if logDir == "" {
+		logDir = config.Default().Log
+	}
+
+	// Normalize the provided logDir.
+	if abs, err := filepath.Abs(logDir); err == nil {
+		logDir = filepath.Clean(abs)
+	} else {
+		logDir = filepath.Clean(logDir)
+	}
+
 	return &Logger{logDir: logDir}
 }
 
