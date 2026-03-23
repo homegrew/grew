@@ -459,11 +459,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		if err != nil {
 			return err
 		}
+		defer rc.Close()
 
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
 			_, err := io.Copy(buf, rc)
-			rc.Close()
 			if err != nil {
 				return err
 			}
