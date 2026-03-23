@@ -83,10 +83,19 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 				return fmt.Errorf("binary destination escapes destination directory: %w", err)
 			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
-				if _, err := os.Stat(binDir); os.IsNotExist(err) {
-					if err := os.MkdirAll(binDir, 0755); err != nil {
-						return fmt.Errorf("create bin dir: %w", err)
+				if binInfo, err := os.Stat(binDir); err != nil {
+					if os.IsNotExist(err) {
+						if err := os.MkdirAll(binDir, 0755); err != nil {
+							return fmt.Errorf("create bin dir: %w", err)
+						}
+					} else {
+						return fmt.Errorf("stat bin dir: %w", err)
 					}
+				} else if !binInfo.IsDir() {
+					return fmt.Errorf("bin path %q exists but is not a directory", binDir)
+				}
+
+				if _, err := os.Stat(binDest); os.IsNotExist(err) {
 					if err := os.Rename(rootBin, binDest); err != nil {
 						return fmt.Errorf("move binary to bin/: %w", err)
 					}
@@ -414,7 +423,8 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	if err != nil {
 		return err
 	}
-	// Copy at most maxExtractSize+1 bytes so we can detect if the limit is exceeded.
+	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
+	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
 	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
 	n, err := io.Copy(out, lr)
 	if err != nil {
@@ -500,8 +510,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			candidateTarget := filepath.Join(realParentDir, linkTarget)
 			realLinkTarget := candidateTarget
 			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+				// Successfully resolved the candidate target; use the resolved path.
 				realLinkTarget = resolved
-			} else if !os.IsNotExist(err) {
+			} else if os.IsNotExist(err) {
+				// Target does not exist; keep realLinkTarget as candidateTarget.
+			} else {
 				// For errors other than non-existent targets, skip creating the symlink.
 				rc.Close()
 				continue
