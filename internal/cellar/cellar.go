@@ -27,6 +27,12 @@ func (c *Cellar) Install(name, version, stagingDir string) error {
 		return err
 	}
 
+	// Extra safety: ensure the keg path is within the cellar root before
+	// performing any filesystem operations, especially recursive deletion.
+	if !c.isUnderCellar(kegPath) {
+		return fmt.Errorf("keg path %q escapes cellar root %q", kegPath, c.Path)
+	}
+
 	if err := os.MkdirAll(filepath.Dir(kegPath), 0755); err != nil {
 		return fmt.Errorf("create cellar dir: %w", err)
 	}
@@ -119,6 +125,44 @@ func (c *Cellar) KegPath(name, version string) (string, error) {
 		return "", fmt.Errorf("path %q escapes cellar %q", p, c.Path)
 	}
 	return p, nil
+}
+
+// isUnderCellar reports whether the given path is located within the Cellar.Path
+// directory. It mirrors the logic used by config.Paths.IsUnderRoot and is used
+// as a safety check before performing destructive operations such as
+// recursive deletion.
+func (c *Cellar) isUnderCellar(path string) bool {
+	if c.Path == "" || path == "" {
+		return false
+	}
+
+	rootAbs, err := filepath.Abs(c.Path)
+	if err != nil {
+		return false
+	}
+	rootAbs = filepath.Clean(rootAbs)
+
+	targetAbs, err := filepath.Abs(path)
+	if err != nil {
+		return false
+	}
+	targetAbs = filepath.Clean(targetAbs)
+
+	rel, err := filepath.Rel(rootAbs, targetAbs)
+	if err != nil {
+		return false
+	}
+
+	if rel == "." {
+		return true
+	}
+	if rel == ".." {
+		return false
+	}
+	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return false
+	}
+	return true
 }
 
 // kegDir returns the validated path to a formula's directory in the cellar.
