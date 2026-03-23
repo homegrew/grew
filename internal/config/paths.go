@@ -100,7 +100,16 @@ func UserPrefix() string {
 	if err != nil {
 		home = "."
 	}
-	return filepath.Join(home, ".homegrew")
+	if abs, err := filepath.Abs(home); err == nil {
+		home = filepath.Clean(abs)
+	} else {
+		home = filepath.Clean(home)
+	}
+	prefix := filepath.Join(home, ".homegrew")
+	if abs, err := filepath.Abs(prefix); err == nil {
+		return filepath.Clean(abs)
+	}
+	return filepath.Clean(prefix)
 }
 
 func Default() Paths {
@@ -108,6 +117,11 @@ func Default() Paths {
 	home, err := os.UserHomeDir()
 	if err != nil {
 		home = "."
+	}
+	if abs, err := filepath.Abs(home); err == nil {
+		home = filepath.Clean(abs)
+	} else {
+		home = filepath.Clean(home)
 	}
 	appDir := os.Getenv("HOMEGREW_APPDIR")
 	if appDir == "" {
