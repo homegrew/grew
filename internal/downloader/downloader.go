@@ -177,14 +177,34 @@ func ComputeSHA256(path string) (string, error) {
 		return "", fmt.Errorf("invalid path for hashing")
 	}
 	// Require an absolute path to avoid hashing unexpected locations when given
-	// a user-controlled relative path. Callers that work with relative paths
-	// should resolve them against a known-safe base directory first.
+	// a user-controlled relative path.
 	if !filepath.IsAbs(clean) {
 		abs, err := filepath.Abs(clean)
 		if err != nil {
 			return "", fmt.Errorf("invalid path for hashing")
 		}
 		clean = filepath.Clean(abs)
+	}
+
+	// As a defense-in-depth measure, ensure we only hash files within the current
+	// working directory tree. Callers that need to hash files elsewhere should
+	// change directory first or ensure they pass in a safe path.
+	wd, err := os.Getwd()
+	if err != nil {
+		return "", fmt.Errorf("determine working directory for hashing: %w", err)
+	}
+	wdAbs, err := filepath.Abs(wd)
+	if err != nil {
+		return "", fmt.Errorf("determine working directory for hashing: %w", err)
+	}
+	wdAbs = filepath.Clean(wdAbs)
+	// Add a trailing separator to avoid prefix tricks (/tmp/dir vs /tmp/dir2).
+	baseWithSep := wdAbs
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if clean != wdAbs && !strings.HasPrefix(clean, baseWithSep) {
+		return "", fmt.Errorf("hash path %q escapes working directory %q", clean, wdAbs)
 	}
 
 	f, err := os.Open(clean)
