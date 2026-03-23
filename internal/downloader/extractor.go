@@ -475,7 +475,6 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		if err != nil {
 			return err
 		}
-
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
 			_, err := io.Copy(buf, rc)
@@ -607,8 +606,9 @@ func stripPath(name string, strip int) string {
 // extractTar function, which validates all paths and symlinks.
 func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	if archivePath == "" {
-		return fmt.Errorf("archive path must not be empty")
+		return fmt.Errorf("archive path is empty")
 	}
+
 	absArchivePath, err := filepath.Abs(archivePath)
 	if err != nil {
 		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
