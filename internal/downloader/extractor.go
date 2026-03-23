@@ -184,7 +184,13 @@ func sanitizeSymlinkTarget(target string) string {
 	}
 	// Normalize the path to resolve redundant separators and "." components.
 	clean := filepath.Clean(target)
+	// Reject empty or no-op targets.
 	if clean == "" || clean == "." {
+		return ""
+	}
+	// Disallow any attempt to traverse upwards outside the extraction tree.
+	// This covers patterns like "..", "../foo", "foo/../bar", etc.
+	if clean == ".." || strings.HasPrefix(clean, ".."+string(os.PathSeparator)) || strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) {
 		return ""
 	}
 	return clean
