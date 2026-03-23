@@ -138,6 +138,23 @@ func (inst *Installer) LinkBin(name, target string) error {
 		} else {
 			return fmt.Errorf("refusing to overwrite non-symlink path at %q (mode %v)", linkAbs, mode)
 		}
+	if info, err := os.Lstat(linkAbs); err != nil {
+		if !os.IsNotExist(err) {
+			return fmt.Errorf("stat existing link %q: %w", linkAbs, err)
+		}
+	} else {
+		mode := info.Mode()
+		if mode&os.ModeSymlink != 0 {
+			if err := os.Remove(linkAbs); err != nil {
+				return fmt.Errorf("failed to remove existing symlink %q: %w", linkAbs, err)
+			}
+		} else if mode.IsDir() {
+			return fmt.Errorf("refusing to overwrite directory at %q", linkAbs)
+		} else if mode.IsRegular() {
+			return fmt.Errorf("refusing to overwrite regular file at %q", linkAbs)
+		} else {
+			return fmt.Errorf("refusing to overwrite non-symlink path at %q (mode %v)", linkAbs, mode)
+		}
 	}
 
 	// Validate and sanitize the target path for the symlink.
