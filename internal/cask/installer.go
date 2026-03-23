@@ -62,6 +62,9 @@ func (inst *Installer) UninstallApp(appName string) error {
 	if filepath.Base(appName) != appName {
 		return fmt.Errorf("invalid app name: %q", appName)
 	}
+	if err := validation.SafePathComponent(appName); err != nil {
+		return fmt.Errorf("invalid app name: %q", appName)
+	}
 	destApp := filepath.Join(inst.AppDir, appName)
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
 		return nil // already gone
