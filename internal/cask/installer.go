@@ -162,7 +162,19 @@ func (inst *Installer) UnlinkBin(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid binary name: %q", name)
 	}
-	return os.Remove(filepath.Join(inst.BinDir, name))
+	linkPath := filepath.Join(inst.BinDir, name)
+	info, err := os.Lstat(linkPath)
+	if err != nil {
+		if os.IsNotExist(err) {
+			// already gone
+			return nil
+		}
+		return err
+	}
+	if info.Mode()&os.ModeSymlink == 0 {
+		return fmt.Errorf("refusing to remove non-symlink at %q", linkPath)
+	}
+	return os.Remove(linkPath)
 }
 
 // findApp searches stageDir for a .app bundle with the given name.
