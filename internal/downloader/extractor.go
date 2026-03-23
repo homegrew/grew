@@ -22,6 +22,11 @@ const maxExtractSize = 512 << 20
 func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 	archivePath = filepath.Clean(archivePath)
 	destDir = filepath.Clean(destDir)
+	absDest, err := filepath.Abs(destDir)
+	if err != nil {
+		return fmt.Errorf("resolve dest dir: %w", err)
+	}
+	destDir = absDest
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		return fmt.Errorf("create dest dir: %w", err)
 	}
@@ -74,6 +79,9 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("invalid binary name: %w", err)
 	}
 	binDir := filepath.Clean(filepath.Join(destDir, "bin"))
+	if !withinDir(destDir, binDir) {
+		return fmt.Errorf("bin directory escapes destination directory")
+	}
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		return err
 	}
