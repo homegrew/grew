@@ -421,7 +421,7 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	out, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
 	if err != nil {
-		return err
+		return fmt.Errorf("open output file %q: %w", path, err)
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
