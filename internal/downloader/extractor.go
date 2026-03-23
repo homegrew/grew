@@ -369,6 +369,12 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if !withinDir(destDir, resolved) {
 				continue
 			}
+			// Ensure that the directory we are about to create for the symlink
+			// itself remains within destDir. This guards against any remaining
+			// path traversal tricks that might affect the link location.
+			if !withinDir(destDir, parentDir) {
+				continue
+			}
 			if err := os.MkdirAll(parentDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
