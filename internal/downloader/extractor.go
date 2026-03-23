@@ -371,7 +371,11 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				resolvedParent = parentDir
 			}
 			resolved := filepath.Clean(filepath.Join(resolvedParent, linkname))
-			if !withinDir(destDir, resolved) {
+			realDest, err2 := filepath.EvalSymlinks(destDir)
+			if err2 != nil {
+				realDest = destDir
+			}
+			if !withinDir(realDest, resolved) {
 				continue
 			}
 			if err := os.MkdirAll(parentDir, 0755); err != nil {
