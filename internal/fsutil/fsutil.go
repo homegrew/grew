@@ -16,17 +16,37 @@ func CopyTree(src, dst string) error {
 	if err != nil {
 		return fmt.Errorf("resolve dest: %w", err)
 	}
+	absDst = filepath.Clean(absDst)
 
-	return filepath.Walk(src, func(path string, info os.FileInfo, err error) error {
+	absSrc, err := filepath.Abs(src)
+	if err != nil {
+		return fmt.Errorf("resolve src: %w", err)
+	}
+	absSrc = filepath.Clean(absSrc)
+
+	return filepath.Walk(absSrc, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
 
-		rel, err := filepath.Rel(src, path)
+		rel, err := filepath.Rel(absSrc, path)
 		if err != nil {
 			return err
 		}
-		target := filepath.Join(dst, rel)
+		rel = filepath.Clean(rel)
+		target := filepath.Join(absDst, rel)
+		target = filepath.Clean(target)
+
+		// Ensure that the computed target path stays within the destination root.
+		normalizedRoot := absDst
+		normalizedTarget := target
+		if runtime.GOOS == "windows" {
+			normalizedRoot = strings.ToLower(normalizedRoot)
+			normalizedTarget = strings.ToLower(normalizedTarget)
+		}
+		if normalizedTarget != normalizedRoot && !strings.HasPrefix(normalizedTarget, normalizedRoot+string(filepath.Separator)) {
+			return fmt.Errorf("refusing to copy outside destination root: %s", target)
+		}
 
 		// Detect symlinks via Lstat since Walk follows them
 		linfo, lerr := os.Lstat(path)
