@@ -159,7 +159,8 @@ func setupSystem(prefix string) error {
 
 	// Transfer ownership to the real user.
 	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
-	cmd := exec.Command("chown", "-R", "--", u.Username+":"+pg, prefix)
+	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
+	cmd := exec.Command("chown", "-R", "--", userGroup, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -170,7 +171,7 @@ func setupSystem(prefix string) error {
 	return finishSetup(prefix)
 }
 
-var identityPattern = regexp.MustCompile(`^[a-zA-Z0-9_.-]+$`)
+var identityPattern = regexp.MustCompile(`^[A-Za-z0-9_][A-Za-z0-9_.-]*$`)
 
 func validIdentity(s string) bool {
 	return identityPattern.MatchString(s)
