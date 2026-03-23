@@ -357,7 +357,9 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
-			os.Remove(target)
+			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
+				return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
+			}
 			if err := os.Symlink(linkname, target); err != nil {
 				return fmt.Errorf("create symlink %s -> %s: %w", target, linkname, err)
 			}
