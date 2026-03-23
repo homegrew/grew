@@ -331,8 +331,16 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 
 		switch header.Typeflag {
 		case tar.TypeDir:
-			if err := os.MkdirAll(target, fsutil.SanitizeMode(os.FileMode(header.Mode), true)); err != nil {
-				return fmt.Errorf("create directory %s: %w", target, err)
+			if info, err := os.Stat(target); err == nil {
+				if !info.IsDir() {
+					return fmt.Errorf("path %s exists and is not a directory", target)
+				}
+			} else if os.IsNotExist(err) {
+				if err := os.MkdirAll(target, fsutil.SanitizeMode(os.FileMode(header.Mode), true)); err != nil {
+					return fmt.Errorf("create directory %s: %w", target, err)
+				}
+			} else {
+				return fmt.Errorf("stat directory %s: %w", target, err)
 			}
 		case tar.TypeReg:
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
@@ -357,7 +365,9 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
-			os.Remove(target)
+			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
+				return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
+			}
 			if err := os.Symlink(linkname, target); err != nil {
 				return fmt.Errorf("create symlink %s -> %s: %w", target, linkname, err)
 			}
@@ -388,9 +398,18 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	if err != nil {
 		return err
 	}
-	if _, err := io.Copy(out, io.LimitReader(r, maxExtractSize)); err != nil {
+	// Copy at most maxExtractSize+1 bytes so we can detect if the limit is exceeded.
+	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
+	n, err := io.Copy(out, lr)
+	if err != nil {
 		out.Close()
 		return err
+	}
+	if n > maxExtractSize {
+		// File exceeded the allowed size; remove partial output and return an error.
+		out.Close()
+		_ = os.Remove(path)
+		return fmt.Errorf("extracted file %s exceeds maximum allowed size of %d bytes", path, maxExtractSize)
 	}
 	return out.Close()
 }
@@ -579,6 +598,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 		decompressCmd = "bzip2"
 	default:
 		return fmt.Errorf("unsupported archive format: %s", filepath.Base(absArchivePath))
+	}
+
+	if _, err := exec.LookPath(decompressCmd); err != nil {
+		return fmt.Errorf("required decompression tool %q not found in PATH: %w", decompressCmd, err)
 	}
 
 	cmd := exec.Command(decompressCmd, "-d", "-c", "--", absArchivePath)
