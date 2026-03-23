@@ -11,6 +11,7 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -80,6 +81,14 @@ func caskInstall(name string, noQuarantine bool) error {
 	fmt.Printf("==> SHA256 verified\n")
 
 	// Extract archive to staging
+	if err := validation.SafePathComponent(c.Name); err != nil {
+		os.Remove(localFile)
+		return fmt.Errorf("invalid cask name for staging directory: %w", err)
+	}
+	if err := validation.SafePathComponent(c.Version); err != nil {
+		os.Remove(localFile)
+		return fmt.Errorf("invalid cask version for staging directory: %w", err)
+	}
 	stageDir := filepath.Join(paths.Tmp, c.Name+"-"+c.Version+"-cask-stage")
 	os.RemoveAll(stageDir)
 
