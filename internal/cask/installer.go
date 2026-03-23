@@ -26,7 +26,7 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 		return "", fmt.Errorf("invalid app name: %q", appName)
 	}
 	if err := validation.SafePathComponent(appName); err != nil {
-		return "", fmt.Errorf("invalid app name: %q", appName)
+		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 
 	srcApp, err := findApp(stageDir, appName)
@@ -69,7 +69,7 @@ func (inst *Installer) UninstallApp(appName string) error {
 		return fmt.Errorf("invalid app name: %q", appName)
 	}
 	if err := validation.SafePathComponent(appName); err != nil {
-		return fmt.Errorf("invalid app name: %q", appName)
+		return fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 	destApp := filepath.Join(inst.AppDir, appName)
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
@@ -104,11 +104,11 @@ func (inst *Installer) LinkBin(name, target string) error {
 	linkAbs = filepath.Clean(linkAbs)
 
 	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	binWithSep := binDirAbs
-	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
-		binWithSep += string(os.PathSeparator)
+	binDirWithSep := binDirAbs
+	if !strings.HasSuffix(binDirWithSep, string(os.PathSeparator)) {
+		binDirWithSep += string(os.PathSeparator)
 	}
-	if linkAbs != binDirAbs && !strings.HasPrefix(linkAbs, binWithSep) {
+	if linkAbs != binDirAbs && !strings.HasPrefix(linkAbs, binDirWithSep) {
 		return fmt.Errorf("refusing to create link outside bin directory: %s", linkAbs)
 	}
 
