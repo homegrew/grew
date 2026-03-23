@@ -555,7 +555,15 @@ func stripPath(name string, strip int) string {
 // decompressor (xz or bzip2) and pipes the tar stream through the safe
 // extractTar function, which validates all paths and symlinks.
 func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
-	lower := strings.ToLower(archivePath)
+	if archivePath == "" {
+		return fmt.Errorf("archive path must not be empty")
+	}
+	absArchivePath, err := filepath.Abs(archivePath)
+	if err != nil {
+		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
+	}
+
+	lower := strings.ToLower(absArchivePath)
 	var decompressCmd string
 	switch {
 	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz"):
@@ -563,10 +571,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	case strings.HasSuffix(lower, ".tar.bz2"):
 		decompressCmd = "bzip2"
 	default:
-		return fmt.Errorf("unsupported archive format: %s", filepath.Base(archivePath))
+		return fmt.Errorf("unsupported archive format: %s", filepath.Base(absArchivePath))
 	}
 
-	cmd := exec.Command(decompressCmd, "-d", "-c", "--", archivePath)
+	cmd := exec.Command(decompressCmd, "-d", "-c", "--", absArchivePath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return err
