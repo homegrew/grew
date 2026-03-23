@@ -115,7 +115,22 @@ func (inst *Installer) LinkBin(name, target string) error {
 	if err := os.Remove(linkAbs); err != nil && !os.IsNotExist(err) {
 		return fmt.Errorf("failed to remove existing link %q: %w", linkAbs, err)
 	}
-	return os.Symlink(target, linkAbs)
+
+	// Validate and sanitize the target path for the symlink.
+	if target == "" {
+		return fmt.Errorf("invalid symlink target: empty")
+	}
+	cleanTarget := filepath.Clean(target)
+	// For relative targets, disallow path traversal via ".." components.
+	if !filepath.IsAbs(cleanTarget) {
+		for _, part := range strings.Split(cleanTarget, string(os.PathSeparator)) {
+			if part == ".." {
+				return fmt.Errorf("invalid symlink target contains path traversal: %q", target)
+			}
+		}
+	}
+
+	return os.Symlink(cleanTarget, linkAbs)
 }
 
 // UnlinkBin removes a symlink from BinDir.
