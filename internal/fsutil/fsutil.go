@@ -137,6 +137,16 @@ func CopyTree(src, dst string) error {
 
 // CopyFile copies a single file from src to dst.
 func CopyFile(src, dst string, mode os.FileMode) error {
+	// Normalize destination to an absolute, cleaned path before use.
+	if dst == "" {
+		return fmt.Errorf("empty destination path")
+	}
+	absDst, err := filepath.Abs(dst)
+	if err != nil {
+		return fmt.Errorf("resolve destination: %w", err)
+	}
+	absDst = filepath.Clean(absDst)
+
 	in, err := os.Open(src)
 	if err != nil {
 		return err
@@ -144,17 +154,17 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 	defer in.Close()
 
 	// Validate destination before truncating/creating to avoid overwriting non-regular files.
-	if info, statErr := os.Lstat(dst); statErr == nil {
+	if info, statErr := os.Lstat(absDst); statErr == nil {
 		// Destination exists; ensure it's a regular file before overwriting.
 		if !info.Mode().IsRegular() {
-			return fmt.Errorf("destination %q is not a regular file", dst)
+			return fmt.Errorf("destination %q is not a regular file", absDst)
 		}
 	} else if !os.IsNotExist(statErr) {
 		// An unexpected error occurred while checking the destination.
 		return statErr
 	}
 
-	out, err := os.OpenFile(dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
+	out, err := os.OpenFile(absDst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
 	if err != nil {
 		return err
 	}
