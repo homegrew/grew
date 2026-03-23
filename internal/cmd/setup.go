@@ -16,7 +16,7 @@ func runSetup(args []string) error {
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
-	fs.BoolVar(dryRun, "s", false, "Show what would be done without making changes")
+	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -98,11 +98,13 @@ func setupDryRun(prefix string, isRoot bool) error {
 
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
-	_, hasGit := exec.LookPath("git")
-	_, hasGo := exec.LookPath("go")
+	_, errGit := exec.LookPath("git")
+	_, errGo := exec.LookPath("go")
+	gitAvailable := errGit == nil
+	goAvailable := errGo == nil
 
 	fmt.Println()
-	if hasGit == nil && hasGo == nil {
+	if gitAvailable && goAvailable {
 		fmt.Printf("[dry-run] Clone grew repo: %s -> %s\n", grewRepoURL, repoDir)
 		fmt.Printf("[dry-run] Build from source: go build -o %s\n", destBin)
 	} else {
@@ -111,10 +113,10 @@ func setupDryRun(prefix string, isRoot bool) error {
 			exe, _ = filepath.EvalSymlinks(exe)
 			fmt.Printf("[dry-run] Fallback: copy binary %s -> %s\n", exe, destBin)
 		}
-		if hasGit != nil {
+		if !gitAvailable {
 			fmt.Println("[dry-run]   (git not found — cannot clone)")
 		}
-		if hasGo != nil {
+		if !goAvailable {
 			fmt.Println("[dry-run]   (go not found — cannot build from source)")
 		}
 	}
@@ -285,6 +287,10 @@ func copyFile(src, dst string) error {
 // Under sudo (system install), casks go to /Applications.
 // Otherwise, they go to ~/Applications.
 func defaultAppDir() string {
+	// HOMEGREW_APPDIR, if set, overrides the default applications directory.
+	// It should be a path to the directory where grew-managed apps are installed.
+	// Both relative and absolute paths are accepted; relative paths are resolved
+	// to an absolute, cleaned path. If the value cannot be resolved, it is ignored.
 	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
 		if abs, err := filepath.Abs(v); err == nil {
 			return filepath.Clean(abs)
