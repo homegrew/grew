@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"os/user"
 	"path/filepath"
+	"regexp"
 
 	"github.com/homegrew/grew/internal/config"
 )
@@ -142,6 +143,11 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("lookup user %s: %w", realUser, err)
 	}
 
+	pg := primaryGroup(u)
+	if !validIdentity(u.Username) || !validIdentity(pg) {
+		return fmt.Errorf("invalid username or group name: %q, %q", u.Username, pg)
+	}
+
 	fmt.Printf("==> Setting up grew at %s (system prefix)\n", prefix)
 	fmt.Printf("==> Ownership will be transferred to %s\n", u.Username)
 	fmt.Println()
@@ -152,8 +158,8 @@ func setupSystem(prefix string) error {
 	}
 
 	// Transfer ownership to the real user.
-	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, primaryGroup(u), prefix)
-	cmd := exec.Command("chown", "-R", "--", u.Username+":"+primaryGroup(u), prefix)
+	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
+	cmd := exec.Command("chown", "-R", "--", u.Username+":"+pg, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -162,6 +168,12 @@ func setupSystem(prefix string) error {
 
 	// Create the directory structure.
 	return finishSetup(prefix)
+}
+
+var identityPattern = regexp.MustCompile(`^[a-zA-Z0-9_.-]+$`)
+
+func validIdentity(s string) bool {
+	return identityPattern.MatchString(s)
 }
 
 // setupUser installs grew to ~/.homegrew (no root needed).
