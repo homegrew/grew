@@ -133,6 +133,8 @@ func (c *Cellar) kegDir(name string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve cellar: %w", err)
 	}
+	absD = filepath.Clean(absD)
+	absCellar = filepath.Clean(absCellar)
 	rel, err := filepath.Rel(absCellar, absD)
 	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("path %q escapes cellar %q", d, c.Path)
@@ -141,7 +143,11 @@ func (c *Cellar) kegDir(name string) (string, error) {
 }
 
 func (c *Cellar) List() ([]InstalledPackage, error) {
-	entries, err := os.ReadDir(c.Path)
+	absCellar, err := filepath.Abs(c.Path)
+	if err != nil {
+		return nil, fmt.Errorf("resolve cellar: %w", err)
+	}
+	entries, err := os.ReadDir(absCellar)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
