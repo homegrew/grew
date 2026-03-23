@@ -139,8 +139,31 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	tapDir := filepath.Clean(l.TapDir)
+	// Normalize TapDir to an absolute, cleaned path to avoid surprises.
+	tapDir := l.TapDir
+	if tAbs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(tAbs)
+	} else {
+		tapDir = filepath.Clean(tapDir)
+	}
+
+	// Construct the cask directory under TapDir and ensure it does not escape.
 	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
+	if cAbs, err := filepath.Abs(caskDir); err == nil {
+		caskDir = filepath.Clean(cAbs)
+	} else {
+		caskDir = filepath.Clean(caskDir)
+	}
+
+	// Ensure caskDir is contained within tapDir (and not some sibling via "..").
+	tapDirWithSep := tapDir
+	if !strings.HasSuffix(tapDirWithSep, string(os.PathSeparator)) {
+		tapDirWithSep += string(os.PathSeparator)
+	}
+	if caskDir != tapDir && !strings.HasPrefix(caskDir, tapDirWithSep) {
+		return nil, fmt.Errorf("cask directory %q escapes taps directory %q", caskDir, tapDir)
+	}
+
 	entries, err := os.ReadDir(caskDir)
 	if err != nil {
 		if os.IsNotExist(err) {
