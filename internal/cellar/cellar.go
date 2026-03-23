@@ -31,7 +31,9 @@ func (c *Cellar) Install(name, version, stagingDir string) error {
 		return fmt.Errorf("create cellar dir: %w", err)
 	}
 	// Remove existing keg if present (reinstall)
-	os.RemoveAll(kegPath)
+	if err := os.RemoveAll(kegPath); err != nil {
+		return fmt.Errorf("remove existing keg: %w", err)
+	}
 
 	if err := fsutil.CopyTree(stagingDir, kegPath); err != nil {
 		os.RemoveAll(kegPath)
