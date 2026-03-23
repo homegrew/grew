@@ -285,6 +285,10 @@ func copyFile(src, dst string) error {
 // Under sudo (system install), casks go to /Applications.
 // Otherwise, they go to ~/Applications.
 func defaultAppDir() string {
+	// HOMEGREW_APPDIR, if set, overrides the default applications directory.
+	// It should be a path to the directory where grew-managed apps are installed.
+	// Both relative and absolute paths are accepted; relative paths are resolved
+	// to an absolute, cleaned path. If the value cannot be resolved, it is ignored.
 	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
 		if abs, err := filepath.Abs(v); err == nil {
 			return filepath.Clean(abs)
