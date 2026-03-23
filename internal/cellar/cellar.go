@@ -159,7 +159,7 @@ func (c *Cellar) isUnderCellar(path string) bool {
 	if rel == ".." {
 		return false
 	}
-	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+	if strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return false
 	}
 	return true
