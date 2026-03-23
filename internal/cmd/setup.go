@@ -98,11 +98,13 @@ func setupDryRun(prefix string, isRoot bool) error {
 
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
-	_, hasGit := exec.LookPath("git")
-	_, hasGo := exec.LookPath("go")
+	_, errGit := exec.LookPath("git")
+	_, errGo := exec.LookPath("go")
+	gitAvailable := errGit == nil
+	goAvailable := errGo == nil
 
 	fmt.Println()
-	if hasGit == nil && hasGo == nil {
+	if gitAvailable && goAvailable {
 		fmt.Printf("[dry-run] Clone grew repo: %s -> %s\n", grewRepoURL, repoDir)
 		fmt.Printf("[dry-run] Build from source: go build -o %s\n", destBin)
 	} else {
@@ -111,10 +113,10 @@ func setupDryRun(prefix string, isRoot bool) error {
 			exe, _ = filepath.EvalSymlinks(exe)
 			fmt.Printf("[dry-run] Fallback: copy binary %s -> %s\n", exe, destBin)
 		}
-		if hasGit != nil {
+		if !gitAvailable {
 			fmt.Println("[dry-run]   (git not found — cannot clone)")
 		}
-		if hasGo != nil {
+		if !goAvailable {
 			fmt.Println("[dry-run]   (go not found — cannot build from source)")
 		}
 	}
