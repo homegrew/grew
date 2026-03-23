@@ -52,8 +52,8 @@ func mustBeWithin(baseDir, target string) error {
 	}
 
 	baseWithSep := baseAbs
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
+	if !strings.HasSuffix(baseWithSep, string(filepath.Separator)) {
+		baseWithSep += string(filepath.Separator)
 	}
 	if !strings.HasPrefix(targetAbs, baseWithSep) {
 		return fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
@@ -242,9 +242,9 @@ func sanitizeSymlinkTarget(target string) string {
 	// Disallow any attempt to traverse upwards outside the extraction tree.
 	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
 	if clean == ".." ||
-		strings.HasPrefix(clean, ".."+string(os.PathSeparator)) ||
-		strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) ||
-		strings.HasSuffix(clean, string(os.PathSeparator)+"..") {
+		strings.HasPrefix(clean, dotDotWithSep) ||
+		strings.Contains(clean, sepWithDotDot+string(filepath.Separator)) ||
+		strings.HasSuffix(clean, sepWithDotDot) {
 		return ""
 	}
 	return clean
@@ -526,8 +526,8 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			// Validate symlink target doesn't escape. Resolve any existing
 			// symlinks in the parent directory and the candidate target
 			// path before checking that it remains within the extraction root.
-			parentDir := filepath.Dir(target)
-			realParentDir, err := filepath.EvalSymlinks(parentDir)
+			symlinkParentDir := filepath.Dir(target)
+			realParentDir, err := filepath.EvalSymlinks(symlinkParentDir)
 			if err != nil {
 				rc.Close()
 				continue

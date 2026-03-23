@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"os/user"
@@ -145,7 +146,7 @@ func setupSystem(prefix string) error {
 
 	pg := primaryGroup(u)
 	if !validIdentity(u.Username) || !validIdentity(pg) {
-		return fmt.Errorf("invalid username or group name: %q, %q", u.Username, pg)
+		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
 	}
 
 	fmt.Printf("==> Setting up grew at %s (system prefix)\n", prefix)
@@ -160,7 +161,7 @@ func setupSystem(prefix string) error {
 	// Transfer ownership to the real user.
 	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
 	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
-	cmd := exec.Command("chown", "-R", "--", userGroup, prefix)
+	cmd := exec.Command("chown", "-R", userGroup, "--", prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -267,7 +268,7 @@ func installFromGit(repoDir, destBin string) error {
 	} else {
 		// Clone fresh.
 		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
-		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
+		clone := exec.Command(gitPath, "clone", "--depth", "1", grewRepoURL, "--", cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
 		if err := clone.Run(); err != nil {
@@ -298,11 +299,20 @@ func installFromGit(repoDir, destBin string) error {
 }
 
 func copyFile(src, dst string) error {
-	data, err := os.ReadFile(src)
+	srcFile, err := os.Open(src)
 	if err != nil {
 		return err
 	}
-	return os.WriteFile(dst, data, 0755)
+	defer srcFile.Close()
+
+	dstFile, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
+	if err != nil {
+		return err
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	return err
 }
 
 // defaultAppDir returns the appropriate Applications directory.
