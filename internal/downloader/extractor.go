@@ -444,12 +444,17 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
 	n, err := io.Copy(out, lr)
 	if err != nil {
-		out.Close()
+		if cerr := out.Close(); cerr != nil {
+			return fmt.Errorf("copy data: %v; additionally, closing output file %q failed: %w", err, path, cerr)
+		}
 		return err
 	}
 	if n > maxExtractSize {
 		// File exceeded the allowed size; remove partial output and return an error.
-		out.Close()
+		if cerr := out.Close(); cerr != nil {
+			_ = os.Remove(path)
+			return fmt.Errorf("extracted file %s exceeds maximum allowed size of %d bytes; additionally, closing output file failed: %w", path, maxExtractSize, cerr)
+		}
 		_ = os.Remove(path)
 		return fmt.Errorf("extracted file %s exceeds maximum allowed size of %d bytes", path, maxExtractSize)
 	}
