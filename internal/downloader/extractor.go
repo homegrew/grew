@@ -219,8 +219,11 @@ func sanitizeSymlinkTarget(target string) string {
 		return ""
 	}
 	// Disallow any attempt to traverse upwards outside the extraction tree.
-	// This covers patterns like "..", "../foo", "foo/../bar", etc.
-	if clean == ".." || strings.HasPrefix(clean, ".."+string(os.PathSeparator)) || strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) {
+	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
+	if clean == ".." ||
+		strings.HasPrefix(clean, ".."+string(os.PathSeparator)) ||
+		strings.Contains(clean, string(os.PathSeparator)+".."+string(os.PathSeparator)) ||
+		strings.HasSuffix(clean, string(os.PathSeparator)+"..") {
 		return ""
 	}
 	return clean
@@ -242,7 +245,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	target := filepath.Clean(filepath.Join(destDir, clean))
 
 	// Standard Zip Slip check: the relative path from destDir to target
-	// must not start with ".." after filepath.Abs resolves both sides.
+	// must not start with ".." or end with a trailing ".." segment after
+	// filepath.Abs resolves both sides.
 	absDestDir, err := filepath.Abs(destDir)
 	if err != nil {
 		return "", false
@@ -252,7 +256,10 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		return "", false
 	}
 	rel, err := filepath.Rel(absDestDir, absTarget)
-	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+	if err != nil ||
+		rel == ".." ||
+		strings.HasPrefix(rel, ".."+string(filepath.Separator)) ||
+		strings.HasSuffix(rel, string(filepath.Separator)+"..") {
 		return "", false
 	}
 
@@ -555,7 +562,15 @@ func stripPath(name string, strip int) string {
 // decompressor (xz or bzip2) and pipes the tar stream through the safe
 // extractTar function, which validates all paths and symlinks.
 func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
-	lower := strings.ToLower(archivePath)
+	if archivePath == "" {
+		return fmt.Errorf("archive path must not be empty")
+	}
+	absArchivePath, err := filepath.Abs(archivePath)
+	if err != nil {
+		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
+	}
+
+	lower := strings.ToLower(absArchivePath)
 	var decompressCmd string
 	switch {
 	case strings.HasSuffix(lower, ".tar.xz") || strings.HasSuffix(lower, ".txz"):
@@ -563,10 +578,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	case strings.HasSuffix(lower, ".tar.bz2"):
 		decompressCmd = "bzip2"
 	default:
-		return fmt.Errorf("unsupported archive format: %s", filepath.Base(archivePath))
+		return fmt.Errorf("unsupported archive format: %s", filepath.Base(absArchivePath))
 	}
 
-	cmd := exec.Command(decompressCmd, "-d", "-c", "--", archivePath)
+	cmd := exec.Command(decompressCmd, "-d", "-c", "--", absArchivePath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return err
