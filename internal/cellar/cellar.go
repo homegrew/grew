@@ -42,7 +42,9 @@ func (c *Cellar) Install(name, version, stagingDir string) error {
 	}
 
 	if err := fsutil.CopyTree(stagingDir, kegPath); err != nil {
-		os.RemoveAll(kegPath)
+		if rmErr := os.RemoveAll(kegPath); rmErr != nil {
+			return fmt.Errorf("install to cellar: %w; additionally failed to cleanup partial keg: %v", err, rmErr)
+		}
 		return fmt.Errorf("install to cellar: %w", err)
 	}
 	return nil
