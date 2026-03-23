@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"path/filepath"
-	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/internal/downloader"
