@@ -14,6 +14,15 @@ type Loader struct {
 	DebugLog func(format string, args ...any) // optional debug logger
 }
 
+// NewLoader constructs a Loader with a normalized, absolute TapDir.
+func NewLoader(tapDir string) *Loader {
+	if abs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = abs
+	}
+	tapDir = filepath.Clean(tapDir)
+	return &Loader{TapDir: tapDir}
+}
+
 func (l *Loader) debugf(format string, args ...any) {
 	if l.DebugLog != nil {
 		l.DebugLog(format, args...)
@@ -100,8 +109,31 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 }
 
 func (l *Loader) loadFromFile(path string) (*Formula, error) {
-	clean := filepath.Clean(path)
-	data, err := os.ReadFile(clean)
+	// Resolve to an absolute, cleaned path.
+	absPath, err := filepath.Abs(path)
+	if err != nil {
+		return nil, err
+	}
+	absPath = filepath.Clean(absPath)
+
+	// Ensure the file we are about to read is within the TapDir tree.
+	base := l.TapDir
+	if bAbs, err := filepath.Abs(base); err == nil {
+		base = filepath.Clean(bAbs)
+	} else {
+		base = filepath.Clean(base)
+	}
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
+	baseWithSep := base
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
+		return nil, fmt.Errorf("formula path %q escapes taps directory %q", absPath, base)
+	}
+
+	data, err := os.ReadFile(absPath)
 	if err != nil {
 		return nil, err
 	}
