@@ -35,7 +35,7 @@ func DefaultPrefix() string {
 	var prefix string
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
-		// Only accept absolute, well‑formed prefixes from the environment.
+		// Only accept absolute, well-formed prefixes from the environment.
 		if filepath.IsAbs(env) {
 			if abs, err := filepath.Abs(env); err == nil {
 				prefix = filepath.Clean(abs)
