@@ -416,7 +416,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 func extractTarGz(archivePath, destDir string, stripComponents int) error {
 	f, err := os.Open(archivePath)
 	if err != nil {
-		return err
+		return fmt.Errorf("open archive %s: %w", archivePath, err)
 	}
 	defer f.Close()
 
@@ -433,7 +433,7 @@ func extractTarGz(archivePath, destDir string, stripComponents int) error {
 func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	out, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
 	if err != nil {
-		return err
+		return fmt.Errorf("open output file %q: %w", path, err)
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
@@ -477,8 +477,15 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		target, ok := safeJoinArchivePath(destDir, name)
+		// Join the archive entry name to the canonical destination directory
+		// and ensure it cannot escape that root (including via symlinks).
+		target, ok := safeJoinArchivePath(realDestDir, name)
 		if !ok {
+			continue
+		}
+		// Additional hardening: ensure the final target is still within the
+		// canonical extraction root before using it.
+		if !withinDir(realDestDir, target) {
 			continue
 		}
 
@@ -489,13 +496,18 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
-			return err
+		parentDir := filepath.Dir(target)
+		// Guard against creating directories outside the extraction root.
+		if !withinDir(realDestDir, parentDir) {
+			return fmt.Errorf("refusing to create parent directory outside dest: %q", parentDir)
+		}
+		if err := os.MkdirAll(parentDir, 0755); err != nil {
+			return fmt.Errorf("create parent directory %q: %w", parentDir, err)
 		}
 
 		rc, err := f.Open()
 		if err != nil {
-			return err
+			return fmt.Errorf("open zip entry %q: %w", f.Name, err)
 		}
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
