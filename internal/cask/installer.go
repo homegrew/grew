@@ -117,6 +117,27 @@ func (inst *Installer) LinkBin(name, target string) error {
 		}
 	}
 
+	// Safety check: ensure the bin directory is located within the current user's home
+	// directory. This prevents a user-controlled prefix (for example, via HOMEGREW_PREFIX)
+	// from pointing at arbitrary locations on the filesystem.
+	homeDir, err := os.UserHomeDir()
+	if err != nil || homeDir == "" {
+		return fmt.Errorf("could not determine user home directory")
+	}
+	homeAbs, err := filepath.Abs(homeDir)
+	if err != nil {
+		return fmt.Errorf("resolve home directory: %w", err)
+	}
+	homeAbs = filepath.Clean(homeAbs)
+	rel, err := filepath.Rel(homeAbs, binDirAbs)
+	if err != nil {
+		return fmt.Errorf("cannot relate bin directory to home: %w", err)
+	}
+	if rel == ".." || rel == "." && homeAbs == string(os.PathSeparator) ||
+		strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return fmt.Errorf("bin directory must be under the user home directory: %q", binDirAbs)
+	}
+
 	link := filepath.Join(binDirAbs, name)
 
 	// Safety check: ensure the link path is within the bin directory.
