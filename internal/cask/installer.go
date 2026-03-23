@@ -168,13 +168,17 @@ func (inst *Installer) UnlinkBin(name string) error {
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, appName string) (string, error) {
 	// Check top level first
+		// Prefer a direct subdirectory match first, then look for a nested appName.
+		if e.Name() == appName {
+			directSub := filepath.Join(stageDir, e.Name())
+			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
+				return directSub, nil
+			}
+		}
 	direct := filepath.Join(stageDir, appName)
 	if info, err := os.Stat(direct); err == nil && info.IsDir() {
 		return direct, nil
 	}
-
-	// Walk one level deep
-	entries, err := os.ReadDir(stageDir)
 	if err != nil {
 		return "", err
 	}
