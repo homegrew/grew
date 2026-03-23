@@ -329,7 +329,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			}
 		case tar.TypeReg:
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
-				return err
+				return fmt.Errorf("create parent directory for %s: %w", target, err)
 			}
 			if err := extractFile(tr, target, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
