@@ -39,7 +39,10 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve %s: %w", appName, err)
 	}
-	absStage, _ := filepath.Abs(stageDir)
+	absStage, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
 	if !strings.HasPrefix(realSrc, absStage+string(filepath.Separator)) && realSrc != absStage {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
