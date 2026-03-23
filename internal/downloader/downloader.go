@@ -198,14 +198,19 @@ func ComputeSHA256(path string) (string, error) {
 		return "", fmt.Errorf("determine working directory for hashing: %w", err)
 	}
 	wdAbs = filepath.Clean(wdAbs)
-	// Add a trailing separator to avoid prefix tricks (/tmp/dir vs /tmp/dir2).
-	baseWithSep := wdAbs
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
+	baseReal, err := filepath.EvalSymlinks(wdAbs)
+	if err != nil {
+		return "", fmt.Errorf("resolve working directory for hashing: %w", err)
 	}
-	if clean != wdAbs && !strings.HasPrefix(clean, baseWithSep) {
-		return "", fmt.Errorf("hash path %q escapes working directory %q", clean, wdAbs)
+	targetReal, err := filepath.EvalSymlinks(clean)
+	if err != nil {
+		return "", fmt.Errorf("resolve hash path: %w", err)
 	}
+	rel, err := filepath.Rel(baseReal, targetReal)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return "", fmt.Errorf("hash path %q escapes working directory %q", targetReal, baseReal)
+	}
+	clean = targetReal
 
 	f, err := os.Open(clean)
 	if err != nil {
