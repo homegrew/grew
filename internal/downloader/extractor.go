@@ -352,7 +352,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			}
 			os.Remove(target)
 			if err := os.Symlink(linkname, target); err != nil {
-				return err
+				return fmt.Errorf("create symlink %s -> %s: %w", target, linkname, err)
 			}
 		}
 	}
