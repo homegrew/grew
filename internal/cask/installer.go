@@ -171,11 +171,7 @@ func (inst *Installer) UnlinkBin(name string) error {
 	}
 	binAbs = filepath.Clean(binAbs)
 
-	linkAbs, err := filepath.Abs(linkPath)
-	if err != nil {
-		return fmt.Errorf("resolve link path: %w", err)
-	}
-	linkAbs = filepath.Clean(linkAbs)
+	linkAbs := filepath.Clean(linkPath)
 
 	binWithSep := binAbs
 	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
