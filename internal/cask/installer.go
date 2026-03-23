@@ -163,7 +163,29 @@ func (inst *Installer) UnlinkBin(name string) error {
 		return fmt.Errorf("invalid binary name: %q", name)
 	}
 	linkPath := filepath.Join(inst.BinDir, name)
-	info, err := os.Lstat(linkPath)
+
+	// Ensure we only operate within the configured BinDir.
+	binAbs, err := filepath.Abs(inst.BinDir)
+	if err != nil {
+		return fmt.Errorf("resolve bin dir: %w", err)
+	}
+	binAbs = filepath.Clean(binAbs)
+
+	linkAbs, err := filepath.Abs(linkPath)
+	if err != nil {
+		return fmt.Errorf("resolve link path: %w", err)
+	}
+	linkAbs = filepath.Clean(linkAbs)
+
+	binWithSep := binAbs
+	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
+		binWithSep += string(os.PathSeparator)
+	}
+	if linkAbs != binAbs && !strings.HasPrefix(linkAbs, binWithSep) {
+		return fmt.Errorf("refusing to remove path outside bin directory: %s", linkAbs)
+	}
+
+	info, err := os.Lstat(linkAbs)
 	if err != nil {
 		if os.IsNotExist(err) {
 			// already gone
@@ -172,9 +194,9 @@ func (inst *Installer) UnlinkBin(name string) error {
 		return err
 	}
 	if info.Mode()&os.ModeSymlink == 0 {
-		return fmt.Errorf("refusing to remove non-symlink at %q", linkPath)
+		return fmt.Errorf("refusing to remove non-symlink at %q", linkAbs)
 	}
-	return os.Remove(linkPath)
+	return os.Remove(linkAbs)
 }
 
 // findApp searches stageDir for a .app bundle with the given name.
