@@ -581,6 +581,10 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 		return fmt.Errorf("unsupported archive format: %s", filepath.Base(absArchivePath))
 	}
 
+	if _, err := exec.LookPath(decompressCmd); err != nil {
+		return fmt.Errorf("required decompression tool %q not found in PATH: %w", decompressCmd, err)
+	}
+
 	cmd := exec.Command(decompressCmd, "-d", "-c", "--", absArchivePath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
