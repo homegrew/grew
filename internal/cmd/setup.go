@@ -96,8 +96,8 @@ func setupDryRun(prefix string, isRoot bool) error {
 		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.name, dir.path, status)
 	}
 
-	repoDir := filepath.Join(prefix, "Grew")
-	destBin := filepath.Join(prefix, "bin", "grew")
+	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
+	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 	_, hasGit := exec.LookPath("git")
 	_, hasGo := exec.LookPath("go")
 
@@ -184,11 +184,11 @@ func finishSetup(prefix string) error {
 		return fmt.Errorf("init directories: %w", err)
 	}
 
-	destBin := filepath.Join(prefix, "bin", "grew")
+	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 
 	// Try to install grew from source via git clone + go build.
 	// Falls back to copying the running binary if git or go are unavailable.
-	repoDir := filepath.Join(prefix, "Grew")
+	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	if err := installFromGit(repoDir, destBin); err != nil {
 		Logf("    Note: could not install from source: %v\n", err)
 		fmt.Println("==> Falling back to copying current binary")
@@ -229,7 +229,7 @@ func installFromGit(repoDir, destBin string) error {
 		return fmt.Errorf("go not found in PATH")
 	}
 
-	gitDir := filepath.Join(repoDir, ".git")
+	gitDir := filepath.Clean(filepath.Join(repoDir, ".git"))
 	if _, err := os.Stat(gitDir); err == nil {
 		// Repo exists — pull latest.
 		fmt.Println("==> Updating grew source...")
