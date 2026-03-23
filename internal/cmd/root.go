@@ -189,7 +189,7 @@ func newInstallContext() (*installContext, error) {
 
 // newLoader creates a formula.Loader with debug logging wired in.
 func newLoader(tapDir string) *formula.Loader {
-	l := &formula.Loader{TapDir: tapDir}
+	l := formula.NewLoader(tapDir)
 	if Debug {
 		l.DebugLog = func(format string, args ...any) {
 			Debugf(format, args...)
