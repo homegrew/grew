@@ -170,7 +170,7 @@ func caskInstall(name string, noQuarantine bool) error {
 
 	// Install .app artifacts
 	for _, appName := range c.Artifacts.App {
-		dest, err := inst.InstallApp(stageDir, appName)
+		dest, err := inst.InstallApp(stageDir, paths.Tmp, appName)
 		if err != nil {
 			os.RemoveAll(stageDir)
 			_ = removeIfWithin(localFile, paths.Tmp)

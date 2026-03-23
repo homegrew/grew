@@ -18,7 +18,7 @@ type Installer struct {
 
 // InstallApp copies a .app bundle from the staging directory to AppDir.
 // It looks for the named .app anywhere inside stageDir (flat or nested).
-func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
+func (inst *Installer) InstallApp(stageDir, safeBaseDir, appName string) (string, error) {
 	if !strings.HasSuffix(appName, ".app") {
 		return "", fmt.Errorf("artifact %q is not a .app bundle", appName)
 	}
@@ -29,7 +29,7 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 
-	srcApp, err := findApp(stageDir, appName)
+	srcApp, err := findApp(stageDir, safeBaseDir, appName)
 	if err != nil {
 		return "", err
 	}
@@ -254,13 +254,29 @@ func (inst *Installer) UnlinkBin(name string) error {
 }
 
 // findApp searches stageDir for a .app bundle with the given name.
-func findApp(stageDir, appName string) (string, error) {
+func findApp(stageDir, safeBaseDir, appName string) (string, error) {
+	// First, ensure the staging directory itself is within the expected safe base
+	// directory (typically the tmp directory already validated by the caller).
+	safeBase := filepath.Clean(safeBaseDir)
+	if bAbs, err := filepath.Abs(safeBase); err == nil {
+		safeBase = filepath.Clean(bAbs)
+	}
+	safeBaseWithSep := safeBase
+	if !strings.HasSuffix(safeBaseWithSep, string(os.PathSeparator)) {
+		safeBaseWithSep += string(os.PathSeparator)
+	}
+
+	stage := filepath.Clean(stageDir)
+	if sAbs, err := filepath.Abs(stage); err == nil {
+		stage = filepath.Clean(sAbs)
+	}
+	if stage != safeBase && !strings.HasPrefix(stage, safeBaseWithSep) {
+		return "", fmt.Errorf("staging directory %q escapes safe base directory %q", stage, safeBase)
+	}
+
 	// Normalize stageDir to an absolute, cleaned path and treat it as the
 	// base. All discovered apps must remain within this directory tree.
-	base := filepath.Clean(stageDir)
-	if bAbs, err := filepath.Abs(base); err == nil {
-		base = filepath.Clean(bAbs)
-	}
+	base := stage
 	baseWithSep := base
 	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
 		baseWithSep += string(os.PathSeparator)
