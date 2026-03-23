@@ -129,8 +129,25 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
+		// Copy the file while enforcing that the destination remains within absDst.
+		return copyFileWithinRoot(path, target, absDst, SanitizeMode(info.Mode(), false))
 	})
+}
+
+// copyFileWithinRoot copies a single file from src to dst, ensuring that dst
+// stays within the specified root directory.
+func copyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
+	absDst, err := filepath.Abs(dst)
+	if err != nil {
+		return fmt.Errorf("resolve destination: %w", err)
+	}
+	absDst = filepath.Clean(absDst)
+
+	if !isWithinRoot(root, absDst) {
+		return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
+	}
+
+	return CopyFile(src, absDst, mode)
 }
 
 // CopyFile copies a single file from src to dst.
