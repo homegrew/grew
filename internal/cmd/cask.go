@@ -281,11 +281,13 @@ func caskSearch(query string) error {
 func findCaskBinary(appDir string, apps []string, binName string) string {
 	for _, appName := range apps {
 		candidate := filepath.Join(appDir, appName, "Contents", "MacOS", binName)
+		candidate = filepath.Clean(candidate)
 		if _, err := os.Stat(candidate); err == nil {
 			return candidate
 		}
 		// Also check Contents/Resources
 		candidate = filepath.Join(appDir, appName, "Contents", "Resources", binName)
+		candidate = filepath.Clean(candidate)
 		if _, err := os.Stat(candidate); err == nil {
 			return candidate
 		}

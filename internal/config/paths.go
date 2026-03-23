@@ -125,6 +125,13 @@ func FromRoot(root, appDir string) Paths {
 	}
 	root = filepath.Clean(root)
 
+	// Normalize appDir so that it is also absolute and cleaned, regardless
+	// of whether it came from the environment or a default.
+	if abs, err := filepath.Abs(appDir); err == nil {
+		appDir = abs
+	}
+	appDir = filepath.Clean(appDir)
+
 	return Paths{
 		Root:     root,
 		Cellar:   filepath.Join(root, "Cellar"),
