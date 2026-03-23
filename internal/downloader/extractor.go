@@ -607,8 +607,9 @@ func stripPath(name string, strip int) string {
 // extractTar function, which validates all paths and symlinks.
 func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	if archivePath == "" {
-		return fmt.Errorf("archive path must not be empty")
-	}
+	baseName := filepath.Base(absArchivePath)
+	if err := validation.SafePathComponent(baseName); err != nil {
+		return fmt.Errorf("unsafe archive filename %q (from %q): %w", baseName, absArchivePath, err)
 	absArchivePath, err := filepath.Abs(archivePath)
 	if err != nil {
 		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
