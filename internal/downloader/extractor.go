@@ -477,8 +477,9 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
-			return err
+		parentDir := filepath.Dir(target)
+		if err := os.MkdirAll(parentDir, 0755); err != nil {
+			return fmt.Errorf("create parent directory %q: %w", parentDir, err)
 		}
 
 		rc, err := f.Open()
