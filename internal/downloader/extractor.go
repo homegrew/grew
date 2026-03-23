@@ -19,6 +19,36 @@ import (
 // maxExtractSize limits individual file extraction to 512 MB.
 const maxExtractSize = 512 << 20
 
+// mustBeWithin returns an error if target is not located within baseDir (or equal to it).
+// Both paths are resolved to absolute, cleaned paths and compared with a path‑separator
+// aware prefix check to avoid tricks like "/tmp/taps" vs "/tmp/taps2".
+func mustBeWithin(baseDir, target string) error {
+	baseAbs, err := filepath.Abs(baseDir)
+	if err != nil {
+		return fmt.Errorf("resolve base dir: %w", err)
+	}
+	baseAbs = filepath.Clean(baseAbs)
+
+	targetAbs, err := filepath.Abs(target)
+	if err != nil {
+		return fmt.Errorf("resolve target path: %w", err)
+	}
+	targetAbs = filepath.Clean(targetAbs)
+
+	if targetAbs == baseAbs {
+		return nil
+	}
+
+	baseWithSep := baseAbs
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if !strings.HasPrefix(targetAbs, baseWithSep) {
+		return fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
+	}
+	return nil
+}
+
 func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 	archivePath = filepath.Clean(archivePath)
 	destDir = filepath.Clean(destDir)
@@ -44,13 +74,13 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
 			rootBin := filepath.Clean(filepath.Join(destDir, spec.BinaryName))
-			if !withinDir(destDir, rootBin) {
-				return fmt.Errorf("binary_name escapes destination directory")
+			if err := mustBeWithin(destDir, rootBin); err != nil {
+				return fmt.Errorf("binary_name escapes destination directory: %w", err)
 			}
 			binDir := filepath.Clean(filepath.Join(destDir, "bin"))
 			binDest := filepath.Clean(filepath.Join(binDir, spec.BinaryName))
-			if !withinDir(destDir, binDest) {
-				return fmt.Errorf("binary destination escapes destination directory")
+			if err := mustBeWithin(destDir, binDest); err != nil {
+				return fmt.Errorf("binary destination escapes destination directory: %w", err)
 			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
 				if _, err := os.Stat(binDir); os.IsNotExist(err) {

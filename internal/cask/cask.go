@@ -139,8 +139,31 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	tapDir := filepath.Clean(l.TapDir)
+	// Normalize TapDir to an absolute, cleaned path to avoid surprises.
+	tapDir := l.TapDir
+	if tAbs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(tAbs)
+	} else {
+		tapDir = filepath.Clean(tapDir)
+	}
+
+	// Construct the cask directory under TapDir and ensure it does not escape.
 	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
+	if cAbs, err := filepath.Abs(caskDir); err == nil {
+		caskDir = filepath.Clean(cAbs)
+	} else {
+		caskDir = filepath.Clean(caskDir)
+	}
+
+	// Ensure caskDir is contained within tapDir (and not some sibling via "..").
+	tapDirWithSep := tapDir
+	if !strings.HasSuffix(tapDirWithSep, string(os.PathSeparator)) {
+		tapDirWithSep += string(os.PathSeparator)
+	}
+	if caskDir != tapDir && !strings.HasPrefix(caskDir, tapDirWithSep) {
+		return nil, fmt.Errorf("cask directory %q escapes taps directory %q", caskDir, tapDir)
+	}
+
 	entries, err := os.ReadDir(caskDir)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -167,7 +190,31 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 }
 
 func (l *Loader) loadFromFile(path string) (*Cask, error) {
-	data, err := os.ReadFile(filepath.Clean(path))
+	// Resolve to an absolute, cleaned path.
+	absPath, err := filepath.Abs(path)
+	if err != nil {
+		return nil, err
+	}
+	absPath = filepath.Clean(absPath)
+
+	// Ensure the cask file we are about to read is within the TapDir tree.
+	base := l.TapDir
+	if bAbs, err := filepath.Abs(base); err == nil {
+		base = filepath.Clean(bAbs)
+	} else {
+		base = filepath.Clean(base)
+	}
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
+	baseWithSep := base
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
+		return nil, fmt.Errorf("cask path %q escapes taps directory %q", absPath, base)
+	}
+
+	data, err := os.ReadFile(absPath)
 	if err != nil {
 		return nil, err
 	}

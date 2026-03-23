@@ -11,6 +11,7 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -26,6 +27,34 @@ func newCaskLoader(tapDir string) *cask.Loader {
 func initCaskTap(paths config.Paths) error {
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	return tapMgr.InitCask()
+}
+
+// removeIfWithin deletes targetPath only if it is within baseDir (after cleaning).
+// If the check fails, it returns an error and does not attempt deletion.
+func removeIfWithin(targetPath, baseDir string) error {
+	if targetPath == "" || baseDir == "" {
+		return fmt.Errorf("empty path for removal")
+	}
+	baseClean, err := filepath.Abs(baseDir)
+	if err != nil {
+		return fmt.Errorf("resolve base dir: %w", err)
+	}
+	baseClean = filepath.Clean(baseClean)
+	targetClean, err := filepath.Abs(targetPath)
+	if err != nil {
+		return fmt.Errorf("resolve target path: %w", err)
+	}
+	targetClean = filepath.Clean(targetClean)
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
+	baseWithSep := baseClean
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if targetClean != baseClean && !strings.HasPrefix(targetClean, baseWithSep) {
+		return fmt.Errorf("refusing to remove path outside base directory: %s", targetClean)
+	}
+	return os.Remove(targetClean)
 }
 
 func caskInstall(name string, noQuarantine bool) error {
@@ -49,6 +78,14 @@ func caskInstall(name string, noQuarantine bool) error {
 		return nil
 	}
 
+	// Validate cask-derived identifiers before using them in any filesystem paths.
+	if err := validation.SafePathComponent(c.Name); err != nil {
+		return fmt.Errorf("invalid cask name: %w", err)
+	}
+	if err := validation.SafePathComponent(c.Version); err != nil {
+		return fmt.Errorf("invalid cask version: %w", err)
+	}
+
 	defer TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
 	Debugf("platform: %s\n", formula.PlatformKey())
 	fmt.Printf("==> Installing cask %s %s\n", c.Name, c.Version)
@@ -67,6 +104,10 @@ func caskInstall(name string, noQuarantine bool) error {
 
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
+	// Ensure the constructed filename is a single safe path component.
+	if err := validation.SafePathComponent(filename); err != nil {
+		return fmt.Errorf("invalid download filename: %w", err)
+	}
 	localFile, err := dl.Download(dlURL, filename)
 	if err != nil {
 		return fmt.Errorf("download %s: %w", c.Name, err)
@@ -74,19 +115,53 @@ func caskInstall(name string, noQuarantine bool) error {
 	Logf("    Saved to: %s\n", localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
-		os.Remove(localFile)
+		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
 
 	// Extract archive to staging
-	stageDir := filepath.Join(paths.Tmp, c.Name+"-"+c.Version+"-cask-stage")
+	if err := validation.SafePathComponent(c.Name); err != nil {
+		_ = removeIfWithin(localFile, paths.Tmp)
+		return fmt.Errorf("invalid cask name for staging directory: %w", err)
+	}
+	if err := validation.SafePathComponent(c.Version); err != nil {
+		_ = removeIfWithin(localFile, paths.Tmp)
+		return fmt.Errorf("invalid cask version for staging directory: %w", err)
+	}
+	// Build a staging directory inside the configured temporary directory,
+	// and ensure it does not escape that base.
+	tmpBase := paths.Tmp
+	if tAbs, err := filepath.Abs(tmpBase); err == nil {
+		tmpBase = filepath.Clean(tAbs)
+	} else {
+		tmpBase = filepath.Clean(tmpBase)
+	}
+	stageName := c.Name + "-" + c.Version + "-cask-stage"
+	if err := validation.SafePathComponent(stageName); err != nil {
+		return fmt.Errorf("invalid staging directory name: %w", err)
+	}
+	stageDir := filepath.Join(tmpBase, stageName)
+	if sAbs, err := filepath.Abs(stageDir); err == nil {
+		stageDir = filepath.Clean(sAbs)
+	} else {
+		stageDir = filepath.Clean(stageDir)
+	}
+	baseWithSep := tmpBase
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if stageDir != tmpBase && !strings.HasPrefix(stageDir, baseWithSep) {
+		os.Remove(localFile)
+		return fmt.Errorf("staging directory %q escapes tmp directory %q", stageDir, tmpBase)
+	}
 	os.RemoveAll(stageDir)
 
 	spec := formula.InstallSpec{Type: "archive", StripComponents: 0}
 	if err := downloader.Extract(localFile, stageDir, spec); err != nil {
 		os.RemoveAll(stageDir)
-		os.Remove(localFile)
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("extract %s: %w", c.Name, err)
 	}
 	Logf("    Extracted to staging: %s\n", stageDir)
@@ -98,7 +173,7 @@ func caskInstall(name string, noQuarantine bool) error {
 		dest, err := inst.InstallApp(stageDir, appName)
 		if err != nil {
 			os.RemoveAll(stageDir)
-			os.Remove(localFile)
+			_ = removeIfWithin(localFile, paths.Tmp)
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
 		if noQuarantine {
@@ -108,7 +183,7 @@ func caskInstall(name string, noQuarantine bool) error {
 				// Roll back: remove the app we just installed.
 				os.RemoveAll(dest)
 				os.RemoveAll(stageDir)
-				os.Remove(localFile)
+				_ = removeIfWithin(localFile, paths.Tmp)
 				return err
 			}
 			Logf("    Quarantine attribute set\n")
@@ -135,7 +210,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 
 	os.RemoveAll(stageDir)
-	os.Remove(localFile)
+	_ = removeIfWithin(localFile, paths.Tmp)
 
 	fmt.Printf("==> %s %s installed\n", c.Name, c.Version)
 	return nil

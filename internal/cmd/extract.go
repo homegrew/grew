@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
@@ -29,5 +31,33 @@ func runExtract(_ []string) error {
 		return fmt.Errorf("archive_path and dest_dir are required")
 	}
 
-	return downloader.Extract(args.ArchivePath, args.DestDir, args.Spec)
+	// Constrain dest_dir to the current working directory to avoid writing
+	// outside the sandboxed extraction tree.
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("determine working directory: %w", err)
+	}
+	cwdAbs, err := filepath.Abs(cwd)
+	if err != nil {
+		return fmt.Errorf("resolve working directory: %w", err)
+	}
+	cwdAbs = filepath.Clean(cwdAbs)
+
+	destAbs, err := filepath.Abs(args.DestDir)
+	if err != nil {
+		return fmt.Errorf("resolve dest_dir: %w", err)
+	}
+	destAbs = filepath.Clean(destAbs)
+
+	if destAbs != cwdAbs {
+		cwdWithSep := cwdAbs
+		if !strings.HasSuffix(cwdWithSep, string(os.PathSeparator)) {
+			cwdWithSep += string(os.PathSeparator)
+		}
+		if !strings.HasPrefix(destAbs, cwdWithSep) {
+			return fmt.Errorf("dest_dir %q escapes working directory %q", destAbs, cwdAbs)
+		}
+	}
+
+	return downloader.Extract(args.ArchivePath, destAbs, args.Spec)
 }
