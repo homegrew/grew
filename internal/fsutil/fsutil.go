@@ -75,13 +75,35 @@ func CopyTree(src, dst string) error {
 				return err
 			}
 			// Validate the symlink won't escape the destination tree.
-			resolvedLink := link
-			if !filepath.IsAbs(resolvedLink) {
-				resolvedLink = filepath.Join(filepath.Dir(target), link)
+			resolvedSource := link
+			if !filepath.IsAbs(resolvedSource) {
+				// Relative symlinks are resolved relative to the symlink's own directory.
+				resolvedSource = filepath.Join(filepath.Dir(path), link)
 			}
-			resolvedLink = filepath.Clean(resolvedLink)
-			if !isWithinRoot(absDst, resolvedLink) {
+			resolvedSource = filepath.Clean(resolvedSource)
+
+			// Map the resolved source path into the destination tree (if possible)
+			var resolvedDest string
+			if isWithinRoot(absSrc, resolvedSource) {
+				relFromSrc, relErr := filepath.Rel(absSrc, resolvedSource)
+				if relErr != nil {
+					return relErr
+				}
+				relFromSrc = filepath.Clean(relFromSrc)
+				resolvedDest = filepath.Join(absDst, relFromSrc)
+			} else if filepath.IsAbs(resolvedSource) {
+				// Absolute symlinks are validated as-is against the destination root.
+				resolvedDest = resolvedSource
+			} else {
+				// Cannot sensibly map a non-absolute path outside the source root; skip it.
+				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (resolved to %q) that cannot be mapped into destination %q\n", path, resolvedSource, absDst)
+				return nil
+			}
+			resolvedDest = filepath.Clean(resolvedDest)
+
+			if !isWithinRoot(absDst, resolvedDest) {
 				// Skip symlinks that escape — don't fail, just skip silently.
+				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (resolved to %q) that escapes destination %q\n", path, resolvedDest, absDst)
 				return nil
 			}
 			return os.Symlink(link, target)
@@ -120,6 +142,17 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 		return err
 	}
 	defer in.Close()
+
+	// Validate destination before truncating/creating to avoid overwriting non-regular files.
+	if info, statErr := os.Lstat(dst); statErr == nil {
+		// Destination exists; ensure it's a regular file before overwriting.
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("destination %q is not a regular file", dst)
+		}
+	} else if !os.IsNotExist(statErr) {
+		// An unexpected error occurred while checking the destination.
+		return statErr
+	}
 
 	out, err := os.OpenFile(dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
 	if err != nil {
