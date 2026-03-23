@@ -100,7 +100,8 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 }
 
 func (l *Loader) loadFromFile(path string) (*Formula, error) {
-	data, err := os.ReadFile(path)
+	clean := filepath.Clean(path)
+	data, err := os.ReadFile(clean)
 	if err != nil {
 		return nil, err
 	}

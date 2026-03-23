@@ -176,6 +176,16 @@ func ComputeSHA256(path string) (string, error) {
 	if clean == "." || clean == "" {
 		return "", fmt.Errorf("invalid path for hashing")
 	}
+	// Require an absolute path to avoid hashing unexpected locations when given
+	// a user-controlled relative path. Callers that work with relative paths
+	// should resolve them against a known-safe base directory first.
+	if !filepath.IsAbs(clean) {
+		abs, err := filepath.Abs(clean)
+		if err != nil {
+			return "", fmt.Errorf("invalid path for hashing")
+		}
+		clean = filepath.Clean(abs)
+	}
 
 	f, err := os.Open(clean)
 	if err != nil {
