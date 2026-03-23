@@ -404,7 +404,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 func extractTarGz(archivePath, destDir string, stripComponents int) error {
 	f, err := os.Open(archivePath)
 	if err != nil {
-		return err
+		return fmt.Errorf("open archive %s: %w", archivePath, err)
 	}
 	defer f.Close()
 
