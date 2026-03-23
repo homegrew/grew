@@ -131,12 +131,14 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
+		return CopyFileWithinRoot(path, target, absDst, SanitizeMode(info.Mode(), false))
 	})
 }
 
-// CopyFile copies a single file from src to dst.
-func CopyFile(src, dst string, mode os.FileMode) error {
+// CopyFileWithinRoot copies a single file from src to dst, optionally ensuring
+// that the destination lies within a specified root directory. If root is
+// empty, no containment check is performed.
+func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 	// Normalize destination to an absolute, cleaned path before use.
 	if dst == "" {
 		return fmt.Errorf("empty destination path")
@@ -146,6 +148,18 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 		return fmt.Errorf("resolve destination: %w", err)
 	}
 	absDst = filepath.Clean(absDst)
+
+	// If a root is provided, ensure the destination stays within it.
+	if root != "" {
+		absRoot, err := filepath.Abs(root)
+		if err != nil {
+			return fmt.Errorf("resolve destination root: %w", err)
+		}
+		absRoot = filepath.Clean(absRoot)
+		if !isWithinRoot(absRoot, absDst) {
+			return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
+		}
+	}
 
 	in, err := os.Open(src)
 	if err != nil {
@@ -179,6 +193,12 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 		cerr = err
 	}
 	return cerr
+}
+
+// CopyFile copies a single file from src to dst.
+// It is a convenience wrapper around CopyFileWithinRoot without a root constraint.
+func CopyFile(src, dst string, mode os.FileMode) error {
+	return CopyFileWithinRoot(src, dst, "", mode)
 }
 
 // SanitizeMode applies a umask to archive-extracted file modes,
