@@ -71,12 +71,17 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 	if err != nil {
 		return err
 	}
+	var cerr error
+	defer func() {
+		if closeErr := out.Close(); closeErr != nil && cerr == nil {
+			cerr = closeErr
+		}
+	}()
 
 	if _, err := io.Copy(out, in); err != nil {
-		out.Close()
 		return err
 	}
-	return out.Close()
+	return cerr
 }
 
 // SanitizeMode applies a umask to archive-extracted file modes,
