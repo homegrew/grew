@@ -9,6 +9,21 @@ import (
 	"strings"
 )
 
+// isWithinRoot reports whether candidate is within the directory tree rooted at root.
+// It mirrors the symlink escape validation logic used elsewhere to ensure consistency.
+func isWithinRoot(root, candidate string) bool {
+	normalizedRoot := filepath.Clean(root)
+	normalizedCandidate := filepath.Clean(candidate)
+
+	if runtime.GOOS == "windows" {
+		normalizedRoot = strings.ToLower(normalizedRoot)
+		normalizedCandidate = strings.ToLower(normalizedCandidate)
+	}
+
+	sep := string(filepath.Separator)
+	return normalizedCandidate == normalizedRoot || strings.HasPrefix(normalizedCandidate, normalizedRoot+sep)
+}
+
 // CopyTree recursively copies a directory tree from src to dst.
 // Symlinks are preserved but validated to not escape the destination.
 func CopyTree(src, dst string) error {
@@ -24,6 +39,11 @@ func CopyTree(src, dst string) error {
 	}
 	absSrc = filepath.Clean(absSrc)
 
+	const (
+		isDirectory = true
+		isFile      = false
+	)
+
 	return filepath.Walk(absSrc, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -38,23 +58,17 @@ func CopyTree(src, dst string) error {
 		target = filepath.Clean(target)
 
 		// Ensure that the computed target path stays within the destination root.
-		normalizedRoot := absDst
-		normalizedTarget := target
-		if runtime.GOOS == "windows" {
-			normalizedRoot = strings.ToLower(normalizedRoot)
-			normalizedTarget = strings.ToLower(normalizedTarget)
-		}
-		if normalizedTarget != normalizedRoot && !strings.HasPrefix(normalizedTarget, normalizedRoot+string(filepath.Separator)) {
+		if !isWithinRoot(absDst, target) {
 			return fmt.Errorf("refusing to copy outside destination root: %s", target)
 		}
 
 		// Detect symlinks via Lstat since Walk follows them
-		linfo, lerr := os.Lstat(path)
-		if lerr != nil {
-			return lerr
+		symlinkInfo, statErr := os.Lstat(path)
+		if statErr != nil {
+			return statErr
 		}
 
-		if linfo.Mode()&os.ModeSymlink != 0 {
+		if symlinkInfo.Mode()&os.ModeSymlink != 0 {
 			link, err := os.Readlink(path)
 			if err != nil {
 				return err
@@ -65,13 +79,7 @@ func CopyTree(src, dst string) error {
 				linkAbs = filepath.Join(filepath.Dir(target), link)
 			}
 			linkAbs = filepath.Clean(linkAbs)
-			normalizedRoot := absDst
-			normalizedCandidate := linkAbs
-			if runtime.GOOS == "windows" {
-				normalizedRoot = strings.ToLower(normalizedRoot)
-				normalizedCandidate = strings.ToLower(normalizedCandidate)
-			}
-			if !strings.HasPrefix(normalizedCandidate, normalizedRoot+string(filepath.Separator)) && normalizedCandidate != normalizedRoot {
+			if !isWithinRoot(absDst, linkAbs) {
 				// Skip symlinks that escape — don't fail, just skip silently.
 				return nil
 			}
@@ -79,7 +87,7 @@ func CopyTree(src, dst string) error {
 		}
 
 		if info.IsDir() {
-			dirMode := SanitizeMode(info.Mode(), true)
+			dirMode := SanitizeMode(info.Mode(), isDirectory)
 			if err := os.MkdirAll(target, dirMode); err != nil {
 				// If the path already exists, ensure it's a directory and update permissions.
 				if os.IsExist(err) {
@@ -100,7 +108,7 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
+		return CopyFile(path, target, SanitizeMode(info.Mode(), isFile))
 	})
 }
 
