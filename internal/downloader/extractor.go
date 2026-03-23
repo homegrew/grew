@@ -492,7 +492,9 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 				continue
 			}
 
-			os.Remove(target)
+			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
+				return err
+			}
 			if err := os.Symlink(linkTarget, target); err != nil {
 				return err
 			}
