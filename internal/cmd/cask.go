@@ -210,7 +210,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 
 	os.RemoveAll(stageDir)
-	os.Remove(localFile)
+	_ = removeIfWithin(localFile, paths.Tmp)
 
 	fmt.Printf("==> %s %s installed\n", c.Name, c.Version)
 	return nil
