@@ -159,7 +159,8 @@ func setupSystem(prefix string) error {
 
 	// Transfer ownership to the real user.
 	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
-	cmd := exec.Command("chown", "-R", "--", u.Username+":"+pg, prefix)
+	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
+	cmd := exec.Command("chown", "-R", "--", userGroup, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
