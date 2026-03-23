@@ -477,13 +477,13 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
-			_, err := io.Copy(buf, rc)
-			if err != nil {
+			linkTargetBuilder := new(strings.Builder)
+			_, err := io.Copy(linkTargetBuilder, rc)
 				rc.Close()
 				return err
 			}
 			linkTarget := sanitizeSymlinkTarget(buf.String())
-			if linkTarget == "" {
+			linkTarget := sanitizeSymlinkTarget(linkTargetBuilder.String())
 				rc.Close()
 				continue
 			}
