@@ -19,6 +19,18 @@ import (
 // maxExtractSize limits individual file extraction to 512 MB.
 const maxExtractSize = 512 << 20
 
+// maxSymlinkTargetSize limits the maximum size of a symlink target we will read from an archive.
+// Typical filesystems impose relatively small limits (often 4096 bytes), so this should be sufficient.
+const maxSymlinkTargetSize int64 = 4096
+
+// Common path components used for Zip Slip / path traversal checks.
+const dotDot = ".."
+
+var (
+	dotDotWithSep = dotDot + string(filepath.Separator)
+	sepWithDotDot = string(filepath.Separator) + dotDot
+)
+
 // mustBeWithin returns an error if target is not located within baseDir (or equal to it).
 // Both paths are resolved to absolute, cleaned paths and compared with a path‑separator
 // aware prefix check to avoid tricks like "/tmp/taps" vs "/tmp/taps2".
@@ -266,9 +278,9 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	}
 	rel, err := filepath.Rel(absDestDir, absTarget)
 	if err != nil ||
-		rel == ".." ||
-		strings.HasPrefix(rel, ".."+string(filepath.Separator)) ||
-		strings.HasSuffix(rel, string(filepath.Separator)+"..") {
+		rel == dotDot ||
+		strings.HasPrefix(rel, dotDotWithSep) ||
+		strings.HasSuffix(rel, sepWithDotDot) {
 		return "", false
 	}
 
@@ -487,7 +499,8 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 		if f.Mode()&os.ModeSymlink != 0 {
 			buf := new(strings.Builder)
-			_, err := io.Copy(buf, rc)
+			// Limit the amount of data read for the symlink target to avoid excessive memory usage.
+			_, err := io.Copy(buf, io.LimitReader(rc, maxSymlinkTargetSize))
 			if err != nil {
 				rc.Close()
 				return err
