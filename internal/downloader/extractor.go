@@ -16,6 +16,12 @@ import (
 	"github.com/homegrew/grew/pkg/validation"
 )
 
+func hasPathTraversal(rel string) bool {
+	return rel == dotDot ||
+		strings.HasPrefix(rel, dotDotWithSep) ||
+		strings.HasSuffix(rel, sepWithDotDot)
+}
+
 // maxExtractSize limits individual file extraction to 512 MB.
 const maxExtractSize = 512 << 20
 
@@ -130,9 +136,6 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("invalid binary name: %w", err)
 	}
 	binDir := filepath.Clean(filepath.Join(destDir, "bin"))
-	if !withinDir(destDir, binDir) {
-		return fmt.Errorf("bin directory escapes destination directory")
-	}
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		return fmt.Errorf("create bin dir: %w", err)
 	}
@@ -243,7 +246,7 @@ func sanitizeSymlinkTarget(target string) string {
 	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
 	if clean == ".." ||
 		strings.HasPrefix(clean, dotDotWithSep) ||
-		strings.Contains(clean, sepWithDotDot+string(filepath.Separator)) ||
+		strings.Contains(clean, sepWithDotDot) ||
 		strings.HasSuffix(clean, sepWithDotDot) {
 		return ""
 	}
@@ -277,10 +280,7 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		return "", false
 	}
 	rel, err := filepath.Rel(absDestDir, absTarget)
-	if err != nil ||
-		rel == dotDot ||
-		strings.HasPrefix(rel, dotDotWithSep) ||
-		strings.HasSuffix(rel, sepWithDotDot) {
+	if err != nil || hasPathTraversal(rel) {
 		return "", false
 	}
 
@@ -437,7 +437,7 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
-	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
+	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1} // +1 allows us to detect when input exceeds the limit
 	n, err := io.Copy(out, lr)
 	if err != nil {
 		out.Close()
