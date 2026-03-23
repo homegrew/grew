@@ -16,7 +16,7 @@ func runSetup(args []string) error {
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
-	fs.BoolVar(dryRun, "s", false, "Show what would be done without making changes")
+	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
