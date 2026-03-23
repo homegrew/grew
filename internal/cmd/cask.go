@@ -29,6 +29,34 @@ func initCaskTap(paths config.Paths) error {
 	return tapMgr.InitCask()
 }
 
+// removeIfWithin deletes targetPath only if it is within baseDir (after cleaning).
+// If the check fails, it returns an error and does not attempt deletion.
+func removeIfWithin(targetPath, baseDir string) error {
+	if targetPath == "" || baseDir == "" {
+		return fmt.Errorf("empty path for removal")
+	}
+	baseClean, err := filepath.Abs(baseDir)
+	if err != nil {
+		return fmt.Errorf("resolve base dir: %w", err)
+	}
+	baseClean = filepath.Clean(baseClean)
+	targetClean, err := filepath.Abs(targetPath)
+	if err != nil {
+		return fmt.Errorf("resolve target path: %w", err)
+	}
+	targetClean = filepath.Clean(targetClean)
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
+	baseWithSep := baseClean
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if targetClean != baseClean && !strings.HasPrefix(targetClean, baseWithSep) {
+		return fmt.Errorf("refusing to remove path outside base directory: %s", targetClean)
+	}
+	return os.Remove(targetClean)
+}
+
 func caskInstall(name string, noQuarantine bool) error {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
@@ -87,7 +115,8 @@ func caskInstall(name string, noQuarantine bool) error {
 	Logf("    Saved to: %s\n", localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
-		os.Remove(localFile)
+		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
@@ -144,7 +173,7 @@ func caskInstall(name string, noQuarantine bool) error {
 		dest, err := inst.InstallApp(stageDir, appName)
 		if err != nil {
 			os.RemoveAll(stageDir)
-			os.Remove(localFile)
+			_ = removeIfWithin(localFile, paths.Tmp)
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
 		if noQuarantine {
@@ -154,7 +183,7 @@ func caskInstall(name string, noQuarantine bool) error {
 				// Roll back: remove the app we just installed.
 				os.RemoveAll(dest)
 				os.RemoveAll(stageDir)
-				os.Remove(localFile)
+				_ = removeIfWithin(localFile, paths.Tmp)
 				return err
 			}
 			Logf("    Quarantine attribute set\n")
