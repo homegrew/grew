@@ -85,7 +85,7 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 		return installBinary(archivePath, destDir, spec.BinaryName)
 	case "archive":
 		if err := ExtractArchive(archivePath, destDir, spec.StripComponents); err != nil {
-			return err
+			return fmt.Errorf("extract archive %q to %q: %w", archivePath, destDir, err)
 		}
 		// If binary_name is set and the binary is at root (not in bin/), move it into bin/
 		if spec.BinaryName != "" {
@@ -523,7 +523,9 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			// Limit the amount of data read for the symlink target to avoid excessive memory usage.
 			_, err := io.Copy(buf, io.LimitReader(rc, maxSymlinkTargetSize))
 			if err != nil {
-				rc.Close()
+				if cerr := rc.Close(); cerr != nil {
+					return fmt.Errorf("copy symlink target: %w; close reader: %v", err, cerr)
+				}
 				return err
 			}
 			linkTarget := sanitizeSymlinkTarget(buf.String())
