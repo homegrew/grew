@@ -9,6 +9,7 @@ import (
 	"os/user"
 	"path/filepath"
 	"regexp"
+	"strings"
 
 	"github.com/homegrew/grew/internal/config"
 )
@@ -268,7 +269,7 @@ func installFromGit(repoDir, destBin string) error {
 	} else {
 		// Clone fresh.
 		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
-		clone := exec.Command(gitPath, "clone", "--depth", "1", grewRepoURL, "--", cleanRepoDir)
+		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
 		if err := clone.Run(); err != nil {
@@ -305,8 +306,19 @@ func copyFile(src, dst string) error {
 	}
 	defer srcFile.Close()
 
-	dstFile, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
+	// Normalize and validate the destination path to reduce the risk of
+	// path traversal when dst is derived from untrusted input.
+	dstClean := filepath.Clean(dst)
+	baseDir := filepath.Dir(dstClean)
+	baseDir = filepath.Clean(baseDir)
+	if rel, err := filepath.Rel(baseDir, dstClean); err != nil || rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
+		return fmt.Errorf("invalid destination path %q", dst)
+	}
+
+	dstFile, err := os.OpenFile(dstClean, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
 	if err != nil {
+		// Ensure srcFile is closed before returning on error.
+		_ = srcFile.Close()
 		return err
 	}
 
