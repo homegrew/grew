@@ -42,7 +42,9 @@ func (c *Cellar) Install(name, version, stagingDir string) error {
 	}
 
 	if err := fsutil.CopyTree(stagingDir, kegPath); err != nil {
-		os.RemoveAll(kegPath)
+		if rmErr := os.RemoveAll(kegPath); rmErr != nil {
+			return fmt.Errorf("install to cellar: %w; additionally failed to cleanup partial keg: %v", err, rmErr)
+		}
 		return fmt.Errorf("install to cellar: %w", err)
 	}
 	return nil
@@ -69,20 +71,16 @@ func (c *Cellar) IsInstalled(name string) bool {
 }
 
 func (c *Cellar) InstalledVersion(name string) (string, error) {
-	d, err := c.kegDir(name)
+	// Reuse InstalledVersions to ensure deterministic ordering and behavior.
+	versions, err := c.InstalledVersions(name)
 	if err != nil {
 		return "", err
 	}
-	entries, err := os.ReadDir(d)
-	if err != nil {
-		return "", fmt.Errorf("formula %q is not installed", name)
+	if len(versions) == 0 {
+		return "", fmt.Errorf("formula %q has no installed version", name)
 	}
-	for _, e := range entries {
-		if e.IsDir() && validation.IsValidVersion(e.Name()) {
-			return e.Name(), nil
-		}
-	}
-	return "", fmt.Errorf("formula %q has no installed version", name)
+	// Return the latest (highest) installed version.
+	return versions[len(versions)-1], nil
 }
 
 // InstalledVersions returns all version directories for a formula, sorted ascending.
@@ -159,7 +157,7 @@ func (c *Cellar) isUnderCellar(path string) bool {
 	if rel == ".." {
 		return false
 	}
-	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+	if strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return false
 	}
 	return true
