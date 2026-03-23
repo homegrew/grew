@@ -48,8 +48,8 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 		return "", fmt.Errorf("resolve relative path from staging directory: %w", err)
 	}
 	rel = filepath.Clean(rel)
-	if rel == "." || rel == string(filepath.Separator) {
-		// realSrc is exactly the staging directory, which we allow.
+	if rel == "." || rel == "" {
+		return "", fmt.Errorf("app %s resolves to staging directory itself: %s", appName, realSrc)
 	} else if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
@@ -222,9 +222,7 @@ func findApp(stageDir, appName string) (string, error) {
 		// Prefer a direct subdirectory match first, then look for a nested appName.
 		if e.Name() == appName {
 			directSub := filepath.Join(stageDir, e.Name())
-			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
-				return directSub, nil
-			}
+			return directSub, nil
 		}
 		nested := filepath.Join(stageDir, e.Name(), appName)
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
