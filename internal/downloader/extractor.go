@@ -242,7 +242,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	target := filepath.Clean(filepath.Join(destDir, clean))
 
 	// Standard Zip Slip check: the relative path from destDir to target
-	// must not start with ".." after filepath.Abs resolves both sides.
+	// must not start with ".." or end with a trailing ".." segment after
+	// filepath.Abs resolves both sides.
 	absDestDir, err := filepath.Abs(destDir)
 	if err != nil {
 		return "", false
@@ -252,7 +253,10 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		return "", false
 	}
 	rel, err := filepath.Rel(absDestDir, absTarget)
-	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+	if err != nil ||
+		rel == ".." ||
+		strings.HasPrefix(rel, ".."+string(filepath.Separator)) ||
+		strings.HasSuffix(rel, string(filepath.Separator)+"..") {
 		return "", false
 	}
 
