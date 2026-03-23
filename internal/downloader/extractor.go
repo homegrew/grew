@@ -4,6 +4,7 @@ import (
 	"archive/tar"
 	"archive/zip"
 	"compress/gzip"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -99,7 +100,7 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 	}
 }
 
-func installBinary(srcPath, destDir, binaryName string) error {
+func installBinary(srcPath, destDir, binaryName string) (err error) {
 	srcPath = filepath.Clean(srcPath)
 	destDir = filepath.Clean(destDir)
 	if binaryName == "" {
@@ -130,12 +131,20 @@ func installBinary(srcPath, destDir, binaryName string) error {
 	if err != nil {
 		return fmt.Errorf("create dest binary: %w", err)
 	}
+	defer func() {
+		if cerr := dst.Close(); cerr != nil {
+			if err != nil {
+				err = errors.Join(err, cerr)
+			} else {
+				err = cerr
+			}
+		}
+	}()
 
-	if _, err := io.Copy(dst, src); err != nil {
-		dst.Close()
+	if _, err = io.Copy(dst, src); err != nil {
 		return fmt.Errorf("copy binary: %w", err)
 	}
-	return dst.Close()
+	return nil
 }
 
 func ExtractArchive(archivePath, destDir string, stripComponents int) error {
