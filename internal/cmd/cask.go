@@ -123,11 +123,11 @@ func caskInstall(name string, noQuarantine bool) error {
 
 	// Extract archive to staging
 	if err := validation.SafePathComponent(c.Name); err != nil {
-		os.Remove(localFile)
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask name for staging directory: %w", err)
 	}
 	if err := validation.SafePathComponent(c.Version); err != nil {
-		os.Remove(localFile)
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask version for staging directory: %w", err)
 	}
 	// Build a staging directory inside the configured temporary directory,
@@ -161,7 +161,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	spec := formula.InstallSpec{Type: "archive", StripComponents: 0}
 	if err := downloader.Extract(localFile, stageDir, spec); err != nil {
 		os.RemoveAll(stageDir)
-		os.Remove(localFile)
+		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("extract %s: %w", c.Name, err)
 	}
 	Logf("    Extracted to staging: %s\n", stageDir)
