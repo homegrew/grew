@@ -168,12 +168,16 @@ func findApp(stageDir, appName string) (string, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
+		// Prefer a direct subdirectory match first, then look for a nested appName.
+		if e.Name() == appName {
+			directSub := filepath.Join(stageDir, e.Name())
+			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
+				return directSub, nil
+			}
+		}
 		nested := filepath.Join(stageDir, e.Name(), appName)
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
 			return nested, nil
-		}
-		if e.Name() == appName {
-			return filepath.Join(stageDir, e.Name()), nil
 		}
 	}
 
