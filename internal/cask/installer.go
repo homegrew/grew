@@ -26,7 +26,7 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 		return "", fmt.Errorf("invalid app name: %q", appName)
 	}
 	if err := validation.SafePathComponent(appName); err != nil {
-		return "", fmt.Errorf("invalid app name: %q", appName)
+		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 
 	srcApp, err := findApp(stageDir, appName)
@@ -69,7 +69,7 @@ func (inst *Installer) UninstallApp(appName string) error {
 		return fmt.Errorf("invalid app name: %q", appName)
 	}
 	if err := validation.SafePathComponent(appName); err != nil {
-		return fmt.Errorf("invalid app name: %q", appName)
+		return fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 	destApp := filepath.Join(inst.AppDir, appName)
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
