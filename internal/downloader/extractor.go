@@ -331,8 +331,16 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 
 		switch header.Typeflag {
 		case tar.TypeDir:
-			if err := os.MkdirAll(target, fsutil.SanitizeMode(os.FileMode(header.Mode), true)); err != nil {
-				return fmt.Errorf("create directory %s: %w", target, err)
+			if info, err := os.Stat(target); err == nil {
+				if !info.IsDir() {
+					return fmt.Errorf("path %s exists and is not a directory", target)
+				}
+			} else if os.IsNotExist(err) {
+				if err := os.MkdirAll(target, fsutil.SanitizeMode(os.FileMode(header.Mode), true)); err != nil {
+					return fmt.Errorf("create directory %s: %w", target, err)
+				}
+			} else {
+				return fmt.Errorf("stat directory %s: %w", target, err)
 			}
 		case tar.TypeReg:
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
