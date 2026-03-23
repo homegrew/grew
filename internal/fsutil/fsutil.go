@@ -131,12 +131,48 @@ func CopyTree(src, dst string) error {
 			return nil
 		}
 
-		return CopyFile(path, target, SanitizeMode(info.Mode(), false))
+		// Perform the actual file copy while enforcing that the destination
+		// remains within the destination root directory.
+		return copyFileWithinRoot(path, target, absDst, SanitizeMode(info.Mode(), false))
 	})
+}
+
+// copyFileWithinRoot copies a file ensuring that dst stays within the given root.
+// This is used by CopyTree to protect against path traversal or symlink escapes
+// reaching unexpected locations even if the caller passes an unexpected dst.
+func copyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
+	if root == "" {
+		return fmt.Errorf("copy destination root is empty")
+	}
+
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		return fmt.Errorf("resolve copy root: %w", err)
+	}
+	absRoot = filepath.Clean(absRoot)
+
+	absDst, err := filepath.Abs(dst)
+	if err != nil {
+		return fmt.Errorf("resolve copy destination: %w", err)
+	}
+	absDst = filepath.Clean(absDst)
+
+	if !isWithinRoot(absRoot, absDst) {
+		return fmt.Errorf("refusing to copy outside destination root: %s", absDst)
+	}
+
+	return copyFile(src, absDst, mode)
 }
 
 // CopyFile copies a single file from src to dst.
 func CopyFile(src, dst string, mode os.FileMode) error {
+	// Preserve existing behavior for callers while sharing the implementation.
+	return copyFile(src, dst, mode)
+}
+
+// copyFile contains the core implementation for copying a single file from src to dst.
+// Callers are responsible for any necessary path validation before invoking it.
+func copyFile(src, dst string, mode os.FileMode) error {
 	in, err := os.Open(src)
 	if err != nil {
 		return err
