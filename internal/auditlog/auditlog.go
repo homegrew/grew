@@ -76,14 +76,20 @@ func (l *Logger) Log(action Action, name, version, sha256, detail string) {
 	if err != nil {
 		return
 	}
-	defer f.Close()
+	defer func() {
+		_ = f.Close()
+	}()
 
 	data, err := json.Marshal(entry)
 	if err != nil {
 		return
 	}
-	f.Write(data)
-	f.Write([]byte("\n"))
+	if _, err := f.Write(data); err != nil {
+		return
+	}
+	if _, err := f.Write([]byte("\n")); err != nil {
+		return
+	}
 }
 
 // Read returns all log entries from the audit log file.
