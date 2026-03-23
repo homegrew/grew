@@ -41,6 +41,58 @@ func TestCopyFile_SrcNotExist(t *testing.T) {
 	}
 }
 
+func TestCopyFileWithinRoot_EmptySrc(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	err := CopyFileWithinRoot("", filepath.Join(dir, "dst"), dir, 0644)
+	if err == nil {
+		t.Fatal("expected error for empty src")
+	}
+}
+
+func TestCopyFileWithinRoot_EmptyDst(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	src := filepath.Join(dir, "src.txt")
+	if err := os.WriteFile(src, []byte("data"), 0644); err != nil {
+		t.Fatalf("write src: %v", err)
+	}
+	err := CopyFileWithinRoot(src, "", dir, 0644)
+	if err == nil {
+		t.Fatal("expected error for empty dst")
+	}
+}
+
+func TestCopyFileWithinRoot_SrcTraversal(t *testing.T) {
+	t.Parallel()
+	srcDir := t.TempDir()
+	dstDir := t.TempDir()
+
+	// Write a real file in srcDir.
+	realFile := filepath.Join(srcDir, "real.txt")
+	if err := os.WriteFile(realFile, []byte("hello"), 0644); err != nil {
+		t.Fatalf("write src: %v", err)
+	}
+
+	// A relative src path that traverses into srcDir via "..".
+	// e.g. "<dstDir>/../<srcDir basename>/real.txt" — after Abs+Clean this
+	// resolves to the real absolute path so the copy should succeed.
+	relSrc := filepath.Join(dstDir, "..", filepath.Base(srcDir), "real.txt")
+	dst := filepath.Join(dstDir, "out.txt")
+
+	if err := CopyFileWithinRoot(relSrc, dst, dstDir, 0644); err != nil {
+		t.Fatalf("expected copy to succeed after path normalization: %v", err)
+	}
+
+	data, err := os.ReadFile(dst)
+	if err != nil {
+		t.Fatalf("read dst: %v", err)
+	}
+	if string(data) != "hello" {
+		t.Errorf("got %q, want %q", string(data), "hello")
+	}
+}
+
 func TestCopyTree(t *testing.T) {
 	t.Parallel()
 	src := t.TempDir()
