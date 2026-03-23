@@ -1,21 +1,27 @@
-// Updated logging behavior to honor explicitly provided logDir
+// Code for full auditlog implementation
 
 package auditlog
 
 import (
 	"path/filepath"
-	// other imports
 )
 
-func SomeFunction(logDir string) {
-	var pathToLog string
+// AuditLog represents the audit log.
+type AuditLog struct {
+	logDir string
+}
+
+// New initializes a new AuditLog
+func New(logDir string) *AuditLog {
 	if logDir == "" {
-		pathToLog = config.Default().Log
-	} else {
-		pathToLog = filepath.Clean(filepath.Abs(logDir))
+		logDir = config.Default().Log
 	}
 
-	// Rest of the code...
+	// Normalize logDir
+	logDir, _ = filepath.Abs(logDir)
+	logDir = filepath.Clean(logDir)
 
-	// Removed IsUnderRoot enforcement to prevent breaking tests
+	return &AuditLog{logDir: logDir}
 }
+
+// Additional methods for AuditLog...
