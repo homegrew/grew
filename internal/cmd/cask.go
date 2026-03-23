@@ -166,7 +166,11 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	Logf("    Extracted to staging: %s\n", stageDir)
 
-	inst := &cask.Installer{AppDir: paths.AppDir, BinDir: paths.Bin}
+	inst := &cask.Installer{
+		AppDir:  paths.AppDir,
+		BinDir:  paths.Bin,
+		RootDir: paths.Root,
+	}
 
 	// Install .app artifacts
 	for _, appName := range c.Artifacts.App {

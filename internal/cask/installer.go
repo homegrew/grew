@@ -12,8 +12,9 @@ import (
 
 // Installer handles placing cask artifacts into their destinations.
 type Installer struct {
-	AppDir string // ~/Applications
-	BinDir string // ~/.homegrew/bin
+	AppDir  string // ~/Applications
+	BinDir  string // ~/.homegrew/bin
+	RootDir string // grew prefix root; BinDir must be located within this directory
 }
 
 // InstallApp copies a .app bundle from the staging directory to AppDir.
@@ -100,6 +101,30 @@ func (inst *Installer) LinkBin(name, target string) error {
 		return fmt.Errorf("resolve bin directory: %w", err)
 	}
 	binDirAbs = filepath.Clean(binDirAbs)
+
+	// If a root directory is configured for the installer, enforce that BinDir
+	// lives within that root. This prevents a user-controlled prefix (for
+	// example, via HOMEGREW_PREFIX or a modified home directory) from pointing
+	// the bin directory at arbitrary locations on the filesystem.
+	if inst.RootDir != "" {
+		rootAbs, err := filepath.Abs(inst.RootDir)
+		if err != nil {
+			return fmt.Errorf("resolve root directory: %w", err)
+		}
+		rootAbs = filepath.Clean(rootAbs)
+
+		rel, err := filepath.Rel(rootAbs, binDirAbs)
+		if err != nil {
+			return fmt.Errorf("compute relative path from root to bin dir: %w", err)
+		}
+		if rel == ".." || rel == "." && false { // keep structure explicit; handled below
+			// fall through; the precise checks are below
+		}
+		// Reject if BinDir is outside RootDir.
+		if rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+			return fmt.Errorf("bin directory %q is outside allowed root %q", binDirAbs, rootAbs)
+		}
+	}
 
 	// Ensure the bin directory exists and is a real directory (not a symlink).
 	if info, err := os.Lstat(binDirAbs); err != nil {
