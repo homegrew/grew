@@ -194,7 +194,7 @@ func (c *Cellar) Pin(name string) error {
 	if _, err := os.Stat(d); os.IsNotExist(err) {
 		return fmt.Errorf("formula %q is not installed", name)
 	}
-	return os.WriteFile(filepath.Join(d, "PINNED"), nil, 0644)
+	return os.WriteFile(filepath.Join(d, "PINNED"), []byte{}, 0644)
 }
 
 // Unpin removes the pin from a formula, allowing it to be upgraded.
