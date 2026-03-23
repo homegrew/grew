@@ -156,6 +156,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("create dest binary: %w", err)
 	}
 
+	if _, err := io.Copy(dst, src); err != nil {
 		if closeErr := dst.Close(); closeErr != nil {
 			return fmt.Errorf("copy binary: %w; close dest binary: %v", err, closeErr)
 		}
