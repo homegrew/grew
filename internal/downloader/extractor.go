@@ -465,8 +465,15 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			continue
 		}
 
-		target, ok := safeJoinArchivePath(destDir, name)
+		// Join the archive entry name to the canonical destination directory
+		// and ensure it cannot escape that root (including via symlinks).
+		target, ok := safeJoinArchivePath(realDestDir, name)
 		if !ok {
+			continue
+		}
+		// Additional hardening: ensure the final target is still within the
+		// canonical extraction root before using it.
+		if !withinDir(realDestDir, target) {
 			continue
 		}
 
@@ -478,6 +485,10 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 
 		parentDir := filepath.Dir(target)
+		// Guard against creating directories outside the extraction root.
+		if !withinDir(realDestDir, parentDir) {
+			return fmt.Errorf("refusing to create parent directory outside dest: %q", parentDir)
+		}
 		if err := os.MkdirAll(parentDir, 0755); err != nil {
 			return fmt.Errorf("create parent directory %q: %w", parentDir, err)
 		}
