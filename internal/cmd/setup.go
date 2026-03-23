@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"os/user"
 	"path/filepath"
+	"regexp"
 
 	"github.com/homegrew/grew/internal/config"
 )
@@ -142,6 +143,11 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("lookup user %s: %w", realUser, err)
 	}
 
+	pg := primaryGroup(u)
+	if !validIdentity(u.Username) || !validIdentity(pg) {
+		return fmt.Errorf("invalid username or group name: %q, %q", u.Username, pg)
+	}
+
 	fmt.Printf("==> Setting up grew at %s (system prefix)\n", prefix)
 	fmt.Printf("==> Ownership will be transferred to %s\n", u.Username)
 	fmt.Println()
@@ -152,8 +158,8 @@ func setupSystem(prefix string) error {
 	}
 
 	// Transfer ownership to the real user.
-	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, primaryGroup(u), prefix)
-	cmd := exec.Command("chown", "-R", "--", u.Username+":"+primaryGroup(u), prefix)
+	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
+	cmd := exec.Command("chown", "-R", "--", u.Username+":"+pg, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -162,6 +168,12 @@ func setupSystem(prefix string) error {
 
 	// Create the directory structure.
 	return finishSetup(prefix)
+}
+
+var identityPattern = regexp.MustCompile(`^[a-zA-Z0-9_.-]+$`)
+
+func validIdentity(s string) bool {
+	return identityPattern.MatchString(s)
 }
 
 // setupUser installs grew to ~/.homegrew (no root needed).
@@ -222,6 +234,15 @@ func finishSetup(prefix string) error {
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
 func installFromGit(repoDir, destBin string) error {
+	cleanRepoDir := filepath.Clean(repoDir)
+	if !filepath.IsAbs(cleanRepoDir) || cleanRepoDir == string(os.PathSeparator) {
+		return fmt.Errorf("invalid repository directory: %s", repoDir)
+	}
+	if cleanRepoDir != repoDir {
+		// Avoid using a path that relies on traversal or redundant components.
+		return fmt.Errorf("repository directory must not contain path traversal elements: %s", repoDir)
+	}
+
 	gitPath, err := exec.LookPath("git")
 	if err != nil {
 		return fmt.Errorf("git not found in PATH")
@@ -231,12 +252,12 @@ func installFromGit(repoDir, destBin string) error {
 		return fmt.Errorf("go not found in PATH")
 	}
 
-	gitDir := filepath.Clean(filepath.Join(repoDir, ".git"))
+	gitDir := filepath.Clean(filepath.Join(cleanRepoDir, ".git"))
 	if _, err := os.Stat(gitDir); err == nil {
 		// Repo exists — pull latest.
 		fmt.Println("==> Updating grew source...")
 		pull := exec.Command(gitPath, "pull", "--ff-only")
-		pull.Dir = repoDir
+		pull.Dir = cleanRepoDir
 		pull.Stdout = os.Stdout
 		pull.Stderr = os.Stderr
 		if err := pull.Run(); err != nil {
@@ -245,7 +266,7 @@ func installFromGit(repoDir, destBin string) error {
 	} else {
 		// Clone fresh.
 		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
-		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, repoDir)
+		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
 		if err := clone.Run(); err != nil {
@@ -256,7 +277,7 @@ func installFromGit(repoDir, destBin string) error {
 	// Generate version and build.
 	fmt.Println("==> Building grew from source...")
 	generate := exec.Command(goPath, "generate", "./internal/...")
-	generate.Dir = repoDir
+	generate.Dir = cleanRepoDir
 	generate.Stdout = os.Stdout
 	generate.Stderr = os.Stderr
 	if err := generate.Run(); err != nil {
@@ -264,7 +285,7 @@ func installFromGit(repoDir, destBin string) error {
 	}
 
 	build := exec.Command(goPath, "build", "-o", destBin, ".")
-	build.Dir = repoDir
+	build.Dir = cleanRepoDir
 	build.Stdout = os.Stdout
 	build.Stderr = os.Stderr
 	if err := build.Run(); err != nil {
