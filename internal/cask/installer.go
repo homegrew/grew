@@ -43,7 +43,14 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
 	}
-	if !strings.HasPrefix(realSrc, absStage+string(filepath.Separator)) && realSrc != absStage {
+	rel, err := filepath.Rel(absStage, realSrc)
+	if err != nil {
+		return "", fmt.Errorf("resolve relative path from staging directory: %w", err)
+	}
+	rel = filepath.Clean(rel)
+	if rel == "." || rel == string(filepath.Separator) {
+		// realSrc is exactly the staging directory, which we allow.
+	} else if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
 
