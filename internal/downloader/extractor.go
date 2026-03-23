@@ -249,8 +249,7 @@ func sanitizeSymlinkTarget(target string) string {
 	// This covers patterns like "..", "../foo", "foo/../bar", "foo/..", etc.
 	if clean == ".." ||
 		strings.HasPrefix(clean, dotDotWithSep) ||
-		strings.Contains(clean, sepWithDotDot) ||
-		strings.HasSuffix(clean, sepWithDotDot) {
+		strings.Contains(clean, sepWithDotDot) {
 		return ""
 	}
 	return clean
@@ -442,7 +441,7 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
-	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1} // +1 allows us to detect when input exceeds the limit
+	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
 	n, err := io.Copy(out, lr)
 	if err != nil {
 		out.Close()
@@ -515,7 +514,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			return fmt.Errorf("open zip entry %q: %w", f.Name, err)
 		}
 		if f.Mode()&os.ModeSymlink != 0 {
-			buf := new(strings.Builder)
+			buf := &strings.Builder{}
 			// Limit the amount of data read for the symlink target to avoid excessive memory usage.
 			_, err := io.Copy(buf, io.LimitReader(rc, maxSymlinkTargetSize))
 			if err != nil {
