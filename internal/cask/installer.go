@@ -119,8 +119,25 @@ func (inst *Installer) LinkBin(name, target string) error {
 		return fmt.Errorf("refusing to create link outside bin directory: %s", linkAbs)
 	}
 
-	if err := os.Remove(linkAbs); err != nil && !os.IsNotExist(err) {
-		return fmt.Errorf("failed to remove existing link %q: %w", linkAbs, err)
+	// Only remove existing path if it is a symlink. Refuse to delete regular files
+	// or directories to avoid unintended data loss.
+	if info, err := os.Lstat(linkAbs); err != nil {
+		if !os.IsNotExist(err) {
+			return fmt.Errorf("stat existing link %q: %w", linkAbs, err)
+		}
+	} else {
+		mode := info.Mode()
+		if mode&os.ModeSymlink != 0 {
+			if err := os.Remove(linkAbs); err != nil {
+				return fmt.Errorf("failed to remove existing symlink %q: %w", linkAbs, err)
+			}
+		} else if mode.IsDir() {
+			return fmt.Errorf("refusing to overwrite directory at %q", linkAbs)
+		} else if mode.IsRegular() {
+			return fmt.Errorf("refusing to overwrite regular file at %q", linkAbs)
+		} else {
+			return fmt.Errorf("refusing to overwrite non-symlink path at %q (mode %v)", linkAbs, mode)
+		}
 	}
 
 	// Validate and sanitize the target path for the symlink.
@@ -168,12 +185,16 @@ func findApp(stageDir, appName string) (string, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
+		// Prefer a direct subdirectory match first, then look for a nested appName.
+		if e.Name() == appName {
+			directSub := filepath.Join(stageDir, e.Name())
+			if info, err := os.Stat(directSub); err == nil && info.IsDir() {
+				return directSub, nil
+			}
+		}
 		nested := filepath.Join(stageDir, e.Name(), appName)
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
 			return nested, nil
-		}
-		if e.Name() == appName {
-			return filepath.Join(stageDir, e.Name()), nil
 		}
 	}
 
