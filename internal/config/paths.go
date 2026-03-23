@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 )
 
 type Paths struct {
@@ -114,6 +115,43 @@ func Default() Paths {
 	}
 
 	return FromRoot(root, appDir)
+}
+
+// IsUnderRoot reports whether the given path is located within the Paths.Root
+// directory. It is used as a safety check before performing destructive
+// operations such as recursive deletion.
+func (p Paths) IsUnderRoot(path string) bool {
+	if p.Root == "" || path == "" {
+		return false
+	}
+
+	rootAbs, err := filepath.Abs(p.Root)
+	if err != nil {
+		return false
+	}
+	rootAbs = filepath.Clean(rootAbs)
+
+	targetAbs, err := filepath.Abs(path)
+	if err != nil {
+		return false
+	}
+	targetAbs = filepath.Clean(targetAbs)
+
+	rel, err := filepath.Rel(rootAbs, targetAbs)
+	if err != nil {
+		return false
+	}
+
+	if rel == "." {
+		return true
+	}
+	if rel == ".." {
+		return false
+	}
+	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return false
+	}
+	return true
 }
 
 // FromRoot builds a Paths struct from an explicit root and appDir.
