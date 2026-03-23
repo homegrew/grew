@@ -135,9 +135,9 @@ func CopyTree(src, dst string) error {
 	})
 }
 
-// CopyFileWithinRoot copies a single file from src to dst, optionally ensuring
+// CopyFileWithinRoot copies a single file from src to dst, ensuring
 // that the destination lies within a specified root directory. If root is
-// empty, no containment check is performed.
+// empty, a root is derived from the destination's parent directory.
 func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 	// Normalize destination to an absolute, cleaned path before use.
 	if dst == "" {
@@ -149,7 +149,12 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 	}
 	absDst = filepath.Clean(absDst)
 
-	// If a root is provided, ensure the destination stays within it.
+	// If no root is provided, derive one from the destination's parent directory.
+	if root == "" {
+		root = filepath.Dir(absDst)
+	}
+
+	// Ensure the destination stays within the resolved root.
 	if root != "" {
 		absRoot, err := filepath.Abs(root)
 		if err != nil {
@@ -196,9 +201,10 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 }
 
 // CopyFile copies a single file from src to dst.
-// It is a convenience wrapper around CopyFileWithinRoot without a root constraint.
+// It is a convenience wrapper around CopyFileWithinRoot using the
+// destination's parent directory as the containment root.
 func CopyFile(src, dst string, mode os.FileMode) error {
-	return CopyFileWithinRoot(src, dst, "", mode)
+	return CopyFileWithinRoot(src, dst, filepath.Dir(dst), mode)
 }
 
 // SanitizeMode applies a umask to archive-extracted file modes,

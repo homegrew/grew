@@ -124,6 +124,19 @@ func Default() Paths {
 		home = filepath.Clean(home)
 	}
 	appDir := os.Getenv("HOMEGREW_APPDIR")
+	if appDir != "" {
+		// Only accept absolute, well-formed application directories from the environment.
+		if filepath.IsAbs(appDir) {
+			if abs, err := filepath.Abs(appDir); err == nil {
+				appDir = filepath.Clean(abs)
+			} else {
+				appDir = filepath.Clean(appDir)
+			}
+		} else {
+			// Ignore non-absolute values and fall back to the default under the user's home.
+			appDir = ""
+		}
+	}
 	if appDir == "" {
 		appDir = filepath.Join(home, "Applications")
 	}
