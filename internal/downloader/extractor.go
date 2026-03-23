@@ -672,11 +672,7 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	}
 
 	// Ensure we use a normalized absolute path when invoking external tools.
-	safeArchivePath, err := filepath.Abs(absArchivePath)
-	if err != nil {
-		return fmt.Errorf("failed to resolve absolute path for archive %q: %w", absArchivePath, err)
-	}
-	safeArchivePath = filepath.Clean(safeArchivePath)
+	safeArchivePath := filepath.Clean(absArchivePath)
 
 	lower := strings.ToLower(safeArchivePath)
 	var decompressCmd string
