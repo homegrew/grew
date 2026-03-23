@@ -170,7 +170,7 @@ func setupSystem(prefix string) error {
 	return finishSetup(prefix)
 }
 
-var identityPattern = regexp.MustCompile(`^[a-zA-Z0-9_.-]+$`)
+var identityPattern = regexp.MustCompile(`^[A-Za-z0-9_][A-Za-z0-9_.-]*$`)
 
 func validIdentity(s string) bool {
 	return identityPattern.MatchString(s)
