@@ -480,12 +480,10 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			_, err := io.Copy(buf, rc)
 			if err != nil {
 				rc.Close()
-				rc.Close()
 				return err
 			}
 			linkTarget := sanitizeSymlinkTarget(buf.String())
 			if linkTarget == "" {
-				rc.Close()
 				rc.Close()
 				continue
 			}
@@ -495,7 +493,6 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			// path before checking that it remains within the extraction root.
 			parentDir := filepath.Dir(target)
 			realParentDir, err := filepath.EvalSymlinks(parentDir)
-				rc.Close()
 			if err != nil {
 				rc.Close()
 				continue
@@ -504,23 +501,18 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			realLinkTarget := candidateTarget
 			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
 				realLinkTarget = resolved
-				rc.Close()
 			} else if !os.IsNotExist(err) {
 				// For errors other than non-existent targets, skip creating the symlink.
-				rc.Close()
 				rc.Close()
 				continue
 			}
 			if !withinDir(realDestDir, realLinkTarget) {
 				rc.Close()
-				rc.Close()
 				continue
 			}
 
-				rc.Close()
 			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
 				rc.Close()
-			rc.Close()
 				return err
 			}
 			if err := os.Symlink(linkTarget, target); err != nil {
@@ -614,9 +606,9 @@ func stripPath(name string, strip int) string {
 // extractTar function, which validates all paths and symlinks.
 func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	if archivePath == "" {
-	baseName := filepath.Base(absArchivePath)
-	if err := validation.SafePathComponent(baseName); err != nil {
-		return fmt.Errorf("unsafe archive filename %q (from %q): %w", baseName, absArchivePath, err)
+		return fmt.Errorf("archive path is empty")
+	}
+
 	absArchivePath, err := filepath.Abs(archivePath)
 	if err != nil {
 		return fmt.Errorf("failed to resolve archive path %q: %w", archivePath, err)
