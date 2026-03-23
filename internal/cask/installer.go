@@ -50,7 +50,8 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	rel = filepath.Clean(rel)
 	if rel == "." || rel == "" {
 		return "", fmt.Errorf("app %s resolves to staging directory itself: %s", appName, realSrc)
-	} else if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
 
@@ -85,6 +86,27 @@ func (inst *Installer) UninstallApp(appName string) error {
 	return os.RemoveAll(destApp)
 }
 
+// isPathWithinDir ensures that the given candidatePath is inside baseDirAbs.
+// Both paths are expected to be absolute or already resolved to their final
+// on-disk locations. The function returns nil if the path is acceptable, or
+// a descriptive error if it is outside the directory.
+func (inst *Installer) isPathWithinDir(baseDirAbs, candidatePath string) error {
+	baseDirAbs = filepath.Clean(baseDirAbs)
+	candidatePath = filepath.Clean(candidatePath)
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
+	baseWithSep := baseDirAbs
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+
+	if candidatePath != baseDirAbs && !strings.HasPrefix(candidatePath, baseWithSep) {
+		return fmt.Errorf("path %q is outside base directory %q", candidatePath, baseDirAbs)
+	}
+
+	return nil
+}
+
 // LinkBin creates a symlink from BinDir/<name> to the binary at target.
 func (inst *Installer) LinkBin(name, target string) error {
 	if !validation.IsValidName(name) {
@@ -105,14 +127,8 @@ func (inst *Installer) LinkBin(name, target string) error {
 
 	// Safety check: ensure the link path is within the bin directory.
 	linkAbs := filepath.Clean(link)
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	binDirWithSep := binDirAbs
-	if !strings.HasSuffix(binDirWithSep, string(os.PathSeparator)) {
-		binDirWithSep += string(os.PathSeparator)
-	}
-	if linkAbs != binDirAbs && !strings.HasPrefix(linkAbs, binDirWithSep) {
-		return fmt.Errorf("refusing to create link outside bin directory: %s", linkAbs)
+	if err := inst.isPathWithinDir(binDirAbs, linkAbs); err != nil {
+		return fmt.Errorf("refusing to create link outside bin directory: %w", err)
 	}
 
 	// Only remove existing path if it is a symlink. Refuse to delete regular files
@@ -193,13 +209,13 @@ func (inst *Installer) UnlinkBin(name string) error {
 
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, appName string) (string, error) {
-	// Check top level first
+	// First, look for a top-level bundle: <stageDir>/<appName>.
 	direct := filepath.Join(stageDir, appName)
 	if info, err := os.Stat(direct); err == nil && info.IsDir() {
 		return direct, nil
 	}
 
-	// Walk one level deep
+	// If not found, walk one level deep and look for <stageDir>/*/<appName>.
 	entries, err := os.ReadDir(stageDir)
 	if err != nil {
 		return "", err
@@ -210,11 +226,6 @@ func findApp(stageDir, appName string) (string, error) {
 		}
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
-		}
-		// Prefer a direct subdirectory match first, then look for a nested appName.
-		if e.Name() == appName {
-			directSub := filepath.Join(stageDir, e.Name())
-			return directSub, nil
 		}
 		nested := filepath.Join(stageDir, e.Name(), appName)
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
