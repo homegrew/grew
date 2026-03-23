@@ -109,7 +109,11 @@ func caskInstall(name string, noQuarantine bool) error {
 	} else {
 		tmpBase = filepath.Clean(tmpBase)
 	}
-	stageDir := filepath.Join(tmpBase, c.Name+"-"+c.Version+"-cask-stage")
+	stageName := c.Name + "-" + c.Version + "-cask-stage"
+	if err := validation.SafePathComponent(stageName); err != nil {
+		return fmt.Errorf("invalid staging directory name: %w", err)
+	}
+	stageDir := filepath.Join(tmpBase, stageName)
 	if sAbs, err := filepath.Abs(stageDir); err == nil {
 		stageDir = filepath.Clean(sAbs)
 	} else {
