@@ -25,7 +25,7 @@ type Paths struct {
 
 // DefaultPrefix determines the grew prefix using these rules (in order):
 //
-//  1. HOMEGREW_PREFIX env var (explicit override, always wins)
+//  1. HOMEGREW_PREFIX env var (explicit override, if valid)
 //  2. Inferred from the binary's own location: if the executable lives at
 //     <prefix>/bin/grew, the prefix is <prefix>. This means grew always
 //     knows where it is without any configuration.
@@ -34,8 +34,15 @@ func DefaultPrefix() string {
 	var prefix string
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
-		prefix = env
-	} else {
+		// Only accept absolute, well‑formed prefixes from the environment.
+		if filepath.IsAbs(env) {
+			if abs, err := filepath.Abs(env); err == nil {
+				prefix = filepath.Clean(abs)
+			}
+		}
+	}
+
+	if prefix == "" {
 		// Infer from binary location: /opt/homegrew/bin/grew → /opt/homegrew
 		if exe, err := os.Executable(); err == nil {
 			exe, err = filepath.EvalSymlinks(exe)
@@ -45,7 +52,11 @@ func DefaultPrefix() string {
 					candidate := filepath.Dir(dir) // <prefix>
 					// Sanity check: the candidate should have a Cellar or Taps dir.
 					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
-						prefix = candidate
+						if abs, err := filepath.Abs(candidate); err == nil {
+							prefix = filepath.Clean(abs)
+						} else {
+							prefix = filepath.Clean(candidate)
+						}
 					}
 				}
 			}
