@@ -39,7 +39,10 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve %s: %w", appName, err)
 	}
-	absStage, _ := filepath.Abs(stageDir)
+	absStage, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
 	if !strings.HasPrefix(realSrc, absStage+string(filepath.Separator)) && realSrc != absStage {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
@@ -80,9 +83,39 @@ func (inst *Installer) LinkBin(name, target string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid binary name: %q", name)
 	}
-	link := filepath.Join(inst.BinDir, name)
-	os.Remove(link)
-	return os.Symlink(target, link)
+
+	// Normalize BinDir and ensure it is an absolute, well-formed directory
+	if inst.BinDir == "" {
+		return fmt.Errorf("invalid bin directory: empty")
+	}
+	binDirAbs, err := filepath.Abs(inst.BinDir)
+	if err != nil {
+		return fmt.Errorf("resolve bin directory: %w", err)
+	}
+	binDirAbs = filepath.Clean(binDirAbs)
+
+	link := filepath.Join(binDirAbs, name)
+
+	// Safety check: ensure the link path is within the bin directory.
+	linkAbs, err := filepath.Abs(link)
+	if err != nil {
+		return fmt.Errorf("resolve link path: %w", err)
+	}
+	linkAbs = filepath.Clean(linkAbs)
+
+	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
+	binWithSep := binDirAbs
+	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
+		binWithSep += string(os.PathSeparator)
+	}
+	if linkAbs != binDirAbs && !strings.HasPrefix(linkAbs, binWithSep) {
+		return fmt.Errorf("refusing to create link outside bin directory: %s", linkAbs)
+	}
+
+	if err := os.Remove(linkAbs); err != nil && !os.IsNotExist(err) {
+		return fmt.Errorf("failed to remove existing link %q: %w", linkAbs, err)
+	}
+	return os.Symlink(target, linkAbs)
 }
 
 // UnlinkBin removes a symlink from BinDir.
