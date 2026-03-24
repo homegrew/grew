@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -13,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/logger"
 )
 
 func runSetup(args []string) error {
@@ -21,8 +23,24 @@ func runSetup(args []string) error {
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
 	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
+	verbose := fs.Bool("verbose", false, "Show detailed output")
+	fs.BoolVar(verbose, "v", false, "Show detailed output")
+	debug := fs.Bool("debug", false, "Show debug diagnostics (implies --verbose)")
+	fs.BoolVar(debug, "d", false, "Show debug diagnostics (implies --verbose)")
 	if err := fs.Parse(args); err != nil {
 		return err
+	}
+
+	// Apply local verbose/debug flags (merge with globals).
+	if *debug {
+		Debug = true
+		Verbose = true
+	}
+	if *verbose {
+		Verbose = true
+	}
+	if *verbose || *debug {
+		logger.Init(Verbose, Debug)
 	}
 
 	isRoot := os.Geteuid() == 0
@@ -156,18 +174,33 @@ func setupSystem(prefix string) error {
 	fmt.Println()
 
 	// Create the prefix.
+	// Create the prefix.
 	if err := os.MkdirAll(prefix, 0755); err != nil {
 		return fmt.Errorf("create %s: %w", prefix, err)
 	}
 
 	// Transfer ownership to the real user.
 	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
+	slog.Info("chown -R %s:%s %s", u.Username, pg, prefix)
+	chownExe, err := exec.LookPath("chown")
+	if err != nil {
+		return fmt.Errorf("couldn't find the program 'chown': %w", err)
+	}
+
 	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
-	cmd := exec.Command("chown", "-R", userGroup, "--", prefix)
+	cmd := exec.Command(chownExe, "-R", userGroup, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("chown %s: %w", prefix, err)
+	slog.Debug(fmt.Sprintf("running command: %s", cmd.String()))
+
+	if chownErr := cmd.Run(); chownErr != nil {
+		if pathError, ok := errors.AsType[*os.PathError](err); ok {
+			return fmt.Errorf("could not chown %s: %w", pathError.Path, chownErr)
+		} else if exitError, ok := errors.AsType[*exec.ExitError](err); ok {
+			return fmt.Errorf("chown exited with code %d: %w", exitError.ExitCode(), exitError)
+		} else {
+			return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
+		}
 	}
 
 	// Create the directory structure.
