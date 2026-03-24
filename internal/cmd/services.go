@@ -203,8 +203,11 @@ func servicesRun(args []string) error {
 	cmd.Stdin = os.Stdin
 	if f.Service.WorkingDir != "" {
 		wd := filepath.Clean(f.Service.WorkingDir)
-		if strings.Contains(wd, "..") {
-			return fmt.Errorf("service working directory contains traversal: %q", f.Service.WorkingDir)
+		if !filepath.IsAbs(wd) {
+			return fmt.Errorf("service working directory must be absolute: %q", f.Service.WorkingDir)
+		}
+		if wd != filepath.Clean(f.Service.WorkingDir) {
+			return fmt.Errorf("service working directory contains traversal elements: %q", f.Service.WorkingDir)
 		}
 		cmd.Dir = wd
 	}

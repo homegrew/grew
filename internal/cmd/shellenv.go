@@ -15,16 +15,22 @@ func runShellenv(args []string) error {
 
 	switch shell {
 	case "fish":
-		fmt.Printf("set -gx HOMEGREW_PREFIX \"%s\";\n", paths.Root)
-		fmt.Printf("set -gx HOMEGREW_CELLAR \"%s\";\n", paths.Cellar)
-		fmt.Printf("set -q PATH; or set PATH ''; set -gx PATH \"%s\" $PATH;\n", paths.Bin)
+		fmt.Printf("set -gx HOMEGREW_PREFIX %s;\n", shellQuote(paths.Root))
+		fmt.Printf("set -gx HOMEGREW_CELLAR %s;\n", shellQuote(paths.Cellar))
+		fmt.Printf("set -q PATH; or set PATH ''; set -gx PATH %s $PATH;\n", shellQuote(paths.Bin))
 	default: // bash, zsh, sh
-		fmt.Printf("export HOMEGREW_PREFIX=\"%s\";\n", paths.Root)
-		fmt.Printf("export HOMEGREW_CELLAR=\"%s\";\n", paths.Cellar)
-		fmt.Printf("export PATH=\"%s:${PATH}\";\n", paths.Bin)
+		fmt.Printf("export HOMEGREW_PREFIX=%s;\n", shellQuote(paths.Root))
+		fmt.Printf("export HOMEGREW_CELLAR=%s;\n", shellQuote(paths.Cellar))
+		fmt.Printf("export PATH=%s:\"${PATH}\";\n", shellQuote(paths.Bin))
 	}
 
 	return nil
+}
+
+// shellQuote wraps s in POSIX single quotes, escaping any embedded single
+// quotes. This is safe for bash, zsh, sh, and fish.
+func shellQuote(s string) string {
+	return "'" + strings.ReplaceAll(s, "'", "'\\''") + "'"
 }
 
 func detectShell(args []string) string {

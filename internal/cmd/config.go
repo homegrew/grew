@@ -67,7 +67,7 @@ func toolVersion(name string, flag string) string {
 	if err != nil {
 		return "N/A"
 	}
-	out, err := exec.Command(name, flag).Output()
+	out, err := exec.Command(path, flag).Output()
 	if err != nil {
 		return path
 	}
