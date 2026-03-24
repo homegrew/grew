@@ -16,37 +16,50 @@ import (
 // paths from the CI build prefix to the local prefix. Relocation errors
 // are logged as warnings and do not fail the install.
 func RelocateKeg(kegPath, prefix string) error {
+	slog.Debug(fmt.Sprintf("relocation: scanning keg %s (target prefix %s)", kegPath, prefix))
+
 	oldPrefix := detectOldPrefix(kegPath)
 	if oldPrefix == "" {
-		slog.Debug("no relocatable paths found in keg")
+		slog.Debug("relocation: no relocatable paths found in keg, nothing to do")
 		return nil
 	}
 	if oldPrefix == prefix {
-		slog.Debug("keg already uses local prefix, skipping relocation")
+		slog.Debug(fmt.Sprintf("relocation: keg already uses local prefix %s, skipping", prefix))
 		return nil
 	}
 
-	slog.Info(fmt.Sprintf("relocating %s -> %s", oldPrefix, prefix))
+	slog.Info(fmt.Sprintf("relocating: %s -> %s", oldPrefix, prefix))
 
-	return filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+	var relocated, skipped int
+	err := filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
-			return nil // skip inaccessible entries
+			slog.Debug(fmt.Sprintf("relocation: skipping inaccessible entry: %v", err))
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
 		// Validate the path stays within the keg.
 		if rel, relErr := filepath.Rel(kegPath, path); relErr != nil || strings.HasPrefix(rel, "..") {
+			slog.Debug(fmt.Sprintf("relocation: skipping path outside keg: %s", path))
 			return nil
 		}
 
 		if isBinary(path) {
+			relPath, _ := filepath.Rel(kegPath, path)
+			slog.Debug(fmt.Sprintf("relocation: processing binary %s", relPath))
 			if relErr := relocateBinary(path, oldPrefix, prefix); relErr != nil {
-				slog.Warn(fmt.Sprintf("relocate %s: %v", filepath.Base(path), relErr))
+				slog.Warn(fmt.Sprintf("relocation: %s: %v", relPath, relErr))
+				skipped++
+			} else {
+				relocated++
 			}
 		}
 		return nil
 	})
+
+	slog.Info(fmt.Sprintf("relocation: %d binaries relocated, %d skipped", relocated, skipped))
+	return err
 }
 
 // detectOldPrefix finds the first binary in the keg and inspects its
@@ -54,8 +67,11 @@ func RelocateKeg(kegPath, prefix string) error {
 // containing "/Cellar/" or "/opt/" and extracts the prefix before that
 // segment.
 func detectOldPrefix(kegPath string) string {
+	slog.Debug(fmt.Sprintf("relocation: detecting old prefix from binaries in %s", kegPath))
+
 	var oldPrefix string
 	var toolWarned bool
+	var inspected int
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return nil // skip inaccessible entries but continue walking
@@ -69,20 +85,36 @@ func detectOldPrefix(kegPath string) string {
 		if !isBinary(path) {
 			return nil
 		}
+
+		relPath, _ := filepath.Rel(kegPath, path)
+		inspected++
+		slog.Debug(fmt.Sprintf("relocation: inspecting %s for embedded paths", relPath))
+
 		paths, inspectErr := inspectBinary(path)
 		if inspectErr != nil {
 			if !toolWarned {
-				slog.Warn(fmt.Sprintf("binary inspection failed, relocation may be skipped: %v", inspectErr))
+				slog.Warn(fmt.Sprintf("relocation: binary inspection failed, relocation may be skipped: %v", inspectErr))
 				toolWarned = true
 			}
 			return nil // try next binary
 		}
+
+		slog.Debug(fmt.Sprintf("relocation: %s has %d embedded paths", relPath, len(paths)))
+		for _, p := range paths {
+			slog.Debug(fmt.Sprintf("relocation:   %s", p))
+		}
+
 		oldPrefix = deriveOldPrefix(paths)
 		if oldPrefix != "" {
+			slog.Debug(fmt.Sprintf("relocation: detected old prefix %s from %s", oldPrefix, relPath))
 			return filepath.SkipAll
 		}
 		return nil
 	})
+
+	if oldPrefix == "" {
+		slog.Debug(fmt.Sprintf("relocation: inspected %d binaries, no old prefix found", inspected))
+	}
 	return oldPrefix
 }
 

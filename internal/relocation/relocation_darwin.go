@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
@@ -15,6 +16,8 @@ func inspectBinary(path string) ([]string, error) {
 		return nil, fmt.Errorf("otool not found: %w", err)
 	}
 
+	relName := filepath.Base(path)
+	slog.Debug(fmt.Sprintf("relocation: otool -L %s", relName))
 	out, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return nil, fmt.Errorf("otool -L %s: %w", path, err)
@@ -26,11 +29,9 @@ func inspectBinary(path string) ([]string, error) {
 		if line == "" || !strings.HasPrefix(line, "/") {
 			continue
 		}
-		// Skip the header line emitted by otool -L: "<binary>:" (ends with ":").
 		if strings.HasSuffix(line, ":") {
 			continue
 		}
-		// Format: /path/to/lib.dylib (compatibility version ...)
 		if idx := strings.Index(line, " ("); idx != -1 {
 			line = line[:idx]
 		}
@@ -38,8 +39,7 @@ func inspectBinary(path string) ([]string, error) {
 	}
 
 	// Also collect LC_RPATH entries from otool -l output.
-	// Binaries using @rpath-based deps may have no absolute paths in
-	// otool -L, but their rpaths contain the old prefix.
+	slog.Debug(fmt.Sprintf("relocation: otool -l %s", relName))
 	loadOut, _ := exec.Command(otool, "-l", path).Output()
 	if loadOut != nil {
 		lines := strings.Split(string(loadOut), "\n")
@@ -54,6 +54,7 @@ func inspectBinary(path string) ([]string, error) {
 						}
 						rpath = strings.TrimSpace(rpath)
 						if rpath != "" {
+							slog.Debug(fmt.Sprintf("relocation: %s: LC_RPATH %s", relName, rpath))
 							paths = append(paths, rpath)
 						}
 						break
@@ -69,15 +70,16 @@ func inspectBinary(path string) ([]string, error) {
 func relocateBinary(path, oldPrefix, newPrefix string) error {
 	otool, err := exec.LookPath("otool")
 	if err != nil {
-		slog.Warn("otool not found, skipping relocation")
+		slog.Warn("relocation: otool not found, skipping")
 		return nil
 	}
 	installNameTool, err := exec.LookPath("install_name_tool")
 	if err != nil {
-		slog.Warn("install_name_tool not found, skipping relocation")
+		slog.Warn("relocation: install_name_tool not found, skipping")
 		return nil
 	}
 
+	relName := filepath.Base(path)
 	var args []string
 
 	// Determine install name (LC_ID_DYLIB) via otool -D; present only for dylibs.
@@ -87,7 +89,9 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		installName = strings.TrimSpace(idLines[1])
 	}
 	if installName != "" && strings.Contains(installName, oldPrefix) {
-		args = append(args, "-id", strings.Replace(installName, oldPrefix, newPrefix, 1))
+		newID := strings.Replace(installName, oldPrefix, newPrefix, 1)
+		slog.Debug(fmt.Sprintf("relocation: %s: -id %s -> %s", relName, installName, newID))
+		args = append(args, "-id", newID)
 	}
 
 	// Collect library load commands via otool -L.
@@ -103,9 +107,6 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 
 	// Process library paths from otool -L output.
-	// The first line is "<binary>:" (the file header) – skip it.
-	// For dylibs the first dependency entry is the install name (LC_ID_DYLIB),
-	// already handled above via -id; skip it to avoid a conflicting -change.
 	libLines := strings.Split(string(libOut), "\n")
 	for _, line := range libLines[1:] {
 		line = strings.TrimSpace(line)
@@ -117,13 +118,14 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		}
 		libPath := strings.TrimSpace(line)
 
-		// Skip the install name; it is handled via -id above.
 		if libPath == installName {
 			continue
 		}
 
 		if strings.Contains(libPath, oldPrefix) {
-			args = append(args, "-change", libPath, strings.Replace(libPath, oldPrefix, newPrefix, 1))
+			newPath := strings.Replace(libPath, oldPrefix, newPrefix, 1)
+			slog.Debug(fmt.Sprintf("relocation: %s: -change %s -> %s", relName, libPath, newPath))
+			args = append(args, "-change", libPath, newPath)
 		}
 	}
 
@@ -131,8 +133,6 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	lines := strings.Split(string(loadOut), "\n")
 	for i, line := range lines {
 		if strings.Contains(line, "cmd LC_RPATH") {
-			// The path is typically 2 lines after "cmd LC_RPATH":
-			// "cmd LC_RPATH" → "cmdsize ..." → "path /some/path (offset ...)"
 			for j := i + 1; j < len(lines) && j <= i+3; j++ {
 				trimmed := strings.TrimSpace(lines[j])
 				if strings.HasPrefix(trimmed, "path ") {
@@ -143,6 +143,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 					rpath = strings.TrimSpace(rpath)
 					if strings.Contains(rpath, oldPrefix) {
 						newRpath := strings.Replace(rpath, oldPrefix, newPrefix, 1)
+						slog.Debug(fmt.Sprintf("relocation: %s: -rpath %s -> %s", relName, rpath, newRpath))
 						args = append(args, "-rpath", rpath, newRpath)
 					}
 					break
@@ -152,24 +153,27 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 
 	if len(args) == 0 {
-		return nil // nothing to relocate in this binary
+		slog.Debug(fmt.Sprintf("relocation: %s: no paths to rewrite", relName))
+		return nil
 	}
 
 	// Run install_name_tool with all accumulated changes.
 	args = append(args, path)
-	slog.Debug(fmt.Sprintf("install_name_tool %s", strings.Join(args, " ")))
+	slog.Debug(fmt.Sprintf("relocation: install_name_tool %s", strings.Join(args, " ")))
 	if out, err := exec.Command(installNameTool, args...).CombinedOutput(); err != nil {
 		return fmt.Errorf("install_name_tool: %w\n%s", err, string(out))
 	}
+	slog.Info(fmt.Sprintf("relocated %s", relName))
 
 	// Re-sign the binary (required on arm64 macOS, harmless on x86_64).
 	codesign, err := exec.LookPath("codesign")
 	if err != nil {
-		slog.Warn("codesign not found, binary signature may be invalid")
+		slog.Warn(fmt.Sprintf("relocation: codesign not found, %s signature may be invalid", relName))
 		return nil
 	}
+	slog.Debug(fmt.Sprintf("relocation: codesign --force --sign - %s", relName))
 	if out, err := exec.Command(codesign, "--force", "--sign", "-", "--", path).CombinedOutput(); err != nil {
-		slog.Warn(fmt.Sprintf("codesign failed for %s (binary may not execute on Apple Silicon): %v\n%s", path, err, string(out)))
+		slog.Warn(fmt.Sprintf("relocation: codesign failed for %s (binary may not execute on Apple Silicon): %v\n%s", relName, err, string(out)))
 	}
 
 	return nil
