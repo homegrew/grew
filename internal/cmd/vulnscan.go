@@ -13,8 +13,10 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/osvdev"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
@@ -42,6 +44,7 @@ type vulnFinding struct {
 
 func runVulnScan(args []string) error {
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
+	flags.Register(fs)
 	jsonOutput := fs.Bool("json", false, "Output results as JSON")
 	quiet := fs.Bool("quiet", false, "Only show critical and high severity findings")
 	fs.BoolVar(quiet, "q", false, "Only show critical and high severity findings")
@@ -49,6 +52,7 @@ func runVulnScan(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 	targets := fs.Args()
 
 	paths := config.Default()
@@ -696,7 +700,7 @@ func scanGlobalPermissions(paths config.Paths) []vulnFinding {
 			Severity: severityLow,
 			Category: "isolation",
 			Detail: fmt.Sprintf("grew prefix %s is under $HOME — sandboxed builds can potentially access sensitive files; "+
-				"consider running 'sudo grew setup' for %s", paths.Root, config.SystemPrefix()),
+				"consider running 'sudo grew setup' for %s", paths.Root, grewrt.SystemPrefix()),
 		})
 	}
 

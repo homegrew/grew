@@ -161,6 +161,42 @@ func TestSafeJoin(t *testing.T) {
 	})
 }
 
+func TestSafeAbsolutePath(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		name    string
+		input   string
+		wantErr bool
+		errMsg  string // substring expected in error message, if any
+	}{
+		{"valid absolute", "/usr/local/bin/grew", false, ""},
+		{"valid nested", "/opt/grew/Cellar/jq/1.7", false, ""},
+		{"empty", "", true, "empty path"},
+		{"relative", "bin/grew", true, "must be absolute"},
+		{"dot-relative", "./bin/grew", true, "must be absolute"},
+		{"root slash", "/", true, "filesystem root"},
+		{"trailing slash", "/usr/local/", true, "traversal or redundant"},
+		{"double slash", "/usr//local", true, "traversal or redundant"},
+		{"dotdot traversal", "/usr/local/../etc", true, "traversal or redundant"},
+		{"dot segment", "/usr/./local", true, "traversal or redundant"},
+		{"just dotdot", "..", true, "must be absolute"},
+		{"just dot", ".", true, "must be absolute"},
+		{"single component", "/grew", false, ""},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			err := SafeAbsolutePath(tt.input)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("SafeAbsolutePath(%q) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			}
+			if err != nil && tt.errMsg != "" && !strings.Contains(err.Error(), tt.errMsg) {
+				t.Errorf("SafeAbsolutePath(%q) error = %q, want substring %q", tt.input, err.Error(), tt.errMsg)
+			}
+		})
+	}
+}
+
 func TestValidateSHA256(t *testing.T) {
 	t.Parallel()
 	tests := []struct {

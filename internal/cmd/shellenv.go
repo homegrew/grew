@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"al.essio.dev/pkg/shellescape"
 	"github.com/homegrew/grew/internal/config"
 )
 
@@ -15,13 +16,13 @@ func runShellenv(args []string) error {
 
 	switch shell {
 	case "fish":
-		fmt.Printf("set -gx HOMEGREW_PREFIX \"%s\";\n", paths.Root)
-		fmt.Printf("set -gx HOMEGREW_CELLAR \"%s\";\n", paths.Cellar)
-		fmt.Printf("set -q PATH; or set PATH ''; set -gx PATH \"%s\" $PATH;\n", paths.Bin)
+		fmt.Printf("set -gx HOMEGREW_PREFIX %s;\n", shellescape.Quote(paths.Root))
+		fmt.Printf("set -gx HOMEGREW_CELLAR %s;\n", shellescape.Quote(paths.Cellar))
+		fmt.Printf("set -q PATH; or set PATH ''; set -gx PATH %s $PATH;\n", shellescape.Quote(paths.Bin))
 	default: // bash, zsh, sh
-		fmt.Printf("export HOMEGREW_PREFIX=\"%s\";\n", paths.Root)
-		fmt.Printf("export HOMEGREW_CELLAR=\"%s\";\n", paths.Cellar)
-		fmt.Printf("export PATH=\"%s:${PATH}\";\n", paths.Bin)
+		fmt.Printf("export HOMEGREW_PREFIX=%s;\n", shellescape.Quote(paths.Root))
+		fmt.Printf("export HOMEGREW_CELLAR=%s;\n", shellescape.Quote(paths.Cellar))
+		fmt.Printf("export PATH=%s:\"${PATH}\";\n", shellescape.Quote(paths.Bin))
 	}
 
 	return nil

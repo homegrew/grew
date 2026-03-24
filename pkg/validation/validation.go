@@ -62,6 +62,28 @@ func SafeJoin(base string, components ...string) (string, error) {
 	return cleaned, nil
 }
 
+// SafeAbsolutePath validates that path is an absolute, clean path with no
+// traversal elements. It rejects empty strings, relative paths, and paths
+// that differ from their filepath.Clean form (e.g. contain "..", trailing
+// slashes, or redundant separators). The root path "/" is rejected because
+// it is never a valid target for file operations in this project.
+func SafeAbsolutePath(path string) error {
+	if path == "" {
+		return fmt.Errorf("empty path")
+	}
+	clean := filepath.Clean(path)
+	if !filepath.IsAbs(clean) {
+		return fmt.Errorf("path must be absolute: %q", path)
+	}
+	if clean == string(filepath.Separator) {
+		return fmt.Errorf("path must not be the filesystem root")
+	}
+	if clean != path {
+		return fmt.Errorf("path contains traversal or redundant elements: %q (cleaned to %q)", path, clean)
+	}
+	return nil
+}
+
 // ValidateSHA256 checks that s is a valid 64-character hex string.
 func ValidateSHA256(s string) error {
 	if len(s) != 64 {

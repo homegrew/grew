@@ -7,17 +7,20 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 )
 
 func runCleanup(args []string) error {
 	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
+	flags.Register(fs)
 	dryRun := fs.Bool("dry-run", false, "Show what would be removed")
 	fs.BoolVar(dryRun, "n", false, "Show what would be removed")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	targets := fs.Args()
 

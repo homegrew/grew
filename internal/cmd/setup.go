@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -13,10 +14,14 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
+	grewrt "github.com/homegrew/grew/internal/runtime"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 func runSetup(args []string) error {
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
+	flags.Register(fs)
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
@@ -24,14 +29,15 @@ func runSetup(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
-	isRoot := os.Geteuid() == 0
-	var prefix string
-	if isRoot {
-		prefix = config.SystemPrefix()
-	} else {
-		prefix = config.UserPrefix()
+	if err := grewrt.Init(); err != nil {
+		return fmt.Errorf("initializing runtime environment: %w", err)
 	}
+
+	env := grewrt.Env()
+	prefix := env.DefaultPrefix()
+	isRoot := env.RunAsRoot()
 
 	// Check if already set up.
 	if !*force && !*dryRun && config.IsDir(filepath.Join(prefix, "Cellar")) {
@@ -161,13 +167,28 @@ func setupSystem(prefix string) error {
 	}
 
 	// Transfer ownership to the real user.
-	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
-	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
-	cmd := exec.Command("chown", "-R", userGroup, "--", prefix)
+
+	userGroup := strings.Join([]string{u.Username, pg}, ":")
+	fmt.Printf("==> chown -R %s %s\n", userGroup, prefix)
+	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
+
+	chownExe, err := exec.LookPath("chown")
+	if err != nil {
+		return fmt.Errorf("chown not found in PATH: %w", err)
+	}
+
+	cmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("chown %s: %w", prefix, err)
+	slog.Debug(fmt.Sprintf("running command: %s", cmd.String()))
+
+	if chownErr := cmd.Run(); chownErr != nil {
+		if pathError, ok := errors.AsType[*os.PathError](chownErr); ok {
+			return fmt.Errorf("could not chown %s: %w", pathError.Path, chownErr)
+		} else if exitError, ok := errors.AsType[*exec.ExitError](chownErr); ok {
+			return fmt.Errorf("chown exited with code %d: %w", exitError.ExitCode(), chownErr)
+		}
+		return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
 	}
 
 	// Create the directory structure.
@@ -184,7 +205,7 @@ func validIdentity(s string) bool {
 func setupUser(prefix string) error {
 	fmt.Printf("==> Setting up grew at %s (user prefix)\n", prefix)
 	fmt.Println()
-	fmt.Println("Tip: run 'sudo grew setup' to install to", config.SystemPrefix(),
+	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
 	fmt.Println()
 
@@ -215,7 +236,11 @@ func finishSetup(prefix string) error {
 		if exeErr != nil {
 			return fmt.Errorf("cannot locate current executable: %w", exeErr)
 		}
-		exe, _ = filepath.EvalSymlinks(exe)
+		resolved, evalErr := filepath.EvalSymlinks(exe)
+		if evalErr != nil {
+			return fmt.Errorf("resolve executable symlinks: %w", evalErr)
+		}
+		exe = resolved
 		if exe != destBin {
 			if err := copyFile(exe, destBin); err != nil {
 				return fmt.Errorf("copy binary to %s: %w", destBin, err)
@@ -238,14 +263,14 @@ func finishSetup(prefix string) error {
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
 func installFromGit(repoDir, destBin string) error {
-	cleanRepoDir := filepath.Clean(repoDir)
-	if !filepath.IsAbs(cleanRepoDir) || cleanRepoDir == string(os.PathSeparator) {
-		return fmt.Errorf("invalid repository directory: %s", repoDir)
+	if err := validation.SafeAbsolutePath(repoDir); err != nil {
+		return fmt.Errorf("invalid repository directory: %w", err)
 	}
-	if cleanRepoDir != repoDir {
-		// Avoid using a path that relies on traversal or redundant components.
-		return fmt.Errorf("repository directory must not contain path traversal elements: %s", repoDir)
+	if err := validation.SafeAbsolutePath(destBin); err != nil {
+		return fmt.Errorf("invalid destination binary path: %w", err)
 	}
+
+	cleanRepoDir := repoDir // already validated as clean
 
 	gitPath, err := exec.LookPath("git")
 	if err != nil {
@@ -301,25 +326,18 @@ func installFromGit(repoDir, destBin string) error {
 }
 
 func copyFile(src, dst string) error {
+	if err := validation.SafeAbsolutePath(dst); err != nil {
+		return fmt.Errorf("invalid destination path: %w", err)
+	}
+
 	srcFile, err := os.Open(src)
 	if err != nil {
 		return err
 	}
 	defer srcFile.Close()
 
-	// Normalize and validate the destination path to reduce the risk of
-	// path traversal when dst is derived from untrusted input.
-	dstClean := filepath.Clean(dst)
-	baseDir := filepath.Dir(dstClean)
-	baseDir = filepath.Clean(baseDir)
-	if rel, err := filepath.Rel(baseDir, dstClean); err != nil || rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
-		return fmt.Errorf("invalid destination path %q", dst)
-	}
-
-	dstFile, err := os.OpenFile(dstClean, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
+	dstFile, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
 	if err != nil {
-		// Ensure srcFile is closed before returning on error.
-		_ = srcFile.Close()
 		return err
 	}
 
@@ -345,7 +363,7 @@ func defaultAppDir() string {
 		// If the override cannot be resolved to an absolute path,
 		// ignore it and fall back to the default locations below.
 	}
-	if os.Geteuid() == 0 {
+	if grewrt.Env().RunAsRoot() {
 		return "/Applications"
 	}
 	home, err := os.UserHomeDir()

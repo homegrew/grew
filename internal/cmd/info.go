@@ -6,15 +6,18 @@ import (
 	"log/slog"
 	"strings"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
 )
 
 func runInfo(args []string) error {
 	fs := flag.NewFlagSet("info", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Show cask info")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew info [--cask] <formula>")

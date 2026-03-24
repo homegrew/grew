@@ -12,15 +12,18 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 func runInstall(args []string) error {
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
 	buildFromSource := fs.Bool("s", false, "Build from source")
 	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
@@ -35,6 +38,7 @@ func runInstall(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if *onlyDeps && *ignoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
@@ -86,7 +90,7 @@ func runInstall(args []string) error {
 		slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
 	}
 
-	if Verbose && len(installOrder) > 1 {
+	if flags.Verbose && len(installOrder) > 1 {
 		names := make([]string, len(installOrder))
 		for i, f := range installOrder {
 			names[i] = f.Name
@@ -183,7 +187,7 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 
 		fmt.Printf("  %-9s %s %s (%s)\n", action, f.Name, f.Version, method)
 
-		if Verbose {
+		if flags.Verbose {
 			if dlURL != "" {
 				fmt.Printf("            url:    %s\n", dlURL)
 			}
@@ -236,11 +240,22 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	slog.Info("expected SHA256: " + sha)
 
+	// Validate formula-derived identifiers before using them in filesystem paths.
+	if err := validation.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name: %w", err)
+	}
+	if err := validation.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version: %w", err)
+	}
+
 	ext := urlExt(dlURL)
 	if ext == "" && f.Install.Format != "" {
 		ext = "." + f.Install.Format
 	}
 	filename := f.Name + "-" + f.Version + ext
+	if err := validation.SafePathComponent(filename); err != nil {
+		return fmt.Errorf("invalid download filename: %w", err)
+	}
 	localFile, err := ctx.DL.Download(dlURL, filename)
 	if err != nil {
 		return fmt.Errorf("download %s: %w", f.Name, err)
@@ -334,6 +349,14 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts installOpts) error {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
+
+	if err := validation.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name: %w", err)
+	}
+	if err := validation.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version: %w", err)
+	}
+
 	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
 
 	srcURL, err := f.GetSourceURL()

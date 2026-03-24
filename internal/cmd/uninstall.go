@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
@@ -13,10 +14,12 @@ import (
 
 func runUninstall(args []string) error {
 	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Uninstall a cask")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew uninstall [--cask] <formula>")

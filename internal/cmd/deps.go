@@ -6,17 +6,20 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 )
 
 func runDeps(args []string) error {
 	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
+	flags.Register(fs)
 	tree := fs.Bool("tree", false, "Show dependencies as a tree")
 	all := fs.Bool("all", false, "Show dependencies for all formulas")
 	installed := fs.Bool("installed", false, "Show dependencies for installed formulas")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	targets := fs.Args()
 

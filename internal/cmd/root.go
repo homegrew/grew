@@ -8,42 +8,31 @@ import (
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 )
 
-// Verbose controls whether extra detail is printed (set by -v/--verbose).
-var Verbose bool
-
-// Debug controls whether debug-level diagnostics are printed (set by -d/--debug).
-// Enabling debug implicitly enables verbose.
-var Debug bool
-
 func Run(args []string) error {
-	// Global flags are parsed manually before dispatch because they
-	// can appear anywhere (e.g. "grew -v install jq").
+	// Strip global flags (verbose, debug) before dispatch — they can
+	// appear anywhere on the command line.
+	args = flags.Parse(args)
+
+	// Handle --version separately (it was not consumed by flags.Parse).
 	var filtered []string
 	for _, a := range args {
-		switch a {
-		case "-v", "--verbose":
-			Verbose = true
-		case "-d", "--debug":
-			Debug = true
-			Verbose = true // debug implies verbose
-		case "--version":
+		if a == "--version" {
 			fmt.Printf("grew %s\n", version.Version())
 			return nil
-		default:
-			filtered = append(filtered, a)
 		}
+		filtered = append(filtered, a)
 	}
 	args = filtered
 
-	// Initialise the slog-based logger now that flags are known.
-	logger.Init(Verbose, Debug)
+	// Apply flag implications and configure the logger.
+	flags.Resolve()
 
 	if len(args) == 0 {
 		printUsage()

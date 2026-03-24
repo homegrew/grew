@@ -24,8 +24,8 @@ func TestDefaultPrefix_FallbackToHome(t *testing.T) {
 
 	// It should either be ~/.homegrew or a system prefix (if binary happens to
 	// be installed there in the test environment).
-	if !strings.HasSuffix(p, ".homegrew") && p != SystemPrefix() {
-		t.Errorf("DefaultPrefix() = %q, expected ~/.homegrew or %s", p, SystemPrefix())
+	if !strings.HasSuffix(p, ".homegrew") && !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
+		t.Errorf("DefaultPrefix() = %q, expected ~/.homegrew or a system prefix", p)
 	}
 	_ = home // avoid unused
 }
@@ -55,6 +55,14 @@ func TestInit_CreatesDirectories(t *testing.T) {
 			t.Errorf("directory %q was not created", d)
 		}
 	}
+
+	if info, err := os.Stat(paths.GitRepo); err == nil {
+		if info.IsDir() {
+			t.Fatalf("git repo directory must not be created")
+		} else {
+			t.Errorf("git repo directory must not exist")
+		}
+	}
 }
 
 func TestFromRoot(t *testing.T) {
@@ -67,20 +75,6 @@ func TestFromRoot(t *testing.T) {
 	}
 	if paths.AppDir != "/Users/test/Applications" {
 		t.Errorf("AppDir = %q", paths.AppDir)
-	}
-}
-
-func TestSystemPrefix(t *testing.T) {
-	p := SystemPrefix()
-	if !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
-		t.Errorf("SystemPrefix() = %q, want /opt/homegrew or /usr/local/homegrew", p)
-	}
-}
-
-func TestUserPrefix(t *testing.T) {
-	p := UserPrefix()
-	if !strings.HasSuffix(p, ".homegrew") {
-		t.Errorf("UserPrefix() = %q, should end with .homegrew", p)
 	}
 }
 

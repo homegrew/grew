@@ -6,10 +6,13 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+
+	"github.com/homegrew/grew/internal/flags"
 )
 
 func runReinstall(args []string) error {
 	fs := flag.NewFlagSet("reinstall", flag.ContinueOnError)
+	flags.Register(fs)
 	force := fs.Bool("force", false, "Install even if not currently installed")
 	fs.BoolVar(force, "f", false, "Install even if not currently installed")
 	zap := fs.Bool("zap", false, "Remove all versions and temp files before reinstalling")
@@ -18,6 +21,7 @@ func runReinstall(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew reinstall [-f] [--zap] [-s] <formula>")

@@ -12,8 +12,10 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
@@ -78,6 +80,7 @@ func allChecks() []doctorCheck {
 
 func runDoctor(args []string) error {
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
+	flags.Register(fs)
 	listChecks := fs.Bool("list-checks", false, "List all available check names")
 	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")
 	fs.BoolVar(auditDebug, "D", false, "Show timing per check")
@@ -88,6 +91,7 @@ func runDoctor(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	selectedChecks := fs.Args()
 	checks := allChecks()
@@ -211,7 +215,7 @@ func checkPrefixIsolation(ctx *doctorCtx) {
 		ctx.warn("grew prefix %s is under $HOME — sandboxed builds can potentially access "+
 			"sensitive files (e.g. ~/.ssh, ~/.gnupg).\n"+
 			"  Run 'sudo grew setup' to install to %s for better isolation.",
-			ctx.paths.Root, config.SystemPrefix())
+			ctx.paths.Root, grewrt.SystemPrefix())
 	}
 }
 

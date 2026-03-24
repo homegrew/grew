@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
@@ -23,6 +22,7 @@ type Paths struct {
 	AppDir   string
 	Tmp      string
 	Log      string
+	GitRepo  string
 }
 
 // DefaultPrefix determines the homegrew prefix using these rules (in order):
@@ -81,37 +81,6 @@ func DefaultPrefix() string {
 	return filepath.Clean(prefix)
 }
 
-// SystemPrefix returns the recommended system-level prefix for the current
-// platform. Used by `grew setup` when running with sudo.
-//
-//   - macOS ARM64 (Apple Silicon): /opt/homegrew
-//   - macOS AMD64 (Intel):         /usr/local/homegrew
-//   - Linux:                        /usr/local/homegrew
-func SystemPrefix() string {
-	if runtime.GOOS == "darwin" && runtime.GOARCH == "arm64" {
-		return "/opt/homegrew"
-	}
-	return "/usr/local/homegrew"
-}
-
-// UserPrefix returns the user-local prefix (~/.homegrew).
-// Used by `grew setup` when running without sudo.
-func UserPrefix() string {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		home = "."
-	}
-	if abs, err := filepath.Abs(home); err == nil {
-		home = filepath.Clean(abs)
-	} else {
-		home = filepath.Clean(home)
-	}
-	prefix := filepath.Join(home, ".homegrew")
-	if abs, err := filepath.Abs(prefix); err == nil {
-		return filepath.Clean(abs)
-	}
-	return filepath.Clean(prefix)
-}
 
 func Default() Paths {
 	root := DefaultPrefix()
@@ -210,6 +179,7 @@ func FromRoot(root, appDir string) Paths {
 		AppDir:   appDir,
 		Tmp:      filepath.Join(root, "tmp"),
 		Log:      filepath.Join(root, "var", "log"),
+		GitRepo:  filepath.Join(root, "Grew"),
 	}
 }
 
@@ -217,7 +187,7 @@ func (p Paths) Init() error {
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Tmp, p.Log,
+		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created
 	}
 	for _, d := range dirs {
 		if err := os.MkdirAll(d, 0755); err != nil {
