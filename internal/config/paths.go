@@ -23,6 +23,7 @@ type Paths struct {
 	AppDir   string
 	Tmp      string
 	Log      string
+	GitRepo  string
 }
 
 // DefaultPrefix determines the homegrew prefix using these rules (in order):
@@ -210,6 +211,7 @@ func FromRoot(root, appDir string) Paths {
 		AppDir:   appDir,
 		Tmp:      filepath.Join(root, "tmp"),
 		Log:      filepath.Join(root, "var", "log"),
+		GitRepo:  filepath.Join(root, "Grew"),
 	}
 }
 
@@ -217,7 +219,7 @@ func (p Paths) Init() error {
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Tmp, p.Log,
+		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created
 	}
 	for _, d := range dirs {
 		if err := os.MkdirAll(d, 0755); err != nil {

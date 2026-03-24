@@ -55,6 +55,14 @@ func TestInit_CreatesDirectories(t *testing.T) {
 			t.Errorf("directory %q was not created", d)
 		}
 	}
+
+	if info, err := os.Stat(paths.GitRepo); err == nil {
+		if info.IsDir() {
+			t.Fatalf("git repo directory must not be created")
+		} else {
+			t.Errorf("git repo directory must not exist")
+		}
+	}
 }
 
 func TestFromRoot(t *testing.T) {
