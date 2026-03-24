@@ -21,6 +21,7 @@
 - 📋 **Install snapshots** — per-file SHA256 manifests recorded at install time for integrity verification
 - 📌 **Lockfile** — pin exact versions, hashes, and dependency trees for reproducible environments
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
+- 🔄 **Keg relocation** — rewrites hardcoded library paths in bottles at install time via `install_name_tool` (macOS) and `patchelf` (Linux), so binaries just work without `DYLD_LIBRARY_PATH` hacks
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape), XML-safe plist generation, systemd specifier escaping
@@ -201,6 +202,7 @@ grew/
 │   ├── linker/       ← deterministic symlink management
 │   ├── lockfile/     ← reproducible environment pinning
 │   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
+│   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool/patchelf)
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
 │   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux, shell-safe quoting)
 │   ├── service/      ← background service management (launchd/systemd, properly escaped)

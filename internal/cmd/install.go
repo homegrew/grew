@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/logger"
+	"github.com/homegrew/grew/internal/relocation"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
@@ -296,6 +297,11 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		return fmt.Errorf("cellar install %s: %w", f.Name, err)
 	}
 	slog.Info("installed to cellar: " + kegPath)
+
+	// Relocate hardcoded library paths from CI build prefix to local prefix.
+	if relErr := relocation.RelocateKeg(kegPath, paths.Root); relErr != nil {
+		slog.Warn(fmt.Sprintf("keg relocation: %v", relErr))
+	}
 
 	if !opts.skipLink {
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
