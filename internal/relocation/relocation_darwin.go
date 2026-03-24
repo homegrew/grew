@@ -15,7 +15,7 @@ func inspectBinary(path string) ([]string, error) {
 		return nil, fmt.Errorf("otool not found: %w", err)
 	}
 
-	out, err := exec.Command(otool, "-L", "--", path).Output()
+	out, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return nil, fmt.Errorf("otool -L %s: %w", path, err)
 	}
@@ -40,7 +40,7 @@ func inspectBinary(path string) ([]string, error) {
 	// Also collect LC_RPATH entries from otool -l output.
 	// Binaries using @rpath-based deps may have no absolute paths in
 	// otool -L, but their rpaths contain the old prefix.
-	loadOut, _ := exec.Command(otool, "-l", "--", path).Output()
+	loadOut, _ := exec.Command(otool, "-l", path).Output()
 	if loadOut != nil {
 		lines := strings.Split(string(loadOut), "\n")
 		for i, line := range lines {
@@ -81,7 +81,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	var args []string
 
 	// Determine install name (LC_ID_DYLIB) via otool -D; present only for dylibs.
-	idOut, _ := exec.Command(otool, "-D", "--", path).Output()
+	idOut, _ := exec.Command(otool, "-D", path).Output()
 	var installName string
 	if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
 		installName = strings.TrimSpace(idLines[1])
@@ -91,13 +91,13 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 
 	// Collect library load commands via otool -L.
-	libOut, err := exec.Command(otool, "-L", "--", path).Output()
+	libOut, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -L: %w", err)
 	}
 
 	// Collect LC_RPATH entries.
-	loadOut, err := exec.Command(otool, "-l", "--", path).Output()
+	loadOut, err := exec.Command(otool, "-l", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -l: %w", err)
 	}
@@ -156,7 +156,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 
 	// Run install_name_tool with all accumulated changes.
-	args = append(args, "--", path)
+	args = append(args, path)
 	slog.Debug(fmt.Sprintf("install_name_tool %s", strings.Join(args, " ")))
 	if out, err := exec.Command(installNameTool, args...).CombinedOutput(); err != nil {
 		return fmt.Errorf("install_name_tool: %w\n%s", err, string(out))
