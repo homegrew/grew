@@ -73,6 +73,7 @@ func Run(args []string) error {
 		"sign":         runSign,
 		"pin":          runPin,
 		"unpin":        runUnpin,
+		"linkage":      runLinkage,
 		"vuln-scan":    runVulnScan,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
@@ -196,6 +197,7 @@ Commands:
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
   verify [formula]     Verify installed package integrity
+  linkage [--test] <formula>  Check dynamic library dependencies for a formula
   vuln-scan [formula]  Scan installed packages for security vulnerabilities
   lock [subcommand]    Manage the formula lockfile (generate, check, show)
   sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
