@@ -11,13 +11,17 @@ all: build check
 build: generate
 	$(GO) build -o $(BIN)
 
+.PHONY: dev
+dev: generate
+	$(GO) build -tags devmode -o $(BIN)
+
 .PHONY: install
 install: generate
 	$(GO) install
 
 .PHONY: check
 check: generate
-	$(GO) test -v -race $(PKGS)
+	$(GO) test -tags devmode -v -race $(PKGS)
 
 .PHONY: generate
 generate:

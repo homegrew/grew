@@ -26,10 +26,15 @@ func runSetup(args []string) error {
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
 	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
+	unsafe := fs.Bool("unsafe", false, "Allow user-local install without root (devmode builds only)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
 	flags.Resolve()
+
+	// Set the unsafe flag on the runtime before Init so it can allow
+	// non-root operation in devmode builds.
+	grewrt.Unsafe = *unsafe
 
 	if err := grewrt.Init(); err != nil {
 		return fmt.Errorf("initializing runtime environment: %w", err)
@@ -201,9 +206,10 @@ func validIdentity(s string) bool {
 	return identityPattern.MatchString(s)
 }
 
-// setupUser installs grew to ~/.homegrew (no root needed).
+
+// setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
-	fmt.Printf("==> Setting up grew at %s (user prefix)\n", prefix)
+	fmt.Printf("==> Setting up grew at %s (user prefix, devmode)\n", prefix)
 	fmt.Println()
 	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
@@ -349,19 +355,13 @@ func copyFile(src, dst string) error {
 }
 
 // defaultAppDir returns the appropriate Applications directory.
-// Under sudo (system install), casks go to /Applications.
-// Otherwise, they go to ~/Applications.
+// HOMEGREW_APPDIR overrides the default. Under root, /Applications is used;
+// in devmode user-local installs, ~/Applications is used.
 func defaultAppDir() string {
-	// HOMEGREW_APPDIR, if set, overrides the default applications directory.
-	// It should be a path to the directory where grew-managed apps are installed.
-	// Both relative and absolute paths are accepted; relative paths are resolved
-	// to an absolute, cleaned path. If the value cannot be resolved, it is ignored.
 	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
 		if abs, err := filepath.Abs(v); err == nil {
 			return filepath.Clean(abs)
 		}
-		// If the override cannot be resolved to an absolute path,
-		// ignore it and fall back to the default locations below.
 	}
 	if grewrt.Env().RunAsRoot() {
 		return "/Applications"

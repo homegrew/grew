@@ -15,19 +15,22 @@ func TestDefaultPrefix_EnvOverride(t *testing.T) {
 	}
 }
 
-func TestDefaultPrefix_FallbackToHome(t *testing.T) {
-	// Without env var and without the binary living in a grew prefix,
-	// DefaultPrefix should fall back to ~/.homegrew.
+func TestDefaultPrefix_Fallback(t *testing.T) {
 	t.Setenv("HOMEGREW_PREFIX", "")
 	p := DefaultPrefix()
-	home, _ := os.UserHomeDir()
 
-	// It should either be ~/.homegrew or a system prefix (if binary happens to
-	// be installed there in the test environment).
-	if !strings.HasSuffix(p, ".homegrew") && !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
-		t.Errorf("DefaultPrefix() = %q, expected ~/.homegrew or a system prefix", p)
+	if os.Geteuid() == 0 {
+		// Root should always get the system prefix.
+		if !strings.HasPrefix(p, "/opt/") && !strings.HasPrefix(p, "/usr/local/") {
+			t.Errorf("DefaultPrefix() = %q, expected system prefix", p)
+		}
+	} else {
+		// Non-root gets ~/.homegrew fallback (in production, runtime.Init
+		// blocks before this is reached).
+		if !strings.HasSuffix(p, ".homegrew") {
+			t.Errorf("DefaultPrefix() = %q, expected ~/.homegrew for non-root", p)
+		}
 	}
-	_ = home // avoid unused
 }
 
 func TestDefault_OverridePrefix(t *testing.T) {

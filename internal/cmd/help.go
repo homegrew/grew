@@ -307,28 +307,20 @@ Examples:
   grew shellenv
   grew shellenv fish`,
 
-	"setup": `Usage: grew setup [--force] [--dry-run]
+	"setup": `Usage: sudo grew setup [--force] [--dry-run]
 
-Set up the grew directory structure. Behavior depends on whether you
-run it with or without sudo:
-
-  grew setup        → installs to ~/.homegrew (user-local, no root needed)
-  sudo grew setup   → installs to the system prefix (better isolation)
+Set up the grew directory structure. Requires root (sudo).
 
 System prefix locations:
   macOS (Apple Silicon): /opt/homegrew
   macOS (Intel):         /usr/local/homegrew
   Linux:                 /usr/local/homegrew
 
-With sudo, the command:
+The command:
   1. Creates the system prefix directory
   2. Transfers ownership to SUDO_USER (no root needed at runtime)
   3. Creates the internal directory structure
   4. Copies the grew binary into <prefix>/bin/
-
-Without sudo, the command:
-  1. Creates ~/.homegrew and the internal directory structure
-  2. Copies the grew binary into ~/.homegrew/bin/
 
 Path inference: grew infers its prefix from the binary location. If
 the binary is at <prefix>/bin/grew, all paths are derived from <prefix>
@@ -337,18 +329,22 @@ automatically — no HOMEGREW_PREFIX env var needed.
 Security: a system prefix isolates builds from $HOME, preventing
 sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
 
+Developer mode: builds compiled with -tags devmode can install to
+~/.homegrew without root by passing --unsafe:
+  grew setup --unsafe
+
 Flags:
   -f, --force     Re-run setup even if already set up
-  -s, --dry-run   Show what would be done without making changes
+  -n, --dry-run   Show what would be done without making changes
+      --unsafe    Allow user-local install without root (devmode builds only)
 
 After setup, add to your shell profile:
   eval "$(grew shellenv)"
 
 Examples:
-  grew setup
-  grew setup --dry-run
   sudo grew setup
-  sudo grew setup -s`,
+  sudo grew setup --dry-run
+  sudo grew setup --force`,
 
 	"services": `Usage: grew services <subcommand> [arguments]
 

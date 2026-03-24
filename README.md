@@ -25,6 +25,8 @@
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape), XML-safe plist generation, systemd specifier escaping
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
+- 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
+- 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d` flags)
 - 🐚 **Alias + shellenv helpers** so your workflows stay snappy
 
 ---
@@ -53,18 +55,14 @@ make build          # or: go generate ./internal/... && go build -o grew
 grew needs a home — a directory tree for the Cellar, symlinks, taps, and config. The `setup` command creates it and copies the binary into place:
 
 ```bash
-# User-local install (no root needed) — installs to ~/.grew
-./grew setup
-
-# System install (recommended — isolates builds from $HOME)
 sudo ./grew setup   # macOS ARM → /opt/homegrew, Intel/Linux → /usr/local/homegrew
 ```
 
-The system prefix is more secure: sandboxed source builds can't reach `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles.
+The system prefix isolates sandboxed builds from `$HOME`, preventing them from reaching `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles. After setup, ownership is transferred to your user — no root needed at runtime.
 
 ### Wire up your shell
 
-Add this to your shell profile so grew-installed binaries are on your PATH:
+Add this to your shell profile so grew-installed binaries and libraries are available:
 
 ```bash
 # bash (~/.bashrc) or zsh (~/.zshrc)
@@ -88,16 +86,17 @@ That's it. No dark rituals. No 47-step setup guide.
 ## 📖 Usage
 
 ```bash
-./grew install jq              # the classic
-./grew install -s ldns         # build from source, like a purist
-./grew install --cask firefox  # going big
-./grew link jq                 # stitch it in
-./grew deps --tree jq          # what hath jq wrought
-./grew upgrade                 # stay fresh
-./grew cleanup -n              # peek before you sweep
-./grew verify jq               # check installed files against manifest
-./grew lock                    # pin your environment
-./grew audit --strict          # lint your formulas
+grew install jq              # the classic
+grew install -s ldns         # build from source, like a purist
+grew install --cask firefox  # going big
+grew link jq                 # stitch it in
+grew deps --tree jq          # what hath jq wrought
+grew upgrade                 # stay fresh
+grew cleanup -n              # peek before you sweep
+grew verify jq               # check installed files against manifest
+grew vuln-scan               # scan for CVEs and integrity issues
+grew lock                    # pin your environment
+grew audit --strict          # lint your formulas
 ```
 
 ---
@@ -125,10 +124,13 @@ That's it. No dark rituals. No 47-step setup guide.
 | `lock` | Generate, check, or show a reproducible lockfile |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
-| `setup` | One-time prefix setup (user-local or system-wide with sudo) |
+| `setup` | One-time prefix setup (requires sudo) |
 | `doctor` | It's not a bug, it's a misconfiguration |
+| `vuln-scan` | Scan installed packages for security vulnerabilities |
 | `config` | What grew thinks it knows |
 | `shellenv` | Wire up your shell |
+| `pin` / `unpin` | Freeze a formula to prevent upgrades |
+| `completion` | Generate shell completion (bash, zsh, fish) |
 | `help` | You got this |
 
 ---
@@ -139,20 +141,24 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 
 | Variable | Default | What it is |
 |---|---|---|
-| `HOMEGREW_PREFIX` | `~/.homegrew` | The kingdom |
-| `HOMEGREW_APPDIR` | `~/Applications` | Where casks live |
+| `HOMEGREW_PREFIX` | *(inferred from binary location)* | Root of the grew tree |
+| `HOMEGREW_APPDIR` | `/Applications` | Where casks live |
 | `HOMEGREW_TAP_VERIFY` | `off` | Tap commit signature policy (`off`, `warn`, `strict`) |
-
+| `HOMEGREW_ALLOWED_HOSTS` | *(built-in allowlist)* | Additional hosts for SSRF-protected downloads |
 
 Everything else flows from the prefix:
 
 ```
-~/.homegrew/
+/opt/homegrew/              (or /usr/local/homegrew on Intel/Linux)
 ├── Cellar/        ← installed packages (each keg has a .MANIFEST.json)
 ├── Taps/          ← formula definitions (git-cloned or API-fetched)
 ├── bin/           ← symlinked binaries
+├── lib/           ← symlinked libraries
+├── include/       ← symlinked headers
+├── opt/           ← per-formula keg symlinks
 ├── etc/           ← trusted-keys (Ed25519 public keys, one per line)
 ├── tmp/           ← ephemeral stuff
+├── var/log/       ← audit log
 └── grew.lock      ← lockfile (opt-in, created by `grew lock`)
 ```
 
@@ -162,29 +168,45 @@ Everything else flows from the prefix:
 
 ```bash
 make check         # go test -v -race ./...
-make build         # go generate + go build
+make build         # go generate + go build (release — requires root at runtime)
+make dev           # go generate + go build -tags devmode (developer build)
 make lint          # golangci-lint (if installed)
 ```
 
-**Project layout:**
+### Developer mode
+
+Release builds require root (`sudo grew setup`). For local development you can build with the `devmode` tag and pass `--unsafe` to setup to install to `~/.homegrew` without root:
+
+```bash
+make dev
+./grew setup --unsafe    # installs to ~/.homegrew as your user
+./grew install jq        # works without root
+```
+
+Both gates are required — the build tag compiles in the code path, and `--unsafe` activates it at setup time. Release binaries ignore `--unsafe` entirely.
+
+### Project layout
 
 ```
 grew/
 ├── internal/
 │   ├── cmd/          ← CLI commands (the face)
 │   ├── cellar/       ← installed package management
+│   ├── config/       ← prefix + path resolution
+│   ├── depgraph/     ← dependency resolution (Kahn's toposort)
+│   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
+│   ├── flags/        ← global CLI flags (-v, -d) shared across all subcommands
 │   ├── formula/      ← formula parsing and validation
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── linker/       ← deterministic symlink management
-│   ├── depgraph/     ← dependency resolution (Kahn's toposort)
-│   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
-│   ├── tap/          ← tap repo management + commit verification
+│   ├── lockfile/     ← reproducible environment pinning
+│   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
+│   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
 │   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux, shell-safe quoting)
+│   ├── service/      ← background service management (launchd/systemd, properly escaped)
 │   ├── signing/      ← Ed25519 bottle signing + trust store
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
-│   ├── lockfile/     ← reproducible environment pinning
-│   ├── service/      ← background service management (launchd/systemd, properly escaped)
-│   ├── config/       ← prefix + path resolution
+│   ├── tap/          ← tap repo management + commit verification
 │   └── version/      ← embedded version from git tags
 ├── pkg/
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
@@ -222,7 +244,6 @@ Got ideas? Bugs? Grievances? → [Open an issue](https://github.com/homegrew/gre
 
 Hot takes on the list:
 - SLSA provenance attestations for bottles
-- Vulnerability scanning (OSV/NVD integration)
 - Content-addressable bottle storage
 - Windows support (one day, probably, maybe)
 

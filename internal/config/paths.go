@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	goruntime "runtime"
 	"strings"
 )
 
@@ -31,7 +32,7 @@ type Paths struct {
 //  2. Inferred from the binary's own location: if the executable lives at
 //     <prefix>/bin/grew, the prefix is <prefix>. This means grew always
 //     knows where it is without any configuration.
-//  3. Fallback to ~/.grew
+//  3. Fallback: system prefix for root, ~/.homegrew for non-root with GREW_DEVMODE=1
 func DefaultPrefix() string {
 	var prefix string
 
@@ -66,12 +67,19 @@ func DefaultPrefix() string {
 	}
 
 	if prefix == "" {
-		// Fallback to user-local.
-		home, err := os.UserHomeDir()
-		if err != nil {
-			home = "."
+		// Fallback depends on privilege level. Root users always get the
+		// system prefix. Non-root users get ~/.homegrew — this path is
+		// only reachable in devmode builds with --unsafe; production
+		// builds reject non-root earlier in runtime.Init.
+		if os.Geteuid() == 0 {
+			prefix = systemPrefix()
+		} else {
+			home, err := os.UserHomeDir()
+			if err != nil {
+				home = "."
+			}
+			prefix = filepath.Join(home, ".homegrew")
 		}
-		prefix = filepath.Join(home, ".homegrew")
 	}
 
 	// Normalize the prefix to an absolute, cleaned path to avoid surprises downstream.
@@ -79,6 +87,15 @@ func DefaultPrefix() string {
 		return filepath.Clean(abs)
 	}
 	return filepath.Clean(prefix)
+}
+
+// systemPrefix returns the platform system prefix (same logic as runtime.SystemPrefix).
+// Duplicated here to avoid a circular dependency between config and runtime.
+func systemPrefix() string {
+	if goruntime.GOOS == "darwin" && goruntime.GOARCH == "arm64" {
+		return "/opt/homegrew"
+	}
+	return "/usr/local/homegrew"
 }
 
 
