@@ -11,11 +11,12 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/osvdev"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
@@ -699,7 +700,7 @@ func scanGlobalPermissions(paths config.Paths) []vulnFinding {
 			Severity: severityLow,
 			Category: "isolation",
 			Detail: fmt.Sprintf("grew prefix %s is under $HOME — sandboxed builds can potentially access sensitive files; "+
-				"consider running 'sudo grew setup' for %s", paths.Root, config.SystemPrefix()),
+				"consider running 'sudo grew setup' for %s", paths.Root, grewrt.SystemPrefix()),
 		})
 	}
 

@@ -40,7 +40,14 @@ func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 		return fmt.Errorf("marshal extract args: %w", err)
 	}
 
+	// Ensure the stage directory exists so the subprocess can use it as cwd.
+	// The extract.go validation checks that dest_dir is within cwd.
+	if err := os.MkdirAll(stageDir, 0755); err != nil {
+		return fmt.Errorf("create stage dir: %w", err)
+	}
+
 	cmd := sandbox.ExtractCommand(cfg, exe, "_extract")
+	cmd.Dir = stageDir
 	cmd.Stdin = bytes.NewReader(payload)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

@@ -10,11 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
@@ -214,7 +215,7 @@ func checkPrefixIsolation(ctx *doctorCtx) {
 		ctx.warn("grew prefix %s is under $HOME — sandboxed builds can potentially access "+
 			"sensitive files (e.g. ~/.ssh, ~/.gnupg).\n"+
 			"  Run 'sudo grew setup' to install to %s for better isolation.",
-			ctx.paths.Root, config.SystemPrefix())
+			ctx.paths.Root, grewrt.SystemPrefix())
 	}
 }
 

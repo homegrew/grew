@@ -13,8 +13,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -30,13 +31,13 @@ func runSetup(args []string) error {
 	}
 	flags.Resolve()
 
-	isRoot := os.Geteuid() == 0
-	var prefix string
-	if isRoot {
-		prefix = config.SystemPrefix()
-	} else {
-		prefix = config.UserPrefix()
+	if err := grewrt.Init(); err != nil {
+		return fmt.Errorf("initializing runtime environment: %w", err)
 	}
+
+	env := grewrt.Env()
+	prefix := env.DefaultPrefix()
+	isRoot := env.RunAsRoot()
 
 	// Check if already set up.
 	if !*force && !*dryRun && config.IsDir(filepath.Join(prefix, "Cellar")) {
@@ -204,7 +205,7 @@ func validIdentity(s string) bool {
 func setupUser(prefix string) error {
 	fmt.Printf("==> Setting up grew at %s (user prefix)\n", prefix)
 	fmt.Println()
-	fmt.Println("Tip: run 'sudo grew setup' to install to", config.SystemPrefix(),
+	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
 	fmt.Println()
 
@@ -362,7 +363,7 @@ func defaultAppDir() string {
 		// If the override cannot be resolved to an absolute path,
 		// ignore it and fall back to the default locations below.
 	}
-	if os.Geteuid() == 0 {
+	if grewrt.Env().RunAsRoot() {
 		return "/Applications"
 	}
 	home, err := os.UserHomeDir()

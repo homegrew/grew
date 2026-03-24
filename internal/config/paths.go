@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
@@ -82,37 +81,6 @@ func DefaultPrefix() string {
 	return filepath.Clean(prefix)
 }
 
-// SystemPrefix returns the recommended system-level prefix for the current
-// platform. Used by `grew setup` when running with sudo.
-//
-//   - macOS ARM64 (Apple Silicon): /opt/homegrew
-//   - macOS AMD64 (Intel):         /usr/local/homegrew
-//   - Linux:                        /usr/local/homegrew
-func SystemPrefix() string {
-	if runtime.GOOS == "darwin" && runtime.GOARCH == "arm64" {
-		return "/opt/homegrew"
-	}
-	return "/usr/local/homegrew"
-}
-
-// UserPrefix returns the user-local prefix (~/.homegrew).
-// Used by `grew setup` when running without sudo.
-func UserPrefix() string {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		home = "."
-	}
-	if abs, err := filepath.Abs(home); err == nil {
-		home = filepath.Clean(abs)
-	} else {
-		home = filepath.Clean(home)
-	}
-	prefix := filepath.Join(home, ".homegrew")
-	if abs, err := filepath.Abs(prefix); err == nil {
-		return filepath.Clean(abs)
-	}
-	return filepath.Clean(prefix)
-}
 
 func Default() Paths {
 	root := DefaultPrefix()
