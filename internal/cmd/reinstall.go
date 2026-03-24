@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 )
@@ -42,7 +43,7 @@ func runReinstall(args []string) error {
 	// Unlink existing installation.
 	if ctx.Cellar.IsInstalled(name) {
 		ctx.Linker.Unlink(name)
-		Logf("    Unlinked %s\n", name)
+		slog.Info("unlinked " + name)
 	}
 
 	if *zap {
@@ -50,17 +51,17 @@ func runReinstall(args []string) error {
 		versions, _ := ctx.Cellar.InstalledVersions(name)
 		for _, ver := range versions {
 			kegPath, _ := ctx.Cellar.KegPath(name, ver)
-			Logf("    Removing %s %s\n", name, ver)
+			slog.Info(fmt.Sprintf("removing %s %s", name, ver))
 			os.RemoveAll(kegPath)
 		}
 		// Remove any leftover staging/build dirs in tmp.
 		cleanTmpFor(ctx.Paths.Tmp, name)
-		Logf("    Zapped all versions and temp files for %s\n", name)
+		slog.Info("zapped all versions and temp files for " + name)
 	} else if ctx.Cellar.IsInstalled(name) {
 		if err := ctx.Cellar.Uninstall(name); err != nil {
 			return fmt.Errorf("remove old installation: %w", err)
 		}
-		Logf("    Removed old cellar entry\n")
+		slog.Info("removed old cellar entry")
 	}
 
 	// Fresh install.

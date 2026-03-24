@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log/slog"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -54,7 +55,7 @@ func runVulnScan(args []string) error {
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil {
-		Debugf("init core tap: %v\n", err)
+		slog.Debug(fmt.Sprintf("init core tap: %v", err))
 	}
 
 	loader := newLoader(paths.Taps)
@@ -87,7 +88,7 @@ func runVulnScan(args []string) error {
 				}
 			}
 			if !found {
-				fmt.Fprintf(os.Stderr, "Warning: %s is not installed, skipping\n", t)
+				slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
 			}
 		}
 		packages = filtered
@@ -161,7 +162,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 
 		repoURL := extractRepoURL(f)
 		if repoURL == "" {
-			Debugf("vuln-scan: no repo URL for %s, skipping OSV check\n", pkg.Name)
+			slog.Debug(fmt.Sprintf("vuln-scan: no repo URL for %s, skipping OSV check", pkg.Name))
 			continue
 		}
 
@@ -181,7 +182,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 	if !silent {
 		fmt.Printf("==> Querying OSV.dev for %d package(s)...\n", len(queries))
 		if skipped > 0 {
-			Logf("    (%d packages skipped — no supported source URL)\n", skipped)
+			slog.Info(fmt.Sprintf("(%d packages skipped — no supported source URL)", skipped))
 		}
 	}
 
@@ -193,12 +194,12 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 			RepoURL: q.repoURL,
 			Version: q.version,
 		}
-		Debugf("vuln-scan: OSV query %s -> repo=%s version=%s\n", q.pkg.Name, q.repoURL, q.version)
+		slog.Debug(fmt.Sprintf("vuln-scan: OSV query %s -> repo=%s version=%s", q.pkg.Name, q.repoURL, q.version))
 	}
 
 	batchResults, err := client.QueryBatch(batchInput)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: OSV.dev query failed: %v\n", err)
+		slog.Warn(fmt.Sprintf("OSV.dev query failed: %v", err))
 		return nil
 	}
 
@@ -215,7 +216,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 		for _, v := range vulns {
 			full, err := client.GetVulnerability(v.ID)
 			if err != nil {
-				Debugf("vuln-scan: failed to fetch %s: %v\n", v.ID, err)
+				slog.Debug(fmt.Sprintf("vuln-scan: failed to fetch %s: %v", v.ID, err))
 				full = &v // use the summary data from the batch response
 			}
 
@@ -465,7 +466,7 @@ func checkSignatureStatus(pkg cellar.InstalledPackage, _ string, paths config.Pa
 
 	trustedKeys, err := signing.LoadTrustedKeys(paths.Root)
 	if err != nil {
-		Debugf("load trusted keys for %s: %v\n", pkg.Name, err)
+		slog.Debug(fmt.Sprintf("load trusted keys for %s: %v", pkg.Name, err))
 		return findings
 	}
 	if len(trustedKeys) == 0 {
@@ -500,7 +501,7 @@ func checkSignatureStatus(pkg cellar.InstalledPackage, _ string, paths config.Pa
 	// Verify the signature against the formula's SHA256.
 	sha, err := f.GetSHA256()
 	if err != nil {
-		Debugf("get sha256 for %s: %v\n", pkg.Name, err)
+		slog.Debug(fmt.Sprintf("get sha256 for %s: %v", pkg.Name, err))
 		return findings
 	}
 
@@ -627,7 +628,7 @@ func checkKegPermissions(pkg cellar.InstalledPackage, kegPath string) []vulnFind
 		return nil
 	})
 	if err != nil {
-		Debugf("walk %s: %v\n", kegPath, err)
+		slog.Debug(fmt.Sprintf("walk %s: %v", kegPath, err))
 	}
 
 	return findings

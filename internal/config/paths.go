@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -131,7 +132,7 @@ func Default() Paths {
 			appDir = filepath.Clean(abs)
 		} else {
 			// If the override cannot be resolved to an absolute path, warn and ignore it.
-			fmt.Fprintf(os.Stderr, "config: ignoring invalid HOMEGREW_APPDIR %q: %v\n", appDir, err)
+			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_APPDIR %q: %v", appDir, err))
 			appDir = ""
 		}
 	}

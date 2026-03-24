@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -12,6 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
@@ -75,13 +77,13 @@ func runInstall(args []string) error {
 		installOrder = []*formula.Formula{f}
 	} else {
 		resolver := &depgraph.Resolver{Loader: ctx.Loader}
-		Debugf("resolving dependencies for %s\n", name)
+		slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
 		var err error
 		installOrder, err = resolver.Resolve(name)
 		if err != nil {
 			return err
 		}
-		Debugf("resolved %d formula(s)\n", len(installOrder))
+		slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
 	}
 
 	if Verbose && len(installOrder) > 1 {
@@ -89,7 +91,7 @@ func runInstall(args []string) error {
 		for i, f := range installOrder {
 			names[i] = f.Name
 		}
-		Logf("==> Install order: %s\n", fmt.Sprintf("%v", names))
+		slog.Info("install order: " + fmt.Sprintf("%v", names))
 	}
 
 	if *requireSHA {
@@ -218,21 +220,21 @@ type installOpts struct {
 // Shared by install and upgrade commands.
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
 	paths := ctx.Paths
-	defer TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
-	Debugf("platform: %s, install type: %s, keg_only: %v\n", formula.PlatformKey(), f.Install.Type, f.KegOnly)
+	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
+	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
 	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
 
 	dlURL, err := f.GetURL()
 	if err != nil {
 		return err
 	}
-	Logf("    URL: %s\n", dlURL)
+	slog.Info("URL: " + dlURL)
 
 	sha, err := f.GetSHA256()
 	if err != nil {
 		return err
 	}
-	Logf("    Expected SHA256: %s\n", sha)
+	slog.Info("expected SHA256: " + sha)
 
 	ext := urlExt(dlURL)
 	if ext == "" && f.Install.Format != "" {
@@ -243,7 +245,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	if err != nil {
 		return fmt.Errorf("download %s: %w", f.Name, err)
 	}
-	Logf("    Saved to: %s\n", localFile)
+	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
 		os.Remove(localFile)
@@ -265,7 +267,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		os.Remove(localFile)
 		return fmt.Errorf("extract %s: %w", f.Name, err)
 	}
-	Logf("    Extracted to staging: %s\n", stageDir)
+	slog.Info("extracted to staging: " + stageDir)
 
 	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
 	if err != nil {
@@ -278,13 +280,13 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		os.Remove(localFile)
 		return fmt.Errorf("cellar install %s: %w", f.Name, err)
 	}
-	Logf("    Installed to cellar: %s\n", kegPath)
+	slog.Info("installed to cellar: " + kegPath)
 
 	if !opts.skipLink {
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
-		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
+		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, kegPath))
 	}
 
 	// Capture and save integrity snapshot.
@@ -298,12 +300,12 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	manifest, snapErr := snapshot.Capture(f.Name, f.Version, kegPath, meta)
 	if snapErr != nil {
-		Logf("    Warning: could not capture snapshot: %v\n", snapErr)
+		slog.Warn(fmt.Sprintf("could not capture snapshot: %v", snapErr))
 	} else {
 		if err := snapshot.Save(manifest, kegPath); err != nil {
-			Logf("    Warning: could not save snapshot: %v\n", err)
+			slog.Warn(fmt.Sprintf("could not save snapshot: %v", err))
 		}
-		Logf("    Snapshot saved: %s/%s\n", kegPath, snapshot.ManifestFile)
+		slog.Info(fmt.Sprintf("snapshot saved: %s/%s", kegPath, snapshot.ManifestFile))
 	}
 
 	os.RemoveAll(stageDir)
@@ -331,20 +333,20 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 // inside a sandboxed environment (no network, restricted filesystem access).
 func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts installOpts) error {
 	paths := ctx.Paths
-	defer TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
+	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
 
 	srcURL, err := f.GetSourceURL()
 	if err != nil {
 		return err
 	}
-	Logf("    Source URL: %s\n", srcURL)
+	slog.Info("source URL: " + srcURL)
 
 	srcSHA, err := f.GetSourceSHA256()
 	if err != nil {
 		return err
 	}
-	Logf("    Expected SHA256: %s\n", srcSHA)
+	slog.Info("expected SHA256: " + srcSHA)
 
 	ext := urlExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
@@ -352,7 +354,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	if err != nil {
 		return fmt.Errorf("download source %s: %w", f.Name, err)
 	}
-	Logf("    Saved to: %s\n", localFile)
+	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, srcSHA); err != nil {
 		os.Remove(localFile)
@@ -375,7 +377,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		os.Remove(localFile)
 		return fmt.Errorf("extract source %s: %w", f.Name, err)
 	}
-	Logf("    Extracted source to: %s\n", buildDir)
+	slog.Info("extracted source to: " + buildDir)
 
 	// Prepare keg directory.
 	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
@@ -413,7 +415,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	fmt.Printf("==> Sandboxed build (network denied, filesystem restricted)\n")
-	Debugf("sandbox config: build=%s keg=%s deps=%v\n", buildDir, kegPath, depPaths)
+	slog.Debug(fmt.Sprintf("sandbox config: build=%s keg=%s deps=%v", buildDir, kegPath, depPaths))
 
 	// ./configure --prefix=<keg>
 	fmt.Printf("==> ./configure --prefix=%s\n", kegPath)
@@ -452,7 +454,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
-		Logf("    Linked: opt/%s -> %s\n", f.Name, kegPath)
+		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, kegPath))
 	}
 
 	cleanup()
@@ -502,7 +504,7 @@ func verifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
 		return nil
 	}
 	if signatureB64 == "" {
-		fmt.Printf("==> Warning: %s has no signature (trusted keys are configured)\n", name)
+		slog.Warn(fmt.Sprintf("%s has no signature (trusted keys are configured)", name))
 		return nil
 	}
 	if !signing.VerifyAny(trustedKeys, sha256Hex, signatureB64) {

@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -96,13 +97,13 @@ func checkCaskQuarantine(ctx *doctorCtx) {
 			// Quarantine flag format: XXXX;TIMESTAMP;APPNAME;UUID
 			// A flag starting with "00" means the user has already approved it.
 			qVal := strings.TrimSpace(string(out))
-			Debugf("    %s quarantine: %s\n", filepath.Base(appPath), qVal)
+			slog.Debug(fmt.Sprintf("%s quarantine: %s", filepath.Base(appPath), qVal))
 			parts := strings.SplitN(qVal, ";", 2)
 			if len(parts) > 0 && len(parts[0]) >= 4 {
 				flag := parts[0]
 				// Flag "0083" or similar with bit 0x0040 means translocated; "00c1" etc.
 				// We mostly just verify the attribute exists — the flag details are informational.
-				Debugf("    quarantine flag: %s\n", flag)
+				slog.Debug("quarantine flag: " + flag)
 			}
 		}
 	}

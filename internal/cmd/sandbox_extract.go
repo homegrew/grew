@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/downloader"
@@ -20,7 +21,7 @@ func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	exe, err := os.Executable()
 	if err != nil {
 		// Can't locate ourselves — fall back to direct extraction.
-		Debugf("cannot locate executable for sandboxed extract, falling back: %v\n", err)
+		slog.Debug(fmt.Sprintf("cannot locate executable for sandboxed extract, falling back: %v", err))
 		return downloader.Extract(archivePath, stageDir, spec)
 	}
 
@@ -43,7 +44,7 @@ func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	cmd.Stdin = bytes.NewReader(payload)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	Debugf("sandboxed extract: %s _extract (sandbox: %s)\n", exe, stageDir)
+	slog.Debug(fmt.Sprintf("sandboxed extract: %s _extract (sandbox: %s)", exe, stageDir))
 
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("sandboxed extraction failed: %w", err)

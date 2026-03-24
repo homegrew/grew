@@ -7,6 +7,7 @@ import (
 	"compress/gzip"
 	"fmt"
 	"io"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -603,7 +604,7 @@ func extractDMG(dmgPath, destDir string) error {
 	}
 	defer func() {
 		if err := exec.Command("hdiutil", "detach", "-quiet", mountPoint).Run(); err != nil {
-			fmt.Fprintf(os.Stderr, "warning: failed to detach DMG at %s: %v\n", mountPoint, err)
+			slog.Warn(fmt.Sprintf("failed to detach DMG at %s: %v", mountPoint, err))
 		}
 	}()
 

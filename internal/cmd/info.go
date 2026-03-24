@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"strings"
 
 	"github.com/homegrew/grew/internal/linker"
@@ -49,7 +50,7 @@ func runInfo(args []string) error {
 		}
 		fmt.Printf("Installed: %s (%s)\n", ver, linked)
 		cellarPath, _ := ctx.Cellar.KegPath(f.Name, ver)
-		Logf("Cellar:    %s\n", cellarPath)
+		slog.Info("cellar: " + cellarPath)
 	} else {
 		fmt.Println("Installed: no")
 	}

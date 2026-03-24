@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 
@@ -62,9 +63,9 @@ func runCleanup(args []string) error {
 			if *dryRun {
 				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, formatSize(size))
 			} else {
-				Debugf("removing old keg %s/%s\n", pkg.Name, ver)
+				slog.Debug(fmt.Sprintf("removing old keg %s/%s", pkg.Name, ver))
 				if err := os.RemoveAll(kegPath); err != nil {
-					fmt.Fprintf(os.Stderr, "Warning: could not remove %s: %v\n", kegPath, err)
+					slog.Warn(fmt.Sprintf("could not remove %s: %v", kegPath, err))
 				} else {
 					fmt.Printf("Removing: %s %s (%s)\n", pkg.Name, ver, formatSize(size))
 				}
@@ -83,9 +84,9 @@ func runCleanup(args []string) error {
 				if *dryRun {
 					fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
 				} else {
-					Debugf("removing temp file %s\n", e.Name())
+					slog.Debug("removing temp file " + e.Name())
 					if err := os.RemoveAll(path); err != nil {
-						fmt.Fprintf(os.Stderr, "Warning: could not remove %s: %v\n", path, err)
+						slog.Warn(fmt.Sprintf("could not remove %s: %v", path, err))
 					} else {
 						fmt.Printf("Removing: %s (%s)\n", path, formatSize(size))
 					}
@@ -93,7 +94,7 @@ func runCleanup(args []string) error {
 			}
 		}
 	} else {
-		Debugf("skipping cleanup of tmp directory outside grew root: %s\n", paths.Tmp)
+		slog.Debug("skipping cleanup of tmp directory outside grew root: " + paths.Tmp)
 	}
 
 	if totalBytes == 0 {

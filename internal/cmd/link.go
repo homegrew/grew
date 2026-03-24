@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
@@ -55,7 +56,7 @@ func runLink(args []string) error {
 
 	lnk := &linker.Linker{Paths: paths}
 	kegPath, _ := cel.KegPath(name, ver)
-	Logf("    Keg: %s\n", kegPath)
+	slog.Info("keg: " + kegPath)
 	opts := linker.LinkOpts{
 		KegOnly:   kegOnly,
 		Overwrite: *overwrite,
@@ -65,9 +66,9 @@ func runLink(args []string) error {
 	if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
 		return err
 	}
-	Logf("    opt/%s -> %s\n", name, kegPath)
+	slog.Info(fmt.Sprintf("opt/%s -> %s", name, kegPath))
 	if !kegOnly || *force {
-		Logf("    Symlinked bin/, lib/, include/ contents\n")
+		slog.Info("symlinked bin/, lib/, include/ contents")
 	}
 
 	if !*dryRun {
@@ -102,9 +103,9 @@ func runUnlink(args []string) error {
 	}
 
 	if *dryRun {
-		Logf("    (dry run, no changes made)\n")
+		slog.Info("(dry run, no changes made)")
 	} else {
-		Logf("    Removed symlinks from bin/, lib/, include/, opt/\n")
+		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
 		fmt.Printf("==> %s unlinked\n", name)
 	}
 	return nil

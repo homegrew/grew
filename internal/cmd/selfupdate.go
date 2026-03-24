@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -35,17 +36,17 @@ func runSelfUpdate(_ []string) error {
 	if _, err := os.Stat(gitDir); err == nil {
 		fmt.Println("==> Updating grew from source...")
 		if err := installFromGit(repoDir, destBin); err != nil {
-			Logf("    Warning: source update failed: %v\n", err)
+			slog.Warn(fmt.Sprintf("source update failed: %v", err))
 			fmt.Println("==> Falling back to latest release download...")
 		} else {
 			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-				fmt.Printf("==> Warning: %v\n", err)
+				slog.Warn(fmt.Sprintf("%v", err))
 			}
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
 			return nil
 		}
 	} else {
-		Debugf("no git repo at %s, skipping source update\n", repoDir)
+		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
 	}
 
 	// Fallback: download latest release binary.
@@ -62,7 +63,7 @@ func selfUpdateFromRelease(exePath string) error {
 	fmt.Printf("==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
 
 	assetName := release.AssetName()
-	Debugf("asset name: %s\n", assetName)
+	slog.Debug("asset name: " + assetName)
 
 	assetURL, err := release.FindAssetURL(rel, assetName)
 	if err != nil {
@@ -84,7 +85,7 @@ func selfUpdateFromRelease(exePath string) error {
 	if err != nil {
 		return err
 	}
-	Logf("    Expected SHA256: %s\n", expectedHash)
+	slog.Info("expected SHA256: " + expectedHash)
 
 	fmt.Printf("==> Downloading %s\n", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
@@ -106,7 +107,7 @@ func selfUpdateFromRelease(exePath string) error {
 	if err != nil {
 		return fmt.Errorf("extract: %w", err)
 	}
-	Debugf("extracted binary: %d bytes\n", len(bin))
+	slog.Debug(fmt.Sprintf("extracted binary: %d bytes", len(bin)))
 
 	if err := release.AtomicInstall(exePath, bin); err != nil {
 		return fmt.Errorf("replace binary: %w", err)
@@ -114,7 +115,7 @@ func selfUpdateFromRelease(exePath string) error {
 
 	expectedVersion := strings.TrimPrefix(rel.TagName, "v")
 	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {
-		fmt.Printf("==> Warning: %v\n", err)
+		slog.Warn(fmt.Sprintf("%v", err))
 	}
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, actualHash, "release")
@@ -127,14 +128,14 @@ func selfUpdateFromRelease(exePath string) error {
 // and checks that it runs successfully and reports the expected version.
 // If expectedVersion is empty, only checks that the binary executes.
 func verifyBinaryIntegrity(binPath, expectedVersion string) error {
-	Debugf("verifying binary integrity: %s (expect %q)\n", binPath, expectedVersion)
+	slog.Debug(fmt.Sprintf("verifying binary integrity: %s (expect %q)", binPath, expectedVersion))
 
 	// Hash the binary before execution so we can detect self-modification.
 	hashBefore, err := fileSHA512(binPath)
 	if err != nil {
 		return fmt.Errorf("hash binary before execution: %w", err)
 	}
-	Debugf("SHA-512 before exec: %s\n", hashBefore)
+	slog.Debug("SHA-512 before exec: " + hashBefore)
 
 	// Run the new binary inside a sandbox: no network, no writes (except a
 	// throwaway temp dir). A compromised binary cannot exfiltrate data or
@@ -164,10 +165,10 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 		return fmt.Errorf("binary was modified during execution (self-modifying binary detected)\n"+
 			"  before: %s\n  after:  %s", hashBefore, hashAfter)
 	}
-	Debugf("SHA-512 unchanged after exec\n")
+	slog.Debug("SHA-512 unchanged after exec")
 
 	reportedVersion := strings.TrimSpace(string(out))
-	Debugf("new binary reports: %s\n", reportedVersion)
+	slog.Debug("new binary reports: " + reportedVersion)
 
 	if expectedVersion == "" {
 		// Git build: just verify it runs and reports something.

@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"time"
+	"log/slog"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -10,43 +10,17 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 )
 
-// Verbose controls whether extra detail is printed.
+// Verbose controls whether extra detail is printed (set by -v/--verbose).
 var Verbose bool
 
-// Debug controls whether debug-level diagnostics are printed.
+// Debug controls whether debug-level diagnostics are printed (set by -d/--debug).
 // Enabling debug implicitly enables verbose.
 var Debug bool
-
-// Logf prints only when Verbose (or Debug) is true.
-func Logf(format string, args ...any) {
-	if Verbose {
-		fmt.Printf(format, args...)
-	}
-}
-
-// Debugf prints only when Debug is true. Prefixed with "[debug]".
-func Debugf(format string, args ...any) {
-	if Debug {
-		fmt.Printf("[debug] "+format, args...)
-	}
-}
-
-// TimeOp logs the duration of an operation when Debug is true.
-// Usage: defer TimeOp("downloading")()
-func TimeOp(label string) func() {
-	if !Debug {
-		return func() {}
-	}
-	start := time.Now()
-	Debugf("%s started\n", label)
-	return func() {
-		Debugf("%s completed in %s\n", label, time.Since(start))
-	}
-}
 
 func Run(args []string) error {
 	// Global flags are parsed manually before dispatch because they
@@ -67,6 +41,9 @@ func Run(args []string) error {
 		}
 	}
 	args = filtered
+
+	// Initialise the slog-based logger now that flags are known.
+	logger.Init(Verbose, Debug)
 
 	if len(args) == 0 {
 		printUsage()
@@ -117,7 +94,7 @@ func Run(args []string) error {
 		// Check aliases
 		a, err := loadAliases()
 		if err != nil {
-			Debugf("failed to load aliases: %v\n", err)
+			slog.Debug(fmt.Sprintf("failed to load aliases: %v", err))
 		} else if target, exists := a[args[0]]; exists {
 			expanded := append([]string{target}, args[1:]...)
 			if h, found := commands[expanded[0]]; found {
@@ -190,10 +167,8 @@ func newInstallContext() (*installContext, error) {
 // newLoader creates a formula.Loader with debug logging wired in.
 func newLoader(tapDir string) *formula.Loader {
 	l := formula.NewLoader(tapDir)
-	if Debug {
-		l.DebugLog = func(format string, args ...any) {
-			Debugf(format, args...)
-		}
+	l.DebugLog = func(format string, args ...any) {
+		slog.Debug(fmt.Sprintf(format, args...))
 	}
 	return l
 }

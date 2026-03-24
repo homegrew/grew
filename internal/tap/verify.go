@@ -2,6 +2,7 @@ package tap
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -111,8 +112,8 @@ func CheckAfterUpdate(repoDir string, mode VerifyMode) error {
 
 	switch mode {
 	case VerifyWarn:
-		fmt.Fprintf(os.Stderr, "Warning: tap commit is not signed: %v\n", err)
-		fmt.Fprintf(os.Stderr, "  Set HOMEGREW_TAP_VERIFY=strict to enforce signature verification.\n")
+		slog.Warn(fmt.Sprintf("tap commit is not signed: %v", err))
+		slog.Warn("set HOMEGREW_TAP_VERIFY=strict to enforce signature verification")
 		return nil
 	case VerifyStrict:
 		return fmt.Errorf("refusing unsigned tap update: %w\n"+

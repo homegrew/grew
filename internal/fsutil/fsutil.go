@@ -3,6 +3,7 @@ package fsutil
 import (
 	"fmt"
 	"io"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -96,14 +97,14 @@ func CopyTree(src, dst string) error {
 				resolvedDest = resolvedSource
 			} else {
 				// Cannot sensibly map a non-absolute path outside the source root; skip it.
-				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (target %q, resolved to %q, escapes source tree %q)\n", path, link, resolvedSource, absSrc)
+				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target %q, resolved to %q, escapes source tree %q)", path, link, resolvedSource, absSrc))
 				return nil
 			}
 			resolvedDest = filepath.Clean(resolvedDest)
 
 			if !isWithinRoot(absDst, resolvedDest) {
 				// Skip symlinks that escape — don't fail, just log and skip.
-				fmt.Fprintf(os.Stderr, "fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)\n", path, resolvedDest, absDst)
+				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", path, resolvedDest, absDst))
 				return nil
 			}
 			return os.Symlink(link, target)

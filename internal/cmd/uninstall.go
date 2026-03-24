@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -37,11 +38,11 @@ func runUninstall(args []string) error {
 
 	ver, _ := cel.InstalledVersion(name)
 	kegPath, _ := cel.KegPath(name, ver)
-	Logf("    Cellar path: %s\n", kegPath)
+	slog.Info("cellar path: " + kegPath)
 
 	fmt.Printf("==> Unlinking %s...\n", name)
 	lnk.Unlink(name)
-	Logf("    Removed symlinks from bin/, lib/, include/, opt/\n")
+	slog.Info("removed symlinks from bin/, lib/, include/, opt/")
 
 	fmt.Printf("==> Removing %s...\n", name)
 	if err := cel.Uninstall(name); err != nil {

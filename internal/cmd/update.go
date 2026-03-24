@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/tap"
@@ -21,6 +22,6 @@ func runUpdate(args []string) error {
 	}
 
 	fmt.Printf("==> Updated core tap (%d formulas)\n", count)
-	Logf("    Tap directory: %s\n", paths.CoreTap)
+	slog.Info("tap directory: " + paths.CoreTap)
 	return nil
 }

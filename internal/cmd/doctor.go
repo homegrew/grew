@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"sort"
@@ -124,7 +125,7 @@ func runDoctor(args []string) error {
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil && !*quiet {
-		fmt.Fprintf(os.Stderr, "Warning: failed to init core tap: %v\n", err)
+		slog.Warn(fmt.Sprintf("failed to init core tap: %v", err))
 	}
 
 	loader := newLoader(paths.Taps)
@@ -227,7 +228,7 @@ func checkDirectoryPermissions(ctx *doctorCtx) {
 		}
 		if perm&0020 != 0 {
 			// Group-writable is less severe but still notable for a package manager
-			Logf("    Note: %s is group-writable (%o)\n", dir, perm)
+			slog.Info(fmt.Sprintf("note: %s is group-writable (%o)", dir, perm))
 		}
 	}
 }

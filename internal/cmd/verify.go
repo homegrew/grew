@@ -3,6 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/cellar"
@@ -45,18 +46,18 @@ func runVerify(args []string) error {
 
 	for _, name := range targets {
 		if !cel.IsInstalled(name) {
-			fmt.Fprintf(os.Stderr, "Warning: %s is not installed, skipping\n", name)
+			slog.Warn(name + " is not installed, skipping")
 			continue
 		}
 
 		ver, err := cel.InstalledVersion(name)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Warning: %s: %v\n", name, err)
+			slog.Warn(fmt.Sprintf("%s: %v", name, err))
 			continue
 		}
 		kegPath, err := cel.KegPath(name, ver)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Warning: %s: %v\n", name, err)
+			slog.Warn(fmt.Sprintf("%s: %v", name, err))
 			continue
 		}
 
@@ -72,7 +73,7 @@ func runVerify(args []string) error {
 
 		result, err := snapshot.Verify(kegPath)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error verifying %s: %v\n", name, err)
+			slog.Error(fmt.Sprintf("verifying %s: %v", name, err))
 			allOK = false
 			continue
 		}

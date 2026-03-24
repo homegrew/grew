@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -79,7 +80,7 @@ func newServicesCtx() (*servicesCtx, error) {
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil {
-		Debugf("init core tap: %v\n", err)
+		slog.Debug(fmt.Sprintf("init core tap: %v", err))
 	}
 
 	loader := newLoader(paths.Taps)

@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
@@ -54,12 +55,12 @@ func runUpgrade(args []string) error {
 		}
 		for _, pkg := range installed {
 			if ctx.Cellar.IsPinned(pkg.Name) {
-				Debugf("skipping %s: pinned\n", pkg.Name)
+				slog.Debug("skipping " + pkg.Name + ": pinned")
 				continue
 			}
 			f, err := ctx.Loader.LoadByName(pkg.Name)
 			if err != nil {
-				Debugf("skipping %s: no longer in any tap (%v)\n", pkg.Name, err)
+				slog.Debug(fmt.Sprintf("skipping %s: no longer in any tap (%v)", pkg.Name, err))
 				continue
 			}
 			if pkg.Version != f.Version {
@@ -78,7 +79,7 @@ func runUpgrade(args []string) error {
 
 		// Unlink old version
 		ctx.Linker.Unlink(t.formula.Name)
-		Logf("    Unlinked old version %s\n", t.installedVersion)
+		slog.Info("unlinked old version " + t.installedVersion)
 
 		// Install new version (old keg stays until we confirm success)
 		if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
@@ -94,9 +95,9 @@ func runUpgrade(args []string) error {
 		oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
 		if t.installedVersion != t.formula.Version {
 			if err := removeDir(oldKeg); err != nil {
-				Logf("    Warning: could not remove old keg %s: %v\n", oldKeg, err)
+				slog.Warn(fmt.Sprintf("could not remove old keg %s: %v", oldKeg, err))
 			} else {
-				Logf("    Removed old keg: %s\n", oldKeg)
+				slog.Info("removed old keg: " + oldKeg)
 			}
 		}
 	}
@@ -123,7 +124,7 @@ func runOutdated(args []string) error {
 	for _, pkg := range installed {
 		f, err := ctx.Loader.LoadByName(pkg.Name)
 		if err != nil {
-			Debugf("skipping %s: not in any tap (%v)\n", pkg.Name, err)
+			slog.Debug(fmt.Sprintf("skipping %s: not in any tap (%v)", pkg.Name, err))
 			continue
 		}
 		if pkg.Version != f.Version {

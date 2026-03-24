@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"log/slog"
 	"os"
 	"os/exec"
 	"os/user"
@@ -207,7 +208,7 @@ func finishSetup(prefix string) error {
 	// Falls back to copying the running binary if git or go are unavailable.
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	if err := installFromGit(repoDir, destBin); err != nil {
-		Logf("    Note: could not install from source: %v\n", err)
+		slog.Info(fmt.Sprintf("note: could not install from source: %v", err))
 		fmt.Println("==> Falling back to copying current binary")
 
 		exe, exeErr := os.Executable()
@@ -284,7 +285,7 @@ func installFromGit(repoDir, destBin string) error {
 	generate.Stdout = os.Stdout
 	generate.Stderr = os.Stderr
 	if err := generate.Run(); err != nil {
-		Logf("    Warning: go generate failed: %v\n", err)
+		slog.Warn(fmt.Sprintf("go generate failed: %v", err))
 	}
 
 	build := exec.Command(goPath, "build", "-o", destBin, ".")

@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -10,16 +11,15 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
 	l := &cask.Loader{TapDir: tapDir}
-	if Debug {
-		l.DebugLog = func(format string, args ...any) {
-			Debugf(format, args...)
-		}
+	l.DebugLog = func(format string, args ...any) {
+		slog.Debug(fmt.Sprintf(format, args...))
 	}
 	return l
 }
@@ -86,21 +86,21 @@ func caskInstall(name string, noQuarantine bool) error {
 		return fmt.Errorf("invalid cask version: %w", err)
 	}
 
-	defer TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
-	Debugf("platform: %s\n", formula.PlatformKey())
+	defer logger.TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
+	slog.Debug("platform: " + formula.PlatformKey())
 	fmt.Printf("==> Installing cask %s %s\n", c.Name, c.Version)
 
 	dlURL, err := c.GetURL()
 	if err != nil {
 		return err
 	}
-	Logf("    URL: %s\n", dlURL)
+	slog.Info("URL: " + dlURL)
 
 	sha, err := c.GetSHA256()
 	if err != nil {
 		return err
 	}
-	Logf("    Expected SHA256: %s\n", sha)
+	slog.Info("expected SHA256: " + sha)
 
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
@@ -112,7 +112,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	if err != nil {
 		return fmt.Errorf("download %s: %w", c.Name, err)
 	}
-	Logf("    Saved to: %s\n", localFile)
+	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
 		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
@@ -164,7 +164,7 @@ func caskInstall(name string, noQuarantine bool) error {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("extract %s: %w", c.Name, err)
 	}
-	Logf("    Extracted to staging: %s\n", stageDir)
+	slog.Info("extracted to staging: " + stageDir)
 
 	inst := &cask.Installer{AppDir: paths.AppDir, BinDir: paths.Bin}
 
@@ -177,7 +177,7 @@ func caskInstall(name string, noQuarantine bool) error {
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
 		if noQuarantine {
-			Logf("    Quarantine skipped (--no-quarantine)\n")
+			slog.Info("quarantine skipped (--no-quarantine)")
 		} else {
 			if err := applyCaskQuarantine(dest); err != nil {
 				// Roll back: remove the app we just installed.
@@ -186,7 +186,7 @@ func caskInstall(name string, noQuarantine bool) error {
 				_ = removeIfWithin(localFile, paths.Tmp)
 				return err
 			}
-			Logf("    Quarantine attribute set\n")
+			slog.Info("quarantine attribute set")
 		}
 		fmt.Printf("==> Installed %s to %s\n", appName, dest)
 	}
@@ -197,9 +197,9 @@ func caskInstall(name string, noQuarantine bool) error {
 		binTarget := findCaskBinary(paths.AppDir, c.Artifacts.App, binName)
 		if binTarget != "" {
 			if err := inst.LinkBin(binName, binTarget); err != nil {
-				Logf("    Warning: could not link binary %s: %v\n", binName, err)
+				slog.Warn(fmt.Sprintf("could not link binary %s: %v", binName, err))
 			} else {
-				Logf("    Linked binary: %s -> %s\n", binName, binTarget)
+				slog.Info(fmt.Sprintf("linked binary: %s -> %s", binName, binTarget))
 			}
 		}
 	}
@@ -237,7 +237,7 @@ func caskUninstall(name string) error {
 		for _, appName := range c.Artifacts.App {
 			fmt.Printf("==> Removing %s...\n", appName)
 			if err := inst.UninstallApp(appName); err != nil {
-				fmt.Fprintf(os.Stderr, "Warning: could not remove %s: %v\n", appName, err)
+				slog.Warn(fmt.Sprintf("could not remove %s: %v", appName, err))
 			}
 		}
 		for _, binName := range c.Artifacts.Bin {

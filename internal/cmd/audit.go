@@ -3,8 +3,8 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"net/url"
-	"os"
 	"strings"
 
 	"github.com/homegrew/grew/internal/cask"
@@ -49,7 +49,7 @@ func runAudit(args []string) error {
 	paths := config.Default()
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil {
-		Debugf("init core tap: %v\n", err)
+		slog.Debug(fmt.Sprintf("init core tap: %v", err))
 	}
 
 	if *isCask {
@@ -72,7 +72,7 @@ func runAuditFormulas(paths config.Paths, targets []string, strict, online bool)
 		for _, name := range targets {
 			f, err := loader.LoadByName(name)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error: cannot load formula %s: %v\n", name, err)
+				slog.Error(fmt.Sprintf("cannot load formula %s: %v", name, err))
 				continue
 			}
 			formulas = append(formulas, f)
@@ -195,7 +195,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			r.errorf("circular dependency: %v", err)
 		} else {
 			// Missing dep or load error — already warned above likely.
-			Debugf("resolve %s: %v\n", f.Name, err)
+			slog.Debug(fmt.Sprintf("resolve %s: %v", f.Name, err))
 		}
 	}
 
@@ -249,10 +249,8 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 
 func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 	caskLoader := &cask.Loader{TapDir: paths.Taps}
-	if Debug {
-		caskLoader.DebugLog = func(format string, args ...any) {
-			Debugf(format, args...)
-		}
+	caskLoader.DebugLog = func(format string, args ...any) {
+		slog.Debug(fmt.Sprintf(format, args...))
 	}
 
 	var casks []*cask.Cask
@@ -266,7 +264,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 		for _, name := range targets {
 			c, err := caskLoader.LoadByName(name)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error: cannot load cask %s: %v\n", name, err)
+				slog.Error(fmt.Sprintf("cannot load cask %s: %v", name, err))
 				continue
 			}
 			casks = append(casks, c)
