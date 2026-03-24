@@ -17,28 +17,55 @@ func inspectBinary(path string) ([]string, error) {
 	}
 
 	relName := filepath.Base(path)
+	var paths []string
+
+	// Capture the install name (LC_ID_DYLIB) — present only for dylibs.
+	// This is the single most reliable source of the build prefix, since
+	// it contains the full absolute path the dylib was built with.
+	slog.Debug(fmt.Sprintf("relocation: otool -D %s", relName))
+	if idOut, err := exec.Command(otool, "-D", path).Output(); err == nil {
+		if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
+			installName := strings.TrimSpace(idLines[1])
+			if installName != "" {
+				slog.Debug(fmt.Sprintf("relocation: %s: LC_ID_DYLIB %s", relName, installName))
+				paths = append(paths, installName)
+			}
+		}
+	}
+
+	// Capture library dependencies from otool -L.
 	slog.Debug(fmt.Sprintf("relocation: otool -L %s", relName))
 	out, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return nil, fmt.Errorf("otool -L %s: %w", path, err)
 	}
 
-	var paths []string
 	for _, line := range strings.Split(string(out), "\n") {
 		line = strings.TrimSpace(line)
-		if line == "" || !strings.HasPrefix(line, "/") {
+		if line == "" {
 			continue
 		}
+		// Skip the header line: "<binary>:"
 		if strings.HasSuffix(line, ":") {
 			continue
 		}
+		// Strip " (compatibility version ...)" suffix.
 		if idx := strings.Index(line, " ("); idx != -1 {
 			line = line[:idx]
 		}
-		paths = append(paths, strings.TrimSpace(line))
+		dep := strings.TrimSpace(line)
+		if dep == "" {
+			continue
+		}
+		// Capture both absolute paths and @rpath/@loader_path/@executable_path refs.
+		if strings.HasPrefix(dep, "/") || strings.HasPrefix(dep, "@") {
+			slog.Debug(fmt.Sprintf("relocation: %s: dep %s", relName, dep))
+			paths = append(paths, dep)
+		}
 	}
 
-	// Also collect LC_RPATH entries from otool -l output.
+	// Collect LC_RPATH entries from otool -l output.
+	// These contain the absolute prefix paths that @rpath references resolve against.
 	slog.Debug(fmt.Sprintf("relocation: otool -l %s", relName))
 	loadOut, _ := exec.Command(otool, "-l", path).Output()
 	if loadOut != nil {
