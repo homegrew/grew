@@ -8,6 +8,7 @@ import (
 	"sort"
 	"time"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/snapshot"
@@ -15,6 +16,7 @@ import (
 
 func runList(args []string) error {
 	fs := flag.NewFlagSet("list", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "List installed casks")
 	isFormulae := fs.Bool("formulae", false, "List installed formulas (default)")
 	versions := fs.Bool("versions", false, "Show all installed versions")
@@ -32,6 +34,7 @@ func runList(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if *onRequest && *asDep {
 		return fmt.Errorf("--installed-on-request and --installed-as-dependency are mutually exclusive")

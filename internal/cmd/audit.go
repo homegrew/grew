@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/depgraph"
@@ -37,12 +38,14 @@ func (r *auditResult) ok() bool {
 
 func runAudit(args []string) error {
 	fs := flag.NewFlagSet("audit", flag.ContinueOnError)
+	flags.Register(fs)
 	strict := fs.Bool("strict", false, "Treat warnings as errors")
 	isCask := fs.Bool("cask", false, "Audit casks instead of formulas")
 	online := fs.Bool("online", false, "Include checks that require installed packages (snapshot verification)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	targets := fs.Args()
 

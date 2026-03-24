@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
@@ -42,6 +43,7 @@ type vulnFinding struct {
 
 func runVulnScan(args []string) error {
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
+	flags.Register(fs)
 	jsonOutput := fs.Bool("json", false, "Output results as JSON")
 	quiet := fs.Bool("quiet", false, "Only show critical and high severity findings")
 	fs.BoolVar(quiet, "q", false, "Only show critical and high severity findings")
@@ -49,6 +51,7 @@ func runVulnScan(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 	targets := fs.Args()
 
 	paths := config.Default()

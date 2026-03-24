@@ -13,36 +13,22 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
 func runSetup(args []string) error {
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
+	flags.Register(fs)
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
 	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
 	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
-	verbose := fs.Bool("verbose", false, "Show detailed output")
-	fs.BoolVar(verbose, "v", false, "Show detailed output")
-	debug := fs.Bool("debug", false, "Show debug diagnostics (implies --verbose)")
-	fs.BoolVar(debug, "d", false, "Show debug diagnostics (implies --verbose)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
-
-	// Apply local verbose/debug flags (merge with globals).
-	if *debug {
-		Debug = true
-		Verbose = true
-	}
-	if *verbose {
-		Verbose = true
-	}
-	if *verbose || *debug {
-		logger.Init(Verbose, Debug)
-	}
+	flags.Resolve()
 
 	isRoot := os.Geteuid() == 0
 	var prefix string

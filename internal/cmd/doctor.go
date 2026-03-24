@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
@@ -78,6 +79,7 @@ func allChecks() []doctorCheck {
 
 func runDoctor(args []string) error {
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
+	flags.Register(fs)
 	listChecks := fs.Bool("list-checks", false, "List all available check names")
 	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")
 	fs.BoolVar(auditDebug, "D", false, "Show timing per check")
@@ -88,6 +90,7 @@ func runDoctor(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	selectedChecks := fs.Args()
 	checks := allChecks()

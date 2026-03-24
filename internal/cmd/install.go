@@ -12,6 +12,7 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/sandbox"
@@ -21,6 +22,7 @@ import (
 
 func runInstall(args []string) error {
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
 	buildFromSource := fs.Bool("s", false, "Build from source")
 	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
@@ -35,6 +37,7 @@ func runInstall(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if *onlyDeps && *ignoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
@@ -86,7 +89,7 @@ func runInstall(args []string) error {
 		slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
 	}
 
-	if Verbose && len(installOrder) > 1 {
+	if flags.Verbose && len(installOrder) > 1 {
 		names := make([]string, len(installOrder))
 		for i, f := range installOrder {
 			names[i] = f.Name
@@ -183,7 +186,7 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 
 		fmt.Printf("  %-9s %s %s (%s)\n", action, f.Name, f.Version, method)
 
-		if Verbose {
+		if flags.Verbose {
 			if dlURL != "" {
 				fmt.Printf("            url:    %s\n", dlURL)
 			}

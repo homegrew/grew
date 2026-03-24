@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/linker"
@@ -13,6 +14,7 @@ import (
 
 func runLink(args []string) error {
 	fs := flag.NewFlagSet("link", flag.ContinueOnError)
+	flags.Register(fs)
 	overwrite := fs.Bool("overwrite", false, "Overwrite existing files")
 	dryRun := fs.Bool("dry-run", false, "Show what would be linked")
 	fs.BoolVar(dryRun, "n", false, "Show what would be linked")
@@ -20,6 +22,7 @@ func runLink(args []string) error {
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>")
@@ -79,11 +82,13 @@ func runLink(args []string) error {
 
 func runUnlink(args []string) error {
 	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
+	flags.Register(fs)
 	dryRun := fs.Bool("dry-run", false, "Show what would be unlinked")
 	fs.BoolVar(dryRun, "n", false, "Show what would be unlinked")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>")

@@ -4,14 +4,18 @@ import (
 	"flag"
 	"fmt"
 	"strings"
+
+	"github.com/homegrew/grew/internal/flags"
 )
 
 func runSearch(args []string) error {
 	fs := flag.NewFlagSet("search", flag.ContinueOnError)
+	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Search casks")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
+	flags.Resolve()
 
 	if fs.NArg() != 1 {
 		return fmt.Errorf("usage: grew search [--cask] <query>")
