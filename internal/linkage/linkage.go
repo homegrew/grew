@@ -7,18 +7,21 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // DepKind classifies a dynamic library dependency.
 type DepKind int
 
 const (
-	System    DepKind = iota // OS-provided (/usr/lib, /System/Library, etc.)
-	Self                     // provided by the keg itself
-	OtherKeg                 // provided by another formula in the Cellar
-	Variable                 // uses @rpath, @loader_path, @executable_path, or $ORIGIN
-	Broken                   // cannot be resolved on disk
+	System   DepKind = iota // OS-provided (/usr/lib, /System/Library, etc.)
+	Self                    // provided by the keg itself
+	OtherKeg                // provided by another formula in the Cellar
+	Variable                // uses @rpath, @loader_path, @executable_path, or $ORIGIN
+	Broken                  // cannot be resolved on disk
 )
 
 func (k DepKind) String() string {
@@ -40,24 +43,24 @@ func (k DepKind) String() string {
 
 // Dep describes a single dynamic library reference found in a binary.
 type Dep struct {
-	Path     string // raw path as embedded in the binary
-	Kind     DepKind
-	Resolved string // resolved path on disk (empty if unresolvable)
-	Formula  string // formula name if Kind == OtherKeg
+	Path     string  `json:"path"`
+	Kind     DepKind `json:"kind"`
+	Resolved string  `json:"resolved,omitempty"`
+	Formula  string  `json:"formula,omitempty"`
 }
 
 // BinaryResult holds the linkage analysis for one binary file.
 type BinaryResult struct {
-	Path string
-	Deps []Dep
+	Path string `json:"path"`
+	Deps []Dep  `json:"deps"`
 }
 
 // Result holds the full linkage analysis for a keg.
 type Result struct {
-	Name     string
-	Version  string
-	KegPath  string
-	Binaries []BinaryResult
+	Name     string         `json:"name"`
+	Version  string         `json:"version"`
+	KegPath  string         `json:"keg_path"`
+	Binaries []BinaryResult `json:"binaries"`
 }
 
 // Broken returns all broken dependencies across all binaries.
@@ -71,6 +74,55 @@ func (r *Result) Broken() []Dep {
 		}
 	}
 	return out
+}
+
+// LinkedFormulas returns the deduplicated set of other-formula names that
+// binaries in this keg link against.
+func (r *Result) LinkedFormulas() []string {
+	seen := make(map[string]bool)
+	var out []string
+	for _, b := range r.Binaries {
+		for _, d := range b.Deps {
+			if d.Formula != "" && !seen[d.Formula] {
+				seen[d.Formula] = true
+				out = append(out, d.Formula)
+			}
+		}
+	}
+	return out
+}
+
+// StrictResult holds additional diagnostics produced by strict-mode checking.
+type StrictResult struct {
+	Undeclared []string // formulas linked against but not in declared deps
+	Unused     []string // declared deps not linked by any binary
+}
+
+// Strict compares the actual linked formulas against the declared dependency
+// list and reports undeclared and unused dependencies.
+func (r *Result) Strict(declaredDeps []string) StrictResult {
+	linked := make(map[string]bool)
+	for _, f := range r.LinkedFormulas() {
+		linked[f] = true
+	}
+
+	declared := make(map[string]bool)
+	for _, d := range declaredDeps {
+		declared[d] = true
+	}
+
+	var sr StrictResult
+	for f := range linked {
+		if !declared[f] {
+			sr.Undeclared = append(sr.Undeclared, f)
+		}
+	}
+	for _, d := range declaredDeps {
+		if !linked[d] {
+			sr.Unused = append(sr.Unused, d)
+		}
+	}
+	return sr
 }
 
 // Check inspects all binaries in the keg at kegPath and classifies their
@@ -267,20 +319,55 @@ func isSystemLib(p string) bool {
 	return isSystemLibPlatform(p)
 }
 
+// FormatOpts controls the output of FormatResult.
+type FormatOpts struct {
+	Test   bool
+	Quiet  bool
+	Strict *StrictResult // nil unless --strict was used
+}
+
 // FormatResult prints the linkage result in a human-readable format
 // similar to Homebrew's output.
-func FormatResult(r *Result, test bool) string {
+func FormatResult(r *Result, opts FormatOpts) string {
+	if opts.Quiet {
+		return formatQuiet(r, opts)
+	}
+
 	var b strings.Builder
 
-	if test {
+	if opts.Test {
 		broken := r.Broken()
-		if len(broken) == 0 {
+		hasProblems := len(broken) > 0
+
+		if opts.Strict != nil {
+			hasProblems = hasProblems || len(opts.Strict.Undeclared) > 0 || len(opts.Strict.Unused) > 0
+		}
+
+		if !hasProblems {
 			fmt.Fprintf(&b, "No broken linkage found for %s\n", r.Name)
 			return b.String()
 		}
-		fmt.Fprintf(&b, "Broken linkage in %s %s:\n", r.Name, r.Version)
-		for _, d := range broken {
-			fmt.Fprintf(&b, "  %s\n", d.Path)
+
+		if len(broken) > 0 {
+			fmt.Fprintf(&b, "Broken linkage in %s %s:\n", r.Name, r.Version)
+			for _, d := range broken {
+				fmt.Fprintf(&b, "  %s\n", d.Path)
+			}
+		}
+
+		if opts.Strict != nil {
+			if len(opts.Strict.Undeclared) > 0 {
+				fmt.Fprintf(&b, "Undeclared dependencies:\n")
+				for _, f := range opts.Strict.Undeclared {
+					fmt.Fprintf(&b, "  %s\n", f)
+				}
+			}
+			if len(opts.Strict.Unused) > 0 {
+				fmt.Fprintf(&b, "Unused declared dependencies:\n")
+				for _, f := range opts.Strict.Unused {
+					fmt.Fprintf(&b, "  %s\n", f)
+				}
+			}
 		}
 		return b.String()
 	}
@@ -332,8 +419,175 @@ func FormatResult(r *Result, test bool) string {
 	printSection("Variable-referenced libraries", variable)
 	printSection("Broken dependencies", broken)
 
+	if opts.Strict != nil {
+		if len(opts.Strict.Undeclared) > 0 {
+			fmt.Fprintf(&b, "Undeclared dependencies:\n")
+			for _, f := range opts.Strict.Undeclared {
+				fmt.Fprintf(&b, "  %s\n", f)
+			}
+		}
+		if len(opts.Strict.Unused) > 0 {
+			fmt.Fprintf(&b, "Unused declared dependencies:\n")
+			for _, f := range opts.Strict.Unused {
+				fmt.Fprintf(&b, "  %s\n", f)
+			}
+		}
+	}
+
 	if b.Len() == 0 {
 		fmt.Fprintf(&b, "No dynamic libraries found in %s\n", r.Name)
+	}
+
+	return b.String()
+}
+
+// formatQuiet produces minimal output suitable for scripting.
+// Only broken dep paths (and strict issues) are printed, one per line,
+// with no headers or annotations.
+func formatQuiet(r *Result, opts FormatOpts) string {
+	var b strings.Builder
+	seen := make(map[string]bool)
+
+	for _, br := range r.Binaries {
+		for _, d := range br.Deps {
+			if d.Kind == Broken && !seen[d.Path] {
+				seen[d.Path] = true
+				fmt.Fprintln(&b, d.Path)
+			}
+		}
+	}
+
+	if opts.Strict != nil {
+		for _, name := range opts.Strict.Undeclared {
+			fmt.Fprintln(&b, name)
+		}
+		for _, name := range opts.Strict.Unused {
+			fmt.Fprintln(&b, name)
+		}
+	}
+
+	return b.String()
+}
+
+// ReverseEntry records that a formula links against a library from the target keg.
+type ReverseEntry struct {
+	Formula string // the formula that links against the target
+	Binary  string // the binary in that formula
+	Lib     string // the library path it links to in the target keg
+}
+
+// ReverseResult holds the reverse-linkage analysis.
+type ReverseResult struct {
+	Name    string
+	Version string
+	Entries []ReverseEntry
+}
+
+// Reverse finds all installed formulas that dynamically link against
+// libraries provided by the keg at kegPath.
+func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) {
+	result := &ReverseResult{
+		Name:    name,
+		Version: version,
+	}
+
+	kegPrefix := kegPath + string(filepath.Separator)
+
+	entries, err := os.ReadDir(cellarPath)
+	if err != nil {
+		return result, nil
+	}
+
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+		formulaName := entry.Name()
+		if !validation.IsValidName(formulaName) || formulaName == name {
+			continue
+		}
+
+		formulaDir := filepath.Join(cellarPath, formulaName)
+		versions, err := os.ReadDir(formulaDir)
+		if err != nil {
+			continue
+		}
+		var versionName string
+		for _, v := range versions {
+			if v.IsDir() && validation.IsValidVersion(v.Name()) {
+				versionName = v.Name()
+				break
+			}
+		}
+		if versionName == "" {
+			continue
+		}
+
+		otherKegPath := filepath.Join(formulaDir, versionName)
+		checkResult, err := Check(formulaName, versionName, otherKegPath, cellarPath)
+		if err != nil {
+			continue
+		}
+
+		for _, br := range checkResult.Binaries {
+			for _, dep := range br.Deps {
+				ref := dep.Resolved
+				if ref == "" {
+					ref = dep.Path
+				}
+				if strings.HasPrefix(ref, kegPrefix) {
+					result.Entries = append(result.Entries, ReverseEntry{
+						Formula: formulaName,
+						Binary:  br.Path,
+						Lib:     ref,
+					})
+				}
+			}
+		}
+	}
+
+	return result, nil
+}
+
+// FormatReverseResult formats the reverse-linkage result for display.
+func FormatReverseResult(r *ReverseResult, quiet bool) string {
+	if len(r.Entries) == 0 {
+		return fmt.Sprintf("No formulas link against %s\n", r.Name)
+	}
+
+	var b strings.Builder
+
+	if quiet {
+		seen := make(map[string]bool)
+		var names []string
+		for _, e := range r.Entries {
+			if !seen[e.Formula] {
+				seen[e.Formula] = true
+				names = append(names, e.Formula)
+			}
+		}
+		sort.Strings(names)
+		for _, n := range names {
+			fmt.Fprintln(&b, n)
+		}
+		return b.String()
+	}
+
+	grouped := make(map[string][]ReverseEntry)
+	var order []string
+	for _, e := range r.Entries {
+		if _, exists := grouped[e.Formula]; !exists {
+			order = append(order, e.Formula)
+		}
+		grouped[e.Formula] = append(grouped[e.Formula], e)
+	}
+	sort.Strings(order)
+
+	for _, fname := range order {
+		fmt.Fprintf(&b, "%s:\n", fname)
+		for _, e := range grouped[fname] {
+			fmt.Fprintf(&b, "  %s => %s\n", e.Binary, e.Lib)
+		}
 	}
 
 	return b.String()

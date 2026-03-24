@@ -197,7 +197,7 @@ Commands:
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
   verify [formula]     Verify installed package integrity
-  linkage [--test] <formula>  Check dynamic library dependencies for a formula
+  linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>  Check dynamic library dependencies
   vuln-scan [formula]  Scan installed packages for security vulnerabilities
   lock [subcommand]    Manage the formula lockfile (generate, check, show)
   sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
