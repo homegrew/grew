@@ -57,8 +57,11 @@ func detectOldPrefix(kegPath string) string {
 	var oldPrefix string
 	var toolWarned bool
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
-		if err != nil || oldPrefix != "" {
-			return filepath.SkipDir
+		if err != nil {
+			return nil // skip inaccessible entries but continue walking
+		}
+		if oldPrefix != "" {
+			return filepath.SkipAll
 		}
 		if d.IsDir() || !d.Type().IsRegular() {
 			return nil

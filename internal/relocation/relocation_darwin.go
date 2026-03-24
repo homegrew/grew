@@ -26,6 +26,10 @@ func inspectBinary(path string) ([]string, error) {
 		if line == "" || !strings.HasPrefix(line, "/") {
 			continue
 		}
+		// Skip the header line emitted by otool -L: "<binary>:" (ends with ":").
+		if strings.HasSuffix(line, ":") {
+			continue
+		}
 		// Format: /path/to/lib.dylib (compatibility version ...)
 		if idx := strings.Index(line, " ("); idx != -1 {
 			line = line[:idx]
