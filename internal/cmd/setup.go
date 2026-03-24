@@ -174,33 +174,33 @@ func setupSystem(prefix string) error {
 	fmt.Println()
 
 	// Create the prefix.
-	// Create the prefix.
 	if err := os.MkdirAll(prefix, 0755); err != nil {
 		return fmt.Errorf("create %s: %w", prefix, err)
 	}
 
 	// Transfer ownership to the real user.
-	fmt.Printf("==> chown -R %s:%s %s\n", u.Username, pg, prefix)
-	slog.Info("chown -R %s:%s %s", u.Username, pg, prefix)
+
+	userGroup := strings.Join([]string{u.Username, pg}, ":")
+	fmt.Printf("==> chown -R %s %s\n", userGroup, prefix)
+	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
+
 	chownExe, err := exec.LookPath("chown")
 	if err != nil {
-		return fmt.Errorf("couldn't find the program 'chown': %w", err)
+		return fmt.Errorf("chown not found in PATH: %w", err)
 	}
 
-	userGroup := fmt.Sprintf("%s:%s", u.Username, pg)
-	cmd := exec.Command(chownExe, "-R", userGroup, prefix)
+	cmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	slog.Debug(fmt.Sprintf("running command: %s", cmd.String()))
 
 	if chownErr := cmd.Run(); chownErr != nil {
-		if pathError, ok := errors.AsType[*os.PathError](err); ok {
+		if pathError, ok := errors.AsType[*os.PathError](chownErr); ok {
 			return fmt.Errorf("could not chown %s: %w", pathError.Path, chownErr)
-		} else if exitError, ok := errors.AsType[*exec.ExitError](err); ok {
-			return fmt.Errorf("chown exited with code %d: %w", exitError.ExitCode(), exitError)
-		} else {
-			return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
+		} else if exitError, ok := errors.AsType[*exec.ExitError](chownErr); ok {
+			return fmt.Errorf("chown exited with code %d: %w", exitError.ExitCode(), chownErr)
 		}
+		return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
 	}
 
 	// Create the directory structure.
