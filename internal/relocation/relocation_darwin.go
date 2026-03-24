@@ -138,7 +138,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		return nil
 	}
 	if out, err := exec.Command(codesign, "--force", "--sign", "-", "--", path).CombinedOutput(); err != nil {
-		slog.Warn(fmt.Sprintf("codesign failed for %s: %v\n%s", path, err, string(out)))
+		slog.Warn(fmt.Sprintf("codesign failed for %s (binary may not execute on Apple Silicon): %v\n%s", path, err, string(out)))
 	}
 
 	return nil
