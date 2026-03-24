@@ -1,0 +1,131 @@
+package relocation
+
+import (
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+func TestDeriveOldPrefix(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name  string
+		paths []string
+		want  string
+	}{
+		{
+			name:  "empty",
+			paths: nil,
+			want:  "",
+		},
+		{
+			name:  "no markers",
+			paths: []string{"/usr/lib/libfoo.dylib", "/usr/local/bin/tool"},
+			want:  "",
+		},
+		{
+			name:  "Cellar marker",
+			paths: []string{"/home/runner/Cellar/pkg/1.0/lib/libfoo.dylib"},
+			want:  "/home/runner",
+		},
+		{
+			name:  "opt marker",
+			paths: []string{"/tmp/build/opt/grew/lib/libbar.so"},
+			want:  "/tmp/build",
+		},
+		{
+			name:  "lib marker should not match",
+			paths: []string{"/usr/lib/libfoo.dylib"},
+			want:  "",
+		},
+		{
+			name:  "system lib path should not yield a prefix",
+			paths: []string{"/usr/lib/x86_64-linux-gnu/libfoo.so"},
+			want:  "",
+		},
+		{
+			name:  "first matching path wins",
+			paths: []string{"/ci/Cellar/pkg/1.0/bin/tool", "/other/opt/grew/bin/tool"},
+			want:  "/ci",
+		},
+		{
+			name:  "relative path is rejected",
+			paths: []string{"relative/Cellar/pkg/1.0/lib/libfoo.dylib"},
+			want:  "",
+		},
+		{
+			name:  "marker at start of path (idx==0) is skipped",
+			paths: []string{"/Cellar/pkg/1.0/lib/libfoo.dylib"},
+			want:  "",
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			got := deriveOldPrefix(tc.paths)
+			if got != tc.want {
+				t.Errorf("deriveOldPrefix(%v) = %q, want %q", tc.paths, got, tc.want)
+			}
+		})
+	}
+}
+
+func TestIsBinary(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name  string
+		magic []byte
+		want  bool
+	}{
+		{"macho64-le", []byte{0xCF, 0xFA, 0xED, 0xFE}, true},
+		{"macho64-be", []byte{0xFE, 0xED, 0xFA, 0xCF}, true},
+		{"macho32-le", []byte{0xCE, 0xFA, 0xED, 0xFE}, true},
+		{"macho32-be", []byte{0xFE, 0xED, 0xFA, 0xCE}, true},
+		{"fat-magic", []byte{0xCA, 0xFE, 0xBA, 0xBE}, true},
+		{"fat-cigam", []byte{0xBE, 0xBA, 0xFE, 0xCA}, true},
+		{"elf", []byte{0x7F, 'E', 'L', 'F'}, true},
+		{"text", []byte{0x23, 0x21, 0x2F, 0x62}, false}, // "#!/b"
+		{"empty", []byte{}, false},
+	}
+
+	dir := t.TempDir()
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			path := filepath.Join(dir, tc.name)
+			// Pad to at least 4 bytes so the magic read succeeds.
+			data := make([]byte, 4)
+			copy(data, tc.magic)
+			if err := os.WriteFile(path, data, 0644); err != nil {
+				t.Fatalf("write: %v", err)
+			}
+			got := isBinary(path)
+			if got != tc.want {
+				t.Errorf("isBinary(%q magic=%X) = %v, want %v", tc.name, tc.magic, got, tc.want)
+			}
+		})
+	}
+}
+
+func TestIsBinary_EmptyFile(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	path := filepath.Join(dir, "empty")
+	if err := os.WriteFile(path, []byte{}, 0644); err != nil {
+		t.Fatalf("write: %v", err)
+	}
+	if isBinary(path) {
+		t.Error("empty file should not be detected as binary")
+	}
+}
+
+func TestIsBinary_MissingFile(t *testing.T) {
+	t.Parallel()
+	if isBinary("/nonexistent/path/to/file") {
+		t.Error("missing file should not be detected as binary")
+	}
+}

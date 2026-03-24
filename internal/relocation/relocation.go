@@ -55,6 +55,7 @@ func RelocateKeg(kegPath, prefix string) error {
 // segment.
 func detectOldPrefix(kegPath string) string {
 	var oldPrefix string
+	var toolWarned bool
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || oldPrefix != "" {
 			return filepath.SkipDir
@@ -67,6 +68,10 @@ func detectOldPrefix(kegPath string) string {
 		}
 		paths, inspectErr := inspectBinary(path)
 		if inspectErr != nil {
+			if !toolWarned {
+				slog.Warn(fmt.Sprintf("binary inspection failed, relocation may be skipped: %v", inspectErr))
+				toolWarned = true
+			}
 			return nil // try next binary
 		}
 		oldPrefix = deriveOldPrefix(paths)
@@ -81,7 +86,7 @@ func detectOldPrefix(kegPath string) string {
 // deriveOldPrefix scans a list of embedded paths for patterns like
 // "<prefix>/Cellar/" or "<prefix>/opt/" and returns the prefix portion.
 func deriveOldPrefix(paths []string) string {
-	markers := []string{"/Cellar/", "/opt/", "/lib/"}
+	markers := []string{"/Cellar/", "/opt/"}
 	for _, p := range paths {
 		for _, marker := range markers {
 			if idx := strings.Index(p, marker); idx > 0 {
@@ -112,7 +117,7 @@ func isBinary(path string) bool {
 
 	// Mach-O: CF FA ED FE (64-bit LE), FE ED FA CF (64-bit BE),
 	//         CE FA ED FE (32-bit LE), FE ED FA CE (32-bit BE),
-	//         CA FE BA BE (universal/fat binary)
+	//         CA FE BA BE (FAT_MAGIC universal), BE BA FE CA (FAT_CIGAM universal)
 	switch {
 	case magic[0] == 0xCF && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
 		return true
@@ -123,6 +128,8 @@ func isBinary(path string) bool {
 	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCE:
 		return true
 	case magic[0] == 0xCA && magic[1] == 0xFE && magic[2] == 0xBA && magic[3] == 0xBE:
+		return true
+	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
 		return true
 	}
 

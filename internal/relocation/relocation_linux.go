@@ -30,16 +30,6 @@ func inspectBinary(path string) ([]string, error) {
 		}
 	}
 
-	// Collect DT_NEEDED entries (usually bare names, but can be absolute).
-	if out, err := exec.Command(patchelf, "--print-needed", "--", path).Output(); err == nil {
-		for _, line := range strings.Split(string(out), "\n") {
-			line = strings.TrimSpace(line)
-			if line != "" && strings.HasPrefix(line, "/") {
-				paths = append(paths, line)
-			}
-		}
-	}
-
 	return paths, nil
 }
 
