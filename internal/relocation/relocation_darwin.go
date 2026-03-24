@@ -36,6 +36,33 @@ func inspectBinary(path string) ([]string, error) {
 		}
 		paths = append(paths, strings.TrimSpace(line))
 	}
+
+	// Also collect LC_RPATH entries from otool -l output.
+	// Binaries using @rpath-based deps may have no absolute paths in
+	// otool -L, but their rpaths contain the old prefix.
+	loadOut, _ := exec.Command(otool, "-l", "--", path).Output()
+	if loadOut != nil {
+		lines := strings.Split(string(loadOut), "\n")
+		for i, line := range lines {
+			if strings.Contains(line, "cmd LC_RPATH") {
+				for j := i + 1; j < len(lines) && j <= i+3; j++ {
+					trimmed := strings.TrimSpace(lines[j])
+					if strings.HasPrefix(trimmed, "path ") {
+						rpath := trimmed[len("path "):]
+						if idx := strings.Index(rpath, " (offset"); idx != -1 {
+							rpath = rpath[:idx]
+						}
+						rpath = strings.TrimSpace(rpath)
+						if rpath != "" {
+							paths = append(paths, rpath)
+						}
+						break
+					}
+				}
+			}
+		}
+	}
+
 	return paths, nil
 }
 

@@ -59,6 +59,21 @@ func TestDeriveOldPrefix(t *testing.T) {
 			paths: []string{"/Cellar/pkg/1.0/lib/libfoo.dylib"},
 			want:  "",
 		},
+		{
+			name:  "prefix under /opt with nested opt dir",
+			paths: []string{"/opt/grew/opt/bar/lib/libbar.dylib"},
+			want:  "/opt/grew",
+		},
+		{
+			name:  "prefix under /opt with Cellar path",
+			paths: []string{"/opt/grew/Cellar/foo/1.0/lib/libfoo.dylib"},
+			want:  "/opt/grew",
+		},
+		{
+			name:  "prefix under /opt only single opt segment",
+			paths: []string{"/opt/foo/lib/libfoo.dylib"},
+			want:  "",
+		},
 	}
 
 	for _, tc := range tests {

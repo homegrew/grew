@@ -92,11 +92,22 @@ func deriveOldPrefix(paths []string) string {
 	markers := []string{"/Cellar/", "/opt/"}
 	for _, p := range paths {
 		for _, marker := range markers {
-			if idx := strings.Index(p, marker); idx > 0 {
+			idx := strings.Index(p, marker)
+			if idx > 0 {
 				candidate := p[:idx]
-				// Sanity check: must be absolute.
 				if filepath.IsAbs(candidate) {
 					return candidate
+				}
+			}
+			// The prefix itself may live under /opt (e.g. /opt/grew).
+			// When /opt/ matches at position 0, look for a second
+			// occurrence: /opt/grew/opt/<name>/... → prefix is /opt/grew.
+			if idx == 0 && marker == "/opt/" {
+				if idx2 := strings.Index(p[1:], "/opt/"); idx2 > 0 {
+					candidate := p[:idx2+1]
+					if filepath.IsAbs(candidate) {
+						return candidate
+					}
 				}
 			}
 		}
