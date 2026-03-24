@@ -15,6 +15,7 @@ import (
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/logger"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 func runSetup(args []string) error {
@@ -248,7 +249,11 @@ func finishSetup(prefix string) error {
 		if exeErr != nil {
 			return fmt.Errorf("cannot locate current executable: %w", exeErr)
 		}
-		exe, _ = filepath.EvalSymlinks(exe)
+		resolved, evalErr := filepath.EvalSymlinks(exe)
+		if evalErr != nil {
+			return fmt.Errorf("resolve executable symlinks: %w", evalErr)
+		}
+		exe = resolved
 		if exe != destBin {
 			if err := copyFile(exe, destBin); err != nil {
 				return fmt.Errorf("copy binary to %s: %w", destBin, err)
@@ -271,14 +276,14 @@ func finishSetup(prefix string) error {
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
 func installFromGit(repoDir, destBin string) error {
-	cleanRepoDir := filepath.Clean(repoDir)
-	if !filepath.IsAbs(cleanRepoDir) || cleanRepoDir == string(os.PathSeparator) {
-		return fmt.Errorf("invalid repository directory: %s", repoDir)
+	if err := validation.SafeAbsolutePath(repoDir); err != nil {
+		return fmt.Errorf("invalid repository directory: %w", err)
 	}
-	if cleanRepoDir != repoDir {
-		// Avoid using a path that relies on traversal or redundant components.
-		return fmt.Errorf("repository directory must not contain path traversal elements: %s", repoDir)
+	if err := validation.SafeAbsolutePath(destBin); err != nil {
+		return fmt.Errorf("invalid destination binary path: %w", err)
 	}
+
+	cleanRepoDir := repoDir // already validated as clean
 
 	gitPath, err := exec.LookPath("git")
 	if err != nil {
@@ -334,25 +339,18 @@ func installFromGit(repoDir, destBin string) error {
 }
 
 func copyFile(src, dst string) error {
+	if err := validation.SafeAbsolutePath(dst); err != nil {
+		return fmt.Errorf("invalid destination path: %w", err)
+	}
+
 	srcFile, err := os.Open(src)
 	if err != nil {
 		return err
 	}
 	defer srcFile.Close()
 
-	// Normalize and validate the destination path to reduce the risk of
-	// path traversal when dst is derived from untrusted input.
-	dstClean := filepath.Clean(dst)
-	baseDir := filepath.Dir(dstClean)
-	baseDir = filepath.Clean(baseDir)
-	if rel, err := filepath.Rel(baseDir, dstClean); err != nil || rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
-		return fmt.Errorf("invalid destination path %q", dst)
-	}
-
-	dstFile, err := os.OpenFile(dstClean, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
+	dstFile, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
 	if err != nil {
-		// Ensure srcFile is closed before returning on error.
-		_ = srcFile.Close()
 		return err
 	}
 
