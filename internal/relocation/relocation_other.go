@@ -1,0 +1,11 @@
+//go:build !darwin && !linux
+
+package relocation
+
+func inspectBinary(_ string) ([]string, error) {
+	return nil, nil
+}
+
+func relocateBinary(_, _, _ string) error {
+	return nil
+}
