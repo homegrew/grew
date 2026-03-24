@@ -41,13 +41,25 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		slog.Warn("otool not found, skipping relocation")
 		return nil
 	}
-	int, err := exec.LookPath("install_name_tool")
+	installNameTool, err := exec.LookPath("install_name_tool")
 	if err != nil {
 		slog.Warn("install_name_tool not found, skipping relocation")
 		return nil
 	}
 
-	// Collect library load commands.
+	var args []string
+
+	// Determine install name (LC_ID_DYLIB) via otool -D; present only for dylibs.
+	idOut, _ := exec.Command(otool, "-D", "--", path).Output()
+	var installName string
+	if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
+		installName = strings.TrimSpace(idLines[1])
+	}
+	if installName != "" && strings.Contains(installName, oldPrefix) {
+		args = append(args, "-id", strings.Replace(installName, oldPrefix, newPrefix, 1))
+	}
+
+	// Collect library load commands via otool -L.
 	libOut, err := exec.Command(otool, "-L", "--", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -L: %w", err)
@@ -59,11 +71,12 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		return fmt.Errorf("otool -l: %w", err)
 	}
 
-	var args []string
-	firstLib := true
-
 	// Process library paths from otool -L output.
-	for _, line := range strings.Split(string(libOut), "\n") {
+	// The first line is "<binary>:" (the file header) – skip it.
+	// For dylibs the first dependency entry is the install name (LC_ID_DYLIB),
+	// already handled above via -id; skip it to avoid a conflicting -change.
+	libLines := strings.Split(string(libOut), "\n")
+	for _, line := range libLines[1:] {
 		line = strings.TrimSpace(line)
 		if line == "" || !strings.HasPrefix(line, "/") {
 			continue
@@ -73,19 +86,14 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		}
 		libPath := strings.TrimSpace(line)
 
-		if !strings.Contains(libPath, oldPrefix) {
-			firstLib = false
+		// Skip the install name; it is handled via -id above.
+		if libPath == installName {
 			continue
 		}
 
-		newPath := strings.Replace(libPath, oldPrefix, newPrefix, 1)
-		if firstLib {
-			// First library is the binary's own install name (LC_ID_DYLIB).
-			args = append(args, "-id", newPath)
-		} else {
-			args = append(args, "-change", libPath, newPath)
+		if strings.Contains(libPath, oldPrefix) {
+			args = append(args, "-change", libPath, strings.Replace(libPath, oldPrefix, newPrefix, 1))
 		}
-		firstLib = false
 	}
 
 	// Process LC_RPATH entries from otool -l output.
@@ -119,7 +127,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	// Run install_name_tool with all accumulated changes.
 	args = append(args, "--", path)
 	slog.Debug(fmt.Sprintf("install_name_tool %s", strings.Join(args, " ")))
-	if out, err := exec.Command(int, args...).CombinedOutput(); err != nil {
+	if out, err := exec.Command(installNameTool, args...).CombinedOutput(); err != nil {
 		return fmt.Errorf("install_name_tool: %w\n%s", err, string(out))
 	}
 
