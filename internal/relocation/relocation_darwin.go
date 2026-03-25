@@ -11,6 +11,16 @@ import (
 	"strings"
 )
 
+// applyReplacements returns s with the first matching replacement applied.
+func applyReplacements(s string, replacements Replacements) (string, bool) {
+	for old, new_ := range replacements {
+		if strings.Contains(s, old) {
+			return strings.Replace(s, old, new_, 1), true
+		}
+	}
+	return s, false
+}
+
 func inspectBinary(path string) ([]string, error) {
 	otool, err := exec.LookPath("otool")
 	if err != nil {
@@ -95,31 +105,30 @@ func inspectBinary(path string) ([]string, error) {
 	return paths, nil
 }
 
-func relocateBinary(path, oldPrefix, newPrefix string) error {
+func relocateBinary(path string, replacements Replacements) error {
 	otool, err := exec.LookPath("otool")
 	if err != nil {
-		slog.Warn("relocation: otool not found, skipping")
-		return nil
+		return fmt.Errorf("otool not found: %w", err)
 	}
 	installNameTool, err := exec.LookPath("install_name_tool")
 	if err != nil {
-		slog.Warn("relocation: install_name_tool not found, skipping")
-		return nil
+		return fmt.Errorf("install_name_tool not found: %w", err)
 	}
 
 	relName := filepath.Base(path)
 	var args []string
 
-	// Determine install name (LC_ID_DYLIB) via otool -D; present only for dylibs.
+	// Determine install name (LC_ID_DYLIB) via otool -D.
 	idOut, _ := exec.Command(otool, "-D", path).Output()
 	var installName string
 	if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
 		installName = strings.TrimSpace(idLines[1])
 	}
-	if installName != "" && strings.Contains(installName, oldPrefix) {
-		newID := strings.Replace(installName, oldPrefix, newPrefix, 1)
-		slog.Debug(fmt.Sprintf("relocation: %s: -id %s -> %s", relName, installName, newID))
-		args = append(args, "-id", newID)
+	if installName != "" {
+		if newID, changed := applyReplacements(installName, replacements); changed {
+			slog.Debug(fmt.Sprintf("relocation: %s: -id %s -> %s", relName, installName, newID))
+			args = append(args, "-id", newID)
+		}
 	}
 
 	// Collect library load commands via otool -L.
@@ -138,20 +147,21 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	libLines := strings.Split(string(libOut), "\n")
 	for _, line := range libLines[1:] {
 		line = strings.TrimSpace(line)
-		if line == "" || !strings.HasPrefix(line, "/") {
+		if line == "" {
+			continue
+		}
+		if strings.HasSuffix(line, ":") {
 			continue
 		}
 		if idx := strings.Index(line, " ("); idx != -1 {
 			line = line[:idx]
 		}
 		libPath := strings.TrimSpace(line)
-
-		if libPath == installName {
+		if libPath == "" || libPath == installName {
 			continue
 		}
 
-		if strings.Contains(libPath, oldPrefix) {
-			newPath := strings.Replace(libPath, oldPrefix, newPrefix, 1)
+		if newPath, changed := applyReplacements(libPath, replacements); changed {
 			slog.Debug(fmt.Sprintf("relocation: %s: -change %s -> %s", relName, libPath, newPath))
 			args = append(args, "-change", libPath, newPath)
 		}
@@ -169,8 +179,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 						rpath = rpath[:idx]
 					}
 					rpath = strings.TrimSpace(rpath)
-					if strings.Contains(rpath, oldPrefix) {
-						newRpath := strings.Replace(rpath, oldPrefix, newPrefix, 1)
+					if newRpath, changed := applyReplacements(rpath, replacements); changed {
 						slog.Debug(fmt.Sprintf("relocation: %s: -rpath %s -> %s", relName, rpath, newRpath))
 						args = append(args, "-rpath", rpath, newRpath)
 					}
@@ -193,7 +202,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 	slog.Info(fmt.Sprintf("relocated %s", relName))
 
-	// Re-sign the binary (required on arm64 macOS, harmless on x86_64).
+	// Re-sign the binary (required on arm64 macOS).
 	codesign, err := exec.LookPath("codesign")
 	if err != nil {
 		slog.Warn(fmt.Sprintf("relocation: codesign not found, %s signature may be invalid", relName))
@@ -201,7 +210,7 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	}
 	slog.Debug(fmt.Sprintf("relocation: codesign --force --sign - %s", relName))
 	if out, err := exec.Command(codesign, "--force", "--sign", "-", "--", path).CombinedOutput(); err != nil {
-		slog.Warn(fmt.Sprintf("relocation: codesign failed for %s (binary may not execute on Apple Silicon): %v\n%s", relName, err, string(out)))
+		slog.Warn(fmt.Sprintf("relocation: codesign failed for %s: %v\n%s", relName, err, string(out)))
 	}
 
 	return nil

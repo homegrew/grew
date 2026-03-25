@@ -300,7 +300,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 
 	// Relocate hardcoded library paths from CI build prefix to local prefix.
 	if relErr := relocation.RelocateKeg(kegPath, paths.Root); relErr != nil {
-		slog.Warn(fmt.Sprintf("keg relocation: %v", relErr))
+		return fmt.Errorf("relocate %s: %w", f.Name, relErr)
 	}
 
 	if !opts.skipLink {
@@ -315,7 +315,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		for _, issue := range issues {
 			slog.Warn(fmt.Sprintf("linkage issue: %s", issue))
 		}
-		fmt.Printf("==> Warning: %d linkage issue(s) found in %s %s (use -d for details)\n", len(issues), f.Name, f.Version)
+		return fmt.Errorf("linkage verification failed for %s: %d issue(s) (use -d for details)", f.Name, len(issues))
 	}
 
 	// Capture and save integrity snapshot.

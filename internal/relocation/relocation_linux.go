@@ -38,7 +38,16 @@ func inspectBinary(path string) ([]string, error) {
 	return paths, nil
 }
 
-func relocateBinary(path, oldPrefix, newPrefix string) error {
+func applyReplacements(s string, replacements Replacements) (string, bool) {
+	for old, new_ := range replacements {
+		if strings.Contains(s, old) {
+			return strings.Replace(s, old, new_, 1), true
+		}
+	}
+	return s, false
+}
+
+func relocateBinary(path string, replacements Replacements) error {
 	patchelf, err := exec.LookPath("patchelf")
 	if err != nil {
 		slog.Warn("relocation: patchelf not found, skipping")
@@ -60,21 +69,25 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 		slog.Debug(fmt.Sprintf("relocation: %s: empty RPATH, nothing to do", relName))
 		return nil
 	}
-	if !strings.Contains(rpath, oldPrefix) {
-		slog.Debug(fmt.Sprintf("relocation: %s: RPATH does not contain old prefix, skipping", relName))
-		return nil
-	}
 
-	// Replace old prefix in each colon-separated RPATH component.
+	// Apply replacements to each colon-separated RPATH component.
 	components := strings.Split(rpath, ":")
 	var newComponents []string
+	changed := false
 	for _, c := range components {
-		nc := strings.Replace(c, oldPrefix, newPrefix, 1)
-		if nc != c {
+		nc, replaced := applyReplacements(c, replacements)
+		if replaced {
 			slog.Debug(fmt.Sprintf("relocation: %s: RPATH %s -> %s", relName, c, nc))
+			changed = true
 		}
 		newComponents = append(newComponents, nc)
 	}
+
+	if !changed {
+		slog.Debug(fmt.Sprintf("relocation: %s: RPATH has no matching replacements, skipping", relName))
+		return nil
+	}
+
 	newRpath := strings.Join(newComponents, ":")
 
 	slog.Debug(fmt.Sprintf("relocation: patchelf --set-rpath %s %s", newRpath, relName))

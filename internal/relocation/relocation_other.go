@@ -6,7 +6,7 @@ func inspectBinary(_ string) ([]string, error) {
 	return nil, nil
 }
 
-func relocateBinary(_, _, _ string) error {
+func relocateBinary(_ string, _ Replacements) error {
 	return nil
 }
 
