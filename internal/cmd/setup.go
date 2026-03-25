@@ -196,8 +196,24 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
 	}
 
-	// Create the directory structure.
-	return finishSetup(prefix)
+	// Create the directory structure and install the binary.
+	if err := finishSetup(prefix); err != nil {
+		return err
+	}
+
+	// Re-apply ownership after finishSetup, which may have created new
+	// files as root. This ensures the entire prefix is owned by the real
+	// user, which is critical for --force re-runs where previous files
+	// may have wrong permissions.
+	fmt.Printf("==> Fixing permissions: chown -R %s %s\n", userGroup, prefix)
+	fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
+	fixCmd.Stdout = os.Stdout
+	fixCmd.Stderr = os.Stderr
+	if chownErr := fixCmd.Run(); chownErr != nil {
+		return fmt.Errorf("fix permissions: %w", chownErr)
+	}
+
+	return nil
 }
 
 var identityPattern = regexp.MustCompile(`^[A-Za-z0-9_][A-Za-z0-9_.-]*$`)

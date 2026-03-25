@@ -9,3 +9,7 @@ func inspectBinary(_ string) ([]string, error) {
 func relocateBinary(_, _, _ string) error {
 	return nil
 }
+
+func verifyBinary(_, _ string) []Issue {
+	return nil
+}

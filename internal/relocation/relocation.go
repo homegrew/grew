@@ -62,6 +62,49 @@ func RelocateKeg(kegPath, prefix string) error {
 	return err
 }
 
+// Issue represents a relocation problem found during verification.
+type Issue struct {
+	Binary string // relative path within the keg
+	Dep    string // the problematic dependency or path
+	Reason string // human-readable description
+}
+
+func (i Issue) String() string {
+	return fmt.Sprintf("%s: %s (%s)", i.Binary, i.Dep, i.Reason)
+}
+
+// VerifyKeg walks all binaries in kegPath and checks that their dynamic
+// library dependencies can be resolved. Returns a list of issues found.
+// Call this after RelocateKeg and linking to catch broken installs early.
+func VerifyKeg(kegPath, prefix string) []Issue {
+	slog.Debug(fmt.Sprintf("relocation: verifying keg %s", kegPath))
+
+	var issues []Issue
+	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+		if err != nil || d.IsDir() || !d.Type().IsRegular() {
+			return nil
+		}
+		if !isBinary(path) {
+			return nil
+		}
+
+		relPath, _ := filepath.Rel(kegPath, path)
+		binIssues := verifyBinary(path, prefix)
+		for _, bi := range binIssues {
+			bi.Binary = relPath
+			issues = append(issues, bi)
+		}
+		return nil
+	})
+
+	if len(issues) == 0 {
+		slog.Debug("relocation: verification passed, all dependencies resolved")
+	} else {
+		slog.Debug(fmt.Sprintf("relocation: verification found %d issue(s)", len(issues)))
+	}
+	return issues
+}
+
 // detectOldPrefix finds the first binary in the keg and inspects its
 // embedded paths to discover the CI build prefix. It looks for paths
 // containing "/Cellar/" or "/opt/" and extracts the prefix before that

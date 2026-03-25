@@ -310,6 +310,14 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, kegPath))
 	}
 
+	// Verify that relocated binaries can resolve their dependencies.
+	if issues := relocation.VerifyKeg(kegPath, paths.Root); len(issues) > 0 {
+		for _, issue := range issues {
+			slog.Warn(fmt.Sprintf("linkage issue: %s", issue))
+		}
+		fmt.Printf("==> Warning: %d linkage issue(s) found in %s %s (use -d for details)\n", len(issues), f.Name, f.Version)
+	}
+
 	// Capture and save integrity snapshot.
 	meta := snapshot.InstallMeta{
 		Platform:           formula.PlatformKey(),

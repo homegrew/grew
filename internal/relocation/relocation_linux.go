@@ -5,6 +5,7 @@ package relocation
 import (
 	"fmt"
 	"log/slog"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -83,4 +84,39 @@ func relocateBinary(path, oldPrefix, newPrefix string) error {
 	slog.Info(fmt.Sprintf("relocated %s", relName))
 
 	return nil
+}
+
+// verifyBinary checks that the RPATH/RUNPATH of an ELF binary points to
+// existing directories. On Linux, broken rpaths mean the dynamic linker
+// won't find shared libraries at runtime.
+func verifyBinary(path, prefix string) []Issue {
+	patchelf, err := exec.LookPath("patchelf")
+	if err != nil {
+		return nil
+	}
+
+	relName := filepath.Base(path)
+
+	rpathOut, err := exec.Command(patchelf, "--print-rpath", "--", path).Output()
+	if err != nil {
+		return nil
+	}
+
+	rpath := strings.TrimSpace(string(rpathOut))
+	if rpath == "" {
+		return nil
+	}
+
+	var issues []Issue
+	for _, component := range strings.Split(rpath, ":") {
+		component = strings.TrimSpace(component)
+		if component == "" || strings.HasPrefix(component, "$") {
+			continue // $ORIGIN etc. are runtime-resolved
+		}
+		if _, err := os.Stat(component); err != nil {
+			slog.Debug(fmt.Sprintf("relocation: verify: %s: RPATH dir missing %s", relName, component))
+			issues = append(issues, Issue{Dep: component, Reason: "RPATH directory does not exist"})
+		}
+	}
+	return issues
 }
