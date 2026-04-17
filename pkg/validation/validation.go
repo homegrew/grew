@@ -39,27 +39,51 @@ func SafePathComponent(name string) error {
 }
 
 // SafeJoin joins base and child path components, then verifies the result
-// resolves within base. Returns the cleaned joined path or an error if the
-// result would escape base (e.g. via ".." traversal or symlinks).
+// resolves within base. It validates each provided component and defends
+// against both lexical traversal and symlink-based escapes.
 func SafeJoin(base string, components ...string) (string, error) {
-	parts := append([]string{base}, components...)
-	joined := filepath.Join(parts...)
-	cleaned := filepath.Clean(joined)
+	if base == "" {
+		return "", fmt.Errorf("empty base path")
+	}
+	for _, c := range components {
+		if err := SafePathComponent(c); err != nil {
+			return "", fmt.Errorf("invalid path component %q: %w", c, err)
+		}
+	}
 
 	absBase, err := filepath.Abs(base)
 	if err != nil {
 		return "", fmt.Errorf("resolve base path: %w", err)
 	}
-	absJoined, err := filepath.Abs(cleaned)
+	absBase = filepath.Clean(absBase)
+
+	parts := append([]string{absBase}, components...)
+	candidate := filepath.Clean(filepath.Join(parts...))
+
+	// Resolve symlinks in base and candidate parent (if it exists) to prevent
+	// escaping base through symlinked directories.
+	resolvedBase, err := filepath.EvalSymlinks(absBase)
 	if err != nil {
-		return "", fmt.Errorf("resolve joined path: %w", err)
+		return "", fmt.Errorf("resolve base symlinks: %w", err)
+	}
+	resolvedBase = filepath.Clean(resolvedBase)
+
+	parent := filepath.Dir(candidate)
+	resolvedParent, err := filepath.EvalSymlinks(parent)
+	if err != nil {
+		return "", fmt.Errorf("resolve candidate parent symlinks: %w", err)
+	}
+	resolvedCandidate := filepath.Join(filepath.Clean(resolvedParent), filepath.Base(candidate))
+
+	rel, err := filepath.Rel(resolvedBase, resolvedCandidate)
+	if err != nil {
+		return "", fmt.Errorf("compute relative path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("path %q escapes base %q", resolvedCandidate, resolvedBase)
 	}
 
-	// The joined path must be equal to or a child of the base.
-	if absJoined != absBase && !strings.HasPrefix(absJoined, absBase+string(filepath.Separator)) {
-		return "", fmt.Errorf("path %q escapes base %q", cleaned, base)
-	}
-	return cleaned, nil
+	return resolvedCandidate, nil
 }
 
 // SafeAbsolutePath validates that path is an absolute, clean path with no
