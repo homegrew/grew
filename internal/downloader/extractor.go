@@ -378,11 +378,23 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if linkname == "" {
 				continue
 			}
+			cleanLink := filepath.Clean(linkname)
+			if filepath.IsAbs(cleanLink) || hasPathTraversal(cleanLink) {
+				continue
+			}
 			parentDir := filepath.Dir(target)
 			if !withinDir(destDir, parentDir) {
 				continue
 			}
-			if err := os.MkdirAll(parentDir, 0755); err != nil {
+			resolvedParentDir, err := filepath.Abs(parentDir)
+			if err != nil {
+				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
+			}
+			resolvedParentDir = filepath.Clean(resolvedParentDir)
+			if !withinDir(destDir, resolvedParentDir) {
+				continue
+			}
+			if err := os.MkdirAll(resolvedParentDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
 
@@ -395,7 +407,10 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
 			}
 
-			candidateTarget := filepath.Join(resolvedParent, linkname)
+			candidateTarget := filepath.Clean(filepath.Join(resolvedParent, cleanLink))
+			if !withinDir(realDest, candidateTarget) {
+				continue
+			}
 			if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
 				resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
 				if err != nil {
