@@ -508,17 +508,23 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	}
 	kegPrefix := kegPath + string(filepath.Separator)
 
+	// Normalize cellarPath, resolving symlinks for consistent comparison
+	cellarRoot := cellarPath
 	if resolved, err := filepath.EvalSymlinks(cellarRoot); err == nil {
 		cellarRoot = filepath.Clean(resolved)
+	} else {
+		cellarRoot = filepath.Clean(cellarRoot)
 	}
-	if err != nil {
-		return result, err
-	}
-	cellarRoot = filepath.Clean(cellarRoot)
 	if filepath.Base(cellarRoot) != "Cellar" {
 		return result, nil
 	}
-	cellarRootWithSep := cellarRoot + string(filepath.Separator)
+
+	// Open cellarRoot securely to prevent symlink bypass attacks
+	rootHandle, err := os.OpenRoot(cellarRoot)
+	if err != nil {
+		return result, nil
+	}
+	defer rootHandle.Close()
 
 	entries, err := os.ReadDir(cellarRoot)
 	if err != nil {
@@ -534,23 +540,24 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 			continue
 		}
 
-		formulaDir := filepath.Join(cellarRoot, formulaName)
-		absFormulaDir, err := filepath.Abs(formulaDir)
+		// Use symlink-safe lstat within the root to verify the entry is not a symlink
+		// and is actually contained within cellarRoot
+		formulaInfo, err := rootHandle.Lstat(formulaName)
 		if err != nil {
 			continue
 		}
-		absFormulaDir = filepath.Clean(absFormulaDir)
-		if resolved, err := filepath.EvalSymlinks(absFormulaDir); err == nil {
-			absFormulaDir = filepath.Clean(resolved)
-		}
-		if !isWithinBase(cellarRoot, absFormulaDir) {
+		// Reject symlinks to prevent path traversal
+		if formulaInfo.Mode()&os.ModeSymlink != 0 {
 			continue
 		}
-		if absFormulaDir != cellarRoot && !strings.HasPrefix(absFormulaDir, cellarRootWithSep) {
+		if !formulaInfo.IsDir() {
 			continue
 		}
 
-		versions, err := os.ReadDir(absFormulaDir)
+		// Construct the absolute path for further operations
+		formulaDir := filepath.Join(cellarRoot, formulaName)
+
+		versions, err := os.ReadDir(formulaDir)
 		if err != nil {
 			continue
 		}
@@ -565,7 +572,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 			continue
 		}
 
-		otherKegPath := filepath.Join(absFormulaDir, versionName)
+		otherKegPath := filepath.Join(formulaDir, versionName)
 		checkResult, err := Check(formulaName, versionName, otherKegPath, cellarRoot)
 		if err != nil {
 			continue
