@@ -334,6 +334,16 @@ func withinDir(destDir, target string) bool {
 // extractTar safely extracts entries from a tar stream with path traversal
 // and symlink escape protection.
 func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
+	destDir = filepath.Clean(destDir)
+	// Create destDir early to ensure we can resolve its symlinks consistently.
+	if err := os.MkdirAll(destDir, 0755); err != nil {
+		return fmt.Errorf("create destination directory: %w", err)
+	}
+	realDest, err := filepath.EvalSymlinks(destDir)
+	if err != nil {
+		return fmt.Errorf("resolve destination directory: %w", err)
+	}
+
 	for {
 		header, err := tr.Next()
 		if err == io.EOF {
@@ -348,7 +358,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			continue
 		}
 
-		target, ok := safeJoinArchivePath(destDir, name)
+		target, ok := safeJoinArchivePath(realDest, name)
 		if !ok {
 			continue
 		}
@@ -383,7 +393,7 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				continue
 			}
 			parentDir := filepath.Dir(target)
-			if !withinDir(destDir, parentDir) {
+			if !withinDir(realDest, parentDir) {
 				continue
 			}
 			resolvedParentDir, err := filepath.Abs(parentDir)
@@ -391,23 +401,11 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
 			}
 			resolvedParentDir = filepath.Clean(resolvedParentDir)
-			if !withinDir(destDir, resolvedParentDir) {
-				continue
-			}
-
-			realDest, err := filepath.EvalSymlinks(destDir)
-			if err != nil {
-				return fmt.Errorf("resolve destination directory %s: %w", destDir, err)
-			}
-			realDest = filepath.Clean(realDest)
 			if !withinDir(realDest, resolvedParentDir) {
 				continue
 			}
 
-			if err := os.MkdirAll(resolvedParentDir, 0755); err != nil {
-				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
-			}
-
+			// parentDir exists if we got here (either already existed or created by TypeReg/TypeDir)
 			resolvedParent, err := filepath.EvalSymlinks(parentDir)
 			if err != nil {
 				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
@@ -502,16 +500,16 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 	}
 	defer r.Close()
 
+	destDir = filepath.Clean(destDir)
+	// Create destDir early to ensure we can resolve its symlinks consistently.
+	if err := os.MkdirAll(destDir, 0755); err != nil {
+		return fmt.Errorf("create destination directory: %w", err)
+	}
 	// Resolve destination directory to its real path to ensure that
 	// subsequent safety checks operate on canonical paths.
 	realDestDir, err := filepath.EvalSymlinks(destDir)
 	if err != nil {
-		// If destDir does not exist yet or cannot be resolved, fall back
-		// to its absolute path so we still have a consistent base.
-		realDestDir, err = filepath.Abs(destDir)
-		if err != nil {
-			return err
-		}
+		return fmt.Errorf("resolve destination directory: %w", err)
 	}
 
 	for _, f := range r.File {

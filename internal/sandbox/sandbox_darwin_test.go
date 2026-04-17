@@ -39,8 +39,8 @@ func TestSeatbeltProfile(t *testing.T) {
 }
 
 func TestSandboxedEchoRunsDarwin(t *testing.T) {
-	if _, err := exec.LookPath("sandbox-exec"); err != nil {
-		t.Skip("sandbox-exec not available")
+	if !seatbeltAvailable() {
+		t.Skip("sandbox-exec not functional in this environment")
 	}
 
 	dir := t.TempDir()
@@ -58,8 +58,8 @@ func TestSandboxedEchoRunsDarwin(t *testing.T) {
 }
 
 func TestSandboxDeniesNetworkDarwin(t *testing.T) {
-	if _, err := exec.LookPath("sandbox-exec"); err != nil {
-		t.Skip("sandbox-exec not available")
+	if !seatbeltAvailable() {
+		t.Skip("sandbox-exec not functional in this environment")
 	}
 	if _, err := exec.LookPath("curl"); err != nil {
 		t.Skip("curl not available")
@@ -77,8 +77,8 @@ func TestSandboxDeniesNetworkDarwin(t *testing.T) {
 }
 
 func TestSandboxDeniesWriteOutsideBuildDirDarwin(t *testing.T) {
-	if _, err := exec.LookPath("sandbox-exec"); err != nil {
-		t.Skip("sandbox-exec not available")
+	if !seatbeltAvailable() {
+		t.Skip("sandbox-exec not functional in this environment")
 	}
 
 	buildDir := t.TempDir()
@@ -100,8 +100,8 @@ func TestSandboxDeniesWriteOutsideBuildDirDarwin(t *testing.T) {
 }
 
 func TestSandboxAllowsWriteInBuildDirDarwin(t *testing.T) {
-	if _, err := exec.LookPath("sandbox-exec"); err != nil {
-		t.Skip("sandbox-exec not available")
+	if !seatbeltAvailable() {
+		t.Skip("sandbox-exec not functional in this environment")
 	}
 
 	buildDir := t.TempDir()
