@@ -133,8 +133,14 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 	}
 	// Look in "cask" subdirectory of taps
 	tapDir := filepath.Clean(l.TapDir)
-	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
-	path := filepath.Clean(filepath.Join(caskDir, name+".yaml"))
+	caskDir, err := validation.SafeJoin(tapDir, "cask")
+	if err != nil {
+		return nil, fmt.Errorf("invalid cask directory: %w", err)
+	}
+	path, err := validation.SafeJoin(caskDir, name+".yaml")
+	if err != nil {
+		return nil, fmt.Errorf("invalid cask path: %w", err)
+	}
 	return l.loadFromFile(path)
 }
 
@@ -148,20 +154,9 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 	}
 
 	// Construct the cask directory under TapDir and ensure it does not escape.
-	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
-	if cAbs, err := filepath.Abs(caskDir); err == nil {
-		caskDir = filepath.Clean(cAbs)
-	} else {
-		caskDir = filepath.Clean(caskDir)
-	}
-
-	// Ensure caskDir is contained within tapDir (and not some sibling via "..").
-	tapDirWithSep := tapDir
-	if !strings.HasSuffix(tapDirWithSep, string(os.PathSeparator)) {
-		tapDirWithSep += string(os.PathSeparator)
-	}
-	if caskDir != tapDir && !strings.HasPrefix(caskDir, tapDirWithSep) {
-		return nil, fmt.Errorf("cask directory %q escapes taps directory %q", caskDir, tapDir)
+	caskDir, err := validation.SafeJoin(tapDir, "cask")
+	if err != nil {
+		return nil, fmt.Errorf("invalid cask directory: %w", err)
 	}
 
 	entries, err := os.ReadDir(caskDir)
@@ -179,7 +174,12 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		c, err := l.loadFromFile(filepath.Clean(filepath.Join(caskDir, e.Name())))
+		path, err := validation.SafeJoin(caskDir, e.Name())
+		if err != nil {
+			l.debugf("failed to construct path for cask %s: %v\n", e.Name(), err)
+			continue
+		}
+		c, err := l.loadFromFile(path)
 		if err != nil {
 			l.debugf("failed to parse cask %s: %v\n", e.Name(), err)
 			continue
@@ -190,13 +190,6 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 }
 
 func (l *Loader) loadFromFile(path string) (*Cask, error) {
-	// Resolve to an absolute, cleaned path.
-	absPath, err := filepath.Abs(path)
-	if err != nil {
-		return nil, err
-	}
-	absPath = filepath.Clean(absPath)
-
 	// Ensure the cask file we are about to read is within the TapDir tree.
 	base := l.TapDir
 	if bAbs, err := filepath.Abs(base); err == nil {
@@ -205,13 +198,9 @@ func (l *Loader) loadFromFile(path string) (*Cask, error) {
 		base = filepath.Clean(base)
 	}
 
-	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
-	baseWithSep := base
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
-		return nil, fmt.Errorf("cask path %q escapes taps directory %q", absPath, base)
+	absPath, err := validation.SafeJoin(base, filepath.Clean(path))
+	if err != nil {
+		return nil, fmt.Errorf("cask path %q escapes taps directory %q: %w", path, base, err)
 	}
 
 	data, err := os.ReadFile(absPath)
@@ -230,7 +219,11 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	info, err := os.Stat(filepath.Clean(filepath.Join(cr.Path, name)))
+	path, err := validation.SafeJoin(cr.Path, name)
+	if err != nil {
+		return false
+	}
+	info, err := os.Stat(path)
 	return err == nil && info.IsDir()
 }
 
@@ -238,7 +231,11 @@ func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid cask name: %q", name)
 	}
-	entries, err := os.ReadDir(filepath.Clean(filepath.Join(cr.Path, name)))
+	path, err := validation.SafeJoin(cr.Path, name)
+	if err != nil {
+		return "", err
+	}
+	entries, err := os.ReadDir(path)
 	if err != nil {
 		return "", fmt.Errorf("cask %q is not installed", name)
 	}
@@ -255,7 +252,10 @@ func (cr *Caskroom) Record(name, version string) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid name or version")
 	}
-	dir := filepath.Clean(filepath.Join(cr.Path, name, version))
+	dir, err := validation.SafeJoin(cr.Path, name, version)
+	if err != nil {
+		return err
+	}
 	return os.MkdirAll(dir, 0755)
 }
 
@@ -264,7 +264,10 @@ func (cr *Caskroom) Remove(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid cask name: %q", name)
 	}
-	dir := filepath.Clean(filepath.Join(cr.Path, name))
+	dir, err := validation.SafeJoin(cr.Path, name)
+	if err != nil {
+		return err
+	}
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		return fmt.Errorf("cask %q is not installed", name)
 	}
