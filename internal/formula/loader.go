@@ -2,11 +2,11 @@ package formula
 
 import (
 	"fmt"
+	"github.com/homegrew/grew/pkg/safepath"
 	"os"
 	"path/filepath"
-	"strings"
 
-	"github.com/homegrew/grew/pkg/validation"
+	"strings"
 )
 
 type Loader struct {
@@ -31,7 +31,7 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid formula name: %q", name)
 	}
 	taps, err := os.ReadDir(l.TapDir)
@@ -44,7 +44,7 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 		if !tap.IsDir() {
 			continue
 		}
-		if err := validation.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
 		path := filepath.Join(l.TapDir, tap.Name(), name+".yaml")
@@ -72,7 +72,7 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		if !tap.IsDir() {
 			continue
 		}
-		if err := validation.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
 		tapFormulas, err := l.LoadFromTap(filepath.Join(l.TapDir, tap.Name()))
@@ -95,7 +95,7 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
 			continue
 		}
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		f, err := l.loadFromFile(filepath.Join(tapPath, e.Name()))
@@ -117,20 +117,8 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 	absPath = filepath.Clean(absPath)
 
 	// Ensure the file we are about to read is within the TapDir tree.
-	base := l.TapDir
-	if bAbs, err := filepath.Abs(base); err == nil {
-		base = filepath.Clean(bAbs)
-	} else {
-		base = filepath.Clean(base)
-	}
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
-	baseWithSep := base
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
-		return nil, fmt.Errorf("formula path %q escapes taps directory %q", absPath, base)
+	if err := safepath.CheckSubpath(l.TapDir, absPath); err != nil {
+		return nil, fmt.Errorf("formula path %q escapes taps directory %q: %w", absPath, l.TapDir, err)
 	}
 
 	data, err := os.ReadFile(absPath)

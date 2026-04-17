@@ -8,7 +8,7 @@ import (
 	goruntime "runtime"
 	"strings"
 
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 type Paths struct {
@@ -40,7 +40,7 @@ func DefaultPrefix() string {
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
 		// Only accept absolute, well-formed prefixes from the environment.
-		if err := validation.SafeAbsolutePath(env); err == nil {
+		if err := safepath.SafeAbsolutePath(env); err == nil {
 			prefix = env
 		}
 	}
@@ -125,7 +125,7 @@ func Default() Paths {
 		appDir = filepath.Join(home, "Applications")
 	}
 
-	if err := validation.SafeAbsolutePath(appDir); err != nil {
+	if err := safepath.SafeAbsolutePath(appDir); err != nil {
 		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to default", appDir, err))
 		appDir = filepath.Join(home, "Applications")
 	}

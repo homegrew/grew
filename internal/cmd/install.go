@@ -19,7 +19,7 @@ import (
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func runInstall(args []string) error {
@@ -242,10 +242,10 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	slog.Info("expected SHA256: " + sha)
 
 	// Validate formula-derived identifiers before using them in filesystem paths.
-	if err := validation.SafePathComponent(f.Name); err != nil {
+	if err := safepath.SafePathComponent(f.Name); err != nil {
 		return fmt.Errorf("invalid formula name: %w", err)
 	}
-	if err := validation.SafePathComponent(f.Version); err != nil {
+	if err := safepath.SafePathComponent(f.Version); err != nil {
 		return fmt.Errorf("invalid formula version: %w", err)
 	}
 
@@ -254,7 +254,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		ext = "." + f.Install.Format
 	}
 	filename := f.Name + "-" + f.Version + ext
-	if err := validation.SafePathComponent(filename); err != nil {
+	if err := safepath.SafePathComponent(filename); err != nil {
 		return fmt.Errorf("invalid download filename: %w", err)
 	}
 	localFile, err := ctx.DL.Download(dlURL, filename)
@@ -364,10 +364,10 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 
-	if err := validation.SafePathComponent(f.Name); err != nil {
+	if err := safepath.SafePathComponent(f.Name); err != nil {
 		return fmt.Errorf("invalid formula name: %w", err)
 	}
-	if err := validation.SafePathComponent(f.Version); err != nil {
+	if err := safepath.SafePathComponent(f.Version); err != nil {
 		return fmt.Errorf("invalid formula version: %w", err)
 	}
 

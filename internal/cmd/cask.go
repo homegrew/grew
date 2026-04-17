@@ -13,7 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/tap"
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -79,10 +79,10 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 
 	// Validate cask-derived identifiers before using them in any filesystem paths.
-	if err := validation.SafePathComponent(c.Name); err != nil {
+	if err := safepath.SafePathComponent(c.Name); err != nil {
 		return fmt.Errorf("invalid cask name: %w", err)
 	}
-	if err := validation.SafePathComponent(c.Version); err != nil {
+	if err := safepath.SafePathComponent(c.Version); err != nil {
 		return fmt.Errorf("invalid cask version: %w", err)
 	}
 
@@ -105,7 +105,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
 	// Ensure the constructed filename is a single safe path component.
-	if err := validation.SafePathComponent(filename); err != nil {
+	if err := safepath.SafePathComponent(filename); err != nil {
 		return fmt.Errorf("invalid download filename: %w", err)
 	}
 	localFile, err := dl.Download(dlURL, filename)
@@ -122,21 +122,21 @@ func caskInstall(name string, noQuarantine bool) error {
 	fmt.Printf("==> SHA256 verified\n")
 
 	// Extract archive to staging
-	if err := validation.SafePathComponent(c.Name); err != nil {
+	if err := safepath.SafePathComponent(c.Name); err != nil {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask name for staging directory: %w", err)
 	}
-	if err := validation.SafePathComponent(c.Version); err != nil {
+	if err := safepath.SafePathComponent(c.Version); err != nil {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask version for staging directory: %w", err)
 	}
 	// Build a staging directory inside the configured temporary directory,
 	// and ensure it does not escape that base.
 	stageName := c.Name + "-" + c.Version + "-cask-stage"
-	if err := validation.SafePathComponent(stageName); err != nil {
+	if err := safepath.SafePathComponent(stageName); err != nil {
 		return fmt.Errorf("invalid staging directory name: %w", err)
 	}
-	stageDir, err := validation.SafeJoin(paths.Tmp, stageName)
+	stageDir, err := safepath.SafeJoin(paths.Tmp, stageName)
 	if err != nil {
 		os.Remove(localFile)
 		return fmt.Errorf("staging directory escapes tmp directory: %w", err)
@@ -339,24 +339,24 @@ func caskSearch(query string) error {
 
 // findCaskBinary looks for a binary inside a .app bundle's MacOS directory.
 func findCaskBinary(appDir string, apps []string, binName string) string {
-	if err := validation.SafeAbsolutePath(appDir); err != nil {
+	if err := safepath.SafeAbsolutePath(appDir); err != nil {
 		return ""
 	}
-	if err := validation.SafePathComponent(binName); err != nil {
+	if err := safepath.SafePathComponent(binName); err != nil {
 		return ""
 	}
 	for _, appName := range apps {
-		if err := validation.SafePathComponent(appName); err != nil {
+		if err := safepath.SafePathComponent(appName); err != nil {
 			continue
 		}
-		candidate, err := validation.SafeJoin(appDir, appName, "Contents", "MacOS", binName)
+		candidate, err := safepath.SafeJoin(appDir, appName, "Contents", "MacOS", binName)
 		if err == nil {
 			if _, err := os.Stat(candidate); err == nil {
 				return candidate
 			}
 		}
 		// Also check Contents/Resources
-		candidate, err = validation.SafeJoin(appDir, appName, "Contents", "Resources", binName)
+		candidate, err = safepath.SafeJoin(appDir, appName, "Contents", "Resources", binName)
 		if err == nil {
 			if _, err := os.Stat(candidate); err == nil {
 				return candidate

@@ -9,6 +9,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 
 	"gopkg.in/yaml.v3"
@@ -128,14 +129,14 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
 	return l.loadFromFile(name + ".yaml")
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	caskDir, err := validation.SafeJoin(l.TapDir, "cask")
+	caskDir, err := safepath.SafeJoin(l.TapDir, "cask")
 	if err != nil {
 		return nil, fmt.Errorf("invalid cask directory: %w", err)
 	}
@@ -152,7 +153,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
 			continue
 		}
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		c, err := l.loadFromFile(e.Name())
@@ -166,7 +167,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 }
 
 func (l *Loader) loadFromFile(filename string) (*Cask, error) {
-	absPath, err := validation.SafeJoin(l.TapDir, "cask", filename)
+	absPath, err := safepath.SafeJoin(l.TapDir, "cask", filename)
 	if err != nil {
 		return nil, fmt.Errorf("resolve cask path %q: %w", filename, err)
 	}
@@ -187,10 +188,10 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
 		return false
 	}
-	path, err := validation.SafeJoin(cr.Path, name)
+	path, err := safepath.SafeJoin(cr.Path, name)
 	if err != nil {
 		return false
 	}
@@ -202,10 +203,10 @@ func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid cask name: %q", name)
 	}
-	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
 		return "", fmt.Errorf("invalid caskroom path: %w", err)
 	}
-	path, err := validation.SafeJoin(cr.Path, name)
+	path, err := safepath.SafeJoin(cr.Path, name)
 	if err != nil {
 		return "", err
 	}
@@ -230,10 +231,10 @@ func (cr *Caskroom) Record(name, version string) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid name or version")
 	}
-	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
 		return fmt.Errorf("invalid caskroom path: %w", err)
 	}
-	dir, err := validation.SafeJoin(cr.Path, name, version)
+	dir, err := safepath.SafeJoin(cr.Path, name, version)
 	if err != nil {
 		return err
 	}
@@ -245,10 +246,10 @@ func (cr *Caskroom) Remove(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid cask name: %q", name)
 	}
-	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
 		return fmt.Errorf("invalid caskroom path: %w", err)
 	}
-	dir, err := validation.SafeJoin(cr.Path, name)
+	dir, err := safepath.SafeJoin(cr.Path, name)
 	if err != nil {
 		return err
 	}
@@ -264,7 +265,7 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
 		return nil, err
 	}
 
@@ -278,7 +279,7 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 	if resolved, err := filepath.EvalSymlinks(path); err == nil {
 		path = filepath.Clean(resolved)
 	}
-	if err := validation.SafeAbsolutePath(path); err != nil {
+	if err := safepath.SafeAbsolutePath(path); err != nil {
 		return nil, err
 	}
 
@@ -297,7 +298,7 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 		if !validation.IsValidName(e.Name()) {
 			continue
 		}
-		caskPath, err := validation.SafeJoin(path, e.Name())
+		caskPath, err := safepath.SafeJoin(path, e.Name())
 		if err != nil {
 			continue
 		}

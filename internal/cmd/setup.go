@@ -16,7 +16,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
 	grewrt "github.com/homegrew/grew/internal/runtime"
-	"github.com/homegrew/grew/pkg/validation"
+	pathutil "github.com/homegrew/grew/pkg/safepath"
 )
 
 func runSetup(args []string) error {
@@ -284,10 +284,10 @@ func finishSetup(prefix string) error {
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
 func installFromGit(repoDir, destBin string) error {
-	if err := validation.SafeAbsolutePath(repoDir); err != nil {
+	if err := pathutil.SafeAbsolutePath(repoDir); err != nil {
 		return fmt.Errorf("invalid repository directory: %w", err)
 	}
-	if err := validation.SafeAbsolutePath(destBin); err != nil {
+	if err := pathutil.SafeAbsolutePath(destBin); err != nil {
 		return fmt.Errorf("invalid destination binary path: %w", err)
 	}
 
@@ -347,7 +347,7 @@ func installFromGit(repoDir, destBin string) error {
 }
 
 func copyFile(src, dst string) error {
-	if err := validation.SafeAbsolutePath(dst); err != nil {
+	if err := pathutil.SafeAbsolutePath(dst); err != nil {
 		return fmt.Errorf("invalid destination path: %w", err)
 	}
 

@@ -6,6 +6,9 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+
+	"github.com/homegrew/grew/pkg/safepath"
+
 	"sort"
 	"strings"
 	"time"
@@ -274,7 +277,7 @@ func checkSymlinkTargets(ctx *doctorCtx) {
 		if err != nil {
 			return
 		}
-		if !strings.HasPrefix(resolved, absPrefix+string(filepath.Separator)) {
+		if !safepath.IsSubpath(absPrefix, resolved) {
 			ctx.warn("symlink escapes grew prefix: %s -> %s (resolves to %s)", si.path, si.target, resolved)
 		}
 	})
