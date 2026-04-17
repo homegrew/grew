@@ -493,7 +493,14 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 
 	kegPrefix := kegPath + string(filepath.Separator)
 
-	entries, err := os.ReadDir(cellarPath)
+	cellarRoot, err := filepath.Abs(cellarPath)
+	if err != nil {
+		return result, nil
+	}
+	cellarRoot = filepath.Clean(cellarRoot)
+	cellarRootWithSep := cellarRoot + string(filepath.Separator)
+
+	entries, err := os.ReadDir(cellarRoot)
 	if err != nil {
 		return result, nil
 	}
@@ -507,8 +514,17 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 			continue
 		}
 
-		formulaDir := filepath.Join(cellarPath, formulaName)
-		versions, err := os.ReadDir(formulaDir)
+		formulaDir := filepath.Join(cellarRoot, formulaName)
+		absFormulaDir, err := filepath.Abs(formulaDir)
+		if err != nil {
+			continue
+		}
+		absFormulaDir = filepath.Clean(absFormulaDir)
+		if absFormulaDir != cellarRoot && !strings.HasPrefix(absFormulaDir, cellarRootWithSep) {
+			continue
+		}
+
+		versions, err := os.ReadDir(absFormulaDir)
 		if err != nil {
 			continue
 		}
@@ -523,8 +539,8 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 			continue
 		}
 
-		otherKegPath := filepath.Join(formulaDir, versionName)
-		checkResult, err := Check(formulaName, versionName, otherKegPath, cellarPath)
+		otherKegPath := filepath.Join(absFormulaDir, versionName)
+		checkResult, err := Check(formulaName, versionName, otherKegPath, cellarRoot)
 		if err != nil {
 			continue
 		}
