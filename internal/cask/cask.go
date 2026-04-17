@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
+	"path/filepath"
 	"runtime"
 	"sort"
 	"strings"
@@ -262,7 +263,21 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
 		return nil, err
 	}
-	path := cr.Path
+
+	path, err := filepath.Abs(cr.Path)
+	if err != nil {
+		return nil, err
+	}
+	path = filepath.Clean(path)
+
+	// Canonicalize when possible to avoid symlink-based redirection surprises.
+	if resolved, err := filepath.EvalSymlinks(path); err == nil {
+		path = filepath.Clean(resolved)
+	}
+	if err := validation.SafeAbsolutePath(path); err != nil {
+		return nil, err
+	}
+
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		if os.IsNotExist(err) {
