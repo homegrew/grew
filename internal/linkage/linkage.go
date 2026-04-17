@@ -521,32 +521,23 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 
 	// Ensure cellarRoot is exactly the Cellar corresponding to kegPath's prefix.
 	// This prevents scanning arbitrary user-controlled paths that merely end with "Cellar".
-	kegVersionDir := filepath.Dir(kegPath)       // <prefix>/Cellar/<formula>
-	kegFormulaDir := filepath.Dir(kegVersionDir) // <prefix>/Cellar
+	kegVersionDir := filepath.Dir(kegPath)          // <prefix>/Cellar/<formula>
+	kegFormulaDir := filepath.Dir(kegVersionDir)    // <prefix>/Cellar
 	expectedCellarRoot := filepath.Clean(kegFormulaDir)
 	if cellarRoot != expectedCellarRoot {
 		return result, nil
 	}
 
-	// Derive the final scan root from the validated expected path, then canonicalize it.
-	// This keeps filesystem sinks off externally provided path values.
-	scanRoot := expectedCellarRoot
-	if resolved, err := filepath.EvalSymlinks(scanRoot); err == nil {
-		scanRoot = filepath.Clean(resolved)
-	}
-
-	// Open scanRoot securely to prevent symlink bypass attacks
-	rootHandle, err := os.OpenRoot(scanRoot)
+	// Open cellarRoot securely to prevent symlink bypass attacks
+	rootHandle, err := os.OpenRoot(cellarRoot)
 	if err != nil {
 		return result, nil
 	}
-	defer func() { _ = rootHandle.Close() }()
+	defer rootHandle.Close()
 
-	// Read entries via the opened root handle to keep filesystem operations
-	// anchored to the validated root rather than a path string.
-	entries, err := rootHandle.ReadDir(".")
+	entries, err := os.ReadDir(cellarRoot)
 	if err != nil {
-		return result, err
+		return result, nil
 	}
 
 	for _, entry := range entries {
