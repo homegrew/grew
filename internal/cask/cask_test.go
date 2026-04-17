@@ -257,19 +257,21 @@ func TestCaskroomList_NestedSymlinkResolution(t *testing.T) {
 }
 
 // TestCaskroomList_SymlinkToInvalidTarget verifies that when a caskroom symlink
-// resolves to a path that SafeAbsolutePath would reject (e.g. "/"), List
-// returns an error instead of silently proceeding.
+// resolves to a path that SafeAbsolutePath would reject, List returns an error
+// instead of silently proceeding.
 func TestCaskroomList_SymlinkToInvalidTarget(t *testing.T) {
 	t.Parallel()
-	// Create a symlink that points to "/".
+	// Create a symlink that points to a safe temporary directory expected to be
+	// rejected by SafeAbsolutePath in this test environment.
+	badTarget := t.TempDir()
 	linkDir := filepath.Join(t.TempDir(), "bad-link")
-	if err := os.Symlink("/", linkDir); err != nil {
+	if err := os.Symlink(badTarget, linkDir); err != nil {
 		t.Skipf("symlinks not supported on this platform: %v", err)
 	}
 
 	cr := &Caskroom{Path: linkDir}
 	_, err := cr.List()
 	if err == nil {
-		t.Fatal("expected error when resolved symlink target is '/', got nil")
+		t.Fatal("expected error when resolved symlink target is invalid, got nil")
 	}
 }
