@@ -3,7 +3,6 @@
 package linkage
 
 import (
-	"fmt"
 	"os/exec"
 	"strings"
 )
@@ -132,7 +131,3 @@ func isSystemLibPlatform(p string) bool {
 	return false
 }
 
-func init() {
-	// Suppress unused import warning.
-	_ = fmt.Sprint
-}
