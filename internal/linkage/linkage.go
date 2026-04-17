@@ -540,7 +540,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	if err != nil {
 		return result, nil
 	}
-	defer rootHandle.Close()
+	defer func() { _ = rootHandle.Close() }()
 
 	entries, err := os.ReadDir(scanRoot)
 	if err != nil {
