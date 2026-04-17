@@ -33,9 +33,9 @@ type Cask struct {
 
 // Artifacts describes what to install from the downloaded archive.
 type Artifacts struct {
-	App []string `yaml:"app"`      // .app bundles to copy to ~/Applications
-	Pkg []string `yaml:"internal"` // .internal installers to run (not implemented yet)
-	Bin []string `yaml:"bin"`      // binaries to symlink into grew bin/
+	App []string `yaml:"app"` // .app bundles to copy to ~/Applications
+	Pkg []string `yaml:"pkg"` // .pkg installers to run (not implemented yet)
+	Bin []string `yaml:"bin"` // binaries to symlink into grew bin/
 }
 
 func PlatformKey() string {
