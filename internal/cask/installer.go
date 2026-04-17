@@ -92,27 +92,6 @@ func (inst *Installer) UninstallApp(appName string) error {
 	return os.RemoveAll(destApp)
 }
 
-// isPathWithinDir ensures that the given candidatePath is inside baseDirAbs.
-// Both paths are expected to be absolute or already resolved to their final
-// on-disk locations. The function returns nil if the path is acceptable, or
-// a descriptive error if it is outside the directory.
-func (inst *Installer) isPathWithinDir(baseDirAbs, candidatePath string) error {
-	baseDirAbs = filepath.Clean(baseDirAbs)
-	candidatePath = filepath.Clean(candidatePath)
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	baseWithSep := baseDirAbs
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-
-	if candidatePath != baseDirAbs && !strings.HasPrefix(candidatePath, baseWithSep) {
-		return fmt.Errorf("path %q is outside base directory %q", candidatePath, baseDirAbs)
-	}
-
-	return nil
-}
-
 // LinkBin creates a symlink from BinDir/<name> to the binary at target.
 func (inst *Installer) LinkBin(name, target string) error {
 	if !validation.IsValidName(name) {
@@ -214,7 +193,6 @@ func findApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
 	}
-	stageAbs = filepath.Clean(stageAbs)
 
 	// First, look for a top-level bundle: <stageDir>/<appName>.
 	direct, err := validation.SafeJoin(stageAbs, appName)

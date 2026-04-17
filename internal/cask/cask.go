@@ -167,7 +167,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 func (l *Loader) loadFromFile(filename string) (*Cask, error) {
 	absPath, err := validation.SafeJoin(l.TapDir, "cask", filename)
 	if err != nil {
-		return nil, fmt.Errorf("cask path %q escapes taps directory: %w", filename, err)
+		return nil, fmt.Errorf("resolve cask path %q: %w", filename, err)
 	}
 
 	data, err := os.ReadFile(absPath)
@@ -225,6 +225,9 @@ func (cr *Caskroom) Record(name, version string) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid name or version")
 	}
+	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+		return fmt.Errorf("invalid caskroom path: %w", err)
+	}
 	dir, err := validation.SafeJoin(cr.Path, name, version)
 	if err != nil {
 		return err
@@ -236,6 +239,9 @@ func (cr *Caskroom) Record(name, version string) error {
 func (cr *Caskroom) Remove(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid cask name: %q", name)
+	}
+	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+		return fmt.Errorf("invalid caskroom path: %w", err)
 	}
 	dir, err := validation.SafeJoin(cr.Path, name)
 	if err != nil {
@@ -253,10 +259,10 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	path, err := validation.SafeJoin(cr.Path)
-	if err != nil {
+	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
 		return nil, err
 	}
+	path := cr.Path
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		if os.IsNotExist(err) {
