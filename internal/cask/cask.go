@@ -209,6 +209,10 @@ func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	return readInstalledVersion(path, name)
+}
+
+func readInstalledVersion(path, name string) (string, error) {
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		return "", fmt.Errorf("cask %q is not installed", name)
@@ -293,7 +297,11 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 		if !validation.IsValidName(e.Name()) {
 			continue
 		}
-		ver, err := cr.InstalledVersion(e.Name())
+		caskPath, err := validation.SafeJoin(path, e.Name())
+		if err != nil {
+			continue
+		}
+		ver, err := readInstalledVersion(caskPath, e.Name())
 		if err != nil {
 			continue
 		}
