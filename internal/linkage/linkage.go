@@ -542,7 +542,9 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	}
 	defer func() { _ = rootHandle.Close() }()
 
-	entries, err := os.ReadDir(scanRoot)
+	// Read entries via the opened root handle to keep filesystem operations
+	// anchored to the validated root rather than a path string.
+	entries, err := rootHandle.ReadDir(".")
 	if err != nil {
 		return result, nil
 	}
