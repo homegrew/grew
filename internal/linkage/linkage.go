@@ -531,13 +531,13 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	// Open cellarRoot securely to prevent symlink bypass attacks
 	rootHandle, err := os.OpenRoot(cellarRoot)
 	if err != nil {
-		return result, nil
+		return result, err
 	}
 	defer rootHandle.Close()
 
 	entries, err := os.ReadDir(cellarRoot)
 	if err != nil {
-		return result, nil
+		return result, err
 	}
 
 	for _, entry := range entries {
