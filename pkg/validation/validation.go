@@ -42,12 +42,6 @@ func SafePathComponent(name string) error {
 // resolves within base. Returns the cleaned joined path or an error if the
 // result would escape base (e.g. via ".." traversal or symlinks).
 func SafeJoin(base string, components ...string) (string, error) {
-	for _, c := range components {
-		if err := SafePathComponent(c); err != nil {
-			return "", fmt.Errorf("invalid path component %q: %w", c, err)
-		}
-	}
-
 	parts := append([]string{base}, components...)
 	joined := filepath.Join(parts...)
 	cleaned := filepath.Clean(joined)
