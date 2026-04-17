@@ -4,7 +4,6 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
-	"path/filepath"
 	"runtime"
 	"sort"
 	"strings"
@@ -187,6 +186,9 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
+	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+		return false
+	}
 	path, err := validation.SafeJoin(cr.Path, name)
 	if err != nil {
 		return false
@@ -198,6 +200,9 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid cask name: %q", name)
+	}
+	if err := validation.SafeAbsolutePath(cr.Path); err != nil {
+		return "", fmt.Errorf("invalid caskroom path: %w", err)
 	}
 	path, err := validation.SafeJoin(cr.Path, name)
 	if err != nil {
@@ -248,7 +253,10 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	path := filepath.Clean(cr.Path)
+	path, err := validation.SafeJoin(cr.Path)
+	if err != nil {
+		return nil, err
+	}
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		if os.IsNotExist(err) {

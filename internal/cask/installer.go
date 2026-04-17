@@ -206,8 +206,18 @@ func (inst *Installer) UnlinkBin(name string) error {
 
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, appName string) (string, error) {
+	if err := validation.SafePathComponent(appName); err != nil {
+		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
+	}
+
+	stageAbs, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
+	stageAbs = filepath.Clean(stageAbs)
+
 	// First, look for a top-level bundle: <stageDir>/<appName>.
-	direct, err := validation.SafeJoin(stageDir, appName)
+	direct, err := validation.SafeJoin(stageAbs, appName)
 	if err == nil {
 		if info, err := os.Stat(direct); err == nil && info.IsDir() {
 			return direct, nil
@@ -215,7 +225,7 @@ func findApp(stageDir, appName string) (string, error) {
 	}
 
 	// If not found, walk one level deep and look for <stageDir>/*/<appName>.
-	entries, err := os.ReadDir(stageDir)
+	entries, err := os.ReadDir(stageAbs)
 	if err != nil {
 		return "", err
 	}
@@ -226,7 +236,7 @@ func findApp(stageDir, appName string) (string, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		nested, err := validation.SafeJoin(stageDir, e.Name(), appName)
+		nested, err := validation.SafeJoin(stageAbs, e.Name(), appName)
 		if err != nil {
 			continue
 		}
