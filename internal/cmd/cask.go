@@ -339,6 +339,9 @@ func caskSearch(query string) error {
 
 // findCaskBinary looks for a binary inside a .app bundle's MacOS directory.
 func findCaskBinary(appDir string, apps []string, binName string) string {
+	if err := validation.SafeAbsolutePath(appDir); err != nil {
+		return ""
+	}
 	if err := validation.SafePathComponent(binName); err != nil {
 		return ""
 	}

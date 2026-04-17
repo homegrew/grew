@@ -125,6 +125,11 @@ func Default() Paths {
 		appDir = filepath.Join(home, "Applications")
 	}
 
+	if err := validation.SafeAbsolutePath(appDir); err != nil {
+		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to default", appDir, err))
+		appDir = filepath.Join(home, "Applications")
+	}
+
 	return FromRoot(root, appDir)
 }
 
