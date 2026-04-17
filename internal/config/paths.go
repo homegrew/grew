@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	goruntime "runtime"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 type Paths struct {
@@ -38,10 +40,8 @@ func DefaultPrefix() string {
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
 		// Only accept absolute, well-formed prefixes from the environment.
-		if filepath.IsAbs(env) {
-			if abs, err := filepath.Abs(env); err == nil {
-				prefix = filepath.Clean(abs)
-			}
+		if err := validation.SafeAbsolutePath(env); err == nil {
+			prefix = env
 		}
 	}
 

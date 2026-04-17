@@ -132,29 +132,14 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	// Build a staging directory inside the configured temporary directory,
 	// and ensure it does not escape that base.
-	tmpBase := paths.Tmp
-	if tAbs, err := filepath.Abs(tmpBase); err == nil {
-		tmpBase = filepath.Clean(tAbs)
-	} else {
-		tmpBase = filepath.Clean(tmpBase)
-	}
 	stageName := c.Name + "-" + c.Version + "-cask-stage"
 	if err := validation.SafePathComponent(stageName); err != nil {
 		return fmt.Errorf("invalid staging directory name: %w", err)
 	}
-	stageDir := filepath.Join(tmpBase, stageName)
-	if sAbs, err := filepath.Abs(stageDir); err == nil {
-		stageDir = filepath.Clean(sAbs)
-	} else {
-		stageDir = filepath.Clean(stageDir)
-	}
-	baseWithSep := tmpBase
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-	if stageDir != tmpBase && !strings.HasPrefix(stageDir, baseWithSep) {
+	stageDir, err := validation.SafeJoin(paths.Tmp, stageName)
+	if err != nil {
 		os.Remove(localFile)
-		return fmt.Errorf("staging directory %q escapes tmp directory %q", stageDir, tmpBase)
+		return fmt.Errorf("staging directory escapes tmp directory: %w", err)
 	}
 	os.RemoveAll(stageDir)
 
@@ -354,17 +339,25 @@ func caskSearch(query string) error {
 
 // findCaskBinary looks for a binary inside a .app bundle's MacOS directory.
 func findCaskBinary(appDir string, apps []string, binName string) string {
+	if err := validation.SafePathComponent(binName); err != nil {
+		return ""
+	}
 	for _, appName := range apps {
-		candidate := filepath.Join(appDir, appName, "Contents", "MacOS", binName)
-		candidate = filepath.Clean(candidate)
-		if _, err := os.Stat(candidate); err == nil {
-			return candidate
+		if err := validation.SafePathComponent(appName); err != nil {
+			continue
+		}
+		candidate, err := validation.SafeJoin(appDir, appName, "Contents", "MacOS", binName)
+		if err == nil {
+			if _, err := os.Stat(candidate); err == nil {
+				return candidate
+			}
 		}
 		// Also check Contents/Resources
-		candidate = filepath.Join(appDir, appName, "Contents", "Resources", binName)
-		candidate = filepath.Clean(candidate)
-		if _, err := os.Stat(candidate); err == nil {
-			return candidate
+		candidate, err = validation.SafeJoin(appDir, appName, "Contents", "Resources", binName)
+		if err == nil {
+			if _, err := os.Stat(candidate); err == nil {
+				return candidate
+			}
 		}
 	}
 	return ""
