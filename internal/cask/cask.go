@@ -92,7 +92,7 @@ func (c *Cask) Validate() error {
 		}
 	}
 	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {
-		return fmt.Errorf("cask %q: must declare at least one artifact (app, internal, or bin)", c.Name)
+		return fmt.Errorf("cask %q: must declare at least one artifact (yaml keys: app, internal, or bin)", c.Name)
 	}
 	for _, app := range c.Artifacts.App {
 		if !strings.HasSuffix(app, ".app") {
