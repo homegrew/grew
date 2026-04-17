@@ -69,12 +69,40 @@ func mustBeWithin(baseDir, target string) error {
 	return nil
 }
 
-func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
-	archivePath = filepath.Clean(archivePath)
+func resolveAndValidateExtractDest(destDir string) (string, error) {
 	destDir = filepath.Clean(destDir)
 	absDest, err := filepath.Abs(destDir)
 	if err != nil {
-		return fmt.Errorf("resolve dest dir: %w", err)
+		return "", fmt.Errorf("resolve dest dir: %w", err)
+	}
+	absDest = filepath.Clean(absDest)
+
+	cwd, err := os.Getwd()
+	if err != nil {
+		return "", fmt.Errorf("determine working directory: %w", err)
+	}
+	absCwd, err := filepath.Abs(cwd)
+	if err != nil {
+		return "", fmt.Errorf("resolve working directory: %w", err)
+	}
+	absCwd = filepath.Clean(absCwd)
+
+	cwdWithSep := absCwd
+	if !strings.HasSuffix(cwdWithSep, string(os.PathSeparator)) {
+		cwdWithSep += string(os.PathSeparator)
+	}
+	if absDest != absCwd && !strings.HasPrefix(absDest, cwdWithSep) {
+		return "", fmt.Errorf("destination directory %q escapes working directory %q", absDest, absCwd)
+	}
+
+	return absDest, nil
+}
+
+func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
+	archivePath = filepath.Clean(archivePath)
+	absDest, err := resolveAndValidateExtractDest(destDir)
+	if err != nil {
+		return err
 	}
 	destDir = absDest
 	if err := os.MkdirAll(destDir, 0755); err != nil {
@@ -500,7 +528,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 	}
 	defer r.Close()
 
-	destDir = filepath.Clean(destDir)
+	if absDest, err := filepath.Abs(destDir); err == nil {
+		destDir = filepath.Clean(absDest)
+	} else {
+		destDir = filepath.Clean(destDir)
+	}
 	// Create destDir early to ensure we can resolve its symlinks consistently.
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		return fmt.Errorf("create destination directory: %w", err)
