@@ -35,9 +35,6 @@ func SafePathComponent(name string) error {
 	if filepath.Base(name) != name {
 		return fmt.Errorf("path component must be a single element: %q", name)
 	}
-	if strings.Contains(name, ":") {
-		return fmt.Errorf("path component contains invalid volume separator: %q", name)
-	}
 	if strings.Contains(name, "\x00") {
 		return fmt.Errorf("path component contains null byte")
 	}
