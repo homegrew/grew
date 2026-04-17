@@ -394,14 +394,20 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if !withinDir(destDir, resolvedParentDir) {
 				continue
 			}
-			if err := os.MkdirAll(resolvedParentDir, 0755); err != nil {
-				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
-			}
 
 			realDest, err := filepath.EvalSymlinks(destDir)
 			if err != nil {
 				return fmt.Errorf("resolve destination directory %s: %w", destDir, err)
 			}
+			realDest = filepath.Clean(realDest)
+			if !withinDir(realDest, resolvedParentDir) {
+				continue
+			}
+
+			if err := os.MkdirAll(resolvedParentDir, 0755); err != nil {
+				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
+			}
+
 			resolvedParent, err := filepath.EvalSymlinks(parentDir)
 			if err != nil {
 				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
