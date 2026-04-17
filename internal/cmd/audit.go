@@ -7,10 +7,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/depgraph"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"

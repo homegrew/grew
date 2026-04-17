@@ -18,13 +18,13 @@ const LockFileName = "grew.lock"
 // LockFile records the exact state of all installed formulas.
 type LockFile struct {
 	Version int              `json:"version"` // schema version, currently 1
-	Entries map[string]Entry `json:"entries"`  // keyed by formula name
+	Entries map[string]Entry `json:"entries"` // keyed by formula name
 }
 
 // Entry records one installed formula.
 type Entry struct {
 	Version      string   `json:"version"`
-	SHA256       string   `json:"sha256"`                    // download hash
+	SHA256       string   `json:"sha256"` // download hash
 	DownloadURL  string   `json:"download_url"`
 	Platform     string   `json:"platform"`
 	Dependencies []string `json:"dependencies,omitempty"`
@@ -102,8 +102,8 @@ func Save(lf *LockFile, grewRoot string) error {
 func marshalSorted(lf *LockFile) ([]byte, error) {
 	// Build an ordered representation.
 	type orderedLockFile struct {
-		Version int                    `json:"version"`
-		Entries json.RawMessage        `json:"entries"`
+		Version int             `json:"version"`
+		Entries json.RawMessage `json:"entries"`
 	}
 
 	// Sort keys.

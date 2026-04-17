@@ -46,8 +46,8 @@ type Manifest struct {
 
 // FileEntry records one file or symlink inside the keg.
 type FileEntry struct {
-	Path    string      `json:"path"`              // relative to keg root
-	SHA256  string      `json:"sha256,omitempty"`  // empty for dirs/symlinks
+	Path    string      `json:"path"`             // relative to keg root
+	SHA256  string      `json:"sha256,omitempty"` // empty for dirs/symlinks
 	Size    int64       `json:"size"`
 	Mode    os.FileMode `json:"mode"`
 	Symlink string      `json:"symlink,omitempty"` // target if symlink

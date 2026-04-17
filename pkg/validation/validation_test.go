@@ -16,9 +16,9 @@ func TestIsValidName(t *testing.T) {
 		{"with-dash", "go-task", true},
 		{"with-dot", "node.js", true},
 		{"with-at", "php@8.1", true},
-		{"with-plus", "c++", true},           // + is in the allowed char class
-		{"starts-with-plus", "+foo", false},  // invalid start char
-		{"with-underscore", "my_pkg", true},  // underscore matches \-\+ class? No, _ matches [a-z0-9@._\-\+]
+		{"with-plus", "c++", true},          // + is in the allowed char class
+		{"starts-with-plus", "+foo", false}, // invalid start char
+		{"with-underscore", "my_pkg", true}, // underscore matches \-\+ class? No, _ matches [a-z0-9@._\-\+]
 		{"uppercase", "Jq", false},
 		{"empty", "", false},
 		{"dot-dot", "..", false},

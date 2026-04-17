@@ -65,10 +65,10 @@ type Reference struct {
 
 // Affected describes affected packages and version ranges.
 type Affected struct {
-	Package           *Package                `json:"package,omitempty"`
-	Ranges            []Range                 `json:"ranges"`
-	Versions          []string                `json:"versions"`
-	EcosystemSpecific *EcosystemSpecific      `json:"ecosystem_specific,omitempty"`
+	Package           *Package                   `json:"package,omitempty"`
+	Ranges            []Range                    `json:"ranges"`
+	Versions          []string                   `json:"versions"`
+	EcosystemSpecific *EcosystemSpecific         `json:"ecosystem_specific,omitempty"`
 	DatabaseSpecific  map[string]json.RawMessage `json:"database_specific,omitempty"`
 }
 

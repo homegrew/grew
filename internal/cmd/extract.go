@@ -13,8 +13,8 @@ import (
 
 // extractArgs is the JSON payload passed via stdin to the sandboxed extraction subprocess.
 type extractArgs struct {
-	ArchivePath string             `json:"archive_path"`
-	DestDir     string             `json:"dest_dir"`
+	ArchivePath string              `json:"archive_path"`
+	DestDir     string              `json:"dest_dir"`
 	Spec        formula.InstallSpec `json:"spec"`
 }
 

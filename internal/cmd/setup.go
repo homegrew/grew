@@ -222,7 +222,6 @@ func validIdentity(s string) bool {
 	return identityPattern.MatchString(s)
 }
 
-
 // setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
 	fmt.Printf("==> Setting up grew at %s (user prefix, devmode)\n", prefix)
