@@ -131,30 +131,11 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
-	// Look in "cask" subdirectory of taps
-	tapDir := filepath.Clean(l.TapDir)
-	caskDir, err := validation.SafeJoin(tapDir, "cask")
-	if err != nil {
-		return nil, fmt.Errorf("invalid cask directory: %w", err)
-	}
-	path, err := validation.SafeJoin(caskDir, name+".yaml")
-	if err != nil {
-		return nil, fmt.Errorf("invalid cask path: %w", err)
-	}
-	return l.loadFromFile(path)
+	return l.loadFromFile(name + ".yaml")
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	// Normalize TapDir to an absolute, cleaned path to avoid surprises.
-	tapDir := l.TapDir
-	if tAbs, err := filepath.Abs(tapDir); err == nil {
-		tapDir = filepath.Clean(tAbs)
-	} else {
-		tapDir = filepath.Clean(tapDir)
-	}
-
-	// Construct the cask directory under TapDir and ensure it does not escape.
-	caskDir, err := validation.SafeJoin(tapDir, "cask")
+	caskDir, err := validation.SafeJoin(l.TapDir, "cask")
 	if err != nil {
 		return nil, fmt.Errorf("invalid cask directory: %w", err)
 	}
@@ -174,12 +155,7 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 		if err := validation.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		path, err := validation.SafeJoin(caskDir, e.Name())
-		if err != nil {
-			l.debugf("failed to construct path for cask %s: %v\n", e.Name(), err)
-			continue
-		}
-		c, err := l.loadFromFile(path)
+		c, err := l.loadFromFile(e.Name())
 		if err != nil {
 			l.debugf("failed to parse cask %s: %v\n", e.Name(), err)
 			continue
@@ -189,18 +165,10 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 	return casks, nil
 }
 
-func (l *Loader) loadFromFile(path string) (*Cask, error) {
-	// Ensure the cask file we are about to read is within the TapDir tree.
-	base := l.TapDir
-	if bAbs, err := filepath.Abs(base); err == nil {
-		base = filepath.Clean(bAbs)
-	} else {
-		base = filepath.Clean(base)
-	}
-
-	absPath, err := validation.SafeJoin(base, filepath.Clean(path))
+func (l *Loader) loadFromFile(filename string) (*Cask, error) {
+	absPath, err := validation.SafeJoin(l.TapDir, "cask", filename)
 	if err != nil {
-		return nil, fmt.Errorf("cask path %q escapes taps directory %q: %w", path, base, err)
+		return nil, fmt.Errorf("cask path %q escapes taps directory: %w", filename, err)
 	}
 
 	data, err := os.ReadFile(absPath)
@@ -280,7 +248,8 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	entries, err := os.ReadDir(filepath.Clean(cr.Path))
+	path := filepath.Clean(cr.Path)
+	entries, err := os.ReadDir(path)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
