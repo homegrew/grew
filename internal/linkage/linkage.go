@@ -532,10 +532,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 		formulaName := entry.Name()
 		if !validation.IsValidName(formulaName) || formulaName == name {
 			continue
-		if resolved, err := filepath.EvalSymlinks(absFormulaDir); err == nil {
-			absFormulaDir = filepath.Clean(resolved)
 		}
-		if !isWithinBase(cellarRoot, absFormulaDir) {
 
 		formulaDir := filepath.Join(cellarRoot, formulaName)
 		absFormulaDir, err := filepath.Abs(formulaDir)
@@ -543,6 +540,12 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 			continue
 		}
 		absFormulaDir = filepath.Clean(absFormulaDir)
+		if resolved, err := filepath.EvalSymlinks(absFormulaDir); err == nil {
+			absFormulaDir = filepath.Clean(resolved)
+		}
+		if !isWithinBase(cellarRoot, absFormulaDir) {
+			continue
+		}
 		if absFormulaDir != cellarRoot && !strings.HasPrefix(absFormulaDir, cellarRootWithSep) {
 			continue
 		}
