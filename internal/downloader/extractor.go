@@ -378,33 +378,45 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if linkname == "" {
 				continue
 			}
-			// Validate that the symlink target, when interpreted relative to
-			// the (possibly symlinked) parent directory, stays within destDir.
-			// Resolve the parent directory to avoid following previously
-			// extracted symlinks outside of destDir.
 			parentDir := filepath.Dir(target)
-			// As an extra safety check, ensure the parent directory itself
-			// is within destDir before creating it.
 			if !withinDir(destDir, parentDir) {
-				continue
-			}
-			resolvedParent, err := filepath.EvalSymlinks(parentDir)
-			if err != nil {
-				// If the parent does not yet exist or cannot be resolved,
-				// fall back to the intended parent path.
-				resolvedParent = parentDir
-			}
-			resolved := filepath.Clean(filepath.Join(resolvedParent, linkname))
-			realDest, err2 := filepath.EvalSymlinks(destDir)
-			if err2 != nil {
-				realDest = destDir
-			}
-			if !withinDir(realDest, resolved) {
 				continue
 			}
 			if err := os.MkdirAll(parentDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
+
+			realDest, err := filepath.EvalSymlinks(destDir)
+			if err != nil {
+				return fmt.Errorf("resolve destination directory %s: %w", destDir, err)
+			}
+			resolvedParent, err := filepath.EvalSymlinks(parentDir)
+			if err != nil {
+				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
+			}
+
+			candidateTarget := filepath.Join(resolvedParent, linkname)
+			if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
+				resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
+				if err != nil {
+					return fmt.Errorf("resolve symlink target %s: %w", candidateTarget, err)
+				}
+				if !withinDir(realDest, resolvedCandidate) {
+					continue
+				}
+			} else if os.IsNotExist(err) {
+				resolvedCandidateParent, err := filepath.EvalSymlinks(filepath.Dir(candidateTarget))
+				if err != nil {
+					return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
+				}
+				resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
+				if !withinDir(realDest, resolvedCandidate) {
+					continue
+				}
+			} else if err != nil {
+				return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
+			}
+
 			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
 				return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
 			}
