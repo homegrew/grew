@@ -483,6 +483,16 @@ type ReverseResult struct {
 	Entries []ReverseEntry
 }
 
+// isWithinBase reports whether child is equal to or contained within base.
+// Both paths are expected to be absolute/cleaned.
+func isWithinBase(base, child string) bool {
+	rel, err := filepath.Rel(base, child)
+	if err != nil {
+		return false
+	}
+	return rel == "." || (!strings.HasPrefix(rel, ".."+string(filepath.Separator)) && rel != "..")
+}
+
 // Reverse finds all installed formulas that dynamically link against
 // libraries provided by the keg at kegPath.
 func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) {
@@ -498,7 +508,9 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	}
 	kegPrefix := kegPath + string(filepath.Separator)
 
-	cellarRoot, err := filepath.Abs(cellarPath)
+	if resolved, err := filepath.EvalSymlinks(cellarRoot); err == nil {
+		cellarRoot = filepath.Clean(resolved)
+	}
 	if err != nil {
 		return result, err
 	}
@@ -520,7 +532,10 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 		formulaName := entry.Name()
 		if !validation.IsValidName(formulaName) || formulaName == name {
 			continue
+		if resolved, err := filepath.EvalSymlinks(absFormulaDir); err == nil {
+			absFormulaDir = filepath.Clean(resolved)
 		}
+		if !isWithinBase(cellarRoot, absFormulaDir) {
 
 		formulaDir := filepath.Join(cellarRoot, formulaName)
 		absFormulaDir, err := filepath.Abs(formulaDir)
