@@ -495,7 +495,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 
 	cellarRoot, err := filepath.Abs(cellarPath)
 	if err != nil {
-		return result, nil
+		return result, err
 	}
 	cellarRoot = filepath.Clean(cellarRoot)
 	cellarRootWithSep := cellarRoot + string(filepath.Separator)
