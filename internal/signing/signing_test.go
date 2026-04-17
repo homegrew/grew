@@ -256,7 +256,7 @@ func buildTestSSHPrivateKey(priv ed25519.PrivateKey) []byte {
 	buf = append(buf, sshString([]byte("none"))...) // cipher
 	buf = append(buf, sshString([]byte("none"))...) // kdf
 	buf = append(buf, sshString([]byte(""))...)     // kdfoptions
-	buf = append(buf, sshUint32(1)...)               // nkeys
+	buf = append(buf, sshUint32(1)...)              // nkeys
 	buf = append(buf, sshString(pubBlob)...)
 	buf = append(buf, sshString(privSection)...)
 

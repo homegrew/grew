@@ -96,4 +96,3 @@ func SystemPrefix() string {
 	}
 	return "/usr/local/homegrew"
 }
-

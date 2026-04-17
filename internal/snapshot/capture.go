@@ -74,13 +74,13 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 	sort.Slice(files, func(i, j int) bool { return files[i].Path < files[j].Path })
 
 	m := &Manifest{
-		Name:           name,
-		Version:        version,
-		Platform:       meta.Platform,
-		InstalledAt:    Now(),
-		DownloadURL:    meta.DownloadURL,
-		DownloadSHA256: meta.DownloadSHA256,
-		KegSHA256:      aggregateHash(files),
+		Name:               name,
+		Version:            version,
+		Platform:           meta.Platform,
+		InstalledAt:        Now(),
+		DownloadURL:        meta.DownloadURL,
+		DownloadSHA256:     meta.DownloadSHA256,
+		KegSHA256:          aggregateHash(files),
 		Files:              files,
 		Dependencies:       meta.Dependencies,
 		InstalledOnRequest: meta.InstalledOnRequest,

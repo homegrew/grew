@@ -263,4 +263,3 @@ func (c *Cellar) IsPinned(name string) bool {
 	_, err = os.Stat(filepath.Join(d, "PINNED"))
 	return err == nil
 }
-

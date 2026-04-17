@@ -75,27 +75,7 @@ func resolveAndValidateExtractDest(destDir string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve dest dir: %w", err)
 	}
-	absDest = filepath.Clean(absDest)
-
-	cwd, err := os.Getwd()
-	if err != nil {
-		return "", fmt.Errorf("determine working directory: %w", err)
-	}
-	absCwd, err := filepath.Abs(cwd)
-	if err != nil {
-		return "", fmt.Errorf("resolve working directory: %w", err)
-	}
-	absCwd = filepath.Clean(absCwd)
-
-	cwdWithSep := absCwd
-	if !strings.HasSuffix(cwdWithSep, string(os.PathSeparator)) {
-		cwdWithSep += string(os.PathSeparator)
-	}
-	if absDest != absCwd && !strings.HasPrefix(absDest, cwdWithSep) {
-		return "", fmt.Errorf("destination directory %q escapes working directory %q", absDest, absCwd)
-	}
-
-	return absDest, nil
+	return filepath.Clean(absDest), nil
 }
 
 func Extract(archivePath, destDir string, spec formula.InstallSpec) error {

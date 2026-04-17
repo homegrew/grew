@@ -98,7 +98,6 @@ func systemPrefix() string {
 	return "/usr/local/homegrew"
 }
 
-
 func Default() Paths {
 	root := DefaultPrefix()
 	home, err := os.UserHomeDir()
