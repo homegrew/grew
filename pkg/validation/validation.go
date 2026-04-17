@@ -75,15 +75,11 @@ func SafeJoin(base string, components ...string) (string, error) {
 	}
 	resolvedCandidate := filepath.Join(filepath.Clean(resolvedParent), filepath.Base(candidate))
 
-	rel, err := filepath.Rel(resolvedBase, resolvedCandidate)
-	if err != nil {
-		return "", fmt.Errorf("compute relative path: %w", err)
+	// The joined path must be equal to or a child of the base.
+	if absJoined != absBase && !strings.HasPrefix(absJoined, absBase+string(filepath.Separator)) {
+		return "", fmt.Errorf("path %q escapes base %q", absJoined, absBase)
 	}
-	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
-		return "", fmt.Errorf("path %q escapes base %q", resolvedCandidate, resolvedBase)
-	}
-
-	return resolvedCandidate, nil
+	return absJoined, nil
 }
 
 // SafeAbsolutePath validates that path is an absolute, clean path with no
