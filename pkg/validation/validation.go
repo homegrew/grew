@@ -3,6 +3,7 @@ package validation
 import (
 	"encoding/hex"
 	"fmt"
+	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -42,25 +43,54 @@ func SafePathComponent(name string) error {
 }
 
 // SafeJoin joins base and child path components, then verifies the result
-// resolves within base. Returns the cleaned joined path or an error if the
+// resolves within base. Returns the absolute joined path or an error if the
 // result would escape base (e.g. via ".." traversal or symlinks).
 func SafeJoin(base string, components ...string) (string, error) {
-	parts := append([]string{base}, components...)
-	joined := filepath.Join(parts...)
-	cleaned := filepath.Clean(joined)
-
 	absBase, err := filepath.Abs(base)
 	if err != nil {
 		return "", fmt.Errorf("resolve base path: %w", err)
 	}
-	absJoined, err := filepath.Abs(cleaned)
+	absBase = filepath.Clean(absBase)
+
+	// Resolve base symlinks when possible so containment checks are performed
+	// on canonical paths.
+	baseResolved, err := filepath.EvalSymlinks(absBase)
+	if err != nil {
+		if !os.IsNotExist(err) {
+			return "", fmt.Errorf("resolve base symlinks: %w", err)
+		}
+		baseResolved = absBase
+	}
+
+	parts := append([]string{absBase}, components...)
+	joined := filepath.Clean(filepath.Join(parts...))
+	absJoined, err := filepath.Abs(joined)
 	if err != nil {
 		return "", fmt.Errorf("resolve joined path: %w", err)
 	}
 
-	// The joined path must be equal to or a child of the base.
-	if absJoined != absBase && !strings.HasPrefix(absJoined, absBase+string(filepath.Separator)) {
-		return "", fmt.Errorf("path %q escapes base %q", absJoined, absBase)
+	// Resolve symlinks for the joined path. If it doesn't exist yet, resolve
+	// its parent directory and re-append the final element.
+	joinedResolved, err := filepath.EvalSymlinks(absJoined)
+	if err != nil {
+		if os.IsNotExist(err) {
+			parent := filepath.Dir(absJoined)
+			parentResolved, perr := filepath.EvalSymlinks(parent)
+			if perr != nil {
+				if !os.IsNotExist(perr) {
+					return "", fmt.Errorf("resolve joined parent symlinks: %w", perr)
+				}
+				parentResolved = parent
+			}
+			joinedResolved = filepath.Join(parentResolved, filepath.Base(absJoined))
+		} else {
+			return "", fmt.Errorf("resolve joined symlinks: %w", err)
+		}
+	}
+
+	// The resolved joined path must be equal to or a child of the resolved base.
+	if joinedResolved != baseResolved && !strings.HasPrefix(joinedResolved, baseResolved+string(filepath.Separator)) {
+		return "", fmt.Errorf("path %q escapes base %q", joinedResolved, baseResolved)
 	}
 	return absJoined, nil
 }
