@@ -546,7 +546,7 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 	// anchored to the validated root rather than a path string.
 	entries, err := rootHandle.ReadDir(".")
 	if err != nil {
-		return result, nil
+		return result, err
 	}
 
 	for _, entry := range entries {
