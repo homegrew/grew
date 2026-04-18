@@ -151,7 +151,7 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 
 	// 6. Verify replaced binary
-	out, err := exec.Command(oldExePath, "--version").Output()
+	out, err = exec.Command(oldExePath, "--version").Output()
 	if err != nil {
 		t.Fatalf("failed to run replaced binary: %v, output: %s", err, string(out))
 	}
