@@ -108,15 +108,24 @@ func runReinstall(args []string) error {
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.
 func cleanTmpFor(tmpDir, name string) {
-	entries, err := os.ReadDir(tmpDir)
+	baseTmpDir, err := filepath.Abs(tmpDir)
+	if err != nil {
+		return
+	}
+	baseTmpDir = filepath.Clean(baseTmpDir)
+	if err := safepath.SafeAbsolutePath(baseTmpDir); err != nil {
+		return
+	}
+
+	entries, err := os.ReadDir(baseTmpDir)
 	if err != nil {
 		return
 	}
 	for _, e := range entries {
 		// Match patterns like "jq-1.0-stage", "jq-1.0-build".
 		if matched, _ := filepath.Match(name+"-*", e.Name()); matched {
-			target := filepath.Join(tmpDir, e.Name())
-			if _, err := safepath.CheckSubpath(tmpDir, target); err != nil {
+			target := filepath.Join(baseTmpDir, e.Name())
+			if _, err := safepath.CheckSubpath(baseTmpDir, target); err != nil {
 				continue
 			}
 			os.RemoveAll(target)
