@@ -112,9 +112,13 @@ func TestIsBinary(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 			path := filepath.Join(dir, tc.name)
-			// Pad to at least 4 bytes so the magic read succeeds.
-			data := make([]byte, 4)
+			// Pad to at least 8 bytes so the updated magic read succeeds.
+			// Specifically for fat-magic, we add a mock narchs count of 2.
+			data := make([]byte, 8)
 			copy(data, tc.magic)
+			if tc.name == "fat-magic" {
+				data[4], data[5], data[6], data[7] = 0x00, 0x00, 0x00, 0x02
+			}
 			if err := os.WriteFile(path, data, 0644); err != nil {
 				t.Fatalf("write: %v", err)
 			}
