@@ -55,6 +55,9 @@ func SafePathComponent(name string) error {
 	if name == "" {
 		return fmt.Errorf("empty path component")
 	}
+	if strings.Contains(name, "\x00") {
+		return fmt.Errorf("path contains null byte")
+	}
 	if strings.ContainsAny(name, "/\\") {
 		return fmt.Errorf("path component contains separator: %q", name)
 	}
