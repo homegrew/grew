@@ -89,7 +89,7 @@ func runReinstall(args []string) error {
 			}
 		}
 		// Remove any leftover staging/build dirs in tmp.
-		cleanTmpFor(ctx.Paths.Tmp, name)
+		cleanTmpFor(ctx.Paths.Root, ctx.Paths.Tmp, name)
 		slog.Info("zapped all versions and temp files for " + name)
 	} else if ctx.Cellar.IsInstalled(name) {
 		if err := ctx.Cellar.Uninstall(name); err != nil {
@@ -107,15 +107,40 @@ func runReinstall(args []string) error {
 }
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.
-func cleanTmpFor(tmpDir, name string) {
-	entries, err := os.ReadDir(tmpDir)
+func cleanTmpFor(rootDir, tmpDir, name string) {
+	baseRootDir, err := filepath.Abs(rootDir)
+	if err != nil {
+		return
+	}
+	baseRootDir = filepath.Clean(baseRootDir)
+	if err := safepath.SafeAbsolutePath(baseRootDir); err != nil {
+		return
+	}
+
+	baseTmpDir, err := filepath.Abs(tmpDir)
+	if err != nil {
+		return
+	}
+	baseTmpDir = filepath.Clean(baseTmpDir)
+	if err := safepath.SafeAbsolutePath(baseTmpDir); err != nil {
+		return
+	}
+	if err := safepath.CheckSubpath(baseRootDir, baseTmpDir); err != nil {
+		return
+	}
+
+	entries, err := os.ReadDir(baseTmpDir)
 	if err != nil {
 		return
 	}
 	for _, e := range entries {
 		// Match patterns like "jq-1.0-stage", "jq-1.0-build".
 		if matched, _ := filepath.Match(name+"-*", e.Name()); matched {
-			os.RemoveAll(filepath.Join(tmpDir, e.Name()))
+			target := filepath.Join(baseTmpDir, e.Name())
+			if err := safepath.CheckSubpath(baseTmpDir, target); err != nil {
+				continue
+			}
+			os.RemoveAll(target)
 		}
 	}
 }
