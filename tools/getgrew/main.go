@@ -116,11 +116,17 @@ func run(destDir string) error {
 	}
 	debugf("checksums.txt:\n%s\n", checksums)
 
-	expectedHash, err := release.FindChecksum(checksums, assetName)
+	// Prefer SHA-512, fallback to SHA-256.
+	expectedHash, err := release.FindChecksumBySize(checksums, assetName, 128)
 	if err != nil {
-		return err
+		expectedHash, err = release.FindChecksumBySize(checksums, assetName, 64)
+		if err != nil {
+			return fmt.Errorf("no valid checksum found for %s in checksums.txt", assetName)
+		}
+		logf("    Expected SHA256: %s\n", expectedHash)
+	} else {
+		logf("    Expected SHA512: %s\n", expectedHash)
 	}
-	logf("    Expected SHA256: %s\n", expectedHash)
 
 	fmt.Fprintf(os.Stderr, "==> Downloading %s\n", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
@@ -130,16 +136,25 @@ func run(destDir string) error {
 	defer os.Remove(tmpFile)
 	debugf("downloaded to temp: %s\n", tmpFile)
 
-	actualHash, err := release.FileSHA256(tmpFile)
+	var actualHash string
+	if len(expectedHash) == 128 {
+		actualHash, err = release.FileSHA512(tmpFile)
+	} else {
+		actualHash, err = release.FileSHA256(tmpFile)
+	}
 	if err != nil {
 		return fmt.Errorf("compute checksum: %w", err)
 	}
-	debugf("actual SHA256: %s\n", actualHash)
+	debugf("actual hash: %s\n", actualHash)
 
 	if actualHash != expectedHash {
 		return fmt.Errorf("checksum mismatch:\n  expected: %s\n  got:      %s", expectedHash, actualHash)
 	}
-	fmt.Fprintf(os.Stderr, "==> SHA256 verified: %s\n", actualHash)
+	if len(actualHash) == 128 {
+		fmt.Fprintf(os.Stderr, "==> SHA512 verified: %s\n", actualHash)
+	} else {
+		fmt.Fprintf(os.Stderr, "==> SHA256 verified: %s\n", actualHash)
+	}
 
 	destPath := filepath.Join(destDir, "grew")
 	debugf("extracting binary to %s\n", destPath)

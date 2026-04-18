@@ -13,12 +13,14 @@ import (
 type SourceSpec struct {
 	URL       string `yaml:"url"`
 	SHA256    string `yaml:"sha256"`
+	SHA512    string `yaml:"sha512"`
 	Signature string `yaml:"signature"`
 }
 
 type BottleSpec struct {
 	URL       string `yaml:"url"`
 	SHA256    string `yaml:"sha256"`
+	SHA512    string `yaml:"sha512"`
 	Signature string `yaml:"signature"`
 }
 
@@ -35,9 +37,11 @@ type Formula struct {
 	License      string            `yaml:"license"`
 	URL          map[string]string `yaml:"url"`
 	SHA256       map[string]string `yaml:"sha256"`
+	SHA512       map[string]string `yaml:"sha512"`
 	Signature    map[string]string `yaml:"signature"`
 	SourceURL    string            `yaml:"source_url"`
 	SourceSHA256 string            `yaml:"source_sha256"`
+	SourceSHA512 string            `yaml:"source_sha512"`
 	Install      InstallSpec       `yaml:"install"`
 	PostInstall  string            `yaml:"post_install"`
 	Dependencies []string          `yaml:"dependencies"`
@@ -128,6 +132,25 @@ func (f *Formula) GetSourceSHA256() (string, error) {
 	return f.SourceSHA256, nil
 }
 
+// GetSourceSHA512 returns the SHA512 checksum for the source archive.
+func (f *Formula) GetSourceSHA512() (string, error) {
+	s := ""
+	if f.Source.SHA512 != "" {
+		s = f.Source.SHA512
+	} else {
+		s = f.SourceSHA512
+	}
+
+	if s == "" {
+		return "", nil
+	}
+	if err := validation.ValidateSHA512(s); err != nil {
+		return "", fmt.Errorf("formula %q: invalid source_sha512: %w", f.Name, err)
+	}
+	return s, nil
+}
+
+// GetSHA256 returns the SHA256 checksum for the current platform.
 func (f *Formula) GetSHA256() (string, error) {
 	key := PlatformKey()
 	// New format support
@@ -142,10 +165,32 @@ func (f *Formula) GetSHA256() (string, error) {
 	// Fallback to old format
 	s, ok := f.SHA256[key]
 	if !ok {
-		return "", fmt.Errorf("formula %q has no SHA256 for platform %s", f.Name, key)
+		return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
+			f.Name, key, sortedMapKeys(f.URL))
 	}
 	if err := validation.ValidateSHA256(s); err != nil {
 		return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
+	}
+	return s, nil
+}
+
+// GetSHA512 returns the SHA512 checksum for the current platform.
+func (f *Formula) GetSHA512() (string, error) {
+	key := PlatformKey()
+	s := ""
+	if len(f.Bottle) > 0 {
+		if b, ok := f.Bottle[key]; ok {
+			s = b.SHA512
+		}
+	} else {
+		s = f.SHA512[key]
+	}
+
+	if s == "" {
+		return "", nil
+	}
+	if err := validation.ValidateSHA512(s); err != nil {
+		return "", fmt.Errorf("formula %q: invalid SHA512 for %s: %w", f.Name, key, err)
 	}
 	return s, nil
 }

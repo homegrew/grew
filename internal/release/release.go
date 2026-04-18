@@ -94,10 +94,9 @@ func FetchLatest() (*Release, error) {
 	return nil, fmt.Errorf("no stable releases found for %s/%s", repoOwner, repoName)
 }
 
-// AssetName returns the expected tarball name for the current platform.
-func AssetName() string {
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
+func normalizePlatform() (osName, archName string) {
+	osName = runtime.GOOS
+	archName = runtime.GOARCH
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
@@ -108,7 +107,25 @@ func AssetName() string {
 	case "amd64":
 		archName = "x86_64"
 	}
+	return
+}
+
+// AssetName returns the expected tarball name for the current platform.
+func AssetName() string {
+	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
+}
+
+// RawBinaryName returns the expected uncompressed binary name for the current platform.
+func RawBinaryName() string {
+	osName, archName := normalizePlatform()
+	return fmt.Sprintf("grew_%s_%s", osName, archName)
+}
+
+// PatchName returns the expected patch filename for the given version transition.
+func PatchName(oldVer, newVer string) string {
+	osName, archName := normalizePlatform()
+	return fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, oldVer, newVer)
 }
 
 // FindAssetURL returns the HTTPS download URL for the named asset in a release.
@@ -144,13 +161,47 @@ func FindChecksum(data []byte, assetName string) (string, error) {
 		}
 		if filepath.Base(parts[1]) == assetName {
 			hash := strings.ToLower(parts[0])
-			if len(hash) != 64 {
+			if len(hash) != 64 && len(hash) != 128 {
 				return "", fmt.Errorf("invalid checksum length for %s: %d", assetName, len(hash))
 			}
 			return hash, nil
 		}
 	}
 	return "", fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
+}
+
+// FindChecksumBySize returns a checksum of the specified size (64 for SHA256, 128 for SHA512)
+// for the given asset name from the provided checksum data.
+func FindChecksumBySize(data []byte, assetName string, size int) (string, error) {
+	hashes := FindAllChecksums(data, assetName)
+	if h, ok := hashes[size]; ok {
+		return h, nil
+	}
+	return "", fmt.Errorf("no checksum of size %d found for %s", size, assetName)
+}
+
+// FindAllChecksums parses a checksums.txt file and returns all hashes
+// found for the given asset name, mapped by their length (64 for SHA256, 128 for SHA512).
+func FindAllChecksums(data []byte, assetName string) map[int]string {
+	results := make(map[int]string)
+	scanner := bufio.NewScanner(strings.NewReader(string(data)))
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+		parts := strings.Fields(line)
+		if len(parts) != 2 {
+			continue
+		}
+		if filepath.Base(parts[1]) == assetName {
+			hash := strings.ToLower(parts[0])
+			if len(hash) == 64 || len(hash) == 128 {
+				results[len(hash)] = hash
+			}
+		}
+	}
+	return results
 }
 
 // DownloadBytes downloads a URL into memory. Limited to 1 MB.
@@ -195,6 +246,12 @@ func DownloadTemp(url string) (string, error) {
 // Delegates to downloader.ComputeSHA256 to avoid duplicating the implementation.
 func FileSHA256(path string) (string, error) {
 	return downloader.ComputeSHA256(path)
+}
+
+// FileSHA512 computes the hex-encoded SHA512 of a file.
+// Delegates to downloader.ComputeSHA512 to avoid duplicating the implementation.
+func FileSHA512(path string) (string, error) {
+	return downloader.ComputeSHA512(path)
 }
 
 // ExtractBinary reads a .tar.gz and returns the contents of the "grew"

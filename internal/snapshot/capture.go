@@ -2,6 +2,7 @@ package snapshot
 
 import (
 	"crypto/sha256"
+	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -59,11 +60,12 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 		}
 
 		// Hash regular file.
-		h, err := hashFile(path)
+		h256, h512, err := hashFile(path)
 		if err != nil {
 			return fmt.Errorf("hash %s: %w", rel, err)
 		}
-		entry.SHA256 = h
+		entry.SHA256 = h256
+		entry.SHA512 = h512
 		files = append(files, entry)
 		return nil
 	})
@@ -73,6 +75,8 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 
 	sort.Slice(files, func(i, j int) bool { return files[i].Path < files[j].Path })
 
+	keg256, keg512 := aggregateHashes(files)
+
 	m := &Manifest{
 		Name:               name,
 		Version:            version,
@@ -80,7 +84,9 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 		InstalledAt:        Now(),
 		DownloadURL:        meta.DownloadURL,
 		DownloadSHA256:     meta.DownloadSHA256,
-		KegSHA256:          aggregateHash(files),
+		DownloadSHA512:     meta.DownloadSHA512,
+		KegSHA256:          keg256,
+		KegSHA512:          keg512,
 		Files:              files,
 		Dependencies:       meta.Dependencies,
 		InstalledOnRequest: meta.InstalledOnRequest,
@@ -89,25 +95,33 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 	return m, nil
 }
 
-func hashFile(path string) (string, error) {
+func hashFile(path string) (sha256Hash, sha512Hash string, err error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	defer f.Close()
-	h := sha256.New()
-	if _, err := io.Copy(h, f); err != nil {
-		return "", err
+
+	h256 := sha256.New()
+	h512 := sha512.New()
+	mw := io.MultiWriter(h256, h512)
+
+	if _, err := io.Copy(mw, f); err != nil {
+		return "", "", err
 	}
-	return hex.EncodeToString(h.Sum(nil)), nil
+	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil)), nil
 }
 
-func aggregateHash(files []FileEntry) string {
-	h := sha256.New()
+func aggregateHashes(files []FileEntry) (sha256Hash, sha512Hash string) {
+	h256 := sha256.New()
+	h512 := sha512.New()
 	for _, f := range files {
 		if f.SHA256 != "" {
-			h.Write([]byte(f.SHA256))
+			h256.Write([]byte(f.SHA256))
+		}
+		if f.SHA512 != "" {
+			h512.Write([]byte(f.SHA512))
 		}
 	}
-	return hex.EncodeToString(h.Sum(nil))
+	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil))
 }

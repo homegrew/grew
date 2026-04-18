@@ -4,8 +4,6 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
-	"crypto/sha256"
-	"encoding/hex"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -53,12 +51,6 @@ func makeDummyTarGz(t *testing.T, content string) []byte {
 	return buf.Bytes()
 }
 
-// computeSHA256 returns the hex-encoded SHA256 of the given bytes.
-func computeSHA256(data []byte) string {
-	h := sha256.Sum256(data)
-	return hex.EncodeToString(h[:])
-}
-
 // TestInstallIntegration tests the RunInstall function end-to-end.
 // It sets up a mock HTTP server to serve a dummy tarball (bottle),
 // creates a local tap directory with a formula pointing to the local server,
@@ -100,7 +92,7 @@ echo "I am dummybin 1.0"
 	// 3. Create the Grew prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
 	// The prefix init requires these directories to exist, but `Paths.Init()` inside `installContext` handles it.
-	
+
 	// 4. Create the core tap and a formula definition
 	// To prevent the tap manager from cloning the real homegrew-taps repository
 	// over our mock data, we create a fake .git directory inside the Taps dir.
@@ -150,7 +142,7 @@ install:
 	cmdRun := exec.Command(exePath, "install", "dummy")
 	cmdRun.Stdout = os.Stdout
 	cmdRun.Stderr = os.Stderr
-	
+
 	env := os.Environ()
 	// Set the prefix
 	env = append(env, "HOMEGREW_PREFIX="+prefix)

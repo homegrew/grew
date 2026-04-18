@@ -48,7 +48,8 @@ func setupMockGitHub(t *testing.T, version string) *httptest.Server {
 	// The dummy binary just prints its version and exits
 	mockGrewContent := fmt.Sprintf("#!/bin/sh\necho \"grew v%s\"\n", version)
 	tarballBytes := makeGrewTarGz(t, mockGrewContent)
-	tarballHash := computeSHA256(tarballBytes)
+	tarballHash256 := computeSHA256(tarballBytes)
+	tarballHash512 := computeSHA512(tarballBytes)
 
 	osName := runtime.GOOS
 	archName := runtime.GOARCH
@@ -64,7 +65,7 @@ func setupMockGitHub(t *testing.T, version string) *httptest.Server {
 	}
 	assetName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
 
-	checksumsTxt := fmt.Sprintf("%s  %s\n", tarballHash, assetName)
+	checksumsTxt := fmt.Sprintf("%s  %s\n%s  %s\n", tarballHash256, assetName, tarballHash512, assetName)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {

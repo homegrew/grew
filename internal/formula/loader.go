@@ -117,8 +117,12 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 	absPath = filepath.Clean(absPath)
 
 	// Ensure the file we are about to read is within the TapDir tree.
-	if err := safepath.CheckSubpath(l.TapDir, absPath); err != nil {
-		return nil, fmt.Errorf("formula path %q escapes taps directory %q: %w", absPath, l.TapDir, err)
+	tapDir := filepath.Clean(l.TapDir)
+	if abs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(abs)
+	}
+	if err := safepath.CheckSubpath(tapDir, absPath); err != nil {
+		return nil, fmt.Errorf("formula path %q escapes taps directory %q: %w", absPath, tapDir, err)
 	}
 
 	data, err := os.ReadFile(absPath)

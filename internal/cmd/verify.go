@@ -84,6 +84,8 @@ func runVerify(args []string) error {
 				"ok": result.OK, "missing": result.Missing,
 				"modified": result.Modified, "added": result.Added,
 				"errors": result.Errors,
+				"keg_sha256_mismatch": result.KegSHA256Mismatch,
+				"keg_sha512_mismatch": result.KegSHA512Mismatch,
 			})
 		} else if result.OK {
 			fmt.Printf("%s %s: OK\n", result.Name, result.Version)
@@ -98,6 +100,12 @@ func runVerify(args []string) error {
 			}
 			for _, f := range result.Added {
 				fmt.Printf("  added:    %s\n", f)
+			}
+			if result.KegSHA256Mismatch {
+				fmt.Printf("  error:    aggregate SHA256 mismatch\n")
+			}
+			if result.KegSHA512Mismatch {
+				fmt.Printf("  error:    aggregate SHA512 mismatch\n")
 			}
 			for _, e := range result.Errors {
 				fmt.Printf("  error:    %s\n", e)

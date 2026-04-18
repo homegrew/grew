@@ -15,10 +15,12 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func init() {
@@ -28,6 +30,17 @@ func init() {
 			os.Exit(1)
 		}
 		if err := release.SetAPIBase(apiBase); err != nil {
+			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if apiBase := os.Getenv("HOMEGREW_OSV_API_BASE"); apiBase != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_OSV_API_BASE requires devmode build\n")
+			os.Exit(1)
+		}
+		if err := osvdev.SetAPIBase(apiBase); err != nil {
 			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
 			os.Exit(1)
 		}
@@ -177,6 +190,9 @@ func newInstallContext() (*installContext, error) {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return nil, err
+	}
+	if err := safepath.SafeAbsolutePath(paths.Tmp); err != nil {
+		return nil, fmt.Errorf("invalid temporary directory %q: %w", paths.Tmp, err)
 	}
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}

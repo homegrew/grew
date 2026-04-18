@@ -98,3 +98,29 @@ func TestValidateSHA256(t *testing.T) {
 		})
 	}
 }
+
+func TestValidateSHA512(t *testing.T) {
+	t.Parallel()
+	valid512 := strings.Repeat("a", 128)
+	tests := []struct {
+		name    string
+		input   string
+		wantErr bool
+	}{
+		{"valid", valid512, false},
+		{"valid-uppercase", strings.Repeat("A", 128), false},
+		{"too-short", strings.Repeat("a", 127), true},
+		{"too-long", strings.Repeat("a", 129), true},
+		{"empty", "", true},
+		{"not-hex", strings.Repeat("g", 128), true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			err := ValidateSHA512(tt.input)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("ValidateSHA512(%q) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			}
+		})
+	}
+}

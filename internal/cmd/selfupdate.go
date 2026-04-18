@@ -1,20 +1,24 @@
 package cmd
 
 import (
+	"crypto/sha256"
 	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
 	"io"
 	"log/slog"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
+	"github.com/homegrew/grew/internal/version"
 )
 
 func RunSelfUpdate(_ []string) error {
@@ -33,24 +37,23 @@ func RunSelfUpdate(_ []string) error {
 
 	// Primary: git pull + go build.
 	gitDir := filepath.Join(repoDir, ".git")
-	if _, err := os.Stat(gitDir); err == nil {
-		fmt.Println("==> Updating grew from source...")
-		if err := installFromGit(repoDir, destBin); err != nil {
-			slog.Warn(fmt.Sprintf("source update failed: %v", err))
-			fmt.Println("==> Falling back to latest release download...")
-		} else {
-			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-				slog.Warn(fmt.Sprintf("%v", err))
-			}
-			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-			return nil
-		}
-	} else {
+	if _, err := os.Stat(gitDir); err != nil {
 		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
+		return SelfUpdateFromRelease(exePath)
 	}
 
-	// Fallback: download latest release binary.
-	return SelfUpdateFromRelease(exePath)
+	fmt.Println("==> Updating grew from source...")
+	if err := installFromGit(repoDir, destBin); err != nil {
+		slog.Warn(fmt.Sprintf("source update failed: %v", err))
+		fmt.Println("==> Falling back to latest release download...")
+		return SelfUpdateFromRelease(exePath)
+	}
+
+	if err := verifyBinaryIntegrity(destBin, ""); err != nil {
+		slog.Warn(fmt.Sprintf("%v", err))
+	}
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
+	return nil
 }
 
 // SelfUpdateFromRelease downloads the latest stable release from GitHub,
@@ -60,6 +63,23 @@ func SelfUpdateFromRelease(exePath string) error {
 	if err != nil {
 		return err
 	}
+
+	// Try patch update first.
+	if err := tryPatchUpdate(exePath, rel); err == nil {
+		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "patch")
+		return nil
+	}
+
+	slog.Info("binary patch update not available or failed; falling back to full download")
+
+	// Apply OSV security gate before full download.
+	targetVer := rel.TagName
+	if res, err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+		slog.Warn(fmt.Sprintf("OSV query failed (proceeding): %v", err))
+	} else if res.Vulnerable {
+		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
+	}
+
 	fmt.Printf("==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
 
 	assetName := release.AssetName()
@@ -81,11 +101,17 @@ func SelfUpdateFromRelease(exePath string) error {
 		return fmt.Errorf("download checksums: %w", err)
 	}
 
-	expectedHash, err := release.FindChecksum(checksums, assetName)
-	if err != nil {
-		return err
+	expectedHashes := release.FindAllChecksums(checksums, assetName)
+	if len(expectedHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
 	}
-	slog.Info("expected SHA256: " + expectedHash)
+	for length, hash := range expectedHashes {
+		algo := "SHA-256"
+		if length == 128 {
+			algo = "SHA-512"
+		}
+		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
+	}
 
 	fmt.Printf("==> Downloading %s\n", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
@@ -94,20 +120,50 @@ func SelfUpdateFromRelease(exePath string) error {
 	}
 	defer os.Remove(tmpFile)
 
-	actualHash, err := release.FileSHA256(tmpFile)
+	// Verify all available hashes.
+	sha256Actual, sha512Actual, err := fileHashes(tmpFile)
 	if err != nil {
-		return fmt.Errorf("compute checksum: %w", err)
+		return fmt.Errorf("hash downloaded file: %w", err)
 	}
-	if actualHash != expectedHash {
-		return fmt.Errorf("checksum mismatch:\n  expected: %s\n  got:      %s", expectedHash, actualHash)
+
+	if expected, ok := expectedHashes[64]; ok {
+		if sha256Actual != expected {
+			return fmt.Errorf("SHA-256 mismatch: got %s, want %s", sha256Actual, expected)
+		}
+		fmt.Printf("==> SHA-256 verified: %s\n", sha256Actual)
 	}
-	fmt.Printf("==> SHA256 verified: %s\n", actualHash)
+	if expected, ok := expectedHashes[128]; ok {
+		if sha512Actual != expected {
+			return fmt.Errorf("SHA-512 mismatch: got %s, want %s", sha512Actual, expected)
+		}
+		fmt.Printf("==> SHA-512 verified: %s\n", sha512Actual)
+	}
 
 	bin, err := release.ExtractBinaryFromFile(tmpFile)
 	if err != nil {
 		return fmt.Errorf("extract: %w", err)
 	}
 	slog.Debug(fmt.Sprintf("extracted binary: %d bytes", len(bin)))
+
+	// Health Check: run vuln-scan on new binary (sandboxed) before installation.
+	healthDir, err := os.MkdirTemp("", "grew-health-*")
+	if err != nil {
+		return fmt.Errorf("create health check tmpdir: %w", err)
+	}
+	defer os.RemoveAll(healthDir)
+	healthBin := filepath.Join(healthDir, "grew")
+	if err := os.WriteFile(healthBin, bin, 0755); err != nil {
+		return fmt.Errorf("write health check binary: %w", err)
+	}
+
+	piCfg := sandbox.PostInstallConfig{
+		KegDir: healthDir,
+		TmpDir: healthDir,
+	}
+	healthCmd := sandbox.PostInstallCommand(piCfg, healthBin, "vuln-scan", "--offline")
+	if out, err := healthCmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("new binary health check failed: %v (output: %q)", err, string(out))
+	}
 
 	if err := release.AtomicInstall(exePath, bin); err != nil {
 		return fmt.Errorf("replace binary: %w", err)
@@ -118,7 +174,7 @@ func SelfUpdateFromRelease(exePath string) error {
 		slog.Warn(fmt.Sprintf("%v", err))
 	}
 
-	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, actualHash, "release")
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 
 	fmt.Printf("==> Updated to %s\n", rel.TagName)
 	return nil
@@ -131,11 +187,13 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	slog.Debug(fmt.Sprintf("verifying binary integrity: %s (expect %q)", binPath, expectedVersion))
 
 	// Hash the binary before execution so we can detect self-modification.
-	hashBefore, err := fileSHA512(binPath)
+	// We check both SHA-256 and SHA-512.
+	sha256Before, sha512Before, err := fileHashes(binPath)
 	if err != nil {
 		return fmt.Errorf("hash binary before execution: %w", err)
 	}
-	slog.Debug("SHA-512 before exec: " + hashBefore)
+	slog.Debug("SHA-256 before exec: " + sha256Before)
+	slog.Debug("SHA-512 before exec: " + sha512Before)
 
 	// Run the new binary inside a sandbox: no network, no writes (except a
 	// throwaway temp dir). A compromised binary cannot exfiltrate data or
@@ -157,15 +215,17 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	}
 
 	// Verify the binary was not modified during execution.
-	hashAfter, err := fileSHA512(binPath)
+	sha256After, sha512After, err := fileHashes(binPath)
 	if err != nil {
 		return fmt.Errorf("hash binary after execution: %w", err)
 	}
-	if hashBefore != hashAfter {
+	if sha256Before != sha256After || sha512Before != sha512After {
 		return fmt.Errorf("binary was modified during execution (self-modifying binary detected)\n"+
-			"  before: %s\n  after:  %s", hashBefore, hashAfter)
+			"  SHA-256 before: %s\n  SHA-256 after:  %s\n"+
+			"  SHA-512 before: %s\n  SHA-512 after:  %s",
+			sha256Before, sha256After, sha512Before, sha512After)
 	}
-	slog.Debug("SHA-512 unchanged after exec")
+	slog.Debug("binary hashes unchanged after exec")
 
 	reportedVersion := strings.TrimSpace(string(out))
 	slog.Debug("new binary reports: " + reportedVersion)
@@ -198,16 +258,202 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	return nil
 }
 
-// fileSHA512 computes the hex-encoded SHA-512 hash of a file.
-func fileSHA512(path string) (string, error) {
+// fileHashes computes both hex-encoded SHA-256 and SHA-512 hashes of a file in a single pass.
+func fileHashes(path string) (sha256Hash, sha512Hash string, err error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return "", "", err
+	}
+	defer f.Close()
+
+	h256 := sha256.New()
+	h512 := sha512.New()
+	mw := io.MultiWriter(h256, h512)
+
+	if _, err := io.Copy(mw, f); err != nil {
+		return "", "", err
+	}
+	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil)), nil
+}
+
+// fileSHA256 computes the hex-encoded SHA-256 hash of a file.
+func fileSHA256(path string) (string, error) {
 	f, err := os.Open(path)
 	if err != nil {
 		return "", err
 	}
 	defer f.Close()
-	h := sha512.New()
+	h := sha256.New()
 	if _, err := io.Copy(h, f); err != nil {
 		return "", err
 	}
 	return hex.EncodeToString(h.Sum(nil)), nil
+}
+
+func tryPatchUpdate(exePath string, rel *release.Release) error {
+	bspatch, err := exec.LookPath("bspatch")
+	if err != nil {
+		return fmt.Errorf("bspatch not found in PATH")
+	}
+
+	currentVer := version.Version()
+	targetVer := rel.TagName
+
+	if currentVer == targetVer {
+		return fmt.Errorf("already at latest version %s", targetVer)
+	}
+
+	patchName := release.PatchName(currentVer, targetVer)
+	patchURL, err := release.FindAssetURL(rel, patchName)
+	if err != nil {
+		return fmt.Errorf("patch asset %s not found", patchName)
+	}
+
+	// 1. Query OSV for target version
+	if res, err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+		slog.Warn(fmt.Sprintf("OSV query failed: %v", err))
+	} else if res.Vulnerable {
+		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
+	}
+
+	fmt.Printf("==> Downloading binary patch: %s\n", patchName)
+	patchFile, err := release.DownloadTemp(patchURL)
+	if err != nil {
+		return err
+	}
+	defer os.Remove(patchFile)
+
+	// Verify patch hash against checksums.txt
+	checksumURL, err := release.FindAssetURL(rel, "checksums.txt")
+	if err != nil {
+		return err
+	}
+	checksums, err := release.DownloadBytes(checksumURL)
+	if err != nil {
+		return err
+	}
+	expectedPatchHashes := release.FindAllChecksums(checksums, patchName)
+	if len(expectedPatchHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in checksums.txt", patchName)
+	}
+
+	actualPatchSHA256, actualPatchSHA512, err := fileHashes(patchFile)
+	if err != nil {
+		return err
+	}
+	if expected, ok := expectedPatchHashes[64]; ok && actualPatchSHA256 != expected {
+		return fmt.Errorf("patch SHA-256 mismatch: got %s, want %s", actualPatchSHA256, expected)
+	}
+	if expected, ok := expectedPatchHashes[128]; ok && actualPatchSHA512 != expected {
+		return fmt.Errorf("patch SHA-512 mismatch: got %s, want %s", actualPatchSHA512, expected)
+	}
+
+	// 2. Apply patch
+	f, err := os.CreateTemp("", "grew-patched-*")
+	if err != nil {
+		return fmt.Errorf("create temp binary: %w", err)
+	}
+	tmpNewBin := f.Name()
+	f.Close()
+	defer os.Remove(tmpNewBin)
+
+	cmd := exec.Command(bspatch, exePath, tmpNewBin, patchFile)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("apply patch: %v (output: %q)", err, string(out))
+	}
+
+	if err := os.Chmod(tmpNewBin, 0755); err != nil {
+		return fmt.Errorf("chmod patched binary: %w", err)
+	}
+
+	// 3. Verify patched binary hash against binary-checksums.txt
+	binaryChecksumURL, err := release.FindAssetURL(rel, "binary-checksums.txt")
+	if err != nil {
+		return fmt.Errorf("binary-checksums.txt not found")
+	}
+	binaryChecksums, err := release.DownloadBytes(binaryChecksumURL)
+	if err != nil {
+		return err
+	}
+	rawBinName := release.RawBinaryName()
+	expectedBinHashes := release.FindAllChecksums(binaryChecksums, rawBinName)
+	if len(expectedBinHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in binary-checksums.txt", rawBinName)
+	}
+
+	actualBinSHA256, actualBinSHA512, err := fileHashes(tmpNewBin)
+	if err != nil {
+		return err
+	}
+	if expected, ok := expectedBinHashes[64]; ok && actualBinSHA256 != expected {
+		return fmt.Errorf("patched binary SHA-256 mismatch: got %s, want %s", actualBinSHA256, expected)
+	}
+	if expected, ok := expectedBinHashes[128]; ok && actualBinSHA512 != expected {
+		return fmt.Errorf("patched binary SHA-512 mismatch: got %s, want %s", actualBinSHA512, expected)
+	}
+
+	// 4. Health Check: run vuln-scan on new binary (sandboxed)
+	if err := os.Chmod(tmpNewBin, 0755); err != nil {
+		return err
+	}
+
+	piTmp, err := os.MkdirTemp("", "grew-selfupdate-health-*")
+	if err != nil {
+		return fmt.Errorf("create health check tmpdir: %w", err)
+	}
+	defer os.RemoveAll(piTmp)
+
+	piCfg := sandbox.PostInstallConfig{
+		KegDir: filepath.Dir(tmpNewBin),
+		TmpDir: piTmp,
+	}
+	healthCmd := sandbox.PostInstallCommand(piCfg, tmpNewBin, "vuln-scan", "--offline")
+	if out, err := healthCmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("patched binary health check failed: %v (output: %q)", err, string(out))
+	}
+
+	// 5. Atomic replace
+	data, err := os.ReadFile(tmpNewBin)
+	if err != nil {
+		return err
+	}
+	if err := release.AtomicInstall(exePath, data); err != nil {
+		return err
+	}
+
+	fmt.Printf("==> Updated to %s via binary patch\n", targetVer)
+
+	expectedVersion := strings.TrimPrefix(targetVer, "v")
+	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {
+		slog.Warn(fmt.Sprintf("integrity verification failed: %v", err))
+	}
+
+	return nil
+}
+
+func checkOSVForVersion(pkgName, ver string) (*OSVResult, error) {
+	client := osvdev.NewClient()
+	vulns, err := client.Query(osvdev.QueryPackage{
+		RepoURL: pkgName,
+		Version: ver,
+	})
+	if err != nil {
+		return nil, fmt.Errorf("query OSV: %w", err)
+	}
+	if len(vulns) > 0 {
+		var ids []string
+		for _, v := range vulns {
+			ids = append(ids, v.ID)
+		}
+		return &OSVResult{
+			Vulnerable: true,
+			Message:    fmt.Sprintf("found %d vulnerabilities: %s", len(vulns), strings.Join(ids, ", ")),
+		}, nil
+	}
+	return &OSVResult{Vulnerable: false}, nil
+}
+
+type OSVResult struct {
+	Vulnerable bool
+	Message    string
 }
