@@ -137,7 +137,7 @@ func cleanTmpFor(rootDir, tmpDir, name string) {
 		// Match patterns like "jq-1.0-stage", "jq-1.0-build".
 		if matched, _ := filepath.Match(name+"-*", e.Name()); matched {
 			target := filepath.Join(baseTmpDir, e.Name())
-			if _, err := safepath.CheckSubpath(baseTmpDir, target); err != nil {
+			if err := safepath.CheckSubpath(baseTmpDir, target); err != nil {
 				continue
 			}
 			os.RemoveAll(target)
