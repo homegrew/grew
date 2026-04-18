@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"crypto/sha512"
+	"crypto/sha256"
 	"encoding/hex"
 	"os"
 	"path/filepath"
@@ -120,41 +120,41 @@ func TestVerifyBinaryIntegrity_SingleWordVersion(t *testing.T) {
 	}
 }
 
-func TestFileSHA512(t *testing.T) {
+func TestFileSHA256(t *testing.T) {
 	t.Parallel()
 	dir := t.TempDir()
 	path := filepath.Join(dir, "test")
 	content := []byte("hello world\n")
 	os.WriteFile(path, content, 0644)
 
-	got, err := fileSHA512(path)
+	got, err := fileSHA256(path)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	h := sha512.Sum512(content)
+	h := sha256.Sum256(content)
 	want := hex.EncodeToString(h[:])
 	if got != want {
 		t.Errorf("got %s, want %s", got, want)
 	}
 }
 
-func TestFileSHA512_NotExist(t *testing.T) {
+func TestFileSHA256_NotExist(t *testing.T) {
 	t.Parallel()
-	_, err := fileSHA512("/nonexistent/file")
+	_, err := fileSHA256("/nonexistent/file")
 	if err == nil {
 		t.Fatal("expected error for missing file")
 	}
 }
 
-func TestFileSHA512_Deterministic(t *testing.T) {
+func TestFileSHA256_Deterministic(t *testing.T) {
 	t.Parallel()
 	dir := t.TempDir()
 	path := filepath.Join(dir, "bin")
 	os.WriteFile(path, []byte("same content"), 0644)
 
-	h1, _ := fileSHA512(path)
-	h2, _ := fileSHA512(path)
+	h1, _ := fileSHA256(path)
+	h2, _ := fileSHA256(path)
 	if h1 != h2 {
 		t.Errorf("same file produced different hashes:\n  %s\n  %s", h1, h2)
 	}

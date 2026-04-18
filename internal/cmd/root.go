@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
@@ -31,6 +32,14 @@ func init() {
 			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
 			os.Exit(1)
 		}
+	}
+
+	if apiBase := os.Getenv("HOMEGREW_OSV_API_BASE"); apiBase != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_OSV_API_BASE requires devmode build\n")
+			os.Exit(1)
+		}
+		osvdev.SetAPIBase(apiBase)
 	}
 
 	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {

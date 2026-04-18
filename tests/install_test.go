@@ -55,8 +55,8 @@ func makeDummyTarGz(t *testing.T, content string) []byte {
 
 // computeSHA256 returns the hex-encoded SHA256 of the given bytes.
 func computeSHA256(data []byte) string {
-	h := sha256.Sum256(data)
-	return hex.EncodeToString(h[:])
+	hash := sha256.Sum256(data)
+	return hex.EncodeToString(hash[:])
 }
 
 // TestInstallIntegration tests the RunInstall function end-to-end.
@@ -100,7 +100,7 @@ echo "I am dummybin 1.0"
 	// 3. Create the Grew prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
 	// The prefix init requires these directories to exist, but `Paths.Init()` inside `installContext` handles it.
-	
+
 	// 4. Create the core tap and a formula definition
 	// To prevent the tap manager from cloning the real homegrew-taps repository
 	// over our mock data, we create a fake .git directory inside the Taps dir.
@@ -150,7 +150,7 @@ install:
 	cmdRun := exec.Command(exePath, "install", "dummy")
 	cmdRun.Stdout = os.Stdout
 	cmdRun.Stderr = os.Stderr
-	
+
 	env := os.Environ()
 	// Set the prefix
 	env = append(env, "HOMEGREW_PREFIX="+prefix)

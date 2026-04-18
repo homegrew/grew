@@ -111,6 +111,40 @@ func AssetName() string {
 	return fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
 }
 
+// RawBinaryName returns the expected uncompressed binary name for the current platform.
+func RawBinaryName() string {
+	osName := runtime.GOOS
+	archName := runtime.GOARCH
+	switch osName {
+	case "darwin":
+		osName = "Darwin"
+	case "linux":
+		osName = "Linux"
+	}
+	switch archName {
+	case "amd64":
+		archName = "x86_64"
+	}
+	return fmt.Sprintf("grew_%s_%s", osName, archName)
+}
+
+// PatchName returns the expected patch filename for the given version transition.
+func PatchName(oldVer, newVer string) string {
+	osName := runtime.GOOS
+	archName := runtime.GOARCH
+	switch osName {
+	case "darwin":
+		osName = "Darwin"
+	case "linux":
+		osName = "Linux"
+	}
+	switch archName {
+	case "amd64":
+		archName = "x86_64"
+	}
+	return fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, oldVer, newVer)
+}
+
 // FindAssetURL returns the HTTPS download URL for the named asset in a release.
 func FindAssetURL(rel *Release, name string) (string, error) {
 	for _, a := range rel.Assets {

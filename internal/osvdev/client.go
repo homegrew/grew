@@ -10,8 +10,14 @@ import (
 	"time"
 )
 
+var apiBase = "https://api.osv.dev/v1"
+
+// SetAPIBase overrides the OSV API base URL for testing.
+func SetAPIBase(url string) {
+	apiBase = url
+}
+
 const (
-	apiBase     = "https://api.osv.dev/v1"
 	batchSize   = 1000
 	openTimeout = 10 * time.Second
 	readTimeout = 30 * time.Second
