@@ -9,6 +9,8 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func inspectBinary(path string) ([]string, error) {
@@ -77,6 +79,12 @@ func relocateBinary(path string, replacements Replacements) error {
 			if newInterp, replaced := applyReplacements(interp, replacements); replaced {
 				slog.Debug(fmt.Sprintf("relocation: %s: interpreter %s -> %s", relName, interp, newInterp))
 
+				// Ensure interpreter paths are safe absolute paths before using them.
+				if err := safepath.SafeAbsolutePath(newInterp); err != nil {
+					slog.Warn(fmt.Sprintf("relocation: %s: skipping unsafe relocated interpreter %q: %v", relName, newInterp, err))
+					goto skipInterpreterRewrite
+				}
+
 				// Verify the new interpreter exists. If it doesn't, the binary will
 				// fail to execute with "required file not found".
 				if _, err := os.Stat(newInterp); err != nil {
@@ -95,6 +103,7 @@ func relocateBinary(path string, replacements Replacements) error {
 				changed = true
 			}
 		}
+	skipInterpreterRewrite:
 	}
 
 	// Rewrite RPATH/RUNPATH.

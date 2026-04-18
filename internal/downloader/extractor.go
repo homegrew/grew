@@ -417,6 +417,15 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 		if !ok {
 			continue
 		}
+		targetDir := filepath.Dir(target)
+		// Defensive sink-side validation: ensure target and its parent stay within
+		// the resolved extraction root immediately before filesystem operations.
+		if err := safepath.CheckSubpath(realDest, targetDir); err != nil {
+			return fmt.Errorf("target parent directory escapes destination directory: %w", err)
+		}
+		if err := safepath.CheckSubpath(realDest, target); err != nil {
+			return fmt.Errorf("target path escapes destination directory: %w", err)
+		}
 
 		switch header.Typeflag {
 		case tar.TypeDir:
@@ -432,25 +441,35 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return fmt.Errorf("stat directory %s: %w", target, err)
 			}
 		case tar.TypeReg:
-			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for %s: %w", target, err)
 			}
-			// Remove existing file/directory to avoid following symlinks or other conflicts.
-			if err := os.RemoveAll(target); err != nil {
-				return fmt.Errorf("remove existing path %s: %w", target, err)
+			// Re-validate at sink: ensure the path to be removed/written is still
+			// inside the resolved extraction destination.
+			absTarget, err := filepath.Abs(target)
+			if err != nil {
+				return fmt.Errorf("resolve target path %s: %w", target, err)
 			}
-			if err := extractFile(tr, target, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
+			absTarget = filepath.Clean(absTarget)
+			if err := safepath.CheckSubpath(realDest, absTarget); err != nil {
+				return fmt.Errorf("refuse to write outside extraction directory: %w", err)
+			}
+			// Remove existing file/directory to avoid following symlinks or other conflicts.
+			if err := os.RemoveAll(absTarget); err != nil {
+				return fmt.Errorf("remove existing path %s: %w", absTarget, err)
+			}
+			if err := extractFile(tr, absTarget, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
 			}
 		case tar.TypeSymlink:
-			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
 			}
 			if err := extractSymlink(realDest, target, header.Linkname); err != nil {
 				return err
 			}
 		case tar.TypeLink:
-			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for hard link %s: %w", target, err)
 			}
 			linkTarget, ok := safeJoinArchivePath(realDest, stripPath(header.Linkname, stripComponents))
@@ -606,10 +625,22 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 
 		mode := fsutil.SanitizeMode(f.Mode(), false)
-		if err := os.RemoveAll(target); err != nil {
-			return fmt.Errorf("remove existing path %s: %w", target, err)
+
+		// Final sink-time hardening: re-canonicalize and re-check containment
+		// immediately before destructive/write operations.
+		canonicalTarget := filepath.Clean(target)
+		if abs, err := filepath.Abs(canonicalTarget); err == nil {
+			canonicalTarget = filepath.Clean(abs)
 		}
-		if err := extractFile(rc, target, mode); err != nil {
+		if !safepath.IsSubpath(realDestDir, canonicalTarget) {
+			rc.Close()
+			return fmt.Errorf("refusing to write outside destination: %q", canonicalTarget)
+		}
+
+		if err := os.RemoveAll(canonicalTarget); err != nil {
+			return fmt.Errorf("remove existing path %s: %w", canonicalTarget, err)
+		}
+		if err := extractFile(rc, canonicalTarget, mode); err != nil {
 			rc.Close()
 			return err
 		}
