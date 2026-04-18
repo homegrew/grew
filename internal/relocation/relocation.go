@@ -100,8 +100,15 @@ func RelocateKeg(kegPath, prefix string) error {
 		relPath, _ := filepath.Rel(kegPath, path)
 		slog.Debug(fmt.Sprintf("relocation: processing binary %s", relPath))
 		if relErr := relocateBinary(path, replacements); relErr != nil {
+			// Some files might look like binaries (e.g. Java .class files) but aren't
+			// Mach-O/ELF. If relocation fails, we log it and continue unless it's a
+			// critical error.
 			slog.Warn(fmt.Sprintf("relocation: %s: %v", relPath, relErr))
-			failed++
+			// We only count it as a failure if it's not a common "not a binary" error.
+			msg := strings.ToLower(relErr.Error())
+			if !strings.Contains(msg, "exit status 1") && !strings.Contains(msg, "not a Mach-O") {
+				failed++
+			}
 		} else {
 			relocated++
 		}
@@ -256,22 +263,36 @@ func isBinary(path string) bool {
 	}
 	defer f.Close()
 
-	var magic [4]byte
-	if _, err := f.Read(magic[:]); err != nil {
+	var magic [8]byte
+	n, err := f.Read(magic[:])
+	if err != nil || n < 4 {
 		return false
 	}
 
 	switch {
+	// Mach-O 64-bit
 	case magic[0] == 0xCF && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
 		return true
 	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCF:
 		return true
+	// Mach-O 32-bit
 	case magic[0] == 0xCE && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
 		return true
 	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCE:
 		return true
+	// Mach-O Fat / Java .class conflict (0xCAFEBABE)
 	case magic[0] == 0xCA && magic[1] == 0xFE && magic[2] == 0xBA && magic[3] == 0xBE:
-		return true
+		// Java .class files have magic 0xCAFEBABE, then 2 bytes minor, 2 bytes major.
+		// Mach-O Fat binaries have magic 0xCAFEBABE, then 4 bytes big-endian number of architectures.
+		// On modern macOS, major version is usually > 40.
+		// To be safe, we also check if it's a "Fat" Mach-O by verifying narchs < 100.
+		if n < 8 {
+			return false
+		}
+		narchs := uint32(magic[4])<<24 | uint32(magic[5])<<16 | uint32(magic[6])<<8 | uint32(magic[7])
+		// Reasonable Mach-O Fat binaries have few architectures (usually 1-4).
+		// Java class files have major/minor versions which usually result in large narchs.
+		return narchs > 0 && narchs < 100
 	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
 		return true
 	}
