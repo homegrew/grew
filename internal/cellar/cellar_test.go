@@ -9,6 +9,12 @@ import (
 func setupTestCellar(t *testing.T) (*Cellar, string) {
 	t.Helper()
 	tmpDir := t.TempDir()
+	// Resolve symlinks (e.g. /var -> /private/var on macOS) so that
+	// safepath checks pass consistently.
+	resolved, err := filepath.EvalSymlinks(tmpDir)
+	if err == nil {
+		tmpDir = resolved
+	}
 	cellarPath := filepath.Join(tmpDir, "Cellar")
 	os.MkdirAll(cellarPath, 0755)
 	return &Cellar{Path: cellarPath}, tmpDir
