@@ -286,7 +286,7 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		if !safepath.IsSubpath(realDest, realTarget) {
 			return "", false
 		}
-	} else if !os.IsNotExist(err) {
+	} else if !isNotExist(err) {
 		// If EvalSymlinks failed for reasons other than NotExist, it might
 		// be a real problem (e.g. permission denied).
 		return "", false
@@ -296,6 +296,17 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	// sufficient — there are no symlinks to follow.
 
 	return target, true
+}
+
+func isNotExist(err error) bool {
+	if err == nil {
+		return false
+	}
+	if os.IsNotExist(err) || errors.Is(err, os.ErrNotExist) {
+		return true
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "no such file or directory") || strings.Contains(msg, "not a directory")
 }
 
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
@@ -350,13 +361,13 @@ func extractSymlink(realDest, target, linkname string) error {
 		if !safepath.IsSubpath(realDest, resolvedCandidate) {
 			return nil
 		}
-	} else if errors.Is(err, os.ErrNotExist) {
+	} else if isNotExist(err) {
 		// If the target doesn't exist, we must still ensure it's safe.
 		// Try to resolve the parent to follow any symlinks in the path.
 		parent := filepath.Dir(candidateTarget)
 		resolvedCandidateParent, err := filepath.EvalSymlinks(parent)
 		if err != nil {
-			if errors.Is(err, os.ErrNotExist) {
+			if isNotExist(err) {
 				// If the parent directory doesn't exist yet, we can't EvalSymlinks it.
 				// In this case, the candidateTarget itself is already the "best" we can do,
 				// and safeJoinArchivePath already ensured it's textually inside.
