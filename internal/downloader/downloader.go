@@ -2,6 +2,7 @@ package downloader
 
 import (
 	"crypto/sha256"
+	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -200,6 +201,33 @@ func ComputeSHA256(path string) (string, error) {
 	return hex.EncodeToString(h.Sum(nil)), nil
 }
 
+// ComputeSHA512 returns the hex-encoded SHA512 hash of a file.
+func ComputeSHA512(path string) (string, error) {
+	clean := filepath.Clean(path)
+	if clean == "." || clean == "" {
+		return "", fmt.Errorf("invalid path for hashing")
+	}
+	if !filepath.IsAbs(clean) {
+		abs, err := filepath.Abs(clean)
+		if err != nil {
+			return "", fmt.Errorf("invalid path for hashing")
+		}
+		clean = filepath.Clean(abs)
+	}
+
+	f, err := os.Open(clean)
+	if err != nil {
+		return "", fmt.Errorf("open for hashing: %w", err)
+	}
+	defer f.Close()
+
+	h := sha512.New()
+	if _, err := io.Copy(h, f); err != nil {
+		return "", fmt.Errorf("compute SHA512: %w", err)
+	}
+	return hex.EncodeToString(h.Sum(nil)), nil
+}
+
 // VerifySHA256 checks that a file's SHA256 matches the expected hex string.
 func VerifySHA256(path, expected string) error {
 	actual, err := ComputeSHA256(path)
@@ -208,6 +236,18 @@ func VerifySHA256(path, expected string) error {
 	}
 	if actual != expected {
 		return fmt.Errorf("SHA256 mismatch: expected %.16s..., got %.16s...", expected, actual)
+	}
+	return nil
+}
+
+// VerifySHA512 checks that a file's SHA512 matches the expected hex string.
+func VerifySHA512(path, expected string) error {
+	actual, err := ComputeSHA512(path)
+	if err != nil {
+		return err
+	}
+	if actual != expected {
+		return fmt.Errorf("SHA512 mismatch: expected %.16s..., got %.16s...", expected, actual)
 	}
 	return nil
 }

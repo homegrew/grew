@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"crypto/sha256"
+	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -94,11 +95,17 @@ func SelfUpdateFromRelease(exePath string) error {
 		return fmt.Errorf("download checksums: %w", err)
 	}
 
-	expectedHash, err := release.FindChecksum(checksums, assetName)
-	if err != nil {
-		return err
+	expectedHashes := release.FindAllChecksums(checksums, assetName)
+	if len(expectedHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
 	}
-	slog.Info("expected SHA256: " + expectedHash)
+	for length, hash := range expectedHashes {
+		algo := "SHA-256"
+		if length == 128 {
+			algo = "SHA-512"
+		}
+		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
+	}
 
 	fmt.Printf("==> Downloading %s\n", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
@@ -107,14 +114,24 @@ func SelfUpdateFromRelease(exePath string) error {
 	}
 	defer os.Remove(tmpFile)
 
-	actualHash, err := release.FileSHA256(tmpFile)
+	// Verify all available hashes.
+	sha256Actual, sha512Actual, err := fileHashes(tmpFile)
 	if err != nil {
-		return fmt.Errorf("compute checksum: %w", err)
+		return fmt.Errorf("hash downloaded file: %w", err)
 	}
-	if actualHash != expectedHash {
-		return fmt.Errorf("checksum mismatch:\n  expected: %s\n  got:      %s", expectedHash, actualHash)
+
+	if expected, ok := expectedHashes[64]; ok {
+		if sha256Actual != expected {
+			return fmt.Errorf("SHA-256 mismatch: got %s, want %s", sha256Actual, expected)
+		}
+		fmt.Printf("==> SHA-256 verified: %s\n", sha256Actual)
 	}
-	fmt.Printf("==> SHA256 verified: %s\n", actualHash)
+	if expected, ok := expectedHashes[128]; ok {
+		if sha512Actual != expected {
+			return fmt.Errorf("SHA-512 mismatch: got %s, want %s", sha512Actual, expected)
+		}
+		fmt.Printf("==> SHA-512 verified: %s\n", sha512Actual)
+	}
 
 	bin, err := release.ExtractBinaryFromFile(tmpFile)
 	if err != nil {
@@ -131,7 +148,7 @@ func SelfUpdateFromRelease(exePath string) error {
 		slog.Warn(fmt.Sprintf("%v", err))
 	}
 
-	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, actualHash, "release")
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 
 	fmt.Printf("==> Updated to %s\n", rel.TagName)
 	return nil
@@ -144,11 +161,13 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	slog.Debug(fmt.Sprintf("verifying binary integrity: %s (expect %q)", binPath, expectedVersion))
 
 	// Hash the binary before execution so we can detect self-modification.
-	hashBefore, err := fileSHA256(binPath)
+	// We check both SHA-256 and SHA-512.
+	sha256Before, sha512Before, err := fileHashes(binPath)
 	if err != nil {
 		return fmt.Errorf("hash binary before execution: %w", err)
 	}
-	slog.Debug("SHA-256 before exec: " + hashBefore)
+	slog.Debug("SHA-256 before exec: " + sha256Before)
+	slog.Debug("SHA-512 before exec: " + sha512Before)
 
 	// Run the new binary inside a sandbox: no network, no writes (except a
 	// throwaway temp dir). A compromised binary cannot exfiltrate data or
@@ -170,15 +189,17 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	}
 
 	// Verify the binary was not modified during execution.
-	hashAfter, err := fileSHA256(binPath)
+	sha256After, sha512After, err := fileHashes(binPath)
 	if err != nil {
 		return fmt.Errorf("hash binary after execution: %w", err)
 	}
-	if hashBefore != hashAfter {
+	if sha256Before != sha256After || sha512Before != sha512After {
 		return fmt.Errorf("binary was modified during execution (self-modifying binary detected)\n"+
-			"  before: %s\n  after:  %s", hashBefore, hashAfter)
+			"  SHA-256 before: %s\n  SHA-256 after:  %s\n"+
+			"  SHA-512 before: %s\n  SHA-512 after:  %s",
+			sha256Before, sha256After, sha512Before, sha512After)
 	}
-	slog.Debug("SHA-256 unchanged after exec")
+	slog.Debug("binary hashes unchanged after exec")
 
 	reportedVersion := strings.TrimSpace(string(out))
 	slog.Debug("new binary reports: " + reportedVersion)
@@ -209,6 +230,24 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 
 	fmt.Printf("==> Verified: new binary reports %s\n", reportedVersion)
 	return nil
+}
+
+// fileHashes computes both hex-encoded SHA-256 and SHA-512 hashes of a file in a single pass.
+func fileHashes(path string) (sha256Hash, sha512Hash string, err error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return "", "", err
+	}
+	defer f.Close()
+
+	h256 := sha256.New()
+	h512 := sha512.New()
+	mw := io.MultiWriter(h256, h512)
+
+	if _, err := io.Copy(mw, f); err != nil {
+		return "", "", err
+	}
+	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil)), nil
 }
 
 // fileSHA256 computes the hex-encoded SHA-256 hash of a file.
@@ -265,16 +304,20 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	if err != nil {
 		return err
 	}
-	expectedPatchHash, err := release.FindChecksum(checksums, patchName)
+	expectedPatchHashes := release.FindAllChecksums(checksums, patchName)
+	if len(expectedPatchHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in checksums.txt", patchName)
+	}
+
+	actualPatchSHA256, actualPatchSHA512, err := fileHashes(patchFile)
 	if err != nil {
 		return err
 	}
-	actualPatchHash, err := release.FileSHA256(patchFile)
-	if err != nil {
-		return err
+	if expected, ok := expectedPatchHashes[64]; ok && actualPatchSHA256 != expected {
+		return fmt.Errorf("patch SHA-256 mismatch: got %s, want %s", actualPatchSHA256, expected)
 	}
-	if actualPatchHash != expectedPatchHash {
-		return fmt.Errorf("patch checksum mismatch: got %s, want %s", actualPatchHash, expectedPatchHash)
+	if expected, ok := expectedPatchHashes[128]; ok && actualPatchSHA512 != expected {
+		return fmt.Errorf("patch SHA-512 mismatch: got %s, want %s", actualPatchSHA512, expected)
 	}
 
 	// 2. Apply patch
@@ -296,16 +339,20 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return err
 	}
 	rawBinName := release.RawBinaryName()
-	expectedBinHash, err := release.FindChecksum(binaryChecksums, rawBinName)
+	expectedBinHashes := release.FindAllChecksums(binaryChecksums, rawBinName)
+	if len(expectedBinHashes) == 0 {
+		return fmt.Errorf("no checksum found for %s in binary-checksums.txt", rawBinName)
+	}
+
+	actualBinSHA256, actualBinSHA512, err := fileHashes(tmpNewBin)
 	if err != nil {
 		return err
 	}
-	actualBinHash, err := release.FileSHA256(tmpNewBin)
-	if err != nil {
-		return err
+	if expected, ok := expectedBinHashes[64]; ok && actualBinSHA256 != expected {
+		return fmt.Errorf("patched binary SHA-256 mismatch: got %s, want %s", actualBinSHA256, expected)
 	}
-	if actualBinHash != expectedBinHash {
-		return fmt.Errorf("patched binary checksum mismatch: got %s, want %s", actualBinHash, expectedBinHash)
+	if expected, ok := expectedBinHashes[128]; ok && actualBinSHA512 != expected {
+		return fmt.Errorf("patched binary SHA-512 mismatch: got %s, want %s", actualBinSHA512, expected)
 	}
 
 	// 4. Health Check: run vuln-scan on new binary

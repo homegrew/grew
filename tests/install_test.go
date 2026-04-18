@@ -4,8 +4,6 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
-	"crypto/sha256"
-	"encoding/hex"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -54,10 +52,6 @@ func makeDummyTarGz(t *testing.T, content string) []byte {
 }
 
 // computeSHA256 returns the hex-encoded SHA256 of the given bytes.
-func computeSHA256(data []byte) string {
-	hash := sha256.Sum256(data)
-	return hex.EncodeToString(hash[:])
-}
 
 // TestInstallIntegration tests the RunInstall function end-to-end.
 // It sets up a mock HTTP server to serve a dummy tarball (bottle),

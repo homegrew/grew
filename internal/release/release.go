@@ -178,13 +178,37 @@ func FindChecksum(data []byte, assetName string) (string, error) {
 		}
 		if filepath.Base(parts[1]) == assetName {
 			hash := strings.ToLower(parts[0])
-			if len(hash) != 64 {
+			if len(hash) != 64 && len(hash) != 128 {
 				return "", fmt.Errorf("invalid checksum length for %s: %d", assetName, len(hash))
 			}
 			return hash, nil
 		}
 	}
 	return "", fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
+}
+
+// FindAllChecksums parses a checksums.txt file and returns all hashes
+// found for the given asset name, mapped by their length (64 for SHA256, 128 for SHA512).
+func FindAllChecksums(data []byte, assetName string) map[int]string {
+	results := make(map[int]string)
+	scanner := bufio.NewScanner(strings.NewReader(string(data)))
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+		parts := strings.Fields(line)
+		if len(parts) != 2 {
+			continue
+		}
+		if filepath.Base(parts[1]) == assetName {
+			hash := strings.ToLower(parts[0])
+			if len(hash) == 64 || len(hash) == 128 {
+				results[len(hash)] = hash
+			}
+		}
+	}
+	return results
 }
 
 // DownloadBytes downloads a URL into memory. Limited to 1 MB.
@@ -229,6 +253,12 @@ func DownloadTemp(url string) (string, error) {
 // Delegates to downloader.ComputeSHA256 to avoid duplicating the implementation.
 func FileSHA256(path string) (string, error) {
 	return downloader.ComputeSHA256(path)
+}
+
+// FileSHA512 computes the hex-encoded SHA512 of a file.
+// Delegates to downloader.ComputeSHA512 to avoid duplicating the implementation.
+func FileSHA512(path string) (string, error) {
+	return downloader.ComputeSHA512(path)
 }
 
 // ExtractBinary reads a .tar.gz and returns the contents of the "grew"

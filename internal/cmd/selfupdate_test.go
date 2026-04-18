@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"crypto/sha256"
+	"crypto/sha512"
 	"encoding/hex"
 	"os"
 	"path/filepath"
@@ -117,6 +118,31 @@ func TestVerifyBinaryIntegrity_SingleWordVersion(t *testing.T) {
 
 	if err := verifyBinaryIntegrity(bin, "4.0.0"); err != nil {
 		t.Fatalf("expected success with single-word version, got: %v", err)
+	}
+}
+
+func TestFileHashes(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	path := filepath.Join(dir, "test")
+	content := []byte("hello world\n")
+	os.WriteFile(path, content, 0644)
+
+	got256, got512, err := fileHashes(path)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	h256 := sha256.Sum256(content)
+	want256 := hex.EncodeToString(h256[:])
+	if got256 != want256 {
+		t.Errorf("got SHA-256 %s, want %s", got256, want256)
+	}
+
+	h512 := sha512.Sum512(content)
+	want512 := hex.EncodeToString(h512[:])
+	if got512 != want512 {
+		t.Errorf("got SHA-512 %s, want %s", got512, want512)
 	}
 }
 

@@ -69,10 +69,12 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 
 	patchBytes, _ := os.ReadFile(patchPath)
-	patchHash := computeSHA256(patchBytes)
+	patchHash256 := computeSHA256(patchBytes)
+	patchHash512 := computeSHA512(patchBytes)
 
 	newExeBytes, _ := os.ReadFile(newExePath)
-	newExeHash := computeSHA256(newExeBytes)
+	newExeHash256 := computeSHA256(newExeBytes)
+	newExeHash512 := computeSHA512(newExeBytes)
 	rawBinName := fmt.Sprintf("grew_%s_%s", osName, archName)
 
 	tarballName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
@@ -113,9 +115,9 @@ func TestPatchUpdateIntegration(t *testing.T) {
 		case "/download/" + patchName:
 			w.Write(patchBytes)
 		case "/download/checksums.txt":
-			w.Write([]byte(fmt.Sprintf("%s  %s\n", patchHash, patchName)))
+			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n", patchHash256, patchName, patchHash512, patchName)))
 		case "/download/binary-checksums.txt":
-			w.Write([]byte(fmt.Sprintf("%s  %s\n", newExeHash, rawBinName)))
+			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n", newExeHash256, rawBinName, newExeHash512, rawBinName)))
 		case "/v1/query":
 			// Mock OSV response: no vulnerabilities
 			w.Write([]byte(`{"vulns": []}`))
