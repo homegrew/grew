@@ -279,6 +279,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	if err == nil {
 		// Parent exists on disk — verify the resolved path stays inside.
 		realTarget := filepath.Join(realParent, filepath.Base(target))
+		// We resolve destDir to its real path to ensure we're comparing
+		// canonical paths. If resolution fails, we fall back to the raw destDir.
 		realDest, err2 := filepath.EvalSymlinks(destDir)
 		if err2 != nil {
 			realDest = destDir
@@ -289,11 +291,18 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	} else if !isNotExist(err) {
 		// If EvalSymlinks failed for reasons other than NotExist, it might
 		// be a real problem (e.g. permission denied).
-		return "", false
+		// We log this as a debug message and continue with the textual check
+		// to be resilient against ephemeral filesystem states during extraction.
+		slog.Debug(fmt.Sprintf("safeJoinArchivePath: EvalSymlinks(%q) failed: %v", parentDir, err))
 	}
 
-	// If parent doesn't exist yet (err != nil), the textual check is
-	// sufficient — there are no symlinks to follow.
+	// Final textual safety check: ensure the target is inside destDir.
+	// This is our primary defense when the filesystem state is incomplete.
+	absDest, _ := filepath.Abs(destDir)
+	absTarget, _ := filepath.Abs(target)
+	if !safepath.IsSubpath(absDest, absTarget) {
+		return "", false
+	}
 
 	return target, true
 }
