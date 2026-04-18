@@ -350,14 +350,6 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 
 // --- Common Helpers ---
 
-func safeOutputDir(input string) (string, error) {
-	base, err := filepath.Abs(".")
-	if err != nil {
-		return "", err
-	}
-	return safeJoinUnderBase(base, input)
-}
-
 func safeJoinUnderBase(base, rel string) (string, error) {
 	baseAbs, err := filepath.Abs(base)
 	if err != nil {
