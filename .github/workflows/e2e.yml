@@ -26,6 +26,7 @@ jobs:
       - name: Setup (User-local)
         run: |
           ./grew setup --unsafe
+          cp grew "$HOME/.homegrew/bin/grew"
           echo "$HOME/.homegrew/bin" >> $GITHUB_PATH
 
       - name: Update
