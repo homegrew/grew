@@ -127,7 +127,17 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("download %s: HTTP %d %s", rawURL, resp.StatusCode, resp.Status)
 	}
 
-	if err := os.RemoveAll(destPath); err != nil {
+	if fi, err := os.Lstat(destPath); err == nil {
+		if fi.Mode()&os.ModeSymlink != 0 {
+			return "", fmt.Errorf("prepare download path %s: refusing to overwrite symlink", destPath)
+		}
+		if fi.IsDir() {
+			return "", fmt.Errorf("prepare download path %s: destination is a directory", destPath)
+		}
+		if err := os.Remove(destPath); err != nil {
+			return "", fmt.Errorf("prepare download path %s: %w", destPath, err)
+		}
+	} else if !os.IsNotExist(err) {
 		return "", fmt.Errorf("prepare download path %s: %w", destPath, err)
 	}
 
