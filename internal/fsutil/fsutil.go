@@ -2,12 +2,11 @@ package fsutil
 
 import (
 	"fmt"
+	"github.com/homegrew/grew/pkg/safepath"
 	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
-	"runtime"
-	"strings"
 )
 
 // Default permission modes used when an extracted entry has no explicit mode.
@@ -15,21 +14,6 @@ const (
 	defaultDirMode  os.FileMode = 0o755
 	defaultFileMode os.FileMode = 0o644
 )
-
-// isWithinRoot reports whether candidate is within the directory tree rooted at root.
-// It mirrors the symlink escape validation logic used elsewhere to ensure consistency.
-func isWithinRoot(root, candidate string) bool {
-	normalizedRoot := filepath.Clean(root)
-	normalizedCandidate := filepath.Clean(candidate)
-
-	if runtime.GOOS == "windows" {
-		normalizedRoot = strings.ToLower(normalizedRoot)
-		normalizedCandidate = strings.ToLower(normalizedCandidate)
-	}
-
-	sep := string(filepath.Separator)
-	return normalizedCandidate == normalizedRoot || strings.HasPrefix(normalizedCandidate, normalizedRoot+sep)
-}
 
 // CopyTree recursively copies a directory tree from src to dst.
 // Symlinks are preserved but validated to not escape the destination.
@@ -60,7 +44,7 @@ func CopyTree(src, dst string) error {
 		target = filepath.Clean(target)
 
 		// Ensure that the computed target path stays within the destination root.
-		if !isWithinRoot(absDst, target) {
+		if !safepath.IsSubpath(absDst, target) {
 			return fmt.Errorf("refusing to copy outside destination root: %s", target)
 		}
 
@@ -85,7 +69,7 @@ func CopyTree(src, dst string) error {
 
 			// Map the resolved source path into the destination tree (if possible)
 			var resolvedDest string
-			if isWithinRoot(absSrc, resolvedSource) {
+			if safepath.IsSubpath(absSrc, resolvedSource) {
 				relFromSrc, relErr := filepath.Rel(absSrc, resolvedSource)
 				if relErr != nil {
 					return relErr
@@ -102,7 +86,7 @@ func CopyTree(src, dst string) error {
 			}
 			resolvedDest = filepath.Clean(resolvedDest)
 
-			if !isWithinRoot(absDst, resolvedDest) {
+			if !safepath.IsSubpath(absDst, resolvedDest) {
 				// Skip symlinks that escape — don't fail, just log and skip.
 				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", path, resolvedDest, absDst))
 				return nil
@@ -174,7 +158,7 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 		absRoot = filepath.Clean(absRoot)
 
 		// First, perform a cheap lexical containment check.
-		if !isWithinRoot(absRoot, absDst) {
+		if !safepath.IsSubpath(absRoot, absDst) {
 			return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
 		}
 
@@ -196,7 +180,7 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 			if rootErr != nil && !os.IsNotExist(rootErr) {
 				return fmt.Errorf("resolve destination root symlinks: %w", rootErr)
 			}
-			if rootErr == nil && !isWithinRoot(resolvedRoot, resolvedDstDir) {
+			if rootErr == nil && !safepath.IsSubpath(resolvedRoot, resolvedDstDir) {
 				return fmt.Errorf("refusing to copy file outside destination root via symlink: %s", absDst)
 			}
 		}

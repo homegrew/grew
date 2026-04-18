@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
@@ -49,15 +50,8 @@ func runExtract(_ []string) error {
 	}
 	destAbs = filepath.Clean(destAbs)
 
-	if destAbs != cwdAbs {
-		cwdWithSep := cwdAbs
-		if !strings.HasSuffix(cwdWithSep, string(os.PathSeparator)) {
-			cwdWithSep += string(os.PathSeparator)
-		}
-		if !strings.HasPrefix(destAbs, cwdWithSep) {
-			return fmt.Errorf("dest_dir %q escapes working directory %q", destAbs, cwdAbs)
-		}
+	if err := safepath.CheckSubpath(cwdAbs, destAbs); err != nil {
+		return fmt.Errorf("dest_dir %q escapes working directory %q: %w", destAbs, cwdAbs, err)
 	}
-
 	return downloader.Extract(args.ArchivePath, destAbs, args.Spec)
 }

@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // allowedHosts is the set of hosts that grew is permitted to download from.
@@ -78,12 +78,12 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	}
 
 	// Validate filename to prevent path traversal (e.g. "../../etc/passwd").
-	if err := validation.SafePathComponent(filename); err != nil {
+	if err := safepath.SafePathComponent(filename); err != nil {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
 	tmpDir := filepath.Clean(d.TmpDir)
 	destPath := filepath.Clean(filepath.Join(tmpDir, filename))
-	if !withinDir(tmpDir, destPath) {
+	if !safepath.IsSubpath(tmpDir, destPath) {
 		return "", fmt.Errorf("download path escapes temp directory")
 	}
 

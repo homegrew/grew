@@ -15,7 +15,7 @@ import (
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func hasPathTraversal(rel string) bool {
@@ -42,32 +42,6 @@ var (
 // mustBeWithin returns an error if target is not located within baseDir (or equal to it).
 // Both paths are resolved to absolute, cleaned paths and compared with a path‑separator
 // aware prefix check to avoid tricks like "/tmp/taps" vs "/tmp/taps2".
-func mustBeWithin(baseDir, target string) error {
-	baseAbs, err := filepath.Abs(baseDir)
-	if err != nil {
-		return fmt.Errorf("resolve base dir: %w", err)
-	}
-	baseAbs = filepath.Clean(baseAbs)
-
-	targetAbs, err := filepath.Abs(target)
-	if err != nil {
-		return fmt.Errorf("resolve target path: %w", err)
-	}
-	targetAbs = filepath.Clean(targetAbs)
-
-	if targetAbs == baseAbs {
-		return nil
-	}
-
-	baseWithSep := baseAbs
-	if !strings.HasSuffix(baseWithSep, string(filepath.Separator)) {
-		baseWithSep += string(filepath.Separator)
-	}
-	if !strings.HasPrefix(targetAbs, baseWithSep) {
-		return fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
-	}
-	return nil
-}
 
 func resolveAndValidateExtractDest(destDir string) (string, error) {
 	destDir = filepath.Clean(destDir)
@@ -98,16 +72,16 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 		}
 		// If binary_name is set and the binary is at root (not in bin/), move it into bin/
 		if spec.BinaryName != "" {
-			if err := validation.SafePathComponent(spec.BinaryName); err != nil {
+			if err := safepath.SafePathComponent(spec.BinaryName); err != nil {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
 			rootBin := filepath.Clean(filepath.Join(destDir, spec.BinaryName))
-			if err := mustBeWithin(destDir, rootBin); err != nil {
+			if err := safepath.CheckSubpath(destDir, rootBin); err != nil {
 				return fmt.Errorf("binary_name escapes destination directory: %w", err)
 			}
 			binDir := filepath.Clean(filepath.Join(destDir, "bin"))
 			binDest := filepath.Clean(filepath.Join(binDir, spec.BinaryName))
-			if err := mustBeWithin(destDir, binDest); err != nil {
+			if err := safepath.CheckSubpath(destDir, binDest); err != nil {
 				return fmt.Errorf("binary destination escapes destination directory: %w", err)
 			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
@@ -142,7 +116,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 	if binaryName == "" {
 		binaryName = filepath.Base(srcPath)
 	}
-	if err := validation.SafePathComponent(binaryName); err != nil {
+	if err := safepath.SafePathComponent(binaryName); err != nil {
 		return fmt.Errorf("invalid binary name: %w", err)
 	}
 	binDir := filepath.Clean(filepath.Join(destDir, "bin"))
@@ -150,7 +124,7 @@ func installBinary(srcPath, destDir, binaryName string) error {
 		return fmt.Errorf("create bin dir: %w", err)
 	}
 	destPath := filepath.Clean(filepath.Join(binDir, binaryName))
-	if !withinDir(destDir, destPath) {
+	if !safepath.IsSubpath(destDir, destPath) {
 		return fmt.Errorf("binary path escapes destination directory")
 	}
 
@@ -308,7 +282,7 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		if err2 != nil {
 			realDest = destDir
 		}
-		if !withinDir(realDest, realTarget) {
+		if !safepath.IsSubpath(realDest, realTarget) {
 			return "", false
 		}
 	}
@@ -318,25 +292,78 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	return target, true
 }
 
-// withinDir checks that target is inside destDir using absolute, cleaned paths.
-// This prevents path traversal attacks (e.g. "../../etc/passwd").
-func withinDir(destDir, target string) bool {
-	absDir, err := filepath.Abs(destDir)
-	if err != nil {
-		return false
+// extractSymlink safely creates a symlink if it doesn't escape the destination directory.
+func extractSymlink(realDest, target, linkname string) error {
+	linkname = sanitizeSymlinkTarget(linkname)
+	if linkname == "" {
+		return nil
 	}
-	absTarget, err := filepath.Abs(target)
-	if err != nil {
-		return false
+	cleanLink := filepath.Clean(linkname)
+	if filepath.IsAbs(cleanLink) || hasPathTraversal(cleanLink) {
+		return nil
 	}
 
-	absDir = filepath.Clean(absDir)
-	absTarget = filepath.Clean(absTarget)
+	parentDir := filepath.Dir(target)
+	if !safepath.IsSubpath(realDest, parentDir) {
+		return nil
+	}
+	resolvedParentDir, err := filepath.Abs(parentDir)
+	if err != nil {
+		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
+	}
+	resolvedParentDir = filepath.Clean(resolvedParentDir)
+	if !safepath.IsSubpath(realDest, resolvedParentDir) {
+		return nil
+	}
 
-	// Ensure absDir has a trailing separator when doing the prefix check
-	// so that siblings with a common prefix are not matched.
-	dirWithSep := absDir + string(filepath.Separator)
-	return absTarget == absDir || strings.HasPrefix(absTarget, dirWithSep)
+	resolvedParent, err := filepath.EvalSymlinks(parentDir)
+	if err != nil {
+		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
+	}
+
+	candidateTarget, ok := safeJoinArchivePath(resolvedParent, cleanLink)
+	if !ok {
+		return fmt.Errorf("couldn't resolve target symlink %s", target)
+	}
+
+	// CodeQL-recognized Zip Slip guard:
+	destPrefix := filepath.Clean(realDest) + string(filepath.Separator)
+	if candidateTarget != filepath.Clean(realDest) && !strings.HasPrefix(candidateTarget, destPrefix) {
+		return nil
+	}
+
+	if !safepath.IsSubpath(realDest, candidateTarget) {
+		return nil
+	}
+
+	if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
+		resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
+		if err != nil {
+			return fmt.Errorf("resolve symlink target %s: %w", candidateTarget, err)
+		}
+		if !safepath.IsSubpath(realDest, resolvedCandidate) {
+			return nil
+		}
+	} else if os.IsNotExist(err) {
+		resolvedCandidateParent, err := filepath.EvalSymlinks(filepath.Dir(candidateTarget))
+		if err != nil {
+			return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
+		}
+		resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
+		if !safepath.IsSubpath(realDest, resolvedCandidate) {
+			return nil
+		}
+	} else if err != nil {
+		return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
+	}
+
+	if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
+		return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
+	}
+	if err := os.Symlink(linkname, target); err != nil {
+		return fmt.Errorf("create symlink %q -> %q: %w", target, linkname, err)
+	}
+	return nil
 }
 
 // extractTar safely extracts entries from a tar stream with path traversal
@@ -392,63 +419,8 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return err
 			}
 		case tar.TypeSymlink:
-			linkname := sanitizeSymlinkTarget(header.Linkname)
-			if linkname == "" {
-				continue
-			}
-			cleanLink := filepath.Clean(linkname)
-			if filepath.IsAbs(cleanLink) || hasPathTraversal(cleanLink) {
-				continue
-			}
-			parentDir := filepath.Dir(target)
-			if !withinDir(realDest, parentDir) {
-				continue
-			}
-			resolvedParentDir, err := filepath.Abs(parentDir)
-			if err != nil {
-				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
-			}
-			resolvedParentDir = filepath.Clean(resolvedParentDir)
-			if !withinDir(realDest, resolvedParentDir) {
-				continue
-			}
-
-			// parentDir exists if we got here (either already existed or created by TypeReg/TypeDir)
-			resolvedParent, err := filepath.EvalSymlinks(parentDir)
-			if err != nil {
-				return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
-			}
-
-			candidateTarget := filepath.Clean(filepath.Join(resolvedParent, cleanLink))
-			if !withinDir(realDest, candidateTarget) {
-				continue
-			}
-			if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
-				resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
-				if err != nil {
-					return fmt.Errorf("resolve symlink target %s: %w", candidateTarget, err)
-				}
-				if !withinDir(realDest, resolvedCandidate) {
-					continue
-				}
-			} else if os.IsNotExist(err) {
-				resolvedCandidateParent, err := filepath.EvalSymlinks(filepath.Dir(candidateTarget))
-				if err != nil {
-					return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
-				}
-				resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
-				if !withinDir(realDest, resolvedCandidate) {
-					continue
-				}
-			} else if err != nil {
-				return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
-			}
-
-			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
-				return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
-			}
-			if err := os.Symlink(linkname, target); err != nil {
-				return fmt.Errorf("create symlink %s -> %s: %w", target, linkname, err)
+			if err := extractSymlink(realDest, target, header.Linkname); err != nil {
+				return err
 			}
 		}
 	}
@@ -538,7 +510,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 		// Additional hardening: ensure the final target is still within the
 		// canonical extraction root before using it.
-		if !withinDir(realDestDir, target) {
+		if !safepath.IsSubpath(realDestDir, target) {
 			continue
 		}
 
@@ -551,7 +523,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 
 		parentDir := filepath.Dir(target)
 		// Guard against creating directories outside the extraction root.
-		if !withinDir(realDestDir, parentDir) {
+		if !safepath.IsSubpath(realDestDir, parentDir) {
 			return fmt.Errorf("refusing to create parent directory outside dest: %q", parentDir)
 		}
 		if err := os.MkdirAll(parentDir, 0755); err != nil {
@@ -572,47 +544,11 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 				}
 				return fmt.Errorf("copy symlink target for %q: %w", f.Name, err)
 			}
-			linkTarget := sanitizeSymlinkTarget(buf.String())
-			if linkTarget == "" {
-				rc.Close()
-				continue
-			}
-
-			// Validate symlink target doesn't escape. Resolve any existing
-			// symlinks in the parent directory and the candidate target
-			// path before checking that it remains within the extraction root.
-			symlinkParentDir := filepath.Dir(target)
-			realParentDir, err := filepath.EvalSymlinks(symlinkParentDir)
-			if err != nil {
-				rc.Close()
-				continue
-			}
-			candidateTarget := filepath.Join(realParentDir, linkTarget)
-			realLinkTarget := candidateTarget
-			if resolved, err := filepath.EvalSymlinks(candidateTarget); err == nil {
-				// Successfully resolved the candidate target; use the resolved path.
-				realLinkTarget = resolved
-			} else if os.IsNotExist(err) {
-				// Target does not exist; keep realLinkTarget as candidateTarget.
-			} else {
-				// For errors other than non-existent targets, skip creating the symlink.
-				rc.Close()
-				continue
-			}
-			if !withinDir(realDestDir, realLinkTarget) {
-				rc.Close()
-				continue
-			}
-
-			if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
-				rc.Close()
-				return fmt.Errorf("remove %q before creating symlink: %w", target, err)
-			}
-			if err := os.Symlink(linkTarget, target); err != nil {
-				rc.Close()
-				return fmt.Errorf("create symlink %q -> %q: %w", target, linkTarget, err)
-			}
+			linkTarget := buf.String()
 			rc.Close()
+			if err := extractSymlink(realDestDir, target, linkTarget); err != nil {
+				return err
+			}
 			continue
 		}
 
@@ -658,14 +594,14 @@ func extractDMG(dmgPath, destDir string) error {
 	}
 	for _, e := range entries {
 		// Validate entry names from the mounted DMG to prevent traversal.
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		src := filepath.Clean(filepath.Join(mountPoint, e.Name()))
 		dst := filepath.Clean(filepath.Join(destDir, e.Name()))
 
 		// Verify constructed paths resolve within expected directories.
-		if !withinDir(mountPoint, src) || !withinDir(destDir, dst) {
+		if !safepath.IsSubpath(mountPoint, src) || !safepath.IsSubpath(destDir, dst) {
 			continue
 		}
 
@@ -717,7 +653,7 @@ func extractTarXzBz2(archivePath, destDir string, stripComponents int) error {
 	}
 
 	baseName := filepath.Base(absArchivePath)
-	if err := validation.SafePathComponent(baseName); err != nil {
+	if err := safepath.SafePathComponent(baseName); err != nil {
 		return fmt.Errorf("unsafe archive filename %q (from %q): %w", baseName, absArchivePath, err)
 	}
 
