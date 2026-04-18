@@ -105,12 +105,18 @@ func RelocateKeg(kegPath, prefix string) error {
 		slog.Debug(fmt.Sprintf("relocation: processing binary %s", relPath))
 		if relErr := relocateBinary(path, replacements); relErr != nil {
 			// Some files might look like binaries (e.g. Java .class files) but aren't
-			// Mach-O/ELF. If relocation fails, we log it and continue unless it's a
-			// critical error.
+			// Mach-O/ELF. If relocation fails, we log it.
 			slog.Warn(fmt.Sprintf("relocation: %s: %v", relPath, relErr))
-			// We only count it as a failure if it's not a common "not a binary" error.
+
+			// If it's a recognized binary (via isBinary), we should be stricter.
+			// But we allow some slack for files that magic bytes misidentified.
 			msg := strings.ToLower(relErr.Error())
-			if !strings.Contains(msg, "exit status 1") && !strings.Contains(msg, "not a Mach-O") {
+			isMisidentified := strings.Contains(msg, "not a mach-o") ||
+				strings.Contains(msg, "not an elf") ||
+				strings.Contains(msg, "invalid elf") ||
+				strings.Contains(msg, "too small")
+
+			if !isMisidentified {
 				failed++
 			}
 		} else {

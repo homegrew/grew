@@ -76,6 +76,21 @@ func relocateBinary(path string, replacements Replacements) error {
 		if interp != "" {
 			if newInterp, replaced := applyReplacements(interp, replacements); replaced {
 				slog.Debug(fmt.Sprintf("relocation: %s: interpreter %s -> %s", relName, interp, newInterp))
+
+				// Verify the new interpreter exists. If it doesn't, the binary will
+				// fail to execute with "required file not found".
+				if _, err := os.Stat(newInterp); err != nil {
+					slog.Warn(fmt.Sprintf("relocation: %s: relocated interpreter %s does not exist", relName, newInterp))
+					// Fallback: if it's a standard x86_64 path, try the system one.
+					if strings.Contains(newInterp, "ld-linux-x86-64.so.2") {
+						systemInterp := "/lib64/ld-linux-x86-64.so.2"
+						if _, err := os.Stat(systemInterp); err == nil {
+							slog.Info(fmt.Sprintf("relocation: %s: falling back to system interpreter %s", relName, systemInterp))
+							newInterp = systemInterp
+						}
+					}
+				}
+
 				args = append(args, "--set-interpreter", newInterp)
 				changed = true
 			}
