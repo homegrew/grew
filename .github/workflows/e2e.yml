@@ -16,6 +16,10 @@ jobs:
         with:
           go-version: stable
 
+      - name: Install sandbox dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y bubblewrap
+
       - name: Build with devmode
         run: go build -v -tags devmode -o grew .
 
