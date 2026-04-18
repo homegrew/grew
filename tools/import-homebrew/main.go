@@ -1,3 +1,15 @@
+// Command import-homebrew fetches formula definitions from the Homebrew JSON API
+// and converts them into grew-compatible YAML formula files.
+//
+// It maps Homebrew platforms to grew platforms and picks the most suitable
+// bottles available. The generated YAML files include metadata, bottle URLs,
+// source URLs, and dependency information.
+//
+// Usage:
+//
+//	go run tools/import-homebrew/main.go [output_dir]
+//
+// If output_dir is not specified, it defaults to "core".
 package main
 
 import (

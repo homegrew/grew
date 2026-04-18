@@ -1,3 +1,15 @@
+// Command import-homebrew-casks fetches cask definitions from the Homebrew JSON API
+// and converts them into grew-compatible YAML cask files.
+//
+// It extracts app and binary artifacts, handles platform variations for macOS
+// (ARM64 and AMD64), and generates YAML files with metadata, download URLs,
+// and artifact paths.
+//
+// Usage:
+//
+//	go run tools/import-homebrew-casks/main.go [output_dir]
+//
+// If output_dir is not specified, it defaults to "cask".
 package main
 
 import (
