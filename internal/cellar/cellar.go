@@ -109,24 +109,30 @@ func (c *Cellar) KegPath(name, version string) (string, error) {
 	}
 	p := filepath.Join(c.Path, name, version)
 
-	base, err := filepath.EvalSymlinks(c.Path)
-	if err != nil {
-		if base, err = filepath.Abs(c.Path); err != nil {
-			return "", fmt.Errorf("resolve cellar path %q: %w", c.Path, err)
-		}
+	// Lexical check first to ensure the path is under the cellar.
+	// We use safepath.CheckSubpath which handles absolute path normalization.
+	if err := safepath.CheckSubpath(c.Path, p); err != nil {
+		return "", fmt.Errorf("path %q escapes cellar %q", p, c.Path)
 	}
-	base = filepath.Clean(base)
 
+	// Try to resolve symlinks for the final path.
 	resolvedP, err := filepath.EvalSymlinks(p)
 	if err != nil {
-		if resolvedP, err = filepath.Abs(p); err != nil {
-			return "", fmt.Errorf("resolve keg path %q: %w", p, err)
-		}
+		// If the path doesn't exist yet, we return the cleaned lexical path.
+		// This avoids failures on macOS where /var is a symlink to /private/var
+		// but only resolves when the target directory exists.
+		return filepath.Clean(p), nil
 	}
-	resolvedP = filepath.Clean(resolvedP)
 
-	if err := safepath.CheckSubpath(base, resolvedP); err != nil {
-		return "", fmt.Errorf("path %q escapes cellar %q", resolvedP, base)
+	// If the path exists and was resolved, we must ensure it still resides
+	// within the (also resolved) cellar root.
+	resolvedCellar, err := filepath.EvalSymlinks(c.Path)
+	if err != nil {
+		resolvedCellar, _ = filepath.Abs(c.Path)
+	}
+
+	if err := safepath.CheckSubpath(resolvedCellar, resolvedP); err != nil {
+		return "", fmt.Errorf("resolved path %q escapes cellar %q", resolvedP, resolvedCellar)
 	}
 	return resolvedP, nil
 }
