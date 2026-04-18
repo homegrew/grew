@@ -125,8 +125,8 @@ func cleanTmpFor(rootDir, tmpDir, name string) {
 	if err := safepath.SafeAbsolutePath(baseTmpDir); err != nil {
 		return
 	}
-	if _, err := safepath.CheckSubpath(baseRootDir, baseTmpDir); err != nil {
-		return
+	if err := safepath.CheckSubpath(baseRootDir, baseTmpDir); err != nil {
+		return err
 	}
 
 	entries, err := os.ReadDir(baseTmpDir)
