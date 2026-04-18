@@ -323,7 +323,10 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 	var res cask.Artifacts
 	for _, m := range raw {
 		var obj map[string]json.RawMessage
-		json.Unmarshal(m, &obj)
+		if err := json.Unmarshal(m, &obj); err != nil {
+			slog.Debug("artifact unmarshal failed", "error", err)
+			continue
+		}
 		if app, ok := obj["app"]; ok {
 			var apps []string
 			json.Unmarshal(app, &apps)
@@ -366,19 +369,30 @@ func safeJoinUnderBase(base, rel string) (string, error) {
 	return candidate, nil
 }
 
-func fetchAPI(url string) []byte {
-	slog.Info("Fetching API", "url", url)
-	resp, err := http.Get(url)
+func fetchAPI(apiURL string) []byte {
+	slog.Info("Fetching API", "url", apiURL)
+	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+	defer cancel()
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, apiURL, nil)
+	if err != nil {
+		slog.Error("Build request failed", "error", err)
+		os.Exit(1)
+	}
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		slog.Error("Fetch failed", "error", err)
 		os.Exit(1)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode != 200 {
+	if resp.StatusCode != http.StatusOK {
 		slog.Error("API error", "status", resp.Status)
 		os.Exit(1)
 	}
-	data, _ := io.ReadAll(resp.Body)
+	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20))
+	if err != nil {
+		slog.Error("Read failed", "error", err)
+		os.Exit(1)
+	}
 	return data
 }
 

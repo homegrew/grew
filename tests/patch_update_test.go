@@ -35,10 +35,13 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 
 	// Determine the current version of the built binary
-	out, _ := exec.Command(oldExePath, "--version").Output()
+	out, err := exec.Command(oldExePath, "--version").Output()
+	if err != nil {
+		t.Fatalf("failed to run --version on built binary: %v", err)
+	}
 	currentVer := strings.TrimSpace(strings.TrimPrefix(string(out), "grew "))
 	if currentVer == "" {
-		currentVer = "v0.0.0-UNKNOWN" // fallback
+		t.Fatalf("built binary reported empty version (output: %q)", string(out))
 	}
 	targetVer := "v9.9.9"
 

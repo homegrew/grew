@@ -321,8 +321,12 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	}
 
 	// 2. Apply patch
-	tmpNewBin := filepath.Join(os.TempDir(), "grew-patched")
-	defer os.Remove(tmpNewBin)
+	patchDir, err := os.MkdirTemp("", "grew-patch-*")
+	if err != nil {
+		return fmt.Errorf("create patch tmpdir: %w", err)
+	}
+	defer os.RemoveAll(patchDir)
+	tmpNewBin := filepath.Join(patchDir, "grew-patched")
 
 	cmd := exec.Command(bspatch, exePath, tmpNewBin, patchFile)
 	if out, err := cmd.CombinedOutput(); err != nil {
