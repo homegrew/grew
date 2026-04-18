@@ -22,11 +22,18 @@ import (
 const (
 	repoOwner = "homegrew"
 	repoName  = "grew"
-	apiBase   = "https://api.github.com"
 
 	// maxBinarySize limits the extracted binary to 128 MB.
 	maxBinarySize = 128 << 20
 )
+
+var apiBase = "https://api.github.com"
+
+func init() {
+	if env := os.Getenv("HOMEGREW_GITHUB_API_BASE"); env != "" {
+		apiBase = env
+	}
+}
 
 // Release is the subset of the GitHub API release response we need.
 type Release struct {

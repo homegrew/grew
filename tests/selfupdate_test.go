@@ -1,11 +1,114 @@
 package tests
 
 import (
+	"archive/tar"
+	"bytes"
+	"compress/gzip"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"testing"
 )
+
+// makeGrewTarGz creates a simple .tar.gz containing a single executable file "grew"
+func makeGrewTarGz(t *testing.T, content string) []byte {
+	t.Helper()
+	var buf bytes.Buffer
+	gw := gzip.NewWriter(&buf)
+	tw := tar.NewWriter(gw)
+
+	hdr := &tar.Header{
+		Name:     "grew",
+		Size:     int64(len(content)),
+		Mode:     0755, // Executable
+		Typeflag: tar.TypeReg,
+	}
+
+	if err := tw.WriteHeader(hdr); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := tw.Write([]byte(content)); err != nil {
+		t.Fatal(err)
+	}
+
+	tw.Close()
+	gw.Close()
+	return buf.Bytes()
+}
+
+// setupMockGitHub creates an httptest.TLSServer mocking the GitHub API.
+func setupMockGitHub(t *testing.T, version string) *httptest.Server {
+	t.Helper()
+
+	// The dummy binary just prints its version and exits
+	mockGrewContent := fmt.Sprintf("#!/bin/sh\necho \"grew v%s\"\n", version)
+	tarballBytes := makeGrewTarGz(t, mockGrewContent)
+	tarballHash := computeSHA256(tarballBytes)
+
+	osName := runtime.GOOS
+	archName := runtime.GOARCH
+	switch osName {
+	case "darwin":
+		osName = "Darwin"
+	case "linux":
+		osName = "Linux"
+	}
+	switch archName {
+	case "amd64":
+		archName = "x86_64"
+	}
+	assetName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
+
+	checksumsTxt := fmt.Sprintf("%s  %s\n", tarballHash, assetName)
+
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch r.URL.Path {
+		case "/repos/homegrew/grew/releases":
+			// Mock releases JSON
+			w.Header().Set("Content-Type", "application/vnd.github+json")
+			// Create a mock URL using the current request's host scheme
+			scheme := "https"
+			if r.TLS == nil {
+				scheme = "http"
+			}
+			baseURL := fmt.Sprintf("%s://%s", scheme, r.Host)
+
+			resp := []map[string]interface{}{
+				{
+					"tag_name":   "v" + version,
+					"draft":      false,
+					"prerelease": false,
+					"assets": []map[string]interface{}{
+						{
+							"name":                 assetName,
+							"browser_download_url": baseURL + "/download/" + assetName,
+						},
+						{
+							"name":                 "checksums.txt",
+							"browser_download_url": baseURL + "/download/checksums.txt",
+						},
+					},
+				},
+			}
+			json.NewEncoder(w).Encode(resp)
+		case "/download/" + assetName:
+			w.Header().Set("Content-Type", "application/octet-stream")
+			w.Write(tarballBytes)
+		case "/download/checksums.txt":
+			w.Header().Set("Content-Type", "text/plain")
+			w.Write([]byte(checksumsTxt))
+		default:
+			w.WriteHeader(http.StatusNotFound)
+		}
+	}))
+
+	return server
+}
 
 // TestRunSelfUpdateIntegration tests the RunSelfUpdate function end-to-end.
 // It compiles a dummy binary that invokes cmd.RunSelfUpdate(), places it in a
@@ -13,11 +116,10 @@ import (
 // the binary replaces itself. Since there is no git repository in the mock prefix,
 // it falls back to downloading the release from GitHub.
 func TestRunSelfUpdateIntegration(t *testing.T) {
-	if testing.Short() {
-		t.Skip("skipping integration test that hits GitHub API in short mode")
-	}
-
 	tmpDir := t.TempDir()
+
+	mockServer := setupMockGitHub(t, "9.9.9")
+	defer mockServer.Close()
 
 	// Create prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
@@ -39,7 +141,10 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	cmdRun := exec.Command(exePath, "run")
 	cmdRun.Stdout = os.Stdout
 	cmdRun.Stderr = os.Stderr
-	cmdRun.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	env := os.Environ()
+	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	cmdRun.Env = env
 	
 	// The dummy binary will run, detect its path, and download the real grew binary
 	// from GitHub to replace itself.
@@ -61,11 +166,10 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 // TestSelfUpdateFromReleaseIntegration tests the SelfUpdateFromRelease function
 // end-to-end by explicitly calling it.
 func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
-	if testing.Short() {
-		t.Skip("skipping integration test that hits GitHub API in short mode")
-	}
-
 	tmpDir := t.TempDir()
+
+	mockServer := setupMockGitHub(t, "9.9.9")
+	defer mockServer.Close()
 
 	// Create prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
@@ -87,7 +191,10 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	cmdRun := exec.Command(exePath, "from-release")
 	cmdRun.Stdout = os.Stdout
 	cmdRun.Stderr = os.Stderr
-	cmdRun.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	env := os.Environ()
+	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	cmdRun.Env = env
 	
 	if err := cmdRun.Run(); err != nil {
 		t.Fatalf("SelfUpdateFromRelease failed: %v", err)
