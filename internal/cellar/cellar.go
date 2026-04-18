@@ -108,10 +108,27 @@ func (c *Cellar) KegPath(name, version string) (string, error) {
 		return "", fmt.Errorf("invalid name or version")
 	}
 	p := filepath.Join(c.Path, name, version)
-	if err := safepath.CheckSubpath(c.Path, p); err != nil {
-		return "", fmt.Errorf("path %q escapes cellar %q", p, c.Path)
+
+	base, err := filepath.EvalSymlinks(c.Path)
+	if err != nil {
+		if base, err = filepath.Abs(c.Path); err != nil {
+			return "", fmt.Errorf("resolve cellar path %q: %w", c.Path, err)
+		}
 	}
-	return p, nil
+	base = filepath.Clean(base)
+
+	resolvedP, err := filepath.EvalSymlinks(p)
+	if err != nil {
+		if resolvedP, err = filepath.Abs(p); err != nil {
+			return "", fmt.Errorf("resolve keg path %q: %w", p, err)
+		}
+	}
+	resolvedP = filepath.Clean(resolvedP)
+
+	if err := safepath.CheckSubpath(base, resolvedP); err != nil {
+		return "", fmt.Errorf("path %q escapes cellar %q", resolvedP, base)
+	}
+	return resolvedP, nil
 }
 
 // isUnderCellar reports whether the given path is located within the Cellar.Path
