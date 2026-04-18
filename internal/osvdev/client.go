@@ -269,10 +269,23 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 			reqBody = bytes.NewReader(body)
 		}
 
-		req, err := http.NewRequest(method, rawURL, reqBody)
-		if err != nil {
-			return nil, fmt.Errorf("create request: %w", err)
+		req := &http.Request{
+			Method:     method,
+			URL:        u,
+			Proto:      "HTTP/1.1",
+			ProtoMajor: 1,
+			ProtoMinor: 1,
+			Header:     make(http.Header),
+			Host:       u.Host,
+			Body:       io.NopCloser(reqBody),
 		}
+		if reqBody != nil {
+			// bytes.Reader len cast
+			if br, ok := reqBody.(*bytes.Reader); ok {
+				req.ContentLength = int64(br.Len())
+			}
+		}
+
 		req.Header.Set("Content-Type", "application/json")
 
 		resp, err := c.HTTPClient.Do(req)

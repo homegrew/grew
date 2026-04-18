@@ -289,11 +289,19 @@ func TestAtomicInstall_Overwrite(t *testing.T) {
 
 func TestHttpsGet_RejectsHTTP(t *testing.T) {
 	t.Parallel()
-	_, err := httpsGet("http://example.com", "text/plain")
+	_, err := httpsGet("ftp://github.com", "text/plain")
 	if err == nil {
-		t.Fatal("expected error for HTTP URL")
+		t.Fatal("expected error for FTP URL")
 	}
-	if !strings.Contains(err.Error(), "refusing non-HTTPS") {
+	if !strings.Contains(err.Error(), "refusing non-HTTP/HTTPS URL") {
+		t.Errorf("unexpected error: %v", err)
+	}
+
+	_, err = httpsGet("https://example.com", "text/plain")
+	if err == nil {
+		t.Fatal("expected error for unpermitted host")
+	}
+	if !strings.Contains(err.Error(), "is not permitted") {
 		t.Errorf("unexpected error: %v", err)
 	}
 }

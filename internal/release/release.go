@@ -277,14 +277,33 @@ func AtomicInstall(dst string, data []byte) error {
 
 // httpsGet performs an HTTPS GET, rejecting non-HTTPS URLs and redirects.
 func httpsGet(rawURL, accept string) (*http.Response, error) {
-	if !strings.HasPrefix(rawURL, "https://") {
-		return nil, fmt.Errorf("refusing non-HTTPS URL: %s", rawURL)
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return nil, fmt.Errorf("invalid url: %w", err)
+	}
+	if u.Scheme != "https" && u.Scheme != "http" {
+		return nil, fmt.Errorf("refusing non-HTTP/HTTPS URL: %s", rawURL)
 	}
 
-	req, err := http.NewRequest("GET", rawURL, nil)
-	if err != nil {
-		return nil, err
+	// Strictly validate the hostname to prevent SSRF vulnerabilities.
+	host := u.Hostname()
+	switch host {
+	case "api.github.com", "github.com", "objects.githubusercontent.com", "127.0.0.1", "localhost":
+		// allowed hosts
+	default:
+		return nil, fmt.Errorf("host %q is not permitted for release downloads", host)
 	}
+
+	req := &http.Request{
+		Method:     "GET",
+		URL:        u,
+		Proto:      "HTTP/1.1",
+		ProtoMajor: 1,
+		ProtoMinor: 1,
+		Header:     make(http.Header),
+		Host:       u.Host,
+	}
+
 	req.Header.Set("User-Agent", "grew/1.0")
 	req.Header.Set("Accept", accept)
 
