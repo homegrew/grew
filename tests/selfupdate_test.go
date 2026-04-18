@@ -4,6 +4,8 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -39,6 +41,11 @@ func makeGrewTarGz(t *testing.T, content string) []byte {
 	tw.Close()
 	gw.Close()
 	return buf.Bytes()
+}
+
+func computeSHA256(data []byte) string {
+	sum := sha256.Sum256(data)
+	return hex.EncodeToString(sum[:])
 }
 
 // setupMockGitHub creates an httptest.TLSServer mocking the GitHub API.
