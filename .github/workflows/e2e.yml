@@ -36,4 +36,4 @@ jobs:
         run: grew update
 
       - name: Install nano
-        run: grew install nano && nano -V || echo OK
+        run: grew install -v -d nano && nano -V || echo OK
