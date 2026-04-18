@@ -321,6 +321,7 @@ func isNotExist(err error) bool {
 
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
 func extractSymlink(realDest, target, linkname string) error {
+	slog.Debug(fmt.Sprintf("extractSymlink (v2) target: %s, linkname: %s", target, linkname))
 	linkname = sanitizeSymlinkTarget(linkname)
 	if linkname == "" {
 		return nil
