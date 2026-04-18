@@ -127,7 +127,11 @@ func runFormulaImport(args []string) {
 		for _, pm := range platforms {
 			for _, pref := range pm.prefs {
 				if f, ok := hf.Bottle.Stable.Files[pref]; ok {
-					bottleMap[pm.key] = formula.BottleSpec{URL: f.URL, SHA256: f.SHA256}
+					bottleMap[pm.key] = formula.BottleSpec{
+						URL:    f.URL,
+						SHA256: f.SHA256,
+						// Homebrew API currently only provides SHA-256.
+					}
 					break
 				}
 			}
