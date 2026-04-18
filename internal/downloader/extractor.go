@@ -321,7 +321,10 @@ func extractSymlink(realDest, target, linkname string) error {
 		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
 	}
 
-	candidateTarget := filepath.Clean(filepath.Join(resolvedParent, cleanLink))
+	candidateTarget, ok := safeJoinArchivePath(resolvedParent, cleanLink)
+	if !ok {
+		return fmt.Errorf("couldn't resolve target symlink %s", target)
+	}
 
 	// CodeQL-recognized Zip Slip guard:
 	destPrefix := filepath.Clean(realDest) + string(filepath.Separator)
