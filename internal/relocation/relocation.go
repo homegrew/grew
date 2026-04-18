@@ -129,7 +129,12 @@ func needsRelocation(kegPath string, replacements Replacements) bool {
 	found := false
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || found {
-			return filepath.SkipAll
+			// Don't SkipAll on error, just skip the problematic file.
+			// Only SkipAll if we already found what we needed.
+			if found {
+				return filepath.SkipAll
+			}
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() {
 			return nil
@@ -164,7 +169,10 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 	var foreign string
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || foreign != "" {
-			return filepath.SkipAll
+			if foreign != "" {
+				return filepath.SkipAll
+			}
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
 			return nil
