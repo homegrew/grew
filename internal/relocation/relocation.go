@@ -39,6 +39,16 @@ func BuildReplacements(kegPath, prefix string) Replacements {
 	r[PlaceholderPrefix] = prefix
 	r[PlaceholderCellar] = cellar
 
+	// Include standard Homebrew prefixes as sources for relocation.
+	// Many bottles have these hardcoded even if they are relocatable.
+	standardPrefixes := []string{"/opt/homebrew", "/usr/local"}
+	for _, sp := range standardPrefixes {
+		if sp != prefix {
+			r[sp] = prefix
+			r[filepath.Join(sp, "Cellar")] = cellar
+		}
+	}
+
 	// Also detect any real (non-placeholder) foreign prefix from the binaries.
 	if oldPrefix := detectForeignPrefix(kegPath, prefix); oldPrefix != "" {
 		oldCellar := filepath.Join(oldPrefix, "Cellar")
