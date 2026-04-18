@@ -24,7 +24,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y bubblewrap patchelf
 
       - name: Build with devmode
-        run: go build -v -tags devmode -o grew .
+        run: |
+          go generate ./...
+          go build -v -tags devmode -o grew .
+          ./grew --version
 
       - name: Setup (User-local)
         run: |
@@ -33,7 +36,7 @@ jobs:
           echo "$HOME/.homegrew/bin" >> $GITHUB_PATH
 
       - name: Update
-        run: grew update
+        run: which grew && grew update
 
       - name: Install nano
-        run: grew install -v -d nano && nano -V
+        run: which grew && grew install -v -d nano && which nano && nano -V
