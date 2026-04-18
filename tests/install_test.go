@@ -85,6 +85,12 @@ echo "I am dummybin 1.0"
 	}))
 	defer server.Close()
 
+	// Export the server's certificate so the testbin can trust it
+	certFile := filepath.Join(tmpDir, "server.crt")
+	if err := writeServerCert(server, certFile); err != nil {
+		t.Fatalf("failed to write server certificate: %v", err)
+	}
+
 	// Extract host without port from server.URL
 	serverHost := server.URL[strings.Index(server.URL, "://")+3:]
 	if colonIdx := strings.Index(serverHost, ":"); colonIdx != -1 {
@@ -150,6 +156,8 @@ install:
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
 	// Add the mock server to the allowed hosts for the downloader
 	env = append(env, "HOMEGREW_ALLOWED_HOSTS="+serverHost)
+	// Inject the trusted certificate
+	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
 
 	if err := cmdRun.Run(); err != nil {

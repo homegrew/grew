@@ -121,6 +121,12 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	mockServer := setupMockGitHub(t, "9.9.9")
 	defer mockServer.Close()
 
+	// Export the server's certificate so the testbin can trust it
+	certFile := filepath.Join(tmpDir, "server.crt")
+	if err := writeServerCert(mockServer, certFile); err != nil {
+		t.Fatalf("failed to write server certificate: %v", err)
+	}
+
 	// Create prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
 	binDir := filepath.Join(prefix, "bin")
@@ -144,6 +150,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	env := os.Environ()
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
 	
 	// The dummy binary will run, detect its path, and download the real grew binary
@@ -171,6 +178,12 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	mockServer := setupMockGitHub(t, "9.9.9")
 	defer mockServer.Close()
 
+	// Export the server's certificate so the testbin can trust it
+	certFile := filepath.Join(tmpDir, "server.crt")
+	if err := writeServerCert(mockServer, certFile); err != nil {
+		t.Fatalf("failed to write server certificate: %v", err)
+	}
+
 	// Create prefix structure
 	prefix := filepath.Join(tmpDir, "prefix")
 	binDir := filepath.Join(prefix, "bin")
@@ -194,6 +207,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	env := os.Environ()
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
 	
 	if err := cmdRun.Run(); err != nil {

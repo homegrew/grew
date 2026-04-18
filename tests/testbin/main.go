@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"net/http"
 	"os"
@@ -14,9 +15,26 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Globally skip TLS verification in the test binary so we can use
-	// httptest.NewTLSServer with self-signed certificates.
-	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	// If a test certificate is provided, append it to the system pool so we can
+	// strictly verify the mock TLS server without using InsecureSkipVerify.
+	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {
+		certPEM, err := os.ReadFile(certFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "failed to read test cert: %v\n", err)
+			os.Exit(1)
+		}
+		pool, err := x509.SystemCertPool()
+		if err != nil || pool == nil {
+			pool = x509.NewCertPool()
+		}
+		pool.AppendCertsFromPEM(certPEM)
+		
+		// Create a custom transport that uses the augmented root CA pool.
+		// We make a copy of the DefaultTransport to preserve its other settings (like proxies, timeouts).
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.TLSClientConfig = &tls.Config{RootCAs: pool}
+		http.DefaultTransport = transport
+	}
 
 	switch os.Args[1] {
 	case "run":
