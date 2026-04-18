@@ -89,7 +89,7 @@ func runReinstall(args []string) error {
 			}
 		}
 		// Remove any leftover staging/build dirs in tmp.
-		cleanTmpFor(ctx.Paths.Tmp, name)
+		cleanTmpFor(ctx.Paths.Root, ctx.Paths.Tmp, name)
 		slog.Info("zapped all versions and temp files for " + name)
 	} else if ctx.Cellar.IsInstalled(name) {
 		if err := ctx.Cellar.Uninstall(name); err != nil {
@@ -107,13 +107,25 @@ func runReinstall(args []string) error {
 }
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.
-func cleanTmpFor(tmpDir, name string) {
+func cleanTmpFor(rootDir, tmpDir, name string) {
+	baseRootDir, err := filepath.Abs(rootDir)
+	if err != nil {
+		return
+	}
+	baseRootDir = filepath.Clean(baseRootDir)
+	if err := safepath.SafeAbsolutePath(baseRootDir); err != nil {
+		return
+	}
+
 	baseTmpDir, err := filepath.Abs(tmpDir)
 	if err != nil {
 		return
 	}
 	baseTmpDir = filepath.Clean(baseTmpDir)
 	if err := safepath.SafeAbsolutePath(baseTmpDir); err != nil {
+		return
+	}
+	if _, err := safepath.CheckSubpath(baseRootDir, baseTmpDir); err != nil {
 		return
 	}
 
