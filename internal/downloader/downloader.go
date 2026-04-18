@@ -84,7 +84,13 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
 	tmpDir := filepath.Clean(d.TmpDir)
+	if abs, err := filepath.Abs(tmpDir); err == nil {
+		tmpDir = filepath.Clean(abs)
+	}
 	destPath := filepath.Clean(filepath.Join(tmpDir, filename))
+	if abs, err := filepath.Abs(destPath); err == nil {
+		destPath = filepath.Clean(abs)
+	}
 	if !safepath.IsSubpath(tmpDir, destPath) {
 		return "", fmt.Errorf("download path escapes temp directory")
 	}

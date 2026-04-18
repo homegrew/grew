@@ -275,9 +275,18 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	if err != nil {
 		return fmt.Errorf("download %s: %w", f.Name, err)
 	}
-	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
+	cleanTmp := filepath.Clean(paths.Tmp)
+	if abs, err := filepath.Abs(cleanTmp); err == nil {
+		cleanTmp = filepath.Clean(abs)
+	}
+	cleanLocalFile := filepath.Clean(localFile)
+	if abs, err := filepath.Abs(cleanLocalFile); err == nil {
+		cleanLocalFile = filepath.Clean(abs)
+	}
+	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
 		return fmt.Errorf("downloaded file path escapes tmp directory: %w", err)
 	}
+	localFile = cleanLocalFile
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
@@ -432,6 +441,9 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		return fmt.Errorf("resolve downloaded source path: %w", err)
 	}
 	localFile = filepath.Clean(localFile)
+	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
+		return fmt.Errorf("downloaded source path escapes temp directory after normalization: %w", err)
+	}
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, srcSHA256); err != nil {
