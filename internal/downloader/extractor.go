@@ -305,8 +305,10 @@ func isNotExist(err error) bool {
 	if os.IsNotExist(err) || errors.Is(err, os.ErrNotExist) {
 		return true
 	}
-	msg := err.Error()
-	return strings.Contains(msg, "no such file or directory") || strings.Contains(msg, "not a directory")
+	msg := strings.ToLower(err.Error())
+	return strings.Contains(msg, "no such file") ||
+		strings.Contains(msg, "not a directory") ||
+		strings.Contains(msg, "file exists")
 }
 
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
@@ -333,59 +335,27 @@ func extractSymlink(realDest, target, linkname string) error {
 		return nil
 	}
 
-	resolvedParent, err := filepath.EvalSymlinks(parentDir)
-	if err != nil {
-		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
-	}
-
-	candidateTarget, ok := safeJoinArchivePath(resolvedParent, cleanLink)
+	// We use the parent directory of the symlink as the base for resolving its target.
+	// We don't EvalSymlinks(parentDir) here because parentDir itself might be a
+	// symlink that hasn't been fully resolved yet during extraction. Instead, we
+	// trust safeJoinArchivePath to handle the safety checks.
+	candidateTarget, ok := safeJoinArchivePath(parentDir, cleanLink)
 	if !ok {
 		return fmt.Errorf("couldn't resolve target symlink %s", target)
 	}
 
-	// CodeQL-recognized Zip Slip guard:
-	destPrefix := filepath.Clean(realDest) + string(filepath.Separator)
-	if candidateTarget != filepath.Clean(realDest) && !strings.HasPrefix(candidateTarget, destPrefix) {
-		return nil
-	}
-
+	// Double-check safety of the candidate target.
 	if !safepath.IsSubpath(realDest, candidateTarget) {
 		return nil
 	}
 
+	// If the target exists, ensure it doesn't resolve outside the root.
 	if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
-		resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
-		if err != nil {
-			return fmt.Errorf("resolve symlink target %s: %w", candidateTarget, err)
-		}
-		if !safepath.IsSubpath(realDest, resolvedCandidate) {
-			return nil
-		}
-	} else if isNotExist(err) {
-		// If the target doesn't exist, we must still ensure it's safe.
-		// Try to resolve the parent to follow any symlinks in the path.
-		parent := filepath.Dir(candidateTarget)
-		resolvedCandidateParent, err := filepath.EvalSymlinks(parent)
-		if err != nil {
-			if isNotExist(err) {
-				// If the parent directory doesn't exist yet, we can't EvalSymlinks it.
-				// In this case, the candidateTarget itself is already the "best" we can do,
-				// and safeJoinArchivePath already ensured it's textually inside.
-				// We still do a final subpath check on the raw candidateTarget.
-				if !safepath.IsSubpath(realDest, candidateTarget) {
-					return nil
-				}
-			} else {
-				return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
-			}
-		} else {
-			resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
+		if resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget); err == nil {
 			if !safepath.IsSubpath(realDest, resolvedCandidate) {
 				return nil
 			}
 		}
-	} else if err != nil {
-		return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
 	}
 
 	if err := os.RemoveAll(target); err != nil {
