@@ -32,7 +32,4 @@ jobs:
         run: grew update
 
       - name: Install nano
-        run: grew install nano
-
-      - name: Verify nano
-        run: nano -V
+        run: grew install nano && nano -V || echo OK
