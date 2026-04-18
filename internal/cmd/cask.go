@@ -102,6 +102,11 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	slog.Info("expected SHA256: " + sha)
 
+	sha512 := c.GetSHA512()
+	if sha512 != "" {
+		slog.Info("expected SHA512: " + sha512)
+	}
+
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
 	// Ensure the constructed filename is a single safe path component.
@@ -120,6 +125,14 @@ func caskInstall(name string, noQuarantine bool) error {
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
+
+	if sha512 != "" {
+		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
+			_ = removeIfWithin(localFile, paths.Tmp)
+			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
+		}
+		fmt.Printf("==> SHA512 verified\n")
+	}
 
 	// Extract archive to staging
 	if err := safepath.SafePathComponent(c.Name); err != nil {

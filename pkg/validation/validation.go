@@ -39,3 +39,15 @@ func ValidateSHA256(s string) error {
 	}
 	return nil
 }
+
+// ValidateSHA512 checks that s is a valid 128-character hex-encoded SHA512 string.
+// It returns an error if the string length is incorrect or if it contains invalid hex characters.
+func ValidateSHA512(s string) error {
+	if len(s) != 128 {
+		return fmt.Errorf("must be 128 hex characters, got %d", len(s))
+	}
+	if _, err := hex.DecodeString(s); err != nil {
+		return fmt.Errorf("invalid hex: %w", err)
+	}
+	return nil
+}

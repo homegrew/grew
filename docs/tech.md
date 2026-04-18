@@ -18,7 +18,7 @@ Because `grew` manages dependencies and system environments, its initial install
 
 ## 2. How the update process works
 
-`grew`'s self-update mechanism (`grew selfupdate`) is designed to atomically replace the running binary without leaving the package manager in a broken state.
+`grew`'s self-update mechanism (`grew selfupdate`) is designed to atomically replace the running binary without leaving the package manager in a broken state. It prioritizes security and efficiency through a multi-layered verification process.
 
 The update strategy diverges based on how `grew` was initially set up:
 
@@ -30,15 +30,43 @@ If a valid git repository exists at `<prefix>/Grew` (created during `setup`), th
 4. It executes `go build -o <prefix>/bin/grew .` inside the repository.
 5. The executable is atomically replaced.
 
-**Release-Based Updates (Fallback Strategy)**
-If the source repository does not exist, `grew` falls back to fetching a pre-compiled binary:
-1. `grew` hits the `https://api.github.com/repos/homegrew/grew/releases` endpoint to identify the latest stable tag.
-2. It downloads the platform-specific release asset and its corresponding `checksums.txt`.
-3. It validates the SHA256 checksum of the downloaded archive.
-4. It extracts the new executable into a temporary file in the prefix.
-5. `grew` uses `os.Rename` to atomically overwrite its currently running executable (`<prefix>/bin/grew`) with the new version.
+**Release-Based Updates (Fallback & Binary Patching)**
+If the source repository does not exist, `grew` attempts an optimized binary update:
 
-## 3. Developer Mode (`devmode`) Explained
+1. **Discovery & Vulnerability Check**:
+   - `grew` queries the GitHub API for the latest stable release.
+   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
+
+2. **Binary Patching (Delta Update)**:
+   - `grew` searches for a binary patch asset (e.g., `grew_v0.1.0_to_v0.2.0.patch`).
+   - If a patch is found and `bspatch` is available on the system, only the delta is downloaded.
+   - The patch is applied to the current executable to generate the new version locally.
+   - The resulting binary is verified against a `binary-checksums.txt` file provided in the release.
+
+3. **Full Download Fallback**:
+   - If no patch is available or patching fails, `grew` falls back to downloading the full platform-specific archive (e.g., `grew_Darwin_arm64.tar.gz`).
+   - The archive is extracted, and the binary is staged.
+
+4. **Cryptographic Integrity**:
+   - `grew` performs **Dual-Hash Verification**: all downloaded assets and the final binary are verified against both **SHA-256** and **SHA-512** hashes (if provided in the release metadata). This protects against supply-chain attacks targeting a single algorithm.
+
+5. **Pre-Replacement Health Check**:
+   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command. This verifies the binary is structurally sound, runs on the host OS, and is functionally operational before it replaces the current version.
+
+6. **Atomic Replacement**:
+   - The final, verified binary is moved to `<prefix>/bin/grew` using an atomic rename operation.
+
+## 3. Repository Maintenance Tools
+
+The `homegrew/grew` repository includes tools for maintaining the formula and cask ecosystem:
+
+### `grew-genrepo`
+A unified tool used to bootstrap and maintain the core formula and cask repositories by importing definitions from the Homebrew JSON API.
+- **Formula Import**: Fetches Homebrew formulas, maps platforms, picks appropriate bottles, and generates `grew`-compatible YAML files.
+- **Cask Import**: Fetches Homebrew casks, extracts macOS-specific app/binary artifacts, and converts them into `grew` YAML format.
+- **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards.
+
+## 4. Developer Mode (`devmode`) Explained
 
 Typically, `grew` requires root privileges (`sudo grew setup`) during initial setup to create system-level prefix directories (like `/opt/homegrew`), establishing a strict isolation boundary between the package manager and the user's `$HOME` directory.
 

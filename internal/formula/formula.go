@@ -13,12 +13,14 @@ import (
 type SourceSpec struct {
 	URL       string `yaml:"url"`
 	SHA256    string `yaml:"sha256"`
+	SHA512    string `yaml:"sha512"`
 	Signature string `yaml:"signature"`
 }
 
 type BottleSpec struct {
 	URL       string `yaml:"url"`
 	SHA256    string `yaml:"sha256"`
+	SHA512    string `yaml:"sha512"`
 	Signature string `yaml:"signature"`
 }
 
@@ -35,9 +37,11 @@ type Formula struct {
 	License      string            `yaml:"license"`
 	URL          map[string]string `yaml:"url"`
 	SHA256       map[string]string `yaml:"sha256"`
+	SHA512       map[string]string `yaml:"sha512"`
 	Signature    map[string]string `yaml:"signature"`
 	SourceURL    string            `yaml:"source_url"`
 	SourceSHA256 string            `yaml:"source_sha256"`
+	SourceSHA512 string            `yaml:"source_sha512"`
 	Install      InstallSpec       `yaml:"install"`
 	PostInstall  string            `yaml:"post_install"`
 	Dependencies []string          `yaml:"dependencies"`
@@ -128,6 +132,13 @@ func (f *Formula) GetSourceSHA256() (string, error) {
 	return f.SourceSHA256, nil
 }
 
+func (f *Formula) GetSourceSHA512() string {
+	if f.Source.SHA512 != "" {
+		return f.Source.SHA512
+	}
+	return f.SourceSHA512
+}
+
 func (f *Formula) GetSHA256() (string, error) {
 	key := PlatformKey()
 	// New format support
@@ -148,6 +159,16 @@ func (f *Formula) GetSHA256() (string, error) {
 		return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
 	}
 	return s, nil
+}
+
+func (f *Formula) GetSHA512() string {
+	key := PlatformKey()
+	if len(f.Bottle) > 0 {
+		if b, ok := f.Bottle[key]; ok {
+			return b.SHA512
+		}
+	}
+	return f.SHA512[key]
 }
 
 // GetSignature returns the bottle signature for the current platform, or ""

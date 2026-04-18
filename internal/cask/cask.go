@@ -18,6 +18,7 @@ import (
 type SourceSpec struct {
 	URL    string `yaml:"url"`
 	SHA256 string `yaml:"sha256"`
+	SHA512 string `yaml:"sha512"`
 }
 
 // Cask represents a macOS application package definition.
@@ -29,6 +30,7 @@ type Cask struct {
 	License     string            `yaml:"license"`
 	URL         map[string]string `yaml:"url"`
 	SHA256      map[string]string `yaml:"sha256"`
+	SHA512      map[string]string `yaml:"sha512"`
 	Artifacts   Artifacts         `yaml:"artifacts"`
 	Source      SourceSpec        `yaml:"source"`
 }
@@ -63,13 +65,15 @@ func (c *Cask) GetSHA256() (string, error) {
 	if !ok {
 		return "", fmt.Errorf("cask %q has no SHA256 for platform %s", c.Name, key)
 	}
-	if len(s) != 64 {
-		return "", fmt.Errorf("cask %q: SHA256 for %s must be 64 hex characters, got %d", c.Name, key, len(s))
-	}
-	if _, err := hex.DecodeString(s); err != nil {
-		return "", fmt.Errorf("cask %q: invalid SHA256 hex for %s: %w", c.Name, key, err)
+	if err := validation.ValidateSHA256(s); err != nil {
+		return "", fmt.Errorf("cask %q: invalid SHA256 for %s: %w", c.Name, key, err)
 	}
 	return s, nil
+}
+
+func (c *Cask) GetSHA512() string {
+	key := PlatformKey()
+	return c.SHA512[key]
 }
 
 func (c *Cask) Validate() error {
@@ -91,6 +95,19 @@ func (c *Cask) Validate() error {
 	for platform, u := range c.URL {
 		if !strings.HasPrefix(u, "https://") {
 			return fmt.Errorf("cask %q: URL for %s must use HTTPS: %s", c.Name, platform, u)
+		}
+	}
+	for platform, hash := range c.SHA256 {
+		if err := validation.ValidateSHA256(hash); err != nil {
+			return fmt.Errorf("cask %q: invalid SHA256 for %s: %w", c.Name, platform, err)
+		}
+	}
+	for platform, hash := range c.SHA512 {
+		if len(hash) != 128 {
+			return fmt.Errorf("cask %q: SHA512 for %s must be 128 hex characters, got %d", c.Name, platform, len(hash))
+		}
+		if _, err := hex.DecodeString(hash); err != nil {
+			return fmt.Errorf("cask %q: invalid SHA512 hex for %s: %w", c.Name, platform, err)
 		}
 	}
 	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {

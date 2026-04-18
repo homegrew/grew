@@ -156,9 +156,21 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			r.errorf("sha256 for %s: %v", platform, err)
 		}
 	}
+	for platform, hash := range f.SHA512 {
+		if err := validation.ValidateSHA512(hash); err != nil {
+			r.errorf("sha512 for %s: %v", platform, err)
+		}
+	}
 	for platform, b := range f.Bottle {
 		if err := validation.ValidateSHA256(b.SHA256); err != nil {
 			r.errorf("bottle sha256 for %s: %v", platform, err)
+		}
+		if b.SHA512 != "" {
+			if err := validation.ValidateSHA512(b.SHA512); err != nil {
+				r.errorf("bottle sha512 for %s: %v", platform, err)
+			}
+		} else {
+			r.warnf("bottle for %s missing sha512", platform)
 		}
 	}
 	if f.Source.SHA256 != "" {
@@ -166,9 +178,19 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			r.errorf("source sha256: %v", err)
 		}
 	}
+	if f.Source.SHA512 != "" {
+		if err := validation.ValidateSHA512(f.Source.SHA512); err != nil {
+			r.errorf("source sha512: %v", err)
+		}
+	}
 	if f.SourceSHA256 != "" {
 		if err := validation.ValidateSHA256(f.SourceSHA256); err != nil {
 			r.errorf("source_sha256: %v", err)
+		}
+	}
+	if f.SourceSHA512 != "" {
+		if err := validation.ValidateSHA512(f.SourceSHA512); err != nil {
+			r.errorf("source_sha512: %v", err)
 		}
 	}
 
@@ -331,6 +353,14 @@ func auditCask(c *cask.Cask) *auditResult {
 	for platform, hash := range c.SHA256 {
 		if err := validation.ValidateSHA256(hash); err != nil {
 			r.errorf("sha256 for %s: %v", platform, err)
+		}
+		if _, ok := c.SHA512[platform]; !ok {
+			r.warnf("cask missing sha512 for %s", platform)
+		}
+	}
+	for platform, hash := range c.SHA512 {
+		if err := validation.ValidateSHA512(hash); err != nil {
+			r.errorf("sha512 for %s: %v", platform, err)
 		}
 	}
 

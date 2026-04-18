@@ -172,13 +172,16 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 		}
 
 		dlURL := ""
-		sha := ""
+		sha256 := ""
+		sha512 := ""
 		if method == "source" {
 			dlURL, _ = f.GetSourceURL()
-			sha, _ = f.GetSourceSHA256()
+			sha256, _ = f.GetSourceSHA256()
+			sha512 = f.GetSourceSHA512()
 		} else {
 			dlURL, _ = f.GetURL()
-			sha, _ = f.GetSHA256()
+			sha256, _ = f.GetSHA256()
+			sha512 = f.GetSHA512()
 		}
 
 		action := "install"
@@ -192,8 +195,11 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 			if dlURL != "" {
 				fmt.Printf("            url:    %s\n", dlURL)
 			}
-			if sha != "" {
-				fmt.Printf("            sha256: %s\n", sha)
+			if sha256 != "" {
+				fmt.Printf("            sha256: %s\n", sha256)
+			}
+			if sha512 != "" {
+				fmt.Printf("            sha512: %s\n", sha512)
 			}
 			kegPath, _ := ctx.Cellar.KegPath(f.Name, f.Version)
 			fmt.Printf("            keg:    %s\n", kegPath)
@@ -235,11 +241,16 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	slog.Info("URL: " + dlURL)
 
-	sha, err := f.GetSHA256()
+	sha256, err := f.GetSHA256()
 	if err != nil {
 		return err
 	}
-	slog.Info("expected SHA256: " + sha)
+	sha512 := f.GetSHA512()
+
+	slog.Info("expected SHA256: " + sha256)
+	if sha512 != "" {
+		slog.Info("expected SHA512: " + sha512)
+	}
 
 	// Validate formula-derived identifiers before using them in filesystem paths.
 	if err := safepath.SafePathComponent(f.Name); err != nil {
@@ -263,13 +274,19 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	slog.Info("saved to: " + localFile)
 
-	if err := downloader.VerifySHA256(localFile, sha); err != nil {
+	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
 		os.Remove(localFile)
-		return fmt.Errorf("verify %s: %w", f.Name, err)
+		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Printf("==> SHA256 verified\n")
+	if sha512 != "" {
+		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
+			os.Remove(localFile)
+			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
+		}
+	}
+	fmt.Printf("==> Integrity verified\n")
 
-	if err := verifySignature(f.Name, sha, f.GetSignature(), paths.Root); err != nil {
+	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
 		os.Remove(localFile)
 		return err
 	}
@@ -322,7 +339,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	meta := snapshot.InstallMeta{
 		Platform:           formula.PlatformKey(),
 		DownloadURL:        dlURL,
-		DownloadSHA256:     sha,
+		DownloadSHA256:     sha256,
 		Dependencies:       f.Dependencies,
 		InstalledOnRequest: opts.installedOnRequest,
 		BuiltFromSource:    false,
@@ -345,7 +362,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	if ctx.AuditLog != nil {
-		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, sha, "bottle")
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, sha256, "bottle")
 	}
 
 	if f.KegOnly {
@@ -379,11 +396,16 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	slog.Info("source URL: " + srcURL)
 
-	srcSHA, err := f.GetSourceSHA256()
+	srcSHA256, err := f.GetSourceSHA256()
 	if err != nil {
 		return err
 	}
-	slog.Info("expected SHA256: " + srcSHA)
+	srcSHA512 := f.GetSourceSHA512()
+
+	slog.Info("expected SHA256: " + srcSHA256)
+	if srcSHA512 != "" {
+		slog.Info("expected SHA512: " + srcSHA512)
+	}
 
 	ext := urlExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
@@ -393,13 +415,19 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	slog.Info("saved to: " + localFile)
 
-	if err := downloader.VerifySHA256(localFile, srcSHA); err != nil {
+	if err := downloader.VerifySHA256(localFile, srcSHA256); err != nil {
 		os.Remove(localFile)
-		return fmt.Errorf("verify source %s: %w", f.Name, err)
+		return fmt.Errorf("verify source %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Printf("==> SHA256 verified\n")
+	if srcSHA512 != "" {
+		if err := downloader.VerifySHA512(localFile, srcSHA512); err != nil {
+			os.Remove(localFile)
+			return fmt.Errorf("verify source %s (SHA512): %w", f.Name, err)
+		}
+	}
+	fmt.Printf("==> Integrity verified\n")
 
-	if err := verifySignature(f.Name, srcSHA, f.GetSourceSignature(), paths.Root); err != nil {
+	if err := verifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
 		os.Remove(localFile)
 		return err
 	}
@@ -501,7 +529,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	if ctx.AuditLog != nil {
-		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, srcSHA, "source")
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, srcSHA256, "source")
 	}
 
 	if f.KegOnly {

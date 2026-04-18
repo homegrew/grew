@@ -15,6 +15,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
@@ -37,14 +38,11 @@ type doctorCtx struct {
 	lnk      *linker.Linker
 	loader   *formula.Loader
 	formulas []*formula.Formula
+	casks    []*cask.Cask
 	packages []cellar.InstalledPackage
 	warnings int
 	quiet    bool
-}
-
-func (ctx *doctorCtx) warn(format string, args ...any) {
-	ctx.warnings++
-	fmt.Printf("Warning: "+format+"\n", args...)
+	warn     func(format string, args ...any)
 }
 
 // extraChecks holds platform-specific checks registered via init().
@@ -64,6 +62,9 @@ func allChecks() []doctorCheck {
 		{"check_directory_permissions", "Check grew directories are not world-writable", checkDirectoryPermissions},
 		{"check_formula_https", "Check all formula URLs use HTTPS", checkFormulaHTTPS},
 		{"check_formula_sha256", "Check all formula SHA256 hashes are valid hex", checkFormulaSHA256},
+		{"check_formula_sha512", "Check all formula SHA512 hashes are valid hex", checkFormulaSHA512},
+		{"check_cask_sha256", "Check all cask SHA256 hashes are valid hex", checkCaskSHA256},
+		{"check_cask_sha512", "Check all cask SHA512 hashes are valid hex", checkCaskSHA512},
 		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
 		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
 		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
@@ -138,6 +139,9 @@ func runDoctor(args []string) error {
 	loader := newLoader(paths.Taps)
 	formulas, _ := loader.LoadAll()
 
+	caskLoader := &cask.Loader{TapDir: paths.Taps}
+	casks, _ := caskLoader.LoadAll()
+
 	cel := &cellar.Cellar{Path: paths.Cellar}
 	lnk := &linker.Linker{Paths: paths}
 	packages, _ := cel.List()
@@ -148,8 +152,13 @@ func runDoctor(args []string) error {
 		lnk:      lnk,
 		loader:   loader,
 		formulas: formulas,
+		casks:    casks,
 		packages: packages,
 		quiet:    *quiet,
+	}
+	ctx.warn = func(format string, args ...any) {
+		ctx.warnings++
+		fmt.Printf("Warning: "+format+"\n", args...)
 	}
 
 	if !*quiet {
@@ -267,6 +276,90 @@ func checkFormulaSHA256(ctx *doctorCtx) {
 	}
 }
 
+func checkFormulaSHA512(ctx *doctorCtx) {
+	for _, f := range ctx.formulas {
+		if len(f.SHA512) == 0 && len(f.Bottle) == 0 {
+			// Only warn if SHA256 is present but SHA512 is not.
+			if len(f.SHA256) > 0 {
+				ctx.warn("formula %s: missing SHA512 metadata", f.Name)
+			}
+			continue
+		}
+
+		for platform, hash := range f.SHA512 {
+			if len(hash) != 128 {
+				ctx.warn("formula %s: SHA512 for %s has wrong length (%d, expected 128)", f.Name, platform, len(hash))
+				continue
+			}
+			for _, c := range hash {
+				if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+					ctx.warn("formula %s: SHA512 for %s contains non-hex character %q", f.Name, platform, string(c))
+					break
+				}
+			}
+		}
+
+		for platform, b := range f.Bottle {
+			if b.SHA512 == "" {
+				ctx.warn("formula %s: bottle for %s missing SHA512", f.Name, platform)
+				continue
+			}
+			if len(b.SHA512) != 128 {
+				ctx.warn("formula %s: bottle SHA512 for %s has wrong length (%d, expected 128)", f.Name, platform, len(b.SHA512))
+				continue
+			}
+			for _, c := range b.SHA512 {
+				if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+					ctx.warn("formula %s: bottle SHA512 for %s contains non-hex character %q", f.Name, platform, string(c))
+					break
+				}
+			}
+		}
+	}
+}
+
+func checkCaskSHA256(ctx *doctorCtx) {
+	for _, c := range ctx.casks {
+		for platform, hash := range c.SHA256 {
+			if len(hash) != 64 {
+				ctx.warn("cask %s: SHA256 for %s has wrong length (%d, expected 64)", c.Name, platform, len(hash))
+				continue
+			}
+			for _, char := range hash {
+				if !((char >= '0' && char <= '9') || (char >= 'a' && char <= 'f') || (char >= 'A' && char <= 'F')) {
+					ctx.warn("cask %s: SHA256 for %s contains non-hex character %q", c.Name, platform, string(char))
+					break
+				}
+			}
+		}
+	}
+}
+
+func checkCaskSHA512(ctx *doctorCtx) {
+	for _, c := range ctx.casks {
+		if len(c.SHA512) == 0 {
+			// Only warn if SHA256 is present but SHA512 is not.
+			if len(c.SHA256) > 0 {
+				ctx.warn("cask %s: missing SHA512 metadata", c.Name)
+			}
+			continue
+		}
+
+		for platform, hash := range c.SHA512 {
+			if len(hash) != 128 {
+				ctx.warn("cask %s: SHA512 for %s has wrong length (%d, expected 128)", c.Name, platform, len(hash))
+				continue
+			}
+			for _, char := range hash {
+				if !((char >= '0' && char <= '9') || (char >= 'a' && char <= 'f') || (char >= 'A' && char <= 'F')) {
+					ctx.warn("cask %s: SHA512 for %s contains non-hex character %q", c.Name, platform, string(char))
+					break
+				}
+			}
+		}
+	}
+}
+
 func checkSymlinkTargets(ctx *doctorCtx) {
 	absPrefix, err := filepath.Abs(ctx.paths.Root)
 	if err != nil {
@@ -337,6 +430,12 @@ func checkSnapshotIntegrity(ctx *doctorCtx) {
 		}
 		for _, f := range result.Added {
 			ctx.warn("%s %s: unexpected file: %s", pkg.Name, pkg.Version, f)
+		}
+		if result.KegSHA256Mismatch {
+			ctx.warn("%s %s: aggregate SHA256 mismatch", pkg.Name, pkg.Version)
+		}
+		if result.KegSHA512Mismatch {
+			ctx.warn("%s %s: aggregate SHA512 mismatch", pkg.Name, pkg.Version)
 		}
 		for _, e := range result.Errors {
 			ctx.warn("%s %s: %s", pkg.Name, pkg.Version, e)
