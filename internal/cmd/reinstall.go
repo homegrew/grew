@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func runReinstall(args []string) error {
@@ -54,9 +55,19 @@ func runReinstall(args []string) error {
 		// Remove all installed versions of this formula.
 		versions, _ := ctx.Cellar.InstalledVersions(name)
 		for _, ver := range versions {
-			kegPath, _ := ctx.Cellar.KegPath(name, ver)
+			kegPath, err := ctx.Cellar.KegPath(name, ver)
+			if err != nil {
+				slog.Warn(fmt.Sprintf("skipping invalid keg path for %s %s: %v", name, ver, err))
+				continue
+			}
+			if err := safepath.CheckSubpath(ctx.Cellar.Path, kegPath); err != nil {
+				slog.Warn(fmt.Sprintf("skipping unsafe keg path for %s %s: %v", name, ver, err))
+				continue
+			}
 			slog.Info(fmt.Sprintf("removing %s %s", name, ver))
-			os.RemoveAll(kegPath)
+			if err := os.RemoveAll(kegPath); err != nil {
+				slog.Warn(fmt.Sprintf("failed removing %s: %v", kegPath, err))
+			}
 		}
 		// Remove any leftover staging/build dirs in tmp.
 		cleanTmpFor(ctx.Paths.Tmp, name)
