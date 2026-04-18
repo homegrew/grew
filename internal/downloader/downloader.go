@@ -99,6 +99,30 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
+	// Defense-in-depth: enforce subpath constraint again at sink boundary.
+	if err := safepath.CheckSubpath(tmpDir, sinkPath); err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
+
+	// Canonicalize paths (resolve symlinks) before filesystem operations.
+	// This prevents writes outside tmpDir through symlinked parent directories.
+	canonTmpDir, err := filepath.EvalSymlinks(tmpDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve temp directory %s: %w", tmpDir, err)
+	}
+	canonTmpDir = filepath.Clean(canonTmpDir)
+
+	sinkDir := filepath.Dir(sinkPath)
+	canonSinkDir, err := filepath.EvalSymlinks(sinkDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve download directory %s: %w", sinkDir, err)
+	}
+	canonSinkDir = filepath.Clean(canonSinkDir)
+
+	sinkPath = filepath.Join(canonSinkDir, filepath.Base(sinkPath))
+	if err := safepath.CheckSubpath(canonTmpDir, sinkPath); err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
 
 	// Build the request from the reconstructed url.URL, not the raw input.
 	req := &http.Request{
@@ -139,14 +163,11 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		if fi.IsDir() {
 			return "", fmt.Errorf("prepare download path %s: destination is a directory", sinkPath)
 		}
-		if err := os.Remove(sinkPath); err != nil {
-			return "", fmt.Errorf("prepare download path %s: %w", sinkPath, err)
-		}
 	} else if !os.IsNotExist(err) {
 		return "", fmt.Errorf("prepare download path %s: %w", sinkPath, err)
 	}
 
-	out, err := os.Create(sinkPath)
+	out, err := os.OpenFile(sinkPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
 	if err != nil {
 		return "", fmt.Errorf("create file %s: %w", sinkPath, err)
 	}
