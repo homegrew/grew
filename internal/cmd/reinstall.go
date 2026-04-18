@@ -54,19 +54,38 @@ func runReinstall(args []string) error {
 	if *zap {
 		// Remove all installed versions of this formula.
 		versions, _ := ctx.Cellar.InstalledVersions(name)
+
+		resolvedCellarBase, err := filepath.EvalSymlinks(ctx.Cellar.Path)
+		if err != nil {
+			if resolvedCellarBase, err = filepath.Abs(ctx.Cellar.Path); err != nil {
+				return fmt.Errorf("resolve cellar path: %w", err)
+			}
+		}
+		resolvedCellarBase = filepath.Clean(resolvedCellarBase)
+
 		for _, ver := range versions {
 			kegPath, err := ctx.Cellar.KegPath(name, ver)
 			if err != nil {
 				slog.Warn(fmt.Sprintf("skipping invalid keg path for %s %s: %v", name, ver, err))
 				continue
 			}
-			if err := safepath.CheckSubpath(ctx.Cellar.Path, kegPath); err != nil {
+
+			resolvedKegPath, err := filepath.EvalSymlinks(kegPath)
+			if err != nil {
+				if resolvedKegPath, err = filepath.Abs(kegPath); err != nil {
+					slog.Warn(fmt.Sprintf("skipping unresolved keg path for %s %s: %v", name, ver, err))
+					continue
+				}
+			}
+			resolvedKegPath = filepath.Clean(resolvedKegPath)
+
+			if err := safepath.CheckSubpath(resolvedCellarBase, resolvedKegPath); err != nil {
 				slog.Warn(fmt.Sprintf("skipping unsafe keg path for %s %s: %v", name, ver, err))
 				continue
 			}
 			slog.Info(fmt.Sprintf("removing %s %s", name, ver))
-			if err := os.RemoveAll(kegPath); err != nil {
-				slog.Warn(fmt.Sprintf("failed removing %s: %v", kegPath, err))
+			if err := os.RemoveAll(resolvedKegPath); err != nil {
+				slog.Warn(fmt.Sprintf("failed removing %s: %v", resolvedKegPath, err))
 			}
 		}
 		// Remove any leftover staging/build dirs in tmp.
