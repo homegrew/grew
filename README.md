@@ -86,6 +86,8 @@ That's it. No dark rituals. No 47-step setup guide.
 
 ## 📖 Usage
 
+For an in-depth look at how `grew` installs itself, its self-update mechanism, and the developer mode, check out the [Architecture & Technical Details](docs/tech.md).
+
 ```bash
 grew install jq              # the classic
 grew install -s ldns         # build from source, like a purist
