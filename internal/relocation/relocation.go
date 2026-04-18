@@ -114,7 +114,8 @@ func RelocateKeg(kegPath, prefix string) error {
 			isMisidentified := strings.Contains(msg, "not a mach-o") ||
 				strings.Contains(msg, "not an elf") ||
 				strings.Contains(msg, "invalid elf") ||
-				strings.Contains(msg, "too small")
+				strings.Contains(msg, "too small") ||
+				strings.Contains(msg, "exit status 1")
 
 			if !isMisidentified {
 				failed++
@@ -304,14 +305,15 @@ func isBinary(path string) bool {
 		// Java .class files have magic 0xCAFEBABE, then 2 bytes minor, 2 bytes major.
 		// Mach-O Fat binaries have magic 0xCAFEBABE, then 4 bytes big-endian number of architectures.
 		// On modern macOS, major version is usually > 40.
-		// To be safe, we also check if it's a "Fat" Mach-O by verifying narchs < 100.
 		if n < 8 {
 			return false
 		}
 		narchs := uint32(magic[4])<<24 | uint32(magic[5])<<16 | uint32(magic[6])<<8 | uint32(magic[7])
-		// Reasonable Mach-O Fat binaries have few architectures (usually 1-4).
-		// Java class files have major/minor versions which usually result in large narchs.
-		return narchs > 0 && narchs < 100
+		// Reasonable Mach-O Fat binaries have very few architectures (usually 2, maybe 3-4).
+		// Java class files compiled for Java 1.5 have major version 49, minor 0.
+		// 0x00 0x00 0x00 0x31 -> 49.
+		// So we limit narchs to < 20 to safely avoid Java class files.
+		return narchs > 0 && narchs < 20
 	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
 		return true
 	}
