@@ -45,7 +45,7 @@ func Run(args []string) error {
 	}
 
 	commands := map[string]func([]string) error{
-		"install":      runInstall,
+		"install":      RunInstall,
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
 		"list":         runList,

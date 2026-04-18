@@ -22,7 +22,7 @@ import (
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
-func runInstall(args []string) error {
+func RunInstall(args []string) error {
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
