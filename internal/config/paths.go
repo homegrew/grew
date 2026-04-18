@@ -40,8 +40,16 @@ func DefaultPrefix() string {
 
 	if env := os.Getenv("HOMEGREW_PREFIX"); env != "" {
 		// Only accept absolute, well-formed prefixes from the environment.
-		if err := safepath.SafeAbsolutePath(env); err == nil {
-			prefix = env
+		// We resolve and clean the path first to allow valid-but-unclean values (e.g. trailing slashes).
+		if abs, err := filepath.Abs(env); err == nil {
+			clean := filepath.Clean(abs)
+			if err := safepath.SafeAbsolutePath(clean); err == nil {
+				prefix = clean
+			} else {
+				slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
+			}
+		} else {
+			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
 		}
 	}
 
