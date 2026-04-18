@@ -116,6 +116,20 @@ func relocateBinary(path string, replacements Replacements) error {
 
 	args = append(args, path)
 	slog.Debug(fmt.Sprintf("relocation: patchelf %s", strings.Join(args, " ")))
+
+	// patchelf modifies the binary in place. Ensure it is writable.
+	info, err := os.Stat(path)
+	if err != nil {
+		return fmt.Errorf("stat: %w", err)
+	}
+	originalMode := info.Mode()
+	if originalMode&0200 == 0 {
+		if err := os.Chmod(path, originalMode|0200); err != nil {
+			return fmt.Errorf("make writable: %w", err)
+		}
+		defer os.Chmod(path, originalMode)
+	}
+
 	if out, err := exec.Command(patchelf, args...).CombinedOutput(); err != nil {
 		return fmt.Errorf("patchelf: %w\n%s", err, string(out))
 	}
