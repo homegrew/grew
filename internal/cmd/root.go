@@ -1,8 +1,12 @@
 package cmd
 
 import (
+	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"log/slog"
+	"net/http"
+	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -11,9 +15,33 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 )
+
+func init() {
+	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_TEST_CERT_FILE requires devmode build\n")
+			os.Exit(1)
+		}
+		certPEM, err := os.ReadFile(certFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "failed to read test cert: %v\n", err)
+			os.Exit(1)
+		}
+		pool, err := x509.SystemCertPool()
+		if err != nil || pool == nil {
+			pool = x509.NewCertPool()
+		}
+		pool.AppendCertsFromPEM(certPEM)
+
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.TLSClientConfig = &tls.Config{RootCAs: pool}
+		http.DefaultTransport = transport
+	}
+}
 
 func Run(args []string) error {
 	// Strip global flags (verbose, debug) before dispatch — they can

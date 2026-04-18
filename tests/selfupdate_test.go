@@ -136,7 +136,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary from testbin
-	cmdBuild := exec.Command("go", "build", "-o", exePath, "./testbin/main.go")
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, "./testbin/main.go")
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr
 	if err := cmdBuild.Run(); err != nil {
@@ -193,7 +193,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary
-	cmdBuild := exec.Command("go", "build", "-o", exePath, "./testbin/main.go")
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, "./testbin/main.go")
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr
 	if err := cmdBuild.Run(); err != nil {
