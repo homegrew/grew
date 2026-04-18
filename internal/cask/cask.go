@@ -1,7 +1,6 @@
 package cask
 
 import (
-	"encoding/hex"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -71,6 +70,7 @@ func (c *Cask) GetSHA256() (string, error) {
 	return s, nil
 }
 
+// GetSHA512 returns the SHA512 checksum for the current platform.
 func (c *Cask) GetSHA512() string {
 	key := PlatformKey()
 	return c.SHA512[key]
@@ -103,11 +103,8 @@ func (c *Cask) Validate() error {
 		}
 	}
 	for platform, hash := range c.SHA512 {
-		if len(hash) != 128 {
-			return fmt.Errorf("cask %q: SHA512 for %s must be 128 hex characters, got %d", c.Name, platform, len(hash))
-		}
-		if _, err := hex.DecodeString(hash); err != nil {
-			return fmt.Errorf("cask %q: invalid SHA512 hex for %s: %w", c.Name, platform, err)
+		if err := validation.ValidateSHA512(hash); err != nil {
+			return fmt.Errorf("cask %q: invalid SHA512 for %s: %w", c.Name, platform, err)
 		}
 	}
 	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {

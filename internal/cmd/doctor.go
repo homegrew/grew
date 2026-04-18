@@ -259,18 +259,23 @@ func checkFormulaHTTPS(ctx *doctorCtx) {
 	}
 }
 
+func validHexHash(hash string, expectedLen int) string {
+	if len(hash) != expectedLen {
+		return fmt.Sprintf("has wrong length (%d, expected %d)", len(hash), expectedLen)
+	}
+	for _, c := range hash {
+		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+			return fmt.Sprintf("contains non-hex character %q", string(c))
+		}
+	}
+	return ""
+}
+
 func checkFormulaSHA256(ctx *doctorCtx) {
 	for _, f := range ctx.formulas {
 		for platform, hash := range f.SHA256 {
-			if len(hash) != 64 {
-				ctx.warn("formula %s: SHA256 for %s has wrong length (%d, expected 64)", f.Name, platform, len(hash))
-				continue
-			}
-			for _, c := range hash {
-				if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-					ctx.warn("formula %s: SHA256 for %s contains non-hex character %q", f.Name, platform, string(c))
-					break
-				}
+			if msg := validHexHash(hash, 64); msg != "" {
+				ctx.warn("formula %s: SHA256 for %s %s", f.Name, platform, msg)
 			}
 		}
 	}
@@ -287,15 +292,8 @@ func checkFormulaSHA512(ctx *doctorCtx) {
 		}
 
 		for platform, hash := range f.SHA512 {
-			if len(hash) != 128 {
-				ctx.warn("formula %s: SHA512 for %s has wrong length (%d, expected 128)", f.Name, platform, len(hash))
-				continue
-			}
-			for _, c := range hash {
-				if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-					ctx.warn("formula %s: SHA512 for %s contains non-hex character %q", f.Name, platform, string(c))
-					break
-				}
+			if msg := validHexHash(hash, 128); msg != "" {
+				ctx.warn("formula %s: SHA512 for %s %s", f.Name, platform, msg)
 			}
 		}
 
@@ -304,15 +302,8 @@ func checkFormulaSHA512(ctx *doctorCtx) {
 				ctx.warn("formula %s: bottle for %s missing SHA512", f.Name, platform)
 				continue
 			}
-			if len(b.SHA512) != 128 {
-				ctx.warn("formula %s: bottle SHA512 for %s has wrong length (%d, expected 128)", f.Name, platform, len(b.SHA512))
-				continue
-			}
-			for _, c := range b.SHA512 {
-				if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-					ctx.warn("formula %s: bottle SHA512 for %s contains non-hex character %q", f.Name, platform, string(c))
-					break
-				}
+			if msg := validHexHash(b.SHA512, 128); msg != "" {
+				ctx.warn("formula %s: bottle SHA512 for %s %s", f.Name, platform, msg)
 			}
 		}
 	}
@@ -321,15 +312,8 @@ func checkFormulaSHA512(ctx *doctorCtx) {
 func checkCaskSHA256(ctx *doctorCtx) {
 	for _, c := range ctx.casks {
 		for platform, hash := range c.SHA256 {
-			if len(hash) != 64 {
-				ctx.warn("cask %s: SHA256 for %s has wrong length (%d, expected 64)", c.Name, platform, len(hash))
-				continue
-			}
-			for _, char := range hash {
-				if !((char >= '0' && char <= '9') || (char >= 'a' && char <= 'f') || (char >= 'A' && char <= 'F')) {
-					ctx.warn("cask %s: SHA256 for %s contains non-hex character %q", c.Name, platform, string(char))
-					break
-				}
+			if msg := validHexHash(hash, 64); msg != "" {
+				ctx.warn("cask %s: SHA256 for %s %s", c.Name, platform, msg)
 			}
 		}
 	}
@@ -346,15 +330,8 @@ func checkCaskSHA512(ctx *doctorCtx) {
 		}
 
 		for platform, hash := range c.SHA512 {
-			if len(hash) != 128 {
-				ctx.warn("cask %s: SHA512 for %s has wrong length (%d, expected 128)", c.Name, platform, len(hash))
-				continue
-			}
-			for _, char := range hash {
-				if !((char >= '0' && char <= '9') || (char >= 'a' && char <= 'f') || (char >= 'A' && char <= 'F')) {
-					ctx.warn("cask %s: SHA512 for %s contains non-hex character %q", c.Name, platform, string(char))
-					break
-				}
+			if msg := validHexHash(hash, 128); msg != "" {
+				ctx.warn("cask %s: SHA512 for %s %s", c.Name, platform, msg)
 			}
 		}
 	}

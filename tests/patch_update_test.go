@@ -37,11 +37,11 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	// Determine the current version of the built binary
 	out, err := exec.Command(oldExePath, "--version").Output()
 	if err != nil {
-		t.Fatalf("failed to run --version on built binary: %v", err)
+		t.Fatalf("couldn't determine test binary version: %v", err)
 	}
 	currentVer := strings.TrimSpace(strings.TrimPrefix(string(out), "grew "))
 	if currentVer == "" {
-		t.Fatalf("built binary reported empty version (output: %q)", string(out))
+		t.Fatalf("couldn't determine test binary version: empty output")
 	}
 	targetVer := "v9.9.9"
 
@@ -71,11 +71,17 @@ func TestPatchUpdateIntegration(t *testing.T) {
 		t.Fatalf("failed to generate patch: %v, output: %s", err, string(out))
 	}
 
-	patchBytes, _ := os.ReadFile(patchPath)
+	patchBytes, err := os.ReadFile(patchPath)
+	if err != nil {
+		t.Fatalf("failed to read patch file: %v", err)
+	}
 	patchHash256 := computeSHA256(patchBytes)
 	patchHash512 := computeSHA512(patchBytes)
 
-	newExeBytes, _ := os.ReadFile(newExePath)
+	newExeBytes, err := os.ReadFile(newExePath)
+	if err != nil {
+		t.Fatalf("failed to read new binary file: %v", err)
+	}
 	newExeHash256 := computeSHA256(newExeBytes)
 	newExeHash512 := computeSHA512(newExeBytes)
 	rawBinName := fmt.Sprintf("grew_%s_%s", osName, archName)

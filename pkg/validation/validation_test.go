@@ -108,6 +108,7 @@ func TestValidateSHA512(t *testing.T) {
 		wantErr bool
 	}{
 		{"valid", valid512, false},
+		{"valid-uppercase", strings.Repeat("A", 128), false},
 		{"too-short", strings.Repeat("a", 127), true},
 		{"too-long", strings.Repeat("a", 129), true},
 		{"empty", "", true},

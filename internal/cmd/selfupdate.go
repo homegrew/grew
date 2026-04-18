@@ -37,24 +37,23 @@ func RunSelfUpdate(_ []string) error {
 
 	// Primary: git pull + go build.
 	gitDir := filepath.Join(repoDir, ".git")
-	if _, err := os.Stat(gitDir); err == nil {
-		fmt.Println("==> Updating grew from source...")
-		if err := installFromGit(repoDir, destBin); err != nil {
-			slog.Warn(fmt.Sprintf("source update failed: %v", err))
-			fmt.Println("==> Falling back to latest release download...")
-		} else {
-			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-				slog.Warn(fmt.Sprintf("%v", err))
-			}
-			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-			return nil
-		}
-	} else {
+	if _, err := os.Stat(gitDir); err != nil {
 		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
+		return SelfUpdateFromRelease(exePath)
 	}
 
-	// Fallback: download latest release binary.
-	return SelfUpdateFromRelease(exePath)
+	fmt.Println("==> Updating grew from source...")
+	if err := installFromGit(repoDir, destBin); err != nil {
+		slog.Warn(fmt.Sprintf("source update failed: %v", err))
+		fmt.Println("==> Falling back to latest release download...")
+		return SelfUpdateFromRelease(exePath)
+	}
+
+	if err := verifyBinaryIntegrity(destBin, ""); err != nil {
+		slog.Warn(fmt.Sprintf("%v", err))
+	}
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
+	return nil
 }
 
 // SelfUpdateFromRelease downloads the latest stable release from GitHub,
@@ -69,9 +68,16 @@ func SelfUpdateFromRelease(exePath string) error {
 	if err := tryPatchUpdate(exePath, rel); err == nil {
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "patch")
 		return nil
-	} else {
-		slog.Info(fmt.Sprintf("binary patch update not available or failed: %v", err))
-		fmt.Println("==> Falling back to full download")
+	}
+
+	slog.Info("binary patch update not available or failed; falling back to full download")
+
+	// Apply OSV security gate before full download.
+	targetVer := rel.TagName
+	if res, err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+		slog.Warn(fmt.Sprintf("OSV query failed (proceeding): %v", err))
+	} else if res.Vulnerable {
+		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
 	fmt.Printf("==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
@@ -138,6 +144,26 @@ func SelfUpdateFromRelease(exePath string) error {
 		return fmt.Errorf("extract: %w", err)
 	}
 	slog.Debug(fmt.Sprintf("extracted binary: %d bytes", len(bin)))
+
+	// Health Check: run vuln-scan on new binary (sandboxed) before installation.
+	healthDir, err := os.MkdirTemp("", "grew-health-*")
+	if err != nil {
+		return fmt.Errorf("create health check tmpdir: %w", err)
+	}
+	defer os.RemoveAll(healthDir)
+	healthBin := filepath.Join(healthDir, "grew")
+	if err := os.WriteFile(healthBin, bin, 0755); err != nil {
+		return fmt.Errorf("write health check binary: %w", err)
+	}
+
+	piCfg := sandbox.PostInstallConfig{
+		KegDir: healthDir,
+		TmpDir: healthDir,
+	}
+	healthCmd := sandbox.PostInstallCommand(piCfg, healthBin, "vuln-scan", "--offline")
+	if out, err := healthCmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("new binary health check failed: %v (output: %q)", err, string(out))
+	}
 
 	if err := release.AtomicInstall(exePath, bin); err != nil {
 		return fmt.Errorf("replace binary: %w", err)
@@ -284,8 +310,10 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	}
 
 	// 1. Query OSV for target version
-	if err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
-		return fmt.Errorf("target version %s is vulnerable: %w", targetVer, err)
+	if res, err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+		slog.Warn(fmt.Sprintf("OSV query failed: %v", err))
+	} else if res.Vulnerable {
+		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
 	fmt.Printf("==> Downloading binary patch: %s\n", patchName)
@@ -321,16 +349,21 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	}
 
 	// 2. Apply patch
-	patchDir, err := os.MkdirTemp("", "grew-patch-*")
+	f, err := os.CreateTemp("", "grew-patched-*")
 	if err != nil {
-		return fmt.Errorf("create patch tmpdir: %w", err)
+		return fmt.Errorf("create temp binary: %w", err)
 	}
-	defer os.RemoveAll(patchDir)
-	tmpNewBin := filepath.Join(patchDir, "grew-patched")
+	tmpNewBin := f.Name()
+	f.Close()
+	defer os.Remove(tmpNewBin)
 
 	cmd := exec.Command(bspatch, exePath, tmpNewBin, patchFile)
 	if out, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("apply patch: %v (output: %q)", err, string(out))
+	}
+
+	if err := os.Chmod(tmpNewBin, 0755); err != nil {
+		return fmt.Errorf("chmod patched binary: %w", err)
 	}
 
 	// 3. Verify patched binary hash against binary-checksums.txt
@@ -359,11 +392,22 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return fmt.Errorf("patched binary SHA-512 mismatch: got %s, want %s", actualBinSHA512, expected)
 	}
 
-	// 4. Health Check: run vuln-scan on new binary
+	// 4. Health Check: run vuln-scan on new binary (sandboxed)
 	if err := os.Chmod(tmpNewBin, 0755); err != nil {
 		return err
 	}
-	healthCmd := exec.Command(tmpNewBin, "vuln-scan", "--offline")
+
+	piTmp, err := os.MkdirTemp("", "grew-selfupdate-health-*")
+	if err != nil {
+		return fmt.Errorf("create health check tmpdir: %w", err)
+	}
+	defer os.RemoveAll(piTmp)
+
+	piCfg := sandbox.PostInstallConfig{
+		KegDir: filepath.Dir(tmpNewBin),
+		TmpDir: piTmp,
+	}
+	healthCmd := sandbox.PostInstallCommand(piCfg, tmpNewBin, "vuln-scan", "--offline")
 	if out, err := healthCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("patched binary health check failed: %v (output: %q)", err, string(out))
 	}
@@ -378,24 +422,38 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	}
 
 	fmt.Printf("==> Updated to %s via binary patch\n", targetVer)
+
+	expectedVersion := strings.TrimPrefix(targetVer, "v")
+	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {
+		slog.Warn(fmt.Sprintf("integrity verification failed: %v", err))
+	}
+
 	return nil
 }
 
-func checkOSVForVersion(pkgName, ver string) error {
+func checkOSVForVersion(pkgName, ver string) (*OSVResult, error) {
 	client := osvdev.NewClient()
 	vulns, err := client.Query(osvdev.QueryPackage{
 		RepoURL: pkgName,
 		Version: ver,
 	})
 	if err != nil {
-		return fmt.Errorf("query OSV: %w", err)
+		return nil, fmt.Errorf("query OSV: %w", err)
 	}
 	if len(vulns) > 0 {
 		var ids []string
 		for _, v := range vulns {
 			ids = append(ids, v.ID)
 		}
-		return fmt.Errorf("found %d vulnerabilities: %s", len(vulns), strings.Join(ids, ", "))
+		return &OSVResult{
+			Vulnerable: true,
+			Message:    fmt.Sprintf("found %d vulnerabilities: %s", len(vulns), strings.Join(ids, ", ")),
+		}, nil
 	}
-	return nil
+	return &OSVResult{Vulnerable: false}, nil
+}
+
+type OSVResult struct {
+	Vulnerable bool
+	Message    string
 }

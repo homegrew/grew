@@ -5,16 +5,59 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"net"
 	"net/http"
 	"net/url"
+	"strings"
+	"sync"
 	"time"
 )
 
-var apiBase = "https://api.osv.dev/v1"
+var (
+	apiBase   = "https://api.osv.dev/v1"
+	baseMutex sync.RWMutex
+)
 
 // SetAPIBase overrides the OSV API base URL for testing.
-func SetAPIBase(url string) {
-	apiBase = url
+// It validates that the URL uses HTTPS (unless it's localhost)
+// and belongs to an allowed host.
+func SetAPIBase(rawURL string) error {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return fmt.Errorf("invalid OSV API URL: %w", err)
+	}
+
+	if u.Scheme != "https" && u.Host != "localhost" && !strings.HasPrefix(u.Host, "localhost:") && !strings.HasPrefix(u.Host, "127.0.0.1") {
+		return fmt.Errorf("OSV API requires HTTPS, got %s", u.Scheme)
+	}
+
+	allowedHosts := []string{"api.osv.dev", "localhost", "127.0.0.1"}
+	allowed := false
+	host := u.Host
+	if h, _, err := net.SplitHostPort(u.Host); err == nil {
+		host = h
+	}
+
+	for _, a := range allowedHosts {
+		if host == a {
+			allowed = true
+			break
+		}
+	}
+	if !allowed {
+		return fmt.Errorf("host %q is not in the allowlist for OSV API", u.Host)
+	}
+
+	baseMutex.Lock()
+	apiBase = rawURL
+	baseMutex.Unlock()
+	return nil
+}
+
+func getAPIBase() string {
+	baseMutex.RLock()
+	defer baseMutex.RUnlock()
+	return apiBase
 }
 
 const (
@@ -242,12 +285,12 @@ func (c *Client) post(path string, body any) ([]byte, error) {
 		return nil, fmt.Errorf("marshal request: %w", err)
 	}
 
-	return c.doRequest("POST", apiBase+path, data)
+	return c.doRequest("POST", getAPIBase()+path, data)
 }
 
 // get sends a GET request.
 func (c *Client) get(path string) ([]byte, error) {
-	return c.doRequest("GET", apiBase+path, nil)
+	return c.doRequest("GET", getAPIBase()+path, nil)
 }
 
 // doRequest executes an HTTP request with retry logic.
@@ -258,7 +301,7 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 		return nil, fmt.Errorf("invalid URL: %w", err)
 	}
 
-	expected, err := url.Parse(apiBase)
+	expected, err := url.Parse(getAPIBase())
 	if err != nil {
 		return nil, fmt.Errorf("invalid API base URL: %w", err)
 	}

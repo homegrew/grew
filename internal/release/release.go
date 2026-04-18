@@ -94,10 +94,9 @@ func FetchLatest() (*Release, error) {
 	return nil, fmt.Errorf("no stable releases found for %s/%s", repoOwner, repoName)
 }
 
-// AssetName returns the expected tarball name for the current platform.
-func AssetName() string {
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
+func normalizePlatform() (osName, archName string) {
+	osName = runtime.GOOS
+	archName = runtime.GOARCH
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
@@ -108,40 +107,24 @@ func AssetName() string {
 	case "amd64":
 		archName = "x86_64"
 	}
+	return
+}
+
+// AssetName returns the expected tarball name for the current platform.
+func AssetName() string {
+	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
 }
 
 // RawBinaryName returns the expected uncompressed binary name for the current platform.
 func RawBinaryName() string {
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
-	switch osName {
-	case "darwin":
-		osName = "Darwin"
-	case "linux":
-		osName = "Linux"
-	}
-	switch archName {
-	case "amd64":
-		archName = "x86_64"
-	}
+	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s", osName, archName)
 }
 
 // PatchName returns the expected patch filename for the given version transition.
 func PatchName(oldVer, newVer string) string {
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
-	switch osName {
-	case "darwin":
-		osName = "Darwin"
-	case "linux":
-		osName = "Linux"
-	}
-	switch archName {
-	case "amd64":
-		archName = "x86_64"
-	}
+	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, oldVer, newVer)
 }
 
@@ -185,6 +168,16 @@ func FindChecksum(data []byte, assetName string) (string, error) {
 		}
 	}
 	return "", fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
+}
+
+// FindChecksumBySize returns a checksum of the specified size (64 for SHA256, 128 for SHA512)
+// for the given asset name from the provided checksum data.
+func FindChecksumBySize(data []byte, assetName string, size int) (string, error) {
+	hashes := FindAllChecksums(data, assetName)
+	if h, ok := hashes[size]; ok {
+		return h, nil
+	}
+	return "", fmt.Errorf("no checksum of size %d found for %s", size, assetName)
 }
 
 // FindAllChecksums parses a checksums.txt file and returns all hashes

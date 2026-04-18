@@ -146,7 +146,10 @@ func runFormulaImport(args []string) {
 		os.Exit(1)
 	}
 
-	os.MkdirAll(resolvedOutDir, 0755)
+	if err := os.MkdirAll(resolvedOutDir, 0755); err != nil {
+		slog.Error("Create output directory failed", "dir", resolvedOutDir, "error", err)
+		os.Exit(1)
+	}
 	imported, skipped := 0, 0
 
 	for _, hf := range hfs {
@@ -223,9 +226,10 @@ type hbCask struct {
 	License    string            `json:"license"`
 	URL        string            `json:"url"`
 	SHA256     string            `json:"sha256"`
+	SHA512     string            `json:"sha512"`
 	Version    string            `json:"version"`
 	Artifacts  []json.RawMessage `json:"artifacts"`
-	Variations map[string]struct { URL, SHA256 string } `json:"variations"`
+	Variations map[string]struct { URL, SHA256, SHA512 string } `json:"variations"`
 	Deprecated bool              `json:"deprecated"`
 	Disabled   bool              `json:"disabled"`
 }
@@ -280,17 +284,21 @@ func runCaskImport(args []string) {
 		os.Exit(1)
 	}
 
-	os.MkdirAll(outDir, 0755)
+	if err := os.MkdirAll(outDir, 0755); err != nil {
+		slog.Error("Create output directory failed", "dir", outDir, "error", err)
+		os.Exit(1)
+	}
 	imported, skipped := 0, 0
 
 	for _, hc := range hcs {
-		if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || hc.SHA256 == "" || hc.SHA256 == "no_check" {
+		if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || (hc.SHA256 == "" && hc.SHA512 == "") || hc.SHA256 == "no_check" {
 			skipped++
 			continue
 		}
 
 		urlMap := map[string]string{"darwin_arm64": hc.URL, "darwin_amd64": hc.URL}
 		shaMap := map[string]string{"darwin_arm64": hc.SHA256, "darwin_amd64": hc.SHA256}
+		sha512Map := map[string]string{"darwin_arm64": hc.SHA512, "darwin_amd64": hc.SHA512}
 
 		for _, pm := range platforms {
 			if !strings.HasPrefix(pm.key, "darwin") { continue }
@@ -298,6 +306,7 @@ func runCaskImport(args []string) {
 				if v, ok := hc.Variations[pref]; ok {
 					urlMap[pm.key] = v.URL
 					shaMap[pm.key] = v.SHA256
+					sha512Map[pm.key] = v.SHA512
 					break
 				}
 			}
@@ -311,8 +320,8 @@ func runCaskImport(args []string) {
 
 		c := &cask.Cask{
 			Name: hc.Token, Version: hc.Version, Description: hc.Desc, Homepage: hc.Homepage,
-			License: hc.License, URL: urlMap, SHA256: shaMap, Artifacts: arts,
-			Source: cask.SourceSpec{URL: hc.URL, SHA256: hc.SHA256},
+			License: hc.License, URL: urlMap, SHA256: shaMap, SHA512: sha512Map, Artifacts: arts,
+			Source: cask.SourceSpec{URL: hc.URL, SHA256: hc.SHA256, SHA512: hc.SHA512},
 		}
 
 		saveYAML(filepath.Join(outDir, hc.Token+".yaml"), c)
@@ -331,22 +340,32 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 		}
 		if app, ok := obj["app"]; ok {
 			var apps []string
-			json.Unmarshal(app, &apps)
-			res.App = append(res.App, apps...)
+			if err := json.Unmarshal(app, &apps); err != nil {
+				slog.Debug("app unmarshal failed", "error", err)
+			} else {
+				res.App = append(res.App, apps...)
+			}
 		}
 		if bin, ok := obj["binary"]; ok {
 			var binArr []json.RawMessage
-			if err := json.Unmarshal(bin, &binArr); err == nil && len(binArr) > 0 {
+			if err := json.Unmarshal(bin, &binArr); err != nil {
+				slog.Debug("binary array unmarshal failed", "error", err)
+			} else if len(binArr) > 0 {
 				var path string
-				json.Unmarshal(binArr[0], &path)
-				name := filepath.Base(path)
-				if len(binArr) > 1 {
-					var opts map[string]string
-					if err := json.Unmarshal(binArr[1], &opts); err == nil {
-						if t, ok := opts["target"]; ok { name = t }
+				if err := json.Unmarshal(binArr[0], &path); err != nil {
+					slog.Debug("binary path unmarshal failed", "error", err)
+				} else {
+					name := filepath.Base(path)
+					if len(binArr) > 1 {
+						var opts map[string]string
+						if err := json.Unmarshal(binArr[1], &opts); err != nil {
+							slog.Debug("binary options unmarshal failed", "error", err)
+						} else {
+							if t, ok := opts["target"]; ok { name = t }
+						}
 					}
+					res.Bin = append(res.Bin, name)
 				}
-				res.Bin = append(res.Bin, name)
 			}
 		}
 	}

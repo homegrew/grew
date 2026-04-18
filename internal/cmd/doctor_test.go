@@ -243,8 +243,6 @@ func TestCheckFormulaSHA512(t *testing.T) {
 			}
 			var warnings []string
 			// Mock warn to collect them
-			oldWarn := ctx.warn
-			_ = oldWarn
 			ctx.warn = func(format string, args ...any) {
 				warnings = append(warnings, fmt.Sprintf(format, args...))
 			}

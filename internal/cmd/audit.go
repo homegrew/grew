@@ -362,6 +362,9 @@ func auditCask(c *cask.Cask) *auditResult {
 		if err := validation.ValidateSHA512(hash); err != nil {
 			r.errorf("sha512 for %s: %v", platform, err)
 		}
+		if _, ok := c.SHA256[platform]; !ok {
+			r.warnf("cask missing sha256 for %s", platform)
+		}
 	}
 
 	// Artifact checks.

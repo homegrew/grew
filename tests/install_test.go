@@ -51,8 +51,6 @@ func makeDummyTarGz(t *testing.T, content string) []byte {
 	return buf.Bytes()
 }
 
-// computeSHA256 returns the hex-encoded SHA256 of the given bytes.
-
 // TestInstallIntegration tests the RunInstall function end-to-end.
 // It sets up a mock HTTP server to serve a dummy tarball (bottle),
 // creates a local tap directory with a formula pointing to the local server,

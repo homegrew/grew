@@ -132,13 +132,25 @@ func (f *Formula) GetSourceSHA256() (string, error) {
 	return f.SourceSHA256, nil
 }
 
-func (f *Formula) GetSourceSHA512() string {
+// GetSourceSHA512 returns the SHA512 checksum for the source archive.
+func (f *Formula) GetSourceSHA512() (string, error) {
+	s := ""
 	if f.Source.SHA512 != "" {
-		return f.Source.SHA512
+		s = f.Source.SHA512
+	} else {
+		s = f.SourceSHA512
 	}
-	return f.SourceSHA512
+
+	if s == "" {
+		return "", nil
+	}
+	if err := validation.ValidateSHA512(s); err != nil {
+		return "", fmt.Errorf("formula %q: invalid source_sha512: %w", f.Name, err)
+	}
+	return s, nil
 }
 
+// GetSHA256 returns the SHA256 checksum for the current platform.
 func (f *Formula) GetSHA256() (string, error) {
 	key := PlatformKey()
 	// New format support
@@ -153,7 +165,8 @@ func (f *Formula) GetSHA256() (string, error) {
 	// Fallback to old format
 	s, ok := f.SHA256[key]
 	if !ok {
-		return "", fmt.Errorf("formula %q has no SHA256 for platform %s", f.Name, key)
+		return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
+			f.Name, key, sortedMapKeys(f.URL))
 	}
 	if err := validation.ValidateSHA256(s); err != nil {
 		return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
@@ -161,14 +174,25 @@ func (f *Formula) GetSHA256() (string, error) {
 	return s, nil
 }
 
-func (f *Formula) GetSHA512() string {
+// GetSHA512 returns the SHA512 checksum for the current platform.
+func (f *Formula) GetSHA512() (string, error) {
 	key := PlatformKey()
+	s := ""
 	if len(f.Bottle) > 0 {
 		if b, ok := f.Bottle[key]; ok {
-			return b.SHA512
+			s = b.SHA512
 		}
+	} else {
+		s = f.SHA512[key]
 	}
-	return f.SHA512[key]
+
+	if s == "" {
+		return "", nil
+	}
+	if err := validation.ValidateSHA512(s); err != nil {
+		return "", fmt.Errorf("formula %q: invalid SHA512 for %s: %w", f.Name, key, err)
+	}
+	return s, nil
 }
 
 // GetSignature returns the bottle signature for the current platform, or ""

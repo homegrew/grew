@@ -39,7 +39,10 @@ func init() {
 			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_OSV_API_BASE requires devmode build\n")
 			os.Exit(1)
 		}
-		osvdev.SetAPIBase(apiBase)
+		if err := osvdev.SetAPIBase(apiBase); err != nil {
+			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
+			os.Exit(1)
+		}
 	}
 
 	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {

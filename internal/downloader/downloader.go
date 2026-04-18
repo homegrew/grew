@@ -5,6 +5,7 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
+	"hash"
 	"io"
 	"net/http"
 	"net/url"
@@ -171,21 +172,17 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	return safe, nil
 }
 
-// ComputeSHA256 returns the hex-encoded SHA256 hash of a file.
-func ComputeSHA256(path string) (string, error) {
+func computeHash(path string, h hash.Hash, algoName string) (string, error) {
 	clean := filepath.Clean(path)
 	if clean == "." || clean == "" {
 		return "", fmt.Errorf("invalid path for hashing")
 	}
-	// Require an absolute path to avoid hashing unexpected locations when given
-	// a user-controlled relative path. Callers that work with relative paths
-	// should resolve them against a known-safe base directory first.
 	if !filepath.IsAbs(clean) {
 		abs, err := filepath.Abs(clean)
 		if err != nil {
 			return "", fmt.Errorf("invalid path for hashing")
 		}
-		clean = filepath.Clean(abs)
+		clean = abs
 	}
 
 	f, err := os.Open(clean)
@@ -194,38 +191,20 @@ func ComputeSHA256(path string) (string, error) {
 	}
 	defer f.Close()
 
-	h := sha256.New()
 	if _, err := io.Copy(h, f); err != nil {
-		return "", fmt.Errorf("compute SHA256: %w", err)
+		return "", fmt.Errorf("compute %s: %w", algoName, err)
 	}
 	return hex.EncodeToString(h.Sum(nil)), nil
 }
 
+// ComputeSHA256 returns the hex-encoded SHA256 hash of a file.
+func ComputeSHA256(path string) (string, error) {
+	return computeHash(path, sha256.New(), "SHA256")
+}
+
 // ComputeSHA512 returns the hex-encoded SHA512 hash of a file.
 func ComputeSHA512(path string) (string, error) {
-	clean := filepath.Clean(path)
-	if clean == "." || clean == "" {
-		return "", fmt.Errorf("invalid path for hashing")
-	}
-	if !filepath.IsAbs(clean) {
-		abs, err := filepath.Abs(clean)
-		if err != nil {
-			return "", fmt.Errorf("invalid path for hashing")
-		}
-		clean = filepath.Clean(abs)
-	}
-
-	f, err := os.Open(clean)
-	if err != nil {
-		return "", fmt.Errorf("open for hashing: %w", err)
-	}
-	defer f.Close()
-
-	h := sha512.New()
-	if _, err := io.Copy(h, f); err != nil {
-		return "", fmt.Errorf("compute SHA512: %w", err)
-	}
-	return hex.EncodeToString(h.Sum(nil)), nil
+	return computeHash(path, sha512.New(), "SHA512")
 }
 
 // ComputeSHA256Within returns the SHA256 of path after ensuring it stays within baseDir.
