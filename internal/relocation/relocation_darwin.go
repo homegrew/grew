@@ -209,7 +209,7 @@ func relocateBinary(path string, replacements Replacements) error {
 		return nil
 	}
 	slog.Debug(fmt.Sprintf("relocation: codesign --force --sign - %s", relName))
-	if out, err := exec.Command(codesign, "--force", "--sign", "-", "--", path).CombinedOutput(); err != nil {
+	if out, err := exec.Command(codesign, "--force", "--sign", "-", path).CombinedOutput(); err != nil {
 		slog.Warn(fmt.Sprintf("relocation: codesign failed for %s: %v\n%s", relName, err, string(out)))
 	}
 

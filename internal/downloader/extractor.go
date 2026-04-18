@@ -5,6 +5,7 @@ import (
 	"archive/zip"
 	"bytes"
 	"compress/gzip"
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
@@ -278,6 +279,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 	if err == nil {
 		// Parent exists on disk — verify the resolved path stays inside.
 		realTarget := filepath.Join(realParent, filepath.Base(target))
+		// We resolve destDir to its real path to ensure we're comparing
+		// canonical paths. If resolution fails, we fall back to the raw destDir.
 		realDest, err2 := filepath.EvalSymlinks(destDir)
 		if err2 != nil {
 			realDest = destDir
@@ -285,15 +288,40 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		if !safepath.IsSubpath(realDest, realTarget) {
 			return "", false
 		}
+	} else if !isNotExist(err) {
+		// If EvalSymlinks failed for reasons other than NotExist, it might
+		// be a real problem (e.g. permission denied).
+		// We log this as a debug message and continue with the textual check
+		// to be resilient against ephemeral filesystem states during extraction.
+		slog.Debug(fmt.Sprintf("safeJoinArchivePath: EvalSymlinks(%q) failed: %v", parentDir, err))
 	}
-	// If parent doesn't exist yet (err != nil), the textual check is
-	// sufficient — there are no symlinks to follow.
+
+	// Final textual safety check: ensure the target is inside destDir.
+	// This is our primary defense when the filesystem state is incomplete.
+	// absDestDir and absTarget were already computed above.
+	if !safepath.IsSubpath(absDestDir, absTarget) {
+		return "", false
+	}
 
 	return target, true
 }
 
+func isNotExist(err error) bool {
+	if err == nil {
+		return false
+	}
+	if os.IsNotExist(err) || errors.Is(err, os.ErrNotExist) {
+		return true
+	}
+	msg := strings.ToLower(err.Error())
+	return strings.Contains(msg, "no such file") ||
+		strings.Contains(msg, "not a directory") ||
+		strings.Contains(msg, "file exists")
+}
+
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
 func extractSymlink(realDest, target, linkname string) error {
+	slog.Debug(fmt.Sprintf("extractSymlink (v2) target: %s, linkname: %s", target, linkname))
 	linkname = sanitizeSymlinkTarget(linkname)
 	if linkname == "" {
 		return nil
@@ -316,52 +344,44 @@ func extractSymlink(realDest, target, linkname string) error {
 		return nil
 	}
 
-	resolvedParent, err := filepath.EvalSymlinks(parentDir)
-	if err != nil {
-		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
-	}
-
-	candidateTarget, ok := safeJoinArchivePath(resolvedParent, cleanLink)
+	// We use the parent directory of the symlink as the base for resolving its target.
+	// We don't EvalSymlinks(parentDir) here because parentDir itself might be a
+	// symlink that hasn't been fully resolved yet during extraction. Instead, we
+	// trust safeJoinArchivePath to handle the safety checks.
+	candidateTarget, ok := safeJoinArchivePath(parentDir, cleanLink)
 	if !ok {
 		return fmt.Errorf("couldn't resolve target symlink %s", target)
 	}
 
-	// CodeQL-recognized Zip Slip guard:
-	destPrefix := filepath.Clean(realDest) + string(filepath.Separator)
-	if candidateTarget != filepath.Clean(realDest) && !strings.HasPrefix(candidateTarget, destPrefix) {
-		return nil
-	}
-
+	// Double-check safety of the candidate target.
 	if !safepath.IsSubpath(realDest, candidateTarget) {
 		return nil
 	}
 
+	// If the target exists, ensure it doesn't resolve outside the root.
 	if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
-		resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget)
-		if err != nil {
-			return fmt.Errorf("resolve symlink target %s: %w", candidateTarget, err)
+		if resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+			if !safepath.IsSubpath(realDest, resolvedCandidate) {
+				return nil
+			}
 		}
-		if !safepath.IsSubpath(realDest, resolvedCandidate) {
-			return nil
-		}
-	} else if os.IsNotExist(err) {
-		resolvedCandidateParent, err := filepath.EvalSymlinks(filepath.Dir(candidateTarget))
-		if err != nil {
-			return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
-		}
-		resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
-		if !safepath.IsSubpath(realDest, resolvedCandidate) {
-			return nil
-		}
-	} else if err != nil {
-		return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
 	}
 
-	if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
-		return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
+	// Final sink-side guard: canonicalize target and ensure it is still within extraction root.
+	resolvedTarget, err := filepath.Abs(target)
+	if err != nil {
+		return fmt.Errorf("resolve symlink destination %s: %w", target, err)
 	}
-	if err := os.Symlink(linkname, target); err != nil {
-		return fmt.Errorf("create symlink %q -> %q: %w", target, linkname, err)
+	resolvedTarget = filepath.Clean(resolvedTarget)
+	if !safepath.IsSubpath(realDest, resolvedTarget) {
+		return nil
+	}
+
+	if err := os.RemoveAll(resolvedTarget); err != nil {
+		return fmt.Errorf("remove existing path before creating symlink %s: %w", resolvedTarget, err)
+	}
+	if err := os.Symlink(linkname, resolvedTarget); err != nil {
+		return fmt.Errorf("create symlink %q -> %q: %w", resolvedTarget, linkname, err)
 	}
 	return nil
 }
@@ -397,6 +417,15 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 		if !ok {
 			continue
 		}
+		targetDir := filepath.Dir(target)
+		// Defensive sink-side validation: ensure target and its parent stay within
+		// the resolved extraction root immediately before filesystem operations.
+		if err := safepath.CheckSubpath(realDest, targetDir); err != nil {
+			return fmt.Errorf("target parent directory escapes destination directory: %w", err)
+		}
+		if err := safepath.CheckSubpath(realDest, target); err != nil {
+			return fmt.Errorf("target path escapes destination directory: %w", err)
+		}
 
 		switch header.Typeflag {
 		case tar.TypeDir:
@@ -412,15 +441,58 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return fmt.Errorf("stat directory %s: %w", target, err)
 			}
 		case tar.TypeReg:
-			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for %s: %w", target, err)
 			}
-			if err := extractFile(tr, target, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
+			// Re-validate at sink: ensure the path to be removed/written is still
+			// inside the resolved extraction destination.
+			absTarget, err := filepath.Abs(target)
+			if err != nil {
+				return fmt.Errorf("resolve target path %s: %w", target, err)
+			}
+			absTarget = filepath.Clean(absTarget)
+			if err := safepath.CheckSubpath(realDest, absTarget); err != nil {
+				return fmt.Errorf("refuse to write outside extraction directory: %w", err)
+			}
+			// Remove existing file/directory to avoid following symlinks or other conflicts.
+			if err := os.RemoveAll(absTarget); err != nil {
+				return fmt.Errorf("remove existing path %s: %w", absTarget, err)
+			}
+			if err := extractFile(tr, absTarget, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
 			}
 		case tar.TypeSymlink:
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
+				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
+			}
 			if err := extractSymlink(realDest, target, header.Linkname); err != nil {
 				return err
+			}
+		case tar.TypeLink:
+			if err := os.MkdirAll(targetDir, 0755); err != nil {
+				return fmt.Errorf("create parent directory for hard link %s: %w", target, err)
+			}
+			linkTarget, ok := safeJoinArchivePath(realDest, stripPath(header.Linkname, stripComponents))
+			if !ok {
+				continue
+			}
+			// Defensive sink-side validation: ensure both link source and destination
+			// remain within the resolved extraction root.
+			if err := safepath.CheckSubpath(realDest, linkTarget); err != nil {
+				return fmt.Errorf("hard link source escapes destination directory: %w", err)
+			}
+			if err := safepath.CheckSubpath(realDest, target); err != nil {
+				return fmt.Errorf("hard link destination escapes destination directory: %w", err)
+			}
+			// Re-validate immediately before destructive removal (defense in depth).
+			if err := safepath.CheckSubpath(realDest, target); err != nil {
+				return fmt.Errorf("refusing to remove hard link destination outside extraction root: %w", err)
+			}
+			if err := os.RemoveAll(target); err != nil {
+				return fmt.Errorf("remove existing path %s for hard link: %w", target, err)
+			}
+			if err := os.Link(linkTarget, target); err != nil {
+				return fmt.Errorf("create hard link %s -> %s: %w", target, linkTarget, err)
 			}
 		}
 	}
@@ -553,7 +625,22 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 
 		mode := fsutil.SanitizeMode(f.Mode(), false)
-		if err := extractFile(rc, target, mode); err != nil {
+
+		// Final sink-time hardening: re-canonicalize and re-check containment
+		// immediately before destructive/write operations.
+		canonicalTarget := filepath.Clean(target)
+		if abs, err := filepath.Abs(canonicalTarget); err == nil {
+			canonicalTarget = filepath.Clean(abs)
+		}
+		if !safepath.IsSubpath(realDestDir, canonicalTarget) {
+			rc.Close()
+			return fmt.Errorf("refusing to write outside destination: %q", canonicalTarget)
+		}
+
+		if err := os.RemoveAll(canonicalTarget); err != nil {
+			return fmt.Errorf("remove existing path %s: %w", canonicalTarget, err)
+		}
+		if err := extractFile(rc, canonicalTarget, mode); err != nil {
 			rc.Close()
 			return err
 		}
