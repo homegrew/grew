@@ -119,7 +119,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	slog.Info("saved to: " + localFile)
 
-	if err := downloader.VerifySHA256(localFile, sha); err != nil {
+	if err := downloader.VerifySHA256Within(paths.Tmp, localFile, sha); err != nil {
 		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
@@ -127,7 +127,7 @@ func caskInstall(name string, noQuarantine bool) error {
 	fmt.Printf("==> SHA256 verified\n")
 
 	if sha512 != "" {
-		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
+		if err := downloader.VerifySHA512Within(paths.Tmp, localFile, sha512); err != nil {
 			_ = removeIfWithin(localFile, paths.Tmp)
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}

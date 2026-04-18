@@ -228,6 +228,38 @@ func ComputeSHA512(path string) (string, error) {
 	return hex.EncodeToString(h.Sum(nil)), nil
 }
 
+// ComputeSHA256Within returns the SHA256 of path after ensuring it stays within baseDir.
+func ComputeSHA256Within(baseDir, path string) (string, error) {
+	baseAbs, err := filepath.Abs(filepath.Clean(baseDir))
+	if err != nil {
+		return "", fmt.Errorf("invalid base directory for hashing")
+	}
+	pathAbs, err := filepath.Abs(filepath.Clean(path))
+	if err != nil {
+		return "", fmt.Errorf("invalid path for hashing")
+	}
+	if err := safepath.CheckSubpath(baseAbs, pathAbs); err != nil {
+		return "", fmt.Errorf("path for hashing escapes base directory: %w", err)
+	}
+	return ComputeSHA256(pathAbs)
+}
+
+// ComputeSHA512Within returns the SHA512 of path after ensuring it stays within baseDir.
+func ComputeSHA512Within(baseDir, path string) (string, error) {
+	baseAbs, err := filepath.Abs(filepath.Clean(baseDir))
+	if err != nil {
+		return "", fmt.Errorf("invalid base directory for hashing")
+	}
+	pathAbs, err := filepath.Abs(filepath.Clean(path))
+	if err != nil {
+		return "", fmt.Errorf("invalid path for hashing")
+	}
+	if err := safepath.CheckSubpath(baseAbs, pathAbs); err != nil {
+		return "", fmt.Errorf("path for hashing escapes base directory: %w", err)
+	}
+	return ComputeSHA512(pathAbs)
+}
+
 // VerifySHA256 checks that a file's SHA256 matches the expected hex string.
 func VerifySHA256(path, expected string) error {
 	actual, err := ComputeSHA256(path)
@@ -240,9 +272,33 @@ func VerifySHA256(path, expected string) error {
 	return nil
 }
 
+// VerifySHA256Within checks SHA256 after constraining path to baseDir.
+func VerifySHA256Within(baseDir, path, expected string) error {
+	actual, err := ComputeSHA256Within(baseDir, path)
+	if err != nil {
+		return err
+	}
+	if actual != expected {
+		return fmt.Errorf("SHA256 mismatch: expected %.16s..., got %.16s...", expected, actual)
+	}
+	return nil
+}
+
 // VerifySHA512 checks that a file's SHA512 matches the expected hex string.
 func VerifySHA512(path, expected string) error {
 	actual, err := ComputeSHA512(path)
+	if err != nil {
+		return err
+	}
+	if actual != expected {
+		return fmt.Errorf("SHA512 mismatch: expected %.16s..., got %.16s...", expected, actual)
+	}
+	return nil
+}
+
+// VerifySHA512Within checks SHA512 after constraining path to baseDir.
+func VerifySHA512Within(baseDir, path, expected string) error {
+	actual, err := ComputeSHA512Within(baseDir, path)
 	if err != nil {
 		return err
 	}

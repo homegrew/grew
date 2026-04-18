@@ -15,6 +15,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -101,10 +102,39 @@ type hbFormula struct {
 	Disabled   bool `json:"disabled"`
 }
 
+var safeOutDirName = regexp.MustCompile(`^[A-Za-z0-9._-]+$`)
+
+func sanitizeOutputDir(input string) (string, error) {
+	v := strings.TrimSpace(input)
+	if v == "" {
+		return "", fmt.Errorf("output_dir must not be empty")
+	}
+	if filepath.IsAbs(v) {
+		return "", fmt.Errorf("absolute paths are not allowed")
+	}
+	if strings.Contains(v, "/") || strings.Contains(v, "\\") || strings.Contains(v, "..") {
+		return "", fmt.Errorf("output_dir must be a single directory name")
+	}
+	if !safeOutDirName.MatchString(v) {
+		return "", fmt.Errorf("output_dir contains invalid characters")
+	}
+	return v, nil
+}
+
 func runFormulaImport(args []string) {
 	outDir := "core"
 	if len(args) > 0 {
-		outDir = args[0]
+		safeDir, err := sanitizeOutputDir(args[0])
+		if err != nil {
+			slog.Error("Invalid output_dir", "value", args[0], "error", err)
+			os.Exit(1)
+		}
+		outDir = safeDir
+	}
+	resolvedOutDir, err := safeOutputDir(outDir)
+	if err != nil {
+		slog.Error("Invalid output directory", "output_dir", outDir, "error", err)
+		os.Exit(1)
 	}
 
 	data := fetchAPI(formulaAPI)
@@ -114,7 +144,7 @@ func runFormulaImport(args []string) {
 		os.Exit(1)
 	}
 
-	os.MkdirAll(outDir, 0755)
+	os.MkdirAll(resolvedOutDir, 0755)
 	imported, skipped := 0, 0
 
 	for _, hf := range hfs {
@@ -169,7 +199,13 @@ func runFormulaImport(args []string) {
 			sort.Strings(f.LinuxDependencies)
 		}
 
-		saveYAML(filepath.Join(outDir, hf.Name+".yaml"), f)
+		outPath, err := safeJoinUnderBase(resolvedOutDir, hf.Name+".yaml")
+		if err != nil {
+			slog.Warn("Skipping formula due to invalid output path", "name", hf.Name, "error", err)
+			skipped++
+			continue
+		}
+		saveYAML(outPath, f)
 		imported++
 	}
 	slog.Info("Formula import complete", "imported", imported, "skipped", skipped)
@@ -192,10 +228,47 @@ type hbCask struct {
 	Disabled   bool              `json:"disabled"`
 }
 
+func safeOutputDir(input string) (string, error) {
+	if strings.TrimSpace(input) == "" {
+		return "", fmt.Errorf("output directory cannot be empty")
+	}
+
+	baseDir, err := os.Getwd()
+	if err != nil {
+		return "", fmt.Errorf("resolve working directory: %w", err)
+	}
+	baseDir, err = filepath.Abs(baseDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve absolute working directory: %w", err)
+	}
+
+	targetPath := filepath.Clean(input)
+	targetAbs, err := filepath.Abs(filepath.Join(baseDir, targetPath))
+	if err != nil {
+		return "", fmt.Errorf("resolve output directory: %w", err)
+	}
+
+	rel, err := filepath.Rel(baseDir, targetAbs)
+	if err != nil {
+		return "", fmt.Errorf("check output directory: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return "", fmt.Errorf("output directory must be within %s", baseDir)
+	}
+
+	return targetAbs, nil
+}
+
 func runCaskImport(args []string) {
-	outDir := "cask"
+	outDirInput := "cask"
 	if len(args) > 0 {
-		outDir = args[0]
+		outDirInput = args[0]
+	}
+
+	outDir, err := safeOutputDir(outDirInput)
+	if err != nil {
+		slog.Error("Invalid output directory", "error", err, "outDir", outDirInput)
+		os.Exit(1)
 	}
 
 	data := fetchAPI(caskAPI)
@@ -276,6 +349,30 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 }
 
 // --- Common Helpers ---
+
+func safeOutputDir(input string) (string, error) {
+	base, err := filepath.Abs(".")
+	if err != nil {
+		return "", err
+	}
+	return safeJoinUnderBase(base, input)
+}
+
+func safeJoinUnderBase(base, rel string) (string, error) {
+	baseAbs, err := filepath.Abs(base)
+	if err != nil {
+		return "", err
+	}
+	candidate := filepath.Clean(filepath.Join(baseAbs, rel))
+	relativeToBase, err := filepath.Rel(baseAbs, candidate)
+	if err != nil {
+		return "", err
+	}
+	if relativeToBase == ".." || strings.HasPrefix(relativeToBase, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("path escapes base directory")
+	}
+	return candidate, nil
+}
 
 func fetchAPI(url string) []byte {
 	slog.Info("Fetching API", "url", url)
