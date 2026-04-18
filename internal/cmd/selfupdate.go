@@ -17,7 +17,7 @@ import (
 	"github.com/homegrew/grew/internal/sandbox"
 )
 
-func runSelfUpdate(_ []string) error {
+func RunSelfUpdate(_ []string) error {
 	exePath, err := os.Executable()
 	if err != nil {
 		return fmt.Errorf("locate current executable: %w", err)
@@ -50,12 +50,12 @@ func runSelfUpdate(_ []string) error {
 	}
 
 	// Fallback: download latest release binary.
-	return selfUpdateFromRelease(exePath)
+	return SelfUpdateFromRelease(exePath)
 }
 
-// selfUpdateFromRelease downloads the latest stable release from GitHub,
+// SelfUpdateFromRelease downloads the latest stable release from GitHub,
 // verifies its checksum, and replaces the running binary.
-func selfUpdateFromRelease(exePath string) error {
+func SelfUpdateFromRelease(exePath string) error {
 	rel, err := release.FetchLatest()
 	if err != nil {
 		return err

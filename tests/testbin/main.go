@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/homegrew/grew/internal/cmd"
+)
+
+func main() {
+	if len(os.Args) < 2 {
+		os.Exit(1)
+	}
+
+	switch os.Args[1] {
+	case "run":
+		if err := cmd.RunSelfUpdate(nil); err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+	case "from-release":
+		exePath, _ := os.Executable()
+		if err := cmd.SelfUpdateFromRelease(exePath); err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+	}
+}
