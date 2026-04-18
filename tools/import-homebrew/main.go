@@ -114,7 +114,7 @@ func yamlEscape(s string) string {
 		return `""`
 	}
 	// Quote if contains special chars.
-	if strings.ContainsAny(s, `:{}[]&*?|>!%@\'"#`) || strings.HasPrefix(s, " ") {
+	if strings.ContainsAny(s, `:{}[]&*?|>!%@'"#`) || strings.HasPrefix(s, " ") {
 		escaped := strings.ReplaceAll(s, `\`, `\\`)
 		escaped = strings.ReplaceAll(escaped, `"`, `\"`)
 		return `"` + escaped + `"`
