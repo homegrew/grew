@@ -367,11 +367,21 @@ func extractSymlink(realDest, target, linkname string) error {
 		}
 	}
 
-	if err := os.RemoveAll(target); err != nil {
-		return fmt.Errorf("remove existing path before creating symlink %s: %w", target, err)
+	// Final sink-side guard: canonicalize target and ensure it is still within extraction root.
+	resolvedTarget, err := filepath.Abs(target)
+	if err != nil {
+		return fmt.Errorf("resolve symlink destination %s: %w", target, err)
 	}
-	if err := os.Symlink(linkname, target); err != nil {
-		return fmt.Errorf("create symlink %q -> %q: %w", target, linkname, err)
+	resolvedTarget = filepath.Clean(resolvedTarget)
+	if !safepath.IsSubpath(realDest, resolvedTarget) {
+		return nil
+	}
+
+	if err := os.RemoveAll(resolvedTarget); err != nil {
+		return fmt.Errorf("remove existing path before creating symlink %s: %w", resolvedTarget, err)
+	}
+	if err := os.Symlink(linkname, resolvedTarget); err != nil {
+		return fmt.Errorf("create symlink %q -> %q: %w", resolvedTarget, linkname, err)
 	}
 	return nil
 }
@@ -454,6 +464,10 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			}
 			if err := safepath.CheckSubpath(realDest, target); err != nil {
 				return fmt.Errorf("hard link destination escapes destination directory: %w", err)
+			}
+			// Re-validate immediately before destructive removal (defense in depth).
+			if err := safepath.CheckSubpath(realDest, target); err != nil {
+				return fmt.Errorf("refusing to remove hard link destination outside extraction root: %w", err)
 			}
 			if err := os.RemoveAll(target); err != nil {
 				return fmt.Errorf("remove existing path %s for hard link: %w", target, err)
