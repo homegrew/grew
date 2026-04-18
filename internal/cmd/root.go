@@ -15,12 +15,24 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 )
 
 func init() {
+	if apiBase := os.Getenv("HOMEGREW_GITHUB_API_BASE"); apiBase != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_GITHUB_API_BASE requires devmode build\n")
+			os.Exit(1)
+		}
+		if err := release.SetAPIBase(apiBase); err != nil {
+			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
 	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {
 		if !runtime.DevMode {
 			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_TEST_CERT_FILE requires devmode build\n")

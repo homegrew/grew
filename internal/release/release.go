@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -29,10 +30,25 @@ const (
 
 var apiBase = "https://api.github.com"
 
-func init() {
-	if env := os.Getenv("HOMEGREW_GITHUB_API_BASE"); env != "" {
-		apiBase = env
+// SetAPIBase overrides the GitHub API base URL.
+// This is strictly intended for testing purposes and should only be called
+// when runtime.DevMode is enabled. It validates the provided URL to prevent
+// Server-Side Request Forgery (SSRF) vulnerabilities.
+func SetAPIBase(rawURL string) error {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return fmt.Errorf("invalid api base url: %w", err)
 	}
+	if u.Scheme != "https" && u.Scheme != "http" {
+		return fmt.Errorf("api base must use http or https")
+	}
+	// Restrict to known safe domains or local loopback for testing
+	host := u.Hostname()
+	if host != "api.github.com" && host != "127.0.0.1" && host != "localhost" {
+		return fmt.Errorf("api base host %q is not permitted", host)
+	}
+	apiBase = rawURL
+	return nil
 }
 
 // Release is the subset of the GitHub API release response we need.
