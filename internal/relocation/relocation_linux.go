@@ -81,13 +81,13 @@ func relocateBinary(path string, replacements Replacements) error {
 				// fail to execute with "required file not found".
 				if _, err := os.Stat(newInterp); err != nil {
 					slog.Warn(fmt.Sprintf("relocation: %s: relocated interpreter %s does not exist", relName, newInterp))
-					// Fallback: if it's a standard x86_64 path, try the system one.
-					if strings.Contains(newInterp, "ld-linux-x86-64.so.2") {
-						systemInterp := "/lib64/ld-linux-x86-64.so.2"
-						if _, err := os.Stat(systemInterp); err == nil {
-							slog.Info(fmt.Sprintf("relocation: %s: falling back to system interpreter %s", relName, systemInterp))
-							newInterp = systemInterp
-						}
+					// Fallback: Homebrew Linux bottles depend on their own glibc (ld.so).
+					// If it's missing, fall back to the standard x86_64 system interpreter
+					// so the binary can at least attempt to run natively.
+					systemInterp := "/lib64/ld-linux-x86-64.so.2"
+					if _, err := os.Stat(systemInterp); err == nil {
+						slog.Info(fmt.Sprintf("relocation: %s: falling back to system interpreter %s", relName, systemInterp))
+						newInterp = systemInterp
 					}
 				}
 
