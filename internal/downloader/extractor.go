@@ -447,6 +447,14 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if !ok {
 				continue
 			}
+			// Defensive sink-side validation: ensure both link source and destination
+			// remain within the resolved extraction root.
+			if err := safepath.CheckSubpath(realDest, linkTarget); err != nil {
+				return fmt.Errorf("hard link source escapes destination directory: %w", err)
+			}
+			if err := safepath.CheckSubpath(realDest, target); err != nil {
+				return fmt.Errorf("hard link destination escapes destination directory: %w", err)
+			}
 			if err := os.RemoveAll(target); err != nil {
 				return fmt.Errorf("remove existing path %s for hard link: %w", target, err)
 			}
