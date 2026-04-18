@@ -298,9 +298,8 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 
 	// Final textual safety check: ensure the target is inside destDir.
 	// This is our primary defense when the filesystem state is incomplete.
-	absDest, _ := filepath.Abs(destDir)
-	absTarget, _ := filepath.Abs(target)
-	if !safepath.IsSubpath(absDest, absTarget) {
+	// absDestDir and absTarget were already computed above.
+	if !safepath.IsSubpath(absDestDir, absTarget) {
 		return "", false
 	}
 
