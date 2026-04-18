@@ -257,11 +257,17 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid URL: %w", err)
 	}
-	if u.Scheme != "https" {
-		return nil, fmt.Errorf("OSV API requires HTTPS, got %s", u.Scheme)
+
+	expected, err := url.Parse(apiBase)
+	if err != nil {
+		return nil, fmt.Errorf("invalid API base URL: %w", err)
 	}
-	if u.Host != "api.osv.dev" {
-		return nil, fmt.Errorf("unexpected OSV API host: %s", u.Host)
+
+	if u.Scheme != expected.Scheme {
+		return nil, fmt.Errorf("OSV API requires %s, got %s", expected.Scheme, u.Scheme)
+	}
+	if u.Host != expected.Host {
+		return nil, fmt.Errorf("unexpected OSV API host: %s (expected %s)", u.Host, expected.Host)
 	}
 
 	var lastErr error
