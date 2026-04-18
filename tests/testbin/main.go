@@ -19,7 +19,11 @@ func main() {
 			os.Exit(1)
 		}
 	case "from-release":
-		exePath, _ := os.Executable()
+		exePath, err := os.Executable()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
 		if err := cmd.SelfUpdateFromRelease(exePath); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
