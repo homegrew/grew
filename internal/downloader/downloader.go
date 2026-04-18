@@ -127,6 +127,10 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("download %s: HTTP %d %s", rawURL, resp.StatusCode, resp.Status)
 	}
 
+	if err := os.RemoveAll(destPath); err != nil {
+		return "", fmt.Errorf("prepare download path %s: %w", destPath, err)
+	}
+
 	out, err := os.Create(destPath)
 	if err != nil {
 		return "", fmt.Errorf("create file %s: %w", destPath, err)

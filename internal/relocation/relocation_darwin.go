@@ -34,7 +34,7 @@ func inspectBinary(path string) ([]string, error) {
 	// This is the single most reliable source of the build prefix, since
 	// it contains the full absolute path the dylib was built with.
 	slog.Debug(fmt.Sprintf("relocation: otool -D %s", relName))
-	if idOut, err := exec.Command(otool, "-D", path).Output(); err == nil {
+	if idOut, err := exec.Command(otool, "-D", "--", path).Output(); err == nil {
 		if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
 			installName := strings.TrimSpace(idLines[1])
 			if installName != "" {
@@ -46,7 +46,7 @@ func inspectBinary(path string) ([]string, error) {
 
 	// Capture library dependencies from otool -L.
 	slog.Debug(fmt.Sprintf("relocation: otool -L %s", relName))
-	out, err := exec.Command(otool, "-L", path).Output()
+	out, err := exec.Command(otool, "-L", "--", path).Output()
 	if err != nil {
 		return nil, fmt.Errorf("otool -L %s: %w", path, err)
 	}
@@ -78,7 +78,7 @@ func inspectBinary(path string) ([]string, error) {
 	// Collect LC_RPATH entries from otool -l output.
 	// These contain the absolute prefix paths that @rpath references resolve against.
 	slog.Debug(fmt.Sprintf("relocation: otool -l %s", relName))
-	loadOut, _ := exec.Command(otool, "-l", path).Output()
+	loadOut, _ := exec.Command(otool, "-l", "--", path).Output()
 	if loadOut != nil {
 		lines := strings.Split(string(loadOut), "\n")
 		for i, line := range lines {
@@ -119,7 +119,7 @@ func relocateBinary(path string, replacements Replacements) error {
 	var args []string
 
 	// Determine install name (LC_ID_DYLIB) via otool -D.
-	idOut, _ := exec.Command(otool, "-D", path).Output()
+	idOut, _ := exec.Command(otool, "-D", "--", path).Output()
 	var installName string
 	if idLines := strings.Split(strings.TrimSpace(string(idOut)), "\n"); len(idLines) >= 2 {
 		installName = strings.TrimSpace(idLines[1])
@@ -132,13 +132,13 @@ func relocateBinary(path string, replacements Replacements) error {
 	}
 
 	// Collect library load commands via otool -L.
-	libOut, err := exec.Command(otool, "-L", path).Output()
+	libOut, err := exec.Command(otool, "-L", "--", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -L: %w", err)
 	}
 
 	// Collect LC_RPATH entries.
-	loadOut, err := exec.Command(otool, "-l", path).Output()
+	loadOut, err := exec.Command(otool, "-l", "--", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -l: %w", err)
 	}
@@ -228,14 +228,14 @@ func verifyBinary(path, prefix string) []Issue {
 	relName := filepath.Base(path)
 
 	// Get library deps.
-	libOut, err := exec.Command(otool, "-L", path).Output()
+	libOut, err := exec.Command(otool, "-L", "--", path).Output()
 	if err != nil {
 		return nil
 	}
 
 	// Get LC_RPATH entries for @rpath resolution.
 	var rpaths []string
-	if loadOut, err := exec.Command(otool, "-l", path).Output(); err == nil {
+	if loadOut, err := exec.Command(otool, "-l", "--", path).Output(); err == nil {
 		lines := strings.Split(string(loadOut), "\n")
 		for i, line := range lines {
 			if strings.Contains(line, "cmd LC_RPATH") {

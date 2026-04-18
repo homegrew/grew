@@ -1,0 +1,34 @@
+name: E2E Test
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+
+      - name: Build with devmode
+        run: go build -v -tags devmode -o grew .
+
+      - name: Setup (User-local)
+        run: |
+          ./grew setup --unsafe
+          echo "$HOME/.homegrew/bin" >> $GITHUB_PATH
+
+      - name: Update
+        run: grew update
+
+      - name: Install nano
+        run: grew install nano
+
+      - name: Verify nano
+        run: nano -V

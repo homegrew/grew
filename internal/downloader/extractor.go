@@ -285,7 +285,12 @@ func safeJoinArchivePath(destDir, entryName string) (string, bool) {
 		if !safepath.IsSubpath(realDest, realTarget) {
 			return "", false
 		}
+	} else if !os.IsNotExist(err) {
+		// If EvalSymlinks failed for reasons other than NotExist, it might
+		// be a real problem (e.g. permission denied).
+		return "", false
 	}
+
 	// If parent doesn't exist yet (err != nil), the textual check is
 	// sufficient — there are no symlinks to follow.
 
@@ -344,21 +349,35 @@ func extractSymlink(realDest, target, linkname string) error {
 		if !safepath.IsSubpath(realDest, resolvedCandidate) {
 			return nil
 		}
-	} else if os.IsNotExist(err) {
-		resolvedCandidateParent, err := filepath.EvalSymlinks(filepath.Dir(candidateTarget))
+	} else if errors.Is(err, os.ErrNotExist) {
+		// If the target doesn't exist, we must still ensure it's safe.
+		// Try to resolve the parent to follow any symlinks in the path.
+		parent := filepath.Dir(candidateTarget)
+		resolvedCandidateParent, err := filepath.EvalSymlinks(parent)
 		if err != nil {
-			return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
-		}
-		resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
-		if !safepath.IsSubpath(realDest, resolvedCandidate) {
-			return nil
+			if errors.Is(err, os.ErrNotExist) {
+				// If the parent directory doesn't exist yet, we can't EvalSymlinks it.
+				// In this case, the candidateTarget itself is already the "best" we can do,
+				// and safeJoinArchivePath already ensured it's textually inside.
+				// We still do a final subpath check on the raw candidateTarget.
+				if !safepath.IsSubpath(realDest, candidateTarget) {
+					return nil
+				}
+			} else {
+				return fmt.Errorf("resolve symlink target parent %s: %w", candidateTarget, err)
+			}
+		} else {
+			resolvedCandidate := filepath.Join(resolvedCandidateParent, filepath.Base(candidateTarget))
+			if !safepath.IsSubpath(realDest, resolvedCandidate) {
+				return nil
+			}
 		}
 	} else if err != nil {
 		return fmt.Errorf("inspect symlink target %s: %w", candidateTarget, err)
 	}
 
-	if err := os.Remove(target); err != nil && !os.IsNotExist(err) {
-		return fmt.Errorf("remove existing file before creating symlink %s: %w", target, err)
+	if err := os.RemoveAll(target); err != nil {
+		return fmt.Errorf("remove existing path before creating symlink %s: %w", target, err)
 	}
 	if err := os.Symlink(linkname, target); err != nil {
 		return fmt.Errorf("create symlink %q -> %q: %w", target, linkname, err)
@@ -415,12 +434,33 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
 				return fmt.Errorf("create parent directory for %s: %w", target, err)
 			}
+			// Remove existing file/directory to avoid following symlinks or other conflicts.
+			if err := os.RemoveAll(target); err != nil {
+				return fmt.Errorf("remove existing path %s: %w", target, err)
+			}
 			if err := extractFile(tr, target, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
 			}
 		case tar.TypeSymlink:
+			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+				return fmt.Errorf("create parent directory for symlink %s: %w", target, err)
+			}
 			if err := extractSymlink(realDest, target, header.Linkname); err != nil {
 				return err
+			}
+		case tar.TypeLink:
+			if err := os.MkdirAll(filepath.Dir(target), 0755); err != nil {
+				return fmt.Errorf("create parent directory for hard link %s: %w", target, err)
+			}
+			linkTarget, ok := safeJoinArchivePath(realDest, stripPath(header.Linkname, stripComponents))
+			if !ok {
+				continue
+			}
+			if err := os.RemoveAll(target); err != nil {
+				return fmt.Errorf("remove existing path %s for hard link: %w", target, err)
+			}
+			if err := os.Link(linkTarget, target); err != nil {
+				return fmt.Errorf("create hard link %s -> %s: %w", target, linkTarget, err)
 			}
 		}
 	}
@@ -553,6 +593,9 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		}
 
 		mode := fsutil.SanitizeMode(f.Mode(), false)
+		if err := os.RemoveAll(target); err != nil {
+			return fmt.Errorf("remove existing path %s: %w", target, err)
+		}
 		if err := extractFile(rc, target, mode); err != nil {
 			rc.Close()
 			return err
