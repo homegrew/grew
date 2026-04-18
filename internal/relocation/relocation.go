@@ -41,7 +41,11 @@ func BuildReplacements(kegPath, prefix string) Replacements {
 
 	// Include standard Homebrew prefixes as sources for relocation.
 	// Many bottles have these hardcoded even if they are relocatable.
-	standardPrefixes := []string{"/opt/homebrew", "/usr/local"}
+	standardPrefixes := []string{
+		"/opt/homebrew",
+		"/usr/local",
+		"/home/linuxbrew/.linuxbrew",
+	}
 	for _, sp := range standardPrefixes {
 		if sp != prefix {
 			r[sp] = prefix
@@ -197,13 +201,14 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 // deriveOldPrefix scans a list of embedded paths for patterns like
 // "<prefix>/Cellar/" or "<prefix>/opt/" and returns the prefix portion.
 func deriveOldPrefix(paths []string) string {
-	markers := []string{"/Cellar/", "/opt/"}
+	markers := []string{"/Cellar/", "/opt/", "/lib/ld.so", "/lib/ld-linux"}
 	for _, p := range paths {
 		for _, marker := range markers {
 			idx := strings.Index(p, marker)
 			if idx > 0 {
 				candidate := p[:idx]
-				if filepath.IsAbs(candidate) {
+				// Exclude @@HOMEBREW_PREFIX@@ as it is already handled explicitly.
+				if filepath.IsAbs(candidate) && !strings.Contains(candidate, PlaceholderPrefix) {
 					return candidate
 				}
 			}
