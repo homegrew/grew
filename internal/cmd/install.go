@@ -767,12 +767,16 @@ func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) er
 
 	// Create a dedicated temp directory for the post-install script.
 	// This is the ONLY writable location — the keg itself is read-only.
-	piTmp, err := os.MkdirTemp("", fmt.Sprintf("grew-postinstall-%s-*", f.Name))
+	// We sanitize the formula name to ensure it's a safe path component (CWE-022).
+	safeName := f.Name
+	if err := safepath.SafePathComponent(safeName); err != nil {
+		safeName = "unknown"
+	}
+	piTmp, err := os.MkdirTemp("", fmt.Sprintf("grew-postinstall-%s-*", safeName))
 	if err != nil {
 		return fmt.Errorf("create post-install tmpdir: %w", err)
 	}
 	defer os.RemoveAll(piTmp)
-
 	piCfg := sandbox.PostInstallConfig{
 		KegDir: kegPath,
 		TmpDir: piTmp,
