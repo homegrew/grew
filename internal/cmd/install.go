@@ -268,8 +268,7 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 		return fmt.Errorf("invalid cleanup relative path %q", rel)
 	}
 
-	safeTarget := filepath.Join(cleanTmp, rel)
-	return os.Remove(safeTarget)
+	return os.Remove(cleanCandidate)
 }
 
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
