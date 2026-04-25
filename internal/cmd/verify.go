@@ -83,7 +83,7 @@ func runVerify(args []string) error {
 				"name": result.Name, "version": result.Version,
 				"ok": result.OK, "missing": result.Missing,
 				"modified": result.Modified, "added": result.Added,
-				"errors": result.Errors,
+				"errors":              result.Errors,
 				"keg_sha256_mismatch": result.KegSHA256Mismatch,
 				"keg_sha512_mismatch": result.KegSHA512Mismatch,
 			})

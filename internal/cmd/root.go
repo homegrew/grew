@@ -11,17 +11,14 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/runtime"
-	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/homegrew/grew/pkg/safepath"
 )
@@ -154,36 +151,16 @@ func Run(args []string) error {
 }
 
 // readContext bundles objects needed by read-only commands (info, search, outdated, deps).
-type readContext struct {
-	Paths  config.Paths
-	Loader *formula.Loader
-	Cellar *cellar.Cellar
-}
+type readContext = commonCtx
 
 // newReadContext initialises paths and the core tap for read-only commands.
 func newReadContext() (*readContext, error) {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
-		return nil, err
-	}
-
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return nil, fmt.Errorf("init core tap: %w", err)
-	}
-
-	return &readContext{
-		Paths:  paths,
-		Loader: newLoader(paths.Taps),
-		Cellar: &cellar.Cellar{Path: paths.Cellar},
-	}, nil
+	return newCommonCtx()
 }
 
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
-	Paths      config.Paths
-	Loader     *formula.Loader
-	Cellar     *cellar.Cellar
+	*commonCtx
 	Linker     *linker.Linker
 	DL         *downloader.Downloader
 	AuditLog   *auditlog.Logger
@@ -202,31 +179,25 @@ func (c *installContext) Close() {
 
 // newInstallContext initialises paths, the core tap, and returns the shared context.
 func newInstallContext() (*installContext, error) {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	common, err := newCommonCtx()
+	if err != nil {
 		return nil, err
 	}
-	if err := safepath.SafeAbsolutePath(paths.Tmp); err != nil {
-		return nil, fmt.Errorf("invalid temporary directory %q: %w", paths.Tmp, err)
+
+	if err := safepath.SafeAbsolutePath(common.Paths.Tmp); err != nil {
+		return nil, fmt.Errorf("invalid temporary directory %q: %w", common.Paths.Tmp, err)
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return nil, fmt.Errorf("init core tap: %w", err)
-	}
-
-	lock, err := acquireGlobalLock(paths)
+	lock, err := acquireGlobalLock(common.Paths)
 	if err != nil {
 		return nil, err
 	}
 
 	return &installContext{
-		Paths:      paths,
-		Loader:     newLoader(paths.Taps),
-		Cellar:     &cellar.Cellar{Path: paths.Cellar},
-		Linker:     &linker.Linker{Paths: paths},
-		DL:         &downloader.Downloader{TmpDir: paths.Tmp},
-		AuditLog:   auditlog.New(paths.Log),
+		commonCtx:  common,
+		Linker:     &linker.Linker{Paths: common.Paths},
+		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp},
+		AuditLog:   auditlog.New(common.Paths.Log),
 		GlobalLock: lock,
 	}, nil
 }
@@ -267,15 +238,6 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 		return nil, fmt.Errorf("acquire global lock: %w", err)
 	}
 	return f, nil
-}
-
-// newLoader creates a formula.Loader with debug logging wired in.
-func newLoader(tapDir string) *formula.Loader {
-	l := formula.NewLoader(tapDir)
-	l.DebugLog = func(format string, args ...any) {
-		slog.Debug(fmt.Sprintf(format, args...))
-	}
-	return l
 }
 
 func printUsage() {

@@ -19,7 +19,6 @@ import (
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
-	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -55,17 +54,12 @@ func runVulnScan(args []string) error {
 	flags.Resolve()
 	targets := fs.Args()
 
-	paths := config.Default()
-
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		slog.Debug(fmt.Sprintf("init core tap: %v", err))
+	ctx, err := newCommonCtx()
+	if err != nil {
+		return err
 	}
 
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	packages, err := cel.List()
+	packages, err := ctx.Cellar.List()
 	if err != nil {
 		return fmt.Errorf("list installed packages: %w", err)
 	}
@@ -104,7 +98,7 @@ func runVulnScan(args []string) error {
 	}
 
 	// Load all formulas for cross-referencing.
-	allFormulas, _ := loader.LoadAll()
+	allFormulas, _ := ctx.Loader.LoadAll()
 	formulaMap := make(map[string]*formula.Formula, len(allFormulas))
 	for _, f := range allFormulas {
 		formulaMap[f.Name] = f
@@ -118,7 +112,7 @@ func runVulnScan(args []string) error {
 
 	// Local checks per package.
 	for _, pkg := range packages {
-		findings = append(findings, scanPackage(pkg, cel, paths, formulaMap)...)
+		findings = append(findings, scanPackage(pkg, ctx.Cellar, ctx.Paths, formulaMap)...)
 	}
 
 	// OSV.dev known vulnerability check.
@@ -127,7 +121,7 @@ func runVulnScan(args []string) error {
 	}
 
 	// Global checks (not tied to a specific package).
-	findings = append(findings, scanGlobalPermissions(paths)...)
+	findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
 
 	// Filter by severity if quiet.
 	if *quiet {

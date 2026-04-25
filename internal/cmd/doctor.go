@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"

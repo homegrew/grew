@@ -228,31 +228,42 @@ type installOpts struct {
 	installedOnRequest bool // true if the user asked for this formula directly
 }
 
+func normalizeDir(dir, name string) (string, error) {
+	cleanDir := dir
+	if abs, err := filepath.Abs(cleanDir); err == nil {
+		cleanDir = abs
+	}
+	if eval, err := filepath.EvalSymlinks(cleanDir); err == nil {
+		cleanDir = eval
+	}
+	cleanDir = filepath.Clean(cleanDir)
+	if err := safepath.SafeAbsolutePath(cleanDir); err != nil {
+		return "", fmt.Errorf("invalid %s directory %q: %w", name, cleanDir, err)
+	}
+	return cleanDir, nil
+}
+
+func checkFormulaPathComponents(f *formula.Formula) error {
+	if err := safepath.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name: %w", err)
+	}
+	if err := safepath.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version: %w", err)
+	}
+	return nil
+}
+
 // installFormula downloads, verifies, extracts, and links a single formula.
 // Shared by install and upgrade commands.
 func removeIfWithinTmp(tmpDir, candidate string) error {
-	cleanTmp := tmpDir
-	if abs, err := filepath.Abs(cleanTmp); err == nil {
-		cleanTmp = abs
-	}
-	if eval, err := filepath.EvalSymlinks(cleanTmp); err == nil {
-		cleanTmp = eval
-	}
-	cleanTmp = filepath.Clean(cleanTmp)
-	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
-		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	cleanTmp, err := normalizeDir(tmpDir, "tmp")
+	if err != nil {
+		return err
 	}
 
-	cleanCandidate := candidate
-	if abs, err := filepath.Abs(cleanCandidate); err == nil {
-		cleanCandidate = abs
-	}
-	if eval, err := filepath.EvalSymlinks(cleanCandidate); err == nil {
-		cleanCandidate = eval
-	}
-	cleanCandidate = filepath.Clean(cleanCandidate)
-	if err := safepath.SafeAbsolutePath(cleanCandidate); err != nil {
-		return fmt.Errorf("invalid cleanup path %q: %w", cleanCandidate, err)
+	cleanCandidate, err := normalizeDir(candidate, "cleanup path")
+	if err != nil {
+		return err
 	}
 
 	if err := safepath.CheckSubpath(cleanTmp, cleanCandidate); err != nil {
@@ -298,11 +309,8 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	// Validate formula-derived identifiers before using them in filesystem paths.
-	if err := safepath.SafePathComponent(f.Name); err != nil {
-		return fmt.Errorf("invalid formula name: %w", err)
-	}
-	if err := safepath.SafePathComponent(f.Version); err != nil {
-		return fmt.Errorf("invalid formula version: %w", err)
+	if err := checkFormulaPathComponents(f); err != nil {
+		return err
 	}
 
 	ext := urlExt(dlURL)
@@ -333,43 +341,22 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		}
 	}
 
-	cleanRoot := paths.Root
-	if abs, err := filepath.Abs(cleanRoot); err == nil {
-		cleanRoot = abs
-	}
-	if eval, err := filepath.EvalSymlinks(cleanRoot); err == nil {
-		cleanRoot = eval
-	}
-	cleanRoot = filepath.Clean(cleanRoot)
-	if err := safepath.SafeAbsolutePath(cleanRoot); err != nil {
-		return fmt.Errorf("invalid install root %q: %w", cleanRoot, err)
+	cleanRoot, err := normalizeDir(paths.Root, "install root")
+	if err != nil {
+		return err
 	}
 
-	cleanTmp := paths.Tmp
-	if abs, err := filepath.Abs(cleanTmp); err == nil {
-		cleanTmp = abs
-	}
-	if eval, err := filepath.EvalSymlinks(cleanTmp); err == nil {
-		cleanTmp = eval
-	}
-	cleanTmp = filepath.Clean(cleanTmp)
-	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
-		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	cleanTmp, err := normalizeDir(paths.Tmp, "tmp")
+	if err != nil {
+		return err
 	}
 	if err := safepath.CheckSubpath(cleanRoot, cleanTmp); err != nil {
 		return fmt.Errorf("temporary directory escapes install root: %w", err)
 	}
 
-	cleanLocalFile := localFile
-	if abs, err := filepath.Abs(cleanLocalFile); err == nil {
-		cleanLocalFile = abs
-	}
-	if eval, err := filepath.EvalSymlinks(cleanLocalFile); err == nil {
-		cleanLocalFile = eval
-	}
-	cleanLocalFile = filepath.Clean(cleanLocalFile)
-	if err := safepath.SafeAbsolutePath(cleanLocalFile); err != nil {
-		return fmt.Errorf("invalid downloaded file path %q: %w", cleanLocalFile, err)
+	cleanLocalFile, err := normalizeDir(localFile, "downloaded file path")
+	if err != nil {
+		return err
 	}
 
 	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
@@ -428,59 +415,25 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		return fmt.Errorf("relocate %s: %w", f.Name, relErr)
 	}
 
-	if !opts.skipLink {
-		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
-			return fmt.Errorf("link %s: %w", f.Name, err)
-		}
-		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, kegPath))
-	}
-
-	// Verify that relocated binaries can resolve their dependencies.
-	if issues := relocation.VerifyKeg(kegPath, paths.Root); len(issues) > 0 {
-		for _, issue := range issues {
-			slog.Warn(fmt.Sprintf("linkage issue: %s", issue))
-		}
-		return fmt.Errorf("linkage verification failed for %s: %d issue(s) (use -d for details)", f.Name, len(issues))
-	}
-
-	// Capture and save integrity snapshot.
-	meta := snapshot.InstallMeta{
-		Platform:           formula.PlatformKey(),
-		DownloadURL:        dlURL,
-		DownloadSHA256:     sha256,
-		DownloadSHA512:     sha512,
-		Dependencies:       f.Dependencies,
-		InstalledOnRequest: opts.installedOnRequest,
-		BuiltFromSource:    false,
-	}
-	manifest, snapErr := snapshot.Capture(f.Name, f.Version, kegPath, meta)
-	if snapErr != nil {
-		slog.Warn(fmt.Sprintf("could not capture snapshot: %v", snapErr))
-	} else {
-		if err := snapshot.Save(manifest, kegPath); err != nil {
-			slog.Warn(fmt.Sprintf("could not save snapshot: %v", err))
-		}
-		slog.Info(fmt.Sprintf("snapshot saved: %s/%s", kegPath, snapshot.ManifestFile))
-	}
-
-	os.RemoveAll(stageDir)
-
-	if err := runPostInstall(f, kegPath, opts.skipPostInstall); err != nil {
-		return err
-	}
-
-	if ctx.AuditLog != nil {
-		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, sha256, "bottle")
-	}
-
-	if f.KegOnly {
-		fmt.Printf("==> %s %s installed (keg-only, not linked)\n", f.Name, f.Version)
-	} else if opts.skipLink {
-		fmt.Printf("==> %s %s installed (linking skipped)\n", f.Name, f.Version)
-	} else {
-		fmt.Printf("==> %s %s installed and linked\n", f.Name, f.Version)
-	}
-	return nil
+	return finalizeInstall(f, ctx, finalizeOpts{
+		kegPath: kegPath,
+		meta: snapshot.InstallMeta{
+			Platform:           formula.PlatformKey(),
+			DownloadURL:        dlURL,
+			DownloadSHA256:     sha256,
+			DownloadSHA512:     sha512,
+			Dependencies:       f.Dependencies,
+			InstalledOnRequest: opts.installedOnRequest,
+			BuiltFromSource:    false,
+		},
+		skipLink:     opts.skipLink,
+		skipPostInst: opts.skipPostInstall,
+		auditSHA256:  sha256,
+		auditDetail:  "bottle",
+		cleanup: func() {
+			os.RemoveAll(stageDir)
+		},
+	})
 }
 
 // installFormulaFromSource downloads the source tarball and builds from source
@@ -489,11 +442,8 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 
-	if err := safepath.SafePathComponent(f.Name); err != nil {
-		return fmt.Errorf("invalid formula name: %w", err)
-	}
-	if err := safepath.SafePathComponent(f.Version); err != nil {
-		return fmt.Errorf("invalid formula version: %w", err)
+	if err := checkFormulaPathComponents(f); err != nil {
+		return err
 	}
 
 	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
@@ -540,13 +490,10 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		}
 	}
 
-	if abs, err := filepath.Abs(localFile); err == nil {
-		localFile = abs
+	localFile, err = normalizeDir(localFile, "downloaded source")
+	if err != nil {
+		return err
 	}
-	if eval, err := filepath.EvalSymlinks(localFile); err == nil {
-		localFile = eval
-	}
-	localFile = filepath.Clean(localFile)
 	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
 		return fmt.Errorf("downloaded source path escapes temp directory after normalization: %w", err)
 	}
@@ -652,51 +599,23 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		return fmt.Errorf("make install %s: %w", f.Name, err)
 	}
 
-	if !opts.skipLink {
-		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
-			return fmt.Errorf("link %s: %w", f.Name, err)
-		}
-		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, kegPath))
-	}
-
-	// Capture and save integrity snapshot.
-	meta := snapshot.InstallMeta{
-		Platform:           formula.PlatformKey(),
-		DownloadURL:        srcURL,
-		DownloadSHA256:     srcSHA256,
-		DownloadSHA512:     srcSHA512,
-		Dependencies:       f.Dependencies,
-		InstalledOnRequest: opts.installedOnRequest,
-		BuiltFromSource:    true,
-	}
-	manifest, snapErr := snapshot.Capture(f.Name, f.Version, kegPath, meta)
-	if snapErr != nil {
-		slog.Warn(fmt.Sprintf("could not capture snapshot: %v", snapErr))
-	} else {
-		if err := snapshot.Save(manifest, kegPath); err != nil {
-			slog.Warn(fmt.Sprintf("could not save snapshot: %v", err))
-		}
-		slog.Info(fmt.Sprintf("snapshot saved: %s/%s", kegPath, snapshot.ManifestFile))
-	}
-
-	cleanup()
-
-	if err := runPostInstall(f, kegPath, opts.skipPostInstall); err != nil {
-		return err
-	}
-
-	if ctx.AuditLog != nil {
-		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, srcSHA256, "source")
-	}
-
-	if f.KegOnly {
-		fmt.Printf("==> %s %s built from source and installed (keg-only, not linked)\n", f.Name, f.Version)
-	} else if opts.skipLink {
-		fmt.Printf("==> %s %s built from source and installed (linking skipped)\n", f.Name, f.Version)
-	} else {
-		fmt.Printf("==> %s %s built from source and installed\n", f.Name, f.Version)
-	}
-	return nil
+	return finalizeInstall(f, ctx, finalizeOpts{
+		kegPath: kegPath,
+		meta: snapshot.InstallMeta{
+			Platform:           formula.PlatformKey(),
+			DownloadURL:        srcURL,
+			DownloadSHA256:     srcSHA256,
+			DownloadSHA512:     srcSHA512,
+			Dependencies:       f.Dependencies,
+			InstalledOnRequest: opts.installedOnRequest,
+			BuiltFromSource:    true,
+		},
+		skipLink:     opts.skipLink,
+		skipPostInst: opts.skipPostInstall,
+		auditSHA256:  srcSHA256,
+		auditDetail:  "source",
+		cleanup:      cleanup,
+	})
 }
 
 // urlExt extracts the file extension from a URL path (e.g. ".tar.gz", ".zip").
@@ -733,6 +652,71 @@ func verifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
 		return fmt.Errorf("signature verification failed for %s: not signed by any trusted key", name)
 	}
 	fmt.Printf("==> Signature verified\n")
+	return nil
+}
+
+type finalizeOpts struct {
+	kegPath      string
+	meta         snapshot.InstallMeta
+	skipLink     bool
+	skipPostInst bool
+	auditSHA256  string
+	auditDetail  string
+	cleanup      func()
+}
+
+func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts) error {
+	if !opts.skipLink {
+		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
+			return fmt.Errorf("link %s: %w", f.Name, err)
+		}
+		slog.Info(fmt.Sprintf("linked: opt/%s -> %s", f.Name, opts.kegPath))
+	}
+
+	if !opts.meta.BuiltFromSource {
+		// Verify that relocated binaries can resolve their dependencies.
+		if issues := relocation.VerifyKeg(opts.kegPath, ctx.Paths.Root); len(issues) > 0 {
+			for _, issue := range issues {
+				slog.Warn(fmt.Sprintf("linkage issue: %s", issue))
+			}
+			return fmt.Errorf("linkage verification failed for %s: %d issue(s) (use -d for details)", f.Name, len(issues))
+		}
+	}
+
+	manifest, snapErr := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
+	if snapErr != nil {
+		slog.Warn(fmt.Sprintf("could not capture snapshot: %v", snapErr))
+	} else {
+		if err := snapshot.Save(manifest, opts.kegPath); err != nil {
+			slog.Warn(fmt.Sprintf("could not save snapshot: %v", err))
+		}
+		slog.Info(fmt.Sprintf("snapshot saved: %s/%s", opts.kegPath, snapshot.ManifestFile))
+	}
+
+	if opts.cleanup != nil {
+		opts.cleanup()
+	}
+
+	if err := runPostInstall(f, opts.kegPath, opts.skipPostInst); err != nil {
+		return err
+	}
+
+	if ctx.AuditLog != nil {
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, opts.auditSHA256, opts.auditDetail)
+	}
+
+	var methodStr string
+	if opts.meta.BuiltFromSource {
+		methodStr = "built from source and "
+	}
+	if f.KegOnly {
+		fmt.Printf("==> %s %s %sinstalled (keg-only, not linked)\n", f.Name, f.Version, methodStr)
+	} else if opts.skipLink {
+		fmt.Printf("==> %s %s %sinstalled (linking skipped)\n", f.Name, f.Version, methodStr)
+	} else {
+		fmt.Printf("==> %s %s %sinstalled\n", f.Name, f.Version, methodStr)
+	}
+
 	return nil
 }
 

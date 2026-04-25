@@ -32,7 +32,7 @@ func runUninstall(args []string) error {
 
 	name := fs.Arg(0)
 	paths := config.Default()
-	
+
 	lock, err := acquireGlobalLock(paths)
 	if err != nil {
 		return err

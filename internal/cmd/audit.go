@@ -13,7 +13,6 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/snapshot"
-	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -49,31 +48,28 @@ func runAudit(args []string) error {
 
 	targets := fs.Args()
 
-	paths := config.Default()
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		slog.Debug(fmt.Sprintf("init core tap: %v", err))
+	ctx, err := newCommonCtx()
+	if err != nil {
+		return err
 	}
 
 	if *isCask {
-		return runAuditCasks(paths, targets, *strict)
+		return runAuditCasks(ctx.Paths, targets, *strict)
 	}
-	return runAuditFormulas(paths, targets, *strict, *online)
+	return runAuditFormulas(ctx, targets, *strict, *online)
 }
 
-func runAuditFormulas(paths config.Paths, targets []string, strict, online bool) error {
-	loader := newLoader(paths.Taps)
-
+func runAuditFormulas(ctx *commonCtx, targets []string, strict, online bool) error {
 	var formulas []*formula.Formula
 	if len(targets) == 0 {
 		var err error
-		formulas, err = loader.LoadAll()
+		formulas, err = ctx.Loader.LoadAll()
 		if err != nil {
 			return fmt.Errorf("load formulas: %w", err)
 		}
 	} else {
 		for _, name := range targets {
-			f, err := loader.LoadByName(name)
+			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
 				slog.Error(fmt.Sprintf("cannot load formula %s: %v", name, err))
 				continue
@@ -95,7 +91,7 @@ func runAuditFormulas(paths config.Paths, targets []string, strict, online bool)
 
 	var totalWarnings, totalErrors int
 	for _, f := range formulas {
-		r := auditFormula(f, allNames, loader, paths, online)
+		r := auditFormula(f, allNames, ctx.Loader, ctx.Paths, online)
 		totalWarnings += len(r.Warnings)
 		totalErrors += len(r.Errors)
 		printAuditResult(r)

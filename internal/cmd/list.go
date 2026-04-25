@@ -152,8 +152,8 @@ func filterByManifest(packages []cellar.InstalledPackage, cel *cellar.Cellar, on
 	return result
 }
 
-// listVersions prints all installed versions for each formula.
-func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, onePerLine, fullName bool, cellarPath string) error {
+// eachUniquePackage iterates over unique packages and calls fn with the package and its versions.
+func eachUniquePackage(cel *cellar.Cellar, packages []cellar.InstalledPackage, fn func(p cellar.InstalledPackage, vers []string)) {
 	seen := make(map[string]bool)
 	for _, p := range packages {
 		if seen[p.Name] {
@@ -165,7 +165,13 @@ func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, 
 		if err != nil {
 			continue
 		}
+		fn(p, vers)
+	}
+}
 
+// listVersions prints all installed versions for each formula.
+func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, onePerLine, fullName bool, cellarPath string) error {
+	eachUniquePackage(cel, packages, func(p cellar.InstalledPackage, vers []string) {
 		name := p.Name
 		if fullName {
 			name = filepath.Join(cellarPath, p.Name)
@@ -186,7 +192,7 @@ func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, 
 		} else {
 			fmt.Printf("%-20s %s\n", name, joinVersions(vers))
 		}
-	}
+	})
 	return nil
 }
 
@@ -204,18 +210,11 @@ func joinVersions(vers []string) string {
 // filterMultiple returns only packages that have more than one version installed.
 func filterMultiple(cel *cellar.Cellar, packages []cellar.InstalledPackage) []cellar.InstalledPackage {
 	var result []cellar.InstalledPackage
-	seen := make(map[string]bool)
-	for _, p := range packages {
-		if seen[p.Name] {
-			continue
+	eachUniquePackage(cel, packages, func(p cellar.InstalledPackage, vers []string) {
+		if len(vers) > 1 {
+			result = append(result, p)
 		}
-		seen[p.Name] = true
-		vers, err := cel.InstalledVersions(p.Name)
-		if err != nil || len(vers) <= 1 {
-			continue
-		}
-		result = append(result, p)
-	}
+	})
 	return result
 }
 

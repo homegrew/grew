@@ -29,6 +29,31 @@ func initCaskTap(paths config.Paths) error {
 	return tapMgr.InitCask()
 }
 
+func setupCaskLoader() (config.Paths, *cask.Loader, *cask.Caskroom, error) {
+	paths := config.Default()
+	if err := paths.Init(); err != nil {
+		return config.Paths{}, nil, nil, err
+	}
+	if err := initCaskTap(paths); err != nil {
+		return config.Paths{}, nil, nil, fmt.Errorf("init cask tap: %w", err)
+	}
+	loader := newCaskLoader(paths.Taps)
+	cr := &cask.Caskroom{Path: paths.Caskroom}
+	return paths, loader, cr, nil
+}
+
+func loadCask(name string) (config.Paths, *cask.Cask, *cask.Caskroom, error) {
+	paths, loader, cr, err := setupCaskLoader()
+	if err != nil {
+		return paths, nil, nil, err
+	}
+	c, err := loader.LoadByName(name)
+	if err != nil {
+		return paths, nil, nil, fmt.Errorf("cask not found: %s", name)
+	}
+	return paths, c, cr, nil
+}
+
 // removeIfWithin deletes targetPath only if it is within baseDir (after cleaning).
 // If the check fails, it returns an error and does not attempt deletion.
 func removeIfWithin(targetPath, baseDir string) error {
@@ -58,21 +83,11 @@ func removeIfWithin(targetPath, baseDir string) error {
 }
 
 func caskInstall(name string, noQuarantine bool) error {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	paths, c, cr, err := loadCask(name)
+	if err != nil {
 		return err
 	}
-	if err := initCaskTap(paths); err != nil {
-		return fmt.Errorf("init cask tap: %w", err)
-	}
 
-	loader := newCaskLoader(paths.Taps)
-	c, err := loader.LoadByName(name)
-	if err != nil {
-		return fmt.Errorf("cask not found: %s", name)
-	}
-
-	cr := &cask.Caskroom{Path: paths.Caskroom}
 	if cr.IsInstalled(c.Name) {
 		fmt.Printf("==> %s %s is already installed, skipping\n", c.Name, c.Version)
 		return nil
@@ -215,17 +230,15 @@ func caskInstall(name string, noQuarantine bool) error {
 }
 
 func caskUninstall(name string) error {
-	paths := config.Default()
-	if err := initCaskTap(paths); err != nil {
-		return fmt.Errorf("init cask tap: %w", err)
+	paths, loader, cr, err := setupCaskLoader()
+	if err != nil {
+		return err
 	}
 
-	cr := &cask.Caskroom{Path: paths.Caskroom}
 	if !cr.IsInstalled(name) {
 		return fmt.Errorf("cask %q is not installed", name)
 	}
 
-	loader := newCaskLoader(paths.Taps)
 	c, err := loader.LoadByName(name)
 
 	inst := &cask.Installer{AppDir: paths.AppDir, BinDir: paths.Bin}
@@ -270,21 +283,10 @@ func caskList() error {
 }
 
 func caskInfo(name string) error {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	_, c, cr, err := loadCask(name)
+	if err != nil {
 		return err
 	}
-	if err := initCaskTap(paths); err != nil {
-		return fmt.Errorf("init cask tap: %w", err)
-	}
-
-	loader := newCaskLoader(paths.Taps)
-	c, err := loader.LoadByName(name)
-	if err != nil {
-		return fmt.Errorf("cask not found: %s", name)
-	}
-
-	cr := &cask.Caskroom{Path: paths.Caskroom}
 
 	fmt.Printf("%s: %s %s (cask)\n", c.Name, c.Description, c.Version)
 	fmt.Printf("Homepage: %s\n", c.Homepage)
@@ -314,21 +316,16 @@ func caskInfo(name string) error {
 }
 
 func caskSearch(query string) error {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	_, loader, cr, err := setupCaskLoader()
+	if err != nil {
 		return err
 	}
-	if err := initCaskTap(paths); err != nil {
-		return fmt.Errorf("init cask tap: %w", err)
-	}
 
-	loader := newCaskLoader(paths.Taps)
 	all, err := loader.LoadAll()
 	if err != nil {
 		return err
 	}
 
-	cr := &cask.Caskroom{Path: paths.Caskroom}
 	found := false
 	q := strings.ToLower(query)
 

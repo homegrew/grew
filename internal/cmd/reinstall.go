@@ -109,21 +109,13 @@ func runReinstall(args []string) error {
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.
 func cleanTmpFor(rootDir, tmpDir, name string) {
-	baseRootDir, err := filepath.Abs(rootDir)
+	baseRootDir, err := normalizeDir(rootDir, "root")
 	if err != nil {
-		return
-	}
-	baseRootDir = filepath.Clean(baseRootDir)
-	if err := safepath.SafeAbsolutePath(baseRootDir); err != nil {
 		return
 	}
 
-	baseTmpDir, err := filepath.Abs(tmpDir)
+	baseTmpDir, err := normalizeDir(tmpDir, "tmp")
 	if err != nil {
-		return
-	}
-	baseTmpDir = filepath.Clean(baseTmpDir)
-	if err := safepath.SafeAbsolutePath(baseTmpDir); err != nil {
 		return
 	}
 	if err := safepath.CheckSubpath(baseRootDir, baseTmpDir); err != nil {

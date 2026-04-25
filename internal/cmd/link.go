@@ -9,7 +9,6 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runLink(args []string) error {
@@ -29,25 +28,21 @@ func runLink(args []string) error {
 	}
 	name := fs.Arg(0)
 
-	paths := config.Default()
-	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	if !cel.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
-	}
-
-	ver, err := cel.InstalledVersion(name)
+	ctx, err := newCommonCtx()
 	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
+	if !ctx.Cellar.IsInstalled(name) {
+		return fmt.Errorf("formula %q is not installed", name)
 	}
 
-	loader := newLoader(paths.Taps)
-	f, err := loader.LoadByName(name)
+	ver, err := ctx.Cellar.InstalledVersion(name)
+	if err != nil {
+		return err
+	}
+
+	f, err := ctx.Loader.LoadByName(name)
 	kegOnly := false
 	if err == nil {
 		kegOnly = f.KegOnly
@@ -57,8 +52,8 @@ func runLink(args []string) error {
 		fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
 	}
 
-	lnk := &linker.Linker{Paths: paths}
-	kegPath, _ := cel.KegPath(name, ver)
+	lnk := &linker.Linker{Paths: ctx.Paths}
+	kegPath, _ := ctx.Cellar.KegPath(name, ver)
 	slog.Info("keg: " + kegPath)
 	opts := linker.LinkOpts{
 		KegOnly:   kegOnly,

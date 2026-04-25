@@ -4,9 +4,7 @@ import (
 	"crypto/ed25519"
 	"fmt"
 
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/signing"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runSign(args []string) error {
@@ -25,18 +23,12 @@ func runSign(args []string) error {
 		return fmt.Errorf("invalid private key: %w", err)
 	}
 
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	ctx, err := newCommonCtx()
+	if err != nil {
 		return err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return fmt.Errorf("init core tap: %w", err)
-	}
-
-	loader := newLoader(paths.Taps)
-	f, err := loader.LoadByName(name)
+	f, err := ctx.Loader.LoadByName(name)
 	if err != nil {
 		return fmt.Errorf("formula not found: %s", name)
 	}

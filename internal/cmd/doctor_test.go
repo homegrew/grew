@@ -9,6 +9,33 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 )
 
+func assertDoctorWarnings(t *testing.T, ctx *doctorCtx, checkFn func(*doctorCtx), wantWarn string) {
+	t.Helper()
+	var warnings []string
+	ctx.warn = func(format string, args ...any) {
+		warnings = append(warnings, fmt.Sprintf(format, args...))
+	}
+
+	checkFn(ctx)
+
+	if wantWarn == "" {
+		if len(warnings) > 0 {
+			t.Errorf("expected no warnings, got: %v", warnings)
+		}
+	} else {
+		found := false
+		for _, w := range warnings {
+			if strings.Contains(w, wantWarn) {
+				found = true
+				break
+			}
+		}
+		if !found {
+			t.Errorf("expected warning containing %q, got: %v", wantWarn, warnings)
+		}
+	}
+}
+
 func TestCheckCaskSHA256(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -49,32 +76,8 @@ func TestCheckCaskSHA256(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{
-				casks: tt.casks,
-			}
-			var warnings []string
-			ctx.warn = func(format string, args ...any) {
-				warnings = append(warnings, fmt.Sprintf(format, args...))
-			}
-
-			checkCaskSHA256(ctx)
-
-			if tt.wantWarn == "" {
-				if len(warnings) > 0 {
-					t.Errorf("expected no warnings, got: %v", warnings)
-				}
-			} else {
-				found := false
-				for _, w := range warnings {
-					if strings.Contains(w, tt.wantWarn) {
-						found = true
-						break
-					}
-				}
-				if !found {
-					t.Errorf("expected warning containing %q, got: %v", tt.wantWarn, warnings)
-				}
-			}
+			ctx := &doctorCtx{casks: tt.casks}
+			assertDoctorWarnings(t, ctx, checkCaskSHA256, tt.wantWarn)
 		})
 	}
 }
@@ -129,32 +132,8 @@ func TestCheckCaskSHA512(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{
-				casks: tt.casks,
-			}
-			var warnings []string
-			ctx.warn = func(format string, args ...any) {
-				warnings = append(warnings, fmt.Sprintf(format, args...))
-			}
-
-			checkCaskSHA512(ctx)
-
-			if tt.wantWarn == "" {
-				if len(warnings) > 0 {
-					t.Errorf("expected no warnings, got: %v", warnings)
-				}
-			} else {
-				found := false
-				for _, w := range warnings {
-					if strings.Contains(w, tt.wantWarn) {
-						found = true
-						break
-					}
-				}
-				if !found {
-					t.Errorf("expected warning containing %q, got: %v", tt.wantWarn, warnings)
-				}
-			}
+			ctx := &doctorCtx{casks: tt.casks}
+			assertDoctorWarnings(t, ctx, checkCaskSHA512, tt.wantWarn)
 		})
 	}
 }
@@ -238,33 +217,8 @@ func TestCheckFormulaSHA512(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{
-				formulas: tt.formulas,
-			}
-			var warnings []string
-			// Mock warn to collect them
-			ctx.warn = func(format string, args ...any) {
-				warnings = append(warnings, fmt.Sprintf(format, args...))
-			}
-
-			checkFormulaSHA512(ctx)
-
-			if tt.wantWarn == "" {
-				if len(warnings) > 0 {
-					t.Errorf("expected no warnings, got: %v", warnings)
-				}
-			} else {
-				found := false
-				for _, w := range warnings {
-					if strings.Contains(w, tt.wantWarn) {
-						found = true
-						break
-					}
-				}
-				if !found {
-					t.Errorf("expected warning containing %q, got: %v", tt.wantWarn, warnings)
-				}
-			}
+			ctx := &doctorCtx{formulas: tt.formulas}
+			assertDoctorWarnings(t, ctx, checkFormulaSHA512, tt.wantWarn)
 		})
 	}
 }

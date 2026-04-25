@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"log/slog"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -11,11 +10,8 @@ import (
 	"syscall"
 	"text/tabwriter"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/service"
-	"github.com/homegrew/grew/internal/tap"
 )
 
 func runServices(args []string) error {
@@ -66,36 +62,24 @@ Examples:
 }
 
 type servicesCtx struct {
-	paths  config.Paths
-	mgr    *service.Manager
-	loader *formula.Loader
-	cel    *cellar.Cellar
+	*commonCtx
+	mgr *service.Manager
 }
 
 func newServicesCtx() (*servicesCtx, error) {
-	paths := config.Default()
-	if err := paths.Init(); err != nil {
+	common, err := newCommonCtx()
+	if err != nil {
 		return nil, err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		slog.Debug(fmt.Sprintf("init core tap: %v", err))
-	}
-
-	loader := newLoader(paths.Taps)
-	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	mgr, err := service.DefaultManager(paths.Cellar, paths.Opt, loader)
+	mgr, err := service.DefaultManager(common.Paths.Cellar, common.Paths.Opt, common.Loader)
 	if err != nil {
 		return nil, err
 	}
 
 	return &servicesCtx{
-		paths:  paths,
-		mgr:    mgr,
-		loader: loader,
-		cel:    cel,
+		commonCtx: common,
+		mgr:       mgr,
 	}, nil
 }
 
@@ -231,7 +215,7 @@ func servicesInfo(args []string) error {
 		return err
 	}
 
-	f, err := ctx.loader.LoadByName(name)
+	f, err := ctx.Loader.LoadByName(name)
 	if err != nil {
 		return fmt.Errorf("formula not found: %s", name)
 	}
@@ -306,10 +290,10 @@ func requireServiceCtx(sub string, args []string) (*servicesCtx, string, error) 
 
 // loadServiceFormula loads and validates a formula for service use.
 func loadServiceFormula(ctx *servicesCtx, name string) (*formula.Formula, error) {
-	if !ctx.cel.IsInstalled(name) {
+	if !ctx.Cellar.IsInstalled(name) {
 		return nil, fmt.Errorf("formula %q is not installed", name)
 	}
-	f, err := ctx.loader.LoadByName(name)
+	f, err := ctx.Loader.LoadByName(name)
 	if err != nil {
 		return nil, fmt.Errorf("formula not found: %s", name)
 	}
