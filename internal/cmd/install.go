@@ -258,7 +258,18 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 	if err := safepath.CheckSubpath(cleanTmp, cleanCandidate); err != nil {
 		return fmt.Errorf("cleanup path escapes tmp directory: %w", err)
 	}
-	return os.Remove(cleanCandidate)
+
+	rel, err := filepath.Rel(cleanTmp, cleanCandidate)
+	if err != nil {
+		return fmt.Errorf("failed to derive cleanup relative path: %w", err)
+	}
+	rel = filepath.Clean(rel)
+	if rel == "." || rel == "" || strings.HasPrefix(rel, "..") || filepath.IsAbs(rel) {
+		return fmt.Errorf("invalid cleanup relative path %q", rel)
+	}
+
+	safeTarget := filepath.Join(cleanTmp, rel)
+	return os.Remove(safeTarget)
 }
 
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
