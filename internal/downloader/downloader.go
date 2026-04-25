@@ -118,8 +118,18 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("resolve download directory %s: %w", sinkDir, err)
 	}
 	canonSinkDir = filepath.Clean(canonSinkDir)
+	if err := safepath.CheckSubpath(canonTmpDir, canonSinkDir); err != nil {
+		return "", fmt.Errorf("download directory escapes temp directory: %w", err)
+	}
 
-	sinkPath = filepath.Join(canonSinkDir, filepath.Base(sinkPath))
+	finalName := filepath.Base(sinkPath)
+	if err := safepath.SafePathComponent(finalName); err != nil {
+		return "", fmt.Errorf("invalid download filename: %w", err)
+	}
+	sinkPath, err = safepath.SafeJoin(canonTmpDir, finalName)
+	if err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
 	if err := safepath.CheckSubpath(canonTmpDir, sinkPath); err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
