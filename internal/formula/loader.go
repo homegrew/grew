@@ -149,6 +149,9 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 	if abs, err := filepath.Abs(tapDir); err == nil {
 		tapDir = filepath.Clean(abs)
 	}
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		return nil, fmt.Errorf("invalid taps directory %q: %w", tapDir, err)
+	}
 	if err := safepath.CheckSubpath(tapDir, absPath); err != nil {
 		return nil, fmt.Errorf("formula path %q escapes taps directory %q: %w", absPath, tapDir, err)
 	}

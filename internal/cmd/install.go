@@ -323,8 +323,8 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
-		if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
-			_ = os.Remove(localFile)
+		if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err == nil {
+			_ = os.Remove(cleanLocalFile)
 		}
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
@@ -340,8 +340,8 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
-		if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
-			_ = os.Remove(localFile)
+		if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err == nil {
+			_ = os.Remove(cleanLocalFile)
 		}
 		return err
 	}

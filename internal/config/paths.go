@@ -186,6 +186,10 @@ func FromRoot(root, appDir string) Paths {
 		root = abs
 	}
 	root = filepath.Clean(root)
+	if err := safepath.SafeAbsolutePath(root); err != nil {
+		slog.Warn(fmt.Sprintf("config: invalid root %q: %v; falling back to system prefix", root, err))
+		root = filepath.Clean(systemPrefix())
+	}
 
 	// Normalize appDir so that it is also absolute and cleaned, regardless
 	// of whether it came from the environment or a default.
@@ -193,6 +197,18 @@ func FromRoot(root, appDir string) Paths {
 		appDir = abs
 	}
 	appDir = filepath.Clean(appDir)
+	if err := safepath.SafeAbsolutePath(appDir); err != nil {
+		home, homeErr := os.UserHomeDir()
+		if homeErr != nil {
+			home = "."
+		}
+		fallback := filepath.Join(home, "Applications")
+		if abs, err := filepath.Abs(fallback); err == nil {
+			fallback = abs
+		}
+		appDir = filepath.Clean(fallback)
+		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", appDir, err, appDir))
+	}
 
 	return Paths{
 		Root:     root,
