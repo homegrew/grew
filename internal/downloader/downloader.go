@@ -189,15 +189,23 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		label:  filename,
 	})
 	cleanupSink := func() {
-		absSink, absErr := filepath.Abs(sinkPath)
-		if absErr != nil {
+		// Recompute a trusted cleanup target from canonical tmp dir + validated final name.
+		trustedSink, joinErr := safepath.SafeJoin(canonTmpDir, finalName)
+		if joinErr != nil {
 			return
 		}
-		absSink = filepath.Clean(absSink)
-		if err := safepath.CheckSubpath(canonTmpDir, absSink); err != nil {
+		trustedSink = filepath.Clean(trustedSink)
+		if err := safepath.CheckSubpath(canonTmpDir, trustedSink); err != nil {
 			return
 		}
-		_ = os.Remove(absSink)
+
+		// Ensure we only delete the file we intended to write.
+		cleanSinkPath := filepath.Clean(sinkPath)
+		if cleanSinkPath != trustedSink {
+			return
+		}
+
+		_ = os.Remove(trustedSink)
 	}
 	if err != nil {
 		_ = out.Close()
