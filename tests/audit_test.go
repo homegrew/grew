@@ -23,14 +23,31 @@ func TestAuditVulnerability(t *testing.T) {
 
 	// Mock OSV server
 	osvServer := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "/v1/query" {
+		if r.URL.Path == "/querybatch" {
 			// Return a vulnerability for 'vulnerablepkg' version 1.0.0
 			resp := map[string]interface{}{
-				"vulns": []map[string]interface{}{
+				"results": []map[string]interface{}{
 					{
-						"id":      "CVE-2026-1234",
-						"details": "Nasty bug in vulnerablepkg",
+						"vulns": []map[string]interface{}{
+							{
+								"id":      "CVE-2026-1234",
+								"summary": "Nasty bug in vulnerablepkg",
+								"database_specific": map[string]interface{}{
+									"severity": "HIGH",
+								},
+							},
+						},
 					},
+				},
+			}
+			json.NewEncoder(w).Encode(resp)
+		} else if r.URL.Path == "/vulns/CVE-2026-1234" {
+			resp := map[string]interface{}{
+				"id":      "CVE-2026-1234",
+				"summary": "Nasty bug in vulnerablepkg",
+				"details": "Nasty bug in vulnerablepkg",
+				"database_specific": map[string]interface{}{
+					"severity": "HIGH",
 				},
 			}
 			json.NewEncoder(w).Encode(resp)
@@ -50,6 +67,7 @@ func TestAuditVulnerability(t *testing.T) {
 	platform := runtime.GOOS + "_" + runtime.GOARCH
 	createFormula(t, prefix, "vulnerablepkg", fmt.Sprintf(`name: vulnerablepkg
 version: 1.0.0
+homepage: https://github.com/user/vulnerablepkg
 bottle:
   %s:
     url: %s/vulnerablepkg.tar.gz

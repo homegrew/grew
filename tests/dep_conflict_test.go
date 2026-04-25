@@ -12,21 +12,25 @@ func TestDependencyCircular(t *testing.T) {
 	prefix := setupPrefix(t, tmpDir)
 	exePath := buildTestBinary(t, tmpDir)
 
-	// Create circular dependency: A -> B -> A
-	createFormula(t, prefix, "A", `name: A
+	// Create circular dependency: a -> b -> a
+	createFormula(t, prefix, "a", `name: a
 version: 1.0.0
-dependencies: [B]
+dependencies: [b]
+url:
+  darwin_arm64: https://example.com/a.tar.gz
 install:
   type: archive
 `)
-	createFormula(t, prefix, "B", `name: B
+	createFormula(t, prefix, "b", `name: b
 version: 1.0.0
-dependencies: [A]
+dependencies: [a]
+url:
+  darwin_arm64: https://example.com/b.tar.gz
 install:
   type: archive
 `)
 
-	cmd := exec.Command(exePath, "install", "A")
+	cmd := exec.Command(exePath, "install", "a")
 	cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
 	out, err := cmd.CombinedOutput()
 
@@ -46,6 +50,8 @@ func TestDependencyMissing(t *testing.T) {
 	createFormula(t, prefix, "mainpkg", `name: mainpkg
 version: 1.0.0
 dependencies: [nonexistent]
+url:
+  darwin_arm64: https://example.com/mainpkg.tar.gz
 install:
   type: archive
 `)

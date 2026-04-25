@@ -131,7 +131,8 @@ install:
 
 	// 5. Build our test executable that will invoke cmd.RunInstall
 	exePath := filepath.Join(tmpDir, "grew-test")
-	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, "./testbin/main.go")
+	root := getProjectRoot(t)
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr
 	if err := cmdBuild.Run(); err != nil {

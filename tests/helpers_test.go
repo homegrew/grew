@@ -42,9 +42,7 @@ func setupPrefix(t *testing.T, tmpDir string) string {
 	return prefix
 }
 
-func buildTestBinary(t *testing.T, tmpDir string) string {
-	exePath := filepath.Join(tmpDir, "grew-test")
-	// Find project root by looking for go.mod
+func getProjectRoot(t *testing.T) string {
 	cwd, _ := os.Getwd()
 	root := cwd
 	for {
@@ -57,8 +55,14 @@ func buildTestBinary(t *testing.T, tmpDir string) string {
 		}
 		root = parent
 	}
+	return root
+}
 
-	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "testbin/main.go"))
+func buildTestBinary(t *testing.T, tmpDir string) string {
+	exePath := filepath.Join(tmpDir, "grew-test")
+	root := getProjectRoot(t)
+
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build test binary: %v, output: %s", err, string(out))
 	}

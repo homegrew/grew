@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -52,6 +53,12 @@ func SetAPIBase(rawURL string) error {
 	apiBase = rawURL
 	baseMutex.Unlock()
 	return nil
+}
+
+func init() {
+	if env := os.Getenv("HOMEGREW_OSV_API_BASE"); env != "" {
+		_ = SetAPIBase(env)
+	}
 }
 
 func getAPIBase() string {
@@ -319,9 +326,9 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 			time.Sleep(retryDelay)
 		}
 
-		var reqBody io.Reader
+		var reqBody io.ReadCloser
 		if body != nil {
-			reqBody = bytes.NewReader(body)
+			reqBody = io.NopCloser(bytes.NewReader(body))
 		}
 
 		req := &http.Request{
@@ -332,13 +339,10 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 			ProtoMinor: 1,
 			Header:     make(http.Header),
 			Host:       u.Host,
-			Body:       io.NopCloser(reqBody),
+			Body:       reqBody,
 		}
-		if reqBody != nil {
-			// bytes.Reader len cast
-			if br, ok := reqBody.(*bytes.Reader); ok {
-				req.ContentLength = int64(br.Len())
-			}
+		if body != nil {
+			req.ContentLength = int64(len(body))
 		}
 
 		req.Header.Set("Content-Type", "application/json")

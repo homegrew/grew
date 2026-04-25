@@ -128,6 +128,7 @@ func Run(args []string) error {
 		"unpin":        runUnpin,
 		"linkage":      runLinkage,
 		"vuln-scan":    runVulnScan,
+		"completion":   runCompletion,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}

@@ -42,11 +42,17 @@ func runExtract(_ []string) error {
 	if err != nil {
 		return fmt.Errorf("resolve working directory: %w", err)
 	}
+	if eval, err := filepath.EvalSymlinks(cwdAbs); err == nil {
+		cwdAbs = eval
+	}
 	cwdAbs = filepath.Clean(cwdAbs)
 
 	destAbs, err := filepath.Abs(args.DestDir)
 	if err != nil {
 		return fmt.Errorf("resolve dest_dir: %w", err)
+	}
+	if eval, err := filepath.EvalSymlinks(destAbs); err == nil {
+		destAbs = eval
 	}
 	destAbs = filepath.Clean(destAbs)
 

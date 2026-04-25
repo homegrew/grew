@@ -36,6 +36,12 @@ func TestBinaryRelocation(t *testing.T) {
 	dummySrc := filepath.Join(tmpDir, "dummy.go")
 	os.WriteFile(dummySrc, []byte(`package main; import "fmt"; func main() { fmt.Println("hello") }`), 0644)
 	
+	// Initialize a dummy module
+	cmdMod := exec.Command("go", "mod", "init", "dummy")
+	cmdMod.Dir = tmpDir
+	cmdMod.Env = append(os.Environ(), "GOCACHE="+filepath.Join(tmpDir, "gocache"))
+	cmdMod.Run()
+
 	dummyBin := filepath.Join(tmpDir, "dummybin")
 	// On Linux, we can try to set an RPATH during build
 	buildArgs := []string{"build", "-o", dummyBin}
@@ -44,8 +50,9 @@ func TestBinaryRelocation(t *testing.T) {
 	}
 	cmdBuild := exec.Command("go", buildArgs...)
 	cmdBuild.Dir = tmpDir
-	if err := cmdBuild.Run(); err != nil {
-		t.Fatalf("failed to build dummy binary: %v", err)
+	cmdBuild.Env = append(os.Environ(), "GOCACHE="+filepath.Join(tmpDir, "gocache"))
+	if out, err := cmdBuild.CombinedOutput(); err != nil {
+		t.Fatalf("failed to build dummy binary: %v, output: %s", err, string(out))
 	}
 
 	tarballBytes := makeDummyTarGz(t, "placeholder") // We'll replace the content

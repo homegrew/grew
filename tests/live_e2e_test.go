@@ -1,4 +1,4 @@
-// +int
+//go:build integration
 
 package tests
 
@@ -31,7 +31,8 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 1. Build the real grew binary
 	t.Log("Building live grew binary...")
-	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, "../main.go")
+	root := getProjectRoot(t)
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build real binary: %v\nOutput:\n%s", err, string(out))
 	}

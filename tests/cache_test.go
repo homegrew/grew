@@ -67,8 +67,8 @@ install:
 	// 4. Install again - should use cache
 	cmd2 := exec.Command(exePath, "install", "cachedpkg")
 	cmd2.Env = commonEnv
-	if err := cmd2.Run(); err != nil {
-		t.Fatalf("failed second install (expected to use cache): %v", err)
+	if out, err := cmd2.CombinedOutput(); err != nil {
+		t.Fatalf("failed second install (expected to use cache): %v\nOutput:\n%s", err, string(out))
 	}
 
 	// 5. Verify it's installed

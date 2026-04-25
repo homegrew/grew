@@ -271,18 +271,44 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	if err := safepath.SafePathComponent(filename); err != nil {
 		return fmt.Errorf("invalid download filename: %w", err)
 	}
-	localFile, err := ctx.DL.Download(dlURL, filename)
-	if err != nil {
-		return fmt.Errorf("download %s: %w", f.Name, err)
+
+	// Check if the file is already cached in the tmp directory and matches SHA256.
+	localFile := filepath.Join(paths.Tmp, filename)
+	if _, err := os.Stat(localFile); err == nil {
+		if err := downloader.VerifySHA256(localFile, sha256); err == nil {
+			fmt.Printf("==> Using cached %s\n", filename)
+		} else {
+			// Hash mismatch, re-download
+			localFile, err = ctx.DL.Download(dlURL, filename)
+			if err != nil {
+				return fmt.Errorf("download %s: %w", f.Name, err)
+			}
+		}
+	} else {
+		localFile, err = ctx.DL.Download(dlURL, filename)
+		if err != nil {
+			return fmt.Errorf("download %s: %w", f.Name, err)
+		}
 	}
-	cleanTmp := filepath.Clean(paths.Tmp)
+
+	cleanTmp := paths.Tmp
 	if abs, err := filepath.Abs(cleanTmp); err == nil {
-		cleanTmp = filepath.Clean(abs)
+		cleanTmp = abs
 	}
-	cleanLocalFile := filepath.Clean(localFile)
+	if eval, err := filepath.EvalSymlinks(cleanTmp); err == nil {
+		cleanTmp = eval
+	}
+	cleanTmp = filepath.Clean(cleanTmp)
+
+	cleanLocalFile := localFile
 	if abs, err := filepath.Abs(cleanLocalFile); err == nil {
-		cleanLocalFile = filepath.Clean(abs)
+		cleanLocalFile = abs
 	}
+	if eval, err := filepath.EvalSymlinks(cleanLocalFile); err == nil {
+		cleanLocalFile = eval
+	}
+	cleanLocalFile = filepath.Clean(cleanLocalFile)
+
 	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
 		return fmt.Errorf("downloaded file path escapes tmp directory: %w", err)
 	}
@@ -372,7 +398,6 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	os.RemoveAll(stageDir)
-	os.Remove(localFile)
 
 	if err := runPostInstall(f, kegPath, opts.skipPostInstall); err != nil {
 		return err
@@ -429,16 +454,31 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 
 	ext := urlExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
-	localFile, err := ctx.DL.Download(srcURL, filename)
-	if err != nil {
-		return fmt.Errorf("download source %s: %w", f.Name, err)
+
+	// Check if the file is already cached in the tmp directory and matches SHA256.
+	localFile := filepath.Join(paths.Tmp, filename)
+	if _, err := os.Stat(localFile); err == nil {
+		if err := downloader.VerifySHA256(localFile, srcSHA256); err == nil {
+			fmt.Printf("==> Using cached %s\n", filename)
+		} else {
+			// Hash mismatch, re-download
+			localFile, err = ctx.DL.Download(srcURL, filename)
+			if err != nil {
+				return fmt.Errorf("download source %s: %w", f.Name, err)
+			}
+		}
+	} else {
+		localFile, err = ctx.DL.Download(srcURL, filename)
+		if err != nil {
+			return fmt.Errorf("download source %s: %w", f.Name, err)
+		}
 	}
-	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
-		return fmt.Errorf("downloaded source path escapes temp directory: %w", err)
+
+	if abs, err := filepath.Abs(localFile); err == nil {
+		localFile = abs
 	}
-	localFile, err = filepath.Abs(localFile)
-	if err != nil {
-		return fmt.Errorf("resolve downloaded source path: %w", err)
+	if eval, err := filepath.EvalSymlinks(localFile); err == nil {
+		localFile = eval
 	}
 	localFile = filepath.Clean(localFile)
 	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
@@ -504,7 +544,6 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 
 	cleanup := func() {
 		os.RemoveAll(buildDir)
-		os.Remove(localFile)
 	}
 	cleanupAll := func() {
 		cleanup()

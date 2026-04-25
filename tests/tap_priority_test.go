@@ -75,8 +75,8 @@ install:
 	// Let's see what happens.
 	cmd1 := exec.Command(exePath, "install", "double")
 	cmd1.Env = commonEnv
-	if err := cmd1.Run(); err != nil {
-		t.Fatalf("failed to install double: %v", err)
+	if out, err := cmd1.CombinedOutput(); err != nil {
+		t.Fatalf("failed to install double: %v\nOutput:\n%s", err, string(out))
 	}
 
 	// Verify it's version 1.0.0 (core)
@@ -91,12 +91,14 @@ install:
 	}
 
 	// 4. Uninstall and install specifically from user/repo/double
-	exec.Command(exePath, "uninstall", "double").Run() // cleanup
+	cmdUn := exec.Command(exePath, "uninstall", "double")
+	cmdUn.Env = commonEnv
+	cmdUn.Run() // cleanup
 	
-	cmd2 := exec.Command(exePath, "install", "user/repo/double")
-	cmd2.Env = commonEnv
-	if err := cmd2.Run(); err != nil {
-		t.Fatalf("failed to install user/repo/double: %v", err)
+	cmd3 := exec.Command(exePath, "install", "user/repo/double")
+	cmd3.Env = commonEnv
+	if out, err := cmd3.CombinedOutput(); err != nil {
+		t.Fatalf("failed to install user/repo/double: %v\nOutput:\n%s", err, string(out))
 	}
 
 	cmdList2 := exec.Command(exePath, "list", "--versions")
