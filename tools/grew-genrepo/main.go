@@ -10,6 +10,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io"
 	"log/slog"
@@ -54,27 +55,48 @@ var (
 )
 
 func main() {
-	opts := slog.HandlerOptions{Level: slog.LevelInfo}
-	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, &opts)))
+	fs := flag.NewFlagSet("grew-genrepo", flag.ExitOnError)
+	var verbose, debug bool
+	fs.BoolVar(&verbose, "v", false, "Verbose output")
+	fs.BoolVar(&debug, "debug", false, "Debug output (implies verbose)")
 
-	if len(os.Args) < 2 {
+	fs.Usage = usage
+	if err := fs.Parse(os.Args[1:]); err != nil {
 		usage()
 	}
 
-	cmd := os.Args[1]
-	args := os.Args[2:]
+	if debug {
+		verbose = true
+	}
+
+	logLevel := slog.LevelError // default to low noise
+	if debug {
+		logLevel = slog.LevelDebug
+	} else if verbose {
+		logLevel = slog.LevelInfo
+	}
+
+	opts := slog.HandlerOptions{Level: logLevel}
+	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, &opts)))
+
+	args := fs.Args()
+	if len(args) < 1 {
+		usage()
+	}
+
+	cmd := args[0]
+	cmdArgs := args[1:]
 
 	switch cmd {
 	case "formula":
-		runFormulaImport(args)
+		runFormulaImport(cmdArgs)
 	case "cask":
-		runCaskImport(args)
+		runCaskImport(cmdArgs)
 	default:
 		slog.Error("Unknown command", "command", cmd)
 		usage()
 	}
 }
-
 func usage() {
 	fmt.Println("Usage: grew-genrepo <command> [args]")
 	fmt.Println("\nCommands:")
@@ -86,18 +108,30 @@ func usage() {
 // --- Formula Importer ---
 
 type hbFormula struct {
-	Name              string   `json:"name"`
-	Desc              string   `json:"desc"`
-	Homepage          string   `json:"homepage"`
-	License           string   `json:"license"`
-	Versions          struct { Stable string `json:"stable"` } `json:"versions"`
-	Urls              struct { Stable struct { URL, Checksum string } `json:"stable"` } `json:"urls"`
-	Bottle            struct { Stable struct { Files map[string]struct { URL, SHA256 string } `json:"files"` } `json:"stable"` } `json:"bottle"`
+	Name     string `json:"name"`
+	Desc     string `json:"desc"`
+	Homepage string `json:"homepage"`
+	License  string `json:"license"`
+	Versions struct {
+		Stable string `json:"stable"`
+	} `json:"versions"`
+	Urls struct {
+		Stable struct{ URL, Checksum string } `json:"stable"`
+	} `json:"urls"`
+	Bottle struct {
+		Stable struct {
+			Files map[string]struct{ URL, SHA256 string } `json:"files"`
+		} `json:"stable"`
+	} `json:"bottle"`
 	Dependencies      []string `json:"dependencies"`
 	BuildDependencies []string `json:"build_dependencies"`
 	Variations        struct {
-		LinuxAMD64 struct { Dependencies []string `json:"dependencies"` } `json:"x86_64_linux"`
-		LinuxARM64 struct { Dependencies []string `json:"dependencies"` } `json:"arm64_linux"`
+		LinuxAMD64 struct {
+			Dependencies []string `json:"dependencies"`
+		} `json:"x86_64_linux"`
+		LinuxARM64 struct {
+			Dependencies []string `json:"dependencies"`
+		} `json:"arm64_linux"`
 	} `json:"variations"`
 	KegOnly    bool `json:"keg_only"`
 	Deprecated bool `json:"deprecated"`
@@ -197,10 +231,16 @@ func runFormulaImport(args []string) {
 		}
 
 		linuxDeps := map[string]bool{}
-		for _, d := range hf.Variations.LinuxAMD64.Dependencies { linuxDeps[d] = true }
-		for _, d := range hf.Variations.LinuxARM64.Dependencies { linuxDeps[d] = true }
+		for _, d := range hf.Variations.LinuxAMD64.Dependencies {
+			linuxDeps[d] = true
+		}
+		for _, d := range hf.Variations.LinuxARM64.Dependencies {
+			linuxDeps[d] = true
+		}
 		if len(linuxDeps) > 0 {
-			for d := range linuxDeps { f.LinuxDependencies = append(f.LinuxDependencies, d) }
+			for d := range linuxDeps {
+				f.LinuxDependencies = append(f.LinuxDependencies, d)
+			}
 			sort.Strings(f.LinuxDependencies)
 		}
 
@@ -219,19 +259,19 @@ func runFormulaImport(args []string) {
 // --- Cask Importer ---
 
 type hbCask struct {
-	Token      string            `json:"token"`
-	Name       []string          `json:"name"`
-	Desc       string            `json:"desc"`
-	Homepage   string            `json:"homepage"`
-	License    string            `json:"license"`
-	URL        string            `json:"url"`
-	SHA256     string            `json:"sha256"`
-	SHA512     string            `json:"sha512"`
-	Version    string            `json:"version"`
-	Artifacts  []json.RawMessage `json:"artifacts"`
-	Variations map[string]struct { URL, SHA256, SHA512 string } `json:"variations"`
-	Deprecated bool              `json:"deprecated"`
-	Disabled   bool              `json:"disabled"`
+	Token      string                                          `json:"token"`
+	Name       []string                                        `json:"name"`
+	Desc       string                                          `json:"desc"`
+	Homepage   string                                          `json:"homepage"`
+	License    string                                          `json:"license"`
+	URL        string                                          `json:"url"`
+	SHA256     string                                          `json:"sha256"`
+	SHA512     string                                          `json:"sha512"`
+	Version    string                                          `json:"version"`
+	Artifacts  []json.RawMessage                               `json:"artifacts"`
+	Variations map[string]struct{ URL, SHA256, SHA512 string } `json:"variations"`
+	Deprecated bool                                            `json:"deprecated"`
+	Disabled   bool                                            `json:"disabled"`
 }
 
 func safeOutputDir(input string) (string, error) {
@@ -301,7 +341,9 @@ func runCaskImport(args []string) {
 		sha512Map := map[string]string{"darwin_arm64": hc.SHA512, "darwin_amd64": hc.SHA512}
 
 		for _, pm := range platforms {
-			if !strings.HasPrefix(pm.key, "darwin") { continue }
+			if !strings.HasPrefix(pm.key, "darwin") {
+				continue
+			}
 			for _, pref := range pm.prefs {
 				if v, ok := hc.Variations[pref]; ok {
 					urlMap[pm.key] = v.URL
@@ -361,7 +403,9 @@ func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
 						if err := json.Unmarshal(binArr[1], &opts); err != nil {
 							slog.Debug("binary options unmarshal failed", "error", err)
 						} else {
-							if t, ok := opts["target"]; ok { name = t }
+							if t, ok := opts["target"]; ok {
+								name = t
+							}
 						}
 					}
 					res.Bin = append(res.Bin, name)
