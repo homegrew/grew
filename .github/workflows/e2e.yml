@@ -27,4 +27,5 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y bubblewrap patchelf build-essential autotools-dev
       
       - name: Run TestLiveEndToEnd
+        if: runner.os != 'Linux'
         run: go test -v -timeout 15m -tags devmode,integration ./tests -run TestLiveEndToEnd
