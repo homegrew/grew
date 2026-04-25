@@ -643,18 +643,7 @@ func urlExt(rawURL string) string {
 	if err != nil {
 		return ""
 	}
-
-	// Safely extract the base name of the URL path without using filepath
-	// since URL paths and OS paths have different semantics (CWE-022).
-	path := u.Path
-	idx := strings.LastIndex(path, "/")
-	var base string
-	if idx != -1 {
-		base = path[idx+1:]
-	} else {
-		base = path
-	}
-
+	base := filepath.Base(u.Path)
 	if idx := strings.Index(base, ".tar."); idx != -1 {
 		return base[idx:]
 	}
