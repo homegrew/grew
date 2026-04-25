@@ -331,8 +331,8 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	fmt.Printf("==> SHA256 verified\n")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
-				_ = os.Remove(localFile)
+			if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err == nil {
+				_ = os.Remove(cleanLocalFile)
 			}
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}

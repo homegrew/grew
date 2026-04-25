@@ -64,9 +64,15 @@ func DefaultPrefix() string {
 					// Sanity check: the candidate should have a Cellar or Taps dir.
 					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
 						if abs, err := filepath.Abs(candidate); err == nil {
-							prefix = filepath.Clean(abs)
+							clean := filepath.Clean(abs)
+							if err := safepath.SafeAbsolutePath(clean); err == nil {
+								prefix = clean
+							}
 						} else {
-							prefix = filepath.Clean(candidate)
+							clean := filepath.Clean(candidate)
+							if err := safepath.SafeAbsolutePath(clean); err == nil {
+								prefix = clean
+							}
 						}
 					}
 				}
@@ -90,11 +96,21 @@ func DefaultPrefix() string {
 		}
 	}
 
-	// Normalize the prefix to an absolute, cleaned path to avoid surprises downstream.
+	// Normalize and validate the final prefix before returning.
 	if abs, err := filepath.Abs(prefix); err == nil {
-		return filepath.Clean(abs)
+		prefix = filepath.Clean(abs)
+	} else {
+		prefix = filepath.Clean(prefix)
 	}
-	return filepath.Clean(prefix)
+	if err := safepath.SafeAbsolutePath(prefix); err != nil {
+		fallback := filepath.Clean(systemPrefix())
+		if err := safepath.SafeAbsolutePath(fallback); err == nil {
+			slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v; using %q", prefix, err, fallback))
+			return fallback
+		}
+		slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v", prefix, err))
+	}
+	return prefix
 }
 
 // systemPrefix returns the platform system prefix (same logic as runtime.SystemPrefix).
@@ -189,6 +205,12 @@ func FromRoot(root, appDir string) Paths {
 	if err := safepath.SafeAbsolutePath(root); err != nil {
 		slog.Warn(fmt.Sprintf("config: invalid root %q: %v; falling back to system prefix", root, err))
 		root = filepath.Clean(systemPrefix())
+		if abs, err := filepath.Abs(root); err == nil {
+			root = filepath.Clean(abs)
+		}
+		if err := safepath.SafeAbsolutePath(root); err != nil {
+			slog.Warn(fmt.Sprintf("config: system prefix %q is invalid: %v", root, err))
+		}
 	}
 
 	// Normalize appDir so that it is also absolute and cleaned, regardless

@@ -143,6 +143,9 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 		return nil, err
 	}
 	absPath = filepath.Clean(absPath)
+	if err := safepath.SafeAbsolutePath(absPath); err != nil {
+		return nil, fmt.Errorf("invalid formula path %q: %w", absPath, err)
+	}
 
 	// Ensure the file we are about to read is within the TapDir tree.
 	tapDir := filepath.Clean(l.TapDir)
