@@ -24,6 +24,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/logger"
 	"gopkg.in/yaml.v3"
 )
 
@@ -69,15 +70,7 @@ func main() {
 		verbose = true
 	}
 
-	logLevel := slog.LevelError // default to low noise
-	if debug {
-		logLevel = slog.LevelDebug
-	} else if verbose {
-		logLevel = slog.LevelInfo
-	}
-
-	opts := slog.HandlerOptions{Level: logLevel}
-	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, &opts)))
+	logger.Init(verbose, debug)
 
 	args := fs.Args()
 	if len(args) < 1 {
