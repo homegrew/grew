@@ -10,11 +10,17 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/internal/sandbox"
 )
 
 func TestSandboxEscape(t *testing.T) {
 	if runtime.GOOS != "linux" {
 		t.Skip("Sandbox tests (bubblewrap) only supported on Linux")
+	}
+
+	if !sandbox.IsSandboxed() {
+		t.Skip("Functional sandboxing is not supported on this system")
 	}
 
 	tmpDir := t.TempDir()

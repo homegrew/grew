@@ -72,6 +72,7 @@ func RunInstall(args []string) error {
 	if err != nil {
 		return err
 	}
+	defer ctx.Close()
 
 	var installOrder []*formula.Formula
 	if *ignoreDeps {

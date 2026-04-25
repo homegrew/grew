@@ -9,6 +9,7 @@ import (
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
 )
 
@@ -31,6 +32,16 @@ func runUninstall(args []string) error {
 
 	name := fs.Arg(0)
 	paths := config.Default()
+	
+	lock, err := acquireGlobalLock(paths)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		fsutil.Unlock(lock)
+		lock.Close()
+	}()
+
 	cel := &cellar.Cellar{Path: paths.Cellar}
 
 	if !cel.IsInstalled(name) {

@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"syscall"
 )
 
 // Default permission modes used when an extracted entry has no explicit mode.
@@ -14,6 +15,23 @@ const (
 	defaultDirMode  os.FileMode = 0o755
 	defaultFileMode os.FileMode = 0o644
 )
+
+// Lock acquires an exclusive advisory lock on the given file.
+// It blocks until the lock is acquired.
+func Lock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_EX)
+}
+
+// TryLock attempts to acquire an exclusive advisory lock on the given file
+// without blocking. It returns syscall.EWOULDBLOCK if the lock is already held.
+func TryLock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB)
+}
+
+// Unlock releases an advisory lock on the given file.
+func Unlock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
+}
 
 // CopyTree recursively copies a directory tree from src to dst.
 // Symlinks are preserved but validated to not escape the destination.

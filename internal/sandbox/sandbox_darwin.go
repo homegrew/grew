@@ -22,6 +22,10 @@ func seatbeltAvailable() bool {
 	return canSandbox
 }
 
+func platformIsSandboxed() bool {
+	return seatbeltAvailable()
+}
+
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
 	if !seatbeltAvailable() {
 		cmd := exec.Command(name, args...)

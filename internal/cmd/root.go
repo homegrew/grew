@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -14,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
@@ -178,12 +180,20 @@ func newReadContext() (*readContext, error) {
 
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
-	Paths    config.Paths
-	Loader   *formula.Loader
-	Cellar   *cellar.Cellar
-	Linker   *linker.Linker
-	DL       *downloader.Downloader
-	AuditLog *auditlog.Logger
+	Paths      config.Paths
+	Loader     *formula.Loader
+	Cellar     *cellar.Cellar
+	Linker     *linker.Linker
+	DL         *downloader.Downloader
+	AuditLog   *auditlog.Logger
+	GlobalLock *os.File
+}
+
+func (c *installContext) Close() {
+	if c.GlobalLock != nil {
+		fsutil.Unlock(c.GlobalLock)
+		c.GlobalLock.Close()
+	}
 }
 
 // newInstallContext initialises paths, the core tap, and returns the shared context.
@@ -201,14 +211,33 @@ func newInstallContext() (*installContext, error) {
 		return nil, fmt.Errorf("init core tap: %w", err)
 	}
 
+	lock, err := acquireGlobalLock(paths)
+	if err != nil {
+		return nil, err
+	}
+
 	return &installContext{
-		Paths:    paths,
-		Loader:   newLoader(paths.Taps),
-		Cellar:   &cellar.Cellar{Path: paths.Cellar},
-		Linker:   &linker.Linker{Paths: paths},
-		DL:       &downloader.Downloader{TmpDir: paths.Tmp},
-		AuditLog: auditlog.New(paths.Log),
+		Paths:      paths,
+		Loader:     newLoader(paths.Taps),
+		Cellar:     &cellar.Cellar{Path: paths.Cellar},
+		Linker:     &linker.Linker{Paths: paths},
+		DL:         &downloader.Downloader{TmpDir: paths.Tmp},
+		AuditLog:   auditlog.New(paths.Log),
+		GlobalLock: lock,
 	}, nil
+}
+
+func acquireGlobalLock(paths config.Paths) (*os.File, error) {
+	lockPath := filepath.Join(paths.Root, ".grew.lock")
+	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0600)
+	if err != nil {
+		return nil, fmt.Errorf("open lock file: %w", err)
+	}
+	if err := fsutil.Lock(f); err != nil {
+		f.Close()
+		return nil, fmt.Errorf("acquire global lock: %w", err)
+	}
+	return f, nil
 }
 
 // newLoader creates a formula.Loader with debug logging wired in.
