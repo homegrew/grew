@@ -3,7 +3,6 @@ package tests
 import (
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -20,8 +19,8 @@ func TestShellCompletion(t *testing.T) {
 		cmd := exec.Command(exePath, "completion", shell)
 		cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
 		out, err := cmd.CombinedOutput()
-		
-		// If the command is missing, this will fail. 
+
+		// If the command is missing, this will fail.
 		// This test serves to confirm implementation or flag missing feature.
 		if err != nil {
 			t.Errorf("Completion for %s failed or command missing: %v\nOutput: %s", shell, err, string(out))
@@ -31,7 +30,7 @@ func TestShellCompletion(t *testing.T) {
 		if len(out) < 100 {
 			t.Errorf("Completion output for %s seems too short: %s", shell, string(out))
 		}
-		
+
 		if shell == "bash" && !strings.Contains(string(out), "complete -F") {
 			t.Errorf("Bash completion output missing expected 'complete -F'")
 		}

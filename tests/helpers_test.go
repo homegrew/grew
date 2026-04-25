@@ -1,19 +1,14 @@
 package tests
 
 import (
-	"archive/tar"
-	"bytes"
-	"compress/gzip"
 	"crypto/sha256"
 	"crypto/sha512"
 	"encoding/hex"
 	"encoding/pem"
-	"fmt"
 	"net/http/httptest"
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"testing"
 )
 
@@ -79,39 +74,4 @@ func createFormula(t *testing.T, prefix, name, yamlContent string) {
 	if err := os.WriteFile(formulaPath, []byte(yamlContent), 0644); err != nil {
 		t.Fatalf("failed to write formula yaml: %v", err)
 	}
-}
-
-func makeDummyTarGz(t *testing.T, content string) []byte {
-	t.Helper()
-	var buf bytes.Buffer
-	gw := gzip.NewWriter(&buf)
-	tw := tar.NewWriter(gw)
-
-	// Add bin/ directory
-	dirHdr := &tar.Header{
-		Name:     "bin/",
-		Mode:     0755,
-		Typeflag: tar.TypeDir,
-	}
-	if err := tw.WriteHeader(dirHdr); err != nil {
-		t.Fatal(err)
-	}
-
-	hdr := &tar.Header{
-		Name:     "bin/dummybin",
-		Size:     int64(len(content)),
-		Mode:     0755, // Executable
-		Typeflag: tar.TypeReg,
-	}
-
-	if err := tw.WriteHeader(hdr); err != nil {
-		t.Fatal(err)
-	}
-	if _, err := tw.Write([]byte(content)); err != nil {
-		t.Fatal(err)
-	}
-
-	tw.Close()
-	gw.Close()
-	return buf.Bytes()
 }
