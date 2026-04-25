@@ -300,6 +300,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		cleanTmp = eval
 	}
 	cleanTmp = filepath.Clean(cleanTmp)
+	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
+		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	}
 
 	cleanLocalFile := localFile
 	if abs, err := filepath.Abs(cleanLocalFile); err == nil {
@@ -309,6 +312,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		cleanLocalFile = eval
 	}
 	cleanLocalFile = filepath.Clean(cleanLocalFile)
+	if err := safepath.SafeAbsolutePath(cleanLocalFile); err != nil {
+		return fmt.Errorf("invalid downloaded file path %q: %w", cleanLocalFile, err)
+	}
 
 	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
 		return fmt.Errorf("downloaded file path escapes tmp directory: %w", err)
@@ -317,20 +323,26 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
-		os.Remove(localFile)
+		if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
+			_ = os.Remove(localFile)
+		}
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			os.Remove(localFile)
+			if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
+				_ = os.Remove(localFile)
+			}
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}
 		fmt.Printf("==> SHA512 verified\n")
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
-		os.Remove(localFile)
+		if err := safepath.CheckSubpath(cleanTmp, localFile); err == nil {
+			_ = os.Remove(localFile)
+		}
 		return err
 	}
 
