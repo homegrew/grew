@@ -31,13 +31,13 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	
+
 	// Handle tap-qualified names (e.g., "user/repo/name" or "core/name")
 	if strings.Contains(name, "/") {
 		parts := strings.Split(name, "/")
 		formulaName := parts[len(parts)-1]
 		tapPath := parts[:len(parts)-1]
-		
+
 		// Validate components
 		if err := safepath.SafePathComponent(formulaName + ".yaml"); err != nil {
 			return nil, fmt.Errorf("invalid formula name: %q", formulaName)
@@ -47,7 +47,7 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 				return nil, fmt.Errorf("invalid tap name component: %q", p)
 			}
 		}
-		
+
 		path := filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...)
 		f, err := l.loadFromFile(path)
 		if err != nil {
@@ -114,9 +114,30 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 }
 
 func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
-	entries, err := os.ReadDir(tapPath)
+	absTapPath, err := filepath.Abs(tapPath)
 	if err != nil {
-		return nil, fmt.Errorf("read tap %s: %w", tapPath, err)
+		return nil, fmt.Errorf("invalid tap path %q: %w", tapPath, err)
+	}
+	absTapPath = filepath.Clean(absTapPath)
+
+	if err := safepath.SafeAbsolutePath(absTapPath); err != nil {
+		return nil, fmt.Errorf("invalid tap path %q: %w", absTapPath, err)
+	}
+
+	tapDir := filepath.Clean(l.TapDir)
+	if abs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		return nil, fmt.Errorf("invalid taps directory %q: %w", tapDir, err)
+	}
+	if err := safepath.CheckSubpath(tapDir, absTapPath); err != nil {
+		return nil, fmt.Errorf("tap path %q escapes taps directory %q: %w", absTapPath, tapDir, err)
+	}
+
+	entries, err := os.ReadDir(absTapPath)
+	if err != nil {
+		return nil, fmt.Errorf("read tap %s: %w", absTapPath, err)
 	}
 	var formulas []*Formula
 	for _, e := range entries {
@@ -126,7 +147,7 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		f, err := l.loadFromFile(filepath.Join(tapPath, e.Name()))
+		f, err := l.loadFromFile(filepath.Join(absTapPath, e.Name()))
 		if err != nil {
 			l.debugf("failed to parse %s: %v\n", e.Name(), err)
 			continue
