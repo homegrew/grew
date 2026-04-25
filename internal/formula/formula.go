@@ -6,6 +6,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 	"gopkg.in/yaml.v3"
 )
@@ -251,6 +252,27 @@ func (f *Formula) Validate() error {
 
 	if f.Install.Type != "" && f.Install.Type != "binary" && f.Install.Type != "archive" {
 		return fmt.Errorf("formula %q has invalid install type %q (must be binary or archive)", f.Name, f.Install.Type)
+	}
+	if f.Install.BinaryName != "" {
+		if err := safepath.SafePathComponent(f.Install.BinaryName); err != nil {
+			return fmt.Errorf("formula %q has invalid binary_name: %w", f.Name, err)
+		}
+	}
+	if f.Install.Format != "" {
+		if err := safepath.SafePathComponent(f.Install.Format); err != nil {
+			return fmt.Errorf("formula %q has invalid install format: %w", f.Name, err)
+		}
+	}
+	if f.Service != nil {
+		if f.Service.WorkingDir != "" && strings.Contains(f.Service.WorkingDir, "..") {
+			return fmt.Errorf("formula %q has invalid service working_dir (contains traversals)", f.Name)
+		}
+		if f.Service.LogPath != "" && strings.Contains(f.Service.LogPath, "..") {
+			return fmt.Errorf("formula %q has invalid service log_path (contains traversals)", f.Name)
+		}
+		if f.Service.ErrorLogPath != "" && strings.Contains(f.Service.ErrorLogPath, "..") {
+			return fmt.Errorf("formula %q has invalid service error_log_path (contains traversals)", f.Name)
+		}
 	}
 	for _, dep := range f.Dependencies {
 		if !validation.IsValidName(dep) {
