@@ -26,6 +26,21 @@ func TestLiveEndToEnd(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to eval symlinks: %v", err)
 	}
+
+	// Ensure the temp directory can be cleaned up. `go build` during setup
+	// downloads modules to $HOME/go/pkg/mod, making them read-only.
+	t.Cleanup(func() {
+		filepath.WalkDir(tmpDir, func(path string, d os.DirEntry, err error) error {
+			if err == nil {
+				info, err := d.Info()
+				if err == nil {
+					os.Chmod(path, info.Mode()|0200)
+				}
+			}
+			return nil
+		})
+	})
+
 	prefix := filepath.Join(tmpDir, "homegrew")
 	exePath := filepath.Join(tmpDir, "grew")
 
