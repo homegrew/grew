@@ -181,7 +181,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("create file %s: %w", sinkPath, err)
 	}
-	defer out.Close()
 
 	size := resp.ContentLength
 	written, err := io.Copy(out, &progressReader{
@@ -189,9 +188,33 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		total:  size,
 		label:  filename,
 	})
+	cleanupSink := func() {
+		// Recompute a trusted cleanup target from canonical tmp dir + validated final name.
+		trustedSink, joinErr := safepath.SafeJoin(canonTmpDir, finalName)
+		if joinErr != nil {
+			return
+		}
+		trustedSink = filepath.Clean(trustedSink)
+		if err := safepath.CheckSubpath(canonTmpDir, trustedSink); err != nil {
+			return
+		}
+
+		// Ensure we only delete the file we intended to write.
+		cleanSinkPath := filepath.Clean(sinkPath)
+		if cleanSinkPath != trustedSink {
+			return
+		}
+
+		_ = os.Remove(trustedSink)
+	}
 	if err != nil {
-		os.Remove(sinkPath)
+		_ = out.Close()
+		cleanupSink()
 		return "", fmt.Errorf("download %s: %w", rawURL, err)
+	}
+	if err := out.Close(); err != nil {
+		cleanupSink()
+		return "", fmt.Errorf("close file %s: %w", sinkPath, err)
 	}
 
 	fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
