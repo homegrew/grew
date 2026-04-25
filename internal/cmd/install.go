@@ -473,6 +473,9 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 
 	ext := urlExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return fmt.Errorf("invalid download filename: %w", err)
+	}
 
 	// Check if the file is already cached in the tmp directory and matches SHA256.
 	localFile, err := safepath.SafeJoin(paths.Tmp, filename)
