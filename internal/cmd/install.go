@@ -335,6 +335,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	stageDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-stage")
+	if err := safepath.CheckSubpath(paths.Tmp, stageDir); err != nil {
+		return fmt.Errorf("invalid stage directory %q: %w", stageDir, err)
+	}
 	os.RemoveAll(stageDir)
 
 	fmt.Printf("==> Extracting (sandboxed)\n")
