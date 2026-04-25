@@ -192,9 +192,7 @@ type installContext struct {
 func (c *installContext) Close() {
 	if c.GlobalLock != nil {
 		fsutil.Unlock(c.GlobalLock)
-		if err := c.GlobalLock.Close(); err != nil {
-			slog.Warn("close global lock file", "error", err)
-		}
+		c.GlobalLock.Close()
 	}
 }
 
@@ -230,35 +228,13 @@ func newInstallContext() (*installContext, error) {
 }
 
 func acquireGlobalLock(paths config.Paths) (*os.File, error) {
-	root, err := filepath.Abs(paths.Root)
-	if err != nil {
-		return nil, fmt.Errorf("resolve root path: %w", err)
-	}
-	root = filepath.Clean(root)
-	if err := safepath.SafeAbsolutePath(root); err != nil {
-		return nil, fmt.Errorf("invalid root path %q: %w", paths.Root, err)
-	}
-
-	lockPath, err := filepath.Abs(filepath.Join(root, ".grew.lock"))
-	if err != nil {
-		return nil, fmt.Errorf("resolve lock file path: %w", err)
-	}
-	lockPath = filepath.Clean(lockPath)
-	if err := safepath.SafeAbsolutePath(lockPath); err != nil {
-		return nil, fmt.Errorf("invalid lock file path %q: %w", lockPath, err)
-	}
-	if lockPath != root && filepath.Dir(lockPath) != root {
-		return nil, fmt.Errorf("lock file path %q is outside root %q", lockPath, root)
-	}
-
+	lockPath := filepath.Join(paths.Root, ".grew.lock")
 	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0600)
 	if err != nil {
 		return nil, fmt.Errorf("open lock file: %w", err)
 	}
 	if err := fsutil.Lock(f); err != nil {
-		if closeErr := f.Close(); closeErr != nil {
-			return nil, fmt.Errorf("acquire global lock: %w (also failed to close lock file: %v)", err, closeErr)
-		}
+		f.Close()
 		return nil, fmt.Errorf("acquire global lock: %w", err)
 	}
 	return f, nil
