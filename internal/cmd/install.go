@@ -334,6 +334,18 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		}
 	}
 
+	cleanRoot := paths.Root
+	if abs, err := filepath.Abs(cleanRoot); err == nil {
+		cleanRoot = abs
+	}
+	if eval, err := filepath.EvalSymlinks(cleanRoot); err == nil {
+		cleanRoot = eval
+	}
+	cleanRoot = filepath.Clean(cleanRoot)
+	if err := safepath.SafeAbsolutePath(cleanRoot); err != nil {
+		return fmt.Errorf("invalid install root %q: %w", cleanRoot, err)
+	}
+
 	cleanTmp := paths.Tmp
 	if abs, err := filepath.Abs(cleanTmp); err == nil {
 		cleanTmp = abs
@@ -344,6 +356,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	cleanTmp = filepath.Clean(cleanTmp)
 	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
 		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	}
+	if err := safepath.CheckSubpath(cleanRoot, cleanTmp); err != nil {
+		return fmt.Errorf("temporary directory escapes install root: %w", err)
 	}
 
 	cleanLocalFile := localFile
