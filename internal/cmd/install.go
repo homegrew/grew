@@ -323,7 +323,10 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 
 	// Check if the file is already cached in the tmp directory and matches SHA256.
-	localFile := filepath.Join(paths.Tmp, filename)
+	localFile, err := safepath.SafeJoin(paths.Tmp, filename)
+	if err != nil {
+		return fmt.Errorf("invalid download path: %w", err)
+	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, sha256); err == nil {
 			fmt.Printf("==> Using cached %s\n", filename)
@@ -383,9 +386,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		return err
 	}
 
-	stageDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-stage")
-	if err := safepath.CheckSubpath(paths.Tmp, stageDir); err != nil {
-		return fmt.Errorf("invalid stage directory %q: %w", stageDir, err)
+	stageDir, err := safepath.SafeJoin(paths.Tmp, f.Name+"-"+f.Version+"-stage")
+	if err != nil {
+		return fmt.Errorf("invalid stage directory: %w", err)
 	}
 	os.RemoveAll(stageDir)
 
@@ -472,7 +475,10 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	filename := f.Name + "-" + f.Version + "-src" + ext
 
 	// Check if the file is already cached in the tmp directory and matches SHA256.
-	localFile := filepath.Join(paths.Tmp, filename)
+	localFile, err := safepath.SafeJoin(paths.Tmp, filename)
+	if err != nil {
+		return fmt.Errorf("invalid download path: %w", err)
+	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, srcSHA256); err == nil {
 			fmt.Printf("==> Using cached %s\n", filename)
@@ -518,7 +524,10 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	// Extract source to a build directory.
-	buildDir := filepath.Join(paths.Tmp, f.Name+"-"+f.Version+"-build")
+	buildDir, err := safepath.SafeJoin(paths.Tmp, f.Name+"-"+f.Version+"-build")
+	if err != nil {
+		return fmt.Errorf("invalid build directory: %w", err)
+	}
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
 	fmt.Printf("==> Extracting source (sandboxed)\n")
@@ -545,8 +554,15 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	// Collect dependency paths for sandbox read-only access.
 	var depPaths []string
 	for _, dep := range f.Dependencies {
-		depPaths = append(depPaths, filepath.Join(paths.Cellar, dep))
-		depPaths = append(depPaths, filepath.Join(paths.Opt, dep))
+		depCellar, err := safepath.SafeJoin(paths.Cellar, dep)
+		if err != nil {
+			return fmt.Errorf("invalid dependency path: %w", err)
+		}
+		depOpt, err := safepath.SafeJoin(paths.Opt, dep)
+		if err != nil {
+			return fmt.Errorf("invalid dependency path: %w", err)
+		}
+		depPaths = append(depPaths, depCellar, depOpt)
 	}
 
 	sbCfg := sandbox.BuildConfig{
