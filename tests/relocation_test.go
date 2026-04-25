@@ -55,10 +55,12 @@ func TestBinaryRelocation(t *testing.T) {
 		t.Fatalf("failed to build dummy binary: %v, output: %s", err, string(out))
 	}
 
-	tarballBytes := makeDummyTarGz(t, "placeholder") // We'll replace the content
-	// Re-create tarball with the real binary
-	binData, _ := os.ReadFile(dummyBin)
-	tarballBytes = makeDummyTarGz(t, string(binData))
+	// Read the real binary
+	binData, err := os.ReadFile(dummyBin)
+	if err != nil {
+		t.Fatalf("failed to read dummy binary: %v", err)
+	}
+	tarballBytes := makeDummyTarGz(t, string(binData))
 	tarballHash := computeSHA256(tarballBytes)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
