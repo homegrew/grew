@@ -249,7 +249,6 @@ grew/
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── linker/       ← deterministic symlink management
 │   ├── lockfile/     ← reproducible environment pinning
-│   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
 │   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool/patchelf)
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
 │   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux, shell-safe quoting)
@@ -259,8 +258,10 @@ grew/
 │   ├── tap/          ← tap repo management + commit verification
 │   └── version/      ← embedded version from git tags
 ├── pkg/
+│   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
+│   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← grew-genrepo (Homebrew formula/cask conversion)
+└── tools/            ← grew-genrepo (Homebrew formula/cask conversion), getgrew (installer)
 ```
 
 ---
