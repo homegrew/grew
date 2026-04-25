@@ -192,7 +192,10 @@ type installContext struct {
 func (c *installContext) Close() {
 	if c.GlobalLock != nil {
 		fsutil.Unlock(c.GlobalLock)
-		c.GlobalLock.Close()
+		if err := c.GlobalLock.Close(); err != nil {
+			slog.Warn("close global lock", "error", err)
+		}
+		c.GlobalLock = nil
 	}
 }
 
