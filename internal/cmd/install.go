@@ -230,6 +230,37 @@ type installOpts struct {
 
 // installFormula downloads, verifies, extracts, and links a single formula.
 // Shared by install and upgrade commands.
+func removeIfWithinTmp(tmpDir, candidate string) error {
+	cleanTmp := tmpDir
+	if abs, err := filepath.Abs(cleanTmp); err == nil {
+		cleanTmp = abs
+	}
+	if eval, err := filepath.EvalSymlinks(cleanTmp); err == nil {
+		cleanTmp = eval
+	}
+	cleanTmp = filepath.Clean(cleanTmp)
+	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
+		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	}
+
+	cleanCandidate := candidate
+	if abs, err := filepath.Abs(cleanCandidate); err == nil {
+		cleanCandidate = abs
+	}
+	if eval, err := filepath.EvalSymlinks(cleanCandidate); err == nil {
+		cleanCandidate = eval
+	}
+	cleanCandidate = filepath.Clean(cleanCandidate)
+	if err := safepath.SafeAbsolutePath(cleanCandidate); err != nil {
+		return fmt.Errorf("invalid cleanup path %q: %w", cleanCandidate, err)
+	}
+
+	if err := safepath.CheckSubpath(cleanTmp, cleanCandidate); err != nil {
+		return fmt.Errorf("cleanup path escapes tmp directory: %w", err)
+	}
+	return os.Remove(cleanCandidate)
+}
+
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
@@ -300,6 +331,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		cleanTmp = eval
 	}
 	cleanTmp = filepath.Clean(cleanTmp)
+	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
+		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	}
 
 	cleanLocalFile := localFile
 	if abs, err := filepath.Abs(cleanLocalFile); err == nil {
@@ -309,6 +343,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		cleanLocalFile = eval
 	}
 	cleanLocalFile = filepath.Clean(cleanLocalFile)
+	if err := safepath.SafeAbsolutePath(cleanLocalFile); err != nil {
+		return fmt.Errorf("invalid downloaded file path %q: %w", cleanLocalFile, err)
+	}
 
 	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
 		return fmt.Errorf("downloaded file path escapes tmp directory: %w", err)
@@ -317,20 +354,20 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
-		os.Remove(localFile)
+		_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			os.Remove(localFile)
+			_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}
 		fmt.Printf("==> SHA512 verified\n")
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
-		os.Remove(localFile)
+		_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
 		return err
 	}
 

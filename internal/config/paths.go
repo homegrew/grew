@@ -64,9 +64,15 @@ func DefaultPrefix() string {
 					// Sanity check: the candidate should have a Cellar or Taps dir.
 					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
 						if abs, err := filepath.Abs(candidate); err == nil {
-							prefix = filepath.Clean(abs)
+							clean := filepath.Clean(abs)
+							if err := safepath.SafeAbsolutePath(clean); err == nil {
+								prefix = clean
+							}
 						} else {
-							prefix = filepath.Clean(candidate)
+							clean := filepath.Clean(candidate)
+							if err := safepath.SafeAbsolutePath(clean); err == nil {
+								prefix = clean
+							}
 						}
 					}
 				}
@@ -90,11 +96,21 @@ func DefaultPrefix() string {
 		}
 	}
 
-	// Normalize the prefix to an absolute, cleaned path to avoid surprises downstream.
+	// Normalize and validate the final prefix before returning.
 	if abs, err := filepath.Abs(prefix); err == nil {
-		return filepath.Clean(abs)
+		prefix = filepath.Clean(abs)
+	} else {
+		prefix = filepath.Clean(prefix)
 	}
-	return filepath.Clean(prefix)
+	if err := safepath.SafeAbsolutePath(prefix); err != nil {
+		fallback := filepath.Clean(systemPrefix())
+		if err := safepath.SafeAbsolutePath(fallback); err == nil {
+			slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v; using %q", prefix, err, fallback))
+			return fallback
+		}
+		slog.Warn(fmt.Sprintf("config: invalid resolved prefix %q: %v", prefix, err))
+	}
+	return prefix
 }
 
 // systemPrefix returns the platform system prefix (same logic as runtime.SystemPrefix).
@@ -186,6 +202,16 @@ func FromRoot(root, appDir string) Paths {
 		root = abs
 	}
 	root = filepath.Clean(root)
+	if err := safepath.SafeAbsolutePath(root); err != nil {
+		slog.Warn(fmt.Sprintf("config: invalid root %q: %v; falling back to system prefix", root, err))
+		root = filepath.Clean(systemPrefix())
+		if abs, err := filepath.Abs(root); err == nil {
+			root = filepath.Clean(abs)
+		}
+		if err := safepath.SafeAbsolutePath(root); err != nil {
+			slog.Warn(fmt.Sprintf("config: system prefix %q is invalid: %v", root, err))
+		}
+	}
 
 	// Normalize appDir so that it is also absolute and cleaned, regardless
 	// of whether it came from the environment or a default.
@@ -193,6 +219,18 @@ func FromRoot(root, appDir string) Paths {
 		appDir = abs
 	}
 	appDir = filepath.Clean(appDir)
+	if err := safepath.SafeAbsolutePath(appDir); err != nil {
+		home, homeErr := os.UserHomeDir()
+		if homeErr != nil {
+			home = "."
+		}
+		fallback := filepath.Join(home, "Applications")
+		if abs, err := filepath.Abs(fallback); err == nil {
+			fallback = abs
+		}
+		appDir = filepath.Clean(fallback)
+		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", appDir, err, appDir))
+	}
 
 	return Paths{
 		Root:     root,
@@ -213,12 +251,22 @@ func FromRoot(root, appDir string) Paths {
 }
 
 func (p Paths) Init() error {
+	if err := safepath.SafeAbsolutePath(p.Root); err != nil {
+		return fmt.Errorf("invalid root path %q: %w", p.Root, err)
+	}
+
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
 		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created
 	}
 	for _, d := range dirs {
+		if err := safepath.SafeAbsolutePath(d); err != nil {
+			return fmt.Errorf("invalid directory path %q: %w", d, err)
+		}
+		if d != p.AppDir && !p.IsUnderRoot(d) {
+			return fmt.Errorf("refusing to create directory outside root: %s (root: %s)", d, p.Root)
+		}
 		if err := os.MkdirAll(d, 0755); err != nil {
 			return fmt.Errorf("create directory %s: %w", d, err)
 		}
@@ -228,6 +276,12 @@ func (p Paths) Init() error {
 
 // IsDir reports whether path is an existing directory.
 func IsDir(path string) bool {
+	if path == "" {
+		return false
+	}
+	if err := safepath.SafeAbsolutePath(path); err != nil {
+		return false
+	}
 	info, err := os.Stat(path)
 	return err == nil && info.IsDir()
 }
