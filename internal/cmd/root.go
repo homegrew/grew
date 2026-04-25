@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -53,7 +54,12 @@ func init() {
 			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_TEST_CERT_FILE requires devmode build\n")
 			os.Exit(1)
 		}
-		certPEM, err := os.ReadFile(certFile)
+		if filepath.IsAbs(certFile) || strings.Contains(certFile, "/") || strings.Contains(certFile, "\\") || strings.Contains(certFile, "..") {
+			fmt.Fprintf(os.Stderr, "failed to read test cert: invalid cert file name\n")
+			os.Exit(1)
+		}
+		certPath := filepath.Join(".", certFile)
+		certPEM, err := os.ReadFile(certPath)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "failed to read test cert: %v\n", err)
 			os.Exit(1)
