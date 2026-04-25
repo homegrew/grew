@@ -1,3 +1,5 @@
+// Command grew is the entry point for the grew package manager.
+// It delegates command execution to the internal/cmd package.
 package main
 
 import (

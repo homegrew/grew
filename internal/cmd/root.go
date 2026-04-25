@@ -1,8 +1,13 @@
 package cmd
 
 import (
+	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"log/slog"
+	"net/http"
+	"os"
+	"path/filepath"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -10,10 +15,60 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/osvdev"
+	"github.com/homegrew/grew/internal/release"
+	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/safepath"
 )
+
+func init() {
+	if apiBase := os.Getenv("HOMEGREW_GITHUB_API_BASE"); apiBase != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_GITHUB_API_BASE requires devmode build\n")
+			os.Exit(1)
+		}
+		if err := release.SetAPIBase(apiBase); err != nil {
+			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if apiBase := os.Getenv("HOMEGREW_OSV_API_BASE"); apiBase != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_OSV_API_BASE requires devmode build\n")
+			os.Exit(1)
+		}
+		if err := osvdev.SetAPIBase(apiBase); err != nil {
+			fmt.Fprintf(os.Stderr, "grew: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if certFile := os.Getenv("HOMEGREW_TEST_CERT_FILE"); certFile != "" {
+		if !runtime.DevMode {
+			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_TEST_CERT_FILE requires devmode build\n")
+			os.Exit(1)
+		}
+		certPEM, err := os.ReadFile(certFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "failed to read test cert: %v\n", err)
+			os.Exit(1)
+		}
+		pool, err := x509.SystemCertPool()
+		if err != nil || pool == nil {
+			pool = x509.NewCertPool()
+		}
+		pool.AppendCertsFromPEM(certPEM)
+
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.TLSClientConfig = &tls.Config{RootCAs: pool}
+		http.DefaultTransport = transport
+	}
+}
 
 func Run(args []string) error {
 	// Strip global flags (verbose, debug) before dispatch — they can
@@ -45,7 +100,7 @@ func Run(args []string) error {
 	}
 
 	commands := map[string]func([]string) error{
-		"install":      runInstall,
+		"install":      RunInstall,
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
 		"list":         runList,
@@ -75,6 +130,7 @@ func Run(args []string) error {
 		"unpin":        runUnpin,
 		"linkage":      runLinkage,
 		"vuln-scan":    runVulnScan,
+		"completion":   runCompletion,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}
@@ -124,12 +180,23 @@ func newReadContext() (*readContext, error) {
 
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
-	Paths    config.Paths
-	Loader   *formula.Loader
-	Cellar   *cellar.Cellar
-	Linker   *linker.Linker
-	DL       *downloader.Downloader
-	AuditLog *auditlog.Logger
+	Paths      config.Paths
+	Loader     *formula.Loader
+	Cellar     *cellar.Cellar
+	Linker     *linker.Linker
+	DL         *downloader.Downloader
+	AuditLog   *auditlog.Logger
+	GlobalLock *os.File
+}
+
+func (c *installContext) Close() {
+	if c.GlobalLock != nil {
+		fsutil.Unlock(c.GlobalLock)
+		if err := c.GlobalLock.Close(); err != nil {
+			slog.Warn("close global lock", "error", err)
+		}
+		c.GlobalLock = nil
+	}
 }
 
 // newInstallContext initialises paths, the core tap, and returns the shared context.
@@ -138,20 +205,44 @@ func newInstallContext() (*installContext, error) {
 	if err := paths.Init(); err != nil {
 		return nil, err
 	}
+	if err := safepath.SafeAbsolutePath(paths.Tmp); err != nil {
+		return nil, fmt.Errorf("invalid temporary directory %q: %w", paths.Tmp, err)
+	}
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	if err := tapMgr.InitCore(); err != nil {
 		return nil, fmt.Errorf("init core tap: %w", err)
 	}
 
+	lock, err := acquireGlobalLock(paths)
+	if err != nil {
+		return nil, err
+	}
+
 	return &installContext{
-		Paths:    paths,
-		Loader:   newLoader(paths.Taps),
-		Cellar:   &cellar.Cellar{Path: paths.Cellar},
-		Linker:   &linker.Linker{Paths: paths},
-		DL:       &downloader.Downloader{TmpDir: paths.Tmp},
-		AuditLog: auditlog.New(paths.Log),
+		Paths:      paths,
+		Loader:     newLoader(paths.Taps),
+		Cellar:     &cellar.Cellar{Path: paths.Cellar},
+		Linker:     &linker.Linker{Paths: paths},
+		DL:         &downloader.Downloader{TmpDir: paths.Tmp},
+		AuditLog:   auditlog.New(paths.Log),
+		GlobalLock: lock,
 	}, nil
+}
+
+func acquireGlobalLock(paths config.Paths) (*os.File, error) {
+	lockPath := filepath.Join(paths.Root, ".grew.lock")
+	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0600)
+	if err != nil {
+		return nil, fmt.Errorf("open lock file: %w", err)
+	}
+	if err := fsutil.Lock(f); err != nil {
+		if cerr := f.Close(); cerr != nil {
+			return nil, fmt.Errorf("acquire global lock: %w (also failed to close lock file: %v)", err, cerr)
+		}
+		return nil, fmt.Errorf("acquire global lock: %w", err)
+	}
+	return f, nil
 }
 
 // newLoader creates a formula.Loader with debug logging wired in.

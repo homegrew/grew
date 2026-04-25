@@ -13,7 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/tap"
-	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -79,10 +79,10 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 
 	// Validate cask-derived identifiers before using them in any filesystem paths.
-	if err := validation.SafePathComponent(c.Name); err != nil {
+	if err := safepath.SafePathComponent(c.Name); err != nil {
 		return fmt.Errorf("invalid cask name: %w", err)
 	}
-	if err := validation.SafePathComponent(c.Version); err != nil {
+	if err := safepath.SafePathComponent(c.Version); err != nil {
 		return fmt.Errorf("invalid cask version: %w", err)
 	}
 
@@ -102,10 +102,15 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	slog.Info("expected SHA256: " + sha)
 
+	sha512 := c.GetSHA512()
+	if sha512 != "" {
+		slog.Info("expected SHA512: " + sha512)
+	}
+
 	dl := &downloader.Downloader{TmpDir: paths.Tmp}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
 	// Ensure the constructed filename is a single safe path component.
-	if err := validation.SafePathComponent(filename); err != nil {
+	if err := safepath.SafePathComponent(filename); err != nil {
 		return fmt.Errorf("invalid download filename: %w", err)
 	}
 	localFile, err := dl.Download(dlURL, filename)
@@ -114,47 +119,40 @@ func caskInstall(name string, noQuarantine bool) error {
 	}
 	slog.Info("saved to: " + localFile)
 
-	if err := downloader.VerifySHA256(localFile, sha); err != nil {
+	if err := downloader.VerifySHA256Within(paths.Tmp, localFile, sha); err != nil {
 		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 	fmt.Printf("==> SHA256 verified\n")
 
+	if sha512 != "" {
+		if err := downloader.VerifySHA512Within(paths.Tmp, localFile, sha512); err != nil {
+			_ = removeIfWithin(localFile, paths.Tmp)
+			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
+		}
+		fmt.Printf("==> SHA512 verified\n")
+	}
+
 	// Extract archive to staging
-	if err := validation.SafePathComponent(c.Name); err != nil {
+	if err := safepath.SafePathComponent(c.Name); err != nil {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask name for staging directory: %w", err)
 	}
-	if err := validation.SafePathComponent(c.Version); err != nil {
+	if err := safepath.SafePathComponent(c.Version); err != nil {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("invalid cask version for staging directory: %w", err)
 	}
 	// Build a staging directory inside the configured temporary directory,
 	// and ensure it does not escape that base.
-	tmpBase := paths.Tmp
-	if tAbs, err := filepath.Abs(tmpBase); err == nil {
-		tmpBase = filepath.Clean(tAbs)
-	} else {
-		tmpBase = filepath.Clean(tmpBase)
-	}
 	stageName := c.Name + "-" + c.Version + "-cask-stage"
-	if err := validation.SafePathComponent(stageName); err != nil {
+	if err := safepath.SafePathComponent(stageName); err != nil {
 		return fmt.Errorf("invalid staging directory name: %w", err)
 	}
-	stageDir := filepath.Join(tmpBase, stageName)
-	if sAbs, err := filepath.Abs(stageDir); err == nil {
-		stageDir = filepath.Clean(sAbs)
-	} else {
-		stageDir = filepath.Clean(stageDir)
-	}
-	baseWithSep := tmpBase
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-	if stageDir != tmpBase && !strings.HasPrefix(stageDir, baseWithSep) {
+	stageDir, err := safepath.SafeJoin(paths.Tmp, stageName)
+	if err != nil {
 		os.Remove(localFile)
-		return fmt.Errorf("staging directory %q escapes tmp directory %q", stageDir, tmpBase)
+		return fmt.Errorf("staging directory escapes tmp directory: %w", err)
 	}
 	os.RemoveAll(stageDir)
 
@@ -354,17 +352,28 @@ func caskSearch(query string) error {
 
 // findCaskBinary looks for a binary inside a .app bundle's MacOS directory.
 func findCaskBinary(appDir string, apps []string, binName string) string {
+	if err := safepath.SafeAbsolutePath(appDir); err != nil {
+		return ""
+	}
+	if err := safepath.SafePathComponent(binName); err != nil {
+		return ""
+	}
 	for _, appName := range apps {
-		candidate := filepath.Join(appDir, appName, "Contents", "MacOS", binName)
-		candidate = filepath.Clean(candidate)
-		if _, err := os.Stat(candidate); err == nil {
-			return candidate
+		if err := safepath.SafePathComponent(appName); err != nil {
+			continue
+		}
+		candidate, err := safepath.SafeJoin(appDir, appName, "Contents", "MacOS", binName)
+		if err == nil {
+			if _, err := os.Stat(candidate); err == nil {
+				return candidate
+			}
 		}
 		// Also check Contents/Resources
-		candidate = filepath.Join(appDir, appName, "Contents", "Resources", binName)
-		candidate = filepath.Clean(candidate)
-		if _, err := os.Stat(candidate); err == nil {
-			return candidate
+		candidate, err = safepath.SafeJoin(appDir, appName, "Contents", "Resources", binName)
+		if err == nil {
+			if _, err := os.Stat(candidate); err == nil {
+				return candidate
+			}
 		}
 	}
 	return ""

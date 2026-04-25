@@ -4,9 +4,34 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
+	"sync"
 )
 
+var (
+	canSandbox     bool
+	canSandboxOnce sync.Once
+)
+
+func seatbeltAvailable() bool {
+	canSandboxOnce.Do(func() {
+		// Probe if sandbox-exec actually works. In some environments (like nested
+		// sandboxes), sandbox-exec is present but fails with "Operation not permitted".
+		cmd := exec.Command("sandbox-exec", "-p", "(version 1) (allow default)", "true")
+		canSandbox = cmd.Run() == nil
+	})
+	return canSandbox
+}
+
+func platformIsSandboxed() bool {
+	return seatbeltAvailable()
+}
+
 func platformPostInstallCommand(cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
+	if !seatbeltAvailable() {
+		cmd := exec.Command(name, args...)
+		cmd.Env = postInstallEnv(cfg)
+		return cmd
+	}
 	profile := postInstallSeatbeltProfile(cfg)
 	sandboxArgs := []string{"-p", profile, name}
 	sandboxArgs = append(sandboxArgs, args...)
@@ -40,6 +65,11 @@ func postInstallSeatbeltProfile(cfg PostInstallConfig) string {
 }
 
 func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
+	if !seatbeltAvailable() {
+		cmd := exec.Command(name, args...)
+		cmd.Env = extractEnv(cfg)
+		return cmd
+	}
 	profile := extractSeatbeltProfile(cfg)
 	sandboxArgs := []string{"-p", profile, name}
 	sandboxArgs = append(sandboxArgs, args...)
@@ -70,6 +100,11 @@ func extractSeatbeltProfile(cfg ExtractConfig) string {
 }
 
 func platformCommand(cfg BuildConfig, name string, args ...string) *exec.Cmd {
+	if !seatbeltAvailable() {
+		cmd := exec.Command(name, args...)
+		cmd.Env = cleanEnv(cfg)
+		return cmd
+	}
 	profile := seatbeltProfile(cfg)
 
 	sandboxArgs := []string{"-p", profile, name}

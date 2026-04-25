@@ -276,7 +276,11 @@ func TestExtract_ArchiveWithBinaryMove(t *testing.T) {
 
 	t.Run("moves root binary to bin dir", func(t *testing.T) {
 		t.Parallel()
-		tmpDir := t.TempDir()
+		tmpDir, err := os.MkdirTemp(".", "test-extract-move-")
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer os.RemoveAll(tmpDir)
 		archivePath := filepath.Join(tmpDir, "test.tar.gz")
 		destDir := filepath.Join(tmpDir, "dest")
 
@@ -302,7 +306,11 @@ func TestExtract_ArchiveWithBinaryMove(t *testing.T) {
 
 	t.Run("does not move if bin dir exists", func(t *testing.T) {
 		t.Parallel()
-		tmpDir := t.TempDir()
+		tmpDir, err := os.MkdirTemp(".", "test-extract-nomove-")
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer os.RemoveAll(tmpDir)
 		archivePath := filepath.Join(tmpDir, "test.tar.gz")
 		destDir := filepath.Join(tmpDir, "dest")
 

@@ -8,9 +8,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/snapshot"
 )
 
@@ -28,7 +28,7 @@ func runList(args []string) error {
 	onRequest := fs.Bool("installed-on-request", false, "Only show formulas installed on request")
 	asDep := fs.Bool("installed-as-dependency", false, "Only show formulas installed as dependencies")
 	fullName := fs.Bool("full-name", false, "Show full keg path as name (tap/formula)")
-	builtSrc := fs.Bool("built-from-source", false, "Only show formulas built from source")  //nolint:revive
+	builtSrc := fs.Bool("built-from-source", false, "Only show formulas built from source") //nolint:revive
 	pouredBottle := fs.Bool("poured-from-bottle", false, "Only show formulas poured from bottle")
 	pinned := fs.Bool("pinned", false, "Only show pinned formulas")
 	if err := fs.Parse(args); err != nil {

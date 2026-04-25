@@ -24,9 +24,11 @@ type Manifest struct {
 	InstalledAt    string `json:"installed_at"`
 	DownloadURL    string `json:"download_url"`
 	DownloadSHA256 string `json:"download_sha256"`
+	DownloadSHA512 string `json:"download_sha512,omitempty"`
 
-	// Aggregate integrity hash (SHA-256 of all file hashes concatenated in order).
+	// Aggregate integrity hashes.
 	KegSHA256 string `json:"keg_sha256"`
+	KegSHA512 string `json:"keg_sha512,omitempty"`
 
 	// Per-file inventory, sorted by path.
 	Files []FileEntry `json:"files"`
@@ -46,8 +48,9 @@ type Manifest struct {
 
 // FileEntry records one file or symlink inside the keg.
 type FileEntry struct {
-	Path    string      `json:"path"`              // relative to keg root
-	SHA256  string      `json:"sha256,omitempty"`  // empty for dirs/symlinks
+	Path    string      `json:"path"`             // relative to keg root
+	SHA256  string      `json:"sha256,omitempty"` // empty for dirs/symlinks
+	SHA512  string      `json:"sha512,omitempty"` // empty for dirs/symlinks
 	Size    int64       `json:"size"`
 	Mode    os.FileMode `json:"mode"`
 	Symlink string      `json:"symlink,omitempty"` // target if symlink
@@ -64,6 +67,7 @@ type InstallMeta struct {
 	Platform           string
 	DownloadURL        string
 	DownloadSHA256     string
+	DownloadSHA512     string
 	Dependencies       []string
 	InstalledOnRequest bool
 	BuiltFromSource    bool

@@ -105,4 +105,4 @@ func (h *CLIHandler) Handle(_ context.Context, r slog.Record) error {
 }
 
 func (h *CLIHandler) WithAttrs(_ []slog.Attr) slog.Handler { return h }
-func (h *CLIHandler) WithGroup(_ string) slog.Handler       { return h }
+func (h *CLIHandler) WithGroup(_ string) slog.Handler      { return h }

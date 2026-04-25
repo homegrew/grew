@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -22,11 +23,33 @@ import (
 const (
 	repoOwner = "homegrew"
 	repoName  = "grew"
-	apiBase   = "https://api.github.com"
 
 	// maxBinarySize limits the extracted binary to 128 MB.
 	maxBinarySize = 128 << 20
 )
+
+var apiBase = "https://api.github.com"
+
+// SetAPIBase overrides the GitHub API base URL.
+// This is strictly intended for testing purposes and should only be called
+// when runtime.DevMode is enabled. It validates the provided URL to prevent
+// Server-Side Request Forgery (SSRF) vulnerabilities.
+func SetAPIBase(rawURL string) error {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return fmt.Errorf("invalid api base url: %w", err)
+	}
+	if u.Scheme != "https" && u.Scheme != "http" {
+		return fmt.Errorf("api base must use http or https")
+	}
+	// Restrict to known safe domains or local loopback for testing
+	host := u.Hostname()
+	if host != "api.github.com" && host != "127.0.0.1" && host != "localhost" {
+		return fmt.Errorf("api base host %q is not permitted", host)
+	}
+	apiBase = rawURL
+	return nil
+}
 
 // Release is the subset of the GitHub API release response we need.
 type Release struct {
@@ -71,10 +94,9 @@ func FetchLatest() (*Release, error) {
 	return nil, fmt.Errorf("no stable releases found for %s/%s", repoOwner, repoName)
 }
 
-// AssetName returns the expected tarball name for the current platform.
-func AssetName() string {
-	osName := runtime.GOOS
-	archName := runtime.GOARCH
+func normalizePlatform() (osName, archName string) {
+	osName = runtime.GOOS
+	archName = runtime.GOARCH
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
@@ -85,7 +107,25 @@ func AssetName() string {
 	case "amd64":
 		archName = "x86_64"
 	}
+	return
+}
+
+// AssetName returns the expected tarball name for the current platform.
+func AssetName() string {
+	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
+}
+
+// RawBinaryName returns the expected uncompressed binary name for the current platform.
+func RawBinaryName() string {
+	osName, archName := normalizePlatform()
+	return fmt.Sprintf("grew_%s_%s", osName, archName)
+}
+
+// PatchName returns the expected patch filename for the given version transition.
+func PatchName(oldVer, newVer string) string {
+	osName, archName := normalizePlatform()
+	return fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, oldVer, newVer)
 }
 
 // FindAssetURL returns the HTTPS download URL for the named asset in a release.
@@ -121,13 +161,47 @@ func FindChecksum(data []byte, assetName string) (string, error) {
 		}
 		if filepath.Base(parts[1]) == assetName {
 			hash := strings.ToLower(parts[0])
-			if len(hash) != 64 {
+			if len(hash) != 64 && len(hash) != 128 {
 				return "", fmt.Errorf("invalid checksum length for %s: %d", assetName, len(hash))
 			}
 			return hash, nil
 		}
 	}
 	return "", fmt.Errorf("no checksum found for %s in checksums.txt", assetName)
+}
+
+// FindChecksumBySize returns a checksum of the specified size (64 for SHA256, 128 for SHA512)
+// for the given asset name from the provided checksum data.
+func FindChecksumBySize(data []byte, assetName string, size int) (string, error) {
+	hashes := FindAllChecksums(data, assetName)
+	if h, ok := hashes[size]; ok {
+		return h, nil
+	}
+	return "", fmt.Errorf("no checksum of size %d found for %s", size, assetName)
+}
+
+// FindAllChecksums parses a checksums.txt file and returns all hashes
+// found for the given asset name, mapped by their length (64 for SHA256, 128 for SHA512).
+func FindAllChecksums(data []byte, assetName string) map[int]string {
+	results := make(map[int]string)
+	scanner := bufio.NewScanner(strings.NewReader(string(data)))
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+		parts := strings.Fields(line)
+		if len(parts) != 2 {
+			continue
+		}
+		if filepath.Base(parts[1]) == assetName {
+			hash := strings.ToLower(parts[0])
+			if len(hash) == 64 || len(hash) == 128 {
+				results[len(hash)] = hash
+			}
+		}
+	}
+	return results
 }
 
 // DownloadBytes downloads a URL into memory. Limited to 1 MB.
@@ -172,6 +246,12 @@ func DownloadTemp(url string) (string, error) {
 // Delegates to downloader.ComputeSHA256 to avoid duplicating the implementation.
 func FileSHA256(path string) (string, error) {
 	return downloader.ComputeSHA256(path)
+}
+
+// FileSHA512 computes the hex-encoded SHA512 of a file.
+// Delegates to downloader.ComputeSHA512 to avoid duplicating the implementation.
+func FileSHA512(path string) (string, error) {
+	return downloader.ComputeSHA512(path)
 }
 
 // ExtractBinary reads a .tar.gz and returns the contents of the "grew"
@@ -254,14 +334,33 @@ func AtomicInstall(dst string, data []byte) error {
 
 // httpsGet performs an HTTPS GET, rejecting non-HTTPS URLs and redirects.
 func httpsGet(rawURL, accept string) (*http.Response, error) {
-	if !strings.HasPrefix(rawURL, "https://") {
-		return nil, fmt.Errorf("refusing non-HTTPS URL: %s", rawURL)
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return nil, fmt.Errorf("invalid url: %w", err)
+	}
+	if u.Scheme != "https" && u.Scheme != "http" {
+		return nil, fmt.Errorf("refusing non-HTTP/HTTPS URL: %s", rawURL)
 	}
 
-	req, err := http.NewRequest("GET", rawURL, nil)
-	if err != nil {
-		return nil, err
+	// Strictly validate the hostname to prevent SSRF vulnerabilities.
+	host := u.Hostname()
+	switch host {
+	case "api.github.com", "github.com", "objects.githubusercontent.com", "127.0.0.1", "localhost":
+		// allowed hosts
+	default:
+		return nil, fmt.Errorf("host %q is not permitted for release downloads", host)
 	}
+
+	req := &http.Request{
+		Method:     "GET",
+		URL:        u,
+		Proto:      "HTTP/1.1",
+		ProtoMajor: 1,
+		ProtoMinor: 1,
+		Header:     make(http.Header),
+		Host:       u.Host,
+	}
+
 	req.Header.Set("User-Agent", "grew/1.0")
 	req.Header.Set("Accept", accept)
 

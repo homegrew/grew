@@ -19,6 +19,7 @@ func runUpgrade(args []string) error {
 	if err != nil {
 		return err
 	}
+	defer ctx.Close()
 
 	var targets []outdatedPkg
 

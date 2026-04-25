@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -25,7 +26,7 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if filepath.Base(appName) != appName {
 		return "", fmt.Errorf("invalid app name: %q", appName)
 	}
-	if err := validation.SafePathComponent(appName); err != nil {
+	if err := safepath.SafePathComponent(appName); err != nil {
 		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
 
@@ -55,7 +56,10 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 		return "", fmt.Errorf("app %s resolves outside staging directory: %s", appName, realSrc)
 	}
 
-	destApp := filepath.Join(inst.AppDir, appName)
+	destApp, err := safepath.SafeJoin(inst.AppDir, appName)
+	if err != nil {
+		return "", fmt.Errorf("invalid app destination: %w", err)
+	}
 
 	// Remove existing app if present (reinstall)
 	if _, err := os.Stat(destApp); err == nil {
@@ -76,35 +80,17 @@ func (inst *Installer) UninstallApp(appName string) error {
 	if filepath.Base(appName) != appName {
 		return fmt.Errorf("invalid app name: %q", appName)
 	}
-	if err := validation.SafePathComponent(appName); err != nil {
+	if err := safepath.SafePathComponent(appName); err != nil {
 		return fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
-	destApp := filepath.Join(inst.AppDir, appName)
+	destApp, err := safepath.SafeJoin(inst.AppDir, appName)
+	if err != nil {
+		return fmt.Errorf("invalid app destination: %w", err)
+	}
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
 		return nil // already gone
 	}
 	return os.RemoveAll(destApp)
-}
-
-// isPathWithinDir ensures that the given candidatePath is inside baseDirAbs.
-// Both paths are expected to be absolute or already resolved to their final
-// on-disk locations. The function returns nil if the path is acceptable, or
-// a descriptive error if it is outside the directory.
-func (inst *Installer) isPathWithinDir(baseDirAbs, candidatePath string) error {
-	baseDirAbs = filepath.Clean(baseDirAbs)
-	candidatePath = filepath.Clean(candidatePath)
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	baseWithSep := baseDirAbs
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-
-	if candidatePath != baseDirAbs && !strings.HasPrefix(candidatePath, baseWithSep) {
-		return fmt.Errorf("path %q is outside base directory %q", candidatePath, baseDirAbs)
-	}
-
-	return nil
 }
 
 // LinkBin creates a symlink from BinDir/<name> to the binary at target.
@@ -123,11 +109,8 @@ func (inst *Installer) LinkBin(name, target string) error {
 	}
 	binDirAbs = filepath.Clean(binDirAbs)
 
-	link := filepath.Join(binDirAbs, name)
-
-	// Safety check: ensure the link path is within the bin directory.
-	linkAbs := filepath.Clean(link)
-	if err := inst.isPathWithinDir(binDirAbs, linkAbs); err != nil {
+	linkAbs, err := safepath.SafeJoin(binDirAbs, name)
+	if err != nil {
 		return fmt.Errorf("refusing to create link outside bin directory: %w", err)
 	}
 
@@ -174,7 +157,6 @@ func (inst *Installer) UnlinkBin(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid binary name: %q", name)
 	}
-	linkPath := filepath.Join(inst.BinDir, name)
 
 	// Ensure we only operate within the configured BinDir.
 	binAbs, err := filepath.Abs(inst.BinDir)
@@ -183,14 +165,9 @@ func (inst *Installer) UnlinkBin(name string) error {
 	}
 	binAbs = filepath.Clean(binAbs)
 
-	linkAbs := filepath.Clean(linkPath)
-
-	binWithSep := binAbs
-	if !strings.HasSuffix(binWithSep, string(os.PathSeparator)) {
-		binWithSep += string(os.PathSeparator)
-	}
-	if linkAbs != binAbs && !strings.HasPrefix(linkAbs, binWithSep) {
-		return fmt.Errorf("refusing to remove path outside bin directory: %s", linkAbs)
+	linkAbs, err := safepath.SafeJoin(binAbs, name)
+	if err != nil {
+		return fmt.Errorf("refusing to remove path outside bin directory: %w", err)
 	}
 
 	info, err := os.Lstat(linkAbs)
@@ -209,14 +186,25 @@ func (inst *Installer) UnlinkBin(name string) error {
 
 // findApp searches stageDir for a .app bundle with the given name.
 func findApp(stageDir, appName string) (string, error) {
+	if err := safepath.SafePathComponent(appName); err != nil {
+		return "", fmt.Errorf("invalid app name %q: %w", appName, err)
+	}
+
+	stageAbs, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
+
 	// First, look for a top-level bundle: <stageDir>/<appName>.
-	direct := filepath.Join(stageDir, appName)
-	if info, err := os.Stat(direct); err == nil && info.IsDir() {
-		return direct, nil
+	direct, err := safepath.SafeJoin(stageAbs, appName)
+	if err == nil {
+		if info, err := os.Stat(direct); err == nil && info.IsDir() {
+			return direct, nil
+		}
 	}
 
 	// If not found, walk one level deep and look for <stageDir>/*/<appName>.
-	entries, err := os.ReadDir(stageDir)
+	entries, err := os.ReadDir(stageAbs)
 	if err != nil {
 		return "", err
 	}
@@ -224,10 +212,13 @@ func findApp(stageDir, appName string) (string, error) {
 		if !e.IsDir() {
 			continue
 		}
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		nested := filepath.Join(stageDir, e.Name(), appName)
+		nested, err := safepath.SafeJoin(stageAbs, e.Name(), appName)
+		if err != nil {
+			continue
+		}
 		if info, err := os.Stat(nested); err == nil && info.IsDir() {
 			return nested, nil
 		}

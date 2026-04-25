@@ -21,7 +21,7 @@ install: generate
 
 .PHONY: check
 check: generate
-	$(GO) test -tags devmode -v -race $(PKGS)
+	$(GO) test -tags devmode -race $(PKGS)
 
 .PHONY: generate
 generate:
@@ -41,9 +41,11 @@ mod-tidy:
 
 .PHONY: clean
 clean:
-	rm -f $(BIN)
+	rm -f $(BIN) grew_test_bin
 	rm -f coverage.out
+	rm -rf .cache
 	echo "v0.0.0-UNKNOWN" > $(CURDIR)/internal/version/version.txt
 
 .PHONY: distclean
 distclean: clean
+	rm -rf .codeql-db/ .codeql-results/ .tmpcache/

@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
 )
 
@@ -31,6 +32,18 @@ func runUninstall(args []string) error {
 
 	name := fs.Arg(0)
 	paths := config.Default()
+	
+	lock, err := acquireGlobalLock(paths)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		fsutil.Unlock(lock)
+		if err := lock.Close(); err != nil {
+			slog.Error("failed to close global lock file", "err", err)
+		}
+	}()
+
 	cel := &cellar.Cellar{Path: paths.Cellar}
 
 	if !cel.IsInstalled(name) {

@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
@@ -13,8 +14,8 @@ import (
 
 // extractArgs is the JSON payload passed via stdin to the sandboxed extraction subprocess.
 type extractArgs struct {
-	ArchivePath string             `json:"archive_path"`
-	DestDir     string             `json:"dest_dir"`
+	ArchivePath string              `json:"archive_path"`
+	DestDir     string              `json:"dest_dir"`
 	Spec        formula.InstallSpec `json:"spec"`
 }
 
@@ -41,23 +42,22 @@ func runExtract(_ []string) error {
 	if err != nil {
 		return fmt.Errorf("resolve working directory: %w", err)
 	}
+	if eval, err := filepath.EvalSymlinks(cwdAbs); err == nil {
+		cwdAbs = eval
+	}
 	cwdAbs = filepath.Clean(cwdAbs)
 
 	destAbs, err := filepath.Abs(args.DestDir)
 	if err != nil {
 		return fmt.Errorf("resolve dest_dir: %w", err)
 	}
+	if eval, err := filepath.EvalSymlinks(destAbs); err == nil {
+		destAbs = eval
+	}
 	destAbs = filepath.Clean(destAbs)
 
-	if destAbs != cwdAbs {
-		cwdWithSep := cwdAbs
-		if !strings.HasSuffix(cwdWithSep, string(os.PathSeparator)) {
-			cwdWithSep += string(os.PathSeparator)
-		}
-		if !strings.HasPrefix(destAbs, cwdWithSep) {
-			return fmt.Errorf("dest_dir %q escapes working directory %q", destAbs, cwdAbs)
-		}
+	if err := safepath.CheckSubpath(cwdAbs, destAbs); err != nil {
+		return fmt.Errorf("dest_dir %q escapes working directory %q: %w", destAbs, cwdAbs, err)
 	}
-
 	return downloader.Extract(args.ArchivePath, destAbs, args.Spec)
 }

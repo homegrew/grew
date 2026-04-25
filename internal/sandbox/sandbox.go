@@ -68,6 +68,12 @@ func ExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
 	return platformExtractCommand(cfg, name, args...)
 }
 
+// IsSandboxed reports whether any form of functional sandboxing (Seatbelt,
+// bubblewrap, or unshare) is available and working on the current system.
+func IsSandboxed() bool {
+	return platformIsSandboxed()
+}
+
 // extractEnv returns a minimal environment for extraction.
 func extractEnv(cfg ExtractConfig) []string {
 	allow := map[string]bool{

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/tap"
 )

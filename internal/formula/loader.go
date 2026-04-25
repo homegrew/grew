@@ -2,11 +2,11 @@ package formula
 
 import (
 	"fmt"
+	"github.com/homegrew/grew/pkg/safepath"
 	"os"
 	"path/filepath"
-	"strings"
 
-	"github.com/homegrew/grew/pkg/validation"
+	"strings"
 )
 
 type Loader struct {
@@ -31,7 +31,35 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+	
+	// Handle tap-qualified names (e.g., "user/repo/name" or "core/name")
+	if strings.Contains(name, "/") {
+		parts := strings.Split(name, "/")
+		formulaName := parts[len(parts)-1]
+		tapPath := parts[:len(parts)-1]
+		
+		// Validate components
+		if err := safepath.SafePathComponent(formulaName + ".yaml"); err != nil {
+			return nil, fmt.Errorf("invalid formula name: %q", formulaName)
+		}
+		for _, p := range tapPath {
+			if err := safepath.SafePathComponent(p); err != nil {
+				return nil, fmt.Errorf("invalid tap name component: %q", p)
+			}
+		}
+		
+		path := filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...)
+		f, err := l.loadFromFile(path)
+		if err != nil {
+			if os.IsNotExist(err) {
+				return nil, fmt.Errorf("formula not found in tap %q: %q", strings.Join(tapPath, "/"), formulaName)
+			}
+			return nil, fmt.Errorf("failed to load formula %q from tap %q: %w", formulaName, strings.Join(tapPath, "/"), err)
+		}
+		return f, nil
+	}
+
+	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid formula name: %q", name)
 	}
 	taps, err := os.ReadDir(l.TapDir)
@@ -44,7 +72,7 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 		if !tap.IsDir() {
 			continue
 		}
-		if err := validation.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
 		path := filepath.Join(l.TapDir, tap.Name(), name+".yaml")
@@ -72,7 +100,7 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		if !tap.IsDir() {
 			continue
 		}
-		if err := validation.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
 		tapFormulas, err := l.LoadFromTap(filepath.Join(l.TapDir, tap.Name()))
@@ -95,7 +123,7 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
 			continue
 		}
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
 		f, err := l.loadFromFile(filepath.Join(tapPath, e.Name()))
@@ -115,22 +143,20 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 		return nil, err
 	}
 	absPath = filepath.Clean(absPath)
+	if err := safepath.SafeAbsolutePath(absPath); err != nil {
+		return nil, fmt.Errorf("invalid formula path %q: %w", absPath, err)
+	}
 
 	// Ensure the file we are about to read is within the TapDir tree.
-	base := l.TapDir
-	if bAbs, err := filepath.Abs(base); err == nil {
-		base = filepath.Clean(bAbs)
-	} else {
-		base = filepath.Clean(base)
+	tapDir := filepath.Clean(l.TapDir)
+	if abs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(abs)
 	}
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
-	baseWithSep := base
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		return nil, fmt.Errorf("invalid taps directory %q: %w", tapDir, err)
 	}
-	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
-		return nil, fmt.Errorf("formula path %q escapes taps directory %q", absPath, base)
+	if err := safepath.CheckSubpath(tapDir, absPath); err != nil {
+		return nil, fmt.Errorf("formula path %q escapes taps directory %q: %w", absPath, tapDir, err)
 	}
 
 	data, err := os.ReadFile(absPath)

@@ -9,6 +9,8 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/homegrew/grew/pkg/safepath"
+
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
 )
@@ -171,13 +173,13 @@ func TestStripPath(t *testing.T) {
 }
 
 func TestWithinDir(t *testing.T) {
-	if !withinDir("/tmp/dest", "/tmp/dest/foo/bar") {
+	if !safepath.IsSubpath("/tmp/dest", "/tmp/dest/foo/bar") {
 		t.Error("expected /tmp/dest/foo/bar within /tmp/dest")
 	}
-	if withinDir("/tmp/dest", "/tmp/other") {
+	if safepath.IsSubpath("/tmp/dest", "/tmp/other") {
 		t.Error("expected /tmp/other NOT within /tmp/dest")
 	}
-	if withinDir("/tmp/dest", "/tmp/dest/../other") {
+	if safepath.IsSubpath("/tmp/dest", "/tmp/dest/../other") {
 		t.Error("expected traversal path NOT within /tmp/dest")
 	}
 }

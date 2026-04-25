@@ -521,8 +521,8 @@ func Reverse(name, version, kegPath, cellarPath string) (*ReverseResult, error) 
 
 	// Ensure cellarRoot is exactly the Cellar corresponding to kegPath's prefix.
 	// This prevents scanning arbitrary user-controlled paths that merely end with "Cellar".
-	kegVersionDir := filepath.Dir(kegPath)          // <prefix>/Cellar/<formula>
-	kegFormulaDir := filepath.Dir(kegVersionDir)    // <prefix>/Cellar
+	kegVersionDir := filepath.Dir(kegPath)       // <prefix>/Cellar/<formula>
+	kegFormulaDir := filepath.Dir(kegVersionDir) // <prefix>/Cellar
 	expectedCellarRoot := filepath.Clean(kegFormulaDir)
 	if cellarRoot != expectedCellarRoot {
 		return result, nil

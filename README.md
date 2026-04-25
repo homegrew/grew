@@ -14,6 +14,8 @@
 ## ✨ What it does
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
+- ⚡ **Binary delta updates** — `selfupdate` uses `bspatch` to download only the differences between versions, saving bandwidth
+- 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
 - 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)
 - ✍️ **Ed25519 bottle signing** — cryptographic signatures on downloads, verified against a local trust store
@@ -84,7 +86,53 @@ That's it. No dark rituals. No 47-step setup guide.
 
 ---
 
+## 🗑️ Uninstallation
+
+`grew` stores most of its data in its prefix directory, but some items (like Cask applications and background services) are linked to system directories. To completely remove `grew` and all of its traces:
+
+**1. Clean up installed packages (Casks and Services):**
+
+Uninstall casks and stop services first so `grew` can clean up `/Applications` and your service managers (launchd/systemd):
+
+```bash
+# Stop and remove all background services
+for s in $(grew services ls | awk 'NR>1 {print $1}'); do grew services stop $s; done
+
+# Uninstall all macOS casks
+for c in $(grew list --cask | awk '{print $1}'); do grew uninstall --cask $c; done
+```
+
+**2. Delete the prefix directory:**
+
+*   **macOS (Apple Silicon):**
+    ```bash
+    sudo rm -rf /opt/homegrew
+    ```
+*   **macOS (Intel) & Linux:**
+    ```bash
+    sudo rm -rf /usr/local/homegrew
+    ```
+*   **Devmode (User-local install via `--unsafe`):**
+    ```bash
+    rm -rf ~/.homegrew
+    ```
+
+**3. Clean up your shell profile:**
+
+Open your shell configuration file (e.g., `~/.zshrc`, `~/.bashrc`, or `~/.config/fish/config.fish`) and remove the line that initializes `grew`:
+
+```bash
+# Remove this line:
+eval "$(/opt/homegrew/bin/grew shellenv)"
+```
+
+Restart your terminal, and `grew` is completely gone.
+
+---
+
 ## 📖 Usage
+
+For an in-depth look at how `grew` installs itself, its self-update mechanism, and the developer mode, check out the [Architecture & Technical Details](docs/tech.md).
 
 ```bash
 grew install jq              # the classic
@@ -212,7 +260,7 @@ grew/
 │   └── version/      ← embedded version from git tags
 ├── pkg/
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← import scripts (Homebrew formula/cask conversion)
+└── tools/            ← grew-genrepo (Homebrew formula/cask conversion)
 ```
 
 ---
@@ -230,6 +278,8 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Install manifests** | Per-file SHA256 snapshot at install time | None |
 | **Lockfile** | Full dependency tree with hashes | None |
 | **Integrity check** | `grew verify` + `grew doctor` snapshot check | None |
+| **Dual-hash verification** | Self-updates and release assets use both SHA256 and SHA512 | None |
+| **Self-update health check** | Patched binaries are execution-tested in a sandbox before replacement | None |
 | **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
 | **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers | Partial |
 | **Shell injection prevention** | POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape) for sandbox scripts; systemd `ExecStart` and launchd plist values properly escaped | N/A |

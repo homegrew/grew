@@ -2,12 +2,12 @@ package fsutil
 
 import (
 	"fmt"
+	"github.com/homegrew/grew/pkg/safepath"
 	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
-	"runtime"
-	"strings"
+	"syscall"
 )
 
 // Default permission modes used when an extracted entry has no explicit mode.
@@ -16,19 +16,21 @@ const (
 	defaultFileMode os.FileMode = 0o644
 )
 
-// isWithinRoot reports whether candidate is within the directory tree rooted at root.
-// It mirrors the symlink escape validation logic used elsewhere to ensure consistency.
-func isWithinRoot(root, candidate string) bool {
-	normalizedRoot := filepath.Clean(root)
-	normalizedCandidate := filepath.Clean(candidate)
+// Lock acquires an exclusive advisory lock on the given file.
+// It blocks until the lock is acquired.
+func Lock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_EX)
+}
 
-	if runtime.GOOS == "windows" {
-		normalizedRoot = strings.ToLower(normalizedRoot)
-		normalizedCandidate = strings.ToLower(normalizedCandidate)
-	}
+// TryLock attempts to acquire an exclusive advisory lock on the given file
+// without blocking. It returns syscall.EWOULDBLOCK if the lock is already held.
+func TryLock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB)
+}
 
-	sep := string(filepath.Separator)
-	return normalizedCandidate == normalizedRoot || strings.HasPrefix(normalizedCandidate, normalizedRoot+sep)
+// Unlock releases an advisory lock on the given file.
+func Unlock(f *os.File) error {
+	return syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
 }
 
 // CopyTree recursively copies a directory tree from src to dst.
@@ -60,7 +62,7 @@ func CopyTree(src, dst string) error {
 		target = filepath.Clean(target)
 
 		// Ensure that the computed target path stays within the destination root.
-		if !isWithinRoot(absDst, target) {
+		if !safepath.IsSubpath(absDst, target) {
 			return fmt.Errorf("refusing to copy outside destination root: %s", target)
 		}
 
@@ -85,7 +87,7 @@ func CopyTree(src, dst string) error {
 
 			// Map the resolved source path into the destination tree (if possible)
 			var resolvedDest string
-			if isWithinRoot(absSrc, resolvedSource) {
+			if safepath.IsSubpath(absSrc, resolvedSource) {
 				relFromSrc, relErr := filepath.Rel(absSrc, resolvedSource)
 				if relErr != nil {
 					return relErr
@@ -102,7 +104,7 @@ func CopyTree(src, dst string) error {
 			}
 			resolvedDest = filepath.Clean(resolvedDest)
 
-			if !isWithinRoot(absDst, resolvedDest) {
+			if !safepath.IsSubpath(absDst, resolvedDest) {
 				// Skip symlinks that escape — don't fail, just log and skip.
 				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", path, resolvedDest, absDst))
 				return nil
@@ -174,7 +176,7 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 		absRoot = filepath.Clean(absRoot)
 
 		// First, perform a cheap lexical containment check.
-		if !isWithinRoot(absRoot, absDst) {
+		if !safepath.IsSubpath(absRoot, absDst) {
 			return fmt.Errorf("refusing to copy file outside destination root: %s", absDst)
 		}
 
@@ -196,7 +198,7 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 			if rootErr != nil && !os.IsNotExist(rootErr) {
 				return fmt.Errorf("resolve destination root symlinks: %w", rootErr)
 			}
-			if rootErr == nil && !isWithinRoot(resolvedRoot, resolvedDstDir) {
+			if rootErr == nil && !safepath.IsSubpath(resolvedRoot, resolvedDstDir) {
 				return fmt.Errorf("refusing to copy file outside destination root via symlink: %s", absDst)
 			}
 		}

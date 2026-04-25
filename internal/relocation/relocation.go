@@ -39,6 +39,20 @@ func BuildReplacements(kegPath, prefix string) Replacements {
 	r[PlaceholderPrefix] = prefix
 	r[PlaceholderCellar] = cellar
 
+	// Include standard Homebrew prefixes as sources for relocation.
+	// Many bottles have these hardcoded even if they are relocatable.
+	standardPrefixes := []string{
+		"/opt/homebrew",
+		"/usr/local",
+		"/home/linuxbrew/.linuxbrew",
+	}
+	for _, sp := range standardPrefixes {
+		if sp != prefix {
+			r[sp] = prefix
+			r[filepath.Join(sp, "Cellar")] = cellar
+		}
+	}
+
 	// Also detect any real (non-placeholder) foreign prefix from the binaries.
 	if oldPrefix := detectForeignPrefix(kegPath, prefix); oldPrefix != "" {
 		oldCellar := filepath.Join(oldPrefix, "Cellar")
@@ -90,8 +104,22 @@ func RelocateKeg(kegPath, prefix string) error {
 		relPath, _ := filepath.Rel(kegPath, path)
 		slog.Debug(fmt.Sprintf("relocation: processing binary %s", relPath))
 		if relErr := relocateBinary(path, replacements); relErr != nil {
+			// Some files might look like binaries (e.g. Java .class files) but aren't
+			// Mach-O/ELF. If relocation fails, we log it.
 			slog.Warn(fmt.Sprintf("relocation: %s: %v", relPath, relErr))
-			failed++
+
+			// If it's a recognized binary (via isBinary), we should be stricter.
+			// But we allow some slack for files that magic bytes misidentified.
+			msg := strings.ToLower(relErr.Error())
+			isMisidentified := strings.Contains(msg, "not a mach-o") ||
+				strings.Contains(msg, "not an elf") ||
+				strings.Contains(msg, "invalid elf") ||
+				strings.Contains(msg, "too small") ||
+				strings.Contains(msg, "exit status 1")
+
+			if !isMisidentified {
+				failed++
+			}
 		} else {
 			relocated++
 		}
@@ -112,7 +140,12 @@ func needsRelocation(kegPath string, replacements Replacements) bool {
 	found := false
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || found {
-			return filepath.SkipAll
+			// Don't SkipAll on error, just skip the problematic file.
+			// Only SkipAll if we already found what we needed.
+			if found {
+				return filepath.SkipAll
+			}
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() {
 			return nil
@@ -147,7 +180,10 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 	var foreign string
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || foreign != "" {
-			return filepath.SkipAll
+			if foreign != "" {
+				return filepath.SkipAll
+			}
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
 			return nil
@@ -172,13 +208,14 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 // deriveOldPrefix scans a list of embedded paths for patterns like
 // "<prefix>/Cellar/" or "<prefix>/opt/" and returns the prefix portion.
 func deriveOldPrefix(paths []string) string {
-	markers := []string{"/Cellar/", "/opt/"}
+	markers := []string{"/Cellar/", "/opt/", "/lib/ld.so", "/lib/ld-linux"}
 	for _, p := range paths {
 		for _, marker := range markers {
 			idx := strings.Index(p, marker)
 			if idx > 0 {
 				candidate := p[:idx]
-				if filepath.IsAbs(candidate) {
+				// Exclude @@HOMEBREW_PREFIX@@ as it is already handled explicitly.
+				if filepath.IsAbs(candidate) && !strings.Contains(candidate, PlaceholderPrefix) {
 					return candidate
 				}
 			}
@@ -246,22 +283,37 @@ func isBinary(path string) bool {
 	}
 	defer f.Close()
 
-	var magic [4]byte
-	if _, err := f.Read(magic[:]); err != nil {
+	var magic [8]byte
+	n, err := f.Read(magic[:])
+	if err != nil || n < 4 {
 		return false
 	}
 
 	switch {
+	// Mach-O 64-bit
 	case magic[0] == 0xCF && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
 		return true
 	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCF:
 		return true
+	// Mach-O 32-bit
 	case magic[0] == 0xCE && magic[1] == 0xFA && magic[2] == 0xED && magic[3] == 0xFE:
 		return true
 	case magic[0] == 0xFE && magic[1] == 0xED && magic[2] == 0xFA && magic[3] == 0xCE:
 		return true
+	// Mach-O Fat / Java .class conflict (0xCAFEBABE)
 	case magic[0] == 0xCA && magic[1] == 0xFE && magic[2] == 0xBA && magic[3] == 0xBE:
-		return true
+		// Java .class files have magic 0xCAFEBABE, then 2 bytes minor, 2 bytes major.
+		// Mach-O Fat binaries have magic 0xCAFEBABE, then 4 bytes big-endian number of architectures.
+		// On modern macOS, major version is usually > 40.
+		if n < 8 {
+			return false
+		}
+		narchs := uint32(magic[4])<<24 | uint32(magic[5])<<16 | uint32(magic[6])<<8 | uint32(magic[7])
+		// Reasonable Mach-O Fat binaries have very few architectures (usually 2, maybe 3-4).
+		// Java class files compiled for Java 1.5 have major version 49, minor 0.
+		// 0x00 0x00 0x00 0x31 -> 49.
+		// So we limit narchs to < 20 to safely avoid Java class files.
+		return narchs > 0 && narchs < 20
 	case magic[0] == 0xBE && magic[1] == 0xBA && magic[2] == 0xFE && magic[3] == 0xCA:
 		return true
 	}

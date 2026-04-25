@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"sort"
-	"strings"
-
-	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
+	"sort"
+	"github.com/homegrew/grew/internal/fsutil"
 )
-
 type InstalledPackage struct {
 	Name    string
 	Version string
@@ -110,19 +108,33 @@ func (c *Cellar) KegPath(name, version string) (string, error) {
 		return "", fmt.Errorf("invalid name or version")
 	}
 	p := filepath.Join(c.Path, name, version)
-	absP, err := filepath.Abs(p)
-	if err != nil {
-		return "", fmt.Errorf("resolve path: %w", err)
-	}
-	absCellar, err := filepath.Abs(c.Path)
-	if err != nil {
-		return "", fmt.Errorf("resolve cellar: %w", err)
-	}
-	rel, err := filepath.Rel(absCellar, absP)
-	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+
+	// Lexical check first to ensure the path is under the cellar.
+	// We use safepath.CheckSubpath which handles absolute path normalization.
+	if err := safepath.CheckSubpath(c.Path, p); err != nil {
 		return "", fmt.Errorf("path %q escapes cellar %q", p, c.Path)
 	}
-	return p, nil
+
+	// Try to resolve symlinks for the final path.
+	resolvedP, err := filepath.EvalSymlinks(p)
+	if err != nil {
+		// If the path doesn't exist yet, we return the cleaned lexical path.
+		// This avoids failures on macOS where /var is a symlink to /private/var
+		// but only resolves when the target directory exists.
+		return filepath.Clean(p), nil
+	}
+
+	// If the path exists and was resolved, we must ensure it still resides
+	// within the (also resolved) cellar root.
+	resolvedCellar, err := filepath.EvalSymlinks(c.Path)
+	if err != nil {
+		resolvedCellar, _ = filepath.Abs(c.Path)
+	}
+
+	if err := safepath.CheckSubpath(resolvedCellar, resolvedP); err != nil {
+		return "", fmt.Errorf("resolved path %q escapes cellar %q", resolvedP, resolvedCellar)
+	}
+	return resolvedP, nil
 }
 
 // isUnderCellar reports whether the given path is located within the Cellar.Path
@@ -133,34 +145,7 @@ func (c *Cellar) isUnderCellar(path string) bool {
 	if c.Path == "" || path == "" {
 		return false
 	}
-
-	rootAbs, err := filepath.Abs(c.Path)
-	if err != nil {
-		return false
-	}
-	rootAbs = filepath.Clean(rootAbs)
-
-	targetAbs, err := filepath.Abs(path)
-	if err != nil {
-		return false
-	}
-	targetAbs = filepath.Clean(targetAbs)
-
-	rel, err := filepath.Rel(rootAbs, targetAbs)
-	if err != nil {
-		return false
-	}
-
-	if rel == "." {
-		return true
-	}
-	if rel == ".." {
-		return false
-	}
-	if strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
-		return false
-	}
-	return true
+	return safepath.IsSubpath(c.Path, path)
 }
 
 // kegDir returns the validated path to a formula's directory in the cellar.
@@ -169,18 +154,7 @@ func (c *Cellar) kegDir(name string) (string, error) {
 		return "", fmt.Errorf("invalid formula name: %q", name)
 	}
 	d := filepath.Join(c.Path, name)
-	absD, err := filepath.Abs(d)
-	if err != nil {
-		return "", fmt.Errorf("resolve path: %w", err)
-	}
-	absCellar, err := filepath.Abs(c.Path)
-	if err != nil {
-		return "", fmt.Errorf("resolve cellar: %w", err)
-	}
-	absD = filepath.Clean(absD)
-	absCellar = filepath.Clean(absCellar)
-	rel, err := filepath.Rel(absCellar, absD)
-	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+	if err := safepath.CheckSubpath(c.Path, d); err != nil {
 		return "", fmt.Errorf("path %q escapes cellar %q", d, c.Path)
 	}
 	return d, nil
@@ -263,4 +237,3 @@ func (c *Cellar) IsPinned(name string) bool {
 	_, err = os.Stat(filepath.Join(d, "PINNED"))
 	return err == nil
 }
-

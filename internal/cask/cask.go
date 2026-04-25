@@ -1,7 +1,6 @@
 package cask
 
 import (
-	"encoding/hex"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -9,6 +8,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 
 	"gopkg.in/yaml.v3"
@@ -17,6 +17,7 @@ import (
 type SourceSpec struct {
 	URL    string `yaml:"url"`
 	SHA256 string `yaml:"sha256"`
+	SHA512 string `yaml:"sha512"`
 }
 
 // Cask represents a macOS application package definition.
@@ -28,15 +29,16 @@ type Cask struct {
 	License     string            `yaml:"license"`
 	URL         map[string]string `yaml:"url"`
 	SHA256      map[string]string `yaml:"sha256"`
+	SHA512      map[string]string `yaml:"sha512"`
 	Artifacts   Artifacts         `yaml:"artifacts"`
 	Source      SourceSpec        `yaml:"source"`
 }
 
 // Artifacts describes what to install from the downloaded archive.
 type Artifacts struct {
-	App []string `yaml:"app"`      // .app bundles to copy to ~/Applications
-	Pkg []string `yaml:"internal"` // .internal installers to run (not implemented yet)
-	Bin []string `yaml:"bin"`      // binaries to symlink into grew bin/
+	App []string `yaml:"app"` // .app bundles to copy to ~/Applications
+	Pkg []string `yaml:"pkg"` // .pkg installers to run (not implemented yet)
+	Bin []string `yaml:"bin"` // binaries to symlink into grew bin/
 }
 
 func PlatformKey() string {
@@ -62,13 +64,16 @@ func (c *Cask) GetSHA256() (string, error) {
 	if !ok {
 		return "", fmt.Errorf("cask %q has no SHA256 for platform %s", c.Name, key)
 	}
-	if len(s) != 64 {
-		return "", fmt.Errorf("cask %q: SHA256 for %s must be 64 hex characters, got %d", c.Name, key, len(s))
-	}
-	if _, err := hex.DecodeString(s); err != nil {
-		return "", fmt.Errorf("cask %q: invalid SHA256 hex for %s: %w", c.Name, key, err)
+	if err := validation.ValidateSHA256(s); err != nil {
+		return "", fmt.Errorf("cask %q: invalid SHA256 for %s: %w", c.Name, key, err)
 	}
 	return s, nil
+}
+
+// GetSHA512 returns the SHA512 checksum for the current platform.
+func (c *Cask) GetSHA512() string {
+	key := PlatformKey()
+	return c.SHA512[key]
 }
 
 func (c *Cask) Validate() error {
@@ -92,8 +97,18 @@ func (c *Cask) Validate() error {
 			return fmt.Errorf("cask %q: URL for %s must use HTTPS: %s", c.Name, platform, u)
 		}
 	}
+	for platform, hash := range c.SHA256 {
+		if err := validation.ValidateSHA256(hash); err != nil {
+			return fmt.Errorf("cask %q: invalid SHA256 for %s: %w", c.Name, platform, err)
+		}
+	}
+	for platform, hash := range c.SHA512 {
+		if err := validation.ValidateSHA512(hash); err != nil {
+			return fmt.Errorf("cask %q: invalid SHA512 for %s: %w", c.Name, platform, err)
+		}
+	}
 	if len(c.Artifacts.App) == 0 && len(c.Artifacts.Pkg) == 0 && len(c.Artifacts.Bin) == 0 {
-		return fmt.Errorf("cask %q: must declare at least one artifact (app, internal, or bin)", c.Name)
+		return fmt.Errorf("cask %q: must declare at least one artifact (yaml keys: app, pkg, or bin)", c.Name)
 	}
 	for _, app := range c.Artifacts.App {
 		if !strings.HasSuffix(app, ".app") {
@@ -128,40 +143,16 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	if err := validation.SafePathComponent(name + ".yaml"); err != nil {
+	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
-	// Look in "cask" subdirectory of taps
-	tapDir := filepath.Clean(l.TapDir)
-	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
-	path := filepath.Clean(filepath.Join(caskDir, name+".yaml"))
-	return l.loadFromFile(path)
+	return l.loadFromFile(name + ".yaml")
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	// Normalize TapDir to an absolute, cleaned path to avoid surprises.
-	tapDir := l.TapDir
-	if tAbs, err := filepath.Abs(tapDir); err == nil {
-		tapDir = filepath.Clean(tAbs)
-	} else {
-		tapDir = filepath.Clean(tapDir)
-	}
-
-	// Construct the cask directory under TapDir and ensure it does not escape.
-	caskDir := filepath.Clean(filepath.Join(tapDir, "cask"))
-	if cAbs, err := filepath.Abs(caskDir); err == nil {
-		caskDir = filepath.Clean(cAbs)
-	} else {
-		caskDir = filepath.Clean(caskDir)
-	}
-
-	// Ensure caskDir is contained within tapDir (and not some sibling via "..").
-	tapDirWithSep := tapDir
-	if !strings.HasSuffix(tapDirWithSep, string(os.PathSeparator)) {
-		tapDirWithSep += string(os.PathSeparator)
-	}
-	if caskDir != tapDir && !strings.HasPrefix(caskDir, tapDirWithSep) {
-		return nil, fmt.Errorf("cask directory %q escapes taps directory %q", caskDir, tapDir)
+	caskDir, err := safepath.SafeJoin(l.TapDir, "cask")
+	if err != nil {
+		return nil, fmt.Errorf("invalid cask directory: %w", err)
 	}
 
 	entries, err := os.ReadDir(caskDir)
@@ -176,10 +167,10 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
 			continue
 		}
-		if err := validation.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			continue
 		}
-		c, err := l.loadFromFile(filepath.Clean(filepath.Join(caskDir, e.Name())))
+		c, err := l.loadFromFile(e.Name())
 		if err != nil {
 			l.debugf("failed to parse cask %s: %v\n", e.Name(), err)
 			continue
@@ -189,29 +180,10 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 	return casks, nil
 }
 
-func (l *Loader) loadFromFile(path string) (*Cask, error) {
-	// Resolve to an absolute, cleaned path.
-	absPath, err := filepath.Abs(path)
+func (l *Loader) loadFromFile(filename string) (*Cask, error) {
+	absPath, err := safepath.SafeJoin(l.TapDir, "cask", filename)
 	if err != nil {
-		return nil, err
-	}
-	absPath = filepath.Clean(absPath)
-
-	// Ensure the cask file we are about to read is within the TapDir tree.
-	base := l.TapDir
-	if bAbs, err := filepath.Abs(base); err == nil {
-		base = filepath.Clean(bAbs)
-	} else {
-		base = filepath.Clean(base)
-	}
-
-	// Add path separator to avoid prefix tricks (e.g., /tmp/taps vs /tmp/taps2).
-	baseWithSep := base
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
-	}
-	if absPath != base && !strings.HasPrefix(absPath, baseWithSep) {
-		return nil, fmt.Errorf("cask path %q escapes taps directory %q", absPath, base)
+		return nil, fmt.Errorf("resolve cask path %q: %w", filename, err)
 	}
 
 	data, err := os.ReadFile(absPath)
@@ -230,7 +202,14 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	info, err := os.Stat(filepath.Clean(filepath.Join(cr.Path, name)))
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
+		return false
+	}
+	path, err := safepath.SafeJoin(cr.Path, name)
+	if err != nil {
+		return false
+	}
+	info, err := os.Stat(path)
 	return err == nil && info.IsDir()
 }
 
@@ -238,7 +217,18 @@ func (cr *Caskroom) InstalledVersion(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid cask name: %q", name)
 	}
-	entries, err := os.ReadDir(filepath.Clean(filepath.Join(cr.Path, name)))
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
+		return "", fmt.Errorf("invalid caskroom path: %w", err)
+	}
+	path, err := safepath.SafeJoin(cr.Path, name)
+	if err != nil {
+		return "", err
+	}
+	return readInstalledVersion(path, name)
+}
+
+func readInstalledVersion(path, name string) (string, error) {
+	entries, err := os.ReadDir(path)
 	if err != nil {
 		return "", fmt.Errorf("cask %q is not installed", name)
 	}
@@ -255,7 +245,13 @@ func (cr *Caskroom) Record(name, version string) error {
 	if !validation.IsValidName(name) || !validation.IsValidVersion(version) {
 		return fmt.Errorf("invalid name or version")
 	}
-	dir := filepath.Clean(filepath.Join(cr.Path, name, version))
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
+		return fmt.Errorf("invalid caskroom path: %w", err)
+	}
+	dir, err := safepath.SafeJoin(cr.Path, name, version)
+	if err != nil {
+		return err
+	}
 	return os.MkdirAll(dir, 0755)
 }
 
@@ -264,7 +260,13 @@ func (cr *Caskroom) Remove(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid cask name: %q", name)
 	}
-	dir := filepath.Clean(filepath.Join(cr.Path, name))
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
+		return fmt.Errorf("invalid caskroom path: %w", err)
+	}
+	dir, err := safepath.SafeJoin(cr.Path, name)
+	if err != nil {
+		return err
+	}
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		return fmt.Errorf("cask %q is not installed", name)
 	}
@@ -277,7 +279,25 @@ type InstalledCask struct {
 }
 
 func (cr *Caskroom) List() ([]InstalledCask, error) {
-	entries, err := os.ReadDir(filepath.Clean(cr.Path))
+	if err := safepath.SafeAbsolutePath(cr.Path); err != nil {
+		return nil, err
+	}
+
+	path, err := filepath.Abs(cr.Path)
+	if err != nil {
+		return nil, err
+	}
+	path = filepath.Clean(path)
+
+	// Canonicalize when possible to avoid symlink-based redirection surprises.
+	if resolved, err := filepath.EvalSymlinks(path); err == nil {
+		path = filepath.Clean(resolved)
+	}
+	if err := safepath.SafeAbsolutePath(path); err != nil {
+		return nil, err
+	}
+
+	entries, err := os.ReadDir(path)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
@@ -292,7 +312,11 @@ func (cr *Caskroom) List() ([]InstalledCask, error) {
 		if !validation.IsValidName(e.Name()) {
 			continue
 		}
-		ver, err := cr.InstalledVersion(e.Name())
+		caskPath, err := safepath.SafeJoin(path, e.Name())
+		if err != nil {
+			continue
+		}
+		ver, err := readInstalledVersion(caskPath, e.Name())
 		if err != nil {
 			continue
 		}
