@@ -658,12 +658,7 @@ func urlExt(rawURL string) string {
 	if idx := strings.Index(base, ".tar."); idx != -1 {
 		return base[idx:]
 	}
-
-	lastDot := strings.LastIndex(base, ".")
-	if lastDot != -1 {
-		return base[lastDot:]
-	}
-	return ""
+	return filepath.Ext(base)
 }
 
 // verifySignature checks a formula's signature against trusted keys.
