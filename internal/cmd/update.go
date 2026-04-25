@@ -9,6 +9,12 @@ import (
 )
 
 func runUpdate(args []string) error {
+	// Attempt to self-update the CLI binary first.
+	fmt.Println("==> Checking for grew updates...")
+	if err := RunSelfUpdate(nil); err != nil {
+		slog.Warn("self-update failed, continuing with tap update", "error", err)
+	}
+
 	// Update tap definitions.
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
