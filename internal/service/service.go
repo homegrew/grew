@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -80,7 +81,10 @@ func (m *Manager) List() ([]Info, error) {
 			continue
 		}
 		name := strings.TrimPrefix(label, "com.homegrew.")
-		filePath := filepath.Join(m.ServiceDir, e.Name())
+		filePath, err := safepath.SafeJoin(m.ServiceDir, e.Name())
+		if err != nil {
+			continue
+		}
 		status, pid := m.serviceStatus(name)
 		infos = append(infos, Info{
 			Name:   name,
@@ -104,7 +108,11 @@ func (m *Manager) Start(f *formula.Formula) error {
 		return fmt.Errorf("create service dir: %w", err)
 	}
 
-	filePath := filepath.Join(m.ServiceDir, serviceFileName(f.Name))
+	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(f.Name))
+	if err != nil {
+		return fmt.Errorf("invalid service file path: %w", err)
+	}
+
 	if err := m.writeServiceFile(f, filePath); err != nil {
 		return err
 	}
@@ -117,7 +125,10 @@ func (m *Manager) Stop(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid service name: %q", name)
 	}
-	filePath := filepath.Join(m.ServiceDir, serviceFileName(name))
+	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(name))
+	if err != nil {
+		return fmt.Errorf("invalid service file path: %w", err)
+	}
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return fmt.Errorf("no service file found for %q", name)
 	}
@@ -132,7 +143,10 @@ func (m *Manager) Restart(f *formula.Formula) error {
 	if !validation.IsValidName(f.Name) {
 		return fmt.Errorf("invalid formula name: %q", f.Name)
 	}
-	filePath := filepath.Join(m.ServiceDir, serviceFileName(f.Name))
+	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(f.Name))
+	if err != nil {
+		return fmt.Errorf("invalid service file path: %w", err)
+	}
 	if _, err := os.Stat(filePath); err == nil {
 		// Best-effort stop; ignore errors if not currently loaded.
 		_ = m.unloadService(f.Name, filePath)
@@ -146,8 +160,11 @@ func (m *Manager) IsManaged(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	filePath := filepath.Join(m.ServiceDir, serviceFileName(name))
-	_, err := os.Stat(filePath)
+	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(name))
+	if err != nil {
+		return false
+	}
+	_, err = os.Stat(filePath)
 	return err == nil
 }
 
