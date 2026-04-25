@@ -237,7 +237,9 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 		return nil, fmt.Errorf("open lock file: %w", err)
 	}
 	if err := fsutil.Lock(f); err != nil {
-		f.Close()
+		if cerr := f.Close(); cerr != nil {
+			return nil, fmt.Errorf("acquire global lock: %w (also failed to close lock file: %v)", err, cerr)
+		}
 		return nil, fmt.Errorf("acquire global lock: %w", err)
 	}
 	return f, nil
