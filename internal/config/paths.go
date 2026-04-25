@@ -28,6 +28,37 @@ type Paths struct {
 	GitRepo  string
 }
 
+// isAllowedPrefix reports whether prefix is under a trusted install root.
+// Trusted roots are:
+//   - the platform system prefix
+//   - the current user's ~/.homegrew
+func isAllowedPrefix(prefix string) bool {
+	prefix = filepath.Clean(prefix)
+	if abs, err := filepath.Abs(prefix); err == nil {
+		prefix = filepath.Clean(abs)
+	}
+
+	sys := filepath.Clean(systemPrefix())
+	if abs, err := filepath.Abs(sys); err == nil {
+		sys = filepath.Clean(abs)
+	}
+	if prefix == sys {
+		return true
+	}
+
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return false
+	}
+	if abs, err := filepath.Abs(home); err == nil {
+		home = filepath.Clean(abs)
+	} else {
+		home = filepath.Clean(home)
+	}
+	userPrefix := filepath.Join(home, ".homegrew")
+	return prefix == filepath.Clean(userPrefix)
+}
+
 // DefaultPrefix determines the homegrew prefix using these rules (in order):
 //
 //  1. HOMEGREW_PREFIX env var (explicit override, if valid)
@@ -43,10 +74,12 @@ func DefaultPrefix() string {
 		// We resolve and clean the path first to allow valid-but-unclean values (e.g. trailing slashes).
 		if abs, err := filepath.Abs(env); err == nil {
 			clean := filepath.Clean(abs)
-			if err := safepath.SafeAbsolutePath(clean); err == nil {
+			if err := safepath.SafeAbsolutePath(clean); err == nil && isAllowedPrefix(clean) {
 				prefix = clean
-			} else {
+			} else if err != nil {
 				slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
+			} else {
+				slog.Warn(fmt.Sprintf("config: ignoring untrusted HOMEGREW_PREFIX %q", env))
 			}
 		} else {
 			slog.Warn(fmt.Sprintf("config: ignoring invalid HOMEGREW_PREFIX %q: %v", env, err))
@@ -64,9 +97,12 @@ func DefaultPrefix() string {
 					// Sanity check: the candidate should have a Cellar or Taps dir.
 					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
 						if abs, err := filepath.Abs(candidate); err == nil {
-							prefix = filepath.Clean(abs)
+							candidate = filepath.Clean(abs)
 						} else {
-							prefix = filepath.Clean(candidate)
+							candidate = filepath.Clean(candidate)
+						}
+						if isAllowedPrefix(candidate) {
+							prefix = candidate
 						}
 					}
 				}
@@ -92,9 +128,29 @@ func DefaultPrefix() string {
 
 	// Normalize the prefix to an absolute, cleaned path to avoid surprises downstream.
 	if abs, err := filepath.Abs(prefix); err == nil {
-		return filepath.Clean(abs)
+		prefix = filepath.Clean(abs)
+	} else {
+		prefix = filepath.Clean(prefix)
 	}
-	return filepath.Clean(prefix)
+
+	// Final guard: ensure selected prefix stays within trusted locations.
+	if !isAllowedPrefix(prefix) {
+		if os.Geteuid() == 0 {
+			return filepath.Clean(systemPrefix())
+		}
+		home, err := os.UserHomeDir()
+		if err != nil {
+			home = "."
+		}
+		if abs, err := filepath.Abs(home); err == nil {
+			home = filepath.Clean(abs)
+		} else {
+			home = filepath.Clean(home)
+		}
+		return filepath.Join(home, ".homegrew")
+	}
+
+	return prefix
 }
 
 // systemPrefix returns the platform system prefix (same logic as runtime.SystemPrefix).

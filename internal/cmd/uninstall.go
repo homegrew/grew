@@ -39,7 +39,9 @@ func runUninstall(args []string) error {
 	}
 	defer func() {
 		fsutil.Unlock(lock)
-		lock.Close()
+		if err := lock.Close(); err != nil {
+			slog.Error("failed to close global lock file", "error", err)
+		}
 	}()
 
 	cel := &cellar.Cellar{Path: paths.Cellar}

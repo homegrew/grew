@@ -457,7 +457,19 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	filename := f.Name + "-" + f.Version + "-src" + ext
 
 	// Check if the file is already cached in the tmp directory and matches SHA256.
-	localFile := filepath.Join(paths.Tmp, filename)
+	tmpRoot := filepath.Clean(paths.Tmp)
+	if abs, err := filepath.Abs(tmpRoot); err == nil {
+		tmpRoot = filepath.Clean(abs)
+	}
+	localFile := filepath.Join(tmpRoot, filename)
+	if abs, err := filepath.Abs(localFile); err == nil {
+		localFile = filepath.Clean(abs)
+	} else {
+		localFile = filepath.Clean(localFile)
+	}
+	if err := safepath.CheckSubpath(tmpRoot, localFile); err != nil {
+		return fmt.Errorf("invalid source cache path %q: %w", localFile, err)
+	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, srcSHA256); err == nil {
 			fmt.Printf("==> Using cached %s\n", filename)
