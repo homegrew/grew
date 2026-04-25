@@ -58,8 +58,10 @@ func CopyTree(src, dst string) error {
 			return err
 		}
 		rel = filepath.Clean(rel)
-		target := filepath.Join(absDst, rel)
-		target = filepath.Clean(target)
+		target, err := safepath.SafeJoin(absDst, rel)
+		if err != nil {
+			return fmt.Errorf("refusing to copy outside destination root: %w", err)
+		}
 
 		// Ensure that the computed target path stays within the destination root.
 		if !safepath.IsSubpath(absDst, target) {
@@ -101,6 +103,10 @@ func CopyTree(src, dst string) error {
 			if !safepath.IsSubpath(absDst, resolvedDest) {
 				// Skip symlinks that escape — don't fail, just log and skip.
 				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q (target would resolve to %q, outside destination tree %q)", path, resolvedDest, absDst))
+				return nil
+			}
+			if rel == "." {
+				slog.Warn(fmt.Sprintf("fsutil: skipping symlink %q at destination root %q", path, absDst))
 				return nil
 			}
 			return os.Symlink(link, target)
