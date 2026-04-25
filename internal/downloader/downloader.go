@@ -188,13 +188,24 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		total:  size,
 		label:  filename,
 	})
+	cleanupSink := func() {
+		absSink, absErr := filepath.Abs(sinkPath)
+		if absErr != nil {
+			return
+		}
+		absSink = filepath.Clean(absSink)
+		if err := safepath.CheckSubpath(canonTmpDir, absSink); err != nil {
+			return
+		}
+		_ = os.Remove(absSink)
+	}
 	if err != nil {
 		_ = out.Close()
-		os.Remove(sinkPath)
+		cleanupSink()
 		return "", fmt.Errorf("download %s: %w", rawURL, err)
 	}
 	if err := out.Close(); err != nil {
-		os.Remove(sinkPath)
+		cleanupSink()
 		return "", fmt.Errorf("close file %s: %w", sinkPath, err)
 	}
 
