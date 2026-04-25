@@ -12,6 +12,7 @@ import (
 	"al.essio.dev/pkg/shellescape"
 
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func serviceFileExt() string { return ".service" }
@@ -21,7 +22,15 @@ func defaultServiceDir() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(home, ".config", "systemd", "user"), nil
+	dir := filepath.Join(home, ".config", "systemd", "user")
+	if err := safepath.SafeAbsolutePath(dir); err != nil {
+		return "", fmt.Errorf("invalid default service dir: %w", err)
+	}
+	absDir, err := filepath.Abs(dir)
+	if err != nil {
+		return "", err
+	}
+	return absDir, nil
 }
 
 // DefaultManager returns a Manager configured for systemd --user.
