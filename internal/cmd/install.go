@@ -643,11 +643,27 @@ func urlExt(rawURL string) string {
 	if err != nil {
 		return ""
 	}
-	base := filepath.Base(u.Path)
+
+	// Safely extract the base name of the URL path without using filepath
+	// since URL paths and OS paths have different semantics (CWE-022).
+	path := u.Path
+	idx := strings.LastIndex(path, "/")
+	var base string
+	if idx != -1 {
+		base = path[idx+1:]
+	} else {
+		base = path
+	}
+
 	if idx := strings.Index(base, ".tar."); idx != -1 {
 		return base[idx:]
 	}
-	return filepath.Ext(base)
+
+	lastDot := strings.LastIndex(base, ".")
+	if lastDot != -1 {
+		return base[lastDot:]
+	}
+	return ""
 }
 
 // verifySignature checks a formula's signature against trusted keys.
