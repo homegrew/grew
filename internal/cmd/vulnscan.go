@@ -98,7 +98,11 @@ func runVulnScan(args []string) error {
 	}
 
 	// Load all formulas for cross-referencing.
-	allFormulas, _ := ctx.Loader.LoadAll()
+	allFormulas, loadErr := ctx.Loader.LoadAll()
+	if loadErr != nil {
+		slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
+		allFormulas = []*formula.Formula{}
+	}
 	formulaMap := make(map[string]*formula.Formula, len(allFormulas))
 	for _, f := range allFormulas {
 		formulaMap[f.Name] = f
@@ -253,14 +257,12 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 	return findings
 }
 
-// repoURLPattern matches GitHub, GitLab, and Codeberg repository URLs.
-var repoURLPattern = regexp.MustCompile(
-	`https?://(?:github\.com|gitlab\.com|codeberg\.org)/([^/]+/[^/]+?)(?:\.git)?(?:/|$)`,
-)
-
 // extractRepoURL extracts a git repository URL from a formula's URLs.
 // It checks homepage, source URL, and download URLs for supported forges.
 func extractRepoURL(f *formula.Formula) string {
+	var repoURLPattern = regexp.MustCompile(
+		`https?://(?:github\.com|gitlab\.com|codeberg\.org)/([^/]+/[^/]+?)(?:\.git)?(?:/|$)`,
+	)
 	// Collect candidate URLs in priority order.
 	var candidates []string
 
@@ -382,7 +384,7 @@ func scanPackage(
 	findings = append(findings, checkManifestIntegrity(pkg, kegPath)...)
 
 	// 2. Signature verification.
-	findings = append(findings, checkSignatureStatus(pkg, kegPath, paths, formulaMap)...)
+	findings = append(findings, checkSignatureStatus(pkg, paths, formulaMap)...)
 
 	// 3. Formula-level security checks.
 	findings = append(findings, checkFormulaSecurity(pkg, formulaMap)...)
@@ -459,7 +461,7 @@ func checkManifestIntegrity(pkg cellar.InstalledPackage, kegPath string) []vulnF
 }
 
 // checkSignatureStatus verifies the package was installed from a signed formula.
-func checkSignatureStatus(pkg cellar.InstalledPackage, _ string, paths config.Paths, formulaMap map[string]*formula.Formula) []vulnFinding {
+func checkSignatureStatus(pkg cellar.InstalledPackage, paths config.Paths, formulaMap map[string]*formula.Formula) []vulnFinding {
 	var findings []vulnFinding
 
 	trustedKeys, err := signing.LoadTrustedKeys(paths.Root)
