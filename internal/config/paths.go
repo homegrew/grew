@@ -220,6 +220,7 @@ func FromRoot(root, appDir string) Paths {
 	}
 	appDir = filepath.Clean(appDir)
 	if err := safepath.SafeAbsolutePath(appDir); err != nil {
+		invalidAppDir := appDir
 		home, homeErr := os.UserHomeDir()
 		if homeErr != nil {
 			home = "."
@@ -229,7 +230,7 @@ func FromRoot(root, appDir string) Paths {
 			fallback = abs
 		}
 		appDir = filepath.Clean(fallback)
-		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", appDir, err, appDir))
+		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", invalidAppDir, err, appDir))
 	}
 
 	return Paths{
