@@ -17,7 +17,7 @@ import (
 func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error) {
 	var files []FileEntry
 
-	err := filepath.Walk(kegPath, func(path string, info os.FileInfo, err error) error {
+	err := filepath.WalkDir(kegPath, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -32,18 +32,19 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 			return nil
 		}
 
+		info, err := d.Info()
+		if err != nil {
+			return err
+		}
+
 		entry := FileEntry{
 			Path: rel,
 			Size: info.Size(),
 			Mode: info.Mode(),
 		}
 
-		// Check for symlink via Lstat (Walk follows symlinks).
-		linfo, lerr := os.Lstat(path)
-		if lerr != nil {
-			return lerr
-		}
-		if linfo.Mode()&os.ModeSymlink != 0 {
+		// Check for symlink.
+		if d.Type()&os.ModeSymlink != 0 {
 			target, err := os.Readlink(path)
 			if err != nil {
 				return err
@@ -54,7 +55,7 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 			return nil
 		}
 
-		if info.IsDir() {
+		if d.IsDir() {
 			files = append(files, entry)
 			return nil
 		}

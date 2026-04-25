@@ -43,7 +43,7 @@ func Verify(kegPath string) (*VerifyResult, error) {
 	seen := make(map[string]bool, len(m.Files))
 	var actualFiles []FileEntry
 
-	err = filepath.Walk(kegPath, func(path string, info os.FileInfo, err error) error {
+	err = filepath.WalkDir(kegPath, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			result.Errors = append(result.Errors, fmt.Sprintf("walk error: %s: %v", path, err))
 			return nil // continue walking
@@ -65,23 +65,24 @@ func Verify(kegPath string) (*VerifyResult, error) {
 			return nil
 		}
 
-		// Check symlinks.
-		linfo, lerr := os.Lstat(path)
-		if lerr != nil {
-			result.Errors = append(result.Errors, fmt.Sprintf("lstat %s: %v", rel, lerr))
+		info, err := d.Info()
+		if err != nil {
+			result.Errors = append(result.Errors, fmt.Sprintf("stat %s: %v", rel, err))
 			return nil
 		}
-		if linfo.Mode()&os.ModeSymlink != 0 {
+
+		// Check symlinks.
+		if d.Type()&os.ModeSymlink != 0 {
 			target, _ := os.Readlink(path)
 			if target != entry.Symlink {
 				result.Modified = append(result.Modified, fmt.Sprintf("%s (symlink: %q -> %q)", rel, entry.Symlink, target))
 			}
-			actualFiles = append(actualFiles, FileEntry{Path: rel, Symlink: target, Mode: linfo.Mode()})
+			actualFiles = append(actualFiles, FileEntry{Path: rel, Symlink: target, Mode: info.Mode()})
 			return nil
 		}
 
 		// Skip directories — just check existence (already walking into them).
-		if info.IsDir() {
+		if d.IsDir() {
 			actualFiles = append(actualFiles, FileEntry{Path: rel, Mode: info.Mode()})
 			return nil
 		}

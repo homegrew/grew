@@ -586,13 +586,18 @@ func checkFormulaSecurity(pkg cellar.InstalledPackage, formulaMap map[string]*fo
 func checkKegPermissions(pkg cellar.InstalledPackage, kegPath string) []vulnFinding {
 	var findings []vulnFinding
 
-	err := filepath.Walk(kegPath, func(path string, info os.FileInfo, err error) error {
+	err := filepath.WalkDir(kegPath, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			return nil // skip inaccessible files
 		}
 
 		// Skip the manifest file itself.
-		if filepath.Base(path) == snapshot.ManifestFile {
+		if d.Name() == snapshot.ManifestFile {
+			return nil
+		}
+
+		info, err := d.Info()
+		if err != nil {
 			return nil
 		}
 

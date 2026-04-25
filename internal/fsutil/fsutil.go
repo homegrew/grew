@@ -48,7 +48,7 @@ func CopyTree(src, dst string) error {
 	}
 	absSrc = filepath.Clean(absSrc)
 
-	return filepath.Walk(absSrc, func(path string, info os.FileInfo, err error) error {
+	return filepath.WalkDir(absSrc, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -66,13 +66,7 @@ func CopyTree(src, dst string) error {
 			return fmt.Errorf("refusing to copy outside destination root: %s", target)
 		}
 
-		// Detect symlinks via Lstat since Walk follows them
-		symlinkInfo, statErr := os.Lstat(path)
-		if statErr != nil {
-			return statErr
-		}
-
-		if symlinkInfo.Mode()&os.ModeSymlink != 0 {
+		if d.Type()&os.ModeSymlink != 0 {
 			link, err := os.Readlink(path)
 			if err != nil {
 				return err
@@ -112,7 +106,12 @@ func CopyTree(src, dst string) error {
 			return os.Symlink(link, target)
 		}
 
-		if info.IsDir() {
+		info, err := d.Info()
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
 			dirMode := SanitizeMode(info.Mode(), true)
 			if err := os.MkdirAll(target, dirMode); err != nil {
 				// If the path already exists, ensure it's a directory and update permissions.

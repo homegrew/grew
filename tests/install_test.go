@@ -162,7 +162,7 @@ install:
 	cellarBin := filepath.Join(prefix, "Cellar", "dummy", "1.0.0", "bin", "dummybin")
 	if _, err := os.Stat(cellarBin); os.IsNotExist(err) {
 		t.Errorf("expected dummybin in cellar at %s, but not found", cellarBin)
-		filepath.Walk(filepath.Join(prefix, "Cellar", "dummy", "1.0.0"), func(path string, info os.FileInfo, err error) error {
+		filepath.WalkDir(filepath.Join(prefix, "Cellar", "dummy", "1.0.0"), func(path string, d os.DirEntry, err error) error {
 			t.Logf("Found in cellar: %s", path)
 			return nil
 		})
