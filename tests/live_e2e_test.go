@@ -39,6 +39,11 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// Route all grew operations to our isolated temporary prefix
 	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOME="+tmpDir)
+	for _, key := range []string{"GOCACHE", "GOMODCACHE", "GOPATH"} {
+		if val := os.Getenv(key); val != "" {
+			env = append(env, key+"="+val)
+		}
+	}
 
 	runCmd := func(args ...string) string {
 		t.Helper()
@@ -75,7 +80,7 @@ func TestLiveEndToEnd(t *testing.T) {
 	// 5. Test Dependency Resolution
 	outDeps := runCmd("deps", "--tree", "nano")
 	if !strings.Contains(outDeps, "nano") {
-		t.Errorf("deps output missing 'nano'")
+		t.Errorf("deps output missing 'nano', got output: %q", outDeps)
 	}
 
 	// 6. Test Link and Unlink

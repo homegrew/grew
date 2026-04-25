@@ -161,11 +161,13 @@ func TestClientQuery_WireFormat(t *testing.T) {
 			if req.Package.Ecosystem != "GIT" {
 				t.Errorf("expected GIT ecosystem, got %s", req.Package.Ecosystem)
 			}
-			json.NewEncoder(w).Encode(queryResponse{
+			if err := json.NewEncoder(w).Encode(queryResponse{
 				Vulns: []Vulnerability{
 					{ID: "CVE-2024-0001", Summary: "test vuln"},
 				},
-			})
+			}); err != nil {
+				t.Errorf("encode response: %v", err)
+			}
 			return
 		}
 		w.WriteHeader(404)

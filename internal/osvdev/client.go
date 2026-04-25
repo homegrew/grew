@@ -8,7 +8,6 @@ import (
 	"net"
 	"net/http"
 	"net/url"
-	"os"
 	"strings"
 	"sync"
 	"time"
@@ -53,12 +52,6 @@ func SetAPIBase(rawURL string) error {
 	apiBase = rawURL
 	baseMutex.Unlock()
 	return nil
-}
-
-func init() {
-	if env := os.Getenv("HOMEGREW_OSV_API_BASE"); env != "" {
-		_ = SetAPIBase(env)
-	}
 }
 
 func getAPIBase() string {
