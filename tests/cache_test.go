@@ -19,12 +19,12 @@ func TestOfflineCacheIntegrity(t *testing.T) {
 
 	tarball := makeDummyTarGz(t, "echo cached")
 	tarballHash := computeSHA256(tarball)
-	
+
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write(tarball)
 	}))
 	// We'll close the server later to simulate offline mode
-	
+
 	certFile := filepath.Join(tmpDir, "server.crt")
 	writeServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")

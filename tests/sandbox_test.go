@@ -31,7 +31,7 @@ func TestSandboxEscape(t *testing.T) {
 	// We'll create a tarball that has a symlink to /tmp/evil and then tries to write through it.
 	// Actually, grew's extractor might prevent absolute symlinks or escaping ones.
 	// Let's try a post_install script that attempts to touch /tmp/sandbox_escape_test
-	
+
 	tarballBytes := makeDummyTarGz(t, "echo hello")
 	tarballHash := computeSHA256(tarballBytes)
 
@@ -61,12 +61,12 @@ post_install: |
 `, server.URL, tarballHash))
 
 	cmd := exec.Command(exePath, "install", "malicious")
-	cmd.Env = append(os.Environ(), 
+	cmd.Env = append(os.Environ(),
 		"HOMEGREW_PREFIX="+prefix,
 		"HOMEGREW_ALLOWED_HOSTS="+serverHost,
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 	)
-	
+
 	// Ensure markers don't exist before test
 	os.Remove("/tmp/sandbox_escape_test")
 

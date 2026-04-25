@@ -31,11 +31,11 @@ func TestBinaryRelocation(t *testing.T) {
 	exePath := buildTestBinary(t, tmpDir)
 
 	// 1. Compile a dummy program that we will "relocate"
-	// We'll use a foreign path as an RPATH during build if possible, 
+	// We'll use a foreign path as an RPATH during build if possible,
 	// or just rely on Grew to find and replace the prefix.
 	dummySrc := filepath.Join(tmpDir, "dummy.go")
 	os.WriteFile(dummySrc, []byte(`package main; import "fmt"; func main() { fmt.Println("hello") }`), 0644)
-	
+
 	// Initialize a dummy module
 	cmdMod := exec.Command("go", "mod", "init", "dummy")
 	cmdMod.Dir = tmpDir
@@ -101,20 +101,20 @@ install:
 
 	// 3. Verify relocation
 	installedBin := filepath.Join(prefix, "Cellar", "relocatable", "1.0.0", "bin", "dummybin")
-	
+
 	var inspectCmd *exec.Cmd
 	if runtime.GOOS == "linux" {
 		inspectCmd = exec.Command("patchelf", "--print-rpath", installedBin)
 	} else {
 		inspectCmd = exec.Command("otool", "-l", installedBin)
 	}
-	
+
 	out, _ := inspectCmd.CombinedOutput()
 	// Check if the old prefix is gone and the new one (the temp prefix) is present
 	// Note: Grew also replaces standard brew paths and placeholders.
 	if strings.Contains(string(out), "/old/prefix") {
 		t.Errorf("Binary still contains old RPATH: %s", string(out))
 	}
-	
+
 	t.Logf("Relocation output: %s", string(out))
 }

@@ -14,11 +14,11 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/logger"
 	"github.com/homegrew/grew/internal/relocation"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
 )
 

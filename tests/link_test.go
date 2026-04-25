@@ -19,7 +19,7 @@ func TestLinkUnlinkConflict(t *testing.T) {
 
 	tarballA := makeDummyTarGz(t, "echo A")
 	tarballB := makeDummyTarGz(t, "echo B")
-	
+
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if strings.Contains(strings.ToLower(r.URL.Path), "pkga") {
 			w.Write(tarballA)

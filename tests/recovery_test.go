@@ -71,26 +71,26 @@ install:
 	// 1. Start installation and kill it after 100ms
 	ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
 	defer cancel()
-	
+
 	cmd := exec.CommandContext(ctx, exePath, "install", "interrupted")
 	cmd.Env = commonEnv
 	_ = cmd.Run() // Expect failure/timeout
 
 	// 2. Check that the prefix isn't corrupted and we can try again
 	// (grew should handle lock cleanup or stale temp files)
-	
+
 	// We need a fresh server or one that isn't throttled for the second attempt
 	server2 := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write(tarball)
 	}))
 	defer server2.Close()
-	
+
 	writeServerCert(server2, certFile)
 	serverHost2 := strings.TrimPrefix(server2.URL, "https://")
 	if idx := strings.Index(serverHost2, ":"); idx != -1 {
 		serverHost2 = serverHost2[:idx]
 	}
-	
+
 	// Update formula with new server URL
 	createFormula(t, prefix, "interrupted", fmt.Sprintf(`name: interrupted
 version: 1.0.0

@@ -2,13 +2,14 @@ package cellar
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
+	"os"
+	"path/filepath"
 	"sort"
-	"github.com/homegrew/grew/internal/fsutil"
 )
+
 type InstalledPackage struct {
 	Name    string
 	Version string

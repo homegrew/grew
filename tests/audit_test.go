@@ -94,7 +94,7 @@ install:
 	cmdScan := exec.Command(exePath, "vuln-scan", "vulnerablepkg")
 	cmdScan.Env = commonEnv
 	out, err := cmdScan.CombinedOutput()
-	
+
 	// Expect it to find vulnerabilities (exit non-zero)
 	if err == nil {
 		t.Error("expected vuln-scan to fail for vulnerable package, but it passed")

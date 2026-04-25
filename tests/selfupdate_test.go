@@ -154,7 +154,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
 	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
-	
+
 	// The dummy binary will run, detect its path, and download the real grew binary
 	// from GitHub to replace itself.
 	if err := cmdRun.Run(); err != nil {
@@ -212,7 +212,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
 	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
-	
+
 	if err := cmdRun.Run(); err != nil {
 		t.Fatalf("SelfUpdateFromRelease failed: %v", err)
 	}

@@ -15,7 +15,7 @@ package flags
 import (
 	"flag"
 
-	"github.com/homegrew/grew/internal/logger"
+	"github.com/homegrew/grew/pkg/logger"
 )
 
 // Verbose controls whether extra detail is printed (set by -v/--verbose).
