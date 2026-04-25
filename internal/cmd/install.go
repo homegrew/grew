@@ -19,6 +19,7 @@ import (
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func RunInstall(args []string) error {
