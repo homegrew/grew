@@ -251,12 +251,22 @@ func FromRoot(root, appDir string) Paths {
 }
 
 func (p Paths) Init() error {
+	if err := safepath.SafeAbsolutePath(p.Root); err != nil {
+		return fmt.Errorf("invalid root path %q: %w", p.Root, err)
+	}
+
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
 		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created
 	}
 	for _, d := range dirs {
+		if err := safepath.SafeAbsolutePath(d); err != nil {
+			return fmt.Errorf("invalid directory path %q: %w", d, err)
+		}
+		if d != p.AppDir && !p.IsUnderRoot(d) {
+			return fmt.Errorf("refusing to create directory outside root: %s (root: %s)", d, p.Root)
+		}
 		if err := os.MkdirAll(d, 0755); err != nil {
 			return fmt.Errorf("create directory %s: %w", d, err)
 		}
@@ -266,6 +276,12 @@ func (p Paths) Init() error {
 
 // IsDir reports whether path is an existing directory.
 func IsDir(path string) bool {
+	if path == "" {
+		return false
+	}
+	if err := safepath.SafeAbsolutePath(path); err != nil {
+		return false
+	}
 	info, err := os.Stat(path)
 	return err == nil && info.IsDir()
 }
