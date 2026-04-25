@@ -20,6 +20,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
 	grewrt "github.com/homegrew/grew/internal/runtime"
+	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
 )
@@ -68,6 +69,7 @@ func allChecks() []doctorCheck {
 		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
 		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
 		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
+		{"check_sandbox", "Verify functional sandboxing is available", checkSandbox},
 		// --- Structural / health checks ---
 		{"check_directories", "Check required directories exist", checkDirectories},
 		{"check_path", "Check grew bin/ is in PATH", checkPath},
@@ -417,6 +419,13 @@ func checkSnapshotIntegrity(ctx *doctorCtx) {
 		for _, e := range result.Errors {
 			ctx.warn("%s %s: %s", pkg.Name, pkg.Version, e)
 		}
+	}
+}
+
+func checkSandbox(ctx *doctorCtx) {
+	if !sandbox.IsSandboxed() {
+		ctx.warn("Functional sandboxing is NOT available on this system.\n" +
+			"  Source builds and post-install scripts will run without isolation.")
 	}
 }
 

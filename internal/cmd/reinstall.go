@@ -33,6 +33,7 @@ func runReinstall(args []string) error {
 	if err != nil {
 		return err
 	}
+	defer ctx.Close()
 
 	if !ctx.Cellar.IsInstalled(name) && !*force {
 		return fmt.Errorf("formula %q is not installed (use --force to install anyway)", name)

@@ -58,9 +58,8 @@ func runDeps(args []string) error {
 		}
 
 		if *tree {
-			if len(targets) > 1 {
-				fmt.Println(f.Name)
-			}
+			// For tree view, always print the root formula name.
+			fmt.Println(f.Name)
 			printTree(ctx.Loader, f.Dependencies, "", make(map[string]bool))
 		} else {
 			allDeps := make(map[string]bool)

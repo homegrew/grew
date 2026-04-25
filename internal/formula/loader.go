@@ -31,6 +31,34 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
+	
+	// Handle tap-qualified names (e.g., "user/repo/name" or "core/name")
+	if strings.Contains(name, "/") {
+		parts := strings.Split(name, "/")
+		formulaName := parts[len(parts)-1]
+		tapPath := parts[:len(parts)-1]
+		
+		// Validate components
+		if err := safepath.SafePathComponent(formulaName + ".yaml"); err != nil {
+			return nil, fmt.Errorf("invalid formula name: %q", formulaName)
+		}
+		for _, p := range tapPath {
+			if err := safepath.SafePathComponent(p); err != nil {
+				return nil, fmt.Errorf("invalid tap name component: %q", p)
+			}
+		}
+		
+		path := filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...)
+		f, err := l.loadFromFile(path)
+		if err != nil {
+			if os.IsNotExist(err) {
+				return nil, fmt.Errorf("formula not found in tap %q: %q", strings.Join(tapPath, "/"), formulaName)
+			}
+			return nil, fmt.Errorf("failed to load formula %q from tap %q: %w", formulaName, strings.Join(tapPath, "/"), err)
+		}
+		return f, nil
+	}
+
 	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid formula name: %q", name)
 	}

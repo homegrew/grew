@@ -29,7 +29,8 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	os.MkdirAll(binDir, 0755)
 	oldExePath := filepath.Join(binDir, "grew")
 
-	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", oldExePath, "./testbin/main.go")
+	root := getProjectRoot(t)
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", oldExePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build old binary: %v, output: %s", err, string(out))
 	}

@@ -40,6 +40,16 @@ func writeUnshareScript(tmpDir string, build func(*strings.Builder)) (string, er
 	return f.Name(), nil
 }
 
+func platformIsSandboxed() bool {
+	if p, err := exec.LookPath("bwrap"); err == nil && bwrapAvailable(p) {
+		return true
+	}
+	if p, err := exec.LookPath("unshare"); err == nil && unshareAvailable(p) {
+		return true
+	}
+	return false
+}
+
 func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
 	// Extraction sandbox: network denied, only StageDir writable.
 	// Uses same tiered approach as post-install: bwrap > unshare > direct.
@@ -51,8 +61,13 @@ func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exe
 			"--tmpfs", "/tmp",
 			"--proc", "/proc",
 			"--dev", "/dev",
-			"--bind", cfg.StageDir, cfg.StageDir,
 		}
+
+		if fi, err := os.Stat("/var/tmp"); err == nil && fi.IsDir() {
+			a = append(a, "--tmpfs", "/var/tmp")
+		}
+
+		a = append(a, "--bind", cfg.StageDir, cfg.StageDir)
 		a = append(a, name)
 		a = append(a, args...)
 		cmd := exec.Command(p, a...)
@@ -85,10 +100,16 @@ func bwrapPostInstallCommand(bwrapPath string, cfg PostInstallConfig, name strin
 		"--tmpfs", "/tmp",
 		"--proc", "/proc",
 		"--dev", "/dev",
-		// Keg is already read-only via the ro-bind of /.
-		// Only the tmp dir is writable.
-		"--bind", cfg.TmpDir, cfg.TmpDir,
 	}
+
+	if fi, err := os.Stat("/var/tmp"); err == nil && fi.IsDir() {
+		a = append(a, "--tmpfs", "/var/tmp")
+	}
+
+	// Keg is already read-only via the ro-bind of /.
+	// Only the tmp dir is writable.
+	a = append(a, "--bind", cfg.TmpDir, cfg.TmpDir)
+
 	a = append(a, name)
 	a = append(a, args...)
 	cmd := exec.Command(bwrapPath, a...)
@@ -101,12 +122,16 @@ func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name s
 	// passed via sh -c, avoiding shell injection risks entirely.
 	scriptFile, err := writeUnshareScript(cfg.TmpDir, func(script *strings.Builder) {
 		script.WriteString("set -e\n")
+		script.WriteString("mount --bind / /\n")
 		script.WriteString("mount --make-rprivate /\n")
 		script.WriteString("mount -o remount,ro,bind /\n")
 		// Only tmp dir is writable.
 		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.TmpDir), shq(cfg.TmpDir))
 		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.TmpDir))
 		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
+		if fi, err := os.Stat("/var/tmp"); err == nil && fi.IsDir() {
+			script.WriteString("mount -t tmpfs tmpfs /var/tmp\n")
+		}
 		fmt.Fprintf(script, "exec %s", shq(name))
 		for _, a := range args {
 			fmt.Fprintf(script, " %s", shq(a))
