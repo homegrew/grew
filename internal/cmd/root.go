@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -251,7 +252,7 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	if err != nil {
 		return nil, fmt.Errorf("validate lock file path: %w", err)
 	}
-	if rel == ".." || filepath.IsAbs(rel) || (len(rel) >= 3 && rel[:3] == ".."+string(filepath.Separator)) {
+	if rel == ".." || filepath.IsAbs(rel) || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
 		return nil, fmt.Errorf("invalid lock file path %q: escapes root %q", lockAbs, rootAbs)
 	}
 
