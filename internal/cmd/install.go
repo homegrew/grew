@@ -19,7 +19,6 @@ import (
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
-	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func RunInstall(args []string) error {
@@ -751,12 +750,8 @@ func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) er
 
 	// Create a dedicated temp directory for the post-install script.
 	// This is the ONLY writable location — the keg itself is read-only.
-	// We sanitize the formula name to ensure it's a safe path component (CWE-022).
-	safeName := f.Name
-	if err := safepath.SafePathComponent(safeName); err != nil {
-		safeName = "unknown"
-	}
-	piTmp, err := os.MkdirTemp("", fmt.Sprintf("grew-postinstall-%s-*", safeName))
+	// Use a constant pattern to avoid user-controlled data in path expressions.
+	piTmp, err := os.MkdirTemp("", "grew-postinstall-*")
 	if err != nil {
 		return fmt.Errorf("create post-install tmpdir: %w", err)
 	}
