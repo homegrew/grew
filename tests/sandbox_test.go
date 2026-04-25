@@ -56,6 +56,7 @@ bottle:
 install:
   type: archive
 post_install: |
+  echo "SANDBOX_MARKER_RUN"
   touch /tmp/sandbox_escape_test
 `, server.URL, tarballHash))
 
@@ -66,15 +67,25 @@ post_install: |
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 	)
 	
-	// Ensure /tmp/sandbox_escape_test doesn't exist
+	// Ensure markers don't exist before test
 	os.Remove("/tmp/sandbox_escape_test")
 
-	out, _ := cmd.CombinedOutput()
+	out, err := cmd.CombinedOutput()
 
-	if _, err := os.Stat("/tmp/sandbox_escape_test"); err == nil {
+	if err != nil {
+		t.Fatalf("install command failed: %v\nOutput:\n%s", err, string(out))
+	}
+
+	if !strings.Contains(string(out), "SANDBOX_MARKER_RUN") {
+		t.Fatalf("post_install output not found, script did not run.\nOutput:\n%s", string(out))
+	}
+
+	if _, statErr := os.Stat("/tmp/sandbox_escape_test"); statErr == nil {
 		t.Error("Sandbox escape successful! Post-install script wrote to /tmp")
 		os.Remove("/tmp/sandbox_escape_test")
+	} else if !os.IsNotExist(statErr) {
+		t.Errorf("Unexpected error stating /tmp/sandbox_escape_test: %v", statErr)
 	} else {
-		t.Logf("Sandbox escape failed as expected (or post_install failed): %s", string(out))
+		t.Logf("Sandbox escape blocked as expected.")
 	}
 }
