@@ -181,7 +181,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("create file %s: %w", sinkPath, err)
 	}
-	defer out.Close()
 
 	size := resp.ContentLength
 	written, err := io.Copy(out, &progressReader{
@@ -190,8 +189,13 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		label:  filename,
 	})
 	if err != nil {
+		_ = out.Close()
 		os.Remove(sinkPath)
 		return "", fmt.Errorf("download %s: %w", rawURL, err)
+	}
+	if err := out.Close(); err != nil {
+		os.Remove(sinkPath)
+		return "", fmt.Errorf("close file %s: %w", sinkPath, err)
 	}
 
 	fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
