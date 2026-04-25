@@ -231,8 +231,31 @@ func newInstallContext() (*installContext, error) {
 }
 
 func acquireGlobalLock(paths config.Paths) (*os.File, error) {
-	lockPath := filepath.Join(paths.Root, ".grew.lock")
-	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0600)
+	if err := safepath.SafeAbsolutePath(paths.Root); err != nil {
+		return nil, fmt.Errorf("invalid root directory %q: %w", paths.Root, err)
+	}
+	rootAbs, err := filepath.Abs(paths.Root)
+	if err != nil {
+		return nil, fmt.Errorf("resolve root directory: %w", err)
+	}
+	rootAbs = filepath.Clean(rootAbs)
+
+	lockPath := filepath.Join(rootAbs, ".grew.lock")
+	lockAbs, err := filepath.Abs(lockPath)
+	if err != nil {
+		return nil, fmt.Errorf("resolve lock file path: %w", err)
+	}
+	lockAbs = filepath.Clean(lockAbs)
+
+	rel, err := filepath.Rel(rootAbs, lockAbs)
+	if err != nil {
+		return nil, fmt.Errorf("validate lock file path: %w", err)
+	}
+	if rel == ".." || filepath.IsAbs(rel) || (len(rel) >= 3 && rel[:3] == ".."+string(filepath.Separator)) {
+		return nil, fmt.Errorf("invalid lock file path %q: escapes root %q", lockAbs, rootAbs)
+	}
+
+	f, err := os.OpenFile(lockAbs, os.O_CREATE|os.O_RDWR, 0600)
 	if err != nil {
 		return nil, fmt.Errorf("open lock file: %w", err)
 	}
