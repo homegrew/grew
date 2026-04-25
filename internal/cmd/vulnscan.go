@@ -384,7 +384,7 @@ func scanPackage(
 	findings = append(findings, checkManifestIntegrity(pkg, kegPath)...)
 
 	// 2. Signature verification.
-	findings = append(findings, checkSignatureStatus(pkg, kegPath, paths, formulaMap)...)
+	findings = append(findings, checkSignatureStatus(pkg, paths, formulaMap)...)
 
 	// 3. Formula-level security checks.
 	findings = append(findings, checkFormulaSecurity(pkg, formulaMap)...)
@@ -461,7 +461,7 @@ func checkManifestIntegrity(pkg cellar.InstalledPackage, kegPath string) []vulnF
 }
 
 // checkSignatureStatus verifies the package was installed from a signed formula.
-func checkSignatureStatus(pkg cellar.InstalledPackage, _ string, paths config.Paths, formulaMap map[string]*formula.Formula) []vulnFinding {
+func checkSignatureStatus(pkg cellar.InstalledPackage, paths config.Paths, formulaMap map[string]*formula.Formula) []vulnFinding {
 	var findings []vulnFinding
 
 	trustedKeys, err := signing.LoadTrustedKeys(paths.Root)
