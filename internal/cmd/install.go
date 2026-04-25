@@ -258,7 +258,18 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 	if err := safepath.CheckSubpath(cleanTmp, cleanCandidate); err != nil {
 		return fmt.Errorf("cleanup path escapes tmp directory: %w", err)
 	}
-	return os.Remove(cleanCandidate)
+
+	rel, err := filepath.Rel(cleanTmp, cleanCandidate)
+	if err != nil {
+		return fmt.Errorf("failed to derive cleanup relative path: %w", err)
+	}
+	rel = filepath.Clean(rel)
+	if rel == "." || rel == "" || strings.HasPrefix(rel, "..") || filepath.IsAbs(rel) {
+		return fmt.Errorf("invalid cleanup relative path %q", rel)
+	}
+
+	safeTarget := filepath.Join(cleanTmp, rel)
+	return os.Remove(safeTarget)
 }
 
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
@@ -323,6 +334,18 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		}
 	}
 
+	cleanRoot := paths.Root
+	if abs, err := filepath.Abs(cleanRoot); err == nil {
+		cleanRoot = abs
+	}
+	if eval, err := filepath.EvalSymlinks(cleanRoot); err == nil {
+		cleanRoot = eval
+	}
+	cleanRoot = filepath.Clean(cleanRoot)
+	if err := safepath.SafeAbsolutePath(cleanRoot); err != nil {
+		return fmt.Errorf("invalid install root %q: %w", cleanRoot, err)
+	}
+
 	cleanTmp := paths.Tmp
 	if abs, err := filepath.Abs(cleanTmp); err == nil {
 		cleanTmp = abs
@@ -333,6 +356,9 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	cleanTmp = filepath.Clean(cleanTmp)
 	if err := safepath.SafeAbsolutePath(cleanTmp); err != nil {
 		return fmt.Errorf("invalid tmp directory %q: %w", cleanTmp, err)
+	}
+	if err := safepath.CheckSubpath(cleanRoot, cleanTmp); err != nil {
+		return fmt.Errorf("temporary directory escapes install root: %w", err)
 	}
 
 	cleanLocalFile := localFile
