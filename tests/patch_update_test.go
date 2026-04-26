@@ -40,7 +40,7 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	if err != nil {
 		t.Fatalf("couldn't determine test binary version: %v", err)
 	}
-	currentVer := strings.TrimSpace(strings.TrimPrefix(string(out), "grew "))
+	currentVer := strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(string(out)), "grew "))
 	if currentVer == "" {
 		t.Fatalf("couldn't determine test binary version: empty output")
 	}
@@ -89,6 +89,10 @@ func TestPatchUpdateIntegration(t *testing.T) {
 
 	tarballName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
 
+	tarballBytes := []byte("fake tarball content")
+	tarballHash256 := computeSHA256(tarballBytes)
+	tarballHash512 := computeSHA512(tarballBytes)
+
 	// 4. Setup mock GitHub and OSV
 	mockServer := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		scheme := "https"
@@ -122,10 +126,12 @@ func TestPatchUpdateIntegration(t *testing.T) {
 				},
 			}
 			json.NewEncoder(w).Encode(resp)
+		case "/download/" + tarballName:
+			w.Write(tarballBytes)
 		case "/download/" + patchName:
 			w.Write(patchBytes)
 		case "/download/checksums.txt":
-			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n", patchHash256, patchName, patchHash512, patchName)))
+			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n%s  %s\n%s  %s\n", patchHash256, patchName, patchHash512, patchName, tarballHash256, tarballName, tarballHash512, tarballName)))
 		case "/download/binary-checksums.txt":
 			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n", newExeHash256, rawBinName, newExeHash512, rawBinName)))
 		case "/v1/query":

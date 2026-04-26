@@ -35,25 +35,42 @@ func RunSelfUpdate(_ []string) error {
 	repoDir := filepath.Join(prefix, "Grew")
 	destBin := filepath.Join(prefix, "bin", "grew")
 
-	// Primary: git pull + go build.
+	rel, err := release.FetchLatest()
+	if err != nil {
+		slog.Warn(fmt.Sprintf("failed to fetch latest release metadata: %v", err))
+	} else {
+		// 1. Always try to update by patch release first.
+		if patchErr := tryPatchUpdate(exePath, rel); patchErr == nil {
+			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
+			return nil
+		} else {
+			slog.Debug("patch update unavailable or failed", "err", patchErr)
+		}
+	}
+
+	// 2. Alternatively, fall back to compile via git if repo is present.
 	gitDir := filepath.Join(repoDir, ".git")
-	if _, err := os.Stat(gitDir); err != nil {
-		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
-		return SelfUpdateFromRelease(exePath)
-	}
-
-	fmt.Println("==> Updating grew from source...")
-	if err := installFromGit(repoDir, destBin); err != nil {
+	if _, err := os.Stat(gitDir); err == nil {
+		fmt.Println("==> Updating grew from source...")
+		if err := installFromGit(repoDir, destBin); err == nil {
+			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
+				slog.Warn(fmt.Sprintf("%v", err))
+			}
+			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
+			return nil
+		}
 		slog.Warn(fmt.Sprintf("source update failed: %v", err))
-		fmt.Println("==> Falling back to latest release download...")
-		return SelfUpdateFromRelease(exePath)
+	} else {
+		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
 	}
 
-	if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-		slog.Warn(fmt.Sprintf("%v", err))
+	if rel == nil {
+		return fmt.Errorf("cannot fallback to full download without release metadata")
 	}
-	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-	return nil
+
+	// 3. Fall back to full release download
+	fmt.Println("==> Falling back to latest release full download...")
+	return selfUpdateFullDownload(exePath, rel)
 }
 
 // SelfUpdateFromRelease downloads the latest stable release from GitHub,
@@ -71,7 +88,10 @@ func SelfUpdateFromRelease(exePath string) error {
 	}
 
 	slog.Info("binary patch update not available or failed; falling back to full download")
+	return selfUpdateFullDownload(exePath, rel)
+}
 
+func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 	// Apply OSV security gate before full download.
 	targetVer := rel.TagName
 	if res, err := checkOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
