@@ -100,17 +100,22 @@ func Run(args []string) error {
 
 	commands := map[string]func([]string) error{
 		"install":      RunInstall,
+		"i":            RunInstall,
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
+		"rm":           runUninstall,
 		"list":         runList,
+		"ls":           runList,
 		"leaves":       runLeaves,
 		"info":         runInfo,
 		"search":       runSearch,
 		"link":         runLink,
 		"unlink":       runUnlink,
 		"update":       runUpdate,
+		"up":           runUpdate,
 		"reset-update": runResetUpdate,
 		"upgrade":      runUpgrade,
+		"ug":           runUpgrade,
 		"outdated":     runOutdated,
 		"reinstall":    runReinstall,
 		"cleanup":      runCleanup,
@@ -260,18 +265,18 @@ Flags:
       --version        Print version and exit
 
 Commands:
-  install [-f] [-s] [-n] [--skip-post-install] [--skip-link] <formula>... Install formulas (-f without checking for previously installed versions, --cask for apps)
-  uninstall [-f] <formula>... Uninstall formulas or casks (-f to force ignore errors/missing)
-  list [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
+  install, i [-f] [-s] [-n] [--skip-post-install] [--skip-link] <formula>... Install formulas (-f without checking for previously installed versions, --cask for apps)
+  uninstall, rm, remove [-f] <formula>... Uninstall formulas or casks (-f to force ignore errors/missing)
+  list, ls [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   leaves               List installed formulas that are not dependencies of another installed formula
   info <formula>...      Show formula or cask info (--cask)
   search <query>       Search formulas or casks (--cask)
   link <formula>...      Create symlinks for formulas
   unlink <formula>...    Remove symlinks for formulas
-  update               Update formula definitions
+  update, up           Update formula definitions
   reset-update         Wipe and re-fetch all tap definitions
   reinstall [--cask] [-f] [--zap] [-s] <formula>... Reinstall formulas or casks (-f without checking for previously installed keg-only or non-migrated versions)
-  upgrade [formula]...   Upgrade outdated packages (or a specific ones)
+  upgrade, ug [formula]...   Upgrade outdated packages (or a specific ones)
   outdated             List packages with newer versions available
   cleanup [-n] [-s] [--prune=DAYS] Remove old versions and temp files (-n for dry run, -s to scrub all cache)
   deps [flags] <formula>...  Show dependencies for formulas
@@ -279,7 +284,7 @@ Commands:
   alias [subcommand]   Manage command aliases
   services [sub]       Manage background services (start, stop, list, ...)
   setup                One-time setup of the grew prefix
-  doctor               Check for common problems
+  doctor, dr           Check for common problems
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
   verify [formula]...  Verify installed package integrity
