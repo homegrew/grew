@@ -121,12 +121,30 @@ Options:
 	}
 
 	// 5. Clean download cache (tmp directory).
-	if paths.IsUnderRoot(paths.Tmp) {
-		tmpEntries, err := os.ReadDir(paths.Tmp)
+	allowedRoots := map[string]struct{}{
+		filepath.Clean("/usr/local/homegrew"): {},
+		filepath.Clean("/opt/homegrew"):       {},
+	}
+
+	resolvedRoot := filepath.Clean(paths.Root)
+	if abs, err := filepath.Abs(resolvedRoot); err == nil {
+		resolvedRoot = filepath.Clean(abs)
+	}
+
+	resolvedTmp := filepath.Clean(paths.Tmp)
+	if abs, err := filepath.Abs(resolvedTmp); err == nil {
+		resolvedTmp = filepath.Clean(abs)
+	}
+
+	expectedTmp := filepath.Join(resolvedRoot, "tmp")
+	_, trustedRoot := allowedRoots[resolvedRoot]
+
+	if trustedRoot && paths.IsUnderRoot(resolvedTmp) && resolvedTmp == expectedTmp {
+		tmpEntries, err := os.ReadDir(resolvedTmp)
 		if err == nil {
 			for _, e := range tmpEntries {
 				name := e.Name()
-				path := filepath.Join(paths.Tmp, name)
+				path := filepath.Join(resolvedTmp, name)
 
 				// If specific targets provided, only clean files that seem to belong to them.
 				if len(targets) > 0 && !belongsToTargets(targets, name) {
@@ -166,6 +184,7 @@ Options:
 			}
 		}
 	} else {
+		slog.Warn(fmt.Sprintf("skipping tmp cleanup for untrusted root/tmp path: root=%q tmp=%q", resolvedRoot, resolvedTmp))
 		slog.Debug("skipping cleanup of tmp directory outside grew root: " + paths.Tmp)
 	}
 
