@@ -56,7 +56,7 @@ var (
 )
 
 func main() {
-	fs := flag.NewFlagSet("grew-genrepo", flag.ExitOnError)
+	fs := flag.NewFlagSet("grew-genrepo", flag.ContinueOnError)
 	var verbose, debug bool
 	fs.BoolVar(&verbose, "v", false, "Verbose output")
 	fs.BoolVar(&debug, "debug", false, "Debug output (implies verbose)")
@@ -160,11 +160,7 @@ func runFormulaImport(args []string) {
 		}
 		outDir = safeDir
 	}
-	resolvedOutDir, err := safeOutputDir(outDir)
-	if err != nil {
-		slog.Error("Invalid output directory", "output_dir", outDir, "error", err)
-		os.Exit(1)
-	}
+	resolvedOutDir := outDir
 
 	data := fetchAPI(formulaAPI)
 	var hfs []hbFormula
@@ -237,7 +233,15 @@ func runFormulaImport(args []string) {
 			sort.Strings(f.LinuxDependencies)
 		}
 
-		outPath, err := safeJoinUnderBase(resolvedOutDir, hf.Name+".yaml")
+		safeFileName := regexp.MustCompile(`[^a-zA-Z0-9._-]`).ReplaceAllString(hf.Name, "_")
+		safeFileName = strings.Trim(safeFileName, "._-")
+		if safeFileName == "" {
+			slog.Warn("Skipping formula due to invalid formula name for output file", "name", hf.Name)
+			skipped++
+			continue
+		}
+
+		outPath, err := safeJoinUnderBase(resolvedOutDir, safeFileName+".yaml")
 		if err != nil {
 			slog.Warn("Skipping formula due to invalid output path", "name", hf.Name, "error", err)
 			skipped++
@@ -328,6 +332,11 @@ func runCaskImport(args []string) {
 			skipped++
 			continue
 		}
+		if !isSafeTokenFileName(hc.Token) {
+			slog.Warn("Skipping cask with unsafe token for file path", "token", hc.Token)
+			skipped++
+			continue
+		}
 
 		urlMap := map[string]string{"darwin_arm64": hc.URL, "darwin_amd64": hc.URL}
 		shaMap := map[string]string{"darwin_arm64": hc.SHA256, "darwin_amd64": hc.SHA256}
@@ -363,6 +372,19 @@ func runCaskImport(args []string) {
 		imported++
 	}
 	slog.Info("Cask import complete", "imported", imported, "skipped", skipped)
+}
+
+func isSafeTokenFileName(token string) bool {
+	if token == "" {
+		return false
+	}
+	// Disallow path traversal and separators regardless of platform.
+	if strings.Contains(token, "..") || strings.Contains(token, "/") || strings.Contains(token, "\\") {
+		return false
+	}
+	// Allow common token characters only.
+	ok, _ := regexp.MatchString(`^[a-z0-9][a-z0-9._+-]*$`, token)
+	return ok
 }
 
 func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
