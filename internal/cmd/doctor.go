@@ -282,6 +282,10 @@ func checkFormulaHTTPS(ctx *doctorCtx) {
 }
 
 func validHexHash(hash string, expectedLen int) string {
+	hash = strings.TrimSpace(hash)
+	if hash == "" || hash == "no_check" {
+		return ""
+	}
 	if len(hash) != expectedLen {
 		return fmt.Sprintf("has wrong length (%d, expected %d)", len(hash), expectedLen)
 	}
