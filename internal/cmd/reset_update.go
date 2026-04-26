@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"path/filepath"
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/tap"
@@ -29,6 +30,13 @@ func runResetUpdate(args []string) error {
 	if err := paths.Init(); err != nil {
 		return err
 	}
+
+	// Remove unsupported share directories if they exist from a prior run
+	importPath := filepath.Join(paths.Share, "man")
+	_ = os.RemoveAll(importPath)
+	importPath = filepath.Join(paths.Share, "info")
+	_ = os.RemoveAll(importPath)
+	_ = os.Remove(paths.Share) // only removes if empty
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	count, err := tapMgr.Update()

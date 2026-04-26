@@ -600,9 +600,23 @@ func checkFormulaSecurity(pkg cellar.InstalledPackage, formulaMap map[string]*fo
 	return findings
 }
 
-// checkKegPermissions scans the keg directory for dangerous file permissions.
+// checkKegPermissions scans the keg directory for dangerous file permissions and deprecated paths.
 func checkKegPermissions(pkg cellar.InstalledPackage, kegPath string) []vulnFinding {
 	var findings []vulnFinding
+
+	// Check for officially unsupported directories
+	for _, sub := range []string{"man", "info"} {
+		p := filepath.Join(kegPath, "share", sub)
+		if info, err := os.Stat(p); err == nil && info.IsDir() {
+			findings = append(findings, vulnFinding{
+				Package:  pkg.Name,
+				Version:  pkg.Version,
+				Severity: severityLow,
+				Category: "deprecation",
+				Detail:   "keg contains unsupported share/" + sub + " directory (it will be pruned in newer grew versions)",
+			})
+		}
+	}
 
 	err := filepath.WalkDir(kegPath, func(path string, d os.DirEntry, err error) error {
 		if err != nil {

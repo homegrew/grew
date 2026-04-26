@@ -63,7 +63,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 The `homegrew/grew` repository includes tools for maintaining the formula and cask ecosystem:
 
-### `grew-genrepo`
+### `genrepo`
 A unified tool used to bootstrap and maintain the core formula and cask repositories by importing definitions from the Homebrew JSON API.
 - **Formula Import**: Fetches Homebrew formulas, maps platforms, picks appropriate bottles, and generates `grew`-compatible YAML files.
 - **Cask Import**: Fetches Homebrew casks, extracts macOS-specific app/binary artifacts, and converts them into `grew` YAML format.

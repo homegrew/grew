@@ -18,6 +18,7 @@ type Paths struct {
 	Bin      string
 	Lib      string
 	Include  string
+	Share    string
 	Taps     string
 	CoreTap  string
 	CaskTap  string
@@ -242,6 +243,7 @@ func FromRoot(root, appDir string) Paths {
 		Bin:      filepath.Join(root, "bin"),
 		Lib:      filepath.Join(root, "lib"),
 		Include:  filepath.Join(root, "include"),
+		Share:    filepath.Join(root, "share"),
 		Taps:     filepath.Join(root, "Taps"),
 		CoreTap:  filepath.Join(root, "Taps", "core"),
 		CaskTap:  filepath.Join(root, "Taps", "cask"),
@@ -261,7 +263,7 @@ func (p Paths) Init() error {
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created
+		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
 	}
 	for _, d := range dirs {
 		if err := safepath.SafeAbsolutePath(d); err != nil {

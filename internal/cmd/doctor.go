@@ -79,6 +79,7 @@ func allChecks() []doctorCheck {
 		{"check_unlinked_kegs", "Check installed formulas are linked", checkUnlinkedKegs},
 		{"check_orphaned_symlinks", "Check for orphaned symlinks", checkOrphanedSymlinks},
 		{"check_multiple_versions", "Check for multiple installed versions", checkMultipleVersions},
+		{"check_pinned_formulas", "Check for pinned formulas", checkPinnedFormulas},
 		{"check_stale_tmp", "Check for stale files in tmp/", checkStaleTmp},
 	}
 	return append(base, extraChecks...)
@@ -281,6 +282,10 @@ func checkFormulaHTTPS(ctx *doctorCtx) {
 }
 
 func validHexHash(hash string, expectedLen int) string {
+	hash = strings.TrimSpace(hash)
+	if hash == "" || hash == "no_check" {
+		return ""
+	}
 	if len(hash) != expectedLen {
 		return fmt.Sprintf("has wrong length (%d, expected %d)", len(hash), expectedLen)
 	}
@@ -551,6 +556,18 @@ func checkMultipleVersions(ctx *doctorCtx) {
 		}
 		ctx.warn("%s has %d versions installed (%s), consider running 'grew cleanup'",
 			pkg.Name, len(versions), strings.Join(versions, ", "))
+	}
+}
+
+func checkPinnedFormulas(ctx *doctorCtx) {
+	var pinned []string
+	for _, pkg := range ctx.packages {
+		if ctx.cel.IsPinned(pkg.Name) {
+			pinned = append(pinned, pkg.Name)
+		}
+	}
+	if len(pinned) > 0 {
+		ctx.warn("Some formulas are pinned and will not be upgraded: %s", strings.Join(pinned, ", "))
 	}
 }
 

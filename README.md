@@ -175,9 +175,9 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
-| `verify` | Check installed packages against their snapshot manifests |
 | `audit` | Lint formula/cask definitions for quality and security |
 | `lock` | Generate, check, or show a reproducible lockfile |
+| `verify` | Check installed packages against their snapshot manifests |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
 | `setup` | One-time prefix setup (requires sudo) |
@@ -270,7 +270,7 @@ grew/
 │   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← grew-genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
+└── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
 ```
 
 ---

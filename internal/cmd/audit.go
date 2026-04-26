@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log/slog"
 	"net/url"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/internal/cask"
@@ -270,6 +272,15 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 	if !snapshot.Exists(kegPath) {
 		return
 	}
+
+	// check for officially unsupported share/man and share/info
+	for _, sub := range []string{"man", "info"} {
+		p := filepath.Join(kegPath, "share", sub)
+		if info, err := os.Stat(p); err == nil && info.IsDir() {
+			r.warnf("keg contains unsupported share/%s directory (it will be pruned in newer grew versions)", sub)
+		}
+	}
+
 	result, err := snapshot.Verify(kegPath)
 	if err != nil {
 		r.warnf("snapshot verify: %v", err)
@@ -288,7 +299,6 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 		r.warnf("unexpected file in keg: %s", mf)
 	}
 }
-
 func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 	slog.Debug("starting auditcasks command execution")
 	slog.Debug("starting auditcasks command execution")
