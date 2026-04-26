@@ -61,8 +61,10 @@ func SafePathComponent(name string) error {
 	if strings.ContainsAny(name, "/\\") {
 		return fmt.Errorf("path component contains separator: %q", name)
 	}
-	if name == ".." || name == "." {
-		return fmt.Errorf("path component is a traversal: %q", name)
+	// Reject any parent-directory marker anywhere in the component.
+	// This is stricter than only rejecting "."/".." and avoids ambiguous inputs.
+	if strings.Contains(name, "..") || name == "." {
+		return fmt.Errorf("path component contains traversal marker: %q", name)
 	}
 	if filepath.Base(name) != name {
 		return fmt.Errorf("path component must be a single element: %q", name)
