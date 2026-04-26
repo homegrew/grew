@@ -162,7 +162,7 @@ Options:
 					continue
 				}
 
-				candidatePath := path
+				var candidatePath string
 				if evalCandidate, err := filepath.EvalSymlinks(path); err == nil {
 					candidatePath = filepath.Clean(evalCandidate)
 				} else if absCandidate, err := filepath.Abs(path); err == nil {
