@@ -36,13 +36,13 @@ const (
 // Shared Platform Mapping Preferences
 var (
 	darwinARM64Prefs = []string{
-		"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur",
+		"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all",
 	}
 	darwinAMD64Prefs = []string{
-		"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave",
+		"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all",
 	}
-	linuxAMD64Prefs = []string{"x86_64_linux"}
-	linuxARM64Prefs = []string{"arm64_linux"}
+	linuxAMD64Prefs = []string{"x86_64_linux", "all"}
+	linuxARM64Prefs = []string{"arm64_linux", "all"}
 
 	platforms = []struct {
 		key   string
