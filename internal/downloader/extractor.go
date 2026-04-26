@@ -174,17 +174,16 @@ func sanitizeEntryName(name string) string {
 		return ""
 	}
 
+	// Prevent directory traversal attacks (Zip Slip) by strictly rejecting
+	// any entry name containing ".." anywhere.
+	if strings.Contains(name, "..") {
+		return ""
+	}
+
 	// Normalize to forward slashes for consistent processing.
 	slashed := filepath.ToSlash(name)
 
-	// Quickly reject any explicit parent-directory components before cleaning.
-	for _, part := range strings.Split(slashed, "/") {
-		if part == ".." {
-			return ""
-		}
-	}
-
-	// Clean the path to collapse things like "a/../b" and ".".
+	// Clean the path to collapse things like "."
 	clean := filepath.Clean(slashed)
 
 	// Reject paths that clean to "." (current directory) or empty.
@@ -196,13 +195,6 @@ func sanitizeEntryName(name string) string {
 	// leading slash to be defensive across platforms.
 	if filepath.IsAbs(clean) || strings.HasPrefix(clean, "/") || strings.HasPrefix(clean, `\`) {
 		return ""
-	}
-
-	// Reject any remaining ".." components after cleaning.
-	for _, part := range strings.Split(clean, "/") {
-		if part == ".." {
-			return ""
-		}
 	}
 
 	return clean
@@ -427,6 +419,10 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			return fmt.Errorf("read tar: %w", err)
 		}
 
+		if strings.Contains(header.Name, "..") {
+			continue
+		}
+
 		name := stripPath(header.Name, stripComponents)
 		if name == "" {
 			continue
@@ -588,6 +584,10 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 	}
 
 	for _, f := range r.File {
+		if strings.Contains(f.Name, "..") {
+			continue
+		}
+
 		name := stripPath(f.Name, stripComponents)
 		if name == "" {
 			continue
