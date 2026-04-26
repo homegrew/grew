@@ -266,7 +266,7 @@ func finishSetup(prefix string) error {
 	// Try to install grew from source via git clone + go build.
 	// Falls back to copying the running binary if git or go are unavailable.
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
-	if err := installFromGit(repoDir, destBin); err != nil {
+	if err := installFromGit(repoDir, destBin, true); err != nil {
 		slog.Info(fmt.Sprintf("note: could not install from source: %v", err))
 		fmt.Println("==> Falling back to copying current binary")
 
@@ -298,9 +298,11 @@ func finishSetup(prefix string) error {
 	return nil
 }
 
+var ErrNoGitRepo = errors.New("no git repository found")
+
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
-func installFromGit(repoDir, destBin string) error {
+func installFromGit(repoDir, destBin string, allowClone bool) error {
 	if err := pathutil.SafeAbsolutePath(repoDir); err != nil {
 		return fmt.Errorf("invalid repository directory: %w", err)
 	}
@@ -331,6 +333,9 @@ func installFromGit(repoDir, destBin string) error {
 			return fmt.Errorf("git pull: %w", err)
 		}
 	} else {
+		if !allowClone {
+			return ErrNoGitRepo
+		}
 		// Clone fresh.
 		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
 		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)

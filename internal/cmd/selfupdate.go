@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"crypto/sha512"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
@@ -45,10 +46,11 @@ func RunSelfUpdate(_ []string) error {
 	}
 
 	//// 2. Alternatively, fall back to compile via git if repo is present.
-	if err := SelfUpdateFromGit(exePath); err == nil {
-		return nil
-	} else if !os.IsNotExist(err) {
+	updated, err := SelfUpdateFromGit(exePath)
+	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to update grew from git: %v", err))
+	} else if updated {
+		return nil
 	}
 
 	if rel == nil {
@@ -60,30 +62,25 @@ func RunSelfUpdate(_ []string) error {
 	return selfUpdateFullDownload(exePath, rel)
 }
 
-func SelfUpdateFromGit(exePath string) error {
-	prefix := filepath.Dir(filepath.Dir(exePath))
+func SelfUpdateFromGit(exePath string) (bool, error) {
+	prefix := config.DefaultPrefix()
 	repoDir := filepath.Join(prefix, "Grew")
 	destBin := filepath.Join(prefix, "bin", "grew")
-	gitDir := filepath.Join(repoDir, ".git")
 
-	if _, err := os.Stat(gitDir); err != nil {
-		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
-		return err // Typically os.ErrNotExist
-	}
-
-	fmt.Println("==> Updating grew from source...")
-
-	if err := installFromGit(repoDir, destBin); err != nil {
-		return fmt.Errorf("source update failed: %w", err)
+	if err := installFromGit(repoDir, destBin, false); err != nil {
+		if errors.Is(err, ErrNoGitRepo) {
+			slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
+			return false, nil
+		}
+		return false, err
 	}
 
 	if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-		slog.Error(fmt.Sprintf("integrity check failed after source update: %v", err))
-		return err
+		return true, fmt.Errorf("integrity check failed after source update: %w", err)
 	}
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-	return nil
+	return true, nil
 }
 
 // SelfUpdateFromRelease downloads the latest stable release from GitHub,
