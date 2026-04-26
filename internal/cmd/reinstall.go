@@ -13,6 +13,23 @@ import (
 
 func runReinstall(args []string) error {
 	fs := flag.NewFlagSet("reinstall", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew reinstall [options] <formula ...>
+
+Uninstall and then reinstall formulas from scratch.
+
+Options:
+  -f, --force         Install even if the formula is not currently installed.
+  --zap               Deep clean: remove all installed versions and any leftover
+                      temp files for the formula before reinstalling.
+  -s, --build-from-source
+                      Build formula from source instead of downloading a bottle.
+  -v, --verbose       Show detailed output.
+  -d, --debug         Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	force := fs.Bool("force", false, "Install even if not currently installed")
 	fs.BoolVar(force, "f", false, "Install even if not currently installed")

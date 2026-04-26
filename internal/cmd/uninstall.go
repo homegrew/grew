@@ -15,6 +15,20 @@ import (
 
 func runUninstall(args []string) error {
 	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew uninstall [options] <formula ...>
+
+Removes installed formulas or casks from the cellar and removes their symlinks.
+Aliases: remove, rm
+
+Options:
+  --cask        Uninstall a cask instead of a formula.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Uninstall a cask")
 	if err := fs.Parse(args); err != nil {

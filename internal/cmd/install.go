@@ -24,6 +24,28 @@ import (
 
 func RunInstall(args []string) error {
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew install [options] <formula ...>
+
+Installs formulas or casks. Can build from source or fetch binary bottles.
+
+Options:
+  --cask                Install a macOS application cask.
+  -s, --build-from-source
+                        Build formula from source instead of downloading a bottle.
+  --only-dependencies   Install dependencies only, not the formula itself.
+  --ignore-dependencies Skip dependency installation.
+  --skip-post-install   Skip post-install steps.
+  --skip-link           Do not create symlinks for the installed formula.
+  --require-sha         Refuse to install if a SHA256 checksum is missing.
+  -n, --dry-run         Show what would be installed without actually doing it.
+  --no-quarantine       Skip quarantine attribute on cask apps (not recommended).
+  -v, --verbose         Show detailed output.
+  -d, --debug           Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
 	buildFromSource := fs.Bool("s", false, "Build from source")

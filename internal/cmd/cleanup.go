@@ -14,6 +14,20 @@ import (
 
 func runCleanup(args []string) error {
 	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew cleanup [options] [formula ...]
+
+Remove old versions of installed formulas and clear old downloads from the cache.
+If specific formulas are provided, only those formulas are cleaned up.
+
+Options:
+  -n, --dry-run Show what would be removed, but do not actually remove anything.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	dryRun := fs.Bool("dry-run", false, "Show what would be removed")
 	fs.BoolVar(dryRun, "n", false, "Show what would be removed")

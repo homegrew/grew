@@ -11,6 +11,23 @@ import (
 
 func runLeaves(args []string) error {
 	fs := flag.NewFlagSet("leaves", flag.ContinueOnError)
+
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew leaves [options]
+
+List installed formulas that are not dependencies of any other installed formula.
+
+Options:
+  -r, --installed-on-request
+                Only show leaves that were explicitly installed on request.
+  -p, --installed-as-dependency
+                Only show leaves that were installed automatically as dependencies
+                (these are orphaned dependencies that can likely be removed).
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	onRequest := fs.Bool("installed-on-request", false, "Only show leaves that were installed on request")
 	fs.BoolVar(onRequest, "r", false, "Only show leaves that were installed on request")

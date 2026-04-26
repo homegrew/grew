@@ -10,6 +10,19 @@ import (
 
 func runSearch(args []string) error {
 	fs := flag.NewFlagSet("search", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew search [options] <query>
+
+Search for formulas or casks by name or description.
+
+Options:
+  --cask        Search casks instead of formulas.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Search casks")
 	if err := fs.Parse(args); err != nil {

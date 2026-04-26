@@ -12,6 +12,19 @@ import (
 
 func runInfo(args []string) error {
 	fs := flag.NewFlagSet("info", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew info [options] <formula ...>
+
+Show brief information about formulas or casks.
+
+Options:
+  --cask        Show cask info.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Show cask info")
 	if err := fs.Parse(args); err != nil {

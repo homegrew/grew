@@ -13,6 +13,21 @@ import (
 
 func runLink(args []string) error {
 	fs := flag.NewFlagSet("link", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew link [options] <formula ...>
+
+Create symlinks for installed formulas in the grew prefix.
+
+Options:
+  --overwrite   Overwrite existing files when linking.
+  -n, --dry-run Show what would be linked, but do not actually link anything.
+  --force       Link keg-only formulas into bin/, lib/, and include/.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	overwrite := fs.Bool("overwrite", false, "Overwrite existing files")
 	dryRun := fs.Bool("dry-run", false, "Show what would be linked")
@@ -79,6 +94,19 @@ func runLink(args []string) error {
 
 func runUnlink(args []string) error {
 	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew unlink [options] <formula ...>
+
+Remove symlinks for installed formulas from the grew prefix.
+
+Options:
+  -n, --dry-run Show what would be unlinked, but do not actually unlink anything.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	dryRun := fs.Bool("dry-run", false, "Show what would be unlinked")
 	fs.BoolVar(dryRun, "n", false, "Show what would be unlinked")

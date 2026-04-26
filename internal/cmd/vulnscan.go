@@ -43,6 +43,22 @@ type vulnFinding struct {
 
 func runVulnScan(args []string) error {
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew vuln-scan [options] [formula ...]
+
+Scan installed packages for security vulnerabilities, including known CVEs
+(via OSV.dev), signature validation failures, and dangerous file permissions.
+
+Options:
+  --json        Output results as JSON.
+  -q, --quiet   Only show critical and high severity findings.
+  --offline     Skip the OSV.dev vulnerability database query.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	jsonOutput := fs.Bool("json", false, "Output results as JSON")
 	quiet := fs.Bool("quiet", false, "Only show critical and high severity findings")

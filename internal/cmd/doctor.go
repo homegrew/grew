@@ -86,6 +86,23 @@ func allChecks() []doctorCheck {
 
 func runDoctor(args []string) error {
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew doctor [options]
+
+Check your system for potential problems.
+Aliases: dr
+
+Options:
+  --list-checks List all available diagnostic checks.
+  -D, --audit-debug
+                Show execution time for each diagnostic check.
+  -q, --quiet   Only print warnings and errors; omit successful checks.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	listChecks := fs.Bool("list-checks", false, "List all available check names")
 	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")

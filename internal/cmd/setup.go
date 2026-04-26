@@ -21,6 +21,23 @@ import (
 
 func runSetup(args []string) error {
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew setup [options]
+
+Initialize the grew prefix directory structure, copy the grew binary into place,
+and configure ownership. This is required before running any other commands.
+
+Options:
+  -f, --force   Re-run setup even if the prefix is already set up.
+  -n, --dry-run Show what would be done without making changes.
+  --unsafe      Install to ~/.homegrew instead of a system prefix. This bypasses
+                security guarantees and must be used with a devmode build.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	force := fs.Bool("force", false, "Re-run setup even if already set up")
 	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")

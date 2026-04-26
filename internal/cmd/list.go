@@ -16,6 +16,32 @@ import (
 
 func runList(args []string) error {
 	fs := flag.NewFlagSet("list", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew list [options]
+
+List all installed formulas or casks. Aliases: ls
+
+Options:
+  --cask                     List installed casks.
+  --formulae                 List installed formulas (default).
+  --versions                 Show all installed versions for each package.
+  --multiple                 Only show packages with multiple versions installed.
+  -1                         Print one entry per line, names only.
+  -l                         Long format (name, version, path).
+  -t                         Sort by modification time (newest first).
+  -r                         Reverse sort order.
+  --installed-on-request     Only show formulas explicitly installed by the user.
+  --installed-as-dependency  Only show formulas installed automatically as dependencies.
+  --full-name                Show full keg path as name (tap/formula).
+  --built-from-source        Only show formulas built from source.
+  --poured-from-bottle       Only show formulas poured from a pre-compiled bottle.
+  --pinned                   Only show pinned formulas.
+  -v, --verbose              Show detailed output.
+  -d, --debug                Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "List installed casks")
 	isFormulae := fs.Bool("formulae", false, "List installed formulas (default)")

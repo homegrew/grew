@@ -37,6 +37,23 @@ func (r *auditResult) ok() bool {
 
 func runAudit(args []string) error {
 	fs := flag.NewFlagSet("audit", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew audit [options] [formula ...]
+
+Check formula or cask definitions for common errors, missing attributes,
+security issues, and style violations.
+
+Options:
+  --strict      Treat warnings as errors (exit with non-zero status).
+  --cask        Audit casks instead of formulas.
+  --online      Include checks that require network access or installed packages
+                (like snapshot verification).
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	strict := fs.Bool("strict", false, "Treat warnings as errors")
 	isCask := fs.Bool("cask", false, "Audit casks instead of formulas")

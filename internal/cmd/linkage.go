@@ -11,6 +11,23 @@ import (
 
 func runLinkage(args []string) error {
 	fs := flag.NewFlagSet("linkage", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew linkage [options] <formula ...>
+
+Check dynamic library dependencies of installed formulas.
+
+Options:
+  --test        Only report broken dependencies and exit 1 if any exist.
+  --strict      Also check for undeclared and unused dependencies.
+  --reverse     Show formulas that link against this formula's libraries.
+  --cached      Use cached linkage results if available to speed up checks.
+  -q, --quiet   Only output broken dependencies.
+  -v, --verbose Show detailed output.
+  -d, --debug   Show debug diagnostics (implies --verbose).
+`)
+	}
+
 	flags.Register(fs)
 	test := fs.Bool("test", false, "Only report broken dependencies (exit 1 if any)")
 	strict := fs.Bool("strict", false, "Also check for undeclared and unused dependencies")
