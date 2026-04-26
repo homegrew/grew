@@ -148,4 +148,13 @@ func TestLiveEndToEnd(t *testing.T) {
 	if !strings.Contains(outEnv, "export HOMEGREW_PREFIX") {
 		t.Errorf("shellenv output missing export statement")
 	}
+
+	// 13. Test Leaves command
+	outLeaves := runCmd("leaves")
+	if !strings.Contains(outLeaves, "nano") {
+		t.Errorf("leaves output missing 'nano', got output: %q", outLeaves)
+	}
+	if !strings.Contains(outLeaves, "xz") {
+		t.Errorf("leaves output missing 'xz', got output: %q", outLeaves)
+	}
 }

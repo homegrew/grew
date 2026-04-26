@@ -102,6 +102,7 @@ func Run(args []string) error {
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
 		"list":         runList,
+		"leaves":       runLeaves,
 		"info":         runInfo,
 		"search":       runSearch,
 		"link":         runLink,
@@ -255,6 +256,7 @@ Commands:
   install [-s] [-n] [--skip-post-install] [--skip-link] <formula>  Install a formula (use --cask for apps, -s for source build, -n for dry run)
   uninstall <formula>  Uninstall a formula or cask (--cask)
   list [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
+  leaves               List installed formulas that are not dependencies of another installed formula
   info <formula>       Show formula or cask info (--cask)
   search <query>       Search formulas or casks (--cask)
   link <formula>       Create symlinks for a formula
