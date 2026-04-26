@@ -7,9 +7,22 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/homegrew/grew/internal/cmd"
+	verpkg "github.com/homegrew/grew/internal/version"
 )
+
+func init() {
+	verpkg.SetVersion(version)
+}
+
+var version string
+
+// Version returns the version string.
+func Version() string {
+	return strings.TrimSpace(version)
+}
 
 func main() {
 	if err := cmd.Run(os.Args[1:]); err != nil {

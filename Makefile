@@ -8,24 +8,20 @@ PKGS := ./...
 all: build check
 
 .PHONY: build
-build: generate
+build:
 	$(GO) build -o $(BIN)
 
 .PHONY: dev
-dev: generate
+dev:
 	$(GO) build -tags devmode -o $(BIN)
 
 .PHONY: install
-install: generate
+install:
 	$(GO) install
 
 .PHONY: check
-check: generate
+check:
 	$(GO) test -tags devmode -race $(PKGS)
-
-.PHONY: generate
-generate:
-	$(GO) generate ./internal/...
 
 .PHONY: lint
 lint:
@@ -44,7 +40,6 @@ clean:
 	rm -f $(BIN) grew_test_bin
 	rm -f coverage.out
 	rm -rf .cache
-	echo "v0.0.0-UNKNOWN" > $(CURDIR)/internal/version/version.txt
 
 .PHONY: distclean
 distclean: clean

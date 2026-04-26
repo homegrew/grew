@@ -19,10 +19,8 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w
+      - -s -w -X main.version='{{ .Version }}'
     mod_timestamp: '{{ .CommitTimestamp }}'
-    hooks:
-      pre: go generate ./internal/...
 
 archives:
   - format: tar.gz

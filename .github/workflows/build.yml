@@ -18,14 +18,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
       - uses: actions/setup-go@v5
         with:
           go-version: stable
           cache: true
-      - run: go generate ./...
+      - run: go build ./...
       - run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 
       - name: Build with devmode

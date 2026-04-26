@@ -54,10 +54,11 @@ func RunSelfUpdate(_ []string) error {
 		fmt.Println("==> Updating grew from source...")
 		if err := installFromGit(repoDir, destBin); err == nil {
 			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-				slog.Warn(fmt.Sprintf("%v", err))
+				slog.Error(fmt.Sprintf("%v", err))
 			}
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-			return nil
+			slog.Error("patch update unavailable or failed", "err", err)
+			return err
 		}
 		slog.Warn(fmt.Sprintf("source update failed: %v", err))
 	} else {
