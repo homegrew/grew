@@ -209,6 +209,9 @@ func (cr *Caskroom) IsInstalled(name string) bool {
 	if err != nil {
 		return false
 	}
+	if err := safepath.CheckSubpath(cr.Path, path); err != nil {
+		return false
+	}
 	info, err := os.Stat(path)
 	return err == nil && info.IsDir()
 }
