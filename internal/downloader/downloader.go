@@ -108,6 +108,12 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
 	}
 
+	// Re-resolve sink path from canonical temp dir so sink operations are based
+	// only on validated canonical paths.
+	sinkPath, err = safepath.SafeJoin(canonTmpDir, filename)
+	if err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
 	sinkDir := filepath.Dir(sinkPath)
 	if err := os.MkdirAll(sinkDir, 0o755); err != nil {
 		return "", fmt.Errorf("create download directory %s: %w", sinkDir, err)
