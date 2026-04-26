@@ -273,7 +273,7 @@ Commands:
   reinstall [--cask] [-f] [--zap] [-s] <formula>... Reinstall formulas or casks (-f without checking for previously installed keg-only or non-migrated versions)
   upgrade [formula]...   Upgrade outdated packages (or a specific ones)
   outdated             List packages with newer versions available
-  cleanup [-n]         Remove old versions and temp files (-n for dry run)
+  cleanup [-n] [-s] [--prune=DAYS] Remove old versions and temp files (-n for dry run, -s to scrub all cache)
   deps [flags] <formula>...  Show dependencies for formulas
   audit [formula]...   Audit formula/cask definitions for problems
   alias [subcommand]   Manage command aliases

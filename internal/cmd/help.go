@@ -173,17 +173,22 @@ Examples:
 
 List installed formulas that have a newer version available in the tap.`,
 
-	"cleanup": `Usage: grew cleanup [-n] [formula ...]
+	"cleanup": `Usage: grew cleanup [options] [formula ...]
 
-Remove old versions of installed formulas and clear the download cache.
-Only the latest version of each formula is kept.
+Remove old versions of installed formulas and clear old downloads from the cache.
+By default, it keeps the latest version of each installed formula and its 
+associated download, but removes downloads older than 120 days.
 
-Flags:
-  -n, --dry-run    Show what would be removed without deleting
+Options:
+  -n, --dry-run   Show what would be removed, but do not actually remove anything.
+  -s, --scrub     Remove all cached downloads, including those for the latest versions.
+      --prune=D   Remove all cache files older than D days (or "all").
 
 Examples:
   grew cleanup
   grew cleanup -n
+  grew cleanup --scrub
+  grew cleanup --prune=7
   grew cleanup jq`,
 
 	"alias": `Usage: grew alias <subcommand> [arguments]
