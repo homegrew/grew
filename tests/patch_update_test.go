@@ -30,7 +30,8 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	oldExePath := filepath.Join(binDir, "grew")
 
 	root := getProjectRoot(t)
-	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", oldExePath, filepath.Join(root, "tests", "testbin", "main.go"))
+	ldflags := "-X 'github.com/homegrew/grew/internal/version.version=v0.0.0-UNKNOWN'"
+	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-ldflags", ldflags, "-o", oldExePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build old binary: %v, output: %s", err, string(out))
 	}

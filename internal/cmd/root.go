@@ -122,6 +122,7 @@ func Run(args []string) error {
 		"shellenv":     runShellenv,
 		"services":     runServices,
 		"setup":        runSetup,
+		"selfupdate":   RunSelfUpdate,
 		"verify":       runVerify,
 		"lock":         runLock,
 		"sign":         runSign,
