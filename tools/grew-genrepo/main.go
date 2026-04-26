@@ -56,7 +56,7 @@ var (
 )
 
 func main() {
-	fs := flag.NewFlagSet("grew-genrepo", flag.ExitOnError)
+	fs := flag.NewFlagSet("grew-genrepo", flag.ContinueOnError)
 	var verbose, debug bool
 	fs.BoolVar(&verbose, "v", false, "Verbose output")
 	fs.BoolVar(&debug, "debug", false, "Debug output (implies verbose)")
