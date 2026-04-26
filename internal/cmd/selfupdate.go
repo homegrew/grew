@@ -34,28 +34,30 @@ func RunSelfUpdate(_ []string) error {
 	rel, err := release.FetchLatest()
 	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to fetch latest release metadata: %v", err))
-	} else {
-		if rel == nil {
-			return fmt.Errorf("cannot fallback to full download without release metadata")
-		}
-
+	} else if rel != nil {
 		// 1. Always try to update by patch release first.
-		if patchErr := tryPatchUpdate(exePath, rel); patchErr != nil {
+		if patchErr := tryPatchUpdate(exePath, rel); patchErr == nil {
+			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
+			return nil
+		} else {
 			slog.Debug("patch update unavailable or failed", "err", patchErr)
 		}
-
-		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
 	}
 
 	//// 2. Alternatively, fall back to compile via git if repo is present.
-	if err := SelfUpdateFromGit(exePath); err != nil {
+	if err := SelfUpdateFromGit(exePath); err == nil {
+		return nil
+	} else if !os.IsNotExist(err) {
 		slog.Warn(fmt.Sprintf("failed to update grew from git: %v", err))
-		// 3. Fall back to full release download
-		fmt.Println("==> Falling back to latest release full download...")
-		return selfUpdateFullDownload(exePath, rel)
 	}
 
-	return nil
+	if rel == nil {
+		return fmt.Errorf("cannot fallback to full download without release metadata")
+	}
+
+	// 3. Fall back to full release download
+	fmt.Println("==> Falling back to latest release full download...")
+	return selfUpdateFullDownload(exePath, rel)
 }
 
 func SelfUpdateFromGit(exePath string) error {
@@ -63,24 +65,24 @@ func SelfUpdateFromGit(exePath string) error {
 	repoDir := filepath.Join(prefix, "Grew")
 	destBin := filepath.Join(prefix, "bin", "grew")
 	gitDir := filepath.Join(repoDir, ".git")
-	if _, err := os.Stat(gitDir); err == nil {
-		fmt.Println("==> Updating grew from source...")
 
-		if err := installFromGit(repoDir, destBin); err == nil {
-			if err := verifyBinaryIntegrity(destBin, ""); err != nil {
-				slog.Error(fmt.Sprintf("%v", err))
-				return err
-			}
-			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-			return nil
-		}
-		slog.Warn(fmt.Sprintf("source update failed: %v", err))
-		return err
-	} else {
+	if _, err := os.Stat(gitDir); err != nil {
 		slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
+		return err // Typically os.ErrNotExist
+	}
+
+	fmt.Println("==> Updating grew from source...")
+
+	if err := installFromGit(repoDir, destBin); err != nil {
+		return fmt.Errorf("source update failed: %w", err)
+	}
+
+	if err := verifyBinaryIntegrity(destBin, ""); err != nil {
+		slog.Error(fmt.Sprintf("integrity check failed after source update: %v", err))
 		return err
 	}
 
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
 	return nil
 }
 
