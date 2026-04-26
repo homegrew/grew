@@ -116,6 +116,20 @@ func TestUnshareArgs(t *testing.T) {
 		t.Error("script must remount build dir read-write")
 	}
 
+	// Critical mount operations must occur in a safe order.
+	makePrivateIdx := strings.Index(script, "mount --make-rprivate /")
+	remountRootROIdx := strings.Index(script, "mount -o remount,ro,bind /")
+	bindBuildIdx := strings.Index(script, "mount --bind /home/user/build /home/user/build")
+	remountBuildRWIdx := strings.Index(script, "mount -o remount,rw,bind /home/user/build")
+
+	if makePrivateIdx == -1 || remountRootROIdx == -1 || bindBuildIdx == -1 || remountBuildRWIdx == -1 {
+		t.Error("script missing one or more required mount operations for ordering checks")
+	} else {
+		if !(makePrivateIdx < remountRootROIdx && remountRootROIdx < bindBuildIdx && bindBuildIdx < remountBuildRWIdx) {
+			t.Error("mount operations must be ordered: make-rprivate, remount root ro, bind build dir, remount build dir rw")
+		}
+	}
+
 	// Script must bind-mount keg dir writable.
 	if !strings.Contains(script, "mount --bind /home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must bind-mount keg dir")
