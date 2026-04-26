@@ -322,6 +322,12 @@ func isNotExist(err error) bool {
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
 func extractSymlink(realDest, target, linkname string) error {
 	slog.Debug(fmt.Sprintf("extractSymlink (v2) target: %s, linkname: %s", target, linkname))
+	canonicalRealDest, err := filepath.Abs(realDest)
+	if err != nil {
+		return fmt.Errorf("resolve extraction destination %s: %w", realDest, err)
+	}
+	canonicalRealDest = filepath.Clean(canonicalRealDest)
+
 	linkname = sanitizeSymlinkTarget(linkname)
 	if linkname == "" {
 		return nil
@@ -332,7 +338,7 @@ func extractSymlink(realDest, target, linkname string) error {
 	}
 
 	parentDir := filepath.Dir(target)
-	if !safepath.IsSubpath(realDest, parentDir) {
+	if !safepath.IsSubpath(canonicalRealDest, parentDir) {
 		return nil
 	}
 	resolvedParentDir, err := filepath.Abs(parentDir)
@@ -340,7 +346,7 @@ func extractSymlink(realDest, target, linkname string) error {
 		return fmt.Errorf("resolve parent directory for symlink %s: %w", target, err)
 	}
 	resolvedParentDir = filepath.Clean(resolvedParentDir)
-	if !safepath.IsSubpath(realDest, resolvedParentDir) {
+	if !safepath.IsSubpath(canonicalRealDest, resolvedParentDir) {
 		return nil
 	}
 
@@ -354,7 +360,7 @@ func extractSymlink(realDest, target, linkname string) error {
 	}
 
 	// Double-check safety of the candidate target.
-	if !safepath.IsSubpath(realDest, candidateTarget) {
+	if !safepath.IsSubpath(canonicalRealDest, candidateTarget) {
 		return nil
 	}
 	// Sink-side canonicalization and boundary check before any filesystem access.
@@ -363,14 +369,18 @@ func extractSymlink(realDest, target, linkname string) error {
 		return fmt.Errorf("resolve symlink candidate target %s: %w", candidateTarget, err)
 	}
 	resolvedCandidateTarget = filepath.Clean(resolvedCandidateTarget)
-	if err := safepath.CheckSubpath(realDest, resolvedCandidateTarget); err != nil {
+	if err := safepath.CheckSubpath(canonicalRealDest, resolvedCandidateTarget); err != nil {
 		return nil
 	}
 
 	// If the target exists, ensure it doesn't resolve outside the root.
+	// Re-check containment at sink to ensure the filesystem access path remains bounded.
+	if err := safepath.CheckSubpath(canonicalRealDest, resolvedCandidateTarget); err != nil {
+		return nil
+	}
 	if fi, err := os.Lstat(resolvedCandidateTarget); err == nil && fi != nil {
 		if resolvedCandidate, err := filepath.EvalSymlinks(resolvedCandidateTarget); err == nil {
-			if !safepath.IsSubpath(realDest, resolvedCandidate) {
+			if !safepath.IsSubpath(canonicalRealDest, resolvedCandidate) {
 				return nil
 			}
 		}
@@ -382,7 +392,7 @@ func extractSymlink(realDest, target, linkname string) error {
 		return fmt.Errorf("resolve symlink destination %s: %w", target, err)
 	}
 	resolvedTarget = filepath.Clean(resolvedTarget)
-	if !safepath.IsSubpath(realDest, resolvedTarget) {
+	if !safepath.IsSubpath(canonicalRealDest, resolvedTarget) {
 		return nil
 	}
 
