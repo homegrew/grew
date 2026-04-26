@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log/slog"
 	"os"
@@ -8,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 )
@@ -22,17 +23,38 @@ func title(s string) string {
 }
 
 func main() {
-	logger.Init(true, false) // Enable verbose output by default for the patcher tool.
+	// Parse global flags before the command if they exist
+	args := flags.Parse(os.Args[1:])
 
-	if len(os.Args) != 4 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <platform> <previous_release> <new_release>\n", os.Args[0])
-		fmt.Fprintln(os.Stderr, "Example: patcher darwin/arm64 v0.4.0 v0.4.1")
+	fs := flag.NewFlagSet("patcher", flag.ExitOnError)
+	flags.Register(fs)
+
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), "Usage: %s [options] <platform> <previous_release> <new_release>\n", os.Args[0])
+		fmt.Fprintln(fs.Output(), "\nOptions:")
+		fs.PrintDefaults()
+		fmt.Fprintln(fs.Output(), "\nExample: patcher -v darwin/arm64 v0.4.0 v0.4.1")
+	}
+
+	if err := fs.Parse(args); err != nil {
 		os.Exit(1)
 	}
 
-	platform := os.Args[1]
-	prevRelease := os.Args[2]
-	newRelease := os.Args[3]
+	flags.Resolve()
+
+	remainingArgs := fs.Args()
+	if len(remainingArgs) != 3 {
+		fs.Usage()
+		os.Exit(1)
+	}
+
+	platform := remainingArgs[0]
+	prevRelease := remainingArgs[1]
+	newRelease := remainingArgs[2]
+
+	logMsg := func(format string, a ...interface{}) {
+		slog.Info(format, a...)
+	}
 
 	// Basic validation of version strings.
 	// Since tags usually have a "v" prefix (like v0.4.0), we validate against IsValidVersion.
@@ -75,37 +97,55 @@ func main() {
 		slog.Error("Failed to create path for old binary", "err", err)
 		os.Exit(1)
 	}
-	
+
 	newBin, err := safepath.SafeJoin(tmpDir, "new", projectName)
 	if err != nil {
 		slog.Error("Failed to create path for new binary", "err", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("==> Downloading %s %s for %s\n", projectName, prevRelease, platform)
+	logMsg("Downloading %s %s for %s", projectName, prevRelease, platform)
 	if err := downloadAndExtract(projectName, osName, arch, prevRelease, tmpDir, "old"); err != nil {
 		slog.Error("Failed to get old release", "err", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("==> Downloading %s %s for %s\n", projectName, newRelease, platform)
+	logMsg("Downloading %s %s for %s", projectName, newRelease, platform)
 	if err := downloadAndExtract(projectName, osName, arch, newRelease, tmpDir, "new"); err != nil {
 		slog.Error("Failed to get new release", "err", err)
 		os.Exit(1)
 	}
 
 	patchFile := fmt.Sprintf("grew-%s-%s-%s-to-%s.bspatch", parts[0], parts[1], prevRelease, newRelease)
-	fmt.Printf("==> Generating patch %s\n", patchFile)
+	logMsg("Generating patch %s", patchFile)
 
 	cmd := exec.Command("bsdiff", oldBin, newBin, patchFile)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
+	if flags.Verbose {
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+	}
 	if err := cmd.Run(); err != nil {
 		slog.Error("bsdiff failed", "err", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("==> Success! Patch file created: %s\n", patchFile)
+	sha256, err := downloader.ComputeSHA256(patchFile)
+	if err != nil {
+		slog.Error("Failed to compute SHA256", "err", err)
+		os.Exit(1)
+	}
+
+	sha512, err := downloader.ComputeSHA512(patchFile)
+	if err != nil {
+		slog.Error("Failed to compute SHA512", "err", err)
+		os.Exit(1)
+	}
+
+	logMsg("Success! Patch file created: %s", patchFile)
+
+	// Print checksums.txt format to stdout
+	fmt.Printf("%s  %s\n", sha256, patchFile)
+	fmt.Printf("%s  %s\n", sha512, patchFile)
 }
 
 func downloadAndExtract(projectName, osName, arch, version, tmpDir, subDir string) error {
@@ -138,7 +178,7 @@ func downloadAndExtract(projectName, osName, arch, version, tmpDir, subDir strin
 	if err != nil {
 		return fmt.Errorf("failed to resolve binpath: %w", err)
 	}
-	
+
 	if _, err := os.Stat(binPath); os.IsNotExist(err) {
 		binPath, err = safepath.SafeJoin(destDir, projectName)
 		if err != nil {
@@ -150,7 +190,7 @@ func downloadAndExtract(projectName, osName, arch, version, tmpDir, subDir strin
 	if err != nil {
 		return fmt.Errorf("failed to resolve finalpath: %w", err)
 	}
-	
+
 	if binPath != finalPath {
 		if err := os.Rename(binPath, finalPath); err != nil {
 			return fmt.Errorf("failed to move extracted binary: %w", err)
