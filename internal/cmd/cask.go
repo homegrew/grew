@@ -5,9 +5,9 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/homegrew/grew/internal/cask"
+	"strings"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
@@ -54,32 +54,63 @@ func loadCask(name string) (config.Paths, *cask.Cask, *cask.Caskroom, error) {
 	return paths, c, cr, nil
 }
 
-// removeIfWithin deletes targetPath only if it is within baseDir (after cleaning).
+// removeIfWithin deletes targetPath only if it resolves within baseDir.
 // If the check fails, it returns an error and does not attempt deletion.
 func removeIfWithin(targetPath, baseDir string) error {
 	if targetPath == "" || baseDir == "" {
 		return fmt.Errorf("empty path for removal")
 	}
-	baseClean, err := filepath.Abs(baseDir)
+
+	baseAbs, err := filepath.Abs(baseDir)
 	if err != nil {
 		return fmt.Errorf("resolve base dir: %w", err)
 	}
-	baseClean = filepath.Clean(baseClean)
-	targetClean, err := filepath.Abs(targetPath)
+	canonBase, err := filepath.EvalSymlinks(baseAbs)
+	if err != nil {
+		return fmt.Errorf("resolve base symlinks: %w", err)
+	}
+	canonBase = filepath.Clean(canonBase)
+	if err := safepath.SafeAbsolutePath(canonBase); err != nil {
+		return fmt.Errorf("invalid canonical base path %q: %w", canonBase, err)
+	}
+
+	targetAbs, err := filepath.Abs(targetPath)
 	if err != nil {
 		return fmt.Errorf("resolve target path: %w", err)
 	}
-	targetClean = filepath.Clean(targetClean)
+	canonTarget, err := filepath.EvalSymlinks(targetAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			canonTarget = filepath.Clean(targetAbs)
+		} else {
+			return fmt.Errorf("resolve target symlinks: %w", err)
+		}
+	} else {
+		canonTarget = filepath.Clean(canonTarget)
+	}
+	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
+		return fmt.Errorf("invalid canonical target path %q: %w", canonTarget, err)
+	}
 
-	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	baseWithSep := baseClean
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
+	if canonTarget == canonBase {
+		return fmt.Errorf("refusing to remove base directory path: %s", canonTarget)
 	}
-	if targetClean != baseClean && !strings.HasPrefix(targetClean, baseWithSep) {
-		return fmt.Errorf("refusing to remove path outside base directory: %s", targetClean)
+	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
+		return fmt.Errorf("refusing to remove path outside base directory: %s", canonTarget)
 	}
-	return os.Remove(targetClean)
+
+	fi, err := os.Lstat(canonTarget)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return fmt.Errorf("stat target for removal: %w", err)
+	}
+	if fi.IsDir() {
+		return fmt.Errorf("refusing to remove directory path: %s", canonTarget)
+	}
+
+	return os.Remove(canonTarget)
 }
 
 func caskInstall(name string, noQuarantine bool) error {
@@ -132,6 +163,43 @@ func caskInstall(name string, noQuarantine bool) error {
 	if err != nil {
 		return fmt.Errorf("download %s: %w", c.Name, err)
 	}
+
+	// Re-canonicalize and constrain downloader output before any sink usage.
+	tmpAbs, err := filepath.Abs(paths.Tmp)
+	if err != nil {
+		return fmt.Errorf("resolve temp directory: %w", err)
+	}
+	canonTmp, err := filepath.EvalSymlinks(tmpAbs)
+	if err != nil {
+		return fmt.Errorf("resolve temp directory symlinks: %w", err)
+	}
+	canonTmp = filepath.Clean(canonTmp)
+	if err := safepath.SafeAbsolutePath(canonTmp); err != nil {
+		return fmt.Errorf("invalid temp directory path %q: %w", canonTmp, err)
+	}
+
+	localAbs, err := filepath.Abs(localFile)
+	if err != nil {
+		return fmt.Errorf("resolve downloaded path: %w", err)
+	}
+	canonLocal, err := filepath.EvalSymlinks(localAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			canonLocal = filepath.Clean(localAbs)
+		} else {
+			return fmt.Errorf("resolve downloaded path symlinks: %w", err)
+		}
+	} else {
+		canonLocal = filepath.Clean(canonLocal)
+	}
+	if err := safepath.SafeAbsolutePath(canonLocal); err != nil {
+		return fmt.Errorf("invalid downloaded path %q: %w", canonLocal, err)
+	}
+	if err := safepath.CheckSubpath(canonTmp, canonLocal); err != nil {
+		return fmt.Errorf("downloaded path escapes temp directory: %w", err)
+	}
+	localFile = canonLocal
+
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256Within(paths.Tmp, localFile, sha); err != nil {
