@@ -32,6 +32,12 @@ type BuildSpec struct {
 	Install   []string `yaml:"install"`
 }
 
+type ArtifactsSpec struct {
+	App []string `yaml:"app"`
+	Pkg []string `yaml:"pkg"`
+	Bin []string `yaml:"bin"`
+}
+
 type Formula struct {
 	Name         string            `yaml:"name"`
 	Version      string            `yaml:"version"`
@@ -56,6 +62,7 @@ type Formula struct {
 	LinuxDependencies []string              `yaml:"linux_dependencies"`
 	Build             BuildSpec             `yaml:"build"`
 	Service           *ServiceSpec          `yaml:"service"`
+	Artifacts         ArtifactsSpec         `yaml:"artifacts"`
 }
 
 type ServiceSpec struct {
@@ -308,7 +315,11 @@ func (f *Formula) Validate() error {
 	}
 
 	if f.Install.Type == "" && len(f.Build.Configure) == 0 && len(f.Build.Install) == 0 {
-		if len(f.Bottle) > 0 {
+		if len(f.Artifacts.App) > 0 || len(f.Artifacts.Pkg) > 0 || len(f.Artifacts.Bin) > 0 {
+			// Casks don't strictly require install.type or build configuration.
+			// The default archive extractor will handle them if needed.
+			f.Install.Type = "archive"
+		} else if len(f.Bottle) > 0 {
 			f.Install.Type = "archive"
 			f.Install.StripComponents = 2 // Most homebrew bottles extract to `name/version/`
 		} else {

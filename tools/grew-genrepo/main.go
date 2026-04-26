@@ -25,36 +25,40 @@ import (
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/pkg/logger"
+	"github.com/homegrew/grew/pkg/validation"
 	"gopkg.in/yaml.v3"
-)
+	)
 
-const (
+	const (
 	formulaAPI = "https://formulae.brew.sh/api/formula.json"
 	caskAPI    = "https://formulae.brew.sh/api/cask.json"
-)
+	)
 
-// Shared Platform Mapping Preferences
-var (
-	darwinARM64Prefs = []string{
-		"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all",
-	}
-	darwinAMD64Prefs = []string{
-		"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all",
-	}
-	linuxAMD64Prefs = []string{"x86_64_linux", "all"}
-	linuxARM64Prefs = []string{"arm64_linux", "all"}
-
+	// Shared Platform Mapping Preferences
+	var (
 	platforms = []struct {
-		key   string
-		prefs []string
+	        key   string
+	        prefs []string
 	}{
-		{"darwin_arm64", darwinARM64Prefs},
-		{"darwin_amd64", darwinAMD64Prefs},
-		{"linux_amd64", linuxAMD64Prefs},
-		{"linux_arm64", linuxARM64Prefs},
+	        {"darwin_arm64_16", []string{"arm64_tahoe", "all"}},
+	        {"darwin_arm64_15", []string{"arm64_sequoia", "all"}},
+	        {"darwin_arm64_14", []string{"arm64_sonoma", "all"}},
+	        {"darwin_arm64_13", []string{"arm64_ventura", "all"}},
+	        {"darwin_arm64_12", []string{"arm64_monterey", "all"}},
+	        {"darwin_arm64_11", []string{"arm64_big_sur", "all"}},
+	        {"darwin_arm64", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
+	        {"darwin_amd64_16", []string{"tahoe", "all"}},
+	        {"darwin_amd64_15", []string{"sequoia", "all"}},
+	        {"darwin_amd64_14", []string{"sonoma", "all"}},
+	        {"darwin_amd64_13", []string{"ventura", "all"}},
+	        {"darwin_amd64_12", []string{"monterey", "all"}},
+	        {"darwin_amd64_11", []string{"big_sur", "all"}},
+	        {"darwin_amd64_10", []string{"catalina", "mojave", "high_sierra", "sierra", "all"}},
+	        {"darwin_amd64", []string{"sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
+	        {"linux_amd64", []string{"x86_64_linux", "all"}},
+	        {"linux_arm64", []string{"arm64_linux", "all"}},
 	}
-)
-
+	)
 func main() {
 	fs := flag.NewFlagSet("grew-genrepo", flag.ExitOnError)
 	var verbose, debug bool
@@ -100,39 +104,48 @@ func usage() {
 
 // --- Formula Importer ---
 
+type hbService struct {
+        Run        any      `json:"run"`
+        RunType    string   `json:"run_type"`
+        KeepAlive  any      `json:"keep_alive"`
+        WorkingDir string   `json:"working_dir"`
+        LogPath    string   `json:"log_path"`
+        ErrorLog   string   `json:"error_log_path"`
+}
+
 type hbFormula struct {
-	Name     string `json:"name"`
-	Desc     string `json:"desc"`
-	Homepage string `json:"homepage"`
-	License  string `json:"license"`
-	Versions struct {
-		Stable string `json:"stable"`
-	} `json:"versions"`
-	Urls struct {
-		Stable struct{ URL, Checksum string } `json:"stable"`
-	} `json:"urls"`
-	Bottle struct {
-		Stable struct {
-			Files map[string]struct{ URL, SHA256 string } `json:"files"`
-		} `json:"stable"`
-	} `json:"bottle"`
-	Dependencies      []string `json:"dependencies"`
-	BuildDependencies []string `json:"build_dependencies"`
-	Variations        struct {
-		LinuxAMD64 struct {
-			Dependencies []string `json:"dependencies"`
-		} `json:"x86_64_linux"`
-		LinuxARM64 struct {
-			Dependencies []string `json:"dependencies"`
-		} `json:"arm64_linux"`
-	} `json:"variations"`
-	KegOnly    bool `json:"keg_only"`
-	Deprecated bool `json:"deprecated"`
-	Disabled   bool `json:"disabled"`
+        Name     string `json:"name"`
+        Desc     string `json:"desc"`
+        Homepage string `json:"homepage"`
+        License  string `json:"license"`
+        Versions struct {
+                Stable string `json:"stable"`
+        } `json:"versions"`
+        Urls struct {
+                Stable struct{ URL, Checksum string } `json:"stable"`
+        } `json:"urls"`
+        Bottle struct {
+                Stable struct {
+                        Files map[string]struct{ URL, SHA256 string } `json:"files"`
+                } `json:"stable"`
+        } `json:"bottle"`
+        Dependencies      []string `json:"dependencies"`
+        BuildDependencies []string `json:"build_dependencies"`
+        Variations        struct {
+                LinuxAMD64 struct {
+                        Dependencies []string `json:"dependencies"`
+                } `json:"x86_64_linux"`
+                LinuxARM64 struct {
+                        Dependencies []string `json:"dependencies"`
+                } `json:"arm64_linux"`
+        } `json:"variations"`
+        Service    *hbService `json:"service"`
+        KegOnly    bool       `json:"keg_only"`
+        Deprecated bool       `json:"deprecated"`
+        Disabled   bool       `json:"disabled"`
 }
 
 var safeOutDirName = regexp.MustCompile(`^[A-Za-z0-9._-]+$`)
-
 func sanitizeOutputDir(input string) (string, error) {
 	v := strings.TrimSpace(input)
 	if v == "" {
@@ -221,9 +234,43 @@ func runFormulaImport(args []string) {
 			Dependencies:      hf.Dependencies,
 			BuildDependencies: hf.BuildDependencies,
 			KegOnly:           hf.KegOnly,
-		}
+			}
 
-		linuxDeps := map[string]bool{}
+			if hf.Service != nil && hf.Service.Run != nil {
+			var runCmd []string
+			switch v := hf.Service.Run.(type) {
+			case string:
+			        runCmd = []string{v}
+			case []any:
+			        for _, arg := range v {
+			                if strArg, ok := arg.(string); ok {
+			                        runCmd = append(runCmd, strArg)
+			                }
+			        }
+			}
+
+			if len(runCmd) > 0 {
+			        f.Service = &formula.ServiceSpec{
+			                Run:          runCmd,
+			                RunType:      hf.Service.RunType,
+			                WorkingDir:   hf.Service.WorkingDir,
+			                LogPath:      hf.Service.LogPath,
+			                ErrorLogPath: hf.Service.ErrorLog,
+			        }
+			        if hf.Service.KeepAlive != nil {
+			                switch v := hf.Service.KeepAlive.(type) {
+			                case bool:
+			                        f.Service.KeepAlive = v
+			                default:
+			                        f.Service.KeepAlive = true
+			                }
+			        }
+			}
+			}
+
+			f.Artifacts.Bin = []string{hf.Name}
+			linuxDeps := map[string]bool{}
+
 		for _, d := range hf.Variations.LinuxAMD64.Dependencies {
 			linuxDeps[d] = true
 		}
@@ -324,91 +371,122 @@ func runCaskImport(args []string) {
 	imported, skipped := 0, 0
 
 	for _, hc := range hcs {
-		if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || (hc.SHA256 == "" && hc.SHA512 == "") || hc.SHA256 == "no_check" {
-			skipped++
-			continue
-		}
+	        if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || (hc.SHA256 == "" && hc.SHA512 == "") || hc.SHA256 == "no_check" {
+	                skipped++
+	                continue
+	        }
 
-		urlMap := map[string]string{"darwin_arm64": hc.URL, "darwin_amd64": hc.URL}
-		shaMap := map[string]string{"darwin_arm64": hc.SHA256, "darwin_amd64": hc.SHA256}
-		sha512Map := map[string]string{"darwin_arm64": hc.SHA512, "darwin_amd64": hc.SHA512}
+	        if !validation.IsValidName(hc.Token) {
+	                slog.Warn("Skipping cask with invalid token", "token", hc.Token)
+	                skipped++
+	                continue
+	        }
 
-		for _, pm := range platforms {
-			if !strings.HasPrefix(pm.key, "darwin") {
-				continue
-			}
-			for _, pref := range pm.prefs {
-				if v, ok := hc.Variations[pref]; ok {
-					urlMap[pm.key] = v.URL
-					shaMap[pm.key] = v.SHA256
-					sha512Map[pm.key] = v.SHA512
-					break
-				}
-			}
-		}
+	        outPath, err := safeJoinUnderBase(outDir, hc.Token+".yaml")
+	        if err != nil {
+	                slog.Warn("Skipping cask due to invalid output path", "token", hc.Token, "error", err)
+	                skipped++
+	                continue
+	        }
+
+	        urlMap := make(map[string]string)
+	        shaMap := make(map[string]string)
+	        sha512Map := make(map[string]string)
+
+	        for _, pm := range platforms {
+	                if !strings.HasPrefix(pm.key, "darwin") {
+	                        continue
+	                }
+	                // Default to top-level values
+	                urlMap[pm.key] = hc.URL
+	                shaMap[pm.key] = hc.SHA256
+	                sha512Map[pm.key] = hc.SHA512
+
+	                for _, pref := range pm.prefs {
+	                        if v, ok := hc.Variations[pref]; ok {
+	                                urlMap[pm.key] = v.URL
+	                                shaMap[pm.key] = v.SHA256
+	                                sha512Map[pm.key] = v.SHA512
+	                                break
+	                        }
+	                }
+	        }
+
 
 		arts := parseCaskArtifacts(hc.Artifacts)
-		if len(arts.App) == 0 && len(arts.Bin) == 0 {
-			skipped++
-			continue
+		if len(arts.App) == 0 && len(arts.Bin) == 0 && len(arts.Pkg) == 0 {
+		        skipped++
+		        continue
 		}
-
 		c := &cask.Cask{
 			Name: hc.Token, Version: hc.Version, Description: hc.Desc, Homepage: hc.Homepage,
 			License: hc.License, URL: urlMap, SHA256: shaMap, SHA512: sha512Map, Artifacts: arts,
 			Source: cask.SourceSpec{URL: hc.URL, SHA256: hc.SHA256, SHA512: hc.SHA512},
-		}
+			}
 
-		saveYAML(filepath.Join(outDir, hc.Token+".yaml"), c)
-		imported++
-	}
+			saveYAML(outPath, c)
+			imported++
+			}
+
 	slog.Info("Cask import complete", "imported", imported, "skipped", skipped)
 }
 
 func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
-	var res cask.Artifacts
-	for _, m := range raw {
-		var obj map[string]json.RawMessage
-		if err := json.Unmarshal(m, &obj); err != nil {
-			slog.Debug("artifact unmarshal failed", "error", err)
-			continue
-		}
-		if app, ok := obj["app"]; ok {
-			var apps []string
-			if err := json.Unmarshal(app, &apps); err != nil {
-				slog.Debug("app unmarshal failed", "error", err)
-			} else {
-				res.App = append(res.App, apps...)
-			}
-		}
-		if bin, ok := obj["binary"]; ok {
-			var binArr []json.RawMessage
-			if err := json.Unmarshal(bin, &binArr); err != nil {
-				slog.Debug("binary array unmarshal failed", "error", err)
-			} else if len(binArr) > 0 {
-				var path string
-				if err := json.Unmarshal(binArr[0], &path); err != nil {
-					slog.Debug("binary path unmarshal failed", "error", err)
-				} else {
-					name := filepath.Base(path)
-					if len(binArr) > 1 {
-						var opts map[string]string
-						if err := json.Unmarshal(binArr[1], &opts); err != nil {
-							slog.Debug("binary options unmarshal failed", "error", err)
-						} else {
-							if t, ok := opts["target"]; ok {
-								name = t
-							}
-						}
-					}
-					res.Bin = append(res.Bin, name)
-				}
-			}
-		}
-	}
-	return res
+        var res cask.Artifacts
+        for _, m := range raw {
+                var obj map[string]json.RawMessage
+                if err := json.Unmarshal(m, &obj); err != nil {
+                        slog.Debug("artifact unmarshal failed", "error", err)
+                        continue
+                }
+                if app, ok := obj["app"]; ok {
+                        var apps []string
+                        if err := json.Unmarshal(app, &apps); err != nil {
+                                slog.Debug("app unmarshal failed", "error", err)
+                        } else {
+                                res.App = append(res.App, apps...)
+                        }
+                }
+                if pkg, ok := obj["pkg"]; ok {
+                        var pkgs []string
+                        if err := json.Unmarshal(pkg, &pkgs); err != nil {
+                                slog.Debug("pkg unmarshal failed", "error", err)
+                        } else {
+                                res.Pkg = append(res.Pkg, pkgs...)
+                        }
+                }
+                if bin, ok := obj["binary"]; ok {
+                        var s string
+                        if err := json.Unmarshal(bin, &s); err == nil {
+                                res.Bin = append(res.Bin, filepath.Base(s))
+                        } else {
+                                var binArr []json.RawMessage
+                                if err := json.Unmarshal(bin, &binArr); err != nil {
+                                        slog.Debug("binary array unmarshal failed", "error", err)
+                                } else if len(binArr) > 0 {
+                                        var path string
+                                        if err := json.Unmarshal(binArr[0], &path); err != nil {
+                                                slog.Debug("binary path unmarshal failed", "error", err)
+                                        } else {
+                                                name := filepath.Base(path)
+                                                if len(binArr) > 1 {
+                                                        var opts map[string]string
+                                                        if err := json.Unmarshal(binArr[1], &opts); err != nil {
+                                                                slog.Debug("binary options unmarshal failed", "error", err)
+                                                        } else {
+                                                                if t, ok := opts["target"]; ok {
+                                                                        name = t
+                                                                }
+                                                        }
+                                                }
+                                                res.Bin = append(res.Bin, name)
+                                        }
+                                }
+                        }
+                }
+        }
+        return res
 }
-
 // --- Common Helpers ---
 
 func safeJoinUnderBase(base, rel string) (string, error) {
