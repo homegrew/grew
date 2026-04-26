@@ -24,10 +24,9 @@ func runReinstall(args []string) error {
 	}
 	flags.Resolve()
 
-	if fs.NArg() != 1 {
-		return fmt.Errorf("usage: grew reinstall [-f] [--zap] [-s] <formula>")
+	if fs.NArg() == 0 {
+		return fmt.Errorf("usage: grew reinstall [-f] [--zap] [-s] <formula>...")
 	}
-	name := fs.Arg(0)
 
 	ctx, err := newInstallContext()
 	if err != nil {
@@ -35,76 +34,85 @@ func runReinstall(args []string) error {
 	}
 	defer ctx.Close()
 
-	if !ctx.Cellar.IsInstalled(name) && !*force {
-		return fmt.Errorf("formula %q is not installed (use --force to install anyway)", name)
-	}
-
-	f, err := ctx.Loader.LoadByName(name)
-	if err != nil {
-		return fmt.Errorf("formula not found: %s", name)
-	}
-
-	fmt.Printf("==> Reinstalling %s %s\n", f.Name, f.Version)
-
-	// Unlink existing installation.
-	if ctx.Cellar.IsInstalled(name) {
-		ctx.Linker.Unlink(name)
-		slog.Info("unlinked " + name)
-	}
-
-	if *zap {
-		// Remove all installed versions of this formula.
-		versions, _ := ctx.Cellar.InstalledVersions(name)
-
-		resolvedCellarBase, err := filepath.EvalSymlinks(ctx.Cellar.Path)
-		if err != nil {
-			if resolvedCellarBase, err = filepath.Abs(ctx.Cellar.Path); err != nil {
-				return fmt.Errorf("resolve cellar path: %w", err)
-			}
+	for _, name := range fs.Args() {
+		if !ctx.Cellar.IsInstalled(name) && !*force {
+			return fmt.Errorf("formula %q is not installed (use --force to install anyway)", name)
 		}
-		resolvedCellarBase = filepath.Clean(resolvedCellarBase)
 
-		for _, ver := range versions {
-			kegPath, err := ctx.Cellar.KegPath(name, ver)
-			if err != nil {
-				slog.Warn(fmt.Sprintf("skipping invalid keg path for %s %s: %v", name, ver, err))
-				continue
-			}
+		f, err := ctx.Loader.LoadByName(name)
+		if err != nil {
+			return fmt.Errorf("formula not found: %s", name)
+		}
 
-			resolvedKegPath, err := filepath.EvalSymlinks(kegPath)
+		fmt.Printf("==> Reinstalling %s %s\n", f.Name, f.Version)
+
+		// Unlink existing installation.
+		if ctx.Cellar.IsInstalled(name) {
+			ctx.Linker.Unlink(name)
+			slog.Info("unlinked " + name)
+		}
+
+		if *zap {
+			// Remove all installed versions of this formula.
+			versions, _ := ctx.Cellar.InstalledVersions(name)
+
+			resolvedCellarBase, err := filepath.EvalSymlinks(ctx.Cellar.Path)
 			if err != nil {
-				if resolvedKegPath, err = filepath.Abs(kegPath); err != nil {
-					slog.Warn(fmt.Sprintf("skipping unresolved keg path for %s %s: %v", name, ver, err))
-					continue
+				if resolvedCellarBase, err = filepath.Abs(ctx.Cellar.Path); err != nil {
+					return fmt.Errorf("resolve cellar path: %w", err)
 				}
 			}
-			resolvedKegPath = filepath.Clean(resolvedKegPath)
+			resolvedCellarBase = filepath.Clean(resolvedCellarBase)
 
-			if err := safepath.CheckSubpath(resolvedCellarBase, resolvedKegPath); err != nil {
-				slog.Warn(fmt.Sprintf("skipping unsafe keg path for %s %s: %v", name, ver, err))
-				continue
+			for _, ver := range versions {
+				kegPath, err := ctx.Cellar.KegPath(name, ver)
+				if err != nil {
+					slog.Warn(fmt.Sprintf("skipping invalid keg path for %s %s: %v", name, ver, err))
+					continue
+				}
+
+				resolvedKegPath, err := filepath.EvalSymlinks(kegPath)
+				if err != nil {
+					if resolvedKegPath, err = filepath.Abs(kegPath); err != nil {
+						slog.Warn(fmt.Sprintf("skipping unresolved keg path for %s %s: %v", name, ver, err))
+						continue
+					}
+				}
+				resolvedKegPath = filepath.Clean(resolvedKegPath)
+
+				if err := safepath.CheckSubpath(resolvedCellarBase, resolvedKegPath); err != nil {
+					slog.Warn(fmt.Sprintf("skipping unsafe keg path for %s %s: %v", name, ver, err))
+					continue
+				}
+				slog.Info(fmt.Sprintf("removing %s %s", name, ver))
+				if err := os.RemoveAll(resolvedKegPath); err != nil {
+					slog.Warn(fmt.Sprintf("failed removing %s: %v", resolvedKegPath, err))
+				}
 			}
-			slog.Info(fmt.Sprintf("removing %s %s", name, ver))
-			if err := os.RemoveAll(resolvedKegPath); err != nil {
-				slog.Warn(fmt.Sprintf("failed removing %s: %v", resolvedKegPath, err))
+			// Remove any leftover staging/build dirs in tmp.
+			cleanTmpFor(ctx.Paths.Root, ctx.Paths.Tmp, name)
+			slog.Info("zapped all versions and temp files for " + name)
+		} else if ctx.Cellar.IsInstalled(name) {
+			if err := ctx.Cellar.Uninstall(name); err != nil {
+				return fmt.Errorf("remove old installation: %w", err)
+			}
+			slog.Info("removed old cellar entry")
+		}
+
+		// Fresh install.
+		opts := installOpts{installedOnRequest: true}
+		if *buildFromSource {
+			if err := installFormulaFromSource(f, ctx, opts); err != nil {
+				return err
+			}
+		} else {
+			if err := installFormula(f, ctx, opts); err != nil {
+				return err
 			}
 		}
-		// Remove any leftover staging/build dirs in tmp.
-		cleanTmpFor(ctx.Paths.Root, ctx.Paths.Tmp, name)
-		slog.Info("zapped all versions and temp files for " + name)
-	} else if ctx.Cellar.IsInstalled(name) {
-		if err := ctx.Cellar.Uninstall(name); err != nil {
-			return fmt.Errorf("remove old installation: %w", err)
-		}
-		slog.Info("removed old cellar entry")
 	}
 
-	// Fresh install.
-	opts := installOpts{installedOnRequest: true}
-	if *buildFromSource {
-		return installFormulaFromSource(f, ctx, opts)
-	}
-	return installFormula(f, ctx, opts)
+	return nil
 }
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.

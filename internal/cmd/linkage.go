@@ -31,89 +31,102 @@ func runLinkage(args []string) error {
 	}
 
 	remaining := fs.Args()
-	if len(remaining) != 1 {
-		return fmt.Errorf("usage: grew linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>")
+	if len(remaining) == 0 {
+		return fmt.Errorf("usage: grew linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>...")
 	}
-
-	name := remaining[0]
 
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	if !ctx.Cellar.IsInstalled(name) {
-		return fmt.Errorf("%s is not installed", name)
-	}
+	var hasErrors bool
 
-	version, err := ctx.Cellar.InstalledVersion(name)
-	if err != nil {
-		return err
-	}
+	for _, name := range remaining {
+		if !ctx.Cellar.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("%s is not installed", name))
+			continue
+		}
 
-	kegPath, err := ctx.Cellar.KegPath(name, version)
-	if err != nil {
-		return err
-	}
-
-	if *reverse {
-		result, err := linkage.Reverse(name, version, kegPath, ctx.Paths.Cellar)
+		version, err := ctx.Cellar.InstalledVersion(name)
 		if err != nil {
-			return fmt.Errorf("reverse linkage: %w", err)
+			return err
 		}
-		fmt.Print(linkage.FormatReverseResult(result, *quiet))
-		return nil
-	}
 
-	var result *linkage.Result
+		kegPath, err := ctx.Cellar.KegPath(name, version)
+		if err != nil {
+			return err
+		}
 
-	if *cached {
-		r, loadErr := linkage.LoadCache(kegPath)
-		if loadErr != nil {
-			return fmt.Errorf("load linkage cache: %w", loadErr)
+		if *reverse {
+			result, err := linkage.Reverse(name, version, kegPath, ctx.Paths.Cellar)
+			if err != nil {
+				return fmt.Errorf("reverse linkage: %w", err)
+			}
+			if len(remaining) > 1 && !*quiet {
+				fmt.Printf("==> Reverse linkage for %s\n", name)
+			}
+			fmt.Print(linkage.FormatReverseResult(result, *quiet))
+			continue
 		}
-		if r != nil {
-			slog.Info("using cached linkage")
-			result = r
-		}
-	}
 
-	if result == nil {
-		r, checkErr := linkage.Check(name, version, kegPath, ctx.Paths.Cellar)
-		if checkErr != nil {
-			return fmt.Errorf("linkage check: %w", checkErr)
-		}
-		result = r
+		var result *linkage.Result
 
 		if *cached {
-			if saveErr := linkage.SaveCache(result); saveErr != nil {
-				return fmt.Errorf("save linkage cache: %w", saveErr)
+			r, loadErr := linkage.LoadCache(kegPath)
+			if loadErr != nil {
+				return fmt.Errorf("load linkage cache: %w", loadErr)
+			}
+			if r != nil {
+				slog.Info("using cached linkage for " + name)
+				result = r
+			}
+		}
+
+		if result == nil {
+			r, checkErr := linkage.Check(name, version, kegPath, ctx.Paths.Cellar)
+			if checkErr != nil {
+				return fmt.Errorf("linkage check: %w", checkErr)
+			}
+			result = r
+
+			if *cached {
+				if saveErr := linkage.SaveCache(result); saveErr != nil {
+					return fmt.Errorf("save linkage cache: %w", saveErr)
+				}
+			}
+		}
+
+		fmtOpts := linkage.FormatOpts{Test: *test, Quiet: *quiet}
+
+		if *strict {
+			f, err := ctx.Loader.LoadByName(name)
+			if err != nil {
+				return fmt.Errorf("load formula %s: %w", name, err)
+			}
+			sr := result.Strict(f.Dependencies)
+			fmtOpts.Strict = &sr
+		}
+
+		if len(remaining) > 1 && !*quiet {
+			fmt.Printf("==> Linkage for %s\n", name)
+		}
+		fmt.Print(linkage.FormatResult(result, fmtOpts))
+
+		if *test {
+			if len(result.Broken()) > 0 {
+				hasErrors = true
+			}
+			if *strict && fmtOpts.Strict != nil {
+				if len(fmtOpts.Strict.Undeclared) > 0 || len(fmtOpts.Strict.Unused) > 0 {
+					hasErrors = true
+				}
 			}
 		}
 	}
 
-	fmtOpts := linkage.FormatOpts{Test: *test, Quiet: *quiet}
-
-	if *strict {
-		f, err := ctx.Loader.LoadByName(name)
-		if err != nil {
-			return fmt.Errorf("load formula %s: %w", name, err)
-		}
-		sr := result.Strict(f.Dependencies)
-		fmtOpts.Strict = &sr
-	}
-
-	fmt.Print(linkage.FormatResult(result, fmtOpts))
-
-	if *test {
-		if len(result.Broken()) > 0 {
-			return fmt.Errorf("broken linkage found")
-		}
-		if *strict && fmtOpts.Strict != nil {
-			if len(fmtOpts.Strict.Undeclared) > 0 || len(fmtOpts.Strict.Unused) > 0 {
-				return fmt.Errorf("strict linkage check failed")
-			}
-		}
+	if *test && hasErrors {
+		return fmt.Errorf("linkage check failed")
 	}
 	return nil
 }

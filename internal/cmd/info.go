@@ -19,58 +19,70 @@ func runInfo(args []string) error {
 	}
 	flags.Resolve()
 
-	if fs.NArg() != 1 {
-		return fmt.Errorf("usage: grew info [--cask] <formula>")
+	if fs.NArg() == 0 {
+		return fmt.Errorf("usage: grew info [--cask] <formula>...")
 	}
 
 	if *isCask {
-		return caskInfo(fs.Arg(0))
+		for i, name := range fs.Args() {
+			if i > 0 {
+				fmt.Println()
+			}
+			if err := caskInfo(name); err != nil {
+				return err
+			}
+		}
+		return nil
 	}
-
-	name := fs.Arg(0)
 
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	f, err := ctx.Loader.LoadByName(name)
-	if err != nil {
-		return fmt.Errorf("formula not found: %s", name)
-	}
-
 	lnk := &linker.Linker{Paths: ctx.Paths}
 
-	fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
-	fmt.Printf("Homepage: %s\n", f.Homepage)
-	fmt.Printf("License:  %s\n", f.License)
-
-	if ctx.Cellar.IsInstalled(f.Name) {
-		ver, _ := ctx.Cellar.InstalledVersion(f.Name)
-		linked := "not linked"
-		if lnk.IsLinked(f.Name) {
-			linked = "linked"
+	for i, name := range fs.Args() {
+		if i > 0 {
+			fmt.Println()
 		}
-		fmt.Printf("Installed: %s (%s)\n", ver, linked)
-		cellarPath, _ := ctx.Cellar.KegPath(f.Name, ver)
-		slog.Info("cellar: " + cellarPath)
-	} else {
-		fmt.Println("Installed: no")
-	}
 
-	if f.KegOnly {
-		fmt.Println("Keg-only: yes")
-	}
+		f, err := ctx.Loader.LoadByName(name)
+		if err != nil {
+			return fmt.Errorf("formula not found: %s", name)
+		}
 
-	if len(f.Dependencies) > 0 {
-		fmt.Printf("Dependencies: %s\n", strings.Join(f.Dependencies, ", "))
-	}
+		fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
+		fmt.Printf("Homepage: %s\n", f.Homepage)
+		fmt.Printf("License:  %s\n", f.License)
 
-	platforms := make([]string, 0, len(f.URL))
-	for k := range f.URL {
-		platforms = append(platforms, k)
+		if ctx.Cellar.IsInstalled(f.Name) {
+			ver, _ := ctx.Cellar.InstalledVersion(f.Name)
+			linked := "not linked"
+			if lnk.IsLinked(f.Name) {
+				linked = "linked"
+			}
+			fmt.Printf("Installed: %s (%s)\n", ver, linked)
+			cellarPath, _ := ctx.Cellar.KegPath(f.Name, ver)
+			slog.Info("cellar: " + cellarPath)
+		} else {
+			fmt.Println("Installed: no")
+		}
+
+		if f.KegOnly {
+			fmt.Println("Keg-only: yes")
+		}
+
+		if len(f.Dependencies) > 0 {
+			fmt.Printf("Dependencies: %s\n", strings.Join(f.Dependencies, ", "))
+		}
+
+		platforms := make([]string, 0, len(f.URL))
+		for k := range f.URL {
+			platforms = append(platforms, k)
+		}
+		fmt.Printf("Platforms: %s\n", strings.Join(platforms, ", "))
 	}
-	fmt.Printf("Platforms: %s\n", strings.Join(platforms, ", "))
 
 	return nil
 }

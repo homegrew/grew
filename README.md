@@ -146,6 +146,7 @@ grew verify jq               # check installed files against manifest
 grew vuln-scan               # scan for CVEs and integrity issues
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
+grew leaves | xargs grew uninstall # uninstall all top-level packages
 ```
 
 ---
@@ -157,6 +158,7 @@ grew audit --strict          # lint your formulas
 | `install` | Install a formula or cask (`-s` to build from source) |
 | `uninstall` | Send it to the void |
 | `list` | See what you've collected |
+| `leaves` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk a package |
 | `search` | Find the thing |
 | `link` | Weave a formula into your PATH |

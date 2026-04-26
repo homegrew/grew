@@ -22,15 +22,19 @@ func runUninstall(args []string) error {
 	}
 	flags.Resolve()
 
-	if fs.NArg() != 1 {
-		return fmt.Errorf("usage: grew uninstall [--cask] <formula>")
+	if fs.NArg() == 0 {
+		return fmt.Errorf("usage: grew uninstall [--cask] <formula>...")
 	}
 
 	if *isCask {
-		return caskUninstall(fs.Arg(0))
+		for _, name := range fs.Args() {
+			if err := caskUninstall(name); err != nil {
+				return err
+			}
+		}
+		return nil
 	}
 
-	name := fs.Arg(0)
 	paths := config.Default()
 
 	lock, err := acquireGlobalLock(paths)
@@ -45,28 +49,31 @@ func runUninstall(args []string) error {
 	}()
 
 	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	if !cel.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
-	}
-
 	lnk := &linker.Linker{Paths: paths}
+	auditLogger := auditlog.New(paths.Log)
 
-	ver, _ := cel.InstalledVersion(name)
-	kegPath, _ := cel.KegPath(name, ver)
-	slog.Info("cellar path: " + kegPath)
+	for _, name := range fs.Args() {
+		if !cel.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			continue
+		}
 
-	fmt.Printf("==> Unlinking %s...\n", name)
-	lnk.Unlink(name)
-	slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+		ver, _ := cel.InstalledVersion(name)
+		kegPath, _ := cel.KegPath(name, ver)
+		slog.Info("cellar path: " + kegPath)
 
-	fmt.Printf("==> Removing %s...\n", name)
-	if err := cel.Uninstall(name); err != nil {
-		return err
+		fmt.Printf("==> Unlinking %s...\n", name)
+		lnk.Unlink(name)
+		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+
+		fmt.Printf("==> Removing %s...\n", name)
+		if err := cel.Uninstall(name); err != nil {
+			return err
+		}
+
+		auditLogger.Log(auditlog.ActionUninstall, name, ver, "", "")
+		fmt.Printf("==> %s uninstalled\n", name)
 	}
 
-	auditlog.New(paths.Log).Log(auditlog.ActionUninstall, name, ver, "", "")
-
-	fmt.Printf("==> %s uninstalled\n", name)
 	return nil
 }

@@ -12,10 +12,19 @@ import (
 func runLeaves(args []string) error {
 	fs := flag.NewFlagSet("leaves", flag.ContinueOnError)
 	flags.Register(fs)
+	onRequest := fs.Bool("installed-on-request", false, "Only show leaves that were installed on request")
+	fs.BoolVar(onRequest, "r", false, "Only show leaves that were installed on request")
+	asDep := fs.Bool("installed-as-dependency", false, "Only show leaves that were installed as dependencies")
+	fs.BoolVar(asDep, "p", false, "Only show leaves that were installed as dependencies")
+
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
 	flags.Resolve()
+
+	if *onRequest && *asDep {
+		return fmt.Errorf("--installed-on-request and --installed-as-dependency are mutually exclusive")
+	}
 
 	ctx, err := newReadContext()
 	if err != nil {
@@ -29,6 +38,13 @@ func runLeaves(args []string) error {
 
 	if len(packages) == 0 {
 		return nil
+	}
+
+	if *onRequest || *asDep {
+		packages = filterByManifest(packages, ctx.Cellar, *onRequest, *asDep, false, false)
+		if len(packages) == 0 {
+			return nil
+		}
 	}
 
 	installedMap := make(map[string]bool)
