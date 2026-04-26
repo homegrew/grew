@@ -23,13 +23,10 @@ jobs:
           go-version: stable
           cache: true
       - run: go build ./...
-      - run: go test -race -cover -coverprofile=coverage.txt -covermode=atomic ./...
+      - run: mkdir -p coverageFiles
+      - run: go test -race -coverprofile=./coverageFiles/coverage_atomic.txt -covermode=atomic ./...
+      - run: go test -coverprofile=./coverageFiles/coverage_count.txt -covermode=count ./...
       - uses: codecov/codecov-action@v6
         with:
+          directory: ./coverageFiles
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Build with devmode
-        run: |
-          go build -v -tags devmode -o grew .
-          ./grew --version
-
-
