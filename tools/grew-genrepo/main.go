@@ -237,7 +237,15 @@ func runFormulaImport(args []string) {
 			sort.Strings(f.LinuxDependencies)
 		}
 
-		outPath, err := safeJoinUnderBase(resolvedOutDir, hf.Name+".yaml")
+		safeFileName := regexp.MustCompile(`[^a-zA-Z0-9._-]`).ReplaceAllString(hf.Name, "_")
+		safeFileName = strings.Trim(safeFileName, "._-")
+		if safeFileName == "" {
+			slog.Warn("Skipping formula due to invalid formula name for output file", "name", hf.Name)
+			skipped++
+			continue
+		}
+
+		outPath, err := safeJoinUnderBase(resolvedOutDir, safeFileName+".yaml")
 		if err != nil {
 			slog.Warn("Skipping formula due to invalid output path", "name", hf.Name, "error", err)
 			skipped++
