@@ -469,11 +469,28 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			if err := safepath.CheckSubpath(realDest, absTarget); err != nil {
 				return fmt.Errorf("refuse to write outside extraction directory: %w", err)
 			}
-			// Remove existing file/directory to avoid following symlinks or other conflicts.
-			if err := os.RemoveAll(absTarget); err != nil {
-				return fmt.Errorf("remove existing path %s: %w", absTarget, err)
+
+			// Re-anchor the sink path from trusted base + sanitized archive name.
+			sinkTarget, err := safepath.SafeJoin(realDest, name)
+			if err != nil {
+				return fmt.Errorf("resolve sink target %q: %w", name, err)
 			}
-			if err := extractFile(tr, absTarget, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
+			sinkTarget = filepath.Clean(sinkTarget)
+			if err := safepath.SafeAbsolutePath(realDest); err != nil {
+				return fmt.Errorf("invalid extraction base %q: %w", realDest, err)
+			}
+			if err := safepath.CheckSubpath(realDest, sinkTarget); err != nil {
+				return fmt.Errorf("refuse to remove/write outside extraction directory: %w", err)
+			}
+			if sinkTarget != absTarget {
+				return fmt.Errorf("target path mismatch after canonicalization: %q vs %q", absTarget, sinkTarget)
+			}
+
+			// Remove existing file/directory to avoid following symlinks or other conflicts.
+			if err := os.RemoveAll(sinkTarget); err != nil {
+				return fmt.Errorf("remove existing path %s: %w", sinkTarget, err)
+			}
+			if err := extractFile(tr, sinkTarget, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
 			}
 		case tar.TypeSymlink:
