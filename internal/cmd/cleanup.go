@@ -130,13 +130,24 @@ Options:
 	if abs, err := filepath.Abs(resolvedRoot); err == nil {
 		resolvedRoot = filepath.Clean(abs)
 	}
+	if evalRoot, err := filepath.EvalSymlinks(resolvedRoot); err == nil {
+		resolvedRoot = filepath.Clean(evalRoot)
+	}
 
 	resolvedTmp := filepath.Clean(paths.Tmp)
 	if abs, err := filepath.Abs(resolvedTmp); err == nil {
 		resolvedTmp = filepath.Clean(abs)
 	}
+	if evalTmp, err := filepath.EvalSymlinks(resolvedTmp); err == nil {
+		resolvedTmp = filepath.Clean(evalTmp)
+	}
 
 	expectedTmp := filepath.Join(resolvedRoot, "tmp")
+	if evalExpectedTmp, err := filepath.EvalSymlinks(expectedTmp); err == nil {
+		expectedTmp = filepath.Clean(evalExpectedTmp)
+	} else {
+		expectedTmp = filepath.Clean(expectedTmp)
+	}
 	_, trustedRoot := allowedRoots[resolvedRoot]
 
 	if trustedRoot && paths.IsUnderRoot(resolvedTmp) && resolvedTmp == expectedTmp {
@@ -150,6 +161,23 @@ Options:
 				if len(targets) > 0 && !belongsToTargets(targets, name) {
 					continue
 				}
+
+				candidatePath := path
+				if evalCandidate, err := filepath.EvalSymlinks(path); err == nil {
+					candidatePath = filepath.Clean(evalCandidate)
+				} else if absCandidate, err := filepath.Abs(path); err == nil {
+					candidatePath = filepath.Clean(absCandidate)
+				} else {
+					slog.Warn(fmt.Sprintf("skipping unresolved path %s: %v", path, err))
+					continue
+				}
+
+				relToTmp, err := filepath.Rel(resolvedTmp, candidatePath)
+				if err != nil || relToTmp == ".." || strings.HasPrefix(relToTmp, ".."+string(os.PathSeparator)) {
+					slog.Warn(fmt.Sprintf("skipping path outside temp root: %s", path))
+					continue
+				}
+				path = candidatePath
 
 				info, err := e.Info()
 				if err != nil {
