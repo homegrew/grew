@@ -24,6 +24,7 @@ Aliases: remove, rm
 
 Options:
   --cask        Uninstall a cask instead of a formula.
+  --force, -f   Uninstall even if the formula is not installed.
   -v, --verbose Show detailed output.
   -d, --debug   Show debug diagnostics (implies --verbose).
 `)
@@ -31,18 +32,20 @@ Options:
 
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Uninstall a cask")
+	force := fs.Bool("force", false, "Uninstall even if not installed")
+	fs.BoolVar(force, "f", false, "Uninstall even if not installed")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
 	flags.Resolve()
 
 	if fs.NArg() == 0 {
-		return fmt.Errorf("usage: grew uninstall [--cask] <formula>...")
+		return fmt.Errorf("usage: grew uninstall [-f] [--cask] <formula>...")
 	}
 
 	if *isCask {
 		for _, name := range fs.Args() {
-			if err := caskUninstall(name); err != nil {
+			if err := caskUninstall(name, *force); err != nil {
 				return err
 			}
 		}
@@ -68,7 +71,9 @@ Options:
 
 	for _, name := range fs.Args() {
 		if !cel.IsInstalled(name) {
-			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			if !*force {
+				slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			}
 			continue
 		}
 

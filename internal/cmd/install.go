@@ -34,6 +34,7 @@ Options:
   --cask                Install a macOS application cask.
   -s, --build-from-source
                         Build formula from source instead of downloading a bottle.
+  --force, -f           Install even if the formula is already installed.
   --only-dependencies   Install dependencies only, not the formula itself.
   --ignore-dependencies Skip dependency installation.
   --skip-post-install   Skip post-install steps.
@@ -50,6 +51,8 @@ Options:
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
 	buildFromSource := fs.Bool("s", false, "Build from source")
 	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
+	force := fs.Bool("force", false, "Install even if already installed")
+	fs.BoolVar(force, "f", false, "Install even if already installed")
 	onlyDeps := fs.Bool("only-dependencies", false, "Install dependencies only")
 	ignoreDeps := fs.Bool("ignore-dependencies", false, "Skip dependency installation")
 	skipPostInstall := fs.Bool("skip-post-install", false, "Skip post-install steps")
@@ -72,7 +75,7 @@ Options:
 		if *isCask {
 			return fmt.Errorf("usage: grew install --cask <cask>...")
 		}
-		return fmt.Errorf("usage: grew install [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
+		return fmt.Errorf("usage: grew install [-f] [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
 	}
 
 	if *isCask {
@@ -86,7 +89,7 @@ Options:
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
 		for _, name := range remaining {
-			if err := caskInstall(name, *noQuarantine); err != nil {
+			if err := caskInstall(name, *noQuarantine, *force); err != nil {
 				return err
 			}
 		}
@@ -131,7 +134,7 @@ Options:
 				if *onlyDeps && f.Name == name {
 					continue
 				}
-				if ctx.Cellar.IsInstalled(f.Name) {
+				if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
 					continue
 				}
 				if *buildFromSource && f.Name == name {
@@ -147,7 +150,7 @@ Options:
 		}
 
 		if *dryRun {
-			if err := simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource); err != nil {
+			if err := simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource, *force); err != nil {
 				return err
 			}
 			continue
@@ -158,7 +161,7 @@ Options:
 				continue
 			}
 
-			if ctx.Cellar.IsInstalled(f.Name) {
+			if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
 				fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
 				continue
 			}
@@ -184,7 +187,7 @@ Options:
 }
 
 // simulateInstall prints what would happen without making any changes.
-func simulateInstall(installOrder []*formula.Formula, target string, ctx *installContext, onlyDeps bool, buildFromSource bool) error {
+func simulateInstall(installOrder []*formula.Formula, target string, ctx *installContext, onlyDeps bool, buildFromSource bool, force bool) error {
 	fmt.Printf("==> Dry run: the following actions would be performed\n\n")
 
 	for _, f := range installOrder {
@@ -192,7 +195,7 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *instal
 			continue
 		}
 
-		if ctx.Cellar.IsInstalled(f.Name) {
+		if ctx.Cellar.IsInstalled(f.Name) && !(force && f.Name == target) {
 			fmt.Printf("  skip      %s %s (already installed)\n", f.Name, f.Version)
 			continue
 		}

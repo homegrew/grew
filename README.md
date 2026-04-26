@@ -136,11 +136,13 @@ For an in-depth look at how `grew` installs itself, its self-update mechanism, a
 
 ```bash
 grew install jq nmap         # install multiple formulas
+grew install --force jq      # force reinstall even if already installed
 grew install -s ldns         # build from source, like a purist
 grew install --cask firefox  # going big
 grew link jq                 # stitch it in
 grew deps --tree jq          # what hath jq wrought
 grew upgrade                 # stay fresh
+grew uninstall --force jq    # uninstall even if not installed
 grew cleanup -n              # peek before you sweep
 grew verify jq               # check installed files against manifest
 grew vuln-scan               # scan for CVEs and integrity issues
@@ -155,8 +157,8 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 
 | Command | What it does |
 |---|---|
-| `install` | Install formulas or casks (`-s` to build from source) |
-| `uninstall` | Send formulas or casks to the void |
+| `install` | Install formulas or casks (`-f` to force, `-s` to build from source) |
+| `uninstall` | Send formulas or casks to the void (`-f` to ignore missing) |
 | `list` | See what you've collected |
 | `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk packages |

@@ -141,13 +141,13 @@ func removeIfWithin(targetPath, baseDir string) error {
 	return os.Remove(safeTarget)
 }
 
-func caskInstall(name string, noQuarantine bool) error {
+func caskInstall(name string, noQuarantine bool, force bool) error {
 	paths, c, cr, err := loadCask(name)
 	if err != nil {
 		return err
 	}
 
-	if cr.IsInstalled(c.Name) {
+	if cr.IsInstalled(c.Name) && !force {
 		fmt.Printf("==> %s %s is already installed, skipping\n", c.Name, c.Version)
 		return nil
 	}
@@ -325,14 +325,17 @@ func caskInstall(name string, noQuarantine bool) error {
 	return nil
 }
 
-func caskUninstall(name string) error {
+func caskUninstall(name string, force bool) error {
 	paths, loader, cr, err := setupCaskLoader()
 	if err != nil {
 		return err
 	}
 
 	if !cr.IsInstalled(name) {
-		return fmt.Errorf("cask %q is not installed", name)
+		if !force {
+			return fmt.Errorf("cask %q is not installed", name)
+		}
+		return nil
 	}
 
 	c, err := loader.LoadByName(name)
