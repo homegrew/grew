@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"os"
@@ -131,17 +132,24 @@ func PatchName(oldVer, newVer string) string {
 // FindAssetURL returns the HTTPS download URL for the named asset in a release.
 func FindAssetURL(rel *Release, name string) (string, error) {
 	for _, a := range rel.Assets {
+		slog.Info("Checking asset URL for %s", a.Name)
 		if a.Name == name {
 			if !strings.HasPrefix(a.BrowserDownloadURL, "https://") {
 				return "", fmt.Errorf("asset %q has non-HTTPS URL: %s", name, a.BrowserDownloadURL)
 			}
+			slog.Debug("Found asset URL for %s", a.Name)
 			return a.BrowserDownloadURL, nil
 		}
 	}
+
 	available := make([]string, len(rel.Assets))
 	for i, a := range rel.Assets {
 		available[i] = a.Name
 	}
+
+	slog.Warn("No asset URL found for %s in release %s", name, rel.TagName)
+	slog.Info("available: %s", strings.Join(available, ", "))
+
 	return "", fmt.Errorf("asset %q not found in release %s\n  Available: %s",
 		name, rel.TagName, strings.Join(available, ", "))
 }
