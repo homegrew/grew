@@ -74,15 +74,16 @@ func Run(args []string) error {
 	args = flags.Parse(args)
 
 	// Handle --version separately (it was not consumed by flags.Parse).
-	var filtered []string
 	for _, a := range args {
 		if a == "--version" {
-			fmt.Printf("%s\n", version.Version())
-			return nil
+			return runVersion(nil)
 		}
-		filtered = append(filtered, a)
 	}
-	args = filtered
+
+	// Handle the version command as early as possible if it's the first argument.
+	if len(args) > 0 && args[0] == "version" {
+		return runVersion(args[1:])
+	}
 
 	// Apply flag implications and configure the logger.
 	flags.Resolve()
@@ -122,7 +123,6 @@ func Run(args []string) error {
 		"shellenv":     runShellenv,
 		"services":     runServices,
 		"setup":        runSetup,
-		"selfupdate":   RunSelfUpdate,
 		"verify":       runVerify,
 		"lock":         runLock,
 		"sign":         runSign,
@@ -131,6 +131,7 @@ func Run(args []string) error {
 		"linkage":      runLinkage,
 		"vuln-scan":    runVulnScan,
 		"completion":   runCompletion,
+		"version":      runVersion,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}
@@ -242,6 +243,11 @@ func acquireGlobalLock(paths config.Paths) (*os.File, error) {
 	return f, nil
 }
 
+func runVersion([]string) error {
+	fmt.Printf("%s\n", version.Version())
+	return nil
+}
+
 func printUsage() {
 	fmt.Print(`grew - a package manager written in Go
 
@@ -283,6 +289,7 @@ Commands:
   sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
   pin <formula>...     Pin formulas to prevent upgrades
   unpin <formula>...   Unpin formulas to allow upgrades
+  version              Print version and exit
   help [command]       Show help for a command
 `)
 }
