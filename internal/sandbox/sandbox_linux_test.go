@@ -98,7 +98,10 @@ func TestUnshareArgs(t *testing.T) {
 
 	script := args[len(args)-1]
 
-	// Script must make mounts private.
+	// Script must prepare and make mounts private.
+	if !strings.Contains(script, "mount --bind / /") {
+		t.Error("script must bind-mount / before making mounts private")
+	}
 	if !strings.Contains(script, "mount --make-rprivate /") {
 		t.Error("script must make mount propagation private")
 	}
