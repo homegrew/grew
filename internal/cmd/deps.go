@@ -12,6 +12,30 @@ import (
 
 func runDeps(args []string) error {
 	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
+	
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), `Usage: grew deps [options] <formula ...>
+
+Show dependencies for formulas. When given multiple formula arguments, show the
+intersection of dependencies for each formula.
+
+Options:
+  -n, --topological   Sort dependencies in topological order.
+  -1, --direct,       Show only the direct dependencies declared in the formula.
+      --declared
+      --union         Show the union of dependencies for multiple formulas,
+                      instead of the intersection.
+      --include-build Include build dependencies for formulas.
+      --for-each      List dependencies for each provided formula.
+      --tree          Show dependencies as a tree.
+      --all           Show dependencies for all formulas.
+      --installed     Show dependencies for installed formulas.
+      --missing       Show only missing dependencies.
+  -v, --verbose       Show detailed output.
+  -d, --debug         Show debug diagnostics (implies --verbose).
+`)
+	}
+	
 	flags.Register(fs)
 	tree := fs.Bool("tree", false, "Show dependencies as a tree")
 	all := fs.Bool("all", false, "Show dependencies for all formulas")
