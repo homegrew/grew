@@ -307,8 +307,7 @@ func isNotExist(err error) bool {
 	}
 	msg := strings.ToLower(err.Error())
 	return strings.Contains(msg, "no such file") ||
-		strings.Contains(msg, "not a directory") ||
-		strings.Contains(msg, "file exists")
+		strings.Contains(msg, "not a directory")
 }
 
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
