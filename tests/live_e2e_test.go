@@ -34,7 +34,9 @@ func TestLiveEndToEnd(t *testing.T) {
 			if err == nil {
 				info, err := d.Info()
 				if err == nil {
-					os.Chmod(path, info.Mode()|0200)
+					if chmodErr := os.Chmod(path, info.Mode()|0200); chmodErr != nil {
+						t.Logf("cleanup: failed to chmod %q: %v", path, chmodErr)
+					}
 				}
 			}
 			return nil
@@ -73,6 +75,8 @@ func TestLiveEndToEnd(t *testing.T) {
 	}
 
 	// 2. Setup (User-local)
+	// `--unsafe` is required here to allow non-interactive setup in this live E2E run.
+	// This test is isolated to a temporary HOME/HOMEGREW_PREFIX and mirrors CI behavior.
 	runCmd("setup", "--unsafe")
 
 	// 3. Update (Fetches real taps from GitHub)
