@@ -124,13 +124,13 @@ func removeIfWithin(targetPath, baseDir string) error {
 		return fmt.Errorf("refusing to remove directory path: %s", canonTarget)
 	}
 
-	// Sink-adjacent hardening: rebuild the final remove target from trusted base
-	// and a validated single path component.
+	// Sink-adjacent hardening: rebuild the final remove target from the
+	// validated canonical parent and a validated single path component.
 	baseName := filepath.Base(canonTarget)
 	if err := safepath.SafePathComponent(baseName); err != nil {
 		return fmt.Errorf("invalid target filename for removal %q: %w", baseName, err)
 	}
-	safeTarget, err := safepath.SafeJoin(canonBase, baseName)
+	safeTarget, err := safepath.SafeJoin(canonParent, baseName)
 	if err != nil {
 		return fmt.Errorf("resolve safe target for removal: %w", err)
 	}
