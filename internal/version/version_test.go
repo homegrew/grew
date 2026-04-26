@@ -32,6 +32,6 @@ func TestIsNewer(t *testing.T) {
 		t.Error("expected v1.0.1 to be newer than v1.0.0")
 	}
 	if IsNewer("v1.0.1", "v1.0.0") {
-		t.Error("expected v1.0.1 NOT to be newer than v1.0.0")
+		t.Error("expected v1.0.0 NOT to be newer than v1.0.1")
 	}
 }
