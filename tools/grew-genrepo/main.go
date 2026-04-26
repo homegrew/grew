@@ -328,6 +328,11 @@ func runCaskImport(args []string) {
 			skipped++
 			continue
 		}
+		if !isSafeTokenFileName(hc.Token) {
+			slog.Warn("Skipping cask with unsafe token for file path", "token", hc.Token)
+			skipped++
+			continue
+		}
 
 		urlMap := map[string]string{"darwin_arm64": hc.URL, "darwin_amd64": hc.URL}
 		shaMap := map[string]string{"darwin_arm64": hc.SHA256, "darwin_amd64": hc.SHA256}
@@ -363,6 +368,19 @@ func runCaskImport(args []string) {
 		imported++
 	}
 	slog.Info("Cask import complete", "imported", imported, "skipped", skipped)
+}
+
+func isSafeTokenFileName(token string) bool {
+	if token == "" {
+		return false
+	}
+	// Disallow path traversal and separators regardless of platform.
+	if strings.Contains(token, "..") || strings.Contains(token, "/") || strings.Contains(token, "\\") {
+		return false
+	}
+	// Allow common token characters only.
+	ok, _ := regexp.MatchString(`^[a-z0-9][a-z0-9._+-]*$`, token)
+	return ok
 }
 
 func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
