@@ -110,7 +110,21 @@ func removeIfWithin(targetPath, baseDir string) error {
 		return fmt.Errorf("refusing to remove directory path: %s", canonTarget)
 	}
 
-	return os.Remove(canonTarget)
+	// Sink-adjacent hardening: rebuild the final remove target from trusted base
+	// and a validated single path component.
+	baseName := filepath.Base(canonTarget)
+	if err := safepath.SafePathComponent(baseName); err != nil {
+		return fmt.Errorf("invalid target filename for removal %q: %w", baseName, err)
+	}
+	safeTarget, err := safepath.SafeJoin(canonBase, baseName)
+	if err != nil {
+		return fmt.Errorf("resolve safe target for removal: %w", err)
+	}
+	if safeTarget != canonTarget {
+		return fmt.Errorf("refusing to remove non-canonical target path: %s", canonTarget)
+	}
+
+	return os.Remove(safeTarget)
 }
 
 func caskInstall(name string, noQuarantine bool) error {
