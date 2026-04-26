@@ -77,7 +77,7 @@ func Run(args []string) error {
 	var filtered []string
 	for _, a := range args {
 		if a == "--version" {
-			fmt.Printf("grew %s\n", version.Version())
+			fmt.Printf("%s\n", version.Version())
 			return nil
 		}
 		filtered = append(filtered, a)
