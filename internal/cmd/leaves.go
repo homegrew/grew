@@ -72,7 +72,7 @@ func runLeaves(args []string) error {
 
 		// Collect all recursive dependencies for this installed formula.
 		deps := make(map[string]bool)
-		if err := collectDeps(ctx.Loader, f.Dependencies, deps); err != nil {
+		if err := gatherDeps(ctx.Loader, f.Dependencies, deps, false); err != nil {
 			// If collectDeps fails (e.g. missing transitive dependency), log it
 			// but continue to merge whatever partial dependencies we collected.
 			slog.Debug("failed to collect all recursive dependencies", "package", p.Name, "error", err)
