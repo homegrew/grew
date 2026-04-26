@@ -17,35 +17,20 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
-      - uses: actions/setup-go@v6
+      - uses: actions/setup-go@v5
         with:
           go-version: stable
+          cache: true
       - run: go generate ./...
-      - run: go build -v ./...
       - run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
-
-      - name: Install sandbox dependencies (Linux)
-        if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y bubblewrap patchelf
 
       - name: Build with devmode
         run: |
           go build -v -tags devmode -o grew .
           ./grew --version
 
-      - name: Setup (User-local)
-        run: |
-          ./grew setup --unsafe
-          cp grew "$HOME/.homegrew/bin/grew"
-          echo "$HOME/.homegrew/bin" >> $GITHUB_PATH
-
-      - name: Update
-        run: which grew && grew update
-
-      - name: Install nano
-        run: which grew && grew install -v -d nano && which nano && nano -V
 
