@@ -149,9 +149,12 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		URL:    safe,
 		Header: make(http.Header),
 	}
-	// ghcr.io requires a bearer token for public OCI blob downloads.
+	// If a GHCR token is configured, attach it for ghcr.io requests.
+	// Public blobs may not require authentication; avoid sending placeholder credentials.
 	if safe.Host == "ghcr.io" {
-		req.Header.Set("Authorization", "Bearer QQ==")
+		if token := strings.TrimSpace(os.Getenv("GHCR_TOKEN")); token != "" {
+			req.Header.Set("Authorization", "Bearer "+token)
+		}
 	}
 
 	client := *http.DefaultClient
