@@ -33,10 +33,24 @@ func TestCompare(t *testing.T) {
 }
 
 func TestIsNewer(t *testing.T) {
-	if !IsNewer("v1.0.0", "v1.0.1") {
-		t.Error("expected second argument (v1.0.1) to be newer than first argument (v1.0.0)")
+	tests := []struct {
+		old, new string
+		want     bool
+	}{
+		{"v1.0.0", "v1.0.1", true},
+		{"v1.0.1", "v1.0.0", false},
+		{"v1.0.0", "v1.0.0", false},
+		{"v1.0.0-rc1", "v1.0.0", true},
+		{"v1.0.0", "v1.0.0-rc1", false},
+		{"", "v1.0.0", true},
+		{"v1.0.0", "", false},
+		{"v1.a.0", "v1.0.0", false},
+		{"v1.0.0", "v1.0.$", false},
 	}
-	if IsNewer("v1.0.1", "v1.0.0") {
-		t.Error("expected v1.0.0 NOT to be newer than v1.0.1")
+
+	for _, tt := range tests {
+		if got := IsNewer(tt.old, tt.new); got != tt.want {
+			t.Errorf("IsNewer(%q, %q) = %v, want %v", tt.old, tt.new, got, tt.want)
+		}
 	}
 }
