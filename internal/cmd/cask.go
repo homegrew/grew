@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
@@ -54,32 +53,42 @@ func loadCask(name string) (config.Paths, *cask.Cask, *cask.Caskroom, error) {
 	return paths, c, cr, nil
 }
 
-// removeIfWithin deletes targetPath only if it is within baseDir (after cleaning).
+// removeIfWithin deletes targetPath only if it resolves within baseDir.
 // If the check fails, it returns an error and does not attempt deletion.
 func removeIfWithin(targetPath, baseDir string) error {
 	if targetPath == "" || baseDir == "" {
 		return fmt.Errorf("empty path for removal")
 	}
-	baseClean, err := filepath.Abs(baseDir)
+
+	baseAbs, err := filepath.Abs(baseDir)
 	if err != nil {
 		return fmt.Errorf("resolve base dir: %w", err)
 	}
-	baseClean = filepath.Clean(baseClean)
-	targetClean, err := filepath.Abs(targetPath)
+	canonBase, err := filepath.EvalSymlinks(baseAbs)
+	if err != nil {
+		return fmt.Errorf("resolve base symlinks: %w", err)
+	}
+	canonBase = filepath.Clean(canonBase)
+
+	targetAbs, err := filepath.Abs(targetPath)
 	if err != nil {
 		return fmt.Errorf("resolve target path: %w", err)
 	}
-	targetClean = filepath.Clean(targetClean)
+	canonTarget, err := filepath.EvalSymlinks(targetAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			canonTarget = filepath.Clean(targetAbs)
+		} else {
+			return fmt.Errorf("resolve target symlinks: %w", err)
+		}
+	} else {
+		canonTarget = filepath.Clean(canonTarget)
+	}
 
-	// Add path separator to avoid prefix tricks (e.g., /tmp/dir vs /tmp/dir2).
-	baseWithSep := baseClean
-	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
-		baseWithSep += string(os.PathSeparator)
+	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
+		return fmt.Errorf("refusing to remove path outside base directory: %s", canonTarget)
 	}
-	if targetClean != baseClean && !strings.HasPrefix(targetClean, baseWithSep) {
-		return fmt.Errorf("refusing to remove path outside base directory: %s", targetClean)
-	}
-	return os.Remove(targetClean)
+	return os.Remove(canonTarget)
 }
 
 func caskInstall(name string, noQuarantine bool) error {
