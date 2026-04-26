@@ -161,4 +161,22 @@ func TestLiveEndToEnd(t *testing.T) {
 	if !strings.Contains(outLeaves, "xz") {
 		t.Errorf("leaves output missing 'xz', got output: %q", outLeaves)
 	}
+
+	// 14. Test Emacs (Relocation Verification)
+	// Emacs is a good test for text-file relocation as it has hardcoded paths in Lisp files
+	// and resource directories.
+	runCmd("install", "emacs")
+	emacsBin := filepath.Join(prefix, "bin", "emacs")
+	if _, err := os.Stat(emacsBin); err != nil {
+		t.Fatalf("emacs binary not found: %v", err)
+	}
+	// Run emacs in batch mode to verify it doesn't crash due to missing resources
+	checkEmacs := exec.Command(emacsBin, "--batch", "--eval", "(message \"relocation-success\")")
+	checkEmacs.Env = env
+	if out, err := checkEmacs.CombinedOutput(); err != nil {
+		t.Fatalf("emacs relocation verification failed: %v\nOutput: %s", err, string(out))
+	}
+	if !strings.Contains(string(out), "relocation-success") {
+		t.Errorf("emacs output missing 'relocation-success', got: %q", string(out))
+	}
 }
