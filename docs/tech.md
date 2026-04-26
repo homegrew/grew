@@ -38,20 +38,23 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
    - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
 
 2. **Binary Patching (Delta Update)**:
-   - `grew` searches for a binary patch asset (e.g., `grew_v0.1.0_to_v0.2.0.patch`).
-   - If a patch is found and `bspatch` is available on the system, only the delta is downloaded.
-   - The patch is applied to the current executable to generate the new version locally.
-   - The resulting binary is verified against a `binary-checksums.txt` file provided in the release.
+   - `grew` searches for a platform-specific binary patch asset following the pattern `grew_<OS>_<Arch>_<OldVer>_to_<NewVer>.patch` (e.g., `grew_Darwin_arm64_v0.1.0_to_v0.2.0.patch`).
+   - **Tooling**: If a patch is found and `bspatch` is available in the system `PATH`, only the delta is downloaded.
+   - **Patch Verification**: Before applying, the `.patch` file itself is verified against SHA-256 and SHA-512 hashes listed in the release's `checksums.txt`.
+   - **Application**: `grew` uses `bspatch` to apply the delta to the currently running executable, generating the new version in a temporary location.
+   - **Post-Patch Verification**: The resulting binary is verified against the `binary-checksums.txt` file (distinct from `checksums.txt`, which contains hashes for the compressed archives and patches). This ensures the reconstruction was 100% accurate.
 
 3. **Full Download Fallback**:
-   - If no patch is available or patching fails, `grew` falls back to downloading the full platform-specific archive (e.g., `grew_Darwin_arm64.tar.gz`).
+   - If `bspatch` is missing, no compatible patch is found, or the patching process fails, `grew` falls back to downloading the full platform-specific archive (e.g., `grew_Darwin_arm64.tar.gz`).
    - The archive is extracted, and the binary is staged.
 
 4. **Cryptographic Integrity**:
-   - `grew` performs **Dual-Hash Verification**: all downloaded assets and the final binary are verified against both **SHA-256** and **SHA-512** hashes (if provided in the release metadata). This protects against supply-chain attacks targeting a single algorithm.
+   - `grew` performs **Dual-Hash Verification**: all downloaded assets (patches or archives) and the final reconstructed binary are verified against both **SHA-256** and **SHA-512** hashes. This protects against supply-chain attacks targeting a single algorithm.
 
 5. **Pre-Replacement Health Check**:
-   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command. This verifies the binary is structurally sound, runs on the host OS, and is functionally operational before it replaces the current version.
+   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox.
+   - This verifies that the binary is structurally sound, compatible with the host OS, and functionally operational (i.e., not a corrupted file or a "zero-day" bricking binary) before it replaces the stable version.
+   - For release builds, it also re-executes with `--version` to confirm the reported version string matches the expected tag.
 
 6. **Atomic Replacement**:
    - The final, verified binary is moved to `<prefix>/bin/grew` using an atomic rename operation.
@@ -65,6 +68,13 @@ A unified tool used to bootstrap and maintain the core formula and cask reposito
 - **Formula Import**: Fetches Homebrew formulas, maps platforms, picks appropriate bottles, and generates `grew`-compatible YAML files.
 - **Cask Import**: Fetches Homebrew casks, extracts macOS-specific app/binary artifacts, and converts them into `grew` YAML format.
 - **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards.
+
+### `patcher`
+A developer tool used to generate binary delta patches between releases.
+- **Automation**: Downloads existing releases from GitHub and extracts the raw binaries.
+- **Delta Generation**: Uses `bsdiff` to compute the minimal patch required to transition from an old version to a new one.
+- **Integrity**: Automatically calculates SHA-256 and SHA-512 hashes for the resulting patch files, formatted for inclusion in the release's `checksums.txt`.
+- **Platform Aware**: Handles mapping between internal OS/Architecture names and the naming conventions used in release assets.
 
 ## 4. Developer Mode (`devmode`) Explained
 
