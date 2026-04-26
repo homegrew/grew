@@ -34,7 +34,9 @@ func TestLiveEndToEnd(t *testing.T) {
 			if err == nil {
 				info, err := d.Info()
 				if err == nil {
-					os.Chmod(path, info.Mode()|0200)
+					if chmodErr := os.Chmod(path, info.Mode()|0200); chmodErr != nil {
+						t.Logf("cleanup: failed to chmod %q: %v", path, chmodErr)
+					}
 				}
 			}
 			return nil
