@@ -143,9 +143,23 @@ func main() {
 
 	logMsg("Success! Patch file created: %s", patchFile)
 
-	// Print checksums.txt format to stdout
-	fmt.Printf("%s  %s\n", sha256, patchFile)
-	fmt.Printf("%s  %s\n", sha512, patchFile)
+	// Save SHA256 checksum
+	sha256File := patchFile + ".sha256"
+	sha256Data := fmt.Sprintf("%s  %s\n", sha256, patchFile)
+	if err := os.WriteFile(sha256File, []byte(sha256Data), 0644); err != nil {
+		slog.Error("Failed to write SHA256 file", "err", err)
+		os.Exit(1)
+	}
+
+	// Save SHA512 checksum
+	sha512File := patchFile + ".sha512"
+	sha512Data := fmt.Sprintf("%s  %s\n", sha512, patchFile)
+	if err := os.WriteFile(sha512File, []byte(sha512Data), 0644); err != nil {
+		slog.Error("Failed to write SHA512 file", "err", err)
+		os.Exit(1)
+	}
+
+	logMsg("Checksums saved to %s and %s", sha256File, sha512File)
 }
 
 func downloadAndExtract(projectName, osName, arch, version, tmpDir, subDir string) error {
