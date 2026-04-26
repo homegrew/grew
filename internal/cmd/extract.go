@@ -32,8 +32,8 @@ func runExtract(_ []string) error {
 		return fmt.Errorf("archive_path and dest_dir are required")
 	}
 
-	// Constrain dest_dir to the current working directory to avoid writing
-	// outside the sandboxed extraction tree.
+	// Constrain dest_dir to a dedicated extraction subtree under the current
+	// working directory to avoid writing outside the sandboxed extraction tree.
 	cwd, err := os.Getwd()
 	if err != nil {
 		return fmt.Errorf("determine working directory: %w", err)
@@ -47,6 +47,15 @@ func runExtract(_ []string) error {
 	}
 	cwdAbs = filepath.Clean(cwdAbs)
 
+	extractRoot, err := filepath.Abs(filepath.Join(cwdAbs, "extract"))
+	if err != nil {
+		return fmt.Errorf("resolve extraction root: %w", err)
+	}
+	if eval, err := filepath.EvalSymlinks(extractRoot); err == nil {
+		extractRoot = eval
+	}
+	extractRoot = filepath.Clean(extractRoot)
+
 	destAbs, err := filepath.Abs(args.DestDir)
 	if err != nil {
 		return fmt.Errorf("resolve dest_dir: %w", err)
@@ -56,8 +65,8 @@ func runExtract(_ []string) error {
 	}
 	destAbs = filepath.Clean(destAbs)
 
-	if err := safepath.CheckSubpath(cwdAbs, destAbs); err != nil {
-		return fmt.Errorf("dest_dir %q escapes working directory %q: %w", destAbs, cwdAbs, err)
+	if err := safepath.CheckSubpath(extractRoot, destAbs); err != nil {
+		return fmt.Errorf("dest_dir %q escapes extraction root %q: %w", destAbs, extractRoot, err)
 	}
 	return downloader.Extract(args.ArchivePath, destAbs, args.Spec)
 }
