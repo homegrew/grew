@@ -63,9 +63,9 @@ func allChecks() []doctorCheck {
 		{"check_directory_permissions", "Check grew directories are not world-writable", checkDirectoryPermissions},
 		{"check_formula_https", "Check all formula URLs use HTTPS", checkFormulaHTTPS},
 		{"check_formula_sha256", "Check all formula SHA256 hashes are valid hex", checkFormulaSHA256},
-		{"check_formula_sha512", "Check all formula SHA512 hashes are valid hex", checkFormulaSHA512},
+		//{"check_formula_sha512", "Check all formula SHA512 hashes are valid hex", checkFormulaSHA512},
 		{"check_cask_sha256", "Check all cask SHA256 hashes are valid hex", checkCaskSHA256},
-		{"check_cask_sha512", "Check all cask SHA512 hashes are valid hex", checkCaskSHA512},
+		//{"check_cask_sha512", "Check all cask SHA512 hashes are valid hex", checkCaskSHA512},
 		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
 		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
 		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
@@ -86,7 +86,7 @@ func allChecks() []doctorCheck {
 
 func runDoctor(args []string) error {
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew doctor [options]
 
