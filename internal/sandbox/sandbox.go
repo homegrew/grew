@@ -79,6 +79,7 @@ func extractEnv(cfg ExtractConfig) []string {
 	allow := map[string]bool{
 		"PATH": true, "HOME": true,
 		"LANG": true, "LC_ALL": true,
+		"GOCOVERDIR": true,
 	}
 	var env []string
 	for _, kv := range os.Environ() {
@@ -98,6 +99,7 @@ func postInstallEnv(cfg PostInstallConfig) []string {
 	allow := map[string]bool{
 		"PATH": true, "HOME": true,
 		"LANG": true, "LC_ALL": true,
+		"GOCOVERDIR": true,
 	}
 	var env []string
 	for _, kv := range os.Environ() {
@@ -123,6 +125,7 @@ func cleanEnv(cfg BuildConfig) []string {
 		"SDKROOT": true, "MACOSX_DEPLOYMENT_TARGET": true,
 		"DEVELOPER_DIR":     true,
 		"SOURCE_DATE_EPOCH": true,
+		"GOCOVERDIR":        true,
 	}
 
 	var env []string

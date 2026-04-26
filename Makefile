@@ -2,7 +2,10 @@
 
 BIN := grew
 GO := go
-PKGS := ./...
+# UNIT_PKGS excludes the tests/ directory
+UNIT_PKGS := $(shell $(GO) list ./... | grep -v /tests)
+# INTEGRATION_PKGS is just the tests directory
+INTEGRATION_PKGS := ./tests/...
 
 .PHONY: all
 all: build check
@@ -20,8 +23,32 @@ install:
 	$(GO) install
 
 .PHONY: check
-check:
-	$(GO) test -tags devmode -race $(PKGS)
+check: test-unit test-integration
+
+.PHONY: test-unit
+test-unit:
+	$(GO) test -tags devmode -race $(UNIT_PKGS)
+
+.PHONY: test-unit-coverage
+test-unit-coverage:
+	$(GO) test -tags devmode -race -coverprofile=coverage_unit.txt -covermode=atomic $(UNIT_PKGS)
+
+.PHONY: test-integration
+test-integration:
+	$(GO) test -tags "devmode,integration" -race $(INTEGRATION_PKGS)
+
+.PHONY: test-e2e
+test-e2e:
+	$(GO) test -tags "devmode,integration" -v ./tests/ -run TestLiveEndToEnd
+
+.PHONY: test-integration-coverage
+test-integration-coverage:
+	@mkdir -p coverage/raw
+	@rm -rf coverage/raw/*
+	GOCOVERDIR=$(shell pwd)/coverage/raw $(GO) test -tags "devmode,integration" -cover -coverpkg=./... -count=1 $(INTEGRATION_PKGS)
+	$(GO) tool covdata textfmt -i=coverage/raw -o coverage_integration.txt
+	@rm -rf coverage/raw
+	@echo "Integration coverage report generated at coverage_integration.txt"
 
 .PHONY: lint
 lint:
@@ -29,7 +56,7 @@ lint:
 
 .PHONY: fmt
 fmt:
-	$(GO) fmt $(PKGS)
+	$(GO) fmt ./...
 
 .PHONY: mod-tidy
 mod-tidy:
@@ -38,8 +65,9 @@ mod-tidy:
 .PHONY: clean
 clean:
 	rm -f $(BIN) grew_test_bin
-	rm -f coverage.out
+	rm -f coverage*.txt coverage.out
 	rm -rf .cache
+	rm -rf coverage/
 
 .PHONY: distclean
 distclean: clean
