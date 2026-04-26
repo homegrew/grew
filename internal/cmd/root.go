@@ -253,8 +253,8 @@ Flags:
       --version        Print version and exit
 
 Commands:
-  install [-s] [-n] [--skip-post-install] [--skip-link] <formula>...  Install formulas (use --cask for apps, -s for source build, -n for dry run)
-  uninstall <formula>... Uninstall formulas or casks (--cask)
+  install [-f] [-s] [-n] [--skip-post-install] [--skip-link] <formula>... Install formulas (-f without checking for previously installed versions, --cask for apps)
+  uninstall [-f] <formula>... Uninstall formulas or casks (-f to force ignore errors/missing)
   list [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   leaves               List installed formulas that are not dependencies of another installed formula
   info <formula>...      Show formula or cask info (--cask)
@@ -263,7 +263,7 @@ Commands:
   unlink <formula>...    Remove symlinks for formulas
   update               Update formula definitions
   reset-update         Wipe and re-fetch all tap definitions
-  reinstall [-f] [--zap] [-s] <formula>...  Reinstall formulas (-f force, --zap deep clean, -s from source)
+  reinstall [--cask] [-f] [--zap] [-s] <formula>... Reinstall formulas or casks (-f without checking for previously installed keg-only or non-migrated versions)
   upgrade [formula]...   Upgrade outdated packages (or a specific ones)
   outdated             List packages with newer versions available
   cleanup [-n]         Remove old versions and temp files (-n for dry run)

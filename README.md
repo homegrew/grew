@@ -158,7 +158,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | Command | What it does |
 |---|---|
 | `install` | Install formulas or casks (`-f` to force, `-s` to build from source) |
-| `uninstall` | Send formulas or casks to the void (`-f` to ignore missing) |
+| `uninstall` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
 | `list` | See what you've collected |
 | `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk packages |
@@ -168,7 +168,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `update` | Refresh tap definitions |
 | `upgrade` | Get the new hotness |
 | `outdated` | The hall of shame |
-| `reinstall` | Uninstall + install from scratch |
+| `reinstall` | Uninstall + install from scratch (`--cask`, `-f` without checking for previously installed keg-only or non-migrated versions) |
 | `cleanup` | Marie Kondo your Cellar |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |

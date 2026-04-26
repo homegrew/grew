@@ -34,7 +34,11 @@ Options:
   --cask                Install a macOS application cask.
   -s, --build-from-source
                         Build formula from source instead of downloading a bottle.
-  --force, -f           Install even if the formula is already installed.
+  --force, -f           Install formulae without checking for previously
+                        installed keg-only or non-migrated versions. When
+                        installing casks, overwrite existing files (binaries
+                        and symlinks are excluded, unless originally from
+                        the same cask).
   --only-dependencies   Install dependencies only, not the formula itself.
   --ignore-dependencies Skip dependency installation.
   --skip-post-install   Skip post-install steps.
@@ -51,8 +55,9 @@ Options:
 	isCask := fs.Bool("cask", false, "Install a macOS application cask")
 	buildFromSource := fs.Bool("s", false, "Build from source")
 	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
-	force := fs.Bool("force", false, "Install even if already installed")
-	fs.BoolVar(force, "f", false, "Install even if already installed")
+	forceDesc := "Install formulae without checking for previously installed keg-only or non-migrated versions. When installing casks, overwrite existing files (binaries and symlinks are excluded, unless originally from the same cask)."
+	force := fs.Bool("force", false, forceDesc)
+	fs.BoolVar(force, "f", false, forceDesc)
 	onlyDeps := fs.Bool("only-dependencies", false, "Install dependencies only")
 	ignoreDeps := fs.Bool("ignore-dependencies", false, "Skip dependency installation")
 	skipPostInstall := fs.Bool("skip-post-install", false, "Skip post-install steps")

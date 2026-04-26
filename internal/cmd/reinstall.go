@@ -17,10 +17,12 @@ func runReinstall(args []string) error {
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew reinstall [options] <formula ...>
 
-Uninstall and then reinstall formulas from scratch.
+Uninstall and then reinstall formulas or casks from scratch.
 
 Options:
-  -f, --force         Install even if the formula is not currently installed.
+  --cask              Reinstall a cask instead of a formula.
+  -f, --force         Install without checking for previously installed keg-only or
+                      non-migrated versions.
   --zap               Deep clean: remove all installed versions and any leftover
                       temp files for the formula before reinstalling.
   -s, --build-from-source
@@ -31,8 +33,9 @@ Options:
 	}
 
 	flags.Register(fs)
-	force := fs.Bool("force", false, "Install even if not currently installed")
-	fs.BoolVar(force, "f", false, "Install even if not currently installed")
+	isCask := fs.Bool("cask", false, "Reinstall a cask")
+	force := fs.Bool("force", false, "Install without checking for previously installed keg-only or non-migrated versions")
+	fs.BoolVar(force, "f", false, "Install without checking for previously installed keg-only or non-migrated versions")
 	zap := fs.Bool("zap", false, "Remove all versions and temp files before reinstalling")
 	buildFromSource := fs.Bool("s", false, "Build from source")
 	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
@@ -42,7 +45,40 @@ Options:
 	flags.Resolve()
 
 	if fs.NArg() == 0 {
-		return fmt.Errorf("usage: grew reinstall [-f] [--zap] [-s] <formula>...")
+		return fmt.Errorf("usage: grew reinstall [--cask] [-f] [--zap] [-s] <formula>...")
+	}
+
+	if *isCask {
+		if *buildFromSource {
+			return fmt.Errorf("--build-from-source is not supported for casks")
+		}
+		if *zap {
+			return fmt.Errorf("--zap is not currently supported for casks")
+		}
+		for _, name := range fs.Args() {
+			_, _, cr, err := setupCaskLoader()
+			if err != nil {
+				return err
+			}
+			
+			if !cr.IsInstalled(name) && !*force {
+				return fmt.Errorf("cask %q is not installed (use --force to install anyway)", name)
+			}
+
+			fmt.Printf("==> Reinstalling cask %s\n", name)
+
+			if cr.IsInstalled(name) {
+				if err := caskUninstall(name, true); err != nil {
+					return fmt.Errorf("remove old installation: %w", err)
+				}
+			}
+
+			// noQuarantine defaults to false here as per install behavior
+			if err := caskInstall(name, false, true); err != nil {
+				return err
+			}
+		}
+		return nil
 	}
 
 	ctx, err := newInstallContext()

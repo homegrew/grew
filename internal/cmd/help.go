@@ -20,11 +20,16 @@ Flags:
   --ignore-dependencies Skip installing dependencies; install only the formula.
   --skip-post-install   Do not run the post-install script.
   --skip-link           Install to the Cellar but do not create symlinks.
+  -f, --force           Install formulae without checking for previously
+                        installed keg-only or non-migrated versions. When
+                        installing casks, overwrite existing files (binaries
+                        and symlinks are excluded, unless originally from
+                        the same cask).
   --require-sha         Refuse to install if a formula is missing a SHA256
                         checksum. Checks all formulas (including dependencies)
                         before downloading anything.
 
-If the formula/cask is already installed, the command is a no-op.
+If the formula/cask is already installed (without --force), the command is a no-op.
 
 Examples:
   grew install jq
@@ -34,15 +39,21 @@ Examples:
   grew install --cask firefox
   grew install --cask visual-studio-code`,
 
-	"uninstall": `Usage: grew uninstall [--cask] <formula>
+	"uninstall": `Usage: grew uninstall [--cask] [--force] <formula>
 
 Uninstall a formula by removing its symlinks and Cellar directory.
 With --cask, removes the .app from ~/Applications and the Caskroom entry.
+
+Flags:
+  -f, --force    Delete all installed versions of formula. Uninstall even if
+                 cask is not installed, overwrite existing files and ignore
+                 errors when removing files.
 
 Aliases: remove
 
 Examples:
   grew uninstall jq
+  grew uninstall --force jq
   grew uninstall --cask firefox`,
 
 	"list": `Usage: grew list [--cask]
@@ -94,14 +105,24 @@ Examples:
   grew link --overwrite jq
   grew link --force openssl`,
 
-	"reinstall": `Usage: grew reinstall <formula>
+	"reinstall": `Usage: grew reinstall [--cask] [-f] [--zap] [-s] <formula ...>
 
-Uninstall and then reinstall a formula. This is useful when an
-installation is corrupted or you want a clean slate. The formula
-must already be installed.
+Uninstall and then reinstall a formula or cask. This is useful when an
+installation is corrupted or you want a clean slate.
+
+Flags:
+  --cask              Reinstall a cask instead of a formula
+  -f, --force         Install without checking for previously installed keg-only or
+                      non-migrated versions.
+  --zap               Deep clean: remove all installed versions and any leftover
+                      temp files for the formula before reinstalling.
+  -s, --build-from-source
+                      Build formula from source instead of downloading a bottle.
 
 Examples:
-  grew reinstall jq`,
+  grew reinstall jq
+  grew reinstall --cask firefox
+  grew reinstall -f jq`,
 
 	"unlink": `Usage: grew unlink [--dry-run] <formula>
 

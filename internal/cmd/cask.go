@@ -347,16 +347,30 @@ func caskUninstall(name string, force bool) error {
 		for _, appName := range c.Artifacts.App {
 			fmt.Printf("==> Removing %s...\n", appName)
 			if err := inst.UninstallApp(appName); err != nil {
-				slog.Warn(fmt.Sprintf("could not remove %s: %v", appName, err))
+				if force {
+					slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", appName, err))
+				} else {
+					slog.Warn(fmt.Sprintf("could not remove %s: %v", appName, err))
+				}
 			}
 		}
 		for _, binName := range c.Artifacts.Bin {
-			inst.UnlinkBin(binName)
+			if err := inst.UnlinkBin(binName); err != nil {
+				if force {
+					slog.Warn(fmt.Sprintf("ignoring error while unlinking binary %s: %v", binName, err))
+				} else {
+					slog.Warn(fmt.Sprintf("could not unlink binary %s: %v", binName, err))
+				}
+			}
 		}
 	}
 
 	if err := cr.Remove(name); err != nil {
-		return err
+		if force {
+			slog.Warn(fmt.Sprintf("ignoring error while removing cask %s from Caskroom: %v", name, err))
+		} else {
+			return err
+		}
 	}
 
 	fmt.Printf("==> %s uninstalled\n", name)

@@ -24,7 +24,9 @@ Aliases: remove, rm
 
 Options:
   --cask        Uninstall a cask instead of a formula.
-  --force, -f   Uninstall even if the formula is not installed.
+  --force, -f   Delete all installed versions of formula. Uninstall even if
+                cask is not installed, overwrite existing files and ignore
+                errors when removing files.
   -v, --verbose Show detailed output.
   -d, --debug   Show debug diagnostics (implies --verbose).
 `)
@@ -32,8 +34,9 @@ Options:
 
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Uninstall a cask")
-	force := fs.Bool("force", false, "Uninstall even if not installed")
-	fs.BoolVar(force, "f", false, "Uninstall even if not installed")
+	forceDesc := "Delete all installed versions of formula. Uninstall even if cask is not installed, overwrite existing files and ignore errors when removing files."
+	force := fs.Bool("force", false, forceDesc)
+	fs.BoolVar(force, "f", false, forceDesc)
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -87,7 +90,11 @@ Options:
 
 		fmt.Printf("==> Removing %s...\n", name)
 		if err := cel.Uninstall(name); err != nil {
-			return err
+			if *force {
+				slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", name, err))
+			} else {
+				return err
+			}
 		}
 
 		auditLogger.Log(auditlog.ActionUninstall, name, ver, "", "")
