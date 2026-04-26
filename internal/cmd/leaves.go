@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"sort"
 
 	"github.com/homegrew/grew/internal/flags"
@@ -48,11 +49,17 @@ func runLeaves(args []string) error {
 			continue
 		}
 
+		// Mark direct dependencies immediately
+		for _, dep := range f.Dependencies {
+			isDependency[dep] = true
+		}
+
 		// Collect all recursive dependencies for this installed formula.
 		deps := make(map[string]bool)
 		if err := collectDeps(ctx.Loader, f.Dependencies, deps); err != nil {
-			// Similar to above, if a dependency is missing, we just log/skip.
-			continue
+			// If collectDeps fails (e.g. missing transitive dependency), log it
+			// but continue to merge whatever partial dependencies we collected.
+			slog.Debug("failed to collect all recursive dependencies", "package", p.Name, "error", err)
 		}
 
 		// Mark all collected dependencies as "is a dependency".
