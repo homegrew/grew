@@ -161,6 +161,9 @@ func SelfUpdateFromRelease(exePath string) error {
 		TmpDir: healthDir,
 	}
 	healthCmd := sandbox.PostInstallCommand(piCfg, healthBin, "vuln-scan", "--offline")
+	// Pass the current prefix explicitly so the health check doesn't fall back
+	// to ~/.homegrew due to being run from a temporary path.
+	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
 	if out, err := healthCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("new binary health check failed: %v (output: %q)", err, string(out))
 	}
@@ -209,6 +212,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 		TmpDir: tmpDir,
 	}
 	cmd := sandbox.PostInstallCommand(cfg, binPath, "--version")
+	cmd.Env = append(cmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
 	out, err := cmd.Output()
 	if err != nil {
 		return fmt.Errorf("new binary failed to execute: %w", err)
@@ -408,6 +412,9 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		TmpDir: piTmp,
 	}
 	healthCmd := sandbox.PostInstallCommand(piCfg, tmpNewBin, "vuln-scan", "--offline")
+	// Pass the current prefix explicitly so the health check doesn't fall back
+	// to ~/.homegrew due to being run from a temporary path.
+	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
 	if out, err := healthCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("patched binary health check failed: %v (output: %q)", err, string(out))
 	}
