@@ -2,9 +2,11 @@ package formula
 
 import (
 	"fmt"
+	"os/exec"
 	"runtime"
 	"sort"
 	"strings"
+	"sync"
 
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
@@ -113,13 +115,6 @@ func (f *Formula) GetBottleSpec() (BottleSpec, string, bool) {
 		return b, key, true
 	}
 
-	// For Darwin, we don't fallback to generic darwin_arm64 if it might be
-	// incompatible. Instead, we return false so the caller can fallback
-	// to a source build.
-	if strings.HasPrefix(key, "darwin") {
-		return BottleSpec{}, "", false
-	}
-
 	// Fallback to generic key for other platforms if no versioned key exists.
 	genericKey := runtime.GOOS + "_" + runtime.GOARCH
 	if b, ok := f.Bottle[genericKey]; ok {
@@ -132,7 +127,7 @@ func (f *Formula) GetBottleSpec() (BottleSpec, string, bool) {
 func (f *Formula) GetURL() (string, error) {
 	// New format support
 	if len(f.Bottle) > 0 {
-		if b, key, ok := f.GetBottleSpec(); ok {
+		if b, _, ok := f.GetBottleSpec(); ok {
 			if !strings.HasPrefix(b.URL, "https://") {
 				return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, b.URL)
 			}
@@ -140,10 +135,16 @@ func (f *Formula) GetURL() (string, error) {
 		}
 	}
 	// Fallback to old format
+	key := PlatformKey()
 	u, ok := f.URL[key]
 	if !ok {
-		return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
-			f.Name, key, sortedMapKeys(f.URL))
+		genericKey := runtime.GOOS + "_" + runtime.GOARCH
+		u, ok = f.URL[genericKey]
+		if !ok {
+			return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
+				f.Name, key, sortedMapKeys(f.URL))
+		}
+		key = genericKey
 	}
 	if !strings.HasPrefix(u, "https://") {
 		return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, u)
@@ -218,8 +219,13 @@ func (f *Formula) GetSHA256() (string, error) {
 	key := PlatformKey()
 	s, ok := f.SHA256[key]
 	if !ok {
-		return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
-			f.Name, key, sortedMapKeys(f.URL))
+		genericKey := runtime.GOOS + "_" + runtime.GOARCH
+		s, ok = f.SHA256[genericKey]
+		if !ok {
+			return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
+				f.Name, key, sortedMapKeys(f.URL))
+		}
+		key = genericKey
 	}
 	if err := validation.ValidateSHA256(s); err != nil {
 		return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
@@ -236,7 +242,12 @@ func (f *Formula) GetSHA512() (string, error) {
 		}
 	} else {
 		key := PlatformKey()
-		s = f.SHA512[key]
+		var ok bool
+		s, ok = f.SHA512[key]
+		if !ok {
+			genericKey := runtime.GOOS + "_" + runtime.GOARCH
+			s = f.SHA512[genericKey]
+		}
 	}
 
 	if s == "" {
@@ -258,7 +269,11 @@ func (f *Formula) GetSignature() string {
 		}
 	}
 	key := PlatformKey()
-	return f.Signature[key]
+	if s, ok := f.Signature[key]; ok {
+		return s
+	}
+	genericKey := runtime.GOOS + "_" + runtime.GOARCH
+	return f.Signature[genericKey]
 }
 
 // GetSourceSignature returns the source signature, or "" if none is set.

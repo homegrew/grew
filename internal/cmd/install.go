@@ -315,23 +315,7 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
-	
-	key := formula.PlatformKey()
-	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", key, f.Install.Type, f.KegOnly))
-	
-	// Check if we have a version-matched bottle.
-	hasBottle := false
-	if len(f.Bottle) > 0 {
-		_, _, hasBottle = f.GetBottleSpec()
-	}
-
-	// If no version-matched bottle exists, and we are on Darwin,
-	// consider building from source if possible.
-	if !hasBottle && strings.HasPrefix(key, "darwin") {
-		slog.Warn(fmt.Sprintf("No version-matched bottle for %s on %s, falling back to source build", f.Name, key))
-		return installFormulaFromSource(f, ctx, opts)
-	}
-
+	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
 	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
 
 	dlURL, err := f.GetURL()

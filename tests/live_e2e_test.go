@@ -172,7 +172,8 @@ func TestLiveEndToEnd(t *testing.T) {
 	// Run bash to verify it works
 	checkBash := exec.Command(bashBin, "-c", "echo relocation-success")
 	checkBash.Env = env
-	if out, err := checkBash.CombinedOutput(); err != nil {
+	out, err := checkBash.CombinedOutput()
+	if err != nil {
 		t.Fatalf("bash relocation verification failed: %v\nOutput: %s", err, string(out))
 	}
 	if !strings.Contains(string(out), "relocation-success") {
