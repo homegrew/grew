@@ -270,7 +270,7 @@ grew/
 │   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← grew-genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
+└── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
 ```
 
 ---
