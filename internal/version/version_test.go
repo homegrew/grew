@@ -29,7 +29,7 @@ func TestCompare(t *testing.T) {
 
 func TestIsNewer(t *testing.T) {
 	if !IsNewer("v1.0.0", "v1.0.1") {
-		t.Error("expected v1.0.1 to be newer than v1.0.0")
+		t.Error("expected second argument (v1.0.1) to be newer than first argument (v1.0.0)")
 	}
 	if IsNewer("v1.0.1", "v1.0.0") {
 		t.Error("expected v1.0.0 NOT to be newer than v1.0.1")
