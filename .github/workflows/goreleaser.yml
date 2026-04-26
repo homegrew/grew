@@ -30,3 +30,35 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Install bsdiff
+        run: sudo apt-get update && sudo apt-get install -y bsdiff
+
+      - name: Generate Binary Patches
+        id: patcher
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Find the previous semantic version tag
+          PREV_TAG=$(git tag --sort=-v:refname | grep -v "^${{ github.ref_name }}$" | head -n 1)
+          
+          if [ -z "$PREV_TAG" ]; then
+            echo "No previous tag found. Skipping patch generation."
+            exit 0
+          fi
+          
+          echo "Generating patches from $PREV_TAG to ${{ github.ref_name }}"
+          mkdir -p dist-patches
+          
+          # Allow some time for GoReleaser assets to be fully available via the API
+          sleep 10 
+          
+          go run tools/patcher/main.go -v -D dist-patches/ "$PREV_TAG" "${{ github.ref_name }}"
+          echo "patches_generated=true" >> $GITHUB_OUTPUT
+
+      - name: Upload Patches to Release
+        if: steps.patcher.outputs.patches_generated == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist-patches/*
+
