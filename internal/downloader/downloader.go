@@ -205,16 +205,18 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		// Recompute a trusted cleanup target from canonical tmp dir + validated final name.
 		trustedSink, joinErr := safepath.SafeJoin(canonTmpDir, finalName)
 		if joinErr != nil {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: failed to resolve trusted sink: %v\n", sinkPath, joinErr)
 			return
 		}
-		trustedSink = filepath.Clean(trustedSink)
 		if err := safepath.CheckSubpath(canonTmpDir, trustedSink); err != nil {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: trusted sink outside tmp dir: %v\n", sinkPath, err)
 			return
 		}
 
 		// Ensure we only delete the file we intended to write.
 		cleanSinkPath := filepath.Clean(sinkPath)
 		if cleanSinkPath != trustedSink {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: sink mismatch (trusted=%s)\n", sinkPath, trustedSink)
 			return
 		}
 
