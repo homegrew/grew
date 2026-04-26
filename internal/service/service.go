@@ -120,12 +120,27 @@ func (m *Manager) Start(f *formula.Formula) error {
 	return m.loadService(f.Name, filePath)
 }
 
+func (m *Manager) safeServiceDir() (string, error) {
+	absDir, err := filepath.Abs(m.ServiceDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve service dir: %w", err)
+	}
+	if err := safepath.SafeAbsolutePath(absDir); err != nil {
+		return "", fmt.Errorf("invalid service dir: %w", err)
+	}
+	return absDir, nil
+}
+
 // Stop stops and unloads the service for the given formula.
 func (m *Manager) Stop(name string) error {
 	if !validation.IsValidName(name) {
 		return fmt.Errorf("invalid service name: %q", name)
 	}
-	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(name))
+	serviceDir, err := m.safeServiceDir()
+	if err != nil {
+		return err
+	}
+	filePath, err := safepath.SafeJoin(serviceDir, serviceFileName(name))
 	if err != nil {
 		return fmt.Errorf("invalid service file path: %w", err)
 	}
@@ -143,7 +158,11 @@ func (m *Manager) Restart(f *formula.Formula) error {
 	if !validation.IsValidName(f.Name) {
 		return fmt.Errorf("invalid formula name: %q", f.Name)
 	}
-	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(f.Name))
+	serviceDir, err := m.safeServiceDir()
+	if err != nil {
+		return err
+	}
+	filePath, err := safepath.SafeJoin(serviceDir, serviceFileName(f.Name))
 	if err != nil {
 		return fmt.Errorf("invalid service file path: %w", err)
 	}
@@ -160,7 +179,11 @@ func (m *Manager) IsManaged(name string) bool {
 	if !validation.IsValidName(name) {
 		return false
 	}
-	filePath, err := safepath.SafeJoin(m.ServiceDir, serviceFileName(name))
+	serviceDir, err := m.safeServiceDir()
+	if err != nil {
+		return false
+	}
+	filePath, err := safepath.SafeJoin(serviceDir, serviceFileName(name))
 	if err != nil {
 		return false
 	}
