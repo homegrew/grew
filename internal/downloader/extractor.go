@@ -357,10 +357,19 @@ func extractSymlink(realDest, target, linkname string) error {
 	if !safepath.IsSubpath(realDest, candidateTarget) {
 		return nil
 	}
+	// Sink-side canonicalization and boundary check before any filesystem access.
+	resolvedCandidateTarget, err := filepath.Abs(candidateTarget)
+	if err != nil {
+		return fmt.Errorf("resolve symlink candidate target %s: %w", candidateTarget, err)
+	}
+	resolvedCandidateTarget = filepath.Clean(resolvedCandidateTarget)
+	if err := safepath.CheckSubpath(realDest, resolvedCandidateTarget); err != nil {
+		return nil
+	}
 
 	// If the target exists, ensure it doesn't resolve outside the root.
-	if fi, err := os.Lstat(candidateTarget); err == nil && fi != nil {
-		if resolvedCandidate, err := filepath.EvalSymlinks(candidateTarget); err == nil {
+	if fi, err := os.Lstat(resolvedCandidateTarget); err == nil && fi != nil {
+		if resolvedCandidate, err := filepath.EvalSymlinks(resolvedCandidateTarget); err == nil {
 			if !safepath.IsSubpath(realDest, resolvedCandidate) {
 				return nil
 			}
