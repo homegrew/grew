@@ -142,8 +142,11 @@ grew install --cask firefox  # going big
 grew link jq                 # stitch it in
 grew deps --tree jq          # what hath jq wrought
 grew upgrade                 # stay fresh
+grew version                 # what are we running
 grew uninstall --force jq    # uninstall even if not installed
 grew cleanup -n              # peek before you sweep
+grew cleanup --scrub         # aggressive cache cleaning
+grew cleanup --prune=7       # remove cache older than a week
 grew verify jq               # check installed files against manifest
 grew vuln-scan               # scan for CVEs and integrity issues
 grew lock                    # pin your environment
@@ -169,7 +172,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `upgrade` | Get the new hotness |
 | `outdated` | The hall of shame |
 | `reinstall` | Uninstall + install from scratch (`--cask`, `-f` without checking for previously installed keg-only or non-migrated versions) |
-| `cleanup` | Marie Kondo your Cellar |
+| `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
 | `verify` | Check installed packages against their snapshot manifests |
@@ -184,6 +187,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `shellenv` | Wire up your shell |
 | `pin` / `unpin` | Freeze formulas to prevent upgrades |
 | `completion` | Generate shell completion (bash, zsh, fish) |
+| `version` | Print version and exit |
 | `help` | You got this |
 
 ---
@@ -198,6 +202,7 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 | `HOMEGREW_APPDIR` | `/Applications` | Where casks live |
 | `HOMEGREW_TAP_VERIFY` | `off` | Tap commit signature policy (`off`, `warn`, `strict`) |
 | `HOMEGREW_ALLOWED_HOSTS` | *(built-in allowlist)* | Additional hosts for SSRF-protected downloads |
+| `HOMEGREW_CLEANUP_MAX_AGE_DAYS` | `120` | Max age in days for cached downloads |
 
 Everything else flows from the prefix:
 
