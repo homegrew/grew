@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/config"
@@ -9,6 +10,7 @@ import (
 )
 
 func runResetUpdate(args []string) error {
+	slog.Debug("starting resetupdate command execution")
 	if len(args) > 0 {
 		if args[0] == "--help" || args[0] == "-h" {
 			return runHelp([]string{"reset-update"})
@@ -18,7 +20,7 @@ func runResetUpdate(args []string) error {
 
 	paths := config.Default()
 
-	fmt.Printf("==> Removing taps directory %s\n", paths.Taps)
+	fmt.Fprintf(os.Stderr, "==> Removing taps directory %s\n", paths.Taps)
 	if err := os.RemoveAll(paths.Taps); err != nil {
 		return fmt.Errorf("remove taps: %w", err)
 	}
@@ -33,6 +35,6 @@ func runResetUpdate(args []string) error {
 		return fmt.Errorf("update: %w", err)
 	}
 
-	fmt.Printf("==> Tap definitions reset and updated (%d formulas)\n", count)
+	fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d formulas)\n", count)
 	return nil
 }

@@ -85,6 +85,7 @@ func allChecks() []doctorCheck {
 }
 
 func runDoctor(args []string) error {
+	slog.Debug("starting doctor command execution")
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
 
 	fs.Usage = func() {

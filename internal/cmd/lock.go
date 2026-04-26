@@ -3,6 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/config"
@@ -10,6 +11,7 @@ import (
 )
 
 func runLock(args []string) error {
+	slog.Debug("starting lock command execution")
 	sub := "generate"
 	if len(args) > 0 {
 		sub = args[0]

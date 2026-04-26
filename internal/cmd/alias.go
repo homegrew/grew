@@ -3,6 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -43,6 +44,7 @@ func saveAliases(a aliases) error {
 }
 
 func runAlias(args []string) error {
+	slog.Debug("starting alias command execution")
 	if len(args) == 0 {
 		return aliasList()
 	}

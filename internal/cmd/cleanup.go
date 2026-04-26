@@ -16,8 +16,9 @@ import (
 )
 
 func runCleanup(args []string) error {
+	slog.Debug("starting cleanup command execution")
 	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew cleanup [options] [formula ...]
 
@@ -225,9 +226,9 @@ Options:
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
 	} else if *dryRun {
-		fmt.Printf("==> Would free %s\n", formatSize(totalBytes))
+		fmt.Fprintf(os.Stderr, "==> Would free %s\n", formatSize(totalBytes))
 	} else {
-		fmt.Printf("==> Freed %s\n", formatSize(totalBytes))
+		fmt.Fprintf(os.Stderr, "==> Freed %s\n", formatSize(totalBytes))
 	}
 
 	return nil
@@ -261,7 +262,6 @@ func isLatestInstalled(installed []cellar.InstalledPackage, filename string) boo
 	}
 	return false
 }
-
 
 func dirSize(path string) (int64, error) {
 	var size int64

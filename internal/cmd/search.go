@@ -3,14 +3,16 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"strings"
 
 	"github.com/homegrew/grew/internal/flags"
 )
 
 func runSearch(args []string) error {
+	slog.Debug("starting search command execution")
 	fs := flag.NewFlagSet("search", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew search [options] <query>
 

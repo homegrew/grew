@@ -85,4 +85,3 @@ func Compare(v1, v2 string) int {
 func IsNewer(v1, v2 string) bool {
 	return Compare(v1, v2) == -1
 }
-

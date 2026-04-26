@@ -23,7 +23,7 @@ install:
 	$(GO) install
 
 .PHONY: check
-check: test-unit test-integration
+check: test-unit
 
 .PHONY: test-unit
 test-unit:

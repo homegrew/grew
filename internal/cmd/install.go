@@ -23,8 +23,9 @@ import (
 )
 
 func RunInstall(args []string) error {
+	slog.Debug("starting install command execution")
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew install [options] <formula ...>
 
@@ -167,7 +168,7 @@ Options:
 			}
 
 			if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
-				fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
+				fmt.Fprintf(os.Stderr, "==> %s %s is already installed, skipping\n", f.Name, f.Version)
 				continue
 			}
 
@@ -193,7 +194,7 @@ Options:
 
 // simulateInstall prints what would happen without making any changes.
 func simulateInstall(installOrder []*formula.Formula, target string, ctx *installContext, onlyDeps bool, buildFromSource bool, force bool) error {
-	fmt.Printf("==> Dry run: the following actions would be performed\n\n")
+	fmt.Fprintf(os.Stderr, "==> Dry run: the following actions would be performed\n\n")
 
 	for _, f := range installOrder {
 		if onlyDeps && f.Name == target {
@@ -324,7 +325,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
-	fmt.Printf("==> Installing %s %s\n", f.Name, f.Version)
+	fmt.Fprintf(os.Stderr, "==> Installing %s %s\n", f.Name, f.Version)
 
 	dlURL, err := f.GetURL()
 	if err != nil {
@@ -367,7 +368,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, sha256); err == nil {
-			fmt.Printf("==> Using cached %s\n", filename)
+			fmt.Fprintf(os.Stderr, "==> Using cached %s\n", filename)
 		} else {
 			// Hash mismatch, re-download
 			localFile, err = ctx.DL.Download(dlURL, filename)
@@ -410,13 +411,13 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 		_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Printf("==> SHA256 verified\n")
+	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
 			_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}
-		fmt.Printf("==> SHA512 verified\n")
+		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
@@ -430,7 +431,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 	}
 	os.RemoveAll(stageDir)
 
-	fmt.Printf("==> Extracting (sandboxed)\n")
+	fmt.Fprintf(os.Stderr, "==> Extracting (sandboxed)\n")
 	if err := sandboxedExtract(localFile, stageDir, f.Install); err != nil {
 		os.RemoveAll(stageDir)
 		os.Remove(localFile)
@@ -487,7 +488,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		return err
 	}
 
-	fmt.Printf("==> Building %s %s from source\n", f.Name, f.Version)
+	fmt.Fprintf(os.Stderr, "==> Building %s %s from source\n", f.Name, f.Version)
 
 	srcURL, err := f.GetSourceURL()
 	if err != nil {
@@ -522,7 +523,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, srcSHA256); err == nil {
-			fmt.Printf("==> Using cached %s\n", filename)
+			fmt.Fprintf(os.Stderr, "==> Using cached %s\n", filename)
 		} else {
 			// Hash mismatch, re-download
 			localFile, err = ctx.DL.Download(srcURL, filename)
@@ -550,13 +551,13 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		os.Remove(localFile)
 		return fmt.Errorf("verify source %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Printf("==> SHA256 verified\n")
+	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 	if srcSHA512 != "" {
 		if err := downloader.VerifySHA512(localFile, srcSHA512); err != nil {
 			os.Remove(localFile)
 			return fmt.Errorf("verify source %s (SHA512): %w", f.Name, err)
 		}
-		fmt.Printf("==> SHA512 verified\n")
+		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
 	}
 
 	if err := verifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
@@ -571,7 +572,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
-	fmt.Printf("==> Extracting source (sandboxed)\n")
+	fmt.Fprintf(os.Stderr, "==> Extracting source (sandboxed)\n")
 	if err := sandboxedExtract(localFile, buildDir, srcSpec); err != nil {
 		os.RemoveAll(buildDir)
 		os.Remove(localFile)
@@ -620,11 +621,11 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		os.RemoveAll(kegPath)
 	}
 
-	fmt.Printf("==> Sandboxed build (network denied, filesystem restricted)\n")
+	fmt.Fprintf(os.Stderr, "==> Sandboxed build (network denied, filesystem restricted)\n")
 	slog.Debug(fmt.Sprintf("sandbox config: build=%s keg=%s deps=%v", buildDir, kegPath, depPaths))
 
 	// ./configure --prefix=<keg>
-	fmt.Printf("==> ./configure --prefix=%s\n", kegPath)
+	fmt.Fprintf(os.Stderr, "==> ./configure --prefix=%s\n", kegPath)
 	configure := sandbox.Command(sbCfg, "./configure", "--prefix="+kegPath)
 	configure.Dir = buildDir
 	configure.Stdout = os.Stdout
@@ -635,7 +636,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	// make
-	fmt.Printf("==> make\n")
+	fmt.Fprintf(os.Stderr, "==> make\n")
 	makeCmd := sandbox.Command(sbCfg, "make")
 	makeCmd.Dir = buildDir
 	makeCmd.Stdout = os.Stdout
@@ -646,7 +647,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	// make install
-	fmt.Printf("==> make install\n")
+	fmt.Fprintf(os.Stderr, "==> make install\n")
 	makeInstall := sandbox.Command(sbCfg, "make", "install")
 	makeInstall.Dir = buildDir
 	makeInstall.Stdout = os.Stdout
@@ -708,7 +709,7 @@ func verifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
 	if !signing.VerifyAny(trustedKeys, sha256Hex, signatureB64) {
 		return fmt.Errorf("signature verification failed for %s: not signed by any trusted key", name)
 	}
-	fmt.Printf("==> Signature verified\n")
+	fmt.Fprintf(os.Stderr, "==> Signature verified\n")
 	return nil
 }
 
@@ -767,25 +768,26 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 		methodStr = "built from source and "
 	}
 	if f.KegOnly {
-		fmt.Printf("==> %s %s %sinstalled (keg-only, not linked)\n", f.Name, f.Version, methodStr)
+		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled (keg-only, not linked)\n", f.Name, f.Version, methodStr)
 	} else if opts.skipLink {
-		fmt.Printf("==> %s %s %sinstalled (linking skipped)\n", f.Name, f.Version, methodStr)
+		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled (linking skipped)\n", f.Name, f.Version, methodStr)
 	} else {
-		fmt.Printf("==> %s %s %sinstalled\n", f.Name, f.Version, methodStr)
+		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled\n", f.Name, f.Version, methodStr)
 	}
 
 	return nil
 }
 
 func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
+	slog.Debug("starting postinstall command execution")
 	if f.PostInstall == "" {
 		return nil
 	}
 	if skipPostInstall {
-		fmt.Printf("==> Skipping post-install step for %s\n", f.Name)
+		fmt.Fprintf(os.Stderr, "==> Skipping post-install step for %s\n", f.Name)
 		return nil
 	}
-	fmt.Printf("==> Running post-install for %s (sandboxed, keg read-only)\n", f.Name)
+	fmt.Fprintf(os.Stderr, "==> Running post-install for %s (sandboxed, keg read-only)\n", f.Name)
 
 	// Create a dedicated temp directory for the post-install script.
 	// This is the ONLY writable location — the keg itself is read-only.

@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"sort"
@@ -15,8 +16,9 @@ import (
 )
 
 func runList(args []string) error {
+	slog.Debug("starting list command execution")
 	fs := flag.NewFlagSet("list", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew list [options]
 

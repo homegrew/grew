@@ -20,8 +20,9 @@ import (
 )
 
 func runSetup(args []string) error {
+	slog.Debug("starting setup command execution")
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew setup [options]
 
@@ -179,8 +180,8 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
 	}
 
-	fmt.Printf("==> Setting up grew at %s (system prefix)\n", prefix)
-	fmt.Printf("==> Ownership will be transferred to %s\n", u.Username)
+	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (system prefix)\n", prefix)
+	fmt.Fprintf(os.Stderr, "==> Ownership will be transferred to %s\n", u.Username)
 	fmt.Println()
 
 	// Create the prefix.
@@ -191,7 +192,7 @@ func setupSystem(prefix string) error {
 	// Transfer ownership to the real user.
 
 	userGroup := strings.Join([]string{u.Username, pg}, ":")
-	fmt.Printf("==> chown -R %s %s\n", userGroup, prefix)
+	fmt.Fprintf(os.Stderr, "==> chown -R %s %s\n", userGroup, prefix)
 	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
 
 	chownExe, err := exec.LookPath("chown")
@@ -222,7 +223,7 @@ func setupSystem(prefix string) error {
 	// files as root. This ensures the entire prefix is owned by the real
 	// user, which is critical for --force re-runs where previous files
 	// may have wrong permissions.
-	fmt.Printf("==> Fixing permissions: chown -R %s %s\n", userGroup, prefix)
+	fmt.Fprintf(os.Stderr, "==> Fixing permissions: chown -R %s %s\n", userGroup, prefix)
 	fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
 	fixCmd.Stdout = os.Stdout
 	fixCmd.Stderr = os.Stderr
@@ -241,7 +242,7 @@ func validIdentity(s string) bool {
 
 // setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
-	fmt.Printf("==> Setting up grew at %s (user prefix, devmode)\n", prefix)
+	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (user prefix, devmode)\n", prefix)
 	fmt.Println()
 	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
@@ -256,7 +257,7 @@ func finishSetup(prefix string) error {
 	appDir := defaultAppDir()
 
 	paths := config.FromRoot(prefix, appDir)
-	fmt.Println("==> Creating directory structure...")
+	fmt.Fprintln(os.Stderr, "==> Creating directory structure...")
 	if err := paths.Init(); err != nil {
 		return fmt.Errorf("init directories: %w", err)
 	}
@@ -268,7 +269,7 @@ func finishSetup(prefix string) error {
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	if err := installFromGit(repoDir, destBin, true); err != nil {
 		slog.Info(fmt.Sprintf("note: could not install from source: %v", err))
-		fmt.Println("==> Falling back to copying current binary")
+		fmt.Fprintln(os.Stderr, "==> Falling back to copying current binary")
 
 		exe, exeErr := os.Executable()
 		if exeErr != nil {
@@ -283,12 +284,12 @@ func finishSetup(prefix string) error {
 			if err := copyFile(exe, destBin); err != nil {
 				return fmt.Errorf("copy binary to %s: %w", destBin, err)
 			}
-			fmt.Printf("==> Installed grew binary to %s\n", destBin)
+			fmt.Fprintf(os.Stderr, "==> Installed grew binary to %s\n", destBin)
 		}
 	}
 
 	fmt.Println()
-	fmt.Printf("==> grew is ready at %s\n", prefix)
+	fmt.Fprintf(os.Stderr, "==> grew is ready at %s\n", prefix)
 	fmt.Println()
 	fmt.Println("Add this to your shell profile:")
 	fmt.Println()
@@ -324,7 +325,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 	gitDir := filepath.Clean(filepath.Join(cleanRepoDir, ".git"))
 	if _, err := os.Stat(gitDir); err == nil {
 		// Repo exists — pull latest.
-		fmt.Println("==> Updating grew source...")
+		fmt.Fprintln(os.Stderr, "==> Updating grew source...")
 		pull := exec.Command(gitPath, "pull", "--ff-only")
 		pull.Dir = cleanRepoDir
 		pull.Stdout = os.Stdout
@@ -337,7 +338,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 			return ErrNoGitRepo
 		}
 		// Clone fresh.
-		fmt.Printf("==> Cloning grew from %s\n", grewRepoURL)
+		fmt.Fprintf(os.Stderr, "==> Cloning grew from %s\n", grewRepoURL)
 		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
@@ -347,7 +348,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 	}
 
 	// Generate version and build.
-	fmt.Println("==> Building grew from source...")
+	fmt.Fprintln(os.Stderr, "==> Building grew from source...")
 	generate := exec.Command(goPath, "generate", "./internal/...")
 	generate.Dir = cleanRepoDir
 	generate.Stdout = os.Stdout
@@ -364,7 +365,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 		return fmt.Errorf("go build: %w", err)
 	}
 
-	fmt.Printf("==> Built and installed grew to %s\n", destBin)
+	fmt.Fprintf(os.Stderr, "==> Built and installed grew to %s\n", destBin)
 	return nil
 }
 

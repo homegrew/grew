@@ -10,6 +10,7 @@ import (
 )
 
 func runLeaves(args []string) error {
+	slog.Debug("starting leaves command execution")
 	fs := flag.NewFlagSet("leaves", flag.ContinueOnError)
 
 	fs.Usage = func() {

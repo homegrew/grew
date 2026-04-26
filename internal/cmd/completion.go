@@ -2,10 +2,12 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"strings"
 )
 
 func runCompletion(args []string) error {
+	slog.Debug("starting completion command execution")
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew completion <shell>")
 	}
