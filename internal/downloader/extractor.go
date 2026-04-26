@@ -476,6 +476,9 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 				return fmt.Errorf("resolve sink target %q: %w", name, err)
 			}
 			sinkTarget = filepath.Clean(sinkTarget)
+			if err := safepath.SafeAbsolutePath(realDest); err != nil {
+				return fmt.Errorf("invalid extraction base %q: %w", realDest, err)
+			}
 			if err := safepath.CheckSubpath(realDest, sinkTarget); err != nil {
 				return fmt.Errorf("refuse to remove/write outside extraction directory: %w", err)
 			}
