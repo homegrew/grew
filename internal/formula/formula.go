@@ -144,7 +144,6 @@ func (f *Formula) GetURL() (string, error) {
 			return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
 				f.Name, key, sortedMapKeys(f.URL))
 		}
-		key = genericKey
 	}
 	if !strings.HasPrefix(u, "https://") {
 		return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, u)
