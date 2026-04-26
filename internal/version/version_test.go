@@ -3,6 +3,7 @@ package version
 import "testing"
 
 func TestCompare(t *testing.T) {
+	t.Parallel()
 	tests := []struct {
 		v1, v2 string
 		want   int
@@ -26,13 +27,18 @@ func TestCompare(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if got := Compare(tt.v1, tt.v2); got != tt.want {
-			t.Errorf("Compare(%q, %q) = %d, want %d", tt.v1, tt.v2, got, tt.want)
-		}
+		tt := tt
+		t.Run(tt.v1+"_"+tt.v2, func(t *testing.T) {
+			t.Parallel()
+			if got := Compare(tt.v1, tt.v2); got != tt.want {
+				t.Errorf("Compare(%q, %q) = %d, want %d", tt.v1, tt.v2, got, tt.want)
+			}
+		})
 	}
 }
 
 func TestIsNewer(t *testing.T) {
+	t.Parallel()
 	tests := []struct {
 		old, new string
 		want     bool
@@ -49,8 +55,12 @@ func TestIsNewer(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if got := IsNewer(tt.old, tt.new); got != tt.want {
-			t.Errorf("IsNewer(%q, %q) = %v, want %v", tt.old, tt.new, got, tt.want)
-		}
+		tt := tt
+		t.Run(tt.old+"_"+tt.new, func(t *testing.T) {
+			t.Parallel()
+			if got := IsNewer(tt.old, tt.new); got != tt.want {
+				t.Errorf("IsNewer(%q, %q) = %v, want %v", tt.old, tt.new, got, tt.want)
+			}
+		})
 	}
 }
