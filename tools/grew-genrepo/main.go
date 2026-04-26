@@ -160,11 +160,7 @@ func runFormulaImport(args []string) {
 		}
 		outDir = safeDir
 	}
-	resolvedOutDir, err := safeOutputDir(outDir)
-	if err != nil {
-		slog.Error("Invalid output directory", "output_dir", outDir, "error", err)
-		os.Exit(1)
-	}
+	resolvedOutDir := outDir
 
 	data := fetchAPI(formulaAPI)
 	var hfs []hbFormula
