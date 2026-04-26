@@ -645,11 +645,13 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 
 		mode := fsutil.SanitizeMode(f.Mode(), false)
 
-		// Final sink-time hardening: re-canonicalize and re-check containment
-		// immediately before destructive/write operations.
-		canonicalTarget := filepath.Clean(target)
-		if abs, err := filepath.Abs(canonicalTarget); err == nil {
-			canonicalTarget = filepath.Clean(abs)
+		// Final sink-time hardening: re-resolve the target from the trusted
+		// extraction root and re-check containment immediately before
+		// destructive/write operations.
+		canonicalTarget, err := safepath.SafeJoin(realDestDir, name)
+		if err != nil {
+			rc.Close()
+			return fmt.Errorf("refusing to resolve extraction target %q: %w", name, err)
 		}
 		if !safepath.IsSubpath(realDestDir, canonicalTarget) {
 			rc.Close()
