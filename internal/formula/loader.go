@@ -20,6 +20,9 @@ func NewLoader(tapDir string) *Loader {
 		tapDir = abs
 	}
 	tapDir = filepath.Clean(tapDir)
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		tapDir = filepath.Clean(string(filepath.Separator))
+	}
 	return &Loader{TapDir: tapDir}
 }
 
