@@ -119,6 +119,14 @@ func TestPatchUpdateIntegration(t *testing.T) {
 							"browser_download_url": baseURL + "/download/" + patchName,
 						},
 						{
+							"name":                 patchName + ".sha256",
+							"browser_download_url": baseURL + "/download/" + patchName + ".sha256",
+						},
+						{
+							"name":                 patchName + ".sha512",
+							"browser_download_url": baseURL + "/download/" + patchName + ".sha512",
+						},
+						{
 							"name":                 "binary-checksums.txt",
 							"browser_download_url": baseURL + "/download/binary-checksums.txt",
 						},
@@ -130,6 +138,10 @@ func TestPatchUpdateIntegration(t *testing.T) {
 			w.Write(tarballBytes)
 		case "/download/" + patchName:
 			w.Write(patchBytes)
+		case "/download/" + patchName + ".sha256":
+			w.Write([]byte(fmt.Sprintf("%s  %s\n", patchHash256, patchName)))
+		case "/download/" + patchName + ".sha512":
+			w.Write([]byte(fmt.Sprintf("%s  %s\n", patchHash512, patchName)))
 		case "/download/checksums.txt":
 			w.Write([]byte(fmt.Sprintf("%s  %s\n%s  %s\n%s  %s\n%s  %s\n", patchHash256, patchName, patchHash512, patchName, tarballHash256, tarballName, tarballHash512, tarballName)))
 		case "/download/binary-checksums.txt":
