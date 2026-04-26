@@ -41,12 +41,18 @@ func CopyTree(src, dst string) error {
 		return fmt.Errorf("resolve dest: %w", err)
 	}
 	absDst = filepath.Clean(absDst)
+	if err := safepath.SafeAbsolutePath(absDst); err != nil {
+		return fmt.Errorf("invalid destination root %q: %w", absDst, err)
+	}
 
 	absSrc, err := filepath.Abs(src)
 	if err != nil {
 		return fmt.Errorf("resolve src: %w", err)
 	}
 	absSrc = filepath.Clean(absSrc)
+	if err := safepath.SafeAbsolutePath(absSrc); err != nil {
+		return fmt.Errorf("invalid source root %q: %w", absSrc, err)
+	}
 
 	return filepath.WalkDir(absSrc, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
@@ -61,6 +67,9 @@ func CopyTree(src, dst string) error {
 		target, err := safepath.SafeJoin(absDst, rel)
 		if err != nil {
 			return fmt.Errorf("refusing to copy outside destination root: %w", err)
+		}
+		if err := safepath.SafeAbsolutePath(target); err != nil {
+			return fmt.Errorf("invalid copy target %q: %w", target, err)
 		}
 
 		// Ensure that the computed target path stays within the destination root.
