@@ -2,7 +2,6 @@ package sandbox
 
 import (
 	"fmt"
-	"log/slog"
 	"os"
 	"os/exec"
 	"strings"
@@ -35,18 +34,8 @@ func writeUnshareScript(tmpDir string, build func(*strings.Builder)) (string, er
 var bwrapExe, unshareExe string
 
 func init() {
-	var errBwrap, errUnshare error
-
-	bwrapExe, errBwrap = exec.LookPath("bwrap")
-	unshareExe, errUnshare = exec.LookPath("unshare")
-
-	if errBwrap != nil {
-		slog.Warn("bwrap not found in $PATH")
-	}
-
-	if errUnshare != nil {
-		slog.Warn("unshare not found in $PATH")
-	}
+	bwrapExe, _ = exec.LookPath("bwrap")
+	unshareExe, _ = exec.LookPath("unshare")
 }
 
 // BwrapAvailable probes whether bwrap can actually create the namespaces
