@@ -1,0 +1,97 @@
+package tests
+
+import (
+	"net/http"
+	"net/http/httptest"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"runtime"
+	"strings"
+	"testing"
+)
+
+func TestLeaves(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+
+	exePath := buildTestBinary(t, tmpDir)
+	prefix := setupPrefix(t, tmpDir)
+
+	archiveData1 := []byte("fake-binary-data")
+	archiveSHA256_1 := computeSHA256(archiveData1)
+	archiveData2 := []byte("fake-binary-data-2")
+	archiveSHA256_2 := computeSHA256(archiveData2)
+
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.Contains(r.URL.Path, "dep1.tar.gz") {
+			w.Write(archiveData1)
+		} else if strings.Contains(r.URL.Path, "pkga.tar.gz") {
+			w.Write(archiveData2)
+		} else {
+			http.NotFound(w, r)
+		}
+	}))
+	defer server.Close()
+
+	certFile := filepath.Join(tmpDir, "server.crt")
+	writeServerCert(server, certFile)
+
+	createFormula(t, prefix, "dep1", `
+name: dep1
+version: 1.0.0
+url:
+  `+platformKey()+`: `+server.URL+`/dep1.tar.gz
+sha256:
+  `+platformKey()+`: `+archiveSHA256_1+`
+install:
+  type: binary
+  binary_name: dep1bin
+`)
+
+	createFormula(t, prefix, "pkga", `
+name: pkga
+version: 2.0.0
+url:
+  `+platformKey()+`: `+server.URL+`/pkga.tar.gz
+sha256:
+  `+platformKey()+`: `+archiveSHA256_2+`
+install:
+  type: binary
+  binary_name: pkgabin
+dependencies:
+  - dep1
+`)
+
+	env := append(os.Environ(),
+		"HOMEGREW_PREFIX="+prefix,
+		"HOMEGREW_TEST_CERT_FILE="+certFile,
+		"HOMEGREW_ALLOWED_HOSTS=127.0.0.1",
+	)
+
+	// Install pkga, which should pull in dep1
+	cmd := exec.Command(exePath, "install", "pkga")
+	cmd.Env = env
+	if out, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("failed to install pkga: %v, output:\n%s", err, string(out))
+	}
+
+	// Run leaves command
+	cmd = exec.Command(exePath, "leaves")
+	cmd.Env = env
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("failed to run leaves: %v, output:\n%s", err, string(out))
+	}
+
+	output := strings.TrimSpace(string(out))
+	lines := strings.Split(output, "\n")
+	
+	if len(lines) != 1 || lines[0] != "pkga" {
+		t.Errorf("expected only 'pkga' as leaf, got:\n%s", output)
+	}
+}
+
+func platformKey() string {
+	return runtime.GOOS + "_" + runtime.GOARCH
+}
