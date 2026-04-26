@@ -78,15 +78,29 @@ func removeIfWithin(targetPath, baseDir string) error {
 	if err != nil {
 		return fmt.Errorf("resolve target path: %w", err)
 	}
-	canonTarget, err := filepath.EvalSymlinks(targetAbs)
+	targetAbs = filepath.Clean(targetAbs)
+
+	targetBase := filepath.Base(targetAbs)
+	if err := safepath.SafePathComponent(targetBase); err != nil {
+		return fmt.Errorf("invalid target filename %q: %w", targetBase, err)
+	}
+
+	targetParent := filepath.Dir(targetAbs)
+	canonParent, err := filepath.EvalSymlinks(targetParent)
 	if err != nil {
-		if os.IsNotExist(err) {
-			canonTarget = filepath.Clean(targetAbs)
-		} else {
-			return fmt.Errorf("resolve target symlinks: %w", err)
-		}
-	} else {
-		canonTarget = filepath.Clean(canonTarget)
+		return fmt.Errorf("resolve target parent symlinks: %w", err)
+	}
+	canonParent = filepath.Clean(canonParent)
+	if err := safepath.SafeAbsolutePath(canonParent); err != nil {
+		return fmt.Errorf("invalid canonical target parent path %q: %w", canonParent, err)
+	}
+	if err := safepath.CheckSubpath(canonBase, canonParent); err != nil {
+		return fmt.Errorf("refusing to remove path outside base directory: %s", targetAbs)
+	}
+
+	canonTarget, err := safepath.SafeJoin(canonParent, targetBase)
+	if err != nil {
+		return fmt.Errorf("resolve canonical target path: %w", err)
 	}
 	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
 		return fmt.Errorf("invalid canonical target path %q: %w", canonTarget, err)
