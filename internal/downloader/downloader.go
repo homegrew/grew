@@ -113,6 +113,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	canonTmpDir = filepath.Clean(canonTmpDir)
 
 	sinkDir := filepath.Dir(sinkPath)
+	if err := os.MkdirAll(sinkDir, 0o755); err != nil {
+		return "", fmt.Errorf("create download directory %s: %w", sinkDir, err)
+	}
 	canonSinkDir, err := filepath.EvalSymlinks(sinkDir)
 	if err != nil {
 		return "", fmt.Errorf("resolve download directory %s: %w", sinkDir, err)
