@@ -10,6 +10,7 @@ import (
 
 func runSign(args []string) error {
 	slog.Debug("starting sign command execution")
+	slog.Debug("starting sign command execution")
 	if len(args) != 2 {
 		return fmt.Errorf("usage: grew sign <formula> <private-key-or-path>\n\n" +
 			"The key can be:\n" +

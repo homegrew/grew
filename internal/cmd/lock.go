@@ -12,6 +12,7 @@ import (
 
 func runLock(args []string) error {
 	slog.Debug("starting lock command execution")
+	slog.Debug("starting lock command execution")
 	sub := "generate"
 	if len(args) > 0 {
 		sub = args[0]

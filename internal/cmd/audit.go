@@ -37,6 +37,7 @@ func (r *auditResult) ok() bool {
 
 func runAudit(args []string) error {
 	slog.Debug("starting audit command execution")
+	slog.Debug("starting audit command execution")
 	fs := flag.NewFlagSet("audit", flag.ContinueOnError)
 
 	fs.Usage = func() {
@@ -78,6 +79,7 @@ Options:
 }
 
 func runAuditFormulas(ctx *commonCtx, targets []string, strict, online bool) error {
+	slog.Debug("starting auditformulas command execution")
 	slog.Debug("starting auditformulas command execution")
 	var formulas []*formula.Formula
 	if len(targets) == 0 {
@@ -288,6 +290,7 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 }
 
 func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
+	slog.Debug("starting auditcasks command execution")
 	slog.Debug("starting auditcasks command execution")
 	caskLoader := &cask.Loader{TapDir: paths.Taps}
 	caskLoader.DebugLog = func(format string, args ...any) {

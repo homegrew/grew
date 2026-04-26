@@ -14,6 +14,7 @@ import (
 
 func runLink(args []string) error {
 	slog.Debug("starting link command execution")
+	slog.Debug("starting link command execution")
 	fs := flag.NewFlagSet("link", flag.ContinueOnError)
 
 	fs.Usage = func() {
@@ -95,6 +96,7 @@ Options:
 }
 
 func runUnlink(args []string) error {
+	slog.Debug("starting unlink command execution")
 	slog.Debug("starting unlink command execution")
 	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
 

@@ -13,6 +13,7 @@ import (
 
 func runDeps(args []string) error {
 	slog.Debug("starting deps command execution")
+	slog.Debug("starting deps command execution")
 	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
 
 	fs.Usage = func() {

@@ -11,6 +11,7 @@ import (
 
 func runSearch(args []string) error {
 	slog.Debug("starting search command execution")
+	slog.Debug("starting search command execution")
 	fs := flag.NewFlagSet("search", flag.ContinueOnError)
 
 	fs.Usage = func() {

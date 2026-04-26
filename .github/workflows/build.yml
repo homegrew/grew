@@ -34,5 +34,6 @@ jobs:
           go tool covdata textfmt -i=$GITHUB_WORKSPACE/coverageRaw -o ./coverageFiles/coverage_integration.txt
       - uses: codecov/codecov-action@v6
         with:
+          fail_ci_if_error: false
           directory: ./coverageFiles
           token: ${{ secrets.CODECOV_TOKEN }}

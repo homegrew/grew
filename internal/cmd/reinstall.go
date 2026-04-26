@@ -13,6 +13,7 @@ import (
 
 func runReinstall(args []string) error {
 	slog.Debug("starting reinstall command execution")
+	slog.Debug("starting reinstall command execution")
 	fs := flag.NewFlagSet("reinstall", flag.ContinueOnError)
 
 	fs.Usage = func() {

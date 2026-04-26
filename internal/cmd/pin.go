@@ -11,6 +11,7 @@ import (
 
 func runPin(args []string) error {
 	slog.Debug("starting pin command execution")
+	slog.Debug("starting pin command execution")
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew pin <formula>...")
 	}
@@ -41,6 +42,7 @@ func runPin(args []string) error {
 }
 
 func runUnpin(args []string) error {
+	slog.Debug("starting unpin command execution")
 	slog.Debug("starting unpin command execution")
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew unpin <formula>...")

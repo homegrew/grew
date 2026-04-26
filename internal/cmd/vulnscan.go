@@ -43,6 +43,7 @@ type vulnFinding struct {
 
 func runVulnScan(args []string) error {
 	slog.Debug("starting vulnscan command execution")
+	slog.Debug("starting vulnscan command execution")
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
 
 	fs.Usage = func() {

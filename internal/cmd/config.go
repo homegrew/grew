@@ -15,6 +15,7 @@ import (
 
 func runConfig(_ []string) error {
 	slog.Debug("starting config command execution")
+	slog.Debug("starting config command execution")
 	paths := config.Default()
 
 	fmt.Println("HOMEGREW_VERSION:", version.Version())

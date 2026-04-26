@@ -485,6 +485,7 @@ Examples:
 
 func runHelp(args []string) error {
 	slog.Debug("starting help command execution")
+	slog.Debug("starting help command execution")
 	if len(args) == 0 {
 		printUsage()
 		return nil

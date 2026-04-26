@@ -16,6 +16,7 @@ type outdatedPkg struct {
 
 func runUpgrade(args []string) error {
 	slog.Debug("starting upgrade command execution")
+	slog.Debug("starting upgrade command execution")
 	ctx, err := newInstallContext()
 	if err != nil {
 		return err
@@ -108,6 +109,7 @@ func runUpgrade(args []string) error {
 }
 
 func runOutdated(args []string) error {
+	slog.Debug("starting outdated command execution")
 	slog.Debug("starting outdated command execution")
 	ctx, err := newReadContext()
 	if err != nil {

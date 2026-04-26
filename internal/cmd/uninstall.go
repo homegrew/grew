@@ -16,6 +16,7 @@ import (
 
 func runUninstall(args []string) error {
 	slog.Debug("starting uninstall command execution")
+	slog.Debug("starting uninstall command execution")
 	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
 
 	fs.Usage = func() {

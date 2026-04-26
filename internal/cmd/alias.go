@@ -45,6 +45,7 @@ func saveAliases(a aliases) error {
 
 func runAlias(args []string) error {
 	slog.Debug("starting alias command execution")
+	slog.Debug("starting alias command execution")
 	if len(args) == 0 {
 		return aliasList()
 	}

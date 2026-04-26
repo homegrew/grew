@@ -21,6 +21,7 @@ import (
 
 func runSetup(args []string) error {
 	slog.Debug("starting setup command execution")
+	slog.Debug("starting setup command execution")
 	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
 
 	fs.Usage = func() {

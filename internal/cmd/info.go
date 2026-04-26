@@ -12,6 +12,7 @@ import (
 
 func runInfo(args []string) error {
 	slog.Debug("starting info command execution")
+	slog.Debug("starting info command execution")
 	fs := flag.NewFlagSet("info", flag.ContinueOnError)
 
 	fs.Usage = func() {

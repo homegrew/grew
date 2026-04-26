@@ -17,6 +17,7 @@ import (
 
 func runCleanup(args []string) error {
 	slog.Debug("starting cleanup command execution")
+	slog.Debug("starting cleanup command execution")
 	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
 
 	fs.Usage = func() {

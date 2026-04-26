@@ -12,6 +12,7 @@ import (
 
 func runLinkage(args []string) error {
 	slog.Debug("starting linkage command execution")
+	slog.Debug("starting linkage command execution")
 	fs := flag.NewFlagSet("linkage", flag.ContinueOnError)
 
 	fs.Usage = func() {

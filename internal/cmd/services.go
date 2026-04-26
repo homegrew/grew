@@ -17,6 +17,7 @@ import (
 
 func runServices(args []string) error {
 	slog.Debug("starting services command execution")
+	slog.Debug("starting services command execution")
 	if len(args) == 0 {
 		return servicesUsage()
 	}

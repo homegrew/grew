@@ -8,6 +8,7 @@ import (
 
 func runCompletion(args []string) error {
 	slog.Debug("starting completion command execution")
+	slog.Debug("starting completion command execution")
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew completion <shell>")
 	}

@@ -17,6 +17,7 @@ import (
 
 func runList(args []string) error {
 	slog.Debug("starting list command execution")
+	slog.Debug("starting list command execution")
 	fs := flag.NewFlagSet("list", flag.ContinueOnError)
 
 	fs.Usage = func() {

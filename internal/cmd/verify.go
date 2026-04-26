@@ -13,6 +13,7 @@ import (
 
 func runVerify(args []string) error {
 	slog.Debug("starting verify command execution")
+	slog.Debug("starting verify command execution")
 	jsonOutput := false
 	var targets []string
 

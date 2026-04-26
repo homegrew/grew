@@ -12,6 +12,7 @@ import (
 
 func runUpdate(args []string) error {
 	slog.Debug("starting update command execution")
+	slog.Debug("starting update command execution")
 	// Attempt to self-update the CLI binary first, unless we are in devmode.
 	if !runtime.DevMode {
 		fmt.Fprintln(os.Stderr, "==> Checking for grew updates...")

@@ -11,6 +11,7 @@ import (
 
 func runResetUpdate(args []string) error {
 	slog.Debug("starting resetupdate command execution")
+	slog.Debug("starting resetupdate command execution")
 	if len(args) > 0 {
 		if args[0] == "--help" || args[0] == "-h" {
 			return runHelp([]string{"reset-update"})

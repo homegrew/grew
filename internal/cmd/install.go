@@ -24,6 +24,7 @@ import (
 
 func RunInstall(args []string) error {
 	slog.Debug("starting install command execution")
+	slog.Debug("starting install command execution")
 	fs := flag.NewFlagSet("install", flag.ContinueOnError)
 
 	fs.Usage = func() {
@@ -779,6 +780,7 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 }
 
 func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
+	slog.Debug("starting postinstall command execution")
 	slog.Debug("starting postinstall command execution")
 	if f.PostInstall == "" {
 		return nil

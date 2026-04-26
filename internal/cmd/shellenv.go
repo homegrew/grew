@@ -13,6 +13,7 @@ import (
 
 func runShellenv(args []string) error {
 	slog.Debug("starting shellenv command execution")
+	slog.Debug("starting shellenv command execution")
 	paths := config.Default()
 	shell := detectShell(args)
 
