@@ -14,6 +14,7 @@ package flags
 
 import (
 	"flag"
+	"strings"
 
 	"github.com/homegrew/grew/pkg/logger"
 )
@@ -30,9 +31,20 @@ var Debug bool
 
 // Parse strips recognised global flags from args and returns the remaining
 // arguments. It must be called before subcommand dispatch.
+// It only strips flags that appear BEFORE the first non-flag argument
+// (which is the subcommand name).
 func Parse(args []string) []string {
 	var filtered []string
-	for _, a := range args {
+	i := 0
+	for i < len(args) {
+		a := args[i]
+		if !strings.HasPrefix(a, "-") {
+			// First non-flag argument is the subcommand.
+			// Stop stripping global flags here.
+			filtered = append(filtered, args[i:]...)
+			break
+		}
+
 		switch a {
 		case "-q", "--quiet":
 			Quiet = true
@@ -43,6 +55,7 @@ func Parse(args []string) []string {
 		default:
 			filtered = append(filtered, a)
 		}
+		i++
 	}
 	return filtered
 }
@@ -52,12 +65,24 @@ func Parse(args []string) []string {
 // on every subcommand FlagSet before fs.Parse so the flags are accepted
 // regardless of position on the command line.
 func Register(fs *flag.FlagSet) {
-	fs.BoolVar(&Quiet, "quiet", Quiet, "Only print errors")
-	fs.BoolVar(&Quiet, "q", Quiet, "Only print errors")
-	fs.BoolVar(&Verbose, "verbose", Verbose, "Show detailed output")
-	fs.BoolVar(&Verbose, "v", Verbose, "Show detailed output")
-	fs.BoolVar(&Debug, "debug", Debug, "Show debug diagnostics (implies --verbose)")
-	fs.BoolVar(&Debug, "d", Debug, "Show debug diagnostics (implies --verbose)")
+	if fs.Lookup("quiet") == nil {
+		fs.BoolVar(&Quiet, "quiet", Quiet, "Only print errors")
+	}
+	if fs.Lookup("q") == nil {
+		fs.BoolVar(&Quiet, "q", Quiet, "Only print errors")
+	}
+	if fs.Lookup("verbose") == nil {
+		fs.BoolVar(&Verbose, "verbose", Verbose, "Show detailed output")
+	}
+	if fs.Lookup("v") == nil {
+		fs.BoolVar(&Verbose, "v", Verbose, "Show detailed output")
+	}
+	if fs.Lookup("debug") == nil {
+		fs.BoolVar(&Debug, "debug", Debug, "Show debug diagnostics (implies --verbose)")
+	}
+	if fs.Lookup("d") == nil {
+		fs.BoolVar(&Debug, "d", Debug, "Show debug diagnostics (implies --verbose)")
+	}
 }
 
 // Resolve applies flag implications and configures the

@@ -42,8 +42,6 @@ type vulnFinding struct {
 }
 
 func runVulnScan(args []string) error {
-	slog.Debug("starting vulnscan command execution")
-	slog.Debug("starting vulnscan command execution")
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
 
 	fs.Usage = func() {
@@ -53,19 +51,20 @@ Scan installed packages for security vulnerabilities, including known CVEs
 (via OSV.dev), signature validation failures, and dangerous file permissions.
 
 Options:
-  --json        Output results as JSON.
-  -q, --quiet   Only show critical and high severity findings.
-  --offline     Skip the OSV.dev vulnerability database query.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
+  --json           Output results as JSON.
+  -s, --summary    Only show critical and high severity findings.
+  --offline        Skip the OSV.dev vulnerability database query.
+  -q, --quiet      Only print errors (global flag).
+  -v, --verbose    Show detailed output.
+  -d, --debug      Show debug diagnostics (implies --verbose).
 `)
 	}
 
-	flags.Register(fs)
 	jsonOutput := fs.Bool("json", false, "Output results as JSON")
-	quiet := fs.Bool("quiet", false, "Only show critical and high severity findings")
-	fs.BoolVar(quiet, "q", false, "Only show critical and high severity findings")
+	summaryOnly := fs.Bool("summary", false, "Only show critical and high severity findings")
+	fs.BoolVar(summaryOnly, "s", false, "Only show critical and high severity findings")
 	skipOSV := fs.Bool("offline", false, "Skip OSV.dev vulnerability database query")
+	flags.Register(fs)
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -104,21 +103,27 @@ Options:
 				}
 			}
 			if !found {
-				slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+				if !flags.Quiet {
+					slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+				}
 			}
 		}
 		packages = filtered
 	}
 
 	if len(packages) == 0 {
-		fmt.Println("No installed packages to scan.")
+		if !flags.Quiet && !*jsonOutput {
+			fmt.Println("No installed packages to scan.")
+		}
 		return nil
 	}
 
 	// Load all formulas for cross-referencing.
 	allFormulas, loadErr := ctx.Loader.LoadAll()
 	if loadErr != nil {
-		slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
+		if !flags.Quiet {
+			slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
+		}
 		allFormulas = []*formula.Formula{}
 	}
 	formulaMap := make(map[string]*formula.Formula, len(allFormulas))
@@ -126,7 +131,7 @@ Options:
 		formulaMap[f.Name] = f
 	}
 
-	if !*jsonOutput {
+	if !*jsonOutput && !flags.Quiet {
 		fmt.Println("Scanning installed packages for vulnerabilities...")
 	}
 
@@ -139,14 +144,14 @@ Options:
 
 	// OSV.dev known vulnerability check.
 	if !*skipOSV {
-		findings = append(findings, scanOSV(packages, formulaMap, *jsonOutput)...)
+		findings = append(findings, scanOSV(packages, formulaMap, *jsonOutput || flags.Quiet)...)
 	}
 
 	// Global checks (not tied to a specific package).
 	findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
 
-	// Filter by severity if quiet.
-	if *quiet {
+	// Filter by severity if summary-only mode is active.
+	if *summaryOnly {
 		var filtered []vulnFinding
 		for _, f := range findings {
 			if f.Severity == severityCritical || f.Severity == severityHigh {
@@ -752,7 +757,9 @@ func printVulnJSON(findings []vulnFinding) error {
 
 func printVulnText(findings []vulnFinding) error {
 	if len(findings) == 0 {
-		fmt.Println("No vulnerabilities found.")
+		if !flags.Quiet {
+			fmt.Println("No vulnerabilities found.")
+		}
 		return nil
 	}
 
@@ -767,25 +774,28 @@ func printVulnText(findings []vulnFinding) error {
 		bySeverity[f.Severity] = append(bySeverity[f.Severity], f)
 	}
 
-	for _, sev := range []vulnSeverity{severityCritical, severityHigh, severityMedium, severityLow} {
-		group := bySeverity[sev]
-		if len(group) == 0 {
-			continue
-		}
-		fmt.Printf("\n[%s] %d finding(s):\n", strings.ToUpper(string(sev)), len(group))
-		for _, f := range group {
-			pkg := f.Package
-			if f.Version != "" {
-				pkg += " " + f.Version
+	if !flags.Quiet {
+		for _, sev := range []vulnSeverity{severityCritical, severityHigh, severityMedium, severityLow} {
+			group := bySeverity[sev]
+			if len(group) == 0 {
+				continue
 			}
-			fmt.Printf("  %s (%s): %s\n", pkg, f.Category, f.Detail)
+			fmt.Printf("\n[%s] %d finding(s):\n", strings.ToUpper(string(sev)), len(group))
+			for _, f := range group {
+				pkg := f.Package
+				if f.Version != "" {
+					pkg += " " + f.Version
+				}
+				fmt.Printf("  %s (%s): %s\n", pkg, f.Category, f.Detail)
+			}
 		}
+
+		summary := vulnSummary(findings)
+		fmt.Printf("\nScan complete: %d critical, %d high, %d medium, %d low\n",
+			summary["critical"], summary["high"], summary["medium"], summary["low"])
 	}
 
 	summary := vulnSummary(findings)
-	fmt.Printf("\nScan complete: %d critical, %d high, %d medium, %d low\n",
-		summary["critical"], summary["high"], summary["medium"], summary["low"])
-
 	// Non-zero exit if critical or high findings exist.
 	if summary["critical"] > 0 || summary["high"] > 0 {
 		return fmt.Errorf("vulnerability scan found %d critical and %d high severity issue(s)",
