@@ -262,6 +262,7 @@ Usage:
 Flags:
   -v, --verbose        Show detailed output
   -d, --debug          Show debug diagnostics (implies --verbose)
+  -q, --quiet          Only print errors
       --version        Print version and exit
 
 Commands:
