@@ -307,8 +307,7 @@ func isNotExist(err error) bool {
 	}
 	msg := strings.ToLower(err.Error())
 	return strings.Contains(msg, "no such file") ||
-		strings.Contains(msg, "not a directory") ||
-		strings.Contains(msg, "file exists")
+		strings.Contains(msg, "not a directory")
 }
 
 // extractSymlink safely creates a symlink if it doesn't escape the destination directory.
@@ -540,7 +539,8 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
-	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
+	const overflowProbeBytes int64 = 1
+	lr := &io.LimitedReader{R: r, N: maxExtractSize + overflowProbeBytes}
 	n, err := io.Copy(out, lr)
 	if err != nil {
 		if cerr := out.Close(); cerr != nil {
