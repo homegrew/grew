@@ -231,9 +231,9 @@ func TestValidateSHA256(t *testing.T) {
 
 func TestPlatformKey(t *testing.T) {
 	key := PlatformKey()
-	expected := runtime.GOOS + "_" + runtime.GOARCH
-	if key != expected {
-		t.Errorf("PlatformKey() = %q, want %q", key, expected)
+	expectedPrefix := runtime.GOOS + "_" + runtime.GOARCH
+	if !strings.HasPrefix(key, expectedPrefix) {
+		t.Errorf("PlatformKey() = %q, want prefix %q", key, expectedPrefix)
 	}
 }
 

@@ -148,3 +148,67 @@ func TestIsBinary_MissingFile(t *testing.T) {
 		t.Error("missing file should not be detected as binary")
 	}
 }
+
+func TestRelocateTextFiles(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+
+	replacements := Replacements{
+		"/opt/homebrew":       "/opt/homegrew",
+		"@@HOMEBREW_PREFIX@@": "/opt/homegrew",
+	}
+
+	files := map[string]string{
+		"test.el":      "(setq path \"/opt/homebrew/share/emacs\")\n",
+		"test.pc":      "prefix=@@HOMEBREW_PREFIX@@\nlibdir=${prefix}/lib\n",
+		"test.sh":      "#!/bin/sh\nexport PATH=/opt/homebrew/bin:$PATH\n",
+		"test.txt":     "/opt/homebrew is here but not whitelisted",
+		"readonly.conf": "path=/opt/homebrew/etc\n",
+	}
+
+	for name, content := range files {
+		path := filepath.Join(dir, name)
+		if err := os.WriteFile(path, []byte(content), 0644); err != nil {
+			t.Fatalf("failed to write %s: %v", name, err)
+		}
+		if name == "readonly.conf" {
+			// Make it read-only
+			if err := os.Chmod(path, 0444); err != nil {
+				t.Fatalf("failed to chmod %s: %v", name, err)
+			}
+		}
+	}
+
+	if err := relocateTextFiles(dir, replacements); err != nil {
+		t.Fatalf("relocateTextFiles failed: %v", err)
+	}
+
+	checkFile := func(name, want string) {
+		t.Helper()
+		path := filepath.Join(dir, name)
+		content, err := os.ReadFile(path)
+		if err != nil {
+			t.Fatalf("failed to read %s: %v", name, err)
+		}
+		if string(content) != want {
+			t.Errorf("%s content = %q, want %q", name, string(content), want)
+		}
+		// Verify readonly.conf is back to read-only (or at least was modified)
+		if name == "readonly.conf" {
+			info, err := os.Stat(path)
+			if err != nil {
+				t.Fatalf("stat failed: %v", err)
+			}
+			if info.Mode()&0200 != 0 {
+				t.Errorf("%s should still be read-only (mode: %v)", name, info.Mode())
+			}
+		}
+	}
+
+	checkFile("test.el", "(setq path \"/opt/homegrew/share/emacs\")\n")
+	checkFile("test.pc", "prefix=/opt/homegrew\nlibdir=${prefix}/lib\n")
+	checkFile("test.sh", "#!/bin/sh\nexport PATH=/opt/homegrew/bin:$PATH\n")
+	checkFile("test.txt", "/opt/homebrew is here but not whitelisted")
+	checkFile("readonly.conf", "path=/opt/homegrew/etc\n")
+}

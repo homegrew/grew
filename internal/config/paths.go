@@ -61,8 +61,10 @@ func DefaultPrefix() string {
 				dir := filepath.Dir(exe) // <prefix>/bin
 				if filepath.Base(dir) == "bin" {
 					candidate := filepath.Dir(dir) // <prefix>
-					// Sanity check: the candidate should have a Cellar or Taps dir.
-					if IsDir(filepath.Join(candidate, "Cellar")) || IsDir(filepath.Join(candidate, "Taps")) {
+					// Sanity check: the candidate should have a Cellar AND Taps dir.
+					// We use && instead of || to avoid incorrectly adopting a Homebrew prefix
+					// (which has a Cellar, but no top-level Taps directory).
+					if IsDir(filepath.Join(candidate, "Cellar")) && IsDir(filepath.Join(candidate, "Taps")) {
 						if abs, err := filepath.Abs(candidate); err == nil {
 							clean := filepath.Clean(abs)
 							if err := safepath.SafeAbsolutePath(clean); err == nil {

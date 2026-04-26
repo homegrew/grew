@@ -161,4 +161,22 @@ func TestLiveEndToEnd(t *testing.T) {
 	if !strings.Contains(outLeaves, "xz") {
 		t.Errorf("leaves output missing 'xz', got output: %q", outLeaves)
 	}
+
+	// 14. Test Bash (Relocation Verification)
+	// Bash is a good test for text-file relocation as it has hardcoded paths in scripts.
+	runCmd("install", "bash")
+	bashBin := filepath.Join(prefix, "bin", "bash")
+	if _, err := os.Stat(bashBin); err != nil {
+		t.Fatalf("bash binary not found: %v", err)
+	}
+	// Run bash to verify it works
+	checkBash := exec.Command(bashBin, "-c", "echo relocation-success")
+	checkBash.Env = env
+	out, err := checkBash.CombinedOutput()
+	if err != nil {
+		t.Fatalf("bash relocation verification failed: %v\nOutput: %s", err, string(out))
+	}
+	if !strings.Contains(string(out), "relocation-success") {
+		t.Errorf("bash output missing 'relocation-success', got: %q", string(out))
+	}
 }
