@@ -162,6 +162,43 @@ func caskInstall(name string, noQuarantine bool) error {
 	if err != nil {
 		return fmt.Errorf("download %s: %w", c.Name, err)
 	}
+
+	// Re-canonicalize and constrain downloader output before any sink usage.
+	tmpAbs, err := filepath.Abs(paths.Tmp)
+	if err != nil {
+		return fmt.Errorf("resolve temp directory: %w", err)
+	}
+	canonTmp, err := filepath.EvalSymlinks(tmpAbs)
+	if err != nil {
+		return fmt.Errorf("resolve temp directory symlinks: %w", err)
+	}
+	canonTmp = filepath.Clean(canonTmp)
+	if err := safepath.SafeAbsolutePath(canonTmp); err != nil {
+		return fmt.Errorf("invalid temp directory path %q: %w", canonTmp, err)
+	}
+
+	localAbs, err := filepath.Abs(localFile)
+	if err != nil {
+		return fmt.Errorf("resolve downloaded path: %w", err)
+	}
+	canonLocal, err := filepath.EvalSymlinks(localAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			canonLocal = filepath.Clean(localAbs)
+		} else {
+			return fmt.Errorf("resolve downloaded path symlinks: %w", err)
+		}
+	} else {
+		canonLocal = filepath.Clean(canonLocal)
+	}
+	if err := safepath.SafeAbsolutePath(canonLocal); err != nil {
+		return fmt.Errorf("invalid downloaded path %q: %w", canonLocal, err)
+	}
+	if err := safepath.CheckSubpath(canonTmp, canonLocal); err != nil {
+		return fmt.Errorf("downloaded path escapes temp directory: %w", err)
+	}
+	localFile = canonLocal
+
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256Within(paths.Tmp, localFile, sha); err != nil {
