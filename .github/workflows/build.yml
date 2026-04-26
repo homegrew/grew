@@ -23,11 +23,16 @@ jobs:
           go-version: stable
           cache: true
       - run: go build ./...
-      - run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
-
-      - name: Build with devmode
+      - run: mkdir -p coverageFiles coverageRaw
+      - name: Run unit tests with coverage
         run: |
-          go build -v -tags devmode -o grew .
-          ./grew --version
-
-
+          go list ./... | grep -v /tests > unit_pkgs.txt
+          go test -tags devmode -race -coverprofile=./coverageFiles/coverage_unit.txt -covermode=atomic $(cat unit_pkgs.txt)
+      - name: Run integration tests with coverage
+        run: |
+          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -tags "devmode,integration" -cover -coverpkg=./... -count=1 ./tests/...
+          go tool covdata textfmt -i=$GITHUB_WORKSPACE/coverageRaw -o ./coverageFiles/coverage_integration.txt
+      - uses: codecov/codecov-action@v6
+        with:
+          directory: ./coverageFiles
+          token: ${{ secrets.CODECOV_TOKEN }}

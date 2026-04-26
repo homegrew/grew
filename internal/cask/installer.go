@@ -40,11 +40,11 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve %s: %w", appName, err)
 	}
-	absStage, err := filepath.Abs(stageDir)
+	realStage, err := filepath.EvalSymlinks(stageDir)
 	if err != nil {
 		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
 	}
-	rel, err := filepath.Rel(absStage, realSrc)
+	rel, err := filepath.Rel(realStage, realSrc)
 	if err != nil {
 		return "", fmt.Errorf("resolve relative path from staging directory: %w", err)
 	}

@@ -152,63 +152,82 @@ func TestIsBinary_MissingFile(t *testing.T) {
 func TestRelocateTextFiles(t *testing.T) {
 	t.Parallel()
 
-	dir := t.TempDir()
-
 	replacements := Replacements{
 		"/opt/homebrew":       "/opt/homegrew",
 		"@@HOMEBREW_PREFIX@@": "/opt/homegrew",
 	}
 
-	files := map[string]string{
-		"test.el":      "(setq path \"/opt/homebrew/share/emacs\")\n",
-		"test.pc":      "prefix=@@HOMEBREW_PREFIX@@\nlibdir=${prefix}/lib\n",
-		"test.sh":      "#!/bin/sh\nexport PATH=/opt/homebrew/bin:$PATH\n",
-		"test.txt":     "/opt/homebrew is here but not whitelisted",
-		"readonly.conf": "path=/opt/homebrew/etc\n",
+	tests := []struct {
+		name    string
+		content string
+		want    string
+		mode    os.FileMode
+	}{
+		{
+			name:    "test.el",
+			content: "(setq path \"/opt/homebrew/share/emacs\")\n",
+			want:    "(setq path \"/opt/homegrew/share/emacs\")\n",
+		},
+		{
+			name:    "test.pc",
+			content: "prefix=@@HOMEBREW_PREFIX@@\nlibdir=${prefix}/lib\n",
+			want:    "prefix=/opt/homegrew\nlibdir=${prefix}/lib\n",
+		},
+		{
+			name:    "test.sh",
+			content: "#!/bin/sh\nexport PATH=/opt/homebrew/bin:$PATH\n",
+			want:    "#!/bin/sh\nexport PATH=/opt/homegrew/bin:$PATH\n",
+		},
+		{
+			name:    "test.txt",
+			content: "/opt/homebrew is here but not whitelisted",
+			want:    "/opt/homebrew is here but not whitelisted",
+		},
+		{
+			name:    "readonly.conf",
+			content: "path=/opt/homebrew/etc\n",
+			want:    "path=/opt/homegrew/etc\n",
+			mode:    0444,
+		},
 	}
 
-	for name, content := range files {
-		path := filepath.Join(dir, name)
-		if err := os.WriteFile(path, []byte(content), 0644); err != nil {
-			t.Fatalf("failed to write %s: %v", name, err)
-		}
-		if name == "readonly.conf" {
-			// Make it read-only
-			if err := os.Chmod(path, 0444); err != nil {
-				t.Fatalf("failed to chmod %s: %v", name, err)
+	for _, tc := range tests {
+		tc := tc
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			dir := t.TempDir()
+			path := filepath.Join(dir, tc.name)
+
+			mode := tc.mode
+			if mode == 0 {
+				mode = 0644
 			}
-		}
-	}
 
-	if err := relocateTextFiles(dir, replacements); err != nil {
-		t.Fatalf("relocateTextFiles failed: %v", err)
-	}
+			if err := os.WriteFile(path, []byte(tc.content), mode); err != nil {
+				t.Fatalf("failed to write %s: %v", tc.name, err)
+			}
 
-	checkFile := func(name, want string) {
-		t.Helper()
-		path := filepath.Join(dir, name)
-		content, err := os.ReadFile(path)
-		if err != nil {
-			t.Fatalf("failed to read %s: %v", name, err)
-		}
-		if string(content) != want {
-			t.Errorf("%s content = %q, want %q", name, string(content), want)
-		}
-		// Verify readonly.conf is back to read-only (or at least was modified)
-		if name == "readonly.conf" {
-			info, err := os.Stat(path)
+			if err := relocateTextFiles(dir, replacements); err != nil {
+				t.Fatalf("relocateTextFiles failed: %v", err)
+			}
+
+			content, err := os.ReadFile(path)
 			if err != nil {
-				t.Fatalf("stat failed: %v", err)
+				t.Fatalf("failed to read %s: %v", tc.name, err)
 			}
-			if info.Mode()&0200 != 0 {
-				t.Errorf("%s should still be read-only (mode: %v)", name, info.Mode())
+			if string(content) != tc.want {
+				t.Errorf("content = %q, want %q", string(content), tc.want)
 			}
-		}
-	}
 
-	checkFile("test.el", "(setq path \"/opt/homegrew/share/emacs\")\n")
-	checkFile("test.pc", "prefix=/opt/homegrew\nlibdir=${prefix}/lib\n")
-	checkFile("test.sh", "#!/bin/sh\nexport PATH=/opt/homegrew/bin:$PATH\n")
-	checkFile("test.txt", "/opt/homebrew is here but not whitelisted")
-	checkFile("readonly.conf", "path=/opt/homegrew/etc\n")
+			if tc.mode != 0 {
+				info, err := os.Stat(path)
+				if err != nil {
+					t.Fatalf("stat failed: %v", err)
+				}
+				if info.Mode().Perm() != tc.mode {
+					t.Errorf("mode = %v, want %v", info.Mode().Perm(), tc.mode)
+				}
+			}
+		})
+	}
 }

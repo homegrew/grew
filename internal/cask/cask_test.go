@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"testing"
 )
 
@@ -273,3 +274,197 @@ func TestCaskroomList_SymlinkToInvalidTarget(t *testing.T) {
 		t.Fatal("expected error when resolved symlink target is '/', got nil")
 	}
 }
+
+func TestCask_Validate(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		name    string
+		cask    Cask
+		wantErr string
+	}{
+		{
+			name: "Valid",
+			cask: Cask{
+				Name:    "testapp",
+				Version: "1.0",
+				URL:     map[string]string{"darwin_arm64": "https://example.com/test.dmg"},
+				Artifacts: Artifacts{
+					App: []string{"Test.app"},
+				},
+			},
+			wantErr: "",
+		},
+		{
+			name: "MissingName",
+			cask: Cask{
+				Version: "1.0",
+				URL:     map[string]string{"darwin_arm64": "https://example.com/test.dmg"},
+			},
+			wantErr: "cask missing required field: name",
+		},
+		{
+			name: "InvalidName",
+			cask: Cask{
+				Name:    "Invalid Name",
+				Version: "1.0",
+			},
+			wantErr: "contains invalid characters",
+		},
+		{
+			name: "MissingVersion",
+			cask: Cask{
+				Name: "testapp",
+				URL:  map[string]string{"darwin_arm64": "https://example.com/test.dmg"},
+			},
+			wantErr: "missing required field: version",
+		},
+		{
+			name: "InsecureURL",
+			cask: Cask{
+				Name:    "testapp",
+				Version: "1.0",
+				URL:     map[string]string{"darwin_arm64": "http://example.com/test.dmg"},
+			},
+			wantErr: "must use HTTPS",
+		},
+		{
+			name: "NoArtifacts",
+			cask: Cask{
+				Name:    "testapp",
+				Version: "1.0",
+				URL:     map[string]string{"darwin_arm64": "https://example.com/test.dmg"},
+			},
+			wantErr: "must declare at least one artifact",
+		},
+		{
+			name: "InvalidAppArtifact",
+			cask: Cask{
+				Name:    "testapp",
+				Version: "1.0",
+				URL:     map[string]string{"darwin_arm64": "https://example.com/test.dmg"},
+				Artifacts: Artifacts{
+					App: []string{"Test.exe"},
+				},
+			},
+			wantErr: "must end with .app",
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			err := tt.cask.Validate()
+			if tt.wantErr == "" {
+				if err != nil {
+					t.Errorf("Validate() unexpected error: %v", err)
+				}
+			} else {
+				if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+					t.Errorf("Validate() error = %v, wantErr %v", err, tt.wantErr)
+				}
+			}
+		})
+	}
+}
+
+func TestParse(t *testing.T) {
+	t.Parallel()
+	data := []byte(`
+name: firefox
+version: 120.0
+url:
+  darwin_arm64: https://example.com/firefox.dmg
+artifacts:
+  app:
+    - Firefox.app
+`)
+	c, err := Parse(data)
+	if err != nil {
+		t.Fatalf("Parse() failed: %v", err)
+	}
+	if c.Name != "firefox" {
+		t.Errorf("expected name firefox, got %q", c.Name)
+	}
+}
+
+func TestLoader(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	caskDir := filepath.Join(tmpDir, "cask")
+	if err := os.MkdirAll(caskDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	caskData := `
+name: testapp
+version: 1.0
+url:
+  darwin_arm64: https://example.com/test.dmg
+artifacts:
+  app:
+    - Test.app
+`
+	if err := os.WriteFile(filepath.Join(caskDir, "testapp.yaml"), []byte(caskData), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	loader := &Loader{TapDir: tmpDir}
+
+	t.Run("LoadByName", func(t *testing.T) {
+		c, err := loader.LoadByName("testapp")
+		if err != nil {
+			t.Fatalf("LoadByName failed: %v", err)
+		}
+		if c.Name != "testapp" {
+			t.Errorf("expected testapp, got %q", c.Name)
+		}
+	})
+
+	t.Run("LoadAll", func(t *testing.T) {
+		casks, err := loader.LoadAll()
+		if err != nil {
+			t.Fatalf("LoadAll failed: %v", err)
+		}
+		if len(casks) != 1 {
+			t.Errorf("expected 1 cask, got %d", len(casks))
+		}
+	})
+}
+
+func TestCaskroom_Methods(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	cr := &Caskroom{Path: tmpDir}
+
+	name := "testapp"
+	version := "1.2.3"
+
+	// Record
+	if err := cr.Record(name, version); err != nil {
+		t.Fatalf("Record failed: %v", err)
+	}
+
+	// IsInstalled
+	if !cr.IsInstalled(name) {
+		t.Errorf("IsInstalled returned false for installed cask")
+	}
+
+	// InstalledVersion
+	gotVer, err := cr.InstalledVersion(name)
+	if err != nil {
+		t.Fatalf("InstalledVersion failed: %v", err)
+	}
+	if gotVer != version {
+		t.Errorf("expected version %q, got %q", version, gotVer)
+	}
+
+	// Remove
+	if err := cr.Remove(name); err != nil {
+		t.Fatalf("Remove failed: %v", err)
+	}
+	if cr.IsInstalled(name) {
+		t.Errorf("IsInstalled returned true after removal")
+	}
+}
+

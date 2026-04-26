@@ -24,4 +24,4 @@ jobs:
           cache: true
       
       - name: Run TestLiveEndToEnd
-        run: go test -v -timeout 15m -tags devmode,integration ./tests -run TestLiveEndToEnd
+        run: go test -v -timeout 15m -tags devmode,e2e ./tests -run TestLiveEndToEnd
