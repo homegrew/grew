@@ -157,27 +157,51 @@ func relocateTextFiles(kegPath string, replacements Replacements) error {
 			return nil
 		}
 		if isTextFile(path) {
-			content, err := os.ReadFile(path)
-			if err != nil {
+			if err := relocateSingleTextFile(path, replacements); err != nil {
 				return err
-			}
-
-			modified := false
-			newContent := content
-			for old, new_ := range replacements {
-				oldBytes := []byte(old)
-				if bytes.Contains(newContent, oldBytes) {
-					newContent = bytes.ReplaceAll(newContent, oldBytes, []byte(new_))
-					modified = true
-				}
-			}
-
-			if modified {
-				return os.WriteFile(path, newContent, 0644)
 			}
 		}
 		return nil
 	})
+}
+
+// relocateSingleTextFile handles the relocation of a single text file, ensuring it is writable.
+func relocateSingleTextFile(path string, replacements Replacements) error {
+	content, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+
+	modified := false
+	newContent := content
+	for old, new_ := range replacements {
+		oldBytes := []byte(old)
+		if bytes.Contains(newContent, oldBytes) {
+			newContent = bytes.ReplaceAll(newContent, oldBytes, []byte(new_))
+			modified = true
+		}
+	}
+
+	if !modified {
+		return nil
+	}
+
+	info, err := os.Stat(path)
+	if err != nil {
+		return err
+	}
+	originalMode := info.Mode()
+
+	// If not writable, chmod it.
+	if originalMode&0200 == 0 {
+		if err := os.Chmod(path, originalMode|0200); err != nil {
+			return fmt.Errorf("make writable: %w", err)
+		}
+		// Restore permissions after writing.
+		defer os.Chmod(path, originalMode)
+	}
+
+	return os.WriteFile(path, newContent, originalMode)
 }
 
 // needsRelocation checks if any binary or text file in the keg contains paths that
