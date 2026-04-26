@@ -148,3 +148,47 @@ func TestIsBinary_MissingFile(t *testing.T) {
 		t.Error("missing file should not be detected as binary")
 	}
 }
+
+func TestRelocateTextFiles(t *testing.T) {
+	t.Parallel()
+
+	dir := t.TempDir()
+
+	replacements := Replacements{
+		"/opt/homebrew":       "/opt/homegrew",
+		"@@HOMEBREW_PREFIX@@": "/opt/homegrew",
+	}
+
+	files := map[string]string{
+		"test.el":  "(setq path \"/opt/homebrew/share/emacs\")\n",
+		"test.pc":  "prefix=@@HOMEBREW_PREFIX@@\nlibdir=${prefix}/lib\n",
+		"test.sh":  "#!/bin/sh\nexport PATH=/opt/homebrew/bin:$PATH\n",
+		"test.txt": "/opt/homebrew is here but not whitelisted",
+	}
+
+	for name, content := range files {
+		if err := os.WriteFile(filepath.Join(dir, name), []byte(content), 0644); err != nil {
+			t.Fatalf("failed to write %s: %v", name, err)
+		}
+	}
+
+	if err := relocateTextFiles(dir, replacements); err != nil {
+		t.Fatalf("relocateTextFiles failed: %v", err)
+	}
+
+	checkFile := func(name, want string) {
+		t.Helper()
+		content, err := os.ReadFile(filepath.Join(dir, name))
+		if err != nil {
+			t.Fatalf("failed to read %s: %v", name, err)
+		}
+		if string(content) != want {
+			t.Errorf("%s content = %q, want %q", name, string(content), want)
+		}
+	}
+
+	checkFile("test.el", "(setq path \"/opt/homegrew/share/emacs\")\n")
+	checkFile("test.pc", "prefix=/opt/homegrew\nlibdir=${prefix}/lib\n")
+	checkFile("test.sh", "#!/bin/sh\nexport PATH=/opt/homegrew/bin:$PATH\n")
+	checkFile("test.txt", "/opt/homebrew is here but not whitelisted")
+}
