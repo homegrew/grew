@@ -140,9 +140,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
-	if err := safepath.SafeAbsolutePath(safeSinkPath); err != nil {
-		return "", fmt.Errorf("invalid download path %q: %w", safeSinkPath, err)
-	}
 	if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
