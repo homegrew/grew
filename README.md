@@ -26,7 +26,7 @@
 - 🔄 **Keg relocation** — rewrites hardcoded library paths in bottles at install time via `install_name_tool` (macOS) and `patchelf` (Linux), so binaries just work without `DYLD_LIBRARY_PATH` hacks
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
-- 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape), XML-safe plist generation, systemd specifier escaping
+- 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation, systemd specifier escaping
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d` flags)
@@ -287,7 +287,7 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Self-update health check** | Patched binaries are execution-tested in a sandbox before replacement | None |
 | **HTTPS enforcement** | At parse time — HTTP URLs rejected before download | At download time |
 | **Path traversal protection** | Validated at cellar, linker, loader, and archive extraction layers | Partial |
-| **Shell injection prevention** | POSIX shell quoting via [shellescape](https://pkg.go.dev/al.essio.dev/pkg/shellescape) for sandbox scripts; systemd `ExecStart` and launchd plist values properly escaped | N/A |
+| **Shell injection prevention** | Namespace setup uses positional parameters to eliminate injection risks; systemd `ExecStart` and launchd plist values properly escaped | N/A |
 | **Zip Slip protection** | Symlink indirection attacks blocked during tar/zip extraction | Partial |
 | **Command argument hardening** | `--` end-of-options separator on all external commands (`git`, `systemctl`, `launchctl`, `hdiutil`, `tar`, etc.) | Not consistently applied |
 
