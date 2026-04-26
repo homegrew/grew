@@ -592,6 +592,14 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 		if name == "" {
 			continue
 		}
+		// Explicitly reject unsafe archive entry paths (Zip Slip hardening):
+		// - absolute paths
+		// - null bytes
+		// - traversal components (".."), after normalizing separators/cleaning
+		normalizedName := filepath.Clean(filepath.FromSlash(name))
+		if filepath.IsAbs(name) || strings.Contains(name, "\x00") || hasPathTraversal(normalizedName) {
+			continue
+		}
 
 		// Join the archive entry name to the canonical destination directory
 		// and ensure it cannot escape that root (including via symlinks).
