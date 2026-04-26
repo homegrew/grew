@@ -14,7 +14,7 @@
 ## ✨ What it does
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
-- ⚡ **Binary delta updates** — `selfupdate` uses `bspatch` to download only the differences between versions, saving bandwidth
+- ⚡ **Binary delta updates** — `selfupdate` uses `bspatch` to download only the differences between versions, saving bandwidth, with an automated CI `patcher` tool for releases
 - 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
 - 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)
@@ -265,7 +265,7 @@ grew/
 │   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← grew-genrepo (Homebrew formula/cask conversion), getgrew (installer)
+└── tools/            ← grew-genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
 ```
 
 ---
