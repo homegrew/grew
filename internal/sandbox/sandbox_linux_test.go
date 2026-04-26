@@ -78,7 +78,7 @@ func TestUnshareArgs(t *testing.T) {
 		BuildDir: "/home/user/build",
 		KegDir:   "/home/user/.grew/Cellar/foo/1.0",
 	}
-	args := unshareArgs(cfg, "./configure", "--prefix=/home/user/.homegrew/Cellar/foo/1.0")
+	args := unshareArgs(cfg, "./configure", "--prefix=/home/user/.grew/Cellar/foo/1.0")
 
 	// Must use network, mount, and PID namespace flags.
 	flagSet := map[string]bool{}
@@ -91,20 +91,12 @@ func TestUnshareArgs(t *testing.T) {
 		}
 	}
 
-	// Must invoke /bin/sh -c <script> -- <args...>.
-	// Expected end of args: ... /bin/sh -c <script> -- BuildDir KegDir name args...
-	foundSh := false
-	var script string
-	for i, a := range args {
-		if a == "/bin/sh" && i+2 < len(args) && args[i+1] == "-c" {
-			foundSh = true
-			script = args[i+2]
-			break
-		}
+	// Must invoke /bin/sh -c <script>.
+	if args[len(args)-3] != "/bin/sh" || args[len(args)-2] != "-c" {
+		t.Error("unshare must run the setup script via /bin/sh -c")
 	}
-	if !foundSh {
-		t.Fatal("unshare must run the setup script via /bin/sh -c")
-	}
+
+	script := args[len(args)-1]
 
 	// Script must make mounts private.
 	if !strings.Contains(script, "mount --make-rprivate /") {
@@ -116,19 +108,19 @@ func TestUnshareArgs(t *testing.T) {
 		t.Error("script must remount / read-only")
 	}
 
-	// Script must bind-mount build dir writable using positional parameters.
-	if !strings.Contains(script, "mount --bind \"$1\" \"$1\"") {
+	// Script must bind-mount build dir writable.
+	if !strings.Contains(script, "mount --bind /home/user/build /home/user/build") {
 		t.Error("script must bind-mount build dir")
 	}
-	if !strings.Contains(script, "mount -o remount,rw,bind \"$1\"") {
+	if !strings.Contains(script, "mount -o remount,rw,bind /home/user/build") {
 		t.Error("script must remount build dir read-write")
 	}
 
-	// Script must bind-mount keg dir writable using positional parameters.
-	if !strings.Contains(script, "mount --bind \"$2\" \"$2\"") {
+	// Script must bind-mount keg dir writable.
+	if !strings.Contains(script, "mount --bind /home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must bind-mount keg dir")
 	}
-	if !strings.Contains(script, "mount -o remount,rw,bind \"$2\"") {
+	if !strings.Contains(script, "remount,rw,bind /home/user/.grew/Cellar/foo/1.0") {
 		t.Error("script must remount keg dir read-write")
 	}
 
@@ -137,41 +129,12 @@ func TestUnshareArgs(t *testing.T) {
 		t.Error("script must mount tmpfs on /tmp")
 	}
 
-	// Script must exec the command using $@.
-	if !strings.Contains(script, "exec \"$@\"") {
+	// Script must exec the command.
+	if !strings.Contains(script, "exec ./configure") {
 		t.Error("script must exec the build command")
 	}
-
-	// Verify the positional parameters passed to the script.
-	// args should contain: ..., "--", "/bin/sh", "-c", script, "--", BuildDir, KegDir, name, args...
-	foundDashDash := false
-	for i := len(args) - 1; i >= 0; i-- {
-		if args[i] == "--" {
-			// We expect the one after /bin/sh -c script
-			if i > 0 && args[i-1] == script {
-				foundDashDash = true
-				params := args[i+1:]
-				if len(params) < 4 {
-					t.Fatalf("expected at least 4 positional parameters, got %d", len(params))
-				}
-				if params[0] != cfg.BuildDir {
-					t.Errorf("expected build dir %q, got %q", cfg.BuildDir, params[0])
-				}
-				if params[1] != cfg.KegDir {
-					t.Errorf("expected keg dir %q, got %q", cfg.KegDir, params[1])
-				}
-				if params[2] != "./configure" {
-					t.Errorf("expected command %q, got %q", "./configure", params[2])
-				}
-				if params[3] != "--prefix=/home/user/.grew/Cellar/foo/1.0" {
-					t.Errorf("expected arg %q, got %q", "--prefix=/home/user/.grew/Cellar/foo/1.0", params[3])
-				}
-				break
-			}
-		}
-	}
-	if !foundDashDash {
-		t.Error("unshare must pass positional parameters to the script after --")
+	if !strings.Contains(script, "--prefix=/home/user/.grew/Cellar/foo/1.0") {
+		t.Error("script must pass command arguments")
 	}
 }
 
