@@ -170,9 +170,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		if r.URL.Scheme != "https" {
 			return fmt.Errorf("refusing redirect to non-HTTPS URL: %s", r.URL)
 		}
-		if !isHostAllowed(r.URL.Hostname()) {
-			return fmt.Errorf("refusing redirect to disallowed host: %s", r.URL.Hostname())
-		}
 		if len(via) >= 10 {
 			return fmt.Errorf("too many redirects")
 		}
