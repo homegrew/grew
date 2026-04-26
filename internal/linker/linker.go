@@ -68,6 +68,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 		{filepath.Join(kegPath, "bin"), l.Paths.Bin},
 		{filepath.Join(kegPath, "lib"), l.Paths.Lib},
 		{filepath.Join(kegPath, "include"), l.Paths.Include},
+		{filepath.Join(kegPath, "share"), l.Paths.Share},
 	}
 
 	for _, sd := range subdirs {
@@ -102,26 +103,52 @@ func (l *Linker) UnlinkWithOpts(name string, opts UnlinkOpts) error {
 	}
 
 	cellarPrefix := filepath.Join(l.Paths.Cellar, name) + string(filepath.Separator)
-	dirs := []string{l.Paths.Bin, l.Paths.Lib, l.Paths.Include}
+	dirs := []string{l.Paths.Bin, l.Paths.Lib, l.Paths.Include, l.Paths.Share}
 
 	for _, dir := range dirs {
-		entries, err := os.ReadDir(dir)
-		if err != nil {
-			continue // dir may not exist
+		if err := unlinkDirWithOpts(dir, cellarPrefix, opts); err != nil {
+			return err
 		}
-		for _, e := range entries {
-			fullPath := filepath.Join(dir, e.Name())
-			target, err := os.Readlink(fullPath)
-			if err != nil {
-				continue // not a symlink
+	}
+	return nil
+}
+
+func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+
+	for _, e := range entries {
+		fullPath := filepath.Join(dir, e.Name())
+		
+		if e.IsDir() {
+			// Recurse into subdirectories (e.g. lib/pkgconfig or share/man)
+			if err := unlinkDirWithOpts(fullPath, cellarPrefix, opts); err != nil {
+				return err
 			}
-			resolved := resolveLink(dir, target)
-			if strings.HasPrefix(resolved, cellarPrefix) {
-				if opts.DryRun {
-					fmt.Printf("Would unlink: %s -> %s\n", fullPath, resolved)
-				} else {
-					os.Remove(fullPath)
-				}
+			
+			// If empty, clean it up
+			if !opts.DryRun {
+				_ = os.Remove(fullPath) // Ignore errors, it just means not empty
+			}
+			continue
+		}
+
+		target, err := os.Readlink(fullPath)
+		if err != nil {
+			continue // not a symlink
+		}
+		
+		resolved := resolveLink(dir, target)
+		if strings.HasPrefix(resolved, cellarPrefix) {
+			if opts.DryRun {
+				fmt.Printf("Would unlink: %s -> %s\n", fullPath, resolved)
+			} else {
+				os.Remove(fullPath)
 			}
 		}
 	}
@@ -172,6 +199,13 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 	for _, e := range entries {
 		srcPath := filepath.Join(srcDir, e.Name())
 		destPath := filepath.Join(destDir, e.Name())
+
+		// grew does not install info files or manpages
+		if strings.HasSuffix(srcDir, "/share") || strings.HasSuffix(srcDir, "/share/") {
+			if e.Name() == "info" || e.Name() == "man" {
+				continue
+			}
+		}
 
 		// Source is a directory (e.g. lib/pkgconfig). These are shared
 		// directories where multiple formulas contribute files. Instead

@@ -742,6 +742,15 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 		}
 	}
 
+	// prune share/info and share/man before snapshotting
+	infoPath := filepath.Join(opts.kegPath, "share", "info")
+	os.RemoveAll(infoPath)
+	manPath := filepath.Join(opts.kegPath, "share", "man")
+	os.RemoveAll(manPath)
+	// remove share if empty
+	sharePath := filepath.Join(opts.kegPath, "share")
+	_ = os.Remove(sharePath) // fails if not empty
+
 	manifest, snapErr := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
 	if snapErr != nil {
 		slog.Warn(fmt.Sprintf("could not capture snapshot: %v", snapErr))
