@@ -1,5 +1,4 @@
 package main
-
 import (
 	"crypto/sha256"
 	"crypto/sha512"
@@ -9,6 +8,7 @@ import (
 	"log/slog"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/internal/flags"
@@ -35,11 +35,14 @@ func main() {
 	fs := flag.NewFlagSet("patcher", flag.ExitOnError)
 	flags.Register(fs)
 
+	var outputDir string
+	fs.StringVar(&outputDir, "D", ".", "Output directory for generated files")
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), "Usage: %s [options] <previous_release> <new_release>\n", os.Args[0])
 		fmt.Fprintln(fs.Output(), "\nOptions:")
 		fs.PrintDefaults()
-		fmt.Fprintln(fs.Output(), "\nExample: patcher -v v0.4.0 v0.4.1")
+		fmt.Fprintln(fs.Output(), "\nExample: patcher -v -D dist/ v0.4.0 v0.4.1")
 	}
 
 	if err := fs.Parse(args); err != nil {
@@ -72,6 +75,12 @@ func main() {
 	// Check if bsdiff is available
 	if _, err := exec.LookPath("bsdiff"); err != nil {
 		slog.Error("bsdiff command not found. Please install bsdiff to generate patches.")
+		os.Exit(1)
+	}
+
+	// Ensure output directory exists
+	if err := os.MkdirAll(outputDir, 0755); err != nil {
+		slog.Error("Failed to create output directory", "dir", outputDir, "err", err)
 		os.Exit(1)
 	}
 
@@ -131,13 +140,8 @@ func main() {
 		binaryChecksums.WriteString(fmt.Sprintf("%s  %s\n", binSHA512, rawBinName))
 
 		// 4. Generate the Delta Patch using bsdiff
-		patchFile := release.PatchName(prevRelease, newRelease)
-		patchFile = strings.ReplaceAll(patchFile, p.os, p.os)     // Keep capitalization consistent
-		patchFile = strings.ReplaceAll(patchFile, p.arch, p.arch) // Keep arch consistent
-		// release.PatchName returns something like grew_Darwin_x86_64_v0.4.0_to_v0.4.1.patch
-		
-		// The selfupdate uses grew_<os>_<arch>_<old>_to_<new>.patch format. Let's build it directly to be safe:
-		patchFile = fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", p.os, p.arch, prevRelease, newRelease)
+		patchFileName := fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", p.os, p.arch, prevRelease, newRelease)
+		patchFile := filepath.Join(outputDir, patchFileName)
 
 		logMsg("Generating patch %s", patchFile)
 		cmd := exec.Command("bsdiff", oldBinFile, newBinFile, patchFile)
@@ -163,17 +167,17 @@ func main() {
 		}
 
 		sha256File := patchFile + ".sha256"
-		os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFile)), 0644)
+		os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFileName)), 0644)
 		
 		sha512File := patchFile + ".sha512"
-		os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFile)), 0644)
+		os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFileName)), 0644)
 
 		logMsg("Success! Generated %s and its checksum files.", patchFile)
 	}
 
 	// 6. Write out the accumulated binary-checksums.txt
 	if binaryChecksums.Len() > 0 {
-		outBinFile := "binary-checksums.txt"
+		outBinFile := filepath.Join(outputDir, "binary-checksums.txt")
 		if err := os.WriteFile(outBinFile, []byte(binaryChecksums.String()), 0644); err != nil {
 			slog.Error("Failed to write output file", "err", err)
 			os.Exit(1)
