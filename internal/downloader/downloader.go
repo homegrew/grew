@@ -134,6 +134,15 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
 
+	// Final sink-adjacent validation: ensure the path is absolute and still
+	// constrained to the canonical temp directory immediately before filesystem use.
+	if err := safepath.SafeAbsolutePath(sinkPath); err != nil {
+		return "", fmt.Errorf("invalid download path %q: %w", sinkPath, err)
+	}
+	if err := safepath.CheckSubpath(canonTmpDir, sinkPath); err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
+
 	// Build the request from the reconstructed url.URL, not the raw input.
 	req := &http.Request{
 		Method: "GET",
