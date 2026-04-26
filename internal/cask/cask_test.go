@@ -467,4 +467,3 @@ func TestCaskroom_Methods(t *testing.T) {
 		t.Errorf("IsInstalled returned true after removal")
 	}
 }
-

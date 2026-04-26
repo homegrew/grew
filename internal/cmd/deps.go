@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"sort"
 	"strings"
 
@@ -11,8 +12,10 @@ import (
 )
 
 func runDeps(args []string) error {
+	slog.Debug("starting deps command execution")
+	slog.Debug("starting deps command execution")
 	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew deps [options] <formula ...>
 
@@ -35,19 +38,19 @@ Options:
   -d, --debug         Show debug diagnostics (implies --verbose).
 `)
 	}
-	
+
 	flags.Register(fs)
 	tree := fs.Bool("tree", false, "Show dependencies as a tree")
 	all := fs.Bool("all", false, "Show dependencies for all formulas")
 	installed := fs.Bool("installed", false, "Show dependencies for installed formulas")
-	
+
 	topo := fs.Bool("n", false, "Sort dependencies in topological order")
 	fs.BoolVar(topo, "topological", false, "Sort dependencies in topological order")
-	
+
 	direct := fs.Bool("1", false, "Show only the direct dependencies declared in the formula")
 	fs.BoolVar(direct, "direct", false, "Show only the direct dependencies declared in the formula")
 	fs.BoolVar(direct, "declared", false, "Show only the direct dependencies declared in the formula")
-	
+
 	union := fs.Bool("union", false, "Show the union of dependencies for multiple formula")
 	includeBuild := fs.Bool("include-build", false, "Include :build dependencies for formula")
 	forEach := fs.Bool("for-each", false, "List dependencies for each provided formula")
@@ -331,7 +334,7 @@ func printTree(loader *formula.Loader, deps []string, prefix string, visited map
 		if err != nil {
 			continue
 		}
-		
+
 		subDeps := f.Dependencies
 		if includeBuild {
 			subDeps = append(subDeps, f.BuildDependencies...)

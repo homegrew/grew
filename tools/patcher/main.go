@@ -1,4 +1,5 @@
 package main
+
 import (
 	"crypto/sha256"
 	"crypto/sha512"
@@ -88,10 +89,10 @@ func main() {
 
 	for _, p := range platforms {
 		slog.Info("Processing platform", "os", p.os, "arch", p.arch)
-		
+
 		archiveName := fmt.Sprintf("grew_%s_%s.tar.gz", p.os, p.arch)
 		rawBinName := fmt.Sprintf("grew_%s_%s", p.os, p.arch)
-		
+
 		oldURL := fmt.Sprintf("https://github.com/homegrew/grew/releases/download/%s/%s", prevRelease, archiveName)
 		newURL := fmt.Sprintf("https://github.com/homegrew/grew/releases/download/%s/%s", newRelease, archiveName)
 
@@ -168,7 +169,7 @@ func main() {
 
 		sha256File := patchFile + ".sha256"
 		os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFileName)), 0644)
-		
+
 		sha512File := patchFile + ".sha512"
 		os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFileName)), 0644)
 

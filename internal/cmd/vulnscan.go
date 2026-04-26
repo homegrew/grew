@@ -42,8 +42,10 @@ type vulnFinding struct {
 }
 
 func runVulnScan(args []string) error {
+	slog.Debug("starting vulnscan command execution")
+	slog.Debug("starting vulnscan command execution")
 	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew vuln-scan [options] [formula ...]
 
@@ -198,7 +200,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 
 	skipped := len(packages) - len(queries)
 	if !silent {
-		fmt.Printf("==> Querying OSV.dev for %d package(s)...\n", len(queries))
+		fmt.Fprintf(os.Stderr, "==> Querying OSV.dev for %d package(s)...\n", len(queries))
 		if skipped > 0 {
 			slog.Info(fmt.Sprintf("(%d packages skipped — no supported source URL)", skipped))
 		}

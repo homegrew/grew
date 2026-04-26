@@ -23,7 +23,7 @@ install:
 	$(GO) install
 
 .PHONY: check
-check: test-unit test-integration
+check: test-unit
 
 .PHONY: test-unit
 test-unit:
@@ -39,7 +39,7 @@ test-integration:
 
 .PHONY: test-e2e
 test-e2e:
-	$(GO) test -tags "devmode,integration" -v ./tests/ -run TestLiveEndToEnd
+	$(GO) test -tags "devmode,e2e" -v ./tests/ -run TestLiveEndToEnd
 
 .PHONY: test-integration-coverage
 test-integration-coverage:

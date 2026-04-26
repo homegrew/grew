@@ -24,6 +24,8 @@ import (
 )
 
 func RunSelfUpdate(_ []string) error {
+	slog.Debug("starting selfupdate command execution")
+	slog.Debug("starting selfupdate command execution")
 	exePath, err := os.Executable()
 	if err != nil {
 		return fmt.Errorf("locate current executable: %w", err)
@@ -64,7 +66,7 @@ func RunSelfUpdate(_ []string) error {
 	}
 
 	// 3. Fall back to full release download
-	fmt.Println("==> Falling back to latest release full download...")
+	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
 	return selfUpdateFullDownload(exePath, rel)
 }
 
@@ -149,7 +151,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
-	fmt.Printf("==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
+	fmt.Fprintf(os.Stderr, "==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
 
 	assetName := release.AssetName()
 	slog.Debug("asset name: " + assetName)
@@ -164,7 +166,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		return err
 	}
 
-	fmt.Println("==> Fetching checksums")
+	fmt.Fprintln(os.Stderr, "==> Fetching checksums")
 	checksums, err := release.DownloadBytes(checksumURL)
 	if err != nil {
 		return fmt.Errorf("download checksums: %w", err)
@@ -182,7 +184,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
 	}
 
-	fmt.Printf("==> Downloading %s\n", assetName)
+	fmt.Fprintf(os.Stderr, "==> Downloading %s\n", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
@@ -199,13 +201,13 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		if sha256Actual != expected {
 			return fmt.Errorf("SHA-256 mismatch: got %s, want %s", sha256Actual, expected)
 		}
-		fmt.Printf("==> SHA-256 verified: %s\n", sha256Actual)
+		fmt.Fprintf(os.Stderr, "==> SHA-256 verified: %s\n", sha256Actual)
 	}
 	if expected, ok := expectedHashes[128]; ok {
 		if sha512Actual != expected {
 			return fmt.Errorf("SHA-512 mismatch: got %s, want %s", sha512Actual, expected)
 		}
-		fmt.Printf("==> SHA-512 verified: %s\n", sha512Actual)
+		fmt.Fprintf(os.Stderr, "==> SHA-512 verified: %s\n", sha512Actual)
 	}
 
 	bin, err := release.ExtractBinaryFromFile(tmpFile)
@@ -248,7 +250,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 
-	fmt.Printf("==> Updated to %s\n", rel.TagName)
+	fmt.Fprintf(os.Stderr, "==> Updated to %s\n", rel.TagName)
 	return nil
 }
 
@@ -308,7 +310,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 		if reportedVersion == "" {
 			return fmt.Errorf("new binary produced no version output")
 		}
-		fmt.Printf("==> Verified: new binary reports %s\n", reportedVersion)
+		fmt.Fprintf(os.Stderr, "==> Verified: new binary reports %s\n", reportedVersion)
 		return nil
 	}
 
@@ -327,7 +329,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 			expectedVersion, reportedVersion)
 	}
 
-	fmt.Printf("==> Verified: new binary reports %s\n", reportedVersion)
+	fmt.Fprintf(os.Stderr, "==> Verified: new binary reports %s\n", reportedVersion)
 	return nil
 }
 
@@ -389,7 +391,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
-	fmt.Printf("==> Downloading binary patch: %s\n", patchName)
+	fmt.Fprintf(os.Stderr, "==> Downloading binary patch: %s\n", patchName)
 	patchFile, err := release.DownloadTemp(patchURL)
 	if err != nil {
 		return err
@@ -521,7 +523,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return err
 	}
 
-	fmt.Printf("==> Updated to %s via binary patch\n", targetVer)
+	fmt.Fprintf(os.Stderr, "==> Updated to %s via binary patch\n", targetVer)
 
 	expectedVersion := strings.TrimPrefix(targetVer, "v")
 	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {

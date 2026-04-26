@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -15,6 +16,8 @@ import (
 )
 
 func runServices(args []string) error {
+	slog.Debug("starting services command execution")
+	slog.Debug("starting services command execution")
 	if len(args) == 0 {
 		return servicesUsage()
 	}
@@ -118,11 +121,11 @@ func servicesStart(args []string) error {
 		return err
 	}
 
-	fmt.Printf("==> Starting %s service...\n", f.Name)
+	fmt.Fprintf(os.Stderr, "==> Starting %s service...\n", f.Name)
 	if err := ctx.mgr.Start(f); err != nil {
 		return err
 	}
-	fmt.Printf("==> %s service started\n", f.Name)
+	fmt.Fprintf(os.Stderr, "==> %s service started\n", f.Name)
 	return nil
 }
 
@@ -136,11 +139,11 @@ func servicesStop(args []string) error {
 		return fmt.Errorf("service %q is not running", name)
 	}
 
-	fmt.Printf("==> Stopping %s service...\n", name)
+	fmt.Fprintf(os.Stderr, "==> Stopping %s service...\n", name)
 	if err := ctx.mgr.Stop(name); err != nil {
 		return err
 	}
-	fmt.Printf("==> %s service stopped\n", name)
+	fmt.Fprintf(os.Stderr, "==> %s service stopped\n", name)
 	return nil
 }
 
@@ -150,11 +153,11 @@ func servicesRestart(args []string) error {
 		return err
 	}
 
-	fmt.Printf("==> Restarting %s service...\n", f.Name)
+	fmt.Fprintf(os.Stderr, "==> Restarting %s service...\n", f.Name)
 	if err := ctx.mgr.Restart(f); err != nil {
 		return err
 	}
-	fmt.Printf("==> %s service restarted\n", f.Name)
+	fmt.Fprintf(os.Stderr, "==> %s service restarted\n", f.Name)
 	return nil
 }
 
@@ -178,8 +181,8 @@ func servicesRun(args []string) error {
 		return fmt.Errorf("service command %q not found: %w", cmdArgs[0], err)
 	}
 
-	fmt.Printf("==> Running %s in foreground (%s)\n", f.Name, strings.Join(cmdArgs, " "))
-	fmt.Printf("==> Press Ctrl-C to stop\n")
+	fmt.Fprintf(os.Stderr, "==> Running %s in foreground (%s)\n", f.Name, strings.Join(cmdArgs, " "))
+	fmt.Fprintf(os.Stderr, "==> Press Ctrl-C to stop\n")
 
 	cmd := exec.Command(cmdPath, cmdArgs[1:]...)
 	cmd.Stdout = os.Stdout

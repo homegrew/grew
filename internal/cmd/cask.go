@@ -7,13 +7,13 @@ import (
 	"path/filepath"
 
 	"github.com/homegrew/grew/internal/cask"
-	"strings"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
+	"strings"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -148,7 +148,7 @@ func caskInstall(name string, noQuarantine bool, force bool) error {
 	}
 
 	if cr.IsInstalled(c.Name) && !force {
-		fmt.Printf("==> %s %s is already installed, skipping\n", c.Name, c.Version)
+		fmt.Fprintf(os.Stderr, "==> %s %s is already installed, skipping\n", c.Name, c.Version)
 		return nil
 	}
 
@@ -162,7 +162,7 @@ func caskInstall(name string, noQuarantine bool, force bool) error {
 
 	defer logger.TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
 	slog.Debug("platform: " + formula.PlatformKey())
-	fmt.Printf("==> Installing cask %s %s\n", c.Name, c.Version)
+	fmt.Fprintf(os.Stderr, "==> Installing cask %s %s\n", c.Name, c.Version)
 
 	dlURL, err := c.GetURL()
 	if err != nil {
@@ -235,14 +235,14 @@ func caskInstall(name string, noQuarantine bool, force bool) error {
 		_ = removeIfWithin(localFile, paths.Tmp)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
-	fmt.Printf("==> SHA256 verified\n")
+	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 
 	if sha512 != "" {
 		if err := downloader.VerifySHA512Within(paths.Tmp, localFile, sha512); err != nil {
 			_ = removeIfWithin(localFile, paths.Tmp)
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}
-		fmt.Printf("==> SHA512 verified\n")
+		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
 	}
 
 	// Extract archive to staging
@@ -297,7 +297,7 @@ func caskInstall(name string, noQuarantine bool, force bool) error {
 			}
 			slog.Info("quarantine attribute set")
 		}
-		fmt.Printf("==> Installed %s to %s\n", appName, dest)
+		fmt.Fprintf(os.Stderr, "==> Installed %s to %s\n", appName, dest)
 	}
 
 	// Link bin artifacts
@@ -321,7 +321,7 @@ func caskInstall(name string, noQuarantine bool, force bool) error {
 	os.RemoveAll(stageDir)
 	_ = removeIfWithin(localFile, paths.Tmp)
 
-	fmt.Printf("==> %s %s installed\n", c.Name, c.Version)
+	fmt.Fprintf(os.Stderr, "==> %s %s installed\n", c.Name, c.Version)
 	return nil
 }
 
@@ -345,7 +345,7 @@ func caskUninstall(name string, force bool) error {
 	// Remove app artifacts
 	if err == nil {
 		for _, appName := range c.Artifacts.App {
-			fmt.Printf("==> Removing %s...\n", appName)
+			fmt.Fprintf(os.Stderr, "==> Removing %s...\n", appName)
 			if err := inst.UninstallApp(appName); err != nil {
 				if force {
 					slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", appName, err))
@@ -373,7 +373,7 @@ func caskUninstall(name string, force bool) error {
 		}
 	}
 
-	fmt.Printf("==> %s uninstalled\n", name)
+	fmt.Fprintf(os.Stderr, "==> %s uninstalled\n", name)
 	return nil
 }
 

@@ -87,11 +87,11 @@ func TestCLIHandler_Enabled(t *testing.T) {
 		{"warn handler allows error", slog.LevelWarn, slog.LevelError, true},
 		{"warn handler denies info", slog.LevelWarn, slog.LevelInfo, false},
 		{"warn handler denies debug", slog.LevelWarn, slog.LevelDebug, false},
-		
+
 		{"info handler allows info", slog.LevelInfo, slog.LevelInfo, true},
 		{"info handler allows warn", slog.LevelInfo, slog.LevelWarn, true},
 		{"info handler denies debug", slog.LevelInfo, slog.LevelDebug, false},
-		
+
 		{"debug handler allows debug", slog.LevelDebug, slog.LevelDebug, true},
 		{"debug handler allows info", slog.LevelDebug, slog.LevelInfo, true},
 	}
@@ -108,7 +108,7 @@ func TestCLIHandler_Enabled(t *testing.T) {
 
 func TestCLIHandler_NoOps(t *testing.T) {
 	h := &CLIHandler{}
-	
+
 	h2 := h.WithAttrs([]slog.Attr{slog.String("k", "v")})
 	if h2 != h {
 		t.Errorf("WithAttrs() should return the same handler, got %v", h2)
@@ -132,18 +132,18 @@ func TestTimeOp(t *testing.T) {
 
 	// Run TimeOp
 	done := TimeOp("test_op")
-	
+
 	// Ensure the start message is logged
 	if !strings.Contains(buf.String(), "[debug] test_op started") {
 		t.Errorf("Expected start message, got: %q", buf.String())
 	}
-	
+
 	buf.Reset()
-	
+
 	// Simulate time passing and call done
 	time.Sleep(1 * time.Millisecond)
 	done()
-	
+
 	// Ensure the completion message is logged
 	if !strings.Contains(buf.String(), "[debug] test_op completed in") {
 		t.Errorf("Expected completion message, got: %q", buf.String())
@@ -186,15 +186,15 @@ func TestInit(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			Init(tt.verbose, tt.debug)
-			
+
 			// Verify the level set by checking Enabled on the default logger
 			ctx := context.Background()
-			
+
 			// Should be enabled for the expected level and above
 			if !slog.Default().Enabled(ctx, tt.level) {
 				t.Errorf("Expected level %v to be enabled", tt.level)
 			}
-			
+
 			// Should NOT be enabled for levels below the expected level
 			if tt.level > slog.LevelDebug && slog.Default().Enabled(ctx, tt.level-1) {
 				t.Errorf("Expected level %v to be disabled", tt.level-1)

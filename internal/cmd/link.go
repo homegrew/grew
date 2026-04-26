@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
+	"os"
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
@@ -12,8 +13,10 @@ import (
 )
 
 func runLink(args []string) error {
+	slog.Debug("starting link command execution")
+	slog.Debug("starting link command execution")
 	fs := flag.NewFlagSet("link", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew link [options] <formula ...>
 
@@ -86,15 +89,17 @@ Options:
 		}
 
 		if !*dryRun {
-			fmt.Printf("==> %s %s linked\n", name, ver)
+			fmt.Fprintf(os.Stderr, "==> %s %s linked\n", name, ver)
 		}
 	}
 	return nil
 }
 
 func runUnlink(args []string) error {
+	slog.Debug("starting unlink command execution")
+	slog.Debug("starting unlink command execution")
 	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew unlink [options] <formula ...>
 
@@ -137,7 +142,7 @@ Options:
 			slog.Info("(dry run, no changes made)")
 		} else {
 			slog.Info("removed symlinks from bin/, lib/, include/, opt/")
-			fmt.Printf("==> %s unlinked\n", name)
+			fmt.Fprintf(os.Stderr, "==> %s unlinked\n", name)
 		}
 	}
 	return nil

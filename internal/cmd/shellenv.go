@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -11,6 +12,8 @@ import (
 )
 
 func runShellenv(args []string) error {
+	slog.Debug("starting shellenv command execution")
+	slog.Debug("starting shellenv command execution")
 	paths := config.Default()
 	shell := detectShell(args)
 

@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
+	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -14,8 +15,10 @@ import (
 )
 
 func runUninstall(args []string) error {
+	slog.Debug("starting uninstall command execution")
+	slog.Debug("starting uninstall command execution")
 	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew uninstall [options] <formula ...>
 
@@ -84,11 +87,11 @@ Options:
 		kegPath, _ := cel.KegPath(name, ver)
 		slog.Info("cellar path: " + kegPath)
 
-		fmt.Printf("==> Unlinking %s...\n", name)
+		fmt.Fprintf(os.Stderr, "==> Unlinking %s...\n", name)
 		lnk.Unlink(name)
 		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
 
-		fmt.Printf("==> Removing %s...\n", name)
+		fmt.Fprintf(os.Stderr, "==> Removing %s...\n", name)
 		if err := cel.Uninstall(name); err != nil {
 			if *force {
 				slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", name, err))
@@ -98,7 +101,7 @@ Options:
 		}
 
 		auditLogger.Log(auditlog.ActionUninstall, name, ver, "", "")
-		fmt.Printf("==> %s uninstalled\n", name)
+		fmt.Fprintf(os.Stderr, "==> %s uninstalled\n", name)
 	}
 
 	return nil

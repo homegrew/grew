@@ -4,14 +4,17 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
+	"os"
 
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linkage"
 )
 
 func runLinkage(args []string) error {
+	slog.Debug("starting linkage command execution")
+	slog.Debug("starting linkage command execution")
 	fs := flag.NewFlagSet("linkage", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew linkage [options] <formula ...>
 
@@ -81,7 +84,7 @@ Options:
 				return fmt.Errorf("reverse linkage: %w", err)
 			}
 			if len(remaining) > 1 && !*quiet {
-				fmt.Printf("==> Reverse linkage for %s\n", name)
+				fmt.Fprintf(os.Stderr, "==> Reverse linkage for %s\n", name)
 			}
 			fmt.Print(linkage.FormatReverseResult(result, *quiet))
 			continue
@@ -126,7 +129,7 @@ Options:
 		}
 
 		if len(remaining) > 1 && !*quiet {
-			fmt.Printf("==> Linkage for %s\n", name)
+			fmt.Fprintf(os.Stderr, "==> Linkage for %s\n", name)
 		}
 		fmt.Print(linkage.FormatResult(result, fmtOpts))
 

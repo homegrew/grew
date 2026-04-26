@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"runtime"
@@ -13,6 +14,8 @@ import (
 )
 
 func runConfig(_ []string) error {
+	slog.Debug("starting config command execution")
+	slog.Debug("starting config command execution")
 	paths := config.Default()
 
 	fmt.Println("HOMEGREW_VERSION:", version.Version())

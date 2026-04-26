@@ -1,6 +1,9 @@
 package cmd
 
-import "fmt"
+import (
+	"fmt"
+	"log/slog"
+)
 
 var commandHelp = map[string]string{
 	"install": `Usage: grew install [--cask] [-s] [--only-dependencies] [--ignore-dependencies] <formula>
@@ -481,6 +484,8 @@ Examples:
 }
 
 func runHelp(args []string) error {
+	slog.Debug("starting help command execution")
+	slog.Debug("starting help command execution")
 	if len(args) == 0 {
 		printUsage()
 		return nil

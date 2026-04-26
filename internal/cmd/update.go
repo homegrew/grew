@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"log/slog"
+	"os"
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/runtime"
@@ -10,9 +11,11 @@ import (
 )
 
 func runUpdate(args []string) error {
+	slog.Debug("starting update command execution")
+	slog.Debug("starting update command execution")
 	// Attempt to self-update the CLI binary first, unless we are in devmode.
 	if !runtime.DevMode {
-		fmt.Println("==> Checking for grew updates...")
+		fmt.Fprintln(os.Stderr, "==> Checking for grew updates...")
 		if err := RunSelfUpdate(nil); err != nil {
 			slog.Warn("self-update failed, continuing with tap update", "error", err)
 		}
@@ -32,7 +35,7 @@ func runUpdate(args []string) error {
 		return fmt.Errorf("update core tap: %w", err)
 	}
 
-	fmt.Printf("==> Updated core tap (%d formulas)\n", count)
+	fmt.Fprintf(os.Stderr, "==> Updated core tap (%d formulas)\n", count)
 	slog.Info("tap directory: " + paths.CoreTap)
 	return nil
 }

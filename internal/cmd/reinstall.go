@@ -12,8 +12,10 @@ import (
 )
 
 func runReinstall(args []string) error {
+	slog.Debug("starting reinstall command execution")
+	slog.Debug("starting reinstall command execution")
 	fs := flag.NewFlagSet("reinstall", flag.ContinueOnError)
-	
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), `Usage: grew reinstall [options] <formula ...>
 
@@ -60,12 +62,12 @@ Options:
 			if err != nil {
 				return err
 			}
-			
+
 			if !cr.IsInstalled(name) && !*force {
 				return fmt.Errorf("cask %q is not installed (use --force to install anyway)", name)
 			}
 
-			fmt.Printf("==> Reinstalling cask %s\n", name)
+			fmt.Fprintf(os.Stderr, "==> Reinstalling cask %s\n", name)
 
 			if cr.IsInstalled(name) {
 				if err := caskUninstall(name, true); err != nil {
@@ -97,7 +99,7 @@ Options:
 			return fmt.Errorf("formula not found: %s", name)
 		}
 
-		fmt.Printf("==> Reinstalling %s %s\n", f.Name, f.Version)
+		fmt.Fprintf(os.Stderr, "==> Reinstalling %s %s\n", f.Name, f.Version)
 
 		// Unlink existing installation.
 		if ctx.Cellar.IsInstalled(name) {

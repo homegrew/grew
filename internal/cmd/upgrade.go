@@ -15,6 +15,8 @@ type outdatedPkg struct {
 }
 
 func runUpgrade(args []string) error {
+	slog.Debug("starting upgrade command execution")
+	slog.Debug("starting upgrade command execution")
 	ctx, err := newInstallContext()
 	if err != nil {
 		return err
@@ -30,7 +32,7 @@ func runUpgrade(args []string) error {
 				return fmt.Errorf("formula %q is not installed", name)
 			}
 			if ctx.Cellar.IsPinned(name) {
-				fmt.Printf("==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
+				fmt.Fprintf(os.Stderr, "==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
 				continue
 			}
 			f, err := ctx.Loader.LoadByName(name)
@@ -39,7 +41,7 @@ func runUpgrade(args []string) error {
 			}
 			curVer, _ := ctx.Cellar.InstalledVersion(name)
 			if curVer == f.Version {
-				fmt.Printf("==> %s %s already up-to-date\n", name, curVer)
+				fmt.Fprintf(os.Stderr, "==> %s %s already up-to-date\n", name, curVer)
 				continue
 			}
 			targets = append(targets, outdatedPkg{formula: f, installedVersion: curVer})
@@ -76,7 +78,7 @@ func runUpgrade(args []string) error {
 	}
 
 	for _, t := range targets {
-		fmt.Printf("==> Upgrading %s %s -> %s\n", t.formula.Name, t.installedVersion, t.formula.Version)
+		fmt.Fprintf(os.Stderr, "==> Upgrading %s %s -> %s\n", t.formula.Name, t.installedVersion, t.formula.Version)
 
 		// Unlink old version
 		ctx.Linker.Unlink(t.formula.Name)
@@ -107,6 +109,8 @@ func runUpgrade(args []string) error {
 }
 
 func runOutdated(args []string) error {
+	slog.Debug("starting outdated command execution")
+	slog.Debug("starting outdated command execution")
 	ctx, err := newReadContext()
 	if err != nil {
 		return err

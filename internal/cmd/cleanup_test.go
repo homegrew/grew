@@ -74,13 +74,13 @@ func TestFormatSize(t *testing.T) {
 
 func TestDirSize(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	// Create some files
 	f1 := filepath.Join(tmpDir, "f1")
 	if err := os.WriteFile(f1, []byte("hello"), 0644); err != nil {
 		t.Fatal(err)
 	}
-	
+
 	subDir := filepath.Join(tmpDir, "sub")
 	if err := os.Mkdir(subDir, 0755); err != nil {
 		t.Fatal(err)
@@ -103,18 +103,18 @@ func TestDirSize(t *testing.T) {
 
 func TestEntrySize(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	// Test file
 	f1 := filepath.Join(tmpDir, "f1")
 	if err := os.WriteFile(f1, []byte("test"), 0644); err != nil {
 		t.Fatal(err)
 	}
-	
+
 	entries, err := os.ReadDir(tmpDir)
 	if err != nil {
 		t.Fatal(err)
 	}
-	
+
 	// Check file entry
 	got, err := entrySize(f1, entries[0])
 	if err != nil {
@@ -123,7 +123,7 @@ func TestEntrySize(t *testing.T) {
 	if got != 4 {
 		t.Errorf("entrySize(file) = %d, want 4", got)
 	}
-	
+
 	// Check dir entry
 	subDir := filepath.Join(tmpDir, "sub")
 	if err := os.Mkdir(subDir, 0755); err != nil {
@@ -132,12 +132,12 @@ func TestEntrySize(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(subDir, "f2"), []byte("123"), 0644); err != nil {
 		t.Fatal(err)
 	}
-	
+
 	entries, err = os.ReadDir(tmpDir)
 	if err != nil {
 		t.Fatal(err)
 	}
-	
+
 	var dirEntry os.DirEntry
 	for _, e := range entries {
 		if e.IsDir() {
@@ -145,7 +145,7 @@ func TestEntrySize(t *testing.T) {
 			break
 		}
 	}
-	
+
 	got, err = entrySize(subDir, dirEntry)
 	if err != nil {
 		t.Fatal(err)
