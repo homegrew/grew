@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/homegrew/grew/internal/cask"
+	"strings"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
