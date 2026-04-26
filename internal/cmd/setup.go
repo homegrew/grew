@@ -263,6 +263,11 @@ func finishSetup(prefix string) error {
 		return fmt.Errorf("init directories: %w", err)
 	}
 
+	// Remove unsupported share directories if they exist from a prior run
+	_ = os.RemoveAll(filepath.Join(paths.Share, "man"))
+	_ = os.RemoveAll(filepath.Join(paths.Share, "info"))
+	_ = os.Remove(paths.Share) // only removes if empty
+
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 
 	// Try to install grew from source via git clone + go build.
