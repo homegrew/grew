@@ -69,6 +69,9 @@ func removeIfWithin(targetPath, baseDir string) error {
 		return fmt.Errorf("resolve base symlinks: %w", err)
 	}
 	canonBase = filepath.Clean(canonBase)
+	if err := safepath.SafeAbsolutePath(canonBase); err != nil {
+		return fmt.Errorf("invalid canonical base path %q: %w", canonBase, err)
+	}
 
 	targetAbs, err := filepath.Abs(targetPath)
 	if err != nil {
@@ -84,10 +87,28 @@ func removeIfWithin(targetPath, baseDir string) error {
 	} else {
 		canonTarget = filepath.Clean(canonTarget)
 	}
+	if err := safepath.SafeAbsolutePath(canonTarget); err != nil {
+		return fmt.Errorf("invalid canonical target path %q: %w", canonTarget, err)
+	}
 
+	if canonTarget == canonBase {
+		return fmt.Errorf("refusing to remove base directory path: %s", canonTarget)
+	}
 	if err := safepath.CheckSubpath(canonBase, canonTarget); err != nil {
 		return fmt.Errorf("refusing to remove path outside base directory: %s", canonTarget)
 	}
+
+	fi, err := os.Lstat(canonTarget)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return fmt.Errorf("stat target for removal: %w", err)
+	}
+	if fi.IsDir() {
+		return fmt.Errorf("refusing to remove directory path: %s", canonTarget)
+	}
+
 	return os.Remove(canonTarget)
 }
 
