@@ -135,7 +135,7 @@ Restart your terminal, and `grew` is completely gone.
 For an in-depth look at how `grew` installs itself, its self-update mechanism, and the developer mode, check out the [Architecture & Technical Details](docs/tech.md).
 
 ```bash
-grew install jq              # the classic
+grew install jq nmap         # install multiple formulas
 grew install -s ldns         # build from source, like a purist
 grew install --cask firefox  # going big
 grew link jq                 # stitch it in
@@ -146,7 +146,7 @@ grew verify jq               # check installed files against manifest
 grew vuln-scan               # scan for CVEs and integrity issues
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
-grew leaves | xargs grew uninstall # uninstall all top-level packages
+grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
 ```
 
 ---
@@ -155,13 +155,13 @@ grew leaves | xargs grew uninstall # uninstall all top-level packages
 
 | Command | What it does |
 |---|---|
-| `install` | Install a formula or cask (`-s` to build from source) |
-| `uninstall` | Send it to the void |
+| `install` | Install formulas or casks (`-s` to build from source) |
+| `uninstall` | Send formulas or casks to the void |
 | `list` | See what you've collected |
-| `leaves` | List installed formulas that are not dependencies of another installed formula |
-| `info` | Stalk a package |
+| `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
+| `info` | Stalk packages |
 | `search` | Find the thing |
-| `link` | Weave a formula into your PATH |
+| `link` | Weave formulas into your PATH |
 | `unlink` | Cut the thread |
 | `update` | Refresh tap definitions |
 | `upgrade` | Get the new hotness |
@@ -180,7 +180,7 @@ grew leaves | xargs grew uninstall # uninstall all top-level packages
 | `vuln-scan` | Scan installed packages for security vulnerabilities |
 | `config` | What grew thinks it knows |
 | `shellenv` | Wire up your shell |
-| `pin` / `unpin` | Freeze a formula to prevent upgrades |
+| `pin` / `unpin` | Freeze formulas to prevent upgrades |
 | `completion` | Generate shell completion (bash, zsh, fish) |
 | `help` | You got this |
 
