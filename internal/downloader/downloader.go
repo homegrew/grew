@@ -134,12 +134,16 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
 
-	// Final sink-adjacent validation: ensure the path is absolute and still
-	// constrained to the canonical temp directory immediately before filesystem use.
-	if err := safepath.SafeAbsolutePath(sinkPath); err != nil {
-		return "", fmt.Errorf("invalid download path %q: %w", sinkPath, err)
+	// Final sink-adjacent validation: rebuild and validate the path that will be
+	// passed to filesystem APIs, using only canonical trusted base + validated name.
+	safeSinkPath, err := safepath.SafeJoin(canonTmpDir, finalName)
+	if err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
-	if err := safepath.CheckSubpath(canonTmpDir, sinkPath); err != nil {
+	if err := safepath.SafeAbsolutePath(safeSinkPath); err != nil {
+		return "", fmt.Errorf("invalid download path %q: %w", safeSinkPath, err)
+	}
+	if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
 
@@ -175,20 +179,20 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("download %s: HTTP %d %s", rawURL, resp.StatusCode, resp.Status)
 	}
 
-	if fi, err := os.Lstat(sinkPath); err == nil {
+	if fi, err := os.Lstat(safeSinkPath); err == nil {
 		if fi.Mode()&os.ModeSymlink != 0 {
-			return "", fmt.Errorf("prepare download path %s: refusing to overwrite symlink", sinkPath)
+			return "", fmt.Errorf("prepare download path %s: refusing to overwrite symlink", safeSinkPath)
 		}
 		if fi.IsDir() {
-			return "", fmt.Errorf("prepare download path %s: destination is a directory", sinkPath)
+			return "", fmt.Errorf("prepare download path %s: destination is a directory", safeSinkPath)
 		}
 	} else if !os.IsNotExist(err) {
-		return "", fmt.Errorf("prepare download path %s: %w", sinkPath, err)
+		return "", fmt.Errorf("prepare download path %s: %w", safeSinkPath, err)
 	}
 
-	out, err := os.OpenFile(sinkPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
+	out, err := os.OpenFile(safeSinkPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
 	if err != nil {
-		return "", fmt.Errorf("create file %s: %w", sinkPath, err)
+		return "", fmt.Errorf("create file %s: %w", safeSinkPath, err)
 	}
 
 	size := resp.ContentLength
