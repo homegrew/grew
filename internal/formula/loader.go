@@ -33,6 +33,35 @@ func (l *Loader) debugf(format string, args ...any) {
 	}
 }
 
+// safeTapPath resolves and validates p, ensuring it remains within l.TapDir.
+func (l *Loader) safeTapPath(p string) (string, error) {
+	base := filepath.Clean(l.TapDir)
+	if abs, err := filepath.Abs(base); err == nil {
+		base = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(base); err != nil {
+		return "", fmt.Errorf("invalid taps directory %q: %w", base, err)
+	}
+
+	resolved := filepath.Clean(p)
+	if abs, err := filepath.Abs(resolved); err == nil {
+		resolved = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(resolved); err != nil {
+		return "", fmt.Errorf("invalid tap path %q: %w", resolved, err)
+	}
+
+	rel, err := filepath.Rel(base, resolved)
+	if err != nil {
+		return "", fmt.Errorf("resolve tap path %q relative to %q: %w", resolved, base, err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+		return "", fmt.Errorf("tap path %q escapes taps directory %q", resolved, base)
+	}
+
+	return resolved, nil
+}
+
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
 
@@ -97,12 +126,9 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 func (l *Loader) LoadAll() ([]*Formula, error) {
 	var formulas []*Formula
 
-	tapDir := filepath.Clean(l.TapDir)
-	if abs, err := filepath.Abs(tapDir); err == nil {
-		tapDir = filepath.Clean(abs)
-	}
-	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
-		return nil, fmt.Errorf("invalid taps directory %q: %w", tapDir, err)
+	tapDir, err := l.safeTapPath(l.TapDir)
+	if err != nil {
+		return nil, err
 	}
 
 	taps, err := os.ReadDir(tapDir)
@@ -116,7 +142,12 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
-		tapFormulas, err := l.LoadFromTap(filepath.Join(tapDir, tap.Name()))
+		tapPath, err := l.safeTapPath(filepath.Join(tapDir, tap.Name()))
+		if err != nil {
+			l.debugf("failed to validate tap path %s: %v\n", tap.Name(), err)
+			continue
+		}
+		tapFormulas, err := l.LoadFromTap(tapPath)
 		if err != nil {
 			l.debugf("failed to load tap %s: %v\n", tap.Name(), err)
 			continue
