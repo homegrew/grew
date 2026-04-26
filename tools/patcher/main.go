@@ -1,6 +1,9 @@
 package main
 
 import (
+	"crypto/sha256"
+	"crypto/sha512"
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"log/slog"
@@ -8,18 +11,21 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
-func title(s string) string {
-	if len(s) == 0 {
-		return ""
-	}
-	return strings.ToUpper(s[:1]) + strings.ToLower(s[1:])
+type platform struct {
+	os   string
+	arch string
+}
+
+var platforms = []platform{
+	{"Darwin", "x86_64"},
+	{"Darwin", "arm64"},
+	{"Linux", "x86_64"},
+	{"Linux", "arm64"},
 }
 
 func main() {
@@ -30,10 +36,10 @@ func main() {
 	flags.Register(fs)
 
 	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), "Usage: %s [options] <platform> <previous_release> <new_release>\n", os.Args[0])
+		fmt.Fprintf(fs.Output(), "Usage: %s [options] <previous_release> <new_release>\n", os.Args[0])
 		fmt.Fprintln(fs.Output(), "\nOptions:")
 		fs.PrintDefaults()
-		fmt.Fprintln(fs.Output(), "\nExample: patcher -v darwin/arm64 v0.4.0 v0.4.1")
+		fmt.Fprintln(fs.Output(), "\nExample: patcher -v v0.4.0 v0.4.1")
 	}
 
 	if err := fs.Parse(args); err != nil {
@@ -43,38 +49,23 @@ func main() {
 	flags.Resolve()
 
 	remainingArgs := fs.Args()
-	if len(remainingArgs) != 3 {
+	if len(remainingArgs) != 2 {
 		fs.Usage()
 		os.Exit(1)
 	}
 
-	platform := remainingArgs[0]
-	prevRelease := remainingArgs[1]
-	newRelease := remainingArgs[2]
+	prevRelease := remainingArgs[0]
+	newRelease := remainingArgs[1]
 
 	logMsg := func(format string, a ...interface{}) {
-		slog.Info(format, a...)
+		if flags.Verbose {
+			fmt.Printf("==> "+format+"\n", a...)
+		}
 	}
 
 	// Basic validation of version strings.
-	// Since tags usually have a "v" prefix (like v0.4.0), we validate against IsValidVersion.
 	if !validation.IsValidVersion(strings.TrimPrefix(prevRelease, "v")) || !validation.IsValidVersion(strings.TrimPrefix(newRelease, "v")) {
 		slog.Error("Invalid version string provided.")
-		os.Exit(1)
-	}
-
-	// Parse platform
-	parts := strings.Split(platform, "/")
-	if len(parts) != 2 {
-		slog.Error("Invalid platform format. Use <os>/<arch> (e.g. darwin/arm64)")
-		os.Exit(1)
-	}
-	osName := title(parts[0]) // Darwin, Linux
-	arch := parts[1]          // x86_64, arm64
-
-	projectName := "grew"
-	if !validation.IsValidName(projectName) {
-		slog.Error("Invalid project name configuration.")
 		os.Exit(1)
 	}
 
@@ -84,132 +75,125 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Create a temp dir
-	tmpDir, err := os.MkdirTemp("", "grew-patcher-*")
-	if err != nil {
-		slog.Error("Failed to create temp dir", "err", err)
-		os.Exit(1)
+	var binaryChecksums strings.Builder
+
+	for _, p := range platforms {
+		slog.Info("Processing platform", "os", p.os, "arch", p.arch)
+		
+		archiveName := fmt.Sprintf("grew_%s_%s.tar.gz", p.os, p.arch)
+		rawBinName := fmt.Sprintf("grew_%s_%s", p.os, p.arch)
+		
+		oldURL := fmt.Sprintf("https://github.com/homegrew/grew/releases/download/%s/%s", prevRelease, archiveName)
+		newURL := fmt.Sprintf("https://github.com/homegrew/grew/releases/download/%s/%s", newRelease, archiveName)
+
+		// 1. Download and Extract Old Binary
+		logMsg("Downloading old release %s", archiveName)
+		oldTmp, err := release.DownloadTemp(oldURL)
+		if err != nil {
+			slog.Warn("Could not download old archive (skipping platform)", "url", oldURL, "err", err)
+			continue
+		}
+		oldBinBytes, err := release.ExtractBinaryFromFile(oldTmp)
+		os.Remove(oldTmp)
+		if err != nil {
+			slog.Error("Failed to extract old binary", "err", err)
+			os.Exit(1)
+		}
+		oldBinFile := writeTempFile("oldBin", oldBinBytes)
+		defer os.Remove(oldBinFile)
+
+		// 2. Download and Extract New Binary
+		logMsg("Downloading new release %s", archiveName)
+		newTmp, err := release.DownloadTemp(newURL)
+		if err != nil {
+			slog.Error("Could not download new archive", "url", newURL, "err", err)
+			os.Exit(1)
+		}
+		newBinBytes, err := release.ExtractBinaryFromFile(newTmp)
+		os.Remove(newTmp)
+		if err != nil {
+			slog.Error("Failed to extract new binary", "err", err)
+			os.Exit(1)
+		}
+		newBinFile := writeTempFile("newBin", newBinBytes)
+		defer os.Remove(newBinFile)
+
+		// 3. Compute Binary Checksums (SHA256 & SHA512) for the NEW binary
+		h256 := sha256.New()
+		h256.Write(newBinBytes)
+		binSHA256 := hex.EncodeToString(h256.Sum(nil))
+
+		h512 := sha512.New()
+		h512.Write(newBinBytes)
+		binSHA512 := hex.EncodeToString(h512.Sum(nil))
+
+		binaryChecksums.WriteString(fmt.Sprintf("%s  %s\n", binSHA256, rawBinName))
+		binaryChecksums.WriteString(fmt.Sprintf("%s  %s\n", binSHA512, rawBinName))
+
+		// 4. Generate the Delta Patch using bsdiff
+		patchFile := release.PatchName(prevRelease, newRelease)
+		patchFile = strings.ReplaceAll(patchFile, p.os, p.os)     // Keep capitalization consistent
+		patchFile = strings.ReplaceAll(patchFile, p.arch, p.arch) // Keep arch consistent
+		// release.PatchName returns something like grew_Darwin_x86_64_v0.4.0_to_v0.4.1.patch
+		
+		// The selfupdate uses grew_<os>_<arch>_<old>_to_<new>.patch format. Let's build it directly to be safe:
+		patchFile = fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", p.os, p.arch, prevRelease, newRelease)
+
+		logMsg("Generating patch %s", patchFile)
+		cmd := exec.Command("bsdiff", oldBinFile, newBinFile, patchFile)
+		if flags.Verbose {
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+		}
+		if err := cmd.Run(); err != nil {
+			slog.Error("bsdiff failed", "err", err)
+			os.Exit(1)
+		}
+
+		// 5. Compute and Save Patch Checksums
+		patchSHA256, err := release.FileSHA256(patchFile)
+		if err != nil {
+			slog.Error("Failed to compute patch SHA256", "err", err)
+			os.Exit(1)
+		}
+		patchSHA512, err := release.FileSHA512(patchFile)
+		if err != nil {
+			slog.Error("Failed to compute patch SHA512", "err", err)
+			os.Exit(1)
+		}
+
+		sha256File := patchFile + ".sha256"
+		os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFile)), 0644)
+		
+		sha512File := patchFile + ".sha512"
+		os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFile)), 0644)
+
+		logMsg("Success! Generated %s and its checksum files.", patchFile)
 	}
-	defer os.RemoveAll(tmpDir)
 
-	oldBin, err := safepath.SafeJoin(tmpDir, "old", projectName)
-	if err != nil {
-		slog.Error("Failed to create path for old binary", "err", err)
-		os.Exit(1)
+	// 6. Write out the accumulated binary-checksums.txt
+	if binaryChecksums.Len() > 0 {
+		outBinFile := "binary-checksums.txt"
+		if err := os.WriteFile(outBinFile, []byte(binaryChecksums.String()), 0644); err != nil {
+			slog.Error("Failed to write output file", "err", err)
+			os.Exit(1)
+		}
+		logMsg("Successfully generated %s", outBinFile)
+	} else {
+		slog.Warn("No platforms were processed successfully.")
 	}
-
-	newBin, err := safepath.SafeJoin(tmpDir, "new", projectName)
-	if err != nil {
-		slog.Error("Failed to create path for new binary", "err", err)
-		os.Exit(1)
-	}
-
-	logMsg("Downloading %s %s for %s", projectName, prevRelease, platform)
-	if err := downloadAndExtract(projectName, osName, arch, prevRelease, tmpDir, "old"); err != nil {
-		slog.Error("Failed to get old release", "err", err)
-		os.Exit(1)
-	}
-
-	logMsg("Downloading %s %s for %s", projectName, newRelease, platform)
-	if err := downloadAndExtract(projectName, osName, arch, newRelease, tmpDir, "new"); err != nil {
-		slog.Error("Failed to get new release", "err", err)
-		os.Exit(1)
-	}
-
-	patchFile := fmt.Sprintf("grew-%s-%s-%s-to-%s.bspatch", parts[0], parts[1], prevRelease, newRelease)
-	logMsg("Generating patch %s", patchFile)
-
-	cmd := exec.Command("bsdiff", oldBin, newBin, patchFile)
-	if flags.Verbose {
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-	}
-	if err := cmd.Run(); err != nil {
-		slog.Error("bsdiff failed", "err", err)
-		os.Exit(1)
-	}
-
-	sha256, err := downloader.ComputeSHA256(patchFile)
-	if err != nil {
-		slog.Error("Failed to compute SHA256", "err", err)
-		os.Exit(1)
-	}
-
-	sha512, err := downloader.ComputeSHA512(patchFile)
-	if err != nil {
-		slog.Error("Failed to compute SHA512", "err", err)
-		os.Exit(1)
-	}
-
-	logMsg("Success! Patch file created: %s", patchFile)
-
-	// Save SHA256 checksum
-	sha256File := patchFile + ".sha256"
-	sha256Data := fmt.Sprintf("%s  %s\n", sha256, patchFile)
-	if err := os.WriteFile(sha256File, []byte(sha256Data), 0644); err != nil {
-		slog.Error("Failed to write SHA256 file", "err", err)
-		os.Exit(1)
-	}
-
-	// Save SHA512 checksum
-	sha512File := patchFile + ".sha512"
-	sha512Data := fmt.Sprintf("%s  %s\n", sha512, patchFile)
-	if err := os.WriteFile(sha512File, []byte(sha512Data), 0644); err != nil {
-		slog.Error("Failed to write SHA512 file", "err", err)
-		os.Exit(1)
-	}
-
-	logMsg("Checksums saved to %s and %s", sha256File, sha512File)
 }
 
-func downloadAndExtract(projectName, osName, arch, version, tmpDir, subDir string) error {
-	filename := fmt.Sprintf("%s_%s_%s.tar.gz", projectName, osName, arch)
-	url := fmt.Sprintf("https://github.com/homegrew/grew/releases/download/%s/%s", version, filename)
-
-	dl := &downloader.Downloader{TmpDir: tmpDir}
-	dlFile, err := dl.Download(url, fmt.Sprintf("%s_%s", subDir, filename))
+func writeTempFile(prefix string, data []byte) string {
+	f, err := os.CreateTemp("", prefix+"-*")
 	if err != nil {
-		return fmt.Errorf("downloader error: %w", err)
+		slog.Error("Failed to create temp file", "err", err)
+		os.Exit(1)
 	}
-
-	destDir, err := safepath.SafeJoin(tmpDir, subDir)
-	if err != nil {
-		return fmt.Errorf("failed to create destination dir path: %w", err)
+	defer f.Close()
+	if _, err := f.Write(data); err != nil {
+		slog.Error("Failed to write to temp file", "err", err)
+		os.Exit(1)
 	}
-
-	spec := formula.InstallSpec{
-		Type:            "archive",
-		StripComponents: 0,
-		BinaryName:      projectName,
-	}
-
-	if err := downloader.Extract(dlFile, destDir, spec); err != nil {
-		return fmt.Errorf("extraction error: %w", err)
-	}
-
-	// We rename it up to destDir
-	binPath, err := safepath.SafeJoin(destDir, "bin", projectName)
-	if err != nil {
-		return fmt.Errorf("failed to resolve binpath: %w", err)
-	}
-
-	if _, err := os.Stat(binPath); os.IsNotExist(err) {
-		binPath, err = safepath.SafeJoin(destDir, projectName)
-		if err != nil {
-			return fmt.Errorf("failed to resolve binpath in root: %w", err)
-		}
-	}
-
-	finalPath, err := safepath.SafeJoin(destDir, projectName)
-	if err != nil {
-		return fmt.Errorf("failed to resolve finalpath: %w", err)
-	}
-
-	if binPath != finalPath {
-		if err := os.Rename(binPath, finalPath); err != nil {
-			return fmt.Errorf("failed to move extracted binary: %w", err)
-		}
-	}
-
-	return nil
+	return f.Name()
 }
