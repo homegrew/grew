@@ -20,6 +20,7 @@ import (
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 func RunSelfUpdate(_ []string) error {
@@ -67,10 +68,43 @@ func RunSelfUpdate(_ []string) error {
 	return selfUpdateFullDownload(exePath, rel)
 }
 
+func ensurePathWithinBase(base, target string) (string, error) {
+	baseAbs, err := filepath.Abs(filepath.Clean(base))
+	if err != nil {
+		return "", fmt.Errorf("resolve base path: %w", err)
+	}
+	if err := safepath.SafeAbsolutePath(baseAbs); err != nil {
+		return "", fmt.Errorf("invalid base path %q: %w", baseAbs, err)
+	}
+
+	targetAbs, err := filepath.Abs(filepath.Clean(target))
+	if err != nil {
+		return "", fmt.Errorf("resolve target path: %w", err)
+	}
+	if err := safepath.SafeAbsolutePath(targetAbs); err != nil {
+		return "", fmt.Errorf("invalid target path %q: %w", targetAbs, err)
+	}
+
+	rel, err := filepath.Rel(baseAbs, targetAbs)
+	if err != nil {
+		return "", fmt.Errorf("compute relative path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+		return "", fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
+	}
+	return targetAbs, nil
+}
+
 func SelfUpdateFromGit(exePath string) (bool, error) {
 	prefix := config.DefaultPrefix()
 	repoDir := filepath.Join(prefix, "Grew")
 	destBin := filepath.Join(prefix, "bin", "grew")
+
+	var err error
+	destBin, err = ensurePathWithinBase(prefix, destBin)
+	if err != nil {
+		return false, fmt.Errorf("invalid destination binary path: %w", err)
+	}
 
 	if err := installFromGit(repoDir, destBin, false); err != nil {
 		if errors.Is(err, ErrNoGitRepo) {
