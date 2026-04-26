@@ -149,20 +149,31 @@ func isTextFile(path string) bool {
 
 // relocateTextFiles performs string replacement on all whitelisted text files in a directory.
 func relocateTextFiles(kegPath string, replacements Replacements) error {
-	return filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return err
+	var failed int
+	err := filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			slog.Debug(fmt.Sprintf("relocation: skipping inaccessible entry: %v", walkErr))
+			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() {
 			return nil
 		}
 		if isTextFile(path) {
 			if err := relocateSingleTextFile(path, replacements); err != nil {
-				return err
+				relPath, _ := filepath.Rel(kegPath, path)
+				if relPath == "" {
+					relPath = path
+				}
+				slog.Warn(fmt.Sprintf("relocation: text file %s: %v", relPath, err))
+				failed++
 			}
 		}
 		return nil
 	})
+	if failed > 0 {
+		return fmt.Errorf("%d text file(s) failed relocation", failed)
+	}
+	return err
 }
 
 // relocateSingleTextFile handles the relocation of a single text file, ensuring it is writable.
