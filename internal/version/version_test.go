@@ -18,6 +18,11 @@ func TestCompare(t *testing.T) {
 		{"v1.0.0", "v1.0.0-rc1", 1},
 		{"v1.0.0-rc1", "v1.0.0-rc2", -1},
 		{"v0.0.0-UNKNOWN", "v0.1.0", -1},
+		{"", "v1.0.0", -1},
+		{"v", "v1.0.0", -1},
+		{"v1.a.0", "v1.0.0", 0},
+		{"v1.0.$", "v1.0.0", 0},
+		{"v1.0.0-??", "v1.0.0", -1},
 	}
 
 	for _, tt := range tests {
@@ -29,9 +34,9 @@ func TestCompare(t *testing.T) {
 
 func TestIsNewer(t *testing.T) {
 	if !IsNewer("v1.0.0", "v1.0.1") {
-		t.Error("expected v1.0.1 to be newer than v1.0.0")
+		t.Error("expected second argument (v1.0.1) to be newer than first argument (v1.0.0)")
 	}
 	if IsNewer("v1.0.1", "v1.0.0") {
-		t.Error("expected v1.0.1 NOT to be newer than v1.0.0")
+		t.Error("expected v1.0.0 NOT to be newer than v1.0.1")
 	}
 }
