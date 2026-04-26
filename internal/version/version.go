@@ -9,12 +9,17 @@ var version string
 func SetVersion(v string) {
 	if v == "" {
 		version = "v0.0.0-UNKNOWN"
-		return
+
+	} else if !strings.HasPrefix(v, "v") {
+		version = "v" + v
+	} else {
+		version = v
 	}
-	version = v
+
+	version = strings.TrimSpace(version)
 }
 
 // Version returns the version string.
 func Version() string {
-	return strings.TrimSpace(version)
+	return version
 }
