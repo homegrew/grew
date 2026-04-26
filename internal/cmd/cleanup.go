@@ -148,9 +148,15 @@ Options:
 	} else {
 		expectedTmp = filepath.Clean(expectedTmp)
 	}
+	relTmpToRoot, err := filepath.Rel(resolvedRoot, resolvedTmp)
+	tmpUnderResolvedRoot := err == nil &&
+		relTmpToRoot != ".." &&
+		!strings.HasPrefix(relTmpToRoot, ".."+string(os.PathSeparator)) &&
+		!filepath.IsAbs(relTmpToRoot)
+
 	_, trustedRoot := allowedRoots[resolvedRoot]
 
-	if trustedRoot && paths.IsUnderRoot(resolvedTmp) && resolvedTmp == expectedTmp {
+	if trustedRoot && tmpUnderResolvedRoot && paths.IsUnderRoot(resolvedTmp) && resolvedTmp == expectedTmp {
 		tmpEntries, err := os.ReadDir(resolvedTmp)
 		if err == nil {
 			for _, e := range tmpEntries {

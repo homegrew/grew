@@ -87,13 +87,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if abs, err := filepath.Abs(tmpDir); err == nil {
 		tmpDir = filepath.Clean(abs)
 	}
-	destPath := filepath.Clean(filepath.Join(tmpDir, filename))
-	if abs, err := filepath.Abs(destPath); err == nil {
-		destPath = filepath.Clean(abs)
-	}
-	if !safepath.IsSubpath(tmpDir, destPath) {
-		return "", fmt.Errorf("download path escapes temp directory")
-	}
 	// Resolve the final sink path via safe join right before filesystem use.
 	sinkPath, err := safepath.SafeJoin(tmpDir, filename)
 	if err != nil {
@@ -115,7 +108,16 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
 	}
 
+	// Re-resolve sink path from canonical temp dir so sink operations are based
+	// only on validated canonical paths.
+	sinkPath, err = safepath.SafeJoin(canonTmpDir, filename)
+	if err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
 	sinkDir := filepath.Dir(sinkPath)
+	if err := os.MkdirAll(sinkDir, 0o755); err != nil {
+		return "", fmt.Errorf("create download directory %s: %w", sinkDir, err)
+	}
 	canonSinkDir, err := filepath.EvalSymlinks(sinkDir)
 	if err != nil {
 		return "", fmt.Errorf("resolve download directory %s: %w", sinkDir, err)
@@ -142,9 +144,6 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	safeSinkPath, err := safepath.SafeJoin(canonTmpDir, finalName)
 	if err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(safeSinkPath); err != nil {
-		return "", fmt.Errorf("invalid download path %q: %w", safeSinkPath, err)
 	}
 	if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
@@ -213,16 +212,18 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		// Recompute a trusted cleanup target from canonical tmp dir + validated final name.
 		trustedSink, joinErr := safepath.SafeJoin(canonTmpDir, finalName)
 		if joinErr != nil {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: failed to resolve trusted sink: %v\n", sinkPath, joinErr)
 			return
 		}
-		trustedSink = filepath.Clean(trustedSink)
 		if err := safepath.CheckSubpath(canonTmpDir, trustedSink); err != nil {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: trusted sink outside tmp dir: %v\n", sinkPath, err)
 			return
 		}
 
 		// Ensure we only delete the file we intended to write.
 		cleanSinkPath := filepath.Clean(sinkPath)
 		if cleanSinkPath != trustedSink {
+			fmt.Fprintf(os.Stderr, "cleanup skipped for %s: sink mismatch (trusted=%s)\n", sinkPath, trustedSink)
 			return
 		}
 
