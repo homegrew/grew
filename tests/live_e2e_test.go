@@ -128,6 +128,22 @@ func TestLiveEndToEnd(t *testing.T) {
 	// 8. Test Reinstall (Offline/Cache verification)
 	runCmd("reinstall", "nano")
 
+	// 8.1 Test install --force
+	runCmd("install", "--force", "nano")
+
+	// 8.2 Test uninstall --force
+	runCmd("uninstall", "--force", "nano")
+	if _, err := os.Stat(nanoBin); err == nil {
+		t.Fatalf("nano should have been uninstalled")
+	}
+
+	// 8.3 Test reinstall --force
+	// reinstall --force should succeed even though nano is not currently installed
+	runCmd("reinstall", "--force", "nano")
+	if _, err := os.Stat(nanoBin); err != nil {
+		t.Fatalf("nano binary not found after reinstall --force: %v", err)
+	}
+
 	// 9. Test Manifest Verification
 	runCmd("verify", "nano")
 
