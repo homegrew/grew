@@ -175,9 +175,9 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
-| `verify` | Check installed packages against their snapshot manifests |
 | `audit` | Lint formula/cask definitions for quality and security |
 | `lock` | Generate, check, or show a reproducible lockfile |
+| `verify` | Check installed packages against their snapshot manifests |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
 | `setup` | One-time prefix setup (requires sudo) |
