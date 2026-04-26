@@ -1,6 +1,7 @@
 package sandbox
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -67,7 +68,7 @@ func platformExtractCommand(cfg ExtractConfig, name string, args ...string) *exe
 		}
 
 		a = append(a, "--bind", cfg.StageDir, cfg.StageDir)
-		a = append(a, "--", name)
+		a = append(a, name)
 		a = append(a, args...)
 		cmd := exec.Command(p, a...)
 		cmd.Env = extractEnv(cfg)
@@ -108,32 +109,34 @@ func bwrapPostInstallCommand(bwrapPath string, cfg PostInstallConfig, name strin
 	// Keg is already read-only via the ro-bind of /.
 	// Only the tmp dir is writable.
 	a = append(a, "--bind", cfg.TmpDir, cfg.TmpDir)
-	a = append(a, "--", name)
-	a = append(a, args...)
 
+	a = append(a, name)
+	a = append(a, args...)
 	cmd := exec.Command(bwrapPath, a...)
 	cmd.Env = postInstallEnv(cfg)
 	return cmd
 }
 
 func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name string, args ...string) *exec.Cmd {
-	// Write the setup script to a temp file. We pass dynamic values (paths,
-	// command, args) as positional parameters to the script to avoid shell
-	// injection risks from direct interpolation.
+	// Write the setup script to a temp file so that dynamic paths are never
+	// passed via sh -c, avoiding shell injection risks entirely.
 	scriptFile, err := writeUnshareScript(cfg.TmpDir, func(script *strings.Builder) {
 		script.WriteString("set -e\n")
 		script.WriteString("mount --bind / /\n")
 		script.WriteString("mount --make-rprivate /\n")
 		script.WriteString("mount -o remount,ro,bind /\n")
-		// $1 is cfg.TmpDir. Only tmp dir is writable.
-		script.WriteString("mount --bind \"$1\" \"$1\"\n")
-		script.WriteString("mount -o remount,rw,bind \"$1\"\n")
+		// Only tmp dir is writable.
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.TmpDir), shq(cfg.TmpDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.TmpDir))
 		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
 		if fi, err := os.Stat("/var/tmp"); err == nil && fi.IsDir() {
 			script.WriteString("mount -t tmpfs tmpfs /var/tmp\n")
 		}
-		script.WriteString("shift\n") // Remove cfg.TmpDir from positional params.
-		script.WriteString("exec \"$@\"\n")
+		fmt.Fprintf(script, "exec %s", shq(name))
+		for _, a := range args {
+			fmt.Fprintf(script, " %s", shq(a))
+		}
+		script.WriteString("\n")
 	})
 	if err != nil {
 		// Fall back to direct execution without unshare sandboxing.
@@ -142,15 +145,10 @@ func unsharePostInstallCommand(unsharePath string, cfg PostInstallConfig, name s
 		return cmd
 	}
 
-	// unshare [options] [--] /bin/sh scriptFile [args...]
-	a := []string{
+	cmd := exec.Command(unsharePath,
 		"--net", "--mount", "--pid", "--fork", "--mount-proc",
-		"--",
-		"/bin/sh", scriptFile, cfg.TmpDir, name,
-	}
-	a = append(a, args...)
-
-	cmd := exec.Command(unsharePath, a...)
+		"/bin/sh", scriptFile,
+	)
 	cmd.Env = postInstallEnv(cfg)
 	return cmd
 }
@@ -177,7 +175,6 @@ func bwrapAvailable(bwrapPath string) bool {
 		"--unshare-pid",
 		"--proc", "/proc",
 		"--dev", "/dev",
-		"--",
 		"true",
 	)
 	return cmd.Run() == nil
@@ -185,7 +182,7 @@ func bwrapAvailable(bwrapPath string) bool {
 
 // unshareAvailable probes whether unshare(1) can create a network namespace.
 func unshareAvailable(unsharePath string) bool {
-	cmd := exec.Command(unsharePath, "--net", "--", "true")
+	cmd := exec.Command(unsharePath, "--net", "true")
 	return cmd.Run() == nil
 }
 
@@ -244,7 +241,7 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 	a = append(a, "--bind", cfg.KegDir, cfg.KegDir)
 
 	// The command to run inside the sandbox.
-	a = append(a, "--", name)
+	a = append(a, name)
 	a = append(a, args...)
 	return a
 }
@@ -258,9 +255,8 @@ func bwrapArgs(cfg BuildConfig, name string, args ...string) []string {
 //   - Mount namespace    (--mount): private mount table
 //   - PID namespace      (--pid --fork --mount-proc): isolated process tree
 func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...string) *exec.Cmd {
-	// Write the setup script to a temp file. We pass dynamic values (paths,
-	// command, args) as positional parameters to the script to avoid shell
-	// injection risks from direct interpolation.
+	// Write the setup script to a temp file so that dynamic paths are never
+	// passed via sh -c, avoiding shell injection risks entirely.
 	tmpDir := os.TempDir()
 	scriptFile, err := writeUnshareScript(tmpDir, func(script *strings.Builder) {
 		script.WriteString("set -e\n")
@@ -268,17 +264,20 @@ func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...st
 		script.WriteString("mount --make-rprivate /\n")
 		// Remount root read-only.
 		script.WriteString("mount -o remount,ro,bind /\n")
-		// $1 is cfg.BuildDir, $2 is cfg.KegDir.
 		// Writable bind-mount for the build dir.
-		script.WriteString("mount --bind \"$1\" \"$1\"\n")
-		script.WriteString("mount -o remount,rw,bind \"$1\"\n")
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.BuildDir), shq(cfg.BuildDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.BuildDir))
 		// Writable bind-mount for the keg dir.
-		script.WriteString("mount --bind \"$2\" \"$2\"\n")
-		script.WriteString("mount -o remount,rw,bind \"$2\"\n")
+		fmt.Fprintf(script, "mount --bind %s %s\n", shq(cfg.KegDir), shq(cfg.KegDir))
+		fmt.Fprintf(script, "mount -o remount,rw,bind %s\n", shq(cfg.KegDir))
 		// Fresh tmpfs for /tmp.
 		script.WriteString("mount -t tmpfs tmpfs /tmp\n")
-		script.WriteString("shift 2\n") // Remove BuildDir and KegDir from positional params.
-		script.WriteString("exec \"$@\"\n")
+		// Exec the build command.
+		fmt.Fprintf(script, "exec %s", shq(name))
+		for _, a := range args {
+			fmt.Fprintf(script, " %s", shq(a))
+		}
+		script.WriteString("\n")
 	})
 	if err != nil {
 		// Fall back to direct execution without unshare sandboxing.
@@ -287,15 +286,10 @@ func unshareCommand(unsharePath string, cfg BuildConfig, name string, args ...st
 		return cmd
 	}
 
-	// unshare [options] [--] /bin/sh scriptFile [args...]
-	a := []string{
+	cmd := exec.Command(unsharePath,
 		"--net", "--mount", "--pid", "--fork", "--mount-proc",
-		"--",
-		"/bin/sh", scriptFile, cfg.BuildDir, cfg.KegDir, name,
-	}
-	a = append(a, args...)
-
-	cmd := exec.Command(unsharePath, a...)
+		"/bin/sh", scriptFile,
+	)
 	cmd.Env = cleanEnv(cfg)
 	return cmd
 }
@@ -308,23 +302,22 @@ func unshareArgs(cfg BuildConfig, name string, args ...string) []string {
 	script.WriteString("set -e; ")
 	script.WriteString("mount --make-rprivate /; ")
 	script.WriteString("mount -o remount,ro,bind /; ")
-	// $1 = BuildDir, $2 = KegDir.
-	script.WriteString("mount --bind \"$1\" \"$1\"; ")
-	script.WriteString("mount -o remount,rw,bind \"$1\"; ")
-	script.WriteString("mount --bind \"$2\" \"$2\"; ")
-	script.WriteString("mount -o remount,rw,bind \"$2\"; ")
+	fmt.Fprintf(&script, "mount --bind %s %s; ", shq(cfg.BuildDir), shq(cfg.BuildDir))
+	fmt.Fprintf(&script, "mount -o remount,rw,bind %s; ", shq(cfg.BuildDir))
+	fmt.Fprintf(&script, "mount --bind %s %s; ", shq(cfg.KegDir), shq(cfg.KegDir))
+	fmt.Fprintf(&script, "mount -o remount,rw,bind %s; ", shq(cfg.KegDir))
 	script.WriteString("mount -t tmpfs tmpfs /tmp; ")
-	script.WriteString("shift 2; ")
-	script.WriteString("exec \"$@\"")
+	fmt.Fprintf(&script, "exec %s", shq(name))
+	for _, a := range args {
+		fmt.Fprintf(&script, " %s", shq(a))
+	}
 
-	a := []string{
+	return []string{
 		"--net",
 		"--mount",
 		"--pid",
 		"--fork",
 		"--mount-proc",
-		"--",
-		"/bin/sh", "-c", script.String(), "--", cfg.BuildDir, cfg.KegDir, name,
+		"/bin/sh", "-c", script.String(),
 	}
-	return append(a, args...)
 }
