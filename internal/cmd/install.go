@@ -46,11 +46,11 @@ func RunInstall(args []string) error {
 	}
 
 	remaining := fs.Args()
-	if len(remaining) != 1 {
+	if len(remaining) == 0 {
 		if *isCask {
-			return fmt.Errorf("usage: grew install --cask <cask>")
+			return fmt.Errorf("usage: grew install --cask <cask>...")
 		}
-		return fmt.Errorf("usage: grew install [-s] [--only-dependencies|--ignore-dependencies] <formula>")
+		return fmt.Errorf("usage: grew install [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
 	}
 
 	if *isCask {
@@ -63,10 +63,13 @@ func RunInstall(args []string) error {
 		if *ignoreDeps {
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
-		return caskInstall(remaining[0], *noQuarantine)
+		for _, name := range remaining {
+			if err := caskInstall(name, *noQuarantine); err != nil {
+				return err
+			}
+		}
+		return nil
 	}
-
-	name := remaining[0]
 
 	ctx, err := newInstallContext()
 	if err != nil {
@@ -74,78 +77,83 @@ func RunInstall(args []string) error {
 	}
 	defer ctx.Close()
 
-	var installOrder []*formula.Formula
-	if *ignoreDeps {
-		f, err := ctx.Loader.LoadByName(name)
-		if err != nil {
-			return fmt.Errorf("formula not found: %s", name)
+	for _, name := range remaining {
+		var installOrder []*formula.Formula
+		if *ignoreDeps {
+			f, err := ctx.Loader.LoadByName(name)
+			if err != nil {
+				return fmt.Errorf("formula not found: %s", name)
+			}
+			installOrder = []*formula.Formula{f}
+		} else {
+			resolver := &depgraph.Resolver{Loader: ctx.Loader}
+			slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
+			var err error
+			installOrder, err = resolver.Resolve(name)
+			if err != nil {
+				return err
+			}
+			slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
 		}
-		installOrder = []*formula.Formula{f}
-	} else {
-		resolver := &depgraph.Resolver{Loader: ctx.Loader}
-		slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
-		var err error
-		installOrder, err = resolver.Resolve(name)
-		if err != nil {
-			return err
-		}
-		slog.Debug(fmt.Sprintf("resolved %d formula(s)", len(installOrder)))
-	}
 
-	if flags.Verbose && len(installOrder) > 1 {
-		names := make([]string, len(installOrder))
-		for i, f := range installOrder {
-			names[i] = f.Name
+		if flags.Verbose && len(installOrder) > 1 {
+			names := make([]string, len(installOrder))
+			for i, f := range installOrder {
+				names[i] = f.Name
+			}
+			slog.Info("install order: " + fmt.Sprintf("%v", names))
 		}
-		slog.Info("install order: " + fmt.Sprintf("%v", names))
-	}
 
-	if *requireSHA {
+		if *requireSHA {
+			for _, f := range installOrder {
+				if *onlyDeps && f.Name == name {
+					continue
+				}
+				if ctx.Cellar.IsInstalled(f.Name) {
+					continue
+				}
+				if *buildFromSource && f.Name == name {
+					if _, err := f.GetSourceSHA256(); err != nil {
+						return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
+					}
+				} else {
+					if _, err := f.GetSHA256(); err != nil {
+						return fmt.Errorf("--require-sha: %s has no SHA256 checksum for platform %s", f.Name, formula.PlatformKey())
+					}
+				}
+			}
+		}
+
+		if *dryRun {
+			if err := simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource); err != nil {
+				return err
+			}
+			continue
+		}
+
 		for _, f := range installOrder {
 			if *onlyDeps && f.Name == name {
 				continue
 			}
+
 			if ctx.Cellar.IsInstalled(f.Name) {
+				fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
 				continue
 			}
+
+			opts := installOpts{
+				skipPostInstall:    *skipPostInstall,
+				skipLink:           *skipLink,
+				installedOnRequest: f.Name == name,
+			}
 			if *buildFromSource && f.Name == name {
-				if _, err := f.GetSourceSHA256(); err != nil {
-					return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
+				if err := installFormulaFromSource(f, ctx, opts); err != nil {
+					return err
 				}
 			} else {
-				if _, err := f.GetSHA256(); err != nil {
-					return fmt.Errorf("--require-sha: %s has no SHA256 checksum for platform %s", f.Name, formula.PlatformKey())
+				if err := installFormula(f, ctx, opts); err != nil {
+					return err
 				}
-			}
-		}
-	}
-
-	if *dryRun {
-		return simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource)
-	}
-
-	for _, f := range installOrder {
-		if *onlyDeps && f.Name == name {
-			continue
-		}
-
-		if ctx.Cellar.IsInstalled(f.Name) {
-			fmt.Printf("==> %s %s is already installed, skipping\n", f.Name, f.Version)
-			continue
-		}
-
-		opts := installOpts{
-			skipPostInstall:    *skipPostInstall,
-			skipLink:           *skipLink,
-			installedOnRequest: f.Name == name,
-		}
-		if *buildFromSource && f.Name == name {
-			if err := installFormulaFromSource(f, ctx, opts); err != nil {
-				return err
-			}
-		} else {
-			if err := installFormula(f, ctx, opts); err != nil {
-				return err
 			}
 		}
 	}

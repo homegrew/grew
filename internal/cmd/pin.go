@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
@@ -9,53 +10,61 @@ import (
 )
 
 func runPin(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew pin <formula>")
+	if len(args) == 0 {
+		return fmt.Errorf("usage: grew pin <formula>...")
 	}
-	name := args[0]
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
+	logger := auditlog.New(paths.Log)
 
-	if !cel.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
+	for _, name := range args {
+		if !cel.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			continue
+		}
+
+		if cel.IsPinned(name) {
+			fmt.Printf("%s is already pinned.\n", name)
+			continue
+		}
+
+		if err := cel.Pin(name); err != nil {
+			return err
+		}
+		logger.Log(auditlog.ActionPin, name, "", "", "")
+		fmt.Printf("Pinned %s (will not be upgraded).\n", name)
 	}
 
-	if cel.IsPinned(name) {
-		fmt.Printf("%s is already pinned.\n", name)
-		return nil
-	}
-
-	if err := cel.Pin(name); err != nil {
-		return err
-	}
-	auditlog.New(paths.Log).Log(auditlog.ActionPin, name, "", "", "")
-	fmt.Printf("Pinned %s (will not be upgraded).\n", name)
 	return nil
 }
 
 func runUnpin(args []string) error {
-	if len(args) != 1 {
-		return fmt.Errorf("usage: grew unpin <formula>")
+	if len(args) == 0 {
+		return fmt.Errorf("usage: grew unpin <formula>...")
 	}
-	name := args[0]
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
+	logger := auditlog.New(paths.Log)
 
-	if !cel.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
+	for _, name := range args {
+		if !cel.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			continue
+		}
+
+		if !cel.IsPinned(name) {
+			fmt.Printf("%s is not pinned.\n", name)
+			continue
+		}
+
+		if err := cel.Unpin(name); err != nil {
+			return err
+		}
+		logger.Log(auditlog.ActionUnpin, name, "", "", "")
+		fmt.Printf("Unpinned %s.\n", name)
 	}
 
-	if !cel.IsPinned(name) {
-		fmt.Printf("%s is not pinned.\n", name)
-		return nil
-	}
-
-	if err := cel.Unpin(name); err != nil {
-		return err
-	}
-	auditlog.New(paths.Log).Log(auditlog.ActionUnpin, name, "", "", "")
-	fmt.Printf("Unpinned %s.\n", name)
 	return nil
 }

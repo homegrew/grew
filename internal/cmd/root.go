@@ -253,35 +253,35 @@ Flags:
       --version        Print version and exit
 
 Commands:
-  install [-s] [-n] [--skip-post-install] [--skip-link] <formula>  Install a formula (use --cask for apps, -s for source build, -n for dry run)
-  uninstall <formula>  Uninstall a formula or cask (--cask)
+  install [-s] [-n] [--skip-post-install] [--skip-link] <formula>...  Install formulas (use --cask for apps, -s for source build, -n for dry run)
+  uninstall <formula>... Uninstall formulas or casks (--cask)
   list [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   leaves               List installed formulas that are not dependencies of another installed formula
-  info <formula>       Show formula or cask info (--cask)
+  info <formula>...      Show formula or cask info (--cask)
   search <query>       Search formulas or casks (--cask)
-  link <formula>       Create symlinks for a formula
-  unlink <formula>     Remove symlinks for a formula
+  link <formula>...      Create symlinks for formulas
+  unlink <formula>...    Remove symlinks for formulas
   update               Update formula definitions
   reset-update         Wipe and re-fetch all tap definitions
-  reinstall [-f] [--zap] [-s] <formula>  Reinstall a formula (-f force, --zap deep clean, -s from source)
-  upgrade [formula]    Upgrade outdated packages (or a specific one)
+  reinstall [-f] [--zap] [-s] <formula>...  Reinstall formulas (-f force, --zap deep clean, -s from source)
+  upgrade [formula]...   Upgrade outdated packages (or a specific ones)
   outdated             List packages with newer versions available
   cleanup [-n]         Remove old versions and temp files (-n for dry run)
-  deps [flags] <formula>  Show dependencies for a formula
-  audit [formula]      Audit formula/cask definitions for problems
+  deps [flags] <formula>...  Show dependencies for formulas
+  audit [formula]...   Audit formula/cask definitions for problems
   alias [subcommand]   Manage command aliases
   services [sub]       Manage background services (start, stop, list, ...)
   setup                One-time setup of the grew prefix
   doctor               Check for common problems
   config               Show grew and system configuration
   shellenv [shell]     Print shell environment setup
-  verify [formula]     Verify installed package integrity
-  linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>  Check dynamic library dependencies
-  vuln-scan [formula]  Scan installed packages for security vulnerabilities
+  verify [formula]...  Verify installed package integrity
+  linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>...  Check dynamic library dependencies
+  vuln-scan [formula]...  Scan installed packages for security vulnerabilities
   lock [subcommand]    Manage the formula lockfile (generate, check, show)
   sign <formula> <key> Sign formula SHA256 hashes with an Ed25519 key
-  pin <formula>        Pin a formula to prevent upgrades
-  unpin <formula>      Unpin a formula to allow upgrades
+  pin <formula>...     Pin formulas to prevent upgrades
+  unpin <formula>...   Unpin formulas to allow upgrades
   help [command]       Show help for a command
 `)
 }

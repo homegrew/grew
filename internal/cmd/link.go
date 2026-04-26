@@ -23,54 +23,56 @@ func runLink(args []string) error {
 	}
 	flags.Resolve()
 
-	if fs.NArg() != 1 {
-		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>")
+	if fs.NArg() == 0 {
+		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>...")
 	}
-	name := fs.Arg(0)
 
 	ctx, err := newCommonCtx()
 	if err != nil {
 		return err
 	}
 
-	if !ctx.Cellar.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
-	}
+	for _, name := range fs.Args() {
+		if !ctx.Cellar.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			continue
+		}
 
-	ver, err := ctx.Cellar.InstalledVersion(name)
-	if err != nil {
-		return err
-	}
+		ver, err := ctx.Cellar.InstalledVersion(name)
+		if err != nil {
+			return err
+		}
 
-	f, err := ctx.Loader.LoadByName(name)
-	kegOnly := false
-	if err == nil {
-		kegOnly = f.KegOnly
-	}
+		f, err := ctx.Loader.LoadByName(name)
+		kegOnly := false
+		if err == nil {
+			kegOnly = f.KegOnly
+		}
 
-	if kegOnly && !*force {
-		fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
-	}
+		if kegOnly && !*force {
+			fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
+		}
 
-	lnk := &linker.Linker{Paths: ctx.Paths}
-	kegPath, _ := ctx.Cellar.KegPath(name, ver)
-	slog.Info("keg: " + kegPath)
-	opts := linker.LinkOpts{
-		KegOnly:   kegOnly,
-		Overwrite: *overwrite,
-		DryRun:    *dryRun,
-		Force:     *force,
-	}
-	if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
-		return err
-	}
-	slog.Info(fmt.Sprintf("opt/%s -> %s", name, kegPath))
-	if !kegOnly || *force {
-		slog.Info("symlinked bin/, lib/, include/ contents")
-	}
+		lnk := &linker.Linker{Paths: ctx.Paths}
+		kegPath, _ := ctx.Cellar.KegPath(name, ver)
+		slog.Info("keg: " + kegPath)
+		opts := linker.LinkOpts{
+			KegOnly:   kegOnly,
+			Overwrite: *overwrite,
+			DryRun:    *dryRun,
+			Force:     *force,
+		}
+		if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
+			return err
+		}
+		slog.Info(fmt.Sprintf("opt/%s -> %s", name, kegPath))
+		if !kegOnly || *force {
+			slog.Info("symlinked bin/, lib/, include/ contents")
+		}
 
-	if !*dryRun {
-		fmt.Printf("==> %s %s linked\n", name, ver)
+		if !*dryRun {
+			fmt.Printf("==> %s %s linked\n", name, ver)
+		}
 	}
 	return nil
 }
@@ -85,28 +87,30 @@ func runUnlink(args []string) error {
 	}
 	flags.Resolve()
 
-	if fs.NArg() != 1 {
-		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>")
+	if fs.NArg() == 0 {
+		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>...")
 	}
-	name := fs.Arg(0)
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
-
-	if !cel.IsInstalled(name) {
-		return fmt.Errorf("formula %q is not installed", name)
-	}
-
 	lnk := &linker.Linker{Paths: paths}
-	if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: *dryRun}); err != nil {
-		return err
-	}
 
-	if *dryRun {
-		slog.Info("(dry run, no changes made)")
-	} else {
-		slog.Info("removed symlinks from bin/, lib/, include/, opt/")
-		fmt.Printf("==> %s unlinked\n", name)
+	for _, name := range fs.Args() {
+		if !cel.IsInstalled(name) {
+			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
+			continue
+		}
+
+		if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: *dryRun}); err != nil {
+			return err
+		}
+
+		if *dryRun {
+			slog.Info("(dry run, no changes made)")
+		} else {
+			slog.Info("removed symlinks from bin/, lib/, include/, opt/")
+			fmt.Printf("==> %s unlinked\n", name)
+		}
 	}
 	return nil
 }
