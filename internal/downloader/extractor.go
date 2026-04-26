@@ -540,7 +540,8 @@ func extractFile(r io.Reader, path string, mode os.FileMode) error {
 	}
 	// Allow reading up to maxExtractSize+1 bytes so we can detect when more than
 	// maxExtractSize bytes are available (n > maxExtractSize indicates overflow).
-	lr := &io.LimitedReader{R: r, N: maxExtractSize + 1}
+	const overflowProbeBytes int64 = 1
+	lr := &io.LimitedReader{R: r, N: maxExtractSize + overflowProbeBytes}
 	n, err := io.Copy(out, lr)
 	if err != nil {
 		if cerr := out.Close(); cerr != nil {
