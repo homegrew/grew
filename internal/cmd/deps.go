@@ -27,6 +27,7 @@ func runDeps(args []string) error {
 	union := fs.Bool("union", false, "Show the union of dependencies for multiple formula")
 	includeBuild := fs.Bool("include-build", false, "Include :build dependencies for formula")
 	forEach := fs.Bool("for-each", false, "List dependencies for each provided formula")
+	missing := fs.Bool("missing", false, "Show only missing dependencies")
 
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -38,6 +39,19 @@ func runDeps(args []string) error {
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
+	}
+
+	filterMissing := func(deps []string) []string {
+		if !*missing {
+			return deps
+		}
+		var out []string
+		for _, d := range deps {
+			if !ctx.Cellar.IsInstalled(d) {
+				out = append(out, d)
+			}
+		}
+		return out
 	}
 
 	if *all {
@@ -74,7 +88,7 @@ func runDeps(args []string) error {
 			if *includeBuild {
 				deps = append(deps, f.BuildDependencies...)
 			}
-			printTree(ctx.Loader, deps, "", make(map[string]bool), *includeBuild)
+			printTree(ctx.Loader, deps, "", make(map[string]bool), *includeBuild, filterMissing)
 			if i < len(targets)-1 {
 				fmt.Println()
 			}
@@ -88,6 +102,7 @@ func runDeps(args []string) error {
 			if err != nil {
 				return err
 			}
+			deps = filterMissing(deps)
 			if *forEach {
 				fmt.Printf("%s: %s\n", name, strings.Join(deps, " "))
 			} else {
@@ -147,6 +162,8 @@ func runDeps(args []string) error {
 	} else {
 		sort.Strings(finalDeps)
 	}
+
+	finalDeps = filterMissing(finalDeps)
 
 	for _, d := range finalDeps {
 		fmt.Println(d)
@@ -268,7 +285,8 @@ func sortTopologically(loader *formula.Loader, deps []string) []string {
 	return sorted
 }
 
-func printTree(loader *formula.Loader, deps []string, prefix string, visited map[string]bool, includeBuild bool) {
+func printTree(loader *formula.Loader, deps []string, prefix string, visited map[string]bool, includeBuild bool, filterMissing func([]string) []string) {
+	deps = filterMissing(deps)
 	sort.Strings(deps)
 	for i, dep := range deps {
 		isLast := i == len(deps)-1
@@ -297,7 +315,7 @@ func printTree(loader *formula.Loader, deps []string, prefix string, visited map
 		if len(subDeps) == 0 {
 			continue
 		}
-		printTree(loader, subDeps, prefix+childPrefix, visited, includeBuild)
+		printTree(loader, subDeps, prefix+childPrefix, visited, includeBuild, filterMissing)
 	}
 }
 
