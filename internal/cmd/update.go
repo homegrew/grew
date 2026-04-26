@@ -5,14 +5,19 @@ import (
 	"log/slog"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 )
 
 func runUpdate(args []string) error {
-	// Attempt to self-update the CLI binary first.
-	fmt.Println("==> Checking for grew updates...")
-	if err := RunSelfUpdate(nil); err != nil {
-		slog.Warn("self-update failed, continuing with tap update", "error", err)
+	// Attempt to self-update the CLI binary first, unless we are in devmode.
+	if !runtime.DevMode {
+		fmt.Println("==> Checking for grew updates...")
+		if err := RunSelfUpdate(nil); err != nil {
+			slog.Warn("self-update failed, continuing with tap update", "error", err)
+		}
+	} else {
+		slog.Info("skipping self-update in devmode build")
 	}
 
 	// Update tap definitions.
