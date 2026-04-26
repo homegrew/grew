@@ -111,6 +111,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("resolve temp directory %s: %w", tmpDir, err)
 	}
 	canonTmpDir = filepath.Clean(canonTmpDir)
+	if err := safepath.SafeAbsolutePath(canonTmpDir); err != nil {
+		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
+	}
 
 	sinkDir := filepath.Dir(sinkPath)
 	canonSinkDir, err := filepath.EvalSymlinks(sinkDir)
@@ -143,6 +146,11 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	if err := safepath.SafeAbsolutePath(safeSinkPath); err != nil {
 		return "", fmt.Errorf("invalid download path %q: %w", safeSinkPath, err)
 	}
+	if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
+		return "", fmt.Errorf("download path escapes temp directory: %w", err)
+	}
+	// Sink-adjacent assertion: ensure the exact path used by filesystem APIs
+	// is still confined to the canonical temp directory.
 	if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
 		return "", fmt.Errorf("download path escapes temp directory: %w", err)
 	}
