@@ -90,6 +90,39 @@ dependencies:
 	if len(lines) != 1 || lines[0] != "pkga" {
 		t.Errorf("expected only 'pkga' as leaf, got:\n%s", output)
 	}
+
+	// Run leaves --installed-on-request
+	cmd = exec.Command(exePath, "leaves", "-r")
+	cmd.Env = env
+	out, err = cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("failed to run leaves -r: %v, output:\n%s", err, string(out))
+	}
+	output = strings.TrimSpace(string(out))
+	lines = strings.Split(output, "\n")
+	if len(lines) != 1 || lines[0] != "pkga" {
+		t.Errorf("expected 'pkga' for -r, got:\n%s", output)
+	}
+
+	// Uninstall pkga so dep1 becomes a leaf (an orphaned dependency)
+	cmd = exec.Command(exePath, "uninstall", "pkga")
+	cmd.Env = env
+	if out, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("failed to uninstall pkga: %v, output:\n%s", err, string(out))
+	}
+
+	// Run leaves --installed-as-dependency
+	cmd = exec.Command(exePath, "leaves", "-p")
+	cmd.Env = env
+	out, err = cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("failed to run leaves -p: %v, output:\n%s", err, string(out))
+	}
+	output = strings.TrimSpace(string(out))
+	lines = strings.Split(output, "\n")
+	if len(lines) != 1 || lines[0] != "dep1" {
+		t.Errorf("expected 'dep1' for -p (orphaned dep), got:\n%s", output)
+	}
 }
 
 func platformKey() string {
