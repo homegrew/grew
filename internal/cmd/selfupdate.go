@@ -36,6 +36,11 @@ func RunSelfUpdate(_ []string) error {
 	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to fetch latest release metadata: %v", err))
 	} else if rel != nil {
+		if !version.IsNewer(version.Version(), rel.TagName) {
+			fmt.Printf("Already up-to-date: %s\n", version.Version())
+			return nil
+		}
+
 		// 1. Always try to update by patch release first.
 		if patchErr := tryPatchUpdate(exePath, rel); patchErr == nil {
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
