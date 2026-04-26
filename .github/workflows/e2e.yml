@@ -28,8 +28,9 @@ jobs:
         run: |
           GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags devmode,e2e -cover -coverpkg=./... ./tests -run TestLiveEndToEnd
           go tool covdata textfmt -i=$GITHUB_WORKSPACE/coverageRaw -o ./coverageFiles/coverage_e2e.txt
-      - uses: codecov/codecov-action@v6
-        with:
-          fail_ci_if_error: false
-          directory: ./coverageFiles
-          token: ${{ secrets.CODECOV_TOKEN }}
+
+#      - uses: codecov/codecov-action@v6
+#        with:
+#          fail_ci_if_error: false
+#          directory: ./coverageFiles
+#          token: ${{ secrets.CODECOV_TOKEN }}
