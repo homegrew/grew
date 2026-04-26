@@ -21,7 +21,8 @@ func NewLoader(tapDir string) *Loader {
 	}
 	tapDir = filepath.Clean(tapDir)
 	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
-		tapDir = filepath.Clean(string(filepath.Separator))
+		// Keep an invalid sentinel; callers will receive a proper error when used.
+		tapDir = ""
 	}
 	return &Loader{TapDir: tapDir}
 }
@@ -95,7 +96,16 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 
 func (l *Loader) LoadAll() ([]*Formula, error) {
 	var formulas []*Formula
-	taps, err := os.ReadDir(l.TapDir)
+
+	tapDir := filepath.Clean(l.TapDir)
+	if abs, err := filepath.Abs(tapDir); err == nil {
+		tapDir = filepath.Clean(abs)
+	}
+	if err := safepath.SafeAbsolutePath(tapDir); err != nil {
+		return nil, fmt.Errorf("invalid taps directory %q: %w", tapDir, err)
+	}
+
+	taps, err := os.ReadDir(tapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
@@ -106,7 +116,7 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
-		tapFormulas, err := l.LoadFromTap(filepath.Join(l.TapDir, tap.Name()))
+		tapFormulas, err := l.LoadFromTap(filepath.Join(tapDir, tap.Name()))
 		if err != nil {
 			l.debugf("failed to load tap %s: %v\n", tap.Name(), err)
 			continue
