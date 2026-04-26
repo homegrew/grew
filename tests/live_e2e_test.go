@@ -173,10 +173,11 @@ func TestLiveEndToEnd(t *testing.T) {
 	// Run emacs in batch mode to verify it doesn't crash due to missing resources
 	checkEmacs := exec.Command(emacsBin, "--batch", "--eval", "(message \"relocation-success\")")
 	checkEmacs.Env = env
-	if out, err := checkEmacs.CombinedOutput(); err != nil {
-		t.Fatalf("emacs relocation verification failed: %v\nOutput: %s", err, string(out))
+	outCheckEmacs, errCheckEmacs := checkEmacs.CombinedOutput()
+	if errCheckEmacs != nil {
+		t.Fatalf("emacs relocation verification failed: %v\nOutput: %s", errCheckEmacs, string(outCheckEmacs))
 	}
-	if !strings.Contains(string(out), "relocation-success") {
-		t.Errorf("emacs output missing 'relocation-success', got: %q", string(out))
+	if !strings.Contains(string(outCheckEmacs), "relocation-success") {
+		t.Errorf("emacs output missing 'relocation-success', got: %q", string(outCheckEmacs))
 	}
 }
