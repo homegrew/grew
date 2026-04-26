@@ -29,8 +29,8 @@
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation, systemd specifier escaping
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
-- 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d` flags)
-- 🐚 **Alias + shellenv helpers** so your workflows stay snappy
+- 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
+- 🐚 **Alias + shellenv helpers** so your workflows stay snappy (`i`, `rm`, `ls`, `up`, `ug`, `dr`)
 
 ---
 
@@ -78,7 +78,7 @@ grew shellenv fish | source
 ### Install something
 
 ```bash
-grew install jq
+grew i jq                   # 'i' is an alias for 'install'
 grew install --cask firefox
 ```
 
@@ -135,20 +135,21 @@ Restart your terminal, and `grew` is completely gone.
 For an in-depth look at how `grew` installs itself, its self-update mechanism, and the developer mode, check out the [Architecture & Technical Details](docs/tech.md).
 
 ```bash
-grew install jq nmap         # install multiple formulas
+grew i jq nmap               # install multiple formulas (alias 'i')
 grew install --force jq      # force reinstall even if already installed
 grew install -s ldns         # build from source, like a purist
 grew install --cask firefox  # going big
 grew link jq                 # stitch it in
 grew deps --tree jq          # what hath jq wrought
-grew upgrade                 # stay fresh
+grew up                      # stay fresh (alias 'up' for update)
+grew ug                      # upgrade all (alias 'ug')
 grew version                 # what are we running
-grew uninstall --force jq    # uninstall even if not installed
+grew rm --force jq           # uninstall even if not installed (alias 'rm')
 grew cleanup -n              # peek before you sweep
 grew cleanup --scrub         # aggressive cache cleaning
 grew cleanup --prune=7       # remove cache older than a week
 grew verify jq               # check installed files against manifest
-grew vuln-scan               # scan for CVEs and integrity issues
+grew vuln-scan -s            # scan for CVEs and only show critical/high severity findings
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
@@ -160,16 +161,16 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 
 | Command | What it does |
 |---|---|
-| `install` | Install formulas or casks (`-f` to force, `-s` to build from source) |
-| `uninstall` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
-| `list` | See what you've collected |
+| `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source) |
+| `uninstall, rm` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
+| `list, ls` | See what you've collected |
 | `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk packages |
 | `search` | Find the thing |
 | `link` | Weave formulas into your PATH |
 | `unlink` | Cut the thread |
-| `update` | Refresh tap definitions |
-| `upgrade` | Get the new hotness |
+| `update, up` | Refresh tap definitions |
+| `upgrade, ug` | Get the new hotness |
 | `outdated` | The hall of shame |
 | `reinstall` | Uninstall + install from scratch (`--cask`, `-f` without checking for previously installed keg-only or non-migrated versions) |
 | `cleanup` | Remove old versions and prune download cache (`-s` to scrub all, `--prune=DAYS`) |
@@ -181,7 +182,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
 | `setup` | One-time prefix setup (requires sudo) |
-| `doctor` | It's not a bug, it's a misconfiguration |
+| `doctor, dr` | It's not a bug, it's a misconfiguration |
 | `vuln-scan` | Scan installed packages for security vulnerabilities |
 | `config` | What grew thinks it knows |
 | `shellenv` | Wire up your shell |
@@ -253,7 +254,7 @@ grew/
 │   ├── config/       ← prefix + path resolution
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
 │   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
-│   ├── flags/        ← global CLI flags (-v, -d) shared across all subcommands
+│   ├── flags/        ← global CLI flags (-v, -d, -q) shared across all subcommands
 │   ├── formula/      ← formula parsing and validation
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── linker/       ← deterministic symlink management
@@ -267,7 +268,7 @@ grew/
 │   ├── tap/          ← tap repo management + commit verification
 │   └── version/      ← embedded version from git tags
 ├── pkg/
-│   ├── logger/       ← CLI-friendly log/slog handler (DEBUG/INFO/WARN/ERROR)
+│   ├── logger/       ← CLI-friendly log/slog handler with source context (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
 └── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
