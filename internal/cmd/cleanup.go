@@ -224,6 +224,14 @@ Options:
 		slog.Debug("skipping cleanup of tmp directory outside grew root: " + paths.Tmp)
 	}
 
+	// 6. Prune empty directories in the prefix.
+	if !*dryRun {
+		pruneEmptyDirs(paths.Bin)
+		pruneEmptyDirs(paths.Lib)
+		pruneEmptyDirs(paths.Include)
+		pruneEmptyDirs(paths.Share)
+	}
+
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
 	} else if *dryRun {
@@ -262,6 +270,27 @@ func isLatestInstalled(installed []cellar.InstalledPackage, filename string) boo
 		}
 	}
 	return false
+}
+
+func pruneEmptyDirs(root string) {
+	_ = filepath.WalkDir(root, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if !d.IsDir() || path == root {
+			return nil
+		}
+
+		// Recurse first so we can remove parents of children that were just removed
+		pruneEmptyDirs(path)
+
+		// Check if it's empty now
+		entries, err := os.ReadDir(path)
+		if err == nil && len(entries) == 0 {
+			_ = os.Remove(path)
+		}
+		return filepath.SkipDir // Already recursed
+	})
 }
 
 func dirSize(path string) (int64, error) {
