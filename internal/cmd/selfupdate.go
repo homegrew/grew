@@ -199,7 +199,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		return fmt.Errorf("download: %w", err)
 	}
 	// Only remove if it's NOT in the cache.
-	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir) {
+	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir()) {
 		defer os.Remove(tmpFile)
 	}
 
@@ -424,7 +424,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return err
 	}
 	// Only remove if it's NOT in the cache.
-	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(patchFile, rel.DL.Cache.Dir) {
+	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(patchFile, rel.DL.Cache.Dir()) {
 		defer os.Remove(patchFile)
 	}
 

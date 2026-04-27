@@ -2,6 +2,7 @@ package cache
 
 import (
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
 
@@ -10,35 +11,50 @@ import (
 
 // Cache manages the local file cache for grew.
 type Cache struct {
-	Dir string
+	dir string
+	fs  fs.FS
 }
 
 // New creates a new Cache rooted at dir.
 func New(dir string) *Cache {
-	return &Cache{Dir: dir}
+	return &Cache{
+		dir: dir,
+		fs:  os.DirFS(dir),
+	}
 }
 
-// DownloadsDir returns the directory used for caching downloads.
+// Dir returns the root directory of the cache.
+func (c *Cache) Dir() string {
+	return c.dir
+}
+
+// DownloadsDir returns the absolute path to the directory used for caching downloads.
 func (c *Cache) DownloadsDir() string {
-	return filepath.Join(c.Dir, "downloads")
+	return filepath.Join(c.dir, "downloads")
 }
 
-// DownloadPath returns the safe, canonical path for a cached download.
-// It ensures the resulting path is strictly within the downloads directory.
+// DownloadPath returns the safe, absolute path for a cached download.
 func (c *Cache) DownloadPath(filename string) (string, error) {
-	if c.Dir == "" {
+	if c.dir == "" {
 		return "", fmt.Errorf("cache directory not set")
 	}
-	return safepath.SafeJoin(c.DownloadsDir(), filename)
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return "", fmt.Errorf("invalid download filename: %w", err)
+	}
+	return filepath.Join(c.dir, "downloads", filename), nil
 }
 
 // Exists reports whether the given filename exists in the download cache.
 func (c *Cache) Exists(filename string) bool {
-	path, err := c.DownloadPath(filename)
-	if err != nil {
+	if c.fs == nil {
 		return false
 	}
-	_, err = os.Stat(path)
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return false
+	}
+	// os.DirFS requires relative paths without the root prefix.
+	relPath := filepath.Join("downloads", filename)
+	_, err := fs.Stat(c.fs, relPath)
 	return err == nil
 }
 
@@ -56,3 +72,4 @@ func (c *Cache) Store(tmpPath, filename string) (string, error) {
 	}
 	return cachePath, nil
 }
+
