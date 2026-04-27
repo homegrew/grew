@@ -13,20 +13,21 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/snapshot"
-	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
-// Check is a named diagnostic check.
+// Check is a named diagnostic check that can be run against a Context.
 type Check struct {
 	Name string
 	Desc string
 	Run  func(ctx *Context)
 }
 
-// Context carries shared state through all checks.
+// Context carries shared state through all diagnostic checks, providing access
+// to the cellar, linker, formula loaders, and existing installation state.
 type Context struct {
 	Paths    config.Paths
 	Cel      *cellar.Cellar
@@ -40,15 +41,15 @@ type Context struct {
 	Warn     func(format string, args ...any)
 }
 
-// ExtraChecks holds platform-specific checks registered via init().
+// ExtraChecks holds platform-specific checks registered via init() in platform-specific files.
 var ExtraChecks []Check
 
-// RegisterExtraChecks appends checks from platform-specific files.
+// RegisterExtraChecks appends checks from platform-specific files to the global ExtraChecks list.
 func RegisterExtraChecks(checks []Check) {
 	ExtraChecks = append(ExtraChecks, checks...)
 }
 
-// BaseChecks returns the ordered list of base doctor checks.
+// BaseChecks returns the ordered list of core diagnostic checks applicable to all platforms.
 func BaseChecks() []Check {
 	return []Check{
 		// --- Security checks ---
@@ -78,13 +79,13 @@ func BaseChecks() []Check {
 	}
 }
 
-// SymlinkInfo holds a resolved symlink found in a directory.
+// SymlinkInfo holds a resolved symlink found during a directory walk.
 type SymlinkInfo struct {
 	Path   string // full path of the symlink
 	Target string // resolved absolute target
 }
 
-// WalkSymlinks iterates symlinks in the given directories, calling fn for each.
+// WalkSymlinks iterates over symlinks in the given directories, calling fn for each valid symlink found.
 func WalkSymlinks(dirs []string, fn func(info SymlinkInfo)) {
 	for _, dir := range dirs {
 		entries, err := os.ReadDir(dir)
@@ -105,6 +106,8 @@ func WalkSymlinks(dirs []string, fn func(info SymlinkInfo)) {
 	}
 }
 
+// ValidHexHash returns an empty string if the hash is valid hex of the expected length,
+// otherwise it returns a descriptive error message.
 func ValidHexHash(hash string, expectedLen int) string {
 	hash = strings.TrimSpace(hash)
 	if hash == "" || hash == "no_check" {
@@ -123,6 +126,7 @@ func ValidHexHash(hash string, expectedLen int) string {
 
 // --- Security checks ---
 
+// CheckPrefixIsolation warns if the grew prefix is located inside the user's home directory.
 func CheckPrefixIsolation(ctx *Context) {
 	home, err := os.UserHomeDir()
 	if err != nil {
@@ -136,6 +140,7 @@ func CheckPrefixIsolation(ctx *Context) {
 	}
 }
 
+// CheckDirectoryPermissions verifies that core grew directories are not world-writable.
 func CheckDirectoryPermissions(ctx *Context) {
 	dirs := []string{ctx.Paths.Root, ctx.Paths.Cellar, ctx.Paths.Bin, ctx.Paths.Opt, ctx.Paths.Taps}
 	for _, dir := range dirs {
@@ -153,6 +158,7 @@ func CheckDirectoryPermissions(ctx *Context) {
 	}
 }
 
+// CheckFormulaHTTPS ensures that all formula download URLs use HTTPS.
 func CheckFormulaHTTPS(ctx *Context) {
 	for _, f := range ctx.Formulas {
 		for platform, u := range f.URL {
@@ -163,6 +169,7 @@ func CheckFormulaHTTPS(ctx *Context) {
 	}
 }
 
+// CheckFormulaSHA256 verifies that formula SHA256 hashes are valid hex strings of length 64.
 func CheckFormulaSHA256(ctx *Context) {
 	for _, f := range ctx.Formulas {
 		for platform, hash := range f.SHA256 {
@@ -173,6 +180,7 @@ func CheckFormulaSHA256(ctx *Context) {
 	}
 }
 
+// CheckFormulaSHA512 verifies that formula SHA512 hashes (if present) are valid hex strings.
 func CheckFormulaSHA512(ctx *Context) {
 	for _, f := range ctx.Formulas {
 		if len(f.SHA512) == 0 && len(f.Bottle) == 0 {
@@ -201,6 +209,7 @@ func CheckFormulaSHA512(ctx *Context) {
 	}
 }
 
+// CheckCaskSHA256 verifies that cask SHA256 hashes are valid hex strings.
 func CheckCaskSHA256(ctx *Context) {
 	for _, c := range ctx.Casks {
 		for platform, hash := range c.SHA256 {
@@ -211,6 +220,7 @@ func CheckCaskSHA256(ctx *Context) {
 	}
 }
 
+// CheckCaskSHA512 verifies that cask SHA512 hashes (if present) are valid hex strings.
 func CheckCaskSHA512(ctx *Context) {
 	for _, c := range ctx.Casks {
 		if len(c.SHA512) == 0 {
@@ -229,6 +239,7 @@ func CheckCaskSHA512(ctx *Context) {
 	}
 }
 
+// CheckSymlinkTargets verifies that symlinks in bin/, lib/, and include/ do not point outside the grew prefix.
 func CheckSymlinkTargets(ctx *Context) {
 	absPrefix, err := filepath.Abs(ctx.Paths.Root)
 	if err != nil {
@@ -245,6 +256,7 @@ func CheckSymlinkTargets(ctx *Context) {
 	})
 }
 
+// CheckCellarPermissions verifies that installed kegs and their binaries are not world-writable.
 func CheckCellarPermissions(ctx *Context) {
 	for _, pkg := range ctx.Packages {
 		info, err := os.Stat(pkg.Path)
@@ -277,6 +289,7 @@ func CheckCellarPermissions(ctx *Context) {
 	}
 }
 
+// CheckIncompleteInstalls flags packages that are missing an installation manifest.
 func CheckIncompleteInstalls(ctx *Context) {
 	for _, pkg := range ctx.Packages {
 		kegPath, err := ctx.Cel.KegPath(pkg.Name, pkg.Version)
@@ -290,6 +303,7 @@ func CheckIncompleteInstalls(ctx *Context) {
 	}
 }
 
+// CheckSnapshotIntegrity verifies all installed files for a package against its recorded manifest.
 func CheckSnapshotIntegrity(ctx *Context) {
 	for _, pkg := range ctx.Packages {
 		kegPath, err := ctx.Cel.KegPath(pkg.Name, pkg.Version)
@@ -328,6 +342,7 @@ func CheckSnapshotIntegrity(ctx *Context) {
 	}
 }
 
+// CheckSandbox verifies that functional sandboxing is available on the current system.
 func CheckSandbox(ctx *Context) {
 	if !sandbox.IsSandboxed() {
 		ctx.Warn("Functional sandboxing is NOT available on this system.\n" +
@@ -337,6 +352,7 @@ func CheckSandbox(ctx *Context) {
 
 // --- Structural checks ---
 
+// CheckDirectories ensures that all required core grew directories exist.
 func CheckDirectories(ctx *Context) {
 	required := map[string]string{
 		"prefix":  ctx.Paths.Root,
@@ -362,6 +378,7 @@ func CheckDirectories(ctx *Context) {
 	}
 }
 
+// CheckPath verifies that the grew bin/ directory is present in the system PATH.
 func CheckPath(ctx *Context) {
 	entries := filepath.SplitList(os.Getenv("PATH"))
 	for _, entry := range entries {
@@ -377,12 +394,14 @@ func CheckPath(ctx *Context) {
 	ctx.Warn("%s is not in your PATH\n  Add this to your shell profile: eval \"$(grew shellenv)\"", ctx.Paths.Bin)
 }
 
+// CheckCoreTap ensures that at least one formula is available in the taps.
 func CheckCoreTap(ctx *Context) {
 	if len(ctx.Formulas) == 0 {
 		ctx.Warn("no formulas found in any tap")
 	}
 }
 
+// CheckBrokenSymlinks identifies symlinks in bin/, lib/, and include/ that point to non-existent targets.
 func CheckBrokenSymlinks(ctx *Context) {
 	WalkSymlinks([]string{ctx.Paths.Bin, ctx.Paths.Lib, ctx.Paths.Include}, func(si SymlinkInfo) {
 		if _, err := os.Stat(si.Target); os.IsNotExist(err) {
@@ -391,6 +410,7 @@ func CheckBrokenSymlinks(ctx *Context) {
 	})
 }
 
+// CheckBrokenOptSymlinks identifies symlinks in opt/ that point to non-existent targets.
 func CheckBrokenOptSymlinks(ctx *Context) {
 	WalkSymlinks([]string{ctx.Paths.Opt}, func(si SymlinkInfo) {
 		if _, err := os.Stat(si.Target); os.IsNotExist(err) {
@@ -399,6 +419,7 @@ func CheckBrokenOptSymlinks(ctx *Context) {
 	})
 }
 
+// CheckUnlinkedKegs identifies installed formulas that are not currently linked into the prefix.
 func CheckUnlinkedKegs(ctx *Context) {
 	for _, pkg := range ctx.Packages {
 		if ctx.Lnk.IsLinked(pkg.Name) {
@@ -412,6 +433,7 @@ func CheckUnlinkedKegs(ctx *Context) {
 	}
 }
 
+// CheckOrphanedSymlinks identifies symlinks in the prefix that point into the Cellar but belong to non-installed formulas.
 func CheckOrphanedSymlinks(ctx *Context) {
 	WalkSymlinks([]string{ctx.Paths.Bin, ctx.Paths.Lib, ctx.Paths.Include}, func(si SymlinkInfo) {
 		target := filepath.Clean(si.Target)
@@ -429,6 +451,7 @@ func CheckOrphanedSymlinks(ctx *Context) {
 	})
 }
 
+// CheckMultipleVersions identifies formulas that have multiple versions installed in the Cellar.
 func CheckMultipleVersions(ctx *Context) {
 	for _, pkg := range ctx.Packages {
 		versions, err := ctx.Cel.InstalledVersions(pkg.Name)
@@ -440,6 +463,7 @@ func CheckMultipleVersions(ctx *Context) {
 	}
 }
 
+// CheckPinnedFormulas lists all formulas that are pinned and will not be automatically upgraded.
 func CheckPinnedFormulas(ctx *Context) {
 	var pinned []string
 	for _, pkg := range ctx.Packages {
@@ -452,6 +476,7 @@ func CheckPinnedFormulas(ctx *Context) {
 	}
 }
 
+// CheckStaleTmp identifies leftover files in the grew temporary directory.
 func CheckStaleTmp(ctx *Context) {
 	entries, err := os.ReadDir(ctx.Paths.Tmp)
 	if err == nil && len(entries) > 0 {

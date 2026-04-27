@@ -18,6 +18,7 @@ func init() {
 	RegisterCaskChecks()
 }
 
+// RegisterCaskChecks appends Darwin-specific cask security checks to the global diagnostic list.
 func RegisterCaskChecks() {
 	caskChecks := []Check{
 		{"check_cask_sandbox", "Check installed cask apps use App Sandbox", CheckCaskSandbox},
@@ -36,11 +37,6 @@ func installedCaskApps(ctx *Context) []string {
 		return nil
 	}
 
-	// We need a way to load casks. We'll use the loader from the context if available,
-	// or create a new one. The context already has a formula loader but not a cask loader
-	// that we can reuse easily without more refactoring.
-	// Actually, the context HAS Casks []*cask.Cask.
-	
 	var apps []string
 	for _, c := range ctx.Casks {
 		// We only want to check INSTALLED casks.
@@ -60,6 +56,7 @@ func installedCaskApps(ctx *Context) []string {
 	return apps
 }
 
+// CheckCaskSandbox verifies that installed cask applications have the App Sandbox entitlement.
 func CheckCaskSandbox(ctx *Context) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
@@ -74,6 +71,7 @@ func CheckCaskSandbox(ctx *Context) {
 	}
 }
 
+// CheckCaskNotarization verifies that installed cask applications are notarized and pass Gatekeeper assessment.
 func CheckCaskNotarization(ctx *Context) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
@@ -91,6 +89,7 @@ func CheckCaskNotarization(ctx *Context) {
 	}
 }
 
+// CheckCaskQuarantine verifies that installed cask applications have the macOS quarantine attribute set.
 func CheckCaskQuarantine(ctx *Context) {
 	apps := installedCaskApps(ctx)
 	for _, appPath := range apps {
@@ -99,6 +98,8 @@ func CheckCaskQuarantine(ctx *Context) {
 			ctx.Warn("cask app %s is missing the quarantine attribute; macOS malware checks may have been bypassed",
 				filepath.Base(appPath))
 		} else {
+			// Quarantine flag format: XXXX;TIMESTAMP;APPNAME;UUID
+			// A flag starting with "00" means the user has already approved it.
 			qVal := strings.TrimSpace(string(out))
 			slog.Debug(fmt.Sprintf("%s quarantine: %s", filepath.Base(appPath), qVal))
 			parts := strings.SplitN(qVal, ";", 2)
