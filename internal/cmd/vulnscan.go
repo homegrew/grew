@@ -629,9 +629,6 @@ func checkKegPermissions(pkg cellar.InstalledPackage, kegPath string) []vulnFind
 		}
 
 		// Skip the manifest file itself.
-		if d.Name() == snapshot.ManifestFile {
-			return nil
-		}
 
 		info, err := d.Info()
 		if err != nil {
