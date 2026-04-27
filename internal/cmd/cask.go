@@ -5,7 +5,9 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
@@ -13,7 +15,6 @@ import (
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
-	"strings"
 )
 
 func newCaskLoader(tapDir string) *cask.Loader {
@@ -191,7 +192,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		slog.Info("expected SHA512: " + sha512)
 	}
 
-	dl := &downloader.Downloader{TmpDir: paths.Tmp, CacheDir: paths.Cache}
+	dl := &downloader.Downloader{TmpDir: paths.Tmp, Cache: cache.New(paths.Cache)}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
 	// Ensure the constructed filename is a single safe path component.
 	if err := safepath.SafePathComponent(filename); err != nil {

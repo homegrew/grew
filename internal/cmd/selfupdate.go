@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/osvdev"
@@ -43,8 +44,8 @@ func RunSelfUpdate(_ []string) error {
 	} else if rel != nil {
 		paths := config.Default()
 		rel.DL = &downloader.Downloader{
-			TmpDir:   paths.Tmp,
-			CacheDir: paths.Cache,
+			TmpDir: paths.Tmp,
+			Cache:  cache.New(paths.Cache),
 		}
 
 		if !version.IsNewer(version.Version(), rel.TagName) {
@@ -198,7 +199,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		return fmt.Errorf("download: %w", err)
 	}
 	// Only remove if it's NOT in the cache.
-	if rel.DL == nil || !strings.Contains(tmpFile, rel.DL.CacheDir) {
+	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir) {
 		defer os.Remove(tmpFile)
 	}
 
@@ -423,7 +424,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		return err
 	}
 	// Only remove if it's NOT in the cache.
-	if rel.DL == nil || !strings.Contains(patchFile, rel.DL.CacheDir) {
+	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(patchFile, rel.DL.Cache.Dir) {
 		defer os.Remove(patchFile)
 	}
 

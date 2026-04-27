@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
@@ -68,13 +69,13 @@ func isHostAllowed(host string) bool {
 }
 
 type Downloader struct {
-	TmpDir   string
-	CacheDir string
+	TmpDir string
+	Cache  *cache.Cache
 }
 
-// Download fetches a file over HTTPS from an allowed host, using CacheDir if available.
-// If the file already exists in CacheDir, it returns the path to the cached file.
-// Otherwise, it downloads the file to CacheDir and returns the path.
+// Download fetches a file over HTTPS from an allowed host, using Cache if available.
+// If the file already exists in Cache, it returns the path to the cached file.
+// Otherwise, it downloads the file to Cache and returns the path.
 // The URL is validated against a host allowlist to prevent SSRF.
 func (d *Downloader) Download(rawURL, filename string) (string, error) {
 	safe, err := validateDownloadURL(rawURL)
@@ -87,17 +88,11 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
 
-	// If CacheDir is set, try to use/populate the cache.
-	if d.CacheDir != "" {
-		cachePath, err := d.cachePath(rawURL, filename)
-		if err != nil {
-			return "", err
-		}
-
-		// If it exists in cache, return it.
-		if _, err := os.Stat(cachePath); err == nil {
+	// If Cache is set, try to use/populate the cache.
+	if d.Cache != nil {
+		if d.Cache.Exists(filename) {
 			fmt.Printf("Using cached %s\n", filename)
-			return cachePath, nil
+			return d.Cache.DownloadPath(filename)
 		}
 
 		// Download to a temporary file first.
@@ -106,37 +101,12 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 			return "", err
 		}
 
-		// Ensure cache directory exists.
-		if err := os.MkdirAll(filepath.Dir(cachePath), 0755); err != nil {
-			_ = os.Remove(tmpFile)
-			return "", fmt.Errorf("create cache directory: %w", err)
-		}
-
 		// Move from tmp to cache.
-		if err := os.Rename(tmpFile, cachePath); err != nil {
-			_ = os.Remove(tmpFile)
-			return "", fmt.Errorf("move to cache: %w", err)
-		}
-
-		return cachePath, nil
+		return d.Cache.Store(tmpFile, filename)
 	}
 
 	// No cache, download directly to TmpDir (original behavior).
 	return d.downloadToTmp(safe, filename)
-}
-
-// cachePath returns the path to the cached file for the given URL and filename.
-// It uses a subdirectory "downloads" within CacheDir.
-func (d *Downloader) cachePath(rawURL, filename string) (string, error) {
-	if d.CacheDir == "" {
-		return "", fmt.Errorf("cache directory not set")
-	}
-
-	downloadsDir := filepath.Join(d.CacheDir, "downloads")
-	
-	// We use the provided filename, which should already be formula/cask-specific (e.g. name-version.ext).
-	// Homebrew uses a hash of the URL if no filename is given, but here we always have one.
-	return safepath.SafeJoin(downloadsDir, filename)
 }
 
 // DownloadBytes fetches a URL and returns its content as a byte slice.

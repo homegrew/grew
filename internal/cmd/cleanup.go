@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
@@ -123,7 +124,7 @@ Options:
 	}
 
 	// 5. Clean download cache (Cache directory).
-	downloadsDir := filepath.Join(paths.Cache, "downloads")
+	downloadsDir := cache.New(paths.Cache).DownloadsDir()
 	if _, err := os.Stat(downloadsDir); err == nil {
 		tmpEntries, err := os.ReadDir(downloadsDir)
 		if err == nil {
