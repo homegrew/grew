@@ -1,4 +1,4 @@
-//go:build integration
+//go:build smoke
 
 package tests
 
@@ -10,11 +10,7 @@ import (
 )
 
 func TestSmoke_Version(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "version")
 	cmd.Env = env
@@ -28,11 +24,7 @@ func TestSmoke_Version(t *testing.T) {
 }
 
 func TestSmoke_Help(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "help")
 	cmd.Env = env
@@ -46,11 +38,7 @@ func TestSmoke_Help(t *testing.T) {
 }
 
 func TestSmoke_Config(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "config")
 	cmd.Env = env
@@ -64,11 +52,7 @@ func TestSmoke_Config(t *testing.T) {
 }
 
 func TestSmoke_List(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "list")
 	cmd.Env = env
@@ -79,11 +63,7 @@ func TestSmoke_List(t *testing.T) {
 }
 
 func TestSmoke_Doctor(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "dr")
 	cmd.Env = env
@@ -97,11 +77,7 @@ func TestSmoke_Doctor(t *testing.T) {
 }
 
 func TestSmoke_Search(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to search for
 	createFormula(t, prefix, "smokepkg", `name: smokepkg
@@ -121,11 +97,7 @@ description: A package for testing
 }
 
 func TestSmoke_Info(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to get info for
 	createFormula(t, prefix, "infopkg", `name: infopkg
@@ -149,11 +121,7 @@ install:
 }
 
 func TestSmoke_Deps(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	prefix, exePath, env := setupBinary(t)
 
 	createFormula(t, prefix, "depa", `name: depa
 version: 1.0.0
@@ -184,11 +152,7 @@ install:
 }
 
 func TestSmoke_DoctorQuiet(t *testing.T) {
-	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
-
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	_, exePath, env := setupBinary(t)
 
 	// Test local quiet flag
 	cmd := exec.Command(exePath, "dr", "-q")
@@ -205,4 +169,14 @@ func TestSmoke_DoctorQuiet(t *testing.T) {
 	if strings.Contains(string(outGlobal), "Checking grew installation...") {
 		t.Errorf("Expected global quiet output to omit 'Checking grew installation...', got: %s", string(outGlobal))
 	}
+}
+
+func setupBinary(t *testing.T) (string, string, []string) {
+	t.Helper()
+	tmpDir := t.TempDir()
+	prefix := setupPrefix(t, tmpDir)
+	exePath := buildTestBinary(t, tmpDir)
+
+	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	return prefix, exePath, env
 }

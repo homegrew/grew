@@ -11,6 +11,24 @@ permissions:
   contents: read
 
 jobs:
+  smoke:
+    strategy:
+      matrix:
+        os: [macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: true
+
+      - run: mkdir -p coverageFiles coverageRaw
+      - name: Run TestLiveEndToEnd
+        run: |
+          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags devmode,e2e -cover -coverpkg=./... ./tests -run TestLiveEndToEnd
+          go tool covdata textfmt -i=$GITHUB_WORKSPACE/coverageRaw -o ./coverageFiles/coverage_e2e.txt
+
   e2e:
     strategy:
       matrix:

@@ -37,6 +37,10 @@ test-unit-coverage:
 test-integration:
 	$(GO) test -tags "devmode,integration" -race $(INTEGRATION_PKGS)
 
+.PHONY: test-smoke
+test-smoke:
+	$(GO) test -tags "smoke" -v ./tests
+
 .PHONY: test-e2e
 test-e2e:
 	$(GO) test -tags "devmode,e2e" -v ./tests/ -run TestLiveEndToEnd
