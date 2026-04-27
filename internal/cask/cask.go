@@ -42,11 +42,19 @@ type Artifacts struct {
 }
 
 func PlatformKey() string {
-	return runtime.GOOS + "_" + runtime.GOARCH
+	return GetPlatformKey(runtime.GOOS, runtime.GOARCH)
+}
+
+func GetPlatformKey(osName, arch string) string {
+	return osName + "_" + arch
 }
 
 func (c *Cask) GetURL() (string, error) {
-	key := PlatformKey()
+	return c.GetURLForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+func (c *Cask) GetURLForPlatform(osName, arch string) (string, error) {
+	key := GetPlatformKey(osName, arch)
 	u, ok := c.URL[key]
 	if !ok {
 		return "", fmt.Errorf("cask %q does not support platform %s; available: %s",
@@ -59,7 +67,11 @@ func (c *Cask) GetURL() (string, error) {
 }
 
 func (c *Cask) GetSHA256() (string, error) {
-	key := PlatformKey()
+	return c.GetSHA256ForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+func (c *Cask) GetSHA256ForPlatform(osName, arch string) (string, error) {
+	key := GetPlatformKey(osName, arch)
 	s, ok := c.SHA256[key]
 	if !ok {
 		return "", fmt.Errorf("cask %q has no SHA256 for platform %s", c.Name, key)
@@ -68,6 +80,26 @@ func (c *Cask) GetSHA256() (string, error) {
 		return "", fmt.Errorf("cask %q: invalid SHA256 for %s: %w", c.Name, key, err)
 	}
 	return s, nil
+}
+
+func (c *Cask) GetSourceURL() (string, error) {
+	if c.Source.URL == "" {
+		return "", fmt.Errorf("cask %q has no source_url defined", c.Name)
+	}
+	if !strings.HasPrefix(c.Source.URL, "https://") {
+		return "", fmt.Errorf("cask %q: refusing to download over insecure HTTP: %s", c.Name, c.Source.URL)
+	}
+	return c.Source.URL, nil
+}
+
+func (c *Cask) GetSourceSHA256() (string, error) {
+	if c.Source.SHA256 == "" {
+		return "", fmt.Errorf("cask %q has no source_sha256 defined", c.Name)
+	}
+	if err := validation.ValidateSHA256(c.Source.SHA256); err != nil {
+		return "", fmt.Errorf("cask %q: invalid source_sha256: %w", c.Name, err)
+	}
+	return c.Source.SHA256, nil
 }
 
 // GetSHA512 returns the SHA512 checksum for the current platform.
@@ -146,44 +178,98 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid cask name: %q", name)
 	}
-	return l.loadFromFile(name + ".yaml")
+
+	taps, err := os.ReadDir(l.TapDir)
+	if err != nil {
+		return nil, fmt.Errorf("read taps directory: %w", err)
+	}
+
+	var lastErr error
+	for _, tap := range taps {
+		if !tap.IsDir() {
+			continue
+		}
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
+			continue
+		}
+
+		// Try tap root (works for core cask tap: Taps/cask/name.yaml)
+		// and tap/cask/ subdirectory.
+		paths := []string{
+			filepath.Join(l.TapDir, tap.Name(), name+".yaml"),
+			filepath.Join(l.TapDir, tap.Name(), "cask", name+".yaml"),
+			filepath.Join(l.TapDir, tap.Name(), "Casks", name+".yaml"),
+		}
+
+		for _, path := range paths {
+			c, err := l.loadFromFileWithPath(path)
+			if err == nil {
+				return c, nil
+			}
+			if !os.IsNotExist(err) {
+				lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+			}
+		}
+	}
+	if lastErr != nil {
+		return nil, fmt.Errorf("cask not found: %q (%v)", name, lastErr)
+	}
+	return nil, fmt.Errorf("cask not found: %q", name)
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	caskDir, err := safepath.SafeJoin(l.TapDir, "cask")
+	taps, err := os.ReadDir(l.TapDir)
 	if err != nil {
-		return nil, fmt.Errorf("invalid cask directory: %w", err)
+		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
 
-	entries, err := os.ReadDir(caskDir)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, nil
-		}
-		return nil, fmt.Errorf("read cask tap: %w", err)
-	}
 	var casks []*Cask
-	for _, e := range entries {
-		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+	for _, tap := range taps {
+		if !tap.IsDir() {
 			continue
 		}
-		if err := safepath.SafePathComponent(e.Name()); err != nil {
+		if err := safepath.SafePathComponent(tap.Name()); err != nil {
 			continue
 		}
-		c, err := l.loadFromFile(e.Name())
-		if err != nil {
-			l.debugf("failed to parse cask %s: %v\n", e.Name(), err)
-			continue
+
+		// Check tap root and tap/cask/ subdirectory.
+		subdirs := []string{"", "cask", "Casks"}
+		for _, subdir := range subdirs {
+			caskDir := filepath.Join(l.TapDir, tap.Name(), subdir)
+			entries, err := os.ReadDir(caskDir)
+			if err != nil {
+				continue
+			}
+			for _, e := range entries {
+				if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+					continue
+				}
+				if err := safepath.SafePathComponent(e.Name()); err != nil {
+					continue
+				}
+				c, err := l.loadFromFileWithPath(filepath.Join(caskDir, e.Name()))
+				if err != nil {
+					continue
+				}
+				casks = append(casks, c)
+			}
 		}
-		casks = append(casks, c)
 	}
 	return casks, nil
 }
 
 func (l *Loader) loadFromFile(filename string) (*Cask, error) {
-	absPath, err := safepath.SafeJoin(l.TapDir, "cask", filename)
+	return l.loadFromFileWithPath(filepath.Join(l.TapDir, "cask", filename))
+}
+
+func (l *Loader) loadFromFileWithPath(path string) (*Cask, error) {
+	absPath, err := filepath.Abs(path)
 	if err != nil {
-		return nil, fmt.Errorf("resolve cask path %q: %w", filename, err)
+		return nil, err
+	}
+	absPath = filepath.Clean(absPath)
+	if err := safepath.SafeAbsolutePath(absPath); err != nil {
+		return nil, fmt.Errorf("invalid cask path %q: %w", absPath, err)
 	}
 
 	data, err := os.ReadFile(absPath)

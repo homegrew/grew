@@ -86,44 +86,42 @@ var (
 	cachedPlatform  string
 )
 
+// PlatformKey returns the default platform key for the current host.
 func PlatformKey() string {
 	platformKeyOnce.Do(func() {
-		osName := runtime.GOOS
-		arch := runtime.GOARCH
-
-		if osName == "darwin" {
-			// On macOS, we want a key like "arm64_sequoia" or "arm64_sonoma".
-			// Homebrew uses these names. For simplicity in grew, we'll start with
-			// major version numbers if we can't map to names easily, or just
-			// use the generic arm64/amd64 if no versioned bottle exists.
-			//
-			// However, to match the reported error, we need to know we are on
-			// an older OS.
-			out, err := exec.Command("sw_vers", "-productVersion").Output()
-			if err == nil {
-				version := strings.TrimSpace(string(out))
-				major := strings.Split(version, ".")[0]
-				// We'll use a key like "darwin_arm64_26" or similar.
-				// But to stay compatible with existing formulas, we might need
-				// to try versioned keys first and then fallback.
-				cachedPlatform = fmt.Sprintf("%s_%s_%s", osName, arch, major)
-				return
-			}
-		}
-		cachedPlatform = osName + "_" + arch
+		cachedPlatform = GetPlatformKey(runtime.GOOS, runtime.GOARCH)
 	})
 	return cachedPlatform
 }
 
+// GetPlatformKey returns a platform key for the given OS and architecture.
+// If osName is "darwin" and matches the current host, it includes the macOS major version.
+func GetPlatformKey(osName, arch string) string {
+	if osName == "darwin" && runtime.GOOS == "darwin" && arch == runtime.GOARCH {
+		out, err := exec.Command("sw_vers", "-productVersion").Output()
+		if err == nil {
+			version := strings.TrimSpace(string(out))
+			major := strings.Split(version, ".")[0]
+			return fmt.Sprintf("%s_%s_%s", osName, arch, major)
+		}
+	}
+	return osName + "_" + arch
+}
+
 // GetBottleSpec returns the best matching bottle for the current platform.
 func (f *Formula) GetBottleSpec() (BottleSpec, string, bool) {
-	key := PlatformKey()
+	return f.GetBottleSpecForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+// GetBottleSpecForPlatform returns the best matching bottle for the given platform.
+func (f *Formula) GetBottleSpecForPlatform(osName, arch string) (BottleSpec, string, bool) {
+	key := GetPlatformKey(osName, arch)
 	if b, ok := f.Bottle[key]; ok {
 		return b, key, true
 	}
 
 	// Fallback to generic key for other platforms if no versioned key exists.
-	genericKey := runtime.GOOS + "_" + runtime.GOARCH
+	genericKey := osName + "_" + arch
 	if b, ok := f.Bottle[genericKey]; ok {
 		return b, genericKey, true
 	}
@@ -132,9 +130,14 @@ func (f *Formula) GetBottleSpec() (BottleSpec, string, bool) {
 }
 
 func (f *Formula) GetURL() (string, error) {
+	return f.GetURLForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+// GetURLForPlatform returns the download URL for the given platform.
+func (f *Formula) GetURLForPlatform(osName, arch string) (string, error) {
 	// New format support
 	if len(f.Bottle) > 0 {
-		if b, _, ok := f.GetBottleSpec(); ok {
+		if b, _, ok := f.GetBottleSpecForPlatform(osName, arch); ok {
 			if !strings.HasPrefix(b.URL, "https://") {
 				return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, b.URL)
 			}
@@ -142,10 +145,10 @@ func (f *Formula) GetURL() (string, error) {
 		}
 	}
 	// Fallback to old format
-	key := PlatformKey()
+	key := GetPlatformKey(osName, arch)
 	u, ok := f.URL[key]
 	if !ok {
-		genericKey := runtime.GOOS + "_" + runtime.GOARCH
+		genericKey := osName + "_" + arch
 		u, ok = f.URL[genericKey]
 		if !ok {
 			return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
@@ -210,11 +213,15 @@ func (f *Formula) GetSourceSHA512() (string, error) {
 	return s, nil
 }
 
-// GetSHA256 returns the SHA256 checksum for the current platform.
 func (f *Formula) GetSHA256() (string, error) {
+	return f.GetSHA256ForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+// GetSHA256ForPlatform returns the SHA256 checksum for the given platform.
+func (f *Formula) GetSHA256ForPlatform(osName, arch string) (string, error) {
 	// New format support
 	if len(f.Bottle) > 0 {
-		if b, key, ok := f.GetBottleSpec(); ok {
+		if b, key, ok := f.GetBottleSpecForPlatform(osName, arch); ok {
 			if err := validation.ValidateSHA256(b.SHA256); err != nil {
 				return "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, err)
 			}
@@ -222,10 +229,10 @@ func (f *Formula) GetSHA256() (string, error) {
 		}
 	}
 	// Fallback to old format
-	key := PlatformKey()
+	key := GetPlatformKey(osName, arch)
 	s, ok := f.SHA256[key]
 	if !ok {
-		genericKey := runtime.GOOS + "_" + runtime.GOARCH
+		genericKey := osName + "_" + arch
 		s, ok = f.SHA256[genericKey]
 		if !ok {
 			return "", fmt.Errorf("formula %q does not support platform %s; available: %s",
@@ -239,19 +246,23 @@ func (f *Formula) GetSHA256() (string, error) {
 	return s, nil
 }
 
-// GetSHA512 returns the SHA512 checksum for the current platform.
 func (f *Formula) GetSHA512() (string, error) {
+	return f.GetSHA512ForPlatform(runtime.GOOS, runtime.GOARCH)
+}
+
+// GetSHA512ForPlatform returns the SHA512 checksum for the given platform.
+func (f *Formula) GetSHA512ForPlatform(osName, arch string) (string, error) {
 	s := ""
 	if len(f.Bottle) > 0 {
-		if b, _, ok := f.GetBottleSpec(); ok {
+		if b, _, ok := f.GetBottleSpecForPlatform(osName, arch); ok {
 			s = b.SHA512
 		}
 	} else {
-		key := PlatformKey()
+		key := GetPlatformKey(osName, arch)
 		var ok bool
 		s, ok = f.SHA512[key]
 		if !ok {
-			genericKey := runtime.GOOS + "_" + runtime.GOARCH
+			genericKey := osName + "_" + arch
 			s = f.SHA512[genericKey]
 		}
 	}

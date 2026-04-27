@@ -138,6 +138,7 @@ func Run(args []string) error {
 		"vuln-scan":    runVulnScan,
 		"completion":   runCompletion,
 		"version":      runVersion,
+		"--cache":      runCache,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}
@@ -297,6 +298,7 @@ Commands:
   pin <formula>...     Pin formulas to prevent upgrades
   unpin <formula>...   Unpin formulas to allow upgrades
   version              Print version and exit
+  --cache [flags] [formula|cask ...] Display download cache
   help [command]       Show help for a command
 `)
 }

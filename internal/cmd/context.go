@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 
+	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
@@ -12,9 +13,10 @@ import (
 
 // commonCtx bundles objects used by most commands.
 type commonCtx struct {
-	Paths  config.Paths
-	Loader *formula.Loader
-	Cellar *cellar.Cellar
+	Paths      config.Paths
+	Loader     *formula.Loader
+	CaskLoader *cask.Loader
+	Cellar     *cellar.Cellar
 }
 
 // newCommonCtx initialises paths and the core tap, returning a shared context.
@@ -30,9 +32,10 @@ func newCommonCtx() (*commonCtx, error) {
 	}
 
 	return &commonCtx{
-		Paths:  paths,
-		Loader: newLoader(paths.Taps),
-		Cellar: &cellar.Cellar{Path: paths.Cellar},
+		Paths:      paths,
+		Loader:     newLoader(paths.Taps),
+		CaskLoader: newCaskLoader(paths.Taps),
+		Cellar:     &cellar.Cellar{Path: paths.Cellar},
 	}, nil
 }
 
