@@ -13,6 +13,8 @@ func TestRunShellenv(t *testing.T) {
 		name     string
 		args     []string
 		contains []string
+		// if set, at least one of these must be present (used for PATH vs path_helper)
+		alternatives []string
 	}{
 		{
 			name: "bash",
@@ -21,28 +23,45 @@ func TestRunShellenv(t *testing.T) {
 				"export HOMEGREW_PREFIX=",
 				"export HOMEGREW_CELLAR=",
 				"export HOMEGREW_REPOSITORY=",
-				"export PATH=",
-				"export MANPATH=",
+				"[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";",
 				"export INFOPATH=",
 			},
+			alternatives: []string{"export PATH=", "path_helper"},
 		},
 		{
 			name: "zsh",
 			args: []string{"zsh"},
 			contains: []string{
 				"export HOMEGREW_PREFIX=",
-				"export PATH=",
-				"fpath=(",
+				"fpath[1,0]=",
+				"export FPATH;",
 			},
+			alternatives: []string{"export PATH=", "path_helper"},
 		},
 		{
 			name: "fish",
 			args: []string{"fish"},
 			contains: []string{
-				"set -gx HOMEGREW_PREFIX ",
-				"set -gx PATH ",
-				"set -q MANPATH",
+				"set --global --export HOMEGREW_PREFIX ",
+				"fish_add_path --global --move --path ",
+				"if test -n \"$MANPATH[1]\"; set --global --export MANPATH '' $MANPATH; end;",
 			},
+		},
+		{
+			name: "pwsh",
+			args: []string{"pwsh"},
+			contains: []string{
+				"[System.Environment]::SetEnvironmentVariable('HOMEGREW_PREFIX',",
+				"[System.Environment]::SetEnvironmentVariable('PATH',",
+			},
+		},
+		{
+			name: "csh",
+			args: []string{"csh"},
+			contains: []string{
+				"setenv HOMEGREW_PREFIX ",
+			},
+			alternatives: []string{"setenv PATH ", "path_helper"},
 		},
 	}
 
@@ -67,6 +86,19 @@ func TestRunShellenv(t *testing.T) {
 			for _, want := range tt.contains {
 				if !strings.Contains(got, want) {
 					t.Errorf("runShellenv() output missing %q, got:\n%s", want, got)
+				}
+			}
+
+			if len(tt.alternatives) > 0 {
+				found := false
+				for _, alt := range tt.alternatives {
+					if strings.Contains(got, alt) {
+						found = true
+						break
+					}
+				}
+				if !found {
+					t.Errorf("runShellenv() output missing any of %v, got:\n%s", tt.alternatives, got)
 				}
 			}
 		})

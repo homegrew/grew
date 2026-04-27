@@ -16,6 +16,7 @@ type Paths struct {
 	Cellar   string
 	Opt      string
 	Bin      string
+	Sbin     string
 	Lib      string
 	Include  string
 	Share    string
@@ -270,6 +271,7 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		Cellar:   filepath.Join(root, "Cellar"),
 		Opt:      filepath.Join(root, "opt"),
 		Bin:      filepath.Join(root, "bin"),
+		Sbin:     filepath.Join(root, "sbin"),
 		Lib:      filepath.Join(root, "lib"),
 		Include:  filepath.Join(root, "include"),
 		Share:    filepath.Join(root, "share"),
@@ -291,7 +293,7 @@ func (p Paths) Init() error {
 	}
 
 	dirs := []string{
-		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
+		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
 		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
 	}
