@@ -23,7 +23,6 @@ func TestRunShellenv(t *testing.T) {
 				"export HOMEGREW_PREFIX=",
 				"export HOMEGREW_CELLAR=",
 				"export HOMEGREW_REPOSITORY=",
-				"[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";",
 				"export INFOPATH=",
 			},
 			alternatives: []string{"export PATH=", "path_helper"},
