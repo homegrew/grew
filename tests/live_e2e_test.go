@@ -171,8 +171,10 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 12. Test Shellenv Generation
 	outEnv := runCmd("shellenv", "bash")
-	if !strings.Contains(outEnv, "export HOMEGREW_PREFIX") {
-		t.Errorf("shellenv output missing export statement")
+	for _, v := range []string{"HOMEGREW_PREFIX", "HOMEGREW_CELLAR", "HOMEGREW_REPOSITORY", "PATH", "MANPATH", "INFOPATH"} {
+		if !strings.Contains(outEnv, "export "+v) {
+			t.Errorf("shellenv output missing export statement for %s", v)
+		}
 	}
 
 	// 13. Test Leaves command
