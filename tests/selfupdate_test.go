@@ -136,6 +136,10 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		t.Fatalf("failed to create bin dir: %v", err)
 	}
+	tmpHomegrewDir := filepath.Join(prefix, "tmp")
+	if err := os.MkdirAll(tmpHomegrewDir, 0755); err != nil {
+		t.Fatalf("failed to create tmp dir: %v", err)
+	}
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary
@@ -153,7 +157,9 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	cmdRun.Stderr = os.Stderr
 	env := os.Environ()
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	env = append(env, "HOMEGREW_ALLOWED_HOSTS=127.0.0.1")
 	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
 
@@ -194,6 +200,10 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	if err := os.MkdirAll(binDir, 0755); err != nil {
 		t.Fatalf("failed to create bin dir: %v", err)
 	}
+	tmpHomegrewDir := filepath.Join(prefix, "tmp")
+	if err := os.MkdirAll(tmpHomegrewDir, 0755); err != nil {
+		t.Fatalf("failed to create tmp dir: %v", err)
+	}
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary
@@ -211,7 +221,9 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	cmdRun.Stderr = os.Stderr
 	env := os.Environ()
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	env = append(env, "HOMEGREW_ALLOWED_HOSTS=127.0.0.1")
 	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
 

@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
@@ -204,7 +205,7 @@ func newInstallContext() (*installContext, error) {
 	return &installContext{
 		commonCtx:  common,
 		Linker:     &linker.Linker{Paths: common.Paths},
-		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp},
+		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp, Cache: cache.New(common.Paths.Cache)},
 		AuditLog:   auditlog.New(common.Paths.Log),
 		GlobalLock: lock,
 	}, nil

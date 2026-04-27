@@ -149,6 +149,7 @@ install:
 	env := os.Environ()
 	// Set the prefix
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	// Add the mock server to the allowed hosts for the downloader
 	env = append(env, "HOMEGREW_ALLOWED_HOSTS="+serverHost)
 	// Inject the trusted certificate

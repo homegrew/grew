@@ -1,0 +1,75 @@
+package cache
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+
+	"github.com/homegrew/grew/pkg/safepath"
+)
+
+// Cache manages the local file cache for grew.
+type Cache struct {
+	dir string
+	fs  fs.FS
+}
+
+// New creates a new Cache rooted at dir.
+func New(dir string) *Cache {
+	return &Cache{
+		dir: dir,
+		fs:  os.DirFS(dir),
+	}
+}
+
+// Dir returns the root directory of the cache.
+func (c *Cache) Dir() string {
+	return c.dir
+}
+
+// DownloadsDir returns the absolute path to the directory used for caching downloads.
+func (c *Cache) DownloadsDir() string {
+	return filepath.Join(c.dir, "downloads")
+}
+
+// DownloadPath returns the safe, absolute path for a cached download.
+func (c *Cache) DownloadPath(filename string) (string, error) {
+	if c.dir == "" {
+		return "", fmt.Errorf("cache directory not set")
+	}
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return "", fmt.Errorf("invalid download filename: %w", err)
+	}
+	return filepath.Join(c.dir, "downloads", filename), nil
+}
+
+// Exists reports whether the given filename exists in the download cache.
+func (c *Cache) Exists(filename string) bool {
+	if c.fs == nil {
+		return false
+	}
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return false
+	}
+	// os.DirFS requires relative paths without the root prefix.
+	relPath := filepath.Join("downloads", filename)
+	_, err := fs.Stat(c.fs, relPath)
+	return err == nil
+}
+
+// Store moves a temporary file into the download cache and returns the new cache path.
+func (c *Cache) Store(tmpPath, filename string) (string, error) {
+	cachePath, err := c.DownloadPath(filename)
+	if err != nil {
+		return "", err
+	}
+	if err := os.MkdirAll(filepath.Dir(cachePath), 0755); err != nil {
+		return "", fmt.Errorf("create cache directory: %w", err)
+	}
+	if err := os.Rename(tmpPath, cachePath); err != nil {
+		return "", fmt.Errorf("move to cache: %w", err)
+	}
+	return cachePath, nil
+}
+

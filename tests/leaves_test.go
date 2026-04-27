@@ -67,6 +67,7 @@ dependencies:
 
 	env := append(os.Environ(),
 		"HOMEGREW_PREFIX="+prefix,
+		"HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"),
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 		"HOMEGREW_ALLOWED_HOSTS=127.0.0.1",
 	)

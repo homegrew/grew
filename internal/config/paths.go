@@ -16,6 +16,7 @@ type Paths struct {
 	Cellar   string
 	Opt      string
 	Bin      string
+	Sbin     string
 	Lib      string
 	Include  string
 	Share    string
@@ -24,6 +25,7 @@ type Paths struct {
 	CaskTap  string
 	Caskroom string
 	AppDir   string
+	Cache    string
 	Tmp      string
 	Log      string
 	GitRepo  string
@@ -157,7 +159,16 @@ func Default() Paths {
 		appDir = filepath.Join(home, "Applications")
 	}
 
-	return FromRoot(root, appDir)
+	cacheDir := os.Getenv("HOMEGREW_CACHE")
+	if cacheDir == "" {
+		if ucd, err := os.UserCacheDir(); err == nil {
+			cacheDir = filepath.Join(ucd, "Homegrew")
+		} else {
+			cacheDir = filepath.Join(home, ".cache", "homegrew")
+		}
+	}
+
+	return FromRoot(root, appDir, cacheDir)
 }
 
 // IsUnderRoot reports whether the given path is located within the Paths.Root
@@ -197,8 +208,8 @@ func (p Paths) IsUnderRoot(path string) bool {
 	return true
 }
 
-// FromRoot builds a Paths struct from an explicit root and appDir.
-func FromRoot(root, appDir string) Paths {
+// FromRoot builds a Paths struct from an explicit root, appDir, and cacheDir.
+func FromRoot(root, appDir, cacheDir string) Paths {
 	// Normalize root so that all derived paths (Cellar, Caskroom, etc.) are
 	// absolute and cleaned, regardless of how root was provided.
 	if abs, err := filepath.Abs(root); err == nil {
@@ -236,11 +247,31 @@ func FromRoot(root, appDir string) Paths {
 		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", invalidAppDir, err, appDir))
 	}
 
+	// Normalize cacheDir so that it is also absolute and cleaned.
+	if abs, err := filepath.Abs(cacheDir); err == nil {
+		cacheDir = abs
+	}
+	cacheDir = filepath.Clean(cacheDir)
+	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
+		invalidCacheDir := cacheDir
+		home, homeErr := os.UserHomeDir()
+		if homeErr != nil {
+			home = "."
+		}
+		fallback := filepath.Join(home, ".cache", "homegrew")
+		if abs, err := filepath.Abs(fallback); err == nil {
+			fallback = abs
+		}
+		cacheDir = filepath.Clean(fallback)
+		slog.Warn(fmt.Sprintf("config: invalid cache dir %q: %v; falling back to %q", invalidCacheDir, err, cacheDir))
+	}
+
 	return Paths{
 		Root:     root,
 		Cellar:   filepath.Join(root, "Cellar"),
 		Opt:      filepath.Join(root, "opt"),
 		Bin:      filepath.Join(root, "bin"),
+		Sbin:     filepath.Join(root, "sbin"),
 		Lib:      filepath.Join(root, "lib"),
 		Include:  filepath.Join(root, "include"),
 		Share:    filepath.Join(root, "share"),
@@ -249,6 +280,7 @@ func FromRoot(root, appDir string) Paths {
 		CaskTap:  filepath.Join(root, "Taps", "cask"),
 		Caskroom: filepath.Join(root, "Caskroom"),
 		AppDir:   appDir,
+		Cache:    cacheDir,
 		Tmp:      filepath.Join(root, "tmp"),
 		Log:      filepath.Join(root, "var", "log"),
 		GitRepo:  filepath.Join(root, "Grew"),
@@ -261,15 +293,15 @@ func (p Paths) Init() error {
 	}
 
 	dirs := []string{
-		p.Root, p.Cellar, p.Opt, p.Bin, p.Lib,
+		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
 		p.Include, p.Taps, p.CoreTap, p.CaskTap,
-		p.Caskroom, p.AppDir, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
+		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
 	}
 	for _, d := range dirs {
 		if err := safepath.SafeAbsolutePath(d); err != nil {
 			return fmt.Errorf("invalid directory path %q: %w", d, err)
 		}
-		if d != p.AppDir && !p.IsUnderRoot(d) {
+		if d != p.AppDir && d != p.Cache && !p.IsUnderRoot(d) {
 			return fmt.Errorf("refusing to create directory outside root: %s (root: %s)", d, p.Root)
 		}
 		if err := os.MkdirAll(d, 0755); err != nil {

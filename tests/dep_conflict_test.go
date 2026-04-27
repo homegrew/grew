@@ -5,10 +5,10 @@ package tests
 import (
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
 )
-
 func TestDependencyCircular(t *testing.T) {
 	tmpDir := t.TempDir()
 	prefix := setupPrefix(t, tmpDir)
@@ -33,7 +33,7 @@ install:
 `)
 
 	cmd := exec.Command(exePath, "install", "a")
-	cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	out, err := cmd.CombinedOutput()
 
 	if err == nil {
@@ -59,7 +59,7 @@ install:
 `)
 
 	cmd := exec.Command(exePath, "install", "mainpkg")
-	cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	out, err := cmd.CombinedOutput()
 
 	if err == nil {

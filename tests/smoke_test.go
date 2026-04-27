@@ -5,6 +5,7 @@ package tests
 import (
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -177,6 +178,6 @@ func setupBinary(t *testing.T) (string, string, []string) {
 	prefix := setupPrefix(t, tmpDir)
 	exePath := buildTestBinary(t, tmpDir)
 
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	return prefix, exePath, env
 }

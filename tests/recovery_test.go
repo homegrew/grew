@@ -66,6 +66,7 @@ install:
 
 	commonEnv := append(os.Environ(),
 		"HOMEGREW_PREFIX="+prefix,
+		"HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"),
 		"HOMEGREW_ALLOWED_HOSTS="+serverHost,
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 	)
@@ -106,6 +107,7 @@ install:
 
 	commonEnv2 := append(os.Environ(),
 		"HOMEGREW_PREFIX="+prefix,
+		"HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"),
 		"HOMEGREW_ALLOWED_HOSTS="+serverHost2,
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 	)

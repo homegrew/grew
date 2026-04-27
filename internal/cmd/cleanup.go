@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
@@ -122,70 +123,19 @@ Options:
 		maxAge = time.Duration(days) * 24 * time.Hour
 	}
 
-	// 5. Clean download cache (tmp directory).
-	allowedRoots := map[string]struct{}{
-		filepath.Clean("/usr/local/homegrew"): {},
-		filepath.Clean("/opt/homegrew"):       {},
-	}
-
-	resolvedRoot := filepath.Clean(paths.Root)
-	if abs, err := filepath.Abs(resolvedRoot); err == nil {
-		resolvedRoot = filepath.Clean(abs)
-	}
-	if evalRoot, err := filepath.EvalSymlinks(resolvedRoot); err == nil {
-		resolvedRoot = filepath.Clean(evalRoot)
-	}
-
-	resolvedTmp := filepath.Clean(paths.Tmp)
-	if abs, err := filepath.Abs(resolvedTmp); err == nil {
-		resolvedTmp = filepath.Clean(abs)
-	}
-	if evalTmp, err := filepath.EvalSymlinks(resolvedTmp); err == nil {
-		resolvedTmp = filepath.Clean(evalTmp)
-	}
-
-	expectedTmp := filepath.Join(resolvedRoot, "tmp")
-	if evalExpectedTmp, err := filepath.EvalSymlinks(expectedTmp); err == nil {
-		expectedTmp = filepath.Clean(evalExpectedTmp)
-	} else {
-		expectedTmp = filepath.Clean(expectedTmp)
-	}
-	relTmpToRoot, err := filepath.Rel(resolvedRoot, resolvedTmp)
-	tmpUnderResolvedRoot := err == nil &&
-		relTmpToRoot != ".." &&
-		!strings.HasPrefix(relTmpToRoot, ".."+string(os.PathSeparator)) &&
-		!filepath.IsAbs(relTmpToRoot)
-
-	_, trustedRoot := allowedRoots[resolvedRoot]
-
-	if trustedRoot && tmpUnderResolvedRoot && paths.IsUnderRoot(resolvedTmp) && resolvedTmp == expectedTmp {
-		tmpEntries, err := os.ReadDir(resolvedTmp)
+	// 5. Clean download cache (Cache directory).
+	downloadsDir := cache.New(paths.Cache).DownloadsDir()
+	if _, err := os.Stat(downloadsDir); err == nil {
+		tmpEntries, err := os.ReadDir(downloadsDir)
 		if err == nil {
 			for _, e := range tmpEntries {
 				name := e.Name()
-				path := filepath.Join(resolvedTmp, name)
+				path := filepath.Join(downloadsDir, name)
 
 				// If specific targets provided, only clean files that seem to belong to them.
 				if len(targets) > 0 && !belongsToTargets(targets, name) {
 					continue
 				}
-
-				var candidatePath string
-				if evalCandidate, err := filepath.EvalSymlinks(path); err == nil {
-					candidatePath = filepath.Clean(evalCandidate)
-				} else if absCandidate, err := filepath.Abs(path); err == nil {
-					candidatePath = filepath.Clean(absCandidate)
-				} else {
-					slog.Warn(fmt.Sprintf("skipping unresolved path %s: %v", path, err))
-					continue
-				}
-
-				relToTmp, err := filepath.Rel(resolvedTmp, candidatePath)
-				if err != nil || relToTmp == ".." || strings.HasPrefix(relToTmp, ".."+string(os.PathSeparator)) {
-					slog.Warn(fmt.Sprintf("skipping path outside temp root: %s", path))
-					continue
-				}
-				path = candidatePath
 
 				info, err := e.Info()
 				if err != nil {
@@ -210,7 +160,7 @@ Options:
 				if *dryRun {
 					fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
 				} else {
-					slog.Debug("removing temp file " + name)
+					slog.Debug("removing cached file " + name)
 					if err := os.RemoveAll(path); err != nil {
 						slog.Warn(fmt.Sprintf("could not remove %s: %v", path, err))
 					} else {
@@ -219,9 +169,6 @@ Options:
 				}
 			}
 		}
-	} else {
-		slog.Warn(fmt.Sprintf("skipping tmp cleanup for untrusted root/tmp path: root=%q tmp=%q", resolvedRoot, resolvedTmp))
-		slog.Debug("skipping cleanup of tmp directory outside grew root: " + paths.Tmp)
 	}
 
 	// 6. Prune empty directories in the prefix.
@@ -230,6 +177,7 @@ Options:
 		pruneEmptyDirs(paths.Lib)
 		pruneEmptyDirs(paths.Include)
 		pruneEmptyDirs(paths.Share)
+		pruneEmptyDirs(downloadsDir)
 	}
 
 	if totalBytes == 0 {

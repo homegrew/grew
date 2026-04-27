@@ -31,6 +31,10 @@ func RegisterCaskChecks() {
 // installedCaskApps returns the paths to .app bundles for all installed casks.
 func installedCaskApps(ctx *Context) []string {
 	paths := config.Default()
+	if ctx != nil {
+		paths = ctx.Paths
+	}
+
 	cr := &cask.Caskroom{Path: paths.Caskroom}
 	installed, err := cr.List()
 	if err != nil || len(installed) == 0 {

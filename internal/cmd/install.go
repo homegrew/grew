@@ -295,8 +295,13 @@ func checkFormulaPathComponents(f *formula.Formula) error {
 
 // installFormula downloads, verifies, extracts, and links a single formula.
 // Shared by install and upgrade commands.
-func removeIfWithinTmp(tmpDir, candidate string) error {
+// removeIfWithinAllowed removes a file if it is located within the temporary or cache directories.
+func removeIfWithinAllowed(tmpDir, cacheDir, candidate string) error {
 	cleanTmp, err := normalizeDir(tmpDir, "tmp")
+	if err != nil {
+		return err
+	}
+	cleanCache, err := normalizeDir(cacheDir, "cache")
 	if err != nil {
 		return err
 	}
@@ -306,17 +311,8 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 		return err
 	}
 
-	if err := safepath.CheckSubpath(cleanTmp, cleanCandidate); err != nil {
-		return fmt.Errorf("cleanup path escapes tmp directory: %w", err)
-	}
-
-	rel, err := filepath.Rel(cleanTmp, cleanCandidate)
-	if err != nil {
-		return fmt.Errorf("failed to derive cleanup relative path: %w", err)
-	}
-	rel = filepath.Clean(rel)
-	if rel == "." || rel == "" || strings.HasPrefix(rel, "..") || filepath.IsAbs(rel) {
-		return fmt.Errorf("invalid cleanup relative path %q", rel)
+	if !safepath.IsSubpath(cleanTmp, cleanCandidate) && !safepath.IsSubpath(cleanCache, cleanCandidate) {
+		return fmt.Errorf("cleanup path escapes both tmp and cache directories: %q", cleanCandidate)
 	}
 
 	return os.Remove(cleanCandidate)
@@ -406,32 +402,37 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (
 		return fmt.Errorf("temporary directory escapes install root: %w", err)
 	}
 
+	cleanCache, err := normalizeDir(paths.Cache, "cache")
+	if err != nil {
+		return err
+	}
+
 	cleanLocalFile, err := normalizeDir(localFile, "downloaded file path")
 	if err != nil {
 		return err
 	}
 
-	if err := safepath.CheckSubpath(cleanTmp, cleanLocalFile); err != nil {
-		return fmt.Errorf("downloaded file path escapes tmp directory: %w", err)
+	if !safepath.IsSubpath(cleanTmp, cleanLocalFile) && !safepath.IsSubpath(cleanCache, cleanLocalFile) {
+		return fmt.Errorf("downloaded file path escapes both tmp directory %q and cache directory %q: %q", cleanTmp, cleanCache, cleanLocalFile)
 	}
 	localFile = cleanLocalFile
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, sha256); err != nil {
-		_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
+		_ = removeIfWithinAllowed(cleanTmp, cleanCache, cleanLocalFile)
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
 	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
+			_ = removeIfWithinAllowed(cleanTmp, cleanCache, cleanLocalFile)
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}
 		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
-		_ = removeIfWithinTmp(cleanTmp, cleanLocalFile)
+		_ = removeIfWithinAllowed(cleanTmp, cleanCache, cleanLocalFile)
 		return err
 	}
 
@@ -560,19 +561,28 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	if err != nil {
 		return err
 	}
-	if err := safepath.CheckSubpath(paths.Tmp, localFile); err != nil {
-		return fmt.Errorf("downloaded source path escapes temp directory after normalization: %w", err)
+	cleanCacheForSrc, err := normalizeDir(paths.Cache, "cache")
+	if err != nil {
+		return err
+	}
+	cleanTmpForSrc, err := normalizeDir(paths.Tmp, "tmp")
+	if err != nil {
+		return err
+	}
+	
+	if !safepath.IsSubpath(cleanTmpForSrc, localFile) && !safepath.IsSubpath(cleanCacheForSrc, localFile) {
+		return fmt.Errorf("downloaded source path escapes both temp directory %q and cache directory %q: %q", cleanTmpForSrc, cleanCacheForSrc, localFile)
 	}
 	slog.Info("saved to: " + localFile)
 
 	if err := downloader.VerifySHA256(localFile, srcSHA256); err != nil {
-		os.Remove(localFile)
+		_ = removeIfWithinAllowed(cleanTmpForSrc, cleanCacheForSrc, localFile)
 		return fmt.Errorf("verify source %s (SHA256): %w", f.Name, err)
 	}
 	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 	if srcSHA512 != "" {
 		if err := downloader.VerifySHA512(localFile, srcSHA512); err != nil {
-			os.Remove(localFile)
+			_ = removeIfWithinAllowed(cleanTmpForSrc, cleanCacheForSrc, localFile)
 			return fmt.Errorf("verify source %s (SHA512): %w", f.Name, err)
 		}
 		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
