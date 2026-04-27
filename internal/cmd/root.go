@@ -204,7 +204,7 @@ func newInstallContext() (*installContext, error) {
 	return &installContext{
 		commonCtx:  common,
 		Linker:     &linker.Linker{Paths: common.Paths},
-		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp},
+		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp, CacheDir: common.Paths.Cache},
 		AuditLog:   auditlog.New(common.Paths.Log),
 		GlobalLock: lock,
 	}, nil

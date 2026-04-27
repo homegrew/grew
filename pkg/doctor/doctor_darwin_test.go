@@ -48,7 +48,7 @@ func TestInstalledCaskApps(t *testing.T) {
 	os.MkdirAll(appPath, 0755)
 
 	ctx := &Context{
-		Paths: config.FromRoot(tmpDir, appDir),
+		Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 		Casks: []*cask.Cask{
 			{
 				Name: "mycask",
@@ -103,7 +103,7 @@ func TestCheckCaskSandbox(t *testing.T) {
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
 		ctx := &Context{
-			Paths: config.FromRoot(tmpDir, appDir),
+			Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -127,7 +127,7 @@ func TestCheckCaskSandbox(t *testing.T) {
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
 		ctx := &Context{
-			Paths: config.FromRoot(tmpDir, appDir),
+			Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -151,7 +151,7 @@ func TestCheckCaskSandbox(t *testing.T) {
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
 		ctx := &Context{
-			Paths: config.FromRoot(tmpDir, appDir),
+			Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -189,7 +189,7 @@ func TestCheckCaskNotarization(t *testing.T) {
 			os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 			
 			ctx := &Context{
-				Paths: config.FromRoot(tmpDir, appDir),
+				Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 				Casks: []*cask.Cask{
 					{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 				},
@@ -227,7 +227,7 @@ func TestCheckCaskQuarantine(t *testing.T) {
 			os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 			
 			ctx := &Context{
-				Paths: config.FromRoot(tmpDir, appDir),
+				Paths: config.FromRoot(tmpDir, appDir, filepath.Join(tmpDir, "Cache")),
 				Casks: []*cask.Cask{
 					{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 				},

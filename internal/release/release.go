@@ -54,10 +54,11 @@ func SetAPIBase(rawURL string) error {
 
 // Release is the subset of the GitHub API release response we need.
 type Release struct {
-	TagName    string  `json:"tag_name"`
-	Draft      bool    `json:"draft"`
-	Prerelease bool    `json:"prerelease"`
-	Assets     []Asset `json:"assets"`
+	TagName    string                 `json:"tag_name"`
+	Draft      bool                   `json:"draft"`
+	Prerelease bool                   `json:"prerelease"`
+	Assets     []Asset                `json:"assets"`
+	DL         *downloader.Downloader `json:"-"`
 }
 
 // Asset represents a single file attached to a GitHub release.
@@ -213,41 +214,37 @@ func FindAllChecksums(data []byte, assetName string) map[int]string {
 }
 
 // DownloadBytes downloads a URL into memory. Limited to 1 MB.
+func (r *Release) DownloadBytes(url string) ([]byte, error) {
+	dl := r.DL
+	if dl == nil {
+		dl = &downloader.Downloader{TmpDir: os.TempDir()}
+	}
+	return dl.DownloadBytes(url)
+}
+
+// DownloadTemp downloads a URL to a temporary file. Limited to 256 MB.
+// If Release.DL is set and has CacheDir, it will use/populate the cache.
+// The caller is responsible for removing the file if it's in a temporary location,
+// but NOT if it's in the cache.
+func (r *Release) DownloadTemp(url string, filename string) (string, error) {
+	dl := r.DL
+	if dl == nil {
+		dl = &downloader.Downloader{TmpDir: os.TempDir()}
+	}
+	return dl.Download(url, filename)
+}
+
+// DownloadBytes downloads a URL into memory. Limited to 1 MB.
 func DownloadBytes(url string) ([]byte, error) {
-	resp, err := httpsGet(url, "application/octet-stream")
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("HTTP %s for %s", resp.Status, url)
-	}
-	return io.ReadAll(io.LimitReader(resp.Body, 1<<20))
+	dl := &downloader.Downloader{TmpDir: os.TempDir()}
+	return dl.DownloadBytes(url)
 }
 
 // DownloadTemp downloads a URL to a temporary file. Limited to 256 MB.
 // The caller is responsible for removing the file.
 func DownloadTemp(url string) (string, error) {
-	resp, err := httpsGet(url, "application/octet-stream")
-	if err != nil {
-		return "", err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("HTTP %s for %s", resp.Status, url)
-	}
-
-	f, err := os.CreateTemp("", "grew-download-*")
-	if err != nil {
-		return "", err
-	}
-	defer f.Close()
-
-	if _, err := io.Copy(f, io.LimitReader(resp.Body, 256<<20)); err != nil {
-		os.Remove(f.Name())
-		return "", err
-	}
-	return f.Name(), nil
+	dl := &downloader.Downloader{TmpDir: os.TempDir()}
+	return dl.Download(url, filepath.Base(url))
 }
 
 // FileSHA256 computes the hex-encoded SHA256 of a file.

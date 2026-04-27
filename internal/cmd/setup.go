@@ -105,7 +105,8 @@ func setupDryRun(prefix string, isRoot bool) error {
 	}
 
 	appDir := defaultAppDir()
-	paths := config.FromRoot(prefix, appDir)
+	cacheDir := defaultCacheDir()
+	paths := config.FromRoot(prefix, appDir, cacheDir)
 
 	fmt.Println()
 	fmt.Println("[dry-run] Directories to create:")
@@ -121,6 +122,7 @@ func setupDryRun(prefix string, isRoot bool) error {
 		{"CaskTap", paths.CaskTap},
 		{"Caskroom", paths.Caskroom},
 		{"AppDir", paths.AppDir},
+		{"Cache", paths.Cache},
 		{"tmp", paths.Tmp},
 	} {
 		status := "create"
@@ -256,8 +258,9 @@ const grewRepoURL = "https://github.com/homegrew/grew.git"
 
 func finishSetup(prefix string) error {
 	appDir := defaultAppDir()
+	cacheDir := defaultCacheDir()
 
-	paths := config.FromRoot(prefix, appDir)
+	paths := config.FromRoot(prefix, appDir, cacheDir)
 	fmt.Fprintln(os.Stderr, "==> Creating directory structure...")
 	if err := paths.Init(); err != nil {
 		return fmt.Errorf("init directories: %w", err)
@@ -419,6 +422,24 @@ func defaultAppDir() string {
 		return filepath.Clean(abs)
 	}
 	return appDir
+}
+
+// defaultCacheDir returns the appropriate cache directory.
+// HOMEGREW_CACHE overrides the default.
+func defaultCacheDir() string {
+	if v := os.Getenv("HOMEGREW_CACHE"); v != "" {
+		if abs, err := filepath.Abs(v); err == nil {
+			return filepath.Clean(abs)
+		}
+	}
+	if ucd, err := os.UserCacheDir(); err == nil {
+		return filepath.Join(ucd, "Homegrew")
+	}
+	home, err := os.UserHomeDir()
+	if err != nil {
+		home = "."
+	}
+	return filepath.Join(home, ".cache", "homegrew")
 }
 
 func primaryGroup(u *user.User) string {

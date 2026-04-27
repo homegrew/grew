@@ -47,13 +47,13 @@ func TestDefault_OverridePrefix(t *testing.T) {
 func TestInit_CreatesDirectories(t *testing.T) {
 	tmpDir := t.TempDir()
 	root := filepath.Join(tmpDir, "grew")
-	paths := FromRoot(root, filepath.Join(tmpDir, "Applications"))
+	paths := FromRoot(root, filepath.Join(tmpDir, "Applications"), filepath.Join(tmpDir, "Cache"))
 
 	if err := paths.Init(); err != nil {
 		t.Fatalf("init failed: %v", err)
 	}
 
-	for _, d := range []string{paths.Root, paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include, paths.Taps, paths.CoreTap, paths.CaskTap, paths.Caskroom, paths.AppDir, paths.Tmp} {
+	for _, d := range []string{paths.Root, paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include, paths.Taps, paths.CoreTap, paths.CaskTap, paths.Caskroom, paths.AppDir, paths.Cache, paths.Tmp} {
 		if info, err := os.Stat(d); err != nil || !info.IsDir() {
 			t.Errorf("directory %q was not created", d)
 		}
@@ -69,7 +69,7 @@ func TestInit_CreatesDirectories(t *testing.T) {
 }
 
 func TestFromRoot(t *testing.T) {
-	paths := FromRoot("/opt/homegrew", "/Users/test/Applications")
+	paths := FromRoot("/opt/homegrew", "/Users/test/Applications", "/Users/test/Cache")
 	if paths.Root != "/opt/homegrew" {
 		t.Errorf("Root = %q", paths.Root)
 	}
@@ -78,6 +78,9 @@ func TestFromRoot(t *testing.T) {
 	}
 	if paths.AppDir != "/Users/test/Applications" {
 		t.Errorf("AppDir = %q", paths.AppDir)
+	}
+	if paths.Cache != "/Users/test/Cache" {
+		t.Errorf("Cache = %q", paths.Cache)
 	}
 }
 

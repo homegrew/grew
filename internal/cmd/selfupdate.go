@@ -17,6 +17,7 @@ import (
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/osvdev"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
@@ -40,6 +41,12 @@ func RunSelfUpdate(_ []string) error {
 	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to fetch latest release metadata: %v", err))
 	} else if rel != nil {
+		paths := config.Default()
+		rel.DL = &downloader.Downloader{
+			TmpDir:   paths.Tmp,
+			CacheDir: paths.Cache,
+		}
+
 		if !version.IsNewer(version.Version(), rel.TagName) {
 			fmt.Printf("Already up-to-date: %s\n", version.Version())
 			return nil
@@ -168,7 +175,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 	}
 
 	fmt.Fprintln(os.Stderr, "==> Fetching checksums")
-	checksums, err := release.DownloadBytes(checksumURL)
+	checksums, err := rel.DownloadBytes(checksumURL)
 	if err != nil {
 		return fmt.Errorf("download checksums: %w", err)
 	}
@@ -186,11 +193,14 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 	}
 
 	fmt.Fprintf(os.Stderr, "==> Downloading %s\n", assetName)
-	tmpFile, err := release.DownloadTemp(assetURL)
+	tmpFile, err := rel.DownloadTemp(assetURL, assetName)
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
 	}
-	defer os.Remove(tmpFile)
+	// Only remove if it's NOT in the cache.
+	if rel.DL == nil || !strings.Contains(tmpFile, rel.DL.CacheDir) {
+		defer os.Remove(tmpFile)
+	}
 
 	// Verify all available hashes.
 	sha256Actual, sha512Actual, err := fileHashes(tmpFile)
@@ -408,11 +418,14 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	}
 
 	fmt.Fprintf(os.Stderr, "==> Downloading binary patch: %s\n", patchName)
-	patchFile, err := release.DownloadTemp(patchURL)
+	patchFile, err := rel.DownloadTemp(patchURL, patchName)
 	if err != nil {
 		return err
 	}
-	defer os.Remove(patchFile)
+	// Only remove if it's NOT in the cache.
+	if rel.DL == nil || !strings.Contains(patchFile, rel.DL.CacheDir) {
+		defer os.Remove(patchFile)
+	}
 
 	actualPatchSHA256, actualPatchSHA512, err := fileHashes(patchFile)
 	if err != nil {
@@ -425,7 +438,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 
 	if err256 == nil || err512 == nil {
 		if err256 == nil {
-			if data, err := release.DownloadBytes(sha256URL); err == nil {
+			if data, err := rel.DownloadBytes(sha256URL); err == nil {
 				expected := strings.Fields(string(data))[0]
 				if actualPatchSHA256 != expected {
 					return fmt.Errorf("patch SHA-256 mismatch: got %s, want %s", actualPatchSHA256, expected)
@@ -433,7 +446,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 			}
 		}
 		if err512 == nil {
-			if data, err := release.DownloadBytes(sha512URL); err == nil {
+			if data, err := rel.DownloadBytes(sha512URL); err == nil {
 				expected := strings.Fields(string(data))[0]
 				if actualPatchSHA512 != expected {
 					return fmt.Errorf("patch SHA-512 mismatch: got %s, want %s", actualPatchSHA512, expected)
@@ -446,7 +459,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 		if err != nil {
 			return err
 		}
-		checksums, err := release.DownloadBytes(checksumURL)
+		checksums, err := rel.DownloadBytes(checksumURL)
 		if err != nil {
 			return err
 		}
@@ -486,7 +499,7 @@ func tryPatchUpdate(exePath string, rel *release.Release) error {
 	if err != nil {
 		return fmt.Errorf("binary-checksums.txt not found")
 	}
-	binaryChecksums, err := release.DownloadBytes(binaryChecksumURL)
+	binaryChecksums, err := rel.DownloadBytes(binaryChecksumURL)
 	if err != nil {
 		return err
 	}

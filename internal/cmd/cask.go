@@ -191,7 +191,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		slog.Info("expected SHA512: " + sha512)
 	}
 
-	dl := &downloader.Downloader{TmpDir: paths.Tmp}
+	dl := &downloader.Downloader{TmpDir: paths.Tmp, CacheDir: paths.Cache}
 	filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
 	// Ensure the constructed filename is a single safe path component.
 	if err := safepath.SafePathComponent(filename); err != nil {
