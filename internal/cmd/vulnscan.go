@@ -52,9 +52,9 @@ Scan installed packages for security vulnerabilities, including known CVEs
 
 Options:
   --json           Output results as JSON.
-  -s, --summary    Only show critical and high severity findings.
+  -q, --summary    Only show critical and high severity findings.
   --offline        Skip the OSV.dev vulnerability database query.
-  -q, --quiet      Only print errors (global flag).
+  --quiet          Only print errors (global flag).
   -v, --verbose    Show detailed output.
   -d, --debug      Show debug diagnostics (implies --verbose).
 `)
@@ -62,7 +62,7 @@ Options:
 
 	jsonOutput := fs.Bool("json", false, "Output results as JSON")
 	summaryOnly := fs.Bool("summary", false, "Only show critical and high severity findings")
-	fs.BoolVar(summaryOnly, "s", false, "Only show critical and high severity findings")
+	fs.BoolVar(summaryOnly, "q", false, "Only show critical and high severity findings")
 	skipOSV := fs.Bool("offline", false, "Skip OSV.dev vulnerability database query")
 	flags.Register(fs)
 	if err := fs.Parse(args); err != nil {

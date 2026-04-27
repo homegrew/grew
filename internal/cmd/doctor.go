@@ -100,20 +100,18 @@ Options:
   --list-checks List all available diagnostic checks.
   -D, --audit-debug
                 Show execution time for each diagnostic check.
-  -q, --quiet   Only print warnings and errors; omit successful checks.
   -v, --verbose Show detailed output.
   -d, --debug   Show debug diagnostics (implies --verbose).
+  -q, --quiet   Only print errors and warnings; omit successful checks.
 `)
 	}
 
-	flags.Register(fs)
-	listChecks := fs.Bool("list-checks", false, "List all available check names")
+	listChecks := fs.Bool("list-checks", false, "List all available check name")
 	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")
 	fs.BoolVar(auditDebug, "D", false, "Show timing per check")
-	quiet := fs.Bool("quiet", false, "Only print warnings")
-	fs.BoolVar(quiet, "q", false, "Only print warnings")
 	runAll := fs.Bool("all", false, "Run all checks")
 	fs.BoolVar(runAll, "a", false, "Run all checks")
+	flags.Register(fs)
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -154,7 +152,7 @@ Options:
 	paths := config.Default()
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil && !*quiet {
+	if err := tapMgr.InitCore(); err != nil && !flags.Quiet {
 		slog.Warn(fmt.Sprintf("failed to init core tap: %v", err))
 	}
 
@@ -176,14 +174,14 @@ Options:
 		formulas: formulas,
 		casks:    casks,
 		packages: packages,
-		quiet:    *quiet,
+		quiet:    flags.Quiet,
 	}
 	ctx.warn = func(format string, args ...any) {
 		ctx.warnings++
 		fmt.Printf("Warning: "+format+"\n", args...)
 	}
 
-	if !*quiet {
+	if !flags.Quiet {
 		fmt.Println("Checking grew installation...")
 	}
 
@@ -191,20 +189,22 @@ Options:
 		if *auditDebug {
 			start := time.Now()
 			c.Run(ctx)
-			fmt.Printf("[audit] %-35s %s (%d warning(s))\n", c.Name, time.Since(start), ctx.warnings)
+			if !flags.Quiet {
+				fmt.Printf("[audit] %-35s %s (%d warning(s))\n", c.Name, time.Since(start), ctx.warnings)
+			}
 		} else {
 			c.Run(ctx)
 		}
 	}
 
 	if ctx.warnings == 0 {
-		if !*quiet {
+		if !flags.Quiet {
 			fmt.Println("Your system is ready to brew.")
 		}
 		return nil
 	}
 
-	if !*quiet {
+	if !flags.Quiet {
 		fmt.Printf("\n%d warning(s) found.\n", ctx.warnings)
 	}
 	// Return error so exit code is non-zero when warnings exist.

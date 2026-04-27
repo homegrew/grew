@@ -149,7 +149,7 @@ grew cleanup -n              # peek before you sweep
 grew cleanup --scrub         # aggressive cache cleaning
 grew cleanup --prune=7       # remove cache older than a week
 grew verify jq               # check installed files against manifest
-grew vuln-scan -s            # scan for CVEs and only show critical/high severity findings
+grew vuln-scan -q            # scan for CVEs and only show critical/high severity findings
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
