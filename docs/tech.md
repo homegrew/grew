@@ -76,7 +76,26 @@ A developer tool used to generate binary delta patches between releases.
 - **Integrity**: Automatically calculates SHA-256 and SHA-512 hashes for the resulting patch files, formatted for inclusion in the release's `checksums.txt`.
 - **Platform Aware**: Handles mapping between internal OS/Architecture names and the naming conventions used in release assets.
 
-## 4. Developer Mode (`devmode`) Explained
+## 4. Diagnostic Engine (`pkg/doctor`)
+
+`grew` includes a comprehensive diagnostic engine designed to verify the health, security, and structural integrity of an installation. This engine is invoked via the `grew doctor` command.
+
+The diagnostic system is designed with modularity and extensibility in mind:
+
+- **Context-Driven Execution:** Diagnostics run against a shared `Context` object that holds the current state of the system, including loaded formulas, casks, installed packages, and configuration paths. This minimizes redundant filesystem reads and parses.
+- **Core Checks:** A suite of foundational checks (`BaseChecks`) ensures that:
+    - Critical directories exist and are not world-writable.
+    - Symlinks in the `bin/` directory point to valid targets within the prefix.
+    - Download URLs enforce HTTPS and cryptographic hashes are valid.
+    - Installations have valid `snapshot` manifests and haven't been tampered with.
+- **Platform-Specific Extensions:** The system uses `init()` functions to register platform-specific checks into an `ExtraChecks` slice. For example, on macOS, `doctor_darwin.go` injects checks that verify:
+    - **App Sandbox:** Ensures installed casks possess the `com.apple.security.app-sandbox` entitlement.
+    - **Notarization:** Uses `spctl` to verify that applications pass Gatekeeper assessment.
+    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr`.
+
+This architecture allows developers to easily add new checks without modifying the core execution flow, ensuring `grew` can continuously expand its health and security validations.
+
+## 5. Developer Mode (`devmode`) Explained
 
 Typically, `grew` requires root privileges (`sudo grew setup`) during initial setup to create system-level prefix directories (like `/opt/homegrew`), establishing a strict isolation boundary between the package manager and the user's `$HOME` directory.
 
