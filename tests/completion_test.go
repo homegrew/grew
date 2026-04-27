@@ -5,10 +5,10 @@ package tests
 import (
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
 )
-
 func TestShellCompletion(t *testing.T) {
 	tmpDir := t.TempDir()
 	prefix := setupPrefix(t, tmpDir)
@@ -19,7 +19,7 @@ func TestShellCompletion(t *testing.T) {
 
 	for _, shell := range shells {
 		cmd := exec.Command(exePath, "completion", shell)
-		cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix)
+		cmd.Env = append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 		out, err := cmd.CombinedOutput()
 
 		// If the command is missing, this will fail.

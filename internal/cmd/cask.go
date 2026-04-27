@@ -217,6 +217,24 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		return fmt.Errorf("invalid temp directory path %q: %w", canonTmp, err)
 	}
 
+	cacheAbs, err := filepath.Abs(paths.Cache)
+	if err != nil {
+		return fmt.Errorf("resolve cache directory: %w", err)
+	}
+	canonCache, err := filepath.EvalSymlinks(cacheAbs)
+	if err != nil {
+		if os.IsNotExist(err) {
+			canonCache = filepath.Clean(cacheAbs)
+		} else {
+			return fmt.Errorf("resolve cache directory symlinks: %w", err)
+		}
+	} else {
+		canonCache = filepath.Clean(canonCache)
+	}
+	if err := safepath.SafeAbsolutePath(canonCache); err != nil {
+		return fmt.Errorf("invalid cache directory path %q: %w", canonCache, err)
+	}
+
 	localAbs, err := filepath.Abs(localFile)
 	if err != nil {
 		return fmt.Errorf("resolve downloaded path: %w", err)
@@ -234,23 +252,24 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	if err := safepath.SafeAbsolutePath(canonLocal); err != nil {
 		return fmt.Errorf("invalid downloaded path %q: %w", canonLocal, err)
 	}
-	if err := safepath.CheckSubpath(canonTmp, canonLocal); err != nil {
-		return fmt.Errorf("downloaded path escapes temp directory: %w", err)
+	if !safepath.IsSubpath(canonTmp, canonLocal) && !safepath.IsSubpath(canonCache, canonLocal) {
+		return fmt.Errorf("downloaded path escapes both temp directory %q and cache directory %q: %q", canonTmp, canonCache, canonLocal)
 	}
 	localFile = canonLocal
 
 	slog.Info("saved to: " + localFile)
 
-	if err := downloader.VerifySHA256Within(paths.Tmp, localFile, sha); err != nil {
-		// Best-effort cleanup of the downloaded file, constrained to the temp directory.
-		_ = removeIfWithin(localFile, paths.Tmp)
+	if err := downloader.VerifySHA256(localFile, sha); err != nil {
+		// Best-effort cleanup of the downloaded file, constrained to the temp and cache directories.
+		_ = removeIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
+
 	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
 
 	if sha512 != "" {
-		if err := downloader.VerifySHA512Within(paths.Tmp, localFile, sha512); err != nil {
-			_ = removeIfWithin(localFile, paths.Tmp)
+		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
+			_ = removeIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}
 		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")

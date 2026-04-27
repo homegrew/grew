@@ -77,6 +77,7 @@ func TestUninstallWithShare(t *testing.T) {
 
 	commonEnv := append(os.Environ(),
 		"HOMEGREW_PREFIX="+prefix,
+		"HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"),
 		"HOMEGREW_ALLOWED_HOSTS="+serverHost,
 		"HOMEGREW_TEST_CERT_FILE="+certFile,
 	)

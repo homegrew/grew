@@ -29,6 +29,7 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	prefix := filepath.Join(tmpDir, "prefix")
 	binDir := filepath.Join(prefix, "bin")
 	os.MkdirAll(binDir, 0755)
+	os.MkdirAll(filepath.Join(prefix, "tmp"), 0755)
 	oldExePath := filepath.Join(binDir, "grew")
 
 	root := getProjectRoot(t)
@@ -167,7 +168,9 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	cmdRun := exec.Command(oldExePath, "run")
 	env := os.Environ()
 	env = append(env, "HOMEGREW_PREFIX="+prefix)
+	env = append(env, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	env = append(env, "HOMEGREW_GITHUB_API_BASE="+mockServer.URL)
+	env = append(env, "HOMEGREW_ALLOWED_HOSTS=127.0.0.1")
 	env = append(env, "HOMEGREW_OSV_API_BASE="+mockServer.URL)
 	env = append(env, "HOMEGREW_TEST_CERT_FILE="+certFile)
 	cmdRun.Env = env
