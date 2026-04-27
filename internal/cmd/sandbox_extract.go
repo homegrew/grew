@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"path/filepath"
 
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
