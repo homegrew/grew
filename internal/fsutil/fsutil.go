@@ -141,10 +141,11 @@ func CopyTree(src, dst string) error {
 					if chmodErr := os.Chmod(target, dirMode); chmodErr != nil {
 						return chmodErr
 					}
-					return nil
+				} else {
+					return err
 				}
-				return err
 			}
+			_ = os.Chtimes(target, info.ModTime(), info.ModTime())
 			return nil
 		}
 
@@ -165,6 +166,11 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 		return fmt.Errorf("resolve source: %w", err)
 	}
 	absSrc = filepath.Clean(absSrc)
+
+	srcInfo, err := os.Stat(absSrc)
+	if err != nil {
+		return fmt.Errorf("stat source: %w", err)
+	}
 
 	// Normalize destination to an absolute, cleaned path before use.
 	if dst == "" {
@@ -248,6 +254,9 @@ func CopyFileWithinRoot(src, dst, root string, mode os.FileMode) error {
 
 	if _, err := io.Copy(out, in); err != nil {
 		cerr = err
+	}
+	if cerr == nil {
+		_ = os.Chtimes(absDst, srcInfo.ModTime(), srcInfo.ModTime())
 	}
 	return cerr
 }

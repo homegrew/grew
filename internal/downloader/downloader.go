@@ -242,6 +242,12 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 		return "", fmt.Errorf("close file %s: %w", safeSinkPath, err)
 	}
 
+	if lm := resp.Header.Get("Last-Modified"); lm != "" {
+		if t, err := http.ParseTime(lm); err == nil {
+			_ = os.Chtimes(safeSinkPath, t, t)
+		}
+	}
+
 	fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
 	return safeSinkPath, nil
 }
