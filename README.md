@@ -152,6 +152,9 @@ grew verify jq               # check installed files against manifest
 grew vuln-scan -q            # scan for CVEs and only show critical/high severity findings
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
+grew --cache                 # show download cache
+grew --cache jq              # show cache path for jq
+grew --cache --os=linux jq   # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
 ```
 
@@ -188,6 +191,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `shellenv` | Wire up your shell |
 | `pin` / `unpin` | Freeze formulas to prevent upgrades |
 | `completion` | Generate shell completion (bash, zsh, fish) |
+| `--cache` | Display download cache root or specific package cache paths |
 | `version` | Print version and exit |
 | `help` | You got this |
 
