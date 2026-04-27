@@ -68,6 +68,7 @@ func allChecks() []doctorCheck {
 		//{"check_cask_sha512", "Check all cask SHA512 hashes are valid hex", checkCaskSHA512},
 		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
 		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
+		{"check_incomplete_installs", "Check for packages missing an installation manifest", checkIncompleteInstalls},
 		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
 		{"check_sandbox", "Verify functional sandboxing is available", checkSandbox},
 		// --- Structural / health checks ---
@@ -414,6 +415,19 @@ func checkCellarPermissions(ctx *doctorCtx) {
 	}
 }
 
+func checkIncompleteInstalls(ctx *doctorCtx) {
+	for _, pkg := range ctx.packages {
+		kegPath, err := ctx.cel.KegPath(pkg.Name, pkg.Version)
+		if err != nil {
+			continue
+		}
+		if !snapshot.Exists(kegPath) {
+			ctx.warn("%s %s: installation manifest missing — this package may be half-installed.\n"+
+				"  Run 'grew reinstall %s' to fix.", pkg.Name, pkg.Version, pkg.Name)
+		}
+	}
+}
+
 func checkSnapshotIntegrity(ctx *doctorCtx) {
 	for _, pkg := range ctx.packages {
 		kegPath, err := ctx.cel.KegPath(pkg.Name, pkg.Version)
@@ -421,6 +435,7 @@ func checkSnapshotIntegrity(ctx *doctorCtx) {
 			continue
 		}
 		if !snapshot.Exists(kegPath) {
+			// Already flagged by checkIncompleteInstalls
 			continue
 		}
 		result, err := snapshot.Verify(kegPath)

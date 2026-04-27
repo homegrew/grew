@@ -98,6 +98,43 @@ func TestUninstall_NotInstalled(t *testing.T) {
 	}
 }
 
+func TestUninstallVersion(t *testing.T) {
+	cel, tmpDir := setupTestCellar(t)
+	stage := createStagingDir(t, tmpDir)
+
+	// Install two versions
+	cel.Install("mypkg", "1.0.0", stage)
+	cel.Install("mypkg", "1.1.0", stage)
+
+	if !cel.IsInstalled("mypkg") {
+		t.Fatal("mypkg should be installed")
+	}
+
+	// Uninstall one version
+	if err := cel.UninstallVersion("mypkg", "1.0.0"); err != nil {
+		t.Fatalf("uninstall version failed: %v", err)
+	}
+
+	if !cel.IsInstalled("mypkg") {
+		t.Fatal("mypkg should still be installed (1.1.0 remains)")
+	}
+
+	// Uninstall the other version
+	if err := cel.UninstallVersion("mypkg", "1.1.0"); err != nil {
+		t.Fatalf("uninstall version failed: %v", err)
+	}
+
+	if cel.IsInstalled("mypkg") {
+		t.Fatal("mypkg should not be installed anymore")
+	}
+
+	// Ensure the parent directory is gone
+	d := filepath.Join(cel.Path, "mypkg")
+	if _, err := os.Stat(d); !os.IsNotExist(err) {
+		t.Error("parent formula directory should have been removed")
+	}
+}
+
 func TestList(t *testing.T) {
 	cel, tmpDir := setupTestCellar(t)
 

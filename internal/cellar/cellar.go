@@ -60,13 +60,28 @@ func (c *Cellar) Uninstall(name string) error {
 	return os.RemoveAll(d)
 }
 
-func (c *Cellar) IsInstalled(name string) bool {
-	d, err := c.kegDir(name)
+func (c *Cellar) UninstallVersion(name, version string) error {
+	p, err := c.KegPath(name, version)
 	if err != nil {
-		return false
+		return err
 	}
-	info, err := os.Stat(d)
-	return err == nil && info.IsDir()
+	if _, err := os.Stat(p); os.IsNotExist(err) {
+		return nil // already gone
+	}
+	if err := os.RemoveAll(p); err != nil {
+		return err
+	}
+	// If the formula directory is now empty, remove it too.
+	d, _ := c.kegDir(name)
+	if entries, err := os.ReadDir(d); err == nil && len(entries) == 0 {
+		_ = os.Remove(d)
+	}
+	return nil
+}
+
+func (c *Cellar) IsInstalled(name string) bool {
+	versions, err := c.InstalledVersions(name)
+	return err == nil && len(versions) > 0
 }
 
 func (c *Cellar) InstalledVersion(name string) (string, error) {
@@ -231,10 +246,10 @@ func (c *Cellar) Unpin(name string) error {
 
 // IsPinned returns true if a formula is pinned.
 func (c *Cellar) IsPinned(name string) bool {
-	d, err := c.kegDir(name)
-	if err != nil {
+	if !c.IsInstalled(name) {
 		return false
 	}
-	_, err = os.Stat(filepath.Join(d, "PINNED"))
+	d, _ := c.kegDir(name)
+	_, err := os.Stat(filepath.Join(d, "PINNED"))
 	return err == nil
 }

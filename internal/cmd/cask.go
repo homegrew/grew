@@ -141,11 +141,21 @@ func removeIfWithin(targetPath, baseDir string) error {
 	return os.Remove(safeTarget)
 }
 
-func caskInstall(name string, noQuarantine bool, force bool) error {
+func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	paths, c, cr, err := loadCask(name)
 	if err != nil {
 		return err
 	}
+
+	defer func() {
+		if err != nil {
+			slog.Error("cask installation failed, cleaning up", "cask", c.Name, "error", err)
+			// Best-effort cleanup of installed artifacts.
+			// We don't have a surgical way to know which ones were partially installed,
+			// so we use caskUninstall which is safe even if some parts are missing.
+			_ = caskUninstall(c.Name, true)
+		}
+	}()
 
 	if cr.IsInstalled(c.Name) && !force {
 		fmt.Fprintf(os.Stderr, "==> %s %s is already installed, skipping\n", c.Name, c.Version)
