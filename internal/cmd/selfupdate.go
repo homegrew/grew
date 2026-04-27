@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+	"time"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
@@ -282,9 +283,24 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 		KegDir: binPath, // read-only; only needs to read itself
 		TmpDir: tmpDir,
 	}
-	cmd := sandbox.PostInstallCommand(cfg, binPath, "--version")
-	cmd.Env = append(cmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
-	out, err := cmd.Output()
+
+	var out []byte
+	// Retry loop for ETXTBSY ("text file busy") which can happen on Linux
+	// if a background indexer/scanner briefly opens the newly written file.
+	for i := 0; i < 5; i++ {
+		cmd := sandbox.PostInstallCommand(cfg, binPath, "--version")
+		cmd.Env = append(cmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
+		out, err = cmd.Output()
+		if err == nil {
+			break
+		}
+		if strings.Contains(err.Error(), "text file busy") {
+			time.Sleep(50 * time.Millisecond)
+			continue
+		}
+		break
+	}
+
 	if err != nil {
 		return fmt.Errorf("new binary failed to execute: %w", err)
 	}
