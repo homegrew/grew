@@ -25,6 +25,14 @@ func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 		return downloader.Extract(archivePath, stageDir, spec)
 	}
 
+	// Resolve the stage directory to its canonical path to ensure consistency
+	// between the parent and sandboxed subprocess, particularly on macOS
+	// where /var is a symlink to /private/var.
+	if eval, err := filepath.EvalSymlinks(stageDir); err == nil {
+		stageDir = eval
+	}
+	stageDir = filepath.Clean(stageDir)
+
 	cfg := sandbox.ExtractConfig{
 		ArchiveFile: archivePath,
 		StageDir:    stageDir,
