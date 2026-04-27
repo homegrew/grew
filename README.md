@@ -268,6 +268,7 @@ grew/
 │   ├── tap/          ← tap repo management + commit verification
 │   └── version/      ← embedded version from git tags
 ├── pkg/
+│   ├── doctor/       ← diagnostic engine and checks (permissions, integrity, macOS security)
 │   ├── logger/       ← CLI-friendly log/slog handler with source context (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
