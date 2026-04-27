@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/homegrew/grew/internal/cask"
+	"github.com/homegrew/grew/internal/config"
 )
 
 // Helper to mock command execution if we need it
@@ -39,9 +40,6 @@ func TestInstalledCaskApps(t *testing.T) {
 	os.MkdirAll(caskroom, 0755)
 	os.MkdirAll(appDir, 0755)
 
-	t.Setenv("HOMEGREW_PREFIX", tmpDir)
-	t.Setenv("HOMEGREW_APPDIR", appDir)
-
 	// Create installed cask directory with a valid version
 	os.MkdirAll(filepath.Join(caskroom, "mycask", "1.0.0"), 0755)
 	
@@ -50,6 +48,7 @@ func TestInstalledCaskApps(t *testing.T) {
 	os.MkdirAll(appPath, 0755)
 
 	ctx := &Context{
+		Paths: config.FromRoot(tmpDir, appDir),
 		Casks: []*cask.Cask{
 			{
 				Name: "mycask",
@@ -103,10 +102,8 @@ func TestCheckCaskSandbox(t *testing.T) {
 		caskroom := filepath.Join(tmpDir, "Caskroom")
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
-		t.Setenv("HOMEGREW_PREFIX", tmpDir)
-		t.Setenv("HOMEGREW_APPDIR", appDir)
-		
 		ctx := &Context{
+			Paths: config.FromRoot(tmpDir, appDir),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -129,10 +126,8 @@ func TestCheckCaskSandbox(t *testing.T) {
 		caskroom := filepath.Join(tmpDir, "Caskroom")
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
-		t.Setenv("HOMEGREW_PREFIX", tmpDir)
-		t.Setenv("HOMEGREW_APPDIR", appDir)
-		
 		ctx := &Context{
+			Paths: config.FromRoot(tmpDir, appDir),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -155,10 +150,8 @@ func TestCheckCaskSandbox(t *testing.T) {
 		caskroom := filepath.Join(tmpDir, "Caskroom")
 		os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 		
-		t.Setenv("HOMEGREW_PREFIX", tmpDir)
-		t.Setenv("HOMEGREW_APPDIR", appDir)
-		
 		ctx := &Context{
+			Paths: config.FromRoot(tmpDir, appDir),
 			Casks: []*cask.Cask{
 				{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 			},
@@ -195,10 +188,8 @@ func TestCheckCaskNotarization(t *testing.T) {
 			caskroom := filepath.Join(tmpDir, "Caskroom")
 			os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 			
-			t.Setenv("HOMEGREW_PREFIX", tmpDir)
-			t.Setenv("HOMEGREW_APPDIR", appDir)
-			
 			ctx := &Context{
+				Paths: config.FromRoot(tmpDir, appDir),
 				Casks: []*cask.Cask{
 					{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 				},
@@ -235,10 +226,8 @@ func TestCheckCaskQuarantine(t *testing.T) {
 			caskroom := filepath.Join(tmpDir, "Caskroom")
 			os.MkdirAll(filepath.Join(caskroom, "testcask", "1.0.0"), 0755)
 			
-			t.Setenv("HOMEGREW_PREFIX", tmpDir)
-			t.Setenv("HOMEGREW_APPDIR", appDir)
-			
 			ctx := &Context{
+				Paths: config.FromRoot(tmpDir, appDir),
 				Casks: []*cask.Cask{
 					{Name: "testcask", Artifacts: cask.Artifacts{App: []string{"Test.app"}}},
 				},
