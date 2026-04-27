@@ -1,4 +1,4 @@
-package cmd
+package doctor
 
 import (
 	"fmt"
@@ -9,10 +9,10 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 )
 
-func assertDoctorWarnings(t *testing.T, ctx *doctorCtx, checkFn func(*doctorCtx), wantWarn string) {
+func assertDoctorWarnings(t *testing.T, ctx *Context, checkFn func(*Context), wantWarn string) {
 	t.Helper()
 	var warnings []string
-	ctx.warn = func(format string, args ...any) {
+	ctx.Warn = func(format string, args ...any) {
 		warnings = append(warnings, fmt.Sprintf(format, args...))
 	}
 
@@ -76,8 +76,8 @@ func TestCheckCaskSHA256(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{casks: tt.casks}
-			assertDoctorWarnings(t, ctx, checkCaskSHA256, tt.wantWarn)
+			ctx := &Context{Casks: tt.casks}
+			assertDoctorWarnings(t, ctx, CheckCaskSHA256, tt.wantWarn)
 		})
 	}
 }
@@ -132,8 +132,8 @@ func TestCheckCaskSHA512(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{casks: tt.casks}
-			assertDoctorWarnings(t, ctx, checkCaskSHA512, tt.wantWarn)
+			ctx := &Context{Casks: tt.casks}
+			assertDoctorWarnings(t, ctx, CheckCaskSHA512, tt.wantWarn)
 		})
 	}
 }
@@ -217,8 +217,8 @@ func TestCheckFormulaSHA512(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ctx := &doctorCtx{formulas: tt.formulas}
-			assertDoctorWarnings(t, ctx, checkFormulaSHA512, tt.wantWarn)
+			ctx := &Context{Formulas: tt.formulas}
+			assertDoctorWarnings(t, ctx, CheckFormulaSHA512, tt.wantWarn)
 		})
 	}
 }

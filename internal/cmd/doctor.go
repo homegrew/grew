@@ -4,90 +4,17 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
-	"os"
-	"path/filepath"
-
-	"github.com/homegrew/grew/pkg/safepath"
-
-	"sort"
-	"strings"
 	"time"
 
-	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
-	grewrt "github.com/homegrew/grew/internal/runtime"
-	"github.com/homegrew/grew/internal/sandbox"
-	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/doctor"
 )
 
-// doctorCheck is a named diagnostic check.
-type doctorCheck struct {
-	Name string
-	Desc string
-	Run  func(ctx *doctorCtx)
-}
-
-// doctorCtx carries shared state through all checks.
-type doctorCtx struct {
-	paths    config.Paths
-	cel      *cellar.Cellar
-	lnk      *linker.Linker
-	loader   *formula.Loader
-	formulas []*formula.Formula
-	casks    []*cask.Cask
-	packages []cellar.InstalledPackage
-	warnings int
-	quiet    bool
-	warn     func(format string, args ...any)
-}
-
-// extraChecks holds platform-specific checks registered via init().
-var extraChecks []doctorCheck
-
-// registerExtraChecks appends checks from platform-specific files.
-func registerExtraChecks(checks []doctorCheck) {
-	extraChecks = append(extraChecks, checks...)
-}
-
-// allChecks returns the ordered list of doctor checks.
-// Security-critical checks come first.
-func allChecks() []doctorCheck {
-	base := []doctorCheck{
-		// --- Security checks ---
-		{"check_prefix_isolation", "Check grew prefix is outside $HOME", checkPrefixIsolation},
-		{"check_directory_permissions", "Check grew directories are not world-writable", checkDirectoryPermissions},
-		{"check_formula_https", "Check all formula URLs use HTTPS", checkFormulaHTTPS},
-		{"check_formula_sha256", "Check all formula SHA256 hashes are valid hex", checkFormulaSHA256},
-		//{"check_formula_sha512", "Check all formula SHA512 hashes are valid hex", checkFormulaSHA512},
-		{"check_cask_sha256", "Check all cask SHA256 hashes are valid hex", checkCaskSHA256},
-		//{"check_cask_sha512", "Check all cask SHA512 hashes are valid hex", checkCaskSHA512},
-		{"check_symlink_targets", "Check symlinks don't escape the grew prefix", checkSymlinkTargets},
-		{"check_cellar_permissions", "Check installed kegs are not world-writable", checkCellarPermissions},
-		{"check_incomplete_installs", "Check for packages missing an installation manifest", checkIncompleteInstalls},
-		{"check_snapshot_integrity", "Verify installed packages against their manifests", checkSnapshotIntegrity},
-		{"check_sandbox", "Verify functional sandboxing is available", checkSandbox},
-		// --- Structural / health checks ---
-		{"check_directories", "Check required directories exist", checkDirectories},
-		{"check_path", "Check grew bin/ is in PATH", checkPath},
-		{"check_core_tap", "Check core tap has formulas", checkCoreTap},
-		{"check_broken_symlinks", "Check for broken symlinks in bin/, lib/, include/", checkBrokenSymlinks},
-		{"check_broken_opt_symlinks", "Check for broken opt/ symlinks", checkBrokenOptSymlinks},
-		{"check_unlinked_kegs", "Check installed formulas are linked", checkUnlinkedKegs},
-		{"check_orphaned_symlinks", "Check for orphaned symlinks", checkOrphanedSymlinks},
-		{"check_multiple_versions", "Check for multiple installed versions", checkMultipleVersions},
-		{"check_pinned_formulas", "Check for pinned formulas", checkPinnedFormulas},
-		{"check_stale_tmp", "Check for stale files in tmp/", checkStaleTmp},
-	}
-	return append(base, extraChecks...)
-}
-
 func runDoctor(args []string) error {
-	slog.Debug("starting doctor command execution")
 	slog.Debug("starting doctor command execution")
 	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
 
@@ -119,7 +46,7 @@ Options:
 	flags.Resolve()
 
 	selectedChecks := fs.Args()
-	checks := allChecks()
+	checks := append(doctor.BaseChecks(), doctor.ExtraChecks...)
 
 	if *listChecks {
 		for _, c := range checks {
@@ -135,11 +62,11 @@ Options:
 
 	// Filter to selected checks if any specified.
 	if len(selectedChecks) > 0 {
-		byName := make(map[string]doctorCheck, len(checks))
+		byName := make(map[string]doctor.Check, len(checks))
 		for _, c := range checks {
 			byName[c.Name] = c
 		}
-		var filtered []doctorCheck
+		var filtered []doctor.Check
 		for _, name := range selectedChecks {
 			c, ok := byName[name]
 			if !ok {
@@ -160,25 +87,25 @@ Options:
 	loader := newLoader(paths.Taps)
 	formulas, _ := loader.LoadAll()
 
-	caskLoader := &cask.Loader{TapDir: paths.Taps}
+	caskLoader := newCaskLoader(paths.Taps)
 	casks, _ := caskLoader.LoadAll()
 
 	cel := &cellar.Cellar{Path: paths.Cellar}
 	lnk := &linker.Linker{Paths: paths}
 	packages, _ := cel.List()
 
-	ctx := &doctorCtx{
-		paths:    paths,
-		cel:      cel,
-		lnk:      lnk,
-		loader:   loader,
-		formulas: formulas,
-		casks:    casks,
-		packages: packages,
-		quiet:    flags.Quiet,
+	ctx := &doctor.Context{
+		Paths:    paths,
+		Cel:      cel,
+		Lnk:      lnk,
+		Loader:   loader,
+		Formulas: formulas,
+		Casks:    casks,
+		Packages: packages,
+		Quiet:    flags.Quiet,
 	}
-	ctx.warn = func(format string, args ...any) {
-		ctx.warnings++
+	ctx.Warn = func(format string, args ...any) {
+		ctx.Warnings++
 		fmt.Printf("Warning: "+format+"\n", args...)
 	}
 
@@ -191,14 +118,14 @@ Options:
 			start := time.Now()
 			c.Run(ctx)
 			if !flags.Quiet {
-				fmt.Printf("[audit] %-35s %s (%d warning(s))\n", c.Name, time.Since(start), ctx.warnings)
+				fmt.Printf("[audit] %-35s %s (%d warning(s))\n", c.Name, time.Since(start), ctx.Warnings)
 			}
 		} else {
 			c.Run(ctx)
 		}
 	}
 
-	if ctx.warnings == 0 {
+	if ctx.Warnings == 0 {
 		if !flags.Quiet {
 			fmt.Println("Your system is ready to brew.")
 		}
@@ -206,395 +133,8 @@ Options:
 	}
 
 	if !flags.Quiet {
-		fmt.Printf("\n%d warning(s) found.\n", ctx.warnings)
+		fmt.Printf("\n%d warning(s) found.\n", ctx.Warnings)
 	}
 	// Return error so exit code is non-zero when warnings exist.
-	return fmt.Errorf("%d problem(s) detected", ctx.warnings)
-}
-
-// symlinkInfo holds a resolved symlink found in a directory.
-type symlinkInfo struct {
-	path   string // full path of the symlink
-	target string // resolved absolute target
-}
-
-// walkSymlinks iterates symlinks in the given directories, calling fn for each.
-func walkSymlinks(dirs []string, fn func(info symlinkInfo)) {
-	for _, dir := range dirs {
-		entries, err := os.ReadDir(dir)
-		if err != nil {
-			continue
-		}
-		for _, e := range entries {
-			fullPath := filepath.Join(dir, e.Name())
-			target, err := os.Readlink(fullPath)
-			if err != nil {
-				continue
-			}
-			if !filepath.IsAbs(target) {
-				target = filepath.Join(dir, target)
-			}
-			fn(symlinkInfo{path: fullPath, target: target})
-		}
-	}
-}
-
-// --- Security checks ---
-
-func checkPrefixIsolation(ctx *doctorCtx) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return
-	}
-	if strings.HasPrefix(ctx.paths.Root, home+string(filepath.Separator)) {
-		ctx.warn("grew prefix %s is under $HOME — sandboxed builds can potentially access "+
-			"sensitive files (e.g. ~/.ssh, ~/.gnupg).\n"+
-			"  Run 'sudo grew setup' to install to %s for better isolation.",
-			ctx.paths.Root, grewrt.SystemPrefix())
-	}
-}
-
-func checkDirectoryPermissions(ctx *doctorCtx) {
-	dirs := []string{ctx.paths.Root, ctx.paths.Cellar, ctx.paths.Bin, ctx.paths.Opt, ctx.paths.Taps}
-	for _, dir := range dirs {
-		info, err := os.Stat(dir)
-		if err != nil {
-			continue
-		}
-		perm := info.Mode().Perm()
-		if perm&0002 != 0 {
-			ctx.warn("directory %s is world-writable (%o), this is a security risk", dir, perm)
-		}
-		if perm&0020 != 0 {
-			// Group-writable is less severe but still notable for a package manager
-			slog.Info(fmt.Sprintf("note: %s is group-writable (%o)", dir, perm))
-		}
-	}
-}
-
-func checkFormulaHTTPS(ctx *doctorCtx) {
-	for _, f := range ctx.formulas {
-		for platform, u := range f.URL {
-			if !strings.HasPrefix(u, "https://") {
-				ctx.warn("formula %s: URL for %s uses insecure HTTP: %s", f.Name, platform, u)
-			}
-		}
-	}
-}
-
-func validHexHash(hash string, expectedLen int) string {
-	hash = strings.TrimSpace(hash)
-	if hash == "" || hash == "no_check" {
-		return ""
-	}
-	if len(hash) != expectedLen {
-		return fmt.Sprintf("has wrong length (%d, expected %d)", len(hash), expectedLen)
-	}
-	for _, c := range hash {
-		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-			return fmt.Sprintf("contains non-hex character %q", string(c))
-		}
-	}
-	return ""
-}
-
-func checkFormulaSHA256(ctx *doctorCtx) {
-	for _, f := range ctx.formulas {
-		for platform, hash := range f.SHA256 {
-			if msg := validHexHash(hash, 64); msg != "" {
-				ctx.warn("formula %s: SHA256 for %s %s", f.Name, platform, msg)
-			}
-		}
-	}
-}
-
-func checkFormulaSHA512(ctx *doctorCtx) {
-	for _, f := range ctx.formulas {
-		if len(f.SHA512) == 0 && len(f.Bottle) == 0 {
-			// Only warn if SHA256 is present but SHA512 is not.
-			if len(f.SHA256) > 0 {
-				ctx.warn("formula %s: missing SHA512 metadata", f.Name)
-			}
-			continue
-		}
-
-		for platform, hash := range f.SHA512 {
-			if msg := validHexHash(hash, 128); msg != "" {
-				ctx.warn("formula %s: SHA512 for %s %s", f.Name, platform, msg)
-			}
-		}
-
-		for platform, b := range f.Bottle {
-			if b.SHA512 == "" {
-				ctx.warn("formula %s: bottle for %s missing SHA512", f.Name, platform)
-				continue
-			}
-			if msg := validHexHash(b.SHA512, 128); msg != "" {
-				ctx.warn("formula %s: bottle SHA512 for %s %s", f.Name, platform, msg)
-			}
-		}
-	}
-}
-
-func checkCaskSHA256(ctx *doctorCtx) {
-	for _, c := range ctx.casks {
-		for platform, hash := range c.SHA256 {
-			if msg := validHexHash(hash, 64); msg != "" {
-				ctx.warn("cask %s: SHA256 for %s %s", c.Name, platform, msg)
-			}
-		}
-	}
-}
-
-func checkCaskSHA512(ctx *doctorCtx) {
-	for _, c := range ctx.casks {
-		if len(c.SHA512) == 0 {
-			// Only warn if SHA256 is present but SHA512 is not.
-			if len(c.SHA256) > 0 {
-				ctx.warn("cask %s: missing SHA512 metadata", c.Name)
-			}
-			continue
-		}
-
-		for platform, hash := range c.SHA512 {
-			if msg := validHexHash(hash, 128); msg != "" {
-				ctx.warn("cask %s: SHA512 for %s %s", c.Name, platform, msg)
-			}
-		}
-	}
-}
-
-func checkSymlinkTargets(ctx *doctorCtx) {
-	absPrefix, err := filepath.Abs(ctx.paths.Root)
-	if err != nil {
-		return
-	}
-	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include, ctx.paths.Opt}, func(si symlinkInfo) {
-		resolved, err := filepath.Abs(si.target)
-		if err != nil {
-			return
-		}
-		if !safepath.IsSubpath(absPrefix, resolved) {
-			ctx.warn("symlink escapes grew prefix: %s -> %s (resolves to %s)", si.path, si.target, resolved)
-		}
-	})
-}
-
-func checkCellarPermissions(ctx *doctorCtx) {
-	for _, pkg := range ctx.packages {
-		info, err := os.Stat(pkg.Path)
-		if err != nil {
-			continue
-		}
-		perm := info.Mode().Perm()
-		if perm&0002 != 0 {
-			ctx.warn("keg %s/%s is world-writable (%o)", pkg.Name, pkg.Version, perm)
-		}
-		// Spot-check bin/ inside the keg
-		binDir := filepath.Join(pkg.Path, "bin")
-		entries, err := os.ReadDir(binDir)
-		if err != nil {
-			continue
-		}
-		for _, e := range entries {
-			entryPath, safeJoinErr := safepath.SafeJoin(binDir, e.Name())
-			if safeJoinErr != nil {
-				slog.Info("failed to safe join path %s: %s", e.Name(), safeJoinErr)
-				continue
-			}
-			binInfo, statErr := os.Stat(entryPath)
-			if statErr != nil {
-				slog.Info("failed to stat %s: %s", entryPath, statErr)
-				continue
-			}
-			bp := binInfo.Mode().Perm()
-			if bp&0002 != 0 {
-				ctx.warn("binary %s/%s/bin/%s is world-writable (%o)", pkg.Name, pkg.Version, e.Name(), bp)
-			}
-		}
-	}
-}
-
-func checkIncompleteInstalls(ctx *doctorCtx) {
-	for _, pkg := range ctx.packages {
-		kegPath, err := ctx.cel.KegPath(pkg.Name, pkg.Version)
-		if err != nil {
-			continue
-		}
-		if !snapshot.Exists(kegPath) {
-			ctx.warn("%s %s: installation manifest missing — this package may be half-installed.\n"+
-				"  Run 'grew reinstall %s' to fix.", pkg.Name, pkg.Version, pkg.Name)
-		}
-	}
-}
-
-func checkSnapshotIntegrity(ctx *doctorCtx) {
-	for _, pkg := range ctx.packages {
-		kegPath, err := ctx.cel.KegPath(pkg.Name, pkg.Version)
-		if err != nil {
-			continue
-		}
-		if !snapshot.Exists(kegPath) {
-			// Already flagged by checkIncompleteInstalls
-			continue
-		}
-		result, err := snapshot.Verify(kegPath)
-		if err != nil {
-			ctx.warn("%s %s: snapshot verification error: %v", pkg.Name, pkg.Version, err)
-			continue
-		}
-		if result.OK {
-			continue
-		}
-		for _, f := range result.Missing {
-			ctx.warn("%s %s: missing file: %s", pkg.Name, pkg.Version, f)
-		}
-		for _, f := range result.Modified {
-			ctx.warn("%s %s: modified: %s", pkg.Name, pkg.Version, f)
-		}
-		for _, f := range result.Added {
-			ctx.warn("%s %s: unexpected file: %s", pkg.Name, pkg.Version, f)
-		}
-		if result.KegSHA256Mismatch {
-			ctx.warn("%s %s: aggregate SHA256 mismatch", pkg.Name, pkg.Version)
-		}
-		if result.KegSHA512Mismatch {
-			ctx.warn("%s %s: aggregate SHA512 mismatch", pkg.Name, pkg.Version)
-		}
-		for _, e := range result.Errors {
-			ctx.warn("%s %s: %s", pkg.Name, pkg.Version, e)
-		}
-	}
-}
-
-func checkSandbox(ctx *doctorCtx) {
-	if !sandbox.IsSandboxed() {
-		ctx.warn("Functional sandboxing is NOT available on this system.\n" +
-			"  Source builds and post-install scripts will run without isolation.")
-	}
-}
-
-// --- Structural checks ---
-
-func checkDirectories(ctx *doctorCtx) {
-	required := map[string]string{
-		"prefix":  ctx.paths.Root,
-		"Cellar":  ctx.paths.Cellar,
-		"opt":     ctx.paths.Opt,
-		"bin":     ctx.paths.Bin,
-		"lib":     ctx.paths.Lib,
-		"include": ctx.paths.Include,
-		"Taps":    ctx.paths.Taps,
-		"CoreTap": ctx.paths.CoreTap,
-		"tmp":     ctx.paths.Tmp,
-	}
-	// Sort for deterministic output.
-	names := make([]string, 0, len(required))
-	for name := range required {
-		names = append(names, name)
-	}
-	sort.Strings(names)
-	for _, name := range names {
-		dir := required[name]
-		if info, err := os.Stat(dir); err != nil || !info.IsDir() {
-			ctx.warn("%s directory missing: %s", name, dir)
-		}
-	}
-}
-
-func checkPath(ctx *doctorCtx) {
-	entries := filepath.SplitList(os.Getenv("PATH"))
-	for _, entry := range entries {
-		abs, err := filepath.Abs(entry)
-		if err != nil {
-			continue
-		}
-		binAbs, _ := filepath.Abs(ctx.paths.Bin)
-		if abs == binAbs {
-			return
-		}
-	}
-	ctx.warn("%s is not in your PATH\n  Add this to your shell profile: eval \"$(grew shellenv)\"", ctx.paths.Bin)
-}
-
-func checkCoreTap(ctx *doctorCtx) {
-	if len(ctx.formulas) == 0 {
-		ctx.warn("no formulas found in any tap")
-	}
-}
-
-func checkBrokenSymlinks(ctx *doctorCtx) {
-	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include}, func(si symlinkInfo) {
-		if _, err := os.Stat(si.target); os.IsNotExist(err) {
-			ctx.warn("broken symlink: %s -> %s", si.path, si.target)
-		}
-	})
-}
-
-func checkBrokenOptSymlinks(ctx *doctorCtx) {
-	walkSymlinks([]string{ctx.paths.Opt}, func(si symlinkInfo) {
-		if _, err := os.Stat(si.target); os.IsNotExist(err) {
-			ctx.warn("broken opt symlink: %s -> %s", si.path, si.target)
-		}
-	})
-}
-
-func checkUnlinkedKegs(ctx *doctorCtx) {
-	for _, pkg := range ctx.packages {
-		if ctx.lnk.IsLinked(pkg.Name) {
-			continue
-		}
-		f, err := ctx.loader.LoadByName(pkg.Name)
-		if err == nil && f.KegOnly {
-			continue
-		}
-		ctx.warn("%s %s is installed but not linked", pkg.Name, pkg.Version)
-	}
-}
-
-func checkOrphanedSymlinks(ctx *doctorCtx) {
-	walkSymlinks([]string{ctx.paths.Bin, ctx.paths.Lib, ctx.paths.Include}, func(si symlinkInfo) {
-		target := filepath.Clean(si.target)
-		if !strings.Contains(target, "Cellar") {
-			return
-		}
-		rel, err := filepath.Rel(ctx.paths.Cellar, target)
-		if err != nil {
-			return
-		}
-		name := strings.SplitN(rel, string(filepath.Separator), 2)[0]
-		if !ctx.cel.IsInstalled(name) {
-			ctx.warn("orphaned symlink: %s (formula %q not installed)", si.path, name)
-		}
-	})
-}
-
-func checkMultipleVersions(ctx *doctorCtx) {
-	for _, pkg := range ctx.packages {
-		versions, err := ctx.cel.InstalledVersions(pkg.Name)
-		if err != nil || len(versions) <= 1 {
-			continue
-		}
-		ctx.warn("%s has %d versions installed (%s), consider running 'grew cleanup'",
-			pkg.Name, len(versions), strings.Join(versions, ", "))
-	}
-}
-
-func checkPinnedFormulas(ctx *doctorCtx) {
-	var pinned []string
-	for _, pkg := range ctx.packages {
-		if ctx.cel.IsPinned(pkg.Name) {
-			pinned = append(pinned, pkg.Name)
-		}
-	}
-	if len(pinned) > 0 {
-		ctx.warn("Some formulas are pinned and will not be upgraded: %s", strings.Join(pinned, ", "))
-	}
-}
-
-func checkStaleTmp(ctx *doctorCtx) {
-	entries, err := os.ReadDir(ctx.paths.Tmp)
-	if err == nil && len(entries) > 0 {
-		ctx.warn("%d leftover file(s) in tmp directory, consider running 'grew cleanup'", len(entries))
-	}
+	return fmt.Errorf("%d problem(s) detected", ctx.Warnings)
 }
