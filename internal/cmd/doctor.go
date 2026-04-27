@@ -396,8 +396,14 @@ func checkCellarPermissions(ctx *doctorCtx) {
 			continue
 		}
 		for _, e := range entries {
-			binInfo, err := os.Stat(filepath.Join(binDir, e.Name()))
-			if err != nil {
+			entryPath, safeJoinErr := safepath.SafeJoin(binDir, e.Name())
+			if safeJoinErr != nil {
+				slog.Info("failed to safe join path %s: %s", e.Name(), safeJoinErr)
+				continue
+			}
+			binInfo, statErr := os.Stat(entryPath)
+			if statErr != nil {
+				slog.Info("failed to stat %s: %s", entryPath, statErr)
 				continue
 			}
 			bp := binInfo.Mode().Perm()
