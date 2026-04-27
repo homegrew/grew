@@ -322,10 +322,19 @@ func removeIfWithinTmp(tmpDir, candidate string) error {
 	return os.Remove(cleanCandidate)
 }
 
-func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) error {
+func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
+
+	defer func() {
+		if err != nil {
+			slog.Error("installation failed, cleaning up", "formula", f.Name, "error", err)
+			_ = ctx.Linker.Unlink(f.Name)
+			_ = ctx.Cellar.UninstallVersion(f.Name, f.Version)
+		}
+	}()
+
 	fmt.Fprintf(os.Stderr, "==> Installing %s %s\n", f.Name, f.Version)
 
 	dlURL, err := f.GetURL()
@@ -481,9 +490,17 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) e
 
 // installFormulaFromSource downloads the source tarball and builds from source
 // inside a sandboxed environment (no network, restricted filesystem access).
-func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts installOpts) error {
+func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts installOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
+
+	defer func() {
+		if err != nil {
+			slog.Error("installation from source failed, cleaning up", "formula", f.Name, "error", err)
+			_ = ctx.Linker.Unlink(f.Name)
+			_ = ctx.Cellar.UninstallVersion(f.Name, f.Version)
+		}
+	}()
 
 	if err := checkFormulaPathComponents(f); err != nil {
 		return err

@@ -134,8 +134,8 @@ func TestTimeOp(t *testing.T) {
 	done := TimeOp("test_op")
 
 	// Ensure the start message is logged
-	if !strings.Contains(buf.String(), "[debug] test_op started") {
-		t.Errorf("Expected start message, got: %q", buf.String())
+	if !strings.Contains(buf.String(), "logger.go:") || !strings.Contains(buf.String(), "test_op started") {
+		t.Errorf("Expected start message with source info, got: %q", buf.String())
 	}
 
 	buf.Reset()
@@ -145,8 +145,8 @@ func TestTimeOp(t *testing.T) {
 	done()
 
 	// Ensure the completion message is logged
-	if !strings.Contains(buf.String(), "[debug] test_op completed in") {
-		t.Errorf("Expected completion message, got: %q", buf.String())
+	if !strings.Contains(buf.String(), "logger.go:") || !strings.Contains(buf.String(), "test_op completed in") {
+		t.Errorf("Expected completion message with source info, got: %q", buf.String())
 	}
 }
 
@@ -175,29 +175,32 @@ func TestInit(t *testing.T) {
 		name    string
 		verbose bool
 		debug   bool
-		level   slog.Level
+		quiet   bool
+		expected slog.Level
 	}{
-		{"default", false, false, slog.LevelWarn},
-		{"verbose", true, false, slog.LevelInfo},
-		{"debug", false, true, slog.LevelDebug},
-		{"both", true, true, slog.LevelDebug}, // debug takes precedence
+		{"default", false, false, false, slog.LevelWarn},
+		{"verbose", true, false, false, slog.LevelInfo},
+		{"debug", false, true, false, slog.LevelDebug},
+		{"both", true, true, false, slog.LevelDebug}, // debug takes precedence
+		{"quiet", false, false, true, slog.LevelError},
+		{"quiet_prec", true, true, true, slog.LevelError}, // quiet takes precedence
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			Init(tt.verbose, tt.debug)
+			Init(tt.verbose, tt.debug, tt.quiet)
 
 			// Verify the level set by checking Enabled on the default logger
 			ctx := context.Background()
 
 			// Should be enabled for the expected level and above
-			if !slog.Default().Enabled(ctx, tt.level) {
-				t.Errorf("Expected level %v to be enabled", tt.level)
+			if !slog.Default().Enabled(ctx, tt.expected) {
+				t.Errorf("Expected level %v to be enabled", tt.expected)
 			}
 
 			// Should NOT be enabled for levels below the expected level
-			if tt.level > slog.LevelDebug && slog.Default().Enabled(ctx, tt.level-1) {
-				t.Errorf("Expected level %v to be disabled", tt.level-1)
+			if tt.expected > slog.LevelDebug && slog.Default().Enabled(ctx, tt.expected-1) {
+				t.Errorf("Expected level %v to be disabled", tt.expected-1)
 			}
 		})
 	}

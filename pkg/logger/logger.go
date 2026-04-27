@@ -1,15 +1,3 @@
-// Package logger configures the default [log/slog] logger for CLI use.
-//
-// The package provides a custom [slog.Handler] that formats log records
-// in a style suitable for terminal output:
-//
-//   - DEBUG messages are prefixed with "[debug] "
-//   - INFO  messages are indented with four spaces
-//   - WARN  messages are prefixed with "Warning: "
-//   - ERROR messages are prefixed with "Error: "
-//
-// Call [Init] early in the program (after flag parsing) to set the global
-// default logger. Without Init the default slog logger is used as-is.
 package logger
 
 import (
@@ -18,6 +6,8 @@ import (
 	"io"
 	"log/slog"
 	"os"
+	"path/filepath"
+	"runtime"
 	"sync"
 	"time"
 )
@@ -25,12 +15,15 @@ import (
 // Init configures the default slog logger for CLI output.
 //
 // Log level mapping:
+//   - quiet=true                 → LevelError (only errors)
 //   - verbose=false, debug=false → LevelWarn  (only warnings and errors)
 //   - verbose=true               → LevelInfo  (verbose detail)
 //   - debug=true                 → LevelDebug (full diagnostics)
-func Init(verbose, debug bool) {
+func Init(verbose, debug, quiet bool) {
 	level := slog.LevelWarn
-	if debug {
+	if quiet {
+		level = slog.LevelError
+	} else if debug {
 		level = slog.LevelDebug
 	} else if verbose {
 		level = slog.LevelInfo
@@ -79,7 +72,18 @@ func (h *CLIHandler) Handle(_ context.Context, r slog.Record) error {
 	case r.Level >= slog.LevelInfo:
 		prefix = "    "
 	default: // DEBUG and below
-		prefix = "[debug] "
+		if r.PC != 0 {
+			fs := runtime.CallersFrames([]uintptr{r.PC})
+			f, _ := fs.Next()
+			if f.File != "" {
+				file := filepath.Base(f.File)
+				prefix = fmt.Sprintf("%s:%d: ", file, f.Line)
+			} else {
+				prefix = "[debug] "
+			}
+		} else {
+			prefix = "[debug] "
+		}
 	}
 
 	buf := make([]byte, 0, 128)

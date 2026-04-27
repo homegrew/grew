@@ -75,7 +75,7 @@ func main() {
 		verbose = true
 	}
 
-	logger.Init(verbose, debug)
+	logger.Init(verbose, debug, false)
 
 	args := fs.Args()
 	if len(args) < 1 {
