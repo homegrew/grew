@@ -58,11 +58,12 @@ func runShellenv(args []string) error {
 		fmt.Printf("export HOMEGREW_CELLAR=%s;\n", cellar)
 		fmt.Printf("export HOMEGREW_REPOSITORY=%s;\n", repo)
 		if shell == "zsh" {
-			fmt.Printf("fpath[1,0]=%s/share/zsh/site-functions;\n", root)
+			path := fmt.Sprintf("%s/share/zsh/site-functions", root)
+			fmt.Printf("fpath[1,0]=%q;\n", path)
 			fmt.Printf("export FPATH;\n")
 		}
 		if pathHelperRoot != "" {
-			fmt.Printf("eval \"$(/usr/bin/env PATH_HELPER_ROOT=%s /usr/libexec/path_helper -s)\"\n", shellescape.Quote(pathHelperRoot))
+			fmt.Printf("eval \"$(/usr/bin/env PATH_HELPER_ROOT=%q /usr/libexec/path_helper -s)\"\n", shellescape.Quote(pathHelperRoot))
 		} else {
 			fmt.Printf("export PATH=\"%s/bin:%s/sbin${PATH+:$PATH}\";\n", paths.Root, paths.Root)
 		}
