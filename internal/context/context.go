@@ -1,4 +1,4 @@
-package cmd
+package context
 
 import (
 	"fmt"
@@ -11,8 +11,8 @@ import (
 	"github.com/homegrew/grew/internal/tap"
 )
 
-// commonCtx bundles objects used by most commands.
-type commonCtx struct {
+// Context bundles objects used by most commands.
+type Context struct {
 	Paths      config.Paths
 	Loader     *formula.Loader
 	CaskLoader *cask.Loader
@@ -20,8 +20,8 @@ type commonCtx struct {
 	Caskroom   *cask.Caskroom
 }
 
-// newCommonCtx initialises paths and the core tap, returning a shared context.
-func newCommonCtx() (*commonCtx, error) {
+// New initialises paths and the core tap, returning a shared context.
+func New() (*Context, error) {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return nil, err
@@ -32,18 +32,27 @@ func newCommonCtx() (*commonCtx, error) {
 		return nil, fmt.Errorf("init core tap: %w", err)
 	}
 
-	return &commonCtx{
+	return &Context{
 		Paths:      paths,
-		Loader:     newLoader(paths.Taps),
-		CaskLoader: newCaskLoader(paths.Taps),
+		Loader:     NewLoader(paths.Taps),
+		CaskLoader: NewCaskLoader(paths.Taps),
 		Cellar:     &cellar.Cellar{Path: paths.Cellar},
 		Caskroom:   &cask.Caskroom{Path: paths.Caskroom},
 	}, nil
 }
 
-// newLoader creates a formula.Loader with debug logging wired in.
-func newLoader(tapDir string) *formula.Loader {
+// NewLoader creates a formula.Loader with debug logging wired in.
+func NewLoader(tapDir string) *formula.Loader {
 	l := formula.NewLoader(tapDir)
+	l.DebugLog = func(format string, args ...any) {
+		slog.Debug(fmt.Sprintf(format, args...))
+	}
+	return l
+}
+
+// NewCaskLoader creates a cask.Loader with debug logging wired in.
+func NewCaskLoader(tapDir string) *cask.Loader {
+	l := &cask.Loader{TapDir: tapDir}
 	l.DebugLog = func(format string, args ...any) {
 		slog.Debug(fmt.Sprintf(format, args...))
 	}

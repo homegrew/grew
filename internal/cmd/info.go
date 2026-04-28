@@ -104,7 +104,7 @@ Options:
 	return nil
 }
 
-func printInstallationStats(ctx *readContext) error {
+func printInstallationStats(ctx readContext) error {
 	formulas, err := ctx.Cellar.List()
 	if err != nil {
 		return err
