@@ -109,6 +109,7 @@ func Run(args []string) error {
 		"ls":           runList,
 		"leaves":       runLeaves,
 		"info":         runInfo,
+		"abv":          runInfo,
 		"search":       runSearch,
 		"link":         runLink,
 		"unlink":       runUnlink,

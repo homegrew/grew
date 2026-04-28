@@ -17,6 +17,7 @@ type commonCtx struct {
 	Loader     *formula.Loader
 	CaskLoader *cask.Loader
 	Cellar     *cellar.Cellar
+	Caskroom   *cask.Caskroom
 }
 
 // newCommonCtx initialises paths and the core tap, returning a shared context.
@@ -36,6 +37,7 @@ func newCommonCtx() (*commonCtx, error) {
 		Loader:     newLoader(paths.Taps),
 		CaskLoader: newCaskLoader(paths.Taps),
 		Cellar:     &cellar.Cellar{Path: paths.Cellar},
+		Caskroom:   &cask.Caskroom{Path: paths.Caskroom},
 	}, nil
 }
 

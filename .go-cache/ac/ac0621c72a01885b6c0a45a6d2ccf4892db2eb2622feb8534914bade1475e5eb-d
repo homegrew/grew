@@ -1,0 +1,34 @@
+=== RUN   TestCache_Dir
+=== PAUSE TestCache_Dir
+=== RUN   TestCache_DownloadsDir
+=== PAUSE TestCache_DownloadsDir
+=== RUN   TestCache_DownloadPath
+=== PAUSE TestCache_DownloadPath
+=== RUN   TestCache_ExistsAndStore
+=== PAUSE TestCache_ExistsAndStore
+=== RUN   TestCache_InvalidFilenames
+=== PAUSE TestCache_InvalidFilenames
+=== RUN   TestCache_Store_MissingSource
+=== PAUSE TestCache_Store_MissingSource
+=== CONT  TestCache_Dir
+--- PASS: TestCache_Dir (0.00s)
+=== CONT  TestCache_DownloadPath
+=== CONT  TestCache_ExistsAndStore
+--- PASS: TestCache_DownloadPath (0.00s)
+=== CONT  TestCache_DownloadsDir
+--- PASS: TestCache_DownloadsDir (0.00s)
+=== CONT  TestCache_InvalidFilenames
+=== CONT  TestCache_Store_MissingSource
+=== RUN   TestCache_InvalidFilenames/../escape.zip
+=== RUN   TestCache_InvalidFilenames/sub/dir.zip
+=== RUN   TestCache_InvalidFilenames//absolute/path.zip
+=== RUN   TestCache_InvalidFilenames/#00
+--- PASS: TestCache_InvalidFilenames (0.00s)
+    --- PASS: TestCache_InvalidFilenames/../escape.zip (0.00s)
+    --- PASS: TestCache_InvalidFilenames/sub/dir.zip (0.00s)
+    --- PASS: TestCache_InvalidFilenames//absolute/path.zip (0.00s)
+    --- PASS: TestCache_InvalidFilenames/#00 (0.00s)
+--- PASS: TestCache_Store_MissingSource (0.00s)
+--- PASS: TestCache_ExistsAndStore (0.00s)
+PASS
+ok  	github.com/homegrew/grew/internal/cache	0.318s

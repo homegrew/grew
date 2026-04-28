@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/internal/fsutil"
 )
 
 func TestBelongsToTargets(t *testing.T) {
@@ -66,7 +67,7 @@ func TestFormatSize(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if got := formatSize(tt.bytes); got != tt.want {
+		if got := fsutil.FormatSize(tt.bytes); got != tt.want {
 			t.Errorf("formatSize(%d) = %q, want %q", tt.bytes, got, tt.want)
 		}
 	}

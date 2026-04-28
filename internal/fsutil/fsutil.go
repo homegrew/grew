@@ -284,3 +284,36 @@ func SanitizeMode(mode os.FileMode, isDir bool) os.FileMode {
 	}
 	return mode
 }
+
+// FormatSize returns a human-readable string representation of the given size in bytes.
+func FormatSize(b int64) string {
+	switch {
+	case b >= 1<<30:
+		return fmt.Sprintf("%.1f GB", float64(b)/float64(1<<30))
+	case b >= 1<<20:
+		return fmt.Sprintf("%.1f MB", float64(b)/float64(1<<20))
+	case b >= 1<<10:
+		return fmt.Sprintf("%.1f KB", float64(b)/float64(1<<10))
+	default:
+		return fmt.Sprintf("%d B", b)
+	}
+}
+
+// DiskUsage returns the total size and number of files in the given directory.
+func DiskUsage(root string) (size int64, files int64, err error) {
+	err = filepath.WalkDir(root, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !d.IsDir() {
+			info, err := d.Info()
+			if err != nil {
+				return err
+			}
+			size += info.Size()
+			files++
+		}
+		return nil
+	})
+	return
+}

@@ -1,0 +1,31 @@
+=== RUN   TestLiveEndToEnd
+    live_e2e_test.go:50: Building live grew binary...
+    live_e2e_test.go:86: => grew setup --unsafe
+    live_e2e_test.go:89: => grew update
+    live_e2e_test.go:92: => grew install -v -d nano
+    live_e2e_test.go:106: => grew deps --tree nano
+    live_e2e_test.go:112: => grew unlink nano
+    live_e2e_test.go:117: => grew link nano
+    live_e2e_test.go:124: => grew install -s xz
+    live_e2e_test.go:135: => grew reinstall nano
+    live_e2e_test.go:138: => grew install --force nano
+    live_e2e_test.go:141: => grew uninstall --force nano
+    live_e2e_test.go:148: => grew reinstall --force nano
+    live_e2e_test.go:154: => grew verify nano
+    live_e2e_test.go:157: => grew vuln-scan
+    live_e2e_test.go:163: vuln-scan output (err=<nil>):
+        Scanning installed packages for vulnerabilities...
+        ==> Querying OSV.dev for 1 package(s)...
+        
+        [LOW] 1 finding(s):
+          (global) (isolation): grew prefix /private/var/folders/yz/s73z52vj0kx485rgc4203zsc0000gn/T/TestLiveEndToEnd1924151367/001/homegrew is under $HOME — sandboxed builds can potentially access sensitive files; consider running 'sudo grew setup' for /opt/homegrew
+        
+        Scan complete: 0 critical, 0 high, 0 medium, 1 low
+    live_e2e_test.go:166: => grew lock generate
+    live_e2e_test.go:167: => grew lock check
+    live_e2e_test.go:173: => grew shellenv bash
+    live_e2e_test.go:181: => grew leaves
+    live_e2e_test.go:191: => grew install bash
+--- PASS: TestLiveEndToEnd (45.12s)
+PASS
+ok  	github.com/homegrew/grew/tests	45.452s

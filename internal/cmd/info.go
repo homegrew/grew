@@ -7,18 +7,20 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
 )
 
 func runInfo(args []string) error {
 	slog.Debug("starting info command execution")
-	slog.Debug("starting info command execution")
 	fs := flag.NewFlagSet("info", flag.ContinueOnError)
 
 	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew info [options] <formula ...>
+		fmt.Fprintf(fs.Output(), `Usage: grew info [options] [formula ...]
+       grew abv [options] [formula ...]
 
 Show brief information about formulas or casks.
+If no arguments are provided, show installation statistics.
 
 Options:
   --cask        Show cask info.
@@ -34,8 +36,13 @@ Options:
 	}
 	flags.Resolve()
 
+	ctx, err := newReadContext()
+	if err != nil {
+		return err
+	}
+
 	if fs.NArg() == 0 {
-		return fmt.Errorf("usage: grew info [--cask] <formula>...")
+		return printInstallationStats(ctx)
 	}
 
 	if *isCask {
@@ -48,11 +55,6 @@ Options:
 			}
 		}
 		return nil
-	}
-
-	ctx, err := newReadContext()
-	if err != nil {
-		return err
 	}
 
 	lnk := &linker.Linker{Paths: ctx.Paths}
@@ -99,5 +101,36 @@ Options:
 		fmt.Printf("Platforms: %s\n", strings.Join(platforms, ", "))
 	}
 
+	return nil
+}
+
+func printInstallationStats(ctx *readContext) error {
+	formulas, err := ctx.Cellar.List()
+	if err != nil {
+		return err
+	}
+	casks, err := ctx.Caskroom.List()
+	if err != nil {
+		return err
+	}
+
+	var totalSize int64
+	var totalFiles int64
+
+	// Usage from Cellar
+	size, files, err := fsutil.DiskUsage(ctx.Paths.Cellar)
+	if err == nil {
+		totalSize += size
+		totalFiles += files
+	}
+
+	// Usage from Caskroom
+	size, files, err = fsutil.DiskUsage(ctx.Paths.Caskroom)
+	if err == nil {
+		totalSize += size
+		totalFiles += files
+	}
+
+	fmt.Printf("%d formulas, %d casks, %d files, %s\n", len(formulas), len(casks), totalFiles, fsutil.FormatSize(totalSize))
 	return nil
 }
