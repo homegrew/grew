@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
@@ -34,6 +35,8 @@ func runUpdate(args []string) error {
 	if err != nil {
 		return fmt.Errorf("update core tap: %w", err)
 	}
+
+	auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("updated %d formulas", count))
 
 	fmt.Fprintf(os.Stderr, "==> Updated core tap (%d formulas)\n", count)
 	slog.Info("tap directory: " + paths.CoreTap)

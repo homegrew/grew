@@ -26,6 +26,7 @@ const (
 	ActionUninstall   Action = "uninstall"
 	ActionReinstall   Action = "reinstall"
 	ActionUpgrade     Action = "upgrade"
+	ActionUpdate      Action = "update"
 	ActionSelfUpdate  Action = "self-update"
 	ActionPin         Action = "pin"
 	ActionUnpin       Action = "unpin"
