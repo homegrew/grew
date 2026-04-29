@@ -14,7 +14,7 @@
 ## ✨ What it does
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
-- ⚡ **Binary delta updates** — `selfupdate` uses `bspatch` to download only the differences between versions, saving bandwidth, with an automated CI `patcher` tool for releases
+- ⚡ **Multi-hop binary delta updates** — `selfupdate` uses `bspatch` to seamlessly apply sequences of intermediate patches to reach the latest version, saving bandwidth, with an automated CI `patcher` tool for releases
 - 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
 - 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)

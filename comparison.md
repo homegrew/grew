@@ -36,7 +36,7 @@
 | **SSRF host allowlist** | Hardcoded + `HOMEGREW_ALLOWED_HOSTS` — brew doesn't restrict download hosts |
 | **Zip Slip + symlink escape protection** | Multi-layer: textual check + `EvalSymlinks` + `withinDir()` — brew relies on system tar |
 | **File mode sanitization** | Strips setuid/setgid/sticky/world-write bits on extraction |
-| **Audit logging** | Records every install action with hash and method |
+| **Audit logging** | Records every install, upgrade, self-update, and tap update action (including failures and skips) with hashes and methods |
 | **`--require-sha`** | Refuse install if SHA256 is missing — brew doesn't have this flag |
 
 ## Where brew is more capable

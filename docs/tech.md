@@ -37,12 +37,11 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
    - `grew` queries the GitHub API for the latest stable release.
    - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
 
-2. **Binary Patching (Delta Update)**:
-   - `grew` searches for a platform-specific binary patch asset following the pattern `grew_<OS>_<Arch>_<OldVer>_to_<NewVer>.patch` (e.g., `grew_Darwin_arm64_v0.1.0_to_v0.2.0.patch`).
-   - **Tooling**: If a patch is found and `bspatch` is available in the system `PATH`, only the delta is downloaded.
-   - **Patch Verification**: Before applying, the `.patch` file itself is verified against SHA-256 and SHA-512 hashes listed in the release's `checksums.txt`.
-   - **Application**: `grew` uses `bspatch` to apply the delta to the currently running executable, generating the new version in a temporary location.
-   - **Post-Patch Verification**: The resulting binary is verified against the `binary-checksums.txt` file (distinct from `checksums.txt`, which contains hashes for the compressed archives and patches). This ensures the reconstruction was 100% accurate.
+2. **Multi-Hop Binary Patching (Delta Update)**:
+   - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
+   - **Tooling**: If a continuous sequence of patches is found and `bspatch` is available in the system `PATH`, only the required deltas are downloaded.
+   - **Sequential Application & Verification**: Each `.patch` file is downloaded, verified against SHA-256 and SHA-512 hashes in the release metadata, and applied sequentially using `bspatch`.
+   - **Post-Patch Verification**: The final reconstructed binary is verified against the `binary-checksums.txt` file of the target release (distinct from `checksums.txt`, which contains hashes for the compressed archives and patches). This ensures the reconstruction was 100% accurate across all hops.
 
 3. **Full Download Fallback**:
    - If `bspatch` is missing, no compatible patch is found, or the patching process fails, `grew` falls back to downloading the full platform-specific archive (e.g., `grew_Darwin_arm64.tar.gz`).
@@ -67,7 +66,7 @@ The `homegrew/grew` repository includes tools for maintaining the formula and ca
 A unified tool used to bootstrap and maintain the core formula and cask repositories by importing definitions from the Homebrew JSON API.
 - **Formula Import**: Fetches Homebrew formulas, maps platforms, picks appropriate bottles, and generates `grew`-compatible YAML files.
 - **Cask Import**: Fetches Homebrew casks, extracts macOS-specific app/binary artifacts, and converts them into `grew` YAML format.
-- **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards.
+- **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards. The output leverages `omitempty` serialization to produce clean, concise YAML without empty fields.
 
 ### `patcher`
 A developer tool used to generate binary delta patches between releases.
