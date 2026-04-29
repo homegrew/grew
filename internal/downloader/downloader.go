@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/pkg/safepath"
@@ -68,9 +69,18 @@ func isHostAllowed(host string) bool {
 	return false
 }
 
+type DownloadRequest struct {
+	URL            string
+	Filename       string
+	ExpectedSHA256 string
+	ExpectedSHA512 string
+}
+
 type Downloader struct {
-	TmpDir string
-	Cache  *cache.Cache
+	TmpDir    string
+	Cache     *cache.Cache
+	Silent    bool
+	cacheLock sync.Mutex
 }
 
 // Download fetches a file over HTTPS from an allowed host, using Cache if available.
@@ -90,6 +100,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 
 	// If Cache is set, try to use/populate the cache.
 	if d.Cache != nil {
+		d.cacheLock.Lock()
+		defer d.cacheLock.Unlock()
+
 		if d.Cache.Exists(filename) {
 			fmt.Printf("Using cached %s\n", filename)
 			return d.Cache.DownloadPath(filename)
@@ -102,7 +115,31 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		}
 
 		// Move from tmp to cache.
-		return d.Cache.Store(tmpFile, filename)
+		path, err := d.Cache.Store(tmpFile, filename)
+		if err != nil {
+			// Sink-adjacent guard: only remove files that are confirmed to be
+			// within the temporary directory that actually contains tmpFile.
+			cleanupBase := filepath.Clean(filepath.Dir(tmpFile))
+			if abs, aerr := filepath.Abs(cleanupBase); aerr == nil {
+				cleanupBase = filepath.Clean(abs)
+			}
+			if eval, eerr := filepath.EvalSymlinks(cleanupBase); eerr == nil {
+				cleanupBase = filepath.Clean(eval)
+			}
+			if serr := safepath.SafeAbsolutePath(cleanupBase); serr == nil {
+				// Rebuild a trusted cleanup path from canonical base + validated basename.
+				tmpName := filepath.Base(tmpFile)
+				if ferr := safepath.SafePathComponent(tmpName); ferr == nil {
+					if safeCleanupPath, jerr := safepath.SafeJoin(cleanupBase, tmpName); jerr == nil &&
+						safepath.SafeAbsolutePath(safeCleanupPath) == nil &&
+						safepath.CheckSubpath(cleanupBase, safeCleanupPath) == nil {
+						_ = os.Remove(safeCleanupPath)
+					}
+				}
+			}
+			return "", err
+		}
+		return path, nil
 	}
 
 	// No cache, download directly to TmpDir (original behavior).
@@ -137,11 +174,81 @@ func (d *Downloader) DownloadBytes(rawURL string) ([]byte, error) {
 	return io.ReadAll(io.LimitReader(resp.Body, 1<<20))
 }
 
+// BatchDownload downloads multiple files concurrently using a worker pool.
+func (d *Downloader) BatchDownload(downloads []DownloadRequest, maxWorkers int) error {
+	if maxWorkers <= 0 {
+		maxWorkers = 1
+	}
+
+	silentD := *d
+	silentD.Silent = true
+
+	reqCh := make(chan DownloadRequest, len(downloads))
+	errCh := make(chan error, len(downloads))
+	var wg sync.WaitGroup
+
+	for i := 0; i < maxWorkers; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for req := range reqCh {
+				path, err := silentD.Download(req.URL, req.Filename)
+				if err != nil {
+					errCh <- fmt.Errorf("download %s failed: %w", req.Filename, err)
+					continue
+				}
+				if req.ExpectedSHA256 != "" {
+					if err := VerifySHA256(path, req.ExpectedSHA256); err != nil {
+						_ = os.Remove(path)
+						errCh <- fmt.Errorf("verify %s failed: %w", req.Filename, err)
+						continue
+					}
+				}
+				if req.ExpectedSHA512 != "" {
+					if err := VerifySHA512(path, req.ExpectedSHA512); err != nil {
+						_ = os.Remove(path)
+						errCh <- fmt.Errorf("verify %s failed: %w", req.Filename, err)
+						continue
+					}
+				}
+				errCh <- nil
+			}
+		}()
+	}
+
+	for _, req := range downloads {
+		reqCh <- req
+	}
+	close(reqCh)
+
+	wg.Wait()
+	close(errCh)
+
+	var errs []string
+	for err := range errCh {
+		if err != nil {
+			errs = append(errs, err.Error())
+		}
+	}
+
+	if len(errs) > 0 {
+		return fmt.Errorf("batch download failed: %s", strings.Join(errs, "; "))
+	}
+
+	return nil
+}
+
 func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, error) {
 	tmpDir := filepath.Clean(d.TmpDir)
 	if abs, err := filepath.Abs(tmpDir); err == nil {
 		tmpDir = filepath.Clean(abs)
 	}
+	// On some platforms (macOS), /var is a symlink to /private/var.
+	// We must resolve symlinks before performing subpath checks.
+	if eval, err := filepath.EvalSymlinks(tmpDir); err == nil {
+		tmpDir = filepath.Clean(eval)
+	}
+
 	// Resolve the final sink path via safe join right before filesystem use.
 	sinkPath, err := safepath.SafeJoin(tmpDir, filename)
 	if err != nil {
@@ -153,11 +260,7 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 	}
 
 	// Canonicalize paths (resolve symlinks) before filesystem operations.
-	canonTmpDir, err := filepath.EvalSymlinks(tmpDir)
-	if err != nil {
-		return "", fmt.Errorf("resolve temp directory %s: %w", tmpDir, err)
-	}
-	canonTmpDir = filepath.Clean(canonTmpDir)
+	canonTmpDir := tmpDir
 	if err := safepath.SafeAbsolutePath(canonTmpDir); err != nil {
 		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
 	}
@@ -220,36 +323,67 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 		return "", fmt.Errorf("prepare download path %s: %w", safeSinkPath, err)
 	}
 
-	out, err := os.OpenFile(safeSinkPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
+	tmpFile, err := os.CreateTemp(canonTmpDir, "grew-dl-*")
 	if err != nil {
-		return "", fmt.Errorf("create file %s: %w", safeSinkPath, err)
+		return "", fmt.Errorf("create temp file: %w", err)
 	}
+	tmpFilePath := tmpFile.Name()
 
 	size := resp.ContentLength
-	written, err := io.Copy(out, &progressReader{
-		reader: resp.Body,
-		total:  size,
-		label:  filename,
-	})
+	var bodyReader io.Reader = resp.Body
+	if !d.Silent {
+		bodyReader = &progressReader{
+			reader: resp.Body,
+			total:  size,
+			label:  filename,
+		}
+	} else {
+		fmt.Printf("Downloading %s...\n", filename)
+	}
+
+	written, err := io.Copy(tmpFile, bodyReader)
 	
 	if err != nil {
-		_ = out.Close()
-		_ = os.Remove(safeSinkPath)
+		_ = tmpFile.Close()
+		_ = os.Remove(tmpFilePath)
 		return "", fmt.Errorf("download %s: %w", safeURL.String(), err)
 	}
-	if err := out.Close(); err != nil {
-		_ = os.Remove(safeSinkPath)
-		return "", fmt.Errorf("close file %s: %w", safeSinkPath, err)
+	if err := tmpFile.Close(); err != nil {
+		_ = os.Remove(tmpFilePath)
+		return "", fmt.Errorf("close temp file %s: %w", tmpFilePath, err)
 	}
 
 	if lm := resp.Header.Get("Last-Modified"); lm != "" {
 		if t, err := http.ParseTime(lm); err == nil {
-			_ = os.Chtimes(safeSinkPath, t, t)
+			_ = os.Chtimes(tmpFilePath, t, t)
 		}
 	}
 
-	fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
-	return safeSinkPath, nil
+	finalPath := tmpFilePath
+	if d.Cache == nil {
+		// Final sink-time guard: both source and destination must remain within
+		// the canonical temp directory before performing filesystem rename.
+		if err := safepath.CheckSubpath(canonTmpDir, tmpFilePath); err != nil {
+			_ = os.Remove(tmpFilePath)
+			return "", fmt.Errorf("temporary file escaped temp directory: %w", err)
+		}
+		if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
+			_ = os.Remove(tmpFilePath)
+			return "", fmt.Errorf("download sink escaped temp directory: %w", err)
+		}
+		if err := os.Rename(tmpFilePath, safeSinkPath); err != nil {
+			_ = os.Remove(tmpFilePath)
+			return "", fmt.Errorf("rename temp file to %s: %w", safeSinkPath, err)
+		}
+		finalPath = safeSinkPath
+	}
+
+	if !d.Silent {
+		fmt.Printf("\rDownloaded %s (%s)\n", filename, formatBytes(written))
+	} else {
+		fmt.Printf("Downloaded %s (%s)\n", filename, formatBytes(written))
+	}
+	return finalPath, nil
 }
 
 // validateDownloadURL parses and validates a URL for downloading.
