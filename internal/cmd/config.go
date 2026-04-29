@@ -10,6 +10,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/version"
 )
 
@@ -26,7 +27,7 @@ func runConfig(_ []string) error {
 	fmt.Println("HOMEGREW_TMP:", paths.Tmp)
 
 	// Core tap
-	loader := newLoader(paths.Taps)
+	loader := context.NewLoader(paths.Taps)
 	all, _ := loader.LoadAll()
 	fmt.Printf("Core tap formulas: %d\n", len(all))
 

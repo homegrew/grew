@@ -71,7 +71,7 @@ Options:
 	flags.Resolve()
 	targets := fs.Args()
 
-	ctx, err := newCommonCtx()
+	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}

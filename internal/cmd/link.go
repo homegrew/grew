@@ -45,7 +45,7 @@ Options:
 		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>...")
 	}
 
-	ctx, err := newCommonCtx()
+	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}

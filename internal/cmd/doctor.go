@@ -8,6 +8,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/tap"
@@ -84,10 +85,10 @@ Options:
 		slog.Warn(fmt.Sprintf("failed to init core tap: %v", err))
 	}
 
-	loader := newLoader(paths.Taps)
+	loader := context.NewLoader(paths.Taps)
 	formulas, _ := loader.LoadAll()
 
-	caskLoader := newCaskLoader(paths.Taps)
+	caskLoader := context.NewCaskLoader(paths.Taps)
 	casks, _ := caskLoader.LoadAll()
 
 	cel := &cellar.Cellar{Path: paths.Cellar}

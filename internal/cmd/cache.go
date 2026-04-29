@@ -89,7 +89,7 @@ Options:
 	return nil
 }
 
-func formulaCachePath(f *formula.Formula, ctx *readContext, osName, arch string, buildFromSource bool) (string, error) {
+func formulaCachePath(f *formula.Formula, ctx readContext, osName, arch string, buildFromSource bool) (string, error) {
 	var dlURL string
 	var err error
 
@@ -111,7 +111,7 @@ func formulaCachePath(f *formula.Formula, ctx *readContext, osName, arch string,
 	return filepath.Join(ctx.Paths.Cache, "downloads", filename), nil
 }
 
-func caskCachePath(c *cask.Cask, ctx *readContext, osName, arch string, buildFromSource bool) (string, error) {
+func caskCachePath(c *cask.Cask, ctx readContext, osName, arch string, buildFromSource bool) (string, error) {
 	var dlURL string
 	var err error
 

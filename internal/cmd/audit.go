@@ -69,7 +69,7 @@ Options:
 
 	targets := fs.Args()
 
-	ctx, err := newCommonCtx()
+	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
@@ -80,7 +80,7 @@ Options:
 	return runAuditFormulas(ctx, targets, *strict, *online)
 }
 
-func runAuditFormulas(ctx *commonCtx, targets []string, strict, online bool) error {
+func runAuditFormulas(ctx readContext, targets []string, strict, online bool) error {
 	slog.Debug("starting auditformulas command execution")
 	slog.Debug("starting auditformulas command execution")
 	var formulas []*formula.Formula

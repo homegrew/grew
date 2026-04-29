@@ -14,6 +14,7 @@ import (
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/internal/fsutil"
 )
 
 func runCleanup(args []string) error {
@@ -92,13 +93,13 @@ Options:
 			size, _ := dirSize(kegPath)
 			totalBytes += size
 			if *dryRun {
-				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, formatSize(size))
+				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, fsutil.FormatSize(size))
 			} else {
 				slog.Debug(fmt.Sprintf("removing old keg %s/%s", pkg.Name, ver))
 				if err := os.RemoveAll(kegPath); err != nil {
 					slog.Warn(fmt.Sprintf("could not remove %s: %v", kegPath, err))
 				} else {
-					fmt.Printf("Removing: %s %s (%s)\n", pkg.Name, ver, formatSize(size))
+					fmt.Printf("Removing: %s %s (%s)\n", pkg.Name, ver, fsutil.FormatSize(size))
 				}
 			}
 		}
@@ -158,13 +159,13 @@ Options:
 				size, _ := entrySize(path, e)
 				totalBytes += size
 				if *dryRun {
-					fmt.Printf("Would remove: %s (%s)\n", path, formatSize(size))
+					fmt.Printf("Would remove: %s (%s)\n", path, fsutil.FormatSize(size))
 				} else {
 					slog.Debug("removing cached file " + name)
 					if err := os.RemoveAll(path); err != nil {
 						slog.Warn(fmt.Sprintf("could not remove %s: %v", path, err))
 					} else {
-						fmt.Printf("Removing: %s (%s)\n", path, formatSize(size))
+						fmt.Printf("Removing: %s (%s)\n", path, fsutil.FormatSize(size))
 					}
 				}
 			}
@@ -183,9 +184,9 @@ Options:
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
 	} else if *dryRun {
-		fmt.Fprintf(os.Stderr, "==> Would free %s\n", formatSize(totalBytes))
+		fmt.Fprintf(os.Stderr, "==> Would free %s\n", fsutil.FormatSize(totalBytes))
 	} else {
-		fmt.Fprintf(os.Stderr, "==> Freed %s\n", formatSize(totalBytes))
+		fmt.Fprintf(os.Stderr, "==> Freed %s\n", fsutil.FormatSize(totalBytes))
 	}
 
 	return nil
@@ -269,17 +270,4 @@ func entrySize(path string, e os.DirEntry) (int64, error) {
 		return dirSize(path)
 	}
 	return info.Size(), nil
-}
-
-func formatSize(b int64) string {
-	switch {
-	case b >= 1<<30:
-		return fmt.Sprintf("%.1f GB", float64(b)/float64(1<<30))
-	case b >= 1<<20:
-		return fmt.Sprintf("%.1f MB", float64(b)/float64(1<<20))
-	case b >= 1<<10:
-		return fmt.Sprintf("%.1f KB", float64(b)/float64(1<<10))
-	default:
-		return fmt.Sprintf("%d B", b)
-	}
 }
