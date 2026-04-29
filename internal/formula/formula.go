@@ -13,29 +13,29 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-type SourceSpec struct {
-	URL       string `yaml:"url"`
-	SHA256    string `yaml:"sha256"`
-	SHA512    string `yaml:"sha512"`
-	Signature string `yaml:"signature"`
+type BottleSpec struct {
+	URL       string `yaml:"url,omitempty"`
+	SHA256    string `yaml:"sha256,omitempty"`
+	SHA512    string `yaml:"sha512,omitempty"`
+	Signature string `yaml:"signature,omitempty"`
 }
 
-type BottleSpec struct {
-	URL       string `yaml:"url"`
-	SHA256    string `yaml:"sha256"`
-	SHA512    string `yaml:"sha512"`
-	Signature string `yaml:"signature"`
+type SourceSpec struct {
+	URL       string `yaml:"url,omitempty"`
+	SHA256    string `yaml:"sha256,omitempty"`
+	SHA512    string `yaml:"sha512,omitempty"`
+	Signature string `yaml:"signature,omitempty"`
 }
 
 type BuildSpec struct {
-	Configure []string `yaml:"configure"`
-	Install   []string `yaml:"install"`
+	Configure []string `yaml:"configure,omitempty"`
+	Install   []string `yaml:"install,omitempty"`
 }
 
 type ArtifactsSpec struct {
-	App []string `yaml:"app"`
-	Pkg []string `yaml:"pkg"`
-	Bin []string `yaml:"bin"`
+	App []string `yaml:"app,omitempty"`
+	Pkg []string `yaml:"pkg,omitempty"`
+	Bin []string `yaml:"bin,omitempty"`
 }
 
 type Formula struct {
@@ -44,41 +44,41 @@ type Formula struct {
 	Description  string            `yaml:"description"`
 	Homepage     string            `yaml:"homepage"`
 	License      string            `yaml:"license"`
-	URL          map[string]string `yaml:"url"`
-	SHA256       map[string]string `yaml:"sha256"`
-	SHA512       map[string]string `yaml:"sha512"`
-	Signature    map[string]string `yaml:"signature"`
-	SourceURL    string            `yaml:"source_url"`
-	SourceSHA256 string            `yaml:"source_sha256"`
-	SourceSHA512 string            `yaml:"source_sha512"`
-	Install      InstallSpec       `yaml:"install"`
-	PostInstall  string            `yaml:"post_install"`
-	Dependencies []string          `yaml:"dependencies"`
-	KegOnly      bool              `yaml:"keg_only"`
+	URL          map[string]string `yaml:"url,omitempty"`
+	SHA256       map[string]string `yaml:"sha256,omitempty"`
+	SHA512       map[string]string `yaml:"sha512,omitempty"`
+	Signature    map[string]string `yaml:"signature,omitempty"`
+	SourceURL    string            `yaml:"source_url,omitempty"`
+	SourceSHA256 string            `yaml:"source_sha256,omitempty"`
+	SourceSHA512 string            `yaml:"source_sha512,omitempty"`
+	Install      InstallSpec       `yaml:"install,omitempty"`
+	PostInstall  string            `yaml:"post_install,omitempty"`
+	Dependencies []string          `yaml:"dependencies,omitempty"`
+	KegOnly      bool              `yaml:"keg_only,omitempty"`
 	// New schema fields
-	Bottle            map[string]BottleSpec `yaml:"bottle"`
-	Source            SourceSpec            `yaml:"source"`
-	BuildDependencies []string              `yaml:"build_dependencies"`
-	LinuxDependencies []string              `yaml:"linux_dependencies"`
-	Build             BuildSpec             `yaml:"build"`
-	Service           *ServiceSpec          `yaml:"service"`
-	Artifacts         ArtifactsSpec         `yaml:"artifacts"`
+	Bottle            map[string]BottleSpec `yaml:"bottle,omitempty"`
+	Source            SourceSpec            `yaml:"source,omitempty"`
+	BuildDependencies []string              `yaml:"build_dependencies,omitempty"`
+	LinuxDependencies []string              `yaml:"linux_dependencies,omitempty"`
+	Build             BuildSpec             `yaml:"build,omitempty"`
+	Service           *ServiceSpec          `yaml:"service,omitempty"`
+	Artifacts         ArtifactsSpec         `yaml:"artifacts,omitempty"`
 }
 
 type ServiceSpec struct {
-	Run          []string `yaml:"run"`
-	RunType      string   `yaml:"run_type"`
-	WorkingDir   string   `yaml:"working_dir"`
-	LogPath      string   `yaml:"log_path"`
-	ErrorLogPath string   `yaml:"error_log_path"`
-	KeepAlive    bool     `yaml:"keep_alive"`
+	Run          []string `yaml:"run,omitempty"`
+	RunType      string   `yaml:"run_type,omitempty"`
+	WorkingDir   string   `yaml:"working_dir,omitempty"`
+	LogPath      string   `yaml:"log_path,omitempty"`
+	ErrorLogPath string   `yaml:"error_log_path,omitempty"`
+	KeepAlive    bool     `yaml:"keep_alive,omitempty"`
 }
 
 type InstallSpec struct {
-	Type            string `yaml:"type"` // "binary" or "archive"
-	BinaryName      string `yaml:"binary_name"`
-	StripComponents int    `yaml:"strip_components"`
-	Format          string `yaml:"format"` // optional: "tar.gz", "zip" — used when URL has no extension
+	Type            string `yaml:"type,omitempty"` // "binary" or "archive"
+	BinaryName      string `yaml:"binary_name,omitempty"`
+	StripComponents int    `yaml:"strip_components,omitempty"`
+	Format          string `yaml:"format,omitempty"` // optional: "tar.gz", "zip" — used when URL has no extension
 }
 
 var (
