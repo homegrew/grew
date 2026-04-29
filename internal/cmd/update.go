@@ -33,10 +33,15 @@ func runUpdate(args []string) error {
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	count, err := tapMgr.Update()
 	if err != nil {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("failed: %v", err))
 		return fmt.Errorf("update core tap: %w", err)
 	}
 
-	auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("updated %d formulas", count))
+	if count == 0 {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", "already up-to-date")
+	} else {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("updated %d formulas", count))
+	}
 
 	fmt.Fprintf(os.Stderr, "==> Updated core tap (%d formulas)\n", count)
 	slog.Info("tap directory: " + paths.CoreTap)

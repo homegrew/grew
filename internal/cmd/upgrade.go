@@ -32,6 +32,9 @@ func runUpgrade(args []string) error {
 				return fmt.Errorf("formula %q is not installed", name)
 			}
 			if ctx.Cellar.IsPinned(name) {
+				if ctx.AuditLog != nil {
+					ctx.AuditLog.Log(auditlog.ActionUpgrade, name, "", "", "pinned, skipping")
+				}
 				fmt.Fprintf(os.Stderr, "==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
 				continue
 			}
@@ -41,6 +44,9 @@ func runUpgrade(args []string) error {
 			}
 			curVer, _ := ctx.Cellar.InstalledVersion(name)
 			if curVer == f.Version {
+				if ctx.AuditLog != nil {
+					ctx.AuditLog.Log(auditlog.ActionUpgrade, name, curVer, "", "already up-to-date")
+				}
 				fmt.Fprintf(os.Stderr, "==> %s %s already up-to-date\n", name, curVer)
 				continue
 			}
@@ -58,6 +64,9 @@ func runUpgrade(args []string) error {
 		}
 		for _, pkg := range installed {
 			if ctx.Cellar.IsPinned(pkg.Name) {
+				if ctx.AuditLog != nil {
+					ctx.AuditLog.Log(auditlog.ActionUpgrade, pkg.Name, pkg.Version, "", "pinned, skipping")
+				}
 				slog.Debug("skipping " + pkg.Name + ": pinned")
 				continue
 			}
@@ -86,6 +95,9 @@ func runUpgrade(args []string) error {
 
 		// Install new version (old keg stays until we confirm success)
 		if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
+			if ctx.AuditLog != nil {
+				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "", fmt.Sprintf("failed: %v", err))
+			}
 			return err
 		}
 

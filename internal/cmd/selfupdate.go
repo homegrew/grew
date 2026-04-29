@@ -57,6 +57,7 @@ func RunSelfUpdate(_ []string) error {
 		}
 
 		if !version.IsNewer(version.Version(), rel.TagName) {
+			auditlog.New(paths.Log).Log(auditlog.ActionSelfUpdate, "grew", version.Version(), "", "already up-to-date")
 			fmt.Printf("Already up-to-date: %s\n", version.Version())
 			return nil
 		}
@@ -84,7 +85,11 @@ func RunSelfUpdate(_ []string) error {
 
 	// 3. Fall back to full release download
 	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
-	return selfUpdateFullDownload(exePath, &rels[0])
+	err = selfUpdateFullDownload(exePath, &rels[0])
+	if err != nil {
+		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rels[0].TagName, "", fmt.Sprintf("failed: %v", err))
+	}
+	return err
 }
 
 func ensurePathWithinBase(base, target string) (string, error) {
