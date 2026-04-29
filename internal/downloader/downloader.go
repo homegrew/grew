@@ -122,10 +122,16 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 			if eval, eerr := filepath.EvalSymlinks(cleanupBase); eerr == nil {
 				cleanupBase = filepath.Clean(eval)
 			}
-			if serr := safepath.SafeAbsolutePath(cleanupBase); serr == nil &&
-				safepath.SafeAbsolutePath(tmpFile) == nil &&
-				safepath.CheckSubpath(cleanupBase, tmpFile) == nil {
-				_ = os.Remove(tmpFile)
+			if serr := safepath.SafeAbsolutePath(cleanupBase); serr == nil {
+				// Rebuild a trusted cleanup path from canonical base + validated basename.
+				tmpName := filepath.Base(tmpFile)
+				if ferr := safepath.SafePathComponent(tmpName); ferr == nil {
+					if safeCleanupPath, jerr := safepath.SafeJoin(cleanupBase, tmpName); jerr == nil &&
+						safepath.SafeAbsolutePath(safeCleanupPath) == nil &&
+						safepath.CheckSubpath(cleanupBase, safeCleanupPath) == nil {
+						_ = os.Remove(safeCleanupPath)
+					}
+				}
 			}
 			return "", err
 		}
