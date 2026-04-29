@@ -65,12 +65,12 @@ Examples:
 }
 
 type servicesCtx struct {
-	*commonCtx
+	readContext
 	mgr *service.Manager
 }
 
 func newServicesCtx() (*servicesCtx, error) {
-	common, err := newCommonCtx()
+	common, err := newReadContext()
 	if err != nil {
 		return nil, err
 	}
@@ -81,8 +81,8 @@ func newServicesCtx() (*servicesCtx, error) {
 	}
 
 	return &servicesCtx{
-		commonCtx: common,
-		mgr:       mgr,
+		readContext: common,
+		mgr:         mgr,
 	}, nil
 }
 

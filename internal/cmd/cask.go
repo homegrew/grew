@@ -10,20 +10,13 @@ import (
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
 )
-
-func newCaskLoader(tapDir string) *cask.Loader {
-	l := &cask.Loader{TapDir: tapDir}
-	l.DebugLog = func(format string, args ...any) {
-		slog.Debug(fmt.Sprintf(format, args...))
-	}
-	return l
-}
 
 func initCaskTap(paths config.Paths) error {
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
@@ -38,7 +31,7 @@ func setupCaskLoader() (config.Paths, *cask.Loader, *cask.Caskroom, error) {
 	if err := initCaskTap(paths); err != nil {
 		return config.Paths{}, nil, nil, fmt.Errorf("init cask tap: %w", err)
 	}
-	loader := newCaskLoader(paths.Taps)
+	loader := context.NewCaskLoader(paths.Taps)
 	cr := &cask.Caskroom{Path: paths.Caskroom}
 	return paths, loader, cr, nil
 }
@@ -425,8 +418,24 @@ func caskList() error {
 	return nil
 }
 
-func caskInfo(name string) error {
+func loadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
 	_, c, cr, err := loadCask(name)
+	if err != nil {
+		return nil, "", nil, err
+	}
+	ver := ""
+	var errVer error
+	if cr.IsInstalled(c.Name) {
+		ver, errVer = cr.InstalledVersion(c.Name)
+		if errVer != nil {
+			return nil, "", nil, fmt.Errorf("read installed version for %q: %w", c.Name, err)
+		}
+	}
+	return c, ver, cr, nil
+}
+
+func caskInfo(name string) error {
+	c, ver, _, err := loadCaskInfoData(name)
 	if err != nil {
 		return err
 	}
@@ -435,8 +444,7 @@ func caskInfo(name string) error {
 	fmt.Printf("Homepage: %s\n", c.Homepage)
 	fmt.Printf("License:  %s\n", c.License)
 
-	if cr.IsInstalled(c.Name) {
-		ver, _ := cr.InstalledVersion(c.Name)
+	if ver != "" {
 		fmt.Printf("Installed: %s\n", ver)
 	} else {
 		fmt.Println("Installed: no")

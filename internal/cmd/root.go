@@ -13,6 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/fsutil"
@@ -105,10 +106,12 @@ func Run(args []string) error {
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
 		"rm":           runUninstall,
+		"autoremove":   runAutoremove,
 		"list":         runList,
 		"ls":           runList,
 		"leaves":       runLeaves,
 		"info":         runInfo,
+		"abv":          runInfo,
 		"search":       runSearch,
 		"link":         runLink,
 		"unlink":       runUnlink,
@@ -138,6 +141,7 @@ func Run(args []string) error {
 		"vuln-scan":    runVulnScan,
 		"completion":   runCompletion,
 		"version":      runVersion,
+		"--cache":      runCache,
 		"_extract":     runExtract, // internal: sandboxed extraction subprocess
 		"help":         runHelp,
 	}
@@ -160,16 +164,16 @@ func Run(args []string) error {
 }
 
 // readContext bundles objects needed by read-only commands (info, search, outdated, deps).
-type readContext = commonCtx
+type readContext = *context.Context
 
 // newReadContext initialises paths and the core tap for read-only commands.
-func newReadContext() (*readContext, error) {
-	return newCommonCtx()
+func newReadContext() (readContext, error) {
+	return context.New()
 }
 
 // installContext bundles the common objects used by install, reinstall, and upgrade.
 type installContext struct {
-	*commonCtx
+	readContext
 	Linker     *linker.Linker
 	DL         *downloader.Downloader
 	AuditLog   *auditlog.Logger
@@ -188,7 +192,7 @@ func (c *installContext) Close() {
 
 // newInstallContext initialises paths, the core tap, and returns the shared context.
 func newInstallContext() (*installContext, error) {
-	common, err := newCommonCtx()
+	common, err := context.New()
 	if err != nil {
 		return nil, err
 	}
@@ -203,11 +207,11 @@ func newInstallContext() (*installContext, error) {
 	}
 
 	return &installContext{
-		commonCtx:  common,
-		Linker:     &linker.Linker{Paths: common.Paths},
-		DL:         &downloader.Downloader{TmpDir: common.Paths.Tmp, Cache: cache.New(common.Paths.Cache)},
-		AuditLog:   auditlog.New(common.Paths.Log),
-		GlobalLock: lock,
+		readContext: common,
+		Linker:      &linker.Linker{Paths: common.Paths},
+		DL:          &downloader.Downloader{TmpDir: common.Paths.Tmp, Cache: cache.New(common.Paths.Cache)},
+		AuditLog:    auditlog.New(common.Paths.Log),
+		GlobalLock:  lock,
 	}, nil
 }
 
@@ -269,6 +273,7 @@ Flags:
 Commands:
   install, i [-f] [-s] [-n] [--skip-post-install] [--skip-link] <formula>... Install formulas (-f without checking for previously installed versions, --cask for apps)
   uninstall, rm, remove [-f] <formula>... Uninstall formulas or casks (-f to force ignore errors/missing)
+  autoremove [--dry-run] Uninstall formulae that were only installed as a dependency
   list, ls [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   leaves               List installed formulas that are not dependencies of another installed formula
   info <formula>...      Show formula or cask info (--cask)
@@ -297,6 +302,7 @@ Commands:
   pin <formula>...     Pin formulas to prevent upgrades
   unpin <formula>...   Unpin formulas to allow upgrades
   version              Print version and exit
+  --cache [flags] [formula|cask ...] Display download cache
   help [command]       Show help for a command
 `)
 }

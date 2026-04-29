@@ -20,6 +20,10 @@
 | **`--dry-run` / `-n`** | Supported | `simulateInstall()` | Identical |
 | **Pin support** | PINNED marker file | Same | Identical |
 | **Cask install** | Separate `--cask` path | Same routing via `caskInstall()` | Same pattern |
+| **Multiple installs** | `brew install foo bar` | `grew install foo bar` | Identical |
+| **Pour bottle relocation** | Text/binary patching of prefix paths | `internal/relocation` via `install_name_tool`/`patchelf` | Close |
+| **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
+| **JSON output** | `brew info --json` | `grew info --json` | Identical |
 
 ## Where grew goes further than brew
 
@@ -42,8 +46,6 @@
 | **Ruby DSL formulas** | Brew formulas are full Ruby classes with `def install` blocks — arbitrary build logic. Grew's source builds are hardcoded to `./configure && make && make install` |
 | **Patches** | Brew supports inline/remote patches via `patch do ... end`. Grew has no patching system |
 | **Build environment** | Brew sets up `superenv`/`stdenv` with compiler wrappers, rpath fixups, `-isysroot` injection. Grew passes through a clean env but no compiler wrapping |
-| **Multiple formula installs** | `brew install foo bar baz` installs many at once. Grew only accepts one formula |
-| **Pour bottle relocation** | Brew relocates hardcoded paths in bottles (text/binary patching). Grew doesn't relocate — bottles must be prefix-independent |
 | **Options/variants** | Brew had `--with-*` / `--without-*` options (deprecated but existed). Grew has none |
 | **Caveats** | Brew prints formula-specific post-install messages. Grew doesn't have a caveats field |
 | **Tab/receipt metadata** | Brew writes `INSTALL_RECEIPT.json` with build options, compiler info, runtime deps, etc. |
@@ -56,11 +58,10 @@
 
 ## Verdict
 
-**~70-75% feature parity** with `brew install` for the core happy path. The fundamental architecture (cellar, kegs, linking, dependency resolution, bottle vs source) is a faithful recreation. Grew actually exceeds brew on security (signing, sandboxing, manifests).
+**~80-85% feature parity** with `brew install` for the core happy path. The fundamental architecture (cellar, kegs, linking, dependency resolution, bottle vs source) is a faithful recreation. Grew actually exceeds brew on security (signing, sandboxing, manifests).
 
 The main gaps are:
 
 1. **Build flexibility** — the hardcoded `configure/make/make install` vs brew's arbitrary Ruby DSL is the biggest functional gap
-2. **Single formula at a time** — trivial to fix
-3. **No bottle relocation** — limits portability across prefixes
-4. **No build vs runtime dep distinction** — matters for complex dependency trees
+2. **No build vs runtime dep distinction** — matters for complex dependency trees
+3. **Ecosystem scale** — brew has thousands of formulas; grew is growing its core tap

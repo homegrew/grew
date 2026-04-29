@@ -455,6 +455,14 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			} else {
 				return fmt.Errorf("stat directory %s: %w", target, err)
 			}
+			// Preserve timestamps for directories
+			if !header.ModTime.IsZero() {
+				atime := header.AccessTime
+				if atime.IsZero() {
+					atime = header.ModTime
+				}
+				_ = os.Chtimes(target, atime, header.ModTime)
+			}
 		case tar.TypeReg:
 			if err := os.MkdirAll(targetDir, 0755); err != nil {
 				return fmt.Errorf("create parent directory for %s: %w", target, err)
@@ -492,6 +500,14 @@ func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
 			}
 			if err := extractFile(tr, sinkTarget, fsutil.SanitizeMode(os.FileMode(header.Mode), false)); err != nil {
 				return err
+			}
+			// Preserve timestamps
+			if !header.ModTime.IsZero() {
+				atime := header.AccessTime
+				if atime.IsZero() {
+					atime = header.ModTime
+				}
+				_ = os.Chtimes(sinkTarget, atime, header.ModTime)
 			}
 		case tar.TypeSymlink:
 			if err := os.MkdirAll(targetDir, 0755); err != nil {
@@ -634,6 +650,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			if err := os.MkdirAll(target, fsutil.SanitizeMode(f.Mode(), true)); err != nil {
 				return err
 			}
+			_ = os.Chtimes(target, f.Modified, f.Modified)
 			continue
 		}
 
@@ -665,6 +682,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			if err := extractSymlink(realDestDir, target, linkTarget); err != nil {
 				return err
 			}
+			_ = os.Chtimes(target, f.Modified, f.Modified)
 			continue
 		}
 
@@ -690,6 +708,7 @@ func extractZip(archivePath, destDir string, stripComponents int) error {
 			rc.Close()
 			return err
 		}
+		_ = os.Chtimes(canonicalTarget, f.Modified, f.Modified)
 		rc.Close()
 	}
 	return nil

@@ -25,7 +25,6 @@ type extractArgs struct {
 // invoked by grew re-execing itself inside a sandbox.
 func runExtract(_ []string) error {
 	slog.Debug("starting extract command execution")
-	slog.Debug("starting extract command execution")
 	var args extractArgs
 	if err := json.NewDecoder(os.Stdin).Decode(&args); err != nil {
 		return fmt.Errorf("decode extract args: %w", err)

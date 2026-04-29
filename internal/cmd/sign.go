@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/signing"
 )
 
@@ -26,7 +27,7 @@ func runSign(args []string) error {
 		return fmt.Errorf("invalid private key: %w", err)
 	}
 
-	ctx, err := newCommonCtx()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}

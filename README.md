@@ -144,6 +144,8 @@ grew deps --tree jq          # what hath jq wrought
 grew up                      # stay fresh (alias 'up' for update)
 grew ug                      # upgrade all (alias 'ug')
 grew version                 # what are we running
+grew autoremove --dry-run    # see which orphaned dependencies would be removed
+grew autoremove              # clean up unused dependencies
 grew rm --force jq           # uninstall even if not installed (alias 'rm')
 grew cleanup -n              # peek before you sweep
 grew cleanup --scrub         # aggressive cache cleaning
@@ -152,6 +154,9 @@ grew verify jq               # check installed files against manifest
 grew vuln-scan -q            # scan for CVEs and only show critical/high severity findings
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
+grew --cache                 # show download cache
+grew --cache jq              # show cache path for jq
+grew --cache --os=linux jq   # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
 ```
 
@@ -163,6 +168,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 |---|---|
 | `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source) |
 | `uninstall, rm` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
+| `autoremove` | Uninstall formulae that were only installed as a dependency and are no longer needed (`--dry-run` supported) |
 | `list, ls` | See what you've collected |
 | `leaves [-r] [-p]` | List installed formulas that are not dependencies of another installed formula |
 | `info` | Stalk packages |
@@ -188,6 +194,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `shellenv` | Wire up your shell |
 | `pin` / `unpin` | Freeze formulas to prevent upgrades |
 | `completion` | Generate shell completion (bash, zsh, fish) |
+| `--cache` | Display download cache root or specific package cache paths |
 | `version` | Print version and exit |
 | `help` | You got this |
 

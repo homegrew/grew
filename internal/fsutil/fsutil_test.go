@@ -219,3 +219,59 @@ func TestSanitizeMode(t *testing.T) {
 		})
 	}
 }
+
+func TestDiskUsage(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+
+	// Create some files and directories
+	if err := os.MkdirAll(filepath.Join(dir, "a/b"), 0755); err != nil {
+		t.Fatalf("mkdir: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(dir, "f1.txt"), []byte("123"), 0644); err != nil {
+		t.Fatalf("write f1: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(dir, "a/f2.txt"), []byte("4567"), 0644); err != nil {
+		t.Fatalf("write f2: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(dir, "a/b/f3.txt"), []byte("89"), 0644); err != nil {
+		t.Fatalf("write f3: %v", err)
+	}
+
+	size, files, err := DiskUsage(dir)
+	if err != nil {
+		t.Fatalf("DiskUsage: %v", err)
+	}
+
+	// 3 + 4 + 2 = 9 bytes
+	if size != 9 {
+		t.Errorf("got size %d, want %d", size, 9)
+	}
+	if files != 3 {
+		t.Errorf("got files %d, want %d", files, 3)
+	}
+}
+
+func TestFormatSize(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		bytes int64
+		want  string
+	}{
+		{0, "0 B"},
+		{100, "100 B"},
+		{1024, "1.0 KB"},
+		{1024 * 1024, "1.0 MB"},
+		{1024 * 1024 * 1024, "1.0 GB"},
+		{1536, "1.5 KB"},
+		{2 * 1024 * 1024 * 1024, "2.0 GB"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.want, func(t *testing.T) {
+			got := FormatSize(tt.bytes)
+			if got != tt.want {
+				t.Errorf("FormatSize(%d) = %q, want %q", tt.bytes, got, tt.want)
+			}
+		})
+	}
+}

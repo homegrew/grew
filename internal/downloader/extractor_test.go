@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/homegrew/grew/internal/formula"
 )
@@ -170,6 +171,113 @@ func TestExtractTarGz(t *testing.T) {
 		}
 		assertFileContent(t, filepath.Join(destDir, "mydir/file.txt"), "inside")
 	})
+}
+
+func TestExtractTarGz_Timestamps(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	archivePath := filepath.Join(tmpDir, "test.tar.gz")
+	destDir := filepath.Join(tmpDir, "dest")
+
+	modTime := time.Now().Add(-100 * time.Hour).Truncate(time.Second)
+
+	f, err := os.Create(archivePath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	gw := gzip.NewWriter(f)
+	tw := tar.NewWriter(gw)
+
+	// Reg file
+	tw.WriteHeader(&tar.Header{
+		Name:     "file.txt",
+		Size:     5,
+		Mode:     0644,
+		Typeflag: tar.TypeReg,
+		ModTime:  modTime,
+	})
+	tw.Write([]byte("hello"))
+
+	// Directory
+	tw.WriteHeader(&tar.Header{
+		Name:     "dir/",
+		Typeflag: tar.TypeDir,
+		Mode:     0755,
+		ModTime:  modTime,
+	})
+
+	tw.Close()
+	gw.Close()
+	f.Close()
+
+	if err := extractTarGz(archivePath, destDir, 0); err != nil {
+		t.Fatalf("extractTarGz: %v", err)
+	}
+
+	for _, name := range []string{"file.txt", "dir"} {
+		path := filepath.Join(destDir, name)
+		info, err := os.Stat(path)
+		if err != nil {
+			t.Fatalf("stat %s: %v", name, err)
+		}
+		if !info.ModTime().Equal(modTime) {
+			t.Errorf("%s ModTime = %v, want %v", name, info.ModTime(), modTime)
+		}
+	}
+}
+
+func TestExtractZip_Timestamps(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	archivePath := filepath.Join(tmpDir, "test.zip")
+	destDir := filepath.Join(tmpDir, "dest")
+
+	modTime := time.Now().Add(-100 * time.Hour).Truncate(time.Second)
+
+	f, err := os.Create(archivePath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	zw := zip.NewWriter(f)
+
+	// File
+	w, _ := zw.CreateHeader(&zip.FileHeader{
+		Name:     "file.txt",
+		Method:   zip.Store,
+		Modified: modTime,
+	})
+	w.Write([]byte("hello"))
+
+	// Dir
+	_, _ = zw.CreateHeader(&zip.FileHeader{
+		Name:     "dir/",
+		Method:   zip.Store,
+		Modified: modTime,
+	})
+
+	zw.Close()
+	f.Close()
+
+	if err := extractZip(archivePath, destDir, 0); err != nil {
+		t.Fatalf("extractZip: %v", err)
+	}
+
+	for _, name := range []string{"file.txt", "dir"} {
+		path := filepath.Join(destDir, name)
+		info, err := os.Stat(path)
+		if err != nil {
+			t.Fatalf("stat %s: %v", name, err)
+		}
+		// Zip precision might be different (2-second resolution for DOS),
+		// but Go's archive/zip tries to preserve it. Let's use a small buffer.
+		diff := info.ModTime().Sub(modTime)
+		if diff < 0 {
+			diff = -diff
+		}
+		if diff > 2*time.Second {
+			t.Errorf("%s ModTime = %v, want %v (diff %v)", name, info.ModTime(), modTime, diff)
+		}
+	}
 }
 
 func TestExtractZip(t *testing.T) {

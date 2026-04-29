@@ -432,6 +432,169 @@ artifacts:
 	})
 }
 
+func TestGetURLForPlatform(t *testing.T) {
+	t.Parallel()
+	c := Cask{
+		Name: "test",
+		URL: map[string]string{
+			"darwin_arm64": "https://example.com/arm.dmg",
+			"darwin_amd64": "https://example.com/intel.dmg",
+			"linux_amd64":  "http://example.com/insecure.dmg",
+		},
+	}
+
+	tests := []struct {
+		osName  string
+		arch    string
+		want    string
+		wantErr string
+	}{
+		{"darwin", "arm64", "https://example.com/arm.dmg", ""},
+		{"darwin", "amd64", "https://example.com/intel.dmg", ""},
+		{"linux", "amd64", "", "refusing to download over insecure HTTP"},
+		{"windows", "amd64", "", "does not support platform windows_amd64"},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.osName+"_"+tt.arch, func(t *testing.T) {
+			t.Parallel()
+			got, err := c.GetURLForPlatform(tt.osName, tt.arch)
+			if tt.wantErr == "" {
+				if err != nil {
+					t.Errorf("GetURLForPlatform() unexpected error: %v", err)
+				}
+				if got != tt.want {
+					t.Errorf("GetURLForPlatform() = %q, want %q", got, tt.want)
+				}
+			} else {
+				if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+					t.Errorf("GetURLForPlatform() error = %v, wantErr %v", err, tt.wantErr)
+				}
+			}
+		})
+	}
+}
+
+func TestGetSHA256ForPlatform(t *testing.T) {
+	t.Parallel()
+	validSHA := "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+	c := Cask{
+		Name: "test",
+		SHA256: map[string]string{
+			"darwin_arm64": validSHA,
+			"darwin_amd64": "invalid-sha",
+		},
+	}
+
+	tests := []struct {
+		osName  string
+		arch    string
+		want    string
+		wantErr string
+	}{
+		{"darwin", "arm64", validSHA, ""},
+		{"darwin", "amd64", "", "invalid SHA256"},
+		{"linux", "amd64", "", "has no SHA256 for platform linux_amd64"},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.osName+"_"+tt.arch, func(t *testing.T) {
+			t.Parallel()
+			got, err := c.GetSHA256ForPlatform(tt.osName, tt.arch)
+			if tt.wantErr == "" {
+				if err != nil {
+					t.Errorf("GetSHA256ForPlatform() unexpected error: %v", err)
+				}
+				if got != tt.want {
+					t.Errorf("GetSHA256ForPlatform() = %q, want %q", got, tt.want)
+				}
+			} else {
+				if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+					t.Errorf("GetSHA256ForPlatform() error = %v, wantErr %v", err, tt.wantErr)
+				}
+			}
+		})
+	}
+}
+
+func TestGetSource(t *testing.T) {
+	t.Parallel()
+	validSHA := "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+	t.Run("Valid", func(t *testing.T) {
+		t.Parallel()
+		c := Cask{
+			Source: SourceSpec{
+				URL:    "https://example.com/source.tar.gz",
+				SHA256: validSHA,
+			},
+		}
+		u, err := c.GetSourceURL()
+		if err != nil || u != c.Source.URL {
+			t.Errorf("GetSourceURL() = %v, %v", u, err)
+		}
+		sha, err := c.GetSourceSHA256()
+		if err != nil || sha != validSHA {
+			t.Errorf("GetSourceSHA256() = %v, %v", sha, err)
+		}
+	})
+
+	t.Run("Missing", func(t *testing.T) {
+		t.Parallel()
+		c := Cask{}
+		if _, err := c.GetSourceURL(); err == nil {
+			t.Error("expected error for missing source URL")
+		}
+		if _, err := c.GetSourceSHA256(); err == nil {
+			t.Error("expected error for missing source SHA256")
+		}
+	})
+
+	t.Run("Insecure", func(t *testing.T) {
+		t.Parallel()
+		c := Cask{Source: SourceSpec{URL: "http://example.com/src"}}
+		if _, err := c.GetSourceURL(); err == nil || !strings.Contains(err.Error(), "must use HTTPS") {
+			// Actually the code says "refusing to download over insecure HTTP"
+			if err == nil || !strings.Contains(err.Error(), "insecure HTTP") {
+				t.Errorf("expected insecure HTTP error, got %v", err)
+			}
+		}
+	})
+}
+
+func TestLoader_Errors(t *testing.T) {
+	t.Parallel()
+
+	t.Run("InvalidName", func(t *testing.T) {
+		t.Parallel()
+		l := Loader{TapDir: t.TempDir()}
+		if _, err := l.LoadByName("../escape"); err == nil {
+			t.Error("expected error for invalid name")
+		}
+	})
+
+	t.Run("NotFound", func(t *testing.T) {
+		t.Parallel()
+		l := Loader{TapDir: t.TempDir()}
+		if _, err := l.LoadByName("missing"); err == nil {
+			t.Error("expected error for missing cask")
+		}
+	})
+
+	t.Run("MissingTapDir", func(t *testing.T) {
+		t.Parallel()
+		l := Loader{TapDir: "/tmp/non-existent-grew-tap-dir"}
+		if _, err := l.LoadAll(); err == nil {
+			t.Error("expected error for missing tap dir")
+		}
+		if _, err := l.LoadByName("any"); err == nil {
+			t.Error("expected error for missing tap dir")
+		}
+	})
+}
+
 func TestCaskroom_Methods(t *testing.T) {
 	t.Parallel()
 	tmpDir := t.TempDir()

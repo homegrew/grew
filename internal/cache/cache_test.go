@@ -6,7 +6,17 @@ import (
 	"testing"
 )
 
+func TestCache_Dir(t *testing.T) {
+	t.Parallel()
+	dir := "/tmp/grew-cache"
+	c := New(dir)
+	if actual := c.Dir(); actual != dir {
+		t.Errorf("expected %q, got %q", dir, actual)
+	}
+}
+
 func TestCache_DownloadsDir(t *testing.T) {
+	t.Parallel()
 	c := New("/tmp/grew-cache")
 	expected := filepath.Join("/tmp/grew-cache", "downloads")
 	if actual := c.DownloadsDir(); actual != expected {
@@ -15,6 +25,7 @@ func TestCache_DownloadsDir(t *testing.T) {
 }
 
 func TestCache_DownloadPath(t *testing.T) {
+	t.Parallel()
 	c := New("/tmp/grew-cache")
 	
 	// Valid filename
@@ -42,6 +53,7 @@ func TestCache_DownloadPath(t *testing.T) {
 }
 
 func TestCache_ExistsAndStore(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	c := New(filepath.Join(tmpDir, "cache"))
 
@@ -74,5 +86,47 @@ func TestCache_ExistsAndStore(t *testing.T) {
 	// Verify original temp file is gone
 	if _, err := os.Stat(tmpDownload); !os.IsNotExist(err) {
 		t.Errorf("expected original temp file to be removed")
+	}
+}
+
+func TestCache_InvalidFilenames(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	c := New(filepath.Join(tmpDir, "cache"))
+
+	invalidFilenames := []string{
+		"../escape.zip",
+		"sub/dir.zip",
+		"/absolute/path.zip",
+		"",
+	}
+
+	for _, fn := range invalidFilenames {
+		t.Run(fn, func(t *testing.T) {
+			if c.Exists(fn) {
+				t.Errorf("Exists(%q) should be false for invalid filename", fn)
+			}
+
+			_, err := c.DownloadPath(fn)
+			if err == nil {
+				t.Errorf("DownloadPath(%q) should fail for invalid filename", fn)
+			}
+
+			_, err = c.Store("/tmp/some-file", fn)
+			if err == nil {
+				t.Errorf("Store(%q) should fail for invalid filename", fn)
+			}
+		})
+	}
+}
+
+func TestCache_Store_MissingSource(t *testing.T) {
+	t.Parallel()
+	tmpDir := t.TempDir()
+	c := New(filepath.Join(tmpDir, "cache"))
+
+	_, err := c.Store(filepath.Join(tmpDir, "non-existent"), "file.zip")
+	if err == nil {
+		t.Error("Store should fail if source file is missing")
 	}
 }
