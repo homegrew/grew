@@ -112,3 +112,20 @@ Devmode is a combination of a compile-time build tag and a runtime CLI flag that
 If devmode is active, `grew` bypasses the standard `sudo` requirements and instead sets the prefix to a hidden directory in the user's home folder: `~/.homegrew`. This allows developers to test the full lifecycle of the package manager—including sandboxed extraction, cellar linking, and dependency resolution—without ever escalating privileges or modifying system directories.
 
 *Note: Release builds ignore the `--unsafe` flag entirely. If a user attempts to run `grew setup --unsafe` on a production binary, it will fail and demand `sudo`.*
+
+## 6. Dependency Management & Cleanup
+
+`grew` tracks why a package was installed using the `InstalledOnRequest` field in its `.MANIFEST.json`. This distinction is critical for maintaining a lean system:
+
+- **Installed on Request:** The package was explicitly requested by the user (e.g., `grew install jq`).
+- **Installed as Dependency:** The package was pulled in automatically to satisfy the requirements of another formula.
+
+This metadata enables precise identification of "orphaned" dependencies—packages that were installed automatically but are no longer required by any currently installed formula.
+
+### Identifying Leaves and Orphans
+- **`grew leaves`**: Lists all packages that are not dependencies of any other installed package.
+    - `-r`, `--installed-on-request`: Filters to show only top-level packages you explicitly wanted.
+    - `-p`, `--installed-as-dependency`: Filters to show orphaned dependencies that are likely safe to remove.
+- **`grew autoremove`**: Automatically uninstalls orphaned dependencies. It performs a calculation to find packages that are both "leaves" and have `InstalledOnRequest: false`.
+    - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
+    - **Dry Run**: The `--dry-run` flag allows users to preview which packages will be removed before any changes are made to the Cellar.
