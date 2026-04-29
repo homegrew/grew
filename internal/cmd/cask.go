@@ -424,8 +424,12 @@ func loadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
 		return nil, "", nil, err
 	}
 	ver := ""
+	var errVer error
 	if cr.IsInstalled(c.Name) {
-		ver, _ = cr.InstalledVersion(c.Name)
+		ver, errVer = cr.InstalledVersion(c.Name)
+		if errVer != nil {
+			return nil, "", nil, fmt.Errorf("read installed version for %q: %w", c.Name, err)
+		}
 	}
 	return c, ver, cr, nil
 }
