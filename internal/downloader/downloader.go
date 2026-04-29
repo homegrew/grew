@@ -113,7 +113,20 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		// Move from tmp to cache.
 		path, err := d.Cache.Store(tmpFile, filename)
 		if err != nil {
-			_ = os.Remove(tmpFile)
+			// Sink-adjacent guard: only remove files that are confirmed to be
+			// within the configured temporary directory.
+			cleanupBase := filepath.Clean(d.TmpDir)
+			if abs, aerr := filepath.Abs(cleanupBase); aerr == nil {
+				cleanupBase = filepath.Clean(abs)
+			}
+			if eval, eerr := filepath.EvalSymlinks(cleanupBase); eerr == nil {
+				cleanupBase = filepath.Clean(eval)
+			}
+			if serr := safepath.SafeAbsolutePath(cleanupBase); serr == nil &&
+				safepath.SafeAbsolutePath(tmpFile) == nil &&
+				safepath.CheckSubpath(cleanupBase, tmpFile) == nil {
+				_ = os.Remove(tmpFile)
+			}
 			return "", err
 		}
 		return path, nil
