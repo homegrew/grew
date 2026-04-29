@@ -106,6 +106,7 @@ func Run(args []string) error {
 		"uninstall":    runUninstall,
 		"remove":       runUninstall,
 		"rm":           runUninstall,
+		"autoremove":   runAutoremove,
 		"list":         runList,
 		"ls":           runList,
 		"leaves":       runLeaves,
@@ -272,6 +273,7 @@ Flags:
 Commands:
   install, i [-f] [-s] [-n] [--skip-post-install] [--skip-link] <formula>... Install formulas (-f without checking for previously installed versions, --cask for apps)
   uninstall, rm, remove [-f] <formula>... Uninstall formulas or casks (-f to force ignore errors/missing)
+  autoremove [--dry-run] Uninstall formulae that were only installed as a dependency
   list, ls [-1] [-l] [-t] [--versions] [--multiple] List installed formulas or casks (--cask)
   leaves               List installed formulas that are not dependencies of another installed formula
   info <formula>...      Show formula or cask info (--cask)
