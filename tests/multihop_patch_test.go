@@ -16,6 +16,13 @@ import (
 )
 
 func TestMultiHopPatchUpdate(t *testing.T) {
+	if _, err := exec.LookPath("bsdiff"); err != nil {
+		t.Skip("bsdiff not found, skipping patch update test")
+	}
+	if _, err := exec.LookPath("bspatch"); err != nil {
+		t.Skip("bspatch not found, skipping patch update test")
+	}
+
 	tmpDir := t.TempDir()
 
 	osName, archName := normalizePlatformNames()
