@@ -62,13 +62,19 @@ install:
 
 	// Capture stdout
 	oldStdout := os.Stdout
-	r, w, _ := os.Pipe()
+	r, w, err := os.Pipe()
+	if err != nil {
+		t.Fatal(err)
+	}
 	os.Stdout = w
+	defer func() {
+		os.Stdout = oldStdout
+		_ = w.Close()
+		_ = r.Close()
+	}()
 
 	err = runInfoJSON(ctx, []string{"test-formula"}, false)
-	
 	w.Close()
-	os.Stdout = oldStdout
 
 	if err != nil {
 		t.Fatalf("runInfoJSON failed: %v", err)
@@ -145,13 +151,19 @@ artifacts:
 
 	// Capture stdout
 	oldStdout := os.Stdout
-	r, w, _ := os.Pipe()
+	r, w, err := os.Pipe()
+	if err != nil {
+		t.Fatal(err)
+	}
 	os.Stdout = w
+	defer func() {
+		os.Stdout = oldStdout
+		_ = w.Close()
+		_ = r.Close()
+	}()
 
 	err = runInfoJSON(ctx, []string{"test-cask"}, true)
-	
 	w.Close()
-	os.Stdout = oldStdout
 
 	if err != nil {
 		t.Fatalf("runInfoJSON failed: %v", err)
