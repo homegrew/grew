@@ -418,8 +418,20 @@ func caskList() error {
 	return nil
 }
 
-func caskInfo(name string) error {
+func loadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
 	_, c, cr, err := loadCask(name)
+	if err != nil {
+		return nil, "", nil, err
+	}
+	ver := ""
+	if cr.IsInstalled(c.Name) {
+		ver, _ = cr.InstalledVersion(c.Name)
+	}
+	return c, ver, cr, nil
+}
+
+func caskInfo(name string) error {
+	c, ver, _, err := loadCaskInfoData(name)
 	if err != nil {
 		return err
 	}
@@ -428,8 +440,7 @@ func caskInfo(name string) error {
 	fmt.Printf("Homepage: %s\n", c.Homepage)
 	fmt.Printf("License:  %s\n", c.License)
 
-	if cr.IsInstalled(c.Name) {
-		ver, _ := cr.InstalledVersion(c.Name)
+	if ver != "" {
 		fmt.Printf("Installed: %s\n", ver)
 	} else {
 		fmt.Println("Installed: no")

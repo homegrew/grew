@@ -1,9 +1,11 @@
 package cmd
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log/slog"
+	"os"
 	"strings"
 
 	"github.com/homegrew/grew/internal/flags"
@@ -24,6 +26,7 @@ If no arguments are provided, show installation statistics.
 
 Options:
   --cask        Show cask info.
+  --json        Print information in JSON format.
   -v, --verbose Show detailed output.
   -d, --debug   Show debug diagnostics (implies --verbose).
 `)
@@ -31,6 +34,7 @@ Options:
 
 	flags.Register(fs)
 	isCask := fs.Bool("cask", false, "Show cask info")
+	isJSON := fs.Bool("json", false, "Print information in JSON format")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -42,7 +46,14 @@ Options:
 	}
 
 	if fs.NArg() == 0 {
+		if *isJSON {
+			return fmt.Errorf("usage: grew info --json <formula|cask>...")
+		}
 		return printInstallationStats(ctx)
+	}
+
+	if *isJSON {
+		return runInfoJSON(ctx, fs.Args(), *isCask)
 	}
 
 	if *isCask {
@@ -102,6 +113,66 @@ Options:
 	}
 
 	return nil
+}
+
+func runInfoJSON(ctx readContext, names []string, isCask bool) error {
+	var output InfoJSONv2
+	lnk := &linker.Linker{Paths: ctx.Paths}
+
+	for _, name := range names {
+		if isCask {
+			c, ver, _, err := loadCaskInfoData(name)
+			if err != nil {
+				return err
+			}
+			cj := CaskJSON{
+				Token:     c.Name,
+				FullToken: c.Name,
+				Name:      []string{c.Name},
+				Desc:      c.Description,
+				Homepage:  c.Homepage,
+				Version:   c.Version,
+				Installed: ver,
+				Artifacts: []CaskArtifactJSON{
+					{
+						App: c.Artifacts.App,
+						Bin: c.Artifacts.Bin,
+					},
+				},
+			}
+			output.Casks = append(output.Casks, cj)
+		} else {
+			f, err := ctx.Loader.LoadByName(name)
+			if err != nil {
+				return fmt.Errorf("formula not found: %s", name)
+			}
+			fj := FormulaJSON{
+				Name:         f.Name,
+				FullName:     f.Name,
+				Desc:         f.Description,
+				License:      f.License,
+				Homepage:     f.Homepage,
+				Versions:     VersionsJSON{Stable: f.Version},
+				Dependencies: f.Dependencies,
+				KegOnly:      f.KegOnly,
+			}
+
+			if ctx.Cellar.IsInstalled(f.Name) {
+				ver, _ := ctx.Cellar.InstalledVersion(f.Name)
+				fj.Installed = []InstalledPackageJSON{
+					{
+						Version: ver,
+						Linked:  lnk.IsLinked(f.Name),
+					},
+				}
+			}
+			output.Formulae = append(output.Formulae, fj)
+		}
+	}
+
+	enc := json.NewEncoder(os.Stdout)
+	enc.SetIndent("", "  ")
+	return enc.Encode(output)
 }
 
 func printInstallationStats(ctx readContext) error {
