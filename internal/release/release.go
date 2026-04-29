@@ -67,10 +67,15 @@ type Asset struct {
 	BrowserDownloadURL string `json:"browser_download_url"`
 }
 
-// FetchLatest lists GitHub releases and returns the first stable (non-draft,
-// non-prerelease) release.
-func FetchLatest() (*Release, error) {
-	url := fmt.Sprintf("%s/repos/%s/%s/releases?per_page=10", apiBase, repoOwner, repoName)
+// FetchRecent lists GitHub releases and returns the first 'count' stable
+// (non-draft, non-prerelease) releases.
+func FetchRecent(count int) ([]Release, error) {
+	// Request more than count to account for drafts/prereleases.
+	perPage := count + 5
+	if perPage > 100 {
+		perPage = 100
+	}
+	url := fmt.Sprintf("%s/repos/%s/%s/releases?per_page=%d", apiBase, repoOwner, repoName, perPage)
 
 	resp, err := httpsGet(url, "application/vnd.github+json")
 	if err != nil {
@@ -87,13 +92,30 @@ func FetchLatest() (*Release, error) {
 		return nil, fmt.Errorf("parse releases: %w", err)
 	}
 
+	var stable []Release
 	for i := range releases {
 		if releases[i].Draft || releases[i].Prerelease {
 			continue
 		}
-		return &releases[i], nil
+		stable = append(stable, releases[i])
+		if len(stable) >= count {
+			break
+		}
 	}
-	return nil, fmt.Errorf("no stable releases found for %s/%s", repoOwner, repoName)
+	return stable, nil
+}
+
+// FetchLatest lists GitHub releases and returns the first stable (non-draft,
+// non-prerelease) release.
+func FetchLatest() (*Release, error) {
+	stable, err := FetchRecent(1)
+	if err != nil {
+		return nil, err
+	}
+	if len(stable) == 0 {
+		return nil, fmt.Errorf("no stable releases found for %s/%s", repoOwner, repoName)
+	}
+	return &stable[0], nil
 }
 
 func normalizePlatform() (osName, archName string) {
@@ -128,6 +150,23 @@ func RawBinaryName() string {
 func PatchName(oldVer, newVer string) string {
 	osName, archName := normalizePlatform()
 	return fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, oldVer, newVer)
+}
+
+// ParsePatchVersion extracts the 'old' version from a patch asset name if it
+// matches the current platform's naming convention. Returns empty string if not a match.
+func ParsePatchVersion(name string) string {
+	osName, archName := normalizePlatform()
+	prefix := fmt.Sprintf("grew_%s_%s_", osName, archName)
+	if !strings.HasPrefix(name, prefix) || !strings.HasSuffix(name, ".patch") {
+		return ""
+	}
+	// "grew_Darwin_x86_64_v0.1.0_to_v0.2.0.patch" -> "v0.1.0_to_v0.2.0"
+	rest := name[len(prefix) : len(name)-len(".patch")]
+	parts := strings.Split(rest, "_to_")
+	if len(parts) != 2 {
+		return ""
+	}
+	return parts[0]
 }
 
 // FindAssetURL returns the HTTPS download URL for the named asset in a release.

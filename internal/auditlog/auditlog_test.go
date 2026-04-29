@@ -141,7 +141,7 @@ func TestLog_AllActions(t *testing.T) {
 
 	actions := []Action{
 		ActionInstall, ActionUninstall, ActionReinstall,
-		ActionUpgrade, ActionSelfUpdate, ActionPin, ActionUnpin,
+		ActionUpgrade, ActionUpdate, ActionSelfUpdate, ActionPin, ActionUnpin,
 		ActionLink, ActionUnlink, ActionCaskInstall, ActionCaskRemove,
 	}
 	for _, a := range actions {
