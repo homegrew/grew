@@ -114,8 +114,8 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		path, err := d.Cache.Store(tmpFile, filename)
 		if err != nil {
 			// Sink-adjacent guard: only remove files that are confirmed to be
-			// within the configured temporary directory.
-			cleanupBase := filepath.Clean(d.TmpDir)
+			// within the temporary directory that actually contains tmpFile.
+			cleanupBase := filepath.Clean(filepath.Dir(tmpFile))
 			if abs, aerr := filepath.Abs(cleanupBase); aerr == nil {
 				cleanupBase = filepath.Clean(abs)
 			}
