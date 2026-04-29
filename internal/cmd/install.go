@@ -212,16 +212,35 @@ Options:
 			}
 
 			var dlURL, sha256, sha512, ext, filename string
+			var err error
 			if *buildFromSource && f.Name == name {
-				dlURL, _ = f.GetSourceURL()
-				sha256, _ = f.GetSourceSHA256()
-				sha512, _ = f.GetSourceSHA512()
+				dlURL, err = f.GetSourceURL()
+				if err != nil {
+					return err
+				}
+				sha256, err = f.GetSourceSHA256()
+				if err != nil {
+					return err
+				}
+				sha512, err = f.GetSourceSHA512()
+				if err != nil {
+					return err
+				}
 				ext = urlExt(dlURL)
 				filename = f.Name + "-" + f.Version + "-src" + ext
 			} else {
-				dlURL, _ = f.GetURL()
-				sha256, _ = f.GetSHA256()
-				sha512, _ = f.GetSHA512()
+				dlURL, err = f.GetURL()
+				if err != nil {
+					return err
+				}
+				sha256, err = f.GetSHA256()
+				if err != nil {
+					return err
+				}
+				sha512, err = f.GetSHA512()
+				if err != nil {
+					return err
+				}
 				ext = urlExt(dlURL)
 				if ext == "" && f.Install.Format != "" {
 					ext = "." + f.Install.Format

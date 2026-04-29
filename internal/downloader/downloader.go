@@ -111,7 +111,12 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 		}
 
 		// Move from tmp to cache.
-		return d.Cache.Store(tmpFile, filename)
+		path, err := d.Cache.Store(tmpFile, filename)
+		if err != nil {
+			_ = os.Remove(tmpFile)
+			return "", err
+		}
+		return path, nil
 	}
 
 	// No cache, download directly to TmpDir (original behavior).
@@ -171,12 +176,14 @@ func (d *Downloader) BatchDownload(downloads []DownloadRequest, maxWorkers int) 
 				}
 				if req.ExpectedSHA256 != "" {
 					if err := VerifySHA256(path, req.ExpectedSHA256); err != nil {
+						_ = os.Remove(path)
 						errCh <- fmt.Errorf("verify %s failed: %w", req.Filename, err)
 						continue
 					}
 				}
 				if req.ExpectedSHA512 != "" {
 					if err := VerifySHA512(path, req.ExpectedSHA512); err != nil {
+						_ = os.Remove(path)
 						errCh <- fmt.Errorf("verify %s failed: %w", req.Filename, err)
 						continue
 					}
@@ -213,6 +220,12 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 	if abs, err := filepath.Abs(tmpDir); err == nil {
 		tmpDir = filepath.Clean(abs)
 	}
+	// On some platforms (macOS), /var is a symlink to /private/var.
+	// We must resolve symlinks before performing subpath checks.
+	if eval, err := filepath.EvalSymlinks(tmpDir); err == nil {
+		tmpDir = filepath.Clean(eval)
+	}
+
 	// Resolve the final sink path via safe join right before filesystem use.
 	sinkPath, err := safepath.SafeJoin(tmpDir, filename)
 	if err != nil {
@@ -224,17 +237,9 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 	}
 
 	// Canonicalize paths (resolve symlinks) before filesystem operations.
-	canonTmpDir, err := filepath.EvalSymlinks(tmpDir)
-	if err != nil {
-		return "", fmt.Errorf("resolve temp directory %s: %w", tmpDir, err)
-	}
-	canonTmpDir = filepath.Clean(canonTmpDir)
+	canonTmpDir := tmpDir
 	if err := safepath.SafeAbsolutePath(canonTmpDir); err != nil {
 		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
-	}
-	// Enforce trust boundary at sink: canonical temp dir must remain under the configured tmpDir.
-	if err := safepath.CheckSubpath(tmpDir, canonTmpDir); err != nil {
-		return "", fmt.Errorf("invalid temp directory %q: escapes configured temp root %q: %w", canonTmpDir, tmpDir, err)
 	}
 
 	finalName := filepath.Base(sinkPath)
