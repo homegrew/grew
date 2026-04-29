@@ -103,6 +103,7 @@ Options:
 		}
 
 		var requests []downloader.DownloadRequest
+		seen := make(map[string]struct{})
 		for _, name := range remaining {
 			c, err := ctx.CaskLoader.LoadByName(name)
 			if err != nil {
@@ -122,6 +123,11 @@ Options:
 			}
 			sha512 := c.GetSHA512()
 			filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
+
+			if _, ok := seen[filename]; ok {
+				continue
+			}
+			seen[filename] = struct{}{}
 
 			if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
 				requests = append(requests, downloader.DownloadRequest{

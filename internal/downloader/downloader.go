@@ -77,9 +77,10 @@ type DownloadRequest struct {
 }
 
 type Downloader struct {
-	TmpDir string
-	Cache  *cache.Cache
-	Silent bool
+	TmpDir    string
+	Cache     *cache.Cache
+	Silent    bool
+	cacheLock sync.Mutex
 }
 
 // Download fetches a file over HTTPS from an allowed host, using Cache if available.
@@ -99,6 +100,9 @@ func (d *Downloader) Download(rawURL, filename string) (string, error) {
 
 	// If Cache is set, try to use/populate the cache.
 	if d.Cache != nil {
+		d.cacheLock.Lock()
+		defer d.cacheLock.Unlock()
+
 		if d.Cache.Exists(filename) {
 			fmt.Printf("Using cached %s\n", filename)
 			return d.Cache.DownloadPath(filename)
