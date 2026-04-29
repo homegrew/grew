@@ -47,7 +47,7 @@ Options:
 
 	if fs.NArg() == 0 {
 		if *isJSON {
-			return fmt.Errorf("usage: grew info --json <formula|cask>...")
+			return fmt.Errorf("usage: grew info --json <formula|cask>")
 		}
 		return printInstallationStats(ctx)
 	}
