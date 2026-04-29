@@ -85,6 +85,12 @@ Options:
 		return fmt.Errorf("usage: grew install [-f] [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
 	}
 
+	ctx, err := newInstallContext()
+	if err != nil {
+		return err
+	}
+	defer ctx.Close()
+
 	if *isCask {
 		if *buildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
@@ -95,6 +101,44 @@ Options:
 		if *ignoreDeps {
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
+
+		var requests []downloader.DownloadRequest
+		for _, name := range remaining {
+			c, err := ctx.CaskLoader.LoadByName(name)
+			if err != nil {
+				return fmt.Errorf("cask not found: %s", name)
+			}
+			if ctx.Caskroom.IsInstalled(c.Name) && !*force {
+				continue
+			}
+
+			dlURL, err := c.GetURL()
+			if err != nil {
+				return err
+			}
+			sha256, err := c.GetSHA256()
+			if err != nil {
+				return err
+			}
+			sha512 := c.GetSHA512()
+			filename := c.Name + "-" + c.Version + caskURLExt(dlURL)
+
+			if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
+				requests = append(requests, downloader.DownloadRequest{
+					URL:            dlURL,
+					Filename:       filename,
+					ExpectedSHA256: sha256,
+					ExpectedSHA512: sha512,
+				})
+			}
+		}
+
+		if len(requests) > 0 {
+			if err := ctx.DL.BatchDownload(requests, 4); err != nil {
+				return err
+			}
+		}
+
 		for _, name := range remaining {
 			if err := caskInstall(name, *noQuarantine, *force); err != nil {
 				return err
@@ -102,12 +146,6 @@ Options:
 		}
 		return nil
 	}
-
-	ctx, err := newInstallContext()
-	if err != nil {
-		return err
-	}
-	defer ctx.Close()
 
 	for _, name := range remaining {
 		var installOrder []*formula.Formula
@@ -161,6 +199,52 @@ Options:
 				return err
 			}
 			continue
+		}
+
+		var requests []downloader.DownloadRequest
+		for _, f := range installOrder {
+			if *onlyDeps && f.Name == name {
+				continue
+			}
+
+			if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
+				continue
+			}
+
+			var dlURL, sha256, sha512, ext, filename string
+			if *buildFromSource && f.Name == name {
+				dlURL, _ = f.GetSourceURL()
+				sha256, _ = f.GetSourceSHA256()
+				sha512, _ = f.GetSourceSHA512()
+				ext = urlExt(dlURL)
+				filename = f.Name + "-" + f.Version + "-src" + ext
+			} else {
+				dlURL, _ = f.GetURL()
+				sha256, _ = f.GetSHA256()
+				sha512, _ = f.GetSHA512()
+				ext = urlExt(dlURL)
+				if ext == "" && f.Install.Format != "" {
+					ext = "." + f.Install.Format
+				}
+				filename = f.Name + "-" + f.Version + ext
+			}
+
+			if dlURL != "" {
+				if ctx.DL.Cache == nil || !ctx.DL.Cache.Exists(filename) {
+					requests = append(requests, downloader.DownloadRequest{
+						URL:            dlURL,
+						Filename:       filename,
+						ExpectedSHA256: sha256,
+						ExpectedSHA512: sha512,
+					})
+				}
+			}
+		}
+
+		if len(requests) > 0 {
+			if err := ctx.DL.BatchDownload(requests, 4); err != nil {
+				return err
+			}
 		}
 
 		for _, f := range installOrder {
