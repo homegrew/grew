@@ -232,6 +232,10 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 	if err := safepath.SafeAbsolutePath(canonTmpDir); err != nil {
 		return "", fmt.Errorf("invalid temp directory %q: %w", canonTmpDir, err)
 	}
+	// Enforce trust boundary at sink: canonical temp dir must remain under the configured tmpDir.
+	if err := safepath.CheckSubpath(tmpDir, canonTmpDir); err != nil {
+		return "", fmt.Errorf("invalid temp directory %q: escapes configured temp root %q: %w", canonTmpDir, tmpDir, err)
+	}
 
 	finalName := filepath.Base(sinkPath)
 	if err := safepath.SafePathComponent(finalName); err != nil {
@@ -329,6 +333,16 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 
 	finalPath := tmpFilePath
 	if d.Cache == nil {
+		// Final sink-time guard: both source and destination must remain within
+		// the canonical temp directory before performing filesystem rename.
+		if err := safepath.CheckSubpath(canonTmpDir, tmpFilePath); err != nil {
+			_ = os.Remove(tmpFilePath)
+			return "", fmt.Errorf("temporary file escaped temp directory: %w", err)
+		}
+		if err := safepath.CheckSubpath(canonTmpDir, safeSinkPath); err != nil {
+			_ = os.Remove(tmpFilePath)
+			return "", fmt.Errorf("download sink escaped temp directory: %w", err)
+		}
 		if err := os.Rename(tmpFilePath, safeSinkPath); err != nil {
 			_ = os.Remove(tmpFilePath)
 			return "", fmt.Errorf("rename temp file to %s: %w", safeSinkPath, err)
