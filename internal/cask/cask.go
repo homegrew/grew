@@ -15,30 +15,30 @@ import (
 )
 
 type SourceSpec struct {
-	URL    string `yaml:"url"`
-	SHA256 string `yaml:"sha256"`
-	SHA512 string `yaml:"sha512"`
+	URL    string `yaml:"url,omitempty"`
+	SHA256 string `yaml:"sha256,omitempty"`
+	SHA512 string `yaml:"sha512,omitempty"`
 }
 
 // Cask represents a macOS application package definition.
 type Cask struct {
 	Name        string            `yaml:"name"`
 	Version     string            `yaml:"version"`
-	Description string            `yaml:"description"`
-	Homepage    string            `yaml:"homepage"`
-	License     string            `yaml:"license"`
-	URL         map[string]string `yaml:"url"`
-	SHA256      map[string]string `yaml:"sha256"`
-	SHA512      map[string]string `yaml:"sha512"`
-	Artifacts   Artifacts         `yaml:"artifacts"`
-	Source      SourceSpec        `yaml:"source"`
+	Description string            `yaml:"description,omitempty"`
+	Homepage    string            `yaml:"homepage,omitempty"`
+	License     string            `yaml:"license,omitempty"`
+	URL         map[string]string `yaml:"url,omitempty"`
+	SHA256      map[string]string `yaml:"sha256,omitempty"`
+	SHA512      map[string]string `yaml:"sha512,omitempty"`
+	Artifacts   Artifacts         `yaml:"artifacts,omitempty"`
+	Source      SourceSpec        `yaml:"source,omitempty"`
 }
 
 // Artifacts describes what to install from the downloaded archive.
 type Artifacts struct {
-	App []string `yaml:"app"` // .app bundles to copy to ~/Applications
-	Pkg []string `yaml:"pkg"` // .pkg installers to run (not implemented yet)
-	Bin []string `yaml:"bin"` // binaries to symlink into grew bin/
+	App []string `yaml:"app,omitempty"` // .app bundles to copy to ~/Applications
+	Pkg []string `yaml:"pkg,omitempty"` // .pkg installers to run (not implemented yet)
+	Bin []string `yaml:"bin,omitempty"` // binaries to symlink into grew bin/
 }
 
 func PlatformKey() string {

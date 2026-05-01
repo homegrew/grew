@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
@@ -32,7 +33,14 @@ func runUpdate(args []string) error {
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
 	count, err := tapMgr.Update()
 	if err != nil {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("failed: %v", err))
 		return fmt.Errorf("update core tap: %w", err)
+	}
+
+	if count == 0 {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", "already up-to-date")
+	} else {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("updated %d formulas", count))
 	}
 
 	fmt.Fprintf(os.Stderr, "==> Updated core tap (%d formulas)\n", count)

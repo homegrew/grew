@@ -230,9 +230,6 @@ func runFormulaImport(args []string) {
 				URL:    hf.Urls.Stable.URL,
 				SHA256: hf.Urls.Stable.Checksum,
 			},
-			Install: formula.InstallSpec{
-				Type: "archive", Format: "tar.gz", StripComponents: 2,
-			},
 			Dependencies:      hf.Dependencies,
 			BuildDependencies: hf.BuildDependencies,
 			KegOnly:           hf.KegOnly,
@@ -270,9 +267,7 @@ func runFormulaImport(args []string) {
 			}
 		}
 
-		f.Artifacts.Bin = []string{hf.Name}
 		linuxDeps := map[string]bool{}
-
 		for _, d := range hf.Variations.LinuxAMD64.Dependencies {
 			linuxDeps[d] = true
 		}
