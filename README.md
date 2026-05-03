@@ -235,6 +235,8 @@ Everything else flows from the prefix:
 
 ## 🛠️ Development
 
+[![Go Reference][pkg-badge]][pkg-url]
+
 ```bash
 make check         # go test -v -race ./...
 make build         # go generate + go build (release — requires root at runtime)
@@ -358,3 +360,5 @@ No license file yet — add a `LICENSE` to clarify what others can and can't do 
 
 [go-badge]: https://img.shields.io/badge/go-1.26-00ADD8?style=for-the-badge&logo=go&logoColor=white
 [go-url]: https://go.dev
+[pkg-badge]: https://pkg.go.dev/badge/github.com/homegrew/grew.svg
+[pkg-url]: https://pkg.go.dev/github.com/homegrew/grew
