@@ -1,3 +1,6 @@
+// Package config provides the central path management and configuration discovery
+// for homegrew. It handles determining the installation prefix, user-specific
+// directories, and ensuring the environment is correctly initialized.
 package config
 
 import (
@@ -11,33 +14,36 @@ import (
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
+// Paths holds the absolute, cleaned paths for all major directories used by grew.
+// All fields are guaranteed to be absolute paths after initialization via
+// Default() or FromRoot().
 type Paths struct {
-	Root     string
-	Cellar   string
-	Opt      string
-	Bin      string
-	Sbin     string
-	Lib      string
-	Include  string
-	Share    string
-	Taps     string
-	CoreTap  string
-	CaskTap  string
-	Caskroom string
-	AppDir   string
-	Cache    string
-	Tmp      string
-	Log      string
-	GitRepo  string
+	Root     string // The installation prefix (e.g. /opt/homegrew).
+	Cellar   string // Directory where formulas are installed (Root/Cellar).
+	Opt      string // Directory for symlinks to active formula versions (Root/opt).
+	Bin      string // Executable binaries (Root/bin).
+	Sbin     string // System binaries (Root/sbin).
+	Lib      string // Libraries (Root/lib).
+	Include  string // Header files (Root/include).
+	Share    string // Shared data (Root/share).
+	Taps     string // Directory for git repositories of formulas (Root/Taps).
+	CoreTap  string // The official core formula tap.
+	CaskTap  string // The official cask tap.
+	Caskroom string // Directory where casks are recorded (Root/Caskroom).
+	AppDir   string // Directory for macOS applications (usually /Applications or ~/Applications).
+	Cache    string // Directory for download and metadata cache.
+	Tmp      string // Temporary directory for builds and extractions (Root/tmp).
+	Log      string // Directory for audit logs (Root/var/log).
+	GitRepo  string // Internal directory for grew's own source (Root/Grew).
 }
 
-// DefaultPrefix determines the homegrew prefix using these rules (in order):
+// DefaultPrefix determines the homegrew prefix.
 //
-//  1. HOMEGREW_PREFIX env var (explicit override, if valid)
-//  2. Inferred from the binary's own location: if the executable lives at
-//     <prefix>/bin/grew, the prefix is <prefix>. This means grew always
-//     knows where it is without any configuration.
-//  3. Fallback: system prefix for root, ~/.homegrew for non-root with GREW_DEVMODE=1
+// Discovery rules (in order):
+//  1. HOMEGREW_PREFIX environment variable (explicit override).
+//  2. Inferred from binary location: if the executable is at <prefix>/bin/grew,
+//     the prefix is <prefix>.
+//  3. Fallback: platform system prefix for root, or ~/.homegrew for non-root.
 func DefaultPrefix() string {
 	var prefix string
 
@@ -127,6 +133,9 @@ func systemPrefix() string {
 	return "/usr/local/homegrew"
 }
 
+// Default returns the default Paths for the current environment.
+// It discovers the prefix, application directory, and cache directory
+// using environment variables and system defaults.
 func Default() Paths {
 	root := DefaultPrefix()
 	home, err := os.UserHomeDir()
@@ -287,6 +296,9 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 	}
 }
 
+// Init ensures that all required directories in the Paths struct exist on disk.
+// It creates them with 0755 permissions. It returns an error if any directory
+// cannot be created or if a path would escape the Root prefix.
 func (p Paths) Init() error {
 	if err := safepath.SafeAbsolutePath(p.Root); err != nil {
 		return fmt.Errorf("invalid root path %q: %w", p.Root, err)
