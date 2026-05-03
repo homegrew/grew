@@ -18,6 +18,7 @@ func createTestKeg(t *testing.T) string {
 }
 
 func TestCaptureAndSave(t *testing.T) {
+	t.Parallel()
 	keg := createTestKeg(t)
 
 	meta := InstallMeta{
@@ -87,6 +88,7 @@ func TestCaptureAndSave(t *testing.T) {
 }
 
 func TestVerify_Clean(t *testing.T) {
+	t.Parallel()
 	keg := createTestKeg(t)
 
 	meta := InstallMeta{Platform: "darwin_arm64"}
@@ -109,6 +111,7 @@ func TestVerify_Clean(t *testing.T) {
 }
 
 func TestVerify_Modified(t *testing.T) {
+	t.Parallel()
 	keg := createTestKeg(t)
 
 	meta := InstallMeta{Platform: "darwin_arm64"}
@@ -131,6 +134,7 @@ func TestVerify_Modified(t *testing.T) {
 }
 
 func TestVerify_Missing(t *testing.T) {
+	t.Parallel()
 	keg := createTestKeg(t)
 
 	meta := InstallMeta{Platform: "darwin_arm64"}
@@ -153,6 +157,7 @@ func TestVerify_Missing(t *testing.T) {
 }
 
 func TestVerify_Added(t *testing.T) {
+	t.Parallel()
 	keg := createTestKeg(t)
 
 	meta := InstallMeta{Platform: "darwin_arm64"}
@@ -171,5 +176,26 @@ func TestVerify_Added(t *testing.T) {
 	}
 	if len(result.Added) == 0 {
 		t.Error("expected added files list to be non-empty")
+	}
+}
+
+func TestVerify_IgnoreInstallReceipt(t *testing.T) {
+	t.Parallel()
+	keg := createTestKeg(t)
+
+	meta := InstallMeta{Platform: "darwin_arm64"}
+	m, _ := Capture("mypkg", "1.0.0", keg, meta)
+	Save(m, keg)
+
+	// Add the receipt file which should be ignored.
+	os.WriteFile(filepath.Join(keg, "INSTALL_RECEIPT.json"), []byte("{}"), 0644)
+
+	result, err := Verify(keg)
+	if err != nil {
+		t.Fatalf("verify: %v", err)
+	}
+	if !result.OK {
+		t.Errorf("expected OK when only INSTALL_RECEIPT.json is added, got missing=%v modified=%v added=%v errors=%v",
+			result.Missing, result.Modified, result.Added, result.Errors)
 	}
 }
