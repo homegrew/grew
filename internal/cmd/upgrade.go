@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -111,6 +112,7 @@ The old version keg is removed after a successful upgrade.`,
 				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
 					fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
 			}
+		}
 
 			// Remove old version keg if different from new
 			oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
