@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
@@ -11,68 +10,71 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/spf13/cobra"
 )
+
+var (
+	listCask         bool
+	listFormulae     bool
+	listVersionsFlag bool
+	listMultiple     bool
+	listOnePerLine   bool
+	listLong         bool
+	listByTime       bool
+	listReverse      bool
+	listOnRequest    bool
+	listAsDep        bool
+	listFullName     bool
+	listBuiltSrc     bool
+	listPouredBottle bool
+	listPinned       bool
+)
+
+var ListCmd = &cobra.Command{
+	Use:     "list [flags]",
+	Aliases: []string{"ls"},
+	Short:   "List installed formulas or casks",
+	Long: `List all installed formulas with their versions.
+With --cask, list installed casks instead.
+
+Examples:
+  grew list
+  grew list --cask`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runList(args)
+	},
+}
+
+func init() {
+	ListCmd.Flags().BoolVar(&listCask, "cask", false, "List installed casks.")
+	ListCmd.Flags().BoolVar(&listFormulae, "formulae", false, "List installed formulas (default).")
+	ListCmd.Flags().BoolVar(&listVersionsFlag, "versions", false, "Show all installed versions for each package.")
+	ListCmd.Flags().BoolVar(&listMultiple, "multiple", false, "Only show packages with multiple versions installed.")
+	ListCmd.Flags().BoolVarP(&listOnePerLine, "1", "1", false, "Print one entry per line, names only.")
+	ListCmd.Flags().BoolVarP(&listLong, "l", "l", false, "Long format (name, version, path).")
+	ListCmd.Flags().BoolVarP(&listByTime, "t", "t", false, "Sort by modification time (newest first).")
+	ListCmd.Flags().BoolVarP(&listReverse, "r", "r", false, "Reverse sort order.")
+	ListCmd.Flags().BoolVar(&listOnRequest, "installed-on-request", false, "Only show formulas explicitly installed by the user.")
+	ListCmd.Flags().BoolVar(&listAsDep, "installed-as-dependency", false, "Only show formulas installed automatically as dependencies.")
+	ListCmd.Flags().BoolVar(&listFullName, "full-name", false, "Show full keg path as name (tap/formula).")
+	ListCmd.Flags().BoolVar(&listBuiltSrc, "built-from-source", false, "Only show formulas built from source.")
+	ListCmd.Flags().BoolVar(&listPouredBottle, "poured-from-bottle", false, "Only show formulas poured from a pre-compiled bottle.")
+	ListCmd.Flags().BoolVar(&listPinned, "pinned", false, "Only show pinned formulas.")
+	rootCmd.AddCommand(ListCmd)
+}
 
 func runList(args []string) error {
 	slog.Debug("starting list command execution")
-	slog.Debug("starting list command execution")
-	fs := flag.NewFlagSet("list", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew list [options]
-
-List all installed formulas or casks. Aliases: ls
-
-Options:
-  --cask                     List installed casks.
-  --formulae                 List installed formulas (default).
-  --versions                 Show all installed versions for each package.
-  --multiple                 Only show packages with multiple versions installed.
-  -1                         Print one entry per line, names only.
-  -l                         Long format (name, version, path).
-  -t                         Sort by modification time (newest first).
-  -r                         Reverse sort order.
-  --installed-on-request     Only show formulas explicitly installed by the user.
-  --installed-as-dependency  Only show formulas installed automatically as dependencies.
-  --full-name                Show full keg path as name (tap/formula).
-  --built-from-source        Only show formulas built from source.
-  --poured-from-bottle       Only show formulas poured from a pre-compiled bottle.
-  --pinned                   Only show pinned formulas.
-  -v, --verbose              Show detailed output.
-  -d, --debug                Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	isCask := fs.Bool("cask", false, "List installed casks")
-	isFormulae := fs.Bool("formulae", false, "List installed formulas (default)")
-	versions := fs.Bool("versions", false, "Show all installed versions")
-	multiple := fs.Bool("multiple", false, "Only show formulas with multiple versions")
-	onePerLine := fs.Bool("1", false, "One entry per line, names only")
-	long := fs.Bool("l", false, "Long format (name, version, path)")
-	byTime := fs.Bool("t", false, "Sort by modification time (newest first)")
-	reverse := fs.Bool("r", false, "Reverse sort order")
-	onRequest := fs.Bool("installed-on-request", false, "Only show formulas installed on request")
-	asDep := fs.Bool("installed-as-dependency", false, "Only show formulas installed as dependencies")
-	fullName := fs.Bool("full-name", false, "Show full keg path as name (tap/formula)")
-	builtSrc := fs.Bool("built-from-source", false, "Only show formulas built from source") //nolint:revive
-	pouredBottle := fs.Bool("poured-from-bottle", false, "Only show formulas poured from bottle")
-	pinned := fs.Bool("pinned", false, "Only show pinned formulas")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if *onRequest && *asDep {
+	if listOnRequest && listAsDep {
 		return fmt.Errorf("--installed-on-request and --installed-as-dependency are mutually exclusive")
 	}
-	if *builtSrc && *pouredBottle {
+	if listBuiltSrc && listPouredBottle {
 		return fmt.Errorf("--built-from-source and --poured-from-bottle are mutually exclusive")
 	}
 
-	if *isCask && !*isFormulae {
+	if listCask && !listFormulae {
 		return caskList()
 	}
 
@@ -90,15 +92,15 @@ Options:
 	}
 
 	// Filter by install reason or build method using snapshot metadata.
-	if *onRequest || *asDep || *builtSrc || *pouredBottle {
-		packages = filterByManifest(packages, cel, *onRequest, *asDep, *builtSrc, *pouredBottle)
+	if listOnRequest || listAsDep || listBuiltSrc || listPouredBottle {
+		packages = filterByManifest(packages, cel, listOnRequest, listAsDep, listBuiltSrc, listPouredBottle)
 		if len(packages) == 0 {
 			fmt.Println("No matching formulas.")
 			return nil
 		}
 	}
 
-	if *pinned {
+	if listPinned {
 		var pinnedPkgs []cellar.InstalledPackage
 		for _, p := range packages {
 			if cel.IsPinned(p.Name) {
@@ -112,15 +114,15 @@ Options:
 		}
 	}
 
-	if *byTime {
+	if listByTime {
 		sortByTime(packages)
 	}
 
-	if *reverse {
+	if listReverse {
 		reversePackages(packages)
 	}
 
-	if *multiple {
+	if listMultiple {
 		packages = filterMultiple(cel, packages)
 		if len(packages) == 0 {
 			fmt.Println("No formulas with multiple versions installed.")
@@ -128,19 +130,19 @@ Options:
 		}
 	}
 
-	if *versions {
-		return listVersions(cel, packages, *long, *onePerLine, *fullName, paths.Cellar)
+	if listVersionsFlag {
+		return listVersions(cel, packages, listLong, listOnePerLine, listFullName, paths.Cellar)
 	}
 
 	for _, p := range packages {
 		name := p.Name
-		if *fullName {
+		if listFullName {
 			name = filepath.Join(paths.Cellar, p.Name, p.Version)
 		}
 		switch {
-		case *onePerLine:
+		case listOnePerLine:
 			fmt.Println(name)
-		case *long:
+		case listLong:
 			fmt.Printf("%-20s %-12s %s\n", name, p.Version, p.Path)
 		default:
 			fmt.Printf("%-20s %s\n", name, p.Version)

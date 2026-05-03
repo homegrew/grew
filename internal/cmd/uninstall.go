@@ -1,52 +1,51 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/flags"
+	"github.com/spf13/cobra"
 )
+
+var (
+	uninstallCask  bool
+	uninstallForce bool
+)
+
+var UninstallCmd = &cobra.Command{
+	Use:     "uninstall [flags] <formula>",
+	Aliases: []string{"remove", "rm"},
+	Short:   "Uninstall formulas or casks",
+	Long: `Uninstall a formula by removing its symlinks and Cellar directory.
+With --cask, removes the .app from ~/Applications and the Caskroom entry.
+
+Examples:
+  grew uninstall jq
+  grew uninstall --force jq
+  grew uninstall --cask firefox`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runUninstall(args)
+	},
+}
+
+func init() {
+	UninstallCmd.Flags().BoolVar(&uninstallCask, "cask", false, "Uninstall a cask instead of a formula.")
+	UninstallCmd.Flags().BoolVarP(&uninstallForce, "force", "f", false, "Delete all installed versions of formula. Uninstall even if cask is not installed.")
+	rootCmd.AddCommand(UninstallCmd)
+}
 
 func runUninstall(args []string) error {
 	slog.Debug("starting uninstall command execution")
-	fs := flag.NewFlagSet("uninstall", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew uninstall [options] <formula ...>
-
-Removes installed formulas or casks from the cellar and removes their symlinks.
-Aliases: remove, rm
-
-Options:
-  --cask        Uninstall a cask instead of a formula.
-  --force, -f   Delete all installed versions of formula. Uninstall even if
-                cask is not installed, overwrite existing files and ignore
-                errors when removing files.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	isCask := fs.Bool("cask", false, "Uninstall a cask")
-	forceDesc := "Delete all installed versions of formula. Uninstall even if cask is not installed, overwrite existing files and ignore errors when removing files."
-	force := fs.Bool("force", false, forceDesc)
-	fs.BoolVar(force, "f", false, forceDesc)
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if fs.NArg() == 0 {
+	if len(args) == 0 {
 		return fmt.Errorf("usage: grew uninstall [-f] [--cask] <formula>...")
 	}
 
-	if *isCask {
-		for _, name := range fs.Args() {
-			if err := caskUninstall(name, *force); err != nil {
+	if uninstallCask {
+		for _, name := range args {
+			if err := caskUninstall(name, uninstallForce); err != nil {
 				return err
 			}
 		}
@@ -59,8 +58,8 @@ Options:
 	}
 	defer ctx.Close()
 
-	for _, name := range fs.Args() {
-		if err := uninstallFormula(ctx, name, *force); err != nil {
+	for _, name := range args {
+		if err := uninstallFormula(ctx, name, uninstallForce); err != nil {
 			return err
 		}
 	}

@@ -1,69 +1,66 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/spf13/cobra"
 )
+
+var (
+	reinstallCask            bool
+	reinstallForce           bool
+	reinstallZap             bool
+	reinstallBuildFromSource bool
+)
+
+var ReinstallCmd = &cobra.Command{
+	Use:   "reinstall [flags] <formula>",
+	Short: "Reinstall formulas or casks",
+	Long: `Uninstall and then reinstall a formula or cask. This is useful when an
+installation is corrupted or you want a clean slate.
+
+Examples:
+  grew reinstall jq
+  grew reinstall --cask firefox
+  grew reinstall -f jq`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runReinstall(args)
+	},
+}
+
+func init() {
+	ReinstallCmd.Flags().BoolVar(&reinstallCask, "cask", false, "Reinstall a cask instead of a formula")
+	ReinstallCmd.Flags().BoolVarP(&reinstallForce, "force", "f", false, "Install without checking for previously installed keg-only or non-migrated versions.")
+	ReinstallCmd.Flags().BoolVar(&reinstallZap, "zap", false, "Deep clean: remove all installed versions and any leftover temp files before reinstalling.")
+	ReinstallCmd.Flags().BoolVarP(&reinstallBuildFromSource, "build-from-source", "s", false, "Build formula from source instead of downloading a bottle.")
+	rootCmd.AddCommand(ReinstallCmd)
+}
 
 func runReinstall(args []string) error {
 	slog.Debug("starting reinstall command execution")
-	slog.Debug("starting reinstall command execution")
-	fs := flag.NewFlagSet("reinstall", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew reinstall [options] <formula ...>
-
-Uninstall and then reinstall formulas or casks from scratch.
-
-Options:
-  --cask              Reinstall a cask instead of a formula.
-  -f, --force         Install without checking for previously installed keg-only or
-                      non-migrated versions.
-  --zap               Deep clean: remove all installed versions and any leftover
-                      temp files for the formula before reinstalling.
-  -s, --build-from-source
-                      Build formula from source instead of downloading a bottle.
-  -v, --verbose       Show detailed output.
-  -d, --debug         Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	isCask := fs.Bool("cask", false, "Reinstall a cask")
-	force := fs.Bool("force", false, "Install without checking for previously installed keg-only or non-migrated versions")
-	fs.BoolVar(force, "f", false, "Install without checking for previously installed keg-only or non-migrated versions")
-	zap := fs.Bool("zap", false, "Remove all versions and temp files before reinstalling")
-	buildFromSource := fs.Bool("s", false, "Build from source")
-	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if fs.NArg() == 0 {
+	if len(args) == 0 {
 		return fmt.Errorf("usage: grew reinstall [--cask] [-f] [--zap] [-s] <formula>...")
 	}
 
-	if *isCask {
-		if *buildFromSource {
+	if reinstallCask {
+		if reinstallBuildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
 		}
-		if *zap {
+		if reinstallZap {
 			return fmt.Errorf("--zap is not currently supported for casks")
 		}
-		for _, name := range fs.Args() {
+		for _, name := range args {
 			_, _, cr, err := setupCaskLoader()
 			if err != nil {
 				return err
 			}
 
-			if !cr.IsInstalled(name) && !*force {
+			if !cr.IsInstalled(name) && !reinstallForce {
 				return fmt.Errorf("cask %q is not installed (use --force to install anyway)", name)
 			}
 
@@ -89,8 +86,8 @@ Options:
 	}
 	defer ctx.Close()
 
-	for _, name := range fs.Args() {
-		if !ctx.Cellar.IsInstalled(name) && !*force {
+	for _, name := range args {
+		if !ctx.Cellar.IsInstalled(name) && !reinstallForce {
 			return fmt.Errorf("formula %q is not installed (use --force to install anyway)", name)
 		}
 
@@ -107,7 +104,7 @@ Options:
 			slog.Info("unlinked " + name)
 		}
 
-		if *zap {
+		if reinstallZap {
 			// Remove all installed versions of this formula.
 			versions, _ := ctx.Cellar.InstalledVersions(name)
 
@@ -156,7 +153,7 @@ Options:
 
 		// Fresh install.
 		opts := installOpts{installedOnRequest: true}
-		if *buildFromSource {
+		if reinstallBuildFromSource {
 			if err := installFormulaFromSource(f, ctx, opts); err != nil {
 				return err
 			}

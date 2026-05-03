@@ -2,62 +2,62 @@ package cmd
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
 	"strings"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/spf13/cobra"
 )
+
+var infoCask bool
+var infoJSON bool
+
+var InfoCmd = &cobra.Command{
+	Use:     "info [formula ...]",
+	Aliases: []string{"abv"},
+	Short:   "Show formula or cask info",
+	Long: `Show detailed information about a formula including its name, version,
+description, homepage, license, installed status, dependencies, and
+supported platforms. With --cask, show cask details including app artifacts.
+
+Examples:
+  grew info jq
+  grew info --cask firefox`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runInfo(args)
+	},
+}
+
+func init() {
+	InfoCmd.Flags().BoolVar(&infoCask, "cask", false, "Show cask info")
+	InfoCmd.Flags().BoolVar(&infoJSON, "json", false, "Print information in JSON format")
+	rootCmd.AddCommand(InfoCmd)
+}
 
 func runInfo(args []string) error {
 	slog.Debug("starting info command execution")
-	fs := flag.NewFlagSet("info", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew info [options] [formula ...]
-       grew abv [options] [formula ...]
-
-Show brief information about formulas or casks.
-If no arguments are provided, show installation statistics.
-
-Options:
-  --cask        Show cask info.
-  --json        Print information in JSON format.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	isCask := fs.Bool("cask", false, "Show cask info")
-	isJSON := fs.Bool("json", false, "Print information in JSON format")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
 
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	if fs.NArg() == 0 {
-		if *isJSON {
+	if len(args) == 0 {
+		if infoJSON {
 			return fmt.Errorf("usage: grew info --json <formula|cask>")
 		}
 		return printInstallationStats(ctx)
 	}
 
-	if *isJSON {
-		return runInfoJSON(ctx, fs.Args(), *isCask)
+	if infoJSON {
+		return runInfoJSON(ctx, args, infoCask)
 	}
 
-	if *isCask {
-		for i, name := range fs.Args() {
+	if infoCask {
+		for i, name := range args {
 			if i > 0 {
 				fmt.Println()
 			}
@@ -70,7 +70,7 @@ Options:
 
 	lnk := &linker.Linker{Paths: ctx.Paths}
 
-	for i, name := range fs.Args() {
+	for i, name := range args {
 		if i > 0 {
 			fmt.Println()
 		}

@@ -1,47 +1,69 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/spf13/cobra"
 )
+
+var (
+	linkOverwrite bool
+	linkDryRun    bool
+	linkForce     bool
+	unlinkDryRun  bool
+)
+
+var LinkCmd = &cobra.Command{
+	Use:   "link [flags] <formula ...>",
+	Short: "Create symlinks for formulas",
+	Long: `Create symlinks for an installed formula. Symlinks binaries into bin/,
+libraries into lib/, and headers into include/. Also creates an opt/
+symlink pointing to the Cellar keg.
+
+For keg-only formulas, only the opt/ symlink is created unless --force
+is used.
+
+Examples:
+  grew link jq
+  grew link --dry-run jq
+  grew link --overwrite jq
+  grew link --force openssl`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runLink(args)
+	},
+}
+
+var UnlinkCmd = &cobra.Command{
+	Use:   "unlink [flags] <formula ...>",
+	Short: "Remove symlinks for formulas",
+	Long: `Remove symlinks for an installed formula without uninstalling it.
+
+Examples:
+  grew unlink jq`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runUnlink(args)
+	},
+}
+
+func init() {
+	LinkCmd.Flags().BoolVar(&linkOverwrite, "overwrite", false, "Overwrite existing files or symlinks from other formulas")
+	LinkCmd.Flags().BoolVarP(&linkDryRun, "dry-run", "n", false, "Show what would be linked without making changes")
+	LinkCmd.Flags().BoolVar(&linkForce, "force", false, "Link a keg-only formula into bin/, lib/, include/")
+	rootCmd.AddCommand(LinkCmd)
+
+	UnlinkCmd.Flags().BoolVarP(&unlinkDryRun, "dry-run", "n", false, "Show what would be unlinked without making changes")
+	rootCmd.AddCommand(UnlinkCmd)
+}
 
 func runLink(args []string) error {
 	slog.Debug("starting link command execution")
-	slog.Debug("starting link command execution")
-	fs := flag.NewFlagSet("link", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew link [options] <formula ...>
-
-Create symlinks for installed formulas in the grew prefix.
-
-Options:
-  --overwrite   Overwrite existing files when linking.
-  -n, --dry-run Show what would be linked, but do not actually link anything.
-  --force       Link keg-only formulas into bin/, lib/, and include/.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	overwrite := fs.Bool("overwrite", false, "Overwrite existing files")
-	dryRun := fs.Bool("dry-run", false, "Show what would be linked")
-	fs.BoolVar(dryRun, "n", false, "Show what would be linked")
-	force := fs.Bool("force", false, "Link keg-only formula into bin/, lib/, include/")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if fs.NArg() == 0 {
+	if len(args) == 0 {
 		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>...")
 	}
 
@@ -50,7 +72,7 @@ Options:
 		return err
 	}
 
-	for _, name := range fs.Args() {
+	for _, name := range args {
 		if !ctx.Cellar.IsInstalled(name) {
 			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
 			continue
@@ -67,7 +89,7 @@ Options:
 			kegOnly = f.KegOnly
 		}
 
-		if kegOnly && !*force {
+		if kegOnly && !linkForce {
 			fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
 		}
 
@@ -76,19 +98,19 @@ Options:
 		slog.Info("keg: " + kegPath)
 		opts := linker.LinkOpts{
 			KegOnly:   kegOnly,
-			Overwrite: *overwrite,
-			DryRun:    *dryRun,
-			Force:     *force,
+			Overwrite: linkOverwrite,
+			DryRun:    linkDryRun,
+			Force:     linkForce,
 		}
 		if err := lnk.LinkWithOpts(name, ver, opts); err != nil {
 			return err
 		}
 		slog.Info(fmt.Sprintf("opt/%s -> %s", name, kegPath))
-		if !kegOnly || *force {
+		if !kegOnly || linkForce {
 			slog.Info("symlinked bin/, lib/, include/ contents")
 		}
 
-		if !*dryRun {
+		if !linkDryRun {
 			fmt.Fprintf(os.Stderr, "==> %s %s linked\n", name, ver)
 		}
 	}
@@ -97,30 +119,8 @@ Options:
 
 func runUnlink(args []string) error {
 	slog.Debug("starting unlink command execution")
-	slog.Debug("starting unlink command execution")
-	fs := flag.NewFlagSet("unlink", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew unlink [options] <formula ...>
-
-Remove symlinks for installed formulas from the grew prefix.
-
-Options:
-  -n, --dry-run Show what would be unlinked, but do not actually unlink anything.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	dryRun := fs.Bool("dry-run", false, "Show what would be unlinked")
-	fs.BoolVar(dryRun, "n", false, "Show what would be unlinked")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if fs.NArg() == 0 {
+	if len(args) == 0 {
 		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>...")
 	}
 
@@ -128,17 +128,17 @@ Options:
 	cel := &cellar.Cellar{Path: paths.Cellar}
 	lnk := &linker.Linker{Paths: paths}
 
-	for _, name := range fs.Args() {
+	for _, name := range args {
 		if !cel.IsInstalled(name) {
 			slog.Warn(fmt.Sprintf("formula %q is not installed", name))
 			continue
 		}
 
-		if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: *dryRun}); err != nil {
+		if err := lnk.UnlinkWithOpts(name, linker.UnlinkOpts{DryRun: unlinkDryRun}); err != nil {
 			return err
 		}
 
-		if *dryRun {
+		if unlinkDryRun {
 			slog.Info("(dry run, no changes made)")
 		} else {
 			slog.Info("removed symlinks from bin/, lib/, include/, opt/")
