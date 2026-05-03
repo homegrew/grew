@@ -437,11 +437,13 @@ func TestRunVulnScan_Deps(t *testing.T) {
 	// pkg-a depends on pkg-b
 	formulaA := `name: pkg-a
 version: 1.0.0
+url: {darwin_arm64: "https://example.com/a.tar.gz"}
 dependencies: [pkg-b]
 install: {type: binary}
 `
 	formulaB := `name: pkg-b
 version: 1.0.0
+url: {darwin_arm64: "https://example.com/b.tar.gz"}
 install: {type: binary}
 `
 	if err := os.WriteFile(filepath.Join(coreTapDir, "pkg-a.yaml"), []byte(formulaA), 0644); err != nil {
