@@ -46,9 +46,20 @@ Examples:
 
 		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
 			return fmt.Errorf("refusing to remove share outside root: root=%q share=%q", paths.Root, paths.Share)
+		if !paths.IsUnderRoot(importPath) || importPath == paths.Root {
+			return fmt.Errorf("refusing to remove share subdir outside root: root=%q path=%q", paths.Root, importPath)
+		}
 		}
 
+
+		if !paths.IsUnderRoot(importPath) || importPath == paths.Root {
+			return fmt.Errorf("refusing to remove share subdir outside root: root=%q path=%q", paths.Root, importPath)
+		}
 		// Remove unsupported share directories if they exist from a prior run
+
+		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
+			return fmt.Errorf("refusing to remove share dir outside root: root=%q share=%q", paths.Root, paths.Share)
+		}
 		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
 			return fmt.Errorf("refusing to remove share outside root: root=%q share=%q", paths.Root, paths.Share)
 		}
