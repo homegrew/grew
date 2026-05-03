@@ -26,7 +26,7 @@ func writeFormula(t *testing.T, dir, name string, deps []string) {
 
 func TestResolve_NoDeps(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeFormula(t, tapDir, "solo", nil)
 
@@ -47,7 +47,7 @@ func TestResolve_NoDeps(t *testing.T) {
 
 func TestResolve_LinearChain(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeFormula(t, tapDir, "a", []string{"b"})
 	writeFormula(t, tapDir, "b", []string{"c"})
@@ -78,7 +78,7 @@ func TestResolve_LinearChain(t *testing.T) {
 
 func TestResolve_Diamond(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeFormula(t, tapDir, "a", []string{"b", "c"})
 	writeFormula(t, tapDir, "b", []string{"d"})
@@ -115,7 +115,7 @@ func TestResolve_Diamond(t *testing.T) {
 
 func TestResolve_CircularDependency(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeFormula(t, tapDir, "x", []string{"y"})
 	writeFormula(t, tapDir, "y", []string{"x"})
@@ -134,7 +134,7 @@ func TestResolve_CircularDependency(t *testing.T) {
 
 func TestResolve_MissingDependency(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeFormula(t, tapDir, "a", []string{"missing"})
 

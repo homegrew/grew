@@ -12,6 +12,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
