@@ -21,7 +21,8 @@
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)
 - ✍️ **Ed25519 bottle signing** — cryptographic signatures on downloads, verified against a local trust store
 - 🏷️ **Signed tap verification** — refuse or warn on unsigned git commits in tap repos (`HOMEGREW_TAP_VERIFY`)
-- 📋 **Install snapshots** — per-file SHA256 manifests recorded at install time for integrity verification
+- 📋 **Install snapshots** — per-file SHA256 manifests (`.MANIFEST.json`) recorded at install time for integrity verification
+- 🧾 **Installation receipts** — stores build options, dependencies, and provenance metadata (`INSTALL_RECEIPT.json`) in the keg for future reference
 - 📌 **Lockfile** — pin exact versions, hashes, and dependency trees for reproducible environments
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
 - 🔄 **Keg relocation** — rewrites hardcoded library paths in bottles at install time via `install_name_tool`, so binaries just work without `DYLD_LIBRARY_PATH` hacks
@@ -297,7 +298,8 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Tap verification** | Optional GPG/SSH commit signature enforcement | None |
 | **Post-install sandbox** | Read-only keg, no network, minimal env | Unsandboxed |
 | **Source build sandbox** | macOS Seatbelt, no network | macOS Seatbelt only |
-| **Install manifests** | Per-file SHA256 snapshot at install time | None |
+| **Install manifests** | Per-file SHA256 snapshot (`.MANIFEST.json`) at install time | None |
+| **Installation receipts** | Provenance and dependency metadata (`INSTALL_RECEIPT.json`) stored alongside the manifest | Metadata stored in `INSTALL_RECEIPT.json` |
 | **Lockfile** | Full dependency tree with hashes | None |
 | **Integrity check** | `grew verify` + `grew doctor` snapshot check | None |
 | **Dual-hash verification** | Self-updates and release assets use both SHA256 and SHA512 | None |
