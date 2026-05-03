@@ -67,8 +67,12 @@ func TestTrash_Success(t *testing.T) {
 	// Create a couple of files to trash
 	file1 := filepath.Join(tmpDir, "trash1.txt")
 	file2 := filepath.Join(tmpDir, "trash2.txt")
-	os.WriteFile(file1, []byte("t1"), 0644)
-	os.WriteFile(file2, []byte("t2"), 0644)
+	if err := os.WriteFile(file1, []byte("t1"), 0644); err != nil {
+		t.Fatalf("failed to create file1: %v", err)
+	}
+	if err := os.WriteFile(file2, []byte("t2"), 0644); err != nil {
+		t.Fatalf("failed to create file2: %v", err)
+	}
 
 	trashed, err := Trash(file1, file2)
 	if err != nil {
