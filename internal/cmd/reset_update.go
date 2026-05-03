@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/tap"
@@ -28,7 +29,16 @@ func canonicalPath(path string) (string, error) {
 }
 
 func isWithinBase(base, target string) bool {
-	rel, err := filepath.Rel(base, target)
+	baseCanonical, err := canonicalPath(base)
+	if err != nil {
+		return false
+	}
+	targetCanonical, err := canonicalPath(target)
+	if err != nil {
+		return false
+	}
+
+	rel, err := filepath.Rel(baseCanonical, targetCanonical)
 	if err != nil {
 		return false
 	}
@@ -38,7 +48,7 @@ func isWithinBase(base, target string) bool {
 	if rel == ".." {
 		return false
 	}
-	return rel != "" && rel[0] != os.PathSeparator && rel[:2] != ".."
+	return rel != "" && rel != ".." && !strings.HasPrefix(rel, ".."+string(os.PathSeparator))
 }
 
 var ResetUpdateCmd = &cobra.Command{
