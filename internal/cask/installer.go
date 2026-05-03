@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/internal/quarantine"
 	"github.com/homegrew/grew/internal/sudo"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
@@ -65,8 +66,8 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 
 	// Remove existing app if present (reinstall)
 	if _, err := os.Stat(destApp); err == nil {
-		if err := os.RemoveAll(destApp); err != nil {
-			return "", fmt.Errorf("remove existing %s: %w", appName, err)
+		if _, err := quarantine.Trash(destApp); err != nil {
+			return "", fmt.Errorf("trash existing %s: %w", appName, err)
 		}
 	}
 
@@ -124,7 +125,7 @@ func (inst *Installer) UninstallPkg(pkgName string) error {
 	return fmt.Errorf("automatic uninstallation of .pkg artifacts is not supported: %s", pkgName)
 }
 
-// UninstallApp removes a .app bundle from AppDir.
+// UninstallApp removes a .app bundle from AppDir by moving it to the Trash.
 func (inst *Installer) UninstallApp(appName string) error {
 	if filepath.Base(appName) != appName {
 		return fmt.Errorf("invalid app name: %q", appName)
@@ -139,7 +140,9 @@ func (inst *Installer) UninstallApp(appName string) error {
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
 		return nil // already gone
 	}
-	return os.RemoveAll(destApp)
+	
+	_, err = quarantine.Trash(destApp)
+	return err
 }
 
 // LinkBin creates a symlink from BinDir/<name> to the binary at target.

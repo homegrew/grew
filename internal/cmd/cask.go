@@ -313,7 +313,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		if noQuarantine {
 			slog.Info("quarantine skipped (--no-quarantine)")
 		} else {
-			if err := applyCaskQuarantine(dest); err != nil {
+			if err := applyCaskQuarantine(dest, dlURL); err != nil {
 				// Roll back: remove the app we just installed.
 				os.RemoveAll(dest)
 				os.RemoveAll(stageDir)
