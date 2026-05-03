@@ -23,6 +23,8 @@ jobs:
         with:
           go-version: stable
           cache: true
+      - name: Install mkdmg
+        run: go install al.essio.dev/cmd/mkdmg@latest
       - uses: goreleaser/goreleaser-action@v7
         with:
           distribution: goreleaser
@@ -30,9 +32,6 @@ jobs:
           args: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install mkdmg
-        run: go install al.essio.dev/cmd/mkdmg@latest
 
       - name: Generate DMG
         id: dmg
