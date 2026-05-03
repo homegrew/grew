@@ -30,7 +30,8 @@
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
 - 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
-- 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
+- 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs via the `vuln-scan` command
+- 🛡️ **macOS Quarantine** — automatically applies `com.apple.quarantine` attributes to downloaded apps and binaries, ensuring Gatekeeper protection is active
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
 - 🎨 **Colorful output** — ANSI-colored output with automatic TTY detection for a polished, Homebrew-like aesthetic.
 - 🐚 **Alias + shellenv helpers** so your workflows stay snappy (`i`, `rm`, `ls`, `up`, `ug`, `dr`)
@@ -261,28 +262,37 @@ Both gates are required — the build tag compiles in the code path, and `--unsa
 ```
 grew/
 ├── internal/
-│   ├── cmd/          ← CLI commands (powered by Cobra)
+│   ├── auditlog/     ← persistent record of all install/upgrade/tap actions
+│   ├── cache/        ← download cache management and pruning
+│   ├── cask/         ← cask parsing and Caskroom
 │   ├── cellar/       ← installed package management
-│   ├── config/       ← prefix + path resolution
+│   ├── cmd/          ← CLI commands (powered by Cobra)
+│   ├── config/       ← prefix and path resolution
+│   ├── context/      ← global execution context
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
 │   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
 │   ├── flags/        ← global CLI flags (-v, -d, -q) shared across all subcommands
 │   ├── formula/      ← formula parsing and validation
-│   ├── cask/         ← cask parsing and Caskroom
+│   ├── fsutil/       ← filesystem utilities and disk usage tracking
+│   ├── linkage/      ← dynamic library linkage analysis
 │   ├── linker/       ← deterministic symlink management
 │   ├── lockfile/     ← reproducible environment pinning
+│   ├── osvdev/       ← OSV.dev API client for vulnerability scanning
+│   ├── quarantine/   ← macOS quarantine attribute and Trash management
+│   ├── receipt/      ← installation receipt (provenance) management
 │   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool)
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
 │   ├── sandbox/      ← build + post-install sandboxing (macOS, shell-safe quoting)
 │   ├── service/      ← background service management (launchd, properly escaped)
 │   ├── signing/      ← Ed25519 bottle signing + trust store
-│   ├── snapshot/     ← per-file manifest capture + integrity verification
+│   ├── sudo/         ← secure privilege escalation handling
 │   ├── tap/          ← tap repo management + commit verification
 │   └── version/      ← embedded version from git tags
 ├── pkg/
 │   ├── doctor/       ← diagnostic engine and checks (permissions, integrity, macOS security)
 │   ├── logger/       ← CLI-friendly log/slog handler with source context (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
+│   ├── snapshot/     ← per-file manifest capture + integrity verification
 │   ├── ui/           ← zero-dependency ANSI color and TTY detection for terminal output
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
 └── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
@@ -311,6 +321,8 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Shell injection prevention** | Namespace setup uses positional parameters to eliminate injection risks; systemd `ExecStart` and launchd plist values properly escaped | N/A |
 | **Zip Slip protection** | Symlink indirection attacks blocked during tar/zip extraction | Partial |
 | **Command argument hardening** | `--` end-of-options separator on all external commands (`git`, `systemctl`, `launchctl`, `hdiutil`, `tar`, etc.) | Not consistently applied |
+| **macOS Quarantine** | `Apply()` via LaunchServices for all downloads | None |
+| **Vulnerability scanning** | Integrated `vuln-scan` powered by OSV.dev | Requires external gems/tools |
 
 **Gradual rollout:** signature verification doesn't block installs until you add keys to `etc/trusted-keys`. Tap verification is opt-in via `HOMEGREW_TAP_VERIFY`. This lets you adopt security features incrementally.
 
@@ -342,7 +354,7 @@ PRs welcome. Drama not so much.
 
 ## 📄 License
 
-No license file yet — add a `LICENSE` to clarify what others can and can't do with your code. (It's the responsible thing to do. We believe in you.)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
