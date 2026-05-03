@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -111,16 +112,15 @@ The old version keg is removed after a successful upgrade.`,
 				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
 					fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
 			}
+		}
 
-			// Remove old version keg if different from new
-			oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
-			if t.installedVersion != t.formula.Version {
-				if err := removeDir(oldKeg); err != nil {
-					slog.Warn(fmt.Sprintf("could not remove old keg %s: %v", oldKeg, err))
-				} else {
-					slog.Info("removed old keg: " + oldKeg)
-				}
-			}
+		if !flags.Quiet {
+			fmt.Println("==> Running cleanup...")
+		}
+		// Temporarily suppress output for the automatic cleanup phase
+		// to make it behave more like a background task, unless in verbose mode.
+		if err := runCleanup(nil); err != nil {
+			slog.Warn("automatic cleanup failed", "error", err)
 		}
 
 		return nil
