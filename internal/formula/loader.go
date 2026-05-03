@@ -277,5 +277,19 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 	if err != nil {
 		return nil, err
 	}
-	return Parse(data)
+	f, err := Parse(data)
+	if err != nil {
+		return nil, err
+	}
+
+	// Infer tap name from path (e.g. Taps/user/repo/...)
+	rel, err := filepath.Rel(tapDir, absPath)
+	if err == nil {
+		parts := strings.Split(rel, string(filepath.Separator))
+		if len(parts) >= 2 {
+			f.Tap = parts[0] + "/" + parts[1]
+		}
+	}
+
+	return f, nil
 }

@@ -93,17 +93,19 @@ func (m *Manager) InitCask() error {
 }
 
 // Update pulls the latest definitions for ALL installed taps.
-func (m *Manager) Update() (int, error) {
+// Returns the number of taps updated and the total number of formulas found.
+func (m *Manager) Update() (int, int, error) {
 	if err := m.EnsureCloned(); err != nil {
-		return 0, err
+		return 0, 0, err
 	}
 
 	users, err := os.ReadDir(m.TapsDir)
 	if err != nil {
-		return 0, fmt.Errorf("read taps directory: %w", err)
+		return 0, 0, fmt.Errorf("read taps directory: %w", err)
 	}
 
 	totalCount := 0
+	tapsCount := 0
 	for _, user := range users {
 		if !user.IsDir() {
 			continue
@@ -121,6 +123,7 @@ func (m *Manager) Update() (int, error) {
 				continue
 			}
 
+			tapsCount++
 			fmt.Printf("==> Updating tap %s/%s...\n", user.Name(), repo.Name())
 			fetch := exec.Command("git", "fetch", "--depth", "1", "--", "origin")
 			fetch.Dir = repoPath
@@ -161,7 +164,7 @@ func (m *Manager) Update() (int, error) {
 			}
 		}
 	}
-	return totalCount, nil
+	return tapsCount, totalCount, nil
 }
 
 // Add clones a new tap. name should be in "user/repo" format.

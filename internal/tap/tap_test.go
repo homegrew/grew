@@ -129,14 +129,18 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 	os.RemoveAll(corePath)
 	runGit(t, "", "clone", remote, corePath)
 
-	count, err := mgr.Update()
+	countTaps, countFormulas, err := mgr.Update()
 	if err != nil {
 		t.Fatalf("Update failed: %v", err)
 	}
 
+	if countTaps != 1 {
+		t.Errorf("Update returned taps count=%d, want 1", countTaps)
+	}
+
 	// 2 core + 1 cask = 3 formulas.
-	if count != 3 {
-		t.Errorf("Update returned count=%d, want 3", count)
+	if countFormulas != 3 {
+		t.Errorf("Update returned formulas count=%d, want 3", countFormulas)
 	}
 }
 

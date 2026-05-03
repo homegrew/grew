@@ -323,6 +323,15 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		fmt.Fprintf(os.Stderr, "==> Installed %s to %s\n", appName, dest)
 	}
 
+	// Install .pkg artifacts
+	for _, pkgName := range c.Artifacts.Pkg {
+		if err := inst.InstallPkg(stageDir, pkgName); err != nil {
+			os.RemoveAll(stageDir)
+			_ = removeIfWithin(localFile, paths.Tmp)
+			return fmt.Errorf("install artifact %s: %w", pkgName, err)
+		}
+	}
+
 	// Link bin artifacts
 	for _, binName := range c.Artifacts.Bin {
 		// Look for binary inside the .app bundle or staging dir
@@ -376,6 +385,10 @@ func caskUninstall(name string, force bool) error {
 					slog.Warn(fmt.Sprintf("could not remove %s: %v", appName, err))
 				}
 			}
+		}
+		// Warn about .pkg artifacts
+		for _, pkgName := range c.Artifacts.Pkg {
+			_ = inst.UninstallPkg(pkgName)
 		}
 		for _, binName := range c.Artifacts.Bin {
 			if err := inst.UnlinkBin(binName); err != nil {
@@ -441,6 +454,9 @@ func caskInfo(name string) error {
 	}
 
 	fmt.Printf("%s: %s %s (cask)\n", c.Name, c.Description, c.Version)
+	if c.Tap != "" {
+		fmt.Printf("From: %s\n", c.Tap)
+	}
 	fmt.Printf("Homepage: %s\n", c.Homepage)
 	fmt.Printf("License:  %s\n", c.License)
 
@@ -487,7 +503,11 @@ func caskSearch(query string) error {
 			if cr.IsInstalled(c.Name) {
 				marker = "*"
 			}
-			fmt.Printf("%s %-20s %s (cask)\n", marker, c.Name, c.Description)
+			name := c.Name
+			if flags.Verbose && c.Tap != "" {
+				name = c.Tap + "/" + c.Name
+			}
+			fmt.Printf("%s %-20s %s (cask)\n", marker, name, c.Description)
 			found = true
 		}
 	}

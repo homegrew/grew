@@ -31,19 +31,18 @@ func runUpdate(args []string) error {
 	}
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	count, err := tapMgr.Update()
+	tapsCount, formulaCount, err := tapMgr.Update()
 	if err != nil {
-		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("failed: %v", err))
-		return fmt.Errorf("update core tap: %w", err)
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", fmt.Sprintf("failed: %v", err))
+		return fmt.Errorf("update taps: %w", err)
 	}
 
-	if count == 0 {
-		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", "already up-to-date")
+	if formulaCount == 0 {
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", "already up-to-date")
 	} else {
-		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "core", "", "", fmt.Sprintf("updated %d formulas", count))
+		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", fmt.Sprintf("updated %d taps, %d formulas found", tapsCount, formulaCount))
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Updated core tap (%d formulas)\n", count)
-	slog.Info("tap directory: " + paths.CoreTap)
+	fmt.Fprintf(os.Stderr, "==> Updated %d taps (%d formulas found)\n", tapsCount, formulaCount)
 	return nil
 }

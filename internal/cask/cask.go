@@ -32,6 +32,9 @@ type Cask struct {
 	SHA512      map[string]string `yaml:"sha512,omitempty"`
 	Artifacts   Artifacts         `yaml:"artifacts,omitempty"`
 	Source      SourceSpec        `yaml:"source,omitempty"`
+
+	// Local fields (not in YAML)
+	Tap string `yaml:"-"`
 }
 
 // Artifacts describes what to install from the downloaded archive.
@@ -341,7 +344,21 @@ func (l *Loader) loadFromFileWithPath(path string) (*Cask, error) {
 	if err != nil {
 		return nil, err
 	}
-	return Parse(data)
+	c, err := Parse(data)
+	if err != nil {
+		return nil, err
+	}
+
+	// Infer tap name from path (e.g. Taps/user/repo/...)
+	rel, err := filepath.Rel(l.TapDir, absPath)
+	if err == nil {
+		parts := strings.Split(rel, string(filepath.Separator))
+		if len(parts) >= 2 {
+			c.Tap = parts[0] + "/" + parts[1]
+		}
+	}
+
+	return c, nil
 }
 
 // Caskroom manages installed cask metadata.
