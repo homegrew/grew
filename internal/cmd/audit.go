@@ -12,7 +12,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
 )

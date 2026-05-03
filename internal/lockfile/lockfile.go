@@ -9,7 +9,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 )
 
 // LockFileName is the name of the lockfile stored at the grew root.

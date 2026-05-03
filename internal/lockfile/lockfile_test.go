@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 )
 
 // setupCellar creates a fake cellar with the given packages and optional manifests.

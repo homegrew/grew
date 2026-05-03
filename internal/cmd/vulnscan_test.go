@@ -8,7 +8,7 @@ import (
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 )
 
 func setupTestKeg(t *testing.T, cel *cellar.Cellar, name, version string) string {

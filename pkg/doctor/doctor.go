@@ -15,7 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/linker"
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/sandbox"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 	"github.com/homegrew/grew/pkg/safepath"
 )
 

@@ -17,7 +17,7 @@ import (
 	"github.com/homegrew/grew/internal/osvdev"
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/signing"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"

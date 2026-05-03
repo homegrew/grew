@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/homegrew/grew/internal/sandbox"
-	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/snapshot"
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
