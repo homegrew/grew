@@ -475,7 +475,7 @@ func TestCheckUnlinkedKegs(t *testing.T) {
 	t.Run("unlinked normal formula", func(t *testing.T) {
 		t.Parallel()
 		tapDir := filepath.Join(tmpDir, "Taps")
-		formPath := filepath.Join(tapDir, "core", "unlinked.yaml")
+		formPath := filepath.Join(tapDir, "homegrew", "homegrew-taps", "core", "unlinked.yaml")
 		os.MkdirAll(filepath.Dir(formPath), 0755)
 		os.WriteFile(formPath, []byte("name: unlinked\nversion: 1.0.0\nurl:\n  darwin_arm64: https://test.com\ninstall:\n  type: binary\n"), 0644)
 
@@ -494,7 +494,7 @@ func TestCheckUnlinkedKegs(t *testing.T) {
 	t.Run("unlinked keg-only formula", func(t *testing.T) {
 		t.Parallel()
 		tapDir := filepath.Join(tmpDir, "Taps")
-		formPath := filepath.Join(tapDir, "core", "kegonly.yaml")
+		formPath := filepath.Join(tapDir, "homegrew", "homegrew-taps", "core", "kegonly.yaml")
 		os.MkdirAll(filepath.Dir(formPath), 0755)
 		os.WriteFile(formPath, []byte("name: kegonly\nversion: 1.0.0\nkeg_only: true\nurl:\n  darwin_arm64: https://test.com\ninstall:\n  type: binary\n"), 0644)
 
