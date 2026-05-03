@@ -22,8 +22,10 @@ type VersionsJSON struct {
 }
 
 type InstalledPackageJSON struct {
-	Version string `json:"version"`
-	Linked  bool   `json:"linked"`
+	Version         string `json:"version"`
+	Linked          bool   `json:"linked"`
+	BuiltFromSource bool   `json:"built_from_source"`
+	InstalledAt     string `json:"installed_at"`
 }
 
 type CaskJSON struct {

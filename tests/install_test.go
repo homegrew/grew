@@ -180,4 +180,22 @@ install:
 	if _, err := os.Readlink(binLink); err != nil {
 		t.Errorf("expected symlink at %s, but not found or not a symlink", binLink)
 	}
+
+	// 8. Verify the installation receipt
+	receiptPath := filepath.Join(prefix, "Cellar", "dummy", "1.0.0", "INSTALL_RECEIPT.json")
+	if _, err := os.Stat(receiptPath); os.IsNotExist(err) {
+		t.Errorf("expected INSTALL_RECEIPT.json at %s, but not found", receiptPath)
+	} else {
+		data, err := os.ReadFile(receiptPath)
+		if err != nil {
+			t.Fatalf("failed to read receipt: %v", err)
+		}
+		t.Logf("Receipt content: %s", string(data))
+		if !strings.Contains(string(data), `"name": "dummy"`) {
+			t.Errorf("receipt missing formula name")
+		}
+		if !strings.Contains(string(data), `"poured_from_bottle": true`) {
+			t.Errorf("receipt missing poured_from_bottle: true")
+		}
+	}
 }

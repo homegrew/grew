@@ -6,9 +6,11 @@ import (
 	"log/slog"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/internal/receipt"
 	"github.com/spf13/cobra"
 )
 
@@ -94,8 +96,16 @@ func runInfo(args []string) error {
 				linked = "linked"
 			}
 			fmt.Printf("Installed: %s (%s)\n", ver, linked)
-			cellarPath, _ := ctx.Cellar.KegPath(f.Name, ver)
-			slog.Info("cellar: " + cellarPath)
+
+			if cellarPath, err := ctx.Cellar.KegPath(f.Name, ver); err == nil {
+				if r, err := receipt.Load(cellarPath); err == nil {
+					if r.PouredFromBottle {
+						fmt.Printf("  Poured from bottle on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
+					} else {
+						fmt.Printf("  Built from source on %s\n", r.InstalledAt.Format("2006-01-02 at 15:04:05"))
+					}
+				}
+			}
 		} else {
 			fmt.Println("Installed: no")
 		}
@@ -162,12 +172,17 @@ func runInfoJSON(ctx readContext, names []string, isCask bool) error {
 
 			if ctx.Cellar.IsInstalled(f.Name) {
 				ver, _ := ctx.Cellar.InstalledVersion(f.Name)
-				fj.Installed = []InstalledPackageJSON{
-					{
-						Version: ver,
-						Linked:  lnk.IsLinked(f.Name),
-					},
+				ip := InstalledPackageJSON{
+					Version: ver,
+					Linked:  lnk.IsLinked(f.Name),
 				}
+				if cellarPath, err := ctx.Cellar.KegPath(f.Name, ver); err == nil {
+					if r, err := receipt.Load(cellarPath); err == nil {
+						ip.BuiltFromSource = r.BuiltFromSource
+						ip.InstalledAt = r.InstalledAt.Format(time.RFC3339)
+					}
+				}
+				fj.Installed = []InstalledPackageJSON{ip}
 			}
 			output.Formulae = append(output.Formulae, fj)
 		}

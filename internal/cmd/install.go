@@ -7,12 +7,14 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/receipt"
 	"github.com/homegrew/grew/internal/relocation"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/signing"
@@ -923,6 +925,22 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 			slog.Warn(fmt.Sprintf("could not save snapshot: %v", err))
 		}
 		slog.Info(fmt.Sprintf("snapshot saved: %s/%s", opts.kegPath, snapshot.ManifestFile))
+	}
+
+	r := &receipt.Receipt{
+		Name:                f.Name,
+		Version:             f.Version,
+		BuiltFromSource:     opts.meta.BuiltFromSource,
+		PouredFromBottle:    !opts.meta.BuiltFromSource,
+		InstalledAt:         time.Now(),
+		Dependencies:        f.Dependencies,
+		RuntimeDependencies: f.Dependencies,
+		InstalledOnRequest:  opts.meta.InstalledOnRequest,
+	}
+	if err := receipt.Save(r, opts.kegPath); err != nil {
+		slog.Warn(fmt.Sprintf("could not save install receipt: %v", err))
+	} else {
+		slog.Info(fmt.Sprintf("install receipt saved: %s/%s", opts.kegPath, receipt.ReceiptFile))
 	}
 
 	if opts.cleanup != nil {
