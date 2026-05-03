@@ -44,36 +44,20 @@ Examples:
 			return err
 		}
 
-		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
-			return fmt.Errorf("refusing to remove share outside root: root=%q share=%q", paths.Root, paths.Share)
-		if !paths.IsUnderRoot(importPath) || importPath == paths.Root {
-			return fmt.Errorf("refusing to remove share subdir outside root: root=%q path=%q", paths.Root, importPath)
-		}
-		}
-
-
-		if !paths.IsUnderRoot(importPath) || importPath == paths.Root {
-			return fmt.Errorf("refusing to remove share subdir outside root: root=%q path=%q", paths.Root, importPath)
-		}
 		// Remove unsupported share directories if they exist from a prior run
-
-		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
-			return fmt.Errorf("refusing to remove share dir outside root: root=%q share=%q", paths.Root, paths.Share)
+		if paths.IsUnderRoot(paths.Share) && paths.Share != paths.Root {
+			manPath := filepath.Join(paths.Share, "man")
+			if paths.IsUnderRoot(manPath) {
+				_ = os.RemoveAll(manPath)
+			}
+			
+			infoPath := filepath.Join(paths.Share, "info")
+			if paths.IsUnderRoot(infoPath) {
+				_ = os.RemoveAll(infoPath)
+			}
+			
+			_ = os.Remove(paths.Share) // only removes if empty
 		}
-		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
-			return fmt.Errorf("refusing to remove share outside root: root=%q share=%q", paths.Root, paths.Share)
-		}
-		importPath := filepath.Join(paths.Share, "man")
-		if !paths.IsUnderRoot(importPath) {
-			return fmt.Errorf("refusing to remove path outside root: root=%q path=%q", paths.Root, importPath)
-		}
-		_ = os.RemoveAll(importPath)
-		importPath = filepath.Join(paths.Share, "info")
-		if !paths.IsUnderRoot(importPath) {
-			return fmt.Errorf("refusing to remove path outside root: root=%q path=%q", paths.Root, importPath)
-		}
-		_ = os.RemoveAll(importPath)
-		_ = os.Remove(paths.Share) // only removes if empty
 
 		tapMgr := &tap.Manager{TapsDir: paths.Taps}
 		tapsCount, formulaCount, err := tapMgr.Update()
