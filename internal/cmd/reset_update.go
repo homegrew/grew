@@ -99,35 +99,36 @@ Examples:
 			return err
 		}
 
-		// Remove unsupported share directories if they exist from a prior run
-		if rootCanonical, err := canonicalPath(paths.Root); err == nil {
-			sharePath := filepath.Join(paths.Root, "share")
-			manPath := filepath.Join(sharePath, "man")
-			infoPath := filepath.Join(sharePath, "info")
+		// Remove unsupported share directories if they exist from a prior run.
+		// Use only the system prefix as trusted base to avoid user-controlled path influence.
+		if trustedSystemRoot, trustedSystemErr := canonicalPath(config.SystemPrefix()); trustedSystemErr == nil {
+			if rootCanonical, err := canonicalPath(paths.Root); err == nil && rootCanonical == trustedSystemRoot {
+				sharePath := filepath.Join(trustedSystemRoot, "share")
+				manPath := filepath.Join(sharePath, "man")
+				infoPath := filepath.Join(sharePath, "info")
 
-			shareCanonical, shareErr := canonicalPath(paths.Share)
-			manCanonical, manErr := canonicalPath(manPath)
-			infoCanonical, infoErr := canonicalPath(infoPath)
-			expectedShareCanonical, expectedShareErr := canonicalPath(sharePath)
+				shareCanonical, shareErr := canonicalPath(sharePath)
+				manCanonical, manErr := canonicalPath(manPath)
+				infoCanonical, infoErr := canonicalPath(infoPath)
 
-			if shareErr == nil && expectedShareErr == nil &&
-				manErr == nil && infoErr == nil &&
-				shareCanonical == expectedShareCanonical &&
-				shareCanonical != rootCanonical &&
-				isWithinBase(rootCanonical, shareCanonical) &&
-				isWithinBase(rootCanonical, manCanonical) &&
-				isWithinBase(rootCanonical, infoCanonical) {
-				trustedShareCanonical, trustedShareErr := canonicalPath(filepath.Join(rootCanonical, "share"))
-				trustedManCanonical, trustedManErr := canonicalPath(filepath.Join(rootCanonical, "share", "man"))
-				trustedInfoCanonical, trustedInfoErr := canonicalPath(filepath.Join(rootCanonical, "share", "info"))
-				if trustedShareErr == nil && trustedManErr == nil && trustedInfoErr == nil &&
-					trustedShareCanonical != rootCanonical &&
-					isExactCanonicalChild(rootCanonical, trustedShareCanonical, "share") &&
-					isExactCanonicalChild(rootCanonical, trustedManCanonical, "share", "man") &&
-					isExactCanonicalChild(rootCanonical, trustedInfoCanonical, "share", "info") {
-					_ = os.RemoveAll(trustedManCanonical)
-					_ = os.RemoveAll(trustedInfoCanonical)
-					_ = os.Remove(trustedShareCanonical) // only removes if empty
+				if shareErr == nil &&
+					manErr == nil && infoErr == nil &&
+					shareCanonical != trustedSystemRoot &&
+					isWithinBase(trustedSystemRoot, shareCanonical) &&
+					isWithinBase(trustedSystemRoot, manCanonical) &&
+					isWithinBase(trustedSystemRoot, infoCanonical) {
+					trustedShareCanonical, trustedShareErr := canonicalPath(filepath.Join(trustedSystemRoot, "share"))
+					trustedManCanonical, trustedManErr := canonicalPath(filepath.Join(trustedSystemRoot, "share", "man"))
+					trustedInfoCanonical, trustedInfoErr := canonicalPath(filepath.Join(trustedSystemRoot, "share", "info"))
+					if trustedShareErr == nil && trustedManErr == nil && trustedInfoErr == nil &&
+						trustedShareCanonical != trustedSystemRoot &&
+						isExactCanonicalChild(trustedSystemRoot, trustedShareCanonical, "share") &&
+						isExactCanonicalChild(trustedSystemRoot, trustedManCanonical, "share", "man") &&
+						isExactCanonicalChild(trustedSystemRoot, trustedInfoCanonical, "share", "info") {
+						_ = os.RemoveAll(trustedManCanonical)
+						_ = os.RemoveAll(trustedInfoCanonical)
+						_ = os.Remove(trustedShareCanonical) // only removes if empty
+					}
 				}
 			}
 		}
