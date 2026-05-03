@@ -61,7 +61,11 @@ Options:
 			if ctx.Cellar.IsInstalled(f.Name) {
 				marker = "*"
 			}
-			fmt.Printf("%s %-20s %s\n", marker, f.Name, f.Description)
+			name := f.Name
+			if flags.Verbose && f.Tap != "" {
+				name = f.Tap + "/" + f.Name
+			}
+			fmt.Printf("%s %-20s %s\n", marker, name, f.Description)
 			found = true
 		}
 	}

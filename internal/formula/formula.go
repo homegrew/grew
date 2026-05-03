@@ -63,6 +63,9 @@ type Formula struct {
 	Build             BuildSpec             `yaml:"build,omitempty"`
 	Service           *ServiceSpec          `yaml:"service,omitempty"`
 	Artifacts         ArtifactsSpec         `yaml:"artifacts,omitempty"`
+
+	// Local fields (not in YAML)
+	Tap string `yaml:"-"`
 }
 
 type ServiceSpec struct {

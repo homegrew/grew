@@ -12,6 +12,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
@@ -323,6 +324,21 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		fmt.Fprintf(os.Stderr, "==> Installed %s to %s\n", appName, dest)
 	}
 
+	// Install .pkg artifacts
+	var installedPkgs []string
+	for _, pkgName := range c.Artifacts.Pkg {
+		if err := inst.InstallPkg(stageDir, pkgName); err != nil {
+			// Rollback installed pkgs
+			for _, p := range installedPkgs {
+				_ = inst.UninstallPkg(p)
+			}
+			os.RemoveAll(stageDir)
+			_ = removeIfWithin(localFile, paths.Tmp)
+			return fmt.Errorf("install artifact %s: %w", pkgName, err)
+		}
+		installedPkgs = append(installedPkgs, pkgName)
+	}
+
 	// Link bin artifacts
 	for _, binName := range c.Artifacts.Bin {
 		// Look for binary inside the .app bundle or staging dir
@@ -374,6 +390,16 @@ func caskUninstall(name string, force bool) error {
 					slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", appName, err))
 				} else {
 					slog.Warn(fmt.Sprintf("could not remove %s: %v", appName, err))
+				}
+			}
+		}
+		// Warn about .pkg artifacts
+		for _, pkgName := range c.Artifacts.Pkg {
+			if err := inst.UninstallPkg(pkgName); err != nil {
+				if force {
+					slog.Warn(fmt.Sprintf("ignoring error while uninstallation of %s: %v", pkgName, err))
+				} else {
+					return fmt.Errorf("could not uninstall .pkg artifact %s: %w", pkgName, err)
 				}
 			}
 		}
@@ -441,6 +467,9 @@ func caskInfo(name string) error {
 	}
 
 	fmt.Printf("%s: %s %s (cask)\n", c.Name, c.Description, c.Version)
+	if c.Tap != "" {
+		fmt.Printf("From: %s\n", c.Tap)
+	}
 	fmt.Printf("Homepage: %s\n", c.Homepage)
 	fmt.Printf("License:  %s\n", c.License)
 
@@ -487,7 +516,11 @@ func caskSearch(query string) error {
 			if cr.IsInstalled(c.Name) {
 				marker = "*"
 			}
-			fmt.Printf("%s %-20s %s (cask)\n", marker, c.Name, c.Description)
+			name := c.Name
+			if flags.Verbose && c.Tap != "" {
+				name = c.Tap + "/" + c.Name
+			}
+			fmt.Printf("%s %-20s %s (cask)\n", marker, name, c.Description)
 			found = true
 		}
 	}

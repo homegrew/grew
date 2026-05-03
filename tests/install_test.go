@@ -98,13 +98,13 @@ echo "I am dummybin 1.0"
 	// 4. Create the core tap and a formula definition
 	// To prevent the tap manager from cloning the real homegrew-taps repository
 	// over our mock data, we create a fake .git directory inside the Taps dir.
-	tapsDir := filepath.Join(prefix, "Taps")
-	if err := os.MkdirAll(filepath.Join(tapsDir, ".git"), 0755); err != nil {
+	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps")
+	if err := os.MkdirAll(filepath.Join(coreTapDir, ".git"), 0755); err != nil {
 		t.Fatalf("failed to create fake .git dir: %v", err)
 	}
 
-	coreTapDir := filepath.Join(tapsDir, "core")
-	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
+	coreFormulaDir := filepath.Join(coreTapDir, "core")
+	if err := os.MkdirAll(coreFormulaDir, 0755); err != nil {
 		t.Fatalf("failed to create core tap dir: %v", err)
 	}
 
@@ -126,7 +126,7 @@ install:
   strip_components: 0
 `, platformKey, server.URL, tarballHash)
 
-	formulaPath := filepath.Join(coreTapDir, "dummy.yaml")
+	formulaPath := filepath.Join(coreFormulaDir, "dummy.yaml")
 	if err := os.WriteFile(formulaPath, []byte(formulaYaml), 0644); err != nil {
 		t.Fatalf("failed to write formula yaml: %v", err)
 	}

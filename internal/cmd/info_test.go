@@ -28,13 +28,13 @@ func TestRunInfoJSON(t *testing.T) {
 	}()
 
 	// Create dummy core tap
-	coreTapDir := filepath.Join(tmpDir, "Taps", "core")
+	coreTapDir := filepath.Join(tmpDir, "Taps", "homegrew", "homegrew-taps", "core")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
 		t.Fatal(err)
 	}
 	
 	// Also create .git so New() doesn't try to clone
-	if err := os.MkdirAll(filepath.Join(tmpDir, "Taps", ".git"), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Join(tmpDir, "Taps", "homegrew", "homegrew-taps", ".git"), 0755); err != nil {
 		t.Fatal(err)
 	}
 
@@ -117,13 +117,13 @@ func TestRunCaskInfoJSON(t *testing.T) {
 	}()
 
 	// Create dummy cask tap
-	caskTapDir := filepath.Join(tmpDir, "Taps", "cask")
+	caskTapDir := filepath.Join(tmpDir, "Taps", "homegrew", "homegrew-taps", "cask")
 	if err := os.MkdirAll(caskTapDir, 0755); err != nil {
 		t.Fatal(err)
 	}
 	
 	// Also create .git so New() doesn't try to clone
-	if err := os.MkdirAll(filepath.Join(tmpDir, "Taps", ".git"), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Join(tmpDir, "Taps", "homegrew", "homegrew-taps", ".git"), 0755); err != nil {
 		t.Fatal(err)
 	}
 

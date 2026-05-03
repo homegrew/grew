@@ -81,6 +81,9 @@ Options:
 		}
 
 		fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
+		if f.Tap != "" {
+			fmt.Printf("From: %s\n", f.Tap)
+		}
 		fmt.Printf("Homepage: %s\n", f.Homepage)
 		fmt.Printf("License:  %s\n", f.License)
 

@@ -78,10 +78,12 @@ func TestEnsureCloned_AlreadyCloned(t *testing.T) {
 		t.Skip("git not available")
 	}
 
-	dir := t.TempDir()
-	gitInit(t, dir)
+	tapsDir := t.TempDir()
+	mgr := &Manager{TapsDir: tapsDir}
+	corePath := mgr.CoreTapPath()
+	os.MkdirAll(corePath, 0755)
+	gitInit(t, corePath)
 
-	mgr := &Manager{TapsDir: dir}
 	if err := mgr.EnsureCloned(); err != nil {
 		t.Fatalf("EnsureCloned should succeed for existing repo: %v", err)
 	}
@@ -101,12 +103,14 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 		t.Skip("git not available")
 	}
 
-	// Create a git repo simulating a tap structure with core/ and cask/ files.
-	dir := t.TempDir()
-	gitInit(t, dir)
+	tapsDir := t.TempDir()
+	mgr := &Manager{TapsDir: tapsDir}
+	corePath := mgr.CoreTapPath()
+	os.MkdirAll(corePath, 0755)
+	gitInit(t, corePath)
 
-	coreDir := filepath.Join(dir, "core")
-	caskDir := filepath.Join(dir, "cask")
+	coreDir := filepath.Join(corePath, "core")
+	caskDir := filepath.Join(corePath, "cask")
 	os.MkdirAll(coreDir, 0755)
 	os.MkdirAll(caskDir, 0755)
 
@@ -114,30 +118,84 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 	os.WriteFile(filepath.Join(coreDir, "curl.yaml"), []byte("name: curl"), 0644)
 	os.WriteFile(filepath.Join(caskDir, "firefox.yaml"), []byte("name: firefox"), 0644)
 
-	gitAdd(t, dir)
-	gitCommit(t, dir, "add formulas")
+	gitAdd(t, corePath)
+	gitCommit(t, corePath, "add formulas")
 
 	// Create a bare remote so fetch/reset works.
-	// Use dir as the working directory for git commands — never leave
-	// cmd.Dir unset, because the default (package source dir) can be
-	// removed by cleanup or parallel tests, causing flaky failures.
 	remote := filepath.Join(t.TempDir(), "remote.git")
-	runGit(t, dir, "clone", "--bare", dir, remote)
+	runGit(t, corePath, "clone", "--bare", corePath, remote)
 
-	// Re-clone from the bare remote so the repo has an origin.
-	cloned := filepath.Join(t.TempDir(), "cloned")
-	runGit(t, dir, "clone", remote, cloned)
+	// Replace local clone with one pointing to remote.
+	os.RemoveAll(corePath)
+	runGit(t, "", "clone", remote, corePath)
 
-	// Copy formula files into the clone (they're already there from clone).
-	mgr := &Manager{TapsDir: cloned}
-	count, err := mgr.Update()
+	countTaps, countFormulas, err := mgr.Update()
 	if err != nil {
 		t.Fatalf("Update failed: %v", err)
 	}
 
+	if countTaps != 1 {
+		t.Errorf("Update returned taps count=%d, want 1", countTaps)
+	}
+
 	// 2 core + 1 cask = 3 formulas.
-	if count != 3 {
-		t.Errorf("Update returned count=%d, want 3", count)
+	if countFormulas != 3 {
+		t.Errorf("Update returned formulas count=%d, want 3", countFormulas)
+	}
+}
+
+func TestAddRemoveList(t *testing.T) {
+	t.Parallel()
+	if _, err := exec.LookPath("git"); err != nil {
+		t.Skip("git not available")
+	}
+
+	tapsDir := t.TempDir()
+	mgr := &Manager{TapsDir: tapsDir}
+
+	// Create a mock remote repo
+	remoteDir := t.TempDir()
+	gitInit(t, remoteDir)
+	os.WriteFile(filepath.Join(remoteDir, "test.yaml"), []byte("name: test"), 0644)
+	gitAdd(t, remoteDir)
+	gitCommit(t, remoteDir, "add test formula")
+
+	// Add the tap
+	tapName := "test/tap"
+	if err := mgr.Add(tapName, remoteDir); err != nil {
+		t.Fatalf("Add tap failed: %v", err)
+	}
+
+	// List taps
+	taps, err := mgr.List()
+	if err != nil {
+		t.Fatalf("List taps failed: %v", err)
+	}
+	found := false
+	for _, tap := range taps {
+		if tap == tapName {
+			found = true
+			break
+		}
+	}
+	if !found {
+		t.Errorf("tap %s not found in list %v", tapName, taps)
+	}
+
+	// Remove the tap
+	if err := mgr.Remove(tapName); err != nil {
+		t.Fatalf("Remove tap failed: %v", err)
+	}
+
+	// List again
+	taps, err = mgr.List()
+	if err != nil {
+		t.Fatalf("List taps failed: %v", err)
+	}
+	for _, tap := range taps {
+		if tap == tapName {
+			t.Errorf("tap %s still found in list after removal", tapName)
+		}
 	}
 }
 

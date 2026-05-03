@@ -3,6 +3,7 @@ package cask
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -73,6 +74,57 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	}
 
 	return destApp, nil
+}
+
+// InstallPkg runs a macOS .pkg installer using sudo installer.
+func (inst *Installer) InstallPkg(stageDir, pkgName string) error {
+	if !strings.HasSuffix(pkgName, ".pkg") {
+		return fmt.Errorf("artifact %q is not a .pkg installer", pkgName)
+	}
+	if filepath.Base(pkgName) != pkgName {
+		return fmt.Errorf("invalid pkg name: %q", pkgName)
+	}
+	if err := safepath.SafePathComponent(pkgName); err != nil {
+		return fmt.Errorf("invalid pkg name %q: %w", pkgName, err)
+	}
+
+	srcPkg, err := findPkg(stageDir, pkgName)
+	if err != nil {
+		return err
+	}
+
+	// Containment check: verify srcPkg is within stageDir (symlink escape protection).
+	realSrc, err := filepath.EvalSymlinks(srcPkg)
+	if err != nil {
+		return fmt.Errorf("resolve %s: %w", pkgName, err)
+	}
+	realStage, err := filepath.EvalSymlinks(stageDir)
+	if err != nil {
+		return fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
+	rel, err := filepath.Rel(realStage, realSrc)
+	if err != nil {
+		return fmt.Errorf("resolve relative path from staging directory: %w", err)
+	}
+	rel = filepath.Clean(rel)
+	if rel == "." || rel == "" {
+		return fmt.Errorf("pkg %s resolves to staging directory itself: %s", pkgName, realSrc)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return fmt.Errorf("pkg %s resolves outside staging directory: %s", pkgName, realSrc)
+	}
+
+	// Use sudo installer -pkg <pkg> -target /
+	fmt.Fprintf(os.Stderr, "==> Running installer for %s (requires sudo)\n", pkgName)
+	cmd := exec.Command("sudo", "/usr/sbin/installer", "-pkg", realSrc, "-target", "/")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+
+// UninstallPkg returns an error as macOS packages are hard to uninstall cleanly.
+func (inst *Installer) UninstallPkg(pkgName string) error {
+	return fmt.Errorf("automatic uninstallation of .pkg artifacts is not supported: %s", pkgName)
 }
 
 // UninstallApp removes a .app bundle from AppDir.
@@ -225,4 +277,51 @@ func findApp(stageDir, appName string) (string, error) {
 	}
 
 	return "", fmt.Errorf("could not find %s in extracted archive", appName)
+}
+
+// findPkg searches stageDir for a .pkg installer with the given name.
+func findPkg(stageDir, pkgName string) (string, error) {
+	if err := safepath.SafePathComponent(pkgName); err != nil {
+		return "", fmt.Errorf("invalid pkg name %q: %w", pkgName, err)
+	}
+
+	stageAbs, err := filepath.Abs(stageDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve staging directory %s: %w", stageDir, err)
+	}
+
+	// First, look for a top-level bundle: <stageDir>/<pkgName>.
+	direct, err := safepath.SafeJoin(stageAbs, pkgName)
+	if err == nil {
+		if info, err := os.Stat(direct); err == nil && !info.IsDir() {
+			return direct, nil
+		}
+		// Some .pkg files are directories (bundles)
+		if info, err := os.Stat(direct); err == nil && info.IsDir() {
+			return direct, nil
+		}
+	}
+
+	// If not found, walk one level deep and look for <stageDir>/*/<pkgName>.
+	entries, err := os.ReadDir(stageAbs)
+	if err != nil {
+		return "", err
+	}
+	for _, e := range entries {
+		if !e.IsDir() {
+			continue
+		}
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
+			continue
+		}
+		nested, err := safepath.SafeJoin(stageAbs, e.Name(), pkgName)
+		if err != nil {
+			continue
+		}
+		if _, err := os.Stat(nested); err == nil {
+			return nested, nil
+		}
+	}
+
+	return "", fmt.Errorf("could not find %s in extracted archive", pkgName)
 }

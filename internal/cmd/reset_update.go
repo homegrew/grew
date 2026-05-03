@@ -39,11 +39,11 @@ func runResetUpdate(args []string) error {
 	_ = os.Remove(paths.Share) // only removes if empty
 
 	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	count, err := tapMgr.Update()
+	tapsCount, formulaCount, err := tapMgr.Update()
 	if err != nil {
 		return fmt.Errorf("update: %w", err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d formulas)\n", count)
+	fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d taps, %d formulas found)\n", tapsCount, formulaCount)
 	return nil
 }
