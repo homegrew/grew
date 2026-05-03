@@ -337,6 +337,9 @@ func (f *Formula) Validate() error {
 		} else if len(f.Bottle) > 0 {
 			f.Install.Type = "archive"
 			f.Install.StripComponents = 2 // Most homebrew bottles extract to `name/version/`
+			if f.Install.Format == "" {
+				f.Install.Format = "tar.gz"
+			}
 		} else {
 			return fmt.Errorf("formula %q missing required field: install.type or build configuration", f.Name)
 		}
