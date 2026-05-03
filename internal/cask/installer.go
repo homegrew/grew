@@ -10,6 +10,7 @@ import (
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 // Installer handles placing cask artifacts into their destinations.
@@ -115,7 +116,7 @@ func (inst *Installer) InstallPkg(stageDir, pkgName string) error {
 	}
 
 	// Use sudo installer -pkg <pkg> -target /
-	fmt.Fprintf(os.Stderr, "==> Running installer for %s (requires sudo)\n", pkgName)
+	ui.FprintArrow(os.Stderr, "Running installer for %s (requires sudo)", pkgName)
 	cmd := exec.Command("sudo", "/usr/sbin/installer", "-pkg", realSrc, "-target", "/")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

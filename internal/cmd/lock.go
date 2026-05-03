@@ -8,29 +8,60 @@ import (
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/lockfile"
+	"github.com/spf13/cobra"
 )
 
-func runLock(args []string) error {
-	slog.Debug("starting lock command execution")
-	slog.Debug("starting lock command execution")
-	sub := "generate"
-	if len(args) > 0 {
-		sub = args[0]
-	}
+var LockCmd = &cobra.Command{
+	Use:   "lock [subcommand]",
+	Short: "Manage the formula lockfile",
+	Long: `Manage the formula lockfile. The lockfile records the exact state of all
+installed formulas (versions, checksums, dependencies) so environments
+are reproducible. It is stored at <grew_root>/grew.lock as JSON.
 
-	switch sub {
-	case "generate":
+Subcommands:
+  generate    Generate a lockfile from the current installed state (default)
+  check       Compare the lockfile against installed packages and report
+              discrepancies. Exits non-zero if any are found.
+  show        Pretty-print the current lockfile`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		if len(args) == 0 {
+			return lockGenerate()
+		}
+		return fmt.Errorf("unknown lock subcommand: %s\nUsage: grew lock [generate|check|show]", args[0])
+	},
+}
+
+var LockGenerateCmd = &cobra.Command{
+	Use:   "generate",
+	Short: "Generate a lockfile from the current installed state",
+	RunE: func(cmd *cobra.Command, args []string) error {
 		return lockGenerate()
-	case "check":
+	},
+}
+
+var LockCheckCmd = &cobra.Command{
+	Use:   "check",
+	Short: "Compare the lockfile against installed packages and report discrepancies",
+	RunE: func(cmd *cobra.Command, args []string) error {
 		return lockCheck()
-	case "show":
+	},
+}
+
+var LockShowCmd = &cobra.Command{
+	Use:   "show",
+	Short: "Pretty-print the current lockfile",
+	RunE: func(cmd *cobra.Command, args []string) error {
 		return lockShow()
-	default:
-		return fmt.Errorf("unknown lock subcommand: %s\nUsage: grew lock [generate|check|show]", sub)
-	}
+	},
+}
+
+func init() {
+	LockCmd.AddCommand(LockGenerateCmd, LockCheckCmd, LockShowCmd)
+	rootCmd.AddCommand(LockCmd)
 }
 
 func lockGenerate() error {
+	slog.Debug("starting lock command execution")
 	paths := config.Default()
 
 	lf, err := lockfile.Generate(paths.Root, paths.Cellar)

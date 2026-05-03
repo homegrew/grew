@@ -7,122 +7,150 @@ import (
 	"os"
 
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/spf13/cobra"
 )
 
-func runVerify(args []string) error {
-	slog.Debug("starting verify command execution")
-	slog.Debug("starting verify command execution")
-	jsonOutput := false
-	var targets []string
+var verifyJsonFlag bool
 
-	for _, a := range args {
-		if a == "--json" {
-			jsonOutput = true
-		} else {
-			targets = append(targets, a)
-		}
-	}
+var verifyCmd = &cobra.Command{
+	Use:   "verify [formula ...]",
+	Short: "Verify the integrity of installed packages",
+	Long: `Verify the integrity of installed packages by comparing the filesystem
+against the snapshot manifest recorded at install time.
 
-	paths := config.Default()
-	cel := &cellar.Cellar{Path: paths.Cellar}
+With no arguments, verifies all installed packages.
 
-	// If no targets, verify all installed.
-	if len(targets) == 0 {
-		pkgs, err := cel.List()
+Each package is checked for:
+  - Missing files (deleted after install)
+  - Modified files (content changed since install)
+  - Added files (unexpected files appeared in the keg)
+
+Exit code 0 if all packages pass, 1 if any discrepancies found.`,
+	Example: `  grew verify
+  grew verify jq
+  grew verify --json`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting verify command execution")
+		ctx, err := newReadContext()
 		if err != nil {
 			return err
 		}
-		if len(pkgs) == 0 {
-			fmt.Println("No packages installed.")
+
+		packages, err := ctx.Cellar.List()
+		if err != nil {
+			return err
+		}
+
+		targets := args
+		if len(targets) > 0 {
+			targetSet := make(map[string]bool, len(targets))
+			for _, t := range targets {
+				targetSet[t] = true
+			}
+			var filtered []cellar.InstalledPackage
+			for _, p := range packages {
+				if targetSet[p.Name] {
+					filtered = append(filtered, p)
+				}
+			}
+			for _, t := range targets {
+				found := false
+				for _, p := range packages {
+					if p.Name == t {
+						found = true
+						break
+					}
+				}
+				if !found {
+					if !verifyJsonFlag {
+						slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+					}
+				}
+			}
+			packages = filtered
+		}
+
+		if len(packages) == 0 {
+			if !verifyJsonFlag {
+				fmt.Println("No installed packages to verify.")
+			}
 			return nil
 		}
-		for _, p := range pkgs {
-			targets = append(targets, p.Name)
-		}
-	}
 
-	allOK := true
-	var jsonResults []map[string]any
+		allOK := true
+		jsonResults := make(map[string]any)
 
-	for _, name := range targets {
-		if !cel.IsInstalled(name) {
-			slog.Warn(name + " is not installed, skipping")
-			continue
-		}
+		for _, pkg := range packages {
+			kegPath, err := ctx.Cellar.KegPath(pkg.Name, pkg.Version)
+			if err != nil {
+				continue
+			}
 
-		ver, err := cel.InstalledVersion(name)
-		if err != nil {
-			slog.Warn(fmt.Sprintf("%s: %v", name, err))
-			continue
-		}
-		kegPath, err := cel.KegPath(name, ver)
-		if err != nil {
-			slog.Warn(fmt.Sprintf("%s: %v", name, err))
-			continue
-		}
+			if !snapshot.Exists(kegPath) {
+				if !verifyJsonFlag {
+					fmt.Printf("%s: skipped (no manifest)\n", pkg.Name)
+				}
+				jsonResults[pkg.Name] = map[string]string{"status": "skipped", "reason": "no manifest"}
+				continue
+			}
 
-		if !snapshot.Exists(kegPath) {
-			msg := fmt.Sprintf("%s %s: no manifest (installed before snapshotting was enabled)", name, ver)
-			if jsonOutput {
-				jsonResults = append(jsonResults, map[string]any{"name": name, "version": ver, "status": "no_manifest"})
+			result, err := snapshot.Verify(kegPath)
+			if err != nil {
+				if !verifyJsonFlag {
+					fmt.Printf("%s: error verifying manifest: %v\n", pkg.Name, err)
+				}
+				jsonResults[pkg.Name] = map[string]string{"status": "error", "error": err.Error()}
+				allOK = false
+				continue
+			}
+
+			if result.OK {
+				if !verifyJsonFlag {
+					fmt.Printf("%s: OK\n", pkg.Name)
+				}
+				jsonResults[pkg.Name] = map[string]string{"status": "ok"}
 			} else {
-				fmt.Println(msg)
-			}
-			continue
-		}
-
-		result, err := snapshot.Verify(kegPath)
-		if err != nil {
-			slog.Error(fmt.Sprintf("verifying %s: %v", name, err))
-			allOK = false
-			continue
-		}
-
-		if jsonOutput {
-			jsonResults = append(jsonResults, map[string]any{
-				"name": result.Name, "version": result.Version,
-				"ok": result.OK, "missing": result.Missing,
-				"modified": result.Modified, "added": result.Added,
-				"errors":              result.Errors,
-				"keg_sha256_mismatch": result.KegSHA256Mismatch,
-				"keg_sha512_mismatch": result.KegSHA512Mismatch,
-			})
-		} else if result.OK {
-			fmt.Printf("%s %s: OK\n", result.Name, result.Version)
-		} else {
-			allOK = false
-			fmt.Printf("%s %s: FAILED\n", result.Name, result.Version)
-			for _, f := range result.Missing {
-				fmt.Printf("  missing:  %s\n", f)
-			}
-			for _, f := range result.Modified {
-				fmt.Printf("  modified: %s\n", f)
-			}
-			for _, f := range result.Added {
-				fmt.Printf("  added:    %s\n", f)
-			}
-			if result.KegSHA256Mismatch {
-				fmt.Printf("  error:    aggregate SHA256 mismatch\n")
-			}
-			if result.KegSHA512Mismatch {
-				fmt.Printf("  error:    aggregate SHA512 mismatch\n")
-			}
-			for _, e := range result.Errors {
-				fmt.Printf("  error:    %s\n", e)
+				allOK = false
+				jsonResults[pkg.Name] = result
+				if !verifyJsonFlag {
+					fmt.Printf("%s: FAILED\n", pkg.Name)
+					for _, f := range result.Modified {
+						fmt.Printf("  modified: %s\n", f)
+					}
+					for _, f := range result.Missing {
+						fmt.Printf("  missing:  %s\n", f)
+					}
+					for _, f := range result.Added {
+						fmt.Printf("  added:    %s\n", f)
+					}
+					if result.KegSHA256Mismatch {
+						fmt.Printf("  error:    aggregate SHA256 mismatch\n")
+					}
+					if result.KegSHA512Mismatch {
+						fmt.Printf("  error:    aggregate SHA512 mismatch\n")
+					}
+					for _, e := range result.Errors {
+						fmt.Printf("  error:    %s\n", e)
+					}
+				}
 			}
 		}
-	}
 
-	if jsonOutput {
-		enc := json.NewEncoder(os.Stdout)
-		enc.SetIndent("", "  ")
-		enc.Encode(jsonResults)
-	}
+		if verifyJsonFlag {
+			enc := json.NewEncoder(os.Stdout)
+			enc.SetIndent("", "  ")
+			enc.Encode(jsonResults)
+		}
 
-	if !allOK {
-		return fmt.Errorf("verification failed for one or more packages")
-	}
-	return nil
+		if !allOK {
+			return fmt.Errorf("verification failed for one or more packages")
+		}
+		return nil
+	},
+}
+
+func init() {
+	verifyCmd.Flags().BoolVar(&verifyJsonFlag, "json", false, "Output results as JSON for machine consumption")
+	rootCmd.AddCommand(verifyCmd)
 }

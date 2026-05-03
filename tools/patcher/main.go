@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/pkg/validation"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 type platform struct {
@@ -63,7 +64,7 @@ func main() {
 
 	logMsg := func(format string, a ...interface{}) {
 		if flags.Verbose {
-			fmt.Printf("==> "+format+"\n", a...)
+			ui.FprintArrow(os.Stdout, ""+format+"", a...)
 		}
 	}
 

@@ -1,67 +1,60 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/spf13/cobra"
 )
+
+var (
+	depsTree         bool
+	depsAll          bool
+	depsInstalled    bool
+	depsTopological  bool
+	depsDirect       bool
+	depsUnion        bool
+	depsIncludeBuild bool
+	depsForEach      bool
+	depsMissing      bool
+)
+
+var DepsCmd = &cobra.Command{
+	Use:   "deps [flags] <formula ...>",
+	Short: "Show dependencies for formulas",
+	Long: `Show dependencies for one or more formulas. By default shows all
+transitive dependencies. Use --tree for a visual tree view.
+
+Examples:
+  grew deps jq
+  grew deps --tree jq
+  grew deps --all
+  grew deps --installed`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runDeps(args)
+	},
+}
+
+func init() {
+	DepsCmd.Flags().BoolVar(&depsTree, "tree", false, "Show dependencies as a tree")
+	DepsCmd.Flags().BoolVar(&depsAll, "all", false, "Show dependencies for all formulas")
+	DepsCmd.Flags().BoolVar(&depsInstalled, "installed", false, "Show dependencies for installed formulas")
+	DepsCmd.Flags().BoolVarP(&depsTopological, "topological", "n", false, "Sort dependencies in topological order")
+	DepsCmd.Flags().BoolVarP(&depsDirect, "direct", "1", false, "Show only the direct dependencies declared in the formula")
+	DepsCmd.Flags().BoolVar(&depsUnion, "union", false, "Show the union of dependencies for multiple formulas")
+	DepsCmd.Flags().BoolVar(&depsIncludeBuild, "include-build", false, "Include build dependencies for formulas")
+	DepsCmd.Flags().BoolVar(&depsForEach, "for-each", false, "List dependencies for each provided formula")
+	DepsCmd.Flags().BoolVar(&depsMissing, "missing", false, "Show only missing dependencies")
+	rootCmd.AddCommand(DepsCmd)
+}
 
 func runDeps(args []string) error {
 	slog.Debug("starting deps command execution")
-	slog.Debug("starting deps command execution")
-	fs := flag.NewFlagSet("deps", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew deps [options] <formula ...>
-
-Show dependencies for formulas. When given multiple formula arguments, show the
-intersection of dependencies for each formula.
-
-Options:
-  -n, --topological   Sort dependencies in topological order.
-  -1, --direct,       Show only the direct dependencies declared in the formula.
-      --declared
-      --union         Show the union of dependencies for multiple formulas,
-                      instead of the intersection.
-      --include-build Include build dependencies for formulas.
-      --for-each      List dependencies for each provided formula.
-      --tree          Show dependencies as a tree.
-      --all           Show dependencies for all formulas.
-      --installed     Show dependencies for installed formulas.
-      --missing       Show only missing dependencies.
-  -v, --verbose       Show detailed output.
-  -d, --debug         Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	tree := fs.Bool("tree", false, "Show dependencies as a tree")
-	all := fs.Bool("all", false, "Show dependencies for all formulas")
-	installed := fs.Bool("installed", false, "Show dependencies for installed formulas")
-
-	topo := fs.Bool("n", false, "Sort dependencies in topological order")
-	fs.BoolVar(topo, "topological", false, "Sort dependencies in topological order")
-
-	direct := fs.Bool("1", false, "Show only the direct dependencies declared in the formula")
-	fs.BoolVar(direct, "direct", false, "Show only the direct dependencies declared in the formula")
-	fs.BoolVar(direct, "declared", false, "Show only the direct dependencies declared in the formula")
-
-	union := fs.Bool("union", false, "Show the union of dependencies for multiple formula")
-	includeBuild := fs.Bool("include-build", false, "Include :build dependencies for formula")
-	forEach := fs.Bool("for-each", false, "List dependencies for each provided formula")
-	missing := fs.Bool("missing", false, "Show only missing dependencies")
-
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	targets := fs.Args()
+	targets := args
 
 	ctx, err := newReadContext()
 	if err != nil {
@@ -69,7 +62,7 @@ Options:
 	}
 
 	filterMissing := func(deps []string) []string {
-		if !*missing {
+		if !depsMissing {
 			return deps
 		}
 		var out []string
@@ -81,7 +74,7 @@ Options:
 		return out
 	}
 
-	if *all {
+	if depsAll {
 		formulas, err := ctx.Loader.LoadAll()
 		if err != nil {
 			return err
@@ -90,7 +83,7 @@ Options:
 			targets = append(targets, f.Name)
 		}
 		sort.Strings(targets)
-	} else if *installed {
+	} else if depsInstalled {
 		pkgs, err := ctx.Cellar.List()
 		if err != nil {
 			return err
@@ -104,7 +97,7 @@ Options:
 		return fmt.Errorf("usage: grew deps [options] <formula ...>")
 	}
 
-	if *tree {
+	if depsTree {
 		for i, name := range targets {
 			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
@@ -112,10 +105,10 @@ Options:
 			}
 			fmt.Println(f.Name)
 			deps := f.Dependencies
-			if *includeBuild {
+			if depsIncludeBuild {
 				deps = append(deps, f.BuildDependencies...)
 			}
-			printTree(ctx.Loader, deps, "", make(map[string]bool), *includeBuild, filterMissing)
+			printTree(ctx.Loader, deps, "", make(map[string]bool), depsIncludeBuild, filterMissing)
 			if i < len(targets)-1 {
 				fmt.Println()
 			}
@@ -123,14 +116,14 @@ Options:
 		return nil
 	}
 
-	if *forEach || len(targets) == 1 {
+	if depsForEach || len(targets) == 1 {
 		for _, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, *direct, *includeBuild, *topo)
+			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, depsTopological)
 			if err != nil {
 				return err
 			}
 			deps = filterMissing(deps)
-			if *forEach {
+			if depsForEach {
 				fmt.Printf("%s: %s\n", name, strings.Join(deps, " "))
 			} else {
 				for _, d := range deps {
@@ -143,10 +136,10 @@ Options:
 
 	// Multiple targets, intersection or union
 	var finalDeps []string
-	if *union {
+	if depsUnion {
 		depSet := make(map[string]bool)
 		for _, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, *direct, *includeBuild, false)
+			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, false)
 			if err != nil {
 				return err
 			}
@@ -161,7 +154,7 @@ Options:
 		// Intersection
 		var isect map[string]bool
 		for i, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, *direct, *includeBuild, false)
+			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, false)
 			if err != nil {
 				return err
 			}
@@ -184,7 +177,7 @@ Options:
 		}
 	}
 
-	if *topo {
+	if depsTopological {
 		finalDeps = sortTopologically(ctx.Loader, finalDeps)
 	} else {
 		sort.Strings(finalDeps)

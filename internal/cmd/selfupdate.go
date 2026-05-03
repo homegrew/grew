@@ -24,6 +24,7 @@ import (
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 func RunSelfUpdate(_ []string) error {
@@ -176,7 +177,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
+	ui.FprintArrow(os.Stderr, "Downloading grew %s for %s/%s", rel.TagName, runtime.GOOS, runtime.GOARCH)
 
 	assetName := release.AssetName()
 	slog.Debug("asset name: " + assetName)
@@ -209,7 +210,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		slog.Info(fmt.Sprintf("expected %s: %s", algo, hash))
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Downloading %s\n", assetName)
+	ui.FprintArrow(os.Stderr, "Downloading %s", assetName)
 	tmpFile, err := rel.DownloadTemp(assetURL, assetName)
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
@@ -229,13 +230,13 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 		if sha256Actual != expected {
 			return fmt.Errorf("SHA-256 mismatch: got %s, want %s", sha256Actual, expected)
 		}
-		fmt.Fprintf(os.Stderr, "==> SHA-256 verified: %s\n", sha256Actual)
+		ui.FprintArrow(os.Stderr, "SHA-256 verified: %s", sha256Actual)
 	}
 	if expected, ok := expectedHashes[128]; ok {
 		if sha512Actual != expected {
 			return fmt.Errorf("SHA-512 mismatch: got %s, want %s", sha512Actual, expected)
 		}
-		fmt.Fprintf(os.Stderr, "==> SHA-512 verified: %s\n", sha512Actual)
+		ui.FprintArrow(os.Stderr, "SHA-512 verified: %s", sha512Actual)
 	}
 
 	bin, err := release.ExtractBinaryFromFile(tmpFile)
@@ -278,7 +279,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 
-	fmt.Fprintf(os.Stderr, "==> Updated to %s\n", rel.TagName)
+	ui.FprintArrow(os.Stderr, "Updated to %s", rel.TagName)
 	return nil
 }
 
@@ -353,7 +354,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 		if reportedVersion == "" {
 			return fmt.Errorf("new binary produced no version output")
 		}
-		fmt.Fprintf(os.Stderr, "==> Verified: new binary reports %s\n", reportedVersion)
+		ui.FprintArrow(os.Stderr, "Verified: new binary reports %s", reportedVersion)
 		return nil
 	}
 
@@ -372,7 +373,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 			expectedVersion, reportedVersion)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Verified: new binary reports %s\n", reportedVersion)
+	ui.FprintArrow(os.Stderr, "Verified: new binary reports %s", reportedVersion)
 	return nil
 }
 
@@ -487,7 +488,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Found upgrade path via %d patches\n", len(path))
+	ui.FprintArrow(os.Stderr, "Found upgrade path via %d patches", len(path))
 
 	currentSource := exePath
 	var intermediateFiles []string
@@ -498,7 +499,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 	}()
 
 	for i, step := range path {
-		fmt.Fprintf(os.Stderr, "==> Applying patch %d/%d: %s\n", i+1, len(path), step.name)
+		ui.FprintArrow(os.Stderr, "Applying patch %d/%d: %s", i+1, len(path), step.name)
 
 		patchFile, err := step.release.DownloadTemp(step.url, step.name)
 		if err != nil {
@@ -630,7 +631,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Updated to %s via %d binary patches\n", targetVer, len(path))
+	ui.FprintArrow(os.Stderr, "Updated to %s via %d binary patches", targetVer, len(path))
 
 	expectedVersion := strings.TrimPrefix(targetVer, "v")
 	if err := verifyBinaryIntegrity(exePath, expectedVersion); err != nil {

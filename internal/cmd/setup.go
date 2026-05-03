@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"errors"
-	"flag"
 	"fmt"
 	"io"
 	"log/slog"
@@ -14,74 +13,94 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/flags"
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
-func runSetup(args []string) error {
-	slog.Debug("starting setup command execution")
-	slog.Debug("starting setup command execution")
-	fs := flag.NewFlagSet("setup", flag.ContinueOnError)
+var (
+	setupForce  bool
+	setupDryRun bool
+	setupUnsafe bool
+)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew setup [options]
+var SetupCmd = &cobra.Command{
+	Use:   "setup",
+	Short: "One-time setup of the grew prefix",
+	Long: `Set up the grew directory structure. Requires root (sudo).
 
-Initialize the grew prefix directory structure, copy the grew binary into place,
-and configure ownership. This is required before running any other commands.
+System prefix locations:
+  macOS (Apple Silicon): /opt/homegrew
+  macOS (Intel):         /usr/local/homegrew
+  Linux:                 /usr/local/homegrew
 
-Options:
-  -f, --force   Re-run setup even if the prefix is already set up.
-  -n, --dry-run Show what would be done without making changes.
-  --unsafe      Install to ~/.homegrew instead of a system prefix. This bypasses
-                security guarantees and must be used with a devmode build.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
+The command:
+  1. Creates the system prefix directory
+  2. Transfers ownership to SUDO_USER (no root needed at runtime)
+  3. Creates the internal directory structure
+  4. Copies the grew binary into <prefix>/bin/
 
-	flags.Register(fs)
-	force := fs.Bool("force", false, "Re-run setup even if already set up")
-	fs.BoolVar(force, "f", false, "Re-run setup even if already set up")
-	dryRun := fs.Bool("dry-run", false, "Show what would be done without making changes")
-	fs.BoolVar(dryRun, "n", false, "Show what would be done without making changes")
-	unsafe := fs.Bool("unsafe", false, "Allow user-local install without root (devmode builds only)")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
+Path inference: grew infers its prefix from the binary location. If
+the binary is at <prefix>/bin/grew, all paths are derived from <prefix>
+automatically — no HOMEGREW_PREFIX env var needed.
 
-	// Set the unsafe flag on the runtime before Init so it can allow
-	// non-root operation in devmode builds.
-	grewrt.Unsafe = *unsafe
+Security: a system prefix isolates builds from $HOME, preventing
+sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
 
-	if err := grewrt.Init(); err != nil {
-		return fmt.Errorf("initializing runtime environment: %w", err)
-	}
+Developer mode: builds compiled with -tags devmode can install to
+~/.homegrew without root by passing --unsafe:
+  grew setup --unsafe
 
-	env := grewrt.Env()
-	prefix := env.DefaultPrefix()
-	isRoot := env.RunAsRoot()
+After setup, add to your shell profile:
+  eval "$(grew shellenv)"
 
-	// Check if already set up.
-	if !*force && !*dryRun && config.IsDir(filepath.Join(prefix, "Cellar")) {
-		fmt.Printf("grew is already set up at %s\n", prefix)
-		fmt.Println("Run 'grew setup --force' to re-run setup.")
-		return nil
-	}
+Examples:
+  sudo grew setup
+  sudo grew setup --dry-run
+  sudo grew setup --force`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting setup command execution")
 
-	if *dryRun {
-		return setupDryRun(prefix, isRoot)
-	}
+		// Set the unsafe flag on the runtime before Init so it can allow
+		// non-root operation in devmode builds.
+		grewrt.Unsafe = setupUnsafe
 
-	if isRoot {
-		return setupSystem(prefix)
-	}
-	return setupUser(prefix)
+		if err := grewrt.Init(); err != nil {
+			return fmt.Errorf("initializing runtime environment: %w", err)
+		}
+
+		env := grewrt.Env()
+		prefix := env.DefaultPrefix()
+		isRoot := env.RunAsRoot()
+
+		// Check if already set up.
+		if !setupForce && !setupDryRun && config.IsDir(filepath.Join(prefix, "Cellar")) {
+			fmt.Printf("grew is already set up at %s\n", prefix)
+			fmt.Println("Run 'grew setup --force' to re-run setup.")
+			return nil
+		}
+
+		if setupDryRun {
+			return runSetupDryRun(prefix, isRoot)
+		}
+
+		if isRoot {
+			return setupSystem(prefix)
+		}
+		return setupUser(prefix)
+	},
 }
 
-// setupDryRun prints what setup would do without making any changes.
-func setupDryRun(prefix string, isRoot bool) error {
+func init() {
+	SetupCmd.Flags().BoolVarP(&setupForce, "force", "f", false, "Re-run setup even if already set up")
+	SetupCmd.Flags().BoolVarP(&setupDryRun, "dry-run", "n", false, "Show what would be done without making changes")
+	SetupCmd.Flags().BoolVar(&setupUnsafe, "unsafe", false, "Allow user-local install without root (devmode builds only)")
+	rootCmd.AddCommand(SetupCmd)
+}
+
+// runSetupDryRun prints what setup would do without making any changes.
+func runSetupDryRun(prefix string, isRoot bool) error {
 	fmt.Println("[dry-run] No changes will be made.")
 	fmt.Println()
 
@@ -183,8 +202,8 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (system prefix)\n", prefix)
-	fmt.Fprintf(os.Stderr, "==> Ownership will be transferred to %s\n", u.Username)
+	ui.FprintArrow(os.Stderr, "Setting up grew at %s (system prefix)", prefix)
+	ui.FprintArrow(os.Stderr, "Ownership will be transferred to %s", u.Username)
 	fmt.Println()
 
 	// Create the prefix.
@@ -195,7 +214,7 @@ func setupSystem(prefix string) error {
 	// Transfer ownership to the real user.
 
 	userGroup := strings.Join([]string{u.Username, pg}, ":")
-	fmt.Fprintf(os.Stderr, "==> chown -R %s %s\n", userGroup, prefix)
+	ui.FprintArrow(os.Stderr, "chown -R %s %s", userGroup, prefix)
 	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
 
 	chownExe, err := exec.LookPath("chown")
@@ -226,7 +245,7 @@ func setupSystem(prefix string) error {
 	// files as root. This ensures the entire prefix is owned by the real
 	// user, which is critical for --force re-runs where previous files
 	// may have wrong permissions.
-	fmt.Fprintf(os.Stderr, "==> Fixing permissions: chown -R %s %s\n", userGroup, prefix)
+	ui.FprintArrow(os.Stderr, "Fixing permissions: chown -R %s %s", userGroup, prefix)
 	fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
 	fixCmd.Stdout = os.Stdout
 	fixCmd.Stderr = os.Stderr
@@ -245,7 +264,7 @@ func validIdentity(s string) bool {
 
 // setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
-	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (user prefix, devmode)\n", prefix)
+	ui.FprintArrow(os.Stderr, "Setting up grew at %s (user prefix, devmode)", prefix)
 	fmt.Println()
 	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
@@ -293,12 +312,12 @@ func finishSetup(prefix string) error {
 			if err := copyFile(exe, destBin); err != nil {
 				return fmt.Errorf("copy binary to %s: %w", destBin, err)
 			}
-			fmt.Fprintf(os.Stderr, "==> Installed grew binary to %s\n", destBin)
+			ui.FprintArrow(os.Stderr, "Installed grew binary to %s", destBin)
 		}
 	}
 
 	fmt.Println()
-	fmt.Fprintf(os.Stderr, "==> grew is ready at %s\n", prefix)
+	ui.FprintArrow(os.Stderr, "grew is ready at %s", prefix)
 	fmt.Println()
 	fmt.Println("Add this to your shell profile:")
 	fmt.Println()
@@ -347,7 +366,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 			return ErrNoGitRepo
 		}
 		// Clone fresh.
-		fmt.Fprintf(os.Stderr, "==> Cloning grew from %s\n", grewRepoURL)
+		ui.FprintArrow(os.Stderr, "Cloning grew from %s", grewRepoURL)
 		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
@@ -374,7 +393,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 		return fmt.Errorf("go build: %w", err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Built and installed grew to %s\n", destBin)
+	ui.FprintArrow(os.Stderr, "Built and installed grew to %s", destBin)
 	return nil
 }
 

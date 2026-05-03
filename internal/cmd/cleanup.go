@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
@@ -13,43 +12,46 @@ import (
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
+
+var (
+	cleanupDryRun  bool
+	cleanupScrub   bool
+	cleanupPrune   string
+)
+
+var CleanupCmd = &cobra.Command{
+	Use:   "cleanup [flags] [formula ...]",
+	Short: "Remove old versions and temp files",
+	Long: `Remove old versions of installed formulas and clear old downloads from the cache.
+By default, it keeps the latest version of each installed formula and its 
+associated download, but removes downloads older than 120 days.
+
+Examples:
+  grew cleanup
+  grew cleanup -n
+  grew cleanup --scrub
+  grew cleanup --prune=7
+  grew cleanup jq`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runCleanup(args)
+	},
+}
+
+func init() {
+	CleanupCmd.Flags().BoolVarP(&cleanupDryRun, "dry-run", "n", false, "Show what would be removed, but do not actually remove anything.")
+	CleanupCmd.Flags().BoolVarP(&cleanupScrub, "scrub", "s", false, "Remove all cached downloads, including those for the latest versions.")
+	CleanupCmd.Flags().StringVar(&cleanupPrune, "prune", "", "Remove all cache files older than specified days (or \"all\").")
+	rootCmd.AddCommand(CleanupCmd)
+}
 
 func runCleanup(args []string) error {
 	slog.Debug("starting cleanup command execution")
-	slog.Debug("starting cleanup command execution")
-	fs := flag.NewFlagSet("cleanup", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew cleanup [options] [formula ...]
-
-Remove old versions of installed formulas and clear old downloads from the cache.
-If specific formulas are provided, only those formulas are cleaned up.
-
-Options:
-  -n, --dry-run   Show what would be removed, but do not actually remove anything.
-  -s, --scrub     Remove all cached downloads, including those for the latest versions.
-      --prune=DAYS Remove all cache files older than specified days.
-  -v, --verbose   Show detailed output.
-  -d, --debug     Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	dryRun := fs.Bool("dry-run", false, "Show what would be removed")
-	fs.BoolVar(dryRun, "n", false, "Show what would be removed")
-	scrub := fs.Bool("scrub", false, "Remove all cached downloads")
-	fs.BoolVar(scrub, "s", false, "Remove all cached downloads")
-	prune := fs.String("prune", "", "Remove all cache files older than specified days.")
-
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	targets := fs.Args()
+	targets := args
 
 	paths := config.Default()
 	cel := &cellar.Cellar{Path: paths.Cellar}
@@ -92,7 +94,7 @@ Options:
 			}
 			size, _ := dirSize(kegPath)
 			totalBytes += size
-			if *dryRun {
+			if cleanupDryRun {
 				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, fsutil.FormatSize(size))
 			} else {
 				slog.Debug(fmt.Sprintf("removing old keg %s/%s", pkg.Name, ver))
@@ -114,12 +116,12 @@ Options:
 	}
 	maxAge := time.Duration(maxAgeDays) * 24 * time.Hour
 
-	if *prune == "all" {
+	if cleanupPrune == "all" {
 		maxAge = 0
-	} else if *prune != "" {
-		days, err := strconv.Atoi(*prune)
+	} else if cleanupPrune != "" {
+		days, err := strconv.Atoi(cleanupPrune)
 		if err != nil {
-			return fmt.Errorf("invalid prune value: %s", *prune)
+			return fmt.Errorf("invalid prune value: %s", cleanupPrune)
 		}
 		maxAge = time.Duration(days) * 24 * time.Hour
 	}
@@ -150,7 +152,7 @@ Options:
 				// - Explicitly scrubbing
 				// - Or it's older than the prune threshold
 				// - Or it's NOT the latest installed version of a formula
-				shouldRemove := *scrub || tooOld || !isLatest
+				shouldRemove := cleanupScrub || tooOld || !isLatest
 
 				if !shouldRemove {
 					continue
@@ -158,7 +160,7 @@ Options:
 
 				size, _ := entrySize(path, e)
 				totalBytes += size
-				if *dryRun {
+				if cleanupDryRun {
 					fmt.Printf("Would remove: %s (%s)\n", path, fsutil.FormatSize(size))
 				} else {
 					slog.Debug("removing cached file " + name)
@@ -173,7 +175,7 @@ Options:
 	}
 
 	// 6. Prune empty directories in the prefix.
-	if !*dryRun {
+	if !cleanupDryRun {
 		pruneEmptyDirs(paths.Bin)
 		pruneEmptyDirs(paths.Lib)
 		pruneEmptyDirs(paths.Include)
@@ -183,10 +185,10 @@ Options:
 
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
-	} else if *dryRun {
-		fmt.Fprintf(os.Stderr, "==> Would free %s\n", fsutil.FormatSize(totalBytes))
+	} else if cleanupDryRun {
+		ui.FprintArrow(os.Stderr, "Would free %s", fsutil.FormatSize(totalBytes))
 	} else {
-		fmt.Fprintf(os.Stderr, "==> Freed %s\n", fsutil.FormatSize(totalBytes))
+		ui.FprintArrow(os.Stderr, "Freed %s", fsutil.FormatSize(totalBytes))
 	}
 
 	return nil

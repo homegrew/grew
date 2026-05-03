@@ -6,6 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 const defaultRepoURL = "https://github.com/homegrew/homegrew-taps.git"
@@ -67,7 +68,7 @@ func (m *Manager) EnsureCloned() error {
 		return fmt.Errorf("create core tap parent dir: %w", err)
 	}
 
-	fmt.Printf("==> Cloning core taps from %s\n", defaultRepoURL)
+	ui.FprintArrow(os.Stdout, "Cloning core taps from %s", defaultRepoURL)
 	cmd := exec.Command("git", "clone", "--depth", "1", "--", defaultRepoURL, corePath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -123,11 +124,11 @@ func (m *Manager) Update() (int, int, error) {
 				continue
 			}
 
-			fmt.Printf("==> Updating tap %s/%s...\n", user.Name(), repo.Name())
+			ui.FprintArrow(os.Stdout, "Updating tap %s/%s...", user.Name(), repo.Name())
 			fetch := exec.Command("git", "fetch", "--depth", "1", "--", "origin")
 			fetch.Dir = repoPath
 			if err := fetch.Run(); err != nil {
-				fmt.Fprintf(os.Stderr, "warn: failed to fetch tap %s/%s: %v\n", user.Name(), repo.Name(), err)
+				fmt.Fprintf(os.Stderr, "%s failed to fetch tap %s/%s: %v\n", ui.ArrowWarning(os.Stderr), user.Name(), repo.Name(), err)
 				continue
 			}
 			// Determine default branch (usually main or master)
@@ -142,12 +143,12 @@ func (m *Manager) Update() (int, int, error) {
 			reset := exec.Command("git", "reset", "--hard", branch)
 			reset.Dir = repoPath
 			if err := reset.Run(); err != nil {
-				fmt.Fprintf(os.Stderr, "warn: failed to reset tap %s/%s: %v\n", user.Name(), repo.Name(), err)
+				fmt.Fprintf(os.Stderr, "%s failed to reset tap %s/%s: %v\n", ui.ArrowWarning(os.Stderr), user.Name(), repo.Name(), err)
 				continue
 			}
 
 			if err := CheckAfterUpdate(repoPath, TapVerifyMode()); err != nil {
-				fmt.Fprintf(os.Stderr, "warn: verification failed for tap %s/%s: %v\n", user.Name(), repo.Name(), err)
+				fmt.Fprintf(os.Stderr, "%s verification failed for tap %s/%s: %v\n", ui.ArrowWarning(os.Stderr), user.Name(), repo.Name(), err)
 				continue
 			}
 
@@ -193,7 +194,7 @@ func (m *Manager) Add(name, customURL string) error {
 		return fmt.Errorf("create tap parent dir: %w", err)
 	}
 
-	fmt.Printf("==> Tapping %s from %s\n", name, url)
+	ui.FprintArrow(os.Stdout, "Tapping %s from %s", name, url)
 	cmd := exec.Command("git", "clone", "--depth", "1", "--", url, repoPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -221,7 +222,7 @@ func (m *Manager) Remove(name string) error {
 		return fmt.Errorf("tap %s is not installed", name)
 	}
 
-	fmt.Printf("==> Untapping %s...\n", name)
+	ui.FprintArrow(os.Stdout, "Untapping %s...", name)
 	return os.RemoveAll(repoPath)
 }
 

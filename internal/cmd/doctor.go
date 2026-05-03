@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
+	"os"
+	"github.com/homegrew/grew/pkg/ui"
 	"log/slog"
 	"time"
 
@@ -13,43 +14,69 @@ import (
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/doctor"
+	"github.com/spf13/cobra"
 )
+
+var (
+	doctorListChecks bool
+	doctorAuditDebug bool
+	doctorRunAll     bool
+)
+
+var DoctorCmd = &cobra.Command{
+	Use:     "doctor [flags] [check ...]",
+	Aliases: []string{"dr"},
+	Short:   "Check your system for potential problems",
+	Long: `Check your system for potential problems. Exits with non-zero status
+if warnings are found.
+
+Security checks:
+  check_directory_permissions   World-writable grew directories
+  check_formula_https           Formula URLs not using HTTPS
+  check_formula_sha256          Invalid or malformed SHA256 hashes
+  check_symlink_targets         Symlinks escaping the grew prefix
+  check_cellar_permissions      World-writable installed kegs/binaries
+  check_snapshot_integrity      Verify packages against install manifests
+
+Structural checks:
+  check_directories             Required directories exist
+  check_path                    grew bin/ in PATH
+  check_core_tap                Core tap has formulas
+  check_broken_symlinks         Broken symlinks in bin/, lib/, include/
+  check_broken_opt_symlinks     Broken opt/ symlinks
+  check_unlinked_kegs           Installed but not linked formulas
+  check_orphaned_symlinks       Symlinks to uninstalled formulas
+  check_multiple_versions       Multiple versions (suggest cleanup)
+  check_stale_tmp               Leftover files in tmp/
+
+Run specific checks by name:
+  grew doctor check_formula_https check_directory_permissions
+
+Examples:
+  grew doctor
+  grew doctor --list-checks
+  grew doctor -D
+  grew doctor -q
+  grew doctor check_symlink_targets`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runDoctor(args)
+	},
+}
+
+func init() {
+	DoctorCmd.Flags().BoolVar(&doctorListChecks, "list-checks", false, "List all available check names")
+	DoctorCmd.Flags().BoolVarP(&doctorAuditDebug, "audit-debug", "D", false, "Show timing and warning count per check")
+	DoctorCmd.Flags().BoolVarP(&doctorRunAll, "all", "a", false, "Run all checks (overrides individual selections)")
+	rootCmd.AddCommand(DoctorCmd)
+}
 
 func runDoctor(args []string) error {
 	slog.Debug("starting doctor command execution")
-	fs := flag.NewFlagSet("doctor", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew doctor [options]
-
-Check your system for potential problems.
-Aliases: dr
-
-Options:
-  --list-checks List all available diagnostic checks.
-  -D, --audit-debug
-                Show execution time for each diagnostic check.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-  -q, --quiet   Only print errors and warnings; omit successful checks.
-`)
-	}
-
-	listChecks := fs.Bool("list-checks", false, "List all available check name")
-	auditDebug := fs.Bool("audit-debug", false, "Show timing per check")
-	fs.BoolVar(auditDebug, "D", false, "Show timing per check")
-	runAll := fs.Bool("all", false, "Run all checks")
-	fs.BoolVar(runAll, "a", false, "Run all checks")
-	flags.Register(fs)
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	selectedChecks := fs.Args()
+	selectedChecks := args
 	checks := append(doctor.BaseChecks(), doctor.ExtraChecks...)
 
-	if *listChecks {
+	if doctorListChecks {
 		for _, c := range checks {
 			fmt.Printf("%-35s %s\n", c.Name, c.Desc)
 		}
@@ -57,7 +84,7 @@ Options:
 	}
 
 	// --all overrides any individually selected checks.
-	if *runAll {
+	if doctorRunAll {
 		selectedChecks = nil
 	}
 
@@ -107,7 +134,7 @@ Options:
 	}
 	ctx.Warn = func(format string, args ...any) {
 		ctx.Warnings++
-		fmt.Printf("Warning: "+format+"\n", args...)
+		fmt.Fprintf(os.Stdout, "%s "+format+"\n", append([]any{ui.ArrowWarning(os.Stdout)}, args...)...)
 	}
 
 	if !flags.Quiet {
@@ -115,7 +142,7 @@ Options:
 	}
 
 	for _, c := range checks {
-		if *auditDebug {
+		if doctorAuditDebug {
 			start := time.Now()
 			c.Run(ctx)
 			if !flags.Quiet {

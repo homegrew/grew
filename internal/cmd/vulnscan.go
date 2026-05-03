@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"log/slog"
 	"net/url"
@@ -20,6 +19,8 @@ import (
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/pkg/validation"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 // vulnSeverity represents the severity of a vulnerability finding.
@@ -41,130 +42,122 @@ type vulnFinding struct {
 	Detail   string       `json:"detail"`
 }
 
-func runVulnScan(args []string) error {
-	fs := flag.NewFlagSet("vuln-scan", flag.ContinueOnError)
+var (
+	vulnScanJson    bool
+	vulnScanSummary bool
+	vulnScanOffline bool
+)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew vuln-scan [options] [formula ...]
+var vulnScanCmd = &cobra.Command{
+	Use:   "vuln-scan [formula ...]",
+	Short: "Scan installed packages for security vulnerabilities",
+	Long: `Scan installed packages for security vulnerabilities, including known CVEs
+(via OSV.dev), signature validation failures, and dangerous file permissions.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		targets := args
 
-Scan installed packages for security vulnerabilities, including known CVEs
-(via OSV.dev), signature validation failures, and dangerous file permissions.
-
-Options:
-  --json           Output results as JSON.
-  -q, --summary    Only show critical and high severity findings.
-  --offline        Skip the OSV.dev vulnerability database query.
-  --quiet          Only print errors (global flag).
-  -v, --verbose    Show detailed output.
-  -d, --debug      Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	jsonOutput := fs.Bool("json", false, "Output results as JSON")
-	summaryOnly := fs.Bool("summary", false, "Only show critical and high severity findings")
-	fs.BoolVar(summaryOnly, "q", false, "Only show critical and high severity findings")
-	skipOSV := fs.Bool("offline", false, "Skip OSV.dev vulnerability database query")
-	flags.Register(fs)
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-	targets := fs.Args()
-
-	ctx, err := newReadContext()
-	if err != nil {
-		return err
-	}
-
-	packages, err := ctx.Cellar.List()
-	if err != nil {
-		return fmt.Errorf("list installed packages: %w", err)
-	}
-
-	// Filter to targets if specified.
-	if len(targets) > 0 {
-		targetSet := make(map[string]bool, len(targets))
-		for _, t := range targets {
-			targetSet[t] = true
+		ctx, err := newReadContext()
+		if err != nil {
+			return err
 		}
-		var filtered []cellar.InstalledPackage
-		for _, p := range packages {
-			if targetSet[p.Name] {
-				filtered = append(filtered, p)
+
+		packages, err := ctx.Cellar.List()
+		if err != nil {
+			return fmt.Errorf("list installed packages: %w", err)
+		}
+
+		// Filter to targets if specified.
+		if len(targets) > 0 {
+			targetSet := make(map[string]bool, len(targets))
+			for _, t := range targets {
+				targetSet[t] = true
 			}
-		}
-		// Report targets not found.
-		for _, t := range targets {
-			found := false
+			var filtered []cellar.InstalledPackage
 			for _, p := range packages {
-				if p.Name == t {
-					found = true
-					break
+				if targetSet[p.Name] {
+					filtered = append(filtered, p)
 				}
 			}
-			if !found {
-				if !flags.Quiet {
-					slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+			// Report targets not found.
+			for _, t := range targets {
+				found := false
+				for _, p := range packages {
+					if p.Name == t {
+						found = true
+						break
+					}
+				}
+				if !found {
+					if !flags.Quiet {
+						slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+					}
 				}
 			}
+			packages = filtered
 		}
-		packages = filtered
-	}
 
-	if len(packages) == 0 {
-		if !flags.Quiet && !*jsonOutput {
-			fmt.Println("No installed packages to scan.")
-		}
-		return nil
-	}
-
-	// Load all formulas for cross-referencing.
-	allFormulas, loadErr := ctx.Loader.LoadAll()
-	if loadErr != nil {
-		if !flags.Quiet {
-			slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
-		}
-		allFormulas = []*formula.Formula{}
-	}
-	formulaMap := make(map[string]*formula.Formula, len(allFormulas))
-	for _, f := range allFormulas {
-		formulaMap[f.Name] = f
-	}
-
-	if !*jsonOutput && !flags.Quiet {
-		fmt.Println("Scanning installed packages for vulnerabilities...")
-	}
-
-	var findings []vulnFinding
-
-	// Local checks per package.
-	for _, pkg := range packages {
-		findings = append(findings, scanPackage(pkg, ctx.Cellar, ctx.Paths, formulaMap)...)
-	}
-
-	// OSV.dev known vulnerability check.
-	if !*skipOSV {
-		findings = append(findings, scanOSV(packages, formulaMap, *jsonOutput || flags.Quiet)...)
-	}
-
-	// Global checks (not tied to a specific package).
-	findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
-
-	// Filter by severity if summary-only mode is active.
-	if *summaryOnly {
-		var filtered []vulnFinding
-		for _, f := range findings {
-			if f.Severity == severityCritical || f.Severity == severityHigh {
-				filtered = append(filtered, f)
+		if len(packages) == 0 {
+			if !flags.Quiet && !vulnScanJson {
+				fmt.Println("No installed packages to scan.")
 			}
+			return nil
 		}
-		findings = filtered
-	}
 
-	if *jsonOutput {
-		return printVulnJSON(findings)
-	}
-	return printVulnText(findings)
+		// Load all formulas for cross-referencing.
+		allFormulas, loadErr := ctx.Loader.LoadAll()
+		if loadErr != nil {
+			if !flags.Quiet {
+				slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
+			}
+			allFormulas = []*formula.Formula{}
+		}
+		formulaMap := make(map[string]*formula.Formula, len(allFormulas))
+		for _, f := range allFormulas {
+			formulaMap[f.Name] = f
+		}
+
+		if !vulnScanJson && !flags.Quiet {
+			fmt.Println("Scanning installed packages for vulnerabilities...")
+		}
+
+		var findings []vulnFinding
+
+		// Local checks per package.
+		for _, pkg := range packages {
+			findings = append(findings, scanPackage(pkg, ctx.Cellar, ctx.Paths, formulaMap)...)
+		}
+
+		// OSV.dev known vulnerability check.
+		if !vulnScanOffline {
+			findings = append(findings, scanOSV(packages, formulaMap, vulnScanJson || flags.Quiet)...)
+		}
+
+		// Global checks (not tied to a specific package).
+		findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
+
+		// Filter by severity if summary-only mode is active.
+		if vulnScanSummary {
+			var filtered []vulnFinding
+			for _, f := range findings {
+				if f.Severity == severityCritical || f.Severity == severityHigh {
+					filtered = append(filtered, f)
+				}
+			}
+			findings = filtered
+		}
+
+		if vulnScanJson {
+			return printVulnJSON(findings)
+		}
+		return printVulnText(findings)
+	},
+}
+
+func init() {
+	vulnScanCmd.Flags().BoolVar(&vulnScanJson, "json", false, "Output results as JSON")
+	vulnScanCmd.Flags().BoolVar(&vulnScanSummary, "summary", false, "Only show critical and high severity findings")
+	vulnScanCmd.Flags().BoolVar(&vulnScanOffline, "offline", false, "Skip OSV.dev vulnerability database query")
+	rootCmd.AddCommand(vulnScanCmd)
 }
 
 // scanOSV queries the OSV.dev database for known vulnerabilities affecting
@@ -205,7 +198,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 
 	skipped := len(packages) - len(queries)
 	if !silent {
-		fmt.Fprintf(os.Stderr, "==> Querying OSV.dev for %d package(s)...\n", len(queries))
+		ui.FprintArrow(os.Stderr, "Querying OSV.dev for %d package(s)...", len(queries))
 		if skipped > 0 {
 			slog.Info(fmt.Sprintf("(%d packages skipped — no supported source URL)", skipped))
 		}

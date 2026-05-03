@@ -7,53 +7,151 @@ import (
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
+
+var upgradeCmd = &cobra.Command{
+	Use:   "upgrade [formula ...]",
+	Short: "Upgrade outdated formulas",
+	Long: `Upgrade outdated formulas to the latest version available in the tap.
+With no arguments, upgrades all outdated packages. Specify formula
+names to upgrade only those.
+
+The old version keg is removed after a successful upgrade.`,
+	Example: `  grew upgrade
+  grew upgrade jq`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting upgrade command execution")
+		ctx, err := newInstallContext()
+		if err != nil {
+			return err
+		}
+		defer ctx.Close()
+
+		var targets []outdatedPkg
+
+		if len(args) > 0 {
+			// Upgrade specific formulas
+			for _, name := range args {
+				if !ctx.Cellar.IsInstalled(name) {
+					return fmt.Errorf("formula %q is not installed", name)
+				}
+				if ctx.Cellar.IsPinned(name) {
+					if ctx.AuditLog != nil {
+						ctx.AuditLog.Log(auditlog.ActionUpgrade, name, "", "", "pinned, skipping")
+					}
+					ui.FprintArrow(os.Stderr, "%s is pinned, skipping (use 'grew unpin %s' first)", name, name)
+					continue
+				}
+				f, err := ctx.Loader.LoadByName(name)
+				if err != nil {
+					return fmt.Errorf("formula not found: %s", name)
+				}
+				curVer, _ := ctx.Cellar.InstalledVersion(name)
+				if curVer == f.Version {
+					if ctx.AuditLog != nil {
+						ctx.AuditLog.Log(auditlog.ActionUpgrade, name, curVer, "", "already up-to-date")
+					}
+					ui.FprintArrow(os.Stderr, "%s %s already up-to-date", name, curVer)
+					continue
+				}
+				targets = append(targets, outdatedPkg{formula: f, installedVersion: curVer})
+			}
+		} else {
+			// Upgrade all outdated packages
+			installed, err := ctx.Cellar.List()
+			if err != nil {
+				return err
+			}
+			if len(installed) == 0 {
+				fmt.Println("No packages installed.")
+				return nil
+			}
+			for _, pkg := range installed {
+				if ctx.Cellar.IsPinned(pkg.Name) {
+					if ctx.AuditLog != nil {
+						ctx.AuditLog.Log(auditlog.ActionUpgrade, pkg.Name, pkg.Version, "", "pinned, skipping")
+					}
+					slog.Debug("skipping " + pkg.Name + ": pinned")
+					continue
+				}
+				f, err := ctx.Loader.LoadByName(pkg.Name)
+				if err != nil {
+					slog.Debug(fmt.Sprintf("skipping %s: no longer in any tap (%v)", pkg.Name, err))
+					continue
+				}
+				if pkg.Version != f.Version {
+					targets = append(targets, outdatedPkg{formula: f, installedVersion: pkg.Version})
+				}
+			}
+		}
+
+		if len(targets) == 0 {
+			fmt.Println("All packages are up-to-date.")
+			return nil
+		}
+
+		for _, t := range targets {
+			ui.FprintArrow(os.Stderr, "Upgrading %s %s -> %s", t.formula.Name, t.installedVersion, t.formula.Version)
+
+			// Unlink old version
+			ctx.Linker.Unlink(t.formula.Name)
+			slog.Info("unlinked old version " + t.installedVersion)
+
+			// Install new version (old keg stays until we confirm success)
+			if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
+				if ctx.AuditLog != nil {
+					ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "", fmt.Sprintf("failed: %v", err))
+				}
+				return err
+			}
+
+			if ctx.AuditLog != nil {
+				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
+					fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
+			}
+
+			// Remove old version keg if different from new
+			oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
+			if t.installedVersion != t.formula.Version {
+				if err := removeDir(oldKeg); err != nil {
+					slog.Warn(fmt.Sprintf("could not remove old keg %s: %v", oldKeg, err))
+				} else {
+					slog.Info("removed old keg: " + oldKeg)
+				}
+			}
+		}
+
+		return nil
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(upgradeCmd)
+}
 
 type outdatedPkg struct {
 	formula          *formula.Formula
 	installedVersion string
 }
 
-func runUpgrade(args []string) error {
-	slog.Debug("starting upgrade command execution")
-	slog.Debug("starting upgrade command execution")
-	ctx, err := newInstallContext()
-	if err != nil {
-		return err
-	}
-	defer ctx.Close()
+func removeDir(path string) error {
+	return os.RemoveAll(path)
+}
 
-	var targets []outdatedPkg
-
-	if len(args) > 0 {
-		// Upgrade specific formulas
-		for _, name := range args {
-			if !ctx.Cellar.IsInstalled(name) {
-				return fmt.Errorf("formula %q is not installed", name)
-			}
-			if ctx.Cellar.IsPinned(name) {
-				if ctx.AuditLog != nil {
-					ctx.AuditLog.Log(auditlog.ActionUpgrade, name, "", "", "pinned, skipping")
-				}
-				fmt.Fprintf(os.Stderr, "==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
-				continue
-			}
-			f, err := ctx.Loader.LoadByName(name)
-			if err != nil {
-				return fmt.Errorf("formula not found: %s", name)
-			}
-			curVer, _ := ctx.Cellar.InstalledVersion(name)
-			if curVer == f.Version {
-				if ctx.AuditLog != nil {
-					ctx.AuditLog.Log(auditlog.ActionUpgrade, name, curVer, "", "already up-to-date")
-				}
-				fmt.Fprintf(os.Stderr, "==> %s %s already up-to-date\n", name, curVer)
-				continue
-			}
-			targets = append(targets, outdatedPkg{formula: f, installedVersion: curVer})
+var outdatedCmd = &cobra.Command{
+	Use:   "outdated",
+	Short: "List installed formulas that have a newer version available",
+	Long:  "List installed formulas that have a newer version available in the tap.",
+	Args:  cobra.NoArgs,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting outdated command execution")
+		ctx, err := newReadContext()
+		if err != nil {
+			return err
 		}
-	} else {
-		// Upgrade all outdated packages
+
 		installed, err := ctx.Cellar.List()
 		if err != nil {
 			return err
@@ -62,104 +160,31 @@ func runUpgrade(args []string) error {
 			fmt.Println("No packages installed.")
 			return nil
 		}
+
+		found := false
 		for _, pkg := range installed {
-			if ctx.Cellar.IsPinned(pkg.Name) {
-				if ctx.AuditLog != nil {
-					ctx.AuditLog.Log(auditlog.ActionUpgrade, pkg.Name, pkg.Version, "", "pinned, skipping")
-				}
-				slog.Debug("skipping " + pkg.Name + ": pinned")
-				continue
-			}
 			f, err := ctx.Loader.LoadByName(pkg.Name)
 			if err != nil {
-				slog.Debug(fmt.Sprintf("skipping %s: no longer in any tap (%v)", pkg.Name, err))
+				slog.Debug(fmt.Sprintf("skipping %s: not in any tap (%v)", pkg.Name, err))
 				continue
 			}
 			if pkg.Version != f.Version {
-				targets = append(targets, outdatedPkg{formula: f, installedVersion: pkg.Version})
+				pinMarker := ""
+				if ctx.Cellar.IsPinned(pkg.Name) {
+					pinMarker = " [pinned]"
+				}
+				fmt.Printf("%-20s %s -> %s%s\n", pkg.Name, pkg.Version, f.Version, pinMarker)
+				found = true
 			}
 		}
-	}
 
-	if len(targets) == 0 {
-		fmt.Println("All packages are up-to-date.")
+		if !found {
+			fmt.Println("All packages are up-to-date.")
+		}
 		return nil
-	}
-
-	for _, t := range targets {
-		fmt.Fprintf(os.Stderr, "==> Upgrading %s %s -> %s\n", t.formula.Name, t.installedVersion, t.formula.Version)
-
-		// Unlink old version
-		ctx.Linker.Unlink(t.formula.Name)
-		slog.Info("unlinked old version " + t.installedVersion)
-
-		// Install new version (old keg stays until we confirm success)
-		if err := installFormula(t.formula, ctx, installOpts{installedOnRequest: true}); err != nil {
-			if ctx.AuditLog != nil {
-				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "", fmt.Sprintf("failed: %v", err))
-			}
-			return err
-		}
-
-		if ctx.AuditLog != nil {
-			ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
-				fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
-		}
-
-		// Remove old version keg if different from new
-		oldKeg, _ := ctx.Cellar.KegPath(t.formula.Name, t.installedVersion)
-		if t.installedVersion != t.formula.Version {
-			if err := removeDir(oldKeg); err != nil {
-				slog.Warn(fmt.Sprintf("could not remove old keg %s: %v", oldKeg, err))
-			} else {
-				slog.Info("removed old keg: " + oldKeg)
-			}
-		}
-	}
-
-	return nil
+	},
 }
 
-func runOutdated(args []string) error {
-	slog.Debug("starting outdated command execution")
-	slog.Debug("starting outdated command execution")
-	ctx, err := newReadContext()
-	if err != nil {
-		return err
-	}
-
-	installed, err := ctx.Cellar.List()
-	if err != nil {
-		return err
-	}
-	if len(installed) == 0 {
-		fmt.Println("No packages installed.")
-		return nil
-	}
-
-	found := false
-	for _, pkg := range installed {
-		f, err := ctx.Loader.LoadByName(pkg.Name)
-		if err != nil {
-			slog.Debug(fmt.Sprintf("skipping %s: not in any tap (%v)", pkg.Name, err))
-			continue
-		}
-		if pkg.Version != f.Version {
-			pinMarker := ""
-			if ctx.Cellar.IsPinned(pkg.Name) {
-				pinMarker = " [pinned]"
-			}
-			fmt.Printf("%-20s %s -> %s%s\n", pkg.Name, pkg.Version, f.Version, pinMarker)
-			found = true
-		}
-	}
-
-	if !found {
-		fmt.Println("All packages are up-to-date.")
-	}
-	return nil
-}
-
-func removeDir(path string) error {
-	return os.RemoveAll(path)
+func init() {
+	rootCmd.AddCommand(outdatedCmd)
 }

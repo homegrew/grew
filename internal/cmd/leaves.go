@@ -1,47 +1,37 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"sort"
 
-	"github.com/homegrew/grew/internal/flags"
+	"github.com/spf13/cobra"
 )
 
-func runLeaves(args []string) error {
+var (
+	leavesOnRequest bool
+	leavesAsDep     bool
+)
+
+var LeavesCmd = &cobra.Command{
+	Use:   "leaves",
+	Short: "List installed formulas that are not dependencies of another installed formula",
+	Long: `List installed formulas that are not dependencies of any other installed formula.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunLeaves(args)
+	},
+}
+
+func init() {
+	LeavesCmd.Flags().BoolVarP(&leavesOnRequest, "installed-on-request", "r", false, "Only show leaves that were explicitly installed on request")
+	LeavesCmd.Flags().BoolVarP(&leavesAsDep, "installed-as-dependency", "p", false, "Only show leaves that were installed automatically as dependencies")
+	rootCmd.AddCommand(LeavesCmd)
+}
+
+func RunLeaves(args []string) error {
 	slog.Debug("starting leaves command execution")
-	slog.Debug("starting leaves command execution")
-	fs := flag.NewFlagSet("leaves", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew leaves [options]
-
-List installed formulas that are not dependencies of any other installed formula.
-
-Options:
-  -r, --installed-on-request
-                Only show leaves that were explicitly installed on request.
-  -p, --installed-as-dependency
-                Only show leaves that were installed automatically as dependencies
-                (these are orphaned dependencies that can likely be removed).
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	onRequest := fs.Bool("installed-on-request", false, "Only show leaves that were installed on request")
-	fs.BoolVar(onRequest, "r", false, "Only show leaves that were installed on request")
-	asDep := fs.Bool("installed-as-dependency", false, "Only show leaves that were installed as dependencies")
-	fs.BoolVar(asDep, "p", false, "Only show leaves that were installed as dependencies")
-
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if *onRequest && *asDep {
+	
+	if leavesOnRequest && leavesAsDep {
 		return fmt.Errorf("--installed-on-request and --installed-as-dependency are mutually exclusive")
 	}
 
@@ -59,8 +49,8 @@ Options:
 		return nil
 	}
 
-	if *onRequest || *asDep {
-		packages = filterByManifest(packages, ctx.Cellar, *onRequest, *asDep, false, false)
+	if leavesOnRequest || leavesAsDep {
+		packages = filterByManifest(packages, ctx.Cellar, leavesOnRequest, leavesAsDep, false, false)
 		if len(packages) == 0 {
 			return nil
 		}

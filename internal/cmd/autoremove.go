@@ -1,43 +1,34 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"sort"
 
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/flags"
+	"github.com/spf13/cobra"
 )
 
-func runAutoremove(args []string) error {
+var autoremoveDryRun bool
+
+var AutoremoveCmd = &cobra.Command{
+	Use:   "autoremove",
+	Short: "Uninstall formulae that were only installed as a dependency",
+	Long: `Uninstall formulae that were only installed as a dependency of another formula
+and are now no longer needed.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunAutoremove(args)
+	},
+}
+
+func init() {
+	AutoremoveCmd.Flags().BoolVarP(&autoremoveDryRun, "dry-run", "n", false, "List what would be uninstalled, but do not actually uninstall anything.")
+	rootCmd.AddCommand(AutoremoveCmd)
+}
+
+func RunAutoremove(args []string) error {
 	slog.Debug("starting autoremove command execution")
-	fs := flag.NewFlagSet("autoremove", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew autoremove [--dry-run]
-
-Uninstall formulae that were only installed as a dependency of another formula
-and are now no longer needed.
-
-  -n, --dry-run                    List what would be uninstalled, but do not
-                                   actually uninstall anything.
-  -v, --verbose                    Make some output more verbose.
-  -d, --debug                      Display any debugging information.
-  -q, --quiet                      Make some output more quiet.
-  -h, --help                       Show this message.
-`)
-	}
-
-	flags.Register(fs)
-	dryRun := fs.Bool("dry-run", false, "List what would be uninstalled, but do not actually uninstall anything.")
-	fs.BoolVar(dryRun, "n", false, "List what would be uninstalled, but do not actually uninstall anything.")
-
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
+	
 	ctx, err := newInstallContext()
 	if err != nil {
 		return err
@@ -48,6 +39,7 @@ and are now no longer needed.
 	if err != nil {
 		return err
 	}
+
 
 	if len(packages) == 0 {
 		return nil
@@ -99,7 +91,7 @@ and are now no longer needed.
 
 	sort.Strings(toRemove)
 
-	if *dryRun {
+	if autoremoveDryRun {
 		fmt.Printf("Would uninstall: %s\n", joinVersions(toRemove))
 		return nil
 	}

@@ -70,7 +70,10 @@ func TestRunShellenv(t *testing.T) {
 			r, w, _ := os.Pipe()
 			os.Stdout = w
 
-			err := runShellenv(tt.args)
+			// Prepend the subcommand name so the root command routes it correctly
+			args := append([]string{"shellenv"}, tt.args...)
+			rootCmd.SetArgs(args)
+			err := rootCmd.Execute()
 			w.Close()
 			os.Stdout = oldStdout
 

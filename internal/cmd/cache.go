@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"net/url"
@@ -9,60 +8,58 @@ import (
 	"runtime"
 
 	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/spf13/cobra"
 )
 
-func runCache(args []string) error {
+var (
+	cacheOS              string
+	cacheArch            string
+	cacheBuildFromSource bool
+	cacheOnlyFormula     bool
+	cacheOnlyCask        bool
+)
+
+var CacheCmd = &cobra.Command{
+	Use:     "cache [formula|cask ...]",
+	Aliases: []string{"--cache"},
+	Short:   "Display grew's download cache",
+	Long: `Display grew's download cache. See also $HOMEGREW_CACHE.
+
+If a <formula> or <cask> is provided, display the file or directory used to cache it.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunCache(args)
+	},
+}
+
+func init() {
+	CacheCmd.Flags().StringVar(&cacheOS, "os", runtime.GOOS, "Show cache file for the given operating system")
+	CacheCmd.Flags().StringVar(&cacheArch, "arch", runtime.GOARCH, "Show cache file for the given CPU architecture")
+	CacheCmd.Flags().BoolVarP(&cacheBuildFromSource, "build-from-source", "s", false, "Show the cache file used when building from source")
+	CacheCmd.Flags().BoolVar(&cacheOnlyFormula, "formula", false, "Only show cache files for formulas")
+	CacheCmd.Flags().BoolVar(&cacheOnlyCask, "cask", false, "Only show cache files for casks")
+	rootCmd.AddCommand(CacheCmd)
+}
+
+func RunCache(args []string) error {
 	slog.Debug("starting cache command execution")
-	fs := flag.NewFlagSet("--cache", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew --cache [options] [formula|cask ...]
-
-Display grew's download cache. See also $HOMEGREW_CACHE.
-
-If a <formula> or <cask> is provided, display the file or directory used to cache it.
-
-Options:
-  --os=OS       Show cache file for the given operating system.
-  --arch=ARCH   Show cache file for the given CPU architecture.
-  -s, --build-from-source
-                Show the cache file used when building from source.
-  --formula     Only show cache files for formulas.
-  --cask        Only show cache files for casks.
-`)
-	}
-
-	flags.Register(fs)
-	osName := fs.String("os", runtime.GOOS, "Show cache file for the given operating system")
-	arch := fs.String("arch", runtime.GOARCH, "Show cache file for the given CPU architecture")
-	buildFromSource := fs.Bool("s", false, "Show the cache file used when building from source")
-	fs.BoolVar(buildFromSource, "build-from-source", *buildFromSource, "Show the cache file used when building from source")
-	onlyFormula := fs.Bool("formula", false, "Only show cache files for formulas")
-	onlyCask := fs.Bool("cask", false, "Only show cache files for casks")
-
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
+	
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	if fs.NArg() == 0 {
+	if len(args) == 0 {
 		fmt.Println(ctx.Paths.Cache)
 		return nil
 	}
 
-	for _, name := range fs.Args() {
+	for _, name := range args {
 		found := false
-		if !*onlyCask {
+		if !cacheOnlyCask {
 			f, err := ctx.Loader.LoadByName(name)
 			if err == nil {
-				cachePath, err := formulaCachePath(f, ctx, *osName, *arch, *buildFromSource)
+				cachePath, err := formulaCachePath(f, ctx, cacheOS, cacheArch, cacheBuildFromSource)
 				if err == nil {
 					fmt.Println(cachePath)
 					found = true
@@ -70,10 +67,10 @@ Options:
 			}
 		}
 
-		if !found && !*onlyFormula {
+		if !found && !cacheOnlyFormula {
 			c, err := ctx.CaskLoader.LoadByName(name)
 			if err == nil {
-				cachePath, err := caskCachePath(c, ctx, *osName, *arch, *buildFromSource)
+				cachePath, err := caskCachePath(c, ctx, cacheOS, cacheArch, cacheBuildFromSource)
 				if err == nil {
 					fmt.Println(cachePath)
 					found = true

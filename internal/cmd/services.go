@@ -13,55 +13,69 @@ import (
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/service"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
-func runServices(args []string) error {
-	slog.Debug("starting services command execution")
-	slog.Debug("starting services command execution")
-	if len(args) == 0 {
-		return servicesUsage()
-	}
-
-	sub := args[0]
-	rest := args[1:]
-
-	switch sub {
-	case "list", "ls":
-		return servicesList(rest)
-	case "start":
-		return servicesStart(rest)
-	case "stop":
-		return servicesStop(rest)
-	case "restart":
-		return servicesRestart(rest)
-	case "run":
-		return servicesRun(rest)
-	case "info":
-		return servicesInfo(rest)
-	default:
-		return fmt.Errorf("unknown services subcommand: %s\nRun 'grew help services' for usage", sub)
-	}
-}
-
-func servicesUsage() error {
-	fmt.Print(`Usage: grew services <subcommand> [arguments]
+var ServicesCmd = &cobra.Command{
+	Use:   "services <subcommand> [arguments]",
+	Short: "Manage background services",
+	Long: `Manage background services for installed formulas. Services are
+registered with the platform init system (launchd on macOS,
+systemd --user on Linux) so they persist across reboots.
 
 Subcommands:
-  list, ls              List managed services
-  start <formula>       Start a service (runs at login)
-  stop <formula>        Stop and unregister a service
-  restart <formula>     Restart a service
+  list, ls              List all managed services and their status
+  start <formula>       Write a service definition and start it
+  stop <formula>        Stop the service and remove its definition
+  restart <formula>     Stop then start the service
   run <formula>         Run the service command in the foreground
-  info <formula>        Show service info and status
+  info <formula>        Show service configuration and status
+
+The service definition comes from the formula's "service" field.
+The run command supports {prefix}, {opt}, and {cellar} placeholders
+that are expanded to the grew directory paths.
+
+On macOS, services are managed via launchctl (~/Library/LaunchAgents).
+On Linux, services are managed via systemd --user (~/.config/systemd/user).
 
 Examples:
   grew services list
   grew services start postgresql
-  grew services stop postgresql
-  grew services restart redis
+  grew services stop redis
+  grew services restart postgresql
   grew services run postgresql
-`)
-	return nil
+  grew services info postgresql`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting services command execution")
+		if len(args) == 0 {
+			return cmd.Help()
+		}
+
+		sub := args[0]
+		rest := args[1:]
+
+		switch sub {
+		case "list", "ls":
+			return servicesList(rest)
+		case "start":
+			return servicesStart(rest)
+		case "stop":
+			return servicesStop(rest)
+		case "restart":
+			return servicesRestart(rest)
+		case "run":
+			return servicesRun(rest)
+		case "info":
+			return servicesInfo(rest)
+		default:
+			return fmt.Errorf("unknown services subcommand: %s\nRun 'grew help services' for usage", sub)
+		}
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(ServicesCmd)
 }
 
 type servicesCtx struct {
@@ -121,11 +135,11 @@ func servicesStart(args []string) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Starting %s service...\n", f.Name)
+	ui.FprintArrow(os.Stderr, "Starting %s service...", f.Name)
 	if err := ctx.mgr.Start(f); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service started\n", f.Name)
+	ui.FprintArrow(os.Stderr, "%s service started", f.Name)
 	return nil
 }
 
@@ -139,11 +153,11 @@ func servicesStop(args []string) error {
 		return fmt.Errorf("service %q is not running", name)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Stopping %s service...\n", name)
+	ui.FprintArrow(os.Stderr, "Stopping %s service...", name)
 	if err := ctx.mgr.Stop(name); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service stopped\n", name)
+	ui.FprintArrow(os.Stderr, "%s service stopped", name)
 	return nil
 }
 
@@ -153,11 +167,11 @@ func servicesRestart(args []string) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Restarting %s service...\n", f.Name)
+	ui.FprintArrow(os.Stderr, "Restarting %s service...", f.Name)
 	if err := ctx.mgr.Restart(f); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service restarted\n", f.Name)
+	ui.FprintArrow(os.Stderr, "%s service restarted", f.Name)
 	return nil
 }
 
@@ -181,8 +195,8 @@ func servicesRun(args []string) error {
 		return fmt.Errorf("service command %q not found: %w", cmdArgs[0], err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Running %s in foreground (%s)\n", f.Name, strings.Join(cmdArgs, " "))
-	fmt.Fprintf(os.Stderr, "==> Press Ctrl-C to stop\n")
+	ui.FprintArrow(os.Stderr, "Running %s in foreground (%s)", f.Name, strings.Join(cmdArgs, " "))
+	ui.FprintArrow(os.Stderr, "Press Ctrl-C to stop")
 
 	cmd := exec.Command(cmdPath, cmdArgs[1:]...)
 	cmd.Stdout = os.Stdout

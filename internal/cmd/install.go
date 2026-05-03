@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"net/url"
@@ -20,66 +19,69 @@ import (
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/ui"
+	"github.com/spf13/cobra"
 )
+
+var (
+	installCask             bool
+	installBuildFromSource  bool
+	installForce            bool
+	installOnlyDependencies bool
+	installIgnoreDeps       bool
+	installSkipPostInstall  bool
+	installSkipLink         bool
+	installRequireSHA       bool
+	installDryRun           bool
+	installNoQuarantine     bool
+)
+
+var InstallCmd = &cobra.Command{
+	Use:     "install [flags] <formula>",
+	Aliases: []string{"i"},
+	Short:   "Install formulas or casks",
+	Long: `Install a formula and its dependencies. Downloads the package, verifies
+its SHA256 checksum, extracts it to the Cellar, and creates symlinks.
+
+If the formula/cask is already installed (without --force), the command is a no-op.
+
+Examples:
+  grew install jq
+  grew install -s ldns
+  grew install --only-dependencies ldns
+  grew install --ignore-dependencies jq
+  grew install --cask firefox
+  grew install --cask visual-studio-code`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunInstall(args)
+	},
+}
+
+func init() {
+	InstallCmd.Flags().BoolVar(&installCask, "cask", false, "Install a macOS application cask instead of a formula.")
+	InstallCmd.Flags().BoolVarP(&installBuildFromSource, "build-from-source", "s", false, "Build the formula from source instead of using the pre-built bottle.")
+	InstallCmd.Flags().BoolVar(&installOnlyDependencies, "only-dependencies", false, "Install the dependencies but not the formula itself.")
+	InstallCmd.Flags().BoolVar(&installIgnoreDeps, "ignore-dependencies", false, "Skip installing dependencies; install only the formula.")
+	InstallCmd.Flags().BoolVar(&installSkipPostInstall, "skip-post-install", false, "Do not run the post-install script.")
+	InstallCmd.Flags().BoolVar(&installSkipLink, "skip-link", false, "Install to the Cellar but do not create symlinks.")
+	InstallCmd.Flags().BoolVarP(&installForce, "force", "f", false, "Install formulae without checking for previously installed versions. Overwrite existing files when installing casks.")
+	InstallCmd.Flags().BoolVar(&installRequireSHA, "require-sha", false, "Refuse to install if a formula is missing a SHA256 checksum.")
+	InstallCmd.Flags().BoolVarP(&installDryRun, "dry-run", "n", false, "Show what would be installed without doing it.")
+	InstallCmd.Flags().BoolVar(&installNoQuarantine, "no-quarantine", false, "Skip quarantine attribute on cask apps (not recommended).")
+	rootCmd.AddCommand(InstallCmd)
+}
 
 func RunInstall(args []string) error {
 	slog.Debug("starting install command execution")
 	slog.Debug("starting install command execution")
-	fs := flag.NewFlagSet("install", flag.ContinueOnError)
 
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew install [options] <formula ...>
-
-Installs formulas or casks. Can build from source or fetch binary bottles.
-
-Options:
-  --cask                Install a macOS application cask.
-  -s, --build-from-source
-                        Build formula from source instead of downloading a bottle.
-  --force, -f           Install formulae without checking for previously
-                        installed keg-only or non-migrated versions. When
-                        installing casks, overwrite existing files (binaries
-                        and symlinks are excluded, unless originally from
-                        the same cask).
-  --only-dependencies   Install dependencies only, not the formula itself.
-  --ignore-dependencies Skip dependency installation.
-  --skip-post-install   Skip post-install steps.
-  --skip-link           Do not create symlinks for the installed formula.
-  --require-sha         Refuse to install if a SHA256 checksum is missing.
-  -n, --dry-run         Show what would be installed without actually doing it.
-  --no-quarantine       Skip quarantine attribute on cask apps (not recommended).
-  -v, --verbose         Show detailed output.
-  -d, --debug           Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	isCask := fs.Bool("cask", false, "Install a macOS application cask")
-	buildFromSource := fs.Bool("s", false, "Build from source")
-	fs.BoolVar(buildFromSource, "build-from-source", false, "Build from source")
-	forceDesc := "Install formulae without checking for previously installed keg-only or non-migrated versions. When installing casks, overwrite existing files (binaries and symlinks are excluded, unless originally from the same cask)."
-	force := fs.Bool("force", false, forceDesc)
-	fs.BoolVar(force, "f", false, forceDesc)
-	onlyDeps := fs.Bool("only-dependencies", false, "Install dependencies only")
-	ignoreDeps := fs.Bool("ignore-dependencies", false, "Skip dependency installation")
-	skipPostInstall := fs.Bool("skip-post-install", false, "Skip post-install steps")
-	skipLink := fs.Bool("skip-link", false, "Do not create symlinks")
-	requireSHA := fs.Bool("require-sha", false, "Refuse if SHA256 is missing")
-	dryRun := fs.Bool("n", false, "Dry run: show what would be installed without doing it")
-	fs.BoolVar(dryRun, "dry-run", false, "Dry run: show what would be installed without doing it")
-	noQuarantine := fs.Bool("no-quarantine", false, "Skip quarantine attribute on cask apps (not recommended)")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if *onlyDeps && *ignoreDeps {
+	if installOnlyDependencies && installIgnoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
 	}
 
-	remaining := fs.Args()
+	remaining := args
 	if len(remaining) == 0 {
-		if *isCask {
+		if installCask {
 			return fmt.Errorf("usage: grew install --cask <cask>...")
 		}
 		return fmt.Errorf("usage: grew install [-f] [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
@@ -91,14 +93,14 @@ Options:
 	}
 	defer ctx.Close()
 
-	if *isCask {
-		if *buildFromSource {
+	if installCask {
+		if installBuildFromSource {
 			return fmt.Errorf("--build-from-source is not supported for casks")
 		}
-		if *onlyDeps {
+		if installOnlyDependencies {
 			return fmt.Errorf("--only-dependencies is not supported for casks")
 		}
-		if *ignoreDeps {
+		if installIgnoreDeps {
 			return fmt.Errorf("--ignore-dependencies is not supported for casks")
 		}
 
@@ -109,7 +111,7 @@ Options:
 			if err != nil {
 				return fmt.Errorf("cask not found: %s", name)
 			}
-			if ctx.Caskroom.IsInstalled(c.Name) && !*force {
+			if ctx.Caskroom.IsInstalled(c.Name) && !installForce {
 				continue
 			}
 
@@ -146,7 +148,7 @@ Options:
 		}
 
 		for _, name := range remaining {
-			if err := caskInstall(name, *noQuarantine, *force); err != nil {
+			if err := caskInstall(name, installNoQuarantine, installForce); err != nil {
 				return err
 			}
 		}
@@ -155,7 +157,7 @@ Options:
 
 	for _, name := range remaining {
 		var installOrder []*formula.Formula
-		if *ignoreDeps {
+		if installIgnoreDeps {
 			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
 				return fmt.Errorf("formula not found: %s", name)
@@ -180,15 +182,15 @@ Options:
 			slog.Info("install order: " + fmt.Sprintf("%v", names))
 		}
 
-		if *requireSHA {
+		if installRequireSHA {
 			for _, f := range installOrder {
-				if *onlyDeps && f.Name == name {
+				if installOnlyDependencies && f.Name == name {
 					continue
 				}
-				if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
+				if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
 					continue
 				}
-				if *buildFromSource && f.Name == name {
+				if installBuildFromSource && f.Name == name {
 					if _, err := f.GetSourceSHA256(); err != nil {
 						return fmt.Errorf("--require-sha: %s has no source SHA256 checksum", f.Name)
 					}
@@ -200,8 +202,8 @@ Options:
 			}
 		}
 
-		if *dryRun {
-			if err := simulateInstall(installOrder, name, ctx, *onlyDeps, *buildFromSource, *force); err != nil {
+		if installDryRun {
+			if err := simulateInstall(installOrder, name, ctx, installOnlyDependencies, installBuildFromSource, installForce); err != nil {
 				return err
 			}
 			continue
@@ -209,17 +211,17 @@ Options:
 
 		var requests []downloader.DownloadRequest
 		for _, f := range installOrder {
-			if *onlyDeps && f.Name == name {
+			if installOnlyDependencies && f.Name == name {
 				continue
 			}
 
-			if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
+			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
 				continue
 			}
 
 			var dlURL, sha256, sha512, ext, filename string
 			var err error
-			if *buildFromSource && f.Name == name {
+			if installBuildFromSource && f.Name == name {
 				dlURL, err = f.GetSourceURL()
 				if err != nil {
 					return err
@@ -273,21 +275,21 @@ Options:
 		}
 
 		for _, f := range installOrder {
-			if *onlyDeps && f.Name == name {
+			if installOnlyDependencies && f.Name == name {
 				continue
 			}
 
-			if ctx.Cellar.IsInstalled(f.Name) && !(*force && f.Name == name) {
-				fmt.Fprintf(os.Stderr, "==> %s %s is already installed, skipping\n", f.Name, f.Version)
+			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
+				ui.FprintArrow(os.Stderr, "%s %s is already installed, skipping", f.Name, f.Version)
 				continue
 			}
 
 			opts := installOpts{
-				skipPostInstall:    *skipPostInstall,
-				skipLink:           *skipLink,
+				skipPostInstall:    installSkipPostInstall,
+				skipLink:           installSkipLink,
 				installedOnRequest: f.Name == name,
 			}
-			if *buildFromSource && f.Name == name {
+			if installBuildFromSource && f.Name == name {
 				if err := installFormulaFromSource(f, ctx, opts); err != nil {
 					return err
 				}
@@ -304,7 +306,7 @@ Options:
 
 // simulateInstall prints what would happen without making any changes.
 func simulateInstall(installOrder []*formula.Formula, target string, ctx *installContext, onlyDeps bool, buildFromSource bool, force bool) error {
-	fmt.Fprintf(os.Stderr, "==> Dry run: the following actions would be performed\n\n")
+	ui.FprintArrow(os.Stderr, "Dry run: the following actions would be performed\n")
 
 	for _, f := range installOrder {
 		if onlyDeps && f.Name == target {
@@ -440,7 +442,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (
 		}
 	}()
 
-	fmt.Fprintf(os.Stderr, "==> Installing %s %s\n", f.Name, f.Version)
+	ui.FprintArrow(os.Stderr, "Installing %s %s", f.Name, f.Version)
 
 	dlURL, err := f.GetURL()
 	if err != nil {
@@ -483,7 +485,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (
 	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, sha256); err == nil {
-			fmt.Fprintf(os.Stderr, "==> Using cached %s\n", filename)
+			ui.FprintArrow(os.Stderr, "Using cached %s", filename)
 		} else {
 			// Hash mismatch, re-download
 			localFile, err = ctx.DL.Download(dlURL, filename)
@@ -531,13 +533,13 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (
 		_ = removeIfWithinAllowed(cleanTmp, cleanCache, cleanLocalFile)
 		return fmt.Errorf("verify %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
+	ui.FprintArrow(os.Stderr, "SHA256 verified")
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
 			_ = removeIfWithinAllowed(cleanTmp, cleanCache, cleanLocalFile)
 			return fmt.Errorf("verify %s (SHA512): %w", f.Name, err)
 		}
-		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
+		ui.FprintArrow(os.Stderr, "SHA512 verified")
 	}
 
 	if err := verifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
@@ -551,7 +553,7 @@ func installFormula(f *formula.Formula, ctx *installContext, opts installOpts) (
 	}
 	os.RemoveAll(stageDir)
 
-	fmt.Fprintf(os.Stderr, "==> Extracting (sandboxed)\n")
+	ui.FprintArrow(os.Stderr, "Extracting (sandboxed)")
 	if err := sandboxedExtract(localFile, stageDir, f.Install); err != nil {
 		os.RemoveAll(stageDir)
 		os.Remove(localFile)
@@ -616,7 +618,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Building %s %s from source\n", f.Name, f.Version)
+	ui.FprintArrow(os.Stderr, "Building %s %s from source", f.Name, f.Version)
 
 	srcURL, err := f.GetSourceURL()
 	if err != nil {
@@ -651,7 +653,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	if _, err := os.Stat(localFile); err == nil {
 		if err := downloader.VerifySHA256(localFile, srcSHA256); err == nil {
-			fmt.Fprintf(os.Stderr, "==> Using cached %s\n", filename)
+			ui.FprintArrow(os.Stderr, "Using cached %s", filename)
 		} else {
 			// Hash mismatch, re-download
 			localFile, err = ctx.DL.Download(srcURL, filename)
@@ -688,13 +690,13 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		_ = removeIfWithinAllowed(cleanTmpForSrc, cleanCacheForSrc, localFile)
 		return fmt.Errorf("verify source %s (SHA256): %w", f.Name, err)
 	}
-	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
+	ui.FprintArrow(os.Stderr, "SHA256 verified")
 	if srcSHA512 != "" {
 		if err := downloader.VerifySHA512(localFile, srcSHA512); err != nil {
 			_ = removeIfWithinAllowed(cleanTmpForSrc, cleanCacheForSrc, localFile)
 			return fmt.Errorf("verify source %s (SHA512): %w", f.Name, err)
 		}
-		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
+		ui.FprintArrow(os.Stderr, "SHA512 verified")
 	}
 
 	if err := verifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
@@ -709,7 +711,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 	os.RemoveAll(buildDir)
 	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
-	fmt.Fprintf(os.Stderr, "==> Extracting source (sandboxed)\n")
+	ui.FprintArrow(os.Stderr, "Extracting source (sandboxed)")
 	if err := sandboxedExtract(localFile, buildDir, srcSpec); err != nil {
 		os.RemoveAll(buildDir)
 		os.Remove(localFile)
@@ -758,11 +760,11 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 		os.RemoveAll(kegPath)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Sandboxed build (network denied, filesystem restricted)\n")
+	ui.FprintArrow(os.Stderr, "Sandboxed build (network denied, filesystem restricted)")
 	slog.Debug(fmt.Sprintf("sandbox config: build=%s keg=%s deps=%v", buildDir, kegPath, depPaths))
 
 	// ./configure --prefix=<keg>
-	fmt.Fprintf(os.Stderr, "==> ./configure --prefix=%s\n", kegPath)
+	ui.FprintArrow(os.Stderr, "./configure --prefix=%s", kegPath)
 	configure := sandbox.Command(sbCfg, "./configure", "--prefix="+kegPath)
 	configure.Dir = buildDir
 	configure.Stdout = os.Stdout
@@ -773,7 +775,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	// make
-	fmt.Fprintf(os.Stderr, "==> make\n")
+	ui.FprintArrow(os.Stderr, "make")
 	makeCmd := sandbox.Command(sbCfg, "make")
 	makeCmd.Dir = buildDir
 	makeCmd.Stdout = os.Stdout
@@ -784,7 +786,7 @@ func installFormulaFromSource(f *formula.Formula, ctx *installContext, opts inst
 	}
 
 	// make install
-	fmt.Fprintf(os.Stderr, "==> make install\n")
+	ui.FprintArrow(os.Stderr, "make install")
 	makeInstall := sandbox.Command(sbCfg, "make", "install")
 	makeInstall.Dir = buildDir
 	makeInstall.Stdout = os.Stdout
@@ -846,7 +848,7 @@ func verifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
 	if !signing.VerifyAny(trustedKeys, sha256Hex, signatureB64) {
 		return fmt.Errorf("signature verification failed for %s: not signed by any trusted key", name)
 	}
-	fmt.Fprintf(os.Stderr, "==> Signature verified\n")
+	ui.FprintArrow(os.Stderr, "Signature verified")
 	return nil
 }
 
@@ -914,11 +916,11 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 		methodStr = "built from source and "
 	}
 	if f.KegOnly {
-		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled (keg-only, not linked)\n", f.Name, f.Version, methodStr)
+		ui.FprintArrow(os.Stderr, "%s %s %sinstalled (keg-only, not linked)", f.Name, f.Version, methodStr)
 	} else if opts.skipLink {
-		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled (linking skipped)\n", f.Name, f.Version, methodStr)
+		ui.FprintArrow(os.Stderr, "%s %s %sinstalled (linking skipped)", f.Name, f.Version, methodStr)
 	} else {
-		fmt.Fprintf(os.Stderr, "==> %s %s %sinstalled\n", f.Name, f.Version, methodStr)
+		ui.FprintArrow(os.Stderr, "%s %s %sinstalled", f.Name, f.Version, methodStr)
 	}
 
 	return nil
@@ -931,10 +933,10 @@ func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) er
 		return nil
 	}
 	if skipPostInstall {
-		fmt.Fprintf(os.Stderr, "==> Skipping post-install step for %s\n", f.Name)
+		ui.FprintArrow(os.Stderr, "Skipping post-install step for %s", f.Name)
 		return nil
 	}
-	fmt.Fprintf(os.Stderr, "==> Running post-install for %s (sandboxed, keg read-only)\n", f.Name)
+	ui.FprintArrow(os.Stderr, "Running post-install for %s (sandboxed, keg read-only)", f.Name)
 
 	// Create a dedicated temp directory for the post-install script.
 	// This is the ONLY writable location — the keg itself is read-only.

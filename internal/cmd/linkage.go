@@ -1,56 +1,52 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linkage"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
-func runLinkage(args []string) error {
+var (
+	linkageTest    bool
+	linkageStrict  bool
+	linkageReverse bool
+	linkageCached  bool
+	linkageQuiet   bool
+)
+
+var LinkageCmd = &cobra.Command{
+	Use:   "linkage [options] <formula ...>",
+	Short: "Check dynamic library dependencies",
+	Long: `Check dynamic library dependencies of installed formulas.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunLinkage(args)
+	},
+}
+
+func init() {
+	LinkageCmd.Flags().BoolVar(&linkageTest, "test", false, "Only report broken dependencies (exit 1 if any)")
+	LinkageCmd.Flags().BoolVar(&linkageStrict, "strict", false, "Also check for undeclared and unused dependencies")
+	LinkageCmd.Flags().BoolVar(&linkageReverse, "reverse", false, "Show formulas that link against this formula's libraries")
+	LinkageCmd.Flags().BoolVar(&linkageCached, "cached", false, "Use cached linkage results if available")
+	LinkageCmd.Flags().BoolVarP(&linkageQuiet, "quiet", "q", false, "Only output broken dependencies")
+	rootCmd.AddCommand(LinkageCmd)
+}
+
+func RunLinkage(args []string) error {
 	slog.Debug("starting linkage command execution")
-	slog.Debug("starting linkage command execution")
-	fs := flag.NewFlagSet("linkage", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew linkage [options] <formula ...>
-
-Check dynamic library dependencies of installed formulas.
-
-Options:
-  --test        Only report broken dependencies and exit 1 if any exist.
-  --strict      Also check for undeclared and unused dependencies.
-  --reverse     Show formulas that link against this formula's libraries.
-  --cached      Use cached linkage results if available to speed up checks.
-  -q, --quiet   Only output broken dependencies.
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	test := fs.Bool("test", false, "Only report broken dependencies (exit 1 if any)")
-	strict := fs.Bool("strict", false, "Also check for undeclared and unused dependencies")
-	reverse := fs.Bool("reverse", false, "Show formulas that link against this formula's libraries")
-	cached := fs.Bool("cached", false, "Use cached linkage results if available")
-	quiet := fs.Bool("quiet", false, "Only output broken dependencies")
-	fs.BoolVar(quiet, "q", false, "Only output broken dependencies")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	if *reverse && *test {
+	
+	if linkageReverse && linkageTest {
 		return fmt.Errorf("--reverse and --test are mutually exclusive")
 	}
-	if *reverse && *strict {
+	if linkageReverse && linkageStrict {
 		return fmt.Errorf("--reverse and --strict are mutually exclusive")
 	}
 
-	remaining := fs.Args()
+	remaining := args
 	if len(remaining) == 0 {
 		return fmt.Errorf("usage: grew linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>...")
 	}
@@ -78,21 +74,21 @@ Options:
 			return err
 		}
 
-		if *reverse {
+		if linkageReverse {
 			result, err := linkage.Reverse(name, version, kegPath, ctx.Paths.Cellar)
 			if err != nil {
 				return fmt.Errorf("reverse linkage: %w", err)
 			}
-			if len(remaining) > 1 && !*quiet {
-				fmt.Fprintf(os.Stderr, "==> Reverse linkage for %s\n", name)
+			if len(remaining) > 1 && !linkageQuiet {
+				ui.FprintArrow(os.Stderr, "Reverse linkage for %s", name)
 			}
-			fmt.Print(linkage.FormatReverseResult(result, *quiet))
+			fmt.Print(linkage.FormatReverseResult(result, linkageQuiet))
 			continue
 		}
 
 		var result *linkage.Result
 
-		if *cached {
+		if linkageCached {
 			r, loadErr := linkage.LoadCache(kegPath)
 			if loadErr != nil {
 				return fmt.Errorf("load linkage cache: %w", loadErr)
@@ -110,16 +106,16 @@ Options:
 			}
 			result = r
 
-			if *cached {
+			if linkageCached {
 				if saveErr := linkage.SaveCache(result); saveErr != nil {
 					return fmt.Errorf("save linkage cache: %w", saveErr)
 				}
 			}
 		}
 
-		fmtOpts := linkage.FormatOpts{Test: *test, Quiet: *quiet}
+		fmtOpts := linkage.FormatOpts{Test: linkageTest, Quiet: linkageQuiet}
 
-		if *strict {
+		if linkageStrict {
 			f, err := ctx.Loader.LoadByName(name)
 			if err != nil {
 				return fmt.Errorf("load formula %s: %w", name, err)
@@ -128,16 +124,16 @@ Options:
 			fmtOpts.Strict = &sr
 		}
 
-		if len(remaining) > 1 && !*quiet {
-			fmt.Fprintf(os.Stderr, "==> Linkage for %s\n", name)
+		if len(remaining) > 1 && !linkageQuiet {
+			ui.FprintArrow(os.Stderr, "Linkage for %s", name)
 		}
 		fmt.Print(linkage.FormatResult(result, fmtOpts))
 
-		if *test {
+		if linkageTest {
 			if len(result.Broken()) > 0 {
 				hasErrors = true
 			}
-			if *strict && fmtOpts.Strict != nil {
+			if linkageStrict && fmtOpts.Strict != nil {
 				if len(fmtOpts.Strict.Undeclared) > 0 || len(fmtOpts.Strict.Unused) > 0 {
 					hasErrors = true
 				}
@@ -145,7 +141,7 @@ Options:
 		}
 	}
 
-	if *test && hasErrors {
+	if linkageTest && hasErrors {
 		return fmt.Errorf("linkage check failed")
 	}
 	return nil

@@ -7,78 +7,81 @@ import (
 
 	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/signing"
+	"github.com/spf13/cobra"
 )
 
-func runSign(args []string) error {
-	slog.Debug("starting sign command execution")
-	slog.Debug("starting sign command execution")
-	if len(args) != 2 {
-		return fmt.Errorf("usage: grew sign <formula> <private-key-or-path>\n\n" +
-			"The key can be:\n" +
-			"  - A hex-encoded Ed25519 seed (64 hex characters)\n" +
-			"  - A path to an OpenSSH private key file (ssh-keygen -t ed25519)")
-	}
+var signCmd = &cobra.Command{
+	Use:   "sign <formula> <private-key-or-path>",
+	Short: "Sign the SHA256 hashes in a formula with an Ed25519 private key",
+	Long: `Sign the SHA256 hashes in a formula with an Ed25519 private key. Prints
+YAML-formatted signature fields that can be pasted into the formula file.
 
-	name := args[0]
-	keyArg := args[1]
+The key argument can be:
+  - A hex-encoded Ed25519 seed (64 hex characters)
+  - A path to an OpenSSH private key file (ssh-keygen -t ed25519)
 
-	privKey, err := signing.DecodePrivateKey(keyArg)
-	if err != nil {
-		return fmt.Errorf("invalid private key: %w", err)
-	}
+Generate a key pair with ssh-keygen:
+  ssh-keygen -t ed25519 -f grew-signing-key -N ""
 
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
+Add the public key to etc/trusted-keys on machines that verify signatures.
+The trusted-keys file accepts both formats:
+  - ssh-ed25519 AAAA... comment    (paste the .pub file line directly)
+  - <64 hex chars>                 (raw hex-encoded public key)`,
+	Example: `  grew sign jq ~/.ssh/grew-signing-key
+  grew sign jq 0123456789abcdef...`,
+	Args: cobra.ExactArgs(2),
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting sign command execution")
+		name := args[0]
+		keyArg := args[1]
 
-	f, err := ctx.Loader.LoadByName(name)
-	if err != nil {
-		return fmt.Errorf("formula not found: %s", name)
-	}
+		privKey, err := signing.DecodePrivateKey(keyArg)
+		if err != nil {
+			return fmt.Errorf("invalid private key: %w", err)
+		}
 
-	pubKey := privKey.Public().(ed25519.PublicKey)
-	fmt.Printf("# Signatures for %s %s\n", f.Name, f.Version)
-	fmt.Printf("# Public key: %s\n", signing.EncodePublicKey(pubKey))
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
 
-	// Sign bottle SHA256s (new format).
-	if len(f.Bottle) > 0 {
-		fmt.Printf("bottle:\n")
-		for platform, b := range f.Bottle {
-			if b.SHA256 == "" {
-				continue
+		f, err := ctx.Loader.LoadByName(name)
+		if err != nil {
+			return fmt.Errorf("formula not found: %s", name)
+		}
+
+		pubKey := privKey.Public().(ed25519.PublicKey)
+		fmt.Printf("# Signatures for %s %s\n", f.Name, f.Version)
+		fmt.Printf("# Public key: %s\n", signing.EncodePublicKey(pubKey))
+
+		// Sign bottle SHA256s (new format).
+		if len(f.Bottle) > 0 {
+			fmt.Printf("bottle:\n")
+			for platform, b := range f.Bottle {
+				if b.SHA256 == "" {
+					continue
+				}
+				sig := signing.Sign(privKey, b.SHA256)
+				fmt.Printf("  %s:\n", platform)
+				fmt.Printf("    url: %s\n", b.URL)
+				fmt.Printf("    sha256: %s\n", b.SHA256)
+				fmt.Printf("    signature: %s\n", sig)
 			}
-			sig := signing.Sign(privKey, b.SHA256)
-			fmt.Printf("  %s:\n", platform)
-			fmt.Printf("    url: %s\n", b.URL)
-			fmt.Printf("    sha256: %s\n", b.SHA256)
-			fmt.Printf("    signature: %s\n", sig)
 		}
-	}
 
-	// Sign legacy SHA256s.
-	if len(f.SHA256) > 0 {
-		fmt.Printf("signature:\n")
-		for platform, sha := range f.SHA256 {
-			sig := signing.Sign(privKey, sha)
-			fmt.Printf("  %s: %s\n", platform, sig)
+		// Sign legacy SHA256s.
+		if len(f.SHA256) > 0 {
+			fmt.Printf("signature:\n")
+			for platform, sha := range f.SHA256 {
+				sig := signing.Sign(privKey, sha)
+				fmt.Printf("  %s: %s\n", platform, sig)
+			}
 		}
-	}
 
-	// Sign source SHA256.
-	if f.Source.SHA256 != "" {
-		sig := signing.Sign(privKey, f.Source.SHA256)
-		fmt.Printf("source:\n")
-		fmt.Printf("  url: %s\n", f.Source.URL)
-		fmt.Printf("  sha256: %s\n", f.Source.SHA256)
-		fmt.Printf("  signature: %s\n", sig)
-	}
+		return nil
+	},
+}
 
-	// Sign legacy source SHA256.
-	if f.SourceSHA256 != "" {
-		sig := signing.Sign(privKey, f.SourceSHA256)
-		fmt.Printf("# source_sha256 signature: %s\n", sig)
-	}
-
-	return nil
+func init() {
+	rootCmd.AddCommand(signCmd)
 }

@@ -9,7 +9,27 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
+
+var UpdateCmd = &cobra.Command{
+	Use:     "update",
+	Aliases: []string{"up"},
+	Short:   "Fetch the newest version of grew and all formulae",
+	Long: `Fetch the newest version of grew and all formulae from GitHub
+using git(1). Equivalent to: git -C <taps-dir> pull
+
+The taps repository is cloned from:
+  https://github.com/homegrew/homegrew-taps`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runUpdate(args)
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(UpdateCmd)
+}
 
 func runUpdate(args []string) error {
 	slog.Debug("starting update command execution")
@@ -43,6 +63,6 @@ func runUpdate(args []string) error {
 		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", fmt.Sprintf("updated %d taps, %d formulas found", tapsCount, formulaCount))
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Updated %d taps (%d formulas found)\n", tapsCount, formulaCount)
+	ui.FprintArrow(os.Stderr, "Updated %d taps (%d formulas found)", tapsCount, formulaCount)
 	return nil
 }
