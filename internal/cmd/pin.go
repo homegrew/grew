@@ -7,11 +7,35 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/spf13/cobra"
 )
+
+var PinCmd = &cobra.Command{
+	Use:   "pin <formula>...",
+	Short: "Pin formulas to prevent upgrades",
+	Long:  "Pin formulas to prevent them from being upgraded automatically.",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runPin(args)
+	},
+}
+
+var UnpinCmd = &cobra.Command{
+	Use:   "unpin <formula>...",
+	Short: "Unpin formulas to allow upgrades",
+	Long:  "Unpin formulas to allow them to be upgraded automatically.",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runUnpin(args)
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(PinCmd)
+	rootCmd.AddCommand(UnpinCmd)
+}
 
 func runPin(args []string) error {
 	slog.Debug("starting pin command execution")
-	slog.Debug("starting pin command execution")
+	
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew pin <formula>...")
 	}
@@ -43,7 +67,7 @@ func runPin(args []string) error {
 
 func runUnpin(args []string) error {
 	slog.Debug("starting unpin command execution")
-	slog.Debug("starting unpin command execution")
+	
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew unpin <formula>...")
 	}

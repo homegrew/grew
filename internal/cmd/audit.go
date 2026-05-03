@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"log/slog"
 	"net/url"
@@ -12,11 +11,59 @@ import (
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/depgraph"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/pkg/validation"
+	"github.com/spf13/cobra"
 )
+
+var (
+	auditStrict bool
+	auditCask   bool
+	auditOnline bool
+)
+
+var AuditCmd = &cobra.Command{
+	Use:   "audit [formula...]",
+	Short: "Audit formula/cask definitions for problems",
+	Long: `Audit formula or cask definitions for common problems and style issues.
+With no arguments, audits all formulas in the core tap.
+
+Checks performed:
+  - Missing metadata (description, homepage, license)
+  - Homepage uses HTTPS and is a valid URL
+  - Name follows conventions (lowercase, valid characters)
+  - Version uses valid characters
+  - All download URLs use HTTPS and are parseable
+  - All SHA256 hashes are valid 64-character hex strings
+  - Dependencies exist in the tap and have valid names
+  - No circular dependencies
+  - No self-dependencies
+  - Install type is valid (binary or archive)
+  - Binary installs have binary_name set
+  - Cask artifacts are correctly defined
+
+Exit code 0 if audit passes, 1 if errors are found (or warnings
+with --strict).
+
+Examples:
+  grew audit
+  grew audit jq
+  grew audit --strict
+  grew audit --cask
+  grew audit --cask firefox
+  grew audit --online jq`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return RunAudit(args)
+	},
+}
+
+func init() {
+	AuditCmd.Flags().BoolVar(&auditStrict, "strict", false, "Treat warnings as errors (exit non-zero on warnings)")
+	AuditCmd.Flags().BoolVar(&auditCask, "cask", false, "Audit cask definitions instead of formulas")
+	AuditCmd.Flags().BoolVar(&auditOnline, "online", false, "Include checks that require installed packages (verifies snapshot integrity)")
+	rootCmd.AddCommand(AuditCmd)
+}
 
 // auditResult collects warnings and errors for a single formula or cask.
 type auditResult struct {
@@ -37,47 +84,18 @@ func (r *auditResult) ok() bool {
 	return len(r.Warnings) == 0 && len(r.Errors) == 0
 }
 
-func runAudit(args []string) error {
+func RunAudit(args []string) error {
 	slog.Debug("starting audit command execution")
-	slog.Debug("starting audit command execution")
-	fs := flag.NewFlagSet("audit", flag.ContinueOnError)
-
-	fs.Usage = func() {
-		fmt.Fprintf(fs.Output(), `Usage: grew audit [options] [formula ...]
-
-Check formula or cask definitions for common errors, missing attributes,
-security issues, and style violations.
-
-Options:
-  --strict      Treat warnings as errors (exit with non-zero status).
-  --cask        Audit casks instead of formulas.
-  --online      Include checks that require network access or installed packages
-                (like snapshot verification).
-  -v, --verbose Show detailed output.
-  -d, --debug   Show debug diagnostics (implies --verbose).
-`)
-	}
-
-	flags.Register(fs)
-	strict := fs.Bool("strict", false, "Treat warnings as errors")
-	isCask := fs.Bool("cask", false, "Audit casks instead of formulas")
-	online := fs.Bool("online", false, "Include checks that require installed packages (snapshot verification)")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	flags.Resolve()
-
-	targets := fs.Args()
-
+	
 	ctx, err := newReadContext()
 	if err != nil {
 		return err
 	}
 
-	if *isCask {
-		return runAuditCasks(ctx.Paths, targets, *strict)
+	if auditCask {
+		return runAuditCasks(ctx.Paths, args, auditStrict)
 	}
-	return runAuditFormulas(ctx, targets, *strict, *online)
+	return runAuditFormulas(ctx, args, auditStrict, auditOnline)
 }
 
 func runAuditFormulas(ctx readContext, targets []string, strict, online bool) error {
