@@ -12,6 +12,21 @@ import (
 	"github.com/homegrew/grew/pkg/ui"
 )
 
+func canonicalPath(path string) (string, error) {
+	if resolved, err := filepath.EvalSymlinks(path); err == nil {
+		if abs, err := filepath.Abs(resolved); err == nil {
+			return filepath.Clean(abs), nil
+		}
+		return filepath.Clean(resolved), nil
+	}
+
+	abs, err := filepath.Abs(path)
+	if err != nil {
+		return "", err
+	}
+	return filepath.Clean(abs), nil
+}
+
 var ResetUpdateCmd = &cobra.Command{
 	Use:   "reset-update",
 	Short: "Wipe and re-fetch all tap definitions",
@@ -45,18 +60,24 @@ Examples:
 		}
 
 		// Remove unsupported share directories if they exist from a prior run
-		if paths.IsUnderRoot(paths.Share) && paths.Share != paths.Root {
-			manPath := filepath.Join(paths.Share, "man")
-			if paths.IsUnderRoot(manPath) {
-				_ = os.RemoveAll(manPath)
+		if rootCanonical, err := canonicalPath(paths.Root); err == nil {
+			sharePath := filepath.Join(paths.Root, "share")
+			manPath := filepath.Join(sharePath, "man")
+			infoPath := filepath.Join(sharePath, "info")
+
+			shareCanonical, shareErr := canonicalPath(paths.Share)
+			manCanonical, manErr := canonicalPath(manPath)
+			infoCanonical, infoErr := canonicalPath(infoPath)
+			expectedShareCanonical, expectedShareErr := canonicalPath(sharePath)
+
+			if shareErr == nil && expectedShareErr == nil &&
+				manErr == nil && infoErr == nil &&
+				shareCanonical == expectedShareCanonical &&
+				shareCanonical != rootCanonical {
+				_ = os.RemoveAll(manCanonical)
+				_ = os.RemoveAll(infoCanonical)
+				_ = os.Remove(shareCanonical) // only removes if empty
 			}
-			
-			infoPath := filepath.Join(paths.Share, "info")
-			if paths.IsUnderRoot(infoPath) {
-				_ = os.RemoveAll(infoPath)
-			}
-			
-			_ = os.Remove(paths.Share) // only removes if empty
 		}
 
 		tapMgr := &tap.Manager{TapsDir: paths.Taps}
