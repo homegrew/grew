@@ -69,10 +69,10 @@ jobs:
         id: dmg
         run: |
           mkdir -p dist-dmg
-          for arch in arm64 amd64; do
+          for arch in arm64 x86_64; do
             mkdir "dist_$(arch)"
-            cp -v dist/grew_darwin_$(arch)_* "dist_$(arch)"/grew
-            "$(go env GOPATH)/bin/mkdmg Homegrew_$(arch).dmg" "dist_$(arch)"/
+            tar xvf dist/grew_Darwin_$(arch).tar.gz
+            $(go env GOPATH)/bin/mkdmg "Homegrew_$(arch).dmg" "grew_Darwin_$(arch)"/
           done
           echo "images_generated=true" >> $GITHUB_OUTPUT
 
