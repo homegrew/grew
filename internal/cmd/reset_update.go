@@ -27,6 +27,20 @@ func canonicalPath(path string) (string, error) {
 	return filepath.Clean(abs), nil
 }
 
+func isWithinBase(base, target string) bool {
+	rel, err := filepath.Rel(base, target)
+	if err != nil {
+		return false
+	}
+	if rel == "." {
+		return true
+	}
+	if rel == ".." {
+		return false
+	}
+	return rel != "" && rel[0] != os.PathSeparator && rel[:2] != ".."
+}
+
 var ResetUpdateCmd = &cobra.Command{
 	Use:   "reset-update",
 	Short: "Wipe and re-fetch all tap definitions",
@@ -73,7 +87,10 @@ Examples:
 			if shareErr == nil && expectedShareErr == nil &&
 				manErr == nil && infoErr == nil &&
 				shareCanonical == expectedShareCanonical &&
-				shareCanonical != rootCanonical {
+				shareCanonical != rootCanonical &&
+				isWithinBase(rootCanonical, shareCanonical) &&
+				isWithinBase(rootCanonical, manCanonical) &&
+				isWithinBase(rootCanonical, infoCanonical) {
 				_ = os.RemoveAll(manCanonical)
 				_ = os.RemoveAll(infoCanonical)
 				_ = os.Remove(shareCanonical) // only removes if empty
