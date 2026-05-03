@@ -11,7 +11,65 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/spf13/cobra"
 )
+
+// AliasCmd represents the alias command
+var AliasCmd = &cobra.Command{
+	Use:   "alias [subcommand]",
+	Short: "Manage command aliases",
+	Long: `Manage command aliases. Aliases let you create shortcuts for
+frequently used commands.
+
+Subcommands:
+  list, ls             List all aliases (default)
+  add <name> <command> Create or overwrite an alias
+  rm <name>            Remove an alias
+  show <name>          Show what an alias expands to
+  edit                 Open the alias file in $EDITOR
+
+Examples:
+  grew alias add i install
+  grew alias add ri reinstall
+  grew alias ls
+  grew alias rm i
+  grew alias show i
+  grew alias edit`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting alias command execution")
+		if len(args) == 0 {
+			return aliasList()
+		}
+
+		switch args[0] {
+		case "list", "ls":
+			return aliasList()
+		case "add":
+			if len(args) < 3 {
+				return fmt.Errorf("usage: grew alias add <name> <command>")
+			}
+			return aliasAdd(args[1], args[2])
+		case "rm", "remove", "delete":
+			if len(args) < 2 {
+				return fmt.Errorf("usage: grew alias rm <name>")
+			}
+			return aliasRemove(args[1])
+		case "show":
+			if len(args) < 2 {
+				return fmt.Errorf("usage: grew alias show <name>")
+			}
+			return aliasShow(args[1])
+		case "edit":
+			return aliasEdit()
+		default:
+			return fmt.Errorf("unknown alias subcommand: %s\nRun 'grew help alias' for usage", args[0])
+		}
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(AliasCmd)
+}
 
 // aliases maps alias names to command strings.
 type aliases map[string]string
@@ -41,38 +99,6 @@ func saveAliases(a aliases) error {
 		return fmt.Errorf("marshal aliases: %w", err)
 	}
 	return os.WriteFile(aliasFile(), data, 0644)
-}
-
-func runAlias(args []string) error {
-	slog.Debug("starting alias command execution")
-	slog.Debug("starting alias command execution")
-	if len(args) == 0 {
-		return aliasList()
-	}
-
-	switch args[0] {
-	case "list", "ls":
-		return aliasList()
-	case "add":
-		if len(args) < 3 {
-			return fmt.Errorf("usage: grew alias add <name> <command>")
-		}
-		return aliasAdd(args[1], args[2])
-	case "rm", "remove", "delete":
-		if len(args) < 2 {
-			return fmt.Errorf("usage: grew alias rm <name>")
-		}
-		return aliasRemove(args[1])
-	case "show":
-		if len(args) < 2 {
-			return fmt.Errorf("usage: grew alias show <name>")
-		}
-		return aliasShow(args[1])
-	case "edit":
-		return aliasEdit()
-	default:
-		return fmt.Errorf("unknown alias subcommand: %s\nRun 'grew help alias' for usage", args[0])
-	}
 }
 
 func aliasList() error {

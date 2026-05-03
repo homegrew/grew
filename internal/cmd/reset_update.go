@@ -8,42 +8,55 @@ import (
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/spf13/cobra"
 )
 
-func runResetUpdate(args []string) error {
-	slog.Debug("starting resetupdate command execution")
-	slog.Debug("starting resetupdate command execution")
-	if len(args) > 0 {
-		if args[0] == "--help" || args[0] == "-h" {
-			return runHelp([]string{"reset-update"})
+var ResetUpdateCmd = &cobra.Command{
+	Use:   "reset-update",
+	Short: "Wipe and re-fetch all tap definitions",
+	Long: `Delete all tap definitions and re-fetch them from scratch. Use this when
+'grew update' fails or tap data is corrupted.
+
+What it does:
+  1. Removes the entire Taps directory
+  2. Re-creates the directory structure
+  3. Fetches fresh tap definitions (via API or git clone)
+
+Installed packages in the Cellar are NOT affected.
+
+Examples:
+  grew reset-update`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting resetupdate command execution")
+		paths := config.Default()
+
+		fmt.Fprintf(os.Stderr, "==> Removing taps directory %s\n", paths.Taps)
+		if err := os.RemoveAll(paths.Taps); err != nil {
+			return fmt.Errorf("remove taps: %w", err)
 		}
-		return fmt.Errorf("unknown flag: %s\nRun 'grew help reset-update' for usage", args[0])
-	}
 
-	paths := config.Default()
+		if err := paths.Init(); err != nil {
+			return err
+		}
 
-	fmt.Fprintf(os.Stderr, "==> Removing taps directory %s\n", paths.Taps)
-	if err := os.RemoveAll(paths.Taps); err != nil {
-		return fmt.Errorf("remove taps: %w", err)
-	}
+		// Remove unsupported share directories if they exist from a prior run
+		importPath := filepath.Join(paths.Share, "man")
+		_ = os.RemoveAll(importPath)
+		importPath = filepath.Join(paths.Share, "info")
+		_ = os.RemoveAll(importPath)
+		_ = os.Remove(paths.Share) // only removes if empty
 
-	if err := paths.Init(); err != nil {
-		return err
-	}
+		tapMgr := &tap.Manager{TapsDir: paths.Taps}
+		tapsCount, formulaCount, err := tapMgr.Update()
+		if err != nil {
+			return fmt.Errorf("update: %w", err)
+		}
 
-	// Remove unsupported share directories if they exist from a prior run
-	importPath := filepath.Join(paths.Share, "man")
-	_ = os.RemoveAll(importPath)
-	importPath = filepath.Join(paths.Share, "info")
-	_ = os.RemoveAll(importPath)
-	_ = os.Remove(paths.Share) // only removes if empty
+		fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d taps, %d formulas found)\n", tapsCount, formulaCount)
+		return nil
+	},
+}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	tapsCount, formulaCount, err := tapMgr.Update()
-	if err != nil {
-		return fmt.Errorf("update: %w", err)
-	}
-
-	fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d taps, %d formulas found)\n", tapsCount, formulaCount)
-	return nil
+func init() {
+	rootCmd.AddCommand(ResetUpdateCmd)
 }
