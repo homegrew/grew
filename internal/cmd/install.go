@@ -298,6 +298,12 @@ func RunInstall(args []string) error {
 					return err
 				}
 			}
+
+			// Print caveats if the explicitly requested formula has them.
+			if f.Name == name && f.Caveats != "" {
+				ui.FprintArrow(os.Stderr, "Caveats")
+				fmt.Fprintln(os.Stderr, f.Caveats)
+			}
 		}
 	}
 

@@ -121,6 +121,11 @@ The old version keg is removed after a successful upgrade.`,
 					slog.Info("removed old keg: " + oldKeg)
 				}
 			}
+
+			if t.formula.Caveats != "" {
+				ui.FprintArrow(os.Stderr, "Caveats")
+				fmt.Fprintln(os.Stderr, t.formula.Caveats)
+			}
 		}
 
 		return nil

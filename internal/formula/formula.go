@@ -44,6 +44,7 @@ type Formula struct {
 	Description  string            `yaml:"description"`
 	Homepage     string            `yaml:"homepage"`
 	License      string            `yaml:"license"`
+	Caveats      string            `yaml:"caveats,omitempty"`
 	URL          map[string]string `yaml:"url,omitempty"`
 	SHA256       map[string]string `yaml:"sha256,omitempty"`
 	SHA512       map[string]string `yaml:"sha512,omitempty"`
