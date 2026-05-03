@@ -11,71 +11,97 @@ import (
 
 	"al.essio.dev/pkg/shellescape"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/spf13/cobra"
 )
 
-func runShellenv(args []string) error {
-	slog.Debug("starting shellenv command execution")
-	paths := config.Default()
-	shell := detectShell(args)
+var shellenvCmd = &cobra.Command{
+	Use:   "shellenv [shell]",
+	Short: "Print export statements for setting up grew in your shell",
+	Long: `Print export statements for setting up grew in your shell. Add the
+output to your shell profile to make grew-installed tools available.
 
-	root := shellescape.Quote(paths.Root)
-	cellar := shellescape.Quote(paths.Cellar)
-	repo := shellescape.Quote(paths.GitRepo)
+Detects the current shell automatically, or specify one explicitly.
+Supported shells: bash, zsh, fish, sh.
 
-	pathHelperRoot := getPathHelperRoot(paths)
+Setup:
+  # bash (~/.bashrc):
+  eval "$(grew shellenv)"
 
-	switch shell {
-	case "fish":
-		fmt.Printf("set --global --export HOMEGREW_PREFIX %s;\n", root)
-		fmt.Printf("set --global --export HOMEGREW_CELLAR %s;\n", cellar)
-		fmt.Printf("set --global --export HOMEGREW_REPOSITORY %s;\n", repo)
-		fmt.Printf("fish_add_path --global --move --path %s/bin %s/sbin;\n", root, root)
-		fmt.Printf("if test -n \"$MANPATH[1]\"; set --global --export MANPATH '' $MANPATH; end;\n")
-		fmt.Printf("if not contains %s/share/info $INFOPATH; set --global --export INFOPATH %s/share/info $INFOPATH; end;\n", root, root)
+  # zsh (~/.zshrc):
+  eval "$(grew shellenv)"
 
-	case "pwsh":
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_PREFIX',%s,[System.EnvironmentVariableTarget]::Process)\n", root)
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_CELLAR',%s,[System.EnvironmentVariableTarget]::Process)\n", cellar)
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_REPOSITORY',%s,[System.EnvironmentVariableTarget]::Process)\n", repo)
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('PATH',$('%s/bin:%s/sbin:'+$ENV:PATH),[System.EnvironmentVariableTarget]::Process)\n", paths.Root, paths.Root)
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('MANPATH',$('%s/share/man'+$(if($ENV:MANPATH){':'+$ENV:MANPATH})+':'),[System.EnvironmentVariableTarget]::Process)\n", paths.Root)
-		fmt.Printf("[System.Environment]::SetEnvironmentVariable('INFOPATH',$('%s/share/info'+$(if($ENV:INFOPATH){':'+$ENV:INFOPATH})),[System.EnvironmentVariableTarget]::Process)\n", paths.Root)
+  # fish (~/.config/fish/config.fish):
+  grew shellenv fish | source`,
+	Example: `  grew shellenv
+  grew shellenv fish`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slog.Debug("starting shellenv command execution")
+		paths := config.Default()
+		shell := detectShell(args)
 
-	case "csh":
-		fmt.Printf("setenv HOMEGREW_PREFIX %s;\n", root)
-		fmt.Printf("setenv HOMEGREW_CELLAR %s;\n", cellar)
-		fmt.Printf("setenv HOMEGREW_REPOSITORY %s;\n", repo)
-		if pathHelperRoot != "" {
-			fmt.Printf("eval `/usr/bin/env PATH_HELPER_ROOT=%s /usr/libexec/path_helper -c`;\n", shellescape.Quote(pathHelperRoot))
-		} else {
-			fmt.Printf("setenv PATH %s/bin:%s/sbin:$PATH;\n", paths.Root, paths.Root)
+		root := shellescape.Quote(paths.Root)
+		cellar := shellescape.Quote(paths.Cellar)
+		repo := shellescape.Quote(paths.GitRepo)
+
+		pathHelperRoot := getPathHelperRoot(paths)
+
+		switch shell {
+		case "fish":
+			fmt.Printf("set --global --export HOMEGREW_PREFIX %s;\n", root)
+			fmt.Printf("set --global --export HOMEGREW_CELLAR %s;\n", cellar)
+			fmt.Printf("set --global --export HOMEGREW_REPOSITORY %s;\n", repo)
+			fmt.Printf("fish_add_path --global --move --path %s/bin %s/sbin;\n", root, root)
+			fmt.Printf("if test -n \"$MANPATH[1]\"; set --global --export MANPATH '' $MANPATH; end;\n")
+			fmt.Printf("if not contains %s/share/info $INFOPATH; set --global --export INFOPATH %s/share/info $INFOPATH; end;\n", root, root)
+
+		case "pwsh":
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_PREFIX',%s,[System.EnvironmentVariableTarget]::Process)\n", root)
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_CELLAR',%s,[System.EnvironmentVariableTarget]::Process)\n", cellar)
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('HOMEGREW_REPOSITORY',%s,[System.EnvironmentVariableTarget]::Process)\n", repo)
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('PATH',$('%s/bin:%s/sbin:'+$ENV:PATH),[System.EnvironmentVariableTarget]::Process)\n", paths.Root, paths.Root)
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('MANPATH',$('%s/share/man'+$(if($ENV:MANPATH){':'+$ENV:MANPATH})+':'),[System.EnvironmentVariableTarget]::Process)\n", paths.Root)
+			fmt.Printf("[System.Environment]::SetEnvironmentVariable('INFOPATH',$('%s/share/info'+$(if($ENV:INFOPATH){':'+$ENV:INFOPATH})),[System.EnvironmentVariableTarget]::Process)\n", paths.Root)
+
+		case "csh":
+			fmt.Printf("setenv HOMEGREW_PREFIX %s;\n", root)
+			fmt.Printf("setenv HOMEGREW_CELLAR %s;\n", cellar)
+			fmt.Printf("setenv HOMEGREW_REPOSITORY %s;\n", repo)
+			if pathHelperRoot != "" {
+				fmt.Printf("eval `/usr/bin/env PATH_HELPER_ROOT=%s /usr/libexec/path_helper -c`;\n", shellescape.Quote(pathHelperRoot))
+			} else {
+				fmt.Printf("setenv PATH %s/bin:%s/sbin:$PATH;\n", paths.Root, paths.Root)
+			}
+			fmt.Printf("test ${?MANPATH} -eq 1 && setenv MANPATH :${MANPATH};\n")
+			fmt.Printf("setenv INFOPATH %s/share/info`test ${?INFOPATH} -eq 1 && echo :${INFOPATH}`;\n", paths.Root)
+
+		default: // bash, zsh, sh
+			fmt.Printf("export HOMEGREW_PREFIX=%s;\n", root)
+			fmt.Printf("export HOMEGREW_CELLAR=%s;\n", cellar)
+			fmt.Printf("export HOMEGREW_REPOSITORY=%s;\n", repo)
+			if shell == "zsh" {
+				path := fmt.Sprintf("%s/share/zsh/site-functions", root)
+				fmt.Printf("fpath[1,0]=%q;\n", path)
+				fmt.Printf("export FPATH;\n")
+			}
+			if pathHelperRoot != "" {
+				fmt.Printf("eval \"$(/usr/bin/env PATH_HELPER_ROOT=%q /usr/libexec/path_helper -s)\"\n", shellescape.Quote(pathHelperRoot))
+			} else {
+				fmt.Printf("export PATH=\"%s/bin:%s/sbin${PATH+:$PATH}\";\n", paths.Root, paths.Root)
+			}
+			if pathHelperRoot == "" {
+				fmt.Printf("export MANPATH=\"%s/share/man${MANPATH+:$MANPATH}:\";\n", paths.Root)
+			} else {
+				fmt.Printf("[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";\n")
+			}
+			fmt.Printf("export INFOPATH=\"%s/share/info:${INFOPATH:-}\";\n", paths.Root)
 		}
-		fmt.Printf("test ${?MANPATH} -eq 1 && setenv MANPATH :${MANPATH};\n")
-		fmt.Printf("setenv INFOPATH %s/share/info`test ${?INFOPATH} -eq 1 && echo :${INFOPATH}`;\n", paths.Root)
 
-	default: // bash, zsh, sh
-		fmt.Printf("export HOMEGREW_PREFIX=%s;\n", root)
-		fmt.Printf("export HOMEGREW_CELLAR=%s;\n", cellar)
-		fmt.Printf("export HOMEGREW_REPOSITORY=%s;\n", repo)
-		if shell == "zsh" {
-			path := fmt.Sprintf("%s/share/zsh/site-functions", root)
-			fmt.Printf("fpath[1,0]=%q;\n", path)
-			fmt.Printf("export FPATH;\n")
-		}
-		if pathHelperRoot != "" {
-			fmt.Printf("eval \"$(/usr/bin/env PATH_HELPER_ROOT=%q /usr/libexec/path_helper -s)\"\n", shellescape.Quote(pathHelperRoot))
-		} else {
-			fmt.Printf("export PATH=\"%s/bin:%s/sbin${PATH+:$PATH}\";\n", paths.Root, paths.Root)
-		}
-		if pathHelperRoot == "" {
-			fmt.Printf("export MANPATH=\"%s/share/man${MANPATH+:$MANPATH}:\";\n", paths.Root)
-		} else {
-			fmt.Printf("[ -z \"${MANPATH-}\" ] || export MANPATH=\":${MANPATH#:}\";\n")
-		}
-		fmt.Printf("export INFOPATH=\"%s/share/info:${INFOPATH:-}\";\n", paths.Root)
-	}
+		return nil
+	},
+}
 
-	return nil
+func init() {
+	rootCmd.AddCommand(shellenvCmd)
 }
 
 func detectShell(args []string) string {

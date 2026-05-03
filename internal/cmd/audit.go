@@ -350,7 +350,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 
 	var totalWarnings, totalErrors int
 	for _, c := range casks {
-		r := auditCask(c)
+		r := auditCaskDefinition(c)
 		totalWarnings += len(r.Warnings)
 		totalErrors += len(r.Errors)
 		printAuditResult(r)
@@ -359,7 +359,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 	return auditSummary(totalWarnings, totalErrors, strict)
 }
 
-func auditCask(c *cask.Cask) *auditResult {
+func auditCaskDefinition(c *cask.Cask) *auditResult {
 	r := &auditResult{Name: c.Name}
 
 	// Metadata completeness.
