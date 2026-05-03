@@ -101,9 +101,18 @@ Examples:
 				isWithinBase(rootCanonical, shareCanonical) &&
 				isWithinBase(rootCanonical, manCanonical) &&
 				isWithinBase(rootCanonical, infoCanonical) {
-				_ = os.RemoveAll(manCanonical)
-				_ = os.RemoveAll(infoCanonical)
-				_ = os.Remove(shareCanonical) // only removes if empty
+				trustedShareCanonical, trustedShareErr := canonicalPath(filepath.Join(rootCanonical, "share"))
+				trustedManCanonical, trustedManErr := canonicalPath(filepath.Join(rootCanonical, "share", "man"))
+				trustedInfoCanonical, trustedInfoErr := canonicalPath(filepath.Join(rootCanonical, "share", "info"))
+				if trustedShareErr == nil && trustedManErr == nil && trustedInfoErr == nil &&
+					trustedShareCanonical != rootCanonical &&
+					isWithinBase(rootCanonical, trustedShareCanonical) &&
+					isWithinBase(rootCanonical, trustedManCanonical) &&
+					isWithinBase(rootCanonical, trustedInfoCanonical) {
+					_ = os.RemoveAll(trustedManCanonical)
+					_ = os.RemoveAll(trustedInfoCanonical)
+					_ = os.Remove(trustedShareCanonical) // only removes if empty
+				}
 			}
 		}
 
