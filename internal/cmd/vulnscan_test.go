@@ -1,12 +1,15 @@
 package cmd
 
 import (
+	"bytes"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/pkg/snapshot"
 )
@@ -414,5 +417,82 @@ func TestMapOSVSeverity(t *testing.T) {
 		if got != tt.want {
 			t.Errorf("mapOSVSeverity(%q) = %q, want %q", tt.input, got, tt.want)
 		}
+	}
+}
+
+func TestRunVulnScan_Deps(t *testing.T) {
+	tmpDir := t.TempDir()
+
+	// Paths
+	root := filepath.Join(tmpDir, "opt", "homegrew")
+	cellarPath := filepath.Join(root, "Cellar")
+	tapsDir := filepath.Join(root, "Taps")
+	coreTapDir := filepath.Join(tapsDir, "homegrew", "homegrew-taps", "core")
+
+	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	// Create formulas
+	// pkg-a depends on pkg-b
+	formulaA := `name: pkg-a
+version: 1.0.0
+dependencies: [pkg-b]
+install: {type: binary}
+`
+	formulaB := `name: pkg-b
+version: 1.0.0
+install: {type: binary}
+`
+	if err := os.WriteFile(filepath.Join(coreTapDir, "pkg-a.yaml"), []byte(formulaA), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(coreTapDir, "pkg-b.yaml"), []byte(formulaB), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	cel := &cellar.Cellar{Path: cellarPath}
+	setupTestKeg(t, cel, "pkg-a", "1.0.0")
+	setupTestKeg(t, cel, "pkg-b", "1.0.0")
+
+	ctx := &context.Context{
+		Paths:  config.FromRoot(root, "", ""),
+		Cellar: cel,
+		Loader: &formula.Loader{TapDir: tapsDir},
+	}
+
+	// Set global flags
+	oldDeps := vulnScanDeps
+	vulnScanDeps = true
+	defer func() { vulnScanDeps = oldDeps }()
+
+	oldOffline := vulnScanOffline
+	vulnScanOffline = true
+	defer func() { vulnScanOffline = oldOffline }()
+
+	// Capture output to verify it scans both
+	oldStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+	defer func() {
+		os.Stdout = oldStdout
+	}()
+
+	err := runVulnScanWithContext(ctx, []string{"pkg-a"})
+	w.Close()
+
+	if err != nil {
+		t.Fatalf("runVulnScanWithContext failed: %v", err)
+	}
+
+	var buf bytes.Buffer
+	buf.ReadFrom(r)
+	output := buf.String()
+
+	if !strings.Contains(output, "pkg-a") {
+		t.Error("expected formula 'pkg-a' in output")
+	}
+	if !strings.Contains(output, "pkg-b") {
+		t.Error("expected formula 'pkg-b' (dependency) in output")
 	}
 }

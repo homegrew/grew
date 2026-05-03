@@ -12,6 +12,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/osvdev"
@@ -47,6 +48,7 @@ var (
 	vulnScanJson    bool
 	vulnScanSummary bool
 	vulnScanOffline bool
+	vulnScanDeps    bool
 )
 
 var vulnScanCmd = &cobra.Command{
@@ -55,109 +57,128 @@ var vulnScanCmd = &cobra.Command{
 	Long: `Scan installed packages for security vulnerabilities, including known CVEs
 (via OSV.dev), signature validation failures, and dangerous file permissions.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		targets := args
-
-		ctx, err := newReadContext()
-		if err != nil {
-			return err
-		}
-
-		packages, err := ctx.Cellar.List()
-		if err != nil {
-			return fmt.Errorf("list installed packages: %w", err)
-		}
-
-		// Filter to targets if specified.
-		if len(targets) > 0 {
-			targetSet := make(map[string]bool, len(targets))
-			for _, t := range targets {
-				targetSet[t] = true
-			}
-			var filtered []cellar.InstalledPackage
-			for _, p := range packages {
-				if targetSet[p.Name] {
-					filtered = append(filtered, p)
-				}
-			}
-			// Report targets not found.
-			for _, t := range targets {
-				found := false
-				for _, p := range packages {
-					if p.Name == t {
-						found = true
-						break
-					}
-				}
-				if !found {
-					if !flags.Quiet {
-						slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
-					}
-				}
-			}
-			packages = filtered
-		}
-
-		if len(packages) == 0 {
-			if !flags.Quiet && !vulnScanJson {
-				fmt.Println("No installed packages to scan.")
-			}
-			return nil
-		}
-
-		// Load all formulas for cross-referencing.
-		allFormulas, loadErr := ctx.Loader.LoadAll()
-		if loadErr != nil {
-			if !flags.Quiet {
-				slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
-			}
-			allFormulas = []*formula.Formula{}
-		}
-		formulaMap := make(map[string]*formula.Formula, len(allFormulas))
-		for _, f := range allFormulas {
-			formulaMap[f.Name] = f
-		}
-
-		if !vulnScanJson && !flags.Quiet {
-			fmt.Println("Scanning installed packages for vulnerabilities...")
-		}
-
-		var findings []vulnFinding
-
-		// Local checks per package.
-		for _, pkg := range packages {
-			findings = append(findings, scanPackage(pkg, ctx.Cellar, ctx.Paths, formulaMap)...)
-		}
-
-		// OSV.dev known vulnerability check.
-		if !vulnScanOffline {
-			findings = append(findings, scanOSV(packages, formulaMap, vulnScanJson || flags.Quiet)...)
-		}
-
-		// Global checks (not tied to a specific package).
-		findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
-
-		// Filter by severity if summary-only mode is active.
-		if vulnScanSummary {
-			var filtered []vulnFinding
-			for _, f := range findings {
-				if f.Severity == severityCritical || f.Severity == severityHigh {
-					filtered = append(filtered, f)
-				}
-			}
-			findings = filtered
-		}
-
-		if vulnScanJson {
-			return printVulnJSON(findings)
-		}
-		return printVulnText(findings)
+		return RunVulnScan(args)
 	},
+}
+
+func RunVulnScan(args []string) error {
+	ctx, err := newReadContext()
+	if err != nil {
+		return err
+	}
+	return runVulnScanWithContext(ctx, args)
+}
+
+func runVulnScanWithContext(ctx readContext, args []string) error {
+	targets := args
+
+	packages, err := ctx.Cellar.List()
+	if err != nil {
+		return fmt.Errorf("list installed packages: %w", err)
+	}
+
+	// Filter to targets if specified.
+	if len(targets) > 0 {
+		targetSet := make(map[string]bool, len(targets))
+		for _, t := range targets {
+			targetSet[t] = true
+			if vulnScanDeps {
+				resolver := &depgraph.Resolver{Loader: ctx.Loader}
+				deps, err := resolver.Resolve(t)
+				if err != nil {
+					slog.Warn(fmt.Sprintf("failed to resolve dependencies for %s: %v", t, err))
+					continue
+				}
+				for _, d := range deps {
+					targetSet[d.Name] = true
+				}
+			}
+		}
+		var filtered []cellar.InstalledPackage
+		for _, p := range packages {
+			if targetSet[p.Name] {
+				filtered = append(filtered, p)
+			}
+		}
+		// Report targets not found.
+		for _, t := range targets {
+			found := false
+			for _, p := range packages {
+				if p.Name == t {
+					found = true
+					break
+				}
+			}
+			if !found {
+				if !flags.Quiet {
+					slog.Warn(fmt.Sprintf("%s is not installed, skipping", t))
+				}
+			}
+		}
+		packages = filtered
+	}
+
+	if len(packages) == 0 {
+		if !flags.Quiet && !vulnScanJson {
+			fmt.Println("No installed packages to scan.")
+		}
+		return nil
+	}
+
+	// Load all formulas for cross-referencing.
+	allFormulas, loadErr := ctx.Loader.LoadAll()
+	if loadErr != nil {
+		if !flags.Quiet {
+			slog.Warn("failed to load all formulas; vulnerability analysis may be incomplete", "error", loadErr)
+		}
+		allFormulas = []*formula.Formula{}
+	}
+	formulaMap := make(map[string]*formula.Formula, len(allFormulas))
+	for _, f := range allFormulas {
+		formulaMap[f.Name] = f
+	}
+
+	if !vulnScanJson && !flags.Quiet {
+		fmt.Println("Scanning installed packages for vulnerabilities...")
+	}
+
+	var findings []vulnFinding
+
+	// Local checks per package.
+	for _, pkg := range packages {
+		findings = append(findings, scanPackage(pkg, ctx.Cellar, ctx.Paths, formulaMap)...)
+	}
+
+	// OSV.dev known vulnerability check.
+	if !vulnScanOffline {
+		findings = append(findings, scanOSV(packages, formulaMap, vulnScanJson || flags.Quiet)...)
+	}
+
+	// Global checks (not tied to a specific package).
+	findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
+
+	// Filter by severity if summary-only mode is active.
+	if vulnScanSummary {
+		var filtered []vulnFinding
+		for _, f := range findings {
+			if f.Severity == severityCritical || f.Severity == severityHigh {
+				filtered = append(filtered, f)
+			}
+		}
+		findings = filtered
+	}
+
+	if vulnScanJson {
+		return printVulnJSON(findings)
+	}
+	return printVulnText(findings)
 }
 
 func init() {
 	vulnScanCmd.Flags().BoolVar(&vulnScanJson, "json", false, "Output results as JSON")
 	vulnScanCmd.Flags().BoolVar(&vulnScanSummary, "summary", false, "Only show critical and high severity findings")
 	vulnScanCmd.Flags().BoolVar(&vulnScanOffline, "offline", false, "Skip OSV.dev vulnerability database query")
+	vulnScanCmd.Flags().BoolVarP(&vulnScanDeps, "deps", "d", false, "Also scan dependencies of the specified formulas")
 	rootCmd.AddCommand(vulnScanCmd)
 }
 
