@@ -167,10 +167,16 @@ func main() {
 		}
 
 		sha256File := patchFile + ".sha256"
-		os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFileName)), 0644)
+		if err := os.WriteFile(sha256File, []byte(fmt.Sprintf("%s  %s\n", patchSHA256, patchFileName)), 0644); err != nil {
+			slog.Error("Failed to write patch SHA256 file", "file", sha256File, "err", err)
+			os.Exit(1)
+		}
 
 		sha512File := patchFile + ".sha512"
-		os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFileName)), 0644)
+		if err := os.WriteFile(sha512File, []byte(fmt.Sprintf("%s  %s\n", patchSHA512, patchFileName)), 0644); err != nil {
+			slog.Error("Failed to write patch SHA512 file", "file", sha512File, "err", err)
+			os.Exit(1)
+		}
 
 		logMsg("Success! Generated %s and its checksum files.", patchFile)
 	}
