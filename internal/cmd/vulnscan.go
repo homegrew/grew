@@ -18,6 +18,7 @@ import (
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/signing"
 	"github.com/homegrew/grew/internal/snapshot"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -602,9 +603,24 @@ func checkFormulaSecurity(pkg cellar.InstalledPackage, formulaMap map[string]*fo
 func checkKegPermissions(pkg cellar.InstalledPackage, kegPath string) []vulnFinding {
 	var findings []vulnFinding
 
+	if err := safepath.SafeAbsolutePath(kegPath); err != nil {
+		findings = append(findings, vulnFinding{
+			Package:  pkg.Name,
+			Version:  pkg.Version,
+			Severity: severityCritical,
+			Category: "path_traversal",
+			Detail:   fmt.Sprintf("keg path escapes root: %v", err),
+		})
+		return findings
+	}
+
 	// Check for officially unsupported directories
 	for _, sub := range []string{"man", "info"} {
-		p := filepath.Join(kegPath, "share", sub)
+		p, err := safepath.SafeJoin(kegPath, "share", sub)
+		if err != nil {
+			continue
+		}
+
 		if info, err := os.Stat(p); err == nil && info.IsDir() {
 			findings = append(findings, vulnFinding{
 				Package:  pkg.Name,
