@@ -809,7 +809,7 @@ func scanGlobalPermissions(paths config.Paths) []vulnFinding {
 			Severity: severityLow,
 			Category: "isolation",
 			Detail: fmt.Sprintf("grew prefix %s is under $HOME — sandboxed builds can potentially access sensitive files; "+
-				"consider running 'sudo grew setup' for %s", paths.Root, grewrt.SystemPrefix()),
+				"consider running 'grew setup' for %s", paths.Root, grewrt.SystemPrefix()),
 		})
 	}
 

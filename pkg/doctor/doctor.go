@@ -135,7 +135,7 @@ func CheckPrefixIsolation(ctx *Context) {
 	if strings.HasPrefix(ctx.Paths.Root, home+string(filepath.Separator)) {
 		ctx.Warn("grew prefix %s is under $HOME — sandboxed builds can potentially access "+
 			"sensitive files (e.g. ~/.ssh, ~/.gnupg).\n"+
-			"  Run 'sudo grew setup' to install to %s for better isolation.",
+			"  Run 'grew setup' to install to %s for better isolation.",
 			ctx.Paths.Root, grewrt.SystemPrefix())
 	}
 }

@@ -12,8 +12,12 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/release"
 	grewrt "github.com/homegrew/grew/internal/runtime"
+	"github.com/homegrew/grew/internal/sudo"
 	verpkg "github.com/homegrew/grew/internal/version"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
@@ -29,7 +33,7 @@ var (
 var SetupCmd = &cobra.Command{
 	Use:   "setup",
 	Short: "One-time setup of the grew prefix",
-	Long: `Set up the grew directory structure. Requires root (sudo).
+	Long: `Set up the grew directory structure.
 
 System prefix locations:
   macOS (Apple Silicon): /opt/homegrew
@@ -37,9 +41,9 @@ System prefix locations:
 
 The command:
   1. Creates the system prefix directory
-  2. Transfers ownership to SUDO_USER (no root needed at runtime)
+  2. Transfers ownership to the current user (no root needed at runtime)
   3. Creates the internal directory structure
-  4. Copies the grew binary into <prefix>/bin/
+  4. Downloads and installs the grew binary into <prefix>/bin/
 
 Path inference: grew infers its prefix from the binary location. If
 the binary is at <prefix>/bin/grew, all paths are derived from <prefix>
@@ -49,16 +53,13 @@ Security: a system prefix isolates builds from $HOME, preventing
 sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
 
 Developer mode: builds compiled with -tags devmode can install to
-~/.homegrew without root by passing --unsafe:
+~/.homegrew by passing --unsafe:
   grew setup --unsafe
 
-After setup, add to your shell profile:
-  eval "$(grew shellenv)"
-
 Examples:
-  sudo grew setup
-  sudo grew setup --dry-run
-  sudo grew setup --force`,
+  grew setup
+  grew setup --dry-run
+  grew setup --force`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("starting setup command execution")
 
@@ -85,9 +86,13 @@ Examples:
 			return runSetupDryRun(prefix, isRoot)
 		}
 
-		if isRoot {
+		// If we are installing to the recommended system prefix, use setupSystem
+		// which handles ownership transfer (and elevation if needed).
+		if prefix == grewrt.SystemPrefix() {
 			return setupSystem(prefix)
 		}
+		
+		// Otherwise (e.g. user prefix via --unsafe), just finish setup.
 		return setupUser(prefix)
 	},
 }
@@ -95,7 +100,7 @@ Examples:
 func init() {
 	SetupCmd.Flags().BoolVarP(&setupForce, "force", "f", false, "Re-run setup even if already set up")
 	SetupCmd.Flags().BoolVarP(&setupDryRun, "dry-run", "n", false, "Show what would be done without making changes")
-	SetupCmd.Flags().BoolVar(&setupUnsafe, "unsafe", false, "Allow user-local install without root (devmode builds only)")
+	SetupCmd.Flags().BoolVar(&setupUnsafe, "unsafe", false, "Install grew from source (clones repo, requires git/go)")
 	rootCmd.AddCommand(SetupCmd)
 }
 
@@ -153,27 +158,13 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 
 	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
-	_, errGit := exec.LookPath("git")
-	_, errGo := exec.LookPath("go")
-	gitAvailable := errGit == nil
-	goAvailable := errGo == nil
 
 	fmt.Println()
-	if gitAvailable && goAvailable {
+	if setupUnsafe {
 		fmt.Printf("[dry-run] Clone grew repo: %s -> %s\n", grewRepoURL, repoDir)
 		fmt.Printf("[dry-run] Build from source: go build -o %s\n", destBin)
 	} else {
-		exe, err := os.Executable()
-		if err == nil {
-			exe, _ = filepath.EvalSymlinks(exe)
-			fmt.Printf("[dry-run] Fallback: copy binary %s -> %s\n", exe, destBin)
-		}
-		if !gitAvailable {
-			fmt.Println("[dry-run]   (git not found — cannot clone)")
-		}
-		if !goAvailable {
-			fmt.Println("[dry-run]   (go not found — cannot build from source)")
-		}
+		fmt.Printf("[dry-run] Download latest release and install binary to %s\n", destBin)
 	}
 
 	fmt.Println()
@@ -187,14 +178,16 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 // After creating the directory, ownership is transferred to SUDO_USER
 // so all subsequent operations are rootless.
 func setupSystem(prefix string) error {
-	// Determine the real (non-root) user who ran sudo.
-	realUser := os.Getenv("SUDO_USER")
-	if realUser == "" {
-		return fmt.Errorf("could not determine the real user; run with: sudo grew setup")
+	// Determine the target user who will own the prefix.
+	var u *user.User
+	var err error
+	if realUser := os.Getenv("SUDO_USER"); realUser != "" {
+		u, err = user.Lookup(realUser)
+	} else {
+		u, err = user.Current()
 	}
-	u, err := user.Lookup(realUser)
 	if err != nil {
-		return fmt.Errorf("lookup user %s: %w", realUser, err)
+		return fmt.Errorf("lookup user: %w", err)
 	}
 
 	pg := primaryGroup(u)
@@ -202,55 +195,58 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
 	}
 
+	userGroup := strings.Join([]string{u.Username, pg}, ":")
 	ui.FprintArrow(os.Stderr, "Setting up grew at %s (system prefix)", prefix)
 	ui.FprintArrow(os.Stderr, "Ownership will be transferred to %s", u.Username)
 	fmt.Println()
 
-	// Create the prefix.
-	if err := os.MkdirAll(prefix, 0755); err != nil {
-		return fmt.Errorf("create %s: %w", prefix, err)
-	}
+	isRoot := os.Geteuid() == 0
 
-	// Transfer ownership to the real user.
-
-	userGroup := strings.Join([]string{u.Username, pg}, ":")
-	ui.FprintArrow(os.Stderr, "chown -R %s %s", userGroup, prefix)
-	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
-
-	chownExe, err := exec.LookPath("chown")
-	if err != nil {
-		return fmt.Errorf("chown not found in PATH: %w", err)
-	}
-
-	cmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	slog.Debug(fmt.Sprintf("running command: %s", cmd.String()))
-
-	if chownErr := cmd.Run(); chownErr != nil {
-		if pathError, ok := errors.AsType[*os.PathError](chownErr); ok {
-			return fmt.Errorf("could not chown %s: %w", pathError.Path, chownErr)
-		} else if exitError, ok := errors.AsType[*exec.ExitError](chownErr); ok {
-			return fmt.Errorf("chown exited with code %d: %w", exitError.ExitCode(), chownErr)
+	if !isRoot {
+		// If we are not root, we need to elevate to create the prefix
+		// and transfer its ownership to the current user.
+		script := fmt.Sprintf("mkdir -p %q && chown -R %q %q", prefix, userGroup, prefix)
+		slog.Info("Elevating privileges to create prefix and transfer ownership")
+		if err := sudo.RunSudoCmd("sh", "-c", script); err != nil {
+			return fmt.Errorf("elevation failed: %w", err)
 		}
-		return fmt.Errorf("could not chown %s: %w", userGroup, chownErr)
+	} else {
+		// Already running as root (e.g. legacy start via sudo).
+		if err := os.MkdirAll(prefix, 0755); err != nil {
+			return fmt.Errorf("create %s: %w", prefix, err)
+		}
+
+		chownExe, err := exec.LookPath("chown")
+		if err != nil {
+			return fmt.Errorf("chown not found in PATH: %w", err)
+		}
+
+		cmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		if chownErr := cmd.Run(); chownErr != nil {
+			return fmt.Errorf("chown failed: %w", chownErr)
+		}
 	}
 
 	// Create the directory structure and install the binary.
+	// This will now run as the normal user if we were not root,
+	// or as root if we were.
 	if err := finishSetup(prefix); err != nil {
 		return err
 	}
 
-	// Re-apply ownership after finishSetup, which may have created new
-	// files as root. This ensures the entire prefix is owned by the real
-	// user, which is critical for --force re-runs where previous files
-	// may have wrong permissions.
-	ui.FprintArrow(os.Stderr, "Fixing permissions: chown -R %s %s", userGroup, prefix)
-	fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
-	fixCmd.Stdout = os.Stdout
-	fixCmd.Stderr = os.Stderr
-	if chownErr := fixCmd.Run(); chownErr != nil {
-		return fmt.Errorf("fix permissions: %w", chownErr)
+	// If we are root, we must re-apply ownership to the entire prefix,
+	// because finishSetup just created files owned by root.
+	if isRoot {
+		ui.FprintArrow(os.Stderr, "Fixing permissions: chown -R %s %s", userGroup, prefix)
+		chownExe, _ := exec.LookPath("chown")
+		fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
+		fixCmd.Stdout = os.Stdout
+		fixCmd.Stderr = os.Stderr
+		if chownErr := fixCmd.Run(); chownErr != nil {
+			return fmt.Errorf("fix permissions: %w", chownErr)
+		}
 	}
 
 	return nil
@@ -266,7 +262,7 @@ func validIdentity(s string) bool {
 func setupUser(prefix string) error {
 	ui.FprintArrow(os.Stderr, "Setting up grew at %s (user prefix, devmode)", prefix)
 	fmt.Println()
-	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
+	fmt.Println("Tip: run 'grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
 	fmt.Println()
 
@@ -292,27 +288,16 @@ func finishSetup(prefix string) error {
 
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 
-	// Try to install grew from source via git clone + go build.
-	// Falls back to copying the running binary if git or go are unavailable.
-	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
-	if err := installFromGit(repoDir, destBin, true); err != nil {
-		slog.Info(fmt.Sprintf("note: could not install from source: %v", err))
-		fmt.Fprintln(os.Stderr, "==> Falling back to copying current binary")
-
-		exe, exeErr := os.Executable()
-		if exeErr != nil {
-			return fmt.Errorf("cannot locate current executable: %w", exeErr)
+	if setupUnsafe {
+		// Install from source via git clone + go build.
+		repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
+		if err := installFromGit(repoDir, destBin, true); err != nil {
+			return fmt.Errorf("install from source: %w", err)
 		}
-		resolved, evalErr := filepath.EvalSymlinks(exe)
-		if evalErr != nil {
-			return fmt.Errorf("resolve executable symlinks: %w", evalErr)
-		}
-		exe = resolved
-		if exe != destBin {
-			if err := copyFile(exe, destBin); err != nil {
-				return fmt.Errorf("copy binary to %s: %w", destBin, err)
-			}
-			ui.FprintArrow(os.Stderr, "Installed grew binary to %s", destBin)
+	} else {
+		// Mandatory binary install.
+		if err := installBinary(destBin, prefix); err != nil {
+			return fmt.Errorf("install binary release: %w", err)
 		}
 	}
 
@@ -323,6 +308,26 @@ func finishSetup(prefix string) error {
 	fmt.Println()
 	fmt.Printf("  eval \"$(%s/bin/grew shellenv)\"\n", prefix)
 	fmt.Println()
+
+	return nil
+}
+
+func installBinary(destBin, prefix string) error {
+	ui.FprintArrow(os.Stderr, "Downloading latest grew release...")
+	rel, err := release.FetchLatest()
+	if err != nil {
+		return fmt.Errorf("fetch latest release: %w", err)
+	}
+
+	paths := config.FromRoot(prefix, defaultAppDir(), defaultCacheDir())
+	rel.DL = &downloader.Downloader{
+		TmpDir: paths.Tmp,
+		Cache:  cache.New(paths.Cache),
+	}
+
+	if err := InstallLatestRelease(destBin, rel); err != nil {
+		return err
+	}
 
 	return nil
 }
