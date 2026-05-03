@@ -44,7 +44,7 @@
 
 ```bash
 go install github.com/homegrew/grew/tools/getgrew
-getgrew && sudo grew setup
+getgrew && grew setup
 ```
 
 ### Build from source
@@ -62,7 +62,7 @@ make build          # or: go generate ./internal/... && go build -o grew
 grew needs a home — a directory tree for the Cellar, symlinks, taps, and config. The `setup` command creates it and copies the binary into place:
 
 ```bash
-sudo ./grew setup   # macOS ARM → /opt/homegrew, Intel → /usr/local/homegrew
+./grew setup   # macOS ARM → /opt/homegrew, Intel → /usr/local/homegrew
 ```
 
 The system prefix isolates sandboxed builds from `$HOME`, preventing them from reaching `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles. After setup, ownership is transferred to your user — no root needed at runtime.
@@ -191,7 +191,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `verify` | Check installed packages against their snapshot manifests |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
-| `setup` | One-time prefix setup (requires sudo) |
+| `setup` | One-time prefix setup |
 | `doctor, dr` | It's not a bug, it's a misconfiguration |
 | `vuln-scan` | Scan installed packages for security vulnerabilities |
 | `config` | What grew thinks it knows |
@@ -247,7 +247,7 @@ make lint          # golangci-lint (if installed)
 
 ### Developer mode
 
-Release builds require root (`sudo grew setup`). For local development you can build with the `devmode` tag and pass `--unsafe` to setup to install to `~/.homegrew` without root:
+Release builds will prompt for elevated privileges to setup the system prefix. For local development you can build with the `devmode` tag and pass `--unsafe` to setup to install to `~/.homegrew` without root:
 
 ```bash
 make dev

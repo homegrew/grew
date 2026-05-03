@@ -54,15 +54,17 @@ func new() (Runtime, error) {
 		return &runtimeTyp{prefix: SystemPrefix(), isRoot: true}, nil
 	}
 
-	if !devModeActive() {
-		return nil, fmt.Errorf("grew must be run as root (use: sudo grew setup)")
+	if devModeActive() {
+		prefix, err := UserPrefix()
+		if err != nil {
+			return nil, fmt.Errorf("could not initialize the runtime environment: %w", err)
+		}
+		return &runtimeTyp{prefix: prefix, isRoot: false}, nil
 	}
 
-	prefix, err := UserPrefix()
-	if err != nil {
-		return nil, fmt.Errorf("could not initialize the runtime environment: %w", err)
-	}
-	return &runtimeTyp{prefix: prefix, isRoot: false}, nil
+	// Default to system prefix even if not root. Elevation will be
+	// requested by specific commands (like setup) if needed.
+	return &runtimeTyp{prefix: SystemPrefix(), isRoot: false}, nil
 }
 
 // UserPrefix returns the user-local prefix (~/.homegrew).

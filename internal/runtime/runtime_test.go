@@ -23,20 +23,26 @@ func TestUserPrefix(t *testing.T) {
 	}
 }
 
-func TestInit_RequiresRoot(t *testing.T) {
+func TestInit_NonRootSystemPrefix(t *testing.T) {
 	if os.Geteuid() == 0 {
-		t.Skip("running as root, cannot test non-root rejection")
+		t.Skip("running as root, cannot test non-root behavior")
 	}
-	// Without --unsafe, non-root should be rejected even in devmode builds.
+	// Reset runtime state for test.
+	r = nil
 	Unsafe = false
-	defer func() { Unsafe = false }()
+	defer func() { Unsafe = false; r = nil }()
 
 	err := Init()
-	if err == nil {
-		t.Fatal("Init() should fail for non-root without --unsafe")
+	if err != nil {
+		t.Fatalf("Init() should succeed for non-root: %v", err)
 	}
-	if !strings.Contains(err.Error(), "root") {
-		t.Errorf("expected root-related error, got: %v", err)
+
+	env := Env()
+	if env.RunAsRoot() {
+		t.Error("expected RunAsRoot() = false")
+	}
+	if env.DefaultPrefix() != SystemPrefix() {
+		t.Errorf("expected system prefix %q, got %q", SystemPrefix(), env.DefaultPrefix())
 	}
 }
 
