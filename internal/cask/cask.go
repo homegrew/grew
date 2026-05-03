@@ -27,6 +27,7 @@ type Cask struct {
 	Description string            `yaml:"description,omitempty"`
 	Homepage    string            `yaml:"homepage,omitempty"`
 	License     string            `yaml:"license,omitempty"`
+	Caveats     string            `yaml:"caveats,omitempty"`
 	URL         map[string]string `yaml:"url,omitempty"`
 	SHA256      map[string]string `yaml:"sha256,omitempty"`
 	SHA512      map[string]string `yaml:"sha512,omitempty"`

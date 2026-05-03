@@ -362,6 +362,12 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	_ = removeIfWithin(localFile, paths.Tmp)
 
 	ui.FprintArrow(os.Stderr, "%s %s installed", c.Name, c.Version)
+
+	if c.Caveats != "" {
+		ui.FprintArrow(os.Stderr, "Caveats")
+		fmt.Fprintln(os.Stderr, c.Caveats)
+	}
+
 	return nil
 }
 

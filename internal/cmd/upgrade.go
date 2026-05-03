@@ -112,6 +112,11 @@ The old version keg is removed after a successful upgrade.`,
 				ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "",
 					fmt.Sprintf("%s -> %s", t.installedVersion, t.formula.Version))
 			}
+
+			if t.formula.Caveats != "" {
+				ui.FprintArrow(os.Stderr, "Caveats")
+				fmt.Fprintln(os.Stderr, t.formula.Caveats)
+			}
 		}
 
 		if !flags.Quiet {
