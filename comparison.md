@@ -24,6 +24,7 @@
 | **Pour bottle relocation** | Text/binary patching of prefix paths | `internal/relocation` via `install_name_tool`/`patchelf` | Close |
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
 | **JSON output** | `brew info --json` | `grew info --json` | Identical |
+| **CLI Framework** | Homebrew-specific Ruby CLI | `github.com/spf13/cobra` with `pkg/ui` | Both feature robust routing and colored output |
 
 ## Where grew goes further than brew
 

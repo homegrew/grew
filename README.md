@@ -30,6 +30,7 @@
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
+- 🎨 **Colorful output** — ANSI-colored output with automatic TTY detection for a polished, Homebrew-like aesthetic.
 - 🐚 **Alias + shellenv helpers** so your workflows stay snappy (`i`, `rm`, `ls`, `up`, `ug`, `dr`)
 
 ---
@@ -256,7 +257,7 @@ Both gates are required — the build tag compiles in the code path, and `--unsa
 ```
 grew/
 ├── internal/
-│   ├── cmd/          ← CLI commands (the face)
+│   ├── cmd/          ← CLI commands (powered by Cobra)
 │   ├── cellar/       ← installed package management
 │   ├── config/       ← prefix + path resolution
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
@@ -278,6 +279,7 @@ grew/
 │   ├── doctor/       ← diagnostic engine and checks (permissions, integrity, macOS security)
 │   ├── logger/       ← CLI-friendly log/slog handler with source context (DEBUG/INFO/WARN/ERROR)
 │   ├── safepath/     ← safe path manipulation to prevent directory traversal
+│   ├── ui/           ← zero-dependency ANSI color and TTY detection for terminal output
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
 └── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
 ```
