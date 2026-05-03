@@ -31,6 +31,10 @@ Examples:
 		slog.Debug("starting resetupdate command execution")
 		paths := config.Default()
 
+		if !paths.IsUnderRoot(paths.Taps) || paths.Taps == paths.Root {
+			return fmt.Errorf("refusing to remove taps outside root: root=%q taps=%q", paths.Root, paths.Taps)
+		}
+
 		ui.FprintArrow(os.Stderr, "Removing taps directory %s", paths.Taps)
 		if err := os.RemoveAll(paths.Taps); err != nil {
 			return fmt.Errorf("remove taps: %w", err)
