@@ -14,9 +14,10 @@ import (
 
 	"github.com/homegrew/grew/internal/config"
 	grewrt "github.com/homegrew/grew/internal/runtime"
+	verpkg "github.com/homegrew/grew/internal/version"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
-	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/spf13/cobra"
 )
 
 var (
@@ -376,15 +377,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 
 	// Generate version and build.
 	fmt.Fprintln(os.Stderr, "==> Building grew from source...")
-	generate := exec.Command(goPath, "generate", "./internal/...")
-	generate.Dir = cleanRepoDir
-	generate.Stdout = os.Stdout
-	generate.Stderr = os.Stderr
-	if err := generate.Run(); err != nil {
-		slog.Warn(fmt.Sprintf("go generate failed: %v", err))
-	}
-
-	build := exec.Command(goPath, "build", "-o", destBin, ".")
+	build := exec.Command(goPath, "build", "-o", destBin, "-trimpath", "-ldflags", fmt.Sprintf("-s -w -X main.version=%s", verpkg.Version()), ".")
 	build.Dir = cleanRepoDir
 	build.Stdout = os.Stdout
 	build.Stderr = os.Stderr

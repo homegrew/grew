@@ -76,6 +76,10 @@ clean:
 	rm -rf .cache
 	rm -rf coverage/
 
+.PHONY: build-binary
+build-binary:
+	$(GO) build -o grew -trimpath -ldflags "-s -w -X main.version=$(VERSION)"
+
 .PHONY: distclean
 distclean: clean
 	rm -rf .codeql-db/ .codeql-results/ .tmpcache/
