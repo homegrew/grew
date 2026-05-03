@@ -180,7 +180,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 	for platform, b := range f.Bottle {
 		auditURL(r, "bottle", platform, b.URL)
 	}
-	if f.Source.URL != "" {
+	if f.Source != nil && f.Source.URL != "" {
 		auditURL(r, "source", "", f.Source.URL)
 	}
 	if f.SourceURL != "" {
@@ -216,7 +216,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			r.warnf("bottle for %s missing sha512", platform)
 		}
 	}
-	if f.Source.SHA256 != "" {
+	if f.Source != nil && f.Source.SHA256 != "" {
 		if err := validation.ValidateSHA256(f.Source.SHA256); err != nil {
 			r.errorf("source sha256: %v", err)
 		}
@@ -224,7 +224,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			r.warnf("source missing sha512")
 		}
 	}
-	if f.Source.SHA512 != "" {
+	if f.Source != nil && f.Source.SHA512 != "" {
 		if err := validation.ValidateSHA512(f.Source.SHA512); err != nil {
 			r.errorf("source sha512: %v", err)
 		}
@@ -250,7 +250,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 	}
 
 	// No download URLs at all.
-	if len(f.URL) == 0 && len(f.Bottle) == 0 && f.Source.URL == "" && f.SourceURL == "" {
+	if len(f.URL) == 0 && len(f.Bottle) == 0 && (f.Source == nil || f.Source.URL == "") && f.SourceURL == "" && f.Head == nil {
 		r.errorf("no download URLs defined")
 	}
 

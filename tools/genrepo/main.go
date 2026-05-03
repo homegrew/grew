@@ -122,12 +122,18 @@ type hbFormula struct {
 	Caveats  string `json:"caveats"`
 	Versions struct {
 		Stable string `json:"stable"`
+		Head   string `json:"head"`
 	} `json:"versions"`
 	Urls struct {
 		Stable struct {
 			URL      string `json:"url"`
 			Checksum string `json:"checksum"`
 		} `json:"stable"`
+		Head struct {
+			URL    string `json:"url"`
+			Branch string `json:"branch"`
+			Using  string `json:"using"`
+		} `json:"head"`
 	} `json:"urls"`
 	Bottle struct {
 		Stable struct {
@@ -140,15 +146,11 @@ type hbFormula struct {
 	} `json:"bottle"`
 	Dependencies      []string `json:"dependencies"`
 	BuildDependencies []string `json:"build_dependencies"`
-	Variations        struct {
-		LinuxAMD64 struct {
-			Dependencies      []string `json:"dependencies"`
-			BuildDependencies []string `json:"build_dependencies"`
-		} `json:"x86_64_linux"`
-		LinuxARM64 struct {
-			Dependencies      []string `json:"dependencies"`
-			BuildDependencies []string `json:"build_dependencies"`
-		} `json:"arm64_linux"`
+	Variations        map[string]struct {
+		URL               string   `json:"url"`
+		Checksum          string   `json:"checksum"`
+		Dependencies      []string `json:"dependencies"`
+		BuildDependencies []string `json:"build_dependencies"`
 	} `json:"variations"`
 	Service    *hbService `json:"service"`
 	KegOnly    bool       `json:"keg_only"`
@@ -184,7 +186,7 @@ func runFormulaImport(args []string) {
 	imported, skipped := 0, 0
 
 	for _, hf := range hfs {
-		if hf.Deprecated || hf.Disabled || hf.Versions.Stable == "" || len(hf.Bottle.Stable.Files) == 0 {
+		if hf.Deprecated || hf.Disabled || (hf.Versions.Stable == "" && hf.Versions.Head == "") {
 			skipped++
 			continue
 		}
@@ -203,27 +205,60 @@ func runFormulaImport(args []string) {
 			}
 		}
 
-		if len(bottleMap) == 0 {
-			skipped++
-			continue
+		urlMap := make(map[string]string)
+		shaMap := make(map[string]string)
+		for _, pm := range platforms {
+			urlMap[pm.key] = hf.Urls.Stable.URL
+			shaMap[pm.key] = hf.Urls.Stable.Checksum
+
+			for _, pref := range pm.prefs {
+				if v, ok := hf.Variations[pref]; ok {
+					if v.URL != "" {
+						urlMap[pm.key] = v.URL
+					}
+					if v.Checksum != "" {
+						shaMap[pm.key] = v.Checksum
+					}
+					break
+				}
+			}
+		}
+
+		version := hf.Versions.Stable
+		if version == "" {
+			version = hf.Versions.Head
 		}
 
 		f := &formula.Formula{
 			Name:        hf.Name,
-			Version:     hf.Versions.Stable,
+			Version:     version,
 			Description: hf.Desc,
 			Homepage:    hf.Homepage,
 			License:     hf.License,
 			Caveats:     hf.Caveats,
+			URL:         urlMap,
+			SHA256:      shaMap,
 			Bottle:      bottleMap,
-			Source: formula.SourceSpec{
-				URL:    hf.Urls.Stable.URL,
-				SHA256: hf.Urls.Stable.Checksum,
-			},
 			Dependencies:      hf.Dependencies,
 			BuildDependencies: hf.BuildDependencies,
 			KegOnly:           hf.KegOnly,
 		}
+
+		if hf.Urls.Stable.URL != "" {
+			f.Source = &formula.SourceSpec{
+				URL:    hf.Urls.Stable.URL,
+				SHA256: hf.Urls.Stable.Checksum,
+			}
+		}
+
+		if hf.Urls.Head.URL != "" {
+			f.Head = &formula.HeadSpec{
+				URL:    hf.Urls.Head.URL,
+				Branch: hf.Urls.Head.Branch,
+				Using:  hf.Urls.Head.Using,
+			}
+		}
+
 
 		if hf.Service != nil && hf.Service.Run != nil {
 			var runCmd []string

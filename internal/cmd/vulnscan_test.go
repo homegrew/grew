@@ -284,7 +284,7 @@ func TestExtractRepoURL(t *testing.T) {
 		{
 			name: "github source URL",
 			f: &formula.Formula{
-				Source: formula.SourceSpec{URL: "https://github.com/jqlang/jq/archive/refs/tags/jq-1.7.1.tar.gz"},
+				Source: &formula.SourceSpec{URL: "https://github.com/jqlang/jq/archive/refs/tags/jq-1.7.1.tar.gz"},
 			},
 			want: "https://github.com/jqlang/jq",
 		},
@@ -307,7 +307,7 @@ func TestExtractRepoURL(t *testing.T) {
 		{
 			name: "gitlab URL",
 			f: &formula.Formula{
-				Source: formula.SourceSpec{URL: "https://gitlab.com/gnuwget/wget2/archive/v2.1.0.tar.gz"},
+				Source: &formula.SourceSpec{URL: "https://gitlab.com/gnuwget/wget2/archive/v2.1.0.tar.gz"},
 			},
 			want: "https://gitlab.com/gnuwget/wget2",
 		},
@@ -329,7 +329,7 @@ func TestExtractRepoURL(t *testing.T) {
 		{
 			name: "source preferred over homepage",
 			f: &formula.Formula{
-				Source:   formula.SourceSpec{URL: "https://github.com/correct/repo/archive/v1.0.tar.gz"},
+				Source:   &formula.SourceSpec{URL: "https://github.com/correct/repo/archive/v1.0.tar.gz"},
 				Homepage: "https://github.com/old/repo",
 			},
 			want: "https://github.com/correct/repo",
@@ -381,7 +381,7 @@ func TestExtractVersionTag(t *testing.T) {
 
 	// Formula with source URL containing a tag.
 	f := &formula.Formula{
-		Source: formula.SourceSpec{URL: "https://github.com/jqlang/jq/archive/refs/tags/jq-1.7.1.tar.gz"},
+		Source: &formula.SourceSpec{URL: "https://github.com/jqlang/jq/archive/refs/tags/jq-1.7.1.tar.gz"},
 	}
 	got := extractVersionTag(f, "1.7.1")
 	if got != "jq-1.7.1" {

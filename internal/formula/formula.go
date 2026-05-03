@@ -28,6 +28,12 @@ type SourceSpec struct {
 	Signature string `yaml:"signature,omitempty"`
 }
 
+type HeadSpec struct {
+	URL    string `yaml:"url,omitempty"`
+	Branch string `yaml:"branch,omitempty"`
+	Using  string `yaml:"using,omitempty"`
+}
+
 type BuildSpec struct {
 	Configure []string `yaml:"configure,omitempty"`
 	Install   []string `yaml:"install,omitempty"`
@@ -59,7 +65,8 @@ type Formula struct {
 	KegOnly           bool                  `yaml:"keg_only,omitempty"`
 	// New schema fields
 	Bottle            map[string]BottleSpec `yaml:"bottle,omitempty"`
-	Source            SourceSpec            `yaml:"source,omitempty"`
+	Source            *SourceSpec           `yaml:"source,omitempty"`
+	Head              *HeadSpec             `yaml:"head,omitempty"`
 	BuildDependencies []string              `yaml:"build_dependencies,omitempty"`
 	Service           *ServiceSpec          `yaml:"service,omitempty"`
 	Artifacts         ArtifactsSpec         `yaml:"artifacts,omitempty"`
@@ -166,7 +173,7 @@ func (f *Formula) GetURLForPlatform(osName, arch string) (string, error) {
 }
 
 func (f *Formula) GetSourceURL() (string, error) {
-	if f.Source.URL != "" {
+	if f.Source != nil && f.Source.URL != "" {
 		if !strings.HasPrefix(f.Source.URL, "https://") {
 			return "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, f.Source.URL)
 		}
@@ -183,7 +190,7 @@ func (f *Formula) GetSourceURL() (string, error) {
 }
 
 func (f *Formula) GetSourceSHA256() (string, error) {
-	if f.Source.SHA256 != "" {
+	if f.Source != nil && f.Source.SHA256 != "" {
 		if err := validation.ValidateSHA256(f.Source.SHA256); err != nil {
 			return "", fmt.Errorf("formula %q: invalid source_sha256: %w", f.Name, err)
 		}
@@ -202,7 +209,7 @@ func (f *Formula) GetSourceSHA256() (string, error) {
 // GetSourceSHA512 returns the SHA512 checksum for the source archive.
 func (f *Formula) GetSourceSHA512() (string, error) {
 	s := ""
-	if f.Source.SHA512 != "" {
+	if f.Source != nil && f.Source.SHA512 != "" {
 		s = f.Source.SHA512
 	} else {
 		s = f.SourceSHA512
@@ -299,6 +306,9 @@ func (f *Formula) GetSignature() string {
 
 // GetSourceSignature returns the source signature, or "" if none is set.
 func (f *Formula) GetSourceSignature() string {
+	if f.Source == nil {
+		return ""
+	}
 	return f.Source.Signature
 }
 
@@ -315,8 +325,8 @@ func (f *Formula) Validate() error {
 	if !validation.IsValidVersion(f.Version) {
 		return fmt.Errorf("formula %q: version %q contains invalid characters", f.Name, f.Version)
 	}
-	if len(f.URL) == 0 && len(f.Bottle) == 0 && f.Source.URL == "" {
-		return fmt.Errorf("formula %q missing required field: url, bottle, or source", f.Name)
+	if len(f.URL) == 0 && len(f.Bottle) == 0 && (f.Source == nil || f.Source.URL == "") && f.Head == nil {
+		return fmt.Errorf("formula %q missing required field: url, bottle, source, or head", f.Name)
 	}
 	for platform, u := range f.URL {
 		if !strings.HasPrefix(u, "https://") {

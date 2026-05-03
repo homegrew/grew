@@ -345,7 +345,7 @@ func extractRepoURL(f *formula.Formula) string {
 	var candidates []string
 
 	// Source URL is the best signal (points to the actual source repo).
-	if f.Source.URL != "" {
+	if f.Source != nil && f.Source.URL != "" {
 		candidates = append(candidates, f.Source.URL)
 	}
 	if f.SourceURL != "" {
@@ -390,7 +390,11 @@ func extractRepoURL(f *formula.Formula) string {
 // Tries common tag formats: "v1.2.3", "1.2.3", "<name>-1.2.3".
 func extractVersionTag(f *formula.Formula, installedVersion string) string {
 	// Try to extract tag from source URL first (most accurate).
-	urls := []string{f.Source.URL, f.SourceURL}
+	var urls []string
+	if f.Source != nil {
+		urls = append(urls, f.Source.URL)
+	}
+	urls = append(urls, f.SourceURL)
 	for _, u := range f.URL {
 		urls = append(urls, u)
 	}
