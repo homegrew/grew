@@ -155,7 +155,7 @@ var vulnScanCmd = &cobra.Command{
 
 func init() {
 	vulnScanCmd.Flags().BoolVar(&vulnScanJson, "json", false, "Output results as JSON")
-	vulnScanCmd.Flags().BoolVarP(&vulnScanSummary, "summary", "q", false, "Only show critical and high severity findings")
+	vulnScanCmd.Flags().BoolVar(&vulnScanSummary, "summary", false, "Only show critical and high severity findings")
 	vulnScanCmd.Flags().BoolVar(&vulnScanOffline, "offline", false, "Skip OSV.dev vulnerability database query")
 	rootCmd.AddCommand(vulnScanCmd)
 }
