@@ -1,6 +1,7 @@
 package cask
 
 import (
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
@@ -137,14 +138,40 @@ func (inst *Installer) UninstallApp(appName string) error {
 	if err := safepath.SafePathComponent(appName); err != nil {
 		return fmt.Errorf("invalid app name %q: %w", appName, err)
 	}
+	if err := safepath.SafeAbsolutePath(inst.AppDir); err != nil {
+		return fmt.Errorf("invalid app base directory %q: %w", inst.AppDir, err)
+	}
+
 	destApp, err := safepath.SafeJoin(inst.AppDir, appName)
 	if err != nil {
 		return fmt.Errorf("invalid app destination: %w", err)
 	}
+
+	realBase, baseErr := filepath.EvalSymlinks(inst.AppDir)
+	if baseErr != nil {
+		realBase, baseErr = filepath.Abs(filepath.Clean(inst.AppDir))
+		if baseErr != nil {
+			return fmt.Errorf("resolve app base directory %q: %w", inst.AppDir, baseErr)
+		}
+	}
+	realDest, destErr := filepath.EvalSymlinks(destApp)
+	if destErr != nil {
+		if errors.Is(destErr, os.ErrNotExist) {
+			realDest = filepath.Clean(filepath.Join(realBase, appName))
+			destErr = nil
+		}
+		if destErr != nil {
+			return fmt.Errorf("resolve app path %q: %w", destApp, destErr)
+		}
+	}
+	if err := safepath.CheckSubpath(realBase, realDest); err != nil {
+		return fmt.Errorf("invalid app destination containment: %w", err)
+	}
+
 	if _, err := os.Stat(destApp); os.IsNotExist(err) {
 		return nil // already gone
 	}
-	
+
 	if _, err := quarantine.Trash(destApp); err != nil {
 		slog.Warn("failed to move app to Trash, falling back to permanent deletion", "app", appName, "error", err)
 		return os.RemoveAll(destApp)
