@@ -178,7 +178,7 @@ func init() {
 	vulnScanCmd.Flags().BoolVar(&vulnScanJson, "json", false, "Output results as JSON")
 	vulnScanCmd.Flags().BoolVar(&vulnScanSummary, "summary", false, "Only show critical and high severity findings")
 	vulnScanCmd.Flags().BoolVar(&vulnScanOffline, "offline", false, "Skip OSV.dev vulnerability database query")
-	vulnScanCmd.Flags().BoolVarP(&vulnScanDeps, "deps", "d", false, "Also scan dependencies of the specified formulas")
+	vulnScanCmd.Flags().BoolVar(&vulnScanDeps, "deps", false, "Also scan dependencies of the specified formulas")
 	rootCmd.AddCommand(vulnScanCmd)
 }
 
