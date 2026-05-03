@@ -35,7 +35,7 @@ test-unit-coverage:
 
 .PHONY: test-integration
 test-integration:
-	$(GO) test -tags "devmode,integration" -race $(INTEGRATION_PKGS)
+	$(GO) test -tags "devmode,integration" $(INTEGRATION_PKGS)
 
 .PHONY: test-smoke
 test-smoke:

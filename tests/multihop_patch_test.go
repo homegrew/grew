@@ -134,18 +134,22 @@ func TestMultiHopPatchUpdate(t *testing.T) {
 }
 
 func buildBinary(t *testing.T, tmpDir, version string) string {
+	t.Helper()
 	exePath := filepath.Join(tmpDir, "grew-"+version)
 	root := getProjectRoot(t)
 	// We must use absolute path for the main.go
 	mainGo := filepath.Join(root, "tests", "testbin", "main.go")
 	cmdBuild := exec.Command("go", "build", "-tags=devmode",
-		"-ldflags=-X github.com/homegrew/grew/internal/version.version="+version,
+		"-ldflags=-X main.version="+version,
 		"-o", exePath, mainGo)
 	// Use project's .go-cache to avoid permission issues
 	cmdBuild.Env = append(os.Environ(), "GOCACHE="+filepath.Join(root, ".go-cache"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build test binary %s: %v\n%s", version, err, string(out))
 	}
+
+	t.Logf("built test binary %s: %q", version, exePath)
+
 	return exePath
 }
 

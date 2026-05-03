@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-var version string
+var version = "v0.0.0-UNKNOWN"
 
 func SetVersion(v string) {
 	if v == "" {

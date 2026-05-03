@@ -87,6 +87,7 @@ func init() {
 
 // Run executes the root command.
 func Run(args []string) error {
+	rootCmd.Version = version.Version()
 	rootCmd.SetArgs(args)
 	return rootCmd.Execute()
 }

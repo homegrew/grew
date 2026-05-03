@@ -24,16 +24,11 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 
 	tmpDir := t.TempDir()
-
-	// 1. Build the "old" binary (current code)
-	prefix := filepath.Join(tmpDir, "prefix")
-	binDir := filepath.Join(prefix, "bin")
-	os.MkdirAll(binDir, 0755)
-	os.MkdirAll(filepath.Join(prefix, "tmp"), 0755)
-	oldExePath := filepath.Join(binDir, "grew")
+	prefix := setupPrefix(t, tmpDir)
+	oldExePath := buildTestBinary(t, tmpDir)
 
 	root := getProjectRoot(t)
-	ldflags := "-X 'github.com/homegrew/grew/internal/version.version=v0.0.0-UNKNOWN'"
+	ldflags := "-X main.version=v0.0.0-UNKNOWN"
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-ldflags", ldflags, "-o", oldExePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build old binary: %v, output: %s", err, string(out))
@@ -42,9 +37,12 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	// Determine the current version of the built binary
 	out, err := exec.Command(oldExePath, "--version").Output()
 	if err != nil {
-		t.Fatalf("couldn't determine test binary version: %v", err)
+		t.Fatalf("couldn't determine test binary version: %v -- %q", err, out)
 	}
-	currentVer := strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(string(out)), "grew "))
+	currentVer := strings.TrimSpace(string(out))
+	currentVer = strings.TrimPrefix(currentVer, "grew version ")
+	currentVer = strings.TrimPrefix(currentVer, "grew ")
+	currentVer = strings.TrimSpace(currentVer)
 	if currentVer == "" {
 		t.Fatalf("couldn't determine test binary version: empty output")
 	}
@@ -70,6 +68,7 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 	patchName := fmt.Sprintf("grew_%s_%s_%s_to_%s.patch", osName, archName, currentVer, targetVer)
 	patchPath := filepath.Join(tmpDir, patchName)
+	out = nil
 	if out, err := exec.Command("bsdiff", oldExePath, newExePath, patchPath).CombinedOutput(); err != nil {
 		t.Fatalf("failed to generate patch: %v, output: %s", err, string(out))
 	}
