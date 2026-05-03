@@ -74,7 +74,6 @@ func init() {
 
 func RunInstall(args []string) error {
 	slog.Debug("starting install command execution")
-	slog.Debug("starting install command execution")
 
 	if installOnlyDependencies && installIgnoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
