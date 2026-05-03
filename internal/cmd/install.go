@@ -74,7 +74,6 @@ func init() {
 
 func RunInstall(args []string) error {
 	slog.Debug("starting install command execution")
-	slog.Debug("starting install command execution")
 
 	if installOnlyDependencies && installIgnoreDeps {
 		return fmt.Errorf("--only-dependencies and --ignore-dependencies are mutually exclusive")
@@ -954,7 +953,6 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 }
 
 func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
-	slog.Debug("starting postinstall command execution")
 	slog.Debug("starting postinstall command execution")
 	if f.PostInstall == "" {
 		return nil
