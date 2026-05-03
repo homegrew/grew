@@ -42,7 +42,7 @@ jobs:
           for arch in arm64 x86_64; do
             mkdir "dist_$(arch)"
             tar xvf dist/grew_Darwin_$(arch).tar.gz
-            $(go env GOPATH)/bin/mkdmg "Homegrew_$(arch).dmg" "grew_Darwin_$(arch)"/
+            $(go env GOPATH)/bin/mkdmg -v "Homegrew_$(arch).dmg" "grew_Darwin_$(arch)"/
           done
           echo "images_generated=true" >> $GITHUB_OUTPUT
 
