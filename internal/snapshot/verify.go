@@ -53,7 +53,7 @@ func Verify(kegPath string) (*VerifyResult, error) {
 		if err != nil {
 			return nil
 		}
-		if rel == "." || rel == ManifestFile {
+		if rel == "." || rel == ManifestFile || rel == "INSTALL_RECEIPT.json" {
 			return nil
 		}
 
