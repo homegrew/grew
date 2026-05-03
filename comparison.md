@@ -25,6 +25,8 @@
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
 | **JSON output** | `brew info --json` | `grew info --json` | Identical |
 | **CLI Framework** | Homebrew-specific Ruby CLI | `github.com/spf13/cobra` with `pkg/ui` | Both feature robust routing and colored output |
+| **Caveats** | Formula-specific post-install messages | Supported via `caveats` field | Identical |
+| **Automatic cleanup** | Auto-removes old versions after upgrade | Same logic via internal cleanup | Identical |
 
 ## Where grew goes further than brew
 
@@ -48,9 +50,7 @@
 | **Patches** | Brew supports inline/remote patches via `patch do ... end`. Grew has no patching system |
 | **Build environment** | Brew sets up `superenv`/`stdenv` with compiler wrappers, rpath fixups, `-isysroot` injection. Grew passes through a clean env but no compiler wrapping |
 | **Options/variants** | Brew had `--with-*` / `--without-*` options (deprecated but existed). Grew has none |
-| **Caveats** | Brew prints formula-specific post-install messages. Grew doesn't have a caveats field |
 | **Tab/receipt metadata** | Brew writes `INSTALL_RECEIPT.json` with build options, compiler info, runtime deps, etc. |
-| **Automatic cleanup** | Brew auto-removes old versions after upgrade. Grew requires explicit `grew cleanup` |
 | **Analytics** | Brew reports install analytics (opt-out). Grew has no analytics |
 | **Tap auto-install** | `brew install user/tap/formula` auto-taps. Grew requires pre-configured taps |
 | **HEAD installs** | `brew install --HEAD` builds from repo HEAD. Grew doesn't support this |

@@ -316,6 +316,8 @@ grew is designed to be more secure than Homebrew out of the box:
 Got ideas? Bugs? Grievances? → [Open an issue](https://github.com/homegrew/grew/issues)
 
 Hot takes on the list:
+- Build vs Runtime Dependency distinction
+- Tap Auto-Install on missing definitions
 - SLSA provenance attestations for bottles
 - Content-addressable bottle storage
 - Windows support (one day, probably, maybe)
