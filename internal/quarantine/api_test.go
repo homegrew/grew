@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 )
@@ -16,6 +17,13 @@ func TestApply_InvalidPath(t *testing.T) {
 }
 
 func TestApply_Success(t *testing.T) {
+	if runtime.GOOS != "darwin" {
+		t.Skip("skipping quarantine xattr test on non-macOS platform")
+	}
+	if _, err := exec.LookPath("xattr"); err != nil {
+		t.Skip("skipping quarantine xattr test because xattr command is unavailable")
+	}
+
 	// Create a dummy file to quarantine
 	tmpDir := t.TempDir()
 	dummyPath := filepath.Join(tmpDir, "dummy.txt")
@@ -67,8 +75,12 @@ func TestTrash_Success(t *testing.T) {
 	// Create a couple of files to trash
 	file1 := filepath.Join(tmpDir, "trash1.txt")
 	file2 := filepath.Join(tmpDir, "trash2.txt")
-	os.WriteFile(file1, []byte("t1"), 0644)
-	os.WriteFile(file2, []byte("t2"), 0644)
+	if err := os.WriteFile(file1, []byte("t1"), 0644); err != nil {
+		t.Fatalf("failed to create file1: %v", err)
+	}
+	if err := os.WriteFile(file2, []byte("t2"), 0644); err != nil {
+		t.Fatalf("failed to create file2: %v", err)
+	}
 
 	trashed, err := Trash(file1, file2)
 	if err != nil {
