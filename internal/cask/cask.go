@@ -178,6 +178,7 @@ func (l *Loader) debugf(format string, args ...any) {
 }
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
+	l.debugf("loading cask by name: %q (tapDir: %s)", name, l.TapDir)
 	name = strings.TrimSuffix(name, ".yaml")
 
 	// Handle tap-qualified names (e.g., "user/repo/name" or "cask/name")
@@ -238,7 +239,9 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 			continue
 		}
 
-		repos, err := os.ReadDir(filepath.Join(l.TapDir, user.Name()))
+		userDir := filepath.Join(l.TapDir, user.Name())
+		l.debugf("checking user directory: %s", userDir)
+		repos, err := os.ReadDir(userDir)
 		if err != nil {
 			continue
 		}
@@ -251,14 +254,18 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 				continue
 			}
 
+			repoDir := filepath.Join(userDir, repo.Name())
+			l.debugf("checking repo directory: %s", repoDir)
+
 			// Try tap root, tap/cask/, and tap/Casks/ subdirectories.
 			paths := []string{
-				filepath.Join(l.TapDir, user.Name(), repo.Name(), name+".yaml"),
-				filepath.Join(l.TapDir, user.Name(), repo.Name(), "cask", name+".yaml"),
-				filepath.Join(l.TapDir, user.Name(), repo.Name(), "Casks", name+".yaml"),
+				filepath.Join(repoDir, name+".yaml"),
+				filepath.Join(repoDir, "cask", name+".yaml"),
+				filepath.Join(repoDir, "Casks", name+".yaml"),
 			}
 
 			for _, path := range paths {
+				l.debugf("trying path: %s", path)
 				c, err := l.loadFromFileWithPath(path)
 				if err == nil {
 					return c, nil
@@ -338,19 +345,27 @@ func (l *Loader) loadFromFile(filename string) (*Cask, error) {
 func (l *Loader) loadFromFileWithPath(path string) (*Cask, error) {
 	absPath, err := filepath.Abs(path)
 	if err != nil {
+		l.debugf("failed to resolve absolute path for %s: %v", path, err)
 		return nil, err
 	}
 	absPath = filepath.Clean(absPath)
 	if err := safepath.SafeAbsolutePath(absPath); err != nil {
+		l.debugf("path %s is not a safe absolute path: %v", absPath, err)
 		return nil, fmt.Errorf("invalid cask path %q: %w", absPath, err)
 	}
 
 	data, err := os.ReadFile(absPath)
 	if err != nil {
+		if os.IsNotExist(err) {
+			l.debugf("cask file does not exist: %s", absPath)
+		} else {
+			l.debugf("failed to read cask file %s: %v", absPath, err)
+		}
 		return nil, err
 	}
 	c, err := Parse(data)
 	if err != nil {
+		l.debugf("failed to parse cask YAML from %s: %v", absPath, err)
 		return nil, err
 	}
 

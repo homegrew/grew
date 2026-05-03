@@ -46,7 +46,7 @@ func loadCask(name string) (config.Paths, *cask.Cask, *cask.Caskroom, error) {
 	}
 	c, err := loader.LoadByName(name)
 	if err != nil {
-		return paths, nil, nil, fmt.Errorf("cask not found: %s", name)
+		return paths, nil, nil, err
 	}
 	return paths, c, cr, nil
 }

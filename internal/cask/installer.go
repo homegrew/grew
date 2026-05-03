@@ -2,6 +2,7 @@ package cask
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -67,7 +68,10 @@ func (inst *Installer) InstallApp(stageDir, appName string) (string, error) {
 	// Remove existing app if present (reinstall)
 	if _, err := os.Stat(destApp); err == nil {
 		if _, err := quarantine.Trash(destApp); err != nil {
-			return "", fmt.Errorf("trash existing %s: %w", appName, err)
+			slog.Warn("failed to move existing app to Trash, falling back to permanent deletion", "app", appName, "error", err)
+			if err := os.RemoveAll(destApp); err != nil {
+				return "", fmt.Errorf("remove existing %s: %w", appName, err)
+			}
 		}
 	}
 
@@ -141,8 +145,11 @@ func (inst *Installer) UninstallApp(appName string) error {
 		return nil // already gone
 	}
 	
-	_, err = quarantine.Trash(destApp)
-	return err
+	if _, err := quarantine.Trash(destApp); err != nil {
+		slog.Warn("failed to move app to Trash, falling back to permanent deletion", "app", appName, "error", err)
+		return os.RemoveAll(destApp)
+	}
+	return nil
 }
 
 // LinkBin creates a symlink from BinDir/<name> to the binary at target.
