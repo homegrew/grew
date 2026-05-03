@@ -25,6 +25,9 @@ install:
 .PHONY: check
 check: test-unit
 
+.PHONY: check-all
+check-all: test-unit test-integration test-smoke test-e2e
+
 .PHONY: test-unit
 test-unit:
 	$(GO) test -tags devmode -race $(UNIT_PKGS)

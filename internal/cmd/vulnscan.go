@@ -45,11 +45,29 @@ type vulnFinding struct {
 }
 
 var (
-	vulnScanJson    bool
-	vulnScanSummary bool
-	vulnScanOffline bool
-	vulnScanDeps    bool
+	vulnScanJson       bool
+	vulnScanSummary    bool
+	vulnScanOffline    bool
+	vulnScanDeps       bool
+	vulnScanMaxSummary int
+	vulnScanSeverity   string
+	vulnScanCycloneDX  bool
 )
+
+func severityRank(s vulnSeverity) int {
+	switch s {
+	case severityCritical:
+		return 4
+	case severityHigh:
+		return 3
+	case severityMedium:
+		return 2
+	case severityLow:
+		return 1
+	default:
+		return 0
+	}
+}
 
 var vulnScanCmd = &cobra.Command{
 	Use:   "vuln-scan [formula ...]",
@@ -70,6 +88,11 @@ func RunVulnScan(args []string) error {
 }
 
 func runVulnScanWithContext(ctx readContext, args []string) error {
+	// Conflict check: only one machine-readable output format at a time.
+	if (vulnScanJson && vulnScanCycloneDX) {
+		return fmt.Errorf("cannot use --json and --cyclonedex simultaneously")
+	}
+
 	targets := args
 
 	packages, err := ctx.Cellar.List()
@@ -157,11 +180,22 @@ func runVulnScanWithContext(ctx readContext, args []string) error {
 	// Global checks (not tied to a specific package).
 	findings = append(findings, scanGlobalPermissions(ctx.Paths)...)
 
-	// Filter by severity if summary-only mode is active.
+	// Filter by severity.
+	requestedSeverity := severityLow
+	if vulnScanSeverity != "" {
+		requestedSeverity = vulnSeverity(strings.ToLower(vulnScanSeverity))
+	}
 	if vulnScanSummary {
+		if severityRank(severityHigh) > severityRank(requestedSeverity) {
+			requestedSeverity = severityHigh
+		}
+	}
+
+	if requestedSeverity != severityLow {
 		var filtered []vulnFinding
+		rank := severityRank(requestedSeverity)
 		for _, f := range findings {
-			if f.Severity == severityCritical || f.Severity == severityHigh {
+			if severityRank(f.Severity) >= rank {
 				filtered = append(filtered, f)
 			}
 		}
@@ -171,6 +205,9 @@ func runVulnScanWithContext(ctx readContext, args []string) error {
 	if vulnScanJson {
 		return printVulnJSON(findings)
 	}
+	if vulnScanCycloneDX {
+		return printVulnCycloneDX(findings)
+	}
 	return printVulnText(findings)
 }
 
@@ -179,6 +216,9 @@ func init() {
 	vulnScanCmd.Flags().BoolVar(&vulnScanSummary, "summary", false, "Only show critical and high severity findings")
 	vulnScanCmd.Flags().BoolVar(&vulnScanOffline, "offline", false, "Skip OSV.dev vulnerability database query")
 	vulnScanCmd.Flags().BoolVar(&vulnScanDeps, "deps", false, "Also scan dependencies of the specified formulas")
+	vulnScanCmd.Flags().IntVarP(&vulnScanMaxSummary, "max-summary", "m", 60, "Truncate summaries to N characters (0 for no limit)")
+	vulnScanCmd.Flags().StringVar(&vulnScanSeverity, "severity", "low", "Only show findings at or above LEVEL (low, medium, high, critical)")
+	vulnScanCmd.Flags().BoolVar(&vulnScanCycloneDX, "cyclonedex", false, "Output results in CycloneDX SBOM format")
 	rootCmd.AddCommand(vulnScanCmd)
 }
 
@@ -813,7 +853,11 @@ func printVulnText(findings []vulnFinding) error {
 				if f.Version != "" {
 					pkg += " " + f.Version
 				}
-				fmt.Printf("  %s (%s): %s\n", pkg, f.Category, f.Detail)
+				detail := f.Detail
+				if vulnScanMaxSummary > 0 && len(detail) > vulnScanMaxSummary {
+					detail = detail[:vulnScanMaxSummary] + "..."
+				}
+				fmt.Printf("  %s (%s): %s\n", pkg, f.Category, detail)
 			}
 		}
 
@@ -842,4 +886,59 @@ func vulnSummary(findings []vulnFinding) map[string]int {
 		summary[string(f.Severity)]++
 	}
 	return summary
+}
+
+func printVulnCycloneDX(findings []vulnFinding) error {
+	type component struct {
+		Name    string `json:"name"`
+		Version string `json:"version,omitempty"`
+		Type    string `json:"type"`
+	}
+	type vulnerability struct {
+		ID          string `json:"id"`
+		Source      any    `json:"source"`
+		Description string `json:"description"`
+		Severity    string `json:"severity"`
+	}
+	type sbom struct {
+		BOMFormat    string          `json:"bomFormat"`
+		SpecVersion  string          `json:"specVersion"`
+		Version      int             `json:"version"`
+		Components   []component     `json:"components"`
+		Vulnerabilities []vulnerability `json:"vulnerabilities"`
+	}
+
+	doc := sbom{
+		BOMFormat:   "CycloneDX",
+		SpecVersion: "1.4",
+		Version:     1,
+		Components:   []component{},
+		Vulnerabilities: []vulnerability{},
+	}
+
+	compMap := make(map[string]bool)
+	for _, f := range findings {
+		if f.Package == "(global)" {
+			continue
+		}
+		if !compMap[f.Package+f.Version] {
+			doc.Components = append(doc.Components, component{
+				Name:    f.Package,
+				Version: f.Version,
+				Type:    "application",
+			})
+			compMap[f.Package+f.Version] = true
+		}
+
+		doc.Vulnerabilities = append(doc.Vulnerabilities, vulnerability{
+			ID:          f.Category,
+			Source:      map[string]string{"name": "grew"},
+			Description: f.Detail,
+			Severity:    string(f.Severity),
+		})
+	}
+
+	enc := json.NewEncoder(os.Stdout)
+	enc.SetIndent("", "  ")
+	return enc.Encode(doc)
 }

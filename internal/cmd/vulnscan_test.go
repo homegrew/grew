@@ -498,3 +498,164 @@ install: {type: binary}
 		t.Error("expected formula 'pkg-b' (dependency) in output")
 	}
 }
+
+func TestRunVulnScan_OutputFlags(t *testing.T) {
+	tmpDir := t.TempDir()
+	root := filepath.Join(tmpDir, "opt", "homegrew")
+	cel := &cellar.Cellar{Path: filepath.Join(root, "Cellar")}
+	ctx := &context.Context{
+		Paths:  config.FromRoot(root, "", ""),
+		Cellar: cel,
+		Loader: &formula.Loader{TapDir: filepath.Join(root, "Taps")},
+	}
+
+	// 1. Conflict check
+	oldJson := vulnScanJson
+	oldCyclone := vulnScanCycloneDX
+	vulnScanJson = true
+	vulnScanCycloneDX = true
+	defer func() {
+		vulnScanJson = oldJson
+		vulnScanCycloneDX = oldCyclone
+	}()
+
+	err := runVulnScanWithContext(ctx, nil)
+	if err == nil || !strings.Contains(err.Error(), "simultaneously") {
+		t.Errorf("expected conflict error, got %v", err)
+	}
+
+	// 2. CycloneDX format check
+	vulnScanJson = false
+	findings := []vulnFinding{
+		{Package: "pkg-a", Version: "1.0.0", Severity: severityHigh, Category: "test", Detail: "detail"},
+	}
+
+	// Capture stdout
+	oldStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+	defer func() {
+		os.Stdout = oldStdout
+	}()
+
+	err = printVulnCycloneDX(findings)
+	w.Close()
+
+	if err != nil {
+		t.Fatalf("printVulnCycloneDX failed: %v", err)
+	}
+
+	var buf bytes.Buffer
+	buf.ReadFrom(r)
+	output := buf.String()
+
+	if !strings.Contains(output, "CycloneDX") || !strings.Contains(output, "pkg-a") {
+		t.Errorf("unexpected CycloneDX output: %s", output)
+	}
+}
+
+func TestPrintVulnText_Truncation(t *testing.T) {
+	oldMax := vulnScanMaxSummary
+	vulnScanMaxSummary = 10
+	defer func() { vulnScanMaxSummary = oldMax }()
+
+	findings := []vulnFinding{
+		{
+			Package:  "testpkg",
+			Version:  "1.0.0",
+			Severity: severityLow,
+			Category: "test",
+			Detail:   "this is a very long detail that should be truncated",
+		},
+	}
+
+	oldStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	err := printVulnText(findings)
+	w.Close()
+	os.Stdout = oldStdout
+
+	if err != nil {
+		t.Fatalf("printVulnText failed: %v", err)
+	}
+
+	var buf bytes.Buffer
+	buf.ReadFrom(r)
+	output := buf.String()
+
+	expected := "this is a ..."
+	if !strings.Contains(output, expected) {
+		t.Errorf("expected truncated output %q, got %q", expected, output)
+	}
+}
+
+func TestSeverityRank(t *testing.T) {
+	t.Parallel()
+	if severityRank(severityCritical) != 4 {
+		t.Error("critical should be 4")
+	}
+	if severityRank(severityHigh) != 3 {
+		t.Error("high should be 3")
+	}
+	if severityRank(severityMedium) != 2 {
+		t.Error("medium should be 2")
+	}
+	if severityRank(severityLow) != 1 {
+		t.Error("low should be 1")
+	}
+	if severityRank("unknown") != 0 {
+		t.Error("unknown should be 0")
+	}
+}
+
+func TestSeverityFilterLogic(t *testing.T) {
+	// We don't use t.Parallel() here because we are modifying global variables
+	oldSeverity := vulnScanSeverity
+	oldSummary := vulnScanSummary
+	defer func() {
+		vulnScanSeverity = oldSeverity
+		vulnScanSummary = oldSummary
+	}()
+
+	tests := []struct {
+		severity string
+		summary  bool
+		input    []vulnFinding
+		wantCount int
+	}{
+		{"low", false, []vulnFinding{{Severity: severityLow}, {Severity: severityHigh}}, 2},
+		{"high", false, []vulnFinding{{Severity: severityLow}, {Severity: severityHigh}}, 1},
+		{"critical", false, []vulnFinding{{Severity: severityLow}, {Severity: severityHigh}}, 0},
+		{"low", true, []vulnFinding{{Severity: severityLow}, {Severity: severityHigh}, {Severity: severityMedium}}, 1}, // summary implies high
+		{"critical", true, []vulnFinding{{Severity: severityHigh}, {Severity: severityCritical}}, 1}, // severity critical overrides summary high
+	}
+
+	for _, tt := range tests {
+		vulnScanSeverity = tt.severity
+		vulnScanSummary = tt.summary
+
+		requestedSeverity := severityLow
+		if vulnScanSeverity != "" {
+			requestedSeverity = vulnSeverity(strings.ToLower(vulnScanSeverity))
+		}
+		if vulnScanSummary {
+			if severityRank(severityHigh) > severityRank(requestedSeverity) {
+				requestedSeverity = severityHigh
+			}
+		}
+
+		var filtered []vulnFinding
+		rank := severityRank(requestedSeverity)
+		for _, f := range tt.input {
+			if severityRank(f.Severity) >= rank {
+				filtered = append(filtered, f)
+			}
+		}
+
+		if len(filtered) != tt.wantCount {
+			t.Errorf("severity=%s, summary=%v: expected %d findings, got %d", tt.severity, tt.summary, tt.wantCount, len(filtered))
+		}
+	}
+}
