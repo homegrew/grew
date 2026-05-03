@@ -3,6 +3,7 @@ package context
 import (
 	"fmt"
 	"log/slog"
+	"os"
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
@@ -27,9 +28,11 @@ func New() (*Context, error) {
 		return nil, err
 	}
 
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil {
-		return nil, fmt.Errorf("init core tap: %w", err)
+	if os.Getenv("HOMEGREW_NO_INIT_TAP") == "" {
+		tapMgr := &tap.Manager{TapsDir: paths.Taps}
+		if err := tapMgr.InitCore(); err != nil {
+			return nil, fmt.Errorf("init core tap: %w", err)
+		}
 	}
 
 	return &Context{

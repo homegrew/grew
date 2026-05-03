@@ -263,6 +263,7 @@ func selfUpdateFullDownload(exePath string, rel *release.Release) error {
 	// Pass the current prefix explicitly so the health check doesn't fall back
 	// to ~/.homegrew due to being run from a temporary path.
 	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
+	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_NO_INIT_TAP=1")
 	if out, err := healthCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("new binary health check failed: %v (output: %q)", err, string(out))
 	}
@@ -617,6 +618,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 	}
 	healthCmd := sandbox.PostInstallCommand(piCfg, currentSource, "vuln-scan", "--offline")
 	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_PREFIX="+config.DefaultPrefix())
+	healthCmd.Env = append(healthCmd.Env, "HOMEGREW_NO_INIT_TAP=1")
 	if out, err := healthCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("final patched binary health check failed: %v (output: %q)", err, string(out))
 	}
