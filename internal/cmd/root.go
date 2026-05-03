@@ -23,7 +23,18 @@ import (
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/spf13/cobra"
 )
+
+var rootCmd = &cobra.Command{
+	Use:   "grew",
+	Short: "A package manager written in Go",
+	Long:  `grew is a high-performance, Go-based command-line package manager inspired by Homebrew.`,
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		// Apply flag implications and configure the logger.
+		flags.Resolve()
+	},
+}
 
 func init() {
 	if apiBase := os.Getenv("HOMEGREW_GITHUB_API_BASE"); apiBase != "" {
@@ -68,102 +79,19 @@ func init() {
 		transport.TLSClientConfig = &tls.Config{RootCAs: pool}
 		http.DefaultTransport = transport
 	}
+
+	rootCmd.PersistentFlags().BoolVarP(&flags.Verbose, "verbose", "v", false, "Show detailed output")
+	rootCmd.PersistentFlags().BoolVarP(&flags.Debug, "debug", "d", false, "Show debug diagnostics (implies --verbose)")
+	rootCmd.PersistentFlags().BoolVarP(&flags.Quiet, "quiet", "q", false, "Only print errors")
 }
 
+// Run executes the root command.
 func Run(args []string) error {
-	// Strip global flags (verbose, debug) before dispatch — they can
-	// appear anywhere on the command line.
-	args = flags.Parse(args)
-
-	// Handle --version separately (it was not consumed by flags.Parse).
-	for _, a := range args {
-		if a == "--version" {
-			return runVersion(nil)
-		}
-	}
-
-	// Handle the version command as early as possible if it's the first argument.
-	if len(args) > 0 && args[0] == "version" {
-		return runVersion(args[1:])
-	}
-
-	// Apply flag implications and configure the logger.
-	flags.Resolve()
-
-	if len(args) == 0 {
-		printUsage()
-		return nil
-	}
-
-	// Handle "grew --help" and "grew -h"
-	if args[0] == "--help" || args[0] == "-h" {
-		return runHelp(args[1:])
-	}
-
-	commands := map[string]func([]string) error{
-		"install":      RunInstall,
-		"i":            RunInstall,
-		"uninstall":    runUninstall,
-		"remove":       runUninstall,
-		"rm":           runUninstall,
-		"autoremove":   runAutoremove,
-		"list":         runList,
-		"ls":           runList,
-		"leaves":       runLeaves,
-		"info":         runInfo,
-		"abv":          runInfo,
-		"search":       runSearch,
-		"link":         runLink,
-		"unlink":       runUnlink,
-		"update":       runUpdate,
-		"up":           runUpdate,
-		"tap":          runTap,
-		"untap":        runUntap,
-		"reset-update": runResetUpdate,
-		"upgrade":      runUpgrade,
-		"ug":           runUpgrade,
-		"outdated":     runOutdated,
-		"reinstall":    runReinstall,
-		"cleanup":      runCleanup,
-		"deps":         runDeps,
-		"alias":        runAlias,
-		"audit":        runAudit,
-		"doctor":       runDoctor,
-		"dr":           runDoctor,
-		"config":       runConfig,
-		"shellenv":     runShellenv,
-		"services":     runServices,
-		"setup":        runSetup,
-		"verify":       runVerify,
-		"lock":         runLock,
-		"sign":         runSign,
-		"pin":          runPin,
-		"unpin":        runUnpin,
-		"linkage":      runLinkage,
-		"vuln-scan":    runVulnScan,
-		"completion":   runCompletion,
-		"version":      runVersion,
-		"--cache":      runCache,
-		"_extract":     runExtract, // internal: sandboxed extraction subprocess
-		"help":         runHelp,
-	}
-
-	handler, ok := commands[args[0]]
-	if !ok {
-		// Check aliases
-		a, err := loadAliases()
-		if err != nil {
-			slog.Debug(fmt.Sprintf("failed to load aliases: %v", err))
-		} else if target, exists := a[args[0]]; exists {
-			expanded := append([]string{target}, args[1:]...)
-			if h, found := commands[expanded[0]]; found {
-				return h(expanded[1:])
-			}
-		}
-		return fmt.Errorf("unknown command: %s\nRun 'grew' for usage", args[0])
-	}
-	return handler(args[1:])
+	rootCmd.SetArgs(args)
+	return rootCmd.Execute()
 }
+
+// ... rest of context definitions ...
 
 // readContext bundles objects needed by read-only commands (info, search, outdated, deps).
 type readContext = *context.Context
