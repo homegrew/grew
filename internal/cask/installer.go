@@ -157,7 +157,8 @@ func (inst *Installer) UninstallApp(appName string) error {
 	realDest, destErr := filepath.EvalSymlinks(destApp)
 	if destErr != nil {
 		if errors.Is(destErr, os.ErrNotExist) {
-			realDest, destErr = filepath.Abs(filepath.Clean(destApp))
+			realDest = filepath.Clean(filepath.Join(realBase, appName))
+			destErr = nil
 		}
 		if destErr != nil {
 			return fmt.Errorf("resolve app path %q: %w", destApp, destErr)
