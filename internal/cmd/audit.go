@@ -132,7 +132,7 @@ func runAuditFormulas(ctx readContext, targets []string, strict, online bool) er
 
 	var totalWarnings, totalErrors int
 	for _, f := range formulas {
-		r := auditFormula(f, allNames, ctx.Loader, ctx.Paths, online)
+		r := auditFormula(f, allNames, ctx.Loader, ctx.Paths, online, strict)
 		totalWarnings += len(r.Warnings)
 		totalErrors += len(r.Errors)
 		printAuditResult(r)
@@ -141,7 +141,7 @@ func runAuditFormulas(ctx readContext, targets []string, strict, online bool) er
 	return auditSummary(totalWarnings, totalErrors, strict)
 }
 
-func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.Loader, paths config.Paths, online bool) *auditResult {
+func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.Loader, paths config.Paths, online, strict bool) *auditResult {
 	r := &auditResult{Name: f.Name}
 
 	// Metadata completeness.
@@ -192,10 +192,16 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 		if err := validation.ValidateSHA256(hash); err != nil {
 			r.errorf("sha256 for %s: %v", platform, err)
 		}
+		if _, ok := f.SHA512[platform]; !ok && strict {
+			r.warnf("missing sha512 for %s", platform)
+		}
 	}
 	for platform, hash := range f.SHA512 {
 		if err := validation.ValidateSHA512(hash); err != nil {
 			r.errorf("sha512 for %s: %v", platform, err)
+		}
+		if _, ok := f.SHA256[platform]; !ok && strict {
+			r.warnf("missing sha256 for %s", platform)
 		}
 	}
 	for platform, b := range f.Bottle {
@@ -206,7 +212,7 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 			if err := validation.ValidateSHA512(b.SHA512); err != nil {
 				r.errorf("bottle sha512 for %s: %v", platform, err)
 			}
-		} else {
+		} else if strict {
 			r.warnf("bottle for %s missing sha512", platform)
 		}
 	}
@@ -214,20 +220,32 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 		if err := validation.ValidateSHA256(f.Source.SHA256); err != nil {
 			r.errorf("source sha256: %v", err)
 		}
+		if f.Source.SHA512 == "" && strict {
+			r.warnf("source missing sha512")
+		}
 	}
 	if f.Source.SHA512 != "" {
 		if err := validation.ValidateSHA512(f.Source.SHA512); err != nil {
 			r.errorf("source sha512: %v", err)
+		}
+		if f.Source.SHA256 == "" && strict {
+			r.warnf("source missing sha256")
 		}
 	}
 	if f.SourceSHA256 != "" {
 		if err := validation.ValidateSHA256(f.SourceSHA256); err != nil {
 			r.errorf("source_sha256: %v", err)
 		}
+		if f.SourceSHA512 == "" && strict {
+			r.warnf("source_sha512 missing")
+		}
 	}
 	if f.SourceSHA512 != "" {
 		if err := validation.ValidateSHA512(f.SourceSHA512); err != nil {
 			r.errorf("source_sha512: %v", err)
+		}
+		if f.SourceSHA256 == "" && strict {
+			r.warnf("source_sha256 missing")
 		}
 	}
 
@@ -350,7 +368,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 
 	var totalWarnings, totalErrors int
 	for _, c := range casks {
-		r := auditCaskDefinition(c)
+		r := auditCaskDefinition(c, strict)
 		totalWarnings += len(r.Warnings)
 		totalErrors += len(r.Errors)
 		printAuditResult(r)
@@ -359,7 +377,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 	return auditSummary(totalWarnings, totalErrors, strict)
 }
 
-func auditCaskDefinition(c *cask.Cask) *auditResult {
+func auditCaskDefinition(c *cask.Cask, strict bool) *auditResult {
 	r := &auditResult{Name: c.Name}
 
 	// Metadata completeness.
@@ -401,7 +419,7 @@ func auditCaskDefinition(c *cask.Cask) *auditResult {
 		if err := validation.ValidateSHA256(hash); err != nil {
 			r.errorf("sha256 for %s: %v", platform, err)
 		}
-		if _, ok := c.SHA512[platform]; !ok {
+		if _, ok := c.SHA512[platform]; !ok && strict {
 			r.warnf("cask missing sha512 for %s", platform)
 		}
 	}
@@ -409,7 +427,7 @@ func auditCaskDefinition(c *cask.Cask) *auditResult {
 		if err := validation.ValidateSHA512(hash); err != nil {
 			r.errorf("sha512 for %s: %v", platform, err)
 		}
-		if _, ok := c.SHA256[platform]; !ok {
+		if _, ok := c.SHA256[platform]; !ok && strict {
 			r.warnf("cask missing sha256 for %s", platform)
 		}
 	}
