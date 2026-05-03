@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 )
@@ -16,6 +17,13 @@ func TestApply_InvalidPath(t *testing.T) {
 }
 
 func TestApply_Success(t *testing.T) {
+	if runtime.GOOS != "darwin" {
+		t.Skip("skipping quarantine xattr test on non-macOS platform")
+	}
+	if _, err := exec.LookPath("xattr"); err != nil {
+		t.Skip("skipping quarantine xattr test because xattr command is unavailable")
+	}
+
 	// Create a dummy file to quarantine
 	tmpDir := t.TempDir()
 	dummyPath := filepath.Join(tmpDir, "dummy.txt")
