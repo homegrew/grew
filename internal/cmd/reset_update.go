@@ -51,6 +51,14 @@ func isWithinBase(base, target string) bool {
 	return rel != "" && rel != ".." && !strings.HasPrefix(rel, ".."+string(os.PathSeparator))
 }
 
+func isExactCanonicalChild(rootCanonical, targetCanonical string, elems ...string) bool {
+	expectedCanonical, err := canonicalPath(filepath.Join(append([]string{rootCanonical}, elems...)...))
+	if err != nil {
+		return false
+	}
+	return targetCanonical == expectedCanonical && isWithinBase(rootCanonical, targetCanonical)
+}
+
 var ResetUpdateCmd = &cobra.Command{
 	Use:   "reset-update",
 	Short: "Wipe and re-fetch all tap definitions",
@@ -114,9 +122,9 @@ Examples:
 				trustedInfoCanonical, trustedInfoErr := canonicalPath(filepath.Join(rootCanonical, "share", "info"))
 				if trustedShareErr == nil && trustedManErr == nil && trustedInfoErr == nil &&
 					trustedShareCanonical != rootCanonical &&
-					isWithinBase(rootCanonical, trustedShareCanonical) &&
-					isWithinBase(rootCanonical, trustedManCanonical) &&
-					isWithinBase(rootCanonical, trustedInfoCanonical) {
+					isExactCanonicalChild(rootCanonical, trustedShareCanonical, "share") &&
+					isExactCanonicalChild(rootCanonical, trustedManCanonical, "share", "man") &&
+					isExactCanonicalChild(rootCanonical, trustedInfoCanonical, "share", "info") {
 					_ = os.RemoveAll(trustedManCanonical)
 					_ = os.RemoveAll(trustedInfoCanonical)
 					_ = os.Remove(trustedShareCanonical) // only removes if empty
