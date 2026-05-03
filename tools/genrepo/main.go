@@ -119,6 +119,7 @@ type hbFormula struct {
 	Desc     string `json:"desc"`
 	Homepage string `json:"homepage"`
 	License  string `json:"license"`
+	Caveats  string `json:"caveats"`
 	Versions struct {
 		Stable string `json:"stable"`
 	} `json:"versions"`
@@ -225,6 +226,7 @@ func runFormulaImport(args []string) {
 			Description: hf.Desc,
 			Homepage:    hf.Homepage,
 			License:     hf.License,
+			Caveats:     hf.Caveats,
 			Bottle:      bottleMap,
 			Source: formula.SourceSpec{
 				URL:    hf.Urls.Stable.URL,
@@ -301,6 +303,7 @@ type hbCask struct {
 	Desc       string                                          `json:"desc"`
 	Homepage   string                                          `json:"homepage"`
 	License    string                                          `json:"license"`
+	Caveats    string                                          `json:"caveats"`
 	URL        string                                          `json:"url"`
 	SHA256     string                                          `json:"sha256"`
 	SHA512     string                                          `json:"sha512"`
@@ -416,7 +419,7 @@ func runCaskImport(args []string) {
 		}
 		c := &cask.Cask{
 			Name: hc.Token, Version: hc.Version, Description: hc.Desc, Homepage: hc.Homepage,
-			License: hc.License, URL: urlMap, SHA256: shaMap, SHA512: sha512Map, Artifacts: arts,
+			License: hc.License, Caveats: hc.Caveats, URL: urlMap, SHA256: shaMap, SHA512: sha512Map, Artifacts: arts,
 			Source: cask.SourceSpec{URL: hc.URL, SHA256: hc.SHA256, SHA512: hc.SHA512},
 		}
 
