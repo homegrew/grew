@@ -29,7 +29,6 @@ import (
 
 func RunSelfUpdate(_ []string) error {
 	slog.Debug("starting selfupdate command execution")
-	slog.Debug("starting selfupdate command execution")
 	exePath, err := os.Executable()
 	if err != nil {
 		return fmt.Errorf("locate current executable: %w", err)
