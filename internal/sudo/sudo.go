@@ -10,8 +10,8 @@ import (
 
 // The AppleScript payload used to prompt for a password.
 const askPassScript = `#!/usr/bin/env osascript
-on run argv
-    set thePrompt to "grew requires elevated privileges to install a package.\\n\\n" & (item 1 of argv)
+on run
+    set thePrompt to "grew requires elevated privileges to install a package."
     try
         set theResult to display dialog thePrompt default answer "" with title "grew" with hidden answer
         return text returned of theResult
