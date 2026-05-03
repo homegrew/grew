@@ -22,12 +22,12 @@ end run
 `
 
 // RunSudoCmd executes a command using sudo, prompting the user graphically on macOS if needed.
-func RunSudoCmd(args ...string) error {
-	if len(args) == 0 {
-		return fmt.Errorf("no command provided")
+func RunSudoCmd(executable string, args ...string) error {
+	if executable == "" {
+		return fmt.Errorf("no executable provided")
 	}
 
-	cmdArgs := []string{"-A", "--"}
+	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
 	cmd := exec.Command("sudo", cmdArgs...)
 
@@ -49,7 +49,7 @@ func RunSudoCmd(args ...string) error {
 		cmd.Env = append(os.Environ(), fmt.Sprintf("SUDO_ASKPASS=%s", scriptPath))
 	} else {
 		// On non-macOS, fallback to standard terminal sudo behavior if possible
-		fallbackArgs := append([]string{"--"}, args...)
+		fallbackArgs := append([]string{"--", executable}, args...)
 		cmd = exec.Command("sudo", fallbackArgs...)
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
