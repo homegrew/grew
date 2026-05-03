@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
@@ -321,6 +322,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 				return err
 			}
 			slog.Info("quarantine attribute set")
+			auditlog.New(paths.Log).Log(auditlog.ActionQuarantine, c.Name, c.Version, "", "quarantined via LaunchServices")
 		}
 		ui.FprintArrow(os.Stderr, "Installed %s to %s", appName, dest)
 	}

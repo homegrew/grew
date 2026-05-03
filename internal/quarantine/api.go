@@ -2,14 +2,19 @@ package quarantine
 
 import (
 	"fmt"
+	"log/slog"
 	"strings"
 )
 
 // Apply sets the macOS quarantine attribute on a given path.
 // It requires the download URL and the origin URL.
 func Apply(appPath, downloadURL, originURL string) error {
-	_, err := RunScript(QuarantineScript, appPath, downloadURL, originURL)
-	return err
+	out, err := RunScript(QuarantineScript, appPath, downloadURL, originURL)
+	if err != nil {
+		return err
+	}
+	slog.Debug("quarantine attributes applied via LaunchServices", "path", appPath, "output", out)
+	return nil
 }
 
 // Trash moves the given paths to the macOS Trash.
