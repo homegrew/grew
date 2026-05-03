@@ -14,6 +14,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/service"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var ServicesCmd = &cobra.Command{
@@ -134,11 +135,11 @@ func servicesStart(args []string) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Starting %s service...\n", f.Name)
+	ui.FprintArrow(os.Stderr, "Starting %s service...", f.Name)
 	if err := ctx.mgr.Start(f); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service started\n", f.Name)
+	ui.FprintArrow(os.Stderr, "%s service started", f.Name)
 	return nil
 }
 
@@ -152,11 +153,11 @@ func servicesStop(args []string) error {
 		return fmt.Errorf("service %q is not running", name)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Stopping %s service...\n", name)
+	ui.FprintArrow(os.Stderr, "Stopping %s service...", name)
 	if err := ctx.mgr.Stop(name); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service stopped\n", name)
+	ui.FprintArrow(os.Stderr, "%s service stopped", name)
 	return nil
 }
 
@@ -166,11 +167,11 @@ func servicesRestart(args []string) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Restarting %s service...\n", f.Name)
+	ui.FprintArrow(os.Stderr, "Restarting %s service...", f.Name)
 	if err := ctx.mgr.Restart(f); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> %s service restarted\n", f.Name)
+	ui.FprintArrow(os.Stderr, "%s service restarted", f.Name)
 	return nil
 }
 
@@ -194,8 +195,8 @@ func servicesRun(args []string) error {
 		return fmt.Errorf("service command %q not found: %w", cmdArgs[0], err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Running %s in foreground (%s)\n", f.Name, strings.Join(cmdArgs, " "))
-	fmt.Fprintf(os.Stderr, "==> Press Ctrl-C to stop\n")
+	ui.FprintArrow(os.Stderr, "Running %s in foreground (%s)", f.Name, strings.Join(cmdArgs, " "))
+	ui.FprintArrow(os.Stderr, "Press Ctrl-C to stop")
 
 	cmd := exec.Command(cmdPath, cmdArgs[1:]...)
 	cmd.Stdout = os.Stdout

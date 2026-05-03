@@ -14,6 +14,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -185,9 +186,9 @@ func runCleanup(args []string) error {
 	if totalBytes == 0 {
 		fmt.Println("Already clean, nothing to do.")
 	} else if cleanupDryRun {
-		fmt.Fprintf(os.Stderr, "==> Would free %s\n", fsutil.FormatSize(totalBytes))
+		ui.FprintArrow(os.Stderr, "Would free %s", fsutil.FormatSize(totalBytes))
 	} else {
-		fmt.Fprintf(os.Stderr, "==> Freed %s\n", fsutil.FormatSize(totalBytes))
+		ui.FprintArrow(os.Stderr, "Freed %s", fsutil.FormatSize(totalBytes))
 	}
 
 	return nil

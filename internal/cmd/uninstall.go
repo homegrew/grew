@@ -7,6 +7,7 @@ import (
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -79,11 +80,11 @@ func uninstallFormula(ctx *installContext, name string, force bool) error {
 	kegPath, _ := ctx.Cellar.KegPath(name, ver)
 	slog.Info("cellar path: " + kegPath)
 
-	fmt.Fprintf(os.Stderr, "==> Unlinking %s...\n", name)
+	ui.FprintArrow(os.Stderr, "Unlinking %s...", name)
 	ctx.Linker.Unlink(name)
 	slog.Info("removed symlinks from bin/, lib/, include/, opt/")
 
-	fmt.Fprintf(os.Stderr, "==> Removing %s...\n", name)
+	ui.FprintArrow(os.Stderr, "Removing %s...", name)
 	if err := ctx.Cellar.Uninstall(name); err != nil {
 		if force {
 			slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", name, err))
@@ -93,6 +94,6 @@ func uninstallFormula(ctx *installContext, name string, force bool) error {
 	}
 
 	ctx.AuditLog.Log(auditlog.ActionUninstall, name, ver, "", "")
-	fmt.Fprintf(os.Stderr, "==> %s uninstalled\n", name)
+	ui.FprintArrow(os.Stderr, "%s uninstalled", name)
 	return nil
 }

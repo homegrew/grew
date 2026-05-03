@@ -3,6 +3,7 @@ package logger
 import (
 	"context"
 	"fmt"
+	"github.com/homegrew/grew/pkg/ui"
 	"io"
 	"log/slog"
 	"os"
@@ -66,9 +67,9 @@ func (h *CLIHandler) Handle(_ context.Context, r slog.Record) error {
 	var prefix string
 	switch {
 	case r.Level >= slog.LevelError:
-		prefix = "Error: "
+		prefix = ui.ArrowError(h.w) + " "
 	case r.Level >= slog.LevelWarn:
-		prefix = "Warning: "
+		prefix = ui.ArrowWarning(h.w) + " "
 	case r.Level >= slog.LevelInfo:
 		prefix = "    "
 	default: // DEBUG and below

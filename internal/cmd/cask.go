@@ -17,6 +17,7 @@ import (
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 func initCaskTap(paths config.Paths) error {
@@ -153,7 +154,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	}()
 
 	if cr.IsInstalled(c.Name) && !force {
-		fmt.Fprintf(os.Stderr, "==> %s %s is already installed, skipping\n", c.Name, c.Version)
+		ui.FprintArrow(os.Stderr, "%s %s is already installed, skipping", c.Name, c.Version)
 		return nil
 	}
 
@@ -167,7 +168,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 
 	defer logger.TimeOp(fmt.Sprintf("install cask %s %s", c.Name, c.Version))()
 	slog.Debug("platform: " + formula.PlatformKey())
-	fmt.Fprintf(os.Stderr, "==> Installing cask %s %s\n", c.Name, c.Version)
+	ui.FprintArrow(os.Stderr, "Installing cask %s %s", c.Name, c.Version)
 
 	dlURL, err := c.GetURL()
 	if err != nil {
@@ -259,14 +260,14 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> SHA256 verified\n")
+	ui.FprintArrow(os.Stderr, "SHA256 verified")
 
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
 			_ = removeIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}
-		fmt.Fprintf(os.Stderr, "==> SHA512 verified\n")
+		ui.FprintArrow(os.Stderr, "SHA512 verified")
 	}
 
 	// Extract archive to staging
@@ -321,7 +322,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 			}
 			slog.Info("quarantine attribute set")
 		}
-		fmt.Fprintf(os.Stderr, "==> Installed %s to %s\n", appName, dest)
+		ui.FprintArrow(os.Stderr, "Installed %s to %s", appName, dest)
 	}
 
 	// Install .pkg artifacts
@@ -360,7 +361,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	os.RemoveAll(stageDir)
 	_ = removeIfWithin(localFile, paths.Tmp)
 
-	fmt.Fprintf(os.Stderr, "==> %s %s installed\n", c.Name, c.Version)
+	ui.FprintArrow(os.Stderr, "%s %s installed", c.Name, c.Version)
 	return nil
 }
 
@@ -384,7 +385,7 @@ func caskUninstall(name string, force bool) error {
 	// Remove app artifacts
 	if err == nil {
 		for _, appName := range c.Artifacts.App {
-			fmt.Fprintf(os.Stderr, "==> Removing %s...\n", appName)
+			ui.FprintArrow(os.Stderr, "Removing %s...", appName)
 			if err := inst.UninstallApp(appName); err != nil {
 				if force {
 					slog.Warn(fmt.Sprintf("ignoring error while removing %s: %v", appName, err))
@@ -422,7 +423,7 @@ func caskUninstall(name string, force bool) error {
 		}
 	}
 
-	fmt.Fprintf(os.Stderr, "==> %s uninstalled\n", name)
+	ui.FprintArrow(os.Stderr, "%s uninstalled", name)
 	return nil
 }
 

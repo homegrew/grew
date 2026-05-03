@@ -8,6 +8,7 @@ import (
 
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -64,7 +65,7 @@ func runReinstall(args []string) error {
 				return fmt.Errorf("cask %q is not installed (use --force to install anyway)", name)
 			}
 
-			fmt.Fprintf(os.Stderr, "==> Reinstalling cask %s\n", name)
+			ui.FprintArrow(os.Stderr, "Reinstalling cask %s", name)
 
 			if cr.IsInstalled(name) {
 				if err := caskUninstall(name, true); err != nil {
@@ -96,7 +97,7 @@ func runReinstall(args []string) error {
 			return fmt.Errorf("formula not found: %s", name)
 		}
 
-		fmt.Fprintf(os.Stderr, "==> Reinstalling %s %s\n", f.Name, f.Version)
+		ui.FprintArrow(os.Stderr, "Reinstalling %s %s", f.Name, f.Version)
 
 		// Unlink existing installation.
 		if ctx.Cellar.IsInstalled(name) {

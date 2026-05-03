@@ -9,6 +9,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -90,7 +91,7 @@ func runLink(args []string) error {
 		}
 
 		if kegOnly && !linkForce {
-			fmt.Printf("Warning: %s is keg-only. Use --force to link anyway.\n", name)
+			fmt.Fprintf(os.Stdout, "%s %s is keg-only. Use --force to link anyway.\n", ui.ArrowWarning(os.Stdout), name)
 		}
 
 		lnk := &linker.Linker{Paths: ctx.Paths}
@@ -111,7 +112,7 @@ func runLink(args []string) error {
 		}
 
 		if !linkDryRun {
-			fmt.Fprintf(os.Stderr, "==> %s %s linked\n", name, ver)
+			ui.FprintArrow(os.Stderr, "%s %s linked", name, ver)
 		}
 	}
 	return nil
@@ -142,7 +143,7 @@ func runUnlink(args []string) error {
 			slog.Info("(dry run, no changes made)")
 		} else {
 			slog.Info("removed symlinks from bin/, lib/, include/, opt/")
-			fmt.Fprintf(os.Stderr, "==> %s unlinked\n", name)
+			ui.FprintArrow(os.Stderr, "%s unlinked", name)
 		}
 	}
 	return nil

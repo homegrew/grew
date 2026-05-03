@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+	"github.com/homegrew/grew/pkg/ui"
 	"log/slog"
 	"time"
 
@@ -132,7 +134,7 @@ func runDoctor(args []string) error {
 	}
 	ctx.Warn = func(format string, args ...any) {
 		ctx.Warnings++
-		fmt.Printf("Warning: "+format+"\n", args...)
+		fmt.Fprintf(os.Stdout, "%s "+format+"\n", append([]any{ui.ArrowWarning(os.Stdout)}, args...)...)
 	}
 
 	if !flags.Quiet {

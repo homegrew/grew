@@ -26,6 +26,7 @@ import (
 	"runtime"
 
 	"github.com/homegrew/grew/internal/release"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -91,7 +92,7 @@ func run(destDir string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "==> Downloading grew %s for %s/%s\n", rel.TagName, runtime.GOOS, runtime.GOARCH)
+	ui.FprintArrow(os.Stderr, "Downloading grew %s for %s/%s", rel.TagName, runtime.GOOS, runtime.GOARCH)
 	debugf("release tag=%s assets=%d\n", rel.TagName, len(rel.Assets))
 
 	assetName := release.AssetName()
@@ -109,7 +110,7 @@ func run(destDir string) error {
 	}
 	debugf("checksum URL=%s\n", checksumURL)
 
-	fmt.Fprintf(os.Stderr, "==> Fetching checksums\n")
+	ui.FprintArrow(os.Stderr, "Fetching checksums")
 	checksums, err := release.DownloadBytes(checksumURL)
 	if err != nil {
 		return fmt.Errorf("download checksums: %w", err)
@@ -128,7 +129,7 @@ func run(destDir string) error {
 		logf("    Expected SHA512: %s\n", expectedHash)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Downloading %s\n", assetName)
+	ui.FprintArrow(os.Stderr, "Downloading %s", assetName)
 	tmpFile, err := release.DownloadTemp(assetURL)
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
@@ -151,9 +152,9 @@ func run(destDir string) error {
 		return fmt.Errorf("checksum mismatch:\n  expected: %s\n  got:      %s", expectedHash, actualHash)
 	}
 	if len(actualHash) == 128 {
-		fmt.Fprintf(os.Stderr, "==> SHA512 verified: %s\n", actualHash)
+		ui.FprintArrow(os.Stderr, "SHA512 verified: %s", actualHash)
 	} else {
-		fmt.Fprintf(os.Stderr, "==> SHA256 verified: %s\n", actualHash)
+		ui.FprintArrow(os.Stderr, "SHA256 verified: %s", actualHash)
 	}
 
 	destPath := filepath.Join(destDir, "grew")
@@ -169,7 +170,7 @@ func run(destDir string) error {
 		return fmt.Errorf("install: %w", err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Saved to %s\n", destPath)
+	ui.FprintArrow(os.Stderr, "Saved to %s", destPath)
 	fmt.Fprintf(os.Stderr, "\n    Run ./grew setup to complete the installation.\n")
 	return nil
 }

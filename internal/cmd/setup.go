@@ -16,6 +16,7 @@ import (
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -201,8 +202,8 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (system prefix)\n", prefix)
-	fmt.Fprintf(os.Stderr, "==> Ownership will be transferred to %s\n", u.Username)
+	ui.FprintArrow(os.Stderr, "Setting up grew at %s (system prefix)", prefix)
+	ui.FprintArrow(os.Stderr, "Ownership will be transferred to %s", u.Username)
 	fmt.Println()
 
 	// Create the prefix.
@@ -213,7 +214,7 @@ func setupSystem(prefix string) error {
 	// Transfer ownership to the real user.
 
 	userGroup := strings.Join([]string{u.Username, pg}, ":")
-	fmt.Fprintf(os.Stderr, "==> chown -R %s %s\n", userGroup, prefix)
+	ui.FprintArrow(os.Stderr, "chown -R %s %s", userGroup, prefix)
 	slog.Info(fmt.Sprintf("chown -R %s %s", userGroup, prefix))
 
 	chownExe, err := exec.LookPath("chown")
@@ -244,7 +245,7 @@ func setupSystem(prefix string) error {
 	// files as root. This ensures the entire prefix is owned by the real
 	// user, which is critical for --force re-runs where previous files
 	// may have wrong permissions.
-	fmt.Fprintf(os.Stderr, "==> Fixing permissions: chown -R %s %s\n", userGroup, prefix)
+	ui.FprintArrow(os.Stderr, "Fixing permissions: chown -R %s %s", userGroup, prefix)
 	fixCmd := exec.Command(chownExe, "-R", "--", userGroup, prefix)
 	fixCmd.Stdout = os.Stdout
 	fixCmd.Stderr = os.Stderr
@@ -263,7 +264,7 @@ func validIdentity(s string) bool {
 
 // setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
-	fmt.Fprintf(os.Stderr, "==> Setting up grew at %s (user prefix, devmode)\n", prefix)
+	ui.FprintArrow(os.Stderr, "Setting up grew at %s (user prefix, devmode)", prefix)
 	fmt.Println()
 	fmt.Println("Tip: run 'sudo grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
@@ -311,12 +312,12 @@ func finishSetup(prefix string) error {
 			if err := copyFile(exe, destBin); err != nil {
 				return fmt.Errorf("copy binary to %s: %w", destBin, err)
 			}
-			fmt.Fprintf(os.Stderr, "==> Installed grew binary to %s\n", destBin)
+			ui.FprintArrow(os.Stderr, "Installed grew binary to %s", destBin)
 		}
 	}
 
 	fmt.Println()
-	fmt.Fprintf(os.Stderr, "==> grew is ready at %s\n", prefix)
+	ui.FprintArrow(os.Stderr, "grew is ready at %s", prefix)
 	fmt.Println()
 	fmt.Println("Add this to your shell profile:")
 	fmt.Println()
@@ -365,7 +366,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 			return ErrNoGitRepo
 		}
 		// Clone fresh.
-		fmt.Fprintf(os.Stderr, "==> Cloning grew from %s\n", grewRepoURL)
+		ui.FprintArrow(os.Stderr, "Cloning grew from %s", grewRepoURL)
 		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
 		clone.Stderr = os.Stderr
@@ -392,7 +393,7 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 		return fmt.Errorf("go build: %w", err)
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Built and installed grew to %s\n", destBin)
+	ui.FprintArrow(os.Stderr, "Built and installed grew to %s", destBin)
 	return nil
 }
 

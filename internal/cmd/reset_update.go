@@ -9,6 +9,7 @@ import (
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var ResetUpdateCmd = &cobra.Command{
@@ -30,7 +31,7 @@ Examples:
 		slog.Debug("starting resetupdate command execution")
 		paths := config.Default()
 
-		fmt.Fprintf(os.Stderr, "==> Removing taps directory %s\n", paths.Taps)
+		ui.FprintArrow(os.Stderr, "Removing taps directory %s", paths.Taps)
 		if err := os.RemoveAll(paths.Taps); err != nil {
 			return fmt.Errorf("remove taps: %w", err)
 		}
@@ -52,7 +53,7 @@ Examples:
 			return fmt.Errorf("update: %w", err)
 		}
 
-		fmt.Fprintf(os.Stderr, "==> Tap definitions reset and updated (%d taps, %d formulas found)\n", tapsCount, formulaCount)
+		ui.FprintArrow(os.Stderr, "Tap definitions reset and updated (%d taps, %d formulas found)", tapsCount, formulaCount)
 		return nil
 	},
 }

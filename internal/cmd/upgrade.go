@@ -8,6 +8,7 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var upgradeCmd = &cobra.Command{
@@ -40,7 +41,7 @@ The old version keg is removed after a successful upgrade.`,
 					if ctx.AuditLog != nil {
 						ctx.AuditLog.Log(auditlog.ActionUpgrade, name, "", "", "pinned, skipping")
 					}
-					fmt.Fprintf(os.Stderr, "==> %s is pinned, skipping (use 'grew unpin %s' first)\n", name, name)
+					ui.FprintArrow(os.Stderr, "%s is pinned, skipping (use 'grew unpin %s' first)", name, name)
 					continue
 				}
 				f, err := ctx.Loader.LoadByName(name)
@@ -52,7 +53,7 @@ The old version keg is removed after a successful upgrade.`,
 					if ctx.AuditLog != nil {
 						ctx.AuditLog.Log(auditlog.ActionUpgrade, name, curVer, "", "already up-to-date")
 					}
-					fmt.Fprintf(os.Stderr, "==> %s %s already up-to-date\n", name, curVer)
+					ui.FprintArrow(os.Stderr, "%s %s already up-to-date", name, curVer)
 					continue
 				}
 				targets = append(targets, outdatedPkg{formula: f, installedVersion: curVer})
@@ -92,7 +93,7 @@ The old version keg is removed after a successful upgrade.`,
 		}
 
 		for _, t := range targets {
-			fmt.Fprintf(os.Stderr, "==> Upgrading %s %s -> %s\n", t.formula.Name, t.installedVersion, t.formula.Version)
+			ui.FprintArrow(os.Stderr, "Upgrading %s %s -> %s", t.formula.Name, t.installedVersion, t.formula.Version)
 
 			// Unlink old version
 			ctx.Linker.Unlink(t.formula.Name)

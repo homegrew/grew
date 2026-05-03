@@ -10,6 +10,7 @@ import (
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var UpdateCmd = &cobra.Command{
@@ -62,6 +63,6 @@ func runUpdate(args []string) error {
 		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", fmt.Sprintf("updated %d taps, %d formulas found", tapsCount, formulaCount))
 	}
 
-	fmt.Fprintf(os.Stderr, "==> Updated %d taps (%d formulas found)\n", tapsCount, formulaCount)
+	ui.FprintArrow(os.Stderr, "Updated %d taps (%d formulas found)", tapsCount, formulaCount)
 	return nil
 }

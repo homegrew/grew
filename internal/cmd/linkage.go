@@ -7,6 +7,7 @@ import (
 
 	"github.com/homegrew/grew/internal/linkage"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 var (
@@ -79,7 +80,7 @@ func RunLinkage(args []string) error {
 				return fmt.Errorf("reverse linkage: %w", err)
 			}
 			if len(remaining) > 1 && !linkageQuiet {
-				fmt.Fprintf(os.Stderr, "==> Reverse linkage for %s\n", name)
+				ui.FprintArrow(os.Stderr, "Reverse linkage for %s", name)
 			}
 			fmt.Print(linkage.FormatReverseResult(result, linkageQuiet))
 			continue
@@ -124,7 +125,7 @@ func RunLinkage(args []string) error {
 		}
 
 		if len(remaining) > 1 && !linkageQuiet {
-			fmt.Fprintf(os.Stderr, "==> Linkage for %s\n", name)
+			ui.FprintArrow(os.Stderr, "Linkage for %s", name)
 		}
 		fmt.Print(linkage.FormatResult(result, fmtOpts))
 

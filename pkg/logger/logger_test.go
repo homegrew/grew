@@ -7,9 +7,15 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 func TestCLIHandler_Handle(t *testing.T) {
+	// Disable colors for deterministic testing
+	ui.DefaultConfig.NoColor = true
+	defer func() { ui.DefaultConfig.NoColor = false }()
+
 	tests := []struct {
 		name     string
 		level    slog.Level

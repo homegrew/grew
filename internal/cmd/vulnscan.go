@@ -20,6 +20,7 @@ import (
 	"github.com/homegrew/grew/internal/snapshot"
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 // vulnSeverity represents the severity of a vulnerability finding.
@@ -197,7 +198,7 @@ func scanOSV(packages []cellar.InstalledPackage, formulaMap map[string]*formula.
 
 	skipped := len(packages) - len(queries)
 	if !silent {
-		fmt.Fprintf(os.Stderr, "==> Querying OSV.dev for %d package(s)...\n", len(queries))
+		ui.FprintArrow(os.Stderr, "Querying OSV.dev for %d package(s)...", len(queries))
 		if skipped > 0 {
 			slog.Info(fmt.Sprintf("(%d packages skipped — no supported source URL)", skipped))
 		}
