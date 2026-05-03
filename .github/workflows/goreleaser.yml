@@ -27,7 +27,7 @@ jobs:
         with:
           distribution: goreleaser
           version: "~> v2"
-          args: release --clean
+          args: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -62,3 +62,22 @@ jobs:
         with:
           files: dist-patches/*
 
+      - name: Install mkdmg
+        run: go install al.essio.dev/cmd/mkdmg@latest
+
+      - name: Generate DMG
+        id: dmg
+        run: |
+          mkdir -p dist-dmg
+          for arch in arm64 amd64; do
+            mkdir "dist_$(arch)"
+            cp -v dist/grew_darwin_$(arch)_* "dist_$(arch)"/grew
+            "$(go env GOPATH)/bin/mkdmg Homegrew_$(arch).dmg" "dist_$(arch)"/
+          done
+          echo "images_generated=true" >> $GITHUB_OUTPUT
+
+      - name: Upload DMGs to Release
+        if: steps.dmg.outputs.images_generated == 'true'
+        uses: softprops/action-gh-release@v3
+        with:
+          files: dist-dmg/*
