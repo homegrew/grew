@@ -39,21 +39,21 @@ var (
 		key   string
 		prefs []string
 	}{
-		{"darwin_arm64_16", []string{"arm64_tahoe", "all"}},
-		{"darwin_arm64_15", []string{"arm64_sequoia", "all"}},
-		{"darwin_arm64_14", []string{"arm64_sonoma", "all"}},
-		{"darwin_arm64_13", []string{"arm64_ventura", "all"}},
-		{"darwin_arm64_12", []string{"arm64_monterey", "all"}},
+		{"darwin_arm64_16", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "all"}},
+		{"darwin_arm64_15", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "all"}},
+		{"darwin_arm64_14", []string{"arm64_sonoma", "arm64_ventura", "arm64_monterey", "all"}},
+		{"darwin_arm64_13", []string{"arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
+		{"darwin_arm64_12", []string{"arm64_monterey", "arm64_big_sur", "all"}},
 		{"darwin_arm64_11", []string{"arm64_big_sur", "all"}},
-		{"darwin_arm64", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
-		{"darwin_amd64_16", []string{"tahoe", "all"}},
-		{"darwin_amd64_15", []string{"sequoia", "all"}},
-		{"darwin_amd64_14", []string{"sonoma", "all"}},
-		{"darwin_amd64_13", []string{"ventura", "all"}},
-		{"darwin_amd64_12", []string{"monterey", "all"}},
+		{"darwin_arm64", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
+		{"darwin_amd64_16", []string{"tahoe", "sequoia", "sonoma", "all"}},
+		{"darwin_amd64_15", []string{"sequoia", "sonoma", "ventura", "all"}},
+		{"darwin_amd64_14", []string{"sonoma", "ventura", "monterey", "all"}},
+		{"darwin_amd64_13", []string{"ventura", "monterey", "big_sur", "all"}},
+		{"darwin_amd64_12", []string{"monterey", "big_sur", "all"}},
 		{"darwin_amd64_11", []string{"big_sur", "all"}},
 		{"darwin_amd64_10", []string{"catalina", "mojave", "high_sierra", "sierra", "all"}},
-		{"darwin_amd64", []string{"sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
+		{"darwin_amd64", []string{"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
 		{"linux_amd64", []string{"x86_64_linux", "all"}},
 		{"linux_arm64", []string{"arm64_linux", "all"}},
 	}
@@ -94,6 +94,7 @@ func main() {
 		usage()
 	}
 }
+
 func usage() {
 	fmt.Println("Usage: genrepo <command> [args]")
 	fmt.Println("\nCommands:")
@@ -123,21 +124,30 @@ type hbFormula struct {
 		Stable string `json:"stable"`
 	} `json:"versions"`
 	Urls struct {
-		Stable struct{ URL, Checksum string } `json:"stable"`
+		Stable struct {
+			URL      string `json:"url"`
+			Checksum string `json:"checksum"`
+		} `json:"stable"`
 	} `json:"urls"`
 	Bottle struct {
 		Stable struct {
-			Files map[string]struct{ URL, SHA256 string } `json:"files"`
+			Files map[string]struct {
+				URL    string `json:"url"`
+				SHA256 string `json:"sha256"`
+				Cellar string `json:"cellar"`
+			} `json:"files"`
 		} `json:"stable"`
 	} `json:"bottle"`
 	Dependencies      []string `json:"dependencies"`
 	BuildDependencies []string `json:"build_dependencies"`
 	Variations        struct {
 		LinuxAMD64 struct {
-			Dependencies []string `json:"dependencies"`
+			Dependencies      []string `json:"dependencies"`
+			BuildDependencies []string `json:"build_dependencies"`
 		} `json:"x86_64_linux"`
 		LinuxARM64 struct {
-			Dependencies []string `json:"dependencies"`
+			Dependencies      []string `json:"dependencies"`
+			BuildDependencies []string `json:"build_dependencies"`
 		} `json:"arm64_linux"`
 	} `json:"variations"`
 	Service    *hbService `json:"service"`
@@ -148,36 +158,15 @@ type hbFormula struct {
 
 var safeOutDirName = regexp.MustCompile(`^[A-Za-z0-9._-]+$`)
 
-func sanitizeOutputDir(input string) (string, error) {
-	v := strings.TrimSpace(input)
-	if v == "" {
-		return "", fmt.Errorf("output_dir must not be empty")
-	}
-	if filepath.IsAbs(v) {
-		return "", fmt.Errorf("absolute paths are not allowed")
-	}
-	if strings.Contains(v, "/") || strings.Contains(v, "\\") || strings.Contains(v, "..") {
-		return "", fmt.Errorf("output_dir must be a single directory name")
-	}
-	if !safeOutDirName.MatchString(v) {
-		return "", fmt.Errorf("output_dir contains invalid characters")
-	}
-	return v, nil
-}
-
 func runFormulaImport(args []string) {
-	outDir := "core"
+	outDirInput := "core"
 	if len(args) > 0 {
-		safeDir, err := sanitizeOutputDir(args[0])
-		if err != nil {
-			slog.Error("Invalid output_dir", "value", args[0], "error", err)
-			os.Exit(1)
-		}
-		outDir = safeDir
+		outDirInput = args[0]
 	}
-	resolvedOutDir, err := safeOutputDir(outDir)
+
+	outDir, err := safeOutputDir(outDirInput)
 	if err != nil {
-		slog.Error("Invalid output directory", "output_dir", outDir, "error", err)
+		slog.Error("Invalid output directory", "error", err, "outDir", outDirInput)
 		os.Exit(1)
 	}
 
@@ -188,8 +177,8 @@ func runFormulaImport(args []string) {
 		os.Exit(1)
 	}
 
-	if err := os.MkdirAll(resolvedOutDir, 0755); err != nil {
-		slog.Error("Create output directory failed", "dir", resolvedOutDir, "error", err)
+	if err := os.MkdirAll(outDir, 0755); err != nil {
+		slog.Error("Create output directory failed", "dir", outDir, "error", err)
 		os.Exit(1)
 	}
 	imported, skipped := 0, 0
@@ -207,7 +196,6 @@ func runFormulaImport(args []string) {
 					bottleMap[pm.key] = formula.BottleSpec{
 						URL:    f.URL,
 						SHA256: f.SHA256,
-						// Homebrew API currently only provides SHA-256.
 					}
 					break
 				}
@@ -268,7 +256,7 @@ func runFormulaImport(args []string) {
 			}
 		}
 
-		outPath, err := safeJoinUnderBase(resolvedOutDir, hf.Name+".yaml")
+		outPath, err := safeJoinUnderBase(outDir, hf.Name+".yaml")
 		if err != nil {
 			slog.Warn("Skipping formula due to invalid output path", "name", hf.Name, "error", err)
 			skipped++
@@ -283,20 +271,24 @@ func runFormulaImport(args []string) {
 // --- Cask Importer ---
 
 type hbCask struct {
-	Token      string                                          `json:"token"`
-	Name       []string                                        `json:"name"`
-	Desc       string                                          `json:"desc"`
-	Homepage   string                                          `json:"homepage"`
-	License    string                                          `json:"license"`
-	Caveats    string                                          `json:"caveats"`
-	URL        string                                          `json:"url"`
-	SHA256     string                                          `json:"sha256"`
-	SHA512     string                                          `json:"sha512"`
-	Version    string                                          `json:"version"`
-	Artifacts  []json.RawMessage                               `json:"artifacts"`
-	Variations map[string]struct{ URL, SHA256, SHA512 string } `json:"variations"`
-	Deprecated bool                                            `json:"deprecated"`
-	Disabled   bool                                            `json:"disabled"`
+	Token      string   `json:"token"`
+	Name       []string `json:"name"`
+	Desc       string   `json:"desc"`
+	Homepage   string   `json:"homepage"`
+	License    string   `json:"license"`
+	Caveats    string   `json:"caveats"`
+	URL        string   `json:"url"`
+	SHA256     string   `json:"sha256"`
+	SHA512     string   `json:"sha512"`
+	Version    string   `json:"version"`
+	Artifacts  []json.RawMessage `json:"artifacts"`
+	Variations map[string]struct {
+		URL    string `json:"url"`
+		SHA256 string `json:"sha256"`
+		SHA512 string `json:"sha512"`
+	} `json:"variations"`
+	Deprecated bool `json:"deprecated"`
+	Disabled   bool `json:"disabled"`
 }
 
 func safeOutputDir(input string) (string, error) {
