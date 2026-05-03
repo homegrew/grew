@@ -112,9 +112,23 @@ If devmode is active, `grew` bypasses the standard `sudo` requirements and inste
 
 *Note: Release builds ignore the `--unsafe` flag entirely. If a user attempts to run `grew setup --unsafe` on a production binary, it will fail and demand `sudo`.*
 
-## 6. Dependency Management & Cleanup
+## 6. Installation Metadata (`INSTALL_RECEIPT.json`)
 
-`grew` tracks why a package was installed using the `InstalledOnRequest` field in its `.MANIFEST.json`. This distinction is critical for maintaining a lean system:
+To provide rich information about installed packages beyond what is strictly necessary for integrity verification (which is handled by `.MANIFEST.json`), `grew` generates an `INSTALL_RECEIPT.json` file during the final stages of installation.
+
+This receipt is stored directly within the keg directory (e.g., `<prefix>/Cellar/jq/1.6/INSTALL_RECEIPT.json`) and captures runtime and build-time metadata:
+
+- **Provenance:** Records whether the package was `built_from_source` or `poured_from_bottle`.
+- **Timestamps:** Records the exact `installed_at` time.
+- **Dependencies:** Snapshots the `dependencies` and `runtime_dependencies` required by the package.
+- **Build Environment:** Can optionally record the `compiler` used and specific `build_options` if compiled locally.
+- **Intent:** Captures `installed_on_request` to distinguish between explicit user installs and automatic dependency resolution.
+
+This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. Because it is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
+
+## 7. Dependency Management & Cleanup
+
+`grew` tracks why a package was installed using the `InstalledOnRequest` field in its receipt and manifest. This distinction is critical for maintaining a lean system:
 
 - **Installed on Request:** The package was explicitly requested by the user (e.g., `grew install jq`).
 - **Installed as Dependency:** The package was pulled in automatically to satisfy the requirements of another formula.
@@ -128,3 +142,4 @@ This metadata enables precise identification of "orphaned" dependencies—packag
 - **`grew autoremove`**: Automatically uninstalls orphaned dependencies. It performs a calculation to find packages that are both "leaves" and have `InstalledOnRequest: false`.
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
     - **Dry Run**: The `--dry-run` flag allows users to preview which packages will be removed before any changes are made to the Cellar.
+
