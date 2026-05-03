@@ -67,7 +67,7 @@ func RunSelfUpdate(_ []string) error {
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
 			return nil
 		} else {
-			slog.Debug("patch update unavailable or failed", "err", patchErr)
+			slog.Error("patch update unavailable or failed", "err", patchErr)
 		}
 	}
 

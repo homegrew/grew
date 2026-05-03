@@ -148,8 +148,6 @@ func buildBinary(t *testing.T, tmpDir, version string) string {
 		t.Fatalf("failed to build test binary %s: %v\n%s", version, err, string(out))
 	}
 
-	t.Logf("built test binary %s: %q", version, exePath)
-
 	return exePath
 }
 
