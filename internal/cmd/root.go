@@ -117,6 +117,8 @@ func Run(args []string) error {
 		"unlink":       runUnlink,
 		"update":       runUpdate,
 		"up":           runUpdate,
+		"tap":          runTap,
+		"untap":        runUntap,
 		"reset-update": runResetUpdate,
 		"upgrade":      runUpgrade,
 		"ug":           runUpgrade,
@@ -281,6 +283,8 @@ Commands:
   link <formula>...      Create symlinks for formulas
   unlink <formula>...    Remove symlinks for formulas
   update, up           Update formula definitions
+  tap [user/repo]      List or add third-party taps
+  untap <user/repo>    Remove a third-party tap
   reset-update         Wipe and re-fetch all tap definitions
   reinstall [--cask] [-f] [--zap] [-s] <formula>... Reinstall formulas or casks (-f without checking for previously installed keg-only or non-migrated versions)
   upgrade, ug [formula]...   Upgrade outdated packages (or a specific ones)

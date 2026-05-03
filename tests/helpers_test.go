@@ -38,8 +38,15 @@ func computeSHA512(data []byte) string {
 
 func setupPrefix(t *testing.T, tmpDir string) string {
 	prefix := filepath.Join(tmpDir, "prefix")
-	if err := os.MkdirAll(filepath.Join(prefix, "Taps", ".git"), 0755); err != nil {
-		t.Fatalf("failed to create fake .git dir: %v", err)
+	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps")
+	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
+		t.Fatalf("failed to create core tap dir: %v", err)
+	}
+	// Initialize a real git repo so EnsureCloned sees it as already cloned.
+	cmd := exec.Command("git", "init", "-b", "main")
+	cmd.Dir = coreTapDir
+	if out, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("failed to init git in core tap: %v, output: %s", err, string(out))
 	}
 	return prefix
 }
@@ -72,7 +79,7 @@ func buildTestBinary(t *testing.T, tmpDir string) string {
 }
 
 func createFormula(t *testing.T, prefix, name, yamlContent string) {
-	coreTapDir := filepath.Join(prefix, "Taps", "core")
+	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps", "core")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
 		t.Fatalf("failed to create core tap dir: %v", err)
 	}

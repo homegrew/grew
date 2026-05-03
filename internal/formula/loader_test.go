@@ -32,7 +32,7 @@ keg_only: false
 
 func TestLoadByName_Found(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeTestFormula(t, tapDir, "mypkg")
 
@@ -48,7 +48,7 @@ func TestLoadByName_Found(t *testing.T) {
 
 func TestLoadByName_NotFound(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 
 	loader := &Loader{TapDir: tmpDir}
@@ -60,7 +60,7 @@ func TestLoadByName_NotFound(t *testing.T) {
 
 func TestLoadAll_MultipleFiles(t *testing.T) {
 	tmpDir := t.TempDir()
-	tapDir := filepath.Join(tmpDir, "core")
+	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
 	writeTestFormula(t, tapDir, "pkg1")
 	writeTestFormula(t, tapDir, "pkg2")

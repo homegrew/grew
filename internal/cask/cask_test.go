@@ -391,7 +391,7 @@ artifacts:
 func TestLoader(t *testing.T) {
 	t.Parallel()
 	tmpDir := t.TempDir()
-	caskDir := filepath.Join(tmpDir, "cask")
+	caskDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "cask")
 	if err := os.MkdirAll(caskDir, 0755); err != nil {
 		t.Fatal(err)
 	}

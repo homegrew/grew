@@ -175,39 +175,89 @@ func (l *Loader) debugf(format string, args ...any) {
 
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	name = strings.TrimSuffix(name, ".yaml")
-	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
-		return nil, fmt.Errorf("invalid cask name: %q", name)
-	}
 
-	taps, err := os.ReadDir(l.TapDir)
-	if err != nil {
-		return nil, fmt.Errorf("read taps directory: %w", err)
-	}
+	// Handle tap-qualified names (e.g., "user/repo/name" or "cask/name")
+	if strings.Contains(name, "/") {
+		parts := strings.Split(name, "/")
+		caskName := parts[len(parts)-1]
+		tapPath := parts[:len(parts)-1]
 
-	var lastErr error
-	for _, tap := range taps {
-		if !tap.IsDir() {
-			continue
+		// Validate components
+		if err := safepath.SafePathComponent(caskName + ".yaml"); err != nil {
+			return nil, fmt.Errorf("invalid cask name: %q", caskName)
 		}
-		if err := safepath.SafePathComponent(tap.Name()); err != nil {
-			continue
+		for _, p := range tapPath {
+			if err := safepath.SafePathComponent(p); err != nil {
+				return nil, fmt.Errorf("invalid tap name component: %q", p)
+			}
 		}
 
-		// Try tap root (works for core cask tap: Taps/cask/name.yaml)
-		// and tap/cask/ subdirectory.
-		paths := []string{
-			filepath.Join(l.TapDir, tap.Name(), name+".yaml"),
-			filepath.Join(l.TapDir, tap.Name(), "cask", name+".yaml"),
-			filepath.Join(l.TapDir, tap.Name(), "Casks", name+".yaml"),
+		// Support both homegrew/homegrew-taps and legacy core/cask references
+		var paths []string
+		if len(tapPath) == 1 {
+			if tapPath[0] == "core" || tapPath[0] == "cask" {
+				// Redirect cask/foo to homegrew/homegrew-taps/cask/foo
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], caskName+".yaml"))
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", "Casks", caskName+".yaml"))
+			}
 		}
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, caskName+".yaml")...)...))
 
 		for _, path := range paths {
 			c, err := l.loadFromFileWithPath(path)
 			if err == nil {
 				return c, nil
 			}
-			if !os.IsNotExist(err) {
-				lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+		}
+		return nil, fmt.Errorf("cask not found in tap %q: %q", strings.Join(tapPath, "/"), caskName)
+	}
+
+	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
+		return nil, fmt.Errorf("invalid cask name: %q", name)
+	}
+
+	users, err := os.ReadDir(l.TapDir)
+	if err != nil {
+		return nil, fmt.Errorf("read taps directory: %w", err)
+	}
+
+	var lastErr error
+	for _, user := range users {
+		if !user.IsDir() {
+			continue
+		}
+		if err := safepath.SafePathComponent(user.Name()); err != nil {
+			continue
+		}
+
+		repos, err := os.ReadDir(filepath.Join(l.TapDir, user.Name()))
+		if err != nil {
+			continue
+		}
+
+		for _, repo := range repos {
+			if !repo.IsDir() {
+				continue
+			}
+			if err := safepath.SafePathComponent(repo.Name()); err != nil {
+				continue
+			}
+
+			// Try tap root, tap/cask/, and tap/Casks/ subdirectories.
+			paths := []string{
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "cask", name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "Casks", name+".yaml"),
+			}
+
+			for _, path := range paths {
+				c, err := l.loadFromFileWithPath(path)
+				if err == nil {
+					return c, nil
+				}
+				if !os.IsNotExist(err) {
+					lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+				}
 			}
 		}
 	}
@@ -218,40 +268,55 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 }
 
 func (l *Loader) LoadAll() ([]*Cask, error) {
-	taps, err := os.ReadDir(l.TapDir)
+	users, err := os.ReadDir(l.TapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
 
 	var casks []*Cask
-	for _, tap := range taps {
-		if !tap.IsDir() {
+	for _, user := range users {
+		if !user.IsDir() {
 			continue
 		}
-		if err := safepath.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(user.Name()); err != nil {
 			continue
 		}
 
-		// Check tap root and tap/cask/ subdirectory.
-		subdirs := []string{"", "cask", "Casks"}
-		for _, subdir := range subdirs {
-			caskDir := filepath.Join(l.TapDir, tap.Name(), subdir)
-			entries, err := os.ReadDir(caskDir)
-			if err != nil {
+		repos, err := os.ReadDir(filepath.Join(l.TapDir, user.Name()))
+		if err != nil {
+			continue
+		}
+
+		for _, repo := range repos {
+			if !repo.IsDir() {
 				continue
 			}
-			for _, e := range entries {
-				if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
-					continue
-				}
-				if err := safepath.SafePathComponent(e.Name()); err != nil {
-					continue
-				}
-				c, err := l.loadFromFileWithPath(filepath.Join(caskDir, e.Name()))
+			if err := safepath.SafePathComponent(repo.Name()); err != nil {
+				continue
+			}
+
+			// Check tap root, tap/cask/, and tap/Casks/ subdirectories.
+			subdirs := []string{"", "cask", "Casks"}
+			repoPath := filepath.Join(l.TapDir, user.Name(), repo.Name())
+			for _, subdir := range subdirs {
+				caskDir := filepath.Join(repoPath, subdir)
+				entries, err := os.ReadDir(caskDir)
 				if err != nil {
 					continue
 				}
-				casks = append(casks, c)
+				for _, e := range entries {
+					if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+						continue
+					}
+					if err := safepath.SafePathComponent(e.Name()); err != nil {
+						continue
+					}
+					c, err := l.loadFromFileWithPath(filepath.Join(caskDir, e.Name()))
+					if err != nil {
+						continue
+					}
+					casks = append(casks, c)
+				}
 			}
 		}
 	}

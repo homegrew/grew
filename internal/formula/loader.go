@@ -81,40 +81,69 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 			}
 		}
 
-		path := filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...)
-		f, err := l.loadFromFile(path)
-		if err != nil {
-			if os.IsNotExist(err) {
-				return nil, fmt.Errorf("formula not found in tap %q: %q", strings.Join(tapPath, "/"), formulaName)
+		// Support both homegrew/homegrew-taps and legacy core/cask references
+		var paths []string
+		if len(tapPath) == 1 {
+			if tapPath[0] == "core" || tapPath[0] == "cask" {
+				// Redirect core/foo to homegrew/homegrew-taps/core/foo
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], formulaName+".yaml"))
 			}
-			return nil, fmt.Errorf("failed to load formula %q from tap %q: %w", formulaName, strings.Join(tapPath, "/"), err)
 		}
-		return f, nil
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...))
+
+		for _, path := range paths {
+			f, err := l.loadFromFile(path)
+			if err == nil {
+				return f, nil
+			}
+		}
+		return nil, fmt.Errorf("formula not found in tap %q: %q", strings.Join(tapPath, "/"), formulaName)
 	}
 
 	if err := safepath.SafePathComponent(name + ".yaml"); err != nil {
 		return nil, fmt.Errorf("invalid formula name: %q", name)
 	}
-	taps, err := os.ReadDir(l.TapDir)
+	users, err := os.ReadDir(l.TapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
 
 	var lastErr error
-	for _, tap := range taps {
-		if !tap.IsDir() {
+	for _, user := range users {
+		if !user.IsDir() {
 			continue
 		}
-		if err := safepath.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(user.Name()); err != nil {
 			continue
 		}
-		path := filepath.Join(l.TapDir, tap.Name(), name+".yaml")
-		f, err := l.loadFromFile(path)
-		if err == nil {
-			return f, nil
+		repos, err := os.ReadDir(filepath.Join(l.TapDir, user.Name()))
+		if err != nil {
+			continue
 		}
-		if !os.IsNotExist(err) {
-			lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+		for _, repo := range repos {
+			if !repo.IsDir() {
+				continue
+			}
+			if err := safepath.SafePathComponent(repo.Name()); err != nil {
+				continue
+			}
+
+			// Check repo root, repo/core, and repo/Formula subdirectories
+			searchPaths := []string{
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "core", name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "Formula", name+".yaml"),
+			}
+
+			for _, path := range searchPaths {
+				f, err := l.loadFromFile(path)
+				if err == nil {
+					return f, nil
+				}
+				if !os.IsNotExist(err) {
+					lastErr = fmt.Errorf("failed to parse %s: %w", path, err)
+				}
+			}
 		}
 	}
 	if lastErr != nil {
@@ -131,28 +160,38 @@ func (l *Loader) LoadAll() ([]*Formula, error) {
 		return nil, err
 	}
 
-	taps, err := os.ReadDir(tapDir)
+	users, err := os.ReadDir(tapDir)
 	if err != nil {
 		return nil, fmt.Errorf("read taps directory: %w", err)
 	}
-	for _, tap := range taps {
-		if !tap.IsDir() {
+	for _, user := range users {
+		if !user.IsDir() {
 			continue
 		}
-		if err := safepath.SafePathComponent(tap.Name()); err != nil {
+		if err := safepath.SafePathComponent(user.Name()); err != nil {
 			continue
 		}
-		tapPath, err := l.safeTapPath(filepath.Join(tapDir, tap.Name()))
+		repos, err := os.ReadDir(filepath.Join(tapDir, user.Name()))
 		if err != nil {
-			l.debugf("failed to validate tap path %s: %v\n", tap.Name(), err)
 			continue
 		}
-		tapFormulas, err := l.LoadFromTap(tapPath)
-		if err != nil {
-			l.debugf("failed to load tap %s: %v\n", tap.Name(), err)
-			continue
+		for _, repo := range repos {
+			if !repo.IsDir() {
+				continue
+			}
+			if err := safepath.SafePathComponent(repo.Name()); err != nil {
+				continue
+			}
+			repoPath, err := l.safeTapPath(filepath.Join(tapDir, user.Name(), repo.Name()))
+			if err != nil {
+				continue
+			}
+			repoFormulas, err := l.LoadFromTap(repoPath)
+			if err != nil {
+				continue
+			}
+			formulas = append(formulas, repoFormulas...)
 		}
-		formulas = append(formulas, tapFormulas...)
 	}
 	return formulas, nil
 }
@@ -179,24 +218,34 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 		return nil, fmt.Errorf("tap path %q escapes taps directory %q: %w", absTapPath, tapDir, err)
 	}
 
-	entries, err := os.ReadDir(absTapPath)
-	if err != nil {
-		return nil, fmt.Errorf("read tap %s: %w", absTapPath, err)
-	}
+	// Search in root, Formula/, and core/ subdirectories
+	subdirs := []string{"", "Formula", "core"}
 	var formulas []*Formula
-	for _, e := range entries {
-		if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
-			continue
-		}
-		if err := safepath.SafePathComponent(e.Name()); err != nil {
-			continue
-		}
-		f, err := l.loadFromFile(filepath.Join(absTapPath, e.Name()))
+	seen := make(map[string]bool)
+
+	for _, sub := range subdirs {
+		dir := filepath.Join(absTapPath, sub)
+		entries, err := os.ReadDir(dir)
 		if err != nil {
-			l.debugf("failed to parse %s: %v\n", e.Name(), err)
 			continue
 		}
-		formulas = append(formulas, f)
+		for _, e := range entries {
+			if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
+				continue
+			}
+			if seen[e.Name()] {
+				continue
+			}
+			if err := safepath.SafePathComponent(e.Name()); err != nil {
+				continue
+			}
+			f, err := l.loadFromFile(filepath.Join(dir, e.Name()))
+			if err != nil {
+				continue
+			}
+			formulas = append(formulas, f)
+			seen[e.Name()] = true
+		}
 	}
 	return formulas, nil
 }
