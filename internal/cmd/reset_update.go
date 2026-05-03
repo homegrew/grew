@@ -70,6 +70,14 @@ Examples:
 		slog.Debug("starting resetupdate command execution")
 		paths := config.Default()
 
+		// Extra safety: only allow destructive operations under the trusted default prefix.
+		trustedRoot := config.DefaultPrefix()
+		trustedRootCanonical, trustedRootErr := canonicalPath(trustedRoot)
+		pathsRootCanonical, pathsRootErr := canonicalPath(paths.Root)
+		if trustedRootErr != nil || pathsRootErr != nil || trustedRootCanonical != pathsRootCanonical {
+			return fmt.Errorf("refusing to remove paths for untrusted root: root=%q trusted=%q", paths.Root, trustedRoot)
+		}
+
 		if !paths.IsUnderRoot(paths.Taps) || paths.Taps == paths.Root {
 			return fmt.Errorf("refusing to remove taps outside root: root=%q taps=%q", paths.Root, paths.Taps)
 		}
