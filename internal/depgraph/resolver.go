@@ -2,10 +2,13 @@ package depgraph
 
 import (
 	"fmt"
+	"os"
 	"sort"
 	"strings"
 
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/ui"
 )
 
 type CycleError struct {
@@ -39,6 +42,15 @@ func (r *Resolver) Resolve(name string) ([]*formula.Formula, error) {
 		visited[current] = true
 
 		f, err := r.Loader.LoadByName(current)
+		if err != nil && strings.Contains(current, "/") {
+			parts := strings.Split(current, "/")
+			tapName := parts[0] + "/" + parts[1]
+			ui.FprintArrow(os.Stdout, "Dependency not found. Auto-tapping %s...", tapName)
+			mgr := &tap.Manager{TapsDir: r.Loader.TapDir}
+			if tapErr := mgr.Add(tapName, ""); tapErr == nil {
+				f, err = r.Loader.LoadByName(current)
+			}
+		}
 		if err != nil {
 			if current == name {
 				return nil, err
