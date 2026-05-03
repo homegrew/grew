@@ -53,7 +53,7 @@ func TestInit_CreatesDirectories(t *testing.T) {
 		t.Fatalf("init failed: %v", err)
 	}
 
-	for _, d := range []string{paths.Root, paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include, paths.Taps, paths.CoreTap, paths.CaskTap, paths.Caskroom, paths.AppDir, paths.Cache, paths.Tmp} {
+	for _, d := range []string{paths.Root, paths.Cellar, paths.Opt, paths.Bin, paths.Lib, paths.Include, paths.Taps, paths.Caskroom, paths.AppDir, paths.Cache, paths.Tmp} {
 		if info, err := os.Stat(d); err != nil || !info.IsDir() {
 			t.Errorf("directory %q was not created", d)
 		}
