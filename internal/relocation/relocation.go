@@ -1,6 +1,6 @@
 // Package relocation rewrites hardcoded library paths inside Mach-O and
 // ELF binaries after a bottle is poured into the Cellar. On macOS it
-// shells out to otool/install_name_tool; on Linux it uses patchelf.
+// shells out to otool/install_name_tool.
 //
 // Homebrew bottles embed placeholder strings (@@HOMEBREW_PREFIX@@,
 // @@HOMEBREW_CELLAR@@) instead of real paths. Relocation replaces these
@@ -42,12 +42,11 @@ func BuildReplacements(kegPath, prefix string) Replacements {
 
 	// Include standard Homebrew prefixes as sources for relocation.
 	// Many bottles have these hardcoded even if they are relocatable.
-	standardPrefixes := []string{
+	foreignPrefixes := []string{
 		"/opt/homebrew",
 		"/usr/local",
-		"/home/linuxbrew/.linuxbrew",
 	}
-	for _, sp := range standardPrefixes {
+	for _, sp := range foreignPrefixes {
 		if sp != prefix {
 			r[sp] = prefix
 			r[filepath.Join(sp, "Cellar")] = cellar
@@ -298,7 +297,7 @@ func detectForeignPrefix(kegPath, localPrefix string) string {
 // deriveOldPrefix scans a list of embedded paths for patterns like
 // "<prefix>/Cellar/" or "<prefix>/opt/" and returns the prefix portion.
 func deriveOldPrefix(paths []string) string {
-	markers := []string{"/Cellar/", "/opt/", "/lib/ld.so", "/lib/ld-linux"}
+	markers := []string{"/Cellar/", "/opt/"}
 	for _, p := range paths {
 		for _, marker := range markers {
 			idx := strings.Index(p, marker)

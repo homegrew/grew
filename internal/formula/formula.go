@@ -55,15 +55,14 @@ type Formula struct {
 	Install      InstallSpec       `yaml:"install,omitempty"`
 	PostInstall  string            `yaml:"post_install,omitempty"`
 	Dependencies []string          `yaml:"dependencies,omitempty"`
-	KegOnly      bool              `yaml:"keg_only,omitempty"`
+	KegOnly           bool                  `yaml:"keg_only,omitempty"`
 	// New schema fields
 	Bottle            map[string]BottleSpec `yaml:"bottle,omitempty"`
 	Source            SourceSpec            `yaml:"source,omitempty"`
 	BuildDependencies []string              `yaml:"build_dependencies,omitempty"`
-	LinuxDependencies []string              `yaml:"linux_dependencies,omitempty"`
-	Build             BuildSpec             `yaml:"build,omitempty"`
 	Service           *ServiceSpec          `yaml:"service,omitempty"`
 	Artifacts         ArtifactsSpec         `yaml:"artifacts,omitempty"`
+	Build             BuildSpec             `yaml:"build,omitempty"`
 
 	// Local fields (not in YAML)
 	Tap string `yaml:"-"`

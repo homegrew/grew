@@ -89,7 +89,6 @@ func UserPrefix() (string, error) {
 //
 //   - macOS ARM64 (Apple Silicon): /opt/homegrew
 //   - macOS AMD64 (Intel):         /usr/local/homegrew
-//   - Linux:                        /usr/local/homegrew
 func SystemPrefix() string {
 	if runtime.GOOS == "darwin" && runtime.GOARCH == "arm64" {
 		return "/opt/homegrew"

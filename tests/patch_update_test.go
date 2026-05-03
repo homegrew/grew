@@ -63,8 +63,6 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
-	case "linux":
-		osName = "Linux"
 	}
 	switch archName {
 	case "amd64":

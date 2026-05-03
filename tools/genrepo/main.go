@@ -18,7 +18,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 
@@ -267,20 +266,6 @@ func runFormulaImport(args []string) {
 					}
 				}
 			}
-		}
-
-		linuxDeps := map[string]bool{}
-		for _, d := range hf.Variations.LinuxAMD64.Dependencies {
-			linuxDeps[d] = true
-		}
-		for _, d := range hf.Variations.LinuxARM64.Dependencies {
-			linuxDeps[d] = true
-		}
-		if len(linuxDeps) > 0 {
-			for d := range linuxDeps {
-				f.LinuxDependencies = append(f.LinuxDependencies, d)
-			}
-			sort.Strings(f.LinuxDependencies)
 		}
 
 		outPath, err := safeJoinUnderBase(resolvedOutDir, hf.Name+".yaml")

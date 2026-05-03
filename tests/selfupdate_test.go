@@ -58,8 +58,6 @@ func setupMockGitHub(t *testing.T, version string) *httptest.Server {
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
-	case "linux":
-		osName = "Linux"
 	}
 	switch archName {
 	case "amd64":

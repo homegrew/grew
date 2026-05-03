@@ -313,7 +313,7 @@ func verifyBinaryIntegrity(binPath, expectedVersion string) error {
 	}
 
 	var out []byte
-	// Retry loop for ETXTBSY ("text file busy") which can happen on Linux
+	// Retry loop for ETXTBSY ("text file busy")
 	// if a background indexer/scanner briefly opens the newly written file.
 	for i := 0; i < 5; i++ {
 		cmd := sandbox.PostInstallCommand(cfg, binPath, "--version")

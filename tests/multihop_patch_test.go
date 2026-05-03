@@ -155,8 +155,6 @@ func normalizePlatformNames() (osName, archName string) {
 	switch osName {
 	case "darwin":
 		osName = "Darwin"
-	case "linux":
-		osName = "Linux"
 	}
 	switch archName {
 	case "amd64":

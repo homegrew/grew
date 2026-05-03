@@ -24,10 +24,8 @@ type BuildConfig struct {
 //     dyld shared cache, etc.).
 //   - Environment is scrubbed to essential build variables only.
 //
-// On macOS it uses sandbox-exec (Seatbelt). On Linux it uses a tiered
-// approach: bubblewrap (bwrap) for full namespace isolation, falling back
-// to unshare(1) for network+mount namespace isolation, and finally a
-// clean environment as a last resort.
+// On macOS it uses sandbox-exec (Seatbelt). On other platforms it falls back
+// to a clean environment.
 func Command(cfg BuildConfig, name string, args ...string) *exec.Cmd {
 	return platformCommand(cfg, name, args...)
 }
@@ -68,8 +66,8 @@ func ExtractCommand(cfg ExtractConfig, name string, args ...string) *exec.Cmd {
 	return platformExtractCommand(cfg, name, args...)
 }
 
-// IsSandboxed reports whether any form of functional sandboxing (Seatbelt,
-// bubblewrap, or unshare) is available and working on the current system.
+// IsSandboxed reports whether any form of functional sandboxing (Seatbelt)
+// is available and working on the current system.
 func IsSandboxed() bool {
 	return platformIsSandboxed()
 }

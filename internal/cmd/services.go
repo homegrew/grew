@@ -21,8 +21,7 @@ var ServicesCmd = &cobra.Command{
 	Use:   "services <subcommand> [arguments]",
 	Short: "Manage background services",
 	Long: `Manage background services for installed formulas. Services are
-registered with the platform init system (launchd on macOS,
-systemd --user on Linux) so they persist across reboots.
+registered with the platform init system (launchd) so they persist across reboots.
 
 Subcommands:
   list, ls              List all managed services and their status
@@ -37,7 +36,6 @@ The run command supports {prefix}, {opt}, and {cellar} placeholders
 that are expanded to the grew directory paths.
 
 On macOS, services are managed via launchctl (~/Library/LaunchAgents).
-On Linux, services are managed via systemd --user (~/.config/systemd/user).
 
 Examples:
   grew services list

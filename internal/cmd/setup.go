@@ -33,7 +33,6 @@ var SetupCmd = &cobra.Command{
 System prefix locations:
   macOS (Apple Silicon): /opt/homegrew
   macOS (Intel):         /usr/local/homegrew
-  Linux:                 /usr/local/homegrew
 
 The command:
   1. Creates the system prefix directory

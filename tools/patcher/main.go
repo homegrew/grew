@@ -26,8 +26,6 @@ type platform struct {
 var platforms = []platform{
 	{"Darwin", "x86_64"},
 	{"Darwin", "arm64"},
-	{"Linux", "x86_64"},
-	{"Linux", "arm64"},
 }
 
 func main() {
