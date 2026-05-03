@@ -10,8 +10,8 @@ import (
 
 // The AppleScript payload used to prompt for a password.
 const askPassScript = `#!/usr/bin/env osascript
-on run argv
-    set thePrompt to "grew requires elevated privileges to install a package.\\n\\n" & (item 1 of argv)
+on run
+    set thePrompt to "grew requires elevated privileges to install a package."
     try
         set theResult to display dialog thePrompt default answer "" with title "grew" with hidden answer
         return text returned of theResult
@@ -22,12 +22,12 @@ end run
 `
 
 // RunSudoCmd executes a command using sudo, prompting the user graphically on macOS if needed.
-func RunSudoCmd(args ...string) error {
-	if len(args) == 0 {
-		return fmt.Errorf("no command provided")
+func RunSudoCmd(executable string, args ...string) error {
+	if executable == "" {
+		return fmt.Errorf("no executable provided")
 	}
 
-	cmdArgs := []string{"-A"}
+	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
 	cmd := exec.Command("sudo", cmdArgs...)
 
@@ -49,7 +49,8 @@ func RunSudoCmd(args ...string) error {
 		cmd.Env = append(os.Environ(), fmt.Sprintf("SUDO_ASKPASS=%s", scriptPath))
 	} else {
 		// On non-macOS, fallback to standard terminal sudo behavior if possible
-		cmd = exec.Command("sudo", args...)
+		fallbackArgs := append([]string{"--", executable}, args...)
+		cmd = exec.Command("sudo", fallbackArgs...)
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
