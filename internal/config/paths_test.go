@@ -94,16 +94,127 @@ func TestIsDir(t *testing.T) {
 	}
 }
 
-func TestDefaultPrefix_InfersFromBinary(t *testing.T) {
-	// Simulate a grew prefix with the expected structure.
-	tmpDir := t.TempDir()
-	prefix := filepath.Join(tmpDir, "grew")
-	os.MkdirAll(filepath.Join(prefix, "bin"), 0755)
-	os.MkdirAll(filepath.Join(prefix, "Cellar"), 0755)
+func TestIsUnderRoot(t *testing.T) {
+	p := Paths{Root: "/opt/homegrew"}
+	tests := []struct {
+		path string
+		want bool
+	}{
+		{"/opt/homegrew/bin/grew", true},
+		{"/opt/homegrew", true},
+		{"/usr/local/bin", false},
+		{"/opt/homegrew/../other", false},
+		{"", false},
+	}
 
-	// The inference logic reads os.Executable(), which we can't fake here,
-	// but we can at least test that the Cellar marker check works.
-	if !IsDir(filepath.Join(prefix, "Cellar")) {
-		t.Fatal("setup failed")
+	for _, tt := range tests {
+		if got := p.IsUnderRoot(tt.path); got != tt.want {
+			t.Errorf("IsUnderRoot(%q) = %v, want %v", tt.path, got, tt.want)
+		}
 	}
 }
+
+func TestFromRoot_InvalidPaths(t *testing.T) {
+	// Relative path should be made absolute.
+	cwd, _ := os.Getwd()
+	p := FromRoot("myroot", "myapps", "mycache")
+	
+	if !filepath.IsAbs(p.Root) {
+		t.Errorf("Root should be absolute, got %q", p.Root)
+	}
+	if p.Root != filepath.Join(cwd, "myroot") {
+		t.Errorf("Root mismatch: got %q, want %q", p.Root, filepath.Join(cwd, "myroot"))
+	}
+
+	// The root path "/" is rejected by SafeAbsolutePath, triggering fallback.
+	p2 := FromRoot("/", "apps", "cache")
+	if !strings.Contains(p2.Root, "homegrew") {
+		t.Errorf("Expected fallback for illegal root, got %q", p2.Root)
+	}
+}
+
+func TestSystemPrefix(t *testing.T) {
+	p := systemPrefix()
+	if p == "" {
+		t.Fatal("systemPrefix returned empty string")
+	}
+	if !strings.Contains(p, "homegrew") {
+		t.Errorf("systemPrefix %q doesn't contain homegrew", p)
+	}
+}
+
+func TestDefault_EnvOverrides(t *testing.T) {
+	tmpDir := t.TempDir()
+	appDir := filepath.Join(tmpDir, "Apps")
+	cacheDir := filepath.Join(tmpDir, "Cache")
+	
+	t.Setenv("HOMEGREW_APPDIR", appDir)
+	t.Setenv("HOMEGREW_CACHE", cacheDir)
+	
+	paths := Default()
+	if paths.AppDir != appDir {
+		t.Errorf("AppDir override failed: got %q, want %q", paths.AppDir, appDir)
+	}
+	if paths.Cache != cacheDir {
+		t.Errorf("Cache override failed: got %q, want %q", paths.Cache, cacheDir)
+	}
+}
+
+func TestInit_OutsideRoot(t *testing.T) {
+	tmpDir := t.TempDir()
+	root := filepath.Join(tmpDir, "root")
+	// Attempt to set a path outside the root.
+	paths := FromRoot(root, "/tmp/illegal-apps", "/tmp/illegal-cache")
+	
+	// Paths.Init should allow AppDir and Cache outside root, but let's test a case that shouldn't be allowed
+	// Actually Init hardcodes which ones to check.
+	
+	// Manually corrupt a path to be outside root but not in the allowed list (AppDir/Cache)
+	paths.Bin = "/usr/bin" 
+	
+	err := paths.Init()
+	if err == nil {
+		t.Error("Expected error when initializing path outside root")
+	}
+}
+
+func TestDefaultPrefix_InvalidEnv(t *testing.T) {
+	// Root "/" is invalid according to SafeAbsolutePath.
+	t.Setenv("HOMEGREW_PREFIX", "/")
+	p := DefaultPrefix()
+	if strings.HasSuffix(p, "/") {
+		t.Errorf("DefaultPrefix() returned invalid root %q", p)
+	}
+}
+
+func TestFromRoot_Fallbacks(t *testing.T) {
+	// Test fallback for invalid AppDir and CacheDir
+	// "/" is rejected by SafeAbsolutePath
+	p := FromRoot("/opt/homegrew", "/", "/")
+	
+	if !strings.HasSuffix(p.AppDir, "Applications") {
+		t.Errorf("AppDir fallback failed: %q", p.AppDir)
+	}
+	if !strings.Contains(p.Cache, "homegrew") {
+		t.Errorf("Cache fallback failed: %q", p.Cache)
+	}
+}
+
+func TestDefault_InvalidAppDirEnv(t *testing.T) {
+	// "/" is rejected by SafeAbsolutePath
+	t.Setenv("HOMEGREW_APPDIR", "/")
+	paths := Default()
+	if !strings.HasSuffix(paths.AppDir, "Applications") {
+		t.Errorf("AppDir env fallback failed: %q", paths.AppDir)
+	}
+}
+
+func TestIsDir_Invalid(t *testing.T) {
+	if IsDir("") {
+		t.Error("IsDir(\"\") should be false")
+	}
+	if IsDir("/../../invalid") {
+		t.Error("IsDir with unsafe path should be false")
+	}
+}
+
