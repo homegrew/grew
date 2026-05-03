@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -101,7 +102,7 @@ Examples:
 
 		// Remove unsupported share directories if they exist from a prior run.
 		// Use only the system prefix as trusted base to avoid user-controlled path influence.
-		if trustedSystemRoot, trustedSystemErr := canonicalPath(config.SystemPrefix()); trustedSystemErr == nil {
+		if trustedSystemRoot, trustedSystemErr := canonicalPath(runtime.SystemPrefix()); trustedSystemErr == nil {
 			if rootCanonical, err := canonicalPath(paths.Root); err == nil && rootCanonical == trustedSystemRoot {
 				sharePath := filepath.Join(trustedSystemRoot, "share")
 				manPath := filepath.Join(sharePath, "man")
