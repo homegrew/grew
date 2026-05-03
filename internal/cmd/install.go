@@ -955,7 +955,6 @@ func finalizeInstall(f *formula.Formula, ctx *installContext, opts finalizeOpts)
 
 func runPostInstall(f *formula.Formula, kegPath string, skipPostInstall bool) error {
 	slog.Debug("starting postinstall command execution")
-	slog.Debug("starting postinstall command execution")
 	if f.PostInstall == "" {
 		return nil
 	}
