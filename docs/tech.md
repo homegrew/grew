@@ -90,7 +90,7 @@ The diagnostic system is designed with modularity and extensibility in mind:
 - **Platform-Specific Extensions:** The system uses `init()` functions to register platform-specific checks into an `ExtraChecks` slice. For example, on macOS, `doctor_darwin.go` injects checks that verify:
     - **App Sandbox:** Ensures installed casks possess the `com.apple.security.app-sandbox` entitlement.
     - **Notarization:** Uses `spctl` to verify that applications pass Gatekeeper assessment.
-    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr`.
+    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr` (though `grew` applies these attributes and manages uninstallation trashing natively using embedded Swift scripts to ensure proper LaunchServices registration).
 
 This architecture allows developers to easily add new checks without modifying the core execution flow, ensuring `grew` can continuously expand its health and security validations.
 
