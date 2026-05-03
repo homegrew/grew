@@ -44,6 +44,10 @@ Examples:
 			return err
 		}
 
+		if !paths.IsUnderRoot(paths.Share) || paths.Share == paths.Root {
+			return fmt.Errorf("refusing to remove share outside root: root=%q share=%q", paths.Root, paths.Share)
+		}
+
 		// Remove unsupported share directories if they exist from a prior run
 		importPath := filepath.Join(paths.Share, "man")
 		_ = os.RemoveAll(importPath)
