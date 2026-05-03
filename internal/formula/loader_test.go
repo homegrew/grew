@@ -44,6 +44,9 @@ func TestLoadByName_Found(t *testing.T) {
 	if f.Name != "mypkg" {
 		t.Errorf("name = %q, want %q", f.Name, "mypkg")
 	}
+	if f.Tap != "homegrew/homegrew-taps" {
+		t.Errorf("tap = %q, want %q", f.Tap, "homegrew/homegrew-taps")
+	}
 }
 
 func TestLoadByName_NotFound(t *testing.T) {

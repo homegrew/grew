@@ -123,7 +123,6 @@ func (m *Manager) Update() (int, int, error) {
 				continue
 			}
 
-			tapsCount++
 			fmt.Printf("==> Updating tap %s/%s...\n", user.Name(), repo.Name())
 			fetch := exec.Command("git", "fetch", "--depth", "1", "--", "origin")
 			fetch.Dir = repoPath
@@ -147,7 +146,12 @@ func (m *Manager) Update() (int, int, error) {
 				continue
 			}
 
-			_ = CheckAfterUpdate(repoPath, TapVerifyMode())
+			if err := CheckAfterUpdate(repoPath, TapVerifyMode()); err != nil {
+				fmt.Fprintf(os.Stderr, "warn: verification failed for tap %s/%s: %v\n", user.Name(), repo.Name(), err)
+				continue
+			}
+
+			tapsCount++
 
 			// Count formulas in this tap
 			for _, sub := range []string{"", "core", "Formula", "cask", "Casks"} {
@@ -195,6 +199,10 @@ func (m *Manager) Add(name, customURL string) error {
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("clone tap: %w", err)
+	}
+
+	if err := CheckAfterUpdate(repoPath, TapVerifyMode()); err != nil {
+		return fmt.Errorf("verify tap: %w", err)
 	}
 
 	return nil

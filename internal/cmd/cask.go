@@ -325,12 +325,18 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	}
 
 	// Install .pkg artifacts
+	var installedPkgs []string
 	for _, pkgName := range c.Artifacts.Pkg {
 		if err := inst.InstallPkg(stageDir, pkgName); err != nil {
+			// Rollback installed pkgs
+			for _, p := range installedPkgs {
+				_ = inst.UninstallPkg(p)
+			}
 			os.RemoveAll(stageDir)
 			_ = removeIfWithin(localFile, paths.Tmp)
 			return fmt.Errorf("install artifact %s: %w", pkgName, err)
 		}
+		installedPkgs = append(installedPkgs, pkgName)
 	}
 
 	// Link bin artifacts
@@ -389,7 +395,13 @@ func caskUninstall(name string, force bool) error {
 		}
 		// Warn about .pkg artifacts
 		for _, pkgName := range c.Artifacts.Pkg {
-			_ = inst.UninstallPkg(pkgName)
+			if err := inst.UninstallPkg(pkgName); err != nil {
+				if force {
+					slog.Warn(fmt.Sprintf("ignoring error while uninstallation of %s: %v", pkgName, err))
+				} else {
+					return fmt.Errorf("could not uninstall .pkg artifact %s: %w", pkgName, err)
+				}
+			}
 		}
 		for _, binName := range c.Artifacts.Bin {
 			if err := inst.UnlinkBin(binName); err != nil {

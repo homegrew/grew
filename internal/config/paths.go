@@ -306,7 +306,7 @@ func (p Paths) Init() error {
 
 	dirs := []string{
 		p.Root, p.Cellar, p.Opt, p.Bin, p.Sbin, p.Lib,
-		p.Include, p.Taps, p.CoreTap, p.CaskTap,
+		p.Include, p.Taps,
 		p.Caskroom, p.AppDir, p.Cache, p.Tmp, p.Log, // p.GitRepo must not be created, p.Share must not be created
 	}
 	for _, d := range dirs {

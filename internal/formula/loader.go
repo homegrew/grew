@@ -89,7 +89,11 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], formulaName+".yaml"))
 			}
 		}
+		
+		// Standard layouts
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "core", formulaName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Formula", formulaName+".yaml")...)...))
 
 		for _, path := range paths {
 			f, err := l.loadFromFile(path)
