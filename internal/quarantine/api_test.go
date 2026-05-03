@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -32,7 +33,7 @@ func TestApply_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read quarantine attribute: %v (output: %s)", err, out)
 	}
-	
+
 	// The value should look something like: 0081;...;grew;
 	val := string(out)
 	if !strings.Contains(val, "grew") {
@@ -62,7 +63,7 @@ func TestTrash_InvalidPath(t *testing.T) {
 
 func TestTrash_Success(t *testing.T) {
 	tmpDir := t.TempDir()
-	
+
 	// Create a couple of files to trash
 	file1 := filepath.Join(tmpDir, "trash1.txt")
 	file2 := filepath.Join(tmpDir, "trash2.txt")
