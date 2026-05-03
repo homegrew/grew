@@ -27,7 +27,7 @@ func RunSudoCmd(args ...string) error {
 		return fmt.Errorf("no command provided")
 	}
 
-	cmdArgs := []string{"-A"}
+	cmdArgs := []string{"-A", "--"}
 	cmdArgs = append(cmdArgs, args...)
 	cmd := exec.Command("sudo", cmdArgs...)
 
@@ -49,7 +49,8 @@ func RunSudoCmd(args ...string) error {
 		cmd.Env = append(os.Environ(), fmt.Sprintf("SUDO_ASKPASS=%s", scriptPath))
 	} else {
 		// On non-macOS, fallback to standard terminal sudo behavior if possible
-		cmd = exec.Command("sudo", args...)
+		fallbackArgs := append([]string{"--"}, args...)
+		cmd = exec.Command("sudo", fallbackArgs...)
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
