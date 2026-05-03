@@ -17,6 +17,7 @@ type BottleSpec struct {
 	URL       string `yaml:"url,omitempty"`
 	SHA256    string `yaml:"sha256,omitempty"`
 	SHA512    string `yaml:"sha512,omitempty"`
+	Cellar    string `yaml:"cellar,omitempty"`
 	Signature string `yaml:"signature,omitempty"`
 }
 

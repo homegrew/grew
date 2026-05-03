@@ -196,6 +196,7 @@ func runFormulaImport(args []string) {
 					bottleMap[pm.key] = formula.BottleSpec{
 						URL:    f.URL,
 						SHA256: f.SHA256,
+						Cellar: f.Cellar,
 					}
 					break
 				}
