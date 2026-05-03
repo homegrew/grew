@@ -16,17 +16,17 @@
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
 - ⚡ **Multi-hop binary delta updates** — `selfupdate` uses `bspatch` to seamlessly apply sequences of intermediate patches to reach the latest version, saving bandwidth, with an automated CI `patcher` tool for releases
 - 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
-- 🔒 **Sandboxed source builds** using macOS Seatbelt or Linux namespaces to keep your system safe
+- 🔒 **Sandboxed source builds** using macOS Seatbelt to keep your system safe
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)
 - ✍️ **Ed25519 bottle signing** — cryptographic signatures on downloads, verified against a local trust store
 - 🏷️ **Signed tap verification** — refuse or warn on unsigned git commits in tap repos (`HOMEGREW_TAP_VERIFY`)
 - 📋 **Install snapshots** — per-file SHA256 manifests recorded at install time for integrity verification
 - 📌 **Lockfile** — pin exact versions, hashes, and dependency trees for reproducible environments
 - 🔗 **Deterministic linking** with opt symlinks and dry-run support (look before you link)
-- 🔄 **Keg relocation** — rewrites hardcoded library paths in bottles at install time via `install_name_tool` (macOS) and `patchelf` (Linux), so binaries just work without `DYLD_LIBRARY_PATH` hacks
+- 🔄 **Keg relocation** — rewrites hardcoded library paths in bottles at install time via `install_name_tool`, so binaries just work without `DYLD_LIBRARY_PATH` hacks
 - 🌳 **Dependency resolver** with an optional tree view (for the visually inclined)
 - 🩺 **Doctor** that checks perms, HTTPS, broken links, snapshot integrity, stale kegs, and cask notarization
-- 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation, systemd specifier escaping
+- 🛡️ **Hardened command execution** — `--` end-of-options on all external commands, shell-free namespace setup with positional parameters, XML-safe plist generation
 - 🧱 **Zip Slip protection** — archive extraction validates symlink indirection to prevent writes outside the destination
 - 🔍 **Vulnerability scanning** — queries OSV.dev for known CVEs, checks signatures, permissions, and file integrity
 - 🪵 **Structured logging** via `log/slog` with CLI-friendly output (DEBUG/INFO/WARN/ERROR levels, `-v`/`-d`/`-q` flags). Debug logs include source file and line number context.
@@ -59,7 +59,7 @@ make build          # or: go generate ./internal/... && go build -o grew
 grew needs a home — a directory tree for the Cellar, symlinks, taps, and config. The `setup` command creates it and copies the binary into place:
 
 ```bash
-sudo ./grew setup   # macOS ARM → /opt/homegrew, Intel/Linux → /usr/local/homegrew
+sudo ./grew setup   # macOS ARM → /opt/homegrew, Intel → /usr/local/homegrew
 ```
 
 The system prefix isolates sandboxed builds from `$HOME`, preventing them from reaching `~/.ssh`, `~/.gnupg`, or other sensitive dotfiles. After setup, ownership is transferred to your user — no root needed at runtime.
@@ -109,7 +109,7 @@ for c in $(grew list --cask | awk '{print $1}'); do grew uninstall --cask $c; do
     ```bash
     sudo rm -rf /opt/homegrew
     ```
-*   **macOS (Intel) & Linux:**
+*   **macOS (Intel):**
     ```bash
     sudo rm -rf /usr/local/homegrew
     ```
@@ -157,7 +157,7 @@ grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
 grew --cache                 # show download cache
 grew --cache jq              # show cache path for jq
-grew --cache --os=linux jq   # show cache path for a different OS
+grew --cache --os=darwin jq   # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
 ```
 
@@ -216,7 +216,7 @@ grew keeps its stuff tidy under one roof. Tweak it with env vars:
 Everything else flows from the prefix:
 
 ```
-/opt/homegrew/              (or /usr/local/homegrew on Intel/Linux)
+/opt/homegrew/              (or /usr/local/homegrew on Intel)
 ├── Cellar/        ← installed packages (each keg has a .MANIFEST.json)
 ├── Taps/          ← formula definitions (git-cloned or API-fetched)
 ├── bin/           ← symlinked binaries
@@ -267,10 +267,10 @@ grew/
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── linker/       ← deterministic symlink management
 │   ├── lockfile/     ← reproducible environment pinning
-│   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool/patchelf)
+│   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool)
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
-│   ├── sandbox/      ← build + post-install sandboxing (macOS/Linux, shell-safe quoting)
-│   ├── service/      ← background service management (launchd/systemd, properly escaped)
+│   ├── sandbox/      ← build + post-install sandboxing (macOS, shell-safe quoting)
+│   ├── service/      ← background service management (launchd, properly escaped)
 │   ├── signing/      ← Ed25519 bottle signing + trust store
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
 │   ├── tap/          ← tap repo management + commit verification
@@ -295,7 +295,7 @@ grew is designed to be more secure than Homebrew out of the box:
 | **Bottle signing** | Ed25519 signatures verified against local trust store | None — relies on HTTPS + SHA256 only |
 | **Tap verification** | Optional GPG/SSH commit signature enforcement | None |
 | **Post-install sandbox** | Read-only keg, no network, minimal env | Unsandboxed |
-| **Source build sandbox** | macOS Seatbelt / Linux bwrap+unshare, no network | macOS Seatbelt only, no Linux |
+| **Source build sandbox** | macOS Seatbelt, no network | macOS Seatbelt only |
 | **Install manifests** | Per-file SHA256 snapshot at install time | None |
 | **Lockfile** | Full dependency tree with hashes | None |
 | **Integrity check** | `grew verify` + `grew doctor` snapshot check | None |
