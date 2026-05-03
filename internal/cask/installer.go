@@ -3,14 +3,14 @@ package cask
 import (
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/internal/sudo"
 	"github.com/homegrew/grew/pkg/safepath"
-	"github.com/homegrew/grew/pkg/validation"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 // Installer handles placing cask artifacts into their destinations.
@@ -115,12 +115,8 @@ func (inst *Installer) InstallPkg(stageDir, pkgName string) error {
 		return fmt.Errorf("pkg %s resolves outside staging directory: %s", pkgName, realSrc)
 	}
 
-	// Use sudo installer -pkg <pkg> -target /
-	ui.FprintArrow(os.Stderr, "Running installer for %s (requires sudo)", pkgName)
-	cmd := exec.Command("sudo", "/usr/sbin/installer", "-pkg", realSrc, "-target", "/")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	return cmd.Run()
+	ui.FprintArrow(os.Stderr, "Running installer for %s (may prompt for password)", pkgName)
+	return sudo.RunSudoCmd("/usr/sbin/installer", "-pkg", realSrc, "-target", "/")
 }
 
 // UninstallPkg returns an error as macOS packages are hard to uninstall cleanly.
