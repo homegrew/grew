@@ -19,6 +19,7 @@ import (
 	"github.com/homegrew/grew/internal/release"
 	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/sudo"
+	verpkg "github.com/homegrew/grew/internal/version"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
@@ -27,6 +28,7 @@ import (
 var (
 	setupForce  bool
 	setupDryRun bool
+	setupUnsafe bool
 )
 
 var Command = &cobra.Command{
@@ -51,12 +53,20 @@ automatically — no HOMEGREW_PREFIX env var needed.
 Security: a system prefix isolates builds from $HOME, preventing
 sandboxed formulas from accessing ~/.ssh, ~/.gnupg, etc.
 
+Developer mode: builds compiled with -tags devmode can install to
+~/.homegrew by passing --unsafe:
+  grew setup --unsafe
+
 Examples:
   grew setup
   grew setup --dry-run
   grew setup --force`,
 	RunE: func(c *cobra.Command, args []string) error {
 		slog.Debug("starting setup command execution")
+
+		// Set the unsafe flag on the runtime before Init so it can allow
+		// non-root operation in devmode builds.
+		grewrt.Unsafe = setupUnsafe
 
 		if err := grewrt.Init(); err != nil {
 			return fmt.Errorf("initializing runtime environment: %w", err)
@@ -83,7 +93,7 @@ Examples:
 			return setupSystem(prefix)
 		}
 		
-		// Otherwise (e.g. user prefix), just finish setup.
+		// Otherwise (e.g. user prefix via --unsafe), just finish setup.
 		return setupUser(prefix)
 	},
 }
@@ -91,6 +101,7 @@ Examples:
 func init() {
 	Command.Flags().BoolVarP(&setupForce, "force", "f", false, "Re-run setup even if already set up")
 	Command.Flags().BoolVarP(&setupDryRun, "dry-run", "n", false, "Show what would be done without making changes")
+	Command.Flags().BoolVar(&setupUnsafe, "unsafe", false, "Install grew from source (clones repo, requires git/go)")
 }
 
 // runSetupDryRun prints what setup would do without making any changes.
@@ -145,10 +156,16 @@ func runSetupDryRun(prefix string, isRoot bool) error {
 		fmt.Printf("[dry-run]   %-10s %s (%s)\n", dir.name, dir.path, status)
 	}
 
+	repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 
 	fmt.Println()
-	fmt.Printf("[dry-run] Download latest release and install binary to %s\n", destBin)
+	if setupUnsafe {
+		fmt.Printf("[dry-run] Clone grew repo: %s -> %s\n", grewRepoURL, repoDir)
+		fmt.Printf("[dry-run] Build from source: go build -o %s\n", destBin)
+	} else {
+		fmt.Printf("[dry-run] Download latest release and install binary to %s\n", destBin)
+	}
 
 	fmt.Println()
 	fmt.Println("[dry-run] After setup, add to your shell profile:")
@@ -241,9 +258,9 @@ func validIdentity(s string) bool {
 	return identityPattern.MatchString(s)
 }
 
-// setupUser installs grew to ~/.homegrew.
+// setupUser installs grew to ~/.homegrew (devmode only, no root needed).
 func setupUser(prefix string) error {
-	ui.FprintArrow(os.Stderr, "Setting up grew at %s (user prefix)", prefix)
+	ui.FprintArrow(os.Stderr, "Setting up grew at %s (user prefix, devmode)", prefix)
 	fmt.Println()
 	fmt.Println("Tip: run 'grew setup' to install to", grewrt.SystemPrefix(),
 		"for better isolation from $HOME.")
@@ -271,9 +288,17 @@ func finishSetup(prefix string) error {
 
 	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
 
-	// Mandatory binary install.
-	if err := installBinary(destBin, prefix); err != nil {
-		return fmt.Errorf("install binary release: %w", err)
+	if setupUnsafe {
+		// Install from source via git clone + go build.
+		repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
+		if err := installFromGit(repoDir, destBin, true); err != nil {
+			return fmt.Errorf("install from source: %w", err)
+		}
+	} else {
+		// Mandatory binary install.
+		if err := installBinary(destBin, prefix); err != nil {
+			return fmt.Errorf("install binary release: %w", err)
+		}
 	}
 
 	fmt.Println()
@@ -308,6 +333,66 @@ func installBinary(destBin, prefix string) error {
 }
 
 var ErrNoGitRepo = errors.New("no git repository found")
+
+// installFromGit clones the grew repository and builds the binary from source.
+// If the repo already exists, it pulls the latest changes instead.
+func installFromGit(repoDir, destBin string, allowClone bool) error {
+	if err := pathutil.SafeAbsolutePath(repoDir); err != nil {
+		return fmt.Errorf("invalid repository directory: %w", err)
+	}
+	if err := pathutil.SafeAbsolutePath(destBin); err != nil {
+		return fmt.Errorf("invalid destination binary path: %w", err)
+	}
+
+	cleanRepoDir := repoDir // already validated as clean
+
+	gitPath, err := exec.LookPath("git")
+	if err != nil {
+		return fmt.Errorf("git not found in PATH")
+	}
+	goPath, err := exec.LookPath("go")
+	if err != nil {
+		return fmt.Errorf("go not found in PATH")
+	}
+
+	gitDir := filepath.Clean(filepath.Join(cleanRepoDir, ".git"))
+	if _, err := os.Stat(gitDir); err == nil {
+		// Repo exists — pull latest.
+		fmt.Fprintln(os.Stderr, "==> Updating grew source...")
+		pull := exec.Command(gitPath, "pull", "--ff-only")
+		pull.Dir = cleanRepoDir
+		pull.Stdout = os.Stdout
+		pull.Stderr = os.Stderr
+		if err := pull.Run(); err != nil {
+			return fmt.Errorf("git pull: %w", err)
+		}
+	} else {
+		if !allowClone {
+			return ErrNoGitRepo
+		}
+		// Clone fresh.
+		ui.FprintArrow(os.Stderr, "Cloning grew from %s", grewRepoURL)
+		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
+		clone.Stdout = os.Stdout
+		clone.Stderr = os.Stderr
+		if err := clone.Run(); err != nil {
+			return fmt.Errorf("git clone: %w", err)
+		}
+	}
+
+	// Generate version and build.
+	fmt.Fprintln(os.Stderr, "==> Building grew from source...")
+	build := exec.Command(goPath, "build", "-o", destBin, "-trimpath", "-ldflags", fmt.Sprintf("-s -w -X main.version=%s", verpkg.Version()), ".")
+	build.Dir = cleanRepoDir
+	build.Stdout = os.Stdout
+	build.Stderr = os.Stderr
+	if err := build.Run(); err != nil {
+		return fmt.Errorf("go build: %w", err)
+	}
+
+	ui.FprintArrow(os.Stderr, "Built and installed grew to %s", destBin)
+	return nil
+}
 
 func copyFile(src, dst string) error {
 	if err := pathutil.SafeAbsolutePath(dst); err != nil {
