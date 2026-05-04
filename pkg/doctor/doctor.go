@@ -153,7 +153,7 @@ func CheckDirectoryPermissions(ctx *Context) {
 			ctx.Warn("directory %s is world-writable (%o), this is a security risk", dir, perm)
 		}
 		if perm&0020 != 0 {
-			slog.Info(fmt.Sprintf("note: %s is group-writable (%o)", dir, perm))
+			slog.Info("note: directory is group-writable", "dir", dir, "perm", fmt.Sprintf("%o", perm))
 		}
 	}
 }
