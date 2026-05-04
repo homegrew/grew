@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"runtime"
+	"path/filepath"
 	"strings"
 
+	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/formula"
 )
 
