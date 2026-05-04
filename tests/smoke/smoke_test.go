@@ -67,6 +67,7 @@ func TestSmoke_List(t *testing.T) {
 }
 
 func TestSmoke_Doctor(t *testing.T) {
+	t.Parallel()
 	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "dr")
