@@ -177,15 +177,28 @@ func (l *Loader) debugf(format string, args ...any) {
 	}
 }
 
+func getSubdir(name string) string {
+	if len(name) == 0 {
+		return "other"
+	}
+	firstChar := strings.ToLower(string(name[0]))
+	if firstChar >= "a" && firstChar <= "z" {
+		return firstChar
+	}
+	return "numeric"
+}
+
 func (l *Loader) LoadByName(name string) (*Cask, error) {
 	l.debugf("loading cask by name: %q (tapDir: %s)", name, l.TapDir)
 	name = strings.TrimSuffix(name, ".yaml")
+	subdir := getSubdir(name)
 
 	// Handle tap-qualified names (e.g., "user/repo/name" or "cask/name")
 	if strings.Contains(name, "/") {
 		parts := strings.Split(name, "/")
 		caskName := parts[len(parts)-1]
 		tapPath := parts[:len(parts)-1]
+		subdir = getSubdir(caskName)
 
 		// Validate components
 		if err := safepath.SafePathComponent(caskName + ".yaml"); err != nil {
@@ -203,14 +216,18 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 			if tapPath[0] == "core" || tapPath[0] == "cask" {
 				// Redirect cask/foo to homegrew/homegrew-taps/cask/foo
 				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], caskName+".yaml"))
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], subdir, caskName+".yaml"))
 				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", "Casks", caskName+".yaml"))
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", "Casks", subdir, caskName+".yaml"))
 			}
 		}
-		
+
 		// Standard layouts
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", caskName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "cask", subdir, caskName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", caskName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Casks", subdir, caskName+".yaml")...)...))
 
 		for _, path := range paths {
 			c, err := l.loadFromFileWithPath(path)
@@ -261,7 +278,9 @@ func (l *Loader) LoadByName(name string) (*Cask, error) {
 			paths := []string{
 				filepath.Join(repoDir, name+".yaml"),
 				filepath.Join(repoDir, "cask", name+".yaml"),
+				filepath.Join(repoDir, "cask", subdir, name+".yaml"),
 				filepath.Join(repoDir, "Casks", name+".yaml"),
+				filepath.Join(repoDir, "Casks", subdir, name+".yaml"),
 			}
 
 			for _, path := range paths {

@@ -62,14 +62,27 @@ func (l *Loader) safeTapPath(p string) (string, error) {
 	return resolved, nil
 }
 
+func getSubdir(name string) string {
+	if len(name) == 0 {
+		return "other"
+	}
+	firstChar := strings.ToLower(string(name[0]))
+	if firstChar >= "a" && firstChar <= "z" {
+		return firstChar
+	}
+	return "numeric"
+}
+
 func (l *Loader) LoadByName(name string) (*Formula, error) {
 	name = strings.TrimSuffix(name, ".yaml")
+	subdir := getSubdir(name)
 
 	// Handle tap-qualified names (e.g., "user/repo/name" or "core/name")
 	if strings.Contains(name, "/") {
 		parts := strings.Split(name, "/")
 		formulaName := parts[len(parts)-1]
 		tapPath := parts[:len(parts)-1]
+		subdir = getSubdir(formulaName)
 
 		// Validate components
 		if err := safepath.SafePathComponent(formulaName + ".yaml"); err != nil {
@@ -87,13 +100,16 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 			if tapPath[0] == "core" || tapPath[0] == "cask" {
 				// Redirect core/foo to homegrew/homegrew-taps/core/foo
 				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], formulaName+".yaml"))
+				paths = append(paths, filepath.Join(l.TapDir, "homegrew", "homegrew-taps", tapPath[0], subdir, formulaName+".yaml"))
 			}
 		}
-		
+
 		// Standard layouts
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, formulaName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "core", formulaName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "core", subdir, formulaName+".yaml")...)...))
 		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Formula", formulaName+".yaml")...)...))
+		paths = append(paths, filepath.Join(append([]string{l.TapDir}, append(tapPath, "Formula", subdir, formulaName+".yaml")...)...))
 
 		for _, path := range paths {
 			f, err := l.loadFromFile(path)
@@ -136,7 +152,9 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 			searchPaths := []string{
 				filepath.Join(l.TapDir, user.Name(), repo.Name(), name+".yaml"),
 				filepath.Join(l.TapDir, user.Name(), repo.Name(), "core", name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "core", subdir, name+".yaml"),
 				filepath.Join(l.TapDir, user.Name(), repo.Name(), "Formula", name+".yaml"),
+				filepath.Join(l.TapDir, user.Name(), repo.Name(), "Formula", subdir, name+".yaml"),
 			}
 
 			for _, path := range searchPaths {
@@ -155,7 +173,6 @@ func (l *Loader) LoadByName(name string) (*Formula, error) {
 	}
 	return nil, fmt.Errorf("formula not found: %q", name)
 }
-
 func (l *Loader) LoadAll() ([]*Formula, error) {
 	var formulas []*Formula
 
