@@ -1,14 +1,13 @@
-//go:build smoke
-
 package smoke
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 func TestSmoke_Version(t *testing.T) {

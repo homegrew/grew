@@ -42,17 +42,17 @@ test-integration:
 
 .PHONY: test-smoke
 test-smoke:
-	$(GO) test -tags "smoke" -v ./tests/smoke/...
+	$(GO) test -v ./tests/smoke/...
 
 .PHONY: test-e2e
 test-e2e:
-	$(GO) test -tags "devmode,e2e" -v ./tests/e2e/... -run TestLiveEndToEnd
+	$(GO) test -tags "devmode" -v ./tests/e2e/... -run TestLiveEndToEnd
 
 .PHONY: test-integration-coverage
 test-integration-coverage:
 	@mkdir -p coverage/raw
 	@rm -rf coverage/raw/*
-	GOCOVERDIR=$(shell pwd)/coverage/raw $(GO) test -tags "devmode" -cover -coverpkg=./... -count=1 ./tests/integration/...
+	GOCOVERDIR=$(shell pwd)/coverage/raw $(GO) test -tags "devmode" -cover -coverpkg=./... -count=1 ./tests/integration
 
 	$(GO) tool covdata textfmt -i=coverage/raw -o coverage_integration.txt
 	@rm -rf coverage/raw
