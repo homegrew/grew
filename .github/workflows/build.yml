@@ -22,7 +22,7 @@ jobs:
         with:
           go-version: stable
           cache: true
-      - run: go build ./...
+      - run: go build
       - run: mkdir -p coverageFiles coverageRaw
       - name: Run unit tests with coverage
         run: |

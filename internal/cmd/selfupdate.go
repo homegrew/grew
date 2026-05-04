@@ -1,10 +1,8 @@
-package installer
+package cmd
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
+	"errors"
 	"fmt"
-	"io"
 	"log/slog"
 	"os"
 	"os/exec"
@@ -15,12 +13,15 @@ import (
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/installer"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 )
-func RunSelfUpdate(_ []string) error {
+
+func runSelfUpdate(_ []string) error {
 	slog.Debug("starting selfupdate command execution")
 	exePath, err := os.Executable()
 	if err != nil {
@@ -56,7 +57,7 @@ func RunSelfUpdate(_ []string) error {
 		}
 
 		// 1. Always try to update by patch release first.
-		if patchErr := TryPatchUpdate(exePath, rels); patchErr == nil {
+		if patchErr := tryPatchUpdate(exePath, rels); patchErr == nil {
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
 			return nil
 		} else {
@@ -65,7 +66,7 @@ func RunSelfUpdate(_ []string) error {
 	}
 
 	// 2. Alternatively, fall back to compile via git if repo is present (source installation).
-	updated, err := SelfUpdateFromGit(exePath)
+	updated, err := selfUpdateFromGit(exePath)
 	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to update grew from git: %v", err))
 	} else if updated {
@@ -78,18 +79,14 @@ func RunSelfUpdate(_ []string) error {
 
 	// 3. Fall back to full release download
 	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
-	err = InstallLatestRelease(exePath, &rels[0])
+	err = installer.InstallLatestRelease(exePath, &rels[0])
 	if err != nil {
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rels[0].TagName, "", fmt.Sprintf("failed: %v", err))
 	}
 	return err
 }
 
-
-
-// SelfUpdateFromRelease downloads the latest stable release from GitHub,
-// verifies its checksum, and replaces the running binary.
-func SelfUpdateFromRelease(exePath string) error {
+func selfUpdateFromRelease(exePath string) error {
 	rels, err := release.FetchRecent(10)
 	if err != nil {
 		return err
@@ -99,90 +96,43 @@ func SelfUpdateFromRelease(exePath string) error {
 	}
 
 	// Try patch update first.
-	if err := TryPatchUpdate(exePath, rels); err == nil {
+	if err := tryPatchUpdate(exePath, rels); err == nil {
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "patch")
 		return nil
 	}
 
 	slog.Info("binary patch update not available or failed; falling back to full download")
-	return InstallLatestRelease(exePath, &rels[0])
+	return installer.InstallLatestRelease(exePath, &rels[0])
 }
 
+func selfUpdateFromGit(exePath string) (bool, error) {
+	prefix := config.DefaultPrefix()
+	repoDir := filepath.Join(prefix, "Grew")
+	destBin := filepath.Join(prefix, "bin", "grew")
 
-// VerifyBinaryIntegrity re-execs the newly installed binary with --version
-// and checks that it runs successfully and reports the expected version.
-// If expectedVersion is empty, only checks that the binary executes.
-
-// FileHashes computes both hex-encoded SHA-256 and SHA-512 hashes of a file in a single pass.
-
-// fileSHA256 computes the hex-encoded SHA-256 hash of a file.
-func fileSHA256(path string) (string, error) {
-	f, err := os.Open(path)
+	var err error
+	destBin, err = ensurePathWithinBase(prefix, destBin)
 	if err != nil {
-		return "", err
+		return false, fmt.Errorf("invalid destination binary path: %w", err)
 	}
-	defer f.Close()
-	h := sha256.New()
-	if _, err := io.Copy(h, f); err != nil {
-		return "", err
+
+	if err := installer.InstallFromGit(grewRepoURL, repoDir, destBin, false); err != nil {
+		if errors.Is(err, installer.ErrNoGitRepo) {
+			slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
+			return false, nil
+		}
+		return false, err
 	}
-	return hex.EncodeToString(h.Sum(nil)), nil
+
+	if err := installer.VerifyBinaryIntegrity(destBin, ""); err != nil {
+		return true, fmt.Errorf("integrity check failed after source update: %w", err)
+	}
+
+	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
+	return true, nil
 }
 
-type patchStep struct {
-	url       string
-	name      string
-	toVersion string
-	release   *release.Release
-}
-
-func FindPatchPath(currentVer, targetVer string, releases []release.Release) []patchStep {
-	// patches[toVersion] = list of patches that lead to toVersion
-	patches := make(map[string][]patchStep)
-	for i := range releases {
-		rel := &releases[i]
-		for _, asset := range rel.Assets {
-			old := release.ParsePatchVersion(asset.Name)
-			if old != "" {
-				patches[rel.TagName] = append(patches[rel.TagName], patchStep{
-					url:       asset.BrowserDownloadURL,
-					name:      asset.Name,
-					toVersion: rel.TagName,
-					release:   rel,
-				})
-			}
-		}
-	}
-
-	type edge struct {
-		ver  string
-		path []patchStep
-	}
-	queue := []edge{{ver: targetVer, path: nil}}
-	visited := map[string]bool{targetVer: true}
-
-	for len(queue) > 0 {
-		curr := queue[0]
-		queue = queue[1:]
-
-		if curr.ver == currentVer {
-			return curr.path
-		}
-
-		for _, p := range patches[curr.ver] {
-			fromVer := release.ParsePatchVersion(p.name)
-			if !visited[fromVer] {
-				visited[fromVer] = true
-				// Prepend this patch because we are going backwards from target to current
-				newPath := append([]patchStep{p}, curr.path...)
-				queue = append(queue, edge{ver: fromVer, path: newPath})
-			}
-		}
-	}
-	return nil
-}
-
-func TryPatchUpdate(exePath string, releases []release.Release) error {
+func tryPatchUpdate(exePath string, releases []release.Release) error {
 	bspatch, err := exec.LookPath("bspatch")
 	if err != nil {
 		return fmt.Errorf("bspatch not found in PATH")
@@ -196,13 +146,13 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("already at latest version %s", targetVer)
 	}
 
-	path := FindPatchPath(currentVer, targetVer, releases)
+	path := findPatchPath(currentVer, targetVer, releases)
 	if len(path) == 0 {
 		return fmt.Errorf("no patch path found from %s to %s", currentVer, targetVer)
 	}
 
 	// 1. Query OSV for target version
-	if res, err := CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+	if res, err := installer.CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
 		slog.Warn(fmt.Sprintf("OSV query failed: %v", err))
 	} else if res.Vulnerable {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
@@ -229,7 +179,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 			defer os.Remove(patchFile)
 		}
 
-		actualPatchSHA256, actualPatchSHA512, err := FileHashes(patchFile)
+		actualPatchSHA256, actualPatchSHA512, err := fileHashes(patchFile)
 		if err != nil {
 			return err
 		}
@@ -314,7 +264,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("no checksum found for %s in binary-checksums.txt", rawBinName)
 	}
 
-	actualBinSHA256, actualBinSHA512, err := FileHashes(currentSource)
+	actualBinSHA256, actualBinSHA512, err := fileHashes(currentSource)
 	if err != nil {
 		return err
 	}
@@ -355,11 +305,103 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 	ui.FprintArrow(os.Stderr, "Updated to %s via %d binary patches", targetVer, len(path))
 
 	expectedVersion := strings.TrimPrefix(targetVer, "v")
-	if err := VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
+	if err := installer.VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
 		slog.Warn(fmt.Sprintf("integrity verification failed: %v", err))
 	}
 
 	return nil
 }
 
+func fileHashes(path string) (string, string, error) {
+	sha256Hash, err := release.FileSHA256(path)
+	if err != nil {
+		return "", "", err
+	}
+	sha512Hash, err := release.FileSHA512(path)
+	if err != nil {
+		return "", "", err
+	}
+	return sha256Hash, sha512Hash, nil
+}
 
+type patchStep struct {
+	url       string
+	name      string
+	toVersion string
+	release   *release.Release
+}
+
+func findPatchPath(currentVer, targetVer string, releases []release.Release) []patchStep {
+	// patches[toVersion] = list of patches that lead to toVersion
+	patches := make(map[string][]patchStep)
+	for i := range releases {
+		rel := &releases[i]
+		for _, asset := range rel.Assets {
+			old := release.ParsePatchVersion(asset.Name)
+			if old != "" {
+				patches[rel.TagName] = append(patches[rel.TagName], patchStep{
+					url:       asset.BrowserDownloadURL,
+					name:      asset.Name,
+					toVersion: rel.TagName,
+					release:   rel,
+				})
+			}
+		}
+	}
+
+	type edge struct {
+		ver  string
+		path []patchStep
+	}
+	queue := []edge{{ver: targetVer, path: nil}}
+	visited := map[string]bool{targetVer: true}
+
+	for len(queue) > 0 {
+		curr := queue[0]
+		queue = queue[1:]
+
+		if curr.ver == currentVer {
+			return curr.path
+		}
+
+		for _, p := range patches[curr.ver] {
+			fromVer := release.ParsePatchVersion(p.name)
+			if !visited[fromVer] {
+				visited[fromVer] = true
+				// Prepend this patch because we are going backwards from target to current
+				newPath := append([]patchStep{p}, curr.path...)
+				queue = append(queue, edge{ver: fromVer, path: newPath})
+			}
+		}
+	}
+	return nil
+}
+
+func ensurePathWithinBase(base, target string) (string, error) {
+	baseAbs, err := filepath.Abs(filepath.Clean(base))
+	if err != nil {
+		return "", fmt.Errorf("resolve base path: %w", err)
+	}
+	if err := safepath.SafeAbsolutePath(baseAbs); err != nil {
+		return "", fmt.Errorf("invalid base path %q: %w", baseAbs, err)
+	}
+
+	targetAbs, err := filepath.Abs(filepath.Clean(target))
+	if err != nil {
+		return "", fmt.Errorf("resolve target path: %w", err)
+	}
+	if err := safepath.SafeAbsolutePath(targetAbs); err != nil {
+		return "", fmt.Errorf("invalid target path %q: %w", targetAbs, err)
+	}
+
+	rel, err := filepath.Rel(baseAbs, targetAbs)
+	if err != nil {
+		return "", fmt.Errorf("compute relative path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+		return "", fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
+	}
+	return targetAbs, nil
+}
+
+const grewRepoURL = "https://github.com/homegrew/grew.git"
