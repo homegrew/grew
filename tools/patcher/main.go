@@ -90,7 +90,7 @@ func main() {
 			}
 		}
 
-		slog.Info(fmt.Sprintf("Upgrade from %s to %s", prevRelease, newRelease))
+		slog.Info("Upgrade", "from", prevRelease, "to", newRelease)
 
 		slog.Info("Upgrade path verified successfully", "from", prevRelease, "to", newRelease)
 		os.Exit(0)
