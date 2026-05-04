@@ -11,6 +11,7 @@ import (
 )
 
 func TestSmoke_Version(t *testing.T) {
+	t.Parallel()
 	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "version")
@@ -25,6 +26,7 @@ func TestSmoke_Version(t *testing.T) {
 }
 
 func TestSmoke_Help(t *testing.T) {
+	t.Parallel()
 	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "help")
@@ -39,6 +41,7 @@ func TestSmoke_Help(t *testing.T) {
 }
 
 func TestSmoke_Config(t *testing.T) {
+	t.Parallel()
 	_, exePath, env := setupBinary(t)
 
 	cmd := exec.Command(exePath, "config")
@@ -78,6 +81,7 @@ func TestSmoke_Doctor(t *testing.T) {
 }
 
 func TestSmoke_Search(t *testing.T) {
+	t.Parallel()
 	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to search for
@@ -98,6 +102,7 @@ description: A package for testing
 }
 
 func TestSmoke_Info(t *testing.T) {
+	t.Parallel()
 	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to get info for
@@ -122,6 +127,7 @@ install:
 }
 
 func TestSmoke_Deps(t *testing.T) {
+	t.Parallel()
 	prefix, exePath, env := setupBinary(t)
 
 	testhelper.CreateFormula(t, prefix, "depa", `name: depa
@@ -153,6 +159,7 @@ install:
 }
 
 func TestSmoke_DoctorQuiet(t *testing.T) {
+	t.Parallel()
 	_, exePath, env := setupBinary(t)
 
 	// Test local quiet flag
