@@ -121,7 +121,7 @@ This receipt is stored directly within the keg directory (e.g., `<prefix>/Cellar
 - **Build Environment:** Can optionally record the `compiler` used and specific `build_options` if compiled locally.
 - **Intent:** Captures `installed_on_request` to distinguish between explicit user installs and automatic dependency resolution.
 
-This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. Because it is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
+This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. In short, `.MANIFEST.json` is the canonical integrity snapshot used by `grew verify`, while `INSTALL_RECEIPT.json` is supplemental operational metadata for inspection and dependency reasoning. Because the receipt is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
 
 ## 7. Dependency Management & Cleanup
 
