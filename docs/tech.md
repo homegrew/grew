@@ -140,13 +140,17 @@ This metadata enables precise identification of "orphaned" dependencies—packag
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
 ## 8. Modular CLI Architecture
 
-Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single `internal/cmd` package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
+Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
 
 **Key Benefits:**
 - **Standardization:** Every subcommand package exports a consistent `Command` variable of type `*cobra.Command`.
 - **Isolation:** Each command manages its own flags and dependencies, reducing the risk of unintended side effects and global state pollution.
-- **Shared Logic:** Core command execution logic, context management, and cross-cutting helpers are centralized in `internal/cmd/`. This package provides exported types like `ReadContext` and `InstallContext`, ensuring consistent environment resolution across all subcommands.
-- **Testability:** Standalone packages enable more targeted unit testing and mocking of command-specific logic without pulling in the entire CLI surface area.
+- **Unified Context:** All commands utilize a centralized execution context defined in `internal/context`. This package provides the `Context` (for read-only operations) and `InstallContext` (for destructive operations, including global locking) types, ensuring consistent environment resolution.
+- **Decoupled Logic:** Core management logic is separated from CLI orchestration. High-level commands in `cmd/` delegate complex operations to dedicated packages:
+    - `internal/installer`: Handles formula, cask, and self-update routines.
+    - `internal/cellar`: Manages installed packages and disk cleanup.
+    - `internal/formula` & `internal/cask`: Handle definition parsing and metadata.
+- **Testability:** Standalone packages enable targeted unit testing and mocking without pulling in the entire CLI surface area.
 
-The CLI entry point in `main.go` and the root command definition in `root.go` (both in the repository root) serve as the "glue" that imports these standalone packages and registers them into the primary `Grew` root command.
+The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `internal/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 

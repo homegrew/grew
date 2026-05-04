@@ -19,7 +19,7 @@
 | **`--build-from-source` / `-s`** | Supported | Supported | Identical |
 | **`--dry-run` / `-n`** | Supported | `simulateInstall()` | Identical |
 | **Pin support** | PINNED marker file | Same | Identical |
-| **Cask install** | Separate `--cask` path | Same routing via `caskInstall()` | Same pattern |
+| **Cask install** | Separate `--cask` path | Same routing via `installer.CaskInstall` | Same pattern |
 | **Multiple installs** | `brew install foo bar` | `grew install foo bar` | Identical |
 | **Pour bottle relocation** | Text/binary patching of prefix paths | `internal/relocation` via `install_name_tool`/`patchelf` | Close |
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
