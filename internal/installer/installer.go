@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/config"
@@ -162,9 +161,55 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
 	}
-	// Only remove if it's NOT in the cache.
-	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir()) {
-		defer os.Remove(tmpFile)
+	// Only remove downloaded files that are outside cache and inside the expected temp dir.
+	shouldRemove := true
+	if rel.DL != nil && rel.DL.Cache != nil {
+		cacheDir := filepath.Clean(rel.DL.Cache.Dir())
+		if abs, err := filepath.Abs(cacheDir); err == nil {
+			cacheDir = filepath.Clean(abs)
+		}
+		if eval, err := filepath.EvalSymlinks(cacheDir); err == nil {
+			cacheDir = filepath.Clean(eval)
+		}
+
+		candidate := filepath.Clean(tmpFile)
+		if abs, err := filepath.Abs(candidate); err == nil {
+			candidate = filepath.Clean(abs)
+		}
+		if eval, err := filepath.EvalSymlinks(candidate); err == nil {
+			candidate = filepath.Clean(eval)
+		}
+
+		if err := safepath.CheckSubpath(cacheDir, candidate); err == nil {
+			shouldRemove = false
+		}
+	}
+	if shouldRemove {
+		expectedTmp := os.TempDir()
+		if rel.DL != nil && rel.DL.TmpDir != "" {
+			expectedTmp = rel.DL.TmpDir
+		}
+		expectedTmp = filepath.Clean(expectedTmp)
+		if abs, err := filepath.Abs(expectedTmp); err == nil {
+			expectedTmp = filepath.Clean(abs)
+		}
+		if eval, err := filepath.EvalSymlinks(expectedTmp); err == nil {
+			expectedTmp = filepath.Clean(eval)
+		}
+
+		candidate := filepath.Clean(tmpFile)
+		if abs, err := filepath.Abs(candidate); err == nil {
+			candidate = filepath.Clean(abs)
+		}
+		if eval, err := filepath.EvalSymlinks(candidate); err == nil {
+			candidate = filepath.Clean(eval)
+		}
+
+		if err := safepath.CheckSubpath(expectedTmp, candidate); err == nil {
+			defer os.Remove(candidate)
+		} else {
+			slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", candidate, expectedTmp))
+		}
 	}
 
 	// Verify all available hashes.
