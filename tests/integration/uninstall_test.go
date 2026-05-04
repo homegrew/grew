@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
@@ -58,8 +59,8 @@ func makeDummyTarGzWithShare(t *testing.T) []byte {
 
 func TestUninstallWithShare(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarball := makeDummyTarGzWithShare(t)
 
@@ -69,7 +70,7 @@ func TestUninstallWithShare(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
@@ -84,7 +85,7 @@ func TestUninstallWithShare(t *testing.T) {
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
 
-	createFormula(t, prefix, "fooshare", fmt.Sprintf(`name: fooshare
+	testhelper.CreateFormula(t, prefix, "fooshare", fmt.Sprintf(`name: fooshare
 version: 1.0.0
 bottle:
   %s:
@@ -92,7 +93,7 @@ bottle:
     sha256: %s
 install:
   type: archive
-`, platform, server.URL, computeSHA256(tarball)))
+`, platform, server.URL, testhelper.ComputeSHA256(tarball)))
 
 	// Install
 	cmdA := exec.Command(exePath, "install", "fooshare")

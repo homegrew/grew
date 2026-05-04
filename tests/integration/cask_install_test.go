@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"archive/zip"
 	"bytes"
 	"fmt"
@@ -62,7 +63,7 @@ func TestCaskInstallIntegration(t *testing.T) {
 	}
 
 	zipBytes := makeDummyAppZip(t, "Dummy.app")
-	zipHash := computeSHA256(zipBytes)
+	zipHash := testhelper.ComputeSHA256(zipBytes)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/zip")
@@ -71,7 +72,7 @@ func TestCaskInstallIntegration(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	if err := writeServerCert(server, certFile); err != nil {
+	if err := testhelper.WriteServerCert(server, certFile); err != nil {
 		t.Fatalf("failed to write server certificate: %v", err)
 	}
 
@@ -114,7 +115,7 @@ artifacts:
 		t.Fatalf("failed to write cask yaml: %v", err)
 	}
 
-	exePath := buildTestBinary(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	// Test 1: Install WITH quarantine (default)
 	cmdRun := exec.Command(exePath, "install", "--cask", "dummycask")

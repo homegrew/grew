@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -16,8 +17,8 @@ import (
 
 func TestLinkUnlinkConflict(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarballA := makeDummyTarGz(t, "echo A")
 	tarballB := makeDummyTarGz(t, "echo B")
@@ -32,7 +33,7 @@ func TestLinkUnlinkConflict(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
@@ -47,7 +48,7 @@ func TestLinkUnlinkConflict(t *testing.T) {
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
 
-	createFormula(t, prefix, "pkga", fmt.Sprintf(`name: pkga
+	testhelper.CreateFormula(t, prefix, "pkga", fmt.Sprintf(`name: pkga
 version: 1.0.0
 bottle:
   %s:
@@ -55,9 +56,9 @@ bottle:
     sha256: %s
 install:
   type: archive
-`, platform, server.URL, computeSHA256(tarballA)))
+`, platform, server.URL, testhelper.ComputeSHA256(tarballA)))
 
-	createFormula(t, prefix, "pkgb", fmt.Sprintf(`name: pkgb
+	testhelper.CreateFormula(t, prefix, "pkgb", fmt.Sprintf(`name: pkgb
 version: 1.0.0
 bottle:
   %s:
@@ -65,7 +66,7 @@ bottle:
     sha256: %s
 install:
   type: archive
-`, platform, server.URL, computeSHA256(tarballB)))
+`, platform, server.URL, testhelper.ComputeSHA256(tarballB)))
 
 	// 1. Install pkga
 	cmdA := exec.Command(exePath, "install", "pkga")

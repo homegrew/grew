@@ -26,4 +26,4 @@
 // This approach ensures that operations like "re-execing for sandboxed
 // extraction" or "replacing the binary on disk" accurately replicate
 // real-world execution environments without corrupting the host system.
-package tests
+package integration

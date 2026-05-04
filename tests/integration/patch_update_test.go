@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -24,10 +25,10 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	}
 
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	oldExePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	oldExePath := testhelper.BuildTestBinary(t, tmpDir)
 
-	root := getProjectRoot(t)
+	root := testhelper.GetProjectRoot(t)
 	ldflags := "-X main.buildVersion=v0.0.0-UNKNOWN"
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-ldflags", ldflags, "-o", oldExePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
@@ -77,22 +78,22 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read patch file: %v", err)
 	}
-	patchHash256 := computeSHA256(patchBytes)
-	patchHash512 := computeSHA512(patchBytes)
+	patchHash256 := testhelper.ComputeSHA256(patchBytes)
+	patchHash512 := testhelper.ComputeSHA512(patchBytes)
 
 	newExeBytes, err := os.ReadFile(newExePath)
 	if err != nil {
 		t.Fatalf("failed to read new binary file: %v", err)
 	}
-	newExeHash256 := computeSHA256(newExeBytes)
-	newExeHash512 := computeSHA512(newExeBytes)
+	newExeHash256 := testhelper.ComputeSHA256(newExeBytes)
+	newExeHash512 := testhelper.ComputeSHA512(newExeBytes)
 	rawBinName := fmt.Sprintf("grew_%s_%s", osName, archName)
 
 	tarballName := fmt.Sprintf("grew_%s_%s.tar.gz", osName, archName)
 
 	tarballBytes := []byte("fake tarball content")
-	tarballHash256 := computeSHA256(tarballBytes)
-	tarballHash512 := computeSHA512(tarballBytes)
+	tarballHash256 := testhelper.ComputeSHA256(tarballBytes)
+	tarballHash512 := testhelper.ComputeSHA512(tarballBytes)
 
 	// 4. Setup mock GitHub and OSV
 	mockServer := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -157,7 +158,7 @@ func TestPatchUpdateIntegration(t *testing.T) {
 	defer mockServer.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	if err := writeServerCert(mockServer, certFile); err != nil {
+	if err := testhelper.WriteServerCert(mockServer, certFile); err != nil {
 		t.Fatalf("failed to write server cert: %v", err)
 	}
 

@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"context"
 	"fmt"
 	"net/http"
@@ -18,13 +19,13 @@ import (
 
 func TestInterruptedInstallRecovery(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	// Create a large-ish tarball to give us time to interrupt
 	content := strings.Repeat("some data\n", 100000)
 	tarball := makeDummyTarGz(t, content)
-	tarballHash := computeSHA256(tarball)
+	tarballHash := testhelper.ComputeSHA256(tarball)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Slow down the transfer
@@ -47,14 +48,14 @@ func TestInterruptedInstallRecovery(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
 	}
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
-	createFormula(t, prefix, "interrupted", fmt.Sprintf(`name: interrupted
+	testhelper.CreateFormula(t, prefix, "interrupted", fmt.Sprintf(`name: interrupted
 version: 1.0.0
 bottle:
   %s:
@@ -88,14 +89,14 @@ install:
 	}))
 	defer server2.Close()
 
-	writeServerCert(server2, certFile)
+	testhelper.WriteServerCert(server2, certFile)
 	serverHost2 := strings.TrimPrefix(server2.URL, "https://")
 	if idx := strings.Index(serverHost2, ":"); idx != -1 {
 		serverHost2 = serverHost2[:idx]
 	}
 
 	// Update formula with new server URL
-	createFormula(t, prefix, "interrupted", fmt.Sprintf(`name: interrupted
+	testhelper.CreateFormula(t, prefix, "interrupted", fmt.Sprintf(`name: interrupted
 version: 1.0.0
 bottle:
   %s:

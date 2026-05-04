@@ -1,6 +1,6 @@
 //go:build integration || e2e || smoke
 
-package tests
+package testhelper
 
 import (
 	"crypto/sha256"
@@ -14,10 +14,10 @@ import (
 	"testing"
 )
 
-// writeServerCert extracts the self-signed certificate from a mock httptest.TLSServer
+// WriteServerCert extracts the self-signed certificate from a mock httptest.TLSServer
 // and writes it to a PEM file. The testbin proxy can load this certificate to verify
 // TLS connections without needing to resort to InsecureSkipVerify.
-func writeServerCert(server *httptest.Server, path string) error {
+func WriteServerCert(server *httptest.Server, path string) error {
 	cert := server.Certificate()
 	pemBlock := &pem.Block{
 		Type:  "CERTIFICATE",
@@ -26,17 +26,17 @@ func writeServerCert(server *httptest.Server, path string) error {
 	return os.WriteFile(path, pem.EncodeToMemory(pemBlock), 0644)
 }
 
-func computeSHA256(data []byte) string {
+func ComputeSHA256(data []byte) string {
 	hash := sha256.Sum256(data)
 	return hex.EncodeToString(hash[:])
 }
 
-func computeSHA512(data []byte) string {
+func ComputeSHA512(data []byte) string {
 	hash := sha512.Sum512(data)
 	return hex.EncodeToString(hash[:])
 }
 
-func setupPrefix(t *testing.T, tmpDir string) string {
+func SetupPrefix(t *testing.T, tmpDir string) string {
 	prefix := filepath.Join(tmpDir, "prefix")
 	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
@@ -51,7 +51,7 @@ func setupPrefix(t *testing.T, tmpDir string) string {
 	return prefix
 }
 
-func getProjectRoot(t *testing.T) string {
+func GetProjectRoot(t *testing.T) string {
 	cwd, _ := os.Getwd()
 	root := cwd
 	for {
@@ -67,9 +67,9 @@ func getProjectRoot(t *testing.T) string {
 	return root
 }
 
-func buildTestBinary(t *testing.T, tmpDir string) string {
+func BuildTestBinary(t *testing.T, tmpDir string) string {
 	exePath := filepath.Join(tmpDir, "grew-test")
-	root := getProjectRoot(t)
+	root := GetProjectRoot(t)
 
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
@@ -78,7 +78,7 @@ func buildTestBinary(t *testing.T, tmpDir string) string {
 	return exePath
 }
 
-func createFormula(t *testing.T, prefix, name, yamlContent string) {
+func CreateFormula(t *testing.T, prefix, name, yamlContent string) {
 	coreTapDir := filepath.Join(prefix, "Taps", "homegrew", "homegrew-taps", "core")
 	if err := os.MkdirAll(coreTapDir, 0755); err != nil {
 		t.Fatalf("failed to create core tap dir: %v", err)

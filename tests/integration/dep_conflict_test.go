@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -11,11 +12,11 @@ import (
 )
 func TestDependencyCircular(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	// Create circular dependency: a -> b -> a
-	createFormula(t, prefix, "a", `name: a
+	testhelper.CreateFormula(t, prefix, "a", `name: a
 version: 1.0.0
 dependencies: [b]
 url:
@@ -23,7 +24,7 @@ url:
 install:
   type: archive
 `)
-	createFormula(t, prefix, "b", `name: b
+	testhelper.CreateFormula(t, prefix, "b", `name: b
 version: 1.0.0
 dependencies: [a]
 url:
@@ -46,10 +47,10 @@ install:
 
 func TestDependencyMissing(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
-	createFormula(t, prefix, "mainpkg", `name: mainpkg
+	testhelper.CreateFormula(t, prefix, "mainpkg", `name: mainpkg
 version: 1.0.0
 dependencies: [nonexistent]
 url:

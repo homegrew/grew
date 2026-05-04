@@ -1,6 +1,6 @@
 //go:build e2e
 
-package tests
+package e2e
 
 import (
 	"os"
@@ -48,7 +48,7 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 1. Build the real grew binary
 	t.Log("Building live grew binary...")
-	//root := getProjectRoot(t)
+	//root := testhelper.GetProjectRoot(t)
 	args := []string{"build", "-tags=devmode", "-o", exePath}
 	if os.Getenv("GOCOVERDIR") != "" {
 		args = append(args, "-cover")

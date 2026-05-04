@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
@@ -68,7 +69,7 @@ func TestInstallIntegration(t *testing.T) {
 echo "I am dummybin 1.0"
 `
 	tarballBytes := makeDummyTarGz(t, tarballContent)
-	tarballHash := computeSHA256(tarballBytes)
+	tarballHash := testhelper.ComputeSHA256(tarballBytes)
 
 	// 2. Setup a mock HTTPS server to serve the tarball
 	// We must use a host that the Downloader's allowlist will accept.
@@ -81,7 +82,7 @@ echo "I am dummybin 1.0"
 
 	// Export the server's certificate so the testbin can trust it
 	certFile := filepath.Join(tmpDir, "server.crt")
-	if err := writeServerCert(server, certFile); err != nil {
+	if err := testhelper.WriteServerCert(server, certFile); err != nil {
 		t.Fatalf("failed to write server certificate: %v", err)
 	}
 
@@ -133,7 +134,7 @@ install:
 
 	// 5. Build our test executable that will invoke cmd.RunInstall
 	exePath := filepath.Join(tmpDir, "grew-test")
-	root := getProjectRoot(t)
+	root := testhelper.GetProjectRoot(t)
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr

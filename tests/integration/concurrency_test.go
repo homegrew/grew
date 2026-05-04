@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -17,11 +18,11 @@ import (
 
 func TestConcurrentInstall(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarball := makeDummyTarGz(t, "echo concurrent")
-	tarballHash := computeSHA256(tarball)
+	tarballHash := testhelper.ComputeSHA256(tarball)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write(tarball)
@@ -29,14 +30,14 @@ func TestConcurrentInstall(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
 	}
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
-	createFormula(t, prefix, "sharedpkg", fmt.Sprintf(`name: sharedpkg
+	testhelper.CreateFormula(t, prefix, "sharedpkg", fmt.Sprintf(`name: sharedpkg
 version: 1.0.0
 bottle:
   %s:

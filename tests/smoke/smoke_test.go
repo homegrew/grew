@@ -1,8 +1,9 @@
 //go:build smoke
 
-package tests
+package smoke
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -81,7 +82,7 @@ func TestSmoke_Search(t *testing.T) {
 	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to search for
-	createFormula(t, prefix, "smokepkg", `name: smokepkg
+	testhelper.CreateFormula(t, prefix, "smokepkg", `name: smokepkg
 version: 1.0.0
 description: A package for testing
 `)
@@ -101,7 +102,7 @@ func TestSmoke_Info(t *testing.T) {
 	prefix, exePath, env := setupBinary(t)
 
 	// Create a dummy formula to get info for
-	createFormula(t, prefix, "infopkg", `name: infopkg
+	testhelper.CreateFormula(t, prefix, "infopkg", `name: infopkg
 version: 2.0.0
 description: A package for testing info
 url:
@@ -124,7 +125,7 @@ install:
 func TestSmoke_Deps(t *testing.T) {
 	prefix, exePath, env := setupBinary(t)
 
-	createFormula(t, prefix, "depa", `name: depa
+	testhelper.CreateFormula(t, prefix, "depa", `name: depa
 version: 1.0.0
 url:
   darwin_arm64: https://example.com/depa.tar.gz
@@ -132,7 +133,7 @@ install:
   type: archive
 `)
 
-	createFormula(t, prefix, "pkgb", `name: pkgb
+	testhelper.CreateFormula(t, prefix, "pkgb", `name: pkgb
 version: 1.0.0
 dependencies: [depa]
 url:
@@ -175,8 +176,8 @@ func TestSmoke_DoctorQuiet(t *testing.T) {
 func setupBinary(t *testing.T) (string, string, []string) {
 	t.Helper()
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOMEGREW_CACHE="+filepath.Join(tmpDir, "cache"))
 	return prefix, exePath, env

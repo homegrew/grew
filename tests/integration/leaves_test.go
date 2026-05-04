@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -17,13 +18,13 @@ func TestLeaves(t *testing.T) {
 	t.Parallel()
 	tmpDir := t.TempDir()
 
-	exePath := buildTestBinary(t, tmpDir)
-	prefix := setupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
 
 	archiveData1 := []byte("fake-binary-data")
-	archiveSHA256_1 := computeSHA256(archiveData1)
+	archiveSHA256_1 := testhelper.ComputeSHA256(archiveData1)
 	archiveData2 := []byte("fake-binary-data-2")
-	archiveSHA256_2 := computeSHA256(archiveData2)
+	archiveSHA256_2 := testhelper.ComputeSHA256(archiveData2)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if strings.Contains(r.URL.Path, "dep1.tar.gz") {
@@ -37,9 +38,9 @@ func TestLeaves(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 
-	createFormula(t, prefix, "dep1", `
+	testhelper.CreateFormula(t, prefix, "dep1", `
 name: dep1
 version: 1.0.0
 url:
@@ -51,7 +52,7 @@ install:
   binary_name: dep1bin
 `)
 
-	createFormula(t, prefix, "pkga", `
+	testhelper.CreateFormula(t, prefix, "pkga", `
 name: pkga
 version: 2.0.0
 url:

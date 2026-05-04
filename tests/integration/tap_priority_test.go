@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -16,8 +17,8 @@ import (
 
 func TestTapPriority(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarballCore := makeDummyTarGz(t, "echo core")
 	tarballUser := makeDummyTarGz(t, "echo user")
@@ -32,7 +33,7 @@ func TestTapPriority(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
@@ -41,7 +42,7 @@ func TestTapPriority(t *testing.T) {
 	platform := runtime.GOOS + "_" + runtime.GOARCH
 
 	// 1. Create formula 'double' in core tap
-	createFormula(t, prefix, "double", fmt.Sprintf(`name: double
+	testhelper.CreateFormula(t, prefix, "double", fmt.Sprintf(`name: double
 version: 1.0.0
 bottle:
   %s:
@@ -49,7 +50,7 @@ bottle:
     sha256: %s
 install:
   type: archive
-`, platform, server.URL, computeSHA256(tarballCore)))
+`, platform, server.URL, testhelper.ComputeSHA256(tarballCore)))
 
 	// 2. Create another tap 'user/repo' and formula 'double' there
 	userTapDir := filepath.Join(prefix, "Taps", "user", "repo")
@@ -63,7 +64,7 @@ bottle:
     sha256: %s
 install:
   type: archive
-`, platform, server.URL, computeSHA256(tarballUser))
+`, platform, server.URL, testhelper.ComputeSHA256(tarballUser))
 	os.WriteFile(userFormulaPath, []byte(userFormulaYaml), 0644)
 
 	commonEnv := append(os.Environ(),

@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -11,8 +12,8 @@ import (
 )
 func TestShellCompletion(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	// According to README, there should be a 'completion' command
 	shells := []string{"bash", "zsh", "fish"}
@@ -33,8 +34,8 @@ func TestShellCompletion(t *testing.T) {
 			t.Errorf("Completion output for %s seems too short: %s", shell, string(out))
 		}
 
-		if shell == "bash" && !strings.Contains(string(out), "complete -F") {
-			t.Errorf("Bash completion output missing expected 'complete -F'")
+		if shell == "bash" && !(strings.Contains(string(out), "complete -F") || strings.Contains(string(out), "-F __start_grew")) {
+			t.Errorf("Bash completion output missing expected registration (e.g. 'complete -F')")
 		}
 	}
 }

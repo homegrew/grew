@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -16,11 +17,11 @@ func TestAutoremove(t *testing.T) {
 	t.Parallel()
 	tmpDir := t.TempDir()
 
-	exePath := buildTestBinary(t, tmpDir)
-	prefix := setupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
 
 	archiveData := []byte("fake-binary-data")
-	archiveSHA := computeSHA256(archiveData)
+	archiveSHA := testhelper.ComputeSHA256(archiveData)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write(archiveData)
@@ -28,9 +29,9 @@ func TestAutoremove(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 
-	createFormula(t, prefix, "base", `
+	testhelper.CreateFormula(t, prefix, "base", `
 name: base
 version: 1.0.0
 url:
@@ -41,7 +42,7 @@ install:
   type: binary
 `)
 
-	createFormula(t, prefix, "dep1", `
+	testhelper.CreateFormula(t, prefix, "dep1", `
 name: dep1
 version: 1.0.0
 dependencies:
@@ -54,7 +55,7 @@ install:
   type: binary
 `)
 
-	createFormula(t, prefix, "pkga", `
+	testhelper.CreateFormula(t, prefix, "pkga", `
 name: pkga
 version: 1.0.0
 dependencies:

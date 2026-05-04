@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -17,11 +18,11 @@ import (
 
 func TestAuditVulnerability(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarball := makeDummyTarGz(t, "echo vulnerable")
-	tarballHash := computeSHA256(tarball)
+	tarballHash := testhelper.ComputeSHA256(tarball)
 
 	// Mock OSV server
 	osvServer := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -60,14 +61,14 @@ func TestAuditVulnerability(t *testing.T) {
 	defer osvServer.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(osvServer, certFile)
+	testhelper.WriteServerCert(osvServer, certFile)
 	serverHost := strings.TrimPrefix(osvServer.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
 	}
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
-	createFormula(t, prefix, "vulnerablepkg", fmt.Sprintf(`name: vulnerablepkg
+	testhelper.CreateFormula(t, prefix, "vulnerablepkg", fmt.Sprintf(`name: vulnerablepkg
 version: 1.0.0
 homepage: https://github.com/user/vulnerablepkg
 bottle:

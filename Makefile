@@ -38,15 +38,15 @@ test-unit-coverage:
 
 .PHONY: test-integration
 test-integration:
-	$(GO) test -tags "devmode,integration" $(INTEGRATION_PKGS)
+	$(GO) test -tags "devmode,integration" ./tests/integration/...
 
 .PHONY: test-smoke
 test-smoke:
-	$(GO) test -tags "smoke" -v ./tests
+	$(GO) test -tags "smoke" -v ./tests/smoke/...
 
 .PHONY: test-e2e
 test-e2e:
-	$(GO) test -tags "devmode,e2e" -v ./tests/ -run TestLiveEndToEnd
+	$(GO) test -tags "devmode,e2e" -v ./tests/e2e/... -run TestLiveEndToEnd
 
 .PHONY: test-integration-coverage
 test-integration-coverage:

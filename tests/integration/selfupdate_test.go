@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
@@ -50,8 +51,8 @@ func setupMockGitHub(t *testing.T, version string) *httptest.Server {
 	// The dummy binary just prints its version and exits
 	mockGrewContent := fmt.Sprintf("#!/bin/sh\necho \"grew v%s\"\n", version)
 	tarballBytes := makeGrewTarGz(t, mockGrewContent)
-	tarballHash256 := computeSHA256(tarballBytes)
-	tarballHash512 := computeSHA512(tarballBytes)
+	tarballHash256 := testhelper.ComputeSHA256(tarballBytes)
+	tarballHash512 := testhelper.ComputeSHA512(tarballBytes)
 
 	osName := runtime.GOOS
 	archName := runtime.GOARCH
@@ -124,7 +125,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 
 	// Export the server's certificate so the testbin can trust it
 	certFile := filepath.Join(tmpDir, "server.crt")
-	if err := writeServerCert(mockServer, certFile); err != nil {
+	if err := testhelper.WriteServerCert(mockServer, certFile); err != nil {
 		t.Fatalf("failed to write server certificate: %v", err)
 	}
 
@@ -141,7 +142,7 @@ func TestRunSelfUpdateIntegration(t *testing.T) {
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary
-	root := getProjectRoot(t)
+	root := testhelper.GetProjectRoot(t)
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr
@@ -188,7 +189,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 
 	// Export the server's certificate so the testbin can trust it
 	certFile := filepath.Join(tmpDir, "server.crt")
-	if err := writeServerCert(mockServer, certFile); err != nil {
+	if err := testhelper.WriteServerCert(mockServer, certFile); err != nil {
 		t.Fatalf("failed to write server certificate: %v", err)
 	}
 
@@ -205,7 +206,7 @@ func TestSelfUpdateFromReleaseIntegration(t *testing.T) {
 	exePath := filepath.Join(binDir, "grew")
 
 	// Compile the dummy binary
-	root := getProjectRoot(t)
+	root := testhelper.GetProjectRoot(t)
 	cmdBuild := exec.Command("go", "build", "-tags=devmode", "-o", exePath, filepath.Join(root, "tests", "testbin", "main.go"))
 	cmdBuild.Stdout = os.Stdout
 	cmdBuild.Stderr = os.Stderr

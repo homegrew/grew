@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -48,15 +49,15 @@ func TestMultiHopPatchUpdate(t *testing.T) {
 
 	// Final binary checksums
 	v3Data, _ := os.ReadFile(v3Bin)
-	v3SHA256 := computeSHA256(v3Data)
-	v3SHA512 := computeSHA512(v3Data)
+	v3SHA256 := testhelper.ComputeSHA256(v3Data)
+	v3SHA512 := testhelper.ComputeSHA512(v3Data)
 	binaryChecksumsTxt := fmt.Sprintf("%s  %s\n%s  %s\n", v3SHA256, rawBinName, v3SHA512, rawBinName)
 
 	// Patch checksums
 	p1Data, _ := os.ReadFile(p1Path)
-	p1SHA256 := computeSHA256(p1Data)
+	p1SHA256 := testhelper.ComputeSHA256(p1Data)
 	p2Data, _ := os.ReadFile(p2Path)
-	p2SHA256 := computeSHA256(p2Data)
+	p2SHA256 := testhelper.ComputeSHA256(p2Data)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		baseURL := fmt.Sprintf("https://%s", r.Host)
@@ -100,7 +101,7 @@ func TestMultiHopPatchUpdate(t *testing.T) {
 	defer server.Close()
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 
 	prefix := filepath.Join(tmpDir, "prefix")
 	binDir := filepath.Join(prefix, "bin")
@@ -136,7 +137,7 @@ func TestMultiHopPatchUpdate(t *testing.T) {
 func buildBinary(t *testing.T, tmpDir, version string) string {
 	t.Helper()
 	exePath := filepath.Join(tmpDir, "grew-"+version)
-	root := getProjectRoot(t)
+	root := testhelper.GetProjectRoot(t)
 	// We must use absolute path for the main.go
 	mainGo := filepath.Join(root, "tests", "testbin", "main.go")
 	cmdBuild := exec.Command("go", "build", "-tags=devmode",

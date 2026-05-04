@@ -1,8 +1,9 @@
 //go:build integration
 
-package tests
+package integration
 
 import (
+	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -16,11 +17,11 @@ import (
 
 func TestOfflineCacheIntegrity(t *testing.T) {
 	tmpDir := t.TempDir()
-	prefix := setupPrefix(t, tmpDir)
-	exePath := buildTestBinary(t, tmpDir)
+	prefix := testhelper.SetupPrefix(t, tmpDir)
+	exePath := testhelper.BuildTestBinary(t, tmpDir)
 
 	tarball := makeDummyTarGz(t, "echo cached")
-	tarballHash := computeSHA256(tarball)
+	tarballHash := testhelper.ComputeSHA256(tarball)
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write(tarball)
@@ -28,14 +29,14 @@ func TestOfflineCacheIntegrity(t *testing.T) {
 	// We'll close the server later to simulate offline mode
 
 	certFile := filepath.Join(tmpDir, "server.crt")
-	writeServerCert(server, certFile)
+	testhelper.WriteServerCert(server, certFile)
 	serverHost := strings.TrimPrefix(server.URL, "https://")
 	if idx := strings.Index(serverHost, ":"); idx != -1 {
 		serverHost = serverHost[:idx]
 	}
 
 	platform := runtime.GOOS + "_" + runtime.GOARCH
-	createFormula(t, prefix, "cachedpkg", fmt.Sprintf(`name: cachedpkg
+	testhelper.CreateFormula(t, prefix, "cachedpkg", fmt.Sprintf(`name: cachedpkg
 version: 1.0.0
 bottle:
   %s:
