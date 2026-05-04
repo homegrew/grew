@@ -149,6 +149,7 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 9. Test Manifest Verification
 	runCmd("verify", "nano")
+	runCmd("install", "coreutils")
 
 	// 10. Test Vulnerability Audit
 	t.Log("=> grew vuln-scan")
@@ -165,6 +166,9 @@ func TestLiveEndToEnd(t *testing.T) {
 	if _, err := os.Stat(filepath.Join(prefix, "grew.lock")); err != nil {
 		t.Fatalf("grew.lock not generated")
 	}
+
+	outList := runCmd("list")
+	t.Log("=> grew list\n", string(outList))
 
 	// 12. Test Shellenv Generation
 	outEnv := runCmd("shellenv", "bash")
