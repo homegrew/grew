@@ -17,9 +17,16 @@ type Cache struct {
 
 // New creates a new Cache rooted at dir.
 func New(dir string) *Cache {
+	cleanDir := filepath.Clean(dir)
+	if err := safepath.SafeAbsolutePath(cleanDir); err != nil {
+		return &Cache{
+			dir: "",
+			fs:  nil,
+		}
+	}
 	return &Cache{
-		dir: dir,
-		fs:  os.DirFS(dir),
+		dir: cleanDir,
+		fs:  os.DirFS(cleanDir),
 	}
 }
 
@@ -30,6 +37,9 @@ func (c *Cache) Dir() string {
 
 // DownloadsDir returns the absolute path to the directory used for caching downloads.
 func (c *Cache) DownloadsDir() string {
+	if c.dir == "" {
+		return c.dir
+	}
 	return filepath.Join(c.dir, "downloads")
 }
 
@@ -41,7 +51,7 @@ func (c *Cache) DownloadPath(filename string) (string, error) {
 	if err := safepath.SafePathComponent(filename); err != nil {
 		return "", fmt.Errorf("invalid download filename: %w", err)
 	}
-	return filepath.Join(c.dir, "downloads", filename), nil
+	return safepath.SafeJoin(c.dir, "downloads", filename)
 }
 
 // Exists reports whether the given filename exists in the download cache.
@@ -72,4 +82,3 @@ func (c *Cache) Store(tmpPath, filename string) (string, error) {
 	}
 	return cachePath, nil
 }
-
