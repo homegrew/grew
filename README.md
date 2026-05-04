@@ -241,10 +241,12 @@ Everything else flows from the prefix:
 [![Go Reference][pkg-badge]][pkg-url]
 
 ```bash
-make check         # go test -v -race ./...
-make build         # go generate + go build (release — requires root at runtime)
-make dev           # go generate + go build -tags devmode (developer build)
-make lint          # golangci-lint (if installed)
+make test-unit     # run unit tests
+make test-smoke    # run quick health checks
+make test-integration # run command-level integration tests
+make test-e2e      # run full lifecycle E2E tests (takes several minutes)
+make check-all     # run all of the above
+make dev           # build with 'devmode' tag enabled
 ```
 
 ### Developer mode
@@ -300,6 +302,12 @@ grew/
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
 │   ├── ui/           ← zero-dependency ANSI color and TTY detection
 │   └── validation/   ← name/version/SHA256/path validation
+├── tests/
+│   ├── integration/  ← command-level integration tests
+│   ├── smoke/        ← quick health checks
+│   ├── e2e/          ← full lifecycle end-to-end tests
+│   ├── testbin/      ← test proxy binary source
+│   └── testhelper/   ← shared test utilities
 ├── root.go           ← Root CLI command definition (Grew)
 ├── main.go           ← CLI entry point
 └── tools/            ← genrepo (converter), patcher (delta patch generator)
