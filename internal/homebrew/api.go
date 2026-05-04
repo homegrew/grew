@@ -302,6 +302,11 @@ func convertFormula(hf *hbFormula) *formula.Formula {
 		BuildDependencies: hf.BuildDependencies,
 		KegOnly:           hf.KegOnly,
 		Tap:               "homebrew/core (remote)",
+		Install: formula.InstallSpec{
+			Type:            "archive",
+			Format:          "tar.gz",
+			StripComponents: 2,
+		},
 	}
 
 	if hf.Urls.Stable.URL != "" {

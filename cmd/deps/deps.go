@@ -6,9 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/internal/formula"
-	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/internal/context"
+	"github.com/spf13/cobra"
 )
 
 var (
@@ -99,7 +98,7 @@ func runDeps(args []string) error {
 
 	if depsTree {
 		for i, name := range targets {
-			f, err := ctx.Loader.LoadByName(name)
+			f, err := ctx.LoadFormula(name)
 			if err != nil {
 				return fmt.Errorf("formula not found: %s", name)
 			}
@@ -108,7 +107,7 @@ func runDeps(args []string) error {
 			if depsIncludeBuild {
 				deps = append(deps, f.BuildDependencies...)
 			}
-			printTree(ctx.Loader, deps, "", make(map[string]bool), depsIncludeBuild, filterMissing)
+			printTree(ctx, deps, "", make(map[string]bool), depsIncludeBuild, filterMissing)
 			if i < len(targets)-1 {
 				fmt.Println()
 			}
@@ -118,7 +117,7 @@ func runDeps(args []string) error {
 
 	if depsForEach || len(targets) == 1 {
 		for _, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, depsTopological)
+			deps, err := getDepsForFormula(ctx, name, depsDirect, depsIncludeBuild, depsTopological)
 			if err != nil {
 				return err
 			}
@@ -139,7 +138,7 @@ func runDeps(args []string) error {
 	if depsUnion {
 		depSet := make(map[string]bool)
 		for _, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, false)
+			deps, err := getDepsForFormula(ctx, name, depsDirect, depsIncludeBuild, false)
 			if err != nil {
 				return err
 			}
@@ -154,7 +153,7 @@ func runDeps(args []string) error {
 		// Intersection
 		var isect map[string]bool
 		for i, name := range targets {
-			deps, err := getDepsForFormula(ctx.Loader, name, depsDirect, depsIncludeBuild, false)
+			deps, err := getDepsForFormula(ctx, name, depsDirect, depsIncludeBuild, false)
 			if err != nil {
 				return err
 			}
@@ -178,7 +177,7 @@ func runDeps(args []string) error {
 	}
 
 	if depsTopological {
-		finalDeps = sortTopologically(ctx.Loader, finalDeps)
+		finalDeps = sortTopologically(ctx, finalDeps)
 	} else {
 		sort.Strings(finalDeps)
 	}
@@ -192,8 +191,8 @@ func runDeps(args []string) error {
 	return nil
 }
 
-func getDepsForFormula(loader *formula.Loader, name string, direct, includeBuild, topo bool) ([]string, error) {
-	f, err := loader.LoadByName(name)
+func getDepsForFormula(ctx *context.Context, name string, direct, includeBuild, topo bool) ([]string, error) {
+	f, err := ctx.LoadFormula(name)
 	if err != nil {
 		return nil, fmt.Errorf("formula not found: %s", name)
 	}
@@ -205,17 +204,16 @@ func getDepsForFormula(loader *formula.Loader, name string, direct, includeBuild
 
 	if direct {
 		if topo {
-			return sortTopologically(loader, deps), nil
+			return sortTopologically(ctx, deps), nil
 		}
 		sort.Strings(deps)
 		return deps, nil
 	}
 
 	allDeps := make(map[string]bool)
-	if err := loader.GatherDeps(deps, allDeps, includeBuild); err != nil {
+	if err := gatherDepsWithFallback(ctx, deps, allDeps, includeBuild); err != nil {
 		return nil, err
 	}
-
 
 	var result []string
 	for d := range allDeps {
@@ -223,13 +221,34 @@ func getDepsForFormula(loader *formula.Loader, name string, direct, includeBuild
 	}
 
 	if topo {
-		return sortTopologically(loader, result), nil
+		return sortTopologically(ctx, result), nil
 	}
 	sort.Strings(result)
 	return result, nil
 }
 
-func sortTopologically(loader *formula.Loader, deps []string) []string {
+func gatherDepsWithFallback(ctx *context.Context, deps []string, allDeps map[string]bool, includeBuild bool) error {
+	for _, dep := range deps {
+		if allDeps[dep] {
+			continue
+		}
+		allDeps[dep] = true
+		f, err := ctx.LoadFormula(dep)
+		if err != nil {
+			return err
+		}
+		subDeps := f.Dependencies
+		if includeBuild {
+			subDeps = append(subDeps, f.BuildDependencies...)
+		}
+		if err := gatherDepsWithFallback(ctx, subDeps, allDeps, includeBuild); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func sortTopologically(ctx *context.Context, deps []string) []string {
 	if len(deps) <= 1 {
 		return deps
 	}
@@ -243,7 +262,7 @@ func sortTopologically(loader *formula.Loader, deps []string) []string {
 	}
 
 	for _, d := range deps {
-		f, err := loader.LoadByName(d)
+		f, err := ctx.LoadFormula(d)
 		if err != nil {
 			graph[d] = []string{}
 			continue
@@ -306,7 +325,7 @@ func sortTopologically(loader *formula.Loader, deps []string) []string {
 	return sorted
 }
 
-func printTree(loader *formula.Loader, deps []string, prefix string, visited map[string]bool, includeBuild bool, filterMissing func([]string) []string) {
+func printTree(ctx *context.Context, deps []string, prefix string, visited map[string]bool, includeBuild bool, filterMissing func([]string) []string) {
 	deps = filterMissing(deps)
 	sort.Strings(deps)
 	for i, dep := range deps {
@@ -324,7 +343,7 @@ func printTree(loader *formula.Loader, deps []string, prefix string, visited map
 		}
 		visited[dep] = true
 
-		f, err := loader.LoadByName(dep)
+		f, err := ctx.LoadFormula(dep)
 		if err != nil {
 			continue
 		}
@@ -336,7 +355,7 @@ func printTree(loader *formula.Loader, deps []string, prefix string, visited map
 		if len(subDeps) == 0 {
 			continue
 		}
-		printTree(loader, subDeps, prefix+childPrefix, visited, includeBuild, filterMissing)
+		printTree(ctx, subDeps, prefix+childPrefix, visited, includeBuild, filterMissing)
 	}
 }
 

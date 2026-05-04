@@ -97,7 +97,7 @@ func runReinstall(args []string) error {
 			return fmt.Errorf("formula %q is not installed (use --force to install anyway)", name)
 		}
 
-		f, err := ctx.Loader.LoadByName(name)
+		f, err := ctx.LoadFormula(name)
 		if err != nil {
 			return fmt.Errorf("formula not found: %s", name)
 		}
