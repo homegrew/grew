@@ -1,4 +1,3 @@
-//go:build integration
 
 // Package tests contains integration and end-to-end (E2E) tests for the grew binary.
 //

@@ -38,7 +38,7 @@ test-unit-coverage:
 
 .PHONY: test-integration
 test-integration:
-	$(GO) test -tags "devmode,integration" ./tests/integration/...
+	$(GO) test -tags "devmode" ./tests/integration/...
 
 .PHONY: test-smoke
 test-smoke:
@@ -52,7 +52,8 @@ test-e2e:
 test-integration-coverage:
 	@mkdir -p coverage/raw
 	@rm -rf coverage/raw/*
-	GOCOVERDIR=$(shell pwd)/coverage/raw $(GO) test -tags "devmode,integration" -cover -coverpkg=./... -count=1 $(INTEGRATION_PKGS)
+	GOCOVERDIR=$(shell pwd)/coverage/raw $(GO) test -tags "devmode" -cover -coverpkg=./... -count=1 ./tests/integration/...
+
 	$(GO) tool covdata textfmt -i=coverage/raw -o coverage_integration.txt
 	@rm -rf coverage/raw
 	@echo "Integration coverage report generated at coverage_integration.txt"

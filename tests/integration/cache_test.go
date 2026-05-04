@@ -1,9 +1,6 @@
-//go:build integration
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -13,6 +10,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 func TestOfflineCacheIntegrity(t *testing.T) {

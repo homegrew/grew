@@ -1,9 +1,6 @@
-//go:build integration
-
 package integration
 
 import (
-	"github.com/homegrew/grew/tests/testhelper"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -14,6 +11,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 func TestAuditVulnerability(t *testing.T) {

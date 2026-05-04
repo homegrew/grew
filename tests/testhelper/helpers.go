@@ -1,4 +1,3 @@
-//go:build integration || e2e || smoke
 
 package testhelper
 
