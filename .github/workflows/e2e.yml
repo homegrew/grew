@@ -26,7 +26,7 @@ jobs:
       - run: mkdir -p coverageFiles coverageRaw
       - name: Run smoke tests with coverage
         run: |
-          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,smoke" -cover -coverpkg=./... ./tests
+          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,smoke" -cover -coverpkg=./... ./tests/smoke
 
   e2e:
     strategy:
@@ -43,7 +43,7 @@ jobs:
       - run: mkdir -p coverageFiles coverageRaw
       - name: Run TestLiveEndToEnd
         run: |
-          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,e2e" -cover -coverpkg=./... ./tests -run TestLiveEndToEnd
+          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,e2e" -cover -coverpkg=./... ./tests/e2e -run TestLiveEndToEnd
 
   integration:
     strategy:
@@ -60,7 +60,7 @@ jobs:
       - run: mkdir -p coverageFiles coverageRaw
       - name: Run integration tests with coverage
         run: |
-          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,integration" -cover -coverpkg=./... ./tests
+          GOCOVERDIR=$GITHUB_WORKSPACE/coverageRaw go test -v -timeout 15m -tags "devmode,integration" -cover -coverpkg=./... ./tests/integration
 
 #          go tool covdata textfmt -i=$GITHUB_WORKSPACE/coverageRaw -o ./coverageFiles/coverage_integration.txt
 #      - uses: codecov/codecov-action@v6
