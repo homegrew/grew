@@ -41,7 +41,7 @@ func TestFetchFormula(t *testing.T) {
 
 	// Override API base for testing
 	origFormulaAPI := formulaAPI
-	formulaAPI = server.URL + "/api/formula/%%s.json"
+	formulaAPI = server.URL + "/api/formula/%s.json"
 	defer func() { formulaAPI = origFormulaAPI }()
 
 	f, err := FetchFormula("wget")
@@ -84,7 +84,7 @@ func TestFetchCask(t *testing.T) {
 
 	// Override API base for testing
 	origCaskAPI := caskAPI
-	caskAPI = server.URL + "/api/cask/%%s.json"
+	caskAPI = server.URL + "/api/cask/%s.json"
 	defer func() { caskAPI = origCaskAPI }()
 
 	c, err := FetchCask("firefox")
