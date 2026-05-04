@@ -37,7 +37,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 2. **Multi-Hop Binary Patching (Delta Update)**:
    - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
    - **Tooling**: If a continuous sequence of patches is found and `bspatch` is available in the system `PATH`, only the required deltas are downloaded.
-   - **Sequential Application & Verification**: Each `.patch` file is downloaded, verified against SHA-256 and SHA-512 hashes in the release metadata, and applied sequentially using `bspatch`.
+   - **Sequential Application & Verification**: Each `.patch` file is downloaded, verified against its SHA-256 and SHA-512 entries in the release `checksums.txt` file, and then applied sequentially using `bspatch`.
    - **Post-Patch Verification**: The final reconstructed binary is verified against the `binary-checksums.txt` file of the target release (distinct from `checksums.txt`, which contains hashes for the compressed archives and patches). This ensures the reconstruction was 100% accurate across all hops.
 
 3. **Full Download Fallback**:
@@ -48,7 +48,8 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
    - `grew` performs **Dual-Hash Verification**: all downloaded assets (patches or archives) and the final reconstructed binary are verified against both **SHA-256** and **SHA-512** hashes. This protects against supply-chain attacks targeting a single algorithm.
 
 5. **Pre-Replacement Health Check**:
-   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox (temporary working directory, no elevated privileges, outbound network disabled, and a short execution timeout).
+   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox (temporary working directory, no elevated privileges, strict outbound network isolation when supported by the host OS, and a short execution timeout).
+   - Network egress control is implemented using platform-specific OS primitives where available; if strict outbound blocking cannot be enforced on the current host, `grew` aborts this pre-replacement check and fails closed rather than running with unrestricted network access.
    - This verifies that the binary is structurally sound, compatible with the host OS, and functionally operational (i.e., not a corrupted file or a "zero-day" bricking binary) before it replaces the stable version.
    - For release builds, it also re-executes with `--version` to confirm the reported version string matches the expected tag.
 
@@ -87,7 +88,7 @@ The diagnostic system is designed with modularity and extensibility in mind:
 - **Platform-Specific Extensions:** The system uses `init()` functions to register platform-specific checks into an `ExtraChecks` slice. For example, on macOS, `doctor_darwin.go` injects checks that verify:
     - **App Sandbox:** Ensures installed casks possess the `com.apple.security.app-sandbox` entitlement.
     - **Notarization:** Uses `spctl` to verify that applications pass Gatekeeper assessment.
-    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr`. `grew` applies these attributes and manages uninstallation trashing natively using embedded Swift scripts to ensure proper LaunchServices registration.
+    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr` during diagnostics. Separately, `grew` applies and manages these attributes during installation and uninstallation (including trashing) using embedded Swift scripts to ensure proper LaunchServices registration.
 
 This architecture allows developers to easily add new checks without modifying the core execution flow, ensuring `grew` can continuously expand its health and security validations.
 
