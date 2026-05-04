@@ -1,6 +1,7 @@
 package list
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -10,8 +11,8 @@ import (
 
 	"github.com/homegrew/grew/internal/cellar"
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/internal/cmd"
 )
 
 var (
@@ -74,7 +75,22 @@ func runList(args []string) error {
 	}
 
 	if listCask && !listFormulae {
-		return cmd.CaskList()
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+		casks, err := ctx.Caskroom.ListInstalled()
+		if err != nil {
+			return err
+		}
+		if len(casks) == 0 {
+			fmt.Println("No casks installed.")
+			return nil
+		}
+		for _, c := range casks {
+			fmt.Printf("%-20s %s\n", c.Name, c.Version)
+		}
+		return nil
 	}
 
 	paths := config.Default()
@@ -92,7 +108,7 @@ func runList(args []string) error {
 
 	// Filter by install reason or build method using snapshot metadata.
 	if listOnRequest || listAsDep || listBuiltSrc || listPouredBottle {
-		packages = cmd.FilterByManifest(packages, cel, listOnRequest, listAsDep, listBuiltSrc, listPouredBottle)
+		packages = cel.FilterByManifest(packages, listOnRequest, listAsDep, listBuiltSrc, listPouredBottle)
 		if len(packages) == 0 {
 			fmt.Println("No matching formulas.")
 			return nil
@@ -150,8 +166,6 @@ func runList(args []string) error {
 	return nil
 }
 
-// cmd.FilterByManifest filters packages based on snapshot manifest metadata.
-
 // eachUniquePackage iterates over unique packages and calls fn with the package and its versions.
 func eachUniquePackage(cel *cellar.Cellar, packages []cellar.InstalledPackage, fn func(p cellar.InstalledPackage, vers []string)) {
 	seen := make(map[string]bool)
@@ -190,7 +204,7 @@ func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, 
 				fmt.Printf("%-20s %-12s %s\n", name, v, keg)
 			}
 		} else {
-			fmt.Printf("%-20s %s\n", name, cmd.JoinVersions(vers))
+			fmt.Printf("%-20s %s\n", name, version.Join(vers))
 		}
 	})
 	return nil

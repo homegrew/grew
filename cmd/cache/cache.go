@@ -8,9 +8,9 @@ import (
 	"runtime"
 
 	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
 )
 
@@ -102,7 +102,7 @@ func formulaCachePath(f *formula.Formula, ctx *context.Context, osName, arch str
 		return "", err
 	}
 
-	ext := cmd.URLExt(dlURL)
+	ext := safepath.URLExt(dlURL)
 	if ext == "" && f.Install.Format != "" {
 		ext = "." + f.Install.Format
 	}

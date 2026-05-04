@@ -4,6 +4,7 @@ package safepath
 
 import (
 	"fmt"
+	"net/url"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -116,4 +117,38 @@ func SafeAbsolutePath(path string) error {
 		return fmt.Errorf("path contains traversal or redundant elements: %q (cleaned to %q)", path, clean)
 	}
 	return nil
+}
+
+// URLExt returns the file extension from a URL path, handling common
+// double extensions like .tar.gz.
+func URLExt(rawURL string) string {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return ""
+	}
+	base := filepath.Base(u.Path)
+	if idx := strings.Index(base, ".tar."); idx != -1 {
+		return base[idx:]
+	}
+	return filepath.Ext(base)
+}
+
+// NormalizeDir cleans and validates a directory path, ensuring it is absolute
+// and within allowed boundaries.
+func NormalizeDir(dir, name string) (string, error) {
+	if dir == "" {
+		return "", fmt.Errorf("invalid %s directory: empty path", name)
+	}
+	cleanDir := dir
+	if !filepath.IsAbs(cleanDir) {
+		return "", fmt.Errorf("invalid %s directory %q: path must be absolute", name, cleanDir)
+	}
+	if eval, err := filepath.EvalSymlinks(cleanDir); err == nil {
+		cleanDir = eval
+	}
+	cleanDir = filepath.Clean(cleanDir)
+	if err := SafeAbsolutePath(cleanDir); err != nil {
+		return "", fmt.Errorf("invalid %s directory %q: %w", name, cleanDir, err)
+	}
+	return cleanDir, nil
 }

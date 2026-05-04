@@ -1,7 +1,7 @@
 package extract
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/installer"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -19,7 +19,7 @@ var Command = &cobra.Command{
 	Hidden: true,
 	RunE: func(cobraCmd *cobra.Command, args []string) error {
 		slog.Debug("starting extract command execution")
-		var extArgs cmd.ExtractArgs
+		var extArgs installer.ExtractArgs
 		if err := json.NewDecoder(os.Stdin).Decode(&extArgs); err != nil {
 			return fmt.Errorf("decode extract args: %w", err)
 		}

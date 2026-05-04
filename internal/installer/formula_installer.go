@@ -1,6 +1,7 @@
-package cmd
+package installer
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -10,6 +11,7 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/internal/receipt"
 	"github.com/homegrew/grew/internal/relocation"
 	"github.com/homegrew/grew/internal/sandbox"
@@ -26,7 +28,7 @@ type InstallOpts struct {
 	InstalledOnRequest bool
 }
 
-func InstallFormula(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (err error) {
+func InstallFormula(f *formula.Formula, ctx *context.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
@@ -68,7 +70,7 @@ func InstallFormula(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (
 		return fmt.Errorf("invalid formula version: %w", err)
 	}
 
-	ext := URLExt(dlURL)
+	ext := safepath.URLExt(dlURL)
 	if ext == "" && f.Install.Format != "" {
 		ext = "." + f.Install.Format
 	}
@@ -98,7 +100,7 @@ func InstallFormula(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (
 	}
 
 	if err := VerifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
-		_ = RemoveIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
+		_ = fsutil.RemoveIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 		return err
 	}
 
@@ -152,7 +154,7 @@ func InstallFormula(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (
 	})
 }
 
-func InstallFormulaFromSource(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (err error) {
+func InstallFormulaFromSource(f *formula.Formula, ctx *context.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 
@@ -179,7 +181,7 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *InstallContext, opts Inst
 		return err
 	}
 
-	ext := URLExt(srcURL)
+	ext := safepath.URLExt(srcURL)
 	filename := f.Name + "-" + f.Version + "-src" + ext
 
 	localFile, err := ctx.DL.Download(srcURL, filename)
@@ -311,7 +313,7 @@ type finalizeOpts struct {
 	cleanup      func()
 }
 
-func FinalizeInstall(f *formula.Formula, ctx *InstallContext, opts finalizeOpts) error {
+func FinalizeInstall(f *formula.Formula, ctx *context.InstallContext, opts finalizeOpts) error {
 	if !opts.skipLink {
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)

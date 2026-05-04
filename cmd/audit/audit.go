@@ -10,7 +10,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/config"
-	intcmd "github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/pkg/snapshot"
@@ -87,7 +87,7 @@ func (r *auditResult) ok() bool {
 func RunAudit(args []string) error {
 	slog.Debug("starting audit command execution")
 	
-	ctx, err := intcmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}
@@ -98,7 +98,7 @@ func RunAudit(args []string) error {
 	return runAuditFormulas(ctx, args, auditStrict, auditOnline)
 }
 
-func runAuditFormulas(ctx intcmd.ReadContext, targets []string, strict, online bool) error {
+func runAuditFormulas(ctx *context.Context, targets []string, strict, online bool) error {
 	slog.Debug("starting auditformulas command execution")
 	slog.Debug("starting auditformulas command execution")
 	var formulas []*formula.Formula

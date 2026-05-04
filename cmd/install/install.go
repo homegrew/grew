@@ -1,17 +1,19 @@
 package install
 
 import (
+	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
 	"strings"
 
-	"github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
 )
@@ -78,7 +80,7 @@ func RunInstall(args []string) error {
 		return fmt.Errorf("usage: grew install [-f] [-s] [--only-dependencies|--ignore-dependencies] <formula>...")
 	}
 
-	ctx, err := cmd.NewInstallContext()
+	ctx, err := context.NewInstallContext()
 	if err != nil {
 		return err
 	}
@@ -126,7 +128,7 @@ func RunInstall(args []string) error {
 				return err
 			}
 			sha512 := c.GetSHA512()
-			filename := c.Name + "-" + c.Version + cmd.URLExt(dlURL)
+			filename := c.Name + "-" + c.Version + safepath.URLExt(dlURL)
 
 			if _, ok := seen[filename]; ok {
 				continue
@@ -150,7 +152,7 @@ func RunInstall(args []string) error {
 		}
 
 		for _, name := range remaining {
-			if err := cmd.CaskInstall(name, installNoQuarantine, installForce); err != nil {
+			if err := installer.CaskInstall(ctx, name, installNoQuarantine, installForce); err != nil {
 				return err
 			}
 		}
@@ -245,7 +247,7 @@ func RunInstall(args []string) error {
 				if err != nil {
 					return err
 				}
-				ext = cmd.URLExt(dlURL)
+				ext = safepath.URLExt(dlURL)
 				filename = f.Name + "-" + f.Version + "-src" + ext
 			} else {
 				dlURL, err = f.GetURL()
@@ -260,7 +262,7 @@ func RunInstall(args []string) error {
 				if err != nil {
 					return err
 				}
-				ext = cmd.URLExt(dlURL)
+				ext = safepath.URLExt(dlURL)
 				if ext == "" && f.Install.Format != "" {
 					ext = "." + f.Install.Format
 				}
@@ -295,17 +297,17 @@ func RunInstall(args []string) error {
 				continue
 			}
 
-			opts := cmd.InstallOpts{
+			opts := installer.InstallOpts{
 				SkipPostInstall:    installSkipPostInstall,
 				SkipLink:           installSkipLink,
 				InstalledOnRequest: f.Name == name,
 			}
 			if installBuildFromSource && f.Name == name {
-				if err := cmd.InstallFormulaFromSource(f, ctx, opts); err != nil {
+				if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
 					return err
 				}
 			} else {
-				if err := cmd.InstallFormula(f, ctx, opts); err != nil {
+				if err := installer.InstallFormula(f, ctx, opts); err != nil {
 					return err
 				}
 			}
@@ -322,7 +324,7 @@ func RunInstall(args []string) error {
 }
 
 // simulateInstall prints what would happen without making any changes.
-func simulateInstall(installOrder []*formula.Formula, target string, ctx *cmd.InstallContext, onlyDeps bool, buildFromSource bool, force bool) error {
+func simulateInstall(installOrder []*formula.Formula, target string, ctx *context.InstallContext, onlyDeps bool, buildFromSource bool, force bool) error {
 	ui.FprintArrow(os.Stderr, "Dry run: the following actions would be performed\n")
 
 	for _, f := range installOrder {

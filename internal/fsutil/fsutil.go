@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 	"syscall"
 )
 
@@ -316,4 +317,82 @@ func DiskUsage(root string) (size int64, files int64, err error) {
 		return nil
 	})
 	return
+}
+
+// PruneEmptyDirs recursively removes empty directories starting from the given root.
+func PruneEmptyDirs(root string) {
+	_ = filepath.WalkDir(root, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if !d.IsDir() || path == root {
+			return nil
+		}
+
+		// Recurse first so we can remove parents of children that were just removed
+		PruneEmptyDirs(path)
+
+		// Check if it's empty now
+		entries, err := os.ReadDir(path)
+		if err == nil && len(entries) == 0 {
+			_ = os.Remove(path)
+		}
+		return filepath.SkipDir // Already recursed
+	})
+}
+
+// DirSize returns the total size of all files in the given directory and its subdirectories.
+func DirSize(path string) (int64, error) {
+	var size int64
+	err := filepath.WalkDir(path, func(_ string, d os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			return nil
+		}
+		info, err := d.Info()
+		if err != nil {
+			return err
+		}
+		size += info.Size()
+		return nil
+	})
+	return size, err
+}
+
+// EntrySize returns the size of a directory entry (file or directory).
+func EntrySize(path string, e os.DirEntry) (int64, error) {
+	info, err := e.Info()
+	if err != nil {
+		return 0, err
+	}
+	if info.IsDir() {
+		return DirSize(path)
+	}
+	return info.Size(), nil
+}
+
+// RemoveIfWithinAllowed removes a file if it is located within the temporary or cache directories.
+func RemoveIfWithinAllowed(tmpDir, cacheDir, candidate string) error {
+	if tmpDir == "" || cacheDir == "" || candidate == "" {
+		return nil
+	}
+	cleanTmp, err := filepath.Abs(filepath.Clean(tmpDir))
+	if err != nil {
+		return err
+	}
+	cleanCache, err := filepath.Abs(filepath.Clean(cacheDir))
+	if err != nil {
+		return err
+	}
+	cleanCandidate, err := filepath.Abs(filepath.Clean(candidate))
+	if err != nil {
+		return err
+	}
+
+	if strings.HasPrefix(cleanCandidate, cleanTmp) || strings.HasPrefix(cleanCandidate, cleanCache) {
+		return os.Remove(cleanCandidate)
+	}
+	return fmt.Errorf("refusing to remove file outside of allowed directories: %s", cleanCandidate)
 }

@@ -3,6 +3,7 @@ package cellar
 import (
 	"fmt"
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/internal/receipt"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 	"os"
@@ -252,4 +253,34 @@ func (c *Cellar) IsPinned(name string) bool {
 	d, _ := c.kegDir(name)
 	_, err := os.Stat(filepath.Join(d, "PINNED"))
 	return err == nil
+}
+
+// FilterByManifest filters the given packages based on their installation receipt metadata.
+func (c *Cellar) FilterByManifest(packages []InstalledPackage, onRequest, asDep, builtSrc, pouredBottle bool) []InstalledPackage {
+	var filtered []InstalledPackage
+	for _, p := range packages {
+		kegPath, err := c.KegPath(p.Name, p.Version)
+		if err != nil {
+			continue
+		}
+		rcpt, err := receipt.Load(kegPath)
+		if err != nil {
+			continue
+		}
+
+		if onRequest && !rcpt.InstalledOnRequest {
+			continue
+		}
+		if asDep && rcpt.InstalledOnRequest {
+			continue
+		}
+		if builtSrc && !rcpt.BuiltFromSource {
+			continue
+		}
+		if pouredBottle && rcpt.BuiltFromSource {
+			continue
+		}
+		filtered = append(filtered, p)
+	}
+	return filtered
 }

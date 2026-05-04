@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -77,12 +77,12 @@ func init() {
 }
 
 type servicesCtx struct {
-	cmd.ReadContext
+	*context.Context
 	mgr *service.Manager
 }
 
 func newServicesCtx() (*servicesCtx, error) {
-	common, err := cmd.NewReadContext()
+	common, err := context.New()
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +93,7 @@ func newServicesCtx() (*servicesCtx, error) {
 	}
 
 	return &servicesCtx{
-		ReadContext: common,
+		Context: common,
 		mgr:         mgr,
 	}, nil
 }

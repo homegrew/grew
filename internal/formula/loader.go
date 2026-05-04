@@ -297,3 +297,25 @@ func (l *Loader) loadFromFile(path string) (*Formula, error) {
 
 	return f, nil
 }
+
+// GatherDeps recursively collects all dependencies for the given formula names.
+func (l *Loader) GatherDeps(deps []string, seen map[string]bool, includeBuild bool) error {
+	for _, dep := range deps {
+		if seen[dep] {
+			continue
+		}
+		seen[dep] = true
+		f, err := l.LoadByName(dep)
+		if err != nil {
+			return fmt.Errorf("dependency %q not found", dep)
+		}
+		subDeps := f.Dependencies
+		if includeBuild {
+			subDeps = append(subDeps, f.BuildDependencies...)
+		}
+		if err := l.GatherDeps(subDeps, seen, includeBuild); err != nil {
+			return err
+		}
+	}
+	return nil
+}

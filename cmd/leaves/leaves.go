@@ -1,12 +1,12 @@
 package leaves
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"sort"
 
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/internal/cmd"
 )
 
 var (
@@ -35,7 +35,7 @@ func RunLeaves(args []string) error {
 		return fmt.Errorf("--installed-on-request and --installed-as-dependency are mutually exclusive")
 	}
 
-	ctx, err := cmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func RunLeaves(args []string) error {
 	}
 
 	if leavesOnRequest || leavesAsDep {
-		packages = cmd.FilterByManifest(packages, ctx.Cellar, leavesOnRequest, leavesAsDep, false, false)
+		packages = ctx.Cellar.FilterByManifest(packages, leavesOnRequest, leavesAsDep, false, false)
 		if len(packages) == 0 {
 			return nil
 		}
@@ -81,7 +81,7 @@ func RunLeaves(args []string) error {
 
 		// Collect all recursive dependencies for this installed formula.
 		deps := make(map[string]bool)
-		if err := cmd.GatherDeps(ctx.Loader, f.Dependencies, deps, false); err != nil {
+		if err := ctx.Loader.GatherDeps(f.Dependencies, deps, false); err != nil {
 			// If collectDeps fails (e.g. missing transitive dependency), log it
 			// but continue to merge whatever partial dependencies we collected.
 			slog.Debug("failed to collect all recursive dependencies", "package", p.Name, "error", err)

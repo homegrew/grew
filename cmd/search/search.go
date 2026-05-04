@@ -1,11 +1,11 @@
 package search
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
 	"fmt"
 	"log/slog"
 	"strings"
 
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/spf13/cobra"
 )
@@ -39,13 +39,25 @@ func runSearch(args []string) error {
 	}
 	query := strings.ToLower(args[0])
 
-	if searchCask {
-		return cmd.CaskSearch(query)
-	}
-
-	ctx, err := cmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
+	}
+
+	if searchCask {
+		results := ctx.CaskLoader.Search(query)
+		if len(results) == 0 {
+			fmt.Printf("No casks found matching %q\n", query)
+			return nil
+		}
+		for _, name := range results {
+			marker := " "
+			if ctx.Caskroom.IsInstalled(name) {
+				marker = "*"
+			}
+			fmt.Printf("%s %s\n", marker, name)
+		}
+		return nil
 	}
 
 	all, err := ctx.Loader.LoadAll()

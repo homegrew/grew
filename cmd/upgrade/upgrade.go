@@ -1,6 +1,9 @@
 package upgrade
 
 import (
+	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -9,7 +12,6 @@ import (
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"
-	intcmd "github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/pkg/ui"
 )
 
@@ -25,7 +27,7 @@ The old version keg is removed after a successful upgrade.`,
   grew upgrade jq`,
 	RunE: func(c *cobra.Command, args []string) error {
 		slog.Debug("starting upgrade command execution")
-		ctx, err := intcmd.NewInstallContext()
+		ctx, err := context.NewInstallContext()
 		if err != nil {
 			return err
 		}
@@ -102,7 +104,7 @@ The old version keg is removed after a successful upgrade.`,
 			slog.Info("unlinked old version " + t.installedVersion)
 
 			// Install new version (old keg stays until we confirm success)
-			if err := intcmd.InstallFormula(t.formula, ctx, intcmd.InstallOpts{InstalledOnRequest: true}); err != nil {
+			if err := installer.InstallFormula(t.formula, ctx, installer.InstallOpts{InstalledOnRequest: true}); err != nil {
 				if ctx.AuditLog != nil {
 					ctx.AuditLog.Log(auditlog.ActionUpgrade, t.formula.Name, t.formula.Version, "", fmt.Sprintf("failed: %v", err))
 				}
@@ -125,7 +127,7 @@ The old version keg is removed after a successful upgrade.`,
 		}
 		// Temporarily suppress output for the automatic cleanup phase
 		// to make it behave more like a background task, unless in verbose mode.
-		if err := intcmd.RunCleanup(nil, intcmd.CleanupOpts{}); err != nil {
+		if err := cmd.RunCleanup(nil, cmd.CleanupOpts{}); err != nil {
 			slog.Warn("automatic cleanup failed", "error", err)
 		}
 
@@ -152,7 +154,7 @@ var OutdatedCommand = &cobra.Command{
 	Args:  cobra.NoArgs,
 	RunE: func(c *cobra.Command, args []string) error {
 		slog.Debug("starting outdated command execution")
-		ctx, err := intcmd.NewReadContext()
+		ctx, err := context.New()
 		if err != nil {
 			return err
 		}

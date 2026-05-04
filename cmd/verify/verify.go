@@ -1,8 +1,8 @@
 package verify
 
-import "github.com/homegrew/grew/internal/cmd"
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -34,7 +34,7 @@ Exit code 0 if all packages pass, 1 if any discrepancies found.`,
   grew verify --json`,
 	RunE: func(c *cobra.Command, args []string) error {
 		slog.Debug("starting verify command execution")
-		ctx, err := cmd.NewReadContext()
+		ctx, err := context.New()
 		if err != nil {
 			return err
 		}

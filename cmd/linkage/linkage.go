@@ -1,11 +1,11 @@
 package linkage
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
 
-	intcmd "github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/linkage"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -51,7 +51,7 @@ func RunLinkage(args []string) error {
 		return fmt.Errorf("usage: grew linkage [--test] [--strict] [--reverse] [--cached] [-q] <formula>...")
 	}
 
-	ctx, err := intcmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}

@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/internal/installer"
 	"github.com/spf13/cobra"
 )
 
@@ -42,22 +43,26 @@ func runUninstall(args []string) error {
 	}
 
 	if uninstallCask {
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
 		for _, name := range args {
-			if err := cmd.CaskUninstall(name, uninstallForce); err != nil {
+			if err := installer.CaskUninstall(ctx, name, uninstallForce); err != nil {
 				return err
 			}
 		}
 		return nil
 	}
 
-	ctx, err := cmd.NewInstallContext()
+	ctx, err := context.NewInstallContext()
 	if err != nil {
 		return err
 	}
 	defer ctx.Close()
 
 	for _, name := range args {
-		if err := cmd.UninstallFormula(ctx, name, uninstallForce); err != nil {
+		if err := ctx.UninstallFormula(name, uninstallForce); err != nil {
 			return err
 		}
 	}

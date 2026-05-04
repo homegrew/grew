@@ -1,7 +1,7 @@
 package untap
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/spf13/cobra"
 )
@@ -13,7 +13,7 @@ var Command = &cobra.Command{
 	Example: `  grew untap user/repo`,
 	Args:  cobra.ExactArgs(1),
 	RunE: func(c *cobra.Command, args []string) error {
-		ctx, err := cmd.NewReadContext()
+		ctx, err := context.New()
 		if err != nil {
 			return err
 		}

@@ -1,11 +1,11 @@
 package link
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
@@ -50,7 +50,7 @@ func runLink(args []string) error {
 		return fmt.Errorf("usage: grew link [--overwrite] [--dry-run] [--force] <formula>...")
 	}
 
-	ctx, err := cmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}

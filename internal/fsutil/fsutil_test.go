@@ -275,3 +275,89 @@ func TestFormatSize(t *testing.T) {
 		})
 	}
 }
+
+func TestPruneEmptyDirs(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+
+	// Create structure:
+	// dir/
+	//   empty/
+	//   nested/
+	//     empty/
+	//   non-empty/
+	//     file.txt
+	
+	os.MkdirAll(filepath.Join(dir, "empty"), 0755)
+	os.MkdirAll(filepath.Join(dir, "nested", "empty"), 0755)
+	os.MkdirAll(filepath.Join(dir, "non-empty"), 0755)
+	os.WriteFile(filepath.Join(dir, "non-empty", "file.txt"), []byte("data"), 0644)
+
+	PruneEmptyDirs(dir)
+
+	if _, err := os.Stat(filepath.Join(dir, "empty")); !os.IsNotExist(err) {
+		t.Error("expected empty/ to be removed")
+	}
+	if _, err := os.Stat(filepath.Join(dir, "nested")); !os.IsNotExist(err) {
+		t.Error("expected nested/ to be removed because its child was empty")
+	}
+	if _, err := os.Stat(filepath.Join(dir, "non-empty")); err != nil {
+		t.Error("expected non-empty/ to be kept")
+	}
+}
+
+func TestDirSize(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	
+	file1 := filepath.Join(dir, "file1")
+	file2 := filepath.Join(dir, "file2")
+	os.WriteFile(file1, []byte("123"), 0644)    // 3 bytes
+	os.WriteFile(file2, []byte("12345"), 0644)  // 5 bytes
+
+	size, err := DirSize(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if size != 8 {
+		t.Errorf("expected size 8, got %d", size)
+	}
+}
+
+func TestEntrySize(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	
+	filePath := filepath.Join(dir, "file")
+	os.WriteFile(filePath, []byte("1234"), 0644)
+	
+	entries, _ := os.ReadDir(dir)
+	size, err := EntrySize(filePath, entries[0])
+	if err != nil {
+		t.Fatal(err)
+	}
+	if size != 4 {
+		t.Errorf("expected size 4, got %d", size)
+	}
+
+	// Test directory entry
+	subDir := filepath.Join(dir, "subdir")
+	os.Mkdir(subDir, 0755)
+	os.WriteFile(filepath.Join(subDir, "f"), []byte("12"), 0644)
+	
+	entries2, _ := os.ReadDir(dir)
+	var subDirEntry os.DirEntry
+	for _, e := range entries2 {
+		if e.Name() == "subdir" {
+			subDirEntry = e
+		}
+	}
+	
+	size2, err := EntrySize(subDir, subDirEntry)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if size2 != 2 {
+		t.Errorf("expected size 2, got %d", size2)
+	}
+}

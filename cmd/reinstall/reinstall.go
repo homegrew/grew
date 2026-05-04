@@ -1,7 +1,8 @@
 package reinstall
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -55,33 +56,35 @@ func runReinstall(args []string) error {
 		if reinstallZap {
 			return fmt.Errorf("--zap is not currently supported for casks")
 		}
-		for _, name := range args {
-			_, _, cr, err := cmd.SetupCaskLoader()
-			if err != nil {
-				return err
-			}
+		
+		ctx, err := context.NewInstallContext()
+		if err != nil {
+			return err
+		}
+		defer ctx.Close()
 
-			if !cr.IsInstalled(name) && !reinstallForce {
+		for _, name := range args {
+			if !ctx.Caskroom.IsInstalled(name) && !reinstallForce {
 				return fmt.Errorf("cask %q is not installed (use --force to install anyway)", name)
 			}
 
 			ui.FprintArrow(os.Stderr, "Reinstalling cask %s", name)
 
-			if cr.IsInstalled(name) {
-				if err := cmd.CaskUninstall(name, true); err != nil {
+			if ctx.Caskroom.IsInstalled(name) {
+				if err := installer.CaskUninstall(ctx.Context, name, true); err != nil {
 					return fmt.Errorf("remove old installation: %w", err)
 				}
 			}
 
 			// noQuarantine defaults to false here as per install behavior
-			if err := cmd.CaskInstall(name, false, true); err != nil {
+			if err := installer.CaskInstall(ctx, name, false, true); err != nil {
 				return err
 			}
 		}
 		return nil
 	}
 
-	ctx, err := cmd.NewInstallContext()
+	ctx, err := context.NewInstallContext()
 	if err != nil {
 		return err
 	}
@@ -153,13 +156,13 @@ func runReinstall(args []string) error {
 		}
 
 		// Fresh install.
-		opts := cmd.InstallOpts{InstalledOnRequest: true}
+		opts := installer.InstallOpts{InstalledOnRequest: true}
 		if reinstallBuildFromSource {
-			if err := cmd.InstallFormulaFromSource(f, ctx, opts); err != nil {
+			if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
 				return err
 			}
 		} else {
-			if err := cmd.InstallFormula(f, ctx, opts); err != nil {
+			if err := installer.InstallFormula(f, ctx, opts); err != nil {
 				return err
 			}
 		}
@@ -170,12 +173,12 @@ func runReinstall(args []string) error {
 
 // cleanTmpFor removes staging and build dirs for a formula from the tmp directory.
 func cleanTmpFor(rootDir, tmpDir, name string) {
-	baseRootDir, err := cmd.NormalizeDir(rootDir, "root")
+	baseRootDir, err := safepath.NormalizeDir(rootDir, "root")
 	if err != nil {
 		return
 	}
 
-	baseTmpDir, err := cmd.NormalizeDir(tmpDir, "tmp")
+	baseTmpDir, err := safepath.NormalizeDir(tmpDir, "tmp")
 	if err != nil {
 		return
 	}

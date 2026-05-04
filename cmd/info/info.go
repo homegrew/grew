@@ -1,6 +1,7 @@
 package info
 
 import (
+	"github.com/homegrew/grew/internal/cask"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -12,7 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/receipt"
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
 )
 
 var infoCask bool
@@ -42,7 +43,7 @@ func init() {
 func runInfo(args []string) error {
 	slog.Debug("starting info command execution")
 
-	ctx, err := cmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}
@@ -63,7 +64,7 @@ func runInfo(args []string) error {
 			if i > 0 {
 				fmt.Println()
 			}
-			if err := cmd.CaskInfo(name); err != nil {
+			if err := cask.PrintInfo(ctx.CaskLoader, ctx.Caskroom, name); err != nil {
 				return err
 			}
 		}
@@ -128,13 +129,13 @@ func runInfo(args []string) error {
 	return nil
 }
 
-func runInfoJSON(ctx cmd.ReadContext, names []string, isCask bool) error {
+func runInfoJSON(ctx *context.Context, names []string, isCask bool) error {
 	var output InfoJSONv2
 	lnk := &linker.Linker{Paths: ctx.Paths}
 
 	for _, name := range names {
 		if isCask {
-			c, ver, _, err := cmd.LoadCaskInfoData(name)
+			c, ver, err := cask.LoadInfoData(ctx.CaskLoader, ctx.Caskroom, name)
 			if err != nil {
 				return err
 			}
@@ -193,7 +194,7 @@ func runInfoJSON(ctx cmd.ReadContext, names []string, isCask bool) error {
 	return enc.Encode(output)
 }
 
-func printInstallationStats(ctx cmd.ReadContext) error {
+func printInstallationStats(ctx *context.Context) error {
 	formulas, err := ctx.Cellar.List()
 	if err != nil {
 		return err

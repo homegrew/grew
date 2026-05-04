@@ -1,5 +1,5 @@
 
-package cmd
+package installer
 
 import (
 	"fmt"

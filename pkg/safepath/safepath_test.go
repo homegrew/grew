@@ -1,6 +1,8 @@
 package safepath
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -149,6 +151,76 @@ func TestIsSubpath(t *testing.T) {
 			t.Parallel()
 			if got := IsSubpath(tt.base, tt.target); got != tt.want {
 				t.Errorf("IsSubpath(%q, %q) = %v, want %v", tt.base, tt.target, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestURLExt(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		url  string
+		want string
+	}{
+		{"https://example.com/foo.tar.gz", ".tar.gz"},
+		{"https://example.com/foo.zip", ".zip"},
+		{"https://example.com/foo.tar.xz", ".tar.xz"},
+		{"https://example.com/foo", ""},
+		{"https://example.com/foo.txt", ".txt"},
+		{"invalid url %%", ""},
+	}
+	for _, tt := range tests {
+		t.Run(tt.url, func(t *testing.T) {
+			if got := URLExt(tt.url); got != tt.want {
+				t.Errorf("URLExt(%q) = %q, want %q", tt.url, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestNormalizeDir(t *testing.T) {
+	t.Parallel()
+	tmp := t.TempDir()
+	
+	// Create a subdirectory to test symlink resolution
+	sub := filepath.Join(tmp, "sub")
+	os.Mkdir(sub, 0755)
+	
+	link := filepath.Join(tmp, "link")
+	os.Symlink(sub, link)
+
+	tests := []struct {
+		name    string
+		dir     string
+		kind    string
+		wantErr bool
+	}{
+		{"valid", sub, "test", false},
+		{"valid symlink", link, "test", false},
+		{"non-existent", filepath.Join(tmp, "nope"), "test", false}, // Existence not required for normalization
+		{"empty", "", "test", true},
+		{"relative", "relative", "test", true},
+		{"root", "/", "test", true},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := NormalizeDir(tt.dir, tt.kind)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("NormalizeDir() error = %v, wantErr %v", err, tt.wantErr)
+			}
+			if err == nil {
+				// NormalizeDir should return an absolute, cleaned path.
+				if !filepath.IsAbs(got) {
+					t.Errorf("NormalizeDir() returned non-absolute path: %q", got)
+				}
+				// If it was a symlink, it should be resolved.
+				if tt.name == "valid symlink" {
+					resolvedSub, _ := filepath.EvalSymlinks(sub)
+					if got != resolvedSub {
+						t.Errorf("NormalizeDir() did not resolve symlink: got %q, want %q", got, resolvedSub)
+					}
+				}
 			}
 		})
 	}

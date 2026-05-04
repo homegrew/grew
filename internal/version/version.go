@@ -85,3 +85,14 @@ func Compare(v1, v2 string) int {
 func IsNewer(v1, v2 string) bool {
 	return Compare(v1, v2) == -1
 }
+
+// Join returns a comma-separated string of version strings.
+func Join(vers []string) string {
+	if len(vers) == 0 {
+		return ""
+	}
+	if len(vers) == 1 {
+		return vers[0]
+	}
+	return strings.Join(vers, ", ")
+}

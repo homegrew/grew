@@ -1,10 +1,10 @@
 package tap
 
 import (
+	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"strings"
 
-	intcmd "github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/spf13/cobra"
 )
@@ -20,7 +20,7 @@ With arguments, taps the specified repository.`,
   grew tap user/repo https://github.com/user/repo`,
 	Args: cobra.MaximumNArgs(2),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, err := intcmd.NewReadContext()
+		ctx, err := context.New()
 		if err != nil {
 			return err
 		}

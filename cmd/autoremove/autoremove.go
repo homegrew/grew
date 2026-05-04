@@ -6,7 +6,8 @@ import (
 	"sort"
 
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )
 
@@ -29,7 +30,7 @@ func init() {
 func RunAutoremove(args []string) error {
 	slog.Debug("starting autoremove command execution")
 	
-	ctx, err := cmd.NewInstallContext()
+	ctx, err := context.NewInstallContext()
 	if err != nil {
 		return err
 	}
@@ -57,7 +58,7 @@ func RunAutoremove(args []string) error {
 		}
 
 		deps := make(map[string]bool)
-		if err := cmd.GatherDeps(ctx.Loader, f.Dependencies, deps, false); err != nil {
+		if err := ctx.Loader.GatherDeps(f.Dependencies, deps, false); err != nil {
 			slog.Debug("failed to collect all recursive dependencies", "package", p.Name, "error", err)
 		}
 
@@ -77,7 +78,7 @@ func RunAutoremove(args []string) error {
 
 		if !isDependency[p.Name] {
 			// It's a leaf. Check if it was installed as a dependency.
-			filtered := cmd.FilterByManifest([]cellar.InstalledPackage{p}, ctx.Cellar, false, true, false, false)
+			filtered := ctx.Cellar.FilterByManifest([]cellar.InstalledPackage{p}, false, true, false, false)
 			if len(filtered) > 0 {
 				toRemove = append(toRemove, p.Name)
 			}
@@ -91,14 +92,14 @@ func RunAutoremove(args []string) error {
 	sort.Strings(toRemove)
 
 	if autoremoveDryRun {
-		fmt.Printf("Would uninstall: %s\n", cmd.JoinVersions(toRemove))
+		fmt.Printf("Would uninstall: %s\n", version.Join(toRemove))
 		return nil
 	}
 
-	fmt.Printf("Autoremoving %d unneeded formulae:\n%s\n", len(toRemove), cmd.JoinVersions(toRemove))
+	fmt.Printf("Autoremoving %d unneeded formulae:\n%s\n", len(toRemove), version.Join(toRemove))
 
 	for _, name := range toRemove {
-		if err := cmd.UninstallFormula(ctx, name, false); err != nil {
+		if err := ctx.UninstallFormula(name, false); err != nil {
 			return err
 		}
 	}

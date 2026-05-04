@@ -8,7 +8,7 @@ import (
 
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/context"
 )
 
 var (
@@ -56,7 +56,7 @@ func runDeps(args []string) error {
 
 	targets := args
 
-	ctx, err := cmd.NewReadContext()
+	ctx, err := context.New()
 	if err != nil {
 		return err
 	}
@@ -212,9 +212,10 @@ func getDepsForFormula(loader *formula.Loader, name string, direct, includeBuild
 	}
 
 	allDeps := make(map[string]bool)
-	if err := cmd.GatherDeps(loader, deps, allDeps, includeBuild); err != nil {
+	if err := loader.GatherDeps(deps, allDeps, includeBuild); err != nil {
 		return nil, err
 	}
+
 
 	var result []string
 	for d := range allDeps {
