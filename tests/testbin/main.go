@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/homegrew/grew/internal/installer"
 	"fmt"
 	"os"
 
 	"github.com/homegrew/grew/internal/cli"
 	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/internal/installer"
 	verpkg "github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )

@@ -48,12 +48,12 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 1. Build the real grew binary
 	t.Log("Building live grew binary...")
-	root := getProjectRoot(t)
+	//root := getProjectRoot(t)
 	args := []string{"build", "-tags=devmode", "-o", exePath}
 	if os.Getenv("GOCOVERDIR") != "" {
 		args = append(args, "-cover")
 	}
-	args = append(args, filepath.Join(root, "main.go"))
+	args = append(args, "./...")
 
 	cmdBuild := exec.Command("go", args...)
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
