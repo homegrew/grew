@@ -14,10 +14,6 @@ type Runtime interface {
 
 var r Runtime
 
-// Unsafe is set by the CLI when the user passes --unsafe to grew setup.
-// Combined with a devmode build, it allows user-local installs without root.
-var Unsafe bool
-
 type runtimeTyp struct {
 	prefix string
 	isRoot bool
@@ -44,9 +40,9 @@ func Init() error {
 }
 
 // devModeActive reports whether developer mode is enabled at runtime.
-// Requires both a devmode build (compile-time) AND the --unsafe flag.
+// Requires a devmode build (compile-time).
 func devModeActive() bool {
-	return DevMode && Unsafe
+	return DevMode
 }
 
 func new() (Runtime, error) {

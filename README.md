@@ -118,7 +118,7 @@ for c in $(grew list --cask | awk '{print $1}'); do grew uninstall --cask $c; do
     ```bash
     sudo rm -rf /usr/local/homegrew
     ```
-*   **Devmode (User-local install via `--unsafe`):**
+*   **Devmode (User-local install via `HOMEGREW_PREFIX=~/.homegrew`):**
     ```bash
     rm -rf ~/.homegrew
     ```
@@ -251,15 +251,15 @@ make dev           # build with 'devmode' tag enabled
 
 ### Developer mode
 
-Release builds will prompt for elevated privileges to setup the system prefix. For local development you can build with the `devmode` tag and pass `--unsafe` to setup to install to `~/.homegrew` without root:
+Release builds will prompt for elevated privileges to setup the system prefix. For local development you can build with the `devmode` tag. This enables the ability to use user-local prefixes without root:
 
 ```bash
 make dev
-./grew setup --unsafe    # installs to ~/.homegrew as your user
-./grew install jq        # works without root
+HOMEGREW_PREFIX=~/.homegrew ./grew setup    # installs to ~/.homegrew as your user
+HOMEGREW_PREFIX=~/.homegrew ./grew install jq # works without root
 ```
 
-Both gates are required — the build tag compiles in the code path, and `--unsafe` activates it at setup time. Release binaries ignore `--unsafe` entirely.
+The build tag compiles in the code path that bypasses strict system prefix enforcement, allowing standard commands to operate rootless in `~/.homegrew`.
 
 ### Project layout
 
