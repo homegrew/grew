@@ -318,6 +318,9 @@ func FinalizeInstall(f *formula.Formula, ctx *context.InstallContext, opts final
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
 		}
+	} else {
+		// Ensure any existing links are removed if skipLink is requested.
+		_ = ctx.Linker.Unlink(f.Name)
 	}
 
 	if !opts.meta.BuiltFromSource {

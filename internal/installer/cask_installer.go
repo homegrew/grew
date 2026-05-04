@@ -17,7 +17,7 @@ import (
 	"github.com/homegrew/grew/pkg/ui"
 )
 
-func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, force bool) (err error) {
+func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, force bool, skipLink bool) (err error) {
 	c, err := ctx.LoadCask(name)
 	if err != nil {
 		return err
@@ -138,14 +138,21 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 		installedPkgs = append(installedPkgs, pkgName)
 	}
 
-	for _, binName := range c.Artifacts.Bin {
-		binTarget := findCaskBinary(ctx.Paths.AppDir, c.Artifacts.App, binName)
-		if binTarget != "" {
-			if err := inst.LinkBin(binName, binTarget); err != nil {
-				slog.Warn(fmt.Sprintf("could not link binary %s: %v", binName, err))
-			} else {
-				slog.Info(fmt.Sprintf("linked binary: %s -> %s", binName, binTarget))
+	if !skipLink {
+		for _, binName := range c.Artifacts.Bin {
+			binTarget := findCaskBinary(ctx.Paths.AppDir, c.Artifacts.App, binName)
+			if binTarget != "" {
+				if err := inst.LinkBin(binName, binTarget); err != nil {
+					slog.Warn(fmt.Sprintf("could not link binary %s: %v", binName, err))
+				} else {
+					slog.Info(fmt.Sprintf("linked binary: %s -> %s", binName, binTarget))
+				}
 			}
+		}
+	} else {
+		// Ensure any existing links are removed.
+		for _, binName := range c.Artifacts.Bin {
+			_ = inst.UnlinkBin(binName)
 		}
 	}
 

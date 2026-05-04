@@ -18,6 +18,7 @@ var (
 	reinstallForce           bool
 	reinstallZap             bool
 	reinstallBuildFromSource bool
+	reinstallSkipLink        bool
 )
 
 var Command = &cobra.Command{
@@ -40,6 +41,7 @@ func init() {
 	Command.Flags().BoolVarP(&reinstallForce, "force", "f", false, "Install without checking for previously installed keg-only or non-migrated versions.")
 	Command.Flags().BoolVar(&reinstallZap, "zap", false, "Deep clean: remove all installed versions and any leftover temp files before reinstalling.")
 	Command.Flags().BoolVarP(&reinstallBuildFromSource, "build-from-source", "s", false, "Build formula from source instead of downloading a bottle.")
+	Command.Flags().BoolVar(&reinstallSkipLink, "skip-link", false, "Install but do not create symlinks.")
 }
 
 func runReinstall(args []string) error {
@@ -77,7 +79,7 @@ func runReinstall(args []string) error {
 			}
 
 			// noQuarantine defaults to false here as per install behavior
-			if err := installer.CaskInstall(ctx, name, false, true); err != nil {
+			if err := installer.CaskInstall(ctx, name, false, true, reinstallSkipLink); err != nil {
 				return err
 			}
 		}
@@ -156,7 +158,10 @@ func runReinstall(args []string) error {
 		}
 
 		// Fresh install.
-		opts := installer.InstallOpts{InstalledOnRequest: true}
+		opts := installer.InstallOpts{
+			SkipLink:           reinstallSkipLink,
+			InstalledOnRequest: true,
+		}
 		if reinstallBuildFromSource {
 			if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
 				return err

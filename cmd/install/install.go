@@ -140,7 +140,7 @@ func RunInstall(args []string) error {
 		}
 
 		for _, name := range remaining {
-			if err := installer.CaskInstall(ctx, name, installNoQuarantine, installForce); err != nil {
+			if err := installer.CaskInstall(ctx, name, installNoQuarantine, installForce, installSkipLink); err != nil {
 				return err
 			}
 		}
@@ -275,13 +275,18 @@ func RunInstall(args []string) error {
 			}
 
 			if ctx.Cellar.IsInstalled(f.Name) && !(installForce && f.Name == name) {
-				ui.FprintArrow(os.Stderr, "%s %s is already installed, skipping", f.Name, f.Version)
+				if !ctx.Linker.IsLinked(f.Name) {
+					ui.FprintArrow(os.Stderr, "Linking %s %s...", f.Name, f.Version)
+					_ = ctx.Linker.Link(f.Name, f.Version, f.KegOnly)
+				} else {
+					ui.FprintArrow(os.Stderr, "%s %s is already installed and linked, skipping", f.Name, f.Version)
+				}
 				continue
 			}
 
 			opts := installer.InstallOpts{
 				SkipPostInstall:    installSkipPostInstall,
-				SkipLink:           installSkipLink,
+				SkipLink:           installSkipLink && f.Name == name,
 				InstalledOnRequest: f.Name == name,
 			}
 			if installBuildFromSource && f.Name == name {
@@ -356,7 +361,9 @@ func simulateInstall(installOrder []*formula.Formula, target string, ctx *contex
 			}
 			kegPath, _ := ctx.Cellar.KegPath(f.Name, f.Version)
 			fmt.Printf("            keg:    %s\n", kegPath)
-			if f.KegOnly {
+			if installSkipLink && f.Name == target {
+				fmt.Printf("            link:   skipped (--skip-link)\n")
+			} else if f.KegOnly {
 				fmt.Printf("            link:   keg-only (not linked)\n")
 			} else {
 				fmt.Printf("            link:   opt/%s -> %s\n", f.Name, kegPath)
