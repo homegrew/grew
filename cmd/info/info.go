@@ -64,9 +64,15 @@ func runInfo(args []string) error {
 			if i > 0 {
 				fmt.Println()
 			}
-			if err := cask.PrintInfo(ctx.CaskLoader, ctx.Caskroom, name); err != nil {
+			c, err := ctx.LoadCask(name)
+			if err != nil {
 				return err
 			}
+			ver := ""
+			if ctx.Caskroom.IsInstalled(c.Name) {
+				ver, _ = ctx.Caskroom.InstalledVersion(c.Name)
+			}
+			cask.PrintInfoWithData(c, ver)
 		}
 		return nil
 	}
@@ -78,9 +84,9 @@ func runInfo(args []string) error {
 			fmt.Println()
 		}
 
-		f, err := ctx.Loader.LoadByName(name)
+		f, err := ctx.LoadFormula(name)
 		if err != nil {
-			return fmt.Errorf("formula not found: %s", name)
+			return err
 		}
 
 		fmt.Printf("%s: %s %s\n", f.Name, f.Description, f.Version)
@@ -135,9 +141,13 @@ func runInfoJSON(ctx *context.Context, names []string, isCask bool) error {
 
 	for _, name := range names {
 		if isCask {
-			c, ver, err := cask.LoadInfoData(ctx.CaskLoader, ctx.Caskroom, name)
+			c, err := ctx.LoadCask(name)
 			if err != nil {
 				return err
+			}
+			ver := ""
+			if ctx.Caskroom.IsInstalled(c.Name) {
+				ver, _ = ctx.Caskroom.InstalledVersion(c.Name)
 			}
 			cj := CaskJSON{
 				Token:     c.Name,
@@ -156,9 +166,9 @@ func runInfoJSON(ctx *context.Context, names []string, isCask bool) error {
 			}
 			output.Casks = append(output.Casks, cj)
 		} else {
-			f, err := ctx.Loader.LoadByName(name)
+			f, err := ctx.LoadFormula(name)
 			if err != nil {
-				return fmt.Errorf("formula not found: %s", name)
+				return err
 			}
 			fj := FormulaJSON{
 				Name:         f.Name,

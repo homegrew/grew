@@ -45,7 +45,11 @@ func PrintInfo(loader *Loader, cr *Caskroom, name string) error {
 	if err != nil {
 		return err
 	}
+	PrintInfoWithData(c, ver)
+	return nil
+}
 
+func PrintInfoWithData(c *Cask, ver string) {
 	fmt.Printf("%s: %s %s (cask)\n", c.Name, c.Description, c.Version)
 	if c.Tap != "" {
 		fmt.Printf("From: %s\n", c.Tap)
@@ -76,6 +80,4 @@ func PrintInfo(loader *Loader, cr *Caskroom, name string) error {
 		fmt.Println("\nCaveats:")
 		fmt.Println(c.Caveats)
 	}
-
-	return nil
 }

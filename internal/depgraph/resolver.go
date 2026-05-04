@@ -20,7 +20,8 @@ func (e *CycleError) Error() string {
 }
 
 type Resolver struct {
-	Loader *formula.Loader
+	Loader      *formula.Loader
+	LoadFormula func(string) (*formula.Formula, error)
 }
 
 // Resolve returns formulas in installation order (dependencies first).
@@ -29,6 +30,11 @@ func (r *Resolver) Resolve(name string) ([]*formula.Formula, error) {
 	// graph[A] = [B, C] means "A depends on B and C".
 	graph := map[string][]string{}
 	formulas := map[string]*formula.Formula{}
+
+	loadFunc := r.LoadFormula
+	if loadFunc == nil {
+		loadFunc = r.Loader.LoadByName
+	}
 
 	queue := []string{name}
 	visited := map[string]bool{}
@@ -41,14 +47,14 @@ func (r *Resolver) Resolve(name string) ([]*formula.Formula, error) {
 		}
 		visited[current] = true
 
-		f, err := r.Loader.LoadByName(current)
+		f, err := loadFunc(current)
 		if err != nil && strings.Contains(current, "/") {
 			parts := strings.Split(current, "/")
 			tapName := parts[0] + "/" + parts[1]
 			ui.FprintArrow(os.Stdout, "Dependency not found. Auto-tapping %s...", tapName)
 			mgr := &tap.Manager{TapsDir: r.Loader.TapDir}
 			if tapErr := mgr.Add(tapName, ""); tapErr == nil {
-				f, err = r.Loader.LoadByName(current)
+				f, err = loadFunc(current)
 			}
 		}
 		if err != nil {
