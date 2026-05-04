@@ -18,6 +18,7 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
 )
 
@@ -65,6 +66,32 @@ type Release struct {
 type Asset struct {
 	Name               string `json:"name"`
 	BrowserDownloadURL string `json:"browser_download_url"`
+}
+
+// FetchRelease tries to fetch the given release from Github.
+// Returns a error if it fails.
+func FetchRelease(s string) (*Release, error) {
+	url := fmt.Sprintf("%s/repos/%s/%s/releases/tags/%s", apiBase, repoOwner, repoName, s)
+
+	resp, err := httpsGet(url, "application/vnd.github+json")
+	if err != nil {
+		return nil, fmt.Errorf("fetch release %s: %w", s, err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode == http.StatusNotFound {
+		return nil, fmt.Errorf("release %s not found", s)
+	}
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("GitHub API returned %s", resp.Status)
+	}
+
+	var release Release
+	if err := json.NewDecoder(resp.Body).Decode(&release); err != nil {
+		return nil, fmt.Errorf("parse release %s: %w", s, err)
+	}
+
+	return &release, nil
 }
 
 // FetchRecent lists GitHub releases and returns the first 'count' stable
@@ -253,8 +280,9 @@ func FindAllChecksums(data []byte, assetName string) map[int]string {
 // DownloadBytes downloads a URL into memory. Limited to 1 MB.
 func (r *Release) DownloadBytes(url string) ([]byte, error) {
 	dl := r.DL
+	p := config.Default()
 	if dl == nil {
-		dl = &downloader.Downloader{TmpDir: os.TempDir()}
+		dl = &downloader.Downloader{TmpDir: p.Tmp}
 	}
 	return dl.DownloadBytes(url)
 }
@@ -265,8 +293,9 @@ func (r *Release) DownloadBytes(url string) ([]byte, error) {
 // but NOT if it's in the cache.
 func (r *Release) DownloadTemp(url string, filename string) (string, error) {
 	dl := r.DL
+	p := config.Default()
 	if dl == nil {
-		dl = &downloader.Downloader{TmpDir: os.TempDir()}
+		dl = &downloader.Downloader{TmpDir: p.Tmp}
 	}
 	return dl.Download(url, filename)
 }

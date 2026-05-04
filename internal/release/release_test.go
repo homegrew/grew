@@ -6,6 +6,8 @@ import (
 	"compress/gzip"
 	"crypto/sha256"
 	"encoding/hex"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"strings"
@@ -318,6 +320,60 @@ func TestHttpsGet_RejectsHTTP(t *testing.T) {
 	if strings.Contains(err.Error(), "refusing non-HTTPS URL") || strings.Contains(err.Error(), "is not permitted") {
 		t.Errorf("unexpected validation error for local HTTP: %v", err)
 	}
+}
+
+func TestFetchRelease(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.Contains(r.URL.Path, "/v1.0.0") {
+			w.Header().Set("Content-Type", "application/vnd.github+json")
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"tag_name": "v1.0.0", "draft": false, "prerelease": false, "assets": [{"name": "asset1.txt", "browser_download_url": "https://example.com/asset1.txt"}]}`))
+			return
+		}
+		if strings.Contains(r.URL.Path, "/v404") {
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		w.WriteHeader(http.StatusInternalServerError)
+	}))
+	defer ts.Close()
+
+	// Intercept apiBase for tests
+	origApiBase := apiBase
+	apiBase = ts.URL
+	defer func() { apiBase = origApiBase }()
+	t.Run("found", func(t *testing.T) {
+		rel, err := FetchRelease("v1.0.0")
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if rel.TagName != "v1.0.0" {
+			t.Errorf("expected v1.0.0, got %s", rel.TagName)
+		}
+		if len(rel.Assets) != 1 || rel.Assets[0].Name != "asset1.txt" {
+			t.Errorf("unexpected assets: %+v", rel.Assets)
+		}
+	})
+
+	t.Run("not found", func(t *testing.T) {
+		_, err := FetchRelease("v404")
+		if err == nil {
+			t.Fatal("expected error")
+		}
+		if !strings.Contains(err.Error(), "not found") {
+			t.Errorf("expected 'not found' in error, got: %v", err)
+		}
+	})
+
+	t.Run("server error", func(t *testing.T) {
+		_, err := FetchRelease("v500")
+		if err == nil {
+			t.Fatal("expected error")
+		}
+		if !strings.Contains(err.Error(), "GitHub API returned 500") {
+			t.Errorf("expected API error string, got: %v", err)
+		}
+	})
 }
 
 // --- test helpers ---
