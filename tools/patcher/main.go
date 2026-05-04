@@ -14,7 +14,6 @@ import (
 
 	"github.com/homegrew/grew/internal/bpatch"
 	"github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/homegrew/grew/pkg/validation"
@@ -31,17 +30,16 @@ var platforms = []platform{
 }
 
 func main() {
-	// Parse global flags before the command if they exist
-	args := flags.Parse(os.Args[1:])
-
 	fs := flag.NewFlagSet("patcher", flag.ExitOnError)
-	flags.Register(fs)
 
 	var outputDir string
 	fs.StringVar(&outputDir, "D", ".", "Output directory for generated files")
 
 	var verifyUpgrade bool
 	fs.BoolVar(&verifyUpgrade, "U", false, "Verify multi-hop patch upgrade path exists and validates checksums")
+
+	var verbose bool
+	fs.BoolVar(&verbose, "v", false, "Enable verbose output")
 
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), "Usage: %s [options] <previous_release> <new_release>\n", os.Args[0])
@@ -50,11 +48,9 @@ func main() {
 		fmt.Fprintln(fs.Output(), "\nExample: patcher -v -D dist/ v0.4.0 v0.4.1")
 	}
 
-	if err := fs.Parse(args); err != nil {
+	if err := fs.Parse(os.Args[1:]); err != nil {
 		os.Exit(1)
 	}
-
-	flags.Resolve()
 
 	remainingArgs := fs.Args()
 	if len(remainingArgs) != 2 {
@@ -77,7 +73,7 @@ func main() {
 		}
 		steps, errVerify := bpatch.VerifyUpgradePath(prevRelease, newRelease, releases)
 		if errVerify != nil {
-			slog.Error("Upgrade path verification failed", "err", err)
+			slog.Error("Upgrade path verification failed", "err", errVerify)
 			os.Exit(1)
 		}
 
@@ -92,7 +88,7 @@ func main() {
 	}
 
 	logMsg := func(format string, a ...interface{}) {
-		if flags.Verbose {
+		if verbose {
 			ui.FprintArrow(os.Stdout, ""+format+"", a...)
 		}
 	}
@@ -176,7 +172,7 @@ func main() {
 
 		logMsg("Generating patch %s", patchFile)
 		cmd := exec.Command("bsdiff", oldBinFile, newBinFile, patchFile)
-		if flags.Verbose {
+		if verbose {
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 		}
