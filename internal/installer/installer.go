@@ -186,10 +186,9 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		}
 	}
 	if shouldRemove {
+		// Use only the OS temp directory as the trusted cleanup base.
+		// Do not use rel.DL.TmpDir here, since it may originate from user-controlled config.
 		expectedTmp := os.TempDir()
-		if rel.DL != nil && rel.DL.TmpDir != "" {
-			expectedTmp = rel.DL.TmpDir
-		}
 		expectedTmp = filepath.Clean(expectedTmp)
 		if abs, err := filepath.Abs(expectedTmp); err == nil {
 			expectedTmp = filepath.Clean(abs)
