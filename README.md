@@ -15,7 +15,7 @@
 
 - 📦 **Formula + cask installs** with SHA256 verification (no funny business)
 - 🚰 **Tap auto-install** — automatically clones missing taps when you request `user/repo/formula`
-- ⚡ **Multi-hop binary delta updates** — `selfupdate` uses `bspatch` to seamlessly apply sequences of intermediate patches to reach the latest version, saving bandwidth, with an automated CI `patcher` tool for releases
+- ⚡ **Multi-hop binary delta updates** — `selfupdate` uses `bspatch` to seamlessly apply sequences of intermediate patches to reach the latest version, saving bandwidth, with an automated CI `patcher` tool for releases and `-U` upgrade path verification
 - 🔐 **Dual-hash verification** — self-updates and release assets are verified against both SHA256 and SHA512 to prevent single-algorithm collision attacks
 - 🔒 **Sandboxed source builds** using macOS Seatbelt to keep your system safe
 - 🔐 **Sandboxed post-install scripts** — keg is read-only, network denied, minimal env (Homebrew runs these unsandboxed)

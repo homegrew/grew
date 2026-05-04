@@ -67,11 +67,12 @@ A unified tool used to bootstrap and maintain the core formula and cask reposito
 - **Consistency**: It utilizes the internal `grew` domain models to ensure the generated definitions are valid and follow current schema standards. The output leverages `omitempty` serialization to produce clean, concise YAML without empty fields.
 
 ### `patcher`
-A developer tool used to generate binary delta patches between releases.
+A developer tool used to generate and verify binary delta patches between releases.
 - **Automation**: Downloads existing releases from GitHub and extracts the raw binaries.
 - **Delta Generation**: Uses `bsdiff` to compute the minimal patch required to transition from an old version to a new one.
-- **Integrity**: Automatically calculates SHA-256 and SHA-512 hashes for the resulting patch files, formatted for inclusion in the release's `checksums.txt`.
+- **Integrity**: Automatically calculates SHA-256 and SHA-512 hashes for the resulting patch files, formatted for inclusion in the release's `checksum.txt`.
 - **Platform Aware**: Handles mapping between internal OS/Architecture names and the naming conventions used in release assets.
+- **Verification (`-U`)**: Validates that an unbroken, verifiable sequence of patches exists between two versions and that all intermediate hashes match the expected `checksum.txt` values without generating new patches.
 
 ## 4. Diagnostic Engine (`pkg/doctor`)
 
