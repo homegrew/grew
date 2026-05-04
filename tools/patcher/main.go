@@ -98,7 +98,7 @@ func main() {
 
 	logMsg := func(format string, a ...interface{}) {
 		if verbose {
-			ui.FprintArrow(os.Stdout, ""+format+"", a...)
+			ui.FprintArrow(os.Stdout, format, a...)
 		}
 	}
 
