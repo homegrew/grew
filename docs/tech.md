@@ -37,7 +37,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 2. **Multi-Hop Binary Patching (Delta Update)**:
    - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
    - **Tooling**: If a continuous sequence of patches is found and `bspatch` is available in the system `PATH`, only the required deltas are downloaded.
-   - **Sequential Application & Verification**: Each `.patch` file is downloaded, verified against SHA-256 and SHA-512 hashes in the release metadata, and applied sequentially using `bspatch`.
+   - **Sequential Application & Verification**: Each `.patch` file is downloaded, verified against its SHA-256 and SHA-512 entries in the release `checksums.txt` file, and then applied sequentially using `bspatch`.
    - **Post-Patch Verification**: The final reconstructed binary is verified against the `binary-checksums.txt` file of the target release (distinct from `checksums.txt`, which contains hashes for the compressed archives and patches). This ensures the reconstruction was 100% accurate across all hops.
 
 3. **Full Download Fallback**:
