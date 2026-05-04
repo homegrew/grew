@@ -165,7 +165,19 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	// Only remove if it's NOT in the cache.
 	// Canonicalize tmpFile and its expected base directory before removal for security hardening.
-	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir()) {
+	inCache := false
+	if rel.DL != nil && rel.DL.Cache != nil {
+		cacheDir := filepath.Clean(rel.DL.Cache.Dir())
+		if eval, err := filepath.EvalSymlinks(cacheDir); err == nil {
+			cacheDir = filepath.Clean(eval)
+		}
+		candidate := filepath.Clean(tmpFile)
+		if eval, err := filepath.EvalSymlinks(candidate); err == nil {
+			candidate = filepath.Clean(eval)
+		}
+		inCache = safepath.CheckSubpath(cacheDir, candidate) == nil
+	}
+	if !inCache {
 		cleanedTmpFile := filepath.Clean(tmpFile)
 		if eval, err := filepath.EvalSymlinks(cleanedTmpFile); err == nil {
 			cleanedTmpFile = filepath.Clean(eval)
