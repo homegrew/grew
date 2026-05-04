@@ -10,15 +10,10 @@ import (
 	verpkg "github.com/homegrew/grew/internal/version"
 )
 
-var buildVersion string
-
-func init() {
-	if buildVersion != "" {
-		verpkg.SetVersion(buildVersion)
-	}
-}
+var Version string
 
 func main() {
+	verpkg.SetVersion(Version)
 	Grew.Version = verpkg.Version()
 	Grew.SetArgs(os.Args[1:])
 	if err := Grew.Execute(); err != nil {

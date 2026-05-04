@@ -79,7 +79,7 @@ clean:
 
 .PHONY: build-binary
 build-binary:
-	$(GO) build -o grew -trimpath -ldflags "-s -w -X main.buildVersion=$(VERSION)"
+	$(GO) build -o grew -trimpath -ldflags "-s -w -X main.Version=$(VERSION)"
 
 .PHONY: distclean
 distclean: clean
