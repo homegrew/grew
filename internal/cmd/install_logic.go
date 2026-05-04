@@ -1,0 +1,375 @@
+package cmd
+
+import (
+	"fmt"
+	"log/slog"
+	"os"
+	"path/filepath"
+	"time"
+
+	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/receipt"
+	"github.com/homegrew/grew/internal/relocation"
+	"github.com/homegrew/grew/internal/sandbox"
+	"github.com/homegrew/grew/internal/signing"
+	"github.com/homegrew/grew/pkg/snapshot"
+	"github.com/homegrew/grew/pkg/logger"
+	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/ui"
+)
+
+type InstallOpts struct {
+	SkipPostInstall    bool
+	SkipLink           bool
+	InstalledOnRequest bool
+}
+
+func InstallFormula(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (err error) {
+	paths := ctx.Paths
+	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
+	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
+
+	defer func() {
+		if err != nil {
+			slog.Error("installation failed, cleaning up", "formula", f.Name, "error", err)
+			_ = ctx.Linker.Unlink(f.Name)
+			_ = ctx.Cellar.UninstallVersion(f.Name, f.Version)
+		}
+	}()
+
+	ui.FprintArrow(os.Stderr, "Installing %s %s", f.Name, f.Version)
+
+	dlURL, err := f.GetURL()
+	if err != nil {
+		return err
+	}
+	slog.Info("URL: " + dlURL)
+
+	sha256, err := f.GetSHA256()
+	if err != nil {
+		return err
+	}
+	sha512, err := f.GetSHA512()
+	if err != nil {
+		return err
+	}
+
+	slog.Info("expected SHA256: " + sha256)
+	if sha512 != "" {
+		slog.Info("expected SHA512: " + sha512)
+	}
+
+	if err := safepath.SafePathComponent(f.Name); err != nil {
+		return fmt.Errorf("invalid formula name: %w", err)
+	}
+	if err := safepath.SafePathComponent(f.Version); err != nil {
+		return fmt.Errorf("invalid formula version: %w", err)
+	}
+
+	ext := URLExt(dlURL)
+	if ext == "" && f.Install.Format != "" {
+		ext = "." + f.Install.Format
+	}
+	filename := f.Name + "-" + f.Version + ext
+	if err := safepath.SafePathComponent(filename); err != nil {
+		return fmt.Errorf("invalid download filename: %w", err)
+	}
+
+	localFile, err := safepath.SafeJoin(paths.Tmp, filename)
+	if err != nil {
+		return fmt.Errorf("invalid download path: %w", err)
+	}
+	if _, err := os.Stat(localFile); err == nil {
+		if err := downloader.VerifySHA256(localFile, sha256); err == nil {
+			ui.FprintArrow(os.Stderr, "Using cached %s", filename)
+		} else {
+			localFile, err = ctx.DL.Download(dlURL, filename)
+			if err != nil {
+				return fmt.Errorf("download %s: %w", f.Name, err)
+			}
+		}
+	} else {
+		localFile, err = ctx.DL.Download(dlURL, filename)
+		if err != nil {
+			return fmt.Errorf("download %s: %w", f.Name, err)
+		}
+	}
+
+	if err := VerifySignature(f.Name, sha256, f.GetSignature(), paths.Root); err != nil {
+		_ = RemoveIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
+		return err
+	}
+
+	stageDir, err := safepath.SafeJoin(paths.Tmp, f.Name+"-"+f.Version+"-stage")
+	if err != nil {
+		return fmt.Errorf("invalid stage directory: %w", err)
+	}
+	os.RemoveAll(stageDir)
+
+	ui.FprintArrow(os.Stderr, "Extracting (sandboxed)")
+	if err := SandboxedExtract(localFile, stageDir, f.Install); err != nil {
+		os.RemoveAll(stageDir)
+		os.Remove(localFile)
+		return fmt.Errorf("extract %s: %w", f.Name, err)
+	}
+
+	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
+	if err != nil {
+		os.RemoveAll(stageDir)
+		os.Remove(localFile)
+		return fmt.Errorf("keg path %s: %w", f.Name, err)
+	}
+	if err := ctx.Cellar.Install(f.Name, f.Version, stageDir); err != nil {
+		os.RemoveAll(stageDir)
+		os.Remove(localFile)
+		return fmt.Errorf("cellar install %s: %w", f.Name, err)
+	}
+
+	if relErr := relocation.RelocateKeg(kegPath, paths.Root); relErr != nil {
+		return fmt.Errorf("relocate %s: %w", f.Name, relErr)
+	}
+
+	return FinalizeInstall(f, ctx, finalizeOpts{
+		kegPath: kegPath,
+		meta: snapshot.InstallMeta{
+			Platform:           formula.PlatformKey(),
+			DownloadURL:        dlURL,
+			DownloadSHA256:     sha256,
+			DownloadSHA512:     sha512,
+			Dependencies:       f.Dependencies,
+			InstalledOnRequest: opts.InstalledOnRequest,
+			BuiltFromSource:    false,
+		},
+		skipLink:     opts.SkipLink,
+		skipPostInst: opts.SkipPostInstall,
+		auditSHA256:  sha256,
+		auditDetail:  "bottle",
+		cleanup: func() {
+			os.RemoveAll(stageDir)
+		},
+	})
+}
+
+func InstallFormulaFromSource(f *formula.Formula, ctx *InstallContext, opts InstallOpts) (err error) {
+	paths := ctx.Paths
+	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
+
+	defer func() {
+		if err != nil {
+			slog.Error("installation from source failed, cleaning up", "formula", f.Name, "error", err)
+			_ = ctx.Linker.Unlink(f.Name)
+			_ = ctx.Cellar.UninstallVersion(f.Name, f.Version)
+		}
+	}()
+
+	ui.FprintArrow(os.Stderr, "Building %s %s from source", f.Name, f.Version)
+
+	srcURL, err := f.GetSourceURL()
+	if err != nil {
+		return err
+	}
+	srcSHA256, err := f.GetSourceSHA256()
+	if err != nil {
+		return err
+	}
+	srcSHA512, err := f.GetSourceSHA512()
+	if err != nil {
+		return err
+	}
+
+	ext := URLExt(srcURL)
+	filename := f.Name + "-" + f.Version + "-src" + ext
+
+	localFile, err := ctx.DL.Download(srcURL, filename)
+	if err != nil {
+		return fmt.Errorf("download source %s: %w", f.Name, err)
+	}
+
+	if err := VerifySignature(f.Name, srcSHA256, f.GetSourceSignature(), paths.Root); err != nil {
+		os.Remove(localFile)
+		return err
+	}
+
+	buildDir, err := safepath.SafeJoin(paths.Tmp, f.Name+"-"+f.Version+"-build")
+	if err != nil {
+		return fmt.Errorf("invalid build directory: %w", err)
+	}
+	os.RemoveAll(buildDir)
+	srcSpec := formula.InstallSpec{Type: "archive", StripComponents: 1, Format: f.Install.Format}
+	if err := SandboxedExtract(localFile, buildDir, srcSpec); err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("extract source %s: %w", f.Name, err)
+	}
+
+	kegPath, err := ctx.Cellar.KegPath(f.Name, f.Version)
+	if err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("keg path %s: %w", f.Name, err)
+	}
+	if err := os.MkdirAll(kegPath, 0755); err != nil {
+		os.RemoveAll(buildDir)
+		os.Remove(localFile)
+		return fmt.Errorf("create keg dir: %w", err)
+	}
+
+	var depPaths []string
+	for _, dep := range f.Dependencies {
+		depCellar, _ := safepath.SafeJoin(paths.Cellar, dep)
+		depOpt, _ := safepath.SafeJoin(paths.Opt, dep)
+		depPaths = append(depPaths, depCellar, depOpt)
+	}
+
+	sbCfg := sandbox.BuildConfig{
+		BuildDir: buildDir,
+		KegDir:   kegPath,
+		DepPaths: depPaths,
+	}
+
+	cleanup := func() {
+		os.RemoveAll(buildDir)
+	}
+
+	configure := sandbox.Command(sbCfg, "./configure", "--prefix="+kegPath)
+	configure.Dir = buildDir
+	configure.Stdout = os.Stdout
+	configure.Stderr = os.Stderr
+	if err := configure.Run(); err != nil {
+		os.RemoveAll(kegPath)
+		cleanup()
+		return fmt.Errorf("configure %s: %w", f.Name, err)
+	}
+
+	makeCmd := sandbox.Command(sbCfg, "make")
+	makeCmd.Dir = buildDir
+	makeCmd.Stdout = os.Stdout
+	makeCmd.Stderr = os.Stderr
+	if err := makeCmd.Run(); err != nil {
+		os.RemoveAll(kegPath)
+		cleanup()
+		return fmt.Errorf("make %s: %w", f.Name, err)
+	}
+
+	makeInstall := sandbox.Command(sbCfg, "make", "install")
+	makeInstall.Dir = buildDir
+	makeInstall.Stdout = os.Stdout
+	makeInstall.Stderr = os.Stderr
+	if err := makeInstall.Run(); err != nil {
+		os.RemoveAll(kegPath)
+		cleanup()
+		return fmt.Errorf("make install %s: %w", f.Name, err)
+	}
+
+	return FinalizeInstall(f, ctx, finalizeOpts{
+		kegPath: kegPath,
+		meta: snapshot.InstallMeta{
+			Platform:           formula.PlatformKey(),
+			DownloadURL:        srcURL,
+			DownloadSHA256:     srcSHA256,
+			DownloadSHA512:     srcSHA512,
+			Dependencies:       f.Dependencies,
+			InstalledOnRequest: opts.InstalledOnRequest,
+			BuiltFromSource:    true,
+		},
+		skipLink:     opts.SkipLink,
+		skipPostInst: opts.SkipPostInstall,
+		auditSHA256:  srcSHA256,
+		auditDetail:  "source",
+		cleanup:      cleanup,
+	})
+}
+
+func VerifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
+	trustedKeys, err := signing.LoadTrustedKeys(grewRoot)
+	if err != nil {
+		return fmt.Errorf("load trusted keys: %w", err)
+	}
+	if len(trustedKeys) == 0 {
+		return nil
+	}
+	if signatureB64 == "" {
+		slog.Warn(fmt.Sprintf("%s has no signature (trusted keys are configured)", name))
+		return nil
+	}
+	if !signing.VerifyAny(trustedKeys, sha256Hex, signatureB64) {
+		return fmt.Errorf("signature verification failed for %s: not signed by any trusted key", name)
+	}
+	ui.FprintArrow(os.Stderr, "Signature verified")
+	return nil
+}
+
+type finalizeOpts struct {
+	kegPath      string
+	meta         snapshot.InstallMeta
+	skipLink     bool
+	skipPostInst bool
+	auditSHA256  string
+	auditDetail  string
+	cleanup      func()
+}
+
+func FinalizeInstall(f *formula.Formula, ctx *InstallContext, opts finalizeOpts) error {
+	if !opts.skipLink {
+		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
+			return fmt.Errorf("link %s: %w", f.Name, err)
+		}
+	}
+
+	if !opts.meta.BuiltFromSource {
+		if issues := relocation.VerifyKeg(opts.kegPath, ctx.Paths.Root); len(issues) > 0 {
+			return fmt.Errorf("linkage verification failed for %s", f.Name)
+		}
+	}
+
+	_ = os.RemoveAll(filepath.Join(opts.kegPath, "share", "info"))
+	_ = os.RemoveAll(filepath.Join(opts.kegPath, "share", "man"))
+	_ = os.Remove(filepath.Join(opts.kegPath, "share"))
+
+	manifest, _ := snapshot.Capture(f.Name, f.Version, opts.kegPath, opts.meta)
+	_ = snapshot.Save(manifest, opts.kegPath)
+
+	r := &receipt.Receipt{
+		Name:                f.Name,
+		Version:             f.Version,
+		BuiltFromSource:     opts.meta.BuiltFromSource,
+		PouredFromBottle:    !opts.meta.BuiltFromSource,
+		InstalledAt:         time.Now(),
+		Dependencies:        f.Dependencies,
+		RuntimeDependencies: f.Dependencies,
+		InstalledOnRequest:  opts.meta.InstalledOnRequest,
+	}
+	_ = receipt.Save(r, opts.kegPath)
+
+	if opts.cleanup != nil {
+		opts.cleanup()
+	}
+
+	if err := RunPostInstall(f, opts.kegPath, opts.skipPostInst); err != nil {
+		return err
+	}
+
+	if ctx.AuditLog != nil {
+		ctx.AuditLog.Log(auditlog.ActionInstall, f.Name, f.Version, opts.auditSHA256, opts.auditDetail)
+	}
+
+	ui.FprintArrow(os.Stderr, "%s %s installed", f.Name, f.Version)
+	return nil
+}
+
+func RunPostInstall(f *formula.Formula, kegPath string, skip bool) error {
+	if f.PostInstall == "" || skip {
+		return nil
+	}
+	piTmp, _ := os.MkdirTemp("", "grew-postinstall-*")
+	defer os.RemoveAll(piTmp)
+	piCfg := sandbox.PostInstallConfig{KegDir: kegPath, TmpDir: piTmp}
+	cmd := sandbox.PostInstallCommand(piCfg, "sh", "-c", f.PostInstall)
+	cmd.Dir = kegPath
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+

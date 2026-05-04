@@ -1,6 +1,6 @@
 // Package release provides helpers for downloading, verifying, and installing
-// grew binary releases from GitHub. Used by both the getgrew tool and grew's
-// self-update mechanism.
+// grew binary releases from GitHub. Used by both the grew setup command and
+// grew's self-update mechanism.
 package release
 
 import (

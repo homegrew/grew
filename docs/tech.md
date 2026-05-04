@@ -4,17 +4,14 @@ This document explains some of the internal mechanics of `grew`, specifically fo
 
 ## 1. How `grew` installs itself
 
-Because `grew` manages dependencies and system environments, its initial installation needs to be deterministic and safe. The bootstrap process is handled by a standalone Go tool called `getgrew`.
+Because `grew` manages dependencies and system environments, its initial installation needs to be deterministic and safe.
 
-**The Bootstrapping Flow:**
+**The Installation Flow:**
 
-1. **Get the Installer:** The user downloads the bootstrapping tool via `go install github.com/homegrew/grew/tools/getgrew@latest`. This provides a lightweight executable `getgrew`.
-2. **Fetch Release:** When the user runs `getgrew`, it communicates with the GitHub API to find the latest stable release of `grew`. It identifies the appropriate pre-compiled binary asset for the host's OS and Architecture (e.g., `grew_Darwin_arm64.tar.gz`).
-3. **Verify Checksums:** `getgrew` fetches the `checksums.txt` file from the release, computes the SHA256 hash of the downloaded tarball, and strictly verifies it against the published hash.
-4. **Extract & Stage:** The binary is extracted from the archive directly into memory (with path traversal/Zip Slip protections enforced) and placed alongside the `getgrew` executable (or in the current working directory).
-5. **System Setup:** The user then runs the newly downloaded binary using `./grew setup`. The `setup` command initializes the system prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel), prompting for elevated privileges if needed to create the directory and transfer ownership to the current user.
-6. **Binary Installation:** By default, `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. This ensures that all standard installations benefit from pre-built, signed, and verified binaries. Users can opt-in to a source-based installation (using `git clone` and `go build`) by passing the `--unsafe` flag.
-7. **Permissions:** After creating the prefix and moving the binary, `setup` transfers ownership of the directory structure to the current user (if started via `sudo`, it uses the `SUDO_USER` environment variable). All subsequent `grew` commands run without root privileges.
+1. **Download the Binary:** The user downloads the appropriate pre-compiled binary for their platform (e.g., `grew_Darwin_arm64.tar.gz`) from the [GitHub Releases](https://github.com/homegrew/grew/releases/latest) page and extracts it.
+2. **System Setup:** The user runs the extracted binary using `./grew setup`. The `setup` command initializes the system prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel), prompting for elevated privileges if needed to create the directory and transfer ownership to the current user.
+3. **Binary Installation:** By default, `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. This ensures that all standard installations benefit from pre-built, signed, and verified binaries. Users can opt-in to a source-based installation (using `git clone` and `go build`) by passing the `--unsafe` flag.
+4. **Permissions:** After creating the prefix and moving the binary, `setup` transfers ownership of the directory structure to the current user (if started via `sudo`, it uses the `SUDO_USER` environment variable). All subsequent `grew` commands run without root privileges.
 
 ## 2. How the update process works
 
@@ -141,5 +138,15 @@ This metadata enables precise identification of "orphaned" dependencies—packag
     - `-p`, `--installed-as-dependency`: Filters to show orphaned dependencies that are likely safe to remove.
 - **`grew autoremove`**: Automatically uninstalls orphaned dependencies. It performs a calculation to find packages that are both "leaves" and have `InstalledOnRequest: false`.
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
-    - **Dry Run**: The `--dry-run` flag allows users to preview which packages will be removed before any changes are made to the Cellar.
+## 8. Modular CLI Architecture
+
+Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single `internal/cmd` package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
+
+**Key Benefits:**
+- **Standardization:** Every subcommand package exports a consistent `Command` variable of type `*cobra.Command`.
+- **Isolation:** Each command manages its own flags and dependencies, reducing the risk of unintended side effects and global state pollution.
+- **Shared Logic:** Core command execution logic, context management, and cross-cutting helpers are centralized in `internal/cmd/`. This package provides exported types like `ReadContext` and `InstallContext`, ensuring consistent environment resolution across all subcommands.
+- **Testability:** Standalone packages enable more targeted unit testing and mocking of command-specific logic without pulling in the entire CLI surface area.
+
+The CLI entry point in `main.go` and the root command definition in `root.go` (both in the repository root) serve as the "glue" that imports these standalone packages and registers them into the primary `Grew` root command.
 

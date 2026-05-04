@@ -42,9 +42,11 @@
 
 ### Get Grew
 
+Download the latest release for your platform from the [Releases](https://github.com/homegrew/grew/releases/latest) page, extract it, and run setup:
+
 ```bash
-go install github.com/homegrew/grew/tools/getgrew
-getgrew && grew setup
+tar -xzf grew_*.tar.gz
+./grew setup
 ```
 
 ### Build from source
@@ -261,12 +263,15 @@ Both gates are required — the build tag compiles in the code path, and `--unsa
 
 ```
 grew/
+├── cmd/              ← standalone command packages (alias, install, upgrade, etc.)
+├── root.go           ← Root CLI command definition (Grew)
+├── main.go           ← CLI entry point
 ├── internal/
 │   ├── auditlog/     ← persistent record of all install/upgrade/tap actions
 │   ├── cache/        ← download cache management and pruning
 │   ├── cask/         ← cask parsing and Caskroom
 │   ├── cellar/       ← installed package management
-│   ├── cmd/          ← CLI commands (powered by Cobra)
+│   ├── cmd/          ← shared CLI logic, context types, and legacy command helpers
 │   ├── config/       ← prefix and path resolution
 │   ├── context/      ← global execution context
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
@@ -295,7 +300,7 @@ grew/
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
 │   ├── ui/           ← zero-dependency ANSI color and TTY detection for terminal output
 │   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← genrepo (Homebrew formula/cask conversion), getgrew (installer), patcher (delta patch generator)
+└── tools/            ← genrepo (Homebrew formula/cask conversion), patcher (delta patch generator)
 ```
 
 ---

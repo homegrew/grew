@@ -1,5 +1,7 @@
 package cmd
 
+import "github.com/homegrew/grew/internal/installer"
+
 import (
 	"crypto/sha256"
 	"crypto/sha512"
@@ -39,7 +41,7 @@ func TestVerifyBinaryIntegrity_Success(t *testing.T) {
 	bin := filepath.Join(dir, "grew")
 	writeScript(t, bin, `echo "grew 1.2.3"`)
 
-	if err := verifyBinaryIntegrity(bin, "1.2.3"); err != nil {
+	if err := installer.VerifyBinaryIntegrity(bin, "1.2.3"); err != nil {
 		t.Fatalf("expected success, got: %v", err)
 	}
 }
@@ -51,7 +53,7 @@ func TestVerifyBinaryIntegrity_SuccessNoExpectedVersion(t *testing.T) {
 	writeScript(t, bin, `echo "grew 0.0.1-dev"`)
 
 	// Empty expectedVersion = git build, just check it runs.
-	if err := verifyBinaryIntegrity(bin, ""); err != nil {
+	if err := installer.VerifyBinaryIntegrity(bin, ""); err != nil {
 		t.Fatalf("expected success, got: %v", err)
 	}
 }
@@ -62,7 +64,7 @@ func TestVerifyBinaryIntegrity_VersionMismatch(t *testing.T) {
 	bin := filepath.Join(dir, "grew")
 	writeScript(t, bin, `echo "grew 0.0.1"`)
 
-	err := verifyBinaryIntegrity(bin, "2.0.0")
+	err := installer.VerifyBinaryIntegrity(bin, "2.0.0")
 	if err == nil {
 		t.Fatal("expected version mismatch error")
 	}
@@ -73,7 +75,7 @@ func TestVerifyBinaryIntegrity_VersionMismatch(t *testing.T) {
 
 func TestVerifyBinaryIntegrity_BinaryNotFound(t *testing.T) {
 	t.Parallel()
-	err := verifyBinaryIntegrity("/nonexistent/grew", "1.0.0")
+	err := installer.VerifyBinaryIntegrity("/nonexistent/grew", "1.0.0")
 	if err == nil {
 		t.Fatal("expected error for missing binary")
 	}
@@ -85,7 +87,7 @@ func TestVerifyBinaryIntegrity_BinaryFails(t *testing.T) {
 	bin := filepath.Join(dir, "grew")
 	writeScript(t, bin, `exit 1`)
 
-	err := verifyBinaryIntegrity(bin, "1.0.0")
+	err := installer.VerifyBinaryIntegrity(bin, "1.0.0")
 	if err == nil {
 		t.Fatal("expected error for failing binary")
 	}
@@ -100,7 +102,7 @@ func TestVerifyBinaryIntegrity_EmptyOutput(t *testing.T) {
 	bin := filepath.Join(dir, "grew")
 	writeScript(t, bin, `true`) // produces no output
 
-	err := verifyBinaryIntegrity(bin, "")
+	err := installer.VerifyBinaryIntegrity(bin, "")
 	if err == nil {
 		t.Fatal("expected error for empty output")
 	}
@@ -116,7 +118,7 @@ func TestVerifyBinaryIntegrity_VPrefixHandled(t *testing.T) {
 	writeScript(t, bin, `echo "grew v3.0.0"`)
 
 	// Expected version without "v" prefix should still match.
-	if err := verifyBinaryIntegrity(bin, "3.0.0"); err != nil {
+	if err := installer.VerifyBinaryIntegrity(bin, "3.0.0"); err != nil {
 		t.Fatalf("expected success with v-prefix, got: %v", err)
 	}
 }
@@ -128,7 +130,7 @@ func TestVerifyBinaryIntegrity_SingleWordVersion(t *testing.T) {
 	// Binary outputs just the version, no "grew " prefix.
 	writeScript(t, bin, `echo "4.0.0"`)
 
-	if err := verifyBinaryIntegrity(bin, "4.0.0"); err != nil {
+	if err := installer.VerifyBinaryIntegrity(bin, "4.0.0"); err != nil {
 		t.Fatalf("expected success with single-word version, got: %v", err)
 	}
 }
@@ -140,7 +142,7 @@ func TestFileHashes(t *testing.T) {
 	content := []byte("hello world\n")
 	os.WriteFile(path, content, 0644)
 
-	got256, got512, err := fileHashes(path)
+	got256, got512, err := installer.FileHashes(path)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}

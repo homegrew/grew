@@ -18,7 +18,14 @@ import (
 // wrapped in a platform-specific sandbox that restricts writes to stageDir
 // and denies network access. If the sandbox is unavailable, falls back to
 // direct in-process extraction.
-func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) error {
+
+type ExtractArgs struct {
+	ArchivePath string              `json:"archive_path"`
+	DestDir     string              `json:"dest_dir"`
+	Spec        formula.InstallSpec `json:"spec"`
+}
+
+func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) error {
 	exe, err := os.Executable()
 	if err != nil {
 		// Can't locate ourselves — fall back to direct extraction.
@@ -39,7 +46,7 @@ func sandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 		StageDir:    stageDir,
 	}
 
-	args := extractArgs{
+	args := ExtractArgs{
 		ArchivePath: archivePath,
 		DestDir:     stageDir,
 		Spec:        spec,

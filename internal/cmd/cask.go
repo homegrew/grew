@@ -26,7 +26,7 @@ func initCaskTap(paths config.Paths) error {
 	return tapMgr.InitCask()
 }
 
-func setupCaskLoader() (config.Paths, *cask.Loader, *cask.Caskroom, error) {
+func SetupCaskLoader() (config.Paths, *cask.Loader, *cask.Caskroom, error) {
 	paths := config.Default()
 	if err := paths.Init(); err != nil {
 		return config.Paths{}, nil, nil, err
@@ -40,7 +40,7 @@ func setupCaskLoader() (config.Paths, *cask.Loader, *cask.Caskroom, error) {
 }
 
 func loadCask(name string) (config.Paths, *cask.Cask, *cask.Caskroom, error) {
-	paths, loader, cr, err := setupCaskLoader()
+	paths, loader, cr, err := SetupCaskLoader()
 	if err != nil {
 		return paths, nil, nil, err
 	}
@@ -138,7 +138,7 @@ func removeIfWithin(targetPath, baseDir string) error {
 	return os.Remove(safeTarget)
 }
 
-func caskInstall(name string, noQuarantine bool, force bool) (err error) {
+func CaskInstall(name string, noQuarantine bool, force bool) (err error) {
 	paths, c, cr, err := loadCask(name)
 	if err != nil {
 		return err
@@ -150,7 +150,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 			// Best-effort cleanup of installed artifacts.
 			// We don't have a surgical way to know which ones were partially installed,
 			// so we use caskUninstall which is safe even if some parts are missing.
-			_ = caskUninstall(c.Name, true)
+			_ = CaskUninstall(c.Name, true)
 		}
 	}()
 
@@ -257,7 +257,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
 		// Best-effort cleanup of the downloaded file, constrained to the temp and cache directories.
-		_ = removeIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
+		_ = RemoveIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 
@@ -265,7 +265,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 
 	if sha512 != "" {
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			_ = removeIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
+			_ = RemoveIfWithinAllowed(paths.Tmp, paths.Cache, localFile)
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}
 		ui.FprintArrow(os.Stderr, "SHA512 verified")
@@ -314,7 +314,7 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 		if noQuarantine {
 			slog.Info("quarantine skipped (--no-quarantine)")
 		} else {
-			if err := applyCaskQuarantine(dest, dlURL); err != nil {
+			if err := ApplyCaskQuarantine(dest, dlURL); err != nil {
 				// Roll back: remove the app we just installed.
 				os.RemoveAll(dest)
 				os.RemoveAll(stageDir)
@@ -373,8 +373,8 @@ func caskInstall(name string, noQuarantine bool, force bool) (err error) {
 	return nil
 }
 
-func caskUninstall(name string, force bool) error {
-	paths, loader, cr, err := setupCaskLoader()
+func CaskUninstall(name string, force bool) error {
+	paths, loader, cr, err := SetupCaskLoader()
 	if err != nil {
 		return err
 	}
@@ -435,7 +435,7 @@ func caskUninstall(name string, force bool) error {
 	return nil
 }
 
-func caskList() error {
+func CaskList() error {
 	paths := config.Default()
 	cr := &cask.Caskroom{Path: paths.Caskroom}
 
@@ -453,7 +453,7 @@ func caskList() error {
 	return nil
 }
 
-func loadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
+func LoadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
 	_, c, cr, err := loadCask(name)
 	if err != nil {
 		return nil, "", nil, err
@@ -469,8 +469,8 @@ func loadCaskInfoData(name string) (*cask.Cask, string, *cask.Caskroom, error) {
 	return c, ver, cr, nil
 }
 
-func caskInfo(name string) error {
-	c, ver, _, err := loadCaskInfoData(name)
+func CaskInfo(name string) error {
+	c, ver, _, err := LoadCaskInfoData(name)
 	if err != nil {
 		return err
 	}
@@ -504,8 +504,8 @@ func caskInfo(name string) error {
 	return nil
 }
 
-func caskSearch(query string) error {
-	_, loader, cr, err := setupCaskLoader()
+func CaskSearch(query string) error {
+	_, loader, cr, err := SetupCaskLoader()
 	if err != nil {
 		return err
 	}
@@ -570,7 +570,7 @@ func findCaskBinary(appDir string, apps []string, binName string) string {
 }
 
 func caskURLExt(rawURL string) string {
-	if ext := urlExt(rawURL); ext != "" {
+	if ext := URLExt(rawURL); ext != "" {
 		return ext
 	}
 	return ".zip" // default for casks

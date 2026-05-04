@@ -6,6 +6,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cmd"
 	verpkg "github.com/homegrew/grew/internal/version"
+	"github.com/spf13/cobra"
 )
 
 var version string
@@ -37,7 +38,11 @@ func main() {
 		}
 	default:
 		// Delegate everything else (like "install", "_extract") to the real command router
-		if err := cmd.Run(os.Args[1:]); err != nil {
+		// We'll create a dummy root command to route
+		testCmd := &cobra.Command{Use: "test"}
+		cmd.AddLegacyCommands(testCmd)
+		testCmd.SetArgs(os.Args[1:])
+		if err := testCmd.Execute(); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
 		}
