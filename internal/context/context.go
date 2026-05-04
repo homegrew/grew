@@ -15,6 +15,7 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
+	"github.com/homegrew/grew/internal/homebrew"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/safepath"
@@ -51,6 +52,62 @@ func New() (*Context, error) {
 		Cellar:     &cellar.Cellar{Path: paths.Cellar},
 		Caskroom:   &cask.Caskroom{Path: paths.Caskroom},
 	}, nil
+}
+
+// LoadFormula attempts to load a formula by name from local taps, falling back
+// to the Homebrew API if not found.
+func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
+	f, err := ctx.Loader.LoadByName(name)
+	if err != nil && strings.Contains(name, "/") {
+		// Attempt to auto-tap if it's a fully qualified name
+		parts := strings.Split(name, "/")
+		tapName := parts[0] + "/" + parts[1]
+		ui.FprintArrow(os.Stdout, "Formula not found. Auto-tapping %s...", tapName)
+		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
+		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
+			f, err = ctx.Loader.LoadByName(name)
+		}
+	}
+	if err == nil {
+		return f, nil
+	}
+
+	// Fallback to Homebrew API
+	slog.Debug("formula not found locally, trying Homebrew API", "name", name)
+	f, remoteErr := homebrew.FetchFormula(name)
+	if remoteErr == nil {
+		return f, nil
+	}
+
+	return nil, err // Return original error if remote also fails
+}
+
+// LoadCask attempts to load a cask by name from local taps, falling back
+// to the Homebrew API if not found.
+func (ctx *Context) LoadCask(name string) (*cask.Cask, error) {
+	c, err := ctx.CaskLoader.LoadByName(name)
+	if err != nil && strings.Contains(name, "/") {
+		// Attempt to auto-tap if it's a fully qualified name
+		parts := strings.Split(name, "/")
+		tapName := parts[0] + "/" + parts[1]
+		ui.FprintArrow(os.Stdout, "Cask not found. Auto-tapping %s...", tapName)
+		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
+		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
+			c, err = ctx.CaskLoader.LoadByName(name)
+		}
+	}
+	if err == nil {
+		return c, nil
+	}
+
+	// Fallback to Homebrew API
+	slog.Debug("cask not found locally, trying Homebrew API", "name", name)
+	c, remoteErr := homebrew.FetchCask(name)
+	if remoteErr == nil {
+		return c, nil
+	}
+
+	return nil, err // Return original error if remote also fails
 }
 
 // NewLoader creates a formula.Loader with debug logging wired in.

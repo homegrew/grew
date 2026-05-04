@@ -18,7 +18,7 @@ import (
 )
 
 func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, force bool) (err error) {
-	c, err := ctx.CaskLoader.LoadByName(name)
+	c, err := ctx.LoadCask(name)
 	if err != nil {
 		return err
 	}
@@ -174,7 +174,7 @@ func CaskUninstall(ctx *context.Context, name string, force bool) error {
 		return nil
 	}
 
-	c, err := ctx.CaskLoader.LoadByName(name)
+	c, err := ctx.LoadCask(name)
 	inst := &cask.Installer{AppDir: ctx.Paths.AppDir, BinDir: ctx.Paths.Bin}
 
 	if err == nil {

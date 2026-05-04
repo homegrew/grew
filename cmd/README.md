@@ -33,9 +33,11 @@ When adding a new subcommand:
 | [cleanup](./cleanup) | Remove old versions and prune download cache |
 | [completion](./completion) | Generate shell completion (bash, zsh, fish) |
 | [config](./config) | What grew thinks it knows |
+| [create](./create) | Create a new formula from a URL |
 | [deps](./deps) | Dependency spelunking |
 | [doctor](./doctor) | It's not a bug, it's a misconfiguration |
-| [extract](./extract) | Extract formula/cask source or bottles |
+| [extract](./extract) | Internal hidden extraction command |
+| [homepage](./homepage) | Open a formula's homepage in a browser |
 | [info](./info) | Stalk packages |
 | [install](./install) | Install formulas or casks |
 | [leaves](./leaves) | List installed formulas that are not dependencies |

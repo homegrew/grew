@@ -14,9 +14,11 @@ import (
 	"github.com/homegrew/grew/cmd/cleanup"
 	"github.com/homegrew/grew/cmd/completion"
 	"github.com/homegrew/grew/cmd/config"
+	"github.com/homegrew/grew/cmd/create"
 	"github.com/homegrew/grew/cmd/deps"
 	"github.com/homegrew/grew/cmd/doctor"
 	"github.com/homegrew/grew/cmd/extract"
+	"github.com/homegrew/grew/cmd/homepage"
 	"github.com/homegrew/grew/cmd/info"
 	"github.com/homegrew/grew/cmd/install"
 	"github.com/homegrew/grew/cmd/leaves"
@@ -105,9 +107,11 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(cleanup.Command)
 	rootCmd.AddCommand(completion.Command)
 	rootCmd.AddCommand(config.Command)
+	rootCmd.AddCommand(create.Command)
 	rootCmd.AddCommand(deps.Command)
 	rootCmd.AddCommand(doctor.Command)
 	rootCmd.AddCommand(extract.Command)
+	rootCmd.AddCommand(homepage.Command)
 	rootCmd.AddCommand(info.Command)
 	rootCmd.AddCommand(install.Command)
 	rootCmd.AddCommand(leaves.Command)

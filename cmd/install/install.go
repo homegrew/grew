@@ -12,7 +12,6 @@ import (
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
@@ -100,18 +99,7 @@ func RunInstall(args []string) error {
 		var requests []downloader.DownloadRequest
 		seen := make(map[string]struct{})
 		for _, name := range remaining {
-			c, err := ctx.CaskLoader.LoadByName(name)
-			if err != nil && strings.Contains(name, "/") {
-				// Attempt to auto-tap if it's a fully qualified name
-				parts := strings.Split(name, "/")
-				tapName := parts[0] + "/" + parts[1]
-				ui.FprintArrow(os.Stdout, "Cask not found. Auto-tapping %s...", tapName)
-				mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
-				if tapErr := mgr.Add(tapName, ""); tapErr == nil {
-					// Retry loading after tap
-					c, err = ctx.CaskLoader.LoadByName(name)
-				}
-			}
+			c, err := ctx.LoadCask(name)
 			if err != nil {
 				return fmt.Errorf("cask not found: %s", name)
 			}
@@ -162,22 +150,16 @@ func RunInstall(args []string) error {
 	for _, name := range remaining {
 		var installOrder []*formula.Formula
 		if installIgnoreDeps {
-			f, err := ctx.Loader.LoadByName(name)
-			if err != nil && strings.Contains(name, "/") {
-				parts := strings.Split(name, "/")
-				tapName := parts[0] + "/" + parts[1]
-				ui.FprintArrow(os.Stdout, "Formula not found. Auto-tapping %s...", tapName)
-				mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
-				if tapErr := mgr.Add(tapName, ""); tapErr == nil {
-					f, err = ctx.Loader.LoadByName(name)
-				}
-			}
+			f, err := ctx.LoadFormula(name)
 			if err != nil {
 				return fmt.Errorf("formula not found: %s", name)
 			}
 			installOrder = []*formula.Formula{f}
 		} else {
-			resolver := &depgraph.Resolver{Loader: ctx.Loader}
+			resolver := &depgraph.Resolver{
+				Loader:      ctx.Loader,
+				LoadFormula: ctx.LoadFormula,
+			}
 			slog.Debug(fmt.Sprintf("resolving dependencies for %s", name))
 			var err error
 			installOrder, err = resolver.Resolve(name)
