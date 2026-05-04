@@ -1,5 +1,3 @@
-//go:build e2e
-
 package e2e
 
 import (
@@ -8,6 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/homegrew/grew/tests/testhelper"
 )
 
 // TestLiveEndToEnd executes the full E2E suite against real remote taps
@@ -48,14 +48,11 @@ func TestLiveEndToEnd(t *testing.T) {
 
 	// 1. Build the real grew binary
 	t.Log("Building live grew binary...")
-	//root := testhelper.GetProjectRoot(t)
-	args := []string{"build", "-tags=devmode", "-o", exePath}
-	if os.Getenv("GOCOVERDIR") != "" {
-		args = append(args, "-cover")
-	}
-	args = append(args, "./...")
+	root := testhelper.GetProjectRoot(t)
+	args := []string{"build", "-tags=devmode", "-o", exePath, "."}
 
 	cmdBuild := exec.Command("go", args...)
+	cmdBuild.Dir = root
 	if out, err := cmdBuild.CombinedOutput(); err != nil {
 		t.Fatalf("failed to build real binary: %v\nOutput:\n%s", err, string(out))
 	}
