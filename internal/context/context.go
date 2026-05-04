@@ -58,6 +58,16 @@ func New() (*Context, error) {
 // to the Homebrew API if not found.
 func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
 	f, err := ctx.Loader.LoadByName(name)
+	if err != nil && strings.Contains(name, "/") {
+		// Attempt to auto-tap if it's a fully qualified name
+		parts := strings.Split(name, "/")
+		tapName := parts[0] + "/" + parts[1]
+		ui.FprintArrow(os.Stdout, "Formula not found. Auto-tapping %s...", tapName)
+		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
+		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
+			f, err = ctx.Loader.LoadByName(name)
+		}
+	}
 	if err == nil {
 		return f, nil
 	}
@@ -76,6 +86,16 @@ func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
 // to the Homebrew API if not found.
 func (ctx *Context) LoadCask(name string) (*cask.Cask, error) {
 	c, err := ctx.CaskLoader.LoadByName(name)
+	if err != nil && strings.Contains(name, "/") {
+		// Attempt to auto-tap if it's a fully qualified name
+		parts := strings.Split(name, "/")
+		tapName := parts[0] + "/" + parts[1]
+		ui.FprintArrow(os.Stdout, "Cask not found. Auto-tapping %s...", tapName)
+		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
+		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
+			c, err = ctx.CaskLoader.LoadByName(name)
+		}
+	}
 	if err == nil {
 		return c, nil
 	}

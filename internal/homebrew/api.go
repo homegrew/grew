@@ -12,7 +12,7 @@ import (
 	"github.com/homegrew/grew/internal/formula"
 )
 
-const (
+var (
 	formulaAPI = "https://formulae.brew.sh/api/formula/%s.json"
 	caskAPI    = "https://formulae.brew.sh/api/cask/%s.json"
 )

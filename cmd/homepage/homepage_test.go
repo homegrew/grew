@@ -5,10 +5,8 @@ import (
 )
 
 func TestOpenURLDetection(t *testing.T) {
-	// This is just to ensure the function exists and compiles.
-	// Since it depends on runtime.GOOS, we can't easily test it cross-platform
-	// without mocking exec.Command.
-	if openURL == nil {
-		t.Fatal("openURL function should not be nil")
+	// This is just to ensure the package compiles and the command is correctly initialized.
+	if Command == nil {
+		t.Fatal("homepage command should not be nil")
 	}
 }
