@@ -160,7 +160,7 @@ func TestVerifyPatchChecksum(t *testing.T) {
 				DL:      dl,
 			}
 
-			step := patchStep{
+			step := Upgrade{
 				name:    tt.patchName,
 				release: rel,
 			}
@@ -302,14 +302,14 @@ func TestPatchUpgradeTest(t *testing.T) {
 			},
 		}
 
-		_, err := TestPatchUpgrade("v1.0.0", "v1.2.0", dynamicReleases)
+		_, err := VerifyUpgradePath("v1.0.0", "v1.2.0", dynamicReleases)
 		if err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 	})
 
 	t.Run("no path found", func(t *testing.T) {
-		_, err := TestPatchUpgrade("v0.9.0", "v1.2.0", releases)
+		_, err := VerifyUpgradePath("v0.9.0", "v1.2.0", releases)
 		if err == nil {
 			t.Fatal("expected error, got nil")
 		}

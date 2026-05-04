@@ -20,6 +20,7 @@ import (
 
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/internal/version"
 )
 
 const (
@@ -53,7 +54,7 @@ func SetAPIBase(rawURL string) error {
 	return nil
 }
 
-// Release is the subset of the GitHub API release response we need.
+// Release is Rangthe subset of the GitHub API release response we need.
 type Release struct {
 	TagName    string                 `json:"tag_name"`
 	Draft      bool                   `json:"draft"`
@@ -92,6 +93,51 @@ func FetchRelease(s string) (*Release, error) {
 	}
 
 	return &release, nil
+}
+
+// FetchRange returns a slice of releases from v1 to v2 inclusive.
+// The first element is v1, and the last is v2.
+// It returns an error if either version is missing, or if an upgrade path
+// from v1 to v2 cannot be established (e.g. v2 is older than v1).
+func FetchRange(v1, v2 string) ([]Release, error) {
+	if !version.IsNewer(v1, v2) {
+		return nil, fmt.Errorf("no upgrade path from %s to %s", v1, v2)
+	}
+
+	// We don't know how many releases are between v1 and v2, so we fetch
+	// up to 100 recent ones which should cover most reasonable upgrade ranges.
+	recent, err := FetchRecent(100)
+	if err != nil {
+		return nil, fmt.Errorf("fetch recent releases: %w", err)
+	}
+
+	var foundV1, foundV2 bool
+	var rangeReleases []Release
+
+	// recent is ordered newest to oldest
+	for _, r := range recent {
+		if r.TagName == v2 {
+			foundV2 = true
+		}
+		if foundV2 {
+			rangeReleases = append(rangeReleases, r)
+		}
+		if r.TagName == v1 {
+			foundV1 = true
+			break
+		}
+	}
+
+	if !foundV1 || !foundV2 {
+		return nil, fmt.Errorf("could not find continuous path from %s to %s in recent releases", v1, v2)
+	}
+
+	// Reverse the slice so it goes from v1 to v2
+	for i, j := 0, len(rangeReleases)-1; i < j; i, j = i+1, j-1 {
+		rangeReleases[i], rangeReleases[j] = rangeReleases[j], rangeReleases[i]
+	}
+
+	return rangeReleases, nil
 }
 
 // FetchRecent lists GitHub releases and returns the first 'count' stable

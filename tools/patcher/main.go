@@ -12,10 +12,12 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/homegrew/grew/internal/bpatch"
+	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/release"
-	"github.com/homegrew/grew/pkg/validation"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 type platform struct {
@@ -38,6 +40,9 @@ func main() {
 	var outputDir string
 	fs.StringVar(&outputDir, "D", ".", "Output directory for generated files")
 
+	var verifyUpgrade bool
+	fs.BoolVar(&verifyUpgrade, "U", false, "Verify multi-hop patch upgrade path exists and validates checksums")
+
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), "Usage: %s [options] <previous_release> <new_release>\n", os.Args[0])
 		fmt.Fprintln(fs.Output(), "\nOptions:")
@@ -59,6 +64,32 @@ func main() {
 
 	prevRelease := remainingArgs[0]
 	newRelease := remainingArgs[1]
+
+	if verifyUpgrade {
+		if err := config.Default().Init(); err != nil {
+			slog.Error("Failed to initialize config", "err", err)
+			os.Exit(1)
+		}
+		releases, err := release.FetchRange(prevRelease, newRelease)
+		if err != nil {
+			slog.Error("Failed to fetch recent releases", "err", err)
+			os.Exit(1)
+		}
+		steps, errVerify := bpatch.VerifyUpgradePath(prevRelease, newRelease, releases)
+		if errVerify != nil {
+			slog.Error("Upgrade path verification failed", "err", err)
+			os.Exit(1)
+		}
+
+		for _, step := range steps {
+			slog.Info(fmt.Sprintf("Verifying %s", step))
+		}
+
+		slog.Info(fmt.Sprintf("Upgrade from %s to %s", prevRelease, newRelease))
+
+		slog.Info("Upgrade path verified successfully", "from", prevRelease, "to", newRelease)
+		os.Exit(0)
+	}
 
 	logMsg := func(format string, a ...interface{}) {
 		if flags.Verbose {

@@ -17,11 +17,15 @@ import (
 	"github.com/homegrew/grew/pkg/ui"
 )
 
-type patchStep struct {
+type Upgrade struct {
 	url       string
 	name      string
 	toVersion string
 	release   *release.Release
+}
+
+func (u Upgrade) String() string {
+	return fmt.Sprintf("Upgrade from %s to %s", u.release.TagName, u.toVersion)
 }
 
 func isOfficialBuild(v string) bool {
@@ -173,7 +177,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 // (SHA-256 and/or SHA-512) published in the release assets. It checks for standalone
 // .sha256 and .sha512 files first, and falls back to verifying against the release's
 // monolithic checksums.txt (or checksums.txt) file if standalone files are not present.
-func VerifyPatchChecksum(step patchStep, patchFile string) error {
+func VerifyPatchChecksum(step Upgrade, patchFile string) error {
 	actualPatchSHA256, actualPatchSHA512, err := installer.FileHashes(patchFile)
 	if err != nil {
 		return err
@@ -227,12 +231,12 @@ func VerifyPatchChecksum(step patchStep, patchFile string) error {
 
 // TestPatchUpgrade verifies that there is a valid patch path from version1 to version2,
 // downloads all the intermediate patches, and verifies their checksums.
-func TestPatchUpgrade(version1, version2 string, releases []release.Release) (patchStep, error) {
+func VerifyUpgradePath(version1, version2 string, releases []release.Release) ([]Upgrade, error) {
 	relsDup := make([]release.Release, len(releases))
 	copy(relsDup, releases)
 	pth := findPatchPath(version1, version2, relsDup)
 	if len(pth) == 0 {
-		return patchStep{}, fmt.Errorf("no patch path found from %s to %s", version1, version2)
+		return nil, fmt.Errorf("no patch path found from %s to %s", version1, version2)
 	}
 
 	seq := func(yield func(string) bool) {
@@ -247,38 +251,40 @@ func TestPatchUpgrade(version1, version2 string, releases []release.Release) (pa
 
 	ui.FprintArrow(os.Stderr, "Found upgrade path via %d patches from %s to %s", len(pth), version1, version2)
 
+	var done []Upgrade
 	for i, step := range pth {
 		ui.FprintArrow(os.Stderr, "Testing patch %d/%d: %s", i+1, len(pth), step.name)
 		slog.Debug(fmt.Sprintf("Testing patch %d/%d: %s", i+1, len(pth), step.name))
 
 		patchFile, err := step.release.DownloadTemp(step.url, step.name)
 		if err != nil {
-			return patchStep{}, fmt.Errorf("download patch [%d] %s: %w", i, step.name, err)
+			return done, fmt.Errorf("download patch [%d] %s: %w", i, step.name, err)
 		}
 
 		slog.Debug(fmt.Sprintf("Verifying patch %d/%d(%s): %q", i+1, len(pth), step.name, patchFile))
 		if err := VerifyPatchChecksum(step, patchFile); err != nil {
-			return patchStep{}, err
+			return done, fmt.Errorf("patch %d/%d(%s): %w", i+1, len(pth), step.name, err)
 		}
 
+		done = append(done, step)
 		if step.release.DL == nil || step.release.DL.Cache == nil || !strings.Contains(patchFile, step.release.DL.Cache.Dir()) {
 			os.Remove(patchFile)
 		}
 	}
 
 	ui.FprintArrow(os.Stderr, "All patches from %s to %s are downloadable and valid", version1, version2)
-	return patchStep{}, nil
+	return done, nil
 }
 
-func findPatchPath(currentVer, targetVer string, releases []release.Release) []patchStep {
+func findPatchPath(currentVer, targetVer string, releases []release.Release) []Upgrade {
 	// patches[toVersion] = list of patches that lead to toVersion
-	patches := make(map[string][]patchStep)
+	patches := make(map[string][]Upgrade)
 	for i := range releases {
 		rel := &releases[i]
 		for _, asset := range rel.Assets {
 			old := release.ParsePatchVersion(asset.Name)
 			if old != "" {
-				patches[rel.TagName] = append(patches[rel.TagName], patchStep{
+				patches[rel.TagName] = append(patches[rel.TagName], Upgrade{
 					url:       asset.BrowserDownloadURL,
 					name:      asset.Name,
 					toVersion: rel.TagName,
@@ -290,7 +296,7 @@ func findPatchPath(currentVer, targetVer string, releases []release.Release) []p
 
 	type edge struct {
 		ver  string
-		path []patchStep
+		path []Upgrade
 	}
 	queue := []edge{{ver: targetVer, path: nil}}
 	visited := map[string]bool{targetVer: true}
@@ -308,7 +314,7 @@ func findPatchPath(currentVer, targetVer string, releases []release.Release) []p
 			if !visited[fromVer] {
 				visited[fromVer] = true
 				// Prepend this patch because we are going backwards from target to current
-				newPath := append([]patchStep{p}, curr.path...)
+				newPath := append([]Upgrade{p}, curr.path...)
 				queue = append(queue, edge{ver: fromVer, path: newPath})
 			}
 		}
