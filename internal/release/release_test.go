@@ -293,8 +293,13 @@ func TestHttpsGet_RejectsHTTP(t *testing.T) {
 	if err == nil {
 		t.Fatal("expected error for FTP URL")
 	}
-	if !strings.Contains(err.Error(), "refusing non-HTTP/HTTPS URL") {
+	if !strings.Contains(err.Error(), "refusing non-HTTPS URL") {
 		t.Errorf("unexpected error: %v", err)
+	}
+
+	_, err = httpsGet("http://github.com", "text/plain")
+	if err == nil {
+		t.Fatal("expected error for non-HTTPS GitHub URL")
 	}
 
 	_, err = httpsGet("https://example.com", "text/plain")
@@ -303,6 +308,15 @@ func TestHttpsGet_RejectsHTTP(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "is not permitted") {
 		t.Errorf("unexpected error: %v", err)
+	}
+
+	// Local HTTP should be permitted for testing
+	_, err = httpsGet("http://127.0.0.1:1234/repos/homegrew/grew/releases", "application/json")
+	if err == nil {
+		t.Fatal("expected connection error for local HTTP, not validation error")
+	}
+	if strings.Contains(err.Error(), "refusing non-HTTPS URL") || strings.Contains(err.Error(), "is not permitted") {
+		t.Errorf("unexpected validation error for local HTTP: %v", err)
 	}
 }
 

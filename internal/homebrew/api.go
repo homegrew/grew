@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"path/filepath"
 	"strings"
 	"time"
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/validation"
 )
 
 var (
@@ -116,6 +118,10 @@ var platforms = []struct {
 }
 
 func FetchFormula(name string) (*formula.Formula, error) {
+	if !validation.IsValidName(name) {
+		return nil, fmt.Errorf("invalid formula name: %q", name)
+	}
+
 	url := fmt.Sprintf(formulaAPI, name)
 	resp, err := httpsGet(url)
 	if err != nil {
@@ -144,6 +150,10 @@ func FetchFormula(name string) (*formula.Formula, error) {
 }
 
 func FetchCask(token string) (*cask.Cask, error) {
+	if !validation.IsValidName(token) {
+		return nil, fmt.Errorf("invalid cask token: %q", token)
+	}
+
 	url := fmt.Sprintf(caskAPI, token)
 	resp, err := httpsGet(url)
 	if err != nil {
@@ -240,8 +250,33 @@ func FetchAllCasks() ([]*cask.Cask, error) {
 
 var apiClient = &http.Client{Timeout: 60 * time.Second} // Increased timeout for bulk fetches
 
-func httpsGet(url string) (*http.Response, error) {
-	req, err := http.NewRequest("GET", url, nil)
+func httpsGet(rawURL string) (*http.Response, error) {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return nil, fmt.Errorf("invalid url: %w", err)
+	}
+
+	host := u.Hostname()
+	isLocal := host == "localhost" || host == "127.0.0.1"
+
+	if u.Scheme != "https" && !isLocal {
+		return nil, fmt.Errorf("refusing non-HTTPS URL: %s", rawURL)
+	}
+
+	// Strictly validate the hostname to prevent SSRF vulnerabilities.
+	if host != "formulae.brew.sh" && !isLocal {
+		return nil, fmt.Errorf("host %q is not permitted for Homebrew API requests", host)
+	}
+
+	// Reconstruct the URL from validated components.
+	safe := &url.URL{
+		Scheme:   u.Scheme,
+		Host:     u.Host,
+		Path:     u.Path,
+		RawQuery: u.RawQuery,
+	}
+
+	req, err := http.NewRequest("GET", safe.String(), nil)
 	if err != nil {
 		return nil, err
 	}

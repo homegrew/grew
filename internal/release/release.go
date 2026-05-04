@@ -380,12 +380,15 @@ func httpsGet(rawURL, accept string) (*http.Response, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid url: %w", err)
 	}
-	if u.Scheme != "https" && u.Scheme != "http" {
-		return nil, fmt.Errorf("refusing non-HTTP/HTTPS URL: %s", rawURL)
+
+	host := u.Hostname()
+	isLocal := host == "localhost" || host == "127.0.0.1"
+
+	if u.Scheme != "https" && !isLocal {
+		return nil, fmt.Errorf("refusing non-HTTPS URL: %s", rawURL)
 	}
 
 	// Strictly validate the hostname to prevent SSRF vulnerabilities.
-	host := u.Hostname()
 	switch host {
 	case "api.github.com", "github.com", "objects.githubusercontent.com", "127.0.0.1", "localhost":
 		// allowed hosts
@@ -393,14 +396,22 @@ func httpsGet(rawURL, accept string) (*http.Response, error) {
 		return nil, fmt.Errorf("host %q is not permitted for release downloads", host)
 	}
 
+	// Reconstruct the URL from validated components.
+	safe := &url.URL{
+		Scheme:   u.Scheme,
+		Host:     u.Host,
+		Path:     u.Path,
+		RawQuery: u.RawQuery,
+	}
+
 	req := &http.Request{
 		Method:     "GET",
-		URL:        u,
+		URL:        safe,
 		Proto:      "HTTP/1.1",
 		ProtoMajor: 1,
 		ProtoMinor: 1,
 		Header:     make(http.Header),
-		Host:       u.Host,
+		Host:       safe.Host,
 	}
 
 	req.Header.Set("User-Agent", "grew/1.0")

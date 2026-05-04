@@ -394,10 +394,14 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid download URL: %w", err)
 	}
-	if parsed.Scheme != "https" {
+
+	host := parsed.Hostname()
+	isLocal := host == "localhost" || host == "127.0.0.1"
+
+	if parsed.Scheme != "https" && !isLocal {
 		return nil, fmt.Errorf("refusing to download over insecure scheme %q (only HTTPS is allowed)", parsed.Scheme)
 	}
-	if parsed.Host == "" {
+	if host == "" {
 		return nil, fmt.Errorf("download URL has no host: %s", rawURL)
 	}
 	if !isHostAllowed(parsed.Host) {
@@ -407,11 +411,10 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	// Reconstruct the URL from validated components. This severs the data-flow
 	// link between the raw user input and the URL used in the HTTP request.
 	safe := &url.URL{
-		Scheme:   "https",
+		Scheme:   parsed.Scheme,
 		Host:     parsed.Host,
 		Path:     parsed.Path,
 		RawQuery: parsed.RawQuery,
-		Fragment: parsed.Fragment,
 	}
 	return safe, nil
 }

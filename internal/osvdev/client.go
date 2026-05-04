@@ -313,6 +313,14 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 		return nil, fmt.Errorf("unexpected OSV API host: %s (expected %s)", u.Host, expected.Host)
 	}
 
+	// Reconstruct the URL from validated components.
+	safe := &url.URL{
+		Scheme:   expected.Scheme,
+		Host:     expected.Host,
+		Path:     u.Path,
+		RawQuery: u.RawQuery,
+	}
+
 	var lastErr error
 	for attempt := 0; attempt < maxRetries; attempt++ {
 		if attempt > 0 {
@@ -326,12 +334,12 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 
 		req := &http.Request{
 			Method:     method,
-			URL:        u,
+			URL:        safe,
 			Proto:      "HTTP/1.1",
 			ProtoMajor: 1,
 			ProtoMinor: 1,
 			Header:     make(http.Header),
-			Host:       u.Host,
+			Host:       safe.Host,
 			Body:       reqBody,
 		}
 		if body != nil {
