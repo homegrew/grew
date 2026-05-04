@@ -32,7 +32,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 1. **Discovery & Vulnerability Check**:
    - `grew` queries the GitHub API for the latest stable release.
-   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
+   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted. If the OSV query is unreachable, times out, or returns an invalid/error response, the update also aborts (fail-closed) and asks the user to retry once connectivity is restored.
 
 2. **Multi-Hop Binary Patching (Delta Update)**:
    - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
@@ -48,7 +48,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
    - `grew` performs **Dual-Hash Verification**: all downloaded assets (patches or archives) and the final reconstructed binary are verified against both **SHA-256** and **SHA-512** hashes. This protects against supply-chain attacks targeting a single algorithm.
 
 5. **Pre-Replacement Health Check**:
-   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox.
+   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox (temporary working directory, no elevated privileges, outbound network disabled, and a short execution timeout).
    - This verifies that the binary is structurally sound, compatible with the host OS, and functionally operational (i.e., not a corrupted file or a "zero-day" bricking binary) before it replaces the stable version.
    - For release builds, it also re-executes with `--version` to confirm the reported version string matches the expected tag.
 
@@ -87,7 +87,7 @@ The diagnostic system is designed with modularity and extensibility in mind:
 - **Platform-Specific Extensions:** The system uses `init()` functions to register platform-specific checks into an `ExtraChecks` slice. For example, on macOS, `doctor_darwin.go` injects checks that verify:
     - **App Sandbox:** Ensures installed casks possess the `com.apple.security.app-sandbox` entitlement.
     - **Notarization:** Uses `spctl` to verify that applications pass Gatekeeper assessment.
-    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr` (though `grew` applies these attributes and manages uninstallation trashing natively using embedded Swift scripts to ensure proper LaunchServices registration).
+    - **Quarantine Attributes:** Confirms that macOS malware checks haven't been inadvertently stripped by verifying extended attributes via `xattr`. `grew` applies these attributes and manages uninstallation trashing natively using embedded Swift scripts to ensure proper LaunchServices registration.
 
 This architecture allows developers to easily add new checks without modifying the core execution flow, ensuring `grew` can continuously expand its health and security validations.
 
@@ -101,7 +101,7 @@ However, requiring `sudo` is a major friction point for local development, testi
 Devmode is a combination of a compile-time build tag and a runtime CLI flag that enables user-local, rootless installations.
 
 **How it works:**
-1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `internal/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. (Release builds use `devmode_off.go` where `runtime.DevMode = false`).
+1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `internal/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
@@ -121,7 +121,7 @@ This receipt is stored directly within the keg directory (e.g., `<prefix>/Cellar
 - **Build Environment:** Can optionally record the `compiler` used and specific `build_options` if compiled locally.
 - **Intent:** Captures `installed_on_request` to distinguish between explicit user installs and automatic dependency resolution.
 
-This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. Because it is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
+This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. In short, `.MANIFEST.json` is the canonical integrity snapshot used by `grew verify`, while `INSTALL_RECEIPT.json` is supplemental operational metadata for inspection and dependency reasoning. Because the receipt is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
 
 ## 7. Dependency Management & Cleanup
 
