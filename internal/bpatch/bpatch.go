@@ -108,10 +108,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 	// 3. Verify final patched binary hash against binary-checksums.txt of the LATEST release
 	binaryChecksumURL, err := release.FindAssetURL(latestRel, "binary-checksums.txt")
 	if err != nil {
-		binaryChecksumURL, err = release.FindAssetURL(latestRel, "binary-checksum.txt")
-		if err != nil {
-			return fmt.Errorf("binary-checksums.txt (or binary-checksum.txt) not found in latest release")
-		}
+		return fmt.Errorf("binary-checksums.txt (or binary-checksums.txt) not found in latest release")
 	}
 
 	binaryChecksums, err := latestRel.DownloadBytes(binaryChecksumURL)
@@ -175,7 +172,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 // VerifyPatchChecksum ensures that a downloaded patch file matches the expected hashes
 // (SHA-256 and/or SHA-512) published in the release assets. It checks for standalone
 // .sha256 and .sha512 files first, and falls back to verifying against the release's
-// monolithic checksum.txt (or checksums.txt) file if standalone files are not present.
+// monolithic checksums.txt (or checksums.txt) file if standalone files are not present.
 func VerifyPatchChecksum(step patchStep, patchFile string) error {
 	actualPatchSHA256, actualPatchSHA512, err := installer.FileHashes(patchFile)
 	if err != nil {
@@ -207,10 +204,7 @@ func VerifyPatchChecksum(step patchStep, patchFile string) error {
 		// Fallback: Verify patch hash against the monolithic checksums.txt of the release containing the patch
 		checksumURL, err := release.FindAssetURL(step.release, "checksums.txt")
 		if err != nil {
-			checksumURL, err = release.FindAssetURL(step.release, "checksum.txt")
-			if err != nil {
-				return err
-			}
+			return err
 		}
 		checksums, err := step.release.DownloadBytes(checksumURL)
 		if err != nil {

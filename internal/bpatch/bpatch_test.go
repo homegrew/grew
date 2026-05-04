@@ -67,20 +67,20 @@ func TestVerifyPatchChecksum(t *testing.T) {
 					{Name: "test.patch.sha256", BrowserDownloadURL: serverURL + "/test.patch.sha256"},
 				}
 			},
-			patchName: "test.patch",
-			expectErr: true,
+			patchName:    "test.patch",
+			expectErr:    true,
 			errSubstring: "SHA-256 mismatch",
 		},
 		{
-			name: "fallback monolithic checksum.txt success",
+			name: "fallback monolithic checksums.txt success",
 			serveMux: func(mux *http.ServeMux) {
-				mux.HandleFunc("/checksum.txt", func(w http.ResponseWriter, r *http.Request) {
+				mux.HandleFunc("/checksums.txt", func(w http.ResponseWriter, r *http.Request) {
 					w.Write([]byte(expectedSHA256 + "  test.patch\n"))
 				})
 			},
 			assets: func(serverURL string) []release.Asset {
 				return []release.Asset{
-					{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+					{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 				}
 			},
 			patchName: "test.patch",
@@ -104,33 +104,33 @@ func TestVerifyPatchChecksum(t *testing.T) {
 		{
 			name: "fallback monolithic mismatch",
 			serveMux: func(mux *http.ServeMux) {
-				mux.HandleFunc("/checksum.txt", func(w http.ResponseWriter, r *http.Request) {
+				mux.HandleFunc("/checksums.txt", func(w http.ResponseWriter, r *http.Request) {
 					w.Write([]byte(strings.Repeat("a", 64) + "  test.patch\n"))
 				})
 			},
 			assets: func(serverURL string) []release.Asset {
 				return []release.Asset{
-					{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+					{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 				}
 			},
-			patchName: "test.patch",
-			expectErr: true,
+			patchName:    "test.patch",
+			expectErr:    true,
 			errSubstring: "SHA-256 mismatch",
 		},
 		{
 			name: "no checksum found in monolithic file",
 			serveMux: func(mux *http.ServeMux) {
-				mux.HandleFunc("/checksum.txt", func(w http.ResponseWriter, r *http.Request) {
+				mux.HandleFunc("/checksums.txt", func(w http.ResponseWriter, r *http.Request) {
 					w.Write([]byte(expectedSHA256 + "  other.patch\n"))
 				})
 			},
 			assets: func(serverURL string) []release.Asset {
 				return []release.Asset{
-					{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+					{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 				}
 			},
-			patchName: "test.patch",
-			expectErr: true,
+			patchName:    "test.patch",
+			expectErr:    true,
 			errSubstring: "no checksum found",
 		},
 	}
@@ -213,14 +213,14 @@ func TestPatchUpgradeTest(t *testing.T) {
 	defer func() { http.DefaultTransport = oldTransport }()
 
 	// Serve the checksum file for all patches
-	mux.HandleFunc("/checksum.txt", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/checksums.txt", func(w http.ResponseWriter, r *http.Request) {
 		lines := []string{
 			expectedSHA256 + "  grew_Darwin_x86_64_v1.0.0_to_v1.1.0.patch",
 			expectedSHA256 + "  grew_Darwin_x86_64_v1.1.0_to_v1.2.0.patch",
 		}
 		w.Write([]byte(strings.Join(lines, "\n") + "\n"))
 	})
-	
+
 	// Serve the patch files
 	mux.HandleFunc("/grew_Darwin_x86_64_v1.0.0_to_v1.1.0.patch", func(w http.ResponseWriter, r *http.Request) {
 		w.Write(patchContent)
@@ -237,7 +237,7 @@ func TestPatchUpgradeTest(t *testing.T) {
 			TagName: "v1.2.0",
 			Assets: []release.Asset{
 				{Name: "grew_Darwin_x86_64_v1.1.0_to_v1.2.0.patch", BrowserDownloadURL: serverURL + "/grew_Darwin_x86_64_v1.1.0_to_v1.2.0.patch"},
-				{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+				{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 			},
 			DL: dl,
 		},
@@ -245,14 +245,14 @@ func TestPatchUpgradeTest(t *testing.T) {
 			TagName: "v1.1.0",
 			Assets: []release.Asset{
 				{Name: "grew_Darwin_x86_64_v1.0.0_to_v1.1.0.patch", BrowserDownloadURL: serverURL + "/grew_Darwin_x86_64_v1.0.0_to_v1.1.0.patch"},
-				{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+				{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 			},
 			DL: dl,
 		},
 		{
 			TagName: "v1.0.0",
-			Assets: []release.Asset{},
-			DL: dl,
+			Assets:  []release.Asset{},
+			DL:      dl,
 		},
 	}
 
@@ -260,22 +260,22 @@ func TestPatchUpgradeTest(t *testing.T) {
 		osName, archName := normalizePlatformForTest()
 		patch1 := "grew_" + osName + "_" + archName + "_v1.0.0_to_v1.1.0.patch"
 		patch2 := "grew_" + osName + "_" + archName + "_v1.1.0_to_v1.2.0.patch"
-		
+
 		t.Logf("Platform: %s %s", osName, archName)
 		t.Logf("patch1: %s, patch2: %s", patch1, patch2)
 		t.Logf("ParsePatchVersion(patch1): %q", release.ParsePatchVersion(patch1))
 		t.Logf("ParsePatchVersion(patch2): %q", release.ParsePatchVersion(patch2))
 
 		dynamicMux := http.NewServeMux()
-		dynamicMux.HandleFunc("/checksum.txt", func(w http.ResponseWriter, r *http.Request) {
+		dynamicMux.HandleFunc("/checksums.txt", func(w http.ResponseWriter, r *http.Request) {
 			lines := []string{
 				expectedSHA256 + "  " + patch1,
 				expectedSHA256 + "  " + patch2,
 			}
 			w.Write([]byte(strings.Join(lines, "\n") + "\n"))
 		})
-		dynamicMux.HandleFunc("/" + patch1, func(w http.ResponseWriter, r *http.Request) { w.Write(patchContent) })
-		dynamicMux.HandleFunc("/" + patch2, func(w http.ResponseWriter, r *http.Request) { w.Write(patchContent) })
+		dynamicMux.HandleFunc("/"+patch1, func(w http.ResponseWriter, r *http.Request) { w.Write(patchContent) })
+		dynamicMux.HandleFunc("/"+patch2, func(w http.ResponseWriter, r *http.Request) { w.Write(patchContent) })
 		http.DefaultTransport.(*testTransport).mux = dynamicMux
 
 		dynamicReleases := []release.Release{
@@ -283,7 +283,7 @@ func TestPatchUpgradeTest(t *testing.T) {
 				TagName: "v1.2.0",
 				Assets: []release.Asset{
 					{Name: patch2, BrowserDownloadURL: serverURL + "/" + patch2},
-					{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+					{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 				},
 				DL: dl,
 			},
@@ -291,14 +291,14 @@ func TestPatchUpgradeTest(t *testing.T) {
 				TagName: "v1.1.0",
 				Assets: []release.Asset{
 					{Name: patch1, BrowserDownloadURL: serverURL + "/" + patch1},
-					{Name: "checksum.txt", BrowserDownloadURL: serverURL + "/checksum.txt"},
+					{Name: "checksums.txt", BrowserDownloadURL: serverURL + "/checksums.txt"},
 				},
 				DL: dl,
 			},
 			{
 				TagName: "v1.0.0",
-				Assets: []release.Asset{},
-				DL: dl,
+				Assets:  []release.Asset{},
+				DL:      dl,
 			},
 		}
 
