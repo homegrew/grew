@@ -160,9 +160,9 @@ grew verify jq               # check installed files against manifest
 grew vuln-scan -q            # scan for CVEs and only show critical/high severity findings
 grew lock                    # pin your environment
 grew audit --strict          # lint your formulas
-grew --cache                 # show download cache
-grew --cache jq              # show cache path for jq
-grew --cache --os=darwin jq   # show cache path for a different OS
+grew cache                   # show download cache
+grew cache jq                # show cache path for jq
+grew cache --os=darwin jq    # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
 ```
 
@@ -200,7 +200,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `shellenv` | Wire up your shell |
 | `pin` / `unpin` | Freeze formulas to prevent upgrades |
 | `completion` | Generate shell completion (bash, zsh, fish) |
-| `--cache` | Display download cache root or specific package cache paths |
+| `cache` | Display download cache root or specific package cache paths (alias `--cache`) |
 | `version` | Print version and exit |
 | `help` | You got this |
 
@@ -263,44 +263,46 @@ Both gates are required — the build tag compiles in the code path, and `--unsa
 
 ```
 grew/
-├── cmd/              ← standalone command packages (alias, install, upgrade, etc.)
-├── root.go           ← Root CLI command definition (Grew)
-├── main.go           ← CLI entry point
+├── cmd/              ← standalone command packages (install, upgrade, etc.)
 ├── internal/
 │   ├── auditlog/     ← persistent record of all install/upgrade/tap actions
 │   ├── cache/        ← download cache management and pruning
-│   ├── cask/         ← cask parsing and Caskroom
-│   ├── cellar/       ← installed package management
-│   ├── cmd/          ← shared CLI logic, context types, and legacy command helpers
+│   ├── cask/         ← cask parsing, Caskroom, and helpers
+│   ├── cellar/       ← installed package management and cleanup
+│   ├── cli/          ← shared CLI initialization and command registration
+│   ├── cmd/          ← legacy command bridge and high-level orchestration
 │   ├── config/       ← prefix and path resolution
-│   ├── context/      ← global execution context
+│   ├── context/      ← unified execution context (Context, InstallContext)
 │   ├── depgraph/     ← dependency resolution (Kahn's toposort)
-│   ├── downloader/   ← HTTP download + SHA256 + archive extraction (Zip Slip protected)
-│   ├── flags/        ← global CLI flags (-v, -d, -q) shared across all subcommands
-│   ├── formula/      ← formula parsing and validation
-│   ├── fsutil/       ← filesystem utilities and disk usage tracking
+│   ├── downloader/   ← HTTP download + SHA256/512 + archive extraction
+│   ├── flags/        ← global CLI flags (-v, -d, -q)
+│   ├── formula/      ← formula parsing and dependency gathering
+│   ├── fsutil/       ← filesystem utilities (DiskUsage, PruneEmptyDirs, Lock)
+│   ├── installer/    ← core installation logic (formula, cask, self-update)
 │   ├── linkage/      ← dynamic library linkage analysis
 │   ├── linker/       ← deterministic symlink management
 │   ├── lockfile/     ← reproducible environment pinning
 │   ├── osvdev/       ← OSV.dev API client for vulnerability scanning
 │   ├── quarantine/   ← macOS quarantine attribute and Trash management
-│   ├── receipt/      ← installation receipt (provenance) management
-│   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths via install_name_tool)
+│   ├── receipt/      ← installation receipt management
+│   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths)
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
-│   ├── sandbox/      ← build + post-install sandboxing (macOS, shell-safe quoting)
-│   ├── service/      ← background service management (launchd, properly escaped)
+│   ├── sandbox/      ← build + post-install sandboxing (macOS Seatbelt)
+│   ├── service/      ← background service management
 │   ├── signing/      ← Ed25519 bottle signing + trust store
 │   ├── sudo/         ← secure privilege escalation handling
 │   ├── tap/          ← tap repo management + commit verification
-│   └── version/      ← embedded version from git tags
+│   └── version/      ← embedded version and helpers
 ├── pkg/
-│   ├── doctor/       ← diagnostic engine and checks (permissions, integrity, macOS security)
-│   ├── logger/       ← CLI-friendly log/slog handler with source context (DEBUG/INFO/WARN/ERROR)
-│   ├── safepath/     ← safe path manipulation to prevent directory traversal
+│   ├── doctor/       ← diagnostic engine and checks
+│   ├── logger/       ← CLI-friendly log/slog handler with source context
+│   ├── safepath/     ← safe path manipulation and normalization
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
-│   ├── ui/           ← zero-dependency ANSI color and TTY detection for terminal output
-│   └── validation/   ← name/version/SHA256/path validation (shared across packages)
-└── tools/            ← genrepo (Homebrew formula/cask conversion), patcher (delta patch generator)
+│   ├── ui/           ← zero-dependency ANSI color and TTY detection
+│   └── validation/   ← name/version/SHA256/path validation
+├── root.go           ← Root CLI command definition (Grew)
+├── main.go           ← CLI entry point
+└── tools/            ← genrepo (converter), patcher (delta patch generator)
 ```
 
 ---
