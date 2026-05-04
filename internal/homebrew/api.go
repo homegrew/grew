@@ -158,13 +158,17 @@ func FetchCask(token string) (*cask.Cask, error) {
 	return convertCask(&hc), nil
 }
 
+import "time"
+
+var apiClient = &http.Client{Timeout: 30 * time.Second}
+
 func httpsGet(url string) (*http.Response, error) {
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
 	}
 	req.Header.Set("User-Agent", "grew/1.0")
-	return http.DefaultClient.Do(req)
+	return apiClient.Do(req)
 }
 
 func convertFormula(hf *hbFormula) *formula.Formula {
@@ -255,12 +259,19 @@ func convertCask(hc *hbCask) *cask.Cask {
 
 		for _, pref := range pm.prefs {
 			if v, ok := hc.Variations[pref]; ok {
-				urlMap[pm.key] = v.URL
-				shaMap[pm.key] = v.SHA256
-				sha512Map[pm.key] = v.SHA512
+				if v.URL != "" {
+					urlMap[pm.key] = v.URL
+				}
+				if v.SHA256 != "" {
+					shaMap[pm.key] = v.SHA256
+				}
+				if v.SHA512 != "" {
+					sha512Map[pm.key] = v.SHA512
+				}
 				break
 			}
 		}
+	}
 	}
 
 	arts := parseCaskArtifacts(hc.Artifacts)
