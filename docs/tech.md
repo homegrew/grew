@@ -10,7 +10,7 @@ Because `grew` manages dependencies and system environments, its initial install
 
 1. **Download the Binary:** The user downloads the appropriate pre-compiled binary for their platform (e.g., `grew_Darwin_arm64.tar.gz`) from the [GitHub Releases](https://github.com/homegrew/grew/releases/latest) page and extracts it.
 2. **System Setup:** The user runs the extracted binary using `./grew setup`. The `setup` command initializes the system prefix (`/opt/homegrew` on Apple Silicon, `/usr/local/homegrew` on Intel), prompting for elevated privileges if needed to create the directory and transfer ownership to the current user.
-3. **Binary Installation:** `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. This ensures that all standard installations benefit from pre-built, signed, and verified binaries.
+3. **Binary Installation:** By default, `setup` downloads the latest official `grew` binary release and installs it into `<prefix>/bin/grew`. This ensures that all standard installations benefit from pre-built, signed, and verified binaries. Users can opt-in to a source-based installation (using `git clone` and `go build`) by passing the `--unsafe` flag.
 4. **Permissions:** After creating the prefix and moving the binary, `setup` transfers ownership of the directory structure to the current user (if started via `sudo`, it uses the `SUDO_USER` environment variable). All subsequent `grew` commands run without root privileges.
 
 ## 2. How the update process works
@@ -99,15 +99,16 @@ Typically, `grew` requires root privileges (`sudo grew setup`) during initial se
 However, requiring `sudo` is a major friction point for local development, testing, and continuous integration workflows. To solve this, `grew` includes a **Developer Mode**.
 
 **What is `devmode`?**
-Devmode is a compile-time build tag that enables user-local, rootless installations by default.
+Devmode is a combination of a compile-time build tag and a runtime CLI flag that enables user-local, rootless installations.
 
 **How it works:**
 1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `internal/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
-2. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks if the binary was compiled with developer mode.
+2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
+3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
-If devmode is active, `grew` bypasses the standard `sudo` requirements and system-prefix enforcement, allowing the use of a user-local prefix like `~/.homegrew` (which can be explicitly set via `HOMEGREW_PREFIX=~/.homegrew`). This allows developers to test the full lifecycle of the package manager—including sandboxed extraction, cellar linking, and dependency resolution—without ever escalating privileges or modifying system directories.
+If devmode is active, `grew` bypasses the standard `sudo` requirements and instead sets the prefix to a hidden directory in the user's home folder: `~/.homegrew`. This allows developers to test the full lifecycle of the package manager—including sandboxed extraction, cellar linking, and dependency resolution—without ever escalating privileges or modifying system directories.
 
-*Note: Release builds strictly enforce installation to the system prefix and will require `sudo` during the initial setup.*
+*Note: Release builds ignore the `--unsafe` flag entirely. If a user attempts to run `grew setup --unsafe` on a production binary, it will fail and demand `sudo`.*
 
 ## 6. Installation Metadata (`INSTALL_RECEIPT.json`)
 
