@@ -85,7 +85,7 @@ func init() {
 	Command.Flags().BoolVar(&vulnScanSummary, "summary", false, "Show only a summary of findings (no details)")
 	Command.Flags().BoolVar(&vulnScanOffline, "offline", false, "Run offline checks only (skips OSV.dev query)")
 	Command.Flags().BoolVar(&vulnScanDeps, "include-deps", false, "Also scan dependencies of specified targets")
-	Command.Flags().IntVar(&vulnScanMaxSummary, "max-summary", 5, "Maximum number of CVEs to summarize per package")
+	Command.Flags().IntVar(&vulnScanMaxSummary, "max-summary", 80, "Maximum characters of CVEs to summarize per package")
 	Command.Flags().StringVar(&vulnScanSeverity, "severity", "medium", "Minimum severity to report (critical, high, medium, low)")
 	Command.Flags().BoolVar(&vulnScanCycloneDX, "cyclonedx", false, "Output results in CycloneDX SBOM JSON format")
 }

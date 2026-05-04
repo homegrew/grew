@@ -1,12 +1,12 @@
 package update
 
 import (
+	"github.com/homegrew/grew/internal/installer"
 	"fmt"
 	"log/slog"
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/cmd"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
@@ -33,7 +33,7 @@ func runUpdate(args []string) error {
     // Attempt to self-update the CLI binary first, unless we are in devmode.
     if !runtime.DevMode {
         fmt.Fprintln(os.Stderr, "==> Checking for grew updates...")
-        if err := cmd.RunSelfUpdate(nil); err != nil {
+        if err := installer.RunSelfUpdate(nil); err != nil {
             slog.Warn("self-update failed, continuing with tap update", "error", err)
         }
     } else {

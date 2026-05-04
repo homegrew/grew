@@ -1,4 +1,4 @@
-package cmd
+package installer
 
 import (
 	"crypto/sha256"
@@ -15,7 +15,6 @@ import (
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/downloader"
-	"github.com/homegrew/grew/internal/installer"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
 	"github.com/homegrew/grew/internal/version"
@@ -57,7 +56,7 @@ func RunSelfUpdate(_ []string) error {
 		}
 
 		// 1. Always try to update by patch release first.
-		if patchErr := tryPatchUpdate(exePath, rels); patchErr == nil {
+		if patchErr := TryPatchUpdate(exePath, rels); patchErr == nil {
 			auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, "", "patch")
 			return nil
 		} else {
@@ -66,7 +65,7 @@ func RunSelfUpdate(_ []string) error {
 	}
 
 	// 2. Alternatively, fall back to compile via git if repo is present (source installation).
-	updated, err := installer.SelfUpdateFromGit(exePath)
+	updated, err := SelfUpdateFromGit(exePath)
 	if err != nil {
 		slog.Warn(fmt.Sprintf("failed to update grew from git: %v", err))
 	} else if updated {
@@ -79,7 +78,7 @@ func RunSelfUpdate(_ []string) error {
 
 	// 3. Fall back to full release download
 	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
-	err = installer.InstallLatestRelease(exePath, &rels[0])
+	err = InstallLatestRelease(exePath, &rels[0])
 	if err != nil {
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rels[0].TagName, "", fmt.Sprintf("failed: %v", err))
 	}
@@ -100,21 +99,21 @@ func SelfUpdateFromRelease(exePath string) error {
 	}
 
 	// Try patch update first.
-	if err := tryPatchUpdate(exePath, rels); err == nil {
+	if err := TryPatchUpdate(exePath, rels); err == nil {
 		auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "patch")
 		return nil
 	}
 
 	slog.Info("binary patch update not available or failed; falling back to full download")
-	return installer.InstallLatestRelease(exePath, &rels[0])
+	return InstallLatestRelease(exePath, &rels[0])
 }
 
 
-// installer.VerifyBinaryIntegrity re-execs the newly installed binary with --version
+// VerifyBinaryIntegrity re-execs the newly installed binary with --version
 // and checks that it runs successfully and reports the expected version.
 // If expectedVersion is empty, only checks that the binary executes.
 
-// installer.FileHashes computes both hex-encoded SHA-256 and SHA-512 hashes of a file in a single pass.
+// FileHashes computes both hex-encoded SHA-256 and SHA-512 hashes of a file in a single pass.
 
 // fileSHA256 computes the hex-encoded SHA-256 hash of a file.
 func fileSHA256(path string) (string, error) {
@@ -137,7 +136,7 @@ type patchStep struct {
 	release   *release.Release
 }
 
-func findPatchPath(currentVer, targetVer string, releases []release.Release) []patchStep {
+func FindPatchPath(currentVer, targetVer string, releases []release.Release) []patchStep {
 	// patches[toVersion] = list of patches that lead to toVersion
 	patches := make(map[string][]patchStep)
 	for i := range releases {
@@ -183,7 +182,7 @@ func findPatchPath(currentVer, targetVer string, releases []release.Release) []p
 	return nil
 }
 
-func tryPatchUpdate(exePath string, releases []release.Release) error {
+func TryPatchUpdate(exePath string, releases []release.Release) error {
 	bspatch, err := exec.LookPath("bspatch")
 	if err != nil {
 		return fmt.Errorf("bspatch not found in PATH")
@@ -197,13 +196,13 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("already at latest version %s", targetVer)
 	}
 
-	path := findPatchPath(currentVer, targetVer, releases)
+	path := FindPatchPath(currentVer, targetVer, releases)
 	if len(path) == 0 {
 		return fmt.Errorf("no patch path found from %s to %s", currentVer, targetVer)
 	}
 
 	// 1. Query OSV for target version
-	if res, err := installer.CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
+	if res, err := CheckOSVForVersion("github.com/homegrew/grew", targetVer); err != nil {
 		slog.Warn(fmt.Sprintf("OSV query failed: %v", err))
 	} else if res.Vulnerable {
 		return fmt.Errorf("target version %s is vulnerable: %s", targetVer, res.Message)
@@ -230,7 +229,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 			defer os.Remove(patchFile)
 		}
 
-		actualPatchSHA256, actualPatchSHA512, err := installer.FileHashes(patchFile)
+		actualPatchSHA256, actualPatchSHA512, err := FileHashes(patchFile)
 		if err != nil {
 			return err
 		}
@@ -315,7 +314,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("no checksum found for %s in binary-checksums.txt", rawBinName)
 	}
 
-	actualBinSHA256, actualBinSHA512, err := installer.FileHashes(currentSource)
+	actualBinSHA256, actualBinSHA512, err := FileHashes(currentSource)
 	if err != nil {
 		return err
 	}
@@ -356,7 +355,7 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 	ui.FprintArrow(os.Stderr, "Updated to %s via %d binary patches", targetVer, len(path))
 
 	expectedVersion := strings.TrimPrefix(targetVer, "v")
-	if err := installer.VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
+	if err := VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
 		slog.Warn(fmt.Sprintf("integrity verification failed: %v", err))
 	}
 
@@ -364,7 +363,3 @@ func tryPatchUpdate(exePath string, releases []release.Release) error {
 }
 
 
-type OSVResult struct {
-	Vulnerable bool
-	Message    string
-}

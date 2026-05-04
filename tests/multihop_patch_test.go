@@ -140,7 +140,7 @@ func buildBinary(t *testing.T, tmpDir, version string) string {
 	// We must use absolute path for the main.go
 	mainGo := filepath.Join(root, "tests", "testbin", "main.go")
 	cmdBuild := exec.Command("go", "build", "-tags=devmode",
-		"-ldflags=-X main.version="+version,
+		"-ldflags=-X main.buildVersion="+version,
 		"-o", exePath, mainGo)
 	// Use project's .go-cache to avoid permission issues
 	cmdBuild.Env = append(os.Environ(), "GOCACHE="+filepath.Join(root, ".go-cache"))
