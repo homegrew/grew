@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/pkg/safepath"
 )
@@ -17,13 +18,44 @@ type Cache struct {
 
 // New creates a new Cache rooted at dir.
 func New(dir string) *Cache {
-	cleanDir := filepath.Clean(dir)
+	absDir, err := filepath.Abs(dir)
+	if err != nil {
+		return &Cache{
+			dir: "",
+			fs:  nil,
+		}
+	}
+	cleanDir := filepath.Clean(absDir)
 	if err := safepath.SafeAbsolutePath(cleanDir); err != nil {
 		return &Cache{
 			dir: "",
 			fs:  nil,
 		}
 	}
+
+	baseCacheDir, err := os.UserCacheDir()
+	if err != nil {
+		return &Cache{
+			dir: "",
+			fs:  nil,
+		}
+	}
+	baseAbs, err := filepath.Abs(baseCacheDir)
+	if err != nil {
+		return &Cache{
+			dir: "",
+			fs:  nil,
+		}
+	}
+	baseClean := filepath.Clean(baseAbs)
+	rel, err := filepath.Rel(baseClean, cleanDir)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return &Cache{
+			dir: "",
+			fs:  nil,
+		}
+	}
+
 	return &Cache{
 		dir: cleanDir,
 		fs:  os.DirFS(cleanDir),
