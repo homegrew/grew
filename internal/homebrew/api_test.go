@@ -7,6 +7,7 @@ import (
 )
 
 func TestFetchFormula(t *testing.T) {
+	t.Parallel()
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/api/formula/wget.json" {
 			t.Errorf("expected path /api/formula/wget.json, got %s", r.URL.Path)
@@ -61,6 +62,7 @@ func TestFetchFormula(t *testing.T) {
 }
 
 func TestFetchCask(t *testing.T) {
+	t.Parallel()
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/api/cask/firefox.json" {
 			t.Errorf("expected path /api/cask/firefox.json, got %s", r.URL.Path)

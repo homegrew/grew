@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/formula"
@@ -158,8 +159,6 @@ func FetchCask(token string) (*cask.Cask, error) {
 	return convertCask(&hc), nil
 }
 
-import "time"
-
 var apiClient = &http.Client{Timeout: 30 * time.Second}
 
 func httpsGet(url string) (*http.Response, error) {
@@ -271,7 +270,6 @@ func convertCask(hc *hbCask) *cask.Cask {
 				break
 			}
 		}
-	}
 	}
 
 	arts := parseCaskArtifacts(hc.Artifacts)
