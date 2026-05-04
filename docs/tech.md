@@ -48,7 +48,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
    - `grew` performs **Dual-Hash Verification**: all downloaded assets (patches or archives) and the final reconstructed binary are verified against both **SHA-256** and **SHA-512** hashes. This protects against supply-chain attacks targeting a single algorithm.
 
 5. **Pre-Replacement Health Check**:
-   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox.
+   - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox (temporary working directory, no elevated privileges, outbound network disabled, and a short execution timeout).
    - This verifies that the binary is structurally sound, compatible with the host OS, and functionally operational (i.e., not a corrupted file or a "zero-day" bricking binary) before it replaces the stable version.
    - For release builds, it also re-executes with `--version` to confirm the reported version string matches the expected tag.
 
