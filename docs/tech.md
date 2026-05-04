@@ -72,7 +72,7 @@ A developer tool used to generate and verify binary delta patches between releas
 - **Delta Generation**: Uses `bsdiff` to compute the minimal patch required to transition from an old version to a new one.
 - **Integrity**: Automatically calculates SHA-256 and SHA-512 hashes for the resulting patch files, formatted for inclusion in the release's `checksum.txt`.
 - **Platform Aware**: Handles mapping between internal OS/Architecture names and the naming conventions used in release assets.
-- **Verification (`-U`)**: Validates that an unbroken, verifiable sequence of patches exists between two versions and that all intermediate hashes match the expected `checksum.txt` values without generating new patches.
+- **Verification (`-U`)**: Validates that an unbroken, verifiable sequence of patches exists between two versions and that all intermediate hashes match the expected `checksums.txt` values without generating new patches.
 
 ## 4. Diagnostic Engine (`pkg/doctor`)
 
