@@ -6,7 +6,6 @@ import (
 
 	"github.com/homegrew/grew/internal/cli"
 	"github.com/homegrew/grew/internal/cmd"
-	"github.com/homegrew/grew/internal/installer"
 	verpkg "github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )
@@ -28,7 +27,7 @@ func main() {
 
 	switch os.Args[1] {
 	case "run":
-		if err := installer.RunSelfUpdate(nil); err != nil {
+		if err := cmd.ExportRunSelfUpdate(nil); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
 		}
@@ -38,7 +37,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
 		}
-		if err := installer.SelfUpdateFromRelease(exePath); err != nil {
+		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
 		}

@@ -1,6 +1,5 @@
 package installer
 
-
 import (
 	"crypto/sha256"
 	"crypto/sha512"
@@ -9,6 +8,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"testing"
+
+	"github.com/homegrew/grew/internal/release"
 )
 
 // writeScript creates an executable shell script at path with the given content.
@@ -166,7 +167,7 @@ func TestFileSHA256(t *testing.T) {
 	content := []byte("hello world\n")
 	os.WriteFile(path, content, 0644)
 
-	got, err := fileSHA256(path)
+	got, err := release.FileSHA256(path)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -180,7 +181,7 @@ func TestFileSHA256(t *testing.T) {
 
 func TestFileSHA256_NotExist(t *testing.T) {
 	t.Parallel()
-	_, err := fileSHA256("/nonexistent/file")
+	_, err := release.FileSHA256("/nonexistent/file")
 	if err == nil {
 		t.Fatal("expected error for missing file")
 	}
@@ -192,8 +193,8 @@ func TestFileSHA256_Deterministic(t *testing.T) {
 	path := filepath.Join(dir, "bin")
 	os.WriteFile(path, []byte("same content"), 0644)
 
-	h1, _ := fileSHA256(path)
-	h2, _ := fileSHA256(path)
+	h1, _ := release.FileSHA256(path)
+	h2, _ := release.FileSHA256(path)
 	if h1 != h2 {
 		t.Errorf("same file produced different hashes:\n  %s\n  %s", h1, h2)
 	}

@@ -295,33 +295,6 @@ func ensurePathWithinBase(base, target string) (string, error) {
 	return targetAbs, nil
 }
 
-func SelfUpdateFromGit(exePath string) (bool, error) {
-	prefix := config.DefaultPrefix()
-	repoDir := filepath.Join(prefix, "Grew")
-	destBin := filepath.Join(prefix, "bin", "grew")
-
-	var err error
-	destBin, err = ensurePathWithinBase(prefix, destBin)
-	if err != nil {
-		return false, fmt.Errorf("invalid destination binary path: %w", err)
-	}
-
-	if err := InstallFromGit(grewRepoURL, repoDir, destBin, false); err != nil {
-		if errors.Is(err, ErrNoGitRepo) {
-			slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
-			return false, nil
-		}
-		return false, err
-	}
-
-	if err := VerifyBinaryIntegrity(destBin, ""); err != nil {
-		return true, fmt.Errorf("integrity check failed after source update: %w", err)
-	}
-
-	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-	return true, nil
-}
-const grewRepoURL = "https://github.com/homegrew/grew.git"
 type OSVResult struct {
 	Vulnerable bool
 	Message    string
