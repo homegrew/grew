@@ -78,9 +78,8 @@ func TestLiveEndToEnd(t *testing.T) {
 	}
 
 	// 2. Setup (User-local)
-	// `--unsafe` is required here to allow non-interactive setup in this live E2E run.
 	// This test is isolated to a temporary HOME/HOMEGREW_PREFIX and mirrors CI behavior.
-	runCmd("setup", "--unsafe")
+	runCmd("setup")
 
 	// 3. Update (Fetches real taps from GitHub)
 	runCmd("update")

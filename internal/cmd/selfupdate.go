@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"errors"
 	"fmt"
 	"log/slog"
 	"os"
@@ -65,19 +64,11 @@ func runSelfUpdate(_ []string) error {
 		}
 	}
 
-	// 2. Alternatively, fall back to compile via git if repo is present (source installation).
-	updated, err := selfUpdateFromGit(exePath)
-	if err != nil {
-		slog.Warn(fmt.Sprintf("failed to update grew from git: %v", err))
-	} else if updated {
-		return nil
-	}
-
 	if len(rels) == 0 {
 		return fmt.Errorf("cannot fallback to full download without release metadata")
 	}
 
-	// 3. Fall back to full release download
+	// 2. Fall back to full release download
 	fmt.Fprintln(os.Stderr, "==> Falling back to latest release full download...")
 	err = installer.InstallLatestRelease(exePath, &rels[0])
 	if err != nil {
@@ -103,33 +94,6 @@ func selfUpdateFromRelease(exePath string) error {
 
 	slog.Info("binary patch update not available or failed; falling back to full download")
 	return installer.InstallLatestRelease(exePath, &rels[0])
-}
-
-func selfUpdateFromGit(exePath string) (bool, error) {
-	prefix := config.DefaultPrefix()
-	repoDir := filepath.Join(prefix, "Grew")
-	destBin := filepath.Join(prefix, "bin", "grew")
-
-	var err error
-	destBin, err = ensurePathWithinBase(prefix, destBin)
-	if err != nil {
-		return false, fmt.Errorf("invalid destination binary path: %w", err)
-	}
-
-	if err := installer.InstallFromGit(grewRepoURL, repoDir, destBin, false); err != nil {
-		if errors.Is(err, installer.ErrNoGitRepo) {
-			slog.Debug(fmt.Sprintf("no git repo at %s, skipping source update", repoDir))
-			return false, nil
-		}
-		return false, err
-	}
-
-	if err := installer.VerifyBinaryIntegrity(destBin, ""); err != nil {
-		return true, fmt.Errorf("integrity check failed after source update: %w", err)
-	}
-
-	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
-	return true, nil
 }
 
 func tryPatchUpdate(exePath string, releases []release.Release) error {
@@ -403,5 +367,3 @@ func ensurePathWithinBase(base, target string) (string, error) {
 	}
 	return targetAbs, nil
 }
-
-const grewRepoURL = "https://github.com/homegrew/grew.git"
