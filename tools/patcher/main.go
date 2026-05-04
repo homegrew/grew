@@ -71,14 +71,23 @@ func main() {
 			slog.Error("Failed to fetch recent releases", "err", err)
 			os.Exit(1)
 		}
-		steps, errVerify := bpatch.VerifyUpgradePath(prevRelease, newRelease, releases)
+		upgrades, errVerify := bpatch.VerifyUpgradePath(prevRelease, newRelease, releases)
 		if errVerify != nil {
 			slog.Error("Upgrade path verification failed", "err", errVerify)
 			os.Exit(1)
 		}
 
-		for _, step := range steps {
-			slog.Info(fmt.Sprintf("Verifying %s", step))
+		for _, up := range upgrades {
+			patchFile, err := up.Patch()
+			if err != nil {
+				slog.Error("Failed to download patch", "URL", up.URL(), "err", err)
+				os.Exit(1)
+			}
+
+			if err2 := bpatch.VerifyPatchChecksum(up, patchFile); err2 != nil {
+				slog.Error("Failed to verify patch checksum", "patch", patchFile, "err", err2)
+				os.Exit(1)
+			}
 		}
 
 		slog.Info(fmt.Sprintf("Upgrade from %s to %s", prevRelease, newRelease))

@@ -24,6 +24,18 @@ type Upgrade struct {
 	release   *release.Release
 }
 
+func (u Upgrade) Patch() (string, error) {
+	return u.release.DownloadTemp(u.url, u.name)
+}
+
+func (u Upgrade) Name() string {
+	return u.name
+}
+
+func (u Upgrade) URL() string {
+	return u.url
+}
+
 func (u Upgrade) String() string {
 	return fmt.Sprintf("Upgrade from %s to %s", u.release.TagName, u.toVersion)
 }
@@ -76,7 +88,7 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 	for i, step := range path {
 		ui.FprintArrow(os.Stderr, "Applying patch %d/%d: %s", i+1, len(path), step.name)
 
-		patchFile, err := step.release.DownloadTemp(step.url, step.name)
+		patchFile, err := step.release.DownloadTemp(step.URL(), step.Name())
 		if err != nil {
 			return fmt.Errorf("download patch %s: %w", step.name, err)
 		}
