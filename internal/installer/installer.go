@@ -162,58 +162,35 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	if err != nil {
 		return fmt.Errorf("download: %w", err)
 	}
-	// Only remove downloaded files that are outside cache and inside the expected temp dir.
-	shouldRemove := true
-	if rel.DL != nil && rel.DL.Cache != nil {
-		cacheDir := filepath.Clean(rel.DL.Cache.Dir())
-		if abs, err := filepath.Abs(cacheDir); err == nil {
-			cacheDir = filepath.Clean(abs)
-		}
-		if eval, err := filepath.EvalSymlinks(cacheDir); err == nil {
-			cacheDir = filepath.Clean(eval)
+
+	// Only remove if it's NOT in the cache.
+	// Canonicalize tmpFile and its expected base directory before removal for security hardening.
+	if rel.DL == nil || rel.DL.Cache == nil || !strings.Contains(tmpFile, rel.DL.Cache.Dir()) {
+		cleanedTmpFile := filepath.Clean(tmpFile)
+		if eval, err := filepath.EvalSymlinks(cleanedTmpFile); err == nil {
+			cleanedTmpFile = filepath.Clean(eval)
 		}
 
-		candidate := filepath.Clean(tmpFile)
-		if abs, err := filepath.Abs(candidate); err == nil {
-			candidate = filepath.Clean(abs)
-		}
-		if eval, err := filepath.EvalSymlinks(candidate); err == nil {
-			candidate = filepath.Clean(eval)
+		// Determine the expected temporary directory for this download.
+		// If rel.DL is nil or its TmpDir is empty, it falls back to os.TempDir().
+		expectedTmpDir := os.TempDir()
+		if rel.DL != nil && rel.DL.TmpDir != "" {
+			expectedTmpDir = rel.DL.TmpDir
 		}
 
-		if err := safepath.CheckSubpath(cacheDir, candidate); err == nil {
-			shouldRemove = false
-		}
-	}
-	if shouldRemove {
-		// Use only the OS temp directory as the trusted cleanup base.
-		// Do not use rel.DL.TmpDir here, since it may originate from user-controlled config.
-		expectedTmp := os.TempDir()
-		expectedTmp = filepath.Clean(expectedTmp)
-		if abs, err := filepath.Abs(expectedTmp); err == nil {
-			expectedTmp = filepath.Clean(abs)
-		}
-		if eval, err := filepath.EvalSymlinks(expectedTmp); err == nil {
-			expectedTmp = filepath.Clean(eval)
-		}
-		if err := safepath.SafeAbsolutePath(expectedTmp); err != nil {
-			slog.Warn(fmt.Sprintf("refusing to remove downloaded file with invalid temp dir %q: %v", expectedTmp, err))
+		// Canonicalize the expected temporary directory path.
+		if eval, err := filepath.EvalSymlinks(expectedTmpDir); err == nil {
+			expectedTmpDir = filepath.Clean(eval)
 		} else {
-			candidateName := filepath.Base(tmpFile)
-			if err := safepath.SafePathComponent(candidateName); err != nil {
-				slog.Warn(fmt.Sprintf("refusing to remove downloaded file with invalid name: %q (%v)", tmpFile, err))
-			} else if candidate, err := safepath.SafeJoin(expectedTmp, candidateName); err != nil {
-				slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", tmpFile, expectedTmp))
-			} else {
-				if eval, err := filepath.EvalSymlinks(candidate); err == nil {
-					candidate = filepath.Clean(eval)
-				}
-				if err := safepath.CheckSubpath(expectedTmp, candidate); err == nil {
-					defer os.Remove(candidate)
-				} else {
-					slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", candidate, expectedTmp))
-				}
-			}
+			expectedTmpDir = filepath.Clean(expectedTmpDir)
+		}
+
+		// Ensure the file to be removed is strictly within the expected temporary directory.
+		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
+			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside expected temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
+			return fmt.Errorf("temporary file %q escaped expected temporary directory: %w", cleanedTmpFile, err)
+		} else {
+			defer os.Remove(cleanedTmpFile)
 		}
 	}
 
