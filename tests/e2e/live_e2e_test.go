@@ -58,7 +58,7 @@ func TestLiveEndToEnd(t *testing.T) {
 	}
 
 	// Route all grew operations to our isolated temporary prefix
-	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOME="+tmpDir)
+	env := append(os.Environ(), "HOMEGREW_PREFIX="+prefix, "HOME="+tmpDir, "HOMEGREW_REPO_URL="+testhelper.GetProjectRoot(t))
 	for _, key := range []string{"GOCACHE", "GOMODCACHE", "GOPATH"} {
 		if val := os.Getenv(key); val != "" {
 			env = append(env, key+"="+val)

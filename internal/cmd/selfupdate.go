@@ -404,4 +404,11 @@ func ensurePathWithinBase(base, target string) (string, error) {
 	return targetAbs, nil
 }
 
-const grewRepoURL = "https://github.com/homegrew/grew.git"
+var grewRepoURL = "https://github.com/homegrew/grew.git"
+
+func init() {
+	if url := os.Getenv("HOMEGREW_REPO_URL"); url != "" {
+		grewRepoURL = url
+	}
+}
+
