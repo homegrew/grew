@@ -197,20 +197,23 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		if eval, err := filepath.EvalSymlinks(expectedTmp); err == nil {
 			expectedTmp = filepath.Clean(eval)
 		}
-
-		candidateName := filepath.Base(tmpFile)
-		if err := safepath.SafePathComponent(candidateName); err != nil {
-			slog.Warn(fmt.Sprintf("refusing to remove downloaded file with invalid name: %q (%v)", tmpFile, err))
-		} else if candidate, err := safepath.SafeJoin(expectedTmp, candidateName); err != nil {
-			slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", tmpFile, expectedTmp))
+		if err := safepath.SafeAbsolutePath(expectedTmp); err != nil {
+			slog.Warn(fmt.Sprintf("refusing to remove downloaded file with invalid temp dir %q: %v", expectedTmp, err))
 		} else {
-			if eval, err := filepath.EvalSymlinks(candidate); err == nil {
-				candidate = filepath.Clean(eval)
-			}
-			if err := safepath.CheckSubpath(expectedTmp, candidate); err == nil {
-				defer os.Remove(candidate)
+			candidateName := filepath.Base(tmpFile)
+			if err := safepath.SafePathComponent(candidateName); err != nil {
+				slog.Warn(fmt.Sprintf("refusing to remove downloaded file with invalid name: %q (%v)", tmpFile, err))
+			} else if candidate, err := safepath.SafeJoin(expectedTmp, candidateName); err != nil {
+				slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", tmpFile, expectedTmp))
 			} else {
-				slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", candidate, expectedTmp))
+				if eval, err := filepath.EvalSymlinks(candidate); err == nil {
+					candidate = filepath.Clean(eval)
+				}
+				if err := safepath.CheckSubpath(expectedTmp, candidate); err == nil {
+					defer os.Remove(candidate)
+				} else {
+					slog.Warn(fmt.Sprintf("refusing to remove downloaded file outside temp dir: %q (tmp base: %q)", candidate, expectedTmp))
+				}
 			}
 		}
 	}
