@@ -25,6 +25,7 @@ func writeFormula(t *testing.T, dir, name string, deps []string) {
 }
 
 func TestResolve_NoDeps(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
@@ -46,6 +47,7 @@ func TestResolve_NoDeps(t *testing.T) {
 }
 
 func TestResolve_LinearChain(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
@@ -77,6 +79,7 @@ func TestResolve_LinearChain(t *testing.T) {
 }
 
 func TestResolve_Diamond(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
@@ -114,6 +117,7 @@ func TestResolve_Diamond(t *testing.T) {
 }
 
 func TestResolve_CircularDependency(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
@@ -133,6 +137,7 @@ func TestResolve_CircularDependency(t *testing.T) {
 }
 
 func TestResolve_MissingDependency(t *testing.T) {
+	t.Parallel()
 	tmpDir := t.TempDir()
 	tapDir := filepath.Join(tmpDir, "homegrew", "homegrew-taps", "core")
 	os.MkdirAll(tapDir, 0755)
@@ -144,5 +149,13 @@ func TestResolve_MissingDependency(t *testing.T) {
 	_, err := resolver.Resolve("a")
 	if err == nil {
 		t.Fatal("expected error for missing dependency")
+	}
+}
+
+func TestResolve_MisconfiguredResolver(t *testing.T) {
+	t.Parallel()
+	resolver := &Resolver{Loader: nil}
+	if _, err := resolver.Resolve("a"); err == nil {
+		t.Fatal("expected error for misconfigured resolver")
 	}
 }
