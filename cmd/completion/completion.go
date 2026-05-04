@@ -2,41 +2,68 @@ package completion
 
 import (
 	"fmt"
-	"log/slog"
-	"strings"
+	"os"
 
 	"github.com/spf13/cobra"
 )
 
 var Command = &cobra.Command{
-	Use:   "completion <shell>",
+	Use:   "completion [bash|zsh|fish|powershell]",
 	Short: "Generate completion script",
+	Long: fmt.Sprintf(`To load completions:
+
+Bash:
+
+  $ source <(%[1]s completion bash)
+
+  # To load completions for each session, execute once:
+  # Linux:
+  $ %[1]s completion bash > /etc/bash_completion.d/%[1]s
+  # macOS:
+  $ %[1]s completion bash > $(brew --prefix)/etc/bash_completion.d/%[1]s
+
+Zsh:
+
+  # If shell completion is not already enabled in your environment,
+  # you will need to enable it.  You can execute the following once:
+
+  $ echo "autoload -U compinit; compinit" >> ~/.zshrc
+
+  # To load completions for each session, execute once:
+  $ %[1]s completion zsh > "${fpath[1]}/_%[1]s"
+
+  # You will need to start a new shell for this setup to take effect.
+
+fish:
+
+  $ %[1]s completion fish | source
+
+  # To load completions for each session, execute once:
+  $ %[1]s completion fish > ~/.config/fish/completions/%[1]s.fish
+
+PowerShell:
+
+  PS> %[1]s completion powershell | Out-String | Invoke-Expression
+
+  # To load completions for every new session, run:
+  PS> %[1]s completion powershell > %[1]s.ps1
+  # and source this file from your PowerShell profile.
+`, "grew"),
+	DisableFlagsInUseLine: true,
+	ValidArgs:             []string{"bash", "zsh", "fish", "powershell"},
+	Args:                  cobra.MatchAll(cobra.ExactArgs(1), cobra.OnlyValidArgs),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		slog.Debug("starting completion command execution")
-		if len(args) == 0 {
-			return fmt.Errorf("usage: grew completion <shell>")
-		}
-
-		shell := args[0]
-		switch shell {
+		switch args[0] {
 		case "bash":
-			fmt.Println("# bash completion for grew")
-			fmt.Println("complete -F _grew grew")
-			fmt.Println("_grew() { local cur; _get_comp_words_by_ref -n : cur; COMPREPLY=( $(compgen -W \"install uninstall list info search link unlink update upgrade outdated reinstall cleanup deps alias verify audit doctor setup config shellenv completion help\" -- \"$cur\") ); }")
+			cmd.Root().GenBashCompletion(os.Stdout)
 		case "zsh":
-			fmt.Println("# zsh completion for grew")
-			fmt.Println("compdef _grew grew")
-			fmt.Println("_grew() { _arguments \"1: :->command\" \"*: :->args\"; case $state in command) _values 'command' 'install' 'uninstall' 'list' 'info' 'search' 'link' 'unlink' 'update' 'upgrade' 'outdated' 'reinstall' 'cleanup' 'deps' 'alias' 'verify' 'audit' 'doctor' 'setup' 'config' 'shellenv' 'completion' 'help' ;; esac }")
+			cmd.Root().GenZshCompletion(os.Stdout)
 		case "fish":
-			fmt.Println("# fish completion for grew")
-			fmt.Println("complete -c grew -f")
-			fmt.Println("complete -c grew -a \"install uninstall list info search link unlink update upgrade outdated reinstall cleanup deps alias verify audit doctor setup config shellenv completion help\"")
-		default:
-			return fmt.Errorf("unsupported shell: %s", shell)
+			cmd.Root().GenFishCompletion(os.Stdout, true)
+		case "powershell":
+			cmd.Root().GenPowerShellCompletionWithDesc(os.Stdout)
 		}
 
-		// Make it at least 100 characters to satisfy the test
-		fmt.Println("# " + strings.Repeat("=", 80))
 		return nil
 	},
 }
