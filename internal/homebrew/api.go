@@ -14,8 +14,10 @@ import (
 )
 
 var (
-	formulaAPI = "https://formulae.brew.sh/api/formula/%s.json"
-	caskAPI    = "https://formulae.brew.sh/api/cask/%s.json"
+	formulaAPI     = "https://formulae.brew.sh/api/formula/%s.json"
+	caskAPI        = "https://formulae.brew.sh/api/cask/%s.json"
+	formulaListAPI = "https://formulae.brew.sh/api/formula.json"
+	caskListAPI    = "https://formulae.brew.sh/api/cask.json"
 )
 
 type hbFormula struct {
@@ -56,9 +58,19 @@ type hbFormula struct {
 		Dependencies      []string `json:"dependencies"`
 		BuildDependencies []string `json:"build_dependencies"`
 	} `json:"variations"`
-	KegOnly    bool `json:"keg_only"`
-	Deprecated bool `json:"deprecated"`
-	Disabled   bool `json:"disabled"`
+	Service    *hbService `json:"service"`
+	KegOnly    bool       `json:"keg_only"`
+	Deprecated bool       `json:"deprecated"`
+	Disabled   bool       `json:"disabled"`
+}
+
+type hbService struct {
+	Run        any    `json:"run"`
+	RunType    string `json:"run_type"`
+	KeepAlive  any    `json:"keep_alive"`
+	WorkingDir string `json:"working_dir"`
+	LogPath    string `json:"log_path"`
+	ErrorLog   string `json:"error_log_path"`
 }
 
 type hbCask struct {
@@ -159,7 +171,74 @@ func FetchCask(token string) (*cask.Cask, error) {
 	return convertCask(&hc), nil
 }
 
-var apiClient = &http.Client{Timeout: 30 * time.Second}
+func FetchAllFormulae() ([]*formula.Formula, error) {
+	resp, err := httpsGet(formulaListAPI)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("Homebrew API returned status %d", resp.StatusCode)
+	}
+
+	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20)) // Allow up to 256MB
+	if err != nil {
+		return nil, err
+	}
+
+	var hfs []hbFormula
+	if err := json.Unmarshal(data, &hfs); err != nil {
+		return nil, err
+	}
+
+	var result []*formula.Formula
+	for i := range hfs {
+		// Genre-specific skipping logic can be applied here or in the caller
+		hf := &hfs[i]
+		if hf.Deprecated || hf.Disabled || (hf.Versions.Stable == "" && hf.Versions.Head == "") {
+			continue
+		}
+		result = append(result, convertFormula(hf))
+	}
+
+	return result, nil
+}
+
+func FetchAllCasks() ([]*cask.Cask, error) {
+	resp, err := httpsGet(caskListAPI)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("Homebrew API returned status %d", resp.StatusCode)
+	}
+
+	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20)) // Allow up to 256MB
+	if err != nil {
+		return nil, err
+	}
+
+	var hcs []hbCask
+	if err := json.Unmarshal(data, &hcs); err != nil {
+		return nil, err
+	}
+
+	var result []*cask.Cask
+	for i := range hcs {
+		hc := &hcs[i]
+		if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || (hc.SHA256 == "" && hc.SHA512 == "") || hc.SHA256 == "no_check" {
+			continue
+		}
+		result = append(result, convertCask(hc))
+	}
+
+	return result, nil
+}
+
+var apiClient = &http.Client{Timeout: 60 * time.Second} // Increased timeout for bulk fetches
 
 func httpsGet(url string) (*http.Response, error) {
 	req, err := http.NewRequest("GET", url, nil)
@@ -237,6 +316,38 @@ func convertFormula(hf *hbFormula) *formula.Formula {
 			URL:    hf.Urls.Head.URL,
 			Branch: hf.Urls.Head.Branch,
 			Using:  hf.Urls.Head.Using,
+		}
+	}
+
+	if hf.Service != nil && hf.Service.Run != nil {
+		var runCmd []string
+		switch v := hf.Service.Run.(type) {
+		case string:
+			runCmd = []string{v}
+		case []any:
+			for _, arg := range v {
+				if strArg, ok := arg.(string); ok {
+					runCmd = append(runCmd, strArg)
+				}
+			}
+		}
+
+		if len(runCmd) > 0 {
+			f.Service = &formula.ServiceSpec{
+				Run:          runCmd,
+				RunType:      hf.Service.RunType,
+				WorkingDir:   hf.Service.WorkingDir,
+				LogPath:      hf.Service.LogPath,
+				ErrorLogPath: hf.Service.ErrorLog,
+			}
+			if hf.Service.KeepAlive != nil {
+				switch v := hf.Service.KeepAlive.(type) {
+				case bool:
+					f.Service.KeepAlive = v
+				default:
+					f.Service.KeepAlive = true
+				}
+			}
 		}
 	}
 

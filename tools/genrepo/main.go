@@ -8,55 +8,16 @@
 package main
 
 import (
-	"context"
-	"encoding/json"
 	"flag"
 	"fmt"
-	"io"
 	"log/slog"
-	"net/http"
 	"os"
 	"path/filepath"
-	"regexp"
 	"strings"
-	"time"
 
-	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/internal/homebrew"
 	"github.com/homegrew/grew/pkg/logger"
-	"github.com/homegrew/grew/pkg/validation"
 	"gopkg.in/yaml.v3"
-)
-
-const (
-	formulaAPI = "https://formulae.brew.sh/api/formula.json"
-	caskAPI    = "https://formulae.brew.sh/api/cask.json"
-)
-
-// Shared Platform Mapping Preferences
-var (
-	platforms = []struct {
-		key   string
-		prefs []string
-	}{
-		{"darwin_arm64_16", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "all"}},
-		{"darwin_arm64_15", []string{"arm64_sequoia", "arm64_sonoma", "arm64_ventura", "all"}},
-		{"darwin_arm64_14", []string{"arm64_sonoma", "arm64_ventura", "arm64_monterey", "all"}},
-		{"darwin_arm64_13", []string{"arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
-		{"darwin_arm64_12", []string{"arm64_monterey", "arm64_big_sur", "all"}},
-		{"darwin_arm64_11", []string{"arm64_big_sur", "all"}},
-		{"darwin_arm64", []string{"arm64_tahoe", "arm64_sequoia", "arm64_sonoma", "arm64_ventura", "arm64_monterey", "arm64_big_sur", "all"}},
-		{"darwin_amd64_16", []string{"tahoe", "sequoia", "sonoma", "all"}},
-		{"darwin_amd64_15", []string{"sequoia", "sonoma", "ventura", "all"}},
-		{"darwin_amd64_14", []string{"sonoma", "ventura", "monterey", "all"}},
-		{"darwin_amd64_13", []string{"ventura", "monterey", "big_sur", "all"}},
-		{"darwin_amd64_12", []string{"monterey", "big_sur", "all"}},
-		{"darwin_amd64_11", []string{"big_sur", "all"}},
-		{"darwin_amd64_10", []string{"catalina", "mojave", "high_sierra", "sierra", "all"}},
-		{"darwin_amd64", []string{"tahoe", "sequoia", "sonoma", "ventura", "monterey", "big_sur", "catalina", "mojave", "all"}},
-		{"linux_amd64", []string{"x86_64_linux", "all"}},
-		{"linux_arm64", []string{"arm64_linux", "all"}},
-	}
 )
 
 func main() {
@@ -103,62 +64,16 @@ func usage() {
 	os.Exit(1)
 }
 
-// --- Formula Importer ---
-
-type hbService struct {
-	Run        any    `json:"run"`
-	RunType    string `json:"run_type"`
-	KeepAlive  any    `json:"keep_alive"`
-	WorkingDir string `json:"working_dir"`
-	LogPath    string `json:"log_path"`
-	ErrorLog   string `json:"error_log_path"`
+func getSubdir(name string) string {
+	if len(name) == 0 {
+		return "other"
+	}
+	firstChar := strings.ToLower(string(name[0]))
+	if firstChar >= "a" && firstChar <= "z" {
+		return firstChar
+	}
+	return "numeric"
 }
-
-type hbFormula struct {
-	Name     string `json:"name"`
-	Desc     string `json:"desc"`
-	Homepage string `json:"homepage"`
-	License  string `json:"license"`
-	Caveats  string `json:"caveats"`
-	Versions struct {
-		Stable string `json:"stable"`
-		Head   string `json:"head"`
-	} `json:"versions"`
-	Urls struct {
-		Stable struct {
-			URL      string `json:"url"`
-			Checksum string `json:"checksum"`
-		} `json:"stable"`
-		Head struct {
-			URL    string `json:"url"`
-			Branch string `json:"branch"`
-			Using  string `json:"using"`
-		} `json:"head"`
-	} `json:"urls"`
-	Bottle struct {
-		Stable struct {
-			Files map[string]struct {
-				URL    string `json:"url"`
-				SHA256 string `json:"sha256"`
-				Cellar string `json:"cellar"`
-			} `json:"files"`
-		} `json:"stable"`
-	} `json:"bottle"`
-	Dependencies      []string `json:"dependencies"`
-	BuildDependencies []string `json:"build_dependencies"`
-	Variations        map[string]struct {
-		URL               string   `json:"url"`
-		Checksum          string   `json:"checksum"`
-		Dependencies      []string `json:"dependencies"`
-		BuildDependencies []string `json:"build_dependencies"`
-	} `json:"variations"`
-	Service    *hbService `json:"service"`
-	KegOnly    bool       `json:"keg_only"`
-	Deprecated bool       `json:"deprecated"`
-	Disabled   bool       `json:"disabled"`
-}
-
-var safeOutDirName = regexp.MustCompile(`^[A-Za-z0-9._-]+$`)
 
 func runFormulaImport(args []string) {
 	outDirInput := "core"
@@ -172,159 +87,81 @@ func runFormulaImport(args []string) {
 		os.Exit(1)
 	}
 
-	data := fetchAPI(formulaAPI)
-	var hfs []hbFormula
-	if err := json.Unmarshal(data, &hfs); err != nil {
-		slog.Error("Parse JSON failed", "error", err)
+	slog.Info("Fetching formulae from Homebrew API...")
+	formulas, err := homebrew.FetchAllFormulae()
+	if err != nil {
+		slog.Error("Failed to fetch formulae", "error", err)
 		os.Exit(1)
 	}
 
-	if err := os.MkdirAll(outDir, 0755); err != nil {
-		slog.Error("Create output directory failed", "dir", outDir, "error", err)
-		os.Exit(1)
-	}
-	imported, skipped := 0, 0
-
-	for _, hf := range hfs {
-		if hf.Deprecated || hf.Disabled || (hf.Versions.Stable == "" && hf.Versions.Head == "") {
-			skipped++
+	imported := 0
+	for _, f := range formulas {
+		subdir := getSubdir(f.Name)
+		targetDir := filepath.Join(outDir, subdir)
+		
+		if err := os.MkdirAll(targetDir, 0755); err != nil {
+			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
 			continue
 		}
 
-		bottleMap := map[string]formula.BottleSpec{}
-		for _, pm := range platforms {
-			for _, pref := range pm.prefs {
-				if f, ok := hf.Bottle.Stable.Files[pref]; ok {
-					bottleMap[pm.key] = formula.BottleSpec{
-						URL:    f.URL,
-						SHA256: f.SHA256,
-						Cellar: f.Cellar,
-					}
-					break
-				}
-			}
-		}
-
-		urlMap := make(map[string]string)
-		shaMap := make(map[string]string)
-		for _, pm := range platforms {
-			urlMap[pm.key] = hf.Urls.Stable.URL
-			shaMap[pm.key] = hf.Urls.Stable.Checksum
-
-			for _, pref := range pm.prefs {
-				if v, ok := hf.Variations[pref]; ok {
-					if v.URL != "" {
-						urlMap[pm.key] = v.URL
-					}
-					if v.Checksum != "" {
-						shaMap[pm.key] = v.Checksum
-					}
-					break
-				}
-			}
-		}
-
-		version := hf.Versions.Stable
-		if version == "" {
-			version = hf.Versions.Head
-		}
-
-		f := &formula.Formula{
-			Name:        hf.Name,
-			Version:     version,
-			Description: hf.Desc,
-			Homepage:    hf.Homepage,
-			License:     hf.License,
-			Caveats:     hf.Caveats,
-			URL:         urlMap,
-			SHA256:      shaMap,
-			Bottle:      bottleMap,
-			Dependencies:      hf.Dependencies,
-			BuildDependencies: hf.BuildDependencies,
-			KegOnly:           hf.KegOnly,
-		}
-
-		if hf.Urls.Stable.URL != "" {
-			f.Source = &formula.SourceSpec{
-				URL:    hf.Urls.Stable.URL,
-				SHA256: hf.Urls.Stable.Checksum,
-			}
-		}
-
-		if hf.Urls.Head.URL != "" {
-			f.Head = &formula.HeadSpec{
-				URL:    hf.Urls.Head.URL,
-				Branch: hf.Urls.Head.Branch,
-				Using:  hf.Urls.Head.Using,
-			}
-		}
-
-
-		if hf.Service != nil && hf.Service.Run != nil {
-			var runCmd []string
-			switch v := hf.Service.Run.(type) {
-			case string:
-				runCmd = []string{v}
-			case []any:
-				for _, arg := range v {
-					if strArg, ok := arg.(string); ok {
-						runCmd = append(runCmd, strArg)
-					}
-				}
-			}
-
-			if len(runCmd) > 0 {
-				f.Service = &formula.ServiceSpec{
-					Run:          runCmd,
-					RunType:      hf.Service.RunType,
-					WorkingDir:   hf.Service.WorkingDir,
-					LogPath:      hf.Service.LogPath,
-					ErrorLogPath: hf.Service.ErrorLog,
-				}
-				if hf.Service.KeepAlive != nil {
-					switch v := hf.Service.KeepAlive.(type) {
-					case bool:
-						f.Service.KeepAlive = v
-					default:
-						f.Service.KeepAlive = true
-					}
-				}
-			}
-		}
-
-		outPath, err := safeJoinUnderBase(outDir, hf.Name+".yaml")
+		outPath, err := safeJoinUnderBase(targetDir, f.Name+".yaml")
 		if err != nil {
-			slog.Warn("Skipping formula due to invalid output path", "name", hf.Name, "error", err)
-			skipped++
+			slog.Warn("Skipping formula due to invalid output path", "name", f.Name, "error", err)
 			continue
 		}
+		
+		// Remove "(remote)" suffix from the tap since we are generating a local repo
+		f.Tap = ""
+		
 		saveYAML(outPath, f)
 		imported++
 	}
-	slog.Info("Formula import complete", "imported", imported, "skipped", skipped)
+	slog.Info("Formula import complete", "imported", imported)
 }
 
-// --- Cask Importer ---
+func runCaskImport(args []string) {
+	outDirInput := "cask"
+	if len(args) > 0 {
+		outDirInput = args[0]
+	}
 
-type hbCask struct {
-	Token      string   `json:"token"`
-	Name       []string `json:"name"`
-	Desc       string   `json:"desc"`
-	Homepage   string   `json:"homepage"`
-	License    string   `json:"license"`
-	Caveats    string   `json:"caveats"`
-	URL        string   `json:"url"`
-	SHA256     string   `json:"sha256"`
-	SHA512     string   `json:"sha512"`
-	Version    string   `json:"version"`
-	Artifacts  []json.RawMessage `json:"artifacts"`
-	Variations map[string]struct {
-		URL    string `json:"url"`
-		SHA256 string `json:"sha256"`
-		SHA512 string `json:"sha512"`
-	} `json:"variations"`
-	Deprecated bool `json:"deprecated"`
-	Disabled   bool `json:"disabled"`
+	outDir, err := safeOutputDir(outDirInput)
+	if err != nil {
+		slog.Error("Invalid output directory", "error", err, "outDir", outDirInput)
+		os.Exit(1)
+	}
+
+	slog.Info("Fetching casks from Homebrew API...")
+	casks, err := homebrew.FetchAllCasks()
+	if err != nil {
+		slog.Error("Failed to fetch casks", "error", err)
+		os.Exit(1)
+	}
+
+	imported := 0
+	for _, c := range casks {
+		subdir := getSubdir(c.Name)
+		targetDir := filepath.Join(outDir, subdir)
+		
+		if err := os.MkdirAll(targetDir, 0755); err != nil {
+			slog.Error("Failed to create subdirectory", "dir", targetDir, "error", err)
+			continue
+		}
+
+		outPath, err := safeJoinUnderBase(targetDir, c.Name+".yaml")
+		if err != nil {
+			slog.Warn("Skipping cask due to invalid output path", "name", c.Name, "error", err)
+			continue
+		}
+		
+		// Remove "(remote)" suffix from the tap since we are generating a local repo
+		c.Tap = ""
+		
+		saveYAML(outPath, c)
+		imported++
+	}
+
+	slog.Info("Cask import complete", "imported", imported)
 }
 
 func safeOutputDir(input string) (string, error) {
@@ -358,150 +195,6 @@ func safeOutputDir(input string) (string, error) {
 	return targetAbs, nil
 }
 
-func runCaskImport(args []string) {
-	outDirInput := "cask"
-	if len(args) > 0 {
-		outDirInput = args[0]
-	}
-
-	outDir, err := safeOutputDir(outDirInput)
-	if err != nil {
-		slog.Error("Invalid output directory", "error", err, "outDir", outDirInput)
-		os.Exit(1)
-	}
-
-	data := fetchAPI(caskAPI)
-	var hcs []hbCask
-	if err := json.Unmarshal(data, &hcs); err != nil {
-		slog.Error("Parse JSON failed", "error", err)
-		os.Exit(1)
-	}
-
-	if err := os.MkdirAll(outDir, 0755); err != nil {
-		slog.Error("Create output directory failed", "dir", outDir, "error", err)
-		os.Exit(1)
-	}
-	imported, skipped := 0, 0
-
-	for _, hc := range hcs {
-		if hc.Deprecated || hc.Disabled || hc.Version == "" || hc.Version == "latest" || (hc.SHA256 == "" && hc.SHA512 == "") || hc.SHA256 == "no_check" {
-			skipped++
-			continue
-		}
-
-		if !validation.IsValidName(hc.Token) {
-			slog.Warn("Skipping cask with invalid token", "token", hc.Token)
-			skipped++
-			continue
-		}
-
-		outPath, err := safeJoinUnderBase(outDir, hc.Token+".yaml")
-		if err != nil {
-			slog.Warn("Skipping cask due to invalid output path", "token", hc.Token, "error", err)
-			skipped++
-			continue
-		}
-
-		urlMap := make(map[string]string)
-		shaMap := make(map[string]string)
-		sha512Map := make(map[string]string)
-
-		for _, pm := range platforms {
-			if !strings.HasPrefix(pm.key, "darwin") {
-				continue
-			}
-			// Default to top-level values
-			urlMap[pm.key] = hc.URL
-			shaMap[pm.key] = hc.SHA256
-			sha512Map[pm.key] = hc.SHA512
-
-			for _, pref := range pm.prefs {
-				if v, ok := hc.Variations[pref]; ok {
-					urlMap[pm.key] = v.URL
-					shaMap[pm.key] = v.SHA256
-					sha512Map[pm.key] = v.SHA512
-					break
-				}
-			}
-		}
-
-		arts := parseCaskArtifacts(hc.Artifacts)
-		if len(arts.App) == 0 && len(arts.Bin) == 0 && len(arts.Pkg) == 0 {
-			skipped++
-			continue
-		}
-		c := &cask.Cask{
-			Name: hc.Token, Version: hc.Version, Description: hc.Desc, Homepage: hc.Homepage,
-			License: hc.License, Caveats: hc.Caveats, URL: urlMap, SHA256: shaMap, SHA512: sha512Map, Artifacts: arts,
-			Source: cask.SourceSpec{URL: hc.URL, SHA256: hc.SHA256, SHA512: hc.SHA512},
-		}
-
-		saveYAML(outPath, c)
-		imported++
-	}
-
-	slog.Info("Cask import complete", "imported", imported, "skipped", skipped)
-}
-
-func parseCaskArtifacts(raw []json.RawMessage) cask.Artifacts {
-	var res cask.Artifacts
-	for _, m := range raw {
-		var obj map[string]json.RawMessage
-		if err := json.Unmarshal(m, &obj); err != nil {
-			slog.Debug("artifact unmarshal failed", "error", err)
-			continue
-		}
-		if app, ok := obj["app"]; ok {
-			var apps []string
-			if err := json.Unmarshal(app, &apps); err != nil {
-				slog.Debug("app unmarshal failed", "error", err)
-			} else {
-				res.App = append(res.App, apps...)
-			}
-		}
-		if pkg, ok := obj["pkg"]; ok {
-			var pkgs []string
-			if err := json.Unmarshal(pkg, &pkgs); err != nil {
-				slog.Debug("pkg unmarshal failed", "error", err)
-			} else {
-				res.Pkg = append(res.Pkg, pkgs...)
-			}
-		}
-		if bin, ok := obj["binary"]; ok {
-			var s string
-			if err := json.Unmarshal(bin, &s); err == nil {
-				res.Bin = append(res.Bin, filepath.Base(s))
-			} else {
-				var binArr []json.RawMessage
-				if err := json.Unmarshal(bin, &binArr); err != nil {
-					slog.Debug("binary array unmarshal failed", "error", err)
-				} else if len(binArr) > 0 {
-					var path string
-					if err := json.Unmarshal(binArr[0], &path); err != nil {
-						slog.Debug("binary path unmarshal failed", "error", err)
-					} else {
-						name := filepath.Base(path)
-						if len(binArr) > 1 {
-							var opts map[string]string
-							if err := json.Unmarshal(binArr[1], &opts); err != nil {
-								slog.Debug("binary options unmarshal failed", "error", err)
-							} else {
-								if t, ok := opts["target"]; ok {
-									name = t
-								}
-							}
-						}
-						res.Bin = append(res.Bin, name)
-					}
-				}
-			}
-		}
-	}
-	return res
-}
-
-// --- Common Helpers ---
-
 func safeJoinUnderBase(base, rel string) (string, error) {
 	baseAbs, err := filepath.Abs(base)
 	if err != nil {
@@ -516,33 +209,6 @@ func safeJoinUnderBase(base, rel string) (string, error) {
 		return "", fmt.Errorf("path escapes base directory")
 	}
 	return candidate, nil
-}
-
-func fetchAPI(apiURL string) []byte {
-	slog.Info("Fetching API", "url", apiURL)
-	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
-	defer cancel()
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, apiURL, nil)
-	if err != nil {
-		slog.Error("Build request failed", "error", err)
-		os.Exit(1)
-	}
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		slog.Error("Fetch failed", "error", err)
-		os.Exit(1)
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		slog.Error("API error", "status", resp.Status)
-		os.Exit(1)
-	}
-	data, err := io.ReadAll(io.LimitReader(resp.Body, 256<<20))
-	if err != nil {
-		slog.Error("Read failed", "error", err)
-		os.Exit(1)
-	}
-	return data
 }
 
 func saveYAML(path string, v any) {
