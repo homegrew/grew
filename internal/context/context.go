@@ -62,7 +62,7 @@ func (ctx *Context) LoadFormula(name string) (*formula.Formula, error) {
 		// Attempt to auto-tap if it's a fully qualified name
 		parts := strings.Split(name, "/")
 		tapName := parts[0] + "/" + parts[1]
-		ui.FprintArrow(os.Stdout, "Formula not found. Auto-tapping %s...", tapName)
+		ui.FprintArrow(os.Stderr, "Formula not found. Auto-tapping %s...", tapName)
 		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
 		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
 			f, err = ctx.Loader.LoadByName(name)
@@ -90,7 +90,7 @@ func (ctx *Context) LoadCask(name string) (*cask.Cask, error) {
 		// Attempt to auto-tap if it's a fully qualified name
 		parts := strings.Split(name, "/")
 		tapName := parts[0] + "/" + parts[1]
-		ui.FprintArrow(os.Stdout, "Cask not found. Auto-tapping %s...", tapName)
+		ui.FprintArrow(os.Stderr, "Cask not found. Auto-tapping %s...", tapName)
 		mgr := &tap.Manager{TapsDir: ctx.Paths.Taps}
 		if tapErr := mgr.Add(tapName, ""); tapErr == nil {
 			c, err = ctx.CaskLoader.LoadByName(name)

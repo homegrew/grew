@@ -33,11 +33,10 @@ func (r *Resolver) Resolve(name string) ([]*formula.Formula, error) {
 
 	loadFunc := r.LoadFormula
 	if loadFunc == nil {
-		if r.Loader != nil {
-			loadFunc = r.Loader.LoadByName
-		} else {
+		if r.Loader == nil {
 			return nil, fmt.Errorf("resolver misconfigured: either a Loader or a LoadFormula must be set")
 		}
+		loadFunc = r.Loader.LoadByName
 	}
 
 	queue := []string{name}
