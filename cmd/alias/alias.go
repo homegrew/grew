@@ -10,6 +10,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/config"
 	"github.com/spf13/cobra"
 )
@@ -74,7 +75,11 @@ func init() {
 type aliases map[string]string
 
 func aliasFile() string {
-	return filepath.Join(config.Default().Root, "aliases.json")
+	ctx, err := context.New()
+	if err != nil {
+		return filepath.Join(config.Default().Root, "aliases.json") // fallback
+	}
+	return filepath.Join(ctx.Paths.Root, "aliases.json")
 }
 
 func loadAliases() (aliases, error) {

@@ -156,3 +156,17 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 
 The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `internal/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 
+## 9. Execution Context (`internal/context`)
+
+The `Context` struct serves as the central registry for shared application state in `grew`. Its primary purpose is to bundle together the various managers and loaders that almost every command needs to function, implementing a pattern of explicit dependency injection.
+
+### Key Components
+- **`Paths`**: Contains the configured filesystem locations for the Cellar, Caskroom, Taps, and Cache.
+- **`Loader` & `CaskLoader`**: Handle the discovery and parsing of Formulae (CLI tools) and Casks (macOS apps) from local taps or remote APIs.
+- **`Cellar` & `Caskroom`**: Provide high-level APIs for managing the directories where packages are actually installed.
+
+### Design Goals
+1.  **Lifecycle Management**: The context initialization ensures that system paths are validated and core components (like the default Tap) are ready before any command logic executes.
+2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing.
+3.  **Consistency**: By passing a single `Context` object through the command hierarchy, `grew` ensures that all components operate on the same configuration and prefix, preventing environment drift during execution.
+

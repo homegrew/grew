@@ -2,17 +2,15 @@ package doctor
 
 import (
 	"fmt"
-	"os"
-	"github.com/homegrew/grew/pkg/ui"
 	"log/slog"
+	"os"
 	"time"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/ui"
+
 	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/doctor"
 	"github.com/spf13/cobra"
 )
@@ -104,28 +102,21 @@ func runDoctor(args []string) error {
 		checks = filtered
 	}
 
-	paths := config.Default()
-
-	tapMgr := &tap.Manager{TapsDir: paths.Taps}
-	if err := tapMgr.InitCore(); err != nil && !flags.Quiet {
-		slog.Warn(fmt.Sprintf("failed to init core tap: %v", err))
+	appCtx, err := context.New()
+	if err != nil {
+		return fmt.Errorf("failed to init context: %w", err)
 	}
 
-	loader := context.NewLoader(paths.Taps)
-	formulas, _ := loader.LoadAll()
-
-	caskLoader := context.NewCaskLoader(paths.Taps)
-	casks, _ := caskLoader.LoadAll()
-
-	cel := &cellar.Cellar{Path: paths.Cellar}
-	lnk := &linker.Linker{Paths: paths}
-	packages, _ := cel.List()
+	formulas, _ := appCtx.Loader.LoadAll()
+	casks, _ := appCtx.CaskLoader.LoadAll()
+	packages, _ := appCtx.Cellar.List()
+	lnk := &linker.Linker{Paths: appCtx.Paths}
 
 	ctx := &doctor.Context{
-		Paths:    paths,
-		Cel:      cel,
+		Paths:    appCtx.Paths,
+		Cel:      appCtx.Cellar,
 		Lnk:      lnk,
-		Loader:   loader,
+		Loader:   appCtx.Loader,
 		Formulas: formulas,
 		Casks:    casks,
 		Packages: packages,

@@ -8,10 +8,11 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/internal/context"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
-	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/spf13/cobra"
 )
 
 func canonicalPath(path string) (string, error) {
@@ -77,7 +78,12 @@ Examples:
   grew reset-update`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("starting resetupdate command execution")
-		paths := config.Default()
+		ctx, err := context.NewInstallContext()
+		if err != nil {
+			return err
+		}
+		defer ctx.Close()
+		paths := ctx.Paths
 
 		// Extra safety: only allow destructive operations under the trusted default prefix.
 		trustedRoot := config.DefaultPrefix()
