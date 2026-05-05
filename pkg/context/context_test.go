@@ -236,15 +236,35 @@ func TestClose(t *testing.T) {
 func ExampleContext() {
 	// Context bundles commonly used objects like the formula loader and cellar.
 	// It is typically initialized at the start of a command.
-	os.Setenv("HOMEGREW_PREFIX", "/opt/homegrew")
+
+	// Use a temporary directory for the prefix to avoid permission errors
+	// and side effects on the host system.
+	tmpDir, err := os.MkdirTemp("", "homegrew-*")
+	if err != nil {
+		fmt.Printf("Error creating temp dir: %v\n", err)
+		return
+	}
+	defer os.RemoveAll(tmpDir)
+
+	origPrefix := os.Getenv("HOMEGREW_PREFIX")
+	origNoInit := os.Getenv("HOMEGREW_NO_INIT_TAP")
+	os.Setenv("HOMEGREW_PREFIX", tmpDir)
 	os.Setenv("HOMEGREW_NO_INIT_TAP", "1") // Skip tap initialization for example
+	defer func() {
+		os.Setenv("HOMEGREW_PREFIX", origPrefix)
+		os.Setenv("HOMEGREW_NO_INIT_TAP", origNoInit)
+	}()
+
 	ctx, err := New()
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
 
-	fmt.Printf("Root: %s\n", ctx.Paths.Root)
+	if ctx.Paths.Root == tmpDir {
+		fmt.Println("Context initialized successfully")
+	}
+
 	// Output:
-	// Root: /opt/homegrew
+	// Context initialized successfully
 }
