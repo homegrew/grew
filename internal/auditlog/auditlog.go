@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 )
 
 const logFileName = "grew.log"

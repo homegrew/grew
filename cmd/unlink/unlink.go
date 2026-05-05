@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"

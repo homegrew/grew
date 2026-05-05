@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"al.essio.dev/pkg/shellescape"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/spf13/cobra"
 )
 

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 )
 
 // Helper to mock command execution if we need it

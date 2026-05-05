@@ -8,7 +8,7 @@ import (
 
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"

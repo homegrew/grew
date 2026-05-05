@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 )
 
 func setupTestLinker(t *testing.T) (*Linker, config.Paths) {

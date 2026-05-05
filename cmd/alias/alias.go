@@ -10,8 +10,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/internal/context"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/context"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/spf13/cobra"
 )
 

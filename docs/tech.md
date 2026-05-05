@@ -147,7 +147,7 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 **Key Benefits:**
 - **Standardization:** Every subcommand package exports a consistent `Command` variable of type `*cobra.Command`.
 - **Isolation:** Each command manages its own flags and dependencies, reducing the risk of unintended side effects and global state pollution.
-- **Unified Context:** All commands utilize a centralized execution context defined in `internal/context`. This package provides the `Context` (for read-only operations) and `InstallContext` (for destructive operations, including global locking) types, ensuring consistent environment resolution.
+- **Unified Context:** All commands utilize a centralized execution context defined in `pkg/context`. This package provides the `Context` (for read-only operations) and `InstallContext` (for destructive operations, including global locking) types, ensuring consistent environment resolution.
 - **Decoupled Logic:** Core management logic is separated from CLI orchestration. High-level commands in `cmd/` delegate complex operations to dedicated packages:
     - `internal/installer`: Handles formula, cask, and self-update routines.
     - `internal/cellar`: Manages installed packages and disk cleanup.
@@ -156,7 +156,7 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 
 The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `internal/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 
-## 9. Execution Context (`internal/context`)
+## 9. Execution Context (`pkg/context`)
 
 The `Context` struct serves as the central registry for shared application state in `grew`. Its primary purpose is to bundle together the various managers and loaders that almost every command needs to function, implementing a pattern of explicit dependency injection.
 

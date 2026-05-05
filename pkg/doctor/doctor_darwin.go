@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 )
 
 func init() {

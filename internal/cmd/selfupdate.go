@@ -11,7 +11,7 @@ import (
 	"github.com/homegrew/grew/internal/auditlog"
 	"github.com/homegrew/grew/internal/bpatch"
 	"github.com/homegrew/grew/internal/cache"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/installer"
 	"github.com/homegrew/grew/internal/release"

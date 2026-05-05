@@ -6,7 +6,7 @@ import (
 	"sort"
 
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )
