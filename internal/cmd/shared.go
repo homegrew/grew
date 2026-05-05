@@ -6,7 +6,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/fsutil"
 	"github.com/homegrew/grew/pkg/ui"
 )

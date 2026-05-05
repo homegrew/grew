@@ -6,7 +6,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/lockfile"
 	"github.com/spf13/cobra"
 )
@@ -61,7 +61,11 @@ func init() {
 
 func lockGenerate() error {
 	slog.Debug("starting lock command execution")
-	paths := config.Default()
+	ctx, err := context.New()
+	if err != nil {
+		return err
+	}
+	paths := ctx.Paths
 
 	lf, err := lockfile.Generate(paths.Root, paths.Cellar)
 	if err != nil {
@@ -77,7 +81,11 @@ func lockGenerate() error {
 }
 
 func lockCheck() error {
-	paths := config.Default()
+	ctx, err := context.New()
+	if err != nil {
+		return err
+	}
+	paths := ctx.Paths
 
 	lf, err := lockfile.Load(paths.Root)
 	if err != nil {
@@ -105,7 +113,11 @@ func lockCheck() error {
 }
 
 func lockShow() error {
-	paths := config.Default()
+	ctx, err := context.New()
+	if err != nil {
+		return err
+	}
+	paths := ctx.Paths
 
 	lf, err := lockfile.Load(paths.Root)
 	if err != nil {

@@ -11,6 +11,9 @@ import (
 )
 
 func TestRunShellenv(t *testing.T) {
+	t.Setenv("HOMEGREW_NO_INIT_TAP", "1")
+	t.Setenv("HOMEGREW_PREFIX", t.TempDir())
+	
 	tests := []struct {
 		name     string
 		args     []string

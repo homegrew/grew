@@ -5,15 +5,14 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/linker"
-	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
+	"github.com/spf13/cobra"
 )
 
 var (
-	unlinkDryRun  bool
+	unlinkDryRun bool
 )
 
 var Command = &cobra.Command{
@@ -39,8 +38,13 @@ func runUnlink(args []string) error {
 		return fmt.Errorf("usage: grew unlink [--dry-run] <formula>...")
 	}
 
-	paths := config.Default()
-	cel := &cellar.Cellar{Path: paths.Cellar}
+	ctx, err := context.NewInstallContext()
+	if err != nil {
+		return err
+	}
+	defer ctx.Close()
+	paths := ctx.Paths
+	cel := ctx.Cellar
 	lnk := &linker.Linker{Paths: paths}
 
 	for _, name := range args {

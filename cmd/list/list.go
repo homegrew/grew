@@ -1,7 +1,6 @@
 package list
 
 import (
-	"github.com/homegrew/grew/internal/context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -9,8 +8,9 @@ import (
 	"sort"
 	"time"
 
+	"github.com/homegrew/grew/pkg/context"
+
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )
@@ -93,8 +93,12 @@ func runList(args []string) error {
 		return nil
 	}
 
-	paths := config.Default()
-	cel := &cellar.Cellar{Path: paths.Cellar}
+	ctx, err := context.New()
+	if err != nil {
+		return err
+	}
+	paths := ctx.Paths
+	cel := ctx.Cellar
 
 	packages, err := cel.List()
 	if err != nil {
@@ -209,7 +213,6 @@ func listVersions(cel *cellar.Cellar, packages []cellar.InstalledPackage, long, 
 	})
 	return nil
 }
-
 
 // filterMultiple returns only packages that have more than one version installed.
 func filterMultiple(cel *cellar.Cellar, packages []cellar.InstalledPackage) []cellar.InstalledPackage {

@@ -9,7 +9,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/installer"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"

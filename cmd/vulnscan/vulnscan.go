@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/depgraph"
 	"github.com/homegrew/grew/internal/flags"
 	"github.com/homegrew/grew/internal/formula"
@@ -23,7 +23,7 @@ import (
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 )
 
 // vulnSeverity represents the severity of a vulnerability finding.

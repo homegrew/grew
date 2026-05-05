@@ -9,8 +9,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/cellar"
-	intconfig "github.com/homegrew/grew/internal/config"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/version"
 	"github.com/spf13/cobra"
 )
@@ -23,7 +22,11 @@ package count, Go version, OS, CPU, and detected tools (git, curl,
 clang). Also shows any HOMEGREW_* environment variables.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("starting config command execution")
-		paths := intconfig.Default()
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+		paths := ctx.Paths
 
 		fmt.Println("HOMEGREW_VERSION:", version.Version())
 		fmt.Println("HOMEGREW_PREFIX:", paths.Root)

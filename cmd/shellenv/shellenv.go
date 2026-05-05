@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"al.essio.dev/pkg/shellescape"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/spf13/cobra"
 )
 
@@ -36,7 +36,11 @@ Setup:
   grew shellenv fish`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("starting shellenv command execution")
-		paths := config.Default()
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+		paths := ctx.Paths
 		shell := detectShell(args)
 
 		root := shellescape.Quote(paths.Root)

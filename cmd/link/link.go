@@ -1,7 +1,7 @@
 package link
 
 import (
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"
 	"os"

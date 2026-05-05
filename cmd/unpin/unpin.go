@@ -5,8 +5,7 @@ import (
 	"log/slog"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/spf13/cobra"
 )
 
@@ -21,13 +20,18 @@ var Command = &cobra.Command{
 
 func runUnpin(args []string) error {
 	slog.Debug("starting unpin command execution")
-	
+
 	if len(args) == 0 {
 		return fmt.Errorf("usage: grew unpin <formula>...")
 	}
 
-	paths := config.Default()
-	cel := &cellar.Cellar{Path: paths.Cellar}
+	ctx, err := context.NewInstallContext()
+	if err != nil {
+		return err
+	}
+	defer ctx.Close()
+	paths := ctx.Paths
+	cel := ctx.Cellar
 	logger := auditlog.New(paths.Log)
 
 	for _, name := range args {

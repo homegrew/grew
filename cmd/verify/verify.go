@@ -2,7 +2,7 @@ package verify
 
 
 import (
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"encoding/json"
 	"fmt"
 	"log/slog"

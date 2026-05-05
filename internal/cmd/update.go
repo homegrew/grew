@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/internal/tap"
 	"github.com/homegrew/grew/pkg/ui"

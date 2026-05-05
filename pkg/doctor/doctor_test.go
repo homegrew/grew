@@ -12,7 +12,7 @@ import (
 
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/linker"
 	grewrt "github.com/homegrew/grew/internal/runtime"

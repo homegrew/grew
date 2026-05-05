@@ -13,7 +13,7 @@ import (
 	"github.com/homegrew/grew/internal/linker"
 	"github.com/homegrew/grew/internal/receipt"
 	"github.com/spf13/cobra"
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 )
 
 var infoCask bool

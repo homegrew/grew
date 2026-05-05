@@ -18,7 +18,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/version"
 )

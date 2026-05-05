@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 )
 
 func getPathHelperRoot(paths config.Paths) string {

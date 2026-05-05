@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -216,5 +217,31 @@ func TestIsDir_Invalid(t *testing.T) {
 	if IsDir("/../../invalid") {
 		t.Error("IsDir with unsafe path should be false")
 	}
+}
+
+func ExamplePaths() {
+	// Paths can be created from an explicit root, application directory, and cache directory.
+	paths := FromRoot("/opt/homegrew", "/Applications", "/Library/Caches/Homegrew")
+
+	fmt.Println(paths.Root)
+	fmt.Println(paths.Cellar)
+	fmt.Println(paths.Bin)
+	// Output:
+	// /opt/homegrew
+	// /opt/homegrew/Cellar
+	// /opt/homegrew/bin
+}
+
+func ExampleDefault() {
+	// Default() returns the path configuration for the current environment,
+	// discovering the prefix and user directories automatically.
+	paths := Default()
+
+	// The root will depend on the platform and user (e.g., /opt/homegrew on Apple Silicon).
+	if paths.Root != "" {
+		fmt.Println("Paths initialized")
+	}
+	// Output:
+	// Paths initialized
 }
 

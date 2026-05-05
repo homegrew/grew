@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/release"
 	"github.com/homegrew/grew/internal/sandbox"
 	verpkg "github.com/homegrew/grew/internal/version"

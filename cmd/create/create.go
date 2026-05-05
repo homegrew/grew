@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/homegrew/grew/internal/context"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/spf13/cobra"

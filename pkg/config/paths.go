@@ -18,26 +18,43 @@ import (
 // All fields are guaranteed to be absolute paths after initialization via
 // Default() or FromRoot().
 type Paths struct {
-	Root     string // The installation prefix (e.g. /opt/homegrew).
-	Cellar   string // Directory where formulas are installed (Root/Cellar).
-	Opt      string // Directory for symlinks to active formula versions (Root/opt).
-	Bin      string // Executable binaries (Root/bin).
-	Sbin     string // System binaries (Root/sbin).
-	Lib      string // Libraries (Root/lib).
-	Include  string // Header files (Root/include).
-	Share    string // Shared data (Root/share).
-	Taps     string // Directory for git repositories of formulas (Root/Taps).
-	CoreTap  string // The official core formula tap.
-	CaskTap  string // The official cask tap.
-	Caskroom string // Directory where casks are recorded (Root/Caskroom).
-	AppDir   string // Directory for macOS applications (usually /Applications or ~/Applications).
-	Cache    string // Directory for download and metadata cache.
-	Tmp      string // Temporary directory for builds and extractions (Root/tmp).
-	Log      string // Directory for audit logs (Root/var/log).
-	GitRepo  string // Internal directory for grew's own source (Root/Grew).
+	// Root is the installation prefix (e.g. /opt/homegrew).
+	Root string
+	// Cellar is the directory where formulas are installed (Root/Cellar).
+	Cellar string
+	// Opt is the directory for symlinks to active formula versions (Root/opt).
+	Opt string
+	// Bin is the directory for executable binaries (Root/bin).
+	Bin string
+	// Sbin is the directory for system binaries (Root/sbin).
+	Sbin string
+	// Lib is the directory for libraries (Root/lib).
+	Lib string
+	// Include is the directory for header files (Root/include).
+	Include string
+	// Share is the directory for shared data (Root/share).
+	Share string
+	// Taps is the directory for git repositories of formulas (Root/Taps).
+	Taps string
+	// CoreTap is the path to the official core formula tap.
+	CoreTap string
+	// CaskTap is the path to the official cask tap.
+	CaskTap string
+	// Caskroom is the directory where casks are recorded (Root/Caskroom).
+	Caskroom string
+	// AppDir is the directory for macOS applications (usually /Applications or ~/Applications).
+	AppDir string
+	// Cache is the directory for download and metadata cache.
+	Cache string
+	// Tmp is the temporary directory for builds and extractions (Root/tmp).
+	Tmp string
+	// Log is the directory for audit logs (Root/var/log).
+	Log string
+	// GitRepo is the internal directory for grew's own source (Root/Grew).
+	GitRepo string
 }
 
-// DefaultPrefix determines the homegrew prefix.
+// DefaultPrefix determines the homegrew prefix by following a set of discovery rules.
 //
 // Discovery rules (in order):
 //  1. HOMEGREW_PREFIX environment variable (explicit override).
@@ -180,9 +197,9 @@ func Default() Paths {
 	return FromRoot(root, appDir, cacheDir)
 }
 
-// IsUnderRoot reports whether the given path is located within the Paths.Root
-// directory. It is used as a safety check before performing destructive
-// operations such as recursive deletion.
+// IsUnderRoot reports whether the given path is located within the Root directory.
+// It is used as a safety check before performing destructive operations such as
+// recursive deletion.
 func (p Paths) IsUnderRoot(path string) bool {
 	if p.Root == "" || path == "" {
 		return false

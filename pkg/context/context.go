@@ -11,7 +11,7 @@ import (
 	"github.com/homegrew/grew/internal/cache"
 	"github.com/homegrew/grew/internal/cask"
 	"github.com/homegrew/grew/internal/cellar"
-	"github.com/homegrew/grew/internal/config"
+	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/internal/downloader"
 	"github.com/homegrew/grew/internal/formula"
 	"github.com/homegrew/grew/internal/fsutil"
@@ -24,11 +24,16 @@ import (
 
 // Context bundles objects used by most commands.
 type Context struct {
-	Paths      config.Paths
-	Loader     *formula.Loader
+	// Paths provides access to all major directories used by grew.
+	Paths config.Paths
+	// Loader is used to load formulas.
+	Loader *formula.Loader
+	// CaskLoader is used to load casks.
 	CaskLoader *cask.Loader
-	Cellar     *cellar.Cellar
-	Caskroom   *cask.Caskroom
+	// Cellar provides access to the directory where formulas are installed.
+	Cellar *cellar.Cellar
+	// Caskroom provides access to the directory where casks are recorded.
+	Caskroom *cask.Caskroom
 }
 
 // New initialises paths and the core tap, returning a shared context.
@@ -130,10 +135,15 @@ func NewCaskLoader(tapDir string) *cask.Loader {
 
 // InstallContext bundles the common objects used by install, reinstall, and upgrade.
 type InstallContext struct {
+	// Context is the common context used by most commands.
 	*Context
-	Linker     *linker.Linker
-	DL         *downloader.Downloader
-	AuditLog   *auditlog.Logger
+	// Linker is used to manage symlinks for installed formulas.
+	Linker *linker.Linker
+	// DL is used to download files.
+	DL *downloader.Downloader
+	// AuditLog is used to log installation and uninstallation actions.
+	AuditLog *auditlog.Logger
+	// GlobalLock is the file handle for the global lock.
 	GlobalLock *os.File
 }
 
