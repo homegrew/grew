@@ -22,7 +22,7 @@ func TestIsOfficialBuild(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if strings.Contains(r.URL.Path, "v1.0.0") {
 			w.WriteHeader(http.StatusOK)
-			w.Write([]byte(`{"tag_name":"v1.0.0"}`))
+			_, _ = w.Write([]byte(`{"tag_name":"v1.0.0"}`))
 			return
 		}
 		w.WriteHeader(http.StatusNotFound)
