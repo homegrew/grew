@@ -89,6 +89,10 @@ func TestTrash_InvalidPath(t *testing.T) {
 }
 
 func TestTrash_Success(t *testing.T) {
+	if isSeatbelt(t) {
+		t.Skip("skipping in seatbelt environment")
+	}
+
 	tmpDir := t.TempDir()
 
 	// Create a couple of files to trash
