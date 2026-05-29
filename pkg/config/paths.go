@@ -11,6 +11,7 @@ import (
 	goruntime "runtime"
 	"strings"
 
+	grewrt "github.com/homegrew/grew/internal/runtime"
 	"github.com/homegrew/grew/pkg/safepath"
 )
 
@@ -259,18 +260,27 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		appDir = abs
 	}
 	appDir = filepath.Clean(appDir)
-	if err := safepath.SafeAbsolutePath(appDir); err != nil {
-		invalidAppDir := appDir
-		home, homeErr := os.UserHomeDir()
-		if homeErr != nil {
-			home = "."
-		}
-		fallback := filepath.Join(home, "Applications")
-		if abs, err := filepath.Abs(fallback); err == nil {
-			fallback = abs
-		}
-		appDir = filepath.Clean(fallback)
-		slog.Warn(fmt.Sprintf("config: invalid app dir %q: %v; falling back to %q", invalidAppDir, err, appDir))
+	invalidAppDir := appDir
+
+	home, homeErr := os.UserHomeDir()
+	if homeErr != nil {
+		home = "."
+	}
+	defaultAppBase := filepath.Join(home, "Applications")
+	if abs, err := filepath.Abs(defaultAppBase); err == nil {
+		defaultAppBase = abs
+	}
+	defaultAppBase = filepath.Clean(defaultAppBase)
+
+	allowedAppBase := defaultAppBase
+	if grewrt.Env().RunAsRoot() {
+		allowedAppBase = filepath.Clean("/Applications")
+	}
+
+	appBase := Paths{Root: allowedAppBase}
+	if err := safepath.SafeAbsolutePath(appDir); err != nil || !appBase.IsUnderRoot(appDir) {
+		appDir = defaultAppBase
+		slog.Warn(fmt.Sprintf("config: invalid app dir %q; falling back to %q", invalidAppDir, appDir))
 	}
 
 	// Normalize cacheDir so that it is also absolute and cleaned.
@@ -278,18 +288,23 @@ func FromRoot(root, appDir, cacheDir string) Paths {
 		cacheDir = abs
 	}
 	cacheDir = filepath.Clean(cacheDir)
-	if err := safepath.SafeAbsolutePath(cacheDir); err != nil {
-		invalidCacheDir := cacheDir
-		home, homeErr := os.UserHomeDir()
-		if homeErr != nil {
-			home = "."
-		}
-		fallback := filepath.Join(home, ".cache", "homegrew")
-		if abs, err := filepath.Abs(fallback); err == nil {
-			fallback = abs
-		}
-		cacheDir = filepath.Clean(fallback)
-		slog.Warn(fmt.Sprintf("config: invalid cache dir %q: %v; falling back to %q", invalidCacheDir, err, cacheDir))
+	invalidCacheDir := cacheDir
+
+	defaultCacheBase := ""
+	if ucd, err := os.UserCacheDir(); err == nil {
+		defaultCacheBase = filepath.Join(ucd, "Homegrew")
+	} else {
+		defaultCacheBase = filepath.Join(home, ".cache", "homegrew")
+	}
+	if abs, err := filepath.Abs(defaultCacheBase); err == nil {
+		defaultCacheBase = abs
+	}
+	defaultCacheBase = filepath.Clean(defaultCacheBase)
+
+	cacheBase := Paths{Root: defaultCacheBase}
+	if err := safepath.SafeAbsolutePath(cacheDir); err != nil || !cacheBase.IsUnderRoot(cacheDir) {
+		cacheDir = defaultCacheBase
+		slog.Warn(fmt.Sprintf("config: invalid cache dir %q; falling back to %q", invalidCacheDir, cacheDir))
 	}
 
 	return Paths{
