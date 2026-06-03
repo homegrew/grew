@@ -19,7 +19,7 @@ func init() {
 	cli.InitializeRootCommand(Grew)
 	cli.AddCommands(Grew)
 
-	// Add legacy commands from internal/cmd
+	// Add legacy commands from pkg/cmd
 	intcmd.AddLegacyCommands(Grew)
 }
 

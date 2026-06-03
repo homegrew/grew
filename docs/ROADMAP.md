@@ -24,7 +24,7 @@ Improve performance and reduce initial installation friction by removing the str
 
 ## 5. Cask Enhancements
 *   **Deep Uninstall (`grew zap <cask>`)**: Implement thorough removal of Cask artifacts, including configuration files, caches, and `Application Support` directories.
-*   **`.pkg` Support**: Fulfill the existing TODO in `internal/cask/cask.go` to support `.pkg` installers via the macOS `installer` command.
+*   **`.pkg` Support**: Fulfill the existing TODO in `pkg/cask/cask.go` to support `.pkg` installers via the macOS `installer` command.
 
 ## 6. Quality of Life Commands
 *   [x] **`grew homepage <formula>`**: Launch the formula or cask's `homepage` URL in the default system browser.

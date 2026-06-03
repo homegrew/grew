@@ -43,7 +43,7 @@ func TestVerifySHA256_Mismatch(t *testing.T) {
 // HTTPS is enforced at the formula layer (formula.GetURL rejects HTTP).
 // The downloader itself doesn't duplicate that check because the formula
 // validator is the single source of truth for URL policy.
-// See internal/formula/formula.go TestParse_HTTPURLRejected and TestGetURL_RejectsHTTP.
+// See pkg/formula/formula.go TestParse_HTTPURLRejected and TestGetURL_RejectsHTTP.
 
 func TestValidateDownloadURL(t *testing.T) {
 	// Valid HTTPS URL to an allowed host.
