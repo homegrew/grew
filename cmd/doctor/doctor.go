@@ -9,8 +9,8 @@ import (
 	"github.com/homegrew/grew/pkg/ui"
 
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/linker"
+	"github.com/homegrew/grew/pkg/flags"
+	"github.com/homegrew/grew/pkg/linker"
 	"github.com/homegrew/grew/pkg/doctor"
 	"github.com/spf13/cobra"
 )

@@ -3,7 +3,7 @@ package cleanup
 import (
 	"testing"
 
-	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/pkg/cellar"
 )
 
 func TestBelongsToTargets(t *testing.T) {

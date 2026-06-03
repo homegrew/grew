@@ -7,15 +7,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/homegrew/grew/internal/sandbox"
+	"github.com/homegrew/grew/pkg/sandbox"
 	"github.com/homegrew/grew/pkg/snapshot"
 
-	"github.com/homegrew/grew/internal/cask"
-	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/pkg/cask"
+	"github.com/homegrew/grew/pkg/cellar"
 	"github.com/homegrew/grew/pkg/config"
-	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/linker"
-	grewrt "github.com/homegrew/grew/internal/runtime"
+	"github.com/homegrew/grew/pkg/formula"
+	"github.com/homegrew/grew/pkg/linker"
+	grewrt "github.com/homegrew/grew/pkg/runtime"
 )
 
 func TestBaseChecks(t *testing.T) {

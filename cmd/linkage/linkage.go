@@ -6,7 +6,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/linkage"
+	"github.com/homegrew/grew/pkg/linkage"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
 )

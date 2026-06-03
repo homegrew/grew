@@ -8,7 +8,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/pkg/cellar"
 	"github.com/homegrew/grew/pkg/snapshot"
 	"github.com/spf13/cobra"
 )

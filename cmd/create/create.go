@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/downloader"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/downloader"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v3"
 )

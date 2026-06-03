@@ -56,7 +56,7 @@ tar -xzf grew_*.tar.gz
 ```bash
 git clone https://github.com/homegrew/grew.git
 cd grew
-make build          # or: go generate ./internal/... && go build -o grew
+make build          # or: go generate ./pkg/... && go build -o grew
 ```
 
 ### Set up the prefix
@@ -266,7 +266,7 @@ Both gates are required — the build tag compiles in the code path, and `--unsa
 ```
 grew/
 ├── cmd/              ← standalone command packages (install, upgrade, etc.)
-├── internal/
+├── pkg/
 │   ├── auditlog/     ← persistent record of all install/upgrade/tap actions
 │   ├── bpatch/       ← binary delta patching (using bspatch)
 │   ├── cache/        ← download cache management and pruning

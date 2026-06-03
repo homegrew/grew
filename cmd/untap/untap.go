@@ -2,7 +2,7 @@ package untap
 
 import (
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/tap"
 	"github.com/spf13/cobra"
 )
 
