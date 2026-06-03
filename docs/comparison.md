@@ -21,12 +21,12 @@
 | **Pin support** | PINNED marker file | Same | Identical |
 | **Cask install** | Separate `--cask` path | Same routing via `installer.CaskInstall` | Same pattern |
 | **Multiple installs** | `brew install foo bar` | `grew install foo bar` | Identical |
-| **Pour bottle relocation** | Text/binary patching of prefix paths | `internal/relocation` via `install_name_tool`/`patchelf` | Close |
+| **Pour bottle relocation** | Text/binary patching of prefix paths | `pkg/relocation` via `install_name_tool`/`patchelf` | Close |
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
 | **JSON output** | `brew info --json` | `grew info --json` | Identical |
 | **CLI Framework** | Homebrew-specific Ruby CLI | `github.com/spf13/cobra` with `pkg/ui` | Both feature robust routing and colored output |
 | **Caveats** | Formula-specific post-install messages | Supported via `caveats` field | Identical |
-| **Automatic cleanup** | Auto-removes old versions after upgrade | Same logic via internal cleanup | Identical |
+| **Automatic cleanup** | Auto-removes old versions after upgrade | Same logic via pkg/cleanup | Identical |
 | **Tap auto-install** | `brew install user/tap/formula` auto-taps | Same auto-tap logic during resolution | Identical |
 
 ## Where grew goes further than brew

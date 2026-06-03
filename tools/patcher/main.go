@@ -12,9 +12,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/homegrew/grew/internal/bpatch"
+	"github.com/homegrew/grew/pkg/bpatch"
 	"github.com/homegrew/grew/pkg/config"
-	"github.com/homegrew/grew/internal/release"
+	"github.com/homegrew/grew/pkg/release"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/homegrew/grew/pkg/validation"
 )

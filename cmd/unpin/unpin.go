@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/homegrew/grew/internal/auditlog"
+	"github.com/homegrew/grew/pkg/auditlog"
 	"github.com/homegrew/grew/pkg/context"
 	"github.com/spf13/cobra"
 )

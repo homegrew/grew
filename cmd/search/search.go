@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/flags"
+	"github.com/homegrew/grew/pkg/flags"
 	"github.com/spf13/cobra"
 )
 

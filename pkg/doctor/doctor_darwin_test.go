@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/homegrew/grew/internal/cask"
+	"github.com/homegrew/grew/pkg/cask"
 	"github.com/homegrew/grew/pkg/config"
 )
 

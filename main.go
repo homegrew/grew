@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	verpkg "github.com/homegrew/grew/internal/version"
+	verpkg "github.com/homegrew/grew/pkg/version"
 )
 
 var Version string

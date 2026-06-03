@@ -15,7 +15,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/homegrew/grew/internal/homebrew"
+	"github.com/homegrew/grew/pkg/homebrew"
 	"github.com/homegrew/grew/pkg/logger"
 	"gopkg.in/yaml.v3"
 )

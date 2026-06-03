@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/homegrew/grew/internal/cli"
-	"github.com/homegrew/grew/internal/cmd"
-	verpkg "github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/cli"
+	"github.com/homegrew/grew/pkg/cmd"
+	verpkg "github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +27,12 @@ func main() {
 
 	switch os.Args[1] {
 	case "run":
-		if err := cmd.ExportRunSelfUpdate(nil); err != nil {
+		exePath, err := os.Executable()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
+		}
+		if err := cmd.ExportSelfUpdateFromRelease(exePath); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
 		}

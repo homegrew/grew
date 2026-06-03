@@ -5,9 +5,9 @@ import (
 	"log/slog"
 	"sort"
 
-	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/pkg/cellar"
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
 

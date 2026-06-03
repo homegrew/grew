@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/homegrew/grew/internal/cli"
-	intcmd "github.com/homegrew/grew/internal/cmd"
-	intver "github.com/homegrew/grew/internal/version"
+	"github.com/homegrew/grew/pkg/cli"
+	intcmd "github.com/homegrew/grew/pkg/cmd"
+	intver "github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
 
@@ -19,7 +19,7 @@ func init() {
 	cli.InitializeRootCommand(Grew)
 	cli.AddCommands(Grew)
 
-	// Add legacy commands from internal/cmd
+	// Add legacy commands from pkg/cmd
 	intcmd.AddLegacyCommands(Grew)
 }
 

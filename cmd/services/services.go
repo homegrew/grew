@@ -12,8 +12,8 @@ import (
 	"syscall"
 	"text/tabwriter"
 
-	"github.com/homegrew/grew/internal/formula"
-	"github.com/homegrew/grew/internal/service"
+	"github.com/homegrew/grew/pkg/formula"
+	"github.com/homegrew/grew/pkg/service"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
 )

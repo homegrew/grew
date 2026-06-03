@@ -1,14 +1,14 @@
 package extract
 
 import (
-	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/pkg/installer"
 	"encoding/json"
 	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 
-	"github.com/homegrew/grew/internal/downloader"
+	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
 )
