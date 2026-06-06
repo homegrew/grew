@@ -123,8 +123,21 @@ func TransactionalInstall(
 		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
 			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
 		}
-		if filepath.Base(stateFile) != "update-state.json" {
-			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
+		stateAbs, err := filepath.Abs(stateFile)
+		if err != nil {
+			return fmt.Errorf("resolve state file path %q: %w", stateFile, err)
+		}
+		stateAbs = filepath.Clean(stateAbs)
+
+		canonical := UpdateStateFilePath()
+		canonicalAbs, err := filepath.Abs(canonical)
+		if err != nil {
+			return fmt.Errorf("resolve canonical state file path %q: %w", canonical, err)
+		}
+		canonicalAbs = filepath.Clean(canonicalAbs)
+
+		if stateAbs != canonicalAbs {
+			return fmt.Errorf("state file %q must equal canonical path %q", stateAbs, canonicalAbs)
 		}
 		resolvedStateFile := filepath.Clean(stateFile)
 		expectedLogDir := filepath.Clean(config.Default().Log)
