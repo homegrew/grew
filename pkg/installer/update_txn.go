@@ -126,6 +126,11 @@ func TransactionalInstall(
 		if filepath.Base(stateFile) != "update-state.json" {
 			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
 		}
+		resolvedStateFile := filepath.Clean(stateFile)
+		expectedLogDir := filepath.Clean(config.Default().Log)
+		if filepath.Dir(resolvedStateFile) != expectedLogDir {
+			return fmt.Errorf("state file %q must be located under %q", stateFile, expectedLogDir)
+		}
 	}
 
 	// All three paths must be in the same directory for atomic rename.
@@ -247,6 +252,29 @@ func RecoverPendingUpdate(stateFile string) error {
 
 	currentPath := state.CurrentPath
 	backupPath := state.BackupPath
+	expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".bak")
+	if backupPath != expectedBackupPath {
+		slog.Warn("invalid backup path in update state — removing",
+			"backup", backupPath, "expected", expectedBackupPath)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
+	installRoot := config.Default().Prefix
+	ok, err := isWithinDir(currentPath, installRoot)
+	if err != nil || !ok {
+		slog.Warn("invalid current path outside install root in update state — removing",
+			"path", currentPath, "root", installRoot, "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+	ok, err = isWithinDir(backupPath, installRoot)
+	if err != nil || !ok {
+		slog.Warn("invalid backup path outside install root in update state — removing",
+			"path", backupPath, "root", installRoot, "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
 
 	// If backup no longer exists, the commit already happened elsewhere.
 	if _, err := os.Stat(backupPath); os.IsNotExist(err) {
@@ -275,6 +303,26 @@ func RecoverPendingUpdate(stateFile string) error {
 
 	_ = os.Remove(stateFile)
 	return nil
+}
+
+// isWithinDir reports whether p resolves to a location within root.
+func isWithinDir(p, root string) (bool, error) {
+	absPath, err := filepath.Abs(p)
+	if err != nil {
+		return false, err
+	}
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		return false, err
+	}
+	rel, err := filepath.Rel(absRoot, absPath)
+	if err != nil {
+		return false, err
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return false, nil
+	}
+	return true, nil
 }
 
 // logDirFor returns the directory to use for audit logging.
