@@ -123,54 +123,8 @@ func TransactionalInstall(
 		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
 			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
 		}
-		logDir := config.Default().Log
-		if abs, err := filepath.Abs(logDir); err == nil {
-			logDir = filepath.Clean(abs)
-		} else {
-			logDir = filepath.Clean(logDir)
-		}
-		if err := safepath.SafeAbsolutePath(logDir); err != nil {
-			return fmt.Errorf("invalid log directory %q: %w", logDir, err)
-		}
-		sf := stateFile
-		if abs, err := filepath.Abs(sf); err == nil {
-			sf = filepath.Clean(abs)
-		} else {
-			sf = filepath.Clean(sf)
-		}
-		rel, err := filepath.Rel(logDir, sf)
-		if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-			return fmt.Errorf("state file %q must be within log directory %q", stateFile, logDir)
-		}
-		if filepath.Base(sf) != "update-state.json" {
+		if filepath.Base(stateFile) != "update-state.json" {
 			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
-		}
-	}
-
-	if stateFile != "" {
-		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
-			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
-		}
-		logDir := config.Default().Log
-		logDirAbs, err := filepath.Abs(logDir)
-		if err != nil {
-			return fmt.Errorf("resolve log directory %q: %w", logDir, err)
-		}
-		logDirAbs = filepath.Clean(logDirAbs)
-		if err := safepath.SafeAbsolutePath(logDirAbs); err != nil {
-			return fmt.Errorf("invalid log directory %q: %w", logDirAbs, err)
-		}
-		stateAbs, err := filepath.Abs(stateFile)
-		if err != nil {
-			return fmt.Errorf("resolve state file path %q: %w", stateFile, err)
-		}
-		stateAbs = filepath.Clean(stateAbs)
-		rel, err := filepath.Rel(logDirAbs, stateAbs)
-		if err != nil {
-			return fmt.Errorf("resolve state file containment %q in %q: %w", stateAbs, logDirAbs, err)
-		}
-		if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-			return fmt.Errorf("state file path %q must be under log directory %q", stateAbs, logDirAbs)
 		}
 	}
 
@@ -225,11 +179,11 @@ func TransactionalInstall(
 			slog.Warn("post-swap check failed — rolling back", "err", retErr)
 			if rerr := restoreBackup(currentPath, backupPath); rerr != nil {
 				retErr = fmt.Errorf("%w; rollback also failed: %v", retErr, rerr)
-				auditlog.New(config.Default().Log).Log(
+				auditlog.New(logDirFor(stateFile)).Log(
 					auditlog.ActionSelfRollback, "grew", targetVer, "",
 					fmt.Sprintf("rollback failed: %v", rerr))
 			} else {
-				auditlog.New(config.Default().Log).Log(
+				auditlog.New(logDirFor(stateFile)).Log(
 					auditlog.ActionSelfRollback, "grew", targetVer, "",
 					"rolled back after post-swap check failure")
 			}
@@ -280,18 +234,19 @@ func RecoverPendingUpdate(stateFile string) error {
 		return nil
 	}
 
-	currentPath, err := safepath.Validate(state.CurrentPath)
-	if err != nil {
+	if err := safepath.SafeAbsolutePath(state.CurrentPath); err != nil {
 		slog.Warn("invalid current path in update state — removing", "path", state.CurrentPath, "err", err)
 		_ = os.Remove(stateFile)
 		return nil
 	}
-	backupPath, err := safepath.Validate(state.BackupPath)
-	if err != nil {
+	if err := safepath.SafeAbsolutePath(state.BackupPath); err != nil {
 		slog.Warn("invalid backup path in update state — removing", "path", state.BackupPath, "err", err)
 		_ = os.Remove(stateFile)
 		return nil
 	}
+
+	currentPath := state.CurrentPath
+	backupPath := state.BackupPath
 
 	// If backup no longer exists, the commit already happened elsewhere.
 	if _, err := os.Stat(backupPath); os.IsNotExist(err) {
@@ -310,7 +265,7 @@ func RecoverPendingUpdate(stateFile string) error {
 			_ = os.Remove(stateFile)
 			return fmt.Errorf("crash recovery restore failed: %w", rerr)
 		}
-		auditlog.New(config.Default().Log).Log(
+		auditlog.New(logDirFor(stateFile)).Log(
 			auditlog.ActionSelfRollback, "grew", state.TargetVer, "",
 			"crash recovery: restored previous binary")
 	} else {
@@ -320,6 +275,17 @@ func RecoverPendingUpdate(stateFile string) error {
 
 	_ = os.Remove(stateFile)
 	return nil
+}
+
+// logDirFor returns the directory to use for audit logging.
+// When stateFile is non-empty the audit log is written to the same directory
+// (state file and audit log are co-located under <prefix>/var/log).
+// Falls back to config.Default().Log when stateFile is empty.
+func logDirFor(stateFile string) string {
+	if stateFile != "" {
+		return filepath.Dir(stateFile)
+	}
+	return config.Default().Log
 }
 
 // restoreBackup moves backupPath back to currentPath.

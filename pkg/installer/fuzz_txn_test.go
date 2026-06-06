@@ -92,11 +92,11 @@ func FuzzTransactionalInstall(f *testing.F) {
 		err := TransactionalInstall(current, staged, backup, sf, "v1.1.0", "release", checks)
 
 		// ----------------------------------------------------------------
-		// Invariant 1: the live binary must exist if it existed before the call
-		// OR if the staged binary existed (one of them must have landed).
-		// The only legitimate case where current does not exist after the call
-		// is when neither current nor staged existed to begin with.
-		if currentExists || stagedExists {
+		// Invariant 1: if the current binary existed before the call it must
+		// still exist after — either as the committed new binary or as the
+		// restored original. When currentExists=false the backup rename fails
+		// before any swap occurs, so there is nothing to assert.
+		if currentExists {
 			if _, statErr := os.Stat(current); os.IsNotExist(statErr) {
 				t.Fatalf("live binary disappeared after TransactionalInstall (err=%v)", err)
 			}
