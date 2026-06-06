@@ -273,7 +273,7 @@ func RecoverPendingUpdate(stateFile string) error {
 		return nil
 	}
 
-	installRoot := config.Default().Prefix
+	installRoot := config.Default().Root
 	ok, err := isWithinDir(currentPath, installRoot)
 	if err != nil || !ok {
 		slog.Warn("invalid current path outside install root in update state — removing",
