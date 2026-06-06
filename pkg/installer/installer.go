@@ -255,13 +255,40 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		return fmt.Errorf("new binary health check failed: %v (output: %q)", err, string(out))
 	}
 
-	if err := release.AtomicInstall(exePath, bin); err != nil {
-		return fmt.Errorf("replace binary: %w", err)
+	// Write staged binary into the same directory as exePath so that
+	// TransactionalInstall can use atomic rename for both the backup and the
+	// activate steps.  All three paths must be on the same filesystem.
+	binDir := filepath.Dir(exePath)
+	stagedFile, err := os.CreateTemp(binDir, ".grew-staged-*")
+	if err != nil {
+		return fmt.Errorf("create staged binary: %w", err)
+	}
+	stagedPath := stagedFile.Name()
+	defer os.Remove(stagedPath) // no-op after a successful rename
+	if _, err := stagedFile.Write(bin); err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("write staged binary: %w", err)
+	}
+	if err := stagedFile.Chmod(0755); err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("chmod staged binary: %w", err)
+	}
+	if err := stagedFile.Close(); err != nil {
+		return fmt.Errorf("close staged binary: %w", err)
 	}
 
 	expectedVersion := strings.TrimPrefix(rel.TagName, "v")
-	if err := VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
-		slog.Warn(fmt.Sprintf("%v", err))
+	backupPath := exePath + ".previous"
+	postChecks := []HealthChecker{
+		VersionHealthChecker{Expected: expectedVersion},
+	}
+	if err := TransactionalInstall(
+		exePath, stagedPath, backupPath,
+		UpdateStateFilePath(),
+		rel.TagName, "release",
+		postChecks,
+	); err != nil {
+		return fmt.Errorf("transactional install: %w", err)
 	}
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")

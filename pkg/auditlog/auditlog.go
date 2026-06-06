@@ -32,9 +32,10 @@ const (
 	ActionUnpin       Action = "unpin"
 	ActionLink        Action = "link"
 	ActionUnlink      Action = "unlink"
-	ActionCaskInstall Action = "cask-install"
-	ActionCaskRemove  Action = "cask-remove"
-	ActionQuarantine  Action = "quarantine"
+	ActionCaskInstall   Action = "cask-install"
+	ActionCaskRemove    Action = "cask-remove"
+	ActionQuarantine    Action = "quarantine"
+	ActionSelfRollback  Action = "self-rollback"
 )
 
 // Entry is a single audit log record.

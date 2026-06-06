@@ -166,22 +166,51 @@ func TryPatchUpdate(exePath string, releases []release.Release) error {
 		return fmt.Errorf("final patched binary health check failed: %v (output: %q)", err, string(out))
 	}
 
-	// 5. Atomic replace
-	data, err := os.ReadFile(currentSource)
+	// 5. Transactional replace: backup current binary, activate patched binary,
+	// run post-swap health check, commit or rollback atomically.
+	//
+	// currentSource already holds the fully-patched, hash-verified, sandbox-
+	// scanned binary from the previous steps. We stage it into the same
+	// directory as exePath so that rename is atomic (same filesystem).
+	binDir := filepath.Dir(exePath)
+	stagedFile, err := os.CreateTemp(binDir, ".grew-patch-staged-*")
 	if err != nil {
-		return err
+		return fmt.Errorf("create staged binary: %w", err)
 	}
-	if err := release.AtomicInstall(exePath, data); err != nil {
-		return err
+	stagedPath := stagedFile.Name()
+	defer os.Remove(stagedPath) // no-op after a successful rename
+	patchedData, err := os.ReadFile(currentSource)
+	if err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("read patched binary: %w", err)
+	}
+	if _, err := stagedFile.Write(patchedData); err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("write staged binary: %w", err)
+	}
+	if err := stagedFile.Chmod(0755); err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("chmod staged binary: %w", err)
+	}
+	if err := stagedFile.Close(); err != nil {
+		return fmt.Errorf("close staged binary: %w", err)
+	}
+
+	expectedVersion := strings.TrimPrefix(targetVer, "v")
+	backupPath := exePath + ".previous"
+	postChecks := []installer.HealthChecker{
+		installer.VersionHealthChecker{Expected: expectedVersion},
+	}
+	if err := installer.TransactionalInstall(
+		exePath, stagedPath, backupPath,
+		installer.UpdateStateFilePath(),
+		targetVer, "patch",
+		postChecks,
+	); err != nil {
+		return fmt.Errorf("transactional install: %w", err)
 	}
 
 	ui.FprintArrow(os.Stderr, "Updated to %s via %d binary patches", targetVer, len(path))
-
-	expectedVersion := strings.TrimPrefix(targetVer, "v")
-	if err := installer.VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
-		slog.Warn(fmt.Sprintf("integrity verification failed: %v", err))
-	}
-
 	return nil
 }
 

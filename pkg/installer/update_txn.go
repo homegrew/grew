@@ -1,0 +1,295 @@
+package installer
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"log/slog"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"strings"
+	"time"
+
+	"github.com/homegrew/grew/pkg/auditlog"
+	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/safepath"
+)
+
+// updatePhase tracks where in the transaction lifecycle the process is.
+// Written atomically to disk so a crash between swap and commit can be
+// detected and recovered on the next startup via RecoverPendingUpdate.
+type updatePhase string
+
+const (
+	phaseStaged    updatePhase = "staged"
+	phaseSwapped   updatePhase = "swapped"
+	phaseCommitted updatePhase = "committed"
+)
+
+// UpdateState is persisted atomically to <prefix>/var/log/update-state.json.
+// If the process crashes after phaseSwapped but before phaseCommitted,
+// RecoverPendingUpdate restores the backup binary automatically.
+type UpdateState struct {
+	CurrentPath string      `json:"current_path"`
+	BackupPath  string      `json:"backup_path"`
+	TargetVer   string      `json:"target_version"`
+	Method      string      `json:"method"` // "patch", "release", "source"
+	Phase       updatePhase `json:"phase"`
+	UpdatedAt   time.Time   `json:"updated_at"`
+}
+
+// HealthChecker is implemented by every post-swap check.
+// binPath is always the live installed path (CurrentPath), never the staged one.
+type HealthChecker interface {
+	Check(ctx context.Context, binPath string) error
+}
+
+// VersionHealthChecker runs `<bin> version` and validates the output.
+// It mirrors VerifyBinaryIntegrity but honours a context timeout and is
+// composable with other HealthChecker implementations.
+type VersionHealthChecker struct {
+	// Expected version string (without "v" prefix).
+	// Empty means any non-empty output is accepted (e.g. git/dev builds).
+	Expected string
+}
+
+// Check implements HealthChecker.
+func (v VersionHealthChecker) Check(ctx context.Context, binPath string) error {
+	cmd := exec.CommandContext(ctx, binPath, "version")
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("version check failed: %w\noutput: %s", err, out)
+	}
+	s := strings.TrimSpace(string(out))
+	if s == "" {
+		return fmt.Errorf("no version output")
+	}
+	if v.Expected != "" && !strings.Contains(s, v.Expected) && !strings.Contains(s, "dev") {
+		return fmt.Errorf("version mismatch: got %q want %q", s, v.Expected)
+	}
+	slog.Debug("post-swap version check passed", "output", s)
+	return nil
+}
+
+// UpdateStateFilePath returns the canonical path for the update state file.
+// Using config.Default().Log keeps it inside the managed prefix,
+// consistent with the audit log location.
+func UpdateStateFilePath() string {
+	return filepath.Join(config.Default().Log, "update-state.json")
+}
+
+// TransactionalInstall performs a crash-safe, rollback-capable binary swap.
+//
+// Flow:
+//
+//  1. Validate all paths with safepath.
+//  2. Write state file at phase=staged.
+//  3. Rename currentPath → backupPath  (backup existing binary).
+//  4. Rename stagedPath  → currentPath (activate new binary).
+//  5. Write state file at phase=swapped.
+//  6. Run each postCheck against currentPath with a 10-second timeout.
+//  7a. All pass  → remove backup, remove state file (committed).
+//  7b. Any fails → rename backupPath → currentPath (rollback), log to audit.
+//
+// If the process crashes between steps 4 and 7, RecoverPendingUpdate detects
+// the orphaned state file on the next startup and restores the backup.
+//
+// currentPath, stagedPath, and backupPath must all reside in the same
+// directory so that the rename operations are atomic (same filesystem).
+//
+// stateFile may be empty to disable crash-recovery persistence (e.g. tests).
+func TransactionalInstall(
+	currentPath, stagedPath, backupPath, stateFile string,
+	targetVer, method string,
+	postChecks []HealthChecker,
+) (retErr error) {
+	// --- path validation -------------------------------------------------------
+	for label, p := range map[string]string{
+		"current": currentPath,
+		"staged":  stagedPath,
+		"backup":  backupPath,
+	} {
+		if err := safepath.SafeAbsolutePath(p); err != nil {
+			return fmt.Errorf("invalid %s path %q: %w", label, p, err)
+		}
+	}
+
+	// All three paths must be in the same directory for atomic rename.
+	dir := filepath.Dir(currentPath)
+	for label, p := range map[string]string{
+		"staged": stagedPath,
+		"backup": backupPath,
+	} {
+		if filepath.Dir(p) != dir {
+			return fmt.Errorf("%s path %q must be in the same directory as current (%s)", label, p, dir)
+		}
+	}
+
+	// --- persist initial state ------------------------------------------------
+	state := &UpdateState{
+		CurrentPath: currentPath,
+		BackupPath:  backupPath,
+		TargetVer:   targetVer,
+		Method:      method,
+		Phase:       phaseStaged,
+		UpdatedAt:   time.Now().UTC(),
+	}
+	if err := writeUpdateState(stateFile, state); err != nil {
+		// Non-fatal: crash recovery won't be available for this run.
+		slog.Warn("could not write update state file", "err", err)
+	}
+
+	// --- step 1: backup current binary ----------------------------------------
+	if err := os.Rename(currentPath, backupPath); err != nil {
+		_ = os.Remove(stateFile)
+		return fmt.Errorf("backup current binary: %w", err)
+	}
+
+	// --- step 2: activate staged binary ---------------------------------------
+	if err := os.Rename(stagedPath, currentPath); err != nil {
+		// Staged rename failed — restore backup before returning.
+		if rerr := os.Rename(backupPath, currentPath); rerr != nil {
+			_ = os.Remove(stateFile)
+			return fmt.Errorf("activate staged binary: %w; backup restore also failed: %v", err, rerr)
+		}
+		_ = os.Remove(stateFile)
+		return fmt.Errorf("activate staged binary: %w", err)
+	}
+
+	state.Phase = phaseSwapped
+	_ = writeUpdateState(stateFile, state)
+
+	// --- deferred rollback: triggered if any post-check or commit returns error
+	defer func() {
+		if retErr != nil {
+			slog.Warn("post-swap check failed — rolling back", "err", retErr)
+			if rerr := restoreBackup(currentPath, backupPath); rerr != nil {
+				retErr = fmt.Errorf("%w; rollback also failed: %v", retErr, rerr)
+				auditlog.New(config.Default().Log).Log(
+					auditlog.ActionSelfRollback, "grew", targetVer, "",
+					fmt.Sprintf("rollback failed: %v", rerr))
+			} else {
+				auditlog.New(config.Default().Log).Log(
+					auditlog.ActionSelfRollback, "grew", targetVer, "",
+					"rolled back after post-swap check failure")
+			}
+			_ = os.Remove(stateFile)
+		}
+	}()
+
+	// --- step 3: post-swap health checks --------------------------------------
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	for _, hc := range postChecks {
+		if err := hc.Check(ctx, currentPath); err != nil {
+			return fmt.Errorf("post-swap health check: %w", err)
+		}
+	}
+
+	// --- step 4: commit -------------------------------------------------------
+	_ = os.Remove(backupPath)
+	_ = os.Remove(stateFile)
+	return nil
+}
+
+// RecoverPendingUpdate checks for an orphaned update-state.json file, which
+// indicates a process crash between swap and commit. If found and the installed
+// binary is unhealthy, the backup is restored automatically.
+//
+// Call this early in main startup — before any update command runs — so that
+// the binary is always in a known-good state when the user's command executes.
+func RecoverPendingUpdate(stateFile string) error {
+	data, err := os.ReadFile(stateFile)
+	if os.IsNotExist(err) {
+		return nil // nothing to recover
+	}
+	if err != nil {
+		return fmt.Errorf("read update state: %w", err)
+	}
+
+	var state UpdateState
+	if err := json.Unmarshal(data, &state); err != nil {
+		slog.Warn("malformed update-state.json — removing", "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
+	// Only phaseSwapped indicates a potential crash between swap and commit.
+	if state.Phase != phaseSwapped {
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
+	// If backup no longer exists, the commit already happened elsewhere.
+	if _, err := os.Stat(state.BackupPath); os.IsNotExist(err) {
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
+	// Run a quick health check on the currently installed binary.
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	hc := VersionHealthChecker{Expected: strings.TrimPrefix(state.TargetVer, "v")}
+	if err := hc.Check(ctx, state.CurrentPath); err != nil {
+		slog.Warn("crashed update left unhealthy binary — restoring backup",
+			"current", state.CurrentPath, "backup", state.BackupPath, "err", err)
+		if rerr := restoreBackup(state.CurrentPath, state.BackupPath); rerr != nil {
+			_ = os.Remove(stateFile)
+			return fmt.Errorf("crash recovery restore failed: %w", rerr)
+		}
+		auditlog.New(config.Default().Log).Log(
+			auditlog.ActionSelfRollback, "grew", state.TargetVer, "",
+			"crash recovery: restored previous binary")
+	} else {
+		// New binary is healthy — the update succeeded; just clean up.
+		_ = os.Remove(state.BackupPath)
+	}
+
+	_ = os.Remove(stateFile)
+	return nil
+}
+
+// restoreBackup moves backupPath back to currentPath.
+// It removes currentPath first to handle the case where a partial binary
+// was left in place after a failed write.
+func restoreBackup(currentPath, backupPath string) error {
+	_ = os.Remove(currentPath)
+	if err := os.Rename(backupPath, currentPath); err != nil {
+		return fmt.Errorf("rename backup %q to current %q: %w", backupPath, currentPath, err)
+	}
+	return nil
+}
+
+// writeUpdateState atomically persists s to stateFile using the
+// temp-file-plus-rename pattern used throughout the grew codebase.
+// A no-op when stateFile is empty.
+func writeUpdateState(stateFile string, s *UpdateState) error {
+	if stateFile == "" {
+		return nil
+	}
+	data, err := json.Marshal(s)
+	if err != nil {
+		return fmt.Errorf("marshal update state: %w", err)
+	}
+	dir := filepath.Dir(stateFile)
+	tmp, err := os.CreateTemp(dir, ".update-state-tmp-*")
+	if err != nil {
+		return fmt.Errorf("create temp state file: %w", err)
+	}
+	tmpPath := tmp.Name()
+	if _, err := tmp.Write(data); err != nil {
+		tmp.Close()
+		os.Remove(tmpPath)
+		return fmt.Errorf("write temp state file: %w", err)
+	}
+	if err := tmp.Close(); err != nil {
+		os.Remove(tmpPath)
+		return fmt.Errorf("close temp state file: %w", err)
+	}
+	if err := os.Rename(tmpPath, stateFile); err != nil {
+		os.Remove(tmpPath)
+		return fmt.Errorf("rename temp state file: %w", err)
+	}
+	return nil
+}
