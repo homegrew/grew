@@ -109,9 +109,68 @@ func TransactionalInstall(
 		"current": currentPath,
 		"staged":  stagedPath,
 		"backup":  backupPath,
+		"state":   stateFile,
 	} {
+		// stateFile may be empty to disable persistence in tests/callers.
+		if label == "state" && p == "" {
+			continue
+		}
 		if err := safepath.SafeAbsolutePath(p); err != nil {
 			return fmt.Errorf("invalid %s path %q: %w", label, p, err)
+		}
+	}
+	if stateFile != "" {
+		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
+			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
+		}
+		logDir := config.Default().Log
+		if abs, err := filepath.Abs(logDir); err == nil {
+			logDir = filepath.Clean(abs)
+		} else {
+			logDir = filepath.Clean(logDir)
+		}
+		if err := safepath.SafeAbsolutePath(logDir); err != nil {
+			return fmt.Errorf("invalid log directory %q: %w", logDir, err)
+		}
+		sf := stateFile
+		if abs, err := filepath.Abs(sf); err == nil {
+			sf = filepath.Clean(abs)
+		} else {
+			sf = filepath.Clean(sf)
+		}
+		rel, err := filepath.Rel(logDir, sf)
+		if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+			return fmt.Errorf("state file %q must be within log directory %q", stateFile, logDir)
+		}
+		if filepath.Base(sf) != "update-state.json" {
+			return fmt.Errorf("state file %q must use canonical name update-state.json", stateFile)
+		}
+	}
+
+	if stateFile != "" {
+		if err := safepath.SafeAbsolutePath(stateFile); err != nil {
+			return fmt.Errorf("invalid state file path %q: %w", stateFile, err)
+		}
+		logDir := config.Default().Log
+		logDirAbs, err := filepath.Abs(logDir)
+		if err != nil {
+			return fmt.Errorf("resolve log directory %q: %w", logDir, err)
+		}
+		logDirAbs = filepath.Clean(logDirAbs)
+		if err := safepath.SafeAbsolutePath(logDirAbs); err != nil {
+			return fmt.Errorf("invalid log directory %q: %w", logDirAbs, err)
+		}
+		stateAbs, err := filepath.Abs(stateFile)
+		if err != nil {
+			return fmt.Errorf("resolve state file path %q: %w", stateFile, err)
+		}
+		stateAbs = filepath.Clean(stateAbs)
+		rel, err := filepath.Rel(logDirAbs, stateAbs)
+		if err != nil {
+			return fmt.Errorf("resolve state file containment %q in %q: %w", stateAbs, logDirAbs, err)
+		}
+		if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+			return fmt.Errorf("state file path %q must be under log directory %q", stateAbs, logDirAbs)
 		}
 	}
 
@@ -221,8 +280,21 @@ func RecoverPendingUpdate(stateFile string) error {
 		return nil
 	}
 
+	currentPath, err := safepath.Validate(state.CurrentPath)
+	if err != nil {
+		slog.Warn("invalid current path in update state — removing", "path", state.CurrentPath, "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+	backupPath, err := safepath.Validate(state.BackupPath)
+	if err != nil {
+		slog.Warn("invalid backup path in update state — removing", "path", state.BackupPath, "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
 	// If backup no longer exists, the commit already happened elsewhere.
-	if _, err := os.Stat(state.BackupPath); os.IsNotExist(err) {
+	if _, err := os.Stat(backupPath); os.IsNotExist(err) {
 		_ = os.Remove(stateFile)
 		return nil
 	}
@@ -231,10 +303,10 @@ func RecoverPendingUpdate(stateFile string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	hc := VersionHealthChecker{Expected: strings.TrimPrefix(state.TargetVer, "v")}
-	if err := hc.Check(ctx, state.CurrentPath); err != nil {
+	if err := hc.Check(ctx, currentPath); err != nil {
 		slog.Warn("crashed update left unhealthy binary — restoring backup",
-			"current", state.CurrentPath, "backup", state.BackupPath, "err", err)
-		if rerr := restoreBackup(state.CurrentPath, state.BackupPath); rerr != nil {
+			"current", currentPath, "backup", backupPath, "err", err)
+		if rerr := restoreBackup(currentPath, backupPath); rerr != nil {
 			_ = os.Remove(stateFile)
 			return fmt.Errorf("crash recovery restore failed: %w", rerr)
 		}
@@ -243,7 +315,7 @@ func RecoverPendingUpdate(stateFile string) error {
 			"crash recovery: restored previous binary")
 	} else {
 		// New binary is healthy — the update succeeded; just clean up.
-		_ = os.Remove(state.BackupPath)
+		_ = os.Remove(backupPath)
 	}
 
 	_ = os.Remove(stateFile)
