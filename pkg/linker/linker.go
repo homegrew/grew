@@ -307,6 +307,9 @@ func unsymDir(symlinkPath, root string) error {
 		return fmt.Errorf("resolve path %s: %w", symlinkPath, err)
 	}
 	absSymlinkPath = filepath.Clean(absSymlinkPath)
+	if absSymlinkPath != realRoot && !strings.HasPrefix(absSymlinkPath, realRoot+string(filepath.Separator)) {
+		return fmt.Errorf("refusing to modify path outside root: %s", absSymlinkPath)
+	}
 
 	parent := filepath.Dir(absSymlinkPath)
 	realParent, err := filepath.EvalSymlinks(parent)
