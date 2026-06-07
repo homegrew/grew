@@ -83,7 +83,7 @@ Every filesystem operation that touches an externally-influenced path (archive e
 
 **`HOMEGREW_ALLOWED_HOSTS` details (SSRF control):**
 - **Format:** comma-separated hostnames (optionally with `:port`), for example: `github.com,api.github.com,objects.githubusercontent.com`.
-- **Configurability:** this value is user-configurable via environment variable at runtime; if set, it overrides the built-in/default allowlist.
+- **Configurability:** the `HOMEGREW_ALLOWED_HOSTS` environment variable is user-configurable at runtime; if set, it overrides the built-in/default allowlist.
 - **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
 - **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
