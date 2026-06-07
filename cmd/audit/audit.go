@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"net/url"
 	"os"
-	"path/filepath"
 	"strings"
 
 	"github.com/homegrew/grew/pkg/cask"
@@ -13,6 +12,7 @@ import (
 	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/depgraph"
 	"github.com/homegrew/grew/pkg/formula"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/snapshot"
 	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
@@ -304,14 +304,23 @@ func auditFormula(f *formula.Formula, allNames map[string]bool, loader *formula.
 }
 
 func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Paths) {
-	kegPath := fmt.Sprintf("%s/%s/%s", paths.Cellar, f.Name, f.Version)
+	if !validation.IsValidName(f.Name) || !validation.IsValidVersion(f.Version) {
+		return
+	}
+	kegPath, err := safepath.SafeJoin(paths.Cellar, f.Name, f.Version)
+	if err != nil {
+		return
+	}
 	if !snapshot.Exists(kegPath) {
 		return
 	}
 
 	// check for officially unsupported share/man and share/info
 	for _, sub := range []string{"man", "info"} {
-		p := filepath.Join(kegPath, "share", sub)
+		p, err := safepath.SafeJoin(kegPath, "share", sub)
+		if err != nil {
+			continue
+		}
 		if info, err := os.Stat(p); err == nil && info.IsDir() {
 			r.warnf("keg contains unsupported share/%s directory (it will be pruned in newer grew versions)", sub)
 		}

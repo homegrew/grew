@@ -10,8 +10,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/context"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
 )
 
@@ -74,17 +75,28 @@ func init() {
 // aliases maps alias names to command strings.
 type aliases map[string]string
 
-func aliasFile() string {
+func aliasFile() (string, error) {
+	var root string
 	ctx, err := context.New()
 	if err != nil {
-		return filepath.Join(config.Default().Root, "aliases.json") // fallback
+		root = config.Default().Root
+	} else {
+		root = ctx.Paths.Root
 	}
-	return filepath.Join(ctx.Paths.Root, "aliases.json")
+	p := filepath.Join(root, "aliases.json")
+	if err := safepath.SafeAbsolutePath(p); err != nil {
+		return "", fmt.Errorf("alias file path invalid: %w", err)
+	}
+	return p, nil
 }
 
 func loadAliases() (aliases, error) {
 	a := make(aliases)
-	data, err := os.ReadFile(aliasFile())
+	f, err := aliasFile()
+	if err != nil {
+		return nil, err
+	}
+	data, err := os.ReadFile(f)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return a, nil
@@ -98,11 +110,15 @@ func loadAliases() (aliases, error) {
 }
 
 func saveAliases(a aliases) error {
+	f, err := aliasFile()
+	if err != nil {
+		return err
+	}
 	data, err := json.MarshalIndent(a, "", "  ")
 	if err != nil {
 		return fmt.Errorf("marshal aliases: %w", err)
 	}
-	return os.WriteFile(aliasFile(), data, 0644)
+	return os.WriteFile(f, data, 0644)
 }
 
 func aliasList() error {
@@ -171,7 +187,10 @@ func aliasShow(name string) error {
 }
 
 func aliasEdit() error {
-	path := aliasFile()
+	path, err := aliasFile()
+	if err != nil {
+		return err
+	}
 	// Ensure file exists
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		if err := saveAliases(make(aliases)); err != nil {
