@@ -269,6 +269,38 @@ func CopyFile(src, dst string, mode os.FileMode) error {
 	return CopyFileWithinRoot(src, dst, "", mode)
 }
 
+// WriteFileAtomic writes data to dst atomically: it writes to a temporary file
+// in the same directory, applies mode, then renames over dst. The temp file is
+// cleaned up if any step fails, so dst is never left partially written.
+func WriteFileAtomic(dst string, data []byte, mode os.FileMode) error {
+	dir := filepath.Dir(dst)
+	tmp, err := os.CreateTemp(dir, ".grew-tmp-*")
+	if err != nil {
+		return fmt.Errorf("create temp file: %w", err)
+	}
+	tmpPath := tmp.Name()
+
+	if _, err := tmp.Write(data); err != nil {
+		tmp.Close()
+		os.Remove(tmpPath)
+		return err
+	}
+	if err := tmp.Chmod(mode); err != nil {
+		tmp.Close()
+		os.Remove(tmpPath)
+		return err
+	}
+	if err := tmp.Close(); err != nil {
+		os.Remove(tmpPath)
+		return err
+	}
+	if err := os.Rename(tmpPath, dst); err != nil {
+		os.Remove(tmpPath)
+		return err
+	}
+	return nil
+}
+
 // SanitizeMode applies a umask to archive-extracted file modes,
 // stripping setuid/setgid/sticky bits and world-write.
 func SanitizeMode(mode os.FileMode, isDir bool) os.FileMode {

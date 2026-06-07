@@ -23,16 +23,16 @@ func TestReceipt(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 
 	r := &Receipt{
-		Name:               "test-formula",
-		Version:            "1.0.0",
-		BuiltFromSource:    true,
-		PouredFromBottle:   false,
-		InstalledAt:        now,
-		Dependencies:       []string{"dep1", "dep2"},
+		Name:                "test-formula",
+		Version:             "1.0.0",
+		BuiltFromSource:     true,
+		PouredFromBottle:    false,
+		InstalledAt:         now,
+		Dependencies:        []string{"dep1", "dep2"},
 		RuntimeDependencies: []string{"run1"},
-		Compiler:           "clang",
-		BuildOptions:       []string{"--with-test"},
-		InstalledOnRequest: true,
+		Compiler:            "clang",
+		BuildOptions:        []string{"--with-test"},
+		InstalledOnRequest:  true,
 	}
 
 	// Test Save
@@ -71,25 +71,5 @@ func TestReceipt(t *testing.T) {
 func TestExists_NonExistent(t *testing.T) {
 	if Exists("/tmp/definitely-does-not-exist-grew-receipt") {
 		t.Errorf("expected Exists to return false for non-existent path")
-	}
-}
-
-func TestCleanKegPath(t *testing.T) {
-	tests := []struct {
-		path    string
-		wantErr bool
-	}{
-		{"/usr/local/keg", false},
-		{"keg", false},
-		{"", true},
-		{".", true},
-		{"../outside", true},
-	}
-
-	for _, tt := range tests {
-		_, err := cleanKegPath(tt.path)
-		if (err != nil) != tt.wantErr {
-			t.Errorf("cleanKegPath(%q) error = %v, wantErr %v", tt.path, err, tt.wantErr)
-		}
 	}
 }

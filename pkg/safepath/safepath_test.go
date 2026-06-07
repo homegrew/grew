@@ -7,6 +7,27 @@ import (
 	"testing"
 )
 
+func TestCleanPath(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		path    string
+		wantErr bool
+	}{
+		{"/usr/local/keg", false},
+		{"keg", false},
+		{"", true},
+		{".", true},
+		{"../outside", true},
+	}
+
+	for _, tt := range tests {
+		_, err := CleanPath(tt.path)
+		if (err != nil) != tt.wantErr {
+			t.Errorf("CleanPath(%q) error = %v, wantErr %v", tt.path, err, tt.wantErr)
+		}
+	}
+}
+
 func TestSafePathComponent(t *testing.T) {
 	t.Parallel()
 	tests := []struct {
@@ -181,11 +202,11 @@ func TestURLExt(t *testing.T) {
 func TestNormalizeDir(t *testing.T) {
 	t.Parallel()
 	tmp := t.TempDir()
-	
+
 	// Create a subdirectory to test symlink resolution
 	sub := filepath.Join(tmp, "sub")
 	os.Mkdir(sub, 0755)
-	
+
 	link := filepath.Join(tmp, "link")
 	os.Symlink(sub, link)
 
