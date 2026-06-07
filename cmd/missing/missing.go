@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/pkg/context"
+	"github.com/homegrew/grew/pkg/validation"
 	"github.com/spf13/cobra"
 )
 
@@ -46,6 +47,9 @@ func runMissing(args []string) error {
 	for _, name := range strings.Split(missingHide, ",") {
 		name = strings.TrimSpace(name)
 		if name != "" {
+			if !validation.IsValidName(name) {
+				return fmt.Errorf("invalid formula name in --hide: %q", name)
+			}
 			hidden[name] = true
 		}
 	}
@@ -55,7 +59,8 @@ func runMissing(args []string) error {
 	}
 
 	var targets []string
-	if len(args) > 0 {
+	userProvidedTargets := len(args) > 0
+	if userProvidedTargets {
 		targets = args
 	} else {
 		pkgs, err := ctx.Cellar.List()
@@ -65,8 +70,8 @@ func runMissing(args []string) error {
 		for _, p := range pkgs {
 			targets = append(targets, p.Name)
 		}
-		sort.Strings(targets)
 	}
+	sort.Strings(targets)
 
 	type missingEntry struct {
 		formula string
@@ -77,6 +82,9 @@ func runMissing(args []string) error {
 	for _, name := range targets {
 		f, err := ctx.LoadFormula(name)
 		if err != nil {
+			if userProvidedTargets {
+				return fmt.Errorf("formula not found: %q", name)
+			}
 			slog.Debug("skipping target (not a formula or not found)", "name", name, "err", err)
 			continue
 		}
@@ -86,6 +94,13 @@ func runMissing(args []string) error {
 			}
 		}
 	}
+
+	sort.Slice(findings, func(i, j int) bool {
+		if findings[i].formula != findings[j].formula {
+			return findings[i].formula < findings[j].formula
+		}
+		return findings[i].dep < findings[j].dep
+	})
 
 	for _, e := range findings {
 		fmt.Printf("%s: %s\n", e.formula, e.dep)

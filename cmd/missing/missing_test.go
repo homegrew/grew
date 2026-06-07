@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/homegrew/grew/pkg/config"
@@ -166,5 +167,73 @@ func TestRunMissingHideFlag(t *testing.T) {
 	}
 	if out != "pkga: dep1\n" {
 		t.Fatalf("expected %q, got %q", "pkga: dep1\n", out)
+	}
+}
+
+// TestRunMissingInvalidUserTarget: user-provided invalid target should error.
+func TestRunMissingInvalidUserTarget(t *testing.T) {
+	paths := setupPrefix(t)
+	tap, cellar := paths.CoreTap, paths.Cellar
+
+	writeFormula(t, tap, "dep1", nil)
+	installFormula(t, cellar, "dep1")
+
+	var runErr error
+	captureStdout(t, func() {
+		runErr = runMissing([]string{"does-not-exist"})
+	})
+	if runErr == nil {
+		t.Fatal("expected error for non-existent user target")
+	}
+	if !strings.Contains(runErr.Error(), "formula not found") {
+		t.Fatalf("expected 'formula not found' error, got %v", runErr)
+	}
+}
+
+// TestRunMissingInvalidHideValue: invalid --hide value should error.
+func TestRunMissingInvalidHideValue(t *testing.T) {
+	paths := setupPrefix(t)
+	tap, cellar := paths.CoreTap, paths.Cellar
+
+	writeFormula(t, tap, "dep1", nil)
+	installFormula(t, cellar, "dep1")
+
+	missingHide = "invalid/name"
+
+	var runErr error
+	captureStdout(t, func() {
+		runErr = runMissing([]string{"dep1"})
+	})
+	if runErr == nil {
+		t.Fatal("expected error for invalid --hide value")
+	}
+	if !strings.Contains(runErr.Error(), "invalid formula name in --hide") {
+		t.Fatalf("expected 'invalid formula name in --hide' error, got %v", runErr)
+	}
+}
+
+// TestRunMissingSortedOutput: findings should be sorted by formula then dependency.
+func TestRunMissingSortedOutput(t *testing.T) {
+	paths := setupPrefix(t)
+	tap, cellar := paths.CoreTap, paths.Cellar
+
+	writeFormula(t, tap, "a", nil)
+	writeFormula(t, tap, "b", nil)
+	writeFormula(t, tap, "pkgx", []string{"b", "a"})
+	writeFormula(t, tap, "pkgy", []string{"b", "a"})
+	installFormula(t, cellar, "pkgx")
+	installFormula(t, cellar, "pkgy")
+
+	var runErr error
+	out := captureStdout(t, func() {
+		runErr = runMissing(nil)
+	})
+	if runErr == nil {
+		t.Fatal("expected error for missing dependencies")
+	}
+	// Should be sorted by formula (pkgx before pkgy) then by dep (a before b)
+	expected := "pkgx: a\npkgx: b\npkgy: a\npkgy: b\n"
+	if out != expected {
+		t.Fatalf("expected sorted output %q, got %q", expected, out)
 	}
 }
