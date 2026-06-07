@@ -114,18 +114,26 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, err
 	}
 
-	expectedBase, err := filepath.Abs(m.TapsDir)
-	if err != nil {
-		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
-	}
-	expectedBase = filepath.Clean(expectedBase)
-	if err := safepath.SafeAbsolutePath(expectedBase); err != nil {
-		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", expectedBase, err)
+	resolveAndValidate := func(path string) (string, error) {
+		resolved, err := filepath.Abs(path)
+		if err != nil {
+			return "", fmt.Errorf("resolve taps directory: %w", err)
+		}
+		resolved = filepath.Clean(resolved)
+		if err := safepath.SafeAbsolutePath(resolved); err != nil {
+			return "", fmt.Errorf("invalid taps directory %q: %w", resolved, err)
+		}
+		return resolved, nil
 	}
 
-	tapsBase, err := filepath.Abs(m.TapsDir)
+	expectedBase, err := resolveAndValidate(m.TapsDir)
 	if err != nil {
-		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
+		return 0, 0, err
+	}
+
+	tapsBase, err := resolveAndValidate(m.TapsDir)
+	if err != nil {
+		return 0, 0, err
 	}
 	if eval, err := filepath.EvalSymlinks(tapsBase); err == nil {
 		tapsBase = eval
