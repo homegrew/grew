@@ -239,36 +239,46 @@ func (l *Loader) LoadFromTap(tapPath string) ([]*Formula, error) {
 		return nil, fmt.Errorf("tap path %q escapes taps directory %q: %w", absTapPath, tapDir, err)
 	}
 
-	// Search in root, Formula/, and core/ subdirectories
+	// Search in root, Formula/, and core/ subdirectories (recursively)
 	subdirs := []string{"", "Formula", "core"}
 	var formulas []*Formula
 	seen := make(map[string]bool)
 
 	for _, sub := range subdirs {
 		dir := filepath.Join(absTapPath, sub)
-		entries, err := os.ReadDir(dir)
+		l.loadFormulasRecursive(dir, tapDir, &formulas, seen)
+	}
+	return formulas, nil
+}
+
+// loadFormulasRecursive recursively loads formula YAML files from a directory
+func (l *Loader) loadFormulasRecursive(dir, tapDir string, formulas *[]*Formula, seen map[string]bool) {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		if e.IsDir() {
+			l.loadFormulasRecursive(filepath.Join(dir, e.Name()), tapDir, formulas, seen)
+			continue
+		}
+		name := e.Name()
+		if !strings.HasSuffix(name, ".yaml") && !strings.HasSuffix(name, ".yml") {
+			continue
+		}
+		if seen[name] {
+			continue
+		}
+		if err := safepath.SafePathComponent(name); err != nil {
+			continue
+		}
+		f, err := l.loadFromFile(filepath.Join(dir, name))
 		if err != nil {
 			continue
 		}
-		for _, e := range entries {
-			if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
-				continue
-			}
-			if seen[e.Name()] {
-				continue
-			}
-			if err := safepath.SafePathComponent(e.Name()); err != nil {
-				continue
-			}
-			f, err := l.loadFromFile(filepath.Join(dir, e.Name()))
-			if err != nil {
-				continue
-			}
-			formulas = append(formulas, f)
-			seen[e.Name()] = true
-		}
+		*formulas = append(*formulas, f)
+		seen[name] = true
 	}
-	return formulas, nil
 }
 
 func (l *Loader) loadFromFile(path string) (*Formula, error) {
