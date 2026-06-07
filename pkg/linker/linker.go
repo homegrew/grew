@@ -485,6 +485,10 @@ func unsymDir(symlinkPath, root string) error {
 	if !info.IsDir() {
 		return fmt.Errorf("target is not a directory: %s", safeTarget)
 	}
+	// Explicit sink-adjacent containment guard for the exact path used by ReadDir.
+	if !isWithinRoot(absRoot, safeTarget) {
+		return fmt.Errorf("refusing to read target dir outside root %s: %s", absRoot, safeTarget)
+	}
 
 	entries, err := os.ReadDir(safeTarget)
 	if err != nil {

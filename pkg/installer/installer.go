@@ -203,24 +203,22 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 			cleanedTmpFile = filepath.Clean(eval)
 		}
 
-		// Determine the expected temporary directory for this download.
-		// If rel.DL is nil or its TmpDir is empty, it falls back to os.TempDir().
+		// Determine a trusted temporary directory for cleanup authorization.
+		// Always anchor deletion checks to the system temp directory to avoid
+		// using potentially user-influenced configured paths.
 		expectedTmpDir := os.TempDir()
-		if rel.DL != nil && rel.DL.TmpDir != "" {
-			expectedTmpDir = rel.DL.TmpDir
-		}
 
-		// Canonicalize the expected temporary directory path.
+		// Canonicalize the trusted temporary directory path.
 		if eval, err := filepath.EvalSymlinks(expectedTmpDir); err == nil {
 			expectedTmpDir = filepath.Clean(eval)
 		} else {
 			expectedTmpDir = filepath.Clean(expectedTmpDir)
 		}
 
-		// Ensure the file to be removed is strictly within the expected temporary directory.
+		// Ensure the file to be removed is strictly within the trusted system temp directory.
 		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
-			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside expected temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
-			return fmt.Errorf("temporary file %q escaped expected temporary directory: %w", cleanedTmpFile, err)
+			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside trusted temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
+			return fmt.Errorf("temporary file %q escaped trusted temporary directory: %w", cleanedTmpFile, err)
 		}
 		defer func() {
 			if err := os.Remove(cleanedTmpFile); err != nil {
