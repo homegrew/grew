@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // The AppleScript payload used to prompt for a password.
@@ -24,6 +26,10 @@ end run
 func RunSudoCmd(executable string, args ...string) error {
 	if executable == "" {
 		return fmt.Errorf("no executable provided")
+	}
+
+	if err := safepath.SafeAbsolutePath(executable); err != nil {
+		return fmt.Errorf("invalid executable path: %w", err)
 	}
 
 	cmdArgs := []string{"-A", "--", executable}
