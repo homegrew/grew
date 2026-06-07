@@ -45,7 +45,7 @@ When adding a new subcommand:
 | [linkage](./linkage) | Dynamic library linkage analysis |
 | [list](./list) | See what you've collected |
 | [lock](./lock) | Generate, check, or show a reproducible lockfile |
-| [missing](./missing) | Check kegs and casks for missing dependencies |
+| [missing](./missing) | Check kegs for missing dependencies |
 | [pin](./pin) | Freeze formulas to prevent upgrades |
 | [reinstall](./reinstall) | Uninstall + install from scratch |
 | [resetupdate](./resetupdate) | Reset the update state |
