@@ -41,6 +41,7 @@ import (
 	"github.com/homegrew/grew/cmd/untap"
 	"github.com/homegrew/grew/cmd/update"
 	"github.com/homegrew/grew/cmd/upgrade"
+	"github.com/homegrew/grew/cmd/uses"
 	"github.com/homegrew/grew/cmd/verify"
 	"github.com/homegrew/grew/cmd/version"
 	"github.com/homegrew/grew/cmd/vulnscan"
@@ -135,6 +136,7 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(update.Command)
 	rootCmd.AddCommand(upgrade.Command)
 	rootCmd.AddCommand(upgrade.OutdatedCommand)
+	rootCmd.AddCommand(uses.Command)
 	rootCmd.AddCommand(verify.Command)
 	rootCmd.AddCommand(version.Command)
 	rootCmd.AddCommand(vulnscan.Command)
