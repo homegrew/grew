@@ -83,7 +83,7 @@ Every filesystem operation that touches an externally-influenced path (archive e
 
 **`HOMEGREW_ALLOWED_HOSTS` details (SSRF control):**
 - **Format:** comma-separated hostnames (optionally with `:port`), for example: `github.com,api.github.com,objects.githubusercontent.com`.
-- **Configurability:** this value is user-configurable via environment variable at runtime; if set, it overrides the built-in/default allowlist.
+- **Configurability:** the `HOMEGREW_ALLOWED_HOSTS` environment variable is user-configurable at runtime; if set, it overrides the built-in/default allowlist.
 - **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
 - **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
@@ -153,7 +153,7 @@ Devmode is a combination of a compile-time build tag and a runtime CLI flag that
 
 **How it works:**
 1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `pkg/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
-   **Security warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
+   > **Warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
@@ -194,7 +194,7 @@ This metadata enables precise identification of "orphaned" dependencies—packag
 ### Detecting Broken Dependency Chains
 - **`grew missing`**: Checks installed kegs for declared runtime dependencies that are not present in the Cellar — the inverse of `leaves`/`autoremove`, which look for packages no longer *needed*; `missing` looks for packages still needed but *absent*. With no arguments it walks every installed keg (`Cellar.List()`); given names, it checks only those targets. For each keg it loads the formula definition (`ctx.LoadFormula`) and reports any entry in `Dependencies` not present in a pre-computed installed-packages map, printing one `<formula>: <dependency>` line per finding. Only runtime dependencies are considered — build-only dependencies (`BuildDependencies`) are excluded, since their absence does not break an installed package.
     - `--hide=<list>`: Treats a comma-separated list of formulae as if they were not installed, useful for previewing what would break before uninstalling them.
-    - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses cobra's usage dump and prints only the offending list.
+    - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses Cobra's automatic usage/help text (the command syntax summary shown on errors) and prints only the offending list.
     - **Casks**: grew casks declare no dependencies, so cask installations are always reported as complete.
 
 ## 9. Modular CLI Architecture
