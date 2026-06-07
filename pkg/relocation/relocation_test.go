@@ -231,3 +231,103 @@ func TestRelocateTextFiles(t *testing.T) {
 		})
 	}
 }
+
+func TestOrderedKeysLongestFirst(t *testing.T) {
+	t.Parallel()
+
+	r := Replacements{
+		PlaceholderCellar:                      "/opt/homegrew/Cellar",
+		PlaceholderPrefix:                      "/opt/homegrew",
+		PlaceholderCellar + "/gnutls/3.8.13_2": "/opt/homegrew/Cellar/gnutls/3.8.13",
+		"/usr/local":                           "/opt/homegrew",
+	}
+
+	keys := r.OrderedKeys()
+	for i := 1; i < len(keys); i++ {
+		if len(keys[i-1]) < len(keys[i]) {
+			t.Fatalf("OrderedKeys not longest-first: %q before %q", keys[i-1], keys[i])
+		}
+	}
+	if keys[0] != PlaceholderCellar+"/gnutls/3.8.13_2" {
+		t.Errorf("most specific key = %q, want %q", keys[0], PlaceholderCellar+"/gnutls/3.8.13_2")
+	}
+}
+
+func TestApplyReplacementsMostSpecificWins(t *testing.T) {
+	t.Parallel()
+
+	// A self-referential dependency whose embedded version directory carries a
+	// Homebrew revision suffix must be rewritten to the real keg path, not just
+	// have its Cellar prefix swapped.
+	r := Replacements{
+		PlaceholderCellar:                      "/opt/homegrew/Cellar",
+		PlaceholderCellar + "/gnutls/3.8.13_2": "/opt/homegrew/Cellar/gnutls/3.8.13",
+	}
+
+	got, changed := applyReplacements(PlaceholderCellar+"/gnutls/3.8.13_2/lib/libgnutls.30.dylib", r)
+	if !changed {
+		t.Fatal("expected a replacement to be applied")
+	}
+	want := "/opt/homegrew/Cellar/gnutls/3.8.13/lib/libgnutls.30.dylib"
+	if got != want {
+		t.Errorf("applyReplacements = %q, want %q", got, want)
+	}
+}
+
+func TestEmbeddedKegVersion(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name         string
+		paths        []string
+		formula      string
+		installedVer string
+		want         string
+	}{
+		{
+			name:         "placeholder cellar with revision suffix",
+			paths:        []string{"@@HOMEBREW_CELLAR@@/gnutls/3.8.13_2/lib/libgnutls.30.dylib"},
+			formula:      "gnutls",
+			installedVer: "3.8.13",
+			want:         "3.8.13_2",
+		},
+		{
+			name:         "real foreign cellar path",
+			paths:        []string{"/opt/homebrew/Cellar/gnutls/3.8.13_2/lib/libgnutls.30.dylib"},
+			formula:      "gnutls",
+			installedVer: "3.8.13",
+			want:         "3.8.13_2",
+		},
+		{
+			name:         "matching version is not a mismatch",
+			paths:        []string{"@@HOMEBREW_CELLAR@@/gnutls/3.8.13/lib/libgnutls.30.dylib"},
+			formula:      "gnutls",
+			installedVer: "3.8.13",
+			want:         "",
+		},
+		{
+			name:         "other formula is ignored",
+			paths:        []string{"@@HOMEBREW_CELLAR@@/nettle/4.0/lib/libnettle.9.dylib"},
+			formula:      "gnutls",
+			installedVer: "3.8.13",
+			want:         "",
+		},
+		{
+			name:         "no cellar reference",
+			paths:        []string{"@@HOMEBREW_PREFIX@@/opt/gnutls/lib/libgnutls.30.dylib", "/usr/lib/libSystem.B.dylib"},
+			formula:      "gnutls",
+			installedVer: "3.8.13",
+			want:         "",
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			got := embeddedKegVersion(tc.paths, tc.formula, tc.installedVer)
+			if got != tc.want {
+				t.Errorf("embeddedKegVersion(%v) = %q, want %q", tc.paths, got, tc.want)
+			}
+		})
+	}
+}

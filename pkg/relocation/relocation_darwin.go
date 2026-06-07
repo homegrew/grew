@@ -11,10 +11,11 @@ import (
 )
 
 // applyReplacements returns s with the first matching replacement applied.
+// Keys are tried longest-first so the most specific source path wins.
 func applyReplacements(s string, replacements Replacements) (string, bool) {
-	for old, new_ := range replacements {
+	for _, old := range replacements.OrderedKeys() {
 		if strings.Contains(s, old) {
-			return strings.Replace(s, old, new_, 1), true
+			return strings.Replace(s, old, replacements[old], 1), true
 		}
 	}
 	return s, false

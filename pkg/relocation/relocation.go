@@ -15,6 +15,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -27,6 +28,26 @@ const (
 // Replacements maps old path prefixes/placeholders to new values.
 // Each entry is applied to every binary in the keg.
 type Replacements map[string]string
+
+// OrderedKeys returns the replacement keys sorted longest-first so that the
+// most specific source path wins. This matters when one key is a prefix of
+// another — e.g. "@@HOMEBREW_CELLAR@@/foo/1.0_2" must be matched before the
+// generic "@@HOMEBREW_CELLAR@@", otherwise a self-referential dependency to a
+// revisioned Cellar version would only get its prefix rewritten and still
+// point at a directory that does not exist.
+func (r Replacements) OrderedKeys() []string {
+	keys := make([]string, 0, len(r))
+	for k := range r {
+		keys = append(keys, k)
+	}
+	sort.Slice(keys, func(i, j int) bool {
+		if len(keys[i]) != len(keys[j]) {
+			return len(keys[i]) > len(keys[j])
+		}
+		return keys[i] < keys[j]
+	})
+	return keys
+}
 
 // BuildReplacements returns the set of string replacements needed for
 // a keg installed at kegPath with the given prefix. It inspects binaries
@@ -62,7 +83,89 @@ func BuildReplacements(kegPath, prefix string) Replacements {
 		}
 	}
 
+	// Bottles can embed self-referential Cellar paths whose version directory
+	// carries a Homebrew revision suffix (e.g. "3.8.13_2") that grew does not
+	// use when it installs the keg (e.g. "3.8.13"). Rewriting only the Cellar
+	// prefix would leave those deps pointing at a non-existent versioned
+	// directory, so map the embedded version directory straight to this keg.
+	if embeddedVer := detectKegVersion(kegPath); embeddedVer != "" {
+		name := filepath.Base(filepath.Dir(kegPath))
+		suffix := filepath.Join(name, embeddedVer)
+		// Every cellar source variant already in the map (placeholder, standard
+		// and detected foreign cellars) needs the more specific entry too.
+		var cellarSrcs []string
+		for src, dst := range r {
+			if dst == cellar {
+				cellarSrcs = append(cellarSrcs, src)
+			}
+		}
+		for _, src := range cellarSrcs {
+			r[filepath.Join(src, suffix)] = kegPath
+		}
+	}
+
 	return r
+}
+
+// detectKegVersion scans the keg's binaries for self-referential Cellar paths
+// (".../Cellar/<name>/<version>/...") and returns the embedded version
+// directory when it differs from the version grew actually installed the keg
+// under. It returns "" when no mismatch is found.
+func detectKegVersion(kegPath string) string {
+	name := filepath.Base(filepath.Dir(kegPath))
+	installedVer := filepath.Base(kegPath)
+
+	var embedded string
+	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
+		if err != nil || embedded != "" {
+			if embedded != "" {
+				return filepath.SkipAll
+			}
+			return nil
+		}
+		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
+			return nil
+		}
+		paths, inspectErr := inspectBinary(path)
+		if inspectErr != nil {
+			return nil
+		}
+		if ver := embeddedKegVersion(paths, name, installedVer); ver != "" {
+			slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q (installed as %q) in %s", ver, installedVer, filepath.Base(path)))
+			embedded = ver
+			return filepath.SkipAll
+		}
+		return nil
+	})
+	return embedded
+}
+
+// embeddedKegVersion scans embedded library paths for a self-reference to the
+// formula's own Cellar directory and returns its version segment when it
+// differs from installedVer. The reference can appear either via the
+// @@HOMEBREW_CELLAR@@ placeholder or as a real ".../Cellar/<name>/" path.
+func embeddedKegVersion(paths []string, name, installedVer string) string {
+	markers := []string{
+		PlaceholderCellar + "/" + name + "/",
+		"/Cellar/" + name + "/",
+	}
+	for _, p := range paths {
+		for _, marker := range markers {
+			idx := strings.Index(p, marker)
+			if idx < 0 {
+				continue
+			}
+			rest := p[idx+len(marker):]
+			ver := rest
+			if slash := strings.IndexByte(rest, '/'); slash >= 0 {
+				ver = rest[:slash]
+			}
+			if ver != "" && ver != installedVer {
+				return ver
+			}
+		}
+	}
+	return ""
 }
 
 // RelocateKeg walks all binaries and text files in kegPath and rewrites any
@@ -184,10 +287,10 @@ func relocateSingleTextFile(path string, replacements Replacements) error {
 
 	modified := false
 	newContent := content
-	for old, new_ := range replacements {
+	for _, old := range replacements.OrderedKeys() {
 		oldBytes := []byte(old)
 		if bytes.Contains(newContent, oldBytes) {
-			newContent = bytes.ReplaceAll(newContent, oldBytes, []byte(new_))
+			newContent = bytes.ReplaceAll(newContent, oldBytes, []byte(replacements[old]))
 			modified = true
 		}
 	}
