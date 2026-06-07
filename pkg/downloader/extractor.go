@@ -76,13 +76,16 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 			if err := safepath.SafePathComponent(spec.BinaryName); err != nil {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
-			rootBin := filepath.Clean(filepath.Join(destDir, spec.BinaryName))
-			if err := safepath.CheckSubpath(destDir, rootBin); err != nil {
+			rootBin, err := safepath.SafeJoin(destDir, spec.BinaryName)
+			if err != nil {
 				return fmt.Errorf("binary_name escapes destination directory: %w", err)
 			}
-			binDir := filepath.Clean(filepath.Join(destDir, "bin"))
-			binDest := filepath.Clean(filepath.Join(binDir, spec.BinaryName))
-			if err := safepath.CheckSubpath(destDir, binDest); err != nil {
+			binDir, err := safepath.SafeJoin(destDir, "bin")
+			if err != nil {
+				return fmt.Errorf("bin dir escapes destination directory: %w", err)
+			}
+			binDest, err := safepath.SafeJoin(binDir, spec.BinaryName)
+			if err != nil {
 				return fmt.Errorf("binary destination escapes destination directory: %w", err)
 			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
