@@ -237,7 +237,6 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		return fmt.Errorf("read %s: %w", srcDir, err)
 	}
 
-	destRoot := filepath.Dir(cellarPath)
 	for _, e := range entries {
 		// Entry names are read from keg contents on disk; validate each as a
 		// single, traversal-free path component and confirm the joined paths
