@@ -9,7 +9,6 @@ import (
 	"os/user"
 	"path/filepath"
 	"regexp"
-	"strings"
 
 	"github.com/homegrew/grew/pkg/cache"
 	"github.com/homegrew/grew/pkg/config"
@@ -189,12 +188,11 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("lookup user: %w", err)
 	}
 
-	pg := primaryGroup(u)
-	if !validIdentity(u.Username) || !validIdentity(pg) {
-		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
+	if !validIdentity(u.Username) {
+		return fmt.Errorf("invalid username: %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username)
 	}
 
-	userGroup := strings.Join([]string{u.Username, pg}, ":")
+	userGroup := fmt.Sprintf("%s:admin", u.Username)
 	ui.FprintArrow(os.Stderr, "Setting up grew at %s (system prefix)", prefix)
 	ui.FprintArrow(os.Stderr, "Ownership will be transferred to %s", u.Username)
 	fmt.Println()
