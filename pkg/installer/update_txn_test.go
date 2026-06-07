@@ -3,11 +3,13 @@ package installer
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"syscall"
 	"testing"
 	"time"
 
@@ -77,9 +79,9 @@ func hasAuditAction(t *testing.T, logDir string, action auditlog.Action) bool {
 // callRecorder is a HealthChecker that delegates to an arbitrary function,
 // allowing tests to inject failures or track invocations.
 type callRecorder struct {
-	mu      interface{} // unused — kept for symmetry with future lock usage
-	called  bool
-	fn      func(context.Context, string) error
+	mu     interface{} // unused — kept for symmetry with future lock usage
+	called bool
+	fn     func(context.Context, string) error
 }
 
 func (c *callRecorder) Check(ctx context.Context, binPath string) error {
@@ -180,7 +182,7 @@ func TestTransactionalInstall_MultipleChecks_SecondFails_RollsBack(t *testing.T)
 	}}
 	checks := []HealthChecker{
 		VersionHealthChecker{Expected: "1.1.0"}, // passes
-		second,                                   // fails
+		second,                                  // fails
 	}
 	err := TransactionalInstall(current, staged, backup, "", "v1.1.0", "release", checks)
 	if err == nil {
@@ -369,7 +371,7 @@ func TestRecoverPendingUpdate_SwappedPhase_HealthyBinary_CommitsCleanly(t *testi
 	sf := filepath.Join(dir, "update-state.json")
 
 	writeScript(t, current, `echo "grew 1.1.0"`) // healthy new binary
-	writeScript(t, backup, `echo "grew 1.0.0"`) // old binary waiting as backup
+	writeScript(t, backup, `echo "grew 1.0.0"`)  // old binary waiting as backup
 
 	writeStateFile(t, sf, UpdateState{
 		Phase:       phaseSwapped,
@@ -639,4 +641,63 @@ func TestWriteUpdateState_ConcurrentWrites_FinalStateValid(t *testing.T) {
 	if err := json.Unmarshal(data, &got); err != nil {
 		t.Fatalf("state file is not valid JSON after concurrent writes: %v (content: %q)", err, data)
 	}
+}
+
+type blockingHealthChecker struct{ ch <-chan struct{} }
+
+func (b blockingHealthChecker) Check(ctx context.Context, binPath string) error {
+	select {
+	case <-b.ch:
+		return nil
+	case <-ctx.Done():
+		return ctx.Err()
+	}
+}
+
+func TestConcurrentTransactionalInstall_SecondIsRejected(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	logDir := t.TempDir()
+	stateFile := filepath.Join(logDir, "update-state.json")
+	current := filepath.Join(dir, "grew")
+	staged1 := filepath.Join(dir, ".grew-staged-1")
+	staged2 := filepath.Join(dir, ".grew-staged-2")
+	backup1 := filepath.Join(dir, "grew.previous")
+	backup2 := filepath.Join(dir, "grew.previous.second")
+
+	writeScript(t, current, `echo "grew 1.0.0"`)
+	writeScript(t, staged1, `echo "grew 1.1.0"`)
+	writeScript(t, staged2, `echo "grew 1.2.0"`)
+
+	block := make(chan struct{})
+	started := make(chan struct{})
+	errCh := make(chan error, 1)
+	go func() {
+		close(started)
+		errCh <- TransactionalInstall(current, staged1, backup1, stateFile, "v1.1.0", "release", []HealthChecker{blockingHealthChecker{ch: block}})
+	}()
+	<-started
+
+	lockPath := filepath.Join(logDir, "update.lock")
+	for i := 0; i < 100; i++ {
+		f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0o600)
+		if err == nil {
+			lockErr := syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB)
+			_ = f.Close()
+			if errors.Is(lockErr, syscall.EWOULDBLOCK) || errors.Is(lockErr, syscall.EAGAIN) {
+				break
+			}
+		}
+		time.Sleep(10 * time.Millisecond)
+	}
+
+	if err := TransactionalInstall(current, staged2, backup2, stateFile, "v1.2.0", "release", nil); !errors.Is(err, errUpdateAlreadyInProgress) {
+		t.Fatalf("expected errUpdateAlreadyInProgress, got %v", err)
+	}
+
+	close(block)
+	if err := <-errCh; err != nil {
+		t.Fatalf("first transactional install failed: %v", err)
+	}
+	mustExecBin(t, current, "grew 1.1.0")
 }

@@ -3,12 +3,14 @@ package installer
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"syscall"
 	"time"
 
 	"github.com/homegrew/grew/pkg/auditlog"
@@ -72,6 +74,36 @@ func (v VersionHealthChecker) Check(ctx context.Context, binPath string) error {
 	return nil
 }
 
+var errUpdateAlreadyInProgress = errors.New("update already in progress")
+
+func acquireUpdateLock(logDir string) (*os.File, func(), error) {
+	if err := os.MkdirAll(logDir, 0o755); err != nil {
+		return nil, nil, fmt.Errorf("create lock directory: %w", err)
+	}
+	lockPath := filepath.Join(logDir, "update.lock")
+	f, err := os.OpenFile(lockPath, os.O_CREATE|os.O_RDWR, 0o600)
+	if err != nil {
+		return nil, nil, fmt.Errorf("open update lock: %w", err)
+	}
+	if err := syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); err != nil {
+		f.Close()
+		if errors.Is(err, syscall.EWOULDBLOCK) || errors.Is(err, syscall.EAGAIN) {
+			return nil, nil, errUpdateAlreadyInProgress
+		}
+		return nil, nil, fmt.Errorf("lock update file: %w", err)
+	}
+	released := false
+	release := func() {
+		if released {
+			return
+		}
+		released = true
+		_ = syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
+		_ = f.Close()
+	}
+	return f, release, nil
+}
+
 // UpdateStateFilePath returns the canonical path for the update state file.
 // Using config.Default().Log keeps it inside the managed prefix,
 // consistent with the audit log location.
@@ -89,8 +121,8 @@ func UpdateStateFilePath() string {
 //  4. Rename stagedPath  → currentPath (activate new binary).
 //  5. Write state file at phase=swapped.
 //  6. Run each postCheck against currentPath with a 10-second timeout.
-//  7a. All pass  → remove backup, remove state file (committed).
-//  7b. Any fails → rename backupPath → currentPath (rollback), log to audit.
+//     7a. All pass  → remove backup, remove state file (committed).
+//     7b. Any fails → rename backupPath → currentPath (rollback), log to audit.
 //
 // If the process crashes between steps 4 and 7, RecoverPendingUpdate detects
 // the orphaned state file on the next startup and restores the backup.
@@ -137,6 +169,15 @@ func TransactionalInstall(
 		if filepath.Dir(p) != dir {
 			return fmt.Errorf("%s path %q must be in the same directory as current (%s)", label, p, dir)
 		}
+	}
+
+	if stateFile != "" {
+		lockFile, releaseLock, err := acquireUpdateLock(logDirFor(stateFile))
+		if err != nil {
+			return fmt.Errorf("acquire update lock: %w", err)
+		}
+		defer releaseLock()
+		_ = lockFile
 	}
 
 	// --- persist initial state ------------------------------------------------
@@ -213,6 +254,17 @@ func TransactionalInstall(
 // Call this early in main startup — before any update command runs — so that
 // the binary is always in a known-good state when the user's command executes.
 func RecoverPendingUpdate(stateFile string) error {
+	lockFile, releaseLock, err := acquireUpdateLock(logDirFor(stateFile))
+	if err != nil {
+		if errors.Is(err, errUpdateAlreadyInProgress) {
+			slog.Debug("update lock held — skipping crash recovery")
+			return nil
+		}
+		return fmt.Errorf("acquire update lock: %w", err)
+	}
+	defer releaseLock()
+	_ = lockFile
+
 	data, err := os.ReadFile(stateFile)
 	if os.IsNotExist(err) {
 		return nil // nothing to recover
@@ -283,7 +335,6 @@ func RecoverPendingUpdate(stateFile string) error {
 	_ = os.Remove(stateFile)
 	return nil
 }
-
 
 // logDirFor returns the directory to use for audit logging.
 // When stateFile is non-empty the audit log is written to the same directory

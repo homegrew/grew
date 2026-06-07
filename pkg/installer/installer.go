@@ -273,6 +273,10 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		stagedFile.Close()
 		return fmt.Errorf("chmod staged binary: %w", err)
 	}
+	if err := stagedFile.Sync(); err != nil {
+		stagedFile.Close()
+		return fmt.Errorf("sync staged binary: %w", err)
+	}
 	if err := stagedFile.Close(); err != nil {
 		return fmt.Errorf("close staged binary: %w", err)
 	}
