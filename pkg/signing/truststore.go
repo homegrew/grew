@@ -6,8 +6,9 @@ import (
 	"errors"
 	"fmt"
 	"os"
-	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // TrustedKeysFile is the path relative to the grew root where trusted
@@ -18,9 +19,11 @@ const TrustedKeysFile = "etc/trusted-keys"
 // Blank lines and lines starting with '#' are skipped. Returns (nil, nil) if
 // the file does not exist.
 func LoadTrustedKeys(grewRoot string) ([]ed25519.PublicKey, error) {
-	// Clean the root path to prevent directory traversal.
-	grewRoot = filepath.Clean(grewRoot)
-	path := filepath.Join(grewRoot, TrustedKeysFile)
+	// Safely join the root path with the trusted keys file, validating it stays within grewRoot.
+	path, err := safepath.SafeJoin(grewRoot, TrustedKeysFile)
+	if err != nil {
+		return nil, fmt.Errorf("construct trusted keys path: %w", err)
+	}
 	f, err := os.Open(path)
 	if err != nil {
 		if errors.Is(err, os.ErrNotExist) {

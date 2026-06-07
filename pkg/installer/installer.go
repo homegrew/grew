@@ -44,7 +44,10 @@ func InstallFromGit(repoURL, repoDir, destBin string, allowClone bool) error {
 		return fmt.Errorf("go not found in PATH")
 	}
 
-	gitDir := filepath.Clean(filepath.Join(cleanRepoDir, ".git"))
+	gitDir, err := safepath.SafeJoin(cleanRepoDir, ".git")
+	if err != nil {
+		return fmt.Errorf("construct git directory path: %w", err)
+	}
 	if _, err := os.Stat(gitDir); err == nil {
 		// Repo exists — pull latest.
 		fmt.Fprintln(os.Stderr, "==> Updating grew source...")
@@ -199,9 +202,8 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
 			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside expected temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
 			return fmt.Errorf("temporary file %q escaped expected temporary directory: %w", cleanedTmpFile, err)
-		} else {
-			defer os.Remove(cleanedTmpFile)
 		}
+		defer os.Remove(cleanedTmpFile)
 	}
 
 	// Verify all available hashes.
