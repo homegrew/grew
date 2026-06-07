@@ -114,8 +114,10 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 	// 5. Clean download cache (Cache directory).
 	if downloadsRoot != "" {
 		if _, err := os.Stat(downloadsRoot); err == nil {
-			tmpEntries, err := os.ReadDir(downloadsRoot)
-			if err == nil {
+			// Re-validate downloads root before reading directory to prevent TOCTOU attacks
+			if err := safepath.SafeAbsolutePath(downloadsRoot); err != nil {
+				slog.Warn(fmt.Sprintf("downloads dir is no longer safe: %v", err))
+			} else if tmpEntries, err := os.ReadDir(downloadsRoot); err == nil {
 				for _, e := range tmpEntries {
 					name := e.Name()
 					path, err := safepath.SafeJoin(downloadsRoot, name)
