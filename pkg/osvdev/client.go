@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log/slog"
 	"net"
 	"net/http"
 	"net/url"
@@ -24,6 +25,7 @@ var (
 func SetAPIBase(rawURL string) error {
 	u, err := url.Parse(rawURL)
 	if err != nil {
+		slog.Debug("invalid OSV API URL", "url", rawURL, "error", err)
 		return fmt.Errorf("invalid OSV API URL: %w", err)
 	}
 
@@ -36,6 +38,8 @@ func SetAPIBase(rawURL string) error {
 	host := u.Host
 	if h, _, err := net.SplitHostPort(u.Host); err == nil {
 		host = h
+	} else {
+		slog.Debug("OSV API URL does not include port, treating entire host as hostname", "host", u.Host)
 	}
 
 	for _, a := range allowedHosts {
@@ -195,11 +199,13 @@ func (c *Client) Query(pkg QueryPackage) ([]Vulnerability, error) {
 
 	resp, err := c.post("/query", req)
 	if err != nil {
+		slog.Debug("failed to query OSV", "error", err)
 		return nil, err
 	}
 
 	var qr queryResponse
 	if err := json.Unmarshal(resp, &qr); err != nil {
+		slog.Debug("failed to parse OSV response", "error", err)
 		return nil, fmt.Errorf("parse OSV response: %w", err)
 	}
 
@@ -210,10 +216,12 @@ func (c *Client) Query(pkg QueryPackage) ([]Vulnerability, error) {
 		req.PageToken = qr.NextPageToken
 		resp, err = c.post("/query", req)
 		if err != nil {
+			slog.Debug("failed to query OSV page", "error", err)
 			return nil, err
 		}
 		qr = queryResponse{}
 		if err := json.Unmarshal(resp, &qr); err != nil {
+			slog.Debug("failed to parse OSV response", "error", err)
 			return nil, fmt.Errorf("parse OSV response: %w", err)
 		}
 		vulns = append(vulns, qr.Vulns...)
@@ -247,11 +255,14 @@ func (c *Client) QueryBatch(packages []QueryPackage) ([][]Vulnerability, error) 
 
 		resp, err := c.post("/querybatch", batchRequest{Queries: queries})
 		if err != nil {
+			slog.Debug("failed to query OSV batch", "error", err)
 			return nil, err
 		}
 
 		var br batchResponse
 		if err := json.Unmarshal(resp, &br); err != nil {
+			slog.Debug("failed to parse OSV batch response", "error", err)
+			slog.Debug("response body", "body", string(resp))
 			return nil, fmt.Errorf("parse OSV batch response: %w", err)
 		}
 
@@ -268,11 +279,13 @@ func (c *Client) GetVulnerability(id string) (*Vulnerability, error) {
 	escaped := url.PathEscape(id)
 	resp, err := c.get("/vulns/" + escaped)
 	if err != nil {
+		slog.Debug("failed to get OSV vulnerability", "error", err)
 		return nil, err
 	}
 
 	var v Vulnerability
 	if err := json.Unmarshal(resp, &v); err != nil {
+		slog.Debug("failed to parse OSV vulnerability", "error", err)
 		return nil, fmt.Errorf("parse OSV vulnerability: %w", err)
 	}
 	return &v, nil
@@ -282,6 +295,7 @@ func (c *Client) GetVulnerability(id string) (*Vulnerability, error) {
 func (c *Client) post(path string, body any) ([]byte, error) {
 	data, err := json.Marshal(body)
 	if err != nil {
+		slog.Debug("failed to marshal request", "error", err)
 		return nil, fmt.Errorf("marshal request: %w", err)
 	}
 
@@ -298,18 +312,22 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 	// Validate URL to prevent SSRF.
 	u, err := url.Parse(rawURL)
 	if err != nil {
+		slog.Debug("invalid OSV API URL", "url", rawURL, "error", err)
 		return nil, fmt.Errorf("invalid URL: %w", err)
 	}
 
 	expected, err := url.Parse(getAPIBase())
 	if err != nil {
+		slog.Debug("invalid OSV API base URL", "url", getAPIBase(), "error", err)
 		return nil, fmt.Errorf("invalid API base URL: %w", err)
 	}
 
 	if u.Scheme != expected.Scheme {
+		slog.Debug("OSV API URL scheme mismatch", "expected", expected.Scheme, "got", u.Scheme)
 		return nil, fmt.Errorf("OSV API requires %s, got %s", expected.Scheme, u.Scheme)
 	}
 	if u.Host != expected.Host {
+		slog.Debug("OSV API URL host mismatch", "expected", expected.Host, "got", u.Host)
 		return nil, fmt.Errorf("unexpected OSV API host: %s (expected %s)", u.Host, expected.Host)
 	}
 
@@ -330,6 +348,8 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 		var reqBody io.ReadCloser
 		if body != nil {
 			reqBody = io.NopCloser(bytes.NewReader(body))
+		} else {
+			slog.Debug("sending OSV API request with empty body")
 		}
 
 		req := &http.Request{
@@ -350,6 +370,7 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 
 		resp, err := c.HTTPClient.Do(req)
 		if err != nil {
+			slog.Debug("OSV API request failed", "error", err)
 			lastErr = fmt.Errorf("OSV API request failed: %w", err)
 			continue
 		}
@@ -368,6 +389,7 @@ func (c *Client) doRequest(method, rawURL string, body []byte) ([]byte, error) {
 		lastErr = fmt.Errorf("OSV API error: %d %s", resp.StatusCode, resp.Status)
 		if resp.StatusCode >= 400 && resp.StatusCode < 500 {
 			// Client error — don't retry.
+			slog.Debug("OSV API client error", "status_code", resp.StatusCode, "response_body", string(respBody))
 			return nil, lastErr
 		}
 	}
@@ -404,12 +426,14 @@ func (v *Vulnerability) SeverityString() string {
 
 	// Try database_specific.severity.
 	if v.DBSpecific != nil && v.DBSpecific.Severity != "" {
+		slog.Debug("using database_specific.severity for vulnerability severity", "id", v.ID, "severity", v.DBSpecific.Severity)
 		return normalizeSeverity(v.DBSpecific.Severity)
 	}
 
 	// Try ecosystem_specific.severity in affected entries.
 	for _, aff := range v.Affected {
 		if aff.EcosystemSpecific != nil && aff.EcosystemSpecific.Severity != "" {
+			slog.Debug("using ecosystem_specific.severity for vulnerability severity", "id", v.ID, "severity", aff.EcosystemSpecific.Severity)
 			return normalizeSeverity(aff.EcosystemSpecific.Severity)
 		}
 	}
@@ -563,6 +587,7 @@ func normalizeSeverity(s string) string {
 	case "low":
 		return "low"
 	default:
+		slog.Debug("using unknown severity", "severity", lower)
 		return lower
 	}
 }

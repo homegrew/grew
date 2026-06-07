@@ -83,12 +83,16 @@ func aliasFile() (string, error) {
 		root = ctx.Paths.Root
 	}
 	if err := safepath.SafeAbsolutePath(root); err != nil {
+		slog.Warn("invalid alias root path, using default", "path", root, "error", err)
 		return "", fmt.Errorf("alias root path invalid: %w", err)
 	}
 	p, err := safepath.SafeJoin(root, "aliases.json")
 	if err != nil {
+		slog.Warn("invalid alias file path", "path", p, "error", err)
 		return "", fmt.Errorf("alias file path invalid: %w", err)
 	}
+
+	slog.Debug("alias file path resolved", "path", p)
 	return p, nil
 }
 
@@ -100,12 +104,15 @@ func loadAliases() (aliases, error) {
 	}
 	data, err := os.ReadFile(f)
 	if err != nil {
+		slog.Debug("failed to read alias file", "path", f, "error", err)
 		if os.IsNotExist(err) {
+			slog.Debug("alias file does not exist, starting with empty aliases", "path", f)
 			return a, nil
 		}
 		return nil, fmt.Errorf("read aliases: %w", err)
 	}
 	if err := json.Unmarshal(data, &a); err != nil {
+		slog.Debug("failed to parse alias file", "path", f, "error", err)
 		return nil, fmt.Errorf("parse aliases: %w", err)
 	}
 	return a, nil
@@ -114,12 +121,15 @@ func loadAliases() (aliases, error) {
 func saveAliases(a aliases) error {
 	f, err := aliasFile()
 	if err != nil {
+		slog.Warn("failed to get alias file path for saving", "error", err)
 		return err
 	}
 	data, err := json.MarshalIndent(a, "", "  ")
 	if err != nil {
+		slog.Warn("failed to marshal aliases for saving", "error", err)
 		return fmt.Errorf("marshal aliases: %w", err)
 	}
+	slog.Debug("saving aliases", "path", f)
 	return os.WriteFile(f, data, 0644)
 }
 
@@ -149,6 +159,7 @@ func aliasAdd(name, command string) error {
 		return err
 	}
 	if old, exists := a[name]; exists {
+		slog.Debug("overwriting alias", "name", name, "old", old)
 		fmt.Printf("Overwriting alias %q (was: %s)\n", name, old)
 	}
 	a[name] = command
@@ -162,15 +173,19 @@ func aliasAdd(name, command string) error {
 func aliasRemove(name string) error {
 	a, err := loadAliases()
 	if err != nil {
+		slog.Debug("loaded aliases for removal", "count", len(a))
 		return err
 	}
 	if _, exists := a[name]; !exists {
+		slog.Debug("alias does not exist", "name", name)
 		return fmt.Errorf("alias %q does not exist", name)
 	}
 	delete(a, name)
 	if err := saveAliases(a); err != nil {
+		slog.Warn("failed to save aliases after removal", "error", err)
 		return err
 	}
+	slog.Debug("alias removed", "name", name)
 	fmt.Printf("Removed alias: %s\n", name)
 	return nil
 }
@@ -205,7 +220,9 @@ func aliasEdit() error {
 	}
 	if editor == "" {
 		fmt.Printf("Alias file: %s\n", path)
+		slog.Debug("no EDITOR or VISUAL set", "path", path)
 		return fmt.Errorf("no EDITOR or VISUAL set; edit %s manually", path)
+
 	}
 
 	// Validate the editor value: reject shell metacharacters and empty components.

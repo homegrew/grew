@@ -119,15 +119,18 @@ func detectKegVersion(kegPath string) string {
 	filepath.WalkDir(kegPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil || embedded != "" {
 			if embedded != "" {
+				slog.Debug(fmt.Sprintf("relocation: detected embedded keg version %q in %s, skipping further checks", embedded, filepath.Base(path)))
 				return filepath.SkipAll
 			}
 			return nil
 		}
 		if d.IsDir() || !d.Type().IsRegular() || !isBinary(path) {
+			slog.Debug(fmt.Sprintf("relocation: skipping non-binary file %s", filepath.Base(path)))
 			return nil
 		}
 		paths, inspectErr := inspectBinary(path)
 		if inspectErr != nil {
+			slog.Debug(fmt.Sprintf("relocation: failed to inspect binary %s", filepath.Base(path)))
 			return nil
 		}
 		if ver := embeddedKegVersion(paths, name, installedVer); ver != "" {
@@ -490,7 +493,11 @@ func isBinary(path string) bool {
 	if err != nil {
 		return false
 	}
-	defer f.Close()
+	defer func() {
+		if err := f.Close(); err != nil {
+			slog.Debug("failed to close file after binary check", "path", path, "error", err)
+		}
+	}()
 
 	var magic [8]byte
 	n, err := f.Read(magic[:])

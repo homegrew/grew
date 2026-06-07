@@ -2,6 +2,7 @@ package linker
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -54,6 +55,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	} else {
 		os.Remove(optLink)
 		if err := os.Symlink(kegPath, optLink); err != nil {
+			slog.Error("failed to create opt link", "link", optLink, "target", kegPath, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
 	}
@@ -74,7 +76,8 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 
 	for _, sd := range subdirs {
 		if err := linkDirWithOpts(sd.src, sd.dest, l.Paths.Root, l.Paths.Cellar, name, opts); err != nil {
-			return err
+			slog.Error("failed to link subdir", "src", sd.src, "dest", sd.dest, "error", err)
+			return fmt.Errorf("link %s: %w", sd.src, err)
 		}
 	}
 	return nil
@@ -125,13 +128,13 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 
 	for _, e := range entries {
 		fullPath := filepath.Join(dir, e.Name())
-		
+
 		if e.IsDir() {
 			// Recurse into subdirectories (e.g. lib/pkgconfig or share/man)
 			if err := unlinkDirWithOpts(fullPath, cellarPrefix, opts); err != nil {
 				return err
 			}
-			
+
 			// If empty, clean it up
 			if !opts.DryRun {
 				_ = os.Remove(fullPath) // Ignore errors, it just means not empty
@@ -143,7 +146,7 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 		if err != nil {
 			continue // not a symlink
 		}
-		
+
 		resolved := resolveLink(dir, target)
 		if strings.HasPrefix(resolved, cellarPrefix) {
 			if opts.DryRun {
@@ -186,15 +189,18 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 func destIsDir(root, destPath string) bool {
 	absRoot, err := filepath.Abs(root)
 	if err != nil {
+		slog.Error("failed to resolve root path", "root", root, "error", err)
 		return false
 	}
 	absRoot = filepath.Clean(absRoot)
 	if err := safepath.SafeAbsolutePath(absRoot); err != nil {
+		slog.Error("failed to validate root path", "root", absRoot, "error", err)
 		return false
 	}
 
 	absDest, err := filepath.Abs(destPath)
 	if err != nil {
+		slog.Error("failed to resolve dest path", "dest", destPath, "error", err)
 		return false
 	}
 	absDest = filepath.Clean(absDest)

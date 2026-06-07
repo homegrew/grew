@@ -1,6 +1,7 @@
 package sandbox
 
 import (
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -136,7 +137,9 @@ func cleanEnv(cfg BuildConfig) []string {
 
 	// Override TMPDIR to keep temp files inside the build directory.
 	tmpDir := filepath.Join(cfg.BuildDir, ".grew-tmp")
-	os.MkdirAll(tmpDir, 0755)
+	if err := os.MkdirAll(tmpDir, 0755); err != nil {
+		slog.Error("failed to create temp directory for sandbox", "path", tmpDir, "error", err)
+	}
 	env = append(env, "TMPDIR="+tmpDir)
 
 	return env
