@@ -385,7 +385,7 @@ func RecoverPendingUpdate(stateFile string) error {
 			slog.Warn("skipping backup removal due to invalid path during recovery cleanup",
 				"backup", backupPath, "expected", expectedBackupPath, "err", err)
 		} else {
-			_ = os.Remove(backupPath)
+			_ = os.Remove(expectedBackupPath)
 		}
 	}
 
