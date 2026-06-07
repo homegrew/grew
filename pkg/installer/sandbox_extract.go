@@ -46,6 +46,8 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	// where /var is a symlink to /private/var.
 	if eval, err := filepath.EvalSymlinks(stageDir); err == nil {
 		stageDir = eval
+	} else {
+		slog.Debug("failed to resolve symlinks for stage directory", "stage_dir", stageDir, "error", err)
 	}
 	stageDir = filepath.Clean(stageDir)
 
