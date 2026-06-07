@@ -1,6 +1,5 @@
 package installer
 
-import "github.com/homegrew/grew/pkg/release"
 
 
 import (
