@@ -114,18 +114,26 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, err
 	}
 
-	expectedBase, err := filepath.Abs(m.TapsDir)
-	if err != nil {
-		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
-	}
-	expectedBase = filepath.Clean(expectedBase)
-	if err := safepath.SafeAbsolutePath(expectedBase); err != nil {
-		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", expectedBase, err)
+	resolveAndValidate := func(path string) (string, error) {
+		resolved, err := filepath.Abs(path)
+		if err != nil {
+			return "", fmt.Errorf("resolve taps directory: %w", err)
+		}
+		resolved = filepath.Clean(resolved)
+		if err := safepath.SafeAbsolutePath(resolved); err != nil {
+			return "", fmt.Errorf("invalid taps directory %q: %w", resolved, err)
+		}
+		return resolved, nil
 	}
 
-	tapsBase, err := filepath.Abs(m.TapsDir)
+	expectedBase, err := resolveAndValidate(m.TapsDir)
 	if err != nil {
-		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
+		return 0, 0, err
+	}
+
+	tapsBase, err := resolveAndValidate(m.TapsDir)
+	if err != nil {
+		return 0, 0, err
 	}
 	if eval, err := filepath.EvalSymlinks(tapsBase); err == nil {
 		tapsBase = eval
@@ -341,7 +349,13 @@ func (m *Manager) List() ([]string, error) {
 			if !repo.IsDir() {
 				continue
 			}
-			repoPath := filepath.Join(m.TapsDir, user.Name(), repo.Name())
+			repoPath, err := safepath.SafeJoin(m.TapsDir, user.Name(), repo.Name())
+			if err != nil {
+				continue
+			}
+			if err := safepath.CheckSubpath(m.TapsDir, repoPath); err != nil {
+				continue
+			}
 			if _, err := os.Stat(filepath.Join(repoPath, ".git")); err == nil {
 				taps = append(taps, fmt.Sprintf("%s/%s", user.Name(), repo.Name()))
 			}
@@ -363,7 +377,11 @@ func countPackagesRecursive(dir string, count *int) {
 				*count++
 			}
 		} else {
-			countPackagesRecursive(filepath.Join(dir, name), count)
+			childDir, err := safepath.SafeJoin(dir, name)
+			if err != nil {
+				continue
+			}
+			countPackagesRecursive(childDir, count)
 		}
 	}
 }
