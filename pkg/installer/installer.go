@@ -13,6 +13,7 @@ import (
 
 	"github.com/homegrew/grew/pkg/auditlog"
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/release"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/sandbox"
@@ -104,16 +105,9 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	return nil
 }
 
-func fileHashes(path string) (string, string, error) {
-	sha256Hash, err := release.FileSHA256(path)
-	if err != nil {
-		return "", "", err
-	}
-	sha512Hash, err := release.FileSHA512(path)
-	if err != nil {
-		return "", "", err
-	}
-	return sha256Hash, sha512Hash, nil
+// FileHashes returns the hex-encoded SHA256 and SHA512 hashes of a file.
+func FileHashes(path string) (string, string, error) {
+	return downloader.ComputeHashes(path)
 }
 
 func InstallLatestRelease(exePath string, rel *release.Release) error {
@@ -208,7 +202,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	}
 
 	// Verify all available hashes.
-	sha256Actual, sha512Actual, err := fileHashes(tmpFile)
+	sha256Actual, sha512Actual, err := FileHashes(tmpFile)
 	if err != nil {
 		return fmt.Errorf("hash downloaded file: %w", err)
 	}
