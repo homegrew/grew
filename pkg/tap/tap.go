@@ -101,7 +101,7 @@ func (m *Manager) InitCask() error {
 }
 
 // Update pulls the latest definitions for ALL installed taps.
-// Returns the number of taps updated and the total number of formulas found.
+// Returns the number of taps updated and the total number of packages (formulas and casks) found.
 func (m *Manager) Update() (int, int, error) {
 	if err := m.EnsureCloned(); err != nil {
 		return 0, 0, err
@@ -161,18 +161,10 @@ func (m *Manager) Update() (int, int, error) {
 
 			tapsCount++
 
-			// Count formulas in this tap
+			// Count formulas and casks in this tap (recursively)
 			for _, sub := range []string{"", "core", "Formula", "cask", "Casks"} {
 				dir := filepath.Join(repoPath, sub)
-				entries, err := os.ReadDir(dir)
-				if err != nil {
-					continue
-				}
-				for _, e := range entries {
-					if !e.IsDir() && strings.HasSuffix(e.Name(), ".yaml") {
-						totalCount++
-					}
-				}
+				countPackagesRecursive(dir, &totalCount)
 			}
 		}
 	}
@@ -303,4 +295,22 @@ func (m *Manager) List() ([]string, error) {
 		}
 	}
 	return taps, nil
+}
+
+// countPackagesRecursive counts YAML/YML files recursively in a directory.
+func countPackagesRecursive(dir string, count *int) {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		if !e.IsDir() {
+			name := e.Name()
+			if strings.HasSuffix(name, ".yaml") || strings.HasSuffix(name, ".yml") {
+				*count++
+			}
+		} else {
+			countPackagesRecursive(filepath.Join(dir, e.Name()), count)
+		}
+	}
 }
