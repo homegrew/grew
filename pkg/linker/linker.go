@@ -182,9 +182,18 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 }
 
 // destIsDir returns true if destPath is a real directory or a symlink that
-// points to a directory inside the cellar (i.e. owned by another formula).
-func destIsDir(destPath string) bool {
-	fi, err := os.Stat(destPath) // follows symlinks
+// points to a directory inside the configured root.
+func destIsDir(root, destPath string) bool {
+	absDest, err := filepath.Abs(destPath)
+	if err != nil {
+		return false
+	}
+	absDest = filepath.Clean(absDest)
+	if !isWithinRoot(root, absDest) {
+		return false
+	}
+
+	fi, err := os.Stat(absDest) // follows symlinks
 	return err == nil && fi.IsDir()
 }
 
@@ -228,7 +237,7 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		// the destination and recurse to link individual files.
 		if e.IsDir() {
 			if info, err := os.Lstat(destPath); err == nil {
-				if info.Mode()&os.ModeSymlink != 0 && destIsDir(destPath) {
+				if info.Mode()&os.ModeSymlink != 0 && destIsDir(filepath.Dir(cellarPath), destPath) {
 					// Destination is a symlink to a directory (from another
 					// formula). Replace it with a real directory and migrate
 					// the contents so both formulas' files coexist.
