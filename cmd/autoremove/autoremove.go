@@ -18,8 +18,14 @@ var Command = &cobra.Command{
 	Short: "Uninstall formulae that were only installed as a dependency",
 	Long: `Uninstall formulae that were only installed as a dependency of another formula
 and are now no longer needed.`,
-	RunE: func(c *cobra.Command, args []string) error {
-		return RunAutoremove(args)
+	RunE: func(c *cobra.Command, _ []string) error {
+		ctx, err := context.NewInstallContext()
+		if err != nil {
+			return err
+		}
+		defer ctx.Close()
+
+		return RunAutoremoveWithContext(ctx)
 	},
 }
 
@@ -27,15 +33,16 @@ func init() {
 	Command.Flags().BoolVarP(&autoremoveDryRun, "dry-run", "n", false, "List what would be uninstalled, but do not actually uninstall anything.")
 }
 
-func RunAutoremove(args []string) error {
+func RunAutoremove(ctx *context.InstallContext) error {
 	slog.Debug("starting autoremove command execution")
-	
-	ctx, err := context.NewInstallContext()
-	if err != nil {
-		return err
-	}
-	defer ctx.Close()
 
+	return RunAutoremoveWithContext(ctx)
+}
+
+// RunAutoremoveWithContext runs autoremove using an already-open InstallContext.
+// Callers that hold the context lock (e.g. uninstall --autoremove) should use
+// this to avoid a double-lock deadlock.
+func RunAutoremoveWithContext(ctx *context.InstallContext) error {
 	packages, err := ctx.Cellar.List()
 	if err != nil {
 		return err

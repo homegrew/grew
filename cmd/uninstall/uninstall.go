@@ -6,6 +6,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/homegrew/grew/cmd/autoremove"
 	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/installer"
 	"github.com/spf13/cobra"
@@ -15,6 +16,7 @@ var (
 	uninstallCask       bool
 	uninstallForce      bool
 	uninstallIgnoreDeps bool
+	uninstallAutoremove bool
 )
 
 var Command = &cobra.Command{
@@ -29,7 +31,12 @@ Examples:
   grew uninstall --force jq
   grew uninstall --cask firefox`,
 	RunE: func(c *cobra.Command, args []string) error {
-		return runUninstall(args)
+		ctx, err := context.New()
+		if err != nil {
+			return fmt.Errorf("failed to create context: %w", err)
+		}
+
+		return runUninstall(ctx, args)
 	},
 }
 
@@ -37,9 +44,10 @@ func init() {
 	Command.Flags().BoolVar(&uninstallCask, "cask", false, "Uninstall a cask instead of a formula.")
 	Command.Flags().BoolVarP(&uninstallForce, "force", "f", false, "Delete all installed versions of formula. Uninstall even if cask is not installed.")
 	Command.Flags().BoolVar(&uninstallIgnoreDeps, "ignore-dependencies", false, "Uninstall even if the formula is required by another installed formula.")
+	Command.Flags().BoolVar(&uninstallAutoremove, "autoremove", false, "Remove unused dependencies after uninstalling.")
 }
 
-func runUninstall(args []string) error {
+func runUninstall(ctx *context.Context, args []string) error {
 	slog.Debug("starting uninstall command execution")
 
 	if len(args) == 0 {
@@ -47,10 +55,6 @@ func runUninstall(args []string) error {
 	}
 
 	if uninstallCask {
-		ctx, err := context.New()
-		if err != nil {
-			return err
-		}
 		for _, name := range args {
 			if err := installer.CaskUninstall(ctx, name, uninstallForce); err != nil {
 				return err
@@ -59,24 +63,24 @@ func runUninstall(args []string) error {
 		return nil
 	}
 
-	ctx, err := context.NewInstallContext()
+	installCtx, err := context.NewInstallContext()
 	if err != nil {
 		return err
 	}
-	defer ctx.Close()
+	defer installCtx.Close()
 
 	if !uninstallIgnoreDeps {
 		for _, name := range args {
-			if !ctx.Cellar.IsInstalled(name) {
+			if !installCtx.Cellar.IsInstalled(name) {
 				continue
 			}
-			dependents, err := installedDependents(ctx, name, args)
+			dependents, err := installedDependents(installCtx, name, args)
 			if err != nil {
 				return err
 			}
 			if len(dependents) > 0 {
-				ver, _ := ctx.Cellar.InstalledVersion(name)
-				kegPath, _ := ctx.Cellar.KegPath(name, ver)
+				ver, _ := installCtx.Cellar.InstalledVersion(name)
+				kegPath, _ := installCtx.Cellar.KegPath(name, ver)
 				return fmt.Errorf(
 					"Refusing to uninstall %s\nbecause it is required by %s, which is currently installed.\nYou can override this and force removal with:\n  grew uninstall --ignore-dependencies %s",
 					kegPath, strings.Join(dependents, ", "), name,
@@ -86,9 +90,13 @@ func runUninstall(args []string) error {
 	}
 
 	for _, name := range args {
-		if err := ctx.UninstallFormula(name, uninstallForce); err != nil {
+		if err := installCtx.UninstallFormula(name, uninstallForce); err != nil {
 			return err
 		}
+	}
+
+	if uninstallAutoremove {
+		return autoremove.RunAutoremoveWithContext(installCtx)
 	}
 
 	return nil
