@@ -363,7 +363,11 @@ func countPackagesRecursive(dir string, count *int) {
 				*count++
 			}
 		} else {
-			countPackagesRecursive(filepath.Join(dir, name), count)
+			childDir, err := safepath.SafeJoin(dir, name)
+			if err != nil {
+				continue
+			}
+			countPackagesRecursive(childDir, count)
 		}
 	}
 }
