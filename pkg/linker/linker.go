@@ -293,6 +293,13 @@ func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, 
 		if err != nil {
 			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), destDir, err)
 		}
+		// Inline containment guard on the exact value reaching every destPath
+		// sink below (Lstat, Remove, MkdirAll, Symlink, unsymDir, recursion).
+		// This is the CodeQL-recognized barrier for go/path-injection; the
+		// SafeJoin above is kept as defense in depth.
+		if !isWithinRoot(destRoot, destPath) {
+			return fmt.Errorf("refusing to operate outside root %s: %s", destRoot, destPath)
+		}
 
 		// grew does not install info files or manpages
 		if strings.HasSuffix(srcDir, "/share") || strings.HasSuffix(srcDir, "/share/") {
@@ -473,6 +480,12 @@ func unsymDir(symlinkPath, root string) error {
 		return fmt.Errorf("read target dir %s: %w", safeTarget, err)
 	}
 
+	// Inline containment guard on the exact value reaching the Remove/MkdirAll
+	// sinks, the CodeQL-recognized barrier for go/path-injection (absSymlinkPath
+	// is derived from the symlinkPath argument).
+	if !isWithinRoot(realRoot, absSymlinkPath) {
+		return fmt.Errorf("refusing to replace path outside root %s: %s", realRoot, absSymlinkPath)
+	}
 	if err := os.Remove(absSymlinkPath); err != nil {
 		return err
 	}
@@ -491,6 +504,13 @@ func unsymDir(symlinkPath, root string) error {
 		dst, err := safepath.SafeJoin(absSymlinkPath, e.Name())
 		if err != nil {
 			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), absSymlinkPath, err)
+		}
+		// Inline containment guards on the exact src/dst handed to os.Symlink
+		// (both are fresh joins not covered by an earlier guard): src within the
+		// target's root, dst within the symlink's root. CodeQL-recognized
+		// barrier for go/path-injection.
+		if !isWithinRoot(absRoot, src) || !isWithinRoot(realRoot, dst) {
+			return fmt.Errorf("refusing to link outside root: %s -> %s", dst, src)
 		}
 		if err := os.Symlink(src, dst); err != nil {
 			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)
