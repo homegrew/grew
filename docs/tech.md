@@ -32,7 +32,10 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 1. **Discovery & Vulnerability Check**:
    - `grew` queries the GitHub API for the latest stable release.
-   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted. If the OSV query is unreachable, times out, or returns an invalid/error response, the update also aborts (fail-closed) and asks the user to retry once connectivity is restored.
+   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
+   - **Availability Controls**: OSV queries use a bounded timeout and short retry sequence to reduce failures from transient network issues.
+   - **Default Policy (Fail-Closed)**: If OSV remains unreachable, times out, or returns an invalid/error response after retries, the update aborts by default and asks the user to retry once connectivity is restored.
+   - **Manual Override**: For emergency scenarios, users may explicitly bypass the OSV gate via a documented override flag/environment setting. This is opt-in, emits a prominent warning, and should only be used when users accept the risk of updating without live vulnerability intelligence.
 
 2. **Multi-Hop Binary Patching (Delta Update)**:
    - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
