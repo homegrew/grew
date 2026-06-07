@@ -341,7 +341,13 @@ func (m *Manager) List() ([]string, error) {
 			if !repo.IsDir() {
 				continue
 			}
-			repoPath := filepath.Join(m.TapsDir, user.Name(), repo.Name())
+			repoPath, err := safepath.SafeJoin(m.TapsDir, user.Name(), repo.Name())
+			if err != nil {
+				continue
+			}
+			if err := safepath.CheckSubpath(m.TapsDir, repoPath); err != nil {
+				continue
+			}
 			if _, err := os.Stat(filepath.Join(repoPath, ".git")); err == nil {
 				taps = append(taps, fmt.Sprintf("%s/%s", user.Name(), repo.Name()))
 			}
