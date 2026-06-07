@@ -5,6 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+
+	"github.com/homegrew/grew/pkg/downloader"
 )
 
 // VerifyResult holds the outcome of comparing a manifest against the filesystem.
@@ -92,7 +94,7 @@ func Verify(kegPath string) (*VerifyResult, error) {
 		actual512 := ""
 		if entry.SHA256 != "" || entry.SHA512 != "" {
 			var herr error
-			actual256, actual512, herr = hashFile(path)
+			actual256, actual512, herr = downloader.ComputeHashes(path)
 			if herr != nil {
 				result.Errors = append(result.Errors, fmt.Sprintf("hash %s: %v", rel, herr))
 				return nil

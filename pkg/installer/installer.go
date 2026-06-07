@@ -9,14 +9,16 @@ import (
 	"path/filepath"
 	"strings"
 
+	"runtime"
+
 	"github.com/homegrew/grew/pkg/auditlog"
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/release"
-	"github.com/homegrew/grew/pkg/sandbox"
-	verpkg "github.com/homegrew/grew/pkg/version"
 	"github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/sandbox"
 	"github.com/homegrew/grew/pkg/ui"
-	"runtime"
+	verpkg "github.com/homegrew/grew/pkg/version"
 )
 
 var ErrNoGitRepo = errors.New("no git repository found")
@@ -42,7 +44,10 @@ func InstallFromGit(repoURL, repoDir, destBin string, allowClone bool) error {
 		return fmt.Errorf("go not found in PATH")
 	}
 
-	gitDir := filepath.Clean(filepath.Join(cleanRepoDir, ".git"))
+	gitDir, err := safepath.SafeJoin(cleanRepoDir, ".git")
+	if err != nil {
+		return fmt.Errorf("construct git directory path: %w", err)
+	}
 	if _, err := os.Stat(gitDir); err == nil {
 		// Repo exists — pull latest.
 		fmt.Fprintln(os.Stderr, "==> Updating grew source...")
@@ -83,9 +88,19 @@ func InstallFromGit(repoURL, repoDir, destBin string, allowClone bool) error {
 
 // CheckOSVForVersion queries OSV.dev for known vulnerabilities affecting the specified version.
 
-// verifyBinaryIntegrity runs a basic check on the binary.
+// VerifyBinaryIntegrity runs a basic check on the binary.
 func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
-	cmd := exec.Command(binPath, "version")
+	if err := safepath.SafeAbsolutePath(binPath); err != nil {
+		return fmt.Errorf("invalid binary path: %w", err)
+	}
+	info, err := os.Stat(binPath)
+	if err != nil {
+		return fmt.Errorf("binary does not exist: %w", err)
+	}
+	if !info.Mode().IsRegular() {
+		return fmt.Errorf("binary is not a regular file")
+	}
+	cmd := exec.Command(binPath, "--", "version")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to execute binary check: %w\noutput: %s", err, string(out))
@@ -103,16 +118,9 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	return nil
 }
 
-func fileHashes(path string) (string, string, error) {
-	sha256Hash, err := release.FileSHA256(path)
-	if err != nil {
-		return "", "", err
-	}
-	sha512Hash, err := release.FileSHA512(path)
-	if err != nil {
-		return "", "", err
-	}
-	return sha256Hash, sha512Hash, nil
+// FileHashes returns the hex-encoded SHA256 and SHA512 hashes of a file.
+func FileHashes(path string) (string, string, error) {
+	return downloader.ComputeHashes(path)
 }
 
 func InstallLatestRelease(exePath string, rel *release.Release) error {
@@ -128,6 +136,9 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	assetName := release.AssetName()
 	slog.Debug("asset name: " + assetName)
+	if err := safepath.SafePathComponent(assetName); err != nil {
+		return fmt.Errorf("invalid asset name %q: %w", assetName, err)
+	}
 
 	assetURL, err := release.FindAssetURL(rel, assetName)
 	if err != nil {
@@ -201,13 +212,12 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		if err := safepath.CheckSubpath(expectedTmpDir, cleanedTmpFile); err != nil {
 			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside expected temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
 			return fmt.Errorf("temporary file %q escaped expected temporary directory: %w", cleanedTmpFile, err)
-		} else {
-			defer os.Remove(cleanedTmpFile)
 		}
+		defer os.Remove(cleanedTmpFile)
 	}
 
 	// Verify all available hashes.
-	sha256Actual, sha512Actual, err := fileHashes(tmpFile)
+	sha256Actual, sha512Actual, err := FileHashes(tmpFile)
 	if err != nil {
 		return fmt.Errorf("hash downloaded file: %w", err)
 	}
@@ -297,33 +307,6 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 	return nil
-}
-
-func ensurePathWithinBase(base, target string) (string, error) {
-	baseAbs, err := filepath.Abs(filepath.Clean(base))
-	if err != nil {
-		return "", fmt.Errorf("resolve base path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(baseAbs); err != nil {
-		return "", fmt.Errorf("invalid base path %q: %w", baseAbs, err)
-	}
-
-	targetAbs, err := filepath.Abs(filepath.Clean(target))
-	if err != nil {
-		return "", fmt.Errorf("resolve target path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(targetAbs); err != nil {
-		return "", fmt.Errorf("invalid target path %q: %w", targetAbs, err)
-	}
-
-	rel, err := filepath.Rel(baseAbs, targetAbs)
-	if err != nil {
-		return "", fmt.Errorf("compute relative path: %w", err)
-	}
-	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return "", fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
-	}
-	return targetAbs, nil
 }
 
 type OSVResult struct {

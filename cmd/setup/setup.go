@@ -3,25 +3,23 @@ package setup
 import (
 	"errors"
 	"fmt"
-	"io"
 	"log/slog"
 	"os"
 	"os/exec"
 	"os/user"
 	"path/filepath"
 	"regexp"
-	"strings"
 
 	"github.com/homegrew/grew/pkg/cache"
-	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/downloader"
+	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/release"
 	grewrt "github.com/homegrew/grew/pkg/runtime"
-	"github.com/homegrew/grew/pkg/sudo"
-	verpkg "github.com/homegrew/grew/pkg/version"
 	pathutil "github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/sudo"
 	"github.com/homegrew/grew/pkg/ui"
+	verpkg "github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
 
@@ -92,7 +90,7 @@ Examples:
 		if prefix == grewrt.SystemPrefix() {
 			return setupSystem(prefix)
 		}
-		
+
 		// Otherwise (e.g. user prefix via --unsafe), just finish setup.
 		return setupUser(prefix)
 	},
@@ -190,12 +188,11 @@ func setupSystem(prefix string) error {
 		return fmt.Errorf("lookup user: %w", err)
 	}
 
-	pg := primaryGroup(u)
-	if !validIdentity(u.Username) || !validIdentity(pg) {
-		return fmt.Errorf("invalid username or group name: %q, %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username, pg)
+	if !validIdentity(u.Username) {
+		return fmt.Errorf("invalid username: %q (must contain only letters, digits, underscore, dot, or hyphen)", u.Username)
 	}
 
-	userGroup := strings.Join([]string{u.Username, pg}, ":")
+	userGroup := fmt.Sprintf("%s:admin", u.Username)
 	ui.FprintArrow(os.Stderr, "Setting up grew at %s (system prefix)", prefix)
 	ui.FprintArrow(os.Stderr, "Ownership will be transferred to %s", u.Username)
 	fmt.Println()
@@ -398,29 +395,6 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 
 	ui.FprintArrow(os.Stderr, "Built and installed grew to %s", destBin)
 	return nil
-}
-
-func copyFile(src, dst string) error {
-	if err := pathutil.SafeAbsolutePath(dst); err != nil {
-		return fmt.Errorf("invalid destination path: %w", err)
-	}
-
-	srcFile, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-	defer srcFile.Close()
-
-	dstFile, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0755)
-	if err != nil {
-		return err
-	}
-
-	_, err = io.Copy(dstFile, srcFile)
-	if cerr := dstFile.Close(); err == nil {
-		err = cerr
-	}
-	return err
 }
 
 // defaultAppDir returns the appropriate Applications directory.

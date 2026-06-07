@@ -8,9 +8,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/homegrew/grew/pkg/context"
-
 	"github.com/homegrew/grew/pkg/cellar"
+	"github.com/homegrew/grew/pkg/context"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
@@ -239,6 +239,9 @@ func reversePackages(packages []cellar.InstalledPackage) {
 }
 
 func kegModTime(path string) time.Time {
+	if err := safepath.SafeAbsolutePath(path); err != nil {
+		return time.Time{}
+	}
 	info, err := os.Stat(path)
 	if err != nil {
 		return time.Time{}

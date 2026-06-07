@@ -1,11 +1,14 @@
 package tap
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 )
 
@@ -20,6 +23,10 @@ type Manager struct {
 func cleanDir(dir string) (string, error) {
 	if dir == "" {
 		return "", fmt.Errorf("empty path")
+	}
+	// Reject traversal before resolving to absolute (go/path-injection).
+	if _, err := safepath.CleanPath(dir); err != nil {
+		return "", fmt.Errorf("invalid directory path: %w", err)
 	}
 	abs, err := filepath.Abs(dir)
 	if err != nil {
@@ -94,7 +101,7 @@ func (m *Manager) InitCask() error {
 }
 
 // Update pulls the latest definitions for ALL installed taps.
-// Returns the number of taps updated and the total number of formulas found.
+// Returns the number of taps updated and the total number of packages (formulas and casks) found.
 func (m *Manager) Update() (int, int, error) {
 	if err := m.EnsureCloned(); err != nil {
 		return 0, 0, err
@@ -154,22 +161,48 @@ func (m *Manager) Update() (int, int, error) {
 
 			tapsCount++
 
-			// Count formulas in this tap
+			// Count formulas and casks in this tap (recursively)
 			for _, sub := range []string{"", "core", "Formula", "cask", "Casks"} {
 				dir := filepath.Join(repoPath, sub)
-				entries, err := os.ReadDir(dir)
-				if err != nil {
-					continue
-				}
-				for _, e := range entries {
-					if !e.IsDir() && strings.HasSuffix(e.Name(), ".yaml") {
-						totalCount++
-					}
-				}
+				countPackagesRecursive(dir, &totalCount)
 			}
 		}
 	}
 	return tapsCount, totalCount, nil
+}
+
+func (m *Manager) safeTapRepoPath(user, repo string) (string, error) {
+	if user == "" || repo == "" {
+		return "", errors.New("tap path components must be non-empty")
+	}
+	if strings.Contains(user, string(os.PathSeparator)) || strings.Contains(repo, string(os.PathSeparator)) {
+		return "", errors.New("tap path components must not contain path separators")
+	}
+	if user == "." || user == ".." || repo == "." || repo == ".." {
+		return "", errors.New("tap path components must not be dot segments")
+	}
+
+	baseAbs, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return "", fmt.Errorf("resolve taps dir: %w", err)
+	}
+	baseAbs = filepath.Clean(baseAbs)
+
+	targetAbs, err := filepath.Abs(filepath.Join(baseAbs, user, repo))
+	if err != nil {
+		return "", fmt.Errorf("resolve tap path: %w", err)
+	}
+	targetAbs = filepath.Clean(targetAbs)
+
+	rel, err := filepath.Rel(baseAbs, targetAbs)
+	if err != nil {
+		return "", fmt.Errorf("verify tap path: %w", err)
+	}
+	if rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
+		return "", fmt.Errorf("refusing path outside taps dir: %q", targetAbs)
+	}
+
+	return targetAbs, nil
 }
 
 // Add clones a new tap. name should be in "user/repo" format.
@@ -185,7 +218,10 @@ func (m *Manager) Add(name, customURL string) error {
 		url = fmt.Sprintf("https://github.com/%s/homegrew-%s.git", user, repo)
 	}
 
-	repoPath := filepath.Join(m.TapsDir, user, repo)
+	repoPath, err := m.safeTapRepoPath(user, repo)
+	if err != nil {
+		return fmt.Errorf("invalid tap path: %w", err)
+	}
 	if _, err := os.Stat(repoPath); err == nil {
 		return fmt.Errorf("tap %s is already installed", name)
 	}
@@ -217,7 +253,10 @@ func (m *Manager) Remove(name string) error {
 	}
 	user, repo := parts[0], parts[1]
 
-	repoPath := filepath.Join(m.TapsDir, user, repo)
+	repoPath, err := m.safeTapRepoPath(user, repo)
+	if err != nil {
+		return fmt.Errorf("invalid tap path: %w", err)
+	}
 	if _, err := os.Stat(repoPath); os.IsNotExist(err) {
 		return fmt.Errorf("tap %s is not installed", name)
 	}
@@ -256,4 +295,22 @@ func (m *Manager) List() ([]string, error) {
 		}
 	}
 	return taps, nil
+}
+
+// countPackagesRecursive counts YAML/YML files recursively in a directory.
+func countPackagesRecursive(dir string, count *int) {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		name := e.Name()
+		if !e.IsDir() {
+			if strings.HasSuffix(name, ".yaml") || strings.HasSuffix(name, ".yml") {
+				*count++
+			}
+		} else {
+			countPackagesRecursive(filepath.Join(dir, name), count)
+		}
+	}
 }

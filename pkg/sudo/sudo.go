@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // The AppleScript payload used to prompt for a password.
@@ -26,9 +28,22 @@ func RunSudoCmd(executable string, args ...string) error {
 		return fmt.Errorf("no executable provided")
 	}
 
+	if err := safepath.SafeAbsolutePath(executable); err != nil {
+		return fmt.Errorf("invalid executable path: %w", err)
+	}
+
+	info, err := os.Stat(executable)
+	if err != nil {
+		return fmt.Errorf("executable does not exist: %w", err)
+	}
+	if !info.Mode().IsRegular() {
+		return fmt.Errorf("executable is not a regular file")
+	}
+
+	sudoPath := "/usr/bin/sudo"
 	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
-	cmd := exec.Command("sudo", cmdArgs...)
+	cmd := exec.Command(sudoPath, cmdArgs...)
 
 	// Pass through stdout/stderr
 	cmd.Stdout = os.Stdout
@@ -37,7 +52,7 @@ func RunSudoCmd(executable string, args ...string) error {
 	// Create the temporary askpass script
 	tmpDir := os.TempDir()
 	scriptPath := filepath.Join(tmpDir, "grew_askpass")
-	
+
 	if err := os.WriteFile(scriptPath, []byte(askPassScript), 0700); err != nil {
 		return fmt.Errorf("failed to write askpass script: %w", err)
 	}

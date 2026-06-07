@@ -160,7 +160,7 @@ func (d *Downloader) DownloadBytes(rawURL string) ([]byte, error) {
 		URL:    safe,
 		Header: make(http.Header),
 	}
-	
+
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("download %s: %w", rawURL, err)
@@ -342,7 +342,7 @@ func (d *Downloader) downloadToTmp(safeURL *url.URL, filename string) (string, e
 	}
 
 	written, err := io.Copy(tmpFile, bodyReader)
-	
+
 	if err != nil {
 		_ = tmpFile.Close()
 		_ = os.Remove(tmpFilePath)
@@ -419,22 +419,32 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	return safe, nil
 }
 
-func computeHash(path string, h hash.Hash, algoName string) (string, error) {
-	clean := filepath.Clean(path)
-	if clean == "." || clean == "" {
-		return "", fmt.Errorf("invalid path for hashing")
+// openForHashing validates path and opens the file for reading. It rejects
+// path traversal ("..") so a user-influenced path cannot escape to an
+// unexpected location (go/path-injection).
+func openForHashing(path string) (*os.File, error) {
+	clean, err := safepath.CleanPath(path)
+	if err != nil {
+		return nil, fmt.Errorf("invalid path for hashing: %w", err)
 	}
 	if !filepath.IsAbs(clean) {
 		abs, err := filepath.Abs(clean)
 		if err != nil {
-			return "", fmt.Errorf("invalid path for hashing")
+			return nil, fmt.Errorf("invalid path for hashing")
 		}
 		clean = abs
 	}
-
 	f, err := os.Open(clean)
 	if err != nil {
-		return "", fmt.Errorf("open for hashing: %w", err)
+		return nil, fmt.Errorf("open for hashing: %w", err)
+	}
+	return f, nil
+}
+
+func computeHash(path string, h hash.Hash, algoName string) (string, error) {
+	f, err := openForHashing(path)
+	if err != nil {
+		return "", err
 	}
 	defer f.Close()
 
@@ -452,6 +462,23 @@ func ComputeSHA256(path string) (string, error) {
 // ComputeSHA512 returns the hex-encoded SHA512 hash of a file.
 func ComputeSHA512(path string) (string, error) {
 	return computeHash(path, sha512.New(), "SHA512")
+}
+
+// ComputeHashes returns the hex-encoded SHA256 and SHA512 hashes of a file,
+// reading it only once.
+func ComputeHashes(path string) (sha256Hash, sha512Hash string, err error) {
+	f, err := openForHashing(path)
+	if err != nil {
+		return "", "", err
+	}
+	defer f.Close()
+
+	h256 := sha256.New()
+	h512 := sha512.New()
+	if _, err := io.Copy(io.MultiWriter(h256, h512), f); err != nil {
+		return "", "", fmt.Errorf("compute hashes: %w", err)
+	}
+	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil)), nil
 }
 
 // ComputeSHA256Within returns the SHA256 of path after ensuring it stays within baseDir.

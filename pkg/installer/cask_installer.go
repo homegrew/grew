@@ -96,7 +96,7 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	ui.FprintArrow(os.Stderr, "Extracting (sandboxed)")
 	if err := SandboxedExtract(localFile, stageDir, formula.InstallSpec{Type: "archive"}); err != nil {
 		os.RemoveAll(stageDir)
-		os.Remove(localFile)
+		_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
 		return fmt.Errorf("extract %s: %w", c.Name, err)
 	}
 	slog.Info("extracted to staging: " + stageDir)

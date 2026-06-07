@@ -426,7 +426,7 @@ artifacts:
 		if err != nil {
 			t.Fatalf("LoadAll failed: %v", err)
 		}
-		if len(casks) != 1 {
+		if len(casks) != 2 {
 			t.Errorf("expected 1 cask, got %d", len(casks))
 		}
 	})

@@ -5,10 +5,11 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
-	"io"
 	"os"
 	"path/filepath"
 	"sort"
+
+	"github.com/homegrew/grew/pkg/downloader"
 )
 
 // Capture walks the keg directory and builds a complete manifest.
@@ -61,7 +62,7 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 		}
 
 		// Hash regular file.
-		h256, h512, err := hashFile(path)
+		h256, h512, err := downloader.ComputeHashes(path)
 		if err != nil {
 			return fmt.Errorf("hash %s: %w", rel, err)
 		}
@@ -94,23 +95,6 @@ func Capture(name, version, kegPath string, meta InstallMeta) (*Manifest, error)
 		BuiltFromSource:    meta.BuiltFromSource,
 	}
 	return m, nil
-}
-
-func hashFile(path string) (sha256Hash, sha512Hash string, err error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return "", "", err
-	}
-	defer f.Close()
-
-	h256 := sha256.New()
-	h512 := sha512.New()
-	mw := io.MultiWriter(h256, h512)
-
-	if _, err := io.Copy(mw, f); err != nil {
-		return "", "", err
-	}
-	return hex.EncodeToString(h256.Sum(nil)), hex.EncodeToString(h512.Sum(nil)), nil
 }
 
 func aggregateHashes(files []FileEntry) (sha256Hash, sha512Hash string) {

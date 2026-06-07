@@ -189,6 +189,12 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `deps` | Dependency spelunking |
 | `alias` | Name things your way |
 | `audit` | Lint formula/cask definitions for quality and security |
+| `create <url>` | Scaffold a new formula from a URL (infers name, version, and SHA256) |
+| `homepage <formula>` | Open a formula or cask's homepage in the default browser |
+| `uses <formula>` | Show installed formulae that depend on the specified formula |
+| `tap <user/repo>` | Add a formula repository |
+| `untap <user/repo>` | Remove a tapped formula repository |
+| `linkage <formula>` | Inspect dynamic library dependencies for an installed formula |
 | `lock` | Generate, check, or show a reproducible lockfile |
 | `verify` | Check installed packages against their snapshot manifests |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
@@ -278,7 +284,7 @@ grew/
 │   ├── downloader/   ← HTTP download + SHA256/512 + archive extraction
 │   ├── flags/        ← global CLI flags (-v, -d, -q)
 │   ├── formula/      ← formula parsing and dependency gathering
-│   ├── fsutil/       ← filesystem utilities (DiskUsage, PruneEmptyDirs, Lock)
+│   ├── fsutil/       ← atomic file writes, safe tree copies, advisory locking, mode sanitization
 │   ├── homebrew/     ← Homebrew JSON API client and compatibility logic
 │   ├── installer/    ← core installation logic (formula, cask, self-update)
 │   ├── linkage/      ← dynamic library linkage analysis
@@ -295,16 +301,14 @@ grew/
 │   ├── signing/      ← Ed25519 bottle signing + trust store
 │   ├── sudo/         ← secure privilege escalation handling
 │   ├── tap/          ← tap repo management + commit verification
-│   └── version/      ← embedded version and helpers
-├── pkg/
 │   ├── config/       ← prefix and path resolution
 │   ├── context/      ← unified execution context (Context, InstallContext)
 │   ├── doctor/       ← diagnostic engine and checks
 │   ├── logger/       ← CLI-friendly log/slog handler with source context
-│   ├── safepath/     ← safe path manipulation and normalization
+│   ├── safepath/     ← path traversal and Zip Slip protection (SafeJoin, CleanPath, etc.)
 │   ├── snapshot/     ← per-file manifest capture + integrity verification
-│   ├── ui/           ← zero-dependency ANSI color and TTY detection
-│   └── validation/   ← name/version/SHA256/path validation
+│   ├── validation/   ← name/version/SHA256/path validation
+│   └── version/      ← embedded version and helpers
 ├── tests/
 │   ├── integration/  ← command-level integration tests
 │   ├── smoke/        ← quick health checks

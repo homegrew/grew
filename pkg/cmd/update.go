@@ -43,6 +43,6 @@ func RunUpdate(args []string) error {
 		auditlog.New(paths.Log).Log(auditlog.ActionUpdate, "all", "", "", fmt.Sprintf("updated %d taps, %d formulas found", tapsCount, formulaCount))
 	}
 
-	ui.FprintArrow(os.Stderr, "Updated %d taps (%d formulas found)", tapsCount, formulaCount)
+	ui.FprintArrow(os.Stderr, "Updated %d taps (%d packages found)", tapsCount, formulaCount)
 	return nil
 }

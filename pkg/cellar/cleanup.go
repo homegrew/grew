@@ -114,13 +114,15 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 	// 5. Clean download cache (Cache directory).
 	if downloadsRoot != "" {
 		if _, err := os.Stat(downloadsRoot); err == nil {
-			tmpEntries, err := os.ReadDir(downloadsRoot)
-			if err == nil {
+			// Re-validate downloads root before reading directory to prevent TOCTOU attacks
+			if err := safepath.SafeAbsolutePath(downloadsRoot); err != nil {
+				slog.Warn(fmt.Sprintf("downloads dir is no longer safe: %v", err))
+			} else if tmpEntries, err := os.ReadDir(downloadsRoot); err == nil {
 				for _, e := range tmpEntries {
 					name := e.Name()
-					path := filepath.Join(downloadsRoot, name)
-					if !isWithinBasePath(downloadsRoot, path) {
-						slog.Warn(fmt.Sprintf("skipping cache entry outside downloads dir: %q", path))
+					path, err := safepath.SafeJoin(downloadsRoot, name)
+					if err != nil {
+						slog.Warn(fmt.Sprintf("skipping cache entry outside downloads dir: %q", name))
 						continue
 					}
 
@@ -153,6 +155,11 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 						fmt.Printf("Would remove: %s (%s)\n", path, fsutil.FormatSize(size))
 					} else {
 						slog.Debug("removing cached file " + name)
+						// Re-validate path stays within downloadsRoot before removal to prevent TOCTOU attacks
+						if err := safepath.CheckSubpath(downloadsRoot, path); err != nil {
+							slog.Warn(fmt.Sprintf("refusing to remove file outside downloads dir: %q", path))
+							continue
+						}
 						if err := os.RemoveAll(path); err != nil {
 							slog.Warn(fmt.Sprintf("could not remove %s: %v", path, err))
 						} else {
@@ -175,35 +182,6 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 	}
 
 	return totalBytes, nil
-}
-
-func isWithinBasePath(basePath, targetPath string) bool {
-	baseAbs, err := filepath.Abs(basePath)
-	if err != nil {
-		return false
-	}
-	baseAbs = filepath.Clean(baseAbs)
-
-	targetAbs, err := filepath.Abs(targetPath)
-	if err != nil {
-		return false
-	}
-	targetAbs = filepath.Clean(targetAbs)
-
-	rel, err := filepath.Rel(baseAbs, targetAbs)
-	if err != nil {
-		return false
-	}
-	if rel == "." {
-		return true
-	}
-	if rel == ".." {
-		return false
-	}
-	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
-		return false
-	}
-	return true
 }
 
 // BelongsToTargets reports whether the filename seems to belong to any of the target formula names.
