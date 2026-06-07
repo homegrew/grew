@@ -123,6 +123,9 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	assetName := release.AssetName()
 	slog.Debug("asset name: " + assetName)
+	if err := safepath.SafePathComponent(assetName); err != nil {
+		return fmt.Errorf("invalid asset name %q: %w", assetName, err)
+	}
 
 	assetURL, err := release.FindAssetURL(rel, assetName)
 	if err != nil {
