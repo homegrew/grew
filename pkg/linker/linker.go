@@ -184,16 +184,30 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 // destIsDir returns true if destPath is a real directory or a symlink that
 // points to a directory inside the configured root.
 func destIsDir(root, destPath string) bool {
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		return false
+	}
+	absRoot = filepath.Clean(absRoot)
+
 	absDest, err := filepath.Abs(destPath)
 	if err != nil {
 		return false
 	}
 	absDest = filepath.Clean(absDest)
-	if !isWithinRoot(root, absDest) {
+	if !isWithinRoot(absRoot, absDest) {
 		return false
 	}
 
-	fi, err := os.Stat(absDest) // follows symlinks
+	resolvedDest := absDest
+	if eval, err := filepath.EvalSymlinks(absDest); err == nil {
+		resolvedDest = filepath.Clean(eval)
+		if !isWithinRoot(absRoot, resolvedDest) {
+			return false
+		}
+	}
+
+	fi, err := os.Stat(resolvedDest) // follows symlinks, but target is constrained to absRoot
 	return err == nil && fi.IsDir()
 }
 
