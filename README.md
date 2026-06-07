@@ -165,9 +165,10 @@ grew cache                   # show download cache
 grew cache jq                # show cache path for jq
 grew cache --os=darwin jq    # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
-grew missing                 # check every installed keg for missing runtime deps
-grew missing jq              # check a single formula's dependency chain
-grew missing --hide=openssl@3 # check as if openssl@3 were not installed
+grew missing                              # check every installed keg for missing runtime deps
+grew missing jq                           # check a single formula's dependency chain
+grew missing --hide=openssl@3             # check as if openssl@3 were not installed
+grew missing --hide=openssl@3,readline    # hide multiple formulae (comma-separated)
 ```
 
 ---
