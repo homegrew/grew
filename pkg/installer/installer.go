@@ -247,7 +247,10 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 		return fmt.Errorf("create health check tmpdir: %w", err)
 	}
 	defer os.RemoveAll(healthDir)
-	healthBin := filepath.Join(healthDir, "grew")
+	healthBin, err := safepath.SafeJoin(healthDir, "grew")
+	if err != nil {
+		return fmt.Errorf("construct health binary path: %w", err)
+	}
 	if err := os.WriteFile(healthBin, bin, 0755); err != nil {
 		return fmt.Errorf("write health check binary: %w", err)
 	}

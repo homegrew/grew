@@ -212,8 +212,17 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 	}
 
 	for _, e := range entries {
-		srcPath := filepath.Join(srcDir, e.Name())
-		destPath := filepath.Join(destDir, e.Name())
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
+			return fmt.Errorf("unsafe entry name %q: %w", e.Name(), err)
+		}
+		srcPath, err := safepath.SafeJoin(srcDir, e.Name())
+		if err != nil {
+			return fmt.Errorf("unsafe src path: %w", err)
+		}
+		destPath, err := safepath.SafeJoin(destDir, e.Name())
+		if err != nil {
+			return fmt.Errorf("unsafe dest path: %w", err)
+		}
 
 		// grew does not install info files or manpages
 		if strings.HasSuffix(srcDir, "/share") || strings.HasSuffix(srcDir, "/share/") {
@@ -349,12 +358,19 @@ func unsymDir(symlinkPath, root string) error {
 		return err
 	}
 	if !filepath.IsAbs(target) {
-		target = filepath.Join(filepath.Dir(absSymlinkPath), target)
-	}
-	if absTarget, err := filepath.Abs(target); err == nil {
-		target = filepath.Clean(absTarget)
+		absDir := filepath.Dir(absSymlinkPath)
+		var joined string
+		joined, err = safepath.SafeJoin(absDir, target)
+		if err != nil {
+			return fmt.Errorf("unsafe relative symlink target: %w", err)
+		}
+		target = joined
 	} else {
 		target = filepath.Clean(target)
+	}
+
+	if absTarget, err := filepath.Abs(target); err == nil {
+		target = filepath.Clean(absTarget)
 	}
 
 	if !isWithinRoot(absRoot, target) {
@@ -385,8 +401,14 @@ func unsymDir(symlinkPath, root string) error {
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			return fmt.Errorf("unsafe entry name %q in shared dir: %w", e.Name(), err)
 		}
-		src := filepath.Join(target, e.Name())
-		dst := filepath.Join(absSymlinkPath, e.Name())
+		src, err := safepath.SafeJoin(target, e.Name())
+		if err != nil {
+			return fmt.Errorf("unsafe src path in shared dir: %w", err)
+		}
+		dst, err := safepath.SafeJoin(absSymlinkPath, e.Name())
+		if err != nil {
+			return fmt.Errorf("unsafe dst path in shared dir: %w", err)
+		}
 		if err := os.Symlink(src, dst); err != nil {
 			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)
 		}
