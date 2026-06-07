@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/lockfile"
+	"github.com/homegrew/grew/pkg/lockfile"
 	"github.com/spf13/cobra"
 )
 

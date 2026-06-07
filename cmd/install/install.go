@@ -1,17 +1,17 @@
 package install
 
 import (
-	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"
 	"os"
 	"strings"
 
-	"github.com/homegrew/grew/internal/depgraph"
-	"github.com/homegrew/grew/internal/downloader"
-	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/depgraph"
+	"github.com/homegrew/grew/pkg/downloader"
+	"github.com/homegrew/grew/pkg/flags"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"

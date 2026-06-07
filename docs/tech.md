@@ -103,7 +103,7 @@ However, requiring `sudo` is a major friction point for local development, testi
 Devmode is a combination of a compile-time build tag and a runtime CLI flag that enables user-local, rootless installations.
 
 **How it works:**
-1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `internal/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
+1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `pkg/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
@@ -149,12 +149,12 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 - **Isolation:** Each command manages its own flags and dependencies, reducing the risk of unintended side effects and global state pollution.
 - **Unified Context:** All commands utilize a centralized execution context defined in `pkg/context`. This package provides the `Context` (for read-only operations) and `InstallContext` (for destructive operations, including global locking) types, ensuring consistent environment resolution.
 - **Decoupled Logic:** Core management logic is separated from CLI orchestration. High-level commands in `cmd/` delegate complex operations to dedicated packages:
-    - `internal/installer`: Handles formula, cask, and self-update routines.
-    - `internal/cellar`: Manages installed packages and disk cleanup.
-    - `internal/formula` & `internal/cask`: Handle definition parsing and metadata.
+    - `pkg/installer`: Handles formula, cask, and self-update routines.
+    - `pkg/cellar`: Manages installed packages and disk cleanup.
+    - `pkg/formula` & `pkg/cask`: Handle definition parsing and metadata.
 - **Testability:** Standalone packages enable targeted unit testing and mocking without pulling in the entire CLI surface area.
 
-The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `internal/cli` package to import these standalone packages and register them into the primary `Grew` root command.
+The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `pkg/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 
 ## 9. Execution Context (`pkg/context`)
 

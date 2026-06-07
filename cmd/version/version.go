@@ -3,7 +3,7 @@ package version
 import (
 	"fmt"
 
-	intver "github.com/homegrew/grew/internal/version"
+	intver "github.com/homegrew/grew/pkg/version"
 	"github.com/spf13/cobra"
 )
 

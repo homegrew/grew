@@ -20,7 +20,7 @@ When adding a new subcommand:
 3.  Export the cobra command as `Command`.
 4.  Add a `doc.go` file with a package-level comment describing the command.
 5.  Import the new package in `root.go` and add `Grew.AddCommand(<package>.Command)`.
-6.  Centralize any reusable logic in `internal/cmd/` or other appropriate `internal/` packages.
+6.  Centralize any reusable logic in `pkg/cmd/` or other appropriate `pkg/` packages.
 
 ## List of Commands
 
@@ -60,6 +60,7 @@ When adding a new subcommand:
 | [untap](./untap) | Remove a tapped repository |
 | [update](./update) | Refresh tap definitions |
 | [upgrade](./upgrade) | Get the new hotness |
+| [uses](./uses) | Show which installed formulae depend on a formula |
 | [verify](./verify) | Check installed packages against their snapshot manifests |
 | [version](./version) | Print version and exit |
 | [vulnscan](./vulnscan) | Scan installed packages for security vulnerabilities |

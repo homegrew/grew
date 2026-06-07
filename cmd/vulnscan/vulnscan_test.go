@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/homegrew/grew/internal/cellar"
+	"github.com/homegrew/grew/pkg/cellar"
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/snapshot"
 )
 

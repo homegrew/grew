@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/homegrew/grew/internal/cask"
+	"github.com/homegrew/grew/pkg/cask"
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/spf13/cobra"
 )

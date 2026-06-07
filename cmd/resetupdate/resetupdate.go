@@ -9,8 +9,8 @@ import (
 
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/context"
-	"github.com/homegrew/grew/internal/runtime"
-	"github.com/homegrew/grew/internal/tap"
+	"github.com/homegrew/grew/pkg/runtime"
+	"github.com/homegrew/grew/pkg/tap"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
 )

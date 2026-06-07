@@ -1,7 +1,7 @@
 package cleanup
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
+	"github.com/homegrew/grew/pkg/cmd"
 	"github.com/spf13/cobra"
 )
 

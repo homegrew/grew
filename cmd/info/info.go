@@ -1,7 +1,7 @@
 package info
 
 import (
-	"github.com/homegrew/grew/internal/cask"
+	"github.com/homegrew/grew/pkg/cask"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/homegrew/grew/internal/fsutil"
-	"github.com/homegrew/grew/internal/linker"
-	"github.com/homegrew/grew/internal/receipt"
+	"github.com/homegrew/grew/pkg/fsutil"
+	"github.com/homegrew/grew/pkg/linker"
+	"github.com/homegrew/grew/pkg/receipt"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/context"
 )

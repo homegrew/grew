@@ -1,7 +1,7 @@
 package reinstall
 
 import (
-	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"

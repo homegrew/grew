@@ -1,16 +1,16 @@
 package upgrade
 
 import (
-	"github.com/homegrew/grew/internal/cmd"
-	"github.com/homegrew/grew/internal/installer"
+	"github.com/homegrew/grew/pkg/cmd"
+	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"
 	"os"
 
-	"github.com/homegrew/grew/internal/auditlog"
-	"github.com/homegrew/grew/internal/flags"
-	"github.com/homegrew/grew/internal/formula"
+	"github.com/homegrew/grew/pkg/auditlog"
+	"github.com/homegrew/grew/pkg/flags"
+	"github.com/homegrew/grew/pkg/formula"
 	"github.com/spf13/cobra"
 	"github.com/homegrew/grew/pkg/ui"
 )
