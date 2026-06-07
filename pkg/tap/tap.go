@@ -304,13 +304,13 @@ func countPackagesRecursive(dir string, count *int) {
 		return
 	}
 	for _, e := range entries {
+		name := e.Name()
 		if !e.IsDir() {
-			name := e.Name()
 			if strings.HasSuffix(name, ".yaml") || strings.HasSuffix(name, ".yml") {
 				*count++
 			}
 		} else {
-			countPackagesRecursive(filepath.Join(dir, e.Name()), count)
+			countPackagesRecursive(filepath.Join(dir, name), count)
 		}
 	}
 }

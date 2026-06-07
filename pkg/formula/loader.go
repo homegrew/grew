@@ -258,18 +258,18 @@ func (l *Loader) loadFormulasRecursive(dir, tapDir string, formulas *[]*Formula,
 		return
 	}
 	for _, e := range entries {
-		if e.IsDir() {
-			l.loadFormulasRecursive(filepath.Join(dir, e.Name()), tapDir, formulas, seen)
+		name := e.Name()
+		if err := safepath.SafePathComponent(name); err != nil {
 			continue
 		}
-		name := e.Name()
+		if e.IsDir() {
+			l.loadFormulasRecursive(filepath.Join(dir, name), tapDir, formulas, seen)
+			continue
+		}
 		if !strings.HasSuffix(name, ".yaml") && !strings.HasSuffix(name, ".yml") {
 			continue
 		}
 		if seen[name] {
-			continue
-		}
-		if err := safepath.SafePathComponent(name); err != nil {
 			continue
 		}
 		f, err := l.loadFromFile(filepath.Join(dir, name))

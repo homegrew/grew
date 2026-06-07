@@ -348,15 +348,15 @@ func (l *Loader) loadCasksRecursive(dir string, casks *[]*Cask) {
 		return
 	}
 	for _, e := range entries {
-		if e.IsDir() {
-			l.loadCasksRecursive(filepath.Join(dir, e.Name()), casks)
-			continue
-		}
 		name := e.Name()
-		if !strings.HasSuffix(name, ".yaml") && !strings.HasSuffix(name, ".yml") {
+		if err := safepath.SafePathComponent(name); err != nil {
 			continue
 		}
-		if err := safepath.SafePathComponent(name); err != nil {
+		if e.IsDir() {
+			l.loadCasksRecursive(filepath.Join(dir, name), casks)
+			continue
+		}
+		if !strings.HasSuffix(name, ".yaml") && !strings.HasSuffix(name, ".yml") {
 			continue
 		}
 		c, err := l.loadFromFileWithPath(filepath.Join(dir, name))
