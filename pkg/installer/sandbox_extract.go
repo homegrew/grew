@@ -78,7 +78,7 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	slog.Debug("sandboxed extract", "executable", exe, "command", "_extract", "sandbox_dir", stageDir)
 
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("sandboxed extraction failed: %w", err)
+		return fmt.Errorf("sandboxed extraction failed for archive %q into stage dir %q: %w", archivePath, stageDir, err)
 	}
 	return nil
 }
