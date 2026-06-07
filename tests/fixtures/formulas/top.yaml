@@ -1,0 +1,19 @@
+name: top
+version: "3.0.0"
+description: "Top formula depending on mid and leaf (diamond)"
+homepage: "https://example.com/top"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/top-3.0.0-darwin-arm64.tar.gz"
+  linux_amd64: "https://example.com/top-3.0.0-linux-amd64.tar.gz"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  linux_amd64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: top
+dependencies:
+  - mid
+  - leaf
+test_hook: run-top-tests
+caveats: "Top package installed. Transitively depends on both mid and leaf."
