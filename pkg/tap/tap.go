@@ -7,6 +7,8 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 )
 
@@ -21,6 +23,10 @@ type Manager struct {
 func cleanDir(dir string) (string, error) {
 	if dir == "" {
 		return "", fmt.Errorf("empty path")
+	}
+	// Reject traversal before resolving to absolute (go/path-injection).
+	if _, err := safepath.CleanPath(dir); err != nil {
+		return "", fmt.Errorf("invalid directory path: %w", err)
 	}
 	abs, err := filepath.Abs(dir)
 	if err != nil {
