@@ -11,6 +11,9 @@ import (
 // validSHA is a valid 64-char hex SHA256 for tests.
 const validSHA = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
+// validSHA512 is a valid 128-char hex SHA512 for tests (the SHA512 of empty input).
+const validSHA512 = "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"
+
 const validYAML = `
 name: testpkg
 version: "1.0.0"
@@ -242,5 +245,120 @@ func TestSortedMapKeys(t *testing.T) {
 	got := sortedMapKeys(m)
 	if got != "a, b, c" {
 		t.Errorf("sortedMapKeys = %q, want %q", got, "a, b, c")
+	}
+}
+
+// A synthetic os/arch keeps these tests host-independent: GetPlatformKey only
+// appends a macOS version suffix when the requested os/arch matches the host,
+// so "plan9"/"ppc64" never gets a version suffix on any CI runner.
+const fbOS, fbArch = "plan9", "ppc64"
+
+func TestNewestVersionKey(t *testing.T) {
+	f := &Formula{
+		Name: "test",
+		Bottle: map[string]BottleSpec{
+			fbOS + "_" + fbArch + "_13": {URL: "https://example.com/v13", SHA256: validSHA},
+			fbOS + "_" + fbArch + "_15": {URL: "https://example.com/v15", SHA256: validSHA},
+			fbOS + "_" + fbArch + "_14": {URL: "https://example.com/v14", SHA256: validSHA},
+		},
+	}
+	key, ok := f.newestVersionKey(fbOS, fbArch)
+	if !ok {
+		t.Fatal("expected a newest version key")
+	}
+	if want := fbOS + "_" + fbArch + "_15"; key != want {
+		t.Errorf("newestVersionKey = %q, want %q", key, want)
+	}
+}
+
+func TestResolveForceBottle_NewestVersionFallback(t *testing.T) {
+	// No exact/generic key for the platform — only versioned keys exist, so
+	// --force-bottle must fall back to the newest macOS version's bottle.
+	f := &Formula{
+		Name: "test",
+		Bottle: map[string]BottleSpec{
+			fbOS + "_" + fbArch + "_13": {URL: "https://example.com/v13", SHA256: validSHA},
+			fbOS + "_" + fbArch + "_15": {URL: "https://example.com/v15", SHA256: validSHA, SHA512: validSHA512},
+		},
+	}
+	url, sha256, sha512, err := f.resolveForceBottle(fbOS, fbArch)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if url != "https://example.com/v15" {
+		t.Errorf("url = %q, want newest (v15)", url)
+	}
+	if sha256 != validSHA {
+		t.Errorf("sha256 = %q, want %q", sha256, validSHA)
+	}
+	if sha512 != validSHA512 {
+		t.Errorf("sha512 = %q, want %q", sha512, validSHA512)
+	}
+}
+
+func TestResolveForceBottle_PrefersGenericKey(t *testing.T) {
+	// When a generic (non-versioned) bottle exists for the platform, normal
+	// selection applies and the newest-version fallback is not used.
+	f := &Formula{
+		Name: "test",
+		Bottle: map[string]BottleSpec{
+			fbOS + "_" + fbArch:        {URL: "https://example.com/generic", SHA256: validSHA},
+			fbOS + "_" + fbArch + "_9": {URL: "https://example.com/v9", SHA256: validSHA},
+		},
+	}
+	url, _, _, err := f.resolveForceBottle(fbOS, fbArch)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if url != "https://example.com/generic" {
+		t.Errorf("url = %q, want generic", url)
+	}
+}
+
+func TestResolveForceBottle_LegacyURLMap(t *testing.T) {
+	// Legacy formulas store bottle URLs in the URL map; force-bottle must still
+	// resolve the newest versioned key from there.
+	f := &Formula{
+		Name: "test",
+		URL: map[string]string{
+			fbOS + "_" + fbArch + "_14": "https://example.com/v14",
+		},
+		SHA256: map[string]string{
+			fbOS + "_" + fbArch + "_14": validSHA,
+		},
+	}
+	url, sha256, _, err := f.resolveForceBottle(fbOS, fbArch)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if url != "https://example.com/v14" {
+		t.Errorf("url = %q, want v14", url)
+	}
+	if sha256 != validSHA {
+		t.Errorf("sha256 = %q, want %q", sha256, validSHA)
+	}
+}
+
+func TestResolveForceBottle_NoBottleErrors(t *testing.T) {
+	// A source-only formula has no bottle: --force-bottle must error rather than
+	// silently building from source.
+	f := &Formula{
+		Name:      "test",
+		SourceURL: "https://example.com/test.tar.gz",
+	}
+	if _, _, _, err := f.resolveForceBottle(fbOS, fbArch); err == nil {
+		t.Fatal("expected error when no bottle is available")
+	}
+}
+
+func TestResolveForceBottle_RejectsHTTP(t *testing.T) {
+	f := &Formula{
+		Name: "test",
+		Bottle: map[string]BottleSpec{
+			fbOS + "_" + fbArch + "_15": {URL: "http://example.com/v15", SHA256: validSHA},
+		},
+	}
+	if _, _, _, err := f.resolveForceBottle(fbOS, fbArch); err == nil {
+		t.Fatal("expected error for insecure HTTP bottle URL")
 	}
 }

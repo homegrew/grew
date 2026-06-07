@@ -5,6 +5,7 @@ import (
 	"os/exec"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -285,6 +286,111 @@ func (f *Formula) GetSHA512ForPlatform(osName, arch string) (string, error) {
 		return "", fmt.Errorf("formula %q: invalid SHA512: %w", f.Name, err)
 	}
 	return s, nil
+}
+
+// newestVersionKey returns the bottle key for the newest macOS version available
+// for the given OS/arch (e.g. the highest N among darwin_arm64_N keys), scanning
+// both the new bottle map and the legacy URL map. This backs --force-bottle's
+// "newest version of macOS" fallback. Returns ("", false) if no versioned key
+// exists for this OS/arch.
+func (f *Formula) newestVersionKey(osName, arch string) (string, bool) {
+	prefix := osName + "_" + arch + "_"
+	best := -1
+	bestKey := ""
+	consider := func(key string) {
+		if !strings.HasPrefix(key, prefix) {
+			return
+		}
+		v, err := strconv.Atoi(strings.TrimPrefix(key, prefix))
+		if err != nil {
+			return
+		}
+		if v > best {
+			best = v
+			bestKey = key
+		}
+	}
+	for k := range f.Bottle {
+		consider(k)
+	}
+	for k := range f.URL {
+		consider(k)
+	}
+	if bestKey == "" {
+		return "", false
+	}
+	return bestKey, true
+}
+
+// ResolveForceBottle returns the URL, SHA256 and SHA512 of the bottle selected
+// under --force-bottle for the current host. All three values are read from the
+// same bottle key so they cannot be mixed across versions.
+//
+// It mirrors `brew install --force-bottle`: use the bottle for the current macOS
+// version if one exists, otherwise the bottle for the newest available macOS
+// version for this architecture. It never falls back to a source build — if no
+// bottle exists at all it returns an error.
+func (f *Formula) ResolveForceBottle() (url, sha256, sha512 string, err error) {
+	return f.resolveForceBottle(runtime.GOOS, runtime.GOARCH)
+}
+
+func (f *Formula) resolveForceBottle(osName, arch string) (url, sha256, sha512 string, err error) {
+	// First try the normal selection (exact current-version key, then generic).
+	// GetURL/GetSHA*ForPlatform all resolve through the same key, so the three
+	// values stay consistent.
+	if u, uerr := f.GetURLForPlatform(osName, arch); uerr == nil {
+		s256, serr := f.GetSHA256ForPlatform(osName, arch)
+		if serr != nil {
+			return "", "", "", serr
+		}
+		s512, _ := f.GetSHA512ForPlatform(osName, arch)
+		return u, s256, s512, nil
+	}
+
+	// No bottle for the current macOS version: fall back to the newest available
+	// macOS version bottle for this architecture.
+	key, ok := f.newestVersionKey(osName, arch)
+	if !ok {
+		return "", "", "", fmt.Errorf("formula %q: --force-bottle: no bottle available for %s",
+			f.Name, GetPlatformKey(osName, arch))
+	}
+
+	// New-format bottle.
+	if b, ok := f.Bottle[key]; ok {
+		if !strings.HasPrefix(b.URL, "https://") {
+			return "", "", "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, b.URL)
+		}
+		if verr := validation.ValidateSHA256(b.SHA256); verr != nil {
+			return "", "", "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, verr)
+		}
+		if b.SHA512 != "" {
+			if verr := validation.ValidateSHA512(b.SHA512); verr != nil {
+				return "", "", "", fmt.Errorf("formula %q: invalid SHA512 for %s: %w", f.Name, key, verr)
+			}
+		}
+		return b.URL, b.SHA256, b.SHA512, nil
+	}
+
+	// Legacy format.
+	u, ok := f.URL[key]
+	if !ok {
+		return "", "", "", fmt.Errorf("formula %q: --force-bottle: no bottle available for %s",
+			f.Name, GetPlatformKey(osName, arch))
+	}
+	if !strings.HasPrefix(u, "https://") {
+		return "", "", "", fmt.Errorf("formula %q: refusing to download over insecure HTTP: %s", f.Name, u)
+	}
+	s256 := f.SHA256[key]
+	if verr := validation.ValidateSHA256(s256); verr != nil {
+		return "", "", "", fmt.Errorf("formula %q: invalid SHA256 for %s: %w", f.Name, key, verr)
+	}
+	s512 := f.SHA512[key]
+	if s512 != "" {
+		if verr := validation.ValidateSHA512(s512); verr != nil {
+			return "", "", "", fmt.Errorf("formula %q: invalid SHA512 for %s: %w", f.Name, key, verr)
+		}
+	}
+	return u, s256, s512, nil
 }
 
 // GetSignature returns the bottle signature for the current platform, or ""
