@@ -203,6 +203,7 @@ grew missing --hide=openssl@3,readline    # hide multiple formulae (comma-separa
 | `linkage <formula>` | Inspect dynamic library dependencies for an installed formula |
 | `lock` | Generate, check, or show a reproducible lockfile |
 | `verify` | Check installed packages against their snapshot manifests |
+| `test` | Run a formula's test hook in isolation |
 | `sign` | Sign formula SHA256 hashes with an Ed25519 key |
 | `services` | Manage background services (start, stop, restart, list) |
 | `setup` | One-time prefix setup |
@@ -283,15 +284,17 @@ grew/
 │   ├── bpatch/       ← binary delta patching (using bspatch)
 │   ├── cache/        ← download cache management and pruning
 │   ├── cask/         ← cask parsing, Caskroom, and helpers
+│   ├── caveats/      ← post-install message rendering with template substitution
 │   ├── cellar/       ← installed package management and cleanup
 │   ├── cli/          ← shared CLI initialization and command registration
 │   ├── cmd/          ← legacy command bridge and high-level orchestration
-│   ├── depgraph/     ← dependency resolution (Kahn's toposort)
+│   ├── depgraph/     ← dependency resolution (topological sort + cycle detection)
 │   ├── downloader/   ← HTTP download + SHA256/512 + archive extraction
 │   ├── flags/        ← global CLI flags (-v, -d, -q)
 │   ├── formula/      ← formula parsing and dependency gathering
 │   ├── fsutil/       ← atomic file writes, safe tree copies, advisory locking, mode sanitization
 │   ├── homebrew/     ← Homebrew JSON API client and compatibility logic
+│   ├── hooks/        ← lifecycle hooks (build, test, post-install) with sandboxed execution
 │   ├── installer/    ← core installation logic (formula, cask, self-update)
 │   ├── linkage/      ← dynamic library linkage analysis
 │   ├── linker/       ← deterministic symlink management
@@ -301,6 +304,7 @@ grew/
 │   ├── receipt/      ← installation receipt management
 │   ├── release/      ← grew release management and download helpers
 │   ├── relocation/   ← keg relocation (rewrite dylib/ELF paths)
+│   ├── resolver/     ← dependency resolution with ordering and validation
 │   ├── runtime/      ← runtime environment (root detection, prefix, devmode gate)
 │   ├── sandbox/      ← build + post-install sandboxing (macOS Seatbelt)
 │   ├── service/      ← background service management

@@ -32,3 +32,13 @@ Improve performance and reduce initial installation friction by removing the str
 *   [x] **`grew homepage <formula>`**: Launch the formula or cask's `homepage` URL in the default system browser.
 *   [x] **`grew uses <formula>`**: Display all installed formulae that depend on the specified package.
 *   [x] **`grew missing`**: Check installed formula kegs for missing runtime dependencies; exits non-zero if any are found. Supports `--hide` to treat a comma-separated list of packages as not installed.
+
+## 7. Dependency Resolution & Lifecycle Management ✅ COMPLETE
+Advanced dependency modeling and formula lifecycle hooks.
+*   [x] **Structured Dependencies**: `DepKind` enum with Runtime, Build, Test, Optional, and Recommended scopes
+*   [x] **Topological Sort**: Dependency-first ordering with Kahn's algorithm
+*   [x] **Cycle Detection**: DFS-based cycle detection with exact path reporting
+*   [x] **Lifecycle Hooks**: Pre/post-build, pre/post-test, and post-install hooks with sandboxed execution
+*   [x] **Post-Install Caveats**: Template-based rendering with `{{.Formula}}`, `{{.Version}}`, `{{.Prefix}}` substitution
+*   [x] **`grew test` Command**: Run formula test hooks in isolation
+*   [x] **Doctor Check**: `check_depgraph_acyclic` validates installed keg dependency graph

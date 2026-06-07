@@ -227,3 +227,53 @@ The `Context` struct serves as the central registry for shared application state
 2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing.
 3.  **Consistency**: By passing a single `Context` object through the command hierarchy, `grew` ensures that all components operate on the same configuration and prefix, preventing environment drift during execution.
 
+## 11. Dependency Resolution & Lifecycle Hooks
+
+`grew` provides structured dependency management with multiple scopes (runtime, build, test, optional, recommended) and supports formula lifecycle hooks for build, test, and post-install phases.
+
+### Dependency Modeling (`pkg/formula`, `pkg/depgraph`)
+
+Each formula declares dependencies with explicit kind annotations:
+- **Runtime**: Required when the installed formula is used.
+- **Build**: Required only during source compilation, excluded from runtime dependency chains.
+- **Test**: Required only for test execution via `grew test`.
+- **Optional**: Runtime dep that users may skip if unavailable.
+- **Recommended**: Suggested but not required.
+
+Dependencies are represented in two forms:
+- **Structured**: `Deps []Dependency` with explicit `Kind` and platform tags for fine-grained control.
+- **Legacy**: `Dependencies []string` for backward compatibility with existing formula catalogs.
+
+### Graph Construction & Ordering (`pkg/depgraph`, `pkg/resolver`)
+
+The dependency graph is built by loading formula definitions and populating a `Graph` struct with nodes (as `NodeMeta`) and edges. The resolver performs validation and ordering:
+
+1. **Topological Sorting**: Kahn's algorithm ensures dependency-first ordering. When multiple nodes have zero in-degree, runtime dependencies (`Kind != DepBuild`) are emitted before build-only dependencies, with alphabetical tiebreaking for determinism.
+2. **Cycle Detection**: DFS-based detection with exact cycle path reporting (`DetectCycles()`) prevents installing circular dependency chains.
+3. **Missing Dependency Check**: The resolver scans all edge targets against the graph's node set; missing nodes return a `MissingError` before attempting topological sort.
+
+### Lifecycle Hooks (`pkg/hooks`)
+
+Formulas can declare lifecycle hooks executed at specific phases during installation:
+
+- **`BuildHooks`**: Executed after a successful source build and before moving into the keg directory. Examples: `make`, `configure`, `make-install`.
+- **`TestHook`**: A single hook identifier for test execution. Runs before and after the test phase.
+- **`PostInstall`**: Traditionally handled by the `PostInstall` formula field (shell script); now also routed through the hook system for consistency.
+
+Hook execution is sandboxed:
+- **Build hooks** run in the build directory with access to the compiler, in the same sandbox as the `make` steps.
+- **Post-install hooks** run in a restricted sandbox with the keg read-only; only a temporary directory is writable (no network access, minimal environment).
+
+### Post-Install Caveats (`pkg/caveats`)
+
+Formulas can include a `Caveats` string printed after successful installation. The `Renderer` applies simple template substitution:
+- `{{.Formula}}` → formula name
+- `{{.Version}}` → version string
+- `{{.Prefix}}` → grew prefix directory (e.g., `/opt/homegrew`)
+
+All URLs in caveats are validated; `http://` URLs are rejected at render time to enforce HTTPS-only messaging.
+
+### Cycle Detection in Doctor
+
+The `grew doctor` command includes a `check_depgraph_acyclic` check that loads all formulas from installed kegs and reports any circular dependencies. This ensures that the installed package graph remains resolvable should a user ever attempt to construct a dependency chain manually.
+
