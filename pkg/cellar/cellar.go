@@ -170,9 +170,9 @@ func (c *Cellar) kegDir(name string) (string, error) {
 	if !validation.IsValidName(name) {
 		return "", fmt.Errorf("invalid formula name: %q", name)
 	}
-	d := filepath.Join(c.Path, name)
-	if err := safepath.CheckSubpath(c.Path, d); err != nil {
-		return "", fmt.Errorf("path %q escapes cellar %q", d, c.Path)
+	d, err := safepath.SafeJoin(c.Path, name)
+	if err != nil {
+		return "", fmt.Errorf("path %q escapes cellar %q: %w", name, c.Path, err)
 	}
 	return d, nil
 }
