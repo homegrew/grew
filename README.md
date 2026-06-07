@@ -144,6 +144,7 @@ For an in-depth look at how `grew` installs itself, its self-update mechanism, a
 grew i jq nmap               # install multiple formulas (alias 'i')
 grew install --force jq      # force reinstall even if already installed
 grew install -s ldns         # build from source, like a purist
+grew install --force-bottle jq  # pour a bottle (current or newest macOS), never build
 grew install --cask firefox  # going big
 grew link jq                 # stitch it in
 grew deps --tree jq          # what hath jq wrought
@@ -172,7 +173,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 
 | Command | What it does |
 |---|---|
-| `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source) |
+| `install, i` | Install formulas or casks (`-f` to force, `-s` to build from source, `--force-bottle` to force a bottle) |
 | `uninstall, rm` | Send formulas or casks to the void (`-f` to ignore missing or errors, delete all versions) |
 | `autoremove` | Uninstall formulae that were only installed as a dependency and are no longer needed (`--dry-run` supported) |
 | `list, ls` | See what you've collected |

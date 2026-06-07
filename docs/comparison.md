@@ -17,6 +17,7 @@
 | **`--skip-link` / `--skip-post-install`** | Supported | Supported | Identical |
 | **`--only-dependencies` / `--ignore-dependencies`** | Supported | Supported | Identical |
 | **`--build-from-source` / `-s`** | Supported | Supported | Identical |
+| **`--force-bottle`** | Pour a bottle for the current or newest macOS even if it wouldn't normally be used; mutually exclusive with `-s` | Same semantics via `ResolveForceBottle` (current-version key, else newest available version), same mutual-exclusivity error | Identical |
 | **`--dry-run` / `-n`** | Supported | `simulateInstall()` | Identical |
 | **Pin support** | PINNED marker file | Same | Identical |
 | **Cask install** | Separate `--cask` path | Same routing via `installer.CaskInstall` | Same pattern |
@@ -55,7 +56,7 @@
 | **Analytics** | Brew reports install analytics (opt-out). Grew has no analytics |
 | **HEAD installs** | `brew install --HEAD` builds from repo HEAD. Grew doesn't support this |
 | **Build dependencies** | Brew distinguishes `depends_on` vs `build.depends_on`. Grew has flat `dependencies[]` |
-| **Bottle auto-selection** | Brew's bottle logic handles OS version matching, fallback bottles, and cellar relocation types. Grew uses simple `os_arch` platform keys |
+| **Bottle auto-selection** | Brew's bottle logic handles OS version matching, fallback bottles, and cellar relocation types. Grew keys bottles by `os_arch[_macosmajor]` and matches the current macOS version (with a generic fallback, and a newest-version fallback under `--force-bottle`), but doesn't model cellar relocation types |
 
 ## Verdict
 
