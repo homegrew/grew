@@ -350,7 +350,30 @@ func RecoverPendingUpdate(stateFile string) error {
 
 	currentPath := state.CurrentPath
 	backupPath := state.BackupPath
-	expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".previous")
+
+	execPath, err := os.Executable()
+	if err != nil {
+		slog.Warn("cannot resolve executable path during recovery — removing state", "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+	trustedCurrentPath, err := filepath.EvalSymlinks(execPath)
+	if err != nil {
+		trustedCurrentPath = filepath.Clean(execPath)
+	}
+	if err := safepath.SafeAbsolutePath(trustedCurrentPath); err != nil {
+		slog.Warn("invalid executable path during recovery — removing state", "path", trustedCurrentPath, "err", err)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+	if currentPath != trustedCurrentPath {
+		slog.Warn("state current path does not match running executable — removing state",
+			"stateCurrent", currentPath, "trustedCurrent", trustedCurrentPath)
+		_ = os.Remove(stateFile)
+		return nil
+	}
+
+	expectedBackupPath := filepath.Join(filepath.Dir(trustedCurrentPath), filepath.Base(trustedCurrentPath)+".previous")
 	if backupPath != expectedBackupPath {
 		slog.Warn("invalid backup path in update state — removing",
 			"backup", backupPath, "expected", expectedBackupPath)
@@ -380,7 +403,7 @@ func RecoverPendingUpdate(stateFile string) error {
 			"crash recovery: restored previous binary")
 	} else {
 		// New binary is healthy — the update succeeded; just clean up.
-		expectedBackupPath := filepath.Join(filepath.Dir(currentPath), filepath.Base(currentPath)+".previous")
+		expectedBackupPath := filepath.Join(filepath.Dir(trustedCurrentPath), filepath.Base(trustedCurrentPath)+".previous")
 		if err := safepath.SafeAbsolutePath(backupPath); err != nil || backupPath != expectedBackupPath {
 			slog.Warn("skipping backup removal due to invalid path during recovery cleanup",
 				"backup", backupPath, "expected", expectedBackupPath, "err", err)
