@@ -104,7 +104,13 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 	}
 
 	tapsDir := t.TempDir()
-	mgr := &Manager{TapsDir: tapsDir}
+	// Resolve to canonical path to avoid symlink/path escaping issues
+	canonicalTapsDir, err := filepath.EvalSymlinks(tapsDir)
+	if err != nil {
+		canonicalTapsDir = tapsDir
+	}
+
+	mgr := &Manager{TapsDir: canonicalTapsDir}
 	corePath := mgr.CoreTapPath()
 	os.MkdirAll(corePath, 0755)
 	gitInit(t, corePath)
