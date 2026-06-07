@@ -91,7 +91,10 @@ func SetupTestEnvironment() {
 		if err != nil || pool == nil {
 			pool = x509.NewCertPool()
 		}
-		pool.AppendCertsFromPEM(certPEM)
+		if ok := pool.AppendCertsFromPEM(certPEM); !ok {
+			fmt.Fprintf(os.Stderr, "failed to parse test cert PEM: no certificates found\n")
+			os.Exit(1)
+		}
 
 		transport := http.DefaultTransport.(*http.Transport).Clone()
 		transport.TLSClientConfig = &tls.Config{RootCAs: pool}
