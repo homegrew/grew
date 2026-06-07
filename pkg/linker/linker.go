@@ -206,6 +206,9 @@ func destIsDir(root, destPath string) bool {
 			return false
 		}
 	}
+	if err := safepath.SafeAbsolutePath(resolvedDest); err != nil {
+		return false
+	}
 
 	fi, err := os.Stat(resolvedDest) // follows symlinks, but target is constrained to absRoot
 	return err == nil && fi.IsDir()
