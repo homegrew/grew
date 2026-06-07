@@ -197,6 +197,11 @@ func destIsDir(root, destPath string) bool {
 		slog.Error("failed to validate root path", "root", absRoot, "error", err)
 		return false
 	}
+	allowedRoot := absRoot == filepath.Clean("/usr/local/homegrew") || absRoot == filepath.Clean("/opt/homegrew")
+	if !allowedRoot {
+		slog.Error("rejecting non-system root for directory check", "root", absRoot)
+		return false
+	}
 
 	absDest, err := filepath.Abs(destPath)
 	if err != nil {
@@ -479,6 +484,10 @@ func unsymDir(symlinkPath, root string) error {
 	}
 	if !info.IsDir() {
 		return fmt.Errorf("target is not a directory: %s", safeTarget)
+	}
+	// Explicit sink-adjacent containment guard for the exact path used by ReadDir.
+	if !isWithinRoot(absRoot, safeTarget) {
+		return fmt.Errorf("refusing to read target dir outside root %s: %s", absRoot, safeTarget)
 	}
 
 	entries, err := os.ReadDir(safeTarget)
