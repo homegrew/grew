@@ -88,8 +88,11 @@ func InstallFromGit(repoURL, repoDir, destBin string, allowClone bool) error {
 
 // CheckOSVForVersion queries OSV.dev for known vulnerabilities affecting the specified version.
 
-// verifyBinaryIntegrity runs a basic check on the binary.
+// VerifyBinaryIntegrity runs a basic check on the binary.
 func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
+	if err := safepath.SafeAbsolutePath(binPath); err != nil {
+		return fmt.Errorf("invalid binary path: %w", err)
+	}
 	cmd := exec.Command(binPath, "version")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
