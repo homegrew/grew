@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/formula"
@@ -26,6 +27,13 @@ type ExtractArgs struct {
 }
 
 func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) error {
+	// DMG files require mounting, which conflicts with sandbox restrictions.
+	// Extract them unsandboxed.
+	if strings.HasSuffix(strings.ToLower(archivePath), ".dmg") {
+		slog.Debug("DMG file detected, extracting unsandboxed")
+		return downloader.Extract(archivePath, stageDir, spec)
+	}
+
 	exe, err := os.Executable()
 	if err != nil {
 		// Can't locate ourselves — fall back to direct extraction.
