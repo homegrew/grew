@@ -32,7 +32,10 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 1. **Discovery & Vulnerability Check**:
    - `grew` queries the GitHub API for the latest stable release.
-   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted. If the OSV query is unreachable, times out, or returns an invalid/error response, the update also aborts (fail-closed) and asks the user to retry once connectivity is restored.
+   - **OSV.dev Guard**: Before downloading any assets, `grew` queries the [OSV.dev](https://osv.dev) database for the target version. If the new version has known critical vulnerabilities, the update is aborted.
+   - **Availability Controls**: OSV queries use a bounded timeout and short retry sequence to reduce failures from transient network issues.
+   - **Default Policy (Fail-Closed)**: If OSV remains unreachable, times out, or returns an invalid/error response after retries, the update aborts by default and asks the user to retry once connectivity is restored.
+   - **Manual Override**: For emergency scenarios, users may explicitly bypass the OSV gate via a documented override flag/environment setting. This is opt-in, emits a prominent warning, and should only be used when users accept the risk of updating without live vulnerability intelligence.
 
 2. **Multi-Hop Binary Patching (Delta Update)**:
    - `grew` dynamically constructs a patch path using a Breadth-First Search (BFS) to find the shortest sequence of intermediate patch assets (e.g., `v0.1.0_to_v0.1.1`, `v0.1.1_to_v0.2.0`) to reach the latest release if a direct patch isn't available.
@@ -49,7 +52,7 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 
 5. **Pre-Replacement Health Check**:
    - Before completing the update, `grew` executes the newly generated binary with the `vuln-scan --offline` command inside a restricted sandbox (temporary working directory, no elevated privileges, strict outbound network isolation when supported by the host OS, and a short execution timeout).
-   - Network egress control is implemented using platform-specific OS primitives where available; if strict outbound blocking cannot be enforced on the current host, `grew` aborts this pre-replacement check and fails closed rather than running with unrestricted network access.
+   - Network egress control is implemented using platform-specific OS primitives where available. On platforms that **support** strict outbound blocking, `grew` enforces it and fails closed if enforcement unexpectedly fails. On platforms that do **not** provide strict egress isolation primitives, `grew` surfaces a high-visibility warning and requires explicit user confirmation (or an equivalent opt-in flag) before running this pre-replacement check with reduced isolation.
    - This verifies that the binary is structurally sound, compatible with the host OS, and functionally operational (i.e., not a corrupted file or a "zero-day" bricking binary) before it replaces the stable version.
    - For release builds, it also re-executes with `--version` to confirm the reported version string matches the expected tag.
 
@@ -77,6 +80,12 @@ Every filesystem operation that touches an externally-influenced path (archive e
 ### Dual-hash computation (`pkg/downloader`)
 
 `downloader.ComputeHashes(path)` reads a file once and computes its SHA-256 and SHA-512 simultaneously via `io.MultiWriter`, returning both hex digests. Dual hashing protects against a supply-chain attack that targets a weakness in a single algorithm; computing both in one pass avoids reading large artifacts twice. The downloader also enforces HTTPS-only fetches behind an SSRF-protected host allowlist (`HOMEGREW_ALLOWED_HOSTS`) and rejects redirects to non-HTTPS targets.
+
+**`HOMEGREW_ALLOWED_HOSTS` details (SSRF control):**
+- **Format:** comma-separated hostnames (optionally with `:port`), for example: `github.com,api.github.com,objects.githubusercontent.com`.
+- **Configurability:** this value is user-configurable via environment variable at runtime; if set, it overrides the built-in/default allowlist.
+- **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
+- **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
 ### Command-execution hardening
 
@@ -144,6 +153,7 @@ Devmode is a combination of a compile-time build tag and a runtime CLI flag that
 
 **How it works:**
 1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `pkg/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
+   **Security warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
