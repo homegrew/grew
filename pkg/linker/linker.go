@@ -197,6 +197,11 @@ func destIsDir(root, destPath string) bool {
 		slog.Error("failed to validate root path", "root", absRoot, "error", err)
 		return false
 	}
+	allowedRoot := absRoot == filepath.Clean("/usr/local/homegrew") || absRoot == filepath.Clean("/opt/homegrew")
+	if !allowedRoot {
+		slog.Error("rejecting non-system root for directory check", "root", absRoot)
+		return false
+	}
 
 	absDest, err := filepath.Abs(destPath)
 	if err != nil {
