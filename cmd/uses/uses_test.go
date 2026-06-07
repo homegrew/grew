@@ -63,14 +63,8 @@ func TestRunUsesDirectDependents(t *testing.T) {
 	if err := paths.Init(); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.Setenv("HOMEGREW_NO_INIT_TAP", "1"); err != nil {
-		t.Fatal(err)
-	}
-	defer os.Unsetenv("HOMEGREW_NO_INIT_TAP")
-	if err := os.Setenv("HOMEGREW_PREFIX", paths.Root); err != nil {
-		t.Fatal(err)
-	}
-	defer os.Unsetenv("HOMEGREW_PREFIX")
+	t.Setenv("HOMEGREW_NO_INIT_TAP", "1")
+	t.Setenv("HOMEGREW_PREFIX", paths.Root)
 
 	coreTap := paths.CoreTap
 	if err := os.MkdirAll(coreTap, 0755); err != nil {
@@ -110,14 +104,8 @@ func TestRunUsesNoDependents(t *testing.T) {
 	if err := paths.Init(); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.Setenv("HOMEGREW_NO_INIT_TAP", "1"); err != nil {
-		t.Fatal(err)
-	}
-	defer os.Unsetenv("HOMEGREW_NO_INIT_TAP")
-	if err := os.Setenv("HOMEGREW_PREFIX", paths.Root); err != nil {
-		t.Fatal(err)
-	}
-	defer os.Unsetenv("HOMEGREW_PREFIX")
+	t.Setenv("HOMEGREW_NO_INIT_TAP", "1")
+	t.Setenv("HOMEGREW_PREFIX", paths.Root)
 
 	coreTap := paths.CoreTap
 	if err := os.MkdirAll(coreTap, 0755); err != nil {
