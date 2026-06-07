@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/context"
 )
 
 func writeFormula(t *testing.T, dir, name string, deps []string) {
@@ -73,10 +74,18 @@ func setupPrefix(t *testing.T) config.Paths {
 	if err := os.MkdirAll(paths.CoreTap, 0755); err != nil {
 		t.Fatal(err)
 	}
-	// Reset the package-level flag so tests don't leak into each other.
-	missingHide = ""
-	t.Cleanup(func() { missingHide = "" })
 	return paths
+}
+
+// newContext builds an execution context against the mock prefix set up by
+// setupPrefix. Call it after writing formulas so the cellar/tap are populated.
+func newContext(t *testing.T) *context.Context {
+	t.Helper()
+	ctx, err := context.New()
+	if err != nil {
+		t.Fatal(err)
+	}
+	return ctx
 }
 
 // TestRunMissingNoMissing: all runtime deps installed, expect clean output and no error.
@@ -89,9 +98,10 @@ func TestRunMissingNoMissing(t *testing.T) {
 	installFormula(t, cellar, "dep1")
 	installFormula(t, cellar, "pkga")
 
+	ctx := newContext(t)
 	var runErr error
 	out := captureStdout(t, func() {
-		runErr = runMissing(nil)
+		runErr = runMissing(ctx, nil, "")
 	})
 	if runErr != nil {
 		t.Fatalf("expected no error, got %v", runErr)
@@ -111,9 +121,10 @@ func TestRunMissingDetectsMissing(t *testing.T) {
 	// Only pkga is installed; dep1 is declared but not present in the cellar.
 	installFormula(t, cellar, "pkga")
 
+	ctx := newContext(t)
 	var runErr error
 	out := captureStdout(t, func() {
-		runErr = runMissing(nil)
+		runErr = runMissing(ctx, nil, "")
 	})
 	if runErr == nil {
 		t.Fatal("expected a non-nil error when a dependency is missing")
@@ -134,9 +145,10 @@ func TestRunMissingSpecificTarget(t *testing.T) {
 	installFormula(t, cellar, "pkga")
 	installFormula(t, cellar, "pkgb")
 
+	ctx := newContext(t)
 	var runErr error
 	out := captureStdout(t, func() {
-		runErr = runMissing([]string{"pkgb"})
+		runErr = runMissing(ctx, []string{"pkgb"}, "")
 	})
 	if runErr != nil {
 		t.Fatalf("expected no error checking pkgb, got %v", runErr)
@@ -156,11 +168,10 @@ func TestRunMissingHideFlag(t *testing.T) {
 	installFormula(t, cellar, "dep1")
 	installFormula(t, cellar, "pkga")
 
-	missingHide = "dep1"
-
+	ctx := newContext(t)
 	var runErr error
 	out := captureStdout(t, func() {
-		runErr = runMissing([]string{"pkga"})
+		runErr = runMissing(ctx, []string{"pkga"}, "dep1")
 	})
 	if runErr == nil {
 		t.Fatal("expected a non-nil error when --hide hides an installed dependency")
@@ -178,9 +189,10 @@ func TestRunMissingInvalidUserTarget(t *testing.T) {
 	writeFormula(t, tap, "dep1", nil)
 	installFormula(t, cellar, "dep1")
 
+	ctx := newContext(t)
 	var runErr error
 	captureStdout(t, func() {
-		runErr = runMissing([]string{"does-not-exist"})
+		runErr = runMissing(ctx, []string{"does-not-exist"}, "")
 	})
 	if runErr == nil {
 		t.Fatal("expected error for non-existent user target")
@@ -198,11 +210,10 @@ func TestRunMissingInvalidHideValue(t *testing.T) {
 	writeFormula(t, tap, "dep1", nil)
 	installFormula(t, cellar, "dep1")
 
-	missingHide = "invalid/name"
-
+	ctx := newContext(t)
 	var runErr error
 	captureStdout(t, func() {
-		runErr = runMissing([]string{"dep1"})
+		runErr = runMissing(ctx, []string{"dep1"}, "invalid/name")
 	})
 	if runErr == nil {
 		t.Fatal("expected error for invalid --hide value")
@@ -224,9 +235,10 @@ func TestRunMissingSortedOutput(t *testing.T) {
 	installFormula(t, cellar, "pkgx")
 	installFormula(t, cellar, "pkgy")
 
+	ctx := newContext(t)
 	var runErr error
 	out := captureStdout(t, func() {
-		runErr = runMissing(nil)
+		runErr = runMissing(ctx, nil, "")
 	})
 	if runErr == nil {
 		t.Fatal("expected error for missing dependencies")

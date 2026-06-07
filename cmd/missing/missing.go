@@ -12,8 +12,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var missingHide string
-
 var Command = &cobra.Command{
 	Use:   "missing [--hide=<hidden>] [formula ...]",
 	Short: "Check kegs for missing dependencies",
@@ -27,24 +25,27 @@ dependencies.`,
 	SilenceUsage:  true,
 	SilenceErrors: true,
 	RunE: func(c *cobra.Command, args []string) error {
-		return runMissing(args)
+		hide, err := c.Flags().GetString("hide")
+		if err != nil {
+			return fmt.Errorf("failed to read --hide flag: %w", err)
+		}
+		ctx, err := context.New()
+		if err != nil {
+			return err
+		}
+		return runMissing(ctx, args, hide)
 	},
 }
 
 func init() {
-	Command.Flags().StringVar(&missingHide, "hide", "", "Act as if none of the specified formulae are installed. hidden should be a comma-separated list of formula names.")
+	Command.Flags().String("hide", "", "Act as if none of the specified formulae are installed. hidden should be a comma-separated list of formula names.")
 }
 
-func runMissing(args []string) error {
+func runMissing(ctx *context.Context, args []string, hideArg string) error {
 	slog.Debug("starting missing command execution")
 
-	ctx, err := context.New()
-	if err != nil {
-		return err
-	}
-
 	hidden := make(map[string]bool)
-	for _, name := range strings.Split(missingHide, ",") {
+	for _, name := range strings.Split(hideArg, ",") {
 		name = strings.TrimSpace(name)
 		if name != "" {
 			if !validation.IsValidName(name) {
