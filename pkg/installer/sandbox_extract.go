@@ -37,7 +37,7 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	exe, err := os.Executable()
 	if err != nil {
 		// Can't locate ourselves — fall back to direct extraction.
-		slog.Debug(fmt.Sprintf("cannot locate executable for sandboxed extract, falling back: %v", err))
+		slog.Debug("cannot locate executable for sandboxed extract, falling back", "error", err)
 		return downloader.Extract(archivePath, stageDir, spec)
 	}
 
