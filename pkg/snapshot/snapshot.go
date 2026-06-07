@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
+
+	"github.com/homegrew/grew/pkg/fsutil"
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // ManifestFile is the name of the manifest stored inside each keg.
@@ -73,21 +75,9 @@ type InstallMeta struct {
 	BuiltFromSource    bool
 }
 
-// cleanKegPath validates and cleans a keg path to prevent traversal attacks.
-func cleanKegPath(kegPath string) (string, error) {
-	cleaned := filepath.Clean(kegPath)
-	if strings.Contains(cleaned, "..") {
-		return "", fmt.Errorf("keg path contains traversal: %q", kegPath)
-	}
-	if cleaned == "" || cleaned == "." {
-		return "", fmt.Errorf("empty keg path")
-	}
-	return cleaned, nil
-}
-
 // Save atomically writes the manifest to kegPath/.MANIFEST.json.
 func Save(m *Manifest, kegPath string) error {
-	kegPath, err := cleanKegPath(kegPath)
+	kegPath, err := safepath.CleanPath(kegPath)
 	if err != nil {
 		return err
 	}
@@ -99,34 +89,15 @@ func Save(m *Manifest, kegPath string) error {
 	data = append(data, '\n')
 
 	dest := filepath.Join(kegPath, ManifestFile)
-	dir := filepath.Dir(dest)
-
-	tmp, err := os.CreateTemp(dir, ".manifest-tmp-*")
-	if err != nil {
-		return fmt.Errorf("create temp manifest: %w", err)
+	if err := fsutil.WriteFileAtomic(dest, data, 0644); err != nil {
+		return fmt.Errorf("write manifest: %w", err)
 	}
-	tmpPath := tmp.Name()
-
-	if _, err := tmp.Write(data); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Chmod(0644); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Close(); err != nil {
-		os.Remove(tmpPath)
-		return err
-	}
-	return os.Rename(tmpPath, dest)
+	return nil
 }
 
 // Load reads and parses the manifest from kegPath/.MANIFEST.json.
 func Load(kegPath string) (*Manifest, error) {
-	kegPath, err := cleanKegPath(kegPath)
+	kegPath, err := safepath.CleanPath(kegPath)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +114,7 @@ func Load(kegPath string) (*Manifest, error) {
 
 // Exists returns true if a manifest exists for the given keg.
 func Exists(kegPath string) bool {
-	kegPath, err := cleanKegPath(kegPath)
+	kegPath, err := safepath.CleanPath(kegPath)
 	if err != nil {
 		return false
 	}

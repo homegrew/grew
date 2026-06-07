@@ -49,6 +49,20 @@ func CheckSubpath(base, target string) error {
 	return nil
 }
 
+// CleanPath cleans a filesystem path and rejects path traversal ("..") and
+// empty or "." paths. It returns the cleaned path. Use it to validate a
+// directory path before joining a trusted filename onto it.
+func CleanPath(path string) (string, error) {
+	cleaned := filepath.Clean(path)
+	if strings.Contains(cleaned, "..") {
+		return "", fmt.Errorf("path contains traversal: %q", path)
+	}
+	if cleaned == "" || cleaned == "." {
+		return "", fmt.Errorf("empty path")
+	}
+	return cleaned, nil
+}
+
 // SafePathComponent checks that a filename component does not contain
 // path separators, ".." traversals, or null bytes. Use this to validate
 // any user-supplied string before joining it into a filesystem path.

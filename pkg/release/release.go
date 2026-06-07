@@ -20,6 +20,7 @@ import (
 
 	"github.com/homegrew/grew/pkg/config"
 	"github.com/homegrew/grew/pkg/downloader"
+	"github.com/homegrew/grew/pkg/fsutil"
 	"github.com/homegrew/grew/pkg/version"
 )
 
@@ -421,32 +422,7 @@ func ExtractBinaryFromFile(archivePath string) ([]byte, error) {
 // AtomicInstall writes data to dst atomically (temp file + rename) with
 // mode 0755.
 func AtomicInstall(dst string, data []byte) error {
-	dir := filepath.Dir(dst)
-	tmp, err := os.CreateTemp(dir, ".grew-install-*")
-	if err != nil {
-		return err
-	}
-	tmpPath := tmp.Name()
-
-	if _, err := tmp.Write(data); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Chmod(0755); err != nil {
-		tmp.Close()
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := tmp.Close(); err != nil {
-		os.Remove(tmpPath)
-		return err
-	}
-	if err := os.Rename(tmpPath, dst); err != nil {
-		os.Remove(tmpPath)
-		return err
-	}
-	return nil
+	return fsutil.WriteFileAtomic(dst, data, 0755)
 }
 
 // httpsGet performs an HTTPS GET, rejecting non-HTTPS URLs and redirects.

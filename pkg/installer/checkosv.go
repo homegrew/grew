@@ -1,9 +1,8 @@
 package installer
 
-import "github.com/homegrew/grew/pkg/release"
-
 import (
 	"fmt"
+
 	"github.com/homegrew/grew/pkg/osvdev"
 )
 
@@ -25,15 +24,4 @@ func CheckOSVForVersion(pkgName, targetVer string) (*OSVResult, error) {
 		}, nil
 	}
 	return &OSVResult{Vulnerable: false}, nil
-}
-func FileHashes(path string) (string, string, error) {
-	sha256Hash, err := release.FileSHA256(path)
-	if err != nil {
-		return "", "", err
-	}
-	sha512Hash, err := release.FileSHA512(path)
-	if err != nil {
-		return "", "", err
-	}
-	return sha256Hash, sha512Hash, nil
 }
