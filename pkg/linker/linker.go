@@ -239,10 +239,17 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 
 	destRoot := filepath.Dir(cellarPath)
 	for _, e := range entries {
+		// Entry names are read from keg contents on disk; validate each as a
+		// single, traversal-free path component and confirm the joined paths
+		// stay within their parent directories before any filesystem use
+		// (defense in depth against path injection).
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
+			return fmt.Errorf("unsafe entry %q in %s: %w", e.Name(), srcDir, err)
+		}
 		srcPath := filepath.Join(srcDir, e.Name())
 		destPath := filepath.Join(destDir, e.Name())
-		if !isWithinRoot(destRoot, destPath) {
-			return fmt.Errorf("refusing to operate outside root %s: %s", destRoot, destPath)
+		if !safepath.IsSubpath(srcDir, srcPath) || !safepath.IsSubpath(destDir, destPath) {
+			return fmt.Errorf("entry %q escapes link directory", e.Name())
 		}
 
 		// grew does not install info files or manpages
