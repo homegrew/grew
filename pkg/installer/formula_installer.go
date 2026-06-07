@@ -1,7 +1,7 @@
 package installer
 
 import (
-	"github.com/homegrew/grew/pkg/context"
+	"context"
 	"fmt"
 	"log/slog"
 	"os"
@@ -9,16 +9,19 @@ import (
 	"time"
 
 	"github.com/homegrew/grew/pkg/auditlog"
+	"github.com/homegrew/grew/pkg/caveats"
+	grewctx "github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/fsutil"
+	"github.com/homegrew/grew/pkg/hooks"
+	"github.com/homegrew/grew/pkg/logger"
 	"github.com/homegrew/grew/pkg/receipt"
 	"github.com/homegrew/grew/pkg/relocation"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/sandbox"
 	"github.com/homegrew/grew/pkg/signing"
 	"github.com/homegrew/grew/pkg/snapshot"
-	"github.com/homegrew/grew/pkg/logger"
-	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 )
 
@@ -30,9 +33,15 @@ type InstallOpts struct {
 	// version is not available, using the newest available macOS version's
 	// bottle instead (mirrors `brew install --force-bottle`).
 	ForceBottle bool
+	// HookSet carries lifecycle hooks executed at build and install phases.
+	// A nil HookSet is a no-op.
+	HookSet *hooks.HookSet
+	// CaveatRenderer renders post-install caveats after hooks complete.
+	// A nil renderer skips caveat output.
+	CaveatRenderer *caveats.Renderer
 }
 
-func InstallFormula(f *formula.Formula, ctx *context.InstallContext, opts InstallOpts) (err error) {
+func InstallFormula(f *formula.Formula, ctx *grewctx.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("install %s %s", f.Name, f.Version))()
 	slog.Debug(fmt.Sprintf("platform: %s, install type: %s, keg_only: %v", formula.PlatformKey(), f.Install.Type, f.KegOnly))
@@ -162,17 +171,19 @@ func InstallFormula(f *formula.Formula, ctx *context.InstallContext, opts Instal
 			InstalledOnRequest: opts.InstalledOnRequest,
 			BuiltFromSource:    false,
 		},
-		skipLink:     opts.SkipLink,
-		skipPostInst: opts.SkipPostInstall,
-		auditSHA256:  sha256,
-		auditDetail:  "bottle",
+		skipLink:       opts.SkipLink,
+		skipPostInst:   opts.SkipPostInstall,
+		hookSet:        opts.HookSet,
+		caveatRenderer: opts.CaveatRenderer,
+		auditSHA256:    sha256,
+		auditDetail:    "bottle",
 		cleanup: func() {
 			os.RemoveAll(stageDir)
 		},
 	})
 }
 
-func InstallFormulaFromSource(f *formula.Formula, ctx *context.InstallContext, opts InstallOpts) (err error) {
+func InstallFormulaFromSource(f *formula.Formula, ctx *grewctx.InstallContext, opts InstallOpts) (err error) {
 	paths := ctx.Paths
 	defer logger.TimeOp(fmt.Sprintf("build from source %s %s", f.Name, f.Version))()
 
@@ -283,6 +294,21 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *context.InstallContext, o
 		return fmt.Errorf("make install %s: %w", f.Name, err)
 	}
 
+	if opts.HookSet != nil {
+		hookEnv := hooks.Env{
+			Prefix:  paths.Root,
+			Cellar:  paths.Cellar,
+			Formula: f.Name,
+			Version: f.Version,
+			Tmpdir:  buildDir,
+		}
+		if err := opts.HookSet.RunPhase(context.Background(), hooks.PhasePostBuild, hookEnv); err != nil {
+			os.RemoveAll(kegPath)
+			cleanup()
+			return fmt.Errorf("post-build hook for %s: %w", f.Name, err)
+		}
+	}
+
 	return FinalizeInstall(f, ctx, finalizeOpts{
 		kegPath: kegPath,
 		meta: snapshot.InstallMeta{
@@ -294,11 +320,13 @@ func InstallFormulaFromSource(f *formula.Formula, ctx *context.InstallContext, o
 			InstalledOnRequest: opts.InstalledOnRequest,
 			BuiltFromSource:    true,
 		},
-		skipLink:     opts.SkipLink,
-		skipPostInst: opts.SkipPostInstall,
-		auditSHA256:  srcSHA256,
-		auditDetail:  "source",
-		cleanup:      cleanup,
+		skipLink:       opts.SkipLink,
+		skipPostInst:   opts.SkipPostInstall,
+		hookSet:        opts.HookSet,
+		caveatRenderer: opts.CaveatRenderer,
+		auditSHA256:    srcSHA256,
+		auditDetail:    "source",
+		cleanup:        cleanup,
 	})
 }
 
@@ -322,16 +350,18 @@ func VerifySignature(name, sha256Hex, signatureB64, grewRoot string) error {
 }
 
 type finalizeOpts struct {
-	kegPath      string
-	meta         snapshot.InstallMeta
-	skipLink     bool
-	skipPostInst bool
-	auditSHA256  string
-	auditDetail  string
-	cleanup      func()
+	kegPath        string
+	meta           snapshot.InstallMeta
+	skipLink       bool
+	skipPostInst   bool
+	hookSet        *hooks.HookSet
+	caveatRenderer *caveats.Renderer
+	auditSHA256    string
+	auditDetail    string
+	cleanup        func()
 }
 
-func FinalizeInstall(f *formula.Formula, ctx *context.InstallContext, opts finalizeOpts) error {
+func FinalizeInstall(f *formula.Formula, ctx *grewctx.InstallContext, opts finalizeOpts) error {
 	if !opts.skipLink {
 		if err := ctx.Linker.Link(f.Name, f.Version, f.KegOnly); err != nil {
 			return fmt.Errorf("link %s: %w", f.Name, err)
@@ -372,6 +402,27 @@ func FinalizeInstall(f *formula.Formula, ctx *context.InstallContext, opts final
 
 	if err := RunPostInstall(f, opts.kegPath, opts.skipPostInst); err != nil {
 		return err
+	}
+
+	if opts.hookSet != nil {
+		piTmp, _ := os.MkdirTemp("", "grew-hook-postinstall-*")
+		defer os.RemoveAll(piTmp)
+		hookEnv := hooks.Env{
+			Prefix:  ctx.Paths.Root,
+			Cellar:  ctx.Paths.Cellar,
+			Formula: f.Name,
+			Version: f.Version,
+			Tmpdir:  piTmp,
+		}
+		if err := opts.hookSet.RunPhase(context.Background(), hooks.PhasePostInstall, hookEnv); err != nil {
+			return fmt.Errorf("post-install hook for %s: %w", f.Name, err)
+		}
+	}
+
+	if opts.caveatRenderer != nil {
+		if err := opts.caveatRenderer.Render(*f, ctx.Paths.Root); err != nil {
+			return fmt.Errorf("caveats for %s: %w", f.Name, err)
+		}
 	}
 
 	if ctx.AuditLog != nil {

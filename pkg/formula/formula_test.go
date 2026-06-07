@@ -240,6 +240,92 @@ func TestPlatformKey(t *testing.T) {
 	}
 }
 
+func TestFilterByKind(t *testing.T) {
+	deps := []Dependency{
+		{Name: "a", Kind: DepRuntime},
+		{Name: "b", Kind: DepBuild},
+		{Name: "c", Kind: DepBuild},
+		{Name: "d", Kind: DepTest},
+	}
+	got := FilterByKind(deps, DepBuild)
+	if len(got) != 2 {
+		t.Fatalf("want 2 build deps, got %d", len(got))
+	}
+	for _, d := range got {
+		if d.Kind != DepBuild {
+			t.Errorf("unexpected kind %v for dep %q", d.Kind, d.Name)
+		}
+	}
+	if none := FilterByKind(deps, DepOptional); len(none) != 0 {
+		t.Errorf("want 0 optional deps, got %d", len(none))
+	}
+}
+
+func TestParse_StructuredDeps(t *testing.T) {
+	yml := `
+name: testpkg
+version: "1.0.0"
+description: "pkg"
+homepage: "https://example.com"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/testpkg"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: testpkg
+deps:
+  - name: libfoo
+    kind: 0
+  - name: cmake
+    kind: 1
+  - name: bats
+    kind: 2
+build_hooks:
+  - configure
+  - make
+test_hook: run-tests
+caveats: "Remember to set PATH."
+`
+	f, err := Parse([]byte(yml))
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(f.Deps) != 3 {
+		t.Fatalf("want 3 deps, got %d", len(f.Deps))
+	}
+	if f.Deps[1].Name != "cmake" || f.Deps[1].Kind != DepBuild {
+		t.Errorf("unexpected dep[1]: %+v", f.Deps[1])
+	}
+	if len(f.BuildHooks) != 2 || f.BuildHooks[0] != "configure" {
+		t.Errorf("unexpected BuildHooks: %v", f.BuildHooks)
+	}
+	if f.TestHook != "run-tests" {
+		t.Errorf("TestHook = %q, want %q", f.TestHook, "run-tests")
+	}
+	if f.Caveats != "Remember to set PATH." {
+		t.Errorf("Caveats = %q", f.Caveats)
+	}
+}
+
+func TestParse_InvalidStructuredDepName(t *testing.T) {
+	yml := `
+name: testpkg
+version: "1.0"
+url:
+  linux_amd64: "https://example.com/x"
+install:
+  type: binary
+deps:
+  - name: "../evil"
+`
+	_, err := Parse([]byte(yml))
+	if err == nil {
+		t.Fatal("expected error for unsafe dep name")
+	}
+}
+
 func TestSortedMapKeys(t *testing.T) {
 	m := map[string]string{"c": "3", "a": "1", "b": "2"}
 	got := sortedMapKeys(m)

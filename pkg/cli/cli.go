@@ -35,6 +35,7 @@ import (
 	"github.com/homegrew/grew/cmd/shellenv"
 	"github.com/homegrew/grew/cmd/sign"
 	"github.com/homegrew/grew/cmd/tap"
+	cmdtest "github.com/homegrew/grew/cmd/test"
 	"github.com/homegrew/grew/cmd/uninstall"
 	"github.com/homegrew/grew/cmd/unlink"
 	"github.com/homegrew/grew/cmd/unpin"
@@ -132,6 +133,7 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(shellenv.Command)
 	rootCmd.AddCommand(sign.Command)
 	rootCmd.AddCommand(tap.Command)
+	rootCmd.AddCommand(cmdtest.Command)
 	rootCmd.AddCommand(uninstall.Command)
 	rootCmd.AddCommand(unlink.Command)
 	rootCmd.AddCommand(unpin.Command)

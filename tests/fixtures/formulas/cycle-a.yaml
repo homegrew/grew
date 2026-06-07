@@ -1,0 +1,14 @@
+name: cycle-a
+version: "1.0.0"
+description: "Cycle test formula A"
+homepage: "https://example.com/cycle-a"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/cycle-a-1.0.0.tar.gz"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: cycle-a
+dependencies:
+  - cycle-b

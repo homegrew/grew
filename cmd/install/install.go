@@ -1,17 +1,18 @@
 package install
 
 import (
-	"github.com/homegrew/grew/pkg/installer"
-	"github.com/homegrew/grew/pkg/context"
 	"fmt"
 	"log/slog"
 	"os"
 	"strings"
 
+	"github.com/homegrew/grew/pkg/caveats"
+	"github.com/homegrew/grew/pkg/context"
 	"github.com/homegrew/grew/pkg/depgraph"
 	"github.com/homegrew/grew/pkg/downloader"
 	"github.com/homegrew/grew/pkg/flags"
 	"github.com/homegrew/grew/pkg/formula"
+	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/ui"
 	"github.com/spf13/cobra"
@@ -302,6 +303,9 @@ func RunInstall(args []string) error {
 				InstalledOnRequest: f.Name == name,
 				ForceBottle:        installForceBottle && f.Name == name,
 			}
+			if f.Name == name {
+				opts.CaveatRenderer = caveats.New(os.Stderr)
+			}
 			if installBuildFromSource && f.Name == name {
 				if err := installer.InstallFormulaFromSource(f, ctx, opts); err != nil {
 					return err
@@ -310,12 +314,6 @@ func RunInstall(args []string) error {
 				if err := installer.InstallFormula(f, ctx, opts); err != nil {
 					return err
 				}
-			}
-
-			// Print caveats if the explicitly requested formula has them.
-			if f.Name == name && f.Caveats != "" {
-				ui.FprintArrow(os.Stderr, "Caveats")
-				fmt.Fprintln(os.Stderr, f.Caveats)
 			}
 		}
 	}

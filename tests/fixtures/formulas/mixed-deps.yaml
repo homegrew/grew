@@ -1,0 +1,46 @@
+name: example-tool
+version: "3.1.4"
+description: "Fixture formula with all dependency kinds and lifecycle hooks"
+homepage: "https://example.com/example-tool"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/example-tool-3.1.4-darwin-arm64.tar.gz"
+  linux_amd64: "https://example.com/example-tool-3.1.4-linux-amd64.tar.gz"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  linux_amd64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: example-tool
+
+# Structured dependency list (pkg/formula.Deps).
+# kind values: 0=DepRuntime, 1=DepBuild, 2=DepTest, 3=DepOptional, 4=DepRecommended
+deps:
+  - name: openssl
+    kind: 0
+  - name: cmake
+    kind: 1
+  - name: bats-core
+    kind: 2
+  - name: readline
+    kind: 3
+    optional: true
+  - name: pcre2
+    kind: 4
+  - name: zlib
+    kind: 0
+    tags:
+      - darwin
+      - arm64
+
+# Named lifecycle hook identifiers (not shell strings).
+build_hooks:
+  - configure
+  - make
+  - make-install
+
+test_hook: integration-test
+
+caveats: |
+  example-tool has been installed.
+  Add $(brew --prefix)/bin to your PATH if it is not already set.
