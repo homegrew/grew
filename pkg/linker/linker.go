@@ -237,9 +237,13 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		return fmt.Errorf("read %s: %w", srcDir, err)
 	}
 
+	destRoot := filepath.Dir(cellarPath)
 	for _, e := range entries {
 		srcPath := filepath.Join(srcDir, e.Name())
 		destPath := filepath.Join(destDir, e.Name())
+		if !isWithinRoot(destRoot, destPath) {
+			return fmt.Errorf("refusing to operate outside root %s: %s", destRoot, destPath)
+		}
 
 		// grew does not install info files or manpages
 		if strings.HasSuffix(srcDir, "/share") || strings.HasSuffix(srcDir, "/share/") {
