@@ -25,6 +25,7 @@ import (
 	"github.com/homegrew/grew/cmd/linkage"
 	"github.com/homegrew/grew/cmd/list"
 	"github.com/homegrew/grew/cmd/lock"
+	"github.com/homegrew/grew/cmd/missing"
 	"github.com/homegrew/grew/cmd/pin"
 	"github.com/homegrew/grew/cmd/reinstall"
 	"github.com/homegrew/grew/cmd/resetupdate"
@@ -121,6 +122,7 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(linkage.Command)
 	rootCmd.AddCommand(list.Command)
 	rootCmd.AddCommand(lock.Command)
+	rootCmd.AddCommand(missing.Command)
 	rootCmd.AddCommand(pin.Command)
 	rootCmd.AddCommand(reinstall.Command)
 	rootCmd.AddCommand(resetupdate.Command)

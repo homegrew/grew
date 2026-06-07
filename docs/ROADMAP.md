@@ -31,4 +31,4 @@ Improve performance and reduce initial installation friction by removing the str
 ## 6. Quality of Life Commands
 *   [x] **`grew homepage <formula>`**: Launch the formula or cask's `homepage` URL in the default system browser.
 *   [x] **`grew uses <formula>`**: Display all installed formulae that depend on the specified package.
-*   [ ] **`grew missing`**: Detect broken dependency chains or missing required libraries on the local system.
+*   [x] **`grew missing`**: Check installed formula kegs for missing runtime dependencies; exits non-zero if any are found. Supports `--hide` to treat a comma-separated list of packages as not installed.

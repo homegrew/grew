@@ -190,6 +190,12 @@ This metadata enables precise identification of "orphaned" dependencies—packag
     - `-p`, `--installed-as-dependency`: Filters to show orphaned dependencies that are likely safe to remove.
 - **`grew autoremove`**: Automatically uninstalls orphaned dependencies in a single invocation. It iterates: each pass recomputes the dependency graph excluding packages already marked for removal, then looks for newly exposed orphans (packages that are now leaves with `InstalledOnRequest: false`). The loop repeats until no new candidates are found, so a full transitive chain (e.g. `root → mid → leaf`, all auto-installed) is removed in one run rather than requiring repeated invocations.
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
+
+### Detecting Broken Dependency Chains
+- **`grew missing`**: Checks installed kegs for declared runtime dependencies that are not present in the Cellar — the inverse of `leaves`/`autoremove`, which look for packages no longer *needed*; `missing` looks for packages still needed but *absent*. With no arguments it walks every installed keg (`Cellar.List()`); given names, it checks only those targets. For each keg it loads the formula definition (`ctx.LoadFormula`) and reports any entry in `Dependencies` for which `Cellar.IsInstalled` is false, printing one `<formula>: <dependency>` line per finding. Only runtime dependencies are considered — build-only dependencies (`BuildDependencies`) are excluded, since their absence does not break an installed package.
+    - `--hide=<list>`: Treats a comma-separated list of formulae or casks as if they were not installed, useful for previewing what would break before uninstalling them.
+    - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses cobra's usage dump and prints only the offending list.
+    - **Casks**: grew casks declare no dependencies, so cask installations are always reported as complete.
 ## 9. Modular CLI Architecture
 
 Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
