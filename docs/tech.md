@@ -144,6 +144,7 @@ Devmode is a combination of a compile-time build tag and a runtime CLI flag that
 
 **How it works:**
 1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `pkg/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
+   **Security warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
