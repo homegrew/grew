@@ -420,18 +420,38 @@ func unsymDir(symlinkPath, root string) error {
 	if !isWithinRoot(absRoot, target) {
 		return fmt.Errorf("refusing to use symlink target outside root: %s", target)
 	}
+	if err := safepath.SafeAbsolutePath(target); err != nil {
+		return fmt.Errorf("invalid symlink target %s: %w", target, err)
+	}
 
-	info, err := os.Stat(target)
+	// Rebuild the path handed to os.Stat/os.ReadDir from the trusted root plus
+	// the validated relative remainder via safepath.SafeJoin (join + containment
+	// in one call, the repo's sanctioned barrier). target is read off disk via
+	// os.Readlink, so this severs that taint at the sink in addition to the
+	// isWithinRoot guard above.
+	rel, err := filepath.Rel(absRoot, target)
 	if err != nil {
-		return fmt.Errorf("stat target dir %s: %w", target, err)
+		return fmt.Errorf("relativize target %s: %w", target, err)
+	}
+	safeTarget := absRoot
+	if rel != "." {
+		safeTarget, err = safepath.SafeJoin(absRoot, rel)
+		if err != nil {
+			return fmt.Errorf("target escapes root %s: %w", target, err)
+		}
+	}
+
+	info, err := os.Stat(safeTarget) // built from absRoot via SafeJoin, contained above
+	if err != nil {
+		return fmt.Errorf("stat target dir %s: %w", safeTarget, err)
 	}
 	if !info.IsDir() {
-		return fmt.Errorf("target is not a directory: %s", target)
+		return fmt.Errorf("target is not a directory: %s", safeTarget)
 	}
 
-	entries, err := os.ReadDir(target)
+	entries, err := os.ReadDir(safeTarget)
 	if err != nil {
-		return fmt.Errorf("read target dir %s: %w", target, err)
+		return fmt.Errorf("read target dir %s: %w", safeTarget, err)
 	}
 
 	if err := os.Remove(absSymlinkPath); err != nil {
@@ -445,8 +465,14 @@ func unsymDir(symlinkPath, root string) error {
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			return fmt.Errorf("unsafe entry name %q in shared dir: %w", e.Name(), err)
 		}
-		src := filepath.Join(target, e.Name())
-		dst := filepath.Join(absSymlinkPath, e.Name())
+		src, err := safepath.SafeJoin(safeTarget, e.Name())
+		if err != nil {
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), safeTarget, err)
+		}
+		dst, err := safepath.SafeJoin(absSymlinkPath, e.Name())
+		if err != nil {
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), absSymlinkPath, err)
+		}
 		if err := os.Symlink(src, dst); err != nil {
 			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)
 		}
