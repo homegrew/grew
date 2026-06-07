@@ -12,7 +12,6 @@ import (
 	"github.com/homegrew/grew/cmd/autoremove"
 	cmdcache "github.com/homegrew/grew/cmd/cache"
 	"github.com/homegrew/grew/cmd/cleanup"
-	"github.com/homegrew/grew/cmd/completion"
 	"github.com/homegrew/grew/cmd/config"
 	"github.com/homegrew/grew/cmd/create"
 	"github.com/homegrew/grew/cmd/deps"
@@ -109,7 +108,6 @@ func AddCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(autoremove.Command)
 	rootCmd.AddCommand(cmdcache.Command)
 	rootCmd.AddCommand(cleanup.Command)
-	rootCmd.AddCommand(completion.Command)
 	rootCmd.AddCommand(config.Command)
 	rootCmd.AddCommand(create.Command)
 	rootCmd.AddCommand(deps.Command)
@@ -150,6 +148,11 @@ func InitializeRootCommand(rootCmd *cobra.Command) {
 	rootCmd.PersistentFlags().BoolVarP(&flags.Verbose, "verbose", "v", false, "Show detailed output")
 	rootCmd.PersistentFlags().BoolVarP(&flags.Debug, "debug", "d", false, "Show debug diagnostics (implies --verbose)")
 	rootCmd.PersistentFlags().BoolVarP(&flags.Quiet, "quiet", "q", false, "Only print errors")
+
+	rootCmd.CompletionOptions.DisableDefaultCmd = false
+	rootCmd.CompletionOptions.DisableDescriptions = false
+	rootCmd.CompletionOptions.DisableNoDescFlag = false
+	rootCmd.CompletionOptions.HiddenDefaultCmd = false
 
 	rootCmd.PersistentPreRun = func(c *cobra.Command, args []string) {
 		flags.Resolve()

@@ -18,7 +18,6 @@ func init() {
 	cli.SetupTestEnvironment()
 	cli.InitializeRootCommand(Grew)
 	cli.AddCommands(Grew)
-
 	// Add legacy commands from pkg/cmd
 	intcmd.AddLegacyCommands(Grew)
 }
