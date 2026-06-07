@@ -76,13 +76,16 @@ func Extract(archivePath, destDir string, spec formula.InstallSpec) error {
 			if err := safepath.SafePathComponent(spec.BinaryName); err != nil {
 				return fmt.Errorf("invalid binary_name: %w", err)
 			}
-			rootBin := filepath.Clean(filepath.Join(destDir, spec.BinaryName))
-			if err := safepath.CheckSubpath(destDir, rootBin); err != nil {
+			rootBin, err := safepath.SafeJoin(destDir, spec.BinaryName)
+			if err != nil {
 				return fmt.Errorf("binary_name escapes destination directory: %w", err)
 			}
-			binDir := filepath.Clean(filepath.Join(destDir, "bin"))
-			binDest := filepath.Clean(filepath.Join(binDir, spec.BinaryName))
-			if err := safepath.CheckSubpath(destDir, binDest); err != nil {
+			binDir, err := safepath.SafeJoin(destDir, "bin")
+			if err != nil {
+				return fmt.Errorf("bin dir escapes destination directory: %w", err)
+			}
+			binDest, err := safepath.SafeJoin(binDir, spec.BinaryName)
+			if err != nil {
 				return fmt.Errorf("binary destination escapes destination directory: %w", err)
 			}
 			if info, err := os.Stat(rootBin); err == nil && !info.IsDir() {
@@ -400,7 +403,12 @@ func extractSymlink(realDest, target, linkname string) error {
 // extractTar safely extracts entries from a tar stream with path traversal
 // and symlink escape protection.
 func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
-	destDir = filepath.Clean(destDir)
+	// Reject path traversal in the destination directory (go/path-injection).
+	var err error
+	destDir, err = safepath.CleanPath(destDir)
+	if err != nil {
+		return fmt.Errorf("invalid extraction destination: %w", err)
+	}
 	// Create destDir early to ensure we can resolve its symlinks consistently.
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		return fmt.Errorf("create destination directory: %w", err)

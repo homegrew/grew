@@ -329,32 +329,42 @@ func (l *Loader) LoadAll() ([]*Cask, error) {
 				continue
 			}
 
-			// Check tap root, tap/cask/, and tap/Casks/ subdirectories.
+			// Check tap root, tap/cask/, and tap/Casks/ subdirectories (recursively)
 			subdirs := []string{"", "cask", "Casks"}
 			repoPath := filepath.Join(l.TapDir, user.Name(), repo.Name())
 			for _, subdir := range subdirs {
 				caskDir := filepath.Join(repoPath, subdir)
-				entries, err := os.ReadDir(caskDir)
-				if err != nil {
-					continue
-				}
-				for _, e := range entries {
-					if e.IsDir() || !strings.HasSuffix(e.Name(), ".yaml") {
-						continue
-					}
-					if err := safepath.SafePathComponent(e.Name()); err != nil {
-						continue
-					}
-					c, err := l.loadFromFileWithPath(filepath.Join(caskDir, e.Name()))
-					if err != nil {
-						continue
-					}
-					casks = append(casks, c)
-				}
+				l.loadCasksRecursive(caskDir, &casks)
 			}
 		}
 	}
 	return casks, nil
+}
+
+// loadCasksRecursive recursively loads cask YAML files from a directory
+func (l *Loader) loadCasksRecursive(dir string, casks *[]*Cask) {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		if e.IsDir() {
+			l.loadCasksRecursive(filepath.Join(dir, e.Name()), casks)
+			continue
+		}
+		name := e.Name()
+		if !strings.HasSuffix(name, ".yaml") && !strings.HasSuffix(name, ".yml") {
+			continue
+		}
+		if err := safepath.SafePathComponent(name); err != nil {
+			continue
+		}
+		c, err := l.loadFromFileWithPath(filepath.Join(dir, name))
+		if err != nil {
+			continue
+		}
+		*casks = append(*casks, c)
+	}
 }
 
 func (l *Loader) loadFromFile(filename string) (*Cask, error) {

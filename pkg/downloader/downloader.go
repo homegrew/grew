@@ -419,11 +419,13 @@ func validateDownloadURL(rawURL string) (*url.URL, error) {
 	return safe, nil
 }
 
-// openForHashing validates path and opens the file for reading.
+// openForHashing validates path and opens the file for reading. It rejects
+// path traversal ("..") so a user-influenced path cannot escape to an
+// unexpected location (go/path-injection).
 func openForHashing(path string) (*os.File, error) {
-	clean := filepath.Clean(path)
-	if clean == "." || clean == "" {
-		return nil, fmt.Errorf("invalid path for hashing")
+	clean, err := safepath.CleanPath(path)
+	if err != nil {
+		return nil, fmt.Errorf("invalid path for hashing: %w", err)
 	}
 	if !filepath.IsAbs(clean) {
 		abs, err := filepath.Abs(clean)

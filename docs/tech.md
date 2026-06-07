@@ -56,7 +56,47 @@ If the source repository does not exist, `grew` attempts an optimized binary upd
 6. **Atomic Replacement**:
    - The final, verified binary is moved to `<prefix>/bin/grew` using an atomic rename operation.
 
-## 3. Repository Maintenance Tools
+## 3. Security Primitives
+
+Several sections above reference dual-hash verification, sandboxing, and atomic replacement. Those behaviors are not re-implemented per call site — they live in a small set of shared packages that the rest of the codebase is expected to route through. Consolidating them here is deliberate: a single hardened implementation is easier to audit than the same logic copy-pasted across the installer, linker, and extractor.
+
+### Path safety (`pkg/safepath`)
+
+Every filesystem operation that touches an externally-influenced path (archive entries, tap contents, asset names, cellar paths) is validated through `pkg/safepath` before the path reaches `os.Open`, `os.Rename`, or `filepath.Join`. This is the single layer responsible for path-traversal and Zip-Slip protection.
+
+- **`SafeJoin(base, components...)`**: joins components onto `base` and returns an error if the result escapes `base`. This is the preferred primitive — it sanitizes at the join site rather than validating after the fact, which is also the form recognized by static taint analysis.
+- **`CheckSubpath(base, target)`** / **`IsSubpath(base, target)`**: assert that an already-constructed `target` lies within `base` (used where the path is built elsewhere, e.g. before deleting a keg).
+- **`CleanPath(path)`**: rejects `..` traversal markers and returns the cleaned path.
+- **`SafePathComponent(name)`**: validates a single filename component — no separators, null bytes, or `..`.
+- **`SafeAbsolutePath(path)`**: requires the path to be absolute, clean, and not the filesystem root.
+
+### Atomic writes (`pkg/fsutil`)
+
+`fsutil.WriteFileAtomic(dst, data, mode)` is the canonical way to write metadata files. It writes to a temporary file in the destination directory, applies the mode, closes, then `rename`s into place — so a reader never observes a half-written file and a crash mid-write cannot corrupt an existing one. The self-update binary replacement, snapshot manifests (`pkg/snapshot`), and install receipts (`pkg/receipt`) all go through it instead of carrying their own temp-file dance. `pkg/fsutil` also provides `CopyTree`/`CopyFileWithinRoot` (root-confined copies), advisory file locking, and `SanitizeMode` (strips setuid/setgid/sticky/world-write bits during extraction).
+
+### Dual-hash computation (`pkg/downloader`)
+
+`downloader.ComputeHashes(path)` reads a file once and computes its SHA-256 and SHA-512 simultaneously via `io.MultiWriter`, returning both hex digests. Dual hashing protects against a supply-chain attack that targets a weakness in a single algorithm; computing both in one pass avoids reading large artifacts twice. The downloader also enforces HTTPS-only fetches behind an SSRF-protected host allowlist (`HOMEGREW_ALLOWED_HOSTS`) and rejects redirects to non-HTTPS targets.
+
+### Command-execution hardening
+
+External tools (`git`, `go`, an editor from `$EDITOR`, etc.) are resolved with `exec.LookPath` before being passed to `exec.Command`, and every external invocation passes the `--` end-of-options separator so that attacker-influenced arguments cannot be reinterpreted as flags. Where a value such as `$EDITOR` is involved, it is additionally screened for shell metacharacters before resolution (see [cmd/alias/alias.go](../cmd/alias/alias.go)). No runtime path constructs a shell command string.
+
+### Build & post-install sandboxing (`pkg/sandbox`)
+
+On macOS, builds, archive extraction, and post-install scripts run under `sandbox-exec` with dynamically generated Seatbelt profiles. Each profile denies network access and restricts writes to the minimum set of directories the step legitimately needs:
+
+- **`BuildCommand`** (`BuildConfig`): writable build and keg directories plus the compiler's temp areas; reads allowed broadly for system headers.
+- **`PostInstallCommand`** (`PostInstallConfig`): keg is read-only, only a scratch `TmpDir` is writable — post-install scripts cannot mutate the installed files.
+- **`ExtractCommand`** (`ExtractConfig`): writes confined to a staging directory.
+
+The environment is scrubbed to a minimal allowlist before each invocation. On non-macOS hosts (or where Seatbelt is unavailable) the commands still run with a cleaned environment, but without OS-enforced isolation; `IsSandboxed()` reports which regime is in effect. This is the mechanism behind the self-update pre-replacement health check in §2.
+
+### Ed25519 bottle signing (`pkg/signing`)
+
+`pkg/signing` implements detached Ed25519 signatures over a bottle's SHA-256 digest. `grew sign` ([cmd/sign](../cmd/sign)) signs a formula's hashes with a private key (raw hex seed or an unencrypted OpenSSH Ed25519 key) and emits YAML to paste into the definition. At verification time, `truststore.LoadTrustedKeys(<prefix>/etc/trusted-keys)` loads the operator-trusted public keys (SSH or hex format) and `signing.VerifyAny` checks a bottle's signature against any of them. `grew vulnscan` uses this to flag installed formulae that are unsigned or whose signature no longer matches.
+
+## 4. Repository Maintenance Tools
 
 The `homegrew/grew` repository includes tools for maintaining the formula and cask ecosystem:
 
@@ -74,7 +114,7 @@ A developer tool used to generate and verify binary delta patches between releas
 - **Platform Aware**: Handles mapping between internal OS/Architecture names and the naming conventions used in release assets.
 - **Verification (`-U`)**: Validates that an unbroken, verifiable sequence of patches exists between two versions and that all intermediate hashes match the expected `checksums.txt` values without generating new patches.
 
-## 4. Diagnostic Engine (`pkg/doctor`)
+## 5. Diagnostic Engine (`pkg/doctor`)
 
 `grew` includes a comprehensive diagnostic engine designed to verify the health, security, and structural integrity of an installation. This engine is invoked via the `grew doctor` command.
 
@@ -93,7 +133,7 @@ The diagnostic system is designed with modularity and extensibility in mind:
 
 This architecture allows developers to easily add new checks without modifying the core execution flow, ensuring `grew` can continuously expand its health and security validations.
 
-## 5. Developer Mode (`devmode`) Explained
+## 6. Developer Mode (`devmode`) Explained
 
 Typically, `grew` requires root privileges (`sudo grew setup`) during initial setup to create system-level prefix directories (like `/opt/homegrew`), establishing a strict isolation boundary between the package manager and the user's `$HOME` directory.
 
@@ -111,7 +151,7 @@ If devmode is active, `grew` bypasses the standard `sudo` requirements and inste
 
 *Note: Release builds ignore the `--unsafe` flag entirely. If a user attempts to run `grew setup --unsafe` on a production binary, it will fail and demand `sudo`.*
 
-## 6. Installation Metadata (`INSTALL_RECEIPT.json`)
+## 7. Installation Metadata (`INSTALL_RECEIPT.json`)
 
 To provide rich information about installed packages beyond what is strictly necessary for integrity verification (which is handled by `.MANIFEST.json`), `grew` generates an `INSTALL_RECEIPT.json` file during the final stages of installation.
 
@@ -125,7 +165,7 @@ This receipt is stored directly within the keg directory (e.g., `<prefix>/Cellar
 
 This metadata powers commands like `grew info`, allowing users to inspect the exact configuration and provenance of their installed packages. In short, `.MANIFEST.json` is the canonical integrity snapshot used by `grew verify`, while `INSTALL_RECEIPT.json` is supplemental operational metadata for inspection and dependency reasoning. Because the receipt is generated *after* the initial filesystem snapshot, it is explicitly ignored by the `grew verify` integrity checks to prevent false positives.
 
-## 7. Dependency Management & Cleanup
+## 8. Dependency Management & Cleanup
 
 `grew` tracks why a package was installed using the `InstalledOnRequest` field in its receipt and manifest. This distinction is critical for maintaining a lean system:
 
@@ -140,7 +180,7 @@ This metadata enables precise identification of "orphaned" dependencies—packag
     - `-p`, `--installed-as-dependency`: Filters to show orphaned dependencies that are likely safe to remove.
 - **`grew autoremove`**: Automatically uninstalls orphaned dependencies. It performs a calculation to find packages that are both "leaves" and have `InstalledOnRequest: false`.
     - **Safe by Default**: Packages explicitly installed by the user are never removed by `autoremove`, even if they are not dependencies of anything else.
-## 8. Modular CLI Architecture
+## 9. Modular CLI Architecture
 
 Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. Subcommands are no longer monolithic within a single package. Instead, each command resides in its own standalone package under the `cmd/` directory (e.g., `cmd/install`, `cmd/upgrade`).
 
@@ -156,7 +196,7 @@ Starting with version 0.5.0, `grew` transitioned to a modular CLI architecture. 
 
 The CLI entry point in `main.go` and the root command definition in `root.go` utilize the `pkg/cli` package to import these standalone packages and register them into the primary `Grew` root command.
 
-## 9. Execution Context (`pkg/context`)
+## 10. Execution Context (`pkg/context`)
 
 The `Context` struct serves as the central registry for shared application state in `grew`. Its primary purpose is to bundle together the various managers and loaders that almost every command needs to function, implementing a pattern of explicit dependency injection.
 

@@ -118,9 +118,9 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 			if err == nil {
 				for _, e := range tmpEntries {
 					name := e.Name()
-					path := filepath.Join(downloadsRoot, name)
-					if !isWithinBasePath(downloadsRoot, path) {
-						slog.Warn(fmt.Sprintf("skipping cache entry outside downloads dir: %q", path))
+					path, err := safepath.SafeJoin(downloadsRoot, name)
+					if err != nil {
+						slog.Warn(fmt.Sprintf("skipping cache entry outside downloads dir: %q", name))
 						continue
 					}
 
@@ -175,35 +175,6 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 	}
 
 	return totalBytes, nil
-}
-
-func isWithinBasePath(basePath, targetPath string) bool {
-	baseAbs, err := filepath.Abs(basePath)
-	if err != nil {
-		return false
-	}
-	baseAbs = filepath.Clean(baseAbs)
-
-	targetAbs, err := filepath.Abs(targetPath)
-	if err != nil {
-		return false
-	}
-	targetAbs = filepath.Clean(targetAbs)
-
-	rel, err := filepath.Rel(baseAbs, targetAbs)
-	if err != nil {
-		return false
-	}
-	if rel == "." {
-		return true
-	}
-	if rel == ".." {
-		return false
-	}
-	if strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
-		return false
-	}
-	return true
 }
 
 // BelongsToTargets reports whether the filename seems to belong to any of the target formula names.
