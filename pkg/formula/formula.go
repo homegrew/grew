@@ -14,6 +14,36 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// DepKind classifies a formula dependency by install phase and optionality.
+type DepKind int
+
+const (
+	DepRuntime     DepKind = iota // default runtime dependency
+	DepBuild                      // required only during build
+	DepTest                       // required only during test do
+	DepOptional                   // optional runtime dependency
+	DepRecommended                // recommended but not required
+)
+
+// Dependency is a single declared formula dependency with scope and platform tags.
+type Dependency struct {
+	Name     string   `yaml:"name"`
+	Kind     DepKind  `yaml:"kind,omitempty"`
+	Optional bool     `yaml:"optional,omitempty"`
+	Tags     []string `yaml:"tags,omitempty"`
+}
+
+// FilterByKind returns the subset of deps whose Kind matches kind.
+func FilterByKind(deps []Dependency, kind DepKind) []Dependency {
+	var out []Dependency
+	for _, d := range deps {
+		if d.Kind == kind {
+			out = append(out, d)
+		}
+	}
+	return out
+}
+
 type BottleSpec struct {
 	URL       string `yaml:"url,omitempty"`
 	SHA256    string `yaml:"sha256,omitempty"`
@@ -69,6 +99,9 @@ type Formula struct {
 	Source            *SourceSpec           `yaml:"source,omitempty"`
 	Head              *HeadSpec             `yaml:"head,omitempty"`
 	BuildDependencies []string              `yaml:"build_dependencies,omitempty"`
+	Deps              []Dependency          `yaml:"deps,omitempty"`
+	BuildHooks        []string              `yaml:"build_hooks,omitempty"`
+	TestHook          string                `yaml:"test_hook,omitempty"`
 	Service           *ServiceSpec          `yaml:"service,omitempty"`
 	Artifacts         ArtifactsSpec         `yaml:"artifacts,omitempty"`
 	Build             BuildSpec             `yaml:"build,omitempty"`
@@ -488,6 +521,11 @@ func (f *Formula) Validate() error {
 	for _, dep := range f.Dependencies {
 		if !validation.IsValidName(dep) {
 			return fmt.Errorf("formula %q: dependency %q contains invalid characters", f.Name, dep)
+		}
+	}
+	for _, dep := range f.Deps {
+		if !validation.IsValidName(dep.Name) {
+			return fmt.Errorf("formula %q: dep %q contains invalid characters", f.Name, dep.Name)
 		}
 	}
 	return nil
