@@ -165,6 +165,9 @@ grew cache                   # show download cache
 grew cache jq                # show cache path for jq
 grew cache --os=darwin jq    # show cache path for a different OS
 grew leaves -r | xargs grew uninstall # uninstall all top-level packages installed on request
+grew missing                 # check every installed keg for missing runtime deps
+grew missing jq              # check a single formula's dependency chain
+grew missing --hide=openssl@3 # check as if openssl@3 were not installed
 ```
 
 ---
@@ -193,6 +196,7 @@ grew leaves -r | xargs grew uninstall # uninstall all top-level packages install
 | `create <url>` | Scaffold a new formula from a URL (infers name, version, and SHA256) |
 | `homepage <formula>` | Open a formula or cask's homepage in the default browser |
 | `uses <formula>` | Show installed formulae that depend on the specified formula |
+| `missing [--hide=<list>]` | Check installed kegs for missing runtime dependencies (exits non-zero if any are found) |
 | `tap <user/repo>` | Add a formula repository |
 | `untap <user/repo>` | Remove a tapped formula repository |
 | `linkage <formula>` | Inspect dynamic library dependencies for an installed formula |
