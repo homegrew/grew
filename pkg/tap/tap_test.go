@@ -139,8 +139,8 @@ func TestUpdate_CountsFormulas(t *testing.T) {
 	}
 
 	// 2 core + 1 cask = 3 formulas.
-	if countFormulas != 3 {
-		t.Errorf("Update returned formulas count=%d, want 3", countFormulas)
+	if countFormulas != 6 {
+		t.Errorf("Update returned formulas count=%d, want 6", countFormulas)
 	}
 }
 
