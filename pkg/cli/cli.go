@@ -55,10 +55,6 @@ import (
 // SetupTestEnvironment configures API bases and TLS certificates for testing.
 // Should only be called when runtime.DevMode is true.
 func SetupTestEnvironment() {
-	if !runtime.DevMode {
-		return
-	}
-
 	if apiBase := os.Getenv("HOMEGREW_GITHUB_API_BASE"); apiBase != "" {
 		if !runtime.DevMode {
 			fmt.Fprintf(os.Stderr, "grew: HOMEGREW_GITHUB_API_BASE requires devmode build\n")
