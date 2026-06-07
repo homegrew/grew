@@ -40,11 +40,7 @@ func RunSudoCmd(executable string, args ...string) error {
 		return fmt.Errorf("executable is not a regular file")
 	}
 
-	sudoPath, err := exec.LookPath("sudo")
-	if err != nil {
-		return fmt.Errorf("sudo not found in PATH: %w", err)
-	}
-
+	sudoPath := "/usr/bin/sudo"
 	cmdArgs := []string{"-A", "--", executable}
 	cmdArgs = append(cmdArgs, args...)
 	cmd := exec.Command(sudoPath, cmdArgs...)
@@ -56,7 +52,7 @@ func RunSudoCmd(executable string, args ...string) error {
 	// Create the temporary askpass script
 	tmpDir := os.TempDir()
 	scriptPath := filepath.Join(tmpDir, "grew_askpass")
-	
+
 	if err := os.WriteFile(scriptPath, []byte(askPassScript), 0700); err != nil {
 		return fmt.Errorf("failed to write askpass script: %w", err)
 	}
