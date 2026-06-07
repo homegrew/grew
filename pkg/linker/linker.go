@@ -73,7 +73,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	}
 
 	for _, sd := range subdirs {
-		if err := linkDirWithOpts(sd.src, sd.dest, l.Paths.Cellar, name, opts); err != nil {
+		if err := linkDirWithOpts(sd.src, sd.dest, l.Paths.Root, l.Paths.Cellar, name, opts); err != nil {
 			return err
 		}
 	}
@@ -248,7 +248,7 @@ func isWithinRoot(root, candidate string) bool {
 	return rel != ".." && !strings.HasPrefix(rel, ".."+string(filepath.Separator))
 }
 
-func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkOpts) error {
+func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -256,6 +256,25 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		}
 		return fmt.Errorf("read %s: %w", srcDir, err)
 	}
+
+	// Anchor destDir to the trusted install root before any path is built from
+	// it. destDir arrives either as a configured prefix subdir (bin/lib/...) or,
+	// on recursion, as a SafeJoin result; re-validating it as a clean absolute
+	// path within destRoot gives every downstream SafeJoin(destDir, ...) a
+	// root-anchored base and severs taint flowing through the parameter. Done
+	// after the ReadDir short-circuit so a missing source dir never trips it.
+	absDestDir, err := filepath.Abs(destDir)
+	if err != nil {
+		return fmt.Errorf("resolve dest dir %s: %w", destDir, err)
+	}
+	absDestDir = filepath.Clean(absDestDir)
+	if err := safepath.SafeAbsolutePath(destRoot); err != nil {
+		return fmt.Errorf("invalid dest root %s: %w", destRoot, err)
+	}
+	if err := safepath.CheckSubpath(destRoot, absDestDir); err != nil {
+		return fmt.Errorf("dest dir %s escapes root %s: %w", absDestDir, destRoot, err)
+	}
+	destDir = absDestDir
 
 	for _, e := range entries {
 		// Entry names are read from keg contents on disk; validate each as a
@@ -313,7 +332,7 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 					return fmt.Errorf("create shared dir %s: %w", destPath, err)
 				}
 			}
-			if err := linkDirWithOpts(srcPath, destPath, cellarPath, formulaName, opts); err != nil {
+			if err := linkDirWithOpts(srcPath, destPath, destRoot, cellarPath, formulaName, opts); err != nil {
 				return err
 			}
 			continue
