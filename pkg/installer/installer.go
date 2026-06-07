@@ -93,8 +93,12 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	if err := safepath.SafeAbsolutePath(binPath); err != nil {
 		return fmt.Errorf("invalid binary path: %w", err)
 	}
-	if _, err := os.Stat(binPath); err != nil {
+	info, err := os.Stat(binPath)
+	if err != nil {
 		return fmt.Errorf("binary does not exist: %w", err)
+	}
+	if !info.Mode().IsRegular() {
+		return fmt.Errorf("binary is not a regular file")
 	}
 	cmd := exec.Command(binPath, "version")
 	out, err := cmd.CombinedOutput()
