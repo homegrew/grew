@@ -26,7 +26,9 @@
 | **`autoremove`** | `brew autoremove` | `grew autoremove` | Identical |
 | **JSON output** | `brew info --json` | `grew info --json` | Identical |
 | **CLI Framework** | Homebrew-specific Ruby CLI | `github.com/spf13/cobra` with `pkg/ui` | Both feature robust routing and colored output |
-| **Caveats** | Formula-specific post-install messages | Supported via `caveats` field | Identical |
+| **Caveats** | Formula-specific post-install messages | Supported via `caveats` field with template rendering (`{{.Formula}}`, `{{.Version}}`, `{{.Prefix}}`) | Enhanced |
+| **Build vs runtime deps** | `depends_on` vs `build.depends_on` distinction | Structured `DepKind` enum: Runtime, Build, Test, Optional, Recommended | Enhanced |
+| **Lifecycle hooks** | Build & post-install steps | `BuildHooks`, `TestHook`, `PhasePostInstall` with sandboxed execution | Enhanced |
 | **Automatic cleanup** | Auto-removes old versions after upgrade | Same logic via pkg/cleanup | Identical |
 | **Tap auto-install** | `brew install user/tap/formula` auto-taps | Same auto-tap logic during resolution | Identical |
 
@@ -55,15 +57,14 @@
 | **Tab/receipt metadata** | Brew writes `INSTALL_RECEIPT.json` with build options, compiler info, runtime deps, etc. |
 | **Analytics** | Brew reports install analytics (opt-out). Grew has no analytics |
 | **HEAD installs** | `brew install --HEAD` builds from repo HEAD. Grew doesn't support this |
-| **Build dependencies** | Brew distinguishes `depends_on` vs `build.depends_on`. Grew has flat `dependencies[]` |
 | **Bottle auto-selection** | Brew's bottle logic handles OS version matching, fallback bottles, and cellar relocation types. Grew keys bottles by `os_arch[_macosmajor]` and matches the current macOS version (with a generic fallback, and a newest-version fallback under `--force-bottle`), but doesn't model cellar relocation types |
 
 ## Verdict
 
-**~80-85% feature parity** with `brew install` for the core happy path. The fundamental architecture (cellar, kegs, linking, dependency resolution, bottle vs source) is a faithful recreation. Grew actually exceeds brew on security (signing, sandboxing, manifests).
+**~85-90% feature parity** with `brew install` for the core happy path. The fundamental architecture (cellar, kegs, linking, dependency resolution, bottle vs source) is a faithful recreation. Grew actually exceeds brew on security (signing, sandboxing, manifests) and now includes structured dependencies with runtime/build/test distinction, lifecycle hooks, and template-based caveats.
 
 The main gaps are:
 
 1. **Build flexibility** — the hardcoded `configure/make/make install` vs brew's arbitrary Ruby DSL is the biggest functional gap
-2. **No build vs runtime dep distinction** — matters for complex dependency trees
-3. **Ecosystem scale** — brew has thousands of formulas; grew is growing its core tap
+2. **Ecosystem scale** — brew has thousands of formulas; grew is growing its core tap
+3. **Advanced metadata** — brew's build options, compiler info, and variant tracking via options (deprecated)

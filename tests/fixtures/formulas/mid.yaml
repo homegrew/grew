@@ -1,0 +1,20 @@
+name: mid
+version: "2.0.0"
+description: "Mid formula depending on leaf"
+homepage: "https://example.com/mid"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/mid-2.0.0-darwin-arm64.tar.gz"
+  linux_amd64: "https://example.com/mid-2.0.0-linux-amd64.tar.gz"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  linux_amd64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: mid
+dependencies:
+  - leaf
+build_hooks:
+  - make
+test_hook: run-mid-tests
+caveats: "Mid package installed. Depends on leaf."

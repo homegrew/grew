@@ -2,6 +2,7 @@ package sudo
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -66,7 +67,11 @@ func RunSudoCmd(executable string, args ...string) error {
 	if err := os.WriteFile(scriptPath, []byte(askPassScript), 0700); err != nil {
 		return fmt.Errorf("failed to write askpass script: %w", err)
 	}
-	defer os.Remove(scriptPath)
+	defer func() {
+		if err := os.Remove(scriptPath); err != nil {
+			slog.Debug("failed to remove askpass script", "error", err)
+		}
+	}()
 
 	// Set the environment variable for sudo
 	cmd.Env = append(os.Environ(), fmt.Sprintf("SUDO_ASKPASS=%s", scriptPath))

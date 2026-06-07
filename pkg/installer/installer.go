@@ -93,6 +93,8 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	if err := safepath.SafeAbsolutePath(binPath); err != nil {
 		return fmt.Errorf("invalid binary path: %w", err)
 	}
+
+	slog.Debug("verifying binary integrity", "path", binPath)
 	info, err := os.Stat(binPath)
 	if err != nil {
 		return fmt.Errorf("binary does not exist: %w", err)
@@ -100,6 +102,8 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	if !info.Mode().IsRegular() {
 		return fmt.Errorf("binary is not a regular file")
 	}
+
+	slog.Debug("verifying binary integrity", "path", binPath)
 	cmd := exec.Command(binPath, "--", "version")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
@@ -110,11 +114,15 @@ func VerifyBinaryIntegrity(binPath string, expectedVersion string) error {
 	if outStr == "" {
 		return fmt.Errorf("no version output")
 	}
+
+	slog.Debug(fmt.Sprintf("binary version output: %s", outStr))
+	slog.Debug(fmt.Sprintf("expected version: %s", expectedVersion))
+	slog.Debug("checking if expected version is contained in output or if output contains 'dev'")
 	if expectedVersion != "" && !strings.Contains(outStr, expectedVersion) && !strings.Contains(outStr, "dev") {
 		return fmt.Errorf("version mismatch: expected %s, got %s", expectedVersion, outStr)
 	}
 
-	slog.Debug(fmt.Sprintf("binary execution check passed: %s", outStr))
+	slog.Debug("binary integrity check passed")
 	return nil
 }
 
@@ -136,6 +144,7 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 
 	assetName := release.AssetName()
 	slog.Debug("asset name: " + assetName)
+
 	if err := safepath.SafePathComponent(assetName); err != nil {
 		return fmt.Errorf("invalid asset name %q: %w", assetName, err)
 	}
@@ -213,7 +222,11 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 			slog.Error(fmt.Sprintf("security: refusing to remove temporary file %q outside expected temp directory %q: %v", cleanedTmpFile, expectedTmpDir, err))
 			return fmt.Errorf("temporary file %q escaped expected temporary directory: %w", cleanedTmpFile, err)
 		}
-		defer os.Remove(cleanedTmpFile)
+		defer func() {
+			if err := os.Remove(cleanedTmpFile); err != nil {
+				slog.Debug("failed to remove temporary file", "file", cleanedTmpFile, "error", err)
+			}
+		}()
 	}
 
 	// Verify all available hashes.
@@ -246,11 +259,12 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	if err != nil {
 		return fmt.Errorf("create health check tmpdir: %w", err)
 	}
-	defer os.RemoveAll(healthDir)
-	healthBin, err := safepath.SafeJoin(healthDir, "grew")
-	if err != nil {
-		return fmt.Errorf("construct health binary path: %w", err)
-	}
+	defer func() {
+		if err := os.RemoveAll(healthDir); err != nil {
+			slog.Debug("failed to remove health check directory", "directory", healthDir, "error", err)
+		}
+	}()
+	healthBin := filepath.Join(healthDir, "grew")
 	if err := os.WriteFile(healthBin, bin, 0755); err != nil {
 		return fmt.Errorf("write health check binary: %w", err)
 	}
@@ -276,7 +290,9 @@ func InstallLatestRelease(exePath string, rel *release.Release) error {
 	if err := VerifyBinaryIntegrity(exePath, expectedVersion); err != nil {
 		slog.Warn(fmt.Sprintf("%v", err))
 	}
+	slog.Debug("binary integrity verified after installation")
 
+	slog.Info(fmt.Sprintf("grew %s installed successfully", rel.TagName))
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", rel.TagName, sha256Actual, "release")
 	return nil
 }

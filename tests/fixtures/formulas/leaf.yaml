@@ -1,0 +1,16 @@
+name: leaf
+version: "1.0.0"
+description: "Leaf formula with no dependencies"
+homepage: "https://example.com/leaf"
+license: "MIT"
+url:
+  darwin_arm64: "https://example.com/leaf-1.0.0-darwin-arm64.tar.gz"
+  linux_amd64: "https://example.com/leaf-1.0.0-linux-amd64.tar.gz"
+sha256:
+  darwin_arm64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  linux_amd64: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+install:
+  type: binary
+  binary_name: leaf
+test_hook: run-leaf-tests
+caveats: "Leaf package installed successfully. Add to PATH if not already set."

@@ -37,7 +37,7 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	exe, err := os.Executable()
 	if err != nil {
 		// Can't locate ourselves — fall back to direct extraction.
-		slog.Debug(fmt.Sprintf("cannot locate executable for sandboxed extract, falling back: %v", err))
+		slog.Debug("cannot locate executable for sandboxed extract, falling back", "error", err)
 		return downloader.Extract(archivePath, stageDir, spec)
 	}
 
@@ -46,6 +46,8 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	// where /var is a symlink to /private/var.
 	if eval, err := filepath.EvalSymlinks(stageDir); err == nil {
 		stageDir = eval
+	} else {
+		slog.Debug("failed to resolve symlinks for stage directory", "stage_dir", stageDir, "error", err)
 	}
 	stageDir = filepath.Clean(stageDir)
 
@@ -75,10 +77,10 @@ func SandboxedExtract(archivePath, stageDir string, spec formula.InstallSpec) er
 	cmd.Stdin = bytes.NewReader(payload)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	slog.Debug(fmt.Sprintf("sandboxed extract: %s _extract (sandbox: %s)", exe, stageDir))
+	slog.Debug("sandboxed extract", "executable", exe, "command", "_extract", "sandbox_dir", stageDir)
 
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("sandboxed extraction failed: %w", err)
+		return fmt.Errorf("sandboxed extraction failed for archive %q into stage dir %q: %w", archivePath, stageDir, err)
 	}
 	return nil
 }

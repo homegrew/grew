@@ -2,6 +2,7 @@ package linker
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -54,6 +55,7 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	} else {
 		os.Remove(optLink)
 		if err := os.Symlink(kegPath, optLink); err != nil {
+			slog.Error("failed to create opt link", "link", optLink, "target", kegPath, "error", err)
 			return fmt.Errorf("create opt link: %w", err)
 		}
 	}
@@ -73,8 +75,9 @@ func (l *Linker) LinkWithOpts(name, version string, opts LinkOpts) error {
 	}
 
 	for _, sd := range subdirs {
-		if err := linkDirWithOpts(sd.src, sd.dest, l.Paths.Cellar, name, opts); err != nil {
-			return err
+		if err := linkDirWithOpts(sd.src, sd.dest, l.Paths.Root, l.Paths.Cellar, name, opts); err != nil {
+			slog.Error("failed to link subdir", "src", sd.src, "dest", sd.dest, "error", err)
+			return fmt.Errorf("link %s: %w", sd.src, err)
 		}
 	}
 	return nil
@@ -125,13 +128,13 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 
 	for _, e := range entries {
 		fullPath := filepath.Join(dir, e.Name())
-		
+
 		if e.IsDir() {
 			// Recurse into subdirectories (e.g. lib/pkgconfig or share/man)
 			if err := unlinkDirWithOpts(fullPath, cellarPrefix, opts); err != nil {
 				return err
 			}
-			
+
 			// If empty, clean it up
 			if !opts.DryRun {
 				_ = os.Remove(fullPath) // Ignore errors, it just means not empty
@@ -143,7 +146,7 @@ func unlinkDirWithOpts(dir, cellarPrefix string, opts UnlinkOpts) error {
 		if err != nil {
 			continue // not a symlink
 		}
-		
+
 		resolved := resolveLink(dir, target)
 		if strings.HasPrefix(resolved, cellarPrefix) {
 			if opts.DryRun {
@@ -182,9 +185,58 @@ func isOwnedBy(cellarPath, formulaName, destDir, symlinkTarget string) bool {
 }
 
 // destIsDir returns true if destPath is a real directory or a symlink that
-// points to a directory inside the cellar (i.e. owned by another formula).
-func destIsDir(destPath string) bool {
-	fi, err := os.Stat(destPath) // follows symlinks
+// points to a directory inside the configured root.
+func destIsDir(root, destPath string) bool {
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		slog.Error("failed to resolve root path", "root", root, "error", err)
+		return false
+	}
+	absRoot = filepath.Clean(absRoot)
+	if err := safepath.SafeAbsolutePath(absRoot); err != nil {
+		slog.Error("failed to validate root path", "root", absRoot, "error", err)
+		return false
+	}
+
+	absDest, err := filepath.Abs(destPath)
+	if err != nil {
+		slog.Error("failed to resolve dest path", "dest", destPath, "error", err)
+		return false
+	}
+	absDest = filepath.Clean(absDest)
+	if !isWithinRoot(absRoot, absDest) {
+		return false
+	}
+
+	resolvedDest := absDest
+	if eval, err := filepath.EvalSymlinks(absDest); err == nil {
+		resolvedDest = filepath.Clean(eval)
+		if !isWithinRoot(absRoot, resolvedDest) {
+			return false
+		}
+	}
+	if err := safepath.SafeAbsolutePath(resolvedDest); err != nil {
+		return false
+	}
+
+	// Rebuild the path handed to os.Stat from the trusted root plus the
+	// validated relative remainder via safepath.SafeJoin (join + containment
+	// in one call, the repo's sanctioned barrier). This severs the taint that
+	// would otherwise flow from the original destPath argument into the stat
+	// sink, in addition to the containment checks above.
+	rel, err := filepath.Rel(absRoot, resolvedDest)
+	if err != nil {
+		return false
+	}
+	statPath := absRoot
+	if rel != "." {
+		statPath, err = safepath.SafeJoin(absRoot, rel)
+		if err != nil {
+			return false
+		}
+	}
+
+	fi, err := os.Stat(statPath) // built from absRoot via SafeJoin, contained above
 	return err == nil && fi.IsDir()
 }
 
@@ -202,7 +254,7 @@ func isWithinRoot(root, candidate string) bool {
 	return rel != ".." && !strings.HasPrefix(rel, ".."+string(filepath.Separator))
 }
 
-func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkOpts) error {
+func linkDirWithOpts(srcDir, destDir, destRoot, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -211,17 +263,48 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		return fmt.Errorf("read %s: %w", srcDir, err)
 	}
 
+	// Anchor destDir to the trusted install root before any path is built from
+	// it. destDir arrives either as a configured prefix subdir (bin/lib/...) or,
+	// on recursion, as a SafeJoin result; re-validating it as a clean absolute
+	// path within destRoot gives every downstream SafeJoin(destDir, ...) a
+	// root-anchored base and severs taint flowing through the parameter. Done
+	// after the ReadDir short-circuit so a missing source dir never trips it.
+	absDestDir, err := filepath.Abs(destDir)
+	if err != nil {
+		return fmt.Errorf("resolve dest dir %s: %w", destDir, err)
+	}
+	absDestDir = filepath.Clean(absDestDir)
+	if err := safepath.SafeAbsolutePath(destRoot); err != nil {
+		return fmt.Errorf("invalid dest root %s: %w", destRoot, err)
+	}
+	if err := safepath.CheckSubpath(destRoot, absDestDir); err != nil {
+		return fmt.Errorf("dest dir %s escapes root %s: %w", absDestDir, destRoot, err)
+	}
+	destDir = absDestDir
+
 	for _, e := range entries {
+		// Entry names are read from keg contents on disk; validate each as a
+		// single, traversal-free path component and build the joined paths
+		// through safepath.SafeJoin so they are confirmed within their parent
+		// directories before any filesystem use (defense in depth against
+		// path injection).
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
-			return fmt.Errorf("unsafe entry name %q: %w", e.Name(), err)
+			return fmt.Errorf("unsafe entry %q in %s: %w", e.Name(), srcDir, err)
 		}
 		srcPath, err := safepath.SafeJoin(srcDir, e.Name())
 		if err != nil {
-			return fmt.Errorf("unsafe src path: %w", err)
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), srcDir, err)
 		}
 		destPath, err := safepath.SafeJoin(destDir, e.Name())
 		if err != nil {
-			return fmt.Errorf("unsafe dest path: %w", err)
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), destDir, err)
+		}
+		// Inline containment guard on the exact value reaching every destPath
+		// sink below (Lstat, Remove, MkdirAll, Symlink, unsymDir, recursion).
+		// This is the CodeQL-recognized barrier for go/path-injection; the
+		// SafeJoin above is kept as defense in depth.
+		if !isWithinRoot(destRoot, destPath) {
+			return fmt.Errorf("refusing to operate outside root %s: %s", destRoot, destPath)
 		}
 
 		// grew does not install info files or manpages
@@ -237,7 +320,7 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 		// the destination and recurse to link individual files.
 		if e.IsDir() {
 			if info, err := os.Lstat(destPath); err == nil {
-				if info.Mode()&os.ModeSymlink != 0 && destIsDir(destPath) {
+				if info.Mode()&os.ModeSymlink != 0 && destIsDir(filepath.Dir(cellarPath), destPath) {
 					// Destination is a symlink to a directory (from another
 					// formula). Replace it with a real directory and migrate
 					// the contents so both formulas' files coexist.
@@ -262,7 +345,7 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 					return fmt.Errorf("create shared dir %s: %w", destPath, err)
 				}
 			}
-			if err := linkDirWithOpts(srcPath, destPath, cellarPath, formulaName, opts); err != nil {
+			if err := linkDirWithOpts(srcPath, destPath, destRoot, cellarPath, formulaName, opts); err != nil {
 				return err
 			}
 			continue
@@ -358,38 +441,58 @@ func unsymDir(symlinkPath, root string) error {
 		return err
 	}
 	if !filepath.IsAbs(target) {
-		absDir := filepath.Dir(absSymlinkPath)
-		var joined string
-		joined, err = safepath.SafeJoin(absDir, target)
-		if err != nil {
-			return fmt.Errorf("unsafe relative symlink target: %w", err)
-		}
-		target = joined
-	} else {
-		target = filepath.Clean(target)
+		target = filepath.Join(filepath.Dir(absSymlinkPath), target)
 	}
 
 	if absTarget, err := filepath.Abs(target); err == nil {
 		target = filepath.Clean(absTarget)
+	} else {
+		target = filepath.Clean(target)
 	}
 
 	if !isWithinRoot(absRoot, target) {
 		return fmt.Errorf("refusing to use symlink target outside root: %s", target)
 	}
+	if err := safepath.SafeAbsolutePath(target); err != nil {
+		return fmt.Errorf("invalid symlink target %s: %w", target, err)
+	}
 
-	info, err := os.Stat(target)
+	// Rebuild the path handed to os.Stat/os.ReadDir from the trusted root plus
+	// the validated relative remainder via safepath.SafeJoin (join + containment
+	// in one call, the repo's sanctioned barrier). target is read off disk via
+	// os.Readlink, so this severs that taint at the sink in addition to the
+	// isWithinRoot guard above.
+	rel, err := filepath.Rel(absRoot, target)
 	if err != nil {
-		return fmt.Errorf("stat target dir %s: %w", target, err)
+		return fmt.Errorf("relativize target %s: %w", target, err)
+	}
+	safeTarget := absRoot
+	if rel != "." {
+		safeTarget, err = safepath.SafeJoin(absRoot, rel)
+		if err != nil {
+			return fmt.Errorf("target escapes root %s: %w", target, err)
+		}
+	}
+
+	info, err := os.Stat(safeTarget) // built from absRoot via SafeJoin, contained above
+	if err != nil {
+		return fmt.Errorf("stat target dir %s: %w", safeTarget, err)
 	}
 	if !info.IsDir() {
-		return fmt.Errorf("target is not a directory: %s", target)
+		return fmt.Errorf("target is not a directory: %s", safeTarget)
 	}
 
-	entries, err := os.ReadDir(target)
+	entries, err := os.ReadDir(safeTarget)
 	if err != nil {
-		return fmt.Errorf("read target dir %s: %w", target, err)
+		return fmt.Errorf("read target dir %s: %w", safeTarget, err)
 	}
 
+	// Inline containment guard on the exact value reaching the Remove/MkdirAll
+	// sinks, the CodeQL-recognized barrier for go/path-injection (absSymlinkPath
+	// is derived from the symlinkPath argument).
+	if !isWithinRoot(realRoot, absSymlinkPath) {
+		return fmt.Errorf("refusing to replace path outside root %s: %s", realRoot, absSymlinkPath)
+	}
 	if err := os.Remove(absSymlinkPath); err != nil {
 		return err
 	}
@@ -401,13 +504,20 @@ func unsymDir(symlinkPath, root string) error {
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			return fmt.Errorf("unsafe entry name %q in shared dir: %w", e.Name(), err)
 		}
-		src, err := safepath.SafeJoin(target, e.Name())
+		src, err := safepath.SafeJoin(safeTarget, e.Name())
 		if err != nil {
-			return fmt.Errorf("unsafe src path in shared dir: %w", err)
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), safeTarget, err)
 		}
 		dst, err := safepath.SafeJoin(absSymlinkPath, e.Name())
 		if err != nil {
-			return fmt.Errorf("unsafe dst path in shared dir: %w", err)
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), absSymlinkPath, err)
+		}
+		// Inline containment guards on the exact src/dst handed to os.Symlink
+		// (both are fresh joins not covered by an earlier guard): src within the
+		// target's root, dst within the symlink's root. CodeQL-recognized
+		// barrier for go/path-injection.
+		if !isWithinRoot(absRoot, src) || !isWithinRoot(realRoot, dst) {
+			return fmt.Errorf("refusing to link outside root: %s -> %s", dst, src)
 		}
 		if err := os.Symlink(src, dst); err != nil {
 			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)

@@ -11,12 +11,13 @@ import (
 	"github.com/homegrew/grew/pkg/cask"
 	"github.com/homegrew/grew/pkg/cellar"
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/depgraph"
 	"github.com/homegrew/grew/pkg/formula"
 	"github.com/homegrew/grew/pkg/linker"
 	grewrt "github.com/homegrew/grew/pkg/runtime"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/sandbox"
 	"github.com/homegrew/grew/pkg/snapshot"
-	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // Check is a named diagnostic check that can be run against a Context.
@@ -76,6 +77,7 @@ func BaseChecks() []Check {
 		{"check_multiple_versions", "Check for multiple installed versions", CheckMultipleVersions},
 		{"check_pinned_formulas", "Check for pinned formulas", CheckPinnedFormulas},
 		{"check_stale_tmp", "Check for stale files in tmp/", CheckStaleTmp},
+		{"check_depgraph_acyclic", "Check installed keg dependency graph is acyclic", CheckDepgraphAcyclic},
 	}
 }
 
@@ -481,5 +483,18 @@ func CheckStaleTmp(ctx *Context) {
 	entries, err := os.ReadDir(ctx.Paths.Tmp)
 	if err == nil && len(entries) > 0 {
 		ctx.Warn("%d leftover file(s) in tmp directory, consider running 'grew cleanup'", len(entries))
+	}
+}
+
+// CheckDepgraphAcyclic builds a dependency graph of all installed kegs and
+// warns if any dependency cycle is detected.
+func CheckDepgraphAcyclic(ctx *Context) {
+	g := depgraph.New()
+	for _, f := range ctx.Formulas {
+		g.AddFormula(f)
+	}
+	cycles := g.DetectCycles()
+	for _, cycle := range cycles {
+		ctx.Warn("Dependency cycle detected: %s", strings.Join(cycle, " -> "))
 	}
 }

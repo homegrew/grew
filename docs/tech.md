@@ -83,7 +83,7 @@ Every filesystem operation that touches an externally-influenced path (archive e
 
 **`HOMEGREW_ALLOWED_HOSTS` details (SSRF control):**
 - **Format:** comma-separated hostnames (optionally with `:port`), for example: `github.com,api.github.com,objects.githubusercontent.com`.
-- **Configurability:** this value is user-configurable via environment variable at runtime; if set, it overrides the built-in/default allowlist.
+- **Configurability:** the `HOMEGREW_ALLOWED_HOSTS` environment variable is user-configurable at runtime; if set, it overrides the built-in/default allowlist.
 - **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
 - **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
 
@@ -153,7 +153,7 @@ Devmode is a combination of a compile-time build tag and a runtime CLI flag that
 
 **How it works:**
 1. **Compile-time Gate:** You must compile the binary with the `devmode` build tag: `go build -tags devmode`. In the codebase, this tag triggers the inclusion of `pkg/runtime/devmode_on.go`, which sets the constant `runtime.DevMode = true`. This works via mutually exclusive Go build constraints (`//go:build devmode` vs `//go:build !devmode`), so only one of these files is compiled in any given build. (Release builds therefore include `devmode_off.go`, where `runtime.DevMode = false`).
-   **Security warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
+   > **Warning:** A binary built with `-tags devmode` must be treated as a development-only artifact and must never be distributed as an official release. If such a binary is accidentally shipped, users can enable relaxed setup behavior by passing `--unsafe`, weakening normal production safeguards. Release pipelines should enforce this with explicit CI checks (forbidden build tags), reproducible release scripts that pin production flags, and artifact validation steps that confirm `devmode` is not enabled.
 2. **Runtime Gate:** You must pass the `--unsafe` flag to the setup command: `./grew setup --unsafe`.
 3. **Evaluation:** When `grew` initializes, `runtime.devModeActive()` checks that *both* conditions are met (`DevMode && Unsafe`).
 
@@ -194,7 +194,7 @@ This metadata enables precise identification of "orphaned" dependencies—packag
 ### Detecting Broken Dependency Chains
 - **`grew missing`**: Checks installed kegs for declared runtime dependencies that are not present in the Cellar — the inverse of `leaves`/`autoremove`, which look for packages no longer *needed*; `missing` looks for packages still needed but *absent*. With no arguments it walks every installed keg (`Cellar.List()`); given names, it checks only those targets. For each keg it loads the formula definition (`ctx.LoadFormula`) and reports any entry in `Dependencies` not present in a pre-computed installed-packages map, printing one `<formula>: <dependency>` line per finding. Only runtime dependencies are considered — build-only dependencies (`BuildDependencies`) are excluded, since their absence does not break an installed package.
     - `--hide=<list>`: Treats a comma-separated list of formulae as if they were not installed, useful for previewing what would break before uninstalling them.
-    - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses cobra's usage dump and prints only the offending list.
+    - **Exit status**: Returns a non-zero exit code when any missing dependency is found, so it can gate scripts and CI checks. Because a non-zero exit is the command's normal "found something" signal rather than a misuse, it suppresses Cobra's automatic usage/help text (the command syntax summary shown on errors) and prints only the offending list.
     - **Casks**: grew casks declare no dependencies, so cask installations are always reported as complete.
 
 ## 9. Modular CLI Architecture
@@ -226,4 +226,54 @@ The `Context` struct serves as the central registry for shared application state
 1.  **Lifecycle Management**: The context initialization ensures that system paths are validated and core components (like the default Tap) are ready before any command logic executes.
 2.  **Shared Logic**: It hosts cross-cutting methods like `LoadFormula` and `LoadCask`, which encapsulate complex behaviors such as automatic repository tapping (auto-tapping) and falling back to the Homebrew API when a local definition is missing.
 3.  **Consistency**: By passing a single `Context` object through the command hierarchy, `grew` ensures that all components operate on the same configuration and prefix, preventing environment drift during execution.
+
+## 11. Dependency Resolution & Lifecycle Hooks
+
+`grew` provides structured dependency management with multiple scopes (runtime, build, test, optional, recommended) and supports formula lifecycle hooks for build, test, and post-install phases.
+
+### Dependency Modeling (`pkg/formula`, `pkg/depgraph`)
+
+Each formula declares dependencies with explicit kind annotations:
+- **Runtime**: Required when the installed formula is used.
+- **Build**: Required only during source compilation, excluded from runtime dependency chains.
+- **Test**: Required only for test execution via `grew test`.
+- **Optional**: Runtime dep that users may skip if unavailable.
+- **Recommended**: Suggested but not required.
+
+Dependencies are represented in two forms:
+- **Structured**: `Deps []Dependency` with explicit `Kind` and platform tags for fine-grained control.
+- **Legacy**: `Dependencies []string` for backward compatibility with existing formula catalogs.
+
+### Graph Construction & Ordering (`pkg/depgraph`, `pkg/resolver`)
+
+The dependency graph is built by loading formula definitions and populating a `Graph` struct with nodes (as `NodeMeta`) and edges. The resolver performs validation and ordering:
+
+1. **Topological Sorting**: Kahn's algorithm ensures dependency-first ordering. When multiple nodes have zero in-degree, runtime dependencies (`Kind != DepBuild`) are emitted before build-only dependencies, with alphabetical tiebreaking for determinism.
+2. **Cycle Detection**: DFS-based detection with exact cycle path reporting (`DetectCycles()`) prevents installing circular dependency chains.
+3. **Missing Dependency Check**: The resolver scans all edge targets against the graph's node set; missing nodes return a `MissingError` before attempting topological sort.
+
+### Lifecycle Hooks (`pkg/hooks`)
+
+Formulas can declare lifecycle hooks executed at specific phases during installation:
+
+- **`BuildHooks`**: Executed after a successful source build and before moving into the keg directory. Examples: `make`, `configure`, `make-install`.
+- **`TestHook`**: A single hook identifier for test execution. Runs before and after the test phase.
+- **`PostInstall`**: Traditionally handled by the `PostInstall` formula field (shell script); now also routed through the hook system for consistency.
+
+Hook execution is sandboxed:
+- **Build hooks** run in the build directory with access to the compiler, in the same sandbox as the `make` steps.
+- **Post-install hooks** run in a restricted sandbox with the keg read-only; only a temporary directory is writable (no network access, minimal environment).
+
+### Post-Install Caveats (`pkg/caveats`)
+
+Formulas can include a `Caveats` string printed after successful installation. The `Renderer` applies simple template substitution:
+- `{{.Formula}}` → formula name
+- `{{.Version}}` → version string
+- `{{.Prefix}}` → grew prefix directory (e.g., `/opt/homegrew`)
+
+All URLs in caveats are validated; `http://` URLs are rejected at render time to enforce HTTPS-only messaging.
+
+### Cycle Detection in Doctor
+
+The `grew doctor` command includes a `check_depgraph_acyclic` check that loads all formulas from installed kegs and reports any circular dependencies. This ensures that the installed package graph remains resolvable should a user ever attempt to construct a dependency chain manually.
 

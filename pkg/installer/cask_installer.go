@@ -26,7 +26,9 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	defer func() {
 		if err != nil {
 			slog.Error("cask installation failed, cleaning up", "cask", c.Name, "error", err)
-			_ = CaskUninstall(ctx.Context, c.Name, true)
+			if errUninstall := CaskUninstall(ctx.Context, c.Name, true); errUninstall != nil {
+				slog.Error("failed to uninstall cask", "cask", c.Name, "error", errUninstall)
+			}
 		}
 	}()
 
@@ -36,9 +38,11 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	}
 
 	if err := safepath.SafePathComponent(c.Name); err != nil {
+		slog.Debug("invalid cask name", "name", c.Name, "error", err)
 		return fmt.Errorf("invalid cask name: %w", err)
 	}
 	if err := safepath.SafePathComponent(c.Version); err != nil {
+		slog.Debug("invalid cask version", "version", c.Version, "error", err)
 		return fmt.Errorf("invalid cask version: %w", err)
 	}
 
@@ -48,12 +52,14 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 
 	dlURL, err := c.GetURL()
 	if err != nil {
+		slog.Debug("failed to get cask URL", "error", err)
 		return err
 	}
 	slog.Info("URL: " + dlURL)
 
 	sha, err := c.GetSHA256()
 	if err != nil {
+		slog.Debug("failed to get cask SHA256", "error", err)
 		return err
 	}
 	slog.Info("expected SHA256: " + sha)
@@ -65,23 +71,31 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 
 	filename := c.Name + "-" + c.Version + safepath.URLExt(dlURL)
 	if err := safepath.SafePathComponent(filename); err != nil {
+		slog.Debug("invalid download filename", "filename", filename, "error", err)
 		return fmt.Errorf("invalid download filename: %w", err)
 	}
 	localFile, err := ctx.DL.Download(dlURL, filename)
 	if err != nil {
+		slog.Debug("failed to download cask", "error", err)
 		return fmt.Errorf("download %s: %w", c.Name, err)
 	}
 
+	slog.Debug("verifying SHA256", "file", localFile, "expected", sha)
 	if err := downloader.VerifySHA256(localFile, sha); err != nil {
-		_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+		if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+			slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+		}
 		return fmt.Errorf("verify %s: %w", c.Name, err)
 	}
 
 	ui.FprintArrow(os.Stderr, "SHA256 verified")
 
 	if sha512 != "" {
+		slog.Debug("verifying SHA512", "file", localFile, "expected", sha512)
 		if err := downloader.VerifySHA512(localFile, sha512); err != nil {
-			_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+			if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+				slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+			}
 			return fmt.Errorf("verify %s (SHA512): %w", c.Name, err)
 		}
 		ui.FprintArrow(os.Stderr, "SHA512 verified")
@@ -91,12 +105,19 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	if err != nil {
 		return fmt.Errorf("invalid stage directory: %w", err)
 	}
-	os.RemoveAll(stageDir)
+	if errRm := os.RemoveAll(stageDir); errRm != nil {
+		slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+	}
 
 	ui.FprintArrow(os.Stderr, "Extracting (sandboxed)")
+	slog.Debug("extracting cask", "file", localFile, "stage_dir", stageDir)
 	if err := SandboxedExtract(localFile, stageDir, formula.InstallSpec{Type: "archive"}); err != nil {
-		os.RemoveAll(stageDir)
-		_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+		if errRm := os.RemoveAll(stageDir); errRm != nil {
+			slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+		}
+		if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+			slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+		}
 		return fmt.Errorf("extract %s: %w", c.Name, err)
 	}
 	slog.Info("extracted to staging: " + stageDir)
@@ -106,22 +127,35 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	for _, appName := range c.Artifacts.App {
 		dest, err := inst.InstallApp(stageDir, appName)
 		if err != nil {
-			os.RemoveAll(stageDir)
-			_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+			if errRm := os.RemoveAll(stageDir); errRm != nil {
+				slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+			}
+			if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+				slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+			}
+			slog.Debug("failed to install cask app artifact", "app", appName, "error", err)
 			return fmt.Errorf("install artifact %s: %w", appName, err)
 		}
 		if noQuarantine {
 			slog.Info("quarantine skipped (--no-quarantine)")
 		} else {
 			if err := ApplyCaskQuarantine(dest, dlURL); err != nil {
-				os.RemoveAll(dest)
-				os.RemoveAll(stageDir)
-				_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+				slog.Debug("failed to apply cask quarantine", "error", err)
+				if errRm := os.RemoveAll(dest); errRm != nil {
+					slog.Debug("failed to remove cask installation", "directory", dest, "error", errRm)
+				}
+				if errRm := os.RemoveAll(stageDir); errRm != nil {
+					slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+				}
+				if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+					slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+				}
 				return err
 			}
 			slog.Info("quarantine attribute set")
 			ctx.AuditLog.Log(auditlog.ActionQuarantine, c.Name, c.Version, "", "quarantined via LaunchServices")
 		}
+
 		ui.FprintArrow(os.Stderr, "Installed %s to %s", appName, dest)
 	}
 
@@ -131,8 +165,12 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 			for _, p := range installedPkgs {
 				_ = inst.UninstallPkg(p)
 			}
-			os.RemoveAll(stageDir)
-			_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+			if errRm := os.RemoveAll(stageDir); errRm != nil {
+				slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+			}
+			if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+				slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+			}
 			return fmt.Errorf("install artifact %s: %w", pkgName, err)
 		}
 		installedPkgs = append(installedPkgs, pkgName)
@@ -152,7 +190,9 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 	} else {
 		// Ensure any existing links are removed.
 		for _, binName := range c.Artifacts.Bin {
-			_ = inst.UnlinkBin(binName)
+			if err := inst.UnlinkBin(binName); err != nil {
+				slog.Debug("failed to unlink binary", "binary", binName, "error", err)
+			}
 		}
 	}
 
@@ -160,8 +200,12 @@ func CaskInstall(ctx *context.InstallContext, name string, noQuarantine bool, fo
 		return fmt.Errorf("record cask installation: %w", err)
 	}
 
-	os.RemoveAll(stageDir)
-	_ = fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile)
+	if errRm := os.RemoveAll(stageDir); errRm != nil {
+		slog.Debug("failed to remove cask staging directory", "directory", stageDir, "error", errRm)
+	}
+	if errRm := fsutil.RemoveIfWithinAllowed(ctx.Paths.Tmp, ctx.Paths.Cache, localFile); errRm != nil {
+		slog.Debug("failed to remove cask download file", "file", localFile, "error", errRm)
+	}
 
 	ui.FprintArrow(os.Stderr, "%s %s installed", c.Name, c.Version)
 

@@ -244,6 +244,7 @@ func verifyBinary(path, prefix string) []Issue {
 	// Get library deps.
 	libOut, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
+		slog.Debug(fmt.Sprintf("relocation: verify: failed to run otool -L on %s: %v", relName, err))
 		return nil
 	}
 	// Foreign-architecture firmware/data blobs (e.g. qemu's share/qemu/*) are

@@ -86,9 +86,10 @@ func (r *auditResult) ok() bool {
 
 func RunAudit(args []string) error {
 	slog.Debug("starting audit command execution")
-	
+
 	ctx, err := context.New()
 	if err != nil {
+		slog.Error("failed to create context", "error", err)
 		return err
 	}
 
@@ -106,6 +107,7 @@ func runAuditFormulas(ctx *context.Context, targets []string, strict, online boo
 		var err error
 		formulas, err = ctx.Loader.LoadAll()
 		if err != nil {
+			slog.Error("failed to load formulas", "error", err)
 			return fmt.Errorf("load formulas: %w", err)
 		}
 	} else {
@@ -309,9 +311,11 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 	}
 	kegPath, err := safepath.SafeJoin(paths.Cellar, f.Name, f.Version)
 	if err != nil {
+		slog.Debug(fmt.Sprintf("invalid keg path for %s: %v", f.Name, err))
 		return
 	}
 	if !snapshot.Exists(kegPath) {
+		slog.Debug(fmt.Sprintf("keg path does not exist for %s: %s", f.Name, kegPath))
 		return
 	}
 
@@ -319,6 +323,7 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 	for _, sub := range []string{"man", "info"} {
 		p, err := safepath.SafeJoin(kegPath, "share", sub)
 		if err != nil {
+			slog.Debug(fmt.Sprintf("failed to join path for %s: %v", f.Name, err))
 			continue
 		}
 		if info, err := os.Stat(p); err == nil && info.IsDir() {
@@ -328,6 +333,7 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 
 	result, err := snapshot.Verify(kegPath)
 	if err != nil {
+		slog.Debug(fmt.Sprintf("snapshot verify failed for %s: %v", f.Name, err))
 		r.warnf("snapshot verify: %v", err)
 		return
 	}
@@ -335,12 +341,15 @@ func auditFormulaInstalled(r *auditResult, f *formula.Formula, paths config.Path
 		return
 	}
 	for _, mf := range result.Missing {
+		slog.Debug(fmt.Sprintf("installed file missing for %s: %s", f.Name, mf))
 		r.errorf("installed file missing: %s", mf)
 	}
 	for _, mf := range result.Modified {
+		slog.Debug(fmt.Sprintf("installed file modified for %s: %s", f.Name, mf))
 		r.errorf("installed file modified: %s", mf)
 	}
 	for _, mf := range result.Added {
+		slog.Debug(fmt.Sprintf("unexpected file in keg for %s: %s", f.Name, mf))
 		r.warnf("unexpected file in keg: %s", mf)
 	}
 }
@@ -357,6 +366,7 @@ func runAuditCasks(paths config.Paths, targets []string, strict bool) error {
 		var err error
 		casks, err = caskLoader.LoadAll()
 		if err != nil {
+			slog.Info("failed to load casks", "error", err)
 			return fmt.Errorf("load casks: %w", err)
 		}
 	} else {
@@ -497,6 +507,7 @@ func auditSummary(warnings, errors int, strict bool) error {
 	}
 	fmt.Printf("\n%d error(s) and %d warning(s) found.\n", errors, warnings)
 	if errors > 0 || (strict && warnings > 0) {
+		slog.Error("audit failed", "errors", errors, "warnings", warnings, "strict", strict)
 		return fmt.Errorf("audit failed")
 	}
 	return nil
