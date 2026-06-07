@@ -16,7 +16,7 @@ import (
 	"github.com/homegrew/grew/pkg/installer"
 	"github.com/homegrew/grew/pkg/release"
 	grewrt "github.com/homegrew/grew/pkg/runtime"
-	pathutil "github.com/homegrew/grew/pkg/safepath"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/sudo"
 	"github.com/homegrew/grew/pkg/ui"
 	verpkg "github.com/homegrew/grew/pkg/version"
@@ -204,7 +204,7 @@ func setupSystem(prefix string) error {
 		// and transfer its ownership to the current user.
 		script := fmt.Sprintf("mkdir -p %q && chown -R %q %q", prefix, userGroup, prefix)
 		slog.Info("Elevating privileges to create prefix and transfer ownership")
-		if err := sudo.RunSudoCmd("sh", "-c", script); err != nil {
+		if err := sudo.RunSudoCmd("/bin/sh", "-c", script); err != nil {
 			return fmt.Errorf("elevation failed: %w", err)
 		}
 	} else {
@@ -289,11 +289,18 @@ func finishSetup(prefix string) error {
 	_ = os.RemoveAll(filepath.Join(paths.Share, "info"))
 	_ = os.Remove(paths.Share) // only removes if empty
 
-	destBin := filepath.Clean(filepath.Join(prefix, "bin", "grew"))
+	destBin, err := safepath.SafeJoin(prefix, "bin", "grew")
+	if err != nil {
+		return fmt.Errorf("safe join dest bin: %w", err)
+	}
 
 	if setupUnsafe {
 		// Install from source via git clone + go build.
-		repoDir := filepath.Clean(filepath.Join(prefix, "Grew"))
+		repoDir, errSafeJoin := safepath.SafeJoin(prefix, "Grew")
+		if errSafeJoin != nil {
+			return fmt.Errorf("safe join repo dir: %w", errSafeJoin)
+		}
+
 		if err := installFromGit(repoDir, destBin, true); err != nil {
 			return fmt.Errorf("install from source: %w", err)
 		}
@@ -318,6 +325,7 @@ func finishSetup(prefix string) error {
 func installBinary(destBin, prefix string) error {
 	ui.FprintArrow(os.Stderr, "Downloading latest grew release...")
 	rel, err := release.FetchLatest()
+
 	if err != nil {
 		return fmt.Errorf("fetch latest release: %w", err)
 	}
@@ -340,19 +348,21 @@ var ErrNoGitRepo = errors.New("no git repository found")
 // installFromGit clones the grew repository and builds the binary from source.
 // If the repo already exists, it pulls the latest changes instead.
 func installFromGit(repoDir, destBin string, allowClone bool) error {
-	if err := pathutil.SafeAbsolutePath(repoDir); err != nil {
+	if err := safepath.SafeAbsolutePath(repoDir); err != nil {
 		return fmt.Errorf("invalid repository directory: %w", err)
 	}
-	if err := pathutil.SafeAbsolutePath(destBin); err != nil {
+	if err := safepath.SafeAbsolutePath(destBin); err != nil {
 		return fmt.Errorf("invalid destination binary path: %w", err)
 	}
 
+	slog.Debug("installing from git", "repoDir", repoDir, "destBin", destBin, "allowClone", allowClone)
 	cleanRepoDir := repoDir // already validated as clean
 
 	gitPath, err := exec.LookPath("git")
 	if err != nil {
 		return fmt.Errorf("git not found in PATH")
 	}
+
 	goPath, err := exec.LookPath("go")
 	if err != nil {
 		return fmt.Errorf("go not found in PATH")
@@ -373,7 +383,9 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 		if !allowClone {
 			return ErrNoGitRepo
 		}
+
 		// Clone fresh.
+		slog.Debug("cloning grew repository", "url", grewRepoURL, "dest", cleanRepoDir)
 		ui.FprintArrow(os.Stderr, "Cloning grew from %s", grewRepoURL)
 		clone := exec.Command(gitPath, "clone", "--depth", "1", "--", grewRepoURL, cleanRepoDir)
 		clone.Stdout = os.Stdout
@@ -385,10 +397,12 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 
 	// Generate version and build.
 	fmt.Fprintln(os.Stderr, "==> Building grew from source...")
+	slog.Debug("building grew from source", "goPath", goPath, "destBin", destBin, "repoDir", cleanRepoDir)
 	build := exec.Command(goPath, "build", "-o", destBin, "-trimpath", "-ldflags", fmt.Sprintf("-s -w -X main.version=%s", verpkg.Version()), ".")
 	build.Dir = cleanRepoDir
 	build.Stdout = os.Stdout
 	build.Stderr = os.Stderr
+	slog.Debug("running build command", "cmd", build.String())
 	if err := build.Run(); err != nil {
 		return fmt.Errorf("go build: %w", err)
 	}
@@ -402,17 +416,28 @@ func installFromGit(repoDir, destBin string, allowClone bool) error {
 // in devmode user-local installs, ~/Applications is used.
 func defaultAppDir() string {
 	if v := os.Getenv("HOMEGREW_APPDIR"); v != "" {
-		if abs, err := filepath.Abs(v); err == nil {
-			return filepath.Clean(abs)
+		if abs, absErr := filepath.Abs(v); absErr == nil {
+			if cleanAbs, cleanErr := safepath.CleanPath(abs); cleanErr == nil {
+				slog.Debug("app directory determined from HOMEGREW_APPDIR", "path", cleanAbs)
+				return cleanAbs
+			} else {
+				slog.Warn("invalid HOMEGREW_APPDIR path", "path", v, "err", cleanErr)
+			}
+		} else {
+			slog.Warn("invalid HOMEGREW_APPDIR path", "path", v, "err", absErr)
 		}
 	}
+
+	slog.Debug("determining default app directory based on runtime environment")
 	if grewrt.Env().RunAsRoot() {
 		return "/Applications"
 	}
+
 	home, err := os.UserHomeDir()
 	if err != nil {
 		home = "."
 	}
+
 	appDir := filepath.Join(home, "Applications")
 	if abs, err := filepath.Abs(appDir); err == nil {
 		return filepath.Clean(abs)
@@ -424,17 +449,27 @@ func defaultAppDir() string {
 // HOMEGREW_CACHE overrides the default.
 func defaultCacheDir() string {
 	if v := os.Getenv("HOMEGREW_CACHE"); v != "" {
-		if abs, err := filepath.Abs(v); err == nil {
-			return filepath.Clean(abs)
+		if abs, absErr := filepath.Abs(v); absErr == nil {
+			if cleanAbs, cleanErr := safepath.CleanPath(abs); cleanErr == nil {
+				slog.Debug("cache directory determined from HOMEGREW_CACHE", "path", cleanAbs)
+				return cleanAbs
+			} else {
+				slog.Warn("invalid HOMEGREW_CACHE path", "path", v, "err", cleanErr)
+			}
+		} else {
+			slog.Warn("invalid HOMEGREW_CACHE path", "path", v, "err", absErr)
 		}
 	}
 	if ucd, err := os.UserCacheDir(); err == nil {
+		slog.Info("cache directory determined from os.UserCacheDir", "path", ucd, "note", "appending Homegrew to avoid cluttering the root of the cache directory")
 		return filepath.Join(ucd, "Homegrew")
 	}
 	home, err := os.UserHomeDir()
 	if err != nil {
 		home = "."
 	}
+
+	slog.Warn("cache directory defaulting to ~/.cache/homegrew", "path", filepath.Join(home, ".cache", "homegrew"))
 	return filepath.Join(home, ".cache", "homegrew")
 }
 
