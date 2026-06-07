@@ -155,6 +155,11 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 						fmt.Printf("Would remove: %s (%s)\n", path, fsutil.FormatSize(size))
 					} else {
 						slog.Debug("removing cached file " + name)
+						// Re-validate path stays within downloadsRoot before removal to prevent TOCTOU attacks
+						if err := safepath.CheckSubpath(downloadsRoot, path); err != nil {
+							slog.Warn(fmt.Sprintf("refusing to remove file outside downloads dir: %q", path))
+							continue
+						}
 						if err := os.RemoveAll(path); err != nil {
 							slog.Warn(fmt.Sprintf("could not remove %s: %v", path, err))
 						} else {
