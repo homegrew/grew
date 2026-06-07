@@ -40,9 +40,6 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 		if err := safepath.SafeAbsolutePath(downloadsRoot); err != nil {
 			slog.Warn(fmt.Sprintf("skipping cleanup for invalid downloads dir %q: %v", downloadsRoot, err))
 			downloadsRoot = ""
-		} else if c.Path == "" || !isWithinBasePath(c.Path, downloadsRoot) {
-			slog.Warn(fmt.Sprintf("skipping cleanup for downloads dir outside cellar root: %q", downloadsRoot))
-			downloadsRoot = ""
 		}
 	}
 
