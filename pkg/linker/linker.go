@@ -295,14 +295,29 @@ func unsymDir(symlinkPath, root string) error {
 	}
 	absRoot = filepath.Clean(absRoot)
 
+	realRoot, err := filepath.EvalSymlinks(absRoot)
+	if err != nil {
+		realRoot = absRoot
+	} else {
+		realRoot = filepath.Clean(realRoot)
+	}
+
 	absSymlinkPath, err := filepath.Abs(symlinkPath)
 	if err != nil {
 		return fmt.Errorf("resolve path %s: %w", symlinkPath, err)
 	}
 	absSymlinkPath = filepath.Clean(absSymlinkPath)
 
-	if absSymlinkPath != absRoot && !strings.HasPrefix(absSymlinkPath, absRoot+string(filepath.Separator)) {
-		return fmt.Errorf("refusing to expand path outside root: %s", absSymlinkPath)
+	parent := filepath.Dir(absSymlinkPath)
+	realParent, err := filepath.EvalSymlinks(parent)
+	if err != nil {
+		return fmt.Errorf("resolve parent %s: %w", parent, err)
+	}
+	realParent = filepath.Clean(realParent)
+	realSymlinkPath := filepath.Clean(filepath.Join(realParent, filepath.Base(absSymlinkPath)))
+
+	if realSymlinkPath != realRoot && !strings.HasPrefix(realSymlinkPath, realRoot+string(filepath.Separator)) {
+		return fmt.Errorf("refusing to expand path outside root: %s", realSymlinkPath)
 	}
 
 	target, err := os.Readlink(absSymlinkPath)
