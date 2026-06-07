@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/homegrew/grew/pkg/config"
+	"github.com/homegrew/grew/pkg/safepath"
 	"github.com/homegrew/grew/pkg/validation"
 )
 
@@ -375,6 +376,9 @@ func unsymDir(symlinkPath, root string) error {
 	}
 
 	for _, e := range entries {
+		if err := safepath.SafePathComponent(e.Name()); err != nil {
+			return fmt.Errorf("unsafe entry name %q in shared dir: %w", e.Name(), err)
+		}
 		src := filepath.Join(target, e.Name())
 		dst := filepath.Join(absSymlinkPath, e.Name())
 		if err := os.Symlink(src, dst); err != nil {

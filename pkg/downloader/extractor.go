@@ -400,7 +400,12 @@ func extractSymlink(realDest, target, linkname string) error {
 // extractTar safely extracts entries from a tar stream with path traversal
 // and symlink escape protection.
 func extractTar(tr *tar.Reader, destDir string, stripComponents int) error {
-	destDir = filepath.Clean(destDir)
+	// Reject path traversal in the destination directory (go/path-injection).
+	var err error
+	destDir, err = safepath.CleanPath(destDir)
+	if err != nil {
+		return fmt.Errorf("invalid extraction destination: %w", err)
+	}
 	// Create destDir early to ensure we can resolve its symlinks consistently.
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		return fmt.Errorf("create destination directory: %w", err)
