@@ -126,8 +126,15 @@ func (m *Manager) Update() (int, int, error) {
 			if !repo.IsDir() {
 				continue
 			}
-			repoPath := filepath.Join(m.TapsDir, user.Name(), repo.Name())
-			if _, err := os.Stat(filepath.Join(repoPath, ".git")); err != nil {
+			repoPath, err := safepath.SafeJoin(m.TapsDir, user.Name(), repo.Name())
+			if err != nil {
+				continue
+			}
+			gitPath, err := safepath.SafeJoin(repoPath, ".git")
+			if err != nil {
+				continue
+			}
+			if _, err := os.Stat(gitPath); err != nil {
 				continue
 			}
 

@@ -83,6 +83,11 @@ func (c *Cellar) RunCleanup(targets []string, opts CleanupOpts, paths CleanupPat
 				fmt.Printf("Would remove: %s %s (%s)\n", pkg.Name, ver, fsutil.FormatSize(size))
 			} else {
 				slog.Debug(fmt.Sprintf("removing old keg %s/%s", pkg.Name, ver))
+				// Re-validate the keg stays within the cellar before removal to prevent TOCTOU attacks.
+				if err := safepath.CheckSubpath(c.Path, kegPath); err != nil {
+					slog.Warn(fmt.Sprintf("refusing to remove keg outside cellar: %q", kegPath))
+					continue
+				}
 				if err := os.RemoveAll(kegPath); err != nil {
 					slog.Warn(fmt.Sprintf("could not remove %s: %v", kegPath, err))
 				} else {

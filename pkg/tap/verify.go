@@ -5,8 +5,9 @@ import (
 	"log/slog"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
+
+	"github.com/homegrew/grew/pkg/safepath"
 )
 
 // VerifyMode controls how strictly tap commit signatures are checked.
@@ -56,7 +57,10 @@ func VerifyHeadSignature(repoDir string) error {
 	if err != nil {
 		return fmt.Errorf("invalid repo dir: %w", err)
 	}
-	gitDir := filepath.Join(repoDir, ".git")
+	gitDir, err := safepath.SafeJoin(repoDir, ".git")
+	if err != nil {
+		return fmt.Errorf("invalid git dir path: %w", err)
+	}
 	if _, err := os.Stat(gitDir); err != nil {
 		return fmt.Errorf("not a git repository: %s", repoDir)
 	}
@@ -78,7 +82,10 @@ func VerifyTagSignature(repoDir, tag string) error {
 	if err != nil {
 		return fmt.Errorf("invalid repo dir: %w", err)
 	}
-	gitDir := filepath.Join(repoDir, ".git")
+	gitDir, err := safepath.SafeJoin(repoDir, ".git")
+	if err != nil {
+		return fmt.Errorf("invalid git dir path: %w", err)
+	}
 	if _, err := os.Stat(gitDir); err != nil {
 		return fmt.Errorf("not a git repository: %s", repoDir)
 	}
