@@ -62,6 +62,38 @@ func TestRelocateRevisionedSelfRef(t *testing.T) {
 	}
 }
 
+// TestVerifyIgnoresNonMachOData reproduces the qemu failure: foreign-arch
+// firmware/ELF blobs shipped under share/ have executable-like magic bytes but
+// are not Mach-O objects. otool reports "is not an object file" on stdout with a
+// zero exit status; verification must skip such files, not treat the message as
+// a missing dependency.
+func TestVerifyIgnoresNonMachOData(t *testing.T) {
+	if _, err := exec.LookPath("otool"); err != nil {
+		t.Skipf("otool not available: %v", err)
+	}
+
+	prefix := t.TempDir()
+	keg := filepath.Join(prefix, "Cellar", "qemu", "11.0.1")
+	shareDir := filepath.Join(keg, "share", "qemu")
+	if err := os.MkdirAll(shareDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+
+	// A foreign (PPC) ELF firmware image — isBinary matches the ELF magic, but
+	// otool cannot inspect it.
+	blob := filepath.Join(shareDir, "openbios-ppc")
+	if err := os.WriteFile(blob, []byte("\x7fELF\x02\x02\x01\x00ppc firmware payload"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if !isBinary(blob) {
+		t.Fatal("test fixture should be detected as a binary by magic bytes")
+	}
+
+	if issues := VerifyKeg(keg, prefix); len(issues) != 0 {
+		t.Fatalf("VerifyKeg found %d issue(s) on non-Mach-O data: %v", len(issues), issues)
+	}
+}
+
 func run(t *testing.T, name string, args ...string) {
 	t.Helper()
 	if out, err := exec.Command(name, args...).CombinedOutput(); err != nil {

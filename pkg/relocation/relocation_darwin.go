@@ -1,4 +1,3 @@
-
 package relocation
 
 import (
@@ -9,6 +8,13 @@ import (
 	"path/filepath"
 	"strings"
 )
+
+// notObjectFile is the message otool prints (to stdout, with a zero exit
+// status) when asked to inspect a file that is not a Mach-O object — e.g.
+// foreign-architecture firmware/ELF images shipped as data (qemu ships
+// several under share/). Such files are not subject to Mach-O relocation or
+// linkage verification, so they must be skipped rather than parsed as deps.
+const notObjectFile = "is not an object file"
 
 // applyReplacements returns s with the first matching replacement applied.
 // Keys are tried longest-first so the most specific source path wins.
@@ -49,6 +55,10 @@ func inspectBinary(path string) ([]string, error) {
 	out, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return nil, fmt.Errorf("otool -L %s: %w", path, err)
+	}
+	if strings.Contains(string(out), notObjectFile) {
+		slog.Debug(fmt.Sprintf("relocation: %s: not a Mach-O object, skipping", relName))
+		return nil, nil
 	}
 
 	for _, line := range strings.Split(string(out), "\n") {
@@ -135,6 +145,10 @@ func relocateBinary(path string, replacements Replacements) error {
 	libOut, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
 		return fmt.Errorf("otool -L: %w", err)
+	}
+	if strings.Contains(string(libOut), notObjectFile) {
+		slog.Debug(fmt.Sprintf("relocation: %s: not a Mach-O object, skipping", relName))
+		return nil
 	}
 
 	// Collect LC_RPATH entries.
@@ -230,6 +244,13 @@ func verifyBinary(path, prefix string) []Issue {
 	// Get library deps.
 	libOut, err := exec.Command(otool, "-L", path).Output()
 	if err != nil {
+		return nil
+	}
+	// Foreign-architecture firmware/data blobs (e.g. qemu's share/qemu/*) are
+	// not Mach-O objects; otool reports this on stdout with a zero exit status.
+	// They carry no Mach-O linkage, so there is nothing to verify.
+	if strings.Contains(string(libOut), notObjectFile) {
+		slog.Debug(fmt.Sprintf("relocation: verify: %s: not a Mach-O object, skipping", relName))
 		return nil
 	}
 
