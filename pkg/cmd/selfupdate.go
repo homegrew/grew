@@ -6,7 +6,6 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/homegrew/grew/pkg/auditlog"
 	"github.com/homegrew/grew/pkg/bpatch"
@@ -109,7 +108,7 @@ func selfUpdateFromGit(exePath string) (bool, error) {
 	destBin := filepath.Join(prefix, "bin", "grew")
 
 	var err error
-	destBin, err = ensurePathWithinBase(prefix, destBin)
+	destBin, err = safepath.EnsurePathWithinBase(prefix, destBin)
 	if err != nil {
 		return false, fmt.Errorf("invalid destination binary path: %w", err)
 	}
@@ -128,33 +127,6 @@ func selfUpdateFromGit(exePath string) (bool, error) {
 
 	auditlog.New(config.Default().Log).Log(auditlog.ActionSelfUpdate, "grew", "", "", "source")
 	return true, nil
-}
-
-func ensurePathWithinBase(base, target string) (string, error) {
-	baseAbs, err := filepath.Abs(filepath.Clean(base))
-	if err != nil {
-		return "", fmt.Errorf("resolve base path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(baseAbs); err != nil {
-		return "", fmt.Errorf("invalid base path %q: %w", baseAbs, err)
-	}
-
-	targetAbs, err := filepath.Abs(filepath.Clean(target))
-	if err != nil {
-		return "", fmt.Errorf("resolve target path: %w", err)
-	}
-	if err := safepath.SafeAbsolutePath(targetAbs); err != nil {
-		return "", fmt.Errorf("invalid target path %q: %w", targetAbs, err)
-	}
-
-	rel, err := filepath.Rel(baseAbs, targetAbs)
-	if err != nil {
-		return "", fmt.Errorf("compute relative path: %w", err)
-	}
-	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return "", fmt.Errorf("path %q escapes base directory %q", targetAbs, baseAbs)
-	}
-	return targetAbs, nil
 }
 
 var grewRepoURL = "https://github.com/homegrew/grew.git"
