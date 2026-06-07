@@ -114,7 +114,32 @@ func (m *Manager) Update() (int, int, error) {
 		return 0, 0, err
 	}
 
-	users, err := os.ReadDir(m.TapsDir)
+	expectedBase, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
+	}
+	expectedBase = filepath.Clean(expectedBase)
+	if err := safepath.SafeAbsolutePath(expectedBase); err != nil {
+		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", expectedBase, err)
+	}
+
+	tapsBase, err := filepath.Abs(m.TapsDir)
+	if err != nil {
+		return 0, 0, fmt.Errorf("resolve taps directory: %w", err)
+	}
+	if eval, err := filepath.EvalSymlinks(tapsBase); err == nil {
+		tapsBase = eval
+	}
+	tapsBase = filepath.Clean(tapsBase)
+	if err := safepath.SafeAbsolutePath(tapsBase); err != nil {
+		return 0, 0, fmt.Errorf("invalid taps directory %q: %w", tapsBase, err)
+	}
+	rel, err := filepath.Rel(expectedBase, tapsBase)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+		return 0, 0, fmt.Errorf("resolved taps directory escapes configured base: %q", tapsBase)
+	}
+
+	users, err := os.ReadDir(tapsBase)
 	if err != nil {
 		return 0, 0, fmt.Errorf("read taps directory: %w", err)
 	}
@@ -125,7 +150,11 @@ func (m *Manager) Update() (int, int, error) {
 		if !user.IsDir() {
 			continue
 		}
-		repos, err := os.ReadDir(filepath.Join(m.TapsDir, user.Name()))
+		userPath, err := safepath.SafeJoin(tapsBase, user.Name())
+		if err != nil {
+			continue
+		}
+		repos, err := os.ReadDir(userPath)
 		if err != nil {
 			continue
 		}
@@ -133,12 +162,18 @@ func (m *Manager) Update() (int, int, error) {
 			if !repo.IsDir() {
 				continue
 			}
-			repoPath, err := safepath.SafeJoin(m.TapsDir, user.Name(), repo.Name())
+			repoPath, err := safepath.SafeJoin(tapsBase, user.Name(), repo.Name())
 			if err != nil {
+				continue
+			}
+			if err := safepath.CheckSubpath(tapsBase, repoPath); err != nil {
 				continue
 			}
 			gitPath, err := safepath.SafeJoin(repoPath, ".git")
 			if err != nil {
+				continue
+			}
+			if err := safepath.CheckSubpath(tapsBase, gitPath); err != nil {
 				continue
 			}
 			if _, err := os.Stat(gitPath); err != nil {
