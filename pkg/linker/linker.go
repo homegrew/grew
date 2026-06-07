@@ -188,6 +188,20 @@ func destIsDir(destPath string) bool {
 	return err == nil && fi.IsDir()
 }
 
+func isWithinRoot(root, candidate string) bool {
+	rel, err := filepath.Rel(root, candidate)
+	if err != nil {
+		return false
+	}
+	if rel == "." {
+		return true
+	}
+	if filepath.IsAbs(rel) {
+		return false
+	}
+	return rel != ".." && !strings.HasPrefix(rel, ".."+string(filepath.Separator))
+}
+
 func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
@@ -219,7 +233,7 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 					// formula). Replace it with a real directory and migrate
 					// the contents so both formulas' files coexist.
 					if !opts.DryRun {
-						if err := unsymDir(destPath); err != nil {
+						if err := unsymDir(destPath, filepath.Dir(cellarPath)); err != nil {
 							return fmt.Errorf("expand shared dir %s: %w", destPath, err)
 						}
 					}
@@ -289,13 +303,70 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 // unsymDir replaces a symlink-to-directory with a real directory containing
 // symlinks to each entry in the original target. This allows multiple
 // formulas to share the directory (e.g. lib/pkgconfig).
-func unsymDir(symlinkPath string) error {
-	target, err := os.Readlink(symlinkPath)
+func unsymDir(symlinkPath, root string) error {
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		return fmt.Errorf("resolve root %s: %w", root, err)
+	}
+	absRoot = filepath.Clean(absRoot)
+
+	realRoot, err := filepath.EvalSymlinks(absRoot)
+	if err != nil {
+		realRoot = absRoot
+	} else {
+		realRoot = filepath.Clean(realRoot)
+	}
+
+	absSymlinkPath, err := filepath.Abs(symlinkPath)
+	if err != nil {
+		return fmt.Errorf("resolve path %s: %w", symlinkPath, err)
+	}
+	absSymlinkPath = filepath.Clean(absSymlinkPath)
+	if err := safepath.SafeAbsolutePath(realRoot); err != nil {
+		return fmt.Errorf("invalid root path %s: %w", realRoot, err)
+	}
+	if err := safepath.SafeAbsolutePath(absSymlinkPath); err != nil {
+		return fmt.Errorf("invalid symlink path %s: %w", absSymlinkPath, err)
+	}
+	if !isWithinRoot(realRoot, absSymlinkPath) {
+		return fmt.Errorf("refusing to modify path outside root: %s", absSymlinkPath)
+	}
+
+	parent := filepath.Dir(absSymlinkPath)
+	realParent, err := filepath.EvalSymlinks(parent)
+	if err != nil {
+		return fmt.Errorf("resolve parent %s: %w", parent, err)
+	}
+	realParent = filepath.Clean(realParent)
+	realSymlinkPath := filepath.Clean(filepath.Join(realParent, filepath.Base(absSymlinkPath)))
+
+	if !isWithinRoot(realRoot, realSymlinkPath) {
+		return fmt.Errorf("refusing to expand path outside root: %s", realSymlinkPath)
+	}
+
+	target, err := os.Readlink(absSymlinkPath)
 	if err != nil {
 		return err
 	}
 	if !filepath.IsAbs(target) {
-		target = filepath.Join(filepath.Dir(symlinkPath), target)
+		target = filepath.Join(filepath.Dir(absSymlinkPath), target)
+	}
+	if absTarget, err := filepath.Abs(target); err == nil {
+		target = filepath.Clean(absTarget)
+	} else {
+		target = filepath.Clean(target)
+	}
+
+	if !isWithinRoot(absRoot, target) {
+		return fmt.Errorf("refusing to use symlink target outside root: %s", target)
+	}
+
+	info, err := os.Stat(target)
+	if err != nil {
+		return fmt.Errorf("stat target dir %s: %w", target, err)
+	}
+	if !info.IsDir() {
+		return fmt.Errorf("target is not a directory: %s", target)
 	}
 
 	entries, err := os.ReadDir(target)
@@ -303,10 +374,10 @@ func unsymDir(symlinkPath string) error {
 		return fmt.Errorf("read target dir %s: %w", target, err)
 	}
 
-	if err := os.Remove(symlinkPath); err != nil {
+	if err := os.Remove(absSymlinkPath); err != nil {
 		return err
 	}
-	if err := os.MkdirAll(symlinkPath, 0755); err != nil {
+	if err := os.MkdirAll(absSymlinkPath, 0755); err != nil {
 		return err
 	}
 
@@ -315,7 +386,7 @@ func unsymDir(symlinkPath string) error {
 			return fmt.Errorf("unsafe entry name %q in shared dir: %w", e.Name(), err)
 		}
 		src := filepath.Join(target, e.Name())
-		dst := filepath.Join(symlinkPath, e.Name())
+		dst := filepath.Join(absSymlinkPath, e.Name())
 		if err := os.Symlink(src, dst); err != nil {
 			return fmt.Errorf("symlink %s -> %s: %w", dst, src, err)
 		}
