@@ -212,8 +212,11 @@ func destIsDir(root, destPath string) bool {
 	if err := safepath.SafeAbsolutePath(resolvedDest); err != nil {
 		return false
 	}
+	if err := safepath.CheckSubpath(absRoot, resolvedDest); err != nil {
+		return false
+	}
 
-	fi, err := os.Stat(resolvedDest) // follows symlinks, but target is constrained to absRoot
+	fi, err := os.Stat(resolvedDest) // within absRoot, validated above
 	return err == nil && fi.IsDir()
 }
 
@@ -242,16 +245,20 @@ func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkO
 
 	for _, e := range entries {
 		// Entry names are read from keg contents on disk; validate each as a
-		// single, traversal-free path component and confirm the joined paths
-		// stay within their parent directories before any filesystem use
-		// (defense in depth against path injection).
+		// single, traversal-free path component and build the joined paths
+		// through safepath.SafeJoin so they are confirmed within their parent
+		// directories before any filesystem use (defense in depth against
+		// path injection).
 		if err := safepath.SafePathComponent(e.Name()); err != nil {
 			return fmt.Errorf("unsafe entry %q in %s: %w", e.Name(), srcDir, err)
 		}
-		srcPath := filepath.Join(srcDir, e.Name())
-		destPath := filepath.Join(destDir, e.Name())
-		if !safepath.IsSubpath(srcDir, srcPath) || !safepath.IsSubpath(destDir, destPath) {
-			return fmt.Errorf("entry %q escapes link directory", e.Name())
+		srcPath, err := safepath.SafeJoin(srcDir, e.Name())
+		if err != nil {
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), srcDir, err)
+		}
+		destPath, err := safepath.SafeJoin(destDir, e.Name())
+		if err != nil {
+			return fmt.Errorf("entry %q escapes %s: %w", e.Name(), destDir, err)
 		}
 
 		// grew does not install info files or manpages
