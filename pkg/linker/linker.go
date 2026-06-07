@@ -187,6 +187,20 @@ func destIsDir(destPath string) bool {
 	return err == nil && fi.IsDir()
 }
 
+func isWithinRoot(root, candidate string) bool {
+	rel, err := filepath.Rel(root, candidate)
+	if err != nil {
+		return false
+	}
+	if rel == "." {
+		return true
+	}
+	if filepath.IsAbs(rel) {
+		return false
+	}
+	return rel != ".." && !strings.HasPrefix(rel, ".."+string(filepath.Separator))
+}
+
 func linkDirWithOpts(srcDir, destDir, cellarPath, formulaName string, opts LinkOpts) error {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
@@ -307,7 +321,7 @@ func unsymDir(symlinkPath, root string) error {
 		return fmt.Errorf("resolve path %s: %w", symlinkPath, err)
 	}
 	absSymlinkPath = filepath.Clean(absSymlinkPath)
-	if absSymlinkPath != realRoot && !strings.HasPrefix(absSymlinkPath, realRoot+string(filepath.Separator)) {
+	if !isWithinRoot(realRoot, absSymlinkPath) {
 		return fmt.Errorf("refusing to modify path outside root: %s", absSymlinkPath)
 	}
 
@@ -319,7 +333,7 @@ func unsymDir(symlinkPath, root string) error {
 	realParent = filepath.Clean(realParent)
 	realSymlinkPath := filepath.Clean(filepath.Join(realParent, filepath.Base(absSymlinkPath)))
 
-	if realSymlinkPath != realRoot && !strings.HasPrefix(realSymlinkPath, realRoot+string(filepath.Separator)) {
+	if !isWithinRoot(realRoot, realSymlinkPath) {
 		return fmt.Errorf("refusing to expand path outside root: %s", realSymlinkPath)
 	}
 
@@ -336,7 +350,7 @@ func unsymDir(symlinkPath, root string) error {
 		target = filepath.Clean(target)
 	}
 
-	if target != absRoot && !strings.HasPrefix(target, absRoot+string(filepath.Separator)) {
+	if !isWithinRoot(absRoot, target) {
 		return fmt.Errorf("refusing to use symlink target outside root: %s", target)
 	}
 
