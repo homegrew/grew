@@ -78,6 +78,12 @@ Every filesystem operation that touches an externally-influenced path (archive e
 
 `downloader.ComputeHashes(path)` reads a file once and computes its SHA-256 and SHA-512 simultaneously via `io.MultiWriter`, returning both hex digests. Dual hashing protects against a supply-chain attack that targets a weakness in a single algorithm; computing both in one pass avoids reading large artifacts twice. The downloader also enforces HTTPS-only fetches behind an SSRF-protected host allowlist (`HOMEGREW_ALLOWED_HOSTS`) and rejects redirects to non-HTTPS targets.
 
+**`HOMEGREW_ALLOWED_HOSTS` details (SSRF control):**
+- **Format:** comma-separated hostnames (optionally with `:port`), for example: `github.com,api.github.com,objects.githubusercontent.com`.
+- **Configurability:** this value is user-configurable via environment variable at runtime; if set, it overrides the built-in/default allowlist.
+- **Default behavior:** when unset, `grew` uses a conservative built-in list containing only the hosts required for official release/download/update flows.
+- **Security implications:** expanding this list increases the outbound destinations `grew` may contact. Avoid wildcards or broad internal domains; doing so weakens SSRF protections and can expose internal services/metadata endpoints if untrusted input ever reaches download URLs.
+
 ### Command-execution hardening
 
 External tools (`git`, `go`, an editor from `$EDITOR`, etc.) are resolved with `exec.LookPath` before being passed to `exec.Command`, and every external invocation passes the `--` end-of-options separator so that attacker-influenced arguments cannot be reinterpreted as flags. Where a value such as `$EDITOR` is involved, it is additionally screened for shell metacharacters before resolution (see [cmd/alias/alias.go](../cmd/alias/alias.go)). No runtime path constructs a shell command string.
